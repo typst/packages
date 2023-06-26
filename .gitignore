@@ -6,3 +6,6 @@ desktop.ini
 
 # Deployment
 /dist
+
+# Rust
+/bundler/target
