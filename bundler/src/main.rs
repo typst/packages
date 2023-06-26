@@ -8,6 +8,8 @@ use serde::{Deserialize, Serialize};
 fn main() -> anyhow::Result<()> {
     fs::create_dir_all("dist")?;
 
+    println!("Starting bundling.");
+
     for entry in fs::read_dir("packages")? {
         let entry = entry?;
         if !entry.metadata()?.is_dir() {
@@ -19,11 +21,14 @@ fn main() -> anyhow::Result<()> {
             .with_context(|| format!("failed to process package at {}", path.display()))?;
     }
 
+    println!("Done.");
+
     Ok(())
 }
 
 /// Create an archive for a package.
 fn process_package(path: &Path) -> anyhow::Result<()> {
+    println!("Bundling {}.", path.display());
     let manifest = parse_manifest(path).context("failed to parse package manifest")?;
     let buf = build_archive(path).context("failed to build archive")?;
     validate_archive(&buf).context("failed to validate archive")?;

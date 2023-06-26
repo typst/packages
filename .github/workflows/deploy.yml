@@ -1,0 +1,38 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Build bundler
+        run: cargo build --release --manifest-path bundler/Cargo.toml
+
+      - name: Package
+        run: bundler/target/release/bundler
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_PACKAGE_CREDENTIALS }}
+
+      - name: Sync files
+        uses: azure/CLI@v1
+        with:
+          inlineScript: az storage blob sync --account-name typstpackages --container '$web' --source ./dist --destination preview --delete-destination true
+
+      - name: Purge CDN endpoint
+        uses: azure/CLI@v1
+        with:
+          inlineScript: az afd endpoint purge -g Landing-Page --profile-name LandingPage --content-paths '/*' --endpoint-name 'packages'
+
+      - name: logout
+        run: az logout
+        if: always()
