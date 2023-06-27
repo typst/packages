@@ -39,6 +39,9 @@ to that package. Absolute paths start in the package root while relative paths
 are relative to the file they are used in.
 
 ## Published packages
+**Note:** We will start accepting package submissions sometime on the 28th of
+June. We'll be sure to put up a PR template before.
+
 This repository contains a collection of published packages. Due to its early
 and experimental nature, all packages in this repository are scoped in a
 `preview` namespace. A package that is stored in
