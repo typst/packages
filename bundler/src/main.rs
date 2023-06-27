@@ -10,6 +10,7 @@ fn main() -> anyhow::Result<()> {
 
     println!("Starting bundling.");
 
+    let mut index = vec![];
     for entry in fs::read_dir("packages/preview")? {
         let entry = entry?;
         if !entry.metadata()?.is_dir() {
@@ -17,9 +18,14 @@ fn main() -> anyhow::Result<()> {
         }
 
         let path = entry.path();
-        process_package(&path)
-            .with_context(|| format!("failed to process package at {}", path.display()))?;
+        index.push(
+            process_package(&path)
+                .with_context(|| format!("failed to process package at {}", path.display()))?,
+        );
     }
+
+    println!("Writing index.");
+    fs::write("dist/preview/index.json", serde_json::to_vec(&index)?)?;
 
     println!("Done.");
 
@@ -27,13 +33,18 @@ fn main() -> anyhow::Result<()> {
 }
 
 /// Create an archive for a package.
-fn process_package(path: &Path) -> anyhow::Result<()> {
+fn process_package(path: &Path) -> anyhow::Result<IndexEntry> {
     println!("Bundling {}.", path.display());
-    let manifest = parse_manifest(path).context("failed to parse package manifest")?;
+    let PackageManifest { package } =
+        parse_manifest(path).context("failed to parse package manifest")?;
     let buf = build_archive(path).context("failed to build archive")?;
     validate_archive(&buf).context("failed to validate archive")?;
-    write_archive(&manifest.package, &buf).context("failed to write archive")?;
-    Ok(())
+    write_archive(&package, &buf).context("failed to write archive")?;
+    Ok(IndexEntry {
+        name: package.name,
+        version: package.version,
+        description: package.description,
+    })
 }
 
 /// Read and validate the package's manifest.
@@ -94,4 +105,13 @@ pub struct PackageInfo {
     name: String,
     version: String,
     entrypoint: String,
+    description: String,
+}
+
+/// An entry in the package index.
+#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
+pub struct IndexEntry {
+    name: String,
+    version: String,
+    description: String,
 }

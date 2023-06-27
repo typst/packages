@@ -13,6 +13,7 @@ package. The manifest format is as follows:
 name = "example"
 version = "0.1.0"
 entrypoint = "lib.typ"
+description = "An example package."
 ```
 
 Keys:
@@ -21,6 +22,7 @@ Keys:
   Package versioning should follow [SemVer].
 - `entrypoint`: The path to the main Typst file that is evaluated when the
   package is imported.
+- `description`: A short description of the package.
 
 Packages always live in folders named as `{name}-{version}`. The name and
 version in the folder name and manifest must match.
@@ -42,6 +44,8 @@ detailed below:
 - **Naming:** Names should not include the word "typst" (as it is redundant).
   They should also not be merely descriptive to create level grounds for
   everybody (e.g. not just `slides`).
+- **Documentation:** Packages should contain a `README.md` file documenting (at
+  least briefly) what the package does and what definitions it exports.
 - **Size:** Packages should not contain large files or a large number of files.
   This will be judged on a case-by-case basis, but if it needs more than ten
   files, it should be well-motivated.
