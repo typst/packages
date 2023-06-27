@@ -6,11 +6,11 @@ use anyhow::{bail, Context};
 use serde::{Deserialize, Serialize};
 
 fn main() -> anyhow::Result<()> {
-    fs::create_dir_all("dist")?;
+    fs::create_dir_all("dist/preview")?;
 
     println!("Starting bundling.");
 
-    for entry in fs::read_dir("packages")? {
+    for entry in fs::read_dir("packages/preview")? {
         let entry = entry?;
         if !entry.metadata()?.is_dir() {
             continue;
@@ -77,7 +77,7 @@ fn validate_archive(buf: &[u8]) -> anyhow::Result<()> {
 
 /// Write a compressed archive to the `dist` directory.
 fn write_archive(info: &PackageInfo, buf: &[u8]) -> anyhow::Result<()> {
-    let path = format!("dist/{}-{}.tar.gz", info.name, info.version);
+    let path = format!("dist/preview/{}-{}.tar.gz", info.name, info.version);
     fs::write(path, buf)?;
     Ok(())
 }

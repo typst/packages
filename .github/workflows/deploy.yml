@@ -26,7 +26,7 @@ jobs:
       - name: Sync files
         uses: azure/CLI@v1
         with:
-          inlineScript: az storage blob sync --account-name typstpackages --container '$web' --source ./dist --destination preview --delete-destination true
+          inlineScript: az storage blob sync --account-name typstpackages --container '$web' --source ./dist --delete-destination true
 
       - name: Purge CDN endpoint
         uses: azure/CLI@v1
