@@ -6,29 +6,37 @@ You must always specify the full package version.
 ## Package format
 A package is a collection of Typst files and assets that can be imported as a
 unit. A `typst.toml` manifest with metadata is required at the root of a
-package. The manifest format is as follows:
+package. An example manifest could look like this:
 
 ```toml
 [package]
 name = "example"
 version = "0.1.0"
-entrypoint = "lib.typ"
+authors = ["The Typst Project Developers"]
+license = "Unlicense"
 description = "An example package."
+entrypoint = "lib.typ"
 ```
 
 Keys:
 - `name`: The package's identifier in its namespace.
 - `version`: The package's version as a full major-minor-patch triple.
   Package versioning should follow [SemVer].
+- `authors`: A list of the package's authors.
+- `license`: The package's license. Must contain a valid SPDX-2 expression
+  describing one or multiple [OSI-approved][OSI] licenses.
+- `description`: A short description of the package.
 - `entrypoint`: The path to the main Typst file that is evaluated when the
   package is imported.
-- `description`: A short description of the package.
+
+Although all keys are required for submission into this repository, only `name`,
+`version`, and `entrypoint` are required by the compiler and thus for local
+packages.
 
 Packages always live in folders named as `{name}-{version}`. The name and
-version in the folder name and manifest must match.
-
-Paths in a package are local to that package. Absolute paths start in the
-package root while relative paths are relative to the file they are used in.
+version in the folder name and manifest must match. Paths in a package are local
+to that package. Absolute paths start in the package root while relative paths
+are relative to the file they are used in.
 
 ## Published packages
 This repository contains a collection of published packages. Due to its early
@@ -44,13 +52,20 @@ detailed below:
 - **Naming:** Names should not include the word "typst" (as it is redundant).
   They should also not be merely descriptive to create level grounds for
   everybody (e.g. not just `slides`).
-- **Documentation:** Packages should contain a `README.md` file documenting (at
-  least briefly) what the package does and what definitions it exports.
+- **Functionality:** Packages should conceivably be useful to other users
+  and should expose their capabilities in a reasonable fashion.
+- **Documentation:** Packages must contain a `README.md` file documenting (at
+  least briefly) what the package does and all definitions intended for
+  usage by downstream users.
+- **License:** Packages must be licensed under the terms of an
+  [OSI-approved][OSI] license. In addition to specifying the license in the
+  TOML manifest, a package must either contain a `LICENSE` file or link to one
+  in its `README.md`.
 - **Size:** Packages should not contain large files or a large number of files.
   This will be judged on a case-by-case basis, but if it needs more than ten
   files, it should be well-motivated.
-- **License:** Packages must be licensed under the terms of an OSI-approved
-  license.
+- **Security:** Packages must not attempt to exploit the compiler or packaging
+  implementation, in particular not to exfiltrate user data.
 - **Safety:** Names and package contents must be safe for work.
 
 This list may be extended over time as improvements/issues to the process are
@@ -92,4 +107,11 @@ system packages is `local`:
 Note that future iterations of Typst's package management may change/break this
 local setup.
 
+
+## License
+The infrastructure around the package repository is licensed under the terms of
+the Apache-2.0 license. Packages in `packages/` are licensed under their
+respective license.
+
 [SemVer]: https://semver.org/lang/de/
+[OSI]: https://opensource.org/licenses/

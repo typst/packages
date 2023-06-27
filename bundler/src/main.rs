@@ -43,6 +43,7 @@ fn process_package(path: &Path) -> anyhow::Result<IndexEntry> {
     Ok(IndexEntry {
         name: package.name,
         version: package.version,
+        license: package.license,
         description: package.description,
     })
 }
@@ -95,23 +96,26 @@ fn write_archive(info: &PackageInfo, buf: &[u8]) -> anyhow::Result<()> {
 
 /// A parsed package manifest.
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-pub struct PackageManifest {
+struct PackageManifest {
     package: PackageInfo,
 }
 
 /// The `package` key in the manifest.
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-pub struct PackageInfo {
+struct PackageInfo {
     name: String,
     version: String,
-    entrypoint: String,
+    authors: Vec<String>,
+    license: String,
     description: String,
+    entrypoint: String,
 }
 
 /// An entry in the package index.
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-pub struct IndexEntry {
+struct IndexEntry {
     name: String,
     version: String,
+    license: String,
     description: String,
 }
