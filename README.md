@@ -12,10 +12,10 @@ package. An example manifest could look like this:
 [package]
 name = "example"
 version = "0.1.0"
+entrypoint = "lib.typ"
 authors = ["The Typst Project Developers"]
 license = "Unlicense"
 description = "An example package."
-entrypoint = "lib.typ"
 ```
 
 Required by the compiler:
