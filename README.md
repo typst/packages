@@ -1,7 +1,9 @@
 # Typst Packages
-An experimental package repository for Typst. Packages from this repository can
-be imported (or included) in Typst with `#import "@preview/{name}:{version}"`.
-You must always specify the full package version.
+An experimental package repository for Typst. Compiler support for packages is
+available on Typst's main branch, but not yet in the latest release or in the
+web app. Still, **submissions are open now** so that the next release can ship
+with a collection of packages. A searchable list of packages will become
+available in the official documentation with the next release.
 
 ## Package format
 A package is a collection of Typst files and assets that can be imported as a
@@ -44,15 +46,8 @@ This repository contains a collection of published packages. Due to its early
 and experimental nature, all packages in this repository are scoped in a
 `preview` namespace. A package that is stored in
 `packages/preview/{name}-{version}` in this repository will become availabe in
-Typst as `#import "@preview/{name}:{version}"`. Compiler support for packages is
-available on the main branch, but not yet in the latest release or in the web
-app. Still, **submissions are open now** so that the next release can ship with
-a collection of packages. A searchable list of packages will become available in
-the official documentation with the next release.
-
-**Note:** Please do not submit templates as packages just yet. We plan to build
-infrastructure around this so that they can show up in the web app's template
-gallery and be used to scaffold a project through the CLI. Stay tuned!
+Typst as `#import "@preview/{name}:{version}"`. You must always specify the full
+package version.
 
 ### Submission guidelines
 There are a few requirements for getting a package published, which are
@@ -84,6 +79,10 @@ Once submitted, a package will not be changed or removed without good reason to
 prevent breakage for downstream consumers. By submitting a package, you agree
 that it is here to stay. If you discover a bug or issue, you can of course
 submit a new version of your package.
+
+**Note:** Please do not submit templates as packages just yet. We plan to build
+infrastructure around this so that they can show up in the web app's template
+gallery and be used to scaffold a project through the CLI. Stay tuned!
 
 ### Downloads
 The Typst compiler downloads packages from the `preview` namespace on-demand.
