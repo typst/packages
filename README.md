@@ -40,14 +40,19 @@ to that package. Absolute paths start in the package root while relative paths
 are relative to the file they are used in.
 
 ## Published packages
-**Note:** We will start accepting package submissions sometime on the 28th of
-June. We'll be sure to put up a PR template before.
-
 This repository contains a collection of published packages. Due to its early
 and experimental nature, all packages in this repository are scoped in a
 `preview` namespace. A package that is stored in
-`packages/preview/{name}-{version}` in this repository becomes availabe in Typst
-as `#import "@preview/{name}:{version}"`.
+`packages/preview/{name}-{version}` in this repository will become availabe in
+Typst as `#import "@preview/{name}:{version}"`. Compiler support for packages is
+available on the main branch, but not yet in the latest release or in the web
+app. Still, **submissions are open now** so that the next release can ship with
+a collection of packages. A searchable list of packages will become available in
+the official documentation with the next release.
+
+**Note:** Please do not submit templates as packages just yet. We plan to build
+infrastructure around this so that they can show up in the web app's template
+gallery and be used to scaffold a project through the CLI. Stay tuned!
 
 ### Submission guidelines
 There are a few requirements for getting a package published, which are
