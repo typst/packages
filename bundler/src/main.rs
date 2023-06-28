@@ -58,6 +58,21 @@ fn parse_manifest(path: &Path) -> anyhow::Result<PackageManifest> {
         bail!("package directory name and manifest are mismatched");
     }
 
+    let license = spdx::Expression::parse(&manifest.package.license)
+        .context("failed to parse SPDX license expression")?;
+
+    for requirement in license.requirements() {
+        let id = requirement
+            .req
+            .license
+            .id()
+            .context("license must not contain a referencer")?;
+
+        if !id.is_osi_approved() {
+            bail!("license is not OSI approved: {}", id.full_name);
+        }
+    }
+
     let entrypoint = path.join(&manifest.package.entrypoint);
     if !entrypoint.exists() {
         bail!("package entry point is missing");
