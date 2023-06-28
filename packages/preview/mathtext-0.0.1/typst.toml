@@ -1,0 +1,7 @@
+[package]
+name = "mathtext"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Luyu Cheng"]
+license = "MIT"
+description = "Use regular font for text in math mode."
