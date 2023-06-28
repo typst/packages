@@ -33,19 +33,14 @@ fn main() -> anyhow::Result<()> {
 }
 
 /// Create an archive for a package.
-fn process_package(path: &Path) -> anyhow::Result<IndexEntry> {
+fn process_package(path: &Path) -> anyhow::Result<PackageInfo> {
     println!("Bundling {}.", path.display());
     let PackageManifest { package } =
         parse_manifest(path).context("failed to parse package manifest")?;
     let buf = build_archive(path).context("failed to build archive")?;
     validate_archive(&buf).context("failed to validate archive")?;
     write_archive(&package, &buf).context("failed to write archive")?;
-    Ok(IndexEntry {
-        name: package.name,
-        version: package.version,
-        license: package.license,
-        description: package.description,
-    })
+    Ok(package)
 }
 
 /// Read and validate the package's manifest.
@@ -120,17 +115,10 @@ struct PackageManifest {
 struct PackageInfo {
     name: String,
     version: String,
+    entrypoint: String,
     authors: Vec<String>,
     license: String,
     description: String,
-    entrypoint: String,
-}
-
-/// An entry in the package index.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-struct IndexEntry {
-    name: String,
-    version: String,
-    license: String,
-    description: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    repository: Option<String>,
 }

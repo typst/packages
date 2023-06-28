@@ -18,20 +18,21 @@ description = "An example package."
 entrypoint = "lib.typ"
 ```
 
-Keys:
+Required by the compiler:
 - `name`: The package's identifier in its namespace.
 - `version`: The package's version as a full major-minor-patch triple.
   Package versioning should follow [SemVer].
+- `entrypoint`: The path to the main Typst file that is evaluated when the
+  package is imported.
+
+Required for submissions to this repository:
 - `authors`: A list of the package's authors.
 - `license`: The package's license. Must contain a valid SPDX-2 expression
   describing one or multiple [OSI-approved][OSI] licenses.
 - `description`: A short description of the package.
-- `entrypoint`: The path to the main Typst file that is evaluated when the
-  package is imported.
 
-Although all keys are required for submission into this repository, only `name`,
-`version`, and `entrypoint` are required by the compiler and thus for local
-packages.
+Optional:
+- `repository`: A link to the repository where this package is developed.
 
 Packages always live in folders named as `{name}-{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
@@ -116,5 +117,5 @@ The infrastructure around the package repository is licensed under the terms of
 the Apache-2.0 license. Packages in `packages/` are licensed under their
 respective license.
 
-[SemVer]: https://semver.org/lang/de/
+[SemVer]: https://semver.org/
 [OSI]: https://opensource.org/licenses/
