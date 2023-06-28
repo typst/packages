@@ -1,5 +1,5 @@
 [package]
-name = "Quill"
+name = "quill"
 version = "0.1.0"
 entrypoint = "quill.typ"
 authors = ["Mc-Zen"]
