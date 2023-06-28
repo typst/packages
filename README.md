@@ -1,6 +1,6 @@
 # Typst Packages
 An experimental package repository for Typst. Packages from this repository can
-be imported (or included) in Typst with `#import "@preview/{name}:{version}`.
+be imported (or included) in Typst with `#import "@preview/{name}:{version}"`.
 You must always specify the full package version.
 
 ## Package format
