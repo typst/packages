@@ -42,45 +42,45 @@ Here's the code for that table:
 #import "@preview/tablex:0.0.4": tablex, rowspanx, colspanx
 
 #tablex(
-    columns: 4,
-    align: center + horizon,
-    auto-vlines: false,
+  columns: 4,
+  align: center + horizon,
+  auto-vlines: false,
 
-    // indicate the first two rows are the header
-    // (in case we need to eventually
-    // enable repeating the header across pages)
-    header-rows: 2,
+  // indicate the first two rows are the header
+  // (in case we need to eventually
+  // enable repeating the header across pages)
+  header-rows: 2,
 
-    // color the last column's cells
-    // based on the written number
-    map-cells: cell => {
-        if cell.x == 3 and cell.y > 1 {
-            cell.content = {
-                let value = int(cell.content.text)
-                let text-color = if value < 10 {
-                    red.lighten(30%)
-                } else if value < 15 {
-                    yellow.darken(13%)
-                } else {
-                    green
-                }
-                set text(text-color)
-                strong(cell.content)
-            }
+  // color the last column's cells
+  // based on the written number
+  map-cells: cell => {
+    if cell.x == 3 and cell.y > 1 {
+      cell.content = {
+        let value = int(cell.content.text)
+        let text-color = if value < 10 {
+          red.lighten(30%)
+        } else if value < 15 {
+          yellow.darken(13%)
+        } else {
+          green
         }
-        cell
-    },
+        set text(text-color)
+        strong(cell.content)
+      }
+    }
+    cell
+  },
 
-    /* --- header --- */
-    rowspanx(2)[*Username*], colspanx(2)[*Data*], (), rowspanx(2)[*Score*],
-    (),                 [*Location*], [*Height*], (),
-    /* -------------- */
+  /* --- header --- */
+  rowspanx(2)[*Username*], colspanx(2)[*Data*], (), rowspanx(2)[*Score*],
+  (),                 [*Location*], [*Height*], (),
+  /* -------------- */
 
-    [John], [Second St.], [180 cm], [5],
-    [Wally], [Third Av.], [160 cm], [10],
-    [Jason], [Some St.], [150 cm], [15],
-    [Robert], [123 Av.], [190 cm], [20],
-    [Other], [Unknown St.], [170 cm], [25],
+  [John], [Second St.], [180 cm], [5],
+  [Wally], [Third Av.], [160 cm], [10],
+  [Jason], [Some St.], [150 cm], [15],
+  [Robert], [123 Av.], [190 cm], [20],
+  [Other], [Unknown St.], [170 cm], [25],
 )
 ```
 
@@ -94,14 +94,14 @@ In most cases, you should be able to replace `#table` with `#tablex` and be good
 #import "@preview/tablex:0.0.4": tablex
 
 #tablex(
-    columns: (auto, 1em, 1fr, 1fr),  // 4 columns
-    rows: auto,  // at least 1 row of auto size
-    fill: red,
-    align: center + horizon,
-    stroke: green,
-    [a], [b], [c], [d],
-    [e], [f], [g], [h],
-    [i], [j], [k], [l]
+  columns: (auto, 1em, 1fr, 1fr),  // 4 columns
+  rows: auto,  // at least 1 row of auto size
+  fill: red,
+  align: center + horizon,
+  stroke: green,
+  [a], [b], [c], [d],
+  [e], [f], [g], [h],
+  [i], [j], [k], [l]
 )
 ```
 
@@ -119,10 +119,10 @@ Your cells can now span more than one column and/or row at once, with `colspanx`
 #import "@preview/tablex:0.0.4": tablex, colspanx, rowspanx
 
 #tablex(
-    columns: 3,
-    colspanx(2)[a], (),  [b],
-    [c], rowspanx(2)[d], [ed],
-    [f], (),             [g]
+  columns: 3,
+  colspanx(2)[a], (),  [b],
+  [c], rowspanx(2)[d], [ed],
+  [f], (),             [g]
 )
 ```
 
@@ -151,24 +151,24 @@ Example:
 #v(80%)
 
 #tablex(
-    columns: 4,
-    align: center + horizon,
-    auto-vlines: false,
-    repeat-header: true,
+  columns: 4,
+  align: center + horizon,
+  auto-vlines: false,
+  repeat-header: true,
 
-    /* --- header --- */
-    rowspanx(2)[*Names*], colspanx(2)[*Properties*], (), rowspanx(2)[*Creators*],
-    (),                 [*Type*], [*Size*], (),
-    /* -------------- */
+  /* --- header --- */
+  rowspanx(2)[*Names*], colspanx(2)[*Properties*], (), rowspanx(2)[*Creators*],
+  (),                 [*Type*], [*Size*], (),
+  /* -------------- */
 
-    [Machine], [Steel], [5 $"cm"^3$], [John p& Kate],
-    [Frog], [Animal], [6 $"cm"^3$], [Robert],
-    [Frog], [Animal], [6 $"cm"^3$], [Robert],
-    [Frog], [Animal], [6 $"cm"^3$], [Robert],
-    [Frog], [Animal], [6 $"cm"^3$], [Robert],
-    [Frog], [Animal], [6 $"cm"^3$], [Robert],
-    [Frog], [Animal], [6 $"cm"^3$], [Robert],
-    [Frog], [Animal], [6 $"cm"^3$], [Rodbert],
+  [Machine], [Steel], [5 $"cm"^3$], [John p& Kate],
+  [Frog], [Animal], [6 $"cm"^3$], [Robert],
+  [Frog], [Animal], [6 $"cm"^3$], [Robert],
+  [Frog], [Animal], [6 $"cm"^3$], [Robert],
+  [Frog], [Animal], [6 $"cm"^3$], [Robert],
+  [Frog], [Animal], [6 $"cm"^3$], [Robert],
+  [Frog], [Animal], [6 $"cm"^3$], [Robert],
+  [Frog], [Animal], [6 $"cm"^3$], [Rodbert],
 )
 ```
 
@@ -195,37 +195,37 @@ Here's some sample usage:
 #import "@preview/tablex:0.0.4": tablex, gridx, hlinex, vlinex, colspanx, rowspanx
 
 #tablex(
-    columns: 4,
-    auto-lines: false,
+  columns: 4,
+  auto-lines: false,
 
-    // skip a column here         vv
-    vlinex(), vlinex(), vlinex(), (), vlinex(),
-    colspanx(2)[a], (),  [b], [J],
-    [c], rowspanx(2)[d], [e], [K],
-    [f], (),             [g], [L],
-    //   ^^ '()' after the first cell are 100% ignored
+  // skip a column here         vv
+  vlinex(), vlinex(), vlinex(), (), vlinex(),
+  colspanx(2)[a], (),  [b], [J],
+  [c], rowspanx(2)[d], [e], [K],
+  [f], (),             [g], [L],
+  //   ^^ '()' after the first cell are 100% ignored
 )
 
 #tablex(
-    columns: 4,
-    auto-vlines: false,
-    colspanx(2)[a], (),  [b], [J],
-    [c], rowspanx(2)[d], [e], [K],
-    [f], (),             [g], [L],
+  columns: 4,
+  auto-vlines: false,
+  colspanx(2)[a], (),  [b], [J],
+  [c], rowspanx(2)[d], [e], [K],
+  [f], (),             [g], [L],
 )
 
 #gridx(
-    columns: 4,
-    (), (), vlinex(end: 2),
-    hlinex(stroke: yellow + 2pt),
-    colspanx(2)[a], (),  [b], [J],
-    hlinex(start: 0, end: 1, stroke: yellow + 2pt),
-    hlinex(start: 1, end: 2, stroke: green + 2pt),
-    hlinex(start: 2, end: 3, stroke: red + 2pt),
-    hlinex(start: 3, end: 4, stroke: blue.lighten(50%) + 2pt),
-    [c], rowspanx(2)[d], [e], [K],
-    hlinex(start: 2),
-    [f], (),             [g], [L],
+  columns: 4,
+  (), (), vlinex(end: 2),
+  hlinex(stroke: yellow + 2pt),
+  colspanx(2)[a], (),  [b], [J],
+  hlinex(start: 0, end: 1, stroke: yellow + 2pt),
+  hlinex(start: 1, end: 2, stroke: green + 2pt),
+  hlinex(start: 2, end: 3, stroke: red + 2pt),
+  hlinex(start: 3, end: 4, stroke: blue.lighten(50%) + 2pt),
+  [c], rowspanx(2)[d], [e], [K],
+  hlinex(start: 2),
+  [f], (),             [g], [L],
 )
 ```
 
@@ -239,12 +239,12 @@ You can also *bulk-customize lines* by specifying `map-hlines: h => new_hline` a
 #import "@preview/tablex:0.0.4": tablex, colspanx, rowspanx
 
 #tablex(
-    columns: 3,
-    map-hlines: h => (..h, stroke: blue),
-    map-vlines: v => (..v, stroke: green + 2pt),
-    colspanx(2)[a], (),  [b],
-    [c], rowspanx(2)[d], [ed],
-    [f], (),             [g]
+  columns: 3,
+  map-hlines: h => (..h, stroke: blue),
+  map-vlines: v => (..v, stroke: green + 2pt),
+  colspanx(2)[a], (),  [b],
+  [c], rowspanx(2)[d], [ed],
+  [f], (),             [g]
 )
 ```
 
@@ -271,15 +271,15 @@ For example:
 #import "@preview/tablex:0.0.4": tablex, cellx, colspanx, rowspanx
 
 #tablex(
-    columns: 3,
-    fill: red,
-    align: right,
-    colspanx(2)[a], (),  [beeee],
-    [c], rowspanx(2)[d], cellx(fill: blue, align: left)[e],
-    [f], (),             [g],
+  columns: 3,
+  fill: red,
+  align: right,
+  colspanx(2)[a], (),  [beeee],
+  [c], rowspanx(2)[d], cellx(fill: blue, align: left)[e],
+  [f], (),             [g],
 
-    // place this cell at the first column, seventh row
-    cellx(colspan: 3, align: center, x: 0, y: 6)[hi I'm down here]
+  // place this cell at the first column, seventh row
+  cellx(colspan: 3, align: center, x: 0, y: 6)[hi I'm down here]
 )
 ```
 
@@ -303,37 +303,37 @@ Example:
 #import "@preview/tablex:0.0.4": tablex, colspanx, rowspanx
 
 #tablex(
-    columns: 4,
-    auto-vlines: true,
+  columns: 4,
+  auto-vlines: true,
 
-    // make all cells italicized
-    map-cells: cell => {
-        (..cell, content: emph(cell.content))
-    },
+  // make all cells italicized
+  map-cells: cell => {
+    (..cell, content: emph(cell.content))
+  },
 
-    // add some arbitrary content to entire rows
-    map-rows: (row, cells) => cells.map(c =>
-        if c == none {
-            c  // keeping 'none' is important
-        } else {
-            (..c, content: [#c.content\ *R#row*])
-        }
-    ),
+  // add some arbitrary content to entire rows
+  map-rows: (row, cells) => cells.map(c =>
+    if c == none {
+      c  // keeping 'none' is important
+    } else {
+      (..c, content: [#c.content\ *R#row*])
+    }
+  ),
 
-    // color cells based on their columns
-    // (using 'fill: (column, row) => color' also works
-    // for this particular purpose)
-    map-cols: (col, cells) => cells.map(c =>
-        if c == none {
-            c
-        } else {
-            (..c, fill: if col < 2 { blue } else { yellow })
-        }
-    ),
+  // color cells based on their columns
+  // (using 'fill: (column, row) => color' also works
+  // for this particular purpose)
+  map-cols: (col, cells) => cells.map(c =>
+    if c == none {
+      c
+    } else {
+      (..c, fill: if col < 2 { blue } else { yellow })
+    }
+  ),
 
-    colspanx(2)[a], (),  [b], [J],
-    [c], rowspanx(2)[dd], [e], [K],
-    [f], (),             [g], [L],
+  colspanx(2)[a], (),  [b], [J],
+  [c], rowspanx(2)[dd], [e], [K],
+  [f], (),             [g], [L],
 )
 ```
 
@@ -391,20 +391,20 @@ Another example (summing columns):
 
     ```js
     #let cellx(content,
-        x: auto, y: auto,
-        rowspan: 1, colspan: 1,
-        fill: auto, align: auto,
-        inset: auto
+      x: auto, y: auto,
+      rowspan: 1, colspan: 1,
+      fill: auto, align: auto,
+      inset: auto
     ) = (
-        tablex-dict-type: "cell",
-        content: content,
-        rowspan: rowspan,
-        colspan: colspan,
-        align: align,
-        fill: fill,
-        inset: inset,
-        x: x,
-        y: y,
+      tablex-dict-type: "cell",
+      content: content,
+      rowspan: rowspan,
+      colspan: colspan,
+      align: align,
+      fill: fill,
+      inset: inset,
+      x: x,
+      y: y,
     )
     ```
     where:
@@ -423,22 +423,22 @@ Another example (summing columns):
 
     ```js
     #let hlinex(
-        start: 0, end: auto, y: auto,
-        stroke: auto,
-        stop-pre-gutter: auto, gutter-restrict: none,
-        stroke-expand: true,
-        expand: none
+      start: 0, end: auto, y: auto,
+      stroke: auto,
+      stop-pre-gutter: auto, gutter-restrict: none,
+      stroke-expand: true,
+      expand: none
     ) = (
-        tablex-dict-type: "hline",
-        start: start,
-        end: end,
-        y: y,
-        stroke: stroke,
-        stop-pre-gutter: stop-pre-gutter,
-        gutter-restrict: gutter-restrict,
-        stroke-expand: stroke-expand,
-        expand: expand,
-        parent: none,
+      tablex-dict-type: "hline",
+      start: start,
+      end: end,
+      y: y,
+      stroke: stroke,
+      stop-pre-gutter: stop-pre-gutter,
+      gutter-restrict: gutter-restrict,
+      stroke-expand: stroke-expand,
+      expand: expand,
+      parent: none,
     )
     ```
 
@@ -460,22 +460,22 @@ Another example (summing columns):
 
     ```js
     #let vlinex(
-        start: 0, end: auto, x: auto,
-        stroke: auto,
-        stop-pre-gutter: auto, gutter-restrict: none,
-        stroke-expand: true,
-        expand: none
+      start: 0, end: auto, x: auto,
+      stroke: auto,
+      stop-pre-gutter: auto, gutter-restrict: none,
+      stroke-expand: true,
+      expand: none
     ) = (
-        tablex-dict-type: "vline",
-        start: start,
-        end: end,
-        x: x,
-        stroke: stroke,
-        stop-pre-gutter: stop-pre-gutter,
-        gutter-restrict: gutter-restrict,
-        stroke-expand: stroke-expand,
-        expand: expand,
-        parent: none,
+      tablex-dict-type: "vline",
+      start: start,
+      end: end,
+      x: x,
+      stroke: stroke,
+      stop-pre-gutter: stop-pre-gutter,
+      gutter-restrict: gutter-restrict,
+      stroke-expand: stroke-expand,
+      expand: expand,
+      parent: none,
     )
     ```
 
@@ -508,25 +508,25 @@ Another example (summing columns):
 
     ```js
     #let tablex(
-        columns: auto, rows: auto,
-        inset: 5pt,
-        align: auto,
-        fill: none,
-        stroke: auto,
-        column-gutter: auto, row-gutter: auto,
-        gutter: none,
-        repeat-header: false,
-        header-rows: 1,
-        header-hlines-have-priority: true,
-        auto-lines: true,
-        auto-hlines: auto,
-        auto-vlines: auto,
-        map-cells: none,
-        map-hlines: none,
-        map-vlines: none,
-        map-rows: none,
-        map-cols: none,
-        ..items
+      columns: auto, rows: auto,
+      inset: 5pt,
+      align: auto,
+      fill: none,
+      stroke: auto,
+      column-gutter: auto, row-gutter: auto,
+      gutter: none,
+      repeat-header: false,
+      header-rows: 1,
+      header-hlines-have-priority: true,
+      auto-lines: true,
+      auto-hlines: auto,
+      auto-vlines: auto,
+      map-cells: none,
+      map-hlines: none,
+      map-vlines: none,
+      map-rows: none,
+      map-cols: none,
+      ..items
     ) = {
     // ...
     }
@@ -635,6 +635,7 @@ Initial release.
 - [ ] General
     - [X] More docs
     - [ ] Code cleanup
+    - [ ] Table drawing rework
 - [ ] `#table` parity
     - [X] `columns:`, `rows:`
         - [X] Basic support
