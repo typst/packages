@@ -2,11 +2,6 @@
   <img alt="Quantum Circuit" src="https://github.com/Mc-Zen/packages/assets/52877387/5d34c646-79a8-492b-8e49-9136d5881258" style="max-width: 100%; width: 300pt; padding: 10px 20px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt;box-sizing: border-box;">
 </h1>
 
-<!-- <p align="center">
-  <a href="https://github.com/Mc-Zen/quill/blob/main/LICENSE">
-    <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue"/>
-  </a>
-</p> -->
 
 **Quill** is a package for
  creating quantum circuit diagrams in [Typst](https://typst.app/). 
@@ -14,11 +9,8 @@
 
 _Note, that this package is in beta and may still be undergoing breaking changes. As new features like data types and scoped functions will be added to Typst, this package will be adapted to profit from the new paradigms._
 
-_Meanwhile, we suggest importing everything from `quill.typ` in a local scope to avoid polluting the global namespace (see example below)._
+_Meanwhile, we suggest importing everything from the package in a local scope to avoid polluting the global namespace (see example below)._
 
-<!-- ## Setup
-
-Since there is no package manager for Typst yet, in order to use this library, download the [quill.typ](./qcircuit.typ) file and place it in your Typst project.  -->
 
 ## Usage
 
@@ -26,13 +18,14 @@ Create circuit diagrams by calling the function `quantum-circuit()` with any num
 
 ```java
 #{
-  import "quill.typ" : *
+  import "@preview/quill:0.1.0": *
   quantum-circuit(
-    lstick($|0〉$), gate($H$), control(1), rstick($(|00〉+|11〉)/√2$, n: 2), [\ ],
+    lstick($|0〉$), gate($H$), ctrl(1), rstick($(|00〉+|11〉)/√2$, n: 2), [\ ],
     lstick($|0〉$), 1, targ(), 1
   )
 }
 ```
+
 <h3 align="center">
   <img alt="Bell circuit" src="https://github.com/Mc-Zen/packages/assets/52877387/0132e357-abeb-42b2-8b27-073e3d8b8063" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt">
 </h3>
