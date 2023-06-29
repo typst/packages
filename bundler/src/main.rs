@@ -25,6 +25,7 @@ fn main() -> anyhow::Result<()> {
     }
 
     println!("Writing index.");
+    index.sort_by_key(|pkg| (pkg.name.clone(), pkg.version.clone()));
     fs::write("dist/preview/index.json", serde_json::to_vec(&index)?)?;
 
     println!("Done.");
