@@ -40,7 +40,7 @@ This library should be compatible with Typst v0.1.0, v0.2.0, v0.3.0, v0.4.0, v0.
 In most cases, you should be able to replace `#table` with `#tablex` and be good to go for a start - it should look _very_ similar (if not identical). Indeed, the syntax is very similar for the basics:
 
 ```js
-#import "tablex.typ": tablex
+#import "@preview/tablex:0.0.4": tablex
 
 #tablex(
     columns: (auto, 1em, 1fr, 1fr),  // 4 columns
@@ -65,7 +65,7 @@ This is mostly a word of caution in case anything I haven't anticipated happens,
 Your cells can now span more than one column and/or row at once, with `colspanx` / `rowspanx`:
 
 ```js
-#import "tablex.typ": tablex, colspanx, rowspanx
+#import "@preview/tablex:0.0.4": tablex, colspanx, rowspanx
 
 #tablex(
     columns: 3,
@@ -94,7 +94,7 @@ Also, note that, by default, the horizontal lines below the header are transport
 Example:
 
 ```js
-#import "tablex.typ": tablex, hlinex, vlinex, colspanx, rowspanx
+#import "@preview/tablex:0.0.4": tablex, hlinex, vlinex, colspanx, rowspanx
 
 #pagebreak()
 #v(80%)
@@ -141,7 +141,7 @@ Something similar occurs for `vlinex()`, which has `start`, `end` (first row and
 Here's some sample usage:
 
 ```js
-#import "tablex.typ": tablex, gridx, hlinex, vlinex, colspanx, rowspanx
+#import "@preview/tablex:0.0.4": tablex, gridx, hlinex, vlinex, colspanx, rowspanx
 
 #tablex(
     columns: 4,
@@ -184,8 +184,8 @@ Here's some sample usage:
 
 You can also *bulk-customize lines* by specifying `map-hlines: h => new_hline` and `map-vlines: v => new_vline`. This includes any automatically generated lines. For example:
 
-```
-#import "tablex.typ": tablex, colspanx, rowspanx
+```js
+#import "@preview/tablex:0.0.4": tablex, colspanx, rowspanx
 
 #tablex(
     columns: 3,
@@ -217,7 +217,7 @@ Additionally, instead of specifying content to the cell, you can specify a funct
 For example:
 
 ```js
-#import "tablex.typ": tablex, cellx, colspanx, rowspanx
+#import "@preview/tablex:0.0.4": tablex, cellx, colspanx, rowspanx
 
 #tablex(
     columns: 3,
@@ -249,7 +249,7 @@ To customize multiple cells at once, you have a few options:
 Example:
 
 ```js
-#import "tablex.typ": tablex, colspanx, rowspanx
+#import "@preview/tablex:0.0.4": tablex, colspanx, rowspanx
 
 #tablex(
     columns: 4,
