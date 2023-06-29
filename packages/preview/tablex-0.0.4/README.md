@@ -25,7 +25,7 @@
 
 ## Usage
 
-To use this library through the Typst package manager **(v0.6.0+)**, write for example `#import "@preview/tablex:0.0.4": tablex, cellx` at the top of your Typst file (you may also add whichever other functions you use from the library to that import list!).
+To use this library through the Typst package manager **(for Typst v0.6.0+)**, write for example `#import "@preview/tablex:0.0.4": tablex, cellx` at the top of your Typst file (you may also add whichever other functions you use from the library to that import list!).
 
 For older Typst versions, download the file `tablex.typ` from the latest release (or directly from the main branch, for the 'bleeding edge') at the tablex repository (https://github.com/PgBiel/typst-tablex) and place it on the same folder as your own Typst file. Then, at the top of your file, write for example `#import "tablex.typ": tablex, cellx` (plus whichever other functions you use from the library).
 
