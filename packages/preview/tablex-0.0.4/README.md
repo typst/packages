@@ -22,6 +22,7 @@
     * [v0.0.2](#v002)
     * [v0.0.1](#v001)
 * [0.1.0 Roadmap](#010-roadmap)
+* [License](#license)
 
 ## Usage
 
@@ -657,3 +658,7 @@ Initial release.
         - [X] `map-vlines` - Customize each vertical line
         - [X] `map-rows` - Customize entire rows of cells
         - [X] `map-cols` - Customize entire columns of cells
+
+## License
+
+MIT license (see the `LICENSE` file).
