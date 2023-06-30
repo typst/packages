@@ -1,4 +1,4 @@
-# TODO
+# Big-TODO
 
 Create clearly visible TODOs in your document, and add an outline to keep track of them.
 
@@ -7,7 +7,7 @@ Create clearly visible TODOs in your document, and add an outline to keep track 
 Import the package
 
 ```typst
-import "@preview/todos:0.1.0": *
+import "@preview/big-todo:0.1.0": *
 ```
 
 And use the `todo` function to create a TODO, and the put the `todo_outline` somewhere to keep track of them.

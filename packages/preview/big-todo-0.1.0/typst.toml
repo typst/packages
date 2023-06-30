@@ -1,5 +1,5 @@
 [package]
-name = "todo"
+name = "big-todo"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Raik Rohde"]
