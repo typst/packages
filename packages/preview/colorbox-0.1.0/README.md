@@ -84,6 +84,7 @@ The `colorbox()` function can recieve the following parameters:
 ## Known issues
 - A `break` property and/or `autobreak` functionality is needed to avoid colorboxes' overflow (when they occupy a full page and there's lots of text inside them).
 - A `boxseparator` (a horizontal line inside the colorbox) will be needed to split a colorbox content in two sections inside the same box.
+- There's a slightly thin line in colorboxes that have no borders or dashed borders, instead of white spaces or nothing.
 
 ## Gallery
 <h3 align="center">
