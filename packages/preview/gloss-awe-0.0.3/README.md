@@ -69,7 +69,7 @@ An entry in the pool for the term "Engine" file may look like this:
     ),
 ```
 
-The glossary pool used in the sample document can be found in the file `/Global/GlossaryPool.typ`.
+The glossary pool used in the sample document can be found in the file `GlossaryPool.typ`.
 
 ### Unknown Entries
 
@@ -87,7 +87,7 @@ To create the glossary page, provide the pool of potential entries. In this exam
 read it from a file. Then we give it to the `make-glossary()` function:
 
 ```typ
-#import "/Global/GlossaryPool.typ": glossary-pool
+#import "GlossaryPool.typ": glossary-pool
 
 #columns(2)[
     #make-glossary(glossary-pool)
