@@ -41,9 +41,9 @@
 #{
   let options = (allow-breaking: false)
   let modules = (
-     "Axes": "/typst-plotting/axis.typ",
-     "Plots": "/typst-plotting/plotting.typ",
-     "Classification": "/typst-plotting/util/classify.typ",
+     "Axes": "/plotst/axis.typ",
+     "Plots": "/plotst/plotting.typ",
+     "Classification": "/plotst/util/classify.typ",
   )
   set heading(numbering: "1.1.")
   outline(indent: auto, depth: 2)
