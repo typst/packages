@@ -1,4 +1,4 @@
-#import "/typst-plotting/axis.typ": *
+#import "/plotst/axis.typ": *
 
 // hackyish solution to split axis and content
 #let render(plot, plot_code, render_axis) = style(style => {
