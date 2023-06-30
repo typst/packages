@@ -52,6 +52,11 @@ To get started with Lemmify, follow these steps:
 )
 ```
 
+The result should now look something like this:
+
+![image](https://github.com/Marmare314/lemmify/assets/49279081/090381b2-9906-4b53-ae6c-5382840265de)
+
+
 ## Useful examples
 
 If you do not want to reset the theorem counter on headings
@@ -155,6 +160,9 @@ By varying the `group` parameter you can create independently numbered theorems:
   #lorem(30)
 ]
 ```
+
+![image](https://github.com/Marmare314/lemmify/assets/49279081/b3c72b3e-7e21-4acd-82bb-3d63f87ec84b)
+
 
 ## Documentation
 
