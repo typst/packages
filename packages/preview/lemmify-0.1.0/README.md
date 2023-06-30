@@ -267,6 +267,7 @@ to the references.
   - Referencing theorems by name.
 - Support more languages.
 - Better documentation.
+- Outlining theorems.
 
 If you are encountering any bugs, have questions or
 are missing features, feel free to open an issue on
