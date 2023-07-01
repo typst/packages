@@ -8,7 +8,7 @@ To use this library through the Typst package manager (for Typst 0.6.0 or greate
 
 Once imported, you can create an empty showybox by using the function `showybox()` and giving a default body content inside the parenthesis or outside them using squared brackets `[]`.
 
-By default, a box with no title, black borders, and white background will be created.
+By default, a box with no title, black borders, white background and `5pt` border radius will be created.
 
 ```java
 #import "@preview/showybox:0.1.0": showybox
@@ -18,7 +18,7 @@ By default, a box with no title, black borders, and white background will be cre
 ]
 ```
 <h3 align="center">
-  <img alt="Hello world! example" src="https://i.ibb.co/C5NnfRs/Captura-de-pantalla-2023-06-30-184809.png" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt">
+  <img alt="Hello world! example" src="https://i.ibb.co/5FZ5Q32/Captura-de-pantalla-2023-07-01-152146.png" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt">
 </h3>
 
 Looks quite simple, but the "magic" starts when adding a title and color. The following code creates two "unique" boxes with defined colors and custom borders:
@@ -52,7 +52,7 @@ Looks quite simple, but the "magic" starts when adding a title and color. The fo
 ]
 ```
 <h3 align="center">
-  <img alt="Further examples" src="https://i.ibb.co/dKgdQ7x/Captura-de-pantalla-2023-06-30-185210.png" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt">
+  <img alt="Further examples" src="https://i.ibb.co/mGgGd1s/Captura-de-pantalla-2023-07-01-152214.png" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt">
 </h3>
 
 ## Reference
@@ -88,15 +88,15 @@ The `showybox()` function can recieve the following parameters:
 
 ## Gallery
 <h3 align="center">
-  <img alt="Gallery 1" src="https://i.ibb.co/7Yrzx4K/Captura-de-pantalla-2023-06-30-192922.png" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt">
+  <img alt="Gallery 1" src="https://i.ibb.co/rmFYWhq/Captura-de-pantalla-2023-07-01-152511.png" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt">
 </h3>
 <h3 align="center">
-  <img alt="Gallery 2" src="https://i.ibb.co/gyY9C67/Captura-de-pantalla-2023-06-30-192910.png" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt">
+  <img alt="Gallery 2" src="https://i.ibb.co/23xvrHt/Captura-de-pantalla-2023-07-01-152528.png" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt">
 </h3>
 
 ## Changelog
 
-# Version 0.1.1
-
-- Fixed a bug while encapsulating a showybox inside another
+### Version 0.1.1
 - Changed package name from colorbox to showybox
+- Fixed a spacing bug in encapsulated showyboxes
+  - **Details:** When a showybox was encapsulated inside another, the spacing after that showybox was `0pt`, probably due to some "fixes" improved to manage default spacing between `rect` elements. The issue was solved by avoiding `#set` statements and adding a `#v(-1.1em)` to correct extra spacing between the title `rect` and the body `rect`.
