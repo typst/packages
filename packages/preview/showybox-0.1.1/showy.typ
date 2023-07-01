@@ -1,4 +1,4 @@
-#let colorbox(
+#let showybox(
   frame: (
     upper-color: black,
     lower-color: white,
@@ -20,7 +20,7 @@
   body
 ) = {
   /*
-   * Main container of the colorbox
+   * Main container of the showybox
    */
   rect(
     fill: frame.at("border-color", default: black),
@@ -33,16 +33,7 @@
     )
   )[
     /*
-     * Set rect spacing to avoid asimetric spacing 
-     * inside rect's main container. And set par
-     * spacing to avoid the previous rule to affect
-     * text blocks.
-     */
-    #show rect: set block(spacing: 1pt)
-    #show par: set block(spacing: 0.65em)
-
-    /*
-     * Title of the colorbox. We'll check if it is
+     * Title of the showybox. We'll check if it is
      * empty. If so, skip its drawing and only put
      * the body
      */
@@ -61,10 +52,11 @@
             )
           )
       ]
+      v(-1.1em)
     } // Otherwise, don't put a title
 
     /*
-     * Body of the colorbox
+     * Body of the showybox
      */
     #rect(
       fill: frame.at("lower-color", default: white),
