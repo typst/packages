@@ -1,7 +1,7 @@
 [package]
 name = "splash"
 version = "0.3.0"
-entrypoint = "src/splash.typ"
+entrypoint = "src/palettes.typ"
 authors = ["kaarmu"]
 license = "MIT"
 description = "A library of color palettes for Typst."
