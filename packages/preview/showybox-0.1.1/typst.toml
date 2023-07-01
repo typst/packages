@@ -1,5 +1,5 @@
 [package]
-name = "colorbox"
+name = "showybox"
 version = "0.1.1"
 entrypoint = "showy.typ"
 authors = ["Pablo González Calderón <https://github.com/Pablo-Gonzalez-Calderon>"]
