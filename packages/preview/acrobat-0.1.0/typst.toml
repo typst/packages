@@ -1,0 +1,8 @@
+[package]
+name = "acrobat"
+version = "0.1.0"
+entrypoint = "acrobat.typ"
+authors = ["Grizzly"]
+license = "MIT"
+description = "Juggle with acronyms and their definitions in Typst."
+repository = "https://gitea.auro.re/grisel-davy/acrobat"
