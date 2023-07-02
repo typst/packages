@@ -1,4 +1,4 @@
-# typst-palettes
+# splash
 
 A library of color palettes for Typst.
 
@@ -9,7 +9,12 @@ from. Any contributions or suggestions are welcome!
 ## Usage
 
 ```typst
-#import "palettes.typ": xcolor
+#import "@preview/splash:0.3.0": xcolor
 
 #box(width: 3em, height: 1em, fill: xcolor.dandelion)
 ```
+
+## Documentation
+
+For a list of available colors please see the generated documentation from the 
+[source code](https://github.com/kaarmu/typst-palettes).
