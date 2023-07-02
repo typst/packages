@@ -24,7 +24,8 @@ The function will render as defined with the specified show rule (see below!).
 
 ## Controlling the Show
 
-To control, how the markers are rendered in the document, a show rule has to be defined. It usually looks like the following:
+To control, how the markers are rendered in the document, a show rule has to be defined.
+It usually looks like the following:
 
 ```typ
 // marker display : this rule makes the glossary marker in the document visible.
@@ -33,8 +34,8 @@ To control, how the markers are rendered in the document, a show rule has to be 
 
 ## Pool of Entries
 
-A "pool of entries" is a typst dictionary. It can be read from a file, like in this
-sample, or may be the result of other operations.
+A "pool of entries" is a typst dictionary. It can be read from a file or may be the result
+of other operations.
 
 One or more pool(s) are then given to the `make-glossary()` function. This will create a
 glossary page of all referenced entries. If given more than one pool, the order pools are
@@ -68,8 +69,6 @@ An entry in the pool for the term "Engine" file may look like this:
         ]
     ),
 ```
-
-The glossary pool used in the sample document can be found in the file `GlossaryPool.typ`.
 
 ### Unknown Entries
 
