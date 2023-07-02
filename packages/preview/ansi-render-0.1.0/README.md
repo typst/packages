@@ -7,7 +7,7 @@ contribution is welcomed!
 ## Usage
 
 ```typst
-#ansi_render(body, font: string, size: length, theme: themes.theme)
+#ansi_render(body, font: string, size: length, theme: terminal_themes.theme)
 ```
 
 ## Demo
