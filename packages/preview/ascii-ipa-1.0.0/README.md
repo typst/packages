@@ -32,7 +32,7 @@ They all return the converted value as `content` and accept the same parameters:
 All examples use the Russian word ⟨привет⟩ [prʲɪvʲet] for the conversion.
 
 ```ts
-import "@preview/ascii-ipa:1.0.0": *
+#import "@preview/ascii-ipa:1.0.0": *
 
 // Branner
 #branner("prj^Ivj^et") // -> prʲɪvʲet
@@ -68,6 +68,8 @@ Not everything is implemented fully compliant with the information in the articl
 You can easily mark your notation text as phonetic, phonemic, orthographic, or prosodic.
 
 ```ts
+#import "@preview/ascii-ipa:1.0.0": *
+
 #phonetic("prʲɪˈvʲet") // -> [prʲɪˈvʲet]
 #phnt("prʲɪˈvʲet") // -> [prʲɪˈvʲet]
 
