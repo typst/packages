@@ -1,275 +1,125 @@
-# Lemmify
+# Typst Packages
+An experimental package repository for Typst. Compiler support for packages is
+available on Typst's main branch, but not yet in the latest release or in the
+web app. Still, **submissions are open now** so that the next release can ship
+with a collection of packages. A searchable list of packages will become
+available in the official documentation with the next release.
 
-Lemmify is a library for typesetting mathematical
-theorems in typst. It aims to be easy to use while
-trying to be as flexible and idiomatic as possible.
-This means that the interface might change with updates
-to typst (for example if user-defined element functions
-are introduced). But no functionality should be lost.
+## Package format
+A package is a collection of Typst files and assets that can be imported as a
+unit. A `typst.toml` manifest with metadata is required at the root of a
+package. An example manifest could look like this:
 
-## Basic Usage
-
-To get started with Lemmify, follow these steps:
-
-1. Import the Lemmify library:
-```typst
-#import "@preview/lemmify:0.1.0": *
+```toml
+[package]
+name = "example"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["The Typst Project Developers"]
+license = "Unlicense"
+description = "An example package."
 ```
 
-2. Define the default styling for a few default theorem types:
-```typst
-#let (
-  theorem, lemma, corollary,
-  remark, proposition, example,
-  proof, rules: thm-rules
-) = default-theorems("thm-group", lang: "en")
-```
+Required by the compiler:
+- `name`: The package's identifier in its namespace.
+- `version`: The package's version as a full major-minor-patch triple.
+  Package versioning should follow [SemVer].
+- `entrypoint`: The path to the main Typst file that is evaluated when the
+  package is imported.
 
-3. Apply the generated styling:
-```typst
-#show: thm-rules
-```
+Required for submissions to this repository:
+- `authors`: A list of the package's authors.
+- `license`: The package's license. Must contain a valid SPDX-2 expression
+  describing one or multiple [OSI-approved][OSI] licenses.
+- `description`: A short description of the package.
 
-4. Create theorems, lemmas, and proofs using the defined styling:
-```typst
-#theorem(name: "Some theorem")[
-  Theorem content goes here.
-]<thm>
+Optional:
+- `repository`: A link to the repository where this package is developed.
 
-#proof[
-  Complicated proof.
-]<proof>
+Packages always live in folders named as `{name}-{version}`. The name and
+version in the folder name and manifest must match. Paths in a package are local
+to that package. Absolute paths start in the package root while relative paths
+are relative to the file they are used in.
 
-@proof @thm[Some thoerem]
-```
+## Published packages
+This repository contains a collection of published packages. Due to its early
+and experimental nature, all packages in this repository are scoped in a
+`preview` namespace. A package that is stored in
+`packages/preview/{name}-{version}` in this repository will become availabe in
+Typst as `#import "@preview/{name}:{version}"`. You must always specify the full
+package version.
 
-5. Customize the styling further using show rules. For example, to add a red box around proofs:
-```
-#show thm-selector("thm-group", subgroup: "proof"): it => box(
-  it,
-  stroke: red + 1pt,
-  inset: 1em
-)
-```
+### Submission guidelines
+There are a few requirements for getting a package published, which are
+detailed below:
 
-The result should now look something like this:
+- **Naming:** Names should not include the word "typst" (as it is redundant).
+  They should also not be merely descriptive to create level grounds for
+  everybody (e.g. not just `slides`).
+- **Functionality:** Packages should conceivably be useful to other users
+  and should expose their capabilities in a reasonable fashion.
+- **Documentation:** Packages must contain a `README.md` file documenting (at
+  least briefly) what the package does and all definitions intended for
+  usage by downstream users.
+- **License:** Packages must be licensed under the terms of an
+  [OSI-approved][OSI] license. In addition to specifying the license in the
+  TOML manifest, a package must either contain a `LICENSE` file or link to one
+  in its `README.md`.
+- **Size:** Packages should not contain large files or a large number of files.
+  This will be judged on a case-by-case basis, but if it needs more than ten
+  files, it should be well-motivated.
+- **Security:** Packages must not attempt to exploit the compiler or packaging
+  implementation, in particular not to exfiltrate user data.
+- **Safety:** Names and package contents must be safe for work.
 
-![image](https://github.com/Marmare314/lemmify/assets/49279081/090381b2-9906-4b53-ae6c-5382840265de)
+This list may be extended over time as improvements/issues to the process are
+discovered. Given a good reason, we reserve the right to reject any package submission.
 
+Once submitted, a package will not be changed or removed without good reason to
+prevent breakage for downstream consumers. By submitting a package, you agree
+that it is here to stay. If you discover a bug or issue, you can of course
+submit a new version of your package.
 
-## Useful examples
+**Note:** Please do not submit templates as packages just yet. We plan to build
+infrastructure around this so that they can show up in the web app's template
+gallery and be used to scaffold a project through the CLI. Stay tuned!
 
-If you do not want to reset the theorem counter on headings
-you can use the `max-reset-level` parameter:
+### Downloads
+The Typst compiler downloads packages from the `preview` namespace on-demand.
+Once used, they are cached in `{cache-dir}/typst/packages/preview` where
+`{cache-dir}` is
 
-```typst
-default-theorems("thm-group", max-reset-level: 0)
-```
+- `$XDG_CACHE_HOME` or `~/.cache` on Linux
+- `~/Library/Caches` on macOS
+- `%LOCALAPPDATA%` on Windows
 
-It specifies whats the highest level at which the counter is reset. To manually reset the counter you can use the
-`thm-reset-counter` function.
+Importing a cached package does not result in a network access.
 
----
+## Local packages
+Want to install a package locally on your system without publishing it or
+experiment with it before publishing? You can store packages in
+`{data-dir}/typst/packages/{namespace}/{name}-{version}` to make them available
+locally on your system. Here, `{data-dir}` is
 
-By specifying `numbering: none` you can create unnumbered
-theorems.
+- `$XDG_DATA_HOME` or `~/.local/share` on Linux
+- `~/Library/Application Support` on macOS
+- `%APPDATA%` on Windows
 
-```typst
-#example(numbering: none)[
-  Some example.
-]
-```
+Packages in the data directory have precedence over ones in the cache directory.
+While you can create arbitrary namespaces with folders, a good namespace for
+system packages is `local`:
 
-To make all examples unnumbered you could use the following code:
+- Store a package in `~/.local/share/typst/packages/local/mypkg-1.0.0`
+- Import from it with `#import "@local/mypkg:1.0.0": *`
 
-```typst
-#let example = example.with(numbering: none)
-```
-
----
-
-To create other types (or subgroups) of theorems you can use the
-`new-theorems` function.
-
-```typst
-#let (note, rules) = new-theorems("thm-group", ("note": text(red)[Note]))
-#show: rules
-```
-
-If you have already defined custom styling you will notice that
-the newly created theorem does not use it.
-You can create a dictionary to make applying it again easier.
-
-```typst
-#let my-styling = (
-  thm-styling: thm-styling-simple,
-  thm-numbering: ...,
-  ref-styling: ...
-)
-
-#let (note, rules) = new-theorems("thm-group", ("note": "Note), ..my-styling)
-```
-
----
-
-By varying the `group` parameter you can create independently numbered theorems:
-
-```typst
-#let (
-  theorem, proof,
-  rules: thm-rules-a
-) = default-theorems("thm-group-a")
-#let (
-  definition,
-  rules: thm-rules-b
-) = default-theorems("thm-group-b")
-
-#show: thm-rules-a
-#show: thm-rules-b
-```
-
-## Example
-
-```typst
-#import "@preview/lemmify:0.1.0": *
-
-#let my-thm-style(
-  thm-type, name, number, body
-) = grid(
-  columns: (1fr, 3fr),
-  column-gutter: 1em,
-  stack(spacing: .5em, strong(thm-type), number, emph(name)),
-  body
-)
-
-#let my-styling = (
-  thm-styling: my-thm-style
-)
-
-#let (
-  theorem, rules
-) = default-theorems("thm-group", lang: "en", ..my-styling)
-#show: rules
-#show thm-selector("thm-group"): box.with(inset: 1em)
-
-#lorem(20)
-#theorem[
-  #lorem(40)
-]
-#lorem(20)
-#theorem(name: "Some theorem")[
-  #lorem(30)
-]
-```
-
-![image](https://github.com/Marmare314/lemmify/assets/49279081/b3c72b3e-7e21-4acd-82bb-3d63f87ec84b)
+Note that future iterations of Typst's package management may change/break this
+local setup.
 
 
-## Documentation
+## License
+The infrastructure around the package repository is licensed under the terms of
+the Apache-2.0 license. Packages in `packages/` are licensed under their
+respective license.
 
-The two most important functions are:
-
-`default-theorems`: Create a default set of theorems
-based on the given language and styling.
-- `group`: The group id.
-- `lang`: The language to which the theorems are adapted.
-- `thm-styling`, `thm-numbering`, `ref-styling`: Styling
-parameters are explained in further detail in the
-[Styling](#styling-parameters) section.
-- `proof-styling`: Styling which is only applied to proofs.
-- `max-reset-level`: The highest heading level on which
-theorems are still reset.
-
-`new-theorems`: Create custom sets of theorems with
-the given styling.
-- `group`: The group id.
-- `subgroup-map`: Mapping from group id to some argument.
-The simple styles use `thm-type` as the argument (ie
-"Beispiel" or "Example" for group id "example")
-- `thm-styling`, `thm-numbering`, 
-`ref-styling`, `ref-numbering`: Styling which to apply
-to all subgroups.
-
----
-
-`use-proof-numbering`: Decreases the numbering of
-a theorem function by one.
-See [Styling](#styling) for more information.
-
----
-
-`thm-selector`: Returns a selector for all theorems
-of the specified group. If subgroup is specified, only the
-theorems belonging to it will be selected.
-
----
-
-There are also a few functions to help with resetting counters.
-
-`thm-reset-counter`: Reset theorem group counter manually.
-Returned content needs to added to the document.
-
-`thm-reset-counter-heading-at`: Reset theorem group counter
-at headings of the specified level. Returns a rule that
-needs to be shown.
-
-`thm-reset-counter-heading`: Reset theorem group counter
-at headings of at most the specified level. Returns a rule
-that needs to be shown.
-
-### Styling parameters
-
-If possible the best way to adapt the look of theorems is to use show
-rules as shown [above](#basic-usage), but this is not always possible.
-For example if we wanted theorems to start
-with `1.1 Theorem` instead of `Theorem 1.1`.
-You can provide the following functions to adapt the look of the theorems.
-
-----
-`thm-styling`: A function: `(arg, name, number, body) -> content`, that
-allows you to define the styling for different types of theorems.
-Below only the `arg` will be specified.
-
-Pre-defined functions
-- `thm-style-simple(thm-type)`: **thm-type num** _(name)_ body
-- `thm-style-proof(thm-type)`: **thm-type num** _(name)_ body □
-- `thm-style-reversed(thm-type)`: **num thm-type** _(name)_ body
-
----
-
-`thm-numbering`: A function: `figure -> content`, that determines how
-theorems are numbered.
-
-Pre-defined functions: (Assume heading is 1.1 and theorem count is 2)
-- `thm-numbering-heading`: 1.1.2
-- `thm-numbering-linear`: 2
-- `thm-numbering-proof`: No visible content is returned, but the
-counter is reduced by 1 (so that the proof keeps the same count as
-the theorem). Useful in combination with `use-proof-numbering`
-to create theorems that reference the previous theorem (like proofs).
-
----
-
-`ref-styling`: A function: `(arg, thm-numbering, ref) -> content`, to style
-theorem references.
-
-Pre-defined functions:
-- `thm-ref-style-simple(thm-type)`
-  - `@thm -> thm-type 1.1`
-  - `@thm[custom] -> custom 1.1`
-
----
-`ref-numbering`: Same as `thm-numbering` but only applies
-to the references.
-
-## Roadmap
-
-- More pre-defined styles.
-  - Referencing theorems by name.
-- Support more languages.
-- Better documentation.
-- Outlining theorems.
-
-If you are encountering any bugs, have questions or
-are missing features, feel free to open an issue on
-[Github](https://github.com/Marmare314/lemmify).
+[SemVer]: https://semver.org/
+[OSI]: https://opensource.org/licenses/
