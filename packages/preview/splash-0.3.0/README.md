@@ -16,5 +16,4 @@ from. Any contributions or suggestions are welcome!
 
 ## Documentation
 
-For a list of available colors please see the generated documentation from the 
-[source code](https://github.com/kaarmu/typst-palettes).
+For a list of available colors please see [this document](https://github.com/kaarmu/typst-palettes/blob/main/doc/main.pdf).
