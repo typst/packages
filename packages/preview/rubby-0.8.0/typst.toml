@@ -1,8 +1,8 @@
 [package]
-name = "ruby"
+name = "rubby"
 version = "0.8.0"
-entrypoint = "ruby.typ"
+entrypoint = "rubby.typ"
 authors = ["Andrew Voynov"]
 license = "AGPL-3.0-only"
 description = "Add ruby (furigana) next to base text."
-repository = "https://github.com/Andrew15-5/typst-package-ruby"
+repository = "https://github.com/Andrew15-5/rubby"

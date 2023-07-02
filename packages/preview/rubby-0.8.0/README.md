@@ -1,9 +1,9 @@
-# ruby (Typst package)
+# rubby (Typst package)
 
 ## Usage
 
 ```typst
-#import "@preview/ruby:0.8.0": get_ruby
+#import "@preview/rubby:0.8.0": get_ruby
 
 ruby = get_ruby(
   size: 0.5em,         // Ruby font size
@@ -41,6 +41,13 @@ then adds space around base text if ruby is wider than the base text.
 
 Problems appear only if ruby is wider than its base text and `auto_spacing` is
 not set to `true` (default is `true`).
+
+You can always use a one-letter function (variable) name to shorten the
+function call length (if you have to use it a lot), e.g., `#let r = get_ruby()`
+(or `f` — short for furigana). But be careful as there are functions with names
+`v` and `h` and there could be a new built-in function with a name `r` or `f`
+which will break your document (Typst right now is in beta, so breaking changes
+are possible).
 
 Although you can open issues or send PRs, I won't be able to always reply
 quickly (sometimes I'm very busy).
