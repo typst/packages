@@ -11,7 +11,7 @@ Once imported, you can create an empty showybox by using the function `showybox(
 By default, a box with no title, black borders, white background and `5pt` border radius will be created.
 
 ```java
-#import "@preview/showybox:0.1.0": showybox
+#import "@preview/showybox:0.1.1": showybox
 
 #showybox()[
   Hello world!
