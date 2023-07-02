@@ -1,5 +1,5 @@
 [package]
-name = "anis-render"
+name = "ansi-render"
 version = "0.1.0"
 entrypoint = "ansi_render.typ"
 authors = ["8LWXpg"]
