@@ -1,0 +1,7 @@
+[package]
+name = "ascii-ipa"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["imatpot"]
+license = "MIT"
+description = "Converter for ASCII representations of the International Phonetic Alphabet (IPA)"
