@@ -135,11 +135,12 @@ By varying the `group` parameter you can create independently numbered theorems:
 
 #let my-thm-style(
   thm-type, name, number, body
-) = block[#{
-  grid(columns: (1fr, 3fr), column-gutter: 1em)[#{
-    stack(spacing: .5em, strong(thm-type), number, emph(name))
-  }][#body]
-}]
+) = grid(
+  columns: (1fr, 3fr),
+  column-gutter: 1em,
+  stack(spacing: .5em, strong(thm-type), number, emph(name)),
+  body
+)
 
 #let my-styling = (
   thm-styling: my-thm-style
