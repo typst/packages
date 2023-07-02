@@ -1,9 +1,6 @@
 # Typst Packages
-An experimental package repository for Typst. Compiler support for packages is
-available on Typst's main branch, but not yet in the latest release or in the
-web app. Still, **submissions are open now** so that the next release can ship
-with a collection of packages. A searchable list of packages will become
-available in the official documentation with the next release.
+An experimental package repository for Typst. A [searchable list][list] of all
+packages that were submitted here is available in the official documentation.
 
 ## Package format
 A package is a collection of Typst files and assets that can be imported as a
@@ -50,8 +47,9 @@ Typst as `#import "@preview/{name}:{version}"`. You must always specify the full
 package version.
 
 ### Submission guidelines
-There are a few requirements for getting a package published, which are
-detailed below:
+To submit a package, simply make a pull request with the package to this
+repository. There are a few requirements for getting a package published, which
+are detailed below:
 
 - **Naming:** Names should not include the word "typst" (as it is redundant).
   They should also not be merely descriptive to create level grounds for
@@ -121,5 +119,6 @@ The infrastructure around the package repository is licensed under the terms of
 the Apache-2.0 license. Packages in `packages/` are licensed under their
 respective license.
 
+[list]: https://typst.app/docs/packages/
 [SemVer]: https://semver.org/
 [OSI]: https://opensource.org/licenses/
