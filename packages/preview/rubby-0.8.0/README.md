@@ -5,12 +5,12 @@
 ```typst
 #import "@preview/rubby:0.8.0": get_ruby
 
-ruby = get_ruby(
+#let ruby = get_ruby(
   size: 0.5em,         // Ruby font size
   dy: 0pt,             // Vertical offset of the ruby
   pos: top,            // Ruby position (top or bottom)
   alignment: "center", // Ruby alignment ("center", "start", "between", "around")
-  delimeter: "|",      // The delimeter between words
+  delimiter: "|",      // The delimiter between words
   auto_spacing: true,  // Automatically add necessary space around words
 )
 
@@ -24,7 +24,7 @@ Treat each kanji as a separate word:
 If you don't want automatically wrap text with delimiter:
 
 ```typst
-ruby = get_ruby(auto_spacing: false)
+#let ruby = get_ruby(auto_spacing: false)
 ```
 
 See also <https://github.com/rinmyo/ruby-typ/blob/main/manual.pdf>.
