@@ -4,5 +4,5 @@ version = "0.1.0"
 entrypoint = "ansi_render.typ"
 authors = ["8LWXpg"]
 license = "MIT"
-description = "provides a simple way to render text with ANSI escape sequences in Typst."
+description = "A simple way to render text with ANSI escape sequences in Typst."
 repository = "https://github.com/8LWXpg/typst-ansi_render"
