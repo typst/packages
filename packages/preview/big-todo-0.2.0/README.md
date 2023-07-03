@@ -22,7 +22,7 @@ Pirates' influence on history extends beyond their shipboard societies, however.
 #todo_outline
 ```
 
-![Screenshot of above Example](screenshot.png "Screenshot of above Example")
+![Screenshot of above Example](https://user-images.githubusercontent.com/64754924/250580952-e427a139-1c6e-4eb6-9eee-c07d98875c88.png "Screenshot of above Example")
 
 The `todo` function has the follwin parameters and defaults:
 
