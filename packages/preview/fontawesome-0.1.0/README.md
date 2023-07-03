@@ -54,6 +54,26 @@ Or you can use the `fa-` prefix to create an icon with its name:
 
 You can find all icons on the [official website](https://fontawesome.com/search?o=r&m=free)
 
+#### Different sets
+
+By default, the library uses the free set. You can change it by passing the `fa-set` parameter to `fa-icon`:
+
+`#fa-icon("github", fa-set: "Brands")`
+
+Or you can change the default set by changing the `FA_SET` state.
+
+`#fa-icon("github")` This cannot render the icon because the default set is `Free`.
+
+`FA_SET.update("Brands")`
+
+`#fa-icon("github")` This can render the icon because the default set is `Brands` now.
+
+Reset the default set:
+
+`FA_SET.update("Free")`
+
+The `FA_VERSION` state can also be used to change the default font version. Its original value is `Font Awesome 6`.
+
 #### Customization
 
 The `fa-icon` function passes args to `text`, so you can customize the icon by passing parameters to it:
