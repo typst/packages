@@ -50,6 +50,10 @@ Or you can use the `fa-` prefix to create an icon with its name:
 
 `fa-chess-queen()`
 
+#### Full list of icons
+
+You can find all icons on the [official website](https://fontawesome.com/search?o=r&m=free)
+
 #### Customization
 
 The `fa-icon` function passes args to `text`, so you can customize the icon by passing parameters to it:
@@ -58,7 +62,7 @@ The `fa-icon` function passes args to `text`, so you can customize the icon by p
 
 ## Example
 
-See the `example.typ` file for a complete example. (TODO: add a gallery for all icons)
+See the [`example.typ`](https://typst.app/project/rQwGUWt5p33vrsb_uNPR9F) file for a complete example.
 
 ## Contribution
 
