@@ -123,3 +123,4 @@ skip_while(h, x => x < 1) = (1, 1, 1, 0.25, 0.5, 0.75, 0, 0, 0.25, 0.5, 0.75, 1)
 
 ## Unsafe Functions
 The core functions are defined in `funarray_unsafe.typ`. However, assertions (error checking) are not there and it is generally not being advised to use these directly. Still, if being cautious, one can use the imported `funarray_unsafe` module in `funarray(.typ)`. All function names are the same.
+To access with package usage, use `unsafe_functions` to return the module.

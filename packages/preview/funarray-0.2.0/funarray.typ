@@ -1,5 +1,8 @@
 #import "funarray_unsafe.typ"
 
+// The following line is only for typst package capabilities, to access the module
+#let unsafe_functions() = funarray_unsafe
+
 /// splits the array into chunks of given size.
 #let chunks(arr, size) = {
     assert.eq(type(arr), "array", message: "Argument `arr` must be an array.")
