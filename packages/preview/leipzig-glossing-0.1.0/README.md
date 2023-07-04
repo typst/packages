@@ -36,7 +36,7 @@ An example gloss entry:
 
 ```
 
-![Example typeset gloss](./leipzig-example.png)
+![Example typeset gloss](./leipzig-example.png?raw=true)
 
 
 # License
