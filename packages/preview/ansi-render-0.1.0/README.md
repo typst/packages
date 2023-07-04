@@ -7,7 +7,7 @@ contribution is welcomed!
 ## Usage
 
 ```typst
-#import "@preview/ansi_render:0.1.0": *
+#import "@preview/ansi-render:0.1.0": *
 
 #ansi_render(string, font: string, size: length, theme: terminal_themes.theme)
 ```
