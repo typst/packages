@@ -28,7 +28,8 @@ Required for submissions to this repository:
 - `authors`: A list of the package's authors.
 - `license`: The package's license. Must contain a valid SPDX-2 expression
   describing one or multiple [OSI-approved][OSI] licenses.
-- `description`: A short description of the package.
+- `description`: A short description of the package. Double check this for
+  grammar and spelling mistakes as it will appear in the [package list][list].
 
 Optional:
 - `repository`: A link to the repository where this package is developed.
@@ -51,21 +52,32 @@ To submit a package, simply make a pull request with the package to this
 repository. There are a few requirements for getting a package published, which
 are detailed below:
 
-- **Naming:** Names should not include the word "typst" (as it is redundant).
-  They should also not be merely descriptive to create level grounds for
-  everybody (e.g. not just `slides`).
-- **Functionality:** Packages should conceivably be useful to other users
-  and should expose their capabilities in a reasonable fashion.
+- **Naming:** Package names should not be merely descriptive to create level
+  grounds for everybody (e.g. `slides` is forbidden, but `sliding` or
+  `slitastic` would be ok). Names should not include the word "typst" (as it is
+  redundant). If they contain multiple words, names should use `kebab-case`.
+  Look at existing packages and PRs to get a feel for what's allowed and what's
+  not.
+- **Functionality:** Packages should conceivably be useful to other users and
+  should expose their capabilities in a reasonable fashion.
 - **Documentation:** Packages must contain a `README.md` file documenting (at
-  least briefly) what the package does and all definitions intended for
-  usage by downstream users.
+  least briefly) what the package does and all definitions intended for usage by
+  downstream users. Examples in the README should show how to use the package
+  through an `@preview` import. If you have images in your README, you might
+  want to check whether they also work in dark mode.
+- **Style:** No specific code style is mandated, but two spaces of indent and
+  kebab-case for variable and function names are recommended.
 - **License:** Packages must be licensed under the terms of an
   [OSI-approved][OSI] license. In addition to specifying the license in the
   TOML manifest, a package must either contain a `LICENSE` file or link to one
   in its `README.md`.
 - **Size:** Packages should not contain large files or a large number of files.
   This will be judged on a case-by-case basis, but if it needs more than ten
-  files, it should be well-motivated.
+  files, it should be well-motivated. To keep the package small and fast to
+  download, please do not include images for the README or PDF files with
+  documentation in the package. Instead, include images through a link to a
+  githubusercontent.com URL (just drag the image into an issue) or link to your
+  repository.
 - **Security:** Packages must not attempt to exploit the compiler or packaging
   implementation, in particular not to exfiltrate user data.
 - **Safety:** Names and package contents must be safe for work.
@@ -77,6 +89,10 @@ Once submitted, a package will not be changed or removed without good reason to
 prevent breakage for downstream consumers. By submitting a package, you agree
 that it is here to stay. If you discover a bug or issue, you can of course
 submit a new version of your package.
+
+There is one exception: Minor fixes to the documentation or TOML metadata of a
+package are allowed _if_ they can not affect the package in a way that might
+break downstream users.
 
 **Note:** Please do not submit templates as packages just yet. We plan to build
 infrastructure around this so that they can show up in the web app's template
