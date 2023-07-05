@@ -5,4 +5,4 @@ entrypoint = "ouset.typ"
 authors = ["Ludwig Austermann"]
 license = "MIT"
 description = "A small package providing over- and underset functions for math mode in typst."
-repository = "https://ludwig-austermann/typst-ouset"
+repository = "https://github.com/ludwig-austermann/typst-ouset"
