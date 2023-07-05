@@ -2,7 +2,7 @@
 This package provides some convinient functional functions for [typst](https://typst.app/) to use on arrays.
 
 ## Usage
-All relevant code sits inside `funarray.typ`. Some examples and also the functions part of this README, are given as `.typ + .pdf` files in the examples folder.
+To use this package simply `#import "@preview/funarray:0.2.0"`. To import all functions use `: *` and for specific ones, use either the module or as described in the [typst docs](https://typst.app/docs/reference/scripting#modules).
 
 ## Important note
 Almost all functions are one-liners, which could, instead of being loaded via a package import, also be just copied directly into your source files.
@@ -46,7 +46,7 @@ c = (0, 1, 2, 3, 4, 0, 1, 2)
 
 Note that there is also the functionality to concatenate with `+` and `*` in typst.
 
-### windows and circular_windows
+### windows and circular-windows
 This function provides a running window
 
 `windows(c, 5) = (
@@ -58,7 +58,7 @@ This function provides a running window
 
 whereas the circular version wraps over.
 
-`circular_windows(c, 5) = (
+`circular-windows(c, 5) = (
   (0, 1, 2, 3, 4),
   (1, 2, 3, 4, 0),
   (2, 3, 4, 0, 1),
@@ -69,7 +69,7 @@ whereas the circular version wraps over.
   (2, 4, 0, 1, 2)
 )`
 
-### partition and partition_map
+### partition and partition-map
 The partition function seperates the array in two according to a predicate function. The result is an array with all elements, where the predicate returned true followed by an array with all elements, where the predicate returned false.
 
 ```typst
@@ -78,28 +78,35 @@ primesp = ((2, "prime"), (3, "prime"), (5, "prime"))
 nonprimesp = ((1, "not prime"), (4, "not prime"))
 ```
 
-There is also a partition_map function, which after partition also applies a second function on both collections.
+There is also a partition-map function, which after partition also applies a second function on both collections.
 
 ```typst
-let (primes, nonprimes) = partition_map(b, x => x.at(1) == "prime", x => x.at(0))
+let (primes, nonprimes) = partition-map(b, x => x.at(1) == "prime", x => x.at(0))
 primes = (2, 3, 5)
 nonprimes = (1, 4)
 ```
 
-### group_by
+### group-by
 This functions groups according to a predicate into maximally sized chunks, where all elements have the same predicate value.
 
 ```typst
 let f = (0,0,1,1,1,0,0,1)
-let g = group_by(f, x => x == 0)
+let g = group-by(f, x => x == 0)
 g = ((0, 0), (1, 1, 1), (0, 0), (1,))
 ```
 
 ### flatten
 Typst has a `flatten` method for arrays, however that method acts recursively. For instance
+
 `(((1,2,3), (2,3)), ((1,2,3), (1,2))).flatten() = (1, 2, 3, 2, 3, 1, 2, 3, 1, 2)`
+
 Normally, one would only have flattened one level. To do this, we can use the typst array concatenation method +, or by folding, the sum method for arrays:
+
 `(((1,2,3), (2,3)), ((1,2,3), (1,2))).sum() = ((1, 2, 3), (2, 3), (1, 2, 3), (1, 2))`
+
+To handle further depth, one can use flatten again, so that in our example:
+
+`(((1,2,3), (2,3)), ((1,2,3), (1,2))).sum().sum() = (((1,2,3), (2,3)), ((1,2,3), (1,2))).flatten()`
 
 ### intersperse
 This function inserts item inbetween all elements of the array.
@@ -113,14 +120,20 @@ let h = intersperse(g, (0.25, 0.5, 0.75)).flatten()
 h = ( 0, 0, 0.25, 0.5, 0.75, 1, 1, 1, 0.25, 0.5, 0.75, 0, 0, 0.25, 0.5, 0.75, 1)
 ```
 
-### take_while and skip_while
+### take-while and skip-while
 These functions do exactly as they say.
 
 ```typst
-take_while(h, x => x < 1) = (0, 0, 0.25, 0.5, 0.75)
-skip_while(h, x => x < 1) = (1, 1, 1, 0.25, 0.5, 0.75, 0, 0, 0.25, 0.5, 0.75, 1)
+take-while(h, x => x < 1) = (0, 0, 0.25, 0.5, 0.75)
+skip-while(h, x => x < 1) = (1, 1, 1, 0.25, 0.5, 0.75, 0, 0, 0.25, 0.5, 0.75, 1)
 ```
 
 ## Unsafe Functions
-The core functions are defined in `funarray_unsafe.typ`. However, assertions (error checking) are not there and it is generally not being advised to use these directly. Still, if being cautious, one can use the imported `funarray_unsafe` module in `funarray(.typ)`. All function names are the same.
-To access with package usage, use `unsafe_functions` to return the module.
+The core functions are defined in `funarray-unsafe.typ`. However, assertions (error checking) are not there and it is generally not being advised to use these directly. Still, if being cautious, one can use the imported `funarray-unsafe` module in `funarray(.typ)`. All function names are the same.
+
+To do this from the package, do as follows:
+```
+#import @preview/funarray:0.2.0
+
+#funarray.funarray-unsafe.chunks(range(10), 3)
+```

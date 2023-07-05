@@ -4,5 +4,5 @@ version = "0.2.0"
 entrypoint = "funarray.typ"
 authors = ["Ludwig Austermann"]
 license = "MIT"
-description = "A package providing convinient functional functions for typst to use on arrays."
+description = "Package providing convinient functional functions to use on arrays."
 repository = "https://github.com/ludwig-austermann/typst-funarray"

@@ -25,19 +25,19 @@
 #let windows(arr, size) = range(arr.len() - size + 1).map(x => arr.slice(x, x + size))
 
 /// same as windows, but continues wrapping at the border
-#let circular_windows(arr, size) = windows(arr + arr.slice(size - 1), size)
+#let circular-windows(arr, size) = windows(arr + arr.slice(size - 1), size)
 
 /// creates two arrays, 1. where f returns true, 2. where f returns false
 #let partition(arr, f) = (arr.filter(f), arr.filter(x => not f(x)))
 
 /// after partition, maps each partition according to g
-#let partition_map(arr, f, g) = {
+#let partition-map(arr, f, g) = {
   let parts = partition(arr, f)
   (parts.at(0).map(g), parts.at(1).map(g))
 }
 
 /// groups the array into maximally sized chunks, where each elements yields same predicate value
-#let group_by(arr, f) = if arr == () { (()) } else {
+#let group-by(arr, f) = if arr == () { (()) } else {
   let state = f(arr.at(0))
   let result = ((arr.at(0),),)
   for v in arr.slice(1, arr.len()) {
@@ -58,25 +58,25 @@
 }
 
 /// returns all elements until the predicate returns false
-#let take_while(arr, f) = if arr == () { () } else {
-  let max_index = arr.len()
+#let take-while(arr, f) = if arr == () { () } else {
+  let max-index = arr.len()
   for (i, v) in arr.enumerate() {
     if not f(v) {
-      max_index = i
+      max-index = i
       break
     }
   }
-  arr.slice(0, max_index)
+  arr.slice(0, max-index)
 }
 
 /// returns all elements starting when the predicate returns false
-#let skip_while(arr, f) = if arr == () { () } else {
-  let min_index = arr.len()
+#let skip-while(arr, f) = if arr == () { () } else {
+  let min-index = arr.len()
   for (i, v) in arr.enumerate() {
     if not f(v) {
-      min_index = i
+      min-index = i
       break
     }
   }
-  arr.slice(min_index)
+  arr.slice(min-index)
 }
