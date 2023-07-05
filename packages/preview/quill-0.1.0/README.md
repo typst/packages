@@ -37,6 +37,7 @@ Refer to the [user guide](https://github.com/Mc-Zen/quill/releases/download/v0.1
 <h3 align="center">
   <img alt="Gallery" src="https://github.com/Mc-Zen/packages/assets/52877387/fb9d887d-fab2-48dd-b5cb-02e120b76f30" style="background: white; padding: 10pt; box-sizing: border-box" />
 </h3>
+
 ## Examples
 
 Some show-off examples, loosely replicating figures from [Quantum Computation and Quantum Information by M. Nielsen and I. Chuang](https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE#overview).
