@@ -28,10 +28,10 @@ An example gloss entry:
 #import "@preview/leipzig-glossing:0.1.0: gloss"
 
 #gloss(
-    header_text: [Hittite (Lehmann 1982:211)],
-    source_text: ([n=an], [apedani], [mehuni],[essandu.]),
-    morphemes: ([#smallcaps[conn]=him], [that.#dat.#sg], [time.#dat.#sg], [eat.they.shall]),
-    translation: "They shall celebrate him on that date",
+  header_text: [Hittite (Lehmann 1982:211)],
+  source_text: ([n=an], [apedani], [mehuni],[essandu.]),
+  morphemes: ([#smallcaps[conn]=him], [that.#dat.#sg], [time.#dat.#sg], [eat.they.shall]),
+  translation: "They shall celebrate him on that date",
 )
 
 ```
