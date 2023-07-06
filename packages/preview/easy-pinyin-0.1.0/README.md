@@ -7,17 +7,17 @@ Write Chinese pinyin easily.
 Import the package:
 
 ```typst
-import "@preview/easy-pinyin:0.1.0": pinyin, zhuyin;
+#import "@preview/easy-pinyin:0.1.0": pinyin, zhuyin
 ```
 
 With the `pinyin` function, you can use `a2` to write an `ɑ́`, `o3` to write an `ǒ`, `v4` to represent `ǜ`, etc.
 
-With `zhuyin` function，you can put pinyin above the text easily, with arguments:
+With `zhuyin` function，you can put pinyin above the text easily, with parameters:
 
-- position arguments:
+- positional parameters:
   - `doc: content|string`: main characters
   - `ruby: content|string`: zhuyin characters
-- name arguments
+- named parameters:
   - `scale: number = 0.7`: font size scale of `ruby`, default `0.7`
   - `gutter: length = 0.3em`: spacing between `doc` and `ruby`, default `0.3em`
   - `delimiter: string|none = none`: if not none, use this character to split `doc` and `ruby` into parts
@@ -49,7 +49,7 @@ See example bellow.
 )
 ```
 
-![result of above example](example.png)
+![result of above example](https://github.com/7sDream/typst-easy-pinyin/blob/master/example.png?raw=true)
 
 ## LICENSE
 
