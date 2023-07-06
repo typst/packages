@@ -26,7 +26,6 @@
   show "u4": [ù];
 
   show "v": [ü];
-  show "v0": [ü];
   show "v1": [ǖ];
   show "v2": [ǘ];
   show "v3": [ǚ];

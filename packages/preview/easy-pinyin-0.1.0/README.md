@@ -15,13 +15,13 @@ With the `pinyin` function, you can use `a2` to write an `ɑ́`, `o3` to write a
 With `zhuyin` function，you can put pinyin above the text easily, with arguments:
 
 - position arguments:
-  - `doc`: main characters
-  - `ruby`: zhuyin characters
+  - `doc: content|string`: main characters
+  - `ruby: content|string`: zhuyin characters
 - name arguments
-  - `scale`: font size scale of `ruby`, default `0.7em`
-  - `gutter`: spacing between `doc` and `ruby`, default `0.3em`
-  - `delimiter`: if not none, use this character to make `doc` and `ruby` into parts
-  - `spacing`: spacing between each parts
+  - `scale: number = 0.7`: font size scale of `ruby`, default `0.7`
+  - `gutter: length = 0.3em`: spacing between `doc` and `ruby`, default `0.3em`
+  - `delimiter: string|none = none`: if not none, use this character to split `doc` and `ruby` into parts
+  - `spacing: length|none = none`: spacing between each parts
 
 See example bellow.
 
