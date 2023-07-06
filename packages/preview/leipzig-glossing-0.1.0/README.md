@@ -36,8 +36,5 @@ An example gloss entry:
 
 ```
 
-![Example typeset gloss](./leipzig-example.png?raw=true)
-
-
 # License
 This library uses the MIT license; see `LICENSE.txt`.
