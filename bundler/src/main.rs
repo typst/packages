@@ -10,14 +10,18 @@ fn main() -> anyhow::Result<()> {
 
     println!("Starting bundling.");
 
-    let mut index = vec![];
+    let mut paths = vec![];
     for entry in fs::read_dir("packages/preview")? {
         let entry = entry?;
-        if !entry.metadata()?.is_dir() {
-            continue;
+        if entry.metadata()?.is_dir() {
+            paths.push(entry.path());
         }
+    }
 
-        let path = entry.path();
+    paths.sort();
+
+    let mut index = vec![];
+    for path in paths {
         index.push(
             process_package(&path)
                 .with_context(|| format!("failed to process package at {}", path.display()))?,
@@ -38,7 +42,7 @@ fn process_package(path: &Path) -> anyhow::Result<PackageInfo> {
     println!("Bundling {}.", path.display());
     let PackageManifest { package } =
         parse_manifest(path).context("failed to parse package manifest")?;
-    let buf = build_archive(path).context("failed to build archive")?;
+    let buf = build_archive(path, &package.exclude).context("failed to build archive")?;
     validate_archive(&buf).context("failed to validate archive")?;
     write_archive(&package, &buf).context("failed to write archive")?;
     Ok(package)
@@ -78,11 +82,33 @@ fn parse_manifest(path: &Path) -> anyhow::Result<PackageManifest> {
 }
 
 /// Build a comrpessed archive for a directory.
-fn build_archive(path: &Path) -> anyhow::Result<Vec<u8>> {
+fn build_archive(dir_path: &Path, exclude: &[String]) -> anyhow::Result<Vec<u8>> {
     let mut buf = vec![];
     let compressed = flate2::write::GzEncoder::new(&mut buf, flate2::Compression::default());
     let mut builder = tar::Builder::new(compressed);
-    builder.append_dir_all(".", path)?;
+
+    let mut overrides = ignore::overrides::OverrideBuilder::new(dir_path);
+    for exclusion in exclude {
+        if exclusion.starts_with('!') {
+            bail!("globs with '!' are not supported");
+        }
+        overrides.add(&format!("!{exclusion}"))?;
+    }
+
+    for entry in ignore::WalkBuilder::new(dir_path)
+        .overrides(overrides.build()?)
+        .build()
+    {
+        let entry = entry?;
+        let file_path = entry.path();
+        let mut local_path = file_path.strip_prefix(dir_path)?;
+        if local_path.as_os_str().is_empty() {
+            local_path = Path::new(".");
+        }
+        println!("  Adding {}", local_path.display());
+        builder.append_path_with_name(file_path, local_path)?;
+    }
+
     builder.finish()?;
     drop(builder);
     Ok(buf)
@@ -122,4 +148,6 @@ struct PackageInfo {
     description: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     repository: Option<String>,
+    #[serde(default)]
+    exclude: Vec<String>,
 }

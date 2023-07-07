@@ -33,6 +33,10 @@ Required for submissions to this repository:
 
 Optional:
 - `repository`: A link to the repository where this package is developed.
+- `exclude`: An array of globs specifying files that should not be part of the
+  published bundle that the compiler downloads when importing the package. To be
+  used for support files like images or documentation that would otherwise
+  unnecessarily increase the bundle size.
 
 Packages always live in folders named as `{name}-{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
@@ -74,10 +78,9 @@ are detailed below:
 - **Size:** Packages should not contain large files or a large number of files.
   This will be judged on a case-by-case basis, but if it needs more than ten
   files, it should be well-motivated. To keep the package small and fast to
-  download, please do not include images for the README or PDF files with
-  documentation in the package. Instead, include images through a link to a
-  githubusercontent.com URL (just drag the image into an issue) or link to your
-  repository.
+  download, please `exclude` images for the README or PDF files with
+  documentation from the bundle. Alternatively, you can link to images hosted on
+  a githubusercontent.com URL (just drag the image into an issue).
 - **Security:** Packages must not attempt to exploit the compiler or packaging
   implementation, in particular not to exfiltrate user data.
 - **Safety:** Names and package contents must be safe for work.
