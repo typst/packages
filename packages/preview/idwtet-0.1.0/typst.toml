@@ -1,7 +1,7 @@
 [package]
 name = "idwtet"
 version = "0.1.0"
-entrypoint = "ouset.typ"
+entrypoint = "idwtet.typ"
 authors = ["Ludwig Austermann"]
 license = "MIT"
 description = "Package for uniform, correct and simplified typst code demonstration."
