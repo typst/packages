@@ -8,7 +8,10 @@ It is meant for code demonstration, e.g. when publishing a package, and provides
 However, there are some limitations:
 - Every code block has its own local scope, hence variables are not reachable from outside. While it is easier to reason, to not have examples use global variable, you can obviously define them yourself in global scope and then access them from the code blocks. Therefore, a `typst` codeblock is provided for a consistent look.
 - Locality can be displayed to the users by automatically wrapping code in `typst-ex-code`, but `typst-ex` does not provide such functionality. It might thus be difficult for users to understand code examples this way.
-- Typst does not allow to access files with `eval`. You can type the text inside the code block, *BUT* it will be ignored. Just do the imports, probably with `*`, globally.
+- Typst does not allow `eval` to access outside variables nor does it allow to access files through it. Hence, all code inside should be self-contained. However, depending on what typst allows in later version, you could then:
+  - If being able to access globals through eval without specification,type the text inside the code block, *BUT* it will be ignored. Just do the imports, probably with `*`, globally.
+  - Does allow for eval to access everything, then a update to a new version of this package, if available.
+  - ..., maybe a later version of this package can help. One could in the end, pass all code to the eval, but then only display the relevant one.
 - The page width has to be defined in absolute terms. It is quite nice, for a showcase, to take the least possible space, but tracking the widths of all boxes and then setting the page width accordingly is not (yet) possible.
 
 ## Usage
