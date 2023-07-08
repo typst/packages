@@ -278,4 +278,5 @@ are missing features, feel free to open an issue on
 
 - Version 0.1.1
   - Add dutch translations ([@BroodjeKroepoek](https://github.com/BroodjeKroepoek))
+  - Add french translations ([@MDLC01](https://github.com/MDLC01))
   - Fix size of default styles and make them breakable

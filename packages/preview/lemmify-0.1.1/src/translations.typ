@@ -19,6 +19,16 @@
     "definition": "Definition",
     "proof": "Beweis"
   ),
+  "fr": (
+    "theorem": "Théorème",
+    "lemma": "Lemme",
+    "corollary": "Corollaire",
+    "remark": "Remarque",
+    "proposition": "Proposition",
+    "example": "Exemple",
+    "definition": "Définition",
+    "proof": "Preuve"
+  ),
   "nl": (
     "theorem": "Stelling",
     "lemma": "Lemma",
