@@ -1,7 +1,7 @@
 [package]
 name = "bone-document"
 version = "0.1.0"
-entrypoint = "bone-document.typ"
+entrypoint = "lib.typ"
 authors = ["zrr1999"]
 license = "MIT"
 description = "A template package."
