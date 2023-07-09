@@ -1,0 +1,8 @@
+[package]
+name = "bone-document"
+version = "0.1.0"
+entrypoint = "bone-document.typ"
+authors = ["zrr1999"]
+license = "MIT"
+description = "A template package."
+repository = "https://github.com/zrr1999/BoneDocument"
