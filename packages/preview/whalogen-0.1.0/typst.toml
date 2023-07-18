@@ -7,5 +7,5 @@ authors = [
     "Spencer Chang <spencer@sycee.xyz>"
 ]
 license = "Apache-2.0"
-description = "Typsetting chemical formulas, a port of mhchem"
+description = "Typesetting chemical formulae, a port of mhchem"
 exclude = ["manual.pdf", "manual.typ", "gallery/*"]
