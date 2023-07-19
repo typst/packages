@@ -1,0 +1,27 @@
+# Uncomment this if your project is hosted on GitHub:
+github_url = "https://github.com/jneug/typst-codelst/"
+
+[version]
+current = "0.0.1"
+
+# Example of a semver regexp.
+# Make sure this matches current_version before
+# using tbump
+regex = '''
+  (?P<major>\d+)
+  \.
+  (?P<minor>\d+)
+  \.
+  (?P<patch>\d+)
+  '''
+
+[git]
+message_template = "Bump to {new_version}"
+tag_template = "v{new_version}"
+
+[[file]]
+src = "typst.toml"
+search = 'version = "{current_version}"'
+
+[[file]]
+src = "README.md"
