@@ -19,18 +19,13 @@
 	return line.replace(regex("^\t+"), (m) => " " * (m.end * spaces))
 }
 
-#let numbers-style( i ) = align(right, text(
-	fill: luma(160),
-	size: .8em,
-	i
-))
-
 #let sourcecode(
 	line-numbers: true,
 	numbers-format: "1",
 	numbers-start: auto,
 	numbers-side: left,
-	numbers-style: (i) => i.counter.display((no, ..args) => raw(str(no))),
+	numbers-style: (i) => i, // (i) => i.counter.display((no, ..args) => raw(str(no))),
+	continue-numbering: false,
 
 	gutter: 10pt,
 
@@ -47,24 +42,26 @@
 
 	code
 ) = {
-	let line-count = 0
-	let code-lang = none
-	let code-lines = ()
-
 	// Find first raw element in body
 	if code.func() != raw {
 		code = code.children.find((c) => c.func() == raw)
 	}
 	assert.ne(code, none, message: "Missing raw content.")
 
-	code-lang  = code.lang
-	code-lines = code.text.split("\n")
+	let code-lang  = if code.has("lang") { code.lang } else { "plain" }
+	let code-lines = code.text.split("\n")
+	let line-count = code-lines.len()
+
 	// Reduce lines to range
 	if showrange != none {
 		assert.eq(showrange.len(), 2)
-		code-lines = code-lines.slice(showrange.first() - 1, showrange.last())
+		showrange = (
+			calc.clamp(calc.min(..showrange), 1, line-count) - 1,
+			calc.clamp(calc.max(..showrange), 1, line-count)
+		)
+		code-lines = code-lines.slice(..showrange)
 		if numbers-start == auto {
-			numbers-start = showrange.first()
+			numbers-start = showrange.first() + 1
 		}
 	}
 	// Trim blank lines at start and finish
@@ -123,9 +120,9 @@
 
 		i = str(i)
 		if i in labels {
-			grid-cont.push([#raw(lang:code-lang, block:false, line)#label(labels.at(i))])
+			grid-cont.push([#raw(lang:code-lang, block:true, line)#label(labels.at(i))])
 		} else {
-			grid-cont.push(raw(lang:code-lang, block:false, line))
+			grid-cont.push(raw(lang:code-lang, block:true, line))
 		}
 
 		if line-numbers and numbers-side == right {
@@ -140,7 +137,7 @@
 		#show <lineno>: numbers-style
 		#set align(left)
 		#set par(justify:false)
-		#__c_lineno.update(numbers-start - 1)
+		#if not continue-numbering { __c_lineno.update(numbers-start - 1) }
 
 		#let ins = 0.3em
 		#let lines-width = measure(raw(str(line-count)), styles).width + 2*ins
@@ -164,15 +161,16 @@
 	])
 }
 
-#let sourcefile( file, lang: none, ..args ) = {
-	if lang == none {
+#let sourcefile( code, file:none, lang:auto, ..args ) = {
+	if file != none and lang == auto {
 		let m = file.match(regex("\.([a-z0-9]+)$"))
 		if m != none {
 			lang = m.captures.first()
 		}
+	} else if lang == "auto" {
+		lang = "plain"
 	}
-	let _code = read(file)
-	sourcecode( ..args, raw(_code, lang:lang, block:true))
+	sourcecode( ..args, raw(code, lang:lang, block:true))
 }
 
 #let lineref( label, supplement:"line" ) = locate(loc => {
@@ -180,6 +178,12 @@
 	assert.ne(lines, (), message: "Label <" + str(label) + "> does not exists.")
 	[#supplement #__c_lineno.at(lines.first().location()).first()]
 })
+
+#let numbers-style( i ) = align(right, text(
+	fill: luma(160),
+	size: .8em,
+	i
+))
 
 #let code-frame(
 	fill:      luma(250),

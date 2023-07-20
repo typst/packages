@@ -36,7 +36,7 @@ ArtosFlow project. ArtosFlow is a
 project of the Artos Institute.
 ```]
 
-Sourcecode can be loaded from a file with #cmd[sourcefile]. Any #codelst sourcecode can be wrapped inside #cmd[figure] as expected.
+Sourcecode can be loaded from a file and passed to #cmd[sourcefile]. Any #codelst sourcecode can be wrapped inside #cmd[figure] as expected.
 
 #codelst blocks can be formatted via a #cmd[show] rules like:
 
@@ -55,7 +55,7 @@ Line numbers can be formatted, too.
 	)
 	#figure(
 		caption: "typst.toml",
-		sourcefile(numbers-style: (i) => text(fill: blue, emph(i)), numbers-side:right, "typst.toml")
+		sourcefile(numbers-style: (i) => text(fill: blue, emph(i)), numbers-side:right, read("typst.toml"), file:"typst.toml")
 	)<lst-sourcefile>
 ]
 
