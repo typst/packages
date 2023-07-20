@@ -1,38 +1,54 @@
 # Commute
 Proof-of-concept commutative diagrams library for [typst](https://typst.app/home)
 
+# Example
+```
+#import "@preview/commute:0.1.0": node, arr, commutative-diagram
+
+#align(center)[#commutative-diagram(
+  node((0, 0), [$X$]),
+  node((0, 1), [$Y$]),
+  node((1, 0), [$X \/ "ker"(f)$]),
+  arr((0, 0), (0, 1), [$f$]),
+  arr((1, 0), (0, 1), [$tilde(f)$], label-pos: -1em, "dashed", "inj"),
+  arr((0, 0), (1, 0), [$pi$]),
+)]
+```
+
 ![screenshot](https://github.com/typst/packages/assets/20535498/71eb8d47-b6f9-43fa-a1fd-7ff58b8d0025)
+   
+For more usage examples look at `example.typ`
 
 # Usage
-The library provides 3 functions: `node`, `arr`, and `commutative_diagram`.
+The library provides 3 functions: `node`, `arr`, and `commutative-diagram`.
 You can clone this repo and import `lib.typ`:
 ```
-#import "path/to/commute/lib.typ": node, arr, commutative_diagram
+#import "path/to/commute/lib.typ": node, arr, commutative-diagram
 ```
 Or directly use the builtin package manager:
 ```
-#import "@preview/commute:0.1.0": node, arr, commutative_diagram
+#import "@preview/commute:0.1.0": node, arr, commutative-diagram
 ```
 
-## `commutative_diagram`
+## `commutative-diagram`
 ```
-commutative_diagram(
-  node_padding: (70pt, 70pt),
-  arr_clearance: 0.7em,
+commutative-diagram(
+  node-padding: (70pt, 70pt),
+  arr-clearance: 0.7em,
   padding: 1.5em,
   debug: false,
   ..entities
 )
 ```
-`commutative_diagram` returns a rectangular region containing the
+`commutative-diagram` returns a rectangular region containing the
 nodes and arrows.
-All the unnamed arguments passed to `commutative_diagram` are treated as
+All the unnamed arguments passed to `commutative-diagram` are treated as
 nodes or arrows of the diagram. These can be constructed using the
 `node` and `arr` functions explained below.
 The other arguments are as follows:
-- `node_padding`: `(length, length)`. The space to leave between adjacent nodes. It's a
+- `node-padding`: `(length, length)`. The space to leave between adjacent nodes. It's a
   tuple, `(h, v)`, containing the horizontal and vertical spacing respectively.
-- `arr_clearance`: `length`. The default space between arrows' base/tip and the diagram's nodes. 
+- `arr-clearance`: `length`. The default space between arrows' base/tip and the diagram's nodes. 
 - `padding`: `length`. The padding around the whole diagram
 - `debug`: `bool`. Whether or not to display debug information. 
 
@@ -55,9 +71,9 @@ arr(
   start,
   end,
   label,
-  start_space: none,
-  end_space: none,
-  label_pos: 1em,
+  start-space: none,
+  end-space: none,
+  label-pos: 1em,
   curve: 0deg,
   stroke: 0.45pt,
   ..options
@@ -69,11 +85,11 @@ Creates an arrow. Has the following arguments:
 - `end`: `(integer, integer)`. The position of the node where the arrow ends,
   in `(row, column)` format.
 - `label`: `content`. The label to put on the arrow.
-- `start_space`: `length`. The space between the start node and the beginning of the arrow.
+- `start-space`: `length`. The space between the start node and the beginning of the arrow.
   You can pass `none` to leave a sensible default, customizable using the
-  `arr_clearance` parameter of the `commutative_diagram` function.
-- `end_space`: `length`. Similar to the above.
-- `label_pos`: `length`. Where to position the arrow's label relative to the arrow.
+  `arr-clearance` parameter of the `commutative-diagram` function.
+- `end-space`: `length`. Similar to the above.
+- `label-pos`: `length`. Where to position the arrow's label relative to the arrow.
   A positive length means that, when looking towards the tip of the arrow,
   the label is on the "left". If set to `0` (`0` the number, which is different from `0pt` or `0em`)
   then the label is placed on top of the arrow, with a white background to help
@@ -89,22 +105,3 @@ Creates an arrow. Has the following arguments:
   - `"def"`, gives the arrow a bar at the start, used for function definitions
   - `"dashed"`, the arrow becomes dashed
 
-# Example
-```
-#import "lib.typ": node, arr, commutative_diagram
-
-#align(center)[#commutative_diagram(
-  node((0, 0), [$X$]),
-  node((0, 1), [$Y$]),
-  node((1, 0), [$X \/ "ker"(f)$]),
-  arr((0, 0), (0, 1), [$f$]),
-  arr((1, 0), (0, 1), [$tilde(f)$], label_pos: -1em, "dashed", "inj"),
-  arr((0, 0), (1, 0), [$pi$]),
-)]
-```
-
-This outputs the screenshot at the top of this README
-
-
-   
-For more usage examples look at `example.typ`
