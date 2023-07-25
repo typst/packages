@@ -2,8 +2,6 @@
 
 **Showybox** is a Typst package for creating colorful and customizable boxes.
 
-_Please note that this version (v0.2.1) **isn't yet published at Typst's official package repository**. If you want to use this package, see https://github.com/typst/packages/tree/main/packages/preview for the latest stable version_
-
 ## Usage
 
 To use this library through the Typst package manager (for Typst 0.6.0 or greater), write `#import "@preview/showybox:0.2.1": showybox` at the beginning of your Typst file.
