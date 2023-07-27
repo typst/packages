@@ -5,7 +5,7 @@
 ## Overview
 `unify` allows flexible numbers and units, and still mostly gets well typeset results.
 ```ts
-#import "@preview/unify:0.0.1": num,unit,range,unit-range
+#import "@preview/unify:0.1.0": num, unit, range, unit-range
 
 $ #num("-1.3+-0.5e-6") $
 $ #unit("1.3+1.2-0.3e3", "meter per second squared") $
