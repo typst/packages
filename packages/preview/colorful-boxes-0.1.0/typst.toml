@@ -1,0 +1,9 @@
+[package]
+name = "colorful-boxes"
+version = "0.1.0"
+repository = "https://github.com/lkoehl/typst-boxes"
+entrypoint = "lib.typ"
+authors = ["Lukas Köhl <https://github.com/lkoehl>"]
+license = "MIT"
+description = "Predefinded colorful boxes"
+exclude = [ "/examples/*"]
