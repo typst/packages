@@ -1,6 +1,6 @@
 # Local Outline
 
-This package provides the `local_outline` command that does the same thing as the `outline` command but only for headings under the heading above it.
+This package provides the `local-outline` command that does the same thing as the `outline` command but only for headings under the heading above it.
 
 This is inspired by minitoc package for LaTeX.
 
@@ -14,7 +14,7 @@ This is inspired by minitoc package for LaTeX.
 
 = Heading 1
 
-#local_outline()
+#local-outline()
 
 == Heading 1.1
 
@@ -38,29 +38,23 @@ This produces
 
 ## Usage
 
-The `local_outline` function has the following signature:
+The `local-outline` function has the following signature:
 
 ```typst
-#let local_outline(
-  title: none,
-  depth: none,
-  indent: none,
-  fill: repeat([.])
+#let local-outline(
+  title: none, target: heading.where(outlined: true),
+	depth: none, indent: none, fill: repeat([.])
 ) { /* .. */ }
 ```
 
 This is designed to be as close to the [`outline`](https://typst.app/docs/reference/meta/outline/) funtions as possible. The arguments are:
 
-- **title**: The title for the local outline. This can either be `none` or `content` but not `auto`. `auto` for `outline` uses the appropriate title for the current language. I don't know how to do this so it has been excluded. Titles are not numbered (see [below](#things-to-do))
-- **depth**: The maximum depth different to include.`` For example, if depth was 1 in the example, "Heading 1.1.1" would not be included
-- **indent**: How the entries should be indented. Takes the same types as for `outline` with the exception of not accepting `boolean` values (will likely be deprecated for `outline` so has not been included)
-- **fill**: Content to put between the numbering and title, and the page number. Same types as for [`outline`](https://typst.app/docs/reference/meta/outline/#parameters-fill)
+- **title**: The title for the local outline. This is the same as for [`outline.title`](https://typst.app/docs/reference/meta/outline/#parameters-title).
+- **target**: What should be included. This is the same as for [`outline.target`](https://typst.app/docs/reference/meta/outline/#parameters-target)
+- **depth**: The maximum depth different to include. For example, if depth was 1 in the example, "Heading 1.1.1" would not be included
+- **indent**: How the entries should be indented. Takes the same types as for [`outline.indent`](https://typst.app/docs/reference/meta/outline/#parameters-indent) and is passed directly to it
+- **fill**: Content to put between the numbering and title, and the page number. Same types as for [`outline.fill`](https://typst.app/docs/reference/meta/outline/#parameters-fill)
 
-## Things to do
+## Unintended consequences
 
-`outline` uses `outline.entry` to format entries. `local_outline` does not have that at the moment. It's also importan to note that `outline.entry` can take either one or five arguments and is treated differently depending on this. I am currently unaware of any way to determine the number of argumets to a function so full compatability in this way will probably not be available.
-
-`outline` also has a `target` argument. This specifies what kind of content that should be included. Since not all content listable by `outline` can neatly be split into sections like sections can, this is not included. Also I couldn't work out how to do that properly
-
-`outline` allows `auto` for the `title` argument. If it's possible to work out how to use this inside Typst code, I would love to be able to include it. `outline` can also use `show outline: set heading(numbering: "1.")` to display numbering for headings. This is not possible for `local_outline` 
-
+Because `local-outline` uses `outline`, if you apply numbering to the title of outline with `#show outline: set heading(numbering: "1.")` or similar, any title in `local-outline` will be numbered and be a level 1 heading. This cannot be changed with `#show outline: set heading(level: 3)` or similar unfortunately
