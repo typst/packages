@@ -181,6 +181,8 @@
       }
       if type(term) == "array" and ((type(term.at(1)) == "integer" and term.at(1) > 1) or type(term.at(1)) == "content") {
         [#math.diff #math.attach(term.at(0), t: [#term.at(1)])]
+      } else if x.len() == 1 and deg != none {
+        [#math.diff #math.attach(term, t: deg)]
       } else {
         [#math.diff #term]
       }
@@ -193,6 +195,8 @@
     _add-eval(frac, eval, evalsym: evalsym, space: space)
   }
 }
+
+#let pdv(f, ..x, deg: none, eval: none, evalsym: "|", space: none) = dvp(f, ..x, deg: deg, eval: eval, evalsym: evalsym)
 
 #let dvpc(f, ..x, deg: none, eval: none, evalsym: "|", space: none) = {
   /// Compact partial differential.
@@ -214,6 +218,8 @@
     }
     if type(term) == "array" and ((type(term.at(1)) == "integer" and term.at(1) > 1) or type(term.at(1)) == "content") {
       [#math.attach(math.diff, b: term.at(0), t: [#term.at(1)])]
+    } else if x.len() == 1 and deg != none {
+      [#math.attach(math.diff, b: term, t: deg)]
     } else {
       [#math.attach(math.diff, b: term)]
     }
@@ -228,6 +234,7 @@
 }
 
 #let dvcp(f, x, deg: none, eval: none, evalsym: "|", space: none) = dvpc(f, x, deg: deg, eval: eval, evalsym: evalsym, space: space)
+#let pdvc(f, x, deg: none, eval: none, evalsym: "|", space: none) = dvpc(f, x, deg: deg, eval: eval, evalsym: evalsym, space: space)
 
 #let dvps(f, ..x, deg: none, eval: none, evalsym: "|", space: none) = {
   /// Separate partial differential.
@@ -260,6 +267,8 @@
         }
         if type(term) == "array" and ((type(term.at(1)) == "integer" and term.at(1) > 1) or type(term.at(1)) == "content") {
           [#math.diff #math.attach(term.at(0), t: [#term.at(1)])]
+      } else if x.len() == 1 and deg != none {
+        [#math.diff #math.attach(term, t: deg)]
         } else {
           [#math.diff #term]
         }
@@ -276,3 +285,5 @@
 }
 
 #let dvsp(f, x, deg: none, eval: none, evalsym: "|", space: none) = dvps(f, x, deg: deg, eval: eval, evalsym: evalsym, space: space)
+
+#let pdvs(f, x, deg: none, eval: none, evalsym: "|", space: none) = dvps(f, x, deg: deg, eval: eval, evalsym: evalsym, space: space)
