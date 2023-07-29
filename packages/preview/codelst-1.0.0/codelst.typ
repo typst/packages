@@ -260,6 +260,7 @@
       codelst-counter.update(numbers-start - 1)
     }
     //stack(dir: ttb, ..numbers-column)
+    v(.5 * (line-gap + descender))
     numbers-column.join()
   }
   highlight-column = {
@@ -276,6 +277,7 @@
   let code-column = {
     set align(left)
     set par(justify:false)
+    v(.5 * (line-gap + descender))
     raw(lang:code-lang, code-lines.join("\n"))
   }
 
