@@ -1,0 +1,7 @@
+[package]
+name = "physica"
+version = "0.7.4"
+entrypoint = "physica.typ"
+license = "MIT"
+description = "Physics notations."
+authors = ["Leedehai"]
