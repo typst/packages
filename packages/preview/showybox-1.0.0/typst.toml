@@ -6,3 +6,4 @@ authors = ["Pablo González Calderón", "Showybox Contributors"]
 license = "MIT"
 description = "Colorful and customizable boxes for typst"
 repository = "https://github.com/Pablo-Gonzalez-Calderon/showybox-package"
+exclude = ["assets", "Showybox's Manual.pdf"]
