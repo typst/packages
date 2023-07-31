@@ -10,20 +10,20 @@ fn main() -> anyhow::Result<()> {
 
     println!("Starting bundling.");
 
-    let mut paths = vec![];
-    for entry in fs::read_dir("packages/preview")? {
-        let entry = entry?;
-        if entry.metadata()?.is_dir() {
-            paths.push(entry.path());
-        }
-    }
-
-    paths.sort();
-
     let mut index = vec![];
-    for path in paths {
+    for entry in walkdir::WalkDir::new("packages/preview")
+        .min_depth(2)
+        .max_depth(2)
+        .sort_by_file_name()
+    {
+        let entry = entry?;
+        if !entry.metadata()?.is_dir() {
+            continue;
+        }
+
+        let path = entry.path();
         index.push(
-            process_package(&path)
+            process_package(path)
                 .with_context(|| format!("failed to process package at {}", path.display()))?,
         );
     }
@@ -53,8 +53,12 @@ fn parse_manifest(path: &Path) -> anyhow::Result<PackageManifest> {
     let src = fs::read_to_string(path.join("typst.toml"))?;
 
     let manifest: PackageManifest = toml::from_str(&src)?;
-    let expected = format!("{}-{}", manifest.package.name, manifest.package.version);
-    if path.file_name() != Some(expected.as_ref()) {
+    let expected = format!(
+        "packages/preview/{}/{}",
+        manifest.package.name, manifest.package.version
+    );
+
+    if path != Path::new(&expected) {
         bail!("package directory name and manifest are mismatched");
     }
 
@@ -97,6 +101,7 @@ fn build_archive(dir_path: &Path, exclude: &[String]) -> anyhow::Result<Vec<u8>>
 
     for entry in ignore::WalkBuilder::new(dir_path)
         .overrides(overrides.build()?)
+        .sort_by_file_name(|a, b| a.cmp(b))
         .build()
     {
         let entry = entry?;
