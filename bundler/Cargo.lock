@@ -60,6 +60,7 @@ dependencies = [
  "spdx",
  "tar",
  "toml",
+ "walkdir",
 ]
 
 [[package]]
