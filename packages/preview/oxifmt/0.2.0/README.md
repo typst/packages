@@ -38,8 +38,8 @@ Its syntax is almost identical to Rust's `format!` (as specified here: https://d
 ```js
 #import "@preview/oxifmt:0.2.0": strfmt
 
-let s = strfmt("I'm {}. I have {num} cars. I'm {0}. {} is {{cool}}.", "John", "Carl", num: 10)
-assert.eq(s, "I'm John. I have 10 cars. I'm John. Carl is {cool}.")
+#let s = strfmt("I'm {}. I have {num} cars. I'm {0}. {} is {{cool}}.", "John", "Carl", num: 10)
+#assert.eq(s, "I'm John. I have 10 cars. I'm John. Carl is {cool}.")
 ```
 
 Note that `{}` extracts positional arguments after the string sequentially (the first `{}` extracts the first one, the second `{}` extracts the second one, and so on), while `{0}`, `{1}`, etc. will always extract the first, the second etc. positional arguments after the string. Additionally, `{bananas}` will extract the named argument "bananas".
