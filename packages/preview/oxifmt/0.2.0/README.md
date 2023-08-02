@@ -216,6 +216,7 @@ The tests succeeded if you received no error messages from the last command (ple
 
 ### v0.2.0
 
+- The package's name is now `oxifmt`!
 - `oxifmt:0.2.0` is now available through Typst's Package Manager! You can now write `#import "@preview/oxifmt:0.2.0": strfmt` to use the library.
 - Greatly improved the README, adding a section for common examples.
 - Fixed negative numbers being formatted with two minus signs.
