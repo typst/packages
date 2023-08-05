@@ -57,4 +57,4 @@ This is designed to be as close to the [`outline`](https://typst.app/docs/refere
 
 ## Unintended consequences
 
-Because `minitoc` uses `outline`, if you apply numbering to the title of outline with `#show outline: set heading(numbering: "1.")` or similar, any title in `local-outline` will be numbered and be a level 1 heading. This cannot be changed with `#show outline: set heading(level: 3)` or similar unfortunately.
+Because `minitoc` uses `outline`, if you apply numbering to the title of outline with `#show outline: set heading(numbering: "1.")` or similar, any title in `minitoc` will be numbered and be a level 1 heading. This cannot be changed with `#show outline: set heading(level: 3)` or similar unfortunately.
