@@ -1,20 +1,20 @@
-# Local Outline
+# Typst miniTOC
 
-This package provides the `local-outline` command that does the same thing as the `outline` command but only for headings under the heading above it.
+This package provides the `minitoc` command that does the same thing as the `outline` command but only for headings under the heading above it.
 
 This is inspired by minitoc package for LaTeX.
 
 ## Example
 
 ```typst
-#import "@preview/local-outline:0.1.0": *
+#import "@preview/minitoc:0.1.0": *
 #set heading(numbering: "1.1")
 
 #outline()
 
 = Heading 1
 
-#local-outline()
+#minitoc()
 
 == Heading 1.1
 
@@ -38,10 +38,10 @@ This produces
 
 ## Usage
 
-The `local-outline` function has the following signature:
+The `minitoc` function has the following signature:
 
 ```typst
-#let local-outline(
+#let minitoc(
   title: none, target: heading.where(outlined: true),
 	depth: none, indent: none, fill: repeat([.])
 ) { /* .. */ }
@@ -57,4 +57,4 @@ This is designed to be as close to the [`outline`](https://typst.app/docs/refere
 
 ## Unintended consequences
 
-Because `local-outline` uses `outline`, if you apply numbering to the title of outline with `#show outline: set heading(numbering: "1.")` or similar, any title in `local-outline` will be numbered and be a level 1 heading. This cannot be changed with `#show outline: set heading(level: 3)` or similar unfortunately
+Because `minitoc` uses `outline`, if you apply numbering to the title of outline with `#show outline: set heading(numbering: "1.")` or similar, any title in `local-outline` will be numbered and be a level 1 heading. This cannot be changed with `#show outline: set heading(level: 3)` or similar unfortunately.

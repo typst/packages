@@ -1,4 +1,4 @@
-#let local-outline(
+#let minitoc(
 	title: none, target: heading.where(outlined: true),
 	depth: none, indent: none, fill: repeat([.])
 ) = {
