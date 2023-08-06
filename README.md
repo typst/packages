@@ -38,7 +38,7 @@ Optional:
   used for support files like images or documentation that would otherwise
   unnecessarily increase the bundle size.
 
-Packages always live in folders named as `{name}-{version}`. The name and
+Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
 to that package. Absolute paths start in the package root while relative paths
 are relative to the file they are used in.
@@ -47,7 +47,7 @@ are relative to the file they are used in.
 This repository contains a collection of published packages. Due to its early
 and experimental nature, all packages in this repository are scoped in a
 `preview` namespace. A package that is stored in
-`packages/preview/{name}-{version}` in this repository will become availabe in
+`packages/preview/{name}/{version}` in this repository will become availabe in
 Typst as `#import "@preview/{name}:{version}"`. You must always specify the full
 package version.
 
@@ -115,7 +115,7 @@ Importing a cached package does not result in a network access.
 ## Local packages
 Want to install a package locally on your system without publishing it or
 experiment with it before publishing? You can store packages in
-`{data-dir}/typst/packages/{namespace}/{name}-{version}` to make them available
+`{data-dir}/typst/packages/{namespace}/{name}/{version}` to make them available
 locally on your system. Here, `{data-dir}` is
 
 - `$XDG_DATA_HOME` or `~/.local/share` on Linux
@@ -126,7 +126,7 @@ Packages in the data directory have precedence over ones in the cache directory.
 While you can create arbitrary namespaces with folders, a good namespace for
 system packages is `local`:
 
-- Store a package in `~/.local/share/typst/packages/local/mypkg-1.0.0`
+- Store a package in `~/.local/share/typst/packages/local/mypkg/1.0.0`
 - Import from it with `#import "@local/mypkg:1.0.0": *`
 
 Note that future iterations of Typst's package management may change/break this
