@@ -1,5 +1,5 @@
 [package]
-name = "chic-header"
+name = "chic-hdr"
 version = "0.1.0"
 entrypoint = "chic-hdr.typ"
 authors = ["Pablo González Calderón"]
