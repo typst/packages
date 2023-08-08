@@ -250,8 +250,8 @@ This submodule is a collection of functions, that mostly deal with content eleme
 - `#get-text( element, sep: "" )`: Recursively extracts the text content of a content element. 
 	
 	If present, all child elements are converted to text and joined with `sep`.
-- `#stroke-paint( stroke, default: black )`: Returns the color of `stroke`. If no color information is available, `default` is used.
-- `#stroke-thickness( stroke, default: 1pt )`: Returns the thickness of `stroke`. If no thickness information is available, `default` is used.
+- `#stroke-paint( stroke, default: black )`: Returns the color of `stroke`. If no color information is available, `default` is used. (Deprecated, use `stroke.paint` instead.)
+- `#stroke-thickness( stroke, default: 1pt )`: Returns the thickness of `stroke`. If no thickness information is available, `default` is used. (Deprecated, use `stroke.thickness` instead.)
 - `#stroke-dict( stroke, ..overrides )`: Creates a dictionary with the keys necessary for a stroke. The returned dictionary is guaranteed to have the keys `paint`, `thickness`, `dash`, `cap` and `join`.
 
 	If `stroke` is a dictionary itself, all key/value-pairs are copied to the resulting stroke. Any named arguments in `overrides` will override the previous value.
@@ -261,12 +261,12 @@ This submodule is a collection of functions, that mostly deal with content eleme
 	The resulting dictionary is guaranteed to have the keys `top`, `left`, `bottom` and `right`.
 
 	If `inset` is a dictionary itself, all key/value-pairs are copied to the resulting stroke. Any named arguments in `overrides` will override the previous value.
-- `#x-align( align, default:left )`: Returns the alignment along the x-axis from the passed in `align` value. If none is present, `default` is returned.
+- `#x-align( align, default:left )`: Returns the alignment along the x-axis from the passed in `align` value. If none is present, `default` is returned. (Deprecated, use `align.x` instead.)
 
 	```js
 	#get.x-align(top + center) // center
 	```
-- `#y-align( align, default:top )`: Returns the alignment along the y-axis from the passed in `align` value. If none is present, `default` is returned.
+- `#y-align( align, default:top )`: Returns the alignment along the y-axis from the passed in `align` value. If none is present, `default` is returned. (Deprecated, use `align.y` instead.)
 
 ## Math functions
 
@@ -354,6 +354,7 @@ The following functions have aliases right now:
 	- `meta.has-mark` / `meta.not-has-mark` checks for the presence / abssence of a certain label.
 	- `meta.place-marker(name)` adds a hidden placeholder that can be later used with `show meta.marker(name)`
 	- `meta.add`, `meta.get` and `meta.rm` can add, get and remove hidden meta data to /from any content element.
+- Deprecated `get.stroke-paint`, `get.stroke-thickness`, `get.x-align` and `get.y-align` in favor of new Typst 0.7.0 features.
 
 ### Version 0.1.0
 
