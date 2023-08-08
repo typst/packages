@@ -14,6 +14,28 @@ import "@preview/nth:0.1.0": *
 
 Then, you can use `#nth()` to markup ordinal numbers in your document. For example, writing `#nth(1)` gives '1<sup>st</sup>', `#nth(2)` gives '2<sup>nd</sup>', `#nth(3)` gives '3<sup>rd</sup>', and `#nth(4)` gives '4<sup>th</sup>'.
 
+## Content
+
+This is a very simple package.
+
+```typst
+#let nth(ordinal-num) = {
+  let ordinal-str = str(ordinal-num)
+  if ordinal-str.last() == "1" {
+    show: ordinal-str + super("st")
+  }
+  else if ordinal-str.last() == "2" {
+    show: ordinal-str + super("nd")
+  }
+  else if ordinal-str.last() == "3" {
+    show: ordinal-str + super("rd")
+  }
+  else {
+    show: ordinal-str + super("th")
+  }
+}
+```
+
 ## TODO
 
 * Pass argument to choose whether or not to put ordinals in superscript.
