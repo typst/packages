@@ -1,15 +1,15 @@
 #let nth(ordinal_num) = {
   let ordinal_str = str(ordinal_num)
   if ordinal_str.last() == "1" {
-    show: ordinal_str + "st"
+    show: ordinal_str + super("st")
   }
   else if ordinal_str.last() == "2" {
-    show: ordinal_str + "nd"
+    show: ordinal_str + super("nd")
   }
   else if ordinal_str.last() == "3" {
-    show: ordinal_str + "rd"
+    show: ordinal_str + super("rd")
   }
   else {
-    show: ordinal_str + "th"
+    show: ordinal_str + super("th")
   }
 }
