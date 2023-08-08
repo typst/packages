@@ -2,6 +2,6 @@
 name = "nth"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["Pierre Marshall"]
+authors = ["Pierre Marshall <pierre.marshall@gmail.com>"]
 license = "MIT"
 description = "Add english ordinals to numbers, eg. 1st, 3nd, 2rd, 4th."
