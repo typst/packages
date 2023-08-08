@@ -1,0 +1,7 @@
+[package]
+name = "nth"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Pierre Marshall"]
+license = "MIT"
+description = "Add english ordinals to numbers, eg. 1st, 3nd, 2rd, 4th."
