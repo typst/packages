@@ -1,8 +1,6 @@
 # Chic-header (v0.1.0)
 **Chic-headers** (chic-hdr) is a Typst package for creating elegant headers and footers
 
-_Please note that this repository contains the latest (development) version of this package and **may not yet be published at Typst's official package repository**. If you want to use this package, see https://github.com/typst/packages/tree/main/packages/preview for the latest stable version_
-
 ## Usage
 
 To use this library through the Typst package manager (for Typst 0.6.0 or greater), write `#import "@preview/chic-hdr:0.1.0": *` at the beginning of your Typst file. Once imported, you can start using the package by writing the instruction `#show: chic.with()` and giving any of the chic functions inside the parenthesis `()`.
