@@ -1,7 +1,7 @@
 #let nth(ordinal-num) = {
   let ordinal-str = str(ordinal-num)
   if ordinal-str.ends-with(regex("1[0-9]")) {
-    show: ordinal-str + "th"
+    show: ordinal-str + super("th")
   }
   else if ordinal-str.last() == "1" {
     show: ordinal-str + super("st")
