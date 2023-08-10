@@ -17,7 +17,8 @@ Then, you can use `#nth()` to markup ordinal numbers in your document.
 For example, writing `#nth(1)` shows 1<sup>st</sup>,  
 `#nth(2)` shows 2<sup>nd</sup>,  
 `#nth(3)` shows 3<sup>rd</sup>,  
-and `#nth(4)` shows 4<sup>th</sup>.
+`#nth(4)` shows 4<sup>th</sup>,  
+and `#nth(11)` shows 11<sup>th</sup>.
 
 ## Content
 
@@ -26,7 +27,10 @@ This is a very simple package.
 ```typst
 #let nth(ordinal-num) = {
   let ordinal-str = str(ordinal-num)
-  if ordinal-str.last() == "1" {
+  if ordinal-str.ends-with(regex("1[0-9]")) {
+    show: ordinal-str + super("th")
+  }
+  else if ordinal-str.last() == "1" {
     show: ordinal-str + super("st")
   }
   else if ordinal-str.last() == "2" {
