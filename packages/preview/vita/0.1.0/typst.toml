@@ -5,5 +5,5 @@ entrypoint = "vita.typ"
 authors = ["Joey Carpinelli"]
 license = "MIT"
 description = "Modern résumé templates that separate content and style."
-repository = "https://github.com/cadojo/modern-resumes"
+repository = "https://github.com/cadojo/vita"
 exclude = ["template.typ", "icons/*", "*.pdf"]
