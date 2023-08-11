@@ -10,7 +10,6 @@ _Professional résumé templates with Typst!_
 
 ```typst
 #import "@preview/vita:0.1.0": *
-#import "vita.typ": *
 
 //
 // Assuming an icons directory exists, filled with SVG files,
