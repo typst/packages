@@ -4,7 +4,7 @@
 
 **Tools for Typst** (`t4t` in short) is a utility package for [Typst](typst/typst) package and template authors. It provides solutions to some recurring tasks in package development.
 
-The package can be imported or any useful parts of it copied into a project. It is perfectly fine to treat `t4t` as a snippet collection and to pick and choose only some useful functions. For this reason, most functions are implemented without further dependencies. 
+The package can be imported or any useful parts of it copied into a project. It is perfectly fine to treat `t4t` as a snippet collection and to pick and choose only some useful functions. For this reason, most functions are implemented without further dependencies.
 
 Hopefully, this collection will grow over time with *Typst* to provide solutions for common problems.
 
@@ -27,7 +27,7 @@ The modules are:
 - `def`
 - `assert`
 - `alias`
-- `math` 
+- `math`
 - `get`
 
 Any or all modules cann be imported the usual way:
@@ -47,7 +47,7 @@ In general, the main value is passed last to the utility functions. `#def.if-non
 #let is-foo = eq.with("foo")
 ```
 
-### Test functions 
+### Test functions
 
 ```js
 #import "@preview/t4t:0.2.0": is
@@ -57,7 +57,7 @@ These functions provide shortcuts to common tests like `#is.eq()`. Some of these
 
 ```js
 // check all values for none
-if some-array.any(is-none) { 
+if some-array.any(is-none) {
 	...
 }
 
@@ -76,7 +76,7 @@ There are two exceptions: `is-none` and `is-auto`. Since keywords can't be used 
 
 The `is` submodule still has these tests, but under different names (`is.n` and `is.non` for `none` and `is.a` and `is.aut` for `auto`).
 
-- `#is.neq( test )`: Creates a new test function, that is `true`, when `test` is `false`. Can be used to create negations of tests like `#let not-raw = is.neg(is.raw)`.
+- `#is.neq( test )`: Creates a new test function that is `true` when `test` is `false`. Can be used to create negations of tests like `#let not-raw = is.neg(is.raw)`.
 - `#is.eq( a, b )`: Tests if values `a` and `b` are equal.
 - `#is.neq( a, b )`: Tests if values `a` and `b` are not equal.
 - `#is.n( ..values )`: Tests if any of the passed `values` is `none`.
@@ -88,9 +88,9 @@ The `is` submodule still has these tests, but under different names (`is.n` and 
 - `#is.not-auto( ..values )`: Tests if all of the passed `values` are not `auto`.
 - `#is.not-a( ..values )`: Alias for `is.not-auto`.
 - `#is.empty( value )`: Tests if `value` is _empty_. A value is considered _empty_ if it is an empty array, dictionary or string or `none` otherwise.
-- `#is.not-empty( value )`: Tests if `value` is not empty. 
-- `#is.any( ..compare, value )`: Tests if `value` is equal to any one of the other passed in values.
-- `#is.not-any( ..compare, value)`: Tests if `value` is not equals to any one of the other passed in values.
+- `#is.not-empty( value )`: Tests if `value` is not empty.
+- `#is.any( ..compare, value )`: Tests if `value` is equal to any one of the other passed-in values.
+- `#is.not-any( ..compare, value)`: Tests if `value` is not equal to any one of the other passed-in values.
 - `#is.has( ..keys, value )`: Tests if `value` contains all the passed `keys`. Either as keys in a dictionary or elements in an array. If `value` is neither of those types, `false` is returned.
 - `#is.type( t, value )`: Tests if `value` is of type `t`.
 - `#is.dict( value )`: Tests if `value` is a dictionary.
@@ -111,12 +111,12 @@ The `is` submodule still has these tests, but under different names (`is.n` and 
 - `#is.align( value )`: Tests if `value` is an alignment.
 - `#is.align2d( value )`: Tests if `value` is a 2d alignment.
 - `#is.func( value )`: Tests if `value` is a function.
-- `#is.any-type( ..types, value )`: Tests if `value` has any of the passe in types.
-- `#is.same-type( ..values )`: Tests if all passed in values have the same type.
-- `#is.all-of-type( t, ..values )`: Tests if all of the passed in values have the type `t`.
-- `#is.none-of-type( t, ..values )`: Tests if none of the passed in values has the type `t`.
-- `#is.one-not-none( ..values )`: Checks, if at least one value in `values` is not equal to `none`. Useful for checking mutliple optoinal arguments for a valid value: `#if is.one-not-none(..args.pos()) [ #args.pos().find(is.not-none) ]`
-- `#is.elem( func, value )`: Tests if `value` is a content element with `value.func() == func`. If `func` is a string, `value` will be compared to `repr(value.func())`, instead.
+- `#is.any-type( ..types, value )`: Tests if `value` has any of the passed-in types.
+- `#is.same-type( ..values )`: Tests if all passed-in values have the same type.
+- `#is.all-of-type( t, ..values )`: Tests if all of the passed-in values have the type `t`.
+- `#is.none-of-type( t, ..values )`: Tests if none of the passed-in values has the type `t`.
+- `#is.one-not-none( ..values )`: Checks if at least one value in `values` is not equal to `none`. Useful for checking multiple optional arguments for a valid value: `#if is.one-not-none(..args.pos()) [ #args.pos().find(is.not-none) ]`
+- `#is.elem( func, value )`: Tests if `value` is a content element with `value.func() == func`. If `func` is a string, `value` will be compared to `repr(value.func())` instead.
 
 	Both of these effectively do the same:
 	```js
@@ -134,15 +134,15 @@ The `is` submodule still has these tests, but under different names (`is.n` and 
 - `#is.stack( value )`: Tests if `value` is a stack element.
 - `#is.label( value )`: Tests if `value` is of type `label`.
 
-### Default values 
+### Default values
 
 ```js
 #import "@preview/t4t:0.2.0": def
 ```
 
-These functions perform a test to decide, if a given `value` is _invalid_. If the test _passes_, the `default` is returned, the `value` otherwise.
+These functions perform a test to decide if a given `value` is _invalid_. If the test _passes_, the `default` is returned, the `value` otherwise.
 
-Almost all functions support an optional `do` argument, to be set to a function of one argument, that will be applied to the value, if the test fails. For example:
+Almost all functions support an optional `do` argument, to be set to a function of one argument, that will be applied to the value if the test fails. For example:
 ```js
 // Sets date to a datetime from an optional
 // string argument in the format "YYYY-MM-DD"
@@ -160,8 +160,8 @@ Almost all functions support an optional `do` argument, to be set to a function 
 - `#def.if-false( test, default, do:none, value )`: Returns `default` if `test` is `false`, `value` otherwise.
 - `#def.if-none( default, do:none, value )`: Returns `default` if `value` is `none`, `value` otherwise.
 - `#def.if-auto( default, do:none, value )`: Returns `default` if `value` is `auto`, `value` otherwise.
-- `#def.if-any( ..compare, default, do:none, value )`: Returns `default` if `value` is equal to any of the passed in values, `value` otherwise. (`#def.if-any(none, auto, 1pt, width)`)
-- `#def.if-not-any( ..compare, default, do:none, value )`:  Returns `default` if `value` is not equal to any of the passed in values, `value` otherwise. (`#def.if-not-any(left, right, top, bottom, left, position)`)
+- `#def.if-any( ..compare, default, do:none, value )`: Returns `default` if `value` is equal to any of the passed-in values, `value` otherwise. (`#def.if-any(none, auto, 1pt, width)`)
+- `#def.if-not-any( ..compare, default, do:none, value )`:  Returns `default` if `value` is not equal to any of the passed-in values, `value` otherwise. (`#def.if-not-any(left, right, top, bottom, left, position)`)
 - `#def.if-empty( default,do:none,  value )`: Returns `default` if `value` is _empty_, `value` otherwise.
 - `#def.as-arr( ..values )`: Always returns an array containing all `values`. Any arrays in `values` will be flattened into the result. This is useful for arguments, that can have one element or an array of elements: `#def.as-arr(author).join(", ")`.
 
@@ -173,7 +173,7 @@ Almost all functions support an optional `do` argument, to be set to a function 
 
 This submodule overloads the default `assert` function and provides more asserts to quickly check if given values are valid. All functions use `assert` in the background.
 
-Since a module in typst is not callable, the `assert` functino is now available as `assert.that()`. `assert.eq` and `assert.ne` work as expected.
+Since a module in Typst is not callable, the `assert` function is now available as `assert.that()`. `assert.eq` and `assert.ne` work as expected.
 
 All assert functions take an optional argument `message` to set the error message shown if the assert fails.
 
@@ -206,14 +206,14 @@ All assert functions take an optional argument `message` to set the error messag
 
 This submodule is a collection of functions, that mostly deal with content elements and _get_ some information from them. Though some handle other types like dictionaries.
 
-- `#get.dict( ..values )`: Creat a new dictionary from the passed `values`. All named arguments are stored in the new dictionary as is. All positional arguments are grouped in key/value-pairs and inserted into the dictionary:
+- `#get.dict( ..values )`: Create a new dictionary from the passed `values`. All named arguments are stored in the new dictionary as is. All positional arguments are grouped in key-value pairs and inserted into the dictionary:
 
 	```js
 	#get.dict("a", 1, "b", 2, "c", d:4, e:5)
 
 	// (a:1, b:2, c:none, d:4, e:5)
 	```
-- `#get.dict-merge( ..dicts )`: Recursivley merges the passed in dictionaries:
+- `#get.dict-merge( ..dicts )`: Recursively merges the passed in dictionaries:
 
 	```js
 	#get.dict-merge(
@@ -224,9 +224,9 @@ This submodule is a collection of functions, that mostly deal with content eleme
 
 	// (a:(one:1, two:4, three:3))
 	```
-- `#get.args( args, prefix: "" )`: Creats a function to extract values from an argument sink `args`. 
+- `#get.args( args, prefix: "" )`: Creates a function to extract values from an argument sink `args`.
 
-	The resulting function takes any number of positional and named arguments and creates a dictionary with values from `args.named()`. Positional arguments are present in the result, if they are present in `args.named()`. Named arguments are always present, either with their value from `args.named()` or with the provided value.
+	The resulting function takes any number of positional and named arguments and creates a dictionary with values from `args.named()`. Positional arguments are present in the result if they are present in `args.named()`. Named arguments are always present, either with their value from `args.named()` or with the provided value.
 
 	A `prefix` can be specified, to extract only specific arguments. The resulting dictionary will have all keys with the prefix removed, though.
 
@@ -247,26 +247,26 @@ This submodule is a collection of functions, that mostly deal with content eleme
 		text-fill: red, text-size: 1.2em
 	)[#lorem(5)]
 	```
-- `#get-text( element, sep: "" )`: Recursively extracts the text content of a content element. 
-	
+- `#get-text( element, sep: "" )`: Recursively extracts the text content of a content element.
+
 	If present, all child elements are converted to text and joined with `sep`.
 - `#stroke-paint( stroke, default: black )`: Returns the color of `stroke`. If no color information is available, `default` is used. (Deprecated, use `stroke.paint` instead.)
 - `#stroke-thickness( stroke, default: 1pt )`: Returns the thickness of `stroke`. If no thickness information is available, `default` is used. (Deprecated, use `stroke.thickness` instead.)
 - `#stroke-dict( stroke, ..overrides )`: Creates a dictionary with the keys necessary for a stroke. The returned dictionary is guaranteed to have the keys `paint`, `thickness`, `dash`, `cap` and `join`.
 
-	If `stroke` is a dictionary itself, all key/value-pairs are copied to the resulting stroke. Any named arguments in `overrides` will override the previous value.
+	If `stroke` is a dictionary itself, all key-value pairs are copied to the resulting stroke. Any named arguments in `overrides` will override the previous value.
 - `#inset-at( direction, inset, default: 0pt )`: Returns the inset (or outset) in a given `direction`, ascertained from `inset`.
 - `#inset-dict( inset, ..overrides )`: Creates a dictionary usable as an inset (or outset) argument.
 
 	The resulting dictionary is guaranteed to have the keys `top`, `left`, `bottom` and `right`.
 
-	If `inset` is a dictionary itself, all key/value-pairs are copied to the resulting stroke. Any named arguments in `overrides` will override the previous value.
-- `#x-align( align, default:left )`: Returns the alignment along the x-axis from the passed in `align` value. If none is present, `default` is returned. (Deprecated, use `align.x` instead.)
+	If `inset` is a dictionary itself, all key-value pairs are copied to the resulting stroke. Any named arguments in `overrides` will override the previous value.
+- `#x-align( align, default:left )`: Returns the alignment along the x-axis from the passed-in `align` value. If none is present, `default` is returned. (Deprecated, use `align.x` instead.)
 
 	```js
 	#get.x-align(top + center) // center
 	```
-- `#y-align( align, default:top )`: Returns the alignment along the y-axis from the passed in `align` value. If none is present, `default` is returned. (Deprecated, use `align.y` instead.)
+- `#y-align( align, default:top )`: Returns the alignment along the y-axis from the passed-in `align` value. If none is present, `default` is returned. (Deprecated, use `align.y` instead.)
 
 ## Math functions
 
@@ -281,12 +281,12 @@ Some functions to complement the native `calc` module.
 	```js
 	#let (min, max) = math.minmax(a, b)
 	```
-- `#math.clamp( min, max, value )`: Clamps a value between `min` and `max`. In contrast to `calc.clamp()` this function works for other values than numbers, as long as they are comparable. 
+- `#math.clamp( min, max, value )`: Clamps a value between `min` and `max`. In contrast to `calc.clamp()` this function works for other values than numbers, as long as they are comparable.
 
 	```js
 	text-size = math.clamp(0.8em, 1.2em, text-size)
 	```
-- `#lerp( min, max, t )`: Calculates the linear interpolation of `t` between `min` and `max`. 
+- `#lerp( min, max, t )`: Calculates the linear interpolation of `t` between `min` and `max`.
 
 	```js
 	#let width = math.lerp(0%, 100%, x)
@@ -309,9 +309,9 @@ Some functions to complement the native `calc` module.
 #import "@preview/t4t:0.2.0": alias
 ```
 
-Some of the native Typst function as aliases, to prevent collisions with some common argument namens.
+Some of the native Typst function as aliases, to prevent collisions with some common argument names.
 
-For example using `numbering` as an argument is not possible, if the value is supposed to be passed to the `numbering()` function. To still allow argument names, that are in line with the common typst names (like `numbering`, `align` ...), these alias functions can be used:
+For example using `numbering` as an argument is not possible if the value is supposed to be passed to the `numbering()` function. To still allow argument names, that are in line with the common Typst names (like `numbering`, `align` ...), these alias functions can be used:
 
 ```js
 #let excercise( no, numbering: "1)" ) = [
@@ -349,9 +349,9 @@ The following functions have aliases right now:
 - Added `do` argument to all functions in `def`.
 - Allowed strings in `is.elem` (see #1).
 	- Added `is.sequence` test.
-- Added `meta` submodule to do some hacky things with hidden meta data and labels.
+- Added `meta` submodule to do some hacky things with hidden metadata and labels.
 	- `meta.mark-as` "marks" an element with a label.
-	- `meta.has-mark` / `meta.not-has-mark` checks for the presence / abssence of a certain label.
+	- `meta.has-mark` / `meta.not-has-mark` checks for the presence / absence of a certain label.
 	- `meta.place-marker(name)` adds a hidden placeholder that can be later used with `show meta.marker(name)`
 	- `meta.add`, `meta.get` and `meta.rm` can add, get and remove hidden meta data to /from any content element.
 - Deprecated `get.stroke-paint`, `get.stroke-thickness`, `get.x-align` and `get.y-align` in favor of new Typst 0.7.0 features.
