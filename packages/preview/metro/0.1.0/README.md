@@ -9,7 +9,7 @@ Metro’s name comes from Metrology, the study scientific study of measurement.
 Requires Typst v0.7.0+.
 Use Typst's package manager:
 ```
-#import "@preview/units:0.1.0": *
+#import "@preview/metro:0.1.0": *
 ```
 You can also download the `src` folder and import `lib.typ` and import:
 ```
