@@ -1,4 +1,4 @@
-# Acrostiche (0.2.0)
+# Acrostiche (0.3.0)
 
 Manages acronyms so you don't have to.
 
@@ -28,7 +28,7 @@ Then, initialize Arostiche with the acronyms you just defined with the `#init-ac
 
 Here is a sample of the `acronyms.typ` file:
 ```
-#import "@preview/acrostiche:0.2.0": *
+#import "@preview/acrostiche:0.3.0": *
 
 #init-acronyms((
   "NN": ("Neural Network",),
