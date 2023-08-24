@@ -2,7 +2,7 @@
 github_url = "https://github.com/jneug/typst-tool4typst/"
 
 [version]
-current = "0.0.0"
+current = "0.1.0"
 
 # Example of a semver regexp.
 # Make sure this matches current_version before
@@ -30,19 +30,6 @@ search = '\(v{current_version}\)'
 src = "README.md"
 search = "finite:{current_version}"
 
-[[file]]
-src = "manual.typ"
-search = 'version:\s*"{current_version}",'
-[[file]]
-src = "manual.typ"
-search = 'codelst:{current_version}'
-[[file]]
-src = "manual.typ"
-search = 'codelst-{current_version}'
-
 [[before_commit]]
 name = "compile manual"
 cmd = "typst c manual.typ"
-[[before_commit]]
-name = "compile examples"
-cmd = "typst c example.typ"

@@ -1,4 +1,4 @@
-# finite (v0.0.0)
+# finite (v0.1.0)
 
 **finite** is a [Typst](https://github.com/typst/typst) package for rendering finite automata on top of [CeTZ](https://github.com/johannes-wolf/typst-canvas).
 
@@ -7,12 +7,12 @@
 For Typst 0.6.0 or later, import the package from the typst preview repository:
 
 ```js
-#import "@preview/finite:0.0.0": automaton
+#import "@preview/finite:0.1.0": automaton
 ```
 
 After importing the package, simply call `#automaton()` with a dictionary holding a transition table:
 ```js
-#import "@preview/finite:0.0.0": automaton
+#import "@preview/finite:0.1.0": automaton
 
 #automaton((
   q0: (q1:0, q0:"0,1"),

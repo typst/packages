@@ -1,6 +1,6 @@
 [package]
 name = "finite"
-version = "0.0.0"
+version = "0.1.0"
 entrypoint = "finite.typ"
 authors = ["Jonas Neugebauer"]
 license = "MIT"
