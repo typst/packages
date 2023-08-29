@@ -1,6 +1,6 @@
 #import "@preview/t4t:0.3.0": get, def, is, assert, math
 
-#import "@preview/cetz:0.0.2": vector, draw
+#import "@preview/cetz:0.0.2": vector, matrix, draw
 #import draw: util, styles, cmd, coordinate
 #import util.bezier: quadratic-point, quadratic-derivative
 
@@ -38,14 +38,18 @@
 //  Vectors
 // =================================
 
+/// Set the length of a vactor.
 #let vector-set-len(v, len) = if vector.len(v) == 0 {
   return v
 } else {
   return vector.scale(vector.norm(v), len)
 }
 
+/// Compute a normal for a 2d vector. The normal will be pointing to the right
+/// of the original vector.
 #let vector-normal(v) = vector.norm((-v.at(1), v.at(0), 0))
 
+/// Returns a vector for an alignment.
 #let align-to-vec( a ) = {
   let v = (
     ("none": 0, "left": -1, "right": 1).at(repr(get.x-align(a, default:none))),
@@ -59,6 +63,7 @@
 //  Bezier
 // =================================
 
+/// Compute a normal vector for a point on a quadratic bezier curve.
 #let quadratic-normal(a, b, c, t) = {
   let qd = quadratic-derivative(a, b, c, t)
   if vector.len(qd) == 0 {
@@ -68,6 +73,7 @@
   }
 }
 
+/// Compute the mid point of a quadratic bezier curve.
 #let mid-point(a, b, c) = quadratic-point(a, b, c, .5)
 
 
@@ -209,4 +215,64 @@
   }
 
   return ctx
+}
+
+
+// Unused
+
+#let calc-bounds( positions ) = {
+  let bounds = (
+    x: positions.first().at(0),
+    y: positions.first().at(1),
+    width: positions.first().at(0),
+    height: positions.first().at(1)
+  )
+  for (x,y) in positions {
+    bounds.x = calc.min(bounds.x, x)
+    bounds.y = calc.min(bounds.y, y)
+    bounds.width = calc.max(bounds.width, x)
+    bounds.height = calc.max(bounds.height, y)
+  }
+  bounds.width = bounds.width - bounds.x
+  bounds.height = bounds.height - bounds.y
+  return bounds
+}
+
+#let calc-shift(anchor, bounds:none) = {
+  let shift = (x: -.5, y: -.5)
+  if anchor.ends-with("right") {
+    shift.x -= .5
+  } else if anchor.ends-with("left") {
+    shift.x += .5
+  }
+  if anchor.starts-with("top") {
+    shift.y -= .5
+  } else if anchor.starts-with("bottom") {
+    shift.y += .5
+  }
+  if bounds != none {
+    shift.x *= bounds.width
+    shift.y *= bounds.height
+  }
+  return shift
+}
+
+#let shift-by-anchor(positions, anchor) = {
+  let bounds = calc-bounds(positions.values())
+  let shift = calc-shift(anchor, bounds:bounds)
+
+  for (name, pos) in positions {
+    let (x, y) = pos
+    positions.at(name) = (x + shift.x, y + shift.y)
+  }
+
+  return positions
+}
+
+#let resolve-radius(state, style) = if state in style and "radius" in style.at(state) {
+  return style.at(state).radius
+} else if "state" in style and "radius" in style.state {
+  return style.state.radius
+} else {
+  return default-style.state.radius
 }

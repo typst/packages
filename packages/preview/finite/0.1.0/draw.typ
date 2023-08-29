@@ -1,8 +1,26 @@
 // imports cetz and t4t
 #import "./util.typ": *
 
+#import "layout.typ"
+
 /// Draw a state at the given #arg[position].
-#let state(position, name, label:auto, start:false, stop:false, anchor:"center", ..style) = {
+///
+/// #example[```
+/// #cetz.canvas({
+///   import finite.draw: state
+///   state((0,0), "q1", label:"S1", initial:true)
+///   state("q1.right", "q2", label:"S2", final:true, anchor:"left")
+/// })
+/// ```]
+///
+/// - position (coordinate): Position of the states center.
+/// - name (string): Name for the state.
+/// - label (string,content,auto,none): Label for the state. If set to #value(auto), the #arg[name] is used.
+/// - initial (boolean,alignment): Whether this is an initial state.
+/// - final (boolean): Whether this is a final state.
+/// - anchor (string): Anchor to use for drawing.
+/// - ..style (any): Styling options.
+#let state(position, name, label:auto, initial:false, final:false, anchor:"center", ..style) = {
   assert.no-pos(style)
 
   let style = style.named()
@@ -14,14 +32,15 @@
   if "text" not in style.label or is.a(style.label.text) {
     style.label.insert("text", name)
   }
-  if start == true {
-    start = left
+  if initial == true {
+    initial = left
   }
 
   let t = coordinate.resolve-system(position)
   ((
     name: name,
     coordinates: (position, ),
+    radius: (ctx) => styles.resolve(ctx.style, style, root: "state").at("radius", default:default-style.state.radius),
     before: prepare-ctx,
     anchor: anchor,
     add-default-anchors: false,
@@ -57,55 +76,93 @@
       }
 
       // Mark state as final
-      if stop {
+      if final {
         let thickness = util.resolve-number(ctx, get.stroke-thickness(style.stroke))
         cmd.ellipse(..center, (rx - thickness)*.9, (ry - thickness)*.9, fill: none, stroke: style.stroke)
       }
 
       // Draw arrow to mark start state
-      if start != false {
+      if initial != false {
         let s-end = vector.add(
           center,
-          vector.scale(align-to-vec(start), rx)
+          vector.scale(align-to-vec(initial), rx)
         )
         let s-start = vector.add(
           s-end,
-          vector.scale(align-to-vec(start), rx)
+          vector.scale(align-to-vec(initial), rx)
         )
         cmd.path(
           ("line", s-start, s-end),
           stroke: style.stroke
         )
         cmd.mark(
-          vector.add(s-end, vector.scale(align-to-vec(start), ctx.style.mark.size)), s-end,
+          vector.add(s-end, vector.scale(align-to-vec(initial), ctx.style.mark.size)), s-end,
           ">",
           fill: get.stroke-paint(style.stroke),
           stroke: style.stroke
         )
       }
+    },
+    after: (ctx, ..) => {
+      ctx.nodes.at(name).insert(
+        "radius",
+        styles.resolve(ctx.style, style, root: "state").at("radius", default:default-style.state.radius)
+      )
+      return ctx
     }
   ),)
 }
 
 /// Draw a transition between two states.
 ///
-/// The two states #arg[from] and #arg[to] have to be drawn first.
-#let transition( from, to, label: none, ..style ) = {
+/// The two states #arg[from] and #arg[to] have to be existing names of states.
+/// #example[```
+/// #cetz.canvas({
+///   import finite.draw: state, transition
+///   state((0,0), "q1")
+///   state((2,0), "q2")
+///   transition("q1", "q2", label:"a")
+///   transition("q2", "q1", label:"b")
+/// })
+/// ```]
+///
+/// - from (string): Name of the starting state.
+/// - to (string): Name of the ending state.
+/// - inputs (string,array,none): A list of atomic input symbols for the transition.
+///    If provided as a #dtype("string"), it is split on commas to get the list of
+///    input symbols.
+/// - label (string,content,auto,dictionary): A label for the transition. For #value(auto)
+///    the #arg[input] symbols are joined with commas. Can be a #dtype("dictionary") with
+///    a `text` and additional styling keys.
+/// - ..style (any): Styling options.
+#let transition( from, to, inputs: none, label: auto, ..style ) = {
   assert.no-pos(style)
   let style = style.named()
 
   assert.all-of-type("string", from, to)
   let name = from + "-" + to
 
-  if is.not-empty(label) {
-    if is.arr(label) {
-      label = label.map(str).join(",")
+  if is.not-empty(inputs) {
+    if is.str(inputs) {
+      inputs = inputs.split(",")
+    } else if not is.arr(inputs) {
+      inputs = (inputs,)
     }
-    if not is.dict(label) {
-      style.insert("label", (text:label))
+  } else {
+    inputs = none
+  }
+
+  if is.a(label) {
+    if is.not-none(inputs) {
+      label = inputs.map(str).join(",")
     } else {
-      style.insert("label", label)
+      label = ""
     }
+  }
+  if not is.dict(label) {
+    style.insert("label", (text:label))
+  } else {
+    style.insert("label", label)
   }
 
   let coords = (
@@ -197,6 +254,11 @@
   ),)
 }
 
+
+/// Draws all transitions from a transition table with a common style.
+///
+/// - states (dictionary): A transition table given as a dictionary of dictionaries.
+/// - ..style (any): Styling options.
 #let transitions( states, ..style ) = {
   assert.no-pos(style)
   style = style.named()
@@ -214,3 +276,4 @@
     }
   }
 }
+

@@ -9,6 +9,9 @@
   finite: finite
 )
 
+#show "CETZ": a => package[CeTZ]
+#let cetz-cmd = cmd.with(module:"cetz")
+#let cetz-cmd- = cmd-.with(module:"cetz")
 
 #show: mantys.with(
   ..toml("typst.toml"),
@@ -30,15 +33,11 @@
 
   date: datetime.today(),
   abstract: [
-    FINITE is a Typst package to draw transition diagrams for finite automata (state machines) with the power of CetZ.
+    FINITE is a Typst package to draw transition diagrams for finite automata (finite state machines) with the power of CETZ.
 
-    The package provides new elements for manually drawing states and transitions on any CetZ canvas, but also comes with commands to quickly create automata from a transition table.
+    The package provides new elements for manually drawing states and transitions on any CETZ canvas, but also comes with commands to quickly create automata from a transition table.
   ],
 
-  usage: (
-    namespace: "preview",
-    imports: "automaton"
-  ),
   examples-scope: (
     cetz: cetz,
     finite:finite,
@@ -46,35 +45,52 @@
   )
 )
 
-#show "CETZ": a => package[CetZ]
+= Usage
+
+== Load from package repository (Typst 0.6.0 and later)
+
+For Typst 0.6.0 and later, the package can be imported from the _preview_ repository:
+
+#codesnippet[```typ
+#import "@preview/finite:0.1.0": automaton
+```]
+
+Alternatively, the package can be downloaded and saved into the system dependent local package repository.
+
+Either download the current release from GitHub#footnote[#link("https://github.com/jneug/typst-finite")] and unpack the archive into your system dependent local repository folder#footnote[#link("https://github.com/typst/packages#local-packages")] or clone it directly:
+
+#codesnippet[```shell-unix-generic
+git clone https://github.com/jneug/typst-finite.git finite/0.1.0
+```]
+
+In either case, make sure the files are placed in a subfolder with the correct version number: `finite/0.1.0`
+
+After installing the package, just import it inside your `typ` file:
+
+#codesnippet[```typ
+#import "@local/finite:0.1.0": automaton
+```]
 
 == Dependencies
 
 FINITE loads #link("https://github.com/johannes-wolf/typst-canvas")[CETZ] and the utility package #link("https://github.com/jneug/typst-tools4typst")[#package[t4t]] from the `preview` package repository. The dependencies will be downloaded by Typst automatically on first compilation.
 
-== Quick start
+= Drawing automata
 
-FINITE helps you draw transition diagrams for finite automata in your Typst douments, using the power of CETZ.
+FINITE helps you draw transition diagrams for finite automata in your Typst documents, using the power of CETZ.
 
-To draw an automaton, import #cmd[automaton] from FINITE and use it like this:
-#codesnippet[```typ
+To draw an automaton, simply import #cmd[automaton] from FINITE and use it like this:
+#example[```typ
 #automaton((
   q0: (q1:0, q0:"0,1"),
   q1: (q0:(0,1), q2:"0"),
-  q2: (),
+  q2: none,
 ))
 ```]
 
-The output looks like this:
-#finite.automaton((
-  q0: (q1:0, q0:"0,1"),
-  q1: (q0:(0,1), q2:"0"),
-  q2: (),
-))
+As you can see, an automaton ist defined by a dictionary of dictionaries. The keys of the top-level dictionary are the names of states to draw. The second-level dictionaries have the names of connected states as keys and transition labels as values.
 
-As you can see, an automaton ist defined by a dictionary of dictionaries. The keys of the top-level dictionary are the names of the states to draw. The second-level dictionaries have the names of connected states as keys and transition labels as values.
-
-In the example above, the states `q0`, `q1` and `q2` are defined. `q0` is connected to `q1` nad has a loop to itself. `q1` transitions to `q2` and back to `q0`. #cmd-[automaton] selected the first state in the dictionary (in this case `q0`) to be the initiat state and the last (`q2`) to be a final state.
+In the example above, the states `q0`, `q1` and `q2` are defined. `q0` is connected to `q1` and has a loop to itself. `q1` transitions to `q2` and back to `q0`. #cmd-[automaton] selected the first state in the dictionary (in this case `q0`) to be the initiat state and the last (`q2`) to be a final state.
 
 To modify the defaults, #cmd-[automaton] accepts a set of options:
 #example[```typ
@@ -84,12 +100,12 @@ To modify the defaults, #cmd-[automaton] accepts a set of options:
     q1: (q0:(0,1), q2:"0"),
     q2: (),
   ),
-  start: "q1",
-  stop: ("q0", "q2"),
+  initial: "q1",
+  final: ("q0", "q2"),
   style:(
     state: (fill: luma(248), stroke:luma(120)),
     transition: (stroke: (dash:"dashed")),
-    q1: (start:top),
+    q1: (initial:top),
     q1-q2: (stroke: 2pt + red)
   )
 )
@@ -107,10 +123,10 @@ For larger automatons, the states can be arranged in different ways:
 }
 #automaton(
   aut,
-  layout: finite.layout.circular.with(offset: 2),
+  layout: finite.layout.circular.with(offset: 45deg),
   style: (
     transition: (curve: 0),
-    q0: (start: top+left)
+    q0: (initial: top+left)
   )
 )
 ```]
@@ -125,27 +141,73 @@ See @using-layout for more details about layouts.
   scope: module-scope
 )
 
-== Drawing automata
+== Styling the output
 
-The above commands use custom #package[CetZ] elements, to draw states and transitions. For complex automata, the functions in the #module[draw] module can be used directly.
+As common in CETZ, you can pass general styles for states and transitions to the #cetz-cmd-[set-style] function within a call to #cetz-cmd-[canvas]. The elements functions #cmd-[state] and #cmd-[transition] (see below) can take their respective styling options as arguments, to style individual elements.
+
+#arg[automaton] takes a #arg[style] argument that passes the given style to the above functions. The example below sets a background and stroke color for all states and draws transitions with a dashed style. Additionally, the state `q1` has the arrow indicating an initial state drawn from above instead from the left. The transition from `q1` to `q2` is highlighted in red.
+#example[```typ
+#automaton(
+  (
+    q0: (q1:0, q0:"0,1"),
+    q1: (q0:(0,1), q2:"0"),
+    q2: (),
+  ),
+  initial: "q1",
+  final: ("q0", "q2"),
+  style:(
+    state: (fill: luma(248), stroke:luma(120)),
+    transition: (stroke: (dash:"dashed")),
+    q1: (initial:top),
+    q1-q2: (stroke: 2pt + red)
+  )
+)
+```]
+
+Every state can be accessed by its name and every transition is named with its initial and end state joined with a dash (`-`).
+
+The supported styling options (and their defaults) are as follows:
+- states:
+  / #arg(fill: auto): Background fill for states.
+  / #arg(stroke: auto): Stroke for state borders.
+  / #arg(radius: .6): Radius of states.
+  - `label`:
+    / #arg(text: auto): Default state label.
+    / #arg(size: auto): Default text size for state labels.
+
+- transitions
+  / #arg(curve: 1.0): Curviness of transitions. Set to #value(0) to get straight lines.
+  / #arg(stroke: auto): Stroke for transitions.
+  - `label`:
+    / #arg(text: ""): Default transition label.
+    / #arg(size: 1em): Default size for label text.
+    / #arg(color: auto): Color for label text.
+    / #arg(pos: .5): Position on the transition, between #value(0) and #value(1). #value(0) sets the text at the initial, #value(1) at the end of the transition.
+    / #arg(dist: .33): Distance of the label from the transition.
+    / #arg(angle: auto): Angle of the label text. #value(auto) will set the angle based on the transitions direction.
+
+== Using #cmd-(module:"cetz")[canvas]
+
+The above commands use custom CETZ elements to draw states and transitions. For complex automata, the functions in the #module[draw] module can be used inside a call to #cetz-cmd-[canvas].
 #example[```
 #cetz.canvas({
   import cetz.draw: set-style
   import finite.draw: state, transition
 
-  state((0,0), "q0", start:true)
+  state((0,0), "q0", initial:true)
   state((2,1), "q1")
-  state((4,-1), "q2", stop:true)
-  state((3,-3), "trap", label:"TRAP")
+  state((4,-1), "q2", final:true)
+  state((rel:(0, -3), to:"q1.bottom"), "trap", label:"TRAP", anchor:"top-left")
 
-  transition("q0", "q1", label:(0,1))
-  transition("q1", "q2", label:(0))
-  transition("q1", "trap", label:(1), curve:-1)
-  transition("q2", "trap", label:(0,1))
-  transition("trap", "trap", label:(0,1))
+  transition("q0", "q1", inputs:(0,1))
+  transition("q1", "q2", inputs:(0))
+  transition("q1", "trap", inputs:(1), curve:-1)
+  transition("q2", "trap", inputs:(0,1))
+  transition("trap", "trap", inputs:(0,1))
 })
 ```]
 
+=== Element functions
 #tidy-module(
   read("draw.typ"),
   name: "draw",
@@ -153,14 +215,16 @@ The above commands use custom #package[CetZ] elements, to draw states and transi
   scope: module-scope
 )
 
-States have the common anchors (like `top`, `top-left` ...), transitions have a `start`, `end`, `center` and `label` anchors. These can be used to draw additional elements:
-#example[```
+=== Anchors
+
+States have the common anchors (like `top`, `top-left` ...), transitions have a `initial`, `end`, `center` and `label` anchors. These can be used to add elements to an automaton:
+#example(breakable:true)[```
 #cetz.canvas({
   import cetz.draw: circle, line, place-marks, content
   import finite.draw: state, transition
 
   state((0,0), "q0")
-  state((4,0), "q1", stop:true)
+  state((4,0), "q1", final:true)
   transition("q0", "q1", label:$epsilon$)
 
   circle("q0.top-right", radius:.4em, stroke:none, fill:black)
@@ -183,129 +247,134 @@ States have the common anchors (like `top`, `top-left` ...), transitions have a 
 })
 ```]
 
-== Using layouts <using-layout>
+== Layouts <using-layout>
 
-Layouts calculate coordinates for every state in a transition table and return a dictionary with all computed locations.
+Layouts can be used to move states to new positions within a call to #cetz-cmd-[canvas]. They act similar to CETZ groups and have their own transform. Any other elements than states will keep their original coordinates, but be translated by the layout, if necessary.
 
 FINITE ships with a bunch of layouts, to accomodate different scenarios.
 
-#wbox[Layouts currently are very simple. They will most likely see improvements in the future. At the moment, layouts don't know about the context and can't resolve coordinates other than absolute coordinate pairs.]
-
-=== Available layouts
+=== Available layouts <available-layouts>
 #tidy-module(
   read("layout.typ"),
   name: "layout",
   scope: module-scope
 )
 
+=== Using layouts
 
-=== Creating custom layouts
+Layouts are elements themselves. This means, they have a coordinate to be moved on the canvas and they can have anchors. Using layouts allows you to quickly create complex automata, without the need to pick each states coordinate by hand.
+#example(breakable:true)[```
+#cetz.canvas({
+  import cetz.draw: set-style
+  import finite.draw: *
 
-A layout is a function, that, provided with information about the automaton, returns a dictionary with the state names as keys and valid coordinates as values.
+  set-style(state: (radius: .4))
 
-#cmd[linear-layout] is a simple example:
-#sourcecode[```typc
-let linear-layout(states, start, stop, x:2.2, y:0) = {
-  let positions = (:)
-  for (i, name) in states.keys().enumerate() {
-    positions.insert(name, (i * x, i * y))
-  }
-  return positions
-}
+  layout.grid(
+    (0,0),
+    name:"grid", columns:3, {
+      set-style(state: (fill: green.lighten(80%)))
+      for s in range(6) {
+        state((), "a" + str(s))
+      }
+    })
+
+  layout.linear(
+    (rel:(2,0), to:"grid.right"),
+    dir: bottom, anchor: "center", {
+      set-style(state: (fill: blue.lighten(80%)))
+      for s in range(4) {
+        state((), "b" + str(s))
+      }
+    })
+
+  state((rel: (0, -1.4), to:"grid.bottom"), "TRAP", fill:red.lighten(80%))
+
+  transition("a0", "TRAP", curve:-1)
+  transition("b2", "TRAP")
+  transition("a5", "b0")
+  transition("a5", "b2", curve:-1)
+})
 ```]
 
-A layout function always gets passed the #arg[states] dictionary (the same dictionary that is passed to #cmd[automaton]), the #arg[start] state and the list of end states #arg[stop].
+=== Creating custom layouts <creating-layout>
 
-Additional named arguments may be used to configure the layout via #symbol[with]:
-#codesnippet[```typc
-linear-layout.with(x:-1, y:2.2)
-```]
+There are two ways to create custom layouts. Using the #cmd(module:"layout")[custom] layout or building your own from the ground up.
+
+==== Using #cmd(module:"layout")[custom]
+
+The `custom` layout passes information about states to a #arg[positions] function, that computes a dictionary with new coordinates for all states. The `custom` layout will then place the states at the given locations and handle any other elements other than states.
+
+The position function gets passed the CETZ context, a dictionary of state names and matching radii (for drawing the states circle) and the list of #cmd-[state] elements.
 
 This example arranges the states in a wave:
-#example[```
-#let wave-layout(
-  states, start, stop,
-  x: 1.6, amp: 1,
-  generator: calc.sin
-) = {
-  let positions = (:)
-
-  for (i, state) in states.keys().enumerate() {
-    positions.insert(state, (
-      i * x, generator(i * amp)
-    ))
+#example(breakable:true)[```
+#let wave-layout = finite.layout.custom.with(
+  positions: (ctx, radii, states) => {
+    let (i, at) = (0, 0)
+    let pos = (:)
+    for (name, r) in radii {
+      at += r
+      pos.insert(name, (at, 1.2 * calc.sin(i)))
+      i += 1
+      at += r + .4
+    }
+    return pos
   }
-
-  return positions
-}
+)
 
 #let aut = (:)
 #for i in range(8) {
   aut.insert("q"+str(i), none)
 }
 
-#grid(
-  columns:(1fr,1fr),
-  automaton(
-    aut,
-    layout: wave-layout.with(generator: calc.sin, x:.8),
-    style: (state: (radius: .4))
-  ),
-  automaton(
-    aut,
-    layout: wave-layout.with(generator: calc.cos, x:.8, amp:1.4),
-    style: (state: (radius: .4))
+#automaton(
+  aut,
+  layout: wave-layout,
+  style: (
+    state: (radius: .4),
+    q2: (radius: .8),
+    q6: (radius: .8)
   )
 )
 ```]
 
-/*
-#let aut = (:)
-#for i in range(15) {
-  let name = "q"+str(i)
-  aut.insert(name, (:))
-  if i < 14 {
-    aut.at(name).insert("q" + str(i + 1), none)
-  }
-}
-#finite.automaton(
-  aut,
-  layout: finite.layout.group.with(
-    x: 1.6, y: -.4,
-    grouping: (
-      ("q0", "q2", "q4", "q6"),
-      ("q1", "q3", "q5", "q7"),
-      ("q8", "q10", "q12", "q14"),
-      ("q9", "q11", "q13", "q15")
-    ),
-    layout: (
-      finite.layout.linear.with(x:0, y:-1.4),
-      finite.layout.fixed.with(pos: (
-        q1: (-2.8, 0),
-        q3: (-2.8, -1.4),
-        q5: (-2.8, -2.8),
-        q7: (0, -2),
-      )),
-      finite.layout.linear.with(x:.1, y:-1.6),
-    )
-  ),
-  style: (
-    state:(radius: .5),
-    transition:(curve:0),
-    q0:(start:top+left)
-  )
-)
+==== Creating a layout element
 
-#finite.automaton(
-  aut,
-  layout: finite.layout.start-stop,
-  style: (
-    state:(radius: .5),
-    transition:(curve:0),
-    q0:(start:top+left)
-  )
-)
-*/
+Layout are elements and are similar to CETZ's groups. A layout takes an array of elements and computes a new positions for each state in the list.
+
+To create a layout, FINITE provides a base element that can be extended. A basic layout can look like this:
+
+#sourcecode[```typc
+#let my-layout(
+  position, name: none, anchor: "left", body
+) = {
+  // Layouts always need to have a name.
+  // If none was provided, we create one.
+  if is.n(name) {
+    name = "layout" + body.map((e) => e.at("name", default:"")).join("-")
+  }
+
+  // Get the base layout element
+  let layout = base(position, name, anchor, body)
+
+  // We need to supply a function to compute new locations for the elements.
+  layout.children = (ctx) => {
+    let elements = ()
+    for element in elements {
+      // states have a custom "radius" key
+      if "radius" in element {
+        // Change the position of the state
+        element.coordinates = ((rel:(.6,0)),)
+      }
+      elements.push(element)
+    }
+    elements
+  }
+
+  return (layout,)
+}
+```]
 
 == Utility functions
 #tidy-module(
