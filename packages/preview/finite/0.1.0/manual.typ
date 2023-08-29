@@ -93,7 +93,7 @@ As you can see, an automaton ist defined by a dictionary of dictionaries. The ke
 In the example above, the states `q0`, `q1` and `q2` are defined. `q0` is connected to `q1` and has a loop to itself. `q1` transitions to `q2` and back to `q0`. #cmd-[automaton] selected the first state in the dictionary (in this case `q0`) to be the initiat state and the last (`q2`) to be a final state.
 
 To modify the defaults, #cmd-[automaton] accepts a set of options:
-#example[```typ
+#example(breakable:true)[```typ
 #automaton(
   (
     q0: (q1:0, q0:"0,1"),
@@ -112,7 +112,7 @@ To modify the defaults, #cmd-[automaton] accepts a set of options:
 ```]
 
 For larger automatons, the states can be arranged in different ways:
-#example[```typ
+#example(breakable:true)[```typ
 #let aut = (:)
 #for i in range(10) {
   let name = "q"+str(i)
@@ -146,7 +146,7 @@ See @using-layout for more details about layouts.
 As common in CETZ, you can pass general styles for states and transitions to the #cetz-cmd-[set-style] function within a call to #cetz-cmd-[canvas]. The elements functions #cmd-[state] and #cmd-[transition] (see below) can take their respective styling options as arguments, to style individual elements.
 
 #arg[automaton] takes a #arg[style] argument that passes the given style to the above functions. The example below sets a background and stroke color for all states and draws transitions with a dashed style. Additionally, the state `q1` has the arrow indicating an initial state drawn from above instead from the left. The transition from `q1` to `q2` is highlighted in red.
-#example[```typ
+#example(breakable:true)[```typ
 #automaton(
   (
     q0: (q1:0, q0:"0,1"),
@@ -189,7 +189,7 @@ The supported styling options (and their defaults) are as follows:
 == Using #cmd-(module:"cetz")[canvas]
 
 The above commands use custom CETZ elements to draw states and transitions. For complex automata, the functions in the #module[draw] module can be used inside a call to #cetz-cmd-[canvas].
-#example[```
+#example(breakable:true)[```
 #cetz.canvas({
   import cetz.draw: set-style
   import finite.draw: state, transition
