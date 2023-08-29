@@ -188,8 +188,8 @@
 }
 
 /// Prepares the CeTZ context for use with finite
-#let prepare-ctx(ctx) = {
-  if "finite" not in ctx {
+#let prepare-ctx(ctx, force:false) = {
+  if force or "finite" not in ctx {
     // supposed to store state information at some point
     ctx.insert("finite", (states:()))
 

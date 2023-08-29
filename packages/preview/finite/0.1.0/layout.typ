@@ -36,14 +36,15 @@
 // A base element for creating layouts.
 #let base(position, name, anchor, body, children:()) = (
   name: name,
+  coordinates: (position,),
   anchor: anchor,
   default-anchor: "origin",
-  custom-anchors-ctx: (ctx) => {
+  custom-anchors-ctx: (ctx, pos) => {
     let anchors = ctx.groups.last().anchors
     for (k,v) in anchors {
       anchors.insert(k, vector.add(translate, a))
     }
-    anchors.insert("origin", coordinate.resolve(ctx, position))
+    anchors.insert("origin", pos)
     return anchors
   },
   before: (ctx) => {
@@ -61,7 +62,7 @@
     )
     return matrix.mul-mat(matrix.transform-translate(..t), ctx.transform)
   },
-  after: (ctx) => {
+  after: (ctx, pos) => {
     let node = ctx.nodes.at(name)
     let anchor = if is.n(anchor) {"left"} else {anchor}
     let translate = vector.sub(node.anchors.default, node.anchors.at(anchor))
@@ -81,7 +82,8 @@
       }
     }
 
-    return ctx
+    ctx.prev.pt = pos
+    return prepare-ctx(ctx, force:true)
   },
   children: children
 )
@@ -439,4 +441,71 @@
     return elements
   }
   return (l,)
+}
+
+
+#let group(
+  position, name: none, anchor: "left",
+  grouping: 5,
+  spacing: .8,
+  layout: linear.with(dir:bottom),
+  body
+) = {
+  if is.n(name) {
+    name = "layout" + body.map((e) => e.at("name", default:"")).join("-")
+  }
+
+  let base = base(position, name, anchor, body)
+  base.children = (ctx) => {
+    let groups = ()
+    let rest = ()
+    if is.int(grouping) {
+      for (i, element) in body.enumerate() {
+        if calc.rem(i, grouping) == 0 {
+          groups.push(())
+        }
+        groups.last().push(element)
+      }
+    } else if is.arr(grouping) {
+      // Collect States into groups
+      for (group) in grouping {
+        groups.push(())
+        for element in body {
+          if "name" in element and element.name in group {
+            groups.last().push(element)
+          }
+        }
+      }
+      for element in body {
+        if "name" not in element or not grouping.any((g) => element.name in g) {
+          rest.push(element)
+        }
+      }
+    }
+
+    let elements = ()
+    let last-name = none
+    for (i, group) in groups.enumerate() {
+      let group-layout
+      if is.arr(layout) {
+        if layout.len() > i {
+          group-layout = layout.at(i)
+        } else {
+          group-layout = layout.at(-1)
+        }
+      } else {
+        group-layout = layout
+      }
+
+      if is.n(last-name) {
+        elements += group-layout(position, anchor: "left", group)
+      } else {
+        elements += group-layout((rel:(spacing,0), to:last-name+".right"), anchor: "left", group)
+      }
+      last-name = elements.last().name
+    }
+
+    return elements + rest
+  }
+  return (base,)
 }

@@ -160,13 +160,11 @@
     }
   }
   if not is.dict(label) {
-    style.insert("label", (text:label))
-  } else {
-    if not "text" in label and is.not-none(inputs) {
-      label.insert("text", inputs.map(str).join(","))
-    }
-    style.insert("label", label)
+    label = (text:label)
+  } else if not "text" in label and is.not-none(inputs) {
+    label.insert("text", inputs.map(str).join(","))
   }
+  style.insert("label", label)
 
   let coords = (
     from + ".center",

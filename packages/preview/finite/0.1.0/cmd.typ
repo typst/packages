@@ -84,27 +84,30 @@
           ..style.at(name, default:(:))
         )
       }
-      for (from, transitions) in states {
-        if is.dict(transitions) {
-          for (to, label) in transitions {
-            let name = from + "-" + to
+    })
 
-            if is.arr(label) {
-              label = label.map(str).join(",")
-            } else if is.dict(label) and "text" in label and is.arr(label.text) {
-              label.text = label.text.map(str).join(",")
-            }
+    // Transitions don't need to be layed out
+    for (from, transitions) in states {
+      if is.dict(transitions) {
+        for (to, label) in transitions {
+          let name = from + "-" + to
 
-            transition(
-              from,
-              to,
-              label: label-format(label, false),
-              ..style.at(name, default:(:))
-            )
+          if is.arr(label) {
+            label = label.map(str).join(",")
+          } else if is.dict(label) and "text" in label and is.arr(label.text) {
+            label.text = label.text.map(str).join(",")
           }
+
+          transition(
+            from,
+            to,
+            inputs: label,
+            label: label-format(label, false),
+            ..style.at(name, default:(:))
+          )
         }
       }
-    })
+    }
   })
 }
 
