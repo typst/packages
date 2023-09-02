@@ -6,7 +6,7 @@ Using [tablex](https://github.com/PgBiel/typst-tablex) under the hood.
 
 ## Example
 
-![ipv4 example](ipv4-example.png)
+![ipv4 example](https://github.com/jomaway/typst-bytefield/blob/9ef42c9472ff1d8eddb869867a45cf4af21a8478/ipv4-example.png)
 
 ```typst  
 bytefield(
