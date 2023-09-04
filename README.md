@@ -32,7 +32,14 @@ Required for submissions to this repository:
   grammar and spelling mistakes as it will appear in the [package list][list].
 
 Optional:
-- `repository`: A link to the repository where this package is developed.
+- `homepage`: A link to the package's web presence where there could be more
+  details, an issue tracker, or something else. Will be linked to from the
+  package list.
+- `repository`: A link to the repository where this package is developed. Will
+  be linked to from the package list if there is no homepage.
+- `keywords`: An array of search keywords for the package.
+- `compiler`: The minimum Typst compiler version required for this package to
+  work.
 - `exclude`: An array of globs specifying files that should not be part of the
   published bundle that the compiler downloads when importing the package. To be
   used for support files like images or documentation that would otherwise
