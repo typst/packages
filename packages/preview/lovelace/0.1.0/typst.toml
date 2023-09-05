@@ -7,3 +7,7 @@ license = "MIT"
 description = "Algorithms in pseudocode, unopinionated and flexible"
 repository = "https://github.com/andreasKroepelin/lovelace"
 exclude = ["README.md", "examples/*"]
+keywords = [
+  "algorithm", "pseudocode", "pseudo", "pseudo code", "code", "algrorithmic",
+  "algorithmicx", "alg", "program", "algorithms"
+]
