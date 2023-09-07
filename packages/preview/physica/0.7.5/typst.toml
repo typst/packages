@@ -5,7 +5,6 @@ entrypoint = "physica.typ"
 license = "MIT"
 description = "Physics notations."
 authors = ["Leedehai"]
-homepage = "https://github.com/Leedehai/typst-physics"
 repository = "https://github.com/Leedehai/typst-physics"
 keywords = [
   "physics", "brace", "integral", "gradient", "divergence", "curl", "vector",
