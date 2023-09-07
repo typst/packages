@@ -6,4 +6,4 @@ authors = ["Jonas Neugebauer"]
 license = "MIT"
 description = "A utility package for typst package authors"
 repository = "https://github.com/jneug/typst-tools4typst"
-exclude = ["tbump.toml"]
+exclude = ["tbump.toml", "t4t-manual.pdf", "t4t-manual.typ"]
