@@ -1,0 +1,7 @@
+[package]
+name = "admonish"
+version = "0.1.0"
+entrypoint = "admonish.typ"
+authors = ["Jomaway <https://github.com/jomaway>"]
+license = "MIT"
+description = "A package to simply create and add some admonishment to your documents." 
