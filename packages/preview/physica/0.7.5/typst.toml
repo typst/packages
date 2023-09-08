@@ -3,13 +3,13 @@ name = "physica"
 version = "0.7.5"
 entrypoint = "physica.typ"
 license = "MIT"
-description = "Physics notations."
+description = "Physics: derivative, differential, field, matrix, braket, tensor, etc."
 authors = ["Leedehai"]
 repository = "https://github.com/Leedehai/typst-physics"
 keywords = [
   "physics", "brace", "integral", "gradient", "divergence", "curl", "vector",
-  "field", "matrix", "Jacobian", "Hessian", "Dirac", "braket", "differential",
-  "derivative", "partial", "quantum", "Planck", "hbar", "tensor", "isotope",
-  "signal", "electromagnetism", "mechanics",
+  "field", "matrix", "diagonal", "Jacobian", "Hessian", "Dirac", "braket",
+  "differential", "derivative", "partial", "dv", "odv", "pdv", "Planck", "hbar",
+  "tensor", "isotope", "signal", "electromagnetism", "mechanics", "quantum",
 ]
 exclude = ["*.pdf", "*.py"]
