@@ -1,5 +1,5 @@
 
-#import "@preview/cetz:0.1.0"
+#import "@preview/cetz:0.1.1"
 #import cetz.draw: rect
 
 
