@@ -32,7 +32,14 @@ Required for submissions to this repository:
   grammar and spelling mistakes as it will appear in the [package list][list].
 
 Optional:
-- `repository`: A link to the repository where this package is developed.
+- `homepage`: A link to the package's web presence where there could be more
+  details, an issue tracker, or something else. Will be linked to from the
+  package list.
+- `repository`: A link to the repository where this package is developed. Will
+  be linked to from the package list if there is no homepage.
+- `keywords`: An array of search keywords for the package.
+- `compiler`: The minimum Typst compiler version required for this package to
+  work.
 - `exclude`: An array of globs specifying files that should not be part of the
   published bundle that the compiler downloads when importing the package. To be
   used for support files like images or documentation that would otherwise
@@ -97,9 +104,19 @@ There is one exception: Minor fixes to the documentation or TOML metadata of a
 package are allowed _if_ they can not affect the package in a way that might
 break downstream users.
 
-**Note:** Please do not submit templates as packages just yet. We plan to build
-infrastructure around this so that they can show up in the web app's template
-gallery and be used to scaffold a project through the CLI. Stay tuned!
+### Templates
+**Important:** Please do not submit templates as packages just yet. To make the
+experience of using templates as seamless as possible, we want them to show up
+in the web app's template gallery and we want the CLI to be able to scaffold a
+project from a template. We ask for your patience while we're building the
+necessary infrastructure.
+
+What's the difference between a template and a normal package? The line isn't
+100% sharp, but overall a template will aid you in producing a full document
+with a particular style, whereas normal packages provide building blocks and
+automations useful across a range of documents. In particular, templates will
+often ship with one or more template files from which a new project can be
+scaffolded. This requires additional package metadata.
 
 ### Downloads
 The Typst compiler downloads packages from the `preview` namespace on-demand.
