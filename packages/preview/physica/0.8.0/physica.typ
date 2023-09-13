@@ -1,6 +1,6 @@
 // Copyright 2023 Leedehai
 // Use of this code is governed by a MIT license in the LICENSE.txt file.
-// Current version: 0.7.5. Please see physica-manual.pdf for user docs.
+// Current version: 0.8.0. Please see physica-manual.pdf for user docs.
 
 // Returns whether a Content object holds an integer. The caller is responsible
 // for ensuring the input argument is a Content object.
