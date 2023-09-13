@@ -79,3 +79,8 @@ You can read the [manual](assets/manual.pdf) (im working on it haha) for a full 
 ]
 ```
 
+## Credits
+- [@sahasatvik (Satvik Saha)](https://github.com/sahasatvik)
+- [@rmolinari (Rory Molinari)](https://github.com/rmolinari)
+- [@MJHutchinson (Michael Hutchinson)](https://github.com/MJHutchinson)
+- [@DVDTSB](https://github.com/DVDTSB)

@@ -9,6 +9,6 @@ authors = [
     "DVDTSB",
 ]
 license = "MIT"
-description = "The classic typst-theorems package! An implementation of numbered theorem environments in Typst."
+description = "Theorem library based on (and compatible) with [typst-theorems](https://github.com/sahasatvik/typst-theorems)."
 repository = "https://github.com/DVDTSB/ctheorems"
 exclude = ["/assets/*"]
