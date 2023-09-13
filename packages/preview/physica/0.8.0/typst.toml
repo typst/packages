@@ -1,6 +1,6 @@
 [package]
 name = "physica"
-version = "0.7.5"
+version = "0.8.0"
 entrypoint = "physica.typ"
 license = "MIT"
 description = "Physics: derivative, differential, field, matrix, braket, tensor, hbar, etc."
