@@ -1,13 +1,13 @@
-# typst-admonish
+# gentle-clues 
 
-Simpe admonishments for typst. Add predefined or define your own. 
+Simple admonitions for typst. Add predefined or define your own. 
 
 Inspired from [mdbook-admonish](https://tommilligan.github.io/mdbook-admonish/).
 
 
 ## Usage
 
-`#import " @preview/admonish:0.1.0: info, success, warning, error`
+`#import " @preview/gentle-clues:0.1.0: info, success, warning, error`
 
 Writing this,
 
@@ -18,9 +18,9 @@ turns into this.
 
 ![Screenshot of the info admonish](https://github.com/jomaway/typst-admonish/blob/main/screenshot-info-admonish.png)
 
-### Available Admonishments
+### Available Admonitions
 
-The follwing admonishments (+ some aliases) are available at the moment. `abstract`, `info`, `question`, `memo`, `task`, `idea`, `tip`, `quote`, `success`, `warning`, `error`.
+The follwing admonitions (+ some aliases) are available at the moment. `abstract`, `info`, `question`, `memo`, `task`, `idea`, `tip`, `quote`, `success`, `warning`, `error`.
 
 [See here for more Information](https://github.com/jomaway/typst-admonish/blob/main/docs.pdf)
 
