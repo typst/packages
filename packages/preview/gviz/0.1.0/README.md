@@ -7,7 +7,7 @@ Import it like any other plugin: `#import "@preview/gviz:0.1.0": *`.
 
 ## Usage
 ```typst
-#import "@preview/gviz:0.1.0: *"
+#import "@preview/gviz:0.1.0": *
 
 #show raw.where(lang: "dot-render"): it => render-image(it.text)
 
