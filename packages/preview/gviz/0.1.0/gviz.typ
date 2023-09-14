@@ -20,6 +20,6 @@
 /// - alt (none, string): A text describing the image.
 /// - fit (string): How the image should adjust itself to a given area. See image.decode.
 /// -> content
-#let render-image(code, width: auto, height: auto, alt: none, fit: "cover") = {
-  image.decode(render(code), format: "svg", width: width, height: height, alt: alt, fit: fit)
+#let render-image(code, ..args) = {
+  image.decode(render(code), format: "svg", ..args)
 }
