@@ -9,18 +9,9 @@
   #set polygon(stroke: theme-data.subtle, fill: theme-data.overlay)
   #set rect(stroke: theme-data.subtle, fill: theme-data.overlay)
   #set square(stroke: theme-data.subtle, fill: theme-data.overlay)
-  #show link: it => [
-    #set text(fill: theme-data.iris)
-    #it
-  ]
-  #show ref: it => [
-    #set text(fill: theme-data.foam)
-    #it
-  ]
-  #show footnote: it => [
-    #set text(fill: theme-data.pine)
-    #it
-  ]
+  #show link: set text(fill: theme-data.iris)
+  #show ref: set text(fill: theme-data.foam)
+  #show footnote: set text(fill: theme-data.pine)
   #content
 ]
 
