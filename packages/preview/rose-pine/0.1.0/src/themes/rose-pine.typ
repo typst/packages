@@ -18,28 +18,4 @@
   )
 )
 
-#let theme(content) = [
-  #set page(fill: rose-pine.base,)
-  #set text(fill: rose-pine.text,)
-  #set table(fill: rose-pine.surface, stroke: rose-pine.highlight.high)
-  #set circle(stroke: rose-pine.subtle, fill: rose-pine.overlay)
-  #set ellipse(stroke: rose-pine.subtle, fill: rose-pine.overlay)
-  #set line(stroke: rose-pine.subtle)
-  #set path(stroke: rose-pine.subtle, fill: rose-pine.overlay)
-  #set polygon(stroke: rose-pine.subtle, fill: rose-pine.overlay)
-  #set rect(stroke: rose-pine.subtle, fill: rose-pine.overlay)
-  #set square(stroke: rose-pine.subtle, fill: rose-pine.overlay)
-  #show link: it => [
-    #set text(fill: rose-pine.iris)
-    #it
-  ]
-  #show ref: it => [
-    #set text(fill: rose-pine.foam)
-    #it
-  ]
-  #show footnote: it => [
-    #set text(fill: rose-pine.pine)
-    #it
-  ]
-  #content
-]
+#let variant = rose-pine
