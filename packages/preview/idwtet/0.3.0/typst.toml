@@ -1,0 +1,9 @@
+authors = ["Ludwig Austermann"]
+compiler = "0.8"
+description = "Package for uniform, correct and simplified typst code demonstration."
+entrypoint = "idwtet.typ"
+exclude = ["examples"]
+license = "MIT"
+name = "idwtet"
+repository = "https://github.com/ludwig-austermann/typst-idwtet"
+version = "0.3.0"
