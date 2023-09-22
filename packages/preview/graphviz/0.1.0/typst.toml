@@ -8,4 +8,4 @@ repository = "https://github.com/Robotechnic/graphviz.git"
 description = "Graphviz bindings for typst"
 compiler = "0.8.0"
 exclude = ["graphviz_interface/*", "examples/*", ".gitignore", "Makefile"]
-keywords = ["graphviz","graph","wasm"]
+keywords = ["graphviz","graph"]
