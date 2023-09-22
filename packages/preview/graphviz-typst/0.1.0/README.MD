@@ -32,7 +32,7 @@ digraph {
 `` `
 ```
 
-You can see an exemple of this in the [example](./example) folder.
+You can see an exemple of this in the [example](https://github.com/Robotechnic/graphviz-typst/tree/main/examples) folder.
 
 For more information about the graphviz dot language, you can check the [official documentation](https://graphviz.org/documentation/).
 
