@@ -1,0 +1,11 @@
+[package]
+name = "syntastica"
+version = "0.1.0"
+authors = ["RubixDev"]
+compiler = "0.8.0"
+entrypoint = "syntastica.typ"
+exclude = ["src", "Cargo.*", "examples", "*.sh", ".cargo"]
+keywords = ["tree-sitter", "code", "listings", "syntax"]
+license = "GPL-3.0-only"
+repository = "https://github.com/RubixDev/syntastica-typst"
+description = "Tree-sitter syntax highlighting for code blocks."
