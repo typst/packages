@@ -19,7 +19,7 @@ It allows you to render a graphviz dot string to a svg image:
 For a simpler usage, you can setup a simple show rule:
 
 ```typ
-#show: gaph-render
+#show: raw-dotrender-rule
 ```
 
 This allow you to draw a graphviz graph like this:
@@ -86,12 +86,12 @@ raw-render(
 
 This function will panic if the provided content is not a `raw`.
 
-### graph-render
+### raw-dotrender-rule
 
 This function is a show rule that allow you to use raw to render a graphviz dot string.
 
 ```typ
-gaph-render(
+raw-dotrender-rule(
     engine: string,
     width: auto relative,
     height: auto relative,

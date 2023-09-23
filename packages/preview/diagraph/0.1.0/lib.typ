@@ -35,7 +35,7 @@
 	return render(text, engine: engine, width: width, height: height, fit: fit)
 }
 
-#let gaph-render(
+#let raw-dotrender-rule(
 		engine: "dot",
 		width: auto, 
 		height: auto, 
