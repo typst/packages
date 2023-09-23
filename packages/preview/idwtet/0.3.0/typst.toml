@@ -1,3 +1,4 @@
+[package]
 authors = ["Ludwig Austermann"]
 compiler = "0.8"
 description = "Package for uniform, correct and simplified typst code demonstration."
