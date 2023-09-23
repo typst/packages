@@ -64,7 +64,7 @@ All the optional parameters are the same as the one of images, you can check the
 
 ### raw-render
 
-This function is a show rule that allow you to use raw to render a graphviz dot string.
+This function allow you to use raw to render a graphviz dot string.
 
 ```typ
 raw-render(
