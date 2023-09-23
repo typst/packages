@@ -1,6 +1,6 @@
 [package]
 authors = ["Ludwig Austermann"]
-compiler = "0.8"
+compiler = "0.8.0"
 description = "Package for uniform, correct and simplified typst code demonstration."
 entrypoint = "idwtet.typ"
 exclude = ["examples"]
