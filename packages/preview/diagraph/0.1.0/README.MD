@@ -86,7 +86,7 @@ raw-render(
 
 This function will panic if the provided content is not a `raw`.
 
-### graphRender
+### graph-render
 
 This function is a show rule that allow you to use raw to render a graphviz dot string.
 
