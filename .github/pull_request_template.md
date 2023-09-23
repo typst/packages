@@ -7,10 +7,14 @@ I am submitting
 - [ ] an update for a package
 
 <!--
-Please add a brief description of your package below and explain why you think it is useful to others.
+Please add a brief description of your package below and explain why you think it is useful to others. If this is an update, please briefly say what changed.
 -->
 
 Description: Explain what the package does and why it's useful.
+
+<!--
+These things need to be checked for a new submission to be merged. If you're just submitting an update, you can delete the following section.
+-->
 
 I have read and followed the submission guidelines and, in particular, I
 - [ ] selected a name in conformance with the guidelines
