@@ -1,6 +1,6 @@
 [package]
 name = "unify"
-version = "0.4.1"
+version = "0.4.2"
 entrypoint = "lib.typ"
 authors = ["Christopher Hecker"]
 license = "MIT"
