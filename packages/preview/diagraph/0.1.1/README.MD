@@ -10,27 +10,25 @@ This plugin is quite simple to use, you just need to import it:
 #import "@preview/diagraph:0.1.0": *
 ```
 
-It allows you to render a graphviz dot string to a svg image:
+It allows you to render a graphviz dot string to a svg image in three different ways:
+
+## Render function
 
 ```typ
 #render("digraph { a -> b }")
 ```
 
-For a simpler usage, you can setup a simple show rule:
+## Raw render function
 
-```typ
-#show: raw-dotrender-rule
-```
-
-This allow you to draw a graphviz graph like this:
-
-```typ
-```dotrender
-digraph {
-    a -> b
-}
-`` `
-```
+````typ
+#raw-render[
+    ```dot
+    digraph {
+        a -> b
+    }
+    ```
+]
+````
 
 You can see an example of this in the [example](https://github.com/Robotechnic/diagraph/tree/main/examples) folder.
 
@@ -48,7 +46,8 @@ render(
     engine: string,
     width: auto relative,
     height: auto relative,
-    fit: string
+    fit: string,
+    background: string
 )
 ```
 
@@ -59,6 +58,7 @@ render(
 | width | The width of the svg | auto |
 | height | The height of the svg | auto |
 | fit | The fit mode of the svg | contain |
+| background | The background color of the svg | transparent |
 
 All the optional parameters are the same as the one of images, you can check the [documentation](https://typst.app/docs/reference/visualize/image/) for more details.
 
@@ -72,6 +72,7 @@ raw-render(
     width: auto relative,
     height: auto relative,
     fit: string,
+    background: string,
     raw
 )
 ```
@@ -82,31 +83,10 @@ raw-render(
 | width | The width of the svg | auto |
 | height | The height of the svg | auto |
 | fit | The fit mode of the svg | contain |
+| background | The background color of the svg | transparent |
 | raw | The dot string to render | Required |
 
 This function will panic if the provided content is not a `raw`.
-
-### raw-dotrender-rule
-
-This function is a show rule that allow you to use raw to render a graphviz dot string.
-
-```typ
-raw-dotrender-rule(
-    engine: string,
-    width: auto relative,
-    height: auto relative,
-    fit: string,
-    doc
-)
-```
-
-| Parameter | Description | Default value |
-| :-------: | :---------: | :-----------: |
-| engine | The graphviz engine to use | dot |
-| width | The width of the svg | auto |
-| height | The height of the svg | auto |
-| fit | The fit mode of the image | contain |
-| doc | The document | Required |
 
 ## Build
 
@@ -119,11 +99,31 @@ There are also some other make commands:
 - `make compile_database`: Generate the compile_commands.json file
 - `make module`: It copy the files needed to run the plugin in a folder called `graphviz` in the current directory
 
+## Notes
+
+Background color is just a shortcut for the `bgcolor` attribute of the graphviz `digraph` so:
+
+```typ
+#render("digraph { bgcolor = red; a -> b }")
+```
+
+is strictly equivalent to:
+
+```typ
+#render("digraph { a -> b }", background: "red")
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Changelog
+
+### 0.1.1
+
+- Remove the `raw-render-rule` show rule because it doesn't allow to use custom font and the `render` / `raw-render` functions are more flexible
+- Add the `background` parameter to the `render` and `raw-render` typst functions
+- Add center attribute to draw graph in the center of the svg in the `render` c function
 
 ### 0.1.0
 
