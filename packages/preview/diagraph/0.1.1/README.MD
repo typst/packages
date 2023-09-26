@@ -121,8 +121,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 0.1.1
 
-- Remove the `raw-render-rule` show rule because it doesn't allow to use custom font and the `render` / `raw-render` functions are more flexible
-- Add the `background` parameter to the `render` and `raw-render` typst functions
+- Remove the `raw-render-rule` show rule because it doesn't allow use of custom font and the `render` / `raw-render` functions are more flexible
+- Add the `background` parameter to the `render` and `raw-render` typst functions and default it to `transparent` instead of `white`
 - Add center attribute to draw graph in the center of the svg in the `render` c function
 
 ### 0.1.0

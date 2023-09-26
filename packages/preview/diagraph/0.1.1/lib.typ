@@ -1,17 +1,12 @@
 #let plugin = plugin("diagraph.wasm")
 
 #let render(text, engine: "dot", width: auto, height: auto, fit: "contain", background: "transparent") = {
-	if text.len() != bytes(text).len() {
-		return raw("error: text must be utf-8 encoded")
-	}
-
-	// add null terminator
-	let encodedText = bytes(text)
-	let encodedEngine = bytes(engine)
-	let encodedBackground = bytes(background)
-
 	let render = str(
-		plugin.render(encodedText, encodedEngine, encodedBackground)
+		plugin.render(
+			bytes(text), 
+			bytes(engine), 
+			bytes(background)
+		)
 	)
 
 
