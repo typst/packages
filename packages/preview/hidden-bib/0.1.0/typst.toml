@@ -5,9 +5,9 @@ entrypoint = "lib.typ"
 authors = ["Zuri Klaschka"]
 license = "MIT"
 description = "Create hidden bibliographies or bibliographies with unmentioned (hidden) citations."
-repository: "https://github.com/pklaschka/typst-hidden-bib"
-keywords: ["bibliography", "hidden", "cite", "citation", "nocite"]
-exclude: [
+repository = "https://github.com/pklaschka/typst-hidden-bib"
+keywords = ["bibliography", "hidden", "cite", "citation", "nocite"]
+exclude = [
 	".gitignore",
 	"hidden-bibliography.*",
 	"hidden-citations.*",
