@@ -29,7 +29,7 @@ and outer page counters.
 ```
 
 ![An example outline showing the outer roman numbering interrupted by temporary inner arabic
-numbering](https://github.com/tingerrr/typst-anti-matter/tree/87eb0108bdd79c16e996372013d8223647c9a64a/assets/example.png)
+numbering](example.png)
 
 ## Features
 - Marking the start and end of front/end matter.
