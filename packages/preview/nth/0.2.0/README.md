@@ -20,6 +20,9 @@ For example, writing `#nth(1)` shows 1<sup>st</sup>,
 `#nth(4)` shows 4<sup>th</sup>,  
 and `#nth(11)` shows 11<sup>th</sup>.
 
+_Please use version 0.2.0 as version 0.1.0 is broken!_
+See issue [here](https://github.com/typst/packages/pull/162) (thanks to jeffa5)._
+
 ## Content
 
 This is a very simple package.
@@ -49,3 +52,4 @@ This is a very simple package.
 ## TODO
 
 * Pass argument to choose whether or not to put ordinals in superscript.
+
