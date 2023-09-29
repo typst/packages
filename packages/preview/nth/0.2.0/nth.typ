@@ -1,18 +1,19 @@
 #let nth(ordinal-num) = {
   let ordinal-str = str(ordinal-num)
-  if ordinal-str.contains(regex(".*1[0-9]"))
-    show: ordinal-str + super("th")
+  let ordinal-suffix = if ordinal-str.ends-with(regex("1[0-9]")) {
+    "th"
   }
   else if ordinal-str.last() == "1" {
-    show: ordinal-str + super("st")
+    "st"
   }
   else if ordinal-str.last() == "2" {
-    show: ordinal-str + super("nd")
+    "nd"
   }
   else if ordinal-str.last() == "3" {
-    show: ordinal-str + super("rd")
+    "rd"
   }
   else {
-    show: ordinal-str + super("th")
+    "th"
   }
+  show: ordinal-str + super(ordinal-suffix)
 }
