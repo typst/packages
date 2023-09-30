@@ -1,18 +1,18 @@
-#let truely-hidden = (body) => hide( // make sure it's invisible
+#let truly-hidden = (body) => hide( // make sure it's invisible
   place(
     center, float: false, // Stop adding lines and stuff
     body
   )
 )
 
-#let hidden-bibliography = (..args, style: "chicago-notes") => truely-hidden(bibliography(..args, style: style))
+#let hidden-bibliography = (..args, style: "chicago-notes") => truly-hidden(bibliography(..args, style: style))
 
-#let hidden-cite = (..args) => truely-hidden(
+#let hidden-cite = (..args) => truly-hidden(
   cite(..args) // "Print" the hidden citation
 )
 
 #let hidden-citations(body) = {
   // Within this block, all citations should be hidden
-  show cite: it => truely-hidden(it)
+  show cite: it => truly-hidden(it)
   body
 }
