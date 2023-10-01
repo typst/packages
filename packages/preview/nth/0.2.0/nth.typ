@@ -15,5 +15,5 @@
   else {
     "th"
   }
-  show: ordinal-str + super(ordinal-suffix)
+  ordinal-str + super(ordinal-suffix)
 }
