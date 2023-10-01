@@ -6,6 +6,16 @@ I am submitting
 - [ ] a new package
 - [ ] an update for a package
 
+<!--
+Please add a brief description of your package below and explain why you think it is useful to others. If this is an update, please briefly say what changed.
+-->
+
+Description: Explain what the package does and why it's useful.
+
+<!--
+These things need to be checked for a new submission to be merged. If you're just submitting an update, you can delete the following section.
+-->
+
 I have read and followed the submission guidelines and, in particular, I
 - [ ] selected a name in conformance with the guidelines
 - [ ] added a `typst.toml` file with all required keys
@@ -15,9 +25,3 @@ I have read and followed the submission guidelines and, in particular, I
 - [ ] tested my package locally on my system and it worked
 - [ ] named this PR as `name:version` of the submitted package
 - [ ] agree that my package will not be removed without good reason
-
-<!--
-Please add a brief description of your package below and explain why you think it is useful to others.
--->
-
-Description: Explain what the package does and why it's useful.
