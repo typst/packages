@@ -5,7 +5,10 @@
   )
 )
 
-#let hidden-bibliography = (..args, style: "chicago-notes") => truly-hidden(bibliography(..args, style: style))
+#let hidden-bibliography = (b) => {
+	set bibliography(style: "chicago-notes")
+	truly-hidden(b)
+}
 
 #let hidden-cite = (..args) => truly-hidden(
   cite(..args) // "Print" the hidden citation
