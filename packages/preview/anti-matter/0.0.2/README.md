@@ -57,5 +57,5 @@ The package name `anti-matter` was choosen as a word play on front/back matter.
 
 [front matter]: https://en.wikipedia.org/wiki/Book_design#Front_matter
 [back or end matter]: https://en.wikipedia.org/wiki/Book_design#Back_matter_(end_matter)
-[example]: assets/example.png
-[manual]: assets/manual.pdf
+[example]: example.png
+[manual]: manual.pdf
