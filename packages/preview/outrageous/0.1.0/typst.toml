@@ -1,0 +1,9 @@
+[package]
+name = "outrageous"
+version = "0.1.0"
+authors = ["RubixDev"]
+entrypoint = "outrageous.typ"
+keywords = ["outline"]
+license = "GPL-3.0-only"
+repository = "https://github.com/RubixDev/typst-outrageous"
+description = "Easier customization of outline entries."
