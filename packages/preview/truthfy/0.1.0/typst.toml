@@ -11,7 +11,4 @@ keywords = [
     "truth",
     "table",
 ]
-exclude = []
-
-[utpm]
-version = "1"
+exclude = ["example.typ", "example.pdf"]
