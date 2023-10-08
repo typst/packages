@@ -3,6 +3,7 @@ name = "outrageous"
 version = "0.1.0"
 authors = ["RubixDev"]
 entrypoint = "outrageous.typ"
+exclude = ["./examples", "./example-*.png", "./README.md"]
 keywords = ["outline"]
 license = "GPL-3.0-only"
 repository = "https://github.com/RubixDev/typst-outrageous"
