@@ -4,7 +4,7 @@
 
 ## Overview
 `unify` allows flexible numbers and units, and still mostly gets well typeset results.
-```ts
+```typ
 #import "@preview/unify:0.4.2": num,qty,numrange,qtyrange
 
 $ num("-1.32865+-0.50273e-6") $
