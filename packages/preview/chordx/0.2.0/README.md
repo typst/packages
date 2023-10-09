@@ -41,17 +41,17 @@ Typst added an experimental package repository and you can import `chordx` as fo
 
 If the package hasn't been released yet, or if you just want to use it from this repository, you can use _*local-packages*_.
 
-You can read the documentation about typst [local-packages]("https://github.com/typst/packages#local-packages") and learn about the path folders used in differents operating systems (Linux / MacOS / Windows).
+You can read the documentation about typst [local-packages](https://github.com/typst/packages#local-packages) and learn about the path folders used in differents operating systems (Linux / MacOS / Windows).
 
 In Linux you can do:
 
 ```sh
-$ git clone https://github.com/ljgago/typst-chords ~/.local/share/typst/packages/local/chordx/0.2.0
+git clone https://github.com/ljgago/typst-chords ~/.local/share/typst/packages/local/chordx/0.2.0
 ```
 
 And import the package in your file:
 
-```js
+```typ
 #import "@local/chordx:0.2.0": *
 ```
 
@@ -59,13 +59,11 @@ And import the package in your file:
 
 Here [chordx-docs](https://github.com/ljgago/typst-chords/blob/main/docs/chordx-docs.pdf) you have the reference documentation that describes the functions and parameters used in this package. (_Generated with [tidy](https://github.com/Mc-Zen/tidy)_)
 
-
-
 ## Examples:
 
 ### Chart Chords
 
-```js
+```typ
 #import "@preview/chordx:0.2.0": *
 
 #let chart-chord = new-chart-chords(scale: 1.5)
@@ -90,10 +88,9 @@ Here [chordx-docs](https://github.com/ljgago/typst-chords/blob/main/docs/chordx-
   </a>
 </h3>
 
-
 ### Piano Chords
 
-```js
+```typ
 #import "@preview/chordx:0.2.0": *
 
 #let piano-chord = new-piano-chords(scale: 1.5)
@@ -115,7 +112,7 @@ Here [chordx-docs](https://github.com/ljgago/typst-chords/blob/main/docs/chordx-
 
 ### Single Chords
 
-```js
+```typ
 #import "@preview/chordx:0.2.0": *
 
 #let chord = new-single-chords(style: "italic", weight: "semibold")
@@ -136,4 +133,5 @@ In a #chord[one-horse][A7][2] open #chord[sleigh,][D7][3] hey!
 </h2>
 
 ## License
+
 [MIT License](./LICENSE)
