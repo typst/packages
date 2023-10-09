@@ -63,7 +63,7 @@
     return single_letters
 }
 
-#let generate_empty = (info, data) => {
+#let generate-empty = (info, data) => {
     let base = _extract(..info)
     let bL = base.len()
     let L = calc.pow(2, bL);
@@ -95,7 +95,7 @@
 
 
 
-#let generate_table = (..inf) => {
+#let generate-table = (..inf) => {
     let info = inf.pos()
     let base = _extract(..info)
     let bL = base.len()
