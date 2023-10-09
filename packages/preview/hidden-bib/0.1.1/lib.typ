@@ -7,7 +7,7 @@
 
 #let hidden-bibliography = (b) => {
 	set bibliography(style: "chicago-notes")
-  set heading(outlined: false)
+	set heading(outlined: false)
 	truly-hidden(b)
 }
 
