@@ -97,6 +97,7 @@ fn build_archive(dir_path: &Path, exclude: &[String]) -> anyhow::Result<Vec<u8>>
         if exclusion.starts_with('!') {
             bail!("globs with '!' are not supported");
         }
+        let exclusion = exclusion.trim_start_matches("./");
         overrides.add(&format!("!{exclusion}"))?;
     }
 
