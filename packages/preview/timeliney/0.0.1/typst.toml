@@ -6,3 +6,4 @@ authors = ["Pedro Alves"]
 license = "MIT"
 description = "Create Gantt charts in Typst."
 repository = "https://github.com/pta2002/typst-timeliney"
+exclude = ["manual.pdf", "sample.png"]
