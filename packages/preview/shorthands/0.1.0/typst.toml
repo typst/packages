@@ -1,0 +1,9 @@
+[package]
+name = "shorthands"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Eric Biedert"]
+license = "MIT"
+description = "Custom shorthands for math equations."
+repository = "https://github.com/EpicEricEE/typst-plugins"
+exclude = ["README.md", "assets/**"]
