@@ -1,5 +1,5 @@
 [package]
-name = "shorthands"
+name = "quick-maths"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Eric Biedert"]

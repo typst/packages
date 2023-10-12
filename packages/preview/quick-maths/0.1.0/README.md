@@ -1,11 +1,11 @@
-# shorthands
+# quick-maths
 A package for creating custom shorthands for math equations.
 
 ## Usage
 The package comes with a single template function `shorthands` that takes one or more tuples of the form `(shorthand, replacement)`, where `shorthand` can be a string or content.
 
 ```typ
-#import "@preview/shorthands:0.1.0": shorthands
+#import "@preview/quick-maths:0.1.0": shorthands
 
 #show: shorthands.with(
   ($+-$, $plus.minus$),
