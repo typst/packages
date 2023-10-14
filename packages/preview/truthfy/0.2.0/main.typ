@@ -158,5 +158,3 @@
     }
  (generate-empty, generate-table)
 }
-
-#generate-table($a ? b : c$)
