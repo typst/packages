@@ -29,6 +29,6 @@ generate-table(..info: array[math_block]): table
 `0.2.0`: 
 - You can now use `t`, `r`, `u`, `e`, `f`, `a`, `l`, `s` without any problems!
 - You can now add subscript to a letter
-- Only `generate-table` and `generate-empty` are npw exported
+- Only `generate-table` and `generate-empty` are now exported
 - Better example with more cases
 - Implemented the `a ? b : c` operator
