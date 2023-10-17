@@ -1,6 +1,6 @@
 # tutor
 
-Utilities to write exams and exercises with integrated solutions. Set the variable `sol=true` to display the solutions of a document.
+Utilities to write exams and exercises with integrated solutions. Set the variable `#(cfg.sol = true)` to display the solutions of a document.
 
 Currently the following features are supported:
 
@@ -14,9 +14,9 @@ Currently the following features are supported:
 ### Minimal Example
 
 ```typst
-#import "@local/tutor:0.2.0": points, totalpoints, lines, checkbox
+#import "@local/tutor:0.3.0": points, totalpoints, lines, checkbox, default-config
 
-#let cfg = default_config()
+#let cfg = default-config()
 // enable solution mode
 #(cfg.sol = true)
 
@@ -51,13 +51,13 @@ Check [example](https://github.com/rangerjo/tutor/tree/main/example) for a more 
 Every directory in `src` holds one self-contained exercise. The exercises can be imported into `main.typ`:
 
 ```typst
-#import "@local/tutor:0.2.0": totalpoints, lines
+#import "@local/tutor:0.3.0": totalpoints, lines, default-config
 
 #import "src/ex1/ex.typ" as ex1
 #import "src/ex2/ex.typ" as ex2
 
 
-#let cfg = default_config()
+#let cfg = default-config()
 #ex1.exercise(cfg)
 #ex2.exercise(cfg)
 ```
@@ -108,10 +108,10 @@ and in solution mode (`#(cfg.sol=true)`):
 
 `tutor` is designed to create exams and solutions with one single document source. Furthermore, the individual utilities provided by `tutor` can be configured. This can be done in either of two ways:
 
-1. Use the `#default_config()` function and patch your configuration. The following example would configure the solution mode and basic line spacings to 8 millimeters:
+1. Use the `#default-config()` function and patch your configuration. The following example would configure the solution mode and basic line spacings to 8 millimeters:
 
 ```typst
-#let cfg = default_config()
+#let cfg = default-config()
 #(cfg.sol = false)
 #(cfg.utils.lines.spacing = 8mm)
 ```

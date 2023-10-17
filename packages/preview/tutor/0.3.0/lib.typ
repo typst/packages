@@ -1,5 +1,5 @@
 
-#let default_config() = {
+#let default-config() = {
   let cfg = (
     sol: false,
     level: 1,
