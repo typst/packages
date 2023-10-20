@@ -1,6 +1,6 @@
 # Prooftree
 
-A Typst package for typesetting proof trees. You can import this package with :
+A Typst package for typesetting proof trees. You can import this package with:
 
 ```typst
 #import "@preview/prooftree:0.1.0"
@@ -8,14 +8,16 @@ A Typst package for typesetting proof trees. You can import this package with :
 
 ## Examples
 
-Here is a basic usage example :
+Here is a basic usage example:
 
 ```typst
 #let r = prooftree.rule(name: "Rule name", "Conclusion", "Premise 1", "Premise 2", "Premise 3")
 #prooftree.proof-tree(r)
 ```
 
-![Result](https://github.com/typst/packages/assets/148579668/e349f3c9-d461-48ef-a4f4-d57ef4b940c9)
+Result:
+
+<img src="https://github.com/typst/packages/assets/148579668/e349f3c9-d461-48ef-a4f4-d57ef4b940c9" width="480px">
 
 Here is a more complete example, to typeset a proof tree in [natural deduction](https://en.wikipedia.org/wiki/Natural_deduction). First, define the set of rules :
 
@@ -38,7 +40,7 @@ Here is a more complete example, to typeset a proof tree in [natural deduction](
 #let absurd(ccl, p) = prooftree.rule(name: $bot$, ccl, p)
 ```
 
-Next, combine these rules to build a proof tree :
+Next, combine these rules to build a proof tree:
 
 
 ```typst
@@ -46,7 +48,7 @@ Next, combine these rules to build a proof tree :
   impl_i(
     $tack (p -> q) -> not (p and not q)$,
     not_i(
-      $p -> q tack   not (p and not q)$,
+      $p -> q tack not (p and not q)$,
       not_e(
         $p -> q, p and not q tack bot$,
         impl_e(
@@ -66,3 +68,8 @@ Next, combine these rules to build a proof tree :
   )
 )
 ```
+
+Result:
+
+<img src="https://github.com/typst/packages/assets/148579668/20a0ed69-3aef-493a-9308-ca78c852b1c2" width="480px">
+
