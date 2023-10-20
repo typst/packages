@@ -15,6 +15,8 @@ Here is a basic usage example :
 #prooftree.proof-tree(r)
 ```
 
+![Result](https://github.com/typst/packages/assets/148579668/e349f3c9-d461-48ef-a4f4-d57ef4b940c9)
+
 Here is a more complete example, to typeset a proof tree in [natural deduction](https://en.wikipedia.org/wiki/Natural_deduction). First, define the set of rules :
 
 ```typst
