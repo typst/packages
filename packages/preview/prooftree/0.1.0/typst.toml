@@ -2,6 +2,6 @@
 name = "prooftree"
 version = "0.1.0"
 entrypoint = "prooftree.typ"
-authors = ["Rémi Hutin" <https://github.com/remih23>]
+authors = ["Rémi Hutin <https://github.com/remih23>"]
 license = "MIT"
 description = "Typesetting of trees of inference rules in Typst."
