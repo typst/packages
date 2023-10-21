@@ -1,10 +1,10 @@
-# unnamed mass spec package
+# The `mass-plotter` package
 This package implements a Cetz chart-like object for displying mass spectrometric data in Typst documents. It allows for individually styled mass peaks, callouts, titles, and mass calipers.
 
 ## Usage
 
 ```typst
-#import "@preview/mass-spec:0.1.0": *
+#import "@preview/mass-plotter:0.1.0": *
 #let data = csv("isobutelene_epoxide.csv")
 
 #let ms = mass-spectrum(massspec, args: (
