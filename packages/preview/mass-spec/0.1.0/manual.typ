@@ -1,4 +1,4 @@
-#import "mass-spec.typ": *
+#import "lib.typ": *
 
 #let data = csv("assets/isobutelene_epoxide.csv")
 #let massspec = data.slice(1)
@@ -18,8 +18,7 @@
   inset: 8pt,
   radius: 5pt,
   width: 100%,
-  //text(fill: rgb("#a2aabc"), it)
-  it
+  text(font:"Consolas", it),
 )
 
 #align(center, text(16pt)[*The `mass-spec` package*])
