@@ -34,7 +34,7 @@ This package implements a Cetz chart-like object for displaying mass spectrometr
 = Usage
 This is the minimal starting point:
 ```typ
-#import "@local/mass-spec:0.1.0": *
+#import "@preview/mass-spec:0.1.0": *
 #let data = csv("isobutelene_epoxide.csv")
 
 #let ms = mass-spectrum(massspec, args: (
