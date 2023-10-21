@@ -5,7 +5,7 @@
 
 #set page(
   numbering: "1/1",
-  header: align(right)[The `mass-plotter` package],
+  header: align(right)[The `ionio-illustrate` package],
 )
 
 #set heading(numbering: "1.")
@@ -21,7 +21,7 @@
   text(font:"Consolas", it),
 )
 
-#align(center, text(16pt)[*The `mass-plotter` package*])
+#align(center, text(16pt)[*The `ionio-illustrate` package*])
 #align(center)[Version 0.1.0]
 
 #set par(justify: true, leading: 0.618em)
@@ -33,7 +33,7 @@ This package implements a Cetz chart-like object for displaying mass spectrometr
 = Usage
 This is the minimal starting point:
 ```typ
-#import "@preview/mass-plotter:0.1.0": *
+#import "@preview/ionio-illustrate:0.1.0": *
 #let data = csv("isobutelene_epoxide.csv")
 
 #let ms = mass-spectrum(massspec, args: (

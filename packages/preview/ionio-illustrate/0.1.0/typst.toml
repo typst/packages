@@ -1,5 +1,5 @@
 [package]
-name = "mass-plotter"
+name = "ionio-illustrate"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["James (Fuzzy) Swift"]
