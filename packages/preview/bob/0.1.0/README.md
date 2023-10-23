@@ -4,14 +4,14 @@
 This package provides a typst plugin for rendering [svgbob](https://github.com/ivanceras/svgbob) diagrams.
 
 # Basic example
-```typ
+````typ
 #import "lib.typ": *
 #render_bob(```bob
 "cats:"
  /\_/\  /\_/\  /\_/\  /\_/\ 
 ( o.o )( o.o )( o.o )( o.o )
 ```)
-```
+````
 output:
 
 ![basic-example](./basic-example.svg)
