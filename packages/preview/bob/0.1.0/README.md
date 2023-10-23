@@ -6,10 +6,13 @@ This package provides a typst plugin for rendering [svgbob](https://github.com/i
 # Basic example
 ````typ
 #import "lib.typ": *
-#render_bob(```bob
-"cats:"
- /\_/\  /\_/\  /\_/\  /\_/\ 
-( o.o )( o.o )( o.o )( o.o )
+#render_bob(```
+         /\_/\
+bob ->  ( o.o )
+         \ " /
+  .------/  /
+ (        | |
+  `====== o o
 ```)
 ````
 output:
