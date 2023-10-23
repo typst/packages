@@ -1,0 +1,23 @@
+[package]
+name = "bob"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Luca Ciucci"]
+license = "MIT"
+description = "svgbob for typst, powered by wasm"
+
+homepage = "https://github.com/LucaCiucci/bob-typ"
+repository = "https://github.com/LucaCiucci/bob-typ"
+keywords = [
+    "svg",
+    "ascii",
+    "art",
+    "typst",
+    "wasm",
+    "rust",
+    "svgbob",
+    "bob",
+    "diagram",
+    "graph",
+    "draw",
+]
