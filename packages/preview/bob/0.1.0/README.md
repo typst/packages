@@ -1,4 +1,4 @@
-# `bob``
+# `bob`
  svgbob for typst, powered by wasm
 
 This package provides a typst plugin for rendering [svgbob](https://github.com/ivanceras/svgbob) diagrams.
