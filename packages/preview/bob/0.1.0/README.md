@@ -1,5 +1,23 @@
-# bob
+# `bob``
+ svgbob for typst, powered by wasm
 
+This package provides a typst plugin for rendering [svgbob](https://github.com/ivanceras/svgbob) diagrams.
+
+# Basic example
+```typ
+#import "lib.typ": *
+#render_bob(```bob
+"cats:"
+ /\_/\  /\_/\  /\_/\  /\_/\ 
+( o.o )( o.o )( o.o )( o.o )
+```)
+```
+output:
+
+![basic-example](./basic-example.svg)
+
+
+## Full example
 ````typ
 #import "@preview/gviz:0.1.0": *
 #show raw.where(lang: "bob"): it => render_bob(it)
