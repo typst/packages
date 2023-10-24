@@ -6,7 +6,7 @@ This package provides a typst plugin for rendering [svgbob](https://github.com/i
 # Basic example
 ````typ
 #import "@preview/bob-draw:0.1.0": *
-#render_bob(```
+#render(```
          /\_/\
 bob ->  ( o.o )
          \ " /
@@ -17,17 +17,17 @@ bob ->  ( o.o )
 ````
 output:
 
-![basic-example](./basic-example.svg)
+![basic-example](./examples/basic-example.svg)
 
 
 ## Full example
 ````typ
-#import "@preview/gviz:0.1.0": *
-#show raw.where(lang: "bob"): it => render_bob(it)
+#import "@preview/bob-draw:0.1.0": *
+#show raw.where(lang: "bob"): it => render(it)
 
 #let svg = bob2svg("<--->")
-#render_bob("<--->")
-#render_bob(
+#render("<--->")
+#render(
     ```
       0       3  
        *-------* 

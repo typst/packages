@@ -28,15 +28,15 @@
 ///
 /// # Example
 /// ```typ
-/// render_bob("<--->")
-/// render_bob(
+/// render("<--->")
+/// render(
 ///   ```
 ///   <--->
 ///   `,
 ///   width: 25%
 /// )
 /// ```
-#let render_bob(
+#let render(
     art,
     ..args,
 ) = {

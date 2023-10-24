@@ -1,9 +1,9 @@
-#import "lib.typ": *
-#show raw.where(lang: "bob"): it => render_bob(it)
+#import "../lib.typ": *
+#show raw.where(lang: "bob"): it => render(it)
 
 #let svg = bob2svg("<--->")
-#render_bob("<--->")
-#render_bob(
+#render("<--->")
+#render(
     ```
       0       3  
        *-------* 

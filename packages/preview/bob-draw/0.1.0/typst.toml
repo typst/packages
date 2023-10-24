@@ -9,10 +9,6 @@ description = "svgbob for typst, powered by wasm"
 homepage = "https://github.com/LucaCiucci/bob-typ"
 repository = "https://github.com/LucaCiucci/bob-typ"
 keywords = [
-    "svg",
-    "ascii",
-    "art",
-    "typst",
     "wasm",
     "rust",
     "svgbob",
@@ -21,3 +17,4 @@ keywords = [
     "graph",
     "draw",
 ]
+exclude = ["examples"]
