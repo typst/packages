@@ -1,11 +1,11 @@
-# `bob`
+# `bob-draw`
  svgbob for typst, powered by wasm
 
 This package provides a typst plugin for rendering [svgbob](https://github.com/ivanceras/svgbob) diagrams.
 
 # Basic example
 ````typ
-#import "lib.typ": *
+#import "@preview/bob-draw:0.1.0": *
 #render_bob(```
          /\_/\
 bob ->  ( o.o )
