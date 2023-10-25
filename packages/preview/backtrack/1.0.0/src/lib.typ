@@ -15,6 +15,8 @@
 
 #let current-version = {
   import "checks.typ": *
+  // Versions before 2023-03-21 can't run most modern version checks, so we need
+  // to check for it first.
   if v2023-03-21-supported {
     if v0-9-0-supported {
       versions.from-v0-9-0-version(sys.version)

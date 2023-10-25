@@ -16,7 +16,7 @@ current compiler version.
 
 ### Versions
 
-`versions` is a module containing constant version objects for each compiler
+`versions` is a module containing version object constants for each compiler
 version up until 0.9.0, plus functions for creating version objects for newer
 compiler versions.
 
@@ -27,7 +27,7 @@ The `versions` module contains the following items:
   `v[YYYY]-[MM]-[DD]`
 - A `post-v0-8-0(..components)` function that takes in the `int` components for
   a compiler version above 0.8.0 and returns a corresponding version object;
-  array arguments are flattened
+  `array` arguments are flattened
 - A `from-v0-9-0-version(v0-9-0-version)` function that takes in a `version`
   value and returns a corresponding version object
 
@@ -56,10 +56,10 @@ otherwise, this is a `version` in all version objects.
 
 > [!WARNING]
 > Comparison operations are only valid when at least one of their operands is
-> the current version. For instance, comparing `current-version` and
-> `versions.post-v0-8-0(0, 9, 0)` is valid, while comparing `versions.v0-1-0`
-> and `versions.post-v0-8-0(0, 9, 0)` is undefined and may produce
-> counterintuitive results.
+> the current version. For instance, comparing `current-version` and a version
+> object for 0.9.0 is valid, while comparing a version object for 0.9.0 and
+> another for 1.0.0 is undefined and **will** produce counterintuitive results
+> when compiled on specific Typst versions.
 >
 > This is a case of prioritizing simplicity over versatility.
 
@@ -76,11 +76,11 @@ For example:
 - `v0-2-0.observable` = `(0, 2, 0)`
 - `v2023-03-21.observable` = `(0, 0, 0, 2023, 3, 21)`
 
-This value is guaranteed to be iterable with a `for .. in` loop and to have an
-`at` method that gets the corresponding component at the given index. While its
-specific value is unstable and shouldn't be relied on, the values produced by
-iterating over it or by its `at` method _are_ stable. No other guarantees are
-made—do not assume other array methods work on this value.
+This value is guaranteed to be iterable and to have an `at` method that gets the
+component at the given index. While its specific value is unstable and shouldn't
+be relied on, the values produced by iterating over it or by its `at` method
+_are_ stable. No other guarantees are made—do not assume other methods work
+reliably even if they appear to.
 
 On compiler versions prior to 0.9.0, this is an `array` in all version objects;
 otherwise, this is a `version` in all version objects.

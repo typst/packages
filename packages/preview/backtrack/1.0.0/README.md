@@ -75,7 +75,6 @@ Backtrack compiles on and can detect these versions:
 | February 12–15, 2023 |   ✅    |                                         |
 | February 2, 2023     |   🟡    | Detects as January 30, 2023             |
 | January 30, 2023     |   ✅    |                                         |
-| Initial releases     |   ❌    | Fails to compile                        |
 
 The partially-supported versions _may_ be possible to detect, but they're tricky
 since most of their changes are content-related. Content values were opaque up
