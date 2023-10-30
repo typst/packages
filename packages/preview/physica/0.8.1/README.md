@@ -51,14 +51,14 @@ $ curl (grad f), tensor(T, -mu, +nu), pdv(f,x,y,[1,2]) $
 
 ```typst
 // Style 2
-#import "@preview/physica:0.8.0": curl, grad, tensor, pdv
+#import "@preview/physica:0.8.1": curl, grad, tensor, pdv
 
 $ curl (grad f), tensor(T, -mu, +nu), pdv(f,x,y,[1,2]) $
 ```
 
 ```typst
 // Style 3
-#import "@preview/physica:0.8.0"
+#import "@preview/physica:0.8.1"
 
 $ physica.curl (physica.grad f), physica.tensor(T, -mu, +nu), physica.pdv(f,x,y,[1,2]) $
 ```
