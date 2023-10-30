@@ -44,7 +44,7 @@ See https://github.com/typst/packages.
 
 ```typst
 // Style 1
-#import "@preview/physica:0.8.0": *
+#import "@preview/physica:0.8.1": *
 
 $ curl (grad f), tensor(T, -mu, +nu), pdv(f,x,y,[1,2]) $
 ```
