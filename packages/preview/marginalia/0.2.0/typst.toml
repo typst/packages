@@ -1,0 +1,9 @@
+[package]
+name = "marginalia"
+version = "0.2.0"
+entrypoint = "marginalia.typ"
+authors = ["José María Martín"]
+license = "Unlicense"
+description = "Functions to add margin notes to your document with optional note numbering"
+repository = "https://github.com/jmml97/marginalia"
+keywords = ["margins", "comments", "notes"]
