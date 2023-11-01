@@ -45,4 +45,5 @@ sievert,Sv,upright("Sv"),true
 percent,%,percent,true
 decibel,dB,upright("dB"),true
 neper,Np,upright("Np"),true
-coulomb,C,"upright("C"),true
+coulomb,C,upright("C"),true
+atmosphere, atm, upright("atm"), true
