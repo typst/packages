@@ -30,7 +30,7 @@ You can clone this repo and import `lib.typ`:
 ```
 Or directly use the builtin package manager:
 ```
-#import "@preview/commute:0.1.0": node, arr, commutative-diagram
+#import "@preview/commute:0.2.0": node, arr, commutative-diagram
 ```
 
 ## `commutative-diagram`
