@@ -17,7 +17,7 @@
 	)
 
 	if render.at(0) == 1 {
-		return raw(str(render))
+		return raw(str(render.slice(1)))
 	}
 
 	if render.at(0) != 0 {
