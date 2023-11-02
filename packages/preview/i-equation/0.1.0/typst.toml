@@ -1,0 +1,10 @@
+[package]
+name = "i-equation"
+version = "0.1.0"
+authors = ["RubixDev", "OrangeX4"]
+entrypoint = "i-equation.typ"
+exclude = ["./examples", "./README.md"]
+keywords = ["math", "equation", "numbering"]
+license = "MIT"
+repository = "https://github.com/OrangeX4/typst-i-equation"
+description = "Configurable math equation numbering per section."
