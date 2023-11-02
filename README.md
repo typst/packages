@@ -108,8 +108,8 @@ break downstream users.
 **Important:** Please do not submit templates as packages just yet. To make the
 experience of using templates as seamless as possible, we want them to show up
 in the web app's template gallery and we want the CLI to be able to scaffold a
-project from a template. We ask for your patience while we're building the
-necessary infrastructure. See the [tracking issue](https://github.com/typst/typst/issues/2432) for more information.
+project from a template. We ask for your patience while we're
+[building][template-packages] the necessary infrastructure.
 
 What's the difference between a template and a normal package? The line isn't
 100% sharp, but overall a template will aid you in producing a full document
@@ -158,3 +158,4 @@ respective license.
 [list]: https://typst.app/docs/packages/
 [SemVer]: https://semver.org/
 [OSI]: https://opensource.org/licenses/
+[template-packages]: https://github.com/typst/typst/issues/2432
