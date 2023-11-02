@@ -1,0 +1,10 @@
+[package]
+name = "pinup"
+version = "0.1.0"
+authors = ["OrangeX4"]
+entrypoint = "lib.typ"
+exclude = ["./examples", "./README.md"]
+keywords = ["pinup", "pin"]
+license = "MIT"
+repository = "https://github.com/OrangeX4/typst-pinup"
+description = "Pin things as you like, especially useful for creating slides."
