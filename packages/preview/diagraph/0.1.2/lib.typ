@@ -1,14 +1,5 @@
 #let plugin = plugin("diagraph.wasm")
 
-#let big-endian-decode(bytes) = {
-	let result = 0
-	for byte in array(bytes) {
-		result = result * 256
-		result = result + byte
-	}
-	return result
-}
-
 #let render(text, engine: "dot", width: auto, height: auto, fit: "contain", background: "transparent") = {
 	let render = plugin.render(
 		bytes(text), 
@@ -34,6 +25,16 @@
 			width: width,
 			fit: fit,
 		)
+	}
+
+	/// Decodes a big-endian integer from the given bytes.
+	let big-endian-decode(bytes) = {
+		let result = 0
+		for byte in array(bytes) {
+			result = result * 256
+			result = result + byte
+		}
+		return result
 	}
 
 	/// Returns a `(width, height)` pair corresponding to the dimensions of the SVG stored in the bytes.

@@ -96,8 +96,9 @@ This project was built with emscripten `3.1.45`. Apart from that, you just need 
 
 There are also some other make commands:
 
-- `make clean`: Clean the build folder
 - `make link`: Link the project to the typst plugin folder
+- `make clean`: Clean the build folder and the link
+- `make clean-link`: Only clean the link
 - `make compile_database`: Generate the compile_commands.json file
 - `make module`: It copy the files needed to run the plugin in a folder called `graphviz` in the current directory
 
