@@ -3,6 +3,20 @@
   state("codly-offset").update(offset)
 }
 
+// Lets you set a range of line numbers to highlight.
+#let codly-range(
+  start: 1,
+  end: none,
+) = {
+  state("codly-range").update((start, end))
+}
+
+// Disables codly.
+#let disable-codly() = {
+  state("codly-config").update(none)
+}
+
+// Configures codly.
 #let codly(
   // The list of languages, allows setting a display name and an icon,
   // it should be a dict of the form:
@@ -32,25 +46,80 @@
   // Set to `none` to disable.
   stroke-width: 0.1em,
 
+  // The stroke color to use to surround the code block.
+  stroke-color: luma(240),
+
   // The width of the numbers column.
   // If set to `none`, the numbers column will be disabled.
   width-numbers: 2em,
 
   // Whether this code block is breakable.
   breakable: true,
+) = locate(loc => {
+  let old = state("codly-config").at(loc);
+  if old == none {
+    state("codly-config").update((
+      languages: languages,
+      display-name: display-name,
+      display-icon: display-icon,
+      default-color: default-color,
+      radius: radius,
+      padding: padding,
+      zebra-color: zebra-color,
+      stroke-width: stroke-width,
+      width-numbers: width-numbers,
+      breakable: breakable,
+      stroke-color: stroke-color,
+    ))
+  } else {
+    let folded_langs = old.languages;
+    for (lang, def) in languages {
+      folded_langs.insert(lang, def)
+    }
 
+    state("codly-config").update((
+      languages: folded_langs,
+      display-name: display-name,
+      display-icon: display-icon,
+      default-color: default-color,
+      radius: radius,
+      padding: padding,
+      zebra-color: zebra-color,
+      stroke-width: stroke-width,
+      width-numbers: width-numbers,
+      breakable: breakable,
+      stroke-color: stroke-color,
+    ))
+  }
+})
+
+#let codly-init(
   body,
 ) = {
-  show raw.where(block: true): it => {
-    let language_block = if display-name == false and display-icon == false {
+  show raw.where(block: true): it => locate(loc => {
+    let config = state("codly-config").at(loc)
+    let range = state("codly-range").at(loc)
+    let in_range(line) = {
+      if range == none {
+        true
+      } else if range.at(1) == none {
+        line >= range.at(0)
+      } else {
+        line >= range.at(0) and line <= range.at(1)
+      }
+    }
+    if config == none {
+      return it
+    }
+    let language_block = if config.display-name == false and config.display-icon == false {
       none
     } else if it.lang == none {
       none
-    } else if it.lang in languages {
-      let lang = languages.at(it.lang);
-      let content = if display-name == true and display-icon == true {
+    } else if it.lang in config.languages {
+      let lang =config. languages.at(it.lang);
+      let content = if config.display-name == true and config.display-icon == true {
         lang.icon + " " + lang.name
-      } else if display-name == true {
+      } else if config.display-name == true {
         lang.name
       } else {
         lang.icon
@@ -59,24 +128,24 @@
       style(styles => {
         let height = measure(content, styles).height
         box(
-          radius: radius, 
+          radius: config.radius, 
           fill: lang.color.lighten(60%), 
-          inset: padding,
-          height: height + padding * 2,
-          stroke: stroke-width + lang.color,
+          inset: config.padding,
+          height: height + config.padding * 2,
+          stroke: config.stroke-width + lang.color,
           content,
         )
       })
     } else {
-      if display-name == false {
+      if config.display-name == false {
         style(styles => {
           let height = measure(it.lang, styles).height
           box(
-            radius: radius, 
-            fill: default-color.lighten(60%), 
-            inset: padding,
+            radius: config.radius, 
+            fill: config.default-color.lighten(60%), 
+            inset: config.padding,
             height: height + padding * 2,
-            stroke: stroke-width + default-color,
+            stroke: config.stroke-width + config.default-color,
             it.lang,
           )
         })
@@ -85,21 +154,25 @@
       }
     };
 
+    let offset = state("codly-offset").at(loc);
+    let start = if range == none { 1 } else { range.at(0) };
     let border(i, len) = {
-      let stroke-width = if stroke-width == none { 0pt } else { stroke-width }
-      let radii = (:)
-      let stroke = (x: zebra-color + stroke-width)
+      let end = if range == none { len } else if range.at(1) == none { len } else { range.at(1) };
 
-      if i == 1 {
-        radii.insert("top-left", radius)
-        radii.insert("top-right", radius)
-        stroke.insert("top", zebra-color + stroke-width)
+      let stroke-width = if config.stroke-width == none { 0pt } else { config.stroke-width };
+      let radii = (:)
+      let stroke = (x: config.stroke-color + stroke-width)
+
+      if i == start {
+        radii.insert("top-left", config.radius)
+        radii.insert("top-right", config.radius)
+        stroke.insert("top", config.stroke-color + stroke-width)
       }
 
-      if i == len {
-        radii.insert("bottom-left", radius)
-        radii.insert("bottom-right", radius)
-        stroke.insert("bottom", zebra-color + stroke-width)
+      if i == end {
+        radii.insert("bottom-left", config.radius)
+        radii.insert("bottom-right", config.radius)
+        stroke.insert("bottom", config.stroke-color + stroke-width)
       }
 
       radii.insert("rest", 0pt)
@@ -107,53 +180,60 @@
       (radius: radii, stroke: stroke)
     }
 
-    let width = if width-numbers == none { 0pt } else { width-numbers }
-    show raw.line: it => block(
-      width: 100%,
-      height: 1.2em + padding * 2,
-      inset: (left: padding + width, top: padding + 0.1em, rest: padding),
-      fill: if calc.rem(it.number, 2) == 0 {
-        zebra-color
-      } else {
-        white
-      },
-      radius: border(it.number, it.count).radius,
-      stroke: border(it.number, it.count).stroke,
-      {
-        if it.number == 1 {
-          place(
-            top + right,
-            language_block,
-            dy: -padding * 0.66666,
-            dx: padding * 0.66666 - 0.1em,
-          )
-        }
-
-        set par(justify: false)
-        if width-numbers != none {
-          place(top + left, dx: -width-numbers, locate(loc => {
-            (state("codly-offset").at(loc) + it.number)
-          }))
-        }
-        it
-      }
-    )
-
-    let stroke = if stroke-width == 0pt or stroke-width == none {
+    let width = if config.width-numbers == none { 0pt } else { config.width-numbers }
+    show raw.line: it => if not in_range(it.number) {
       none
     } else {
-      stroke-width + zebra-color
+      block(
+        width: 100%,
+        height: 1.2em + config.padding * 2,
+        inset: (left: config.padding + width, top: config.padding + 0.1em, rest: config.padding),
+        fill: if calc.rem(it.number, 2) == 0 {
+          config.zebra-color
+        } else {
+          white
+        },
+        radius: border(it.number, it.count).radius,
+        stroke: border(it.number, it.count).stroke,
+        {
+          if it.number == start  {
+            place(
+              top + right,
+              language_block,
+              dy: -config.padding * 0.66666,
+              dx: config.padding * 0.66666 - 0.1em,
+            )
+          }
+
+          set par(justify: false)
+          if config.width-numbers != none {
+            place(
+              top + left,
+              dx: -config.width-numbers, 
+              [#(offset + it.number)]
+            )
+          }
+          it
+        }
+      )
+    }
+
+    let stroke = if config.stroke-width == 0pt or config.stroke-width == none {
+      none
+    } else {
+      config.stroke-width + config.zebra-color
     };
 
     block(
-      breakable: breakable,
+      breakable: config.breakable,
       clip: false,
       width: 100%,
       stack(dir: ttb, ..it.lines)
     )
 
     codly-offset()
-  }
+    codly-range(start: 1, end: none)
+  })
 
   body
 }
