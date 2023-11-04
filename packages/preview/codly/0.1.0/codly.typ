@@ -1,3 +1,8 @@
+// Lets you set a line number offset.
+#let codly-offset(offset: 0) = {
+  state("codly-offset").update(offset)
+}
+
 #let codly(
   // The list of languages, allows setting a display name and an icon,
   // it should be a dict of the form:
@@ -28,6 +33,7 @@
   stroke-width: 0.1em,
 
   // The width of the numbers column.
+  // If set to `none`, the numbers column will be disabled.
   width-numbers: 2em,
 
   // Whether this code block is breakable.
@@ -101,10 +107,11 @@
       (radius: radii, stroke: stroke)
     }
 
+    let width = if width-numbers == none { 0pt } else { width-numbers }
     show raw.line: it => block(
       width: 100%,
       height: 1.2em + padding * 2,
-      inset: (left: padding + width-numbers, top: padding + 0.1em, rest: padding),
+      inset: (left: padding + width, top: padding + 0.1em, rest: padding),
       fill: if calc.rem(it.number, 2) == 0 {
         zebra-color
       } else {
@@ -123,7 +130,11 @@
         }
 
         set par(justify: false)
-        place(top + left, dx: -width-numbers)[#it.number]
+        if width-numbers != none {
+          place(top + left, dx: -width-numbers, locate(loc => {
+            (state("codly-offset").at(loc) + it.number)
+          }))
+        }
         it
       }
     )
@@ -140,6 +151,8 @@
       width: 100%,
       stack(dir: ttb, ..it.lines)
     )
+
+    codly-offset()
   }
 
   body

@@ -37,3 +37,22 @@ syn beam_forming(
         |> constrain(d_delay = 0)
 }
 ```
+
+We can also set a line number offset with `codly-offset(int)`:
+
+#codly-offset(offset: 1)
+```rust
+    println!("Hello, world!");
+```
+
+And we can also disable line numbers:
+
+#show: codly.with(languages: (
+  rust: (name: "Rust", icon: icon("\u{fa53}"), color: rgb("#CE412B")),
+), width-numbers: none)
+
+```rust
+pub fn main() {
+    println!("Hello, world!");
+}
+```
