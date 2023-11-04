@@ -136,7 +136,7 @@
 
     block(
       breakable: breakable,
-      clip: true,
+      clip: false,
       width: 100%,
       stack(dir: ttb, ..it.lines)
     )

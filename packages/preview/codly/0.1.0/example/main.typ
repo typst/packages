@@ -1,5 +1,3 @@
-
-#set page(width: 300pt, height: auto, margin: 5pt)
 #import "../codly.typ": *
 
 #let icon(codepoint) = {
@@ -23,5 +21,19 @@
 ```rust
 pub fn main() {
     println!("Hello, world!");
+}
+```
+
+```phos
+syn beam_forming(
+    input: optical,
+    phase_shifts: (electrical...),
+) -> (optical...) {
+    input
+        |> split(splat(1.0, phase_shifts.len()))
+        |> constrain(d_phase = 0)
+        |> zip(phase_shifts)
+        |> map(set modulate(type_: Modulation::Phase))
+        |> constrain(d_delay = 0)
 }
 ```
