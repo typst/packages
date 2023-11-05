@@ -114,7 +114,7 @@ You can customize the stroke surrounding the figure using the `stroke-width` and
 
 ### Misc
 
-You can also disable th icon, by setting the `display-icon` parameter to `false`:
+You can also disable the icon, by setting the `display-icon` parameter to `false`:
 
 ```typ
 #codly(
