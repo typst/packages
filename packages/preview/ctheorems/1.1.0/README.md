@@ -1,7 +1,11 @@
 # ctheorems
 
 An implementation of numbered theorem environments in
-[typst](https://github.com/typst/typst).
+[typst](https://github.com/typst/typst). Import using
+```typst
+#import "@preview/ctheorems:1.1.0": *
+#show: thmrules
+```
 
 ### Features
 - Numbered theorem environments can be created and customized.
@@ -83,6 +87,7 @@ You can read the [manual](assets/manual.pdf) for a full walkthrough of functiona
 
 - The `supplement` (for references) is no longer set in `thmenv`. It can be passed to the theorem environment directly, along with `refnumbering` to control the appearance of `@reference`s.
 - Extra named arguments given to `thmbox` are passed to `block`.
+- Fixed spacing bug for unnumbered environments.
 - Replaced dummy figure with labelled metadata.
 
 ### v1.0.0

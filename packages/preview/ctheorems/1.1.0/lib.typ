@@ -31,7 +31,7 @@
     }
     let result = none
     if number == auto and numbering == none {
-      number = []
+      number = none
     }
     if number == auto and numbering != none {
       result = locate(loc => {
