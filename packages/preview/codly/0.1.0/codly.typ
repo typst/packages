@@ -118,7 +118,7 @@
     } else if it.lang in config.languages {
       let lang =config. languages.at(it.lang);
       let content = if config.display-name == true and config.display-icon == true {
-        lang.icon + " " + lang.name
+        lang.icon + lang.name
       } else if config.display-name == true {
         lang.name
       } else {

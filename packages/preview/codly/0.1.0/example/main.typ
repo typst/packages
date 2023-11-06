@@ -3,21 +3,17 @@
 #show: codly-init.with()
 
 #let icon(codepoint) = {
-  text(
-      font: "tabler-icons", 
-      fallback: false, 
-      weight: "regular", 
-      size: 8pt,
-  )[#codepoint]
+  box(
+    height: 0.8em,
+    baseline: 0.05em,
+    image(codepoint)
+  )
+  h(0.1em)
 }
 
-#set raw(syntaxes: (
-  "./Phos.sublime-syntax"
-))
-
 #codly(languages: (
-  rust: (name: "Rust", icon: icon("\u{fa53}"), color: rgb("#CE412B")),
-  phos: (name: "PHÔS", icon: icon("\u{ed8a}"), color: rgb("#de8f6e")),
+  rust: (name: "Rust", icon: icon("brand-python.svg"), color: rgb("#CE412B")),
+  python: (name: "Python", icon: icon("brand-rust.svg"), color: rgb("#3572A5")),
 ))
 
 ```rust
@@ -26,18 +22,12 @@ pub fn main() {
 }
 ```
 
-```phos
-syn beam_forming(
-    input: optical,
-    phase_shifts: (electrical...),
-) -> (optical...) {
-    input
-        |> split(splat(1.0, phase_shifts.len()))
-        |> constrain(d_phase = 0)
-        |> zip(phase_shifts)
-        |> map(set modulate(type_: Modulation::Phase))
-        |> constrain(d_delay = 0)
-}
+```python
+def fibonaci(n):
+    if n <= 1:
+        return n
+    else:
+        return(fibonaci(n-1) + fibonaci(n-2))
 ```
 
 We can also set a line number offset with `codly-offset(int)`:
@@ -59,20 +49,14 @@ pub fn main() {
 
 We can also select only a range of lines to show:
 
-#codly-range(start: 5, end: 10)
+#codly-range(start: 5, end: 5)
 
-```phos
-syn beam_forming(
-    input: optical,
-    phase_shifts: (electrical...),
-) -> (optical...) {
-    input
-        |> split(splat(1.0, phase_shifts.len()))
-        |> constrain(d_phase = 0)
-        |> zip(phase_shifts)
-        |> map(set modulate(type_: Modulation::Phase))
-        |> constrain(d_delay = 0)
-}
+```python
+def fibonaci(n):
+    if n <= 1:
+        return n
+    else:
+        return(fibonaci(n-1) + fibonaci(n-2))
 ```
 
 #codly(

@@ -7,10 +7,18 @@ function to work across all languages easily. You can customize the icons, color
 suit your document's theme. By default it has zebra striping, line numbers, for ease of reading.
 
 ````typ
-#let icon(codepoint) = { ... }
+#let icon(codepoint) = {
+  box(
+    height: 0.8em,
+    baseline: 0.05em,
+    image(codepoint)
+  )
+  h(0.1em)
+}
+
 #show: codly-init.with()
 #codly(languages: (
-  rust: (name: "Rust", icon: icon("\u{fa53}"), color: rgb("#CE412B")),
+  rust: (name: "Rust", icon: icon("brand-python.svg"), color: rgb("#CE412B")),
 ))
 
 ```rust
@@ -58,7 +66,7 @@ pub fn main() {
 
 ### Disabling
 
-To locally disable codly, you can just do the following, you can then later on re-enable it using the `codly` configuration function.
+To locally disable codly, you can just do the following, you can then later re-enable it using the `codly` configuration function.
 
 ```typ
 #disable-codly()
@@ -114,7 +122,7 @@ You can customize the stroke surrounding the figure using the `stroke-width` and
 
 ### Misc
 
-You can also disable th icon, by setting the `display-icon` parameter to `false`:
+You can also disable the icon, by setting the `display-icon` parameter to `false`:
 
 ```typ
 #codly(
