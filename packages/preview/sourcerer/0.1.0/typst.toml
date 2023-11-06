@@ -11,4 +11,4 @@ keywords = ["code", "sourcecode", "listing", "listings"]
 entrypoint = "src/lib.typ"
 compiler = "0.9.0"
 
-exclude = ["assets/*", "DOCS.md", "README.md", "LICENSE"]
+exclude = ["assets/*"]
