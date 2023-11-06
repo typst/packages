@@ -1,0 +1,12 @@
+[package]
+name = "sourcerer"
+version = "0.1.0"
+authors = ["Yoav Grimland <miestrode@proton.me>"]
+license = "MIT"
+description = "Show code in a flexible, customizable way."
+repository = "https://github.com/miestrode/sourcerer"
+
+keywords = ["code", "sourcecode", "listing", "listings"]
+
+entrypoint = "src/lib.typ"
+compiler = "0.9.0"
