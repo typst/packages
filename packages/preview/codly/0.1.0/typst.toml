@@ -6,6 +6,6 @@ authors = ["Dherse"]
 license = "MIT"
 description = "Codly is a beautiful code presentation template."
 repository = "https://github.com/Dherse/codly"
-exclude = ["LICENSE", "example/*", "demo.png" ]
+exclude = ["example/*", "demo.png" ]
 compiler = "0.9.0"
 keywords = [ "code", "pretty", "template", "raw" ]
