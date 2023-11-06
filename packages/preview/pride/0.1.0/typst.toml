@@ -1,0 +1,11 @@
+[package]
+name = "pride"
+version = "0.1.0"
+entrypoint = "pride.typ"
+authors = ["Charlotte Thomas"]
+license = "GPLv3"
+description = "Pride provides beautiful "
+repository = "https://github.com/coco33920/pride"
+exclude = ["example/*", "pride.png" ]
+compiler = "0.9.0"
+keywords = [ "pride", "gradient" ]
