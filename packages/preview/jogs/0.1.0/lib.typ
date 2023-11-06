@@ -6,7 +6,7 @@
 /// * `code` - The Javascript code string to run.
 /// 
 /// # Returns
-/// The result of the Javascript code in string
+/// The result of the Javascript code. The type is the typst type which most closely resembles the Javascript type.
 /// 
 /// # Example
 /// ```typ
