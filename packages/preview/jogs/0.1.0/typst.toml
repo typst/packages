@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Wenzhuo Liu"]
 license = "MIT"
-description = "Quickjs javascript runtime for typst"
+description = "QuickJS JavaScript runtime for Typst"
 
 homepage = "https://github.com/Enter-tainer/jogs"
 repository = "https://github.com/Enter-tainer/jogs"
