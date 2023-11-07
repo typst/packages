@@ -42,8 +42,9 @@ Optional:
   work.
 - `exclude`: An array of globs specifying files that should not be part of the
   published bundle that the compiler downloads when importing the package. To be
-  used for support files like images or documentation that would otherwise
-  unnecessarily increase the bundle size.
+  used for large support files like images or PDF documentation that would
+  otherwise unnecessarily increase the bundle size. Don't exclude the README or
+  the LICENSE.
 
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
