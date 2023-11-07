@@ -24,7 +24,7 @@ The idea of pinit is pinning pins on the normal flow of the text, and then placi
 For example, we can highlight text and add a tip by pins simply:
 
 ```typ
-#import "@preview/pinit:0.1.0": *
+#import "@preview/pinit:0.1.1": *
 
 #set text(size: 24pt)
 
