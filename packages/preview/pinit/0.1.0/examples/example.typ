@@ -34,7 +34,7 @@
     #redbold(${f(n): "exists" c > 0 "and" n_0 > 0, "such that" f(n) <= c dot g(n) "for all" n >= n_0}$)
   ]
 
-  #pinup-highlight("h1", "h2")
+  #pinit-highlight("h1", "h2")
 
   #pause
 
@@ -46,7 +46,7 @@
 
   $f(n) redbold(in) O(g(n))$: $f(n)$ is *asymptotically* #redbold[at most] $g(n)$.
 
-  #only("4-", pinup-line(stroke: 3pt + crimson, start-dy: -0.25em, end-dy: -0.25em, 1, 2))
+  #only("4-", pinit-line(stroke: 3pt + crimson, start-dy: -0.25em, end-dy: -0.25em, 1, 2))
 
   #pause
 
@@ -55,12 +55,12 @@
   - Best Case: $T(n) approx c n + c' n - c''$ #pin(3)
   - Worst case: $T(n) approx c n + (c' \/ 2) n^2 - c''$ #pin(4)
 
-  #pinup-rect("r1", "r2")
+  #pinit-rect("r1", "r2")
 
   #pause
 
-  #pinup-place(3, dx: 15pt, dy: -15pt)[#redbold[$T(n) = O(n)$]]
-  #pinup-place(4, dx: 15pt, dy: -15pt)[#redbold[$T(n) = O(n)$]]
+  #pinit-place(3, dx: 15pt, dy: -15pt)[#redbold[$T(n) = O(n)$]]
+  #pinit-place(4, dx: 15pt, dy: -15pt)[#redbold[$T(n) = O(n)$]]
 
   #pause
 
@@ -68,8 +68,8 @@
 
   #pause
 
-  #only("8-", pinup-point-to("que", fill: crimson, redbold[No.]))
-  #only("8-", pinup-point-from("ans", body-dx: -150pt)[
+  #only("8-", pinit-point-to("que", fill: crimson, redbold[No.]))
+  #only("8-", pinit-point-from("ans", body-dx: -150pt)[
     Show that the equation $(3/2)^n >= c$ \
     has infinitely many solutions for $n$.
   ])

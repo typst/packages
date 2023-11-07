@@ -1,18 +1,18 @@
 #import "simple-arrow.typ": simple-arrow
-#import "pinup-core.typ": *
+#import "pinit-core.typ": *
 
 // -----------------------------------------------
 // Libs
 // -----------------------------------------------
 
-#let pinup-rect(
+#let pinit-rect(
   dx: 0em,
   dy: -1em,
   extented-width: 0em,
   extented-height: 1.4em,
   ..args,
 ) = {
-  pinup(args.pos(), (positions) => {
+  pinit(args.pos(), (positions) => {
     let min-x = calc.min(..positions.map((loc) => loc.x))
     let max-x = calc.max(..positions.map((loc) => loc.x))
     let min-y = calc.min(..positions.map((loc) => loc.y))
@@ -29,16 +29,16 @@
   })
 }
 
-#let pinup-highlight(
+#let pinit-highlight(
   fill: rgb(255, 0, 0, 20),
   radius: 5pt,
   stroke: 0pt,
   ..args,
 ) = {
-  pinup-rect(fill: fill, radius: radius, stroke: stroke, ..args)
+  pinit-rect(fill: fill, radius: radius, stroke: stroke, ..args)
 }
 
-#let pinup-line(
+#let pinit-line(
   stroke: 1pt,
   start-dx: 0pt,
   start-dy: 0pt,
@@ -47,7 +47,7 @@
   start,
   end,
 ) = {
-  pinup((start, end), (positions) => {
+  pinit((start, end), (positions) => {
     absolute-place(
       line(
         stroke: stroke,
@@ -64,7 +64,7 @@
   })
 }
 
-#let pinup-arrow(
+#let pinit-arrow(
   start-dx: 0pt,
   start-dy: 0pt,
   end-dx: 0pt,
@@ -73,7 +73,7 @@
   end,
   ..args,
 ) = {
-  pinup((start, end), (locations) => {
+  pinit((start, end), (locations) => {
     absolute-place(simple-arrow(
       start: (
         locations.at(0).x + start-dx,
@@ -88,7 +88,7 @@
   })
 }
 
-#let pinup-point-to(
+#let pinit-point-to(
   pin-dx: 5pt,
   pin-dy: 5pt,
   body-dx: 5pt,
@@ -99,11 +99,11 @@
   body,
   ..args,
 ) = {
-  pinup-arrow(pin-name, pin-name, start-dx: pin-dx, start-dy: pin-dy, end-dx: offset-dx, end-dy: offset-dy, ..args)
-  pinup-place(pin-name, body, dx: offset-dx + body-dx, dy: offset-dy + body-dy)
+  pinit-arrow(pin-name, pin-name, start-dx: pin-dx, start-dy: pin-dy, end-dx: offset-dx, end-dy: offset-dy, ..args)
+  pinit-place(pin-name, body, dx: offset-dx + body-dx, dy: offset-dy + body-dy)
 }
 
-#let pinup-point-from(
+#let pinit-point-from(
   pin-dx: 5pt,
   pin-dy: 5pt,
   body-dx: 5pt,
@@ -114,6 +114,6 @@
   body,
   ..args,
 ) = {
-  pinup-arrow(pin-name, pin-name, start-dx: offset-dx, start-dy: offset-dy, end-dx: pin-dx, end-dy: pin-dy, ..args)
-  pinup-place(pin-name, body, dx: offset-dx + body-dx, dy: offset-dy + body-dy)
+  pinit-arrow(pin-name, pin-name, start-dx: offset-dx, start-dy: offset-dy, end-dx: pin-dx, end-dy: pin-dy, ..args)
+  pinit-place(pin-name, body, dx: offset-dx + body-dx, dy: offset-dy + body-dy)
 }

@@ -37,7 +37,7 @@
   })
 }
 
-#let pinup(pins, func) = {
+#let pinit(pins, func) = {
   let is-single-arg = false
   if type(pins) != array {
     is-single-arg = true
@@ -64,13 +64,13 @@
 }
 
 
-#let pinup-place(
+#let pinit-place(
   dx: 0pt,
   dy: 0pt,
   pin-name,
   body,
 ) = {
-  pinup(pin-name, pos => {
+  pinit(pin-name, pos => {
     absolute-place(dx: pos.x  + dx, dy: pos.y + dy, body)
   })
 }

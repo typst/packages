@@ -1,4 +1,4 @@
-# Pinup
+# Pinit
 
 Pin things as you like, especially useful for creating slides.
 
@@ -19,20 +19,20 @@ Have a look at the pdf file [here](./examples/example.pdf).
 
 ## Usage
 
-The idea of pinup is pinning pins on the normal flow of the text, and then placing the content on the page by `absolute-place` function.
+The idea of pinit is pinning pins on the normal flow of the text, and then placing the content on the page by `absolute-place` function.
 
 For example, we can highlight text and add a tip by pins simply:
 
 ```typ
-#import "@preview/pinup:0.1.0": *
+#import "@preview/pinit:0.1.0": *
 
 #set text(size: 24pt)
 
 A simple #pin(1)highlighted text#pin(2).
 
-#pinup-highlight(1, 2)
+#pinit-highlight(1, 2)
 
-#pinup-point-from(2)[It is simple.]
+#pinit-point-from(2)[It is simple.]
 ```
 
 ![simple-demo](./examples/simple-demo.png)
@@ -40,7 +40,7 @@ A simple #pin(1)highlighted text#pin(2).
 
 ## Outline
 
-- [Pinup](#pinup)
+- [Pinit](#pinit)
   - [Example](#example)
     - [Pin things as you like](#pin-things-as-you-like)
     - [Dynamic Slides](#dynamic-slides)
@@ -48,15 +48,15 @@ A simple #pin(1)highlighted text#pin(2).
   - [Outline](#outline)
   - [Reference](#reference)
     - [`pin`](#pin)
-    - [`pinup`](#pinup-1)
+    - [`pinit`](#pinit-1)
     - [`absolute-place`](#absolute-place)
-    - [`pinup-place`](#pinup-place)
-    - [`pinup-rect`](#pinup-rect)
-    - [`pinup-highlight`](#pinup-highlight)
-    - [`pinup-line`](#pinup-line)
-    - [`pinup-arrow`](#pinup-arrow)
-    - [`pinup-point-to`](#pinup-point-to)
-    - [`pinup-point-from`](#pinup-point-from)
+    - [`pinit-place`](#pinit-place)
+    - [`pinit-rect`](#pinit-rect)
+    - [`pinit-highlight`](#pinit-highlight)
+    - [`pinit-line`](#pinit-line)
+    - [`pinit-arrow`](#pinit-arrow)
+    - [`pinit-point-to`](#pinit-point-to)
+    - [`pinit-point-from`](#pinit-point-from)
     - [`simple-arrow`](#simple-arrow)
   - [Acknowledgements](#acknowledgements)
   - [License](#license)
@@ -76,12 +76,12 @@ Pinning a pin in text, the pin is supposed to be unique in one page.
 
 - `name`: [`integer` or `string` or `any`] &mdash; Name of pin, which can be any types with unique `repr()` return value, such as integer and string.
 
-### `pinup`
+### `pinit`
 
 Query positions of pins in the same page, then call the callback function `func`.
 
 ```typ
-#let pinup(pins, func) = { .. }
+#let pinit(pins, func) = { .. }
 ```
 
 **Arguments:**
@@ -111,12 +111,12 @@ Place content at a specific location on the page relative to the top left corner
 - `content`: [`content`] &mdash; The content you want to place.
 
 
-### `pinup-place`
+### `pinit-place`
 
 Place content at a specific location on the page relative to the pin.
 
 ```typ
-#let pinup-place(
+#let pinit-place(
   dx: 0pt,
   dy: 0pt,
   pin-name,
@@ -132,12 +132,12 @@ Place content at a specific location on the page relative to the pin.
 - `body`: [`content`] &mdash; The content you want to place.
 
 
-### `pinup-rect`
+### `pinit-rect`
 
 Draw a rectangular shape on the page **containing all pins** with optional extended width and height.
 
 ```typ
-#let pinup-rect(
+#let pinit-rect(
   dx: 0em,
   dy: -1em,
   extended-width: 0em,
@@ -162,12 +162,12 @@ Draw a rectangular shape on the page **containing all pins** with optional exten
 - `...args`: Additional named arguments or settings for [`rect`](https://typst.app/docs/reference/visualize/rect/), like `fill`, `stroke` and `radius`.
 
 
-### `pinup-highlight`
+### `pinit-highlight`
 
-Highlight a specific area on the page with a filled color and optional radius and stroke. It is just a simply styled `pinup-rect`.
+Highlight a specific area on the page with a filled color and optional radius and stroke. It is just a simply styled `pinit-rect`.
 
 ```typ
-#let pinup-highlight(
+#let pinit-highlight(
   fill: rgb(255, 0, 0, 20),
   radius: 5pt,
   stroke: 0pt,
@@ -195,15 +195,15 @@ Highlight a specific area on the page with a filled color and optional radius an
 - `pin1`: [`pin`] &mdash; One of these pins.
 - `pin2`: [`pin`] &mdash; One of these pins.
 - `pin3`: [`pin`] &mdash; One of these pins, optionally.
-- `...args`: Additional arguments or settings for [`pinup-rect`](#pinup-rect).
+- `...args`: Additional arguments or settings for [`pinit-rect`](#pinit-rect).
 
 
-### `pinup-line`
+### `pinit-line`
 
 Draw a line on the page between two specified pins with an optional stroke.
 
 ```typ
-#let pinup-line(
+#let pinit-line(
   stroke: 1pt,
   start-dx: 0pt,
   start-dy: 0pt,
@@ -225,12 +225,12 @@ Draw a line on the page between two specified pins with an optional stroke.
 - `end`: [`pin`] &mdash; The end pin.
 
 
-### `pinup-arrow`
+### `pinit-arrow`
 
 Draw an arrow between two specified pins with optional settings.
 
 ```typ
-#let pinup-arrow(
+#let pinit-arrow(
   start-dx: 0pt,
   start-dy: 0pt,
   end-dx: 0pt,
@@ -252,12 +252,12 @@ Draw an arrow between two specified pins with optional settings.
 - `...args`: Additional arguments or settings for [`simple-arrow`](#simple-arrow), like `fill`, `stroke` and `thickness`.
 
 
-### `pinup-point-to`
+### `pinit-point-to`
 
 Draw an arrow from a specified pin to a point on the page with optional settings.
 
 ```typ
-#let pinup-point-to(
+#let pinit-point-to(
   pin-dx: 5pt,
   pin-dy: 5pt,
   body-dx: 5pt,
@@ -283,12 +283,12 @@ Draw an arrow from a specified pin to a point on the page with optional settings
 - `...args`: Additional arguments or settings for [`simple-arrow`](#simple-arrow), like `fill`, `stroke` and `thickness`.
 
 
-### `pinup-point-from`
+### `pinit-point-from`
 
 Draw an arrow from a point on the page to a specified pin with optional settings.
 
 ```typ
-#let pinup-point-from(
+#let pinit-point-from(
   pin-dx: 5pt,
   pin-dy: 5pt,
   body-dx: 5pt,
