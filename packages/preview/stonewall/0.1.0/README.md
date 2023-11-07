@@ -2,7 +2,7 @@
 You can use the colour palette with _gradients_ for maximum results! 
 For example the code in `example/example.typ` which is
 ```typ
-#import "../pride.typ": flags
+#import "../stonewall.typ": flags
 
 #set page(width: 200pt, height: auto, margin: 0pt)
 #set text(fill: black, size: 12pt)
