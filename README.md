@@ -64,10 +64,12 @@ To submit a package, simply make a pull request with the package to this
 repository. There are a few requirements for getting a package published, which
 are detailed below:
 
-- **Naming:** Package names should not be merely descriptive to create level
-  grounds for everybody (e.g. `slides` is forbidden, but `sliding` or
-  `slitastic` would be ok). Names should not include the word "typst" (as it is
-  redundant). If they contain multiple words, names should use `kebab-case`.
+- **Naming:** Package names should not be the obvious or canonical name for a
+  package with that functionality (e.g. `slides` is forbidden, but `sliding` or
+  `slitastic` would be ok). We have this rule because users will find packages
+  with these canonical names first, creating an unfair advantage for the package
+  author who claimed that name. Names should not include the word "typst" (as it
+  is redundant). If they contain multiple words, names should use `kebab-case`.
   Look at existing packages and PRs to get a feel for what's allowed and what's
   not.
 - **Functionality:** Packages should conceivably be useful to other users and
