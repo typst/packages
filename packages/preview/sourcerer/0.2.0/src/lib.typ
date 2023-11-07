@@ -45,19 +45,21 @@
   )
 
   show raw.where(block: true): it => {
-    let lines = if lines == auto {
-      (auto, auto)
-    } else {
-      (lines.at(0) - 1, lines.at(1))
+    let lines = lines
+
+    if lines == auto {
+      lines = (auto, auto)
     }
 
     if lines.at(0) == auto {
-      lines.at(0) = 0
+      lines.at(0) = 1
     }
 
     if lines.at(1) == auto {
       lines.at(1) = it.lines.len()
     }
+
+    lines = (lines.at(0) - 1, lines.at(1))
 
     block(
       inset: inset,
@@ -103,17 +105,19 @@
             .flatten()
         )
 
-        place(
-          right + top,
-          rect(
-            fill: lang-box.fill,
-            stroke: lang-box.stroke,
-            inset: 0pt,
-            outset: lang-box.outset,
-            radius: radius,
-            text(size: 1.25em, raw(lang))
+        if lang != none {
+          place(
+            right + top,
+            rect(
+              fill: lang-box.fill,
+              stroke: lang-box.stroke,
+              inset: 0pt,
+              outset: lang-box.outset,
+              radius: radius,
+              text(size: 1.25em, raw(lang))
+            )
           )
-        )
+        }
       }
     )
   }
