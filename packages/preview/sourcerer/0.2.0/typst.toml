@@ -3,7 +3,7 @@ name = "sourcerer"
 version = "0.2.0"
 authors = ["Yoav Grimland <miestrode@proton.me>"]
 license = "MIT"
-description = "Show code in a flexible, customizable way."
+description = "Customizable and flexible source-code blocks"
 repository = "https://github.com/miestrode/sourcerer"
 
 keywords = ["code", "sourcecode", "listing", "listings"]
