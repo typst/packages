@@ -11,7 +11,7 @@ Sourcerer is a Typst package for displaying stylized source code blocks, with so
 # Usage
 First, import the package via:
 ```typ
-#import "@preview/sourcerer:0.2.0": code
+#import "@preview/sourcerer:0.2.1": code
 ```
 
 Then, display custom code blocks via the `code` function, like so:
