@@ -3,7 +3,7 @@
 Draw QR codes in typst.
 
 ```typ
-#import "@preview/cades:0.1.0": qr-code
+#import "@preview/cades:0.2.0": qr-code
 
 = QR Code for `typst.app`:
 #qr-code("https://typst.app", width: 3cm)
