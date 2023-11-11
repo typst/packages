@@ -1,0 +1,356 @@
+# typst-octique
+
+GitHub [Octicons](https://primer.style/foundations/icons/) for Typst.
+
+## Installation
+
+```typst
+#import "@preview/octique:0.1.0": *
+```
+
+## Usage
+
+```typst
+// Returns an image for the given name.
+octique(name, color: rgb("#000000"), width: 1em, height: 1em)
+
+// Returns a boxed image for the given name.
+octique_inline(name, color: rgb("#000000"), width: 1em, height: 1em, baseline: 25%)
+
+// Returns an SVG text for the given name.
+octique_svg(name)
+```
+
+## List of Available Icons
+
+See also [`sample/sample.pdf`](sample/sample.pdf).
+
+| Code | Icon |
+| ---- | :--: |
+|`#octique("accessibility-inset")`| ![accessibility-inset](assets/accessibility-inset.svg) |
+|`#octique("accessibility")`| ![accessibility](assets/accessibility.svg) |
+|`#octique("alert-fill")`| ![alert-fill](assets/alert-fill.svg) |
+|`#octique("alert")`| ![alert](assets/alert.svg) |
+|`#octique("apps")`| ![apps](assets/apps.svg) |
+|`#octique("archive")`| ![archive](assets/archive.svg) |
+|`#octique("arrow-both")`| ![arrow-both](assets/arrow-both.svg) |
+|`#octique("arrow-down-left")`| ![arrow-down-left](assets/arrow-down-left.svg) |
+|`#octique("arrow-down-right")`| ![arrow-down-right](assets/arrow-down-right.svg) |
+|`#octique("arrow-down")`| ![arrow-down](assets/arrow-down.svg) |
+|`#octique("arrow-left")`| ![arrow-left](assets/arrow-left.svg) |
+|`#octique("arrow-right")`| ![arrow-right](assets/arrow-right.svg) |
+|`#octique("arrow-switch")`| ![arrow-switch](assets/arrow-switch.svg) |
+|`#octique("arrow-up-left")`| ![arrow-up-left](assets/arrow-up-left.svg) |
+|`#octique("arrow-up-right")`| ![arrow-up-right](assets/arrow-up-right.svg) |
+|`#octique("arrow-up")`| ![arrow-up](assets/arrow-up.svg) |
+|`#octique("beaker")`| ![beaker](assets/beaker.svg) |
+|`#octique("bell-fill")`| ![bell-fill](assets/bell-fill.svg) |
+|`#octique("bell-slash")`| ![bell-slash](assets/bell-slash.svg) |
+|`#octique("bell")`| ![bell](assets/bell.svg) |
+|`#octique("blocked")`| ![blocked](assets/blocked.svg) |
+|`#octique("bold")`| ![bold](assets/bold.svg) |
+|`#octique("book")`| ![book](assets/book.svg) |
+|`#octique("bookmark-slash")`| ![bookmark-slash](assets/bookmark-slash.svg) |
+|`#octique("bookmark")`| ![bookmark](assets/bookmark.svg) |
+|`#octique("briefcase")`| ![briefcase](assets/briefcase.svg) |
+|`#octique("broadcast")`| ![broadcast](assets/broadcast.svg) |
+|`#octique("browser")`| ![browser](assets/browser.svg) |
+|`#octique("bug")`| ![bug](assets/bug.svg) |
+|`#octique("cache")`| ![cache](assets/cache.svg) |
+|`#octique("calendar")`| ![calendar](assets/calendar.svg) |
+|`#octique("check-circle-fill")`| ![check-circle-fill](assets/check-circle-fill.svg) |
+|`#octique("check-circle")`| ![check-circle](assets/check-circle.svg) |
+|`#octique("check")`| ![check](assets/check.svg) |
+|`#octique("checkbox")`| ![checkbox](assets/checkbox.svg) |
+|`#octique("checklist")`| ![checklist](assets/checklist.svg) |
+|`#octique("chevron-down")`| ![chevron-down](assets/chevron-down.svg) |
+|`#octique("chevron-left")`| ![chevron-left](assets/chevron-left.svg) |
+|`#octique("chevron-right")`| ![chevron-right](assets/chevron-right.svg) |
+|`#octique("chevron-up")`| ![chevron-up](assets/chevron-up.svg) |
+|`#octique("circle-slash")`| ![circle-slash](assets/circle-slash.svg) |
+|`#octique("circle")`| ![circle](assets/circle.svg) |
+|`#octique("clock-fill")`| ![clock-fill](assets/clock-fill.svg) |
+|`#octique("clock")`| ![clock](assets/clock.svg) |
+|`#octique("cloud-offline")`| ![cloud-offline](assets/cloud-offline.svg) |
+|`#octique("cloud")`| ![cloud](assets/cloud.svg) |
+|`#octique("code-of-conduct")`| ![code-of-conduct](assets/code-of-conduct.svg) |
+|`#octique("code-review")`| ![code-review](assets/code-review.svg) |
+|`#octique("code")`| ![code](assets/code.svg) |
+|`#octique("code-square")`| ![code-square](assets/code-square.svg) |
+|`#octique("codescan-checkmark")`| ![codescan-checkmark](assets/codescan-checkmark.svg) |
+|`#octique("codescan")`| ![codescan](assets/codescan.svg) |
+|`#octique("codespaces")`| ![codespaces](assets/codespaces.svg) |
+|`#octique("columns")`| ![columns](assets/columns.svg) |
+|`#octique("command-palette")`| ![command-palette](assets/command-palette.svg) |
+|`#octique("comment-discussion")`| ![comment-discussion](assets/comment-discussion.svg) |
+|`#octique("comment")`| ![comment](assets/comment.svg) |
+|`#octique("container")`| ![container](assets/container.svg) |
+|`#octique("copilot-error")`| ![copilot-error](assets/copilot-error.svg) |
+|`#octique("copilot")`| ![copilot](assets/copilot.svg) |
+|`#octique("copilot-warning")`| ![copilot-warning](assets/copilot-warning.svg) |
+|`#octique("copy")`| ![copy](assets/copy.svg) |
+|`#octique("cpu")`| ![cpu](assets/cpu.svg) |
+|`#octique("credit-card")`| ![credit-card](assets/credit-card.svg) |
+|`#octique("cross-reference")`| ![cross-reference](assets/cross-reference.svg) |
+|`#octique("dash")`| ![dash](assets/dash.svg) |
+|`#octique("database")`| ![database](assets/database.svg) |
+|`#octique("dependabot")`| ![dependabot](assets/dependabot.svg) |
+|`#octique("desktop-download")`| ![desktop-download](assets/desktop-download.svg) |
+|`#octique("device-camera")`| ![device-camera](assets/device-camera.svg) |
+|`#octique("device-camera-video")`| ![device-camera-video](assets/device-camera-video.svg) |
+|`#octique("device-desktop")`| ![device-desktop](assets/device-desktop.svg) |
+|`#octique("device-mobile")`| ![device-mobile](assets/device-mobile.svg) |
+|`#octique("devices")`| ![devices](assets/devices.svg) |
+|`#octique("diamond")`| ![diamond](assets/diamond.svg) |
+|`#octique("diff-added")`| ![diff-added](assets/diff-added.svg) |
+|`#octique("diff-ignored")`| ![diff-ignored](assets/diff-ignored.svg) |
+|`#octique("diff-modified")`| ![diff-modified](assets/diff-modified.svg) |
+|`#octique("diff-removed")`| ![diff-removed](assets/diff-removed.svg) |
+|`#octique("diff-renamed")`| ![diff-renamed](assets/diff-renamed.svg) |
+|`#octique("diff")`| ![diff](assets/diff.svg) |
+|`#octique("discussion-closed")`| ![discussion-closed](assets/discussion-closed.svg) |
+|`#octique("discussion-duplicate")`| ![discussion-duplicate](assets/discussion-duplicate.svg) |
+|`#octique("discussion-outdated")`| ![discussion-outdated](assets/discussion-outdated.svg) |
+|`#octique("dot-fill")`| ![dot-fill](assets/dot-fill.svg) |
+|`#octique("dot")`| ![dot](assets/dot.svg) |
+|`#octique("download")`| ![download](assets/download.svg) |
+|`#octique("duplicate")`| ![duplicate](assets/duplicate.svg) |
+|`#octique("ellipsis")`| ![ellipsis](assets/ellipsis.svg) |
+|`#octique("eye-closed")`| ![eye-closed](assets/eye-closed.svg) |
+|`#octique("eye")`| ![eye](assets/eye.svg) |
+|`#octique("feed-discussion")`| ![feed-discussion](assets/feed-discussion.svg) |
+|`#octique("feed-forked")`| ![feed-forked](assets/feed-forked.svg) |
+|`#octique("feed-heart")`| ![feed-heart](assets/feed-heart.svg) |
+|`#octique("feed-issue-closed")`| ![feed-issue-closed](assets/feed-issue-closed.svg) |
+|`#octique("feed-issue-draft")`| ![feed-issue-draft](assets/feed-issue-draft.svg) |
+|`#octique("feed-issue-open")`| ![feed-issue-open](assets/feed-issue-open.svg) |
+|`#octique("feed-issue-reopen")`| ![feed-issue-reopen](assets/feed-issue-reopen.svg) |
+|`#octique("feed-merged")`| ![feed-merged](assets/feed-merged.svg) |
+|`#octique("feed-person")`| ![feed-person](assets/feed-person.svg) |
+|`#octique("feed-plus")`| ![feed-plus](assets/feed-plus.svg) |
+|`#octique("feed-public")`| ![feed-public](assets/feed-public.svg) |
+|`#octique("feed-pull-request-closed")`| ![feed-pull-request-closed](assets/feed-pull-request-closed.svg) |
+|`#octique("feed-pull-request-draft")`| ![feed-pull-request-draft](assets/feed-pull-request-draft.svg) |
+|`#octique("feed-pull-request-open")`| ![feed-pull-request-open](assets/feed-pull-request-open.svg) |
+|`#octique("feed-repo")`| ![feed-repo](assets/feed-repo.svg) |
+|`#octique("feed-rocket")`| ![feed-rocket](assets/feed-rocket.svg) |
+|`#octique("feed-star")`| ![feed-star](assets/feed-star.svg) |
+|`#octique("feed-tag")`| ![feed-tag](assets/feed-tag.svg) |
+|`#octique("feed-trophy")`| ![feed-trophy](assets/feed-trophy.svg) |
+|`#octique("file-added")`| ![file-added](assets/file-added.svg) |
+|`#octique("file-badge")`| ![file-badge](assets/file-badge.svg) |
+|`#octique("file-binary")`| ![file-binary](assets/file-binary.svg) |
+|`#octique("file-code")`| ![file-code](assets/file-code.svg) |
+|`#octique("file-diff")`| ![file-diff](assets/file-diff.svg) |
+|`#octique("file-directory-fill")`| ![file-directory-fill](assets/file-directory-fill.svg) |
+|`#octique("file-directory-open-fill")`| ![file-directory-open-fill](assets/file-directory-open-fill.svg) |
+|`#octique("file-directory")`| ![file-directory](assets/file-directory.svg) |
+|`#octique("file-directory-symlink")`| ![file-directory-symlink](assets/file-directory-symlink.svg) |
+|`#octique("file-moved")`| ![file-moved](assets/file-moved.svg) |
+|`#octique("file-removed")`| ![file-removed](assets/file-removed.svg) |
+|`#octique("file")`| ![file](assets/file.svg) |
+|`#octique("file-submodule")`| ![file-submodule](assets/file-submodule.svg) |
+|`#octique("file-symlink-file")`| ![file-symlink-file](assets/file-symlink-file.svg) |
+|`#octique("file-zip")`| ![file-zip](assets/file-zip.svg) |
+|`#octique("filter")`| ![filter](assets/filter.svg) |
+|`#octique("fiscal-host")`| ![fiscal-host](assets/fiscal-host.svg) |
+|`#octique("flame")`| ![flame](assets/flame.svg) |
+|`#octique("fold-down")`| ![fold-down](assets/fold-down.svg) |
+|`#octique("fold")`| ![fold](assets/fold.svg) |
+|`#octique("fold-up")`| ![fold-up](assets/fold-up.svg) |
+|`#octique("gear")`| ![gear](assets/gear.svg) |
+|`#octique("gift")`| ![gift](assets/gift.svg) |
+|`#octique("git-branch")`| ![git-branch](assets/git-branch.svg) |
+|`#octique("git-commit")`| ![git-commit](assets/git-commit.svg) |
+|`#octique("git-compare")`| ![git-compare](assets/git-compare.svg) |
+|`#octique("git-merge-queue")`| ![git-merge-queue](assets/git-merge-queue.svg) |
+|`#octique("git-merge")`| ![git-merge](assets/git-merge.svg) |
+|`#octique("git-pull-request-closed")`| ![git-pull-request-closed](assets/git-pull-request-closed.svg) |
+|`#octique("git-pull-request-draft")`| ![git-pull-request-draft](assets/git-pull-request-draft.svg) |
+|`#octique("git-pull-request")`| ![git-pull-request](assets/git-pull-request.svg) |
+|`#octique("globe")`| ![globe](assets/globe.svg) |
+|`#octique("goal")`| ![goal](assets/goal.svg) |
+|`#octique("grabber")`| ![grabber](assets/grabber.svg) |
+|`#octique("graph")`| ![graph](assets/graph.svg) |
+|`#octique("hash")`| ![hash](assets/hash.svg) |
+|`#octique("heading")`| ![heading](assets/heading.svg) |
+|`#octique("heart-fill")`| ![heart-fill](assets/heart-fill.svg) |
+|`#octique("heart")`| ![heart](assets/heart.svg) |
+|`#octique("history")`| ![history](assets/history.svg) |
+|`#octique("home")`| ![home](assets/home.svg) |
+|`#octique("horizontal-rule")`| ![horizontal-rule](assets/horizontal-rule.svg) |
+|`#octique("hourglass")`| ![hourglass](assets/hourglass.svg) |
+|`#octique("hubot")`| ![hubot](assets/hubot.svg) |
+|`#octique("id-badge")`| ![id-badge](assets/id-badge.svg) |
+|`#octique("image")`| ![image](assets/image.svg) |
+|`#octique("inbox")`| ![inbox](assets/inbox.svg) |
+|`#octique("infinity")`| ![infinity](assets/infinity.svg) |
+|`#octique("info")`| ![info](assets/info.svg) |
+|`#octique("issue-closed")`| ![issue-closed](assets/issue-closed.svg) |
+|`#octique("issue-draft")`| ![issue-draft](assets/issue-draft.svg) |
+|`#octique("issue-opened")`| ![issue-opened](assets/issue-opened.svg) |
+|`#octique("issue-reopened")`| ![issue-reopened](assets/issue-reopened.svg) |
+|`#octique("issue-tracked-by")`| ![issue-tracked-by](assets/issue-tracked-by.svg) |
+|`#octique("issue-tracks")`| ![issue-tracks](assets/issue-tracks.svg) |
+|`#octique("italic")`| ![italic](assets/italic.svg) |
+|`#octique("iterations")`| ![iterations](assets/iterations.svg) |
+|`#octique("kebab-horizontal")`| ![kebab-horizontal](assets/kebab-horizontal.svg) |
+|`#octique("key-asterisk")`| ![key-asterisk](assets/key-asterisk.svg) |
+|`#octique("key")`| ![key](assets/key.svg) |
+|`#octique("law")`| ![law](assets/law.svg) |
+|`#octique("light-bulb")`| ![light-bulb](assets/light-bulb.svg) |
+|`#octique("link-external")`| ![link-external](assets/link-external.svg) |
+|`#octique("link")`| ![link](assets/link.svg) |
+|`#octique("list-ordered")`| ![list-ordered](assets/list-ordered.svg) |
+|`#octique("list-unordered")`| ![list-unordered](assets/list-unordered.svg) |
+|`#octique("location")`| ![location](assets/location.svg) |
+|`#octique("lock")`| ![lock](assets/lock.svg) |
+|`#octique("log")`| ![log](assets/log.svg) |
+|`#octique("logo-gist")`| ![logo-gist](assets/logo-gist.svg) |
+|`#octique("logo-github")`| ![logo-github](assets/logo-github.svg) |
+|`#octique("mail")`| ![mail](assets/mail.svg) |
+|`#octique("mark-github")`| ![mark-github](assets/mark-github.svg) |
+|`#octique("markdown")`| ![markdown](assets/markdown.svg) |
+|`#octique("megaphone")`| ![megaphone](assets/megaphone.svg) |
+|`#octique("mention")`| ![mention](assets/mention.svg) |
+|`#octique("meter")`| ![meter](assets/meter.svg) |
+|`#octique("milestone")`| ![milestone](assets/milestone.svg) |
+|`#octique("mirror")`| ![mirror](assets/mirror.svg) |
+|`#octique("moon")`| ![moon](assets/moon.svg) |
+|`#octique("mortar-board")`| ![mortar-board](assets/mortar-board.svg) |
+|`#octique("move-to-bottom")`| ![move-to-bottom](assets/move-to-bottom.svg) |
+|`#octique("move-to-end")`| ![move-to-end](assets/move-to-end.svg) |
+|`#octique("move-to-start")`| ![move-to-start](assets/move-to-start.svg) |
+|`#octique("move-to-top")`| ![move-to-top](assets/move-to-top.svg) |
+|`#octique("multi-select")`| ![multi-select](assets/multi-select.svg) |
+|`#octique("mute")`| ![mute](assets/mute.svg) |
+|`#octique("no-entry")`| ![no-entry](assets/no-entry.svg) |
+|`#octique("north-star")`| ![north-star](assets/north-star.svg) |
+|`#octique("note")`| ![note](assets/note.svg) |
+|`#octique("number")`| ![number](assets/number.svg) |
+|`#octique("organization")`| ![organization](assets/organization.svg) |
+|`#octique("package-dependencies")`| ![package-dependencies](assets/package-dependencies.svg) |
+|`#octique("package-dependents")`| ![package-dependents](assets/package-dependents.svg) |
+|`#octique("package")`| ![package](assets/package.svg) |
+|`#octique("paintbrush")`| ![paintbrush](assets/paintbrush.svg) |
+|`#octique("paper-airplane")`| ![paper-airplane](assets/paper-airplane.svg) |
+|`#octique("paperclip")`| ![paperclip](assets/paperclip.svg) |
+|`#octique("passkey-fill")`| ![passkey-fill](assets/passkey-fill.svg) |
+|`#octique("paste")`| ![paste](assets/paste.svg) |
+|`#octique("pencil")`| ![pencil](assets/pencil.svg) |
+|`#octique("people")`| ![people](assets/people.svg) |
+|`#octique("person-add")`| ![person-add](assets/person-add.svg) |
+|`#octique("person-fill")`| ![person-fill](assets/person-fill.svg) |
+|`#octique("person")`| ![person](assets/person.svg) |
+|`#octique("pin-slash")`| ![pin-slash](assets/pin-slash.svg) |
+|`#octique("pin")`| ![pin](assets/pin.svg) |
+|`#octique("pivot-column")`| ![pivot-column](assets/pivot-column.svg) |
+|`#octique("play")`| ![play](assets/play.svg) |
+|`#octique("plug")`| ![plug](assets/plug.svg) |
+|`#octique("plus-circle")`| ![plus-circle](assets/plus-circle.svg) |
+|`#octique("plus")`| ![plus](assets/plus.svg) |
+|`#octique("project-roadmap")`| ![project-roadmap](assets/project-roadmap.svg) |
+|`#octique("project")`| ![project](assets/project.svg) |
+|`#octique("project-symlink")`| ![project-symlink](assets/project-symlink.svg) |
+|`#octique("project-template")`| ![project-template](assets/project-template.svg) |
+|`#octique("pulse")`| ![pulse](assets/pulse.svg) |
+|`#octique("question")`| ![question](assets/question.svg) |
+|`#octique("quote")`| ![quote](assets/quote.svg) |
+|`#octique("read")`| ![read](assets/read.svg) |
+|`#octique("redo")`| ![redo](assets/redo.svg) |
+|`#octique("rel-file-path")`| ![rel-file-path](assets/rel-file-path.svg) |
+|`#octique("reply")`| ![reply](assets/reply.svg) |
+|`#octique("repo-clone")`| ![repo-clone](assets/repo-clone.svg) |
+|`#octique("repo-deleted")`| ![repo-deleted](assets/repo-deleted.svg) |
+|`#octique("repo-forked")`| ![repo-forked](assets/repo-forked.svg) |
+|`#octique("repo-locked")`| ![repo-locked](assets/repo-locked.svg) |
+|`#octique("repo-pull")`| ![repo-pull](assets/repo-pull.svg) |
+|`#octique("repo-push")`| ![repo-push](assets/repo-push.svg) |
+|`#octique("repo")`| ![repo](assets/repo.svg) |
+|`#octique("repo-template")`| ![repo-template](assets/repo-template.svg) |
+|`#octique("report")`| ![report](assets/report.svg) |
+|`#octique("rocket")`| ![rocket](assets/rocket.svg) |
+|`#octique("rows")`| ![rows](assets/rows.svg) |
+|`#octique("rss")`| ![rss](assets/rss.svg) |
+|`#octique("ruby")`| ![ruby](assets/ruby.svg) |
+|`#octique("screen-full")`| ![screen-full](assets/screen-full.svg) |
+|`#octique("screen-normal")`| ![screen-normal](assets/screen-normal.svg) |
+|`#octique("search")`| ![search](assets/search.svg) |
+|`#octique("server")`| ![server](assets/server.svg) |
+|`#octique("share-android")`| ![share-android](assets/share-android.svg) |
+|`#octique("share")`| ![share](assets/share.svg) |
+|`#octique("shield-check")`| ![shield-check](assets/shield-check.svg) |
+|`#octique("shield-lock")`| ![shield-lock](assets/shield-lock.svg) |
+|`#octique("shield-slash")`| ![shield-slash](assets/shield-slash.svg) |
+|`#octique("shield")`| ![shield](assets/shield.svg) |
+|`#octique("shield-x")`| ![shield-x](assets/shield-x.svg) |
+|`#octique("sidebar-collapse")`| ![sidebar-collapse](assets/sidebar-collapse.svg) |
+|`#octique("sidebar-expand")`| ![sidebar-expand](assets/sidebar-expand.svg) |
+|`#octique("sign-in")`| ![sign-in](assets/sign-in.svg) |
+|`#octique("sign-out")`| ![sign-out](assets/sign-out.svg) |
+|`#octique("single-select")`| ![single-select](assets/single-select.svg) |
+|`#octique("skip-fill")`| ![skip-fill](assets/skip-fill.svg) |
+|`#octique("skip")`| ![skip](assets/skip.svg) |
+|`#octique("sliders")`| ![sliders](assets/sliders.svg) |
+|`#octique("smiley")`| ![smiley](assets/smiley.svg) |
+|`#octique("sort-asc")`| ![sort-asc](assets/sort-asc.svg) |
+|`#octique("sort-desc")`| ![sort-desc](assets/sort-desc.svg) |
+|`#octique("sparkle-fill")`| ![sparkle-fill](assets/sparkle-fill.svg) |
+|`#octique("sponsor-tiers")`| ![sponsor-tiers](assets/sponsor-tiers.svg) |
+|`#octique("square-fill")`| ![square-fill](assets/square-fill.svg) |
+|`#octique("square")`| ![square](assets/square.svg) |
+|`#octique("squirrel")`| ![squirrel](assets/squirrel.svg) |
+|`#octique("stack")`| ![stack](assets/stack.svg) |
+|`#octique("star-fill")`| ![star-fill](assets/star-fill.svg) |
+|`#octique("star")`| ![star](assets/star.svg) |
+|`#octique("stop")`| ![stop](assets/stop.svg) |
+|`#octique("stopwatch")`| ![stopwatch](assets/stopwatch.svg) |
+|`#octique("strikethrough")`| ![strikethrough](assets/strikethrough.svg) |
+|`#octique("sun")`| ![sun](assets/sun.svg) |
+|`#octique("sync")`| ![sync](assets/sync.svg) |
+|`#octique("tab-external")`| ![tab-external](assets/tab-external.svg) |
+|`#octique("table")`| ![table](assets/table.svg) |
+|`#octique("tag")`| ![tag](assets/tag.svg) |
+|`#octique("tasklist")`| ![tasklist](assets/tasklist.svg) |
+|`#octique("telescope-fill")`| ![telescope-fill](assets/telescope-fill.svg) |
+|`#octique("telescope")`| ![telescope](assets/telescope.svg) |
+|`#octique("terminal")`| ![terminal](assets/terminal.svg) |
+|`#octique("three-bars")`| ![three-bars](assets/three-bars.svg) |
+|`#octique("thumbsdown")`| ![thumbsdown](assets/thumbsdown.svg) |
+|`#octique("thumbsup")`| ![thumbsup](assets/thumbsup.svg) |
+|`#octique("tools")`| ![tools](assets/tools.svg) |
+|`#octique("tracked-by-closed-completed")`| ![tracked-by-closed-completed](assets/tracked-by-closed-completed.svg) |
+|`#octique("tracked-by-closed-not-planned")`| ![tracked-by-closed-not-planned](assets/tracked-by-closed-not-planned.svg) |
+|`#octique("trash")`| ![trash](assets/trash.svg) |
+|`#octique("triangle-down")`| ![triangle-down](assets/triangle-down.svg) |
+|`#octique("triangle-left")`| ![triangle-left](assets/triangle-left.svg) |
+|`#octique("triangle-right")`| ![triangle-right](assets/triangle-right.svg) |
+|`#octique("triangle-up")`| ![triangle-up](assets/triangle-up.svg) |
+|`#octique("trophy")`| ![trophy](assets/trophy.svg) |
+|`#octique("typography")`| ![typography](assets/typography.svg) |
+|`#octique("undo")`| ![undo](assets/undo.svg) |
+|`#octique("unfold")`| ![unfold](assets/unfold.svg) |
+|`#octique("unlink")`| ![unlink](assets/unlink.svg) |
+|`#octique("unlock")`| ![unlock](assets/unlock.svg) |
+|`#octique("unmute")`| ![unmute](assets/unmute.svg) |
+|`#octique("unread")`| ![unread](assets/unread.svg) |
+|`#octique("unverified")`| ![unverified](assets/unverified.svg) |
+|`#octique("upload")`| ![upload](assets/upload.svg) |
+|`#octique("verified")`| ![verified](assets/verified.svg) |
+|`#octique("versions")`| ![versions](assets/versions.svg) |
+|`#octique("video")`| ![video](assets/video.svg) |
+|`#octique("webhook")`| ![webhook](assets/webhook.svg) |
+|`#octique("workflow")`| ![workflow](assets/workflow.svg) |
+|`#octique("x-circle-fill")`| ![x-circle-fill](assets/x-circle-fill.svg) |
+|`#octique("x-circle")`| ![x-circle](assets/x-circle.svg) |
+|`#octique("x")`| ![x](assets/x.svg) |
+|`#octique("zap")`| ![zap](assets/zap.svg) |
+|`#octique("zoom-in")`| ![zoom-in](assets/zoom-in.svg) |
+|`#octique("zoom-out")`| ![zoom-out](assets/zoom-out.svg) |
+
+
+## License
+
+MIT. See [LICENSE](LICENSE) for detail.
+
+Octicons are (c) GitHub, Inc. When using the GitHub logos, you should follow the [GitHub logo guidelines](https://github.com/logos).
