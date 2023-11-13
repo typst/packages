@@ -2,9 +2,13 @@
 
 Create simple static slides with Typst.
 
+Slydst allows the creation of slides using Typst headings.
+This simplicity comes at the expense of dynamic content such as subslide animations.
+For more complete and complex slides functionalities, see other tools such as Polylux.
+
 ## Usage
 
-To start, just use the following preamble.
+To start, just use the following preamble (only the title is required).
 
 ```typst
 #import "@preview/slydst:0.1.0": *
@@ -75,4 +79,4 @@ Definitions, theorems, lemmas, corollaries and algorithms boxes are also availab
 
 ## Example
 
-<img src="svg/example-01.svg" width="300"> <img src="svg/example-02.svg" width="300"> <img src="svg/example-03.svg" width="300"> <img src="svg/example-04.svg" width="300"> <img src="svg/example-05.svg" width="300"> <img src="svg/example-06.svg" width="300"> <img src="svg/example-07.svg" width="300"> <img src="svg/example-08.svg" width="300"> <img src="svg/example-09.svg" width="300"> <img src="svg/example-10.svg" width="300">
+<kbd><img src="svg/example-01.svg" width="300"></kbd> <kbd><img src="svg/example-02.svg" width="300"></kbd> <kbd><img src="svg/example-03.svg" width="300"></kbd> <kbd><img src="svg/example-04.svg" width="300"></kbd> <kbd><img src="svg/example-05.svg" width="300"></kbd> <kbd><img src="svg/example-06.svg" width="300"></kbd> <kbd><img src="svg/example-07.svg" width="300"></kbd> <kbd><img src="svg/example-08.svg" width="300"></kbd> <kbd><img src="svg/example-09.svg" width="300"></kbd> <kbd><img src="svg/example-10.svg" width="300"></kbd>

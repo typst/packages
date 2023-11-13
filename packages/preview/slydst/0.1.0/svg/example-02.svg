@@ -8,13 +8,13 @@
                 <g>
                     <g transform="translate(0 9.933300781249999)">
                         <g class="typst-text" transform="scale(0.007519531249999999 -0.007519531249999999)">
-                            <use xlink:href="#g6E2A146C9F1E5A21D49EB2BA6E960C7E" x="0" fill="url(#g26C5CAAE3E22EFF0C31B8D707DC115D8)"/>
-                            <use xlink:href="#gF9B4C512E1457797F303019E8440A0BF" x="1495" fill="url(#g32601C4567A1B25BA7103FD9D9FC7096)"/>
-                            <use xlink:href="#gADBDC635C387CCD2C03BFF8FA20FBC48" x="2718.9999999999995" fill="url(#gCEAD31395893C2AA5F1803035ADFB3C9)"/>
-                            <use xlink:href="#gABEF302D97A8AEBDE3EDF1CE22E1EFA4" x="3451.9999999999995" fill="url(#g6FCC8F8611399A607EEB3182AD0FFFCE)"/>
-                            <use xlink:href="#g2729A8EE429DAA0B3C2996965ABF81A0" x="4117" fill="url(#gB0F43A99D44D0DFF1B2C79B73751AA)"/>
-                            <use xlink:href="#g59BFDF2D81E9CDAE8DB7AE956AE87491" x="4776" fill="url(#gC3B7307FCE29DECDAF6D46EF8CF20BCC)"/>
-                            <use xlink:href="#gBA5EF658B71B6358A23021E091D66D32" x="6037" fill="url(#gF148A1B81B3617AB488E8A2BB4F1413A)"/>
+                            <use xlink:href="#g6E2A146C9F1E5A21D49EB2BA6E960C7E" x="0" fill="#004682"/>
+                            <use xlink:href="#gF9B4C512E1457797F303019E8440A0BF" x="1495" fill="#004682"/>
+                            <use xlink:href="#gADBDC635C387CCD2C03BFF8FA20FBC48" x="2718.9999999999995" fill="#004682"/>
+                            <use xlink:href="#gABEF302D97A8AEBDE3EDF1CE22E1EFA4" x="3451.9999999999995" fill="#004682"/>
+                            <use xlink:href="#g2729A8EE429DAA0B3C2996965ABF81A0" x="4117" fill="#004682"/>
+                            <use xlink:href="#g59BFDF2D81E9CDAE8DB7AE956AE87491" x="4776" fill="#004682"/>
+                            <use xlink:href="#gBA5EF658B71B6358A23021E091D66D32" x="6037" fill="#004682"/>
                         </g>
                     </g>
                 </g>
@@ -2068,146 +2068,5 @@
         <symbol id="gF02E8A1C17D8CD2FEBF0023A7BC77706" overflow="visible">
             <path d="M 475 1178 Q 436 1178 401.5 1153 Q 367 1128 333 1069 Q 299 1010 278.5 884 Q 258 758 258 580 Q 258 52 469 51 Q 487 51 507.5 57 Q 528 63 556 80.5 Q 584 98 609.5 138 Q 635 178 651 238 Q 686 365 686 659 Q 686 1042 567 1143 Q 528 1178 475 1178 Z M 467 -20 Q 345 -20 259 66 Q 175 149 127.5 293 Q 80 437 80 602 Q 80 893 197.5 1071 Q 315 1249 475 1249 Q 625 1249 725 1116 Q 864 932 864 621 Q 864 451 825 319.5 Q 786 188 724 117.5 Q 662 47 596 13.5 Q 530 -20 467 -20 Z "/>
         </symbol>
-    </defs>
-    <defs id="gradients">
-        <linearGradient id="fF474EB1608B8D93D7078BBAF061B134B" spreadMethod="pad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#ed5250"/>
-            <stop offset="0.79%" stop-color="#ec5251"/>
-            <stop offset="1.57%" stop-color="#eb5353"/>
-            <stop offset="2.36%" stop-color="#ea5454"/>
-            <stop offset="3.15%" stop-color="#e95556"/>
-            <stop offset="3.94%" stop-color="#e85657"/>
-            <stop offset="4.72%" stop-color="#e75658"/>
-            <stop offset="5.51%" stop-color="#e65759"/>
-            <stop offset="6.3%" stop-color="#e4585b"/>
-            <stop offset="7.09%" stop-color="#e3595c"/>
-            <stop offset="7.87%" stop-color="#e2595d"/>
-            <stop offset="8.66%" stop-color="#e15a5e"/>
-            <stop offset="9.45%" stop-color="#e05b60"/>
-            <stop offset="10.24%" stop-color="#df5b61"/>
-            <stop offset="11.02%" stop-color="#de5c62"/>
-            <stop offset="11.81%" stop-color="#dd5d63"/>
-            <stop offset="12.6%" stop-color="#db5d64"/>
-            <stop offset="13.39%" stop-color="#da5e66"/>
-            <stop offset="14.17%" stop-color="#d95e67"/>
-            <stop offset="14.96%" stop-color="#d85f68"/>
-            <stop offset="15.75%" stop-color="#d76069"/>
-            <stop offset="16.54%" stop-color="#d6606a"/>
-            <stop offset="17.32%" stop-color="#d5616b"/>
-            <stop offset="18.11%" stop-color="#d3616c"/>
-            <stop offset="18.9%" stop-color="#d2626d"/>
-            <stop offset="19.69%" stop-color="#d1626f"/>
-            <stop offset="20.47%" stop-color="#d06370"/>
-            <stop offset="21.26%" stop-color="#cf6371"/>
-            <stop offset="22.05%" stop-color="#ce6472"/>
-            <stop offset="22.83%" stop-color="#cd6473"/>
-            <stop offset="23.62%" stop-color="#cb6574"/>
-            <stop offset="24.41%" stop-color="#ca6575"/>
-            <stop offset="25.2%" stop-color="#c96676"/>
-            <stop offset="25.98%" stop-color="#c86677"/>
-            <stop offset="26.77%" stop-color="#c76778"/>
-            <stop offset="27.56%" stop-color="#c66779"/>
-            <stop offset="28.35%" stop-color="#c4677a"/>
-            <stop offset="29.13%" stop-color="#c3687b"/>
-            <stop offset="29.92%" stop-color="#c2687c"/>
-            <stop offset="30.71%" stop-color="#c1697d"/>
-            <stop offset="31.5%" stop-color="#c0697e"/>
-            <stop offset="32.28%" stop-color="#bf697f"/>
-            <stop offset="33.07%" stop-color="#bd6a80"/>
-            <stop offset="33.86%" stop-color="#bc6a81"/>
-            <stop offset="34.65%" stop-color="#bb6b82"/>
-            <stop offset="35.43%" stop-color="#ba6b83"/>
-            <stop offset="36.22%" stop-color="#b96b84"/>
-            <stop offset="37.01%" stop-color="#b76c85"/>
-            <stop offset="37.8%" stop-color="#b66c86"/>
-            <stop offset="38.58%" stop-color="#b56c87"/>
-            <stop offset="39.37%" stop-color="#b46d88"/>
-            <stop offset="40.16%" stop-color="#b36d89"/>
-            <stop offset="40.94%" stop-color="#b16d8a"/>
-            <stop offset="41.73%" stop-color="#b06e8b"/>
-            <stop offset="42.52%" stop-color="#af6e8c"/>
-            <stop offset="43.31%" stop-color="#ae6e8d"/>
-            <stop offset="44.09%" stop-color="#ad6e8e"/>
-            <stop offset="44.88%" stop-color="#ab6f8f"/>
-            <stop offset="45.67%" stop-color="#aa6f90"/>
-            <stop offset="46.46%" stop-color="#a96f91"/>
-            <stop offset="47.24%" stop-color="#a87092"/>
-            <stop offset="48.03%" stop-color="#a67092"/>
-            <stop offset="48.82%" stop-color="#a57093"/>
-            <stop offset="49.61%" stop-color="#a47094"/>
-            <stop offset="50.39%" stop-color="#a37195"/>
-            <stop offset="51.18%" stop-color="#a17196"/>
-            <stop offset="51.97%" stop-color="#a07197"/>
-            <stop offset="52.76%" stop-color="#9f7198"/>
-            <stop offset="53.54%" stop-color="#9e7199"/>
-            <stop offset="54.33%" stop-color="#9c729a"/>
-            <stop offset="55.12%" stop-color="#9b729b"/>
-            <stop offset="55.91%" stop-color="#9a729c"/>
-            <stop offset="56.69%" stop-color="#99729d"/>
-            <stop offset="57.48%" stop-color="#97729d"/>
-            <stop offset="58.27%" stop-color="#96739e"/>
-            <stop offset="59.06%" stop-color="#95739f"/>
-            <stop offset="59.84%" stop-color="#9373a0"/>
-            <stop offset="60.63%" stop-color="#9273a1"/>
-            <stop offset="61.42%" stop-color="#9173a2"/>
-            <stop offset="62.2%" stop-color="#9074a3"/>
-            <stop offset="62.99%" stop-color="#8e74a4"/>
-            <stop offset="63.78%" stop-color="#8d74a5"/>
-            <stop offset="64.57%" stop-color="#8c74a5"/>
-            <stop offset="65.35%" stop-color="#8a74a6"/>
-            <stop offset="66.14%" stop-color="#8974a7"/>
-            <stop offset="66.93%" stop-color="#8774a8"/>
-            <stop offset="67.72%" stop-color="#8674a9"/>
-            <stop offset="68.5%" stop-color="#8575aa"/>
-            <stop offset="69.29%" stop-color="#8375ab"/>
-            <stop offset="70.08%" stop-color="#8275ac"/>
-            <stop offset="70.87%" stop-color="#8175ac"/>
-            <stop offset="71.65%" stop-color="#7f75ad"/>
-            <stop offset="72.44%" stop-color="#7e75ae"/>
-            <stop offset="73.23%" stop-color="#7c75af"/>
-            <stop offset="74.02%" stop-color="#7b75b0"/>
-            <stop offset="74.8%" stop-color="#7a75b1"/>
-            <stop offset="75.59%" stop-color="#7875b2"/>
-            <stop offset="76.38%" stop-color="#7776b3"/>
-            <stop offset="77.17%" stop-color="#7576b3"/>
-            <stop offset="77.95%" stop-color="#7476b4"/>
-            <stop offset="78.74%" stop-color="#7276b5"/>
-            <stop offset="79.53%" stop-color="#7176b6"/>
-            <stop offset="80.31%" stop-color="#6f76b7"/>
-            <stop offset="81.1%" stop-color="#6e76b8"/>
-            <stop offset="81.89%" stop-color="#6c76b9"/>
-            <stop offset="82.68%" stop-color="#6b76b9"/>
-            <stop offset="83.46%" stop-color="#6976ba"/>
-            <stop offset="84.25%" stop-color="#6776bb"/>
-            <stop offset="85.04%" stop-color="#6676bc"/>
-            <stop offset="85.83%" stop-color="#6476bd"/>
-            <stop offset="86.61%" stop-color="#6276be"/>
-            <stop offset="87.4%" stop-color="#6176be"/>
-            <stop offset="88.19%" stop-color="#5f76bf"/>
-            <stop offset="88.98%" stop-color="#5d76c0"/>
-            <stop offset="89.76%" stop-color="#5c76c1"/>
-            <stop offset="90.55%" stop-color="#5a76c2"/>
-            <stop offset="91.34%" stop-color="#5876c3"/>
-            <stop offset="92.13%" stop-color="#5676c4"/>
-            <stop offset="92.91%" stop-color="#5476c4"/>
-            <stop offset="93.7%" stop-color="#5376c5"/>
-            <stop offset="94.49%" stop-color="#5176c6"/>
-            <stop offset="95.28%" stop-color="#4f76c7"/>
-            <stop offset="96.06%" stop-color="#4d76c8"/>
-            <stop offset="96.85%" stop-color="#4b76c9"/>
-            <stop offset="97.64%" stop-color="#4976c9"/>
-            <stop offset="98.43%" stop-color="#4776ca"/>
-            <stop offset="99.21%" stop-color="#4476cb"/>
-            <stop offset="100%" stop-color="#4276cc"/>
-        </linearGradient>
-    </defs>
-    <defs id="gradient-refs">
-        <linearGradient gradientTransform="matrix(7038.000000000001 0 0 -1321 0 1321)" id="g26C5CAAE3E22EFF0C31B8D707DC115D8" href="#fF474EB1608B8D93D7078BBAF061B134B" xlink:href="#fF474EB1608B8D93D7078BBAF061B134B"/>
-        <linearGradient gradientTransform="matrix(7038.000000000001 0 0 -1321 -1495 1321)" id="g32601C4567A1B25BA7103FD9D9FC7096" href="#fF474EB1608B8D93D7078BBAF061B134B" xlink:href="#fF474EB1608B8D93D7078BBAF061B134B"/>
-        <linearGradient gradientTransform="matrix(7038.000000000001 0 0 -1321 -2718.9999999999995 1321)" id="gCEAD31395893C2AA5F1803035ADFB3C9" href="#fF474EB1608B8D93D7078BBAF061B134B" xlink:href="#fF474EB1608B8D93D7078BBAF061B134B"/>
-        <linearGradient gradientTransform="matrix(7038.000000000001 0 0 -1321 -3451.9999999999995 1321)" id="g6FCC8F8611399A607EEB3182AD0FFFCE" href="#fF474EB1608B8D93D7078BBAF061B134B" xlink:href="#fF474EB1608B8D93D7078BBAF061B134B"/>
-        <linearGradient gradientTransform="matrix(7038.000000000001 0 0 -1321 -4117 1321)" id="gB0F43A99D44D0DFF1B2C79B73751AA" href="#fF474EB1608B8D93D7078BBAF061B134B" xlink:href="#fF474EB1608B8D93D7078BBAF061B134B"/>
-        <linearGradient gradientTransform="matrix(7038.000000000001 0 0 -1321 -4776 1321)" id="gC3B7307FCE29DECDAF6D46EF8CF20BCC" href="#fF474EB1608B8D93D7078BBAF061B134B" xlink:href="#fF474EB1608B8D93D7078BBAF061B134B"/>
-        <linearGradient gradientTransform="matrix(7038.000000000001 0 0 -1321 -6037 1321)" id="gF148A1B81B3617AB488E8A2BB4F1413A" href="#fF474EB1608B8D93D7078BBAF061B134B" xlink:href="#fF474EB1608B8D93D7078BBAF061B134B"/>
     </defs>
 </svg>

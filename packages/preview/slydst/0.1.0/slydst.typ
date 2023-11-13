@@ -1,10 +1,6 @@
-#let cite-default = blue.darken(40%)
-#let math-default = blue.darken(40%)
-
-#let title-default = gradient.linear(
-    color.mix((red, 90%), (blue, 10%)),
-    color.mix((red, 10%), (blue, 90%)),
-)
+#let default-color = blue.darken(40%)
+#let header-default = default-color.lighten(75%)
+#let body-default = default-color.lighten(85%)
 
 #let slides(
     content,
@@ -40,13 +36,13 @@
 
     // Colors
     if title-color == none {
-        title-color = title-default
+        title-color = default-color
     }
     if cite-color == none {
-        cite-color = cite-default
+        cite-color = default-color
     }
     if math-color == none {
-        math-color = math-default
+        math-color = default-color
     }
 
     // Setup
@@ -129,9 +125,6 @@
     // Content
     content
 }
-
-#let header-default = blue.darken(40%).lighten(75%)
-#let body-default = blue.darken(40%).lighten(85%)
 
 #let frame(content, counter: none, title: none) = {
 
