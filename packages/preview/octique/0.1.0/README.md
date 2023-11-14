@@ -15,10 +15,10 @@ GitHub [Octicons](https://primer.style/foundations/icons/) for Typst.
 octique(name, color: rgb("#000000"), width: 1em, height: 1em)
 
 // Returns a boxed image for the given name.
-octique_inline(name, color: rgb("#000000"), width: 1em, height: 1em, baseline: 25%)
+octique-inline(name, color: rgb("#000000"), width: 1em, height: 1em, baseline: 25%)
 
 // Returns an SVG text for the given name.
-octique_svg(name)
+octique-svg(name)
 ```
 
 ## List of Available Icons
