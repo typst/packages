@@ -1,0 +1,10 @@
+[package]
+name = "mdtable"
+version = "0.1.0"
+authors = ["OrangeX4"]
+entrypoint = "mdtable.typ"
+exclude = ["./examples"]
+keywords = ["mdtable", "markdown", "table"]
+license = "MIT"
+repository = "https://github.com/OrangeX4/typst-mdtable"
+description = "Write markdown-like tables easily."
