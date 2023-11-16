@@ -14,14 +14,12 @@ To start, just use the following preamble (only the title is required).
 #import "@preview/slydst:0.1.0": *
 
 #show slides.with(
-    title: "Insert your title here", // Required
-    subtitle: none,
-    date: none,
-    authors: (),
-    layout: "medium",
-    title-color: none,
-    cite-color: none,
-    math-color: none,
+  title: "Insert your title here", // Required
+  subtitle: none,
+  date: none,
+  authors: (),
+  layout: "medium",
+  title-color: none,
 )
 
 Insert your content here.
@@ -54,7 +52,7 @@ Definitions, theorems, lemmas, corollaries and algorithms boxes are also availab
 
 ```typst
 #definition(title: "An interesting definition")[
-    #lorem(20)
+  #lorem(20)
 ]
 ```
 

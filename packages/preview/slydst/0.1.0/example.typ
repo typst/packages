@@ -3,8 +3,8 @@
 #set page(fill: white)
 
 #show: slides.with(
-    title: "Slydst: Slides in Typst",
-    authors: ("Gaspard Lambrechts",),
+  title: "Slydst: Slides in Typst",
+  authors: ("Gaspard Lambrechts",),
 )
 
 #show raw: set block(fill: silver.lighten(65%), width: 100%, inset: 1em)
@@ -23,14 +23,12 @@ To start, just use the following preamble.
 #import "@preview/slydst:0.1.0": *
 
 #show slides.with(
-    title: "Insert your title here", // Required
-    subtitle: none,
-    date: none,
-    authors: (),
-    layout: "medium",
-    title-color: none,
-    cite-color: none,
-    math-color: none,
+  title: "Insert your title here", // Required
+  subtitle: none,
+  date: none,
+  authors: (),
+  layout: "medium",
+  title-color: none,
 )
 
 Insert your content here.
@@ -65,22 +63,22 @@ Insert your content here.
 == Definitions, theorems and others
 
 #definition(title: "An interesting definition")[
-    #lorem(10)
+  #lorem(10)
 ]
 
 #theorem(title: "An interesting theorem")[
-    Let $p(x, y)$ a probability distribution, we have,
-    $
-        p(x, y) = p(x) p(y | x)
-    $
+  Let $p(x, y)$ a probability distribution, we have,
+  $
+    p(x, y) = p(x) p(y | x)
+  $
 ]
 
 #lemma(title: "An interesting lemma")[
-    #lorem(20)
+  #lorem(20)
 ]
 
 #corollary(title: "An interesting corollary")[
-    #lorem(30)
+  #lorem(30)
 ]
 
 = Summary
