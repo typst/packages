@@ -1,6 +1,12 @@
 #let default-color = blue.darken(40%)
-#let header-default = default-color.lighten(75%)
-#let body-default = default-color.lighten(85%)
+#let header-color = default-color.lighten(75%)
+#let body-color = default-color.lighten(85%)
+
+#let layouts = (
+    "small": ("height": 9cm, "space": 1.4cm),
+    "medium": ("height": 10.5cm, "space": 1.6cm),
+    "large": ("height": 12cm, "space": 1.8cm),
+)
 
 #let slides(
     content,
@@ -9,30 +15,18 @@
     date: none,
     authors: [],
     layout: "medium",
+    ratio: 4/3,
     title-color: none,
     cite-color: none,
     math-color: none,
 ) = {
 
     // Parsing
-    let width = none
-    let height = none
-    let banner = none
-    if layout == "small" {
-        (width, height) = (12cm, 9cm)
-        banner = 1.4cm
-    }
-    else if layout == "medium" {
-        (width, height) = (14cm, 10.5cm)
-        banner = 1.6cm
-    }
-    else if layout == "large" {
-        (width, height) = (16cm, 12cm)
-        banner = 1.8cm
-    }
-    else {
+    if layout not in layouts {
         panic("Unknown layout " + layout)
     }
+    let (height, space) = layouts.at(layout)
+    let width = ratio * height
 
     // Colors
     if title-color == none {
@@ -53,7 +47,7 @@
     set page(
         width: width,
         height: height,
-        margin: (x: 0.5 * banner, top: banner, bottom: 0.6 * banner),
+        margin: (x: 0.5 * space, top: space, bottom: 0.6 * space),
         header: locate(loc => {
             let page = loc.page()
             let selection = heading.where(level: 2).or(heading.where(level: 1))
@@ -62,7 +56,7 @@
             if heading != none and not heading.level == 1 {
                 set text(1.4em, weight: "bold", fill: title-color)
                 set align(top)
-                v(banner / 2)
+                v(space / 2)
                 block(heading.body +
                     if not heading.location().page() == loc.page() [
                         #{numbering("(i)", loc.page() - heading.location().page() + 1)}
@@ -87,7 +81,7 @@
     // Rules
     show heading.where(level: 1): set align(center + horizon)
     show heading.where(level: 1): set text(1.2em)
-    show heading.where(level: 1): x => pagebreak(weak: true) + v(- banner / 2) + x
+    show heading.where(level: 1): x => pagebreak(weak: true) + v(- space / 2) + x
     show heading.where(level: 2): pagebreak(weak: true)
     show heading: set text(1.1em, fill: title-color)
     show cite: set text(fill: cite-color)
@@ -110,7 +104,7 @@
     else {
         set page(footer: none)
         set align(horizon)
-        v(- banner / 2)
+        v(- space / 2)
         block(
             text(2.0em, weight: "bold", fill: title-color, title) +
             v(1.4em, weak: true) +
@@ -144,8 +138,8 @@
     show stack: set block(breakable: false, above: 0.8em, below: 0.5em)
 
     stack(
-        block(fill: header-default, radius: (top: 0.2em, bottom: 0cm), header),
-        block(fill: body-default, radius: (top: 0cm, bottom: 0.2em), content),
+        block(fill: header-color, radius: (top: 0.2em, bottom: 0cm), header),
+        block(fill: body-color, radius: (top: 0cm, bottom: 0.2em), content),
     )
 }
 
