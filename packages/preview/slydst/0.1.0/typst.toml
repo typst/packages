@@ -5,3 +5,4 @@ entrypoint = "lib.typ"
 authors = ["Gaspard Lambrechts"]
 license = "MIT"
 description = "Create simple static slides using standard headings"
+exclude = ["svg", "example.typ"]
