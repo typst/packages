@@ -17,8 +17,6 @@
     layout: "medium",
     ratio: 4/3,
     title-color: none,
-    cite-color: none,
-    math-color: none,
 ) = {
 
     // Parsing
@@ -31,12 +29,6 @@
     // Colors
     if title-color == none {
         title-color = default-color
-    }
-    if cite-color == none {
-        cite-color = default-color
-    }
-    if math-color == none {
-        math-color = default-color
     }
 
     // Setup
@@ -84,18 +76,6 @@
     show heading.where(level: 1): x => pagebreak(weak: true) + v(- space / 2) + x
     show heading.where(level: 2): pagebreak(weak: true)
     show heading: set text(1.1em, fill: title-color)
-    show cite: set text(fill: cite-color)
-    show figure.caption: x => [*#x.supplement #x.counter.display():* #x.body]
-    show math.equation: set text(fill: math-color)
-    show ref: it => {
-        set text(fill: cite-color)
-        let el = it.element
-        if el != none and el.func() == math.equation {
-            numbering(el.numbering, ..counter(math.equation).at(el.location()))
-        } else {
-            it
-        }
-    }
 
     // Title
     if (title == none) {
