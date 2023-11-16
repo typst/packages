@@ -8,4 +8,4 @@ description = "GitHub [Octicons](https://primer.style/foundations/icons/) for Ty
 homepage = "https://github.com/0x6b/typst-octique"
 repository = "https://github.com/0x6b/typst-octique"
 keywords = ["icon", "github", "octicons"]
-exclude = ["assets", "sample"]
+exclude = ["sample"]
