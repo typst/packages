@@ -8,4 +8,4 @@ description = "A package to simply create and add some admonitions to your docum
 repository = "https://github.com/jomaway/typst-admonish"
 keywords = ["admonitions", "boxes", "gentle-clues"]
 compiler = "0.9.0"
-exclude = ["docs.typ", "screenshot_info-clue"]
+exclude = ["docs.typ", "screenshot_info-clue.png"]
