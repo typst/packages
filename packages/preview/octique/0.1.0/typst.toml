@@ -5,7 +5,6 @@ entrypoint = "octique.typ"
 authors = ["0x6b"]
 license = "MIT"
 description = "GitHub Octicons for Typst."
-homepage = "https://github.com/0x6b/typst-octique"
 repository = "https://github.com/0x6b/typst-octique"
 keywords = ["icon", "github", "octicons"]
 exclude = ["sample"]
