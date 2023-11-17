@@ -1,16 +1,16 @@
 #import "@preview/tablex:0.0.6": tablex, hlinex
-#import "../mdtable.typ": mdtable
+#import "../tablem.typ": tablem
 
 #set page(width: 30em, height: auto)
 
-#mdtable[
+#tablem[
   | *Name* | *Location* | *Height* | *Score* |
   | ------ | ---------- | -------- | ------- |
   | John   | Second St. | 180 cm   |  5      |
   | Wally  | Third Av.  | 160 cm   |  10     |
 ]
 
-#let three-line-table = mdtable.with(
+#let three-line-table = tablem.with(
   render: (columns: auto, ..args) => {
     tablex(
       columns: columns,

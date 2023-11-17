@@ -1,5 +1,5 @@
 // convert a sequence to a array splited by "|"
-#let _mdtable-tokenize(seq) = {
+#let _tablem-tokenize(seq) = {
   let res = ()
   for cont in seq.children {
     if cont.func() == text {
@@ -31,7 +31,7 @@
 }
 
 // compose table cells
-#let _mdtable-compose(arr) = {
+#let _tablem-compose(arr) = {
   let res = ()
   let column-num = 0
   res = arr
@@ -41,13 +41,13 @@
   _arr-trim(res)
 }
 
-#let mdtable(
+#let tablem(
   render: table,
   ignore-second-row: true,
   ..args,
   body
 ) = {
-  let arr = _mdtable-compose(_mdtable-tokenize(body))
+  let arr = _tablem-compose(_tablem-tokenize(body))
   // use the count of first row as columns
   let columns = 0
   for item in arr {

@@ -1,4 +1,4 @@
-# Mdtable
+# Tablem
 
 Write markdown-like tables easily.
 
@@ -11,12 +11,12 @@ Have a look at the source [here](./examples/example.typ).
 
 ## Usage
 
-You can simply copy the markdown table and paste it in `mdtable` function.
+You can simply copy the markdown table and paste it in `tablem` function.
 
 ```typ
-#import "@preview/mdtable:0.1.0": mdtable
+#import "@preview/tablem:0.1.0": tablem
 
-#mdtable[
+#tablem[
   | *Name* | *Location* | *Height* | *Score* |
   | ------ | ---------- | -------- | ------- |
   | John   | Second St. | 180 cm   |  5      |
@@ -28,9 +28,9 @@ And you can use custom render function.
 
 ```typ
 #import "@preview/tablex:0.0.6": tablex, hlinex
-#import "@preview/mdtable:0.1.0": mdtable
+#import "@preview/tablem:0.1.0": tablem
 
-#let three-line-table = mdtable.with(
+#let three-line-table = tablem.with(
   render: (columns: auto, ..args) => {
     tablex(
       columns: columns,
@@ -55,10 +55,10 @@ And you can use custom render function.
 ![Example](./examples/example.png)
 
 
-## `mdtable` function
+## `tablem` function
 
 ```typ
-#let mdtable(
+#let tablem(
   render: table,
   ignore-second-row: true,
   ..args,
@@ -68,7 +68,7 @@ And you can use custom render function.
 
 **Arguments:**
 
-- `render`: [`(columns: int, ..args) => { .. }`] &mdash; Custom render function, default to be `table`, receiving a integer-type columns, which is the count of first row. `..args` is the combination of `args` of `mdtable` function and children genenerated from `body`.
+- `render`: [`(columns: int, ..args) => { .. }`] &mdash; Custom render function, default to be `table`, receiving a integer-type columns, which is the count of first row. `..args` is the combination of `args` of `tablem` function and children genenerated from `body`.
 - `ignore-second-row`: [`boolean`] &mdash; Whether to ignore the second row (something like `|---|`).
 - `args`: [`any`] &mdash; Some arguments you want to pass to `render` function.
 - `body`: [`content`] &mdash; The markdown-like table. There should be no extra line breaks in it.
