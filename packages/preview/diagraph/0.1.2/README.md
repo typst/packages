@@ -92,7 +92,7 @@ This function will panic if the provided content is not a `raw`.
 
 ## Build
 
-This project was built with emscripten `3.1.45`. Apart from that, you just need to run `make wasm` to build the wasm file. All libraries are downloaded and built automatically to get the right version that works.
+This project was built with emscripten `3.1.46`. Apart from that, you just need to run `make wasm` to build the wasm file. All libraries are downloaded and built automatically to get the right version that works.
 
 There are also some other make commands:
 
@@ -101,6 +101,11 @@ There are also some other make commands:
 - `make clean-link`: Only clean the link
 - `make compile_database`: Generate the compile_commands.json file
 - `make module`: It copy the files needed to run the plugin in a folder called `graphviz` in the current directory
+- `make wasi-stub`: Build the wasi stub executable, it require a rust toolchain properly configured
+
+### Wasi stub
+
+Somme functions need to be stubbed to work with the webassembly plugin system. The `wasi-stub` executable is a spetial one fitting the needs of the typst plugin system. You can find the source code [here](https://github.com/astrale-sharp/wasm-minimal-protocol/tree/master). It is important to use this one as the default subbed functions are not the same and the makefile is suited for this one.
 
 ## Notes
 
