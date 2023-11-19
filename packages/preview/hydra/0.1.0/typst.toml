@@ -8,4 +8,4 @@ repository = "https://github.com/tingerrr/hydra"
 description = "Query and display headings of the currently active section"
 keywords = ["heading", "introspection"]
 license = "MIT"
-exclude = ["example", "LICENSE", "README.md"]
+exclude = ["examples", "README.md"]

@@ -13,7 +13,7 @@ headings is added.
 
 ## Example
 ```typst
-#import "@preview/hydra:0.0.1": hydra
+#import "@preview/hydra:0.1.0": hydra
 
 #set page(header: hydra() + line(length: 100%))
 #set heading(numbering: "1.1")
