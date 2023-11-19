@@ -1,0 +1,20 @@
+[package]
+name = "pitcher"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Miel Peeters"]
+description = "Use this template for creating simple, modern and configurable presentations."
+license = "GPL-3.0-only"
+repository = "https://www.github.com/mielpeeters/pitcher"
+keywords = [
+    "presentation",
+    "slides",
+    "template",
+    "modern",
+    "simple",
+    "minimal",
+    "pitc",
+    "pitcher",
+]
+exclude = ["README.md", "assets/*", "examples/*", "*.pdf"]
+compiler = "0.9.0"
