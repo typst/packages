@@ -5,3 +5,4 @@ entrypoint = "cartao.typ"
 authors = ["Gavin Vales"]
 license = "MIT"
 description = "Dead simple flashcards with Typst."
+exclude = ["example.pdf"]
