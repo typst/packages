@@ -1,14 +1,14 @@
 # Arrow diagrams
 
-[![Manual](https://img.shields.io/badge/docs-manual.pdf-blue)](https://github.com/Jollywatt/arrow-diagrams/raw/master/docs/manual.pdf)
-![Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fgithub.com%2FJollywatt%2Farrow-diagrams%2Fraw%2Fmaster%2Ftypst.toml&query=package.version&label=version)
+[![Manual](https://img.shields.io/badge/docs-manual.pdf-blue)](https://github.com/typst/packages/raw/main/packages/preview/arrow-diagrams/0.1.0/docs/manual.pdf)
+![Version](https://img.shields.io/badge/version-0.1.0-blue)
 
 A [Typst]("https://typst.app/") package for drawing diagrams with arrows,
 built on top of [CeTZ]("https://github.com/johannes-wolf/cetz").
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Jollywatt/arrow-diagrams/raw/master/docs/examples/example-2.svg">
-  <img alt="logo" width="600" src="https://github.com/Jollywatt/arrow-diagrams/raw/master/docs/examples/example-1.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/typst/packages/raw/main/packages/preview/arrow-diagrams/0.1.0/docs/examples/example-2.svg">
+  <img alt="logo" width="600" src="https://github.com/typst/packages/raw/main/packages/preview/arrow-diagrams/0.1.0/docs/examples/example-1.svg">
 </picture>
 
 ```typ
