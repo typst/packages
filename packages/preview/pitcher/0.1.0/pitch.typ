@@ -256,10 +256,6 @@
     body
 }
 
-#let set_accent_slide(style) = {
-show: accent_slide.with(style)
-}
-
 #let animated_slide(style, ..elements) = {
   let count = 0
   for len in range(elements.pos().len()) { 
@@ -285,21 +281,6 @@ show: accent_slide.with(style)
 }
 
 // create slides using this function:
-// 
-// ```typst
-// #import "@preview/pitcher:1.0.0": *
-//
-// #show: slides.with(
-//   title: "Title",
-//   description: "Description",
-//   style: define_style(color: rgb("#3271a8"), font: "IBM Plex Sans"),
-//   title_color: true,
-// )
-// 
-// #new_slide()
-// = My First Pitcher Slide
-// #lorem(20)
-// ```
 #let slides(title_color: false, ..args, body) = {
   // default title is empty
   let title = ""
