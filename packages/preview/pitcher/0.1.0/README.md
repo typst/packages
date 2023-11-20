@@ -69,9 +69,19 @@ Font and radius of figures can be specified too
 - `font`: the font for this presentation style
 - `radius`: this radius is applied to figures
 
+## `new_slide`
+This function starts a new page, and keeps track of the current slide count (displayed at the right bottom).
+
 ## `animated_slide`
 This function can be used to create slides which are split up to reveal new content.
 
 ### arguments:
-- `style`: style dictionary (see [`define_style`](#`define_style`))
-- 
+- `style`: style dictionary (see [`define_style`](#define_style))
+- `..content`: a variable amount of content arguments. For each of these, a new slide will be created.
+
+## `accent_slide`
+This function formats its body as an accented slide, with coloured background.
+
+### arguments:
+- `style`: style dictionary (see [`define_style`](#define_style))
+- `body`: content to be shown in the accented slide style
