@@ -1,20 +1,20 @@
-#let slide_count = counter("slide")
-#let slide_type = state("stype", 0)
+#let slide-count = counter("slide")
+#let slide-type = state("stype", 0)
 
-#let define_style(color: rgb("#0328fc"), font: "IBM Plex Sans", ..args) = {
-  let primary_color = color
-  let secondary_color = color.lighten(20%)
-  let subtle_color = color.lighten(70%)
-  let dark_color = color.darken(20%)
-  let font_color = luma(30)
-  let font_subtle_color = luma(80)
+#let define-style(color: rgb("#0328fc"), font: "IBM Plex Sans", ..args) = {
+  let primary-color = color
+  let secondary-color = color.lighten(20%)
+  let subtle-color = color.lighten(70%)
+  let dark-color = color.darken(20%)
+  let font-color = luma(30)
+  let font-subtle-color = luma(80)
 
-  let color_120 = color.rotate(120deg)
-  let color_240 = color.rotate(240deg)
+  let color-120 = color.rotate(120deg)
+  let color-240 = color.rotate(240deg)
 
-  let accent_color = primary_color.negate()
-  let accent_color_heavy = accent_color.darken(30%)
-  let accent_color_light = accent_color.lighten(20%)
+  let accent-color = primary-color.negate()
+  let accent-color-heavy = accent-color.darken(30%)
+  let accent-color-light = accent-color.lighten(20%)
 
   // all optional parameters
   let radius = 15pt;
@@ -23,17 +23,17 @@
   }
 
   let dict = (
-      "primary_color": color,
-      "secondary_color": secondary_color,
-      "subtle_color": subtle_color,
-      "dark_color": dark_color,
-      "accent_color": accent_color,
-      "accent_color_heavy": accent_color_heavy,
-      "accent_color_light": accent_color_light,
-      "color_120": color_120,
-      "color_240": color_240,
-      "font_color": font_color,
-      "font_subtle_color": font_subtle_color,
+      "primary-color": color,
+      "secondary-color": secondary-color,
+      "subtle-color": subtle-color,
+      "dark-color": dark-color,
+      "accent-color": accent-color,
+      "accent-color-heavy": accent-color-heavy,
+      "accent-color-light": accent-color-light,
+      "color-120": color-120,
+      "color-240": color-240,
+      "font-color": font-color,
+      "font-subtle-color": font-subtle-color,
       "font": font,
       "radius": radius,
       )
@@ -41,7 +41,7 @@
   dict
 }
 
-#let default_sets(body) = {
+#let default-sets(body) = {
   set underline(stroke: (cap: "round"), offset: 1.3pt)
 
   set image(fit: "contain")
@@ -86,7 +86,7 @@
   body
 }
 
-#let default_page_settings(style, title: "", description: "", body) = {
+#let default-page-settings(style, title: "", description: "", body) = {
   set page(
       paper: "presentation-16-9", 
       margin: (
@@ -114,13 +114,13 @@
   set cite(style: "chicago-author-date")
   show figure.caption: set text(size: 13pt)
 
-  show: default_sets.with()
+  show: default-sets.with()
 
   set list(indent: 0pt)
 
   show heading.where(level: 1): it => {
     underline(
-        stroke: (paint: style.accent_color_light, thickness: 2pt, cap: "round"),
+        stroke: (paint: style.accent-color-light, thickness: 2pt, cap: "round"),
         offset: 3pt)[#it]
       v(25pt)
   }
@@ -130,14 +130,14 @@
     it.body
   }
 
-  set text(size: 18pt, font: style.font, fill: style.font_color)
+  set text(size: 18pt, font: style.font, fill: style.font-color)
 
   let pageNumb(curr, total) = {
     if curr != 0 {
       place(right + bottom, dy: -28pt, dx: 40pt)[
-        #set text(style.secondary_color, weight: 600)
+        #set text(style.secondary-color, weight: 600)
         #curr
-        #set text(fill: style.font_subtle_color)
+        #set text(fill: style.font-subtle-color)
         \/ #total
       ]
     }
@@ -146,53 +146,53 @@
   set page(
       fill: luma(245),
       footer: [
-        #set text(size: 9pt, fill: style.secondary_color, weight: 500)
+        #set text(size: 9pt, fill: style.secondary-color, weight: 500)
         #locate(loc => {
-          let slide = slide_count.at(loc).first()
-          let tp = slide_type.at(loc)
+          let slide = slide-count.at(loc).first()
+          let tp = slide-type.at(loc)
           if slide != 0 [
             #place(left+bottom, dy: -23pt, dx: -00pt)[
             #title \
               // #h(2%)
             #let col = if tp != 1 {
-              style.subtle_color
+              style.subtle-color
               } else {
-              style.secondary_color.lighten(30%)
+              style.secondary-color.lighten(30%)
               }
             #set text(fill: col, weight: 500)
             #description
             ]
           ]
         })
-        #slide_count.display(pageNumb, both: true)
+        #slide-count.display(pageNumb, both: true)
       ]
     )
 
   body
 }
 
-#let set_type(num) = {
-  slide_type.update(num)
+#let set-type(num) = {
+  slide-type.update(num)
 }
 
-#let default_slide(style, count: 0, body) = {
+#let default-slide(style, count: 0, body) = {
   set page(
       fill: luma(245),
       )
 
-    set text(font: style.font, fill: style.font_color)
+    set text(font: style.font, fill: style.font-color)
 
-    slide_type.update(0)
+    slide-type.update(0)
 
     body
 }
 
-#let new_slide() = {
+#let new-slide() = {
   pagebreak()
-    slide_count.step()
+    slide-count.step()
 }
 
-#let to_string(input) = {
+#let to-string(input) = {
   if type(input) == str {
     input
   } else if type(input) == array {
@@ -202,20 +202,20 @@
   }
 }
 
-#let title_slide(style: (), title: "", title_color: false, ..args) = {
+#let title-slide(style: (), title: "", title-color: false, ..args) = {
   let authors = ""
   if args.named().keys().contains("author") {
-    authors = to_string(args.named().at("author"))
+    authors = to-string(args.named().at("author"))
   } else if args.named().keys().contains("authors") {
-    authors = to_string(args.named().at("authors"))
+    authors = to-string(args.named().at("authors"))
   }
 
-  page(fill: style.primary_color)[
+  page(fill: style.primary-color)[
     #set align(horizon)
     #let clr = luma(255)
 
-    #if title_color {
-      clr = style.accent_color_light
+    #if title-color {
+      clr = style.accent-color-light
     } 
 
     #set text(size: 60pt, weight: 800, fill: clr)
@@ -233,37 +233,37 @@
       #v(50pt)
       #set align(right)
       #place(right + bottom, dy: -60pt, dx: 20pt)[
-        #set text(size: 20pt, weight: 600, fill: style.subtle_color) 
+        #set text(size: 20pt, weight: 600, fill: style.subtle-color) 
         #authors
     ]
 
     ] else [
-      #set text(size: 30pt, weight: 600, fill: style.subtle_color) 
+      #set text(size: 30pt, weight: 600, fill: style.subtle-color) 
       #authors
     ]
   ]
 }
 
-#let accent_slide(style, body) = {
+#let accent-slide(style, body) = {
   set page(
-      fill: style.subtle_color
+      fill: style.subtle-color
       )
 
-    set text(fill: style.dark_color)
+    set text(fill: style.dark-color)
 
-    slide_type.update(1) 
+    slide-type.update(1) 
 
     body
 }
 
-#let animated_slide(style, ..elements) = {
+#let animated-slide(style, ..elements) = {
   let count = 0
   for len in range(elements.pos().len()) { 
     if count > 0 [
       #pagebreak()
     ]
 
-    default_slide(style, count: count)[
+    default-slide(style, count: count)[
       #set heading(outlined: false) if (count > 0)
       #for i in range(len + 1) [
         #elements.pos().at(i)
@@ -274,14 +274,14 @@
   }
 }
 
-#let set_style(style, title: "", description: "", body) = {
-  show: default_page_settings.with(style, title: title, description: description)
+#let set-style(style, title: "", description: "", body) = {
+  show: default-page-settings.with(style, title: title, description: description)
 
   body
 }
 
 // create slides using this function:
-#let slides(title_color: false, ..args, body) = {
+#let slides(title-color: false, ..args, body) = {
   // default title is empty
   let title = ""
   if args.named().keys().contains("title") {
@@ -295,14 +295,14 @@
   }
   
   // default style is blue with IBM Plex Sans font
-  let style = define_style(color: rgb("#3271a8"), font: "IBM Plex Sans")
+  let style = define-style(color: rgb("#3271a8"), font: "IBM Plex Sans")
   if args.named().keys().contains("style") {
     style = args.named().at("style")
   }
 
-  show: default_page_settings.with(style, title: title, description: description)
+  show: default-page-settings.with(style, title: title, description: description)
 
-  title_slide(style: style, title: title, title_color: title_color, ..args)
+  title-slide(style: style, title: title, title-color: title-color, ..args)
 
   body
 }
