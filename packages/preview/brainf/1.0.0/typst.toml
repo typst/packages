@@ -1,5 +1,5 @@
 [package]
-name = "Brainf"
+name = "brainf"
 version = "1.0.0"
 entrypoint = "index.typ"
 authors = ["Thumus"]
