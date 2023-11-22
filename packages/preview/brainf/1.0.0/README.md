@@ -4,7 +4,7 @@
 
 # Examples
 
-## In pur brainfuck
+## In pure brainfuck
 
 ```typst
 #import "@preview/brainf:1.0.0": brainf;
