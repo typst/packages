@@ -55,7 +55,7 @@ are relative to the file they are used in.
 This repository contains a collection of published packages. Due to its early
 and experimental nature, all packages in this repository are scoped in a
 `preview` namespace. A package that is stored in
-`packages/preview/{name}/{version}` in this repository will become availabe in
+`packages/preview/{name}/{version}` in this repository will become available in
 Typst as `#import "@preview/{name}:{version}"`. You must always specify the full
 package version.
 
