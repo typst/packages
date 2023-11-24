@@ -78,7 +78,8 @@ are detailed below:
   least briefly) what the package does and all definitions intended for usage by
   downstream users. Examples in the README should show how to use the package
   through an `@preview` import. If you have images in your README, you might
-  want to check whether they also work in dark mode.
+  want to check whether they also work in dark mode. Also consider running
+  [`typos`][typos] through your package before release.
 - **Style:** No specific code style is mandated, but two spaces of indent and
   kebab-case for variable and function names are recommended.
 - **License:** Packages must be licensed under the terms of an
@@ -162,3 +163,4 @@ respective license.
 [SemVer]: https://semver.org/
 [OSI]: https://opensource.org/licenses/
 [template-packages]: https://github.com/typst/typst/issues/2432
+[typos]: https://github.com/crate-ci/typos
