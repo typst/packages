@@ -39,7 +39,7 @@ headings is added.
 ![ex5]
 
 ## Documentation
-Changing the default behavior can be done using the vairous named parameters:
+Changing the default behavior can be done using the various named parameters:
 ```typst
 #let hydra(
   sel: heading,                     // the elements to consider
@@ -73,7 +73,7 @@ open page. This means for a book with `left` binding, if hydra is used on the ri
 previous section is visible on the left page, it will display nothing.
 
 Of `paper`, `page-size` and `top-margin` exactly one must be given. `paper` and `page-size` are for
-convenience aand will be used to calculate the `top-margin` for you. Use them as follows:
+convenience and will be used to calculate the `top-margin` for you. Use them as follows:
 
 1. If you use a custom top margin, pass it to `top-margin`
 2. If you use no custom top margin but a custom page size, pass the *smaller* page size to
