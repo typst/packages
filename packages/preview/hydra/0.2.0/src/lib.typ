@@ -5,10 +5,11 @@
 
 #let hydra(
   sel: heading,
-  prev-filter: (_, _, _) => true,
-  next-filter: (_, _, _) => true,
+  prev-filter: (ctx, p, n) => true,
+  next-filter: (ctx, p, n) => true,
   display: core.display,
   fallback-next: false,
+  is-book: false,
   paper: "a4",
   page-size: auto,
   top-margin: auto,
@@ -30,23 +31,27 @@
     top-margin = (2.5 / 21) * page-size
   }
 
-  
-
   let func = loc => {
     let ctx = (
+      is-book: is-book,
       top-margin: top-margin,
       loc: loc,
     )
 
-    let (last, next, loc) = core.get-adjacent-from(ctx, sel, filter)
+    let (prev, next, loc) = core.get-adjacent-from(ctx, sel, filter)
     ctx.loc = loc
 
-    let last-eligible = last != none and prev-filter(ctx, last, next)
-    let next-eligible = next != none and next-filter(ctx, last, next)
-    let last-redundant = next-eligible and ctx.top-margin != none and core.is-redundant(ctx, next)
+    let prev-eligible = prev != none and prev-filter(ctx, prev, next)
+    let next-eligible = next != none and next-filter(ctx, prev, next)
+    let prev-redundant = (
+      prev-eligible
+        and next-eligible
+        and ctx.top-margin != none
+        and core.is-redundant(ctx, prev, next)
+    )
 
-    if last-eligible and not last-redundant {
-      display(ctx, last)
+    if prev-eligible and not prev-redundant {
+      display(ctx, prev)
     } else if fallback-next and next-eligible {
       display(ctx, next)
     }

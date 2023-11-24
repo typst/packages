@@ -20,10 +20,19 @@
   (prev, next, ctx.loc)
 }
 
-// check if the next heading is on the curent page
-#let is-redundant(ctx, element) = {
-  (element.location().page() == ctx.loc.page()
-    and element.location().position().y <= ctx.top-margin)
+// check if the next heading is on the current page
+#let is-redundant(ctx, prev, next) = {
+  let is-next-on-top = (
+    next.location().page() == ctx.loc.page()
+      and next.location().position().y <= ctx.top-margin
+  )
+
+  let is-prev-visible = (
+    ctx.is-book
+      and calc.odd(ctx.loc.page()) and prev.location().page() == ctx.loc.page() - 1
+  )
+
+  is-next-on-top or is-prev-visible
 }
 
 // display the heading as closely as it occured at the given loc

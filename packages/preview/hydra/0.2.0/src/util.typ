@@ -9,7 +9,7 @@
       oxi.strfmt("`{}` must be content, was `{}`", name , element)
     }
   )
-  
+
   assert.eq(element.func(), func,
     message: if message != none {
       message
@@ -120,7 +120,7 @@
   sac-d6: (w:  92.0mm, h:  126.0mm),
 
   // ISO 7810 ID
-  iso-id-1: (w: 85.6mm, h: 53.98mm),
+  iso-id-1: (w: 85.6mm, h:  53.98mm),
   iso-id-2: (w: 74.0mm, h: 105.0mm),
   iso-id-3: (w: 88.0mm, h: 125.0mm),
 
@@ -134,7 +134,7 @@
   jp-shiroku-ban-6: (w: 127.0mm, h: 188.0mm),
   jp-kiku-4:        (w: 227.0mm, h: 306.0mm),
   jp-kiku-5:        (w: 151.0mm, h: 227.0mm),
-  jp-business-card: (w: 91.0mm,  h: 55.0mm),
+  jp-business-card: (w:  91.0mm, h:  55.0mm),
 
   // China
   cn-business-card: (w: 90.0mm, h: 54.0mm),
@@ -160,19 +160,19 @@
   uk-book-b:   (w: 129.0mm, h: 198.0mm),
 
   // Unites States
-  us-letter:         (w: 215.9mm, h: 279.4mm),
-  us-legal:          (w: 215.9mm, h: 355.6mm),
-  us-tabloid:        (w: 279.4mm, h: 431.8mm),
-  us-executive:      (w: 84.15mm, h: 266.7mm),
-  us-foolscap-folio: (w: 215.9mm, h: 342.9mm),
-  us-statement:      (w: 139.7mm, h: 215.9mm),
-  us-ledger:         (w: 431.8mm, h: 279.4mm),
-  us-oficio:         (w: 215.9mm, h: 340.36mm),
-  us-gov-letter:     (w: 203.2mm, h: 266.7mm),
-  us-gov-legal:      (w: 215.9mm, h: 330.2mm),
-  us-business-card:  (w:  88.9mm, h:  50.8mm),
-  us-digest:         (w: 139.7mm, h: 215.9mm),
-  us-trade:          (w: 152.4mm, h: 228.6mm),
+  us-letter:         (w: 215.9mm,  h: 279.4mm),
+  us-legal:          (w: 215.9mm,  h: 355.6mm),
+  us-tabloid:        (w: 279.4mm,  h: 431.8mm),
+  us-executive:      (w:  84.15mm, h: 266.7mm),
+  us-foolscap-folio: (w: 215.9mm,  h: 342.9mm),
+  us-statement:      (w: 139.7mm,  h: 215.9mm),
+  us-ledger:         (w: 431.8mm,  h: 279.4mm),
+  us-oficio:         (w: 215.9mm,  h: 340.36mm),
+  us-gov-letter:     (w: 203.2mm,  h: 266.7mm),
+  us-gov-legal:      (w: 215.9mm,  h: 330.2mm),
+  us-business-card:  (w:  88.9mm,  h:  50.8mm),
+  us-digest:         (w: 139.7mm,  h: 215.9mm),
+  us-trade:          (w: 152.4mm,  h: 228.6mm),
 
   // ---------------------------------------------------------------------- //
   // Other
