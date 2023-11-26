@@ -2,8 +2,8 @@
 
 _(noun) a maker of arrows_
 
-[![Manual](https://img.shields.io/badge/docs-manual.pdf-blue)](https://github.com/Jollywatt/typst-fletcher/raw/master/docs/manual.pdf)
-![Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fgithub.com%2FJollywatt%2Farrow-diagrams%2Fraw%2Fmaster%2Ftypst.toml&query=package.version&label=version)
+[![Manual](https://img.shields.io/badge/docs-manual.pdf-blue)](https://github.com/Jollywatt/typst-fletcher/raw/v0.2.0/docs/manual.pdf)
+![Version](https://img.shields.io/badge/version-0.2.0-blue)
 
 A [Typst]("https://typst.app/") package for drawing diagrams with arrows,
 built on top of [CeTZ]("https://github.com/johannes-wolf/cetz").
