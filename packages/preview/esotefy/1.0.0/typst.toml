@@ -1,5 +1,5 @@
 [package]
-name = "brainf"
+name = "esotefy"
 version = "1.0.0"
 entrypoint = "index.typ"
 authors = ["Thumus"]

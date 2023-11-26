@@ -1,13 +1,13 @@
-# Brainf
+# Esotefy
 
-> A brainfuck implementation in pure Typst
+> A compilation of esoteric languages including for now brainfuck
 
 # Examples
 
 ## In pure brainfuck
 
 ```typst
-#import "@preview/brainf:1.0.0": brainf;
+#import "@preview/esotefy:1.0.0": brainf;
 
 #brainf("++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.");
 ```
@@ -19,7 +19,7 @@ Into
 ## With inputs
 
 ```typst
-#import "@preview/brainf:1.0.0": brainf;
+#import "@preview/esotefy:1.0.0": brainf;
 
 #brainf("++++++++++++++[->,.<]", inp: "Goodbye World!");
 ```
