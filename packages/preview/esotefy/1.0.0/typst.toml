@@ -13,5 +13,5 @@ keywords = [
     "langage",
 ]
 compiler = "0.7.0"
-exclude = ["example.typ", "example.pdf", ".gitignore", "LICENSE"]
+exclude = ["example.typ", "example.pdf", ".gitignore"]
 
