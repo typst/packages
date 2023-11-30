@@ -97,3 +97,8 @@
 #x-twitter-info("elonmusk", rgb("#663300"))
 #h(1cm)
 #x-twitter-info("Elon Musk", url: "https://twitter.com/elonmusk/", rgb("#663300"))
+
+== ORCID
+#orcid-info("0000-0002-1825-0097")
+#h(1cm)
+#orcid-info("Josiah Carberry", url: "https://orcid.org/0000-0002-1825-0097", green)
