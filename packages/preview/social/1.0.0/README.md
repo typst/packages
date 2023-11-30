@@ -1,5 +1,5 @@
-# [Social Media References for Typst](https://github.com/Bi0T1N/typst-social)
-The `social` package is designed to help you create your curriculum vitae (CV). It allows you to easily reference your social media profiles with the typical icon of the service plus a link to your profile.
+# [Social Media References based on Font Awesome for Typst](https://github.com/Bi0T1N/typst-socialhub-fa)
+The `socialhub-fa` package is designed to help you create your curriculum vitae (CV). It allows you to easily reference your social media profiles with the typical icon of the service plus a link to your profile.
 
 ## Features
 - Support for popular social media, developer and career platforms
@@ -21,19 +21,19 @@ The `social` package is designed to help you create your curriculum vitae (CV). 
 ### Using the Typst's package manager
 You can install the library using the [typst packages](https://github.com/typst/packages):
 ```typst
-#import "@preview/social:1.0.0": *
+#import "@preview/socialhub-fa:1.0.0": *
 ```
 
 ### Install manually
-Put the `social.typ` file in your project directory and import it:
+Put the `socialhub-fa.typ` file in your project directory and import it:
 ```typst
-#import "social.typ": *
+#import "socialhub-fa.typ": *
 ```
 
 ### Minimal Example
 ```typst
-// #import "@preview/social:1.0.0": github-info, gitlab-info
-#import "social.typ": github-info, gitlab-info
+// #import "@preview/socialhub-fa:1.0.0": github-info, gitlab-info
+#import "socialhub-fa.typ": github-info, gitlab-info
 
 This project was created by #github-info("Bi0T1N"). You can also find me on #gitlab-info("GitLab", rgb("#811052"), url: "https://gitlab.com/Bi0T1N").
 ```

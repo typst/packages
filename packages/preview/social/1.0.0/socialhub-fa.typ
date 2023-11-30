@@ -206,3 +206,11 @@
 ) = {
   icon-link-generator(name, url, fa-icon.with("\u{e61b}"), ..args)
 }
+
+#let orcid-info(
+  name,
+  url: "https://orcid.org/",
+  ..args
+) = {
+  icon-link-generator(name, url, fa-icon.with("orcid", fa-set: "Brands"), ..args)
+}

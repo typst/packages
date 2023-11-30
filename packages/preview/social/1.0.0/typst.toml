@@ -1,8 +1,8 @@
 [package]
-name = "social"
+name = "socialhub-fa"
 version = "1.0.0"
-repository = "https://github.com/Bi0T1N/typst-social"
-entrypoint = "social.typ"
+repository = "https://github.com/Bi0T1N/typst-socialhub-fa"
+entrypoint = "socialhub-fa.typ"
 authors = ["Nico Neumann (Bi0T1N)"]
 license = "MIT"
 description = "A Typst library for Social Media references with icons based on Font Awesome."
