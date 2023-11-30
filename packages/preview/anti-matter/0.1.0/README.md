@@ -52,6 +52,6 @@ The package name `anti-matter` was choosen as a word play on front/back matter.
 - [back matter] - The last part of a thesis or book (bibliography, listings, acknowledgements, etc.)
 
 [front matter]: https://en.wikipedia.org/wiki/Book_design#Front_matter
-[back or end matter]: https://en.wikipedia.org/wiki/Book_design#Back_matter_(end_matter)
-[example]: examples/example.png
+[back matter]: https://en.wikipedia.org/wiki/Book_design#Back_matter_(end_matter)
+[example]: example/example.png
 [manual]: docs/manual.pdf
