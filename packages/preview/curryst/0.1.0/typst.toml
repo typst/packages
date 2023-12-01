@@ -1,7 +1,7 @@
 [package]
-name = "prooftree"
+name = "curryst"
 version = "0.1.0"
-entrypoint = "prooftree.typ"
+entrypoint = "curryst.typ"
 authors = ["Rémi Hutin <https://github.com/remih23>", "Paul Adam <https://github.com/pauladam94>"]
 license = "MIT"
 description = "Typesetting of trees of inference rules in Typst."
