@@ -18,7 +18,7 @@ The `socialhub-fa` package is designed to help you create your curriculum vitae 
 6. Unfortunately not all brands are included in the brands font file, so you must also run `install -m644 'Font Awesome 6 Free-Regular-400.otf' /usr/share/fonts/truetype/`
 
 ## Usage
-### Using the Typst's package manager
+### Using Typst's package manager
 You can install the library using the [typst packages](https://github.com/typst/packages):
 ```typst
 #import "@preview/socialhub-fa:1.0.0": *
