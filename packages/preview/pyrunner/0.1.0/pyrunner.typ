@@ -22,13 +22,3 @@
   cbor.decode(py.call_compiled(compiled, bytes(fn_name), cbor.encode(args.pos())))
 }
 
-// Usage:
-//
-// #let code = ```
-// def fib(n):
-//   return 1 if n <= 2 else fib(n-1) + fib(n-2)
-//
-// fib(5)
-// ```
-//
-// #python(code)

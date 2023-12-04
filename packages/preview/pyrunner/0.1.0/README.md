@@ -1,6 +1,6 @@
 # Typst Python Runner Plugin
 
-Run python code in [typst](https://typst.app).
+Run python code in [typst](https://typst.app) using [RustPython](https://github.com/RustPython/RustPython).
 
 ````typst
 #import "@preview/pyrunner:0.1.0" as py
