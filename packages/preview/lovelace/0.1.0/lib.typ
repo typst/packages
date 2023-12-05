@@ -115,7 +115,7 @@
               counter(figure.where(kind: "lovelace")).display(it.numbering)
               [: ]
             })
-            it.caption
+            it.caption.body
           }
 
         )
