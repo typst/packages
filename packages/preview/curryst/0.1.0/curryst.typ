@@ -39,6 +39,7 @@
     }
     let prem_spacing = 0pt
     if number_prem >= 1 {
+      // Same spacing between all premisses
       prem_spacing = calc.max(prem-min-spacing, (total-size - top-size) / (number_prem + 1) * 1pt)
     }
     let top = stack(dir: ltr, spacing: prem_spacing, ..prem-content)
