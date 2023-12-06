@@ -5,7 +5,7 @@ and outer page counters.
 
 ## Example
 ```typst
-#import "@preview/anti-matter:0.1.0": anti-matter, fence, set-numbering
+#import "@preview/anti-matter:0.1.1": anti-matter, fence, set-numbering
 
 #set page("a4", height: auto)
 #show heading.where(level: 1): it => pagebreak(weak: true) + it
