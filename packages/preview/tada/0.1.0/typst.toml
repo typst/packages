@@ -1,0 +1,17 @@
+[package]
+name = "tada"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nathan Jessurun"]
+license = "Unlicense"
+description = "Easy, composable tabular data manipulation"
+repository = "https://github.com/ntjess/typst-tada"
+keywords = [
+    "record",
+    "dataframe",
+    "table",
+    "tabular",
+    "agg",
+    "aggregate",
+    "pandas",
+]
