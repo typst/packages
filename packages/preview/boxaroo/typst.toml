@@ -6,6 +6,6 @@ authors = ["Dherse"]
 license = "MIT"
 description = "Simple and colorful info boxes for Typst."
 repository = "https://github.com/Dherse/codly"
-exclude = ["example/*", "demo.png" ]
+exclude = ["example/*", "simple.png", "presets.png", "bubblegum.png" ]
 compiler = "0.10.0"
 keywords = [ "box", "color", "info", "boxes" ]
