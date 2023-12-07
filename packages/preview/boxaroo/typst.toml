@@ -1,0 +1,11 @@
+[package]
+name = "boxaroo"
+version = "0.1.0"
+entrypoint = "boxaroo.typ"
+authors = ["Dherse"]
+license = "MIT"
+description = "Simple and colorful info boxes for Typst."
+repository = "https://github.com/Dherse/codly"
+exclude = ["example/*", "demo.png" ]
+compiler = "0.10.0"
+keywords = [ "box", "color", "info", "boxes" ]
