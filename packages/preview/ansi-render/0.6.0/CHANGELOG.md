@@ -4,8 +4,7 @@
 
 ### Fixed
 
-* Fixed newline in `raw` for Typst 0.10.0
-* Removed unnecessary for loop
+* Removed workaround for a bug in `raw` that fixed in Typst 0.10.0
 
 ## [0.5.1] - 2023-10-21
 
