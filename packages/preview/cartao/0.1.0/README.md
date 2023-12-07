@@ -83,7 +83,7 @@ Defines a card by updating the below `counter` and `state`(s), and dropping a <c
 
 Produces a 2x8 portrait card layout on a4 paper.
 
-Designed to be printed double-sided on the perforated 8-up a4 card paper you can find on [Amazon](https:/www.amazon.ca/s?k=a4+perforated+card&crid=37RT2L4H5XSD0&sprefix=a4+perforated+ca%2Caps%2C648&ref=nb_sb_noss)
+Designed to be printed double-sided on the perforated 8-up a4 card paper you can find on [Amazon](https://www.amazon.ca/s?k=a4+perforated+card&crid=37RT2L4H5XSD0&sprefix=a4+perforated+ca%2Caps%2C648&ref=nb_sb_noss)
 
 ###### Usage  
 
