@@ -110,40 +110,40 @@
 #let boxaroo(body) = {
   define-format(
     "info",
-    icon: image("./assets/circle-info.svg"),
+    icon: image("./circle-info.svg"),
     stroke-color: true-blue,
   )
 
   define-format(
     "definition",
     prefix: underline(smallcaps[*Definition*]) + smallcaps[:],
-    icon: image("./assets/highlighter-solid.svg"),
+    icon: image("./highlighter-solid.svg"),
     stroke-color: caribbean-current,
   )
 
   define-format(
     "question",
-    icon: image("./assets/circle-question.svg"),
+    icon: image("./circle-question.svg"),
     stroke-color: proper-purple,
   )
 
   define-format(
     "important",
-    icon: image("./assets/circle-exclamation.svg"),
+    icon: image("./circle-exclamation.svg"),
     fill-color: federal-blue.lighten(90%),
     stroke-color: federal-blue.darken(20%),
   )
 
   define-format(
     "conclusion",
-    icon: image("./assets/lightbulb-solid.svg"),
+    icon: image("./lightbulb-solid.svg"),
     stroke-color: earth-yellow,
   )
 
   define-format(
     "note",
     prefix: underline(smallcaps[*Note*]) + smallcaps[:],
-    icon: image("./assets/note-sticky.svg"),
+    icon: image("./note-sticky.svg"),
     stroke-color: atomic-tangerine,
   )
 
