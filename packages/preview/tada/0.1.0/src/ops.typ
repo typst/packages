@@ -20,7 +20,7 @@
       } else if return-single-row {
         1
       } else {
-        panic("When fields and indexes are array-like, axis must be specified")
+        panic("When fields and indexes are both array-like, `axis` must be specified")
       }
     }
     if axis not in (0, 1) {
@@ -44,7 +44,7 @@
   out
 }
 
-#let _result-to-table-data(values, fields, tablex-kwargs, naming-function, field-info, axis) = {
+#let _result-to-table-data(old-td, values, fields, naming-function, field-info, axis) = {
   let (rows, info) = ((), (:))
   if axis == 0 {
     // Rows were collapsed, add field to each value
@@ -72,7 +72,7 @@
     // No field info is valid anymore
     rows = values
   }
-  TableData(rows: rows, field-info: info, tablex-kwargs: tablex-kwargs)
+  TableData(..old-td, rows: rows, field-info: info)
 }
 
 #let _eval-name-for-agg-field(field, format-str: "", agg-func: none) = {
@@ -115,7 +115,7 @@
       format-str: title, agg-func: using
     )
   }
-  _result-to-table-data(values, fields, td.tablex-kwargs, naming-func, field-info, axis)
+  _result-to-table-data(td, values, fields, naming-func, field-info, axis)
 }
 
 

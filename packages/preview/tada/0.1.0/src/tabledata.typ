@@ -1,11 +1,13 @@
 #import "helpers.typ": *
-#import "display.typ": display
+#import "display.typ": to-tablex
 
 #let TableData(
   rows: (),
   field-info: (:),
-  tablex-kwargs: (:),
+  type-info: (:),
   add-row-fields: false,
+  field-defaults: (:),
+  tablex-kwargs: (:),
   ..unused
 ) = {
   let types = rows.map(el => type(el)).dedup()
@@ -28,14 +30,18 @@
       }
     }
   }
-
-  (
+  let data = (
     rows: rows,
     field-info: field-info,
-    table: display((rows: rows, field-info: field-info), ..tablex-kwargs),
+    type-info: type-info,
+    field-defaults: field-defaults,
+    add-row-fields: add-row-fields,
     tablex-kwargs: tablex-kwargs,
   )
 
+  data.insert("table", to-tablex(data, ..tablex-kwargs))
+
+  data
 }
 
 #let with-row-fields(td) = {
@@ -74,9 +80,13 @@
   raw-values.at(0).at(0)
 }
 
-#let with-field(td, field, ..info) = {
+#let with-field(td, field, preserve-existing: true, ..info) = {
+  let to-insert = info.named()
+  if preserve-existing {
+     to-insert = td.field-info.at(field, default: (:)) + to-insert
+  }
   let field-dict = (:)
-  field-dict.insert(field, info.named())
+  field-dict.insert(field, to-insert)
   td.insert("field-info", td.field-info + field-dict)
   return TableData(..td)
 }
@@ -121,9 +131,9 @@
     out
   })
   return TableData(
+    ..td,
     rows: rows,
     field-info: filtered-dict(field-info, keys: fields),
-    tablex-kwargs: td.tablex-kwargs,
   )
 }
 
@@ -154,5 +164,9 @@
       info.insert(str(row.__index), (type: "content"))
     }
   }
-  TableData(rows: out-rows, field-info: info, tablex-kwargs: td.tablex-kwargs)
+  // Type info is no longer relevant
+  for key in ("type-info", "field-defaults", "field-info") {
+    td.remove(key)
+  }
+  TableData(rows: out-rows, field-info: info)
 }

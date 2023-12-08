@@ -1,56 +1,57 @@
 #import "@preview/tablex:0.0.6": tablex, cellx, rowspanx
 #import "helpers.typ": unique-row-keys, filtered-dict
 
-#let default-currency = state("currency-state", "$")
 #let default-hundreds-separator = state("separator-state", ",")
 #let default-decimal = state("decimal-state", ".")
 
-
-#let format-float(number, hundreds-separator: auto, decimal: auto, digits: 2) ={
+#let format-float(number,
+  hundreds-separator: auto,
+  decimal: auto,
+  precision: none,
+  pad: false,
+) = {
   // Adds commas after each 3 digits to make
   // pricing more readable
   if hundreds-separator == auto {
     hundreds-separator = default-hundreds-separator.display()
   }
+  if precision != none {
+    number = calc.round(number, digits: precision)
+  }
   if decimal == auto {
     decimal = default-decimal.display()
   }
 
-  let integer-portion = str(calc.abs(calc.trunc(number)))
-  let num-length = integer-portion.len()
+  // negative != hyphen, so grab from unicode
+  let negative-sign = str.from-unicode(0x2212)
+  let sign = if number < 0 { negative-sign } else { "" }
+  let number-pieces = str(number).split(".")
+  let integer-portion = number-pieces.at(0).trim(negative-sign)
   let num-with-commas = ""
-
-  for ii in range(num-length) {
+  for ii in range(integer-portion.len()) {
     if calc.rem(ii, 3) == 0 and ii > 0 {
       num-with-commas = hundreds-separator + num-with-commas
     }
     num-with-commas = integer-portion.at(-ii - 1) + num-with-commas
   }
-  // Another "round" is needed to offset float imprecision
-  let fraction = calc.round(calc.fract(number), digits: digits + 1)
-  let fraction-int = calc.round(fraction * calc.pow(10, digits))
-  if fraction-int == 0 {
-    fraction-int = ""
+
+  let frac-portion = if number-pieces.len() > 1 {
+    number-pieces.at(1)
   } else {
-    fraction-int = decimal + str(fraction-int)
+    ""
   }
-  let formatted = num-with-commas + fraction-int
-  if number < 0 {
-    formatted = "-" + formatted
+  if precision != none and pad {
+    for _ in range(precision - frac-portion.len()) {
+      frac-portion = frac-portion + "0"
+    }
   }
-  formatted
+
+  if frac-portion != "" {
+    num-with-commas = num-with-commas + decimal + frac-portion
+  }
+  sign + num-with-commas
 }
 
-#let format-currency(number, currency: auto, ..args) = {
-  if currency == auto {
-    currency = default-currency.display()
-  }
-  let out = format-float(calc.abs(number), ..args)
-  if number < 0 {
-    out = "(" + out + ")"
-  }
-  currency + out
-}
 
 #let format-percent(number, ..args) = {
   format-float(number * 100, ..args) + "%"
@@ -59,19 +60,20 @@
 #let format-string = eval.with(mode: "markup")
 
 #let default-type-info = (
-  string: (default: "", display: format-string),
+  string: (default-value: "", display: format-string),
   float: (display: /*format-float*/ auto, align: right),
   integer: (display: /*format-float*/ auto, align: right),
   percent: (display: format-percent, align: right),
-  currency: (display: format-currency, align: right),
+  // TODO: Better country-robust currency
+  // currency: (display: format-currency, align: right),
   index: (align: right),
 )
 
-#let supplement-field-info-from-rows(field-info, rows) = {
+#let supplement-field-info-from-rows(field-info, field-defaults, type-info, rows) = {
   let encountered-fields = unique-row-keys(rows)
   for field in encountered-fields {
     let existing-info = field-info.at(field, default: (:))
-    let type-str = existing-info.at("type", default: auto)
+    let type-str = existing-info.at("type", default: field-defaults.at("type", default: auto))
     if type-str == auto {
       let values = rows.filter(row => field in row).map(row => row.at(field))
       let types = values.map(value => type(value)).dedup()
@@ -80,7 +82,8 @@
       }
       type-str = repr(types.at(0))
     }
-    let defaults-for-field = default-type-info.at(type-str, default: (:))
+    let type-info = default-type-info + type-info
+    let defaults-for-field = field-defaults + type-info.at(type-str, default: (:))
     for key in defaults-for-field.keys() {
       if key not in existing-info {
         existing-info.insert(key, defaults-for-field.at(key))
@@ -102,7 +105,7 @@
     value = eval(
       display-func,
       mode: "markup",
-      scope: (value: value, format-float: format-float, format-currency: format-currency),
+      scope: (value: value),
     )
   } else if display-func != auto {
     value = display-func(value)
@@ -137,6 +140,11 @@
           mode: "markup",
           scope: (field: original-field, title-case-field: title-case(original-field))
         )
+      } else if type(key) == function {
+        key = key(original-field)
+      }
+      if type(key) not in (str, content) {
+        key = repr(key)
       }
     }
     names.push(key)
@@ -148,9 +156,9 @@
   (names: names, align: aligns, columns: widths)
 }
 
-#let display(td, ..tablex-kwargs) = {
-  let (rows, field-info) = (td.rows, td.field-info)
-  field-info = supplement-field-info-from-rows(field-info, rows)
+#let to-tablex(td, ..tablex-kwargs) = {
+  let (rows, field-info, type-info) = (td.rows, td.field-info, td.type-info)
+  field-info = supplement-field-info-from-rows(field-info, td.field-defaults, type-info, rows)
 
   let encountered-keys = unique-row-keys(rows)
   // Order by field specification
@@ -159,7 +167,6 @@
   )
   let field-info = filtered-dict(field-info, keys: encountered-keys)
   let rows-with-fields = rows.map(filtered-dict.with(keys: encountered-keys))
-  
   let out = rows-with-fields.map(row => {
     row.pairs().map(
       // `pair` is a tuple of (key, value) for each field in the row
