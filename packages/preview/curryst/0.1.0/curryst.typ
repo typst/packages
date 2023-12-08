@@ -50,7 +50,7 @@
     if ccl-size > total-size - left-blank - right-blank {
       let d = (total-size - left-blank - right-blank - ccl-size) / 2
       left-blank += d
-      // right-blank += d
+      right-blank += d
     }
     let line-size = calc.max(total-size - left-blank - right-blank, ccl-size) 
     let blank-size = (line-size - ccl-size) / 2
