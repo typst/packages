@@ -1,4 +1,4 @@
-#let rule(name: [], ccl, ..prem) = (
+#let rule(name: "", ccl, ..prem) = (
   name: name,
   ccl: ccl,
   prem: prem.pos()
@@ -50,7 +50,7 @@
     if ccl-size > total-size - left-blank - right-blank {
       let d = (total-size - left-blank - right-blank - ccl-size) / 2
       left-blank += d
-      right-blank += d
+      // right-blank += d
     }
     let line-size = calc.max(total-size - left-blank - right-blank, ccl-size) 
     let blank-size = (line-size - ccl-size) / 2
@@ -59,16 +59,18 @@
     let ccl_height = measure(ccl, styles).height.pt()
     
     let content = block(
-      // stroke: red, // DEBUG
+      // stroke: red + 0.3pt, // DEBUG
       width: complete_size,
       stack(
         spacing: horizontal-spacing,
         {
-          let alignment = center
+          let alignment = left
+          // Maybe a fix for having center premisses with big trees 
+          // let alignment = center
           // If there are only one premisses
-          if top_height <= 1.5 * ccl_height {
-            alignment = left
-          }
+          // if top_height <= 1.5 * ccl_height {
+          //  alignment = left
+          // }
           align(alignment,
             block(
               // stroke: green + 0.3pt, // DEBUG
@@ -78,11 +80,17 @@
           )
         },
         align(left + horizon,
-          stack(dir: ltr,
-            h(left-blank * 1pt),
-            line(start: (0pt, 2pt), length: line-size * 1pt, stroke: stroke),
-            h(title-inset),
-            name
+          box(
+            // stroke: red + 0.3pt, // DEBUG
+            inset : (bottom : {
+              if(name == ""){0.2em}else{0.05em}
+            }),
+            stack(dir: ltr,
+              h(left-blank * 1pt),
+              line(start: (0pt, 2pt), length: line-size * 1pt, stroke: stroke),
+              if (name != ""){h(title-inset)},
+              name
+            )
           )
         ),
         align(left,
