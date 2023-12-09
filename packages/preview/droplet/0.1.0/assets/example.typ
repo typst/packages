@@ -16,8 +16,8 @@
 #dropcap(
   height: 3,
   justify: true,
+  gap: 4pt,
   hanging-indent: 1em,
-  gutter: 4pt,
   font: "Curlz MT",
 )[
   *Typst* is a new markup-based typesetting system that is designed to be as _powerful_ as LaTeX while being _much easier_ to learn and use. Typst has:

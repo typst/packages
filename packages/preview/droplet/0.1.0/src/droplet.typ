@@ -202,8 +202,8 @@
 // - height: The height of the first letter. Can be given as the number of
 //           lines (integer) or as a length.
 // - justify: Whether to justify the text next to the first letter.
+// - gap: The space between the first letter and the text.
 // - hanging-indent: The indent of lines after the first line.
-// - gutter: The space between the first letter and the text.
 // - transform: A function to be applied to the first letter.
 // - text-args: Arguments to be passed to the underlying text element.
 // - body: The content to be shown.
@@ -212,8 +212,8 @@
 #let dropcap(
   height: 2,
   justify: false,
-  hanging-indent: 8pt,
-  gutter: 0pt,
+  gap: 0pt,
+  hanging-indent: 0pt,
   transform: none,
   ..text-args,
   body
@@ -237,7 +237,7 @@
   let letter-width = measure(letter, styles).width
 
   // Try to justify as many words as possible next to dropcap
-  let bounded = box.with(width: bounds.width - letter-width - gutter)
+  let bounded = box.with(width: bounds.width - letter-width - gap)
 
   let index = 1
   let (first, second) = while true {
@@ -268,7 +268,7 @@
   set par(justify: justify)
 
   box(grid(
-    column-gutter: gutter,
+    column-gutter: gap,
     columns: (letter-width, 1fr),
     letter,
     {

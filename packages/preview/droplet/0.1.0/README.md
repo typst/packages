@@ -8,8 +8,8 @@ The package comes with a single `dropcap` function that takes content and a few 
 |------------------|----------------------------------------------------------|---------|
 | `height`         | The height of the dropped capital in lines or as length. | `2`     |
 | `justify`        | Whether the text should be justified.                    | `false` |
-| `hanging-indent` | The indent of lines after the first.                     | `8pt`   |
-| `gutter`         | The space between the first letter and the text.         | `0pt`   |
+| `gap`            | The space between the first letter and the text.         | `0pt`   |
+| `hanging-indent` | The indent of lines after the first.                     | `0pt`   |
 | `transform`      | A function to be applied to the first letter.            | `none`  |
 | `..text-args`    | Arguments to be passed to the text function.             | `(:)`   |
 
@@ -22,8 +22,8 @@ The package comes with a single `dropcap` function that takes content and a few 
 #dropcap(
   height: 3,
   justify: true,
+  gap: 4pt,
   hanging-indent: 1em,
-  gutter: 4pt,
   font: "Curlz MT",
 )[
   *Typst* is a new markup-based typesetting system that is designed to be as
@@ -49,8 +49,7 @@ To further customize the appearance of the dropped capital, you can apply a `tra
 #dropcap(
   height: 2,
   justify: true,
-  hanging-indent: 0pt,
-  gutter: 6pt,
+  gap: 6pt,
   transform: letter => style(styles => {
     let height = measure(letter, styles).height
 

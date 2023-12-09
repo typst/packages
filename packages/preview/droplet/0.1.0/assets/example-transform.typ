@@ -16,8 +16,7 @@
 #dropcap(
   height: 2,
   justify: true,
-  hanging-indent: 0pt,
-  gutter: 6pt,
+  gap: 6pt,
   transform: letter => style(styles => {
     let height = measure(letter, styles).height
 
