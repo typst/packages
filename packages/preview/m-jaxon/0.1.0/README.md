@@ -2,6 +2,9 @@
 
 Render LaTeX equation in typst using MathJax.
 
+**Note:** This package is made for fun and to demonstrate the capability of typst plugins.
+And it is **slow**. To actually convert LaTeX equations to typst ones, you should use **pandoc** or **texmath**.
+
 ![](mj.svg)
 
 
