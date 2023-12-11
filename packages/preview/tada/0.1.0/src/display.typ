@@ -1,5 +1,5 @@
 #import "@preview/tablex:0.0.6": tablex, cellx, rowspanx
-#import "helpers.typ": unique-row-keys, filtered-dict
+#import "helpers.typ": unique-row-keys, keep-keys
 
 #let default-hundreds-separator = state("separator-state", ",")
 #let default-decimal = state("decimal-state", ".")
@@ -59,7 +59,7 @@
 
 #let format-string = eval.with(mode: "markup")
 
-#let default-type-info = (
+#let DEFAULT-TYPE-FORMATS = (
   string: (default-value: "", display: format-string),
   float: (display: /*format-float*/ auto, align: right),
   integer: (display: /*format-float*/ auto, align: right),
@@ -68,31 +68,6 @@
   // currency: (display: format-currency, align: right),
   index: (align: right),
 )
-
-#let supplement-field-info-from-rows(field-info, field-defaults, type-info, rows) = {
-  let encountered-fields = unique-row-keys(rows)
-  for field in encountered-fields {
-    let existing-info = field-info.at(field, default: (:))
-    let type-str = existing-info.at("type", default: field-defaults.at("type", default: auto))
-    if type-str == auto {
-      let values = rows.filter(row => field in row).map(row => row.at(field))
-      let types = values.map(value => type(value)).dedup()
-      if types.len() > 1 {
-        panic("Field " + repr(field) + " has multiple types: " + repr(types))
-      }
-      type-str = repr(types.at(0))
-    }
-    let type-info = default-type-info + type-info
-    let defaults-for-field = field-defaults + type-info.at(type-str, default: (:))
-    for key in defaults-for-field.keys() {
-      if key not in existing-info {
-        existing-info.insert(key, defaults-for-field.at(key))
-      }
-    }
-      field-info.insert(field, existing-info)
-    }
-  field-info
-}
 
 
 #let _value-to-display(value, value-info, row) = {
@@ -158,15 +133,12 @@
 
 #let to-tablex(td, ..tablex-kwargs) = {
   let (rows, field-info, type-info) = (td.rows, td.field-info, td.type-info)
-  field-info = supplement-field-info-from-rows(field-info, td.field-defaults, type-info, rows)
-
-  let encountered-keys = unique-row-keys(rows)
   // Order by field specification
-  encountered-keys = field-info.keys().filter(
-    key => key in encountered-keys and not field-info.at(key).at("hide", default: false)
+  let to-show = field-info.keys().filter(
+    key => not field-info.at(key).at("hide", default: false)
   )
-  let field-info = filtered-dict(field-info, keys: encountered-keys)
-  let rows-with-fields = rows.map(filtered-dict.with(keys: encountered-keys))
+  field-info = keep-keys(field-info, keys: to-show)
+  let rows-with-fields = rows.map(keep-keys.with(keys: to-show))
   let out = rows-with-fields.map(row => {
     row.pairs().map(
       // `pair` is a tuple of (key, value) for each field in the row
@@ -176,5 +148,5 @@
 
   let col-spec = _field-info-to-tablex-kwargs(field-info)
   let names = col-spec.remove("names")
-  tablex(..col-spec, ..tablex-kwargs, ..names, ..out.flatten())
+  tablex(..td.tablex-kwargs, ..col-spec, ..tablex-kwargs, ..names, ..out.flatten())
 }
