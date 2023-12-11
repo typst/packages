@@ -38,7 +38,6 @@ Render a LaTeX equation string to an svg image. Depending on the `inline` argume
 
 * `src`: `str` or `raw` block - The LaTeX equation string
 * `inline`: `bool` - Whether to render the image as an inline image or a block image
-* `size`: `length` - The font size of the equation
 
 #### Returns
 

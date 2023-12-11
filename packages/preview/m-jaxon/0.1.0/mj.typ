@@ -16,9 +16,12 @@
   }
 }
 
-#let render(src, inline: false, size: 11pt) = {
+#let render(src, inline: false) = style(styles => {
   let src = get-text(src)
-  let passed-size = size - 2pt // for some reason, it looks like -2pt is the right amount to make the size match the size of the text
+  let (width, height) = measure(h(1em), styles)
+  let size = width
+  let passed-size = size / 1.21 // katex is 1.21x larger, I dont find things about mathjax but it seems to be the same
+  // https://katex.org/docs/font
   let result = call-js-function(mj-bytecode, "mj", src, inline, passed-size.pt())
   let img = natural-image(result.svg, format: "svg")
   let ex = result.vertical_align
@@ -27,4 +30,4 @@
   } else {
     align(center, img)
   }
-}
+})
