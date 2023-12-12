@@ -3,25 +3,25 @@
 #let riemann(
   // Function
   fn,
-  // Start
+  // Where to start drawing bars
   start: 0,
-  // End
+  // Where to end drawing bars
   end: 10,
-  // Number of bars (please made Delta x = 1)
+  // Number of bars (please make Delta x = 1)
   n: 10,
-  // Y scale
+  // Y scale of bars
   y-scale: 1,
-  // X offset
+  // X offset of bars
   x-offset: 0,
-  // Y offset
+  // Y offset of bars
   y-offset: 0,
-  // Hand of graph. Can be left, mid/midpoint, or right
+  // Where points are derrived from. Can be "left", "mid"/"midpoint", or "right"
   hand: "left",
   // Transparency fill of bars
   transparency: 40%,
   // Radius of dots
   dot-radius: 0.055,
-  // Whether to add plot
+  // Whether to add plot of the function
   plot: true,
   // Show grid on plot
   plot-grid: false,
