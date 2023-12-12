@@ -1,39 +1,41 @@
 #import "@preview/cetz:0.1.2"
 
+/// Draw a Riemann sum of a function, and optionally plot the function.
+///
+/// - fn (function): The function to draw a Riemann sum of.
+/// - start (number): Where to start drawing bars.
+/// - end (number): Where to end drawing bars.
+/// - n (number): Number of bars (please make $Delta x =1$).
+/// - y-scale (number): Y scale of bars.
+/// - x-offset (number): X offset of bars.
+/// - y-offset (number): Y offset of bars.
+/// - hand (string): Where points are derrived from. Can be "left", "mid"/"midpoint", or "right".
+/// - transparency (number): Transparency fill of bars.
+/// - dot-radius (number): Radius of dots.
+/// - plot (boolean): Whether to add plot of the function.
+/// - plot-grid (boolean): Show grid on plot.
+/// - plot-x-tick-step (number): X tick step of plot.
+/// - plot-y-tick-step (number): Y tick step of plot.
+/// - positive-color (color): Color of positive bars.
+/// - negative-color (color): Color of negative bars.
+/// - plot-line-color (color): Color of plotted line.
 #let riemann(
-  // Function
   fn,
-  // Where to start drawing bars
   start: 0,
-  // Where to end drawing bars
   end: 10,
-  // Number of bars (please make Delta x = 1)
   n: 10,
-  // Y scale of bars
   y-scale: 1,
-  // X offset of bars
   x-offset: 0,
-  // Y offset of bars
   y-offset: 0,
-  // Where points are derrived from. Can be "left", "mid"/"midpoint", or "right"
   hand: "left",
-  // Transparency fill of bars
   transparency: 40%,
-  // Radius of dots
   dot-radius: 0.055,
-  // Whether to add plot of the function
   plot: true,
-  // Show grid on plot
   plot-grid: false,
-  // X tick step of plot
   plot-x-tick-step: auto,
-  // Y tick step of plot
   plot-y-tick-step: auto,
-  // Color of positive bars
   positive-color: color.green,
-  // Color of negative bars
   negative-color: color.red,
-  // Color of plotted line
   plot-line-color: color.blue,
 ) = {
 
