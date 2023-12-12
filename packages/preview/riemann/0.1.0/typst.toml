@@ -1,0 +1,10 @@
+[package]
+name = "riemann"
+version = "0.1.0"
+entrypoint = "riemann.typ"
+authors = ["Kainoa Kanter"]
+license = "MIT"
+description = "A package to draw Riemann sums (and their plots) of a function with CeTZ."
+repository = "https://github.com/ThatOneCalculator/riemann-sum-typst-cetz"
+exclude = ["example.typ", "example.pdf"] # , "manual.typ", "manual.pdf", "assets"]
+keywords = ["riemann", "integral", "graph", "calculus", "cetz"]
