@@ -19,7 +19,7 @@
 /// - positive-color (color): Color of positive bars.
 /// - negative-color (color): Color of negative bars.
 /// - plot-line-color (color): Color of plotted line.
-#let riemann(
+#let riesketcher(
   fn,
   start: 0,
   end: 10,
