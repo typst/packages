@@ -1,9 +1,23 @@
 #import "@preview/tablex:0.0.6": tablex, cellx, rowspanx
-#import "helpers.typ": unique-row-keys, keep-keys
+#import "helpers.typ" as H
 
 #let default-hundreds-separator = state("separator-state", ",")
 #let default-decimal = state("decimal-state", ".")
 
+/// Converts a float to a string where the comma, decimal, and precision can be customized.
+///
+/// ```example
+/// #format-float(123456, precision: 2, pad: true)\
+/// #format-float(123456.1121, precision: 1, hundreds-separator: "_")
+/// ```
+///
+/// - hundreds-separator (auto,str): The character to use to separate hundreds
+/// - decimal (auto,str): The character to use to separate the integer and fractional portions
+/// - precision (none,int): The number of digits to show after the decimal point. If `none`,
+///   then no rounding will be done.
+/// - pad (bool): If true, then the fractional portion will be padded with zeros to match the
+///   precision if needed.
+/// -> str
 #let format-float(number,
   hundreds-separator: auto,
   decimal: auto,
@@ -52,17 +66,43 @@
   sign + num-with-commas
 }
 
+/// Converts a float to a United States dollar amount.
+///
+/// ```example
+/// #format-usd(12.323)\
+/// #format-usd(-12500.29)
+/// ```
+///
+/// - number (float,int): The number to convert
+/// - ..args (any): Passed to @@format-float()
+/// -> str
+#let format-usd(number, ..args) = {
+  // "negative" sign if needed
+  let sign = if number < 0 {str.from-unicode(0x2212)} else {""}
+  let currency = "$"
+  [#sign#currency]
+  format-float(
+    calc.abs(number), precision: 2, pad: true
+  )
+}
+
 
 #let format-percent(number, ..args) = {
   format-float(number * 100, ..args) + "%"
 }
 
-#let format-string = eval.with(mode: "markup")
+#let format-content(value) = {
+  if type(value) == str {
+    value = eval(value, mode: "markup")
+  }
+  value
+}
 
 #let DEFAULT-TYPE-FORMATS = (
-  string: (default-value: "", display: format-string),
-  float: (display: /*format-float*/ auto, align: right),
-  integer: (display: /*format-float*/ auto, align: right),
+  string: (default-value: "", align: left),
+  content: (display: format-content, align: left),
+  float: (align: right),
+  integer: (align: right),
   percent: (display: format-percent, align: right),
   // TODO: Better country-robust currency
   // currency: (display: format-currency, align: right),
@@ -70,22 +110,16 @@
 )
 
 
-#let _value-to-display(value, value-info, row) = {
+#let _value-to-display(value, value-info) = {
   if value == none {
     // TODO: Allow customizing `none` representation
     return value
   }
-  let display-func = value-info.at("display", default: auto)
-  if type(display-func) == str {
-    value = eval(
-      display-func,
-      mode: "markup",
-      scope: (value: value),
-    )
-  } else if display-func != auto {
-    value = display-func(value)
+  if "display" in value-info {
+    H.eval-str-or-function(value-info.display, scope: (value: value), positional: value)
+  } else {
+    value
   }
-  value
 }
 
 #let title-case(field) = field.replace("-", " ").split(" ").map(
@@ -108,16 +142,8 @@
   for (key, info) in field-info.pairs() {
     if "title" in info {
       let original-field = key
-      key = info.at("title")
-      if type(key) == str {
-        key = eval(
-          key,
-          mode: "markup",
-          scope: (field: original-field, title-case-field: title-case(original-field))
-        )
-      } else if type(key) == function {
-        key = key(original-field)
-      }
+      let scope = (field: original-field, title-case-field: title-case(original-field))
+      key = H.eval-str-or-function(info.at("title"), scope: scope, positional: original-field)
       if type(key) not in (str, content) {
         key = repr(key)
       }
@@ -131,22 +157,39 @@
   (names: names, align: aligns, columns: widths)
 }
 
+/// Converts a @@TableData into a `tablex` table. This is the main (and only intended)
+/// way of rendering `tada` data. Most keywords can be overridden for customizing the
+/// output.
+///
+/// ```example
+/// #let td = TableData(
+///   data: (a: (1, 2), b: (3, 4)),
+/// // Tables can carry their own kwargs, too
+///   tablex-kwargs: (inset: (x: 3em, y: 0.5em))
+/// )
+/// #to-tablex(td, fill: red)
+/// ```
+///
+/// - td (TableData): The data to render
+/// - ..tablex-kwargs (any): Passed to `tablex`
 #let to-tablex(td, ..tablex-kwargs) = {
-  let (rows, field-info, type-info) = (td.rows, td.field-info, td.type-info)
+  let (field-info, type-info) = (td.field-info, td.type-info)
   // Order by field specification
   let to-show = field-info.keys().filter(
     key => not field-info.at(key).at("hide", default: false)
   )
-  field-info = keep-keys(field-info, keys: to-show)
-  let rows-with-fields = rows.map(keep-keys.with(keys: to-show))
-  let out = rows-with-fields.map(row => {
-    row.pairs().map(
-      // `pair` is a tuple of (key, value) for each field in the row
-      pair => _value-to-display(pair.at(1), field-info.at(pair.at(0)), row)
-    )
+  let subset = H.keep-keys(td.data, keys: to-show)
+  // Make sure field info matches data order
+  field-info = H.keep-keys(field-info, keys: subset.keys(), reorder: true)
+  let display-columns = subset.pairs().map(key-column => {
+    let (key, column) = key-column
+    column.map(value => _value-to-display(value, field-info.at(key)))
   })
+  let rows = H.transpose-values(display-columns)
 
   let col-spec = _field-info-to-tablex-kwargs(field-info)
   let names = col-spec.remove("names")
-  tablex(..td.tablex-kwargs, ..col-spec, ..tablex-kwargs, ..names, ..out.flatten())
+  // We don't want a completely flattened array, since some cells may contain many values.
+  // So use sum() to join rows together instead
+  tablex(..td.tablex-kwargs, ..col-spec, ..tablex-kwargs, ..names, ..rows.sum())
 }

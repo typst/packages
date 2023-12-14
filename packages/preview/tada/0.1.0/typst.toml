@@ -13,5 +13,11 @@ keywords = [
     "tabular",
     "agg",
     "aggregate",
+    "filter",
     "pandas",
+    "polars",
 ]
+
+
+[tool.packager]
+paths = ["src", "lib.typ", "LICENSE", "README.md"]
