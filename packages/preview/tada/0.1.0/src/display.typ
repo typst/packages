@@ -1,4 +1,3 @@
-#import "@preview/tablex:0.0.6": tablex, cellx, rowspanx
 #import "helpers.typ" as H
 
 #let default-hundreds-separator = state("separator-state", ",")
@@ -172,7 +171,9 @@
 ///
 /// - td (TableData): The data to render
 /// - ..tablex-kwargs (any): Passed to `tablex`
-#let to-tablex(td, ..tablex-kwargs) = {
+#let to-tablex(td, tablex-version: "0.0.6", ..tablex-kwargs) = {
+  import "@preview/tablex:" + tablex-version: tablex, cellx, rowspanx
+
   let (field-info, type-info) = (td.field-info, td.type-info)
   // Order by field specification
   let to-show = field-info.keys().filter(

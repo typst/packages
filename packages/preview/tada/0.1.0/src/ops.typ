@@ -178,7 +178,8 @@
     }
     let agg-td = agg(filtered, ..aggs, field-info: field-info)
     let cur-group-info = td.field-info.at(by) + (values: (group-value, ))
-    let updated-field = ((by): cur-group-info)
+    let updated-field = (:)
+    updated-field.insert(by, cur-group-info)
     // Take a subset to ensure group comes first
     return chain(
       agg-td,

@@ -237,8 +237,8 @@
   field-info = _resolve-row-col-ctor-field-info(field-info, columns.len())
   if field-info.keys().len() != columns.len() {
     panic(
-      "When creating a TableData from rows or columns, the number of fields must match 
-      the number of columns, got: " + repr(field-info.keys()) + " fields and "
+      "When creating a TableData from rows or columns, the number of fields must match "
+      + "the number of columns, got: " + repr(field-info.keys()) + " fields and "
       + repr(columns.len()) + " columns"
     )
   }
@@ -418,9 +418,11 @@
     info = H.default-dict(data.keys(), value: (type: "content"))
   }
   if fields-name != none {
-    // "+" puts it at the start
-    data = ((fields-name): filtered.keys(), ..data)
-    info = ((fields-name): (:), ..info)
+    let (new-data, new-info) = ((:), (:))
+    new-data.insert(fields-name, filtered.keys())
+    new-info.insert(fields-name, (:))
+    data = new-data + data
+    info = new-info + info
   }
   // None of the initial kwargs make sense: types, display info, etc.
   // since the transposed table has no relation to the original.

@@ -20,4 +20,4 @@
 )
 #import ops: agg, chain, filter, group-by, sort-values
 
-#let version = toml("typst.toml").package.version
+#let tada-version = toml("typst.toml").package.version

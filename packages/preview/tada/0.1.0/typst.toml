@@ -17,7 +17,14 @@ keywords = [
     "pandas",
     "polars",
 ]
+exclude = ["manual.pdf"]
 
 
 [tool.packager]
-paths = ["src", "lib.typ", "LICENSE", "README.md"]
+paths = [
+    "src",
+    "lib.typ",
+    "LICENSE",
+    "README.md",
+    { from = "docs/manual.pdf", to = "manual.pdf" },
+]
