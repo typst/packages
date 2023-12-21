@@ -1,3 +1,8 @@
+## 1.0.0 - 2023-12-21
+
+### Changed
+* **Breaking** separated functionality, now `nth` only gives ordinals and `nths` gives ordinals in superscript (commit [eff87f3](https://github.com/extua/nth/commit/eff87f3f2a2a20cf05198fbd7d4e5fa2d30858d1), fixes [#1](https://github.com/extua/nth/issues/1) reported by [emilyyyylime](https://github.com/emilyyyylime)).
+
 ## 0.2.0 - 2023-10-02
 
 ### Fixed
