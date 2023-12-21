@@ -18,7 +18,7 @@ suit your document's theme. By default it has zebra striping, line numbers, for 
 
 #show: codly-init.with()
 #codly(languages: (
-  rust: (name: "Rust", icon: icon("brand-python.svg"), color: rgb("#CE412B")),
+  rust: (name: "Rust", icon: icon("brand-rust.svg"), color: rgb("#CE412B")),
 ))
 
 ```rust
