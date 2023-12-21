@@ -151,7 +151,11 @@
 
 #let vecrow(..content) = $lr(( #content.pos().join([,]) ))$
 
-// Prefer using super-T-as-transpose()
+// Prefer using super-T-as-transpose() found below.
+//
+// Note Unicode U+1D40 (#str.from-unicode(7488)) is kinda ugly, and that
+// glyph is in the superscript position already so users could not write
+// the habitual "A^TT".
 #let TT = $sans(upright(T))$
 
 #let __vector(a, accent, be_bold) = {
@@ -461,7 +465,11 @@
   }
 
   let dsym = kwargs.at("d", default: $upright(d)$)
-  let prod = kwargs.at("p", default: none)
+  let compact = kwargs.at("compact", default: false)
+  // Why a very thin space is the default joiner: see TeXBook Chapter 18 p.168.
+  // math.thin is 1/6 em, and I decide this very thin space shall be slightly
+  // more than half of that.
+  let prod = kwargs.at("p", default: if compact { none } else { h(0.09em) })
 
   let difference = var_num - orders.len()
   while difference > 0 {
@@ -478,7 +486,10 @@
       arr.push($dsym#var$)
     }
   }
-  $#arr.join(prod)$
+  // Wrap in op(...) to give it smart spacing, just like Typst's built-in "dif"
+  // symbol. For example, there should be a space in the middle of "f(x) dx".
+  // See TeXBook Chapter 18 p.168.
+  $op(#arr.join(prod))$
 }
 #let dd = differential
 
@@ -635,9 +646,29 @@
 // Credit: Enivex in https://github.com/typst/typst/issues/355 was very helpful.
 #let hbar = (sym.wj, move(dy: -0.08em, strike(offset: -0.55em, extent: -0.05em, sym.planck)), sym.wj).join()
 
+// A show rule, should be called like:
+//   #show: super-T-as-transpose
+//   (A B)^T = B^T A^T
+// or in scope:
+//   #[
+//     #show: super-T-as-transpose
+//     (A B)^T = B^T A^T
+//   ]
 #let super-T-as-transpose(document) = {
   show math.attach: elem => {
-    if elem.base != [∫] and elem.at("t", default: none) == [T] {
+    let __eligible(e) = {
+      if e.func() == math.limits or e.func() == math.scripts { return false }
+      if e.func() == math.lr {
+        let last = e.at("body").at("children").at(-1)
+        return __eligible(last)
+      }
+      if e.func() == math.equation {
+        return __eligible(e.at("body"))
+      }
+      (e != [∫]) and (e != [|]) and (e != sym.bar.v.double)
+    }
+
+    if __eligible(elem.base) and elem.at("t", default: none) == [T] {
       $attach(elem.base, t: TT, b: elem.at("b", default: #none))$
     } else {
       elem
