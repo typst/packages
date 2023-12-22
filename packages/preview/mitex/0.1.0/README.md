@@ -4,21 +4,11 @@
 
 [MiTeX](https://github.com/OrangeX4/mitex) processes LaTeX code into an abstract syntax tree (AST). Then it transforms the AST into Typst code and evaluates code into Typst content by `eval` function.
 
-MiTeX is not only **SMALL** but also **FAST**! MiTeX has a size of just about 360 KB, comparing that [texmath](https://github.com/jgm/texmath) has a size of 17 MB. Its rendering speed is nearly indistinguishable from typst native equations, and from [benchmark](./crates/mitex-parser/benches/simple.rs), the speed of parsing input into an AST has reached about 61.04 MB/s.
+MiTeX has been proved to be practical on a large project. It has already correctly converted 3.25w equations from [OI Wiki](https://github.com/OI-wiki/OI-wiki). Compared to texmath, MiTeX has a better display effect and performance in that wiki project. It is also more easy to use, since importing MiTeX to Typst is just one line of code, while texmath is an external program.
+
+In addition, MiTeX is not only **SMALL** but also **FAST**! MiTeX has a size of just about 185 KB, comparing that [texmath](https://github.com/jgm/texmath) has a size of 17 MB. A not strict but intuitive comparison is shown below. To convert 3.25w equations from OI Wiki, texmath takes about 109s, while MiTeX WASM takes only 2.28s and MiTeX x86 takes merely 0.085s.
 
 Thanks to [@Myriad-Dreamin](https://github.com/Myriad-Dreamin), he completed the most complex development work: developing the parser for generating AST.
-
-## Implemented Features
-
-- [x] LaTeX equations support.
-- [x] Coloring commands (`\color{red} text`, `\textcolor{red}{text}`).
-- [x] Support for various environments, such as aligned, matrix, cases.
-
-## Features to Implement
-
-- [ ] User-defined commands (specification), such as `\newcommand{\mysym}{\alpha}` or bind `\newcommand{\myop}[1]{\operatorname{#1}}` to a typst's native function `let myop(it) = op(upright(it))`.
-- [ ] "usepackage" support, which means that you can change set of commands by telling MiTeX to use a list of packages.
-- [ ] Text mode support, enabling the rendering entire LaTeX documents in Typst!
 
 ## Usage
 
@@ -46,6 +36,17 @@ Also block equations (this case is from #text(blue.lighten(20%), link("https://k
 
 ![example](examples/example.png)
 
+## Implemented Features
+
+- [x] LaTeX equations support.
+- [x] Coloring commands (`\color{red} text`, `\textcolor{red}{text}`).
+- [x] Support for various environments, such as aligned, matrix, cases.
+
+## Features to Implement
+
+- [ ] User-defined commands (specification), such as `\newcommand{\mysym}{\alpha}` or bind `\newcommand{\myop}[1]{\operatorname{#1}}` to a typst's native function `let myop(it) = op(upright(it))`.
+- [ ] "usepackage" support, which means that you can change set of commands by telling MiTeX to use a list of packages.
+- [ ] Text mode support, enabling the rendering entire LaTeX documents in Typst!
 
 ## Differences between MiTeX and other solutions
 
@@ -60,11 +61,9 @@ Another example is that MiTeX transforms `(\frac{1}{2})` into `\(frac(1, 2)\)` i
 
 **Certainly, the greatest advantage is that you can directly write LaTeX content in Typst without the need for manual conversion!**
 
-
 ## Submitting Issues
 
 If you find missing commands or bugs of MiTeX, please feel free to submit an issue [here](https://github.com/OrangeX4/mitex/issues).
-
 
 ## Contributing to MiTeX
 
@@ -86,13 +85,11 @@ For a translation process, for example, we have:
 
 You can use the `#mitex-convert()` function to get the Typst Code generated from LaTeX Code.
 
-
 ### Add missing TeX commands
 
 Even if you don't know Rust at all, you can still add missing TeX commands to MiTeX by modifing [specification files](https://github.com/OrangeX4/mitex/tree/main/packages/mitex/specs), since they are written in typst! You can open an issue to acquire the commands you want to add, or you can edit the files and submit a pull request.
 
 In the future, we will provide the ability to customize TeX commands, which will make it easier for you to use the commands you create for yourself.
-
 
 ### Develop the parser and the converter
 
