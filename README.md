@@ -32,11 +32,19 @@ Required for submissions to this repository:
   grammar and spelling mistakes as it will appear in the [package list][list].
 
 Optional:
-- `repository`: A link to the repository where this package is developed.
+- `homepage`: A link to the package's web presence where there could be more
+  details, an issue tracker, or something else. Will be linked to from the
+  package list.
+- `repository`: A link to the repository where this package is developed. Will
+  be linked to from the package list if there is no homepage.
+- `keywords`: An array of search keywords for the package.
+- `compiler`: The minimum Typst compiler version required for this package to
+  work.
 - `exclude`: An array of globs specifying files that should not be part of the
   published bundle that the compiler downloads when importing the package. To be
-  used for support files like images or documentation that would otherwise
-  unnecessarily increase the bundle size.
+  used for large support files like images or PDF documentation that would
+  otherwise unnecessarily increase the bundle size. Don't exclude the README or
+  the LICENSE.
 
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
@@ -47,7 +55,7 @@ are relative to the file they are used in.
 This repository contains a collection of published packages. Due to its early
 and experimental nature, all packages in this repository are scoped in a
 `preview` namespace. A package that is stored in
-`packages/preview/{name}/{version}` in this repository will become availabe in
+`packages/preview/{name}/{version}` in this repository will become available in
 Typst as `#import "@preview/{name}:{version}"`. You must always specify the full
 package version.
 
@@ -56,10 +64,12 @@ To submit a package, simply make a pull request with the package to this
 repository. There are a few requirements for getting a package published, which
 are detailed below:
 
-- **Naming:** Package names should not be merely descriptive to create level
-  grounds for everybody (e.g. `slides` is forbidden, but `sliding` or
-  `slitastic` would be ok). Names should not include the word "typst" (as it is
-  redundant). If they contain multiple words, names should use `kebab-case`.
+- **Naming:** Package names should not be the obvious or canonical name for a
+  package with that functionality (e.g. `slides` is forbidden, but `sliding` or
+  `slitastic` would be ok). We have this rule because users will find packages
+  with these canonical names first, creating an unfair advantage for the package
+  author who claimed that name. Names should not include the word "typst" (as it
+  is redundant). If they contain multiple words, names should use `kebab-case`.
   Look at existing packages and PRs to get a feel for what's allowed and what's
   not.
 - **Functionality:** Packages should conceivably be useful to other users and
@@ -68,7 +78,8 @@ are detailed below:
   least briefly) what the package does and all definitions intended for usage by
   downstream users. Examples in the README should show how to use the package
   through an `@preview` import. If you have images in your README, you might
-  want to check whether they also work in dark mode.
+  want to check whether they also work in dark mode. Also consider running
+  [`typos`][typos] through your package before release.
 - **Style:** No specific code style is mandated, but two spaces of indent and
   kebab-case for variable and function names are recommended.
 - **License:** Packages must be licensed under the terms of an
@@ -97,9 +108,19 @@ There is one exception: Minor fixes to the documentation or TOML metadata of a
 package are allowed _if_ they can not affect the package in a way that might
 break downstream users.
 
-**Note:** Please do not submit templates as packages just yet. We plan to build
-infrastructure around this so that they can show up in the web app's template
-gallery and be used to scaffold a project through the CLI. Stay tuned!
+### Templates
+**Important:** Please do not submit templates as packages just yet. To make the
+experience of using templates as seamless as possible, we want them to show up
+in the web app's template gallery and we want the CLI to be able to scaffold a
+project from a template. We ask for your patience while we're
+[building][template-packages] the necessary infrastructure.
+
+What's the difference between a template and a normal package? The line isn't
+100% sharp, but overall a template will aid you in producing a full document
+with a particular style, whereas normal packages provide building blocks and
+automations useful across a range of documents. In particular, templates will
+often ship with one or more template files from which a new project can be
+scaffolded. This requires additional package metadata.
 
 ### Downloads
 The Typst compiler downloads packages from the `preview` namespace on-demand.
@@ -141,3 +162,5 @@ respective license.
 [list]: https://typst.app/docs/packages/
 [SemVer]: https://semver.org/
 [OSI]: https://opensource.org/licenses/
+[template-packages]: https://github.com/typst/typst/issues/2432
+[typos]: https://github.com/crate-ci/typos

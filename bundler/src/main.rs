@@ -3,6 +3,7 @@ use std::io;
 use std::path::Path;
 
 use anyhow::{bail, Context};
+use semver::Version;
 use serde::{Deserialize, Serialize};
 
 fn main() -> anyhow::Result<()> {
@@ -96,6 +97,7 @@ fn build_archive(dir_path: &Path, exclude: &[String]) -> anyhow::Result<Vec<u8>>
         if exclusion.starts_with('!') {
             bail!("globs with '!' are not supported");
         }
+        let exclusion = exclusion.trim_start_matches("./");
         overrides.add(&format!("!{exclusion}"))?;
     }
 
@@ -146,13 +148,21 @@ struct PackageManifest {
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
 struct PackageInfo {
     name: String,
-    version: String,
+    version: Version,
     entrypoint: String,
     authors: Vec<String>,
     license: String,
     description: String,
     #[serde(skip_serializing_if = "Option::is_none")]
+    homepage: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     repository: Option<String>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    #[serde(default)]
+    keywords: Vec<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    compiler: Option<Version>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
     #[serde(default)]
     exclude: Vec<String>,
 }
