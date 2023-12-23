@@ -28,7 +28,7 @@ You can also customize the icon like this
 
 Checkup [manual](https://github.com/ivaquero/typst-fontawesome/blob/main/manual.pdf) for more details.
 
-![demo](demo.png)
+![demo](https://raw.githubusercontent.com/ivaquero/typst-fontawesome/main/demo.png)
 
 ## Changelog
 
