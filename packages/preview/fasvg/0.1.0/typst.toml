@@ -4,5 +4,5 @@ version     = "0.1.0"
 entrypoint  = "fontawesome.typ"
 authors     = ["ivaquero (Xavier Yang)"]
 license     = "MIT"
-description = "FontAwesome SVG icons for Typst"
+description = "FontAwesome SVG Icons for Typst"
 repository  = "https://github.com/ivaquero/typst-fontawesome"
