@@ -1,8 +1,8 @@
 [package]
-    name        = "fasvg"
-    version     = "0.1.0"
-    entrypoint  = "fontawesome.typ"
-    authors     = ["ivaquero"]
-    license     = "MIT"
-    description = "FontAwesome for Typst"
-    repository  = "https://github.com/ivaquero/typst-fontawesome"
+name        = "fasvg"
+version     = "0.1.0"
+entrypoint  = "fontawesome.typ"
+authors     = ["ivaquero (Xavier Yang)"]
+license     = "MIT"
+description = "FontAwesome SVG icons for Typst"
+repository  = "https://github.com/ivaquero/typst-fontawesome"
