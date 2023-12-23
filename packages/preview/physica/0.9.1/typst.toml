@@ -8,10 +8,10 @@ keywords = [
   "physics", "mathematics", "brace", "set", "product", "evaluate", "restrict",
   "integral", "gradient", "divergence", "curl", "vector", "field", "laplacian",
   "matrix", "determinant", "diagonal", "identity", "Jacobian", "Hessian",
-  "transpose", "Dirac", "braket", "differential", "derivative", "partial",
-  "dv", "odv", "pdv", "Planck", "hbar", "tensor", "isotope", "signal",
-  "electromagnetism", "mechanics", "quantum", "relativity", "imaginary",
-  "notation",
+  "transpose", "dagger", "conjugate", "Dirac", "braket", "differential",
+  "derivative", "partial", "dv", "odv", "pdv", "Planck", "hbar", "tensor",
+  "isotope", "signal", "electromagnetism", "mechanics", "quantum", "relativity",
+  "imaginary", "notation",
 ]
 compiler = "0.10.0"
 exclude = ["*.pdf", "*.py"]

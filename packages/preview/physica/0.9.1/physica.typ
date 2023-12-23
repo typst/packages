@@ -466,9 +466,10 @@
 
   let dsym = kwargs.at("d", default: $upright(d)$)
   let compact = kwargs.at("compact", default: false)
-  // Why a very thin space is the default joiner: see TeXBook Chapter 18 p.168.
-  // math.thin is 1/6 em, and I decide this very thin space shall be slightly
-  // more than half of that.
+  // Why a very thin space is the default joiner: see TeXBook, Chapter 18.
+  // math.thin (1/6 em, thinspace in typography) is used to separate the
+  // differential with the preceding function, so to keep visual cohesion, the
+  // width of this joiner inside the differential shall be smaller.
   let prod = kwargs.at("p", default: if compact { none } else { h(0.09em) })
 
   let difference = var_num - orders.len()
@@ -486,9 +487,7 @@
       arr.push($dsym#var$)
     }
   }
-  // Wrap in op(...) to give it smart spacing, just like Typst's built-in "dif"
-  // symbol. For example, there should be a space in the middle of "f(x) dx".
-  // See TeXBook Chapter 18 p.168.
+  // Smart spacing, like Typst's built-in "dif" symbol. See TeXBook, Chapter 18.
   $op(#arr.join(prod))$
 }
 #let dd = differential
@@ -646,7 +645,7 @@
 // Credit: Enivex in https://github.com/typst/typst/issues/355 was very helpful.
 #let hbar = (sym.wj, move(dy: -0.08em, strike(offset: -0.55em, extent: -0.05em, sym.planck)), sym.wj).join()
 
-// A show rule, should be called like:
+// A show rule, should be used like:
 //   #show: super-T-as-transpose
 //   (A B)^T = B^T A^T
 // or in scope:
@@ -670,6 +669,38 @@
 
     if __eligible(elem.base) and elem.at("t", default: none) == [T] {
       $attach(elem.base, t: TT, b: elem.at("b", default: #none))$
+    } else {
+      elem
+    }
+  }
+
+  document
+}
+
+// A show rule, should be used like:
+//   #show: super-plus-as-dagger
+//   U^+U = U U^+ = I
+// or in scope:
+//   #[
+//     #show: super-plus-as-dagger
+//     U^+U = U U^+ = I
+//   ]
+#let super-plus-as-dagger(document) = {
+  show math.attach: elem => {
+    let __eligible(e) = {
+      if e.func() == math.limits or e.func() == math.scripts { return false }
+      if e.func() == math.lr {
+        let last = e.at("body").at("children").at(-1)
+        return __eligible(last)
+      }
+      if e.func() == math.equation {
+        return __eligible(e.at("body"))
+      }
+      true
+    }
+
+    if __eligible(elem.base) and elem.at("t", default: none) == [+] {
+      $attach(elem.base, t: dagger, b: elem.at("b", default: #none))$
     } else {
       elem
     }
