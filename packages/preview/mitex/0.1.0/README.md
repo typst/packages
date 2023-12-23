@@ -4,9 +4,9 @@
 
 [MiTeX](https://github.com/OrangeX4/mitex) processes LaTeX code into an abstract syntax tree (AST). Then it transforms the AST into Typst code and evaluates code into Typst content by `eval` function.
 
-MiTeX has been proved to be practical on a large project. It has already correctly converted 3.25w equations from [OI Wiki](https://github.com/OI-wiki/OI-wiki). Compared to texmath, MiTeX has a better display effect and performance in that wiki project. It is also more easy to use, since importing MiTeX to Typst is just one line of code, while texmath is an external program.
+MiTeX has been proved to be practical on a large project. It has already correctly converted 32.5k equations from [OI Wiki](https://github.com/OI-wiki/OI-wiki). Compared to [texmath](https://github.com/jgm/texmath), MiTeX has a better display effect and performance in that wiki project. It is also more easy to use, since importing MiTeX to Typst is just one line of code, while texmath is an external program.
 
-In addition, MiTeX is not only **SMALL** but also **FAST**! MiTeX has a size of just about 185 KB, comparing that [texmath](https://github.com/jgm/texmath) has a size of 17 MB. A not strict but intuitive comparison is shown below. To convert 3.25w equations from OI Wiki, texmath takes about 109s, while MiTeX WASM takes only 2.28s and MiTeX x86 takes merely 0.085s.
+In addition, MiTeX is not only **SMALL** but also **FAST**! MiTeX has a size of just about 185 KB, comparing that texmath has a size of 17 MB. A not strict but intuitive comparison is shown below. To convert 32.5k equations from OI Wiki, texmath takes about 109s, while MiTeX WASM takes only 2.28s and MiTeX x86 takes merely 0.085s.
 
 Thanks to [@Myriad-Dreamin](https://github.com/Myriad-Dreamin), he completed the most complex development work: developing the parser for generating AST.
 
