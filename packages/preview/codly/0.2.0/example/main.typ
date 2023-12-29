@@ -90,7 +90,7 @@ pub fn function<R, S, T>() -> R where T: From<S>, S: Into<R>, R: Send + Sync + '
 }
 ```
 
-#v(15%)
+#v(25%)
 
 #codly(
   breakable: true

@@ -22,20 +22,14 @@
   let padding = __codly-padding.at(loc)
   let stroke-width = __codly-stroke-width.at(loc)
   let color = if color == none { __codly-default-color.at(loc) } else { color }
-  let content = icon + name
-  locate(loc => {
-    style(styles => {
-      let height = measure(content, styles).height
-      box(
-        radius: radius,
-        fill: color.lighten(60%),
-        inset: padding,
-        height: height + padding * 2,
-        stroke: stroke-width + color,
-        content,
-      )
-    })
-  })
+  box(
+    radius: radius,
+    fill: color.lighten(60%),
+    inset: padding,
+    stroke: stroke-width + color,
+    outset: 0pt,
+    icon + name,
+  )
 }
 
 #let __codly-language-block = state("codly-language-block", default-language-block)
@@ -285,107 +279,14 @@
     let language-block = __codly-language-block.at(loc)
     let default-color = __codly-default-color.at(loc)
     let radius = __codly-radius.at(loc)
-    let language-block = if display-names != true and display-icons != true {
-      none
-    } else if it.lang == none {
-      none
-    } else if it.lang in languages {
-      let lang = languages.at(it.lang);
-      let name = if display-names {
-        lang.name
-      } else {
-        []
-      }
-      let icon = if display-icons {
-        lang.icon
-      } else {
-        []
-      }
-      (language-block)(name, icon, lang.color, loc)
-    } else if display-names {
-      (language-block)(it.lang, [], default-color, loc)
-    };
 
     let offset = __codly-offset.at(loc);
     let start = if range == none { 1 } else { range.at(0) };
     let stroke-width = __codly-stroke-width.at(loc)
     let stroke-color = __codly-stroke-color.at(loc)
-    let border(i, len) = {
-      let end = if range == none { len } else if range.at(1) == none { len } else { range.at(1) }
-      let radii = (:)
-      let stroke = (x: stroke-color + stroke-width)
-
-      if i == start {
-        radii.insert("top-left", radius)
-        radii.insert("top-right", radius)
-        stroke.insert("top", stroke-color + stroke-width)
-      }
-
-      if i == end {
-        radii.insert("bottom-left", radius)
-        radii.insert("bottom-right", radius)
-        stroke.insert("bottom", stroke-color + stroke-width)
-      }
-
-      radii.insert("rest", 0pt)
-
-      (radii, stroke)
-    }
-
     let width-numbers = __codly-width-numbers.at(loc)
     let padding = __codly-padding.at(loc)
     let width = if width-numbers == none { 0pt } else { width-numbers }
-
-    show raw.line: it => if not in_range(it.number) {
-      none
-    } else {
-      style(styles => {
-        let breakable-lines = __codly-breakable-lines.at(loc)
-        let zebra-color = __codly-zebra-color.at(loc)
-        let numbers-format = __codly-numbers-format.at(loc)
-        let (radius, stroke) = border(it.number, it.count)
-        let lang-width = if it.number == start  {
-          measure(language-block, styles).width + 2 * padding
-        } else {
-          0pt
-        }
-
-        set par(justify: false)
-        block(
-          width: 100%,
-          inset: (left: padding, y: padding + 0.32em, rest: padding),
-          breakable: breakable-lines,
-          fill: if zebra-color != none and calc.rem(it.number, 2) == 0 {
-            zebra-color
-          } else {
-            none
-          },
-          radius: radius,
-          stroke: stroke,
-          grid(
-            columns: (
-              0pt,
-              auto,
-              padding * 2, 1fr,
-              if it.number == start  { lang-width } else { 0pt }
-            ),
-            hide(box(width: 0pt)[empty]), // min-height like
-            if width-numbers != none {
-              align(left, (numbers-format)[#(offset + it.number)])
-            },
-            none,
-            align(left, it.body),
-            if it.number == start  {
-              place(
-                right + top,
-                dy: -padding,
-                language-block,
-              )
-            }
-          )
-        )
-      })
-    }
 
     let stroke-width = __codly-stroke-width.at(loc)
     let stroke-color = __codly-stroke-color.at(loc)
@@ -395,15 +296,66 @@
       stroke-width + stroke-color
     };
 
+    let items = ()
+    let breakable-lines = __codly-breakable-lines.at(loc)
+    let zebra-color = __codly-zebra-color.at(loc)
+    let numbers-format = __codly-numbers-format.at(loc)
+    for (i, line) in it.lines.enumerate() {
+      if not in_range(line.number) {
+        continue
+      }
+
+      items.push([#line.number])
+      let language-block = if line.number != start or display-names != true and display-icons != true {
+        items.push(line)
+        continue
+      } else if it.lang == none {
+        items.push(line)
+        continue
+      } else if it.lang in languages {
+        let lang = languages.at(it.lang);
+        let name = if display-names {
+          lang.name
+        } else {
+          []
+        }
+        let icon = if display-icons {
+          lang.icon
+        } else {
+          []
+        }
+        (language-block)(name, icon, lang.color, loc)
+      } else if display-names {
+        (language-block)(it.lang, [], default-color, loc)
+      }
+
+      items.push(style(styles => grid(
+        columns: (1fr, measure(language-block, styles).width + 2 * padding),
+        line,
+        place(right + horizon, language-block),
+      )))
+    }
+
     let breakable = __codly-breakable.at(loc)
     let fill = __codly-fill.at(loc)
     block(
       breakable: breakable,
-      clip: false,
+      clip: true,
       width: 100%,
       radius: radius,
-      fill: fill,
-      align(left, stack(dir: ttb, ..it.lines))
+      stroke: stroke-color + stroke-width,
+      table(
+        columns: (auto, 1fr),
+        inset: padding * 1.5,
+        stroke: none,
+        align: left + horizon,
+        fill: (x, y) => if zebra-color != none and calc.rem(y, 2) == 0 {
+          zebra-color
+        } else {
+          fill
+        },
+        ..items,
+      )
     )
 
     codly-offset()
