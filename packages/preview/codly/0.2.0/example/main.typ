@@ -12,8 +12,8 @@
 }
 
 #codly(languages: (
-  rust: (name: "Rust", icon: icon("brand-python.svg"), color: rgb("#CE412B")),
-  python: (name: "Python", icon: icon("brand-rust.svg"), color: rgb("#3572A5")),
+  rust: (name: "Rust", icon: icon("brand-rust.svg"), color: rgb("#CE412B")),
+  python: (name: "Python", icon: icon("brand-python.svg"), color: rgb("#3572A5")),
 ))
 
 ```rust
@@ -39,7 +39,7 @@ We can also set a line number offset with `codly-offset(int)`:
 
 And we can also disable line numbers:
 
-#codly(width-numbers: none)
+#codly(enable-numbers: false)
 
 ```rust
 pub fn main() {
@@ -74,8 +74,8 @@ pub fn main() {
 #codly(
   display-icon: false,
   stroke-color: luma(240),
-  width-numbers: 2.5em,
   zebra-color: luma(240),
+  enable-numbers: true,
 )
 
 ```rust
