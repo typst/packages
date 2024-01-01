@@ -22,7 +22,7 @@ PS: `#set math.equation(numbering: "(1)")` is also valid for MiTeX.
 Following is [a simple example](packages/mitex/examples/example.typ) of using MiTeX in Typst:
 
 ```typst
-#import "@preview/mitex:0.1.0": *
+#import "@preview/mitex:0.2.0": *
 
 #assert.eq(mitex-convert("\alpha x"), "alpha  x ")
 
