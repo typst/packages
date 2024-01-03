@@ -10,3 +10,4 @@ keywords = ["Converter", "number", "Chinese", "Currency"]
 
 entrypoint = "src/lib.typ"
 compiler = "0.10.0"
+exclude = ["demo.pdf"]
