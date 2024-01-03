@@ -1,0 +1,12 @@
+[package]
+name = "cn-num"
+version = "0.0.1"
+authors = ["Zhuo Nengwen <soarowl@yeah.net>"]
+license = "MIT"
+description = "Convert a number to Chinese"
+repository = "https://github.com/soarowl/cn-num"
+
+keywords = ["Converter", "number", "Chinese", "Currency"]
+
+entrypoint = "src/lib.typ"
+compiler = "0.10.0"
