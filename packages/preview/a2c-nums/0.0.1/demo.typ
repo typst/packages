@@ -2,7 +2,7 @@
 
 #set heading(numbering: "1.1")
 
-= CN-NUM 示例
+= a2c-nums 示例
 
 == int-to-cn-simple-num
 

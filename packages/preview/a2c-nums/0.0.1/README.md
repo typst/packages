@@ -1,4 +1,4 @@
-# cn-num
+# a2c-nums
 
 Convert Arabic numbers to Chinese characters.
 
