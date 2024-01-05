@@ -85,8 +85,14 @@
 #let num-to-cn-currency(n) = {
   let digits = ("零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖")
   let units = ("角", "分")
+  let intpart = ""
+  let decimal = ""
   let value = str(calc.round(n, digits: 2))
-  let (intpart, decimal) = value.split(".")
+  let splits = value.split(".")
+  intpart = splits.at(0)
+  if splits.len() > 1 {
+    decimal = splits.at(1)
+  }
   let result = ""
   if decimal != none {
     for (i, c) in decimal.codepoints().enumerate() {

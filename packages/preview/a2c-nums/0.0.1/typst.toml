@@ -1,10 +1,10 @@
 [package]
-name = "cn-num"
+name = "a2c-nums"
 version = "0.0.1"
 authors = ["Zhuo Nengwen <soarowl@yeah.net>"]
 license = "MIT"
 description = "Convert a number to Chinese"
-repository = "https://github.com/soarowl/cn-num"
+repository = "https://github.com/soarowl/a2c-nums.git"
 
 keywords = ["Converter", "number", "Chinese", "Currency"]
 

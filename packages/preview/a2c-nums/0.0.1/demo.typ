@@ -1,4 +1,4 @@
-#import "@preview/cn-num:0.0.1": int-to-cn-num, int-to-cn-ancient-num, int-to-cn-simple-num, num-to-cn-currency
+#import "@preview/a2c-nums:0.0.1": int-to-cn-num, int-to-cn-ancient-num, int-to-cn-simple-num, num-to-cn-currency
 
 #set heading(numbering: "1.1")
 
@@ -123,3 +123,5 @@
 #num-to-cn-currency(0.5678)
 
 #num-to-cn-currency(1203405602.5678)
+
+#num-to-cn-currency(234)
