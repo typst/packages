@@ -6,7 +6,7 @@ authors = ["Wenzhuo Liu"]
 license = "MIT"
 description = "Render tetris fumen in typst."
 
-homepage = "https://github.com/Enter-tainer/m-jaxon"
-repository = "https://github.com/Enter-tainer/m-jaxon"
+homepage = "https://github.com/Enter-tainer/mino"
+repository = "https://github.com/Enter-tainer/mino"
 keywords = ["js", "javascript", "tetris", "fumen", "game"]
 exclude = ["mino.svg"]
