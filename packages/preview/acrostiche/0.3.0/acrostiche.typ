@@ -114,11 +114,15 @@
   
     // print the acronyms
     for acr in acr-list{
+      let acr-long = acronyms.at(acr)
+      let acr-long = if type(acr-long) == array {
+        acr-long.at(0)
+      } else {acr-long}
       table(
         columns: (20%,80%),
         stroke:none,
         inset: 0pt,
-        [*#acr#delimiter*], [#acronyms.at(acr).at(0)\ ]
+        [*#acr#delimiter*], [#acr-long\ ]
       )
     }
 
