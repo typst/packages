@@ -1,0 +1,10 @@
+[package]
+name = "tree-list"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["8LWXpg"]
+license = "MIT"
+description = "make tree list easily"
+repository = "https://github.com/8LWXpg/typst-tree-list"
+keywords = ["list", "tree", "item"]
+compiler = "0.10.0"
