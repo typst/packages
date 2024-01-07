@@ -22,7 +22,7 @@ contribution is welcomed!
 ```typst
 #import "@preview/treet:0.1.0": *
 
-#treet(
+#tree-list(
   marker:       content,
   last-marker:  content,
   indent:       content,
@@ -48,7 +48,7 @@ see [demo.typ](https://github.com/8LWXpg/typst-treet/blob/master/test/demo.typ) 
 ### Default style
 
 ```typst
-#treet[
+#tree-list[
   - 1
     - 1.1
       - 1.1.1
@@ -69,7 +69,7 @@ see [demo.typ](https://github.com/8LWXpg/typst-treet/blob/master/test/demo.typ) 
 ### Custom style
 
 ```typst
-#text(red, treet(
+#text(red, tree-list(
   marker: text(blue)[├── ],
   last-marker: text(aqua)[└── ],
   indent: text(teal)[│#h(1.5em)],
@@ -95,7 +95,7 @@ see [demo.typ](https://github.com/8LWXpg/typst-treet/blob/master/test/demo.typ) 
 ### Using show rule
 
 ```typst
-#show list: treet
+#show list: tree-list
 #set text(font: "DejaVu Sans Mono")
 
 root_folder\
