@@ -36,4 +36,4 @@ Convert a number to Chinese currency. ex: `#int-to-cn-simple-num(1234.56)` will 
 
 ### more details
 
-Reference [demo.typ](demo.typ) for maore details please.
+Reference [demo.typ](demo.typ) for more details please.
