@@ -139,12 +139,12 @@ fn write_archive(info: &PackageInfo, buf: &[u8]) -> anyhow::Result<()> {
 }
 
 /// A parsed package manifest.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct PackageManifest {
     package: PackageInfo,
     #[serde(skip_serializing_if = "Option::is_none")]
-    tool: Option<toml::Table>,
+    tool: Option<Tool>,
 }
 
 /// The `package` key in the manifest.
@@ -170,3 +170,7 @@ struct PackageInfo {
     #[serde(default)]
     exclude: Vec<String>,
 }
+
+/// The `tool` key in the manifest.
+#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
+struct Tool {}
