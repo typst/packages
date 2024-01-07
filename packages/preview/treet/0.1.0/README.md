@@ -1,15 +1,15 @@
-# Tree List
+# Treet
 
-<a href="https://github.com/8LWXpg/typst-tree-list/tags">
-  <img alt="GitHub manifest version (path)" src="https://img.shields.io/github/v/tag/8LWXpg/typst-tree-list">
+<a href="https://github.com/8LWXpg/typst-treet/tags">
+  <img alt="GitHub manifest version (path)" src="https://img.shields.io/github/v/tag/8LWXpg/typst-treet">
 </a>
-<a href="https://github.com/8LWXpg/typst-tree-list">
-  <img src="https://img.shields.io/github/stars/8LWXpg/typst-tree-list?style=flat" alt="GitHub Repo stars">
+<a href="https://github.com/8LWXpg/typst-treet">
+  <img src="https://img.shields.io/github/stars/8LWXpg/typst-treet?style=flat" alt="GitHub Repo stars">
 </a>
-<a href="https://github.com/8LWXpg/typst-tree-list/blob/master/LICENSE">
-  <img alt="GitHub" src="https://img.shields.io/github/license/8LWXpg/typst-tree-list">
+<a href="https://github.com/8LWXpg/typst-treet/blob/master/LICENSE">
+  <img alt="GitHub" src="https://img.shields.io/github/license/8LWXpg/typst-treet">
 </a>
-<a href="https://github.com/typst/packages/tree/main/packages/preview/tree-list">
+<a href="https://github.com/typst/packages/tree/main/packages/preview/treet">
   <img alt="typst package" src="https://img.shields.io/badge/typst-package-239dad">
 </a>
 
@@ -20,9 +20,9 @@ contribution is welcomed!
 ## Usage
 
 ```typst
-#import "@preview/tree-list:0.1.0": *
+#import "@preview/treet:0.1.0": *
 
-#tree-list(
+#treet(
   marker:       content,
   last-marker:  content,
   indent:       content,
@@ -43,12 +43,12 @@ contribution is welcomed!
 
 ## Demo
 
-see [demo.typ](https://github.com/8LWXpg/typst-tree-list/blob/master/test/demo.typ) [demo.pdf](https://github.com/8LWXpg/typst-tree-list/blob/master/test/demo.pdf)
+see [demo.typ](https://github.com/8LWXpg/typst-treet/blob/master/test/demo.typ) [demo.pdf](https://github.com/8LWXpg/typst-treet/blob/master/test/demo.pdf)
 
 ### Default style
 
 ```typst
-#tree-list[
+#treet[
   - 1
     - 1.1
       - 1.1.1
@@ -64,12 +64,12 @@ see [demo.typ](https://github.com/8LWXpg/typst-tree-list/blob/master/test/demo.t
 ]
 ```
 
-![1.png](https://github.com/8LWXpg/typst-tree-list/blob/master/img/1.png)
+![1.png](https://github.com/8LWXpg/typst-treet/blob/master/img/1.png)
 
 ### Custom style
 
 ```typst
-#text(red, tree-list(
+#text(red, treet(
   marker: text(blue)[├── ],
   last-marker: text(aqua)[└── ],
   indent: text(teal)[│#h(1.5em)],
@@ -90,12 +90,12 @@ see [demo.typ](https://github.com/8LWXpg/typst-tree-list/blob/master/test/demo.t
 ])
 ```
 
-![2.png](https://github.com/8LWXpg/typst-tree-list/blob/master/img/2.png)
+![2.png](https://github.com/8LWXpg/typst-treet/blob/master/img/2.png)
 
 ### Using show rule
 
 ```typst
-#show list: tree-list
+#show list: treet
 #set text(font: "DejaVu Sans Mono")
 
 root_folder\
@@ -108,4 +108,4 @@ root_folder\
 - 2
 ```
 
-![3.png](https://github.com/8LWXpg/typst-tree-list/blob/master/img/3.png)
+![3.png](https://github.com/8LWXpg/typst-treet/blob/master/img/3.png)
