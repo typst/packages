@@ -47,7 +47,7 @@ Optional:
   the LICENSE.
 
 Third-party tools can add their own entry under the `[tool]` section to attach
-their own typst specific config to the manifest.
+their own Typst-specific configuration to the manifest.
 
 ```toml
 [package]
