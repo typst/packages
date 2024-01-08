@@ -46,7 +46,7 @@ Optional:
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
   the LICENSE.
 
-Thrid-party tools can add their own entry under the `[tool]` section to attach
+Third-party tools can add their own entry under the `[tool]` section to attach
 their own typst specific config to the manifest.
 
 ```toml
