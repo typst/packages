@@ -1,0 +1,7 @@
+[package]
+name = "moremath"
+version = "0.1.0"
+entrypoint = "moremath.typ"
+authors = ["Daniel Csillag"]
+license = "MIT"
+description = "Additional notation, constants and utilities for doing math in Typst"
