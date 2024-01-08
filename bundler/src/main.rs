@@ -41,7 +41,7 @@ fn main() -> anyhow::Result<()> {
 /// Create an archive for a package.
 fn process_package(path: &Path) -> anyhow::Result<PackageInfo> {
     println!("Bundling {}.", path.display());
-    let PackageManifest { package } =
+    let PackageManifest { package, .. } =
         parse_manifest(path).context("failed to parse package manifest")?;
     let buf = build_archive(path, &package.exclude).context("failed to build archive")?;
     validate_archive(&buf).context("failed to validate archive")?;
@@ -140,12 +140,16 @@ fn write_archive(info: &PackageInfo, buf: &[u8]) -> anyhow::Result<()> {
 
 /// A parsed package manifest.
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct PackageManifest {
     package: PackageInfo,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    tool: Option<Tool>,
 }
 
 /// The `package` key in the manifest.
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct PackageInfo {
     name: String,
     version: Version,
@@ -166,3 +170,7 @@ struct PackageInfo {
     #[serde(default)]
     exclude: Vec<String>,
 }
+
+/// The `tool` key in the manifest.
+#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
+struct Tool {}
