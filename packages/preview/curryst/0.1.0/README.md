@@ -11,7 +11,13 @@ A Typst package for typesetting proof trees. You can import this package with :
 Here is a basic usage example:
 
 ```typst
-#let r = curryst.rule(name: "Rule name", "Conclusion", "Premise 1", "Premise 2", "Premise 3")
+#let r = curryst.rule(
+  name: "Rule name", 
+  "Conclusion", 
+  "Premise 1", 
+  "Premise 2", 
+  "Premise 3"
+  )
 #curryst.proof-tree(r)
 ```
 
