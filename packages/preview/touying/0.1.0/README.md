@@ -14,8 +14,8 @@ Additionally, Touying does not rely on `locate` and `counter` for implementing `
 
 - [x] **Object-oriented programming:** Singleton `s`, binding methods `utils.methods(s)` and `(self: obj, ..) => {..}` methods.
 - [x] **Page arguments management:** Instead of using `#set page(..)`, you should use `self.page-args` to retrieve or set page parameters, thereby avoiding unnecessary creation of new pages.
-- [x] **`#pause` for sequence content:** You can use #pause at the outermost level of a slide, including inline.
-- [x] **Callback-style `uncover` and `only`:** Based on the concise syntax provided by Polylux, allow precise control of the timing for displaying content.
+- [x] **`#pause` for sequence content:** You can use #pause at the outermost level of a slide, including inline and list.
+- [x] **Callback-style `uncover`, `only` and `alternatives`:** Based on the concise syntax provided by Polylux, allow precise control of the timing for displaying content.
   - You should manually control the number of subslides using the `repeat` parameter.
 - [x] **Transparent cover:** Enable transparent cover using oop syntax like `#let s = (s.methods.enable-transparent-cover)(self: s)`.
 - [x] **Handout mode:** enable handout mode by `#let s = (s.methods.enable-handout-mode)(self: s)`.
@@ -35,9 +35,7 @@ Additionally, Touying does not rely on `locate` and `counter` for implementing `
 
 ## Features to Implement
 
-- [ ] **`#pause` for list item:** Make `#pause` work with list item.
 - [ ] **`#pause` for layout function:** Make `#pause` work with layout function like grid.
-- [ ] **Alternatives:** Implement `alternatives`.
 - [ ] **More themes:** Add more themes.
 - [ ] **Combinable components**: Combinable components for header, footer and sidebar, .
 - [ ] **Navigation bar**: Navigation bar like [here](https://tex.stackexchange.com/questions/350508/adding-outline-bar-to-the-beamer-for-section-mentioning) by `states.touying-progress-with-sections(..)`.
@@ -52,7 +50,7 @@ Feel free to suggest any ideas and contribute.
 We can export `example.pdfpc` file by command `typst query --root . ./examples/example.typ --field value --one "<pdfpc-file>" > ./examples/example.pdfpc`
 
 ```typst
-#import "@preview/touying:0.1.0": *
+#import "../lib.typ": s, pause, utils, states, pdfpc, themes
 
 #let s = themes.metropolis.register(s, aspect-ratio: "16-9", footer: [Custom footer])
 #let s = (s.methods.enable-transparent-cover)(self: s)
@@ -89,7 +87,7 @@ We can export `example.pdfpc` file by command `typst query --root . ./examples/e
   set text(fill: blue)
   body
 }, repeat: 3, self => [
-  #let (uncover, only) = utils.methods(self)
+  #let (uncover, only, alternatives) = utils.methods(self)
 
   in subslide #self.subslide
 
@@ -124,7 +122,7 @@ We can export `example.pdfpc` file by command `typst query --root . ./examples/e
 ## Themes
 
 ```typst
-#import "@preview/touying:0.1.0": *
+#import "../lib.typ": s, pause, utils, states, pdfpc, themes
 
 #let s = themes.metropolis.register(s, aspect-ratio: "16-9", footer: [Custom footer])
 #let s = (s.methods.enable-transparent-cover)(self: s)

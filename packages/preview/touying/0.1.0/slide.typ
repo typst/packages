@@ -6,24 +6,13 @@
 #let pause = [#"<touying-pause>"]
 
 // parse a sequence into content, and get the repetitions
-#let _parse-content-with-pause(self: utils.empty-object, base: 1, index: 1, it) = {
+#let _parse-content-with-pause(self: utils.empty-object, need-cover: true, base: 1, index: 1, it) = {
   // get cover function from self
   let cover = self.methods.cover.with(self: self)
   // if it is a function, then call it with self, uncover and only
   if type(it) == function {
     // subslide index
     self.subslide = index - base + 1
-    // register the methods
-    self.methods.uncover = (self: utils.empty-object, visible-subslides, uncover-cont) => {
-      if utils._check-visible(index, visible-subslides) { 
-        uncover-cont
-      } else {
-        cover(uncover-cont)
-      }
-    }
-    self.methods.only = (self: utils.empty-object, visible-subslides, only-cont) => {
-      if utils._check-visible(index, visible-subslides) { only-cont }
-    }
     it = it(self)
   }
   // repetitions
@@ -31,27 +20,57 @@
   // parse the content
   let result = ()
   let cover-arr = ()
-  if utils.is-sequence(it) {
-    for child in it.children {
-      if child == pause {
-        repetitions += 1
-      } else if child == linebreak() or child == parbreak() {
-        // clear the cover-arr when linebreak or parbreak
-        if cover-arr.len() != 0 {
-          result.push(cover(cover-arr.sum()))
-          cover-arr = ()
-        }
+  let children = if utils.is-sequence(it) { it.children } else { (it,) }
+  for child in children {
+    if child == pause {
+      repetitions += 1
+    } else if child == linebreak() or child == parbreak() {
+      // clear the cover-arr when linebreak or parbreak
+      if cover-arr.len() != 0 {
+        result.push(cover(cover-arr.sum()))
+        cover-arr = ()
+      }
+      result.push(child)
+    } else if type(child) == content and child.func() == list.item {
+      // handle the list item
+      let (cont, nextrepetitions) = _parse-content-with-pause(
+        self: self, need-cover: repetitions <= index, base: repetitions, index: index, child.body
+      )
+      if repetitions <= index or not need-cover {
+        result.push(list.item(cont))
+      } else {
+        cover-arr.push(list.item(cont))
+      }
+      repetitions = nextrepetitions
+    } else if type(child) == content and child.func() == enum.item {
+      // handle the enum item
+      let (cont, nextrepetitions) = _parse-content-with-pause(
+        self: self, need-cover: repetitions <= index, base: repetitions, index: index, child.body
+      )
+      if repetitions <= index or not need-cover {
+        result.push(enum.item(child.at("number", default: none), cont))
+      } else {
+        cover-arr.push(enum.item(child.at("number", default: none), cont))
+      }
+      repetitions = nextrepetitions
+    } else if type(child) == content and child.func() == terms.item {
+      // handle the terms item
+      let (cont, nextrepetitions) = _parse-content-with-pause(
+        self: self, need-cover: repetitions <= index, base: repetitions, index: index, child.description
+      )
+      if repetitions <= index or not need-cover {
+        result.push(terms.item(child.term, cont))
+      } else {
+        cover-arr.push(terms.item(child.term, cont))
+      }
+      repetitions = nextrepetitions
+    } else {
+      if repetitions <= index or not need-cover {
         result.push(child)
       } else {
-        if repetitions <= index {
-          result.push(child)
-        } else {
-          cover-arr.push(child)
-        }
+        cover-arr.push(child)
       }
     }
-  } else {
-    result.push(it)
   }
   // clear the cover-arr when end
   if cover-arr.len() != 0 {
@@ -93,7 +112,7 @@
   // for speed up, do not parse the content if repeat is none
   if repeat == none {
     return {
-      header += update-counters
+      header = update-counters + header
       page(..(self.page-args + (header: header, footer: footer)), setting(
         page-preamble(1) + body
       ))
@@ -111,7 +130,7 @@
   }
   if self.handout {
     let (cont, _) = _parse-content-with-pause(self: self, index: repeat, body)
-    header += update-counters
+    header = update-counters + header
     page(..(self.page-args + (header: header, footer: footer)), setting(
       page-preamble(1) + cont
     ))
@@ -124,7 +143,7 @@
       let (cont, _) = _parse-content-with-pause(self: self, index: i, body)
       // update the counter in the first subslide
       if i == 1 {
-        new-header += update-counters
+        new-header = update-counters + new-header
       }
       result.push(page(
         ..(self.page-args + (header: new-header, footer: footer)),
@@ -177,6 +196,14 @@
     }
     self
   }
+  // dynamic control
+  self.methods.uncover = utils.uncover
+  self.methods.only = utils.only
+  self.methods.uncover = utils.uncover
+  self.methods.alternatives-match = utils.alternatives-match
+  self.methods.alternatives = utils.alternatives
+  self.methods.alternatives-fn = utils.alternatives-fn
+  self.methods.alternatives-cases = utils.alternatives-cases
   // handout mode
   self.methods.enable-handout-mode = (self: utils.empty-object) => {
     self.handout = true
