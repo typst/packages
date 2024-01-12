@@ -148,7 +148,7 @@ Your cells can now span more than one column and/or row at once, with `colspanx`
 
 Note that the empty parentheses there are just for organization, and are ignored (unless they come before the first cell - more on that later). They're useful to help us keep track of which cell positions are being used up by the spans, because, if we try to add an actual cell at these spots, it will just push the others forward, which might seem unexpected.
 
-Use `colspanx(2)(rowspanx(2)[d])` to colspan and rowspan at the same time. Be careful not to attempt to overwrite other cells' spans, as you will get a nasty error.
+Use `colspanx(2, rowspanx(2)[d])` to colspan and rowspan at the same time. Be careful not to attempt to overwrite other cells' spans, as you will get a nasty error.
 
 **Note (since tablex v0.0.8):** By default, colspans and rowspans can cause spanned `auto` columns and rows to expand to fit their contents (only the last spanned track - column or row -  can expand). If you'd like colspans to not affect column sizes at all (and thus "fit" within their spanned columns), you may specify `fit-spans: (x: true)` to the table. Similarly, you can specify `fit-spans: (y: true)` to have rowspans not affect row sizes at all. To apply both effects, use either `fit-spans: true` or `fit-spans: (x: true, y: true)`. You can also apply this to a single colspan (for example) with `colspanx(2, fit-spans: (x: true))[a]`, as this option is available not only for the whole table but also for each cell. See the reference section for more information.
 
