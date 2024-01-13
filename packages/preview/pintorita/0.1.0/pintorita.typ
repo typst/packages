@@ -12,7 +12,7 @@
   if (factor != none){
     let svg-width = svg-output.find(regex("width=\"(\d+)")).find(regex("\d+"))
 
-    new-width = int(svg-width) * factor * 1pt
+    let new-width = int(svg-width) * factor * 1pt
     named-args.insert("width", new-width) 
     let junk = named-args.remove("factor")
   }
