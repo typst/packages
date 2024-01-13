@@ -1,4 +1,4 @@
-# [Pintora For Typst](https://github.com/taylorh140/typst-pintora)
+# [Pintorita - Pintora plugin for typst ](https://github.com/taylorh140/typst-pintora)
 
 [Pintora](https://pintorajs.vercel.app/)
 
@@ -11,16 +11,16 @@ Typst package for drawing the following from markup:
 - Gantt Diagram Experiment
 - DOT Diagram Experiment
 
-![](pintora.svg)
+![](pintorita.svg)
 
 
 ````typ
-#import "@preview/pintora:0.1.0"
+#import "@preview/pintorita:0.1.0"
 
 #set page(height: auto, width: auto, fill: black, margin: 2em)
 #set text(fill: white)
 
-#show raw.where(lang: "pintora"): it => pintora.render(it.text)
+#show raw.where(lang: "pintora"): it => pintorita.render(it.text)
 
 = pintora
 
@@ -64,6 +64,7 @@ Render a pintora string to an image
 #### Arguments
 
 * `src`: `str` - pintora source string
+* `factor`": scale output svg, "factor:0.5" will scale images down by half, so scale can be consistent across renders.
 * All other arguments are passed to `image.decode` so you can customize the image size
 
 #### Returns

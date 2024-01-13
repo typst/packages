@@ -1,1 +1,0 @@
-#import "./pintora.typ": render
