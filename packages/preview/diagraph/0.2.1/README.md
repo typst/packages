@@ -102,6 +102,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Changelog
 
+### 0.2.1
+
+- Added support for relative lenghts in the `width` and `height` arguments
+- Fix various bugs
+
 ### 0.2.0
 
 - Node labels are now handled by Typst
