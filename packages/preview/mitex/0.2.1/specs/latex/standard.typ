@@ -27,7 +27,7 @@
 #let get-tex-color-from-arr(arr) = {
     mitex-color-map.at(lower(get-tex-str-from-arr(arr)), default: none)
 }
-#let get-tex-color(texcolor) = if tex.has("children") {
+#let get-tex-color(texcolor) = if texcolor.has("children") {
   get-tex-color-from-arr(texcolor.children)
 } else {
   texcolor.text
@@ -37,7 +37,8 @@
 // 1. functions created to make it easier to define a spec
 #let operatornamewithlimits(it) = math.op(limits: true, math.upright(it))
 #let arrow-handle(arrow-sym) = define-cmd(1, handle: it => $limits(xarrow(sym: #arrow-sym, it))$)
-#let greedy-handle(alias, fn) = define-greedy-cmd(alias, handle: fn)
+#let _greedy-handle(fn) = (..args) => $fn(#args.pos().sum())$
+#let greedy-handle(alias, fn) = define-greedy-cmd(alias, handle: _greedy-handle(fn))
 #let limits-handle(alias, wrap) = define-cmd(1, alias: alias, handle: (it) => math.limits(wrap(it)))
 #let matrix-handle(delim: none, handle: none) = define-env(none, kind: "is-matrix", alias: none, handle: math.mat.with(delim: delim))
 #let text-handle(wrap) = define-cmd(1, handle: it => $wrap(it)$ + text-end-space(it),)
@@ -167,22 +168,12 @@
   large: ignore-sym,
   tiny: ignore-sym,
   // Colors
-  color: define-greedy-cmd("mitexcolor", handle: body => {
-    let texcolor = ()
-    let args = ()
-    for i in range(body.children.len()) {
-      if body.children.at(i) != [#math.zws] {
-        texcolor.push(body.children.at(i))
-      } else {
-        args = body.children.slice(i)
-        break
-      }
-    }
-    let color = get-tex-color-from-arr(texcolor)
+  color: define-greedy-cmd("mitexcolor", handle: (texcolor, ..args) => {
+    let color = get-tex-color(texcolor)
     if color != none {
-      text(fill: color, args.sum())
+      text(fill: color, args.pos().sum())
     } else {
-      args.sum()
+      args.pos().sum()
     }
   }),
   textcolor: define-cmd(2, alias: "colortext", handle: (texcolor, body) => {
