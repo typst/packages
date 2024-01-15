@@ -46,6 +46,17 @@ Optional:
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
   the LICENSE.
 
+Third-party tools can add their own entry under the `[tool]` section to attach
+their own Typst-specific configuration to the manifest.
+
+```toml
+[package]
+# ...
+
+[tool.mytool]
+foo = "bar"
+```
+
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
 to that package. Absolute paths start in the package root while relative paths
@@ -55,7 +66,7 @@ are relative to the file they are used in.
 This repository contains a collection of published packages. Due to its early
 and experimental nature, all packages in this repository are scoped in a
 `preview` namespace. A package that is stored in
-`packages/preview/{name}/{version}` in this repository will become availabe in
+`packages/preview/{name}/{version}` in this repository will become available in
 Typst as `#import "@preview/{name}:{version}"`. You must always specify the full
 package version.
 
@@ -78,7 +89,8 @@ are detailed below:
   least briefly) what the package does and all definitions intended for usage by
   downstream users. Examples in the README should show how to use the package
   through an `@preview` import. If you have images in your README, you might
-  want to check whether they also work in dark mode.
+  want to check whether they also work in dark mode. Also consider running
+  [`typos`][typos] through your package before release.
 - **Style:** No specific code style is mandated, but two spaces of indent and
   kebab-case for variable and function names are recommended.
 - **License:** Packages must be licensed under the terms of an
@@ -162,3 +174,4 @@ respective license.
 [SemVer]: https://semver.org/
 [OSI]: https://opensource.org/licenses/
 [template-packages]: https://github.com/typst/typst/issues/2432
+[typos]: https://github.com/crate-ci/typos
