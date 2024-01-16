@@ -1,4 +1,4 @@
-#import "@preview/jogs:0.2.1": compile-js, call-js-function
+#import "@preview/jogs:0.2.2": compile-js, call-js-function
 
 #let pintora-src = read("./pintora.js")
 #let pintora-bytecode = compile-js(pintora-src)
