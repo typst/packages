@@ -2,7 +2,6 @@
 
 A simple Graphviz binding for Typst using the WebAssembly plugin system.
 
-
 ## Usage
 
 ### Basic usage
@@ -10,7 +9,7 @@ A simple Graphviz binding for Typst using the WebAssembly plugin system.
 This plugin is quite simple to use, you just need to import it:
 
 ```typ
-#import "@preview/diagraph:0.2.0": *
+#import "@preview/diagraph:0.2.1": *
 ```
 
 You can render a Graphviz Dot string to a SVG image using the `render` function:
@@ -76,7 +75,6 @@ If you want a node label to contain a more complex mathematical equation, or mor
 
 See [`examples/`](https://github.com/Robotechnic/diagraph/tree/main/examples) for the rendered graph.
 
-
 ## Build
 
 This project was built with emscripten `3.1.46`. Apart from that, you just need to run `make wasm` to build the wasm file. All libraries are downloaded and built automatically to get the right version that works.
@@ -94,11 +92,9 @@ There are also some other make commands:
 
 Somme functions need to be stubbed to work with the webassembly plugin system. The `wasi-stub` executable is a spetial one fitting the needs of the typst plugin system. You can find the source code [here](https://github.com/astrale-sharp/wasm-minimal-protocol/tree/master). It is important to use this one as the default subbed functions are not the same and the makefile is suited for this one.
 
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-
 
 ## Changelog
 
@@ -110,7 +106,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### 0.2.0
 
 - Node labels are now handled by Typst
-
 
 ### 0.1.2
 
