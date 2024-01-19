@@ -46,6 +46,17 @@ Optional:
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
   the LICENSE.
 
+Third-party tools can add their own entry under the `[tool]` section to attach
+their own Typst-specific configuration to the manifest.
+
+```toml
+[package]
+# ...
+
+[tool.mytool]
+foo = "bar"
+```
+
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
 to that package. Absolute paths start in the package root while relative paths
