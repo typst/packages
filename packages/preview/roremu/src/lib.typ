@@ -4,7 +4,7 @@
 /// - offset (int): テキストの開始位置（文字数）
 /// - custom-text (str, none): デフォルト『吾輩は猫である』の代わりに使用する文字列
 /// -> str
-#let lorem-ja(words, offset: 0, custom-text: none) = {
+#let roremu(words, offset: 0, custom-text: none) = {
   let text = if custom-text == none { read("../texts/neko.txt") } else { custom-text }
   let length = text.clusters().len()
   let times = calc.div-euclid(offset + words, length) + 1

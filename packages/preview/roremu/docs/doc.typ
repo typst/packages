@@ -34,8 +34,8 @@
 
 = 使い方
 ```typst
-import "@preview/lorem-ja:0.1.0": lorem-ja
-#lorem-ja(100)
+import "@preview/roremu:0.1.0": roremu
+#roremu(100)
 ```
 
 == 例
