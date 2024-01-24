@@ -1,0 +1,265 @@
+#let dictionary-sum(a, b) = {
+  let c = (:)
+  for k in a.keys() + b.keys() {
+    c.insert(k, a.at(k, default: 0) + b.at(k, default: 0))
+  }
+  c
+}
+
+/// Get a basic word count from a string. 
+///
+/// Returns a dictionary with keys:
+/// - `characters`: Number of non-whitespace characters.
+/// - `words`: Number of words, defined by `regex("\b[\w'’]+\b")`.
+/// - `sentences`: Number of sentences, defined by `regex("\w+\s*[.?!]")`.
+///
+/// - string (string): 
+/// -> dictionary
+#let string-word-count(string) = (
+  characters: string.replace(regex("\s+"), "").len(),
+  words: string.matches(regex("\b[\w'’]+\b")).len(),
+  sentences: string.matches(regex("\w+\s*[.?!]")).len(),
+)
+
+/// Simplify an array of content by concatenating adjacent text elements.
+/// 
+/// Doesn't preserve content exactly; `smartquote`s are replaced with `'` or
+/// `"`. This is used on `sequence` elements because it improves word counts for
+/// cases like "Digby's", which should count as one word.
+///
+/// For example, the content #rect[Qu'est-ce *que* c'est !?] is structured as:
+/// 
+/// #[Qu'est-ce *que* c'est !?].children
+/// 
+/// This function simplifies this to:
+/// 
+/// #wordometer.concat-adjacent-text([Qu'est-ce *que* c'est !?].children)
+///
+/// - children (array): Array of content to simplify.
+#let concat-adjacent-text(children) = {
+  if children.len() == 0 { return () }
+  let squashed = (children.at(0),)
+
+  let as-text(el) = {
+    let fn = repr(el.func())
+    if fn == "text" { el.text }
+    else if fn == "space" { " " }
+    else if fn in "linebreak" { "\n" }
+    else if fn in "parbreak" { "\n\n" }
+    else if fn in "pagebreak" { "\n\n\n\n" }
+    else if fn == "smartquote" {
+      if el.double { "\"" } else { "'" }
+    }
+  }
+
+  let last-text = as-text(squashed.at(-1))
+  for child in children.slice(1) {
+    if last-text == none {
+        squashed.push(child)
+        last-text = as-text(child)
+
+    } else {
+      let this-text = as-text(child)
+      if this-text == none {
+        squashed.push(child)
+        last-text = as-text(child)
+      } else {
+        last-text = last-text + this-text
+        squashed.at(-1) = text(last-text)
+      }
+    }
+  }
+
+  squashed
+}
+
+#let IGNORED_ELEMENTS = (
+  "display",
+  "equation",
+  "h",
+  "hide",
+  "image",
+  "line",
+  "linebreak",
+  "locate",
+  "metadata",
+  "pagebreak",
+  "parbreak",
+  "path",
+  "polygon",
+  "repeat",
+  "smartquote",
+  "space",
+  "update",
+  "v",
+)
+
+/// Traverse a content tree and apply a function to textual leaf nodes.
+///
+/// Descends into elements until reaching a textual element (`text` or `raw`)
+/// and calls `f` on the contained text, returning a (nested) array of all the
+/// return values.
+///
+/// - f (function): Unary function to pass text to.
+/// - content (content): Content element to traverse.
+/// - exclude (array): List of labels or element names to skip while traversing
+///  the tree. Default value includes equations and elements without child
+///  content or text:
+///  #wordometer.IGNORED_ELEMENTS.sorted().map(repr).map(raw).join([, ],
+///  last: [, and ]).
+///
+///  To exclude figures, but include figure captions, pass the name
+///  `"figure-body"` (which is not a real element). To include figure bodies,
+///  but exclude their captions, pass the name `"caption"`.
+#let map-tree(f, content, exclude: IGNORED_ELEMENTS) = {
+  let map-subtree = map-tree.with(f, exclude: exclude)
+  
+  let fn = repr(content.func())
+  let fields = content.fields().keys()
+
+  if fn in exclude {
+    none
+
+  } else if content.at("label", default: none) in exclude {
+    none
+
+  } else if fn in ("text", "raw") {
+    f(content.text)
+
+  } else if "children" in fields {
+    let children = content.children
+
+    if fn == "sequence" {
+      // don't do this for, e.g., grid or stack elements
+      children = concat-adjacent-text(children)
+    }
+
+    children
+      .map(map-subtree)
+      .filter(x => x != none)
+
+  } else if fn == "figure" {
+    (
+      if "figure-body" not in exclude { map-subtree(content.body) },
+      map-subtree(content.caption),
+    )
+      .filter(x => x != none)
+
+  } else if fn == "styled" {
+    map-subtree(content.child)
+
+  } else if "body" in fields {
+    map-subtree(content.body)
+
+  } else {
+    panic(fn, content.fields())
+
+  }
+
+}
+
+/// Get word count statistics of a content element.
+///
+/// Returns a results dictionary, not the content passed to it. (See
+/// `string-word-count()`).
+///
+/// - content (content):
+/// -> dictionary
+/// - exclude (array): Content elements to exclude from word count (see
+///    `map-tree()`).
+/// - counter (fn): A function that accepts a string and returns a dictionary of
+///  counts.
+///
+///  For example, to count vowels, you might do:
+///
+///  ```typ
+///  #word-count-of([ABCDEFG], counter: s => (
+///      vowels: lower(s).matches(regex("[aeiou]")).len(),
+///  ))
+///  ```
+#let word-count-of(content, exclude: (:), counter: string-word-count) = {
+  let exclude-elements = IGNORED_ELEMENTS
+  exclude-elements += (exclude,).flatten()
+
+  (map-tree(counter, content, exclude: exclude-elements),)
+    .filter(x => x != none)
+    .flatten()
+    .fold(counter(""), dictionary-sum)
+}
+
+/// Simultaneously take a word count of some content and insert it into that
+/// content.
+/// 
+/// It works by first passing in some dummy results to `fn`, performing a word
+/// count on the content returned, and finally returning the result of passing
+/// the word count retults to `fn`. This happens once --- it doesn't keep
+/// looping until convergence or anything!
+///
+/// For example:
+/// ```typst
+/// #word-count-callback(stats => [There are #stats.words words])
+/// ```
+///
+/// - fn (function): A function accepting a dictionary and returning content to
+///  perform the word count on.
+/// - ..options ( ): Additional named arguments:
+///   - `exclude`: Content to exclude from word count (see `map-tree()`).
+/// -> content
+#let word-count-callback(fn, ..options) = {
+  let preview-content = [#fn(string-word-count(""))]
+  let stats = word-count-of(preview-content, ..options)
+  fn(stats)
+}
+
+#let total-words = locate(loc => state("total-words").final(loc))
+#let total-characters = locate(loc => state("total-characters").final(loc))
+
+/// Get word count statistics of the given content and store the results in
+/// global state. Should only be used once in the document.
+///
+/// #set raw(lang: "typ")
+///
+/// The results are accessible anywhere in the document with `#total-words` and
+/// `#total-characters`, which are shortcuts for the final values of states of
+/// the same name (e.g., `#locate(loc => state("total-words").final(loc))`)
+///
+/// - content (content):
+///   Content to word count.
+/// - ..options ( ): Additional named arguments:
+///   - `exclude`: Content to exclude from word count (see `map-tree()`).
+/// -> content
+#let word-count-global(content, ..options) = {
+  let stats = word-count-of(content, ..options)
+  state("total-words").update(stats.words)
+  state("total-characters").update(stats.characters)
+  content
+}
+
+/// Perform a word count on content.
+/// 
+/// Master function which accepts content (calling `word-count-global()`) or a
+/// callback function (calling `word-count-callback()`).
+/// 
+/// - arg (content, fn):
+///   Can be:
+///   #set raw(lang: "typ")
+///   - `content`: A word count is performed for the content and the results are
+///    accessible through `#total-words` and `#total-characters`. This uses a
+///    global state, so should only be used once in a document (e.g., via a
+///    document show rule: `#show: word-count`).
+///   - `function`: A callback function accepting a dictionary of word count
+///    results and returning content to be word counted. For example:
+///    ```typ
+///    #word-count(total => [This sentence contains #total.characters letters.])
+///    ```
+/// - ..options ( ): Additional named arguments:
+///   - `exclude`: Content to exclude from word count (see `map-tree()`).
+///
+/// -> dictionary
+#let word-count(arg, ..options) = {
+  if type(arg) == function {
+    word-count-callback(arg, ..options)
+  } else {
+    word-count-global(arg, ..options)
+  }
+}
