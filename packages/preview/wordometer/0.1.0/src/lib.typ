@@ -17,7 +17,7 @@
 /// -> dictionary
 #let string-word-count(string) = (
   characters: string.replace(regex("\s+"), "").len(),
-  words: string.matches(regex("\b[\w'’]+\b")).len(),
+  words: string.matches(regex("\b[\w'’.,\-]+\b")).len(),
   sentences: string.matches(regex("\w+\s*[.?!]")).len(),
 )
 
@@ -74,6 +74,8 @@
 }
 
 #let IGNORED_ELEMENTS = (
+  "bibliography",
+  "cite",
   "display",
   "equation",
   "h",
@@ -87,9 +89,11 @@
   "parbreak",
   "path",
   "polygon",
+  "ref",
   "repeat",
   "smartquote",
   "space",
+  "style",
   "update",
   "v",
 )
@@ -120,6 +124,7 @@
   if fn in exclude {
     none
 
+  // check if element has a label that is excluded
   } else if content.at("label", default: none) in exclude {
     none
 
@@ -152,7 +157,7 @@
     map-subtree(content.body)
 
   } else {
-    panic(fn, content.fields())
+    none
 
   }
 

@@ -21,6 +21,8 @@
 	)
 }
 
+#show: word-count
+
 
 
 #v(.2fr)
@@ -28,7 +30,8 @@
 #align(center)[
 	#stack(
 		spacing: 12pt,
-		text(2.7em, `wordometer`),
+		text(2.6em, `wordometer`),
+		[_This manual contains #total-words words._],
 	)
 
 	#v(30pt)
@@ -38,6 +41,7 @@
 	#link("https://github.com/Jollywatt/typst-wordometer")[`github.com/Jollywatt/typst-wordometer`]
 
 	Version #VERSION
+
 ]
 
 #set raw(lang: "typc")
@@ -73,7 +77,7 @@
 	In this document #strike[(excluding me)], there are #total-words words all up.
 
 	#word-count(total => [
-	  One, two, three, four.
+	  You can exclude elements by label, too.
 	  #[That was #total.words, excluding this sentence!] <no-wc>
 	], exclude: <no-wc>)
 	```
