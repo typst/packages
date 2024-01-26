@@ -106,9 +106,12 @@
 ///
 /// - f (function): Unary function to pass text to.
 /// - content (content): Content element to traverse.
-/// - exclude (array): List of labels or element names to skip while traversing
-///  the tree. Default value includes equations and elements without child
-///  content or text:
+/// - exclude (array): Content to skip while traversing the tree, specified by:
+///   - element, e.g., `heading`
+///   - element name, e.g., `"heading"`
+///   - label, e.g., `<no-wc>`
+///  Default value includes equations and elements without child content or
+///  text:
 ///  #wordometer.IGNORED_ELEMENTS.sorted().map(repr).map(raw).join([, ],
 ///  last: [, and ]).
 ///
@@ -116,6 +119,13 @@
 ///  `"figure-body"` (which is not a real element). To include figure bodies,
 ///  but exclude their captions, pass the name `"caption"`.
 #let map-tree(f, content, exclude: IGNORED_ELEMENTS) = {
+
+  let exclude = exclude.map(element-fn => {
+    if type(element-fn) in (str, label) { element-fn }
+    else if type(element-fn) == function { repr(element-fn) }
+    else { panic("Exclude patterns must be element functions, strings, or labels; got:", element-fn) }
+  })
+
   let map-subtree = map-tree.with(f, exclude: exclude)
   
   let fn = repr(content.func())
@@ -170,8 +180,8 @@
 ///
 /// - content (content):
 /// -> dictionary
-/// - exclude (array): Content elements to exclude from word count (see
-///    `map-tree()`).
+/// - exclude (array): Content to exclude from word count (see `map-tree()`).
+///  Can be an array of element functions, element function names, or labels.
 /// - counter (fn): A function that accepts a string and returns a dictionary of
 ///  counts.
 ///
@@ -182,7 +192,7 @@
 ///      vowels: lower(s).matches(regex("[aeiou]")).len(),
 ///  ))
 ///  ```
-#let word-count-of(content, exclude: (:), counter: string-word-count) = {
+#let word-count-of(content, exclude: (), counter: string-word-count) = {
   let exclude-elements = IGNORED_ELEMENTS
   exclude-elements += (exclude,).flatten()
 
@@ -208,7 +218,8 @@
 /// - fn (function): A function accepting a dictionary and returning content to
 ///  perform the word count on.
 /// - ..options ( ): Additional named arguments:
-///   - `exclude`: Content to exclude from word count (see `map-tree()`).
+///   - `exclude`: Content to exclude from word count (see `map-tree()`). Can be
+///    an array of element functions, element function names, or labels.
 /// -> content
 #let word-count-callback(fn, ..options) = {
   let preview-content = [#fn(string-word-count(""))]
@@ -231,7 +242,8 @@
 /// - content (content):
 ///   Content to word count.
 /// - ..options ( ): Additional named arguments:
-///   - `exclude`: Content to exclude from word count (see `map-tree()`).
+///   - `exclude`: Content to exclude from word count (see `map-tree()`). Can be
+///    an array of element functions, element function names, or labels.
 /// -> content
 #let word-count-global(content, ..options) = {
   let stats = word-count-of(content, ..options)
@@ -258,7 +270,8 @@
 ///    #word-count(total => [This sentence contains #total.characters letters.])
 ///    ```
 /// - ..options ( ): Additional named arguments:
-///   - `exclude`: Content to exclude from word count (see `map-tree()`).
+///   - `exclude`: Content to exclude from word count (see `map-tree()`). Can be
+///    an array of element functions, element function names, or labels.
 ///
 /// -> dictionary
 #let word-count(arg, ..options) = {

@@ -114,7 +114,7 @@ Stats: #word-count-of(el)
 	One, two, three. #strike[Not me, either.] Four.
 
 	#strike[Words: #total.words]
-], exclude: ("heading", "strike"))
+], exclude: (heading, strike))
 
 = Excluding elements by label
 
@@ -126,7 +126,7 @@ Stats: #word-count-of(el)
 	Five, six.
 
 	#total
-], exclude: ("raw", <no-wc>))
+], exclude: (raw, <no-wc>))
 
 #line(length: 100%)
 

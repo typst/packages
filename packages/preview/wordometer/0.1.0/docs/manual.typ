@@ -18,6 +18,9 @@
 			scope: (wordometer: wordometer)
 		),
 		show-outline: false,
+		sort-functions: x => {
+			str(int(not x.name.starts-with("word-count"))) + x.name
+		}
 	)
 }
 
@@ -70,7 +73,7 @@
 	= Excluding elements by type or label
 
 	```typ
-	#show: word-count.with(exclude: ("heading", "strike"))
+	#show: word-count.with(exclude: (heading, strike))
 
 	= This Heading Doesn’t Count
 
