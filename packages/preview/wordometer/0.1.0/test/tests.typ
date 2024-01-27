@@ -134,3 +134,27 @@ Stats: #word-count-of(el)
   One, two, three, four.
   #[That was #total.words, not counting this sentence!] <no-wc>
 ], exclude: <no-wc>)
+
+
+= Where-selectors
+
+
+#let el = [
+	
+	== One
+	=== Not me!
+	==== Two three four five
+
+]
+#el
+
+#word-count-of(el, exclude: heading.where(level: 3)))
+
+= Custom counters
+
+#let el = [
+	Hello there are vowels here.
+]
+#el
+
+#word-count-of(el, counter: txt => (vowels: lower(txt).matches(regex("[aeiou]")).len()))

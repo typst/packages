@@ -98,6 +98,28 @@
   "v",
 )
 
+#let parse-basic-where-selector(selector) = {
+  let match = repr(selector).match(regex("^([\w]+)\.where(.*)$"))
+  if match == none {
+    panic("Only `element.where(key: value, ..)` selectors are supported.")
+  }
+  let (element-fn, fields) = match.captures
+  (element-fn: element-fn, fields: eval(fields))
+}
+
+#let interpret-exclude-patterns(exclude) = {
+  exclude.map(element-fn => {
+    if type(element-fn) in (str, label, dictionary) { element-fn }
+    else if type(element-fn) == function { repr(element-fn) }
+    else if type(element-fn) == selector {
+      parse-basic-where-selector(element-fn)
+    } else {
+      panic("Exclude patterns must be element functions, strings, or labels; got:", element-fn)
+    }
+  })
+}
+
+
 /// Traverse a content tree and apply a function to textual leaf nodes.
 ///
 /// Descends into elements until reaching a textual element (`text` or `raw`)
@@ -107,8 +129,10 @@
 /// - f (function): Unary function to pass text to.
 /// - content (content): Content element to traverse.
 /// - exclude (array): Content to skip while traversing the tree, specified by:
-///   - element, e.g., `heading`
-///   - element name, e.g., `"heading"`
+///   - name, e.g., `"heading"`
+///   - function, e.g., `heading`
+///   - selector, e.g., `heading.where(level: 1)` (only basic `where`
+///    selectors are supported)
 ///   - label, e.g., `<no-wc>`
 ///  Default value includes equations and elements without child content or
 ///  text:
@@ -119,17 +143,21 @@
 ///  `"figure-body"` (which is not a real element). To include figure bodies,
 ///  but exclude their captions, pass the name `"caption"`.
 #let map-tree(f, content, exclude: IGNORED_ELEMENTS) = {
-
-  let exclude = exclude.map(element-fn => {
-    if type(element-fn) in (str, label) { element-fn }
-    else if type(element-fn) == function { repr(element-fn) }
-    else { panic("Exclude patterns must be element functions, strings, or labels; got:", element-fn) }
-  })
-
+  let exclude = interpret-exclude-patterns(exclude)
   let map-subtree = map-tree.with(f, exclude: exclude)
   
   let fn = repr(content.func())
   let fields = content.fields().keys()
+
+  let exclude-selectors = exclude.filter(e => type(e) == dictionary and "element-fn" in e)
+  for (element-fn, fields) in exclude-selectors {
+    if fn == element-fn {
+      // If all fields in the selector match the element, exclude it
+      if not fields.pairs().any(((key, value)) => content.at(key, default: value) != value) {
+        return none
+      }
+    }
+  }
 
   if fn in exclude {
     none
@@ -192,14 +220,36 @@
 ///      vowels: lower(s).matches(regex("[aeiou]")).len(),
 ///  ))
 ///  ```
-#let word-count-of(content, exclude: (), counter: string-word-count) = {
-  let exclude-elements = IGNORED_ELEMENTS
-  exclude-elements += (exclude,).flatten()
+/// - method (string): The algorithm to use. Can be:
+///  - `"stringify"`: Convert the content into one big string, then perform the
+///   word count.
+///  - `"bubble"`: Traverse the content tree performing word counts at each
+///   textual leaf node, then "bubble" the results back up (i.e., sum them).
+///  Performance and results may vary by method!
+#let word-count-of(
+  content,
+  exclude: (),
+  counter: string-word-count,
+  method: "stringify",
+) = {
+  let exclude = IGNORED_ELEMENTS + (exclude,).flatten()
 
-  (map-tree(counter, content, exclude: exclude-elements),)
-    .filter(x => x != none)
-    .flatten()
-    .fold(counter(""), dictionary-sum)
+  if method == "bubble" {
+    (map-tree(counter, content, exclude: exclude),)
+      .filter(x => x != none)
+      .flatten()
+      .fold(counter(""), dictionary-sum)
+
+  } else if method == "stringify" {
+    counter(
+      (map-tree(x => x + " ", content, exclude: exclude),)
+        .flatten()
+        .join()
+    )
+
+  } else {
+    panic("Unknown choice", method)
+  }
 }
 
 /// Simultaneously take a word count of some content and insert it into that
@@ -220,6 +270,7 @@
 /// - ..options ( ): Additional named arguments:
 ///   - `exclude`: Content to exclude from word count (see `map-tree()`). Can be
 ///    an array of element functions, element function names, or labels.
+///   - `method`: Content traversal method to use (see `word-count-of()`).
 /// -> content
 #let word-count-callback(fn, ..options) = {
   let preview-content = [#fn(string-word-count(""))]
@@ -244,6 +295,7 @@
 /// - ..options ( ): Additional named arguments:
 ///   - `exclude`: Content to exclude from word count (see `map-tree()`). Can be
 ///    an array of element functions, element function names, or labels.
+///   - `method`: Content traversal method to use (see `word-count-of()`).
 /// -> content
 #let word-count-global(content, ..options) = {
   let stats = word-count-of(content, ..options)
@@ -272,6 +324,7 @@
 /// - ..options ( ): Additional named arguments:
 ///   - `exclude`: Content to exclude from word count (see `map-tree()`). Can be
 ///    an array of element functions, element function names, or labels.
+///   - `method`: Content traversal method to use (see `word-count-of()`).
 ///
 /// -> dictionary
 #let word-count(arg, ..options) = {

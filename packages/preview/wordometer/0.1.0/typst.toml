@@ -10,5 +10,6 @@ exclude = ["README.md", "docs/", "test/"]
 keywords = [
 	"word",
 	"count",
+	"stats",
 	"statistics",
 ]

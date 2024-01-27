@@ -70,12 +70,16 @@
 	])
 	```
 
-	= Excluding elements by type or label
+	= Excluding elements
+
+	You can exclude elements by name (e.g., `"caption"`), function (e.g., `figure.caption`), where-selector (e.g., `raw.where(block: true)`), or label (e.g., `<no-wc>`).
+
 
 	```typ
-	#show: word-count.with(exclude: (heading, strike))
+	#show: word-count.with(exclude: (heading.where(level: 1), strike))
 
-	= This Heading Doesn’t Count
+	= This Heading Doesn't Count
+	== But I do!
 
 	In this document #strike[(excluding me)], there are #total-words words all up.
 
