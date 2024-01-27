@@ -1,0 +1,19 @@
+[package]
+name = "printer-tester"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Julien Caposiena"]
+license = "MIT"
+description = "Generate printer tests (likely CMYK) in typst."
+
+homepage = "https://github.com/julien-cpsn/typst-printer-tester"
+repository = "https://github.com/julien-cpsn/typst-printer-tester"
+keywords = [
+    "printer",
+    "test",
+    "color",
+    "colour",
+    "generate",
+    "generator",
+    "CMYK"
+]
