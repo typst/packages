@@ -158,3 +158,22 @@ Stats: #word-count-of(el)
 #el
 
 #word-count-of(el, counter: txt => (vowels: lower(txt).matches(regex("[aeiou]")).len()))
+
+= Raw text extraction
+
+#let el = [
+	Hello, _this_ is a bunch of `content`. \ New line.
+
+	== What we have
+
+	- This and that
+	- etcetera
+
+	#text(red)[what we *need*]
+
+	#circle[love]
+]
+
+
+#el
+#extract-text(el)

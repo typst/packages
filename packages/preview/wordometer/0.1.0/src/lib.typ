@@ -92,7 +92,7 @@
   "ref",
   "repeat",
   "smartquote",
-  "space",
+  // "space",
   "style",
   "update",
   "v",
@@ -201,6 +201,18 @@
 
 }
 
+/// Extract plain text from content
+///
+/// This is a quick-and-dirty conversion which does not preserve styling or
+/// layout and which may introduces superfluous spaces.
+/// - content (content): Content to extract plain text from.
+/// - ..options ( ): Additional named arguments:
+///   - `exclude`: Content to exclude (see `map-tree()`). Can be an array of
+///    element functions, element function names, or labels.
+#let extract-text(content, ..options) = {
+  (map-tree(x => x, content, ..options),).flatten().join(" ")
+}
+
 /// Get word count statistics of a content element.
 ///
 /// Returns a results dictionary, not the content passed to it. (See
@@ -241,11 +253,7 @@
       .fold(counter(""), dictionary-sum)
 
   } else if method == "stringify" {
-    counter(
-      (map-tree(x => x + " ", content, exclude: exclude),)
-        .flatten()
-        .join()
-    )
+    counter(extract-text(content, exclude: exclude))
 
   } else {
     panic("Unknown choice", method)
