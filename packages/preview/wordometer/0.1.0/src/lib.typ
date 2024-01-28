@@ -92,7 +92,7 @@
   "ref",
   "repeat",
   "smartquote",
-  // "space",
+  "space",
   "style",
   "update",
   "v",
