@@ -7,4 +7,4 @@ description = "Display data as tables."
 entrypoint = "lib.typ"
 repository = "https://github.com/Amelia-Mowers/tabut"
 keywords = ["formatting", "table", "tables", "data", "display"]
-exclude = ["README.pdf", "doc/compiled-snippets/*"]
+exclude = ["README.pdf", "doc/compiled-snippets/*", "doc/example-snippets/*", "*.bash"]
