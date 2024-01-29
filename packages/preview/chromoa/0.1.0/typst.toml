@@ -1,14 +1,16 @@
 [package]
-name = "printer-tester"
+name = "chromo"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Julien Caposiena"]
 license = "MIT"
 description = "Generate printer tests (likely CMYK) in typst."
+exclude = ["examples"]
 
-homepage = "https://github.com/julien-cpsn/typst-printer-tester"
-repository = "https://github.com/julien-cpsn/typst-printer-tester"
+homepage = "https://github.com/julien-cpsn/typst-chromo"
+repository = "https://github.com/julien-cpsn/typst-chromo"
 keywords = [
+	"chromo",
     "printer",
     "test",
     "color",
