@@ -184,7 +184,7 @@
   } else if fn == "figure" {
     (
       if "figure-body" not in exclude { map-subtree(content.body) },
-      map-subtree(content.caption),
+      if "caption" in content.fields() { map-subtree(content.caption) },
     )
       .filter(x => x != none)
 
