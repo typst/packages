@@ -1,4 +1,4 @@
-# Typst-linguify
+# [Typst-linguify](https://github.com/jomaway/typst-linguify)
 
 Load strings for different languages easily. This can be useful if you create a package or template for multilingual usage. See the [gentle-clues package](https://github.com/jomaway/typst-gentle-clues) as an example.
 
