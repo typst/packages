@@ -11,11 +11,11 @@ Load strings for different languages easily. This can be useful if you create a 
 
 #show: linguify_config.with(data: lang_data, lang: "en");
 
-#linguify(abstract)  // Shows Abstract in the document.
+#linguify("abstract")  // Shows Abstract in the document.
 
 ```
 
-The `lang.toml` musst look like this:
+The `lang.toml` must look like this:
 
 ```toml
 default-lang = "en"
