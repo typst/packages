@@ -3,7 +3,7 @@
 A Typst package for typesetting proof trees. You can import this package with :
 
 ```typst
-#import "@preview/curryst:0.1.0"
+#import "@preview/curryst:0.1.1"
 ```
 
 ## Examples
