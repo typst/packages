@@ -1,0 +1,10 @@
+[package]
+name = "metro"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["fenjalien <https://github.com/fenjalien>", "Mc-Zen <https://github.com/Mc-Zen>"]
+license = "Apache-2.0"
+description = "Typset units and numbers with options."
+repository = "https://github.com/fenjalien/metro"
+exclude = ["manual.typ", "manual.pdf"]
+compiler = "0.10.0"
