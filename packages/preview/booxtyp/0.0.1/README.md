@@ -64,7 +64,7 @@ The templates `theorem`, `proposition`, `lemma`, `corollary`, `definition`,
 
 ## Example Document
 
-See [example.pdf](example/example.pdf) for an example PDF document. Its typ source is in [example.typ](example/example.typ).
+Download example PDF document: [example.pdf](https://github.com/Isaac-Fate/typst-packages/files/14219447/example.pdf). Its typ source is in [example.typ](example/example.typ).
 
 ## License
 
