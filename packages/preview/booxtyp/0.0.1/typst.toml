@@ -1,0 +1,7 @@
+[package]
+name = "booxtyp"
+version = "0.0.1"
+entrypoint = "src/lib.typ"
+authors = ["Isaac Fei"]
+license = "Apache 2.0"
+description = "A typst book template."
