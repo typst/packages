@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::fs;
 use std::io;
 use std::path::Path;
@@ -7,12 +8,16 @@ use anyhow::{bail, Context};
 use semver::Version;
 use serde::{Deserialize, Serialize};
 
+type ReleaseMap = HashMap<String, Option<u64>>;
+
 fn main() -> anyhow::Result<()> {
     fs::create_dir_all("dist/preview")?;
 
     println!("Starting bundling.");
 
     let mut index = vec![];
+    let mut release_dates: ReleaseMap = HashMap::new();
+
     for entry in walkdir::WalkDir::new("packages/preview")
         .min_depth(2)
         .max_depth(2)
@@ -25,7 +30,7 @@ fn main() -> anyhow::Result<()> {
 
         let path = entry.path();
         index.push(
-            process_package(path)
+            process_package(path, &mut release_dates)
                 .with_context(|| format!("failed to process package at {}", path.display()))?,
         );
     }
@@ -44,13 +49,16 @@ fn main() -> anyhow::Result<()> {
 }
 
 /// Create an archive for a package.
-fn process_package(path: &Path) -> anyhow::Result<ExtendedPackageInfo> {
+fn process_package(
+    path: &Path,
+    release_dates: &mut ReleaseMap,
+) -> anyhow::Result<ExtendedPackageInfo> {
     println!("Bundling {}.", path.display());
     let PackageManifest { package, .. } =
         parse_manifest(path).context("failed to parse package manifest")?;
     let buf = build_archive(path, &package.exclude).context("failed to build archive")?;
     let readme = read_readme(path)?;
-    let dates = package_dates(path)?;
+    let dates = package_dates(path, &package.name, release_dates)?;
     validate_archive(&buf).context("failed to validate archive")?;
     write_archive(&package, &buf).context("failed to write archive")?;
 
@@ -108,7 +116,11 @@ fn parse_manifest(path: &Path) -> anyhow::Result<PackageManifest> {
 }
 
 /// Retrieve the date of this and the first release using Git.
-fn package_dates(dir_path: &Path) -> anyhow::Result<(Option<u64>, Option<u64>)> {
+fn package_dates(
+    dir_path: &Path,
+    name: &str,
+    release_dates: &mut ReleaseMap,
+) -> anyhow::Result<(Option<u64>, Option<u64>)> {
     let get_timestamp = |path: &Path| -> anyhow::Result<Option<u64>> {
         // Call Git and get the Unix timestamp of a commit date (without using a
         // pager)
@@ -144,21 +156,28 @@ fn package_dates(dir_path: &Path) -> anyhow::Result<(Option<u64>, Option<u64>)> 
     let updated_at = get_timestamp(dir_path)?;
 
     // Iterate the sibling directories.
-    let parent = dir_path.parent().unwrap();
-    let mut released_at = updated_at;
+    let released_at = if let Some(released_at) = release_dates.get(name) {
+        *released_at
+    } else {
+        let parent = dir_path.parent().unwrap();
+        let mut released_at = updated_at;
 
-    for item in fs::read_dir(parent)? {
-        let item = item?;
-        let path = item.path();
-        if path.is_dir() && path != dir_path {
-            let time = get_timestamp(&path)?;
-            released_at = match (released_at, time) {
-                (None, _) => time,
-                (Some(r), Some(t)) if r > t => time,
-                _ => released_at,
+        for item in fs::read_dir(parent)? {
+            let item = item?;
+            let path = item.path();
+            if path.is_dir() && path != dir_path {
+                let time = get_timestamp(&path)?;
+                released_at = match (released_at, time) {
+                    (None, _) => time,
+                    (Some(r), Some(t)) if r > t => time,
+                    _ => released_at,
+                }
             }
         }
-    }
+
+        release_dates.insert(name.to_string(), released_at);
+        released_at
+    };
 
     Ok((updated_at, released_at))
 }
