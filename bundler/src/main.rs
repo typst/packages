@@ -1,6 +1,7 @@
 use std::fs;
 use std::io;
 use std::path::Path;
+use std::process::Command;
 
 use anyhow::{bail, Context};
 use semver::Version;
@@ -30,8 +31,12 @@ fn main() -> anyhow::Result<()> {
     }
 
     println!("Writing index.");
-    index.sort_by_key(|pkg| (pkg.name.clone(), pkg.version.clone()));
-    fs::write("dist/preview/index.json", serde_json::to_vec(&index)?)?;
+    index.sort_by_key(|pkg| (pkg.package.name.clone(), pkg.package.version.clone()));
+    fs::write(
+        "dist/preview/index.json",
+        serde_json::to_vec(&index.iter().map(|i| i.package.clone()).collect::<Vec<_>>())?,
+    )?;
+    fs::write("dist/preview/index.full.json", serde_json::to_vec(&index)?)?;
 
     println!("Done.");
 
@@ -39,14 +44,23 @@ fn main() -> anyhow::Result<()> {
 }
 
 /// Create an archive for a package.
-fn process_package(path: &Path) -> anyhow::Result<PackageInfo> {
+fn process_package(path: &Path) -> anyhow::Result<ExtendedPackageInfo> {
     println!("Bundling {}.", path.display());
     let PackageManifest { package, .. } =
         parse_manifest(path).context("failed to parse package manifest")?;
     let buf = build_archive(path, &package.exclude).context("failed to build archive")?;
+    let readme = read_readme(path)?;
+    let dates = package_dates(path)?;
     validate_archive(&buf).context("failed to validate archive")?;
     write_archive(&package, &buf).context("failed to write archive")?;
-    Ok(package)
+
+    Ok(ExtendedPackageInfo {
+        package,
+        readme,
+        size: buf.len(),
+        updated_at: dates.0,
+        released_at: dates.1,
+    })
 }
 
 /// Read and validate the package's manifest.
@@ -83,7 +97,76 @@ fn parse_manifest(path: &Path) -> anyhow::Result<PackageManifest> {
         bail!("package entry point is missing");
     }
 
+    if manifest.package.category.len() > 3 {
+        bail!(
+            "expected up to three categories, got {}",
+            manifest.package.category.len()
+        );
+    }
+
     Ok(manifest)
+}
+
+/// Retrieve the date of this and the first release using Git.
+fn package_dates(dir_path: &Path) -> anyhow::Result<(Option<u64>, Option<u64>)> {
+    let get_timestamp = |path: &Path| -> anyhow::Result<Option<u64>> {
+        // Call Git and get the Unix timestamp of a commit date (without using a
+        // pager)
+        let mut command = Command::new("git");
+        command.args(["-P", "log", "--no-patch", "--format=%ct"]);
+        command.arg(path.join("typst.toml"));
+
+        // Returns `None` if the Git command is not available.
+        // Fails if the Git reports an error or the number could not be parsed.
+        let out: Option<Result<u64, anyhow::Error>> = command.output().map_or(None, |s| {
+            if s.status.success() {
+                Some(
+                    String::from_utf8(s.stdout)
+                        .map_err(Into::into)
+                        .and_then(|s| {
+                            let newline_idx = s.find('\n');
+                            s[0..newline_idx.unwrap_or(s.len())]
+                                .parse()
+                                .map_err(Into::into)
+                        }),
+                )
+            } else {
+                Some(Err(anyhow::Error::msg(format!(
+                    "execution failed: {:?}",
+                    String::from_utf8(s.stderr)
+                ))))
+            }
+        });
+
+        out.transpose()
+    };
+
+    let updated_at = get_timestamp(dir_path)?;
+
+    // Iterate the sibling directories.
+    let parent = dir_path.parent().unwrap();
+    let mut released_at = updated_at;
+
+    for item in fs::read_dir(parent)? {
+        let item = item?;
+        let path = item.path();
+        if path.is_dir() && path != dir_path {
+            let time = get_timestamp(&path)?;
+            released_at = match (released_at, time) {
+                (None, _) => time,
+                (Some(r), Some(t)) if r > t => time,
+                _ => released_at,
+            }
+        }
+    }
+
+    Ok((updated_at, released_at))
+}
+
+/// Return the README file as a string.
+fn read_readme(dir_path: &Path) -> anyhow::Result<String> {
+    let path = dir_path.join("README.md");
+    fs::read_to_string(path).context("failed to read README.md")
 }
 
 /// Build a comrpessed archive for a directory.
@@ -169,6 +252,73 @@ struct PackageInfo {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     #[serde(default)]
     exclude: Vec<String>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    #[serde(default)]
+    category: Vec<PackageCategory>,
+}
+
+/// Which kind of package is this?
+#[derive(Debug, Copy, Clone, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "kebab-case")]
+enum PackageCategory {
+    /// Draw charts, plots, and figures.
+    DrawingPlots,
+    /// Icon packs
+    Icons,
+    /// Utility functions for code.
+    Utility,
+    /// Frameworks and helpers for handling external data and user input and
+    /// templates that allow representing a lot of data.
+    Data,
+    /// Tools to handle multilingual documents.
+    Localization,
+    /// Layout building blocks and helpers.
+    Layout,
+    /// Packages and templates that help the user structure their document in a
+    /// logical manner.
+    Organization,
+    /// Presentation builders and templates.
+    Presentation,
+    /// Tools for processing and styling string and text-heavy content.
+    Text,
+    /// Packages that improve typesetting formulas and equations.
+    Mathematics,
+    /// Packages that help to build a comprehensive bibliography.
+    Bibliography,
+    /// Templates and packages to write scientific papers.
+    Paper,
+    /// Domain-specific tools for scientific disciplines.
+    Science,
+    /// Templates and primitives for Curricula Vitae.
+    #[serde(rename = "cv")]
+    CV,
+    /// University-specific templates.
+    University,
+    /// Templates for calendars and time management.
+    Calendar,
+    /// Templates and packages to create letters.
+    Letter,
+    /// Templates and packages to create reports.
+    Report,
+    /// Templates for grant and research proposals.
+    Proposal,
+}
+
+#[derive(Debug, Clone, Eq, PartialEq, Serialize)]
+struct ExtendedPackageInfo {
+    /// The information from the package manifest.
+    #[serde(flatten)]
+    package: PackageInfo,
+    /// The compressed archive size in bytes.
+    size: usize,
+    /// The unsanitized README markdown.
+    readme: String,
+    /// Release time of this version of the package.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    updated_at: Option<u64>,
+    /// Release time of the first version of this package.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    released_at: Option<u64>,
 }
 
 /// The `tool` key in the manifest.
