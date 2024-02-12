@@ -324,6 +324,7 @@ enum PackageCategory {
 }
 
 #[derive(Debug, Clone, Eq, PartialEq, Serialize)]
+#[serde(rename_all = "camelCase")]
 struct ExtendedPackageInfo {
     /// The information from the package manifest.
     #[serde(flatten)]
