@@ -1,5 +1,5 @@
 [package]
-name = "scienceposters"
+name = "science-posters"
 version = "0.2.0"
 authors = ["Jonas Pleyer<jonas.sci@pleyer.org>"]
 license = "MIT"
