@@ -1,8 +1,11 @@
+use std::collections::HashMap;
 use std::fs;
 use std::io;
-use std::path::Path;
+use std::path::{Path, PathBuf};
+use std::process::Command;
 
 use anyhow::{bail, Context};
+use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use semver::Version;
 use serde::{Deserialize, Serialize};
 
@@ -11,6 +14,7 @@ fn main() -> anyhow::Result<()> {
 
     println!("Starting bundling.");
 
+    let mut paths = vec![];
     let mut index = vec![];
     for entry in walkdir::WalkDir::new("packages/preview")
         .min_depth(2)
@@ -22,16 +26,26 @@ fn main() -> anyhow::Result<()> {
             continue;
         }
 
-        let path = entry.path();
-        index.push(
-            process_package(path)
-                .with_context(|| format!("failed to process package at {}", path.display()))?,
-        );
+        let path = entry.into_path();
+        let info = process_package(&path)
+            .with_context(|| format!("failed to process package at {}", path.display()))?;
+
+        paths.push(path);
+        index.push(info);
     }
 
+    println!("Determining timestamps.");
+    determine_timestamps(&paths, &mut index)?;
+
+    // Sort the index.
+    index.sort_by_key(|info| (info.package.name.clone(), info.package.version.clone()));
+
     println!("Writing index.");
-    index.sort_by_key(|pkg| (pkg.name.clone(), pkg.version.clone()));
-    fs::write("dist/preview/index.json", serde_json::to_vec(&index)?)?;
+    fs::write(
+        "dist/preview/index.json",
+        serde_json::to_vec(&index.iter().map(|info| &info.package).collect::<Vec<_>>())?,
+    )?;
+    fs::write("dist/preview/index.full.json", serde_json::to_vec(&index)?)?;
 
     println!("Done.");
 
@@ -39,14 +53,25 @@ fn main() -> anyhow::Result<()> {
 }
 
 /// Create an archive for a package.
-fn process_package(path: &Path) -> anyhow::Result<PackageInfo> {
+fn process_package(path: &Path) -> anyhow::Result<ExtendedPackageInfo> {
     println!("Bundling {}.", path.display());
     let PackageManifest { package, .. } =
         parse_manifest(path).context("failed to parse package manifest")?;
+
     let buf = build_archive(path, &package.exclude).context("failed to build archive")?;
+    let readme = read_readme(path)?;
+
     validate_archive(&buf).context("failed to validate archive")?;
     write_archive(&package, &buf).context("failed to write archive")?;
-    Ok(package)
+
+    Ok(ExtendedPackageInfo {
+        package,
+        readme,
+        size: buf.len(),
+        // These will be filled in later.
+        updated_at: 0,
+        released_at: 0,
+    })
 }
 
 /// Read and validate the package's manifest.
@@ -84,6 +109,11 @@ fn parse_manifest(path: &Path) -> anyhow::Result<PackageManifest> {
     }
 
     Ok(manifest)
+}
+
+/// Return the README file as a string.
+fn read_readme(dir_path: &Path) -> anyhow::Result<String> {
+    fs::read_to_string(dir_path.join("README.md")).context("failed to read README.md")
 }
 
 /// Build a comrpessed archive for a directory.
@@ -136,6 +166,84 @@ fn write_archive(info: &PackageInfo, buf: &[u8]) -> anyhow::Result<()> {
     let path = format!("dist/preview/{}-{}.tar.gz", info.name, info.version);
     fs::write(path, buf)?;
     Ok(())
+}
+
+/// Determine all packages timestamps.
+fn determine_timestamps(
+    paths: &[PathBuf],
+    index: &mut [ExtendedPackageInfo],
+) -> anyhow::Result<()> {
+    // Determine timestamp via Git. Do this in parallel because it is pretty
+    // slow.
+    let timestamps = paths
+        .par_iter()
+        .map(|p| timestamp_for_path(p))
+        .collect::<Result<Vec<_>, _>>()?;
+
+    // Determine the release dates for all packages.
+    // It is the minimum update date for any of its versions.
+    let mut release_dates: HashMap<String, u64> = HashMap::new();
+    for (info, &t) in index.iter().zip(&timestamps) {
+        release_dates
+            .entry(info.package.name.clone())
+            .and_modify(|v| *v = (*v).min(t))
+            .or_insert(t);
+    }
+
+    // Write update & release dates.
+    for (info, &t) in index.iter_mut().zip(&timestamps) {
+        info.updated_at = t;
+        info.released_at = release_dates[&info.package.name];
+    }
+
+    Ok(())
+}
+
+/// Call Git and get the Unix timestamp of a commit date.
+fn timestamp_for_path(path: &Path) -> anyhow::Result<u64> {
+    // These commits should be ignored (they are moves).
+    const SKIP: &[&str] = &["d22a2d5c3e54d7abd7960650221eb08a7f3fc6ad"];
+
+    let mut command = Command::new("git");
+    command.args([
+        "--no-pager", // Disable interactivity with --no-pager.
+        "log",
+        "--no-patch",
+        "--follow",
+        "--format=%H %ct",
+    ]);
+    command.arg(path.join("typst.toml"));
+
+    // Fails if the Git reports an error or the number could not be parsed.
+    let output = command.output()?;
+    if !output.status.success() {
+        bail!("git failed: {}", std::str::from_utf8(&output.stderr)?);
+    }
+
+    std::str::from_utf8(&output.stdout)?
+        .lines()
+        .map(|line| line.split_whitespace())
+        .filter_map(|mut parts| parts.next().zip(parts.next()))
+        .find(|(hash, _)| !SKIP.contains(hash))
+        .and_then(|(_, ts)| ts.parse::<u64>().ok())
+        .context("failed to determine commit timestamp")
+}
+
+/// A parsed package manifest + extra metadata.
+#[derive(Debug, Clone, Eq, PartialEq, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct ExtendedPackageInfo {
+    /// The information from the package manifest.
+    #[serde(flatten)]
+    package: PackageInfo,
+    /// The compressed archive size in bytes.
+    size: usize,
+    /// The unsanitized README markdown.
+    readme: String,
+    /// Release time of this version of the package.
+    updated_at: u64,
+    /// Release time of the first version of this package.
+    released_at: u64,
 }
 
 /// A parsed package manifest.
