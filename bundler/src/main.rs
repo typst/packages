@@ -208,23 +208,32 @@ fn determine_timestamps(
 
 /// Call Git and get the Unix timestamp of a commit date.
 fn timestamp_for_path(path: &Path) -> anyhow::Result<u64> {
-    let mut command = Command::new("git");
+    // These commits should be ignored (they are moves).
+    const SKIP: &[&str] = &["d22a2d5c3e54d7abd7960650221eb08a7f3fc6ad"];
 
-    // Disable interactivity with --no-pager.
-    command.args(["--no-pager", "log", "-1", "--no-patch", "--format=%ct"]);
+    let mut command = Command::new("git");
+    command.args([
+        "--no-pager", // Disable interactivity with --no-pager.
+        "log",
+        "--no-patch",
+        "--follow",
+        "--format=%H %ct",
+    ]);
     command.arg(path.join("typst.toml"));
 
-    let output = command.output()?;
-
     // Fails if the Git reports an error or the number could not be parsed.
+    let output = command.output()?;
     if !output.status.success() {
-        bail!("execution failed: {:?}", String::from_utf8(output.stderr));
+        bail!("git failed: {}", std::str::from_utf8(&output.stderr)?);
     }
 
-    let stdout = String::from_utf8(output.stdout)?;
-    let newline_idx = stdout.find('\n');
-    let head = &stdout[0..newline_idx.unwrap_or(stdout.len())];
-    Ok(head.parse()?)
+    std::str::from_utf8(&output.stdout)?
+        .lines()
+        .map(|line| line.split_whitespace())
+        .filter_map(|mut parts| parts.next().zip(parts.next()))
+        .find(|(hash, _)| !SKIP.contains(hash))
+        .and_then(|(_, ts)| ts.parse::<u64>().ok())
+        .context("failed to determine commit timestamp")
 }
 
 /// A parsed package manifest + extra metadata.
