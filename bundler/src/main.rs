@@ -108,13 +108,6 @@ fn parse_manifest(path: &Path) -> anyhow::Result<PackageManifest> {
         bail!("package entry point is missing");
     }
 
-    if manifest.package.category.len() > 3 {
-        bail!(
-            "expected up to three categories, got {}",
-            manifest.package.category.len()
-        );
-    }
-
     Ok(manifest)
 }
 
@@ -284,56 +277,6 @@ struct PackageInfo {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     #[serde(default)]
     exclude: Vec<String>,
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    #[serde(default)]
-    category: Vec<PackageCategory>,
-}
-
-/// Which kind of package is this?
-#[derive(Debug, Copy, Clone, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
-enum PackageCategory {
-    /// Draw charts, plots, and figures.
-    DrawingPlots,
-    /// Icon packs.
-    Icons,
-    /// Utility functions for code.
-    Utility,
-    /// Frameworks and helpers for handling external data and user input and
-    /// templates that allow representing a lot of data.
-    Data,
-    /// Tools to handle multilingual documents.
-    Localization,
-    /// Layout building blocks and helpers.
-    Layout,
-    /// Packages and templates that help the user structure their document in a
-    /// logical manner.
-    Organization,
-    /// Presentation builders and templates.
-    Presentation,
-    /// Tools for processing and styling string and text-heavy content.
-    Text,
-    /// Packages that improve typesetting formulas and equations.
-    Mathematics,
-    /// Packages that help to build a comprehensive bibliography.
-    Bibliography,
-    /// Templates and packages to write scientific papers.
-    Paper,
-    /// Domain-specific tools for scientific disciplines.
-    Science,
-    /// Templates and primitives for Curricula Vitae.
-    #[serde(rename = "cv")]
-    CV,
-    /// University-specific templates.
-    University,
-    /// Templates for calendars and time management.
-    Calendar,
-    /// Templates and packages to create letters.
-    Letter,
-    /// Templates and packages to create reports.
-    Report,
-    /// Templates for grant and research proposals.
-    Proposal,
 }
 
 /// The `tool` key in the manifest.
