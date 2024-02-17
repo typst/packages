@@ -1,15 +1,56 @@
 #import "sample.typ": samples
 
 #set page(
-  width: 624pt,
-  height: 141pt,
+  width: 420pt,
+  height: 128.35pt,
   margin: 0pt
 )
 
-#samples.at(0)
+#style(styles => {
+  let content = pad(
+    y: 10pt,
+    samples.at(0)
+  )
 
-#pagebreak()
+  let frame = measure(content, styles)
 
-#set page(height: 102pt)
+  [
+    #content
 
-#samples.at(1)
+    // #frame.height
+  ]
+})
+
+#set page(height: 183.59pt)
+
+#style(styles => {
+  let content = pad(
+    y: 10pt,
+    samples.at(1)
+  )
+
+  let frame = measure(content, styles)
+
+  [
+    #content
+
+    // #frame.height
+  ]
+})
+
+#set page(height: 88.39pt)
+
+#style(styles => {
+  let content = pad(
+    y: 10pt,
+    samples.at(2)
+  )
+
+  let frame = measure(content, styles)
+
+  [
+    #content
+
+    // #frame.height
+  ]
+})

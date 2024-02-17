@@ -84,7 +84,7 @@ It will generate:
 #rect(inset: 1em)[
   *Remark*: To typeset CJK text, adopting font's ascender/descender as
   `top-edge`/`bottom-edge` makes more sense in some cases. As for most
-  CJK fonts, the difference between ascender and descender height will
+  CJK fonts, the difference between ascender and descender heights will
   be exact 1em.
 
   Tested with `metrics(54pt, "Hiragino Mincho ProN", "テレタイプ端末")`:
