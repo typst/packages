@@ -45,10 +45,7 @@
     caption: "The metrics of Hiragino Mincho ProN"
   )
 ).map(it => figure(
-  block(
-    inset: (y: 1em),
-    it.content
-  ),
+  it.content,
   caption: it.caption
 ))
 

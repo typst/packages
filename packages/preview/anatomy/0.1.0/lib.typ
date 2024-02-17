@@ -35,7 +35,10 @@
     let stroke_width = 0.5pt
     let description-size = (1 + 2 / 3) / 10 * 1em
 
-    block(width: 100%, above: 0pt, {
+    block(
+      width: 100%,
+      above: description-size,
+      below: description-size, {
       set align(left)
 
       box(
@@ -49,29 +52,25 @@
       )
 
       for edge in edges {
-        place(top,
-          move(
-            dy: get-metric(top-edge) -
-              get-metric(edge) - stroke_width / 2,
-            {
-              grid(
-                columns: 2,
-                gutter: description-size / 4,
-                line(
-                  length: 100%,
-                  stroke: stroke_width
-                ),
-
-                text(description-size,
-                  // Place edge description at the half of x-height
-                  top-edge: get-metric("x-height") / size / 2 * 1em,
-                  edge
-                )
-              )
-            }
+        place(top, move(
+          dy: get-metric(top-edge) - get-metric(edge) -
+            stroke_width / 2,
+          grid(
+            columns: 2,
+            gutter: description-size / 4,
+            line(
+              length: 100%,
+              stroke: stroke_width
+            ),
+            text(
+              description-size,
+              // Place edge description at the half of x-height
+              top-edge: get-metric("x-height") / size / 2 * 1em,
+              edge
+            )
           )
-        )
+        ))
       }
-  })
+    })
   })
 }
