@@ -39,8 +39,20 @@
   (
     content: metrics(
       54pt,
+      "一點明體",
+      "電傳打字機",
+      typeset: metrics => table(
+        columns: 2,
+        ..metrics.pairs().flatten().map(x => [ #x ])
+      )
+    ),
+    caption: "The metrics of I.Ming (table attached)"
+  ),
+  (
+    content: metrics(
+      54pt,
       "Hiragino Mincho ProN",
-      "電傳打字機"
+      "テレタイプ端末"
     ),
     caption: "The metrics of Hiragino Mincho ProN"
   )
@@ -53,13 +65,29 @@
 
 #samples.at(0)
 
+Additionally, a closure using `metrics` dictionary as parameter can be
+specified for further typesetting:
+
+```typ
+metrics(54pt, "一點明體", "電傳打字機",
+  typeset: metrics => table(
+    columns: 2,
+    ..metrics.pairs().flatten().map(x => [ #x ])
+  )
+)
+```
+
+It will generate:
+
+#samples.at(1)
+
 #rect(inset: 1em)[
   *Remark*: To typeset CJK text, adopting font's ascender/descender as
   `top-edge`/`bottom-edge` makes more sense in some cases. As for most
   CJK fonts, the difference between ascender and descender height will
   be exact 1em.
 
-  Tested with `metrics(54pt, "Hiragino Mincho ProN", "電傳打字機")`:
+  Tested with `metrics(54pt, "Hiragino Mincho ProN", "テレタイプ端末")`:
 
-  #samples.at(1)
+  #samples.at(2)
 ]
