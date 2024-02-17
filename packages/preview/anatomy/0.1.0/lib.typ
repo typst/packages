@@ -5,7 +5,6 @@
   bottom-edges: ( "descender", ),
   typeset: ((:)) => []
 ) = style(styles => {
-  // Calulate metrics and update their corresponding states
   let edges = top-edges + bottom-edges
 
   let get-metric(edge, above-baseline: true) = {
