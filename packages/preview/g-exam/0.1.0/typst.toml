@@ -1,0 +1,9 @@
+[package]
+name = "g-exam"
+version = "0.1.0"
+entrypoint = "g-exam.typ"
+authors = ["Andrés Giménez Muñoz"]
+description = "Create exams with student information, grade chart, score control, questions, and sub-questions."
+keyworks = ["exam, question"]
+repository = "https://github.com/MatheSchool/typst-g-exam"
+exclude = ["/examples/*"]
