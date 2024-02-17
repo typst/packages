@@ -10,7 +10,7 @@ If you like it, consider [giving a star on GitHub](https://github.com/touying-ty
 ![GitHub](https://img.shields.io/github/license/touying-typ/touying)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/touying-typ/touying)
 ![GitHub Repo stars](https://img.shields.io/github/stars/touying-typ/touying)
-![Themes badge](https://img.shields.io/badge/themes-3-aqua)
+![Themes badge](https://img.shields.io/badge/themes-4-aqua)
 
 ## Document
 
