@@ -18,7 +18,7 @@ Template to create exams with header, school letterhead, grade chart, ...
 ### Minimal Example
 
 ``` typ
-#import "../g-exam.typ": g-exam, g-question, g-subquestion
+#import "@preview/g-exam:0.1.0": g-exam, g-question, g-subquestion
 
 #show: g-exam.with(
     #g-question(point: 2)[Question 1]
@@ -31,7 +31,7 @@ Template to create exams with header, school letterhead, grade chart, ...
 ### Minimal Example with sub-question
 
 ``` typst
-#import "../g-exam.typ": g-exam, g-question, g-subquestion
+#import "@preview/g-exam:0.1.0": g-exam, g-question, g-subquestion
 
 #show: g-exam.with(
     #g-question[Question 1]
@@ -48,7 +48,10 @@ Template to create exams with header, school letterhead, grade chart, ...
 ```
 ### Full sample of an exam.
 
-[Example of exam](examples/exam-001.pdf)
+  1. [Example of exam with punctuation](examples/exam-001.pdf)
+  1. [Example of exam with question only](examples/exam-002.pdf)
+  1. [Example of exam with subquestion](examples/exam-003.pdf)
+  1. [Example of exam with punctuation](examples/exam-005.pdf)
 
 # Usage 
 
