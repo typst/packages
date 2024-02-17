@@ -15,10 +15,10 @@ Import the `anatomy` package:
 ![](https://github.com/E8D08F/packages/raw/main/packages/preview/anatomy/0.1.0/img/export1.svg)
 
 **Remark**: To typeset CJK text, adopting font’s ascender/descender as
-  `top-edge`/`bottom-edge` makes more sense in some cases. As for most
-  CJK fonts, the difference between ascender and descender height will
-  be exact 1em.
+`top-edge`/`bottom-edge` makes more sense in some cases. As for most
+CJK fonts, the difference between ascender and descender heights will
+be exact 1em.
 
-  Tested with `metrics(54pt, "Hiragino Mincho ProN", "電傳打字機")`:
+Tested with `metrics(54pt, "Hiragino Mincho ProN", "電傳打字機")`:
 
 ![](https://github.com/E8D08F/packages/raw/main/packages/preview/anatomy/0.1.0/img/export2.svg)
