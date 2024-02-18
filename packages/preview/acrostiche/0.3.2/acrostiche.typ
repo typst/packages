@@ -84,7 +84,8 @@
   state(state-key,false).update(true)
 }
 
-#let print-index(level: 1, numbering: none, outlined: false, sorted:"", title:"Acronyms Index", delimiter:":", inset: 5pt) = {
+#let print-index(level: 1, numbering: none, outlined: false, sorted:"",
+                 title:"Acronyms Index", delimiter:":", row-gutter: 2pt) = {
   //Print an index of all the acronyms and their definitions.
   // Args:
   //   level: level of the heading. Default to 1.
@@ -116,7 +117,7 @@
     table(
       columns: (20%,80%),
       stroke: none,
-      inset: inset,
+      row-gutter: row-gutter,
       ..for acr in acr-list{
         let acr-long = acronyms.at(acr)
         let acr-long = if type(acr-long) == array {
