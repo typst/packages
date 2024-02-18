@@ -84,7 +84,7 @@
   state(state-key,false).update(true)
 }
 
-#let print-index(level: 1, outlined: false, sorted:"", title:"Acronyms Index", delimiter:":", inset: 5pt) = {
+#let print-index(level: 1, numbering: none, outlined: false, sorted:"", title:"Acronyms Index", delimiter:":", inset: 5pt) = {
   //Print an index of all the acronyms and their definitions.
   // Args:
   //   level: level of the heading. Default to 1.
@@ -97,7 +97,7 @@
   assert(sorted in ("","up","down"), message:"Sorted must be a string either \"\", \"up\" or \"down\"")
 
   if title != ""{
-    heading(level: level, outlined: outlined)[#title]
+    heading(level: level, numbering: numbering, outlined: outlined)[#title]
   }
 
   state("acronyms",none).display(acronyms=>{
