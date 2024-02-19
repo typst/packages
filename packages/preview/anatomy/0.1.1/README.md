@@ -10,7 +10,7 @@ Import the `anatomy` package:
 
 ## Display Metrics
 
-`metrics(72pt, "EB Garamond", "Typewriter")` will be rendered as
+`metrics(72pt, "EB Garamond", display: "Typewriter")` will be rendered as
 follows:
 
 ![](https://github.com/E8D08F/packages/raw/main/packages/preview/anatomy/0.1.1/img/export-1.svg)
