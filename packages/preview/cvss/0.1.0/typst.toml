@@ -1,0 +1,7 @@
+[package]
+name = "cvss"
+version = "0.1.0"
+entrypoint = "src/main.typ"
+authors = ["Drake Axelrod <drakeaxelrod@gmail.com>"]
+license = "MIT"
+description = "Library package for cvss calculation"
