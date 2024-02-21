@@ -4,8 +4,6 @@ A Typst library for writing simple tables.
 
 ## Usage
 
-**WARNING: This library is not in `preview` namespace.**
-
 ```typst
 #import "@preview/easytable:0.1.0": easytable, elem
 #import elem: *
@@ -13,7 +11,16 @@ A Typst library for writing simple tables.
 
 ## Manual
 
-See [manual](./manual.pdf).
+- You can create a table by specifying data or layout elements as arguments to the `easytable` function.
+- The following elements are provided in the `elem` module.
+    - `elem.td`: a data row
+    - `elem.th`: a header row
+    - `elem.hline`: a horizontal line
+    - `elem.vline`: a vertical line
+    - `elem.cwidth`: a column-width specifier
+    - `elem.cstyle`: a column-style (font, alignment, etc.) specifier
+
+See [manual](./manual.pdf) in detail.
 
 ## Examples
 
