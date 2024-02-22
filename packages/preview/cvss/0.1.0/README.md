@@ -181,6 +181,41 @@ Ensure you have the Typst CLI installed.
 // )
 ```
 
+5. The library also provides a `verify` function to check if a string is a valid CVSS string.
+
+```typ
+#cvss.verify("CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H") // => true
+```
+
+6. The library also provides a `dict2str` function to convert a structured object into a CVSS string, and a `str2dict` function to convert a CVSS string into a structured object.
+
+```typ
+#cvss.dict2str(
+  AV: "N",
+  AC: "L",
+  PR: "N",
+  UI: "N",
+  S: "U",
+  C: "L",
+  I: "L",
+  A: "H",
+  version: "3.1"
+) // => "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H"
+
+#cvss.str2dict("CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H")
+// (
+//  AV: "N",
+//  AC: "L",
+//  PR: "N",
+//  UI: "N",
+//  S: "U",
+//  C: "L",
+//  I: "L",
+//  A: "H",
+//  version: "3.1"
+// )
+```
+
 all functions / variables contained in the library are the following:
 
 - `score` - a function that takes a CVSS string and returns the CVSS score as a float.
@@ -188,6 +223,8 @@ all functions / variables contained in the library are the following:
 - `metrics` - a function that takes a CVSS string and returns the CVSS metrics as a structured object.
 - `parse` - a function that takes a CVSS string and returns a structured object containing the CVSS score, severity, and metrics.
 - `verify` - a function that takes a CVSS string and returns a boolean indicating whether the string is a valid CVSS string.
+- `dict2str` - a function that takes a structured object and returns a CVSS string. (doesn't have a lot of checks, so use with caution)
+- `str2dict` - a function that takes a CVSS string and returns a structured object. (doesn't have a lot of checks, so use with caution)
 - `NONE` - a pseudo constant representing the "None" severity level.
 - `LOW` - a pseudo constant representing the "Low" severity level.
 - `MEDIUM` - a pseudo constant representing the "Medium" severity level.
