@@ -8,7 +8,7 @@
   ),
   school: (
     name: "Sunrise Secondary School",
-    logo: "./examples/logo.png",
+    logo: read("./logo.png", encoding: none),
   ),
   exam-info: (
     academic-period: "Academic year 2023/2024",

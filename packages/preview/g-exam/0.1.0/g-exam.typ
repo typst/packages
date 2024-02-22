@@ -442,8 +442,16 @@
               columns: (auto, auto),
               gutter:0.7em,        
               align(left + top)[
-                  #if(school.logo != none) {
-                  image(school.logo, height:2.5cm, fit: "contain")
+                #if(school.at("logo", default : none) != none) {
+                  if(type(school.logo) == "content") {
+                    school.logo
+                  }
+                  else if(type(school.logo) == "bytes") {
+                    image.decode(school.logo, height:2.5cm, fit:"contain")
+                  }
+                  else {
+                    assert(type(school.logo) in (none, "content", "bytes") , message: "school.logo be of type content or bytes.")
+                  }
                 }
               ],
               grid(
