@@ -13,7 +13,7 @@ A Typst library for writing simple tables.
 
 - You can create a table by specifying data or layout elements as arguments to the `easytable` function.
 - The following elements are provided in the `elem` module.
-    - `elem.td`: a data row
+    - `elem.tr`: a data row
     - `elem.th`: a header row
     - `elem.hline`: a horizontal line
     - `elem.vline`: a vertical line
@@ -29,11 +29,11 @@ See [manual](./manual.pdf) in detail.
 ```typst
 #easytable({
   th[Header 1 ][Header 2][Header 3  ]
-  td[How      ][I       ][want      ]
-  td[a        ][drink,  ][alcoholic ]
-  td[of       ][course, ][after     ]
-  td[the      ][heavy   ][lectures  ]
-  td[involving][quantum ][mechanics.]
+  tr[How      ][I       ][want      ]
+  tr[a        ][drink,  ][alcoholic ]
+  tr[of       ][course, ][after     ]
+  tr[the      ][heavy   ][lectures  ]
+  tr[involving][quantum ][mechanics.]
 })
 ```
 
@@ -46,11 +46,11 @@ See [manual](./manual.pdf) in detail.
   cwidth(100pt, 1fr, 20%)
   cstyle(left, center, right)
   th[Header 1 ][Header 2][Header 3  ]
-  td[How      ][I       ][want      ]
-  td[a        ][drink,  ][alcoholic ]
-  td[of       ][course, ][after     ]
-  td[the      ][heavy   ][lectures  ]
-  td[involving][quantum ][mechanics.]
+  tr[How      ][I       ][want      ]
+  tr[a        ][drink,  ][alcoholic ]
+  tr[of       ][course, ][after     ]
+  tr[the      ][heavy   ][lectures  ]
+  tr[involving][quantum ][mechanics.]
 })
 ```
 
@@ -60,14 +60,14 @@ See [manual](./manual.pdf) in detail.
 
 ```typst
 #easytable({
-  let td = td.with(trans: pad.with(x: 3pt))
+  let tr = tr.with(trans: pad.with(x: 3pt))
 
   th[Header 1][Header 2][Header 3]
-  td[How][I][want]
-  td[a][drink,][alcoholic]
-  td[of][course,][after]
-  td[the][heavy][lectures]
-  td[involving][quantum][mechanics.]
+  tr[How][I][want]
+  tr[a][drink,][alcoholic]
+  tr[of][course,][after]
+  tr[the][heavy][lectures]
+  tr[involving][quantum][mechanics.]
 })
 ```
 
@@ -76,7 +76,7 @@ See [manual](./manual.pdf) in detail.
 ```typst
 #easytable({
   let th = th.with(trans: emph)
-  let td = td.with(
+  let tr = tr.with(
     cell_style: (x: none, y: none)
       => (fill: if calc.even(y) {
         luma(95%)
@@ -86,11 +86,11 @@ See [manual](./manual.pdf) in detail.
   )
 
   th[Header 1][Header 2][Header 3]
-  td[How][I][want]
-  td[a][drink,][alcoholic]
-  td[of][course,][after]
-  td[the][heavy][lectures]
-  td[involving][quantum][mechanics.]
+  tr[How][I][want]
+  tr[a][drink,][alcoholic]
+  tr[of][course,][after]
+  tr[the][heavy][lectures]
+  tr[involving][quantum][mechanics.]
 })
 ```
 
@@ -100,12 +100,12 @@ See [manual](./manual.pdf) in detail.
 ```typst
 #easytable({
   th[Header 1][Header 2][Header 3]
-  td[How][I][want]
+  tr[How][I][want]
   hline(stroke: red)
-  td[a][drink,][alcoholic]
-  td[of][course,][after]
-  td[the][heavy][lectures]
-  td[involving][quantum][mechanics.]
+  tr[a][drink,][alcoholic]
+  tr[of][course,][after]
+  tr[the][heavy][lectures]
+  tr[involving][quantum][mechanics.]
 
   // Specifying the insertion point directly
   hline(stroke: 2pt + green, y: 4)

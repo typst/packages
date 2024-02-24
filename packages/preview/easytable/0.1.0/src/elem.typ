@@ -24,7 +24,7 @@
 }
 
 /// Add table row data.
-#let td(trans: none, trans_by_idx: none, cell_style: none, ..columns) = {
+#let tr(trans: none, trans_by_idx: none, cell_style: none, ..columns) = {
   let cell_trans = if trans != none {
     (x: none, y: none, c) => trans(c)
   } else if trans_by_idx != none {
@@ -53,7 +53,7 @@
   trans_by_idx: none,
   cell_style: none,
   ..columns,
-) = (..td(
+) = (..tr(
   trans: trans,
   trans_by_idx: trans_by_idx,
   cell_style: cell_style,
