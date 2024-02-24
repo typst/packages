@@ -1,0 +1,17 @@
+[package]
+name = "charged-ieee"
+version = "0.1.0"
+compiler = "0.10.0"
+entrypoint = "template.typ"
+repository = "https://github.com/typst/templates"
+authors = ["Typst GmbH <https://typst.app>"]
+license = "Unlicense"
+description = "Create an IEEE-style paper to publish at conferences and journals for Electrical Engineers, Computer Science, and Computer Engineering"
+keywords = [ "Institute of Electrical and Electronics Engineers", "IEEE", "Electrical Engineering", "Computer Science", "Computer Engineering", "Software" ]
+
+[[package.templates]]
+name = "Journal paper"
+path = "template"
+description = "A two-column journal-style paper for IEEE conferences and journals"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
