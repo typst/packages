@@ -8,6 +8,7 @@ publish = false
 anyhow = "1"
 flate2 = "1"
 ignore = "0.4"
+image = { version = "0.24.9", default-features = false, features = ["png", "webp", "webp-encoder"] }
 rayon = "1.0"
 semver = { version = "1", features = ["serde"] }
 serde = { version = "1", features = ["derive"] }

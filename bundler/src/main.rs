@@ -1,11 +1,16 @@
+use std::borrow::Cow;
 use std::collections::HashMap;
 use std::env::args;
 use std::fs;
+use std::fs::File;
 use std::io;
+use std::io::BufReader;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
 use anyhow::{bail, Context};
+use image::codecs::webp::{WebPEncoder, WebPQuality};
+use image::imageops::FilterType;
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use semver::Version;
 use serde::{Deserialize, Serialize};
@@ -76,12 +81,12 @@ fn main() -> anyhow::Result<()> {
         determine_timestamps(&paths, &mut index)?;
 
         // Sort the index.
-        index.sort_by_key(|info| (info.package.name.clone(), info.package.version.clone()));
+        index.sort_by_key(|info| (info.base.name.clone(), info.base.version.clone()));
 
         println!("Writing index.");
         fs::write(
             Path::new(&out_dir).join(namespace).join("index.json"),
-            serde_json::to_vec(&index.iter().map(|info| &info.package).collect::<Vec<_>>())?,
+            serde_json::to_vec(&index.iter().map(|info| &info.base).collect::<Vec<_>>())?,
         )?;
         fs::write(
             Path::new(&out_dir).join(namespace).join("index.full.json"),
@@ -121,14 +126,16 @@ fn process_package(
     let PackageManifest { package, .. } =
         parse_manifest(path, namespace).context("failed to parse package manifest")?;
 
-    let buf = build_archive(path, &package.exclude).context("failed to build archive")?;
+    let exclude = build_exclude_list(&package)?;
+    let buf = build_archive(path, &exclude).context("failed to build archive")?;
     let readme = read_readme(path)?;
 
     validate_archive(&buf).context("failed to validate archive")?;
     write_archive(&package, &buf, namespace, out_dir).context("failed to write archive")?;
+    write_thumbnails(path, &package, namespace, out_dir).context("failed to write thumbnails")?;
 
     Ok(ExtendedPackageInfo {
-        package,
+        base: package,
         readme,
         size: buf.len(),
         // These will be filled in later.
@@ -167,11 +174,85 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
     }
 
     let entrypoint = path.join(&manifest.package.entrypoint);
-    if !entrypoint.exists() {
-        bail!("package entry point is missing");
+    check_typst_file(&entrypoint, "entrypoint")?;
+
+    for template in &manifest.package.templates {
+        validate_template(path, template)?;
     }
 
     Ok(manifest)
+}
+
+fn validate_template(path: &Path, template: &TemplateStartingPoint) -> anyhow::Result<()> {
+    let template_path = path.join(&template.path);
+    let entrypoint = template_path.join(&template.entrypoint);
+    check_typst_file(&entrypoint, "template entrypoint")?;
+
+    let thumbnail = template_path.join(&template.thumbnail);
+    let thumbnail_read =
+        BufReader::new(File::open(&thumbnail).context("failed to open thumbnail")?);
+
+    // The thumbnail must be a valid PNG or WebP image file. Its longest edge
+    // shall be at least 1080px long.
+
+    let extension = thumbnail
+        .extension()
+        .context("thumbnail has no extension")?
+        .to_ascii_lowercase();
+
+    if extension != "png" && extension != "webp" {
+        bail!("thumbnail must be a PNG or WebP image");
+    }
+
+    let image = image::load(
+        thumbnail_read,
+        if extension == "png" {
+            image::ImageFormat::Png
+        } else {
+            image::ImageFormat::WebP
+        },
+    )?;
+    let longest_edge = image.width().max(image.height());
+
+    if longest_edge < 1080 {
+        bail!("each thumbnail's longest edge must be at least 1080px long");
+    }
+
+    Ok(())
+}
+
+// Check that a Typst file exists, its name ends in `.typ`, and it is valid
+// UTF-8.
+fn check_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
+    if !path.exists() {
+        bail!("{} is missing", name);
+    }
+
+    if path.extension().map_or(true, |ext| ext != "typ") {
+        bail!("{} must have a .typ extension", name);
+    }
+
+    fs::read_to_string(path).context("failed to read Typst file")?;
+    Ok(())
+}
+
+fn build_exclude_list(package: &PackageInfo) -> anyhow::Result<Cow<[String]>> {
+    if package.templates.is_empty() {
+        return Ok(Cow::Borrowed(&package.exclude));
+    }
+
+    let mut exclude = package.exclude.clone();
+    for template in &package.templates {
+        exclude.push(
+            Path::new(&template.entrypoint)
+                .join(&template.thumbnail)
+                .to_str()
+                .context("Thumbnail path is not valid UTF-8")?
+                .to_owned(),
+        )
+    }
+
+    Ok(Cow::Owned(exclude))
 }
 
 /// Return the README file as a string.
@@ -239,6 +320,85 @@ fn write_archive(
     Ok(())
 }
 
+/// Write any thumbnail images to the `dist` directory.
+fn write_thumbnails(
+    path: &Path,
+    info: &PackageInfo,
+    namespace: &str,
+    out_dir: &Path,
+) -> anyhow::Result<()> {
+    let thumbnail_root = out_dir.join(namespace).join("thumbnails");
+
+    for (i, template) in info.templates.iter().enumerate() {
+        let orig_thumbnail_path = path.join(&template.path).join(&template.thumbnail);
+
+        // Thumbnails that are WebP and already and smaller than 3MB should be
+        // copied as-is.
+        let was_webp = orig_thumbnail_path
+            .extension()
+            .map_or(false, |ext| ext.to_ascii_lowercase() == "webp");
+
+        // Get file size.
+        let size = fs::metadata(&orig_thumbnail_path)?.len();
+        let keep_original = was_webp && size < 3 * 1024 * 1024;
+
+        let image = image::open(&orig_thumbnail_path)?;
+        // Choose a fast filter for the miniature.
+        let miniature = image.resize(400, 400, FilterType::CatmullRom);
+
+        let thumbnail_path =
+            thumbnail_root.join(format!("{}-{}-{}-small.webp", info.name, info.version, i));
+
+        let mut miniature_buf = Vec::new();
+
+        // A big fight is going on in the Image crate's GitHub: They want to
+        // remove the C dependency for WebP encoding but the Rust alternative
+        // does not support lossy encoding. Many people are unhappy about this.
+        #[allow(deprecated)]
+        let miniature_encoder =
+            WebPEncoder::new_with_quality(&mut miniature_buf, WebPQuality::lossy(85));
+
+        miniature_encoder.encode(
+            miniature.to_rgb8().as_raw(),
+            miniature.width(),
+            miniature.height(),
+            image::ColorType::Rgb8,
+        )?;
+
+        fs::write(thumbnail_path, miniature_buf)?;
+
+        let thumbnail_path =
+            thumbnail_root.join(format!("{}-{}-{}.webp", info.name, info.version, i));
+
+        if keep_original {
+            fs::copy(&orig_thumbnail_path, thumbnail_path)?;
+            return Ok(());
+        }
+
+        // The WebP file was too big if keep_original is false.
+        let resize = was_webp || image.width() * image.height() < 3000 * 2000;
+
+        let resized = if resize {
+            image.resize(1920, 1920, FilterType::Lanczos3)
+        } else {
+            image
+        };
+
+        let mut buf = Vec::new();
+        #[allow(deprecated)]
+        let encoder = WebPEncoder::new_with_quality(&mut buf, WebPQuality::lossy(98));
+        encoder.encode(
+            resized.to_rgb8().as_raw(),
+            resized.width(),
+            resized.height(),
+            image::ColorType::Rgb8,
+        )?;
+
+        fs::write(thumbnail_path, buf)?;
+    }
+    Ok(())
+}
+
 /// Determine all packages timestamps.
 fn determine_timestamps(
     paths: &[PathBuf],
@@ -265,7 +425,7 @@ fn determine_timestamps(
     let mut release_dates: HashMap<String, u64> = HashMap::new();
     for (info, &t) in index.iter().zip(&timestamps) {
         release_dates
-            .entry(info.package.name.clone())
+            .entry(info.base.name.clone())
             .and_modify(|v| *v = (*v).min(t))
             .or_insert(t);
     }
@@ -273,7 +433,7 @@ fn determine_timestamps(
     // Write update & release dates.
     for (info, &t) in index.iter_mut().zip(&timestamps) {
         info.updated_at = t;
-        info.released_at = release_dates[&info.package.name];
+        info.released_at = release_dates[&info.base.name];
     }
 
     Ok(())
@@ -324,7 +484,7 @@ fn timestamp_for_path_with_fs(path: &Path) -> anyhow::Result<u64> {
 struct ExtendedPackageInfo {
     /// The information from the package manifest.
     #[serde(flatten)]
-    package: PackageInfo,
+    base: PackageInfo,
     /// The compressed archive size in bytes.
     size: usize,
     /// The unsanitized README markdown.
@@ -333,6 +493,26 @@ struct ExtendedPackageInfo {
     updated_at: u64,
     /// Release time of the first version of this package.
     released_at: u64,
+}
+
+/// A parsed package manifest with the release time.
+#[derive(Debug, Clone, Eq, PartialEq, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct IndexPackageInfo {
+    /// The information from the package manifest.
+    #[serde(flatten)]
+    package: PackageInfo,
+    /// Release time of this version of the package.
+    updated_at: u64,
+}
+
+impl IndexPackageInfo {
+    fn from_extended(info: &ExtendedPackageInfo) -> Self {
+        Self {
+            package: info.base.clone(),
+            updated_at: info.updated_at,
+        }
+    }
 }
 
 /// A parsed package manifest.
@@ -366,6 +546,21 @@ struct PackageInfo {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     #[serde(default)]
     exclude: Vec<String>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    #[serde(default)]
+    templates: Vec<TemplateStartingPoint>,
+}
+
+/// A starting point for a template.
+#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct TemplateStartingPoint {
+    name: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    description: Option<String>,
+    path: String,
+    entrypoint: String,
+    thumbnail: String,
 }
 
 /// The `tool` key in the manifest.
