@@ -9,16 +9,14 @@ use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use semver::Version;
 use serde::{Deserialize, Serialize};
 
-fn main() -> anyhow::Result<()> {
-    fs::create_dir_all("dist/preview")?;
+const DIST: &str = "dist";
 
+fn main() -> anyhow::Result<()> {
     println!("Starting bundling.");
 
-    let mut paths = vec![];
-    let mut index = vec![];
-    for entry in walkdir::WalkDir::new("packages/preview")
-        .min_depth(2)
-        .max_depth(2)
+    for entry in walkdir::WalkDir::new("packages")
+        .min_depth(1)
+        .max_depth(1)
         .sort_by_file_name()
     {
         let entry = entry?;
@@ -27,25 +25,47 @@ fn main() -> anyhow::Result<()> {
         }
 
         let path = entry.into_path();
-        let info = process_package(&path)
-            .with_context(|| format!("failed to process package at {}", path.display()))?;
+        let namespace = path
+            .file_name()
+            .ok_or_else(|| anyhow::Error::msg("cannot read namespace folder name"))?
+            .to_str()
+            .context("invalid namespace")?;
 
-        paths.push(path);
-        index.push(info);
+        println!("Processing namespace: {}", namespace);
+        let mut paths = vec![];
+        let mut index = vec![];
+        fs::create_dir_all(Path::new(DIST).join(namespace))?;
+
+        for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
+            let entry = entry?;
+            if !entry.metadata()?.is_dir() {
+                continue;
+            }
+
+            let path = entry.into_path();
+            let info = process_package(&path, namespace)
+                .with_context(|| format!("failed to process package at {}", path.display()))?;
+
+            paths.push(path);
+            index.push(info);
+        }
+
+        println!("Determining timestamps.");
+        determine_timestamps(&paths, &mut index)?;
+
+        // Sort the index.
+        index.sort_by_key(|info| (info.package.name.clone(), info.package.version.clone()));
+
+        println!("Writing index.");
+        fs::write(
+            Path::new(&DIST).join(namespace).join("index.json"),
+            serde_json::to_vec(&index.iter().map(|info| &info.package).collect::<Vec<_>>())?,
+        )?;
+        fs::write(
+            Path::new(&DIST).join(namespace).join("index.full.json"),
+            serde_json::to_vec(&index)?,
+        )?;
     }
-
-    println!("Determining timestamps.");
-    determine_timestamps(&paths, &mut index)?;
-
-    // Sort the index.
-    index.sort_by_key(|info| (info.package.name.clone(), info.package.version.clone()));
-
-    println!("Writing index.");
-    fs::write(
-        "dist/preview/index.json",
-        serde_json::to_vec(&index.iter().map(|info| &info.package).collect::<Vec<_>>())?,
-    )?;
-    fs::write("dist/preview/index.full.json", serde_json::to_vec(&index)?)?;
 
     println!("Done.");
 
@@ -53,16 +73,16 @@ fn main() -> anyhow::Result<()> {
 }
 
 /// Create an archive for a package.
-fn process_package(path: &Path) -> anyhow::Result<ExtendedPackageInfo> {
+fn process_package(path: &Path, namespace: &str) -> anyhow::Result<ExtendedPackageInfo> {
     println!("Bundling {}.", path.display());
     let PackageManifest { package, .. } =
-        parse_manifest(path).context("failed to parse package manifest")?;
+        parse_manifest(path, namespace).context("failed to parse package manifest")?;
 
     let buf = build_archive(path, &package.exclude).context("failed to build archive")?;
     let readme = read_readme(path)?;
 
     validate_archive(&buf).context("failed to validate archive")?;
-    write_archive(&package, &buf).context("failed to write archive")?;
+    write_archive(&package, &buf, namespace).context("failed to write archive")?;
 
     Ok(ExtendedPackageInfo {
         package,
@@ -75,13 +95,13 @@ fn process_package(path: &Path) -> anyhow::Result<ExtendedPackageInfo> {
 }
 
 /// Read and validate the package's manifest.
-fn parse_manifest(path: &Path) -> anyhow::Result<PackageManifest> {
+fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifest> {
     let src = fs::read_to_string(path.join("typst.toml"))?;
 
     let manifest: PackageManifest = toml::from_str(&src)?;
     let expected = format!(
-        "packages/preview/{}/{}",
-        manifest.package.name, manifest.package.version
+        "packages/{}/{}/{}",
+        namespace, manifest.package.name, manifest.package.version
     );
 
     if path != Path::new(&expected) {
@@ -161,9 +181,12 @@ fn validate_archive(buf: &[u8]) -> anyhow::Result<()> {
     Ok(())
 }
 
-/// Write a compressed archive to the `dist` directory.
-fn write_archive(info: &PackageInfo, buf: &[u8]) -> anyhow::Result<()> {
-    let path = format!("dist/preview/{}-{}.tar.gz", info.name, info.version);
+/// Write a compressed archive to the `DIST` directory.
+fn write_archive(info: &PackageInfo, buf: &[u8], namespace: &str) -> anyhow::Result<()> {
+    let path = format!(
+        "{}/{}/{}-{}.tar.gz",
+        DIST, namespace, info.name, info.version
+    );
     fs::write(path, buf)?;
     Ok(())
 }
