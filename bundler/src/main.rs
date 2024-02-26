@@ -1,3 +1,4 @@
+use core::time;
 use std::collections::HashMap;
 use std::env::args;
 use std::fs;
@@ -218,11 +219,20 @@ fn determine_timestamps(
     paths: &[PathBuf],
     index: &mut [ExtendedPackageInfo],
 ) -> anyhow::Result<()> {
+    // Check if git is installed on the system.
+    let has_git = Command::new("git").arg("--version").status().is_ok();
+
     // Determine timestamp via Git. Do this in parallel because it is pretty
     // slow.
     let timestamps = paths
         .par_iter()
-        .map(|p| timestamp_for_path(p))
+        .map(|p| {
+            if has_git {
+                timestamp_for_path_with_git(p)
+            } else {
+                timestamp_for_path_with_fs(p)
+            }
+        })
         .collect::<Result<Vec<_>, _>>()?;
 
     // Determine the release dates for all packages.
@@ -245,7 +255,7 @@ fn determine_timestamps(
 }
 
 /// Call Git and get the Unix timestamp of a commit date.
-fn timestamp_for_path(path: &Path) -> anyhow::Result<u64> {
+fn timestamp_for_path_with_git(path: &Path) -> anyhow::Result<u64> {
     // These commits should be ignored (they are moves).
     const SKIP: &[&str] = &["d22a2d5c3e54d7abd7960650221eb08a7f3fc6ad"];
 
@@ -272,6 +282,15 @@ fn timestamp_for_path(path: &Path) -> anyhow::Result<u64> {
         .find(|(hash, _)| !SKIP.contains(hash))
         .and_then(|(_, ts)| ts.parse::<u64>().ok())
         .context("failed to determine commit timestamp")
+}
+
+// Check the timestamp of a file using the filesystem.
+fn timestamp_for_path_with_fs(path: &Path) -> anyhow::Result<u64> {
+    let metadata = fs::metadata(path.join("typst.toml"))?;
+    metadata
+        .modified()
+        .map(|t| t.duration_since(std::time::UNIX_EPOCH).unwrap().as_secs())
+        .context("failed to determine file timestamp")
 }
 
 /// A parsed package manifest + extra metadata.
