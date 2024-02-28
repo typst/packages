@@ -26,6 +26,7 @@ fn main() -> anyhow::Result<()> {
             false
         })
         .unwrap_or_else(|| DIST.to_string());
+    let out_dir = Path::new(&out_dir);
 
     for entry in walkdir::WalkDir::new("packages")
         .min_depth(1)
@@ -40,7 +41,7 @@ fn main() -> anyhow::Result<()> {
         let path = entry.into_path();
         let namespace = path
             .file_name()
-            .ok_or_else(|| anyhow::Error::msg("cannot read namespace folder name"))?
+            .context("cannot read namespace folder name")?
             .to_str()
             .context("invalid namespace")?;
 
@@ -56,7 +57,7 @@ fn main() -> anyhow::Result<()> {
             }
 
             let path = entry.into_path();
-            let info = process_package(&path, namespace, &out_dir)
+            let info = process_package(&path, namespace, out_dir)
                 .with_context(|| format!("failed to process package at {}", path.display()))?;
 
             paths.push(path);
@@ -89,7 +90,7 @@ fn main() -> anyhow::Result<()> {
 fn process_package(
     path: &Path,
     namespace: &str,
-    out_dir: &str,
+    out_dir: &Path,
 ) -> anyhow::Result<ExtendedPackageInfo> {
     println!("Bundling {}.", path.display());
     let PackageManifest { package, .. } =
@@ -203,9 +204,9 @@ fn write_archive(
     info: &PackageInfo,
     buf: &[u8],
     namespace: &str,
-    out_dir: &str,
+    out_dir: &Path,
 ) -> anyhow::Result<()> {
-    let path = Path::new(out_dir).join(format!(
+    let path = out_dir.join(format!(
         "{}/{}-{}.tar.gz",
         namespace, info.name, info.version
     ));
