@@ -220,7 +220,7 @@ fn determine_timestamps(
     index: &mut [ExtendedPackageInfo],
 ) -> anyhow::Result<()> {
     // Check if git is installed on the system.
-    let has_git = Command::new("git").arg("--version").status().is_ok();
+    let has_git = Command::new("git").arg("--version").output().is_ok();
 
     // Determine timestamp via Git. Do this in parallel because it is pretty
     // slow.
