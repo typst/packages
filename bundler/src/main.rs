@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use std::env::args;
 use std::fs;
 use std::io;
 use std::path::{Path, PathBuf};
@@ -9,16 +10,27 @@ use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use semver::Version;
 use serde::{Deserialize, Serialize};
 
-fn main() -> anyhow::Result<()> {
-    fs::create_dir_all("dist/preview")?;
+const DIST: &str = "dist";
 
+fn main() -> anyhow::Result<()> {
     println!("Starting bundling.");
 
-    let mut paths = vec![];
-    let mut index = vec![];
-    for entry in walkdir::WalkDir::new("packages/preview")
-        .min_depth(2)
-        .max_depth(2)
+    let mut next_is_out = false;
+    let out_dir = args()
+        .skip(1)
+        .find(|arg| {
+            if next_is_out {
+                return true;
+            }
+            next_is_out = arg == "--out-dir" || arg == "-o";
+            false
+        })
+        .unwrap_or_else(|| DIST.to_string());
+    let out_dir = Path::new(&out_dir);
+
+    for entry in walkdir::WalkDir::new("packages")
+        .min_depth(1)
+        .max_depth(1)
         .sort_by_file_name()
     {
         let entry = entry?;
@@ -27,25 +39,47 @@ fn main() -> anyhow::Result<()> {
         }
 
         let path = entry.into_path();
-        let info = process_package(&path)
-            .with_context(|| format!("failed to process package at {}", path.display()))?;
+        let namespace = path
+            .file_name()
+            .context("cannot read namespace folder name")?
+            .to_str()
+            .context("invalid namespace")?;
 
-        paths.push(path);
-        index.push(info);
+        println!("Processing namespace: {}", namespace);
+        let mut paths = vec![];
+        let mut index = vec![];
+        fs::create_dir_all(Path::new(&out_dir).join(namespace))?;
+
+        for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
+            let entry = entry?;
+            if !entry.metadata()?.is_dir() {
+                continue;
+            }
+
+            let path = entry.into_path();
+            let info = process_package(&path, namespace, out_dir)
+                .with_context(|| format!("failed to process package at {}", path.display()))?;
+
+            paths.push(path);
+            index.push(info);
+        }
+
+        println!("Determining timestamps.");
+        determine_timestamps(&paths, &mut index)?;
+
+        // Sort the index.
+        index.sort_by_key(|info| (info.package.name.clone(), info.package.version.clone()));
+
+        println!("Writing index.");
+        fs::write(
+            Path::new(&out_dir).join(namespace).join("index.json"),
+            serde_json::to_vec(&index.iter().map(|info| &info.package).collect::<Vec<_>>())?,
+        )?;
+        fs::write(
+            Path::new(&out_dir).join(namespace).join("index.full.json"),
+            serde_json::to_vec(&index)?,
+        )?;
     }
-
-    println!("Determining timestamps.");
-    determine_timestamps(&paths, &mut index)?;
-
-    // Sort the index.
-    index.sort_by_key(|info| (info.package.name.clone(), info.package.version.clone()));
-
-    println!("Writing index.");
-    fs::write(
-        "dist/preview/index.json",
-        serde_json::to_vec(&index.iter().map(|info| &info.package).collect::<Vec<_>>())?,
-    )?;
-    fs::write("dist/preview/index.full.json", serde_json::to_vec(&index)?)?;
 
     println!("Done.");
 
@@ -53,16 +87,20 @@ fn main() -> anyhow::Result<()> {
 }
 
 /// Create an archive for a package.
-fn process_package(path: &Path) -> anyhow::Result<ExtendedPackageInfo> {
+fn process_package(
+    path: &Path,
+    namespace: &str,
+    out_dir: &Path,
+) -> anyhow::Result<ExtendedPackageInfo> {
     println!("Bundling {}.", path.display());
     let PackageManifest { package, .. } =
-        parse_manifest(path).context("failed to parse package manifest")?;
+        parse_manifest(path, namespace).context("failed to parse package manifest")?;
 
     let buf = build_archive(path, &package.exclude).context("failed to build archive")?;
     let readme = read_readme(path)?;
 
     validate_archive(&buf).context("failed to validate archive")?;
-    write_archive(&package, &buf).context("failed to write archive")?;
+    write_archive(&package, &buf, namespace, out_dir).context("failed to write archive")?;
 
     Ok(ExtendedPackageInfo {
         package,
@@ -75,13 +113,13 @@ fn process_package(path: &Path) -> anyhow::Result<ExtendedPackageInfo> {
 }
 
 /// Read and validate the package's manifest.
-fn parse_manifest(path: &Path) -> anyhow::Result<PackageManifest> {
+fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifest> {
     let src = fs::read_to_string(path.join("typst.toml"))?;
 
     let manifest: PackageManifest = toml::from_str(&src)?;
     let expected = format!(
-        "packages/preview/{}/{}",
-        manifest.package.name, manifest.package.version
+        "packages/{}/{}/{}",
+        namespace, manifest.package.name, manifest.package.version
     );
 
     if path != Path::new(&expected) {
@@ -161,9 +199,17 @@ fn validate_archive(buf: &[u8]) -> anyhow::Result<()> {
     Ok(())
 }
 
-/// Write a compressed archive to the `dist` directory.
-fn write_archive(info: &PackageInfo, buf: &[u8]) -> anyhow::Result<()> {
-    let path = format!("dist/preview/{}-{}.tar.gz", info.name, info.version);
+/// Write a compressed archive to the output directory.
+fn write_archive(
+    info: &PackageInfo,
+    buf: &[u8],
+    namespace: &str,
+    out_dir: &Path,
+) -> anyhow::Result<()> {
+    let path = out_dir.join(format!(
+        "{}/{}-{}.tar.gz",
+        namespace, info.name, info.version
+    ));
     fs::write(path, buf)?;
     Ok(())
 }
@@ -173,11 +219,20 @@ fn determine_timestamps(
     paths: &[PathBuf],
     index: &mut [ExtendedPackageInfo],
 ) -> anyhow::Result<()> {
+    // Check if git is installed on the system.
+    let has_git = Command::new("git").arg("--version").output().is_ok();
+
     // Determine timestamp via Git. Do this in parallel because it is pretty
     // slow.
     let timestamps = paths
         .par_iter()
-        .map(|p| timestamp_for_path(p))
+        .map(|p| {
+            if has_git {
+                timestamp_for_path_with_git(p)
+            } else {
+                timestamp_for_path_with_fs(p)
+            }
+        })
         .collect::<Result<Vec<_>, _>>()?;
 
     // Determine the release dates for all packages.
@@ -200,7 +255,7 @@ fn determine_timestamps(
 }
 
 /// Call Git and get the Unix timestamp of a commit date.
-fn timestamp_for_path(path: &Path) -> anyhow::Result<u64> {
+fn timestamp_for_path_with_git(path: &Path) -> anyhow::Result<u64> {
     // These commits should be ignored (they are moves).
     const SKIP: &[&str] = &["d22a2d5c3e54d7abd7960650221eb08a7f3fc6ad"];
 
@@ -227,6 +282,15 @@ fn timestamp_for_path(path: &Path) -> anyhow::Result<u64> {
         .find(|(hash, _)| !SKIP.contains(hash))
         .and_then(|(_, ts)| ts.parse::<u64>().ok())
         .context("failed to determine commit timestamp")
+}
+
+// Check the timestamp of a file using the filesystem.
+fn timestamp_for_path_with_fs(path: &Path) -> anyhow::Result<u64> {
+    let metadata = fs::metadata(path.join("typst.toml"))?;
+    metadata
+        .modified()
+        .map(|t| t.duration_since(std::time::UNIX_EPOCH).unwrap().as_secs())
+        .context("failed to determine file timestamp")
 }
 
 /// A parsed package manifest + extra metadata.
