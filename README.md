@@ -73,7 +73,7 @@ authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Create an IEEE-style paper to publish at conferences and journals for Electrical Engineers, Computer Science, and Computer Engineering"
 
-[[package.templates]]
+[[template.start]]
 name = "Journal paper"
 path = "template"
 entrypoint = "main.typ"
@@ -154,14 +154,14 @@ are detailed below:
 
   *Additional guidance for template packages:* It is often desirable for
   template names to feature the name of the organization or publication the
-  template is intended for. However, it is still important to us to offer the a
-  marketplace of multiple templates for the same purpose. Hence, templates for
-  any publication should follow this naming scheme: The name shall consist of a
-  unique, non-descriptive part followed by the descriptive part. For example, a
-  template package for the ficticious _American Journal of Proceedings (AJP)_
-  could be `organized-ajp` or `eternal-ajp`. Package names should be short
-  and hence use the official entity abbreviation. Template authors are
-  encouraged to add the full name of the affiliated entity as a keyword.
+  template is intended for. However, it is still important to us to accomodate
+  multiple templates for the same purpose. Hence, templates for any publication
+  should follow this naming scheme: The name shall consist of a unique,
+  non-descriptive part followed by the descriptive part. For example, a template
+  package for the fictitious _American Journal of Proceedings (AJP)_ could be
+  `organized-ajp` or `eternal-ajp`. Package names should be short and hence use
+  the official entity abbreviation. Template authors are encouraged to add the
+  full name of the affiliated entity as a keyword.
   
   The unamended entity name (e.g. `ajp`) is reserved for official template
   packages by their respective entities. Please make it clear in your PR if you
