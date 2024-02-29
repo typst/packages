@@ -16,6 +16,7 @@ use semver::Version;
 use serde::{Deserialize, Serialize};
 
 const DIST: &str = "dist";
+const THUMBS_DIR_NAME: &str = "thumbnails";
 
 fn main() -> anyhow::Result<()> {
     println!("Starting bundling.");
@@ -57,7 +58,7 @@ fn main() -> anyhow::Result<()> {
         let mut paths = vec![];
         let mut index = vec![];
         let mut package_errors = vec![];
-        fs::create_dir_all(Path::new(&out_dir).join(namespace))?;
+        fs::create_dir_all(Path::new(&out_dir).join(namespace).join(THUMBS_DIR_NAME))?;
 
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
             let entry = entry?;
@@ -244,7 +245,7 @@ fn build_exclude_list(package: &PackageInfo) -> anyhow::Result<Cow<[String]>> {
     let mut exclude = package.exclude.clone();
     for template in &package.templates {
         exclude.push(
-            Path::new(&template.entrypoint)
+            Path::new(&template.path)
                 .join(&template.thumbnail)
                 .to_str()
                 .context("Thumbnail path is not valid UTF-8")?
@@ -327,7 +328,7 @@ fn write_thumbnails(
     namespace: &str,
     out_dir: &Path,
 ) -> anyhow::Result<()> {
-    let thumbnail_root = out_dir.join(namespace).join("thumbnails");
+    let thumbnail_root = out_dir.join(namespace).join(THUMBS_DIR_NAME);
 
     for (i, template) in info.templates.iter().enumerate() {
         let orig_thumbnail_path = path.join(&template.path).join(&template.thumbnail);
@@ -504,15 +505,6 @@ struct IndexPackageInfo {
     package: PackageInfo,
     /// Release time of this version of the package.
     updated_at: u64,
-}
-
-impl IndexPackageInfo {
-    fn from_extended(info: &ExtendedPackageInfo) -> Self {
-        Self {
-            package: info.base.clone(),
-            updated_at: info.updated_at,
-        }
-    }
 }
 
 /// A parsed package manifest.
