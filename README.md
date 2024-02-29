@@ -100,9 +100,10 @@ Required for submissions to this repository:
   or lossless WebP thumbnail for the template. The thumbnail must depict one of
   the pages of the template **as initialized.** The longer edge of the image
   must be at least 1080px in length. Its size must not exceed 3MB. Exporting a
-  PNG at 300dpi resolution is usually a good way to generate a thumbnail. The
-  thumbnail will automatically be excluded from the package files and must not
-  be referenced anywhere in the package.
+  PNG at 250dpi resolution is usually a good way to generate a thumbnail. You
+  are encouraged to use [oxipng][oxipng] to reduce the thumbnail's file size.
+  The thumbnail will automatically be excluded from the package files and must
+  not be referenced anywhere in the package.
 
 Optional:
 - `description`: A description of what this starting point is intended for and
@@ -246,4 +247,5 @@ respective license.
 [SemVer]: https://semver.org/
 [OSI]: https://opensource.org/licenses/
 [typos]: https://github.com/crate-ci/typos
+[oxipng]: https://github.com/shssoichiro/oxipng
 [toml-table-array]: https://toml.io/en/v1.0.0#array-of-tables
