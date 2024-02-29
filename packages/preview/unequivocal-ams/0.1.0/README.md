@@ -43,7 +43,7 @@ function in a show rule. If you, however, want to change an existing project to
 use this template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/unequivocal-ams:0.1.0": ams-article
+#import "@preview/unequivocal-ams:0.1.0": ams-article, theorem, proof
 
 #show: ams-article.with(
   title: [Mathematical Theorems],

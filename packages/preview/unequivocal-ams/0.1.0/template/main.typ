@@ -1,4 +1,4 @@
-#import "@preview/unequivocal-ams:0.1.0": ams-article
+#import "@preview/unequivocal-ams:0.1.0": ams-article, theorem, proof
 
 #show: ams-article.with(
   title: [Mathematical Theorems],
