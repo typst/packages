@@ -1,0 +1,17 @@
+[package]
+name = "badformer"
+version = "0.1.0"
+compiler = "0.10.0"
+entrypoint = "template.typ"
+repository = "https://github.com/typst/templates"
+authors = ["Typst GmbH <https://typst.app>"]
+license = "Unlicense"
+description = "Retro-gaming in Typst. Reach the goal and complete the mission."
+keywords = [ "game", "platformer", "retro", "fun" ]
+
+[[package.templates]]
+name = "Game"
+path = "template"
+description = "A wireframe platformer game"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
