@@ -3,6 +3,7 @@ use std::env::args;
 use std::fs;
 use std::io;
 use std::path::{Path, PathBuf};
+use std::process::exit;
 use std::process::Command;
 
 use anyhow::{bail, Context};
@@ -27,6 +28,7 @@ fn main() -> anyhow::Result<()> {
         })
         .unwrap_or_else(|| DIST.to_string());
     let out_dir = Path::new(&out_dir);
+    let mut namespace_errors = vec![];
 
     for entry in walkdir::WalkDir::new("packages")
         .min_depth(1)
@@ -48,6 +50,7 @@ fn main() -> anyhow::Result<()> {
         println!("Processing namespace: {}", namespace);
         let mut paths = vec![];
         let mut index = vec![];
+        let mut package_errors = vec![];
         fs::create_dir_all(Path::new(&out_dir).join(namespace))?;
 
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
@@ -57,11 +60,17 @@ fn main() -> anyhow::Result<()> {
             }
 
             let path = entry.into_path();
-            let info = process_package(&path, namespace, out_dir)
-                .with_context(|| format!("failed to process package at {}", path.display()))?;
-
-            paths.push(path);
-            index.push(info);
+            match process_package(&path, namespace, out_dir)
+                .with_context(|| format!("failed to process package at {}", path.display()))
+            {
+                Ok(info) => {
+                    paths.push(path);
+                    index.push(info);
+                }
+                Err(err) => {
+                    package_errors.push(err);
+                }
+            }
         }
 
         println!("Determining timestamps.");
@@ -79,6 +88,23 @@ fn main() -> anyhow::Result<()> {
             Path::new(&out_dir).join(namespace).join("index.full.json"),
             serde_json::to_vec(&index)?,
         )?;
+
+        if !package_errors.is_empty() {
+            namespace_errors.push((namespace.to_string(), package_errors));
+        }
+    }
+
+    if !namespace_errors.is_empty() {
+        eprintln!("Failed to process some packages:");
+        for (namespace, errors) in namespace_errors {
+            eprintln!("  Namespace: {}", namespace);
+            for error in errors {
+                eprintln!("    {:#}", error);
+            }
+        }
+
+        eprintln!("Failing packages omitted from index.");
+        exit(1)
     }
 
     println!("Done.");
