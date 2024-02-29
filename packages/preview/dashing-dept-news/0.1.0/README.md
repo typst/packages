@@ -32,7 +32,7 @@ This template exports the `newsletter` function with the following named argumen
   `none`. It is displayed at the end of the document.
 
 The function also accepts a single, positional argument for the body of the
-paper and exports the `article` function accepting a single content argument to
+newsletter's main column and exports the `article` function accepting a single content argument to
 populate the sidebar.
 
 The template will initialize your package with a sample call to the `newsletter`

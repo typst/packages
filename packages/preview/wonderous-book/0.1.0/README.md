@@ -33,7 +33,7 @@ This template exports the `book` function with the following named arguments:
   `none`.
 
 The function also accepts a single, positional argument for the body of the
-paper.
+book.
 
 The template will initialize your package with a sample call to the `book`
 function in a show rule. If you, however, want to change an existing project to
