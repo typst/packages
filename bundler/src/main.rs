@@ -3,7 +3,6 @@ use std::env::args;
 use std::fs;
 use std::io;
 use std::path::{Path, PathBuf};
-use std::process::exit;
 use std::process::Command;
 
 use anyhow::{bail, Context};
@@ -27,6 +26,7 @@ fn main() -> anyhow::Result<()> {
             false
         })
         .unwrap_or_else(|| DIST.to_string());
+
     let out_dir = Path::new(&out_dir);
     let mut namespace_errors = vec![];
 
@@ -48,6 +48,7 @@ fn main() -> anyhow::Result<()> {
             .context("invalid namespace")?;
 
         println!("Processing namespace: {}", namespace);
+
         let mut paths = vec![];
         let mut index = vec![];
         let mut package_errors = vec![];
@@ -67,9 +68,7 @@ fn main() -> anyhow::Result<()> {
                     paths.push(path);
                     index.push(info);
                 }
-                Err(err) => {
-                    package_errors.push(err);
-                }
+                Err(err) => package_errors.push(err),
             }
         }
 
@@ -94,6 +93,8 @@ fn main() -> anyhow::Result<()> {
         }
     }
 
+    println!("Done.");
+
     if !namespace_errors.is_empty() {
         eprintln!("Failed to process some packages:");
         for (namespace, errors) in namespace_errors {
@@ -104,10 +105,8 @@ fn main() -> anyhow::Result<()> {
         }
 
         eprintln!("Failing packages omitted from index.");
-        exit(1)
+        std::process::exit(1);
     }
-
-    println!("Done.");
 
     Ok(())
 }
