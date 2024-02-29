@@ -25,7 +25,9 @@ Required by the compiler:
   package is imported.
 
 Required for submissions to this repository:
-- `authors`: A list of the package's authors.
+- `authors`: A list of the package's authors. Each author can provide an email
+  address, homepage, or GitHub handle in angle brackets. The latter must start
+  with an `@` character.
 - `license`: The package's license. Must contain a valid SPDX-2 expression
   describing one or multiple [OSI-approved][OSI] licenses.
 - `description`: A short description of the package. Double check this for
@@ -46,6 +48,72 @@ Optional:
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
   the LICENSE.
 
+### Templates
+Packages can act as templates for user projects. In addition to the module that
+normal packages provide, template packages also contain _starting points._ A
+starting point is a set of files that is pasted into the directory of a new
+Typst project. A package can provide multiple starting points. Packages are
+considered template packages if they contain at least one starting point.
+
+In most cases, the starting point files should not contain the styling code for
+the template. Instead, the starting point's entrypoint file should import a
+function from the package that is then used with a show rule to apply it to the
+rest of the document.
+
+Template packages (also informally called templates) can declare starting points
+in their `typst.toml` file. A template package's `typst.toml` could look like
+this:
+
+```toml
+[package]
+name = "charged-ieee"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Typst GmbH <https://typst.app>"]
+license = "Unlicense"
+description = "Create an IEEE-style paper to publish at conferences and journals for Electrical Engineers, Computer Science, and Computer Engineering"
+
+[[package.templates]]
+name = "Journal paper"
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+```
+
+Starting points are declared in the `package.templates` array. You can repeat
+the `[[package.templates]]` header multiple time to add more starting points
+(refer to the [TOML spec][toml-table-array] for details). Each starting point
+is a map with some required and optional keys:
+
+Required by the compiler:
+- `name`: A user-facing name for the entrypoint. This is the name that users
+  will choose the starting point with if this package provides more than one.
+  This name can and should be descriptive.
+- `path`: The directory in the package that contains the files which should be
+  copied into the user's new project directory.
+
+Required for submissions to this repository:
+- `entrypoint`: A path relative to the starting point's path that indicates the
+  file which serves as the compilation target. This will be used to set the
+  previewed file in the Typst web application.
+- `thumbnail`: A path relative to the starting point's path that points to a PNG
+  or lossless WebP thumbnail for the template. The thumbnail must depict one of
+  the pages of the template **as initialized.** The longer edge of the image
+  must be at least 1080px in length. Its size must not exceed 3MB. Exporting a
+  PNG at 300dpi resolution is usually a good way to generate a thumbnail. The
+  thumbnail will automatically be excluded from the package files and must not
+  be referenced anywhere in the package.
+
+Optional:
+- `description`: A description of what this starting point is intended for and
+  how it differs from the others.
+
+Packages always live in folders named as `{name}/{version}`. The name and
+version in the folder name and manifest must match. Paths in a package are local
+to that package. Absolute paths start in the package root while relative paths
+are relative to the file they are used in.
+
+### Third-party metadata
 Third-party tools can add their own entry under the `[tool]` section to attach
 their own Typst-specific configuration to the manifest.
 
@@ -57,11 +125,6 @@ their own Typst-specific configuration to the manifest.
 foo = "bar"
 ```
 
-Packages always live in folders named as `{name}/{version}`. The name and
-version in the folder name and manifest must match. Paths in a package are local
-to that package. Absolute paths start in the package root while relative paths
-are relative to the file they are used in.
-
 ## Published packages
 This repository contains a collection of published packages. Due to its early
 and experimental nature, all packages in this repository are scoped in a
@@ -69,6 +132,10 @@ and experimental nature, all packages in this repository are scoped in a
 `packages/preview/{name}/{version}` in this repository will become available in
 Typst as `#import "@preview/{name}:{version}"`. You must always specify the full
 package version.
+
+Template packages can be used to create new Typst projects with the CLI through
+the `typst init` command or by clicking the _Start from template_ button in the
+web application.
 
 ### Submission guidelines
 To submit a package, simply make a pull request with the package to this
@@ -83,6 +150,25 @@ are detailed below:
   is redundant). If they contain multiple words, names should use `kebab-case`.
   Look at existing packages and PRs to get a feel for what's allowed and what's
   not.
+
+  *Additional guidance for template packages:* It is often desirable for
+  template names to feature the name of the organization or publication the
+  template is intended for. However, it is still important to us to offer the a
+  marketplace of multiple templates for the same purpose. Hence, templates for
+  any publication should follow this naming scheme: The name shall consist of a
+  unique, non-descriptive part followed by the descriptive part. For example, a
+  template package for the ficticious _American Journal of Proceedings (AJP)_
+  could be `organized-ajp` or `eternal-ajp`. Package names should be short
+  and hence use the official entity abbreviation. Template authors are
+  encouraged to add the full name of the affiliated entity as a keyword.
+  
+  The unamended entity name (e.g. `ajp`) is reserved for official template
+  packages by their respective entities. Please make it clear in your PR if you
+  are making a official submission and we will outline steps to authenticate you
+  as a member of the affiliated organization.
+
+  If you are an author of an original template not affiliated with any
+  organization, only the naming guidelines for all packages apply to you.
 - **Functionality:** Packages should conceivably be useful to other users and
   should expose their capabilities in a reasonable fashion.
 - **Documentation:** Packages must contain a `README.md` file documenting (at
@@ -118,20 +204,6 @@ submit a new version of your package.
 There is one exception: Minor fixes to the documentation or TOML metadata of a
 package are allowed _if_ they can not affect the package in a way that might
 break downstream users.
-
-### Templates
-**Important:** Please do not submit templates as packages just yet. To make the
-experience of using templates as seamless as possible, we want them to show up
-in the web app's template gallery and we want the CLI to be able to scaffold a
-project from a template. We ask for your patience while we're
-[building][template-packages] the necessary infrastructure.
-
-What's the difference between a template and a normal package? The line isn't
-100% sharp, but overall a template will aid you in producing a full document
-with a particular style, whereas normal packages provide building blocks and
-automations useful across a range of documents. In particular, templates will
-often ship with one or more template files from which a new project can be
-scaffolded. This requires additional package metadata.
 
 ### Downloads
 The Typst compiler downloads packages from the `preview` namespace on-demand.
@@ -173,5 +245,5 @@ respective license.
 [list]: https://typst.app/docs/packages/
 [SemVer]: https://semver.org/
 [OSI]: https://opensource.org/licenses/
-[template-packages]: https://github.com/typst/typst/issues/2432
 [typos]: https://github.com/crate-ci/typos
+[toml-table-array]: https://toml.io/en/v1.0.0#array-of-tables

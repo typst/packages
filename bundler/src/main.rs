@@ -190,6 +190,13 @@ fn validate_template(path: &Path, template: &TemplateStartingPoint) -> anyhow::R
     check_typst_file(&entrypoint, "template entrypoint")?;
 
     let thumbnail = template_path.join(&template.thumbnail);
+
+    // Check that the thumbnail is smaller than 3MB.
+    let metadata = fs::metadata(&thumbnail).context("failed to read thumbnail metadata")?;
+    if metadata.len() > 3 * 1024 * 1024 {
+        bail!("thumbnail must be smaller than 3MB");
+    }
+
     let thumbnail_read =
         BufReader::new(File::open(&thumbnail).context("failed to open thumbnail")?);
 
@@ -333,7 +340,7 @@ fn write_thumbnails(
     for (i, template) in info.templates.iter().enumerate() {
         let orig_thumbnail_path = path.join(&template.path).join(&template.thumbnail);
 
-        // Thumbnails that are WebP and already and smaller than 3MB should be
+        // Thumbnails that are WebP and already and smaller than 1MB should be
         // copied as-is.
         let was_webp = orig_thumbnail_path
             .extension()
@@ -341,7 +348,7 @@ fn write_thumbnails(
 
         // Get file size.
         let size = fs::metadata(&orig_thumbnail_path)?.len();
-        let keep_original = was_webp && size < 3 * 1024 * 1024;
+        let keep_original = was_webp && size < 1024 * 1024;
 
         let image = image::open(&orig_thumbnail_path)?;
         // Choose a fast filter for the miniature.
