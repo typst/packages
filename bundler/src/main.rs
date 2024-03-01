@@ -15,6 +15,7 @@ use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use semver::Version;
 use serde::{Deserialize, Serialize};
 use unicode_ident::{is_xid_continue, is_xid_start};
+use unscanny::Scanner;
 
 const DIST: &str = "dist";
 const THUMBS_DIR_NAME: &str = "thumbnails";
@@ -163,6 +164,10 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
 
     if !is_ident(&manifest.package.name) {
         bail!("package name is not a valid identifier");
+    }
+
+    for author in &manifest.package.authors {
+        check_author_name(author).context("error while checking author name")?;
     }
 
     let license = spdx::Expression::parse(&manifest.package.license)
@@ -597,6 +602,119 @@ struct TemplateStartingPoint {
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
 struct Tool {}
 
+/// Scan an author name. Author names can contain a name and, in angle brackets,
+/// one of a URL, email or GitHub username.
+fn check_author_name(name: &str) -> anyhow::Result<()> {
+    let mut s = Scanner::new(name);
+    s.eat_until(|c| c == '<');
+
+    if let Some('<') = s.eat() {
+        match s.peek() {
+            Some('@') => github_handle(&mut s)?,
+            Some(_) => {
+                if s.after().starts_with("http://") || s.after().starts_with("https://") {
+                    let url = s.eat_until(|c| c == '>');
+                    if !url.chars().all(is_legal_in_url) {
+                        bail!("URL contains invalid characters");
+                    }
+                    if s.eat() != Some('>') {
+                        bail!("Expected '>'");
+                    }
+                } else {
+                    email(&mut s)?;
+                }
+            }
+            None => bail!("Unexpected end of input"),
+        }
+    }
+
+    Ok(())
+}
+
+fn github_handle(s: &mut Scanner) -> anyhow::Result<()> {
+    // The username must start with an @
+    if !s.eat_if('@') {
+        bail!("GitHub username must start with an @");
+    }
+
+    // The first character must be alphanumeric
+    if !s.eat_if(|c: char| c.is_ascii_alphanumeric()) {
+        bail!("GitHub username must start with an alphanumeric character");
+    }
+
+    let mut length = 1;
+    let mut last_was_hyphen = false;
+    while let Some(c) = s.eat() {
+        if length >= 39 {
+            bail!("GitHub username cannot be longer than 39 characters");
+        }
+
+        match c {
+            '-' if last_was_hyphen => bail!("GitHub username cannot contain consecutive hyphens"),
+            '-' => last_was_hyphen = true,
+            c if c.is_ascii_alphanumeric() => last_was_hyphen = false,
+            '>' if last_was_hyphen => bail!("GitHub username cannot end with a hyphen"),
+            '>' => return Ok(()),
+            _ => bail!("GitHub username can only contain alphanumeric characters and hyphens"),
+        }
+
+        length += 1;
+    }
+
+    bail!("Unexpected end of input");
+}
+
+fn email(s: &mut Scanner) -> anyhow::Result<()> {
+    #[derive(Debug, PartialEq, Eq)]
+    enum EmailPart {
+        Local,
+        Domain,
+        Tld,
+    }
+
+    let mut length = 0;
+    let mut part = (EmailPart::Local, 0);
+    while let Some(c) = s.eat() {
+        if length >= 254 {
+            bail!("Email cannot be longer than 254 characters");
+        }
+
+        part.1 += 1;
+
+        match c {
+            '@' if part.0 == EmailPart::Local => {
+                if part.1 <= 1 {
+                    bail!("Email local part cannot be empty");
+                }
+
+                part = (EmailPart::Domain, 0);
+            }
+            '.' if part.0 == EmailPart::Domain => {
+                if part.1 <= 1 {
+                    bail!("Email domain part cannot be empty");
+                }
+
+                part = (EmailPart::Tld, 0);
+            }
+            '>' if part.0 == EmailPart::Tld && part.1 > 1 => {
+                return Ok(());
+            }
+            c if part.0 == EmailPart::Local
+                && (c.is_ascii_alphanumeric() || "!#$%&'*+-/=?^_`{|}~.".contains(c)) => {}
+            c if part.0 != EmailPart::Local && (is_legal_in_url(c)) => {}
+            _ => bail!("Email can only contain alphanumeric characters, dots and hyphens"),
+        }
+
+        length += 1;
+    }
+
+    bail!("Unexpected end of input");
+}
+
+fn is_legal_in_url(c: char) -> bool {
+    c.is_ascii_alphanumeric() || "-_.~:/?#[]@!$&'()*+,;=".contains(c)
+}
+
 /// Whether a string is a valid Typst identifier.
 ///
 /// In addition to what is specified in the [Unicode Standard][uax31], we allow:
@@ -604,8 +722,7 @@ struct Tool {}
 /// - `_` and `-` as continuing characters.
 ///
 /// [uax31]: http://www.unicode.org/reports/tr31/
-#[inline]
-pub fn is_ident(string: &str) -> bool {
+fn is_ident(string: &str) -> bool {
     let mut chars = string.chars();
     chars
         .next()
@@ -613,13 +730,43 @@ pub fn is_ident(string: &str) -> bool {
 }
 
 /// Whether a character can start an identifier.
-#[inline]
-pub fn is_id_start(c: char) -> bool {
+fn is_id_start(c: char) -> bool {
     is_xid_start(c) || c == '_'
 }
 
 /// Whether a character can continue an identifier.
-#[inline]
-pub fn is_id_continue(c: char) -> bool {
+fn is_id_continue(c: char) -> bool {
     is_xid_continue(c) || c == '_' || c == '-'
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::check_author_name;
+
+    #[test]
+    fn parse_author_name() {
+        check_author_name("Martin").unwrap();
+        check_author_name("Martin <@reknih>").unwrap();
+        check_author_name("Martin <https://mha.ug>").unwrap();
+        check_author_name("Martin <martin.haug@typst.app>").unwrap();
+
+        // Check wrong GitHub username
+        assert!(check_author_name("Martin <@reknih->").is_err());
+        assert!(check_author_name("Martin <@-reknih>").is_err());
+        assert!(check_author_name("Martin <@räknih>").is_err());
+        assert!(check_author_name("Martin <@reknih").is_err());
+
+        // Check wrong email addresses
+        assert!(check_author_name("Martin <>").is_err());
+        assert!(check_author_name("Martin <martin>").is_err());
+        assert!(check_author_name("Martin <m@.de>").is_err());
+        assert!(check_author_name("Martin <m@hello.>").is_err());
+        assert!(check_author_name("Martin < >").is_err());
+        assert!(check_author_name("Martin <martin@typst.app").is_err());
+
+        // Check wrong URLs
+        assert!(check_author_name("Martin <http://mha ug>").is_err());
+        assert!(check_author_name("Martin <http://mhä.ug>").is_err());
+        assert!(check_author_name("Martin <http://mha.ug").is_err());
+    }
 }
