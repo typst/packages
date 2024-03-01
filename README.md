@@ -27,10 +27,10 @@ Required by the compiler:
 Required for submissions to this repository:
 - `authors`: A list of the package's authors. Each author can provide an email
   address, homepage, or GitHub handle in angle brackets. The latter must start
-  with an `@` character.
+  with an `@` character, and URLs must start with `http://` or `https://`.
 - `license`: The package's license. Must contain a valid SPDX-2 expression
   describing one or multiple [OSI-approved][OSI] licenses.
-- `description`: A short description of the package. Double check this for
+- `description`: A short description of the package. Double-check this for
   grammar and spelling mistakes as it will appear in the [package list][list].
 
 Optional:
@@ -48,17 +48,22 @@ Optional:
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
   the LICENSE.
 
+Packages always live in folders named as `{name}/{version}`. The name and
+version in the folder name and manifest must match. Paths in a package are local
+to that package. Absolute paths start in the package root while relative paths
+are relative to the file they are used in.
+
 ### Templates
 Packages can act as templates for user projects. In addition to the module that
-normal packages provide, template packages also contain _starting points._ A
-starting point is a set of files that is pasted into the directory of a new
-Typst project. A package can provide multiple starting points. Packages are
-considered template packages if they contain at least one starting point.
+a regular package provides, template packages also contain _starting points._ A
+starting point is a set of files that Typst copies into the directory of a new
+project. A package can provide multiple starting points. Packages are considered
+template packages if they contain at least one starting point.
 
-In most cases, the starting point files should not contain the styling code for
+In most cases, the starting point files should not include the styling code for
 the template. Instead, the starting point's entrypoint file should import a
-function from the package that is then used with a show rule to apply it to the
-rest of the document.
+function from the package. Then, use this function with a show rule to
+apply it to the rest of the document.
 
 Template packages (also informally called templates) can declare starting points
 in their `typst.toml` file. A template package's `typst.toml` could look like
@@ -74,49 +79,45 @@ license = "Unlicense"
 description = "Create an IEEE-style paper to publish at conferences and journals for Electrical Engineers, Computer Science, and Computer Engineering"
 
 [[template.start]]
-name = "Journal paper"
-path = "template"
+name = "journal-paper"
+path = "journal-paper"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
 ```
 
 Starting points are declared in the `template.start` array. You can repeat the
-`[[template.start]]` header multiple time to add more starting points (refer to
-the [TOML spec][toml-table-array] for details). Each starting point is a map
-with some required and optional keys:
+`[[template.start]]` header multiple times to add more starting points (refer to
+the [TOML spec][toml-table-array] for details). Typst will default to the first
+starting point of your package if the user does not explicitly choose one. Each
+starting point is a map with some required and optional keys:
 
 Required by the compiler:
-- `name`: A user-facing name for the entrypoint. This is the name that users
+- `name`: A user-facing name for the starting point. This is the name that users
   will choose the starting point with if this package provides more than one.
-  This name can and should be descriptive.
-- `path`: The directory in the package that contains the files which should be
+  This name can and should be descriptive. It must be a valid Typst identifier.
+- `path`: The directory of the package containing the files that should be
   copied into the user's new project directory.
 
 Required for submissions to this repository:
-- `entrypoint`: A path relative to the starting point's path that indicates the
-  file which serves as the compilation target. This will be used to set the
-  previewed file in the Typst web application.
+- `entrypoint`: A path relative to the starting point's path that points to the
+  file serving as the compilation target. This file will become the previewed
+  file in the Typst web application.
 - `thumbnail`: A path relative to the starting point's path that points to a PNG
   or lossless WebP thumbnail for the template. The thumbnail must depict one of
   the pages of the template **as initialized.** The longer edge of the image
-  must be at least 1080px in length. Its size must not exceed 3MB. Exporting a
-  PNG at 250dpi resolution is usually a good way to generate a thumbnail. You
-  are encouraged to use [oxipng][oxipng] to reduce the thumbnail's file size.
-  The thumbnail will automatically be excluded from the package files and must
-  not be referenced anywhere in the package.
+  must be at least 1080px in length. Its file size must not exceed 3MB.
+  Exporting a PNG at 250 DPI resolution is usually a good way to generate a
+  thumbnail. You are encouraged to use [oxipng][oxipng] to reduce the
+  thumbnail's file size. The thumbnail will automatically be excluded from the
+  package files and must not be referenced anywhere in the package.
 
 Optional:
-- `description`: A description of what this starting point is intended for and
+- `description`: A description of the intended use of this starting point and
   how it differs from the others.
-
-Packages always live in folders named as `{name}/{version}`. The name and
-version in the folder name and manifest must match. Paths in a package are local
-to that package. Absolute paths start in the package root while relative paths
-are relative to the file they are used in.
 
 ### Third-party metadata
 Third-party tools can add their own entry under the `[tool]` section to attach
-their own Typst-specific configuration to the manifest.
+their Typst-specific configuration to the manifest.
 
 ```toml
 [package]
@@ -134,9 +135,9 @@ and experimental nature, all packages in this repository are scoped in a
 Typst as `#import "@preview/{name}:{version}"`. You must always specify the full
 package version.
 
-Template packages can be used to create new Typst projects with the CLI through
-the `typst init` command or by clicking the _Start from template_ button in the
-web application.
+You can use template packages to create new Typst projects with the CLI with
+the `typst init` command or the web application by clicking the _Start from
+template_ button.
 
 ### Submission guidelines
 To submit a package, simply make a pull request with the package to this
@@ -154,19 +155,19 @@ are detailed below:
 
   *Additional guidance for template packages:* It is often desirable for
   template names to feature the name of the organization or publication the
-  template is intended for. However, it is still important to us to accomodate
+  template is intended for. However, it is still important to us to accommodate
   multiple templates for the same purpose. Hence, templates for any publication
   should follow this naming scheme: The name shall consist of a unique,
-  non-descriptive part followed by the descriptive part. For example, a template
+  non-descriptive part followed by a descriptive part. For example, a template
   package for the fictitious _American Journal of Proceedings (AJP)_ could be
-  `organized-ajp` or `eternal-ajp`. Package names should be short and hence use
-  the official entity abbreviation. Template authors are encouraged to add the
-  full name of the affiliated entity as a keyword.
+  called `organized-ajp` or `eternal-ajp`. Package names should be short and
+  hence use the official entity abbreviation. Template authors are encouraged to
+  add the full name of the affiliated entity as a keyword.
   
   The unamended entity name (e.g. `ajp`) is reserved for official template
   packages by their respective entities. Please make it clear in your PR if you
-  are making a official submission and we will outline steps to authenticate you
-  as a member of the affiliated organization.
+  are submitting an official package. We will then outline steps to authenticate
+  you as a member of the affiliated organization.
 
   If you are an author of an original template not affiliated with any
   organization, only the naming guidelines for all packages apply to you.
@@ -215,7 +216,7 @@ Once used, they are cached in `{cache-dir}/typst/packages/preview` where
 - `~/Library/Caches` on macOS
 - `%LOCALAPPDATA%` on Windows
 
-Importing a cached package does not result in a network access.
+Importing a cached package does not result in network access.
 
 ## Local packages
 Want to install a package locally on your system without publishing it or
