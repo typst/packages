@@ -8,6 +8,7 @@ authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Create an IEEE-style paper to publish at conferences and journals for Electrical Engineers, Computer Science, and Computer Engineering"
 keywords = [ "Institute of Electrical and Electronics Engineers", "IEEE", "Electrical Engineering", "Computer Science", "Computer Engineering", "Software" ]
+categories = [ "paper", "computer-science", "engineering" ]
 
 [[template.start]]
 name = "journal-paper"

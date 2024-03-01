@@ -8,6 +8,7 @@ authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Help the Typst Guys reach the helicopter pad and save Christmas!"
 keywords = [ "game", "puzzle", "fun", "Typst Guy" ]
+categories = [ "fun" ]
 
 [[template.start]]
 name = "game"

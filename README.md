@@ -47,6 +47,8 @@ Optional:
   used for large support files like images or PDF documentation that would
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
   the LICENSE.
+- `categories`: An array with up to three categories from the [list of
+  categories][categories] as strings to help users find the package.
 
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
@@ -114,6 +116,8 @@ Required for submissions to this repository:
 Optional:
 - `description`: A description of the intended use of this starting point and
   how it differs from the others.
+
+Template packages must specify at least one category in `package.categories`.
 
 ### Third-party metadata
 Third-party tools can add their own entry under the `[tool]` section to attach
@@ -245,6 +249,7 @@ the Apache-2.0 license. Packages in `packages/` are licensed under their
 respective license.
 
 [list]: https://typst.app/docs/packages/
+[categories]: https://github.com/typst/packages/blob/main/CATEGORIES.md
 [SemVer]: https://semver.org/
 [OSI]: https://opensource.org/licenses/
 [typos]: https://github.com/crate-ci/typos

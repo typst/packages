@@ -8,6 +8,7 @@ authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Time to kill? Search for words in a box of letters!"
 keywords = [ "game", "word-search", "puzzle", "fun" ]
+categories = [ "fun" ]
 
 [[template.start]]
 name = "game"

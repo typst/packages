@@ -8,6 +8,7 @@ authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Share the news with bold graphic design and a modern layout."
 keywords = [ "newsletter", "news", "announcement", "email", "template", "design", "layout" ]
+categories = [ "design", "office" ]
 
 [[template.start]]
 name = "newsletter"

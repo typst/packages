@@ -8,6 +8,7 @@ authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Create an AMS-style paper to publish at conferences and journals for Mathematicians"
 keywords = [ "math", "mathematics", "American Mathematical Society", "gibbs",  "colloquium"]
+categories = [ "paper", "math" ]
 
 [[template.start]]
 name = "journal-paper"

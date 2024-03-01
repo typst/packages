@@ -170,6 +170,10 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
         check_author_name(author).context("error while checking author name")?;
     }
 
+    if manifest.package.categories.len() > 3 {
+        bail!("package can have at most 3 categories");
+    }
+
     let license = spdx::Expression::parse(&manifest.package.license)
         .context("failed to parse SPDX license expression")?;
 
@@ -189,6 +193,14 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
     check_typst_file(&entrypoint, "entrypoint")?;
 
     if let Some(template) = &manifest.template {
+        if template.start.is_empty() {
+            bail!("templates must have at least one starting point");
+        }
+
+        if manifest.package.categories.is_empty() {
+            bail!("template packages must have at least one category");
+        }
+
         for template in &template.start {
             validate_template(path, template)?;
         }
@@ -588,6 +600,51 @@ struct PackageInfo {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     #[serde(default)]
     exclude: Vec<String>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    #[serde(default)]
+    categories: Vec<PackageCategory>,
+}
+
+/// Which kind of package this is.
+#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields, rename_all = "kebab-case")]
+enum PackageCategory {
+    // Package kinds
+    Components,
+    Design,
+    Model,
+    Languages,
+    Layout,
+    Text,
+    Scripting,
+    Integration,
+    Visualization,
+    Utility,
+    Fun,
+
+    // Document kinds
+    Book,
+    Report,
+    Paper,
+    Thesis,
+    Poster,
+    Flyer,
+    Presentation,
+    Cv,
+    Office,
+
+    // Disciplines
+    Education,
+    Math,
+    Physics,
+    Chemistry,
+    Biology,
+    Economics,
+    Engineering,
+    ComputerScience,
+    Law,
+    Music,
+    Arts,
 }
 
 /// The `template` key in the manifest.

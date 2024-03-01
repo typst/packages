@@ -8,6 +8,7 @@ authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Correspond with business associates and your friends via mail"
 keywords = [ "correspondence", "mail", "letter", "DIN 5008" ]
+categories = [ "office" ]
 
 [[template.start]]
 name = "letter"

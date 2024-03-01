@@ -8,6 +8,7 @@ authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Create a fiction book with running headers and serif tyography"
 keywords = [ "book", "fiction", "running header", "novel" ]
+categories = [ "book" ]
 
 [[template.start]]
 name = "book"
