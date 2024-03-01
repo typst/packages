@@ -89,7 +89,7 @@ fn main() -> anyhow::Result<()> {
         println!("Writing index.");
         fs::write(
             Path::new(&out_dir).join(namespace).join("index.json"),
-            serde_json::to_vec(&index.iter().map(|info| &info.base).collect::<Vec<_>>())?,
+            serde_json::to_vec(&index.iter().map(IndexPackageInfo::from).collect::<Vec<_>>())?,
         )?;
         fs::write(
             Path::new(&out_dir).join(namespace).join("index.full.json"),
@@ -538,8 +538,21 @@ struct IndexPackageInfo {
     /// The information from the package manifest.
     #[serde(flatten)]
     package: PackageInfo,
+    /// The template metadata
+    #[serde(skip_serializing_if = "Option::is_none")]
+    template: Option<TemplateInfo>,
     /// Release time of this version of the package.
     updated_at: u64,
+}
+
+impl From<&ExtendedPackageInfo> for IndexPackageInfo {
+    fn from(info: &ExtendedPackageInfo) -> Self {
+        IndexPackageInfo {
+            package: info.base.clone(),
+            template: info.template.clone(),
+            updated_at: info.updated_at,
+        }
+    }
 }
 
 /// A parsed package manifest.
