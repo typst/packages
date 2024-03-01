@@ -9,9 +9,9 @@ license = "Unlicense"
 description = "Help the Typst Guys reach the helicopter pad and save Christmas!"
 keywords = [ "game", "puzzle", "fun", "Typst Guy" ]
 
-name = "Game"
-path = "template"
 [[template.start]]
+name = "game"
+path = "game"
 description = "Three levels of fun!"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"

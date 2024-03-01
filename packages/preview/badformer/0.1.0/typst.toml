@@ -9,9 +9,9 @@ license = "Unlicense"
 description = "Retro-gaming in Typst. Reach the goal and complete the mission."
 keywords = [ "game", "platformer", "retro", "fun" ]
 
-name = "Game"
-path = "template"
 [[template.start]]
+name = "game"
+path = "game"
 description = "A wireframe platformer game"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
