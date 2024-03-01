@@ -9,9 +9,9 @@ license = "Unlicense"
 description = "Create an AMS-style paper to publish at conferences and journals for Mathematicians"
 keywords = [ "math", "mathematics", "American Mathematical Society", "gibbs",  "colloquium"]
 
-[[package.templates]]
 name = "Journal paper"
 path = "template"
+[[template.start]]
 description = "A two-column journal-style paper for AMS conferences and journals"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"

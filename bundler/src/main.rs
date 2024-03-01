@@ -124,19 +124,20 @@ fn process_package(
     out_dir: &Path,
 ) -> anyhow::Result<ExtendedPackageInfo> {
     println!("Bundling {}.", path.display());
-    let PackageManifest { package, .. } =
-        parse_manifest(path, namespace).context("failed to parse package manifest")?;
+    let manifest = parse_manifest(path, namespace).context("failed to parse package manifest")?;
 
-    let exclude = build_exclude_list(&package)?;
+    let exclude = build_exclude_list(&manifest)?;
     let buf = build_archive(path, &exclude).context("failed to build archive")?;
     let readme = read_readme(path)?;
 
     validate_archive(&buf).context("failed to validate archive")?;
-    write_archive(&package, &buf, namespace, out_dir).context("failed to write archive")?;
-    write_thumbnails(path, &package, namespace, out_dir).context("failed to write thumbnails")?;
+    write_archive(&manifest.package, &buf, namespace, out_dir)
+        .context("failed to write archive")?;
+    write_thumbnails(path, &manifest, namespace, out_dir).context("failed to write thumbnails")?;
 
     Ok(ExtendedPackageInfo {
-        base: package,
+        base: manifest.package,
+        template: manifest.template,
         readme,
         size: buf.len(),
         // These will be filled in later.
@@ -177,8 +178,10 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
     let entrypoint = path.join(&manifest.package.entrypoint);
     check_typst_file(&entrypoint, "entrypoint")?;
 
-    for template in &manifest.package.templates {
-        validate_template(path, template)?;
+    if let Some(template) = &manifest.template {
+        for template in &template.start {
+            validate_template(path, template)?;
+        }
     }
 
     Ok(manifest)
@@ -244,23 +247,24 @@ fn check_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
     Ok(())
 }
 
-fn build_exclude_list(package: &PackageInfo) -> anyhow::Result<Cow<[String]>> {
-    if package.templates.is_empty() {
-        return Ok(Cow::Borrowed(&package.exclude));
-    }
+fn build_exclude_list(manifest: &PackageManifest) -> anyhow::Result<Cow<[String]>> {
+    match &manifest.template {
+        Some(t) if !t.start.is_empty() => {
+            let mut exclude = manifest.package.exclude.clone();
+            for template in &t.start {
+                exclude.push(
+                    Path::new(&template.path)
+                        .join(&template.thumbnail)
+                        .to_str()
+                        .context("Thumbnail path is not valid UTF-8")?
+                        .to_owned(),
+                )
+            }
 
-    let mut exclude = package.exclude.clone();
-    for template in &package.templates {
-        exclude.push(
-            Path::new(&template.path)
-                .join(&template.thumbnail)
-                .to_str()
-                .context("Thumbnail path is not valid UTF-8")?
-                .to_owned(),
-        )
+            Ok(Cow::Owned(exclude))
+        }
+        _ => Ok(Cow::Borrowed(&manifest.package.exclude)),
     }
-
-    Ok(Cow::Owned(exclude))
 }
 
 /// Return the README file as a string.
@@ -331,13 +335,13 @@ fn write_archive(
 /// Write any thumbnail images to the `dist` directory.
 fn write_thumbnails(
     path: &Path,
-    info: &PackageInfo,
+    manifest: &PackageManifest,
     namespace: &str,
     out_dir: &Path,
 ) -> anyhow::Result<()> {
     let thumbnail_root = out_dir.join(namespace).join(THUMBS_DIR_NAME);
 
-    for (i, template) in info.templates.iter().enumerate() {
+    for (i, template) in manifest.template.iter().flat_map(|t| &t.start).enumerate() {
         let orig_thumbnail_path = path.join(&template.path).join(&template.thumbnail);
 
         // Thumbnails that are WebP and already and smaller than 1MB should be
@@ -354,8 +358,10 @@ fn write_thumbnails(
         // Choose a fast filter for the miniature.
         let miniature = image.resize(400, 400, FilterType::CatmullRom);
 
-        let thumbnail_path =
-            thumbnail_root.join(format!("{}-{}-{}-small.webp", info.name, info.version, i));
+        let thumbnail_path = thumbnail_root.join(format!(
+            "{}-{}-{}-small.webp",
+            manifest.package.name, manifest.package.version, i
+        ));
 
         let mut miniature_buf = Vec::new();
 
@@ -375,8 +381,10 @@ fn write_thumbnails(
 
         fs::write(thumbnail_path, miniature_buf)?;
 
-        let thumbnail_path =
-            thumbnail_root.join(format!("{}-{}-{}.webp", info.name, info.version, i));
+        let thumbnail_path = thumbnail_root.join(format!(
+            "{}-{}-{}.webp",
+            manifest.package.name, manifest.package.version, i
+        ));
 
         if keep_original {
             fs::copy(&orig_thumbnail_path, thumbnail_path)?;
@@ -493,6 +501,9 @@ struct ExtendedPackageInfo {
     /// The information from the package manifest.
     #[serde(flatten)]
     base: PackageInfo,
+    /// The template metadata
+    #[serde(skip_serializing_if = "Option::is_none")]
+    template: Option<TemplateInfo>,
     /// The compressed archive size in bytes.
     size: usize,
     /// The unsanitized README markdown.
@@ -520,6 +531,8 @@ struct IndexPackageInfo {
 struct PackageManifest {
     package: PackageInfo,
     #[serde(skip_serializing_if = "Option::is_none")]
+    template: Option<TemplateInfo>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     tool: Option<Tool>,
 }
 
@@ -545,9 +558,15 @@ struct PackageInfo {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     #[serde(default)]
     exclude: Vec<String>,
+}
+
+/// The `template` key in the manifest.
+#[derive(Debug, Clone, Default, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct TemplateInfo {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     #[serde(default)]
-    templates: Vec<TemplateStartingPoint>,
+    start: Vec<TemplateStartingPoint>,
 }
 
 /// A starting point for a template.

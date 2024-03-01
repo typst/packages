@@ -9,9 +9,9 @@ license = "Unlicense"
 description = "Create an IEEE-style paper to publish at conferences and journals for Electrical Engineers, Computer Science, and Computer Engineering"
 keywords = [ "Institute of Electrical and Electronics Engineers", "IEEE", "Electrical Engineering", "Computer Science", "Computer Engineering", "Software" ]
 
-[[package.templates]]
 name = "Journal paper"
 path = "template"
+[[template.start]]
 description = "A two-column journal-style paper for IEEE conferences and journals"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"

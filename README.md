@@ -80,10 +80,10 @@ entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
 ```
 
-Starting points are declared in the `package.templates` array. You can repeat
-the `[[package.templates]]` header multiple time to add more starting points
-(refer to the [TOML spec][toml-table-array] for details). Each starting point
-is a map with some required and optional keys:
+Starting points are declared in the `template.start` array. You can repeat the
+`[[template.start]]` header multiple time to add more starting points (refer to
+the [TOML spec][toml-table-array] for details). Each starting point is a map
+with some required and optional keys:
 
 Required by the compiler:
 - `name`: A user-facing name for the entrypoint. This is the name that users

@@ -9,9 +9,9 @@ license = "Unlicense"
 description = "Time to kill? Search for words in a box of letters!"
 keywords = [ "game", "word-search", "puzzle", "fun" ]
 
-[[package.templates]]
 name = "Game"
 path = "template"
+[[template.start]]
 description = "A word-search game"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"

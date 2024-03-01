@@ -9,9 +9,9 @@ license = "Unlicense"
 description = "Create a fiction book with running headers and serif tyography"
 keywords = [ "book", "fiction", "running header", "novel" ]
 
-[[package.templates]]
 name = "Book"
 path = "template"
+[[template.start]]
 description = "A fiction book template with a title page"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
