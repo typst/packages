@@ -28,7 +28,8 @@ E.
 
 This template exports the `game` function.
 
-The function accepts a single positional argument for the game input.
+The function accepts a positional argument for the game input and one for the
+document's body.
 
 The template will initialize your package with a sample call to the `game`
 function in a show rule. If you, however, want to change an existing project to
@@ -36,7 +37,7 @@ use this template, you can add a show rule like this at the top of your file:
 
 ```typ
 #import "@preview/badformer:0.1.0": game
-#show: game
+#show: game.with(read("main.typ"))
 
 // Move with WASD and jump with space.
 ```

@@ -7,7 +7,7 @@
     Purview College
   ],
   hero-image: (
-    path: "newsletter-cover.jpg",
+    image: image("newsletter-cover.jpg"),
     caption: [Award-wining science],
   ),
   publication-info: [

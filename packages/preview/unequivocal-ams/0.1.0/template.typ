@@ -202,7 +202,7 @@
   if bibliography-file != none {
     show bibliography: set text(8.5pt)
     show bibliography: pad.with(x: 0.5pt)
-    bibliography(bibliography-file)
+    bibliography-file
   }
 
   // The thing ends with details about the authors.

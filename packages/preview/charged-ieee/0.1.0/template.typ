@@ -173,6 +173,7 @@
   // Display bibliography.
   if bibliography-file != none {
     show bibliography: set text(8pt)
-    bibliography(bibliography-file, title: text(10pt)[References], style: "ieee")
+    set bibliography(title: text(10pt)[References], style: "ieee")
+    bibliography-file
   }
 }

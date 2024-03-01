@@ -25,9 +25,9 @@ This template exports the `newsletter` function with the following named argumen
 - `title`: The newsletter's title as content.
 - `edition`: The edition of the newsletter as content or `none`. This is
   displayed at the top of the sidebar.
-- `hero-image`: A dictionary with the keys `path` and `caption` or `none`. Path
-  points to the hero image file while `caption` is content that is displayed to
-  the right of the image.
+- `hero-image`: A dictionary with the keys `image` and `caption` or `none`.
+  Image is content with the hero image while `caption` is content that is
+  displayed to the right of the image.
 - `publication-info`: More information about the publication as content or
   `none`. It is displayed at the end of the document.
 
@@ -48,7 +48,7 @@ use this template, you can add a show rule like this at the top of your file:
     Purview College
   ],
   hero-image: (
-    path: "newsletter-cover.jpg",
+    image: image("newsletter-cover.jpg"),
     caption: [Award-wining science],
   ),
   publication-info: [

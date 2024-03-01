@@ -3,7 +3,7 @@
 
 // This function gets your whole document as its `body` and formats
 // it as the fun newsletter of a college department.
-#let dept-news(
+#let newsletter(
   // The newsletter's title.
   title: [Newsletter title],
 
@@ -97,7 +97,10 @@
 
       // Measure the image and text to find out the correct line width.
       // The line should always fill the remaining space next to the image.
-      let img = image(hero-image.path, width: 14cm)
+      let img = {
+        set image(width: 14cm)
+        hero-image.image  
+      }
       let text = text(size: 25pt, fill: white, font: "Syne Tactile", hero-image.caption)
       let img-size = measure(img, styles)
       let text-width = measure(text, styles).width + 12pt

@@ -420,8 +420,8 @@
 
 // Parses the document's body into an array of strings containing
 // only the seven updates "w", "a", "s", "d", " ", and "e".
-#let parse-updates() = {
-  lower(read("main.typ")
+#let parse-updates(source) = {
+  lower(source
     .replace(regex("(//|#).*\n?"), "")
     .split("\n")
     .join())
@@ -430,7 +430,7 @@
 }
 
 // Entry point into the game.
-#let game(_) = {
+#let game(source, _) = {
   set page(fill: black, width: pxw, height: pxh, margin: 0pt)
   set text(font: "Cascadia Code", fill: green, 11pt)
 
@@ -446,7 +446,7 @@
   )
 
   // Handles game updates.
-  let updates = parse-updates()
+  let updates = parse-updates(source)
   for u in updates {
     state = update(state, u)
   }
