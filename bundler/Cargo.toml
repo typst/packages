@@ -16,4 +16,5 @@ serde_json = "1"
 spdx = "0.10"
 tar = "0.4"
 toml = { version = "0.7.3", default-features = false, features = ["parse"] }
+unicode-ident = "1.0.12"
 walkdir = "2"

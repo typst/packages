@@ -14,6 +14,7 @@ use image::imageops::FilterType;
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use semver::Version;
 use serde::{Deserialize, Serialize};
+use unicode_ident::{is_xid_continue, is_xid_start};
 
 const DIST: &str = "dist";
 const THUMBS_DIR_NAME: &str = "thumbnails";
@@ -160,6 +161,10 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
         bail!("package directory name and manifest are mismatched");
     }
 
+    if !is_ident(&manifest.package.name) {
+        bail!("package name is not a valid identifier");
+    }
+
     let license = spdx::Expression::parse(&manifest.package.license)
         .context("failed to parse SPDX license expression")?;
 
@@ -191,6 +196,13 @@ fn validate_template(path: &Path, template: &TemplateStartingPoint) -> anyhow::R
     let template_path = path.join(&template.path);
     let entrypoint = template_path.join(&template.entrypoint);
     check_typst_file(&entrypoint, "template entrypoint")?;
+
+    if !is_ident(&template.name) {
+        bail!(
+            "template name `{}` is not a valid identifier",
+            template.name
+        );
+    }
 
     let thumbnail = template_path.join(&template.thumbnail);
 
@@ -584,3 +596,30 @@ struct TemplateStartingPoint {
 /// The `tool` key in the manifest.
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
 struct Tool {}
+
+/// Whether a string is a valid Typst identifier.
+///
+/// In addition to what is specified in the [Unicode Standard][uax31], we allow:
+/// - `_` as a starting character,
+/// - `_` and `-` as continuing characters.
+///
+/// [uax31]: http://www.unicode.org/reports/tr31/
+#[inline]
+pub fn is_ident(string: &str) -> bool {
+    let mut chars = string.chars();
+    chars
+        .next()
+        .is_some_and(|c| is_id_start(c) && chars.all(is_id_continue))
+}
+
+/// Whether a character can start an identifier.
+#[inline]
+pub fn is_id_start(c: char) -> bool {
+    is_xid_start(c) || c == '_'
+}
+
+/// Whether a character can continue an identifier.
+#[inline]
+pub fn is_id_continue(c: char) -> bool {
+    is_xid_continue(c) || c == '_' || c == '-'
+}
