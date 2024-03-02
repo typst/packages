@@ -205,13 +205,16 @@
   if type(vec) == "dictionary" {
     vec = dict2str(vec)
   }
-  let result = str(_cvss.score(bytes(vec)))
-                .match(regex("([0-9]+\\.[0-9]+)"))
-  if type(result) == "dictionary" {
-    float(result.captures.at(0))
-  } else {
-    panic("Failed to parse CVSS score check the input string")
-  }
+  // let result =
+  str(_cvss.score(bytes(vec)))
+                .match(regex("([0-9]+\\.[0-9]+|[0-9]+)")).text
+  // if type(result) == "dictionary" {
+  //   // result.captures.at(0)
+  //   result
+  // } else {
+  //   // panic("Failed to parse CVSS score check the input string")
+  //   result
+  // }
 }
 
 /// This function calculates the CVSS severity based on the CVSS vector string or dictionary.
