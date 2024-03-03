@@ -1,14 +1,18 @@
-use std::collections::HashMap;
+mod author;
+mod model;
+mod timestamp;
+
 use std::env::args;
 use std::fs;
 use std::io;
-use std::path::{Path, PathBuf};
-use std::process::Command;
+use std::path::Path;
 
 use anyhow::{bail, Context};
-use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
-use semver::Version;
-use serde::{Deserialize, Serialize};
+use unicode_ident::{is_xid_continue, is_xid_start};
+
+use self::author::validate_author;
+use self::model::*;
+use self::timestamp::determine_timestamps;
 
 const DIST: &str = "dist";
 
@@ -52,7 +56,6 @@ fn main() -> anyhow::Result<()> {
         let mut paths = vec![];
         let mut index = vec![];
         let mut package_errors = vec![];
-        fs::create_dir_all(Path::new(&out_dir).join(namespace))?;
 
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
             let entry = entry?;
@@ -76,12 +79,12 @@ fn main() -> anyhow::Result<()> {
         determine_timestamps(&paths, &mut index)?;
 
         // Sort the index.
-        index.sort_by_key(|info| (info.package.name.clone(), info.package.version.clone()));
+        index.sort_by_key(|info| (info.base.name.clone(), info.base.version.clone()));
 
         println!("Writing index.");
         fs::write(
             Path::new(&out_dir).join(namespace).join("index.json"),
-            serde_json::to_vec(&index.iter().map(|info| &info.package).collect::<Vec<_>>())?,
+            serde_json::to_vec(&index.iter().map(IndexPackageInfo::from).collect::<Vec<_>>())?,
         )?;
         fs::write(
             Path::new(&out_dir).join(namespace).join("index.full.json"),
@@ -116,7 +119,7 @@ fn process_package(
     path: &Path,
     namespace: &str,
     out_dir: &Path,
-) -> anyhow::Result<ExtendedPackageInfo> {
+) -> anyhow::Result<FullIndexPackageInfo> {
     println!("Bundling {}.", path.display());
     let PackageManifest { package, .. } =
         parse_manifest(path, namespace).context("failed to parse package manifest")?;
@@ -127,8 +130,8 @@ fn process_package(
     validate_archive(&buf).context("failed to validate archive")?;
     write_archive(&package, &buf, namespace, out_dir).context("failed to write archive")?;
 
-    Ok(ExtendedPackageInfo {
-        package,
+    Ok(FullIndexPackageInfo {
+        base: package,
         readme,
         size: buf.len(),
         // These will be filled in later.
@@ -151,6 +154,14 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
         bail!("package directory name and manifest are mismatched");
     }
 
+    if !is_ident(&manifest.package.name) {
+        bail!("package name is not a valid identifier");
+    }
+
+    for author in &manifest.package.authors {
+        validate_author(author).context("author field is invalid")?;
+    }
+
     let license = spdx::Expression::parse(&manifest.package.license)
         .context("failed to parse SPDX license expression")?;
 
@@ -167,9 +178,7 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
     }
 
     let entrypoint = path.join(&manifest.package.entrypoint);
-    if !entrypoint.exists() {
-        bail!("package entry point is missing");
-    }
+    validate_typst_file(&entrypoint, "entrypoint")?;
 
     Ok(manifest)
 }
@@ -239,135 +248,35 @@ fn write_archive(
     Ok(())
 }
 
-/// Determine all packages timestamps.
-fn determine_timestamps(
-    paths: &[PathBuf],
-    index: &mut [ExtendedPackageInfo],
-) -> anyhow::Result<()> {
-    // Check if git is installed on the system.
-    let has_git = Command::new("git").arg("--version").output().is_ok();
-
-    // Determine timestamp via Git. Do this in parallel because it is pretty
-    // slow.
-    let timestamps = paths
-        .par_iter()
-        .map(|p| {
-            if has_git {
-                timestamp_for_path_with_git(p)
-            } else {
-                timestamp_for_path_with_fs(p)
-            }
-        })
-        .collect::<Result<Vec<_>, _>>()?;
-
-    // Determine the release dates for all packages.
-    // It is the minimum update date for any of its versions.
-    let mut release_dates: HashMap<String, u64> = HashMap::new();
-    for (info, &t) in index.iter().zip(&timestamps) {
-        release_dates
-            .entry(info.package.name.clone())
-            .and_modify(|v| *v = (*v).min(t))
-            .or_insert(t);
+// Check that a Typst file exists, its name ends in `.typ`, and that it is valid
+// UTF-8.
+fn validate_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
+    if !path.exists() {
+        bail!("{name} is missing");
     }
 
-    // Write update & release dates.
-    for (info, &t) in index.iter_mut().zip(&timestamps) {
-        info.updated_at = t;
-        info.released_at = release_dates[&info.package.name];
+    if path.extension().map_or(true, |ext| ext != "typ") {
+        bail!("{name} must have a .typ extension");
     }
 
+    fs::read_to_string(path).context("failed to read {name} file")?;
     Ok(())
 }
 
-/// Call Git and get the Unix timestamp of a commit date.
-fn timestamp_for_path_with_git(path: &Path) -> anyhow::Result<u64> {
-    // These commits should be ignored (they are moves).
-    const SKIP: &[&str] = &["d22a2d5c3e54d7abd7960650221eb08a7f3fc6ad"];
-
-    let mut command = Command::new("git");
-    command.args([
-        "--no-pager", // Disable interactivity with --no-pager.
-        "log",
-        "--no-patch",
-        "--follow",
-        "--format=%H %ct",
-    ]);
-    command.arg(path.join("typst.toml"));
-
-    // Fails if the Git reports an error or the number could not be parsed.
-    let output = command.output()?;
-    if !output.status.success() {
-        bail!("git failed: {}", std::str::from_utf8(&output.stderr)?);
-    }
-
-    std::str::from_utf8(&output.stdout)?
-        .lines()
-        .map(|line| line.split_whitespace())
-        .filter_map(|mut parts| parts.next().zip(parts.next()))
-        .find(|(hash, _)| !SKIP.contains(hash))
-        .and_then(|(_, ts)| ts.parse::<u64>().ok())
-        .context("failed to determine commit timestamp")
+/// Whether a string is a valid Typst identifier.
+fn is_ident(string: &str) -> bool {
+    let mut chars = string.chars();
+    chars
+        .next()
+        .is_some_and(|c| is_id_start(c) && chars.all(is_id_continue))
 }
 
-// Check the timestamp of a file using the filesystem.
-fn timestamp_for_path_with_fs(path: &Path) -> anyhow::Result<u64> {
-    let metadata = fs::metadata(path.join("typst.toml"))?;
-    metadata
-        .modified()
-        .map(|t| t.duration_since(std::time::UNIX_EPOCH).unwrap().as_secs())
-        .context("failed to determine file timestamp")
+/// Whether a character can start an identifier.
+fn is_id_start(c: char) -> bool {
+    is_xid_start(c) || c == '_'
 }
 
-/// A parsed package manifest + extra metadata.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize)]
-#[serde(rename_all = "camelCase")]
-struct ExtendedPackageInfo {
-    /// The information from the package manifest.
-    #[serde(flatten)]
-    package: PackageInfo,
-    /// The compressed archive size in bytes.
-    size: usize,
-    /// The unsanitized README markdown.
-    readme: String,
-    /// Release time of this version of the package.
-    updated_at: u64,
-    /// Release time of the first version of this package.
-    released_at: u64,
+/// Whether a character can continue an identifier.
+fn is_id_continue(c: char) -> bool {
+    is_xid_continue(c) || c == '_' || c == '-'
 }
-
-/// A parsed package manifest.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct PackageManifest {
-    package: PackageInfo,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    tool: Option<Tool>,
-}
-
-/// The `package` key in the manifest.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct PackageInfo {
-    name: String,
-    version: Version,
-    entrypoint: String,
-    authors: Vec<String>,
-    license: String,
-    description: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    homepage: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    repository: Option<String>,
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    #[serde(default)]
-    keywords: Vec<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    compiler: Option<Version>,
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    #[serde(default)]
-    exclude: Vec<String>,
-}
-
-/// The `tool` key in the manifest.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-struct Tool {}

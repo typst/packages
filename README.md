@@ -25,10 +25,12 @@ Required by the compiler:
   package is imported.
 
 Required for submissions to this repository:
-- `authors`: A list of the package's authors.
+- `authors`: A list of the package's authors. Each author can provide an email
+  address, homepage, or GitHub handle in angle brackets. The latter must start
+  with an `@` character, and URLs must start with `http://` or `https://`.
 - `license`: The package's license. Must contain a valid SPDX-2 expression
   describing one or multiple [OSI-approved][OSI] licenses.
-- `description`: A short description of the package. Double check this for
+- `description`: A short description of the package. Double-check this for
   grammar and spelling mistakes as it will appear in the [package list][list].
 
 Optional:
@@ -47,7 +49,7 @@ Optional:
   the LICENSE.
 
 Third-party tools can add their own entry under the `[tool]` section to attach
-their own Typst-specific configuration to the manifest.
+their Typst-specific configuration to the manifest.
 
 ```toml
 [package]
@@ -142,7 +144,7 @@ Once used, they are cached in `{cache-dir}/typst/packages/preview` where
 - `~/Library/Caches` on macOS
 - `%LOCALAPPDATA%` on Windows
 
-Importing a cached package does not result in a network access.
+Importing a cached package does not result in network access.
 
 ## Local packages
 Want to install a package locally on your system without publishing it or
