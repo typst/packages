@@ -57,7 +57,7 @@ are relative to the file they are used in.
 
 ### Templates
 Packages can act as templates for user projects. In addition to the module that
-a regular package provides, a template package also contain a set of template
+a regular package provides, a template package also contains a set of template
 files that Typst copies into the directory of a new project.
 
 In most cases, the template files should not include the styling code for the
