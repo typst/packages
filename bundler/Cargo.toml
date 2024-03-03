@@ -6,6 +6,7 @@ publish = false
 
 [dependencies]
 anyhow = "1"
+email_address = { version = "0.2.4", default-features = false }
 flate2 = "1"
 ignore = "0.4"
 rayon = "1.0"
