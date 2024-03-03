@@ -56,6 +56,7 @@ fn main() -> anyhow::Result<()> {
         let mut paths = vec![];
         let mut index = vec![];
         let mut package_errors = vec![];
+        fs::create_dir_all(Path::new(&out_dir).join(namespace))?;
 
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
             let entry = entry?;
