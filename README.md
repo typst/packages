@@ -57,54 +57,42 @@ are relative to the file they are used in.
 
 ### Templates
 Packages can act as templates for user projects. In addition to the module that
-a regular package provides, template packages also contain _starting points._ A
-starting point is a set of files that Typst copies into the directory of a new
-project. A package can provide multiple starting points. Packages are considered
-template packages if they contain at least one starting point.
+a regular package provides, a template package also contain a set of template
+files that Typst copies into the directory of a new project.
 
-In most cases, the starting point files should not include the styling code for
-the template. Instead, the starting point's entrypoint file should import a
-function from the package. Then, use this function with a show rule to
-apply it to the rest of the document.
+In most cases, the template files should not include the styling code for the
+template. Instead, the template's entrypoint file should import a function from
+the package. Then, this function is used with a show rule to apply it to the
+rest of the document.
 
-Template packages (also informally called templates) can declare starting points
-in their `typst.toml` file. A template package's `typst.toml` could look like
-this:
+Template packages (also informally called templates) must declare the
+`[template]` key in their `typst.toml` file. A template package's `typst.toml`
+could look like this:
 
 ```toml
 [package]
 name = "charged-ieee"
 version = "0.1.0"
-entrypoint = "template.typ"
+entrypoint = "lib.typ"
 authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Create an IEEE-style paper to publish at conferences and journals for Electrical Engineers, Computer Science, and Computer Engineering"
 
-[[template.start]]
-name = "journal-paper"
-path = "journal-paper"
+[template]
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
 ```
 
-Starting points are declared in the `template.start` array. You can repeat the
-`[[template.start]]` header multiple times to add more starting points (refer to
-the [TOML spec][toml-table-array] for details). Typst will default to the first
-starting point of your package if the user does not explicitly choose one. Each
-starting point is a map with some required and optional keys:
-
 Required by the compiler:
-- `name`: A user-facing name for the starting point. This is the name that users
-  will choose the starting point with if this package provides more than one.
-  This name can and should be descriptive. It must be a valid Typst identifier.
-- `path`: The directory of the package containing the files that should be
-  copied into the user's new project directory.
+- `path`: The directory within the package that contains the files that should
+  be copied into the user's new project directory.
+- `entrypoint`: A path _relative to the template's path_ that points to the file
+  serving as the compilation target. This file will become the previewed file in
+  the Typst web application.
 
 Required for submissions to this repository:
-- `entrypoint`: A path relative to the starting point's path that points to the
-  file serving as the compilation target. This file will become the previewed
-  file in the Typst web application.
-- `thumbnail`: A path relative to the starting point's path that points to a PNG
+- `thumbnail`: A path relative to the package's root that points to a PNG
   or lossless WebP thumbnail for the template. The thumbnail must depict one of
   the pages of the template **as initialized.** The longer edge of the image
   must be at least 1080px in length. Its file size must not exceed 3MB.
@@ -112,10 +100,6 @@ Required for submissions to this repository:
   thumbnail. You are encouraged to use [oxipng][oxipng] to reduce the
   thumbnail's file size. The thumbnail will automatically be excluded from the
   package files and must not be referenced anywhere in the package.
-
-Optional:
-- `description`: A description of the intended use of this starting point and
-  how it differs from the others.
 
 Template packages must specify at least one category in `package.categories`.
 
@@ -167,7 +151,7 @@ are detailed below:
   called `organized-ajp` or `eternal-ajp`. Package names should be short and
   hence use the official entity abbreviation. Template authors are encouraged to
   add the full name of the affiliated entity as a keyword.
-  
+
   The unamended entity name (e.g. `ajp`) is reserved for official template
   packages by their respective entities. Please make it clear in your PR if you
   are submitting an official package. We will then outline steps to authenticate
@@ -254,4 +238,3 @@ respective license.
 [OSI]: https://opensource.org/licenses/
 [typos]: https://github.com/crate-ci/typos
 [oxipng]: https://github.com/shssoichiro/oxipng
-[toml-table-array]: https://toml.io/en/v1.0.0#array-of-tables

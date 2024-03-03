@@ -214,7 +214,7 @@ fn validate_template(path: &Path, template: &TemplateInfo) -> anyhow::Result<()>
     let entrypoint = template_path.join(&template.entrypoint);
     validate_typst_file(&entrypoint, "template entrypoint")?;
 
-    let thumbnail = template_path.join(&template.thumbnail);
+    let thumbnail = path.join(&template.thumbnail);
 
     // Check that the thumbnail is smaller than 3MB.
     let metadata = fs::metadata(&thumbnail).context("failed to read thumbnail metadata")?;
@@ -346,7 +346,7 @@ fn write_thumbnails(
 ) -> anyhow::Result<()> {
     let thumbnail_root = out_dir.join(namespace).join(THUMBS_DIR);
 
-    let orig_thumbnail_path = path.join(&template.path).join(&template.thumbnail);
+    let orig_thumbnail_path = path.join(&template.thumbnail);
 
     // Thumbnails that are WebP and already and smaller than 1MB should be
     // copied as-is.

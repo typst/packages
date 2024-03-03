@@ -2,17 +2,15 @@
 name = "wonderous-book"
 version = "0.1.0"
 compiler = "0.10.0"
-entrypoint = "template.typ"
+entrypoint = "lib.typ"
 repository = "https://github.com/typst/templates"
 authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Create a fiction book with running headers and serif tyography"
-keywords = [ "book", "fiction", "running header", "novel" ]
-categories = [ "book" ]
+keywords = ["book", "fiction", "running header", "novel"]
+categories = ["book"]
 
-[[template.start]]
-name = "book"
-path = "book"
-description = "A fiction book template with a title page"
+[template]
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
