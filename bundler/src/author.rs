@@ -1,4 +1,5 @@
 use anyhow::{bail, Context};
+use email_address::EmailAddress;
 use unscanny::Scanner;
 
 /// Validates the format of an author field. It can contain a name and, in angle
@@ -9,12 +10,12 @@ pub fn validate_author(name: &str) -> anyhow::Result<()> {
     s.eat_until(|c| c == '<');
     if s.eat_if('<') {
         let contact = s.eat_until('>');
-        if contact.starts_with('@') {
-            validate_github_handle(contact).context("GitHub handle is invalid")?;
+        if let Some(handle) = contact.strip_prefix('@') {
+            validate_github_handle(handle).context("GitHub handle is invalid")?;
         } else if contact.starts_with("http") {
             validate_url(contact).context("URL is invalid")?;
         } else {
-            validate_email(contact).context("email is invalid")?;
+            let _addr: EmailAddress = contact.parse().context("email is invalid")?;
         }
         if !s.eat_if('>') {
             bail!("expected '>'");
@@ -56,47 +57,9 @@ fn validate_url(url: &str) -> anyhow::Result<()> {
     Ok(())
 }
 
-/// Validates an email address.
-fn validate_email(email: &str) -> anyhow::Result<()> {
-    if email.len() >= 254 {
-        bail!("cannot be longer than 254 characters");
-    }
-
-    let mut s = Scanner::new(email);
-    let local = s.eat_until('@');
-    let domain = s.eat_until('.');
-    let tld = s.after();
-
-    if local.is_empty() {
-        bail!("local part must not be empty");
-    }
-
-    if domain.is_empty() {
-        bail!("domain must not be empty");
-    }
-
-    if tld.is_empty() {
-        bail!("TLD must not be empty");
-    }
-
-    if !local.chars().all(is_legal_in_email_local_part)
-        || !domain.chars().all(is_legal_in_url)
-        || !tld.chars().all(is_legal_in_url)
-    {
-        bail!("contains illegal characters");
-    }
-
-    Ok(())
-}
-
 /// Whether a character is legal in a URL.
 fn is_legal_in_url(c: char) -> bool {
     c.is_ascii_alphanumeric() || "-_.~:/?#[]@!$&'()*+,;=".contains(c)
-}
-
-/// Whether a character is legal in the local part of an email.
-fn is_legal_in_email_local_part(c: char) -> bool {
-    c.is_ascii_alphanumeric() || "!#$%&'*+-/=?^_`{|}~.".contains(c)
 }
 
 #[cfg(test)]
