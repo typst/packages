@@ -2,17 +2,15 @@
 name = "appreciated-letter"
 version = "0.1.0"
 compiler = "0.6.0"
-entrypoint = "template.typ"
+entrypoint = "lib.typ"
 repository = "https://github.com/typst/templates"
 authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Correspond with business associates and your friends via mail"
-keywords = [ "correspondence", "mail", "letter", "DIN 5008" ]
-categories = [ "office" ]
+keywords = ["correspondence", "mail", "letter", "DIN 5008"]
+categories = ["office"]
 
-[[template.start]]
-name = "letter"
-path = "letter"
-description = "A simple letter template for correspondence"
+[template]
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
