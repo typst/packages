@@ -1,24 +1,26 @@
+mod author;
+mod model;
+mod timestamp;
+
 use std::borrow::Cow;
-use std::collections::HashMap;
 use std::env::args;
 use std::fs;
 use std::fs::File;
 use std::io;
 use std::io::BufReader;
-use std::path::{Path, PathBuf};
-use std::process::Command;
+use std::path::Path;
 
 use anyhow::{bail, Context};
 use image::codecs::webp::{WebPEncoder, WebPQuality};
 use image::imageops::FilterType;
-use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
-use semver::Version;
-use serde::{Deserialize, Serialize};
 use unicode_ident::{is_xid_continue, is_xid_start};
-use unscanny::Scanner;
+
+use self::author::validate_author;
+use self::model::*;
+use self::timestamp::determine_timestamps;
 
 const DIST: &str = "dist";
-const THUMBS_DIR_NAME: &str = "thumbnails";
+const THUMBS_DIR: &str = "thumbnails";
 
 fn main() -> anyhow::Result<()> {
     println!("Starting bundling.");
@@ -60,7 +62,7 @@ fn main() -> anyhow::Result<()> {
         let mut paths = vec![];
         let mut index = vec![];
         let mut package_errors = vec![];
-        fs::create_dir_all(Path::new(&out_dir).join(namespace).join(THUMBS_DIR_NAME))?;
+        fs::create_dir_all(Path::new(&out_dir).join(namespace).join(THUMBS_DIR))?;
 
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
             let entry = entry?;
@@ -84,7 +86,7 @@ fn main() -> anyhow::Result<()> {
         determine_timestamps(&paths, &mut index)?;
 
         // Sort the index.
-        index.sort_by_key(|info| (info.base.name.clone(), info.base.version.clone()));
+        index.sort_by_key(|info| (info.package.name.clone(), info.package.version.clone()));
 
         println!("Writing index.");
         fs::write(
@@ -124,7 +126,7 @@ fn process_package(
     path: &Path,
     namespace: &str,
     out_dir: &Path,
-) -> anyhow::Result<ExtendedPackageInfo> {
+) -> anyhow::Result<FullIndexPackageInfo> {
     println!("Bundling {}.", path.display());
     let manifest = parse_manifest(path, namespace).context("failed to parse package manifest")?;
 
@@ -135,10 +137,14 @@ fn process_package(
     validate_archive(&buf).context("failed to validate archive")?;
     write_archive(&manifest.package, &buf, namespace, out_dir)
         .context("failed to write archive")?;
-    write_thumbnails(path, &manifest, namespace, out_dir).context("failed to write thumbnails")?;
 
-    Ok(ExtendedPackageInfo {
-        base: manifest.package,
+    if let Some(template) = &manifest.template {
+        write_thumbnails(path, &manifest, template, namespace, out_dir)
+            .context("failed to write thumbnails")?;
+    }
+
+    Ok(FullIndexPackageInfo {
+        package: manifest.package,
         template: manifest.template,
         readme,
         size: buf.len(),
@@ -167,7 +173,7 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
     }
 
     for author in &manifest.package.authors {
-        check_author_name(author).context("error while checking author name")?;
+        validate_author(author).context("error while checking author name")?;
     }
 
     if manifest.package.categories.len() > 3 {
@@ -190,36 +196,23 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
     }
 
     let entrypoint = path.join(&manifest.package.entrypoint);
-    check_typst_file(&entrypoint, "entrypoint")?;
+    validate_typst_file(&entrypoint, "entrypoint")?;
 
     if let Some(template) = &manifest.template {
-        if template.start.is_empty() {
-            bail!("templates must have at least one starting point");
-        }
-
         if manifest.package.categories.is_empty() {
             bail!("template packages must have at least one category");
         }
 
-        for template in &template.start {
-            validate_template(path, template)?;
-        }
+        validate_template(path, template)?;
     }
 
     Ok(manifest)
 }
 
-fn validate_template(path: &Path, template: &TemplateStartingPoint) -> anyhow::Result<()> {
+fn validate_template(path: &Path, template: &TemplateInfo) -> anyhow::Result<()> {
     let template_path = path.join(&template.path);
     let entrypoint = template_path.join(&template.entrypoint);
-    check_typst_file(&entrypoint, "template entrypoint")?;
-
-    if !is_ident(&template.name) {
-        bail!(
-            "template name `{}` is not a valid identifier",
-            template.name
-        );
-    }
+    validate_typst_file(&entrypoint, "template entrypoint")?;
 
     let thumbnail = template_path.join(&template.thumbnail);
 
@@ -261,35 +254,17 @@ fn validate_template(path: &Path, template: &TemplateStartingPoint) -> anyhow::R
     Ok(())
 }
 
-// Check that a Typst file exists, its name ends in `.typ`, and it is valid
-// UTF-8.
-fn check_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
-    if !path.exists() {
-        bail!("{} is missing", name);
-    }
-
-    if path.extension().map_or(true, |ext| ext != "typ") {
-        bail!("{} must have a .typ extension", name);
-    }
-
-    fs::read_to_string(path).context("failed to read Typst file")?;
-    Ok(())
-}
-
 fn build_exclude_list(manifest: &PackageManifest) -> anyhow::Result<Cow<[String]>> {
     match &manifest.template {
-        Some(t) if !t.start.is_empty() => {
+        Some(template) => {
             let mut exclude = manifest.package.exclude.clone();
-            for template in &t.start {
-                exclude.push(
-                    Path::new(&template.path)
-                        .join(&template.thumbnail)
-                        .to_str()
-                        .context("Thumbnail path is not valid UTF-8")?
-                        .to_owned(),
-                )
-            }
-
+            exclude.push(
+                Path::new(&template.path)
+                    .join(&template.thumbnail)
+                    .to_str()
+                    .context("Thumbnail path is not valid UTF-8")?
+                    .to_owned(),
+            );
             Ok(Cow::Owned(exclude))
         }
         _ => Ok(Cow::Borrowed(&manifest.package.exclude)),
@@ -365,433 +340,101 @@ fn write_archive(
 fn write_thumbnails(
     path: &Path,
     manifest: &PackageManifest,
+    template: &TemplateInfo,
     namespace: &str,
     out_dir: &Path,
 ) -> anyhow::Result<()> {
-    let thumbnail_root = out_dir.join(namespace).join(THUMBS_DIR_NAME);
+    let thumbnail_root = out_dir.join(namespace).join(THUMBS_DIR);
 
-    for (i, template) in manifest.template.iter().flat_map(|t| &t.start).enumerate() {
-        let orig_thumbnail_path = path.join(&template.path).join(&template.thumbnail);
+    let orig_thumbnail_path = path.join(&template.path).join(&template.thumbnail);
 
-        // Thumbnails that are WebP and already and smaller than 1MB should be
-        // copied as-is.
-        let was_webp = orig_thumbnail_path
-            .extension()
-            .map_or(false, |ext| ext.to_ascii_lowercase() == "webp");
+    // Thumbnails that are WebP and already and smaller than 1MB should be
+    // copied as-is.
+    let was_webp = orig_thumbnail_path
+        .extension()
+        .map_or(false, |ext| ext.to_ascii_lowercase() == "webp");
 
-        // Get file size.
-        let size = fs::metadata(&orig_thumbnail_path)?.len();
-        let keep_original = was_webp && size < 1024 * 1024;
+    // Get file size.
+    let size = fs::metadata(&orig_thumbnail_path)?.len();
+    let keep_original = was_webp && size < 1024 * 1024;
 
-        let image = image::open(&orig_thumbnail_path)?;
-        // Choose a fast filter for the miniature.
-        let miniature = image.resize(400, 400, FilterType::CatmullRom);
+    let image = image::open(&orig_thumbnail_path)?;
+    // Choose a fast filter for the miniature.
+    let miniature = image.resize(400, 400, FilterType::CatmullRom);
 
-        let thumbnail_path = thumbnail_root.join(format!(
-            "{}-{}-{}-small.webp",
-            manifest.package.name, manifest.package.version, i
-        ));
+    let thumbnail_path = thumbnail_root.join(format!(
+        "{}-{}-small.webp",
+        manifest.package.name, manifest.package.version,
+    ));
 
-        let mut miniature_buf = Vec::new();
+    let mut miniature_buf = Vec::new();
 
-        // A big fight is going on in the Image crate's GitHub: They want to
-        // remove the C dependency for WebP encoding but the Rust alternative
-        // does not support lossy encoding. Many people are unhappy about this.
-        #[allow(deprecated)]
-        let miniature_encoder =
-            WebPEncoder::new_with_quality(&mut miniature_buf, WebPQuality::lossy(85));
+    // A big fight is going on in the Image crate's GitHub: They want to
+    // remove the C dependency for WebP encoding but the Rust alternative
+    // does not support lossy encoding. Many people are unhappy about this.
+    #[allow(deprecated)]
+    let miniature_encoder =
+        WebPEncoder::new_with_quality(&mut miniature_buf, WebPQuality::lossy(85));
 
-        miniature_encoder.encode(
-            miniature.to_rgb8().as_raw(),
-            miniature.width(),
-            miniature.height(),
-            image::ColorType::Rgb8,
-        )?;
+    miniature_encoder.encode(
+        miniature.to_rgb8().as_raw(),
+        miniature.width(),
+        miniature.height(),
+        image::ColorType::Rgb8,
+    )?;
 
-        fs::write(thumbnail_path, miniature_buf)?;
+    fs::write(thumbnail_path, miniature_buf)?;
 
-        let thumbnail_path = thumbnail_root.join(format!(
-            "{}-{}-{}.webp",
-            manifest.package.name, manifest.package.version, i
-        ));
+    let thumbnail_path = thumbnail_root.join(format!(
+        "{}-{}.webp",
+        manifest.package.name, manifest.package.version,
+    ));
 
-        if keep_original {
-            fs::copy(&orig_thumbnail_path, thumbnail_path)?;
-            return Ok(());
-        }
-
-        // The WebP file was too big if keep_original is false.
-        let resize = was_webp || image.width() * image.height() < 3000 * 2000;
-
-        let resized = if resize {
-            image.resize(1920, 1920, FilterType::Lanczos3)
-        } else {
-            image
-        };
-
-        let mut buf = Vec::new();
-        #[allow(deprecated)]
-        let encoder = WebPEncoder::new_with_quality(&mut buf, WebPQuality::lossy(98));
-        encoder.encode(
-            resized.to_rgb8().as_raw(),
-            resized.width(),
-            resized.height(),
-            image::ColorType::Rgb8,
-        )?;
-
-        fs::write(thumbnail_path, buf)?;
-    }
-    Ok(())
-}
-
-/// Determine all packages timestamps.
-fn determine_timestamps(
-    paths: &[PathBuf],
-    index: &mut [ExtendedPackageInfo],
-) -> anyhow::Result<()> {
-    // Check if git is installed on the system.
-    let has_git = Command::new("git").arg("--version").output().is_ok();
-
-    // Determine timestamp via Git. Do this in parallel because it is pretty
-    // slow.
-    let timestamps = paths
-        .par_iter()
-        .map(|p| {
-            if has_git {
-                timestamp_for_path_with_git(p)
-            } else {
-                timestamp_for_path_with_fs(p)
-            }
-        })
-        .collect::<Result<Vec<_>, _>>()?;
-
-    // Determine the release dates for all packages.
-    // It is the minimum update date for any of its versions.
-    let mut release_dates: HashMap<String, u64> = HashMap::new();
-    for (info, &t) in index.iter().zip(&timestamps) {
-        release_dates
-            .entry(info.base.name.clone())
-            .and_modify(|v| *v = (*v).min(t))
-            .or_insert(t);
+    if keep_original {
+        fs::copy(&orig_thumbnail_path, thumbnail_path)?;
+        return Ok(());
     }
 
-    // Write update & release dates.
-    for (info, &t) in index.iter_mut().zip(&timestamps) {
-        info.updated_at = t;
-        info.released_at = release_dates[&info.base.name];
-    }
+    // The WebP file was too big if keep_original is false.
+    let resize = was_webp || image.width() * image.height() < 3000 * 2000;
+
+    let resized = if resize {
+        image.resize(1920, 1920, FilterType::Lanczos3)
+    } else {
+        image
+    };
+
+    let mut buf = Vec::new();
+    #[allow(deprecated)]
+    let encoder = WebPEncoder::new_with_quality(&mut buf, WebPQuality::lossy(98));
+    encoder.encode(
+        resized.to_rgb8().as_raw(),
+        resized.width(),
+        resized.height(),
+        image::ColorType::Rgb8,
+    )?;
+
+    fs::write(thumbnail_path, buf)?;
 
     Ok(())
 }
 
-/// Call Git and get the Unix timestamp of a commit date.
-fn timestamp_for_path_with_git(path: &Path) -> anyhow::Result<u64> {
-    // These commits should be ignored (they are moves).
-    const SKIP: &[&str] = &["d22a2d5c3e54d7abd7960650221eb08a7f3fc6ad"];
-
-    let mut command = Command::new("git");
-    command.args([
-        "--no-pager", // Disable interactivity with --no-pager.
-        "log",
-        "--no-patch",
-        "--follow",
-        "--format=%H %ct",
-    ]);
-    command.arg(path.join("typst.toml"));
-
-    // Fails if the Git reports an error or the number could not be parsed.
-    let output = command.output()?;
-    if !output.status.success() {
-        bail!("git failed: {}", std::str::from_utf8(&output.stderr)?);
+// Check that a Typst file exists, its name ends in `.typ`, and that it is valid
+// UTF-8.
+fn validate_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
+    if !path.exists() {
+        bail!("{name} is missing");
     }
 
-    std::str::from_utf8(&output.stdout)?
-        .lines()
-        .map(|line| line.split_whitespace())
-        .filter_map(|mut parts| parts.next().zip(parts.next()))
-        .find(|(hash, _)| !SKIP.contains(hash))
-        .and_then(|(_, ts)| ts.parse::<u64>().ok())
-        .context("failed to determine commit timestamp")
-}
-
-// Check the timestamp of a file using the filesystem.
-fn timestamp_for_path_with_fs(path: &Path) -> anyhow::Result<u64> {
-    let metadata = fs::metadata(path.join("typst.toml"))?;
-    metadata
-        .modified()
-        .map(|t| t.duration_since(std::time::UNIX_EPOCH).unwrap().as_secs())
-        .context("failed to determine file timestamp")
-}
-
-/// A parsed package manifest + extra metadata.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize)]
-#[serde(rename_all = "camelCase")]
-struct ExtendedPackageInfo {
-    /// The information from the package manifest.
-    #[serde(flatten)]
-    base: PackageInfo,
-    /// The template metadata
-    #[serde(skip_serializing_if = "Option::is_none")]
-    template: Option<TemplateInfo>,
-    /// The compressed archive size in bytes.
-    size: usize,
-    /// The unsanitized README markdown.
-    readme: String,
-    /// Release time of this version of the package.
-    updated_at: u64,
-    /// Release time of the first version of this package.
-    released_at: u64,
-}
-
-/// A parsed package manifest with the release time.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize)]
-#[serde(rename_all = "camelCase")]
-struct IndexPackageInfo {
-    /// The information from the package manifest.
-    #[serde(flatten)]
-    package: PackageInfo,
-    /// The template metadata
-    #[serde(skip_serializing_if = "Option::is_none")]
-    template: Option<TemplateInfo>,
-    /// Release time of this version of the package.
-    updated_at: u64,
-}
-
-impl From<&ExtendedPackageInfo> for IndexPackageInfo {
-    fn from(info: &ExtendedPackageInfo) -> Self {
-        IndexPackageInfo {
-            package: info.base.clone(),
-            template: info.template.clone(),
-            updated_at: info.updated_at,
-        }
-    }
-}
-
-/// A parsed package manifest.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct PackageManifest {
-    package: PackageInfo,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    template: Option<TemplateInfo>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    tool: Option<Tool>,
-}
-
-/// The `package` key in the manifest.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct PackageInfo {
-    name: String,
-    version: Version,
-    entrypoint: String,
-    authors: Vec<String>,
-    license: String,
-    description: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    homepage: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    repository: Option<String>,
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    #[serde(default)]
-    keywords: Vec<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    compiler: Option<Version>,
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    #[serde(default)]
-    exclude: Vec<String>,
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    #[serde(default)]
-    categories: Vec<PackageCategory>,
-}
-
-/// Which kind of package this is.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields, rename_all = "kebab-case")]
-enum PackageCategory {
-    // Package kinds
-    Components,
-    Design,
-    Model,
-    Languages,
-    Layout,
-    Text,
-    Scripting,
-    Integration,
-    Visualization,
-    Utility,
-    Fun,
-
-    // Document kinds
-    Book,
-    Report,
-    Paper,
-    Thesis,
-    Poster,
-    Flyer,
-    Presentation,
-    Cv,
-    Office,
-
-    // Disciplines
-    Education,
-    Math,
-    Physics,
-    Chemistry,
-    Biology,
-    Economics,
-    Engineering,
-    ComputerScience,
-    Law,
-    Music,
-    Arts,
-}
-
-/// The `template` key in the manifest.
-#[derive(Debug, Clone, Default, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct TemplateInfo {
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    #[serde(default)]
-    start: Vec<TemplateStartingPoint>,
-}
-
-/// A starting point for a template.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct TemplateStartingPoint {
-    name: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    description: Option<String>,
-    path: String,
-    entrypoint: String,
-    thumbnail: String,
-}
-
-/// The `tool` key in the manifest.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-struct Tool {}
-
-/// Scan an author name. Author names can contain a name and, in angle brackets,
-/// one of a URL, email or GitHub username.
-fn check_author_name(name: &str) -> anyhow::Result<()> {
-    let mut s = Scanner::new(name);
-    s.eat_until(|c| c == '<');
-
-    if let Some('<') = s.eat() {
-        match s.peek() {
-            Some('@') => github_handle(&mut s)?,
-            Some(_) => {
-                if s.after().starts_with("http://") || s.after().starts_with("https://") {
-                    let url = s.eat_until(|c| c == '>');
-                    if !url.chars().all(is_legal_in_url) {
-                        bail!("URL contains invalid characters");
-                    }
-                    if s.eat() != Some('>') {
-                        bail!("Expected '>'");
-                    }
-                } else {
-                    email(&mut s)?;
-                }
-            }
-            None => bail!("Unexpected end of input"),
-        }
+    if path.extension().map_or(true, |ext| ext != "typ") {
+        bail!("{name} must have a .typ extension");
     }
 
+    fs::read_to_string(path).context("failed to read {name} file")?;
     Ok(())
-}
-
-fn github_handle(s: &mut Scanner) -> anyhow::Result<()> {
-    // The username must start with an @
-    if !s.eat_if('@') {
-        bail!("GitHub username must start with an @");
-    }
-
-    // The first character must be alphanumeric
-    if !s.eat_if(|c: char| c.is_ascii_alphanumeric()) {
-        bail!("GitHub username must start with an alphanumeric character");
-    }
-
-    let mut length = 1;
-    let mut last_was_hyphen = false;
-    while let Some(c) = s.eat() {
-        if length >= 39 {
-            bail!("GitHub username cannot be longer than 39 characters");
-        }
-
-        match c {
-            '-' if last_was_hyphen => bail!("GitHub username cannot contain consecutive hyphens"),
-            '-' => last_was_hyphen = true,
-            c if c.is_ascii_alphanumeric() => last_was_hyphen = false,
-            '>' if last_was_hyphen => bail!("GitHub username cannot end with a hyphen"),
-            '>' => return Ok(()),
-            _ => bail!("GitHub username can only contain alphanumeric characters and hyphens"),
-        }
-
-        length += 1;
-    }
-
-    bail!("Unexpected end of input");
-}
-
-fn email(s: &mut Scanner) -> anyhow::Result<()> {
-    #[derive(Debug, PartialEq, Eq)]
-    enum EmailPart {
-        Local,
-        Domain,
-        Tld,
-    }
-
-    let mut length = 0;
-    let mut part = (EmailPart::Local, 0);
-    while let Some(c) = s.eat() {
-        if length >= 254 {
-            bail!("Email cannot be longer than 254 characters");
-        }
-
-        part.1 += 1;
-
-        match c {
-            '@' if part.0 == EmailPart::Local => {
-                if part.1 <= 1 {
-                    bail!("Email local part cannot be empty");
-                }
-
-                part = (EmailPart::Domain, 0);
-            }
-            '.' if part.0 == EmailPart::Domain => {
-                if part.1 <= 1 {
-                    bail!("Email domain part cannot be empty");
-                }
-
-                part = (EmailPart::Tld, 0);
-            }
-            '>' if part.0 == EmailPart::Tld && part.1 > 1 => {
-                return Ok(());
-            }
-            c if part.0 == EmailPart::Local
-                && (c.is_ascii_alphanumeric() || "!#$%&'*+-/=?^_`{|}~.".contains(c)) => {}
-            c if part.0 != EmailPart::Local && (is_legal_in_url(c)) => {}
-            _ => bail!("Email can only contain alphanumeric characters, dots and hyphens"),
-        }
-
-        length += 1;
-    }
-
-    bail!("Unexpected end of input");
-}
-
-fn is_legal_in_url(c: char) -> bool {
-    c.is_ascii_alphanumeric() || "-_.~:/?#[]@!$&'()*+,;=".contains(c)
 }
 
 /// Whether a string is a valid Typst identifier.
-///
-/// In addition to what is specified in the [Unicode Standard][uax31], we allow:
-/// - `_` as a starting character,
-/// - `_` and `-` as continuing characters.
-///
-/// [uax31]: http://www.unicode.org/reports/tr31/
 fn is_ident(string: &str) -> bool {
     let mut chars = string.chars();
     chars
@@ -807,36 +450,4 @@ fn is_id_start(c: char) -> bool {
 /// Whether a character can continue an identifier.
 fn is_id_continue(c: char) -> bool {
     is_xid_continue(c) || c == '_' || c == '-'
-}
-
-#[cfg(test)]
-mod tests {
-    use crate::check_author_name;
-
-    #[test]
-    fn parse_author_name() {
-        check_author_name("Martin").unwrap();
-        check_author_name("Martin <@reknih>").unwrap();
-        check_author_name("Martin <https://mha.ug>").unwrap();
-        check_author_name("Martin <martin.haug@typst.app>").unwrap();
-
-        // Check wrong GitHub username
-        assert!(check_author_name("Martin <@reknih->").is_err());
-        assert!(check_author_name("Martin <@-reknih>").is_err());
-        assert!(check_author_name("Martin <@räknih>").is_err());
-        assert!(check_author_name("Martin <@reknih").is_err());
-
-        // Check wrong email addresses
-        assert!(check_author_name("Martin <>").is_err());
-        assert!(check_author_name("Martin <martin>").is_err());
-        assert!(check_author_name("Martin <m@.de>").is_err());
-        assert!(check_author_name("Martin <m@hello.>").is_err());
-        assert!(check_author_name("Martin < >").is_err());
-        assert!(check_author_name("Martin <martin@typst.app").is_err());
-
-        // Check wrong URLs
-        assert!(check_author_name("Martin <http://mha ug>").is_err());
-        assert!(check_author_name("Martin <http://mhä.ug>").is_err());
-        assert!(check_author_name("Martin <http://mha.ug").is_err());
-    }
 }
