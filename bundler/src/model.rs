@@ -1,6 +1,9 @@
 use semver::Version;
 use serde::{Deserialize, Serialize};
 
+use crate::categories::Category;
+use crate::disciplines::Discipline;
+
 /// A parsed package manifest.
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -16,24 +19,44 @@ pub struct PackageManifest {
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct PackageInfo {
+    /// The package's identifier in its namespace.
     pub name: String,
+    /// The package's version as a full major-minor-patch triple.
     pub version: Version,
+    /// The path to the main Typst file that is evaluated when the package is
+    /// imported.
     pub entrypoint: String,
+    /// A list of the package's authors.
     pub authors: Vec<String>,
+    ///  The package's license.
     pub license: String,
+    /// A short description of the package.
     pub description: String,
+    /// A link to the package's web presence.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub homepage: Option<String>,
+    /// A link to the repository where this package is developed.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository: Option<String>,
+    /// An array of search keywords for the package.
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub keywords: Vec<String>,
+    /// An array with up to three of the predefined categories to help users
+    /// discover the package.
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub categories: Vec<PackageCategory>,
+    pub categories: Vec<Category>,
+    /// An array of disciplines defining the target audience for which the
+    /// package is useful.
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub disciplines: Vec<Discipline>,
+    /// The minimum Typst compiler version required for this package to work.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub compiler: Option<Version>,
+    /// An array of globs specifying files that should not be part of the
+    /// published bundle.
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub exclude: Vec<String>,
@@ -46,48 +69,6 @@ pub struct TemplateInfo {
     pub path: String,
     pub entrypoint: String,
     pub thumbnail: String,
-}
-
-/// Which kind of package this is.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields, rename_all = "kebab-case")]
-pub enum PackageCategory {
-    // Package kinds
-    Components,
-    Design,
-    Model,
-    Languages,
-    Layout,
-    Text,
-    Scripting,
-    Integration,
-    Visualization,
-    Utility,
-    Fun,
-
-    // Document kinds
-    Book,
-    Report,
-    Paper,
-    Thesis,
-    Poster,
-    Flyer,
-    Presentation,
-    Cv,
-    Office,
-
-    // Disciplines
-    Education,
-    Math,
-    Physics,
-    Chemistry,
-    Biology,
-    Economics,
-    Engineering,
-    ComputerScience,
-    Law,
-    Music,
-    Arts,
 }
 
 /// The `tool` key in the manifest.

@@ -7,8 +7,8 @@ repository = "https://github.com/typst/templates"
 authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Share the news with bold graphic design and a modern layout"
-keywords = ["newsletter", "news", "announcement", "email", "template", "design", "layout"]
-categories = ["design", "office"]
+keywords = ["newsletter", "news", "announcement", "email", "design"]
+categories = ["office"]
 
 [template]
 path = "template"

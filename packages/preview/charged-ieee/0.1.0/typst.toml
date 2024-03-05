@@ -6,9 +6,10 @@ entrypoint = "lib.typ"
 repository = "https://github.com/typst/templates"
 authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
-description = "Create an IEEE-style paper to publish at conferences and journals for Electrical Engineers, Computer Science, and Computer Engineering"
+description = "An IEEE-style paper template to publish at conferences and journals for Electrical Engineering, Computer Science, and Computer Engineering"
 keywords = ["Institute of Electrical and Electronics Engineers", "IEEE", "Electrical Engineering", "Computer Science", "Computer Engineering", "Software"]
-categories = ["paper", "computer-science", "engineering"]
+categories = ["paper"]
+disciplines = ["computer-science", "engineering"]
 
 [template]
 path = "template"

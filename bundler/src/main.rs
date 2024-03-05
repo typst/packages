@@ -1,4 +1,6 @@
 mod author;
+mod categories;
+mod disciplines;
 mod model;
 mod timestamp;
 

@@ -6,7 +6,7 @@ entrypoint = "lib.typ"
 repository = "https://github.com/typst/templates"
 authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
-description = "Create a fiction book with running headers and serif tyography"
+description = "A fiction book template with running headers and serif tyography"
 keywords = ["book", "fiction", "running header", "novel"]
 categories = ["book"]
 

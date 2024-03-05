@@ -40,6 +40,12 @@ Optional:
 - `repository`: A link to the repository where this package is developed. Will
   be linked to from the package list if there is no homepage.
 - `keywords`: An array of search keywords for the package.
+- `categories`: An array with up to three categories from the
+  [list of categories][categories] as strings to help users discover the
+  package.
+- `disciplines`: An array of [disciplines] defining the target audience for
+  which the package is useful. Should be empty if the package is generally
+  applicable.
 - `compiler`: The minimum Typst compiler version required for this package to
   work.
 - `exclude`: An array of globs specifying files that should not be part of the
@@ -47,8 +53,6 @@ Optional:
   used for large support files like images or PDF documentation that would
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
   the LICENSE.
-- `categories`: An array with up to three categories from the [list of
-  categories][categories] as strings to help users find the package.
 
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
@@ -234,6 +238,7 @@ respective license.
 
 [list]: https://typst.app/docs/packages/
 [categories]: https://github.com/typst/packages/blob/main/CATEGORIES.md
+[disciplines]: https://github.com/typst/packages/blob/main/DISCIPLINES.md
 [SemVer]: https://semver.org/
 [OSI]: https://opensource.org/licenses/
 [typos]: https://github.com/crate-ci/typos

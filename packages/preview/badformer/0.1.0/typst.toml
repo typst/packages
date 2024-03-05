@@ -7,7 +7,7 @@ repository = "https://github.com/typst/templates"
 authors = ["Typst GmbH <https://typst.app>"]
 license = "Unlicense"
 description = "Retro-gaming in Typst. Reach the goal and complete the mission."
-keywords = ["game", "platformer", "retro", "fun"]
+keywords = ["game", "platformer", "retro", "fun", "3d"]
 categories = ["fun"]
 
 [template]
