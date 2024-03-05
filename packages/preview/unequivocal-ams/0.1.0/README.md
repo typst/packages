@@ -31,9 +31,8 @@ This template exports the `ams-article` function with the following named argume
 - `paper-size`: Defaults to `us-letter`. Specify a [paper size
   string](https://typst.app/docs/reference/layout/page/#parameters-paper) to
   change the page format.
-- `bibliography-file`: Content from a call to the bibliography function. This
-  may also be `none`. Specifying this will configure numeric, Springer
-  MathPhys-style citations.
+- `bibliography`: The result of a call to the `bibliography` function or `none`.
+  Specifying this will configure numeric, Springer MathPhys-style citations.
 
 The function also accepts a single, positional argument for the body of the
 paper.
@@ -58,7 +57,7 @@ use this template, you can add a show rule like this at the top of your file:
     ),
   ),
   abstract: lorem(100),
-  bibliography-file: bibliography("refs.bib"),
+  bibliography: bibliography("refs.bib"),
 )
 
 // Your content goes below.

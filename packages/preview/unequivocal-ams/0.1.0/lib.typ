@@ -1,8 +1,12 @@
+// Sizes used across the template.
 #let script-size = 7.97224pt
 #let footnote-size = 8.50012pt
 #let small-size = 9.24994pt
 #let normal-size = 10.00002pt
 #let large-size = 11.74988pt
+
+// Workaround for the lack of an `std` scope.
+#let std-bibliography = bibliography
 
 // This function gets your whole document as its `body` and formats
 // it as an article in the style of the American Mathematical Society.
@@ -21,9 +25,8 @@
   // The article's paper size. Also affects the margins.
   paper-size: "us-letter",
 
-  // The path to a bibliography file if you want to cite some external
-  // works.
-  bibliography-file: none,
+  // The result of a call to the `bibliography` function or `none`.
+  bibliography: none,
 
   // The document's content.
   body,
@@ -199,16 +202,16 @@
   body
 
   // Display the bibliography, if any is given.
-  if bibliography-file != none {
-    show bibliography: set text(8.5pt)
-    show bibliography: pad.with(x: 0.5pt)
-    bibliography-file
+  if bibliography != none {
+    show std-bibliography: set text(footnote-size)
+    show std-bibliography: pad.with(x: 0.5pt)
+    bibliography
   }
 
   // The thing ends with details about the authors.
   show: pad.with(x: 11.5pt)
   set par(first-line-indent: 0pt)
-  set text(7.97224pt)
+  set text(script-size)
 
   for author in authors {
     let keys = ("department", "organization", "location")

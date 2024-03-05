@@ -1,3 +1,6 @@
+// Workaround for the lack of an `std` scope.
+#let std-bibliography = bibliography
+
 // This function gets your whole document as its `body` and formats
 // it as an article in the style of the IEEE.
 #let ieee(
@@ -18,9 +21,8 @@
   // The article's paper size. Also affects the margins.
   paper-size: "us-letter",
 
-  // The path to a bibliography file if you want to cite some external
-  // works.
-  bibliography-file: none,
+  // The result of a call to the `bibliography` function or `none`.
+  bibliography: none,
 
   // The paper's content.
   body
@@ -171,9 +173,9 @@
   body
 
   // Display bibliography.
-  if bibliography-file != none {
-    show bibliography: set text(8pt)
-    set bibliography(title: text(10pt)[References], style: "ieee")
-    bibliography-file
+  if bibliography != none {
+    show std-bibliography: set text(8pt)
+    set std-bibliography(title: text(10pt)[References], style: "ieee")
+    bibliography
   }
 }

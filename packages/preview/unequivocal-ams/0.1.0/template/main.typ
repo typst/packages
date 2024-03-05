@@ -13,7 +13,7 @@
     ),
   ),
   abstract: lorem(100),
-  bibliography-file: bibliography("refs.bib"),
+  bibliography: bibliography("refs.bib"),
 )
 
 Call me Ishmael. Some years ago --- never mind how long precisely ---

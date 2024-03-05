@@ -22,7 +22,7 @@
     ),
   ),
   index-terms: ("Scientific writing", "Typesetting", "Document creation", "Syntax"),
-  bibliography-file: bibliography("refs.bib"),
+  bibliography: bibliography("refs.bib"),
 )
 
 = Introduction
