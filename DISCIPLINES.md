@@ -6,7 +6,7 @@ manifest. In addition to disciplines, packages can also specify a list of
 [categories] describing their functionality.
 
 Disciplines are standardized for discoverability. If you want to submit a
-domain-specific package but there isn't a fitting discipline in the list below,
+domain-specific package, but there isn't a fitting discipline in the list below,
 please reach out to us!
 
 The following disciplines are currently defined:

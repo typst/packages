@@ -34,7 +34,7 @@ Required for submissions to this repository:
   grammar and spelling mistakes as it will appear in the [package list][list].
 
 Optional:
-- `homepage`: A link to the package's web presence where there could be more
+- `homepage`: A link to the package's web presence, where there could be more
   details, an issue tracker, or something else. Will be linked to from the
   package list.
 - `repository`: A link to the repository where this package is developed. Will
@@ -56,7 +56,7 @@ Optional:
 
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
-to that package. Absolute paths start in the package root while relative paths
+to that package. Absolute paths start in the package root, while relative paths
 are relative to the file they are used in.
 
 ### Templates
@@ -96,14 +96,14 @@ Required by the compiler:
   the Typst web application.
 
 Required for submissions to this repository:
-- `thumbnail`: A path relative to the package's root that points to a PNG
-  or lossless WebP thumbnail for the template. The thumbnail must depict one of
-  the pages of the template **as initialized.** The longer edge of the image
-  must be at least 1080px in length. Its file size must not exceed 3MB.
-  Exporting a PNG at 250 DPI resolution is usually a good way to generate a
-  thumbnail. You are encouraged to use [oxipng][oxipng] to reduce the
-  thumbnail's file size. The thumbnail will automatically be excluded from the
-  package files and must not be referenced anywhere in the package.
+- `thumbnail`: A path relative to the package's root that points to a PNG or
+  lossless WebP thumbnail for the template. The thumbnail must depict one of the
+  pages of the template **as initialized.** The longer edge of the image must be
+  at least 1080px in length. Its file size must not exceed 3MB. Exporting a PNG
+  at 250 DPI resolution is usually a good way to generate a thumbnail. You are
+  encouraged to use [oxipng] to reduce the thumbnail's file size. The thumbnail
+  will automatically be excluded from the package files and must not be
+  referenced anywhere in the package.
 
 Template packages must specify at least one category in `package.categories`.
 

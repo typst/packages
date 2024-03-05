@@ -34,12 +34,12 @@ utility package that may apply to most publication kinds.
   particular, this includes packages that embed a third-party binary as a
   plugin.
 - **`utility`:** Utility packages for working with Typst and authoring packages.
-- **`fun`:** Unique uses of Typst that are not neccessarily practical, but
+- **`fun`:** Unique uses of Typst that are not necessarily practical, but
   always entertaining.
 
 ## Publication Categories
 - **`book`:** Long-form fiction and non-fiction books with multiple chapters.
-- **`report`:** A multi-page informational or investigative document focused on
+- **`report`:** A multipage informational or investigative document focused on
   a single topic. This category contains templates for tech reports, homework,
   proposals and more.
 - **`paper`:** A scientific treatment on a research question. Usually published
