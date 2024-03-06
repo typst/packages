@@ -59,6 +59,7 @@ name = "bundler"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "email_address",
  "flate2",
  "ignore",
  "image",
@@ -146,6 +147,12 @@ name = "either"
 version = "1.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "11157ac094ffbdde99aa67b23417ebdd801842852b500e395a45a9c0aac03e4a"
+
+[[package]]
+name = "email_address"
+version = "0.2.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e2153bd83ebc09db15bcbdc3e2194d901804952e3dc96967e1cd3b0c5c32d112"
 
 [[package]]
 name = "equivalent"
