@@ -80,7 +80,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Typst GmbH <https://typst.app>"]
 license = "MIT-0"
-description = "Create an IEEE-style paper to publish at conferences and journals for Electrical Engineers, Computer Science, and Computer Engineering"
+description = "An IEEE-style paper template to publish at conferences and journals for Electrical Engineering, Computer Science, and Computer Engineering"
 
 [template]
 path = "template"
