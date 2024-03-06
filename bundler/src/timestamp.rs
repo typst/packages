@@ -34,7 +34,7 @@ pub fn determine_timestamps(
     let mut release_dates: HashMap<String, u64> = HashMap::new();
     for (info, &t) in index.iter().zip(&timestamps) {
         release_dates
-            .entry(info.base.name.clone())
+            .entry(info.package.name.clone())
             .and_modify(|v| *v = (*v).min(t))
             .or_insert(t);
     }
@@ -42,7 +42,7 @@ pub fn determine_timestamps(
     // Write update & release dates.
     for (info, &t) in index.iter_mut().zip(&timestamps) {
         info.updated_at = t;
-        info.released_at = release_dates[&info.base.name];
+        info.released_at = release_dates[&info.package.name];
     }
 
     Ok(())

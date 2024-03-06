@@ -25,3 +25,8 @@ I have read and followed the submission guidelines and, in particular, I
 - [ ] have chosen a license and added a `LICENSE` file or linked one in my `README.md`
 - [ ] tested my package locally on my system and it worked
 - [ ] `exclude`d PDFs or README images, if any, but not the LICENSE
+
+<!--
+The following box only needs to be checked for **template** submissions. If you're submitting a package that isn't a template, you can delete the following section. See the guidelines section about licenses in the README for more details.
+-->
+- [ ] ensured that my package is licensed such that users can use and distribute the contents of its template directory without restriction, after modifying them through normal use.
