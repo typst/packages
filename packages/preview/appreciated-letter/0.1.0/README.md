@@ -1,7 +1,4 @@
 # appreciated-letter
-
-![Preview of the appreciated-letter Typst template](https://github.com/typst/templates/raw/main/appreciated-letter/template/thumbnail.png)
-
 A basic letter with sender and recipient address. The letter is ready for a DIN DL windowed envelope.
 
 ## Usage

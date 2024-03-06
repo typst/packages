@@ -1,7 +1,4 @@
 # wonderous-book
-
-![Preview of the wonderous-book Typst template](https://github.com/typst/templates/raw/main/wonderous-book/template/thumbnail.png)
-
 A book template for fiction. The template contains a title page, a table of contents, and a chapter template.
 
 Dynamic running headers contain the title of the chapter and the book.

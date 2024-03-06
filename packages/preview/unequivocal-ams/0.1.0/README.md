@@ -1,8 +1,5 @@
 # unequivocal-ams
-
-![Preview of the unequivocal-ams Typst template](https://github.com/typst/templates/raw/main/unequivocal-ams/template/thumbnail.png)
-
-A single-column paper from the American Mathematical Society. The template comes
+A single-column paper for the American Mathematical Society. The template comes
 with functions for theorems and proofs. It also is a nice starting point for a
 classy tech report or thesis.
 

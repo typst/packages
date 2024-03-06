@@ -52,6 +52,7 @@
   show link: underline
 
   // Configure figures.
+  set figure(gap: 24pt)
   show figure: it => block({
     // Display a backdrop rectangle.
     move(dx: -3%, dy: 1.5%, rect(
@@ -99,7 +100,7 @@
       // The line should always fill the remaining space next to the image.
       let img = {
         set image(width: 14cm)
-        hero-image.image  
+        hero-image.image
       }
       let text = text(size: 25pt, fill: white, font: "Syne Tactile", hero-image.caption)
       let img-size = measure(img, styles)
@@ -133,7 +134,7 @@
         if not it.block {
           return it
         }
-      
+
         box(inset: (x: 0.4em, y: 12pt), width: 100%, {
           set text(font: "Syne")
           grid(
@@ -150,7 +151,7 @@
           )
         })
       }
-      
+
       set par(justify: true)
       body
       v(1fr)

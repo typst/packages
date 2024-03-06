@@ -430,7 +430,7 @@
 }
 
 // Entry point into the game.
-#let game(source, _) = {
+#let game(source) = {
   set page(fill: black, width: pxw, height: pxh, margin: 0pt)
   set text(font: "Cascadia Code", fill: green, 11pt)
 

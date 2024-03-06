@@ -135,7 +135,7 @@
   show math.equation: set text(weight: 400)
 
   // Configure citation and bibliography styles.
-  set bibliography(style: "springer-mathphys", title: [References])
+  set std-bibliography(style: "springer-mathphys", title: [References])
 
   show figure: it => {
     show: pad.with(x: 23pt)

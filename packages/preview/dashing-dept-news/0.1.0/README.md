@@ -1,7 +1,4 @@
 # dashing-dept-news
-
-![Preview of the dashing-dept-news Typst template](https://github.com/typst/templates/raw/main/dashing-dept-news/template/thumbnail.png)
-
 A fun newsletter layout for departmental news. The template contains a hero image, a main column, and a margin with secondary articles.
 
 Place content in the sidebar with the `article` function, and use the cool customized `blockquote`s and `figure`s!
