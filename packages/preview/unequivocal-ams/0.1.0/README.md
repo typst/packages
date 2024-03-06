@@ -4,7 +4,6 @@ with functions for theorems and proofs. It also is a nice starting point for a
 classy tech report or thesis.
 
 ## Usage
-
 You can use this template in the Typst web app by clicking "Start from template"
 on the dashboard and searching for `unequivocal-ams`.
 
@@ -16,7 +15,6 @@ typst init @preview/unequivocal-ams
 Typst will create a new directory with all the files needed to get you started.
 
 ## Configuration
-
 This template exports the `ams-article` function with the following named arguments:
 
 - `title`: The paper's title as content.

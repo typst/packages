@@ -28,12 +28,13 @@ utility package that may apply to most publication kinds.
 - **`text`:** Packages that transform text and strings or are focused on fonts.
 - **`languages`:** Tools for localization and internationalization as well as
   dealing with different scripts and languages in the same document.
-- **`scripting`:** Libraries to enhance the scripting and automation experience
-  in Typst.
+- **`scripting`:** Packages/libraries focused on the programmatic aspect of
+  Typst, useful for automating documents.
 - **`integration`:** Integrations with third-party tools and formats. In
   particular, this includes packages that embed a third-party binary as a
   plugin.
-- **`utility`:** Utility packages for working with Typst and authoring packages.
+- **`utility`:** Auxiliary packages/tools, for example for creating
+  compatibility and authoring packages.
 - **`fun`:** Unique uses of Typst that are not necessarily practical, but
   always entertaining.
 
@@ -54,3 +55,5 @@ utility package that may apply to most publication kinds.
   achievements in a compelling manner.
 - **`office`:** Staples for the day-to-day in an office, such as a letter or an
   invoice.
+
+[disciplines]: https://github.com/typst/packages/blob/main/DISCIPLINES.md

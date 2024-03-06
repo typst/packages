@@ -4,7 +4,6 @@ A book template for fiction. The template contains a title page, a table of cont
 Dynamic running headers contain the title of the chapter and the book.
 
 ## Usage
-
 You can use this template in the Typst web app by clicking "Start from template"
 on the dashboard and searching for `wonderous-book`.
 
@@ -16,7 +15,6 @@ typst init @preview/wonderous-book
 Typst will create a new directory with all the files needed to get you started.
 
 ## Configuration
-
 This template exports the `book` function with the following named arguments:
 
 - `title`: The book's title as content.

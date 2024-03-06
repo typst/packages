@@ -7,7 +7,6 @@ app or `typst watch`. It was first released for the 24 Days to Christmas
 campaign in winter of 2023.
 
 ## Usage
-
 You can use this template in the Typst web app by clicking "Start from template"
 on the dashboard and searching for `badformer`.
 

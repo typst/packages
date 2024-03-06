@@ -47,3 +47,5 @@ The following disciplines are currently defined:
 - `theater`
 - `theology`
 - `transportation`
+
+[categories]: https://github.com/typst/packages/blob/main/CATEGORIES.md

@@ -41,8 +41,7 @@ Optional:
   be linked to from the package list if there is no homepage.
 - `keywords`: An array of search keywords for the package.
 - `categories`: An array with up to three categories from the
-  [list of categories][categories] as strings to help users discover the
-  package.
+  [list of categories][categories] to help users discover the package.
 - `disciplines`: An array of [disciplines] defining the target audience for
   which the package is useful. Should be empty if the package is generally
   applicable.
@@ -148,13 +147,12 @@ are detailed below:
   *Additional guidance for template packages:* It is often desirable for
   template names to feature the name of the organization or publication the
   template is intended for. However, it is still important to us to accommodate
-  multiple templates for the same purpose. Hence, templates for any publication
-  should follow this naming scheme: The name shall consist of a unique,
-  non-descriptive part followed by a descriptive part. For example, a template
-  package for the fictitious _American Journal of Proceedings (AJP)_ could be
-  called `organized-ajp` or `eternal-ajp`. Package names should be short and
-  hence use the official entity abbreviation. Template authors are encouraged to
-  add the full name of the affiliated entity as a keyword.
+  multiple templates for the same purpose. Hence, template names shall consist
+  of a unique, non-descriptive part followed by a descriptive part. For example,
+  a template package for the fictitious _American Journal of Proceedings (AJP)_
+  could be called `organized-ajp` or `eternal-ajp`. Package names should be
+  short and use the official entity abbreviation. Template authors are
+  encouraged to add the full name of the affiliated entity as a keyword.
 
   The unamended entity name (e.g. `ajp`) is reserved for official template
   packages by their respective entities. Please make it clear in your PR if you
@@ -162,7 +160,7 @@ are detailed below:
   you as a member of the affiliated organization.
 
   If you are an author of an original template not affiliated with any
-  organization, only the naming guidelines for all packages apply to you.
+  organization, only the standard package naming guidelines apply to you.
 
 - **Functionality:** Packages should conceivably be useful to other users and
   should expose their capabilities in a reasonable fashion.
@@ -182,11 +180,11 @@ are detailed below:
   TOML manifest, a package must either contain a `LICENSE` file or link to one
   in its `README.md`.
 
-  *Additional guidance for template packages:* If you expect the package
+  *Additional details for template packages:* If you expect the package
   license's provisions to apply to the contents of the template directory (used
-  to scaffold their project) after being modified through normal use, especially
-  if it still meets the _threshold of originality,_ you must ensure that users
-  of your template can use and distribute the modified contents without
+  to scaffold a project) after being modified through normal use, especially if
+  it still meets the _threshold of originality,_ you must ensure that users of
+  your template can use and distribute the modified contents without
   restriction. In such cases, we recommend licensing at least the template
   directory under a license that requires neither attribution nor distribution
   of the license text. Such licenses include MIT-0 and Zero-Clause BSD. You can

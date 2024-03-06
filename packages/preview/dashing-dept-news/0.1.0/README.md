@@ -4,7 +4,6 @@ A fun newsletter layout for departmental news. The template contains a hero imag
 Place content in the sidebar with the `article` function, and use the cool customized `blockquote`s and `figure`s!
 
 ## Usage
-
 You can use this template in the Typst web app by clicking "Start from template"
 on the dashboard and searching for `dashing-dept-news`.
 
@@ -16,7 +15,6 @@ typst init @preview/dashing-dept-news
 Typst will create a new directory with all the files needed to get you started.
 
 ## Configuration
-
 This template exports the `newsletter` function with the following named arguments:
 
 - `title`: The newsletter's title as content.

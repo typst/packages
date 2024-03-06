@@ -66,8 +66,14 @@ pub struct PackageInfo {
 #[derive(Debug, Clone, Default, Eq, PartialEq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct TemplateInfo {
+    /// The directory within the package that contains the files that should be
+    /// copied into the user's new project directory.
     pub path: String,
+    /// A path relative to the template's path that points to the file serving
+    /// as the compilation target.
     pub entrypoint: String,
+    /// A path relative to the package's root that points to a PNG or lossless
+    /// WebP thumbnail for the template.
     pub thumbnail: String,
 }
 

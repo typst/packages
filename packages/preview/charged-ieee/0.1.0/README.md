@@ -1,14 +1,10 @@
 # charged-ieee
-
-![Preview of the charged-ieee Typst template](https://github.com/typst/templates/raw/main/charged-ieee/template/thumbnail.png)
-
 This is a Typst template for a two-column paper from the proceedings of the
 Institute of Electrical and Electronics Engineers. The paper is tightly spaced,
 fits a lot of content and comes preconfigured for numeric citations from
 BibLaTeX or Hayagriva files.
 
 ## Usage
-
 You can use this template in the Typst web app by clicking "Start from template"
 on the dashboard and searching for `charged-ieee`.
 
@@ -20,7 +16,6 @@ typst init @preview/charged-ieee
 Typst will create a new directory with all the files needed to get you started.
 
 ## Configuration
-
 This template exports the `ieee` function with the following named arguments:
 
 - `title`: The paper's title as content.
@@ -41,8 +36,8 @@ The function also accepts a single, positional argument for the body of the
 paper.
 
 The template will initialize your package with a sample call to the `ieee`
-function in a show rule. If you, however, want to change an existing project to
-use this template, you can add a show rule like this at the top of your file:
+function in a show rule. If you want to change an existing project to use this
+template, you can add a show rule like this at the top of your file:
 
 ```typ
 #import "@preview/charged-ieee:0.1.0": ieee

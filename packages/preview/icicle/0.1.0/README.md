@@ -8,7 +8,6 @@ enjoyed with the web app or `typst watch`. It was first released for the 24 Days
 to Christmas campaign in winter of 2023.
 
 ## Usage
-
 You can use this template in the Typst web app by clicking "Start from template"
 on the dashboard and searching for `icicle`.
 
@@ -20,7 +19,6 @@ typst init @preview/icicle
 Typst will create a new directory with all the files needed to get you started.
 
 ## Configuration
-
 This template exports the `game` function, which accepts a positional argument for the game input.
 
 The template will initialize your package with a sample call to the `game`

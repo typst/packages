@@ -6,13 +6,13 @@ use serde::{Deserialize, Serialize};
 pub enum Category {
     // Functional categories.
     Components,
+    Visualization,
     Model,
-    Languages,
     Layout,
     Text,
+    Languages,
     Scripting,
     Integration,
-    Visualization,
     Utility,
     Fun,
 
