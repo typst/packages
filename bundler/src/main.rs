@@ -4,12 +4,9 @@ mod disciplines;
 mod model;
 mod timestamp;
 
-use std::borrow::Cow;
 use std::env::args;
 use std::fs;
-use std::fs::File;
 use std::io;
-use std::io::BufReader;
 use std::path::Path;
 
 use anyhow::{bail, Context};
@@ -60,11 +57,12 @@ fn main() -> anyhow::Result<()> {
             .context("invalid namespace")?;
 
         println!("Processing namespace: {}", namespace);
+        let namespace_dir = Path::new(&out_dir).join(namespace);
 
         let mut paths = vec![];
         let mut index = vec![];
         let mut package_errors = vec![];
-        fs::create_dir_all(Path::new(&out_dir).join(namespace).join(THUMBS_DIR))?;
+        fs::create_dir_all(namespace_dir.join(THUMBS_DIR))?;
 
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
             let entry = entry?;
@@ -73,7 +71,7 @@ fn main() -> anyhow::Result<()> {
             }
 
             let path = entry.into_path();
-            match process_package(&path, namespace, out_dir)
+            match process_package(&path, &namespace_dir, namespace)
                 .with_context(|| format!("failed to process package at {}", path.display()))
             {
                 Ok(info) => {
@@ -92,11 +90,11 @@ fn main() -> anyhow::Result<()> {
 
         println!("Writing index.");
         fs::write(
-            Path::new(&out_dir).join(namespace).join("index.json"),
+            namespace_dir.join("index.json"),
             serde_json::to_vec(&index.iter().map(IndexPackageInfo::from).collect::<Vec<_>>())?,
         )?;
         fs::write(
-            Path::new(&out_dir).join(namespace).join("index.full.json"),
+            namespace_dir.join("index.full.json"),
             serde_json::to_vec(&index)?,
         )?;
 
@@ -126,23 +124,21 @@ fn main() -> anyhow::Result<()> {
 /// Create an archive for a package.
 fn process_package(
     path: &Path,
+    namespace_dir: &Path,
     namespace: &str,
-    out_dir: &Path,
 ) -> anyhow::Result<FullIndexPackageInfo> {
     println!("Bundling {}.", path.display());
-    let manifest = parse_manifest(path, namespace).context("failed to parse package manifest")?;
 
-    let exclude = build_exclude_list(&manifest)?;
-    let buf = build_archive(path, &exclude).context("failed to build archive")?;
+    let manifest = parse_manifest(path, namespace).context("failed to parse package manifest")?;
+    let buf = build_archive(path, &manifest).context("failed to build archive")?;
     let readme = read_readme(path)?;
 
     validate_archive(&buf).context("failed to validate archive")?;
-    write_archive(&manifest.package, &buf, namespace, out_dir)
-        .context("failed to write archive")?;
+    write_archive(&manifest.package, &buf, namespace_dir).context("failed to write archive")?;
 
     if let Some(template) = &manifest.template {
-        write_thumbnails(path, &manifest, template, namespace, out_dir)
-            .context("failed to write thumbnails")?;
+        process_thumbnail(path, &manifest, template, namespace_dir)
+            .context("failed to process thumbnail")?;
     }
 
     Ok(FullIndexPackageInfo {
@@ -162,8 +158,8 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
 
     let manifest: PackageManifest = toml::from_str(&src)?;
     let expected = format!(
-        "packages/{}/{}/{}",
-        namespace, manifest.package.name, manifest.package.version
+        "packages/{namespace}/{}/{}",
+        manifest.package.name, manifest.package.version
     );
 
     if path != Path::new(&expected) {
@@ -198,79 +194,18 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
     }
 
     let entrypoint = path.join(&manifest.package.entrypoint);
-    validate_typst_file(&entrypoint, "entrypoint")?;
+    validate_typst_file(&entrypoint, "package entrypoint")?;
 
     if let Some(template) = &manifest.template {
         if manifest.package.categories.is_empty() {
             bail!("template packages must have at least one category");
         }
 
-        validate_template(path, template)?;
+        let entrypoint = path.join(&template.path).join(&template.entrypoint);
+        validate_typst_file(&entrypoint, "template entrypoint")?;
     }
 
     Ok(manifest)
-}
-
-fn validate_template(path: &Path, template: &TemplateInfo) -> anyhow::Result<()> {
-    let template_path = path.join(&template.path);
-    let entrypoint = template_path.join(&template.entrypoint);
-    validate_typst_file(&entrypoint, "template entrypoint")?;
-
-    let thumbnail = path.join(&template.thumbnail);
-
-    // Check that the thumbnail is smaller than 3MB.
-    let metadata = fs::metadata(&thumbnail).context("failed to read thumbnail metadata")?;
-    if metadata.len() > 3 * 1024 * 1024 {
-        bail!("thumbnail must be smaller than 3MB");
-    }
-
-    let thumbnail_read =
-        BufReader::new(File::open(&thumbnail).context("failed to open thumbnail")?);
-
-    // The thumbnail must be a valid PNG or WebP image file. Its longest edge
-    // shall be at least 1080px long.
-
-    let extension = thumbnail
-        .extension()
-        .context("thumbnail has no extension")?
-        .to_ascii_lowercase();
-
-    if extension != "png" && extension != "webp" {
-        bail!("thumbnail must be a PNG or WebP image");
-    }
-
-    let image = image::load(
-        thumbnail_read,
-        if extension == "png" {
-            image::ImageFormat::Png
-        } else {
-            image::ImageFormat::WebP
-        },
-    )?;
-    let longest_edge = image.width().max(image.height());
-
-    if longest_edge < 1080 {
-        bail!("each thumbnail's longest edge must be at least 1080px long");
-    }
-
-    Ok(())
-}
-
-fn build_exclude_list(manifest: &PackageManifest) -> anyhow::Result<Cow<[String]>> {
-    match &manifest.template {
-        Some(template) => {
-            let mut exclude = manifest.package.exclude.clone();
-            exclude.push(
-                Path::new(&template.path)
-                    .join(&template.thumbnail)
-                    .to_str()
-                    .context("Thumbnail path is not valid UTF-8")?
-                    .to_owned(),
-            );
-            Ok(Cow::Owned(exclude))
-        }
-        _ => Ok(Cow::Borrowed(&manifest.package.exclude)),
-    }
 }
 
 /// Return the README file as a string.
@@ -279,18 +214,23 @@ fn read_readme(dir_path: &Path) -> anyhow::Result<String> {
 }
 
 /// Build a comrpessed archive for a directory.
-fn build_archive(dir_path: &Path, exclude: &[String]) -> anyhow::Result<Vec<u8>> {
+fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<Vec<u8>> {
     let mut buf = vec![];
     let compressed = flate2::write::GzEncoder::new(&mut buf, flate2::Compression::default());
     let mut builder = tar::Builder::new(compressed);
 
     let mut overrides = ignore::overrides::OverrideBuilder::new(dir_path);
-    for exclusion in exclude {
+    for exclusion in &manifest.package.exclude {
         if exclusion.starts_with('!') {
             bail!("globs with '!' are not supported");
         }
         let exclusion = exclusion.trim_start_matches("./");
         overrides.add(&format!("!{exclusion}"))?;
+    }
+
+    // Always ignore the thumbnail.
+    if let Some(template) = &manifest.template {
+        overrides.add(&format!("!{}", template.thumbnail))?;
     }
 
     for entry in ignore::WalkBuilder::new(dir_path)
@@ -324,105 +264,103 @@ fn validate_archive(buf: &[u8]) -> anyhow::Result<()> {
 }
 
 /// Write a compressed archive to the output directory.
-fn write_archive(
-    info: &PackageInfo,
-    buf: &[u8],
-    namespace: &str,
-    out_dir: &Path,
-) -> anyhow::Result<()> {
-    let path = out_dir.join(format!(
-        "{}/{}-{}.tar.gz",
-        namespace, info.name, info.version
-    ));
+fn write_archive(info: &PackageInfo, buf: &[u8], namespace_dir: &Path) -> anyhow::Result<()> {
+    let path = namespace_dir.join(format!("{}-{}.tar.gz", info.name, info.version));
     fs::write(path, buf)?;
     Ok(())
 }
 
-/// Write any thumbnail images to the `dist` directory.
-fn write_thumbnails(
+/// Process the thumbnail image for a package and write it to the `dist`
+/// directory in large and small version.
+fn process_thumbnail(
     path: &Path,
     manifest: &PackageManifest,
     template: &TemplateInfo,
-    namespace: &str,
-    out_dir: &Path,
+    namespace_dir: &Path,
 ) -> anyhow::Result<()> {
-    let thumbnail_root = out_dir.join(namespace).join(THUMBS_DIR);
+    let original_path = path.join(&template.thumbnail);
+    let thumb_dir = namespace_dir.join(THUMBS_DIR);
+    let filename = format!("{}-{}", manifest.package.name, manifest.package.version);
+    let hopefully_max_encoded_size = 1024 * 1024;
 
-    let orig_thumbnail_path = path.join(&template.thumbnail);
-
-    // Thumbnails that are WebP and already and smaller than 1MB should be
-    // copied as-is.
-    let was_webp = orig_thumbnail_path
+    let extension = original_path
         .extension()
-        .map_or(false, |ext| ext.to_ascii_lowercase() == "webp");
+        .context("thumbnail has no extension")?
+        .to_ascii_lowercase();
+
+    if extension != "png" && extension != "webp" {
+        bail!("thumbnail must be a PNG or WebP image");
+    }
 
     // Get file size.
-    let size = fs::metadata(&orig_thumbnail_path)?.len();
-    let keep_original = was_webp && size < 1024 * 1024;
+    let file_size = fs::metadata(&original_path)?.len() as usize;
+    if file_size > 3 * 1024 * 1024 {
+        bail!("thumbnail must be smaller than 3MB");
+    }
 
-    let image = image::open(&orig_thumbnail_path)?;
+    let mut image = image::open(&original_path)?;
+
+    // Ensure that the image has at least a certain minimum size.
+    let longest_edge = image.width().max(image.height());
+    if longest_edge < 1080 {
+        bail!("each thumbnail's longest edge must be at least 1080px long");
+    }
+
+    // We produce a full-size and a miniature thumbnail.
+    let thumbnail_path = thumb_dir.join(format!("{filename}.webp"));
+    let miniature_path = thumb_dir.join(format!("{filename}-small.webp"));
+
     // Choose a fast filter for the miniature.
     let miniature = image.resize(400, 400, FilterType::CatmullRom);
+    let miniature_buf = encode_webp(&miniature, 85)?;
+    fs::write(miniature_path, miniature_buf)?;
 
-    let thumbnail_path = thumbnail_root.join(format!(
-        "{}-{}-small.webp",
-        manifest.package.name, manifest.package.version,
-    ));
-
-    let mut miniature_buf = Vec::new();
-
-    // A big fight is going on in the Image crate's GitHub: They want to
-    // remove the C dependency for WebP encoding but the Rust alternative
-    // does not support lossy encoding. Many people are unhappy about this.
-    #[allow(deprecated)]
-    let miniature_encoder =
-        WebPEncoder::new_with_quality(&mut miniature_buf, WebPQuality::lossy(85));
-
-    miniature_encoder.encode(
-        miniature.to_rgb8().as_raw(),
-        miniature.width(),
-        miniature.height(),
-        image::ColorType::Rgb8,
-    )?;
-
-    fs::write(thumbnail_path, miniature_buf)?;
-
-    let thumbnail_path = thumbnail_root.join(format!(
-        "{}-{}.webp",
-        manifest.package.name, manifest.package.version,
-    ));
-
-    if keep_original {
-        fs::copy(&orig_thumbnail_path, thumbnail_path)?;
+    // Thumbnails that are WebP already and in the budget should be copied as-is.
+    if extension == "webp" && file_size < hopefully_max_encoded_size {
+        fs::copy(&original_path, thumbnail_path)?;
         return Ok(());
     }
 
-    // The WebP file was too big if keep_original is false.
-    let resize = was_webp || image.width() * image.height() < 3000 * 2000;
+    // Try to encode as WebP without resizing. If that fits into the budget,
+    // we're done.
+    let mut quality = 98;
+    let buf = encode_webp(&image, quality)?;
+    if buf.len() < hopefully_max_encoded_size {
+        fs::write(&thumbnail_path, buf)?;
+    }
 
-    let resized = if resize {
-        image.resize(1920, 1920, FilterType::Lanczos3)
+    // We're still too big. Fix it.
+    if longest_edge <= 1920 {
+        // Resizing doesn't help. Reduce quality instead.
+        quality = 70;
     } else {
-        image
-    };
+        image = image.resize(1920, 1920, FilterType::Lanczos3);
+    }
 
-    let mut buf = Vec::new();
-    #[allow(deprecated)]
-    let encoder = WebPEncoder::new_with_quality(&mut buf, WebPQuality::lossy(98));
-    encoder.encode(
-        resized.to_rgb8().as_raw(),
-        resized.width(),
-        resized.height(),
-        image::ColorType::Rgb8,
-    )?;
-
-    fs::write(thumbnail_path, buf)?;
+    let buf = encode_webp(&image, quality)?;
+    fs::write(&thumbnail_path, buf)?;
 
     Ok(())
 }
 
-// Check that a Typst file exists, its name ends in `.typ`, and that it is valid
-// UTF-8.
+/// Encodes a lossy WebP.
+fn encode_webp(image: &image::DynamicImage, quality: u8) -> anyhow::Result<Vec<u8>> {
+    // A big fight is going on in the Image crate's GitHub: They want to
+    // remove the C dependency for WebP encoding but the Rust alternative
+    // does not support lossy encoding. Many people are unhappy about this.
+    let mut buf = Vec::new();
+    #[allow(deprecated)]
+    WebPEncoder::new_with_quality(&mut buf, WebPQuality::lossy(quality)).encode(
+        image.to_rgb8().as_raw(),
+        image.width(),
+        image.height(),
+        image::ColorType::Rgb8,
+    )?;
+    Ok(buf)
+}
+
+/// Check that a Typst file exists, its name ends in `.typ`, and that it is valid
+/// UTF-8.
 fn validate_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
     if !path.exists() {
         bail!("{name} is missing");
