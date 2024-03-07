@@ -1,11 +1,9 @@
-[package]
+[template]
 name = "typst-ifsc"
 version = "0.1.0"
 authors = ["Gabriel Luiz Espindola Pedro"]
 license = "MIT"
 description = "Typst templates for Federal Institute of Santa Catarina."
-
-[template]
 path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
