@@ -7,7 +7,6 @@ license = "MIT"
 description = "Typst templates for Federal Institute of Santa Catarina."
 
 [template]
-name = "typst-ifsc"
 description = "Typst templates for Federal Institute of Santa Catarina."
 path = "template"
 entrypoint = "main.typ"
