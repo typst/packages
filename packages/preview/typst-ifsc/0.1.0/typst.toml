@@ -8,7 +8,7 @@ authors = ["Gabriel Luiz Espindola Pedro"]
 license = "MIT-0"
 description = "Typst templates for Federal Institute of Santa Catarina."
 keywords = ["ifsc", "brazil"]
-categories = ["article", "report", "presentation"]
+categories = ["report", "presentation"]
 
 [template]
 path = "template"
