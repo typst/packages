@@ -1,5 +1,7 @@
 <!--
-Thanks for submitting a package! Please read and follow the submission guidelines detailed in the repository's README and check the boxes below. If you want to make a PR for something other than a package submission, just delete all this and make a plain PR.
+Thanks for submitting a package! Please read and follow the submission guidelines detailed in the repository's README and check the boxes below. Please name your PR as `name:version` of the submitted package.
+
+If you want to make a PR for something other than a package submission, just delete all this and make a plain PR.
 -->
 
 I am submitting
@@ -17,11 +19,14 @@ These things need to be checked for a new submission to be merged. If you're jus
 -->
 
 I have read and followed the submission guidelines and, in particular, I
-- [ ] selected a name in conformance with the guidelines
+- [ ] selected a name that isn't the most obvious or canonical name for what the package does
 - [ ] added a `typst.toml` file with all required keys
 - [ ] added a `README.md` with documentation for my package
 - [ ] have chosen a license and added a `LICENSE` file or linked one in my `README.md`
-- [ ] ensured that my submission does not infringe upon the rights of a third party
 - [ ] tested my package locally on my system and it worked
-- [ ] named this PR as `name:version` of the submitted package
-- [ ] agree that my package will not be removed without good reason
+- [ ] `exclude`d PDFs or README images, if any, but not the LICENSE
+
+<!--
+The following box only needs to be checked for **template** submissions. If you're submitting a package that isn't a template, you can delete the following section. See the guidelines section about licenses in the README for more details.
+-->
+- [ ] ensured that my package is licensed such that users can use and distribute the contents of its template directory without restriction, after modifying them through normal use.

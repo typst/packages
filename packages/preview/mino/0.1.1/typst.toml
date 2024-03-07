@@ -1,0 +1,12 @@
+[package]
+name = "mino"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Wenzhuo Liu"]
+license = "MIT"
+description = "Render tetris fumen in typst."
+
+homepage = "https://github.com/Enter-tainer/mino"
+repository = "https://github.com/Enter-tainer/mino"
+keywords = ["js", "javascript", "tetris", "fumen", "game"]
+exclude = ["mino.svg"]
