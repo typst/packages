@@ -6,7 +6,7 @@ authors = ["Gabriel Luiz Espindola Pedro"]
 license = "MIT"
 description = "Typst templates for Federal Institute of Santa Catarina."
 
-[templates]
+[template]
 name = "typst-ifsc"
 description = "Typst templates for Federal Institute of Santa Catarina."
 path = "template"
