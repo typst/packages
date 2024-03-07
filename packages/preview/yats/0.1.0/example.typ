@@ -1,4 +1,4 @@
-#import "yats.typ": serialize,deserialize
+#import "@preview/yats:0.1.0": serialize, deserialize
 #{
   let obj = (
     name : "0warning0error",
