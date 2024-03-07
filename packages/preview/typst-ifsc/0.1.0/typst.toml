@@ -1,9 +1,16 @@
-[template]
+[package]
 name = "typst-ifsc"
 version = "0.1.0"
+compiler = "0.10.0"
+entrypoint = "main.typ"
+repository = "https://github.com/gabrielluizep/ifsc-typst"
 authors = ["Gabriel Luiz Espindola Pedro"]
-license = "MIT"
+license = "MIT-0"
 description = "Typst templates for Federal Institute of Santa Catarina."
+keywords = ["ifsc", "brazil"]
+categories = ["article", "report", "presentation"]
+
+[template]
 path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
