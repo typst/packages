@@ -1,7 +1,6 @@
 [package]
 name = "typst-ifsc"
 version = "0.1.0"
-entrypoint = "typst-ifsc.typ"
 authors = ["Gabriel Luiz Espindola Pedro"]
 license = "MIT"
 description = "Typst templates for Federal Institute of Santa Catarina."
