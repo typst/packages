@@ -8,7 +8,7 @@ authors = ["Gabriel Luiz Espindola Pedro <https://gabrielluizep.dev>"]
 license = "MIT-0"
 description = "Article Typst template for IFSC."
 keywords = ["ifsc", "brazil"]
-categories = ["article", "report"]
+categories = ["report"]
 
 [template]
 path = "template"
