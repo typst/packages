@@ -1,0 +1,10 @@
+[package]
+name = "dframes"
+version = "0.1.0"
+authors = ["Olivier Ravard"]
+license = "MIT"
+description = "Display data as tables or plots with datetime support. Select, add rows or columns, make numeric operations between columns/rows."
+entrypoint = "lib.typ"
+repository = "https://github.com/oravard/typst-dataframes"
+keywords = ["formatting", "table", "tables", "data", "display","plot","datetime","date","numerical"]
+exclude = []
