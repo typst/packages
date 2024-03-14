@@ -5,6 +5,7 @@ entrypoint = "lib.typ"
 authors = ["zrr1999"]
 license = "Unlicense"
 description = "A typst template."
+categories = ["document"]
 
 [template]
 path = "template"
