@@ -3,7 +3,7 @@
 #show: it => delegis(
   // Metadata
   title: "Vereinsordnung zu ABCDEF",
-  abbrev: "ABCDEFVO",
+  abbreviation: "ABCDEFVO",
   resolution: "3. Beschluss des Vorstands vom 24.01.2024",
   in-effect: "24.01.2024",
   draft: false,
