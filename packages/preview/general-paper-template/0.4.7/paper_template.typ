@@ -4,13 +4,13 @@
 // Copyright (c) 2024
 // Author:  Jiaxin Peng
 // License: MIT
-// Version: 0.4.5
-// Date:    2024-03-14
+// Version: 0.4.7
+// Date:    2024-03-15
 // Email:   jiaxin.peng@outlook.com
 ///////////////////////////////
 
 #import "@preview/ctheorems:1.1.0": *
-#import "@preview/mitex:0.2.1": *
+#import "@preview/mitex:0.2.2": *
 #import "@preview/cetz:0.2.1"
 #import "@preview/tablex:0.0.8": tablex, rowspanx, colspanx, hlinex
 #import "@preview/tablem:0.1.0": tablem
@@ -31,107 +31,103 @@
   bibliography: none,
   doc,
 ) = {
+      set math.equation(numbering: "(1)", supplement: auto)
 
-  set math.equation(numbering: "(1)", supplement: auto)
+      set par(leading: 1em)
+        // Set and show rules from before.
 
-  set par(leading: 1em)
-    // Set and show rules from before.
+      set text(
+        font: font,
+        size: fontsize
+      )
+      set page(numbering: "1")
+      set document(
+        title: title,
+        author: authors.map(author => author.name),
+      )
 
-  set text(
-    font: font,
-    size: fontsize
-  )
-  set page(numbering: "1")
-  set document(
-    title: title,
-    author: authors.map(author => author.name),
-  )
+      if maketitle == true {
+          set footnote(numbering: "*")
+          set footnote.entry(
+            separator: line(length: 100%, stroke: 0.5pt)
+          )
+          set footnote.entry(indent: 0em)
+          set align(left)
 
-  if maketitle == true {
-  set footnote(numbering: "*")
-  set footnote.entry(
-    separator: line(length: 100%, stroke: 0.5pt)
-  )
-  set footnote.entry(indent: 0em)
-  set align(left)
+          if acknowledgments != none and acknowledgments != "" {
+            text(17pt, align(center,{title;footnote(acknowledgments)}))
+          } else {
+            text(17pt, align(center,{title}))
+          }
+          v(15pt)
 
-  if acknowledgments != none and acknowledgments != "" {
-    text(17pt, align(center,{title;footnote(acknowledgments)}))
-  } else {
-    text(17pt, align(center,{title}))
-  }
-      v(15pt)
-
-    let count = authors.len()
-    let ncols = calc.min(count, 3)
-  set footnote.entry(indent: 0em)
-    grid(
-      columns: (1fr,) * ncols,
-      row-gutter: 24pt,
-      ..authors.map(author => {
-        text(14pt,align(center,{author.name; 
-        {
-          if author.note != ""  {
-            footnote(author.note)
+          let count = authors.len()
+          let ncols = calc.min(count, 3)
+          set footnote.entry(indent: 0em)
+            grid(
+              columns: (1fr,) * ncols,
+              row-gutter: 24pt,
+              ..authors.map(author => {
+                text(14pt,align(center,{author.name; 
+                {
+                  if author.note != ""  {
+                    footnote(author.note)
+                    }
+                };[\ ]
+                author.affiliation; [\ ]
+                link("mailto:" + author.email)})
+                )
+          }),
+            )
+          v(20pt)
+            if date != "" {
+            align(center,[This Version: #date])
+              v(25pt)
+              }
+            if abstract != [] {
+            par(justify: true)[
+              #align(center, [*Abstract*])
+              #abstract
+            ]
+              v(10pt)
+              }
+            if keywords != [] {
+            par(justify: true)[
+              #set align(left) 
+              #emph([*Keywords:*]) #keywords
+            ]
+            v(5pt)
             }
-        };[\ ]
-        author.affiliation; [\ ]
-        link("mailto:" + author.email)})
-        )
-  }),
-    )
-    v(20pt)
-    if date != "" {
-    align(center,[This Version: #date])
-      v(25pt)
+              if JEL != [] {
+              par(justify: true)[
+                  #set align(left) 
+                  #emph([*JEL Classification:*]) #JEL
+              ]
+              v(5pt)
+              }
+            pagebreak()
+        
+      } else {
+          set align(left)
+          text(18pt, align(center,{strong(title)}))
+          if subtitle != none {
+            text(12pt, align(center,{subtitle}))
+          }
       }
-    if abstract != [] {
-    par(justify: true)[
-      #align(center, [*Abstract*])
-      #abstract
-    ]
+    
       v(10pt)
-      }
-      if keywords != [] {
-      par(justify: true)[
-        #set align(left) 
-        #emph([*Keywords:*]) #keywords
-      ]
-      v(5pt)
-      }
-      if JEL != [] {
-      par(justify: true)[
-          #set align(left) 
-          #emph([*JEL Classification:*]) #JEL
-      ]
-      v(5pt)
-      }
-    pagebreak()
+      set heading(numbering: "1.")
+      set math.equation(numbering: "(1)")
+      set footnote(numbering: "1")
+      set footnote.entry(separator: line(length: 100%, stroke: 0.5pt))
+      set footnote.entry(indent: 0em)
+      set align(left)
+      columns(1, doc)
     
-  } else {
-    set align(left)
-    text(18pt, align(center,{strong(title)}))
-    if subtitle != none {
-      text(12pt, align(center,{subtitle}))
-    }
-  }
-    
-    v(10pt)
-    set heading(numbering: "1.")
-    set math.equation(numbering: "(1)")
-    set footnote(numbering: "1")
-    set footnote.entry(
-    separator: line(length: 100%, stroke: 0.5pt)
-  )
-    set footnote.entry(indent: 0em)
-    set align(left)
-    columns(1, doc)
-  if bibliography != none {
-    colbreak()
-    bibliography
-  }
-
-
+      if bibliography != none {
+        colbreak()
+        bibliography
+      }
 }
 
 #let _treemap(is-root: false, max-columns: 3, is-child-of-root: false, tree) = {
@@ -205,10 +201,6 @@
 
 
 #let treemap(cont) = _treemap(is-root: true, _treemap-converter(cont))
-
-
-
-
 
 
 #let theorem = thmbox(
