@@ -70,7 +70,7 @@ The `#regex-fakebold` is designed to be used in multilingual and multi-font scen
   radius: 0pt,
   text-style: (font: ("Courier New", "SimHei")),
   ```typst
-  + RegExp `[a-k]`: #regex-fakebold(reg-exp: "[a-o]")[#lorem(5)]
+  + RegExp `[a-o]`: #regex-fakebold(reg-exp: "[a-o]")[#lorem(5)]
   + RegExp `\p{script=Han}`: #regex-fakebold(reg-exp: "\p{script=Han}")[衬衫的价格是9磅15便士。] \
   #set text(weight: "bold")
   + RegExp `\p{script=Han}`: #regex-fakebold(reg-exp: "\p{script=Han}")[衬衫的价格是9磅15便士。]
@@ -81,7 +81,7 @@ The `#regex-fakebold` is designed to be used in multilingual and multi-font scen
   stroke: (paint: blue, thickness: 1pt, dash: "dashed"),
   inset: 10pt,
 )[
-  + RegExp `[a-k]`: #regex-fakebold(reg-exp: "[a-o]")[#lorem(5)] \
+  + RegExp `[a-o]`: #regex-fakebold(reg-exp: "[a-o]")[#lorem(5)] \
   + RegExp `\p{script=Han}`: #regex-fakebold(reg-exp: "\p{script=Han}")[衬衫的价格是9磅15便士。] \
   #set text(weight: "bold")
   + RegExp `\p{script=Han}`: #regex-fakebold(reg-exp: "\p{script=Han}")[衬衫的价格是9磅15便士。] 

@@ -19,9 +19,9 @@
 }
 
 #let cn-fakebold(s) = {
-  regex-fakebold(reg-exp: "\p{script=Han}", base-weight: "regular", s)
+  regex-fakebold(reg-exp: "[\p{script=Han} ！-･〇-〰—]", base-weight: "regular", s)
 }
 
 #let show-cn-fakebold(s) = {
-  show-fakebold(reg-exp: "\p{script=Han}", base-weight: "regular", s)
+  show-fakebold(reg-exp: "[\p{script=Han} ！-･〇-〰—]", base-weight: "regular", s)
 }

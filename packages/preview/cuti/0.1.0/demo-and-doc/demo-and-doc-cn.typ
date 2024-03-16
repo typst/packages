@@ -92,7 +92,7 @@ Cuti 使用 0.02857em 作为 `stroke` 的参数。在 Microsoft Office 中，使
   radius: 0pt,
   text-style: (font: ("Courier New", "SimHei")),
   ```typst
-  + RegExp `[a-k]`: #regex-fakebold(reg-exp: "[a-o]")[#lorem(5)]
+  + RegExp `[a-o]`: #regex-fakebold(reg-exp: "[a-o]")[#lorem(5)]
   + RegExp `\p{script=Han}`: #regex-fakebold(reg-exp: "\p{script=Han}")[衬衫的价格是9磅15便士。] \
   #set text(weight: "bold")
   + RegExp `\p{script=Han}`: #regex-fakebold(reg-exp: "\p{script=Han}")[衬衫的价格是9磅15便士。]
@@ -103,7 +103,7 @@ Cuti 使用 0.02857em 作为 `stroke` 的参数。在 Microsoft Office 中，使
   stroke: (paint: blue, thickness: 1pt, dash: "dashed"),
   inset: 10pt,
 )[
-  + RegExp `[a-k]`: #regex-fakebold(reg-exp: "[a-o]")[#lorem(5)] \
+  + RegExp `[a-o]`: #regex-fakebold(reg-exp: "[a-o]")[#lorem(5)] \
   + RegExp `\p{script=Han}`: #regex-fakebold(reg-exp: "\p{script=Han}")[衬衫的价格是9磅15便士。] \
   #set text(weight: "bold")
   + RegExp `\p{script=Han}`: #regex-fakebold(reg-exp: "\p{script=Han}")[衬衫的价格是9磅15便士。] 
@@ -172,6 +172,6 @@ Cuti 使用 0.02857em 作为 `stroke` 的参数。在 Microsoft Office 中，使
 
 这两个都是为中文排版封装的。
 
-- `cn-fakebold` 是 `regex-fakebold` 的封装，默认的正则范围是中文字符。
-- `show-cn-fakebold` 是 `show-fakebold` 的封装，默认的正则范围是中文字符，使用方法见“光速上手”小节。
+- `cn-fakebold` 是 `regex-fakebold` 的封装，默认的正则范围是中文字符与常见标点符号。
+- `show-cn-fakebold` 是 `show-fakebold` 的封装，默认的正则范围是中文字符与常见标点符号，使用方法见“光速上手”小节。
 
