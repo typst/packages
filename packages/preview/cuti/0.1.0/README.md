@@ -4,7 +4,7 @@ Cuti is a package that simulates fake bold weight for fonts by utilizing the `st
 
 ## Usage
 
-Please refer to the [English Demo & Doc](./demo-and-doc/demo-and-doc.pdf) located in the `demo-and-doc` directory for reading for details.
+Please refer to the [English Demo & Doc](./demo-and-doc/demo-and-doc.pdf) located in the `demo-and-doc` directory for details.
 
 本 Package 提供中文文档： [中文 Demo 与文档](./demo-and-doc/demo-and-doc-cn.pdf)。
 
