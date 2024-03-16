@@ -1,4 +1,4 @@
-#import "@preview/famnit:0.1.0": project
+#import "@preview/sunny-famnit:0.1.0": project
 
 #show: project.with(
 	date: datetime(day: 1, month: 1, year: 2024), // you could also do `datetime.today()`

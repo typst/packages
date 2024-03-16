@@ -1,4 +1,4 @@
-#import "@preview/famnit:0.1.0": project
+#import "@preview/sunny-famnit:0.1.0": project
 #import "attachments.typ" as pr
 
 #let input = (

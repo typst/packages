@@ -1,5 +1,5 @@
 [package]
-name = "famnit"
+name = "sunny-famnit"
 version = "0.1.0"
 compiler = "0.11.0"
 entrypoint = "lib.typ"
