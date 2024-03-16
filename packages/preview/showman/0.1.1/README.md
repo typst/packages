@@ -124,7 +124,7 @@ easier to have example rendered alongside their code. Simply add the
 following preamble to your file:
 
 ```` typst
-#import "@preview/showman:0.1.0"
+#import "@preview/showman:0.1.1"
 #show: showman.formatter.template
 
 The code below will be rendered side by side with its output:
@@ -184,7 +184,7 @@ in the root directory you specified. To enable this feature, you need to
 add the following preamble to your file:
 
 ``` typ
-#import "@preview/showman:0.1.0": runner
+#import "@preview/showman:0.1.1": runner
 
 #let cache = json("/.coderunner.json").at("path/to/file.typ", default: (:))
 #let show-rule = runner.external-code.with(result-cache: cache)
