@@ -158,32 +158,22 @@
       #zahvala
     ]
   }
-  let item_counter(target, prefix) = locate(loc => {
-    let cnt = counter(target).final(loc).first()
+  let item_counter(target, prefix) = context {
+    let cnt = counter(target).final().first()
     if cnt > 0 {
       let a = [#prefix: #cnt]
-    style( s => {
-      let m = measure(a, s)
-      a + h(11em - m.width)
-    })
-    }
-  })
-  
-  let number_of_content() = locate(loc =>  {
-    let p_cnt = counter(page)
-    [#p_cnt.at(query(<body_end>, loc).first().location()).first()]
-  })
-
-  let content_or_none(x) = {
-    if x != none {
-      x
-    } else {
-      none
+      style( s => {
+        let m = measure(a, s)
+        a + h(11em - m.width)
+      })
     }
   }
 
+  let number_of_content() = context {
+    let p_cnt = counter(page)
 
-
+    [#p_cnt.at(query(<body_end>).first().location()).first()]
+  }
   
   // ---- Ključna dokumentacija ----
   page()[
@@ -284,15 +274,16 @@
   ]
 
   // -------- TABLES ----------
-  let tablepage(outlin) = locate(loc => {
-    let count = counter(outlin.target).final(loc).first()
 
+  let tablepage(outlin) = context {
+    let count = counter(outlin.target).final().first()
+    
     if count != 0 {
       page(header: header("I"), outline(..outlin))
     } else {
       none
     }
-  })
+  }
   
   
   set page(header: header("1"))
@@ -370,9 +361,9 @@
   priloga_counter.step()
 
   let priloga(content) = {
-    locate(loc => {
-      let a = priloga_counter.at(loc).first()
-      [
+      let a = priloga_counter.get().first()
+    
+      context [
         #figure(
           supplement: if text_lang == "en" [Attachment] else [Priloga],
           kind: "Priloga",
@@ -383,7 +374,6 @@
         #content.at(1)
         #priloga_counter.step()
       ]
-    })
   }
   set page(
         header: align(right)[#if text_lang == "en" [Attachment] else [Priloga] #priloga_counter.display("A")],
