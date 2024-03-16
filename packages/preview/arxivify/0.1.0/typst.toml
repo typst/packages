@@ -5,8 +5,9 @@ entrypoint = "template.typ"
 authors = ["Manuel Goulão"]
 license = "MIT"
 description = "A simple template reproducing popular arXiv templates."
-repository = "https://github.com/mgoulao/ArXiv-Typst-Template"
-keywords = ["arXiv", "NeurIPS", "papers", "template"]
+repository = "https://github.com/mgoulao/arxivify"
+keywords = ["arXiv", "NeurIPS", "computer science", "machine learning", "deep learning"]
+categories = ["paper"]
 disciplines = ["engineering", "computer-science"]
 exclude = ["template/main.pdf", "template/example.png"]
 
