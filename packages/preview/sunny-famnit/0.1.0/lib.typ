@@ -360,10 +360,10 @@
   let priloga_counter = counter("priloga")
   priloga_counter.step()
 
-  let priloga(content) = {
+  let priloga(content) = context {
       let a = priloga_counter.get().first()
     
-      context [
+      [
         #figure(
           supplement: if text_lang == "en" [Attachment] else [Priloga],
           kind: "Priloga",
