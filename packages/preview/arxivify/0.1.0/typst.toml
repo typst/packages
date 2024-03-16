@@ -8,7 +8,7 @@ description = "A simple template reproducing popular arXiv templates."
 repository = "https://github.com/mgoulao/ArXiv-Typst-Template"
 keywords = ["arXiv", "NeurIPS", "papers", "template"]
 disciplines = ["engineering", "computer-science"]
-exclude = ["template/main.pdf"]
+exclude = ["template/main.pdf", "template/example.png"]
 
 [template]
 path = "template"
