@@ -1,12 +1,12 @@
 #import "@preview/famnit:0.1.0": project
 
-#show project.with(
+#show: project.with(
 	date: datetime(day: 1, month: 1, year: 2024), // you could also do `datetime.today()`
-	text_lang: "en" // the language that the thesis is gonna be written in.
+	text_lang: "en", // the language that the thesis is gonna be written in.
 	
-	author: "your name"
+	author: "your name",
 	studij: "your course",
-	mentor: "your mentor"
+	mentor: "your mentor",
 	somentor: none, // if you have a co-mentor write him here, else you can just remove the line.
 
 	naslov: "your title in slovene",
