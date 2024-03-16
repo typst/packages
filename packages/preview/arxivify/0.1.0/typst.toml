@@ -9,7 +9,7 @@ repository = "https://github.com/mgoulao/arxivify"
 keywords = ["arXiv", "NeurIPS", "computer science", "machine learning", "deep learning"]
 categories = ["paper"]
 disciplines = ["engineering", "computer-science"]
-exclude = ["template/main.pdf", "template/example.png"]
+exclude = []
 
 [template]
 path = "template"
