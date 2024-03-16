@@ -1,0 +1,15 @@
+[package]
+name = "arxivify"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Manuel Goulão"]
+license = "MIT"
+description = "A simple template reproducing popular arXiv templates."
+repository = "https://github.com/mgoulao/ArXiv-Typst-Template"
+keywords = ["arXiv", "NeurIPS", "papers", "template"]
+disciplines = ["engineering", "computer-science"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "example.png"
