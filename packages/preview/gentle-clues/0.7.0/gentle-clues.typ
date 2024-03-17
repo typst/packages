@@ -14,10 +14,8 @@
 #let __gc_task-counter = counter("gc-task-counter")
 #let __gc_enable-task-counter = state("gc-task-counter", true) 
 
-
-/* Config Init */
+/// Config Init
 #let gentle-clues(
-  lang: auto, // deprecated use `#set text(lang: "de")`
   breakable: false,
   headless: false,
   header-inset: 0.5em,
@@ -33,7 +31,7 @@
   body
 ) = {
   // Conf linguify to lang parameter
-  show: linguify_config.with(data: toml("lang.toml"), lang: lang, fallback: true);
+  linguify_set_database(toml("lang.toml"));
 
   // Update breakability
   __gc_clues_breakable.update(breakable);
@@ -63,7 +61,8 @@
   __gc_enable-task-counter.update(show-task-counter);
 
   body
-}
+
+  }
 
 // Helper
 #let if-auto-then(val,ret) = {
@@ -74,9 +73,7 @@
   }
 }
 
-/*
-  Basic gentle-clue (clue) template
-*/
+// Basic gentle-clue (clue) template
 #let clue(
   content, 
   title: auto, // string or none
@@ -92,63 +89,66 @@
   breakable: auto,
 ) = {
   context {
-  // Set default color:
-  let _stroke-color = luma(70);
-  let _bg-color = _stroke-color.lighten(85%);
-  let _border-color = _bg-color.darken(10%); 
-  let _border-width = if-auto-then(border-width, __gc_border_width.get());
-  let _border-radius = if-auto-then(radius, __gc_border_radius.get())
-  let _stroke-width = if-auto-then(auto, __gc_stroke_width.get())
-  let _clip-content = true
+    if not linguify_is_database_initialized() {
+      linguify_set_database(toml("lang.toml"));
+    }
+    // Set default color:
+    let _stroke-color = luma(70);
+    let _bg-color = _stroke-color.lighten(85%);
+    let _border-color = _bg-color.darken(10%); 
+    let _border-width = if-auto-then(border-width, __gc_border_width.get());
+    let _border-radius = if-auto-then(radius, __gc_border_radius.get())
+    let _stroke-width = if-auto-then(auto, __gc_stroke_width.get())
+    let _clip-content = true
 
-  // setting bg and stroke color from color argument
-  assert(type(accent-color) in (color, gradient), message: "expected color or gradient, found " + type(accent-color));
-  if (header-color != auto) {
-    assert(type(header-color) in (color, gradient), message: "expected color or gradient, found " + type(header-color));
-  }
-  if (border-color != auto) {
-    assert(type(border-color) == color, message: "expected color, found " + type(border-color));
-  }
+    // setting bg and stroke color from color argument
+    assert(type(accent-color) in (color, gradient), message: "expected color or gradient, found " + type(accent-color));
+    if (header-color != auto) {
+      assert(type(header-color) in (color, gradient), message: "expected color or gradient, found " + type(header-color));
+    }
+    if (border-color != auto) {
+      assert(type(border-color) == color, message: "expected color, found " + type(border-color));
+    }
 
-  if (type(accent-color) == color) { 
-    _stroke-color = accent-color;
-    _bg-color = if-auto-then(header-color, accent-color.lighten(85%));
-    _border-color = if-auto-then(border-color, accent-color.lighten(70%));
-  } else if (type(accent-color) == gradient) {
-    _stroke-color = accent-color
-    _bg-color = if-auto-then(header-color, accent-color);
-    _border-color = if-auto-then(border-color, accent-color);
-  }
+    if (type(accent-color) == color) { 
+      _stroke-color = accent-color;
+      _bg-color = if-auto-then(header-color, accent-color.lighten(85%));
+      _border-color = if-auto-then(border-color, accent-color.lighten(70%));
+    } else if (type(accent-color) == gradient) {
+      _stroke-color = accent-color
+      _bg-color = if-auto-then(header-color, accent-color);
+      _border-color = if-auto-then(border-color, accent-color);
+    }
 
 
-  // Disable Heading numbering for those headings
-  set heading(numbering: none, outlined: false, supplement: "Box")
+    // Disable Heading numbering for those headings
+    set heading(numbering: none, outlined: false, supplement: "Box")
 
-  // Header Part
-  let header = box(
-          fill: _bg-color,
-          width: 100%,
-          radius: (top-right: _border-radius),
-          inset: if-auto-then(header-inset, __gc_header_inset.get()),
-          stroke: (right: _border-width + _bg-color )
-        )[
-            #grid(
-              columns: (auto, auto),
-              align: (horizon, left + horizon),
-              gutter: 1em,
-              box(height: 1em)[
-                #if type(icon) == symbol {
-                    text(1em,icon)
-                } else {
-                  image(icon, fit: "contain")
-                }
-              ],
-              strong(title)
-            )
-        ]
+    // Header Part
+    let header = box(
+            fill: _bg-color,
+            width: 100%,
+            radius: (top-right: _border-radius),
+            inset: if-auto-then(header-inset, __gc_header_inset.get()),
+            stroke: (right: _border-width + _bg-color )
+          )[
+              #grid(
+                columns: (auto, auto),
+                align: (horizon, left + horizon),
+                gutter: 1em,
+                box(height: 1em)[
+                  #if type(icon) == symbol {
+                      text(1em,icon)
+                  } else {
+                    image(icon, fit: "contain")
+                  }
+                ],
+                strong(title)
+              )
+          ]
 
-  // Content-Box
-  let content-box(content) = block(
+    // Content-Box
+    let content-box(content) = block(
       breakable: if-auto-then(breakable, __gc_clues_breakable.get()),
       width: 100%,
       fill: white, 
@@ -160,7 +160,7 @@
         rest: _border-radius
       ),
     )[#content]
-  
+    
     // Wrapper-Block
     block(
       breakable: if-auto-then(breakable, __gc_clues_breakable.get()),
@@ -187,8 +187,8 @@
 
 // Helpers for predefined gentle clues
 #let get_title_for(clue) = {
-  assert.eq(type(clue),str);
-  return linguify(clue);
+  assert.eq(type(clue),str); 
+  return linguify(clue, default: linguify(clue, lang: "en", default: clue));
 }
 
 #let increment_task_counter() = {
