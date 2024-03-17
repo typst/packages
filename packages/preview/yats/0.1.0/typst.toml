@@ -1,0 +1,11 @@
+[package]
+name = "yats"
+version = "0.1.0"
+compiler = "0.10.0"
+entrypoint = "yats.typ"
+authors = ["Zhao Yuanhang <https://github.com/0warning0error>"]
+repository = "https://github.com/0warning0error/typst-yats"
+license = "Apache-2.0"
+description = "Serialization module for Typst"
+keywords = [ "serialize", "deserialize", "Serialization" ]
+exclude = [ "example.typ" ]
