@@ -8,7 +8,7 @@ license = "Apache-2.0"
 description = "A typst template for China Undergraduate Mathematical Contest in Modeling"
 keywords = ["CUMCM"]
 categories = ["thesis"]
-disciplines = ["math", "computer-science"]
+disciplines = ["mathematics", "computer-science"]
 
 [template]
 path = "template"
