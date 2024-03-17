@@ -7,5 +7,5 @@ license = "MIT"
 description = "Create exams with student information, grade chart, score control, questions, and sub-questions."
 keywords = ["exam", "question", "subquestion", "solutions"]
 repository = "https://github.com/MatheSchool/typst-g-exam"
-categories = ["visualization", "layout", "utility", "paper", "office"]
+categories = ["visualization", "paper", "office"]
 exclude = ["/examples/*"]
