@@ -8,4 +8,5 @@ description = "Create exams with student information, grade chart, score control
 keywords = ["exam", "question", "subquestion", "solutions"]
 repository = "https://github.com/MatheSchool/typst-g-exam"
 categories = ["visualization", "paper", "office"]
+discipline = ["education"] 
 exclude = ["/examples/*"]
