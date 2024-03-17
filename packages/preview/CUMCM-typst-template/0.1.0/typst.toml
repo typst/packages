@@ -1,0 +1,16 @@
+[package]
+name = "CUMCM-typst-template"
+version = "0.1.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/a-kkiri/CUMCM-typst-template"
+authors = ["Akkiri <https://github.com/a-kkiri>"]
+license = "Apache-2.0"
+description = "A typst template for China Undergraduate Mathematical Contest in Modeling"
+keywords = ["CUMCM"]
+categories = ["thesis"]
+disciplines = ["math", "computer-science"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.jpg"
