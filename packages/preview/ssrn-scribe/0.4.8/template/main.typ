@@ -1,5 +1,5 @@
 ///////////////////////////////
-#import "@preview/general-paper-template:0.4.7": *
+#import "@preview/ssrn-scribe:0.4.8": *
 ///////////////////////////////
 
 
@@ -33,10 +33,17 @@
 
 // your main text goes here
 #set heading(numbering: "1.")
+#show heading: it => [
+  #set align(left)
+  #counter(heading).display(
+       it.numbering
+     ) #it.body
+  #v(10pt)
+]
 #set text(spacing: 100%)
 #set par(
   leading: 1.2em,
-  first-line-indent: 2em,
+  first-line-indent: 0em,
   justify: true,
 )
 

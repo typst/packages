@@ -4,31 +4,47 @@
 // Copyright (c) 2024
 // Author:  Jiaxin Peng
 // License: MIT
-// Version: 0.4.7
-// Date:    2024-03-15
+// Version: 0.4.8
+// Date:    2024-03-18
 // Email:   jiaxin.peng@outlook.com
 ///////////////////////////////
 
 #import "@preview/ctheorems:1.1.0": *
+
 #import "@preview/mitex:0.2.2": *
+
 #import "@preview/cetz:0.2.1"
+
 #import "@preview/tablex:0.0.8": tablex, rowspanx, colspanx, hlinex
+
 #import "@preview/tablem:0.1.0": tablem
 
 
 #let paper(
   font: "PT Serif",
+
   fontsize: 11pt,
+
   title: none,
+
   subtitle: none,
+
   maketitle: true,
+
   authors: (),
+
   date: "",
+
   abstract: [],
+
   keywords: [],
+
   JEL: [],
+
   acknowledgments: none,
+
   bibliography: none,
+
   doc,
 ) = {
       set math.equation(numbering: "(1)", supplement: auto)
@@ -116,7 +132,7 @@
       }
     
       v(10pt)
-      set heading(numbering: "1.")
+      set heading(numbering: "1.",)
       set math.equation(numbering: "(1)")
       set footnote(numbering: "1")
       set footnote.entry(separator: line(length: 100%, stroke: 0.5pt))
@@ -124,6 +140,7 @@
       set align(left)
       columns(1, doc)
     
+
       if bibliography != none {
         colbreak()
         bibliography
