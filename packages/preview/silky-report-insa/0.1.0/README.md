@@ -7,7 +7,7 @@ By default, the template initializes with the `insa-report` show rule, with para
 
 Here is an example of filled template:
 ```typst
-#import "@preview/insa-report:0.1.0": *
+#import "@preview/silky-report-insa:0.1.0": *
 #show: doc => insa-report(
   id: 3,
   pre-title: "STPI 2",
@@ -40,7 +40,7 @@ the `insa-full` show rule and customize all by yourself.
 
 Here is an example:
 ```typst
-#import "@preview/insa-report:0.1.0": *
+#import "@preview/silky-report-insa:0.1.0": *
 #show: doc => insa-full(
   cover-top-left: [*Document important*],
   cover-middle-left: [

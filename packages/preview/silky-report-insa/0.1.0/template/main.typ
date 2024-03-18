@@ -1,4 +1,4 @@
-#import "@preview/insa-report:0.1.0": *
+#import "@preview/silky-report-insa:0.1.0": *
 #show: doc => insa-report(
   id: 1,
   pre-title: "DPT XA",

@@ -1,5 +1,5 @@
 [package]
-name = "insa-report"
+name = "silky-report-insa"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["SkytAsul"]
