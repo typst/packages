@@ -44,6 +44,12 @@ To compile the manual, Mantys needs to be available as a local package. Refer to
 
 ## Changelog
 
+### v2.0.1
+
+This version makes `codelst` compatible to Typst 0.11.0. Version 2.0.1 now requires Typst 0.11.0, since there are some breaking changes to the way counters work.
+
+Thanks to @kilpkonn for theses changes.
+
 ### v2.0.0
 
 Version 2 requires Typst 0.9.0 or newer. Rendering is now done using the new

@@ -6,6 +6,9 @@ authors = ["Jonas Neugebauer"]
 license = "MIT"
 description = "A typst package to render sourcecode."
 repository = "https://github.com/jneug/typst-codelst"
+compiler = "0.11.0"
 exclude = ["example.typ", "example.pdf", "manual.pdf", "manual.typ", "tbump.toml"]
-compiler = "0.0.9"
+categories = ["components", "layout"]
+disciplines = ["computer-science", "mathmatics", "education", "linguistics"]
 keywords = ["sourcecode", "code", "syntax-highlighting", "raw", "line numbers"]
+
