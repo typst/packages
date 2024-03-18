@@ -1,4 +1,4 @@
-#import "@preview/arxivify:0.1.0": arxivify, arxivify_appendices
+#import "@preview/arxivify:0.1.0": arxivify, arxivify-appendices
 
 #show: arxivify.with(
   title: "ArXiv Typst Template",
@@ -65,7 +65,7 @@ You can use citations by using the `#cite` function with the key for the referen
 #bibliography("bibliography.bib")
 ```
 
-Single citation #cite("Vaswani2017AttentionIA"). Multiple citation #cite("Vaswani2017AttentionIA", "hinton2015distilling"). In text #cite("Vaswani2017AttentionIA", brackets: false).
+Single citation @Vaswani2017AttentionIA. Multiple citations @Vaswani2017AttentionIA @hinton2015distilling. In text #cite(<Vaswani2017AttentionIA>, form: "prose")
 
 *More information:*
 - #link("https://typst.app/docs/reference/meta/bibliography/")
@@ -128,7 +128,7 @@ Single citation #cite("Vaswani2017AttentionIA"). Multiple citation #cite("Vaswan
 #bibliography("bibliography.bib")
 
 // Create appendix section
-#show: arxivify_appendices
+#show: arxivify-appendices
 =
 
 == Appendix section

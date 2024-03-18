@@ -2,8 +2,6 @@
 
 A Typst template based on popular LateX template used in NeurIPS, arXiv and bio-arXiv. Inspired by [arxiv-style](https://github.com/kourgeorge/arxiv-style)
 
-![Example](template/example.png)
-
 ## Usage
 
 **Import**
@@ -32,7 +30,7 @@ A Typst template based on popular LateX template used in NeurIPS, arXiv and bio-
 **Appendix**
 
 ```
-#show: arxivify_appendices
+#show: arxivify-appendices
 =
 
 == Appendix section

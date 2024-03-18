@@ -119,7 +119,7 @@
   body
 }
 
-#let arxivify_appendices(body) = {
+#let arxivify-appendices(body) = {
   counter(heading).update(0)
   counter("appendices").update(1)
 
