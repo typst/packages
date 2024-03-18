@@ -9,6 +9,6 @@ repository = "https://github.com/jneug/typst-codelst"
 compiler = "0.11.0"
 exclude = ["example.typ", "example.pdf", "manual.pdf", "manual.typ", "tbump.toml"]
 categories = ["components", "layout"]
-disciplines = ["computer-science", "mathmatics", "education", "linguistics"]
+disciplines = ["computer-science", "mathematics", "education", "linguistics"]
 keywords = ["sourcecode", "code", "syntax-highlighting", "raw", "line numbers"]
 
