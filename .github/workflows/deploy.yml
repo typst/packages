@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
 
+# Don't deploy two commits in parallel
+concurrency:
+  group: deploy
+
 jobs:
   deploy:
     name: Deploy
