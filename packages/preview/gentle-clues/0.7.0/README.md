@@ -4,7 +4,6 @@ Simple admonitions for typst. Add predefined or define your own.
 
 Inspired from [mdbook-admonish](https://tommilligan.github.io/mdbook-admonish/).
 
-
 ## Usage
 
 Import the package
@@ -29,6 +28,17 @@ Overview of the predefined clues:
 ![Overview of the predefined clues](gc_overview.svg)
 
 `abstract`, `info`, `question`, `memo`, `task`, `idea`, `tip`, `quote`, `success`, `warning`, `error`, `example`.
+
+#### Language support
+
+This package does use [linguify](https://github.com/jomaway/typst-linguify) to support multiple languages.
+
+**Header titles:**
+The language of the header titles is detected automatically from the `context text.lang`.
+Currently the following languages are supported: "en", "de", "es", "fr". 
+
+If an unsupported language is set it will fallback to english as default.
+Feel free to open a PR with your language added to the `lang.toml` file.
 
 ### Define your own clue
 
