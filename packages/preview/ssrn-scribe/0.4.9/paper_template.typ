@@ -140,6 +140,7 @@
       set footnote.entry(indent: 0em)
       set align(left)
   set heading(numbering: "1.")
+
   show heading: it => [
     #set align(left)
     #counter(heading).display(
@@ -147,6 +148,7 @@
       ) #it.body
     #v(10pt)
   ]
+
   set text(spacing: 100%)
   set par(
   leading: 1.2em,
@@ -155,13 +157,15 @@
 
 )
 
-
-
-
       columns(1, doc)
     
       if bibliography != none {
         colbreak()
+        show heading: it => [
+        #set align(left)
+        #it.body
+        #v(10pt)
+       ]
         bibliography
       }
 }
