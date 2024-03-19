@@ -1,6 +1,6 @@
 [package]
 name = "ssrn-scribe"
-version = "0.4.8"
+version = "0.4.9"
 entrypoint = "paper_template.typ"
 authors = [ "jxpeng98",]
 repository = "https://github.com/jxpeng98/Typst-Paper-Template"

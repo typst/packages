@@ -4,8 +4,8 @@
 // Copyright (c) 2024
 // Author:  Jiaxin Peng
 // License: MIT
-// Version: 0.4.8
-// Date:    2024-03-18
+// Version: 0.4.9
+// Date:    2024-03-19
 // Email:   jiaxin.peng@outlook.com
 ///////////////////////////////
 
@@ -47,6 +47,7 @@
 
   doc,
 ) = {
+      show: thmrules
       set math.equation(numbering: "(1)", supplement: auto)
 
       set par(leading: 1em)
@@ -138,9 +139,27 @@
       set footnote.entry(separator: line(length: 100%, stroke: 0.5pt))
       set footnote.entry(indent: 0em)
       set align(left)
+  set heading(numbering: "1.")
+  show heading: it => [
+    #set align(left)
+    #counter(heading).display(
+        it.numbering
+      ) #it.body
+    #v(10pt)
+  ]
+  set text(spacing: 100%)
+  set par(
+  leading: 1.2em,
+  first-line-indent: 0em,
+  justify: true,
+
+)
+
+
+
+
       columns(1, doc)
     
-
       if bibliography != none {
         colbreak()
         bibliography

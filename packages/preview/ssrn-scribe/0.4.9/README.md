@@ -2,19 +2,25 @@
 
 Following the official tutorial, I create a single-column paper template for general use. You can use it for papers published on SSRN etc.
 
-## Updates
-
-* v0.4.5: Adjust the template and ready to the package manager of Typst.
-  * `bibloc`, `bibstyle` and `bibtitle` has been integrated into the bibliography function.
-
 ## How to use
+
+### Use as an template package
+
+Typst integrated the template with their official package manager. You can use it as the other third-party packages.
+
+You only need to enter the following command in the terminal to initialize the template.
+```
+typst init @preview/ssrn-scribe
+```
+If will generate a subfolder `ssrn-scribe` including the `main.typ` file in the current directory with the latest version of the template.
+
+### Mannully use
 
 1. Download the template or clone the repository.
 
-<!-- (**If you use the latest version `v0.11.0`, you can use `typst init @preview/general-paper-template` to generate the `main.typ` template directly.**) -->
-
 2. generate your bibliography file using `.biblatex` and store the file in the same directory of the template.
-3. modify the `main.typ` file and compile it.
+
+3. modify the `main.typ` file in the subfolder `/template` and compile it.
    ***Note:* You should have `paper_template.typ` and `main.typ` in the same directory.**
 
 In the template, you can modify the following parameters:
@@ -41,11 +47,8 @@ In the template, you can modify the following parameters:
 
 ```
 ///////////////////////////////
-#import "@local/general-paper-template:0.4.3": *
+#import "@preview/ssrn-scribe:0.4.9": *
 ///////////////////////////////
-
-
-#show: thmrules
 
 #show: paper.with(
   font: "PT Serif", // "Times New Roman"
@@ -71,19 +74,9 @@ In the template, you can modify the following parameters:
   acknowledgments: "This paper is a work in progress. Please do not cite without permission.", 
   // bibliography: bibliography("bib.bib", title: "References", style: "apa"),
 )
-
-// your main text goes here
-#set heading(numbering: "1.")
-#set text(spacing: 100%)
-#set par(
-  leading: 1.2em,
-  first-line-indent: 2em,
-  justify: true,
-)
-
-
 = Introduction
 #lorem(50)
+
 ```
 
 ## Preview
