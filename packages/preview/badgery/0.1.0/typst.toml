@@ -7,5 +7,7 @@ license = "MIT"
 description = "Adds styled badges, boxes and menu actions."
 compiler = "0.11.0"
 keywords = ["badge", "boxes"]
+categories = ["components"]
+disciplines = ["computer-science", "engineering", "business", "communication"]
 repository = "https://github.com/dogezen/badgery"
 exclude = ["example/*", "demo.png"]
