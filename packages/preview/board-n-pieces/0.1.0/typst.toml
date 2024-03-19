@@ -5,6 +5,7 @@ entrypoint = "lib.typ"
 authors = ["Malo <@MDLC01>"]
 license = "MIT"
 description = "Display chessboards in Typst."
+repository = "https://github.com/MDLC01/board-n-pieces"
 keywords = ["chess", "chessboard", "chess board", "checkerboard", "chequerboard", "fen"]
 categories = ["visualization"]
 disciplines = ["computer-science", "mathematics"]
