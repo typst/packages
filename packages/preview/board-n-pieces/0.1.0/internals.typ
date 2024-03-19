@@ -2,11 +2,6 @@
 
 #let functions = plugin("plugin.wasm")
 
-#let starting-position = abi.function(
-  (..args) => functions.starting_position(..args),
-  abi.position-from-bytes,
-)
-
 #let parse-fen = abi.function(
   (..args) => functions.parse_fen(..args),
   bytes,

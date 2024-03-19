@@ -3,10 +3,29 @@
 
 
 /// The starting position of a standard chess game.
-#let starting-position = {
-  import "internals.typ": starting-position
-  starting-position()
-}
+#let starting-position = (
+  type: "boardnpieces:position",
+  board: (
+    ("R", "N", "B", "Q", "K", "B", "N", "R"),
+    ("P", ) * 8,
+    (none, ) * 8,
+    (none, ) * 8,
+    (none, ) * 8,
+    (none, ) * 8,
+    ("p", ) * 8,
+    ("r", "n", "b", "q", "k", "b", "n", "r"),
+  ),
+  active: "w",
+  castling-availabilities: (
+    white-king-side: true,
+    white-queen-side: true,
+    black-king-side: true,
+    black-queen-side: true,
+  ),
+  en-passant-target-square: none,
+  halfmove: 0,
+  fullmove: 1,
+)
 
 
 /// Creates a position from ranks.
@@ -81,22 +100,27 @@
   /// The background color of highlighted black squares.
   highlighted-black-square-color: rgb("E5694E"),
   /// How to display each piece.
-  pieces: (
-    P: image("assets/pw.svg", width: 100%),
-    N: image("assets/nw.svg", width: 100%),
-    B: image("assets/bw.svg", width: 100%),
-    R: image("assets/rw.svg", width: 100%),
-    Q: image("assets/qw.svg", width: 100%),
-    K: image("assets/kw.svg", width: 100%),
-    p: image("assets/pb.svg", width: 100%),
-    n: image("assets/nb.svg", width: 100%),
-    b: image("assets/bb.svg", width: 100%),
-    r: image("assets/rb.svg", width: 100%),
-    q: image("assets/qb.svg", width: 100%),
-    k: image("assets/kb.svg", width: 100%),
-  ),
+  pieces: auto,
 ) = {
   import "internals.typ": square-coordinates
+
+  // Doing this saves time when loading the package.
+  if pieces == auto {
+    pieces = (
+      P: image("assets/pw.svg", width: 100%),
+      N: image("assets/nw.svg", width: 100%),
+      B: image("assets/bw.svg", width: 100%),
+      R: image("assets/rw.svg", width: 100%),
+      Q: image("assets/qw.svg", width: 100%),
+      K: image("assets/kw.svg", width: 100%),
+      p: image("assets/pb.svg", width: 100%),
+      n: image("assets/nb.svg", width: 100%),
+      b: image("assets/bb.svg", width: 100%),
+      r: image("assets/rb.svg", width: 100%),
+      q: image("assets/qb.svg", width: 100%),
+      k: image("assets/kb.svg", width: 100%),
+    )
+  }
 
   assert(
     type(position) == dictionary and position.type == "boardnpieces:position",
