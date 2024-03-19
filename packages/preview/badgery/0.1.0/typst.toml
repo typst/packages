@@ -1,0 +1,11 @@
+[package]
+name = "badgery"
+version = "0.1.0"
+entrypoint = "badgery.typ"
+authors = ["dogezen"]
+license = "MIT"
+description = "Adds styled badges, boxes and menu actions."
+compiler = "0.11.0"
+keywords = ["badge", "boxes"]
+repository = "https://github.com/dogezen/badgery"
+exclude = ["example/*", "demo.png"]
