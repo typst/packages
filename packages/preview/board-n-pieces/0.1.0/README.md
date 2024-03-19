@@ -2,6 +2,7 @@
 
 Display chessboards in Typst.
 
+
 ## Displaying chessboards
 
 The main function of this package is `display-board`. It lets you display a specific position on a board.
@@ -76,3 +77,14 @@ The `display-board` function lets you customize the appearance of the board with
 ## Chess symbols
 
 This package also exports chess-related symbols under `chess-sym.{pawn,knight,bishop,rook,queen,king}.{filled,stroked,white,black}`. `filled` and `black` variants are equivalent, and `stroked` and `white` as well.
+
+
+## Changelog
+
+### Version 0.1.0 (initial version)
+
+- Display a chess position on a chessboard with the `display-board` function.
+
+- Get the starting position with `starting-position`.
+
+- Use chess-related symbols with the `chess-sym` module.
