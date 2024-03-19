@@ -10,3 +10,8 @@ repository = "https://github.com/MatheSchool/typst-g-exam"
 categories = ["visualization", "paper", "office"]
 disciplines = ["education"] 
 exclude = ["/examples/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
