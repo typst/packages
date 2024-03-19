@@ -7,7 +7,7 @@ repository = "https://github.com/eduardz1/unito-typst-template"
 authors = ["Eduard Antonovic Occhipinti"]
 license = "MIT"
 description = "A thesis template of the University of Turin"
-keywords = ["thesis", "university", "UniTO", "Turin", "Torino", "Università degli Studi di Torino]
+keywords = ["thesis", "university", "UniTO", "Turin", "Torino", "Università degli Studi di Torino"]
 categories = ["thesis"]
 
 [template]
