@@ -1,4 +1,4 @@
-# Board & pieces
+# Board & Pieces
 
 Display chessboards in Typst.
 
