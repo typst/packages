@@ -7,7 +7,7 @@ license = "MIT-0"
 description = "A template for CNOI(Olympiad in Informatics in China)-style statements for competitive programming"
 disciplines = ["computer-science", "education"]
 keywords = ["CNOI", "OI", "competitive programming"]
-repository = https://github.com/Wallbreaker5th/fuzzy-cnoi-statement
+repository = "https://github.com/Wallbreaker5th/fuzzy-cnoi-statement"
 
 [template]
 path = "template"
