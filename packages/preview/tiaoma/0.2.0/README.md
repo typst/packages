@@ -5,7 +5,7 @@
 ## Example
 
 ```typ
-#import "@preview/tiaoma:0.1.0"
+#import "@preview/tiaoma:0.2.0"
 #set page(width: auto, height: auto)
 
 = tiáo mǎ
