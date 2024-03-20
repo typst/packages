@@ -5,10 +5,10 @@ Display chessboards in Typst.
 
 ## Displaying chessboards
 
-The main function of this package is `display-board`. It lets you display a specific position on a board.
+The main function of this package is `board`. It lets you display a specific position on a board.
 
 ```example
-#display-board(starting-position)
+#board(starting-position)
 ```
 
 ![image](examples/example-1.png)
@@ -19,7 +19,7 @@ The main function of this package is `display-board`. It lets you display a spec
 You can create a different position using the `position` function. It accepts strings representing each rank. Use upper-case letters for white pieces, and lower-case letters for black pieces. Dots and spaces correspond to empty squares.
 
 ```example
-#display-board(position(
+#board(position(
   "....r...",
   "........",
   "..p..PPk",
@@ -37,7 +37,7 @@ You can create a different position using the `position` function. It accepts st
 Alternatively, you can use the `fen` function to create a position from a [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) string:
 
 ```example
-#display-board(fen("r1bk3r/p2pBpNp/n4n2/1p1NP2P/6P1/3P4/P1P1K3/q5b1 b - - 1 23"))
+#board(fen("r1bk3r/p2pBpNp/n4n2/1p1NP2P/6P1/3P4/P1P1K3/q5b1 b - - 1 23"))
 ```
 
 ![image](examples/example-3.png)
@@ -46,7 +46,7 @@ Alternatively, you can use the `fen` function to create a position from a [FEN](
 Note that you can also specify only the first part of the FEN string:
 
 ```example
-#display-board(fen("r4rk1/pp2Bpbp/1qp3p1/8/2BP2b1/Q1n2N2/P4PPP/3RK2R"))
+#board(fen("r4rk1/pp2Bpbp/1qp3p1/8/2BP2b1/Q1n2N2/P4PPP/3RK2R"))
 ```
 
 ![image](examples/example-4.png)
@@ -55,7 +55,7 @@ Note that you can also specify only the first part of the FEN string:
 
 ## Customizing a chessboard
 
-The `display-board` function lets you customize the appearance of the board with multiple arguments. They are described below.
+The `board` function lets you customize the appearance of the board with multiple arguments. They are described below.
 
 - `highlighted-squares` is a list of squares to highlight (e.g. `("d3", "d2", "e3")`).
 
@@ -71,7 +71,7 @@ The `display-board` function lets you customize the appearance of the board with
 
 - `highlighted-white-square-color` and `highlighted-black-square-color` correspond to the background color of highlighted squares.
 
-- `pieces` is a dictionary containing images representing each piece. If specified, the dictionary must contain an entry for every piece kind in the displayed position. Keys are single upper-case letters for white pieces and single lower-case letters for black pieces. The default images are taken from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:SVG_chess_pieces), and licensed under the [GNU Free Documentation License](https://commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2).
+- `pieces` is a dictionary containing images representing each piece. If specified, the dictionary must contain an entry for every piece kind in the displayed position. Keys are single upper-case letters for white pieces and single lower-case letters for black pieces. The default images are taken from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:SVG_chess_pieces), and licensed under the [GNU Free Documentation License](https://commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2). This means you should credit their authors if you use them in your document.
 
 
 ## Chess symbols
@@ -83,7 +83,7 @@ This package also exports chess-related symbols under `chess-sym.{pawn,knight,bi
 
 ### Version 0.1.0 (initial version)
 
-- Display a chess position on a chessboard with the `display-board` function.
+- Display a chess position on a chessboard with the `board` function.
 
 - Get the starting position with `starting-position`.
 

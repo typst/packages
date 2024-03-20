@@ -74,7 +74,7 @@
 
 
 /// Displays a position on a chess board.
-#let display-board(
+#let board(
   /// The position to display.
   position,
   /// A list of squares to highlight.
