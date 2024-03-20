@@ -9,14 +9,9 @@ description = "Query and display headings in your documents and templates."
 categories = ["components", "scripting"]
 keywords = ["context", "chapter", "section", "heading"]
 license = "MIT"
-exclude = ["examples", "README.md"]
+exclude = ["doc", "examples", "README.md"]
 
 # TODO: this is non-critical and therefore not yet part of ci-semi-stable
 # [tool.typst-test]
 # tests = "test"
 # template = "test/template.typ"
-
-[tool.alabaster]
-map = [
-  { "doc/manual.pdf" = "manual.pdf" }
-]
