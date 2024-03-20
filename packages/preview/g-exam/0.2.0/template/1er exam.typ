@@ -3,7 +3,7 @@
 #show: g-exam.with(
   school: (
     name: "My School",
-    logo: read("./logo.png", encoding: none),
+    logo: image("./logo.png", height: 2.5cm, fit:"contain")
   ),
   exam-info: (
     academic-period: "Academic year 2023/2024",
