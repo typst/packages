@@ -8,7 +8,7 @@
   ),
   school: (
     name: "Sunrise Secondary School",
-    logo: read("./logo.png", encoding: none),
+    logo: image("./logo.png", height: 2.5cm, fit:"contain")
   ),
   exam-info: (
     academic-period: "Academic year 2023/2024",
@@ -38,6 +38,7 @@
 
 #g-question(point: 2)[Calculate the following operations and simplify if possible:
   #g-subquestion[$display(5/12 dot 9/15=)$]
+  #image("./logo.png")
   // #v(1fr)
 
   #g-subquestion[$display(10 dot 9/15=)$]
