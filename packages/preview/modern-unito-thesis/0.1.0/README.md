@@ -32,7 +32,7 @@ This template exports the `template` function with the following named arguments
 - `bibliography-path`: the path to your bibliography file (e.g. `works.bib`)
 - `logo` (already set to UniTO's logo by default): the path to your university's logo
 - `abstract` : your thesis' abstract, can be set to `none` if not needed
-- `acknowledgements` : your thesis' acknowledgements, can be set to `none` if not needed
+- `acknowledgments` : your thesis' acknowledgments, can be set to `none` if not needed
 - `keywords`: a list of keywords for the thesis, can be set to `none` if not needed
 
 The template will initialize an example project with sensible defaults.
@@ -67,7 +67,7 @@ If you want to change an existing project to use this template, you can add a sh
   ),
   bibliography: bibliography("works.yml"),
   abstract: [Your abstract goes here],
-  acknowledgements: [Your acknowledgements go here],
+  acknowledgments: [Your acknowledgments go here],
   keywords: [keyword1, keyword2, keyword3]
 )
 

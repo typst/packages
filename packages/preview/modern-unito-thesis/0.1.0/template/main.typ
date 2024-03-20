@@ -1,7 +1,7 @@
 #import "@preview/modern-unito-thesis:0.1.0": template
 
-// Your acknoledgments (Ringraziamenti) go here
-#let acknowledgements = [ 
+// Your acknowledgments (Ringraziamenti) go here
+#let acknowledgments = [ 
   I would like to thank you for using my template and the team of typst for the great work they have done and the awesome tool they developed. Remember that it's best practice to thank the people you worked with before thanking your family and friends.
 ]
 
@@ -56,8 +56,8 @@
   // BibTeX file, pass a .bib file instead (e.g. "works.bib")
   bibliography: bibliography("works.yml"),
 
-  // See the `acknowledgements` and `abstract` variables above
-  acknoledgments: acknowledgements,
+  // See the `acknowledgments` and `abstract` variables above
+  acknowledgments: acknowledgments,
   abstract: abstract,
 
   // Add as many keywords as you need, or remove the entry if none
