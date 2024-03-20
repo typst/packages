@@ -36,7 +36,7 @@
 	)
 }
 
-#import "@local/tidy:0.2.0"
+#import "@preview/tidy:0.2.0"
 
 #let show-module(name, scope:(:)) = tidy-module(
   read("../src/" + name + ".typ"),
@@ -85,18 +85,9 @@ This manual is supposed to be a complete reference of Mantys, but might be out o
 
 == Using Mantys
 
-=== Loading as a package
-
-The best way to use MANTYS is to install the package into the system dependent local package repository#footnote(link("https://github.com/typst/packages#local-packages")).
-
-Either download the current release from GitHub#footnote[#link("https://github.com/jneug/typst-typopts/releases/latest")] and unpack the archive into the correct versioned subfolder or clone it directly via `git`:
-#codesnippet[```shell-unix-generic
-git clone https://github.com/jneug/typst-mantys.git mantys/0.1.1
-```]
-
-After installing the package just import it inside your `typ` file:
+Just import MANTYS inside your `typ` file:
 #codesnippet[```typ
-#import "@local/mantys:0.1.1": *
+#import "@preview/mantys:0.1.1": *
 ```]
 
 === Initializing the template

@@ -6,35 +6,12 @@ Template for documenting [typst](https://github.com/typst/typst) packages and te
 
 ## Usage
 
-Mantys supports **Typst 0.8.0** and newer.
-
-Download the [latest version](https://github.com/jneug/typst-mantys/releases/tag/v0.1.1) and unpack it into the [system dependent local package repository](https://github.com/typst/packages#local-packages).
-
-In your local repository type:
-```shell
-wget https://github.com/jneug/typst-mantys/archive/refs/tags/v0.1.1.tar.gz
-mkdir mantys-0.1.1
-tar -xzf v0.1.1.tar.gz -C mantys-0.1.1
-```
-
-Now import the package at the beginning of your manual document:
+Just import the package at the beginning of your manual:
 ```typst
-#import "@local/mantys:0.1.1": *
+#import "@preview/mantys:0.1.1": *
 ```
 
-To use **Mantys** as a local module for one project only, download the package and unpack into a folder inside your project (e.g. `/mantys`). Then import `mantys/mantys.typ`:
-
-```typst
-#import "mantys/mantys.typ": *
-```
-
-### Other requirements
-
-Mantys depends on some other packages. All are available from the Typst package repository and will get downloaded automatically.
-
-- [jneug/typst-codelst](https://github.com/jneug/typst-codelst)
-- [Pablo-Gonzalez-Calderon/showybox-package](https://github.com/Pablo-Gonzalez-Calderon/showybox-package)
-- [jneug/typst-tools4typst](https://github.com/jneug/typst-tools4typst)
+Mantys supports **Typst 0.11.0** and newer.
 
 ## Writing basics
 
@@ -42,6 +19,8 @@ A basic template for a manual could look like this:
 
 ```typst
 #import "@local/mantys:0.1.1": *
+
+#import "your-package.typ"
 
 #show: mantys.with(
 	name:		"your-package-name",
@@ -56,7 +35,7 @@ A basic template for a manual could look like this:
 		A few paragraphs of text to describe the package.
 	],
 
-	example-imports: ("@local/your-package-name:0.0.1": "*")
+	example-imports: (your-package: your-package)
 )
 
 // end of preamble
