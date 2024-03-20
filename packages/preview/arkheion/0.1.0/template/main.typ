@@ -1,7 +1,7 @@
-#import "@preview/arxivify:0.1.0": arxivify, arxivify-appendices
+#import "@preview/arkheion:0.1.0": arkheion, arkheion-appendices
 
-#show: arxivify.with(
-  title: "ArXiv Typst Template",
+#show: arkheion.with(
+  title: "Typst Template for arXiv",
   authors: (
     (name: "Author 1", email: "user@domain.com", affiliation: "Company", orcid: "0000-0000-0000-0000"),
     (name: "Author 2", email: "user@domain.com", affiliation: "Company"),
@@ -128,7 +128,7 @@ Single citation @Vaswani2017AttentionIA. Multiple citations @Vaswani2017Attentio
 #bibliography("bibliography.bib")
 
 // Create appendix section
-#show: arxivify-appendices
+#show: arkheion-appendices
 =
 
 == Appendix section

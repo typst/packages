@@ -1,4 +1,4 @@
-#let arxivify(
+#let arkheion(
   title: "",
   abstract: [],
   keywords: (),
@@ -119,7 +119,7 @@
   body
 }
 
-#let arxivify-appendices(body) = {
+#let arkheion-appendices(body) = {
   counter(heading).update(0)
   counter("appendices").update(1)
 

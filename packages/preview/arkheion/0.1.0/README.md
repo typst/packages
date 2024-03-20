@@ -1,19 +1,19 @@
-# arxivify
+# arkheion
 
-A Typst template based on popular LateX template used in NeurIPS, arXiv and bio-arXiv. Inspired by [arxiv-style](https://github.com/kourgeorge/arxiv-style)
+A Typst template based on popular LateX template used in arXiv and bio-arXiv. Inspired by [arxiv-style](https://github.com/kourgeorge/arxiv-style)
 
 ## Usage
 
 **Import**
 
 ```
-#import "@preview/arxivify:0.1.0": arxivify, arxivify_appendices
+#import "@preview/arkheion:0.1.0": arkheion, arkheion-appendices
 ```
 
 **Main body**
 
 ```
-#show: arxivify.with(
+#show: arkheion.with(
   title: "ArXiv Typst Template",
   authors: (
     (name: "Author 1", email: "user@domain.com", affiliation: "Company", orcid: "0000-0000-0000-0000"),
@@ -30,7 +30,7 @@ A Typst template based on popular LateX template used in NeurIPS, arXiv and bio-
 **Appendix**
 
 ```
-#show: arxivify-appendices
+#show: arkheion-appendices
 =
 
 == Appendix section
