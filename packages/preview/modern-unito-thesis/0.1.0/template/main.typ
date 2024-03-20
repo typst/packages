@@ -1,5 +1,15 @@
 #import "@preview/modern-unito-thesis:0.1.0": template
 
+// Your acknoledgments (Ringraziamenti) go here
+#let acknowledgements = [ 
+  I would like to thank you for using my template and the team of typst for the great work they have done and the awesome tool they developed. Remember that it's best practice to thank the people you worked with before thanking your family and friends.
+]
+
+// Your abstract goes here
+#let abstract = [ 
+  In this theis, we will talk about this template I made for the University of Turin, remember that the abstract should be concise and clear but should also be able to give a good idea of what the thesis is about, always ask your advisor for feedback if you are unsure.
+]
+
 #show: template.with(
   // Your title goes here
   title: "My Beautiful Thesis",
@@ -45,6 +55,10 @@
   // Hayagriva bibliography is the default one, if you want to use a
   // BibTeX file, pass a .bib file instead (e.g. "works.bib")
   bibliography: bibliography("works.yml"),
+
+  // See the `acknowledgements` and `abstract` variables above
+  acknoledgments: acknowledgements,
+  abstract: abstract,
 
   // Add as many keywords as you need, or remove the entry if none
   // are needed

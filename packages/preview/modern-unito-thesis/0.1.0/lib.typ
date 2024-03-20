@@ -53,10 +53,11 @@
   // function or `none` if you don't need to include a logo
   logo: none,
 
-  // Are included by default with respectively an abstract.typ and
-  // an acknowledgments.typ file, can be set to `false` if not needed
-  abstract: true,
-  acknowledgments: true,
+  // Abstract of the thesis, set to none if not needed
+  abstract: none,
+
+  // Acknowledgments, set to none if not needed
+  acknowledgments: none,
 
   // The thesis' keywords, can be left empty if not needed
   keywords: none,
@@ -231,7 +232,7 @@
   pagebreak(weak: true)
 
   // Acknowledgments
-  if acknowledgments {
+  if acknowledgments != none {
     heading(
       level: 2,
       numbering: none,
@@ -242,20 +243,20 @@
         "Ringraziamenti"
       }
     )
-    include "acknowledgments.typ"
+    acknowledgments
 
     pagebreak(weak: true)
   }
 
   // Abstract
-  if abstract {
+  if abstract != none {
     heading(
       level: 2,
       numbering: none,
       outlined: false,
       "Abstract"
     )
-    include "abstract.typ"
+    abstract
   }
 
   // Keywords

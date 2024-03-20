@@ -31,11 +31,11 @@ This template exports the `template` function with the following named arguments
 - `lang`: configurable between `en` for English and `it` for Italian
 - `bibliography-path`: the path to your bibliography file (e.g. `works.bib`)
 - `logo` (already set to UniTO's logo by default): the path to your university's logo
-- `abstract` (true/false, set to true by default): whether to include an abstract
-- `acknowledgements` (true/false, set to true by default): whether to include an acknowledgements section
-- `keywords`: a list of keywords for the thesis
+- `abstract` : your thesis' abstract, can be set to `none` if not needed
+- `acknowledgements` : your thesis' acknowledgements, can be set to `none` if not needed
+- `keywords`: a list of keywords for the thesis, can be set to `none` if not needed
 
-The template will initialize an example project with sensible defaults, if you want to include an abstract edit the [abstract](template/abstract.typ) file with the content, same applies for the [acknowledgements](template/acknowledgements.typ) file.
+The template will initialize an example project with sensible defaults.
 
 The template divides the level 1 headings in chapters under the `chapters` directory, I suggest using this structure to keep the project organized.
 
@@ -48,6 +48,7 @@ If you want to change an existing project to use this template, you can add a sh
   title: "My Beautiful Thesis",
   academic-year: [2023/2024],
   subtitle: "Bachelor's Thesis",
+  logo: image("path/to/your/logo.png"),
   candidate: (
     name: "Eduard Antonovic Occhipinti",
     matricola: 947847
@@ -64,7 +65,9 @@ If you want to change an existing project to use this template, you can add a sh
     school: "Scuola di Scienze della Natura",
     degree: "Corso di Laurea Triennale in Informatica",
   ),
-  bibliography-path: "works.yml",
+  bibliography: bibliography("works.yml"),
+  abstract: [Your abstract goes here],
+  acknowledgements: [Your acknowledgements go here],
   keywords: [keyword1, keyword2, keyword3]
 )
 
