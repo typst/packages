@@ -7,7 +7,7 @@ Display chessboards in Typst.
 
 The main function of this package is `board`. It lets you display a specific position on a board.
 
-```example
+```typ
 #board(starting-position)
 ```
 
@@ -18,7 +18,7 @@ The main function of this package is `board`. It lets you display a specific pos
 
 You can create a different position using the `position` function. It accepts strings representing each rank. Use upper-case letters for white pieces, and lower-case letters for black pieces. Dots and spaces correspond to empty squares.
 
-```example
+```typ
 #board(position(
   "....r...",
   "........",
@@ -36,7 +36,7 @@ You can create a different position using the `position` function. It accepts st
 
 Alternatively, you can use the `fen` function to create a position from a [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) string:
 
-```example
+```typ
 #board(fen("r1bk3r/p2pBpNp/n4n2/1p1NP2P/6P1/3P4/P1P1K3/q5b1 b - - 1 23"))
 ```
 
@@ -45,7 +45,7 @@ Alternatively, you can use the `fen` function to create a position from a [FEN](
 
 Note that you can also specify only the first part of the FEN string:
 
-```example
+```typ
 #board(fen("r4rk1/pp2Bpbp/1qp3p1/8/2BP2b1/Q1n2N2/P4PPP/3RK2R"))
 ```
 
