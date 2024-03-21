@@ -9,7 +9,7 @@ license = "MIT-0"
 description = "An American Institute of Aeronautics and Astronautics (AIAA) template for conferences."
 keywords = ["AIAA","American Institute of Aeronautics and Astronautics","Engineering","Aviation","SciTech","Aerospace","Guidance, Navigation, and Control"]
 categories = ["paper"]
-disciplines = ["engineering","computer science","mathematics","communication","transportation","education"]
+disciplines = ["engineering", "computer-science", "mathematics", "communication", "transportation", "education"]
 
 [template]
 path = "template"
