@@ -73,22 +73,23 @@
   )
 
   // Cover page.
-  page(align(left + horizon, box(width: 90%)[
+  page(align(left + horizon, block(width: 90%)[
+      #let v-space = v(2em, weak: true)
       #text(3em)[*#title*]
 
-      #v(2em, weak: true)
+      #v-space
       #text(1.6em, author)
 
       #if abstract != none {
-        v(2em, weak: true)
-        box(width: 80%)[
+        v-space
+        block(width: 80%)[
           // Default leading is 0.65em.
           #par(leading: 0.78em, justify: true, linebreaks: "optimized", abstract)
         ]
       }
 
       #if date != none {
-        v(2em, weak: true)
+        v-space
         // Display date as MMMM DD, YYYY
         text(date.display("[month repr:long] [day padding:zero], [year repr:full]"))
       }
