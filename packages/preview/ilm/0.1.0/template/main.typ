@@ -30,8 +30,6 @@ Let's do a brief walkthrough of the 'Ilm template.
 
 This acts as a hint for the reader so that they know that a specific text is a hyperlink. This is far better than #underline[underling a hyperlink] or making it a #text(fill: blue)[different color]. Don't you agree?
 
-This neat trick has been borrowed from Matthew Butterick's #link("https://practicaltypography.com")[_Practical Typography_] book.
-
 #let wiki-url(stub) = {
   return link("https://en.wikipedia.org/wiki/"+stub, stub)
 }
@@ -49,8 +47,6 @@ the above code will render the following:
 
 #blockquote[A wizard is never late, Frodo Baggins. Nor is he early. He arrives precisely when he means to. -- Gandalf @wikipedia_gandalf]
 
-You can of course use regular quotes instead, if your prefer:
-
 == Small- and all caps
 'Ilm also exports functions for styling text in small caps and uppercase, namely: `smallcaps` and `upper` respectively.
 
@@ -64,10 +60,10 @@ They both look similar, the only difference is that 'Ilm uses more spacing betwe
 If you prefer Typst's default spacing then you can still use it by prefixing `std-` to the functions: ```typst #std-smallcaps()``` and ```typst #std-upper()```.
 
 = Figures
-The template also displays and index of figures (images), tables, and listings (code blocks) at the end of the document, if you set the respective options to `true`:
+The template also displays an index of figures (images), tables, and listings (code blocks) at the end of the document, if you set the respective options to `true`:
 
 ```typst
-#import "lib.typ": *
+#import "@preview/ilm:0.1.0": *
 #show: ilm.with(
   figure-index: true,
   table-index: true,
