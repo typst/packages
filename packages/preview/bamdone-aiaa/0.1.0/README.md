@@ -19,12 +19,8 @@ This template exports the `aiaa` function with the following named arguments:
 - `title`: The paper's title as content.
 - `authors-and-affiliations`: An array of author dictionaries and affiliation dictionaries. 
   Author dictionaries must have a `name` key and can have the keys `job`, `department`, `aiaa` is optional. Affiliation dictionaries must have the keys `institution`,`city`,`state`,`zip`, and `country`.
-- `abstract`: The content of a brief summary of the paper or `none`. Appears at
-  the top of the first column in boldface.
-  `content`.
-- `paper-size`: Defaults to `us-letter`. Specify a [paper size
-  string](https://typst.app/docs/reference/layout/page/#parameters-paper) to
-  change the page format.
+- `abstract`: The content of a brief summary of the paper or `none`. Appears at the top of the first column in boldface. Shall be `content`.
+- `paper-size`: Defaults to `us-letter`. Specify a [paper size string](https://typst.app/docs/reference/layout/page/#parameters-paper) to change the page format.
 - `bibliography`: The result of a call to the `bibliography` function or `none`.
   Specifying this will configure numeric, AIAA-style citations.
 
