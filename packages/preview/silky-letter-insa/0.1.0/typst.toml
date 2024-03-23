@@ -9,7 +9,7 @@ homepage = "https://github.com/SkytAsul/INSA-Typst-Template"
 repository = "https://github.com/SkytAsul/INSA-Typst-Template"
 keywords = ["insa", "school", "engineering", "letter"]
 disciplines = ["engineering", "computer-science", "mathematics", "physics"]
-categories = ["office", "flyer"]
+categories = ["office"]
 
 [template]
 path = "template"
