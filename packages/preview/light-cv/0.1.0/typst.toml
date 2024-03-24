@@ -7,7 +7,7 @@ license = "MIT"
 description = "Minimalistic CV template for your own CV. Please install the font awesome fonts on your system before using the template."
 repository = "https://github.com/AnsgarLichter/cv-typst-template"
 keywords = ["cv", "curriculum vitae", "computer science", "application", "resume"]
-categories = ["cv", "application"]
+categories = ["cv"]
 disciplines = ["engineering", "computer-science"]
 exclude = []
 
