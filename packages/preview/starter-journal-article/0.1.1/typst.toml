@@ -1,0 +1,14 @@
+[package]
+name = "starter-journal-article"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["HPDell"]
+license = "MIT"
+description = "A starter template for journal articles."
+repository = "https://github.com/HPDell/typst-starter-journal-article"
+exclude = ["*.pdf", "thumbnail.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
