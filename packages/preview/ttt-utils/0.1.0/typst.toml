@@ -10,4 +10,3 @@ repository = "https://github.com/jomaway/typst-teacher-templates"
 keywords = "utilities, teacher, tools, assignments, notebooks, grading"
 categories = ["components", "utility"]
 discipline = ["education"]
-exclude = []
