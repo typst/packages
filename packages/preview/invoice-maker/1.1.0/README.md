@@ -17,6 +17,9 @@ Generate beautiful invoices from a simple data record.
 - **Multilingual**
     - Integrated support for English and German
     - Easy to add more languages by adding a translation dictionary
+        (Check out this example:
+        [custom-language.typ](
+          https://github.com/ad-si/invoice-maker/blob/master/examples/custom-language.typ))
 - **Customizable**
     - User your own banner image
     - Customize the colors and fonts

@@ -3,7 +3,7 @@
 // Truncate a number to 2 decimal places
 // and add trailing zeros if necessary
 // E.g. 1.234 -> 1.23, 1.2 -> 1.20
-#let add_zeros = (num) => {
+#let add-zeros = (num) => {
     // Can't use trunc and fract due to rounding errors
     let frags = str(num).split(".")
     let (intp, decp) = if frags.len() == 2 { frags } else { (num, "00") }
@@ -11,8 +11,8 @@
   }
 
 // From https://stackoverflow.com/a/57080936/1850340
-#let verify_iban = (country, iban) => {
-    let iban_regexes = (
+#let verify-iban = (country, iban) => {
+    let iban-regexes = (
         DE: regex(
           "^DE[a-zA-Z0-9]{2}\s?([0-9]{4}\s?){4}([0-9]{2})$"
         ),
@@ -21,12 +21,27 @@
         ),
       )
 
-    if country == none or not country in iban_regexes {
+    if country == none or not country in iban-regexes {
       true
     }
     else {
-      iban.find(iban_regexes.at(country)) != none
+      iban.find(iban-regexes.at(country)) != none
     }
+}
+
+#let parse-date = (date-str) => {
+  let parts = date-str.split("-")
+  if parts.len() != 3 {
+    panic(
+      "Invalid date string: " + date-str + "\n" +
+      "Expected format: YYYY-MM-DD"
+    )
+  }
+  datetime(
+    year: int(parts.at(0)),
+    month: int(parts.at(1)),
+    day: int(parts.at(2)),
+  )
 }
 
 #let TODO = box(
@@ -36,8 +51,7 @@
   fill: rgb(255,180,170),
 )[
   #text(
-    font: "Arial",
-    size: 8pt,
+    size: 0.8em,
     weight: 600,
     fill: rgb(100,68,64)
   )[TODO]
@@ -53,7 +67,7 @@
   #v(8mm)
 ]
 
-#let signature_line = line(length: 5cm, stroke: 0.4pt)
+#let signature-line = line(length: 5cm, stroke: 0.4pt)
 
 #let endnote(num, contents) = [
   #stack(dir: ltr, spacing: 3pt, super[#num], contents)
@@ -61,18 +75,19 @@
 
 #let languages = (
     en: (
+      id: "en",
       country: "GB",
       recipient: "Recipient",
       biller: "Biller",
       invoice: "Invoice",
-      cancellation_invoice: "Cancellation Invoice",
-      cancellation_notice: (id, issuing_date) => [
+      cancellation-invoice: "Cancellation Invoice",
+      cancellation-notice: (id, issuing-date) => [
         As agreed, you will receive a credit note
-        for the invoice *#id* dated *#issuing_date*.
+        for the invoice *#id* dated *#issuing-date*.
       ],
-      invoice_id: "Invoice ID",
-      issuing_date: "Issuing Date",
-      delivery_date: "Delivery Date",
+      invoice-id: "Invoice ID",
+      issuing-date: "Issuing Date",
+      delivery-date: "Delivery Date",
       items: "Items",
       closing: "Thank you for the good cooperation!",
       number: "№",
@@ -81,29 +96,31 @@
       duration: "Duration",
       quantity: "Quantity",
       price: "Price",
-      total_time: "Total working time",
+      total-time: "Total working time",
       subtotal: "Subtotal",
+      discount-of: "Discount of",
       vat: "VAT of",
-      reverse_charge: "Reverse Charge",
+      reverse-charge: "Reverse Charge",
       total: "Total",
-      due_text: val =>
+      due-text: val =>
         [Please transfer the money onto following bank account due to *#val*:],
       owner: "Owner",
       iban: "IBAN",
     ),
     de: (
+      id: "de",
       country: "DE",
       recipient: "Empfänger",
       biller: "Aussteller",
       invoice: "Rechnung",
-      cancellation_invoice: "Stornorechnung",
-      cancellation_notice: (id, issuing_date) => [
+      cancellation-invoice: "Stornorechnung",
+      cancellation-notice: (id, issuing-date) => [
         Vereinbarungsgemäß erhalten Sie hiermit eine Gutschrift
-        zur Rechnung *#id* vom *#issuing_date*.
+        zur Rechnung *#id* vom *#issuing-date*.
       ],
-      invoice_id: "Rechnungsnummer",
-      issuing_date: "Ausstellungsdatum",
-      delivery_date: "Lieferdatum",
+      invoice-id: "Rechnungsnummer",
+      issuing-date: "Ausstellungsdatum",
+      delivery-date: "Lieferdatum",
       items: "Leistungen",
       closing: "Vielen Dank für die gute Zusammenarbeit!",
       number: "Nr",
@@ -112,12 +129,13 @@
       duration: "Dauer",
       quantity: "Menge",
       price: "Preis",
-      total_time: "Gesamtarbeitszeit",
+      total-time: "Gesamtarbeitszeit",
       subtotal: "Zwischensumme",
+      discount-of: "Rabatt von",
       vat: "Umsatzsteuer von",
-      reverse_charge: "Steuerschuldnerschaft des\nLeistungsempfängers",
+      reverse-charge: "Steuerschuldnerschaft des\nLeistungsempfängers",
       total: "Gesamt",
-      due_text: val =>
+      due-text: val =>
         [Bitte überweise den Betrag bis *#val* auf folgendes Konto:],
       owner: "Inhaber",
       iban: "IBAN",
@@ -128,46 +146,56 @@
   language: "en",
   country: none,
   title: none,
-  banner_image: none,
-  invoice_id: none,
-  cancellation_id: none,
-  issuing_date: none,
-  delivery_date: none,
-  due_date: none,
-  biller: (),
-  recipient: (),
+  banner-image: none,
+  invoice-id: none,
+  cancellation-id: none,
+  issuing-date: none,
+  delivery-date: none,
+  due-date: none,
+  biller: (:),
+  recipient: (:),
   keywords: (),
-  hourly_rate: none,
-  styling: (
-    font: "Arial",
-    fontsize: 11pt,
-    margin: (
-      top: 20mm,
-      right: 25mm,
-      bottom: 20mm,
-      left: 25mm
-    ),
-  ),
-  items: [],
+  hourly-rate: none,
+  styling: (:), // font, font-size, margin (sets defaults below)
+  items: (),
   discount: none,
   vat: 0.19,
   data: none,
   doc,
 ) = {
+  // Set styling defaults
+  styling.font = styling.at("font", default: "Liberation Sans")
+  styling.font-size = styling.at("font-size", default: 11pt)
+  styling.margin = styling.at("margin", default: (
+    top: 20mm,
+    right: 25mm,
+    bottom: 20mm,
+    left: 25mm,
+  ))
+
+  language = if data != none {
+    data.at("language", default: language)
+  } else { language }
+
+  // Translations
+  let t = if type(language) == str { languages.at(language) }
+          else if type(language) == dictionary { language }
+          else { panic("Language must be either a string or a dictionary.") }
+
   if data != none {
     language = data.at("language", default: language)
-    country = data.at("country", default: languages.at(language).country)
+    country = data.at("country", default: t.country)
     title = data.at("title", default: title)
-    banner_image = data.at("banner_image", default: banner_image)
-    invoice_id = data.at("invoice_id", default: invoice_id)
-    cancellation_id = data.at("cancellation_id", default: cancellation_id)
-    issuing_date = data.at("issuing_date", default: issuing_date)
-    delivery_date = data.at("delivery_date", default: delivery_date)
-    due_date = data.at("due_date", default: due_date)
+    banner-image = data.at("banner-image", default: banner-image)
+    invoice-id = data.at("invoice-id", default: invoice-id)
+    cancellation-id = data.at("cancellation-id", default: cancellation-id)
+    issuing-date = data.at("issuing-date", default: issuing-date)
+    delivery-date = data.at("delivery-date", default: delivery-date)
+    due-date = data.at("due-date", default: due-date)
     biller = data.at("biller", default: biller)
     recipient = data.at("recipient", default: recipient)
     keywords = data.at("keywords", default: keywords)
-    hourly_rate = data.at("hourly_rate", default: hourly_rate)
+    hourly-rate = data.at("hourly-rate", default: hourly-rate)
     styling = data.at("styling", default: styling)
     items = data.at("items", default: items)
     discount = data.at("discount", default: discount)
@@ -176,16 +204,18 @@
 
   // Verify inputs
   assert(
-    verify_iban(country, biller.iban),
+    verify-iban(country, biller.iban),
     message: "Invalid IBAN " + biller.iban + " for country " + country
   )
 
-  let t = languages.at(language)
   let signature = ""
+  let issuing-date = if issuing-date != none { issuing-date }
+        else { datetime.today().display("[year]-[month]-[day]") }
 
   set document(
     title: title,
     keywords: keywords,
+    date: parse-date(issuing-date),
   )
   set page(
     margin: styling.margin,
@@ -193,27 +223,27 @@
   )
   set par(justify: true)
   set text(
-    lang: language,
-    font: styling.font,
-    size: styling.fontsize,
+    lang: t.id,
+    font: if styling.font != none { styling.font } else { () },
+    size: styling.font-size,
   )
   set table(stroke: none)
 
   // Offset page top margin for banner image
-  [#pad(top: -20mm, banner_image)]
+  [#pad(top: -20mm, banner-image)]
 
   align(center)[#block(inset: 2em)[
-    #text(font: "Arial", weight: "bold", size: 2em)[
+    #text(weight: "bold", size: 2em)[
       #(if title != none { title } else {
-        if cancellation_id != none { t.cancellation_invoice }
+        if cancellation-id != none { t.cancellation-invoice }
         else { t.invoice }
       })
     ]
   ]]
 
-  let invoice_id_norm_ = if invoice_id != none {
-          if cancellation_id != none { cancellation_id }
-          else { invoice_id }
+  let invoice-id-norm = if invoice-id != none {
+          if cancellation-id != none { cancellation-id }
+          else { invoice-id }
         }
         else {
           TODO
@@ -223,10 +253,7 @@
           //   .display("[year]-[month]-[day]t[hour][minute][second]")
         }
 
-  let issuing_date = if issuing_date != none { issuing_date }
-        else { datetime.today().display("[year]-[month]-[day]") }
-
-  let delivery_date = if delivery_date != none { delivery_date }
+  let delivery-date = if delivery-date != none { delivery-date }
         else { TODO }
 
   align(center,
@@ -234,9 +261,9 @@
       columns: 2,
       align: (right, left),
       inset: 4pt,
-      [#t.invoice_id:], [*#invoice_id_norm_*],
-      [#t.issuing_date:], [*#issuing_date*],
-      [#t.delivery_date:], [*#delivery_date*],
+      [#t.invoice-id:], [*#invoice-id-norm*],
+      [#t.issuing-date:], [*#issuing-date*],
+      [#t.delivery-date:], [*#delivery-date*],
     )
   )
 
@@ -248,25 +275,25 @@
       #v(0.5em)
       #recipient.name \
       #{if "title" in recipient { [#recipient.title \ ] }}
-      #recipient.address.city #recipient.address.postal_code \
+      #recipient.address.city #recipient.address.postal-code \
       #recipient.address.street \
-      #{if recipient.vat_id.starts-with("DE"){"USt-IdNr.:"}}
-        #recipient.vat_id
+      #{if recipient.vat-id.starts-with("DE"){"USt-IdNr.:"}}
+        #recipient.vat-id
 
 
       === #t.biller
       #v(0.5em)
       #biller.name \
       #{if "title" in biller { [#biller.title \ ] }}
-      #biller.address.city #biller.address.postal_code \
+      #biller.address.city #biller.address.postal-code \
       #biller.address.street \
-      #{if biller.vat_id.starts-with("DE"){"USt-IdNr.:"}}
-        #biller.vat_id
+      #{if biller.vat-id.starts-with("DE"){"USt-IdNr.:"}}
+        #biller.vat-id
     ]
   ]
 
-  if cancellation_id != none {
-    (t.cancellation_notice)(invoice_id, issuing_date)
+  if cancellation-id != none {
+    (t.cancellation-notice)(invoice-id, issuing-date)
   }
 
   [== #t.items]
@@ -274,15 +301,15 @@
   v(1em)
 
   let getRowTotal = row => {
-    if row.at("dur_min", default: 0) == 0 {
+    if row.at("dur-min", default: 0) == 0 {
       row.price * row.at("quantity", default: 1)
     }
     else {
-      calc.round(hourly_rate * (row.dur_min / 60), digits: 2)
+      calc.round(hourly-rate * (row.dur-min / 60), digits: 2)
     }
   }
 
-  let cancel_neg = if cancellation_id != none { -1 } else { 1 }
+  let cancel-neg = if cancellation-id != none { -1 } else { 1 }
 
   table(
     columns: (auto, auto, 1fr, auto, auto, auto, auto),
@@ -310,19 +337,19 @@
     ..items
       .enumerate()
       .map(((index, row)) => {
-        let dur_min = row.at("dur_min", default: 0)
-        let dur_hour = dur_min / 60
+        let dur-min = row.at("dur-min", default: 0)
+        let dur-hour = dur-min / 60
 
         (
           row.at("number", default: index + 1),
           row.date,
           row.description,
-          str(if dur_min == 0 { "" } else { dur_min }),
-          str(row.at("quantity", default: if dur_min == 0 { "1" } else { "" })),
-          str(add_zeros(cancel_neg *
-           row.at("price", default: calc.round(hourly_rate * dur_hour, digits: 2))
+          str(if dur-min == 0 { "" } else { dur-min }),
+          str(row.at("quantity", default: if dur-min == 0 { "1" } else { "" })),
+          str(add-zeros(cancel-neg *
+           row.at("price", default: calc.round(hourly-rate * dur-hour, digits: 2))
           )),
-          str(add_zeros(cancel_neg * getRowTotal(row))),
+          str(add-zeros(cancel-neg * getRowTotal(row))),
         )
       })
       .flatten()
@@ -330,55 +357,62 @@
     table.hline(stroke: 0.5pt),
   )
 
-  let subTotal = items
+  let sub-total = items
         .map(getRowTotal)
         .sum()
 
-  let totalDuration = items
-        .map(row => int(row.at("dur_min", default: 0)))
+  let total-duration = items
+        .map(row => int(row.at("dur-min", default: 0)))
         .sum()
 
-  let discountValue = if discount == none { 0 }
+  let discount-value = if discount == none { 0 }
     else {
-      if (discount.type == "fixed") {
-        discount.value
-      }
+      if (discount.type == "fixed") { discount.value }
       else if discount.type == "proportionate" {
-        subTotal * discount.value
+        sub-total * discount.value
       }
-      else {
-        panic(["#discount.type" is no valid discount type])
-      }
+      else { panic(["#discount.type" is no valid discount type]) }
     }
-  let tax = subTotal * vat
-  let total = subTotal - discountValue + tax
+  let discount-label = if discount == none { 0 }
+    else {
+      if (discount.type == "fixed") { str(discount.value) + " €" }
+      else if discount.type == "proportionate" {
+        str(discount.value * 100) + " %"
+      }
+      else { panic(["#discount.type" is no valid discount type]) }
+    }
+  let has-reverse-charge = {
+        biller.vat-id.slice(0, 2) != recipient.vat-id.slice(0, 2)
+      }
+  let tax = if has-reverse-charge { 0 } else { sub-total * vat }
+  let total = sub-total - discount-value + tax
 
-  let table_entries = (
-    if totalDuration != 0 {
-      ([#t.total_time:], [*#totalDuration min*])
+  let table-entries = (
+    if total-duration != 0 {
+      ([#t.total-time:], [*#total-duration min*])
     },
-    if (discountValue != 0) or (vat != 0) {
+    if (discount-value != 0) or (vat != 0) {
       ([#t.subtotal:],
-      [#{add_zeros(cancel_neg * subTotal)} €])
+      [#{add-zeros(cancel-neg * sub-total)} €])
     },
-    if discountValue != 0 {
+    if discount-value != 0 {
       (
-        [Discount of #discountValue
-          #{if discount.reason != "" { discount.reason }}],
-        [#{nbh}#add_zeros(cancel_neg * discount.value)  €]
+        [#t.discount-of #discount-label
+          #{if discount.reason != "" { "(" + discount.reason + ")" }}],
+        [-#add-zeros(cancel-neg * discount-value) €]
       )
     },
-    if recipient.vat_id.starts-with("DE") and (vat != 0) {
+    if not has-reverse-charge and (vat != 0) {
       ([#t.vat #{vat * 100} %:],
-        [#{add_zeros(cancel_neg * tax)} €]
+        [#{add-zeros(cancel-neg * tax)} €]
       )
     },
-    if (not recipient.vat_id.starts-with("DE")) {
-      ([#t.vat:], text(0.9em)[#t.reverse_charge])
+    if (has-reverse-charge) {
+      ([#t.vat:], text(0.9em)[#t.reverse-charge])
     },
     (
       [*#t.total*:],
-      [*#add_zeros(cancel_neg * total) €*]
+      [*#add-zeros(cancel-neg * total) €*]
     ),
   )
   .filter(entry => entry != none)
@@ -389,28 +423,26 @@
     table(
       columns: 2,
       fill: (col, row) => // if last row
-        if row == table_entries.len() - 1 { grayish }
+        if row == table-entries.len() - 1 { grayish }
         else { none },
       stroke: (col, row) => // if last row
-        if row == table_entries.len() - 1 { (y: 0.5pt, x: 0pt) }
+        if row == table-entries.len() - 1 { (y: 0.5pt, x: 0pt) }
         else { none },
-      ..table_entries
+      ..table-entries
         .flatten(),
     )
   )
 
   v(1em)
 
-  if cancellation_id == none {
-    let due_date = if due_date != none { due_date }
+  if cancellation-id == none {
+    let due-date = if due-date != none { due-date }
           else {
-            TODO
-            // TODO: Reactivate after Typst supports adding dates
-            // datetime.today().add(days: 14).
-            //   display("[year]-[month]-[day]")
+            (parse-date(issuing-date) + duration(days: 14))
+              .display("[year]-[month]-[day]")
           }
 
-    (t.due_text)(due_date)
+    (t.due-text)(due-date)
 
     v(1em)
     align(center)[
