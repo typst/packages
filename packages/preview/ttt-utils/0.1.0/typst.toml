@@ -7,6 +7,6 @@ authors = ["Jomaway <https://github.com/jomaway>"]
 license = "MIT"
 description = "A collection of tools to make a teachers life easier." 
 repository = "https://github.com/jomaway/typst-teacher-templates"
-keywords = "utilities, teacher, tools, assignments, notebooks, grading"
+keywords = ["teacher", "tools", "assignments", "notebooks", "grading"]
 categories = ["components", "utility"]
 discipline = ["education"]
