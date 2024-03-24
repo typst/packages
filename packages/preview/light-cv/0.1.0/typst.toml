@@ -12,6 +12,6 @@ disciplines = ["engineering", "computer-science"]
 exclude = []
 
 [template]
-path: "."
+path = "."
 entrypoint = "cv-en.typ"
 thumbnail = "example.png"
