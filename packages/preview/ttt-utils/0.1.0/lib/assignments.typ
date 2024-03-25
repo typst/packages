@@ -273,18 +273,3 @@
   }
 }
 
-/// Sums up all question points, grouped by assignments. 
-/// ! needs context.
-///
-/// -> array
-#let get_points() = {
-  let a_count = _question_counter.final().first()
-  let list = ()
-  for i in range(a_count) {
-    let filter = q => (q.points != none and q.num.first() == i+1)
-    list.push(
-      get-questions(filter: filter).map(q => q.points ).sum(default: 0)
-    )
-  }
-  return list
-}
