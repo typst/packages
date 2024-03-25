@@ -9,4 +9,4 @@ description = "A collection of tools to make a teachers life easier."
 repository = "https://github.com/jomaway/typst-teacher-templates"
 keywords = ["teacher", "tools", "assignments", "notebooks", "grading"]
 categories = ["components", "utility"]
-discipline = ["education"]
+disciplines = ["education"]
