@@ -1,5 +1,4 @@
 #import "@preview/exzellenz-tum-thesis:0.1.0": exzellenz-tum-thesis
-//#import "@local/exzellenz-tum-thesis:0.1.0": exzellenz-tum-thesis // for development
 
 #import "utils.typ": inwriting, draft, todo
 #import "glossary.typ": glossary
@@ -38,12 +37,12 @@
   advisors: ("Dr. Werner Braun", "Hans Günther M.Sc.",),
   author: "Max Mustermann",
   startDate: "15.01.1799",
-  titleEnglish: "This is the title of the thesis",
-  titleGerman: "Das ist der Titel der Arbeit",
-  abstract_en: [
+  titleEn: "This is the title of the thesis",
+  titleDe: "Das ist der Titel der Arbeit",
+  abstractEn: [
     #lorem(60)
   ],
-  abstract_de: [#todo[Hier kommt die deutsche Übersetzung des englischen Abstracts hin]],
+  abstractDe: [#todo[Hier kommt die deutsche Übersetzung des englischen Abstracts hin]],
   acknowledgements: [
     I would like to express my gratitude to Fabian
   ],

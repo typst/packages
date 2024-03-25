@@ -24,10 +24,10 @@ This template exports the `exzellenz-tum-thesis` function with the following nam
 - `advisor`: Array of Strings
 - `author`: String
 - `startDate`: String
-- `titleEnglish`: String
-- `titleGerman`: String
-- `abstract_en`: Content
-- `abstract_de`: Content block
+- `titleEn`: String
+- `titleDe`: String
+- `abstractEn`: Content block
+- `abstractDe`: Content block
 - `acknowledgements`: Content block
 - `submissionDate`: String
 - `showTitleInHeader`: Boolean
