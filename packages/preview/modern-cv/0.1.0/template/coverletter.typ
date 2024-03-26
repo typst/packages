@@ -17,7 +17,7 @@
   profile_picture: image("./profile.png")
 )
 
-#hiring_entity_info(
+#hiring-entity-info(
     entity_info: (
         target: "Company Recruitement Team",
         name: "Google, Inc.",
@@ -26,22 +26,22 @@
     )
 )
 
-#letter_heading(
+#letter-heading(
   job_position: "Software Engineer",
   addressee: "Sir or Madame"
 )
 
 = About Me
-#coverletter_content[
+#coverletter-content[
     #lorem(80)
 ]
 
 = Why Google?
-#coverletter_content[
+#coverletter-content[
   #lorem(90)
 ]
 
 = Why Me?
-#coverletter_content[
+#coverletter-content[
   #lorem(100)
 ]

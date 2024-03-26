@@ -1,17 +1,17 @@
 #import "@preview/fontawesome:0.1.0": *
 
 // const color
-#let color_darknight = rgb("131A28")
-#let color_darkgray = rgb("414141")
-#let color_gray = rgb("5d5d5d")
-#let default_accent_color = rgb("333ECC")
+#let color-darknight = rgb("131A28")
+#let color-darkgray = rgb("414141")
+#let color-gray = rgb("5d5d5d")
+#let default-accent-color = rgb("333ECC")
 
 // const icons
-#let linkedin_icon = box(fa-icon("linkedin", fa-set: "Brands", fill: color_darknight))
-#let github_icon = box(fa-icon("github", fa-set: "Brands", fill: color_darknight))
+#let linkedin-icon = box(fa-icon("linkedin", fa-set: "Brands", fill: color-darknight))
+#let github-icon = box(fa-icon("github", fa-set: "Brands", fill: color-darknight))
 // for some reason this icon doesn't work with fa-icon, so we use the local version
-#let phone_icon = box(image("assets/icons/square-phone-solid.svg"))
-#let email_icon = box(fa-icon("envelope", fill: color_darknight))
+#let phone-icon = box(image("assets/icons/square-phone-solid.svg"))
+#let email-icon = box(fa-icon("envelope", fill: color-darknight))
 
 /// Helpers
 
@@ -49,28 +49,28 @@
 
 /// Show a link with an icon, specifically for Github projects
 /// *Example*
-/// #example(`resume.github_link("DeveloperPaul123/awesome-resume")`)
+/// #example(`resume.github-link("DeveloperPaul123/awesome-resume")`)
 /// - github_path (string): The path to the Github project (e.g. "DeveloperPaul123/awesome-resume")
 /// -> none
-#let github_link(github_path) = {
+#let github-link(github_path) = {
   set box(height: 11pt)
   
   align(right + horizon)[
-    #fa-icon("github", fa-set: "Brands", fill: color_darkgray) #link("https://github.com/" + github_path, github_path)
+    #fa-icon("github", fa-set: "Brands", fill: color-darkgray) #link("https://github.com/" + github_path, github_path)
   ]
 }
 
 /// Right section for the justified headers
 /// - body (content): The body of the right header
-/// - accent_color (color): The accent color to color the text with. This defaults to the default_accent_color
-#let secondary_right_header(body, accent_color: default_accent_color) = {
+/// - accent_color (color): The accent color to color the text with. This defaults to the default-accent-color
+#let secondary-right-header(body, accent_color: default-accent-color) = {
   set text(accent_color, size: 11pt, style: "italic", weight: "light")
   body
 }
 
 /// Right section of a tertiaty headers. 
 /// - body (content): The body of the right header
-#let tertiary_right_header(body) = {
+#let tertiary-right-header(body) = {
   set text(weight: "light", style: "italic", size: 9pt)
   body
 }
@@ -78,25 +78,25 @@
 /// Justified header that takes a primary section and a secondary section. The primary section is on the left and the secondary section is on the right.
 /// - primary (content): The primary section of the header
 /// - secondary (content): The secondary section of the header
-#let justified_header(primary, secondary) = {
+#let justified-header(primary, secondary) = {
   set block(above: 0.7em, below: 0.7em)
   pad[
     #__justify_align[
       == #primary
     ][
-      #secondary_right_header[#secondary]
+      #secondary-right-header[#secondary]
     ]
   ]
 }
 
-/// Justified header that takes a primary section and a secondary section. The primary section is on the left and the secondary section is on the right. This is a smaller header compared to the `justified_header`.
+/// Justified header that takes a primary section and a secondary section. The primary section is on the left and the secondary section is on the right. This is a smaller header compared to the `justified-header`.
 /// - primary (content): The primary section of the header
 /// - secondary (content): The secondary section of the header
-#let secondary_justified_header(primary, secondary) = {
+#let secondary-justified-header(primary, secondary) = {
     __justify_align[
       === #primary
     ][
-      #tertiary_right_header[#secondary]
+      #tertiary-right-header[#secondary]
     ]
 }
 /// --- End of Helpers
@@ -115,7 +115,7 @@
 #let resume(
   author: (:), 
   date: datetime.today().display("[month repr:long] [day], [year]"), 
-  accent_color: default_accent_color, 
+  accent_color: default-accent-color, 
   body) = {
   set document(
     author: author.firstname + " " + author.lastname, 
@@ -126,8 +126,8 @@
     font: ("Source Sans Pro"),
     lang: "en",
     size: 11pt,
-    fill: color_darkgray,
-    fallback: false
+    fill: color-darkgray,
+    fallback: true
   )
 
   set page(
@@ -174,7 +174,7 @@
   ]
 
   show heading.where(level: 2): it => {
-    set text(color_darkgray, size: 12pt, style: "normal", weight: "bold")
+    set text(color-darkgray, size: 12pt, style: "normal", weight: "bold")
     it.body
   }
 
@@ -230,16 +230,16 @@
       #set text(size: 9pt, weight: "regular", style: "normal")
       #block[
         #align(horizon)[
-          #phone_icon
+          #phone-icon
           #box[#text(author.phone)]
           #separator
-          #email_icon
+          #email-icon
           #box[#link("mailto:" + author.email)[#author.email]]
           #separator
-          #github_icon
+          #github-icon
           #box[#link("https://github.com/" + author.github)[#author.github]]
           #separator
-          #linkedin_icon
+          #linkedin-icon
           #box[
             #link("https://www.linkedin.com/in/" + author.linkedin)[#author.firstname #author.lastname]
           ]
@@ -258,7 +258,7 @@
 /// The base item for resume entries. 
 /// This formats the item for the resume entries. Typically your body would be a bullet list of items. Could be your responsibilities at a company or your academic achievements in an educational background section.
 /// - body (content): The body of the resume entry
-#let resume_item(body) = {
+#let resume-item(body) = {
   set text(size: 10pt, style: "normal", weight: "light")
   set par(leading: 0.65em)
   body
@@ -269,39 +269,39 @@
 /// - location (string): The location of the resume entry
 /// - date (string): The date of the resume entry, this can be a range (e.g. "Jan 2020 - Dec 2020")
 /// - description (content): The body of the resume entry
-#let resume_entry(
+#let resume-entry(
   title: none, 
   location: "", 
   date: "",
   description: ""
 ) = {
   pad[
-    #justified_header(title, location)
-    #secondary_justified_header(description, date)
+    #justified-header(title, location)
+    #secondary-justified-header(description, date)
   ]
 }
 
 /// Show cumulative GPA.
 /// *Example:*
-/// #example(`resume.resume_gpa("3.5", "4.0")`)
-#let resume_gpa(numerator, denominator) = {
+/// #example(`resume.resume-gpa("3.5", "4.0")`)
+#let resume-gpa(numerator, denominator) = {
   set text(size: 12pt, style: "italic", weight: "light")
   text[Cumulative GPA: #box[#strong[#numerator] / #denominator]]
 }
 
 /// Show a certification in the resume.
 /// *Example:*
-/// #example(`resume.resume_certification("AWS Certified Solutions Architect - Associate", "Jan 2020")`)
+/// #example(`resume.resume-certification("AWS Certified Solutions Architect - Associate", "Jan 2020")`)
 /// - certification (content): The certification
 /// - date (content): The date the certification was achieved
-#let resume_certification(certification, date) = {
-  justified_header(certification, date)
+#let resume-certification(certification, date) = {
+  justified-header(certification, date)
 }
 
 /// Show a list of skills in the resume under a given category.
 /// - category (string): The category of the skills
 /// - items (list): The list of skills. This can be a list of strings but you can also emphasize certain skills by using the `strong` function.
-#let resume_skill_item(category, items) = {
+#let resume-skill-item(category, items) = {
   set block(below: 0.65em)
   set pad(top: 2pt)
   
@@ -336,7 +336,7 @@
   author: (:), 
   profile_picture: image,
   date: datetime.today().display("[month repr:long] [day], [year]"),
-  accent_color: default_accent_color,
+  accent_color: default-accent-color,
   body
 ) = {
   set document(
@@ -348,8 +348,8 @@
     font: ("Source Sans Pro"),
     lang: "en",
     size: 11pt,
-    fill: color_darkgray,
-    fallback: false
+    fill: color-darkgray,
+    fallback: true
   )
 
   set page(
@@ -427,7 +427,7 @@
       size: 9pt,
       weight: "regular",
       style: "italic",
-      fill: color_gray
+      fill: color-gray
     )
     align(right)[
       #author.address
@@ -444,16 +444,16 @@
       #block[
         #align(horizon)[
           #stack(dir: ltr, spacing: 0.5em,
-              phone_icon,
+              phone-icon,
               box[#text(author.phone)],
               separator,
-              email_icon,
+              email-icon,
               box[#link("mailto:" + author.email)[#author.email]],
               separator,
-              github_icon,
+              github-icon,
               box[#link("https://github.com/" + author.github)[#author.github]],
               separator,
-              linkedin_icon,
+              linkedin-icon,
               box[
                 #link("https://www.linkedin.com/in/" + author.linkedin)[#author.firstname #author.lastname]
               ]
@@ -463,7 +463,7 @@
     ] 
   }
 
-  let letter_heading = {
+  let letter-heading = {
     grid(columns: (1fr, 2fr), 
       rows: (100pt),
       align(left+horizon)[
@@ -490,7 +490,7 @@
   }
 
   // actual content
-  letter_heading
+  letter-heading
   body
   linebreak()
   letter_conclusion
@@ -499,7 +499,7 @@
 /// Cover letter heading that takes in the information for the hiring company and formats it properly.
 /// - entity_info (content): The information of the hiring entity including the company name, the target (who's attention to), street address, and city
 /// - date (date): The date the letter was written (defaults to the current date)
-#let hiring_entity_info(entity_info: (:), date: datetime.today().display("[month repr:long] [day], [year]")) = {
+#let hiring-entity-info(entity_info: (:), date: datetime.today().display("[month repr:long] [day], [year]")) = {
   set par(leading: 1em)
   pad(top: 1.5em, bottom: 1.5em)[
     #__justify_align[
@@ -509,7 +509,7 @@
     ]
 
     #pad(top: 0.65em, bottom: 0.65em)[
-      #text(weight: "regular", fill: color_gray, size: 9pt)[
+      #text(weight: "regular", fill: color-gray, size: 9pt)[
         #smallcaps[#entity_info.name] \
         #entity_info.street_address \
         #entity_info.city \
@@ -521,13 +521,13 @@
 /// Letter heading for a given job position and addressee.
 /// - job_position (string): The job position you are applying for
 /// - addressee (string): The person you are addressing the letter to
-#let letter_heading(job_position: "", addressee: "") = {
+#let letter-heading(job_position: "", addressee: "") = {
   // TODO: Make this adaptable to content
   underline(evade: false, stroke: 0.5pt, offset: 0.3em)[
     #text(weight: "bold", size: 12pt)[Job Application for #job_position]
   ]
   pad(top: 1em, bottom: 1em)[
-    #text(weight: "light", fill: color_gray)[
+    #text(weight: "light", fill: color-gray)[
       Dear #addressee,
     ]
   ]
@@ -535,7 +535,7 @@
 
 /// Cover letter content paragraph. This is the main content of the cover letter.
 /// - content (content): The content of the cover letter
-#let coverletter_content(content) = {
+#let coverletter-content(content) = {
   pad(top: 1em, bottom: 1em)[
     #set par(first-line-indent: 3em)
     #set text(weight: "light")
