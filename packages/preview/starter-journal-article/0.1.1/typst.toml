@@ -6,7 +6,7 @@ authors = ["HPDell <https://github.com/HPDell>"]
 license = "MIT"
 description = "A starter template for journal articles."
 repository = "https://github.com/HPDell/typst-starter-journal-article"
-exclude = ["*.pdf", "thumbnail.png"]
+exclude = ["*.pdf", "thumbnail.png", ".gitignore"]
 categories = ["paper"]
 
 [template]
