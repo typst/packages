@@ -39,15 +39,11 @@ or import the wanted functions:
 #assignment[First assignment
 
     #question[
-        #answer(field: grid_pattern(5))
+        The question is?
+        #answer(field: grid_pattern(5))[The answer is ...]
     ]
 ]
 
 ```
 
-See the [docs](./docs/docs.typ) for all functions and features.
-
-
-## CHANGELOG 
-
-See [CHANGELOG.md](../CHANGELOG.md)
+Proper docs will follow. 
