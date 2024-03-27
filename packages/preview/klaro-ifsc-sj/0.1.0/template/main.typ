@@ -1,6 +1,6 @@
-#import "@preview/ifsc-sj-articled:0.1.0": article
+#import "@preview/klaro-ifsc-sj:0.1.0": report
 
-#show: doc => article(
+#show: doc => report(
   title: "Typst IFSC-SJ",
   subtitle: "Um template para o Typst voltado para",
   // Se apenas um autor colocar , no final para indicar que é um array

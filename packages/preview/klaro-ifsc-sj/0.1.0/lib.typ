@@ -1,4 +1,4 @@
-#let article(
+#let report(
   title: "Typst IFSC",
   subtitle: none,
   authors: ("Gabriel Luiz Espindola Pedro",),
