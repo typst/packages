@@ -1,6 +1,6 @@
 # Typst Packages
-An experimental package repository for Typst. A [searchable list][list] of all
-packages that were submitted here is available in the official documentation.
+The package repository for Typst, where package authors submit their packages.
+The packages submitted here are available on [Typst Universe][universe].
 
 ## Package format
 A package is a collection of Typst files and assets that can be imported as a
@@ -208,6 +208,11 @@ are detailed below:
 This list may be extended over time as improvements/issues to the process are
 discovered. Given a good reason, we reserve the right to reject any package submission.
 
+When a package's PR has been merged and CI has completed, the package will be
+available for use. However, it can currently take a longer while until the
+package will be visible on [Typst Universe][universe]. We'll reduce this delay
+in the future.
+
 Once submitted, a package will not be changed or removed without good reason to
 prevent breakage for downstream consumers. By submitting a package, you agree
 that it is here to stay. If you discover a bug or issue, you can of course
@@ -254,7 +259,7 @@ The infrastructure around the package repository is licensed under the terms of
 the Apache-2.0 license. Packages in `packages/` are licensed under their
 respective license.
 
-[list]: https://typst.app/docs/packages/
+[universe]: https://typst.app/universe/
 [categories]: https://github.com/typst/packages/blob/main/CATEGORIES.md
 [disciplines]: https://github.com/typst/packages/blob/main/DISCIPLINES.md
 [SemVer]: https://semver.org/
