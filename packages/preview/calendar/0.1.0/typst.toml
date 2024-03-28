@@ -7,4 +7,4 @@ license = "MIT"
 description = "A package to create calendar with events."
 repository = "https://github.com/HPdell/typst-calendar"
 categories = ["layout", "visualization"]
-execlude = ["example.typ", "example.png", ".gitignore"]
+exclude = ["example.typ", "example.png", ".gitignore"]
