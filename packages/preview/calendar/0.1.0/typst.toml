@@ -1,0 +1,10 @@
+[package]
+name = "calendar"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["HPDell"]
+license = "MIT"
+description = "A package to create calendar with events."
+repository = "https://github.com/HPdell/typst-calendar"
+categories = ["layout", "visualization"]
+execlude = ["example.typ", "example.png", ".gitignore"]
