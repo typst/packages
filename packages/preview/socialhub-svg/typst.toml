@@ -1,0 +1,10 @@
+[package]
+name = "socialhub-svg"
+version = "1.0.0"
+repository = "https://github.com/Bi0T1N/typst-socialhub-svg"
+entrypoint = "socialhub-svg.typ"
+authors = ["Nico Neumann (Bi0T1N)"]
+license = "MIT"
+description = "A Typst library for Social Media references with scalable vector graphics icons."
+keywords = ["social", "media", "icons", "svg"]
+exclude = ["examples"]
