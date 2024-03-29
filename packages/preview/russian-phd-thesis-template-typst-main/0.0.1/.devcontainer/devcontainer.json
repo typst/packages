@@ -1,0 +1,26 @@
+{
+  "name": "web-typst",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "root", // Do not change this
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        // Specify file types to spell check.
+        "cSpell.enabledLanguageIds": [
+          "typst"
+        ]
+      },
+      "extensions": [
+        "nvarner.typst-lsp",
+        "mgt19937.typst-preview",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-russian",
+        "mhutchie.git-graph"
+      ]
+    }
+  }
+}
