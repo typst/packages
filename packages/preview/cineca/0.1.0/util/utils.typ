@@ -34,7 +34,7 @@
   [Day #{day+1}]
 }
 
-#let default-item-style(time: none, body) = {
+#let default-item-style(time, body) = {
   show: block.with(
     fill: white,
     height: 100%,

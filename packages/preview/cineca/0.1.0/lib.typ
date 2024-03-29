@@ -60,7 +60,7 @@
                   width: 100%, 
                   height: (last) * minute-height,
                   {
-                    (style.event)(time: minutes-to-datetime(y + minutes-offset), body)
+                    (style.event)(..(minutes-to-datetime(y + minutes-offset), body))
                   }
                 )
               })
