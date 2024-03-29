@@ -3,7 +3,7 @@
 Este es un template para tesis de la facultad de ciencias,
 en la Universidad Nacional Autónoma de México (UNAM).
 
-This is a thesis template for the Science Faculty at Universidad Nacional Autónoma de México (UNSM) based on my thesis.
+This is a thesis template for the Science Faculty at Universidad Nacional Autónoma de México (UNAM) based on my thesis.
 
 ## Uso/Usage
 
