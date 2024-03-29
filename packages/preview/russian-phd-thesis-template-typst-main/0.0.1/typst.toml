@@ -11,6 +11,6 @@ keywords = ["thesis", "phd", "vak", "russian"]
 categories = ["thesis"]
 
 [template]
-path = [".devcontainer", "common", "images", "thesis"]
+path = "template"
 entrypoint = "thesis.typ"
-thumbnail = "images/thumbnail.png"
+thumbnail = "template/images/thumbnail.png"

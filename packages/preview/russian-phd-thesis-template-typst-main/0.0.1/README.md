@@ -16,26 +16,26 @@ typst init @preview/russian-phd-thesis
 
 ## Конфигурация
 
-Для настройки пользовательских данных необходимо редактировать файл `common/data.typ`. Шрифт и цвет ссылок можно поменять в файле `common/style.typ`.
+Для настройки пользовательских данных необходимо редактировать файл `template/common/data.typ`. Шрифт и цвет ссылок можно поменять в файле `template/common/style.typ`.
 
-Общая характеристика работы для диссертации и автореферата формируется из данных в файле `common/characteristic.typ`. Заключение для диссертации и автореферата формируется из данных в файле `common/concl.typ`.
+Общая характеристика работы для диссертации и автореферата формируется из данных в файле `template/common/characteristic.typ`. Заключение для диссертации и автореферата формируется из данных в файле `template/common/concl.typ`.
 
-Список литературы формируется из файлов `common/external.bib` и `common/author.bib`.
+Список литературы формируется из файлов `template/common/external.bib` и `template/common/author.bib`.
 
-Список сокращений и условных обозначений формируется из данных, записанных в файле `common/acronyms.typ` `common/symbols.typ`. Список определений формируется из данных в файле `common/glossary.typ`.
+Список сокращений и условных обозначений формируется из данных, записанных в файле `template/common/acronyms.typ` `template/common/symbols.typ`. Список определений формируется из данных в файле `template/common/glossary.typ`.
 
 ## Компиляция  
 
 Для компиляции проекта из CLI используйте:
 
 ```bash
-typst compile thesis/thesis.typ
+typst compile thesis.typ
 ```
 
 Или если вы хотите следить за изменениями:
 
 ```bash
-typst watch thesis/thesis.typ
+typst watch thesis.typ
 ```
 
 ## Особенности
