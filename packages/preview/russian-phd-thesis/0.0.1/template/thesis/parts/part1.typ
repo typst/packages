@@ -8,14 +8,8 @@
 Мы можем сделать *жирный текст* и _курсив_. 
 
 == Ссылки <ch1:sec2>
-Сошлёмся на библиографию. Одна ссылка: @Sokolov[с.~54];@Gaidaenko[с.~36];.
-Две ссылки: @Sokolov @Gaidaenko. Ссылка на собственные работы:
-@vakbib1 @confbib2. Много ссылок:
-@Lermontov @Management @Borozda @Marketing @Constitution @FamilyCode @Gost.7.0.53 @Razumovski @Lagkueva @Pokrovski @Methodology @Berestova @Kriger
-. И~ещё немного
-ссылок:~@Article @Book @Booklet @Conference @Inbook @Incollection @Manual @Mastersthesis @Misc @Phdthesis @Proceedings @Techreport @Unpublished
- @medvedev2006jelektronnye @CEAT:CEAT581#cite(label("doi:10.1080/01932691.2010.513279")); @Gosele1999161 @Li2007StressAnalysis @Shoji199895 @test:eisner-sample @test:eisner-sample-shorted @AB_patent_Pomerantz_1968 @iofis_patent1960
-.
+Сошлёмся на библиографию. Одна ссылка: @Sokolov[с.~54];.
+Две ссылки: @Sokolov @Sychev.
 
 Сошлёмся на разделы: @ch1, @ch2:sec1, @ch1:sec2.
 

@@ -1,3 +1,5 @@
+# Шаблон русской кандидатской диссертации
+
 Шаблон русской кандидатской диссертации на языке разметки [Typst](https://typst.app/) - современной альтернативы LaTeX.
 
 ## Использование
@@ -29,13 +31,13 @@ typst init @preview/russian-phd-thesis
 Для компиляции проекта из CLI используйте:
 
 ```bash
-typst compile thesis.typ
+typst compile template/thesis.typ
 ```
 
 Или если вы хотите следить за изменениями:
 
 ```bash
-typst watch thesis.typ
+typst watch template/thesis.typ
 ```
 
 ## Особенности
