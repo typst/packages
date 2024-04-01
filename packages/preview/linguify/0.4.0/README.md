@@ -19,7 +19,7 @@ Example:
 
 #set text(lang: "de")
 
-#linguify(abstract)  // Shows "Zusammenfassung" in the document.
+#linguify("abstract")  // Shows "Zusammenfassung" in the document.
 ```
 
 The `lang.toml` musst look like this:
