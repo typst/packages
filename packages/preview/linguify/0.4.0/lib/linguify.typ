@@ -20,7 +20,7 @@
 ///
 /// - data (dictionary): the database which will be set to @@database
 /// -> content (state-update)
-#let set_database(data) = {
+#let set-database(data) = {
   assert.eq(type(data), dictionary, message: "expected data to be a dictionary, found " + type(data))
   if (data.at("conf", default: none) == none) {
     data.insert("conf", (:))
@@ -31,28 +31,8 @@
   database.update(data);
 }
 
-/// Add data to the current database
-///
-/// - data (dictionary): the database which will be added to @@database
-/// -> content (state-update)
-#let update_database(data) = {
-  context {
-    let _database = database.get()
-    for (key,value) in data.pairs() {
-      // let lang_section = database.at(key, default: none)
-      if key not in _database.keys() {
-        _database.insert(key, value)
-      } else {
-        let new = _database.at(key) + value
-        _database.insert(key, new)
-      }
-    }
-    database.update(_database);
-  }
-}
-
 /// Clear current database
-#let reset_database() = {
+#let reset-database() = {
   database.update(none)
 }
 
