@@ -2,7 +2,7 @@
 #show: resume.with(
   name: "Your name",
   title: "What you are looking for",
-  accent_color: rgb("f3bc54"),
+  accent-color: rgb("f3bc54"),
   margin: 2.6cm,
   aside: [
     = Contact
