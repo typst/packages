@@ -1,4 +1,5 @@
 #import "@preview/mcm-scaffold:0.1.0": *
+#import "@preview/mitex:0.2.2": *
 
 #show: mcm.with(
   title: "A Simple Example for MCM/ICM Typst Template",

@@ -1,6 +1,4 @@
-#import "@preview/mitex:0.2.2": *
-
-#let text-font = "Times New Roman"
+#let text-font = ("Times New Roman", "TeX Gyre Termes")
 
 #let mcm(
   title: "A Typst Template for MCM/ICM",
