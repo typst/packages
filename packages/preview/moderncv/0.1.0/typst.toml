@@ -1,10 +1,16 @@
 [package]
 name = "moderncv"
 version = "0.1.0"
+compiler = "0.11.0"
 entrypoint = "moderncv.typ"
-authors = ["Giovanni Berti"]
+authors = ["Giovanni Berti <https://github.com/giovanniberti>"]
 license = "Apache-2.0"
 description = "A typst template inspired by LaTeX moderncv."
+keywords = ["CV", "Curriculum Vitae", "Resume", "Minimalistic", "Professional", "Modern"]
+categories = ["cv"]
+exclude = ["example*", "moderncv.pdf"]
+homepage = "https://github.com/giovanniberti/moderncv.typst"
+repository = "https://github.com/giovanniberti/moderncv.typst"
 
 [template]
 path = "template"
