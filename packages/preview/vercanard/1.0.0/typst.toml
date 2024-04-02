@@ -11,6 +11,6 @@ keywords = [ "CV", "Resume", "Color" ]
 exclude = [ "*.pdf" ]
 
 [template]
-path = "."
-entrypoint = "template.typ"
+path = "template"
+entrypoint = "main.typ"
 thumbnail = "thumbnail.png"

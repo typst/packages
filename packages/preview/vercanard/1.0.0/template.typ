@@ -5,8 +5,8 @@
     #text(fill: gray, details)
 ]
 
-#let resume(name: "", title: "", accent_color: rgb("db9df8"), margin: 100pt, aside: [], body) = {
-  set page(margin: 0pt, background: place(top + right, rect(fill: accent_color.lighten(80%), width: 33.33333%, height: 100%)))
+#let resume(name: "", title: "", accent-color: rgb("db9df8"), margin: 100pt, aside: [], body) = {
+  set page(margin: 0pt, background: place(top + right, rect(fill: accent-color.lighten(80%), width: 33.33333%, height: 100%)))
   set text(font: "Inria Sans", size: 12pt)
   set block(above: 0pt, below: 0pt)
   set par(justify: true)
@@ -15,7 +15,7 @@
     show heading.where(level: 1): set text(size: 40pt)
     show heading.where(level: 2): set text(size: 18pt)
     box(
-      fill: accent_color,
+      fill: accent-color,
       width: 100%,
       outset: 0pt,
       inset: (rest: margin, bottom: 0.4 * margin),
@@ -25,7 +25,7 @@
     )
   }
 
-  show heading: set text(fill: accent_color)
+  show heading: set text(fill: accent-color)
 
   grid(
     columns: (2fr, 1fr),
@@ -41,7 +41,7 @@
               dy: 7pt,
               dx: 10pt,
               horizon + left,
-              line(stroke: accent_color, length: 100% - dim.width - 10pt)
+              line(stroke: accent-color, length: 100% - dim.width - 10pt)
             ),
           )
         })

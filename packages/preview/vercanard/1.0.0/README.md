@@ -4,7 +4,7 @@ A colorful resume template for Typst.
 
 # What does it look like?
 
-The [demo](demo.typ) file showcases what it is possible to do.
+The [demo](template/main.typ) file showcases what it is possible to do.
 You can see the result in [the corresponding PDF](demo.pdf).
 
 # Quick usage guide
@@ -12,7 +12,7 @@ You can see the result in [the corresponding PDF](demo.pdf).
 First of all, copy the template to your Typst project, and import it.
 
 ```typst
-#import "template.typ": *
+#import "@preview/vercanard:1.0.0": *
 ```
 
 Then, call the `resume` in a global `show` rule function to use it.
