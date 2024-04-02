@@ -1,0 +1,12 @@
+[package]
+name = "moderncv"
+version = "0.1.0"
+entrypoint = "moderncv.typ"
+authors = ["Giovanni Berti"]
+license = "Apache 2.0"
+description = "A typst template inspired by LaTeX moderncv."
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "preview.npg"
