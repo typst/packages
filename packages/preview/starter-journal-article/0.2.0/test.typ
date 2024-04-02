@@ -10,30 +10,30 @@
 }
 
 #show: article.with(
-    title: "Article Title",
-    authors: (
-      "Author One": author-meta(
-        "UCL", "TSU",
-        email: "author.one@inst.ac.uk",
-      ),
-      "Author Two": author-meta(
-        "TSU",
-        cofirst: true
-      ),
-      "Author Three": author-meta(
-        "TSU"
-      )
+  title: "Article Title",
+  authors: (
+    "Author One": author-meta(
+      "UCL", "TSU",
+      email: "author.one@inst.ac.uk",
     ),
-    affiliations: affiliations,
-    abstract: [#lorem(100)],
-    keywords: ("Typst", "Template", "Journal Article"),
-    template: (
-      title: (title) => {
-        set align(left)
-        set text(size: 1.5em, weight: "bold", style: "italic")
-        title
-      }
+    "Author Two": author-meta(
+      "TSU",
+      cofirst: true
+    ),
+    "Author Three": author-meta(
+      "TSU"
     )
+  ),
+  affiliations: affiliations,
+  abstract: [#lorem(100)],
+  keywords: ("Typst", "Template", "Journal Article"),
+  template: (
+    title: (title) => {
+      set align(left)
+      set text(size: 1.5em, weight: "bold", style: "italic")
+      title
+    }
+  )
 )
 
 

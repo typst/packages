@@ -3,8 +3,6 @@
 This package provides a template for writing journal articles
 to organise authors, institutions, and information of corresponding authors.
 
-![](./thumbnail.png)
-
 ## Usage
 
 Run the following command to use this template
