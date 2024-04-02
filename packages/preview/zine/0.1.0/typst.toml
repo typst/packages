@@ -7,7 +7,7 @@ repository = "https://github.com/tomeichlersmith/zine"
 authors = ["Tom Eichlersmith <@tomeichlersmith>"]
 license = "MIT"
 description = "Excellently type-set a fun little zine!"
-keyword = ["zine"]
+keywords = ["zine", "fun"]
 categories = ["fun", "layout"]
 
 [template]
