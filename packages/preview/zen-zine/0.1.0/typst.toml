@@ -1,13 +1,13 @@
 [package]
-name = "zine"
+name = "zen-zine"
 version = "0.1.0"
 compiler = "0.11.0"
 entrypoint = "lib.typ"
-repository = "https://github.com/tomeichlersmith/zine"
+repository = "https://github.com/tomeichlersmith/zen-zine"
 authors = ["Tom Eichlersmith <@tomeichlersmith>"]
 license = "MIT"
 description = "Excellently type-set a fun little zine!"
-keywords = ["zine", "fun"]
+keyword = ["zine"]
 categories = ["fun", "layout"]
 
 [template]

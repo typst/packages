@@ -1,6 +1,6 @@
-#import "@preview/zine:0.1.0": zine
+#import "@preview/zen-zine:0.1.0": zine
 
-#set document(author: "Tom", title: "Zine Mania")
+#set document(author: "Tom", title: "Zen Zine Example")
 #set text(font: "Linux Libertine", lang: "en")
 
 #let my_eight_pages = (
