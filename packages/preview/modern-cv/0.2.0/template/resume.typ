@@ -2,18 +2,18 @@
 
 #show: resume.with(
   author: (
-      firstname: "John", 
-      lastname: "Smith",
-      email: "js@example.com", 
-      phone: "(+1) 111-111-1111",
-      github: "DeveloperPaul123",
-      linkedin: "Example",
-      address: "111 Example St. Example City, EX 11111",
-      positions: (
-        "Software Engineer",
-        "Software Architect",
-        "Developer"
-      )
+    firstname: "John", 
+    lastname: "Smith",
+    email: "js@example.com", 
+    phone: "(+1) 111-111-1111",
+    github: "DeveloperPaul123",
+    linkedin: "Example",
+    address: "111 Example St. Example City, EX 11111",
+    positions: (
+      "Software Engineer",
+      "Software Architect",
+      "Developer"
+    )
   ),
   date: datetime.today().display(),
   colored_headers: true
