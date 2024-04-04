@@ -2,13 +2,13 @@
 
 Caidan (菜单 in Chinese, /cài dān/, meaning food menu) is a clean and minimal food menu template.
 
-See the [example.pdf](https://github.com/cu1ch3n/caidan/blob/main/example.pdf) file to see how it looks.
+See the [example.pdf] file to see how it looks. Additionally, [cu1ch3n/menu] serves as a practical example project utilizing this template.
 
 ## Usage
 
-Ensure that [WebOMints GD], [LXGW WenKai], and [Ysabeau Infant] fonts are installed first. The required fonts are provided in [fonts](https://github.com/cu1ch3n/caidan/tree/main/fonts).
+Ensure that [WebOMints GD], [LXGW WenKai], and [Ysabeau Infant] fonts are installed first. The required fonts are provided in [fonts].
 
-To use this template with typst.app, you may upload the required fonts manually.
+To use this template with typst.app, you may upload the required fonts manually (**Note**: [LXGW WenKai] may be too large to upload onto typst.app).
 
 ## Configuration
 
@@ -47,11 +47,13 @@ The function also accepts a single, positional argument for the body.
 - #item[回锅肉][Twice-cooked pork]
 - #item[麻婆豆腐][Mapo Tofu]
 ```
-
+[example.pdf]: https://github.com/cu1ch3n/caidan/blob/main/example.pdf
+[cu1ch3n/menu]: https://github.com/cu1ch3n/menu
+[fonts]: https://github.com/cu1ch3n/caidan/tree/main/fonts
 [content]: https://typst.app/docs/reference/foundations/content/
 [datetime]: https://typst.app/docs/reference/foundations/datetime/
 [length]: https://typst.app/docs/reference/layout/length/
 [int]: https://typst.app/docs/reference/foundations/int/
 [WebOMints GD]: http://www.galapagosdesign.com/original/webomints.htm
 [LXGW WenKai]: https://github.com/lxgw/LxgwWenKai
-[Ysabeau Infant]: https://fonts.google.com/specimen/Libre+Baskerville
+[Ysabeau Infant]: https://fonts.google.com/specimen/Ysabeau+Infant
