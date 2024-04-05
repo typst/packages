@@ -1,4 +1,4 @@
-#import "@preview/gost-phd-template:0.0.1": *
+#import "@preview/gost-phd-thesis:0.0.1": *
 
 #set heading(numbering: none)
 = Введение <intro> // Название и ссылка на него 

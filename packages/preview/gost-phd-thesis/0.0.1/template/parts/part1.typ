@@ -1,4 +1,4 @@
-#import "@preview/gost-phd-template:0.0.1": *
+#import "@preview/gost-phd-thesis:0.0.1": *
 
 #part_count.step() // Обновление счетчика разделов 
 = Оформление различных элементов <ch1>
