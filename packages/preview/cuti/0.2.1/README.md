@@ -4,9 +4,9 @@ Cuti is a package that simulates fake bold / fake italic. This package is typica
 
 ## Usage
 
-Please refer to the [English Demo & Doc](https://github.com/csimide/cuti/raw/0.2.1/demo-and-doc/demo-and-doc.pdf).
+Please refer to the [English Demo & Doc](https://github.com/csimide/cuti/raw/0.2.1-fix/demo-and-doc/demo-and-doc.pdf).
 
-本 Package 提供中文文档： [中文 Demo 与文档](https://github.com/csimide/cuti/raw/0.2.1/demo-and-doc/demo-and-doc-cn.pdf)。
+本 Package 提供中文文档： [中文 Demo 与文档](https://github.com/csimide/cuti/raw/0.2.1-fix/demo-and-doc/demo-and-doc-cn.pdf)。
 
 ### Getting Started Quickly (For Chinese User)
 

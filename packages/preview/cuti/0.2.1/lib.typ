@@ -54,7 +54,7 @@
 
 #let regex-fakeitalic(reg-exp: ".", ang: -0.32175, spacing: none, s) = {
   show regex(reg-exp): it => {
-    box(place(_skew(-12deg, it)), baseline: -0.7em) + hide(it)
+    box(place(_skew(ang, it)), baseline: -0.7em) + hide(it)
   }
   s
   if spacing != none {h(spacing)}
