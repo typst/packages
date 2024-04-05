@@ -1,12 +1,8 @@
-#import "../common/data.typ": * // Данные пользователя 
-#import "../common/style.typ": * // Общие настройки стиля 
-#import "@preview/glossarium:0.2.6":*
+#import "@preview/unify:0.5.0": *
 #import "@preview/codly:0.2.0": *
-#import "@preview/tablex:0.0.8": tablex, vlinex, hlinex, colspanx, rowspanx, cellx
+#import "@preview/tablex:0.0.8": *
+#import "./glossarium.typ": *
 
-// Установка свойств к PDF файлу 
-#set document(author: author-name, title: thesis-title)
-  
 // Счетчики  
 #let part_count = counter("parts")
 #let total_part = context[#part_count.final().at(0)]
@@ -20,15 +16,48 @@
 #let total_bib = context[#bib_count.final().at(0)]
 
 // Это входная точка - общий шаблон  
-#let phd-template(
+#let template(
+  author-first-name: "Имя Отчество",
+  author-last-name: "Фамилия",
+  author-initials: "И.О.",
+  title: "Длинное-длинное название диссертации из достаточно большого количества сложных и непонятных слов",
+  udk: "xxx.xxx", // Диссертация, УДК
+  specialty-number: "XX.XX.XX",
+  specialty-title: "Название специальности",
+  degree: "кандидата физико-математических наук",
+  degree-short: "канд. физ.-мат. наук",
+  city: "Город",
+  year: datetime.today().year(),
+  organization: [Федеральное государственное автономное образовательное учреждение высшего образования "Длинное название образовательного учреждения \ "АББРЕВИАТУРА"],
+  in-organization: "учреждении с длинным длинным длинным длинным названием, в котором выполнялась данная диссертационная работа", // в предложном падеже 
+  organization-short: "Сокращенное название организации",
+  supervisor-first-name: "Имя Отчество",
+  supervisor-last-name: "Фамилия",
+  supervisor-initials: "И.О.",
+  supervisor-regalia: "уч. степень, уч. звание",
+  supervisor-regalia-short: "уч. ст., уч. зв.",
+  font-type: "Times New Roman",
+  font-size: 14pt,
+  link-color: blue.darken(60%),
   languages: (), 
+  logo: "",
   body,
-) = {
+  ) = {
+
+  // Определение новых переменных
+  let author-name = author-last-name+" "+author-first-name
+  let author-short = author-last-name+" "+author-initials
+  let supervisor-name = supervisor-last-name+" "+supervisor-first-name
+  let supervisor-short = supervisor-last-name+" "+supervisor-initials
+
+  // Установка свойств к PDF файлу 
+  set document(author: author-name, title: title)
+
   // Установки шрифта 
   set text(
-    font: phd-font-type,
+    font: font-type,
     lang: "ru",
-    size: phd-font-size,
+    size: font-size,
     fallback: true,
     hyphenate: false,
   )
@@ -36,11 +65,7 @@
   // Установка свойств страницы 
   set page(
     margin: (top:2cm, bottom:2cm, left:2.5cm, right:1cm), // размер полей (ГОСТ 7.0.11-2011, 5.3.7)
-    numbering: "1", // Установка сквозной нумерации страниц 
-    number-align:center+top, // Нумерация страниц сверху, по центру 
   )
-  counter(page).update(1)
-    
   // Установка свойств параграфа 
   set par(
     justify: true, 
@@ -48,14 +73,14 @@
     first-line-indent: 2.5em, // Абзацный отступ. Должен быть одинаковым по всему тексту и равен пяти знакам (ГОСТ Р 7.0.11-2011, 5.3.7).
     leading: 1.5em, // Полуторный интервал (ГОСТ 7.0.11-2011, 5.3.6)
   ) 
-
+    
   // форматирование заголовков
   set heading(numbering: "1.", outlined: true, supplement: [Раздел])
   show heading: it => {
     set align(center)
     set text(
-      font: phd-font-type, 
-      size: phd-font-size,)
+      font: font-type, 
+      size: font-size,)
     set block(above:3em,below:3em) // Заголовки отделяют от текста сверху и снизу тремя интервалами (ГОСТ Р 7.0.11-2011, 5.3.5)
     
     if it.level == 1 {
@@ -118,6 +143,54 @@
   // Set that we're in the body
   state("section").update("body")
   
+  // титульный лист 
+  set align(center)
+  organization
+  v(2em)
+  table(
+    columns: (1fr,1fr),
+    stroke: none,
+    align: (left+bottom, right+bottom),
+    logo,
+    "На правах рукописи"
+  )
+  set text(size:16pt)
+  v(1em)
+  author-name // ФИО автора 
+  v(1em)
+  [*#title*] // Название работы 
+  set text(size:font-size)
+  v(1em)
+  [Специальность #specialty-number -- ] // Номер специальности
+  v(0em)
+  specialty-title // Название специальности
+  v(1em)
+  "Диссертация на соискание учёной степени"
+  v(0em)
+  degree
+  v(5fr)
+  set align(right)
+  "Научный руководитель:"
+  v(0em)
+  supervisor-regalia 
+  v(0em)
+  supervisor-name
+  v(0em)
+  set align(center)
+  [#city -- #year]
+  set align(left)
+  // конец титульной страницы
+
+  set page(
+    numbering: "1", // Установка сквозной нумерации страниц 
+    number-align:center+top, // Нумерация страниц сверху, по центру 
+  )
+  counter(page).update(1)
+  
+  // Содержание 
+  // #align(right)[Стр.]
+  outline(title: "Содержание", indent: 1.5em, depth: 3,)
+
   body
 }
 
@@ -157,11 +230,11 @@
   body
 }
 
-#let icon(codepoint) = {
+#let icon(image) = {
   box(
     height: .8em,
     baseline: 0.05em,
-    image(codepoint)
+    image
   )
   h(0.1em)
 }

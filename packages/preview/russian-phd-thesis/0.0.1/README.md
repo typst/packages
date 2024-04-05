@@ -1,43 +1,37 @@
-# Шаблон русской кандидатской диссертации
+# Шаблон русской кандидатской диссертации 
 
 Шаблон русской кандидатской диссертации на языке разметки [Typst](https://typst.app/) - современной альтернативы LaTeX.
 
 ## Использование
 
-В веб-приложении нажмите "Start from template" и на панели найдите `russian-phd-thesis`.
+В веб-приложении нажмите "Start from template" и на панели найдите `gost-phd-thesis`.
 
 Вы также можете инициализировать проект командой:
 
 ```bash
-typst init @preview/russian-phd-thesis
+typst init @preview/gost-phd-thesis
 ```
 
 Будет создана новая директория со всеми файлами, необходимыми для начала работы.
 
-Также шаблон можно запустить в контейнере Docker и в `github.com/codespaces`.
-
 ## Конфигурация
 
-Для настройки пользовательских данных необходимо редактировать файл `template/common/data.typ`. Шрифт и цвет ссылок можно поменять в файле `template/common/style.typ`.
+Список литературы формируется из файлов `common/external.bib` и `common/author.bib`.
 
-Общая характеристика работы для диссертации и автореферата формируется из данных в файле `template/common/characteristic.typ`. Заключение для диссертации и автореферата формируется из данных в файле `template/common/concl.typ`.
-
-Список литературы формируется из файлов `template/common/external.bib` и `template/common/author.bib`.
-
-Список сокращений и условных обозначений формируется из данных, записанных в файле `template/common/acronyms.typ` `template/common/symbols.typ`. Список определений формируется из данных в файле `template/common/glossary.typ`.
+Список сокращений и условных обозначений формируется из данных, записанных в файле `common/acronyms.typ` `common/symbols.typ`. Список определений формируется из данных в файле `common/glossary.typ`.
 
 ## Компиляция  
 
 Для компиляции проекта из CLI используйте:
 
 ```bash
-typst compile template/thesis.typ
+typst compile thesis.typ
 ```
 
 Или если вы хотите следить за изменениями:
 
 ```bash
-typst watch template/thesis.typ
+typst watch thesis.typ
 ```
 
 ## Особенности
@@ -47,3 +41,5 @@ typst watch template/thesis.typ
 ## Благодарности
 
 - Благодарность авторам шаблона диссертации на [LaTeX](https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template)
+
+- [Полезные ссылки](https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template/wiki/Links#%D0%BF%D1%80%D0%BE%D1%87%D0%B8%D0%B5-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8-%D1%81-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D1%8B%D0%BC%D0%B8-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8)

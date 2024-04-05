@@ -1,40 +1,34 @@
 
-#import "./thesis/template.typ": *
-
-#include "./thesis/parts/title.typ"
+#import "@preview/gost-phd-template:0.0.1": *
 
 // Определение шаблона 
-#show: phd-template.with(
+#show: template.with(
   // Это может быть удалено, если не используется программный код:
   languages: (
     rust: 
       (name: "Rust", 
-      icon: icon("../images/brand-rust.svg"), 
+      icon: icon(image("images/brand-rust.svg")), 
       color: rgb("#CE412B")),
     python: 
      (name: "Python",
-     icon: icon("../images/brand-python.svg"),
+     icon: icon(image("images/brand-python.svg")),
      color: rgb("#3572A5"))
   ),
+  logo: image("./images/logo.svg",width: 50%),
 )
 
-
-// Содержание 
-// #align(right)[Стр.]
-#outline(title: "Содержание", indent: 1.5em, depth: 3,)
-
 // Основные части документа 
-#include "./thesis/parts/intro.typ"
+#include "./parts/intro.typ"
 #show heading.where(level:1): set heading(numbering: "Глава 1.")
-#include "./thesis/parts/part1.typ"
-#include "./thesis/parts/part2.typ"
-#include "./thesis/parts/part3.typ"
+#include "./parts/part1.typ"
+#include "./parts/part2.typ"
+#include "./parts/part3.typ"
 
 // Выключить нумерацию выходных данных 
 #show heading: set heading(numbering:none)
 
 // Заключение 
-#include "./thesis/parts/conclusion.typ"
+#include "./parts/conclusion.typ"
 
 // Выходные данные
 = Список сокращений и условных обозначений 
@@ -46,7 +40,7 @@
 #import "./common/glossary.typ": glossary-entries
 #print-glossary(glossary-entries)
 
-#bibliography(title: "Список литературы", ("./common/external.bib","./common/author.bib"), style: "ieee")
+#bibliography(title: "Список литературы", ("./common/external.bib","./common/author.bib"), style: "gost-r-705-2008-numeric")
 
 #show outline: set heading(outlined: true)
 
@@ -55,4 +49,4 @@
 #outline(title: "Список таблиц", target: figure.where(kind: table))
 
 // Приложения 
-#include "./thesis/parts/appendix.typ"
+#include "./parts/appendix.typ"

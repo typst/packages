@@ -1,4 +1,4 @@
-#import "../template.typ": *
+#import "@preview/gost-phd-template:0.0.1": *
 #show: phd-appendix 
 
 = Примеры вставки листингов программного кода <app:A>

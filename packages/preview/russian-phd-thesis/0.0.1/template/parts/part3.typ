@@ -1,4 +1,5 @@
-#import "../template.typ": *
+#import "@preview/gost-phd-template:0.0.1": *
+
 #part_count.step() // Обновление счетчика разделов 
 = Вёрстка таблиц <ch3>
 

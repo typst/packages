@@ -1,13 +1,13 @@
 [package]
-name = "russian-phd-thesis"
+name = "gost-phd-thesis"
 version = "0.0.1"
 compiler = "0.11.0"
-entrypoint = "template/thesis.typ"
+entrypoint = "lib.typ"
 repository = "https://github.com/SergeyGorchakov/russian-phd-thesis-template-typst"
 authors = ["Sergei Gorchakov"]
 license = "MIT"
 description = "A russian phd thesis template"
-keywords = ["thesis", "phd", "vak", "russian"]
+keywords = ["thesis", "phd", "vak", "gost", "russian"]
 categories = ["thesis"]
 
 [template]
