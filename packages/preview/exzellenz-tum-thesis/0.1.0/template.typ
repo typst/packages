@@ -8,6 +8,7 @@
 #let exzellenz-tum-thesis(
   degree: "The degree",
   program: "The Program",
+  school: "The School",
   supervisor: "Your Supervisor",
   advisors: ("The first advisor", "The second advisor"),
   author: "The Author",
@@ -28,16 +29,13 @@
     draft_string = "DRAFT - "
   }
 
-  set document(author: author, title: draft_string + titleEnglish)
+  set document(author: author, title: draft_string + titleEn)
   set page(
     numbering: "1",
     number-align: center,
     margin: (left: 25mm, right: 25mm, top: 30mm, bottom: 30mm),
     header: {
       set text(8pt)
-      if showTitleInHeader [
-        #author - #titleEnglish
-      ]
       h(1fr)
       if draft [
         DRAFT
@@ -46,20 +44,21 @@
   )
 
   set page(numbering: none)
-  set text(font: "New Computer Modern Sans")
 
   cover(
-    title: draft_string + titleEnglish,
+    title: draft_string + titleEn,
     degree: degree,
     program: program,
     author: author,
+    school: school
   )
 
   titlepage(
-    title: draft_string + titleEnglish,
-    titleGerman: titleGerman,
+    title: draft_string + titleEn,
+    titleDe: titleDe,
     degree: degree,
     program: program,
+    school: school,
     supervisor: supervisor,
     advisors: advisors,
     author: author,
@@ -68,7 +67,7 @@
   )
 
   disclaimer(
-    title: titleEnglish,
+    title: titleEn,
     degree: degree,
     author: author,
     submissionDate: submissionDate
@@ -76,11 +75,25 @@
 
   acknowledgement(acknowledgements)
 
-  abstract(lang: "en")[#abstract_en]
+  abstract(lang: "en")[#abstractEn]
 
-  abstract(lang: "de")[#abstract_de]
+  abstract(lang: "de")[#abstractDe]
 
   counter(page).update(1)
+
+
+  set page(
+    header: {
+      set text(8pt)
+      if showTitleInHeader [
+        #author - #titleEn
+      ]
+      h(1fr)
+      if draft [
+        DRAFT
+      ]
+    },
+  )
 
   body
 

@@ -2,9 +2,10 @@
 
 #let titlepage(
   title: "",
-  titleGerman: "",
+  titleDe: "",
   degree: "",
   program: "",
+  school: "",
   supervisor: "",
   advisors: (),
   author: "",
@@ -12,12 +13,12 @@
   submissionDate: none,
 ) = {
   
-  covertitel(degree: degree, program: program)
+  covertitel(degree: degree, program: program, school: school)
   
   align(center, text(2em, weight: 700, title))
   
 
-  align(center, text(2em, weight: 500, titleGerman))
+  align(center, text(2em, weight: 500, titleDe))
 
   v(1fr)
   

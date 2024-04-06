@@ -1,6 +1,7 @@
 #let covertitel(
   degree: "",
   program: "",
+  school: "",
 ) = {
   // --- Cover ---
   v(1cm)
@@ -25,9 +26,10 @@
   degree: "",
   program: "",
   author: "",
+  school: "",
 ) = {
   
-  covertitel(degree: degree, program: program)
+  covertitel(degree: degree, program: program, school: school)
 
   align(center, text(2em, weight: 700, title))
   

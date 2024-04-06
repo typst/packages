@@ -77,6 +77,15 @@ $
 
 #lorem(30)
 
+
+```rust
+fn main() {
+    println!("Hello World!");
+}
+```
+
+#lorem(30)
+
 $ mat(
   r_(1,1),r_(1,1), r_(1,1), t_x;
   r_(2,1),r_(2,1), r_(2,1), t_y;

@@ -20,6 +20,7 @@ This template exports the `exzellenz-tum-thesis` function with the following nam
 
 - `degree`: String
 - `program`: String
+- `school`: String
 - `supervisor`: String
 - `advisor`: Array of Strings
 - `author`: String

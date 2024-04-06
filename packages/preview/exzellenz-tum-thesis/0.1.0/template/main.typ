@@ -28,16 +28,18 @@
 // Global Settings //
 #set text(lang: "en", size: 12pt)
 #set text(ligatures: false)
+#set text(font: "New Computer Modern Sans")
 
 
 #show: exzellenz-tum-thesis.with(
   degree: "Master",
   program: "Informatics",
+  school: "School of Computation, Information and Technology \n Informatics",
   supervisor: "Prof. Dr. Albert Einstein",
   advisors: ("Dr. Werner Braun", "Hans Günther M.Sc.",),
   author: "Max Mustermann",
   startDate: "15.01.1799",
-  titleEn: "This is the title of the thesis",
+  titleEn: "This is the Title of the Thesis",
   titleDe: "Das ist der Titel der Arbeit",
   abstractEn: [
     #lorem(60)
@@ -63,6 +65,7 @@
 // Set fonts
 #set text(font: "New Computer Modern")
 #show raw: set text(font: "New Computer Modern Mono")
+#show math.equation: set text(font: "New Computer Modern Math")
 
 
 // Set font size
@@ -137,11 +140,10 @@
 
 
 // Draft Settings //
-#if inwriting {
-  show cite: set text(fill: blue)
-  show footnote: set text(fill: purple)
-  set cite(style: "chicago-author-date")
-}
+#show cite: set text(fill: blue) if inwriting
+#show footnote: set text(fill: purple) if inwriting
+#set cite(style: "chicago-author-date") if inwriting
+
 
 
 
