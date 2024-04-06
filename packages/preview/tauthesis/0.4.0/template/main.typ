@@ -12,7 +12,7 @@
 
 //// Initialize document type.
 
-#import "@preview/scholarly-tauthesis:0.3.2" as tauthesis
+#import "@preview/scholarly-tauthesis:0.4.0" as tauthesis
 #import "meta.typ"
 
 #show: doc => tauthesis.tauthesis(
