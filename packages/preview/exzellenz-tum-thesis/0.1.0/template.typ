@@ -33,16 +33,16 @@
     numbering: "1",
     number-align: center,
     margin: (left: 25mm, right: 25mm, top: 30mm, bottom: 30mm),
-    header: [
-      #set text(8pt)
-      #if showTitleInHeader [
+    header: {
+      set text(8pt)
+      if showTitleInHeader [
         #author - #titleEnglish
       ]
-      #h(1fr)
-      #if draft [
+      h(1fr)
+      if draft [
         DRAFT
       ]
-    ],
+    },
   )
 
   set page(numbering: none)

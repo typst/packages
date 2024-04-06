@@ -43,26 +43,29 @@ $ <eq_einstein>
 
 
 #figure(
-[#set text(size: 0.8em, hyphenate: false, weight: "medium"); #set par(justify: false)
-  #let gut(it) = [#text(fill: rgb("006600"))[#it]];
-  #let mittel(it) = [#text(fill: rgb("333300"))[#it]];
-  #let schlecht(it) = [#text(fill: rgb("660000"))[#it]];
-  #table(
-  columns: (12.2em, 1fr, 1fr, 1fr, 1fr),
-  rows: 5em,
-  fill: (col, row) => if row == 0 or col == 0 { luma(240) } else { none },
-  inset: 5pt,
-  align: horizon,
-  [], [*Method A*], [*Method B*], [*Method C*], [*Method D*],
-  [_property_], [#schlecht[No] #footnote[#lorem(10)] <fntable1>], [#gut[Yes] #footnote[#lorem(10)] <fntable2>], [#gut[Yes] #footnote(<fntable2>)], [#gut[Yes] #footnote(<fntable2>)],
-  [_memory_], [#schlecht[No] #footnote(<fntable1>)], [#gut[Yes] #footnote(<fntable2>)], [#gut[Yes] #footnote(<fntable2>)], [#gut[Yes] #footnote(<fntable2>)],
-  [_complexity_], [#gut[Low] #footnote[#lorem(10)] <fntable4>], [#gut[Low] #footnote(<fntable4>)], [#schlecht[High] #footnote(<fntable6>)], [#schlecht[High] #footnote(<fntable6>)],
-  [_runtime_], [#gut[Low] #footnote(<fntable4>)], [#gut[Low] #footnote(<fntable4>)], [#schlecht[High] #footnote[#lorem(10)] <fntable6>], [#schlecht[High] #footnote(<fntable6>)],
-)],
+  {
+    set text(size: 0.8em, hyphenate: false, weight: "medium");
+    set par(justify: false);
+    let gut(it) = [#text(fill: rgb("006600"))[#it]];
+    let mittel(it) = [#text(fill: rgb("333300"))[#it]];
+    let schlecht(it) = [#text(fill: rgb("660000"))[#it]];
+    table(
+      columns: (12.2em, 1fr, 1fr, 1fr, 1fr),
+      rows: 5em,
+      fill: (col, row) => if row == 0 or col == 0 { luma(240) } else { none },
+      inset: 5pt,
+      align: horizon,
+      [], [*Method A*], [*Method B*], [*Method C*], [*Method D*],
+      [_property_], [#schlecht[No] #footnote[#lorem(10)] <fntable1>], [#gut[Yes] #footnote[#lorem(10)] <fntable2>], [#gut[Yes] #footnote(<fntable2>)], [#gut[Yes] #footnote(<fntable2>)],
+      [_memory_], [#schlecht[No] #footnote(<fntable1>)], [#gut[Yes] #footnote(<fntable2>)], [#gut[Yes] #footnote(<fntable2>)], [#gut[Yes] #footnote(<fntable2>)],
+      [_complexity_], [#gut[Low] #footnote[#lorem(10)] <fntable4>], [#gut[Low] #footnote(<fntable4>)], [#schlecht[High] #footnote(<fntable6>)], [#schlecht[High] #footnote(<fntable6>)],
+      [_runtime_], [#gut[Low] #footnote(<fntable4>)], [#gut[Low] #footnote(<fntable4>)], [#schlecht[High] #footnote[#lorem(10)] <fntable6>], [#schlecht[High] #footnote(<fntable6>)],
+    )
+  },
   caption: [
     #lorem(30)
   ]
-) <table_comparative_overview_uncertainty_categories>
+) <table-comparative-overview-uncertainty-categories>
 
 #lorem(50)
 
