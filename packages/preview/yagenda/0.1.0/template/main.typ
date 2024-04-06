@@ -1,4 +1,4 @@
-#import "@preview/agenda-yaml:0.1.0": *
+#import "@preview/yagenda:0.1.0": *
 
 #show: agenda.with(
   name: "Pumpkins and peanuts committee", 

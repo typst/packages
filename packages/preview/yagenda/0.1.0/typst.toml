@@ -1,5 +1,5 @@
 [package]
-name = "agenda-yaml"
+name = "yagenda"
 version = "0.1.0"
 entrypoint = "agenda.typ"
 authors = ["baptiste <https://github.com/baptiste>"]

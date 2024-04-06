@@ -1,9 +1,9 @@
-# agenda-yaml
+# yagenda
 
 A Typst template for meeting agendas using Yaml for agenda items. To get started:
 
 ```typst
-typst init @preview/agenda-yaml:0.1.0
+typst init @preview/yagenda:0.1.0
 ```
 
 And edit the `main.typ` example. The data are drawn from `agenda.yaml`.
