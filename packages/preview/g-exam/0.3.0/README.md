@@ -54,7 +54,7 @@ To use this package, simply add the following code to your document:
 
 #g-question(point:2)[Compute
 $ integral_0^infinity (sin(x))/x $
-)
+]
 ```
 
 ## Changelog
