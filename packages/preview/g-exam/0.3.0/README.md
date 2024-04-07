@@ -15,7 +15,7 @@ This template provides a way to generate exams. You can create questions and sub
 
 ## Usage 
 
-For information, see the [manual](./doc/manual.pdf). 
+For information, see the [manual](https://github.com/MatheSchool/typst-g-exam/blob/master/doc/g-exam-manual.pdf?raw=true). 
 
 To use this package, simply add the following code to your document:
 
