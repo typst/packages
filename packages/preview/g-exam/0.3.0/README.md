@@ -21,7 +21,7 @@ To use this package, simply add the following code to your document:
 
 #### A sample exam
 
-<img src="./galery/exam-table-content.png" alt="Ecxam - Table of content" style="width:500px;"/>
+<img src="./gallery/exam-table-content.png" alt="Exam - Table of content" style="width:500px;"/>
 
 #### Source:
 

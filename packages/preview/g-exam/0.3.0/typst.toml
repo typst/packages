@@ -10,7 +10,7 @@ keywords = ["exam", "test", "school", "question", "subquestion", "solutions", "t
 repository = "https://github.com/MatheSchool/typst-g-exam"
 categories = ["office"]
 disciplines = ["education"] 
-exclude = ["/examples/*"]
+exclude = ["/examples/*", "/gallery/*"]
 
 [template]
 path = "template"
