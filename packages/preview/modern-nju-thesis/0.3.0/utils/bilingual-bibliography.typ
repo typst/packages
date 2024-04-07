@@ -10,6 +10,7 @@
   mapping = (
     "等": "et al",
     "卷": "Vol.",
+    "册": "Bk.",
   ) + mapping
   let using-chinese = state("using-chinese-in-bibliography", false)
   show regex("^\[\d+\]$"): it => {
