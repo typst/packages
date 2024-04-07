@@ -52,9 +52,8 @@ To use this package, simply add the following code to your document:
 #g-question(point:2.5)[Prove that the real part of all non-trivial zeros of the function $zeta(z) "is" 1/2$].
 #v(1fr)
 
-#g-question(point:2)[Compute
-$ integral_0^infinity (sin(x))/x $
-]
+#g-question(point:2)[Compute $ integral_0^infinity (sin(x))/x $ ]
+#v(1fr)
 ```
 
 ## Changelog
