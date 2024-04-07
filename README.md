@@ -106,6 +106,17 @@ Required for submissions to this repository:
 
 Template packages must specify at least one category in `package.categories`.
 
+If you're submitting a template, please test that it works locally on your
+system. The recommended workflow for this is as follows:
+
+- Add a symlink from `$XDG_DATA_HOME/typst/packages/preview` to the `preview`
+  folder of your fork of this repository (see the section on [local
+  packages](#local-packages)).
+- Run `typst init @preview/mypkg:version`. Note that you must manually specify
+  the version as the package is not yet in the index, so the latest version
+  won't be detected automatically.
+- Compile the freshly instantiated template.
+
 ### Third-party metadata
 Third-party tools can add their own entry under the `[tool]` section to attach
 their Typst-specific configuration to the manifest.
@@ -245,14 +256,13 @@ locally on your system. Here, `{data-dir}` is
 
 Packages in the data directory have precedence over ones in the cache directory.
 While you can create arbitrary namespaces with folders, a good namespace for
-system packages is `local`:
+system-local packages is `local`:
 
 - Store a package in `~/.local/share/typst/packages/local/mypkg/1.0.0`
 - Import from it with `#import "@local/mypkg:1.0.0": *`
 
 Note that future iterations of Typst's package management may change/break this
 local setup.
-
 
 ## License
 The infrastructure around the package repository is licensed under the terms of
