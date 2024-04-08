@@ -5,7 +5,7 @@
 ## Usage
 
 ```typ
-#import "@preview/iban-formatter:0.1.0": iban
+#import "@preview/ibanator:0.1.0": iban
 
 #iban("DE89370400440532013000")
 ```
