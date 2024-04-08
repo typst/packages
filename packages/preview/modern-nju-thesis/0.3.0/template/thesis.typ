@@ -196,15 +196,8 @@ $ F_n = floor(1 / sqrt(5) phi.alt^n) $
 }
 
 // 中英双语参考文献
-// Demo 版本，可能存在 bug，如果失效请使用 Typst 默认的参考文献
+// 默认使用 gb-7714-2015-numeric 样式
 #bilingual-bibliography()
-
-// 默认参考文献
-// #bibliography(
-//   title: "参考文献",
-//   style: "gb-7714-2015-numeric",
-//   "ref.bib",
-// )
 
 // 致谢
 #acknowledgement[
