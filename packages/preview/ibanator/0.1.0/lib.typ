@@ -1,5 +1,3 @@
-#import "@preview/oxifmt:0.2.0": strfmt
-
 #let lib = plugin("typst_iban.wasm")
 
 /// Validates the given IBAN, returning an ISO 13616-1 formatted string if the validation was successful.
