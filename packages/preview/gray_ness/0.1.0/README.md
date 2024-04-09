@@ -12,7 +12,7 @@ The package name is inspired by the blurry, gray images of Nessie, the [Loch Nes
 Due to the way typst currently interprets given paths, you have to read the images yourself in the calling typst file. This raw imagedata can then be passed to the grayscale function:
 
 ```typst
-#import "@preview/GrayNess:0.1.0": grayscale
+#import "@preview/gray_ness:0.1.0": grayscale
 
 #let data = read("Art.webp", encoding: none)
 #grayscale(data, width: 50%)
@@ -20,5 +20,5 @@ Due to the way typst currently interprets given paths, you have to read the imag
 
 ## Examples
 
-here are several functions applied to a WEbP image of [Arturo Nieto Dorantes](https://commons.wikimedia.org/wiki/File:Arturo_Nieto-Dorantes.webp) (CC-By-SA 4.0):
+here are several functions applied to a WEBP image of [Arturo Nieto Dorantes](https://commons.wikimedia.org/wiki/File:Arturo_Nieto-Dorantes.webp) (CC-By-SA 4.0):
 ![Example image manipulations](arturo.png)
