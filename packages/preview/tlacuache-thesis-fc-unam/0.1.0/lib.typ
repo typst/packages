@@ -102,6 +102,7 @@
   let line-spacing = 0.65em * 1.5
   set par(justify: true, leading: line-spacing)
   show heading.where(level: 1): it => [
+    #pagebreak(to: "even")
     #set align(right)
     #v(40%)
     #set text(font: "Inria Serif", size: 40pt)
@@ -124,8 +125,6 @@
     numbering: num =>
     "(" + (counter(heading.where(level: 1)).get() + (num,)).map(str).join(".") + ")",
   )
-
-  pagebreak(to: "even")
 
   body
 
