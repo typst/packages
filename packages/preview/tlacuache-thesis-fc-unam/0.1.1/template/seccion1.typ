@@ -1,4 +1,4 @@
-#import "@preview/fc-thesis:0.1.0": section
+#import "@preview/tlacuache-thesis-fc-unam:0.1.1": section
 
 //completamente opcional cargar la bibliografía, compilar la sección
 #show: section.with(bibliography: bibliography("references.bib"))

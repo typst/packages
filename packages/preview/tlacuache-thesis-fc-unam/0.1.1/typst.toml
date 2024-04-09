@@ -1,6 +1,6 @@
 [package]
-name = "fc-thesis"
-version = "0.1.0"
+name = "tlacuache-thesis-fc-unam"
+version = "0.1.1"
 entrypoint = "lib.typ"
 authors = ["David Valencia, davidalencia@ciencias.unam.mx"]
 license = "MIT"

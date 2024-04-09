@@ -1,4 +1,4 @@
-# fc-thesis template
+# tlacuache-thesis-fc-unam template
 
 Este es un template para tesis de la facultad de ciencias,
 en la Universidad Nacional Autónoma de México (UNAM).
@@ -7,15 +7,15 @@ This is a thesis template for the Science Faculty at Universidad Nacional Autón
 
 ## Uso/Usage
 
-En la aplicación web de Typst da click en "Start from template" y busca `fc-thesis`.
+En la aplicación web de Typst da click en "Start from template" y busca `tlacuache-thesis-fc-unam`.
 
-In the Typst web app simply click "Start from template" on the dashboard and search for `fc-thesis`.
+In the Typst web app simply click "Start from template" on the dashboard and search for `tlacuache-thesis-fc-unam`.
 
 Si estas usando la versión de teminal usa el comando:
 From the CLI you can initialize the project with the command:
 
 ```bash
-typst init @preview/fc-thesis:0.1.0
+typst init @preview/tlacuache-thesis-fc-unam:0.1.1
 ```
 
 ## Configuración/Configuration
@@ -27,7 +27,7 @@ To set the thesis template, you can use the following lines
 in your main file.
 
 ```typ
-#import "@preview/fc-thesis:0.1.0": thesis
+#import "@preview/tlacuache-thesis-fc-unam:0.1.1": thesis
 
 #show: thesis.with(
   ttitulo: [Titulo],
@@ -48,7 +48,7 @@ si deseas crear un pdf solomente para el capítulo.
 You could also create a pdf for just a chapter with bibliography, by using the following lines.
 
 ```typ
-#import "@preview/fc-thesis:0.1.0": chapter
+#import "@preview/tlacuache-thesis-fc-unam:0.1.1": chapter
 
 // completamente opcional cargar la bibliografía, compilar el capítulo
 #show: chapter.with(bibliography: bibliography("references.bib"))
@@ -61,7 +61,7 @@ Si quieres crear pdf aun mas cortos, puedes utilizar estas lineas para crear un 
 You could even create a pdf for just a section of a chapter.
 
 ```typ
-#import "@preview/fc-thesis:0.1.0": section
+#import "@preview/tlacuache-thesis-fc-unam:0.1.1": section
 
 // completamente opcional cargar la bibliografía, compilar el sección
 #show: section.with(bibliography: bibliography("references.bib"))
