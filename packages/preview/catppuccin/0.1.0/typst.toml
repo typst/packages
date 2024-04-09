@@ -1,0 +1,11 @@
+[package]
+name = "catppuccin"
+version = "0.1.0"
+repository = "https://github.com/TeddyHuang-00/catppuccin"
+entrypoint = "src/lib.typ"
+authors = ["Nan Huang <https://github.com/TeddyHuang-00>"]
+categories = ["components"]
+license = "MIT"
+description = "Use catppuccin palette with Typst."
+keywords = ["catppuccin", "palette"]
+exclude = ["examples.typ", "examples.pdf"]
