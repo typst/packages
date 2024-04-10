@@ -11,6 +11,25 @@ This is my CV template written in Typst. You can find a two example CVs in this 
 
 To use the CV you have to install the font awesome fonts for the icons to work. Please refer to the [guide from the font awesome package](https://github.com/duskmoon314/typst-fontawesome).
 
+## Functions
+
+1. `header`: Creates a page haeder including your name, current job title or any other sub title, socials and profile picture
+    - `full-name`: your full name
+    - `job-title`: your current job title rendered below your name
+    - `socials`: array containing all socials. Every social must have the following properties: `icon`, `link` and `text`
+    - `profile-picture`: path to your profile picture
+
+2. `section`: Creates a new section, e. g. `Professional Experience` or `Education`
+    - `title`: section's title
+
+3. `entry`: Adds an entry / item to the current section
+    - `title`: the entry's title, e. g. your job title
+    - `company-or-university`: the name of the institution which you were at, e. g. company or university
+    - `date`: start and end date of this entry, e. g. 2020 - 2022
+    - `location`: describes where you worked, e. g. London, UK
+    - `logo`: path to the logo of this entry
+    - ``description`: description what you have done - normally supplied as a list
+
 ## Customization
 
 In the folder `settings` you will a file `styles.typ` which includes all used styles. You can customize them as you want to.
