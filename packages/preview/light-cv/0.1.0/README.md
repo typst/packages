@@ -4,8 +4,8 @@
 
 This is my CV template written in Typst. You can find a two example CVs in this repository as PDFs:
 
-- [German CV](cv-de.pdf)
-- [English CV](cv-de.typ)
+- [German CV](https://github.com/AnsgarLichter/light-cv/blob/main/cv-de.pdf)
+- [English CV](https://github.com/AnsgarLichter/light-cv/blob/main/cv-en.pdf)
 
 ## Setup
 
