@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "@preview/light-cv:0.1.0": *
 #import "@preview/fontawesome:0.1.0": *
 
 #show: cv

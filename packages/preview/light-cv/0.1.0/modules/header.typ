@@ -1,4 +1,4 @@
-#import "../settings/styles.typ": *
+#import "../template/settings/styles.typ": *
 #import "utils.typ": *
 
 #let render-socials(

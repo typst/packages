@@ -1,6 +1,6 @@
 #import "@preview/fontawesome:0.1.0": *
 
-#import "settings/styles.typ": *
+#import "template/settings/styles.typ": *
 
 #import "modules/utils.typ": *
 #import "modules/header.typ": *

@@ -1,4 +1,4 @@
-#import "../settings/styles.typ": *
+#import "../template/settings/styles.typ": *
 
 
 #let render-skills(skills: ()) = {
