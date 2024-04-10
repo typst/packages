@@ -1,7 +1,7 @@
 #import "../settings/styles.typ": *
 #import "utils.typ": *
 
-#let renderSocials(
+#let render-socials(
   socials: ()
 ) = {
   let columns = ()
@@ -17,57 +17,57 @@
   return columns
 }
 
-#let createHeaderInfo(
-  fullName: [],
-  jobTitle: [],
+#let create-header-info(
+  full-name: [],
+  job-title: [],
   socials: ()
 ) = {
   text(
-    font: headerStyle.fonts,
-    size: headerStyle.fullName.size, 
-    weight: headerStyle.fullName.weight,
-    fullName
+    font: header-style.fonts,
+    size: header-style.full-name.size, 
+    weight: header-style.full-name.weight,
+    full-name
   )
   linebreak()
-  hLine()
+  hline()
   linebreak()
   text(
-    font: headerStyle.fonts, 
-    size: headerStyle.jobTitle.size, 
-    weight: headerStyle.jobTitle.weight,
-    jobTitle
+    font: header-style.fonts, 
+    size: header-style.job-title.size, 
+    weight: header-style.job-title.weight,
+    job-title
   )
-  v(headerStyle.margins.BetweenInfoAndSocials)
+  v(header-style.margins.between-info-and-socials)
 
-  let countOfSocials = socials.len()
-  if(countOfSocials > 1) {
+  let count-of-socials = socials.len()
+  if(count-of-socials > 1) {
     table(
-      columns: countOfSocials,
+      columns: count-of-socials,
       inset: 0pt,
-      column-gutter: headerStyle.socials.columnGutter,
+      column-gutter: header-style.socials.column-gutter,
       align: center,
       stroke: none,
-      ..renderSocials(
+      ..render-socials(
         socials: socials
       )
     )
   }
 }
 
-#let createHeaderImage(
-  profilePhoto: ""
+#let create-header-image(
+  profile-photo: ""
 ) = {
-  if profilePhoto.len() > 0 {
+  if profile-photo.len() > 0 {
     block(
-      width: headerStyle.profilePhoto.width, 
-      height: headerStyle.profilePhoto.height, 
-      stroke: headerStyle.profilePhoto.stroke, 
-      radius: headerStyle.profilePhoto.radius, 
+      width: header-style.profile-photo.width, 
+      height: header-style.profile-photo.height, 
+      stroke: header-style.profile-photo.stroke, 
+      radius: header-style.profile-photo.radius, 
       clip: true,
       image(
-        height: headerStyle.profilePhoto.imageHeight, 
+        height: header-style.profile-photo.image-height, 
         fit: "contain",
-        profilePhoto
+        profile-photo
       )
     ) 
   }

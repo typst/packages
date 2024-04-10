@@ -1,15 +1,15 @@
 #import "../settings/styles.typ": *
 #import "utils.typ": *
 
-#let createSectionTitle(
+#let create-section-title(
   title
 ) = {
   text(
-    size: sectionStyle.title.size, 
-    weight: sectionStyle.title.weight, 
-    fill: sectionStyle.title.fontColor,
+    size: section-style.title.size, 
+    weight: section-style.title.weight, 
+    fill: section-style.title.font-color,
     title
   )
-  h(sectionStyle.margins.RightToHLine)
-  hLine()
+  h(section-style.margins.right-to-hline)
+  hline()
 }

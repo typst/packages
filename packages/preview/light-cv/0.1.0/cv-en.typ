@@ -13,8 +13,8 @@
 )
 
 #header(
-  fullName: [John Doe],
-  jobTitle: [Software Engineer with a passion for JavaScript],
+  full-name: [John Doe],
+  job-title: [Software Engineer with a passion for JavaScript],
   socials: (
     (
       icon: icons.github,
@@ -37,13 +37,13 @@
       link: "https://linkedin.com/"
     )
   ),
-  profilePicture: "../media/avatar.jpeg"
+  profile-picture: "../media/avatar.jpeg"
 )
 
 #section("Professional Experience")
 #entry(
   title: "Data Analyst", 
-  companyOrUniversity: "BetaSoft Technologies", 
+  company-or-university: "BetaSoft Technologies", 
   date: "2023 - Today", 
   location: "San Francisco, CA", 
   logo: "media/ucla.png",
@@ -55,7 +55,7 @@
 )
 #entry(
   title: "Cybersecurity Consultant", 
-  companyOrUniversity: "Gamma Systems Inc.", 
+  company-or-university: "Gamma Systems Inc.", 
   date: "2020 - 2022", 
   location: " London, UK", 
   logo: "media/ucla.png",
@@ -70,7 +70,7 @@
 #section("Education")
 #entry(
   title: "Master of Science in Computer Science", 
-  companyOrUniversity: "University of California", 
+  company-or-university: "University of California", 
   date: "09/2020 - 09/2022", 
   location: "Los Angeles, USA", 
   logo: "media/ucla.png",
@@ -82,7 +82,7 @@
 )
 #entry(
   title: "Bachelor of Science in Computer Science", 
-  companyOrUniversity: "University of California", 
+  company-or-university: "University of California", 
   date: "09/2017 - 09/2020", 
   location: "Los Angeles, USA", 
   logo: "media/ucla.png", 
@@ -96,7 +96,7 @@
 #section("Programming Expertise")
 #entry(
   title: "Chatbot for Mental Health Support", 
-  companyOrUniversity: "Personal Project", 
+  company-or-university: "Personal Project", 
   date: "2023 - 2024", 
   location: "", 
   logo: "media/ucla.png", 
@@ -108,7 +108,7 @@
 )
 #entry(
   title: "Smart Home Automation System", 
-  companyOrUniversity: "Personal Project", 
+  company-or-university: "Personal Project", 
   date: "2020", 
   location: "", 
   logo: "media/ucla.png", 
@@ -121,8 +121,8 @@
 
 #pagebreak()
 #header(
-  fullName: [John Doe],
-  jobTitle: [Software Engineer with a passion for JavaScript],
+  full-name: [John Doe],
+  job-title: [Software Engineer with a passion for JavaScript],
   socials: (
     (
       icon: icons.github,
@@ -145,7 +145,7 @@
       link: "https://linkedin.com/"
     )
   ),
-  profilePicture: "../media/avatar.jpeg"
+  profile-picture: "../media/avatar.jpeg"
 )
 
 #section("Skills & Interests")

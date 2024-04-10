@@ -1,5 +1,4 @@
-// General Settings
-#let pageStyle = (
+#let page-style = (
   paper: "a4",
   margin: (
     left: 1cm,
@@ -11,62 +10,58 @@
 #let colors = (
   accent: rgb("#007fad")
 )
-#let bodyStyle = (
+#let body-style = (
   fonts: ("Source Sans Pro", "Font Awesome 6 Brands", "Font Awesome 6 Free"),
   size: 10pt,
   weight: "regular"
 )
-#let listStyle = (
+#let list-style = (
   indent: 1em
 )
 
-
-// Header
-#let headerStyle = (
+#let header-style = (
   fonts: ("New Computer Modern Sans"),
   table: (
     columns: (5fr, 1fr),
-    columnGutter: 30pt
+    column-gutter: 30pt
   ),
-  fullName: (
+  full-name: (
     size: 36pt,
     weight: "bold"
   ),
-  jobTitle: (
+  job-title: (
     size: 18pt,
     weight: "bold"
   ),
-  profilePhoto: (
+  profile-photo: (
     width: 100pt, 
     height: 100pt, 
     stroke: none, 
     radius: 9999pt,
-    imageHeight: 10.0cm
+    image-height: 10.0cm
   ),
   margins: (
-    BetweenInfoAndSocials: 2.5mm,
+    between-info-and-socials: 2.5mm,
     bottom: 3pt
   ),
   socials: (
-    columnGutter: 10pt
+    column-gutter: 10pt
   )
 )
 
-// Section
-#let sectionStyle = (
+#let section-style = (
   title: (
     size: 16pt,
     weight: "bold",
-    fontColor: black 
+    font-color: black 
   ),
   margins: (
     top: 3pt,
-    RightToHLine: 2pt,
+    right-to-hline: 2pt,
   )
 )
 
-// Entry
-#let entryStyle = (
+#let entry-style = (
   table: (
     columns: (5%, 1fr)
   ),
@@ -75,32 +70,32 @@
     weight: "bold",
     color: black
   ),
-  companyOrUniversity: (
+  company-or-university: (
     size: 10pt,
     weight: "bold",
     color: colors.accent
   ),
-  timeAndLocation: (
+  time-and-location: (
     size: 10pt,
     weight: "regular",
     color: black
   ),
   margins: (
     top: 3pt,
-    betweenLogoAndTitle: 8pt,
-    betweenTitleAndSubtitle: 3pt,
-    betweenTimeAndLocation: 10pt,
-    betweenIconAndText: 5pt
+    between-logo-and-title: 8pt,
+    between-title-and-subtitle: 3pt,
+    between-time-and-location: 10pt,
+    between-icon-and-text: 5pt
   )
 )
 
 // Skills
-#let skillsStyle = (
+#let skills-style = (
   columns: (18%, 1fr),
   stroke: 1pt + colors.accent,
   radius: 20%,
   margins: (
-    betweenSkillTags: 6pt,
-    betweenCategories: -6pt
+    between-skill-tags: 6pt,
+    between-categories: -6pt
   )
 )

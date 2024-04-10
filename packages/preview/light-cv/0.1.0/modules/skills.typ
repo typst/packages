@@ -1,15 +1,15 @@
 #import "../settings/styles.typ": *
 
 
-#let renderSkills(skills: ()) = {
+#let render-skills(skills: ()) = {
   for skill in skills {
     box(
       rect(
-        stroke: skillsStyle.stroke,
-        radius: skillsStyle.radius, 
+        stroke: skills-style.stroke,
+        radius: skills-style.radius, 
         skill
       )
     )
-    h(skillsStyle.margins.betweenSkillTags)
+    h(skills-style.margins.between-skill-tags)
   }
 }
