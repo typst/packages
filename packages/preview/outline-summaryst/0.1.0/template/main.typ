@@ -1,5 +1,4 @@
-// #import "@preview/outline-summaryst:0.1.0": outline-summaryst, make-heading
-#import "/src/outline-summaryst.typ": outline-summaryst, make-heading
+#import "@preview/outline-summaryst:0.1.0": outline-summaryst, make-heading
 
 
 #show: outline-summaryst.with(
