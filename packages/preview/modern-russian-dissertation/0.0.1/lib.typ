@@ -1,6 +1,7 @@
 #import "@preview/unify:0.5.0": *
 #import "@preview/codly:0.2.0": *
 #import "@preview/tablex:0.0.8": *
+#import "@preview/physica:0.9.3": *
 #import "./glossarium.typ": *
 
 // Счетчики  

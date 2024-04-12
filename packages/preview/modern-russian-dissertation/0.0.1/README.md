@@ -4,12 +4,12 @@
 
 ## Использование
 
-В веб-приложении нажмите "Start from template" и на панели найдите `gost-phd-thesis`.
+В веб-приложении нажмите "Start from template" и на панели найдите `modern-russian-dissertation`.
 
 Вы также можете инициализировать проект командой:
 
 ```bash
-typst init @preview/gost-phd-thesis
+typst init @preview/modern-russian-dissertation
 ```
 
 Будет создана новая директория со всеми файлами, необходимыми для начала работы.

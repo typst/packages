@@ -1,5 +1,5 @@
 [package]
-name = "gost-phd-thesis"
+name = "modern-russian-dissertation"
 version = "0.0.1"
 compiler = "0.11.0"
 entrypoint = "lib.typ"
