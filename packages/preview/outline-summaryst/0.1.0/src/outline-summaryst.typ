@@ -73,6 +73,7 @@
     #if it.supplement != supl {
       return none
     }
+    #v(2em)
     
     #let (cnt, subcnt) = gs.get().last()
     
