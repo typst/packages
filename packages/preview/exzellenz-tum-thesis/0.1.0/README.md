@@ -1,6 +1,3 @@
-
-[The compiled demo main.pdf](./template/main.pdf)
-
 # exzellenz-tum-thesis
 This is a Typst template for a thesis at TU Munich. I made it for my thesis in the School CIT, but I think it can be adapted to other schools as well.
 
