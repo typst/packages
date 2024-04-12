@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Quantum Circuit" src="docs/images/logo.svg" style="max-width: 100%; width: 300pt; padding: 10px 20px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt;box-sizing: border-box; background: white">
+  <img alt="Quantum Circuit" src="docs/images/logo.svg" style="max-width: 100%; width: 300pt">
 </h1>
 
 
@@ -27,7 +27,7 @@ Create circuit diagrams by calling the function `quantum-circuit()` with any num
 }
 ```
 <h3 align="center">
-  <img alt="Bell Circuit" src="docs/images/bell.svg" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt; box-sizing: border-box; background: white">
+  <img alt="Bell Circuit" src="docs/images/bell.svg">
 </h3>
 
 As a shorthand for simple gates you can also just write `$H$` instead of the more lengthy `gate($H$)`. 
@@ -37,7 +37,7 @@ Refer to the [user guide](docs/guide/quill-guide.pdf) for a full documentation o
 ## Gallery
 
 <h3 align="center">
-  <img alt="Gallery" src="docs/images/gallery.svg" style="background: white; padding: 10pt; box-sizing: border-box" />
+  <img alt="Gallery" src="docs/images/gallery.svg" />
 </h3>
 
 ## Examples
@@ -45,14 +45,15 @@ Refer to the [user guide](docs/guide/quill-guide.pdf) for a full documentation o
 Some show-off examples, loosely replicating figures from [Quantum Computation and Quantum Information by M. Nielsen and I. Chuang](https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE#overview).
 
 <h3 align="center">
-  <img alt="Quantum teleportation circuit" src="docs/images/teleportation.svg" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt; background: white; box-sizing: border-box">
+  <img alt="Quantum teleportation circuit" src="docs/images/teleportation.svg">
 </h3>
 <h3 align="center">
-  <img alt="Quantum circuit for phase estimation" src="docs/images/phase-estimation.svg" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt; background: white; box-sizing: border-box">
+  <img alt="Quantum circuit for phase estimation" src="docs/images/phase-estimation.svg">
 </h3>
 <h3 align="center">
-  <img alt="Quantum fourier transformation circuit" src="docs/images/qft.svg" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt; background: white; box-sizing: border-box">
+  <img alt="Quantum fourier transformation circuit" src="docs/images/qft.svg">
 </h3>
+
 
 
 ## Changelog

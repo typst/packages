@@ -11,13 +11,13 @@ Use preset callouts, or create your own!
 Import the package
 
 ```typst
-import "@preview/babble-bubbles:0.1.0": *
+#import "@preview/babble-bubbles:0.1.0": *
 ```
 
 Or grab it locally and use:
 
 ```typst
-import "@local/babble-bubbles:0.1.0": *
+#import "@local/babble-bubbles:0.1.0": *
 ```
 
 ## Presets
