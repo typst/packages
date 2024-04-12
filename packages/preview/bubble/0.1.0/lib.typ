@@ -10,9 +10,8 @@
   class: none,
   date: datetime.today().display(),
   logo: none,
-  main_color: "E94845",
+  main-color: "E94845",
   alpha: 60%,
-  toc_title: "Outline",
   body,
 ) = {
   // Set the document's basic properties.
@@ -23,7 +22,7 @@
   let sans-font = "Open Sans"
 
   // Set colors
-  let primary-color = rgb(main_color) // alpha = 100%
+  let primary-color = rgb(main-color) // alpha = 100%
   // change alpha of primary color
   let secondary-color = color.mix(color.rgb(100%, 100%, 100%, alpha), primary-color, space:rgb)
 
@@ -112,9 +111,6 @@ set heading(numbering: (..nums) => {
     numbering: "1 / 1", 
     number-align: center, 
     )
-  outline(depth: 3, indent: true, title: toc_title)
-  //useless pagebreak because using pagebreak before first heading and assuming that the page always starts with a heading
-  //pagebreak()
 
 
   // Main body.

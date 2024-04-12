@@ -25,9 +25,8 @@ This template exports the `bubble` function with the following named arguments:
 - `class`: For which class this document is 
 - `date`: Date of the document, current date if none is set *default is current date*
 - `logo`: Path of the logo displayed at the top right of the title page *default is none*
-- `main_color`: Main color used in the document *default is `#E94645`*
+- `main-color`: Main color used in the document *default is `#E94645`*
 - `alpha`: Percentage of transparency for the bubbles on the title page *default is 60%*
-- `toc_title`: Title of the TOC *default is "Outline"*
 
 This template also exports these functions : 
 - `blockquote` : Function that highlights quotes with a grey bar at the left
@@ -47,8 +46,7 @@ If you want to change an existing project to use this template, you can add a sh
   date: datetime.today().display(),
   year: "Year",
   class: "Class",
-  logo: "logo.png",
-  toc_title: "Table of contents"
+  logo: "logo.png"
 ) 
 
 // Your content goes here

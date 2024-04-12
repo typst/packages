@@ -9,7 +9,6 @@
   year: "Year",
   class: "Class",
   logo: "logo.png",
-  toc_title: "Table of contents"
 ) 
 
 // Edit this content to your liking
@@ -37,8 +36,6 @@ The package #link("https://github.com/jneug/typst-codelst")[codelst] is used by 
 
 
 == Customized items
-
-The Table of Contents title can be modified with the `toc_title`property.
 
 
 Figures are customized but this is settable in the template file. You can of course reference them @ref.
