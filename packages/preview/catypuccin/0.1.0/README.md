@@ -1,4 +1,4 @@
-# Catppuccin
+# Catypuccin
 
 User everyone's favorite [Catppuccin color palettes](https://github.com/catppuccin/catppuccin) in your Typst projects.
 
@@ -7,7 +7,7 @@ User everyone's favorite [Catppuccin color palettes](https://github.com/catppucc
 To use the Catppuccin color palette in your Typst project, add the following import statement to your Typst file, and then you can use all the colors from the Catppuccin color palette.
 
 ```typst
-#import "@preview/catppuccin:0.1.0": latte, frappe, macchiato, mocha
+#import "@preview/catypuccin:0.1.0": latte, frappe, macchiato, mocha
 
 #square(fill: mocha.red)
 ```
