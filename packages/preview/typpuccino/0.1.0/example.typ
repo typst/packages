@@ -47,7 +47,7 @@
 = Usage
 
 #grid(columns: 2, gutter: 1em, [ ```typst
-#import "@preview/catypuccin:0.1.0": latte, frappe, macchiato, mocha
+#import "@preview/typpuccino:0.1.0": latte, frappe, macchiato, mocha
 #square(fill: mocha.red)
 ``` ], [#square(fill: mocha.red)])
 

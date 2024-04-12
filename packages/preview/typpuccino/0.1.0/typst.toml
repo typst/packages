@@ -1,7 +1,7 @@
 [package]
-name = "catypuccin"
+name = "typpuccino"
 version = "0.1.0"
-repository = "https://github.com/TeddyHuang-00/catypuccin"
+repository = "https://github.com/TeddyHuang-00/typpuccino"
 entrypoint = "src/lib.typ"
 authors = ["Nan Huang <https://github.com/TeddyHuang-00>"]
 categories = ["components"]
