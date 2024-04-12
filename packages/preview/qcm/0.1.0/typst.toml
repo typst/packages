@@ -1,0 +1,10 @@
+[package]
+name = "qcm"
+version = "0.1.0"
+entrypoint = "main.typ"
+authors = ["Ludwig Austermann"]
+license = "MIT"
+description = "Qualitative Colormaps"
+repository = "https://github.com/ludwig-austermann/qcm"
+keywords = ["colormap", "colorsheme"]
+compiler = "0.10.0"
