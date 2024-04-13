@@ -16,7 +16,7 @@ limitations under the License.
 
 #let plg = plugin("grayness.wasm")
 
-///Create a grayscale-image represenation of the provided imagedata
+///Create a grayscale-image representation of the provided imagedata
 ///
 /// - imagebytes (bytes): Raw imagedata provided by the read function
 ///
