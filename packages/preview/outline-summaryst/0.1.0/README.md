@@ -7,31 +7,24 @@
 
 ## Features
 
-- Generates a summary for each entry in the table of contents.
-- Allows customization of title, subtitle, author, and foreword sections.
-- A macro for creating new headings.
+- A template for the outline, which styles both the heading and their summaries.
+- A macro for creating new headings and a summary for each heading.
 
 
 ## Note:
-Because of the way the project is implemented, headings created with the default `= Heading` syntax will not show in the document nor the table of contents. Note that these headings _will_ show up in PDF reader's content trees even if they are not visible in the document itself, so it is advised to not use typst's default `= Heading` syntax.
-
-Only headings created with the provided `make-heading("heading name", "summary")` are shown in the document itself. 
+Because of the way the project is implemented, only the headings created with the provided `make-heading("heading name", "summary")` are shown in in the outline. Headings created with the default `= Heading` syntax will not show in said outline (though they will show up in the document itself).
 
 
 ## Example Usage:
 ```
-#import "@preview/outline-summaryst:0.1.0": outline-summaryst, make-heading
+#import "@preview/outline-summaryst:0.1.0": style-outline, make-heading
 
 
-#show: outline-summaryst.with(
-  title: "Insert Title Here",
-  subtitle: "Insert Subitle Here",
-  author: "Author Name",
-  foreword-name: "Foreword",
-  foreword-contents: [
-    Insert foreword here...
-  ],
-)
+// you can set `outline-title: none` in order not to display any title
+#show outline: style-outline.with(outline-title: "Table of Contents")
+
+#outline()
+
 
 #make-heading("Part One", "This is the summary for part one")
 #lorem(500)
@@ -52,15 +45,8 @@ Only headings created with the provided `make-heading("heading name", "summary")
 #lorem(300)
 ```
 
-There is no need to include an `#outline()`, one will be generated automatically.
-
-You can also leave all the named arguments in `#show: outline-summaryst` empty, in which case the title page and foreword do not show up.
-
-
 ## Known limitations
-- Currently, there is no API for advanced styling of the table of contents nor headings
-- Because the package overrides the default behavior of `#outline()`, it might not look 100% correct with all templates or packages.
-- It is not currently possible to inlude 2 or more `#outline()`s in a document.
+- Currently, we do not provide a way for styling the table of contents or headings
 
 
 ## License:
