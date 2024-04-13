@@ -7,7 +7,9 @@ This is my CV template written in Typst. You can find a two example CVs in this 
 
 ## Setup
 
-To use the CV you have to install the font awesome fonts for the icons to work. Please refer to the [guide from the font awesome package](https://github.com/duskmoon314/typst-fontawesome).
+To use the CV you have to install the font awesome fonts for the icons to work. Please refer to the intstructons of the font awesome package itself. You can find these on:
+    - [Typst Universe](https://typst.app/universe/package/fontawesome)
+    - [GitHub](https://github.com/duskmoon314/typst-fontawesome).
 
 ## Functions
 
