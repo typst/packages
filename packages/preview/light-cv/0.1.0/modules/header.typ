@@ -57,18 +57,18 @@
 #let create-header-image(
   profile-photo: ""
 ) = {
-  if profile-photo.len() > 0 {
+  if profile-photo != none {
+    set image(
+      height: header-style.profile-photo.image-height, 
+      fit: "contain"
+    )
     block(
       width: header-style.profile-photo.width, 
       height: header-style.profile-photo.height, 
       stroke: header-style.profile-photo.stroke, 
       radius: header-style.profile-photo.radius, 
       clip: true,
-      image(
-        height: header-style.profile-photo.image-height, 
-        fit: "contain",
-        profile-photo
-      )
-    ) 
+      profile-photo
+    )
   }
 }

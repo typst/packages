@@ -76,7 +76,7 @@
     stroke: none,
     align: horizon,
     column-gutter: entry-style.margins.between-logo-and-title,
-    {image(logo)},
+    {logo},
     table(
       columns: (1fr),
       inset: 0pt,
