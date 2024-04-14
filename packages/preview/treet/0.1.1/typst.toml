@@ -1,5 +1,5 @@
 [package]
-name = "tree-list"
+name = "treet"
 version = "0.1.1"
 entrypoint = "lib.typ"
 authors = ["8LWXpg"]
