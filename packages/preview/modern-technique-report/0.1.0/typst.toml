@@ -7,6 +7,7 @@ license = "MIT"
 description = "A template for creating modern-style technique report in Typst."
 keywords = ["report", "book"]
 categories = ["layout", "report"]
+exclude = ["README.md"]
 compiler = "0.11.0"
 
 [template]
