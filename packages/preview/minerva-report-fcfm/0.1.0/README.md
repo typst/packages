@@ -24,8 +24,8 @@ La configuración `departamento` puede ser personalizada a cualquier organizaci�
 ```typ
 #let departamento = (
   nombre: (
-    "Universidad Técnica Federico Santa María",
-    "Factultad"
+    "Pontificia Universidad Católica de Chile",
+    "Facultad de Derecho",
   )
 )
 ```
