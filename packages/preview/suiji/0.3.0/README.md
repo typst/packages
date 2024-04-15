@@ -18,7 +18,7 @@
 The example below uses `suiji` and `cetz` packages to create a trajectory of a random walk.
 
 ```typ
-#import "@preview/suiji:0.2.2": *
+#import "@preview/suiji:0.3.0": *
 #import "@preview/cetz:0.2.2"
 
 #set page(width: auto, height: auto, margin: 0.5cm)
@@ -49,7 +49,7 @@ The example below uses `suiji` and `cetz` packages to create a trajectory of a r
 Another example is drawing the the famous **Matrix** rain effect of falling green characters in a terminal.
 
 ```typ
-#import "@preview/suiji:0.2.2": *
+#import "@preview/suiji:0.3.0": *
 #import "@preview/cetz:0.2.2"
 
 #set page(width: auto, height: auto, margin: 0pt)
@@ -97,7 +97,7 @@ Another example is drawing the the famous **Matrix** rain effect of falling gree
 Import `suiji` module first before use any random functions from it.
 
 ```typ
-#import "@preview/suiji:0.2.2": *
+#import "@preview/suiji:0.3.0": *
 ```
 
 For functions that generate various random numbers or randomly shuffle, a random number generator object (**rng**) is required as both input and output arguments. And the original **rng** should be created by function `gen-rng`, with an integer as the argument of seed. This calling style seems to be a little inconvenient, as it is limited by the programming paradigm. For function `discrete`, the given probalilities of the discrete events should be preprocessed by function `discrete-preproc`, whose output serves as an input argument of `discrete`.
