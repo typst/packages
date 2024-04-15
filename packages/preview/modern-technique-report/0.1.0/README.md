@@ -4,7 +4,7 @@ A template support modern technique report in Typst.
 
 = Usage
 
-```typ
+```typst
 #import "@preview/modern-technique-report:0.1.0": *
 
 #show: modern-technique-report.with(

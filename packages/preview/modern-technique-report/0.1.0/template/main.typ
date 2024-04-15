@@ -17,7 +17,7 @@
   ),
   date: datetime.today().display("[year] -- [month] -- [day]"),
   background: image("bg.jpg"),
-  theme_color: rgb(21, 74, 135),
+  theme-color: rgb(21, 74, 135),
   font: "New Computer Modern",
-  title_font: "Noto Sans",
+  title-font: "Noto Sans",
 )

@@ -5,15 +5,15 @@
   author: [Report Author],
   date: [Report Date],
   background: "bg.jpg",
-  theme_color: rgb(128, 128, 128),
+  theme-color: rgb(128, 128, 128),
   font: "New Computer Modern",
-  title_font: "Noto Sans",
+  title-font: "Noto Sans",
   doc
 ) = {
   set text(font: font)
 
-  let bg_color = theme_color.lighten(90%)
-  let font_color = theme_color.darken(30%)
+  let bg-color = theme-color.lighten(90%)
+  let font-color = theme-color.darken(30%)
 
   set heading(
     numbering: 
@@ -24,7 +24,7 @@
         #h(0.2em)
       ]
   )
-  show heading: it => text(fill: font_color, font: title_font)[#it #v(0.5em)]
+  show heading: it => text(fill: font-color, font: title-font)[#it #v(0.5em)]
   show heading.where(level: 1): set text(15pt)
   show heading.where(level: 2): set text(12pt)
   show heading.where(level: 1): it => {pagebreak(weak: true);it}
@@ -52,7 +52,7 @@
   ]
 
   // Series
-  box(fill: theme_color, width: 3pt, height: 43pt)
+  box(fill: theme-color, width: 3pt, height: 43pt)
   h(5pt) 
   box[#par(leading: 0.65em)[#text(size: 15pt)[*#series*]] #v(5pt)]
 
@@ -62,7 +62,7 @@
   align(center)[
     #set par(leading: 1em)
     
-    #text(25pt, tracking: 2pt, font: title_font)[*#title*]
+    #text(25pt, tracking: 2pt, font: title-font)[*#title*]
 
     #text(15pt)[#subtitle]
 
@@ -83,7 +83,7 @@
   show outline.entry.where(
     level: 1
   ): it => {
-    set text(13pt, font: title_font)
+    set text(13pt, font: title-font)
     v(10pt)
     if type(it.body) == content {
       let cont = it.body
