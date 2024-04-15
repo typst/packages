@@ -1,4 +1,5 @@
 // Construct the sections as aranged.
+#import "@preview/sustech-bachelor-thesis:0.1.0": *
 #import "./sections/cover.typ": make-cover
 #import "./sections/commitment.typ": make-commitment
 
