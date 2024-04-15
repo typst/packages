@@ -1,4 +1,4 @@
-#import "../configs/font.typ" as fonts
+#import "font.typ" as fonts
 
 // headings
 #show heading.where(level: 1): it =>{

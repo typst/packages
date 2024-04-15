@@ -12,5 +12,5 @@ categories = ["thesis"]
 
 [template]
 path = "sections"
-entrypoint = "cover.typ"
+entrypoint = "main.typ"
 thumbnail = "thumbnail.png"

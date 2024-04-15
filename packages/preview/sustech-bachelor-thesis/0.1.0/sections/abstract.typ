@@ -1,5 +1,5 @@
-#import "../configs/font.typ" as fonts
-#import "../configs/info.typ" as infos
+#import "font.typ" as fonts
+#import "info.typ" as infos
 #import "../content.typ": abstract
 #let indent = h(2em)
 

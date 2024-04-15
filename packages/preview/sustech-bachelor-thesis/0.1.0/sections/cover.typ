@@ -1,5 +1,5 @@
-#import "../configs/font.typ" as fonts
-#import "../configs/info.typ" as infos
+#import "font.typ" as fonts
+#import "info.typ" as infos
 
 #let shortline(
   title,
@@ -145,12 +145,12 @@
     )[
       #if isCN{
         image(
-          "../configs/SUSTech LOGO CN.svg",
+          "SUSTech LOGO CN.svg",
           width: 90%
         )
       }else{
         image(
-          "../configs/SUSTech LOGO EN.svg",
+          "SUSTech LOGO EN.svg",
           width: 90%
         )
       }
