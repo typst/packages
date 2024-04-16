@@ -1,5 +1,5 @@
 [package]
-name = "sustech-bachelor-thesis"
+name = "modern-sustech-thesis"
 version = "0.1.0"
 entrypoint = "template/main.typ"
 authors = ["MuTsingQAQ"]
