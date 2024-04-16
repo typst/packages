@@ -1,0 +1,16 @@
+[package]
+name = "sustech-bachelor-thesis"
+version = "0.1.0"
+entrypoint = "/template/configs/main.typ"
+authors = ["MuTsingQAQ"]
+license = "MIT"
+description = "南方科技大学本科毕业设计（论文）模板. SUSTech Bachelor Thesis Template."
+repository = "https://github.com/Duolei-Wang/sustech-thesis-typst"
+keywords = ["南方科技大学本科毕业论文模板", "SUSTech Bachelor Thesis Template", "南方科技大学", "SUSTech"]
+exclude = ["main.pdf"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
