@@ -1,6 +1,4 @@
 #import "font.typ" as fonts
-
-
   // show heading: title => {
   //   set align(center)
   //   set text(
@@ -68,5 +66,3 @@
   }
   
 }
-
-#toc(isCN: false)

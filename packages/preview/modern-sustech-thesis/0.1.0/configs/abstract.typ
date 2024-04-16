@@ -1,12 +1,32 @@
 #import "font.typ" as fonts
-#import "../sections/info.typ" as infos
-#import "../sections/info.typ": *
-
-#let indent = h(2em)
 
 #let abstract(
-  isCN: true
+  isCN: true,
+  information: (
+    title: (
+      [第一行],
+      [第二行],
+      [第三行],
+    ),
+    subtitle: [副标题],
+    keywords: (
+      [Keyword1],
+      [关键词2],
+      [啦啦啦],
+      [你好]
+    ),
+    author: [慕青QAQ],
+    department: [数学系],
+    major: [数学],
+    advisor: [木木],
+  ),
+  body: (
+      [#lorem(40)],
+      [#lorem(40)],
+  ),
 ) = {
+  let indent = h(2em)
+
   grid(
   columns: (1fr)
 )[
@@ -16,10 +36,10 @@
       size: fonts.No2,
     )[
       #if(isCN){
-        [#infos.title-CN.sum()]
+        [#information.title.sum()]
       }else{
         set text(weight: "bold")
-        [#infos.title-EN.sum()]
+        [#information.title.sum()]
       }
       
     ]
@@ -30,10 +50,10 @@
       size: fonts.No2-Small,
     )[
       #if(isCN){
-        [——#infos.subtitle-CN]
+        [——#information.subtitle]
       }else{
         set text(weight: "bold")
-        [——#infos.subtitle-EN]
+        [——#information.subtitle]
       }
       
     ]
@@ -44,7 +64,7 @@
       size: fonts.No4,
     )[
       #if(isCN){
-        [#infos.author-CN]
+        [#information.author]
       }
     ]
   ]
@@ -55,7 +75,7 @@
     )[
       #if(isCN){
         [
-      （#infos.department-CN 指导教师：#infos.advisor-CN）
+      （#information.department 指导教师：#information.advisor）
       ]
       }
     ]
@@ -77,12 +97,12 @@
         #text(
           font: fonts.HeiTi,
           size: fonts.No3,
-        )[[摘要]:]#abstract-content.at(0)
+        )[[摘要]:]#body.at(0)
       ]
 
       v(0.5em)
       par()[
-        #indent#abstract-content.at(1)
+        #indent#body.at(1)
       ]
 
       v(4em)
@@ -96,7 +116,7 @@
           font: fonts.SongTi,
           size: fonts.No4
         )[
-          #for i in infos.keywords{
+          #for i in information.keywords{
             i
             [；]
           }
@@ -108,11 +128,11 @@
           font: fonts.HeiTi,
           size: fonts.No3,
           weight: "bold"
-        )[[Abstract]:]#abstract-content.at(0)
+        )[[Abstract]:]#body.at(0)
       ]
       v(0.5em)
       par()[
-        #indent#abstract-content.at(1)
+        #indent#body.at(1)
       ]
       v(4em)
       par()[
@@ -125,7 +145,7 @@
           font: fonts.SongTi,
           size: fonts.No4
         )[
-          #for i in infos.keywords{
+          #for i in information.keywords{
             i
             [; ]
           }
@@ -133,12 +153,5 @@
       ]      
     }
   ]
-  
-  
-
-  
 ]
-
 }
-
-#abstract(isCN: true)

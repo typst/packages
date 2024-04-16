@@ -1,5 +1,4 @@
 #import "font.typ" as fonts
-#import "../sections/info.typ" as infos
 
 #let shortline(
   title,
@@ -31,6 +30,7 @@
       ]
     }else{
       title
+      h(0.5em)
       drawbaseline(
         linelength, 
         0.5pt
@@ -104,16 +104,50 @@
       )
 }
 
-#let makecover-core(
-  classes,
-  NO,
-  UDC,
-  secret,
-  isCN: true
+
+#let cover(
+  isCN: true,
+  title: (
+    [line1],
+    [line2],
+    [line3],
+  ),
+  author: [author],
+  SID: [SID],
+  department: [department],
+  major: [major],
+  advisor: [advisor],
 ) = {
   let topline = false
   let baseline = false
   let columns = 3
+  let cover-info-CN = (
+    [分类号], 
+    [编  号], 
+    [U D C], 
+    [密  级],
+  )
+  let cover-info-EN = (
+    [C L C], 
+    [Number], 
+    [U D C], 
+    [Available for reference],
+  )
+  let classes = cover-info-CN.at(0)
+  let Number = cover-info-CN.at(1)
+  let UDC = cover-info-CN.at(2)
+  let secret = cover-info-CN.at(3)
+  
+  let date-format-CN = "[year] 年 [month] 月 [day] 日"
+  let date-format-EN = "Date: [month repr:long] [day], [year]"
+
+  if(not isCN){
+    classes = cover-info-EN.at(0)
+    Number = cover-info-EN.at(1)
+    UDC = cover-info-EN.at(2)
+    secret = cover-info-EN.at(3)
+  }
+
   grid(
     align: auto,
     columns: (auto, auto, auto),
@@ -121,7 +155,7 @@
     
     shortline([#classes]),
     h(0.5fr),
-    shortline([#NO]),
+    shortline([#Number]),
 
     shortline([#UDC]),
     h(0.5fr),
@@ -204,46 +238,34 @@
         ],
     )[
         #align(center)[
-          #if(isCN){
-            infos.title-CN.at(0)
-          }else{
-            infos.title-EN.at(0)
-          }
+          #title.at(0)
         ]
     ],
     
-    if(infos.title-CN.len() >= 2){
+    if(title.len() >= 2){
       // blank long line
       longline(
         18em,
         [],
       )[
         #align(center)[
-          #if(isCN){
-              infos.title-CN.at(1)
-            }else{
-              infos.title-EN.at(1)
-            }
+          #title.at(1)
         ]
       ]
       
     },
 
-    if(infos.title-CN.len() >= 3){
-
-    longline(
-      18em,
-      [],
-    )[
-      #align(center)[
-        #if(isCN){
-            infos.title-CN.at(2)
-          }else{
-            infos.title-EN.at(2)
-        }
+    if(title.len() >= 3){
+      longline(
+        18em,
+        [],
+      )[
+        #align(center)[
+          #title.at(2)
+        ]
       ]
-    ]
     },
+
     longline(
       18em,
       box(width: 8em)[
@@ -255,11 +277,7 @@
       ]
       )[
         #align(center)[
-          #if(isCN){
-            infos.author-CN
-          }else{
-            infos.author-EN
-          }
+          #author
         ]
       ],
 
@@ -274,7 +292,7 @@
       ]
       )[
         #align(center)[
-          #infos.SID
+          #SID
         ]
       ],
 
@@ -289,11 +307,7 @@
       ]
       )[
         #align(center)[
-          #if(isCN){
-            infos.department-CN
-          }else{
-            infos.department-EN
-          }
+          #department
         ]
       ],
 
@@ -309,11 +323,7 @@
       ]
       )[
         #align(center)[
-          #if(isCN){
-            infos.major-CN
-          }else{
-            infos.major-EN
-          }
+          #major
         ]
       ],
 
@@ -328,11 +338,7 @@
       ]
       )[
         #align(center)[
-          #if(isCN){
-            infos.advisor-CN
-          }else{
-            infos.advisor-EN
-          }
+          #advisor
         ]
       ],
 
@@ -355,11 +361,11 @@
       )[
         #if(isCN){
           datetime.today().display(
-            infos.date-CN
+            date-format-CN
           )
         }else{
           datetime.today().display(
-            infos.date-EN
+            date-format-EN
           )
         }
       ]
@@ -367,24 +373,3 @@
   )
   pagebreak()
 }
-
-#let cover(isCN: bool) = {
-  if(isCN){
-    makecover-core(
-    [分类号], 
-    [编  号], 
-    [U D C], 
-    [密  级],
-  )
-  }else{
-    makecover-core(
-    [C L C], 
-    [Number], 
-    [U D C], 
-    [Available for reference],
-    isCN: false,
-  )
-  }
-} 
-
-#cover(isCN: false)
