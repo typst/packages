@@ -8,7 +8,6 @@ description = "Simple and easy-to-use template for problem sets/homeworks/assign
 keywords = ["template", "homework", "problem set", "pset", "assignment"]
 categories = ["report"]
 compiler = "0.11.0"
-exclude = ["./template/thumbnail.png"]
 
 [template]
 path = "template"
