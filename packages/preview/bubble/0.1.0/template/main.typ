@@ -8,7 +8,7 @@
   date: datetime.today().display(),
   year: "Year",
   class: "Class",
-  logo: "logo.png",
+  logo: image("logo.png"),
 ) 
 
 // Edit this content to your liking

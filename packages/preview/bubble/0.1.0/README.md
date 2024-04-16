@@ -24,7 +24,7 @@ This template exports the `bubble` function with the following named arguments:
 - `year`: The year you're in
 - `class`: For which class this document is 
 - `date`: Date of the document, current date if none is set *default is current date*
-- `logo`: Path of the logo displayed at the top right of the title page *default is none*
+- `logo`: Path of the logo displayed at the top right of the title page, must be set like an image : `image("path-to-img")` *default is none*
 - `main-color`: Main color used in the document *default is `#E94645`*
 - `alpha`: Percentage of transparency for the bubbles on the title page *default is 60%*
 
@@ -46,7 +46,7 @@ If you want to change an existing project to use this template, you can add a sh
   date: datetime.today().display(),
   year: "Year",
   class: "Class",
-  logo: "logo.png"
+  logo: image("logo.png")
 ) 
 
 // Your content goes here

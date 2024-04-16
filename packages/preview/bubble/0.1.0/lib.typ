@@ -77,7 +77,8 @@ set heading(numbering: (..nums) => {
   // Title page.
   // Logo at top right if given
   if logo != none {
-    place(top + right, image(logo, width: 35%))
+    set image(width: 6cm)
+    place(top + right, logo)
   }
   // decorations at top left
   place(top + left, dx: -35%, dy: -28%, circle(radius: 150pt, fill: primary-color))
