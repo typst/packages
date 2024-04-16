@@ -1,7 +1,7 @@
 [package]
 name = "sustech-bachelor-thesis"
 version = "0.1.0"
-entrypoint = "/template/configs/main.typ"
+entrypoint = "main.typ"
 authors = ["MuTsingQAQ"]
 license = "MIT"
 description = "南方科技大学本科毕业设计（论文）模板. SUSTech Bachelor Thesis Template."
