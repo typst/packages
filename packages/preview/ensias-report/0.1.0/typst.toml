@@ -1,5 +1,5 @@
 [package]
-name = "ensias-report"
+name = "red-agora"
 description = "A Typst template to quickly scaffold a report for your projects and internships at ENSIAS"
 version = "0.1.0"
 entrypoint = "lib.typ"
