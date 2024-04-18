@@ -34,10 +34,19 @@
   body,
 ) = {
   // 中英文封面页 Cover
-  cover(isCN: isCN)
+  cover(
+    isCN: isCN,
+    title: information.title,
+    author: information.author,
+    department: information.department,
+    major: information.major,
+    advisor: information.advisor,
+  )
 
   // 承诺书 Commitment
-  commitment(isCN: isCN)
+  commitment(
+    isCN: isCN,
+  )
 
   // 设定目录编号格式
   set heading(numbering: "1.1.1.")
@@ -46,9 +55,16 @@
   counter(page).update(1)
 
   // 插入摘要页
-  abstract(isCN: isCN)
+  abstract(
+    isCN: isCN,
+    information: information,
+
+  )
   // 插入目录页
-  toc(isCN: isCN)
+  toc(
+    isCN: isCN,
+    toc-title: toc-title,
+  )
 
   // 设定正文部分页码
   set page(numbering: "1")
@@ -77,8 +93,6 @@
     "notation",
     "符号",
   )
-
-  let mapsto = $|->$
 
   // body style
   import "./configs/font.typ" as fonts
