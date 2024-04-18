@@ -1,0 +1,10 @@
+[package]
+name = "wrap-indent"
+version = "0.1.0"
+entrypoint = "wrap-indent.typ"
+authors = ["Ian Wrzesinski"]
+license = "MIT"
+description = "Wrap indented blocks in custom functions using term list syntax"
+categories = ["scripting", "utility"]
+keywords = ["syntax", "wrapping"]
+exclude = ["example.typ", "example.png"]
