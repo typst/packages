@@ -95,8 +95,6 @@
     "符号",
   )
 
-  let mapsto = $|->$
-
   // body style
   import "./configs/font.typ" as fonts
   // headings

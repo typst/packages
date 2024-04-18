@@ -77,7 +77,6 @@
   - 标题栏使用 '=' 而非 '#'，'#' 在 typst 里是宏命令的开头.
   - 数学公式不需要反斜杠，数学符号可以查阅：https://typst.app/docs/reference/symbols/sym/. 值得注意的是，typst 中语法不通过叠加的方式实现，如 “不等号” 在 LaTex 中是 '\not{=}'. 而在 typst 中，使用 'eq.not' 的方式来调用 'eq'（等号）的 'not'（不等）变体实现.
   - 引用标签采用 '@label' 来实现，自定义标签通过 '<label-title>' 来实现. 对于 BibTex 格式的引用（refer.bib），与 LaTex 思路相同，第一个缩略词将会被认定为 label.
-
 - 自定义格式的思路.
   如有额外的需要自定义格式的需求，可以自行学习 '#set', '#show' 命令，这可能需要一定的编程语言知识，后续我会更新部分简略教程在我的 github 仓库里：https://github.com/Duolei-Wang/lang-typst.
 
@@ -94,7 +93,6 @@
   修正了参数传递失败造成的封面等页面无法正常更改信息.
 
 TODO:
-
 - [ ] 引用格式 check.
 
 
