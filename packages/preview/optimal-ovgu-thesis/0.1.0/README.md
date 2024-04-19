@@ -47,7 +47,7 @@ In your `configuration.nix`:
 In case you want to contribute, check out the repo into a [typst package directory](https://github.com/typst/packages?tab=readme-ov-file#local-packages) 
 
 ### Example for Linux:
-Local package path: `~/.local/share/typst/packages/local/optimal-ovgu-thesis/develop`
+Local package path: `~/.local/share/typst/packages/local/optimal-ovgu-thesis/0.1.0`
 
 ```sh
 mkdir -p ~/.local/share/typst/packages/local/optimal-ovgu-thesis
