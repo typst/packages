@@ -6,7 +6,8 @@ authors = [ "jxpeng98",]
 repository = "https://github.com/jxpeng98/typst-coverletter"
 license = "MIT"
 description = "A cover letter template with modern Sans font for job applications and other formal letters."
-categories = ["cv", "utility"]
+keywords = [ "coverletter", "CV", "Job",]
+categories = [ "cv", "utility",]
 
 [template]
 path = "template"

@@ -6,7 +6,7 @@ This is a cover letter template for Typst with Sans font. It is a modern and pro
 
 ### Use from the Typst Universe
 
-It is simple and easy to use this template from the Typst Universe. If you prefer to use local editor and `typst-cli`, you can use the following command to create a new cover letter project with this template.
+It is simple and easy to use this template from the Typst Universe. If you prefer to use the local editor and `typst-cli`, you can use the following command to create a new cover letter project with this template.
 
 ```bash
 typst init @preview/modernpro-coverletter
