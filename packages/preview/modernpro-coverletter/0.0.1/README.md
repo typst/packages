@@ -28,9 +28,9 @@ The template will have the following features:
 
 ```typst
 #show: main.with(
-  fonttype: "macfont",
-  name: "Exam Example",
-  address: [London, UK],
+  font-type: "openfont",
+  name: [#lorem(2)],
+  address: [#lorem(4)],
   contacts: (
     (text: "08856", link: ""),
     (text: "example.com", link: "https://www.example.com"),
@@ -38,23 +38,25 @@ The template will have the following features:
     (text: "123@example.com", link: "mailto:123@example.com"),
   ),
   recipient: (
-    starttitle: "Dear Committee Members,",
-    cltitle: "Job Application for Hiring Manager",
-    date: "2024-01-01",
-    department: [Department of Example],
-    institution: [University of Example],
-    address: [London, UK],
-    postcode: [W1 S2],
+    start-title: [Dear],
+    cl-title: [Job Application for Hiring Manager],
+    date: [],
+    department: [#lorem(2)],
+    institution: [#lorem(2)],
+    address: [#lorem(4)],
+    postcode: [#lorem(1)],
   ),
 )
+
+#lorem(300)
 ```
 
-- fonttype: The font type of the cover letter. It can be "macfont" or "openfont".
+- `font-type`: The font type of the cover letter. It can be "macfont" or "openfont".
 - recipient: The recipient information of the cover letter.
-  - starttitle: The start title of the letter.
-  - cltitle: The title of the letter (i.g., Job Application for Hiring Manager).
-  - date: The date of the letter(If "", it will generate the current date).
-  - department: The department of the recipient, can be "".
+  - `start-title`: The start title of the letter.
+  - `cl-title`: The title of the letter (i.g., Job Application for Hiring Manager).
+  - date: The date of the letter(If "" or [], it will generate the current date).
+  - department: The department of the recipient, can be "" or [].
   - institution: The institution of the recipient.
   - address: The address of the recipient.
   - postcode: The postcode of the recipient.
