@@ -5,13 +5,7 @@
 #import "disclaimer.typ": oot-disclaimer
 #import "expose.typ": oot-expose
 
-#let optimal-ovgu-thesis(
-  title: "",
-  author: none,
-  lang: "en",
-  is-doublesided: none,
-  body,
-) = {
+#let optimal-ovgu-thesis(title: "", author: none, lang: "en", is-doublesided: none, body) = {
   set document(title: title, author: author-fullname(author))
   set page(
     margin: (left: 30mm, right: 30mm, top: 27mm, bottom: 27mm),
@@ -19,25 +13,15 @@
     number-align: center,
   )
 
-  set text(
-    font: body-font, 
-    size: 11pt, 
-    lang: lang
-  )
+  set text(font: body-font, size: 11pt, lang: lang)
   show math.equation: set text(weight: 400)
   show figure.caption: emph
 
-  show figure.where(
-    kind: table
-): set figure.caption(position: top)
+  show figure.where(kind: table): set figure.caption(position: top)
 
-  show figure.where(
-    kind: raw
-): set figure.caption(position: top)
+  show figure.where(kind: raw): set figure.caption(position: top)
 
-  set table(
-    stroke: gray
-  )
+  set table(stroke: gray)
 
   show heading: set text(font: sans-font)
   show heading.where(level: 1): h => [
@@ -54,11 +38,11 @@
   show heading.where(level: 6) : small-heading()
   show heading.where(level: 7) : small-heading()
 
-  show par: set block(spacing: 1em) 
+  show par: set block(spacing: 1em)
   set par(
     justify: true,
     leading: 1em, // Set the space between lines in text
-    first-line-indent: 1em
+    first-line-indent: 1em,
   )
 
   show raw.where(block: true): it => align(start, block(
@@ -67,12 +51,10 @@
     inset: 8pt,
     radius: 3pt,
     width: 100%,
-    it
+    it,
   ))
   show raw.where(block: true): set text(size: 8pt)
   show raw.where(block: true): set par(leading: 0.6em)
-
-
 
   // Table of contents
   set outline(indent: 2em)
@@ -84,6 +66,6 @@
     #outline
     #variable-pagebreak(is-doublesided)
   ]
-  
+
   body
 }

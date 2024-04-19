@@ -15,23 +15,15 @@
   is-doublesided: none,
   lang: "en",
 ) = {
-  set page(
-    numbering: none
-  )
+  set page(numbering: none)
 
-  set par(
-    leading: 1em,
-    first-line-indent: 0em,
-    justify: false,
-  )
-  
+  set par(leading: 1em, first-line-indent: 0em, justify: false)
+
   align(center, header-logo)
 
   v(5mm)
 
-  block(
-    inset: 2cm
-  )[
+  block(inset: 2cm)[
     #text(font: sans-font, 2em, weight: 700, document-type)
     #par(leading: 0.6em)[
       #text(font: sans-font, 1.6em, weight: 500, title)
@@ -44,36 +36,24 @@
     ]
   ]
 
-    pad(
-      top: 0em,
-      right: 15%,
-      left: 15%,
-      grid(
-        columns: 2,
-        gutter: 1em,
-        strong(
-          if (lang == "de") [
-            Betreuer: 
-          ] else [
-            Advisors: 
-          ]
-        ), advisors.join(", "),
-        strong(
-          if (lang == "de") [
-            Themensteller: 
-          ] else [
-            Supervisor: 
-          ]
-        ), supervisor,
-        strong(
-          if (lang == "de") [
-            Zweitgutachter: 
-          ] else [
-            Second Supervisor: 
-          ]
-        ), second-supervisor,
-      )
-    )
+  pad(
+    top: 0em,
+    right: 15%,
+    left: 15%,
+    grid(columns: 2, gutter: 1em, strong(if (lang == "de") [
+      Betreuer:
+    ] else [
+      Advisors:
+    ]), advisors.join(", "), strong(if (lang == "de") [
+      Themensteller:
+    ] else [
+      Supervisor:
+    ]), supervisor, strong(if (lang == "de") [
+      Zweitgutachter:
+    ] else [
+      Second Supervisor:
+    ]), second-supervisor),
+  )
 
   align(bottom)[
     #line(length: 100%)
@@ -85,9 +65,9 @@
         #move(dx: 1.2cm, dy: 0cm)[
           #organisation-logo
         ]
-      ]
+      ],
     )
   ]
-  
+
   variable-pagebreak(is-doublesided)
 }

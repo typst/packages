@@ -16,10 +16,7 @@
 
 // Small headings style
 #let small-heading() = it => [
-  #set text(
-    weight: "regular",
-    style: "italic"
-  )
+  #set text(weight: "regular", style: "italic")
   #it
 ]
 
@@ -27,7 +24,7 @@
   // New chapters should start on the right page which is odd when printed double-sided
   if is-doublesided {
     pagebreak(weak: true, to: "odd")
-  } else{
+  } else {
     pagebreak(weak: true)
   }
 }
