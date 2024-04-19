@@ -20,7 +20,7 @@
 }
 
 // Check if an acronym exists
-#let isValid(acr) = {
+#let is-valid(acr) = {
   acros.display(acronyms => {
     if acr not in acronyms {
       panic(acr + " is not a key in the acronyms dictionary.")
@@ -32,7 +32,7 @@
 
 // Display acronym as clickable link
 #let display-link(acr, text) = {
-  if isValid(acr) {link(label(acr), text)}
+  if is-valid(acr) {link(label(acr), text)}
 }
 
 // Display acronym
@@ -50,7 +50,7 @@
 // Display acronym in long form.
 #let acrl(acr, plural: false, link: true) = {
   acros.display(acronyms => {
-    if isValid(acr) {
+    if is-valid(acr) {
       let defs = acronyms.at(acr)
       if type(defs) == "string" {
         if plural {

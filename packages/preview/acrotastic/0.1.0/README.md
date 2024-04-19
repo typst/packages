@@ -92,3 +92,7 @@ Moreover you have to be careful when using states.
 ## Contributing
 
 If you notice any bug or want to contribute a new feature, please open an issue or a pull request on the fork [Julian702/typst-packages](https://github.com/Julian702/typst-packages?tab=readme-ov-file)
+
+## Acknowledgement
+
+Thanks to @Grisely who developed the [acrostiche package](https://typst.app/universe/package/acrostiche/) which was the basis for acrotastic.
