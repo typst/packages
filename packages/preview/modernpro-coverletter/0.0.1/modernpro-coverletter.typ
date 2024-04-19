@@ -143,7 +143,7 @@
       12pt,
       font: font-head,
       fill: primary-colour,
-      weight: "medium",
+      weight: "bold",
     )[#upper(cl-title)])
     v(0.1em)
     set text(11pt, font: font-head, fill: primary-colour, weight: "regular")

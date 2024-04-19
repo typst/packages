@@ -15,7 +15,7 @@
     cl-title: [Job Application for Hiring Manager],
     date: [],
     department: [#lorem(2)],
-    university: [#lorem(2)],
+    institution: [#lorem(2)],
     address: [#lorem(4)],
     postcode: [#lorem(1)],
   ),
