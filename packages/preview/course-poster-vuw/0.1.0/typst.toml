@@ -1,0 +1,13 @@
+[package]
+name = "course-poster-vuw"
+version = "0.1.0"
+entrypoint = "course-poster-vuw.typ"
+authors = ["baptiste <https://github.com/baptiste>"]
+license = "MPL-2.0"
+description = "A poster template for VUW course descriptions."
+categories = ["office"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
