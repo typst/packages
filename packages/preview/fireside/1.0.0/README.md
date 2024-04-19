@@ -55,6 +55,6 @@ Features:
 
 # License
 
-  * `lib.typ` is licensed as CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/legalcode)
+  * `lib.typ` is licensed as MIT (https://opensource.org/license/mit)
   * The demo/template files are licensed as CC0 (https://creativecommons.org/publicdomain/zero/1.0/legalcode)
   * Any document fully or partially generated using this template may be licensed however you wish
