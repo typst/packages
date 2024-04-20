@@ -1,0 +1,17 @@
+[package]
+name = "modern-isc-report"
+version = "0.1.0"
+compiler = "0.11.0"
+entrypoint = "isc_template_report.typ"
+repository = "https://github.com/ISC-HEI/ISC-report"
+authors = ["Pierre-andré Mudry"]
+license = "MIT"
+description = "An official report template for the ISC bachelor degree programme in Sion, at the School of Engineering"
+keywords = ["report", "university", "HES-SO Valais", "Sion", "Sitten", "HEI"]
+categories = ["report"]
+disciplines = ["computer-science", "engineering"]
+
+[template]
+path = "template"
+entrypoint = "report.typ"
+thumbnail = "thumbnail.png"
