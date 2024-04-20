@@ -109,7 +109,7 @@
       // #it
       #strong(it)
     ]
-    text()[#v(0.5em)]
+    text()[#v(1em)]
   }
 
   show heading.where(level: 2): it =>{
@@ -119,7 +119,7 @@
       weight: "regular"
       )
     it
-    text()[#v(0.5em)]
+    text()[#v(1em)]
   }
 
   show heading.where(level: 3): it =>{
@@ -129,7 +129,7 @@
       weight: "regular"
       )
     it
-    text()[#v(0.5em)] 
+    text()[#v(1em)] 
   }
 
   // paragraph
@@ -139,13 +139,10 @@
     first-line-indent: 2em,
     leading: 1.5em)
 
-  show par: it => {
-    set text(
+  set text(
       font: fonts.SongTi,
       size: fonts.No4-Small,
-    )
-    it
-  }
+  )
 
   body
   
