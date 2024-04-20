@@ -16,9 +16,9 @@
     ),
     subtitle: [副标题],
     
-    abstract-content: (
-      [#lorem(40)],
-      [#lorem(40)],
+    abstract-body: (
+        lorem(40),
+        lorem(49),
     ),
     keywords: (
       [Keyword1],
@@ -38,8 +38,6 @@
     style: "gb-7714-2015-numeric",
   ),
 )
-
-= Ch1. 测试
 
 == 我的 test 1.1
 #indent

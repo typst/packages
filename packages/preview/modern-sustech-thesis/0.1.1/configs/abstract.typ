@@ -21,9 +21,9 @@
     advisor: [木木],
   ),
   body: (
-      [#lorem(40)],
-      [#lorem(40)],
-  ),
+    [#lorem(40)],
+    [#lorem(40)]
+  )
 ) = {
   let indent = h(2em)
 

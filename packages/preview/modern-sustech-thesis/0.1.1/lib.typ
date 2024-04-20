@@ -14,8 +14,7 @@
       [第三行],
     ),
     subtitle: [副标题],
-    
-    abstract-content: (
+    abstract-body: (
       [#lorem(40)],
       [#lorem(40)],
     ),
@@ -59,7 +58,7 @@
   abstract(
     isCN: isCN,
     information: information,
-
+    body: information.abstract-body,
   )
   // 插入目录页
   toc(
