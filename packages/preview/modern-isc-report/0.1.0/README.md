@@ -24,7 +24,7 @@ This template will initialize an sample report with sensible default values.
 
 ## Installing fonts locally
 
-If you are running `typst` locally, you might need to download fonts. For your convenience, all the required fonts are included in the original repos residing here, which is not a problem because they were all released using the [SIL Open Font License](https://openfontlicense.org/) which is included in this repository.
+If you are running `typst` locally, you might need to download fonts. For your convenience, all the required fonts are included in the original repos [residing here](https://github.com/ISC-HEI/ISC-report), which is not a problem because they were all released using the [SIL Open Font License](https://openfontlicense.org/) which is included in this repository.
 
 To the install the fonts in a Linux environment, simply type
 
@@ -32,7 +32,7 @@ To the install the fonts in a Linux environment, simply type
 source install_fonts.sh
 ```
 
-from within the `fonts` directory.
+from within the `fonts` directory and the fonts will be installed.
 
 ## PDF images inclusion
 
