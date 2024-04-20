@@ -10,7 +10,7 @@
   smallcaps[#lower[#body]]
 }
 
-#let course-poster-vuw(
+#let tuhi-course-poster-vuw(
   coursetitle: "course title",
   courseid: "rand101",
   coursemajor: none,
@@ -63,13 +63,10 @@ let content-width = 160mm
 let content-height = 100mm
 let content-top = 28pt
 
-
 let vuwcol = rgb(0,71,48)
-let col2 = rgb("#555555") // dark text
-// default image in subfolder
-courseimage = if(courseimage == "") {"images/" + courseid + ".jpg"} else {courseimage}
+let darkcol = rgb("#555555") // dark text
 
-
+// function to draw the page background with a specific colour
 let bkg(col: vuwcol) = {
 
 place(
@@ -131,7 +128,7 @@ place(
 
 place(
   dx: 0.5*(pagewidth - schedule-width),
-  dy: pageheight  - margin-shaded-bottom - 2*schedule-spacer,
+  dy: pageheight - margin-shaded-bottom - 2*schedule-spacer,
   line(
   length: schedule-width,
   stroke: (thickness: 0.5*stoke-width , paint: col , dash: "dotted"),
@@ -140,17 +137,14 @@ place(
 
 }
 
-
-let vuwcol = rgb(0,71,48)
-
-
 // computed
 let coursediscipline = courseid.slice(0,4)
 let coursecode = courseid.slice(4,7)
 let year = coursecode.at(0)
 let courseurl = qrcodeurl + coursediscipline + "/" + coursecode
-// https://www.wgtn.ac.nz/courses/phys/304/2023
+// url expected to follow this scheme: https://www.wgtn.ac.nz/courses/phys/304/2023
 
+// colour inferred from course level
 let col = (
   "1": rgb(235,157,12),
   "2": rgb(0,158,224),
@@ -158,16 +152,12 @@ let col = (
   "4": rgb(226,0,122),
 ).at(year)
 
-// set up page
+// now set up page with coloured background
 set page(height: pageheight, width: pagewidth, margin: 0mm, background: bkg(col: col))
 set text(size: 13pt)
 set par(justify: false, leading: 0.2em)
-show raw: set text(font: "Source Code Pro", size: 1.1em, tracking: -0.1pt)
 
-
-// VUW stuff
-
-// note that must be before defining • colour globally (bug)
+// contact details
 place(
   dx: address-left,
   dy:  pageheight - margin-shaded-bottom + address-top,
@@ -190,8 +180,7 @@ place(
   dx: pagewidth - margin-body-left - logo-height,
   dy:  pageheight - margin-shaded-bottom + address-top,
   qrcode(courseurl, width: logo-height, ecl:"l",
-  colors: (white, vuwcol), quiet-zone: 0)
-  // image("qr.png", height: logo-height)
+         colors: (white, vuwcol), quiet-zone: 0)
 )
 
 // logo
@@ -202,13 +191,13 @@ place(
 )
 
 
-// now define it globally
+// now defining coloured replacements globally
 show "•": text.with(weight: "extralight", fill: col)
 show "·": text.with(weight: "extralight", fill: col)
 show "↯": text.with(fill: col)
 
 
-// image
+// image with border
 place(
   dx: margin-body-left,
   dy: image-top,
@@ -217,8 +206,10 @@ place(
 
 place(
   dx: margin-body-left,
-  dy:  image-top,
-  image(courseimage, width:image-width, height:0.5*image-width),
+  dy:  image-top,{
+  set image(width:image-width, height:0.5*image-width)
+  courseimage
+  },
 )
 
 // title
@@ -242,22 +233,12 @@ place(
   dx: margin-body-left + padding-body,
   dy: image-top + image-height + description-top,
   block(width:image-width - padding-body, height:2*description-top)[
-#set text(size: 22pt, weight: 700, fill: col2)
+#set text(size: 22pt, weight: 700, fill: darkcol)
 #set par(justify: false, leading: 0.6em)
 #coursedescription]  
 )
 
-
 // course content
-//place(
-//  dx: margin-body-left + padding-body,
-//  dy: image-top + image-height + 2.5*description-top + content-top ,
-//  block(width:content-width, height:content-height)[
-//#set text(size: 18pt)
-//#set par(justify: false, leading: 0.52em)
-//// #rect(width:100%, height:100%)
-//#body]  
-//)
 
 place(
   dx: margin-body-left + padding-body,
@@ -267,6 +248,7 @@ place(
 #set par(justify: false, leading: 0.52em)
 // #rect(width:100%, height:100%)
 
+// content height dictates the leading to cater for both dense and sparse course descriptions
 #let sizeme(body) = style(styles => {
   let size = measure(body, styles)
   let headingspace = if(size.height < 350pt) {1.2em} else if(size.height < 250pt) {0.6em} else {0.6em}
@@ -274,7 +256,7 @@ place(
   
   show heading: it => block(above: headingspace, below: 0.3em)[
   #set align(left)
-  #set text(size: 18pt, fill: col2)
+  #set text(size: 18pt, fill: darkcol)
   #set par(justify: true, leading: 0.2em)
   #h(-0.5em)• #scaps(it.body, weight: "bold") //#size.height 
 ]
@@ -287,7 +269,7 @@ body
 
 
 // copyright
-// {230mm}{10pt}{33.5mm}{420mm-219mm-12pt}[copyright]
+
 place(
   dx: 33.5mm,
   dy:  220mm ,
@@ -306,7 +288,7 @@ place(
 #set par(justify: false, leading: 0.7em)
 #set text(weight: 300, size: 13pt)
 #set align(left + top)
-#show strong: set text(weight: 400, fill: col2)
+#show strong: set text(weight: 400, fill: darkcol)
 #let majorstring = [Major: ] + scaps(weight: "regular")[#coursemajor] + [\ ]
 #if(coursemajor != none) {show strong: scaps; majorstring ; v(0.1em)} else {}
 #strong(coursepoints) points • trimester #strong(coursetrimester) \

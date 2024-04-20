@@ -1,9 +1,10 @@
 #import "@preview/course-poster-vuw:0.1.0": course-poster-vuw
 
+// choice of fonts
 #set text(font: "Source Sans Pro")
+#show raw: set text(font: "Source Code Pro", size: 1.1em, tracking: -0.1pt)
 
 // dummy details
-
 #let logo = image("logo.svg")
 #let url = "https://paekakariki.nz/"
 
