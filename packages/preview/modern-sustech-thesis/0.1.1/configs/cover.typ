@@ -110,8 +110,8 @@
   title: (
     [line1],
     [line2],
-    [line3],
   ),
+  subtitle: [],
   author: [author],
   SID: [SID],
   department: [department],
@@ -222,7 +222,7 @@
 
     fillwith(
       columns,
-      7,
+      6,
       topline,
       baseline,
     )[],
@@ -255,16 +255,22 @@
       
     },
 
-    if(title.len() >= 3){
+    if(subtitle != []){
       longline(
         18em,
         [],
       )[
         #align(center)[
-          #title.at(2)
+          #subtitle
         ]
       ]
+    }else{
+      longline(
+        18em,
+        [],
+      )[]
     },
+
 
     longline(
       18em,
@@ -373,3 +379,5 @@
   )
   pagebreak()
 }
+
+#cover()

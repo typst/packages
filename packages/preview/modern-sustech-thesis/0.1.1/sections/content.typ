@@ -1,7 +1,9 @@
 // 离线编译运行
 // #import "../lib.typ": sustech-thesis
+
 // 上线之后采用此段注释
 #import "@preview/modern-sustech-thesis:0.1.1": sustech-thesis
+
 // 离线测试使用
 // #import "@local/modern-sustech-thesis:0.1.1": sustech-thesis
 
@@ -10,11 +12,10 @@
   isCN: true,
   information: (
     title: (
-      [第一行],
-      [第二行],
-      [第三行],
+      [title line 1],
+      [title line 2],
     ),
-    subtitle: [副标题],
+    subtitle: [subtitle],
     
     abstract-body: (
         lorem(40),
@@ -28,8 +29,8 @@
     ),
     author: [慕青QAQ],
     department: [数学系],
-    major: [数学],
-    advisor: [木木],
+    major: [数#h(1em)学],
+    advisor: [木#h(1em)木],
   ),
   toc-title: [目录],
   bibliography: bibliography(
@@ -38,6 +39,8 @@
     style: "gb-7714-2015-numeric",
   ),
 )
+
+= 我的第一段
 
 == 我的 test 1.1
 #indent

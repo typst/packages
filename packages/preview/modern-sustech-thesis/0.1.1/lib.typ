@@ -13,7 +13,7 @@
       [第二行],
       [第三行],
     ),
-    subtitle: [副标题],
+    subtitle: [subtitle],
     abstract-body: (
       [#lorem(40)],
       [#lorem(40)],
@@ -37,6 +37,7 @@
   cover(
     isCN: isCN,
     title: information.title,
+    subtitle: information.subtitle,
     author: information.author,
     department: information.department,
     major: information.major,
