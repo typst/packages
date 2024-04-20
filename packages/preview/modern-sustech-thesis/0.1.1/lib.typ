@@ -139,6 +139,14 @@
     first-line-indent: 2em,
     leading: 1.5em)
 
+  show par: it => {
+    set text(
+      font: fonts.SongTi,
+      size: fonts.No4-Small,
+    )
+    it
+  }
+
   body
   
   // Display bibliography.
