@@ -7,7 +7,7 @@ repository = "https://github.com/ISC-HEI/ISC-report"
 authors = ["Pierre-andré Mudry"]
 license = "MIT"
 description = "An official report template for the ISC bachelor degree programme in Sion, at the School of Engineering"
-keywords = ["report", "university", "HES-SO Valais", "Sion", "Sitten", "HEI"]
+keywords = ["report", "ISC", "university", "HES-SO Valais", "Sion", "HEI", "School of engineering"]
 categories = ["report"]
 disciplines = ["computer-science", "engineering"]
 
