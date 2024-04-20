@@ -112,6 +112,7 @@
     [line2],
   ),
   subtitle: [],
+  
   author: [author],
   SID: [SID],
   department: [department],

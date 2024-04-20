@@ -25,6 +25,7 @@
       [你好]
     ),
     author: [慕青QAQ],
+    SID: [SID],
     department: [数学系],
     major: [数学],
     advisor: [木木],
@@ -39,6 +40,7 @@
     title: information.title,
     subtitle: information.subtitle,
     author: information.author,
+    SID: information.SID,
     department: information.department,
     major: information.major,
     advisor: information.advisor,
