@@ -1,5 +1,6 @@
 # [Social Media References based on Scalable Vector Graphics (SVG) Icons for Typst](https://github.com/Bi0T1N/typst-iconic-salmon-svg)
-The `iconic-salmon-svg` package is designed to help you create your curriculum vitae (CV). It allows you to easily reference your social media profiles with the typical icon of the service plus a link to your profile.
+The `iconic-salmon-svg` package is designed to help you create your curriculum vitae (CV). It allows you to easily reference your social media profiles with the typical icon of the service plus a link to your profile.  
+The package name is a combination of the acronym *SociAL Media icONs* and the word *iconic* because all these icons have an iconic design (and iconic also contains the word *icon*).
 
 ## Features
 - Support for popular social media, developer and career platforms
