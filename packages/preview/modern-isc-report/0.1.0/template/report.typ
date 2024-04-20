@@ -42,52 +42,56 @@ Il convient tout d'abord pour présenter le contenu de se rendre compte que ce s
 Voici un peu de #todo[texte mis en évidence] et qui sera discuté dans le @intro[point].
 
 == Insertion de code
-Nous pouvons également avoir du `code brut directement en ligne` mais cela peut également être fait avec du code Scala comme par exemple dans ```scala def foo(x: Int)```. Cela n'empêche pas d'avoir des blocs de code joliment mis en forme également : 
- 
-```scala 
-def foo(val a : Any) : Int = {
-  a match : 
-    case a: Int  => 12
-    case _ => 42
-}  
-```
- 
-On peut si on le souhaite également avoir des blocs encore plus "fancy" à l'aide d'un package : 
+Nous pouvons également avoir du `code brut directement en ligne` mais cela peut également être fait avec du code Scala comme par exemple dans ```scala def foo(x: Int)```. Cela n'empêche pas d'avoir des blocs de code joliment mis en forme également. Ainsi, lorsque l'on souhaite avoir du code inséré dans une figure, on peut également utiliser le package `sourcecode` qui rajoute notamment les numéros de ligne. En complément avec une `figure`, il est possible d'avoir une _légende_, un numéro de figure ainsi que du code centré: 
 
-#sourcecode()[
-```scala
-object ImageProcessingApp_Animation extends App {
-	val imageFile = "./res/grace_hopper.jpg"
+#figure(
+  sourcecode()[
+  ```scala 
+  def foo(val a : Any) : Int = {
+    a match : 
+      case a: Int  => 12
+      case _ => 42
+  }  
+  ```],
+  caption: "Un tout petit listing"
+)
 
-	val org = new ImageGraphics(imageFile, "Original", -200, 0)
-	val dest2 = new ImageGraphics(imageFile, "Threshold", 200, 0)
+On peut si on le souhaite également avoir des blocs de code plus long si nécessaire : 
 
-	var direction: Int = 1
-	var i = 1
+#figure(
+  sourcecode()[
+  ```scala
+  object ImageProcessingApp_Animation extends App {
+    val imageFile = "./res/grace_hopper.jpg"
 
-	while (true) {
-		if (i == 255 || i == 0)
-			direction *= -1
+    val org = new ImageGraphics(imageFile, "Original", -200, 0)
+    val dest2 = new ImageGraphics(imageFile, "Threshold", 200, 0)
 
-		i = i + direction
-		dest2.setPixelsBW(ImageFilters_Solution.threshold(org.getPixelsBW(), i))
-	} 
-}
-```]
+    var direction: Int = 1
+    var i = 1
 
+    while (true) {
+      if (i == 255 || i == 0)
+        direction *= -1
+
+      i = i + direction
+      dest2.setPixelsBW(ImageFilters_Solution.threshold(org.getPixelsBW(), i))
+    } 
+  }
+  ```],
+  caption: "Un petit exemple de code"
+)
 
 == Insertion d'images 
 
-Une image vaut souvent mieux que mille mots ! Il est possible d'ajouter des images, bien entendu. La syntaxe est relativement simple comme vous pouvez le voir : 
+Une image vaut souvent mieux que mille mots ! Il est possible d'ajouter des images, bien entendu. La syntaxe est relativement simple comme vous pouvez le voir dans l'exemple ci-dessous: 
    
 #figure(
   image("figs/pixelize.png", height: 4cm), 
   caption: [Grace Hopper, informaticienne américaine]
 ) <fig_engineer>
 
-Pour le reste, voici un texte pour voir de quoi il retourne. Vous allez réaliser une fonction appelée _mean_ qui va appliquer un filtre de moyenne à l'image. Ce filtre a pour but de flouter l'image et d'enlever ainsi ses aspérités.
-
-Le principe est le suivant : la valeur d'un pixel est remplacée par la moyenne des pixels se trouvant dans une zone carrée de 3 par 3 pixels autour du pixel. Si on veut calculer la nouvelle valeur du pixel situé à la position $(x,y)$ selon la figure @fig_engineer, sa nouvelle valeur sera la moyenne des 9 valeurs affichées. 
+Pour le reste, voici un texte pour voir de quoi il retourne. Vous allez réaliser une fonction appelée _mean_ qui va appliquer un filtre de moyenne à l'image. Ce filtre a pour but de flouter l'image et d'enlever ainsi ses aspérités. Le principe est le suivant : la valeur d'un pixel est remplacée par la moyenne des pixels se trouvant dans une zone carrée de 3 par 3 pixels autour du pixel. Si on veut calculer la nouvelle valeur du pixel situé à la position $(x,y)$ selon la figure @fig_engineer, sa nouvelle valeur sera la moyenne des 9 valeurs affichées. 
 
 La dérivée doit se calculer selon les deux axes. Le calcul est très simple : la dérivée selon `x` du pixel situé en $(x,y)$ vaut la valeur du pixel de droite $(x+1, y)$ moins la valeur du pixel de gauche $(x-1,y)$. Dans le cas de la figure, la dérivée selon $x$ vaut $D_x=234-255=-21$. 
 
@@ -116,15 +120,45 @@ $ sum_(n=1)^(infinity) 2^(-n) = 1 "ou encore" integral_(x = 0)^3 x^2 dif x $
   $ integral.double_Sigma (bold(nabla) times bold(F)) dot bold(Sigma) = integral.cont_(diff Sigma) bold(F) dot dif bold(Gamma) $
 ]
 
-// Same thing wihtout a plugin
-#rect(
-  width: 100%,
-  radius: 10%,
-  stroke: 0.5pt,
-  fill: yellow.lighten(60%),
-)[
-  Note: This subsection should contain dynamic UML diagrams. These can be a UML state diagrams, UML communication diagrams or UML activity diagrams.*Important:* Make sure to describe the diagram and its rationale in the text. *Do not use UML sequence diagrams.*
-]
+#pagebreak()
+
+== Des tables
+
+Il est possible d'insérer des tables relativement simples : 
+
+#figure(
+table(
+  align: left,
+  columns: 4,
+  stroke: none,
+  [*Monday*], [11.5], [13.0], [4.0],
+  [*Tuesday*], [8.0], [14.5], [5.0],
+  [*Wednesday*], [9.0], [18.5], [13.0],
+), caption: "Une table simple"
+)
+
+Des tables plus compliquées sont également possible. La page https://typst.app/docs/guides/table-guide/ donne d'ailleurs de bonnes informations.
+
+#show table.cell.where(x: 0): set text(style: "italic")
+#show table.cell.where(y: 0): set text(style: "normal", weight: "bold")
+
+// #set table(stroke: (_, y) => if y > 0 { (top: 0.8pt) })
+#set table(stroke: (x, y) => (
+  left: if x > 0 { 0.8pt },
+  top: if y > 0 { 0.8pt },
+))
+
+#figure(
+  table(
+    columns: 3,
+    align: center + horizon,
+    table.header[Technique][Advantage][Drawback],
+    [Diegetic], [Immersive], [May be contrived],
+    [Extradiegetic], [Breaks immersion], [Obstrusive],
+    [Omitted], [Fosters engagement], [May fracture audience],
+  ), 
+  caption: [Une petite table],
+)
 
 == Citer ses sources
 
@@ -162,14 +196,28 @@ $ S = sqrt(S_x^2+S_y^2) = sqrt(109^2+185^2) =214.47 $
 #bibliography("bibliography.bib", full: false, style: "ieee") 
 
 #pagebreak()
+
 #set heading(numbering: none)
 
-= Annexes
+#place(center + horizon,  
+  [
+    #set text(size:18pt)
+    = Annexes
+  ]
+)
+
+#pagebreak()
+
 // Table of acronyms
-#print-index(title: "Acronymes")
+#print-index(title: [ 
+    Liste des acronymes #move(dy:-10pt, line(length: 100%, stroke: 0.5pt))])
 
 // Table of figures
 #pagebreak()
-#outline(title: "Table des figures", depth: 1, indent: true, target: figure.where(kind: image))
+#outline(title: "Table des figures", depth: 1, indent: true, target: figure.where(kind: image, numbering:"1"))
 
-// This is the end
+// Table of listings
+#pagebreak()
+#outline(title: "Table des listings", depth: 1, indent: true, target: figure.where(kind: raw))
+
+// This is the end !

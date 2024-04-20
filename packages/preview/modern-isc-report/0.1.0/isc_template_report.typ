@@ -76,7 +76,8 @@
   //  Basic pagination and typesetting
   /////////////////////////////////////////////////
   set page(        
-    margin: (inside: 2.5cm, outside: 2cm, y: 2.1cm) // Binding inside
+    margin: (inside: 2.5cm, outside: 2cm, y: 2.1cm), // Binding inside
+    paper: "a4"
   )  
 
   let space-after-heading = 0.5em
@@ -91,13 +92,13 @@
      authors-str = authors.at(0)
   }
 
-  let header-content = text(0.85em)[
+  let header-content = text(0.75em)[
     #emph(authors-str)
     #h(1fr)    
     v#version
   ]
 
-  let footer-content = text(0.85em)[    
+  let footer-content = text(0.75em)[    
     #emph(title)
     #h(1fr)    
     #counter(page).display(
@@ -120,7 +121,7 @@
     footer: locate(loc => {
       // For pages other than the first one
       if counter(page).at(loc).first() > 1 [
-        #line(length: 100%, stroke: 0.5pt)                
+        #move(dy:5pt, line(length: 100%, stroke: 0.5pt))
         #footer-content
       ]
     })
@@ -130,27 +131,53 @@
   show link: set text(ligatures: true, fill: blue)
 
   // Sections numbers 
-  set heading(numbering: "1.1 -")
+  set heading(numbering: "1.1.1 -")
+
+  /////////////////////////////////////////////////
+  // Handle specific captions styling
+  /////////////////////////////////////////////////  
+  
+  // TODO : Make this suitable for different languages
+
+  // Compute a suitable supplement for french as they are not to my liking
+  let getSupplement(it) = {        
+    if(it.func() == image){
+      "Figure"
+    } else if (it.func() == table){
+      "Table"
+    } else if (it.func() == raw){
+      "Listing"
+    } else{
+      panic(it.func())
+    }
+  }  
+
+  set figure(numbering: "1", supplement: getSupplement)
+
+  // Make the caption like I like them
+  show figure.caption: set text(9pt) // Smaller font size
+  show figure.caption: emph // Use italics
+  set figure.caption(separator: " - ") // With a nice separator
 
   /////////////////////////////////////////////////
   // Code related
   /////////////////////////////////////////////////
 
-  // Inline code display
+  // Inline code display, 
   // In a small box that retains the correct baseline.
   show raw.where(block: false): box.with(
     fill: luma(250),
     inset: (x: 3pt, y: 0pt),
-    outset: (y: 3pt),
+    outset: (y: 2pt),
     radius: 2pt,
   )
   
-  // Block code in a larger block
+  // Block code insertion in a larger block, 
   // with more padding.
   show raw.where(block: true): block.with(
     fill: luma(250),
-    inset: 10pt,
-    radius: 3pt,
+    inset: 8pt,
+    radius: 3pt,    
   )
 
   /////////////////////////////////////////////////
@@ -190,7 +217,7 @@
   // Puts a default cover image
   if cover-image != none{    
       show figure.caption: emph      
-      figure(box(cover-image, height: cover-image-height), caption: text(10pt)[#cover-image-caption], numbering: none)         
+      figure(box(cover-image, height: cover-image-height), caption: cover-image-caption, numbering: none)
   }
 
   v(10fr, weak: true)
