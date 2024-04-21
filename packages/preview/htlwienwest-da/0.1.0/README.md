@@ -2,10 +2,6 @@
 
 This is a Typst diploma thesis template for students of the HTL Wien West. It fulfils all the necessary requirements for the diploma thesis.
 
-|  | |  |  |
-| -- | -- | -- | -- |
-| ![main page](blob/p01.png) | ![Table of Contents](blob/p08.png) | ![List of features](blob/p12.png) | ![Example page](blob/p19.png) |
-
 ## Usage
 You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `htlwienwest-da`.
 
@@ -96,3 +92,23 @@ Beside the `diplomarbeit` function, the template also provides the `autor` funct
 ```
 
 This will render additional information to the section's heading.
+
+
+# Installing
+
+To install the template locally, you can use 
+```bash
+just install
+```
+which uses the [just](https://github.com/casey/just) command runner. 
+
+If you don't want to install `just`, you can run 
+```bash
+bash ./scripts/package @local
+```
+
+
+The installed version can be used via `@local` instead of `@preview`. To create a new typst project from the template, run
+```bash
+typst init @local/htlwienwest-da:<version-in-typst.toml>
+```

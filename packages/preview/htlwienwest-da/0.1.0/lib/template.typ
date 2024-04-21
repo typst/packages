@@ -98,11 +98,14 @@ show heading: set block(below: 0pt)
 // spacing
 show heading: it => {
   if it.level == 1 {
-    pad(bottom: 8mm, it)
+    it
+    v(8mm, weak: true)
+    // pad(bottom: 8mm, it)
   } else if it.level == 2 {
-    pad(top: 3mm, bottom: 6mm, it)
+    v(3mm)
+    it
+    v(6mm, weak: true)
   } else {
-
     pad(top: 0mm, bottom: 4mm, it)
   }
 } 

@@ -12,10 +12,7 @@
   // check if there is at least one heading ahead
   if (next_headings.len() != 0) {
     let n = next_headings.first()
-    // get the page of the first upfront heading
-    let np = locate(heading.where(level: 1, body: n.body)
-      .after(here))
-      .page()
+    let np = n.location().position().page
     // check if the heading is on the same page as we are
     if np == page {
       // return if so

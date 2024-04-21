@@ -1,9 +1,0 @@
-
-# IDE
-.vscode
-
-# MACOS
-.DS_Store
-
-# OTHER
-out*
