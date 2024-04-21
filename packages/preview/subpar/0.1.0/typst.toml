@@ -9,7 +9,7 @@ description = "Create sub figures easily."
 categories = ["components", "model"]
 keywords = ["figures", "sub"]
 license = "MIT"
-exclude = ["examples", "doc", "README.md"]
+exclude = ["examples", "doc"]
 
 [tool.typst-test]
 tests = "test"
