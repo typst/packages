@@ -4,7 +4,7 @@ version = "2.0.0"
 entrypoint = "resume.template.typ"
 authors = ["Spencer Elkington <https://chaoticgood.computer>"]
 license = "Unlicense"
-description = "A starter resume for people looking to focus on the content of their resume, without having to worry about the hassle of formatting."
+description = "A guided starter resume for people looking to focus on highlighting their experience -- without having to worry about the hassle of formatting."
 homepage = "https://blog.chaoticgood.computer/writing/notes/typst-resume-template"
 categories = ["cv"]
 
