@@ -1,4 +1,4 @@
-#import "@preview/guided-resume-starter-cgc:2.0.0": *
+#import "templates/resume.template.typ": *
 
 #show: resume.with(
   author: "Dr. Emmit \"Doc\" Brown",

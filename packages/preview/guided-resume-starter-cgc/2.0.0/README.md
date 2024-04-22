@@ -15,6 +15,7 @@ There are two files included in this project:
 
 - `starter.typ` contains the full template, along with a written guide to help you put your best (single-paged) foot forward!
 - `resume.typ` is the same template, but without the full guide included.
+- `templates/resume.template.typ` contains the formatting and style for the underlying pieces.
 
 **I would highly recommend reading `starter.typ` or skimming through the [online guide](https://blog.chaoticgood.computer/writing/notes/typst-resume-template) to understand best practices when using the template.**
 
