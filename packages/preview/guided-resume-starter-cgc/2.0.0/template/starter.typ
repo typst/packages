@@ -6,8 +6,6 @@
 =====   April 21st 2022   =====
 ===============================
 
-> This guide is a direct copy of the Resume Template on the [Typst Universe](https://typst.app/universe/package/resume-starter-cgc) portal. New versions, or extra thoughts, will be available in #mentoring/professional-dev
-
 Welcome to the 2.0 version of the Super Cool Resume Template: now with 100% less LaTeX!
 
 This is a second major iteration of the Resume Template made by Spencer Elkington, originally created for the University of Utah's Triangle Engineering Professional Education students. It is now also used for Chaotic Good Computing professional development mentoring & consulting. You can find more resources at https://chaoticgood.computer/tags/mentoring/professional-dev
