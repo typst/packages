@@ -2,11 +2,24 @@
 name = "guided-resume-starter-cgc"
 version = "2.0.0"
 entrypoint = "resume.template.typ"
-authors = ["Spencer Elkington <https://chaoticgood.computer>"]
+authors = [
+  "Spencer Elkington <https://chaoticgood.computer>",
+  "Spencer Elkington <spencer@chaoticgood.computer>",
+]
 license = "Unlicense"
 description = "A guided starter resume for people looking to focus on highlighting their experience -- without having to worry about the hassle of formatting."
 homepage = "https://blog.chaoticgood.computer/writing/notes/typst-resume-template"
 categories = ["cv"]
+keywords = [
+  "resume",
+  "cv",
+  "template",
+  "starter",
+  "guide",
+  "tutorial",
+  "chaotic good computer",
+  "cgc",
+]
 
 [template]
 path = "template"
