@@ -42,7 +42,7 @@
 ])
 
 #oot-abstract(
-  is-doublesided: true,
+  is-doublesided: is-doublesided,
 )[
   This Master's thesis investigates the impact of different architectures of
   neural networks on the performance of real-time image recognition on low-power
@@ -53,7 +53,7 @@
 ]
 
 #oot-abstract(
-  is-doublesided: true,
+  is-doublesided: is-doublesided,
   lang: "de",
 )[
   Die vorliegende Masterarbeit untersucht die Auswirkungen verschiedener
