@@ -93,8 +93,7 @@
     #line(start: (0pt, -15pt), length: 100%)
     #place(left, dy: -10pt,
       text(size: 8pt, fill: rgb("000000"))[
-        Made with Typst.\
-        Template by TomVer99 on GitHub.
+        #datetime.today().display()
       ]
     )
     #place(center, dy: -10pt,
