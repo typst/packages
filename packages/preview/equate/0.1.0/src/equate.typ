@@ -34,7 +34,7 @@
   number-align: none,
   number-width: auto,
   line
-) = {
+) = context {
   // Short circuit if no number has to be added.
   if number == none {
     return math.equation(block: true, numbering: _ => none, line.join())
