@@ -1,81 +1,181 @@
 
 # wrap-indent
 
-This package lets you wrap blocks of indented content with arbitrary
-functions without square brackets. It works by using Typst's existing
-[term-list](https://typst.app/docs/reference/model/terms/) syntax with a
+`wrap-indent` is a package for easily wrapping content with functions
+using just indentation. This lets you avoid square brackets for wrapping
+content, instead you can just indent the content!
+
+This system works by re-purposing Typst's existing
+[term-list](https://typst.app/docs/reference/model/terms/) syntax via a
+custom show rule on `terms.item`. We then pass our function to wrap
+within [state](https://typst.app/docs/reference/introspection/state/)
+via a new `wrap-in()` function.
+
+Here's a minimal example!
+
+<img src="example_page1.png" alt="A minimal example" style="max-width: 500px;">
+
+```typ
+#set page(height: auto, width: 3.5in, margin: 0.25in)
+
+#import "@preview/wrap-indent:0.1.0": wrap-in, allow-wrapping
+
+#show terms.item: allow-wrapping
+
+/ First --:
+  A normal term list
+
+  with multiple paragraphs
+
+But this text is separated
+
+
+#line(length: 100%)
+
+
+#let custom-block(content) = rect(content,
+  fill: orange.lighten(90%),
+  stroke: 1.5pt + gradient.linear(..color.map.flare)
+)
+
+/ #wrap-in(custom-block):
+  A *custom block* using the `wrap-in` function
+
+  with indented text \
+  over multiple lines
+
+And this text is _still_ separated!
+```
+
 custom function, `wrap-in()`, (accepting a wrapper function), and a
-show-rule on `terms.item` as `wrap-term-item`.
+show rule on `terms.item` as `wrap-term-item`.
 
 You can find the original writeup here: \
 <https://typst.app/project/r5ogFas7lj7E48iHw_M4yh>
 
-Here's an example!
-
-![Example.png](example.png)
-
-And here's the code:
+Once more, here's the required initialization:
 
 ```typ
-// ---- initialization ---- //
+#import "@preview/wrap-indent:0.1.0": wrap-in, allow-wrapping
 
-#import "@preview/wrap-indent:0.1.0": wrap-term-item, wrap-in
-
-#show terms.item: wrap-term-item
+#show terms.item: allow-wrapping
 ```
 
-```typ
-// ---- example document ---- //
+And here's a more complicated example!
 
-#set page(width: 5.5in, margin: 0.5in, height: auto)
+<img src="example_page2.png" alt="A more complicated example" style="max-width: 500px;">
+
+```typ
+#set page(height: auto, width: 4.1in, margin: 0.25in)
+
+#show heading: set text(size: 0.75em)
+#show heading: set block(below: 1em)
+#set heading(numbering: "1) ")
+
+= Normal function call:
 
 // A function for wrapping some text:
 #let custom-quote(body) = rect(
   body,
+  width: 100%,
   fill: luma(95%),
   stroke: (left: 2pt + luma(30%))
 )
 
-*Normal function call:*
-
 #custom-quote[
-  Some text in a _custom quote_ spread over
-  multiple lines so it actually looks like
-  it was typed in a document.
+  Some text in a _custom quote_ spread over multiple lines
+  so it actually looks like it was typed in a document.
 ]
+This text is outside the quote box
 
-*Wrappped function call!*
+
+= Wrappped function call!
 
 / #wrap-in(custom-quote):
-  Some text in a _custom quote_ spread over
-  multiple lines so it actually looks like
-  it was typed in a document.
+  Some text in a _custom quote_ spread over multiple lines
+  so it actually looks like it was typed in a document.
 
-Some text outside the indented section
-that isn't included.
+This text is _still_ outside the quote box!
 
-*Arbitrary functions should _just work#emoji.tm;_ :*
 
-/ #wrap-in(
-    x => rect(x, stroke: gradient.linear(..color.map.flare))
-  ):
-  Some text in a _custom rect_ spread over
-  multiple lines so it actually looks like
-  it was typed in a document.
+= Arbitrary functions should _just work#emoji.tm;_
 
-*One-line syntax looks great!*
+/ #wrap-in(x => ellipse(align(center, x),
+    stroke: 3pt + gradient.conic(..color.map.rainbow)
+  )):
+  Some text in a _rainbow ellipse_ spread
+  over multiple lines so it actually looks
+  like it was typed in a document.
+
+
+= One-liners look great!
 
 / #wrap-in(underline): Here's one line underlined
 
-*Final thoughts:*
 
-/ Note\: :
+= Let's do some math:
+
+#let named-thm(name) = (content) => {
+  pad(left: 2em, par(hanging-indent: -2em)[
+    *Theorem* (#name) #emph(content)
+  ])
+}
+
+/ #wrap-in(named-thm("Operational Soundness")):
+  If $med tack e : tau$ and $e$ reduces to $e'$
+  by zero or more steps and $"Irred"(e')$,
+  then $e' in "Val"$ and $med tack e' : tau$.
+
+
+= In-line styling doesn't create blocks:
+
+/ #wrap-in(highlight):
+  This text is highlighted.
+This text isn't.
+
+Notice how there was *no* paragraph break between the
+two sentences? This is a useful result that makes
+`wrap-indent` really flexible!
+
+(if you want separate blocks, use `block` in your function)
+
+
+= Does it work with nesting?
+
+/ #wrap-in(custom-quote):
+  Testing...
+  / #wrap-in(align.with(center)):
+    / #wrap-in(rect):
+      / #wrap-in(emph):
+        Signs point to yes!
+
+
+= Final thoughts
+
+/ Note --:
   Regular term lists still work!
 
-/ Disclaimer\: :
-  There may be issues if other term list show rules
-  conflict with this rule. However, set rules should
-  be unaffected.
+/ Disclaimer --:
+  You may run into issues with other term list
+  show rules conflicting with this rule. \
+  (although set rules should be unaffected)
 
-*That's a wrap!*
+  If you run into issues, _let me know!_ I'd love to hear
+  about it to make this package as robust as possible.
+
+
+= And
+
+#let big-statement(content) = {
+  align(center, text(
+    underline(stroke: 1.5pt, content),
+    size: 32pt,
+    weight: "bold",
+    style: "italic",
+    fill: eastern,
+  ))
+}
+
+/ #wrap-in(big-statement):
+  That's a wrap!
 ```
