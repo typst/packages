@@ -11,7 +11,7 @@ custom show rule on `terms.item`. We then pass our function to wrap
 within [state](https://typst.app/docs/reference/introspection/state/)
 via a new `wrap-in()` function.
 
-Here's a minimal example!
+## Here's a minimal example!
 
 <img src="example_page1.png" alt="A minimal example" style="max-width: 500px;">
 
@@ -47,13 +47,9 @@ But this text is separated
 And this text is _still_ separated!
 ```
 
-custom function, `wrap-in()`, (accepting a wrapper function), and a
-show rule on `terms.item` as `wrap-term-item`.
 
-You can find the original writeup here: \
-<https://typst.app/project/r5ogFas7lj7E48iHw_M4yh>
 
-Once more, here's the required initialization:
+And in its own code block, here's the required initialization:
 
 ```typ
 #import "@preview/wrap-indent:0.1.0": wrap-in, allow-wrapping
@@ -61,7 +57,7 @@ Once more, here's the required initialization:
 #show terms.item: allow-wrapping
 ```
 
-And here's a more complicated example!
+## And here's a more complicated example!
 
 <img src="example_page2.png" alt="A more complicated example" style="max-width: 500px;">
 
@@ -179,3 +175,11 @@ two sentences? This is a useful result that makes
 / #wrap-in(big-statement):
   That's a wrap!
 ```
+
+## References
+
+You can find my original writeup here for some more context: \
+<https://typst.app/project/r5ogFas7lj7E48iHw_M4yh>
+
+And also see the original GitHub issue that prompted me to make this: \
+<https://github.com/typst/typst/issues/1921>
