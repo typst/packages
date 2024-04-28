@@ -11,7 +11,7 @@ license = "MIT"
 
 keywords = ["clean", "grape", "minimal", "paper"]
 description = "Library of templates for exams, seminar papers, homeworks, etc."
-categories = ["components", "layout", "paper", "thesis", "presentation"]
+categories = ["layout", "paper", "presentation"]
 
 [template]
 path = "src/template"
