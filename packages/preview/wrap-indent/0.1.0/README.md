@@ -1,13 +1,13 @@
 
 # wrap-indent
 
-`wrap-indent` is a package for easily wrapping content with functions
-using just indentation. This lets you avoid square brackets for wrapping
-content, instead you can just indent the content!
+`wrap-indent` is a package for wrapping content in custom functions
+with just indentation. This lets you avoid using trailing square brackets
+to wrap content, instead you just indent it!
 
 This system works by re-purposing Typst's existing
 [term-list](https://typst.app/docs/reference/model/terms/) syntax via a
-custom show rule on `terms.item`. We then pass our function to wrap
+custom show rule on `terms.item`. We give it our custom function
 within [state](https://typst.app/docs/reference/introspection/state/)
 via a new `wrap-in()` function.
 
@@ -178,8 +178,8 @@ two sentences? This is a useful result that makes
 
 ## References
 
-You can find my original writeup here for some more context: \
+You can find my original writeup here for more context: \
 <https://typst.app/project/r5ogFas7lj7E48iHw_M4yh>
 
-And also see the original GitHub issue that prompted me to make this: \
+And also see the GitHub issue that prompted me to make this: \
 <https://github.com/typst/typst/issues/1921>
