@@ -1,4 +1,4 @@
-#import "@preview/course-poster-vuw:0.1.0": course-poster-vuw
+#import "@preview/tuhi-course-poster-vuw:0.1.0": tuhi-course-poster-vuw
 
 // choice of fonts
 #set text(font: "Source Sans Pro")
@@ -29,24 +29,24 @@
 
 // use the template
 
-#show: course-poster-vuw.with(
-coursetitle : text[escarpment track],
-courseid : "esca101",
-coursemajor: "hiking",
-courseimage: "images/esca101.jpg",
-imagecredit : text[sunset],
-coursepoints : text[*1205*],
-coursetrimester : text[*0.005*],
-courselecturers : ("Bridges", "Stairway",),
-courseformat : text[*2* bridges/hangouts],
-coursedescription : text[Stairway to Heaven _that won't let you down_],
-courseprereqs: text[*1* achievement backpack \
-  in *LEVEL 3 NCEA* Tramping\
-  or equivalent, or *murph101*],
-  courses: courses,
-contact: contact,
-logo: logo,
-qrcodeurl: url,
+#show: tuhi-course-poster-vuw.with(
+  coursetitle : text[escarpment track],
+  courseid : "esca101",
+  coursemajor: "hiking",
+  courseimage: image("images/esca101.jpg"),
+  imagecredit : text[sunset],
+  coursepoints : text[*1205*],
+  coursetrimester : text[*0.005*],
+  courselecturers : ("Bridges", "Stairway",),
+  courseformat : text[*2* bridges/hangouts],
+  coursedescription : text[Stairway to Heaven _that won't let you down_],
+  courseprereqs: text[*1* achievement backpack \
+                      in *LEVEL 3 NCEA* Tramping\
+                      or equivalent, or *murph101*],
+                      courses: courses,
+  contact: contact,
+  logo: logo,
+  qrcodeurl: url,
 )
 
 == Paekākāriki to Pukerua Bay
