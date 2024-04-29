@@ -72,7 +72,6 @@ You can specify an alternative starting position to the `game` function with the
 
 Similarly to the `game` function, the `pgn` function creates an array of positions. It accepts a single argument, which is a string containing [portable game notation](https://en.wikipedia.org/wiki/Portable_Game_Notation). To read a game from a PGN file, you can use this function in combination with Typst's native [`read`](https://typst.app/docs/reference/data-loading/read/) function.
 
-<!-- This is intentionally not an example, because no `game.pgn` file exists. -->
 ```typ
 #let positions = pgn(read("game.pgn"))
 ```
