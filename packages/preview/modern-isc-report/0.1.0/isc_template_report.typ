@@ -1,5 +1,5 @@
-// Template for ISC reports at the school of engineering
-// v0.1.0 - mui 2023
+// Template for ISC reports at the School of engineering
+// v0.1.0 - mui 2024
 //
 // Missing features : 
 // - page and locations (above, under) references for figures not available yet
