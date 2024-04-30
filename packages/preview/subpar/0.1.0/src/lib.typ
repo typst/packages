@@ -1,14 +1,17 @@
-#import "util.typ"
+#import "util.typ" as _util
 #import "_pkg.typ"
 
 #let _numbering = numbering
 #let _label = label
+#let _grid = grid
 
 /// The counter used for sub figures.
 #let sub-figure-counter = counter("__subpar:sub-figure-counter")
 
 /// Creates a figure which may contain other figures, a #emph[super]figure. For
 /// the meaning of parameters take a look at the regular figure documentation.
+///
+/// See @@grid() for a function which places its sub figures in a grid.
 ///
 /// - kind (str, function): The image kind which should be used, this is mainly
 ///   relevant for introspection and defaults to `image`. This cannot be
@@ -25,20 +28,20 @@
 /// - propagate-supplement (bool): Whether the super figure's supplement should
 ///   propagate down to its sub figures.
 /// - caption (content): The caption of this super figure.
-/// - placement (alignement, auto, none): The float placement of this super
+/// - placement (alignment, auto, none): The float placement of this super
 ///   figure.
 /// - gap (length): The gap between this super figure's caption and body.
 /// - outlined (bool): Whether this super figure should appear in an outline of
 ///   figures.
 /// - outlined-sub (bool): Whether the sub figures should appear in an outline
 ///   of figures.
-/// - label (label): The label to attach to this super figure.
+/// - label (label, none): The label to attach to this super figure.
 /// - show-sub (function, auto): A show rule override for sub figures. Recevies
 ///   the sub figure.
 /// - show-sub-caption (function, auto): A show rule override for sub figure's
 ///   captions. Receives the realized numbering and caption element.
 /// -> content
-#let subpar(
+#let super(
   kind: image,
 
   numbering: "1",
@@ -65,6 +68,10 @@
   _pkg.t4t.assert.any-type(str, function, numbering-sub)
   _pkg.t4t.assert.any-type(str, function, numbering-sub-ref)
 
+  // adjust numberings to receive either both or the sub number
+  numbering-sub = _util.sparse-numbering(numbering-sub)
+  numbering-sub-ref = _util.sparse-numbering(numbering-sub-ref)
+
   _pkg.t4t.assert.any-type(str, content, function, type(auto), type(none), supplement)
   _pkg.t4t.assert.any-type(bool, propagate-supplement)
   _pkg.t4t.assert.any-type(str, content, type(none), caption)
@@ -72,7 +79,7 @@
   _pkg.t4t.assert.any-type(length, gap)
   _pkg.t4t.assert.any-type(bool, outlined)
   _pkg.t4t.assert.any-type(bool, outlined-sub)
-  _pkg.t4t.assert.any-type(_label, label)
+  _pkg.t4t.assert.any-type(_label, type(none), label)
 
   _pkg.t4t.assert.any-type(function, type(auto), show-sub)
   _pkg.t4t.assert.any-type(function, type(auto), show-sub-caption)
@@ -86,18 +93,14 @@
   // NOTE: if we use no propagation, then we can fallback to the normal auto behavior, fixing #4.
   if propagate-supplement {
     if supplement == auto and repr(kind) in function-kinds {
-      supplement = context util.i18n-kind(function-kinds.at(repr(kind)))
+      supplement = context _util.i18n-kind(function-kinds.at(repr(kind)))
     } else {
       panic("Cannot infer `supplement`, must be set.")
     }
   }
 
   show-sub = _pkg.t4t.def.if-auto(it => it, show-sub)
-  show-sub-caption = _pkg.t4t.def.if-auto((num, it) => {
-    num
-    [ ]
-    it.body
-  }, show-sub-caption)
+  show-sub-caption = _pkg.t4t.def.if-auto((num, it) => it, show-sub-caption)
 
   context {
     let n-super = counter(figure.where(kind: kind)).get().first() + 1
@@ -112,8 +115,8 @@
       outlined: outlined,
       {
         // TODO: simply setting it for all doesn't seem to work
-        show: util.apply-for-all(
-          util.gather-kinds(body),
+        show: _util.apply-for-all(
+          _util.gather-kinds(body),
           kind => inner => {
             show figure.where(kind: kind): set figure(numbering: _ => _numbering(
               numbering-sub-ref, n-super, sub-figure-counter.get().first() + 1
@@ -128,7 +131,13 @@
         show figure: show-sub
         show figure: it => {
           let n-sub = sub-figure-counter.get().first() + 1
-          show figure.caption: show-sub-caption.with(_numbering(numbering-sub, n-sub))
+          let num = _numbering(numbering-sub, n-super, n-sub)
+          show figure.caption: it => {
+            num
+            [ ]
+            it.body
+          }
+          show figure.caption: show-sub-caption.with(num)
 
           sub-figure-counter.step()
           it
@@ -142,7 +151,7 @@
   }
 }
 
-/// Provides a convenient wrapper around @@subpar() which puts sub figures in a
+/// Provides a convenient wrapper around @@super() which puts sub figures in a
 /// grid.
 ///
 /// - columns (auto, int, relative, fraction, array): Corresponds to the grid's
@@ -155,9 +164,9 @@
 ///   grid's `column-gutter` parameter.
 /// - row-gutter (auto, int, relative, fraction, array): Corresponds to the
 ///   grid's `row-gutter` parameter.
-/// - align (auto, array, alignement, function): Corresponds to the grid's
+/// - align (auto, array, alignment, function): Corresponds to the grid's
 ///   `align` parameter.
-/// - inset (relaltive, array, dictionary, function): Corresponds to the grid's
+/// - inset (relative, array, dictionary, function): Corresponds to the grid's
 ///   `inset` parameter.
 /// - kind (str, function): Corressponds to the super figure's `kind`.
 /// - numbering (str, function): Corressponds to the super figure's
@@ -171,7 +180,7 @@
 /// - propagate-supplement (bool): Corressponds to the super figure's
 ///   `propagate-supplement`.
 /// - caption (content): Corressponds to the super figure's `caption`.
-/// - placement (alignement, auto, none): Corressponds to the super figure's
+/// - placement (alignment, auto, none): Corressponds to the super figure's
 ///   `placement`.
 /// - gap (length): Corressponds to the super figure's `gap`.
 /// - outlined (bool): Corressponds to the super figure's `outlined`.
@@ -181,7 +190,7 @@
 /// - show-sub-caption (function): Corressponds to the super figure's
 ///   `show-sub-caption`.
 /// -> content
-#let subpar-grid(
+#let grid(
   columns: auto,
   rows: auto,
   gutter: 1em,
@@ -249,7 +258,7 @@
     grid-args.row-gutter = row-gutter
   }
 
-  subpar(
+  super(
     numbering: numbering,
     numbering-sub: numbering-sub,
     numbering-sub-ref: numbering-sub-ref,
@@ -266,8 +275,8 @@
     show-sub: show-sub,
     show-sub-caption: show-sub-caption,
 
-    grid(
-      ..figures.map(unwrap-figure),
+    _grid(
+      .._util.stitch-pairs(figures).map(((f, l)) => [#f#l]),
       ..grid-args,
     ),
   )

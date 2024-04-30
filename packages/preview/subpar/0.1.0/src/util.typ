@@ -1,5 +1,7 @@
 #import "_pkg.typ"
 
+#let _numbering = numbering
+
 #let apply-for-all(
   values,
   rule,
@@ -43,4 +45,43 @@
   }
 
   term
+}
+
+#let stitch-pairs(args) = {
+  if args.len() == 0 {
+    return ()
+  }
+
+  assert.ne(type(args.first()), label, message: "First item must not be a label")
+
+  let pairs = ()
+  while args.len() != 0 {
+    let item = args.remove(0)
+    if type(item) == label {
+      let last = pairs.pop()
+
+      assert.ne(type(last), label, message: "Cannot have two consecutive labels")
+
+      last.at(1) = item
+      pairs.push(last)
+    } else {
+      pairs.push((item, none))
+    }
+  }
+
+  pairs
+}
+
+#let sparse-numbering(numbering) = if type(numbering) == str {
+  let symbols = ("1", "a", "A", "i", "I", "い", "イ", "א", "가", "ㄱ", "\\*")
+  let c =  numbering.matches(regex(symbols.join("|"))).len()
+
+  if c == 1 {
+    // if we have only one symbol we drop the super number
+    (_, num) => _numbering(numbering, num)
+  } else {
+    (..nums) => _numbering(numbering, ..nums)
+  }
+} else {
+  numbering
 }
