@@ -1,5 +1,5 @@
 [package]
-name = "isc-engineering-report"
+name = "isc-hei-report"
 version = "0.1.0"
 compiler = "0.11.0"
 entrypoint = "isc_template_report.typ"
