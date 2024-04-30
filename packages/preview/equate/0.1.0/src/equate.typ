@@ -1,9 +1,12 @@
 // Element function for alignment points.
 #let align-point = $&$.body.func()
 
+// Element function for a counter update.
+#let counter-update = counter(math.equation).update(1).func()
+
 // Sub-numbering state.
 #let state = state("equate/sub-numbering", false)
-  
+
 // Extract lines and trim spaces.
 #let to-lines(equation) = {
   let lines = if equation.body.has("children") {
@@ -39,7 +42,15 @@
   if number == none {
     return math.equation(block: true, numbering: _ => none, line.join())
   }
-  
+
+  // Short circuit if number is a counter update.
+  if type(number) == content and number.func() == counter-update {
+    return {
+      number
+      math.equation(block: true, numbering: _ => none, line.join())
+    }
+  }
+
   // Start of equation block.
   let x-start = here().position().x
 
@@ -73,10 +84,31 @@
 
 // Replace "fake labels" with a hidden figure that is labelled
 // accordingly. 
-#let replace-labels(lines, sub-numbering, numbering, supplement) = {
+#let replace-labels(
+  lines,
+  number-mode,
+  numbering,
+  supplement,
+  has-label
+) = {
   // Main equation number.
   let main-number = counter(math.equation).get()
-  
+
+  // Indices of numbered lines in this equation.
+  let numbered = if number-mode == "line" or has-label {
+    range(lines.len())
+  } else {
+    lines.enumerate()
+      .filter(((i, line)) => {
+        if line.len() == 0 { return false }
+        if line.last().func() != raw { return false }
+        if line.last().lang != "typc" { return false }
+        if line.last().text.match(regex("^<.+>$")) == none { return false }
+        return true
+      })
+      .map(((i, _)) => i)
+  }
+
   lines.enumerate()
     .map(((i, line)) => {
       if line.len() == 0 { return line }
@@ -84,17 +116,22 @@
       let last = line.last()
       if last.func() != raw { return line }
       if last.lang != "typc" { return line }
-      if last.text.match(regex("^<.+>$")) == none { return line }
+      if last.text.match(regex("^<.+>$")) == none { return line }
 
       // Remove trailing spacing (before label).
       if line.at(-2, default: none) == [ ] { line.remove(-2) }
-      
+
+      // Append sub-numbering only if there are multiple numbered lines.
+      let nums = main-number + if numbered.len() > 1 {
+        (numbered.position(n => n == i) + 1,)
+      }
+
       // We use a figure with kind "equation" to make the sub-equation
       // referenceable with the correct supplement. The numbering is stored
       // in the figure body as metadata, as a counter would only show a
       // single number.
       line.at(-1) = [#figure(
-        metadata(main-number + if lines.len() > 1 { (i + 1,) }),
+        metadata(nums),
         kind: math.equation,
         numbering: numbering,
         supplement: supplement
@@ -114,12 +151,12 @@
   if lines.all(line => align-point() not in line) {
     return lines
   }
-    
+
   // Store widths of each part between alignment points.
   let part-widths = lines.map(line => line
       .split(align-point())
       .map(part => measure(equation(part.join())).width))
-  
+
   // Get maximum width of each part.
   let part-widths = for i in range(calc.max(..part-widths.map(points => points.len()))) {
     (calc.max(..part-widths.map(line => line.at(i, default: 0pt))), )
@@ -128,7 +165,7 @@
   // Add spacers for each part, so that the part widths are the same for all lines.
   let lines = lines.map(line => {
     let parts = line.split(align-point())
-  
+
     let spaced(i, spacing) = {
       let spacing = if spacing > 0pt { box(width: spacing) }
       if calc.even(i) {
@@ -139,7 +176,7 @@
         parts.at(i).join() + spacing
       }
     }
-    
+
     parts.enumerate()
       .map(((i, part)) => {
         // Add spacer to make part the correct width.
@@ -187,11 +224,32 @@
     }
     line
   })
-  
+
   lines
 }
 
-#let equate(sub-numbering: false, debug: false, body) = {
+// Applies show rules to the given body, so that block equations can span over
+// page boundaries while retaining alignment. The equation number is stepped
+// and displayed at every line, optionally with sub-numbering.
+//
+// Parameters:
+// - sub-numbering: Whether to add sub-numbering to the equation.
+// - number-mode: Whether to number all lines or only lines containing a label.
+//                Must be either "line" or "label".
+// - debug: Whether to show alignment spacers for debugging.
+//
+// Returns: The body with the applied show rules.
+#let equate(
+  sub-numbering: false,
+  number-mode: "line",
+  debug: false,
+  body
+) = {
+  assert(
+    number-mode in ("line", "label"),
+    message: "expected \"line\" or \"label\" for number-mode, found " + repr(number-mode)
+  )
+
   show math.equation.where(block: true): it => {
     // Allow a way to make default equations.
     if it.has("label") and it.label == <equate:revoke> {
@@ -204,7 +262,7 @@
       stroke: 0.4pt,
       fill: yellow
     ) if debug
-    
+
     // Main equation number.
     let main-number = counter(math.equation).get().first()
 
@@ -217,7 +275,7 @@
     } else {
       text.dir
     }
-  
+
     // Resolve number position in x-direction.
     let number-align = if it.number-align.x in (left, right) {
       it.number-align.x
@@ -226,22 +284,50 @@
     } else if text-dir == rtl {
       if it.number-align.x == start { right } else { left }
     }
-    
-    let lines = replace-labels(to-lines(it), sub-numbering, it.numbering, it.supplement)
-    let equation = math.equation.with(block: it.block, numbering: none)
+
+    let lines = replace-labels(
+      to-lines(it),
+      number-mode,
+      it.numbering,
+      it.supplement,
+      it.has("label")
+    )
+
+    // Indices of numbered lines in this equation.
+    let numbered = if number-mode == "line" or it.has("label") {
+      range(lines.len())
+    } else {
+      // Find lines that have a replaced label.
+      lines.enumerate()
+        .filter(((i, line)) => {
+          if line.len() == 0 { return false }
+          if line.last().func() != figure { return false }
+          if line.last().body == none { return false }
+          if line.last().body.func() != metadata { return false }
+          return true
+        })
+        .map(((i, _)) => i)
+    }
 
     // Short-circuit for single-line equations.
     if lines.len() == 1 {
       if it.numbering == none { return it }
       if numbering(it.numbering, 1) == none { return it }
 
+      let number = if numbered.len() > 0 {
+        numbering(it.numbering, main-number)
+      } else {
+        // Step back counter as this equation should not be counted.
+        counter(math.equation).update(n => n - 1)
+      }
+
       return {
         // Update state to allow correct referencing.
         state.update(_ => sub-numbering)
-        
+
         layout-line(
           lines.first(),
-          number: numbering(it.numbering, main-number),
+          number: number,
           number-align: number-align
         )
 
@@ -253,8 +339,12 @@
 
     // Calculate maximum width of all numberings in this equation.
     let max-number-width = if it.numbering == none { 0pt } else {
-      calc.max(..range(lines.len()).map(i => {
-        let nums = if sub-numbering {(main-number, i + 1)} else {(main-number + i,)}
+      calc.max(0pt, ..range(numbered.len()).map(i => {
+        let nums = if sub-numbering and numbered.len() > 1 {
+          (main-number, i + 1)}
+        else {
+          (main-number + i,)
+        }
         measure(numbering(it.numbering, ..nums)).width
       }))
     }
@@ -267,12 +357,16 @@
       columns: 1,
       row-gutter: par.leading,
       ..realign(lines).enumerate().map(((i, line)) => {
+        let sub-number = numbered.position(n => n == i)
         let number = if it.numbering == none {
           none
-        } else if sub-numbering {
-          numbering(it.numbering, main-number, i + 1)
+        } else if sub-number == none {
+          // Step back counter as this equation should not be counted.
+          counter(math.equation).update(n => n - 1)
+        } else if sub-numbering and numbered.len() > 1 {
+          numbering(it.numbering, main-number, sub-number + 1)
         } else {
-          numbering(it.numbering, main-number + i)
+          numbering(it.numbering, main-number + sub-number)
         }
 
         layout-line(
@@ -295,7 +389,7 @@
       // always introduced an additional numbered equation that
       // stepped the counter.
       counter(math.equation).update(n => {
-        n - if sub-numbering { lines.len() } else { 1 }
+        n - if sub-numbering and numbered.len() > 1 { numbered.len() } else { 1 }
       })
     }
   }
@@ -312,8 +406,15 @@
     let nums = if state.at(it.element.location()) {
       it.element.body.value
     } else {
-      (it.element.body.value.sum() - 1,)
+      // (3, 1): 3 + 1 - 1 = 3
+      // (3, 2): 3 + 2 - 1 = 4
+      (it.element.body.value.first() + it.element.body.value.slice(1).sum(default: 1) - 1,)
     }
+
+    assert(
+      it.element.numbering != none,
+      message: "cannot reference equation without numbering."
+    )
 
     let num = numbering(
       if type(it.element.numbering) == str {
@@ -327,15 +428,15 @@
       },
       ..nums
     )
-    
+
     let supplement = if it.supplement == auto {
       it.element.supplement
     } else {
       it.supplement
     }
-  
+
     link(it.element.location(), if supplement not in ([], none) [#supplement~#num] else [#num])
   }
-  
+
   body
 }
