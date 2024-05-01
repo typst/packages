@@ -1,4 +1,4 @@
-#import "@preview/modern-isc-report:0.1.0" : *
+#import "@preview/isc-hei-report:0.1.0" : *
 
 #show: project.with(
   title: "Rapport de projet en filière ISC",

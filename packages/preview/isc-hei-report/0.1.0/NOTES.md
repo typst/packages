@@ -12,7 +12,7 @@ pngquant *.png --ext .png --force
 
 - Create symlink to this repository from `~/.cache/typst/packages` to `git/packages/packages/preview`. For this : 
     ```bash
-    ln -s ~/git/modern-isc-report ~/.cache/typst/packages/preview/
+    ln -s ~/git/packages/packages/preview/isc-hei-report ~/.cache/typst/packages/preview/
     ```
 
     This prevents the download of packages and uses the local versions of this package.
@@ -22,7 +22,7 @@ pngquant *.png --ext .png --force
 - Additional testing can be conducted to see if the template instance works correctly with 
 
     ```bash
-    typst init @preview/modern-isc-report:0.1.0
+    typst init @preview/isc-hei-report:0.1.0
     ```
 
 - Copy the content of this repos to the `typst-template` repository. Create PR as usual.

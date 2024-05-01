@@ -1,5 +1,5 @@
-![GitHub Repo stars](https://img.shields.io/github/stars/ISC-HEI/modern-isc-report)
-![GitHub Release](https://img.shields.io/github/v/release/ISC-HEI/modern-isc-report?include_prereleases)
+![GitHub Repo stars](https://img.shields.io/github/stars/ISC-HEI/isc-hei-report)
+![GitHub Release](https://img.shields.io/github/v/release/ISC-HEI/isc-hei-report?include_prereleases)
 
 <p align="center">
   <a href="https://hevs.ch/isc">
@@ -13,17 +13,17 @@ This is an official template for students reports for the [ISC degree programme]
 
 ## Using the template
 
-In the Typst web application, start with the `modern-isc-report` and voilà ! Using the CLI, you can initialize the project with the command : 
+In the Typst web application, start with the `isc-hei-report` and voilà ! Using the CLI, you can initialize the project with the command :
 
 ```bash
-typst init @preview/modern-isc-report:0.1.0
+typst init @preview/isc-hei-report:0.1.0
 ```
 
 This template will initialize an sample report with sensible default values.
 
 ## Installing fonts locally
 
-If you are running `typst` locally, you might miss some of the required fonts. For your convenience, all the required fonts are included in this repos. As all the fonts are released under the [SIL Open Font License](https://openfontlicense.org/), there are no file inclusion issues here.
+If you are running `typst` locally, you might miss some of the required fonts. For your convenience, a font download script is included in this repos. As all the fonts are released under the [SIL Open Font License](https://openfontlicense.org/), there are no file inclusion issues here.
 
 To the install the fonts locally in a Linux environment, simply type
 
