@@ -1,1 +1,1 @@
-#import "impl.typ": big, bigg, Big, Bigg, scaled-delimiter
+#import "impl.typ": big, bigg, Big, Bigg, scaled-delimiter, paired-delimiter
