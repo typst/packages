@@ -2,8 +2,8 @@
   code, 
   lang: "py",
   stroke: luma(170), // Stroke color
-  fill_1: luma(250), // First line block fill
-  fill_2: luma(240), // Second line block fill
+  fill-1: luma(250), // First line block fill
+  fill-2: luma(240), // Second line block fill
 ) = {
 
   // Change how raw.line looks
@@ -14,7 +14,7 @@
     let end = it.count
 
     // Calculates where to have block strokes given line number
-    let get_stroke(line) = {
+    let get-stroke(line) = {
       if line == start {
         return (top: stroke + 1pt, x: stroke + 1pt)
       } else if line == end {
@@ -25,7 +25,7 @@
     }
 
     // Calculates block radius given line number
-    let get_radius(line) = {
+    let get-radius(line) = {
       if line == start {
         return (top: 1em)
       } else if line == end {
@@ -36,11 +36,11 @@
     }
 
     // Calculates fill given line number
-    let get_fill(line) = {
+    let get-fill(line) = {
       if calc.rem(line, 2) == 0 {
-        return fill_2
+        return fill-2
       } else {
-          return  fill_1
+          return  fill-1
       }
     }
 
@@ -51,9 +51,9 @@
       height: 1.7em,
       width: 100%,
       inset: (x:0.8em, top:0.4em),
-      fill: get_fill(line),
-      radius: get_radius(line),
-      stroke: get_stroke(line),
+      fill: get-fill(line),
+      radius: get-radius(line),
+      stroke: get-stroke(line),
       spacing: 0em,
 
       // Actual line of code with height adjustment for centering it
