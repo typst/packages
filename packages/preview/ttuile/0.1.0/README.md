@@ -22,9 +22,7 @@
   </a>
 </p>
 
-> [!NOTE]
-> 
-> Voir aussi le [README.FR.md](https://github.com/vitto4/ttuile/blob/main/README.FR.md) en français.
+> **Note :** Voir aussi le [README.FR.md](https://github.com/vitto4/ttuile/blob/main/README.FR.md) en français.
 
 ## 🧭 Table of contents
 
