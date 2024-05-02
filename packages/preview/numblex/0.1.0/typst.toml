@@ -2,7 +2,7 @@
 name = "numblex"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["ParaN3xus@https://github.com/ParaN3xus", "sjfhsjfh@https://github.com/sjfhsjfh"]
+authors = ["ParaN3xus <@ParaN3xus>", "sjfhsjfh <@sjfhsjfh>"]
 license = "MIT"
 description = "Numbering helper."
 categories = ["utility"]
