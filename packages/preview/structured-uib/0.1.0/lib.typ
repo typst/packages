@@ -3,8 +3,8 @@
 
 // TEMPLATE FUNCTION
 #let report(
-  task_no: none,
-  task_name: none,
+  task-no: none,
+  task-name: none,
   authors: none,
   mails: none,
   group: none,
@@ -14,7 +14,7 @@
 ) = {
   
   // DOCUMENT METADATA
-  set document(title: [PHYS114 - Laboppgave #task_no - Gruppe #group], 
+  set document(title: [PHYS114 - Laboppgave #task-no - Gruppe #group], 
                author: authors.map(author => author),
                date: datetime.today())
              
@@ -22,7 +22,7 @@
   set text(lang: "nb")
   
   // CREATE MAIL LINK ARRAY
-  let mail_links = mails.map(mail => link("mailto:" + mail))
+  let mail-links = mails.map(mail => link("mailto:" + mail))
   
   // DOCUMENT FONTS
   set text(font: "STIX Two Text", size: 12pt)
@@ -51,9 +51,9 @@
     stroke: none,
     align: left,
     row-gutter: 4mm,
-    [*Lab.oppgave:*],                [#task_no: #task_name],
+    [*Lab.oppgave:*],                [#task-no: #task-name],
     [*Navn (alle i lab.gruppen):*],  [#authors.join(", ")],
-    [*Epost (alle i lab.gruppen):*], [#mail_links.join(" ")],
+    [*Epost (alle i lab.gruppen):*], [#mail-links.join(" ")],
     [*Lab.gruppe\#:*],               [#group],
     [*Dato utført:*],                [#date],
     [*Veileder:*],                   [#supervisor],
@@ -74,7 +74,7 @@
     paper: "a4",
     margin: (left: 27mm, right: 20mm, top: 20mm, bottom:30mm),
     numbering: "1",
-    header: align(center, text(size: 10pt, [PHYS114 - Laboppgave #task_no - Gruppe #group])),
+    header: align(center, text(size: 10pt, [PHYS114 - Laboppgave #task-no - Gruppe #group])),
   )
   counter(page).update(1) // Skip first page in numbering
   

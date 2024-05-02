@@ -1,10 +1,10 @@
-# Structured-UIB - A lab report template for the course PHYS114 at UiB
+# Structured-UiB - A lab report template for the course PHYS114 at UiB
 
 Report template to be used for laboratory reports in the course PHYS114 - Basic Measurement Science and Experimental Physics, at the University of Bergen (https://www.uib.no/en/courses/PHYS114). The template is in Norwegian only as of now. English support may be added in the future.
 
 The first part of the packages name is arbitrary, such that it follows the naming guidelines of Typst. 
 
-**Note:** The template uses the fonts **STIX Two Text** and **STIX Two Math**. If running Typst locally on your computer, make sure you have these fonts installed. There should be no font problems if you are using typst.app however.
+**Note:** The template uses the fonts **STIX Two Text** and **STIX Two Math** (https://github.com/stipub/stixfonts/tree/master/fonts). If running Typst locally on your computer, make sure you have these fonts installed. There should be no font problems if you are using Typst via https://typst.app however.
 
 Usage:
 ```typ
@@ -13,8 +13,8 @@ Usage:
 
 // TEMPLATE SETTINGS
 #show: report.with(
-  task_no: "1",
-  task_name: "Måling og behandling av måledata",
+  task-no: "1",
+  task-name: "Måling og behandling av måledata",
   authors: (
     "Student Enersen",
     "Student Toersen", 
