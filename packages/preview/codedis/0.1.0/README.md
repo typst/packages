@@ -2,7 +2,7 @@
 
 Used to display code files in Typst. Main feature is that it displays code blocks over multiple pages in a way that implies the code block continues onto the next page. Also a simple and intuitive syntax for displaying code blocks.
 
-Usage:s
+Usage:
 ```typ
 // IMPORT PACKAGE
 #import "@preview/codedis:0.1.0": code
