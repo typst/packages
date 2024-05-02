@@ -7,6 +7,6 @@ authors = ["Eric Biedert"]
 repository = "https://github.com/EpicEricEE/typst-plugins"
 license = "MIT"
 description = "Breakable equations with improved numbering."
-exclude = ["README.md", "assets", "tests"]
+exclude = ["assets", "tests"]
 categories = ["layout", "model"]
 keywords = ["math", "equation", "formula", "sub", "multiline", "multi-line", "split"]

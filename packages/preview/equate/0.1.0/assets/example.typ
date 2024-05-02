@@ -1,4 +1,4 @@
-#import "../src/lib.typ": equate
+#import "@preview/equate:0.1.0": equate
 
 #set text(size: 14pt)
 #set par(justify: true)
