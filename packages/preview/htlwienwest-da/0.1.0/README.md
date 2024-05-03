@@ -18,7 +18,7 @@ This template exports the `diplomarbeit` function with the following named argum
  - `titel`: `string` - The title of the thesis
  - `schuljahr`: `string` - The current school year
  - `abteilung`: `string` - The student's department
- - `unterschrifts_datum`: `string` - The submission date
+ - `unterschriftsDatum`: `string` - The submission date
  - `autoren`: `array(dict)` - An array of all authors, represented as dictionaries. Each of them has the following properties
     - `vorname`: `string` - Firstname of the student
     - `nachname`: `string` - Lastname of the student
@@ -36,7 +36,7 @@ This template exports the `diplomarbeit` function with the following named argum
 
 The function also accepts a single, positional argument for the body of the paper.
 
-The template will initialize your package with a sample call to the `ieee`function in a show rule. If you want to change an existing project to use thistemplate, you can add a show rule like this at the top of your file:
+The template will initialize your package with a sample call to the `diplomarbeit`function in a show rule. If you want to change an existing project to use thistemplate, you can add a show rule like this at the top of your file:
 
 ```typ
 #import "@preview/htlwienwest-da:0.1.0": *
@@ -45,7 +45,7 @@ The template will initialize your package with a sample call to the `ieee`functi
   titel: "Titel der Diplomarbeit",
   abteilung: "Informationstechnologie",
   schuljahr: "2023/24",
-  unterschrifts_datum: "20.04.2024",
+  unterschriftsDatum: "20.04.2024",
   autoren: (
    (
      vorname: "Hans", nachname: "Mustermann",
