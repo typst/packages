@@ -9,7 +9,7 @@
 ///  - titel: string
 ///  - schuljahr: string 
 ///  - abteilung: string
-///  - unterschriftsDatum: string
+///  - unterschrifts-datum: string
 ///  - autoren: list(dict)
 ///     - vorname: string
 ///     - nachname: string
@@ -28,7 +28,7 @@
   titel: "Titel der Diplomarbeit",
   abteilung: "Informationstechnologie",
   schuljahr: "2023/24",
-  unterschriftsDatum: "20.04.2024",
+  unterschrifts-datum: "20.04.2024",
   autoren: (
    (
      vorname: "Hans", nachname: "Mustermann",

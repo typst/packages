@@ -18,7 +18,7 @@ This template exports the `diplomarbeit` function with the following named argum
  - `titel`: `string` - The title of the thesis
  - `schuljahr`: `string` - The current school year
  - `abteilung`: `string` - The student's department
- - `unterschriftsDatum`: `string` - The submission date
+ - `unterschrifts-datum`: `string` - The submission date
  - `autoren`: `array(dict)` - An array of all authors, represented as dictionaries. Each of them has the following properties
     - `vorname`: `string` - Firstname of the student
     - `nachname`: `string` - Lastname of the student
@@ -45,7 +45,7 @@ The template will initialize your package with a sample call to the `diplomarbei
   titel: "Titel der Diplomarbeit",
   abteilung: "Informationstechnologie",
   schuljahr: "2023/24",
-  unterschriftsDatum: "20.04.2024",
+  unterschrifts-datum: "20.04.2024",
   autoren: (
    (
      vorname: "Hans", nachname: "Mustermann",

@@ -6,7 +6,7 @@
 #let diplomarbeit(
   titel: none, 
   abteilung: none,
-  unterschriftsDatum: none,
+  unterschrifts-datum: none,
   schuljahr: none,
   autoren: none,
   kurzfassung: none,
@@ -21,7 +21,7 @@
 assertNotNone(titel, message: "Der Titel muss in den Diplomarbeits-Konfigurationen (`diplomarbeit.with(...)`) gesetzt sein")
 assertNotNone(abteilung, message: "Die Abteilung muss in den Diplomarbeits-Konfigurationen (`diplomarbeit.with(...)`) gesetzt sein")
 assertNotNone(schuljahr, message: "Das Schuljahr muss in den Diplomarbeits-Konfigurationen (`diplomarbeit.with(...)`) gesetzt sein")
-assertNotNone(unterschriftsDatum, message: "Das Datum der Unterschrift für die Eidesstaatliche-Erklärung muss in den Diplomarbeits-Konfigurationen (`diplomarbeit.with(...)`) gesetzt sein")
+assertNotNone(unterschrifts-datum, message: "Das Datum der Unterschrift für die Eidesstaatliche-Erklärung muss in den Diplomarbeits-Konfigurationen (`diplomarbeit.with(...)`) gesetzt sein")
 assertNotNone(autoren, message: "Die Autoren müssen in den Diplomarbeits-Konfigurationen (`diplomarbeit.with(...)`) gesetzt sein")
 assertNotNone(kurzfassung, message: "Die Kurzfassung muss in den Diplomarbeits-Konfigurationen (`diplomarbeit.with(...)`) gesetzt sein")
 assertNotNone(abstract, message: "Der Abstract muss in den Diplomarbeits-Konfigurationen (`diplomarbeit.with(...)`) gesetzt sein")
@@ -225,7 +225,7 @@ counter(page).update(1)
   //Eidesstattliche Erklärung
   import "pages/eidesstattliche.typ": eidesstattliche
   let persons = autoren.map(e => [#e.vorname #e.nachname])
-  eidesstattliche(datum: unterschriftsDatum, persons: persons)
+  eidesstattliche(datum: unterschrifts-datum, persons: persons)
   pagebreak()
 
   //Eidesstattliche Erklärung
