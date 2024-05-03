@@ -58,7 +58,14 @@ If this is your first resume, I'd recommend sticking with this formatting for no
 
 */
 
-#import "templates/resume.template.typ": *
+#import "@preview/guided-resume-starter-cgc:2.0.0": *
+
+// If you'd like to customize the formatting here, you can directly reference the resume
+// template file in your local project. If you make edits to the core template that you
+// feel would be beneficial to others, please consider submitting a pull request to the
+// template repository at https://github.com/chaoticgoodcomputing/typst-resume-starter
+//
+// #import "templates/resume.template.typ": *
 
 #show: resume.with(
   author: "Dr. Emmit \"Doc\" Brown",

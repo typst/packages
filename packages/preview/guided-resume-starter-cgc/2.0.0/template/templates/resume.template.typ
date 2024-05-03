@@ -1,15 +1,24 @@
+/*
+Core formatting for the template document type. Establishes general document-wide formatting,
+and creates the header and footer for the resume.
+*/
 #let resume(
   author: "",
   location: "",
   contacts: (),
   body
 ) = {
+
+  // Sets document metadata
   set document(author: author, title: author)
+
+  // Document-wide formatting, including font and margins
   set text(
     font: "New Computer Modern",
     size: 11pt,
     lang: "en"
   )
+
   set page(
     margin: (
       top: 1.25cm,
@@ -23,6 +32,7 @@
     fill: rgb("#0645AD")
   )
   
+  // Header parameters, including author and contact information.
   show heading: it => [
     #pad(top: 0pt, bottom: -15pt, [#smallcaps(it.body)])
     #line(length: 100%, stroke: 1pt)
@@ -33,7 +43,7 @@
     #block(text(weight: 700, 2.5em, [#smallcaps(author)]))
   ]
 
-  // Contact information.
+  // Contact
   pad(
     top: 0.25em,
     align(center)[
@@ -54,22 +64,21 @@
   body
 }
 
-// Allows hiding or showing full resume dynamically using global variable
-#let hide(shouldHide, content) = {
-  if not shouldHide {
+/*
+Allows hiding or showing full resume dynamically using global variable. This can
+be helpful for creating a single document that can be rendered differently depending on
+the desired output, for cases where you'd like to simultaneously render both a full copy
+and a single-page instance of only the most important or vital information.
+*/
+#let hide(should-hide, content) = {
+  if not should-hide {
     content
   }
 }
 
-#let icon(name, baseline: 1.5pt) = {
-  box(
-    baseline: baseline,
-    height: 10pt,
-    image(name)
-  )
-}
-
-// Education section formatting, allowing enumeration of degrees and GPA
+/*
+Education section formatting, allowing enumeration of degrees and GPA
+*/
 #let edu(
   institution: "",
   date: "",
@@ -106,6 +115,10 @@
   )
 }
 
+/*
+Skills section formatting, responsible for collapsing individual entries into
+a single list.
+*/
 #let skills(areas) = {
   for area in areas {
     strong[#area.at(0): ]
@@ -114,6 +127,9 @@
   }
 }
 
+/*
+Experience section formatting logic.
+*/
 #let exp(
   role: "",
   project: "",
