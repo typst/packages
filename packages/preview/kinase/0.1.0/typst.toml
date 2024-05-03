@@ -5,5 +5,5 @@ entrypoint = "lib.typ"
 authors = ["Lennart Schuster"]
 license = "MIT"
 description = "Easy styling for different link types like mails and urls."
-exclude = ["docs", "ressources"]
+exclude = ["docs", "resources"]
 keywords = ["utility", "languages"]
