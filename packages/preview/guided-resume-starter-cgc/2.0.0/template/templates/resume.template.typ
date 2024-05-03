@@ -1,4 +1,12 @@
 /*
+This copy of the resume formatting template is provided in the template download in case
+you'd like to make your preferred edits to the template directly.
+
+If you'd like to use this copy instead of the package, you'll need to update the #import
+statement in your resume.typ file to reference this file directly
+*/
+
+/*
 Core formatting for the template document type. Establishes general document-wide formatting,
 and creates the header and footer for the resume.
 */

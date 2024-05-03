@@ -58,6 +58,9 @@ If this is your first resume, I'd recommend sticking with this formatting for no
 
 */
 
+// This import references the packaged formatting template for the resume, including
+// future tweaks & fixes. If you'd like to keep your formatting up-to-date with the
+// latest changes, keep this line as-is.
 #import "@preview/guided-resume-starter-cgc:2.0.0": *
 
 // If you'd like to customize the formatting here, you can directly reference the resume
