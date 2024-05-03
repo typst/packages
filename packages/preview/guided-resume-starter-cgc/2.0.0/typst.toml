@@ -9,6 +9,7 @@ authors = [
 license = "Unlicense"
 description = "A guided starter resume for people looking to focus on highlighting their experience -- without having to worry about the hassle of formatting."
 homepage = "https://blog.chaoticgood.computer/writing/notes/typst-resume-template"
+repository = "https://github.com/chaoticgoodcomputing/typst-resume-starter"
 categories = ["cv"]
 keywords = [
   "resume",
@@ -17,6 +18,10 @@ keywords = [
   "starter",
   "guide",
   "tutorial",
+  "student",
+  "industry",
+  "jobs",
+  "career",
   "chaotic good computer",
   "cgc",
 ]
