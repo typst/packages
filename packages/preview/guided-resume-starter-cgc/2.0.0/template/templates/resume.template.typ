@@ -3,7 +3,11 @@ This copy of the resume formatting template is provided in the template download
 you'd like to make your preferred edits to the template directly.
 
 If you'd like to use this copy instead of the package, you'll need to update the #import
-statement in your resume.typ file to reference this file directly
+statement in your resume.typ file to reference this file directly.
+
+Have you made edits or bug fixes to this template that you feel would help out others?
+It would be fantastic if you submitted a pull request to the template repository at
+https://github.com/chaoticgoodcomputing/typst-resume-starter !
 */
 
 /*
