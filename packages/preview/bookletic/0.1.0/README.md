@@ -1,4 +1,4 @@
-# Bookletic
+  # Bookletic :book:
 Create beautiful booklets with ease.
 
 The current version of this library (0.1.0) contains a single function to take in an array of content blocks and order them into a ready to print booklet, bulletin, etc.
