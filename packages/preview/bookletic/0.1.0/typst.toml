@@ -11,3 +11,4 @@ license = "Apache-2.0"
 description = "Create beautiful booklets with ease."
 categories = [ "book", "layout", "flyer" ]
 keywords = [ "book", "booklet", "pamphlet", "bulletin" ]
+exclude = [ "/example/basic.png", "/example/fancy.png" ]
