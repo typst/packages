@@ -4,13 +4,13 @@
 
 #show: fireside.with(
   title: [Anakin \ Skywalker],
-  from_details: [
+  from-details: [
     Appt. x, \
     Mos Espa, \
     Tatooine \
     anakin\@example.com \ +999 xxxx xxx
   ],
-  to_details: [
+  to-details: [
     Sheev Palpatine \
     500 Republica, \
     Ambassadorial Sector, Senate District, \

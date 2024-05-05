@@ -23,13 +23,13 @@ Features:
 
     #show: project.with(
       title: [Anakin \ Skywalker],
-      from_details: [
+      from-details: [
         Appt. x, \
         Mos Espa, \
         Tatooine \
         anakin\@example.com \ +999 xxxx xxx
       ],
-      to_details: [
+      to-details: [
         Sheev Palpatine \
         500 Republica, \
         Ambassadorial Sector, Senate District, \
@@ -46,10 +46,10 @@ Features:
 ```typst
   background: rgb("f4f1eb"), # Override the background color
   title: "",                 # Set the top-left title. It looks best on two lines
-  from_details: none,        # Letter sender (you) details
-  to_details: none,          # Letter receiver details
+  from-details: none,        # Letter sender (you) details
+  to-details: none,          # Letter receiver details
   margin: 2.1cm,             # Page margin
-  vertical_center_level: 2,  # When the content is small, it is vertically centered a bit, but still kept closer to the top. This controls how much. Setting to none will disable centering.
+  vertical-center-level: 2,  # When the content is small, it is vertically centered a bit, but still kept closer to the top. This controls how much. Setting to none will disable centering.
   body
 ```
 

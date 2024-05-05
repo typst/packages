@@ -1,12 +1,12 @@
-#let title_size = 44pt
+#let _title-size = 44pt
 
 #let fireside(
   background: rgb("f4f1eb"),
   title: "",
-  from_details: none,
-  to_details: none,
+  from-details: none,
+  to-details: none,
   margin: 2.1cm,
-  vertical_center_level: 2,
+  vertical-center-level: 2,
   body
 ) = {
   set page(fill: background, margin: margin)
@@ -22,7 +22,7 @@
     grid(
       columns: (1fr, auto),
       [
-        #set text(size: title_size, weight: "bold")
+        #set text(size: _title-size, weight: "bold")
         #set par(leading: 0.4em)
         #title
       ],
@@ -30,23 +30,23 @@
         inset: (top: 1em),
         [
           #set text(size: 10.2pt, fill: rgb("4d4d4d"))
-          #from_details
+          #from-details
         ]
       )),
     )
-    v(title_size)
-    text(size: 9.2pt, to_details)
-    v(title_size)
+    v(title-size)
+    text(size: 9.2pt, to-details)
+    v(title-size)
   }
   
   layout(size => context [
-    #let header_sz = measure(block(width: size.width, header))
-    #let body_sz = measure(block(width: size.width, body))
+    #let header-sz = measure(block(width: size.width, header))
+    #let body-sz = measure(block(width: size.width, body))
 
-    #let ratio = (header_sz.height + body_sz.height) / size.height
+    #let ratio = (header-sz.height + body-sz.height) / size.height
     #let overflowing = ratio > 1
 
-    #if overflowing or vertical_center_level == none {
+    #if overflowing or vertical-center-level == none {
       header
       body
     } else {
@@ -58,7 +58,7 @@
         box([
           #v(1fr * ratio)
           #body
-          #v(vertical_center_level * 1fr)
+          #v(vertical-center-level * 1fr)
         ]),
       )
     }
