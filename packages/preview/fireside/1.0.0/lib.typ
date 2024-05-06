@@ -34,9 +34,9 @@
         ]
       )),
     )
-    v(title-size)
+    v(_title-size)
     text(size: 9.2pt, to-details)
-    v(title-size)
+    v(_title-size)
   }
   
   layout(size => context [
