@@ -1,5 +1,5 @@
 [package]
-name = "aviation-style-checklist"
+name = "aero-check"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["TomVer99"]

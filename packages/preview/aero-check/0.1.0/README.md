@@ -1,4 +1,4 @@
-# Aviation style checklist
+# aero-check
 
 This template is meant to create checklists with a style inspired by aviation checklists.
 

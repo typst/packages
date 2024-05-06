@@ -1,4 +1,4 @@
-#import "@preview/aviation-style-checklist:0.1.0": *
+#import "@preview/aero-check:0.1.0": *
 
 #show: checklist.with(
   title: "Title",
