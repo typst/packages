@@ -1,8 +1,8 @@
-#import "@preview/bookletic:0.1.0": sig
+#import "@preview/bookletic:0.1.0": sig 
 #set document(author: "My Name", title: "Bookletic Example")
 
 //Barebones example
-#let my_eight_pages = (
+#let my-eight-pages = (
   [
     = Cover Page
   ],
@@ -54,7 +54,7 @@
 // the content is wrapped before movement so that
 // padding and alignment are respected.
 #sig(
-  contents: my_eight_pages
+  contents: my-eight-pages
 )
 
 // A Fancier example
@@ -62,7 +62,7 @@
 #set text(size: 16pt, font: "PT Serif", lang: "en")
 #set par(justify: true)
 
-#let more_eight_pages = (
+#let more-eight-pages = (
   [
     #v(45%)
     = Cover Page
@@ -115,14 +115,14 @@
 )
 
 #sig(
-  signature_paper: "us-legal",
-  page_margin_top: 0.5in,
-  page_margin_bottom: 0.5in,
-  page_margin_binding: 1in,
-  page_margin_edge: 0.5in,
-  page_border: none,
+  signature-paper: "us-legal",
+  page-margin-top: 0.5in,
+  page-margin-bottom: 0.5in,
+  page-margin-binding: 1in,
+  page-margin-edge: 0.5in,
+  page-border: none,
   draft: false,
-  pNum_pattern: (..nums) => 
+  p-num-pattern: (..nums) => 
                   box(inset: 3pt, text(size: 10pt, 
                   sym.lt.curly.double )) + " " 
                   + nums
@@ -130,12 +130,12 @@
                     .map(str)
                     .join(".") 
                   + " " + box(inset: 3pt, text(size: 10pt, sym.gt.curly.double)), 
-  pNum_placment: bottom,
-  pNum_align_horizontal: center,
-  pNum_align_vertical: horizon,
-  pNum_size: 16pt,
-  pNum_pad_horizontal: 0pt,
-  pNum_border: none,
-  pad_content: 0pt,
-  contents: more_eight_pages
+  p-num-placment: bottom,
+  p-num-align-horizontal: center,
+  p-num-align-vertical: horizon,
+  p-num-size: 16pt,
+  p-num-pad-horizontal: 0pt,
+  p-num-border: none,
+  pad-content: 0pt,
+  contents: more-eight-pages
 )
