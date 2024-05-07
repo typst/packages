@@ -5,6 +5,7 @@ authors = ["CL4R3T <https://github.com/CL4R3T>"]
 license = "MIT"
 description = "Template for modern physics experiment reports at the Physics School of PKU."
 entrypoint = "lib.typ"
+categories = ["report"]
 repository = "https://github.com/CL4R3T/meppp"
 
 [template]
