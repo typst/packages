@@ -8,7 +8,7 @@ You can see an example PDF [here](https://github.com/DannySeidel/typst-dhbw-temp
 
 ## Usage
 
-You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `dhbw-thesis`.
+You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `supercharged-dhbw`.
 
 Alternatively, you can use the CLI to kick this project off using the command
 

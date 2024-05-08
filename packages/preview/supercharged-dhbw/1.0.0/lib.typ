@@ -5,7 +5,7 @@
 #import "acronyms-list.typ": *
 #import "template/appendix.typ": *
 
-#let dhbw-thesis(
+#let supercharged-dhbw(
   title: "",
   authors: (:),
   at-dhbw: false,
