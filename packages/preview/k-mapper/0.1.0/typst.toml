@@ -1,0 +1,13 @@
+[package]
+name = "k-mapper"
+version = "0.1.0"
+entrypoint = "k-mapper.typ"
+authors = ["Derek Chai"]
+license = "MIT"
+description = "A package to add Karnaugh maps into Typst projects."
+repository = "https://github.com/derekchai/typst-karnaugh-map"
+categories = ["visualization"]
+keywords = [
+    "karnaugh", "map", "k map", "k-map", "electronics"
+]
+exclude = ["*.pdf", "*.png"]
