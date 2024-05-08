@@ -13,7 +13,7 @@ You can use this template in the Typst web app by clicking "Start from template"
 Alternatively, you can use the CLI to kick this project off using the command
 
 ```shell
-typst init @preview/dhbw-thesis
+typst init @preview/supercharged-dhbw
 ```
 
 Typst will create a new directory with all the files needed to get you started.
@@ -34,7 +34,7 @@ Typst will create a new directory with all the files needed to get you started.
 A more detailed explanation of the features can be found in the `main.typ` file.
 
 ## Configuration
-This template exports the `dhbw-thesis` function with the following named arguments:
+This template exports the `supercharged-dhbw` function with the following named arguments:
 
 `title`: Title of the document
 
@@ -85,9 +85,9 @@ is true
 If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
 
 ```typst
-#import "@preview/dhbw-thesis:1.0.0": *
+#import "@preview/supercharged-dhbw:1.0.0": *
 
-#show: dhbw-thesis.with(
+#show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
   authors: (
     (name: "Juan Pérez", student-id: "1234567", course: "TIM21", course-of-studies: "Mobile Computer Science", company: (
