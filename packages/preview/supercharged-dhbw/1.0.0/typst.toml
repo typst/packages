@@ -1,5 +1,5 @@
 [package]
-name = "dhbw-thesis"
+name = "supercharged-dhbw"
 version = "1.0.0"
 entrypoint = "lib.typ"
 authors = ["Danny Seidel <@DannySeidel>"]

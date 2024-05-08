@@ -1,4 +1,4 @@
-# DHBW Thesis
+# Supercharged DHBW
 
 Unofficial [Typst](https://typst.app/) template for DHBW students.
 
