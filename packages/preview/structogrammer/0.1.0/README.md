@@ -32,7 +32,7 @@ You can then draw structograms, like so:
 )
 ```
 which yields:<br>
-![The structogram specified by the code above](examples/merge-sort.svg)
+![The structogram specified by the code above](https://raw.githubusercontent.com/genericusername3/structogrammer/master/examples/merge-sort.svg)
 
 ## Advanced usage
 
@@ -83,11 +83,11 @@ Specs can contain the following control blocks, as dictionaries:
   Examples: <ul>
   <li><details>
     <summary><code>(If: "debug mode", Then: ("print debug message"))</code></summary>
-    <img src="examples/if-then.svg", alt="Structogram with an if-branch that prints a debug message if the condition debug mode is met">
+    <img src="https://raw.githubusercontent.com/genericusername3/structogrammer/master/examples/if-then.svg", alt="Structogram with an if-branch that prints a debug message if the condition debug mode is met">
   </details></li>
   <li><details>
     <summary><code>(If: "x > 5", Then: ("x = x - 1", "print x"), Else: "print x")</code></summary>
-    <img src="examples/if-then-else.svg", alt="Structogram with an if-branch that decrements and prints x if x is smaller than 5 or else just prints x">
+    <img src="https://raw.githubusercontent.com/genericusername3/structogrammer/master/examplesif-then-else.svg", alt="Structogram with an if-branch that decrements and prints x if x is smaller than 5 or else just prints x">
   </details></li>
   </ul>
 
@@ -108,15 +108,15 @@ Specs can contain the following control blocks, as dictionaries:
   Examples:<ul>
   <li><details>
     <summary><code>(While: "true", Do: "print \"endless loop\"")</code></summary>
-    <img src="examples/while-do.svg", alt="Structogram that prints &quot;endless loop&quot; forever (while condition true). This is an entry-controlled loop">
+    <img src="https://raw.githubusercontent.com/genericusername3/structogrammer/master/exampleswhile-do.svg", alt="Structogram that prints &quot;endless loop&quot; forever (while condition true). This is an entry-controlled loop">
   </details></li>
   <li><details>
     <summary><code>(Do: "print \"endless loop\"", While: "true")</code></summary>
-    <img src="examples/do-while.svg", alt="Structogram that does the same but with an exit-controlled loop">
+    <img src="https://raw.githubusercontent.com/genericusername3/structogrammer/master/examplesdo-while.svg", alt="Structogram that does the same but with an exit-controlled loop">
   </details></li>
   <li><details>
     <summary><code>(For: "item", In: "Container", Do: "print item.name")</code></summary>
-    <img src="examples/for-in.svg", alt="Structogram that iterates over each item in a container and prints the item name">
+    <img src="https://raw.githubusercontent.com/genericusername3/structogrammer/master/examplesfor-in.svg", alt="Structogram that iterates over each item in a container and prints the item name">
   </details></li>
   </ul>
 
@@ -130,7 +130,7 @@ Specs can contain the following control blocks, as dictionaries:
   Example:<ul>
   <li><details>
     <summary><code>(Call: "func()")</code></summary>
-    <img src="examples/call.svg", alt="Structogram that calls the &quot;func&quot; function">
+    <img src="https://raw.githubusercontent.com/genericusername3/structogrammer/master/examplescall.svg", alt="Structogram that calls the &quot;func&quot; function">
   </details></li>
   </ul>
 
@@ -144,11 +144,11 @@ Specs can contain the following control blocks, as dictionaries:
   Examples:<ul>
   <li><details>
     <summary><code>(Break: "")</code></summary>
-    <img src="examples/break.svg", alt="Structogram that indicates interrupting the control flow">
+    <img src="https://raw.githubusercontent.com/genericusername3/structogrammer/master/examplesbreak.svg", alt="Structogram that indicates interrupting the control flow">
   </details></li>
   <li><details>
     <summary><code>(Break: "to enclosing loop")</code></summary>
-    <img src="examples/break-to.svg", alt="Structogram that indicates interrupting the control flow, returning to the enclosing loop">
+    <img src="https://raw.githubusercontent.com/genericusername3/structogrammer/master/examplesbreak-to.svg", alt="Structogram that indicates interrupting the control flow, returning to the enclosing loop">
   </details></li>
   </ul>
 
