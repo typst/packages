@@ -100,8 +100,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 0.2.3
 - Updated to typst 0.11.0
-- Fix bugs
-- 
+- Added support for `fontcolor`, `fontsize` and `fontname` nodes attributes
+- Diagraph now uses a protocol generator to generate the wasm interface
 
 ### 0.2.2
 
