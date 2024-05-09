@@ -1,0 +1,13 @@
+[package]
+name = "aau-report"
+version = "1.1.0"
+entrypoint = "lib.typ"
+authors = ["Kresten Laust <https://github.com/krestenlaust>"]
+license = "MIT-0"
+description = "The widely used AAU LaTeX report template, rewritten in Typst."
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
