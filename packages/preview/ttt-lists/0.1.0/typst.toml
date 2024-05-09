@@ -1,0 +1,17 @@
+[package]
+name = "ttt-lists"
+version = "0.1.0"
+compiler = "0.11.0"
+entrypoint = "lib/lib.typ"
+authors = ["Jomaway <https://github.com/jomaway>"]
+license = "MIT"
+description = "Template to create student lists. Part of the ttt-collection to make a teachers life easier." 
+repository = "https://github.com/jomaway/typst-teacher-templates"
+keywords = ["teacher","students", "list", "management"]
+categories = ["components", "utility", "office"]
+disciplines = ["education"]
+
+[template]
+path = "template"
+entrypoint = "students.typ"
+thumbnail = "thumbnail.png"
