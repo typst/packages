@@ -1,0 +1,11 @@
+[package]
+name = "dotenv"
+version = "0.1.0"
+entrypoint = "dotenv.typ"
+authors = ["chillcicada"]
+license = "MIT"
+description = "Load environment variables from a .env file."
+homepage = "https://github.com/chillcicada/typst-dotenv#readme"
+repository = "https://github.com/chillcicada/typst-dotenv"
+keywords = ["dotenv", "environment", "utility"]
+exclude = ["example/*", ".*", "example.png"]
