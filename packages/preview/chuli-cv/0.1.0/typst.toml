@@ -13,3 +13,4 @@ exclude = []
 [template]
 path = "template"
 entrypoint = "cv.typ"
+thumbnail = "thumbnail.png"
