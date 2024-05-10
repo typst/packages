@@ -1,5 +1,5 @@
 [package]
-name = "modern-yju-thesis"
+name = "modern-ysu-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Woodman3"]
