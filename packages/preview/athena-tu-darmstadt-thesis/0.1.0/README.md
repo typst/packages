@@ -17,7 +17,7 @@ For missing features, ideas or other problems you can just open an issue :wink:.
 
 | Template | Preview | Example | Scope |
 |----------|---------|---------|-------|
-| [tudapub](templates/tudapub/tudapub.typ) | <img src="img/tudapub_prev.png" height="300px"> | [example_tudapub.pdf](https://github.com/JeyRunner/tuda-typst-templates/blob/main/example_tudapub.pdf) <br/> [example_tudapub.typ](example_tudapub.typ) | Master and Bachelor thesis |
+| [tudapub](templates/tudapub/tudapub.typ) | <img src="img/tudapub_prev-01.png" height="300px"> | [example_tudapub.pdf](https://github.com/JeyRunner/tuda-typst-templates/blob/main/example_tudapub.pdf) <br/> [example_tudapub.typ](example_tudapub.typ) | Master and Bachelor thesis |
 
 ## Usage
 Create a new typst project based on this template locally.
