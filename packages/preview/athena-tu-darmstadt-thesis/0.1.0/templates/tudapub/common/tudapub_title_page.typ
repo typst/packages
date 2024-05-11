@@ -36,7 +36,7 @@
   reviewer_names: ("SuperSupervisor 1", "SuperSupervisor 2"),
 
   // tuda logo, has to be a svg. E.g. image("PATH/TO/LOGO")
-  logo_tuda: image("../logos/tuda_logo.svg"),
+  logo_tuda: none,
 
   // optional sub-logo of an institute.
   // E.g. image("logos/iasLogo.jpeg")

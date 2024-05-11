@@ -63,7 +63,7 @@
   margin: tud_page_margin_big,
 
   // tuda logo - has to be a svg. E.g. image("PATH/TO/LOGO")
-  logo_tuda: image("logos/tuda_logo.svg"),
+  logo_tuda: none,  // e.g. image("logos/tuda_logo.svg")
 
   // optional sub-logo of an institute.
   // E.g. image("logos/iasLogo.jpeg")
