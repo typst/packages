@@ -13,4 +13,4 @@ exclude = ["tests", "example_tudapub.pdf"]
 [template]
 path = "templates_examples/tudapub"
 entrypoint = "main.typ"
-thumbnail = "img/tudapub_prev.png"
+thumbnail = "img/tudapub_prev-01.png"
