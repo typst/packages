@@ -225,14 +225,12 @@ A more complex sample PDF is available there as well.
 * Support multiple named indexes. Also allow the generation of
   combined index pages.
 * Support for LaTeX index group syntax (`#index("Group1!Group2@Entry"`).
-* Support for advanced case handling for the entries in the index. 
-  Note: The new default ist to ignore the casing for the sorting of the entries.
-  The behavior can be changed by providing a `sort-order()` function to the
-  `make-index` function.
-* The casing for the index entry can also be altered by providing a  
-  `entry-casing()` function to the `make-index` function. So it is possible
-  to have all entries have an uppercase first letter, for example, which is 
-  also the new default!
+* Support for advanced case handling for the entries in the index. Note: The new default
+  ist to ignore the casing for the sorting of the entries. The behavior can be changed by
+  providing a `sort-order()` function to the `make-index` function.
+* The casing for the index entry can also be altered by providing a `entry-casing()`
+  function to the `make-index` function. So it is possible that all entries have an
+  uppercase first letter (which is  also the new default!).
 
 ### v0.2.0
 
