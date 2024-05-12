@@ -28,7 +28,8 @@
 #table(
   table.header[Inspecting diffs],
   [`git diff [path]`], [Show changes between *working tree* and *staging area*.],
-  [`git diff --cached/--staged [path]`], [Shows any changes between the *staging area* and the *repository*.],
+  [`git diff --cached/--staged [path]`], [Show any changes between the *staging area* and the *repository*.],
+  [`git diff > file.patch`], [Generate a patch file for current changes],
 )
 
 #table(
@@ -60,7 +61,7 @@
 )
 
 #table(
-  table.header[Synchronizing repositories],
+  table.header(table.cell(colspan: 2)[Synchronizing repositories]),
   [`git fetch [remote]`], [Fetch changes from the *remote*, but not update tracking branches.],
   [`git fetch --prune [remote]`], [Delete remote refs that were removed from the *remote* repository.],
   [`git pull [remote]`], [Fetch changes from the *remote* and *merge* current branch with its upstream.],
