@@ -9,7 +9,7 @@ A simple Graphviz binding for Typst using the WebAssembly plugin system.
 This plugin is quite simple to use, you just need to import it:
 
 ```typ
-#import "@preview/diagraph:0.2.2": *
+#import "@preview/diagraph:0.2.3": *
 ```
 
 You can render a Graphviz Dot string to a SVG image using the `render` function:
@@ -97,6 +97,11 @@ Somme functions need to be stubbed to work with the webassembly plugin system. T
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Changelog
+
+### 0.2.3
+- Updated to typst 0.11.0
+- Added support for `fontcolor`, `fontsize` and `fontname` nodes attributes
+- Diagraph now uses a protocol generator to generate the wasm interface
 
 ### 0.2.2
 
