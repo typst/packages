@@ -18,6 +18,17 @@ typst init @preview/supercharged-dhbw
 
 Typst will create a new directory with all the files needed to get you started.
 
+## Fonts
+
+This template uses the following fonts:
+- [Montserrat](https://fonts.google.com/specimen/Montserrat)
+- [Open Sans](https://fonts.google.com/specimen/Open+Sans)
+
+If you want to use typst locally, you can download the fonts from the links above and install them on your system.
+Otherwise, when using the web version add the fonts to your project.
+
+For further information on how to add fonts to your project, please refer to the [Typst documentation](https://typst.app/docs/reference/text/text/#parameters-font).
+
 ## Contents
 
 - Title page
