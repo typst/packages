@@ -63,8 +63,6 @@ is true
 
 `show-code-snippets`: Whether the code snippets should be shown, default is true
 
-`show-bibliography`: Whether the bibliography should be shown, default is true
-
 `show-appendix`: Whether the appendix should be shown, default is false
 
 `show-abstract`: Whether the abstract should be shown, default is true
@@ -81,6 +79,8 @@ is true
 `logo-left`: Path to the logo on the left side of the title page
 
 `logo-right`: Path to the logo on the right side of the title page
+
+`bibliography`: path to the bibliography file
 
 If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
 

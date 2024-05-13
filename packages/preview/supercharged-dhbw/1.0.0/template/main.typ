@@ -20,7 +20,6 @@
   show-list-of-figures: true,
   show-list-of-tables: true,
   show-code-snippets: true,
-  show-bibliography: true,
   show-appendix: false,
   show-abstract: true,
   abstract: abstract, // displays the abstract defined above
@@ -28,6 +27,7 @@
   university-location: "Ravensburg Campus Friedrichshafen",
   supervisor: "John Appleseed",
   date: datetime.today(),
+  bibliography: bibliography("sources.bib"),
   logo-left: image("assets/logos/dhbw.svg"),
   // logo-right: image("assets/logos/company.svg")
 ) 

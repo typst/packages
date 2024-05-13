@@ -5,6 +5,9 @@
 #import "acronyms-list.typ": *
 #import "template/appendix.typ": *
 
+// Workaround for the lack of an `std` scope.
+#let std-bibliography = bibliography
+
 #let supercharged-dhbw(
   title: "",
   authors: (:),
@@ -16,7 +19,6 @@
   show-list-of-figures: true,
   show-list-of-tables: true,
   show-code-snippets: true,
-  show-bibliography: true,
   show-appendix: false,
   show-abstract: true,
   abstract: "",
@@ -25,6 +27,7 @@
   university-location: "",
   supervisor: "",
   date: datetime.today(),
+  bibliography: none,
   logo-left: none,
   logo-right: none,
   body,
@@ -182,8 +185,10 @@
 
   body
 
-  if (show-bibliography) {
-    bibliography(style: "institute-of-electrical-and-electronics-engineers", "/sources.bib")
+  // Display bibliography.
+  if bibliography != none {
+    set std-bibliography(title: [References], style: "ieee")
+    bibliography
   }
 
   if (show-appendix) {
