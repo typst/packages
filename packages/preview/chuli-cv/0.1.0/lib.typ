@@ -12,7 +12,7 @@
 // Cover letter Components
 //--------------------------------------------
 
-#let letter_header(
+#let letter-header(
   name: "Your Name Here",
   address: "Your Address Here",
   recipientName: "Company Name Here",
@@ -34,7 +34,7 @@
   linebreak(); linebreak()
 }
 
-#let letter_signature(path) = {
+#let letter-signature(path) = {
   linebreak()
   place(
     letter-signature-style.position, 
@@ -44,7 +44,7 @@
   )
 }
 
-#let letter_footer(name: "Your Name Here") = {
+#let letter-footer(name: "Your Name Here") = {
   place(
     letter-footer-style.position,
     table(
@@ -59,7 +59,7 @@
 // Cover letter layout
 //--------------------------------------------
 
-#let cover_letter(content) = {
+#let cover-letter(content) = {
   set text(
     font: body-style.fonts,
     weight: body-style.weight,
@@ -226,7 +226,7 @@
   location: "", 
   logo: "", 
   gpa: "",
-  gpa_total: "" 
+  gpa-total: "" 
 ) = {
   table(
     columns: 2,
@@ -247,7 +247,7 @@
     table.cell(
       {
         accent-subtopic-style(gpa)
-        regular-text-style("/ " + gpa_total)
+        regular-text-style("/ " + gpa-total)
       },
       inset: 4pt,
     )

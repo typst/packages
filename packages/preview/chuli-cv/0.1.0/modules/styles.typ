@@ -11,7 +11,7 @@
 )
 
 
-#let vLine() = [
+#let vline() = [
   #h(5pt)
 ]
 

@@ -50,7 +50,7 @@
       link: "#"
     ),
   ),
-  profile-picture: image("media/avatar.png")
+  profile-picture: image("media/avatar.jpg")
 )
 
 #show: body => columns(2, body)
@@ -98,7 +98,7 @@
   location: "Other somewhere", 
   logo: image("media/education.png", width: 10pt, height: 10pt),
   gpa: "50020",
-  gpa_total: "50000"
+  gpa-total: "50000"
 )
 
 #section("Personal Projects")
@@ -107,7 +107,7 @@
   company-or-university: "Personal Project", 
   date: "2068", 
   location: "", 
-  logo: image("media/avatar.png"), 
+  logo: image("media/avatar.jpg"), 
   description: list(
     [lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua.],   
     [ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.],
@@ -119,7 +119,7 @@
   company-or-university: "Personal Project", 
   date: "2040", 
   location: "", 
-  logo: image("media/avatar.png"), 
+  logo: image("media/avatar.jpg"), 
   description: list(
     [lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua.],   
     [ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.],
