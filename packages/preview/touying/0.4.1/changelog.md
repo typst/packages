@@ -7,6 +7,7 @@
 - feat: support builtin outline and bookmark
 - feat: support speaker note for dual-screen
 - feat: add touying-mitex function
+- feat: touying offers [a gallery page](https://github.com/touying-typ/touying/wiki) via wiki
 
 ### Fixes
 
