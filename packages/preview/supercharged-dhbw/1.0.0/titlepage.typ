@@ -22,7 +22,7 @@
 
   align(center, text(font: heading-font, 2.2em, title))
   v(4em)
-  align(center, text(1.2em, [from the Course of Studies #authors.map(author => author.course-of-studies).join(" | ")]))
+  align(center, text(1.2em, [from the Course of Studies #authors.map(author => author.course-of-studies).dedup().join(" | ")]))
   v(1em)
   align(center, text(1.2em, [at the #university #university-location]))
   v(3em)

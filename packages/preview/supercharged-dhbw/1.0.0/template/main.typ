@@ -70,7 +70,7 @@ Create figures or tables like this:
 
 === Figures
 
-#figure(caption: "Image Example", image(width: 4cm, "/assets/images/ts.svg"))
+#figure(caption: "Image Example", image(width: 4cm, "assets/images/ts.svg"))
 
 === Tables
 
