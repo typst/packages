@@ -22,6 +22,7 @@
   show-appendix: false,
   show-abstract: true,
   show-header: true,
+  numbering-style: "1 of 1",
   numbering-alignment: center,
   abstract: "",
   course-of-studies: "",
@@ -104,7 +105,7 @@
 
   // set page numbering to roman numbering
   set page(
-    numbering: "I", 
+    numbering: "I",
     number-align: numbering-alignment,
   )
   counter(page).update(1)
@@ -182,7 +183,7 @@
   
   // reset page numbering and set to arabic numbering
   set page(
-    numbering: " 1 of 1", 
+    numbering: numbering-style,
     number-align: numbering-alignment, 
   )
   counter(page).update(1)
