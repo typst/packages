@@ -1,6 +1,6 @@
 // TODO: 待正式发布时替换成可用的版本
 // 建议在正式编辑论文时，采用 typst.app 中的已发布版本模板
-#import "@preview/morden-sysu-thesis:0.1.0": documentclass
+#import "@preview/modern-sysu-thesis:0.1.0": documentclass
 
 // 仅供开发调试使用
 // #import "../lib.typ": documentclass
