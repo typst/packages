@@ -119,6 +119,9 @@ If you want to change an existing project to use this template, you can add a sh
   show-bibliography: true,
   show-appendix: false,
   show-abstract: true,
+  show-header: true,
+  numbering-style: "1 of 1", // https://typst.app/docs/reference/model/numbering
+  numbering-alignment: center, // left, center, right
   abstract: abstract, // displays the abstract defined above
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
