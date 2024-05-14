@@ -20,7 +20,7 @@
   
   v(1.5fr)
 
-  align(center, text(font: heading-font, 2.2em, title))
+  align(center, text(weight: "semibold", font: heading-font, 2.2em, title))
   v(4em)
   align(center, text(1.2em, [from the Course of Studies #authors.map(author => author.course-of-studies).dedup().join(" | ")]))
   v(1em)

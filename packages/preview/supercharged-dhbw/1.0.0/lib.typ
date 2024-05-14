@@ -47,7 +47,7 @@
 
   // set body font family
   set text(font: body-font, lang: "en", 12pt)
-  show heading: set text(font: heading-font)
+  show heading: set text(weight: "semibold", font: heading-font)
 
   //heading numbering
   set heading(numbering: (..nums) => {
