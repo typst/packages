@@ -1,4 +1,4 @@
-#import "@preview/supercharged-dhbw:1.0.0": *
+#import "@local/supercharged-dhbw:1.0.0": *
 
 #let abstract = lorem(100)
 
@@ -22,6 +22,7 @@
   show-code-snippets: true,
   show-appendix: false,
   show-abstract: true,
+  numbering-alignment: center, // left, center, right
   abstract: abstract, // displays the abstract defined above
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
