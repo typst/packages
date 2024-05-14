@@ -96,7 +96,7 @@ is true
 If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
 
 ```typst
-#import "@preview/supercharged-dhbw:1.0.0": *
+#import "@preview/supercharged-dhbw:1.1.0": *
 
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
