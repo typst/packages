@@ -21,6 +21,7 @@
   show-code-snippets: true,
   show-appendix: false,
   show-abstract: true,
+  show-header: true,
   numbering-alignment: center,
   abstract: "",
   course-of-studies: "",
@@ -78,24 +79,26 @@
   set page(
     margin: (top: 8em, bottom: 8em),
     header: {
-      stack(dir: ltr,
-        spacing: 1fr,
-        box(width: 180pt,
-        emph(align(center,text(size: 9pt, title))),
-        ),
+      if (show-header) {
         stack(dir: ltr,
-          spacing: 1em,
-          if logo-left != none {
-            set image(height: 1.2cm)
-            logo-left
-          },
-          if logo-right != none {
-            set image(height: 0.8cm)
-            logo-right
-          }
+          spacing: 1fr,
+          box(width: 180pt,
+          emph(align(center,text(size: 9pt, title))),
+          ),
+          stack(dir: ltr,
+            spacing: 1em,
+            if logo-left != none {
+              set image(height: 1.2cm)
+              logo-left
+            },
+            if logo-right != none {
+              set image(height: 0.8cm)
+              logo-right
+            }
+          )
         )
-      )
-      line(length: 100%)
+        line(length: 100%)
+      }
     }
   )
 

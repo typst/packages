@@ -22,6 +22,7 @@
   show-code-snippets: true,
   show-appendix: false,
   show-abstract: true,
+  show-header: true,
   numbering-alignment: center, // left, center, right
   abstract: abstract, // displays the abstract defined above
   university: "Cooperative State University Baden-Württemberg",
