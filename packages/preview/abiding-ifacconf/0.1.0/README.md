@@ -8,7 +8,7 @@ This repository is meant to be a port of the existing author tools for conferenc
 Running the following command will create a new directory with all the files that are needed:
 
 ```
-typst init abiding-ifacconf
+typst init @preview/abiding-ifacconf
 ```
 
 # Configuration
