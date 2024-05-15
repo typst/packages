@@ -87,16 +87,18 @@ is true
 
 `date`: Date of the document
 
+`bibliography`: path to the bibliography file
+
 `logo-left`: Path to the logo on the left side of the title page
 
 `logo-right`: Path to the logo on the right side of the title page
 
-`bibliography`: path to the bibliography file
+`logo-size-ratio`: Ratio between the right logo and the left logo height (left-logo:right-logo), default is `1:1`
 
 If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
 
 ```typst
-#import "@preview/supercharged-dhbw:1.1.0": *
+#import "@preview/supercharged-dhbw:1.2.0": *
 
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
@@ -131,6 +133,7 @@ If you want to change an existing project to use this template, you can add a sh
   bibliography: bibliography("sources.bib"),
   logo-left: image("assets/logos/dhbw.svg"),
   // logo-right: image("assets/logos/company.svg")
+  // logo-size-ratio: "2:1" // ratio between the right logo and the left logo height (left-logo:right-logo) only the right logo is resized
 )
 
 // Your content goes here

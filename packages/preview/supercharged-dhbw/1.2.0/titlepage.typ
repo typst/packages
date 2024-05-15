@@ -1,10 +1,10 @@
-#let titlepage(authors, title, language, date, at-dhbw, logo-left, logo-right, university, university-location, supervisor, heading-font) = {
+#let titlepage(authors, title, language, date, at-dhbw, logo-left, logo-right, left-logo-height, right-logo-height, university, university-location, supervisor, heading-font) = {
   stack(dir: ltr,
     spacing: 1fr,
    // Logo at top left if given
     align(horizon,
       if logo-left != none {
-        set image(width: 6cm)
+        set image(height: left-logo-height)
         logo-left
       }
     ),
@@ -12,7 +12,7 @@
     // Logo at top right if given
     align(horizon,
       if logo-right != none {
-        set image(width: 6cm)
+        set image(height: right-logo-height)
         logo-right
       }
     )

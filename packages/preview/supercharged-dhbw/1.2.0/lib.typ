@@ -33,10 +33,19 @@
   bibliography: none,
   logo-left: none,
   logo-right: none,
+  logo-size-ratio: "1:1",
   body,
 ) = {
   // set the document's basic properties
   set document(title: title, author: authors.map(author => author.name))
+
+  // define logo size with given ration
+  let left-logo-height = 2.4cm // left logo is always 2.4cm high
+  let right-logo-height = 2.4cm // right logo defaults to 1.2cm but is adjusted below
+  let logo-ratio = logo-size-ratio.split(":")
+  if (logo-ratio.len() == 2) {
+    right-logo-height = right-logo-height * (float(logo-ratio.at(1)) / float(logo-ratio.at(0)))
+  }
 
   // save heading and body font families in variables
   let body-font = "Open Sans"
@@ -75,7 +84,7 @@
   show heading.where(level: 2): it => v(1em) + it + v(0.5em)
   show heading.where(level: 3): it => v(0.5em) + it + v(0.25em)
 
-  titlepage(authors, title, language, date, at-dhbw, logo-left, logo-right, university, university-location, supervisor, heading-font)
+  titlepage(authors, title, language, date, at-dhbw, logo-left, logo-right, left-logo-height, right-logo-height, university, university-location, supervisor, heading-font)
 
   set page(
     margin: (top: 8em, bottom: 8em),
@@ -89,11 +98,11 @@
           stack(dir: ltr,
             spacing: 1em,
             if logo-left != none {
-              set image(height: 1.2cm)
+              set image(height: left-logo-height / 2)
               logo-left
             },
             if logo-right != none {
-              set image(height: 0.8cm)
+              set image(height: right-logo-height / 2)
               logo-right
             }
           )
