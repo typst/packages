@@ -5,7 +5,7 @@ The problem the package solves is that different link types cannot be styled sep
 
 
 ```typ
-#import "@preview/link-style:0.0.1"
+#import "@previes/kinase:0.0.1"
 
 #show: make-link
 

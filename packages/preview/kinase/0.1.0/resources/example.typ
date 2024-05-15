@@ -1,4 +1,4 @@
-#import "../bib.typ": *
+#import "@preview/kinase:0.1.0": *
 
 #show: make-link
 
