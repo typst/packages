@@ -1,4 +1,4 @@
-#import "@local/supercharged-dhbw:1.2.0": *
+#import "@preview/supercharged-dhbw:1.2.0": *
 
 #let abstract = lorem(100)
 

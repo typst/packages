@@ -11,7 +11,7 @@ You can use this template in the Typst web app by clicking "Start from template"
 Alternatively, you can use the CLI to kick this project off using the command
 
 ```shell
-typst init @preview/supercharged-dhbw:version
+typst init @preview/supercharged-dhbw
 ```
 
 Typst will create a new directory with all the files needed to get you started.

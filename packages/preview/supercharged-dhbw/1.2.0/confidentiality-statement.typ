@@ -49,7 +49,7 @@
     "[day].[month].[year]"
   )]} else {
     [#authors.map(author => author.company.city).dedup().join(", ", last: " and "), #date.display(
-    "[month].[day].[year]"
+    "[day].[month].[year]"
   )]}])
 
   for author in authors {
