@@ -1,10 +1,10 @@
 [package]
-name = "dotenv"
-version = "0.1.0"
-entrypoint = "dotenv.typ"
+name = "tenv"
+version = "0.1.1"
+entrypoint = "lib.typ"
 authors = ["chillcicada"]
 license = "MIT"
-description = "Load environment variables from a .env file."
+description = "Parse a .env content."
 homepage = "https://github.com/chillcicada/typst-dotenv#readme"
 repository = "https://github.com/chillcicada/typst-dotenv"
 keywords = ["dotenv", "environment", "utility"]

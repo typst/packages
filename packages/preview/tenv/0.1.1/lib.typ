@@ -1,5 +1,11 @@
-#let env_load(path) = {
-  let arr = read(path).split(regex("#.*\r?\n|\r?\n")).filter(it => it.trim() != "").map(line => {
+#let parse_dotenv(ctx) = {
+  if type(ctx) == "content" {
+    ctx = ctx.text
+  } else if type(ctx) != "string" {
+    return ctx
+  }
+
+  let arr = ctx.split(regex("#.*\r?\n?|\r?\n")).filter(it => it.trim() != "").map(line => {
     let parts = line.split("=")
     let key = parts.at(0).trim()
     if (key != "") {
