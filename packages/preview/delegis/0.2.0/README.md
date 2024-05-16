@@ -13,7 +13,7 @@ While this `README.md` gives you a brief overview of the package's usage, we rec
 ### Importing the Package
 
 ```typst
-#import "@preview/delegis:0.1.0": *
+#import "@preview/delegis:0.2.0": *
 ```
 
 ### Initializing the template
@@ -22,7 +22,7 @@ While this `README.md` gives you a brief overview of the package's usage, we rec
 #show: it => delegis(
   // Metadata
   title: "Vereinsordnung zu ABCDEF", // title of the law/bylaw/...
-  abbrev: "ABCDEFVO", // abbreviation of the law/bylaw/...
+  abbreviation: "ABCDEFVO", // abbreviation of the law/bylaw/...
   resolution: "3. Beschluss des Vorstands vom 24.01.2024", // resolution number and date
   in-effect: "24.01.2024", // date when it comes into effect
   draft: false, // whether this is a draft
