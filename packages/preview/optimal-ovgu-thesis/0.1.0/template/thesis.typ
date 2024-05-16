@@ -1,5 +1,5 @@
 #import "metadata.typ": author, lang, document-type, supervisor, second-supervisor, advisors, city, date, is-doublesided, title, international-title, organisation, organisation-logo, header-logo
-#import "@local/optimal-ovgu-thesis:0.1.0": optimal-ovgu-thesis, oot-titlepage, oot-disclaimer, oot-acknowledgement, oot-abstract
+#import "@preview/optimal-ovgu-thesis:0.1.0": optimal-ovgu-thesis, oot-titlepage, oot-disclaimer, oot-acknowledgement, oot-abstract
 
 #show: optimal-ovgu-thesis.with(
   title: title,
