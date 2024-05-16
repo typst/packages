@@ -26,7 +26,7 @@ Here is the template and its preview:
 // the content is wrapped before movement so that
 // padding and alignment are respected.
 #zine(
-  // draw_borders: true,
+  // draw_border: true,
   // zine_page_margin: 5pt,
   contents: my_eight_pages
 )
