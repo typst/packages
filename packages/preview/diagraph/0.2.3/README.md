@@ -27,7 +27,6 @@ Alternatively, you can use `raw-render` to pass a `raw` instead of a string:
 ````
 ![raw-render](https://raw.githubusercontent.com/Robotechnic/diagraph/main/images/raw-render1.png)
 
-You can see an example of this in [`examples/`](https://github.com/Robotechnic/diagraph/tree/main/examples).
 
 For more information about the Graphviz Dot language, you can check the [official documentation](https://graphviz.org/documentation/).
 
