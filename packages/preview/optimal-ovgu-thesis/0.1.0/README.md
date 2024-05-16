@@ -17,7 +17,7 @@ This template was created for a master thesis at the faculty of computer science
 ```
 
 ## Logos on the title page
-Faculty header logos are available as svg in `assets/figure/optimal-ovgu-thesis`. See [cd.ovgu.de](https://www.cd.ovgu.de/Fakult%C3%A4ten.html) for more information regarding the OvGU corporate design.
+The header- and organisation-logo can be set in the `metadata.typ` file (see example below). There are two example logo files in `assets/figure/optimal-ovgu-thesis`. Please refer to [cd.ovgu.de](https://www.cd.ovgu.de/Fakult%C3%A4ten.html) for more information regarding the OvGU corporate design and for the signet and logo of your faculty.
 
 Header logos are set in `metadata.typ`:
 ```typ
