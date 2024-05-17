@@ -1,6 +1,6 @@
-#import "@preview/supercharged-dhbw:1.2.1": *
-
-#let abstract = lorem(100)
+#import "@local/supercharged-dhbw:1.2.1": *
+#import "appendix.typ": appendix
+#import "abstract.typ": abstract
 
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
@@ -26,7 +26,8 @@
   show-header: true,
   numbering-style: "1 of 1", // https://typst.app/docs/reference/model/numbering
   numbering-alignment: center, // left, center, right
-  abstract: abstract, // displays the abstract defined above
+  abstract: abstract, // displays the abstract defined in the abstract.typ file
+  appendix: appendix, // displays the appendix defined in the appendix.typ file
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
   supervisor: "John Appleseed",

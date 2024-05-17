@@ -3,7 +3,6 @@
 #import "confidentiality-statement.typ": *
 #import "declaration-of-authorship.typ": *
 #import "acronyms-list.typ": *
-#import "template/appendix.typ": *
 
 // Workaround for the lack of an `std` scope.
 #let std-bibliography = bibliography
@@ -25,7 +24,8 @@
   show-header: true,
   numbering-style: "1 of 1",
   numbering-alignment: center,
-  abstract: "",
+  abstract: none,
+  appendix: none,
   university: "",
   university-location: "",
   supervisor: "",
@@ -196,13 +196,9 @@
 
   set par(justify: true)
 
-  context {
-    let has-content = abstract.len() > 0
-    
-    if (show-abstract and has-content) {
-      align(center + horizon, heading(level: 1, numbering: none)[Abstract])
-      text(abstract)
-    }
+  if (show-abstract and abstract != none) {
+    align(center + horizon, heading(level: 1, numbering: none)[Abstract])
+    text(abstract)
   }
   
   
@@ -225,7 +221,7 @@
     bibliography
   }
 
-  if (show-appendix) {
+  if (show-appendix and appendix != none) {
     heading(level: 1, numbering: none)[#if (language == "de") {
       [Anhang]
     } else {
