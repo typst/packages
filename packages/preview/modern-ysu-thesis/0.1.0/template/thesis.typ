@@ -142,10 +142,8 @@ asdasd
   ) <timing-tlt>
 ]))
 
-#figure(
-  image("..\assets\vi\ysulogo.png", width: 20%),
-  caption: [图片测试],
-) <ysu-logo>
+#let logo = image.with("assets/vi/ysulogo.png")
+#logo(width: 20%)
 
 
 == 数学公式
