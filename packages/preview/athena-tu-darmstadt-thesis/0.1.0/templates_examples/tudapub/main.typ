@@ -55,6 +55,7 @@
     thesis_statement_pursuant: true
   ),
 
+  // Set this to true to add the page for the translation of the statement of pursuant
   thesis_statement_pursuant_include_english_translation: false,
 
 

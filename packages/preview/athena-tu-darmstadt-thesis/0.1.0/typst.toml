@@ -8,7 +8,7 @@ description = "Thesis template for TU Darmstadt (Technische Universität Darmsta
 repository = "https://github.com/JeyRunner/tuda-typst-templates"
 keywords = ["TU Darmstadt", "Technische Universität Darmstadt", "Bachelorthesis", "Masterthesis", "Bachelorarbeit", "Masterarbeit", "thesis"]
 categories = ["thesis"]
-exclude = ["tests", "example_tudapub.pdf"]
+exclude = ["tests", "example_tudapub.pdf", "example_tudapub.typ"]
 
 [template]
 path = "templates_examples/tudapub"
