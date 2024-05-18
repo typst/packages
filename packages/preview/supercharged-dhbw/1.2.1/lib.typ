@@ -1,8 +1,8 @@
-#import "@preview/codelst:2.0.1": sourcecode
+#import "@preview/codelst:2.0.1": *
+#import "@preview/acrostiche:0.3.1": *
 #import "titlepage.typ": *
 #import "confidentiality-statement.typ": *
 #import "declaration-of-authorship.typ": *
-#import "acronyms-list.typ": *
 
 // Workaround for the lack of an `std` scope.
 #let std-bibliography = bibliography
@@ -26,6 +26,7 @@
   numbering-alignment: center,
   abstract: none,
   appendix: none,
+  acronyms: none,
   university: "",
   university-location: "",
   supervisor: "",
@@ -38,6 +39,8 @@
 ) = {
   // set the document's basic properties
   set document(title: title, author: authors.map(author => author.name))
+
+  init-acronyms(acronyms)
 
   // define logo size with given ration
   let left-logo-height = 2.4cm // left logo is always 2.4cm high
@@ -190,8 +193,36 @@
     }], indent: auto)
   }
     
-  if (show-acronyms) {
-    acronyms-list(language)
+  if (show-acronyms and acronyms.len() > 0) {
+    heading(level: 1, outlined: false, numbering: none)[#if (language == "de") {
+      [Abkürzungsverzeichnis]
+    } else {
+      [List of Acronyms]
+    }]
+
+    state("acronyms", none).display(acronyms => {
+
+      // Build acronym list
+      let acr-list = acronyms.keys()
+
+      // order list
+      acr-list = acr-list.sorted()
+
+      // print the acronyms
+      for acr in acr-list{
+        let acr-long = acronyms.at(acr)
+        let acr-long = if type(acr-long) == array {
+          acr-long.at(0)
+        } else {
+          acr-long
+        }
+        grid(
+          columns: (0.8fr, 1.2fr),
+          gutter: 1em,
+          [*#acr*], [#acr-long\ ]
+        )
+      }
+    })
   }
 
   set par(justify: true)

@@ -1,6 +1,7 @@
 #import "@local/supercharged-dhbw:1.2.1": *
 #import "appendix.typ": appendix
 #import "abstract.typ": abstract
+#import "acronyms.typ": acronyms
 
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
@@ -28,6 +29,7 @@
   numbering-alignment: center, // left, center, right
   abstract: abstract, // displays the abstract defined in the abstract.typ file
   appendix: appendix, // displays the appendix defined in the appendix.typ file
+  acronyms: acronyms, // displays the acronyms defined in the acronyms.typ file
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
   supervisor: "John Appleseed",
@@ -54,9 +56,9 @@
 
 == Acronyms
 
-Use the `acro` function to insert acronyms, which looks like this #acro("API").
+Use the `acr` function to insert acronyms, which looks like this #acr("API").
 
-#acro("AWS")
+#acr("AWS")
 
 == Lists
 
