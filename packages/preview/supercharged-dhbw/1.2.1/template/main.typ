@@ -38,7 +38,7 @@
   logo-left: image("assets/logos/dhbw.svg"),
   // logo-right: image("assets/logos/company.svg"),
   // logo-size-ratio: "2:1" // ratio between the right logo and the left logo height (left-logo:right-logo) only the right logo is resized
-) 
+)
 
 // Edit this content to your liking
 

@@ -27,6 +27,14 @@ Otherwise, when using the web version add the fonts to your project.
 
 For further information on how to add fonts to your project, please refer to the [Typst documentation](https://typst.app/docs/reference/text/text/#parameters-font).
 
+## Used Packages
+
+This template uses the following packages:
+
+- [codelst](https://typst.app/universe/package/codelst): To create code snippets
+- [acrostiche](https://typst.app/universe/package/acrostiche): To manage acronyms
+
+
 ## Contents
 
 - Title page
@@ -36,6 +44,7 @@ For further information on how to add fonts to your project, please refer to the
 - List of tables
 - Code snippets
 - Table of contents
+- Acronyms
 - Abstract
 - Bibliography
 - Appendix
@@ -47,7 +56,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `title`: Title of the document
 
-`authors`: List of authors with the following named arguments:
+`authors`: List of authors with the following named arguments (example below):
     
     - name: Name of the author
     - student-id: Student ID of the author
@@ -57,27 +66,38 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `language`: Language of the document which is either `en` or `de`, default is `en`
 
-`at-dhbw`: Whether the document is written at the DHBW or not, default is false
+`at-dhbw`: Whether the document is written at the DHBW or not, default is `false`
 
-`show-confidentiality-statement`: Whether the confidentiality statement should be shown, default is true
+`show-confidentiality-statement`: Whether the confidentiality statement should be shown, default is `true`
 
-`show-declaration-of-authorship`: Whether the declaration of authorship should be shown, default is true
+`show-declaration-of-authorship`: Whether the declaration of authorship should be shown, default is `true`
 
-`show-table-of-contents`: Whether the table of contents should be shown, default is true
+`show-table-of-contents`: Whether the table of contents should be shown, default is `true`
 
 `show-acronyms`: Whether the list of acronyms should be shown, default 
-is true
+is `true`
 
-`show-list-of-figures`: Whether the list of figures should be shown, default is true
+`show-list-of-figures`: Whether the list of figures should be shown, default is `true`
 
-`show-list-of-tables`: Whether the list of tables should be shown, default is true
+`show-list-of-tables`: Whether the list of tables should be shown, default is `true`
 
-`show-code-snippets`: Whether the code snippets should be shown, default is true
+`show-code-snippets`: Whether the code snippets should be shown, default is `true`
 
-`show-appendix`: Whether the appendix should be shown, default is false
+`show-appendix`: Whether the appendix should be shown, default is `false`
 
-`show-abstract`: Whether the abstract should be shown, default is true
+`show-abstract`: Whether the abstract should be shown, default is `true`
+
+`show-header`: Whether the header should be shown, default is `true`
+
+`numbering-style`: Style of the page numbering, default is `1 of 1`
+
+`numbering-alignment`: Alignment of the page numbering, default is `center`
+
 `abstract`: Content of the abstract
+
+`appendix`: Content of the appendix
+
+`acronyms`: Content of the acronyms
 
 `university`: Name of the university
 
@@ -98,7 +118,7 @@ is true
 If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
 
 ```typst
-#import "@preview/supercharged-dhbw:1.2.0": *
+#import "@preview/supercharged-dhbw:1.2.1": *
 
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
@@ -119,20 +139,21 @@ If you want to change an existing project to use this template, you can add a sh
   show-list-of-figures: true,
   show-list-of-tables: true,
   show-code-snippets: true,
-  show-bibliography: true,
   show-appendix: false,
   show-abstract: true,
   show-header: true,
   numbering-style: "1 of 1", // https://typst.app/docs/reference/model/numbering
   numbering-alignment: center, // left, center, right
-  abstract: abstract, // displays the abstract defined above
+  abstract: abstract, // displays the abstract defined in the abstract.typ file
+  appendix: appendix, // displays the appendix defined in the appendix.typ file
+  acronyms: acronyms, // displays the acronyms defined in the acronyms.typ file
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
   supervisor: "John Appleseed",
   date: datetime.today(),
   bibliography: bibliography("sources.bib"),
   logo-left: image("assets/logos/dhbw.svg"),
-  // logo-right: image("assets/logos/company.svg")
+  // logo-right: image("assets/logos/company.svg"),
   // logo-size-ratio: "2:1" // ratio between the right logo and the left logo height (left-logo:right-logo) only the right logo is resized
 )
 
