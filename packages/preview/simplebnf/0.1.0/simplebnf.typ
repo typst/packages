@@ -18,7 +18,7 @@
       left,
       left,
     ),
-    inset: 2.5pt,
+    inset: 2.7pt,
     stroke: none,
     ..content,
   )
