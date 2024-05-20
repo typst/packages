@@ -1,0 +1,15 @@
+[package]
+name = "CAU-ThesisTemplate-Typst"
+version = "0.1.0"
+entrypoint = "sample.typ"
+authors = ["JWangL5"]
+license = "MIT"
+description = "中国农业大学毕业论文的Typst模板"
+repository = "https://github.com/JWangL5/CAU-ThesisTemplate-Typst"
+keywords = ["thesis", "CAU"]
+categories = ["thesis"]
+
+[template]
+path = "."
+entrypoint = "sample.typ"
+thumbnail = "thumbnail.png"
