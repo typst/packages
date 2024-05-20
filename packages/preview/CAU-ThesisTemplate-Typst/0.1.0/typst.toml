@@ -1,5 +1,5 @@
 [package]
-name = "CAU-ThesisTemplate-Typst"
+name = "universal-cau-thesis"
 version = "0.1.0"
 entrypoint = "sample.typ"
 authors = ["JWangL5"]
