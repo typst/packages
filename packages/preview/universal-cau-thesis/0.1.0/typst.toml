@@ -8,7 +8,7 @@ description = "中国农业大学毕业论文的Typst模板"
 repository = "https://github.com/JWangL5/CAU-ThesisTemplate-Typst"
 keywords = ["thesis", "CAU"]
 categories = ["thesis"]
-exclude = ['thumbnail.png', 'sample.pdf']
+exclude = ['thumbnail.png', 'sample.pdf', 'images/PixPin_2024-03-13_17-19-53.png']
 
 [template]
 path = "."
