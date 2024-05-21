@@ -34,13 +34,41 @@
   return default
 }
 
-#let render_face(face, color, fold_stroke, cut_stroke, glue_pattern_p, clip, args, offset: (0mm,0mm), comes_from: none) = {
+#let render_face(face, color, fold_stroke, cut_stroke, glue_pattern_p, clip, args, last_size: none, offset: (0mm,0mm), comes_from: none) = {
   let has_child = (
     top: false,
     left: false,
     bottom: false,
     right: false
   )
+
+  let width = if comes_from == none {
+      get_from_args(args, face.width)
+    } else {
+      if comes_from == "top" {
+        last_size
+      } else if comes_from == "left" {
+        get_from_args(args, face.size)
+      } else if comes_from == "bottom" {
+        last_size
+      } else if comes_from == "right" {
+        get_from_args(args, face.size)
+      }
+    }
+
+  let height = if comes_from == none {
+      get_from_args(args, face.height)
+    } else {
+      if comes_from == "top" {
+        get_from_args(args, face.size)
+      } else if comes_from == "left" {
+        last_size
+      } else if comes_from == "bottom" {
+        get_from_args(args, face.size)
+      } else if comes_from == "right" {
+        last_size
+      }
+    }
 
   if (face.type == "box") {
     place(
@@ -49,8 +77,8 @@
       dy: offset.at(1)
     )[
       #box(
-        width: get_from_args(args, face.width),
-        height: get_from_args(args, face.height),
+        width: width,
+        height: height,
         fill: color,
         clip: clip,
         if face.keys().contains("id") and args.pos().len() > face.id {args.pos().at(face.id)}
@@ -73,10 +101,10 @@
               place(
                 center + horizon,
                 dx: offset.at(0),
-                dy: offset.at(1) -(get_from_args(args, face.height) + tab_width) / 2,
+                dy: offset.at(1) -(height + tab_width) / 2,
               )[
                 #tab(
-                  get_from_args(args, face.width),
+                  width,
                   tab_width,
                   tab_width,
                   0deg,
@@ -89,11 +117,11 @@
             } else if orientation == "left" {
               place(
                 center + horizon,
-                dx: offset.at(0) - (get_from_args(args, face.width) + tab_width) / 2,
+                dx: offset.at(0) - (width + tab_width) / 2,
                 dy: offset.at(1)
               )[
                 #tab(
-                  get_from_args(args, face.height),
+                  height,
                   tab_width,
                   tab_width,
                   270deg,
@@ -107,10 +135,10 @@
               place(
                 center + horizon,
                 dx: offset.at(0),
-                dy: offset.at(1) + (get_from_args(args, face.height) + tab_width) / 2
+                dy: offset.at(1) + (height + tab_width) / 2
               )[
                 #tab(
-                  get_from_args(args, face.width),
+                  width,
                   tab_width,
                   tab_width,
                   180deg,
@@ -123,11 +151,11 @@
             } else if orientation == "right" {
               place(
                 center + horizon,
-                dx: offset.at(0) + (get_from_args(args, face.width) + tab_width) / 2,
+                dx: offset.at(0) + (width + tab_width) / 2,
                 dy: offset.at(1)
               )[
                 #tab(
-                  get_from_args(args, face.height),
+                  height,
                   tab_width,
                   tab_width,
                   90deg,
@@ -145,24 +173,26 @@
 
         let next_comes_from = none
 
+        assert(orientation != comes_from, message: "Face cannot have a child coming from the same direction as it is coming from")
+
         if orientation == "top" {
           add_offset = (
-            0mm, -(get_from_args(args, face.height) + get_from_args(args, child.at(1).height)) / 2
+            0mm, -(height + get_from_args(args, child.at(1).size)) / 2
           )
           next_comes_from = "bottom"
         } else if orientation == "left" {
           add_offset = (
-            -(get_from_args(args, face.width) + get_from_args(args, child.at(1).width)) / 2, 0mm
+            -(width + get_from_args(args, child.at(1).size)) / 2, 0mm
           )
           next_comes_from = "right"
         } else if orientation == "bottom" {
           add_offset = (
-            0mm, (get_from_args(args, face.height) + get_from_args(args, child.at(1).height)) / 2
+            0mm, (height + get_from_args(args, child.at(1).size)) / 2
           )
           next_comes_from = "top"
         } else if orientation == "right" {
           add_offset = (
-            (get_from_args(args, face.width) + get_from_args(args, child.at(1).width)) / 2, 0mm
+            (width + get_from_args(args, child.at(1).size)) / 2, 0mm
           )
           next_comes_from = "left"
         }
@@ -176,13 +206,14 @@
           clip,
           args,
           offset: (offset.at(0) + add_offset.at(0), offset.at(1) + add_offset.at(1)),
-          comes_from: next_comes_from
+          comes_from: next_comes_from,
+          last_size: if orientation == "top" or orientation == "bottom" {width} else {height}
         )
       }
     }
   } else if (face.type.starts-with("triangle")) {
-    let width = get_from_args(args, face.width)
-    let height = get_from_args(args, face.height)
+    let width = width
+    let height = height
     let direction = face.type.split("_").at(1)
     let points = if comes_from == "top" {
       (
@@ -299,10 +330,10 @@
               place(
                 center + horizon,
                 dx: offset.at(0),
-                dy: offset.at(1) -(get_from_args(args, face.height) + tab_width) / 2,
+                dy: offset.at(1) -(height + tab_width) / 2,
               )[
                 #tab(
-                  get_from_args(args, face.width),
+                  width,
                   tab_width,
                   tab_width,
                   0deg,
@@ -315,11 +346,11 @@
             } else if orientation == "left" {
               place(
                 center + horizon,
-                dx: offset.at(0) - (get_from_args(args, face.width) + tab_width) / 2,
+                dx: offset.at(0) - (width + tab_width) / 2,
                 dy: offset.at(1)
               )[
                 #tab(
-                  get_from_args(args, face.height),
+                  height,
                   tab_width,
                   tab_width,
                   270deg,
@@ -333,10 +364,10 @@
               place(
                 center + horizon,
                 dx: offset.at(0),
-                dy: offset.at(1) + (get_from_args(args, face.height) + tab_width) / 2
+                dy: offset.at(1) + (height + tab_width) / 2
               )[
                 #tab(
-                  get_from_args(args, face.width),
+                  width,
                   tab_width,
                   tab_width,
                   180deg,
@@ -349,11 +380,11 @@
             } else if orientation == "right" {
               place(
                 center + horizon,
-                dx: offset.at(0) + (get_from_args(args, face.width) + tab_width) / 2,
+                dx: offset.at(0) + (width + tab_width) / 2,
                 dy: offset.at(1)
               )[
                 #tab(
-                  get_from_args(args, face.height),
+                  height,
                   tab_width,
                   tab_width,
                   90deg,
@@ -373,22 +404,22 @@
 
         if orientation == "top" {
           add_offset = (
-            0mm, -(get_from_args(args, face.height) + get_from_args(args, child.at(1).height)) / 2
+            0mm, -(height + get_from_args(args, child.at(1).height)) / 2
           )
           next_comes_from = "bottom"
         } else if orientation == "left" {
           add_offset = (
-            -(get_from_args(args, face.width) + get_from_args(args, child.at(1).width)) / 2, 0mm
+            -(width + get_from_args(args, child.at(1).width)) / 2, 0mm
           )
           next_comes_from = "right"
         } else if orientation == "bottom" {
           add_offset = (
-            0mm, (get_from_args(args, face.height) + get_from_args(args, child.at(1).height)) / 2
+            0mm, (height + get_from_args(args, child.at(1).height)) / 2
           )
           next_comes_from = "top"
         } else if orientation == "right" {
           add_offset = (
-            (get_from_args(args, face.width) + get_from_args(args, child.at(1).width)) / 2, 0mm
+            (width + get_from_args(args, child.at(1).width)) / 2, 0mm
           )
           next_comes_from = "left"
         }
@@ -416,8 +447,8 @@
       dy: offset.at(1)
     )[
       #line(
-        start: (0mm, -get_from_args(args, face.height) / 2),
-        end: (get_from_args(args, face.width), -get_from_args(args, face.height) / 2),
+        start: (0mm, -height / 2),
+        end: (width, -height / 2),
         stroke: if comes_from == "top" {
           if face.keys().contains("no-fold") {
             0mm
@@ -438,8 +469,8 @@
       dy: offset.at(1)
     )[
       #line(
-        start: (-get_from_args(args, face.width) / 2, 0mm),
-        end: (-get_from_args(args, face.width) / 2, get_from_args(args, face.height)),
+        start: (-width / 2, 0mm),
+        end: (-width / 2, height),
         stroke: if comes_from == "left" {
           if face.keys().contains("no-fold") {
             0mm
@@ -460,8 +491,8 @@
       dy: offset.at(1)
     )[
       #line(
-        start: (0mm, get_from_args(args, face.height)),
-        end: (get_from_args(args, face.width), get_from_args(args, face.height)),
+        start: (0mm, height),
+        end: (width, height),
         stroke: if comes_from == "bottom" {
           if face.keys().contains("no-fold") {
             0mm
@@ -482,8 +513,8 @@
       dy: offset.at(1)
     )[
       #line(
-        start: (get_from_args(args, face.width), 0mm),
-        end: (get_from_args(args, face.width), get_from_args(args, face.height)),
+        start: (width, 0mm),
+        end: (width, height),
         stroke: if comes_from == "right" {
           if face.keys().contains("no-fold") {
             0mm

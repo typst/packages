@@ -30,22 +30,19 @@
       "left": {
         "type": "box",
         "id": 1,
-        "width": "depth_1",
-        "height": "height_1",
+        "size": "depth_1",
         "children": {
           "left": {
             "no-fold": true,
             "type": "box",
             "id": 2,
-            "width": "depth_2",
-            "height": "height_1",
+            "size": "depth_2",
             "children": {
               "top": {
                 "no-fold": true,
                 "type": "box",
                 "id": 3,
-                "width": "depth_2",
-                "height": "height_2"
+                "size": "height_2"
               }
             }
           }
@@ -54,22 +51,19 @@
       "right": {
         "type": "box",
         "id": 4,
-        "width": "depth_1",
-        "height": "height_1",
+        "size": "depth_1",
         "children": {
           "right": {
             "no-fold": true,
             "type": "box",
             "id": 5,
-            "width": "depth_2",
-            "height": "height_1",
+            "size": "depth_2",
             "children": {
               "top": {
                 "no-fold": true,
                 "type": "box",
                 "id": 6,
-                "width": "depth_2",
-                "height": "height_2"
+                "size": "height_2"
               }
             }
           }
@@ -78,8 +72,7 @@
       "bottom": {
         "type": "box",
         "id": 7,
-        "width": "width",
-        "height": "depth_1:Add:depth_2",
+        "size": "depth_1:Add:depth_2",
         "children": {
           "bottom": "tab|tab_size",
           "right": "tab|tab_size",
@@ -89,32 +82,28 @@
       "top": {
         "type": "box",
         "id": 8,
-        "width": "width",
-        "height": "depth_1",
+        "size": "depth_1",
         "children": {
           "left": "tab|tab_size",
           "right": "tab|tab_size",
           "top": {
             "type": "box",
             "id": 9,
-            "width": "width",
-            "height": "height_2",
+            "size": "height_2",
             "children": {
               "left": "tab|tab_size",
               "right": "tab|tab_size",
               "top": {
                 "type": "box",
                 "id": 10,
-                "width": "width",
-                "height": "depth_2",
+                "size": "depth_2",
                 "children": {
                   "left": "tab|tab_size",
                   "right": "tab|tab_size",
                   "top": {
                     "type": "box",
                     "id": 11,
-                    "width": "width",
-                    "height": "height_1:Add:height_2",
+                    "size": "height_1:Add:height_2",
                     "children": {
                       "left": "tab|tab_size",
                       "right": "tab|tab_size"

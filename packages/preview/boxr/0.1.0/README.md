@@ -46,7 +46,7 @@ The `offset_x` and `offset_y` keys are lists of *variables* that are used to pla
 `root` denotes the first node in the structure.\
 A node can be of the following types:
 - `box`:
-  - Has a `width` and `height` key that can be a *variable*.
+  - The root node has a `width` and `height` key that can be a *variable*. All following nodes have a `size` key that can be a *variable*. Child nodes use `size` and the parent node's `width` and `height` to calculate their own width and height.
   - Can have `children` nodes.
   - Can have an `id` key that is used to place content on the face of the box. The id-th unnamed argument is placed on the face. Multiple faces can have the same id.
   - Can have a `no-fold` key. If this exists, no fold stroke will be drawn between this box and its parent.

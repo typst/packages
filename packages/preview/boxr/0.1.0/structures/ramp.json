@@ -15,8 +15,7 @@
       "top": {
         "type": "box",
         "id": 1,
-        "width": "width",
-        "height": "height",
+        "size": "height",
         "children": {
           "left": "tab|tab_size",
           "right": "tab|tab_size",
@@ -26,18 +25,15 @@
       "bottom": {
         "type": "box",
         "id": 2,
-        "width": "width",
-        "height": "depth",
+        "size": "depth",
         "children": {
           "right": {
             "type": "triangle_right",
-            "width": "height",
-            "height": "depth"
+            "size": "height"
           },
           "left": {
             "type": "triangle_left",
-            "width": "height",
-            "height": "depth"
+            "size": "height"
           }
         }
       }

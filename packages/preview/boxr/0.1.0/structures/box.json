@@ -13,14 +13,12 @@
       "top": {
         "type": "box",
         "id": 1,
-        "width": "width",
-        "height": "depth",
+        "size": "depth",
         "children": {
           "top": {
             "type": "box",
             "id": 5,
-            "width": "width",
-            "height": "height",
+            "size": "height",
             "children": {
               "top": "tab|tab_size"
             }
@@ -32,8 +30,7 @@
       "left": {
         "type": "box",
         "id": 2,
-        "width": "depth",
-        "height": "height",
+        "size": "depth",
         "children": {
           "left": "tab|tab_size",
           "bottom": "tab|tab_size"
@@ -42,14 +39,12 @@
       "bottom": {
         "type": "box",
         "id": 3,
-        "width": "width",
-        "height": "depth"
+        "size": "depth"
       },
       "right": {
         "type": "box",
         "id": 4,
-        "width": "depth",
-        "height": "height",
+        "size": "depth",
         "children": {
           "right": "tab|tab_size",
           "bottom": "tab|tab_size"
