@@ -1,37 +1,23 @@
 #import "util.typ": *
 
-#let combinators = (
-  ":Hyp:": (a, b) => calc.sqrt(calc.pow(a, 2) + calc.pow(b, 2)),
-  ":Mul:": (a, b) => a * b,
-  ":Div:": (a, b) => a / b,
-  ":Add:": (a, b) => a + b,
-  ":Sub:": (a, b) => a - b,
+#let evaluated_functions = (
+  "hyp": (a, b) => calc.sqrt(calc.pow(a, 2) + calc.pow(b, 2)),
 )
 
-#let get_from_args(args, name, default: 0pt) = {
+#let get_from_args(args, name) = {
+  if name == "" {
+    return 0pt
+  }
+
+  let converted_args = (:)
+
   for arg in args.named() {
-    if name.contains(arg.at(0)) {
-      for combinator in combinators.keys() {
-        if name.matches(regex("[a-zA-Z0-9_]*" + combinator + "[a-zA-Z0-9_]+")).len() == 1 {
-          let first = if name.starts-with(combinator) {"0"} else {name.split(combinator).at(0)}
-          let second = name.split(combinator).at(1)
-
-          return combinators.at(combinator)(
-            get_from_args(args, first) / 1pt,
-            get_from_args(args, second) / 1pt
-          ) * 1pt
-        }
-      }
-
-      return arg.at(1)
+    if type(arg.at(1)) == length {
+      converted_args.insert(arg.at(0), arg.at(1).pt())
     }
   }
 
-  if (float(name) != none) {
-    return float(name) * 1pt
-  }
-  
-  return default
+  return eval(name, scope: converted_args + evaluated_functions) * 1pt
 }
 
 #let render_face(face, color, fold_stroke, cut_stroke, glue_pattern_p, clip, args, last_size: none, offset: (0mm,0mm), comes_from: none) = {
@@ -407,31 +393,11 @@
 }
 
 #let get_structure_size(structure, args) = {
-  let size = (0mm, 0mm)
-
-  for width in structure.width {
-    size.at(0) = size.at(0) + get_from_args(args, width)
-  }
-
-  for height in structure.height {
-    size.at(1) = size.at(1) + get_from_args(args, height)
-  }
-
-  return size
+  return (get_from_args(args, structure.width), get_from_args(args, structure.height))
 }
 
 #let get_structure_offset(structure, args) = {
-  let offset = (0mm, 0mm)
-
-  for width in structure.offset_x {
-    offset.at(0) = offset.at(0) + get_from_args(args, width)
-  }
-
-  for height in structure.offset_y {
-    offset.at(1) = offset.at(1) + get_from_args(args, height)
-  }
-
-  return offset
+  return (get_from_args(args, structure.offset_x), get_from_args(args, structure.offset_y))
 }
 
 #let render_structure(structure_path, color: none, fold_stroke: 0.3mm + gray, cut_stroke: 0.3mm + black, glue_pattern_p: none, clip: true, ..args) = {

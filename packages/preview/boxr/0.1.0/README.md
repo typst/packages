@@ -25,43 +25,39 @@ Structures are defined in `.json` files. An example structure that just shows a 
 ```
 {
   "variables": ["height", "width", "tab_size"],
-  "width": ["width"],
-  "height": ["height", "tab_size"],
-  "offset_x": [],
-  "offset_y": ["tab_size"],
+  "width": "width",
+  "height": "height + tab_size",
+  "offset_x": "",
+  "offset_y": "tab_size",
   "root": {
     "type": "box",
     "id": 0,
     "width": "width",
     "height": "height",
     "children": {
-      "top": "tab|tab_size"
+      "top": "tab|tab_size|tab_size"
     }
   }
 }
 ```
 The `variables` key is a list of variable names that can be passed to the structure. These will be required to be passed to the `render_structure` function.\
-The `width` and `height` keys are lists of *variables* that are used to calculate the width and height of the structure.\
-The `offset_x` and `offset_y` keys are lists of *variables* that are used to place the structure in the middle of its bounds. It is relative to the root node. In this case for example, the top tab adds a `tab_size` on top of the box as opposed to the bottom, where there is no tab. So one `tab_size` is added to the `offset_y`.\
+The `width` and `height` keys are evaluated to calculate the width and height of the structure.\
+The `offset_x` and `offset_y` keys are evaluated to place the structure in the middle of its bounds. It is relative to the root node. In this case for example, the top tab adds a `tab_size` on top of the box as opposed to the bottom, where there is no tab. So this `tab_size` is added to the `offset_y`.\
 `root` denotes the first node in the structure.\
 A node can be of the following types:
 - `box`:
-  - The root node has a `width` and `height` key that can be a *variable*. All following nodes have a `size` key that can be a *variable*. Child nodes use `size` and the parent node's `width` and `height` to calculate their own width and height.
+  - The root node has a `width` and a `height`. All following nodes have a `size`. Child nodes use `size` and the parent node's `width` and `height` to calculate their own width and height.
   - Can have `children` nodes.
   - Can have an `id` key that is used to place content on the face of the box. The id-th unnamed argument is placed on the face. Multiple faces can have the same id.
   - Can have a `no-fold` key. If this exists, no fold stroke will be drawn between this box and its parent.
 - `triangle_<left|right>`:
-  - Has a `width` and `height` key that can be a *variable*.
+  - Has a `width` and `height`.
   - `left` and `right` denote the direction the other right angled line is facing relative to the base.
-  - Can have `children` nodes
+  - Can have `children` nodes.
   - Can have a `no-fold` key. If this exists, no fold stroke will be drawn between this triangle and its parent.
 - `tab`:
   - Is not a json object, but a string that denotes a tab. The tab is placed on the parent node.
-  - Has a tab_size after the first `|` and a cutin_size after the second `|`. These can be *variables*.
+  - Has a tab_size after the first `|` and a cutin_size after the second `|`.
 
-## Variables
-Variables are strings that are used to calculate various sizes in a structure. They can have the following forms:
-- `variable name`: This is a variable that was listed in the `variables` key of the structure. It will have the value passed to the `render_structure` function.
-- `number`: This is a fixed number that will be interpreted as a pt value.
-- `combination of two of these`: These are usually denoted like `<var1>:Operator:<var2>`. The operator can be `Add`, `Sub`, `Mul`, `Div` or `Hyp` at the moment. `Hyp` is used to calculate the hypotenuse of a right angled triangle. The other operators are self explanatory.
+Every string value in the json file (`width: "__", height: "__", ... offset_x/y: "__"` and the values between the `|` for tabs) is evaluated as regular typst code. This means that you can use all named variables (these have to be lengths) passed to the structure. All inputs are converted to points and the result of the evaluation will be converted back to a length.
 

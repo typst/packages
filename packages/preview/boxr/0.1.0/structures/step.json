@@ -7,20 +7,10 @@
     "depth_2",
     "tab_size"
   ],
-  "width": ["width", "depth_1", "depth_1", "depth_2", "depth_2"],
-  "height": [
-    "height_1",
-    "height_1",
-    "height_2",
-    "height_2",
-    "depth_1",
-    "depth_1",
-    "depth_2",
-    "depth_2",
-    "tab_size"
-  ],
-  "offset_x": [],
-  "offset_y": ["height_1", "height_2", "height_2", ":Sub:tab_size"],
+  "width": "width + (depth_1 + depth_2) * 2",
+  "height": "(height_1 + height_2 + depth_1 + depth_2) * 2 + tab_size",
+  "offset_x": "",
+  "offset_y": "height_1 + 2 * height_2 - tab_size",
   "root": {
     "type": "box",
     "id": 0,
@@ -72,7 +62,7 @@
       "bottom": {
         "type": "box",
         "id": 7,
-        "size": "depth_1:Add:depth_2",
+        "size": "depth_1 + depth_2",
         "children": {
           "bottom": "tab|tab_size|tab_size",
           "right": "tab|tab_size|tab_size",
@@ -103,7 +93,7 @@
                   "top": {
                     "type": "box",
                     "id": 11,
-                    "size": "height_1:Add:height_2",
+                    "size": "height_1 + height_2",
                     "children": {
                       "left": "tab|tab_size|tab_size",
                       "right": "tab|tab_size|tab_size"

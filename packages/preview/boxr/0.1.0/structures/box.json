@@ -1,9 +1,9 @@
 {
   "variables": ["height", "width", "depth", "tab_size"],
-  "width": ["width", "depth", "depth", "tab_size", "tab_size"],
-  "height": ["height", "height", "depth", "depth", "tab_size"],
-  "offset_x": [],
-  "offset_y": ["tab_size", "depth"],
+  "width": "width + (depth + tab_size) * 2",
+  "height": "(height + depth) * 2 + tab_size",
+  "offset_x": "",
+  "offset_y": "tab_size + depth",
   "root": {
     "type": "box",
     "id": 0,
