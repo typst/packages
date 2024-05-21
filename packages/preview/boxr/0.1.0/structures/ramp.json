@@ -1,0 +1,46 @@
+{
+  "variables": ["height", "width", "depth", "tab_size"],
+  "width": ["width", "height", "height"],
+  "height": ["depth", "height", "height:Hyp:depth", "tab_size"],
+  "offset_x": [],
+  "offset_y": [":Sub:depth", "height", "tab_size"],
+  "root": {
+    "type": "box",
+    "id": 0,
+    "width": "width",
+    "height": "height:Hyp:depth",
+    "children": {
+      "right": "tab|tab_size",
+      "left": "tab|tab_size",
+      "top": {
+        "type": "box",
+        "id": 1,
+        "width": "width",
+        "height": "height",
+        "children": {
+          "left": "tab|tab_size",
+          "right": "tab|tab_size",
+          "top": "tab|tab_size"
+        }
+      },
+      "bottom": {
+        "type": "box",
+        "id": 2,
+        "width": "width",
+        "height": "depth",
+        "children": {
+          "right": {
+            "type": "triangle_right",
+            "width": "height",
+            "height": "depth"
+          },
+          "left": {
+            "type": "triangle_left",
+            "width": "height",
+            "height": "depth"
+          }
+        }
+      }
+    }
+  }
+}

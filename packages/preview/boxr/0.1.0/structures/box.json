@@ -1,0 +1,60 @@
+{
+  "variables": ["height", "width", "depth", "tab_size"],
+  "width": ["width", "depth", "depth", "tab_size", "tab_size"],
+  "height": ["height", "height", "depth", "depth", "tab_size"],
+  "offset_x": [],
+  "offset_y": ["tab_size", "depth"],
+  "root": {
+    "type": "box",
+    "id": 0,
+    "width": "width",
+    "height": "height",
+    "children": {
+      "top": {
+        "type": "box",
+        "id": 1,
+        "width": "width",
+        "height": "depth",
+        "children": {
+          "top": {
+            "type": "box",
+            "id": 5,
+            "width": "width",
+            "height": "height",
+            "children": {
+              "top": "tab|tab_size"
+            }
+          },
+          "left": "tab|tab_size",
+          "right": "tab|tab_size"
+        }
+      },
+      "left": {
+        "type": "box",
+        "id": 2,
+        "width": "depth",
+        "height": "height",
+        "children": {
+          "left": "tab|tab_size",
+          "bottom": "tab|tab_size"
+        }
+      },
+      "bottom": {
+        "type": "box",
+        "id": 3,
+        "width": "width",
+        "height": "depth"
+      },
+      "right": {
+        "type": "box",
+        "id": 4,
+        "width": "depth",
+        "height": "height",
+        "children": {
+          "right": "tab|tab_size",
+          "bottom": "tab|tab_size"
+        }
+      }
+    }
+  }
+}
