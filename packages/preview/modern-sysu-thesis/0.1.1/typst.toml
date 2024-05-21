@@ -1,5 +1,5 @@
 [package]
-name = "morden-sysu-thesis"
+name = "modern-sysu-thesis"
 version = "0.1.1"
 entrypoint = "lib.typ"
 repository = "https://gitlab.com/sysu-gitlab/thesis-template/better-thesis"
