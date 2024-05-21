@@ -22,7 +22,7 @@ _Meanwhile, we suggest importing everything from the package in a local scope to
 
 ## Basic usage
 
-The function `quantum-circuit()` takes any number of positional gates and works somewhat similarly to the built-int Typst functions `table()` or `grid()`. A variety of different gate and instruction commands are available for adding elements and integers can be used to produce any number of empty cells (filled with the current wire style). A new wire is started by adding a `[\ ]` item. 
+The function `quantum-circuit()` takes any number of positional gates and works somewhat similarly to the built-in Typst functions `table()` or `grid()`. A variety of different gate and instruction commands are available for adding elements. Integers can be used to produce any number of empty cells (filled with the current wire style). A new wire is started by adding a `[\ ]` item. 
 
 ```typ
 #{
