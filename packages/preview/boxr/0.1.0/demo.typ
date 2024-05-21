@@ -1,4 +1,4 @@
-#import "boxr.typ": *
+#import "@preview/boxr:0.1.0": *
 
 #set page(
   "a3",

@@ -531,10 +531,15 @@
     glue_pattern_p = glue_pattern(gray)
   }
 
-  let structure = json(structure_path + ".json")
+  let structure = none
+  if type(structure_path) == str {
+    structure = json(structure_path + ".json")
+  } else {
+    structure = structure_path
+  }
 
   for variable in structure.variables {
-    assert(args.named().keys().contains(variable), message: structure_path + " needs variable: " + variable)
+    assert(args.named().keys().contains(variable), message: "Structure needs variable: " + variable)
   }
 
   let structure_size = get_structure_size(structure, args)
