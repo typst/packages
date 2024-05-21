@@ -10,16 +10,16 @@
     "width": "width",
     "height": "height:Hyp:depth",
     "children": {
-      "right": "tab|tab_size",
-      "left": "tab|tab_size",
+      "right": "tab|tab_size|tab_size",
+      "left": "tab|tab_size|tab_size",
       "top": {
         "type": "box",
         "id": 1,
         "size": "height",
         "children": {
-          "left": "tab|tab_size",
-          "right": "tab|tab_size",
-          "top": "tab|tab_size"
+          "left": "tab|tab_size|tab_size",
+          "right": "tab|tab_size|tab_size",
+          "top": "tab|tab_size|tab_size"
         }
       },
       "bottom": {

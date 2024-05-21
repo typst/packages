@@ -20,11 +20,11 @@
             "id": 5,
             "size": "height",
             "children": {
-              "top": "tab|tab_size"
+              "top": "tab|tab_size|tab_size"
             }
           },
-          "left": "tab|tab_size",
-          "right": "tab|tab_size"
+          "left": "tab|tab_size|tab_size",
+          "right": "tab|tab_size|tab_size"
         }
       },
       "left": {
@@ -32,8 +32,8 @@
         "id": 2,
         "size": "depth",
         "children": {
-          "left": "tab|tab_size",
-          "bottom": "tab|tab_size"
+          "left": "tab|tab_size|tab_size",
+          "bottom": "tab|tab_size|tab_size"
         }
       },
       "bottom": {
@@ -46,8 +46,8 @@
         "id": 4,
         "size": "depth",
         "children": {
-          "right": "tab|tab_size",
-          "bottom": "tab|tab_size"
+          "right": "tab|tab_size|tab_size",
+          "bottom": "tab|tab_size|tab_size"
         }
       }
     }

@@ -7,7 +7,7 @@ Create a boxr structure in your project by with the following code:
 #import "@preview/boxr:0.1.0"
 
 #render_structure(
-  "structures/box",
+  "box",
   width: 100pt,
   height: 100pt,
   depth: 100pt,
@@ -17,7 +17,7 @@ Create a boxr structure in your project by with the following code:
   ]
 )
 ```
-The `render_structure` function is the main function for boxr. It either takes a path to one of the default structures provided by boxr (e.g.: `"structures/box"`) or an unpacked json file with your own custom structure (e.g.: `json(my_structure.json)`). These describe the structure of the cutout.\
+The `render_structure` function is the main function for boxr. It either takes a path to one of the default structures provided by boxr (e.g.: `"box"`) or an unpacked json file with your own custom structure (e.g.: `json(my_structure.json)`). These describe the structure of the cutout.\
 The other named arguments depend on the structure you are rendering. All unnamed arguments are passed to the structure as content and will be rendered on each box face (not triangles or tabs).
 
 ## Creating your own structures
@@ -57,7 +57,7 @@ A node can be of the following types:
   - Can have a `no-fold` key. If this exists, no fold stroke will be drawn between this triangle and its parent.
 - `tab`:
   - Is not a json object, but a string that denotes a tab. The tab is placed on the parent node.
-  - Has a size after the `|` character. This can be a *variable*.
+  - Has a tab_size after the first `|` and a cutin_size after the second `|`. These can be *variables*.
 
 ## Variables
 Variables are strings that are used to calculate various sizes in a structure. They can have the following forms:

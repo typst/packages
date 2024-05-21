@@ -84,133 +84,6 @@
         if face.keys().contains("id") and args.pos().len() > face.id {args.pos().at(face.id)}
       )
     ]
-
-    if face.keys().contains("children") {
-      for child in face.children.values().enumerate() {
-        let add_offset = (0mm,0mm)
-        let orientation = face.children.keys().at(child.at(0))
-
-        has_child.at(orientation) = true
-
-        if type(child.at(1)) == str {
-          if child.at(1).starts-with("tab|") {
-
-            let tab_width = get_from_args(args, child.at(1).split("|").at(1))
-
-            if orientation == "top" {
-              place(
-                center + horizon,
-                dx: offset.at(0),
-                dy: offset.at(1) -(height + tab_width) / 2,
-              )[
-                #tab(
-                  width,
-                  tab_width,
-                  tab_width,
-                  0deg,
-                  color,
-                  cut_stroke,
-                  fold_stroke,
-                  glue_pattern_p
-                )
-              ]
-            } else if orientation == "left" {
-              place(
-                center + horizon,
-                dx: offset.at(0) - (width + tab_width) / 2,
-                dy: offset.at(1)
-              )[
-                #tab(
-                  height,
-                  tab_width,
-                  tab_width,
-                  270deg,
-                  color,
-                  cut_stroke,
-                  fold_stroke,
-                  glue_pattern_p
-                )
-              ]
-            } else if orientation == "bottom" {
-              place(
-                center + horizon,
-                dx: offset.at(0),
-                dy: offset.at(1) + (height + tab_width) / 2
-              )[
-                #tab(
-                  width,
-                  tab_width,
-                  tab_width,
-                  180deg,
-                  color,
-                  cut_stroke,
-                  fold_stroke,
-                  glue_pattern_p
-                )
-              ]
-            } else if orientation == "right" {
-              place(
-                center + horizon,
-                dx: offset.at(0) + (width + tab_width) / 2,
-                dy: offset.at(1)
-              )[
-                #tab(
-                  height,
-                  tab_width,
-                  tab_width,
-                  90deg,
-                  color,
-                  cut_stroke,
-                  fold_stroke,
-                  glue_pattern_p
-                )
-              ]
-            }
-          }
-
-          continue
-        }
-
-        let next_comes_from = none
-
-        assert(orientation != comes_from, message: "Face cannot have a child coming from the same direction as it is coming from")
-
-        if orientation == "top" {
-          add_offset = (
-            0mm, -(height + get_from_args(args, child.at(1).size)) / 2
-          )
-          next_comes_from = "bottom"
-        } else if orientation == "left" {
-          add_offset = (
-            -(width + get_from_args(args, child.at(1).size)) / 2, 0mm
-          )
-          next_comes_from = "right"
-        } else if orientation == "bottom" {
-          add_offset = (
-            0mm, (height + get_from_args(args, child.at(1).size)) / 2
-          )
-          next_comes_from = "top"
-        } else if orientation == "right" {
-          add_offset = (
-            (width + get_from_args(args, child.at(1).size)) / 2, 0mm
-          )
-          next_comes_from = "left"
-        }
-
-        render_face(
-          child.at(1),
-          color,
-          fold_stroke,
-          cut_stroke,
-          glue_pattern_p,
-          clip,
-          args,
-          offset: (offset.at(0) + add_offset.at(0), offset.at(1) + add_offset.at(1)),
-          comes_from: next_comes_from,
-          last_size: if orientation == "top" or orientation == "bottom" {width} else {height}
-        )
-      }
-    }
   } else if (face.type.starts-with("triangle")) {
     let width = width
     let height = height
@@ -313,131 +186,135 @@
         stroke: cut_stroke
       )
     ]
-
-    if face.keys().contains("children") {
-      for child in face.children.values().enumerate() {
-        let add_offset = (0mm,0mm)
-        let orientation = face.children.keys().at(child.at(0))
-
-        has_child.at(orientation) = true
-
-        if type(child.at(1)) == str {
-          if child.at(1).starts-with("tab|") {
-
-            let tab_width = get_from_args(args, child.at(1).split("|").at(1))
-
-            if orientation == "top" {
-              place(
-                center + horizon,
-                dx: offset.at(0),
-                dy: offset.at(1) -(height + tab_width) / 2,
-              )[
-                #tab(
-                  width,
-                  tab_width,
-                  tab_width,
-                  0deg,
-                  color,
-                  cut_stroke,
-                  fold_stroke,
-                  glue_pattern_p
-                )
-              ]
-            } else if orientation == "left" {
-              place(
-                center + horizon,
-                dx: offset.at(0) - (width + tab_width) / 2,
-                dy: offset.at(1)
-              )[
-                #tab(
-                  height,
-                  tab_width,
-                  tab_width,
-                  270deg,
-                  color,
-                  cut_stroke,
-                  fold_stroke,
-                  glue_pattern_p
-                )
-              ]
-            } else if orientation == "bottom" {
-              place(
-                center + horizon,
-                dx: offset.at(0),
-                dy: offset.at(1) + (height + tab_width) / 2
-              )[
-                #tab(
-                  width,
-                  tab_width,
-                  tab_width,
-                  180deg,
-                  color,
-                  cut_stroke,
-                  fold_stroke,
-                  glue_pattern_p
-                )
-              ]
-            } else if orientation == "right" {
-              place(
-                center + horizon,
-                dx: offset.at(0) + (width + tab_width) / 2,
-                dy: offset.at(1)
-              )[
-                #tab(
-                  height,
-                  tab_width,
-                  tab_width,
-                  90deg,
-                  color,
-                  cut_stroke,
-                  fold_stroke,
-                  glue_pattern_p
-                )
-              ]
-            }
-          }
-
-          continue
-        }
-
-        let next_comes_from = none
-
-        if orientation == "top" {
-          add_offset = (
-            0mm, -(height + get_from_args(args, child.at(1).height)) / 2
-          )
-          next_comes_from = "bottom"
-        } else if orientation == "left" {
-          add_offset = (
-            -(width + get_from_args(args, child.at(1).width)) / 2, 0mm
-          )
-          next_comes_from = "right"
-        } else if orientation == "bottom" {
-          add_offset = (
-            0mm, (height + get_from_args(args, child.at(1).height)) / 2
-          )
-          next_comes_from = "top"
-        } else if orientation == "right" {
-          add_offset = (
-            (width + get_from_args(args, child.at(1).width)) / 2, 0mm
-          )
-          next_comes_from = "left"
-        }
-
-        render_face(
-          child.at(1),
-          color,
-          fold_stroke,
-          cut_stroke,
-          glue_pattern_p,
-          args,
-          offset: (offset.at(0) + add_offset.at(0), offset.at(1) + add_offset.at(1)),
-          comes_from: next_comes_from
-        )
-      }
-    }
   } else {
     assert(false, message: "Unknown face type: " + face.type)
+  }
+
+  if face.keys().contains("children") {
+    for child in face.children.values().enumerate() {
+      let add_offset = (0mm,0mm)
+      let orientation = face.children.keys().at(child.at(0))
+      let next_comes_from = none
+
+      has_child.at(orientation) = true
+
+      assert(orientation != comes_from, message: "Face cannot have a child coming from the same direction as it is coming from")
+
+      if type(child.at(1)) == str {
+        if child.at(1).starts-with("tab|") {
+
+          let tab_size = get_from_args(args, child.at(1).split("|").at(1))
+          let tab_cutin = get_from_args(args, child.at(1).split("|").at(2))
+
+          if orientation == "top" {
+            place(
+              center + horizon,
+              dx: offset.at(0),
+              dy: offset.at(1) -(height + tab_size) / 2,
+            )[
+              #tab(
+                width,
+                tab_size,
+                tab_cutin,
+                0deg,
+                color,
+                cut_stroke,
+                fold_stroke,
+                glue_pattern_p
+              )
+            ]
+          } else if orientation == "left" {
+            place(
+              center + horizon,
+              dx: offset.at(0) - (width + tab_size) / 2,
+              dy: offset.at(1)
+            )[
+              #tab(
+                height,
+                tab_size,
+                tab_cutin,
+                270deg,
+                color,
+                cut_stroke,
+                fold_stroke,
+                glue_pattern_p
+              )
+            ]
+          } else if orientation == "bottom" {
+            place(
+              center + horizon,
+              dx: offset.at(0),
+              dy: offset.at(1) + (height + tab_size) / 2
+            )[
+              #tab(
+                width,
+                tab_size,
+                tab_cutin,
+                180deg,
+                color,
+                cut_stroke,
+                fold_stroke,
+                glue_pattern_p
+              )
+            ]
+          } else if orientation == "right" {
+            place(
+              center + horizon,
+              dx: offset.at(0) + (width + tab_size) / 2,
+              dy: offset.at(1)
+            )[
+              #tab(
+                height,
+                tab_size,
+                tab_cutin,
+                90deg,
+                color,
+                cut_stroke,
+                fold_stroke,
+                glue_pattern_p
+              )
+            ]
+          }
+        }
+
+        continue
+      }
+
+      if orientation == "top" {
+        add_offset = (
+          0mm, -(height + get_from_args(args, child.at(1).size)) / 2
+        )
+        next_comes_from = "bottom"
+      } else if orientation == "left" {
+        add_offset = (
+          -(width + get_from_args(args, child.at(1).size)) / 2, 0mm
+        )
+        next_comes_from = "right"
+      } else if orientation == "bottom" {
+        add_offset = (
+          0mm, (height + get_from_args(args, child.at(1).size)) / 2
+        )
+        next_comes_from = "top"
+      } else if orientation == "right" {
+        add_offset = (
+          (width + get_from_args(args, child.at(1).size)) / 2, 0mm
+        )
+        next_comes_from = "left"
+      }
+
+      render_face(
+        child.at(1),
+        color,
+        fold_stroke,
+        cut_stroke,
+        glue_pattern_p,
+        clip,
+        args,
+        offset: (offset.at(0) + add_offset.at(0), offset.at(1) + add_offset.at(1)),
+        comes_from: next_comes_from,
+        last_size: if orientation == "top" or orientation == "bottom" {width} else {height}
+      )
+    }
   }
 
   if not has_child.at("top") {
@@ -564,7 +441,7 @@
 
   let structure = none
   if type(structure_path) == str {
-    structure = json(structure_path + ".json")
+    structure = json("structures/" + structure_path + ".json")
   } else {
     structure = structure_path
   }
