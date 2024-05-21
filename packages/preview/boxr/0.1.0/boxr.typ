@@ -71,50 +71,8 @@
       )
     ]
   } else if (face.type.starts-with("triangle")) {
-    let width = width
-    let height = height
     let direction = face.type.split("_").at(1)
-    let points = if comes_from == "top" {
-      (
-        (0mm, 0mm),
-        (width, 0mm),
-        if direction == "left" {
-          (width, height)
-        } else {
-          (0mm, height)
-        }
-      )
-    } else if comes_from == "left" {
-      (
-        (0mm, height),
-        (0mm, 0mm),
-        if direction == "left" {
-          (width, 0mm)
-        } else {
-          (width, height)
-        }
-      )
-    } else if comes_from == "bottom" {
-      (
-        (width, height),
-        (0mm, height),
-        if direction == "left" {
-          (0mm, 0mm)
-        } else {
-          (width, 0mm)
-        }
-      )
-    } else if comes_from == "right" {
-      (
-        (width, 0mm),
-        (width, height),
-        if direction == "left" {
-          (0mm, height)
-        } else {
-          (0mm, 0mm)
-        }
-      )
-    }
+    let points = calculate_triangle_points(comes_from, direction, width, height)
 
     place(
       center + horizon,
@@ -191,6 +149,63 @@
 
           let tab_size = get_from_args(args, child.at(1).split("|").at(1))
           let tab_cutin = get_from_args(args, child.at(1).split("|").at(2))
+
+          if (face.type.starts-with("triangle")) {
+            let direction = face.type.split("_").at(1)
+
+            assert(not ((orientation == "right" and comes_from == "left")
+            or (orientation == "top" and comes_from == "bottom")
+            or (orientation == "left" and comes_from == "right")
+            or (orientation == "bottom" and comes_from == "top")), message: "Tab orientation is invalid")
+
+            let points = calculate_triangle_points(comes_from, direction, width, height)
+            let line_points = (if direction == "left" {points.at(0)} else {points.at(1)}, points.at(2))
+            let l1 = (line_points.at(1).at(1) - line_points.at(0).at(1)).pt()
+            let l2 = (line_points.at(1).at(0) - line_points.at(0).at(0)).pt()
+            let angle = 90deg - calc.atan2(l1, l2) + if direction == "left" {180deg} else {0deg}
+            let length = calc.sqrt(calc.pow(l2, 2) + calc.pow(l1, 2)) * 1pt
+            // half of the tab size in the normal direction of the line
+            let add_offset = (
+              calc.sin(angle) * tab_size / 2,
+              -calc.cos(angle) * tab_size / 2
+            )
+
+            if ((comes_from == "right"
+            and direction == "left" and orientation == "top")
+            or (comes_from == "right"
+            and direction == "right" and orientation == "bottom")
+            or (comes_from == "left"
+            and direction == "right" and orientation == "top")
+            or (comes_from == "left"
+            and direction == "left" and orientation == "bottom")
+            or (comes_from == "top"
+            and direction == "left" and orientation == "left")
+            or (comes_from == "top"
+            and direction == "right" and orientation == "right")
+            or (comes_from == "bottom"
+            and direction == "right" and orientation == "left")
+            or (comes_from == "bottom"
+            and direction == "left" and orientation == "right")) {
+              place(
+                center + horizon,
+                dx: offset.at(0) + add_offset.at(0),
+                dy: offset.at(1) + add_offset.at(1)
+              )[
+                #tab(
+                  length,
+                  tab_size,
+                  tab_cutin,
+                  angle,
+                  color,
+                  cut_stroke,
+                  fold_stroke,
+                  glue_pattern_p
+                )
+              ]
+
+              continue
+            }
+          }
 
           if orientation == "top" {
             place(

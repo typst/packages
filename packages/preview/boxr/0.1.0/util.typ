@@ -80,3 +80,47 @@
     ]
   ]
 }
+
+#let calculate_triangle_points(comes_from, direction, width, height) = {
+  return if comes_from == "top" {
+    (
+      (0mm, 0mm),
+      (width, 0mm),
+      if direction == "left" {
+        (width, height)
+      } else {
+        (0mm, height)
+      }
+    )
+  } else if comes_from == "left" {
+    (
+      (0mm, height),
+      (0mm, 0mm),
+      if direction == "left" {
+        (width, 0mm)
+      } else {
+        (width, height)
+      }
+    )
+  } else if comes_from == "bottom" {
+    (
+      (width, height),
+      (0mm, height),
+      if direction == "left" {
+        (0mm, 0mm)
+      } else {
+        (width, 0mm)
+      }
+    )
+  } else if comes_from == "right" {
+    (
+      (width, 0mm),
+      (width, height),
+      if direction == "left" {
+        (0mm, height)
+      } else {
+        (0mm, 0mm)
+      }
+    )
+  }
+}
