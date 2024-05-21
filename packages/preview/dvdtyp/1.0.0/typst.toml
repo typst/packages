@@ -5,7 +5,7 @@ entrypoint = "dvd.typ"
 authors = ["DVDTSB"]
 license = "MIT-0"
 description = "a colorful template for writting handouts or notes"
-categories = ["notes", "handouts"]
+categories = ["fun", "layout", "text"]
 
 [template]
 path = "template"
