@@ -28,6 +28,11 @@
     right: false
   )
 
+  let comes_from_triangle = comes_from
+  if comes_from_triangle == none {
+    comes_from_triangle = "bottom"
+  }
+
   let width = if comes_from == none {
       get_from_args(args, face.width)
     } else {
@@ -72,7 +77,10 @@
     ]
   } else if (face.type.starts-with("triangle")) {
     let direction = face.type.split("_").at(1)
-    let points = calculate_triangle_points(comes_from, direction, width, height)
+
+    assert(direction == "left" or direction == "right", message: "Triangle direction must be either 'left' or 'right'")
+
+    let points = calculate_triangle_points(comes_from_triangle, direction, width, height)
 
     place(
       center + horizon,
@@ -81,41 +89,67 @@
     )[
       #polygon(
         fill: color,
+        stroke: 0mm,
         ..points
       )
     ]
 
-    if comes_from == "top" {
+    let triangle_line_type = cut_stroke
+    if comes_from_triangle == "top" {
       has_child.at("bottom") = true
 
       if direction == "left" {
         has_child.at("left") = true
+        if face.keys().contains("children") and face.children.keys().contains("left") and face.children.left == "none" {
+          triangle_line_type = 0mm
+        }
       } else {
         has_child.at("right") = true
+        if face.keys().contains("children") and face.children.keys().contains("right") and face.children.right == "none" {
+          triangle_line_type = 0mm
+        }
       }
-    } else if comes_from == "left" {
+    } else if comes_from_triangle == "left" {
       has_child.at("right") = true
 
       if direction == "left" {
         has_child.at("bottom") = true
+        if face.keys().contains("children") and face.children.keys().contains("bottom") and face.children.bottom == "none" {
+          triangle_line_type = 0mm
+        }
       } else {
         has_child.at("top") = true
+        if face.keys().contains("children") and face.children.keys().contains("top") and face.children.top == "none" {
+          triangle_line_type = 0mm
+        }
       }
-    } else if comes_from == "bottom" {
+    } else if comes_from_triangle == "bottom" {
       has_child.at("top") = true
 
       if direction == "left" {
         has_child.at("right") = true
+        if face.keys().contains("children") and face.children.keys().contains("right") and face.children.right == "none" {
+          triangle_line_type = 0mm
+        }
       } else {
         has_child.at("left") = true
+        if face.keys().contains("children") and face.children.keys().contains("left") and face.children.left == "none" {
+          triangle_line_type = 0mm
+        }
       }
-    } else if comes_from == "right" {
+    } else if comes_from_triangle == "right" {
       has_child.at("left") = true
 
       if direction == "left" {
         has_child.at("top") = true
+        if face.keys().contains("children") and face.children.keys().contains("top") and face.children.top == "none" {
+          triangle_line_type = 0mm
+        }
       } else {
         has_child.at("bottom") = true
+        if face.keys().contains("children") and face.children.keys().contains("bottom") and face.children.bottom == "none" {
+          triangle_line_type = 0mm
+        }
       }
     }
 
@@ -127,7 +161,7 @@
       #line(
         start: if direction == "left" {points.at(0)} else {points.at(1)},
         end: points.at(2),
-        stroke: cut_stroke
+        stroke: triangle_line_type
       )
     ]
   } else {
@@ -144,6 +178,12 @@
 
       assert(orientation != comes_from, message: "Face cannot have a child coming from the same direction as it is coming from")
 
+
+      assert(not (face.type.starts-with("triangle") and ((orientation == "right" and comes_from_triangle == "left")
+      or (orientation == "top" and comes_from_triangle == "bottom")
+      or (orientation == "left" and comes_from_triangle == "right")
+      or (orientation == "bottom" and comes_from_triangle == "top"))), message: "Triangle does not support children to the opposite side of the parent face")
+
       if type(child.at(1)) == str {
         if child.at(1).starts-with("tab|") {
 
@@ -152,12 +192,6 @@
 
           if (face.type.starts-with("triangle")) {
             let direction = face.type.split("_").at(1)
-
-            assert(not ((orientation == "right" and comes_from == "left")
-            or (orientation == "top" and comes_from == "bottom")
-            or (orientation == "left" and comes_from == "right")
-            or (orientation == "bottom" and comes_from == "top")), message: "Tab orientation is invalid")
-
             let points = calculate_triangle_points(comes_from, direction, width, height)
             let line_points = (if direction == "left" {points.at(0)} else {points.at(1)}, points.at(2))
             let l1 = (line_points.at(1).at(1) - line_points.at(0).at(1)).pt()
@@ -276,9 +310,31 @@
               )
             ]
           }
+        } else if child.at(1) == "none" {
+          continue
         }
 
-        continue
+        assert(false, message: "Unknown child type: " + child.at(1))
+      }
+
+      if (face.type.starts-with("triangle")){
+        let direction = face.type.split("_").at(1)
+        assert(not ((comes_from_triangle == "right"
+        and direction == "left" and orientation == "top")
+        or (comes_from_triangle == "right"
+        and direction == "right" and orientation == "bottom")
+        or (comes_from_triangle == "left"
+        and direction == "right" and orientation == "top")
+        or (comes_from_triangle == "left"
+        and direction == "left" and orientation == "bottom")
+        or (comes_from_triangle == "top"
+        and direction == "left" and orientation == "left")
+        or (comes_from_triangle == "top"
+        and direction == "right" and orientation == "right")
+        or (comes_from_triangle == "bottom"
+        and direction == "right" and orientation == "left")
+        or (comes_from_triangle == "bottom"
+        and direction == "left" and orientation == "right")), message: "Triange does not support children to come from angeled sides")
       }
 
       if orientation == "top" {

@@ -2,7 +2,7 @@
 Boxr is a modular, and easy to use, package for creating cardboard cutouts in Typst.
 
 ## Usage
-Create a boxr structure in your project by with the following code:
+Create a boxr structure in your project with the following code:
 ```
 #import "@preview/boxr:0.1.0"
 
@@ -58,6 +58,8 @@ A node can be of the following types:
 - `tab`:
   - Is not a json object, but a string that denotes a tab. The tab is placed on the parent node.
   - Has a tab_size after the first `|` and a cutin_size after the second `|`.
+- `none`:
+  - Is not a json object, but a string that denotes no node. This is useful for deleting a cut_stroke between two nodes.
 
 Every string value in the json file (`width: "__", height: "__", ... offset_x/y: "__"` and the values between the `|` for tabs) is evaluated as regular typst code. This means that you can use all named variables (these have to be lengths) passed to the structure. All inputs are converted to points and the result of the evaluation will be converted back to a length.
 
