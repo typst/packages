@@ -1,25 +1,5 @@
 #import "util.typ": *
 
-#let evaluated_functions = (
-  "hyp": (a, b) => calc.sqrt(calc.pow(a, 2) + calc.pow(b, 2)),
-)
-
-#let get_from_args(args, name) = {
-  if name == "" {
-    return 0pt
-  }
-
-  let converted_args = (:)
-
-  for arg in args.named() {
-    if type(arg.at(1)) == length {
-      converted_args.insert(arg.at(0), arg.at(1).pt())
-    }
-  }
-
-  return eval(name, scope: converted_args + evaluated_functions) * 1pt
-}
-
 #let render_face(face, color, fold_stroke, cut_stroke, glue_pattern_p, clip, args, last_size: none, offset: (0mm,0mm), comes_from: none) = {
   let has_child = (
     top: false,
@@ -311,10 +291,10 @@
             ]
           }
         } else if child.at(1) == "none" {
-          continue
+        } else {
+          assert(false, message: "Unknown child type: " + child.at(1))
         }
-
-        assert(false, message: "Unknown child type: " + child.at(1))
+        continue
       }
 
       if (face.type.starts-with("triangle")){
@@ -461,14 +441,6 @@
       )
     ]
   }
-}
-
-#let get_structure_size(structure, args) = {
-  return (get_from_args(args, structure.width), get_from_args(args, structure.height))
-}
-
-#let get_structure_offset(structure, args) = {
-  return (get_from_args(args, structure.offset_x), get_from_args(args, structure.offset_y))
 }
 
 #let render_structure(structure_path, color: none, fold_stroke: 0.3mm + gray, cut_stroke: 0.3mm + black, glue_pattern_p: none, clip: true, ..args) = {

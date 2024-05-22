@@ -4,7 +4,7 @@ Boxr is a modular, and easy to use, package for creating cardboard cutouts in Ty
 ## Usage
 Create a boxr structure in your project with the following code:
 ```
-#import "@preview/boxr:0.1.0"
+#import "@preview/boxr:0.1.0": render_structure
 
 #render_structure(
   "box",

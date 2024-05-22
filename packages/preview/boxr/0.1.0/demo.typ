@@ -1,4 +1,4 @@
-#import "@preview/boxr:0.1.0": *
+#import "@preview/boxr:0.1.0": render_structure
 
 #set page(
   "a3",
