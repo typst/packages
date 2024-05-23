@@ -1,5 +1,5 @@
-#let re-num = regex("^(-?\d+(\.|,)?\d*)?(((\+(\d+(\.|,)?\d*)-(\d+(\.|,)?\d*)))|((((\+-)|(-\+))(\d+(\.|,)?\d*))))?(e([-\+]?\d+))?$")
-#let unicode_exponents = (("\u2070", "0"), ("\u00B9", "1"), ("\u00B2", "2"), ("\u00B3", "3"), ("\u2074", "4"), ("\u2075", "5"), ("\u2076", "6"), ("\u2077", "7"), ("\u2078", "8"), ("\u2079", "9"), ("\u207A", "+"), ("\u207B", "-"))
+#let _re-num = regex("^(-?\d+(\.|,)?\d*)?(((\+(\d+(\.|,)?\d*)-(\d+(\.|,)?\d*)))|((((\+-)|(-\+))(\d+(\.|,)?\d*))))?(e([-\+]?\d+))?$")
+#let _unicode-exponents = (("\u2070", "0"), ("\u00B9", "1"), ("\u00B2", "2"), ("\u00B3", "3"), ("\u2074", "4"), ("\u2075", "5"), ("\u2076", "6"), ("\u2077", "7"), ("\u2078", "8"), ("\u2079", "9"), ("\u207A", "+"), ("\u207B", "-"))
 
 #let _format-float(f, decsep: "auto", thousandsep: "#h(0.166667em)") = {
   /// Formats a float with thousands separator.
@@ -97,7 +97,7 @@
   // str() converts minus "-" of a number to unicode "\u2212"
   value = str(value).replace("−", "-").replace(" ", "")//.replace(",", ".")
 
-  let match-value = value.match(re-num)
+  let match-value = value.match(_re-num)
   assert.ne(match-value, none, message: "invalid number: " + value)
   let captures-value = match-value.captures
 
@@ -236,21 +236,21 @@
   }
 }
 
-#let unicode_exponent_list = for (unicode, ascii) in unicode_exponents {(unicode,)}
-#let exponent_pattern = regex("[" + unicode_exponent_list.join("|") + "]+")
+#let _unicode-exponent-list = for (unicode, ascii) in _unicode-exponents {(unicode,)}
+#let _exponent-pattern = regex("[" + _unicode-exponent-list.join("|") + "]+")
 
-#let _replace_unicode_exponents(unit_str) = {
-  let exponent_matches = unit_str.matches(exponent_pattern)
+#let _replace-unicode-exponents(unit-str) = {
+  let exponent-matches = unit-str.matches(_exponent-pattern)
   let exponent = ""
-  for match in exponent_matches {
+  for match in exponent-matches {
 
     exponent = "^" + match.text
-    for (unicode, ascii) in unicode_exponents {
+    for (unicode, ascii) in _unicode-exponents {
       exponent = exponent.replace(regex(unicode), ascii)
     }
-    unit_str = unit_str.replace(match.text, exponent)
+    unit-str = unit-str.replace(match.text, exponent)
   }
-  unit_str
+  unit-str
 }
 
 #let chunk(string, cond) = (string: string, cond: cond)
@@ -268,7 +268,7 @@
 
   let formatted = ""
 
-  string = _replace_unicode_exponents(string)
+  string = _replace-unicode-exponents(string)
 
   let split = string
     .replace(regex(" */ *"), "/")
@@ -584,7 +584,7 @@
   /// - `per`: Whether to format the units after `per` or `/` with a fraction or exponent.
 
   value = str(value).replace("−", "-").replace(" ", "")
-  let match-value = value.match(re-num)
+  let match-value = value.match(_re-num)
   assert.ne(match-value, none, message: "invalid number: " + value)
   let captures-value = match-value.captures
 
@@ -669,12 +669,12 @@
   /// - `space`: Space between the numbers and the delimiter.
   /// - `thousandsep`: The separator between the thousands of the float.
   lower = str(lower).replace("−", "-").replace(" ", "")
-  let match-lower = lower.match(re-num)
+  let match-lower = lower.match(_re-num)
   assert.ne(match-lower, none, message: "invalid lower number: " + lower)
   let captures-lower = match-lower.captures
 
   upper = str(upper).replace("−", "-").replace(" ", "")
-  let match-upper = upper.match(re-num)
+  let match-upper = upper.match(_re-num)
   assert.ne(match-upper, none, message: "invalid upper number: " + upper)
   let captures-upper = match-upper.captures
 
@@ -709,12 +709,12 @@
   /// - `per`: Whether to format the units after `per` or `/` with a fraction or exponent.
 
   lower = str(lower).replace("−", "-").replace(" ", "")
-  let match-lower = lower.match(re-num)
+  let match-lower = lower.match(_re-num)
   assert.ne(match-lower, none, message: "invalid lower number: " + lower)
   let captures-lower = match-lower.captures
 
   upper = str(upper).replace("−", "-").replace(" ", "")
-  let match-upper = upper.match(re-num)
+  let match-upper = upper.match(_re-num)
   assert.ne(match-upper, none, message: "invalid upper number: " + upper)
   let captures-upper = match-upper.captures
 
