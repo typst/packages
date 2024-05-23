@@ -142,8 +142,6 @@ asdasd
   ) <timing-tlt>
 ]))
 
-#let logo = image.with("assets/vi/ysulogo.png")
-#logo(width: 20%)
 
 
 == 数学公式
