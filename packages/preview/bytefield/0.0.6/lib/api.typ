@@ -26,7 +26,7 @@
     bpr: bpr,
     msb: msb,
     rows: rows,
-    side: (left_cols: pre, right_cols: post)
+    side: (left-cols: pre, right-cols: post)
   )
 
   let meta = generate-meta(fields.pos(), args)
@@ -161,17 +161,17 @@
 ///
 /// #emoji.warning *experimental:* This will probably change in a future version.
 ///
-/// - start_addr (string, content):  The start address will be top aligned
-/// - end_addr (string, content): The end address will be bottom aligned
-#let section(start_addr, end_addr, span: 1) = {
+/// - start-addr (string, content):  The start address will be top aligned
+/// - end-addr (string, content): The end address will be bottom aligned
+#let section(start-addr, end-addr, span: 1) = {
   note(
     left, 
     rowspan: span, 
     inset: (x:5pt, y:2pt), 
     box(height:100%, [
       #set text(0.8em, font: "Noto Mono", weight: 100)
-      #align(top + end)[#start_addr]
-      #align(bottom + end)[#end_addr]
+      #align(top + end)[#start-addr]
+      #align(bottom + end)[#end-addr]
     ]))
 }
 

@@ -16,9 +16,9 @@
   // collect metadata into an dictionary
   let bh = fields.find(f =>  is-header-field(f))
   // check level indentation for annotations
-  let (pre_levels, post_levels) = get-max-annotation-levels(fields.filter(f => is-note-field(f) ))
-  assert-level-cols(pre_levels, args.side.left_cols, "left")
-  assert-level-cols(post_levels, args.side.right_cols, "right")
+  let (pre-levels, post-levels) = get-max-annotation-levels(fields.filter(f => is-note-field(f) ))
+  assert-level-cols(pre-levels, args.side.left-cols, "left")
+  assert-level-cols(post-levels, args.side.right-cols, "right")
   // check if msb value is valid 
   assert(args.msb in (left,right), message: strfmt("expected left or right for msb, found {}", args.msb))
   let meta = (
@@ -28,9 +28,9 @@
     msb: args.msb,
     // number of cols for each grid.
     cols: (
-      pre: pre_levels,
+      pre: pre-levels,
       main: args.bpr,
-      post: post_levels,
+      post: post-levels,
     ),
     // contains the height of the rows. 
     rows: (
@@ -47,10 +47,10 @@
     // stores the cols arguments for annotations
     side: (
       left: (
-        cols: if (args.side.left_cols == auto) { (auto,)*pre_levels } else { args.side.left_cols },
+        cols: if (args.side.left-cols == auto) { (auto,)*pre-levels } else { args.side.left-cols },
       ),
       right: (
-        cols: if (args.side.right_cols == auto) { (auto,)*post_levels } else { args.side.right_cols },
+        cols: if (args.side.right-cols == auto) { (auto,)*post-levels } else { args.side.right-cols },
       )
     )
   )

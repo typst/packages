@@ -67,8 +67,8 @@
     }
   }
   return (
-    pre_levels: left_max_level +1,
-    post_levels:  right_max_level +1,
+    pre-levels: left_max_level +1,
+    post-levels:  right_max_level +1,
   )
 }
 
