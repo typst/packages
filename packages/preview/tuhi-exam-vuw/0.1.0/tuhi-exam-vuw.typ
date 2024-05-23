@@ -35,7 +35,7 @@ box(move(
   openorclosed: "open book",
   permitted: "Any materials except communication via electronic devices.",
   instructions: "",
-  logo: image("vuw-logo.svg", width: 80mm),
+  logo: image("logo.svg", width: 80mm),
   body) = {
 
   // Set the document's basic properties.
