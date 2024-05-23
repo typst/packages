@@ -1,4 +1,4 @@
-#import "../genealotree.typ": genealogy-init, add-phenos, add-person, add-persons, add-union, add-unions, draw-tree
+#import "@preview/genealotree:0.1.0": genealogy-init, add-phenos, add-person, add-persons, add-union, add-unions, draw-tree
 
 #import "@preview/cetz:0.2.2": canvas, draw
 #import draw: *
