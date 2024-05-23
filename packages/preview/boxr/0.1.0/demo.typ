@@ -1,30 +1,37 @@
-#import "@preview/boxr:0.1.0": render_structure
+#import "@preview/boxr:0.1.0": *
 
 #set page(
   "a3",
   margin: 0mm
 )
 #set align(center + horizon)
-#render_structure(
+#render-structure(
   "box",
   width: 100pt,
   height: 100pt,
   depth: 100pt,
-  tab_size: 20pt
+  tab-size: 20pt
 )
-// #render_structure(
+// #let size = get-structure-size(
+//   "box",
+//   width: 100pt,
+//   height: 100pt,
+//   depth: 100pt,
+//   tab-size: 20pt
+// )
+// #render-structure(
 //   "ramp",
 //   width: 100pt,
 //   height: 50pt,
 //   depth: 200pt,
-//   tab_size: 20pt
+//   tab-size: 20pt
 // )
-// #render_structure(
+// #render-structure(
 //   "step",
 //   width: 100pt,
-//   height_1: 50pt,
-//   height_2: 30pt,
-//   depth_1: 100pt,
-//   depth_2: 80pt,
-//   tab_size: 20pt
+//   height-1: 50pt,
+//   height-2: 30pt,
+//   depth-1: 100pt,
+//   depth-2: 80pt,
+//   tab-size: 20pt
 // )
