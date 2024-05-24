@@ -1,11 +1,11 @@
-# datelib
+# datify
 
-Datelib is a simple date package that allows users to format dates in new ways and addresses the issue of lacking date formats in different languages.
+Datify is a simple date package that allows users to format dates in new ways and addresses the issue of lacking date formats in different languages.
 
 ## Installation
 
 ```typst
-#import "@preview/datelib:0.1.1": dayName, monthName, writtenDate
+#import "@preview/datify:0.1.1": dayName, monthName, writtenDate
 ```
 
 ## Reference
@@ -15,7 +15,7 @@ Return the Name of the weekday.
 #### Example
 
 ```typst
-#import "@preview/datelib:0.1.1": dayName
+#import "@preview/datify:0.1.1": dayName
 
 #dayName(2)
 #dayName(1, lang: "fr", upper: true)
@@ -48,7 +48,7 @@ Returns the name of the month.
 #### Example
 
 ```typst
-#import "@preview/datelib:0.1.1": monthName
+#import "@preview/datify:0.1.1": monthName
 
 #monthName(2)
 #monthName(1, lang: "fr", upper: true)
@@ -80,7 +80,7 @@ Return the fully written date.
 #### Example
 
 ```typst
-#import "@preview/datelib:0.1.1": writtenDate
+#import "@preview/datify:0.1.1": writtenDate
 
 #let mydate = (
     weekday: 4
