@@ -1,5 +1,5 @@
 // https://github.com/typst/typst/issues/659
-#let acronyms = json("acronyms.json")
+#let acronyms = json("../template/acronyms.json")
 
 // The state which tracks the used acronyms
 #let usedAcronyms = state("usedDic", (:))

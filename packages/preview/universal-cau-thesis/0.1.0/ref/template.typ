@@ -6,13 +6,13 @@
 #let project(
   kind: "硕士",
   title: "中国农业大学论文模板",
-  abstract_en: [],
-  abstract_zh: [],
-  title_en:[],
-  title_zh:[],
+  abstract-en: [],
+  abstract-zh: [],
+  title-en:[],
+  title-zh:[],
   authors: [],
   teacher: [],
-  co-teacher:[],
+  // co-teacher:[],
   degree: [],
   major: [],
   field: [],
@@ -20,23 +20,30 @@
   signature: "",
   classification:[],
   security:[],
-  student_ID:[],
+  acknowledgement: [],
+  author-introduction: [],
+  student-id:[],
   year: [],
   month: [],
   day: [],
-  outlineDepth: 3,
+  outline-depth: 3,
   draft:true,
-  blindReview: false,
+  blind-review: false,
   logo:"./CAU_Logo.png",
+  ref-path: "",
+  ref-style:"emboj",
+  acro-path: "",
   body
 ) = {
 
-  if(blindReview){
+  if(blind-review){
     authors = hide[#authors]
     teacher = hide[#teacher]
     major = hide[major]
     field = hide[#field]
-    student_ID = hide[student_ID]
+    student-id = hide[#student-id]
+    acknowledgement = hide[#acknowledgement]
+    author-introduction = hide[#author-introduction]
     draft = false
   }
 
@@ -88,7 +95,7 @@
       align: left+horizon,
       inset:0pt,
       justify[分类号], [:], [#classification], justify[单位代码], [:], [100019],
-      justify[密级],   [:], [#security], justify[学号],     [:], [#student_ID]
+      justify[密级],   [:], [#security], justify[学号],     [:], [#student-id]
     )
   
     v(28pt)
@@ -98,11 +105,11 @@
     v(15.6pt)
     align(center)[
       #set par(leading: 14pt)
-      #text(22pt, font:("Times New Roman", "SimHei"), weight: 700, title_zh)
+      #text(22pt, font:("Times New Roman", "SimHei"), weight: 700, title-zh)
     ]
     align(center)[
       #set text(16pt, font:"Time New Roman", weight: 700, baseline:-8pt)
-      #title_en
+      #title-en
     ]
     v(40pt)
   
@@ -172,6 +179,15 @@
       text("时间: "+year+"年"+month+"月"+day+"日"),
     )
 
+    if draft{ }else{
+      place(top+left, dx: 47%, dy: 72%, rotate(-24deg, image("./CAU_Stamp.png", width: 100pt)))
+      place(top+left, dx: 47%, dy: 25%, rotate(-24deg, image("./CAU_Stamp.png", width: 100pt)))
+    }
+    if(signature != ""){
+      place(top+left, dx: 29%, dy: 25%, image("../"+signature, width: 100pt))
+      place(top+left, dx: 29%, dy: 68%, image("../"+signature, width: 100pt))
+    }
+
     pagebreak()
   }
 
@@ -183,13 +199,13 @@
       #heading(outlined: true, level: 1, numbering:none, [摘要])]
       v(16pt,weak: false)
       set par(justify: true)
-      [#h(2em) #abstract_zh]
+      [#h(2em) #abstract-zh]
   
     align(center)[
       #heading(outlined: false, level: 1, numbering: none, [Abstract])]
       v(16pt,weak: false)
       set par(justify: true)
-      [#abstract_en]
+      [#abstract-en]
   }
 
   let contentspage={
@@ -197,7 +213,7 @@
     show outline: set heading(level: 1, outlined: true)
     heading(level: 1, numbering: none)[目录]
     v(16pt,weak: false)
-    outline(depth: outlineDepth, indent: n => [#h(2em)] * n, title: none)
+    outline(depth: outline-depth, indent: n => [#h(2em)] * n, title: none)
   }
 
   let illustrationspage={
@@ -211,7 +227,7 @@
     outline(title:none, target: figure.where(kind:table))
   }
 
-  let acronymspage={
+  let acronymspage={    
     // set text(font: sunfont, size: 12pt)
     set page(numbering: "I")
     // set par(leading: 12pt)
@@ -238,6 +254,28 @@
     )
     line(length: 100%)
 
+  }
+
+  let acknowledgementpage = [
+    = 致谢
+    #acknowledgement
+  ]
+
+  let authorpage = [
+    = 个人简介
+    #author-introduction
+  ]
+
+  let reference = {
+    show bibliography: set par(leading: 1em, first-line-indent: 0em)
+    show bibliography: set text(size: 10.5pt)
+    heading(level: 1)[参考文献]
+    if ref-style == "emboj" {
+      bibliography(ref-path, title: none, style: "the-embo-journal.csl")
+    }else{
+      bibliography(ref-path, title: none, style: ref-style)
+    }
+    heading(level: 6, numbering: none, outlined: false)[]
   }
 
   let bodyconf() = {
@@ -300,7 +338,13 @@
       counter(figure.where(kind: image)).update(0)
       it
     }
-    show figure: it => {
+    show figure.where(kind: image): it => {
+      set text(font:("Times New Roman","SimSun"), 9pt)
+      it
+      v(-4pt)
+      par()[#text(size:0.0em)[#h(0em)]]
+    }
+    show figure.where(kind: table): it => {
       set text(font:("Times New Roman","SimSun"), 9pt)
       it
       v(-1em)
@@ -329,7 +373,7 @@
     show raw.where(block: true): set par(justify: false)
     show raw.where(block:true):it =>{
       it
-      v(-1em)
+      v(-4pt)
       par()[#text(size:0.0em)[#h(0em)]]
     }
     codly(
@@ -340,7 +384,12 @@
       padding: 0.5em,
       display-name: false,
     )
-    body
+    [
+      #body
+      #reference
+      #acknowledgementpage
+      #authorpage
+    ]
     disable-codly()
   }
 

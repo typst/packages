@@ -36,12 +36,12 @@
    - teacher：指导教师的姓名
    - degree：申请学位门类级别，比如`[理学硕士]`
    - college, major, field：封面上的内容，学院、专业和研究方向
-   - signature：你的电子签名，是论文独创性声明处的签字
+   - signature：你的电子签名文件路径，是论文独创性声明处的签字
    - classification & security：论文在图书馆收录时的[中图法分类](https://www.clcindex.com/)和保密级别
    - student_ID：学号
    - year, month, day：论文封面和诚信声明页上的日期
    - draft：填写`true`时添加草稿水印，用以区分是否为最终版本，填写`false`时去除水印并添加论文章
-   - blindReview：填写为`true`时隐藏封面上的相关信息，为
+   - blindReview：填写为`true`时隐藏封面上的相关信息，以及致谢和作者介绍
 
 6. 使用`typst`命令生成pdf格式文件，或直接使用vscode的实时预览插件（默认快捷键`ctrl+k v`）
 
@@ -163,6 +163,12 @@
     PS：在添加bib的代码后面，隐藏了一个heading，请不要删除这一行，否则参考文献的页眉会出错
 
     PS：根据学院要求默认使用EmboJ的格式，如果需要其他格式，只要下载到格式说明`.csl`文件修改参数即可
+
+- 当文本内容仅有1页时，有时页眉标题会出错，可以添加一个空白标题进行修正
+
+  ```typst
+  #heading(level: 6, numbering: none, outlined: false)[]
+  ```
 
 ### 致谢
 
