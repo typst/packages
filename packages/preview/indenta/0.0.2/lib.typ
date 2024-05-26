@@ -9,6 +9,7 @@
       if _is_block(e,fn){st=1}
     }else if st==1{
       if fn==parbreak{st=2}
+      else if _is_block(e,fn) or e==[ ]{}
       else{st=0}
     }else if st==2{
       if _is_block(e,fn){st=1}
