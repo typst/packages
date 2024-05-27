@@ -227,7 +227,8 @@
     })
   }
 
-  set par(justify: true)
+  set par(justify: true, leading: 1em)
+  set block(spacing: 2em)
 
   if (show-abstract and abstract != none) {
     align(center + horizon, heading(level: 1, numbering: none)[Abstract])
