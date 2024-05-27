@@ -8,7 +8,7 @@
 Run this command inside your terminal to init a new exam. 
 
 ```sh
-typst init @preview/ttt-exams my-exam
+typst init @preview/ttt-exam my-exam
 ```
 
 This will scaffold the following folder structure.
