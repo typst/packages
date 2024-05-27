@@ -1,4 +1,4 @@
-#let confidentiality-statement(authors, title, university, university-location, date, language) = {
+#let confidentiality-statement(authors, title, university, university-location, date, language, many-authors) = {
   v(2em)
   text(size: 20pt, weight: "bold", if (language == "de") {
     "Sperrvermerk"
@@ -43,7 +43,7 @@
     The content of this thesis may not be made available, either in its entirety or in excerpts, to persons outside of the examination process and the evaluation process, unless otherwise authorized by the training #insitution (#companies).]
   }])
 
-  v(3em)
+  v(2em)
   text([#if (language == "de") {
     [#authors.map(author => author.company.city).dedup().join(", ", last: " und "), #date.display(
     "[day].[month].[year]"
@@ -52,9 +52,22 @@
     "[day].[month].[year]"
   )]}])
 
-  for author in authors {
-    v(5em)
-    line(length: 40%)
-    author.name
+  v(0.5em)
+  if (many-authors) {
+    grid(
+      columns: (1fr, 1fr),
+      gutter: 20pt,
+      ..authors.map(author => {
+        v(3.5em)
+        line(length: 80%)
+        author.name
+      })
+    )
+  } else {
+    for author in authors {
+      v(4em)
+      line(length: 40%)
+      author.name
+    }
   }
 }

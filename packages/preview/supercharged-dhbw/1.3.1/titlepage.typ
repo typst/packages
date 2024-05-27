@@ -1,7 +1,4 @@
-#let titlepage(authors, title, language, date, at-dhbw, logo-left, logo-right, left-logo-height, right-logo-height, university, university-location, supervisor, heading-font) = {
-  let author-count = authors.len()
-  let many-authors = author-count > 4
-
+#let titlepage(authors, title, language, date, at-dhbw, logo-left, logo-right, left-logo-height, right-logo-height, university, university-location, supervisor, heading-font, many-authors) = {
   if (many-authors) {
     v(-1em)
   }

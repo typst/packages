@@ -39,6 +39,8 @@
 ) = {
   // set the document's basic properties
   set document(title: title, author: authors.map(author => author.name))
+  let author-count = authors.len()
+  let many-authors = author-count > 4
 
   init-acronyms(acronyms)
 
@@ -87,7 +89,7 @@
   show heading.where(level: 2): it => v(1em) + it + v(0.5em)
   show heading.where(level: 3): it => v(0.5em) + it + v(0.25em)
 
-  titlepage(authors, title, language, date, at-dhbw, logo-left, logo-right, left-logo-height, right-logo-height, university, university-location, supervisor, heading-font)
+  titlepage(authors, title, language, date, at-dhbw, logo-left, logo-right, left-logo-height, right-logo-height, university, university-location, supervisor, heading-font, many-authors)
 
   set page(
     margin: (top: 8em, bottom: 8em),
@@ -123,11 +125,11 @@
   counter(page).update(1)
 
   if (not at-dhbw and show-confidentiality-statement) {
-    confidentiality-statement(authors, title, university, university-location, date, language)
+    confidentiality-statement(authors, title, university, university-location, date, language, many-authors)
   }
 
   if (show-declaration-of-authorship) {
-    declaration-of-authorship(authors, title, date, language)
+    declaration-of-authorship(authors, title, date, language, many-authors)
   }
 
   show outline.entry.where(
