@@ -122,7 +122,7 @@ Below is a table of all possible format types that can be used in the format str
 | `day`  | Full name of the day                   | tuesday       |
 | `Day`  | Capitalized full name of the day       | Tuesday       |
 | `DAY`  | Uppercase full name of the day         | TUESDAY       |
-| `MMMM` | Capitalized full name of the month     | Mqy           |
+| `MMMM` | Capitalized full name of the month     | May           |
 | `MMM`  | Short name of the month (first 3 chars)| May           |
 | `MM`   | Month number, 2 digits                 | 05            |
 | `month`| Full name of the month                 | may           |
