@@ -1,0 +1,11 @@
+[package]
+name = "examit"
+version = "0.1.1"
+entrypoint = "examit.typ"
+authors = ["Steven Williams"]
+license = "MIT"
+description = "An exam template based on the MIT LaTeX exam.cls"
+homepage = "https://github.com/onomou/typst-examit"
+keywords = ["exam","test","grading"]
+categories = ["components","layout","report"]
+disciplines = ["education"]
