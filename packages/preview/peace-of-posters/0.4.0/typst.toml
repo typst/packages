@@ -6,6 +6,6 @@ license = "MIT"
 description = "Create scientific posters in Typst."
 entrypoint = "lib.typ"
 repository = "https://github.com/jonaspleyer/peace-of-posters"
-homepage = "https://jonaspleyer.github.io/peace-of-poster/"
+homepage = "https://jonaspleyer.github.io/peace-of-posters/"
 categories = ["poster"]
 
