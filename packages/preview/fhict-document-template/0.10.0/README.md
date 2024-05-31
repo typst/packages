@@ -34,12 +34,10 @@ Creating well-structured and visually appealing documents is crucial in academic
 To get started with this Typst document template, follow these steps:
 
 1. **Check for the roboto font**: Check if you have the roboto font installed on your system. If you don't, you can download it from [Google Fonts](https://fonts.google.com/specimen/Roboto).
-<!-- 2. **Clone or Download**: Start by cloning this repository to your local machine, or download the `template` ZIP from the latest release (and optionally the `starter` ZIP for a quick start). If you choose to manually download the individual files, you will only need the `template` folder. -->
-2. **TEMP**
-3. **Install Typst**: I recommend to use VSCode with the [Typst LSP Extension](https://marketplace.visualstudio.com/items?itemName=nvarner.typst-lsp). You will also need a PDF viewer in VSCode if you want to view the document live.
-4. **Import the template**: Import the template into your own typst document.
-5. **Set the available options**: Set the available options in the template file to your liking.
-6. **Start writing**: Start writing your document.
+2. **Install Typst**: I recommend to use VSCode with the [Typst LSP Extension](https://marketplace.visualstudio.com/items?itemName=nvarner.typst-lsp). You will also need a PDF viewer in VSCode if you want to view the document live.
+3. **Import the template**: Import the template into your own typst document. `#import "@preview/fhict-template.typ:0.10.0": *`
+4. **Set the available options**: Set the available options in the template file to your liking.
+5. **Start writing**: Start writing your document.
 
 ## Helpful Links / Resources
 
