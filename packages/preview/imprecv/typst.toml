@@ -9,7 +9,6 @@ description = "A no-frills curriculum vitae (CV) template using Typst and YAML t
 keywords = ["CV", "Curriculum Vitae", "Resume", "Minimalistic", "Professional", "YAML", "Data"]
 categories = ["cv"]
 disciplines = []
-exclude = ["makefile", ".editorconfig"]
 homepage = "https://github.com/jskherman/imprecv"
 repository = "https://github.com/jskherman/imprecv"
 
