@@ -15,5 +15,5 @@ repository = "https://github.com/jskherman/imprecv"
 
 [template]
 path = "template"
-entrypoint = "template.typ"
-thumbnail = "assets/thumbnail.1.png"
+entrypoint = "cv-template.typ"
+thumbnail = "thumbnail.1.png"
