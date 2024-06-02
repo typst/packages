@@ -4,7 +4,7 @@
   <a href="https://github.com/jskherman/imprecv/stargazers">
     <img alt="Apache-2 License" src="https://img.shields.io/badge/Star%20Repo-⭐-1081c2.svg"/>
   </a>
-  <a href="LICENSE">
+  <a href="../LICENSE">
     <img alt="Apache-2 License" src="https://img.shields.io/badge/license-Apache%202-brightgreen"/>
   </a>
   <a href="https://github.com/jskherman/imprecv/releases">
@@ -30,7 +30,7 @@ See [**example CV**](https://github.com/jskherman/imprecv/releases/latest/downlo
 
 ## Usage
 
-This `imprecv` is intended to be used by importing the template's [package entrypoint](cv.typ) from a "content" file (see [`template.typ`](template/template.typ) as an example).
+This `imprecv` is intended to be used by importing the template's [package entrypoint](../cv.typ) from a "content" file (see [`template.typ`](template/template.typ) as an example).
 In this content file, call the functions which apply document styles, show CV components, and load CV data from a YAML file (see [`template.yml`](template/template.yml) as an example).
 Inside the content file you can modify several style variables and even override existing function implementations to your own needs and preferences.
 
