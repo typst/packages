@@ -15,7 +15,7 @@
     else if n == 10 { month = "October" }
     else if n == 11 { month = "November" }
     else if n == 12 { month = "December" }
-    else { result = none }
+    else { month = none }
     if month != none {
         if display == "short" {
             month = month.slice(0, 3)
