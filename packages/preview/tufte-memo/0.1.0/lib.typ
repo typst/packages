@@ -30,7 +30,7 @@
     ),
   ),
   date: datetime.today(),
-  document_number: none,
+  document-number: none,
   draft: false,
   distribution: none,
   abstract: none,
@@ -115,7 +115,7 @@
       set text(font: "Gill Sans MT")
       block(width: 100% + 3.5in - 1in,{
       if counter(page).get().first() > 1 {
-        if document_number != none {document_number}
+        if document-number != none {document-number}
         h(1fr)
         if shorttitle != none {upper(shorttitle)} else {upper(title)}
         if publisher != none {
@@ -260,7 +260,7 @@
 
   doc
 
-  show bibliography: set text(font:"Gill Sans MT")
+  show bibliography: set text(font:sans-fonts)
   show bibliography: set par(justify:false)
   set bibliography(title:none)
   if bib != none {

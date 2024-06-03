@@ -1,5 +1,4 @@
-// #import "@preview/tufte-memo:0.1.0": *
-#import "@local/tufte-memo:0.1.0": *
+#import "@preview/tufte-memo:0.1.0": *
 
 #show: template.with(
   title: [Tufte inspired Typst template],
@@ -19,14 +18,14 @@
       email: "Email"
     ),
   ),
-  document_number: [Version 0.1.0],
+  document-number: [Version 0.1.0],
   abstract: [This Typst template adopts many aspects of the design and typography of Edward Tufte's books. The document itself demonstrates the functionality and usage of the template, including setup, sidenotes, figure display, citations, and more.],
   publisher: [Product Engineering Department],
   distribution: [authorized personnel],
   toc: true,
   footer-content: ([If the footer-content argument in the template call takes the form of an array, then the first item in that array is displayed here, as you see it, and the second item in that array is displayed on all subsequent pages after the first. If footer-content is not an array (and also not none), then the same content is displayed on all pages.],[This is the second element of the footer-content array, so it is displayed on all pages after the first.]),
   draft: false,
-  bib: "references.bib"
+  bib: bibliography("references.bib")
 )
 
 = Introduction
@@ -49,14 +48,14 @@ The template can be configured with 13 arguments, which comprise:
 - `subtitle` (`content`, optional).
 - `authors` (`array`, required) takes the form as in the charged-ieee template #notecite(<Typst2024>) except instead of "department" there is "role" and "location" is ommitted.
 - `date` (`datetime`, optional) displays the date on the title page if not `none`.
-- `document_number` (`content`, optional) reference number for document's version or some other serialization. Displayed in the header if present.
+- `document-number` (`content`, optional) reference number for document's version or some other serialization. Displayed in the header if present.
 #wideblock[
 - `draft` (`bool`, optional) displays a note in the footer and also places a watermark across every page if `true`.
 - `distribution` (`content`, optional) places a note in the footer if present.
 - `abstract` (`content`, optional) displays the abstract below the author block if present.
 - `publisher` (`content`, optional) displays below the title in the header if present.
 - `toc` (`bool`, optional) displays an `outline` below the abstract if `true`.
-- `bib` (`path`, optional) displays a bibliography at the end of the document if not `none`. Must be a filepath reference if not `none`.
+- `bib` (`bibliography`, optional) displays a bibliography at the end of the document if not `none`. Must be a filepath reference if not `none`.
 - `footer-content` (`content` or `array`, optional) if `content` then displays in the footer; if `array`, then displays first element in first page footer and second element in all other pages; or `none` and no content is displayed in footer.
 
 == Title Page Configuration
