@@ -1,0 +1,18 @@
+[package]
+name = "typst-railroad"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Leiser Fernández Gallo"]
+license = "MIT"
+description = "railroad for typst, powered by wasm"
+
+homepage = "https://github.com/leiserfg/typst-railroad"
+repository = "https://github.com/leiserfg/typst-railroad"
+keywords = [
+    "wasm",
+    "rust",
+    "railroad",
+    "diagram",
+    "draw",
+]
+exclude = ["examples"]
