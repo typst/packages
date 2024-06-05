@@ -1,5 +1,5 @@
-Typst-Railroad
-==============
+Fervojo
+=======
 
 Use [railroads](https://github.com/lukaslueg/railroad_dsl) in your documents.
 
