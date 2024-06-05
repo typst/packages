@@ -24,7 +24,7 @@ For advanced topics, please refer to [official reference](https://typst.app/docs
 
 ### Sample CV
 
-![Preview](template/cv.png)
+![Preview](cv.png)
 
 ### Chi's CV
 
