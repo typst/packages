@@ -1,4 +1,4 @@
-#import "@preview/railroad:0.1.0": *
+#import "@preview/fervojo:0.1.0": *
 
 = The rendered svg
 
