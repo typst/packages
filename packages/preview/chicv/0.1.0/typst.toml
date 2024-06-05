@@ -1,5 +1,5 @@
 [package]
-name = "chi-cv"
+name = "chicv"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["@skyzh"]
