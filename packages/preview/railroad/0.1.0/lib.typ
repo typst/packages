@@ -25,6 +25,6 @@
 }
 
 
-#let default_css() = {
+#let default-css() = {
     rr-wasm.default_css()
 }

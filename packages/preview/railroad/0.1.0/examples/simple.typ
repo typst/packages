@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/railroad:0.1.0": *
 
 = The rendered svg
 
@@ -17,5 +17,5 @@
 = The default.css
 
 
-#text(str(default_css()))
+#text(str(default-css()))
 

@@ -1,5 +1,5 @@
 [package]
-name = "typst-railroad"
+name = "railroad"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Leiser Fernández Gallo"]
