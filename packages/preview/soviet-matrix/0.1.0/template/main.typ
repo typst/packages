@@ -5,7 +5,7 @@
 Move Left: a
 Move Right: d
 Soft Drop: s
-Fast Drop: f
+Hard Drop: f
 Rotate Left: q
 Rotate Right: e
 180-degree Rotate: w
