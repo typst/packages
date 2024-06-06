@@ -10,7 +10,7 @@
 
 // gros titre en haut au centre
 #v(15pt)
-#align(center, text(size: 22pt, weight: "bold", smallcaps("Probabilités - Annale X")))
+#align(center, text(size: 22pt, font: heading-fonts, weight: "bold", upper("Probabilités - Annale X")))
 #v(5pt)
 
 #set heading(numbering: "1.") // numérotation des titres
