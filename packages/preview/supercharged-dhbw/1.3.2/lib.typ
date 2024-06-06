@@ -95,11 +95,11 @@
     margin: (top: 8em, bottom: 8em),
     header: {
       if (show-header) {
-        stack(dir: ltr,
-          spacing: 1fr,
-          box(width: 180pt,
-          emph(align(center,text(size: 9pt, title))),
-          ),
+        grid(
+          columns: (1fr, auto),
+          align: (left, right),
+          gutter: 2em,
+          emph(align(center + horizon,text(size: 10pt, title))),
           stack(dir: ltr,
             spacing: 1em,
             if logo-left != none {
@@ -112,6 +112,7 @@
             }
           )
         )
+        v(-0.75em)
         line(length: 100%)
       }
     }
@@ -247,7 +248,7 @@
 
   body
 
-  [#metadata("none")<end>]
+  [#metadata(none)<end>]
   set page(numbering: "a")
   counter(page).update(1)
 
