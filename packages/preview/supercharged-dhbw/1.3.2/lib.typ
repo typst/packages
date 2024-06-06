@@ -238,12 +238,18 @@
   
   // reset page numbering and set to arabic numbering
   set page(
-    numbering: numbering-style,
+    numbering: (n, ..) => [
+      #n / #context numbering("1", ..counter(page).at(<end>))
+    ],
     number-align: numbering-alignment, 
   )
   counter(page).update(1)
 
   body
+
+  [#metadata("none")<end>]
+  set page(numbering: "a")
+  counter(page).update(1)
 
   // Display bibliography.
   if bibliography != none {
