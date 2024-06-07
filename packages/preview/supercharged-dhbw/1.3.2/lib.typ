@@ -239,17 +239,26 @@
   
   // reset page numbering and set to arabic numbering
   set page(
-    numbering: (n, ..) => [
-      #n / #context numbering("1", ..counter(page).at(<end>))
-    ],
-    number-align: numbering-alignment, 
+    numbering: "1",
+    footer: context align(numbering-alignment, numbering(
+    "1 / 1", 
+    ..counter(page).get(),
+    ..counter(page).at(<end>),
+    ))
   )
   counter(page).update(1)
 
   body
 
   [#metadata(none)<end>]
-  set page(numbering: "a")
+  // reset page numbering and set to alphabetic numbering
+  set page(
+    numbering: "a",
+    footer: context align(numbering-alignment, numbering(
+      "a", 
+      ..counter(page).get(),
+    ))
+  )
   counter(page).update(1)
 
   // Display bibliography.
