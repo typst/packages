@@ -140,7 +140,6 @@ If you want to change an existing project to use this template, you can add a sh
   show-appendix: false,
   show-abstract: true,
   show-header: true,
-  numbering-style: "1 of 1", // https://typst.app/docs/reference/model/numbering
   numbering-alignment: center, // left, center, right
   abstract: abstract, // displays the abstract defined in the abstract.typ file
   appendix: appendix, // displays the appendix defined in the appendix.typ file

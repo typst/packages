@@ -22,7 +22,6 @@
   show-appendix: false,
   show-abstract: true,
   show-header: true,
-  numbering-style: "1 of 1",
   numbering-alignment: center,
   abstract: none,
   appendix: none,
