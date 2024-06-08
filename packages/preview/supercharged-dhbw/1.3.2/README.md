@@ -89,8 +89,6 @@ is `true`
 
 `show-header`: Whether the header should be shown, default is `true`
 
-`numbering-style`: Style of the page numbering, default is `1 of 1`
-
 `numbering-alignment`: Alignment of the page numbering, default is `center`
 
 `abstract`: Content of the abstract
@@ -118,7 +116,7 @@ is `true`
 If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
 
 ```typst
-#import "@preview/supercharged-dhbw:1.3.1": *
+#import "@preview/supercharged-dhbw:1.3.2": *
 
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
