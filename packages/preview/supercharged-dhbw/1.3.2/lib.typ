@@ -23,6 +23,7 @@
   show-abstract: true,
   show-header: true,
   numbering-alignment: center,
+  toc-depth: 3,
   abstract: none,
   appendix: none,
   acronyms: none,
@@ -63,20 +64,7 @@
   show heading: set text(weight: "semibold", font: heading-font)
 
   //heading numbering
-  set heading(numbering: (..nums) => {
-    let level = nums.pos().len()
-    // only level 1 and 2 are numbered
-    let pattern = if level == 1 {
-      "1."
-    } else if level == 2 {
-      "1.1."
-    } else if level == 3 {
-      "1.1.1."
-    }
-    if pattern != none {
-      numbering(pattern, ..nums)
-    }
-  })
+  set heading(numbering: "1.")
  
   // set link style
   show link: it => underline(text(it))
@@ -192,7 +180,7 @@
       [Inhaltsverzeichnis]
     } else {
       [Table of Contents]
-    }], indent: auto)
+    }], indent: auto, depth: toc-depth)
   }
     
   if (show-acronyms and acronyms.len() > 0) {

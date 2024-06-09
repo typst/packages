@@ -91,6 +91,8 @@ is `true`
 
 `numbering-alignment`: Alignment of the page numbering, default is `center`
 
+`toc-depth`: Depth of the table of contents, default is `3`
+
 `abstract`: Content of the abstract
 
 `appendix`: Content of the appendix
@@ -141,6 +143,7 @@ If you want to change an existing project to use this template, you can add a sh
   show-abstract: true,
   show-header: true,
   numbering-alignment: center, // left, center, right
+  toc-depth: 3, // depth of the table of contents
   abstract: abstract, // displays the abstract defined in the abstract.typ file
   appendix: appendix, // displays the appendix defined in the appendix.typ file
   acronyms: acronyms, // displays the acronyms defined in the acronyms.typ file

@@ -26,6 +26,7 @@
   show-abstract: true,
   show-header: true,
   numbering-alignment: center, // left, center, right
+  toc-depth: 3, // depth of the table of contents
   abstract: abstract, // displays the abstract defined in the abstract.typ file
   appendix: appendix, // displays the appendix defined in the appendix.typ file
   acronyms: acronyms, // displays the acronyms defined in the acronyms.typ file
