@@ -1,4 +1,4 @@
-#import "@preview/supercharged-dhbw:1.3.2": *
+#import "@local/supercharged-dhbw:1.4.0": *
 #import "appendix.typ": appendix
 #import "abstract.typ": abstract
 #import "acronyms.typ": acronyms
