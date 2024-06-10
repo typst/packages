@@ -134,8 +134,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 0.2.5
 
-- If shape is point, the label isn't displayed
-- Now a minimum size is no enforced if nodes label is empty
+- If the shape is point, the label isn't displayed
+- Now a minimum size is not enforced if the node label is empty
 - Added support for font alternatives
 
 ### 0.2.4
