@@ -2,8 +2,8 @@
 ![GitHub Release](https://img.shields.io/github/v/release/ISC-HEI/isc-hei-report?include_prereleases)
 
 <p align="center">
-  <a href="https://hevs.ch/isc">
-  <img src="https://user-images.githubusercontent.com/4624112/214764929-89aa8609-c540-4cc0-9905-23886814772e.png"/>    
+  <a href="https://hevs.ch/isc">    
+  <img src="https://github.com/pmudry/packages/assets/4624112/eac56695-d2f7-42b5-ae35-62b821de8afa" width="50%"/>
   </a>
 </p>
 
