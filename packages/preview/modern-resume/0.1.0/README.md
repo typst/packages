@@ -49,15 +49,15 @@ The following code provides a minimum working example:
 
 == Education
 
-#educationalExperience(
+#experience-edu(
   title: "Master's degree",
   subtitle: "University of Sciences",
-  taskDescription: [
+  task-description: [
     - Short summary of the most important courses
     - Explanation of master thesis topic
   ],
-  dateFrom: "10/2021",
-  dateTo: "07/2023",
+  date-from: "10/2021",
+  date-to: "07/2023",
 )
 
 // More content goes here
@@ -89,10 +89,10 @@ Customize the color theme by changing the values of the `color` dictionary in [l
   #let colors = (
     primary: rgb("#313C4E"),
     secondary: rgb("#222A33"),
-    accentColor: rgb("#449399"),
-    textPrimary: black,
-    textSecondary: rgb("#7C7C7C"),
-    textTertiary: white,
+    accent-color: rgb("#449399"),
+    text-primary: black,
+    text-secondary: rgb("#7C7C7C"),
+    text-tertiary: white,
   )
   ```
 
@@ -102,10 +102,10 @@ Customize the color theme by changing the values of the `color` dictionary in [l
   #let colors = (
     primary: rgb("#e755e0"),
     secondary: rgb("#ad00c2"),
-    accentColor: rgb("#00d032"),
-    textPrimary: black,
-    textSecondary: rgb("#7C7C7C"),
-    textTertiary: white,
+    accent-color: rgb("#00d032"),
+    text-primary: black,
+    text-secondary: rgb("#7C7C7C"),
+    text-tertiary: white,
   )
   ```
 
@@ -133,35 +133,35 @@ Import this element from the template module with `pill`.
 
 ### Educational/work experience
 
-Import the elements from the template module with `educationalExperience` and `workExperience` respectively.
+Import the elements from the template module with `experience-edu` and `experience-work` respectively.
 
 ![educational experience](docs/images/educational-experience.png)
 
 ```typst
-#educationalExperience(
+#experience-edu(
   title: "Master's degree",
   subtitle: "University of Sciences",
-  taskDescription: [
+  task-description: [
     - Short summary of the most important courses
     - Explanation of master thesis topic
   ],
-  dateFrom: "10/2021",
-  dateTo: "07/2023",
+  date-from: "10/2021",
+  date-to: "07/2023",
 )
 ```
 
 ![work experience](docs/images/work-experience.png)
 
 ```typst
-#workExperience(
+#experience-work(
   title: "Full Stack Software Engineer",
   subtitle: [#link("https://www.google.com")[Some IT Company]],
-  facilityDescription: "Company operating in sector XY",
-  taskDescription: [
+  facility-description: "Company operating in sector XY",
+  task-description: [
     - Short summary of your responsibilities
   ],
-  dateFrom: "09/2018",
-  dateTo: "07/2021",
+  date-from: "09/2018",
+  date-to: "07/2021",
 )
 ```
 
@@ -179,8 +179,8 @@ Import this element from the template module with `project`.
   description: [
     - #lorem(20)
   ],
-  dateFrom: "08/2022",
-  dateTo: "09/2022",
+  date-from: "08/2022",
+  date-to: "09/2022",
 )
 ```
 

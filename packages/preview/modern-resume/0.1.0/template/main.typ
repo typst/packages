@@ -1,4 +1,4 @@
-#import "@preview/modern-resume:0.1.0": modern-resume, workExperience, educationalExperience, project, pill
+#import "@preview/modern-resume:0.1.0": modern-resume, experience-work, experience-edu, project, pill
 
 #show: modern-resume.with(
   author: "John Doe",
@@ -17,70 +17,70 @@
 
 == Education
 
-#educationalExperience(
+#experience-edu(
   title: "Master's degree",
   subtitle: "University of Sciences",
-  taskDescription: [
+  task-description: [
     - Short summary of the most important courses
     - Explanation of master thesis topic
   ],
-  dateFrom: "10/2021",
-  dateTo: "07/2023",
+  date-from: "10/2021",
+  date-to: "07/2023",
 )
 
-#educationalExperience(
+#experience-edu(
   title: "Bachelor's degree",
   subtitle: "University of Sciences",
-  taskDescription: [
+  task-description: [
     - Short summary of the most important courses
     - Explanation of bachelor thesis topic
   ],
-  dateFrom: "09/2018",
-  dateTo: "07/2021",
+  date-from: "09/2018",
+  date-to: "07/2021",
 )
 
-#educationalExperience(
+#experience-edu(
   title: "College for Science",
   subtitle: "College of XY",
-  taskDescription: [
+  task-description: [
     - Short summary of the most important courses
   ],
-  dateFrom: "09/2018",
-  dateTo: "07/2021",
+  date-from: "09/2018",
+  date-to: "07/2021",
 )
 
 == Work experience
 
-#workExperience(
+#experience-work(
   title: "Data Scientist",
   subtitle: "Some Company",
-  facilityDescription: "Company operating in sector XY",
-  taskDescription: [
+  facility-description: "Company operating in sector XY",
+  task-description: [
     - Short summary of your responsibilities
   ],
-  dateFrom: "08/2021",
+  date-from: "08/2021",
 )
 
-#workExperience(
+#experience-work(
   title: "Full Stack Software Engineer",
   subtitle: [#link("https://www.google.com")[Some IT Company]],
-  facilityDescription: "Company operating in sector XY",
-  taskDescription: [
+  facility-description: "Company operating in sector XY",
+  task-description: [
     - Short summary of your responsibilities
   ],
-  dateFrom: "09/2018",
-  dateTo: "07/2021",
+  date-from: "09/2018",
+  date-to: "07/2021",
 )
 
-#workExperience(
+#experience-work(
   title: "Internship",
   subtitle: [#link("https://www.google.com")[Some IT Company]],
-  facilityDescription: "Company operating in sector XY",
-  taskDescription: [
+  facility-description: "Company operating in sector XY",
+  task-description: [
     - Short summary of your responsibilities
   ],
-  dateFrom: "09/2015",
-  dateTo: "07/2016",
+  date-from: "09/2015",
+  date-to: "07/2016",
 )
 
 #colbreak()
@@ -98,7 +98,7 @@
   description: [
     - #lorem(20)
   ],
-  dateFrom: "08/2022",
+  date-from: "08/2022",
 )
 
 #project(
@@ -107,8 +107,8 @@
   description: [
     - #lorem(20)
   ],
-  dateFrom: "08/2022",
-  dateTo: "09/2022",
+  date-from: "08/2022",
+  date-to: "09/2022",
 )
 
 == Certificates
@@ -116,14 +116,14 @@
 #project(
   title: "Certificate of XY",
   subtitle: "Issued by authority XY",
-  dateFrom: "08/2022",
-  dateTo: "09/2022",
+  date-from: "08/2022",
+  date-to: "09/2022",
 )
 
 #project(
   title: "Certificate of XY",
   subtitle: "Issued by authority XY",
-  dateFrom: "05/2021",
+  date-from: "05/2021",
 )
 
 #project(
