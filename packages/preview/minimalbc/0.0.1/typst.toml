@@ -8,7 +8,7 @@ authors = ["S. Tessarin <@sevehub>"]
 license = "MIT"
 description = "Sleek, minimalist design for professional business cards. Emphasizing clarity and elegance."
 keywords = ["business", "card"]
-categories = [""]
+categories = ["office"]
 exclude = ["example.pdf"]
 
 [template]
