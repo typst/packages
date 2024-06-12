@@ -11,11 +11,11 @@
 #import "@preview/showybox:2.0.1": showybox
 
 // Define our own functions
-#let todo(body, fill_color: yellow.lighten(50%)) = {
+#let todo(body, fillColor: yellow.lighten(50%)) = {
   set text(black)
   box(
     baseline:25%,
-    fill: fill_color,
+    fill: fillColor,
     inset: 3pt,
     [*TODO* #body],
   )
