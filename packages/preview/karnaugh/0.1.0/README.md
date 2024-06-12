@@ -17,4 +17,4 @@ Draw simple Karnaugh maps. Use with:
 )
 ```
 
-Samples are available in `sample.pdf`.
+Samples are available in [`sample.pdf`](https://github.com/typst/packages/blob/main/packages/preview/karnaugh/0.1.0/sample.pdf).
