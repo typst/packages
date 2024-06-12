@@ -11,7 +11,8 @@
 
 #let gray-code(x) = x.bit-xor(x.bit-rshift(1))
 
-#let karnaugh(labels, minterms, implicants: (), show-zero: false) = {
+#let karnaugh(labels, minterms, implicants: (),
+  show-zero: false, mode: "code") = {
   let (X, Y) = range(2).map(i =>
     if (type(labels.at(i)) == str) {
       // Label extracted from character(s)
@@ -27,11 +28,12 @@
     height: 1.8em,
   )
 
-  let gray-codes(till) = range(till).map(i => gray-code(i)).map(code =>
+  let gray-codes(till, digit) = range(till).map(i => gray-code(i)).map(code =>
     block(width: cell.width, height: cell.height,
-      for digit in binary-digits(code, digit: Y.len()) {
+      for digit in binary-digits(code, digit: digit) {
         math.equation[#digit]
-      })
+      }
+    )
   )
 
   return table(
@@ -56,7 +58,7 @@
         dx: -measure(label.y).width / 2, dy: 0.5em, label.y)
     }),
     // Horizontal gray code labels
-    ..gray-codes(column),
+    ..if mode == "code" { gray-codes(column, Y.len()) },
     table.cell(x: 1, y: 1,
       rowspan: row, colspan: column,
       block(clip: true, {
@@ -114,6 +116,6 @@
         }
       })
     ),
-    ..gray-codes(row),
+    ..if mode == "code" { gray-codes(row, X.len()) },
   )
 }
