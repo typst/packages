@@ -6,5 +6,8 @@ authors = ["C. Naaktgeboren, Ph.D", ]
 license = "MIT"
 description = "An index for biblical literature."
 keywords = ["index", "biblical", "literature", "canonical", "deuterocanonical", "apocripha"]
+categories = ["model", "scripting"]
+disciplines = ["theology", ]
+compiler = "0.11.1"
 
 
