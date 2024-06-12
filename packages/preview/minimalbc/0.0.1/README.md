@@ -10,7 +10,7 @@ Here’s an example of how to use the minimalbc function:
 
 ```Typst
 
-#import "lib.typ":minimalbc
+#import "@preview/minimalbc:0.1.0": minimalbc
 
 #show: minimalbc.with(
     // possible geo_size options: eu, us, jp , cn
