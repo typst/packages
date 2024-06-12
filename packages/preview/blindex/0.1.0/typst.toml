@@ -2,8 +2,9 @@
 name = "blindex"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["C. Naaktgeboren, Ph.D"]
+authors = ["C. Naaktgeboren, Ph.D", ]
 license = "MIT"
 description = "An index for biblical literature."
+keywords = ["index", "biblical", "literature", "canonical", "deuterocanonical", "apocripha"]
 
 
