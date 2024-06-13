@@ -76,12 +76,12 @@
   "3105":    (abbr: "2Mc",  full: "2 Macabeus"),
   "3106":    (abbr: "3Mc",  full: "3 Macabeus"),
   "3107":    (abbr: "4Mc",  full: "4 Macabeus"),
-  "3108":    (abbr: "",     full: "Ester (Grego)"),
-  "3201":    (abbr: "",     full: "Salmo Adicional"),
-  "3202":    (abbr: "",     full: "Odes"),
-  "3203":    (abbr: "",     full: "Sabedoria"),
-  "3204":    (abbr: "",     full: "Eclesiástico"),
-  "3205":    (abbr: "",     full: "Salmos de Salomão"),
+  "3108":    (abbr: "EstGr",full: "Ester (Grego)"),
+  "3201":    (abbr: "Sl+",  full: "Salmo Adicional"),
+  "3202":    (abbr: "Ode",  full: "Odes"),
+  "3203":    (abbr: "Sb",   full: "Sabedoria"),
+  "3204":    (abbr: "Eclo", full: "Eclesiástico"),
+  "3205":    (abbr: "SlS",  full: "Salmos de Salomão"),
   "3206":    (abbr: "Br",   full: "Baruc"),
   "3207":    (abbr: "Br",   full: "Carta de Jeremias"),
   "3208":    (abbr: "Dn",   full: "Susana"),
@@ -89,7 +89,7 @@
   "3210":    (abbr: "Dn",   full: "Song of Three Youths"),
   "5101":    (abbr: "3Esd", full: "3 Esdras"),
   "5102":    (abbr: "4Esd", full: "4 Esdras"),
-  "5103":    (abbr: "",     full: "Prece de Manassés"),
+  "5103":    (abbr: "PrM",  full: "Prece de Manassés"),
 )
 
 
