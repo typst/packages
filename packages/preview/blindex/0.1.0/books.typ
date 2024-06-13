@@ -113,8 +113,10 @@
   "Susanna":                    3208,
   "Bel and the Dragon":         3209,
   "Song of Three Youths":       3210,
-  // 51.00 - Other OT Apocripha
-  "Prayer of Manasseh":         5101,
+  // 51.00 - Other OT Apocripha (not in the LXX)
+  "3 Esdras":                   5101,
+  "4 Esdras":                   5102,
+  "Prayer of Manasseh":         5103,
 )
 
 //--------------------------------------------------------------------------------------------//
@@ -127,7 +129,8 @@
 
 // Book partial orderings
 #let pOrd = (
-  "Law": // The ordering of the law books is the same in all 5 canons
+  // The ordering of the Law (Torah/Pentateuc) books is the same in all 5 canons
+  "Law":
     (1001, 1002, 1003, 1004, 1005,),
   // PROTESTANT OT CANON
   "OT-Protestant-Historical":
@@ -138,6 +141,7 @@
     (1301, 1302, 1303, 1304, 1305,),
   "OT-Protestant-Minor-Prophets":
     (1306, 1307, 1308, 1309, 1310, 1311, 1312, 1313, 1314, 1315, 1316, 1317,),
+  // CATHOLIC OT CANON
   "OT-Catholic-Historical":
     (1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 3103, 3102, 1112, 3108,
     3104, 3105,),
@@ -145,22 +149,34 @@
     (1201, 1202, 1203, 1204, 1205, 3203, 3204,),
   "OT-Catholic-Major-Prophets":
     (1301, 1302, 1303, 3206, 1304, 1305, 3208, 3209,),
+  // ORTHODOX OT CANON
+  "OT-Orthodox-Historical":
+    (1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 5101, 1110, 1111, 3103, 3102, 1112, 3108,
+    3104, 3105, 3106,),
+  "OT-Orthodox-Major-Prophets":
+    (1301, 1302, 3206, 1303, 3207, 1304, 1305, 3208, 3209,),
+  "OT-Orthodox-Minor-Prophets":
+    (1306, 1308, 1311, 1307, 1309, 1310, 1312, 1313, 1314, 1315, 1316, 1317, 5102, 3107, 5103,),
+  // TOB OT CANON
+  "OT-TOB-Deuterocanonical":
+    (3210, 3208, 3209, 3108, 3102, 3103, 3104, 3105, 3203, 3204, 3206, 3207, 5101, 5102,),
   // THE NEW TESTAMENT - same for all 5 considered traditions
   "Gospels":
     (1401, 1402, 1403, 1404,),
   "Acts":
     (1405,),
-  "Paul":
+  "Paul-Letters":
     (1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608, 1609, 1610, 1611, 1612, 1613,),
-  "Universal":
+  "Universal-Letters":
     (1701, 1702, 1703, 1704, 1705, 1706, 1707,),
   "Revelation":
     (1801,),
 )
 
+// HEBREW OT CANON
 #pOrd.insert("Neviim",
   (1101, 1102, 1104, 1105, 1106, 1107, 1301, 1302, 1304) +
-  pOrd.at("Min-Prophets"))
+  pOrd.at("OT-Protestant-Minor-Prophets"))
 
 #pOrd.insert("Ketuvim",
   (1202, 1201, 1203, 1103, 1205, 1204, 1303, 1112, 1305, 1110, 1111, 1108, 1109,))
@@ -193,7 +209,7 @@
     // LXX Deutero (vol.2)
     3201, 3202, 3203, 3204, 3205, 3206, 3207, 3208, 3209, 3210,
     // Other OT Apocripha
-    5101,
+    5101, 5102, 5103,
   ),
   // From: https://mereorthodoxy.com/the-case-for-rearranging-the-old-testament-books
   "jewish-tanakh": (
