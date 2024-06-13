@@ -182,56 +182,81 @@
 #pOrd.insert("Ketuvim",
   (1202, 1201, 1203, 1103, 1205, 1204, 1303, 1112, 1305, 1110, 1111, 1108, 1109,))
 
+// NEW TESTAMENT
+#pOrd.insert("New-Testament",
+  pOrd.at("Gospels") +
+  pOrd.at("Acts") +
+  pOrd.at("Paul-Letters") +
+  pOrd.at("Universal-Letters") +
+  pOrd.at("Revelation"))
 
 // Book sorting schemes
-#let bSrt = (
-  "code": (
-    // Pentateuch
-    1001, 1002, 1003, 1004, 1005,
-    // Historical
-    1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 1112,
-    // Sapiential
-    1201, 1202, 1203, 1204, 1205,
-    // Prophetic
-    1301, 1302, 1303, 1304, 1305, 1306, 1307, 1308, 1309, 1310, 1311, 1312, 1313, 1314, 1315,
-    1316, 1317,
-    // Gospel
-    1401, 1402, 1403, 1404,
-    // NT Historical
-    1501,
-    // Paul's
-    1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608, 1609, 1610, 1611, 1612, 1613,
-    // Universal
-    1701, 1702, 1703, 1704, 1705, 1706, 1707,
-    // NT Prophetic
-    1801,
-    // LXX Deutero (vol.1)
-    3101, 3102, 3103, 3104, 3105, 3106, 3107, 3108,
-    // LXX Deutero (vol.2)
-    3201, 3202, 3203, 3204, 3205, 3206, 3207, 3208, 3209, 3210,
-    // Other OT Apocripha
-    5101, 5102, 5103,
-  ),
-  // From: https://mereorthodoxy.com/the-case-for-rearranging-the-old-testament-books
-  "jewish-tanakh": (
-    // Ta
-    1001, 1002, 1003, 1004, 1005,
-    // Na
-    1101, 1102, 1104, 1105, 1106, 1107, 1301, 1302, 1304, 1306, 1307, 1308, 1309, 1310, 1311,
-    1312, 1313, 1314, 1315, 1316, 1317,
-    // Kh
-    1202, 1201, 1203, 1103, 1205, 1204, 1303, 1112, 1305, 1110, 1111, 1108, 1109,
-  )
-  "jewish-bible": (
-    // Ta
-    1001, 1002, 1003, 1004, 1005,
-    // Na
-    1101, 1102, 1104, 1105, 1106, 1107, 1301, 1302, 1304, 1306, 1307, 1308, 1309, 1310, 1311,
-    1312, 1313, 1314, 1315, 1316, 1317,
-    // Kh
-    1202, 1201, 1203, 1103, 1205, 1204, 1303, 1112, 1305, 1110, 1111, 1108, 1109,
-  )
-)
+#let bSort = (:)
+
+// "code" scheme
+#bSort.insert("code", bUID.values().sorted())
+
+// "LXX" scheme
+#let tmpLXX = ()
+#for val in bSort.at("code") {
+  if val < 5000 { tmpLXX.push(val) }
+}
+#bSort.insert("LXX", tmpLXX)
+
+// "Greek-Bible"
+#bSort.insert("Greek-Bible", (
+  bSort.at("LXX") +
+  pOrd.at("New-Testament")
+).flatten())
+
+// "Hebrew-Tanakh"
+#bSort.insert("Hebrew-Tanakh", (
+  pOrd.at("Law") +
+  pOrd.at("Neviim") +
+  pOrd.at("Ketuvim") +
+).flatten())
+
+// "Hebrew-Bible"
+#bSort.insert("Hebrew-Bible", (
+  bSort.at("Hebrew-Tanakh") +
+  pOrd.at("New-Testament")
+).flatten())
+
+// "Protestant-Bible"
+#bSort.insert("Protestant-Bible", (
+  pOrd.at("Law") +
+  pOrd.at("OT-Protestant-Historical") +
+  pOrd.at("OT-Protestant-Sapiential") +
+  pOrd.at("OT-Protestant-Major-Prophets") +
+  pOrd.at("OT-Protestant-Minor-Prophets") +
+  pOrd.at("New-Testament")
+).flatten())
+
+// "Catholic-Bible"
+#bSort.insert("Catholic-Bible", (
+  pOrd.at("Law") +
+  pOrd.at("OT-Catholic-Historical") +
+  pOrd.at("OT-Catholic-Poetic") +
+  pOrd.at("OT-Catholic-Major-Prophets") +
+  pOrd.at("OT-Protestant-Minor-Prophets") +
+  pOrd.at("New-Testament")
+).flatten())
+
+// "Orthodox-Bible"
+#bSort.insert("Orthodox-Bible", (
+  pOrd.at("Law") +
+  pOrd.at("OT-Orthodox-Historical") +
+  pOrd.at("OT-Orthodox-Major-Prophets") +
+  pOrd.at("OT-Orthodox-Minor-Prophets") +
+  pOrd.at("New-Testament")
+).flatten())
+
+// "Oecumenic-Bible"
+#bSort.insert("Oecumenic-Bible", (
+  bSort.at("Hebrew-Tanakh") +
+  bSort.at("OT-TOB-Deuterocanonical") +
+  pOrd.at("New-Testament")
+).flatten())
 
 
 // Biblical Constants
