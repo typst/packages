@@ -16,19 +16,22 @@ Here’s an example of how to use the minimalbc function:
     // possible geo_size options: eu, us, jp , cn
     geo_size: "eu",
     flip:true,
-    company_name: "Company Name",
-    name: "First and Last Name",
-    role: "Role",
+    company_name: "company name",
+    name: "first and last name",
+    role: "role",
     telephone_number: "+000 00 000000",
     email_address: "me@me.com",
     website: "example.com",
-    company_logo: "company_logo.png",
+    company_logo: image("company_logo.png"),
     bg_color: "ffffff",
 )
 
 
 ```
 
-When compiled, this will produce a PDF file named businesscard.pdf located in this repository. Feel free to download and use this as a starting point for your own business cards.
+When compiled, this example produce a PDF file named 'your filename'.pdf (see example.pdf). 
+
+
+Feel free to download and use this as a starting point for your own business cards.
 
 

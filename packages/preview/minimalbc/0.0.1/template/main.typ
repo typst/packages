@@ -10,7 +10,7 @@
     telephone_number: "+000 00 000000",
     email_address: "me@me.com",
     website: "example.com",
-    company_logo: "company_logo.png",
+    company_logo: image("company_logo.png"),
     bg_color: "ffffff",
 )
 

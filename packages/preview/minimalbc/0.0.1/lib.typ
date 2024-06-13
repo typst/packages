@@ -22,6 +22,7 @@
   email_address: "me@me.com",
   website: "example.com",
   company_logo: none,
+  qrcode_ws: none,
   bc_background: none,
   bg_color: "f2f2f2",
   geo_size: "eu",
@@ -41,7 +42,7 @@
     rows: (40%, 15%, 20%,  20% ),
     gutter: 1mm,
     companytext(14pt,company_name),
-    grid.cell(rowspan:2, image(company_logo), align:center),
+    grid.cell(rowspan:2, company_logo, align:center),
     //
     [],
     grid.cell(colspan:2, nametext(11pt,name)),
@@ -59,7 +60,8 @@
             grid.cell(
                 rowspan: 3,
                 align:center,
-                image("qrcode_ws.png", width: 70%)),
+                qrcode_ws,
+                ),
             grid.cell([#emoji.email], align:center),
             grid.cell(email_address, align:left),
             grid.cell([#emoji.globe.meridian], align:center),
@@ -80,7 +82,8 @@
             grid.cell(
                 colspan: 2,
                 align:center,
-                image("qrcode_ws.png", height: 80%)),
+                qrcode_ws,
+                )
         )}
 
 
