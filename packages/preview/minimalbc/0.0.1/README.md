@@ -29,7 +29,7 @@ Here’s an example of how to use the minimalbc function:
 
 ```
 
-When compiled, this example produce a PDF file named 'your filename'.pdf (see example.pdf). 
+When compiled, this example produces a PDF file named 'your filename'.pdf (see example.pdf). 
 
 
 Feel free to download and use this as a starting point for your own business cards.
