@@ -1,6 +1,12 @@
+// !center 92 | frame 92 -f '/=/ ' | sed 's|^/.|//|g;s|./$|//|g'
 //============================================================================================//
 //                               Biblical / Indexing Constants                                //
 //============================================================================================//
+
+// !center 92 | frame 92 -f '/-/ ' | sed 's|^/.|//|g;s|./$|//|g'
+//--------------------------------------------------------------------------------------------//
+//                              Biblical Literature Unique ID's                               //
+//--------------------------------------------------------------------------------------------//
 
 // Book's unique ID - Full English Name to an Integer arbitrary (unique) ID dictionary
 // List of Deuterocanonical / Apocripha
@@ -106,27 +112,59 @@
   "Letter of Jeremiah":         3207,
   "Susanna":                    3208,
   "Bel and the Dragon":         3209,
+  "Song of Three Youths":       3210,
   // 51.00 - Other OT Apocripha
-  "Song of Three Youths":       5101,
-  "Prayer of Manasseh":         5102,
-  // 52.00 - Other NT Apocripha
-  "Epistle to the Laodiceans":  5201,
+  "Prayer of Manasseh":         5101,
 )
+
+//--------------------------------------------------------------------------------------------//
+//                                   Book Sorting Resources                                   //
+//--------------------------------------------------------------------------------------------//
+
+// Following the available information in the TOB - Traduction OEcuménique - Five (5) OT cannons
+// are supported, i.e., the Hebrew, the Protestant, the Catholic, the Orthodox, and the TOB. The
+// NT cannon is the same in all of these traditions.
 
 // Book partial orderings
 #let pOrd = (
-  "Pentateuch":   (1001, 1002, 1003, 1004, 1005,),
-  "Historical":   (1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 1112,),
-  "Sapiential":   (1201, 1202, 1203, 1204, 1205,),
-  "Maj-Prophets": (1301, 1302, 1303, 1304, 1305,),
-  "Min-Prophets": (1306, 1307, 1308, 1309, 1310, 1311, 1312, 1313, 1314, 1315, 1316, 1317,),
-  "Gospels":      (1401, 1402, 1403, 1404,),
-  "Acts":         (1405,),
-  "Paul":         (1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608, 1609, 1610, 1611, 1612,
-                  1613,),
-  "Universal":    (1701, 1702, 1703, 1704, 1705, 1706, 1707,),
-  "Revelation":   (1801,),
+  "Law": // The ordering of the law books is the same in all 5 canons
+    (1001, 1002, 1003, 1004, 1005,),
+  // PROTESTANT OT CANON
+  "OT-Protestant-Historical":
+    (1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 1112,),
+  "OT-Protestant-Sapiential":
+    (1201, 1202, 1203, 1204, 1205,),
+  "OT-Protestant-Major-Prophets":
+    (1301, 1302, 1303, 1304, 1305,),
+  "OT-Protestant-Minor-Prophets":
+    (1306, 1307, 1308, 1309, 1310, 1311, 1312, 1313, 1314, 1315, 1316, 1317,),
+  "OT-Catholic-Historical":
+    (1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 3103, 3102, 1112, 3108,
+    3104, 3105,),
+  "OT-Catholic-Poetic":
+    (1201, 1202, 1203, 1204, 1205, 3203, 3204,),
+  "OT-Catholic-Major-Prophets":
+    (1301, 1302, 1303, 3206, 1304, 1305, 3208, 3209,),
+  // THE NEW TESTAMENT - same for all 5 considered traditions
+  "Gospels":
+    (1401, 1402, 1403, 1404,),
+  "Acts":
+    (1405,),
+  "Paul":
+    (1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608, 1609, 1610, 1611, 1612, 1613,),
+  "Universal":
+    (1701, 1702, 1703, 1704, 1705, 1706, 1707,),
+  "Revelation":
+    (1801,),
 )
+
+#pOrd.insert("Neviim",
+  (1101, 1102, 1104, 1105, 1106, 1107, 1301, 1302, 1304) +
+  pOrd.at("Min-Prophets"))
+
+#pOrd.insert("Ketuvim",
+  (1202, 1201, 1203, 1103, 1205, 1204, 1303, 1112, 1305, 1110, 1111, 1108, 1109,))
+
 
 // Book sorting schemes
 #let bSrt = (
@@ -153,11 +191,9 @@
     // LXX Deutero (vol.1)
     3101, 3102, 3103, 3104, 3105, 3106, 3107, 3108,
     // LXX Deutero (vol.2)
-    3201, 3202, 3203, 3204, 3205, 3206, 3207, 3208, 3209,
+    3201, 3202, 3203, 3204, 3205, 3206, 3207, 3208, 3209, 3210,
     // Other OT Apocripha
-    5101, 5102,
-    // Other NT Apocripha
-    5201,
+    5101,
   ),
   // From: https://mereorthodoxy.com/the-case-for-rearranging-the-old-testament-books
   "jewish-tanakh": (
