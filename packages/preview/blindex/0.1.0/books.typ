@@ -114,6 +114,12 @@
   "Prayer of Manasseh":         5103,
 )
 
+// Create the reverse dictionary
+#let iBoo = (:)
+#for KV in bUID.pairs() {
+  iBoo.insert(KV.at(1), KV.at(0))
+}
+
 
 //--------------------------------------------------------------------------------------------//
 //                                   Book Sorting Resources                                   //
