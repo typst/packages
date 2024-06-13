@@ -117,7 +117,7 @@
 // Create the reverse dictionary
 #let iBoo = (:)
 #for KV in bUID.pairs() {
-  iBoo.insert(KV.at(1), KV.at(0))
+  iBoo.insert(str(KV.at(1)), KV.at(0))
 }
 
 
@@ -240,7 +240,7 @@
 #bSort.insert("Hebrew-Tanakh", (
   pOrd.at("Law") +
   pOrd.at("Neviim") +
-  pOrd.at("Ketuvim") +
+  pOrd.at("Ketuvim")
 ).flatten())
 
 // "Hebrew-Bible"
@@ -301,7 +301,7 @@
 // "Oecumenic-Bible"
 #bSort.insert("Oecumenic-Bible", (
   bSort.at("Hebrew-Tanakh") +
-  bSort.at("OT-TOB-Deuterocanonical") +
+  pOrd.at("OT-TOB-Deuterocanonical") +
   pOrd.at("New-Testament")
 ).flatten())
 
@@ -315,5 +315,13 @@
   "en", "pt",
 )
 
+// Biblical literature abbreviations
 #let bAbrv = (:)
 
+// Populate bAbrv
+#for L in sLang {
+  import "./lang/" + L + ".typ": aDict
+  bAbrv.insert(L, aDict)
+}
+
+bAbrv
