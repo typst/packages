@@ -2,8 +2,7 @@
 //         Biblical Literature Book Abbreviations in Portuguese -- Catholic Tradition         //
 //============================================================================================//
 
-// Fonte: https://www.paroquias.org/biblia/
-// 
+// Fonte: Bíblia Sagrada Edição Pastoral (Ed. Paulus)
 #let aDict = (
   "1001":    (abbr: "Gn",       full: "Gênesis"),
   "1002":    (abbr: "Ex",       full: "Êxodo"),
