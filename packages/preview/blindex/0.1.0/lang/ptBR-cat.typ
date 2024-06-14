@@ -1,5 +1,6 @@
+// ptBR-cat
 //============================================================================================//
-//         Biblical Literature Book Abbreviations in Portuguese -- Catholic Tradition         //
+//   Biblical Literature Book Abbreviations in Portuguese (of Brazil) -- Catholic Tradition   //
 //============================================================================================//
 
 // Fonte: Bíblia Sagrada Edição Pastoral (Ed. Paulus)
@@ -20,17 +21,29 @@
   "1109":    (abbr: "2Cr",      full: "2 Crônicas"),
   "1110":    (abbr: "Esd",      full: "Esdras"),
   "1111":    (abbr: "Ne",       full: "Neemias"),
+  "3103":    (abbr: "Tb",       full: "Tobias"),
+  "3102":    (abbr: "Jt",       full: "Judite"),
   "1112":    (abbr: "Est",      full: "Ester"),
+  "3108":    (abbr: "Est",      full: "Ester (Grego)"), // Same abbr due to book merging
+  "3104":    (abbr: "1Mc",      full: "1 Macabeus"),
+  "3105":    (abbr: "2Mc",      full: "2 Macabeus"),
   "1201":    (abbr: "Jó",       full: "Jó"),
   "1202":    (abbr: "Sl",       full: "Salmos"),
   "1203":    (abbr: "Pr",       full: "Provérbios"),
   "1204":    (abbr: "Ecl",      full: "Eclesiastes"),
   "1205":    (abbr: "Ct",       full: "Cântico dos Cânticos"),
+  "3203":    (abbr: "Sb",       full: "Sabedoria"),
+  "3204":    (abbr: "Eclo",     full: "Eclesiástico"),
   "1301":    (abbr: "Is",       full: "Isaías"),
   "1302":    (abbr: "Jr",       full: "Jeremias"),
   "1303":    (abbr: "Lm",       full: "Lamentações"),
+  "3206":    (abbr: "Br",       full: "Baruc"),
+  "3207":    (abbr: "Br",       full: "Carta de Jeremias"),       // book merging
   "1304":    (abbr: "Ez",       full: "Ezequiel"),
   "1305":    (abbr: "Dn",       full: "Daniel"),
+  "3210":    (abbr: "Dn",       full: "Canção dos Três Jovens"),  // book merging
+  "3208":    (abbr: "Dn",       full: "Susana"),                  // book merging
+  "3209":    (abbr: "Dn",       full: "Bel e o Dragão"),          // book merging
   "1306":    (abbr: "Os",       full: "Oséias"),
   "1307":    (abbr: "Jl",       full: "Joel"),
   "1308":    (abbr: "Am",       full: "Amos"),
@@ -70,27 +83,16 @@
   "1706":    (abbr: "3Jo",      full: "3 João"),
   "1707":    (abbr: "Jd",       full: "Judas"),
   "1801":    (abbr: "Ap",       full: "Apocalipse"),
+  // For completeness the remaining abbr try to follow the pattern established so far
   "3101":    (abbr: "1Esd",     full: "1 Esdras"),
-  "3102":    (abbr: "Jt",       full: "Judite"),
-  "3103":    (abbr: "Tb",       full: "Tobias"),
-  "3104":    (abbr: "1Mc",      full: "1 Macabeus"),
-  "3105":    (abbr: "2Mc",      full: "2 Macabeus"),
   "3106":    (abbr: "3Mc",      full: "3 Macabeus"),
   "3107":    (abbr: "4Mc",      full: "4 Macabeus"),
-  "3108":    (abbr: "EstGr",    full: "Ester (Grego)"),
-  "3201":    (abbr: "SlA",      full: "Salmo Adicional"),
-  "3202":    (abbr: "Ode",      full: "Odes"),
-  "3203":    (abbr: "Sb",       full: "Sabedoria"),
-  "3204":    (abbr: "Eclo",     full: "Eclesiástico"),
-  "3205":    (abbr: "SlS",      full: "Salmos de Salomão"),
-  "3206":    (abbr: "Br",       full: "Baruc"),
-  "3207":    (abbr: "Br",       full: "Carta de Jeremias"),
-  "3208":    (abbr: "Dn",       full: "Susana"),
-  "3209":    (abbr: "Dn",       full: "Bel e o Dragão"),
-  "3210":    (abbr: "Dn",       full: "Canção dos Três Jovens"),
   "5101":    (abbr: "3Esd",     full: "3 Esdras"),
   "5102":    (abbr: "4Esd",     full: "4 Esdras"),
   "5103":    (abbr: "PrM",      full: "Prece de Manassés"),
+  "3201":    (abbr: "SlA",      full: "Salmo Adicional"),
+  "3202":    (abbr: "Ode",      full: "Odes"),
+  "3205":    (abbr: "SlS",      full: "Salmos de Salomão"),
 )
 
 
