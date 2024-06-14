@@ -310,17 +310,22 @@
 //                       Biblical Literature Multilingual Abbreviations                       //
 //============================================================================================//
 
-// Supported languages
-#let sLang = (
-  "en", "pt",
-)
+// Default language first populates the supported languages array
+#let sLang = ("en", "ptBR-pro", )
 
 // Biblical literature abbreviations
 #let bAbrv = (:)
 
-// Populate bAbrv
-#for L in sLang {
-  import "./lang/" + L + ".typ": aDict
-  bAbrv.insert(L, aDict)
+// Language abbreviations adding function
+#let addLang(langCode) = {
+  import "./lang/" + langCode+ ".typ": aDict
+  bAbrv.insert(langCode, aDict)
 }
+
+// Populates bAbrv with the sLang entries
+#for LC in sLang {
+  addLang(LC)
+}
+
+#bAbrv.at("ptBR-pro")
 
