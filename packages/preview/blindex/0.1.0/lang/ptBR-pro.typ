@@ -1,5 +1,6 @@
+// ptBR-pro
 //============================================================================================//
-//        Biblical Literature Book Abbreviations in Portuguese -- Apostolic Tradition         //
+//  Biblical Literature Book Abbreviations in Portuguese (of Brazil) -- Protestant Tradition  //
 //============================================================================================//
 
 #let aDict = (
@@ -69,6 +70,8 @@
   "1706":    (abbr: "3Jo",      full: "3 João"),
   "1707":    (abbr: "Jd",       full: "Judas"),
   "1801":    (abbr: "Ap",       full: "Apocalipse"),
+  // For completeness the remaining abbr try to follow the pattern of 2 chars for unnumbered
+  // books and 3 chars for the numbered ones, without clashes
   "3101":    (abbr: "1Ed",      full: "1 Esdras"),
   "3102":    (abbr: "Jt",       full: "Judite"),
   "3103":    (abbr: "Tb",       full: "Tobias"),
@@ -79,10 +82,10 @@
   "3108":    (abbr: "EG",       full: "Ester (Grego)"),
   "3201":    (abbr: "SA",       full: "Salmo Adicional"),
   "3202":    (abbr: "Od",       full: "Odes"),
-  "3203":    (abbr: "Sb",       full: "Sabedoria"),
-  "3204":    (abbr: "Si",       full: "Sirácida"),
+  "3203":    (abbr: "Sb",       full: "Sabedoria (de Salomão)"),
+  "3204":    (abbr: "Si",       full: "Sirácida (Eclesiástico)"),
   "3205":    (abbr: "SS",       full: "Salmos de Salomão"),
-  "3206":    (abbr: "Ba",       full: "Baruc"),
+  "3206":    (abbr: "Ba",       full: "Baruque"),
   "3207":    (abbr: "CJ",       full: "Carta de Jeremias"),
   "3208":    (abbr: "Su",       full: "Susana"),
   "3209":    (abbr: "BD",       full: "Bel e o Dragão"),
