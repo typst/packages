@@ -36,4 +36,7 @@
   return ret.join("")
 }
 
+// abbrv to id
+#let a2i(abbrv, lang) = {
+}
 
