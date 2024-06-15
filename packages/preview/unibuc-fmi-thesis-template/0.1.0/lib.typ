@@ -5,8 +5,6 @@
   author: "",
   coordinator: "",
   date: none,
-  logo-ub: none,
-  logo-fmi: none,
   body,
 ) = {
   set document(author: author, title: title)
@@ -42,13 +40,13 @@
   grid(
   columns: 3,
   gutter: 14pt,
-  align(center, image(logo-ub, width: 70%)),
+  align(center, image("assets/logo-ub.png", width: 70%)),
   align(center, text(
     "UNIVERSITATEA DIN BUCUREȘTI
     
     FACULTATEA DE MATEMATICĂ ȘI INFORMATICĂ", weight: "bold"
   )),
-  align(center, image(logo-fmi, width: 70%)),
+  align(center, image("assets/logo-fmi.png", width: 70%)),
   )
   align(center, text("SPECIALIZAREA CALCULATOARE 
   ȘI TEHNOLOGIA INFORMAȚIEI", weight: "bold"))

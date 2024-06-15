@@ -11,8 +11,6 @@
  rezumat: rezumat,
  abstract: abstract,
  date: "București, Iunie 2024",
- logo-ub: "images/logo-ub.png",
- logo-fmi: "images/logo-fmi.png",
 )
 
 
