@@ -1,0 +1,17 @@
+[package]
+name = "unibuc-fmi-thesis-template"
+version = "0.1.0"
+compiler = "0.11.1"
+entrypoint = "lib.typ"
+repository = "https://github.com/typst/templates"
+authors = ["Mihai-George Licu <https://licu.dev/>"]
+license = "MIT-0"
+description = "Thesis template for the University of Bucharest Faculty of Mathematics and Informatics"
+keywords = ["template", "thesis", "licenta", "unibuc"]
+categories = ["thesis"]
+homepage = ["<https://fmi.unibuc.ro/finalizare-studii/>"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
