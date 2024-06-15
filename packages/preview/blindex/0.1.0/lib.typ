@@ -38,5 +38,12 @@
 
 // abbrv to id
 #let a2i(abbrv, lang) = {
+  import "./lang/" + lang + ".typ": aDict
+  for KV in aDict.pairs() {
+    if abbrv in KV.at(1).at("abbr") {
+      return KV.at(0)
+    }
+  }
+  return "none"
 }
 
