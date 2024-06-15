@@ -9,9 +9,9 @@ license = "MIT-0"
 description = "Thesis template for the University of Bucharest Faculty of Mathematics and Informatics"
 keywords = ["template", "thesis", "licenta", "unibuc"]
 categories = ["thesis"]
-homepage = ["<https://fmi.unibuc.ro/finalizare-studii/>"]
 
 [template]
 path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
+
