@@ -59,4 +59,15 @@
   return ret.join(" / ")
 }
 
+// abbrv to name -> string
+#let a2n1(abbrv, lang) = {
+  import "./lang/" + lang + ".typ": aDict
+  for KV in aDict.pairs() {
+    if abbrv == KV.at(1).at("abbr") {
+      return KV.at(1).at("full")
+    }
+  }
+  return none
+}
+
 
