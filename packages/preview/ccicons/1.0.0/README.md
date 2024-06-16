@@ -9,9 +9,6 @@ Creative Commons icons for your Typst documents</div>
 
 ## Getting Started
 
-> [!IMPORTANT]
-> As of now, the package is not published in the Typst Universe, but should be in the next few days.
-
 Import the package into your document:
 
 ```typ
