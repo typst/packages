@@ -49,7 +49,7 @@ See the [Get-started](https://myriad-dreamin.github.io/shiroa/guide/get-started.
 
 We don't provide a watch command, but `shiroa` is designated to embracing all of the approaches to writing typst documents. It's feasible to preview your documents by following approaches (like previewing normal documents):
 
-- (Waiting for ready) once supporting local packages, you can write the book via [Official Web App](https://typst.app).
+- via [Official Web App](https://typst.app).
 
 - via VSCod(e,ium), see [Tinymist](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) and [Typst Preview](https://marketplace.visualstudio.com/items?itemName=mgt19937.typst-preview).
 
