@@ -35,39 +35,65 @@
   return ret.join("")
 }
 
-// abbrv to id -> array
-#let a2i(abbrv, lang) = {
+
+//============================================================================================//
+//                                    Book Info Retrieving                                    //
+//============================================================================================//
+
+// abrv to dict -> dict
+#let a2d(abrv, lang) = {
   import "./lang/" + lang + ".typ": aDict
-  let ret = ()
-  for KV in aDict.pairs() {
-    if abbrv == KV.at(1).at("abbr") {
-      ret.push(int(KV.at(0)))
+  import "./books.typ": iBoo, bSort
+  let ret = (:)
+  for (KEY, VAL) in aDict {
+    if abrv == VAL.abbr {
+      let SRT = (:)
+      let BID = int(KEY)
+      for SS in bSort.keys() {
+        let DB = bSort.at(SS)
+        let IDX = none
+        for idx in range(DB.len()) {
+          if DB.at(idx) == BID {
+            IDX = idx
+            break
+          }
+        }
+        SRT.insert(SS, IDX)
+      }
+      ret.insert(KEY, (
+          "BUID": KEY,            // Book's unique ID
+          "lang": lang,           // Query's used {lang}
+          "abrv": VAL.abbr,       // Query's used {abrv}
+          "full": VAL.full,       // Book's full name
+          "STDN": iBoo.at(KEY),   // Book's Standard Name (English)
+          "SORT": SRT,            // Book's index in existing sorting schemes
+        )
+      )
     }
   }
   return ret
 }
 
-// abbrv to name -> array
-#let a2n(abbrv, lang) = {
-  import "./lang/" + lang + ".typ": aDict
-  let ret = ()
-  for KV in aDict.pairs() {
-    if abbrv == KV.at(1).at("abbr") {
-      ret.push(KV.at(1).at("full"))
-    }
-  }
-  return ret.join(" / ")
-}
 
-// abbrv to name -> string
-#let a2n1(abbrv, lang) = {
-  import "./lang/" + lang + ".typ": aDict
-  for KV in aDict.pairs() {
-    if abbrv == KV.at(1).at("abbr") {
-      return KV.at(1).at("full")
-    }
-  }
-  return none
-}
+//============================================================================================//
+//                                Biblical Literature Indexing                                //
+//============================================================================================//
+
+// Biblical indexing
+/*
+#let blindex(abrv, lang, st, to, DS: DELIM.pro) = context [
+  #metadata((
+      ABRV: abrv,
+      LANG: lang,
+      BKID: a2i(abrv, lang),
+      BNAM: a2n1(abrv, lang),
+      BLST: a2n(abrv, lang),
+      ENTR: BLIE(st, to, DS),
+      WHRE: here().position(),
+    ))<cnbi_index>
+]
+*/
+
+
 
 
