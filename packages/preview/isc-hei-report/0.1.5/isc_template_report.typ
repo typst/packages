@@ -88,13 +88,13 @@
 //
 // Source code inclusion
 //
-#let luma_background = luma(250)
+#let _luma-background = luma(250)
 
 // Replace the original function by ours
 #let codelst-sourcecode = sourcecode
 #let code = codelst-sourcecode.with(
   frame: block.with(    
-    fill: luma_background,
+    fill: _luma-background,
     stroke: 0.5pt + luma(80%),
     radius: 3pt,
     inset: (x: 6pt, y: 7pt)
@@ -265,7 +265,7 @@
   // Inline code display, 
   // In a small box that retains the correct baseline.
   show raw.where(block: false): box.with(
-    fill: luma_background,
+    fill: _luma-background,
     inset: (x: 2pt, y: 0pt),
     outset: (y: 2pt),
     radius: 1pt,
