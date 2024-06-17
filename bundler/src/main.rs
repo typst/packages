@@ -12,6 +12,7 @@ use std::path::Path;
 use anyhow::{bail, Context};
 use image::codecs::webp::{WebPEncoder, WebPQuality};
 use image::imageops::FilterType;
+use semver::Version;
 use unicode_ident::{is_xid_continue, is_xid_start};
 
 use self::author::validate_author;
@@ -67,10 +68,26 @@ fn main() -> anyhow::Result<()> {
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
             let entry = entry?;
             if !entry.metadata()?.is_dir() {
-                continue;
+                bail!(
+                    "{}: a package directory may only contain version sub-directories, not files.",
+                    entry.path().display()
+                );
             }
 
             let path = entry.into_path();
+
+            if path
+                .file_name()
+                .and_then(|name| name.to_str())
+                .and_then(|name| Version::parse(name).ok())
+                .is_none()
+            {
+                bail!(
+                    "{}: Directory is not a valid version number",
+                    path.display()
+                );
+            }
+
             match process_package(&path, &namespace_dir, namespace)
                 .with_context(|| format!("failed to process package at {}", path.display()))
             {
