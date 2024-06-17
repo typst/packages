@@ -7,9 +7,9 @@
   "pro":      " .,-;",   // As in "Gn 1.1,2,5–7; 12.1; etc." (Protestant, hyphen)
   "cat":      " ,.-;",   // As in "Gn 1,1.2.5-7; 12,1; etc." (Catholic, hyphen)
   "TOB":      " .,-;",   // As in "Gn 1.1,2,5-7; 12.1; etc." (TOB: Œcuménique, hyphen)
-  "pro-en":   " .,-;",   // As in "Gn 1.1,2,5–7; 12.1; etc." (Protestant, en-dash)
-  "cat-en":   " ,.-;",   // As in "Gn 1,1.2.5-7; 12,1; etc." (Catholic, en-dash)
-  "TOB-en":   " .,-;",   // As in "Gn 1.1,2,5-7; 12.1; etc." (TOB: Œcuménique, en-dash)
+  "pro-en":   " .,–;",   // As in "Gn 1.1,2,5–7; 12.1; etc." (Protestant, en-dash)
+  "cat-en":   " ,.–;",   // As in "Gn 1,1.2.5-7; 12,1; etc." (Catholic, en-dash)
+  "TOB-en":   " .,–;",   // As in "Gn 1.1,2,5-7; 12.1; etc." (TOB: Œcuménique, en-dash)
 )
 
 
@@ -18,8 +18,8 @@
 //============================================================================================//
 
 // Biblical Literature Index Entry
-#let BLIE(st, to, DS: DELIM.pro-en) = {
-  let DLC = DS.clusters() // Safe indexing with multi-byte codepoints
+#let BLIE(st, to, DS: "TOB-en") = {
+  let DLC = DELIM.at(DS).clusters() // Safe indexing with multi-byte codepoints
   let ret = ()
   ret.push(st.map(str).join(DLC.at(1)))
   if st.at(0) == to.at(0) {
