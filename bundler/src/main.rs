@@ -68,7 +68,10 @@ fn main() -> anyhow::Result<()> {
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
             let entry = entry?;
             if !entry.metadata()?.is_dir() {
-                bail!("{}: A package directory should only contain a sub-directories for each version.", entry.path().display())
+                bail!(
+                    "{}: a package directory may only contain version sub-directories, not files.",
+                    entry.path().display()
+                );
             }
 
             let path = entry.into_path();
@@ -82,7 +85,7 @@ fn main() -> anyhow::Result<()> {
                 bail!(
                     "{}: Directory is not a valid version number",
                     path.display()
-                )
+                );
             }
 
             match process_package(&path, &namespace_dir, namespace)
