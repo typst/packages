@@ -155,6 +155,8 @@
   "OT-Orthodox-Historical":
     (1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 5101, 1110, 1111, 3103, 3102, 1112, 3108,
     3104, 3105, 3106,),
+  "OT-Orthodox-Poetic":
+    (1202, 1201, 1203, 1204, 1205, 3203, 3204,),
   "OT-Orthodox-Major-Prophets":
     (1301, 1302, 3206, 1303, 3207, 1304, 1305, 3208, 3209,),
   "OT-Orthodox-Minor-Prophets":
@@ -216,7 +218,7 @@
 // "LXX" scheme
 #let tmpLXX = ()
 #for val in bSort.at("code") {
-  if val < 1400 { tmpLXX.push(val) }
+  if (val < 1400) or ((val > 3000) and (val < 5000)) { tmpLXX.push(val) }
 }
 #bSort.insert("LXX", tmpLXX)
 
@@ -288,6 +290,7 @@
 #bSort.insert("Orthodox-Bible", (
   pOrd.at("Law") +
   pOrd.at("OT-Orthodox-Historical") +
+  pOrd.at("OT-Orthodox-Poetic") +
   pOrd.at("OT-Orthodox-Major-Prophets") +
   pOrd.at("OT-Orthodox-Minor-Prophets") +
   pOrd.at("New-Testament")
