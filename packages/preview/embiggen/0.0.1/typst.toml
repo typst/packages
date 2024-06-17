@@ -1,6 +1,6 @@
 [package]
 name = "embiggen"
-version = "1.0.0"
+version = "0.0.1"
 authors = ["Ananth Venkatesh <dev.quantum9innovation@gmail.com>"]
 license = "GPL-3.0-or-later"
 description = "LaTeX-like delimeter sizing in Typst"

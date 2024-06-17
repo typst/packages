@@ -5,7 +5,7 @@ Get LaTeX-like delimeter sizing in Typst!
 ## Usage
 
 ```typst
-#import "@preview/embiggen:1.0.0": *
+#import "@preview/embiggen:0.0.1": *
 
 = embiggen
 
