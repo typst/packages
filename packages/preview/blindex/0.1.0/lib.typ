@@ -113,20 +113,19 @@
   tfmt: (font: "Linux Libertine", weight: "medium", lang: "en"),
   fill: true
 ) = {
-  if fill [
-    #smartquote(double: true)
-    #highlight(fill: blFill, text(..tfmt, body))
-    #smartquote(double: true)]
-  else [
-    #smartquote(double: true)
-    #text(..tfmt, body)
-    #smartquote(double: true)]
+  if fill {
+    smartquote(double: true)
+    highlight(fill: blFill, text(..tfmt, body))
+    smartquote(double: true)}
+  else {
+    smartquote(double: true)
+    text(..tfmt, body)
+    smartquote(double: true)}
 }
 
 // "line" Citation of Biblical Literature
 #let lCite(abrv, lang, pssg, version, cited) = [
-  --- #a2d(abrv, lang).at(0).full~#pssg (#version)~#cited
-]
+  --- #a2d(abrv, lang).at(0).full~#pssg (#version)#cited]
 
 // "inline" Quoting of Biblical Literature
 #let iQuot(body, abrv, lang, pssg, version, cited,
@@ -142,20 +141,22 @@
   fill: true, width: 90%, inset: 4pt,
 ) = {
   align(center,
-    block(width: width,
-      fill: if fill { sFill } else { none },
-      inset: inset,
-      stack(dir: ttb,
+    stack(dir: ttb,
+      block(width: width,
+        fill: if fill { blFill } else { none },
+        inset: inset,
         align(left,
-          par(leading: 0.65em, justify: true, linebreaks: "optimized")[
-            #smartquote(double: true)
-            #text(..tfmt, body)
-            #smartquote(double: true)]),
-        v(0.65em),
+          par(leading: 0.65em, justify: true, linebreaks: "optimized",
+            [#smartquote(double: true)#text(..tfmt, body)#smartquote(double: true)]
+          )
+        ),
+      ),
+      block(width: width, inset: inset,
         align(right,
-          lCite(abrv, lang, pssg, version, cited)),
-        blindex(abrv, lang, pssg)
-      )
+          lCite(abrv, lang, pssg, version, cited)
+        )
+      ),
+      blindex(abrv, lang, pssg)
     )
   )
 }
