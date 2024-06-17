@@ -216,7 +216,7 @@
 // "LXX" scheme
 #let tmpLXX = ()
 #for val in bSort.at("code") {
-  if val < 5000 { tmpLXX.push(val) }
+  if val < 1400 { tmpLXX.push(val) }
 }
 #bSort.insert("LXX", tmpLXX)
 
