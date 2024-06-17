@@ -82,7 +82,7 @@ Inside the content file you can modify several style variables and even override
 
 ### With the [Typst CLI](https://github.com/typst/typst)
 
-The recommended usage with the Typst CLI is by running the command `typst init @preview/imprecv:1.0.0` in your project directory.
+The recommended usage with the Typst CLI is by running the command `typst init @preview/imprecv:1.0.1` in your project directory.
 This will create a new Typst project with the `imprecv` template and the necessary files to get started.
 You can then run `typst compile template.typ` to compile your file to PDF.
 
