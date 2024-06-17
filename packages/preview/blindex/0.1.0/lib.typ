@@ -4,9 +4,12 @@
 
 // Passage citation delimiter schemes
 #let DELIM = (
-  "pro": " .,–;",   // As in "Gn 1.1,2,5–7; 12.1; etc." (Protestant, en-dash)
-  "cat": " ,.-;",   // As in "Gn 1,1.2.5-7; 12,1; etc." (Catholic, hyphen)
-  "TOB": " .,-;",   // As in "Gn 1.1,2,5-7; 12.1; etc." (TOB: Œcuménique, hyphen)
+  "pro":      " .,-;",   // As in "Gn 1.1,2,5–7; 12.1; etc." (Protestant, hyphen)
+  "cat":      " ,.-;",   // As in "Gn 1,1.2.5-7; 12,1; etc." (Catholic, hyphen)
+  "TOB":      " .,-;",   // As in "Gn 1.1,2,5-7; 12.1; etc." (TOB: Œcuménique, hyphen)
+  "pro-en":   " .,-;",   // As in "Gn 1.1,2,5–7; 12.1; etc." (Protestant, en-dash)
+  "cat-en":   " ,.-;",   // As in "Gn 1,1.2.5-7; 12,1; etc." (Catholic, en-dash)
+  "TOB-en":   " .,-;",   // As in "Gn 1.1,2,5-7; 12.1; etc." (TOB: Œcuménique, en-dash)
 )
 
 
@@ -15,7 +18,7 @@
 //============================================================================================//
 
 // Biblical Literature Index Entry
-#let BLIE(st, to, DS: DELIM.pro) = {
+#let BLIE(st, to, DS: DELIM.pro-en) = {
   let DLC = DS.clusters() // Safe indexing with multi-byte codepoints
   let ret = ()
   ret.push(st.map(str).join(DLC.at(1)))
@@ -81,7 +84,7 @@
 
 // Biblical indexing
 /*
-#let blindex(abrv, lang, st, to, DS: DELIM.pro) = context [
+#let blindex(abrv, lang, st, to, DS: DELIM.pro-en) = context [
   #metadata((
       ABRV: abrv,
       LANG: lang,
