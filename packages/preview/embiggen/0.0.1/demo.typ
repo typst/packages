@@ -1,4 +1,4 @@
-#import "src/lib.typ": *
+#import "@preview/embiggen:0.0.1": *
 
 = embiggen
 
