@@ -1,45 +1,4 @@
 //============================================================================================//
-//                                    Auxiliary Functions                                     //
-//============================================================================================//
-
-// Passage citation delimiter schemes
-#let DELIM = (
-  "pro":      " .,-;",   // As in "Gn 1.1,2,5–7; 12.1; etc." (Protestant, hyphen)
-  "cat":      " ,.-;",   // As in "Gn 1,1.2.5-7; 12,1; etc." (Catholic, hyphen)
-  "TOB":      " .,-;",   // As in "Gn 1.1,2,5-7; 12.1; etc." (TOB: Œcuménique, hyphen)
-  "pro-en":   " .,–;",   // As in "Gn 1.1,2,5–7; 12.1; etc." (Protestant, en-dash)
-  "cat-en":   " ,.–;",   // As in "Gn 1,1.2.5-7; 12,1; etc." (Catholic, en-dash)
-  "TOB-en":   " .,–;",   // As in "Gn 1.1,2,5-7; 12.1; etc." (TOB: Œcuménique, en-dash)
-)
-
-
-//============================================================================================//
-//                                Passage Formatting Functions                                //
-//============================================================================================//
-
-// Biblical Literature Index Entry
-#let BLIE(st, to, DS: "TOB-en") = {
-  let DLC = DELIM.at(DS).clusters() // Safe indexing with multi-byte codepoints
-  let ret = ()
-  ret.push(st.map(str).join(DLC.at(1)))
-  if st.at(0) == to.at(0) {
-    if to.at(1)-st.at(1) == 0 {} else {
-      if to.at(1)-st.at(1) == 1 {
-        ret.push(DLC.at(2))
-      } else {
-        ret.push(DLC.at(3))
-      }
-      ret.push(str(to.at(1)))
-    }
-  } else {
-    ret.push(DLC.at(3))
-    ret.push(to.map(str).join(DLC.at(1)))
-  }
-  return ret.join("")
-}
-
-
-//============================================================================================//
 //                                    Book Info Retrieving                                    //
 //============================================================================================//
 
@@ -83,12 +42,12 @@
 //============================================================================================//
 
 // Biblical Literature Indexing
-#let blindex(abrv, lang, st, to, DS: DELIM.pro-en) = context [
+#let blindex(abrv, lang, entry) = context [
   #metadata((
       ABRV: abrv,
       LANG: lang,
       DATA: a2d(abrv, lang),
-      ENTR: BLIE(st, to, DS: DS),
+      ENTR: entry,
       WHRE: here().position(),
     ))<bl_index>
 ]
@@ -139,6 +98,42 @@
       }
     }
   ]
+}
+
+
+//============================================================================================//
+//                                Biblical Literature Quoting                                 //
+//============================================================================================//
+
+// Biblical Literature fill, for background
+#let blFill = rgb("00000020") // Results in a transparent light gray
+
+// "raw" Quoting of Biblical Literature
+#let rQuot(body,
+  tfmt: (font: "Linux Libertine", weight: "medium", lang: "en"),
+  fill: true
+) = {
+  if fill [
+    #smartquote(double: true)
+    #highlight(fill: blFill, text(..tfmt, body))
+    #smartquote(double: true)]
+  else [
+    #smartquote(double: true)
+    #text(..tfmt, body)
+    #smartquote(double: true)]
+}
+
+// "line" Citation of Biblical Literature
+#let lCite(abrv, lang, pssg, version, cited) = [
+  --- #a2d(abrv, lang).at(0).full~#pssg (#version)~#cited
+]
+
+// "inline" Quoting of Biblical Literature
+#let iQuot(body, abrv, lang, pssg, version, cited,
+           tfmt: (font: "Linux Libertine", weight: "medium", lang: "en"), fill: true) = {
+  rQuot(body, tfmt: tfmt, fill: fill)
+  lCite(abrv, lang, pssg, version, cited)
+  blindex(abrv, lang, pssg)
 }
 
 
