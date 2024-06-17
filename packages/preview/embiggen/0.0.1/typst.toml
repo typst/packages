@@ -6,7 +6,7 @@ license = "GPL-3.0-or-later"
 description = "LaTeX-like delimeter sizing in Typst"
 
 keywords = ["latex", "delimeter", "sizing"]
-categories = ["text", "report", "paper", "thesis", "poster", "presentation"]
+categories = ["text", "report", "paper"]
 
 entrypoint = "src/lib.typ"
 exclude = ["demo.pdf"]
