@@ -136,4 +136,29 @@
   blindex(abrv, lang, pssg)
 }
 
+// "block" Quoting of Biblical Literature
+#let bQuot(body, abrv, lang, pssg, version, cited,
+  tfmt: (font: "Linux Libertine", weight: "medium", lang: "en"),
+  fill: true, width: 90%, inset: 4pt,
+) = {
+  align(center,
+    block(width: width,
+      fill: if fill { sFill } else { none },
+      inset: inset,
+      stack(dir: ttb,
+        align(left,
+          par(leading: 0.65em, justify: true, linebreaks: "optimized")[
+            #smartquote(double: true)
+            #text(..tfmt, body)
+            #smartquote(double: true)]),
+        v(0.65em),
+        align(right,
+          lCite(abrv, lang, pssg, version, cited)),
+        blindex(abrv, lang, pssg)
+      )
+    )
+  )
+}
+
+
 
