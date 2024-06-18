@@ -1,0 +1,9 @@
+[package]
+name = "minifig"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["nxe"]
+license = "AGPL-3.0-only"
+description = "A really simple implementation of sub-figures"
+exclude = ["docs.*", "photos/", "example.typ", "build.sh"]
+categories = ["layout", "components"]
