@@ -111,16 +111,16 @@
 // "raw" Quoting of Biblical Literature
 #let rQuot(body,
   tfmt: (font: "Linux Libertine", weight: "medium", lang: "en"),
-  fill: true
+  fill: true, quotes: true,
 ) = {
   if fill {
-    smartquote(double: true)
+    if quotes { smartquote(double: true) }
     highlight(fill: blFill, text(..tfmt, body))
-    smartquote(double: true)}
+    if quotes { smartquote(double: true)} }
   else {
-    smartquote(double: true)
+    if quotes { smartquote(double: true) }
     text(..tfmt, body)
-    smartquote(double: true)}
+    if quotes { smartquote(double: true)} }
 }
 
 // "line" Citation of Biblical Literature
@@ -129,8 +129,10 @@
 
 // "inline" Quoting of Biblical Literature
 #let iQuot(body, abrv, lang, pssg, version, cited,
-           tfmt: (font: "Linux Libertine", weight: "medium", lang: "en"), fill: true) = {
-  rQuot(body, tfmt: tfmt, fill: fill)
+  tfmt: (font: "Linux Libertine", weight: "medium", lang: "en"),
+  fill: true, quotes: true,
+) = {
+  rQuot(body, tfmt: tfmt, fill: fill, quotes: quotes)
   lCite(abrv, lang, pssg, version, cited)
   blindex(abrv, lang, pssg)
 }
@@ -138,7 +140,7 @@
 // "block" Quoting of Biblical Literature
 #let bQuot(body, abrv, lang, pssg, version, cited,
   tfmt: (font: "Linux Libertine", weight: "medium", lang: "en"),
-  fill: true, width: 90%, inset: 4pt,
+  fill: true, quotes: false, width: 90%, inset: 4pt, fill-below: false,
 ) = {
   align(center,
     stack(dir: ttb,
@@ -147,11 +149,15 @@
         inset: inset,
         align(left,
           par(leading: 0.65em, justify: true, linebreaks: "optimized",
-            [#smartquote(double: true)#text(..tfmt, body)#smartquote(double: true)]
+            if quotes { [#smartquote(double: true)] } else { [] } +
+            [#text(..tfmt, body)] +
+            if quotes { [#smartquote(double: true)] } else { [] }
           )
         ),
       ),
-      block(width: width, inset: inset,
+      block(width: width,
+        fill: if fill-below { blFill } else { none },
+        inset: inset,
         align(right,
           lCite(abrv, lang, pssg, version, cited)
         )
