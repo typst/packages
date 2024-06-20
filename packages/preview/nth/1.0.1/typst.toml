@@ -1,6 +1,6 @@
 [package]
 name = "nth"
-version = "1.0.0"
+version = "1.0.1"
 entrypoint = "nth.typ"
 authors = ["Pierre Marshall <pierre.marshall@gmail.com>", "fnoaman <@fnoaman>", "Andrew Jeffery <@jeffa5>"]
 license = "MIT-0"
