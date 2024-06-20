@@ -1,4 +1,4 @@
-#import "@local/chemicoms-paper:0.1.0": template, elements;
+#import "@preview/chemicoms-paper:0.1.0": template, elements;
 
 #set page(paper: "us-letter", margin: (left: 10mm, right: 10mm, top: 12mm, bottom: 15mm))
 
