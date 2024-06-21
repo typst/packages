@@ -32,8 +32,6 @@ For further information on how to add fonts to your project, please refer to the
 This template uses the following packages:
 
 - [codelst](https://typst.app/universe/package/codelst): To create code snippets
-- [acrostiche](https://typst.app/universe/package/acrostiche): To manage acronyms
-
 
 ## Contents
 
@@ -54,109 +52,100 @@ A more detailed explanation of the features can be found in the `main.typ` file.
 ## Configuration
 This template exports the `supercharged-dhbw` function with the following named arguments:
 
-`title`: Title of the document
+`title*`: Title of the document
 
-`authors`: List of authors with the following named arguments (example below):
+`authors*`: List of authors with the following named arguments (max. 6 authors when in the company or 8 authors when at DHBW):
     
-    - name: Name of the author
-    - student-id: Student ID of the author
-    - course: Course of the author
-    - course-of-studies: Course of studies of the author
+    - name*: Name of the author
+    - student-id*: Student ID of the author
+    - course*: Course of the author
+    - course-of-studies*: Course of studies of the author
     - company: Company of the author
+        - name*: Name of the company
+        - post-code: Post code of the company
+        - city*: City of the company
+        - country: Country of the company
 
-`language`: Language of the document which is either `en` or `de`, default is `en`
+`abstract`: Content of the abstract, it is recommended that you pass a variable containing the content or a function that returns the content
 
-`at-dhbw`: Whether the document is written at the DHBW or not, default is `false`
+`acronym-spacing`: Spacing between the acronym and its long form, default is `5em`
+
+`acronyms`: Content of the acronyms
+
+`appendix`: Content of the appendix, it is recommended that you pass a variable containing the content or a function that returns the content
+
+`at-dhbw*`: Whether the document is written at the DHBW or not, default is `false`
+
+`bibliography`: Path to the bibliography file
+
+`date*`: Date of the document
+
+`language*`: Language of the document which is either `en` or `de`, default is `en`
+
+`logo-left`: Path to the logo on the left side of the title page (usage: image("path/to/image.png")), default is the `DHBW logo`
+
+`logo-right`: Path to the logo on the right side of the title page (usage: image("path/to/image.png")), default is `no logo`
+
+`logo-size-ratio`: Ratio between the right logo and the left logo height (left-logo:right-logo), default is `1:1`
+
+`numbering-alignment`: Alignment of the page numbering, default is `center`
+
+`show-abstract`: Whether the abstract should be shown, default is `true`
+
+`show-acronyms`: Whether the list of acronyms should be shown, default is `true`
+
+`show-appendix`: Whether the appendix should be shown, default is `false`
+
+`show-code-snippets`: Whether the code snippets should be shown, default is `true`
 
 `show-confidentiality-statement`: Whether the confidentiality statement should be shown, default is `true`
 
 `show-declaration-of-authorship`: Whether the declaration of authorship should be shown, default is `true`
 
-`show-table-of-contents`: Whether the table of contents should be shown, default is `true`
-
-`show-acronyms`: Whether the list of acronyms should be shown, default 
-is `true`
+`show-header`: Whether the header should be shown, default is `true`
 
 `show-list-of-figures`: Whether the list of figures should be shown, default is `true`
 
 `show-list-of-tables`: Whether the list of tables should be shown, default is `true`
 
-`show-code-snippets`: Whether the code snippets should be shown, default is `true`
+`show-table-of-contents`: Whether the table of contents should be shown, default is `true`
 
-`show-appendix`: Whether the appendix should be shown, default is `false`
-
-`show-abstract`: Whether the abstract should be shown, default is `true`
-
-`show-header`: Whether the header should be shown, default is `true`
-
-`numbering-alignment`: Alignment of the page numbering, default is `center`
+`supervisor*`: Name of the supervisor at the university or company
 
 `toc-depth`: Depth of the table of contents, default is `3`
 
-`acronym-spacing`: Spacing between the acronym and its long from, default is `5em`
+`university*`: Name of the university
 
-`abstract`: Content of the abstract
+`university-location*`: Campus or city of the university
 
-`appendix`: Content of the appendix
+All arguments marked with `*` are required.
 
-`acronyms`: Content of the acronyms
-
-`university`: Name of the university
-
-`university-location`: Campus or city of the university
-
-`supervisor`: Name of the supervisor at the university or company
-
-`date`: Date of the document
-
-`bibliography`: path to the bibliography file
-
-`logo-left`: Path to the logo on the left side of the title page
-
-`logo-right`: Path to the logo on the right side of the title page
-
-`logo-size-ratio`: Ratio between the right logo and the left logo height (left-logo:right-logo), default is `1:1`
+## Example
 
 If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
 
 ```typst
-#import "@preview/supercharged-dhbw:1.4.0": *
+#import "@preview/supercharged-dhbw:1.5.0": *
 
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
   authors: (
-    (name: "Juan Pérez", student-id: "1234567", course: "TIM21", course-of-studies: "Mobile Computer Science", company: (
-      (name: "ABC AG", post-code: "08005", city: "Barcelona", country: "Spain")
-    )),
     (name: "Max Mustermann", student-id: "7654321", course: "TIS21", course-of-studies: "IT-Security", company: (
-      (name: "YXZ GmbH", post-code: "70435", city: "Stuttgart", country: "")
+      (name: "YXZ GmbH", post-code: "70435", city: "Stuttgart")
+    )),
+    (name: "Juan Pérez", student-id: "1234567", course: "TIM21", course-of-studies: "Mobile Computer Science", company: (
+      (name: "ABC S.L.", post-code: "08005", city: "Barcelona", country: "Spain")
     )),
   ),
-  language: "en", // en, de
-  at-dhbw: false, // if true the company name on the title page and the confidentiality statement are hidden
-  show-confidentiality-statement: true,
-  show-declaration-of-authorship: true,
-  show-table-of-contents: true,
-  show-acronyms: true,
-  show-list-of-figures: true,
-  show-list-of-tables: true,
-  show-code-snippets: true,
-  show-appendix: false,
-  show-abstract: true,
-  show-header: true,
-  numbering-alignment: center, // left, center, right
-  toc-depth: 3, // depth of the table of contents
-  abstract: abstract, // displays the abstract defined in the abstract.typ file
-  appendix: appendix, // displays the appendix defined in the appendix.typ file
   acronyms: acronyms, // displays the acronyms defined in the acronyms.typ file
+  at-dhbw: false, // if true the company name on the title page and the confidentiality statement are hidden
+  bibliography: bibliography("sources.bib"),
+  date: datetime.today(),
+  language: "en", // en, de
+  supervisor: "John Appleseed",
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
-  supervisor: "John Appleseed",
-  date: datetime.today(),
-  bibliography: bibliography("sources.bib"),
-  logo-left: image("assets/logos/dhbw.svg"),
-  // logo-right: image("assets/logos/company.svg"),
-  // logo-size-ratio: "2:1" // ratio between the right logo and the left logo height (left-logo:right-logo) only the right logo is resized
+  // for more options check the package documentation (https://typst.app/universe/package/supercharged-dhbw)
 )
 
 // Your content goes here

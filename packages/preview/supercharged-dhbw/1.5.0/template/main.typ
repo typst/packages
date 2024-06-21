@@ -1,6 +1,4 @@
 #import "@local/supercharged-dhbw:1.5.0": *
-#import "appendix.typ": appendix
-#import "abstract.typ": abstract
 #import "acronyms.typ": acronyms
 
 #show: supercharged-dhbw.with(
@@ -13,31 +11,15 @@
       (name: "ABC S.L.", post-code: "08005", city: "Barcelona", country: "Spain")
     )),
   ),
-  language: "en", // en, de
-  at-dhbw: false, // if true the company name on the title page and the confidentiality statement are hidden
-  show-confidentiality-statement: true,
-  show-declaration-of-authorship: true,
-  show-table-of-contents: true,
-  show-acronyms: true,
-  show-list-of-figures: true,
-  show-list-of-tables: true,
-  show-code-snippets: true,
-  show-appendix: false,
-  show-abstract: true,
-  show-header: true,
-  numbering-alignment: center, // left, center, right
-  toc-depth: 3, // depth of the table of contents
-  abstract: abstract, // displays the abstract defined in the abstract.typ file
-  appendix: appendix, // displays the appendix defined in the appendix.typ file
   acronyms: acronyms, // displays the acronyms defined in the acronyms.typ file
+  at-dhbw: false, // if true the company name on the title page and the confidentiality statement are hidden
+  bibliography: bibliography("sources.bib"),
+  date: datetime.today(),
+  language: "en", // en, de
+  supervisor: "John Appleseed",
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
-  supervisor: "John Appleseed",
-  date: datetime.today(),
-  bibliography: bibliography("sources.bib"),
-  logo-left: image("assets/logos/dhbw.svg"),
-  // logo-right: image("assets/logos/company.svg"),
-  logo-size-ratio: "2:1" // ratio between the right logo and the left logo height (left-logo:right-logo) only the right logo is resized
+  // for more options check the package documentation (https://typst.app/universe/package/supercharged-dhbw)
 )
 
 // Edit this content to your liking
@@ -78,7 +60,7 @@ Create figures or tables like this:
 
 === Figures
 
-#figure(caption: "Image Example", image(width: 4cm, "assets/images/ts.svg"))
+#figure(caption: "Image Example", image(width: 4cm, "assets/ts.svg"))
 
 === Tables
 

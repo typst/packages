@@ -31,7 +31,7 @@
   align(center, text(weight: "semibold", font: heading-font, 2em, title))
 
   if (many-authors) {
-    v(2em)
+    v(1.5em)
   } else {
     v(4em)
   }
@@ -55,7 +55,7 @@
   }]))
 
   if (many-authors) {
-    v(1.5em)
+    v(0.8em)
   } else {
     v(3em)
   }
@@ -67,7 +67,7 @@
   }))
   
     if (many-authors) {
-    v(1em)
+    v(0.8em)
   } else {
     v(2em)
   }
@@ -86,7 +86,7 @@
   )
 
   if (many-authors) {
-    v(1em)
+    v(0.8em)
   } else {
     v(2em)
   }

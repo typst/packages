@@ -56,6 +56,12 @@
     panic("Author is missing. Specify authors in the 'authors' attribute of the template.")
   }
 
+  if (not at-dhbw and authors.len() > 6) {
+    panic("Too many authors. Specify a maximum of 6 authors in the 'authors' attribute of the template.")
+  } else if (authors.len() > 8) {
+    panic("Too many authors. Specify a maximum of 8 authors in the 'authors' attribute of the template.")
+  }
+
   for author in authors {
     if (
       "name" not in author or

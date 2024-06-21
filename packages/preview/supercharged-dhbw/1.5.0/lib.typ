@@ -34,7 +34,7 @@
   supervisor: none,
   date: datetime.today(),
   bibliography: none,
-  logo-left: none,
+  logo-left: image("dhbw.svg"),
   logo-right: none,
   logo-size-ratio: "1:1",
   body,
@@ -73,8 +73,7 @@
 
   // set the document's basic properties
   set document(title: title, author: authors.map(author => author.name))
-  let author-count = authors.len()
-  let many-authors = author-count > 4
+  let many-authors = authors.len() > 3
 
   init-acronyms(acronyms)
 
