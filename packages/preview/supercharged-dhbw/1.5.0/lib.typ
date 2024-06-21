@@ -238,7 +238,7 @@
     }], indent: auto, depth: toc-depth)
   }
     
-  if (show-acronyms and acronyms.len() > 0) {
+  if (show-acronyms and acronyms != none and acronyms.len() > 0) {
     print-index(language, acronym-spacing)
   }
 
