@@ -8,7 +8,7 @@ repository = "https://github.com/JamesxX/chemicoms-paper"
 keywords = ["paper", "article", "journal", "conference"]
 categories = ["paper"]
 description = "An RSC-style paper template to publish at conferences and journals"
-exclude = ["README.md", "CHANGELOG.md", "Justfile", "docs", "tests", ".github"]
+exclude = ["CHANGELOG.md", "Justfile", "docs", "tests", ".github"]
 
 [template]
 path = "template"
