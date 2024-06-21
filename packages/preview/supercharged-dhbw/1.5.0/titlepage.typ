@@ -127,14 +127,10 @@
     )
   } else {
     grid(
-      columns: (if (language == "de") {
-        200pt
-      } else {
-        180pt
-      }, auto),
+      columns: (180pt, auto),
       gutter: 11pt,
       text(weight: "semibold", if (language == "de") {
-        [Matrikelnummer, Studiengang:]
+        [Matrikelnummer, Kurs:]
       } else {
         [Student ID, Course:]
       }),
