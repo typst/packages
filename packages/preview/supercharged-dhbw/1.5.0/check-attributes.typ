@@ -3,6 +3,8 @@
     authors,
     language,
     at-dhbw,
+    type-of-thesis,
+    type-of-degree,
     show-confidentiality-statement,
     show-declaration-of-authorship,
     show-table-of-contents,
@@ -52,14 +54,48 @@
     }
   }
 
+  let string-attributes = (
+    university: university,
+    university-location: university-location,
+    supervisor: supervisor,
+  )
+
+  for (key, attribute) in string-attributes {
+    if (type(attribute) != str or attribute.len() == 0) {
+      panic("Attribute '" + key + "' is missing. Specify a " + key + " in the '" + key + "' attribute of the template.")
+    }
+  }
+
+  let optional-string-attributes = (
+    type-of-thesis: type-of-thesis,
+    type-of-degree: type-of-degree,
+  )
+
+  for (key, attribute) in optional-string-attributes {
+    if (attribute != none and (type(attribute) != str or attribute.len() == 0)) {
+      panic("Attribute '" + key + "' is invalid. Specify a string in the '" + key + "' attribute of the template.")
+    }
+  }
+
   if (authors == none or authors == ()) {
     panic("Author is missing. Specify authors in the 'authors' attribute of the template.")
   }
 
-  if (not at-dhbw and authors.len() > 6) {
-    panic("Too many authors. Specify a maximum of 6 authors in the 'authors' attribute of the template.")
-  } else if (authors.len() > 8) {
-    panic("Too many authors. Specify a maximum of 8 authors in the 'authors' attribute of the template.")
+  let max-authors = if at-dhbw {
+    8
+  } else {
+    6
+  }
+
+  if (
+    (type-of-thesis != none and type-of-thesis != "") or
+    (type-of-degree != none and type-of-degree != "")
+  ) {
+    max-authors -= 2
+  }
+
+  if (authors.len() > max-authors) {
+    panic("Too many authors. Specify a maximum of " + str(max-authors) + " authors in the 'authors' attribute of the template. To increase the maximum number of authors (max. 8), change one of the following attributes: 'at-dhbw', 'type-of-thesis', 'type-of-degree'. (See the package documentation for more information.)")
   }
 
   for author in authors {
@@ -102,18 +138,6 @@
 
   if (language != "en" and language != "de") {
     panic("Language is invalid. Specify 'en' for English or 'de' for German in the 'language' attribute of the template.")
-  }
-
-  let string-attributes = (
-    university: university,
-    university-location: university-location,
-    supervisor: supervisor
-  )
-
-  for (key, attribute) in string-attributes {
-    if (type(attribute) != str or attribute.len() == 0) {
-      panic("Attribute '" + key + "' is missing. Specify a " + key + " in the '" + key + "' attribute of the template.")
-    }
   }
 
   if (type(numbering-alignment) != alignment) {

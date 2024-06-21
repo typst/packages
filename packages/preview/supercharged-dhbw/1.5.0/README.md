@@ -70,7 +70,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `acronym-spacing`: Spacing between the acronym and its long form, default is `5em`
 
-`acronyms`: Content of the acronyms
+`acronyms`: Pass a dictionary containing the acronyms and their long forms (See the example in the `acronyms.typ` file)
 
 `appendix`: Content of the appendix, it is recommended that you pass a variable containing the content or a function that returns the content
 
@@ -114,6 +114,10 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `toc-depth`: Depth of the table of contents, default is `3`
 
+`type-of-thesis`: Type of the thesis, default is `none` (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
+
+`type-of-degree`: Type of the degree, default is `none` (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
+
 `university*`: Name of the university
 
 `university-location*`: Campus or city of the university
@@ -137,7 +141,7 @@ If you want to change an existing project to use this template, you can add a sh
       (name: "ABC S.L.", post-code: "08005", city: "Barcelona", country: "Spain")
     )),
   ),
-  acronyms: acronyms, // displays the acronyms defined in the acronyms.typ file
+  acronyms: acronyms, // displays the acronyms defined in the acronyms dictionary
   at-dhbw: false, // if true the company name on the title page and the confidentiality statement are hidden
   bibliography: bibliography("sources.bib"),
   date: datetime.today(),

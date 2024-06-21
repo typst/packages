@@ -13,6 +13,8 @@
   authors: (),
   language: none,
   at-dhbw: none,
+  type-of-thesis: none,
+  type-of-degree: none,
   show-confidentiality-statement: true,
   show-declaration-of-authorship: true,
   show-table-of-contents: true,
@@ -45,6 +47,8 @@
     authors,
     language,
     at-dhbw,
+    type-of-thesis,
+    type-of-degree,
     show-confidentiality-statement,
     show-declaration-of-authorship,
     show-table-of-contents,
@@ -110,7 +114,24 @@
   show heading.where(level: 2): it => v(1em) + it + v(0.5em)
   show heading.where(level: 3): it => v(0.5em) + it + v(0.25em)
 
-  titlepage(authors, title, language, date, at-dhbw, logo-left, logo-right, left-logo-height, right-logo-height, university, university-location, supervisor, heading-font, many-authors)
+  titlepage(
+    authors,
+    date,
+    heading-font,
+    language,
+    left-logo-height,
+    logo-left,
+    logo-right,
+    many-authors,
+    right-logo-height,
+    supervisor,
+    title,
+    type-of-degree,
+    type-of-thesis,
+    university,
+    university-location,
+    at-dhbw
+  )
 
   set page(
     margin: (top: 8em, bottom: 8em),

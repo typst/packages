@@ -1,5 +1,24 @@
-#let titlepage(authors, title, language, date, at-dhbw, logo-left, logo-right, left-logo-height, right-logo-height, university, university-location, supervisor, heading-font, many-authors) = {
+#let titlepage(
+  authors,
+  date,
+  heading-font,
+  language,
+  left-logo-height,
+  logo-left,
+  logo-right,
+  many-authors,
+  right-logo-height,
+  supervisor,
+  title,
+  type-of-degree,
+  type-of-thesis,
+  university,
+  university-location,
+  at-dhbw
+) = {
   if (many-authors) {
+    v(-1.5em)
+  } else {
     v(-1em)
   }
 
@@ -31,10 +50,27 @@
   align(center, text(weight: "semibold", font: heading-font, 2em, title))
 
   if (many-authors) {
-    v(1.5em)
+    v(0.5em)
   } else {
-    v(4em)
+    v(1.5em)
   }
+
+  if (type-of-thesis != none and type-of-thesis.len() > 0) {
+    align(center, text(weight: "semibold", 1.25em, type-of-thesis))
+    v(0.5em)
+  }
+
+  if (type-of-degree != none and type-of-degree.len() > 0) {
+    align(center, text(1em, [#if (language == "de") {
+      [für den Erwerb des]
+    } else {
+      [for the]
+    }]))
+
+    v(-0.25em)
+    align(center, text(weight: "semibold", 1.25em, type-of-degree))
+  }
+  v(1.5em)
 
   align(center, text(1.2em, [#if (language == "de") {
     [aus dem Studiengang #authors.map(author => author.course-of-studies).dedup().join(" | ")]
