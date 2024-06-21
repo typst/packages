@@ -3,15 +3,16 @@
 #import "confidentiality-statement.typ": *
 #import "declaration-of-authorship.typ": *
 #import "acronym-lib.typ": *
+#import "check-attributes.typ": *
 
 // Workaround for the lack of an `std` scope.
 #let std-bibliography = bibliography
 
 #let supercharged-dhbw(
-  title: "",
-  authors: (:),
-  language: "en",
-  at-dhbw: false,
+  title: none,
+  authors: (),
+  language: none,
+  at-dhbw: none,
   show-confidentiality-statement: true,
   show-declaration-of-authorship: true,
   show-table-of-contents: true,
@@ -28,9 +29,9 @@
   abstract: none,
   appendix: none,
   acronyms: none,
-  university: "",
-  university-location: "",
-  supervisor: "",
+  university: none,
+  university-location: none,
+  supervisor: none,
   date: datetime.today(),
   bibliography: none,
   logo-left: none,
@@ -38,6 +39,38 @@
   logo-size-ratio: "1:1",
   body,
 ) = {
+  // check required attributes
+  check-attributes(
+    title,
+    authors,
+    language,
+    at-dhbw,
+    show-confidentiality-statement,
+    show-declaration-of-authorship,
+    show-table-of-contents,
+    show-acronyms,
+    show-list-of-figures,
+    show-list-of-tables,
+    show-code-snippets,
+    show-appendix,
+    show-abstract,
+    show-header,
+    numbering-alignment,
+    toc-depth,
+    acronym-spacing,
+    abstract,
+    appendix,
+    acronyms,
+    university,
+    university-location,
+    supervisor,
+    date,
+    bibliography,
+    logo-left,
+    logo-right,
+    logo-size-ratio,
+  )
+
   // set the document's basic properties
   set document(title: title, author: authors.map(author => author.name))
   let author-count = authors.len()

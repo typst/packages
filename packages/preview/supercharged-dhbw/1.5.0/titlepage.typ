@@ -153,8 +153,45 @@
       stack(
         dir: ttb,
         for author in authors {
-          let company-address = text([#author.company.name, #author.company.post-code, #author.company.city])
-          if (author.company.country != "") {
+          let company-address = ""
+
+          if (
+            "name" in author.company and
+            author.company.name != none and
+            author.company.name != ""
+            ) {
+            company-address+= author.company.name
+          } else {
+            if (not at-dhbw) {
+              panic("Author '" + author.name + "' is missing a company name. Add the 'name' attribute to the company object.")
+            }
+          }
+
+          if (
+            "post-code" in author.company and
+            author.company.post-code != none and
+            author.company.post-code != ""
+            ) {
+            company-address+= text([, #author.company.post-code])
+          }
+
+          if (
+            "city" in author.company and
+            author.company.city != none and
+            author.company.city != ""
+            ) {
+            company-address+= text([, #author.company.city])
+          } else {
+            if (not at-dhbw) {
+              panic("Author '" + author.name + "' is missing the city of the company. Add the 'city' attribute to the company object.")
+            }
+          }
+
+          if (
+            "country" in author.company and
+            author.company.country != none and
+            author.company.country != ""
+            ) {
             company-address+= text([, #author.company.country])
           }
           

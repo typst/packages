@@ -6,11 +6,11 @@
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
   authors: (
-    (name: "Juan Pérez", student-id: "1234567", course: "TIM21", course-of-studies: "Mobile Computer Science", company: (
-      (name: "ABC AG", post-code: "08005", city: "Barcelona", country: "Spain")
-    )),
     (name: "Max Mustermann", student-id: "7654321", course: "TIS21", course-of-studies: "IT-Security", company: (
-      (name: "YXZ GmbH", post-code: "70435", city: "Stuttgart", country: "")
+      (name: "YXZ GmbH", post-code: "70435", city: "Stuttgart")
+    )),
+    (name: "Juan Pérez", student-id: "1234567", course: "TIM21", course-of-studies: "Mobile Computer Science", company: (
+      (name: "ABC S.L.", post-code: "08005", city: "Barcelona", country: "Spain")
     )),
   ),
   language: "en", // en, de
@@ -37,7 +37,7 @@
   bibliography: bibliography("sources.bib"),
   logo-left: image("assets/logos/dhbw.svg"),
   // logo-right: image("assets/logos/company.svg"),
-  // logo-size-ratio: "2:1" // ratio between the right logo and the left logo height (left-logo:right-logo) only the right logo is resized
+  logo-size-ratio: "2:1" // ratio between the right logo and the left logo height (left-logo:right-logo) only the right logo is resized
 )
 
 // Edit this content to your liking
