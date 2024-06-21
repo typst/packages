@@ -6,13 +6,13 @@
 
 // Reset a specific acronym
 // It will be expanded on next use
-#let reset-acronym(acr) = { 
+#let reset-acronym(acr) = {
     state(prefix + acr, false).update(false)
 }
 
 // Reset all acronyms
 // They will all be expanded on the next use
-#let reset-all-acronyms() = { 
+#let reset-all-acronyms() = {
   state("acronyms",none).display(acronyms =>
     for acr in acronyms.keys() {
       reset-acronym(acr)
@@ -43,7 +43,11 @@
 
 // Display acronym in short form
 #let acrs(acr, plural: false, link: true) = {
-  if plural {display(acr, acr + "s", link: link)} else {display(acr, acr, link: link)}
+  if plural {
+    display(acr, acr + "s", link: link)
+  } else {
+    display(acr, acr, link: link)
+  }
 }
 // Display acronym in short plural form
 #let acrspl(acr, link: true) = {
@@ -106,11 +110,15 @@
   state(prefix + acr, false).display(seen => {
     if seen {
       if plural {
-        acrspl(acr, link: link)} else {acrs(acr, link: link)
+        acrspl(acr, link: link)
+      } else {
+        acrs(acr, link: link)
       }
     } else {
       if plural {
-        acrfpl(acr, link: link)} else {acrf(acr, link: link)
+        acrfpl(acr, link: link)
+      } else {
+        acrf(acr, link: link)
       }
     }
   })
@@ -121,7 +129,7 @@
 }
 
 // Print an index of all the acronyms and their definitions.
-#let print-index(language) = {
+#let print-index(language, acronym-spacing) = {
   heading(level: 1, outlined: false, numbering: none)[#if (language == "de") {
     [Abkürzungsverzeichnis]
   } else {
@@ -145,7 +153,7 @@
     for acr in acr-list{
       grid(
         columns: (max-width, auto),
-        gutter: 5em,
+        gutter: acronym-spacing,
         [*#acr#label(acr)*], [#acrl(acr, link: false)]
       )
     }

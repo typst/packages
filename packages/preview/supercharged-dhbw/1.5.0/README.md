@@ -93,6 +93,8 @@ is `true`
 
 `toc-depth`: Depth of the table of contents, default is `3`
 
+`acronym-spacing`: Spacing between the acronym and its long from, default is `5em`
+
 `abstract`: Content of the abstract
 
 `appendix`: Content of the appendix

@@ -24,6 +24,7 @@
   show-header: true,
   numbering-alignment: center,
   toc-depth: 3,
+  acronym-spacing: 5em,
   abstract: none,
   appendix: none,
   acronyms: none,
@@ -67,7 +68,8 @@
   set heading(numbering: "1.")
  
   // set link style
-  show link: it => underline(text(it))
+  // TODO only show links where the body is not in acronyms
+  // show link.where(body: body not in acronyms): it => text(fill: blue, it)
   
   show heading.where(level: 1): it => {
     pagebreak()
@@ -184,7 +186,7 @@
   }
     
   if (show-acronyms and acronyms.len() > 0) {
-    print-index(language)
+    print-index(language, acronym-spacing)
   }
 
   set par(justify: true, leading: 1em)
