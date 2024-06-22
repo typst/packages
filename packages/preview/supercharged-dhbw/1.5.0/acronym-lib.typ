@@ -1,23 +1,8 @@
 #let prefix = "acronym-state-"
 #let acros = state("acronyms", none)
+
 #let init-acronyms(acronyms) = {
   acros.update(acronyms)
-}
-
-// Reset a specific acronym
-// It will be expanded on next use
-#let reset-acronym(acr) = {
-    state(prefix + acr, false).update(false)
-}
-
-// Reset all acronyms
-// They will all be expanded on the next use
-#let reset-all-acronyms() = {
-  state("acronyms",none).display(acronyms =>
-    for acr in acronyms.keys() {
-      reset-acronym(acr)
-    }
-  )
 }
 
 // Check if an acronym exists
@@ -123,13 +108,14 @@
     }
   })
 }
+
 // Display acronym in the plural form. Expands it if used for the first time. 
 #let acrpl(acronym, link: true) = {
   acr(acronym, plural: true, link: link)
 }
 
 // Print an index of all the acronyms and their definitions.
-#let print-index(language, acronym-spacing) = {
+#let print-acronyms(language, acronym-spacing) = {
   heading(level: 1, outlined: false, numbering: none)[#if (language == "de") {
     [Abkürzungsverzeichnis]
   } else {

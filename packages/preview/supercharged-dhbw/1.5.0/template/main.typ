@@ -38,9 +38,12 @@
 
 == Acronyms
 
-Use the `acr` function to insert acronyms, which looks like this #acr("API").
+Use the `acr` function to insert acronyms, which looks like this #acr("HTTP").
 
-#acr("AWS")
+#acrlpl("API") are used to define the interaction between different software systems.
+
+#acrs("REST") is an architectural style for networked applications.
+
 
 == Lists
 

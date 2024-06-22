@@ -1,8 +1,8 @@
 #import "@preview/codelst:2.0.1": *
+#import "acronym-lib.typ": init-acronyms, print-acronyms, acr, acrpl, acrs, acrspl, acrl, acrlpl, acrf, acrfpl
 #import "titlepage.typ": *
 #import "confidentiality-statement.typ": *
 #import "declaration-of-authorship.typ": *
-#import "acronym-lib.typ": *
 #import "check-attributes.typ": *
 
 // Workaround for the lack of an `std` scope.
@@ -105,7 +105,7 @@
  
   // set link style
   // TODO only show links where the body is not in acronyms
-  // show link.where(body: body not in acronyms): it => text(fill: blue, it)
+  // show link.where(body: body not in acronyms.keys()): it => text(fill: blue, it)
   
   show heading.where(level: 1): it => {
     pagebreak()
@@ -239,7 +239,7 @@
   }
     
   if (show-acronyms and acronyms != none and acronyms.len() > 0) {
-    print-index(language, acronym-spacing)
+    print-acronyms(language, acronym-spacing)
   }
 
   set par(justify: true, leading: 1em)

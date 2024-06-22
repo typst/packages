@@ -33,20 +33,6 @@ This template uses the following packages:
 
 - [codelst](https://typst.app/universe/package/codelst): To create code snippets
 
-## Contents
-
-- Title page
-- Confidentiality Statement
-- Declaration of Authorship
-- List of figures
-- List of tables
-- Code snippets
-- Table of contents
-- Acronyms
-- Abstract
-- Bibliography
-- Appendix
-
 A more detailed explanation of the features can be found in the `main.typ` file.
 
 ## Configuration
@@ -123,6 +109,50 @@ This template exports the `supercharged-dhbw` function with the following named 
 `university-location*`: Campus or city of the university
 
 All arguments marked with `*` are required.
+
+## Acronyms
+
+### Functions
+
+This template provides the following functions to reference acronyms:
+
+`acr`: Reference an acronym in the text
+
+`acrpl`: Reference an acronym in the text in plural form
+
+`acrs`: Reference an acronym in the text in short form (e.g. `acr("API")` -> `API`)
+
+`acrspl`: Reference an acronym in the text in short form in plural form (e.g. `acrpl("API")` -> `APIs`)
+
+`acrl`: Reference an acronym in the text in long form (e.g. `acrl("API")` -> `Application Programming Interface`)
+
+`acrlpl`: Reference an acronym in the text in long form in plural form (e.g. `acrlpl("API")` -> `Application Programming Interfaces`)
+
+`acrf`: Reference an acronym in the text in full form (e.g. `acrf("API")` -> `Application Programming Interface (API)`)
+
+`acrfpl`: Reference an acronym in the text in full form in plural form (e.g. `acrfpl("API")` -> `Application Programming Interfaces (API)`)
+
+### Definition
+
+To define acronyms use a dictionary and pass it to the acronyms attribute of the template. The dictionary should contain the acronyms as keys and their long forms as values.
+
+```typst
+#let acronyms = (
+  API: "Application Programming Interface",
+  HTTP: "Hypertext Transfer Protocol",
+  REST: "Representational State Transfer",
+)
+```
+
+To define the plural form of an acronym use a array as value with the first element being the singular form and the second element being the plural form. If you don't define the plural form, the template will automatically add an "s" to the singular form.
+
+```typst
+#let acronyms = (
+  API: ("Application Programming Interface", "Application Programming Interfaces"),
+  HTTP: ("Hypertext Transfer Protocol", "Hypertext Transfer Protocols"),
+  REST: ("Representational State Transfer", "Representational State Transfers"),
+)
+```
 
 ## Example
 
