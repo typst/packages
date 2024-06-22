@@ -148,8 +148,8 @@
     panic("TOC depth is invalid. Specify an integer in the 'toc-depth' attribute of the template.")
   }
 
-  if (type(date) != datetime) {
-    panic("Date is invalid. Specify a datetime in the 'date' attribute of the template.")
+  if (type(date) != datetime and (type(date) != array or date.len() != 2 or type(date.at(0)) != datetime or type(date.at(1)) != datetime)) {
+    panic("Date is invalid. Specify a datetime in the 'date' attribute of the template to display a specific date or use a array containing two datetime elements to display a date range.")
   }
 
   let image-attributes = (

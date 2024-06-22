@@ -64,7 +64,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `bibliography`: Path to the bibliography file
 
-`date*`: Date of the document
+`date*`: `Provide a datetime object to display one date (e.g. submission date) or a array containing two datetime objects to display a date range (e.g. start and end date of the project)`
 
 `language*`: Language of the document which is either `en` or `de`, default is `en`
 

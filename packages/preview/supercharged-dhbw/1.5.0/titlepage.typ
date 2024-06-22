@@ -127,9 +127,11 @@
     v(2em)
   }
 
-  align(center, text(1.2em, date.display(
-    "[day].[month].[year]"
-  )))
+  align(center, text(1.2em, if (type(date) == datetime) {
+    date.display("[day].[month].[year]")
+  } else {
+    [#date.at(0).display("[day].[month].[year]") -- #date.at(1).display("[day].[month].[year]")]
+  }))
 
   v(1fr)
 

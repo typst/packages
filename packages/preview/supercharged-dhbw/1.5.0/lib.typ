@@ -34,7 +34,7 @@
   university: none,
   university-location: none,
   supervisor: none,
-  date: datetime.today(),
+  date: none,
   bibliography: none,
   logo-left: image("dhbw.svg"),
   logo-right: none,

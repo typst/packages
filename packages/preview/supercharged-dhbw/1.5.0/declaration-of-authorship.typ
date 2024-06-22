@@ -34,12 +34,18 @@
     ])
   }
 
+  let end-date = if (type(date) == datetime) {
+    date
+  } else {
+    date.at(1)
+  }
+
   v(2em)
   text([#if (language == "de") {
-    [#authors.map(author => author.company.city).dedup().join(", ", last: " und "), #date.display(
+    [#authors.map(author => author.company.city).dedup().join(", ", last: " und "), #end-date.display(
     "[day].[month].[year]"
   )]} else {
-    [#authors.map(author => author.company.city).dedup().join(", ", last: " and "), #date.display(
+    [#authors.map(author => author.company.city).dedup().join(", ", last: " and "), #end-date.display(
     "[day].[month].[year]"
   )]}])
 
