@@ -1,4 +1,4 @@
-#let confidentiality-statement(authors, title, university, university-location, date, language, many-authors) = {
+#let confidentiality-statement(authors, title, university, university-location, date, language, many-authors, date-format) = {
   v(2em)
   text(size: 20pt, weight: "bold", if (language == "de") {
     "Sperrvermerk"
@@ -51,12 +51,10 @@
 
   v(2em)
   text([#if (language == "de") {
-    [#authors.map(author => author.company.city).dedup().join(", ", last: " und "), #end-date.display(
-    "[day].[month].[year]"
-  )]} else {
-    [#authors.map(author => author.company.city).dedup().join(", ", last: " and "), #end-date.display(
-    "[day].[month].[year]"
-  )]}])
+    [#authors.map(author => author.company.city).dedup().join(", ", last: " und "), #end-date.display(date-format)]
+  } else {
+    [#authors.map(author => author.company.city).dedup().join(", ", last: " and "), #end-date.display(date-format)]
+  }])
 
   v(0.5em)
   if (many-authors) {

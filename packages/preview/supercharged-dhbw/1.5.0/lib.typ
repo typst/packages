@@ -35,6 +35,7 @@
   university-location: none,
   supervisor: none,
   date: none,
+  date-format: "[day].[month].[year]",
   bibliography: none,
   logo-left: image("dhbw.svg"),
   logo-right: none,
@@ -130,7 +131,8 @@
     type-of-thesis,
     university,
     university-location,
-    at-dhbw
+    at-dhbw,
+    date-format,
   )
 
   set page(
@@ -168,11 +170,11 @@
   counter(page).update(1)
 
   if (not at-dhbw and show-confidentiality-statement) {
-    confidentiality-statement(authors, title, university, university-location, date, language, many-authors)
+    confidentiality-statement(authors, title, university, university-location, date, language, many-authors, date-format)
   }
 
   if (show-declaration-of-authorship) {
-    declaration-of-authorship(authors, title, date, language, many-authors)
+    declaration-of-authorship(authors, title, date, language, many-authors, date-format)
   }
 
   show outline.entry.where(

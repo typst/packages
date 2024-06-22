@@ -14,7 +14,8 @@
   type-of-thesis,
   university,
   university-location,
-  at-dhbw
+  at-dhbw,
+  date-format,
 ) = {
   if (many-authors) {
     v(-1.5em)
@@ -128,9 +129,9 @@
   }
 
   align(center, text(1.2em, if (type(date) == datetime) {
-    date.display("[day].[month].[year]")
+    date.display(date-format)
   } else {
-    [#date.at(0).display("[day].[month].[year]") -- #date.at(1).display("[day].[month].[year]")]
+    [#date.at(0).display(date-format) -- #date.at(1).display(date-format)]
   }))
 
   v(1fr)
