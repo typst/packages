@@ -38,37 +38,37 @@ A more detailed explanation of the features can be found in the `main.typ` file.
 ## Configuration
 This template exports the `supercharged-dhbw` function with the following named arguments:
 
-`title* (str)`: Title of the document
+`title (str*)`: Title of the document
 
-`authors* (dictionary)`: List of authors with the following named arguments (max. 6 authors when in the company or 8 authors when at DHBW):
+`authors (dictionary*)`: List of authors with the following named arguments (max. 6 authors when in the company or 8 authors when at DHBW):
     
-    - name* (str): Name of the author
-    - student-id* (str): Student ID of the author
-    - course* (str): Course of the author
-    - course-of-studies* (str): Course of studies of the author
+    - name (str*): Name of the author
+    - student-id (str*): Student ID of the author
+    - course (str*): Course of the author
+    - course-of-studies (str*): Course of studies of the author
     - company (dictionary): Company of the author
-        - name* (str): Name of the company
+        - name (str*): Name of the company
         - post-code (str): Post code of the company
-        - city* (str): City of the company
+        - city (str*): City of the company
         - country (str): Country of the company
 
 `abstract (content)`: Content of the abstract, it is recommended that you pass a variable containing the content or a function that returns the content
 
-`acronym-spacing (length)`: Spacing between the acronym and its long form, default is `5em`
+`acronym-spacing (length)`: Spacing between the acronym and its long form (check the [Typst documentation](https://typst.app/docs/reference/layout/length/) for examples on how to provide parameters of type length), default is `5em`
 
 `acronyms (dictionary)`: Pass a dictionary containing the acronyms and their long forms (See the example in the `acronyms.typ` file)
 
 `appendix (content)`: Content of the appendix, it is recommended that you pass a variable containing the content or a function that returns the content
 
-`at-dhbw* (boolean)`: Whether the document is written at the DHBW or not, default is `false`
+`at-dhbw* (bool)`: Whether the document is written at the DHBW or not, default is `false`
 
-`bibliography (bibliography)`: Path to the bibliography file
+`bibliography (content)`: Path to the bibliography file
 
-`date* (datetime | array)`: `Provide a datetime object to display one date (e.g. submission date) or a array containing two datetime objects to display a date range (e.g. start and end date of the project)`
+`date (datetime* | array*)`: Provide a datetime object to display one date (e.g. submission date) or a array containing two datetime objects to display a date range (e.g. start and end date of the project), default is `datetime.today()`
 
 `date-format (str)`: Format of the displayed dates, default is `"[day].[month].[year]"` (for more information on possible formats check the [Typst documentation](https://typst.app/docs/reference/foundations/datetime/#format))
 
-`language* (str)`: Language of the document which is either `en` or `de`, default is `en`
+`language (str*)`: Language of the document which is either `en` or `de`, default is `en`
 
 `logo-left (content)`: Path to the logo on the left side of the title page (usage: image("path/to/image.png")), default is the `DHBW logo`
 
@@ -78,27 +78,27 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `numbering-alignment (alignment)`: Alignment of the page numbering (for possible options check the [Typst documentation](https://typst.app/docs/reference/layout/alignment/)), default is `center`
 
-`show-abstract (boolean)`: Whether the abstract should be shown, default is `true`
+`show-abstract (bool)`: Whether the abstract should be shown, default is `true`
 
-`show-acronyms (boolean)`: Whether the list of acronyms should be shown, default is `true`
+`show-acronyms (bool)`: Whether the list of acronyms should be shown, default is `true`
 
-`show-appendix (boolean)`: Whether the appendix should be shown, default is `false`
+`show-appendix (bool)`: Whether the appendix should be shown, default is `false`
 
-`show-code-snippets (boolean)`: Whether the code snippets should be shown, default is `true`
+`show-code-snippets (bool)`: Whether the code snippets should be shown, default is `true`
 
-`show-confidentiality-statement (boolean)`: Whether the confidentiality statement should be shown, default is `true`
+`show-confidentiality-statement (bool)`: Whether the confidentiality statement should be shown, default is `true`
 
-`show-declaration-of-authorship (boolean)`: Whether the declaration of authorship should be shown, default is `true`
+`show-declaration-of-authorship (bool)`: Whether the declaration of authorship should be shown, default is `true`
 
-`show-header (boolean)`: Whether the header should be shown, default is `true`
+`show-header (bool)`: Whether the header should be shown, default is `true`
 
-`show-list-of-figures (boolean)`: Whether the list of figures should be shown, default is `true`
+`show-list-of-figures (bool)`: Whether the list of figures should be shown, default is `true`
 
-`show-list-of-tables (boolean)`: Whether the list of tables should be shown, default is `true`
+`show-list-of-tables (bool)`: Whether the list of tables should be shown, default is `true`
 
-`show-table-of-contents (boolean)`: Whether the table of contents should be shown, default is `true`
+`show-table-of-contents (bool)`: Whether the table of contents should be shown, default is `true`
 
-`supervisor* (str)`: Name of the supervisor at the university or company
+`supervisor (str*)`: Name of the supervisor at the university or company
 
 `toc-depth (int)`: Depth of the table of contents, default is `3`
 
@@ -106,11 +106,11 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `type-of-degree (str)`: Type of the degree, default is `none` (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
 
-`university* (str)`: Name of the university
+`university (str*)`: Name of the university
 
-`university-location* (str)`: Campus or city of the university
+`university-location (str*)`: Campus or city of the university
 
-All arguments marked with `*` are required. Behind the arguments the type of the value is given in parentheses.
+Behind the arguments the type of the value is given in parentheses. All arguments marked with `*` are required. 
 
 ## Acronyms
 
