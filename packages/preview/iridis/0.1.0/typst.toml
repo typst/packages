@@ -6,4 +6,4 @@ authors = ["Robotechnic <@Robotechnic>"]
 license = "MIT"
 compiler = "0.11.0"
 description = "A package to colors matching parenthesis"
-ignore = ["generate_images.sh", "generate_images.awk", ".gitignore","images"]
+exclude = ["generate_images.sh", "generate_images.awk", ".gitignore","images"]
