@@ -1,0 +1,11 @@
+[package]
+name = "salsa-dip"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Ashlen Plasek <https://gitlab.com/users/ashplasek>"]
+license = "MIT"
+description = "DIP chip labels for Typst"
+repository = "https://gitlab.com/ashplasek/salsa-dip"
+exclude = [
+  "/examples/"
+]
