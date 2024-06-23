@@ -104,9 +104,14 @@
   //heading numbering
   set heading(numbering: "1.")
  
-  // set link style
-  // TODO only show links where the body is not in acronyms
-  // show link.where(body: body not in acronyms.keys()): it => text(fill: blue, it)
+  // set link style for links that are not acronyms
+  show link: it => if (
+    str(it.dest) not in (acronyms.keys().map(acr => ("acronym-" + acr)))
+  ) {
+    text(fill: blue, it)
+  } else {
+    it
+  }
   
   show heading.where(level: 1): it => {
     pagebreak()

@@ -44,7 +44,6 @@ Use the `acr` function to insert acronyms, which looks like this #acr("HTTP").
 
 #acrs("REST") is an architectural style for networked applications.
 
-
 == Lists
 
 Create bullet lists or numbered lists.
