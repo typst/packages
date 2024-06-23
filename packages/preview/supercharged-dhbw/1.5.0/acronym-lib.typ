@@ -18,12 +18,18 @@
 
 // Display acronym as clickable link
 #let display-link(acr, text) = {
-  if is-valid(acr) {link(label(acr), text)}
+  if is-valid(acr) {
+    link(label("acronym-" + acr), text)
+  }
 }
 
 // Display acronym
 #let display(acr, text, link: true) = {
-  if link {display-link(acr, text)} else {text}
+  if link {
+    display-link(acr, text)
+  } else {
+    text
+  }
 }
 
 // Display acronym in short form
@@ -140,7 +146,7 @@
       grid(
         columns: (max-width, auto),
         gutter: acronym-spacing,
-        [*#acr#label(acr)*], [#acrl(acr, link: false)]
+        [*#acr#label("acronym-" + acr)*], [#acrl(acr, link: false)]
       )
     }
   })
