@@ -6,6 +6,6 @@ authors = ["Le_Foucheur"]
 license = "MIT"
 description = "A simple package to make variation table"
 repository = "https://github.com/Le-foucheur/Typst-VarTable"
-categories = "visualization"
+categories = ["visualization"]
 keywords = ["variation table", "variation", "table", "variationtable"]
 exclude = ["./exemples", "documentation.pdf", "documentation.typ"]
