@@ -223,19 +223,28 @@
     },
 
     // supervisor
-    if (at-university) {
-      text(weight: "semibold", if (language == "de") {
-        "Betreuer an der DHBW:"
-      } else {
-        "Supervisor at DHBW:"
-      })
-    } else {
+    // company
+    if ("company" in supervisor) {
       text(weight: "semibold", if (language == "de") {
         "Betreuer im Unternehmen:"
       } else {
         "Supervisor in the Company:"
       })
     },
-    text[#supervisor]
+    if ("company" in supervisor and type(supervisor.company) == str) {
+      text(supervisor.company)
+    },
+
+    // university
+    if ("university" in supervisor) {
+      text(weight: "semibold", if (language == "de") {
+        "Betreuer an der DHBW:"
+      } else {
+        "Supervisor at DHBW:"
+      })
+    },
+    if ("university" in supervisor and type(supervisor.university) == str) {
+      text(supervisor.university)
+    }
   )
 }

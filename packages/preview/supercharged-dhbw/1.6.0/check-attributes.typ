@@ -58,7 +58,6 @@
   let string-attributes = (
     university: university,
     university-location: university-location,
-    supervisor: supervisor,
   )
 
   for (key, attribute) in string-attributes {
@@ -190,5 +189,12 @@
 
   if (type(bibliography) != content and bibliography != none) {
     panic("Bibliography is invalid. Specify a bibliography in the 'bibliography' attribute of the template.")
+  }
+
+  if (type(supervisor) != dictionary or
+    ("company" not in supervisor or supervisor.company == none or supervisor.company == "") and
+    ("university" not in supervisor or supervisor.university == none or supervisor.university == "")
+  ) {
+    panic("Supervisor(s) is/are invalid. Specify a supervisor either for the company and/or the university in the 'supervisor' attribute of the template.")
   }
 }

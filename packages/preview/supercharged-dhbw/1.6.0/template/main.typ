@@ -16,7 +16,7 @@
   bibliography: bibliography("sources.bib"),
   date: datetime.today(),
   language: "en", // en, de
-  supervisor: "John Appleseed",
+  supervisor: (company: "John Appleseed"),
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
   // for more options check the package documentation (https://typst.app/universe/package/supercharged-dhbw)

@@ -34,7 +34,7 @@
   university: none,
   university-location: none,
   city: none,
-  supervisor: none,
+  supervisor: (:),
   date: none,
   date-format: "[day].[month].[year]",
   bibliography: none,

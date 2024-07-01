@@ -100,7 +100,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `show-table-of-contents (bool)`: Whether the table of contents should be shown, default is `true`
 
-`supervisor (str*)`: Name of the supervisor at the university or company
+`supervisor (dict*)`: Name of the supervisor at the university and/or company (e.g. supervisor: (company: "John Doe", university: "Jane Doe"))
 
 `toc-depth (int)`: Depth of the table of contents, default is `3`
 
