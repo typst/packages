@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches: ['*', '!main']
+  pull_request: {}
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: bundler
+
+      - name: Build bundler
+        run: cargo build --release --manifest-path bundler/Cargo.toml
+
+      - name: Test packaging
+        run: bundler/target/release/bundler

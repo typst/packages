@@ -1,0 +1,9 @@
+tud_design_guide/**
+templates/tudapub/fonts/*/*
+
+*.pdf
+tudapub*.pdf
+example_*.pdf
+test*.pdf
+
+!example_tudapub.pdf
