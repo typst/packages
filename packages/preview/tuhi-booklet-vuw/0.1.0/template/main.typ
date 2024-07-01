@@ -1,4 +1,4 @@
-#import "@preview/tuhi-booklet-vuw:0.1.0": course_info, tuhi-booklet-vuw, sentence_case, fmt_email, fmt_person
+#import "@preview/tuhi-booklet-vuw:0.1.0": course-info, tuhi-booklet-vuw, sentence-case, fmt-email, fmt-person 
 
 
 #let info = json("teas.json")
@@ -47,9 +47,9 @@
 
 All enquiries about undergraduate courses should be directed to the Programme Director:
 
-- For gong fu: #fmt_person(pc_gf) (#fmt_email(pc_gf))
+- For gong fu: #fmt-person(pc_gf) (#fmt-email(pc_gf))
 
-- For teaware: #fmt_person(pc_tw)  (#fmt_email(pc_tw))
+- For teaware: #fmt-person(pc_tw)  (#fmt-email(pc_tw))
 
 #pagebreak(weak: true)
 
@@ -59,30 +59,30 @@ All enquiries about undergraduate courses should be directed to the Programme Di
 
 == 100-level courses
 
-#course_info(info.teas101)
-#course_info(info.teas102)
-#course_info(info.teas103)
+#course-info(info.teas101)
+#course-info(info.teas102)
+#course-info(info.teas103)
 
 == 200-level courses
 
-#course_info(info.teas202)
-#course_info(info.teas204)
+#course-info(info.teas202)
+#course-info(info.teas204)
 
 == 300-level courses
 
-#course_info(info.teas301)
-#course_info(info.teas302)
-#course_info(info.teas305)
+#course-info(info.teas301)
+#course-info(info.teas302)
+#course-info(info.teas305)
 
 == 400-level courses
 
-#course_info(info.teas401)
-#course_info(info.teas402)
-#course_info(info.teas403)
+#course-info(info.teas401)
+#course-info(info.teas402)
+#course-info(info.teas403)
 
 == 500-level courses
 
-#course_info(info.teas502)
+#course-info(info.teas502)
 
 
 #pagebreak()
@@ -92,7 +92,7 @@ All enquiries about undergraduate courses should be directed to the Programme Di
 
 = Who to contact
 
-#let info_row(x) = ([#fmt_person(x)], [#x.office], [#x.phone])
+#let info-row(x) = ([#fmt-person(x)], [#x.office], [#x.phone])
 
 == Student Success Team
 
@@ -116,11 +116,11 @@ column-gutter: 10pt,
 rows: auto,
 row-gutter: 9pt,
 // [Contact],[Name],[Room],[Phone],
- [Head of School] , ..info_row(info_school.haku),
- [Deputy Head of School (tea)],..info_row(info_school.kamaji),
- [Deputy Head of School (pots)],..info_row(info_school.no_face),
- [School Manager	], ..info_row(info_school.lin),
- [General Enquiries], ..info_row(info_school.yubaaba),
+ [Head of School] , ..info-row(info_school.haku),
+ [Deputy Head of School (tea)],..info-row(info_school.kamaji),
+ [Deputy Head of School (pots)],..info-row(info_school.no_face),
+ [School Manager	], ..info-row(info_school.lin),
+ [General Enquiries], ..info-row(info_school.yubaaba),
 )
 
 == Brewing Enquiries			
@@ -130,8 +130,8 @@ column-gutter: 10pt,
 rows: auto,
 row-gutter: 9pt,
 // [Contact],[Name],[Room],[Phone],
- [Undergraduate teaspoon-level], ..info_row(info_school.zeniba),
- [Undergraduate teacup-level], ..info_row(info_school.kamaji)
+ [Undergraduate teaspoon-level], ..info-row(info_school.zeniba),
+ [Undergraduate teacup-level], ..info-row(info_school.kamaji)
 )
 	 		
 			
