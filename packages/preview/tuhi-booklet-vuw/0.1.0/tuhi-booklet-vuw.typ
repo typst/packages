@@ -1,18 +1,18 @@
 
 #let smcps = (x) => text(tracking: 0.8pt)[#smallcaps[#lower(x)]]
 
-#let sentence_case(x) = text[#upper(x.at(0))#x.slice(1)]
+#let sentence-case(x) = text[#upper(x.at(0))#x.slice(1)]
 
-#let fmt_person(x) = text[#if(x.title != ""){x.title} #x.preferred]
+#let fmt-person(x) = text[#if(x.title != ""){x.title} #x.preferred]
 
-#let fmt_email(x) = text[#x.first.#x.last\@vuw.ac.nz]
+#let fmt-email(x) = text[#x.first.#x.last\@vuw.ac.nz]
 
 #let darkgrey = rgb(29, 27, 28)
 #let darkgreen = oklch(40%,20%,144deg,100%)
 #let middlegreen = rgb(113, 135, 121)
 #let lightgreen = oklch(90%,6%,144deg,100%)
 
-#let course_info(info, fill: lightgreen) = {
+#let course-info(info, fill: lightgreen) = {
 
   show grid.cell.where(y: 0): strong
   show grid: block
