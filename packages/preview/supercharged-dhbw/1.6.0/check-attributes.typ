@@ -2,7 +2,7 @@
     title,
     authors,
     language,
-    at-dhbw,
+    at-university,
     type-of-thesis,
     type-of-degree,
     show-confidentiality-statement,
@@ -36,7 +36,7 @@
   }
 
   let boolean-attributes = (
-    at-dhbw: at-dhbw,
+    at-university: at-university,
     show-confidentiality-statement: show-confidentiality-statement,
     show-table-of-contents: show-table-of-contents,
     show-acronyms: show-acronyms,
@@ -82,7 +82,7 @@
     panic("Author is missing. Specify authors in the 'authors' attribute of the template.")
   }
 
-  let max-authors = if at-dhbw {
+  let max-authors = if at-university {
     8
   } else {
     6
@@ -96,7 +96,7 @@
   }
 
   if (authors.len() > max-authors) {
-    panic("Too many authors. Specify a maximum of " + str(max-authors) + " authors in the 'authors' attribute of the template. To increase the maximum number of authors (max. 8), change one of the following attributes: 'at-dhbw', 'type-of-thesis', 'type-of-degree'. (See the package documentation for more information.)")
+    panic("Too many authors. Specify a maximum of " + str(max-authors) + " authors in the 'authors' attribute of the template. To increase the maximum number of authors (max. 8), change one of the following attributes: 'at-university', 'type-of-thesis', 'type-of-degree'. (See the package documentation for more information.)")
   }
 
   for author in authors {
@@ -132,7 +132,7 @@
       panic("Course of studies of '" + author.name + "' is missing. Specify a course of studies for each author in the 'authors' attribute of the template.")
     }
 
-    if (at-dhbw) {
+    if (at-university) {
       if ("company" in author) {
         panic("Company of '" + author.name + "' is not allowed. Remove the 'company' object from the author.")
       }

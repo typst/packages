@@ -12,7 +12,7 @@
     )),
   ),
   acronyms: acronyms, // displays the acronyms defined in the acronyms dictionary
-  at-dhbw: false, // if true the company name on the title page and the confidentiality statement are hidden
+  at-university: false, // if true the company name on the title page and the confidentiality statement are hidden
   bibliography: bibliography("sources.bib"),
   date: datetime.today(),
   language: "en", // en, de

@@ -14,7 +14,7 @@
   type-of-thesis,
   university,
   university-location,
-  at-dhbw,
+  at-university,
   date-format,
 ) = {
   if (many-authors) {
@@ -163,14 +163,14 @@
     ),
 
     // company
-    if (not at-dhbw) {
+    if (not at-university) {
       text(weight: "semibold", if (language == "de") {
         "Unternehmen:"
       } else {
         "Company:"
       })
     },
-    if (not at-dhbw) {
+    if (not at-university) {
       stack(
         dir: ttb,
         for author in authors {
@@ -223,7 +223,7 @@
     },
 
     // supervisor
-    if (at-dhbw) {
+    if (at-university) {
       text(weight: "semibold", if (language == "de") {
         "Betreuer an der DHBW:"
       } else {

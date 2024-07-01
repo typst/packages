@@ -1,4 +1,4 @@
-#let declaration-of-authorship(authors, title, date, language, many-authors, at-dhbw, city, date-format) = {
+#let declaration-of-authorship(authors, title, date, language, many-authors, at-university, city, date-format) = {
   pagebreak()
   v(2em)
   text(size: 20pt, weight: "bold", if (language == "de") {
@@ -41,7 +41,7 @@
   }
 
   v(2em)
-  if (at-dhbw) {
+  if (at-university) {
     text([#city, #end-date.display(date-format)])
   } else {
     text([#if (language == "de") {

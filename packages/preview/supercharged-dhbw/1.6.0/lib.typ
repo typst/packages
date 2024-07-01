@@ -12,7 +12,7 @@
   title: none,
   authors: (),
   language: none,
-  at-dhbw: none,
+  at-university: none,
   type-of-thesis: none,
   type-of-degree: none,
   show-confidentiality-statement: true,
@@ -48,7 +48,7 @@
     title,
     authors,
     language,
-    at-dhbw,
+    at-university,
     type-of-thesis,
     type-of-degree,
     show-confidentiality-statement,
@@ -138,7 +138,7 @@
     type-of-thesis,
     university,
     university-location,
-    at-dhbw,
+    at-university,
     date-format,
   )
 
@@ -176,12 +176,12 @@
   )
   counter(page).update(1)
 
-  if (not at-dhbw and show-confidentiality-statement) {
+  if (not at-university and show-confidentiality-statement) {
     confidentiality-statement(authors, title, university, university-location, date, language, many-authors, date-format)
   }
 
   if (show-declaration-of-authorship) {
-    declaration-of-authorship(authors, title, date, language, many-authors, at-dhbw, city, date-format)
+    declaration-of-authorship(authors, title, date, language, many-authors, at-university, city, date-format)
   }
 
   show outline.entry.where(
