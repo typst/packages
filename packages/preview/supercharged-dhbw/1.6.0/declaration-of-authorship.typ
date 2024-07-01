@@ -1,4 +1,4 @@
-#let declaration-of-authorship(authors, title, date, language, many-authors, date-format) = {
+#let declaration-of-authorship(authors, title, date, language, many-authors, at-dhbw, city, date-format) = {
   pagebreak()
   v(2em)
   text(size: 20pt, weight: "bold", if (language == "de") {
@@ -41,11 +41,15 @@
   }
 
   v(2em)
-  text([#if (language == "de") {
-    [#authors.map(author => author.company.city).dedup().join(", ", last: " und "), #end-date.display(date-format)]
+  if (at-dhbw) {
+    text([#city, #end-date.display(date-format)])
   } else {
-    [#authors.map(author => author.company.city).dedup().join(", ", last: " and "), #end-date.display(date-format)]
-  }])
+    text([#if (language == "de") {
+      [#authors.map(author => author.company.city).dedup().join(", ", last: " und "), #end-date.display(date-format)]
+    } else {
+      [#authors.map(author => author.company.city).dedup().join(", ", last: " and "), #end-date.display(date-format)]
+    }])
+  }
 
   v(1em)
   if (many-authors) {

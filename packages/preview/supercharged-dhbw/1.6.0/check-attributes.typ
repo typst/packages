@@ -25,6 +25,7 @@
     university-location,
     supervisor,
     date,
+    city,
     bibliography,
     logo-left,
     logo-right,
@@ -131,8 +132,22 @@
       panic("Course of studies of '" + author.name + "' is missing. Specify a course of studies for each author in the 'authors' attribute of the template.")
     }
 
-    if (not at-dhbw and "company" not in author) {
-      panic("Author '" + author.name + "' is missing a company. Add the 'company' object to the author.")
+    if (at-dhbw) {
+      if ("company" in author) {
+        panic("Company of '" + author.name + "' is not allowed. Remove the 'company' object from the author.")
+      }
+
+      if (type(city) != str or city == "") {
+        panic("City is invalid. Specify a string containing a city in the 'city' attribute.")
+      }
+    } else {
+      if (type(city) == str) {
+        panic("Remove the City attribute. When 'at-university' is true the city inside the company object is used.")
+      }
+
+      if ("company" not in author) {
+        panic("Author '" + author.name + "' is missing a company. Add the 'company' object to the author.")
+      }
     }
   }
 

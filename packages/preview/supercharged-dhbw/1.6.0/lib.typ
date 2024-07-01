@@ -33,6 +33,7 @@
   acronyms: none,
   university: none,
   university-location: none,
+  city: none,
   supervisor: none,
   date: none,
   date-format: "[day].[month].[year]",
@@ -70,6 +71,7 @@
     university-location,
     supervisor,
     date,
+    city,
     bibliography,
     logo-left,
     logo-right,
@@ -179,7 +181,7 @@
   }
 
   if (show-declaration-of-authorship) {
-    declaration-of-authorship(authors, title, date, language, many-authors, date-format)
+    declaration-of-authorship(authors, title, date, language, many-authors, at-dhbw, city, date-format)
   }
 
   show outline.entry.where(
