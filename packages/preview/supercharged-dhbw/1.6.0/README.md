@@ -64,6 +64,8 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `bibliography (content)`: Path to the bibliography file
 
+`bib-style (str)`: Style of the bibliography, default is `ieee`
+
 `city (str)`: City of the author (only needed when `at-university` is `true`)
 
 `date (datetime* | array*)`: Provide a datetime object to display one date (e.g. submission date) or a array containing two datetime objects to display a date range (e.g. start and end date of the project), default is `datetime.today()`

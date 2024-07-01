@@ -27,6 +27,7 @@
     date,
     city,
     bibliography,
+    bib-style,
     logo-left,
     logo-right,
     logo-size-ratio,
@@ -69,6 +70,7 @@
   let optional-string-attributes = (
     type-of-thesis: type-of-thesis,
     type-of-degree: type-of-degree,
+    bib-style: bib-style,
   )
 
   for (key, attribute) in optional-string-attributes {
