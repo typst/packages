@@ -8,4 +8,4 @@ description = "A simple package to make variation table"
 repository = "https://github.com/Le-foucheur/Typst-VarTable"
 categories = ["visualization"]
 keywords = ["variation table", "variation", "table", "variationtable"]
-exclude = ["./exemples", "documentation.pdf", "documentation.typ"]
+exclude = ["./examples", "documentation.pdf", "documentation.typ"]
