@@ -2,7 +2,7 @@
 #let _bo(x) = table(columns: 2cm, stroke: 0pt)[#table.cell(align: center + horizon)[#x]]
 
 // les deux prochaine fonctions son pour connaitre le nombre d’éléments à skip
-#let prochainNonVideSigne(x, i) = {
+#let _prochainNonVideSigne(x, i) = {
   let k = 0
   let j = i + 1
   while j < x.len() and type(x.at(j)) == array and x.at(j).len() == 0 {
@@ -11,7 +11,7 @@
   }
   k
 }
-#let prochainNonVideVar(x, i) = {
+#let _prochainNonVideVar(x, i) = {
   let k = 0
   let j = i + 1
   while j < x.len() and x.at(j).len() == 0 {
@@ -23,7 +23,7 @@
 // fin des deux fonctions
 
 // pour gérer le dernier élément
-#let lastele(x, domain, j, init, stroke) = {
+#let _lastele(x, domain, j, init, stroke) = {
   // le placement de l’élément
   if x.first() == top {
     node((domain.len() - 1 / 3, 1 + (j) * 3 + 0.4), x.last())
@@ -169,16 +169,16 @@
             for i in range(1,domain.len()-1){ //les labels + et -
               if type(content.at(j).at(i))== array and content.at(j).at(i).len() == 0{}
               else if type(content.at(j).at(i))== array and content.at(j).at(i).len() != 0{
-                let decalage = prochainNonVideSigne(content.at(j), i)
+                let decalage = _prochainNonVideSigne(content.at(j), i)
                 node((i + 1.2 + decalage*0.5, 2+(j)*3),content.at(j).at(i).last())
               }
               else{
-                let decalage = prochainNonVideSigne(content.at(j), i)
+                let decalage = _prochainNonVideSigne(content.at(j), i)
                 node((i + 1.2 + decalage*0.5, 2+(j)*3),content.at(j).at(i))
               }
             },
             if type(content.at(j).first()) == array and content.at(j).first().len() != 0 {// premier signe
-              node((1.05 + prochainNonVideSigne(content.at(j), 0)*0.6, 2+(j)*3),content.at(j).first().last())
+              node((1.05 + _prochainNonVideSigne(content.at(j), 0)*0.6, 2+(j)*3),content.at(j).first().last())
               edge(
                 (0.4 * calc.pow(stroke.thickness.pt(), 1/20), 1+j*3),
                 (0.4 * calc.pow(stroke.thickness.pt(), 1/20), 3+j*3 + if j == init.at("label").len()-1{5.5} ),
@@ -186,7 +186,7 @@
               )
             }
             else {
-              node((1.05 + prochainNonVideSigne(content.at(j), 0)*0.6, 2+(j)*3),content.at(j).first())
+              node((1.05 +_prochainNonVideSigne(content.at(j), 0)*0.6, 2+(j)*3),content.at(j).first())
             },
 
             // ligne de séparation
@@ -323,30 +323,30 @@
 
               // élément a skip
               if content.at(j).at(i+1).len()==0 and content.at(j).at(i).len()!=0 {
-                if content.at(j).at(i+prochainNonVideVar(content.at(j), i)+1).first() == top{
+                if content.at(j).at(i+_prochainNonVideVar(content.at(j), i)+1).first() == top{
                   edge(
                     (i +2/3 + decalindef ,proch),
-                    (i + (prochainNonVideVar(content.at(j), i)+1)+ 1/3 + 0.3  + if prochainNonVideVar(content.at(j), i)+1 != content.at(j).len(){- edgeprochindef} ,3*(j)+1+0.4),
+                    (i + (_prochainNonVideVar(content.at(j), i)+1)+ 1/3 + 0.3  + if _prochainNonVideVar(content.at(j), i)+1 != content.at(j).len(){- edgeprochindef} ,3*(j)+1+0.4),
                     arrow, stroke: stroke-arrow
                   )
                 }
-                else if content.at(j).at(i+prochainNonVideVar(content.at(j), i)+1).first() == bottom{
+                else if content.at(j).at(i+_prochainNonVideVar(content.at(j), i)+1).first() == bottom{
                   edge(
                     (i +2/3 + decalindef ,proch),
-                    (i + (prochainNonVideVar(content.at(j), i)+1)+ 1/3 + 0.3 + if prochainNonVideVar(content.at(j), i)+1 != content.at(j).len(){- edgeprochindef},3*(j)+3-0.12),
+                    (i + (_prochainNonVideVar(content.at(j), i)+1)+ 1/3 + 0.3 + if _prochainNonVideVar(content.at(j), i)+1 != content.at(j).len(){- edgeprochindef},3*(j)+3-0.12),
                     arrow, stroke: stroke-arrow
                   )
                 }
-                else if content.at(j).at(i+prochainNonVideVar(content.at(j), i)+1).first() == center{
+                else if content.at(j).at(i+_prochainNonVideVar(content.at(j), i)+1).first() == center{
                   edge(
                     (i +2/3 + decalindef ,proch),
-                    (i + (prochainNonVideVar(content.at(j), i)+1)+ 1/3 + 0.3+ if prochainNonVideVar(content.at(j), i)+1 != content.at(j).len(){- edgeprochindef} ,3*(j)+2 + 0.3),
+                    (i + (_prochainNonVideVar(content.at(j), i)+1)+ 1/3 + 0.3+ if _prochainNonVideVar(content.at(j), i)+1 != content.at(j).len(){- edgeprochindef} ,3*(j)+2 + 0.3),
                     arrow, stroke: stroke-arrow
                   )
                 }
               }
             },
-            lastele(content.at(j).last(), domain, j,init , stroke), // pour gérer le dernier élément
+            _lastele(content.at(j).last(), domain, j,init , stroke), // pour gérer le dernier élément
 
             if j  != init.at("label").len()-1{edge((-0.74,3*(j)+4), (domain.len()+0.122, 3*(j)+4), stroke: stroke)} // ligne sous les tableaux de variation
           )}
