@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "@preview/sweet-graduate-resume:0.1.0": *
 
 #show: doc => preamble(doc)
 

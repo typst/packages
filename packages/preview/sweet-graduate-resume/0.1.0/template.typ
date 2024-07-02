@@ -48,7 +48,7 @@
         fa-icon(value.svg, solid: value.solid)
       }
     } else {
-      image("svg/" + value.svg)
+      image("template/svg/" + value.svg)
     }
 
     link(value.url)[
