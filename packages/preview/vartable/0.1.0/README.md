@@ -25,7 +25,7 @@ Turn this :
       ([variation of sin], "Variation"),
     ),
   ),
-  interval: ($0$, $ pi / 2 $, $ pi $, $ (2pi) / 3 $, $ 2 pi $),
+  domain: ($0$, $ pi / 2 $, $ pi $, $ (2pi) / 3 $, $ 2 pi $),
   content: (
     ($-$, (), $+$, ()),
     (
@@ -64,7 +64,7 @@ Into this
       ([variation of $f$], "Variation"),
     ),
   ),
-  interval: ($ -oo $, $ 0 $, $ +oo $),
+  domain: ($ -oo $, $ 0 $, $ +oo $),
   content: (
       ($+$, ("||", $+$)),
     (
