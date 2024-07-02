@@ -1,0 +1,14 @@
+[package]
+name = "fhac"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Andrei Alexeev https://github.com/S1ngularity96"]
+license = "MIT"
+description = "An FH Aachen thesis template"
+keywords = ["FH", "fh aachen", "university of applied sciences", "thesis"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
