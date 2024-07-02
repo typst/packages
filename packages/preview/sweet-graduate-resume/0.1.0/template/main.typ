@@ -19,47 +19,47 @@
 
 #let edu = ((prog: "Bachelors", school: "college", grade: "4.0"), (prog: "grad", school: "school", grade: "4.0"))
 
-#section_header("Education")
+#section-header("Education")
 #education(edu)
 
 #let achievements = ([#lorem(30)], [#lorem(20)])
 
-#section_header("Scholastic Achievements")
+#section-header("Scholastic Achievements")
 #points(achievements)
 
 #let skills = ([#lorem(30)], [#lorem(20)])
 
-#section_header("Major Competitions and Technical Skills")
+#section-header("Major Competitions and Technical Skills")
 #points(skills)
 
 #let courses = ([#lorem(4)], [#lorem(5)], [#lorem(3)], [#lorem(2)], [#lorem(4)])
 
-#section_header("Relevant Coursework")
+#section-header("Relevant Coursework")
 #dual(courses)
 
-#section_header("Professional Experience")
+#section-header("Professional Experience")
 
 #let interner = ([#lorem(25)], [#lorem(30)])
-#dated_section(
+#dated-section(
   "Software Intern",
   "industrial",
-  date_start: "May 2024",
-  date_end: "Aug 2024",
+  date-start: "May 2024",
+  date-end: "Aug 2024",
   ongoing: false,
   points: interner,
 )
 
-#dated_section(
+#dated-section(
   "AI Intern",
   "research",
-  date_start: "May 2024",
+  date-start: "May 2024",
   ongoing: true,
   points: interner,
 )
 
-#section_header("Projects")
+#section-header("Projects")
 #let interner = ([#lorem(25)], [#lorem(30)])
-#dated_section(
+#dated-section(
   "Cybersecurity Project Maintainer",
   "self",
   points: interner,

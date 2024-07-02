@@ -62,7 +62,7 @@
   }
 }
 
-#let section_header(head) = {
+#let section-header(head) = {
   box(
     inset: (top: 0.3em, left: 0.4em, bottom: 0.3em),
     width: 1fr,
@@ -101,27 +101,27 @@
 #let dual(arr) = {
   columns(2, gutter: 11pt)[
     #let i = 0
-    #let first_half = ();
+    #let first-half = ();
     #while i < arr.len() / 2 {
-      first_half.push(arr.at(i))
+      first-half.push(arr.at(i))
       i += 1
     }
-    #list(..first_half)
+    #list(..first-half)
     #colbreak()
-    #let second_half = ();
+    #let second-half = ();
     #while i < arr.len() {
-      second_half.push(arr.at(i))
+      second-half.push(arr.at(i))
       i += 1
     }
-    #list(..second_half)
+    #list(..second-half)
   ]
 }
 
-#let dated_section(
+#let dated-section(
   title,
   subtitle,
-  date_start: none,
-  date_end: none,
+  date-start: none,
+  date-end: none,
   ongoing: false,
   points: array,
 ) = {
@@ -131,7 +131,7 @@
       width: 1fr,
       inset: (bottom: 3pt),
       stroke: (bottom: (1pt + black)),
-    )[#text(9.5pt)[*⊚ #title*] #h(1fr) #text(7pt)[_#subtitle #if date_start != none {[(#date_start]} #if date_end != none {[\- #date_end)]} else if ongoing {[\- Ongoing)]} else if date_start != none {[)]}_]]
+    )[#text(9.5pt)[*⊚ #title*] #h(1fr) #text(7pt)[_#subtitle #if date-start != none {[(#date-start]} #if date-end != none {[\- #date-end)]} else if ongoing {[\- Ongoing)]} else if date-start != none {[)]}_]]
 
     #list(..points)
   ]
