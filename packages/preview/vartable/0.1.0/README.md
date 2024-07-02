@@ -53,6 +53,7 @@ Into this
 ### hyperbolic function $f(x) = 1/x $
 
 ```js
+
 #import "@preview/vartable:0.1.0": tabvar
 
 #tabvar(
