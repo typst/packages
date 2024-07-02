@@ -5,7 +5,7 @@ The [documention](https://github.com/Le-foucheur/Typst-VarTable/blob/main/docume
 
 
 ```typ
-#import "@preview/Tabvar:0.1.0": tabvar
+#import "@preview/vartable:0.1.0": tabvar
 ```
 # Few examples
 
@@ -13,7 +13,7 @@ The [documention](https://github.com/Le-foucheur/Typst-VarTable/blob/main/docume
 ### Trigonometric functions
 Turn this :
 ```js
-#import "@preview/Tabvar:0.1.0": tabvar
+#import "@preview/vartable:0.1.0": tabvar
 
 #tabvar(
   init: (
@@ -53,7 +53,8 @@ Into this
 ### hyperbolic function $f(x) = 1/x $
 
 ```js
-#import "@preview/Tabvar:0.1.0": tabvar
+
+#import "@preview/vartable:0.1.0": tabvar
 
 #tabvar(
     init: (
