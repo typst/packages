@@ -1,4 +1,14 @@
-#let confidentiality-statement(authors, title, university, university-location, date, language, many-authors, date-format) = {
+#let confidentiality-statement(
+  authors,
+  title,
+  confidentiality-statement-content,
+  university,
+  university-location,
+  date,
+  language,
+  many-authors,
+  date-format
+) = {
   v(2em)
   text(size: 20pt, weight: "bold", if (language == "de") {
     "Sperrvermerk"
@@ -6,42 +16,46 @@
     "Confidentiality Statement"
   })
   v(1em)
-  text(if (language == "de") {
-    "Die vorliegende Arbeit mit dem Titel"
+  if (confidentiality-statement-content != none) {
+    confidentiality-statement-content
   } else {
-    "The Thesis on hand"
-  })
-  v(1em)
-  align(center,
-    text(weight: "bold", title)
-  )
-  v(1em)
-  let insitution
-  let companies
-  if (language == "de") {
-    if (authors.map(author => author.company.name).dedup().len() == 1) {
-      insitution = "Ausbildungsstätte"
+    text(if (language == "de") {
+      "Die vorliegende Arbeit mit dem Titel"
     } else {
-      insitution = "Ausbildungsstätten"
-    }
-    companies = authors.map(author => author.company.name).dedup().join(", ", last: " und ")
-  } else {
-    if (authors.map(author => author.company.name).dedup().len() == 1) {
-      insitution = "insitution"
+      "The Thesis on hand"
+    })
+    v(1em)
+    align(center,
+      text(weight: "bold", title)
+    )
+    v(1em)
+    let insitution
+    let companies
+    if (language == "de") {
+      if (authors.map(author => author.company.name).dedup().len() == 1) {
+        insitution = "Ausbildungsstätte"
+      } else {
+        insitution = "Ausbildungsstätten"
+      }
+      companies = authors.map(author => author.company.name).dedup().join(", ", last: " und ")
     } else {
-      insitution = "insitutions"
+      if (authors.map(author => author.company.name).dedup().len() == 1) {
+        insitution = "insitution"
+      } else {
+        insitution = "insitutions"
+      }
+      companies = authors.map(author => author.company.name).dedup().join(", ", last: " and ")
     }
-    companies = authors.map(author => author.company.name).dedup().join(", ", last: " and ")
-  }
-  par(justify: true, [#if (language == "de") {
-    [enthält unternehmensinterne bzw. vertrauliche Informationen der #companies, ist deshalb mit einem Sperrvermerk versehen und wird ausschließlich zu Prüfungszwecken am Studiengang #authors.map(author => author.course-of-studies).dedup().join(" | ") der #university #university-location vorgelegt.
+    par(justify: true, [#if (language == "de") {
+      [enthält unternehmensinterne bzw. vertrauliche Informationen der #companies, ist deshalb mit einem Sperrvermerk versehen und wird ausschließlich zu Prüfungszwecken am Studiengang #authors.map(author => author.course-of-studies).dedup().join(" | ") der #university #university-location vorgelegt.
 
-    Der Inhalt dieser Arbeit darf weder als Ganzes noch in Auszügen Personen außerhalb des Prüfungsprozesses und des Evaluationsverfahrens zugänglich gemacht werden, sofern keine anders lautende Genehmigung der #insitution (#companies) vorliegt.]
-  } else {
-    [contains internal respective confidential data of #companies. It is intended solely for inspection by the assigned examiner, the head of the #authors.map(author => author.course-of-studies).dedup().join(" | ") department and, if necessary, the Audit Committee at the #university #university-location.
-    
-    The content of this thesis may not be made available, either in its entirety or in excerpts, to persons outside of the examination process and the evaluation process, unless otherwise authorized by the training #insitution (#companies).]
-  }])
+      Der Inhalt dieser Arbeit darf weder als Ganzes noch in Auszügen Personen außerhalb des Prüfungsprozesses und des Evaluationsverfahrens zugänglich gemacht werden, sofern keine anders lautende Genehmigung der #insitution (#companies) vorliegt.]
+    } else {
+      [contains internal respective confidential data of #companies. It is intended solely for inspection by the assigned examiner, the head of the #authors.map(author => author.course-of-studies).dedup().join(" | ") department and, if necessary, the Audit Committee at the #university #university-location.
+
+      The content of this thesis may not be made available, either in its entirety or in excerpts, to persons outside of the examination process and the evaluation process, unless otherwise authorized by the training #insitution (#companies).]
+    }])
+  }
 
   let end-date = if (type(date) == datetime) {
     date

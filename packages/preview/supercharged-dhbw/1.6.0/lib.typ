@@ -31,6 +31,7 @@
   abstract: none,
   appendix: none,
   acronyms: none,
+  confidentiality-statement-content: none,
   university: none,
   university-location: none,
   city: none,
@@ -179,11 +180,30 @@
   counter(page).update(1)
 
   if (not at-university and show-confidentiality-statement) {
-    confidentiality-statement(authors, title, university, university-location, date, language, many-authors, date-format)
+    confidentiality-statement(
+      authors,
+      title,
+      confidentiality-statement-content,
+      university,
+      university-location,
+      date,
+      language,
+      many-authors,
+      date-format
+    )
   }
 
   if (show-declaration-of-authorship) {
-    declaration-of-authorship(authors, title, date, language, many-authors, at-university, city, date-format)
+    declaration-of-authorship(
+      authors,
+      title,
+      date,
+      language,
+      many-authors,
+      at-university,
+      city,
+      date-format
+    )
   }
 
   show outline.entry.where(
