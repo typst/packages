@@ -144,7 +144,7 @@
 
     for acr in acr-list{
       grid(
-        columns: (max-width, auto),
+        columns: (max-width + 0.5em, auto),
         gutter: acronym-spacing,
         [*#acr#label("acronym-" + acr)*], [#acrl(acr, link: false)]
       )
