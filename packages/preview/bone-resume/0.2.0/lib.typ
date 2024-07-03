@@ -1,6 +1,6 @@
 #let resume-init(title: none, author: "六个骨头", header: none, footer: none, body) = {
   set document(author: author, title: title)
-  set page(margin: (x: 3.2em, y: 2em), header: header, footer: footer)
+  set page(margin: (x: 3.2em, y: 3.2em), header: header, footer: footer)
   set text(font: ("Source Han Sans"), lang: "zh")
   show emph: it => {
     text(it.body, font: ("Source Han Serif SC",), style: "italic")
@@ -11,10 +11,10 @@
   }
   show heading.where(level: 1): it =>{
     set text(rgb("#448"), size: 1em, font: "Source Han Sans")
-    stack(dir: ttb, spacing: 0.65em, {
+    stack(dir: ttb, spacing: 0.55em, {
       it.body
     }, line(stroke: 1.5pt, length: 100%))
-    v(8pt, weak: true)
+    v(0.5em, weak: true)
   }
   show par: set block(spacing: 0.65em)
 
