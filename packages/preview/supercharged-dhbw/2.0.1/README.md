@@ -60,7 +60,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `appendix (content)`: Content of the appendix, it is recommended that you pass a variable containing the content or a function that returns the content
 
-`at-university* (bool)`: Whether the document is written at the DHBW or not, default is `false`
+`at-university* (bool)`: Whether the document is written at university or not, default is `false`
 
 `bibliography (content)`: Path to the bibliography file
 
@@ -105,6 +105,9 @@ This template exports the `supercharged-dhbw` function with the following named 
 `show-table-of-contents (bool)`: Whether the table of contents should be shown, default is `true`
 
 `supervisor (dict*)`: Name of the supervisor at the university and/or company (e.g. supervisor: (company: "John Doe", university: "Jane Doe"))
+
+    - company (str): Name of the supervisor at the company (note while the argument is optional at least one of the two arguments must be provided)
+    - university (str): Name of the supervisor at the university (note while the argument is optional at least one of the two arguments must be provided)
 
 `toc-depth (int)`: Depth of the table of contents, default is `3`
 
@@ -167,7 +170,7 @@ To define the plural form of an acronym use a array as value with the first elem
 If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
 
 ```typst
-#import "@preview/supercharged-dhbw:2.0.0": *
+#import "@preview/supercharged-dhbw:2.0.1": *
 
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
@@ -184,7 +187,7 @@ If you want to change an existing project to use this template, you can add a sh
   bibliography: bibliography("sources.bib"),
   date: datetime.today(),
   language: "en", // en, de
-  supervisor: "John Appleseed",
+  supervisor: (company: "John Appleseed"),
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
   // for more options check the package documentation (https://typst.app/universe/package/supercharged-dhbw)
