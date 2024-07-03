@@ -6,7 +6,7 @@
   (
     name: "Codeberg",
     url: "https://codeberg.org/innocent_zero",
-    svg: "codeberg.svg",
+    svg: image("svg/codeberg.svg"),
     fa: false,
     brand: false,
     solid: false,
