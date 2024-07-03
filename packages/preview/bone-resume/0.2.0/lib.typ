@@ -25,7 +25,7 @@
   body
 }
 
-#let primary_achievement(name, decs, contrib) = {
+#let primary-achievement(name, decs, contrib) = {
   set box(
     fill: color.hsv(240deg, 10%, 100%),
     stroke: 1pt,
@@ -48,7 +48,7 @@
 }
 #let resume-section(primary: true, name, decs, contrib) = {
   if primary {
-    primary_achievement(name, decs, contrib)
+    primary-achievement(name, decs, contrib)
   }else{
     achievement(name, decs, contrib)
   }
