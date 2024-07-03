@@ -67,7 +67,7 @@
   color: moderncv-blue,
   lang: "en",
   font: ("New Computer Modern"),
-  show_footer: true,
+  show-footer: true,
   body,
 ) = [
   #set page(
@@ -107,7 +107,7 @@
 
   #body
 
-  #if show_footer [
+  #if show-footer [
     #v(1fr, weak: false)
     #name\
     #datetime.today().display("[month repr:long] [day], [year]")
