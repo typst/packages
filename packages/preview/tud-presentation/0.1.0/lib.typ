@@ -1,0 +1,1 @@
+#import "tud-presentation/template.typ": *
