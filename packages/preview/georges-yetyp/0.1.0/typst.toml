@@ -2,7 +2,7 @@
 name = "georges-yetyp"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = [ "Ana Gelez <https://ana.gelez.xyz/" ]
+authors = [ "Ana Gelez <https://ana.gelez.xyz/>" ]
 license = "GPL-3.0"
 description = "Unofficial template for Polytech Grenoble internship reports"
 repository = "https://github.com/elegaanz/georges-yetyp"
