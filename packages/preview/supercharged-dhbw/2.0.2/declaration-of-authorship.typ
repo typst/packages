@@ -9,17 +9,31 @@
 
   v(1em)
 
-  par(justify: true, [
-    Gemäß Ziffer 1.1.13 der Anlage 1 zu §§ 3, 4 und 5 der Studien- und Prüfungsordnung für die Bachelorstudiengänge im Studienbereich Technik der Dualen Hochschule Baden- Württemberg vom 29.09.2017. Ich versichere hiermit, dass ich meine Arbeit mit dem Thema:
-  ])
-  v(1em)
-  align(center,
-    text(weight: "bold", title)
-  )
-  v(1em)
-  par(justify: true, [
-    selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Ich versichere zudem, dass die eingereichte elektronische Fassung mit der gedruckten Fassung übereinstimmt.
-  ])
+  if (authors.len() == 1) {
+    par(justify: true, [
+      Gemäß Ziffer 1.1.13 der Anlage 1 zu §§ 3, 4 und 5 der Studien- und Prüfungsordnung für die Bachelorstudiengänge im Studienbereich Technik der Dualen Hochschule Baden- Württemberg vom 29.09.2017. Ich versichere hiermit, dass ich meine Arbeit mit dem Thema:
+    ])
+    v(1em)
+    align(center,
+      text(weight: "bold", title)
+    )
+    v(1em)
+    par(justify: true, [
+      selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Ich versichere zudem, dass die eingereichte elektronische Fassung mit der gedruckten Fassung übereinstimmt.
+    ])
+  } else {
+    par(justify: true, [
+      Gemäß Ziffer 1.1.13 der Anlage 1 zu §§ 3, 4 und 5 der Studien- und Prüfungsordnung für die Bachelorstudiengänge im Studienbereich Technik der Dualen Hochschule Baden- Württemberg vom 29.09.2017. Wir versichern hiermit, dass wir unsere Arbeit mit dem Thema:
+    ])
+    v(1em)
+    align(center,
+      text(weight: "bold", title)
+    )
+    v(1em)
+    par(justify: true, [
+      selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt haben. Wir versichern zudem, dass die eingereichte elektronische Fassung mit der gedruckten Fassung übereinstimmt.
+    ])
+  }
 
   let end-date = if (type(date) == datetime) {
     date
