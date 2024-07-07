@@ -1,0 +1,9 @@
+[package]
+name = "jlyfish"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Andreas Kröpelin"]
+license = "MIT"
+description = "Julia code evaluation inside your Typst document"
+keywords = ["julia", "jellyfish", "jelly", "execute", "evaluation", "embed", "plot"]
+exclude = ["README.md", "examples/*", "assets/*"]
