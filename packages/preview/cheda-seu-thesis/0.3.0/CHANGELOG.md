@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.3.0] - 2024-07-07
 
 - 尝试弃用大部分自造轮子，改为通过引入第三方 package 实现相关功能。
 - 规范化模板参数/变量名。
@@ -75,6 +75,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 此版本重构了目录结构，合并两个模板的大部分工具函数，并按 Typst template package 组织文件。
 
-[unreleased]: https://github.com/csimide/SEU-Typst-Template/compare/c44b5172178c0c2380b322e50931750e2d761168...HEAD
+[0.3.0]: https://github.com/csimide/SEU-Typst-Template/compare/c44b5172178c0c2380b322e50931750e2d761168...v0.3.0
 [0.2.2]: https://github.com/csimide/SEU-Typst-Template/compare/908a28c7da02b260f04dcf31ed22278a212cad19...c44b5172178c0c2380b322e50931750e2d761168
 [0.2.1]: https://github.com/csimide/SEU-Typst-Template/compare/42b34b829bb9816d89a0955e2196346ab6e39ad4...908a28c7da02b260f04dcf31ed22278a212cad19
