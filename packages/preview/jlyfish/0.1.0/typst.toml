@@ -7,5 +7,5 @@ license = "MIT"
 description = "Julia code evaluation inside your Typst document"
 repository = "https://github.com/andreasKroepelin/TypstJlyfish.jl"
 keywords = ["julia", "jellyfish", "jelly", "execute", "evaluation", "embed", "plot"]
-categories = ["scripting", "utilities", "integration"]
+categories = ["scripting", "utility", "integration"]
 exclude = ["README.md", "examples/*", "assets/*"]
