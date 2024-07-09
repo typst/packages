@@ -1,0 +1,17 @@
+[package]
+name = "abiding-ifacconf"
+version = "0.1.0"
+compiler = "0.11.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/avonmoll/ifacconf-typst"
+authors = ["Alexander Von Moll <https://avonmoll.github.io>"]
+license = "MIT-0"
+description = "An IFAC-style paper template to publish at conferences for International Federation of Automatic Control"
+keywords = ["International Federation of Automatic Control", "IFAC", "Electrical Engineering", "Computer Science", "conference"]
+categories = ["paper"]
+disciplines = ["computer-science", "engineering"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
