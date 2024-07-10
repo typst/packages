@@ -9,7 +9,7 @@ This is a sister package of [simplebnf](https://github.com/Zeta611/simplebnf), a
 Import simplebnf via
 
 ```typst
-#import "@preview/simplebnf:0.1.0": *
+#import "@preview/simplebnf:0.1.1": *
 ```
 
 Use the `bnf` function to display the BNF production rules. Each production rule can be created using the `Prod` constructor function, which accepts the (left-hand side) metavariable, an optional annotation for it, an optional delimiter (which defaults to ⩴), and a list of (right-hand side) alternatives. Each alternative should be created using the `Or` constructor, which accepts a syntactic form and an annotation.
