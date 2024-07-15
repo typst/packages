@@ -1,29 +1,29 @@
-use serde::{Deserialize, Serialize};
+/// Validate that this is a Typst universe category.
+pub fn validate_category(category: &str) -> anyhow::Result<()> {
+    match category {
+        // Functional categories.
+        "components" => {}
+        "visualization" => {}
+        "model" => {}
+        "layout" => {}
+        "text" => {}
+        "languages" => {}
+        "scripting" => {}
+        "integration" => {}
+        "utility" => {}
+        "fun" => {}
+        // Publication categories.
+        "book" => {}
+        "report" => {}
+        "paper" => {}
+        "thesis" => {}
+        "poster" => {}
+        "flyer" => {}
+        "presentation" => {}
+        "cv" => {}
+        "office" => {}
+        _ => anyhow::bail!("unknown category"),
+    }
 
-/// Which kind of package this is.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields, rename_all = "kebab-case")]
-pub enum Category {
-    // Functional categories.
-    Components,
-    Visualization,
-    Model,
-    Layout,
-    Text,
-    Languages,
-    Scripting,
-    Integration,
-    Utility,
-    Fun,
-
-    // Publication categories.
-    Book,
-    Report,
-    Paper,
-    Thesis,
-    Poster,
-    Flyer,
-    Presentation,
-    Cv,
-    Office,
+    Ok(())
 }
