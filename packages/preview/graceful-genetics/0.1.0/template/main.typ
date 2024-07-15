@@ -1,4 +1,4 @@
-#import "../src/lib.typ" as graceful-genetics
+#import "@preview/graceful-genetics:0.1.0"
 #import "@preview/physica:0.9.3"
 
 #show: graceful-genetics.template.with(
