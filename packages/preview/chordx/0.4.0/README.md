@@ -98,8 +98,8 @@ Here [chordx-docs](https://github.com/ljgago/typst-chords/blob/v0.4.0/docs/chord
 ```typ
 #import "@preview/chordx:0.4.0": *
 
-#let piano-chord-sharp = piano-chords.with(layout: "F", size: 18pt)
-#let piano-chord-round = piano-chords.with(layout: "F", size: 1.5em, style: "rounded")
+#let piano-chord-sharp = piano-chord.with(layout: "F", size: 18pt)
+#let piano-chord-round = piano-chord.with(layout: "F", size: 1.5em, design: "round")
 
 #piano-chord-sharp(keys: "B1, D2#, F2#", fill-key: blue)[B]
 #piano-chord-round(keys: "B1, D2#, F2#", fill-key: yellow, position: "bottom")[B]
