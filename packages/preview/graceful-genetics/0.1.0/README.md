@@ -1,7 +1,7 @@
 # The `graceful-genetics` Package
 <div align="center">Version 0.1.0</div>
 
-A recreation of the Oxford Physics template shown on the typst.app homepage.
+A recreation of the Oxford Physics template shown on the typst.app homepage. This package depends on the fonts `TeX Hyre Heros` and `TeX Gyre Pagella`
 
 ## Media
 
