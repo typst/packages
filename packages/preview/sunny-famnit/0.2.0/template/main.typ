@@ -1,4 +1,4 @@
-#import "@preview/sunny-famnit:0.1.0": project
+#import "@preview/sunny-famnit:0.2.0": project
 
 #show: project.with(
 	date: datetime(day: 1, month: 1, year: 2024), // you could also do `datetime.today()`
@@ -6,8 +6,13 @@
 	
 	author: "your name",
 	studij: "your course",
-	mentor: "your mentor",
-	somentor: none, // if you have a co-mentor write him here, else you can just remove the line.
+	mentor: (
+    name: "his name", 
+    en: ("prepends","postpends"), // you can prepend or postpend any titles
+    sl: ("predstavki","postavki"),// you can prepend or postpend any titles
+    ),
+	somentor: none, // if you have a co-mentor write him here the same way as mentor, else you can just remove the line.
+	work_mentor: none, // if you have a work mentor, the same as above
 
 	naslov: "your title in slovene",
 	title: "your title",

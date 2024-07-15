@@ -1,4 +1,4 @@
-#import "@preview/sunny-famnit:0.1.1": project
+#import "@preview/sunny-famnit:0.2.0": project
 #import "attachments.typ" as pr
 
 #let input = (
@@ -33,6 +33,7 @@
     en: ("",".phD"),
     ),
   somentor: none, // optional somentor, written in the same way as mentor
+  work_mentor: none, // optional work mentor can be written the same way as mentor
 
   naslov: "Naslov zaključne naloge",
   title: "Title of the final work",
