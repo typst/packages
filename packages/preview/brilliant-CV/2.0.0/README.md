@@ -60,14 +60,14 @@ In order to make Typst render correctly, you will have to install the required f
 
 ### 2. Check Documentation
 
-A [documentation](https://github.com/mintyfrankie/brilliant-CV/actions/runs/9926458292/artifacts/1699041366) on CV functions is provided for reference.
+A [documentation](https://mintyfrankie.github.io/brilliant-CV/docs.pdf) on CV functions is provided for reference.
 
 ### 3. Bootstrap Template
 
 In your local system, just working like `git clone`, boostrap the template using this command:
 
 ```bash
-typst init @preview/brilliant-CV:<version>
+typst init @preview/brilliant-cv:<version>
 ```
 
 Replace the `<version>` with the latest or any releases (after 2.0.0).
@@ -87,7 +87,18 @@ It is recommended to:
 
 ## Migration from `v1`
 
-> Working in Progress
+With an existing CV project using the `v1` version of the template, a migration is needed, including replacing some files / some content in certain files.
+
+1. Delete `brilliant-CV` folder, `.gitmodules`. (Future package management will directly be managed by Typst)
+2. Migrate all the config on `metadata.typ` by creating a new `metadata.toml`. Follow the example toml file in the repo, it is rather straightforward to migrate.
+3. For `cv.typ` and `letter.typ`, copy the new files from the repo, and adapt the modules you have in your project.
+4. For the module files in `/modules_*` folders:
+   1. Delete the old import `#import "../brilliant-CV/template.typ": *`, and replace it by the import statements in the new template files.
+   2. Due to the Typst path handling mecanism, one cannot directly pass the path string to some functions anymore. This concerns, for example, the `logo` argument in `cvEntry`, but also on `cvPublication` as well. Some parameter names were changed, but most importantly, **you should pass a function instead of a string (i.e. `image("logo.png")` instead of `"logo.png"`).** Refer to new template files for reference.
+5. You might need to install `Roboto` and `Source Sans Pro` on your local system now, as new Typst package discourages including these large files.
+6. Run `typst c cv.typ` without passing the `font-path` flag. All should be good now, congrats!
+
+Feel free to raise an issue for more assistance should you encounter a problem that you cannot solve on your own :)
 
 ## Credit
 

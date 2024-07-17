@@ -1,5 +1,5 @@
 [package]
-name = "brilliant-CV"
+name = "brilliant-cv"
 version = "2.0.0"
 entrypoint = "lib.typ"
 authors = ["Yunan Wang <https://github.com/mintyfrankie>"]
@@ -9,7 +9,7 @@ repository = "https://github.com/mintyfrankie/brilliant-CV"
 keywords = ["cv", "resume", "cover-letter", "curriculum-vitae", "modular", "multilingual", "ai-injection"]
 categories = ["cv", "languages", "layout"]
 compiler = "0.11.0"
-# exclude =
+exclude = ["docs", ".pre-commit-config.yaml", ".gitignore"]
 
 [template]
 path = "template"
