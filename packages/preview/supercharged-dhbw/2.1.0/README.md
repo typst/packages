@@ -106,11 +106,19 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `show-header (bool)`: Whether the header should be shown, default is `true`
 
+`show-header-divider (bool)`: Whether the header divider should be shown, default is `true`
+
 `show-list-of-figures (bool)`: Whether the list of figures should be shown, default is `true`
 
 `show-list-of-tables (bool)`: Whether the list of tables should be shown, default is `true`
 
+`show-left-logo-in-header (bool)`: Whether the left logo should be shown in the header, default is `true`
+
+`show-right-logo-in-header (bool)`: Whether the right logo should be shown in the header, default is `true`
+
 `show-table-of-contents (bool)`: Whether the table of contents should be shown, default is `true`
+
+`show-title-in-header (bool)`: Whether the title should be shown in the header, default is `true`
 
 `supervisor (dict*)`: Name of the supervisor at the university and/or company (e.g. supervisor: (company: "John Doe", university: "Jane Doe"))
 

@@ -26,6 +26,10 @@
   show-appendix: false,
   show-abstract: true,
   show-header: true,
+  show-title-in-header: true,
+  show-left-logo-in-header: true,
+  show-right-logo-in-header: true,
+  show-header-divider: true,
   numbering-alignment: center,
   toc-depth: 3,
   acronym-spacing: 5em,
@@ -65,6 +69,10 @@
     show-appendix,
     show-abstract,
     show-header,
+    show-title-in-header,
+    show-left-logo-in-header,
+    show-right-logo-in-header,
+    show-header-divider,
     numbering-alignment,
     toc-depth,
     acronym-spacing,
@@ -157,21 +165,25 @@
           columns: (1fr, auto),
           align: (left, right),
           gutter: 2em,
-          emph(align(center + horizon,text(size: 10pt, title))),
+          if (show-title-in-header) {
+            emph(align(center + horizon, text(size: 10pt, title)))
+          },
           stack(dir: ltr,
             spacing: 1em,
-            if logo-left != none {
+            if (show-left-logo-in-header and logo-left != none) {
               set image(height: left-logo-height / 2)
               logo-left
             },
-            if logo-right != none {
+            if (show-right-logo-in-header and logo-right != none) {
               set image(height: right-logo-height / 2)
               logo-right
             }
           )
         )
         v(-0.75em)
-        line(length: 100%)
+        if (show-header-divider) {
+          line(length: 100%)
+        }
       }
     }
   )
