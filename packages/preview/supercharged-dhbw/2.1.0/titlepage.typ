@@ -66,23 +66,29 @@
     let x-offset = 0pt
     let y-offset = 0pt
     let size = 7em
+    let title-spacing = 2em
+
+    if (type-of-degree == none and type-of-thesis == none) {
+      title-spacing = 0em
+    }
 
     if ("display" in confidentiality-marker) {
       display = confidentiality-marker.display
     }
-    if ("offset-x" in confidentiality-marker and confidentiality-marker.offset-x != none) {
+    if ("offset-x" in confidentiality-marker) {
       x-offset = confidentiality-marker.offset-x
     }
-    if ("offset-y" in confidentiality-marker and confidentiality-marker.offset-y != none) {
+    if ("offset-y" in confidentiality-marker) {
       y-offset = confidentiality-marker.offset-y
     }
-    if ("size" in confidentiality-marker and confidentiality-marker.size != none) {
+    if ("size" in confidentiality-marker) {
       size = confidentiality-marker.size
     }
-
-    if (type-of-degree == none and type-of-thesis == none) {
-      v(2em)
+    if ("title-spacing" in confidentiality-marker) {
+      confidentiality-marker.title-spacing
     }
+
+    v(title-spacing)
 
     let color = if (show-confidentiality-statement) {
       red

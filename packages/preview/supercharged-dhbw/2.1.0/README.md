@@ -74,6 +74,7 @@ This template exports the `supercharged-dhbw` function with the following named 
     - offset-x (length): Horizontal offset of the confidentiality marker, default is `0pt`
     - offset-y (length): Vertical offset of the confidentiality marker, default is `0pt`
     - size (length): Size of the confidentiality marker, default is `7em`
+    - title-spacing (length): Adds space below the title to make room for the confidentiality marker, default is `2em`
 
 `confidentiality-statement-content (content)`: Provide a custom confidentiality statement
 

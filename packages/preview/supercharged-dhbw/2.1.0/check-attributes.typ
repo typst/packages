@@ -103,6 +103,9 @@
   if ("size" in confidentiality-marker) {
     length-attributes.insert("size (confidentiality-marker)", confidentiality-marker.size)
   }
+  if ("title-spacing" in confidentiality-marker) {
+    length-attributes.insert("title-spacing (confidentiality-marker)", confidentiality-marker.title-spacing)
+  }
 
   for (key, attribute) in length-attributes {
     if (type(attribute) != length) {
