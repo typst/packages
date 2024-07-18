@@ -68,6 +68,13 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `city (str)`: City of the author (only needed when `at-university` is `true`)
 
+`confidentiality-marker: (dict)`: Configure the confidentially marker (red or green circle) on the title page (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
+
+    - display (bool*): Whether the confidentiality marker should be shown, default is `false`
+    - offset-x (length): Horizontal offset of the confidentiality marker, default is `0pt`
+    - offset-y (length): Vertical offset of the confidentiality marker, default is `0pt`
+    - size (length): Size of the confidentiality marker, default is `7em`
+
 `confidentiality-statement-content (content)`: Provide a custom confidentiality statement
 
 `date (datetime* | array*)`: Provide a datetime object to display one date (e.g. submission date) or a array containing two datetime objects to display a date range (e.g. start and end date of the project), default is `datetime.today()`

@@ -10,9 +10,10 @@
 
 #let supercharged-dhbw(
   title: none,
-  authors: (),
+  authors: (:),
   language: none,
   at-university: none,
+  confidentiality-marker: (display: false),
   type-of-thesis: none,
   type-of-degree: none,
   show-confidentiality-statement: true,
@@ -51,6 +52,7 @@
     authors,
     language,
     at-university,
+    confidentiality-marker,
     type-of-thesis,
     type-of-degree,
     show-confidentiality-statement,
@@ -143,6 +145,8 @@
     university-location,
     at-university,
     date-format,
+    show-confidentiality-statement,
+    confidentiality-marker,
   )
 
   set page(
