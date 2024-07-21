@@ -2,7 +2,7 @@
 
 The grape suite is a suite consisting of following templates:
 
-*   exercises (for exams, homeworks, etc.)
+*   exercises (for exams, homework, etc.)
 
 *   seminar papers
 
