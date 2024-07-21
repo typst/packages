@@ -43,4 +43,7 @@ Il est fortement inspiré de cet [outil](https://www.service-public.fr/simulateu
 
 Conformément à la license [etalab](https://github.com/etalab/licence-ouverte/blob/master/LO.md)
 - Condérant : Direction de l'information légale et administrative (Premier ministre)
-- Date de mise à jour : Vérifié le 23 Avril 2024 - 
+- Date de mise à jour : Vérifié le 23 Avril 2024
+
+## License
+[license MIT](LICENSE)
