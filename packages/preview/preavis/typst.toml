@@ -1,0 +1,14 @@
+[package]
+name = "preavis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = "Mathias APARICIO <https://github.com/mathias-aparicio/>"
+license = "MIT"
+description = "📖 a french move out letter"
+repository = "https://github.com/mathias-aparicio/preavis"
+categories = ["letter"]
+exclude = [".gitignore"]
+
+[template]
+entrypoint="lib.typ"
+path="."
