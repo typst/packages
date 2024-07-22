@@ -12,3 +12,4 @@ exclude = [".gitignore"]
 [template]
 entrypoint="lib.typ"
 path="."
+thumbnail = "thumbnail.png"
