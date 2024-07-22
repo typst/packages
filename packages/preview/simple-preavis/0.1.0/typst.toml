@@ -1,11 +1,11 @@
 [package]
-name = "preavis"
+name = "simple-preavis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = "Mathias APARICIO <https://github.com/mathias-aparicio/>"
 license = "MIT"
 description = "📖 a french move out letter"
-repository = "https://github.com/mathias-aparicio/preavis"
+repository = "https://github.com/mathias-aparicio/simple-preavis"
 categories = ["letter"]
 exclude = [".gitignore"]
 

@@ -1,4 +1,4 @@
-#set text(lang: "fr")
+od#set text(lang: "fr")
 // le complément est optionnel
 #let adresse(rue, codepostal, ville, complement: "") = (
   rue: rue,
@@ -7,7 +7,7 @@
   ville: ville
 )
 // Formatte bien l'adresse
-#let affiche_adresse(adresse) = {
+#let affiche-adresse(adresse) = {
   [
   #adresse.rue \
   ]
@@ -18,7 +18,7 @@
   }
   adresse.codepostal + " " + adresse.ville
 }
-#let date_en_francais(date) = {
+#let date-en-francais(date) = {
   // Liste d'associations mois anglais -> français
   let mois = (
     "1": "janvier",
@@ -34,11 +34,11 @@
     "11": "novembre",
     "12": "décembre"
   )
-  
+
   let day = str(date.day())
   let month = date.month()
   let year = str(date.year())
-  
+
   day + " " + mois.at(str(month)) + " " + year
 }
 #let locataire(nom, prenom, adresse) = (
@@ -55,25 +55,25 @@
 )
 
 
-#let lettre_preavis(
+#let lettre-preavis(
   locataire: locataire,
   proprietaire: proprietaire,
-  date_etat_des_lieux: datetime
+  date-etat-des-lieux: datetime
 ) = {
   // En-tête locataire
   align(left)[
-    #locataire.prenom #locataire.nom \ 
-    #affiche_adresse(locataire.adresse)
+    #locataire.prenom #locataire.nom \
+    #affiche-adresse(locataire.adresse)
   ]
 
   v(2cm)
 
-  // En-tête propriétaire 
+  // En-tête propriétaire
   align(right,box()[
       #align(left)[
       #proprietaire.prenom #proprietaire.nom \
       // Gère le complément d'adresse qui est optionnel
-      #affiche_adresse(proprietaire.adresse)
+      #affiche-adresse(proprietaire.adresse)
   ]])
 
   v(1cm)
@@ -89,7 +89,7 @@
   ]
     v(0.2cm)
 // Annonce de départ
-par[Nous allons prochainement quitter notre logement. Celui-ci se trouve en zone tendue. // TODO(derniere phrase devraiet etre fonction de l'adresse)
+par[Nous allons prochainement quitter notre logement. Celui-ci se trouve en zone tendue. // TODO(derniere phrase devrait etre fonction de l'adresse)
 ]
 
 // Rapel de la loi
@@ -102,7 +102,7 @@ est d'un mois.]
 par[Le congé prendra effet 1 mois après la date d'accusé de réception du courrier recommandé.]
 
 par[Afin de convenir ensemble d'une date pour vous remettre les clés du logement et réaliser
-ensemble l'état des lieux, nous vous informons que le déménagement est prévu le #date_en_francais(date_etat_des_lieux)
+ensemble l'état des lieux, nous vous informons que le déménagement est prévu le #date-en-francais(date-etat-des-lieux)
 ] // Salutations TODO : fix date
 par[Veuillez agréer, #proprietaire.genre, l'expression de nos salutations distinguées.]
 
@@ -111,14 +111,14 @@ v(1cm)
 align(right)[
   //#let ville = #locataire.adresse.ville
   #locataire.adresse.ville
-  le #date_en_francais(datetime.today()) 
+  le #date-en-francais(datetime.today())
 ]
 
 // Signature
 v(2cm)
 align(right)[
   #locataire.prenom #locataire.nom
-] 
+]
 }
 
 

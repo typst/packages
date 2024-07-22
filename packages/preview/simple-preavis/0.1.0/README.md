@@ -1,15 +1,15 @@
-# ✉️ Préavis 
+# ✉️ Simple-Preavis
 
-**Preavis** est un template typst pour écrire une lettre de préavis d'état des lieux à son propriétaire.
+**simple-preavis** est un template typst pour écrire une lettre de préavis d'état des lieux à son propriétaire.
 
 Il est fortement inspiré de cet [outil](https://www.service-public.fr/simulateur/calcul/CongeLogement) réalisés par les services publics 🙏.
 
-## Utilisation 
+## Utilisation
 ### Exemple d'utilisation
 
 ```typst
-#import "@preview/preavis:0.1.0":*
-#lettre_preavis(
+#import "@preview/simple-preavis:0.1.0":*
+#lettre-preavis(
   locataire: locataire(
      "Dupont locataire",
      "Jean",
@@ -30,16 +30,16 @@ Il est fortement inspiré de cet [outil](https://www.service-public.fr/simulateu
     ),
     "Madame"
   ),
-  date_etat_des_lieux: datetime(year:2024, month:9, day:21)
+  date-etat-des-lieux: datetime(year:2024, month:9, day:21)
 )
 ```
-## TODO 
+## TODO
 - [ ] Supporter plusieurs locataires
 - [ ] Supporter la législation zone tendu en fonction du code postal
 - [ ] Améliorer la documentation des fonctions
 - [ ] Séparer en une librairie et un template pour que cela ressemble plus aux autres template types
 
-## Mention license 
+## Mention license
 
 Conformément à la license [etalab](https://github.com/etalab/licence-ouverte/blob/master/LO.md)
 - Condérant : Direction de l'information légale et administrative (Premier ministre)

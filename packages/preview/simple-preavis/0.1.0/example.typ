@@ -1,5 +1,6 @@
-#import "lib.typ": lettre_preavis, locataire, adresse, proprietaire
-#lettre_preavis(
+#import "@preview/simple-preavis:0.1.0": lettre-preavis, locataire, adresse, proprietaire
+
+#lettre-preavis(
   locataire: locataire(
      "Dupont locataire",
      "Jean",
@@ -20,5 +21,5 @@
     ),
     "Madame"
   ),
-  date_etat_des_lieux: datetime(year:2024, month:9, day:21)
+  date-etat-des-lieux: datetime(year:2024, month:9, day:21)
 )
