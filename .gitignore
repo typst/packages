@@ -1,2 +1,5 @@
-.DS_Store
 *.pdf
+!guide.pdf
+
+# For macOS users
+.DS_Store
