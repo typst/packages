@@ -9,7 +9,7 @@ A simple Graphviz binding for Typst using the WebAssembly plugin system.
 This plugin is quite simple to use, you just need to import it:
 
 ```typ
-#import "@preview/diagraph:0.2.1": *
+#import "@preview/diagraph:0.2.2": *
 ```
 
 You can render a Graphviz Dot string to a SVG image using the `render` function:
