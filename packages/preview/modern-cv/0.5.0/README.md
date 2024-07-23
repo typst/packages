@@ -27,7 +27,7 @@ See `typst fonts --help` for more information on configuring fonts for `typst` t
 Below is a basic example for a simple resume:
 
 ```typst
-#import "@preview/modern-cv:0.4.0": *
+#import "@preview/modern-cv:0.5.0": *
 
 #show: resume.with(
   author: (
