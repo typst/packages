@@ -25,7 +25,7 @@
   let secondary-color = color.mix(color.rgb(100%, 100%, 100%, alpha), primary-color, space:rgb)
 
   // highlight important words
-  show regex(color-words.join("|")): text.with(fill: primary-color)
+  show regex(if color-words.len() == 0 { "$ " } else { color-words.join("|") }): text.with(fill: primary-color)
 
   //customize look of figure
   set figure.caption(separator: [ --- ], position: top)
