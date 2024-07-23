@@ -58,6 +58,10 @@ To use this package, simply add the following code to your document:
 
 ## Changelog
 
+### v0.3.1
+
+- Corrections in French.
+
 ### v0.3.0
 
 - Include parameter question-text-parameters.

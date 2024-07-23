@@ -1,7 +1,7 @@
 [package]
 name = "g-exam"
 version = "0.3.1"
-compiler = "0.11.0"
+compiler = "0.11.1"
 entrypoint = "src/lib.typ"
 authors = ["Andrés Giménez Muñoz"]
 license = "MIT"
