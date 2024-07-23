@@ -26,7 +26,7 @@ To use this package, simply add the following code to your document:
 #### Source:
 
 ```typ
-#import "@preview/g-exam:0.3.0": *
+#import "@preview/g-exam:0.3.1": *
 
 #show: g-exam.with(
   school: (
