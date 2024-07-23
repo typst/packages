@@ -6,10 +6,10 @@ authors = ["Mathias APARICIO <https://github.com/mathias-aparicio/>"]
 license = "MIT"
 description = "📖 a french move out letter"
 repository = "https://github.com/mathias-aparicio/simple-preavis"
-categories = ["letter"]
+categories = ["office"]
 exclude = [".gitignore"]
 
 [template]
-entrypoint="lib.typ"
-path="."
+entrypoint = "example.typ"
+path = "template"
 thumbnail = "thumbnail.png"
