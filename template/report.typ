@@ -1,4 +1,4 @@
-#import "polytechnique.typ"
+#import "../polytechnique.typ"
 
 #show: polytechnique.apply
 
