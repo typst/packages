@@ -4,14 +4,16 @@
 
 // Defining variables for the cover page and PDF metadata
 #let title = "Rapport de stage en entreprise sur plusieurs lignes automatiquement"
-#let sub-title = "Un sous-titre pour expliquer ce titre"
-#let short-title = "Rapport de stage"
+#let subtitle = "Un sous-titre pour expliquer ce titre"
+#let short_title = "Rapport de stage"
 #let authors = ("Rémi Germe")
-#let date-start = datetime(year: 2024, month: 06, day: 05)
-#let date-end = datetime(year: 2024, month: 09, day: 05)
+#let date_start = datetime(year: 2024, month: 06, day: 05)
+#let date_end = datetime(year: 2024, month: 09, day: 05)
+
+#set text(lang: "fr")
 
 // Cover page
-#polytechnique.cover.cover(title, authors, date-start, date-end, sub-title: sub-title)
+#polytechnique.cover.cover(title, authors, date_start, date_end, subtitle: subtitle)
 #pagebreak()
 
 // Acknowledgements
@@ -28,7 +30,7 @@
 #outline(title: [Template contents], indent: 1em, depth: 2)
 
 // Defining header and page numbering (will pagebreak)
-#set page(header: smallcaps(short-title), numbering: "1 / 1")
+#set page(header: smallcaps(short_title), numbering: "1 / 1")
 #counter(page).update(1)
 
 // Introduction
