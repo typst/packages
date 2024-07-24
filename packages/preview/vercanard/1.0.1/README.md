@@ -25,7 +25,7 @@ This function takes a few arguments that we explain in comments below:
   // The subtitle, which is the position you are looking for most of the time
   title: "What you are looking for",
   // The accent color to use (here a vibrant yellow)
-  accent_color: rgb("f3bc54"),
+  accent-color: rgb("f3bc54"),
   // the margins (only used for top and left page margins actually,
   // but the other ones are proportional)
   margin: 2.6cm,
