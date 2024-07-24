@@ -4,9 +4,7 @@
 
 #let apply(doc) = {
   set page(
-    paper: "a4",
-    header: [I'm the header],
-    numbering: "1 / 1"
+    paper: "a4"
   )
 
   set par(justify: true)
