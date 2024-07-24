@@ -5,13 +5,46 @@
 // Specific rules for the guide
 #show link: set text(blue)
 
+// Defining variables for the cover page and PDF metadata
+#let title = [guide for typst #linebreak() polytechnique package]
+#let subtitle = "A modern alternative to LaTeX"
+#let short_title = "package guide"
+#let authors = ("Rémi Germe")
+#let date_start = datetime(year: 2024, month: 07, day: 05)
+#let date_end = datetime(year: 2024, month: 08, day: 05)
+
+#set text(lang: "en")
 
 // Beginning of the content
+#polytechnique.cover.cover(title, authors, date_start, date_end, subtitle: subtitle)
+#pagebreak()
+
 #outline(title: [Guide content], indent: 1em, depth: 2)
+#pagebreak()
 
 = Discovering Typst and the template
 
 Typst is a user-friendlier alternative to LaTeX.
+
+== Cover page
+
+```typc
+// Defining variables for the cover page and PDF metadata
+#let title = [guide for typst #linebreak() polytechnique package]
+#let subtitle = "A modern alternative to LaTeX"
+#let short_title = "package guide"
+#let authors = ("Rémi Germe")
+#let date_start = datetime(year: 2024, month: 07, day: 05)
+#let date_end = datetime(year: 2024, month: 08, day: 05)
+
+#set text(lang: "en")
+
+#polytechnique.cover.cover(title, authors, date_start, date_end, subtitle: subtitle)
+```
+
+Set text lang to `fr` if you want the months in French.
+
+You can also specify `short_month: true` in the call to cover to get month abbreviations. 
 
 == Doing some math
 
