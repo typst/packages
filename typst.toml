@@ -1,0 +1,10 @@
+[package]
+name = "polytechnique-reports"
+version = "0.1.0"
+entrypoint = "polytechnique.typ"
+authors = ["Rémi Germe <@remigerme>"]
+license = "MIT"
+description = "A report template for Polytechnique students."
+repository = "https://github.com/remigerme/typst-polytechnique"
+keywords = ["polytechnique", "école polytechnique", "report", "rapport", "stage"]
+categories = ["report"]
