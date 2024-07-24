@@ -3,16 +3,15 @@
 #show: polytechnique.apply
 
 // Defining variables for the cover page and PDF metadata
-#let title = [
-  Rapport de stage en entreprise #linebreak()
-  Sur plusieurs lignes
-]
+#let title = "Rapport de stage en entreprise sur plusieurs lignes automatiquement"
+#let sub-title = "Un sous-titre pour expliquer ce titre"
 #let short-title = "Rapport de stage"
 #let authors = ("Rémi Germe")
-#let edition-date = datetime(year: 2024, month: 07, day: 31)
+#let date-start = datetime(year: 2024, month: 06, day: 05)
+#let date-end = datetime(year: 2024, month: 09, day: 05)
 
 // Cover page
-#polytechnique.cover.cover(title, authors, edition-date, short-title: short-title)
+#polytechnique.cover.cover(title, authors, date-start, date-end, sub-title: sub-title)
 #pagebreak()
 
 // Acknowledgements
