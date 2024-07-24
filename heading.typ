@@ -18,7 +18,7 @@
       counter(heading).display(h.numbering)
     }
     upper(h.body)
-    image("banner-subheading.svg", width: 30%)
+    // image("banner-subheading.svg", width: 30%)
   }
 
   // H2 styling
@@ -29,7 +29,20 @@
       fill: blue,
     )
     smallcaps(h)
-    image("small-banner-subheading.svg")
+    // image("small-banner-subheading.svg")
+  }
+
+  // H3 styling
+  show heading.where(level: 3): h => {
+    set text(
+      size: 12pt,
+      weight: "regular",
+      fill: blue
+    )
+    if h.numbering != none {
+      counter(heading).display(h.numbering).slice(0, -2)
+    }
+    smallcaps([• ] + h.body)
   }
 
   // Don't forget to return doc cause
@@ -52,4 +65,18 @@
 
 #heading(level: 2, numbering: none)[Sub-section without numbering]
 
+=== No more ideas
+
+==== Sometimes dummy text is
+
+===== Really important
+
+==== Back again
+
+=== Guess who's back ?
+
 = My second section
+
+#lorem(30)
+
+== Another one
