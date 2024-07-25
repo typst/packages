@@ -36,6 +36,7 @@
   logo-left,
   logo-right,
   logo-size-ratio,
+  university-short,
   ) = {
   if (title == none or title == "") {
     panic("Title is missing. Specify a title in the 'title' attribute of the template.")
@@ -68,6 +69,7 @@
   let string-attributes = (
     university: university,
     university-location: university-location,
+    university-short: university-short,
   )
 
   for (key, attribute) in string-attributes {

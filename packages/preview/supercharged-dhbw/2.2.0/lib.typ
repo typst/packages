@@ -39,6 +39,7 @@
   confidentiality-statement-content: none,
   university: none,
   university-location: none,
+  university-short: none,
   city: none,
   supervisor: (:),
   date: none,
@@ -89,6 +90,7 @@
     logo-left,
     logo-right,
     logo-size-ratio,
+    university-short,
   )
 
   // set the document's basic properties
@@ -155,6 +157,7 @@
     date-format,
     show-confidentiality-statement,
     confidentiality-marker,
+    university-short,
   )
 
   set page(

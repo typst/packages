@@ -135,6 +135,8 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `university-location (str*)`: Campus or city of the university
 
+`university-short (str*)`: Short name of the university (e.g. DHBW), displayed for the university supervisor
+
 Behind the arguments the type of the value is given in parentheses. All arguments marked with `*` are required. 
 
 ## Acronyms
@@ -206,6 +208,7 @@ If you want to change an existing project to use this template, you can add a sh
   supervisor: (company: "John Appleseed"),
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
+  university-short: "DHBW",
   // for more options check the package documentation (https://typst.app/universe/package/supercharged-dhbw)
 )
 

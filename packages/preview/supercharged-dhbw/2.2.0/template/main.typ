@@ -19,6 +19,7 @@
   supervisor: (company: "John Appleseed"),
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
+  university-short: "DHBW",
   // for more options check the package documentation (https://typst.app/universe/package/supercharged-dhbw)
 )
 

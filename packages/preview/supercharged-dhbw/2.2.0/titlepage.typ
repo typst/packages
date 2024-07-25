@@ -18,6 +18,7 @@
   date-format,
   show-confidentiality-statement,
   confidentiality-marker,
+  university-short,
 ) = {
   if (many-authors) {
     v(-1.5em)
@@ -192,8 +193,9 @@
 
   // author information
   grid(
-    columns: (180pt, auto),
-    gutter: 11pt,
+    columns: (auto, auto),
+    row-gutter: 11pt,
+    column-gutter: 2.5em,
 
     // students
     text(weight: "semibold", if (language == "de") {
@@ -285,9 +287,9 @@
     // university
     if ("university" in supervisor) {
       text(weight: "semibold", if (language == "de") {
-        "Betreuer an der DHBW:"
+        [Betreuer an der #university-short:]
       } else {
-        "Supervisor at DHBW:"
+        [Supervisor at #university-short:]
       })
     },
     if ("university" in supervisor and type(supervisor.university) == str) {
