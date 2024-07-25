@@ -82,6 +82,8 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `date-format (str)`: Format of the displayed dates, default is `"[day].[month].[year]"` (for more information on possible formats check the [Typst documentation](https://typst.app/docs/reference/foundations/datetime/#format))
 
+`header (content)`: Content for a custom header, it is recommended that you pass a variable containing the content or a function that returns the content
+
 `heading-numering (str)`: Numbering style of the headings, default is `"1.1"` (for more information on possible numbering formats check the [Typst documentation](https://typst.app/docs/reference/model/numbering))
 
 `language (str*)`: Language of the document which is either `en` or `de`, default is `en`

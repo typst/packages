@@ -36,6 +36,7 @@
   abstract: none,
   appendix: none,
   acronyms: none,
+  header: none,
   confidentiality-statement-content: none,
   university: none,
   university-location: none,
@@ -166,28 +167,32 @@
     margin: (top: 8em, bottom: 8em),
     header: {
       if (show-header) {
-        grid(
-          columns: (1fr, auto),
-          align: (left, right),
-          gutter: 2em,
-          if (show-title-in-header) {
-            emph(align(center + horizon, text(size: 10pt, title)))
-          },
-          stack(dir: ltr,
-            spacing: 1em,
-            if (show-left-logo-in-header and logo-left != none) {
-              set image(height: left-logo-height / 2)
-              logo-left
+        if (header != none) {
+          header
+        } else {
+          grid(
+            columns: (1fr, auto),
+            align: (left, right),
+            gutter: 2em,
+            if (show-title-in-header) {
+              emph(align(center + horizon, text(size: 10pt, title)))
             },
-            if (show-right-logo-in-header and logo-right != none) {
-              set image(height: right-logo-height / 2)
-              logo-right
-            }
+            stack(dir: ltr,
+              spacing: 1em,
+              if (show-left-logo-in-header and logo-left != none) {
+                set image(height: left-logo-height / 2)
+                logo-left
+              },
+              if (show-right-logo-in-header and logo-right != none) {
+                set image(height: right-logo-height / 2)
+                logo-right
+              }
+            )
           )
-        )
-        v(-0.75em)
-        if (show-header-divider) {
-          line(length: 100%)
+          v(-0.75em)
+          if (show-header-divider) {
+            line(length: 100%)
+          }
         }
       }
     }
