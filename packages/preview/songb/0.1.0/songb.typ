@@ -9,7 +9,7 @@
 #let song = song.song
 
 #import "./chord.typ"
-#let chord_display = chord.chord_display
+#let chord-display = chord.chord-display
 #let chord = chord.chord
 
 

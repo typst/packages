@@ -22,12 +22,12 @@
 
 #let song(
   title: none,
-  title_index: none,
+  title-index: none,
   singer: none,
-  singer_index: none,
+  singer-index: none,
   references: (),
-  line_color: rgb(0xd0, 0xd0, 0xd0),
-  header_display: (number, title, singer) => grid(
+  line-color: rgb(0xd0, 0xd0, 0xd0),
+  header-display: (number, title, singer) => grid(
     columns: (auto,1fr),
     inset: 4pt,
     align: horizon,
@@ -46,20 +46,20 @@
   let number = counter(heading).get().first()+1
   [#metadata((
     name: title,
-    sortable: if title_index != none { title_index } else { _to-string(title) },
+    sortable: if title-index != none { title-index } else { _to-string(title) },
     references: references,
     counter: number,
   ))<song>]
   if singer != none {
     [#metadata((
       name: singer,
-      sortable: if singer_index != none { singer_index } else { _to-string(singer) },
+      sortable: if singer-index != none { singer-index } else { _to-string(singer) },
       references: references,
       counter: number,
     ))<singer>]
   }
 
-  header_display(number, title, singer)
+  header-display(number, title, singer)
 
   if references.len() > 0 {
     v(-8pt)
@@ -68,7 +68,7 @@
 
   doc
 
-  line(length: 100%,stroke: line_color)
+  line(length: 100%,stroke: line-color)
 }
 
 #let chorus(body) = {
@@ -80,7 +80,7 @@
   verseNumber.step()
 }
 
-#let index-by-letter(label, letter_highlight: (letter) => {
+#let index-by-letter(label, letter-highlight: (letter) => {
   box(fill:rgb(0xd0, 0xd0, 0xd0), inset: 4pt,text(size: 1.2em,emph(letter)))+v(-.75em)
   // text(size: 1.2em,fill:rgb(0x76, 0x76, 0x76),emph[~#letter])+"\n"
 }) = context {
@@ -107,7 +107,7 @@
   }
 
   for letter in letters.keys().sorted() {
-    letter_highlight(letter)
+    letter-highlight(letter)
     let names = letters.at(letter)
     for name in names.keys().sorted() {
       let entry = names.at(name)

@@ -24,7 +24,7 @@
 
 // "": show chords
 // "hide": hide chords
-#let chord_display = state("chord_display", sys.inputs.at("chord", default:""))
+#let chord-display = state("chord-display", sys.inputs.at("chord", default:""))
 
 // first argument: chord name
 // optional second argument: text below the chord (useful for whitespace for instance)
@@ -35,7 +35,7 @@
   let chord = content.pos().first()
   let txt = content.pos().at(1, default:none)
 
-  if chord_display.get() == "hide" {
+  if chord-display.get() == "hide" {
     return txt
   }
   let previousChords = query(selector(<chord>).before(here()))

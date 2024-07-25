@@ -19,17 +19,17 @@
 
 #let song(
   title: none,
-  title_index: none,
+  title-index: none,
   singer: none,
-  singer_index: none,
+  singer-index: none,
   references: (),
   doc)={
   autobreak(
     s(
     title:title,
-    title_index:title_index,
+    title-index:title-index,
     singer:singer,
-    singer_index:singer_index,
+    singer-index:singer-index,
     references:references,
     doc)
   )
@@ -154,15 +154,15 @@ Bridge
 
 #song(
   title: "Pseudo German song",
-  title_index: "German song",
-  references: ("with a title_index of \"German song\"","to set it up somewhere else in the index",)
+  title-index: "German song",
+  references: ("with a title-index of \"German song\"","to set it up somewhere else in the index",)
 )[]
 
 
 #song(
   title: "Hidden song",
-  title_index: "",
-  references: ("with an empty title_index to hide from the index",)
+  title-index: "",
+  references: ("with an empty title-index to hide from the index",)
 )[
   With a reference
 ]
@@ -170,7 +170,7 @@ Bridge
 #song(
   title: ['74 --- '75],
   singer: [O' Connells],
-  singer_index: "#",
+  singer-index: "#",
 )[
   Typography should not be lost in the index!\
   Another paragraph
@@ -188,7 +188,7 @@ Bridge
 )[]
 #song(
   title: "Et 1, et 2, et 3 zéro!",
-  title_index: "#1 et 2",
+  title-index: "#1 et 2",
   singer: "Max Mustermann",
 )[]
 
@@ -197,5 +197,5 @@ Bridge
   title: [
     The German song
   ],
-  title_index: "German song (The)",
+  title-index: "German song (The)",
 )[]

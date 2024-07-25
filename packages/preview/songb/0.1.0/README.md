@@ -73,12 +73,12 @@ you can write it directly
 ```typ
 #let song(
   title: none,
-  title_index: none,
+  title-index: none,
   singer: none,
-  singer_index: none,
+  singer-index: none,
   references: (),
-  line_color: rgb(0xd0, 0xd0, 0xd0),
-  header_display: (number, title, singer) => (...),
+  line-color: rgb(0xd0, 0xd0, 0xd0),
+  header-display: (number, title, singer) => (...),
   doc
 )
 ```
@@ -116,6 +116,6 @@ This function aims at putting the content on a single page (or on facing pages),
 ### index-by-letter
 
 ```typ
-#let index-by-letter(label, letter_highlight: (letter) => (...))
+#let index-by-letter(label, letter-highlight: (letter) => (...))
 ```
 label: `<song>` or `<singer>` are provided by the `song` function.

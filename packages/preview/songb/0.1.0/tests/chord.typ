@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: CC0-1.0
 
-#import "../chord.typ": chord, chord_display;
+#import "../chord.typ": chord, chord-display;
 
 = First song
 
@@ -30,9 +30,9 @@ Was #chord[C]blind, but #chord[G]now I #chord[Cb]sii#chord[F]e#chord[C]\
 
 Was #chord[C\#m][b]lind, but #chord[G]now I #chord[Cb]sii#chord[F]e#chord[C]\
 
-#chord_display.update("hide")
+#chord-display.update("hide")
 Was #chord[C\#m][b]lind, but #chord[G]now I #chord[Cb]sii#chord[F]e#chord[C]\
-#chord_display.update("")
+#chord-display.update("")
 
 == Line height
 
