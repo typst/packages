@@ -46,6 +46,7 @@
   date-format: "[day].[month].[year]",
   bibliography: none,
   bib-style: "ieee",
+  heading-numbering: "1.1",
   logo-left: image("dhbw.svg"),
   logo-right: none,
   logo-size-ratio: "1:1",
@@ -91,6 +92,7 @@
     logo-right,
     logo-size-ratio,
     university-short,
+    heading-numbering,
   )
 
   // set the document's basic properties
@@ -119,7 +121,7 @@
   show heading: set text(weight: "semibold", font: heading-font)
 
   //heading numbering
-  set heading(numbering: "1.1")
+  set heading(numbering: heading-numbering)
  
   // set link style for links that are not acronyms
   show link: it => if (

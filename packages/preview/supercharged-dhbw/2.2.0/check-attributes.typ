@@ -37,6 +37,7 @@
   logo-right,
   logo-size-ratio,
   university-short,
+  heading-numbering,
   ) = {
   if (title == none or title == "") {
     panic("Title is missing. Specify a title in the 'title' attribute of the template.")
@@ -82,6 +83,7 @@
     type-of-thesis: type-of-thesis,
     type-of-degree: type-of-degree,
     bib-style: bib-style,
+    heading-numbering: heading-numbering,
   )
 
   for (key, attribute) in optional-string-attributes {
