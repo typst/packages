@@ -186,7 +186,7 @@ To define the plural form of an acronym use a array as value with the first elem
 If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
 
 ```typst
-#import "@preview/supercharged-dhbw:2.1.0": *
+#import "@preview/supercharged-dhbw:2.2.0": *
 
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",

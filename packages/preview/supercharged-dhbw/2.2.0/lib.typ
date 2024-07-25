@@ -117,7 +117,7 @@
   show heading: set text(weight: "semibold", font: heading-font)
 
   //heading numbering
-  set heading(numbering: "1.")
+  set heading(numbering: "1.1")
  
   // set link style for links that are not acronyms
   show link: it => if (
