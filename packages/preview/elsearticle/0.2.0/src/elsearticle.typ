@@ -40,18 +40,14 @@
 // Subfigures
 #let subfigure = {
   subpar.grid.with(
-    numbering: n => context{
-      if isappendix.get() {numbering("A.1", counter(heading).get().first(), n)
+    numbering: n => if isappendix.get() {numbering("A.1", counter(heading).get().first(), n)
       } else {
         numbering("1", n)
-      }
-    },
-    numbering-sub-ref: (m, n) => context{
-      if isappendix.get() {numbering("A.1a", counter(heading).get().first(), m, n)
+      },
+    numbering-sub-ref: (m, n) => if isappendix.get() {numbering("A.1a", counter(heading).get().first(), m, n)
       } else {
         numbering("1a", m, n)
       }
-    }
   )
 }
 
