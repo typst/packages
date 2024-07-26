@@ -1,5 +1,4 @@
-// #import "@preview/elsearticle:0.2.0": *
-#import "../src/elsearticle.typ": *
+#import "@preview/elsearticle:0.2.0": *
 
 #let abstract = lorem(100)
 
