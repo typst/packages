@@ -2,9 +2,29 @@
 /* TEMPLATE DEFINITION */
 /***********************/
 
-#let apply(doc) = {
+// Defining all margins
+// For now : same as LaTeX template from TypographiX
+// (already validated by DIRCOM)
+#let margin-default = (
+  top: 40mm,
+  bottom: 35mm,
+  left: 20mm,
+  right: 20mm
+)
+
+//     Bigger margins      yeay
+#let margin-despair-mode = (
+  top: 1.2 * margin-default.at("top"),
+  bottom: 1.2 * margin-default.at("bottom"),
+  left: 1.5 * margin-default.at("left"),
+  right: 1.5 * margin-default.at("right")
+)
+
+// Applying margins and other page-related setup
+#let apply(doc, despair-mode: false) = {
   set page(
-    paper: "a4"
+    paper: "a4",
+    margin: if (despair-mode) { margin-despair-mode } else { margin-default }
   )
 
   set par(justify: true)
@@ -17,8 +37,9 @@
 /* TESTING TEMPLATE */
 /********************/
 
-#show: apply
+#show: rest => apply(rest, despair-mode: false)
 
+#set page(header: "I'm a happy header")
 #set page(numbering: none)
 
 = Testing basic feature

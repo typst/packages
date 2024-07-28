@@ -1,7 +1,5 @@
 #import "../polytechnique.typ"
 
-#show: polytechnique.apply
-
 // Defining variables for the cover page and PDF metadata
 #let title = "Rapport de stage en entreprise sur plusieurs lignes automatiquement"
 #let subtitle = "Un sous-titre pour expliquer ce titre"
@@ -9,8 +7,11 @@
 #let authors = ("Rémi Germe")
 #let date_start = datetime(year: 2024, month: 06, day: 05)
 #let date_end = datetime(year: 2024, month: 09, day: 05)
+#let despair-mode = false
 
 #set text(lang: "fr")
+
+#show: rest => polytechnique.apply(rest, despair-mode: despair-mode)
 
 // Cover page
 #polytechnique.cover.cover(title, authors, date_start, date_end, subtitle: subtitle)

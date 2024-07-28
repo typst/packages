@@ -3,8 +3,8 @@
 #import "outline.typ"
 #import "cover.typ"
 
-#let apply(doc) = {
-  show: page.apply
+#let apply(doc, despair-mode: false) = {
+  show: rest => page.apply(rest, despair-mode: despair-mode)
   show:  heading.apply
   show: outline.apply
   doc
