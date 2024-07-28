@@ -6,6 +6,7 @@ authors = ["DVDTSB"]
 license = "MIT-0"
 description = "a colorful template for writting handouts or notes"
 categories = ["fun", "layout", "text"]
+repository = "https://github.com/DVDTSB/dvdtyp"
 
 [template]
 path = "template"
