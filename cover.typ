@@ -7,16 +7,16 @@
 #let translate_month(month) = {
   // Construction mapping for months
   let t = (:)
-  let fr_months_s = ("Janv.", "Févr.", "Mars", "Avr.", "Mai", "Juin",
+  let fr-month-s = ("Janv.", "Févr.", "Mars", "Avr.", "Mai", "Juin",
     "Juill.", "Août", "Sept.", "Oct.", "Nov.", "Déc.")
-  let fr_months_l = ("Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+  let fr-months-l = ("Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
     "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre")
   for i in range(12) {
     let idate = datetime(year: 0, month: i + 1, day: 1)
     let ml = idate.display("[month repr:long]")
     let ms = idate.display("[month repr:short]")
-    t.insert(ml, fr_months_l.at(i))
-    t.insert(ms, fr_months_s.at(i))
+    t.insert(ml, fr-months-l.at(i))
+    t.insert(ms, fr-month-s.at(i))
   }
 
   // Translating month
@@ -24,10 +24,10 @@
   fr_month
 }
 
-#let display_date(date, short_month) = {
+#let display-date(date, short-month) = {
   context {
     // Getting adapted month string
-    let repr = if short_month { "short" } else { "long" }
+    let repr = if short-month { "short" } else { "long" }
     let month = date.display("[month repr:" + repr + "]")
 
     // Translate if necessary
@@ -43,7 +43,7 @@
 
 /* MAIN COVER DEFINITION */
 
-#let cover(title, authors, date_start, date_end, subtitle: none, short_month: false) = {
+#let cover(title, authors, date-start, date-end, subtitle: none, short-month: false) = {
   // Set document metadata
   set document(title: title, author: authors, date: datetime.today())
 
@@ -64,7 +64,7 @@
   v(1fr)
   
   set text(size: 18pt)
-  display_date(date_start, short_month); [ \- ]; display_date(date_end, short_month)
+  display-date(date-start, short-month); [ \- ]; display-date(date-end, short-month)
 
   v(0.5fr)
 
