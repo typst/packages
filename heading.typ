@@ -37,7 +37,7 @@
     set text(
       size: 12pt,
       weight: "regular",
-      fill: blue
+      fill: rgb("01426A")
     )
     if h.numbering != none {
       counter(heading).display(h.numbering).slice(0, -2)
