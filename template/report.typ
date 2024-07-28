@@ -9,7 +9,7 @@ sur plusieurs lignes]
 #let subtitle = "Un sous-titre pour expliquer ce titre"
 // Short title on headers
 #let short_title = "Rapport de stage"
-#let authors = ("Rémi Germe")
+#let author = "Rémi Germe"
 #let date-start = datetime(year: 2024, month: 06, day: 05)
 #let date-end = datetime(year: 2024, month: 09, day: 05)
 // Set to true for bigger margins and so on (good luck with your report)
@@ -17,10 +17,12 @@ sur plusieurs lignes]
 
 #set text(lang: "fr")
 
-#show: rest => polytechnique.apply(rest, despair-mode: despair-mode)
+// Set document metadata
+#set document(title: title, author: author, date: datetime.today())
+#show: polytechnique.apply.with(despair-mode: despair-mode)
 
 // Cover page
-#polytechnique.cover.cover(title, authors, date-start, date-end, subtitle: subtitle)
+#polytechnique.cover.cover(title, author, date-start, date-end, subtitle: subtitle)
 #pagebreak()
 
 // Acknowledgements
@@ -37,7 +39,7 @@ sur plusieurs lignes]
 #outline(title: [Template contents], indent: 1em, depth: 2)
 
 // Defining header and page numbering (will pagebreak)
-#set page(header: smallcaps(short_title), numbering: "1 / 1")
+#set page(header: { smallcaps(short_title); h(1fr); image("../assets/logo-x-ip-paris.svg", height: 20mm)}, numbering: "1 / 1")
 #counter(page).update(1)
 
 // Introduction
