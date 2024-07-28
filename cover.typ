@@ -43,10 +43,8 @@
 
 /* MAIN COVER DEFINITION */
 
-#let cover(title, authors, date-start, date-end, subtitle: none, short-month: false) = {
-  // Set document metadata
-  set document(title: title, author: authors, date: datetime.today())
-
+#let cover(title, author, date-start, date-end, subtitle: none, short-month: false) = {
+  set page(background: image("assets/armes.svg"))
   set align(center)
 
   v(3fr)
@@ -69,7 +67,7 @@
   v(0.5fr)
 
   set text(size: 16pt)
-  smallcaps(authors)
+  smallcaps(author)
 
   v(2fr)
 
