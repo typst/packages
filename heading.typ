@@ -12,13 +12,13 @@
     set text(
       size: 16pt,
       weight: "black",
-      fill: red
+      fill: rgb("CE0037")
     )
     if h.numbering != none {
       counter(heading).display(h.numbering)
     }
     upper(h.body)
-    // image("banner-subheading.svg", width: 30%)
+    image("assets/filet-long.svg", width: 30%)
   }
 
   // H2 styling
@@ -26,10 +26,10 @@
     set text(
       size:14pt,
       weight: "medium",
-      fill: blue,
+      fill: rgb("00677F"),
     )
     smallcaps(h)
-    // image("small-banner-subheading.svg")
+    image("assets/filet-court.svg")
   }
 
   // H3 styling
