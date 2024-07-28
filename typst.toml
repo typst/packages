@@ -12,7 +12,7 @@ exclude = [
     ".gitignore",
     "guide.typ", "guide.pdf",
     "assets/example.bib",
-    "assets/logo-hori.eps", "assets/logo-vert.eps",
+    "assets/logo-x.eps", "assets/logo-x-ip-paris.eps",
     "assets/armes.eps", "assets/filet-court.eps", "assets/filet-long.eps"
 ]
 
