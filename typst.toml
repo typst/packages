@@ -8,7 +8,13 @@ description = "A report template for Polytechnique students."
 repository = "https://github.com/remigerme/typst-polytechnique"
 keywords = ["polytechnique", "école polytechnique", "report", "rapport", "stage"]
 categories = ["report"]
-exclude = ["guide.typ", "guide.pdf"]
+exclude = [
+    ".gitignore",
+    "guide.typ", "guide.pdf",
+    "assets/example.bib",
+    "assets/logo-hori.eps", "assets/logo-vert.eps",
+    "assets/armes.eps", "assets/filet-court.eps", "assets/filet-long.eps"
+]
 
 [template]
 path = "template"
