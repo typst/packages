@@ -15,6 +15,7 @@ Define variables at the top of the template :
 #let authors = ("Rémi Germe")
 #let date_start = datetime(year: 2024, month: 06, day: 05)
 #let date_end = datetime(year: 2024, month: 09, day: 05)
+#let despair-mode = false
 
 #set text(lang: "fr")
 ```

@@ -1,12 +1,18 @@
 #import "../polytechnique.typ"
 
 // Defining variables for the cover page and PDF metadata
-#let title = "Rapport de stage en entreprise sur plusieurs lignes automatiquement"
+// Main title on cover page
+#let title = [Rapport de stage en entreprise
+#linebreak()
+sur plusieurs lignes]
+// Subtitle on cover page
 #let subtitle = "Un sous-titre pour expliquer ce titre"
+// Short title on headers
 #let short_title = "Rapport de stage"
 #let authors = ("Rémi Germe")
 #let date_start = datetime(year: 2024, month: 06, day: 05)
 #let date_end = datetime(year: 2024, month: 09, day: 05)
+// Set to true for bigger margins and so on (good luck with your report)
 #let despair-mode = false
 
 #set text(lang: "fr")
