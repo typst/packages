@@ -1,6 +1,6 @@
 #import "@preview/modernpro-cv:1.0.0": *
 
-    #show: cv-single.with(
+#show: cv-single.with(
   font-type: "PT Serif",
   continue_header: "false",
   name: "John Doe",

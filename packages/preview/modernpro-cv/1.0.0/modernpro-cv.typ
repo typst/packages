@@ -5,7 +5,7 @@
 // Author:  Jiaxin Peng
 // License: MIT
 // Version: 1.0.0
-// Date:    2024-07-29
+// Date:    2024-07-30
 // Email:   jiaxin.peng@outlook.com
 ///////////////////////////////
 
@@ -116,7 +116,7 @@
 }
 
 #let award(award: "", institution: "", date: "") = {
-  text(11pt, fill: primary_colour, weight: "regular")[#award, #emph(institution) #h(1fr) #emph(date)\ ]
+  [#text(11pt, fill: primary_colour, weight: "medium")[#award,] #text(11pt, fill: primary_colour, weight: "regular")[#emph(institution)] #h(1fr) #text(11pt, fill: primary_colour, weight: "regular")[#emph(date)\ ]]
 }
 
 #let references(references: ()) = {

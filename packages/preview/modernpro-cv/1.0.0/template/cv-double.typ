@@ -1,6 +1,6 @@
 #import "@preview/modernpro-cv:1.0.0": *
 
-    #show: cv-double.with(
+#show: cv-double.with(
   name: [#lorem(2)], //name:"" or name:[]
   address: [#lorem(4)],
   lastupdated: "true",

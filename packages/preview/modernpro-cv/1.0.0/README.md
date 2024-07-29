@@ -113,7 +113,7 @@ I preset the following functions for you to create different parts:
 |`#oneline-title-item(title: "", content: "")`| Add a one-line item (**Title:** content)|
 |`#oneline-two(entry1: "", entry2: "")`| Add a one-line item with two entries, aligned left and right|
 |`#descript("descriptions")`| Add a description for self-introduction|
-|`#award(award: "", date: "", institution: "")`| Add an award (award, *institution*   *date*)|
+|`#award(award: "", date: "", institution: "")`| Add an award (**award**, *institution*   *date*)|
 |`#education(institution: "", major: "", date: "", institution: "", core-modules: "")`| Add an education experience|
 |`#job(position: "", institution: "", location: "", date: "", description: [])`| Add a job experience (description is optional)|
 |`#twoline-item(entry1: "", entry2: "", entry3: "", entry4: "")`| Two line items, similar to education and job experiences|
