@@ -42,8 +42,7 @@ Typst is a user-friendlier alternative to LaTeX.
 #polytechnique.cover.cover(title, authors, date_start, date_end, subtitle: subtitle)
 ```
 
-Set text lang to `fr` if you want the months in French.
-
+Set text lang to `fr` if you want the months in French. \
 You can also specify `short_month: true` in the call to cover to get month abbreviations. 
 
 == Doing some math
@@ -90,6 +89,8 @@ You can generate dummy text with the `#lorem(n)` command. For example : #lower(l
 
 The small heading above won't appear in the table of contents (because depth is set to 2).
 
+#pagebreak()
+
 = Modify the template
 
 == Contribute
@@ -97,5 +98,7 @@ The small heading above won't appear in the table of contents (because depth is 
 Contributions are welcomed ! Check out the #link("https://github.com/remigerme/typst-polytechnique")[source repository].
 
 You can also learn more about #link("https://github.com/typst/packages")[Typst packages] release pipeline.
+
+#pagebreak()
 
 #bibliography("assets/example.bib")
