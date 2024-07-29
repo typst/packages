@@ -31,5 +31,7 @@ Contributions are welcomed ! See [contribution guidelines](CONTRIBUTING.md).
 ## Todo
 
 - [ ] heading not at the end of a page
-- [ ] first line indent
+- [x] first line indent
 - [ ] better spacing between elements
+- [ ] handle logos on cover page
+- [ ] handle logos on header
