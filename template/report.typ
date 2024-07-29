@@ -36,11 +36,7 @@ sur plusieurs lignes]
 #pagebreak()
 
 // Table of contents
-// Quick fix necessary to avoid first heading to be indented...
-#{
-  set par(first-line-indent: 0pt)
-  outline(title: [Template contents], indent: 1em, depth: 2)
-}
+#outline(title: [Template contents], indent: 1em, depth: 2)
 
 // Defining header and page numbering (will pagebreak)
 #set page(header: { 
@@ -68,7 +64,12 @@ sur plusieurs lignes]
 
 #lorem(20)
 
+
+=== Encore un autre décidément
+
 #lorem(120)
+
+==== Il en faut toujours plus
 
 #lorem(80)
 
