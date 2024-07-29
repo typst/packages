@@ -44,32 +44,39 @@
 /* MAIN COVER DEFINITION */
 
 #let cover(title, author, date-start, date-end, subtitle: none, short-month: false) = {
-  set page(background: image("assets/armes.svg"))
+  set page(background: move(dx: 0pt, dy: -13%, image("assets/armes.svg")))
+  set text(font: "New Computer Modern Sans", hyphenate: false, fill: rgb(1, 66, 106))
   set align(center)
 
-  v(3fr)
+  v(1.8fr)
 
-  set text(size: 24pt)
+  set text(size: 24pt, weight: "bold")
   upper(title)
 
-  v(1fr)
+  v(1.5fr)
 
   if subtitle != none {
     set text(size: 20pt)
     subtitle
   }
 
-  v(1fr)
+  v(1.5fr)
   
-  set text(size: 18pt)
+  set text(size: 18pt, weight: "regular")
   display-date(date-start, short-month); [ \- ]; display-date(date-end, short-month)
 
-  v(0.5fr)
+  image("assets/filet-court.svg")
 
   set text(size: 16pt)
   smallcaps(author)
 
-  v(2fr)
+  v(1fr)
+
+  grid(
+    columns: (1fr, 1fr),
+    image("assets/typst.png", height: 20mm),
+    image("assets/logo-x-ip-paris.svg", height: 20mm)
+  )
 
 }
 
@@ -85,5 +92,5 @@
   "Jane Doe",
   datetime.today(),
   datetime.today(),
-  subtitle: "Explain this title"
+  subtitle: "Je n'ai pas de stage mais je suis détendu"
 )
