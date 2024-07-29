@@ -53,7 +53,7 @@ If you are looking for the details of this template package's function, take a l
 ## Example configuration
 
 ```typ
-#import "@preview/aio-studi-and-thesis: *
+#import "@preview/aio-studi-and-thesis:0.1.0": *
 
 #show: project.with(
   lang: "de",
