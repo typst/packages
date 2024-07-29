@@ -36,12 +36,16 @@ sur plusieurs lignes]
 #pagebreak()
 
 // Table of contents
-#outline(title: [Template contents], indent: 1em, depth: 2)
+// Quick fix necessary to avoid first heading to be indented...
+#{
+  set par(first-line-indent: 0pt)
+  outline(title: [Template contents], indent: 1em, depth: 2)
+}
 
 // Defining header and page numbering (will pagebreak)
 #set page(header: { 
   grid(columns: (1fr, 1fr),
-    align(horizon, smallcaps(text(fill: rgb("01426A"), size: 14pt, font: "New Computer Modern Sans", weight: "regular")[#short_title])),
+    align(horizon, smallcaps(text(fill: rgb("01426A"), size: 14pt, font: "New Computer Modern", weight: "regular")[#short_title])),
     align(right, image("../assets/logo-x-ip-paris.svg", height: 20mm)))
 }, numbering: "1 / 1")
 #counter(page).update(1)
@@ -55,6 +59,8 @@ sur plusieurs lignes]
 = Premier titre
 
 == Un sous-titre
+ 
+#lorem(30)
 
 === Un détail pas si inutile
 

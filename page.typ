@@ -27,7 +27,7 @@
     margin: if (despair-mode) { margin-despair-mode } else { margin-default }
   )
 
-  set par(justify: true)
+  set par(justify: true, first-line-indent: 20pt)
 
   doc
 }

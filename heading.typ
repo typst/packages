@@ -23,7 +23,6 @@
       upper(he.body)
       image("assets/filet-long.svg", width: 30%)
       v(0.5em)
-      parbreak()
   }]
   }
 
@@ -35,9 +34,9 @@
       fill: rgb("00677F"),
     )
     smallcaps(he)
-    v(-0.6em)
+    v(-0.5em)
     image("assets/filet-court.svg")
-    parbreak()
+    v(0.3em)
   }
 
   // H3 styling
@@ -51,7 +50,17 @@
       counter(heading).display(he.numbering).slice(0, -2)
     }
     smallcaps([• ] + he.body)
-    parbreak()
+    v(-1em)
+  }
+
+  // Quick fix for paragraph indentation...
+  // Any superior entity who might be reading, please forgive me
+  show heading: he => {
+    {
+      set par(first-line-indent: 0pt)
+      he
+    }
+    par()[#text(size: 0em)[#h(0em)]]
   }
 
   // Don't forget to return doc cause
