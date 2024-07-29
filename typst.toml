@@ -11,7 +11,7 @@ categories = ["report"]
 exclude = [
     ".gitignore",
     "guide.typ", "guide.pdf",
-    "assets/example.bib",
+    "assets/example.bib", "assets/typst.png",
     "assets/logo-x.eps", "assets/logo-x-ip-paris.eps",
     "assets/armes.eps", "assets/filet-court.eps", "assets/filet-long.eps"
 ]
