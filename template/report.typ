@@ -39,7 +39,11 @@ sur plusieurs lignes]
 #outline(title: [Template contents], indent: 1em, depth: 2)
 
 // Defining header and page numbering (will pagebreak)
-#set page(header: { smallcaps(short_title); h(1fr); image("../assets/logo-x-ip-paris.svg", height: 20mm)}, numbering: "1 / 1")
+#set page(header: { 
+  grid(columns: (1fr, 1fr),
+    align(horizon, smallcaps(text(fill: rgb("01426A"), size: 14pt, font: "New Computer Modern Sans", weight: "regular")[#short_title])),
+    align(right, image("../assets/logo-x-ip-paris.svg", height: 20mm)))
+}, numbering: "1 / 1")
 #counter(page).update(1)
 
 // Introduction
