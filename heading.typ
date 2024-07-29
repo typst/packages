@@ -50,7 +50,6 @@
       counter(heading).display(he.numbering).slice(0, -2)
     }
     smallcaps([• ] + he.body)
-    v(-0.5em)
   }
 
   // H4 styling
