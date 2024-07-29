@@ -6,6 +6,8 @@ For a short introduction to Typst features and detailled information about the p
 
 ## Usage
 
+If you want to use it on local, make sure you have the font "New Computer Modern Sans" installed.
+
 Define variables at the top of the template :
 
 ```typc
@@ -25,3 +27,9 @@ These variables will be used for PDF metadata, default cover page and default he
 ## Contributing
 
 Contributions are welcomed ! See [contribution guidelines](CONTRIBUTING.md).
+
+## Todo
+
+- [ ] heading not at the end of a page
+- [ ] first line indent
+- [ ] better spacing between elements

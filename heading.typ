@@ -7,42 +7,51 @@
   set heading(numbering: "1.1 - ")
 
   // H1 styling
-  show heading.where(level:1): h => {
+  show heading.where(level:1): he => {
     set align(center)
-    set text(
-      size: 16pt,
-      weight: "black",
-      fill: rgb("CE0037")
-    )
-    if h.numbering != none {
-      counter(heading).display(h.numbering)
-    }
-    upper(h.body)
-    image("assets/filet-long.svg", width: 30%)
+    box(width: 75%)[#{
+      set text(
+        size: 16pt,
+        weight: "black",
+        fill: rgb("CE0037"),
+        font: "New Computer Modern Sans",
+        hyphenate: false
+      )
+      if he.numbering != none {
+        counter(heading).display(he.numbering)
+      }
+      upper(he.body)
+      image("assets/filet-long.svg", width: 30%)
+      v(0.5em)
+      parbreak()
+  }]
   }
 
   // H2 styling
-  show heading.where(level:2): h => {
+  show heading.where(level:2): he => {
     set text(
-      size:14pt,
+      size:16pt,
       weight: "medium",
       fill: rgb("00677F"),
     )
-    smallcaps(h)
+    smallcaps(he)
+    v(-0.6em)
     image("assets/filet-court.svg")
+    parbreak()
   }
 
   // H3 styling
-  show heading.where(level: 3): h => {
+  show heading.where(level: 3): he => {
     set text(
-      size: 12pt,
+      size: 14pt,
       weight: "regular",
       fill: rgb("01426A")
     )
-    if h.numbering != none {
-      counter(heading).display(h.numbering).slice(0, -2)
+    if he.numbering != none {
+      counter(heading).display(he.numbering).slice(0, -2)
     }
-    smallcaps([• ] + h.body)
+    smallcaps([• ] + he.body)
+    parbreak()
   }
 
   // Don't forget to return doc cause
@@ -64,16 +73,20 @@
 == A sub-section 
 
 #heading(level: 2, numbering: none)[Sub-section without numbering]
+#lorem(60)
 
 === No more ideas
 
 ==== Sometimes dummy text is
 
 ===== Really important
+really ?
 
 ==== Back again
 
 === Guess who's back ?
+
+#lorem(40)
 
 = My second section
 
