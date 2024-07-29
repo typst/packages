@@ -2,8 +2,6 @@
 
 This Typst CV template is inspired by the Latex template [Deedy-Resume](https://github.com/deedy/Deedy-Resume). You can use it for both industry and academia.
 
-[TOC]
-
 ## How to start
 
 ### Use Typst CLI
@@ -119,6 +117,7 @@ I preset the following functions for you to create different parts:
 |`#job(position: "", institution: "", location: "", date: "", description: [])`| Add a job experience (description is optional)|
 |`#twoline-item(entry1: "", entry2: "", entry3: "", entry4: "")`| Two line items, similar to education and job experiences|
 |`#references(references:())`| Add a reference list. In the `()`, you can add multi reference entries with the following format `(name: "", position: "", department: "", institution: "", address: "", email: "",),`|
+|`#bibliography("bib.bib", style: "american-psychological-association", full: true, title: none)`| Add a bibliography. You can modify the `bib.bib` file to add your publications. **Note:** only change the bib path and style|
 
 ## Preview
 
@@ -147,3 +146,7 @@ you can also use the following code in the command line:
 ```bash
 typst init modernpro-coverletter
 ```
+
+## License
+
+The template is released under the MIT License. For more information, please refer to the [LICENSE](https://github.com/jxpeng98/Typst-CV-Resume/blob/main/LICENSE) file.
