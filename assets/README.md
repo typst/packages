@@ -12,7 +12,7 @@ Typst currently only supports `svg` integration. I generated `svg` assets using 
 for f in *.eps; do inkscape --export-type=svg $f; done
 sed -i 's/2e6886/00677f/' filet-court.svg
 sed -i 's/a62125/ce0037/' filet-long.svg
-sed -i 's/dae0e5/.../' armes.svg
+sed -i 's/dae0e5/ccd8df/' armes.svg
 sed -i 's/0d355c/01426a/' logo-x.svg
 sed -i 's/1e3f6a/01426a/' logo-x-ip-paris.svg
 ```
