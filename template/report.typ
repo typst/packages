@@ -66,7 +66,16 @@ sur plusieurs lignes]
 
 ==== Halte au sketch
 
-#lorem(200)
+#lorem(20)
+
+#lorem(120)
+
+#lorem(80)
+
+== L'inspiration se fait rare
+Ne pas oublier d'expirer surtout. #lorem(20)
+
+#lorem(35)
 
 #pagebreak()
 
