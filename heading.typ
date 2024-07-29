@@ -11,7 +11,7 @@
     set align(center)
     box(width: 75%)[#{
       set text(
-        size: 16pt,
+        size: 20pt,
         weight: "black",
         fill: rgb("CE0037"),
         font: "New Computer Modern Sans",
@@ -29,7 +29,7 @@
   // H2 styling
   show heading.where(level:2): he => {
     set text(
-      size:16pt,
+      size:20pt,
       weight: "medium",
       fill: rgb("00677F"),
     )
@@ -42,7 +42,7 @@
   // H3 styling
   show heading.where(level: 3): he => {
     set text(
-      size: 14pt,
+      size: 16pt,
       weight: "regular",
       fill: rgb("01426A")
     )
@@ -50,7 +50,13 @@
       counter(heading).display(he.numbering).slice(0, -2)
     }
     smallcaps([• ] + he.body)
-    v(-1em)
+    v(-0.5em)
+  }
+
+  // H4 styling
+  show heading.where(level: 4): he => {
+    he
+    v(0.2em)
   }
 
   // Quick fix for paragraph indentation...
