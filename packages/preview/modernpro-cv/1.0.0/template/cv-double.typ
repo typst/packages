@@ -1,18 +1,18 @@
 #import "@preview/modernpro-cv:1.0.0": *
 
-                #show: main.with(
-name: [#lorem(2)], //name:"" or name:[]
-address: [#lorem(4)],
-lastupdated: "true",
-date:"2023.4.7",
-contacts: (
-(text:"08856",link:""),
-(text:"example.com",link:"https://www.example.com"),
-(text:"github.com",link:"https://www.github.com"),
-(text:"123@example.com",link:"mailto:123@example.com"),
+    #show: cv-double.with(
+  name: [#lorem(2)], //name:"" or name:[]
+  address: [#lorem(4)],
+  lastupdated: "true",
+  date: "2023.4.7",
+  contacts: (
+    (text: "08856", link: ""),
+    (text: "example.com", link: "https://www.example.com"),
+    (text: "github.com", link: "https://www.github.com"),
+    (text: "123@example.com", link: "mailto:123@example.com"),
   ),
-bibfile: [bib.json],
-[
+  bibfile: [bib.json],
+  [
     //About
     #section("About")
     #descript[#lorem(50)]
@@ -40,8 +40,8 @@ bibfile: [bib.json],
     #awarddetail[2017][Grant][Organisation]
     #awarddetail[2016][Scholarship][University]
     #sectionsep
-],
-[
+  ],
+  [
     //Experience
     #section("Experience")
     #jobtitle[#lorem(4)][#lorem(2)]
@@ -50,7 +50,8 @@ bibfile: [bib.json],
       - #lorem(10)
       - #lorem(10)
       - #lorem(10)
-      - #lorem(10)]
+      - #lorem(10)
+    ]
     #subsectionsep
     #jobtitle[#lorem(4)][#lorem(2)]
     #term[xxxx-xxxx][]
@@ -69,11 +70,7 @@ bibfile: [bib.json],
     #sectionsep
     // Publication
     #section("Publications")
-    #publication(
-      "bib.bib",
-      "chicago-author-date")
-],
+    #publication("bib.bib", "chicago-author-date")
+  ],
 )
-
-
 

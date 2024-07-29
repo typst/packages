@@ -110,7 +110,8 @@ I preset the following functions for you to create different parts:
 | --- | --- |
 | `#section("Section Name")` | Start a new section |
 | `#sectionsep` | End the section |
-|`#oneline-item(title: "", content: "")`| Add a one-line item (**Title:** content)|
+|`#oneline-title-item(title: "", content: "")`| Add a one-line item (**Title:** content)|
+|`#oneline-two(entry1: "", entry2: "")`| Add a one-line item with two entries, aligned left and right|
 |`#descript("descriptions")`| Add a description for self-introduction|
 |`#award(award: "", date: "", institution: "")`| Add an award (award, *institution*   *date*)|
 |`#education(institution: "", major: "", date: "", institution: "", core-modules: "")`| Add an education experience|
