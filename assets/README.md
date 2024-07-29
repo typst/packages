@@ -2,7 +2,7 @@
 
 ## Licensing
 
-TODO
+Use the assets accordingly with [École polytechnique corporate identity](https://www.polytechnique.edu/en/press-room).
 
 ## Generation
 
