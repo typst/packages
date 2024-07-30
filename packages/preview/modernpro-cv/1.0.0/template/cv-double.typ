@@ -70,7 +70,14 @@
     #sectionsep
     // Publication
     #section("Publications")
-    #publication("bib.bib", "chicago-author-date")
+    
+    + @quenouille1949approximate
+    + @quenouille1949approximate
+    #sectionsep
+
+    // Keep this at the end
+    #show bibliography: none
+    #bibliography("bib.bib", style: "chicago-author-date")
   ],
 )
 

@@ -118,7 +118,21 @@ I preset the following functions for you to create different parts:
 |`#job(position: "", institution: "", location: "", date: "", description: [])`| Add a job experience (description is optional)|
 |`#twoline-item(entry1: "", entry2: "", entry3: "", entry4: "")`| Two line items, similar to education and job experiences|
 |`#references(references:())`| Add a reference list. In the `()`, you can add multi reference entries with the following format `(name: "", position: "", department: "", institution: "", address: "", email: "",),`|
-|`#bibliography("bib.bib", style: "american-psychological-association", full: true, title: none)`| Add a bibliography. You can modify the `bib.bib` file to add your publications. **Note:** only change the bib path and style|
+|`#show bibliography: none #bibliography("bib.bib")`| Add a bibliography. You can modify the `bib.bib` file to add your publications. **Note:** Keep this at the end of your CV|
+
+**Note:** Use `+ @ref` to display your publications. For example,
+
+```Typst
+#section("Publications")
+
+// numbering list 
++ @quenouille1949approximate
++ @quenouille1949approximate
+
+// Keep this at the end
+#show bibliography: none
+#bibliography("bib.bib")
+```
 
 ## Preview
 

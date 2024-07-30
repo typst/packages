@@ -52,20 +52,12 @@
 // Projects
 #section("Projects")
 #twoline-item(entry1: "Project 1", entry2: "Jan 2023", description: [#lorem(40)])
-
-// project[#lorem(2)][Jan 2023][#lorem(40)]
-// subsectionsep
-// project[#lorem(2)][][
-//   - #lorem(15)
-//   - #lorem(15)
-// ]
-// subsectionsep
-// project[#lorem(2)][][#lorem(40)]
-// sectionsep
-// // Publication
+// Publication
 #section("Publications")
-#publication("bib.bib", "american-psychological-association")
 
++ @quenouille1949approximate
++ @quenouille1949approximate
+#sectionsep
 // Reference
 #section("References")
 #references(references: ((
@@ -89,3 +81,7 @@
   address: "123 Street, City, Country",
   email: "john.doe@university.edu",
 ),))
+
+// Keep this at the end
+#show bibliography: none
+#bibliography("bib.bib", style: "chicago-author-date")

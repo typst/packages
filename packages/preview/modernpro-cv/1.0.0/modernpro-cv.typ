@@ -188,6 +188,7 @@
   mainbody,
 ) = {
   set text(font: font-type, weight: "regular")
+  set cite(form: "full")
 
   if date == none {
     let date = [#datetime.today().display()]
@@ -289,7 +290,8 @@
   right: "",
 ) = {
   set text(font: font-type, weight: "regular")
-
+  set cite(form: "full")
+  
   if date == none {
     let date = [#datetime.today().display()]
   }
