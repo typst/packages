@@ -8,7 +8,7 @@ sur plusieurs lignes]
 // Subtitle on cover page
 #let subtitle = "Un sous-titre pour expliquer ce titre"
 // Short title on headers
-#let short_title = "Rapport de stage"
+#let short-title = "Rapport de stage"
 #let author = "Rémi Germe"
 #let date-start = datetime(year: 2024, month: 06, day: 05)
 #let date-end = datetime(year: 2024, month: 09, day: 05)
@@ -39,12 +39,7 @@ sur plusieurs lignes]
 #outline(title: [Template contents], indent: 1em, depth: 2)
 
 // Defining header and page numbering (will pagebreak)
-#set page(header: { 
-  grid(columns: (1fr, 1fr),
-    align(horizon, smallcaps(text(fill: rgb("01426A"), size: 14pt, font: "New Computer Modern", weight: "regular")[#short_title])),
-    align(right, image("../assets/logo-x-ip-paris.svg", height: 20mm)))
-}, numbering: "1 / 1")
-#counter(page).update(1)
+#show: polytechnique.page.apply-header-footer.with(short-title: short-title)
 
 // Introduction
 #heading(level: 1, numbering: none)[Introduction]
