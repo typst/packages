@@ -6,7 +6,7 @@ This is a template for a simple resume. It is intended to be used as a good star
 
 ## Sample Resume
 
-![example resume](./example_resume.png)
+![example resume](https://raw.githubusercontent.com/stuxf/basic-typst-resume-template/main/example_resume.png)
 
 ## Quick Start
 
