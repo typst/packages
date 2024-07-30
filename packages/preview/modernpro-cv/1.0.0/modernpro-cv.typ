@@ -35,12 +35,12 @@
 
 // Subsection Headings (institution, Company, etc)
 #let subsection(content) = {
-  text(11pt, fill: subheadings-colour , weight: "bold")[#upper[#content] ]
+  text(11pt, fill: subheadings-colour , weight: "bold")[#content]
 }
 
 // Education part
 #let education(institution: "", major: "", date: "", location: "", description: "") = {
-  text(11pt, fill: subheadings-colour , weight: "bold")[#upper[#institution], #location]
+  text(11pt, fill: subheadings-colour , weight: "bold")[#institution, #location]
   h(1fr)
   text(11pt, style: "italic", fill: headings-colour , weight: "regular")[#date \ ]
   text(11pt, style: "italic", fill: subheadings-colour , weight: "medium")[#major \ ]
@@ -70,7 +70,7 @@
 
 // Job title
 #let job(position: "", institution: "", location: "", date: "", description: "") = {
-  text(11pt, fill: subheadings-colour , weight: "semibold")[#upper[#position] ]
+  text(11pt, fill: subheadings-colour , weight: "semibold")[#position]
   h(1fr)
   text(11pt, style: "italic", fill: headings-colour , weight: "regular")[#location \ ]
   text(11pt, style: "italic", fill: subheadings-colour , weight: "medium")[#institution]
@@ -98,7 +98,7 @@
 }
 
 #let twoline-item(entry1: none, entry2: none, entry3: none, entry4: none, description: none) = {
-  text(11pt, fill: subheadings-colour , weight: "semibold")[#upper[#entry1]]
+  text(11pt, fill: subheadings-colour , weight: "semibold")[#entry1]
   if entry2 != none {
     h(1fr)
     text(11pt, style: "italic", fill: headings-colour , weight: "regular")[#entry2 \ ]
