@@ -11,8 +11,8 @@
 
 // Define the colour scheme
 #let date_colour = rgb("#666666")
-#let primary_colour = rgb("#2b2b2b")
-#let headings_colour = rgb("#000000")
+#let primary_colour = rgb("#000000")
+#let headings_colour = rgb("#2b2b2b")
 #let subheadings_colour = rgb("#333333")
 
 #let sectionsep = {
@@ -116,35 +116,42 @@
 }
 
 #let award(award: "", institution: "", date: "") = {
-  [#text(11pt, fill: primary_colour, weight: "medium")[#award,] #text(11pt, fill: primary_colour, weight: "regular")[#emph(institution)] #h(1fr) #text(11pt, fill: primary_colour, weight: "regular")[#emph(date)\ ]]
+  [#text(11pt, fill: primary_colour, weight: "medium")[#award,] #text(
+      11pt,
+      fill: primary_colour,
+      weight: "regular",
+    )[#emph(institution)] #h(1fr) #text(11pt, fill: primary_colour, weight: "regular")[#emph(date)\ ]]
 }
 
 #let references(references: ()) = {
   grid(columns: (1fr, 1fr), row-gutter: 10pt, ..references.map(reference => {
-    align(left, {
-      if ("position" in reference) {
-        text(11pt, fill: primary_colour, weight: "semibold")[#reference.name | #reference.position\ ]
-      } else {
-        text(11pt, fill: primary_colour, weight: "semibold")[#reference.name\ ]
-      }
+      align(
+        left,
+        {
+          if ("position" in reference) {
+            text(11pt, fill: primary_colour, weight: "semibold")[#reference.name | #reference.position\ ]
+          } else {
+            text(11pt, fill: primary_colour, weight: "semibold")[#reference.name\ ]
+          }
 
-      if ("department" in reference) {
-        text(10pt, fill: primary_colour, weight: "regular")[#reference.department\ ]
-      }
-      if ("institution" in reference) {
-        text(10pt, fill: primary_colour, weight: "regular")[#reference.institution\ ]
-      }
-      if ("address" in reference) {
-        text(10pt, fill: primary_colour, weight: "regular")[#reference.address\ ]
-      }
-      if ("email" in reference) {
-        text(10pt, fill: primary_colour, weight: "regular")[
-          #reference.email \
-        ]
-      }
-      v(2pt)
-    })
-  }))
+          if ("department" in reference) {
+            text(10pt, fill: primary_colour, weight: "regular")[#reference.department\ ]
+          }
+          if ("institution" in reference) {
+            text(10pt, fill: primary_colour, weight: "regular")[#reference.institution\ ]
+          }
+          if ("address" in reference) {
+            text(10pt, fill: primary_colour, weight: "regular")[#reference.address\ ]
+          }
+          if ("email" in reference) {
+            text(10pt, fill: primary_colour, weight: "regular")[
+              #reference.email \
+            ]
+          }
+          v(2pt)
+        },
+      )
+    }))
 }
 
 // Publications
@@ -157,16 +164,16 @@
 #let display(contacts) = {
   set text(10pt, fill: headings_colour, weight: "regular", top-edge: "baseline", bottom-edge: "baseline", baseline: 2pt)
   contacts
-  .map(contact => {
-    if contact.link == none [
-      contact.text
-    ] else {
-      link(contact.link)[#{
+    .map(contact => {
+        if ("link" in contact) {
+          link(contact.link)[#{
+              contact.text
+            }]
+        } else [
           contact.text
-        }]
-    }
-  })
-  .join(" | ")
+        ]
+      })
+    .join(" | ")
 }
 
 #let cv-single(
@@ -194,32 +201,50 @@
     }
   }
 
-  set page(
-    footer: [
-      #lastupdate(lastupdated, date)
-      #h(1fr)
-      #text(9pt, style: "italic", fill: primary_colour, weight: "light")[#name]
-      #h(1fr)
-      #if pagecount == "true" {
-        text(9pt, style: "italic", fill: primary_colour, weight: "light")[Page #counter(page).display("1 / 1", both: true)]
-      }
-    ],
-  )
+  set page(footer: [
+    #lastupdate(lastupdated, date)
+    #h(1fr)
+    #text(9pt, style: "italic", fill: primary_colour, weight: "light")[#name]
+    #h(1fr)
+    #if pagecount == "true" {
+      text(
+        9pt,
+        style: "italic",
+        fill: primary_colour,
+        weight: "light",
+      )[Page #counter(page).display("1 / 1", both: true)]
+    }
+  ])
 
   if continue-header == "true" {
-    set page(margin: (left: 2cm, right: 2cm, top: 2.5cm, bottom: 1.5cm), header: {
-      text(
-        20pt,
-        fill: primary_colour,
-        weight: "bold",
-        top-edge: "baseline",
-        bottom-edge: "baseline",
-        baseline: 11pt,
-      )[#align(center, [#name])]
-      v(2pt)
-      align(center)[#display(contacts)]
-      // line(length: 100%, stroke: 0.5pt + primary_colour)
-    }, header-ascent: 1em)
+    set page(
+      margin: (left: 2cm, right: 2cm, top: 2.5cm, bottom: 1.5cm),
+      header: {
+        text(
+          20pt,
+          fill: primary_colour,
+          weight: "bold",
+          top-edge: "baseline",
+          bottom-edge: "baseline",
+          baseline: 11pt,
+        )[#align(center, [#name])]
+        // address
+        if address != none {
+          v(2pt)
+          text(
+            11pt,
+            fill: primary-colour,
+            weight: "regular",
+            top-edge: "baseline",
+            bottom-edge: "baseline",
+            baseline: 2pt,
+          )[#align(center, [#address])]
+        }
+        v(2pt)
+        align(center)[#display(contacts)]
+      },
+      header-ascent: 1em,
+    )
     mainbody
   } else {
     set page(margin: (left: 1.8cm, right: 1.8cm, top: 1cm, bottom: 1cm))
@@ -231,6 +256,18 @@
       bottom-edge: "baseline",
       baseline: 11pt,
     )[#align(center, [#name])]
+    // address
+    if address != none {
+      v(2pt)
+      text(
+        11pt,
+        fill: primary-colour,
+        weight: "regular",
+        top-edge: "baseline",
+        bottom-edge: "baseline",
+        baseline: 2pt,
+      )[#align(center, [#address])]
+    }
     v(2pt)
     align(center)[#display(contacts)]
     // line(length: 100%, stroke: 0.5pt + primary_colour)
@@ -265,34 +302,57 @@
     }
   }
 
-  set page(
-    footer: [
-      #lastupdate(lastupdated, date)
-      #h(1fr)
-      #text(9pt, style: "italic", fill: primary_colour, weight: "light")[#name]
-      #h(1fr)
-      #if pagecount == "true" {
-        text(9pt, style: "italic", fill: primary_colour, weight: "light")[Page #counter(page).display("1 / 1", both: true)]
-      }
-    ],
-  )
+  set page(footer: [
+    #lastupdate(lastupdated, date)
+    #h(1fr)
+    #text(9pt, style: "italic", fill: primary_colour, weight: "light")[#name]
+    #h(1fr)
+    #if pagecount == "true" {
+      text(
+        9pt,
+        style: "italic",
+        fill: primary_colour,
+        weight: "light",
+      )[Page #counter(page).display("1 / 1", both: true)]
+    }
+  ])
 
   if continue-header == "true" {
-    set page(margin: (left: 1.25cm, right: 1.25cm, top: 2.5cm, bottom: 1.5cm), header: {
-      text(
-        20pt,
-        fill: primary_colour,
-        weight: "bold",
-        top-edge: "baseline",
-        bottom-edge: "baseline",
-        baseline: 11pt,
-      )[#align(center, [#name])]
-      v(2pt)
-      align(center)[#display(contacts)]
-      v(2pt)
-    }, header-ascent: 1em)
+    set page(
+      margin: (left: 1.25cm, right: 1.25cm, top: 2.5cm, bottom: 1.5cm),
+      header: {
+        text(
+          20pt,
+          fill: primary_colour,
+          weight: "bold",
+          top-edge: "baseline",
+          bottom-edge: "baseline",
+          baseline: 11pt,
+        )[#align(center, [#name])]
+        // address
+        if address != none {
+          v(2pt)
+          text(
+            11pt,
+            fill: primary-colour,
+            weight: "regular",
+            top-edge: "baseline",
+            bottom-edge: "baseline",
+            baseline: 2pt,
+          )[#align(center, [#address])]
+        }
+        v(2pt)
+        align(center)[#display(contacts)]
+        v(2pt)
+      },
+      header-ascent: 1em,
+    )
     //Main Body
-    grid(columns: (1fr, 2fr), column-gutter: 2em, left, right)
+    grid(
+      columns: (1fr, 2fr),
+      column-gutter: 2em,
+      left, right,
+    )
   } else {
     set page(margin: (left: 1.25cm, right: 1.25cm, top: 1cm, bottom: 1.5cm))
     text(
@@ -303,10 +363,26 @@
       bottom-edge: "baseline",
       baseline: 11pt,
     )[#align(center, [#name])]
+    // address
+    if address != none {
+      v(2pt)
+      text(
+        11pt,
+        fill: primary-colour,
+        weight: "regular",
+        top-edge: "baseline",
+        bottom-edge: "baseline",
+        baseline: 2pt,
+      )[#align(center, [#address])]
+    }
     v(2pt)
     align(center)[#display(contacts)]
     v(2pt)
     //Main Body
-    grid(columns: (1fr, 2fr), column-gutter: 2em, left, right)
+    grid(
+      columns: (1fr, 2fr),
+      column-gutter: 2em,
+      left, right,
+    )
   }
 }
