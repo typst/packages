@@ -10,10 +10,10 @@
 ///////////////////////////////
 
 // Define the colour scheme
-#let date_colour = rgb("#666666")
-#let primary_colour = rgb("#000000")
-#let headings_colour = rgb("#2b2b2b")
-#let subheadings_colour = rgb("#333333")
+#let date-colour = rgb("#666666")
+#let primary-colour = rgb("#000000")
+#let headings-colour  = rgb("#2b2b2b")
+#let subheadings-colour  = rgb("#333333")
 
 #let sectionsep = {
   [#v(0.5pt)]
@@ -25,7 +25,7 @@
 
 // Section Headings (Education, Experience, etc)
 #let section(title) = {
-  text(12pt, fill: headings_colour, weight: "bold")[
+  text(12pt, fill: headings-colour , weight: "bold")[
     #upper[#title]
     #v(-8pt)
     #line(length: 100%)
@@ -35,92 +35,92 @@
 
 // Subsection Headings (institution, Company, etc)
 #let subsection(content) = {
-  text(11pt, fill: subheadings_colour, weight: "bold")[#upper[#content] ]
+  text(11pt, fill: subheadings-colour , weight: "bold")[#upper[#content] ]
 }
 
 // Education part
 #let education(institution: "", major: "", date: "", location: "", description: "") = {
-  text(11pt, fill: subheadings_colour, weight: "bold")[#upper[#institution], #location]
+  text(11pt, fill: subheadings-colour , weight: "bold")[#upper[#institution], #location]
   h(1fr)
-  text(11pt, style: "italic", fill: headings_colour, weight: "regular")[#date \ ]
-  text(11pt, style: "italic", fill: subheadings_colour, weight: "medium")[#major \ ]
+  text(11pt, style: "italic", fill: headings-colour , weight: "regular")[#date \ ]
+  text(11pt, style: "italic", fill: subheadings-colour , weight: "medium")[#major \ ]
   if description != [] or description != "" {
-    text(11pt, fill: primary_colour, weight: "regular")[#description]
+    text(11pt, fill: primary-colour, weight: "regular")[#description]
   }
 }
 
 // Projects
 #let project(title, date, info) = {
-  text(11pt, fill: subheadings_colour, weight: "semibold")[#title ]
+  text(11pt, fill: subheadings-colour , weight: "semibold")[#title ]
   if date != [] or date != "" {
     h(1fr)
-    text(11pt, fill: headings_colour, weight: "medium")[#date \ ]
+    text(11pt, fill: headings-colour , weight: "medium")[#date \ ]
   } else {
     [\ ]
   }
   if info != [] or info != "" {
-    text(11pt, fill: primary_colour, weight: "light")[#info ]
+    text(11pt, fill: primary-colour, weight: "light")[#info ]
   }
 }
 
 // Description of a job, degree, etc
 #let descript(content) = {
-  text(11pt, fill: subheadings_colour, weight: "regular")[#content ]
+  text(11pt, fill: subheadings-colour , weight: "regular")[#content ]
 }
 
 // Job title
 #let job(position: "", institution: "", location: "", date: "", description: "") = {
-  text(11pt, fill: subheadings_colour, weight: "semibold")[#upper[#position] ]
+  text(11pt, fill: subheadings-colour , weight: "semibold")[#upper[#position] ]
   h(1fr)
-  text(11pt, style: "italic", fill: headings_colour, weight: "regular")[#location \ ]
-  text(11pt, style: "italic", fill: subheadings_colour, weight: "medium")[#institution]
+  text(11pt, style: "italic", fill: headings-colour , weight: "regular")[#location \ ]
+  text(11pt, style: "italic", fill: subheadings-colour , weight: "medium")[#institution]
   h(1fr)
-  text(11pt, style: "italic", fill: headings_colour, weight: "regular")[#date]
+  text(11pt, style: "italic", fill: headings-colour , weight: "regular")[#date]
   if description != [] or description != "" {
-    text(11pt, fill: primary_colour, weight: "regular")[#description]
+    text(11pt, fill: primary-colour, weight: "regular")[#description]
   }
 }
 
 // Details
 #let info(content) = {
-  text(11pt, fill: primary_colour, weight: "light")[#content\ ]
+  text(11pt, fill: primary-colour, weight: "light")[#content\ ]
 }
 
 #let oneline-title-item(title: "", content: "") = {
-  text(11pt, fill: subheadings_colour, weight: "bold")[#title: ]
-  text(11pt, fill: primary_colour, weight: "light")[#content \ ]
+  text(11pt, fill: subheadings-colour , weight: "bold")[#title: ]
+  text(11pt, fill: primary-colour, weight: "light")[#content \ ]
 }
 
 #let oneline-two(entry1: "", entry2: "") = {
-  text(11pt, fill: subheadings_colour, weight: "regular")[#entry1]
+  text(11pt, fill: subheadings-colour , weight: "regular")[#entry1]
   h(1fr)
-  text(11pt, fill: primary_colour, weight: "regular")[#entry2 \ ]
+  text(11pt, fill: primary-colour, weight: "regular")[#entry2 \ ]
 }
 
 #let twoline-item(entry1: none, entry2: none, entry3: none, entry4: none, description: none) = {
-  text(11pt, fill: subheadings_colour, weight: "semibold")[#upper[#entry1]]
+  text(11pt, fill: subheadings-colour , weight: "semibold")[#upper[#entry1]]
   if entry2 != none {
     h(1fr)
-    text(11pt, style: "italic", fill: headings_colour, weight: "regular")[#entry2 \ ]
+    text(11pt, style: "italic", fill: headings-colour , weight: "regular")[#entry2 \ ]
   }
   if entry3 != [] or entry3 != "" != none {
-    text(11pt, style: "italic", fill: subheadings_colour, weight: "medium")[#entry3]
+    text(11pt, style: "italic", fill: subheadings-colour , weight: "medium")[#entry3]
   }
   if entry4 != none {
     h(1fr)
-    text(11pt, style: "italic", fill: headings_colour, weight: "regular")[#entry4 \ ]
+    text(11pt, style: "italic", fill: headings-colour , weight: "regular")[#entry4 \ ]
   }
   if description != [] or description != "" {
-    text(11pt, fill: primary_colour, weight: "regular")[#description]
+    text(11pt, fill: primary-colour, weight: "regular")[#description]
   }
 }
 
 #let award(award: "", institution: "", date: "") = {
-  [#text(11pt, fill: primary_colour, weight: "medium")[#award,] #text(
+  [#text(11pt, fill: primary-colour, weight: "medium")[#award,] #text(
       11pt,
-      fill: primary_colour,
+      fill: primary-colour,
       weight: "regular",
-    )[#emph(institution)] #h(1fr) #text(11pt, fill: primary_colour, weight: "regular")[#emph(date)\ ]]
+    )[#emph(institution)] #h(1fr) #text(11pt, fill: primary-colour, weight: "regular")[#emph(date)\ ]]
 }
 
 #let references(references: ()) = {
@@ -129,22 +129,22 @@
         left,
         {
           if ("position" in reference) {
-            text(11pt, fill: primary_colour, weight: "semibold")[#reference.name | #reference.position\ ]
+            text(11pt, fill: primary-colour, weight: "semibold")[#reference.name | #reference.position\ ]
           } else {
-            text(11pt, fill: primary_colour, weight: "semibold")[#reference.name\ ]
+            text(11pt, fill: primary-colour, weight: "semibold")[#reference.name\ ]
           }
 
           if ("department" in reference) {
-            text(10pt, fill: primary_colour, weight: "regular")[#reference.department\ ]
+            text(10pt, fill: primary-colour, weight: "regular")[#reference.department\ ]
           }
           if ("institution" in reference) {
-            text(10pt, fill: primary_colour, weight: "regular")[#reference.institution\ ]
+            text(10pt, fill: primary-colour, weight: "regular")[#reference.institution\ ]
           }
           if ("address" in reference) {
-            text(10pt, fill: primary_colour, weight: "regular")[#reference.address\ ]
+            text(10pt, fill: primary-colour, weight: "regular")[#reference.address\ ]
           }
           if ("email" in reference) {
-            text(10pt, fill: primary_colour, weight: "regular")[
+            text(10pt, fill: primary-colour, weight: "regular")[
               #reference.email \
             ]
           }
@@ -156,13 +156,13 @@
 
 // Publications
 #let publication(path, styletype) = {
-  set text(11pt, fill: primary_colour, weight: "light")
+  set text(11pt, fill: primary-colour, weight: "light")
   bibliography(path, title: none, full: true, style: styletype)
 }
 
 // show contact details
 #let display(contacts) = {
-  set text(10pt, fill: headings_colour, weight: "regular", top-edge: "baseline", bottom-edge: "baseline", baseline: 2pt)
+  set text(10pt, fill: headings-colour , weight: "regular", top-edge: "baseline", bottom-edge: "baseline", baseline: 2pt)
   contacts
     .map(contact => {
         if ("link" in contact) {
@@ -196,7 +196,7 @@
   // last update
   let lastupdate(lastupdated, date) = {
     if lastupdated == "true" {
-      set text(8pt, style: "italic", fill: primary_colour, weight: "light")
+      set text(8pt, style: "italic", fill: primary-colour, weight: "light")
       [Last updated: #date]
     }
   }
@@ -204,13 +204,13 @@
   set page(footer: [
     #lastupdate(lastupdated, date)
     #h(1fr)
-    #text(9pt, style: "italic", fill: primary_colour, weight: "light")[#name]
+    #text(9pt, style: "italic", fill: primary-colour, weight: "light")[#name]
     #h(1fr)
     #if pagecount == "true" {
       text(
         9pt,
         style: "italic",
-        fill: primary_colour,
+        fill: primary-colour,
         weight: "light",
       )[Page #counter(page).display("1 / 1", both: true)]
     }
@@ -222,7 +222,7 @@
       header: {
         text(
           20pt,
-          fill: primary_colour,
+          fill: primary-colour,
           weight: "bold",
           top-edge: "baseline",
           bottom-edge: "baseline",
@@ -250,7 +250,7 @@
     set page(margin: (left: 1.8cm, right: 1.8cm, top: 1cm, bottom: 1cm))
     text(
       20pt,
-      fill: primary_colour,
+      fill: primary-colour,
       weight: "bold",
       top-edge: "baseline",
       bottom-edge: "baseline",
@@ -270,7 +270,7 @@
     }
     v(2pt)
     align(center)[#display(contacts)]
-    // line(length: 100%, stroke: 0.5pt + primary_colour)
+    // line(length: 100%, stroke: 0.5pt + primary-colour)
     mainbody
   }
   //Main Body
@@ -297,7 +297,7 @@
   // last update
   let lastupdate(lastupdated, date) = {
     if lastupdated == "true" {
-      set text(8pt, style: "italic", fill: primary_colour, weight: "light")
+      set text(8pt, style: "italic", fill: primary-colour, weight: "light")
       [Last updated: #date]
     }
   }
@@ -305,13 +305,13 @@
   set page(footer: [
     #lastupdate(lastupdated, date)
     #h(1fr)
-    #text(9pt, style: "italic", fill: primary_colour, weight: "light")[#name]
+    #text(9pt, style: "italic", fill: primary-colour, weight: "light")[#name]
     #h(1fr)
     #if pagecount == "true" {
       text(
         9pt,
         style: "italic",
-        fill: primary_colour,
+        fill: primary-colour,
         weight: "light",
       )[Page #counter(page).display("1 / 1", both: true)]
     }
@@ -323,7 +323,7 @@
       header: {
         text(
           20pt,
-          fill: primary_colour,
+          fill: primary-colour,
           weight: "bold",
           top-edge: "baseline",
           bottom-edge: "baseline",
@@ -357,7 +357,7 @@
     set page(margin: (left: 1.25cm, right: 1.25cm, top: 1cm, bottom: 1.5cm))
     text(
       20pt,
-      fill: primary_colour,
+      fill: primary-colour,
       weight: "bold",
       top-edge: "baseline",
       bottom-edge: "baseline",
