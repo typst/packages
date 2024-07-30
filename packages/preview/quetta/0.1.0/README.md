@@ -9,7 +9,7 @@ For use with the [Typst web app](https://typst.app/), you need to upload the fon
 
 ## Usage
 
-The main functionality of this module is provided by the function `quenya` taking content and converting all text in Tenwar using the Quenya mode. The original text is used as a phonetic transcription. (This module does not translate English into Quenya.) See the [manual](manual.pdf) for more information. 
+The main functionality of this module is provided by the function `quenya` taking content and converting all text in Tenwar using the Quenya mode. The original text is used as a phonetic transcription. (This module does not translate English into Quenya.) See the [manual](https://github.com/FlorentCLMichel/quetta/manual.pdf) for more information. 
 
 The following line may be used to convert the whole document below to Tengwar in Quenya mode (other `show` rules might interfere with it):
 ```
