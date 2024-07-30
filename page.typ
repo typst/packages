@@ -40,6 +40,8 @@
       align(right, image("assets/logo-x-ip-paris.svg", height: 20mm)))
   }, numbering: "1 / 1")
   counter(page).update(1)
+
+  doc
 }
 
 

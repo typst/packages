@@ -1,4 +1,4 @@
-#import "../polytechnique.typ"
+#import "@preview/polytechnique-reports:0.1.2" as template
 
 // Defining variables for the cover page and PDF metadata
 // Main title on cover page
@@ -19,10 +19,10 @@ sur plusieurs lignes]
 
 // Set document metadata
 #set document(title: title, author: author, date: datetime.today())
-#show: polytechnique.apply.with(despair-mode: despair-mode)
+#show: template.apply.with(despair-mode: despair-mode)
 
 // Cover page
-#polytechnique.cover.cover(title, author, date-start, date-end, subtitle: subtitle)
+#template.cover.cover(title, author, date-start, date-end, subtitle: subtitle)
 #pagebreak()
 
 // Acknowledgements
@@ -39,7 +39,7 @@ sur plusieurs lignes]
 #outline(title: [Template contents], indent: 1em, depth: 2)
 
 // Defining header and page numbering (will pagebreak)
-#show: polytechnique.page.apply-header-footer.with(short-title: short-title)
+#show: template.page.apply-header-footer.with(short-title: short-title)
 
 // Introduction
 #heading(level: 1, numbering: none)[Introduction]
