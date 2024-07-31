@@ -2,7 +2,7 @@
 
 #show: cv-single.with(
   font-type: "PT Serif",
-  continue_header: "false",
+  continue-header: "false",
   name: "John Doe",
   address: "123 Street, City, Country",
   lastupdated: "true",
@@ -21,37 +21,60 @@
 #descript[#lorem(50)]
 #sectionsep
 #section("Education")
-#education(institution: [#lorem(4)], major: [#lorem(2)], period: "xxxx-xxxx", location: "UK", description: [
-  - #lorem(10),
-  - #lorem(10),
-  - #lorem(10),
-])
-
-#education(institution: [#lorem(4)], major: [#lorem(2)], period: "xxxx-xxxx", location: "UK")
+#education(
+  institution: [#lorem(4)],
+  major: [#lorem(2)],
+  date: "xxxx-xxxx",
+  location: "UK",
+  description: [
+    - #lorem(10),
+    - #lorem(10),
+    - #lorem(10),
+  ],
+)
+#subsectionsep
+#education(
+  institution: [#lorem(4)],
+  major: [#lorem(2)],
+  date: "xxxx-xxxx",
+  location: "UK",
+)
 
 #section("Skills")
-#oneline-item(title: "Programming Languages", content: [Python, C++, Java, JavaScript, HTML, CSS, SQL, LaTeX])
-#oneline-item(title: "Frameworks", content: [React, Node.js, Express, Flask, Django, Bootstrap, jQuery])
-#oneline-item(title: "Tools", content: [Git, GitHub, Docker, AWS, Heroku, MongoDB, MySQL, PostgreSQL, Redis, Linux])
+#oneline-title-item(
+  title: "Programming Languages",
+  content: [Python, C++, Java, JavaScript, HTML, CSS, SQL, LaTeX],
+)
 #sectionsep
 // Award
 #section("Awards")
-#award(award: "Scholarship", date: "2018", institution: "University")
-#award(award: "Prize", date: "2018", institution: "University")
+#award(
+  award: "Scholarship",
+  date: "2018",
+  institution: "University",
+)
 #sectionsep
 //Experience
 #section("Experience")
-#job(position: "Software Engineer", institution: [#lorem(4)], location: "UK", date: "xxxx-xxxx", description: [
-  - #lorem(10),
-  - #lorem(10),
-  - #lorem(10),
-])
-#subsectionsep
-#job(position: "Software Engineer", institution: [#lorem(4)], location: "UK", date: "xxxx-xxxx")
+#job(
+  position: "Software Engineer",
+  institution: [#lorem(4)],
+  location: "UK",
+  date: "xxxx-xxxx",
+  description: [
+    - #lorem(10),
+    - #lorem(10),
+    - #lorem(10),
+  ],
+)
 #sectionsep
 // Projects
 #section("Projects")
-#twoline-item(entry1: "Project 1", entry2: "Jan 2023", description: [#lorem(40)])
+#twoline-item(
+  entry1: "Project 1",
+  entry2: "Jan 2023",
+  description: [#lorem(40)],
+)
 // Publication
 #section("Publications")
 
@@ -60,27 +83,23 @@
 #sectionsep
 // Reference
 #section("References")
-#references(references: ((
-  name: "Dr. John Doe",
-  position: "Professor",
-  department: "Computer Science",
-  institution: "University",
-  address: "123 Street, City, Country",
-  email: "john.doe@university.edu",
-), (
-  name: "Dr. John Doe",
-  department: "Computer Science",
-  institution: "University",
-  address: "123 Street, City, Country",
-  email: "john.doe@university.edu",
-), (
-  name: "Dr. John Doe",
-  position: "Professor",
-  department: "Computer Science",
-  institution: "University",
-  address: "123 Street, City, Country",
-  email: "john.doe@university.edu",
-),))
+#references(references: (
+  (
+    name: "Dr. John Doe",
+    position: "Professor",
+    department: "Computer Science",
+    institution: "University",
+    address: "123 Street, City, Country",
+    email: "john.doe@university.edu",
+  ),
+  (
+    name: "Dr. John Doe",
+    department: "Computer Science",
+    institution: "University",
+    address: "123 Street, City, Country",
+    email: "john.doe@university.edu",
+  ),
+))
 
 // Keep this at the end
 #show bibliography: none
