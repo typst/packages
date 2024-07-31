@@ -71,7 +71,7 @@ Below is @tab:tab1.
 Below is @fig:logo.
 
 #figure(
-  image("../template/images/typst-logo.svg", width: 50%),
+  image("images/typst-logo.svg", width: 50%),
   caption : [Typst logo - Credit: \@fenjalien]
 ) <fig:logo>
 
