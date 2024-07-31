@@ -74,7 +74,8 @@
 
   grid(
     columns: (1fr, 1fr),
-    image("assets/typst.png", height: 20mm),
+    // image("assets/typst.png", height: 20mm),
+    [Placeholder],
     image("assets/logo-x-ip-paris.svg", height: 20mm)
   )
 

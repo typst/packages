@@ -1,6 +1,6 @@
-#import "polytechnique.typ"
+#import "@preview/polytechnique-reports:0.1.2" as template
 
-#show:  polytechnique.apply
+#show:  template.apply
 
 // Specific rules for the guide
 #show link: set text(blue)
@@ -16,7 +16,7 @@
 #set text(lang: "en")
 
 // Beginning of the content
-#polytechnique.cover.cover(title, authors, date_start, date_end, subtitle: subtitle)
+#template.cover.cover(title, authors, date_start, date_end, subtitle: subtitle)
 #pagebreak()
 
 #outline(title: [Guide content], indent: 1em, depth: 2)
