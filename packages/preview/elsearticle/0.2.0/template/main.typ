@@ -80,8 +80,8 @@ Below is @fig:logo.
 Below are @figa and @figb, which are part of @fig:typst.
 
 #subfigure(
-figure(image("../template/images/typst-logo.svg"), caption: []), <figa>,
-figure(image("../template/images/typst-logo.svg"), caption: []), <figb>,
+figure(image("images/typst-logo.svg"), caption: []), <figa>,
+figure(image("images/typst-logo.svg"), caption: []), <figb>,
 columns: (1fr, 1fr),
 caption: [(a) Left image and (b) Right image],
 label: <fig:typst>,
@@ -96,7 +96,7 @@ label: <fig:typst>,
 In @fig:app
 
 #figure(
-  image("../template/images/typst-logo.svg", width: 50%),
+  image("images/typst-logo.svg", width: 50%),
   caption : [Books cover]
 ) <fig:app>
 
@@ -105,8 +105,8 @@ In @fig:app
 Below are @figa-app and @figb-app, which are part of @fig:typst-app.
 
 #subfigure(
-figure(image("../template/images/typst-logo.svg"), caption: []), <figa-app>,
-figure(image("../template/images/typst-logo.svg"), caption: []), <figb-app>,
+figure(image("images/typst-logo.svg"), caption: []), <figa-app>,
+figure(image("images/typst-logo.svg"), caption: []), <figb-app>,
 columns: (1fr, 1fr),
 caption: [(a) Left image and (b) Right image],
 label: <fig:typst-app>,
