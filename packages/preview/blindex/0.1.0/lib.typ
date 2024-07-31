@@ -64,7 +64,7 @@
   let idxDict = (:)
   let rawList = query(<bl_index>) // An array of metadata
   for __e in rawList { // __e is a metadata entry
-    let __r = __e.value // __v is the record placed by blindex(...)
+    let __r = __e.value // __r is the record placed by blindex(...)
     let booSort = __r.DATA.at(0).SORT.at(sorting-tradition)
     if (not exclude-missing) or (booSort != none) {
       let booHArr = () // Most generic book heading (as some are mergings)
