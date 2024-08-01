@@ -1,4 +1,5 @@
 #import "@preview/bubble:0.2.1": *
+#import "@preview/codelst:2.0.1": sourcecode
 
 #show: bubble.with(
   title: "Bubble template",

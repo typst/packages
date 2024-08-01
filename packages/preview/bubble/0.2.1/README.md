@@ -41,7 +41,7 @@ This template also exports these functions :
 If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/bubble:0.2.0": *
+#import "@preview/bubble:0.2.1": *
 
 #show: bubble.with(
   title: "Bubble template",
