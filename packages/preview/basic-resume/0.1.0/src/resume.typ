@@ -5,8 +5,8 @@
   github: "",
   linkedin: "",
   phone: "",
-  personal_site: "",
-  accent_color: "#000000",
+  personal-site: "",
+  accent-color: "#000000",
   body,
 ) = {
 
@@ -42,11 +42,11 @@
 
   // Accent Color Styling
   show heading: set text(
-    fill: rgb(accent_color),
+    fill: rgb(accent-color),
   )
 
   show link: set text(
-    fill: rgb(accent_color),
+    fill: rgb(accent-color),
   )
 
   // Name will be aligned left, bold and big
@@ -78,7 +78,7 @@
         // Linkedin
         link("https://" + linkedin)[#linkedin],
         // Personal Site
-        link("https://" + personal_site)[#personal_site],
+        link("https://" + personal-site)[#personal-site],
       ).join("  |  ")
     ],
   )
@@ -90,20 +90,20 @@
 }
 
 // Generic two by two component for resume
-#let generic_two_by_two(
-  top_left: "",
-  top_right: "",
-  bottom_left: "",
-  bottom_right: "",
+#let generic-two-by-two(
+  top-left: "",
+  top-right: "",
+  bottom-left: "",
+  bottom-right: "",
 ) = {
   pad[
-    #top_left #h(1fr) #top_right \
-    #bottom_left #h(1fr) #bottom_right
+    #top-left #h(1fr) #top-right \
+    #bottom-left #h(1fr) #bottom-right
   ]
 }
 
 // Generic one by two component for resume
-#let generic_one_by_two(
+#let generic-one-by-two(
   left: "",
   right: "",
 ) = {
@@ -113,11 +113,11 @@
 }
 
 // Cannot just use normal --- ligature becuase ligatures are disabled for good reasons
-#let dates_helper(
-  start_date: "",
-  end_date: "",
+#let dates-helper(
+  start-date: "",
+  end-date: "",
 ) = {
-  start_date + " " + $dash.em$ + " " + end_date
+  start-date + " " + $dash.em$ + " " + end-date
 }
 
 // Section components below
@@ -128,11 +128,11 @@
   gpa: "",
   location: "",
 ) = {
-  generic_two_by_two(
-    top_left: strong(institution),
-    top_right: location,
-    bottom_left: emph(degree),
-    bottom_right: emph(dates),
+  generic-two-by-two(
+    top-left: strong(institution),
+    top-right: location,
+    bottom-left: emph(degree),
+    bottom-right: emph(dates),
   )
 }
 
@@ -142,11 +142,11 @@
   company: "",
   location: "",
 ) = {
-  generic_two_by_two(
-    top_left: strong(title),
-    top_right: dates,
-    bottom_left: company,
-    bottom_right: emph(location),
+  generic-two-by-two(
+    top-left: strong(title),
+    top-right: dates,
+    bottom-left: company,
+    bottom-right: emph(location),
   )
 }
 
@@ -165,7 +165,7 @@
   activity: "",
   dates: "",
 ) = {
-  generic_one_by_two(
+  generic-one-by-two(
     left: strong(activity),
     right: dates,
   )

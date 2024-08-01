@@ -7,7 +7,7 @@
 #let github = "github.com/stuxf"
 #let linkedin = "linkedin.com/in/stuxf"
 #let phone = "+1 (xxx) xxx-xxxx"
-#let personal_site = "stuxf.dev"
+#let personal-site = "stuxf.dev"
 
 #show: resume.with(
   author: name,
@@ -16,9 +16,9 @@
   github: github,
   linkedin: linkedin,
   phone: phone,
-  personal_site: personal_site,
+  personal-site: personal-site,
   // Accent color is optional. Feel free to remove the next line if you want your resume to be in black and white
-  accent_color: "#26428b",
+  accent-color: "#26428b",
 )
 
 /*
@@ -30,15 +30,15 @@
 * #project(dates: "", name: "", role: "", url: "")
 * #extracurriculars(activity: "", dates: "")
 * There are also the following generic functions that don't apply any formatting
-* #generic_two_by_two(top_left: "", top_right: "", bottom_left: "", bottom_right: "")
-* #generic_one_by_two(left: "", right: "")
+* #generic-two-by-two(top-left: "", top-right: "", bottom-left: "", bottom-right: "")
+* #generic-one-by-two(left: "", right: "")
 */
 == Education
 
 #edu(
   institution: "Harvey Mudd College",
   location: "Claremont, CA",
-  dates: dates_helper(start_date: "Aug 2023", end_date: "May 2027"),
+  dates: dates-helper(start-date: "Aug 2023", end-date: "May 2027"),
   degree: "Bachelor's of Science, Computer Science and Mathematics",
 )
 - Cumulative GPA: 4.0\/4.0 | Dean's List, Harvey S. Mudd Merit Scholarship, National Merit Scholarship
@@ -51,7 +51,7 @@
   title: "Subatomic Shepherd and Caffeine Connoisseur",
   location: "Atomville, CA",
   company: "Microscopic Circus, Schrodinger's University",
-  dates: dates_helper(start_date: "May 2024", end_date: "Present"),
+  dates: dates-helper(start-date: "May 2024", end-date: "Present"),
 )
 - Played God with tiny molecules, making them dance to uncover the secrets of the universe
 - Convinced high-performance computers to work overtime without unions, reducing simulation time by 50%
@@ -61,7 +61,7 @@
   title: "AI Wrangler and Code Ninja",
   location: "Silicon Mirage, CA",
   company: "Organic Stupidity Startup",
-  dates: dates_helper(start_date: "Dec 2023", end_date: "Mar 2024"),
+  dates: dates-helper(start-date: "Dec 2023", end-date: "Mar 2024"),
 )
 - Taught robots to predict when (and how much!) humans will empty their wallets at the doctor's office
 - Developed HIPAA-compliant digital signatures, because doctors' handwriting wasn't illegible enough already
@@ -71,7 +71,7 @@
   title: "Digital Playground Architect",
   location: "The Cloud",
   company: "Pixels & Profit Interactive",
-  dates: dates_helper(start_date: "Jun 2020", end_date: "May 2023"),
+  dates: dates-helper(start-date: "Jun 2020", end-date: "May 2023"),
 )
 - Scaled user base from 10 to 2000+, accidentally becoming a small wealthy nation in the process
 - Crafted Bash scripts so clever they occasionally made other engineers weep with joy
@@ -82,7 +82,7 @@
   title: "Code Conjurer Intern",
   location: "Silicon Suburb, CA",
   company: "Bits & Bytes Consulting",
-  dates: dates_helper(start_date: "Jun 2022", end_date: "Aug 2022"),
+  dates: dates-helper(start-date: "Jun 2022", end-date: "Aug 2022"),
 )
 - Developed a cross-platform mobile app that turned every user into a potential paparazzi
 - Led a security overhaul, heroically saving the company from the menace of "password123"
@@ -92,7 +92,7 @@
 #project(
   role: "Maintainer",
   name: "Hyperschedule",
-  dates: dates_helper(start_date: "Nov 2023", end_date: "Present"),
+  dates: dates-helper(start-date: "Nov 2023", end-date: "Present"),
   url: "hyperschedule.io",
 )
 - Maintain open-source scheduler used by 7000+ users at the Claremont Consortium with TypesScript, React and MongoDB
@@ -103,7 +103,7 @@
 
 #extracurriculars(
   activity: "Capture The Flag Competitions",
-  dates: dates_helper(start_date: "Jan 2021", end_date: "Present"),
+  dates: dates-helper(start-date: "Jan 2021", end-date: "Present"),
 )
 - Founder of Les Amateurs (#link("https://amateurs.team")[amateurs.team]), currently ranked \#4 US, \#33 global on CTFTime (2023: \#4 US, \#42 global)
 - Organized AmateursCTF 2023 and 2024, with 1000+ teams solving at least one challenge and \$2000+ in cash prizes

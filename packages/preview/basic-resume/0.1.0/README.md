@@ -6,7 +6,7 @@ This is a template for a simple resume. It is intended to be used as a good star
 
 ## Sample Resume
 
-![example resume](https://raw.githubusercontent.com/stuxf/basic-typst-resume-template/main/example_resume.png)
+![example resume](https://raw.githubusercontent.com/stuxf/basic-typst-resume-template/main/example-resume.png)
 
 ## Quick Start
 
@@ -22,7 +22,7 @@ A barebones resume looks like this, which you can use to get started.
 #let github = "github.com/stuxf"
 #let linkedin = "linkedin.com/in/stuxf"
 #let phone = "+1 (xxx) xxx-xxxx"
-#let personal_site = "stuxf.dev"
+#let personal-site = "stuxf.dev"
 
 #show: resume.with(
   author: name,
@@ -31,9 +31,9 @@ A barebones resume looks like this, which you can use to get started.
   github: github,
   linkedin: linkedin,
   phone: phone,
-  personal_site: personal_site,
+  personal-site: personal-site,
   // Accent color is optional. Feel free to remove the next line if you want your resume to be in black and white
-  accent_color: "#26428b",
+  accent-color: "#26428b",
 )
 
 /*
@@ -45,15 +45,15 @@ A barebones resume looks like this, which you can use to get started.
 * #project(dates: "", name: "", role: "", url: "")
 * #extracurriculars(activity: "", dates: "")
 * There are also the following generic functions that don't apply any formatting
-* #generic_two_by_two(top_left: "", top_right: "", bottom_left: "", bottom_right: "")
-* #generic_one_by_two(left: "", right: "")
+* #generic-two-by-two(top-left: "", top-right: "", bottom-left: "", bottom-right: "")
+* #generic-one-by-two(left: "", right: "")
 */
 == Education
 
 #edu(
   institution: "Harvey Mudd College",
   location: "Claremont, CA",
-  dates: dates_helper(start_date: "Aug 2023", end_date: "May 2027"),
+  dates: dates-helper(start-date: "Aug 2023", end-date: "May 2027"),
   degree: "Bachelor's of Science, Computer Science and Mathematics",
 )
 - Cumulative GPA: 4.0\/4.0 | Dean's List, Harvey S. Mudd Merit Scholarship, National Merit Scholarship
@@ -65,7 +65,7 @@ A barebones resume looks like this, which you can use to get started.
   title: "Subatomic Shepherd and Caffeine Connoisseur",
   location: "Atomville, CA",
   company: "Microscopic Circus, Schrodinger's University",
-  dates: dates_helper(start_date: "May 2024", end_date: "Present"),
+  dates: dates-helper(start-date: "May 2024", end-date: "Present"),
 )
 - more bullet points go here
 
