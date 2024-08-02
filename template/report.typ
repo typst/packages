@@ -1,4 +1,4 @@
-#import "@preview/typographix-polytechnique-reports:0.1.2" as template
+#import "@preview/typographix-polytechnique-reports:0.1.3" as template
 
 // Defining variables for the cover page and PDF metadata
 // Main title on cover page
@@ -7,6 +7,9 @@
 sur plusieurs lignes]
 // Subtitle on cover page
 #let subtitle = "Un sous-titre pour expliquer ce titre"
+// Logo on cover page
+#let logo = none // instead of none set to "path/to/my-logo.png"
+#let logo-horizontal = true // set to true if the logo is squared or horizontal, set to false if not
 // Short title on headers
 #let short-title = "Rapport de stage"
 #let author = "Rémi Germe"
@@ -22,7 +25,7 @@ sur plusieurs lignes]
 #show: template.apply.with(despair-mode: despair-mode)
 
 // Cover page
-#template.cover.cover(title, author, date-start, date-end, subtitle: subtitle)
+#template.cover.cover(title, author, date-start, date-end, subtitle: subtitle, logo: logo, logo-horizontal: logo-horizontal)
 #pagebreak()
 
 // Acknowledgements

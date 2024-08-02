@@ -1,4 +1,4 @@
-#import "@preview/typographix-polytechnique-reports:0.1.2" as template
+#import "@preview/typographix-polytechnique-reports:0.1.3" as template
 
 #show:  template.apply
 
@@ -8,6 +8,7 @@
 // Defining variables for the cover page and PDF metadata
 #let title = [guide for typst #linebreak() polytechnique package]
 #let subtitle = "A modern alternative to LaTeX"
+#let logo = "assets/logo-x.svg"
 #let short_title = "package guide"
 #let authors = ("Rémi Germe")
 #let date_start = datetime(year: 2024, month: 07, day: 05)
@@ -16,7 +17,7 @@
 #set text(lang: "en")
 
 // Beginning of the content
-#template.cover.cover(title, authors, date_start, date_end, subtitle: subtitle)
+#template.cover.cover(title, authors, date_start, date_end, subtitle: subtitle, logo: logo)
 #pagebreak()
 
 #outline(title: [Guide content], indent: 1em, depth: 2)
@@ -24,7 +25,7 @@
 
 = Discovering Typst and the template
 
-Typst is a user-friendlier alternative to LaTeX.
+Typst is a user-friendlier alternative to LaTeX. Check out #link("https://github.com/remigerme/typst-polytechnique/blob/main/guide.typ")[this pdf source] to see how it was generated.
 
 == Cover page
 
@@ -39,7 +40,7 @@ Typst is a user-friendlier alternative to LaTeX.
 
 #set text(lang: "en")
 
-#polytechnique.cover.cover(title, authors, date_start, date_end, subtitle: subtitle)
+#polytechnique.cover.cover(title, authors, date_start, date_end, logo:, subtitle: subtitle, logo-horizontal: true)
 ```
 
 Set text lang to `fr` if you want the months in French. \

@@ -43,7 +43,7 @@
 
 /* MAIN COVER DEFINITION */
 
-#let cover(title, author, date-start, date-end, subtitle: none, short-month: false) = {
+#let cover(title, author, date-start, date-end, subtitle: none, logo: none, short-month: false, logo-horizontal: true) = {
   set page(background: move(dx: 0pt, dy: -13%, image("assets/armes.svg")))
   set text(font: "New Computer Modern Sans", hyphenate: false, fill: rgb(1, 66, 106))
   set align(center)
@@ -72,11 +72,13 @@
 
   v(1fr)
 
+  let logo-height = if (logo-horizontal) { 20mm } else { 30mm }
+  let path-logo-x = if (logo-horizontal) { "assets/logo-x-ip-paris.svg" } else { "assets/logo-x.svg" }
+
   grid(
-    columns: (1fr, 1fr),
-    // image("assets/typst.png", height: 20mm),
-    [Placeholder],
-    image("assets/logo-x-ip-paris.svg", height: 20mm)
+    columns: (1fr, 1fr), align: center + horizon,
+    if (logo != none) { image(logo, height: logo-height) } else { smallcaps("Insert your logo") },
+    image(path-logo-x, height: logo-height)
   )
 
 }
@@ -93,5 +95,6 @@
   "Jane Doe",
   datetime.today(),
   datetime.today(),
-  subtitle: "Je n'ai pas de stage mais je suis détendu"
+  subtitle: "Je n'ai pas de stage mais je suis détendu",
+  logo-horizontal: true
 )
