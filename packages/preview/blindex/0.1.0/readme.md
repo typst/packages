@@ -5,8 +5,8 @@ literature citations in documents.
 
 ## Index Sorting Options
 
-The generated indices can be ordered according to various biblical literature conventions,
-including:
+The generated indices are gathered and sorted by biblical literature books, which can be ordered
+according to various biblical literature book ordering conventions, including:
 
 - "LXX" -- The Septuagint;
 - "Greek Bible" -- Septuagint + New Testament (King James);
