@@ -14,13 +14,15 @@ I personally suggest the following steps :
 - in the root directory, for every `x.y.z` version (if the `main` branch currently contains the `x.y.z` release) :
 
     ```bash
-    git subtree add --prefix=packages/preview/polytechnique-reports/x.y.z git@github.com:remigerme/typst-polytechnique.git main
+    git subtree add --prefix=packages/preview/typographix-polytechnique-reports/x.y.z git@github.com:remigerme/typst-polytechnique.git main
     ```
 
     You may need to pull sometimes (if the release wasn't fully ready) :
 
     ```bash
-    git subtree pull --prefix=packages/preview/polytechnique-reports/x.y.z git@github.com:remigerme/typst-polytechnique.git main
+    git subtree pull --prefix=packages/preview/typographix-polytechnique-reports/x.y.z git@github.com:remigerme/typst-polytechnique.git main
     ```
 
-- PR your fork to publish the package
+- PR your fork to publish the package.
+
+You do not need to squash the commit history at anytime because Typst packages will do it on merge.
