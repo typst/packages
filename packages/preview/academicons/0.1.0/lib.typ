@@ -1,6 +1,5 @@
-//! typst-fontawesome
-//!
-//! https://github.com/duskmoon314/typst-fontawesome
+// based on duskmoons typst-fontawesome 
+// https://github.com/duskmoon314/typst-fontawesome
 
 // Implementation of `ai-icon`
 #import "lib-impl.typ": *
@@ -11,14 +10,13 @@
 // Re-export the `ai-icon` function
 // The following doc comment is needed for lsp to show the documentation
 
-/// Render a Font Awesome icon by its name or unicode
+/// Render a Academicon by its name or unicode
 ///
 /// Parameters:
 /// - `name`: The name of the icon
 ///   - This can be name in string or unicode of the icon
-/// - `solid`: Whether to use the solid version of the icon
 /// - `ai-icon-map`: The map of icon names to unicode
-///   - Default is a map generated from FontAwesome metadata
+///   - Default is a map generated from Academicons CSS
 ///   - *Not recommended* You can provide your own map to override it
 /// - `..args`: Additional arguments to pass to the `text` function
 ///
@@ -30,10 +28,10 @@
 /// Parameters:
 /// - `icons`: The list of icons to render
 ///   - Multiple types are supported:
-///     - `str`: The name of the icon, e.g. `"square"`
-///     - `array`: A tuple of the name and additional arguments, e.g. `("chess-queen", (solid: true, fill: white))`
-///     - `arguments`: Arguments to pass to the `ai-icon` function, e.g. `arguments("chess-queen", solid: true, fill: white)`
-///     - `content`: Any other content you want to render, e.g. `ai-chess-queen(solid: true, fill: white)`
+///     - `str`: The name of the icon, e.g. `"lattes"`
+///     - `array`: A tuple of the name and additional arguments, e.g. `("lattes", (fill: white))`
+///     - `arguments`: Arguments to pass to the `ai-icon` function, e.g. `arguments("lattes", fill: white)`
+///     - `content`: Any other content you want to render, e.g. `ai-lattes(fill: white)`
 /// - `box-args`: Additional arguments to pass to the `box` function
 /// - `grid-args`: Additional arguments to pass to the `grid` function
 /// - `ai-icon-args`: Additional arguments to pass to all `ai-icon` function
