@@ -78,8 +78,9 @@
 // Publication
 #section("Publications")
 
-+ @quenouille1949approximate
-+ @quenouille1949approximate
++ @singh1981asymptotic
++ @singh1981asymptotic
+
 #sectionsep
 // Reference
 #section("References")
