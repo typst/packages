@@ -1,11 +1,10 @@
-/// Render a Font Awesome icon by its name or unicode
+/// Render an Academicon by its name or unicode
 ///
 /// Parameters:
 /// - `name`: The name of the icon
 ///   - This can be name in string or unicode of the icon
-/// - `solid`: Whether to use the solid version of the icon
-/// - `fa-icon-map`: The map of icon names to unicode
-///   - Default is a map generated from FontAwesome metadata
+/// - `ai-icon-map`: The map of icon names to unicode
+///   - Default is a map generated from Academicons CSS
 ///   - *Not recommended* You can provide your own map to override it
 /// - `..args`: Additional arguments to pass to the `text` function
 ///
@@ -17,7 +16,6 @@
 ) = {
   text(
     font: ("Academicons"),
-    // TODO: We might need to check whether this is needed
     weight: { 400 },
     // If the name is in the map, use the unicode from the map
     // If not, pass the name and let the ligature feature handle it
