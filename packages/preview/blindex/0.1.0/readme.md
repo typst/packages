@@ -18,4 +18,11 @@ according to various biblical literature book ordering conventions, including:
 - `"Oecumenic-Bible"` -- The Jewish Tenakh + Old Testament Deuterocanonical + New Testament;
 - `"code"` -- All registered biblical literature books: All Protestant + All Apocripha.
 
+## Minimalistic Examples
+
+`blindex` can be used (i) by "raw" indexing functions `blindex` and `mkindex`, or (ii) by
+higher-level typesetting and indexing functions `iQuot` and `bQuot`, respectively for inline and
+block quoting of biblical literature, and `mkindex` for index typesetting.
+
+### 
 
