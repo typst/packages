@@ -1,5 +1,7 @@
 /// Render an Academicon by its name or unicode
-///
+// based on duskmoons typst-fontawesome 
+// https://github.com/duskmoon314/typst-fontawesome
+
 /// Parameters:
 /// - `name`: The name of the icon
 ///   - This can be name in string or unicode of the icon
