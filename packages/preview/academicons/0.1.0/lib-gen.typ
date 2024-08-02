@@ -1,3 +1,5 @@
+// based on duskmoons typst-fontawesome 
+// https://github.com/duskmoon314/typst-fontawesome
 
   #import "lib-impl.typ": ai-icon
 
