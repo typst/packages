@@ -5,7 +5,7 @@
 // Author:  Jiaxin Peng
 // License: MIT
 // Version: 1.0.0
-// Date:    2024-08-02
+// Date:    2024-08-03
 // Email:   jiaxin.peng@outlook.com
 ///////////////////////////////
 
@@ -219,7 +219,7 @@
 
   if continue-header == "true" {
     set page(
-      margin: (left: 2cm, right: 2cm, top: 2.5cm, bottom: 1.5cm),
+      margin: (left: 1.25cm, right: 1.25cm, top: 2.5cm, bottom: 1.5cm),
       header: {
         text(
           20pt,
@@ -248,7 +248,7 @@
     )
     mainbody
   } else {
-    set page(margin: (left: 1.8cm, right: 1.8cm, top: 1cm, bottom: 1cm))
+    set page(margin: (left: 1.25cm, right: 1.25cm, top: 1cm, bottom: 1cm))
     text(
       20pt,
       fill: primary-colour,
