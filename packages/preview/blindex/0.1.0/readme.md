@@ -18,11 +18,54 @@ according to various biblical literature book ordering conventions, including:
 - `"Oecumenic-Bible"` -- The Jewish Tenakh + Old Testament Deuterocanonical + New Testament;
 - `"code"` -- All registered biblical literature books: All Protestant + All Apocripha.
 
-## Minimalistic Examples
+## Low-Level Indexing Command
 
-`blindex` can be used (i) by "raw" indexing functions `blindex` and `mkindex`, or (ii) by
-higher-level typesetting and indexing functions `iQuot` and `bQuot`, respectively for inline and
-block quoting of biblical literature, and `mkindex` for index typesetting.
+The `blindex` library has a low-level, not typesetting index entry marking function
+`blindex(abrv, lang, entry)`, whose arguments are (abbreviation, language, entry), as in:
 
-### 
+```typst
+"the citation..." #blindex("1Thess", "en", [1.1--3]) citation's typesetting...
+```
+
+Indices can be generated (typeset) in arbitrary amounts and locations throughout the document,
+just by calling:
+
+```typst
+#mkIndex()
+```
+
+Optional arguments control style and sorting convention parameters, as shown below.
+
+### Language and Traditions
+
+Note that `"1Thess"` is a valid biblical literature abbreviation in the `"en"` language.
+Languages (more generally, language-traditions) are added to the `lang/` subfolder as `typst`
+files named as `<lang_name-tradition.typ>`, for the `"lang_name-tradition"` language-tradition.
+
+As of revision 0.1.0, supported languages include: `"en"`, `"en-3"`, `"br-cat"`, and `"br-pro"`,
+respectively as the (default) English, 3-char abbreviations English, Brazilian Portuguese
+Catholic, and Brazilian Portuguese Protestant. Language files declares *one* `typst` dictionary
+named `aDict`, whose keys are string book ID's, and `abbr: "str"`, and `full: "string"`
+dictionary with the corresponding book abbreviation and full name in the stated
+language/tradition.
+
+## Higher-Level Quoting-Indexing Commands
+
+The library also offers higher-level functions to assemble the entire (i) citation typesetting,
+(ii) index entry, and (iii) citation's typesetting (with some typesetting (styling) options),
+that reduces argument redundancy. Commans are `#iQuot(...)` and `#bQuot(...)`, respectively for
+inline and block quoting of biblical literature, with automatic indexing and bibliography
+citation. Mandatory arguments are:
+
+```typst
+paragraph text...
+#iQuot(body, abrv, lang, pssg, version, cited)
+more text...
+
+// Displayed block quote of biblical literature:
+#bQuot(body, abrv, lang, pssg, version, cited)
+```
+
+## Higher-Level Example
+
 
