@@ -85,7 +85,7 @@
   set document(title: meta.at("title"),author: meta.at("authors"))
 
   // Main styling
-  set text(font: mainfont, size: 10pt, fill: rgb("#666666"), lang: "fr", region: "FR")
+  set text(font: (mainfont, "Linux Libertine"), size: 10pt, fill: rgb("#666666"), lang: "fr", region: "FR")
   set par(justify: true)
   show strong: set text(weight: "bold", fill: palettea)
 
