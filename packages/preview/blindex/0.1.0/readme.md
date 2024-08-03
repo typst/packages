@@ -90,5 +90,5 @@ Book ordering according to the LXX.
 
 This example results in a 3-page document like this one:
 
-![image](files://./tmp-01.png)
+![Compiled Higher-Level Example](https://github.com/cnaak/packages/blob/main/packages/preview/blindex/0.1.0/tmp-01.png)
 
