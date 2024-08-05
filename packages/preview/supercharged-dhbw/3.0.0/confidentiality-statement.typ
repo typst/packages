@@ -1,3 +1,5 @@
+#import "locale.typ": *
+
 #let confidentiality-statement(
   authors,
   title,
@@ -9,52 +11,50 @@
   many-authors,
   date-format
 ) = {
+  let authors-by-city = authors.map(author => author.company.city).dedup()
+
   v(2em)
-  text(size: 20pt, weight: "bold", if (language == "de") {
-    "Sperrvermerk"
-  } else {
-    "Confidentiality Statement"
-  })
+  text(size: 20pt, weight: "bold", CONFIDENTIALITY_STATEMENT_TITLE.at(language))
   v(1em)
+
   if (confidentiality-statement-content != none) {
     confidentiality-statement-content
   } else {
-    text(if (language == "de") {
-      "Die vorliegende Arbeit mit dem Titel"
+    let authors-by-company = authors.map(author => author.company.name).dedup()
+    let authors-by-study = authors.map(author => author.course-of-studies).dedup()
+    let companies = authors-by-company.join(", ", last: AND.at(language))
+
+    let institution = if (authors-by-company.len() == 1) {
+      INSTITUTION_SINGLE.at(language)
     } else {
-      "The Thesis on hand"
-    })
+      INSTITUTION_PLURAL.at(language)
+    }
+
+    text(CONFIDENTIALITY_STATEMENT_SECTION_A.at(language))
     v(1em)
     align(center,
       text(weight: "bold", title)
     )
+
     v(1em)
-    let insitution
-    let companies
-    if (language == "de") {
-      if (authors.map(author => author.company.name).dedup().len() == 1) {
-        insitution = "Ausbildungsstätte"
-      } else {
-        insitution = "Ausbildungsstätten"
-      }
-      companies = authors.map(author => author.company.name).dedup().join(", ", last: " und ")
-    } else {
-      if (authors.map(author => author.company.name).dedup().len() == 1) {
-        insitution = "insitution"
-      } else {
-        insitution = "insitutions"
-      }
-      companies = authors.map(author => author.company.name).dedup().join(", ", last: " and ")
-    }
-    par(justify: true, [#if (language == "de") {
-      [enthält unternehmensinterne bzw. vertrauliche Informationen der #companies, ist deshalb mit einem Sperrvermerk versehen und wird ausschließlich zu Prüfungszwecken am Studiengang #authors.map(author => author.course-of-studies).dedup().join(" | ") der #university #university-location vorgelegt.
 
-      Der Inhalt dieser Arbeit darf weder als Ganzes noch in Auszügen Personen außerhalb des Prüfungsprozesses und des Evaluationsverfahrens zugänglich gemacht werden, sofern keine anders lautende Genehmigung der #insitution (#companies) vorliegt.]
-    } else {
-      [contains internal respective confidential data of #companies. It is intended solely for inspection by the assigned examiner, the head of the #authors.map(author => author.course-of-studies).dedup().join(" | ") department and, if necessary, the Audit Committee at the #university #university-location.
-
-      The content of this thesis may not be made available, either in its entirety or in excerpts, to persons outside of the examination process and the evaluation process, unless otherwise authorized by the training #insitution (#companies).]
-    }])
+    par(
+      justify: true,
+      CONFIDENTIALITY_STATEMENT_SECTION_B.at(language) +
+      [ ]                                              +
+      companies                                        +
+      CONFIDENTIALITY_STATEMENT_SECTION_C.at(language) +
+      [ ]                                              +
+      authors-by-study.join(" | ")                     +
+      CONFIDENTIALITY_STATEMENT_SECTION_D.at(language) +
+      university                                       +
+      [ ]                                              +
+      university-location                              +
+      CONFIDENTIALITY_STATEMENT_SECTION_E.at(language) +
+      institution                                      +
+      [ (#companies)]                                  +
+      CONFIDENTIALITY_STATEMENT_SECTION_F.at(language)
+    )
   }
 
   let end-date = if (type(date) == datetime) {
@@ -64,11 +64,11 @@
   }
 
   v(2em)
-  text([#if (language == "de") {
-    [#authors.map(author => author.company.city).dedup().join(", ", last: " und "), #end-date.display(date-format)]
-  } else {
-    [#authors.map(author => author.company.city).dedup().join(", ", last: " and "), #end-date.display(date-format)]
-  }])
+  text(
+    authors-by-city.dedup().join(", ", last: AND.at(language)) +
+    [ ] +
+    end-date.display(date-format)
+  )
 
   v(0.5em)
   if (many-authors) {
