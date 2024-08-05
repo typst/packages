@@ -22,14 +22,12 @@
     align(center, text(weight: "bold", title))
     v(1em)
     par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_SINGLE)
-
   } else {
     par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_PLURAL)
     v(1em)
     align(center, text(weight: "bold", title))
     v(1em)
     par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_PLURAL)
-
   }
 
   let end-date = if (type(date) == datetime) {

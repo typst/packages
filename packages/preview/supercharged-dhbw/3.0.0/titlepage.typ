@@ -1,3 +1,5 @@
+#import "locale.typ": *
+
 #let titlepage(
   authors,
   date,
@@ -36,7 +38,6 @@
         logo-left
       }
     ),
-
     // Logo at top right if given
     align(horizon,
       if logo-right != none {
@@ -45,7 +46,7 @@
       }
     )
   )
-  
+
   if (many-authors) {
     v(1fr)
   } else {
@@ -63,11 +64,16 @@
 
   // confidentiality marker (optional)
   if (confidentiality-marker.display) {
-    let display = false
-    let x-offset = 0pt
-    let y-offset = 0pt
-    let size = 7em
+    let size          = 7em
+    let display       = false
     let title-spacing = 2em
+    let x-offset      = 0pt
+
+    let y-offset = if (many-authors) {
+      7pt
+    } else {
+      0pt
+    }
 
     if (type-of-degree == none and type-of-thesis == none) {
       title-spacing = 0em
@@ -101,9 +107,8 @@
       right,
       dx: 35pt + x-offset,
       dy: -70pt + y-offset,
-    )[
-      #circle(radius: size / 2, fill: color)
-    ]
+      circle(radius: size / 2, fill: color)
+    )
   }
 
   // type of thesis (optional)
@@ -114,23 +119,22 @@
 
   // type of degree (optional)
   if (type-of-degree != none and type-of-degree.len() > 0) {
-    align(center, text(1em, [#if (language == "de") {
-      [für den Erwerb des]
-    } else {
-      [for the]
-    }]))
-
+    align(center, text(1em, TITLEPAGE_SECTION_A.at(language)))
     v(-0.25em)
     align(center, text(weight: "semibold", 1.25em, type-of-degree))
   }
+
   v(1.5em)
 
   // course of studies
-  align(center, text(1.2em, [#if (language == "de") {
-    [aus dem Studiengang #authors.map(author => author.course-of-studies).dedup().join(" | ")]
-  } else {
-    [from the course of studies #authors.map(author => author.course-of-studies).dedup().join(" | ")]
-  }]))
+  align(
+    center,
+    text(
+      1.2em,
+      TITLEPAGE_SECTION_B.at(language) +
+      authors.map(author => author.course-of-studies).dedup().join(" | ")
+    )
+  )
 
   if (many-authors) {
     v(0.75em)
@@ -139,11 +143,16 @@
   }
 
   // university
-  align(center, text(1.2em, [#if (language == "de") {
-    [an der #university #university-location]
-  } else {
-    [at the #university #university-location]
-  }]))
+  align(
+    center,
+    text(
+      1.2em,
+      TITLEPAGE_SECTION_C.at(language) +
+      university +
+      [ ] +
+      university-location
+    )
+  )
 
   if (many-authors) {
     v(0.8em)
@@ -151,13 +160,9 @@
     v(3em)
   }
 
-  align(center, text(1em, if (language == "de") {
-    "von"
-  } else {
-    "by"
-  }))
-  
-    if (many-authors) {
+  align(center, text(1em, BY.at(language)))
+
+  if (many-authors) {
     v(0.8em)
   } else {
     v(2em)
@@ -172,7 +177,7 @@
       18pt
     },
     ..authors.map(author => align(center, {
-      text(weight: "medium", 1.25em, [#author.name])
+      text(weight: "medium", 1.25em, author.name)
     }))
   )
 
@@ -186,7 +191,7 @@
   align(center, text(1.2em, if (type(date) == datetime) {
     date.display(date-format)
   } else {
-    [#date.at(0).display(date-format) -- #date.at(1).display(date-format)]
+    date.at(0).display(date-format)  + [ -- ] + date.at(1).display(date-format)
   }))
 
   v(1fr)
@@ -198,11 +203,7 @@
     column-gutter: 2.5em,
 
     // students
-    text(weight: "semibold", if (language == "de") {
-      [Matrikelnummer, Kurs:]
-    } else {
-      [Student ID, Course:]
-    }),
+    text(weight: "semibold", TITLEPAGE_STUDENT_ID.at(language)),
     stack(
       dir: ttb,
       for author in authors {
@@ -213,11 +214,7 @@
 
     // company
     if (not at-university) {
-      text(weight: "semibold", if (language == "de") {
-        "Unternehmen:"
-      } else {
-        "Company:"
-      })
+      text(weight: "semibold", TITLEPAGE_COMPANY.at(language))
     },
     if (not at-university) {
       stack(
@@ -261,36 +258,32 @@
             "country" in author.company and
             author.company.country != none and
             author.company.country != ""
-            ) {
+          ) {
             company-address+= text([, #author.company.country])
           }
-          
+
           company-address
           linebreak()
         }
       )
     },
 
-    // supervisor
-    // company
+    // company supervisor
     if ("company" in supervisor) {
-      text(weight: "semibold", if (language == "de") {
-        "Betreuer im Unternehmen:"
-      } else {
-        "Supervisor in the Company:"
-      })
+      text(weight: "semibold", TITLEPAGE_COMPANY_SUPERVISOR.at(language))
     },
     if ("company" in supervisor and type(supervisor.company) == str) {
       text(supervisor.company)
     },
 
-    // university
+    // university supervisor
     if ("university" in supervisor) {
-      text(weight: "semibold", if (language == "de") {
-        [Betreuer an der #university-short:]
-      } else {
-        [Supervisor at #university-short:]
-      })
+      text(
+        weight: "semibold",
+        TITLEPAGE_SUPERVISOR.at(language) +
+        university-short +
+        [:]
+      )
     },
     if ("university" in supervisor and type(supervisor.university) == str) {
       text(supervisor.university)
