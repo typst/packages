@@ -15,10 +15,10 @@ Define variables at the top of the template :
 #let subtitle = "Un sous-titre pour expliquer ce titre"
 #let logo = "path/to/my-logo.png"
 #let logo-horizontal = true
-#let short_title = "Rapport de stage"
+#let short-title = "Rapport de stage"
 #let authors = ("Rémi Germe")
-#let date_start = datetime(year: 2024, month: 06, day: 05)
-#let date_end = datetime(year: 2024, month: 09, day: 05)
+#let date-start = datetime(year: 2024, month: 06, day: 05)
+#let date-end = datetime(year: 2024, month: 09, day: 05)
 #let despair-mode = false
 
 #set text(lang: "fr")

@@ -65,18 +65,21 @@ Use only one (resp. two) `=` for level 1 (resp. 2) heading (and so on).
 // Defining variables for the cover page and PDF metadata
 #let title = [guide for typst #linebreak() polytechnique package]
 #let subtitle = "A modern alternative to LaTeX"
-#let short_title = "package guide"
+#let logo = none // instead of none set to "path/to/my-logo.png"
+#let logo-horizontal = true // set to true if the logo is squared or horizontal, set to false if not
+#let short-title = "package guide"
 #let authors = ("Rémi Germe")
-#let date_start = datetime(year: 2024, month: 07, day: 05)
-#let date_end = datetime(year: 2024, month: 08, day: 05)
+#let date-start = datetime(year: 2024, month: 07, day: 05)
+#let date-end = datetime(year: 2024, month: 08, day: 05)
+#let despair-mode = false
 
 #set text(lang: "en")
 
-#polytechnique.cover.cover(title, authors, date_start, date_end, logo:, subtitle: subtitle, logo-horizontal: true)
+#template.cover.cover(title, author, date-start, date-end, subtitle: subtitle, logo: logo, logo-horizontal: logo-horizontal)
 ```
 
 Set text lang to `fr` if you want the months in French. \
-You can also specify `short_month: true` in the call to cover to get month abbreviations. 
+You can also specify `short-month: true` in the call to cover to get month abbreviations. 
 
 == Doing some math
 
