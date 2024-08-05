@@ -239,6 +239,15 @@
     strong(it)
   }
 
+  set par(justify: true, leading: 1em)
+
+  if (show-abstract and abstract != none) {
+    align(center + horizon, heading(level: 1, numbering: none, outlined: false)[Abstract])
+    text(abstract)
+  }
+
+  set par(leading: 0.65em)
+
   context {
     let elems = query(figure.where(kind: image), here())
     let count = elems.len()
@@ -299,15 +308,9 @@
     print-acronyms(language, acronym-spacing)
   }
 
-  set par(justify: true, leading: 1em)
+  set par(leading: 1em)
   set block(spacing: 2em)
 
-  if (show-abstract and abstract != none) {
-    align(center + horizon, heading(level: 1, numbering: none)[Abstract])
-    text(abstract)
-  }
-  
-  
   // reset page numbering and set to arabic numbering
   set page(
     numbering: "1",
