@@ -33,31 +33,19 @@
   "en": "Supervisor at ",
 )
 
-#let DECLARATION_OF_OWNERSHIP_TITLE = (
+#let DECLARATION_OF_AUTHORSHIP_TITLE = (
   "de": "Selbstständigkeitserklärung",
   "en": "Declaration of Authorship",
 )
 
-#let DECLARATION_OF_OWNERSHIP_SECTION_A_SINGLE = (
-  "de": "Gemäß Ziffer 1.1.13 der Anlage 1 zu §§ 3, 4 und 5 der Studien- und Prüfungsordnung für die Bachelorstudiengänge im Studienbereich Technik der Dualen Hochschule Baden- Württemberg vom 29.09.2017. Ich versichere hiermit, dass ich meine Arbeit mit dem Thema:",
-  "en": "In accordance with section 1.1.13 of Annex 1 to §§ 3, 4 and 5 of the study and examination regulations for the Bachelor's degree programs in the field of technology at the Baden-Wuerttemberg Cooperative State University dated 29.09.2017. I hereby affirm that I have written my thesis on the topic:"
-)
+#let DECLARATION_OF_AUTHORSHIP_SECTION_A_SINGLE = "Gemäß Ziffer 1.1.13 der Anlage 1 zu §§ 3, 4 und 5 der Studien- und Prüfungsordnung für die Bachelorstudiengänge im Studienbereich Technik der Dualen Hochschule Baden- Württemberg vom 29.09.2017. Ich versichere hiermit, dass ich meine Arbeit mit dem Thema:"
 
-#let DECLARATION_OF_OWNERSHIP_SECTION_A_PLURAL = (
-  "de": "Gemäß Ziffer 1.1.13 der Anlage 1 zu §§ 3, 4 und 5 der Studien- und Prüfungsordnung für die Bachelorstudiengänge im Studienbereich Technik der Dualen Hochschule Baden- Württemberg vom 29.09.2017. Wir versichern hiermit, dass wir unsere Arbeit mit dem Thema:",
-  "en": "In accordance with section 1.1.13 of Annex 1 to §§ 3, 4 and 5 of the study and examination regulations for the Bachelor's degree programs in the field of technology at the Baden-Wuerttemberg Cooperative State University dated 29.09.2017. We hereby affirm that we have written our thesis on the topic:",
-)
+#let DECLARATION_OF_AUTHORSHIP_SECTION_A_PLURAL = "Gemäß Ziffer 1.1.13 der Anlage 1 zu §§ 3, 4 und 5 der Studien- und Prüfungsordnung für die Bachelorstudiengänge im Studienbereich Technik der Dualen Hochschule Baden- Württemberg vom 29.09.2017. Wir versichern hiermit, dass wir unsere Arbeit mit dem Thema:"
 
-#let DECLARATION_OF_OWNERSHIP_SECTION_B_SINGLE = (
-  "de": "selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Ich versichere zudem, dass die eingereichte elektronische Fassung mit der gedruckten Fassung übereinstimmt.",
-  "en": "independently and have not used any sources or aids other than those specified. I also confirm that the electronic version submitted is identical to the printed version."
-)
+#let DECLARATION_OF_AUTHORSHIP_SECTION_B_SINGLE = "selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Ich versichere zudem, dass die eingereichte elektronische Fassung mit der gedruckten Fassung übereinstimmt."
 
-#let DECLARATION_OF_OWNERSHIP_SECTION_B_PLURAL = (
-  "de": "selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt haben. Wir versichern zudem, dass die eingereichte elektronische Fassung mit der gedruckten Fassung übereinstimmt.
-",
-  "en": "independently and have not used any sources or aids other than those specified. We also confirm that the electronic version submitted is identical to the printed version.",
-)
+#let DECLARATION_OF_AUTHORSHIP_SECTION_B_PLURAL = "selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt haben. Wir versichern zudem, dass die eingereichte elektronische Fassung mit der gedruckten Fassung übereinstimmt.
+"
 
 #let CONFIDENTIALITY_STATEMENT_TITLE = (
   "de": "Sperrvermerk",
@@ -83,7 +71,7 @@
 )
 #let CONFIDENTIALITY_STATEMENT_SECTION_E = (
   "de": " vorgelegt.
-  
+
 Der Inhalt dieser Arbeit darf weder als Ganzes noch in Auszügen Personen außerhalb des Prüfungsprozesses und des Evaluationsverfahrens zugänglich gemacht werden, sofern keine anders lautende Genehmigung der ",
   "en": ".
 

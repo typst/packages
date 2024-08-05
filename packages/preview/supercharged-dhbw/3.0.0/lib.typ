@@ -206,6 +206,7 @@
   counter(page).update(1)
 
   if (not at-university and show-confidentiality-statement) {
+    pagebreak()
     confidentiality-statement(
       authors,
       title,
@@ -220,6 +221,7 @@
   }
 
   if (show-declaration-of-authorship) {
+    pagebreak()
     declaration-of-authorship(
       authors,
       title,

@@ -1,38 +1,35 @@
-#let declaration-of-authorship(authors, title, date, language, many-authors, at-university, city, date-format) = {
-  pagebreak()
-  v(2em)
-  text(size: 20pt, weight: "bold", if (language == "de") {
-    "Selbstständigkeitserklärung"
-  } else {
-    "Declaration of Authorship"
-  })
+#import "locale.typ": *
 
+#let declaration-of-authorship(
+  authors,
+  title,
+  date,
+  language,
+  many-authors,
+  at-university,
+  city,
+  date-format
+) = {
+  let authors_by_city = authors.map(author => author.company.city).dedup()
+
+  v(2em)
+  text(size: 20pt, weight: "bold", DECLARATION_OF_AUTHORSHIP_TITLE.at(language))
   v(1em)
 
   if (authors.len() == 1) {
-    par(justify: true, [
-      Gemäß Ziffer 1.1.13 der Anlage 1 zu §§ 3, 4 und 5 der Studien- und Prüfungsordnung für die Bachelorstudiengänge im Studienbereich Technik der Dualen Hochschule Baden- Württemberg vom 29.09.2017. Ich versichere hiermit, dass ich meine Arbeit mit dem Thema:
-    ])
+    par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_SINGLE)
     v(1em)
-    align(center,
-      text(weight: "bold", title)
-    )
+    align(center, text(weight: "bold", title))
     v(1em)
-    par(justify: true, [
-      selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Ich versichere zudem, dass die eingereichte elektronische Fassung mit der gedruckten Fassung übereinstimmt.
-    ])
+    par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_SINGLE)
+
   } else {
-    par(justify: true, [
-      Gemäß Ziffer 1.1.13 der Anlage 1 zu §§ 3, 4 und 5 der Studien- und Prüfungsordnung für die Bachelorstudiengänge im Studienbereich Technik der Dualen Hochschule Baden- Württemberg vom 29.09.2017. Wir versichern hiermit, dass wir unsere Arbeit mit dem Thema:
-    ])
+    par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_PLURAL)
     v(1em)
-    align(center,
-      text(weight: "bold", title)
-    )
+    align(center, text(weight: "bold", title))
     v(1em)
-    par(justify: true, [
-      selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt haben. Wir versichern zudem, dass die eingereichte elektronische Fassung mit der gedruckten Fassung übereinstimmt.
-    ])
+    par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_PLURAL)
+
   }
 
   let end-date = if (type(date) == datetime) {
@@ -43,16 +40,13 @@
 
   v(2em)
   if (at-university) {
-    text([#city, #end-date.display(date-format)])
+    text(city + [, ] + end-date.display(date-format))
   } else {
-    let connection-string
-    if (language == "de") {
-      connection-string = " und "
-    } else {
-      connection-string = " and "
-    }
-
-    text([#authors.map(author => author.company.city).dedup().join(", ", last: connection-string), #end-date.display(date-format)])
+    text(
+      authors_by_city.join(", ", last: AND.at(language)) +
+      [ ] +
+      end-date.display(date-format)
+    )
   }
 
   v(1em)
