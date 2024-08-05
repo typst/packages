@@ -5,6 +5,25 @@
 // Specific rules for the guide
 #show link: set text(blue)
 
+#let source = s => {
+  block(width: 100%)[#{
+    set align(left)
+    text(font: "New Computer Modern Sans", weight: "bold")[Source code :]
+    v(-0.5em)
+    pad(left: 5%)[#block(fill: rgb("f5f5f5"), width: 100%, inset: 10pt)[#raw(s, lang: "typ")]]
+    set align(center)
+    v(0.2em)
+    line(length: 50%, stroke: 0.8pt + rgb("d0d0d0"))
+    v(0.5em)
+  }]
+}
+
+#let typst-rendering(d) = {
+  block[#text(font: "New Computer Modern Sans", weight: "bold")[Typst rendering :]]
+  pad(left: 5%)[#block(fill: rgb("f5f5f5"), inset: 10pt, width: 100%)[#eval(d, mode: "markup")]]
+  source(d)
+}
+
 // Defining variables for the cover page and PDF metadata
 #let title = [guide for typst #linebreak() polytechnique package]
 #let subtitle = "A modern alternative to LaTeX"
@@ -25,7 +44,20 @@
 
 = Discovering Typst and the template
 
-Typst is a user-friendlier alternative to LaTeX. Check out #link("https://github.com/remigerme/typst-polytechnique/blob/main/guide.typ")[this pdf source] to see how it was generated.
+#typst-rendering(
+  "Typst is a user-friendlier alternative to LaTeX. Check out #link(\"https://github.com/remigerme/typst-polytechnique/blob/main/guide.typ\")[this pdf source] to see how it was generated."
+)
+
+== Headings
+
+#typst-rendering("=== Level 3 heading")
+
+Use only one (resp. two) `=` for level 1 (resp. 2) heading (and so on).
+
+#typst-rendering(
+  "#heading(level: 3, numbering: none)[Level 3 heading without numbering]
+==== Level 4 heading"
+)
 
 == Cover page
 
@@ -48,8 +80,13 @@ You can also specify `short_month: true` in the call to cover to get month abbre
 
 == Doing some math
 
-It is really easy to do some math, inline like $P V = n R T$ or if considering $f : x -> 1/18 x^4$, we have $forall x in RR, f(x) >= 0$. You can also do block content :
-$ f(b) = sum_(k=0)^n (b-a)^k / k! f^((k))(a) + integral_a^b (b-t)^n / n! f^((n+1))(t) dif t $
+#typst-rendering(
+  "Inline : $P V = n R T$ and $f : x -> 1/18 x^4$, $forall x in RR, f(x) >= 0$."
+)
+
+#typst-rendering(
+  "Block (note space after opening \$ and before closing \$) : $ f(b) = sum_(k=0)^n (b-a)^k / k! f^((k))(a) + integral_a^b (b-t)^n / n! f^((n+1))(t) dif t $"
+)
 
 == Table of contents
 
@@ -65,7 +102,9 @@ For example, the previous table of contents was generated using :
 
 == Cite an article
 
-You can cite an article, a book or something like @example-turing (`@example-turing`). Just see the `#bibliography` command below - you need a `.bib` file containing the bibliography.
+#typst-rendering(
+  "You can cite an article, a book or something like @example-turing. Just see the `#bibliography` command below - you need a `.bib` file containing the bibliography."
+)
 
 == Numbering pages
 
@@ -79,16 +118,11 @@ Useful commands to number pages (learn about #link("https://typst.app/docs/refer
 
 *Warning* : put these instructions at the very beginning of a page, otherwise it will cause a pagebreak.
 
-#heading(level: 2, numbering: none)[Heading without numbering]
-#lorem(25)
+#typst-rendering("#lorem(25)")
 
 == Dummy text with lorem
 
 You can generate dummy text with the `#lorem(n)` command. For example : #lower(lorem(10))
-
-=== Small heading
-
-The small heading above won't appear in the table of contents (because depth is set to 2).
 
 #pagebreak()
 
