@@ -1,0 +1,17 @@
+[package]
+name = "not-JKU-thesis"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Raphael Siegl"]
+license = "MIT-0"
+description = "Customizable not official template for a thesis at the JKU, derived from a template created by Fabian Scherer <https://www.linkedin.com/in/fabian-scherer-de/> with Leon Weber in an advisory role."
+categories = ["thesis"]
+homepage = "https://github.com/Slyde-R/jku-thesis.git"
+keywords = ["Johannes Kepler Universtät", "JKU", "Thesis", "Masterarbeit", "Bachelorarbeit", "Final Thesis", "Bachelor's  Thesis", "Master's  Thesis"]
+disciplines = []
+compiler = "0.11.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
