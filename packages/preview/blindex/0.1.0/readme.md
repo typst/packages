@@ -53,7 +53,7 @@ language/tradition.
 
 The library also offers higher-level functions to assemble the entire (i) citation typesetting,
 (ii) index entry, and (iii) citation's typesetting (with some typesetting (styling) options),
-that reduces argument redundancy. Commans are `#iQuot(...)` and `#bQuot(...)`, respectively for
+that reduces argument redundancy. Commands are `#iQuot(...)` and `#bQuot(...)`, respectively for
 inline and block quoting of biblical literature, with automatic indexing and bibliography
 citation. Mandatory arguments are:
 
