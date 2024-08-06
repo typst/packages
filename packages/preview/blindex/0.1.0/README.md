@@ -105,5 +105,6 @@ blindex-package:
     short: "An index-making package for Typst"
   url: https://github.com/cnaak/packages/tree/main/packages/preview/blindex
   version: 0.1.0
+  date: 2024-08
 ```
 
