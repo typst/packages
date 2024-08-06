@@ -1,12 +1,12 @@
-# Blindex - An index maker for biblical literature citations in documents
+# Blindex – An index-making package for Biblical literature citations in Typst documents
 
-`blindex` is a `typst` package specifically designed for the generation of indices of biblical
+`blindex` is a `typst` package specifically designed for the generation of indices of Biblical
 literature citations in documents.
 
 ## Index Sorting Options
 
-The generated indices are gathered and sorted by biblical literature books, which can be ordered
-according to various biblical literature book ordering conventions, including:
+The generated indices are gathered and sorted by Biblical literature books, which can be ordered
+according to various Biblical literature book ordering conventions, including:
 
 - `"LXX"` -- The Septuagint;
 - `"Greek-Bible"` -- Septuagint + New Testament (King James);
@@ -16,7 +16,7 @@ according to various biblical literature book ordering conventions, including:
 - `"Catholic-Bible"` -- The Catholic Old + New Testaments;
 - `"Orthodox-Bible"` -- The Orthodox Old + New Testaments;
 - `"Oecumenic-Bible"` -- The Jewish Tenakh + Old Testament Deuterocanonical + New Testament;
-- `"code"` -- All registered biblical literature books: All Protestant + All Apocripha.
+- `"code"` -- All registered Biblical literature books: All Protestant + All Apocripha.
 
 ## Low-Level Indexing Command
 
@@ -38,7 +38,7 @@ Optional arguments control style and sorting convention parameters, as shown bel
 
 ### Language and Traditions
 
-Note that `"1Thess"` is a valid biblical literature abbreviation in the `"en"` language.
+Note that `"1Thess"` is a valid Biblical literature abbreviation in the `"en"` language.
 Languages (more generally, language-traditions) are added to the `lang/` subfolder as `typst`
 files named as `<lang_name-tradition.typ>`, for the `"lang_name-tradition"` language-tradition.
 
@@ -54,7 +54,7 @@ language/tradition.
 The library also offers higher-level functions to assemble the entire (i) citation typesetting,
 (ii) index entry, and (iii) citation's typesetting (with some typesetting (styling) options),
 that reduces argument redundancy. Commands are `#iQuot(...)` and `#bQuot(...)`, respectively for
-inline and block quoting of biblical literature, with automatic indexing and bibliography
+inline and block quoting of Biblical literature, with automatic indexing and bibliography
 citation. Mandatory arguments are:
 
 ```typst
@@ -62,7 +62,7 @@ paragraph text...
 #iQuot(body, abrv, lang, pssg, version, cited)
 more text...
 
-// Displayed block quote of biblical literature:
+// Displayed block quote of Biblical literature:
 #bQuot(body, abrv, lang, pssg, version, cited)
 ```
 
@@ -91,4 +91,19 @@ Book ordering according to the LXX.
 This example results in a 3-page document like this one:
 
 ![Compiled Higher-Level Example](https://github.com/cnaak/packages/blob/main/packages/preview/blindex/0.1.0/tmp-01.png)
+
+## Citing
+
+This package can be cited with the following bibliography database entry:
+
+```yaml
+blindex-package:
+  type: Web
+  author: Naaktgeboren, C.
+  title:
+    value: "Blindex – An index-making package for Biblical literature citations in Typst documents"
+    short: "An index-making package for Typst"
+  url: https://github.com/cnaak/packages/tree/main/packages/preview/blindex
+  version: 0.1.0
+```
 
