@@ -1,4 +1,4 @@
-# Blindex – An index-making package for Biblical literature citations in Typst documents
+# Blindex: Index-making of Biblical literature citations in Typst
 
 `blindex` is a `typst` package specifically designed for the generation of indices of Biblical
 literature citations in documents.
@@ -101,8 +101,8 @@ blindex-package:
   type: Web
   author: Naaktgeboren, C.
   title:
-    value: "Blindex – An index-making package for Biblical literature citations in Typst documents"
-    short: "An index-making package for Typst"
+    value: "Blindex: Index-making of Biblical literature citations in Typst"
+    short: "Blindex: Index-making in Typst"
   url: https://github.com/cnaak/packages/tree/main/packages/preview/blindex
   version: 0.1.0
   date: 2024-08
