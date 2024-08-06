@@ -1,6 +1,6 @@
-// ptBR-pro
+// br-pro
 //============================================================================================//
-//  Biblical Literature Book Abbreviations in Portuguese (of Brazil) -- Protestant Tradition  //
+//   Biblical Literature Book Abbreviations in Brazilian Portuguese -- Protestant Tradition   //
 //============================================================================================//
 
 #let aDict = (
@@ -48,7 +48,7 @@
   "1403":    (abbr: "Lc",       full: "Lucas"),
   "1404":    (abbr: "Jo",       full: "João"),
   "1501":    (abbr: "At",       full: "Atos dos Apóstolos"),
-  "1601":    (abbr: "Rm",       full: "Romanos"   ),
+  "1601":    (abbr: "Rm",       full: "Romanos"),
   "1602":    (abbr: "1Co",      full: "1 Coríntios"),
   "1603":    (abbr: "2Co",      full: "2 Coríntios"),
   "1604":    (abbr: "Gl",       full: "Gálatas"),
