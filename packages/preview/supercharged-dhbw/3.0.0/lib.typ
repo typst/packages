@@ -38,6 +38,7 @@
   acronyms: none,
   header: none,
   confidentiality-statement-content: none,
+  declaration-of-authorship-content: none,
   university: none,
   university-location: none,
   university-short: none,
@@ -225,6 +226,7 @@
     declaration-of-authorship(
       authors,
       title,
+      declaration-of-authorship-content,
       date,
       language,
       many-authors,

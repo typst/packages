@@ -3,6 +3,7 @@
 #let declaration-of-authorship(
   authors,
   title,
+  declaration-of-authorship-content,
   date,
   language,
   many-authors,
@@ -10,24 +11,28 @@
   city,
   date-format
 ) = {
-  let authors_by_city = authors.map(author => author.company.city).dedup()
+  let authors-by-city = authors.map(author => author.company.city).dedup()
 
   v(2em)
   text(size: 20pt, weight: "bold", DECLARATION_OF_AUTHORSHIP_TITLE.at(language))
   v(1em)
 
-  if (authors.len() == 1) {
-    par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_SINGLE)
-    v(1em)
-    align(center, text(weight: "bold", title))
-    v(1em)
-    par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_SINGLE)
+  if (declaration-of-authorship-content != none) {
+    declaration-of-authorship-content
   } else {
-    par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_PLURAL)
-    v(1em)
-    align(center, text(weight: "bold", title))
-    v(1em)
-    par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_PLURAL)
+    if (authors.len() == 1) {
+      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_SINGLE)
+      v(1em)
+      align(center, text(weight: "bold", title))
+      v(1em)
+      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_SINGLE)
+    } else {
+      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_A_PLURAL)
+      v(1em)
+      align(center, text(weight: "bold", title))
+      v(1em)
+      par(justify: true, DECLARATION_OF_AUTHORSHIP_SECTION_B_PLURAL)
+    }
   }
 
   let end-date = if (type(date) == datetime) {
@@ -41,7 +46,7 @@
     text(city + [, ] + end-date.display(date-format))
   } else {
     text(
-      authors_by_city.join(", ", last: AND.at(language)) +
+      authors-by-city.join(", ", last: AND.at(language)) +
       [ ] +
       end-date.display(date-format)
     )
