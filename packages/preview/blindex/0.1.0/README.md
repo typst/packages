@@ -99,6 +99,27 @@ Books are sorted following the LXX ordering.
 #bibliography("./tmp-01.yml", title: "References", style: "ieee")
 ```
 
+The listing of the bibliography file, `./tmp-01.yml`, as shown in the example, is:
+
+```yml
+2012-LXX-SBB:
+  type: book
+  title:
+    value: "Septuaginta: Edição Acadêmica Capa dura – Edição de luxo"
+    sentence-case: "Septuaginta: edição acadêmica capa dura – edição de luxo"
+    short: Septuaginta
+  publisher: Sociedade Bíblica do Brasil, SBB
+  editor: Rahlfs, Alfred
+  affiliated:
+    - role: collaborator
+      names: [ "Hanhart, Robert", ]
+  pages: 2240
+  date: 2012-01-11
+  edition: 1
+  ISBN: 978-3438052278
+  language: el
+```
+
 This example results in a 4-page document like this one:
 
 ![Compiled Higher-Level Example](https://github.com/cnaak/packages/blob/main/packages/preview/blindex/0.1.0/tmp-01.png)
