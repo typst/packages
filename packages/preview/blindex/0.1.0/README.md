@@ -15,7 +15,7 @@ according to various Biblical literature book ordering conventions, including:
 - `"Protestant-Bible"` -- The Protestant Old + New Testaments;
 - `"Catholic-Bible"` -- The Catholic Old + New Testaments;
 - `"Orthodox-Bible"` -- The Orthodox Old + New Testaments;
-- `"Oecumenic-Bible"` -- The Jewish Tenakh + Old Testament Deuterocanonical + New Testament;
+- `"Oecumenic-Bible"` -- The Jewish Tanakh + Old Testament Deuterocanonical + New Testament;
 - `"code"` -- All registered Biblical literature books: All Protestant + All Apocripha.
 
 ## Low-Level Indexing Command
