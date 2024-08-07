@@ -13,7 +13,7 @@ Define variables at the top of the template :
 ```typc
 #let title = "Rapport de stage en entreprise sur plusieurs lignes automatiquement"
 #let subtitle = "Un sous-titre pour expliquer ce titre"
-#let logo = "path/to/my-logo.png"
+#let logo = image("path/to/my-logo.png")
 #let logo-horizontal = true
 #let short-title = "Rapport de stage"
 #let authors = ("Rémi Germe")

@@ -75,10 +75,12 @@
   let logo-height = if (logo-horizontal) { 20mm } else { 30mm }
   let path-logo-x = if (logo-horizontal) { "assets/logo-x-ip-paris.svg" } else { "assets/logo-x.svg" }
 
+  set image(height: logo-height)
+
   grid(
     columns: (1fr, 1fr), align: center + horizon,
-    if (logo != none) { image(logo, height: logo-height) } else { smallcaps("Insert your logo") },
-    image(path-logo-x, height: logo-height)
+    if (logo != none) { logo } else { smallcaps("Insert your logo") },
+    image(path-logo-x)
   )
 
 }
@@ -96,5 +98,5 @@
   datetime.today(),
   datetime.today(),
   subtitle: "Je n'ai pas de stage mais je suis détendu",
-  logo-horizontal: true
+  logo-horizontal: true,
 )
