@@ -153,71 +153,72 @@
     university-short,
   )
 
+  // set header properties
+  let display-header = if (header != none and ("display" in header)) {
+    header.display
+  } else {
+    true
+  }
+
+  let header-content = if (header != none and ("content" in header)) {
+    header.content
+  } else {
+    none
+  }
+
+  let show-header-title = if (header != none and ("show-title" in header)) {
+    header.show-title
+  } else {
+    true
+  }
+
+  let show-header-left-logo = if (header != none and ("show-left-logo" in header)) {
+    header.show-left-logo
+  } else {
+    true
+  }
+
+  let show-header-right-logo = if (header != none and ("show-right-logo" in header)) {
+    header.show-right-logo
+  } else {
+    true
+  }
+
+  let show-header-divider = if (header != none and ("show-divider" in header)) {
+    header.show-divider
+  } else {
+    true
+  }
+
   set page(
     margin: (top: 8em, bottom: 8em),
     header: {
-      if (
-        if (header != none and ("display" in header)) {
-          header.display
-        } else {
-          true
-        }
-      ) {
-        if (
-          if (header != none and ("content" in header)) {
-            header.content
-          } else {
-            none
-          } != none
-        ) {
+      if (display-header) {
+        if (header-content != none) {
           header.content
         } else {
           grid(
             columns: (1fr, auto),
             align: (left, right),
             gutter: 2em,
-            if (
-              if (header != none and ("show-title" in header)) {
-                header.show-title
-              } else {
-                true
-              }
-            ) {
+            if (show-header-title) {
               emph(align(center + horizon, text(size: 10pt, title)))
             },
             stack(
               dir: ltr,
               spacing: 1em,
-              if (
-                if (header != none and ("show-left-logo" in header)) {
-                  header.show-left-logo
-                } else {
-                  true
-                } and logo-left != none
-              ) {
+              if (show-header-left-logo and logo-left != none) {
                 set image(height: left-logo-height / 2)
                 logo-left
               },
-              if (
-                if (header != none and ("show-right-logo" in header)) {
-                  header.show-right-logo
-                } else {
-                  true
-                } and logo-right != none
-              ) {
+              if (show-header-right-logo and logo-right != none) {
                 set image(height: right-logo-height / 2)
                 logo-right
               },
             ),
           )
           v(-0.75em)
-          if (
-            if (header != none and ("show-divider" in header)) {
-              header.show-divider
-            } else {
-              true
-            }
-          ) {
+          if (show-header-divider) {
             line(length: 100%)
           }
         }
