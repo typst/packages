@@ -47,14 +47,14 @@ As of revision 0.1.0, supported languages include:
 
 Language         | Tradition     | Description             | source file
 ---              | ---           | ---                     | ---
-English          | (default)     | Default English         | `lang/en.typ`
+English          | (none)        | Default English         | `lang/en.typ`
 English          | 3-char        | A 3-char abbreviations  | `lang/en-3.typ`
 Portuguese (BR)  | Catholic      | Catholic for Brazil     | `lang/br-cat.typ`
 Portuguese (BR)  | Protestant    | Protestant for Brazil   | `lang/br-pro.typ`
 
-Language files declares *one* `typst` dictionary named `aDict`, whose keys are string book ID's,
-and `abbr: "str"`, and `full: "string"` dictionary with the corresponding book abbreviation and
-full name in the stated language/tradition.
+Language files declares **one** `typst` dictionary named `aDict`, whose keys are string book
+ID's, and `abbr: "str"`, and `full: "string"` dictionary with the corresponding book
+abbreviation and full name in the stated language/tradition.
 
 ## Higher-Level Quoting-Indexing Commands
 
