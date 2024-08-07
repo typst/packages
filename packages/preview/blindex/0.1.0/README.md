@@ -77,7 +77,7 @@ more text...
 
 ```typst
 #set page(paper: "a7", fill: rgb("#eec"))
-#import "./lib.typ": *
+#import "@preview/blindex:0.1.0": *
 
 The Septuagint (LXX) starts with #iQuot([ΕΝ ἀρχῇ ἐποίησεν ὁ Θεὸς τὸν οὐρανὸν καὶ τὴν γῆν.],
 "Gen", "en", [1.1], "LXX", label("2012-LXX-SBB")).
