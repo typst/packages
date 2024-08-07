@@ -87,7 +87,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `city (str)`: City of the author (only needed when `at-university` is `true`)
 
-`confidentiality-marker: (dict)`: Configure the confidentially marker (red or green circle) on the title page (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
+`confidentiality-marker: (dictionary)`: Configure the confidentially marker (red or green circle) on the title page (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
 
 - display (bool*): Whether the confidentiality marker should be shown, default is `false`
 - offset-x (length): Horizontal offset of the confidentiality marker, default is `0pt`
@@ -103,7 +103,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `declaration-of-authorship-content (content)`: Provide a custom declaration of authorship
 
-`header (dict)`: Configure the header of the document
+`header (dictionary)`: Configure the header of the document
 
 - display (bool): Whether the header should be shown, default is `true`
 - show-title (bool): Whether the title should be shown in the header, default is `true`
@@ -142,7 +142,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `show-table-of-contents (bool)`: Whether the table of contents should be shown, default is `true`
 
-`supervisor (dict*)`: Name of the supervisor at the university and/or company (e.g. supervisor: (company: "John Doe", university: "Jane Doe"))
+`supervisor (dictionary*)`: Name of the supervisor at the university and/or company (e.g. supervisor: (company: "John Doe", university: "Jane Doe"))
 
 - company (str): Name of the supervisor at the company (note while the argument is optional at least one of the two arguments must be provided)
 - university (str): Name of the supervisor at the university (note while the argument is optional at least one of the two arguments must be provided)
