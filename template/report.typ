@@ -8,7 +8,7 @@ sur plusieurs lignes]
 // Subtitle on cover page
 #let subtitle = "Un sous-titre pour expliquer ce titre"
 // Logo on cover page
-#let logo = none // instead of none set to "path/to/my-logo.png"
+#let logo = none // instead of none set to image("path/to/my-logo.png")
 #let logo-horizontal = true // set to true if the logo is squared or horizontal, set to false if not
 // Short title on headers
 #let short-title = "Rapport de stage"

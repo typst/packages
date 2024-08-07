@@ -27,7 +27,7 @@
 // Defining variables for the cover page and PDF metadata
 #let title = [guide for typst #linebreak() polytechnique package]
 #let subtitle = "A modern alternative to LaTeX"
-#let logo = "assets/logo-x.svg"
+#let logo = image("assets/logo-x.svg")
 #let short_title = "package guide"
 #let authors = ("Rémi Germe")
 #let date_start = datetime(year: 2024, month: 07, day: 05)
@@ -65,7 +65,7 @@ Use only one (resp. two) `=` for level 1 (resp. 2) heading (and so on).
 // Defining variables for the cover page and PDF metadata
 #let title = [guide for typst #linebreak() polytechnique package]
 #let subtitle = "A modern alternative to LaTeX"
-#let logo = none // instead of none set to "path/to/my-logo.png"
+#let logo = image("path/to/my-logo.png")
 #let logo-horizontal = true // set to true if the logo is squared or horizontal, set to false if not
 #let short-title = "package guide"
 #let authors = ("Rémi Germe")
