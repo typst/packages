@@ -98,7 +98,14 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `declaration-of-authorship-content (content)`: Provide a custom declaration of authorship
 
-`header (content)`: Content for a custom header, it is recommended that you pass a variable containing the content or a function that returns the content
+`header (dict)`: Configure the header of the document
+
+    - display (bool): Whether the header should be shown, default is `true`
+    - show-title (bool): Whether the title should be shown in the header, default is `true`
+    - show-left-logo (bool): Whether the left logo should be shown in the header, default is `true`
+    - show-right-logo (bool): Whether the right logo should be shown in the header, default is `true`
+    - show-divider (bool): Whether the header divider should be shown, default is `true`
+    - content (content): Content for a custom header, it is recommended that you pass a variable containing the content or a function that returns the content
 
 `heading-numering (str)`: Numbering style of the headings, default is `"1.1"` (for more information on possible numbering formats check the [Typst documentation](https://typst.app/docs/reference/model/numbering))
 
@@ -124,21 +131,11 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `show-declaration-of-authorship (bool)`: Whether the declaration of authorship should be shown, default is `true`
 
-`show-header (bool)`: Whether the header should be shown, default is `true`
-
-`show-header-divider (bool)`: Whether the header divider should be shown, default is `true`
-
 `show-list-of-figures (bool)`: Whether the list of figures should be shown, default is `true`
 
 `show-list-of-tables (bool)`: Whether the list of tables should be shown, default is `true`
 
-`show-left-logo-in-header (bool)`: Whether the left logo should be shown in the header, default is `true`
-
-`show-right-logo-in-header (bool)`: Whether the right logo should be shown in the header, default is `true`
-
 `show-table-of-contents (bool)`: Whether the table of contents should be shown, default is `true`
-
-`show-title-in-header (bool)`: Whether the title should be shown in the header, default is `true`
 
 `supervisor (dict*)`: Name of the supervisor at the university and/or company (e.g. supervisor: (company: "John Doe", university: "Jane Doe"))
 
