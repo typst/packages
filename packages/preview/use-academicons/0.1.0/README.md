@@ -1,4 +1,4 @@
-# typst-academicons
+# typst-use-academicons
 
 A Typst library for Academicons through the desktop fonts.
 
@@ -32,7 +32,7 @@ You can right-click the `ttf` files and select `Install`.
 
 You can install the library using the typst packages:
 
-`#import "@preview/academicons:0.1.0": *`
+`#import "@preview/use-academicons:0.1.0": *`
 
 #### Manually install
 
@@ -87,7 +87,7 @@ Declaration is `ai-stack(box-args: (:), grid-args: (:), ai-icon-args: (:), ..ico
 
 ## Example
 
-See the [`academicons.typ`](https://typst.app/project/rsgOFC4YkwpN7OqtRyiXP3) file for a complete example.
+See the [`use-academicons.typ`](https://typst.app/project/rsgOFC4YkwpN7OqtRyiXP3) file for a complete example.
 
 ## Contribution
 
