@@ -64,10 +64,10 @@
 
   // confidentiality marker (optional)
   if (confidentiality-marker.display) {
-    let size          = 7em
-    let display       = false
+    let size = 7em
+    let display = false
     let title-spacing = 2em
-    let x-offset      = 0pt
+    let x-offset = 0pt
 
     let y-offset = if (many-authors) {
       7pt
@@ -107,7 +107,7 @@
       right,
       dx: 35pt + x-offset,
       dy: -70pt + y-offset,
-      circle(radius: size / 2, fill: color)
+      circle(radius: size / 2, fill: color),
     )
   }
 
@@ -131,9 +131,8 @@
     center,
     text(
       1.2em,
-      TITLEPAGE_SECTION_B.at(language) +
-      authors.map(author => author.course-of-studies).dedup().join(" | ")
-    )
+      TITLEPAGE_SECTION_B.at(language) + authors.map(author => author.course-of-studies).dedup().join(" | "),
+    ),
   )
 
   if (many-authors) {
@@ -147,11 +146,8 @@
     center,
     text(
       1.2em,
-      TITLEPAGE_SECTION_C.at(language) +
-      university +
-      [ ] +
-      university-location
-    )
+      TITLEPAGE_SECTION_C.at(language) + university + [ ] + university-location,
+    ),
   )
 
   if (many-authors) {
@@ -176,9 +172,12 @@
     } else {
       18pt
     },
-    ..authors.map(author => align(center, {
-      text(weight: "medium", 1.25em, author.name)
-    }))
+    ..authors.map(author => align(
+      center,
+      {
+        text(weight: "medium", 1.25em, author.name)
+      },
+    ))
   )
 
   if (many-authors) {
@@ -188,11 +187,17 @@
   }
 
   // date
-  align(center, text(1.2em, if (type(date) == datetime) {
-    date.display(date-format)
-  } else {
-    date.at(0).display(date-format)  + [ -- ] + date.at(1).display(date-format)
-  }))
+  align(
+    center,
+    text(
+      1.2em,
+      if (type(date) == datetime) {
+        date.display(date-format)
+      } else {
+        date.at(0).display(date-format) + [ -- ] + date.at(1).display(date-format)
+      },
+    ),
+  )
 
   v(1fr)
 

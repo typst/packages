@@ -68,7 +68,7 @@
           } else {
             panic("Definitions should be arrays of one or two strings. Definition of " + acr + " is: " + type(defs))
           }
-        } else {  
+        } else {
           display(acr, defs.at(0), link: link)
         }
       } else {
@@ -115,7 +115,7 @@
   })
 }
 
-// Display acronym in the plural form. Expands it if used for the first time. 
+// Display acronym in the plural form. Expands it if used for the first time.
 #let acrpl(acronym, link: true) = {
   acr(acronym, plural: true, link: link)
 }
@@ -123,12 +123,12 @@
 // Print an index of all the acronyms and their definitions.
 #let print-acronyms(language, acronym-spacing) = {
   heading(level: 1, outlined: false, numbering: none)[#if (language == "de") {
-    [Abkürzungsverzeichnis]
-  } else {
-    [List of Acronyms]
-  }]
+      [Abkürzungsverzeichnis]
+    } else {
+      [List of Acronyms]
+    }]
 
-  acros.display(acronyms=>{
+  acros.display(acronyms => {
     let acronym-keys = acronyms.keys()
 
     let max-width = 0pt
@@ -142,11 +142,11 @@
 
     let acr-list = acronym-keys.sorted()
 
-    for acr in acr-list{
+    for acr in acr-list {
       grid(
         columns: (max-width + 0.5em, auto),
         gutter: acronym-spacing,
-        [*#acr#label("acronym-" + acr)*], [#acrl(acr, link: false)]
+        [*#acr#label("acronym-" + acr)*], [#acrl(acr, link: false)],
       )
     }
   })

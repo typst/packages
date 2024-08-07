@@ -34,7 +34,7 @@
   logo-size-ratio,
   university-short,
   heading-numbering,
-  ) = {
+) = {
   if (title == none or title == "") {
     panic("Title is missing. Specify a title in the 'title' attribute of the template.")
   }
@@ -89,9 +89,7 @@
 
   if (type(confidentiality-marker) != none) {
     if (
-      type(confidentiality-marker) != dictionary or
-      "display" not in confidentiality-marker or
-      type(confidentiality-marker.display) != bool
+      type(confidentiality-marker) != dictionary or "display" not in confidentiality-marker or type(confidentiality-marker.display) != bool
     ) {
       panic("Confidentiality marker is invalid. Specify a dictionary in the 'confidentiality-marker' attribute of the template containing a 'display' attribute with a boolean value.")
     }
@@ -131,9 +129,9 @@
   }
 
   if (
-    (type-of-thesis != none and type-of-thesis != "") or
-    (type-of-degree != none and type-of-degree != "") or
-    (confidentiality-marker.display == true)
+    (type-of-thesis != none and type-of-thesis != "") or (type-of-degree != none and type-of-degree != "") or (
+      confidentiality-marker.display == true
+    )
   ) {
     max-authors -= 2
   }
@@ -143,35 +141,19 @@
   }
 
   for author in authors {
-    if (
-      "name" not in author or
-      author.name == none or
-      author.name == ""
-    ) {
+    if ("name" not in author or author.name == none or author.name == "") {
       panic("Author name is missing. Specify a name for each author in the 'authors' attribute of the template.")
     }
 
-    if (
-      "student-id" not in author or
-      author.student-id == none or
-      author.student-id == ""
-    ) {
+    if ("student-id" not in author or author.student-id == none or author.student-id == "") {
       panic("Student ID of '" + author.name + "' is missing. Specify a student ID for each author in the 'authors' attribute of the template.")
     }
 
-    if (
-      "course" not in author or
-      author.course == none or
-      author.course == ""
-    ) {
+    if ("course" not in author or author.course == none or author.course == "") {
       panic("Course of '" + author.name + "' is missing. Specify a course for each author in the 'authors' attribute of the template.")
     }
 
-    if (
-      "course-of-studies" not in author or
-      author.course-of-studies == none or
-      author.course-of-studies == ""
-    ) {
+    if ("course-of-studies" not in author or author.course-of-studies == none or author.course-of-studies == "") {
       panic("Course of studies of '" + author.name + "' is missing. Specify a course of studies for each author in the 'authors' attribute of the template.")
     }
 
@@ -206,13 +188,17 @@
     panic("TOC depth is invalid. Specify an integer in the 'toc-depth' attribute of the template.")
   }
 
-  if (type(date) != datetime and (type(date) != array or date.len() != 2 or type(date.at(0)) != datetime or type(date.at(1)) != datetime)) {
+  if (
+    type(date) != datetime and (
+      type(date) != array or date.len() != 2 or type(date.at(0)) != datetime or type(date.at(1)) != datetime
+    )
+  ) {
     panic("Date is invalid. Specify a datetime in the 'date' attribute of the template to display a specific date or use a array containing two datetime elements to display a date range.")
   }
 
   let image-attributes = (
     logo-left: logo-left,
-    logo-right: logo-right
+    logo-right: logo-right,
   )
 
   for (key, attribute) in image-attributes {
@@ -235,9 +221,10 @@
     panic("Bibliography is invalid. Specify a bibliography in the 'bibliography' attribute of the template.")
   }
 
-  if (type(supervisor) != dictionary or
-    ("company" not in supervisor or supervisor.company == none or supervisor.company == "") and
-    ("university" not in supervisor or supervisor.university == none or supervisor.university == "")
+  if (
+    type(supervisor) != dictionary or (
+      "company" not in supervisor or supervisor.company == none or supervisor.company == ""
+    ) and ("university" not in supervisor or supervisor.university == none or supervisor.university == "")
   ) {
     panic("Supervisor(s) is/are invalid. Specify a supervisor either for the company and/or the university in the 'supervisor' attribute of the template.")
   }

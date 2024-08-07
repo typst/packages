@@ -9,7 +9,7 @@
   date,
   language,
   many-authors,
-  date-format
+  date-format,
 ) = {
   let authors-by-city = authors.map(author => author.company.city).dedup()
 
@@ -32,28 +32,16 @@
 
     text(CONFIDENTIALITY_STATEMENT_SECTION_A.at(language))
     v(1em)
-    align(center,
-      text(weight: "bold", title)
+    align(
+      center,
+      text(weight: "bold", title),
     )
 
     v(1em)
 
     par(
       justify: true,
-      CONFIDENTIALITY_STATEMENT_SECTION_B.at(language) +
-      [ ]                                              +
-      companies                                        +
-      CONFIDENTIALITY_STATEMENT_SECTION_C.at(language) +
-      [ ]                                              +
-      authors-by-study.join(" | ")                     +
-      CONFIDENTIALITY_STATEMENT_SECTION_D.at(language) +
-      university                                       +
-      [ ]                                              +
-      university-location                              +
-      CONFIDENTIALITY_STATEMENT_SECTION_E.at(language) +
-      institution                                      +
-      [ (#companies)]                                  +
-      CONFIDENTIALITY_STATEMENT_SECTION_F.at(language)
+      CONFIDENTIALITY_STATEMENT_SECTION_B.at(language) + [ ] + companies + CONFIDENTIALITY_STATEMENT_SECTION_C.at(language) + [ ] + authors-by-study.join(" | ") + CONFIDENTIALITY_STATEMENT_SECTION_D.at(language) + university + [ ] + university-location + CONFIDENTIALITY_STATEMENT_SECTION_E.at(language) + institution + [ (#companies)] + CONFIDENTIALITY_STATEMENT_SECTION_F.at(language),
     )
   }
 
@@ -64,11 +52,7 @@
   }
 
   v(2em)
-  text(
-    authors-by-city.dedup().join(", ", last: AND.at(language)) +
-    [ ] +
-    end-date.display(date-format)
-  )
+  text(authors-by-city.dedup().join(", ", last: AND.at(language)) + [ ] + end-date.display(date-format))
 
   v(0.5em)
   if (many-authors) {

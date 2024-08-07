@@ -67,40 +67,48 @@ Create figures or tables like this:
 
 === Tables
 
-#figure(caption: "Table Example", table(
-  columns: (1fr, auto, auto),
-  inset: 10pt,
-  align: horizon,
-  table.header(
-    [], [*Area*], [*Parameters*],
+#figure(
+  caption: "Table Example",
+  table(
+    columns: (1fr, auto, auto),
+    inset: 10pt,
+    align: horizon,
+    table.header(
+      [],
+      [*Area*],
+      [*Parameters*],
+    ),
+
+    text("cylinder.svg"),
+    $ pi h (D^2 - d^2) / 4 $,
+    [
+      $h$: height \
+      $D$: outer radius \
+      $d$: inner radius
+    ],
+
+    text("tetrahedron.svg"), $ sqrt(2) / 12 a^3 $, [$a$: edge length],
   ),
-  text("cylinder.svg"),
-  $ pi h (D^2 - d^2) / 4 $,
-  [
-    $h$: height \
-    $D$: outer radius \
-    $d$: inner radius
-  ],
-  text("tetrahedron.svg"),
-  $ sqrt(2) / 12 a^3 $,
-  [$a$: edge length]
-))<table>
+)<table>
 
 == Code Snippets
 
 Insert code snippets like this:
 
-#figure(caption: "Codeblock Example", sourcecode[```ts
-const ReactComponent = () => {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
-};
+#figure(
+  caption: "Codeblock Example",
+  sourcecode[```ts
+    const ReactComponent = () => {
+      return (
+        <div>
+          <h1>Hello World</h1>
+        </div>
+      );
+    };
 
-export default ReactComponent;
-```])
+    export default ReactComponent;
+    ```],
+)
 
 #pagebreak()
 
