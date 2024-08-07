@@ -25,11 +25,6 @@
   show-code-snippets: true,
   show-appendix: false,
   show-abstract: true,
-  show-header: true,
-  show-title-in-header: true,
-  show-left-logo-in-header: true,
-  show-right-logo-in-header: true,
-  show-header-divider: true,
   numbering-alignment: center,
   toc-depth: 3,
   acronym-spacing: 5em,
@@ -72,11 +67,7 @@
     show-code-snippets,
     show-appendix,
     show-abstract,
-    show-header,
-    show-title-in-header,
-    show-left-logo-in-header,
-    show-right-logo-in-header,
-    show-header-divider,
+    header,
     numbering-alignment,
     toc-depth,
     acronym-spacing,
@@ -114,7 +105,7 @@
   // save heading and body font families in variables
   let body-font = "Open Sans"
   let heading-font = "Montserrat"
-  
+
   // customize look of figure
   set figure.caption(separator: [ --- ], position: bottom)
 
@@ -124,16 +115,14 @@
 
   //heading numbering
   set heading(numbering: heading-numbering)
- 
+
   // set link style for links that are not acronyms
-  show link: it => if (
-    str(it.dest) not in (acronyms.keys().map(acr => ("acronym-" + acr)))
-  ) {
+  show link: it => if (str(it.dest) not in (acronyms.keys().map(acr => ("acronym-" + acr)))) {
     text(fill: blue, it)
   } else {
     it
   }
-  
+
   show heading.where(level: 1): it => {
     pagebreak()
     v(2em) + it + v(1em)
@@ -167,36 +156,73 @@
   set page(
     margin: (top: 8em, bottom: 8em),
     header: {
-      if (show-header) {
-        if (header != none) {
-          header
+      if (
+        if (header != none and ("display" in header)) {
+          header.display
+        } else {
+          true
+        }
+      ) {
+        if (
+          if (header != none and ("content" in header)) {
+            header.content
+          } else {
+            none
+          } != none
+        ) {
+          header.content
         } else {
           grid(
             columns: (1fr, auto),
             align: (left, right),
             gutter: 2em,
-            if (show-title-in-header) {
+            if (
+              if (header != none and ("show-title" in header)) {
+                header.show-title
+              } else {
+                true
+              }
+            ) {
               emph(align(center + horizon, text(size: 10pt, title)))
             },
-            stack(dir: ltr,
+            stack(
+              dir: ltr,
               spacing: 1em,
-              if (show-left-logo-in-header and logo-left != none) {
+              if (
+                if (header != none and ("show-left-logo" in header)) {
+                  header.show-left-logo
+                } else {
+                  true
+                } and logo-left != none
+              ) {
                 set image(height: left-logo-height / 2)
                 logo-left
               },
-              if (show-right-logo-in-header and logo-right != none) {
+              if (
+                if (header != none and ("show-right-logo" in header)) {
+                  header.show-right-logo
+                } else {
+                  true
+                } and logo-right != none
+              ) {
                 set image(height: right-logo-height / 2)
                 logo-right
-              }
-            )
+              },
+            ),
           )
           v(-0.75em)
-          if (show-header-divider) {
+          if (
+            if (header != none and ("show-divider" in header)) {
+              header.show-divider
+            } else {
+              true
+            }
+          ) {
             line(length: 100%)
           }
         }
       }
-    }
+    },
   )
 
   // set page numbering to roman numbering
@@ -217,7 +243,7 @@
       date,
       language,
       many-authors,
-      date-format
+      date-format,
     )
   }
 
@@ -232,13 +258,11 @@
       many-authors,
       at-university,
       city,
-      date-format
+      date-format,
     )
   }
 
-  show outline.entry.where(
-    level: 1,
-  ): it => {
+  show outline.entry.where(level: 1): it => {
     v(18pt, weak: true)
     strong(it)
   }
@@ -255,14 +279,14 @@
   context {
     let elems = query(figure.where(kind: image), here())
     let count = elems.len()
-    
+
     if (show-list-of-figures and count > 0) {
       outline(
         title: [#heading(level: 3)[#if (language == "de") {
-          [Abbildungsverzeichnis]
-        } else {
-          [List of Figures]
-        }]],
+              [Abbildungsverzeichnis]
+            } else {
+              [List of Figures]
+            }]],
         target: figure.where(kind: image),
       )
     }
@@ -275,10 +299,10 @@
     if (show-list-of-tables and count > 0) {
       outline(
         title: [#heading(level: 3)[#if (language == "de") {
-          [Tabellenverzeichnis]
-        } else {
-          [List of Tables]
-        }]],
+              [Tabellenverzeichnis]
+            } else {
+              [List of Tables]
+            }]],
         target: figure.where(kind: table),
       )
     }
@@ -291,23 +315,27 @@
     if (show-code-snippets and count > 0) {
       outline(
         title: [#heading(level: 3)[#if (language == "de") {
-          [Codeverzeichnis]
-        } else {
-          [Code Snippets]
-        }]],
+              [Codeverzeichnis]
+            } else {
+              [Code Snippets]
+            }]],
         target: figure.where(kind: raw),
       )
     }
   }
-  
+
   if (show-table-of-contents) {
-    outline(title: [#if (language == "de") {
-      [Inhaltsverzeichnis]
-    } else {
-      [Table of Contents]
-    }], indent: auto, depth: toc-depth)
+    outline(
+      title: [#if (language == "de") {
+          [Inhaltsverzeichnis]
+        } else {
+          [Table of Contents]
+        }],
+      indent: auto,
+      depth: toc-depth,
+    )
   }
-    
+
   if (show-acronyms and acronyms != none and acronyms.len() > 0) {
     print-acronyms(language, acronym-spacing)
   }
@@ -318,11 +346,14 @@
   // reset page numbering and set to arabic numbering
   set page(
     numbering: "1",
-    footer: context align(numbering-alignment, numbering(
-    "1 / 1", 
-    ..counter(page).get(),
-    ..counter(page).at(<end>),
-    ))
+    footer: context align(
+      numbering-alignment,
+      numbering(
+        "1 / 1",
+        ..counter(page).get(),
+        ..counter(page).at(<end>),
+      ),
+    ),
   )
   counter(page).update(1)
 
@@ -332,30 +363,36 @@
   // reset page numbering and set to alphabetic numbering
   set page(
     numbering: "a",
-    footer: context align(numbering-alignment, numbering(
-      "a", 
-      ..counter(page).get(),
-    ))
+    footer: context align(
+      numbering-alignment,
+      numbering(
+        "a",
+        ..counter(page).get(),
+      ),
+    ),
   )
   counter(page).update(1)
 
   // Display bibliography.
   if bibliography != none {
-    set std-bibliography(title: [#if (language == "de") {
-      [Literatur]
-    } else {
-      [References]
-    }], style: bib-style)
+    set std-bibliography(
+      title: [#if (language == "de") {
+          [Literatur]
+        } else {
+          [References]
+        }],
+      style: bib-style,
+    )
     bibliography
   }
 
   if (show-appendix and appendix != none) {
     heading(level: 1, numbering: none)[#if (language == "de") {
-      [Anhang]
-    } else {
-      [Appendix]
-    }]
+        [Anhang]
+      } else {
+        [Appendix]
+      }]
     appendix
   }
-  
+
 }

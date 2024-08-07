@@ -15,11 +15,7 @@
   show-code-snippets,
   show-appendix,
   show-abstract,
-  show-header,
-  show-title-in-header,
-  show-left-logo-in-header,
-  show-right-logo-in-header,
-  show-header-divider,
+  header,
   numbering-alignment,
   toc-depth,
   acronym-spacing,
@@ -43,6 +39,10 @@
     panic("Title is missing. Specify a title in the 'title' attribute of the template.")
   }
 
+  if (header != none and type(header) != dictionary) {
+    panic("Header is invalid. Specify a dictionary in the 'header' attribute of the template.")
+  }
+
   let boolean-attributes = (
     at-university: at-university,
     show-confidentiality-statement: show-confidentiality-statement,
@@ -54,11 +54,6 @@
     show-code-snippets: show-code-snippets,
     show-appendix: show-appendix,
     show-abstract: show-abstract,
-    show-header: show-header,
-    show-title-in-header: show-title-in-header,
-    show-left-logo-in-header: show-left-logo-in-header,
-    show-right-logo-in-header: show-right-logo-in-header,
-    show-header-divider: show-header-divider,
   )
 
   for (key, attribute) in boolean-attributes {
