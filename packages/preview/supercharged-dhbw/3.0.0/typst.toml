@@ -8,7 +8,7 @@ description = "Unofficial Template for DHBW"
 repository = "https://github.com/DannySeidel/typst-dhbw-template"
 keywords = ["dhbw", "thesis"]
 categories = ["paper", "thesis", "report"]
-exclude = ["example.pdf"]
+exclude = ["examples/**"]
 
 [template]
 path = "template"

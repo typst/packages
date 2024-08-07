@@ -2,7 +2,7 @@
 
 Unofficial [Typst](https://typst.app/) template for DHBW students.
 
-You can see an example PDF [here](https://github.com/DannySeidel/typst-dhbw-template/blob/main/example.pdf).
+You can see an example PDF [here](https://github.com/DannySeidel/typst-dhbw-template/blob/main/examples/example.pdf).
 
 ## Usage
 
@@ -33,7 +33,21 @@ This template uses the following packages:
 
 - [codelst](https://typst.app/universe/package/codelst): To create code snippets
 
-A more detailed explanation of the features can be found in the `main.typ` file.
+Insert code snippets using the following syntax:
+
+```typ
+#figure(caption: "Codeblock Example", sourcecode[```ts
+const ReactComponent = () => {
+  return (
+    <div>
+      <h1>Hello World</h1>
+    </div>
+  );
+};
+
+export default ReactComponent;
+```])
+```
 
 ## Configuration
 This template exports the `supercharged-dhbw` function with the following named arguments:
@@ -60,7 +74,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `appendix (content)`: Content of the appendix, it is recommended that you pass a variable containing the content or a function that returns the content
 
-`at-university* (bool)`: Whether the document is written at university or not, default is `false`
+`at-university (bool*)`: Whether the document is written at university or not, default is `false`
 
 `bibliography (content)`: Path to the bibliography file
 
@@ -187,34 +201,7 @@ To define the plural form of an acronym use a array as value with the first elem
 )
 ```
 
-## Example
+## Examples
 
-If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
-
-```typst
-#import "@preview/supercharged-dhbw:3.0.0": *
-
-#show: supercharged-dhbw.with(
-  title: "Exploration of Typst for the Composition of a University Thesis",
-  authors: (
-    (name: "Max Mustermann", student-id: "7654321", course: "TIS21", course-of-studies: "IT-Security", company: (
-      (name: "YXZ GmbH", post-code: "70435", city: "Stuttgart")
-    )),
-    (name: "Juan Pérez", student-id: "1234567", course: "TIM21", course-of-studies: "Mobile Computer Science", company: (
-      (name: "ABC S.L.", post-code: "08005", city: "Barcelona", country: "Spain")
-    )),
-  ),
-  acronyms: acronyms, // displays the acronyms defined in the acronyms dictionary
-  at-university: false, // if true the company name on the title page and the confidentiality statement are hidden
-  bibliography: bibliography("sources.bib"),
-  date: datetime.today(),
-  language: "en", // en, de
-  supervisor: (company: "John Appleseed"),
-  university: "Cooperative State University Baden-Württemberg",
-  university-location: "Ravensburg Campus Friedrichshafen",
-  university-short: "DHBW",
-  // for more options check the package documentation (https://typst.app/universe/package/supercharged-dhbw)
-)
-
-// Your content goes here
-```
+To see an example of how you can use this template, check out the `main.typ` file.
+More examples can be found in the [examples directory](https://github.com/DannySeidel/typst-dhbw-template/blob/main/examples) of the GitHub repository.

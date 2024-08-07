@@ -49,9 +49,9 @@ Use the `acr` function to insert acronyms, which looks like this #acr("HTTP").
 
 Create bullet lists or numbered lists.
 
-- These bullet
-- points
-- are colored
+- This
+- is a
+- bullet list
 
 + It also
 + works with
@@ -90,19 +90,19 @@ Create figures or tables like this:
 
 Insert code snippets like this:
 
-#figure(caption: "Codeblock Example", sourcecode[```typ
-#show "ArtosFlow": name => box[
-  #box(image(
-    "logo.svg",
-    height: 0.7em,
-  ))
-  #name
-]
+#figure(caption: "Codeblock Example", sourcecode[```ts
+const ReactComponent = () => {
+  return (
+    <div>
+      <h1>Hello World</h1>
+    </div>
+  );
+};
 
-This report is embedded in the
-ArtosFlow project. ArtosFlow is a
-project of the Artos Institute.
+export default ReactComponent;
 ```])
+
+#pagebreak()
 
 == References
 
