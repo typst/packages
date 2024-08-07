@@ -89,8 +89,8 @@ Moreover, the book of Odes begins with: #iQuot([ᾠδὴ Μωυσέως ἐν τ
 
 #pagebreak()
 
-= Biblical Literature Index
-Book ordering according to the LXX.
+= Biblical Citations
+Books are sorted following the LXX ordering.
 
 #mkIndex(cols: 1, sorting-tradition: "LXX")
 
