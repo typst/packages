@@ -43,12 +43,18 @@ abbreviation in the `"en"` language.  Languages (more generally, language-tradit
 to the `lang/` subfolder as `typst` files named as `<language-tradition.typ>`, for the
 `"language-tradition"` language-tradition.
 
-As of revision 0.1.0, supported languages include: `"en"`, `"en-3"`, `"br-cat"`, and `"br-pro"`,
-respectively as the (default) English, 3-char abbreviations English, Brazilian Portuguese
-Catholic, and Brazilian Portuguese Protestant. Language files declares *one* `typst` dictionary
-named `aDict`, whose keys are string book ID's, and `abbr: "str"`, and `full: "string"`
-dictionary with the corresponding book abbreviation and full name in the stated
-language/tradition.
+As of revision 0.1.0, supported languages include:
+
+Language         | Tradition     | Description             | source file
+---              | ---           | ---                     | ---
+English          | (default)     | Default English         | `lang/en.typ`
+English          | 3-char        | A 3-char abbreviations  | `lang/en-3.typ`
+Portuguese (BR)  | Catholic      | Catholic for Brazil     | `lang/br-cat.typ`
+Portuguese (BR)  | Protestant    | Protestant for Brazil   | `lang/br-pro.typ`
+
+Language files declares *one* `typst` dictionary named `aDict`, whose keys are string book ID's,
+and `abbr: "str"`, and `full: "string"` dictionary with the corresponding book abbreviation and
+full name in the stated language/tradition.
 
 ## Higher-Level Quoting-Indexing Commands
 
