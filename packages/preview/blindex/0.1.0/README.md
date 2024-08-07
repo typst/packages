@@ -122,7 +122,7 @@ The listing of the bibliography file, `./tmp-01.yml`, as shown in the example, i
 
 This example results in a 4-page document like this one:
 
-![Compiled Higher-Level Example](https://github.com/cnaak/packages/blob/main/packages/preview/blindex/0.1.0/tmp-01.png)
+![Compiled Higher-Level Example](https://github.com/cnaak/packages/blob/main/packages/preview/blindex/0.1.0/thumbnail.png)
 
 ## Citing
 

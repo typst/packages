@@ -9,4 +9,4 @@ keywords = ["index", "biblical", "literature", "canonical", "deuterocanonical", 
 categories = ["model", "scripting"]
 disciplines = ["theology", ]
 compiler = "0.11.1"
-thumbnail = "tmp-01.png"
+thumbnail = "thumbnail.png"
