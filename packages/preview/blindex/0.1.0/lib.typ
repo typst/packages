@@ -125,7 +125,7 @@
 
 // "line" Citation of Biblical Literature
 #let lCite(abrv, lang, pssg, version, cited) = [
-  --- #a2d(abrv, lang).at(0).full~#pssg (#version)#cited]
+  --- #a2d(abrv, lang).at(0).full~#pssg (#version)~#cite(cited)]
 
 // "inline" Quoting of Biblical Literature
 #let iQuot(body, abrv, lang, pssg, version, cited,
