@@ -2,7 +2,10 @@
 
 Unofficial [Typst](https://typst.app/) template for DHBW students.
 
-You can see an example PDF [here](https://github.com/DannySeidel/typst-dhbw-template/blob/main/examples/example.pdf).
+You can see an example PDF of how the template looks [here](https://github.com/DannySeidel/typst-dhbw-template/blob/main/examples/example.pdf).
+
+To see an example of how you can use this template, check out the `main.typ` file.
+More examples can be found in the [examples directory](https://github.com/DannySeidel/typst-dhbw-template/blob/main/examples) of the GitHub repository.
 
 ## Usage
 
@@ -19,6 +22,7 @@ Typst will create a new directory with all the files needed to get you started.
 ## Fonts
 
 This template uses the following fonts:
+
 - [Montserrat](https://fonts.google.com/specimen/Montserrat)
 - [Open Sans](https://fonts.google.com/specimen/Open+Sans)
 
@@ -50,21 +54,22 @@ export default ReactComponent;
 ```
 
 ## Configuration
+
 This template exports the `supercharged-dhbw` function with the following named arguments:
 
 `title (str*)`: Title of the document
 
 `authors (dictionary*)`: List of authors with the following named arguments (max. 6 authors when in the company or 8 authors when at DHBW):
-    
-    - name (str*): Name of the author
-    - student-id (str*): Student ID of the author
-    - course (str*): Course of the author
-    - course-of-studies (str*): Course of studies of the author
-    - company (dictionary): Company of the author (only needed when `at-university` is `false`) with the following named arguments:
-        - name (str*): Name of the company
-        - post-code (str): Post code of the company
-        - city (str*): City of the company
-        - country (str): Country of the company
+
+- name (str*): Name of the author
+- student-id (str*): Student ID of the author
+- course (str*): Course of the author
+- course-of-studies (str*): Course of studies of the author
+- company (dictionary): Company of the author (only needed when `at-university` is `false`) with the following named arguments:
+  - name (str*): Name of the company
+  - post-code (str): Post code of the company
+  - city (str*): City of the company
+  - country (str): Country of the company
 
 `abstract (content)`: Content of the abstract, it is recommended that you pass a variable containing the content or a function that returns the content
 
@@ -84,11 +89,11 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `confidentiality-marker: (dict)`: Configure the confidentially marker (red or green circle) on the title page (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
 
-    - display (bool*): Whether the confidentiality marker should be shown, default is `false`
-    - offset-x (length): Horizontal offset of the confidentiality marker, default is `0pt`
-    - offset-y (length): Vertical offset of the confidentiality marker, default is `0pt`
-    - size (length): Size of the confidentiality marker, default is `7em`
-    - title-spacing (length): Adds space below the title to make room for the confidentiality marker, default is `2em`
+- display (bool*): Whether the confidentiality marker should be shown, default is `false`
+- offset-x (length): Horizontal offset of the confidentiality marker, default is `0pt`
+- offset-y (length): Vertical offset of the confidentiality marker, default is `0pt`
+- size (length): Size of the confidentiality marker, default is `7em`
+- title-spacing (length): Adds space below the title to make room for the confidentiality marker, default is `2em`
 
 `confidentiality-statement-content (content)`: Provide a custom confidentiality statement
 
@@ -100,12 +105,12 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `header (dict)`: Configure the header of the document
 
-    - display (bool): Whether the header should be shown, default is `true`
-    - show-title (bool): Whether the title should be shown in the header, default is `true`
-    - show-left-logo (bool): Whether the left logo should be shown in the header, default is `true`
-    - show-right-logo (bool): Whether the right logo should be shown in the header, default is `true`
-    - show-divider (bool): Whether the header divider should be shown, default is `true`
-    - content (content): Content for a custom header, it is recommended that you pass a variable containing the content or a function that returns the content
+- display (bool): Whether the header should be shown, default is `true`
+- show-title (bool): Whether the title should be shown in the header, default is `true`
+- show-left-logo (bool): Whether the left logo should be shown in the header, default is `true`
+- show-right-logo (bool): Whether the right logo should be shown in the header, default is `true`
+- show-divider (bool): Whether the header divider should be shown, default is `true`
+- content (content): Content for a custom header, it is recommended that you pass a variable containing the content or a function that returns the content
 
 `heading-numering (str)`: Numbering style of the headings, default is `"1.1"` (for more information on possible numbering formats check the [Typst documentation](https://typst.app/docs/reference/model/numbering))
 
@@ -139,8 +144,8 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `supervisor (dict*)`: Name of the supervisor at the university and/or company (e.g. supervisor: (company: "John Doe", university: "Jane Doe"))
 
-    - company (str): Name of the supervisor at the company (note while the argument is optional at least one of the two arguments must be provided)
-    - university (str): Name of the supervisor at the university (note while the argument is optional at least one of the two arguments must be provided)
+- company (str): Name of the supervisor at the company (note while the argument is optional at least one of the two arguments must be provided)
+- university (str): Name of the supervisor at the university (note while the argument is optional at least one of the two arguments must be provided)
 
 `toc-depth (int)`: Depth of the table of contents, default is `3`
 
@@ -154,7 +159,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `university-short (str*)`: Short name of the university (e.g. DHBW), displayed for the university supervisor
 
-Behind the arguments the type of the value is given in parentheses. All arguments marked with `*` are required. 
+Behind the arguments the type of the value is given in parentheses. All arguments marked with `*` are required.
 
 ## Acronyms
 
@@ -199,8 +204,3 @@ To define the plural form of an acronym use a array as value with the first elem
   REST: ("Representational State Transfer", "Representational State Transfers"),
 )
 ```
-
-## Examples
-
-To see an example of how you can use this template, check out the `main.typ` file.
-More examples can be found in the [examples directory](https://github.com/DannySeidel/typst-dhbw-template/blob/main/examples) of the GitHub repository.
