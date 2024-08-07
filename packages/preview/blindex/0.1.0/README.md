@@ -38,9 +38,10 @@ Optional arguments control style and sorting convention parameters, as shown bel
 
 ### Language and Traditions
 
-Note that `"1Thess"` is a valid Biblical literature abbreviation in the `"en"` language.
-Languages (more generally, language-traditions) are added to the `lang/` subfolder as `typst`
-files named as `<lang_name-tradition.typ>`, for the `"lang_name-tradition"` language-tradition.
+Note, in the above low-level example, that `"1Thess"` is a valid Biblical literature
+abbreviation in the `"en"` language.  Languages (more generally, language-traditions) are added
+to the `lang/` subfolder as `typst` files named as `<language-tradition.typ>`, for the
+`"language-tradition"` language-tradition.
 
 As of revision 0.1.0, supported languages include: `"en"`, `"en-3"`, `"br-cat"`, and `"br-pro"`,
 respectively as the (default) English, 3-char abbreviations English, Brazilian Portuguese
