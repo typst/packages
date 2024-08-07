@@ -53,7 +53,7 @@ Portuguese (BR)  | Catholic      | Catholic for Brazil     | `lang/br-cat.typ`
 Portuguese (BR)  | Protestant    | Protestant for Brazil   | `lang/br-pro.typ`
 
 Language files declares **one** `typst` dictionary named `aDict`, whose keys are string book
-ID's, and `abbr: "str"`, and `full: "string"` dictionary with the corresponding book
+ID's, and (`abbr: "str"`, `full: "string"`) dictionary values with the corresponding book's
 abbreviation and full name in the stated language/tradition.
 
 ## Higher-Level Quoting-Indexing Commands
