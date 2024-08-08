@@ -1,0 +1,11 @@
+[package]
+name = "matryoshka"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Adrian Freund <adrian@freund.io>"]
+license = "MIT"
+description = "Run typst from within typst. Useful for documentation authors."
+repository = "https://github.com/freundTech/typst-matryoshka"
+compiler = "0.11.1"
+categories = ["visualization", "integration"]
+keywords = ["meta", "typst", "manual", "documentation"]
