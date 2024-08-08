@@ -1,4 +1,4 @@
-#import "@local/ofbnote:0.2.0": *
+#import "@preview/ofbnote:0.2.0": *
 #show: ofbnote.with( meta:(
 	  title: "The decline of birds", 
 	  authors: "EEA",
