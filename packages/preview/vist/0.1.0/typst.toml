@@ -1,0 +1,9 @@
+[package]
+name = "vist"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Zhao Yuanhang <https://github.com/0warning0error>"]
+license = "Apache-2.0"
+description = "VisT adds image processing capabilities to Typst."
+exclude = ["./image.png","example.typ","justfile","png-0.webp","src/plugin"]
+keywords = ["image"]
