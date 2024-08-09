@@ -7,5 +7,5 @@ license = "MIT"
 description = "Counters which can depend on other counters."
 repository = "https://github.com/jbirnick/typst-rich-counters"
 keywords = ["counter", "theorem"]
-categories = ["components", "model", "scripting", "utility"]
+categories = ["model", "scripting", "utility"]
 exclude = ["example.typ", "example.png"]
