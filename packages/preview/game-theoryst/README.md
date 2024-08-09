@@ -132,7 +132,7 @@ For example:
 <img alt="Mixed Parameter Example" src="doc/gallery/mix-ex.png" width="400">
 
 ### Iterated Deletion (Elimination) of Dominated Strategies
-You can use the `pinit` package to cross out lines, semantically eliminating strategies. `pinit` comes pre-imported with `gametheoryst` by default.
+You can use the `pinit` package to cross out lines, semantically eliminating strategies. `pinit` comes pre-imported with `game-theoryst` by default.
 
 You can tell `nfg` which strategies to eliminate with the `eliminations` argument and the corresponding `ejust` helper-argument. The `eliminations` argument is simply an `array` of `strings` of the form `"s<i><j>"`, where `<i>` is the player -- 1 or 2 -- and `<j>` is player `i`'s `<j>`th strategy, in left-to-right / top-to-bottom order _starting at 1_. These strategy strings represent the rows/columns which you want to eliminate. For instance, `("s12", "s21")` denotes an elimination of player 1's second strategy as well as player 2's first strategy. 
 

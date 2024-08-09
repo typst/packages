@@ -269,7 +269,7 @@ For example, in a 2x3 game, the following dictionary would add mixing parameters
 
 === Iterated Deletion (Elimination) of Dominated Strategies
 
-You can use the `pinit` package to cross out lines, semantically eliminating strategies. `pinit` comes pre-imported with `gametheoryst` by default.
+You can use the `pinit` package to cross out lines, semantically eliminating strategies. `pinit` comes pre-imported with `game-theoryst` by default.
 
 ```typ
 #let directions = ([$N$], [$S$], [$E$], [$W$])
