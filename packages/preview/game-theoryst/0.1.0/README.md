@@ -25,7 +25,7 @@ The main function to make strategic (or **normal**) form games is `nfg`. For a b
 
 ### Importing
 
-~~Simply insert the following into your Typst code:~~ (_Coming soon_)
+Simply insert the following into your Typst code:
 
 ```typ
 #import "@preview/game-theoryst:0.1.0": *
