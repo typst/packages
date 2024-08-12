@@ -3,7 +3,7 @@
 
 
 // Utility to insert blank cells
-#let blank_cells(cspn: 3) = {
+#let blank-cells(cspn: 3) = {
   cell(colspan: cspn, [])
 }
 
@@ -12,7 +12,7 @@
   if-else(x < tstart or y < tstart, none, 1pt)
 }
 
-"Align-if": Utility to set alignment for players and strategies
+// "Align-if": Utility to set alignment for players and strategies
 #let alif(x, y, tstart: 3) = {
   if calc.max(x, y) >= tstart {
     if (x,y).any(z => {z < tstart}) {

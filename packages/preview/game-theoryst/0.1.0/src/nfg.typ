@@ -164,8 +164,8 @@
       rows: ((auto, x-row-h, auto), ((rh,) * nrow)).join(),
       columns: ((auto, x-col-w ,auto), ((cw,) * ncol)).join(),
       p2(players.at(1), color: colors.vp, cspn: ncol),
-      blank_cells(), ..(vmix.map(m => { pad-cell((top: 1pt), m) })), 
-      blank_cells(), ..S2.map(s => pad-cell((top: 1pt), s)),
+      blank-cells(), ..(vmix.map(m => { pad-cell((top: 1pt), m) })), 
+      blank-cells(), ..S2.map(s => pad-cell((top: 1pt), s)),
       p1(players.at(0), color: colors.hp, rspn: nrow),
       ..for i in range(0, nrow) {
         (pad-cell(0pt, hmix.at(i)), pad-cell(auto, S1.at(i)), ..range(0, ncol).map(j => payoffs.at(i * ncol + j)))

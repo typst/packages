@@ -1,5 +1,5 @@
 #import table: cell
-#import "table_utils.typ": blank_cells
+#import "table_utils.typ": blank-cells
 #import "programming_utils.typ": if-else
 
 
@@ -23,7 +23,7 @@
   // Default cspn (`column-span`) is for a 3x3 game
 #let p2(name, color: blue, cspn: 3) = {
   table.header(
-    blank_cells(), 
+    blank-cells(), 
     cell(
       inset: (bottom: 0.66em),
       colspan: cspn, 
