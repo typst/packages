@@ -28,7 +28,7 @@ The primary function provided by this package is `pdf417`.
 ### Example Usage
 
 ```typst
-#import "@preview/clatter:0.0.0": pdf417
+#import "@preview/clatter:0.1.0": pdf417
 
 // Generate a sized horizontal PDF417 barcode 
 // Note: The specified size may not be exact, as the barcode will fit within the box, maintaining its aspect ratio.
