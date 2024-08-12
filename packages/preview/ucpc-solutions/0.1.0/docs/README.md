@@ -17,7 +17,7 @@ For example, if you create a cover page from a general template as follows:
 ucpc-solutions requires calling a somewhat complex function.
 
 ```typst
-#import "/lib/lib.typ" as ucpc
+#import "@preview/ucpc-solutions:0.1.0" as ucpc
 
 #ucpc.utils.make-hero(
   title: [Document Title]
