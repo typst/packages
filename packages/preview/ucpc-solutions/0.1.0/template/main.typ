@@ -1,4 +1,4 @@
-#import "/lib/lib.typ" as ucpc
+#import "@preview/ucpc-solutions:0.1.0" as ucpc
 #import ucpc: color
 #import ucpc.presets: difficulties as lv
 
