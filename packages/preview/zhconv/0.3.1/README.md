@@ -7,7 +7,7 @@ zhconv-typst converts Chinese text between Traditional, Simplified and regional 
 To use the `zhconv` plugin in your Typst project, import it as follows:
 
 ```typst
-#import "@preview/zhconv:0.0.0": zhconv
+#import "@preview/zhconv:0.3.1": zhconv
 ```
 
 ### Text Conversion
