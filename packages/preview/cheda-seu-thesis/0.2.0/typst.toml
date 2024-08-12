@@ -1,0 +1,16 @@
+[package]
+name = "cheda-seu-thesis"
+version = "0.2.0"
+entrypoint = "seu-thesis/lib.typ"
+authors = ["csimide"]
+license = "MIT"
+description = "东南大学本科毕设与研究生学位论文模板。UNOFFICIAL Southeast University Thesis."
+repository = "https://github.com/csimide/SEU-Typst-Template"
+keywords = ["thesis"]
+categories = ["thesis"]
+exclude = []
+
+[template]
+path = "init-files"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.webp"
