@@ -34,6 +34,7 @@
   header: none,
   confidentiality-statement-content: none,
   declaration-of-authorship-content: none,
+  titlepage-content: none,
   university: none,
   university-location: none,
   university-short: none,
@@ -130,28 +131,32 @@
   show heading.where(level: 2): it => v(1em) + it + v(0.5em)
   show heading.where(level: 3): it => v(0.5em) + it + v(0.25em)
 
-  titlepage(
-    authors,
-    date,
-    heading-font,
-    language,
-    left-logo-height,
-    logo-left,
-    logo-right,
-    many-authors,
-    right-logo-height,
-    supervisor,
-    title,
-    type-of-degree,
-    type-of-thesis,
-    university,
-    university-location,
-    at-university,
-    date-format,
-    show-confidentiality-statement,
-    confidentiality-marker,
-    university-short,
-  )
+  if (titlepage-content != none) {
+    titlepage-content
+  } else {
+    titlepage(
+      authors,
+      date,
+      heading-font,
+      language,
+      left-logo-height,
+      logo-left,
+      logo-right,
+      many-authors,
+      right-logo-height,
+      supervisor,
+      title,
+      type-of-degree,
+      type-of-thesis,
+      university,
+      university-location,
+      at-university,
+      date-format,
+      show-confidentiality-statement,
+      confidentiality-marker,
+      university-short,
+    )
+  }
 
   // set header properties
   let display-header = if (header != none and ("display" in header)) {

@@ -147,6 +147,8 @@ This template exports the `supercharged-dhbw` function with the following named 
 - company (str): Name of the supervisor at the company (note while the argument is optional at least one of the two arguments must be provided)
 - university (str): Name of the supervisor at the university (note while the argument is optional at least one of the two arguments must be provided)
 
+`titlepage-content (content)`: Provide a custom title page
+
 `toc-depth (int)`: Depth of the table of contents, default is `3`
 
 `type-of-thesis (str)`: Type of the thesis, default is `none` (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
