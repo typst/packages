@@ -122,6 +122,8 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `logo-size-ratio (str)`: Ratio between the right logo and the left logo height (left-logo:right-logo), default is `"1:1"`
 
+`math-numbering (str)`: Numbering style of the math equations, set to `none` to turn off equation numbering, default is `"(1)"` (for more information on possible numbering formats check the [Typst documentation](https://typst.app/docs/reference/model/numbering))
+
 `numbering-alignment (alignment)`: Alignment of the page numbering (for possible options check the [Typst documentation](https://typst.app/docs/reference/layout/alignment/)), default is `center`
 
 `show-abstract (bool)`: Whether the abstract should be shown, default is `true`

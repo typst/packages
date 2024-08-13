@@ -45,6 +45,7 @@
   bibliography: none,
   bib-style: "ieee",
   heading-numbering: "1.1",
+  math-numbering: "(1)",
   logo-left: image("dhbw.svg"),
   logo-right: none,
   logo-size-ratio: "1:1",
@@ -87,6 +88,7 @@
     logo-size-ratio,
     university-short,
     heading-numbering,
+    math-numbering,
   )
 
   // set the document's basic properties
@@ -114,8 +116,11 @@
   set text(font: body-font, lang: language, 12pt)
   show heading: set text(weight: "semibold", font: heading-font)
 
-  //heading numbering
+  // heading numbering
   set heading(numbering: heading-numbering)
+
+  // math numbering
+  set math.equation(numbering: math-numbering)
 
   // set link style for links that are not acronyms
   show link: it => if (str(it.dest) not in (acronyms.keys().map(acr => ("acronym-" + acr)))) {
