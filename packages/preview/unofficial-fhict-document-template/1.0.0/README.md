@@ -9,7 +9,7 @@
 ![Issues](https://img.shields.io/github/issues-raw/TomVer99/FHICT-typst-template?label=Issues&style=flat-square)
 ![GitHub commits since latest release](https://img.shields.io/github/commits-since/TomVer99/FHICT-typst-template/latest?style=flat-square)
 
-This is a document template for creating professional-looking documents with Typst, tailored for FHICT (Fontys Hogeschool ICT). It can also be found on the [Typst Universe](https://typst.app/universe/package/unofficial-fhict-document-template).
+This is a document template for creating professional-looking documents with Typst, tailored for FHICT (Fontys Hogeschool ICT).
 
 ## Introduction
 
