@@ -1,7 +1,5 @@
-# wonderous-book
-A book template for fiction and non-fiction. The template contains a title page, a table of contents, a part template and a chapter template.
-
-Dynamic running headers contain the title of the chapter and the book.
+# orange-book
+A book template inspired by The Legrand Orange Book of Mathias Legrand and Vel https://www.latextemplates.com/template/legrand-orange-book.
 
 ## Usage
 You can use this template in the Typst web app by clicking "Start from template"
