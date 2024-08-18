@@ -1,0 +1,18 @@
+[package]
+name = "sunny-famnit"
+version = "0.2.0"
+compiler = "0.11.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/Tiggax/famnit_typst_template"
+authors = ["Tilen Gimpelj [@Tiggax]"]
+license = "MIT"
+description = "Thesis template for University of Primorska, FAMNIT"
+keywords = ["FAMNIT", "UPR", "Univerza na Primorskem", "University of Primorska", "Fakulteta za matematiko, naravoslovje in informacijske tehnologije", "Computer Science"]
+categories = ["thesis"]
+disciplines = ["computer-science", "biology", "mathematics"]
+exclude = ["examples"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

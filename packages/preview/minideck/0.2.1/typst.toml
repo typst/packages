@@ -1,0 +1,11 @@
+[package]
+name = "minideck"
+version = "0.2.1"
+entrypoint = "lib.typ"
+authors = ["Jeremie Knuesel <https://github.com/knuesel>"]
+license = "MIT"
+description = "Simple dynamic slides."
+repository = "https://github.com/knuesel/typst-minideck"
+keywords = ["slides", "presentation", "dynamic", "pause"]
+categories = ["presentation"]
+exclude = ["*.pdf"]
