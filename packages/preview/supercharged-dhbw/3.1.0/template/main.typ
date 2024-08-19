@@ -1,5 +1,6 @@
 #import "@local/supercharged-dhbw:3.1.0": *
 #import "acronyms.typ": acronyms
+#import "glossary.typ": glossary
 
 #show: supercharged-dhbw.with(
   title: "Exploration of Typst for the Composition of a University Thesis",
@@ -20,6 +21,7 @@
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
   university-short: "DHBW",
+  glossary: glossary,
   // for more options check the package documentation (https://typst.app/universe/package/supercharged-dhbw)
 )
 
@@ -44,6 +46,12 @@ Use the `acr` function to insert acronyms, which looks like this #acr("HTTP").
 #acrlpl("API") are used to define the interaction between different software systems.
 
 #acrs("REST") is an architectural style for networked applications.
+
+== Glossary
+
+Use the `gls` function to insert glossary terms, which looks like this:
+
+A #gls("Vulnerability") is a weakness in a system that can be exploited.
 
 == Lists
 
@@ -70,7 +78,7 @@ Create figures or tables like this:
 #figure(
   caption: "Table Example",
   table(
-    columns: (1fr, auto, auto),
+    columns: (1fr, 50%, auto),
     inset: 10pt,
     align: horizon,
     table.header(

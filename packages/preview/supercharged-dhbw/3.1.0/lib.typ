@@ -1,5 +1,6 @@
 #import "@preview/codelst:2.0.1": *
 #import "acronym-lib.typ": init-acronyms, print-acronyms, acr, acrpl, acrs, acrspl, acrl, acrlpl, acrf, acrfpl
+#import "glossary-lib.typ": init-glossary, print-glossary, gls
 #import "titlepage.typ": *
 #import "confidentiality-statement.typ": *
 #import "declaration-of-authorship.typ": *
@@ -28,9 +29,11 @@
   numbering-alignment: center,
   toc-depth: 3,
   acronym-spacing: 5em,
+  glossary-spacing: 1.5em,
   abstract: none,
   appendix: none,
   acronyms: none,
+  glossary: none,
   header: none,
   confidentiality-statement-content: none,
   declaration-of-authorship-content: none,
@@ -73,6 +76,7 @@
     numbering-alignment,
     toc-depth,
     acronym-spacing,
+    glossary-spacing,
     abstract,
     appendix,
     acronyms,
@@ -96,6 +100,7 @@
   let many-authors = authors.len() > 3
 
   init-acronyms(acronyms)
+  init-glossary(glossary)
 
   // define logo size with given ration
   let left-logo-height = 2.4cm // left logo is always 2.4cm high
@@ -123,7 +128,9 @@
   set math.equation(numbering: math-numbering)
 
   // set link style for links that are not acronyms
-  show link: it => if (str(it.dest) not in (acronyms.keys().map(acr => ("acronym-" + acr)))) {
+  let acronym-keys = acronyms.keys().map(acr => ("acronym-" + acr))
+  let glossary-keys = glossary.keys().map(gls => ("glossary-" + gls))
+  show link: it => if (str(it.dest) not in (acronym-keys + glossary-keys)) {
     text(fill: blue, it)
   } else {
     it
@@ -287,6 +294,18 @@
 
   set par(leading: 0.65em)
 
+  if (show-table-of-contents) {
+    outline(
+      title: [#if (language == "de") {
+          [Inhaltsverzeichnis]
+        } else {
+          [Table of Contents]
+        }],
+      indent: auto,
+      depth: toc-depth,
+    )
+  }
+
   context {
     let elems = query(figure.where(kind: image), here())
     let count = elems.len()
@@ -335,20 +354,12 @@
     }
   }
 
-  if (show-table-of-contents) {
-    outline(
-      title: [#if (language == "de") {
-          [Inhaltsverzeichnis]
-        } else {
-          [Table of Contents]
-        }],
-      indent: auto,
-      depth: toc-depth,
-    )
-  }
-
   if (show-acronyms and acronyms != none and acronyms.len() > 0) {
     print-acronyms(language, acronym-spacing)
+  }
+
+  if (glossary != none and glossary.len() > 0) {
+    print-glossary(language, glossary-spacing)
   }
 
   set par(leading: 1em)

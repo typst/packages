@@ -19,6 +19,7 @@
   numbering-alignment,
   toc-depth,
   acronym-spacing,
+  glossary-spacing,
   abstract,
   appendix,
   acronyms,
@@ -100,6 +101,7 @@
 
   let length-attributes = (
     acronym-spacing: acronym-spacing,
+    glossary-spacing: glossary-spacing,
   )
 
   if ("offset-x" in confidentiality-marker) {
