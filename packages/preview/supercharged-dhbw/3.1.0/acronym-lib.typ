@@ -11,9 +11,9 @@
 // Display acronym in short form
 #let acrs(acr, plural: false, link: true) = {
   if plural {
-    display("acronym", acros, acr, acr + "s", link: link)
+    display("acronyms", acros, acr, acr + "s", link: link)
   } else {
-    display("acronym", acros, acr, acr, link: link)
+    display("acronyms", acros, acr, acr, link: link)
   }
 }
 // Display acronym in short plural form
@@ -24,13 +24,13 @@
 // Display acronym in long form
 #let acrl(acr, plural: false, link: true) = {
   acros.display(acronyms => {
-    if is-in-dict("acronym", acros, acr) {
+    if is-in-dict("acronyms", acros, acr) {
       let defs = acronyms.at(acr)
       if type(defs) == "string" {
         if plural {
-          display("acronym", acros, acr, defs + "s", link: link)
+          display("acronyms", acros, acr, defs + "s", link: link)
         } else {
-          display("acronym", acros, acr, defs, link: link)
+          display("acronyms", acros, acr, defs, link: link)
         }
       } else if type(defs) == "array" {
         if defs.len() == 0 {
@@ -38,14 +38,14 @@
         }
         if plural {
           if defs.len() == 1 {
-            display("acronym", acros, acr, defs.at(0) + "s", link: link)
+            display("acronyms", acros, acr, defs.at(0) + "s", link: link)
           } else if defs.len() == 2 {
-            display("acronym", acros, acr, defs.at(1), link: link)
+            display("acronyms", acros, acr, defs.at(1), link: link)
           } else {
             panic("Definitions should be arrays of one or two strings. Definition of " + acr + " is: " + type(defs))
           }
         } else {
-          display("acronym", acros, acr, defs.at(0), link: link)
+          display("acronyms", acros, acr, defs.at(0), link: link)
         }
       } else {
         panic("Definitions should be arrays of one or two strings. Definition of " + acr + " is: " + type(defs))
@@ -61,9 +61,9 @@
 // Display acronym for the first time
 #let acrf(acr, plural: false, link: true) = {
   if plural {
-    display("acronym", acros, acr, [#acrlpl(acr) (#acr\s)], link: link)
+    display("acronyms", acros, acr, [#acrlpl(acr) (#acr\s)], link: link)
   } else {
-    display("acronym", acros, acr, [#acrl(acr) (#acr)], link: link)
+    display("acronyms", acros, acr, [#acrl(acr) (#acr)], link: link)
   }
   state(prefix + acr, false).update(true)
 }
@@ -118,7 +118,7 @@
       grid(
         columns: (max-width + 0.5em, auto),
         gutter: acronym-spacing,
-        [*#acr#label("acronym-" + acr)*], [#acrl(acr, link: false)],
+        [*#acr#label("acronyms-" + acr)*], [#acrl(acr, link: false)],
       )
     }
   })

@@ -129,7 +129,7 @@
   set math.equation(numbering: math-numbering)
 
   // set link style for links that are not acronyms
-  let acronym-keys = acronyms.keys().map(acr => ("acronym-" + acr))
+  let acronym-keys = acronyms.keys().map(acr => ("acronyms-" + acr))
   let glossary-keys = glossary.keys().map(gls => ("glossary-" + gls))
   show link: it => if (str(it.dest) not in (acronym-keys + glossary-keys)) {
     text(fill: blue, it)
