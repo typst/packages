@@ -2,16 +2,16 @@
 
 #let gloss-count = counter("gloss_count")
 
-#let build_gloss(item-spacing, formatters, gloss_line_lists) = {
-    assert(gloss_line_lists.len() > 0, message: "Gloss line lists cannot be empty")
+#let build-gloss(item-spacing, formatters, gloss-line-lists) = {
+    assert(gloss-line-lists.len() > 0, message: "Gloss line lists cannot be empty")
 
-    let len = gloss_line_lists.at(0).len()
+    let len = gloss-line-lists.at(0).len()
 
-    for line in gloss_line_lists {
+    for line in gloss-line-lists {
         assert(line.len() == len)
     }
 
-    assert(formatters.len() == gloss_line_lists.len(), message: "The number of formatters and the number of gloss line lists should be equal")
+    assert(formatters.len() == gloss-line-lists.len(), message: "The number of formatters and the number of gloss line lists should be equal")
 
     let make_item_box(..args) = {
         box(stack(dir: ttb, spacing: 0.5em, ..args))
@@ -26,7 +26,7 @@
                 formatter
             }
 
-            let item = gloss_line_lists.at(line_idx).at(item_index)
+            let item = gloss-line-lists.at(line_idx).at(item_index)
             args.push(formatter_fn(item))
         }
         make_item_box(..args)
@@ -56,7 +56,7 @@
 
     item-spacing: 1em,
     gloss-padding: 2.0em, //TODO document these
-    left_padding: 0.5em,
+    left-padding: 0.5em,
     numbering: false,
     breakable: false,
 ) = {
@@ -84,25 +84,25 @@
         }
 
         let formatters = (source-style,)
-        let gloss_line_lists = (source,)
+        let gloss-line-lists = (source,)
 
         if transliteration != none {
             formatters.push(transliteration-style)
-            gloss_line_lists.push(transliteration)
+            gloss-line-lists.push(transliteration)
         }
 
         if morphemes != none {
             formatters.push(morphemes-style)
-            gloss_line_lists.push(morphemes)
+            gloss-line-lists.push(morphemes)
         }
 
         for additional in additional-lines {
             formatters.push(none) //TODO fix this
-            gloss_line_lists.push(additional)
+            gloss-line-lists.push(additional)
         }
 
 
-        build_gloss(item-spacing, formatters, gloss_line_lists)
+        build-gloss(item-spacing, formatters, gloss-line-lists)
 
         if translation != none {
             linebreak()
@@ -133,9 +133,9 @@
                 numbering: it => [#gloss-count.display()],
                 stack(
                     dir: ltr, //TODO this needs to be more flexible
-                    left_padding,
+                    left-padding,
                     [#gloss_number],
-                    gloss-padding - left_padding - measure([#gloss_number],styles).width,
+                    gloss-padding - left-padding - measure([#gloss_number],styles).width,
                     align(left)[#gloss_items],
                 ),
             ) #if label != none {cmdlabel(label)}
