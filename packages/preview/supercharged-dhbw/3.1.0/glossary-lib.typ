@@ -1,3 +1,5 @@
+#import "locale.typ": GLOSSARY
+
 #let prefix = "glossary-state-"
 #let glossary-state = state("glossary", none)
 
@@ -39,11 +41,7 @@
 
 // Print an index of all the acronyms and their definitions.
 #let print-glossary(language, glossary-spacing) = {
-  heading(level: 1, outlined: false, numbering: none)[#if (language == "de") {
-      [Glossar]
-    } else {
-      [Glossary]
-    }]
+  heading(level: 1, outlined: false, numbering: none)[#GLOSSARY.at(language)]
 
   glossary-state.display(glossary => {
     let glossary-keys = glossary.keys()

@@ -1,6 +1,7 @@
 #import "@preview/codelst:2.0.1": *
 #import "acronym-lib.typ": init-acronyms, print-acronyms, acr, acrpl, acrs, acrspl, acrl, acrlpl, acrf, acrfpl
 #import "glossary-lib.typ": init-glossary, print-glossary, gls
+#import "locale.typ": TABLE_OF_CONTENTS, LIST_OF_FIGURES, LIST_OF_TABLES, CODE_SNIPPETS, APPENDIX, REFERENCES
 #import "titlepage.typ": *
 #import "confidentiality-statement.typ": *
 #import "declaration-of-authorship.typ": *
@@ -296,11 +297,7 @@
 
   if (show-table-of-contents) {
     outline(
-      title: [#if (language == "de") {
-          [Inhaltsverzeichnis]
-        } else {
-          [Table of Contents]
-        }],
+      title: TABLE_OF_CONTENTS.at(language),
       indent: auto,
       depth: toc-depth,
     )
@@ -312,11 +309,7 @@
 
     if (show-list-of-figures and count > 0) {
       outline(
-        title: [#heading(level: 3)[#if (language == "de") {
-              [Abbildungsverzeichnis]
-            } else {
-              [List of Figures]
-            }]],
+        title: [#heading(level: 3)[#LIST_OF_FIGURES.at(language)]],
         target: figure.where(kind: image),
       )
     }
@@ -328,11 +321,7 @@
 
     if (show-list-of-tables and count > 0) {
       outline(
-        title: [#heading(level: 3)[#if (language == "de") {
-              [Tabellenverzeichnis]
-            } else {
-              [List of Tables]
-            }]],
+        title: [#heading(level: 3)[#LIST_OF_TABLES.at(language)]],
         target: figure.where(kind: table),
       )
     }
@@ -344,11 +333,7 @@
 
     if (show-code-snippets and count > 0) {
       outline(
-        title: [#heading(level: 3)[#if (language == "de") {
-              [Codeverzeichnis]
-            } else {
-              [Code Snippets]
-            }]],
+        title: [#heading(level: 3)[#CODE_SNIPPETS.at(language)]],
         target: figure.where(kind: raw),
       )
     }
@@ -398,22 +383,14 @@
   // Display bibliography.
   if bibliography != none {
     set std-bibliography(
-      title: [#if (language == "de") {
-          [Literatur]
-        } else {
-          [References]
-        }],
+      title: REFERENCES.at(language),
       style: bib-style,
     )
     bibliography
   }
 
   if (show-appendix and appendix != none) {
-    heading(level: 1, numbering: none)[#if (language == "de") {
-        [Anhang]
-      } else {
-        [Appendix]
-      }]
+    heading(level: 1, numbering: none)[#APPENDIX.at(language)]
     appendix
   }
 
