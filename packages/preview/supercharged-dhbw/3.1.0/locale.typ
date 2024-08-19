@@ -62,7 +62,7 @@
   "en": "contains internal respective confidential data of",
 )
 #let CONFIDENTIALITY_STATEMENT_SECTION_C = (
-  "de": ", ist deshalb mit einem Sperrvermerk versehen und wird ausschließlich zu Prüfungszwecken am Studiengang",
+  "de": ", ist deshalb mit einem Sperrvermerk versehen und wird ausschließlich zu Prüfungszwecken im Studiengang",
   "en": ". It is intended solely for inspection by the assigned examiner, the head of the ",
 )
 #let CONFIDENTIALITY_STATEMENT_SECTION_D = (
