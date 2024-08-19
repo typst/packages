@@ -9,7 +9,7 @@ figure(
     kind: index_string
 )))
 
-#let make-index-int(title: none, main_color_state:none) = {
+#let make-index-int(title: none, main-color-state:none) = {
 
     let content-text(content) = {
         let ct = ""
@@ -29,7 +29,7 @@ figure(
     pagebreak(to: "odd")
     set par(first-line-indent: 0em)
     locate(loc => {
-        let mainColor = main_color_state.at(loc)
+        let main-color = main-color-state.at(loc)
             let elements = query(selector(figure.where(kind: index_string)).before(loc), loc)
         let words = (:)
         for el in elements {
@@ -69,7 +69,7 @@ figure(
                     #let firstCharacter = sk.first()
                     #if firstCharacter != register {
                         v(1em, weak:true)
-                        box(width: 100%, fill: mainColor.lighten(60%), inset: 5pt, align(center, text(size: 1.1em, weight: "bold", firstCharacter)))
+                        box(width: 100%, fill: main-color.lighten(60%), inset: 5pt, align(center, text(size: 1.1em, weight: "bold", firstCharacter)))
                         register = firstCharacter
                         v(1em, weak:true)
                     }
