@@ -16,12 +16,12 @@
   at-university: false, // if true the company name on the title page and the confidentiality statement are hidden
   bibliography: bibliography("sources.bib"),
   date: datetime.today(),
+  glossary: glossary, // displays the glossary terms defined in the glossary dictionary
   language: "en", // en, de
   supervisor: (company: "John Appleseed"),
   university: "Cooperative State University Baden-Württemberg",
   university-location: "Ravensburg Campus Friedrichshafen",
   university-short: "DHBW",
-  glossary: glossary,
   // for more options check the package documentation (https://typst.app/universe/package/supercharged-dhbw)
 )
 
