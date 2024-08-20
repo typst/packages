@@ -1,6 +1,3 @@
 [submodule "packages/preview/packages/preview/ocean-report-crs"]
 	path = packages/preview/packages/preview/ocean-report-crs
 	url = https://github.com/Cyclone-Robosub/ocean-report-crs.git
-[submodule "packages/preview/ocean-report-crs"]
-	path = packages/preview/ocean-report-crs
-	url = https://github.com/Cyclone-Robosub/ocean-report-crs.git
