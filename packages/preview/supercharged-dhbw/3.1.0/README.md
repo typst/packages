@@ -103,6 +103,10 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `declaration-of-authorship-content (content)`: Provide a custom declaration of authorship
 
+`glossary (dictionary)`: Pass a dictionary containing the glossary terms and their definitions (See the example in the `glossary.typ` file)
+
+`glossary-spacing (length)`: Spacing between the glossary term and its definition (check the [Typst documentation](https://typst.app/docs/reference/layout/length/) for examples on how to provide parameters of type length), default is `1.5em`
+
 `header (dictionary)`: Configure the header of the document
 
 - display (bool): Whether the header should be shown, default is `true`

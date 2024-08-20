@@ -8,7 +8,7 @@
   acros.update(acronyms)
 }
 
-// Display acronym in short form
+
 #let acrs(acr, plural: false, link: true) = {
   if plural {
     display("acronyms", acros, acr, acr + "s", link: link)
@@ -16,12 +16,12 @@
     display("acronyms", acros, acr, acr, link: link)
   }
 }
-// Display acronym in short plural form
+
 #let acrspl(acr, link: true) = {
   acrs(acr, plural: true, link: link)
 }
 
-// Display acronym in long form
+
 #let acrl(acr, plural: false, link: true) = {
   acros.display(acronyms => {
     if is-in-dict("acronyms", acros, acr) {
@@ -53,12 +53,11 @@
     }
   })
 }
-// Display acronym in long plural form
+
 #let acrlpl(acr, link: true) = {
   acrl(acr, plural: true, link: link)
 }
 
-// Display acronym for the first time
 #let acrf(acr, plural: false, link: true) = {
   if plural {
     display("acronyms", acros, acr, [#acrlpl(acr) (#acr\s)], link: link)
@@ -67,12 +66,11 @@
   }
   state(prefix + acr, false).update(true)
 }
-// Display acronym in plural form for the first time
+
 #let acrfpl(acr, link: true) = {
   acrf(acr, plural: true, link: link)
 }
 
-// Display acronym. Expands it if used for the first time
 #let acr(acr, plural: false, link: true) = {
   state(prefix + acr, false).display(seen => {
     if seen {
@@ -91,12 +89,10 @@
   })
 }
 
-// Display acronym in the plural form. Expands it if used for the first time.
 #let acrpl(acronym, link: true) = {
   acr(acronym, plural: true, link: link)
 }
 
-// Print an index of all the acronyms and their definitions.
 #let print-acronyms(language, acronym-spacing) = {
   heading(level: 1, outlined: false, numbering: none)[#ACRONYMS.at(language)]
 
