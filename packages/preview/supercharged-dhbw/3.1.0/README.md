@@ -171,6 +171,9 @@ Behind the arguments the type of the value is given in parentheses. All argument
 
 ## Acronyms
 
+This template provides functions to reference acronyms in the text. To use these functions, you need to define the acronyms in the `acronyms` attribute of the template.
+The acronyms referenced with the functions below will be linked to their definition in the list of acronyms.
+
 ### Functions
 
 This template provides the following functions to reference acronyms:
@@ -193,7 +196,8 @@ This template provides the following functions to reference acronyms:
 
 ### Definition
 
-To define acronyms use a dictionary and pass it to the acronyms attribute of the template. The dictionary should contain the acronyms as keys and their long forms as values.
+To define acronyms use a dictionary and pass it to the acronyms attribute of the template.
+The dictionary should contain the acronyms as keys and their long forms as values.
 
 ```typst
 #let acronyms = (
@@ -203,12 +207,36 @@ To define acronyms use a dictionary and pass it to the acronyms attribute of the
 )
 ```
 
-To define the plural form of an acronym use a array as value with the first element being the singular form and the second element being the plural form. If you don't define the plural form, the template will automatically add an "s" to the singular form.
+To define the plural form of an acronym use a array as value with the first element being the singular form and the second element being the plural form.
+If you don't define the plural form, the template will automatically add an "s" to the singular form.
 
 ```typst
 #let acronyms = (
   API: ("Application Programming Interface", "Application Programming Interfaces"),
   HTTP: ("Hypertext Transfer Protocol", "Hypertext Transfer Protocols"),
   REST: ("Representational State Transfer", "Representational State Transfers"),
+)
+```
+
+## Glossary
+
+Similar to the acronyms, this template provides a function to reference glossary terms in the text. To use the function, you need to define the glossary terms in the `glossary` attribute of the template.
+The glossary terms referenced with the function below will be linked to their definition in the list of glossary terms.
+
+### Reference
+
+`gls`: Reference a glossary term in the text (e.g. `gls("Vulnerability")` -> link to the definition of "Vulnerability" in the glossary)
+
+### Definition
+
+The definition works analogously to the acronyms.
+Define the glossary terms in a dictionary and pass it to the glossary attribute of the template.
+The dictionary should contain the glossary terms as keys and their definitions as values.
+
+```typst
+#let glossary = (
+  Vulnerability: "A Vulnerability is a flaw in a computer system that weakens the overall security of the system.",
+  Patch: "A patch is data that is intended to be used to modify an existing software resource such as a program or a file, often to fix bugs and security vulnerabilities.",
+  Exploit: "An exploit is a method or piece of code that takes advantage of vulnerabilities in software, applications, networks, operating systems, or hardware, typically for malicious purposes.",
 )
 ```
