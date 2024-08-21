@@ -8,6 +8,6 @@ description = "Faster column specifications for tables."
 compiler = "0.11.0"
 
 homepage = "https://github.com/Mc-Zen/pillar"
-keywords = ["table", "columns", "latex", "S column"]
+keywords = ["table", "tabular", "columns", "latex", "siunitx S column", "number alignment"]
 categories = ["visualization", "layout"]
 exclude = ["/docs/*"]
