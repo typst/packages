@@ -3,6 +3,9 @@
 _Shorthand notations for table column specifications in [Typst](https://typst.app/)._
 
 
+
+
+
 [![Typst Package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMc-Zen%2Fpillar%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://typst.app/universe/package/pillar)
 [![Test Status](https://github.com/Mc-Zen/pillar/actions/workflows/run_tests.yml/badge.svg)](https://github.com/Mc-Zen/pillar/actions/workflows/run_tests.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Mc-Zen/pillar/blob/main/LICENSE)
@@ -22,9 +25,9 @@ With **pillar**, you can significantly simplify the column setup of tables by un
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/images/piano-keys.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/images/piano-keys-dark.svg">
-    <img alt="Table of some piano notes and their names and frequencies" src="docs/images/piano-keys.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/c0c60651-c682-4968-9ac9-0fa1e8d85dad">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/710ac89b-c03b-4975-8d46-90790ebcea9a">
+    <img alt="Table of some piano notes and their names and frequencies" src="https://github.com/user-attachments/assets/c0c60651-c682-4968-9ac9-0fa1e8d85dad">
   </picture>
 </p>
 
@@ -94,9 +97,9 @@ Choosing capital letters `L`, `C`, `R`, or `A` instead of lower-case letters act
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/images/number-alignment.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/images/number-alignment-dark.svg">
-    <img alt="Number alignment" src="docs/images/number-alignment.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/066cd34e-7043-48c7-b067-e3256e942f14">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/2f1cfd30-00e1-400b-968e-c6ae39939d28">
+    <img alt="Number alignment" src="https://github.com/user-attachments/assets/066cd34e-7043-48c7-b067-e3256e942f14">
   </picture>
 </p>
 
@@ -144,9 +147,9 @@ The following example uses a double line for visually separating repeated table 
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/images/measurement-results.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/images/measurement-results-dark.svg">
-    <img alt="Demonstration example using double vertical lines" src="docs/images/measurement-results.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/e05e7bad-61b6-44f9-af34-5e558f338cdc">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/f1134ce3-dbd0-4a73-895d-544c3c9f2645">
+    <img alt="Demonstration example using double vertical lines" src="https://github.com/user-attachments/assets/e05e7bad-61b6-44f9-af34-5e558f338cdc">
   </picture>
 </p>
 
@@ -175,9 +178,9 @@ This example shows the codes of the first ten printable ASCII characters, demons
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/images/ascii-table.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/images/ascii-table-dark.svg">
-    <img alt="Demonstration example using double vertical lines" src="docs/images/ascii-table.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/9fae998e-033d-4d7e-9344-fe3778bbd9e6">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/e6c82d82-aa5e-4ea7-9517-a644b9f9355e">
+    <img alt="Demonstration example using double vertical lines" src="https://github.com/user-attachments/assets/9fae998e-033d-4d7e-9344-fe3778bbd9e6">
   </picture>
 </p>
 
