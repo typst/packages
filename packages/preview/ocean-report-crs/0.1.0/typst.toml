@@ -1,0 +1,16 @@
+[package]
+name = "ocean-report-crs"
+version = "0.1.0"
+entrypoint = "src/format.typ"
+authors = ["@jdpieck"]
+license = "MIT"
+description = "Official template for Cyclone RoboSub @ UC Davis. Can me modified for other organizations."
+repository = "https://github.com/Cyclone-Robosub/ocean-report-crs"
+keywords = ["robosub", "ocean", "waves", "document"]
+categories = ["report"]
+exclude = [".gitattributes"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
