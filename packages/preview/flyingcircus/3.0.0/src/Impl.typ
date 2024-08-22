@@ -98,7 +98,8 @@
   //Place CoverImage, if it exists
   if (CoverImg != none) {
     page(paper: "a4", header: none, footer: none, margin: 0pt)[
-      #image.decode(CoverImg, height: 100%, fit: "stretch")
+      #set image(height: 100%, fit: "stretch")
+      #CoverImg
     ]
   }
   //Create Title Page (and eventual TOC)
@@ -203,7 +204,10 @@
 }
 
 #let MaybeImage(img, ..args) = if (img != none) {
-  image.decode(img, ..args)
+  [
+    #set image(..args)
+    #img
+  ]
 }
 
 /// Defines the FlyingCircus Plane page.  Always on a new page. Image optional.
