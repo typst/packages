@@ -7,7 +7,7 @@ This is a Typst package for speedy mathematical input, inspired by [vim-latex](h
 Either use the file released in "Releases" or import using the following command:
 
 ```typst
-#import "@preview/lasaveur:0.1.3"
+#import "@preview/lasaveur:0.1.3": *
 ```
 
 This script generates a Typst library that defines shorthand commands for various mathematical symbols and functions. Here's an overview of what it provides and how a user can use it:
