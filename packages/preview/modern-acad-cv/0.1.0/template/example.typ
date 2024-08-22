@@ -1,5 +1,5 @@
 // #import "modern-acad-cv.typ": *
-#import "@local/modern-acad-cv:0.1.0": *
+#import "@preview/modern-acad-cv:0.1.0": *
 
 // loading meta data and databases (needs to be ad this directory)
 #let metadata = yaml("metadata.yaml") 
