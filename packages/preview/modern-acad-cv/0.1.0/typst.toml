@@ -9,8 +9,8 @@ description = "A CV template for academics based on moderncv LaTeX package."
 keywords = ["CV", "Curriculum Vitae", "Resume", "Academics", "Professional", "Modern"]
 categories = ["cv"]
 disciplines = []
-homepage = "https://github.com/bpkleer/modern-acad-cv"
-repository = "https://github.com/pavelzw/modern-acad-cv"
+homepage = "https://github.com/bpkleer/typst-modern-acad-cv"
+repository = "https://github.com/bpkleer/typst-modern-acad-cv"
 
 [template]
 path = "template"
