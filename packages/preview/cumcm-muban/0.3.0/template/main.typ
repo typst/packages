@@ -40,7 +40,7 @@
   block(inset: 8pt, stroke: 0.5pt, radius: 3pt)[
 
 ```typ
-#import "@preview/cumcm-muban:0.1.0": *
+#import "@preview/cumcm-muban:0.3.0": *
 #show: thmrules
 
 #show: cumcm.with(
