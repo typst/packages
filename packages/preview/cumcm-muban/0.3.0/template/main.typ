@@ -68,7 +68,7 @@
 // 正文内容
 
 // 参考文献
-#bib(bibliography("refs.bib")
+#bib(bibliography("refs.bib"))
 
 #appendix("附录标题", "附录内容")
 
