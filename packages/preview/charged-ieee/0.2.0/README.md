@@ -40,7 +40,7 @@ function in a show rule. If you want to change an existing project to use this
 template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/charged-ieee:0.1.3": ieee
+#import "@preview/charged-ieee:0.2.0": ieee
 
 #show: ieee.with(
   title: [A typesetting system to untangle the scientific writing process],
