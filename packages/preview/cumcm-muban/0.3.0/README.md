@@ -32,7 +32,7 @@ Typst 将会创建一个新的目录，其中包含了所有你开始所需要�
 该模板将在显示规则中使用`cumcm`函数进行示例调用来初始化您的项目。如果您想要将现有项目更改为使用此模板，您可以在文件顶部添加一个类似于以下的显示规则：
 
 ```typ
-#import "@preview/cumcm-muban:0.2.0": *
+#import "@preview/cumcm-muban:0.3.0": *
 #show: thmrules
 
 #show: cumcm.with(
