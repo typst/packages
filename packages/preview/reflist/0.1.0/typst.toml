@@ -8,4 +8,4 @@ repository = ["https://github.com/jmigual/typst-reflist"]
 keywords = ["typst", "list", "referenceable"]
 compiler = "0.11.0"
 description = "A simple referenceable list library for typst."
-exclude = ["examples/*"]
+exclude = ["examples/*", "img/*"]
