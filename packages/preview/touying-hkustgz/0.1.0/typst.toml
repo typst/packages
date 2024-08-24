@@ -14,4 +14,4 @@ exclude = [".github/", "examples/"]
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail.svg"
+thumbnail = "thumbnail.png"
