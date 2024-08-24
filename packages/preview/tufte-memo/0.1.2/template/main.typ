@@ -1,4 +1,4 @@
-#import "@preview/tufte-memo:0.1.0: *
+#import "@preview/tufte-memo:0.1.2": *
 
 #show: template.with(
   title: [Tufte inspired Typst template],
@@ -22,7 +22,7 @@
   abstract: [This Typst template adopts many aspects of the design and typography of Edward Tufte's books. The document itself demonstrates the functionality and usage of the template, including setup, sidenotes, figure display, citations, and more.],
   publisher: [Product Engineering Department],
   distribution: [authorized personnel],
-  toc: true,
+  toc: false,
   footer-content: ([If the footer-content argument in the template call takes the form of an array, then the first item in that array is displayed here, as you see it, and the second item in that array is displayed on all subsequent pages after the first. If footer-content is not an array (and also not none), then the same content is displayed on all pages.],[This is the second element of the footer-content array, so it is displayed on all pages after the first.]),
   draft: false,
   bib: bibliography("references.bib")
@@ -103,12 +103,12 @@ When a figure is used inside a `wideblock()`, it will display across the full pa
 
 #figure(
   ```typst
-#wideblock([
+#wideblock[
   #figure(
     rect(width:100%,height:3in),
     caption:[Blah blah blah])
   <fig:label>
-  ])
+]
   ```,
   caption:[Example wide figure which has a label.]
 )<code:figure-label>
