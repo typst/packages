@@ -124,7 +124,7 @@
 }
 
 #let __read-localization = (
-  languaje: "en",
+  language: "en",
   localization: (
     grade-table-queston: none,
     grade-table-total: none,
@@ -141,7 +141,7 @@
   )) => {
     let __lang_data = toml("./lang.toml")
     if(__lang_data != none) {
-      let __read_lang_data = __lang_data.at(languaje, default: localization)
+      let __read_lang_data = __lang_data.at(language, default: localization)
 
       if(__read_lang_data != none) {
         let __read-localization_value = (read_lang_data: none, field: "", localization: none) => {

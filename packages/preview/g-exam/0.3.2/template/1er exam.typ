@@ -1,4 +1,4 @@
-#import "@preview/g-exam:0.3.1": g-exam, g-question, g-subquestion
+#import "@preview/g-exam:0.3.2": g-exam, g-question, g-subquestion
 
 #show: g-exam.with(
   school: (
@@ -14,7 +14,7 @@
     model: "Model A"
   ),
   
-  languaje: "en",
+  language: "en",
   decimal-separator: ",",
   show-grade-table: true,
   question-point-position: left,

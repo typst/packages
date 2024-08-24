@@ -26,7 +26,7 @@ To use this package, simply add the following code to your document:
 #### Source:
 
 ```typ
-#import "@preview/g-exam:0.3.1": *
+#import "@preview/g-exam:0.3.2": *
 
 #show: g-exam.with(
   school: (
@@ -42,7 +42,7 @@ To use this package, simply add the following code to your document:
     model: "Model A"
   ),
   
-  show-studen-data: "first-page",
+  show-student-data: "first-page",
   show-grade-table: true,
   clarifications: "Answer the questions in the spaces provided. If you run out of room for an answer, continue on the back of the page."
 )
@@ -61,6 +61,7 @@ To use this package, simply add the following code to your document:
 ### v0.3.2
 
 - Change show-studen-data to show-student-data parameter.
+- Change languaje to language parameter.
 
 ### v0.3.1
 
@@ -78,7 +79,7 @@ To use this package, simply add the following code to your document:
 
 - Control the size of the logo image.
 - Convert to template
-- Allow true and false values in show-studen-data.
+- Allow true and false values in show-student-data.
 - Show clarifications.
 - Widen margin points.
 - Show solution.
