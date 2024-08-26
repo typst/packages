@@ -1,9 +1,9 @@
-#import "../src/lib.typ" as reflist
+#import "../src/lib.typ" as efilrst
 
-#show ref: reflist.show-rule
+#show ref: efilrst.show-rule
 
 
-#reflist.reflist(
+#efilrst.reflist(
   [My cool constraint A],<c:a>,
   [My also cool constraint B],<c:b>,
   [My non-refernceable constraint C],

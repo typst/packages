@@ -1,14 +1,14 @@
-# Typst reflist
-A simple referenceable list library for Typst. If you ever wanted to reference elements in a list by a key, this library is for you.
+# Typst efilrst
+A simple referenceable list library for Typst. If you ever wanted to reference elements in a list by a key, this library is for you. The name comes from "reflist" but sorted alphabetically because we are not allowed to use descriptive names for packages in Typst 🤷🏻‍♂️.
 
 ## Example
 
 ```typst
 
-#import "@preview/reflist:0.1.0" as reflist
-#show ref: reflist.show-rule
+#import "@preview/efilrst:0.1.0" as efilrst
+#show ref: efilrst.show-rule
 
-#reflist.reflist(
+#efilrst.reflist(
   [My cool constraint A],<c:a>,
   [My also cool constraint B],<c:b>,
   [My non-refernceable constraint C],
