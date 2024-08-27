@@ -11,4 +11,4 @@ entrypoint = "src/keyle.typ"
 keywords = ["kbd", "keyboard", "shortcut"]
 categories = ["utility", "fun"]
 
-exclude = ["*.pdf"]
+exclude = ["*.pdf", "*.png"]
