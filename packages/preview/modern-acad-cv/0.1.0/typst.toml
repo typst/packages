@@ -1,0 +1,18 @@
+[package]
+name = "modern-acad-cv"
+version = "0.1.0"
+compiler = "0.11.0"
+entrypoint = "lib.typ"
+authors = ["bpkleer (Philipp Kleer) <philipp.kleer@posteo.com>"]
+license = "MIT"
+description = "A CV template for academics based on moderncv LaTeX package."
+keywords = ["CV", "Curriculum Vitae", "Resume", "Academics", "Professional", "Modern"]
+categories = ["cv"]
+disciplines = []
+homepage = "https://github.com/bpkleer/typst-modern-acad-cv"
+repository = "https://github.com/bpkleer/typst-modern-acad-cv"
+
+[template]
+path = "template"
+entrypoint = "example.typ"
+thumbnail = "assets/example1.png"
