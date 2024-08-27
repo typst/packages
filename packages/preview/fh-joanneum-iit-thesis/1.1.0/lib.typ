@@ -1,10 +1,10 @@
 // The FH JOANNEUM Template
-// 
+//
 // requires parameters set in the main file "thesis.typ"
-// 
+//
 
 // ******************
-// Helper functionality: todo / quote / fhjcode / textit / textbf / fhjtable / ... 
+// Helper functionality: todo / quote / fhjcode / textit / textbf / fhjtable / ...
 // ******************
 
 
@@ -15,12 +15,12 @@
 #let flex-caption(long, short) = context if in-outline.get() { short } else { long }
 
 #let todo(term, color: red) = {
-  text(color, box[✨ #term ✨])  
+  text(color, box[✨ #term ✨])
 }
 
 #let quote(message, by) = {
 	block(
-				radius: 1em, width: 90%, 
+				radius: 1em, width: 90%,
 				inset: (x: 2em, y: 0.5em),
 				[
 				#message,
@@ -35,7 +35,7 @@
 }
 
 
-// inspired by: https://github.com/typst/typst/issues/344  
+// inspired by: https://github.com/typst/typst/issues/344
 #let fhjcode(
 	code: "",
   language: "python",
@@ -44,17 +44,17 @@
 ) = {
   // Custom layout for raw code
   // with line numbering
-	show raw.where(block: true, lang: "trimmed_code"): it => { 
-  
-    // 
+	show raw.where(block: true, lang: "trimmed_code"): it => {
+
+    //
     // shorten the source code if firstline and/or lastline are specified
-    // 
+    //
 		let theCode = it.text 				// contents -> string
-		let lines = theCode.split("\n")	
+		let lines = theCode.split("\n")
 		let fromLine =  if firstline > lines.len() { lines.len() } else { firstline };
 		let toLine =  if lastline > lines.len() { lines.len() } else { lastline };
 		lines = lines.slice(fromLine,toLine)
-		
+
 		set par(justify: false); grid(
 
 			columns: (100%, 100%),
@@ -74,12 +74,12 @@
 				}
 			),
 		)
-	}  
+	}
 	set text(size: 11pt)
-  
-  // we use here INTERNAL lang parameter "trimmed_python" 
+
+  // we use here INTERNAL lang parameter "trimmed_python"
   // which supports trimming (see: show  raw.where(...) )
-	raw(code, block:true, lang: "trimmed_code") 
+	raw(code, block:true, lang: "trimmed_code")
 }
 
 
@@ -102,7 +102,7 @@
 
 
 // Create a table from csv,
-//   render first line bold, 
+//   render first line bold,
 //   use alternating line colors
 #let fhjtable(
 	tabledata: "",
@@ -113,17 +113,17 @@
   table(
       columns: columns,
       fill: (_, row) =>
-         if row == 0 { 
+         if row == 0 {
           rgb( 255, 231, 230 ) // color for header row
          }
-         else if calc.odd(row) { 
+         else if calc.odd(row) {
 					rgb( 228,234,250 ) // each other row colored
 				},
       align: (col, row) =>
-          if row == 0 { center } else { left }, 
-       
+          if row == 0 { center } else { left },
+
        ..tableheadings.map( x => [*#x*]), // bold headings
-       ..data, 
+       ..data,
    )
 
 
@@ -132,30 +132,30 @@
 // Header
 
 // empty for no heading on first page
-#let ht-last = state("page-last-section", []) 
+#let ht-last = state("page-last-section", [])
 #let ht-first = state("page-first-section", [])
-#let fh_header_format = locate(
+#let fh-header-format = locate(
 	loc => [
-			
+
 			// find first heading of level 1 on current page
 			#let first-heading = query(
 				heading.where(level: 1), loc).find(
 					h => h.location().page() == loc.page()
 			)
-			
+
 			// find last heading of level 1 on current page
 			#let last-heading = query(heading.where(
 				level: 1), loc).rev().find(
 					h => h.location().page() == loc.page()
 			)
-			
+
 			// test if the find function returned none (i.e. no headings on this page)
 			#{
 					if not first-heading == none {
 							ht-first.update([
 									// change style here if update needed section per section
 									// no counter:
-									// (#counter(heading).at(first-heading.location()).at(0)) 
+									// (#counter(heading).at(first-heading.location()).at(0))
 									#set align(right)
 
 									// Uncomment, if you like to have a heading on page with header of level 1
@@ -164,16 +164,16 @@
 							ht-last.update([
 									// change style here if update needed section per section
 									// no counter included:
-									// (#counter(heading).at(last-heading.location()).at(0)) 
+									// (#counter(heading).at(last-heading.location()).at(0))
 									#last-heading.body
 							])
-					
+
 					// if one or more headings on the page, use first heading
 					// change style here if update needed page per page
 					[#ht-first.display()] //, p. #loc.page()]
-			
+
 			} else {
-					
+
 					// no headings on the page, use last heading from variable
 					// change style here if update needed page per page
 					[#ht-last.display()] //, p. #loc.page()]
@@ -186,21 +186,21 @@
 
 
 // ******************
-// MAIN TEMPLATE: 
+// MAIN TEMPLATE:
 // ******************
 
 // This function gets your whole document as its `body` and formats
 // it as a bachelor or master thesis in the style suggested by IIT @ FH JOANNEUM.
 #let thesis(
-	
+
 	expose: false,
-	
+
 	study: "<study>",
-	
+
 	language: "en",
-	
+
 	bibfilename: "",
-	
+
 	title: "Specify the title of your Thesis",
 
 	// The paper's subtitle. Can be omitted if you don't have one.
@@ -208,14 +208,14 @@
 
 	supervisor: "Specify your supervisor",
   author: "Specify your author",
-  submission_date: "Specify submission date",
+  submission-date: "Specify submission date",
 	logo:none,
 	abstract-ge: none,
 	abstract-en: [Replact this with your abstract.],
 	biblio: none,
-	showListOf: ("listings", "tables","equations","figures"),
+	show-list-of: ("listings", "tables","equations","figures"),
 	doc
-) = { 
+) = {
 	// Helper to support long and short captions for outlines (list of figures)
 	// author: laurmaedje
 	show outline: it => {
@@ -228,7 +228,7 @@
 	// Set PDF document metadata.
 	set document(title: title, author:  author)
 
-	// Optimise numbers with superscript 
+	// Optimise numbers with superscript
 	// espcecially for nice bibliography entries
 	show regex("\d?\dth"): w => { // 26th, 1st, ...
   	let b = w.text.split(regex("th")).join()
@@ -243,7 +243,7 @@
 	show "https://doi.org/": w => { // handle DOIs
   	[DOI:]+str.from-unicode(160) // 160 A0 nbsp
 	}
-	show regex("ISBN \d+"): w => { 
+	show regex("ISBN \d+"): w => {
 		let s = w.text.split().last()
 		link("https://isbnsearch.org/isbn/"+s,w) // https://isbnsearch.org/isbn/1-891562-35-5
 	}
@@ -260,14 +260,14 @@
 	}
   */
 
-	// 
+	//
 	// GLOBAL SETTINGS:
-	// 
+	//
 	// Defaults:
 	let FHJ_THESIS_SUPERVISOR_LABEL = "Supervisor or Betreuer/in?"
 	let FHJ_THESIS_AUTHOR_LABEL = "Submitted by or Eingereicht von?"
 
-	// Following defaults should be overwritten 
+	// Following defaults should be overwritten
 	// dependent of master/bachelor study degree programme:
 	let FHJ_THESES_TITLE = "Master's or Bachelor's Thesis?"
 	let FHJ_THESIS_SUBMITTED_FOR = "submitted or zur Erlangung des akademischen Grades?"
@@ -284,7 +284,7 @@
 		FHJ_THESIS_SUBMITTED_TO = ""
 		FHJ_THESES_PROG_TYPE = "Master’s degree programme"
 		FHJ_THESES_PROG_NAME = "IT & Mobile Security"
-	
+
 	} else if (study == "swd" and language == "en") {
 		FHJ_THESES_TITLE = "Bachelor's Thesis"
 		FHJ_THESIS_SUBMITTED_FOR = "submitted in conformity with the requirements for the degree of"
@@ -292,7 +292,7 @@
 		FHJ_THESIS_SUBMITTED_TO = ""
 		FHJ_THESES_PROG_TYPE = "Bachelor's degree programme"
 		FHJ_THESES_PROG_NAME = "Software Design and Cloud Computing"
-	
+
 	} else if (study == "swd" and language == "de") {
 		FHJ_THESES_TITLE = "Bachelorarbeit"
 		FHJ_THESIS_SUBMITTED_FOR = "zur Erlangung des akademischen Grades"
@@ -300,7 +300,7 @@
 		FHJ_THESIS_SUBMITTED_TO = "eingereicht am"+ linebreak()
 		FHJ_THESES_PROG_TYPE = "Fachhochschul-Studiengang"
 		FHJ_THESES_PROG_NAME = "Software Design and Cloud Computing"
-	
+
 	} else if (study == "msd" and language == "en") {
 		FHJ_THESES_TITLE = "Bachelor's Thesis"
 		FHJ_THESIS_SUBMITTED_FOR = "submitted in conformity with the requirements for the degree of"
@@ -308,7 +308,7 @@
 		FHJ_THESIS_SUBMITTED_TO = ""
 		FHJ_THESES_PROG_TYPE = "Bachelor degree programme"
 		FHJ_THESES_PROG_NAME = "Mobile Software Development"
-	
+
 	} else if (study == "msd" and language == "de") {
 		FHJ_THESES_TITLE = "Bachelorarbeit"
 		FHJ_THESIS_SUBMITTED_FOR = "zur Erlangung des akademischen Grades"
@@ -318,15 +318,15 @@
 		FHJ_THESES_PROG_NAME = "Mobile Software Development"
 	}else {
 		todo([
-		
-			ERROR 
-			
-			Given setting '"+ study + "' for parameter 'study' is not supported. 
-			
-			Configuration value for <study> can be 'ims', 'swd',or 'msd'. 
 
-			Check your configuration in the main file 'thesis.typ'. 
-			
+			ERROR
+
+			Given setting '"+ study + "' for parameter 'study' is not supported.
+
+			Configuration value for <study> can be 'ims', 'swd',or 'msd'.
+
+			Check your configuration in the main file 'thesis.typ'.
+
 			Then compile again.
 		])
 	}
@@ -339,7 +339,7 @@
 		FHJ_THESIS_SUPERVISOR_LABEL = "Betreuer/in"
 		FHJ_THESIS_AUTHOR_LABEL = "Eingereicht von"
 	}
-  
+
   set text(
 		lang: if (language =="de"){
 				"de"
@@ -350,21 +350,21 @@
 
 	//
 	// heading: titles and subtitles
-	// 
+	//
 
-	// Necessary for references: @backend, @frontend,... 
-	set heading(numbering: "1.") 
+	// Necessary for references: @backend, @frontend,...
+	set heading(numbering: "1.")
 	show heading.where(level: 1): it => [
 		// we layout rather large Chapter Headings, e.g:
-		// 
+		//
 		//  3 | Related Work
-		// 
-		#set text(size: 34pt ) 
+		//
+		#set text(size: 34pt )
 		#v(2cm)
 		#block[
 			#if it.numbering != none [
-				#counter(heading).display()  
-				| 
+				#counter(heading).display()
+				|
 				#it.body
 			]
 			#if it.numbering == none [
@@ -375,18 +375,18 @@
 		#v(1cm, weak: true)
 	]
 	show heading.where(level: 2): it => [
-		#set text(size: 18pt) 
-		#block[ 
-			#counter(heading).display()  
+		#set text(size: 18pt)
+		#block[
+			#counter(heading).display()
 			#it.body]
 		// some space after the heading 2 (before text)
-		#v(0.5em)		
+		#v(0.5em)
 	]
 	show heading.where(level: 3): set text(size: 14pt)
 
 
-	// equations with numbers on the right side the (1) (2) (3) ... 
-	set math.equation(numbering: "(1)") 	
+	// equations with numbers on the right side the (1) (2) (3) ...
+	set math.equation(numbering: "(1)")
 
 	set cite(style: "chicago-author-date")
 
@@ -399,28 +399,28 @@
 
 		// Header setup from the template of University of Waterloo
 		// https://github.com/yangwenbo99/typst-uwthesis
-		header: fh_header_format,
+		header: fh-header-format,
 	)
 
-		
+
 	// top logo image
 	if logo != none {
 		set align(center + top)
 		v(2cm) // top border
 		logo   // Logo FH JOANNEUM (vector graphics)
 	}
-		
+
 	v(6em)
-		
+
 	//
 	// TITLE
-	// 
+	//
 	set align(center)
 	text(26pt, weight: "bold", title)
 	v(18pt, weak: true)
 
 	//
-	// Just an expose or a full-featured thesis: 
+	// Just an expose or a full-featured thesis:
 	//
 	if (expose == true){
 		// start of expose (i.e. without tables, listings etc)
@@ -436,10 +436,10 @@
 		#text(weight: "bold",[#FHJ_THESIS_AUTHOR_LABEL: #author])
 		#v(3em)
 
-		#submission_date
+		#submission-date
 		#v(0.3em)
-		
-		#todo([TODO: 
+
+		#todo([TODO:
 			Specify the title, subtitle, author, submission date, study, language, your name, and supervisor/advisor in the main _expose.typ_ file. Then compile with _typst compile expose.typ_. \
 			Finally, remove all TODOs (todo marcos) within your typst ource code.
 			]	 + align(center+bottom)[Preview printed #datetime.today().display().]
@@ -448,23 +448,23 @@
 		set align(left)
 
 		// end of expose
-	}else{ 
-		// start of thesis including list of listings, list of tables etc. 
+	}else{
+		// start of thesis including list of listings, list of tables etc.
 
 		text(14pt, [
 			#subtitle
 			#v(5em)
 
 			*#FHJ_THESES_TITLE*
-			
+
 			#FHJ_THESIS_SUBMITTED_FOR
-				
+
 			*#FHJ_THESES_TYP*
-		
-			#FHJ_THESIS_SUBMITTED_TO #FHJ_THESES_PROG_TYPE *#FHJ_THESES_PROG_NAME* 
-		
+
+			#FHJ_THESIS_SUBMITTED_TO #FHJ_THESES_PROG_TYPE *#FHJ_THESES_PROG_NAME*
+
 			#v(0.5em)
-			
+
 			FH JOANNEUM (University of Applied Sciences), Kapfenberg
 			#v(4em)
 
@@ -473,22 +473,22 @@
 			#text(weight: "bold",[#FHJ_THESIS_AUTHOR_LABEL: #author])
 			#v(3em)
 
-			#submission_date
+			#submission-date
 			#v(0.3em)
-			#todo([TODO: 
+			#todo([TODO:
 				Specify the title, subtitle, author, submission date, study, language, your name, and supervisor/advisor in the main _thesis.typ_ file. Then compile with _typst compile thesis.typ_. \
 				Finally, remove all TODOs (todo marcos) within your typst ource code.
 				]	 + align(center+bottom)[Preview printed #datetime.today().display().]
 			)
 		])
-			
+
 		pagebreak()
 
 		set page(numbering: "i", number-align: center)
 		counter(page).update(1)
 
 		//
-		// ABSTRACT	
+		// ABSTRACT
 		//
 
 		// ABSTRACT (en)
@@ -502,26 +502,26 @@
 
 		if abstract-ge != none {
 			// ABSTRACT (ge)
-			set align(center)	
+			set align(center)
 			[*Kurzfassung*]
 			set align(left)
-			par(justify: true,abstract-ge)				
+			par(justify: true,abstract-ge)
 			pagebreak()
 		}
 
-		// Setting numbering for ToC, LoF, LoT, LoL, ...  
+		// Setting numbering for ToC, LoF, LoT, LoL, ...
 		set align(left)
 		enum(numbering: "I.")
-		
+
 		//
 		// TABLE OF CONTENTS (ToC)
 		//
 		outline(depth:2, indent:true)
-	
+
 		//
 		// LIST OF FIGURES (LoF)
 		//
-		if showListOf.contains("figures"){
+		if show-list-of.contains("figures"){
 			pagebreak()
 			if (language == "de"){
 				heading("Abbildungsverzeichnis", numbering: none)
@@ -533,11 +533,11 @@
 					target: figure.where(kind: image),
 			)
 		}
-		
+
 		//
 		// LIST OF TABLES (LoT)
 		//
-		if showListOf.contains("tables"){
+		if show-list-of.contains("tables"){
 			pagebreak()
 			if (language == "de"){
 				heading("Tabellenverzeichnis", numbering: none)
@@ -548,12 +548,12 @@
 					title: none,
 					target: figure.where(kind: table),
 			)
-		} 
+		}
 
 		//
 		// LIST of LISTINGS LoL
-		// 
-		if showListOf.contains("listings"){ 
+		//
+		if show-list-of.contains("listings"){
 			pagebreak()
 			if (language == "de"){
 				heading("Source Codes", numbering: none)
@@ -568,10 +568,10 @@
 
 	} // end of thesis (i.e. not end of expose)
 
-	
-	//	
+
+	//
 	// MAIN PART
-	// 
+	//
 	// Rest of the document with numbers starting with 1
 	set align(left)
 	enum(numbering: "1")
@@ -581,14 +581,14 @@
 
 	// everything you specified in the main "thesis.typ" file:
 	// i.e. all the imported other chapters
-	doc 
+	doc
 
 
 
 	//
-	// BIBLIOGRAPHY 
-	// 
+	// BIBLIOGRAPHY
+	//
 	if biblio != none {
-		text(12pt,biblio)  
+		text(12pt,biblio)
 	}
 }

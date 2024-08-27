@@ -29,7 +29,7 @@
  	study: "swd",   // ims, irm, swd, msd
 
   // For study programme "ims" the language is required to be in English
-  language: "de", // en, de
+  language: "en", // en, de
 
   title: "<title>",
 
@@ -41,7 +41,7 @@
   author: "<author>",
 
   // E.g. "Dezember 2025" or "Dec / 2025"
-	submission_date: "<submission_date>",
+	submission-date: "<submission_date>",
 
 
   // For study programme "IMS"
@@ -56,7 +56,7 @@
   ],
 
   // enable/disable "listings", "tables","equations","figures"
-  showListOf: ("listings", "tables","equations","figures"),
+  show-list-of: ("listings", "tables","equations","figures"),
 
   biblio:  bibliography("biblio.bib",	style: "./biblio.csl"),
 
