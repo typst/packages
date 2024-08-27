@@ -1,24 +1,24 @@
-#import "figure_numbering.typ": *
+#import "figure-numbering.typ": *
 #import "utils.typ": *
 
 #let thesis(
   lang: none,
-  cover_image: none,
+  cover-image: none,
   title: none,
   subtitle: none,
   author: none,
   degree: none,
   supervisor: none,
-  co_supervisor: none,
+  co-supervisor: none,
   chairperson: none,
-  committee_members: (),
+  committee-members: (),
   date: none,
-  hide_figure_list: none,
-  hide_table_list: none,
-  hide_algorithm_list: none,
-  hide_code_list: none,
-  hide_glossary: none,
-  included_content: (),
+  hide-figure-list: none,
+  hide-table-list: none,
+  hide-algorithm-list: none,
+  hide-code-list: none,
+  hide-glossary: none,
+  included-content: (),
   body
 ) = {
   
@@ -80,8 +80,8 @@
   
     v(1cm)
     
-    if cover_image != none {
-      cover_image
+    if cover-image != none {
+      cover-image
     }
     else {
       v(2cm)
@@ -107,12 +107,12 @@
   
     v(1cm)
   
-    if co_supervisor == none {
+    if co-supervisor == none {
       text(12pt, STRING_SUPERVISOR + supervisor)
     }
     else {
       text(12pt, STRING_SUPERVISORS + supervisor)
-      text(12pt, "\n" + co_supervisor)
+      text(12pt, "\n" + co-supervisor)
     }
   
     v(1cm)
@@ -122,17 +122,17 @@
     text(12pt, "\n\n" + STRING_CHAIRPERSON + chairperson)
     text(12pt, "\n" + STRING_SUPERVISOR + supervisor)
   
-    if committee_members.at(1) == none {
+    if committee-members.at(1) == none {
       text(12pt, "\n" + STRING_MEMBER)
     }
     else{
       text(12pt, "\n" + STRING_MEMBERS)
     }
-    text(12pt, committee_members.at(0))
-    if committee_members.at(1) != none {
-      text(12pt, "\n" + committee_members.at(1))
-      if committee_members.at(2) != none {
-        text(12pt, "\n" + committee_members.at(2))
+    text(12pt, committee-members.at(0))
+    if committee-members.at(1) != none {
+      text(12pt, "\n" + committee-members.at(1))
+      if committee-members.at(2) != none {
+        text(12pt, "\n" + committee-members.at(2))
       }
     }
     
@@ -185,8 +185,8 @@
     in-outline.update(false)
   }
 
-  // Chapter-relative numbering for figures (see figure_numbering.typ)
-  show: set-figure-numbering.with(new_format: "1.1")
+  // Chapter-relative numbering for figures (see figure-numbering.typ)
+  show: set-figure-numbering.with(new-format: "1.1")
 
   // Gap between figure and caption
   set figure(gap: 1em)
@@ -238,27 +238,27 @@
 
   pagebreak(to: "odd")
 
-  // Acknowledgments page (recall the included_content array from main.typ)
+  // Acknowledgments page (recall the included-content array from main.typ)
   heading(STRING_ACKNOWLEDGMENTS, numbering: none, outlined: false, bookmarked: true)
-  included_content.at(0)
+  included-content.at(0)
   
   pagebreak(to: "odd")
 
   // English abstract and keywords
   heading("Abstract", numbering: none, outlined: false, bookmarked: true)
-  included_content.at(1)
+  included-content.at(1)
   v(1cm)
   heading("Keywords", level: 2, numbering: none, outlined: false)
-  included_content.at(2)
+  included-content.at(2)
 
   pagebreak(to: "odd")
 
   // Portuguese abstract and keywords
   heading("Resumo", numbering: none, outlined: false, bookmarked: true)
-  included_content.at(3)
+  included-content.at(3)
   v(1cm)
   heading("Palavras Chave", level: 2, numbering: none, outlined: false)
-  included_content.at(4)
+  included-content.at(4)
 
   pagebreak(to: "odd")
 
@@ -277,7 +277,7 @@
     )
   }
 
-  if not hide_figure_list {
+  if not hide-figure-list {
     pagebreak(to: "odd")
     outline(
       title: STRING_OUTLINE_FIGURES,
@@ -285,7 +285,7 @@
     )
   }
 
-  if not hide_table_list {
+  if not hide-table-list {
     pagebreak(to: "odd")
     outline(
       title: STRING_OUTLINE_TABLES,
@@ -293,7 +293,7 @@
     )
   }
 
-  if not hide_algorithm_list {
+  if not hide-algorithm-list {
     pagebreak(to: "odd")
     outline(
       title: STRING_OUTLINE_ALGORITHMS,
@@ -301,7 +301,7 @@
     )
   }
 
-  if not hide_code_list {
+  if not hide-code-list {
     pagebreak(to: "odd")
     outline(
       title: STRING_OUTLINE_CODE,
@@ -309,12 +309,12 @@
     )
   }
 
-  if not hide_glossary {
+  if not hide-glossary {
     pagebreak(to: "odd")
     {
       set heading(numbering: none, outlined: false, bookmarked: true)
       heading(STRING_GLOSSARY)
-      included_content.at(5)
+      included-content.at(5)
     }
   }
 

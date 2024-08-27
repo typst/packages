@@ -1,18 +1,18 @@
 // Import subfigure package and make it work with the chapter-relative numbering
 #import "@preview/subpar:0.1.1"
 
-#let subfigure-grid(in_appendix: none, ..args) = {
+#let subfigure-grid(in-appendix: none, ..args) = {
 
-  let numbering_format = "1.1"
-  if in_appendix{
-    numbering_format = "A.1"
+  let numbering-format = "1.1"
+  if in-appendix{
+    numbering-format = "A.1"
   }
 
   subpar.grid(
     
-    numbering: super => numbering(numbering_format, counter(heading).get().first(), super),
+    numbering: super => numbering(numbering-format, counter(heading).get().first(), super),
     
-    numbering-sub-ref: (super, sub) => numbering(numbering_format+"a", counter(heading).get().first(), super, sub),
+    numbering-sub-ref: (super, sub) => numbering(numbering-format+"a", counter(heading).get().first(), super, sub),
     
     ..args
     

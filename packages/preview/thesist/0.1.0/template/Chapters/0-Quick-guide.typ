@@ -23,7 +23,7 @@ Let's move on, then!
 This is a simple image call:
 
 #figure(
-  image("../Images/0_Quick_guide/andromeda.jpg", width: 80%),
+  image("../Images/0-Quick-guide/andromeda.jpg", width: 80%),
   caption: [An image]
 )<example_simple_image>
 
@@ -36,7 +36,7 @@ This is @example_simple_image. In order to index it, we need to always wrap it i
 The first function of this thesis package that will be presented here is `flex-caption`. Consider the following picture:
 
 #figure(
-  image("../Images/0_Quick_guide/andromeda.jpg", width: 80%),
+  image("../Images/0-Quick-guide/andromeda.jpg", width: 80%),
   caption: flex-caption(
     [This is a very long picture caption that goes into detail about some things. #lorem(20)],
     [A short version of the caption]
@@ -163,13 +163,13 @@ Subfigures are implemented in this template via the function `subfigure-grid`. T
 This is `subfigure-grid` in action:
 
 #subfigure-grid(
-  in_appendix: false,
+  in-appendix: false,
   figure(
-    image("../Images/0_Quick_guide/andromeda.jpg", width: 90%),
+    image("../Images/0-Quick-guide/andromeda.jpg", width: 90%),
     caption: [An image on the left.]
   ), <sub-left-example>,
   figure(
-    image("../Images/0_Quick_guide/andromeda.jpg", width: 90%),
+    image("../Images/0-Quick-guide/andromeda.jpg", width: 90%),
     caption: [An image on the right.#v(1em)]
   ), <sub-right-example>,
   align: top,
@@ -184,7 +184,7 @@ Above in @subfigure-grid-example, we see a figure which is composed of two other
 
 - If the subfigures or their captions aren't positioned in the way you want, try messing with the `align` parameter and `#v()` spacers above or below text. This was done in @subfigure-grid-example.
 
-- Subfigure grids, contrary to other figures, don't show up with the correct numbering by default (check this template's homepage for more details on why). As such, you will have to manually specify whether the figure is inside an appendix or not, with the `in_appendix` argument.
+- Subfigure grids, contrary to other figures, don't show up with the correct numbering by default (check this template's homepage for more details on why). As such, you will have to manually specify whether the figure is inside an appendix or not, with the `in-appendix` argument.
 
 == A note about equations
 
