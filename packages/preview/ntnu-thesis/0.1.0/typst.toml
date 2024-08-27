@@ -1,0 +1,14 @@
+[package]
+name = "ntnu-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Saim Iqbal"]
+repository = "https://github.com/saimnaveediqbal/thesis-NTNU-typst"
+license = "MIT"
+description = "An NTNU thesis template"
+categories = ["thesis"]
+keywords = ["thesis", "bachelor", "master", "ntnu", "university"]
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
