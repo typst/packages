@@ -253,9 +253,9 @@
 #slide[
   - 您可以使用：
     ```sh
-    typst init @preview/touying-buaa
+    typst init @preview/touying-simpl-hkustgz
     ```
     来创建基于本模板的演示文稿项目。
 
-  - 本模板仓库位于 #link("https://github.com/Coekjan/touying-buaa")，欢迎关注与贡献。
+  - 本模板仓库位于 #link("https://github.com/exaclior/touying-simpl-hkustgz")，欢迎关注与贡献。
 ]

@@ -4,19 +4,19 @@ Inspired by [Touying Slide Theme for Beihang University](https://github.com/Coek
 
 ## Use as Typst Template Package
 
-Use `typst init @preview/touying-hkustgz` to create a new project with this theme.
+Use `typst init @preview/touying-simpl-hkustgz` to create a new project with this theme.
 
 ```console
-$ typst init @preview/touying-hkustgz
-Successfully created new project from @preview/touying-hkustgz:<latest>
+$ typst init @preview/touying-simpl-hkustgz
+Successfully created new project from @preview/touying-simpl-hkustgz:<latest>
 To start writing, run:
-> cd touying-hkustgz
+> cd touying-simpl-hkustgz
 > typst watch main.typ
 ```
 
 ## Examples
 
-See [examples](examples) and [Github Pages](https://exaclior.github.io/touying-hkustgz) for more details.
+See [examples](examples) and [Github Pages](https://exaclior.github.io/touying-simpl-hkustgz) for more details.
 
 You can compile the examples by yourself.
 

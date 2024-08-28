@@ -1,5 +1,5 @@
 #import "@preview/touying:0.4.2": *
-#import "@preview/touying-hkustgz:0.1.0" as hkustgz-theme
+#import "@preview/touying-simpl-hkustgz:0.1.0" as hkustgz-theme
 
 #let s = hkustgz-theme.register()
 
