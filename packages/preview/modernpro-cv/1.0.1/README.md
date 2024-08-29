@@ -56,7 +56,7 @@ The template has the following arguments:
 If you want to use the single column version, you create a new `.typ` file and copy the following code:
 
 ```Typst
-#import "@preview/modernpro-cv:1.0.0": *
+#import "@preview/modernpro-cv:1.0.1": *
 
 #show: cv-single.with(
   font-type: "PT Serif",
@@ -80,7 +80,7 @@ If you want to use the single column version, you create a new `.typ` file and c
 The double column version is similar to the single column version. However, you need to add contents to the specific `left` and `right` sections.
 
 ```Typst
-#import "@preview/modernpro-cv:1.0.0": *
+#import "@preview/modernpro-cv:1.0.1": *
 
 #show: cv-double(
   font-type: "PT Sans",
