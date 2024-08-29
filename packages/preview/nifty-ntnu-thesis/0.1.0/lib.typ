@@ -32,7 +32,7 @@
   )
 }
 
-#let ntnu-thesis(
+#let nifty-ntnu-thesis(
   title: [Title],
   short-title: [],
   authors: ("Author"),
