@@ -8,7 +8,7 @@ license = "MIT"
 description = "An NTNU thesis template"
 categories = ["thesis"]
 keywords = ["thesis", "bachelor", "master", "ntnu", "university"]
-excule = "example.pdf"
+exclude = ["example.pdf"]
 
 [template]
 path = "template"
