@@ -13,11 +13,11 @@
   set page(margin: (x: 3.2em, y: 3.2em), header: header, footer: footer)
   set list(marker: [‣])
   set text(size:size, font: ("Source Han Sans"), lang: "zh")
-  show emph: set text(font: ("Source Han Serif SC",), style: "italic")
+  show emph: set text(font: ("Times New Roman", "LXGW WenKai GB"), style: "italic")
   show raw: set text(font: ("Hack Nerd Font"))
-  show link: set text(font: ("Source Han Sans"), fill: blue, weight: "bold")
+  show link: set text(fill: blue, weight: "bold")
   show heading.where(level: 1): it => {
-    set text(rgb("#448"))
+    set text(rgb("#448"), font: ("LXGW WenKai GB"))
     v(1em, weak: true)
     stack(
       dir: ttb,

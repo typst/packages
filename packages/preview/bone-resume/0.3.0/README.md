@@ -12,6 +12,11 @@ typst init @preview/bone-resume
 
 Typst will create a new directory with all the files needed to get you started.
 
+### Fonts
+- [Source Han Sans](https://github.com/adobe-fonts/source-han-sans) 
+- [LXGW WenKai GB](https://github.com/lxgw/LxgwWenkaiGB)
+- [Hack Nerd Font](https://www.nerdfonts.com/)
+
 ## Configuration
 This template exports the `resume-init` function with the following named arguments:
 
