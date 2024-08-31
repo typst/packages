@@ -1,5 +1,5 @@
 #import emoji: star
-#import "@local/bone-resume:0.3.0": resume-init, resume-section
+#import "@preview/bone-resume:0.3.0": resume-init, resume-section
 
 #show: resume-init.with(
   author: "张三",
