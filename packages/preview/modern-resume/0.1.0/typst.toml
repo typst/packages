@@ -1,0 +1,17 @@
+[package]
+name = "modern-resume"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Peter Egger <@peterpf>"]
+license = "Unlicense"
+description = "A modern resume/CV template."
+repository = "https://github.com/peterpf/modern-typst-resume"
+keywords = ["resume", "colorful"]
+categories = ["cv"]
+compiler = "0.10.0"
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

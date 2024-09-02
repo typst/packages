@@ -1,4 +1,4 @@
-#import "@preview/tufte-memo:0.1.0": *
+#import "@preview/tufte-memo:0.1.0: *
 
 #show: template.with(
   title: [Tufte inspired Typst template],
@@ -18,7 +18,7 @@
       email: "Email"
     ),
   ),
-  document-number: [Version 0.1.0],
+  document-number: [Version 0.1.2],
   abstract: [This Typst template adopts many aspects of the design and typography of Edward Tufte's books. The document itself demonstrates the functionality and usage of the template, including setup, sidenotes, figure display, citations, and more.],
   publisher: [Product Engineering Department],
   distribution: [authorized personnel],
