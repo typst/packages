@@ -36,4 +36,18 @@ binds that'll pollute the namespace globally.
 // `a` and `b` are out of scope here
 ```
 
+You can also use it for show rules.
+```typ
+#show link: pipe_((
+  emph,
+  text.with(fill: blue),
+  underline,
+))
+
+// Is equivalent to (note the order)
+#show link: underline
+#show link: text.with(fill: blue)
+#show link: emph
+```
+
 The function `compose` is the `chain` function in the mathematical order.
