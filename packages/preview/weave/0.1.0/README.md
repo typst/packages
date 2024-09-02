@@ -1,4 +1,4 @@
-# lambda
+# weave
 A helper library for chaining lambda abstractions, imitating the `|>` or `.` operator in some
 functional languages.
 
