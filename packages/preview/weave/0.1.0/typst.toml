@@ -1,5 +1,5 @@
 [package]
-name = "lambda"
+name = "weave"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Léana 江 <@leana8959>"]
