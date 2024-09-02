@@ -1,0 +1,8 @@
+[package]
+name = "lambda"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Léana 江 <@leana8959>"]
+license = "MIT"
+description = "A helper library for chaining lambda abstractions"
+keywords = ["functional", "composition", "pipe"]
