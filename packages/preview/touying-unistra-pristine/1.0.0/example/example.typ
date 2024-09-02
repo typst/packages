@@ -1,32 +1,18 @@
-#import "@preview/touying:0.4.2": *
-#import "../src/unistra.typ"
+#import "@preview/touying:0.5.0": *
+#import "../src/unistra.typ": *
 #import "../src/colors.typ": *
 #import "../src/admonition.typ": *
 #import "../src/settings.typ" as settings
 
-#let s = unistra.register(aspect-ratio: "16-9")
-#let s = (s.methods.info)(
-  self: s,
-  title: [Title],
-  subtitle: [_Subtitle_],
-  author: [Author],
-  date: datetime.today().display("[month repr:long] [day], [year repr:full]"),
+#show: unistra-theme.with(
+  aspect-ratio: "16-9",
+  config-info(
+    title: [Title],
+    subtitle: [_Subtitle_],
+    author: [Author],
+    date: datetime.today().display("[month repr:long] [day], [year repr:full]"),
+  ),
 )
-
-#let (init, slides, alert, speaker-note) = utils.methods(s)
-#show: init
-
-#show strong: alert
-
-#let (
-  slide,
-  empty-slide,
-  title-slide,
-  focus-slide,
-  gallery,
-  hero,
-) = utils.slides(s)
-#show: slides
 
 #title-slide[]
 
