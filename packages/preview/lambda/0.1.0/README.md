@@ -19,7 +19,7 @@ To chain functions into one single function, you can write:
 
 And then apply this to a value, for example.
 ```typ
-let result = add8(10)
+#let result = add8(10)
 ```
 
 The function `compose` is the chains functions in the mathematical order.
