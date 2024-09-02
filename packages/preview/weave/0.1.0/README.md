@@ -5,7 +5,7 @@ functional languages.
 ## Import
 You can import the latest version of this package with:
 ```typ
-#import "@preview/lambda:0.1.0": pipe_
+#import "@preview/weave:0.1.0": pipe_
 ```
 
 ## Basic usage
