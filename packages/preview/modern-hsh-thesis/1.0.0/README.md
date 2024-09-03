@@ -1,4 +1,4 @@
-# The `hsh-thesis` Package
+# The `modern-hsh-thesis` Package
 <div align="center">Version 1.0.0</div>
 
 A template for writing a bachelors or masters thesis at the Hochschule Hannover, Faculty 4.
@@ -10,12 +10,12 @@ Choose the template in the typst web app and follow the instructions there.
 
 ### Terminal
 ```bash
-typst init @preview/hsh-thesis:1.0.0
+typst init @preview/modern-hsh-thesis:1.0.0
 ```
 
 ### Import
 ```typ
-#import "@preview/hsh-thesis:1.0.0": *
+#import "@preview/modern-hsh-thesis:1.0.0": *
 
 #show: project.with(
   title: "Beispiel-Titel",
@@ -69,9 +69,9 @@ typst init @preview/hsh-thesis:1.0.0
 2. Clone the repository
 3. CD into the repository
 4. Run `git pull && just install && just install-preview` to install/update the template
-5. Run `typst init @local/hsh-thesis:1.0.0 && typst compile hsh-thesis/main.typ` to compile the template
+5. Run `typst init @local/modern-hsh-thesis:1.0.0 && typst compile modern-hsh-thesis/main.typ` to compile the template
 
 
 ## Additional Documentation
 
-Take a look at this complete Bachelor's thesis example using the `hsh-thesis` template: [Bachelor's Thesis Example](https://github.com/MrToWy/Bachelorarbeit)
+Take a look at this complete Bachelor's thesis example using the `modern-hsh-thesis` template: [Bachelor's Thesis Example](https://github.com/MrToWy/Bachelorarbeit)

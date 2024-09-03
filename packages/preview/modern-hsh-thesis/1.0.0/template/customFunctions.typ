@@ -9,21 +9,21 @@
 
 #let colorize = true
 
-#let useCaseColor = rgb("E28862")
-#let useCaseColorLight = rgb("EEC0AB")
-#let requirementColor = silver
+#let use-case-color = rgb("E28862")
+#let use-case-color-light = rgb("EEC0AB")
+#let requirement-color = silver
 
 #if not colorize {
-  useCaseColor = rgb("AAAAAA")
-  useCaseColorLight = rgb("CCCCCC")
+  use-case-color = rgb("AAAAAA")
+  use-case-color-light = rgb("CCCCCC")
 }
 
-#let sidePadding = 1em
-#let topBotPadding = 3em
+#let side-padding = 1em
+#let top-bot-padding = 3em
 
-#let smallLine = line(length: 100%, stroke: 0.045em)
+#let small-line = line(length: 100%, stroke: 0.045em)
 
-#let exampleText(content: none) = {
+#let example-text(content: none) = {
   if(content == none){
     return
   }
@@ -33,9 +33,8 @@
   #content
 ]
 }
-  
 
-#let track(title, padding: topBotPadding/8, type: "E", example: none, label:none, content) = {
+#let track(title, padding: top-bot-padding/8, type: "E", example: none, label:none, content) = {
   let c = counter(type)
   c.step()
   [
@@ -54,24 +53,23 @@
 })[#smallcaps(title)]#label
   ] #linebreak()
   #content
-  #exampleText(content: example)
+  #example-text(content: example)
   ]]]]
 }
 
-#let narrowTrack(title, type: "Info", label:none, content) = [
+#let narrow-track(title, type: "Info", label:none, content) = [
   #track(title, padding: 0em, type: type, label:label, content)
 ]
 
-
-#let useCase(nummer, name, kurzbeschreibung, akteur, vorbedingungen, hauptszenario) = [
-  #pad(left: 0em, right: 0em, rest: topBotPadding/2)[
+#let use-case(nummer, name, kurzbeschreibung, akteur, vorbedingungen, hauptszenario) = [
+  #pad(left: 0em, right: 0em, rest: top-bot-padding/2)[
   #figure()[
   #block()[
   #show table.cell.where(x: 0): set text(weight: "bold")
 
     #table(
       columns: (0.4fr, 1fr),
-      fill: (x, y) => if calc.even(x) { useCaseColor } else { useCaseColorLight },
+      fill: (x, y) => if calc.even(x) { use-case-color } else { use-case-color-light },
       stroke: (x: none, y: 2.5pt + rgb("FFFF")),
 
       [Name], text([UC] + str(nummer) + " - " + name, weight: "semibold"),
@@ -84,9 +82,8 @@
   ]]]
 ]
 
-
-#let attributedQuote(label, body) = [
-  #pad(left: sidePadding, right: sidePadding, rest: topBotPadding)[
+#let attributed-quote(label, body) = [
+  #pad(left: side-padding, right: side-padding, rest: top-bot-padding)[
       // use a box to prevent the quote from beeing split on two pages
       #box(
         quote(
@@ -94,11 +91,10 @@
         #body
     ])
   ]
-  ]
-  
+]
 
-#let diagramFigure(caption, plabel, filename, rendered:true) = [
-  #pad(left: sidePadding, right: sidePadding, rest: topBotPadding)[
+#let diagram-figure(caption, plabel, filename, rendered:true) = [
+  #pad(left: side-padding, right: side-padding, rest: top-bot-padding)[
   #figure(
     caption: caption,
     kind: "diagram",
@@ -107,10 +103,9 @@
   ) #plabel
 ]]
 
+#let code-figure(caption, plabel, filename, annotations: none) = [
+  #pad(left: 0em, right: 0em, rest: top-bot-padding/4)[
 
-#let codeFigure(caption, plabel, filename, annotations: none) = [
-  #pad(left: 0em, right: 0em, rest: topBotPadding/4)[
-    
   #figure(
     caption: caption,
     kind: "code",
@@ -119,66 +114,63 @@
   ) #plabel
 ]]
 
-#let imageFigure(plabel, filename, pCaption, height: auto, width: auto) = [
+#let image-figure(plabel, filename, p-caption, height: auto, width: auto) = [
   #align(center)[
-  #pad(left: sidePadding, right: sidePadding, rest: topBotPadding)[
+  #pad(left: side-padding, right: side-padding, rest: top-bot-padding)[
   #figure(
     image("Images/" + filename, height: height, width: width),
-    caption: pCaption
+    caption: p-caption
   ) #plabel
 ]]]
 
-#let imageFigureNoPad(plabel, filename, pCaption, height: auto, width: auto) = [
+#let image-figure-no-pad(plabel, filename, p-caption, height: auto, width: auto) = [
   #align(center)[
   #figure(
     image("Images/" + filename, height: height, width: width),
-    caption: pCaption
+    caption: p-caption
   ) #plabel
 ]]
 
-#let treeFigure(pLabel, pCaption, content) = [
-#pad(left: sidePadding, right: sidePadding, rest: topBotPadding)[
+#let tree-figure(p-label, p-caption, content) = [
+#pad(left: side-padding, right: side-padding, rest: top-bot-padding)[
 #par(leading: 0.5em)[
-#figure(caption: pCaption)[
+#figure(caption: p-caption)[
 #align(left)[
-#tree-list(content)]] #pLabel ]]
+#tree-list(content)]] #p-label ]]
 ]
 
-// header
-
-
-#let getCurrentHeadingHydra(loc, topLevel: false, topMargin) = {
-    if(topLevel){
-      return hydra(1, top-margin:topMargin)
+#let get-current-heading-hydra(loc, top-level: false, top-margin) = {
+    if(top-level){
+      return hydra(1, top-margin:top-margin)
     }
-    
-    return hydra(2, top-margin:topMargin)
+
+    return hydra(2, top-margin:top-margin)
 }
 
-#let getCurrentHeading(loc, topLevel: false, topMargin) = {
+#let get-current-heading(loc, top-level: false, top-margin) = {
 
-    let chapterNumber = counter(heading).display()
-    if(topLevel){
-      chapterNumber = str(counter(heading).get().at(0))
+    let chapter-number = counter(heading).display()
+    if(top-level){
+      chapter-number = str(counter(heading).get().at(0))
     }
-  
-    let topLevelElems = query(
+
+    let top-level-elems = query(
       selector(heading).before(loc),
       loc,
     )
 
-    if(topLevel){
-      topLevelElems = query(
+    if(top-level){
+      top-level-elems = query(
       selector(heading.where(level: 1)).before(loc),
       loc,
       )
     }
-    
-    let currentTopLevelElem = ""
-    
-    if topLevelElems != () {
-      currentTopLevelElem = topLevelElems.last().body
+
+    let current-top-level-elem = ""
+
+    if top-level-elems != () {
+      current-top-level-elem = top-level-elems.last().body
     }
-    
-    return chapterNumber + " " + currentTopLevelElem
+
+    return chapter-number + " " + current-top-level-elem
 }

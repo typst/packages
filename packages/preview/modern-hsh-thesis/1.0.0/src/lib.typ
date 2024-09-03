@@ -1,14 +1,14 @@
 #import "@preview/hydra:0.3.0": hydra
 #import "@preview/codly:1.0.0": *
 
-#let smallLine = line(length: 100%, stroke: 0.045em)
+#let small-line = line(length: 100%, stroke: 0.045em)
 
-#let getCurrentHeadingHydra(loc, topLevel: false, topMargin) = {
-    if(topLevel){
-      return hydra(1, top-margin:topMargin)
+#let get-current-heading-hydra(loc, top-level: false, top-margin) = {
+    if(top-level){
+      return hydra(1, top-margin:top-margin)
     }
 
-    return hydra(2, top-margin:topMargin)
+    return hydra(2, top-margin:top-margin)
 }
 
 #show par: it => [#it <meta:content>]
@@ -17,23 +17,23 @@
   title: "",
   subtitle: "",
   author: "",
-  author_email: "",
+  author-email: "",
   matrikelnummer: 0,
   prof: none,
-  second_prof: none,
+  second-prof: none,
   date: none,
-  glossaryColumns: 1,
-  enableGlossary: false,
-  enableAbbildungsverzeichnis: false,
+  glossary-columns: 1,
+  enable-glossary: false,
+  enable-abbildungsverzeichnis: false,
   bibliography: none,
   body,
 ) = {
   // Set the document's basic properties.
   set document(author: author, title: title)
   set page("a4")
-  let topMargin = 3.75cm
+  let top-margin = 3.75cm
 
-  set page(margin: (inside: 3.5cm, outside: 2cm, y: topMargin))
+  set page(margin: (inside: 3.5cm, outside: 2cm, y: top-margin))
   //set page(margin: (inside: 2.75cm, outside: 2.75cm, y: 1.75cm))
 
   set par(justify: true)
@@ -128,13 +128,13 @@
     gutter: 13pt,
     text("Autor:", weight: "bold"),
     [#author\
-    #link("mailto:" + author_email)\
+    #link("mailto:" + author-email)\
     Matrikelnummer: #matrikelnummer
     ],
     text("Erstprüfer:", weight: "bold"),
     prof,
     text("Zweitprüfer:", weight: "bold"),
-    second_prof,
+    second-prof,
   )
 
   align(bottom)[
@@ -173,7 +173,7 @@
   outline(depth: 3, indent: true)
   pagebreak()
 
-  if(enableAbbildungsverzeichnis){
+  if(enable-abbildungsverzeichnis){
     // table of figures
 set page(numbering: "I")
 counter(page).update(1)
@@ -193,12 +193,12 @@ pagebreak()
 
   // glossary
 
-  if(enableGlossary){
+  if(enable-glossary){
     show figure.where(kind: "jkrb_glossary"): it => {emph(it.body)}
   [
     = Glossar <Glossary>
 
-    #columns(glossaryColumns)[
+    #columns(glossary-columns)[
         #make-glossary(glossary-pool)
     ]
   ]
@@ -210,8 +210,8 @@ pagebreak()
     set page(header: locate(loc => {
 
       // dont print anything when the first element on the page is a level 1 heading
-      let chapter = hydra(1, loc: loc, top-margin: topMargin)
-      //chapter = getCurrentHeadingHydra(loc, topMargin)
+      let chapter = hydra(1, loc: loc, top-margin: top-margin)
+      //chapter = get-current-heading-hydra(loc, top-margin)
 
       if(chapter == none){
         return
@@ -219,23 +219,23 @@ pagebreak()
 
 
       if calc.even(loc.page()) {
-        align(left, smallcaps(getCurrentHeadingHydra(loc, topLevel: true, topMargin)))
+        align(left, smallcaps(get-current-heading-hydra(loc, top-level: true, top-margin)))
       }
       else{
-        align(right, emph(getCurrentHeadingHydra(loc, topMargin)))
+        align(right, emph(get-current-heading-hydra(loc, top-margin)))
       }
 
-    smallLine
+    small-line
   }))
 
 
   // footer
   set page(footer: locate(
     loc => if calc.even(loc.page()) {
-      smallLine
+      small-line
       align(left, counter(page).display("1"));
     } else {
-      smallLine
+      small-line
       align(right, counter(page).display("1"));
     }
   ))
@@ -263,7 +263,5 @@ pagebreak()
   pagebreak()
   hide("white page")
 
-  //todo_outline
+  //todo-outline
 }
-
-

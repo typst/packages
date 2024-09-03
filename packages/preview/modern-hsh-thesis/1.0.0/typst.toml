@@ -1,5 +1,5 @@
 [package]
-name = "hsh-thesis"
+name = "modern-hsh-thesis"
 version = "1.0.0"
 entrypoint = "src/lib.typ"
 authors = ["Tobias Wylega <https://github.com/MrToWy>"]
