@@ -1,0 +1,13 @@
+[package]
+name = "rapide-tp"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Rémi Saurel"]
+categories = ["report"]
+license = "MIT-0"
+description = "A template to quickly work on pratictal (mainly IT) work."
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "assets/thumbnail.png"
