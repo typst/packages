@@ -16,6 +16,6 @@ compiler = "0.11.0"
 exclude = []
 
 [template]
-path = "example"
-entrypoint = "example.typ"
+path = "template"
+entrypoint = "template.typ"
 thumbnail = "assets/thumbnail.webp"

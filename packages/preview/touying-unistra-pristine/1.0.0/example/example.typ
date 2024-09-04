@@ -1,4 +1,4 @@
-#import "@preview/touying:0.5.0": *
+#import "@preview/touying:0.5.2": *
 #import "../src/unistra.typ": *
 #import "../src/colors.typ": *
 #import "../src/admonition.typ": *

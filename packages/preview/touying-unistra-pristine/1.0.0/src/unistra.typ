@@ -1,4 +1,4 @@
-#import "@preview/touying:0.5.0": *
+#import "@preview/touying:0.5.2": *
 #import "colors.typ": *
 #import "admonition.typ": *
 #import "settings.typ" as settings
