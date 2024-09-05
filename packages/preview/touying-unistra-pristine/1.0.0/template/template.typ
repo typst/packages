@@ -1,8 +1,5 @@
 #import "@preview/touying:0.5.2": *
-#import "../src/unistra.typ": *
-#import "../src/colors.typ": *
-#import "../src/admonition.typ": *
-#import "../src/settings.typ" as settings
+#import "@preview/touying-unistra-pristine:1.0.0": *
 
 #show: unistra-theme.with(
   aspect-ratio: "16-9",

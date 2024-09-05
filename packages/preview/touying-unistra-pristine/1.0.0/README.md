@@ -27,7 +27,7 @@ These steps assume that you already have [Typst](https://typst.app/) installed a
 ## Import from Typst Universe
 
 ```typst
-#import "@preview/touying:0.5.0": *
+#import "@preview/touying:0.5.2": *
 #import "@preview/touying-unistra-pristine:1.0.0": *
 
 #show: unistra-theme.with(
@@ -62,7 +62,7 @@ A slide with *important information*.
 See [example/example.typ](example/example.typ) for a complete example with configuration.
 
 ```typst
-#import "@preview/touying:0.5.0": *
+#import "@preview/touying:0.5.2": *
 #import "src/unistra.typ": *
 #import "src/settings.typ" as settings
 #import "src/colors.typ": *
