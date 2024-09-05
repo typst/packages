@@ -4,12 +4,13 @@
 
 #let apply(doc) = {
     // Numbering parameters
-  set heading(numbering: "1.1 - ")
+  set heading(numbering: "1.1")
 
   // H1 styling
   show heading.where(level:1): he => {
     set align(center)
-    box(width: 75%)[#{
+    box(width: 85%)[#{
+      set par(justify: false)
       set text(
         size: 20pt,
         weight: "black",
@@ -20,6 +21,7 @@
       if he.numbering != none {
         counter(heading).display(he.numbering)
       }
+      linebreak()
       upper(he.body)
       image("assets/filet-long.svg", width: 30%)
       v(0.5em)
@@ -33,7 +35,7 @@
       weight: "medium",
       fill: rgb("00677F"),
     )
-    smallcaps(he)
+    smallcaps(he.numbering + " - " + he.body)
     v(-0.5em)
     image("assets/filet-court.svg")
     v(0.3em)
@@ -47,9 +49,9 @@
       fill: rgb("01426A")
     )
     if he.numbering != none {
-      counter(heading).display(he.numbering).slice(0, -2)
+      counter(heading).display(he.numbering)
     }
-    smallcaps([• ] + he.body)
+    smallcaps([ • ] + he.body)
   }
 
   // H4 styling
