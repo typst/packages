@@ -20,8 +20,8 @@
       )
       if he.numbering != none {
         counter(heading).display(he.numbering)
+        linebreak()
       }
-      linebreak()
       upper(he.body)
       image("assets/filet-long.svg", width: 30%)
       v(0.5em)
