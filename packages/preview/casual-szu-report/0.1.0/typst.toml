@@ -11,7 +11,7 @@ repository = "https://github.com/jiang131072/casual-szu-report"
 keywords = ["SZU", "Shenzhen University", "report"]
 categories = ["report"]
 disciplines = []
-exclude = []
+exclude = ["**/*.pdf"]
 
 [template]
 path = "template"
