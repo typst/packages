@@ -74,7 +74,7 @@
   } else if settings.SHOW-HEADER {
     (x: 2.8em, bottom: 0em)
   } else if settings.SHOW-FOOTER {
-    (top: 2em, left: 2.8em)
+    (x: 2em, left: 2.8em)
   } else {
     (x: 1em, y: 1em)
   }
@@ -82,6 +82,7 @@
 
 // Creates a custom quote element
 #let _custom-quote(it) = {
+  v(1em)
   box(
     fill: luma(220),
     outset: 1em,
@@ -109,7 +110,7 @@
 }
 
 #let unistra-nav-bar(self) = {
-  show: block.with(inset: (x: 7em))
+  show: block.with(inset: (x: 5em))
   set text(size: 1.4em)
   grid(
     components.mini-slides(display-section: true, display-subsection: false),
@@ -126,13 +127,13 @@
 ) = touying-slide-wrapper(self => {
   let footer(self) = {
     let cell(body) = rect(
-      width: 100%,
+      width: 150%,
       height: 100%,
       inset: 0mm,
       outset: 0mm,
       fill: none,
       stroke: none,
-      align(horizon + center, text(size: 0.6em, fill: self.colors.black, body)),
+      align(horizon + center, text(size: 0.5em, fill: self.colors.black, body)),
     )
 
     set align(center + horizon)
@@ -144,7 +145,8 @@
 
     block(
       width: 125%,
-      height: 1.9em,
+      height: 1.8em,
+      outset: 2mm,
       stroke: (top: 0.5pt + self.colors.black),
       {
         set text(size: 1.5em)
@@ -187,8 +189,16 @@
   let self = utils.merge-dicts(
     self,
     config-page(
-      header: unistra-nav-bar,
-      footer: footer,
+      header: if settings.SHOW-HEADER {
+        unistra-nav-bar(self)
+      } else {
+        none
+      },
+      footer: if settings.SHOW-FOOTER {
+        footer
+      } else {
+        none
+      },
     ),
   )
 
@@ -435,17 +445,15 @@
 ///
 /// ```typst
 /// #hero(
+/// image("../assets/unistra.svg", height: 70%),
 /// title: "Hero",
 /// subtitle: "Subtitle",
-/// img: "../assets/unistra.svg",
-/// img-height: 70%,
 /// )
 /// ```
 ///
 /// ```typst
 /// #hero(
-/// img: "../assets/cat1.jpg",
-/// img-height: 100%,
+/// image("../assets/cat1.jpg", height: 100%, width: 100%),
 /// txt: "Some Text Next to Image";
 /// enhanced-text: false,
 /// direction: "rtl",
@@ -456,8 +464,6 @@
 /// - `heading-level` (int): The heading level of the title. Default: 1.
 ///
 /// - `subtitle` (str): The subtitle of the slide. Default: none.
-///
-/// - `img` (str): The path to the image. Default: none.
 ///
 /// - `caption` (str): The caption of the image. Default: none.
 ///
@@ -473,10 +479,6 @@
 ///
 /// - `text-alignment` (str): The alignment of the text. Default: horizon + center.
 ///
-/// - `img-height` (str): The height of the image. Default: auto.
-///
-/// - `img-width` (str): The width of the image. Default: auto.
-///
 /// - `rows` (list): The rows of the grid. Default: (1fr).
 ///
 /// - `direction` (str): The direction of the image and text. Possible values: "ltr", "rtl", "utd", "dtu". Default: "ltr".
@@ -488,7 +490,6 @@
   title: none,
   heading-level: 1,
   subtitle: none,
-  img: none,
   caption: none,
   bold-caption: false,
   numbering: none,
@@ -502,14 +503,22 @@
   direction: "ltr",
   gap: auto,
   hide-footer: true,
+  img: none,
+  ..args,
 ) = touying-slide-wrapper(self => {
+  let fig = args.pos().at(0)
+
+  if (fig == none) {
+    panic("A hero slide requires an inline image such as image('path/to/image.jpg')")
+  }
+
   let create-figure() = {
     if (bold-caption) {
       caption = text(weight: "bold", caption)
     }
 
     figure(
-      image(img, height: img-height, width: img-width),
+      fig,
       caption: caption,
       numbering: numbering,
     )
@@ -607,7 +616,6 @@
   }
 
   if hide-footer {
-    self.page-args.footer = none
     body = block(
       body,
       height: 100%,
@@ -638,11 +646,9 @@
 ///
 /// ```typst
 /// #gallery(
-///  title: "Gallery",
-/// images: (
-///   "../assets/cat1.jpg",
-///   "../assets/cat2.jpg",
-/// ),
+/// image("../assets/cat1.jpg"),
+/// image("../assets/cat2.jpg"),
+/// title: "Gallery",
 /// captions: (
 ///   "Cat 1",
 ///   "Cat 2",
@@ -655,8 +661,6 @@
 /// - `heading-level` (int): The heading level of the title. Default: 2.
 ///
 /// - `subtitle` (str): The subtitle of the gallery. Default: none.
-///
-/// - `images` (list[str]): The list of image paths. Default: ().
 ///
 /// - `columns` (int): The number of columns. Default: auto.
 ///
@@ -686,11 +690,19 @@
   fit: "cover",
   gutter: 0.5em,
   gap: 0.65em,
+  ..args,
 ) = touying-slide-wrapper(self => {
-  let rows = (images.len() / columns)
+  let figs = args.pos()
+
+  if (figs == none) {
+    panic("A hero slide requires at least one inline image such as image('path/to/image.jpg')")
+  }
+
+  let rows = (figs.len() / columns)
   let body = {
+    set align(center + horizon)
     grid(
-      ..images.enumerate().map(((i, img)) => {
+      ..figs.enumerate().map(((i, fig)) => {
         let caption = if i < captions.len() {
           let cap = captions.at(i)
           if cap != "" {
@@ -707,7 +719,7 @@
         }
 
         figure(
-          image(img, height: height, width: width, fit: fit),
+          fig,
           caption: caption,
           gap: gap,
           numbering: none,
@@ -771,18 +783,8 @@
 
     config-page(
       paper: "presentation-" + aspect-ratio,
-      header: if settings.SHOW-HEADER {
-        header
-      } else {
-        none
-      },
-      footer: if settings.SHOW-FOOTER {
-        footer
-      } else {
-        none
-      },
       margin: _get-page-margin(),
-      footer-descent: if _get-page-margin().x != 1em {
+      footer-descent: if (_get-page-margin().at("x")) != 1em {
         0.2em
       } else {
         0.6em
@@ -814,7 +816,7 @@
         set text(
           fill: black,
           font: settings.FONT,
-          size: 25pt,
+          size: 22pt,
           lang: settings.LANGUAGE,
         )
         set outline(target: heading.where(level: 1), title: none, fill: none)
@@ -824,7 +826,7 @@
         // shows
         show strong: self.methods.alert.with(self: self)
         show footnote.entry: set text(size: 18pt)
-        show table: set text(size: 22pt)
+
         show heading.where(level: 1): set text(size: 1.5em, weight: "bold")
         show heading.where(level: 2): set block(below: 1.5em)
         // color links
