@@ -154,7 +154,7 @@
           columns: (auto, auto, auto),
           rows: (1.4em, 1.4em),
           gutter: 3pt,
-          cell(image("../assets/unistra.svg", width: auto, height: 100%)),
+          cell(self.info.logo),
           cell(
             box(
               text(
@@ -226,8 +226,6 @@
 ///
 /// - `subtitle` (str): The subtitle of the slide. Default: "".
 ///
-/// - `logo-path` (str): The path to the logo. Default: "../assets/unistra.svg".
-///
 /// - `logo-width` (str): The width of the logo. Default: "40%".
 ///
 /// - `logo-height` (str): The height of the logo. Default: "auto".
@@ -236,9 +234,7 @@
 #let title-slide(
   title: "",
   subtitle: "",
-  logo-path: "../assets/unistra.svg",
-  logo-width: 40%,
-  logo-height: auto,
+  logo: "",
   ..args,
 ) = touying-slide-wrapper(self => {
   let info = self.info + args.named()
@@ -260,7 +256,7 @@
           _cell([
             #align(
               left,
-              image(logo-path, width: logo-width, height: logo-height),
+              logo,
             )
           ]),
           _cell([

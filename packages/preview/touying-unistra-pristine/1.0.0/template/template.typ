@@ -8,10 +8,11 @@
     subtitle: [_Subtitle_],
     author: [Author],
     date: datetime.today().display("[month repr:long] [day], [year repr:full]"),
+    logo: image("unistra.svg", width: auto, height: 100%),
   ),
 )
 
-#title-slide[]
+#title-slide(logo-inset: 5mm)[]
 
 = Example Section Title
 

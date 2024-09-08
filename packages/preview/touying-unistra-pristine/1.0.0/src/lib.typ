@@ -1,4 +1,4 @@
-#import "unistra.typ" as unistra
-#import "settings.typ" as settings
+#import "unistra.typ": *
+#import "settings.typ": *
 #import "colors.typ": *
 #import "admonition.typ": *

@@ -13,7 +13,7 @@ keywords = ["touying", "unistra", "strasbourg", "presentation"]
 categories = ["presentation"]
 disciplines = []
 compiler = "0.11.0"
-exclude = []
+exclude = ["/example", "assets/cat1.jpg", "assets/cat2.jpg"]
 
 [template]
 path = "template"

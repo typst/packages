@@ -8,10 +8,11 @@
     subtitle: [_Subtitle_],
     author: [Author],
     date: datetime.today().display("[month repr:long] [day], [year repr:full]"),
+    logo: image("unistra.svg", width: auto, height: 100%),
   ),
 )
 
-#title-slide[]
+#title-slide(logo-inset: 5mm)[]
 
 = Example Section Title
 
@@ -25,16 +26,14 @@ A slide with *important information*.
 This is #highlight(fill: blue)[highlighted in blue]. This is #highlight(fill: yellow)[highlighted in yellow]. This is #highlight(fill: green)[highlighted in green]. This is #highlight(fill: red)[highlighted in red].
 
 #hero(
+  image("cat1.jpg", height: 70%),
   title: "Hero",
   subtitle: "Subtitle",
-  img: "../assets/unistra.svg",
-  img-height: 70%,
   hide-footer: false,
 )
 
 #hero(
-  img: "../assets/cat1.jpg",
-  img-height: 100%,
+  image("cat1.jpg", height: 100%),
   txt: "This is an " + highlight(fill: yellow-light)[RTL#footnote[RTL = right to left. Oh, and here's a footnote!] hero with text and no title] + ".\n" + lorem(40),
   enhanced-text: false,
   rows: (80%),
@@ -44,8 +43,7 @@ This is #highlight(fill: blue)[highlighted in blue]. This is #highlight(fill: ye
 )
 
 #hero(
-  img: "../assets/cat1.jpg",
-  img-height: 100%,
+  image("cat1.jpg", height: 100%),
   txt: "This is an " + highlight(fill: yellow-light)[up-to-down hero with text and no title] + ".\n" + lorem(40),
   direction: "utd",
   enhanced-text: false,
@@ -54,13 +52,11 @@ This is #highlight(fill: blue)[highlighted in blue]. This is #highlight(fill: ye
 )
 
 #gallery(
+  image("cat1.jpg", height: 55%),
+  image("cat2.jpg", height: 55%),
+  image("cat1.jpg", height: 55%),
+  image("cat2.jpg", height: 55%),
   title: "Gallery",
-  images: (
-    "../assets/cat1.jpg",
-    "../assets/cat2.jpg",
-    "../assets/cat1.jpg",
-    "../assets/cat2.jpg",
-  ),
   captions: (
     "Cat 1",
     "Cat 2",
@@ -68,7 +64,6 @@ This is #highlight(fill: blue)[highlighted in blue]. This is #highlight(fill: ye
     "Cat 2 again",
   ),
   columns: 4,
-  height: 55%,
 )
 
 #focus-slide(
