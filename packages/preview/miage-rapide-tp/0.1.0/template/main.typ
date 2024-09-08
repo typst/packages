@@ -1,4 +1,4 @@
-#import "@local/miage-rapide-tp:0.1.0": *
+#import "@preview/miage-rapide-tp:0.1.0": *
 
 #show: doc => conf(
   subtitle: "Rendu TP n°1",
@@ -32,13 +32,13 @@ Une mini introduction pour le TP...
 
 #question("Donne un exemple de code en python.")
 Voici le code nécessaire pour afficher "Hello, World!" en Python :
-#code_block("print('Hello, World!')", "py", title: "HelloWorld en Python")
+#code-block("print('Hello, World!')", "py", title: "HelloWorld en Python")
 
 #question("Une question sans numéro !", counter: false)
 #remarque("La remarque par défaut est très sobre.")
 #question("Passer du code via un fichier ?")
-#code_block(read("code/main.py"), "py")
-#code_block(read("code/example.sql"), "sql", title: "Classic SQL")
+#code-block(read("code/main.py"), "py")
+#code-block(read("code/example.sql"), "sql", title: "Classic SQL")
 
 #question("Une autre question ?")
 $ A = pi r^2 $

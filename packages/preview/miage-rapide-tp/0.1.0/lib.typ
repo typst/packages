@@ -94,7 +94,7 @@
   v(4pt)
 }
 
-#let code_block(code, language, title: none) = {
+#let code-block(code, language, title: none) = {
   v(6pt)
 
   if (title != none) {
