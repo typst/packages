@@ -6,7 +6,6 @@ authors = ["Keaton Jiang <jiang131072@gmail.com>"]
 license = "MIT"
 description = "A template for SZU course reports."
 
-homepage = "https://typst.app/universe/package/casual-szu-report"
 repository = "https://github.com/jiang131072/casual-szu-report"
 keywords = ["SZU", "Shenzhen University", "report"]
 categories = ["report"]
