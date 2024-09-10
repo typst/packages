@@ -1,6 +1,6 @@
 #let ctxjs = plugin("ctxjs.wasm")
 
-#let string_to_bytes(data) = {
+#let string-to-bytes(data) = {
   let data = data
   if type(data) == str {
     data = bytes(data)
@@ -12,38 +12,38 @@
   data
 }
 
-#let create_context(ctx_name) = {
-  ctxjs.create_context(string_to_bytes(ctx_name))
+#let create-context(ctxname) = {
+  ctxjs.create_context(string-to-bytes(ctxname))
 }
 
-#let eval(ctx_name, js) = {
-  cbor.decode(ctxjs.eval(string_to_bytes(ctx_name), string_to_bytes(js)))
+#let eval(ctxname, js) = {
+  cbor.decode(ctxjs.eval(string-to-bytes(ctxname), string-to-bytes(js)))
 }
 
-#let call_function(ctx_name, fn_name, args) = {
-  cbor.decode(ctxjs.call_function(string_to_bytes(ctx_name), string_to_bytes(fn_name), cbor.encode(args)))
+#let call-function(ctxname, fnname, args) = {
+  cbor.decode(ctxjs.call_function(string-to-bytes(ctxname), string-to-bytes(fnname), cbor.encode(args)))
 }
 
-#let define_vars(ctx_name, vars) = {
-  cbor.decode(ctxjs.define_vars(string_to_bytes(ctx_name), cbor.encode(vars)))
+#let define-vars(ctxname, vars) = {
+  cbor.decode(ctxjs.define_vars(string-to-bytes(ctxname), cbor.encode(vars)))
 }
 
-#let eval_format(ctx_name, js, args) = {
-  cbor.decode(ctxjs.eval_format(string_to_bytes(ctx_name), string_to_bytes(js), cbor.encode(args)))
+#let eval-format(ctxname, js, args) = {
+  cbor.decode(ctxjs.eval_format(string-to-bytes(ctxname), string-to-bytes(js), cbor.encode(args)))
 }
 
-#let load_module_bytecode(ctx_name, bytecode) = {
-  ctxjs.load_module_bytecode(string_to_bytes(ctx_name), bytecode)
+#let load-module-bytecode(ctxname, bytecode) = {
+  ctxjs.load_module_bytecode(string-to-bytes(ctxname), bytecode)
 }
 
-#let load_module_js(ctx_name, module_name, module) = {
-  ctxjs.load_module_js(string_to_bytes(ctx_name), string_to_bytes(module_name), string_to_bytes(module))
+#let load-module-js(ctxname, modulename, module) = {
+  ctxjs.load_module_js(string-to-bytes(ctxname), string-to-bytes(modulename), string-to-bytes(module))
 }
 
-#let call_module_function(ctx_name, module_name, fn_name, args) = {
-  cbor.decode(ctxjs.call_module_function(string_to_bytes(ctx_name), string_to_bytes(module_name), string_to_bytes(fn_name), cbor.encode(args)))
+#let call-module-function(ctxname, modulename, fnname, args) = {
+  cbor.decode(ctxjs.call_module_function(string-to-bytes(ctxname), string-to-bytes(modulename), string-to-bytes(fnname), cbor.encode(args)))
 }
 
-#let get_module_properties(ctx_name, module_name) = {
-  cbor.decode(ctxjs.get_module_properties(string_to_bytes(ctx_name), string_to_bytes(module_name)))
+#let get-module-properties(ctxname, modulename) = {
+  cbor.decode(ctxjs.get_module_properties(string-to-bytes(ctxname), string-to-bytes(modulename)))
 }
