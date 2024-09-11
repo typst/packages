@@ -27,6 +27,10 @@ A typst plugin to run echarts in typst with the use of CtxJS.
   </tr>
 </table>
 
+For more examples see:
+
+https://echarts.apache.org/examples/en/index.html
+
 For the complete documentation for the configuration of echarts, see:
 
 https://echarts.apache.org/en/option.html
