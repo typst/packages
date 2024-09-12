@@ -24,7 +24,7 @@ typst init @preview/miage-rapide-tp:{version}
 
 The conf looks like this:
 
-```
+```typ
 #let conf(
   subtitle: none,
   authors: (),
@@ -42,7 +42,7 @@ The conf looks like this:
 
 A question can be added like this:
 
-```
+```typ
 #question("Une question avec numéro ?")
 #question("Une question sans numéro ?", counter: false)
 ```
@@ -53,7 +53,7 @@ The first argument is the question content, and the second (OPTIONAL) is the cou
 
 To use a `code-block`, you can do as follows :
 
-```
+```typ
 #code-block(read("code/main.py"), "py")
 #code-block(read("code/example.sql"), "sql", title: "Classic SQL")
 ```
@@ -64,7 +64,7 @@ The first argument is the code to display, the second is the language of the cod
 
 To use a `remarque`, you can do as follows :
 
-```
+```typ
 #remarque("Ceci est une remarque")
 #remarque("Remarque personnalisée", bg-color: olive, text-color: white)
 ```
