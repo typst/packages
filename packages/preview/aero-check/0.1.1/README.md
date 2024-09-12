@@ -14,7 +14,7 @@ It includes 2 different styles!
 Start your checklist with the following code:
 
 ```typst
-#import "@preview/aero-check:0.1.0": *
+#import "@preview/aero-check:0.1.1": *
 
 #show: checklist.with(
   title: "Title",
