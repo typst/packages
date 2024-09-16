@@ -118,6 +118,8 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `heading-numering (str)`: Numbering style of the headings, default is `"1.1"` (for more information on possible numbering formats check the [Typst documentation](https://typst.app/docs/reference/model/numbering))
 
+`ignored-link-label-keys-for-highlighting (array)`: List of keys of labels that should be ignored when highlighting links in the document, default is `()`
+
 `language (str*)`: Language of the document which is either `en` or `de`, default is `en`
 
 `logo-left (content)`: Path to the logo on the left side of the title page (usage: image("path/to/image.png")), default is the `DHBW logo`

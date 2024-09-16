@@ -53,6 +53,7 @@
   logo-left: image("dhbw.svg"),
   logo-right: none,
   logo-size-ratio: "1:1",
+  ignored-link-label-keys-for-highlighting: (),
   body,
 ) = {
   // check required attributes
@@ -94,6 +95,7 @@
     university-short,
     heading-numbering,
     math-numbering,
+    ignored-link-label-keys-for-highlighting,
   )
 
   // set the document's basic properties
@@ -139,7 +141,7 @@
   } else {
     ()
   }
-  show link: it => if (str(it.dest) not in (acronym-keys + glossary-keys)) {
+  show link: it => if (str(it.dest) not in (acronym-keys + glossary-keys + ignored-link-label-keys-for-highlighting)) {
     text(fill: blue, it)
   } else {
     it
