@@ -9,7 +9,8 @@
   // H1 styling
   show heading.where(level:1): he => {
     set align(center)
-    box(width: 75%)[#{
+    box(width: 85%)[#{
+      set par(justify: false)
       set text(
         size: 20pt,
         weight: "black",
@@ -18,7 +19,8 @@
         hyphenate: false
       )
       if he.numbering != none {
-        counter(heading).display(he.numbering)
+        counter(heading).display(he.numbering.slice(0, -3))
+        linebreak()
       }
       upper(he.body)
       image("assets/filet-long.svg", width: 30%)
@@ -28,15 +30,17 @@
 
   // H2 styling
   show heading.where(level:2): he => {
-    set text(
-      size:20pt,
-      weight: "medium",
-      fill: rgb("00677F"),
-    )
-    smallcaps(he)
-    v(-0.5em)
-    image("assets/filet-court.svg")
-    v(0.3em)
+    box[#{
+      set text(
+        size:20pt,
+        weight: "medium",
+        fill: rgb("00677F"),
+      )
+      smallcaps(he)
+      v(-0.5em)
+      image("assets/filet-court.svg")
+      v(0.3em)
+    }]
   }
 
   // H3 styling
@@ -47,9 +51,10 @@
       fill: rgb("01426A")
     )
     if he.numbering != none {
-      counter(heading).display(he.numbering).slice(0, -2)
+      counter(heading).display(he.numbering.slice(0, -3))
+      [ • ]
     }
-    smallcaps([• ] + he.body)
+    smallcaps(he.body)
   }
 
   // H4 styling
@@ -97,6 +102,8 @@
 really ?
 
 ==== Back again
+
+#heading(level: 3, numbering: none)[Sub-sub-section without numbering]
 
 === Guess who's back ?
 
