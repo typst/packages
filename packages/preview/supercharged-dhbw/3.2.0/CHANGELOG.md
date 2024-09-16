@@ -1,5 +1,11 @@
 # Supercharged-DHBW Changelog
 
+## [v3.2.0] - 2024-09-16
+
+- Remove double space in confidentiality statement
+- Add argument to provide keys that are ignored when highlighting links
+- Remove unnecessary argument `show-appendix`
+
 ## [v3.1.1] - 2024-08-26
 
 - Update declaration of authorship text to match the new DHBW requirements
