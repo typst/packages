@@ -13,7 +13,6 @@
   show-list-of-figures,
   show-list-of-tables,
   show-code-snippets,
-  show-appendix,
   show-abstract,
   header,
   numbering-alignment,
@@ -55,7 +54,6 @@
     show-list-of-figures: show-list-of-figures,
     show-list-of-tables: show-list-of-tables,
     show-code-snippets: show-code-snippets,
-    show-appendix: show-appendix,
     show-abstract: show-abstract,
   )
 

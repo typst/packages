@@ -25,7 +25,6 @@
   show-list-of-figures: true,
   show-list-of-tables: true,
   show-code-snippets: true,
-  show-appendix: false,
   show-abstract: true,
   numbering-alignment: center,
   toc-depth: 3,
@@ -72,7 +71,6 @@
     show-list-of-figures,
     show-list-of-tables,
     show-code-snippets,
-    show-appendix,
     show-abstract,
     header,
     numbering-alignment,
@@ -399,7 +397,7 @@
     bibliography
   }
 
-  if (show-appendix and appendix != none) {
+  if (appendix != none) {
     heading(level: 1, numbering: none)[#APPENDIX.at(language)]
     appendix
   }

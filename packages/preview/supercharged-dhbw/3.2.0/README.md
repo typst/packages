@@ -136,8 +136,6 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `show-acronyms (bool)`: Whether the list of acronyms should be shown, default is `true`
 
-`show-appendix (bool)`: Whether the appendix should be shown, default is `false`
-
 `show-code-snippets (bool)`: Whether the code snippets should be shown, default is `true`
 
 `show-confidentiality-statement (bool)`: Whether the confidentiality statement should be shown, default is `true`
