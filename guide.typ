@@ -1,4 +1,4 @@
-#import "@preview/typographix-polytechnique-reports:0.1.3" as template
+#import "@preview/typographix-polytechnique-reports:0.1.4" as template
 
 #show:  template.apply
 
@@ -25,7 +25,7 @@
 }
 
 // Defining variables for the cover page and PDF metadata
-#let title = [guide for typst #linebreak() polytechnique package]
+#let title = [Guide for Typst #linebreak() Polytechnique package]
 #let subtitle = "A modern alternative to LaTeX"
 #let logo = image("assets/logo-x.svg")
 #let short_title = "package guide"
@@ -63,19 +63,30 @@ Use only one (resp. two) `=` for level 1 (resp. 2) heading (and so on).
 
 ```typc
 // Defining variables for the cover page and PDF metadata
-#let title = [guide for typst #linebreak() polytechnique package]
+// Main title on cover page
+#let title = [Guide for Typst #linebreak() Polytechnique package]
+// Subtitle on cover page
 #let subtitle = "A modern alternative to LaTeX"
-#let logo = image("path/to/my-logo.png")
+// Logo on cover page
+#let logo = none // instead of none set to image("path/to/my-logo.png")
 #let logo-horizontal = true // set to true if the logo is squared or horizontal, set to false if not
+// Short title on headers
 #let short-title = "package guide"
-#let authors = ("Rémi Germe")
-#let date-start = datetime(year: 2024, month: 07, day: 05)
-#let date-end = datetime(year: 2024, month: 08, day: 05)
+#let author = "Rémi Germe"
+#let date-start = datetime(year: 2024, month: 06, day: 05)
+#let date-end = datetime(year: 2024, month: 09, day: 05)
+// Set to true for bigger margins and so on (good luck with your report)
 #let despair-mode = false
 
 #set text(lang: "en")
 
+// Set document metadata
+#set document(title: title, author: author, date: datetime.today())
+#show: template.apply.with(despair-mode: despair-mode)
+
+// Cover page
 #template.cover.cover(title, author, date-start, date-end, subtitle: subtitle, logo: logo, logo-horizontal: logo-horizontal)
+#pagebreak()
 ```
 
 Set text lang to `fr` if you want the months in French. \
