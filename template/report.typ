@@ -1,4 +1,4 @@
-#import "@preview/typographix-polytechnique-reports:0.1.3" as template
+#import "@preview/typographix-polytechnique-reports:0.1.4" as template
 
 // Defining variables for the cover page and PDF metadata
 // Main title on cover page
