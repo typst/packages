@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Quill" src="docs/images/logo.svg" style="max-width: 100%; width: 300pt">
+  <img alt="Quill" src="docs/images/logo.svg">
 </div>
 
 <div align="center">
