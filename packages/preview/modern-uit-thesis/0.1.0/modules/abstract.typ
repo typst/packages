@@ -1,4 +1,4 @@
-#let abstract_page(body) = {
+#let abstract-page(body) = {
   pagebreak(weak: true, to: "even")
   // --- Abstract ---
   align(left)[

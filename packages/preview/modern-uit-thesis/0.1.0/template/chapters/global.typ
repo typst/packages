@@ -16,11 +16,10 @@
 //    If you like to modify "lib.typ", copy the file from the cache directory
 //    or get it from the 'official' Typst Universe package git repo
 //       (i.e. from proper 'version number subdir' of
-//         https://github.com/typst/packages/tree/main/packages/preview/fh-joanneum-iit-thesis)
+//         https://github.com/typst/packages/tree/main/packages/preview/modern-uit-thesis)
 //    Copy the lib.typ to a (sub)folder of this project and
 //    set the path accordingly.
-// #import "@preview/modern-uit-thesis:0.1.0": *
-#import "../../lib.typ": *
+#import "@preview/modern-uit-thesis:0.1.0": *
 
 //
 // Other packages used:

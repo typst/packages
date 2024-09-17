@@ -1,4 +1,4 @@
-#let epigraph_page(body) = {
+#let epigraph-page(body) = {
   // --- Epigraphs ---
   page(
     numbering: none,

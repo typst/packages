@@ -1,4 +1,4 @@
-#let acknowledgements_page(body) = {
+#let acknowledgements-page(body) = {
   pagebreak(weak: true, to: "even")
 
   // --- Acknowledgements ---
