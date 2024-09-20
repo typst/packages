@@ -1,5 +1,9 @@
 # Supercharged-DHBW Changelog
 
+## [v3.3.0] - 2024-09-20
+
+- Display current chapter in the header instead of the title
+
 ## [v3.2.0] - 2024-09-16
 
 - Remove double space in confidentiality statement

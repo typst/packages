@@ -42,7 +42,7 @@
   }
 
   if (header != none and type(header) != dictionary) {
-    panic("Header is invalid. Specify a dictionary in the 'header' attribute of the template. The following attributes can be set: 'display', 'show-title', 'show-left-logo', 'show-right-logo', 'show-divider', 'content'.")
+    panic("Header is invalid. Specify a dictionary in the 'header' attribute of the template. The following attributes can be set: 'display', 'show-chapter', 'show-left-logo', 'show-right-logo', 'show-divider', 'content'.")
   }
 
   let boolean-attributes = (

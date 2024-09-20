@@ -192,8 +192,8 @@
     none
   }
 
-  let show-header-title = if (header != none and ("show-title" in header)) {
-    header.show-title
+  let show-header-chapter = if (header != none and ("show-chapter" in header)) {
+    header.show-chapter
   } else {
     true
   }
@@ -218,7 +218,7 @@
 
   set page(
     margin: (top: 8em, bottom: 8em),
-    header: {
+    header: context {
       if (display-header) {
         if (header-content != none) {
           header.content
@@ -227,8 +227,41 @@
             columns: (1fr, auto),
             align: (left, right),
             gutter: 2em,
-            if (show-header-title) {
-              emph(align(center + horizon, text(size: 10pt, title)))
+            if (show-header-chapter) {
+              align(left + bottom)[
+                #let headings = query(heading.where(level: 1))
+                #if headings.len() > 0 and not headings.any(it => (it.location().page() == here().page())) {
+                  let elems = query(
+                    selector(heading.where(level: 1)).before(here()),
+                  )
+
+                  if (elems.len() > 0) {
+                    let current-heading = elems.last()
+                    let heading-counter = if current-heading.numbering == none {
+                      none
+                    } else {
+                      counter(heading).get().first()
+                    }
+
+                    [#heading-counter #current-heading.body]
+                  }
+                } else {
+                  let elems = query(
+                    selector(heading.where(level: 1)).after(here()),
+                  )
+
+                  if (elems.len() > 0) {
+                    let current-heading = elems.first()
+                    let heading-counter = if current-heading.numbering == none {
+                      none
+                    } else {
+                      counter(heading).get().first() + 1
+                    }
+
+                    [#heading-counter #current-heading.body]
+                  }
+                }
+              ]
             },
             stack(
               dir: ltr,
@@ -317,7 +350,7 @@
 
     if (show-list-of-figures and count > 0) {
       outline(
-        title: [#heading(level: 3)[#LIST_OF_FIGURES.at(language)]],
+        title: LIST_OF_FIGURES.at(language),
         target: figure.where(kind: image),
       )
     }
@@ -329,7 +362,7 @@
 
     if (show-list-of-tables and count > 0) {
       outline(
-        title: [#heading(level: 3)[#LIST_OF_TABLES.at(language)]],
+        title: LIST_OF_TABLES.at(language),
         target: figure.where(kind: table),
       )
     }
@@ -341,7 +374,7 @@
 
     if (show-code-snippets and count > 0) {
       outline(
-        title: [#heading(level: 3)[#CODE_SNIPPETS.at(language)]],
+        title: CODE_SNIPPETS.at(language),
         target: figure.where(kind: raw),
       )
     }

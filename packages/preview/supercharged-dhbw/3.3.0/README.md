@@ -110,7 +110,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 `header (dictionary)`: Configure the header of the document
 
 - display (bool): Whether the header should be shown, default is `true`
-- show-title (bool): Whether the title should be shown in the header, default is `true`
+- show-chapter (bool): Whether the current chapter should be shown in the header, default is `true`
 - show-left-logo (bool): Whether the left logo should be shown in the header, default is `true`
 - show-right-logo (bool): Whether the right logo should be shown in the header, default is `true`
 - show-divider (bool): Whether the header divider should be shown, default is `true`
