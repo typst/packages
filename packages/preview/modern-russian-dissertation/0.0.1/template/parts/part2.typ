@@ -1,6 +1,7 @@
-#import "@preview/modern-russian-dissertation:0.0.1": *
-
+#import "@preview/modern-russian-dissertation:0.0.2": *
 #part_count.step() // Обновление счетчика разделов 
+#show: fix-indent()
+
 = Длинное название главы, в которой мы смотрим на примеры того, как будут верстаться изображения и списки <ch2>
 == Одиночное изображение <ch2:sec1>
 
@@ -10,7 +11,7 @@
   caption: [Typst]
 ) <fig:typst>
 
-И сослаться на него: @fig:typst
+И сослаться на него: На рисунке @fig:typst показано ...
 
 #lorem(100) // текст заполнителя для шаблона 
 

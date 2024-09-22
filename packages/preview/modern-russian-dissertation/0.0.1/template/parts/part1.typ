@@ -1,6 +1,7 @@
-#import "@preview/modern-russian-dissertation:0.0.1": *
-
+#import "@preview/modern-russian-dissertation:0.0.2": *
 #part_count.step() // Обновление счетчика разделов 
+#show: fix-indent()
+
 = Оформление различных элементов <ch1>
 
 == Форматирование текста <ch1:sec1>

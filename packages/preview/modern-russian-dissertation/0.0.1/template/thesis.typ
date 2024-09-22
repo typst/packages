@@ -1,5 +1,5 @@
 
-#import "@preview/modern-russian-dissertation:0.0.1": *
+#import "@preview/modern-russian-dissertation:0.0.2": *
 
 // Определение шаблона 
 #show: template.with(

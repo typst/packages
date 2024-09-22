@@ -2,6 +2,7 @@
 #import "@preview/codly:0.2.0": *
 #import "@preview/tablex:0.0.8": *
 #import "@preview/physica:0.9.3": *
+#import "@preview/indenta:0.0.3": fix-indent
 #import "./glossarium.typ": *
 
 // Счетчики  
@@ -72,7 +73,7 @@
     justify: true, 
     linebreaks: "optimized",
     first-line-indent: 2.5em, // Абзацный отступ. Должен быть одинаковым по всему тексту и равен пяти знакам (ГОСТ Р 7.0.11-2011, 5.3.7).
-    leading: 1.5em, // Полуторный интервал (ГОСТ 7.0.11-2011, 5.3.6)
+    leading: 1em, // Полуторный интервал (ГОСТ 7.0.11-2011, 5.3.6)
   ) 
     
   // форматирование заголовков

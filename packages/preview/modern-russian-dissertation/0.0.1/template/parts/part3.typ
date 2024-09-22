@@ -1,6 +1,7 @@
-#import "@preview/modern-russian-dissertation:0.0.1": *
-
+#import "@preview/modern-russian-dissertation:0.0.2": *
 #part_count.step() // Обновление счетчика разделов 
+#show: fix-indent()
+
 = Вёрстка таблиц <ch3>
 
 == Таблица обыкновенная <ch3:sect1>
@@ -29,7 +30,7 @@
   caption: [Площади основания фигур]
 ) <t1>
 
-На все таблицы в тексте диссертации необходимо приводить ссылки: @t1. Подробнее о таблицах здесь: https://typst.app/docs/reference/model/table/. 
+На все таблицы в тексте диссертации необходимо приводить ссылки: в таблице @t1. Подробнее о таблицах здесь: https://typst.app/docs/reference/model/table/. 
 
 
 == Проверка нумерации уравнений по разделам 

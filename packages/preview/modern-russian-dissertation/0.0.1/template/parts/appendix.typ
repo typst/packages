@@ -1,4 +1,4 @@
-#import "@preview/modern-russian-dissertation:0.0.1": *
+#import "@preview/modern-russian-dissertation:0.0.2": *
 #show: phd-appendix 
 
 = Примеры вставки листингов программного кода <app:A>
