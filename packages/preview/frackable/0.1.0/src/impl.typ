@@ -54,10 +54,10 @@
 /// Create vulgar fractions using unicode
 /// #example(```typ
 /// #frackable()
-/// #frackable(denominator: 3)
-/// #frackable(numerator: 9, denominator: 16)
-/// #frackable(numerator: 31, denominator: 32)
-/// #frackable(numerator: 0, denominator: "000")
+/// #frackable(1, 3)
+/// #frackable(9, 16)
+/// #frackable(31, 32)
+/// #frackable(0, "000")
 /// ```, scale-preview: 200%)
 /// 
 /// - numerator (integer, string): The top part of the fraction.
@@ -73,8 +73,8 @@
 ///       ```, scale-preview: 75%)
 /// -> content
 #let frackable(
-  numerator: 1,
-  denominator: 2,
+  numerator,
+  denominator,
   use-predefined: true
 ) = {
   (numerator, denominator) = (str(numerator), str(denominator))
