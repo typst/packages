@@ -1,6 +1,5 @@
 // This template is licensed under the MIT-0 License. You can freely use and modify this template without any restrictions.
-// #import "@preview/stellar-iac:0.4.1": project
-#import "../lib.typ": project
+#import "@preview/stellar-iac:0.4.1": project
 
 #show: project.with(
   paper-code: "IAC-24-A1.2.3",
