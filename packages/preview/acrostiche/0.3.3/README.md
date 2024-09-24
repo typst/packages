@@ -1,11 +1,11 @@
-# Acrostiche (0.3.2)
+# Acrostiche (0.3.3)
 
 Manages acronyms so you don't have to.
 
 ## Quick Start
 
 ```
-#import "@preview/acrostiche:0.3.2": *
+#import "@preview/acrostiche:0.3.3": *
 
 #init-acronyms((
   "WTP": ("Wonderful Typst Package","Wonderful Typst Packages"),
@@ -29,7 +29,7 @@ Then, initialize Arostiche with the acronyms you just defined with the `#init-ac
 
 Here is a sample of the `acronyms.typ` file:
 ```
-#import "@preview/acrostiche:0.3.2": *
+#import "@preview/acrostiche:0.3.3": *
 
 #init-acronyms((
   "NN": ("Neural Network"),
@@ -59,10 +59,29 @@ To adjust the spacing between the acronyms adjust the `row-gutter: auto | int | 
 
 Finally, you can call the `#display-def(...)` function to display the definition of an acronym. Set the `plural` parameter to true to get the plural version.
 
+### Functions Summary:
+
+| **Function**                  | **Description**                                                                                                     |
+|-------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| **#init-acronyms(...)**        | Initializes the acronyms by defining them in a dictionary where the keys are acronyms and the values are definitions. |
+| **#acr(...)**                  | Prints the acronym with its definition on the first call, then just the acronym in subsequent calls.                  |
+| **#acrpl(...)**                | Prints the plural version of the acronym. Uses plural definition if available, otherwise adds an 's' to the acronym. |
+| **#acrfull(...)**              | Displays the full (long) version of the acronym without affecting the state or tracking its usage.                    |
+| **#acrfullpl(...)**            | Displays the full plural version of the acronym without affecting the state or tracking its usage.                    |
+| **#reset-acronym(...)**        | Resets a single acronym so the next usage will include its definition again.                                         |
+| **#reset-all-acronyms()**      | Resets all acronyms so the next usage will include their definitions again.                                          |
+| **#print-index(...)**          | Prints an index of all acronyms used, with customizable heading level, order, and display parameters.                |
+| **#display-def(...)**          | Displays the definition of an acronym. Use `plural: true` to display the plural version of the definition.           |
+
+
+
 ## Possible Errors:
 
  * If an acronym is not defined, an error will tell you which one is causing the error. Simply add it to the dictionary or check the spelling.
  * For every acronym "ABC" that you define, the state named "acronym-state-ABC" is initialized and used. To avoid errors, do not try to use this state manually for other purposes. Similarly, the state named "acronyms" is reserved to Acrostiche; avoid using it.
  * `display-def` leverages the state `display` function and only works if the return value is actually printed in the document. For more information on states, see the Typst documentation on states.
 
+Thank you to the contributors for proposing new features: **caemor**, **AurelWeinhold**, **daniel-eder**. 
+
 If you notice any bug or want to contribute a new feature, please open an issue or a merge request on the fork [Grisely/packages](https://github.com/Grisely/packages)
+
