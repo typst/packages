@@ -2,7 +2,7 @@ A simple module to write [tengwar](https://en.wikipedia.org/wiki/Tengwar) in [Ty
 
 ## Requirements
 
-- [Typst](https://github.com/typst/typst) version 1.11.0 or 1.11.1
+- [Typst](https://github.com/typst/typst) version 0.11.0 or 0.11.1
 - The [Tengwar Annatar](https://www.fontspace.com/tengwar-annatar-font-f2244) fonts version 1.20
 
 To use this module with the [Typst web app](https://typst.app/), you need to upload the font files to your project.
