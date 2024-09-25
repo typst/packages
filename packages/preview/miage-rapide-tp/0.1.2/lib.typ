@@ -6,7 +6,7 @@
   font: "Satoshi",
   date: none,
   years: (2024, 2025),
-  years_label: "Année universitaire",
+  years-label: "Année universitaire",
   title,
   doc,
 ) = {
@@ -35,7 +35,7 @@
     }
     #line(length: 100%)
     #v(64pt)
-    #text(20pt, years_label + str(": "))
+    #text(20pt, years-label + str(": "))
     #text(20pt, years.map(year => str(year)).join("-"))
 
     #align(bottom)[

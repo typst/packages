@@ -33,7 +33,7 @@ The conf looks like this:
   font: "Satoshi",
   date: none,
   years: (2024, 2025),
-  years_label: "Année universitaire",
+  years-label: "Année universitaire",
   title,
   doc,
 )

@@ -21,7 +21,7 @@
   font: "Satoshi",
   date: "05/09/2023",
   years: (2024, 2025),
-  years_label: "Année universitaire",
+  years-label: "Année universitaire",
   "L3 MIAGE - Base de données",
   doc
 )
