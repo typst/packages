@@ -6,13 +6,13 @@
 
   language: "en",
 
-  title_de: "",
-  keywords_de: none,
-  abstract_de: none,
+  title-de: "",
+  keywords-de: none,
+  abstract-de: none,
 
-  title_en: none,
-  keywords_en: none,
-  abstract_en: none,
+  title-en: none,
+  keywords-en: none,
+  abstract-en: none,
 
   author: "",
   faculty: "",
@@ -30,9 +30,9 @@
   }
   let PAGE_MARGIN_TOP = 37mm
 
-  let title = title_de
+  let title = title-de
   if language == "en" {
-    title = title_en
+    title = title-en
   }
 
   // Set the document's basic properties.
@@ -162,23 +162,23 @@
   )
 
   // Abstract
-  if abstract_de != none or abstract_en != none {
+  if abstract-de != none or abstract-en != none {
     import "pages/abstract.typ": abstract_page
     if (language == "en") {
       abstract_page(
         language: "en",
         author: author,
-        title: title_en,
-        keywords: keywords_en,
-        abstract: abstract_en,
+        title: title-en,
+        keywords: keywords-en,
+        abstract: abstract-en,
       )
     }
     abstract_page(
       language: "de",
       author: author,
-      title: title_de,
-      keywords: keywords_de,
-      abstract: abstract_de,
+      title: title-de,
+      keywords: keywords-de,
+      abstract: abstract-de,
     )
   }
 

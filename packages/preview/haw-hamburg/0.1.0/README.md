@@ -29,13 +29,13 @@ To use this package, simply add the following code to your document:
 #show: bachelor-thesis.with(
   language: "en",
 
-  title_de: "Beispiel Titel",
-  keywords_de: ("Stichwort", "Wichtig", "Super"),
-  abstract_de: "Beispiel Zusammenfassung",
+  title-de: "Beispiel Titel",
+  keywords-de: ("Stichwort", "Wichtig", "Super"),
+  abstract-de: "Beispiel Zusammenfassung",
 
-  title_en: "Example title",
-  keywords_en:  ("Keyword", "Important", "Super"),
-  abstract_en: "Example abstract",
+  title-en: "Example title",
+  keywords-en:  ("Keyword", "Important", "Super"),
+  abstract-en: "Example abstract",
 
   author: "Example author",
   faculty: "Engineering and Computer Science",
@@ -55,13 +55,13 @@ To use this package, simply add the following code to your document:
 #show: master-thesis.with(
   language: "en",
 
-  title_de: "Beispiel Titel",
-  keywords_de: ("Stichwort", "Wichtig", "Super"),
-  abstract_de: "Beispiel Zusammenfassung",
+  title-de: "Beispiel Titel",
+  keywords-de: ("Stichwort", "Wichtig", "Super"),
+  abstract-de: "Beispiel Zusammenfassung",
 
-  title_en: "Example title",
-  keywords_en:  ("Keyword", "Important", "Super"),
-  abstract_en: "Example abstract",
+  title-en: "Example title",
+  keywords-en:  ("Keyword", "Important", "Super"),
+  abstract-en: "Example abstract",
 
   author: "The Computer",
   faculty: "Engineering and Computer Science",

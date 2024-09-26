@@ -7,16 +7,16 @@
 #show: bachelor-thesis.with(
   language: "en",
 
-  title_de: "Antwort auf die endgültige Frage nach dem Leben, dem Universum und dem ganzen Rest",
-  keywords_de: ("Leben", "Universum", "Alles"),
-  abstract_de: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+  title-de: "Antwort auf die endgültige Frage nach dem Leben, dem Universum und dem ganzen Rest",
+  keywords-de: ("Leben", "Universum", "Alles"),
+  abstract-de: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae,
 felis. Curabitur dictum gravida mauris. Nam arcu lib
 ero, nonummy eget, consectetuer id, vulputate a, magna.",
 
-  title_en: "Answer to the Ultimate Question of Life, the Universe, and Everything",
-  keywords_en:  ("Live", "Universe", "Everything"),
-  abstract_en: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+  title-en: "Answer to the Ultimate Question of Life, the Universe, and Everything",
+  keywords-en:  ("Live", "Universe", "Everything"),
+  abstract-en: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae,
 felis. Curabitur dictum gravida mauris. Nam arcu lib
 ero, nonummy eget, consectetuer id, vulputate a, magna.",

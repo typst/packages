@@ -16,13 +16,13 @@
 
     language: language,
     
-    title_de: title,
-    keywords_de: none,
-    abstract_de: none,
+    title-de: title,
+    keywords-de: none,
+    abstract-de: none,
 
-    title_en: title,
-    keywords_en: none,
-    abstract_en: none,
+    title-en: title,
+    keywords-en: none,
+    abstract-en: none,
 
     author: author,
     faculty: faculty,
@@ -38,13 +38,13 @@
 #let bachelor-thesis(
   language: "en",
 
-  title_de: "",
-  keywords_de: none,
-  abstract_de: none,
+  title-de: "",
+  keywords-de: none,
+  abstract-de: none,
 
-  title_en: none,
-  keywords_en: none,
-  abstract_en: none,
+  title-en: none,
+  keywords-en: none,
+  abstract-en: none,
 
   author: "",
   faculty: "",
@@ -64,13 +64,13 @@
 
     language: language,
 
-    title_de: title_de,
-    keywords_de: keywords_de,
-    abstract_de: abstract_de,
+    title-de: title-de,
+    keywords-de: keywords-de,
+    abstract-de: abstract-de,
 
-    title_en: title_en,
-    keywords_en: keywords_en,
-    abstract_en: abstract_en,
+    title-en: title-en,
+    keywords-en: keywords-en,
+    abstract-en: abstract-en,
 
     author: author,
     faculty: faculty,
@@ -86,13 +86,13 @@
 #let master-thesis(
   language: "en",
 
-  title_de: "",
-  keywords_de: none,
-  abstract_de: none,
+  title-de: "",
+  keywords-de: none,
+  abstract-de: none,
 
-  title_en: none,
-  keywords_en: none,
-  abstract_en: none,
+  title-en: none,
+  keywords-en: none,
+  abstract-en: none,
 
   author: "",
   faculty: "",
@@ -112,13 +112,13 @@
 
     language: language,
 
-    title_de: title_de,
-    keywords_de: keywords_de,
-    abstract_de: abstract_de,
+    title-de: title-de,
+    keywords-de: keywords-de,
+    abstract-de: abstract-de,
 
-    title_en: title_en,
-    keywords_en: keywords_en,
-    abstract_en: abstract_en,
+    title-en: title-en,
+    keywords-en: keywords-en,
+    abstract-en: abstract-en,
 
     author: author,
     faculty: faculty,
