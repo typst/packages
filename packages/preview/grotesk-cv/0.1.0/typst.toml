@@ -7,7 +7,9 @@ license = "MIT"
 description = "Clean CV template based on the awesome-cv and Skywalker templates"
 keywords = ["cv", "resume", "cover-letter", "curriculum-vitae"]
 categories = ["cv", "layout"]
+exclude = ["*.pdf"]
 
 [template]
+path = "template"
 entrypoint = "cv.typ"
 thumbnail = "thumbnail.png"
