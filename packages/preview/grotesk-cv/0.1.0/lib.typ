@@ -100,15 +100,14 @@
 
 #let headerTable() = {
   table(
-        columns: 1fr,
-        inset: 0pt,
-        stroke: none,
-        row-gutter: 4mm,
-        [#nameBlock()],
-        [#titleBlock()],
-        //[],
-        [#infoBlock()],
-    )
+    columns: 1fr,
+    inset: 0pt,
+    stroke: none,
+    row-gutter: 4mm,
+    [#nameBlock()],
+    [#titleBlock()],
+    [#infoBlock()],
+  )
 }
 
 #let makeHeaderPhoto(profilePhoto) = {
