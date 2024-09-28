@@ -1,14 +1,14 @@
-#let firstName = "Miles"
-#let lastName = "Dyson"
-#let subTitle = ""
-#let profileImage = "template/img/portrait.png"
-#let language = "en"
+#let first-name = "Miles"
+#let last-name = "Dyson"
+#let sub-title = ""
+#let profile-image = "template/img/portrait.png"
+#let language = "es"
 
 
 #if language == "en" {
-  subTitle = "Software Engineer with a knack for human-friendly AI solutions"
+  sub-title = "Software Engineer with a knack for human-friendly AI solutions"
 } else if language == "es" {
-  subTitle = "Ingeniero de software con un talento para soluciones de IA centradas en el usuario"
+  sub-title = "Ingeniero de software con un talento para soluciones de IA centradas en el usuario"
 }
 
 #let info = (

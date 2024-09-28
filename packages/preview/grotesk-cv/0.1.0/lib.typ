@@ -1,21 +1,21 @@
 #import "metadata.typ": *
 #import "@preview/fontawesome:0.2.1": *
 
-#let textFont = "Hanken Grotesk"
-#let textSize = 9pt
-#let headerName = [#firstName #lastName]
-#let title = [#subTitle]
+#let text-font = "Hanken Grotesk"
+#let text-size = 9pt
+#let header-name = [#first-name #last-name]
+#let title = [#sub-title]
 
 
-#let textColors = (
-  lightGray: rgb("#ededef"),
-  mediumGray: rgb("#78787e"),
-  darkGray: rgb("#3c3c42"),
+#let text-colors = (
+  light-gray: rgb("#ededef"),
+  medium-gray: rgb("#78787e"),
+  dark-gray: rgb("#3c3c42"),
 )
 
-#let accentColor = rgb("#d4d2cc")
+#let accent-color = rgb("#d4d2cc")
 
-#let importSection(file) = {
+#let import-section(file) = {
   include {
     "content/" + file + ".typ"
   }
@@ -24,9 +24,9 @@
 
 #let layout(doc) = {
   set text(
-    fill: textColors.darkGray,
-    font: "Hanken Grotesk",
-    size: textSize,
+    fill: text-colors.dark-gray,
+    font: text-font,
+    size: text-size,
   )
   set align(left)
   set page(
@@ -42,80 +42,76 @@
   doc
 }
 
-#let sectionTitleStyle(str) = {
+#let section-title-style(str) = {
   text(
-    font: "Hanken Grotesk",
     size: 12pt,
     weight: "bold",
-    fill: textColors.darkGray,
+    fill: text-colors.dark-gray,
     str,
   )
 }
 
-#let nameBlock() = {
+#let name-block() = {
   text(
-    font: "Hanken Grotesk",
-    fill: textColors.darkGray,
+    fill: text-colors.dark-gray,
     size: 30pt,
     weight: "extrabold",
-    headerName,
+    header-name,
   )
 }
 
-#let titleBlock() = {
+#let title-block() = {
   text(
-    font: "Hanken Grotesk",
     size: 15pt,
     style: "italic",
-    fill: textColors.darkGray,
+    fill: text-colors.dark-gray,
     title,
   )
 }
 
-#let infoBlockStyle(icon, txt) = {
+#let info-block-style(icon, txt) = {
   text(
-    font: "Hanken Grotesk",
     size: 10pt,
-    fill: textColors.mediumGray,
+    fill: text-colors.medium-gray,
     weight: "medium",
     fa-icon(icon) + h(5pt) + txt,
   )
 }
 
-#let infoBlock() = {
+#let info-block() = {
   table(
     columns: 1fr,
     inset: -1pt,
     stroke: none,
     row-gutter: 3mm,
-    [#infoBlockStyle("location-dot", info.address) #h(2pt) #infoBlockStyle(
+    [#info-block-style("location-dot", info.address) #h(2pt) #info-block-style(
         "phone",
         info.telephone,
-      ) #h(2pt) #infoBlockStyle("envelope", info.email) #h(2pt) #infoBlockStyle(
+      ) #h(2pt) #info-block-style("envelope", info.email) #h(2pt) #info-block-style(
         "linkedin",
         info.linkedin,
-      ) #h(2pt) #infoBlockStyle("github", info.github)],
+      ) #h(2pt) #info-block-style("github", info.github)],
   )
 }
 
-#let headerTable() = {
+#let header-table() = {
   table(
     columns: 1fr,
     inset: 0pt,
     stroke: none,
     row-gutter: 4mm,
-    [#nameBlock()],
-    [#titleBlock()],
-    [#infoBlock()],
+    [#name-block()],
+    [#title-block()],
+    [#info-block()],
   )
 }
 
-#let makeHeaderPhoto(profilePhoto) = {
-  if profilePhoto != false {
+#let make-header-photo(profile-photo) = {
+  if profile-photo != false {
     box(
       clip: true,
       radius: 50%,
-      image(profileImage),
+      image(profile-image),
     )
   } else {
     box(
@@ -127,7 +123,7 @@
   }
 }
 
-#let cvHeader(leftComp, rightComp, cols, align) = {
+#let cv-header(left-comp, right-comp, cols, align) = {
   table(
     columns: cols,
     inset: 0pt,
@@ -135,31 +131,31 @@
     column-gutter: 10pt,
     align: horizon,
     {
-      leftComp
+      left-comp
     },
     {
-      rightComp
+      right-comp
     }
   )
 }
 
-#let createHeader(
-  usePhoto: false,
+#let create-header(
+  use-photo: false,
 ) = {
-  cvHeader(
-    headerTable(),
-    makeHeaderPhoto(usePhoto),
+  cv-header(
+    header-table(),
+    make-header-photo(use-photo),
     (74%, 20%),
     left,
   )
 }
 
-#let cvSection(title) = {
-  sectionTitleStyle(title)
+#let cv-section(title) = {
+  section-title-style(title)
   h(4pt)
 }
 
-#let dateStyle(date) = (
+#let date-style(date) = (
   table.cell(
     align: right,
     text(
@@ -171,7 +167,7 @@
   )
 )
 
-#let degreeStyle(degree) = (
+#let degree-style(degree) = (
   text(
     size: 10pt,
     weight: "bold",
@@ -179,7 +175,7 @@
   )
 )
 
-#let institutionStyle(institution) = (
+#let institution-style(institution) = (
   table.cell(
     text(
       size: 9pt,
@@ -190,7 +186,7 @@
   )
 )
 
-#let locationStyle(location) = (
+#let location-style(location) = (
   table.cell(
     text(
       style: "italic",
@@ -200,7 +196,7 @@
   )
 )
 
-#let tagStyle(str) = {
+#let tag-style(str) = {
   align(
     right,
     text(
@@ -210,30 +206,28 @@
   )
 }
 
-#let tagListStyle(tags) = {
+#let tag-list-style(tags) = {
   for tag in tags {
     box(
       inset: (x: 0.4em),
       outset: (y: 0.3em),
-      fill: accentColor,
+      fill: accent-color,
       radius: 3pt,
-      tagStyle(tag),
+      tag-style(tag),
     )
     h(5pt)
   }
 }
 
-#let profileEntry(str) = {
+#let profile-entry(str) = {
   text(
-    font: "Hanken Grotesk",
-    size: textSize,
+    size: text-size,
     weight: "medium",
-    fill: textColors.darkGray,
     str,
   )
 }
 
-#let referenceEntry(
+#let reference-entry(
   name: "Name",
   title: "Title",
   company: "Company",
@@ -245,14 +239,14 @@
     inset: 0pt,
     stroke: none,
     row-gutter: 3mm,
-    [#degreeStyle(name)],
-    [#dateStyle(company)],
-    table.cell(colspan: 2)[#institutionStyle(telephone), #locationStyle(email)],
+    [#degree-style(name)],
+    [#date-style(company)],
+    table.cell(colspan: 2)[#institution-style(telephone), #location-style(email)],
   )
   v(2pt)
 }
 
-#let educationEntry(
+#let education-entry(
   degree: "Degree",
   date: "Date",
   institution: "Institution",
@@ -265,13 +259,13 @@
     inset: 0pt,
     stroke: none,
     row-gutter: 3mm,
-    [#degreeStyle(degree)], [#dateStyle(date)],
-    [#institutionStyle(institution), #locationStyle(location)],
+    [#degree-style(degree)], [#date-style(date)],
+    [#institution-style(institution), #location-style(location)],
   )
   v(2pt)
 }
 
-#let experienceEntry(
+#let experience-entry(
   title: "Title",
   date: "Date",
   company: "Company",
@@ -282,31 +276,31 @@
     inset: 0pt,
     stroke: none,
     row-gutter: 3mm,
-    [#degreeStyle(title)] ,
-    [#dateStyle(date)],
-    table.cell(colspan: 2)[#institutionStyle(company), #locationStyle(location)],
+    [#degree-style(title)] ,
+    [#date-style(date)],
+    table.cell(colspan: 2)[#institution-style(company), #location-style(location)],
   )
   v(5pt)
 }
 
-#let skillStyle(skill) = {
+#let skill-style(skill) = {
   text(
     weight: "bold",
     skill,
   )
 }
 
-#let skillTag(skill) = {
+#let skill-tag(skill) = {
   box(
     inset: (x: 0.3em),
     outset: (y: 0.2em),
-    fill: accentColor,
+    fill: accent-color,
     radius: 3pt,
-    skillStyle(skill),
+    skill-style(skill),
   )
 }
 
-#let skillEntry(
+#let skill-entry(
   skills: (),
 ) = {
   table(
@@ -317,13 +311,13 @@
     column-gutter: 3mm,
     align: center,
     for sk in skills {
-      [#skillTag(sk) #h(4pt)]
+      [#skill-tag(sk) #h(4pt)]
     },
   )
 }
 
 
-#let languageEntry(
+#let language-entry(
   language: "Language",
   proficiency: "Proficiency",
 ) = {
@@ -349,14 +343,14 @@
   )
 }
 
-#let recipientStyle(str) = {
+#let recipient-style(str) = {
   text(
     style: "italic",
     str,
   )
 }
 
-#let recipientEntry(
+#let recipient-entry(
   name: "Name",
   title: "Title",
   company: "Company",
@@ -369,22 +363,22 @@
     stroke: none,
     row-gutter: 3mm,
     align: left,
-    recipientStyle(name),
-    recipientStyle(title),
-    recipientStyle(company),
-    recipientStyle(address),
+    recipient-style(name),
+    recipient-style(title),
+    recipient-style(company),
+    recipient-style(address),
   )
 }
 
-#let getHeaderByLanguage(englishString, spanishString) = {
+#let get-header-by-language(english-string, spanish-string) = {
   if language == "en" {
-    englishString
+    english-string
   } else if language == "es" {
-    spanishString
+    spanish-string
   }
 }
 
-#let isSpanish() = {
+#let is-spanish() = {
   if language == "es" {
     true
   } else {
@@ -392,7 +386,7 @@
   }
 }
 
-#let isEnglish() = {
+#let is-english() = {
   if language == "en" {
     true
   } else {

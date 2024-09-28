@@ -2,15 +2,15 @@
 #import "@preview/fontawesome:0.2.1": *
 
 
-== #fa-icon("screwdriver-wrench") #h(5pt) #getHeaderByLanguage("Skills", "Habilidades")
+== #fa-icon("screwdriver-wrench") #h(5pt) #get-header-by-language("Skills", "Habilidades")
 
 #v(0pt)
 
-#if isEnglish() [
+#if is-english() [
 
   === Programming languages
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [C++],
     [Python],
     [Java],
@@ -18,7 +18,7 @@
 
   === AI/ML
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [TensorFlow],
     [PyTorch],
     [OpenAI],
@@ -26,7 +26,7 @@
 
   === DevOPS
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [Docker],
     [Kubernetes],
     [Jenkins],
@@ -35,7 +35,7 @@
 
   === Robotics
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [ROS],
     [Gazebo],
     [URDF],
@@ -43,7 +43,7 @@
 
   === Databases
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [SQL],
     [NoSQL],
     [MongoDB],
@@ -51,18 +51,18 @@
 
   === Tools
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [Git],
     [Jira],
     [Confluence],
     [Slack],
   ))
 
-] else if isSpanish() [
+] else if is-spanish() [
 
   === Lenguajes de programación
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [C++],
     [Python],
     [Java],
@@ -70,7 +70,7 @@
 
   === IA/Aprendizaje automático
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [TensorFlow],
     [PyTorch],
     [OpenAI],
@@ -78,7 +78,7 @@
 
   === DevOPS
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [Docker],
     [Kubernetes],
     [Jenkins],
@@ -87,7 +87,7 @@
 
   === Robótica
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [ROS],
     [Gazebo],
     [URDF],
@@ -95,7 +95,7 @@
 
   === Bases de datos
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [SQL],
     [NoSQL],
     [MongoDB],
@@ -103,7 +103,7 @@
 
   === Herramientas
 
-  #skillEntry(skills: (
+  #skill-entry(skills: (
     [Git],
     [Jira],
     [Confluence],

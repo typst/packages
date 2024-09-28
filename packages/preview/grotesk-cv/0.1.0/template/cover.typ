@@ -1,13 +1,13 @@
-#import "../lib.typ": *
+#import "@preview/grotesk-cv:0.1.0": *
 #import "@preview/fontawesome:0.2.1": *
 
 #show: layout
 
-#let usePhoto = true
+#let use-photo = true
 
-#createHeader(usePhoto: usePhoto)
+#create-header(use-photo: use-photo)
 
-#if not usePhoto {
+#if not use-photo {
   v(30pt)
 }
 
@@ -15,7 +15,7 @@
 
 #datetime.today().display()
 
-#recipientEntry(
+#recipient-entry(
   name: [Jane Doe],
   title: [Hiring Manager],
   company: [Cyberdyne Systems],
@@ -24,7 +24,7 @@
 
 #v(20pt)
 
-#cvSection("Senior AI Engineer in search of a news challenges")
+#cv-section("Senior AI Engineer in search of a news challenges")
 
 #v(10pt)
 
@@ -41,4 +41,4 @@ I am confident that my combination of technical expertise and hands-on experienc
 Thank you for considering my application. I would love to discuss how I can apply my unique skill set to help drive your AI initiatives forward. Please feel free to contact me at your convenience to schedule a conversation.
 
 Best regards,#v(0pt)
-#firstName #lastName
+#first-name #last-name

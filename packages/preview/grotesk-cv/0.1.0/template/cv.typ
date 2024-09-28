@@ -1,11 +1,10 @@
-//#import "../lib.typ": *
 #import "@preview/grotesk-cv:0.1.0": *
 
 #show: layout
 
 #set list(marker: [‣])
 
-#createHeader(usePhoto: true)
+#create-header(use-photo: true)
 
 #grid(
   columns: (71%, 25%),
@@ -13,17 +12,17 @@
   stroke: none,
   stack(
     spacing: 20pt,
-    importSection("profile"),
-    importSection("experience"),
-    importSection("education"),
-    //importSection("references"),
+    import-section("profile"),
+    import-section("experience"),
+    import-section("education"),
+    //import-section("references"),
   ),
   stack(
     spacing: 20pt,
-    importSection("skills"),
-    importSection("languages"),
-    //importSection("personal"),
-    importSection("other_experience"),
-    importSection("references")
+    import-section("skills"),
+    import-section("languages"),
+    //import-section("personal"),
+    import-section("other_experience"),
+    import-section("references")
   ),
 )

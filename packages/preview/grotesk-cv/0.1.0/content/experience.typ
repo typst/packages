@@ -1,13 +1,13 @@
 #import "../lib.typ": *
 #import "@preview/fontawesome:0.2.1": *
 
-== #fa-icon("briefcase") #h(5pt) #getHeaderByLanguage("Relevant experience", "Experiencia relevante")
+== #fa-icon("briefcase") #h(5pt) #get-header-by-language("Relevant experience", "Experiencia relevante")
 
 #v(5pt)
 
-#if isEnglish() [
+#if is-english() [
 
-  #experienceEntry(
+  #experience-entry(
     title: [Lead AI Architect],
     date: [2015 - Present],
     company: [Cyberdyne Systems],
@@ -22,7 +22,7 @@
 
   #v(5pt)
 
-  #experienceEntry(
+  #experience-entry(
     title: [Senior Software Engineer],
     date: [2008 - 2015],
     company: [Tyrell Corporation],
@@ -34,9 +34,9 @@
   - Led a cross-functional team in debugging and patching replicant behavioral anomalies, including occasional existential crises.
   - Worked closely with corporate leadership to ensure compliance with ethical standards (which were sometimes a little... flexible).
 
-] else if isSpanish() [
+] else if is-spanish() [
 
-  #experienceEntry(
+  #experience-entry(
     title: [Arquitecto de IA Principal],
     date: [2015 - Presente],
     company: [Cyberdyne Systems],
@@ -50,7 +50,7 @@
 
   #v(5pt)
 
-  #experienceEntry(
+  #experience-entry(
     title: [Ingeniero de Software Senior],
     date: [2008 - 2015],
     company: [Corporación Tyrell],
