@@ -1,5 +1,5 @@
-#import "../../lib.typ": *
-#import "../../metadata.typ"
+#import "../lib.typ": *
+#import "../metadata.typ"
 #import "@preview/fontawesome:0.2.1": *
 
 

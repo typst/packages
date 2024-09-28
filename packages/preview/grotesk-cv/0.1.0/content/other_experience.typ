@@ -1,4 +1,4 @@
-#import "../../lib.typ": *
+#import "../lib.typ": *
 #import "@preview/fontawesome:0.2.1": *
 
 

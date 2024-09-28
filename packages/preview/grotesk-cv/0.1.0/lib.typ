@@ -17,7 +17,7 @@
 
 #let importSection(file) = {
   include {
-    "content/sections/" + file + ".typ"
+    "content/" + file + ".typ"
   }
 }
 

@@ -1,4 +1,4 @@
-#import "../../lib.typ": *
+#import "../lib.typ": *
 #import "@preview/fontawesome:0.2.1": *
 
 == #fa-icon("briefcase") #h(5pt) #getHeaderByLanguage("Relevant experience", "Experiencia relevante")

@@ -1,7 +1,7 @@
 #let firstName = "Miles"
 #let lastName = "Dyson"
 #let subTitle = ""
-#let profileImage = "content/img/portrait.png"
+#let profileImage = "template/img/portrait.png"
 #let language = "en"
 
 
