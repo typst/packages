@@ -1,4 +1,5 @@
-#import "../lib.typ": *
+//#import "../lib.typ": *
+#import "@preview/grotesk-cv:0.1.0": *
 
 #show: layout
 
