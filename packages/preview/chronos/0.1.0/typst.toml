@@ -11,4 +11,4 @@ categories = ["visualization"]
 license = "Apache-2.0"
 description = "A package to draw sequence diagrams with CeTZ"
 keywords = ["sequence", "diagram", "plantuml"]
-exclude = [ "/gallery/*", "/gallery.bash" ]
+exclude = [ "gallery", "gallery.bash" ]
