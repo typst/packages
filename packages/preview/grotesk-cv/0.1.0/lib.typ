@@ -1,4 +1,4 @@
-#import "metadata.typ": *
+#import "./template/metadata.typ": *
 #import "@preview/fontawesome:0.2.1": *
 
 #let text-font = "Hanken Grotesk"
@@ -17,7 +17,7 @@
 
 #let import-section(file) = {
   include {
-    "content/" + file + ".typ"
+    "template/content/" + file + ".typ"
   }
 }
 

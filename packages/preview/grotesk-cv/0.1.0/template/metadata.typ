@@ -2,7 +2,7 @@
 #let last-name = "Dyson"
 #let sub-title = ""
 #let profile-image = "template/img/portrait.png"
-#let language = "es"
+#let language = "en"
 
 
 #if language == "en" {

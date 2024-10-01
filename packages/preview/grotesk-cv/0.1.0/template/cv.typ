@@ -1,3 +1,4 @@
+#import "metadata.typ": *
 #import "@preview/grotesk-cv:0.1.0": *
 
 #show: layout
@@ -21,8 +22,7 @@
     spacing: 20pt,
     import-section("skills"),
     import-section("languages"),
-    //import-section("personal"),
     import-section("other_experience"),
-    import-section("references")
+    import-section("references"),
   ),
 )

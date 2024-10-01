@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/grotesk-cv:0.1.0": *
 #import "@preview/fontawesome:0.2.1": *
 
 == #fa-icon("briefcase") #h(5pt) #get-header-by-language("Relevant experience", "Experiencia relevante")
