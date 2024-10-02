@@ -399,9 +399,23 @@
         }
         return place(dx:-4.5cm, box(width: 4cm, align(right, text(fill: color)[#nums.pos().map(str).join(".")])))
       }
-    },
-    supplement: supplement-chapter
+    }
   );
+
+  show heading.where(level: 1): set heading(supplement: supplement-chapter)
+
+  show ref: it => {
+    let eq = heading
+    let el = it.element
+    // let numberingFormat = if appendix-state != none {"A.1"} else {"1.1"}  //appendix state must be sourced somehow 
+    let numberingFormat = {"1.1"}
+    if el != none and el.func() == eq {
+      let arrayEq = counter(eq).at(el.location())
+      [#el.supplement #numbering(numberingFormat, ..arrayEq) ]
+    } else {
+      it
+    }
+  }
 
   show heading: it => {
     set text(size: font-size)
