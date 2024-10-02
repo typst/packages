@@ -1,11 +1,11 @@
 # <img src="./assets/logo.svg" alt="The logo of Babel: an icon of the Tower of Babel in a turquoise square" width="48px" /> <span style="font-variant: small-caps; color: #239dad">Babel</span>: Redact text by replacing it with random characters in Typst
 
-<a href="https://typst.app/universe/package/babel"><img alt="Package on the Typst Universe" src="https://img.shields.io/badge/Typst_Universe-fdfdfd?logo=typst" /></a>
-<a href="https://codeberg.org/afiaith/babel"><img alt="Babel’s Git repository" src="https://img.shields.io/badge/Git_repo-fdfdfd?logo=codeberg" /></a>
-<a href="https://codeberg.org/afiaith/babel/releases/download/0.1.0/manual.pdf"><img alt="manual.pdf" src="https://img.shields.io/badge/%F0%9F%93%96%20manual-.pdf-239dad?labelColor=fdfdfd" /></a>
-<a href="./LICENSE"><img alt="Licence: CC0" src="https://img.shields.io/badge/licence-CC0-239dad?labelColor=fdfdfd" /></a>
-<a href="https://codeberg.org/afiaith/babel/releases/tag/0.1.0/"><img alt="Codeberg release" src="https://img.shields.io/gitea/v/release/afiaith/babel?gitea_url=https%3A%2F%2Fcodeberg.org&labelColor=fdfdfd&color=239dad" /></a>
-<a href="https://codeberg.org/afiaith/babel/stars"><img alt="Codeberg stars" src="https://img.shields.io/gitea/stars/afiaith/babel?gitea_url=https%3A%2F%2Fcodeberg.org&labelColor=fdfdfd&color=fdfdfd&logo=codeberg" /></a>
+[![Package on the Typst Universe](https://img.shields.io/badge/Typst_Universe-fdfdfd?logo=typst)](https://typst.app/universe/package/babel)
+[![Babel’s Git repository](https://img.shields.io/badge/Git_repo-fdfdfd?logo=codeberg)](https://codeberg.org/afiaith/babel)
+[![A precompiled PDF file of the manual](https://img.shields.io/badge/%F0%9F%93%96%20manual-.pdf-239dad?labelColor=fdfdfd)](./docs/manual.pdf)
+[![Licence: MIT-0](https://img.shields.io/badge/licence-MIT0-239dad?labelColor=fdfdfd)](./LICENSE)
+[![Codeberg release](https://img.shields.io/gitea/v/release/afiaith/babel?gitea_url=https%3A%2F%2Fcodeberg.org&labelColor=fdfdfd&color=239dad)](https://codeberg.org/afiaith/babel/releases/)
+[![Codeberg stars](https://img.shields.io/gitea/stars/afiaith/babel?gitea_url=https%3A%2F%2Fcodeberg.org&labelColor=fdfdfd&color=fdfdfd&logo=codeberg)](https://codeberg.org/afiaith/babel/stars)
 
 This package provides functions that replace actual text with random characters, which is useful for redacting confidential information or sharing the design and structure of an existing document without disclosing the content itself.
 A variety of ready-made sets of characters for replacement are available (75 in total; termed *alphabets*), representing diverse writing systems, codes, notations and symbols.
@@ -22,22 +22,24 @@ Using show rules strings, regular expressions and other selectors can be redacte
 I’m jan Maja, and my email is `foo@digitalwords.net`.
 ```
 
-<img src="./assets/example.webp" alt="The output of the above Typst code" style="max-width: 100%" />
+![The output of the above Typst code](./assets/example.webp)
 
 ## 📖 The manual
 
 Using <span style="font-variant: small-caps; color: #239dad">Babel</span> is quite straightforward.
-[**A comprehensive manual**](https://codeberg.org/afiaith/babel/releases/download/0.1.0/manual.pdf) covers:
+A [**comprehensive manual**](./docs/manual.pdf) covers:
 
 - Introductory background.
 - How to use the provided functions (`baffle()`, `redact()` and `tippex()`).
 - A list of the provided alphabets, each demonstrated by a line of random text.
 
+If the version of the precompiled manual doesn’t match the version of the package, it means no difference between the two versions is reflected in the manual.
+
 ## 🗼 The Tower of <span style="font-variant: small-caps; color: #239dad">Babel</span>
 
 A poster demonstrating the provided alphabets:
 
-<a href="./assets/poster.webp"><img src="./assets/poster.webp" alt="A demonstration of the provided alphabets in the shape of the Tower of Babel" style="max-width: 100%; border-radius: 3em" /></a>
+[![A demonstration of the provided alphabets in the shape of the Tower of Babel](./assets/poster.webp)](./assets/poster.webp)
 
 ## 🔨 Complementary tools
 

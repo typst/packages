@@ -1,4 +1,4 @@
-#import "@preview/babel:0.1.0": *
+#import "@preview/babel:0.1.1": *
 #import "../src/alphabets.typ": alphabets
 #import "../assets/logo.typ": logo
 

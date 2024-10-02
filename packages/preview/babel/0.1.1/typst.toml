@@ -2,10 +2,10 @@
 
 [package]
 name = "babel"
-version = "0.1.0"
+version = "0.1.1"
 entrypoint = "src/lib.typ"
 authors = ["Maja Abramski-Kronenberg <https://me.digitalwords.net>"]
-license = "CC0-1.0"
+license = "MIT-0"
 description = "Redact text by replacing it with random characters"
 repository = "https://codeberg.org/afiaith/babel"
 keywords = [

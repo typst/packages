@@ -4,7 +4,7 @@
 #import "@preview/suiji:0.3.0"
 #import "@preview/wrap-it:0.1.0": *
 
-#import "@preview/babel:0.1.0": *
+#import "@preview/babel:0.1.1": *
 #import "../assets/logo.typ": logo
 #import "../src/alphabets.typ": alphabets, maze
 
@@ -153,9 +153,7 @@ With our Typst #package[Babel] I chose to take the other connotation, of confusi
 
 == Copyright and licence <licence>
 
-The this package is released into the public domain (PD), technically under #link("https://creativecommons.org/publicdomain/zero/1.0/")[CC0].
-This means I choose to waive all copyright rights (I see sharing, copying and remixing as acts of love), but it doesn’t mean my authorship is revoked.
-Contributions to the package are also CC0.
+The this package is released under #link("https://spdx.org/licenses/MIT-0.html")[MIT-0].
 
 #package[Babel]’s logo features an #link("https://thenounproject.com/icon/babel-2526388/")[image] by #link("https://andrejskirma.com/")[Andrejs Kirma] which is released under CC~BY-3.0.
     I attribute them willingly, as I find the graphics very fitting for the logo.
