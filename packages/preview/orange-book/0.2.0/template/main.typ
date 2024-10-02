@@ -1,4 +1,4 @@
-#import "@preview/orange-book:0.1.0": book, part, chapter, my-bibliography, appendices, make-index, index, theorem, definition, notation,remark,corollary,proposition,example,exercise, problem, vocabulary, mathcal
+#import "@preview/orange-book:0.2.0": book, part, chapter, my-bibliography, appendices, make-index, index, theorem, definition, notation,remark,corollary,proposition,example,exercise, problem, vocabulary, mathcal
 
 //#set text(font: "Linux Libertine")
 //#set text(font: "TeX Gyre Pagella")
