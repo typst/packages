@@ -5,3 +5,6 @@ entrypoint = "lib.typ"
 license = "MIT"
 description = "Calculate eigenvalues of matrices"
 exclude = ["example.png"]
+repository = "https://gitlab.com/SolidTux/teig"
+category = ["scripting", "utility"]
+disciplines = ["mathematics"]
