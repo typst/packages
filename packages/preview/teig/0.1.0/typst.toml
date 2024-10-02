@@ -4,3 +4,4 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 license = "MIT"
 description = "Calculate eigenvalues of matrices"
+exclude = ["example.png"]
