@@ -9,6 +9,7 @@ categories = ["thesis"]
 homepage = "https://github.com/Slyde-R/not-jku-thesis-template"
 keywords = ["Johannes Kepler Universtät", "JKU", "Thesis", "Masterarbeit", "Bachelorarbeit", "Final Thesis", "Bachelor's  Thesis", "Master's  Thesis"]
 disciplines = []
+exclude = ["Calcipher.jpg", "JamesBond.jpg", "Mei.jpg", "MissMoneypenny.jpg"]
 compiler = "0.11.0"
 
 [template]
