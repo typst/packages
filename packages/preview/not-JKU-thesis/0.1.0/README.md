@@ -25,12 +25,12 @@ This template exports the `jku-thesis` function with the following named argumen
 - `department`: String
 - `author`: String
 - `date`: datetime
-- `place_of_submission`: string
+- `place-of-submission`: string
 - `title`: String
-- `abstract_en`: Content block
-- `abstract_de`: optional: Content block or none
+- `abstract-en`: Content block
+- `abstract-de`: optional: Content block or none
 - `acknowledgements`: optional: Content block or none
-- `showTitleInHeader`: Boolean
+- `show-title-in-header`: Boolean
 - `draft`: Boolean
 
 The template will initialize your package with a sample call to the `jku-thesis` function.

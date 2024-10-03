@@ -1,6 +1,6 @@
 #let disclaimer(
   date: "",
-  place_of_submission: "Place",
+  place-of-submission: "Place",
   thesis-type: "",
   author: "",
   submissionDate: none,
@@ -30,14 +30,14 @@ The submitted document here present is identical to the electronically  submitte
     )
 
   // Option 2
-  // #place_of_submission, #date.display()
+  // #place-of-submission, #date.display()
   // #align(center)[
   //   #overline[#sym.wj #sym.space #sym.space #sym.space #sym.space #sym.space (#author)   #sym.space #sym.space #sym.space #sym.space #sym.space #sym.wj]
   // ]
   
   // Option 3
   // #align(center)[
-  //   #overline[#sym.wj #sym.space #sym.space #sym.space #sym.space #sym.space #place_of_submission, #date.display()\; (#author)   #sym.space #sym.space #sym.space #sym.space #sym.space #sym.wj]
+  //   #overline[#sym.wj #sym.space #sym.space #sym.space #sym.space #sym.space #place-of-submission, #date.display()\; (#author)   #sym.space #sym.space #sym.space #sym.space #sym.space #sym.wj]
   // ]
 
   #v(15%)

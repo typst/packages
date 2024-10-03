@@ -1,5 +1,5 @@
 [package]
-name = "not-JKU-thesis"
+name = "not-jku-thesis"
 version = "0.1.0"
 entrypoint = "template.typ"
 authors = ["Raphael Siegl"]

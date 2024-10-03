@@ -15,12 +15,12 @@
   department: "The Deparment",
   author: "The Author",
   date: "The Submission Date",
-  place_of_submission: "Place of Submission", // for declaration
+  place-of-submission: "Place of Submission", // for declaration
   title: "Title",
-  abstract_en: [English Abstract],
-  abstract_de: none,
+  abstract-en: [English Abstract],
+  abstract-de: none,
   acknowledgements: none,
-  showTitleInHeader: true,
+  show-title-in-header: true,
   draft: true,
   body,
 ) = {
@@ -48,7 +48,7 @@
         ] 
       ]
       #set text(8pt)
-      #if showTitleInHeader [
+      #if show-title-in-header [
         #author - #title
       ]
       
@@ -96,7 +96,7 @@
 
   disclaimer(
     date: date,
-    place_of_submission: place_of_submission,
+    place-of-submission: place-of-submission,
     thesis-type: thesis-type,
     author: author,
   )
@@ -104,10 +104,10 @@
     #acknowledgement(acknowledgements)
   ]
 
-  abstract(lang: "en")[#abstract_en]
+  abstract(lang: "en")[#abstract-en]
 
-  if abstract_de != none [ // optional
-    #abstract(lang: "de")[#abstract_de]
+  if abstract-de != none [ // optional
+    #abstract(lang: "de")[#abstract-de]
   ]
 
   counter(page).update(1)
