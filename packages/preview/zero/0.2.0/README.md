@@ -19,9 +19,9 @@ _Advanced scientific number formatting._
 
 Proper number formatting requires some love for detail to guarantee a readable and clear output. This package provides tools to ensure consistent formatting and to simplify the process of following established publication practices. Key features are
 - **standardized** formatting,
-- digit [**grouping**](#grouping), e.g., $`299\,792\,458`$ instead of $299792458$,
+- digit [**grouping**](#grouping), e.g., 299 792 458 instead of 299792458,
 - **plug-and-play** number [**alignment in tables**](#table-alignment),
-- quick scientific notation, e.g., `"2e4"` becomes $2\times10^4$,
+- quick scientific notation, e.g., `"2e4"` becomes 2×10⁴,
 - symmetric and asymmetric [**uncertainties**](#specifying-uncertainties),
 - [**rounding**](#rounding) in various modes,
 - and some specials for package authors.
@@ -34,9 +34,9 @@ The anatomy of a formatted number is shown in the following figure.
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/7ca9fa48-b732-4f4e-911f-b719e83305be">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/9f10cf22-4b3c-4a3b-b761-7d98c1bcd5c0">
-    <img alt="Anatomy of a formatted number" src="https://github.com/user-attachments/assets/7ca9fa48-b732-4f4e-911f-b719e83305be">
+    <source media="(prefers-color-scheme: light)" srcset="docs/figures/anatomy.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/anatomy-dark.svg">
+    <img alt="Anatomy of a formatted number" src="docs/figures/anatomy.svg">
   </picture>
 </p>
 
@@ -46,10 +46,10 @@ The anatomy of a formatted number is shown in the following figure.
 
 | Code | Output | Code | Output |
 |------|--------|------|--------|
-| `num("1.2e4")`        | $1.2\times 10^4$          | `num[1.2e4]`           | $1.2\times 10^4$       |
-| `num("-5e-4")`        | $-5\times 10^{-4}$        | `num(fixed: -2)[0.02]` | $2\times 10^{-2}$      |
-| `num("9.81+-.01")`    | $9.81\pm 0.01$            | `num("9.81+0.02-.01")` | $9.81^{+0.02}_{-0.01}$ |
-| `num("9.81+-.01e2")`  | $(9.81\pm0.01)\times 10^2$| `num(base: 2)[3e4]`    | $3\times 2^4$          |
+| `num("1.2e4")`        | 1.2×10⁴          | `num[1.2e4]`           | 1.2×10⁴       |
+| `num("-5e-4")`        | −5×10⁻⁴        | `num(fixed: -2)[0.02]` | 2×10⁻²      |
+| `num("9.81+-.01")`    | 9.81±0.01            | `num("9.81+0.02-.01")` | 9.81⁺²₋₁ |
+| `num("9.81+-.01e2")`  | (9.81±0.01)×10²| `num(base: 2)[3e4]`    | 3×2⁴          |
 
 
 
@@ -90,20 +90,20 @@ The function `num()` is the heart of *Zero*. It provides a wide range of number 
 - `fixed: none | int = none` : If not `none`, forces a fixed exponent. Additional exponents given in the number input are taken into account. 
 - `decimal-separator: str = "."` : Specifies the marker that is used for separating integer and decimal part.
 - `product: content = sym.times` : Specifies the multiplication symbol used for scientific notation. 
-- `tight: boolean = false` : If true, tight spacing is applied between operands (applies to $\times$ and $\pm$). 
+- `tight: boolean = false` : If true, tight spacing is applied between operands (applies to × and ±). 
 - `math: boolean = true` : If set to `false`, the parts of the number won't be wrapped in a `math.equation` wherever feasible. This makes it possible to use `num()` with non-math fonts to some extent. Powers are always rendered in math mode. 
-- `omit-unity-mantissa: boolean = false` : Determines whether a mantissa of 1 is omitted in scientific notation, e.g., $10^4$ instead of $1\cdot 10^4$. 
-- `positive-sign: boolean = false` : If set to `true`, positive coefficients are shown with a $+$ sign. 
-- `positive-sign-exponent: boolean = false` : If set to `true`, positive exponents are shown with a $+$ sign. 
+- `omit-unity-mantissa: boolean = false` : Determines whether a mantissa of 1 is omitted in scientific notation, e.g., 10⁴ instead of 1·10⁴. 
+- `positive-sign: boolean = false` : If set to `true`, positive coefficients are shown with a + sign. 
+- `positive-sign-exponent: boolean = false` : If set to `true`, positive exponents are shown with a + sign. 
 - `base: int | content = 10` : The base used for scientific power notation. 
 - `uncertainty-mode: str = "separate"` : Selects one of the modes `"separate"`, `"compact"`, or `"compact-separator"` for displaying uncertainties. The different behaviors are shown below:
 
 | `"separate"` |  `"compact"` |  `"compact-separator"` |
 |---|---|---|
-| $1.7\pm0.2$ | $1.7(2)$  | $1.7(2)$   |
-| $6.2\pm2.1$ | $6.2(21)$ | $6.2(2.1)$ |
-| $1.7^{+0.2}_{-0.5}$ | $1.7^{+2}_{-5}$ | $1.7^{+2}_{-5}$ |
-| $1.7^{+2.0}_{-5.0}$ | $1.7^{+20}_{-50}$ | $1.7^{+2.0}_{-5.0}$ |
+| 1.7±0.2 | 1.7(2)  | 1.7(2)   |
+| 6.2±2.1 | 6.2(21) | 6.2(2.1) |
+| 1.7⁺⁰˙̇²₋₀.₅ | 1.7⁺²₋₅ | 1.7⁺²₋₅ |
+| 1.7⁺²˙̇⁰₋₅.₀ | 1.7⁺²⁰₋₅₀ | 1.7⁺²˙̇⁰₋₅.₀ |
 
 - `round: dictionary` : You can provide one or more rounding options in a dictionary. Also see [rounding](#rounding). 
 - `group: dictionary` : You can provide one or more grouping options in a dictionary. Also see [grouping](#grouping). 
@@ -121,9 +121,9 @@ Digit grouping is important for keeping large figures readable. It is customary 
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/1f53ae33-3e99-483d-ac6a-6e3cbed5484b">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/a924f63f-81a0-4ea5-8c88-2fd9373ab4ed">
-    <img alt="Digit grouping" src="https://github.com/user-attachments/assets/1f53ae33-3e99-483d-ac6a-6e3cbed5484b">
+    <source media="(prefers-color-scheme: light)" srcset="docs/figures/grouping.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/grouping-dark.svg">
+    <img alt="Digit grouping" src="docs/figures/grouping.svg">
   </picture>
 </p>
 
@@ -188,19 +188,19 @@ Rounding can be configured with the `set-round()` function.
 
 There are two ways of specifying uncertainties:
 - Applying an uncertainty to the least significant digits using parentheses, e.g., `2.3(4)`,
-- Denoting an absolute uncertainty, e.g., `2.3+-0.4` becomes $2.3\pm0.4$. 
+- Denoting an absolute uncertainty, e.g., `2.3+-0.4` becomes 2.3±0.4. 
 
 Zero supports both and can convert between these two, so that you can pick the displayed style (configured via `uncertainty-mode`, see above) independently of the input style. 
 
 How do uncertainties interplay with exponents? The uncertainty needs to come first, and the exponent applies to both the mantissa and the uncertainty, e.g., `num("1.23+-.04e2")` becomes
 
-$$ (1.23\pm0.04)\times 10^2. $$
+    (1.23 ± 0.03)×10²
 
 Note that the mantissa is now put in parentheses to disambiguate the application of the power. 
 
 In some cases, the uncertainty is asymmetric which can be expressed via `num("1.23+0.02-0.01")`
 
-$$ 1.23^{+0.02}_{-0.01}. $$
+1.23⁺⁰˙̇⁰²₋₀.₀₁
 
 ### Table alignment
 
@@ -223,9 +223,9 @@ Non-number entries (e.g., in the header) are automatically recognized in some ca
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/2effb7f0-0d9b-401a-92e1-20461d0c1fcb">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/38c22b93-cf88-4da4-af2c-9e2bbaff6dd4">
-    <img alt="Number alignment in tables" src="https://github.com/user-attachments/assets/2effb7f0-0d9b-401a-92e1-20461d0c1fcb">
+    <source media="(prefers-color-scheme: light)" srcset="docs/figures/table1.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/table1-dark.svg">
+    <img alt="Number alignment in tables" src="docs/figures/table1.svg">
   </picture>
 </p>
 
@@ -244,9 +244,9 @@ Zero not only aligns numbers at the decimal point but also at the uncertainty an
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/c96941bc-f002-4b93-b2cd-705c8104682f">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/28eb1df3-5292-441f-b1e9-ad472b80891b">
-    <img alt="Advanced number alignment in tables" src="https://github.com/user-attachments/assets/c96941bc-f002-4b93-b2cd-705c8104682f">
+    <source media="(prefers-color-scheme: light)" srcset="docs/figures/table2.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/table2-dark.svg">
+    <img alt="Advanced number alignment in tables" src="docs/figures/table2.svg">
   </picture>
 </p>
 
