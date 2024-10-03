@@ -1,5 +1,5 @@
-#import "@local/not-jku-thesis:0.1.0": jku-thesis // for development
-//#import "@preview/not-jku-thesis:0.1.0": jku-thesis
+//#import "@local/not-jku-thesis:0.1.0": jku-thesis // for development
+#import "@preview/not-jku-thesis:0.1.0": jku-thesis
 
 #import "utils.typ": inwriting, draft, todo, flex-caption, flex-caption-styles
 #import "glossary.typ": glossary
