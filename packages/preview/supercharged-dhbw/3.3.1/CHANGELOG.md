@@ -1,5 +1,9 @@
 # Supercharged-DHBW Changelog
 
+## [v3.3.1] - 2024-10-03
+
+- Fix expect company attribute in author if `at-university` is true
+
 ## [v3.3.0] - 2024-09-20
 
 - Display current chapter in the header instead of the title

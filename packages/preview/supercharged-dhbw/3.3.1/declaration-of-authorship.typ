@@ -11,8 +11,6 @@
   city,
   date-format,
 ) = {
-  let authors-by-city = authors.map(author => author.company.city).dedup()
-
   v(2em)
   text(size: 20pt, weight: "bold", DECLARATION_OF_AUTHORSHIP_TITLE.at(language))
   v(1em)
@@ -45,6 +43,8 @@
   if (at-university) {
     text(city + [, ] + end-date.display(date-format))
   } else {
+    let authors-by-city = authors.map(author => author.company.city).dedup()
+
     text(authors-by-city.join(", ", last: AND.at(language)) + [ ] + end-date.display(date-format))
   }
 
