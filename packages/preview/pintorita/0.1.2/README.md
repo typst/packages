@@ -73,7 +73,7 @@ Render a pintora string to an image
 
 The image, of type `content`
 
-### `render_svg`
+### `render-svg`
 
 Render a pintora string to an image
 
@@ -93,4 +93,4 @@ The svg image
 
 * 0.1.0 - Inital Release
 * 0.1.1 - Updated to Jogs 0.2.3 and pintora 0.7.3
-* 0.1.2 - Fixed strange offset of text rows in class diagram, added `render_svg` function and more customization options
+* 0.1.2 - Fixed strange offset of text rows in class diagram, added `render-svg` function and more customization options
