@@ -1,6 +1,7 @@
 [package]
 name = "enunciados-fcfm"
 version = "0.1.0"
+categories = ["report"]
 entrypoint = "lib/enunciados-fcfm.typ"
 authors = ["Blaz Korecic <@bkorecic>"]
 license = "MIT"
