@@ -20,7 +20,7 @@
   image.decode(svg-output, ..args.pos(), ..named-args)
 }
 
-#let render_svg(src, ..args) = {
+#let render-svg(src, ..args) = {
   // style: ["default", "larkLight", "larkDark", "dark"]
   let named-args = args.named()
   let factor = named-args.at("factor",default:none)
