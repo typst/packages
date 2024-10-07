@@ -3,7 +3,7 @@
   place-of-submission: "Place",
   thesis-type: "",
   author: "",
-  submissionDate: none,
+  submission-date: none,
 ) = {
 
   // --- Disclaimer ---
@@ -30,14 +30,14 @@ The submitted document here present is identical to the electronically  submitte
     )
 
   // Option 2
-  // #place-of-submission, #date.display()
+  // #place-of-submission, #submission-date.display()
   // #align(center)[
   //   #overline[#sym.wj #sym.space #sym.space #sym.space #sym.space #sym.space (#author)   #sym.space #sym.space #sym.space #sym.space #sym.space #sym.wj]
   // ]
   
   // Option 3
   // #align(center)[
-  //   #overline[#sym.wj #sym.space #sym.space #sym.space #sym.space #sym.space #place-of-submission, #date.display()\; (#author)   #sym.space #sym.space #sym.space #sym.space #sym.space #sym.wj]
+  //   #overline[#sym.wj #sym.space #sym.space #sym.space #sym.space #sym.space #place-of-submission, #submission-date.display()\; (#author)   #sym.space #sym.space #sym.space #sym.space #sym.space #sym.wj]
   // ]
 
   #v(15%)
