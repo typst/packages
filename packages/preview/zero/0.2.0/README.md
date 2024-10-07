@@ -34,9 +34,9 @@ The anatomy of a formatted number is shown in the following figure.
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/anatomy.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/anatomy-dark.svg">
-    <img alt="Anatomy of a formatted number" src="docs/figures/anatomy.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/7ca9fa48-b732-4f4e-911f-b719e83305be">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/9f10cf22-4b3c-4a3b-b761-7d98c1bcd5c0">
+    <img alt="Anatomy of a formatted number" src="https://github.com/user-attachments/assets/7ca9fa48-b732-4f4e-911f-b719e83305be">
   </picture>
 </p>
 
@@ -121,9 +121,9 @@ Digit grouping is important for keeping large figures readable. It is customary 
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/grouping.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/grouping-dark.svg">
-    <img alt="Digit grouping" src="docs/figures/grouping.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/1f53ae33-3e99-483d-ac6a-6e3cbed5484b">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/a924f63f-81a0-4ea5-8c88-2fd9373ab4ed">
+    <img alt="Digit grouping" src="https://github.com/user-attachments/assets/1f53ae33-3e99-483d-ac6a-6e3cbed5484b">
   </picture>
 </p>
 
@@ -223,9 +223,9 @@ Non-number entries (e.g., in the header) are automatically recognized in some ca
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/table1.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/table1-dark.svg">
-    <img alt="Number alignment in tables" src="docs/figures/table1.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/2effb7f0-0d9b-401a-92e1-20461d0c1fcb">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/38c22b93-cf88-4da4-af2c-9e2bbaff6dd4">
+    <img alt="Number alignment in tables" src="https://github.com/user-attachments/assets/2effb7f0-0d9b-401a-92e1-20461d0c1fcb">
   </picture>
 </p>
 
@@ -244,9 +244,9 @@ Zero not only aligns numbers at the decimal point but also at the uncertainty an
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/table2.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/table2-dark.svg">
-    <img alt="Advanced number alignment in tables" src="docs/figures/table2.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/c96941bc-f002-4b93-b2cd-705c8104682f">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/28eb1df3-5292-441f-b1e9-ad472b80891b">
+    <img alt="Advanced number alignment in tables" src="https://github.com/user-attachments/assets/c96941bc-f002-4b93-b2cd-705c8104682f">
   </picture>
 </p>
 
