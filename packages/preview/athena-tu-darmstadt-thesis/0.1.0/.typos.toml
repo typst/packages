@@ -1,0 +1,7 @@
+[files]
+extend-exclude = [
+    "tests/latex_ref/", 
+    "tests/", 
+    "templates/tudapub/tudacolors.typ",
+    "templates/tudapub/common/thesis_statement_pursuant.typ"
+]
