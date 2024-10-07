@@ -6,7 +6,7 @@ authors = ["Mc-Zen <https://github.com/Mc-Zen>"]
 license = "MIT"
 description = "Effortlessly create quantum circuit diagrams."
 
-homepage = "https://github.com/Mc-Zen/quill"
+repository = "https://github.com/Mc-Zen/quill"
 keywords = ["quantum circuit diagram", "quantikz", "qcircuit"]
 categories = ["visualization"]
 disciplines = ["physics", "computer-science"]
