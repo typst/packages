@@ -3,10 +3,11 @@
 
 #let meta = toml("../info.toml")
 #let language = meta.personal.language
-#let include_icon = meta.personal.include_icons
+#let include-icon = meta.personal.include_icons
+#let accent-color = meta.personal.accent_color
 
 
-= #if include_icon [#fa-screwdriver-wrench() #h(5pt)] #if language == "en" [Skills] else if language == "es" [Habilidades]
+= #if include-icon [#fa-screwdriver-wrench() #h(5pt)] #if language == "en" [Skills] else if language == "es" [Habilidades]
 
 #v(0pt)
 
@@ -14,104 +15,140 @@
 
   === Programming languages
 
-  #skill-entry(skills: (
-    [C++],
-    [Python],
-    [Java],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [C++],
+      [Python],
+      [Java],
+    ),
+  )
 
   === AI/ML
 
-  #skill-entry(skills: (
-    [TensorFlow],
-    [PyTorch],
-    [OpenAI],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [TensorFlow],
+      [PyTorch],
+      [OpenAI],
+    ),
+  )
 
   === DevOPS
 
-  #skill-entry(skills: (
-    [Docker],
-    [Kubernetes],
-    [Jenkins],
-    [Cloud Deployment],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [Docker],
+      [Kubernetes],
+      [Jenkins],
+      [Cloud Deployment],
+    ),
+  )
 
   === Robotics
 
-  #skill-entry(skills: (
-    [ROS],
-    [Gazebo],
-    [URDF],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [ROS],
+      [Gazebo],
+      [URDF],
+    ),
+  )
 
   === Databases
 
-  #skill-entry(skills: (
-    [SQL],
-    [NoSQL],
-    [MongoDB],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [SQL],
+      [NoSQL],
+      [MongoDB],
+    ),
+  )
 
   === Tools
 
-  #skill-entry(skills: (
-    [Git],
-    [Jira],
-    [Confluence],
-    [Slack],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [Git],
+      [Jira],
+      [Confluence],
+      [Slack],
+    ),
+  )
 
 ] else if language == "es" [
 
   === Lenguajes de programación
 
-  #skill-entry(skills: (
-    [C++],
-    [Python],
-    [Java],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [C++],
+      [Python],
+      [Java],
+    ),
+  )
 
   === IA/Aprendizaje automático
 
-  #skill-entry(skills: (
-    [TensorFlow],
-    [PyTorch],
-    [OpenAI],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [TensorFlow],
+      [PyTorch],
+      [OpenAI],
+    ),
+  )
 
   === DevOPS
 
-  #skill-entry(skills: (
-    [Docker],
-    [Kubernetes],
-    [Jenkins],
-    [Despliegue en la nube],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [Docker],
+      [Kubernetes],
+      [Jenkins],
+      [Despliegue en la nube],
+    ),
+  )
 
   === Robótica
 
-  #skill-entry(skills: (
-    [ROS],
-    [Gazebo],
-    [URDF],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [ROS],
+      [Gazebo],
+      [URDF],
+    ),
+  )
 
   === Bases de datos
 
-  #skill-entry(skills: (
-    [SQL],
-    [NoSQL],
-    [MongoDB],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [SQL],
+      [NoSQL],
+      [MongoDB],
+    ),
+  )
 
   === Herramientas
 
-  #skill-entry(skills: (
-    [Git],
-    [Jira],
-    [Confluence],
-    [Slack],
-  ))
+  #skill-entry(
+    accent-color,
+    skills: (
+      [Git],
+      [Jira],
+      [Confluence],
+      [Slack],
+    ),
+  )
 
 ]

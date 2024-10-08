@@ -2,10 +2,10 @@
 
 #let meta = toml("../info.toml")
 #let language = meta.layout.language
-#let include_icon = meta.personal.include_icons
+#let include-icon = meta.personal.include_icons
 
 
-= #if include_icon [#fa-brain() #h(5pt)] #if language == "en" [Personality] else if language == "es" [Personalidad]
+= #if include-icon [#fa-brain() #h(5pt)] #if language == "en" [Personality] else if language == "es" [Personalidad]
 
 
 #v(5pt)

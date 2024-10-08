@@ -4,10 +4,10 @@
 
 #let meta = toml("../info.toml")
 #let language = meta.personal.language
-#let include_icon = meta.personal.include_icons
+#let include-icon = meta.personal.include_icons
 
 
-= #if include_icon [#fa-graduation-cap() #h(5pt)] #if language == "en" [Education] else if language == "es" [Educación]
+= #if include-icon [#fa-graduation-cap() #h(5pt)] #if language == "en" [Education] else if language == "es" [Educación]
 
 #v(5pt)
 

@@ -3,10 +3,10 @@
 
 #let meta = toml("../info.toml")
 #let language = meta.personal.language
-#let include_icon = meta.personal.include_icons
+#let include-icon = meta.personal.include_icons
 
 
-= #if include_icon [#fa-users() #h(5pt)] #if language == "en" [References] else if language == "es" [Referencias]
+= #if include-icon [#fa-users() #h(5pt)] #if language == "en" [References] else if language == "es" [Referencias]
 
 #v(5pt)
 

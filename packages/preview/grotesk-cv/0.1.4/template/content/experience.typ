@@ -3,9 +3,9 @@
 
 #let meta = toml("../info.toml")
 #let language = meta.personal.language
-#let include_icon = meta.personal.include_icons
+#let include-icon = meta.personal.include_icons
 
-= #if include_icon [#fa-briefcase() #h(5pt)] #if language == "en" [Experience] else if language == "es" [Experiencia]
+= #if include-icon [#fa-briefcase() #h(5pt)] #if language == "en" [Experience] else if language == "es" [Experiencia]
 
 #v(5pt)
 
