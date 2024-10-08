@@ -4,11 +4,11 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Jakob Listabarth <https://github.com/jakoblistabarth>"]
 license = "MIT"
-description = "P`resentation template for TU Dresden (Technische Universität Dresden)."
+description = "Presentation template for TU Dresden (Technische Universität Dresden)."
 repository = "https://github.com/jakoblistabarth/tud-presentation-typst"
 keywords = ["TUD", "Technische Universität Dresden", "Presentation"]
 categories = ["presentation"]
-exclude = ["main.pdf"]
+exclude = ["template/main.pdf"]
 
 [template]
 path = "template/"
