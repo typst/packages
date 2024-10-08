@@ -11,7 +11,7 @@
   text(
     size: 12pt,
     weight: "bold",
-    fill: rgb(meta.layout.text.color.dark),
+    fill: rgb(color),
     str,
   )
 }
@@ -260,12 +260,12 @@
   )
 }
 
-#let tag-list-style(tags) = {
+#let tag-list-style(color, tags) = {
   for tag in tags {
     box(
       inset: (x: 0.4em),
       outset: (y: 0.3em),
-      fill: rgb(meta.layout.accent_color),
+      fill: rgb(color),
       radius: 3pt,
       tag-style(tag),
     )
@@ -348,7 +348,7 @@
   box(
     inset: (x: 0.3em),
     outset: (y: 0.2em),
-    fill: rgb(meta.layout.accent_color),
+    fill: rgb(color),
     radius: 3pt,
     skill-style(skill),
   )
