@@ -44,14 +44,14 @@
   icon,
   txt,
   color,
-  include_icons,
+  include-icons,
 ) = {
 
   text(
     size: 10pt,
     fill: rgb(color),
     weight: "medium",
-    if include_icons {
+    if include-icons {
       fa-icon(icon) + h(10pt) + txt
     } else {
       txt
@@ -65,11 +65,11 @@
   let info = metadata.personal.info
   let icons = metadata.personal.icon
   let color = metadata.layout.text.color.medium
-  let include_icons = metadata.personal.include_icons
+  let include-icons = metadata.personal.include_icons
   table(
     columns: (1fr, 1fr),
     stroke: none,
-    ..info.pairs().map(((key, val)) => info-block-style(icons.at(key), val, color, include_icons))
+    ..info.pairs().map(((key, val)) => info-block-style(icons.at(key), val, color, include-icons))
   )
 }
 
@@ -153,12 +153,12 @@
   let color = metadata.layout.text.color.medium
   let info = metadata.personal.info
   let icons = metadata.personal.icon
-  let include_icons = metadata.personal.include_icons
+  let include-icons = metadata.personal.include_icons
   table(
     columns: 1fr,
     align: right,
     stroke: none,
-    ..info.pairs().map(((key, val)) => info-block-style(icons.at(key), val, color, include_icons))
+    ..info.pairs().map(((key, val)) => info-block-style(icons.at(key), val, color, include-icons))
   )
 }
 
