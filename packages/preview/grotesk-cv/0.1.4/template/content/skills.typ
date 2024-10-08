@@ -4,7 +4,7 @@
 #let meta = toml("../info.toml")
 #let language = meta.personal.language
 #let include-icon = meta.personal.include_icons
-#let accent-color = meta.personal.accent_color
+#let accent-color = meta.layout.accent_color
 
 
 = #if include-icon [#fa-screwdriver-wrench() #h(5pt)] #if language == "en" [Skills] else if language == "es" [Habilidades]
