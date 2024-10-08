@@ -1,7 +1,4 @@
-# Enunciados FCFM
-
-> Typst es software relativamente nuevo que está creciendo muy rápidamente.
-> Por lo tanto, no puedo asegurar retrocompatibilidad entre versiones del template.
+# enunciado-facil-fcfm
 
 Template de Typst para documentos de la FCFM (auxiliares, controles, pautas)
 
@@ -9,13 +6,13 @@ Template de Typst para documentos de la FCFM (auxiliares, controles, pautas)
 
 ### En [typst.app](https://typst.app)
 
-Si utilizas la aplicación web oficial, puedes presionar "Start from template" y buscar "enunciados-fcfm" para crear un proyecto ya inicializado con el template.
+Si utilizas la aplicación web oficial, puedes presionar "Start from template" y buscar "enunciado-facil-fcfm" para crear un proyecto ya inicializado con el template.
 
 ### En CLI
 
 Si usas Typst de manera local, puedes ejecutar:
 ```sh
-typst init @preview/enunciados-fcfm:0.1.0
+typst init @preview/enunciado-facil-fcfm:0.1.0
 ```
 lo cual inicializará un proyecto usando el template en el directorio actual.
 
@@ -24,7 +21,7 @@ lo cual inicializará un proyecto usando el template en el directorio actual.
 Basta crear un archivo con el siguiente contenido para usar el template:
 
 ```typ
-#import "@preview/enunciados-fcfm:0.1.0" as template
+#import "@preview/enunciado-facil-fcfm:0.1.0" as template
 
 #show: template.conf.with(
   titulo: "Auxiliar 1",
@@ -62,7 +59,7 @@ La función `conf` importada desde el template recibe los siguientes parámetros
 El parámetro `departamento` solamente es un diccionario de Typst con las llaves `nombre` y `logo`. Puedes crear un diccionario con un logo personalizado y pasárselo al template:
 
 ```typ
-#import "@preview/enunciados-fcfm:0.1.0" as template
+#import "@preview/enunciado-facil-fcfm:0.1.0" as template
 
 #let mi-departamento = (
   nombre: "Mi súper departamento personalizado",
@@ -81,7 +78,7 @@ El parámetro `departamento` solamente es un diccionario de Typst con las llaves
 Para cambiar la configuración de la página hay que interceptar la [set rule](https://typst.app/docs/reference/styling/#set-rules) que se hace sobre `page`. Para ello, el template expone el parámetro `page-conf` que permit sobreescribir la configuración de página del template. Por ejemplo, para cambiar el tamaño del papel a A4:
 
 ```typ
-#import "@preview/enunciados-fcfm:0.1.0" as template
+#import "@preview/enunciado-facil-fcfm:0.1.0" as template
 
 #show: template.conf.with(
   titulo: "Documento con tamaño A4",
@@ -96,7 +93,7 @@ Para cambiar la configuración de la página hay que interceptar la [set rule](h
 Usando [show y set rules](https://typst.app/docs/reference/styling/) puedes personalizar mucho más el template. Por ejemplo, para cambiar la fuente:
 
 ```typ
-#import "@preview/enunciados-fcfm:0.1.0" as template
+#import "@preview/enunciado-facil-fcfm:0.1.0" as template
 
 // En este caso hay que cambiar la fuente
 // antes de que se configure el template

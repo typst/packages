@@ -1,4 +1,4 @@
-#import "@preview/enunciados-fcfm:0.1.0" as template
+#import "@preview/enunciado-facil-fcfm:0.1.0" as template
 
 #show: template.conf.with(
   titulo: "Auxiliar 5",
