@@ -344,7 +344,7 @@
   )
 }
 
-#let skill-tag(skill) = {
+#let skill-tag(color, skill) = {
   box(
     inset: (x: 0.3em),
     outset: (y: 0.2em),
@@ -355,6 +355,7 @@
 }
 
 #let skill-entry(
+  color,
   skills: (),
 ) = {
   table(
@@ -365,7 +366,7 @@
     column-gutter: 3mm,
     align: center,
     for sk in skills {
-      [#skill-tag(sk) #h(4pt)]
+      [#skill-tag(color, sk) #h(4pt)]
     },
   )
 }
