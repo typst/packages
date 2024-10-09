@@ -10,7 +10,7 @@
   h(3pt)
 }
 
-#let findMe(services) = {
+#let find-me(services) = {
   set text(8pt)
   let icon = icon.with(shift: 2.5pt)
 
@@ -127,7 +127,7 @@
   text(12pt, weight: "medium",[#position])
 
   v(0pt)
-  findMe(links)
+  find-me(links)
 
   tagline
 
