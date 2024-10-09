@@ -21,7 +21,7 @@
 #let tud-show-guides = state("tud-show-guides", none)
 #let tud-date-format = "[month repr:long] [day], [year]"
 
-#let tud-presentation(
+#let tud-slides(
   title: none,
   subtitle: none,
   short-title: none,

@@ -1,4 +1,4 @@
-# Typst Template for the Corporate Design of TU Dresden :microphone:
+# Typst template for slide in TU Dresden's the corporate design :microphone: 
 
 This template can be used to create presentations in [Typst](https://github.com/typst/typst) with the corporate design of [TU Dresden](https://www.tu-dresden.de/).
 
@@ -7,13 +7,13 @@ This template can be used to create presentations in [Typst](https://github.com/
 Create a new typst project based on this template locally.
 
 ```bash
-typst init @preview/tud-presentation
-cd tud-presentation
+typst init @preview/tud-corporate-design-slides
+cd tud-corporate-design-slides
 ```
 
 Or create a project on the typst web app based on this template.
 
-### Font Setup
+### Font setup
 
 The fonts `Open Sans` needs to be installed on your system:
 
