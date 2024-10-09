@@ -82,7 +82,7 @@
     link(dest, content)
   ))
 
-#let vantage(
+#let vantage-cv(
   name: "",
   position: "",
   links: (),
