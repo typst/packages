@@ -1,8 +1,8 @@
-#import "@preview/vantage-cv:1.0.0": vantage, styled-link, term, skill
+#import "@preview/vantage-cv:1.0.0": vantage-cv, styled-link, term, skill
 #let configuration = yaml("configuration.yaml")
 
 
-#vantage(
+#vantage-cv(
   name: configuration.contacts.name,
   position: configuration.position,
   links: (
