@@ -1,0 +1,29 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "splendid-mdpi"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["James R. Swift"]
+license = "Unlicense"
+description = "An MDPI-style paper template to publish at conferences and journals"
+repository = "https://github.com/JamesxX/splendid-mdpi"
+keywords = ["paper", "article", "journal", "conference"]
+categories = ["paper"]
+exclude = [
+	".github",
+	"docs",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+	"thumbnails",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/1.png"
+
+# [tool.mytool]
+# foo = "bar"
