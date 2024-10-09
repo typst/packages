@@ -1,6 +1,6 @@
 # O'Rly, Typst?
 
-<a href="https://forthebadge.com" target="_blank"><img src="https://raw.githubusercontent.com/dei-layborer/o-rly-typst/refs/heads/main/made-with-(2s)-2%2C6-diamino-n-%5B(2s)-1-phenylpropan-2-yl%5Dhexanamide-n-%5B(2s)-1-phenyl-2-propanyl%5D-l-lysinamide.svg"></a>
+<a href="https://forthebadge.com" target="_blank"><img src="https://raw.githubusercontent.com/dei-layborer/packages/refs/heads/main/packages/preview/o-rly-typst/0.1.0/mols%20of%20moles.svg"></a>
 
 <a href="https://deilayborer.neocities.org/funding" target="_blank"><img src="https://raw.githubusercontent.com/dei-layborer/o-rly-typst/refs/heads/main/%24%24%24-gimmie.svg" height="30"></a>
 
