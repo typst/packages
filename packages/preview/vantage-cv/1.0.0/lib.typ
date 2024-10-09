@@ -1,5 +1,5 @@
-#let primary_colour = rgb("#3730a3")
-#let link_colour = rgb("#12348e")
+#let primary-colour = rgb("#3730a3")
+#let link-colour = rgb("#12348e")
 
 #let icon(name, shift: 1.5pt) = {
   box(
@@ -32,7 +32,7 @@
   text(9pt)[#icon("calendar") #period #h(1fr) #icon("location") #location]
 }
 
-#let max_rating = 5
+#let max-rating = 5
 #let skill(name, rating) = {
   let done = false
   let i = 1
@@ -47,8 +47,8 @@
     let radiusValue = (left: 0em, right: 0em)
 
     if (i <= rating){
-      colour = primary_colour
-      strokeColor = primary_colour
+      colour = primary-colour
+      strokeColor = primary-colour
     }
 
     // Add rounded corners for the first and last boxes
@@ -78,7 +78,7 @@
 
 
 #let styled-link(dest, content) = emph(text(
-    fill: link_colour,
+    fill: link-colour,
     link(dest, content)
   ))
 
@@ -104,11 +104,11 @@
   show heading.where(
     level: 2,
   ): it => text(
-      fill: primary_colour,
+      fill: primary-colour,
     [
       #{it.body}
       #v(-7pt)
-      #line(length: 100%, stroke: 0.5pt + primary_colour)
+      #line(length: 100%, stroke: 0.5pt + primary-colour)
     ]
   )
 
@@ -119,7 +119,7 @@
   show heading.where(
     level: 4
   ): it => text(
-    fill: primary_colour,
+    fill: primary-colour,
     it.body
   )
 
