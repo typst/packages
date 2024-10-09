@@ -1,8 +1,6 @@
 # Vantage Typst
 
-An ATS friendly simple Typst CV template, inspired by [alta-typst by George Honeywood](https://github.com/GeorgeHoneywood/alta-typst). See [`example.pdf`](example.pdf) for the rendered PDF output.
-
-![Preview](screenshot.png)
+An ATS friendly simple Typst CV template, inspired by [alta-typst by George Honeywood](https://github.com/GeorgeHoneywood/alta-typst).
 
 ## Features
 
