@@ -8,7 +8,7 @@ description = "Touying Slide Theme for University of Bristol"
 repository = "https://github.com/HPDell/touying-brandred-uobristol"
 keywords = ["touying", "slide", "theme", "bristol", "university"]
 categories = ["presentation"]
-exclude = [".github/", "examples/", "README.md"]
+exclude = [".github/", "examples/"]
 
 [template]
 path = "template"
