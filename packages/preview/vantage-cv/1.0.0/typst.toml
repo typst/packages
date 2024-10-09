@@ -29,7 +29,7 @@ keywords = [
   "engineer-cv",
   "tech-career"
 ]
-categories = ["cv","layout",""]
+categories = ["cv","layout"]
 
 [template]
 path = "template"
