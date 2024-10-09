@@ -54,7 +54,7 @@
     // Add rounded corners for the first and last boxes
     if (i == 1) {
       radiusValue = (left: 2em, right: 0em)  
-    } else if (i == max_rating) {
+    } else if (i == max-rating) {
       radiusValue = (left: 0em, right: 2em) 
     }
 
@@ -66,7 +66,7 @@
       radius: radiusValue
     ))
 
-    if (max_rating == i){
+    if (max-rating == i){
       done = true
     }
 
@@ -87,8 +87,8 @@
   position: "",
   links: (),
   tagline: [],
-  leftSide,
-  rightSide
+  left-side,
+  right-side
 ) = {
   set document(
     title: name + "'s CV",
@@ -134,7 +134,7 @@
   grid(
     columns: (7fr, 4fr),
     column-gutter: 2em,
-    leftSide,
-    rightSide,
+    left-side,
+    right-side,
   )
 }
