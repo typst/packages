@@ -14,7 +14,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["The Typst Project Developers"]
 license = "MIT"
-description = "An example package."
+description = "Calculate elementary arithemtics with functions"
 ```
 
 Required by the compiler:
@@ -79,7 +79,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Typst GmbH <https://typst.app>"]
 license = "MIT-0"
-description = "An IEEE-style paper template to publish at conferences and journals for Electrical Engineering, Computer Science, and Computer Engineering"
+description = "IEEE-style paper to publish at conferences and journals"
 
 [template]
 path = "template"
@@ -172,6 +172,30 @@ are detailed below:
 
   If you are an author of an original template not affiliated with any
   organization, only the standard package naming guidelines apply to you.
+
+- **Description:** Write simple, easily-understandable and succinct
+	descriptions.
+	- Keep it short. Try to maximise the content:length ratio and weigh your words
+		thoughtfully. No more than 100 characters, preferably much less.
+	- Avoid the word ‘Typst’, which is redundant unless your package or template
+		actually has to do with Typst itself or its ecosystem (like in the case of
+		[Mantys](https://typst.app/universe/package/mantys/) or
+		[t4t](https://typst.app/universe/package/t4t)).
+	- Don’t terminate your description with a full stop.
+	- Avoid the words ‘package’ for packages and ‘template’ for templates;
+		instead:
+		- Packages allow the user to *do* things; use the imperative mood. For
+			example, `Draw Venn diagrams` is better than `A package for drawing Venn
+			diagrams`.
+		- Templates allow the user to write certain *types* of documents; clearly
+			indicate the type of document your template allows. For example, `Master’s
+			thesis at the Unseen University` is better than `A template for writing a
+			master’s thesis at the Unseen University`. Omit the indefinite article at
+			the beginning of the description for conciseness.
+	- Bilingual descriptions are welcome. If you wish to describe your package in a
+		language other then English, format the description like so: `ENGLISH |
+		ADDITIONAL-LANGUAGE` (with a vertical line as a boundary marker). Character
+		limit is doubled.
 
 - **Functionality:** Packages should conceivably be useful to other users and
   should expose their capabilities in a reasonable fashion.
