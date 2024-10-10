@@ -1,5 +1,5 @@
 [package]
-name = "O'Rly, Typst?"
+name = "o-rly-cover"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Dei Layborer"]
