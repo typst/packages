@@ -45,7 +45,7 @@ Option | Description | Type | Default |
 | ``title`` | The title of the book | [``string``](https://typst.app/docs/reference/foundations/str/) | Empty |
 | ``title-align`` | How the text is aligned (horizontally) in the title block | [``alignment``](https://typst.app/docs/reference/layout/alignment/) | ``left`` |
 | ``subtitle`` | Text that appears just below the title block | [``string``](https://typst.app/docs/reference/foundations/str/) | Empty |
-| ``publisher`` | The name of the "publisher" in the bottom-left | [``string``](https://typst.app/docs/reference/foundations/str/) | O RLY<sup>?</sup> (see example below) |
+| ``publisher`` | The name of the "publisher" in the bottom-left | [``string``](https://typst.app/docs/reference/foundations/str/) | O RLY<sup>?</sup> (see example above) |
 | ``publisher-font`` | Font to be used for "publisher" name | [``string(s)``](https://typst.app/docs/reference/text/text/#parameters-font) | Noto Sans, Arial Rounded MT, document context (in that order) |
 | ``signature`` | Text in the bottom-right corner | [``string``](https://typst.app/docs/reference/foundations/str/) | Empty |
 | ``margin`` | Page margins | [``length`` or ``dictionary``](https://typst.app/docs/reference/layout/page/#parameters-margin) | ``top: 0``, all others will use the document context |
