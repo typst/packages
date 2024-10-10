@@ -1,0 +1,15 @@
+[package]
+name = "relai-poster"
+version = "0.1.0"
+entrypoint = "relai_poster_template.typ"
+authors = ["Ole Petersen"]
+license = "MIT"
+description = "Poster template for the Konrad Zuse School of Excellence in Reliable AI"
+repository = "https://github.com/peteole/relai_poster_template"
+categories = ["poster"]
+exclude = ["**/*.pdf","examples"]
+
+[template]
+path = "."
+entrypoint = "poster.typ"
+thumbnail = "thumbnail.png"
