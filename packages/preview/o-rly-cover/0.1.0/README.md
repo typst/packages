@@ -9,7 +9,7 @@ A ``typst`` package for creating **O'RLY?**-style cover pages.
 ## Example
 
 ```rust
-#import "@preview/o-rly-typst:0.1.0": *
+#import "@preview/o-rly-cover:0.1.0": *
 
 #orly(
     color: rgb("#85144b"),
@@ -25,7 +25,7 @@ A ``typst`` package for creating **O'RLY?**-style cover pages.
 
 ## Usage
 
-First, import the package at the top of your ``typst`` file: ``#import "@preview/o-rly-typst:0.1.0": *``
+First, import the package at the top of your ``typst`` file: ``#import "@preview/o-rly-cover:0.1.0": *``
 
 Only one function is exposed, ``#orly()``.  This will create its own page in the document at whatever location you call the function.  In other words, any content in the ``typst`` document that appears before ``#orly()`` is called will be before the O'Rly? page in the PDF that ``typst`` renders.  Anything after the function call will be on subsequent page(s).
 
