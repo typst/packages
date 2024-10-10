@@ -3,7 +3,7 @@
 
 #let import-section(file) = {
   include {
-    "template/content/" + file + ".typ"
+    "./content/" + file + ".typ"
   }
 }
 
