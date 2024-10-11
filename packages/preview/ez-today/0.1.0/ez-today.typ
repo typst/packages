@@ -1,4 +1,4 @@
-#let get_month(lang, month) = {
+#let get-month(lang, month) = {
   let months = ()
 
   if lang == "de" {
@@ -16,19 +16,19 @@
   months.at(month - 1)
 }
 
-#let today(lang: "de", format: "d. M Y", custom_months: ()) = {
-  let use_custom = false;
-  if custom_months.len() == 12 {
-    use_custom = true;
+#let today(lang: "de", format: "d. M Y", custom-months: ()) = {
+  let use-custom = false;
+  if custom-months.len() == 12 {
+    use-custom = true;
   }
   for f in format {
     if f == "d" {
       [#datetime.today().day()]
     } else if f == "M" {
-      if use_custom {
-        [#custom_months.at(datetime.today().month() - 1)]
+      if use-custom {
+        [#custom-months.at(datetime.today().month() - 1)]
       } else {
-        [#get_month(lang, datetime.today().month())]
+        [#get-month(lang, datetime.today().month())]
       }
     } else if f == "m" {
       [#datetime.today().month()]

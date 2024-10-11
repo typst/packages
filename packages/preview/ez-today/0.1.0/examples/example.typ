@@ -7,6 +7,6 @@
 #ez-today.today(lang: "en", format: "M-d-Y")
 
 // Defining some custom names
-#let my_months = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+#let my-months = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 // Get current date with custom names
-#ez-today.today(custom_months: my_months, format: "M-y")
+#ez-today.today(custom-months: my-months, format: "M-y")

@@ -27,7 +27,7 @@ Prints the current date with given arguments.
 #let today(
   lang: "de",
   format: "d. M Y",
-  custom_months: ()
+  custom-months: ()
 ) = { .. }
 ```
 
@@ -35,7 +35,7 @@ Prints the current date with given arguments.
 
 - `lang`: [`str`] &mdash; Select one of the included languages (de, en, fr, it).
 - `format`: [`str`] &mdash; Specify the output format.
-- `custom_months`: [`array`] of [`str`] &mdash; Use custom names for each month. This array must have 12 entries. If this is used, the `lang` argument does nothing.
+- `custom-months`: [`array`] of [`str`] &mdash; Use custom names for each month. This array must have 12 entries. If this is used, the `lang` argument does nothing.
 
 ## Customization
 
@@ -70,11 +70,11 @@ Here are some examples:
 #ez-today.today(format: "d.m.Y")                // 11.10.2024
 ```
 
-Use the `custom_months` argument to give each month a custom name. You can add a new language or use short terms for each month.
+Use the `custom-months` argument to give each month a custom name. You can add a new language or use short terms for each month.
 
 ```typ
 // Defining some custom names
-#let my_months = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+#let my-months = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 // Get current date with custom names
-#ez-today.today(custom_months: my_months, format: "M-y")    // Oct-24
+#ez-today.today(custom-months: my-months, format: "M-y")    // Oct-24
 ```
