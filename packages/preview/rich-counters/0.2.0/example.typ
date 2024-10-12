@@ -1,4 +1,4 @@
-#import "@preview/rich-counters:0.1.0": *
+#import "@preview/rich-counters:0.2.0": *
 
 #set heading(numbering: "1.1")
 #let mycounter = richcounter(identifier: "mycounter", inherited_levels: 1)
