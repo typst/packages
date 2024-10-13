@@ -107,8 +107,8 @@
   let final() = { at(none) }
 
   // `display` method for this rich-counter
-  let display(numbering_style) = {
-    numbering(numbering_style, ..get())
+  let display(numbering: "1.1") = {
+    numbering(numbering, ..get())
   }
 
   return (step: step, at: at, get: get, final: final, display: display, inherited_levels: inherited_levels, last_update_location: last_update_location)

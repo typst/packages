@@ -86,9 +86,9 @@ For example, the following creates a `rich-counter` `foo` which inherits one lev
 
 ## Usage of a `rich-counter`
 
-- `display(numbering_style)` (needs `context`)
+- `display(numbering: "1.1")` (needs `context`)
 
-  Displays the current value of the counter with the given numbering style.
+  Displays the current value of the counter with the given numbering style (default: `"1.1"`).
 
 - `get()` (needs `context`)
 
