@@ -1,4 +1,4 @@
-#import "../lib.typ": checklist
+#import "@preview/cheq:0.2.1": checklist
 
 #set page(width: auto, height: auto, margin: 2em)
 
