@@ -3,7 +3,7 @@
   it
 }
 
-#let normalize_length(array, length) = {
+#let normalize-length(array, length) = {
   if array.len() > length {
     array = array.slice(0, length)
   } else if array.len() < length {
@@ -13,4 +13,4 @@
   return array
 }
 
-#let dependent-numbering(style, levels: 1) = n => { numbering(style, ..normalize_length(counter(heading).get(), levels), n) }
+#let dependent-numbering(style, levels: 1) = n => { numbering(style, ..normalize-length(counter(heading).get(), levels), n) }
