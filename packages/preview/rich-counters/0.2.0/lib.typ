@@ -109,7 +109,7 @@
   // `display` method for this rich-counter
   let display(..args) = {
     if args.pos().len() == 0 {
-      numbering(..get())
+      numbering("1.1", ..get())
     } else {
       numbering(args.pos().first(), ..get())
     }

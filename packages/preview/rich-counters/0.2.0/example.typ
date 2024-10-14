@@ -1,7 +1,7 @@
 #import "@preview/rich-counters:0.2.0": *
 
 #set heading(numbering: "1.1")
-#let mycounter = richcounter(identifier: "mycounter", inherited_levels: 1)
+#let mycounter = rich-counter(identifier: "mycounter", inherited_levels: 1)
 
 // DOCUMENT
 

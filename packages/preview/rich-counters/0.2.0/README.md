@@ -1,6 +1,6 @@
 # `rich-counters`
 
-This package allows you to have **counters which depend on other counters**.
+This package allows you to have **counters which can inherit from other counters**.
 
 Concretely, it implements `rich-counter`, which is a counter that can _inherit_ one or more levels from another counter.
 
@@ -120,7 +120,7 @@ For example, the following steps `mycounter` (at depth 1) and then displays it.
 
 ## Limitations
 
-Due to current Typst limitations, there is no way to detect direct updates or steps of Typst-native counters, like `counter(heading).update(...)` or `counter(heading).step(...)`.
+Due to current Typst limitations, there is no way to detect manual updates or steps of Typst-native counters, like `counter(heading).update(...)` or `counter(heading).step(...)`.
 Only occurrences of actual `heading`s can be detected.
 So make sure that after you call e.g. `counter(heading).update(...)`, you place a heading directly after it, before you call any `rich-counter`s.
 
