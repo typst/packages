@@ -4,7 +4,7 @@
 
 ### Features
 
-- feat: add `strecth` parameter for `#alternatives[]` function class. This allows us to handle cases where the internal element is a context expression.
+- feat: add `stretch` parameter for `#alternatives[]` function class. This allows us to handle cases where the internal element is a context expression.
 - feat: add `config-common(align-enum-marker-with-baseline: true)` for aligning the enum marker with the baseline.
 - feat: add `linebreaks` option to `components.mini-slides`. https://github.com/touying-typ/touying/pull/96
 - feat: add `<touying:skip>` label to skip a new-section-slide.
