@@ -5,7 +5,7 @@ Create Gantt charts automatically with Typst!
 Here's a fully-featured example:
 
 ```typst
-#import "@preview/timeliney:0.0.1"
+#import "@preview/timeliney:0.1.0"
 
 #timeliney.timeline(
   show-grid: true,
@@ -58,7 +58,7 @@ Here's a fully-featured example:
 ![Example Gantt chart](sample.png)
 
 ## Installation
-Import with `#import "@preview/timeliney:0.0.1"`. Then, call the `timeliney.timeline` function.
+Import with `#import "@preview/timeliney:0.1.0"`. Then, call the `timeliney.timeline` function.
 
 ## Documentation
 See [the manual](manual.pdf)!
