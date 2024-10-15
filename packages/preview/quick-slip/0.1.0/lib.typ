@@ -242,10 +242,14 @@
     let globalOption = counter("globalOption").get().at(0)
     move(
       dx: 16pt,
-      grid(
-        columns: 2,
-        column-gutter: 3pt,
-        rotate(45deg)[#box(width: 2.2mm, height: 2.2mm, fill: black) #label(("option" + str(globalOption + 1)))], body,
+      box(
+        width: 100% - 16pt,
+        grid(
+          columns: 2,
+          column-gutter: 3pt,
+          rotate(45deg)[#box(width: 2.2mm, height: 2.2mm, fill: black) #label(("option" + str(globalOption + 1)))],
+          body,
+        ),
       ),
     )
 
