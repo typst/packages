@@ -1,4 +1,4 @@
-# O'Rly Cover Builder
+# Fauxreilly
 
 <a href="https://forthebadge.com" target="_blank"><img src="https://raw.githubusercontent.com/dei-layborer/o-rly-typst/refs/heads/main/made-with-(2s)-2%2C6-diamino-n-%5B(2s)-1-phenylpropan-2-yl%5Dhexanamide-n-%5B(2s)-1-phenyl-2-propanyl%5D-l-lysinamide.svg"></a>
 
@@ -83,3 +83,5 @@ Tested on ``typst`` versions ``0.11.1`` and ``0.12.0-rc1``.
 Shout out to Arthur Beaulieu ([@arthurbeaulieu](https://github.com/ArthurBeaulieu)), whose [web-based generator](https://arthurbeaulieu.github.io/ORlyGenerator/) served as both inspiration and reference (I pretty much stole his layout settings).
 
 Significant thanks to the folks in the [typst discord](https://discord.gg/2uDybryKPe) who helped me sort out some layout woes.
+
+Extra double appreciation to Enivex on the discord for the name.
