@@ -89,7 +89,7 @@ A numbered step in the checklist. The first parameter is to the left of the dott
 Indents contents by one tab.
 
 ```typst
-#tab(goToStep("9"))
+#tab(goto("9"))
 #tab(tab("Large mugs may require more water."))
 ```
 
@@ -114,7 +114,7 @@ Adds a note.
 A numbered step with options.
 
 ```typst
- #chooseOne[
+ #choose-one[
     #option[Black tea *required:*]
     #option[Tea with MILK *required:*]
   ]
@@ -125,13 +125,21 @@ A numbered step with options.
 Two right facing arrow heads followed by Go to step `step number`. Links to step in pdf.
 
 ```typst
-#goToStep("9")
+#goto("9")
 ```
 
-#### End now
+#### End
 
-Ends the section now with 4 dots.
+Ends the section here with 4 dots.
 
 ```typst
-#endNow()
+#end()
+```
+
+#### Wait
+
+Long small dotted line for waiting for a task to complete.
+
+```typst
+#wait()
 ```

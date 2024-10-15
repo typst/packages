@@ -221,7 +221,7 @@
   }
 )
 
-#let chooseOne(fill-bg: rgb("edf7f7ff"), body) = (
+#let choose-one(fill-bg: rgb("edf7f7ff"), body) = (
   context {
     counter("step").step()
     counter("localOption").update(0)
@@ -283,35 +283,6 @@
   }
 )
 
-#let optionStep(a, b) = (
-  context {
-    if (a != none and a != "" and (b == none or b == "")) {
-      // Check if only 'a' is present
-      move(
-        dx: 16pt,
-        box(
-          width: 100% - 16pt,
-          text(a),
-        ),
-      )
-    } else if (a != none and a != "" and b != none and b != "") {
-      // Check if both 'a' and 'b' are present
-
-      move(
-        dx: 16pt,
-        box(
-          width: 100% - 16pt,
-          grid(
-            columns: 3,
-            a, repeat[.], align(right)[#b],
-          ),
-        ),
-      )
-
-    }
-  }
-)
-
 #let tab(body) = {
   move(
     dx: 17pt,
@@ -324,7 +295,7 @@
 
 
 
-#let endNow() = {
+#let end() = {
   align(center)[
     #box(
       width: 20%,
@@ -345,7 +316,7 @@
 
 
 
-#let goToStep(step) = (
+#let goto(step) = (
   context {
     move(
       dx: 18pt,
@@ -374,11 +345,11 @@
 )
 
 
-#let waitHere() = {
+#let wait() = {
   repeat[#stack(dir: ltr, rect(width: 2mm, height: 1mm, fill: black), h(2mm))]
 }
 
-#let subStep(a, b) = {
+#let substep(a, b) = {
   v(1pt)
   set text(size: 9.8pt)
   move(
