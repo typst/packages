@@ -5,7 +5,6 @@ entrypoint = "slides-template.typ"
 authors = ["SkytAsul"]
 license = "MIT"
 description = "A template made for presentations of INSA, a French engineering school."
-homepage = "https://github.com/SkytAsul/INSA-Typst-Template"
 repository = "https://github.com/SkytAsul/INSA-Typst-Template"
 keywords = ["insa", "school", "engineering", "presentation", "slides", "diaporama"]
 disciplines = ["engineering", "computer-science", "mathematics", "physics", "education"]
