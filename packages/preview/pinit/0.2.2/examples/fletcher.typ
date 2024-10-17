@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/pinit:0.2.2": *
 #import "@preview/fletcher:0.5.1"
 
 Con#pin(1)#h(4em)#pin(2)nect

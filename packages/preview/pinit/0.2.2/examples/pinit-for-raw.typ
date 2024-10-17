@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/pinit:0.2.2": *
 
 #set text(size: 24pt)
 

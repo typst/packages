@@ -1,6 +1,6 @@
 // Example adapted from: @Matt https://discord.com/channels/1054443721975922748/1088371919725793360/1166508915572351067
 
-#import "../lib.typ": *
+#import "@preview/pinit:0.2.2": *
 #set page(width: 700pt, height: auto, margin: 30pt)
 #set text(size: 20pt)
 #set math.equation(numbering: "(1)")

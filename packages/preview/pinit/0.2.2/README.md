@@ -145,6 +145,8 @@ However, you may want to consider putting it in a comment to avoid highlighting 
     - [`double-arrow`](#double-arrow)
     - [`pinit-fletcher-edge`](#pinit-fletcher-edge)
   - [Changelog](#changelog)
+    - [0.2.2](#022)
+    - [0.2.1](#021)
     - [0.2.0](#020)
     - [0.1.4](#014)
     - [0.1.3](#013)
@@ -576,6 +578,15 @@ Draw a connecting line or arc in an fletcher arrow diagram.
 
 
 ## Changelog
+
+### 0.2.2
+
+- Fix bugs.
+
+
+### 0.2.1
+
+- To be compatible with Typst 0.12.
 
 
 ### 0.2.0

@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/pinit:0.2.2": *
 #import "@preview/touying:0.5.3": *
 #import themes.default: *
 
