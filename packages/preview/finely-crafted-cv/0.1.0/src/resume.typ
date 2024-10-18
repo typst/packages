@@ -17,9 +17,6 @@
   thumbnail: none, // check out https://qrframe.kylezhe.ng/ for QR code generation
   body
 ) = {
-  // Save our settings needed in other functions
-  __set("heading_font", heading_font)
-
   // Document setup, mostly metadata in a PDF
   set document(
     title: "Résumé/CV of " + name,
@@ -106,6 +103,9 @@
       }
     },
   )
+
+  // Save our settings needed in other functions
+  __set("heading_font", heading_font)
 
   // Main Headline
   text(size: HEADLINE_NAME_SIZE, weight: HEADLINE_NAME_WEIGHT, font: heading_font)[#smallcaps(name)]
