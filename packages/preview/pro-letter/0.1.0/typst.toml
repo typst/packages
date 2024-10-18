@@ -5,6 +5,9 @@ entrypoint = "lib.typ"
 authors = ["Stephen Waits <steve@waits.net>"]
 license = "MIT"
 description = "A formal business letter template."
+categories = ["office"]
+disciplines = ["business", "communication"]
+keywords = ["professional", "business", "letter", "correspondence"]
 
 [template]
 path = "template"
