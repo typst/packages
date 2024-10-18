@@ -6,7 +6,7 @@
   keywords: "marine biology, conservation, research, education, patents",
   email: "amira.patel@oceandreams.org",
   phone: "+1-305-555-7890",
-  linkedin_username: "amirapatel",
+  linkedin-username: "amirapatel",
   thumbnail: image("assets/my-qr-code.svg"),
 )
 

@@ -23,7 +23,7 @@ To use this template, import it with the version number and utilize the `resume`
   keywords: "marine biology, conservation, research, education, patents",
   email: "amira.patel@oceandreams.org",
   phone: "+1-305-555-7890",
-  linkedin_username: "amirapatel",
+  linkedin-username: "amirapatel",
   thumbnail: image("assets/my-qr-code.svg"),
 )
 
@@ -72,12 +72,12 @@ This is the main function to create a CV document.
   - `name`: (String) Your full name. Default is "YOUR NAME HERE".
   - `tagline`: (String) A brief description of your professional identity or mission.
   - `paper`: (String) The paper size, default is "us-letter".
-  - `heading_font`: (Font) Font for headings, customizable.
-  - `body_font`: (Font) Font for body text, customizable.
-  - `body_size`: (Size) Font size for body text.
+  - `heading-font`: (Font) Font for headings, customizable.
+  - `body-font`: (Font) Font for body text, customizable.
+  - `body-size`: (Size) Font size for body text.
   - `email`: (String) Your email address.
   - `phone`: (String) Your phone number.
-  - `linkedin_username`: (String) Your LinkedIn username.
+  - `linkedin-username`: (String) Your LinkedIn username.
   - `keywords`: (String) Keywords for searchability.
   - `thumbnail`: (Image) Thumbnail or QR code image, optional.
   - `body`: (Block) The main content of your CV.

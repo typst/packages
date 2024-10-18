@@ -7,12 +7,12 @@
   name: "YOUR NAME HERE",
   tagline: none,
   paper: "us-letter",
-  heading_font: HEADING_FONT,
-  body_font: BODY_FONT,
-  body_size: BODY_SIZE,
+  heading-font: HEADING_FONT,
+  body-font: BODY_FONT,
+  body-size: BODY_SIZE,
   email: none,
   phone: none,
-  linkedin_username: none,
+  linkedin-username: none,
   keywords: "",
   thumbnail: none, // check out https://qrframe.kylezhe.ng/ for QR code generation
   body
@@ -42,7 +42,7 @@
             sym.divides,
             icon_and_contact("icons/phone.svg", link("tel:" + phone, phone)),
             sym.divides,
-            icon_and_contact("icons/linkedin.svg", link("https://www.linkedin.com/in/" + linkedin_username, linkedin_username))
+            icon_and_contact("icons/linkedin.svg", link("https://www.linkedin.com/in/" + linkedin-username, linkedin-username))
           )
         )
       }
@@ -50,7 +50,7 @@
     footer: context {
       let multi_page = counter(page).final().first() > 1
       let date = datetime.today().display("[month repr:long] [day], [year]")
-      text(size: FOOTER_SIZE, weight: FOOTER_TEXT_WEIGHT, font: heading_font)[
+      text(size: FOOTER_SIZE, weight: FOOTER_TEXT_WEIGHT, font: heading-font)[
         #grid(
           columns: (1fr, 1fr, 1fr),
           align: (left, center, right + horizon),
@@ -70,7 +70,7 @@
   )
 
   // Global text settings
-  set text(font: body_font, size: body_size, weight: BODY_WEIGHT, fallback: true)
+  set text(font: body-font, size: body-size, weight: BODY_WEIGHT, fallback: true)
   set par(justify: true)
 
   // Heading styles
@@ -81,7 +81,7 @@
       below: SECTION_HEADING_SPACE_BELOW,
       breakable: false,
       [
-        #text(size: SECTION_HEADING_SIZE, weight: SECTION_HEADING_WEIGHT, font: heading_font)[
+        #text(size: SECTION_HEADING_SIZE, weight: SECTION_HEADING_WEIGHT, font: heading-font)[
           #context counter(heading).display()
           #upper(it.body)
         ]
@@ -105,10 +105,10 @@
   )
 
   // Save our settings needed in other functions
-  __set("heading_font", heading_font)
+  __set("heading-font", heading-font)
 
   // Main Headline
-  text(size: HEADLINE_NAME_SIZE, weight: HEADLINE_NAME_WEIGHT, font: heading_font)[#smallcaps(name)]
+  text(size: HEADLINE_NAME_SIZE, weight: HEADLINE_NAME_WEIGHT, font: heading-font)[#smallcaps(name)]
   h(1fr)
   text(size: TAGLINE_SIZE, style: TAGLINE_STYLE, weight: TAGLINE_WEIGHT)[#tagline]
   hrule(stroke: HEADLINE_HRULE_STROKE)
@@ -139,7 +139,7 @@
       context text(
         weight: COMPANY_NAME_WEIGHT,
         size: COMPANY_NAME_SIZE,
-        font: __get("heading_font"),
+        font: __get("heading-font"),
         name
       ),
 
@@ -154,7 +154,7 @@
       context text(
         weight: COMPANY_DATE_WEIGHT,
         size: COMPANY_DATE_SIZE,
-        font: __get("heading_font"),
+        font: __get("heading-font"),
 
         if start != none {
           [#start -- #end]
@@ -189,7 +189,7 @@
         style: JOB_NAME_STYLE,
         weight: JOB_NAME_WEIGHT,
         size: JOB_NAME_SIZE,
-        font: __get("heading_font"),
+        font: __get("heading-font"),
         title
       ),
 
@@ -207,7 +207,7 @@
         style: JOB_LOCATION_STYLE,
         weight: JOB_LOCATION_WEIGHT,
         size: JOB_LOCATION_SIZE,
-        font: __get("heading_font"),
+        font: __get("heading-font"),
 
         if location != none and start != none {
           [#location#[;] #h(0.25em)#start#if end != none [ -- #end]]
