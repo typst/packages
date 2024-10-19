@@ -223,7 +223,7 @@
     linenum = "1"
   }
   set par(justify: true, first-line-indent: indent-size, leading: els-linespace)
-  set par.line(numbering: linenum, numbering-scope: page)
+  set par.line(numbering: linenum, numbering-scope: "page")
 
   // Display title and affiliation
   align(center,{
