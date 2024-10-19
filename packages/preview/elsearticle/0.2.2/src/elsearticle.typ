@@ -169,7 +169,7 @@
         paper: "a4",
         numbering: "1",
         margin: els-margin,
-
+        columns: els-columns
         // Set journal name and date
         footer: context{
           let i = counter(page).at(here()).first()
@@ -197,7 +197,7 @@
       }
       coord = ("Corresponding author. E-mail address: ", author.corr).join()
     }
-    names.push(auth.join())
+    names.push(box(auth.join()))
     names_meta.push(author.name)
 
     if author.affiliation == none {
@@ -235,13 +235,18 @@
     v(1.5em)
   })
 
-  // Corresponding author
-  v(-2em)
-  hide(footnote(coord, numbering: "*"))
-  counter(footnote).update(0)
+  // Format title and affiliation
+  let els-authors = align(center,{
+    par(leading: 0.75em, text(size: font-size.title, title))
+    v(0pt)
+    text(size: font-size.author, author-string)
+    v(font-size.small)
+    par(leading: 1em, text(size: font-size.small, emph(affiliations.join()), top-edge: 0.5em))
+  })
 
-  // Display the abstract
-  if abstract != none {
+
+  // Format the abstract
+  let els-abstract = if abstract != none {
     line(length: 100%)
     text(weight: "bold", [Abstract])
     v(1pt)
@@ -263,10 +268,24 @@
     line(length: 100%)
   }
 
+  place(
+    top,
+    float: true,
+    scope: "parent",
+    [
+      #els-authors
+      #els-abstract
+    ]
+  )
+  // Corresponding author
+  hide(footnote(coord, numbering: "*"))
+  counter(footnote).update(0)
+
   // bibliography
   set bibliography(title: "References")
   show bibliography: set heading(numbering: none)
   show bibliography: set text(size: font-size.normal)
 
-  show: columns(els-columns, body)
+  v(-2em)
+  body
 }
