@@ -169,7 +169,7 @@
         paper: "a4",
         numbering: "1",
         margin: els-margin,
-        columns: els-columns
+        columns: els-columns,
         // Set journal name and date
         footer: context{
           let i = counter(page).at(here()).first()
