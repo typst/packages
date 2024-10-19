@@ -195,7 +195,11 @@
       } else {
         auth.push(super(text(baseline: -1.5pt, "*")))
       }
-      coord = ("Corresponding author. E-mail address: ", author.corr).join()
+      if els-columns == 1 {
+        coord = ("Corresponding author. E-mail address: ", author.corr).join()
+      } else {
+        coord = ([Corresponding author. #linebreak() #h(1.4em)E-mail address: ], author.corr).join()
+      }
     }
     names.push(box(auth.join()))
     names_meta.push(author.name)
