@@ -3,6 +3,7 @@
 [package]
 name = "graceful-genetics"
 version = "0.2.0"
+compiler = "0.12.0"
 entrypoint = "src/lib.typ"
 authors = ["James R. Swift"]
 license = "Unlicense"
