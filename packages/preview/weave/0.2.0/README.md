@@ -1,41 +1,17 @@
 # weave
-A helper library for chaining lambda abstractions, imitating the `|>` or `.` operator in some
-functional languages.
+A helper library for chaining lambda abstractions, imitating the `|>` or `.`
+operator in some functional languages.
 
 The function `compose` is the `pipe` function in the mathematical order.
-Functions suffixed with underscore are flipped version.
+Functions suffixed with underscore have their arguments flipped.
 
-# Changelog
+## Changelog
 - 0.2.0 Redesigned interface to work with typst's `with` keyword.
 - 0.1.0 Initial release
 
 ## Basic usage
-To chain functions into one single function, you can write:
-```typ
-#let add8 = pipe_((
-  x => x + 5, // first add 5
-  x => x + 3, // then add 3
-))
-```
-
-And then apply this to a value, for example.
-```typ
-#let result = add8(10)
-```
-
-This can be particularly useful when you need to destructure lists, as it allows creating binds that
-are scoped by a lambda expression.
-```typ
-#let two_and_one = pipe(
-  (1, 2),
-  (
-    ((a, b)) => (a, b, -1), // becomes a list of length three
-    ((a, b, _)) => (b, a), // discard the third element and swap
-  ),
-)
-```
-
-It can also improve readability with nested applications to a content value.
+It can help improve readability with nested applications to a content value, or
+make the diff cleaner.
 ```typ
 #compose_((
   text.with(blue),
@@ -45,7 +21,8 @@ It can also improve readability with nested applications to a content value.
   strike,
 ))[This is a very long content with a lot of words]
 // Is equivalent to
-#text(blue,
+#text(
+  blue,
   emph(
     strong(
       underline(
@@ -56,16 +33,28 @@ It can also improve readability with nested applications to a content value.
 )
 ```
 
-You can also use it for show rules.
+You can use it for show rules just like the example above.
 ```typ
-#show link: pipe_.with((
-  emph,
+#show link: compose_.with((
   text.with(fill: blue),
+  emph,
   underline,
 ))
-
-// Is equivalent to (note the order)
-#show link: underline
+// These two are equivalent
 #show link: text.with(fill: blue)
 #show link: emph
+#show link: underline
 ```
+
+This can also be useful when you need to destructure lists, as it allows creating binds that
+are scoped by each lambda expression.
+```typ
+#let two_and_one = pipe(
+  (1, 2),
+  (
+    ((a, b)) => (a, b, -1), // becomes a list of length three
+    ((a, b, _)) => (b, a), // discard the third element and swap
+  ),
+)
+```
+
