@@ -3,7 +3,7 @@
 //! https://github.com/duskmoon314/typst-fontawesome
 
 // Implementation of `fa-icon`
-#import "lib-impl.typ": fa-icon, fa_use_pro
+#import "lib-impl.typ": fa-icon, fa-use-pro
 
 // Generated icons
 #import "lib-gen.typ": *

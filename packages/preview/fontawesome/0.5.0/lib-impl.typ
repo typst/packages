@@ -1,7 +1,7 @@
 // Currently, we assume there is no need to enable Pro sets for only a part of the document,
 // so no method is provided to disable Pro sets
 #let _fa_use_pro = state("_fa_use_pro", false)
-#let fa_use_pro() = {
+#let fa-use-pro() = {
   _fa_use_pro.update(true)
 }
 
