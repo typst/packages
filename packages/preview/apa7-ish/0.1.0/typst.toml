@@ -7,6 +7,7 @@ license = "MIT"
 description = "Typst Template that (mostly) complies with APA7 Style (Work in Progress)."
 repository = "https://github.com/mrwunderbar666/typst-apa7ish"
 keywords = ["apa"]
+categories = ["paper"]
 
 [template]
 path = "template"
