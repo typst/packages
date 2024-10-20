@@ -1,6 +1,6 @@
 [package]
 name = "elsearticle"
-version = "0.2.2"
+version = "0.3.0"
 authors = ["Mathieu Aucejo"]
 license = "MIT"
 description = "Conversion of the LaTeX elsearticle.cls"
