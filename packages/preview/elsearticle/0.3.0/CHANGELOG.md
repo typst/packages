@@ -1,4 +1,4 @@
-# [v0.2.2](https://github.com/maucejo/elsearticle/releases/tags/v0.2.2)
+# [v0.3.0](https://github.com/maucejo/elsearticle/releases/tags/v0.3.0)
 
 - Add the `line-numbering` option to the `#elsearticle()` command
 
