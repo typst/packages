@@ -17,7 +17,7 @@
   ((x, f) => f(x)),
 )
 
-/// Compose a list of transformation from right to left into a single function.
+/// Compose a list of transformation from right to left, apply them to a value
 /// This is the flipped version of its counterpart without `_` suffix
 #let compose_(transformations, input) = transformations.rev().fold(
   input,
