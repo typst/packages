@@ -77,7 +77,8 @@
     // h(), or v(), in order to avoid broken layout.
     return content
   } else {
-    return [#content#label]
+    // return [#content#label]
+    return math.attach(math.limits(content), t: [#none#label])
   }
 }
 
@@ -116,6 +117,8 @@
 /// - padding (none, length, dictionary): The space between the marked content and the border of the overlay.
 ///     You can specify `left`, `right`, `top`, `bottom`, `x`, `y`, or a `rest` value.
 /// - ctx (auto, string): The context of the marked content.
+///     Possible values are `"inline"`, `"script"` or `"sscript"`.
+///     If set to `auto`, it is automatically chosen.
 /// -> content
 #let core-mark(body, tag: none, color: black, overlay: none, padding: (:), ctx: auto) = {
   // Extract leading/trailing horizontal spaces from body.
@@ -124,7 +127,6 @@
   leading-h
 
   _mark-cnt.step()
-  h(0pt)
 
   context {
     set math.equation(numbering: none)
@@ -149,34 +151,43 @@
       let min-y = start.y
       for e in elems {
         let pos = e.location().position()
+        let hpos = here().position()
+        let dx = pos.x - hpos.x
+        let dy = pos.y - hpos.y
         if min-y > pos.y {
           min-y = pos.y
         }
       }
 
       let size
+      let attach-space = .2em
       if ctx == auto {
         size = measure($ body $)
         let width = end.x - start.x
-        let size1 = measure($ inline(#labeled-body) $)
-        let size2 = measure($ script(#labeled-body) $)
-        let size3 = measure($ sscript(#labeled-body) $)
-        if width < size.width - .01pt {
+        if calc.abs(width - size.width) > .01pt {
+          let size1 = measure($ inline(#labeled-body) $)
+          let size2 = measure($ script(#labeled-body) $)
+          let size3 = measure($ sscript(#labeled-body) $)
           if calc.abs(width - size1.width) < .01pt {
-            size = size1
+            size = measure($ inline(body) $)
           } else if calc.abs(width - size2.width) < .01pt {
-            size = size2
+            size = measure($ script(body) $)
+            attach-space = measure($ script(#rect(height: attach-space)) $).height
           } else if calc.abs(width - size3.width) < .01pt {
-            size = size3
+            size = measure($ sscript(body) $)
+            attach-space = measure($ sscript(#rect(height: attach-space)) $).height
           }
         }
       } else if ctx == "inline" {
         size = measure($ inline(body) $)
       } else if ctx == "script" {
         size = measure($ script(body) $)
+        attach-space = measure($ script(#rect(height: attach-space)) $).height
       } else if ctx == "sscript" {
         size = measure($ sscript(body) $)
+        attach-space = measure($ script(#rect(height: attach-space)) $).height
       }
+      min-y += attach-space.to-absolute()
 
       let padding = if type(padding) == none {
         (left: 0pt, right: 0pt, top: 0pt, bottom: 0pt)
@@ -206,7 +217,9 @@
         let hpos = here().position()
         let dx = x - hpos.x
         let dy = y - hpos.y
-        place(dx: dx, dy: dy, overlay(width, height, color))
+        box(place(dx: dx, dy: dy, overlay(width, height, color)))
+        // place([#dy])
+        // box(place(dx: -hpos.x, dy: -hpos.y, overlay(width, height, color)))
       }
     }
   }
@@ -236,6 +249,9 @@
 /// - radius (relative, dictionary): The corner radius of the highlight rectangle.
 /// - padding (none, length, dictionary): he space between the highlighted content and the border of the highlight.
 ///     You can specify `left`, `right`, `top`, `bottom`, `x`, `y`, or a `rest` value.
+/// - ctx (auto, string): The context of the marked content.
+///     Possible values are `"inline"`, `"script"` or `"sscript"`.
+///     If set to `auto`, it is automatically chosen.
 /// -> content
 #let mark(
   body,

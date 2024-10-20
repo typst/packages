@@ -80,7 +80,7 @@
     let width = info.width
     let height = info.height
     let color = info.color
-    place(dx: dx, dy: dy, overlay(width, height, color))
+    box(place(dx: dx, dy: dy, overlay(width, height, color)))
   }
 }
 
