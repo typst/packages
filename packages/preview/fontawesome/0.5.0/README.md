@@ -95,10 +95,10 @@ Any feedback is appreciated.
 ##### Enable Pro sets
 
 Typst 0.12.0 raise a warning when the font is not found.
-To use the Pro set, `typst #fa_use_pro()` should be called before any `fa-*` functions.
+To use the Pro set, `#fa-use-pro()` should be called before any `fa-*` functions.
 
 ```typst
-#fa_use_pro()                 // Enable Pro sets
+#fa-use-pro()                 // Enable Pro sets
 
 #fa-icon("chess-queen-piece") // Use icons from Pro sets
 ```
