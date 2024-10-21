@@ -5,10 +5,10 @@
 #let SIZE_SMALL = 0.9em
 #let SIZE_TINY = 0.7em
 
-#let BODY_FONT = "Linux Libertine"
+#let BODY_FONT = "Libertinus Serif"
 #let BODY_SIZE = 11pt
 #let BODY_WEIGHT = "light"
-#let HEADING_FONT = "Linux Libertine Display"
+#let HEADING_FONT = "Libertinus Serif"
 
 #let PAGE_MARGIN = 0.5in
 
