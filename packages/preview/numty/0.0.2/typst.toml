@@ -5,4 +5,4 @@ entrypoint = "lib.typ"
 authors = ["Pablo Ruiz Cuevas"]
 license = "MIT"
 description = "Numeric Typst"
-exclude = "test.typ"
+exclude = ["test.typ"]

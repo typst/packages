@@ -31,25 +31,25 @@
   }
 }
 
-#let _eq(i,j, equal_nan) ={
-  i==j or (all(isna((i,j))) and equal_nan)
+#let _eq(i,j, equal-nan) ={
+  i==j or (all(isna((i,j))) and equal-nan)
 }
 
-#let eq(u,v, equal_nan: false) = {
+#let eq(u,v, equal-nan: false) = {
   // Checks for equality element wise
   // eq((1,2,3), (1,2,3)) = (true, true, true)
   // eq((1,2,3), 1) = (true, false, false)
   if arrarr(u,v) {
-    u.zip(v).map(((i,j)) => (_eq(i,j, equal_nan)))
+    u.zip(v).map(((i,j)) => (_eq(i,j, equal-nan)))
   } 
   else if arrflt(u,v) {
-    u.map(i => _eq(i,v,equal_nan))
+    u.map(i => _eq(i,v,equal-nan))
   }
   else if fltarr(u,v) {
-    v.map(i => _eq(i,u,equal_nan))
+    v.map(i => _eq(i,u,equal-nan))
   }
   else if fltflt(u,v) {
-     _eq(u,v,equal_nan)
+     _eq(u,v,equal-nan)
   }
 }
 
@@ -59,7 +59,7 @@
 }
 
 
-#let all_eq(u,v) = all(eq(u,v))
+#let all-eq(u,v) = all(eq(u,v))
 
 // == Operators ==
 

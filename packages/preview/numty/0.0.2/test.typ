@@ -20,7 +20,7 @@
     #assert(nt.eq(a,a) == true)
 
     // with nan
-    #assert(nt.eq((float.nan,1),(float.nan,1), equal_nan:true) == (true,true))
+    #assert(nt.eq((float.nan,1),(float.nan,1), equal-nan:true) == (true,true))
     #assert(nt.eq((float.nan,1),(float.nan,1)) == (false,true))
     
   // all
@@ -37,11 +37,11 @@
   
   // all_eq
     //arr
-    #assert(nt.all_eq(u,v) == false)
-    #assert(nt.all_eq(u,u) == true)
+    #assert(nt.all-eq(u,v) == false)
+    #assert(nt.all-eq(u,u) == true)
 
     //flt
-    #assert(nt.all_eq(3,3) == true)
+    #assert(nt.all-eq(3,3) == true)
 
   // any
     // arr
@@ -127,15 +127,3 @@
   #assert(nt.linspace(0,10,3) == (0,5,10))
   #assert(nt.geomspace(1,100,3) == (1,10,100))
   #assert(nt.logspace(1,3,3) == (10,100,1000))
-
-
-#nt.add((1,3),(1,3))
-#nt.mult((1,3),(1,3))
-#nt.pow((1,3),(1,3))
-
-
-#nt.log((0,1,3))
-
-#nt.sin((1,3))
-
-#nt.div((1,3), (1,0))
