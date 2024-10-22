@@ -13,7 +13,7 @@ Manages acronyms so you don't have to.
 
 Acrostiche is a #acr("WTP")! This #acr("WTP") enables easy acronyms manipulation.
 
-Its Main features are auto-expansion of the first occurence, global or selective expansion reset #reset-all-acronyms(), implicit or manual plural form support (there may be multiple #acrpl("WTP")), and customizable index printing. Have Fun!
+Its main features are auto-expansion of the first occurence, global or selective expansion reset #reset-all-acronyms(), implicit or manual plural form support (there may be multiple #acrpl("WTP")), and customizable index printing. Have Fun!
 ```
 
 
@@ -74,20 +74,33 @@ Finally, you can call the `#display-def(...)` function to display the definition
 | **#display-def(...)**          | Displays the definition of an acronym. Use `plural: true` to display the plural version of the definition.           |
 
 ## Advanced Definitions
-This is a bit of a hacky feature comming from pure serendipity.
-There is no enforcing of the type of the definitions.
-Most users would naturally use strings as definitions but any other content is acceptable.
+This is a bit of a hacky feature coming from pure serendipity.
+There is no enforcement of the type of the definitions.
+Most users would naturally use strings as definitions, but any other content is acceptable.
 For example, you set your definition to a content block with rainbow-fille text, or even an image.
 The rainbow text is kinda cool because the gradient depend on the position in the page so depending on the position of first use the acronym will have a pseudo-random color.
-I cannot guarantee that arbitrary content will remain available in future versions but I will do my best to keep it as it is kinda cool.
-If you find cool usage, please reach out to show me!
 
-Here is the definition of the rainbow-filled acronym:
+If you use anything else than string for the definition, do not forget the trailing comma to force the definition to be an array (an array of a single element is not an array in Typst at the time of writing this).
+I cannot guarantee that arbitrary content will remain available in future versions but I will do my best to keep it as it is kinda cool.
+If you find cool uses, please reach out to show me!
+
+
+PS: For the smart trouble-maker in the back that are thinking about nesting an acronym call in the definition of an acronym, I am way ahead of you and yes it is (kinda) possible.
+If you point to another acronym, it all works fine.
+If you point to the same acronym, you obviously create a recursive situation, and it fails.
+It will not converge, and the compiler will warn you and will panic.
+Be nice to the compiler, don't throw recursive traps.
+
+
+Here is a minimal working example of funky acronyms:
 
 ```
+#import "@preview/acrostiche:0.3.4": *                                                           
 #init-acronyms((
-  "RFA": ([#text(fill: gradient.linear(..color.map.rainbow))[Rainbow Filled Acronym]],)
+  "RFA": ([#text(fill: gradient.linear(..color.map.rainbow))[Rainbow Filled Acronym]],),                                                             
+  "NA": ([Nested #acr("RFA") Acronym],)
 ))
+#acr("NA")
 ```
 
 ## Possible Errors:
