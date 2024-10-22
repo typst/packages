@@ -22,7 +22,7 @@ Pour utiliser le template, il est possible de recopier le fichier exemple.
 - `expediteur.commune` : commune de l'expéditeur·ice, **requis**.
 -  `expediteur.telephone` : numéro de téléphone. Le format est libre et l'affichage en police mono. *Facultatif*.
 -  `expediteur.email` : l'email fourni sera affiché en police mono et cliquable. *Facultatif*
-- `expediteur.signature` : chemin vers une image contenant la signature manuscrite. Si l'option reste à `""`, seul les noms et prénoms sont affichés en fin de lettre.  Valeurs possibles : `""` ou un chemin vers le fichier.
+- `expediteur.signature` : peut être `true` ou `false`, par défaut `false`. Prévient le paquet qu’une image de signature sera ajoutée, de manière à organiser la superposition de la signature et du nom apposé en fin de courrier.
 
 ## Destinataire
 
@@ -49,6 +49,8 @@ pj: [
 ```
 
 Le texte de la lettre proprement dite se situe après la configuration de la lettre.
+
+À la fin de la lettre, il est possible de décommenter les deux dernières lignes pour ajouter une image en guise de signature. Veillez dans ce cas à positionner la varibale `expediteur.signature` à `true`.
 
 
 
