@@ -1,10 +1,10 @@
-// boolean helpers
+// == boolean helpers ==
 
 #let arrarr(a,b) = (type(a) == array and type(b) == array)
 #let arrflt(a,b) = (type(a) == array and type(b) != array)
 #let fltarr(a,b) = (type(a) != array and type(b) == array)
 
-// // basic functions // //
+// == basic functions ==
 
 #let pow(a, power) = {
   if arrarr(a,power) {
@@ -19,8 +19,11 @@
   if arrarr(a,b) {
     a.zip(b).map(((a,b)) => a*b)
   } 
-  else {
+  else if (type(a) == array) {
     a.map(a => a*b)
+  }
+  else {
+    mult(b,a)
   }
 }
 
@@ -32,7 +35,7 @@
     a.map(a => a/b)
   } 
   else {
-    div(b, a)
+    b.map(b => b/a)
   }
 }
   
@@ -56,11 +59,11 @@
     a.map(a => a-b)
   }
   else {
-    sub(b, a)
+    b.map(b => a-b)
   }
 }
 
-// // vectorial functions // //
+// == vectorial functions ==
 
 #let norm(a) = { 
   // normalize a vector
@@ -71,8 +74,7 @@
 // dot product
 #let dot(a,b) = mult(a,b).sum()
 
-
-// // trigonometry // //
+// == trigonometry ==
 
 #let sin(a) = {
   if (type(a) == array) {
