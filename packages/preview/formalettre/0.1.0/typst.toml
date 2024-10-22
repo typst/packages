@@ -12,4 +12,4 @@ categories = ["office"]
 [template]
 path = "template/src"
 entrypoint = "exemple.typ"
-thumbnail = "template/thumbnail.png"
+thumbnail = "thumbnail.png"
