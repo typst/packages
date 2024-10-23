@@ -1,6 +1,9 @@
 <div align="center">
-  <img alt="Quill" src="docs/images/logo.svg">
+
+  ![Quill logo](https://github.com/user-attachments/assets/bf6bfe99-6667-41b0-9b45-13c73ed18590)
+
 </div>
+
 
 <div align="center">
 
@@ -40,9 +43,11 @@ The function `quantum-circuit()` takes any number of positional gates and works 
   )
 }
 ```
-<h3 align="center">
-  <img alt="Bell Circuit" src="docs/images/bell.svg">
-</h3>
+<div align="center">
+  
+  ![Bell circuit](https://github.com/user-attachments/assets/53d0c581-ab62-44e3-abf5-5497993d7aba)
+  
+</div>
 
 Plain quantum gates — such as a Hadamard gate — can be written with the shorthand notation `$H$` instead of the more lengthy `gate($H$)`. The latter offers more options, however. 
 
@@ -52,9 +57,11 @@ Refer to the [user guide][guide] for a full documentation of this package. You c
 
 Instead of listing every featured gate (as is done in the [user guide][guide]), this gallery quickly showcases a large selection of possible gates and decorations that can be added to any quantum circuit. 
 
-<h3 align="center">
-  <img alt="Gallery" src="docs/images/gallery.svg" />
-</h3>
+<div align="center">
+
+  ![Gallery](https://github.com/user-attachments/assets/29987e5b-c373-4cd6-86a0-58e27d778fb1)
+  
+</div>
 
 
 ## Tequila
@@ -103,7 +110,9 @@ The following example demonstrates how to compose multiple subcircuits.
 )
 ```
 <div align="center">
-  <img alt="Gallery" src="docs/images/composition.svg" />
+
+  ![composition](https://github.com/user-attachments/assets/41c8d60a-1a5e-4d0b-a7f4-82756423f5a8)
+
 </div>
 
 
@@ -111,15 +120,21 @@ The following example demonstrates how to compose multiple subcircuits.
 
 Some show-off examples, loosely replicating figures from [Quantum Computation and Quantum Information by M. Nielsen and I. Chuang](https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE#overview). The code for these examples can be found in the [example folder](./examples/) or in the [user guide][guide]. 
 
-<h3 align="center">
-  <img alt="Quantum teleportation circuit" src="docs/images/teleportation.svg">
-</h3>
-<h3 align="center">
-  <img alt="Quantum circuit for phase estimation" src="docs/images/phase-estimation.svg">
-</h3>
-<h3 align="center">
-  <img alt="Quantum fourier transformation circuit" src="docs/images/qft.svg">
-</h3>
+<div align="center">
+  
+  ![Quantum teleportation circuit](https://github.com/user-attachments/assets/f38abeb9-fc2f-4be4-9592-7932e07af764)
+  
+</div>
+<div align="center">
+
+  ![Quantum circuit for phase estimation](https://github.com/user-attachments/assets/6e947f71-67dc-4522-936e-6d9b795a1bba)
+
+</div>
+<div align="center">
+
+  ![Quantum fourier transformation circuit](https://github.com/user-attachments/assets/3fc92cd0-915e-4c5e-893d-63dac6f83ade)
+
+</div>
 
 
 ## Contribution
