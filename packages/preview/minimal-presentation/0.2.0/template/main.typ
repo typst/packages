@@ -1,4 +1,4 @@
-#import "@preview/minimal-presentation:0.1.0": *
+#import "@preview/minimal-presentation:0.2.0": *
 
 //#set text(font: "Lato")
 //#show math.equation: set text(font: "Lato Math")
