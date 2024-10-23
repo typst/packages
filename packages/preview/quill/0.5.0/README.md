@@ -118,7 +118,7 @@ The following example demonstrates how to compose multiple subcircuits.
 
 ## Examples
 
-Some show-off examples, loosely replicating figures from [Quantum Computation and Quantum Information by M. Nielsen and I. Chuang](https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE#overview). The code for these examples can be found in the [example folder](./examples/) or in the [user guide][guide]. 
+Some show-off examples, loosely replicating figures from [Quantum Computation and Quantum Information by M. Nielsen and I. Chuang](https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE#overview). The code for these examples can be found in the [example folder](https://github.com/Mc-Zen/quill/tree/v0.5.0/examples) or in the [user guide][guide]. 
 
 <div align="center">
   
@@ -139,10 +139,10 @@ Some show-off examples, loosely replicating figures from [Quantum Computation an
 
 ## Contribution
 
-If you spot an issue or have a suggestion, you are invited to [post it](https://github.com/Mc-Zen/quill/issues) or to contribute. In [architecture.md](docs/architecture.md), you can also find a description of the algorithm that forms the base of `quantum-circuit()`. 
+If you spot an issue or have a suggestion, you are invited to [post it](https://github.com/Mc-Zen/quill/issues) or to contribute. In [architecture.md](https://github.com/Mc-Zen/quill/tree/v0.5.0/docs/architecture.md), you can also find a description of the algorithm that forms the base of `quantum-circuit()`. 
 
 ## Tests
-This package uses [typst-test](https://github.com/tingerrr/typst-test/) for running [tests](tests/). 
+This package uses [typst-test](https://github.com/tingerrr/typst-test/) for running [tests](https://github.com/Mc-Zen/quill/tree/v0.5.0/tests/). 
 
 
 ## Changelog
