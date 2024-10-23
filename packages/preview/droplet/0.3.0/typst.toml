@@ -7,7 +7,7 @@ authors = ["Eric Biedert"]
 repository = "https://github.com/EpicEricEE/typst-droplet"
 license = "MIT"
 description = "Customizable dropped capitals."
-exclude = ["README.md", "assets", "tests"]
+exclude = ["assets", "tests"]
 categories = ["text"]
 keywords = [
   "drop", "dropped", "dropcap", "big", "large", "caps", "capital", "capitals",
