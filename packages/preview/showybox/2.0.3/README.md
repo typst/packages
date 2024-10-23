@@ -19,7 +19,7 @@ By default a `showybox` with these properties will be created:
 - `1pt` of border thickness
 
 ```typst
-#import "@preview/showybox:2.0.2": showybox
+#import "@preview/showybox:2.0.3": showybox
 
 #showybox(
   [Hello world!]
