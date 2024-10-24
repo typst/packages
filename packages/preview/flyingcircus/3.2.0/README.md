@@ -37,7 +37,7 @@ These instructions will get you a copy of the project up and running on the typs
 The first thing is the FlyingCircus style.
 
 ```typ
-#import "@preview/flyingcircus:3.0.0": *
+#import "@preview/flyingcircus:3.2.0": *
 
 /// Defines the FlyingCircus template
 ///
