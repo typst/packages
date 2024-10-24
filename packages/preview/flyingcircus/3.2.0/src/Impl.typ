@@ -1,7 +1,6 @@
 #import "@preview/cetz:0.3.1"
 #import "@preview/cetz-plot:0.1.0"
 #import "@preview/cuti:0.2.1": regex-fakebold
-#import "@preview/tablex:0.0.8": gridx, cellx, hlinex, vlinex
 
 /// Sets the tex to the Koch Fette FC font for people who don't want to remember that.
 ///
@@ -254,13 +253,12 @@
       content((0.5, 1), anchor: "north", MaybeImage(Img, width: page.width * 0.95, fit: "stretch"), name: "image") 
       if (BoxText != none) {
         content("image." + BoxAnchor, anchor: BoxAnchor, padding: 5mm, align(center)[
-          #let cells = (hlinex(),)
+          #let cells = ()
           #for (k, v) in BoxText {
             cells.push(text(size: 12pt, k))
             cells.push(text(size: 12pt, v))
-            cells.push(hlinex())
           }
-          #grid(columns: 2, fill: white.transparentize(50%), stroke: luma(170), vline(x: 0), vline(x: 2), ..cells)
+          #table(align: left, columns: 2, fill: white.transparentize(50%), stroke: black, ..cells)
         ])
       }
     })
@@ -535,15 +533,16 @@
         #for (k, v) in BoxText {
           cells.push(text(size: 12pt, [#k: #v]))
         }
-        #gridx(
+        #table(
+          align: left,
           columns: 1,
           fill: white.transparentize(50%),
-          stroke: black,
-          vlinex(x: 0),
-          vlinex(x: 1),
-          hlinex(y: 0),
+          stroke: none,
+          table.hline(),
+          table.vline(x: 0),
+          table.vline(x: 1),
           ..cells,
-          hlinex(),
+          table.hline(),
         ), ]) } }, )
       ],
       margin: (top: 0pt),
@@ -585,52 +584,61 @@
   let ship_title = KochFont(size: 24pt)[#Ship.Name]
    
   //Construct the stats table element
-  let statTable = gridx(
+  let statTable = table(
     columns: (30%, 30%, 30%),
     align: center + horizon,
-    hlinex(end: 2, expand: (0pt, 1.9em)),
+    // hlinex(end: 2, expand: (0pt, 1.9em)),
     [Speed],
     [Handling],
-    cellx(rowspan: 6, inset: (top: -2em, right: -2em, bottom: -3em))[
+    [],
+    // hlinex(end: 2, expand: (0pt, 0.8em)),
+    [#Ship.Speed],
+    [#Ship.Handling],
+    [],
+    // hlinex(end: 2, expand: (0pt, 0.3em)),
+    [Hardness],
+    [Soak],
+    [],
+    // hlinex(end: 2, expand: (0pt, 0em)),
+    [#Ship.Hardness],
+    [#Ship.Soak],
+    table.cell(inset: (top: -2em, right: -2em, bottom: -3em))[
       #let data = ()
       #for s in Ship.DamageStates {
         data.push((value: 1, label: s))
       }
-      #cetz.canvas(length: 100%, {
-        import cetz.draw: *
-        import cetz-plot: *
-        set-style(stroke: (paint: black))
-        chart.piechart(
-          data,
-          radius: 0.5,
-          value-key: "value",
-          label-key: "label",
-          outer-label: (content: none),
-          inner-label: (content: "LABEL", radius: 130%),
-          slice-style: ((fill: white, stroke: black),),
-          legend: (label: none),
-        )
-        line((0, 0), (0, 0.5), stroke: (thickness: 3pt))
-      })
+      #place(horizon, dy: -0.7cm, float: false)[
+        #cetz.canvas(length: 100%, {
+          import cetz.draw: *
+          import cetz-plot: *
+          set-style(stroke: (paint: black))
+          circle((0, 0), radius: 0.5, fill: white, stroke: none)
+          chart.piechart(
+            data,
+            radius: 0.5,
+            value-key: "value",
+            label-key: "label",
+            outer-label: (content: none),
+            inner-label: (content: "LABEL", radius: 130%),
+            slice-style: ((fill: white, stroke: black),),
+            legend: (label: none),
+          )
+          line((0, 0), (0, 0.5), stroke: (thickness: 3pt))
+        })
+      ]
     ],
-    hlinex(end: 2, expand: (0pt, 0.8em)),
-    [#Ship.Speed],
-    [#Ship.Handling],
-    hlinex(end: 2, expand: (0pt, 0.3em)),
-    [Hardness],
-    [Soak],
-    hlinex(end: 2, expand: (0pt, 0em)),
-    [#Ship.Hardness],
-    [#Ship.Soak],
-    hlinex(end: 2, expand: (0pt, 0.1em)),
+    // hlinex(end: 2, expand: (0pt, 0.1em)),
     [Strengths],
     [Weaknesses],
-    hlinex(end: 2, expand: (0pt, 0.4em)),
+    [],
+    // hlinex(end: 2, expand: (0pt, 0.4em)),
     [#Ship.Strengths],
     [#Ship.Weaknesses],
-    hlinex(end: 2, expand: (0pt, 1.0em)),
-    vlinex(x: 0),
-    vlinex(x: 1),
+    [],
+    // hlinex(end: 2, expand: (0pt, 1.0em)),
+    // vlinex(x: 0),
+    // vlinex(x: 1),
+    table.vline(x: 2, stroke: none),
   )
    
   let cells = ()
