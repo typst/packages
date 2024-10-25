@@ -159,7 +159,9 @@
 
   let remove-warning(id) = [
     #warnings.update(x => {
-      x.remove(x.position(x => x == id))
+      if (x.contains(id)) {
+        _ = x.remove(x.position(x => x == id))
+      }
       return x
     })
   ]
@@ -288,11 +290,6 @@
   let join(time, name, long: false) = [
     #context [
       #let name = format-name(name)
-      
-      #timed(time)[
-        #let x-of-y = "(" + str(pres.get().len() + 1) + " / " + str(pres.get().len() + 1 - away.get().len() + if (long) {0} else {1}) + ")"
-        _#name-format(name) #translate("JOIN" + if (long) {"_LONG"}, x-of-y)_
-      ]
 
       #let status = get-status(name)
       #if (long) {
@@ -300,76 +297,82 @@
           add-warning("\"" + name + "\" joined (++), but was just gone for a while (-)")
         } else if (status == status-away-perm) {
           add-warning("\"" + name + "\" joined (++), but already left permanently (--)")
-        } else {
-          pres.update(x => {
-            x.push(name)
-            return x
-          })
-          let hours-manual = hours.get()
-          arrival-times.update(x => {
-            x.insert(name, format-time(time, hours-manual: hours-manual))
-            return x
-          })
         }
+        
+        pres.update(x => {
+          if (not x.contains(name)) {
+            x.push(name)
+          }
+          return x
+        })
+        let hours-manual = hours.get()
+        arrival-times.update(x => {
+          x.insert(name, format-time(time, hours-manual: hours-manual))
+          return x
+        })
       } else {
-        if (status != status-away) {
-          add-warning("\"" + name + "\" joined (+), but was never away (-)")
-        } else if (status == status-away-perm) {
+        if (status == status-away-perm) {
           add-warning("\"" + name + "\" joined (+), but already left permanently (--)")
         } else if (status == status-none) {
           add-warning("\"" + name + "\" joined (+), but is unaccounted for")
-        } else {
-          away.update(x => {
-            x.remove(x.position(x => x == name))
-            return x
-          })
-          pres.update(x => {
-            x.push(name)
-            return x
-          })
+        } else if (status != status-away) {
+          add-warning("\"" + name + "\" joined (+), but was never away (-)")
         }
+        
+        away.update(x => {
+          if (x.contains(name)) {
+            _ = x.remove(x.position(x => x == name))
+          }
+          return x
+        })
+        pres.update(x => {
+          if (not x.contains(name)) {
+            x.push(name)
+          }
+          return x
+        })
       }
+    ]
+    #context [
+      #timed(time)[
+        #let x-of-y = "(" + str(pres.get().len()) + " / " + str(pres.get().len() - away.get().len()) + ")"
+        _#name-format(name) #translate("JOIN" + if (long) {"_LONG"}, x-of-y)_
+      ]
     ]
   ]
   
   let leave(time, name, long: false) = [
     #context [
       #let name = format-name(name)
-      
-      #timed(time)[ 
-        #let x-of-y = "(" + str(pres.get().len() - 1) + " / " + str(pres.get().len() - 1 + away.get().len() + if (long) {0} else {1}) + ")"
-        _#name-format(name) #translate("LEAVE" + if (long) {"_LONG"}, x-of-y)_
-      ]
 
       #let status = get-status(name)
       #if (long) {
-        if (status == status-away) {
-          away.update(x => {
-            x.remove(x.position(x => x == name))
-            return x
-          })
-          away-perm.update(x => {
-            x.push(name)
-            return x
-          })
-        } else if (status == status-away-perm) {
+        if (status == status-away-perm) {
           add-warning("\"" + name + "\" left (--), but already left permanently (--)")
         } else if (status != status-present) {
           add-warning("\"" + name + "\" left (--), but was not present (+)")
         } else if (status == status-none) {
           add-warning("\"" + name + "\" left (--), but is unaccounted for")
-        } else {
-          pres.update(x => {
-            if (x.contains(name)) {
-              x.remove(x.position(x => x == name))
-            }
-            return x
-          })
-          away-perm.update(x => {
-            x.push(name)
-            return x
-          })
         }
+        
+        away.update(x => {
+          if (x.contains(name)) {
+            _ = x.remove(x.position(x => x == name))
+          }
+          return x
+        })
+        pres.update(x => {
+          if (x.contains(name)) {
+            _ = x.remove(x.position(x => x == name))
+          }
+          return x
+        })
+        away-perm.update(x => {
+          if (not x.contains(name)) {
+            x.push(name)
+          }
+          return x
+        })
       } else {
         if (status == status-away) {
           add-warning("\"" + name + "\" left (-), but was away anyways (-)")
@@ -379,19 +382,27 @@
           add-warning("\"" + name + "\" left (-), but was not present (+)")
         } else if (status == status-none) {
           add-warning("\"" + name + "\" left (-), but is unaccounted for")
-        } else {
-          pres.update(x => {
-            if (x.contains(name)) {
-              x.remove(x.position(x => x == name))
-            }
-            return x
-          })
-          away.update(x => {
-            x.push(name)
-            return x
-          })
         }
+        
+        pres.update(x => {
+          if (x.contains(name)) {
+            _ = x.remove(x.position(x => x == name))
+          }
+          return x
+        })
+        away.update(x => {
+          if (not x.contains(name)) {
+            x.push(name)
+          }
+          return x
+        })
       }
+    ]
+    #context [  
+      #timed(time)[ 
+        #let x-of-y = "(" + str(pres.get().len()) + " / " + str(pres.get().len() - away.get().len()) + ")"
+        _#name-format(name) #translate("LEAVE" + if (long) {"_LONG"}, x-of-y)_
+      ]
     ]
   ]
 
@@ -454,13 +465,6 @@
     #linebreak()
     #timed(time, [==== #translate("END")])
     #last-time.update(time)
-    <end-time>
-    #context {
-      let count-away = away.get().len()
-      if (count-away > 0) {
-        add-warning(str(count-away) + " people are still away (-), but the document ended")
-      }
-    }
   ]
 
   // Regex
@@ -593,16 +597,6 @@
   })
   show heading: set text (12pt)
   show heading: it => [
-    // #if (it.body.has("children")) [
-    //   #let it-text = it.body.children.map(i => i.text).join()
-    //   #if (it-text.contains("/")) [
-    //     #let time = it-text.split("/").at(0)
-    //     #let title = it-text.split("/").at(1)
-    //     #timed(time , heading(level: it.level, title))
-    //   ] else [
-    //     #it-text
-    //   ]
-    // ] else 
     #if (it.body.text.contains("/")) [
       #let time = it.body.text.split("/").at(0)
       #let title = it.body.text.split("/").at(1)
@@ -768,6 +762,18 @@
 
   //Hauptteil
   body
+  set par.line(
+    number-clearance: 200pt
+  )
+  box(height: 0pt)
+  v(-1em)
+  [\u{200B}<end-time>]
+  context {
+    let count-away = away.get().len()
+    if (count-away > 0) {
+      add-warning(str(count-away) + " people are still away (-), but the document ended")
+    }
+  }
   
   //Schluss
   set par.line(
@@ -816,53 +822,3 @@
     }
   }
 }
-
-//#import "minutes.typ": *
-
-/*#show: minutes.with(
-  date: auto,
-  
-  fancy-decisions: true,
-  fancy-dialogue: true,
-  //line-numbering: none
-  //hide-warnings: true
-
-  chairperson: "Vorsitz, Ender",
-  secretary: "Protokoll, Antin",
-  cosigner: "Vereinsvorstand",
-  cosigner-name: "Unter-Schrei, Bender",
-
-  //locale: "de"
-)
-
-100/
-
-= 1302/Hallo
-++7/Vivi
-
-#lorem(220)
-
-Vivi: #lorem(20)
-Tami: #lorem(20)
-
-7/blablabla/lol
-
---8/Vivi
-
--8/MISSING
-
-+87/MISSING
-
-== 13/Moin
-
-aioeghiwegoiwsegioen
-
-!55/Joa doch!/5/1/1
-
-!55/Joa doch!/|green5/|red 1/|green 1/2|blue/|green 3
-
-=== 56/servus
-
-= 58/Höhö
-
-/1400

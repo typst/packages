@@ -1,4 +1,4 @@
-#import "/minutes.typ": *
+#import "/quick-minutes.typ": *
 
 #show: minutes.with(
   locale: "de",
@@ -23,8 +23,6 @@
 = 1312/Begrüßung
 
 /En Der eröffnet die Veranstaltung und begrüßt die Versammelten.
-
-++14/Vorsitz, En Der
 
 ++14/Günthers, Günther
 
