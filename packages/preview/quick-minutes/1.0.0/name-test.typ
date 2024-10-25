@@ -22,6 +22,8 @@
 
 /Einzelname
 
+/E
+
 #line()
 
 /Doppelter, Vor Name
@@ -35,6 +37,8 @@
 /V Doppelter
 
 /Doppelter
+
+/VD
 
 #line()
 
@@ -50,6 +54,8 @@
 
 /Doppelter Nach
 
+/ND
+
 #line()
 
 /Doppelter Vor, Und Nachname
@@ -64,6 +70,8 @@
 
 /Doppelter Vor
 
+/UD
+
 #pagebreak()
 
 /Gleicher
@@ -76,6 +84,10 @@
 
 /Vorname A
 
+/VG
+
+/VA
+
 #line()
 
 /Selber
@@ -87,6 +99,10 @@
 /S Nachname
 
 /N Nachname
+
+/SN
+
+/NN
 
 #pagebreak()
 
@@ -102,6 +118,8 @@
 
 /von der Titel, Adels
 
+/AT
+
 #line()
 
 /Nummerierter 1
@@ -113,6 +131,10 @@
 /N 1
 
 /N 2
+
+/N1
+
+/N2
 
 /1
 
