@@ -280,6 +280,10 @@
   }
 
   let format-name(name) = {
+    if (name.starts-with("-")) {
+      return name.slice(1)
+    }
+    
     if (not name.contains(",")) {
       let all = pres.at(<end-time>) + away.at(<end-time>) + away-perm.at(<end-time>)
 
@@ -542,7 +546,7 @@
 
   // Regex
   let regex-time-format = "[0-9]{1,5}"
-  let regex-name-format = "(" + royalty-connectors.join(" |") + " )?(\p{Lu}|[0-9]+)[^ ]*( " + royalty-connectors.join("| ") + ")?( (\p{Lu}|[0-9]+)[^ ]*)*"
+  let regex-name-format = "-?(" + royalty-connectors.join(" |") + " )?(\p{Lu}|[0-9]+)[^ ]*( " + royalty-connectors.join("| ") + ")?( (\p{Lu}|[0-9]+)[^ ]*)*"
   let default-format = regex-time-format + "/[^\n]*"
 
   let default-regex(keyword, function, body) = [
