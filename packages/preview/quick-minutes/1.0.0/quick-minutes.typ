@@ -243,34 +243,89 @@
     }
   ]
 
+  let royalty-connectors = (
+    "von der",
+    "von",
+    "de"
+  )
+
   let format-name-no-context(name) = {
+    // flip names at ","
     if (not name.contains(",") and name.contains(" ")) {
-      let name_parts = name.split(" ")
-      name = name_parts.at(-1) + ", " + name_parts.slice(0, -1).join(" ")
+      let name-parts = name.split(" ")
+
+      if (name-parts.any(x => royalty-connectors.contains(x))){
+        let connector = name-parts.filter(x => royalty-connectors.contains(x)).first()
+        let position = name-parts.position(x => x == connector)
+        return name-parts.slice(position).join(" ") + ", " + name-parts.slice(0, position).join(" ")
+      }
+      
+      name = name-parts.at(-1) + ", " + name-parts.slice(0, -1).join(" ")
     }
     return name
   }
 
   let format-name(name) = {
-    if (not name.contains(",") and name.contains(" ")) {
+    if (not name.contains(",")) {
       let all = pres.at(<end-time>) + away.at(<end-time>) + away-perm.at(<end-time>)
-      all.filter(x => x.contains(", "))
-      
-      let names = all.map(x => x.split(", ").at(1))
-      if (names.contains(name)) {
-        return all.at(names.position(x => x == name))
+
+      // compare with single names
+      if (all.contains(name)) {
+        return name
       }
+      
+      all = all.filter(x => x.contains(", "))
+
+      // compare with full names (without ",")
       let names = all.map(x => {
         let split = x.split(", ")
         return split.at(1) + " " + split.at(0)
       })
-      
       if (names.contains(name)) {
         return all.at(names.position(x => x == name))
       }
-      
-      let name_parts = name.split(" ")
-      name = name_parts.at(-1) + ", " + name_parts.slice(0, -1).join(" ")
+      // compare with first names
+      let names = all.map(x => x.split(", ").at(1))
+      if (names.contains(name)) {
+        if (names.filter(x => x == name).len() > 1) {
+          return text(fill: red)[???, ] + name
+        }
+        return all.at(names.position(x => x == name))
+      }
+      // compare with last names
+      let names = all.map(x => x.split(", ").at(0))
+      if (names.contains(name)) {
+        if (names.filter(x => x == name).len() > 1) {
+          return name + text(fill: red)[, ???]
+        }
+        return all.at(names.position(x => x == name))
+      }
+      // compare with last name abbreviations ()
+      let names = all.map(x => {
+        let split = x.split(", ")
+        return split.at(1) + " " + split.at(0).slice(0, 1)
+      })
+      if (names.contains(name)) {
+        if (names.filter(x => x == name).len() > 1) {
+          let split = name.split(" ")
+          return split.at(-1) + text(fill: red)[???, ] + split.slice(0,-1).join(" ")
+        }
+        return all.at(names.position(x => x == name))
+      }
+      // compare with first name abbreviations
+      let names = all.map(x => {
+        let split = x.split(", ")
+        return split.at(1).slice(0, 1) + " " + split.at(0)
+      })
+      if (names.contains(name)) {
+        if (names.filter(x => x == name).len() > 1) {
+          let split = name.split(" ")
+          return split.slice(1).join(" ") + ", " + split.at(0) + text(fill: red)[???]
+        }
+        return all.at(names.position(x => x == name))
+      }
+
+      name = format-name-no-context(name)
     }
     return name
   }
@@ -469,7 +524,7 @@
 
   // Regex
   let regex-time-format = "[0-9]{1,5}"
-  let regex-name-format = "\p{Lu}[^ ]*( \p{Lu}[^ ]*)*"
+  let regex-name-format = "(" + royalty-connectors.join(" |") + " )?(\p{Lu}|[0-9]+)[^ ]*( " + royalty-connectors.join("| ") + ")?( (\p{Lu}|[0-9]+)[^ ]*)*"
   let default-format = regex-time-format + "/[^\n]*"
 
   let default-regex(keyword, function, body) = [
@@ -621,8 +676,22 @@
   ]
 
   // Protokollkopf
-  let start-time-string = context four-digits-to-time(start-time.at(<end-time>))
-  let end-time-string = context four-digits-to-time(last-time.at(<end-time>))
+  let start-time-string = context {
+    let start-time = start-time.at(<end-time>)
+    if (start-time == none) {
+      "XX:XX"
+    } else {
+      four-digits-to-time(start-time)
+    }
+  }
+  let end-time-string = context {
+    let end-time = last-time.at(<end-time>)
+    if (end-time == none) {
+      "XX:XX"
+    } else {
+      four-digits-to-time(end-time)
+    }
+  }
   [
     *#translate("CHAIR")*: #name-format(if (chairperson == none) {
       [MISSING]
@@ -707,61 +776,64 @@
     numbering-scope: "page"
   )
 
-  show regex("(.)?" + regex-name-format + ": "): it => {
-    context {
-      if (it.text == " Sitzung: ") {
-        it.text
-        return
-      }
-      
-      let name = it.text.slice(0,-2)
-
-      
-      name = format-name(name)
-      
-      if (not fancy-dialogue) {
-        [#name-format(name): ]
-      } else {
-        if (name.at(0) == " ") {
-          name = name.slice(1)
-          [\ ]
+  {
+    show regex("(.)?" + regex-name-format + ": "): it => {
+      context {
+        if (it.text == " Sitzung: ") {
+          it.text
+          return
         }
         
-        name-format(name)[: ]
-      }
-      
-      let status = get-status(name)
-      if (status == status-away) {
-        add-warning("\"" + name + "\" spoke, but was away (-)")
-      } else if (status == status-away-perm) {
-        add-warning("\"" + name + "\" spoke, but left (--)")
-      } else if (status == status-none) {
-        add-warning("\"" + name + "\" spoke, but is unaccounted for")
-      }
-    }
-  }
-
-  show regex("/" + regex-name-format): it => {
-    context {
-      let name = it.text.slice(1)
-    
-      name = format-name(name)
-      
-      name-format(name)
-    
-      let status = get-status(name)
-      if (status == status-away) {
-        add-warning("\"" + name + "\" was mentioned, but was away (-)")
-      } else if (status == status-away-perm) {
-        add-warning("\"" + name + "\" was mentioned, but left (--)")
-      } else if (status == status-none) {
-        add-warning("\"" + name + "\" was mentioned, but is unaccounted for")
+        let name = it.text.slice(0,-2)
+  
+        
+        name = format-name(name)
+        
+        if (not fancy-dialogue) {
+          [#name-format(name): ]
+        } else {
+          if (name.at(0) == " ") {
+            name = name.slice(1)
+            [\ ]
+          }
+          
+          name-format(name)[: ]
+        }
+        
+        let status = get-status(name)
+        if (status == status-away) {
+          add-warning("\"" + name + "\" spoke, but was away (-)")
+        } else if (status == status-away-perm) {
+          add-warning("\"" + name + "\" spoke, but left (--)")
+        } else if (status == status-none) {
+          add-warning("\"" + name + "\" spoke, but is unaccounted for")
+        }
       }
     }
+  
+    show regex("/" + regex-name-format): it => {
+      context {
+        let name = it.text.slice(1)
+      
+        name = format-name(name)
+        
+        name-format(name)
+      
+        let status = get-status(name)
+        if (status == status-away) {
+          add-warning("\"" + name + "\" was mentioned, but was away (-)")
+        } else if (status == status-away-perm) {
+          add-warning("\"" + name + "\" was mentioned, but left (--)")
+        } else if (status == status-none) {
+          add-warning("\"" + name + "\" was mentioned, but is unaccounted for")
+        }
+      }
+    }
+  
+    //Hauptteil
+    body
   }
-
-  //Hauptteil
-  body
+  
   set par.line(
     number-clearance: 200pt
   )
