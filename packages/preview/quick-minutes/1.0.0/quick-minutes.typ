@@ -3,42 +3,40 @@
 #let lang(it, content) = [#text(lang: it, style: "italic")[#content]] //change the language for a word or two or a longer period for language appropriate smartquotes and stuff. Also italicises the foreign text
 
 #let minutes(
-  body-name: none, // Name of the body holding the protocolled meeting
-  event-name: none, // Name of the meeting
-  date: none, // Date of the meeting (auto for current date, datetime for formatted date)
-  present: (), // Dictionary with names of present people
-  chairperson: none, // Name of the person chairing the meeting // More then one person possible?
-  secretary: none, // Name of the person taking minutes // More then one person possible?
-  awareness: none, // Name of the person responsible for awareness // More then one person possible?
-  translation: none, // Name of the person responsible for translating // More then one person possible?
+  body-name: none,
+  event-name: none,
+  date: none,
+  present: (),
+  chairperson: none, // More then one person possible?
+  secretary: none, // More then one person possible?
+  awareness: none, // More then one person possible?
+  translation: none, // More then one person possible?
 
-  cosigner: none, // Position of the Person signing the protocoll, should they differ from the chairperson. Aditionally to the secretary.
-  cosigner-name: none, // Name of the person signing the protocoll, should they differ from the chairperson. Aditionally to the secretary.
+  cosigner: none,
+  cosigner-name: none,
 
-  custom-name-format: (name) => [#name], // Format of names in the document
+  custom-name-format: (name) => [#name],
   item-numbering: none,
   time-format: none,
   date-format: none,
-
   timestamp-margin: 10pt,
-
-  display-all-warnings: false, // shows all warnings directly beneath their occurence
-  hide-warnings: false,
-  line-numbering: 5, // none for no line numbering, int for every xth line numbered
-  fancy-decisions: false, // draws a diagram underneath decisions
-  fancy-dialogue: false, // splits dialogue up into paragraphs
-  hole-mark: true, // Mark for the alignment of a hole punch
-  separator-lines: true, // lines next to the titles
-  signing: true, // Do people have to sign this document
-  warning-color: red, // Color warnings are displayed in
-  enable-help-text: false, // should a help/debug text with state info be shown
-  title-page: false, // should the actual protocol start after a pagebreak
-  number-present: false, // should the number of people present be shown
-  show-arrival-time: true,
-  
+  line-numbering: 5,
+  fancy-decisions: false,
+  fancy-dialogue: false,
+  hole-mark: true,
+  separator-lines: true,
+  signing: true,
   locale: "en",
   translation-overrides: (:),
   custom-royalty-connectors: (),
+  title-page: false,
+  number-present: false,
+  show-arrival-time: true,
+
+  display-all-warnings: false,
+  hide-warnings: false,
+  warning-color: red,
+  enable-help-text: false,
   
   body
 ) = {
@@ -511,22 +509,22 @@
     ]
   ]
 
-  let dec(time, content, ..args) = [
+  let dec(time, content, args) = [
     #set par.line(
       number-clearance: 200pt
     )
     #let values = ()
-    #if (args.named().values().all(x => type(x) == array)) {
-      values = args.named().keys().map(x => (
+    #if (args.values().all(x => type(x) == array)) {
+      values = args.keys().map(x => (
           name: x,
-          value: int(args.named().at(x).at(0)),
-          color: args.named().at(x).at(1),
+          value: int(args.at(x).at(0)),
+          color: args.at(x).at(1),
         )
       )
     } else {
-      values = args.named().keys().map(x => (
+      values = args.keys().map(x => (
           name: x,
-          value: int(args.named().at(x).at(0)),
+          value: int(args.at(x).at(0)),
         )
       )
     }
@@ -641,9 +639,9 @@
       let yes = args.values().at(0)
       let no = args.values().at(1)
       let abst = args.values().at(2)
-      dec(time, text, Dafür: (yes, green), Dagegen: (no, red), Enthaltung: (abst, blue))
+      dec(time, text, (translate("YES"): (yes, green), translate("NO"): (no, red), translate("ABST"): (abst, blue)))
     } else {
-      dec(time, text, ..args)
+      dec(time, text, args)
     }
   ]
 

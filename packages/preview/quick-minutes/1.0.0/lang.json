@@ -59,6 +59,18 @@
     "en": "Vote",
     "de": "Abstimmung"
   },
+  "YES": {
+    "en": "For",
+    "de": "Dafür"
+  },
+  "NO": {
+    "en": "Against",
+    "de": "Dagegen"
+  },
+  "ABST": {
+    "en": "Abstain",
+    "de": "Enthaltung"
+  },
   "JOIN": {
     "en": "comes back: [0] present",
     "de": "kommt zurück: [0] Anwesend"
