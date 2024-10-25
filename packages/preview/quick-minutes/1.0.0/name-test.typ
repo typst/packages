@@ -94,7 +94,11 @@
 
 /von der Titel
 
+/A von der Titel
+
 /Adels von der Titel
+
+/Adels T
 
 /von der Titel, Adels
 

@@ -15,7 +15,7 @@
   cosigner: none, // Position of the Person signing the protocoll, should they differ from the chairperson. Aditionally to the secretary.
   cosigner-name: none, // Name of the person signing the protocoll, should they differ from the chairperson. Aditionally to the secretary.
 
-  name-format: (name) => [#name], // Format of names in the document
+  custom-name-format: (name) => [#name], // Format of names in the document
   item-numbering: none,
   time-format: none,
   date-format: none,
@@ -249,6 +249,20 @@
     "de"
   )
 
+  let name-format(name) = {
+    if (name.contains(", ")) {
+      let split = name.split(", ")
+      if (split.at(0).match(regex("[0-9]+")) != none) {
+        name = split.at(1) + " " + split.at(0)
+      }
+    }
+
+    return [
+      #show "???": set text(fill: red)
+      #custom-name-format(name)
+    ]
+  }
+
   let format-name-no-context(name) = {
     // flip names at ","
     if (not name.contains(",") and name.contains(" ")) {
@@ -288,7 +302,7 @@
       let names = all.map(x => x.split(", ").at(1))
       if (names.contains(name)) {
         if (names.filter(x => x == name).len() > 1) {
-          return text(fill: red)[???, ] + name
+          return "???, " + name
         }
         return all.at(names.position(x => x == name))
       }
@@ -296,19 +310,23 @@
       let names = all.map(x => x.split(", ").at(0))
       if (names.contains(name)) {
         if (names.filter(x => x == name).len() > 1) {
-          return name + text(fill: red)[, ???]
+          return name + ", ???"
         }
         return all.at(names.position(x => x == name))
       }
       // compare with last name abbreviations ()
       let names = all.map(x => {
         let split = x.split(", ")
-        return split.at(1) + " " + split.at(0).slice(0, 1)
+        let last-name = split.at(0)
+        for royalty-connector in royalty-connectors {
+          last-name = last-name.replace(royalty-connector + " ", "")
+        }
+        return split.at(1) + " " + last-name.slice(0, 1)
       })
       if (names.contains(name)) {
         if (names.filter(x => x == name).len() > 1) {
           let split = name.split(" ")
-          return split.at(-1) + text(fill: red)[???, ] + split.slice(0,-1).join(" ")
+          return split.at(-1) + "???, " + split.slice(0,-1).join(" ")
         }
         return all.at(names.position(x => x == name))
       }
@@ -320,7 +338,7 @@
       if (names.contains(name)) {
         if (names.filter(x => x == name).len() > 1) {
           let split = name.split(" ")
-          return split.slice(1).join(" ") + ", " + split.at(0) + text(fill: red)[???]
+          return split.slice(1).join(" ") + ", " + split.at(0) + "???"
         }
         return all.at(names.position(x => x == name))
       }
@@ -694,13 +712,13 @@
   }
   [
     *#translate("CHAIR")*: #name-format(if (chairperson == none) {
-      [MISSING]
+      "MISSING"
       add-warning("chairperson is missing")
-    } else {[#chairperson]})\
+    } else {chairperson})\
     *#translate("PROTOCOL")*: #name-format(if (secretary == none) {
-      [MISSING]
+      "MISSING"
       add-warning("secretary is missing")
-    } else {[#secretary]})
+    } else {secretary})
     #if awareness != none [
       \ *#translate("AWARENESS")*: #name-format(awareness)
     ]
@@ -872,17 +890,17 @@
       [],
       if (cosigner == none) {
         name-format(
-          if (chairperson == none) [MISSING] else [#chairperson]
+          if (chairperson == none) {"MISSING"} else {chairperson}
         )
       } else {
         name-format(
           if (cosigner-name == none) {
-            [MISSING]
+            "MISSING"
             add-warning("cosigner-name is missing")
-          } else [#cosigner-name]
+          } else {cosigner-name}
         )
       },
-      name-format(if (secretary == none) [MISSING] else [#secretary]),
+      name-format(if (secretary == none) {"MISSING"} else {secretary}),
     ) 
   }
 
