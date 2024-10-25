@@ -6,7 +6,7 @@ With Quick Minutes you can record any event by just typing events out. No functi
 
 ### Import & Initialisation
 ```
-#import "@preview/quick-minutes:1.0.0"
+#import "@preview/quick-minutes:1.0.0": *
 
 #show: minutes.with(
   chairperson: "Name 1",
