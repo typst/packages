@@ -293,6 +293,17 @@
       if (all.contains(name)) {
         return name
       }
+
+      // compare single initials
+      let names = all.map(x => {
+        return x.at(0)
+      })
+      if (names.contains(name)) {
+        if (names.filter(x => x == name).len() > 1) {
+          return name + "???"
+        }
+        return all.at(names.position(x => x == name))
+      }
       
       all = all.filter(x => x.contains(", "))
 
@@ -345,6 +356,21 @@
         if (names.filter(x => x == name).len() > 1) {
           let split = name.split(" ")
           return split.slice(1).join(" ") + ", " + split.at(0) + "???"
+        }
+        return all.at(names.position(x => x == name))
+      }
+      // compare with initials
+      let names = all.map(x => {
+        let split = x.split(", ")
+        let last-name = split.at(0)
+        for royalty-connector in royalty-connectors {
+          last-name = last-name.replace(royalty-connector + " ", "")
+        }
+        return split.at(1).slice(0, 1) + last-name.slice(0, 1)
+      })
+      if (names.contains(name)) {
+        if (names.filter(x => x == name).len() > 1) {
+          return name.slice(1) + "???, " + name.at(0) + "???"
         }
         return all.at(names.position(x => x == name))
       }
