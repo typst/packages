@@ -38,6 +38,7 @@
   
   locale: "en",
   translation-overrides: (:),
+  custom-royalty-connectors: (),
   
   body
 ) = {
@@ -243,11 +244,12 @@
     }
   ]
 
-  let royalty-connectors = (
+  let royalty-connectors = custom-royalty-connectors + (
     "von der",
     "von",
     "de"
   )
+  let royalty-connectors = royalty-connectors.dedup()
 
   let name-format(name) = {
     if (name.contains(", ")) {
