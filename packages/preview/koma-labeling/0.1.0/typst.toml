@@ -2,9 +2,9 @@
 
 [package]
 authors = ["Laniakea Kamasylvia"]
-categories = []
-compiler = "0.12.0"
-description = "This package introduces a labeling feature to Typst, inspired by the KOMA-Script's labeling environment. It offers a straightforward method to create lists with custom labels, providing a consistent and professional look to your documents."
+categories = ["scripting"]
+compiler = "0.11.0"
+description = "This package introduces a labeling feature to Typst, inspired by the KOMA-Script's labeling environment."
 disciplines = []
 entrypoint = "src/lib.typ"
 exclude = [
@@ -15,11 +15,11 @@ exclude = [
   ".typstignore",
   "Justfile",
 ]
-homepage = ""
-keywords = []
+# homepage = ""
+keywords = ["labeling", "list", "KOMA-Script"]
 license = "MIT"
 name = "koma-labeling"
-repository = "https://github.com/kamasylvia/typst-packages.git"
+# repository = "https://github.com/kamasylvia/typst-packages.git"
 version = "0.1.0"
 
 # [template]
