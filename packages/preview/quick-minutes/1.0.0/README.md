@@ -89,4 +89,4 @@ Vote | !\<time>/\<text>/\<vote>/\<vote>... | Vote on something (described in tex
 |---|---|---|
 \<vote> | \<label>(\|\<color>)?\<count> | `First Party\|green42`<br>`Third choice22`
 \<time> | 1-4 numbers (can contain ":" and " ") | `1312` -> 01:12 pm<br>`650` -> 06:50 pm<br>`21`-> last timed hour:21 (pm/am)<br>`4`-> last timed hour:04 (pm/am)
-\<name> | Name in various formats | `Last Name, First Name`<br>`First Name Last Name`<br>`First Name`<br>`Last Name`<br>`First Name L`<br>`F Last Name`<br>`FL`<br><br>Last name can also start with a royalty connector like "de" or "von"<br><br>`Name 1`,`Name 2` will render with the number after the name, but the number is handled as a last name.
+\<name> | Name in various formats | `Last Name, First Name`<br>`First Name Last Name`<br>`First Name`<br>`Last Name`<br>`First Name L`<br>`F Last Name`<br>`FL`<br><br>Last name can also start with a royalty connector like "de" or "von"<br><br>`Name 1`,`Name 2` will render with the number after the name, but the number is handled as a last name.<br><br>If you just want your name formatted by `custom-name-format` you can escape the restructuring process with a `-` (`/-<name>`)
