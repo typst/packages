@@ -1,6 +1,6 @@
 #import "@preview/tidy:0.3.0"
 #import "@preview/codly:0.1.0": *
-#import "main.typ" as cvssc
+#import "@preview/cvssc:0.1.0" as cvssc
 
 #let docs = tidy.parse-module(
   read("cvssc.typ"),
