@@ -252,7 +252,7 @@ locally on your system. Here, `{data-dir}` is
 
 - `$XDG_DATA_HOME` or `~/.local/share` on Linux
 - `~/Library/Application Support` on macOS
-- `%APPDATA%` on Windows
+- `%APPDATA%/Roaming` on Windows
 
 Packages in the data directory have precedence over ones in the cache directory.
 While you can create arbitrary namespaces with folders, a good namespace for
