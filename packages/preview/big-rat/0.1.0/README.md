@@ -1,81 +1,21 @@
-# Typst plugin to work with big rational numbers
+# `big-rat`
 
-The WASM binary exports the following several functions:
+`big-rat` is a package to work with rational numbers in Typst
 
-```rust
-#[wasm_func]
-fn add(
-    a_numer: &[u8],
-    a_denom: &[u8],
-    b_numer: &[u8],
-    b_denom: &[u8],
-) -> Result<Vec<u8>, Box<dyn Error>>;
-
-#[wasm_func]
-fn sub(
-    a_numer: &[u8],
-    a_denom: &[u8],
-    b_numer: &[u8],
-    b_denom: &[u8],
-) -> Result<Vec<u8>, Box<dyn Error>>;
-
-#[wasm_func]
-fn mul(
-    a_numer: &[u8],
-    a_denom: &[u8],
-    b_numer: &[u8],
-    b_denom: &[u8],
-) -> Result<Vec<u8>, Box<dyn Error>>;
-
-#[wasm_func]
-fn div(
-    a_numer: &[u8],
-    a_denom: &[u8],
-    b_numer: &[u8],
-    b_denom: &[u8],
-) -> Result<Vec<u8>, Box<dyn Error>>;
-
-#[wasm_func]
-fn repr(numer: &[u8], denom: &[u8]) -> Result<Vec<u8>, Box<dyn Error>>;
-
-#[wasm_func]
-fn to_decimal_string(
-    numer: &[u8],
-    denom: &[u8],
-    precision: &[u8],
-) -> Result<Vec<u8>, Box<dyn Error>>;
-
-#[wasm_func]
-fn abs_diff(
-    a_numer: &[u8],
-    a_denom: &[u8],
-    b_numer: &[u8],
-    b_denom: &[u8],
-) -> Result<Vec<u8>, Box<dyn Error>>;
-
-#[wasm_func]
-fn cmp(
-    a_numer: &[u8],
-    a_denom: &[u8],
-    b_numer: &[u8],
-    b_denom: &[u8],
-) -> Result<Vec<u8>, Box<dyn Error>>;
-```
-
-Those functions can be used in Typst via the `rational.typ` file:
+## Usage
 
 ```typ
-#import "rational.typ": *
+#import "@preview/big-rat:0.1.0"
 
 #let a = 2      // 2/1
 #let b = (1, 2) // 1/2
 
-#let sum = add(a, b) // 5/2
+#let sum = big-rat.add(a, b) // 5/2
 
-$#repr(sum)$
+$#big-rat.repr(sum)$
 ```
 
-Functions, exported by the `rational.typ` file are:
+Functions, exported by the package are:
 
 ```typ
 // Converts `x` to an array of length two, representing the rational number,
