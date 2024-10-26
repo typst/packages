@@ -1,5 +1,5 @@
 [package]
-name = "big-rati"
+name = "big-rat"
 version = "0.1.0"
 entrypoint = "rational.typ"
 authors = ["Danik Vitek"]
