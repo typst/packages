@@ -238,14 +238,16 @@ In addition, you can prefix or suffix a numeral with content wrapped by the func
 )
 ```
 
+
+
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/nonum.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/nonum-dark.svg">
-    <img alt="Number alignment in tables" src="docs/figures/nonum.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/270ae789-2a8c-44a3-b3a9-0ca588bfbad3">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/dd6bc16a-8fca-4835-a85a-0555a03c7232">
+    <img alt="Number alignment in tables" src="https://github.com/user-attachments/assets/270ae789-2a8c-44a3-b3a9-0ca588bfbad3">
   </picture>
 </p>
-
+  
 
 Zero not only aligns numbers at the decimal point but also at the uncertainty and exponent part. Moreover, by passing a `dictionary` instead of `auto`, a set of `num()` arguments to apply to all numbers in a column can be specified. 
 
