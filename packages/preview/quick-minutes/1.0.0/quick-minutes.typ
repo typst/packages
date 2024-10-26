@@ -700,7 +700,16 @@
   })
   show heading: set text (12pt)
   show heading: it => [
-    #if (it.body.text.contains("/")) [
+    #if (it.body.has("children")) [
+      #let it-text = it.body.children.map(i => i.text).join()
+      #if (it-text.contains("/")) [
+        #let time = it-text.split("/").at(0)
+        #let title = it-text.split("/").at(1)
+        #timed(time , heading(level: it.level, title))
+      ] else [
+        #it-text
+      ]
+    ] else if (it.body.text.contains("/")) [
       #let time = it.body.text.split("/").at(0)
       #let title = it.body.text.split("/").at(1)
       #timed(time , heading(level: it.level, title))
