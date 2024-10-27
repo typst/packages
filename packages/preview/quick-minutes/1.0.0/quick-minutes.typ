@@ -581,7 +581,7 @@
   // Regex
   let regex-time-format = "[0-9]{1,5}"
   let regex-name-format = "-?(" + royalty-connectors.join(" |") + " )?(\p{Lu})[^ ]*( " + royalty-connectors.join("| ") + ")?( (\p{Lu}|[0-9]+)[^ ]*)*"
-  let default-format = regex-time-format + "/[^\n]*"
+  let default-format = "^" + regex-time-format + "/[^\n]*"
 
   let default-regex(keyword, function, body) = [
     #show regex(keyword.replace("+", "\+") + default-format): it => [
@@ -601,11 +601,11 @@
   show: default-regex.with("–", leave.with(long: true))
   show: default-regex.with("", timed)
 
-  show regex("/" + regex-time-format): it => {
+  show regex("^/" + regex-time-format): it => {
     end(it.text.slice(1))
   }
 
-  show regex("!" + regex-time-format + "/.*/(.*(|.*)?[0-9]+){2,}"): it => [
+  show regex("^!" + regex-time-format + "/.*/(.*(|.*)?[0-9]+){2,}"): it => [
     #let text = it.text.slice(1)
     #let time = text.split("/").at(0)
 
