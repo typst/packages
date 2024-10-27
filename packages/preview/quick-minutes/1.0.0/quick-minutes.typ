@@ -792,12 +792,14 @@
     #let old-present = present
     #let present = present.map(x => format-name-no-context(x))
     #if (awareness != none) {
-      if (type(awareness) == str) {
+      if (type(awareness) == "string") {
+        awareness = format-name-no-context(awareness)
         if (not present.contains(awareness)) {
           present.insert(0, awareness)
         }
       } else {
         for person in awareness {
+          person = format-name-no-context(person)
           if (not present.contains(person)) {
             present.insert(0, person)
           }
@@ -805,12 +807,14 @@
       }
     }
     #if (secretary != none) {
+      secretary = format-name-no-context(secretary)
       if (type(secretary) == "string") {
         if (not present.contains(secretary)) {
           present.insert(0, secretary)
         }
       } else {
         for person in secretary {
+          person = format-name-no-context(person)
           if (not present.contains(person)) {
             present.insert(0, person)
           }
@@ -818,12 +822,14 @@
       }
     }
     #if (chairperson != none) {
-      if (type(chairperson) == str) {
+      chairperson = format-name-no-context(chairperson)
+      if (type(chairperson) == "string") {
         if (not present.contains(chairperson)) {
           present.insert(0, chairperson)
         }
       } else {
         for person in chairperson {
+          person = format-name-no-context(person)
           if (not present.contains(person)) {
             present.insert(0, person)
           }
