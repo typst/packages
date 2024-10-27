@@ -249,7 +249,7 @@
   )
   let royalty-connectors = royalty-connectors.dedup()
 
-  let name-format(name) = {
+  let name-format(name, space: -0.25em) = {
     if (name.contains(", ")) {
       let split = name.split(", ")
       if (split.at(0).match(regex("[0-9]+")) != none) {
@@ -260,7 +260,7 @@
     return [
       #show "???": set text(fill: red)
       #custom-name-format(name)
-      #h(-0.25em)
+      #h(space)
     ]
   }
 
@@ -459,7 +459,7 @@
     #context [
       #timed(time)[
         #let x-of-y = "(" + str(pres.get().len()) + " / " + str(pres.get().len() - away.get().len()) + ")"
-        _#name-format(name) #translate("JOIN" + if (long) {"_LONG"}, x-of-y)_
+        _#name-format(name, space: 0pt) #translate("JOIN" + if (long) {"_LONG"}, x-of-y)_
       ]
     ]
   ]
@@ -524,7 +524,7 @@
     #context [  
       #timed(time)[ 
         #let x-of-y = "(" + str(pres.get().len()) + " / " + str(pres.get().len() - away.get().len()) + ")"
-        _#name-format(name) #translate("LEAVE" + if (long) {"_LONG"}, x-of-y)_
+        _#name-format(name, space: 0pt) #translate("LEAVE" + if (long) {"_LONG"}, x-of-y)_
       ]
     ]
   ]
