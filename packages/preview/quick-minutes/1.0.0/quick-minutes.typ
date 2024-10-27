@@ -249,7 +249,7 @@
   )
   let royalty-connectors = royalty-connectors.dedup()
 
-  let name-format(name, space: -0.25em) = {
+  let name-format(name) = {
     if (name.contains(", ")) {
       let split = name.split(", ")
       if (split.at(0).match(regex("[0-9]+")) != none) {
@@ -260,7 +260,6 @@
     return [
       #show "???": set text(fill: red)
       #custom-name-format(name)
-      #h(space)
     ]
   }
 
@@ -294,7 +293,7 @@
     }
     
     if (not name.contains(",")) {
-      let all = pres.at(<end-time>) + away.at(<end-time>) + away-perm.at(<end-time>)
+      let all = pres.at(<start-time>)
 
       // compare with single names
       if (all.contains(name)) {
@@ -349,7 +348,7 @@
         }
         return all.at(names.position(x => x == name))
       }
-      // compare with last name abbreviations ()
+      // compare with last name abbreviations
       let names = all.map(x => {
         let split = x.split(", ")
         let last-name = split.at(0)
@@ -457,9 +456,10 @@
       }
     ]
     #context [
+      #let name = format-name(name)
       #timed(time)[
         #let x-of-y = "(" + str(pres.get().len()) + " / " + str(pres.get().len() - away.get().len()) + ")"
-        _#name-format(name, space: 0pt) #translate("JOIN" + if (long) {"_LONG"}, x-of-y)_
+        _#name-format(name) #translate("JOIN" + if (long) {"_LONG"}, x-of-y)_
       ]
     ]
   ]
@@ -522,9 +522,10 @@
       }
     ]
     #context [  
+      #let name = format-name(name)
       #timed(time)[ 
         #let x-of-y = "(" + str(pres.get().len()) + " / " + str(pres.get().len() - away.get().len()) + ")"
-        _#name-format(name, space: 0pt) #translate("LEAVE" + if (long) {"_LONG"}, x-of-y)_
+        _#name-format(name) #translate("LEAVE" + if (long) {"_LONG"}, x-of-y)_
       ]
     ]
   ]
@@ -852,7 +853,7 @@
     #context[
       #let keys = arrival-times.at(<end-time>).keys()
       #let filtered = present.filter(x => not keys.contains(x))
-      #pres.update(filtered)
+      #pres.update(filtered)<start-time>
     ]
     #if (present.dedup().len() != present.len()) {
       add-warning("multiple people with the same name are present")
