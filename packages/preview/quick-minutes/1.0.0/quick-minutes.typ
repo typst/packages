@@ -591,13 +591,13 @@
   ]
 
   // Regex
-  let non-name-characters = " .,:;?!"
+  let non-name-characters = " .:;?!"
   let regex-time-format = "[0-9]{1,5}"
   let regex-name-format = "-?(" + royalty-connectors.join(" |") + " )?(\p{Lu})[^" + non-name-characters + "]*( " + royalty-connectors.join("| ") + ")?( (\p{Lu}|[0-9]+)[^" + non-name-characters + "]*)*"
-  let default-format = "^" + regex-time-format + "/[^\n]*"
+  let default-format = regex-time-format + "/[^\n]*"
 
   let default-regex(keyword, function, body) = [
-    #show regex(keyword.replace("+", "\+") + default-format): it => [
+    #show regex("^" + keyword.replace("+", "\+") + default-format): it => [
       #let text = it.text.slice(keyword.len())
       #let time = text.split("/").at(0)
       #let string = text.split("/").slice(1).join("/")
@@ -688,7 +688,7 @@
     ],
     footer: align(center, context {
       let current-page = here().page()
-      let page-count = counter(page).final().first() - 1
+      let page-count = counter(page).final().first() - if (warnings.final().len() > 0) {1} else {0}
       [#translate("PAGE", current-page, page-count)]
     }),
     margin: (
