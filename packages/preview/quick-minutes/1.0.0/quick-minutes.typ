@@ -48,6 +48,7 @@
   
   // Variables
   let warnings = state("warnings", (:))
+  let all = state("all", ())
   let pres = state("pres", ())
   let away = state(status-away, ())
   let away-perm = state(status-away-perm, ())
@@ -293,7 +294,7 @@
     }
     
     if (not name.contains(",")) {
-      let all = pres.at(<start-time>)
+      let all = all.final()
 
       // compare with single names
       if (all.contains(name)) {
@@ -853,7 +854,8 @@
     #context[
       #let keys = arrival-times.at(<end-time>).keys()
       #let filtered = present.filter(x => not keys.contains(x))
-      #pres.update(filtered)<start-time>
+      #all.update(present)
+      #pres.update(filtered)
     ]
     #if (present.dedup().len() != present.len()) {
       add-warning("multiple people with the same name are present")
