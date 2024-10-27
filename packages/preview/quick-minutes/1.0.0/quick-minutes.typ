@@ -299,7 +299,6 @@
       if (all.contains(name)) {
         return name
       }
-
       // compare single initials
       let names = all.map(x => {
         return x.at(0)
@@ -312,6 +311,18 @@
       }
       
       all = all.filter(x => x.contains(", "))
+
+      // compare first name abbreviations
+      let names = all.map(x => {
+        let split = x.split(", ")
+        return split.at(1).at(0)
+      })
+      if (names.contains(name)) {
+        if (names.filter(x => x == name).len() > 1) {
+          return name + "???"
+        }
+        return all.at(names.position(x => x == name))
+      }
 
       // compare with full names (without ",")
       let names = all.map(x => {
@@ -579,8 +590,9 @@
   ]
 
   // Regex
+  let non-name-characters = " .,:;?!"
   let regex-time-format = "[0-9]{1,5}"
-  let regex-name-format = "-?(" + royalty-connectors.join(" |") + " )?(\p{Lu})[^ ]*( " + royalty-connectors.join("| ") + ")?( (\p{Lu}|[0-9]+)[^ ]*)*"
+  let regex-name-format = "-?(" + royalty-connectors.join(" |") + " )?(\p{Lu})[^" + non-name-characters + "]*( " + royalty-connectors.join("| ") + ")?( (\p{Lu}|[0-9]+)[^" + non-name-characters + "]*)*"
   let default-format = "^" + regex-time-format + "/[^\n]*"
 
   let default-regex(keyword, function, body) = [
@@ -901,20 +913,19 @@
           return
         }
         
-        let name = it.text.slice(0,-2)
-  
+        let break-line = it.text.at(0) == " "
+        let name = it.text.slice(if (break-line) {1} else {0}, -2)
         
         name = format-name(name)
         
         if (not fancy-dialogue) {
           [#name-format(name): ]
         } else {
-          if (name.at(0) == " ") {
-            name = name.slice(1)
+          if (break-line) {
             [\ ]
           }
           
-          name-format(name)[: ]
+          name-format(name) + ": "
         }
         
         let status = get-status(name)
