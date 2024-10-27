@@ -265,9 +265,9 @@
 
   let pretty-name-connect(names) = {
     if names.len() == 1 {
-      return name-format(names.at(0))
+      return format-name-no-context(names.at(0))
     } else {
-      names.slice(0,-1).map(x => name-format(x)).join(", ") + " & " + name-format(names.at(-1))
+      names.slice(0,-1).map(x => format-name-no-context(x)).join(", ") + " & " + format-name-no-context(names.at(-1))
     }
   }
 
@@ -762,7 +762,7 @@
       name-format("MISSING")
       add-warning("chairperson is missing")
     } else if (type(chairperson) == "string") {
-      name-format(chairperson)
+      format-name-no-context(chairperson)
     } else { 
       pretty-name-connect(chairperson)
     }\
@@ -770,7 +770,7 @@
       name-format("MISSING")
       add-warning("secretary is missing")
     } else if (type(secretary) == "string") {
-      name-format(secretary)
+      format-name-no-context(secretary)
     } else { 
       pretty-name-connect(secretary)
     }
@@ -783,7 +783,7 @@
     ]
     #if translation != none [
       \ *#translate("TRANSLATION")*: #if (type(translation) == "string") {
-        name-format(translation)
+        format-name-no-context(translation)
       } else { 
         pretty-name-connect(translation)
       }
