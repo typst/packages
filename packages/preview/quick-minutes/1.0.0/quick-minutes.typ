@@ -260,6 +260,7 @@
     return [
       #show "???": set text(fill: red)
       #custom-name-format(name)
+      #h(-0.25em)
     ]
   }
 
@@ -939,9 +940,14 @@
       }
     }
   
-    show regex("/" + regex-name-format): it => {
+    show regex("(.)?/" + regex-name-format): it => {
       context {
-        let name = it.text.slice(1)
+        if (not (it.text.at(0) == "/" or it.text.slice(0,2) == " /")) {
+          it
+          return
+        }
+
+        let name = it.text.slice(if (it.text.at(0) == "/") {1} else {2})
       
         name = format-name(name)
         
