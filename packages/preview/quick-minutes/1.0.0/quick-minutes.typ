@@ -710,16 +710,16 @@
   show heading: it => [
     #if (it.body.has("children")) [
       #let it-text = it.body.children.map(i => i.text).join()
-      #if (it-text.contains("/")) [
+      #if (it-text.match(regex(regex-time-format + "/")) != none) [
         #let time = it-text.split("/").at(0)
-        #let title = it-text.split("/").at(1)
+        #let title = it-text.split("/").slice(1).join("/\u{200B}")
         #timed(time , heading(level: it.level, title))
       ] else [
         #it-text
       ]
-    ] else if (it.body.text.contains("/")) [
+    ] else if (it.body.text.match(regex(regex-time-format + "/")) != none) [
       #let time = it.body.text.split("/").at(0)
-      #let title = it.body.text.split("/").at(1)
+      #let title = it.body.text.split("/").slice(1).join("/\u{200B}")
       #timed(time , heading(level: it.level, title))
     ] else if (it.body.text.at(0) == "\u{200B}") [
       #if (separator-lines and (it.level == 1 or it.level == 4)) {
