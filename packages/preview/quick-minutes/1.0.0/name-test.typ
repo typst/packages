@@ -1,4 +1,4 @@
-#import "quick-minutes.typ": *
+#import "@preview/quick-minutes:1.0.0": *
 
 #show: minutes.with(
   locale: "de",
@@ -135,10 +135,6 @@
 /N1
 
 /N2
-
-/1
-
-/2
 
 #line()
 

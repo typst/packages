@@ -572,7 +572,7 @@
 
   // Regex
   let regex-time-format = "[0-9]{1,5}"
-  let regex-name-format = "-?(" + royalty-connectors.join(" |") + " )?(\p{Lu}|[0-9]+)[^ ]*( " + royalty-connectors.join("| ") + ")?( (\p{Lu}|[0-9]+)[^ ]*)*"
+  let regex-name-format = "-?(" + royalty-connectors.join(" |") + " )?(\p{Lu})[^ ]*( " + royalty-connectors.join("| ") + ")?( (\p{Lu}|[0-9]+)[^ ]*)*"
   let default-format = regex-time-format + "/[^\n]*"
 
   let default-regex(keyword, function, body) = [
