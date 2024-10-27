@@ -1,11 +1,11 @@
-# Acrostiche (0.3.4)
+# Acrostiche (0.3.5)
 
 Manages acronyms so you don't have to.
 
 ## Quick Start
 
 ```
-#import "@preview/acrostiche:0.3.4": *
+#import "@preview/acrostiche:0.3.5": *
 
 #init-acronyms((
   "WTP": ("Wonderful Typst Package","Wonderful Typst Packages"),
@@ -29,7 +29,7 @@ Then, initialize Arostiche with the acronyms you just defined with the `#init-ac
 
 Here is a sample of the `acronyms.typ` file:
 ```
-#import "@preview/acrostiche:0.3.4": *
+#import "@preview/acrostiche:0.3.5": *
 
 #init-acronyms((
   "NN": ("Neural Network"),
@@ -95,7 +95,7 @@ Be nice to the compiler, don't throw recursive traps.
 Here is a minimal working example of funky acronyms:
 
 ```
-#import "@preview/acrostiche:0.3.4": *                                                           
+#import "@preview/acrostiche:0.3.5": *                                                           
 #init-acronyms((
   "RFA": ([#text(fill: gradient.linear(..color.map.rainbow))[Rainbow Filled Acronym]],),                                                             
   "NA": ([Nested #acr("RFA") Acronym],)
