@@ -7,10 +7,10 @@
   event-name: none,
   date: none,
   present: (),
-  chairperson: none, // More then one person possible?
-  secretary: none, // More then one person possible?
-  awareness: none, // More then one person possible?
-  translation: none, // More then one person possible?
+  chairperson: none,
+  secretary: none,
+  awareness: none,
+  translation: none,
 
   cosigner: none,
   cosigner-name: none,
@@ -261,6 +261,14 @@
       #show "???": set text(fill: red)
       #custom-name-format(name)
     ]
+  }
+
+  let pretty-name-connect(names) = {
+    if names.len() == 1 {
+      return name-format(names.at(0))
+    } else {
+      names.slice(0,-1).map(x => name-format(x)).join(", ") + " & " + name-format(names.at(-1))
+    }
   }
 
   let format-name-no-context(name) = {
@@ -750,31 +758,77 @@
     }
   }
   [
-    *#translate("CHAIR")*: #name-format(if (chairperson == none) {
-      "MISSING"
+    *#translate("CHAIR")*: #if (chairperson == none) {
+      name-format("MISSING")
       add-warning("chairperson is missing")
-    } else {chairperson})\
-    *#translate("PROTOCOL")*: #name-format(if (secretary == none) {
-      "MISSING"
+    } else if (type(chairperson) == "string") {
+      name-format(chairperson)
+    } else { 
+      pretty-name-connect(chairperson)
+    }\
+    *#translate("PROTOCOL")*: #if (secretary == none) {
+      name-format("MISSING")
       add-warning("secretary is missing")
-    } else {secretary})
+    } else if (type(secretary) == "string") {
+      name-format(secretary)
+    } else { 
+      pretty-name-connect(secretary)
+    }
     #if awareness != none [
-      \ *#translate("AWARENESS")*: #name-format(awareness)
+      \ *#translate("AWARENESS")*: #if (type(awareness) == "string") {
+        name-format(awareness)
+      } else { 
+        pretty-name-connect(awareness)
+      }
     ]
     #if translation != none [
-      \ *#translate("TRANSLATION")*: #name-format(translation)
+      \ *#translate("TRANSLATION")*: #if (type(translation) == "string") {
+        name-format(translation)
+      } else { 
+        pretty-name-connect(translation)
+      }
     ] \
     
     #let old-present = present
     #let present = present.map(x => format-name-no-context(x))
-    #if (awareness != none and not present.contains(awareness)) {
-      present.insert(0, awareness)
+    #if (awareness != none) {
+      if (type(awareness) == str) {
+        if (not present.contains(awareness)) {
+          present.insert(0, awareness)
+        }
+      } else {
+        for person in awareness {
+          if (not present.contains(person)) {
+            present.insert(0, person)
+          }
+        }
+      }
     }
-    #if (secretary != none and not present.contains(secretary)) {
-      present.insert(0, secretary)
+    #if (secretary != none) {
+      if (type(secretary) == "string") {
+        if (not present.contains(secretary)) {
+          present.insert(0, secretary)
+        }
+      } else {
+        for person in secretary {
+          if (not present.contains(person)) {
+            present.insert(0, person)
+          }
+        }
+      }
     }
-    #if (chairperson != none and not present.contains(chairperson)) {
-      present.insert(0, chairperson)
+    #if (chairperson != none) {
+      if (type(chairperson) == str) {
+        if (not present.contains(chairperson)) {
+          present.insert(0, chairperson)
+        }
+      } else {
+        for person in chairperson {
+          if (not present.contains(person)) {
+            present.insert(0, person)
+          }
+        }
+      }
     }
     #context[
       #let keys = arrival-times.at(<end-time>).keys()
@@ -928,19 +982,31 @@
       [#translate("SIGNATURE") #translate("PROTOCOL")],
       [],
       if (cosigner == none) {
-        name-format(
-          if (chairperson == none) {"MISSING"} else {chairperson}
-        )
+        if (chairperson == none) {
+          name-format("MISSING")
+        } else if (type(chairperson) == "string") {
+          name-format(chairperson)
+        } else { 
+          chairperson.map(x => name-format(x)).join("\n")
+        }
       } else {
         name-format(
           if (cosigner-name == none) {
             "MISSING"
             add-warning("cosigner-name is missing")
-          } else {cosigner-name}
+          } else {
+            cosigner-name
+          }
         )
       },
-      name-format(if (secretary == none) {"MISSING"} else {secretary}),
-    ) 
+      if (secretary == none) {
+        name-format("MISSING")
+      } else if (type(secretary) == "string") {
+        name-format(secretary)
+      } else { 
+        secretary.map(x => name-format(x)).join("\n")
+      },
+    )
   }
 
   //Hinweise

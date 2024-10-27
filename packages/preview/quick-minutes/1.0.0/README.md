@@ -39,12 +39,12 @@ With Quick Minutes you can record any meeting event by just typing it out. No fu
 || event-name | Name of the meeting | `none` | `string`
 || date | Date of the meeting (`auto` for current date, datetime for formatted date) | `none` | `string, auto, datetime`
 || present | List with names of people present at the meeting | `()` | list
-|| chairperson | Name of the person chairing the meeting | `none` | `string`
-|| secretary | Name of the person taking minutes | `none` | `string`
+|| chairperson | Name of the person chairing the meeting<br>Can be a `list` of people | `none` | `string`, `list(string)`
+|| secretary | Name of the person taking minutes<br>Can be a `list` of people | `none` | `string`, `list(string)`
 | optional |
 ||
-|| awareness | Name of the person responsible for awareness | `none` | `string`
-|| translation | Name of the person responsible for translating | `none` | `string`
+|| awareness | Name of the person responsible for awareness<br>Can be a `list` of people | `none` | `string`, `list(string)`
+|| translation | Name of the person responsible for translating<br>Can be a `list` of people | `none` | `string`, `list(string)`
 || cosigner | Position of the Person signing the protocol, should they differ from the chairperson. | `none` | `string`
 || cosigner-name | Name of the person signing the protocol, should they differ from the chairperson. | `none` | `string`
 | customisation |
