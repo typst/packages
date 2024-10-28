@@ -14,7 +14,7 @@ _Minimalistic [typst](https://typst.app/) slides!_
 This is a simple usage example:
 
 ```typst
-#import "@preview/typslides:1.1.0": *
+#import "@preview/typslides:1.1.1": *
 
 // Project configuration
 #show: typslides.with(
