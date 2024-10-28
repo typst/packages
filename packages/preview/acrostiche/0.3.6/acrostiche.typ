@@ -123,6 +123,8 @@
     // Build acronym list
     let acr-list = acronyms.keys()
 
+    // FEATURE: allow ordering by occurences position in the document. Not sure if possible yet.
+
     // order list depending on the sorted argument
     if sorted=="down"{
       acr-list = acr-list.sorted().rev()
