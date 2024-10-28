@@ -1,18 +1,17 @@
 [package]
-name = "quick-minutes"
-version = "1.0.0"
-entrypoint = "quick-minutes.typ"
 authors = ["@katharinathoele", "@Lypsilonx"]
-license = "MIT"
-description = "A typst template for the keeping of minutes."
-compiler = "0.12"
-keywords = ["protocol", "minutes", "time", "timekeeping", "recording", "record"]
 categories = ["layout"]
+compiler = "0.12"
+description = "A typst template for the keeping of minutes."
 disciplines = ["business", "communication", "education", "journalism", "law"]
+entrypoint = "quick-minutes.typ"
 exclude = ["name-test.typ"]
-
+keywords = ["protocol", "minutes", "time", "timekeeping", "recording", "record"]
+license = "MIT"
+name = "quick-minutes"
+version = "1.0.1"
 
 [template]
-path = "template"
 entrypoint = "preview.typ"
+path = "template"
 thumbnail = "thumbnail.png"
