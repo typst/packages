@@ -206,7 +206,6 @@
       }
       #if (hours-manual == none) {
         last-time.update(time-string)
-        
         if (start-time.get() == none) {
           start-time.update(time-string)
         }
