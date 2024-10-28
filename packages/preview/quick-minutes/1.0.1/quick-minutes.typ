@@ -206,10 +206,9 @@
       }
       #if (hours-manual == none) {
         last-time.update(time-string)
-      }
-
-      #if (start-time.get() == none) {
-        start-time.update(time-string)
+        if (start-time.get() == none) {
+          start-time.update(time-string)
+        }
       }
     ]
   ]
@@ -858,6 +857,9 @@
       
       return if (body.has("text")) {body.text} else {""}
     }).join("\n")
+    #if (body-string == none) {
+      body-string = ""
+    }
     
     #let matches = body-string.matches(regex(join-long-regex.replace("+", "\+")))
 
