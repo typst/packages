@@ -55,7 +55,6 @@
   let hours = state("hours", none)
   let last-time = state("last-time", none)
   let start-time = state("start-time", none)
-  let arrival-times = state("arrival-times", (:))
 
   let help-text() = if (enable-help-text) {context[
     #set text(fill: blue)
@@ -202,10 +201,12 @@
         four-digits-to-time(time-string)
       }
 
-      #if (last-time.get() != none and int(time-string) < int(last-time.get()) and hours-manual != none) {
+      #if (last-time.get() != none and int(time-string) < int(last-time.get()) and hours-manual == none) {
         add-warning(four-digits-to-time(time-string) + " is logged after " + four-digits-to-time(str(last-time.get())))
       }
-      #last-time.update(time-string)
+      #if (hours-manual == none) {
+        last-time.update(time-string)
+      }
 
       #if (start-time.get() == none) {
         start-time.update(time-string)
@@ -426,11 +427,6 @@
           if (not x.contains(name)) {
             x.push(name)
           }
-          return x
-        })
-        let hours-manual = hours.get()
-        arrival-times.update(x => {
-          x.insert(name, format-time(time, hours-manual: hours-manual))
           return x
         })
       } else {
@@ -757,7 +753,7 @@
 
   // Protokollkopf
   let start-time-string = context {
-    let start-time = start-time.at(<end-time>)
+    let start-time = start-time.final()
     if (start-time == none) {
       "XX:XX"
     } else {
@@ -765,7 +761,7 @@
     }
   }
   let end-time-string = context {
-    let end-time = last-time.at(<end-time>)
+    let end-time = last-time.final()
     if (end-time == none) {
       "XX:XX"
     } else {
@@ -803,7 +799,6 @@
         pretty-name-connect(translation)
       }
     ] \
-    
     #let old-present = present
     #let present = present.map(x => format-name-no-context(x))
     #if (awareness != none) {
@@ -851,30 +846,50 @@
         }
       }
     }
-    #context[
-      #let keys = arrival-times.at(<end-time>).keys()
-      #let filtered = present.filter(x => not keys.contains(x))
-      #all.update(present)
-      #pres.update(filtered)
-    ]
     #if (present.dedup().len() != present.len()) {
       add-warning("multiple people with the same name are present")
     }
     *#translate("PRESENT")*:
     #v(-0.5em)
-    #grid(
-      columns: calc.min(2, calc.ceil(present.len() / 10)) * (1fr,),
-      row-gutter: 0.65em,
-      inset: (left: 1em),
-      ..present.map(x => {
-        name-format(x)
-        context {
-          if (show-arrival-time and arrival-times.at(<end-time>).keys().contains(x)) {
-            [ (#translate("SINCE") #box[#arrival-times.at(<end-time>).at(x)])]
+    #let join-long-regex = "\n++" + default-format
+    
+    #let body-string = body.children.map(i => {
+      let body = if (i.has("body")) {i.body} else {i}
+      
+      return if (body.has("text")) {body.text} else {""}
+    }).join("\n")
+    
+    #let matches = body-string.matches(regex(join-long-regex.replace("+", "\+")))
+
+    #let time-matches = body-string.matches(regex(regex-time-format + "/")).filter(x => x.text.len() == 5)
+    
+    #context[
+      #all.update(present)
+      #let arrives-later = (:)
+      #for match in matches {
+        let last-time = time-matches.filter(x => x.end < match.start).last().text.slice(0, -1)
+        
+        let split = match.text.split("/")
+        let time = format-time(split.at(0).slice(3), hours-manual: last-time.slice(0, 2))
+        let name = format-name(split.at(1))
+        arrives-later.insert(name, time)
+      }
+      
+      #let filtered = present.filter(x => not 
+      arrives-later.keys().contains(x))
+      #pres.update(filtered)
+      #grid(
+        columns: calc.min(2, calc.ceil(present.len() / 10)) * (1fr,),
+        row-gutter: 0.65em,
+        inset: (left: 1em),
+        ..present.map(x => {
+          name-format(x)
+          if (show-arrival-time and arrives-later.keys().contains(x)) {
+            [ (#translate("SINCE") #box[#arrives-later.at(x)])]
           }
-        }
-      })
-    )
+        })
+      )
+    ]
     #if (old-present == ()) {
       add-warning("present not set")
     }
@@ -974,9 +989,6 @@
   set par.line(
     number-clearance: 200pt
   )
-  box(height: 0pt)
-  v(-1em)
-  [\u{200B}<end-time>]
   context {
     let count-away = away.get().len()
     if (count-away > 0) {
