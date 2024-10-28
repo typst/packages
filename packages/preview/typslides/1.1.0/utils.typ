@@ -54,7 +54,7 @@
       5%
     },
     inset: .55cm,
-    text(white, weight: "semibold", size: 24pt)[#h(1cm) #title],
+    text(white, weight: "semibold", size: 24pt)[#h(.2cm) #title],
   )
 }
 
