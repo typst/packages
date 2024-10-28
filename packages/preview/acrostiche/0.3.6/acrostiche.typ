@@ -105,7 +105,7 @@
   // Args:
   //   level: level of the heading. Default to 1.
   //   outlined: make the index section outlined. Default to false
-  //   sorted: define if and how to sort the acronyms: "up" for alphabetical order, "down" for reverse alphabetical order, "" for no sort (print in the order they are defined). If anything else, sort as "up". Default to ""
+  //   sorted: define if and how to sort the acronyms: "up" for alphabetical order, "down" for reverse alphabetical order, "" for no sort (print in the order they are defined). Default to "".
   //   title: set the title of the heading. Default to "Acronyms Index". Passing an empty string will result in removing the heading.
   //   delimiter: String to place after the acronym in the list. Defaults to ":"
 
