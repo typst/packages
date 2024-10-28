@@ -109,7 +109,7 @@ Here is a minimal working example of funky acronyms:
  * For every acronym "ABC" that you define, the state named "acronym-state-ABC" is initialized and used. To avoid errors, do not try to use this state manually for other purposes. Similarly, the state named "acronyms" is reserved to Acrostiche; avoid using it.
  * `display-def` leverages the state `display` function and only works if the return value is actually printed in the document. For more information on states, see the Typst documentation on states.
 
-Thank you to the contributors for proposing new features: **caemor**, **AurelWeinhold**, **daniel-eder**. 
+Thank you to the contributors: **caemor**, **AurelWeinhold**, **daniel-eder**, **iostapyshyn**. 
 
 If you notice any bug or want to contribute a new feature, please open an issue or a merge request on the fork [Grisely/packages](https://github.com/Grisely/packages)
 
