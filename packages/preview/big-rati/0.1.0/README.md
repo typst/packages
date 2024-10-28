@@ -5,14 +5,17 @@
 ## Usage
 
 ```typ
-#import "@preview/big-rat:0.1.0"
+#import "@preview/big-rati:0.1.0"
 
 #let a = 2      // 2/1
 #let b = (1, 2) // 1/2
 
-#let sum = big-rat.add(a, b) // 5/2
+#let sum = big-rati.add(a, b) // 5/2
 
-$#big-rat.repr(sum)$
+#let c = ("4", 6)
+#let prod = big-rati.mul(c, sum) // 5/3
+
+$#big-rati.repr(prod)$
 ```
 
 Functions, exported by the package are:
