@@ -1,6 +1,6 @@
-# `big-rat`
+# `big-rati`
 
-`big-rat` is a package to work with rational numbers in Typst
+`big-rati` is a package to work with rational numbers in Typst
 
 ## Usage
 
