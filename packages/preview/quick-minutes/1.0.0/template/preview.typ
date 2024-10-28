@@ -31,6 +31,7 @@
 == Bericht der Königinnenlichen Gesellschaft des Dinge-auf-andere-Dinge-Stellens
 
 Günthers, Günther: Der östereichische Ableger hat 5 Dinge auf andere Dinge gestellt. Um weitere Dinge auf andere Dinge zu stellen, beantragen sie Zuwendungen in Höhe von 4 D-Mark.
+
 !20/Dem österreichischem Ableger der Königinnelichen Gesellschaft werden Zuwendungen von 4 D-Mark zur besseren Erfüllung ihrer Arbeit zur Verfügung gestellt./3/0/1
 
 -22/Vorsitz, En Der
