@@ -72,7 +72,7 @@
   let a = rational(a)
   let b = rational(b)
 
-  let ordering-bytes = _p.abs_diff(a, b)
+  let ordering-bytes = _p.cmp(a, b)
 
   int.from-bytes(ordering-bytes)
 }
@@ -208,7 +208,7 @@
 
 #let to-decimal-str(x, precision: 8) = {
   let x = rational(x)
-  str(p.to_decimal_string(x, int.to-bytes(precision)))
+  str(_p.to_decimal_string(x, int.to-bytes(precision)))
 }
 
 #let to-float(x, precision: 8) = {
