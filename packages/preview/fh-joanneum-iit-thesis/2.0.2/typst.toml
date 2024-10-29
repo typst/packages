@@ -7,7 +7,7 @@ license = "MIT"
 description = "BA or MA thesis at FH JOANNEUM"
 categories = ["thesis"]
 keywords = ["thesis", "fh joanneum", "iit"]
-repository = "https://git-iit.fh-joanneum.at/oss/thesis-template" 
+repository = "https://git-iit.fh-joanneum.at/oss/thesis-template"
 
 [template]
 path = "template"
