@@ -9,7 +9,7 @@ Using the Typst web app, you can create a project by e.g. using this link: https
 To work locally, use the following command:
 
 ```bash
-typst init @preview/tgm-hit-thesis
+typst init @preview/tgm-hit-protocol
 ```
 
 ## Usage
