@@ -8,7 +8,6 @@ entrypoint = "src/lib.typ"
 authors = ["James R. Swift"]
 license = "Unlicense"
 description = "A paper template with which to publish in journals and at conferences"
-homepage = ""
 repository = "https://github.com/JamesxX/graceful-genetics"
 keywords = ["paper", "article", "journal", "conference"]
 categories = ["paper"]
