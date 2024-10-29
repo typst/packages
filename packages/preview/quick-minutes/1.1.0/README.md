@@ -81,12 +81,14 @@ Join | +(\<time>/)?\<name><br>++(\<time>/)?\<name> | Marks the arrival of someo
 Leave | -(\<time>/)?\<name><br>--(\<time>/)?\<name> | Marks the departure of someone.<br>-: Leave into pause etc.<br>--: Leave event<br><br>_Time is optional_
 Time | \<time>/\<text> | Time the following text
 Mark Name | /\<name> | Marks following name
-Vote | !(\<time>/)?\<text>/\<vote>/\<vote>... | Vote on something (described in text)<br><br>/\<vote> can be repeated as many times as needed (min. 2)<br>3 unnamed & uncolored votes will result in a "For" (green), "Against" (red), "Abstain" (blue) vote<br><br>_Time is optional_
+Vote | !(\<time>/)?\<text>/\<vote>/\<vote>... | Vote on something (described in text)<br><br>/\<vote> can be repeated as many times as needed (min. 2)<br>3 unnamed & uncolored votes will result in a "For" (green), "Against" (red), "Abstain" (blue) vote<br><br>If you want to use `/` inside of a label or the text, you can use `-/` to escape into a normal `/`<br><br>_Time is optional_
+Dialogue | \<name>: \<text> | Marks that someone is speaking<br><br>Can be escaped with a `-` (`<name>-:`) to avoid restructuring
+End | /\<time> | End of the meeting |
 
 ### Formats
 
 | name | format | example |
 |---|---|---|
 \<vote> | \<label>(\|\<color>)?\<count> | `First Party\|green42`<br>`Third choice22`
-\<time> | 1-4 numbers (can contain ":" and " ") | `1312` -> 01:12 pm<br>`650` -> 06:50 pm<br>`21`-> last timed hour:21 (pm/am)<br>`4`-> last timed hour:04 (pm/am)
+\<time> | 1-4 numbers | `1312` -> 01:12 pm<br>`650` -> 06:50 pm<br>`21`-> last timed hour:21 (pm/am)<br>`4`-> last timed hour:04 (pm/am)
 \<name> | Name in various formats | `Last Name, First Name`<br>`First Name Last Name`<br>`First Name`<br>`Last Name`<br>`First Name L`<br>`F Last Name`<br>`FL`<br><br>Last name can also start with a royalty connector like "de" or "von"<br><br>`Name 1`,`Name 2` will render with the number after the name, but the number is handled as a last name.<br><br>If you just want your name formatted by `custom-name-format` you can escape the restructuring process with a `-` (`/-<name>`)

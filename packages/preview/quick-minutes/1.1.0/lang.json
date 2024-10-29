@@ -89,7 +89,7 @@
   },
   "LEAVE_LONG": {
     "en": "leaves the meeting: [0] present",
-    "de": "verlässt die Sitzung: [0] Anwesend"
+    "de": "verlässt die Sitzung-: [0] Anwesend"
   },
   "SIGNATURE_PRE": {
     "en": "This protocol is hereby approved",

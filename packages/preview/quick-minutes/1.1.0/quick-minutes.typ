@@ -179,7 +179,7 @@
   
   let format-time(time-string, display: true, hours-manual: none) = [
     #context [
-      #let time-string = time-string.replace(" ", "").replace(":", "")
+      #let time-string = time-string
       
       #assert(time-string.match(regex("[0-9]+")) != none, message: "Invalid Time Format \"" + time-string + "\"")
       
@@ -644,8 +644,8 @@
     end(it.text.slice(1))
   }
 
-  show regex("^!(" + regex-time-format + "/)?.*/(.*(|.*)?[0-9]+){2,}"): it => [
-    #let text = it.text.slice(1)
+  show regex("^!(" + regex-time-format + "/)?.*[^-]/(.*(|.*)?[0-9]+){2,}"): it => [
+    #let text = it.text.replace("-/", "%slash%").slice(1)
     #let time = text.split("/").at(0)
 
     #let args-slice = 2
@@ -673,6 +673,7 @@
         label = str(x.at(0) + 1)
       }
       
+      label = label.replace("%slash%", "/")
       if (color-string != none) {
         args.insert(label, (value, eval(color-string)))
       } else {
@@ -682,7 +683,7 @@
       return args;
     })
     
-    #let text = text.split("/").at(args-slice - 1)
+    #let text = text.split("/").at(args-slice - 1).replace("%slash%", "/")
 
     #if (args.len() == 3
       and args.keys().enumerate()
@@ -899,7 +900,7 @@
     
     #let matches = body-string.matches(regex(join-long-regex.replace("+", "\+")))
 
-    #let time-matches = body-string.matches(regex(regex-time-format + "/")).filter(x => x.text.len() == 5)
+    #let time-matches = body-string.matches(regex(regex-time-format + "/")).filter(x => x.text.len() >= 4)
     
     #context[
       #all.update(present)
@@ -975,13 +976,8 @@
   )
 
   {
-    show regex("(.)?" + regex-name-format + ": "): it => {
+    show regex("(.)?" + regex-name-format + "[^-]: "): it => {
       context {
-        if (it.text == " Sitzung: ") {
-          it.text
-          return
-        }
-        
         let break-line = it.text.at(0) == " "
         let name = it.text.slice(if (break-line) {1} else {0}, -2)
         
@@ -1030,6 +1026,10 @@
           add-warning("\"" + name + "\" was mentioned, but is unaccounted for")
         }
       }
+    }
+
+    show regex("-:"): it => {
+      [:]
     }
   
     //Hauptteil
