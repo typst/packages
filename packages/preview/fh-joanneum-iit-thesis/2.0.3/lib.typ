@@ -20,8 +20,11 @@ long }
 
 #let quote(message, by) = {
   block(radius: 1em, width: 90%, inset: (x: 2em, y: 0.5em), [
-    #message,
-    #par(first-line-indent: 25em, text(font: "STIX Two Text", size: 9pt, [
+    #text( style: "italic", message)
+    // INFO: Times New Roman, STIX Two Text,... reported warning on typst universe:
+    //       e.g. typst compiler: ... unknown font family: stix two text ...
+    //       (The following warning was reported by the Typst compiler: unknown font family: times new roman)
+    #par(first-line-indent: 25em, text( style: "italic", size: 9pt, [
       (#by)
     ]))
   ])
