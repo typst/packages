@@ -52,7 +52,8 @@ At any point in the document, you can reset acronyms with the functions `#reset-
 You can also print an index of all acronyms used in the document with the `#print-index()` function.
 The index is printed as a section for which you can choose the heading level, the numbering, and the outline parameters (with respectively the `level: int`, `numbering: none | string | function`, and `outlined: bool` parameters).
 You can also choose their order with the `sorted: string` parameter that accepts either an empty string (print in the order they are defined), "up" (print in ascending alphabetical order), or "down" (print in descending alphabetical order).
-The index contains all the acronyms you defined. You can use the `title: string` parameter to change the name of the heading for the index section.
+By default, the index contains all the acronyms you defined. You can choose to only display acronyms that are actually used in the document by passing `used-only: true` to the function. Warning, the detection of used acronym uses the states at the end of the document. Thus, if you reset an acronym and do not use it again until the end, it will not appear in the index.
+ You can use the `title: string` parameter to change the name of the heading for the index section.
 The default value is "Acronyms Index". Passing an empty string for `title` results in the index having no heading (i.e., no section for the index).
 You can customize the string displayed after the acronym in the list with the `delimiter: ":"` parameter.
 To adjust the spacing between the acronyms adjust the `row-gutter: auto | int | relative | fraction | array` parameter, the default is `2pt`.
