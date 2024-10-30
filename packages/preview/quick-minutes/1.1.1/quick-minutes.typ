@@ -985,8 +985,9 @@
   }
   context {
     let start-time = start-time.final()
-    if (start-time == none) [==== #translate("START")]
-    else {
+    if (start-time == none) {
+      timed([], [==== #translate("START")])
+    } else {
       timed(start-time, [==== #translate("START")])
     }
   }
