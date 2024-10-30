@@ -12,7 +12,6 @@
   acros.update(states)
 }
 
-
 #let display-def(plural: false, acr) = {
   // Display the definition of an acronym by fetching it in the "acronyms" state's value (should be a dictionary).
 
@@ -58,12 +57,11 @@
       if data.at(acr).at(1){
         acr
       }else{
-        [#display-def(plural: plural, acr) (#acr)]
+        [#display-def(plural: plural, acr)~(#acr)]
       }
       data.at(acr).at(1) = true
     }else{
-      // TODO update this error message
-      panic("You requested an acronym that you did not define first.")
+      panic("You requested the acronym "+acr+" that you did not define first.")
     }
     acros.update(data)
   }
@@ -91,8 +89,7 @@
     if acr in data{
       data.at(acr).at(1) = false
     }else{
-      // TODO update this error message
-      panic("You requested an acronym that you did not define first.")
+      panic("You requested the acronym "+acr+" that you did not define first.")
     }
   }
 }
