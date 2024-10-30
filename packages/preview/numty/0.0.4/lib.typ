@@ -176,12 +176,12 @@
   }
 }
 
-#let print(M) = {
-  if is-mat(M) {
-   eval("$ mat(" + M.map(v => v.map(j=>to-str(j)).join(",")).join(";")+ ") $")
+#let print(m) = {
+  if is-mat(m) {
+   eval("$ mat(" + m.map(v => v.map(j=>to-str(j)).join(",")).join(";")+ ") $")
   }
-  else if is-arr(M){
-    eval("$ vec(" + M.map(v => str(v)).join(",")+ ") $")
+  else if is-arr(m){
+    eval("$ vec(" + m.map(v => str(v)).join(",")+ ") $")
   }
   else{
     eval(" $"+str(M)+"$ ")
@@ -190,15 +190,16 @@
 
 
 
-#let p(M) = {
+#let p(m) = {
   let scope = (value1: "true", value2: "false")
-  if is-mat(M) {
-   eval("$mat(" + M.map(v => v.map(j=>to-str(j)).join(",")).join(";")+ ")$", scope: scope)
+  if is-mat(m) {
+   eval("$mat(" + m.map(v => v.map(j=>to-str(j)).join(",")).join(";")+ ")$", scope: scope)
   }
-  else if is-arr(M){
-    eval("$vec(" + M.map(v => str(v)).join(",")+ ")$")
+  else if is-arr(m){
+    eval("$vec(" + m.map(v => str(v)).join(",")+ ")$")
   }
   else{
     eval("$"+str(M)+"$")
   }
 }
+
