@@ -1,4 +1,4 @@
-#import "@preview/acrostiche:0.3.6": *
+#import "@preview/acrostiche:0.4.0": *
 
 #init-acronyms((
   "PFT": ("Package For Typst","Packages For Typst"),
