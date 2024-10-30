@@ -85,7 +85,7 @@ Time | <pre>\<time>/\<text> | Time the following text
 Mark Name | <pre>/\<name> | Marks following name
 Vote | <pre>!(\<time>/)?\<text>/\<vote>/\<vote>... | Vote on something (described in text)<br><br>/\<vote> can be repeated as many times as needed (min. 2)<br>3 unnamed & uncolored votes will result in a "For" (green), "Against" (red), "Abstain" (blue) vote<br><br>If you want to use `/` inside of a label or the text, you can use `-/` to escape into a normal `/`<br><br>_Time is optional_
 Dialogue | <pre>\<name>: \<text> | Marks that someone is speaking<br><br>Can be escaped with a `-` (`<name>-:`) to avoid restructuring
-End | <pre>/\<time> | End of the meeting |
+End | <pre>/\<time> | End of the meeting.<br><br>Replace \<time> with `"end"` if you dont want to set a time |
 
 ### Formats
 

@@ -612,7 +612,9 @@
       number-clearance: 200pt
     )
     #linebreak()
-    #timed(time, [==== #translate("END")])
+    #if (time == none) [==== #translate("END")] else {
+      timed(time)[==== #translate("END")]
+    }
     #last-time.update(time)
   ]
 
@@ -647,8 +649,15 @@
   show: default-regex.with("–", leave.with(long: true), time-optional: true)
   show: default-regex.with("", timed)
 
-  show regex("^/" + regex-time-format): it => {
-    end(it.text.slice(1))
+  show regex("^/(" + regex-time-format + "|end)"): it => {
+    let time = it.text.slice(1)
+    if (time == "end") {
+      context {
+        end(last-time.get())
+      }
+    } else {
+      end(time)
+    }
   }
 
   show regex("^!(" + regex-time-format + "/)?.*[^-]/(.*(|.*)?[0-9]+){2,}"): it => [
