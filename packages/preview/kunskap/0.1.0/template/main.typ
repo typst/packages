@@ -1,5 +1,4 @@
-//#import "@preview/kunskap:0.1.0": *
-#import "../lib.typ": *
+#import "@preview/kunskap:0.1.0": *
 
 #show: kunskap.with(
     title: [Instructions for writing reports],
