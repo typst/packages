@@ -51,6 +51,7 @@ To intentionally print the full version of the acronym (definition + acronym, as
 Both functions have shortcuts with `#acrf(...)` and `#acrfpl(...)`.
 
 At any point in the document, you can reset acronyms with the functions `#reset-acronym(...)` (for a single acronym) or `reset-all-acronyms()` (to reset all acronyms). After a reset, the next use of the acronym is expanded.
+Both functions have shortcuts with `#racr(...)` and `#raacr(...)`.
 
 You can also print an index of all acronyms used in the document with the `#print-index()` function.
 The index is printed as a section for which you can choose the heading level, the numbering, and the outline parameters (with respectively the `level: int`, `numbering: none | string | function`, and `outlined: bool` parameters).
@@ -76,6 +77,7 @@ Finally, you can call the `#display-def(...)` function to display the definition
 | **#reset-all-acronyms()**      | Resets all acronyms so the next usage will include their definitions again.                                          |
 | **#print-index(...)**          | Prints an index of all acronyms used, with customizable heading level, order, and display parameters.                |
 | **#display-def(...)**          | Displays the definition of an acronym. Use `plural: true` to display the plural version of the definition.           |
+| **racr, raacr, acrf, acrfpl**  | Shortcuts names for respectively `reset-acronym`, `reset-all-acronyms`, `acrfull`, and `acrfullpl`.                  | 
 
 ## Advanced Definitions
 This is a bit of a hacky feature coming from pure serendipity.
@@ -110,10 +112,9 @@ Here is a minimal working example of funky acronyms:
 ## Possible Errors:
 
  * If an acronym is not defined, an error will tell you which one is causing the error. Simply add it to the dictionary or check the spelling.
- * For every acronym "ABC" that you define, the state named "acronym-state-ABC" is initialized and used. To avoid errors, do not try to use this state manually for other purposes. Similarly, the state named "acronyms" is reserved to Acrostiche; avoid using it.
  * `display-def` leverages the state `display` function and only works if the return value is actually printed in the document. For more information on states, see the Typst documentation on states.
+ * Acrostiche uses a state named `acronyms` to keep track of the definitions and usage. If you redefined this state or use it manually in your document, unexpacted behaviour might happen.
 
 Thank you to the contributors: **caemor**, **AurelWeinhold**, **daniel-eder**, **iostapyshyn**. 
 
 If you notice any bug or want to contribute a new feature, please open an issue or a merge request on the fork [Grisely/packages](https://github.com/Grisely/packages)
-
