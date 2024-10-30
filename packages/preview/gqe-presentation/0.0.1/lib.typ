@@ -8,6 +8,7 @@
 #let clean-short-title = state("clean-short-title", none)
 #let clean-color = state("clean-color", rgb("#008685"))
 #let clean-logo = state("clean-logo", none)
+#let font-gqe = state("font-gqe",("PT Sans"))
 #let logo-gqe = state("logo-gqe",image("assets/logo-gqe-le-moulon.png"))
 #let logo-ideev = state("logo-ideev",image("assets/logo-ideev.jpg"))
 
@@ -18,7 +19,7 @@
   short-title: none,
   logo: none,
   color: rgb("#4a7ebb"),
-  font: "Carlito",
+  font: ("PT Sans"),
   body
 ) = {
   set page(
@@ -34,6 +35,7 @@
   clean-color.update(color)
   clean-short-title.update(short-title)
   clean-logo.update(logo)
+  font-gqe.update(font)
 
   body
 }
@@ -50,7 +52,7 @@
   let footer = align(bottom, context{
     set align(center)
     let color = clean-color.get()
-    set text(size: 12pt, font:"Carlito",fill:rgb("#008685"))
+    set text(size: 12pt, font: font-gqe.get(),fill:rgb("#008685"))
     
 
 	    block(
@@ -166,12 +168,12 @@
 
   let footer = context {
     let color = clean-color.get()
-    set text(font:"Carlito",fill:rgb("#008685"))
+    set text(font: font-gqe.get(),fill:rgb("#008685"))
 
     block(
       stroke: ( top: 0.9pt + color ), width: 100%, inset: ( y: .3em ),
       text(.5em, {
-        clean-footer.display()
+        clean-footer.get()
         h(1fr)
         logic.logical-slide.display()
       })
