@@ -988,7 +988,7 @@
     if (start-time == none) {
       timed([], [==== #translate("START")])
     } else {
-      timed(start-time, [==== #translate("START")])
+      timed([#four-digits-to-time(start-time)], [==== #translate("START")])
     }
   }
   
