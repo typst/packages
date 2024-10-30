@@ -54,10 +54,11 @@
   context{
     let data = acros.get()
     if acr in data{
+      let short = if plural{[#acr\s]}else{acr}
       if data.at(acr).at(1){
-        acr
+        short
       }else{
-        [#display-def(plural: plural, acr)~(#acr)]
+        [#display-def(plural: plural, acr)~(#short)]
       }
       data.at(acr).at(1) = true
     }else{
@@ -67,7 +68,7 @@
   }
 }
 
-#let acrpl(acr) = {acr(acr,plural:true)}
+#let acrpl(acronym) = {acr(acronym,plural:true)} // argument renamed acronym to differentiate with function acr
 
 #let acrfull(acr) = {
   //Intentionally display an acronym in its full form. Do not update state.
@@ -91,6 +92,7 @@
     }else{
       panic("You requested the acronym "+acr+" that you did not define first.")
     }
+    acros.update(data)
   }
 }
 
@@ -98,9 +100,9 @@
   // Reset all acronyms. They will all be expanded on the next use.
   context{
     let acronyms = acros.get()
-  }
-  for acr in acronyms.keys(){
-    reset-acronym(acr)
+    for acr in acronyms.keys(){
+      reset-acronym(acr)
+    }
   }
 }
 
@@ -108,7 +110,7 @@
 #let acrf(acr) = {acrfull(acr)}
 #let acrfpl(acr) = {acrfullpl(acr)}
 #let racr(acr) = {reset-acronym(acr)}
-#let raacr() = reset-all-acronyms
+#let raacr() = reset-all-acronyms()
 
 
 #let print-index(level: 1, numbering: none, outlined: false, sorted:"",
