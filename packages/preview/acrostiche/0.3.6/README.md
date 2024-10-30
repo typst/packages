@@ -47,6 +47,9 @@ To get the plural version of the acronym, you can use the `#acrpl(...)` function
 If a plural version of the definition is provided, it will be used if the first use of the acronym is plural.
 Otherwise, the singular version is used, and a trailing 's' is added.
 
+To intentionally print the full version of the acronym (definition + acronym, as for the first instance), without affecting the state, you can use the `#acrfull(...)` function. For the plural version, use the `#acrfullpl(...)` function.
+Both functions have shortcuts with `#acrf(...)` and `#acrfpl(...)`.
+
 At any point in the document, you can reset acronyms with the functions `#reset-acronym(...)` (for a single acronym) or `reset-all-acronyms()` (to reset all acronyms). After a reset, the next use of the acronym is expanded.
 
 You can also print an index of all acronyms used in the document with the `#print-index()` function.

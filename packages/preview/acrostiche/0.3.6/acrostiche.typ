@@ -4,7 +4,12 @@
 
 #let acros = state("acronyms",none)
 #let init-acronyms(acronyms) = {
-  acros.update(acronyms)
+  let states = (:)
+  for (acr, defs) in acronyms{
+    let data = (defs, false)
+    states.insert(acr,data)
+  }
+  acros.update(states)
 }
 
 
@@ -13,9 +18,9 @@
 
   // First, grab the dictionary of definitions of acronyms from the "acronyms" state
   context{ 
-    let acronyms = state("acronyms",none).get()
+    let acronyms = acros.get()
     if acr in acronyms{
-      let defs = acronyms.at(acr)
+      let defs = acronyms.at(acr).at(0)
       if type(defs) == "string"{ // If user defined only one version and forgot the trailing comma the type is string
         if plural{panic("You requested the plural version of the acronym but it seems like you only provided the singular version in #init-acronyms(dict)")}
         else{defs} // All is good, we return the definition found as the singular version
@@ -23,12 +28,12 @@
       else if type(defs) == "array"{
         if defs.len() == 0{ // The user could have provided an empty array, unlikely but possible.
           panic("No definitions found for acronym "+acr+". Make sure it is defined in the dictionary passed to #init-acronyms(dict)")
-        }else if acronyms.at(acr).len() == 1{ // User provided only one version, we make the plural by adding an "s" at the end.
-          if plural{acronyms.at(acr).at(0)+"s"}
-          else{acronyms.at(acr).at(0)}
+        }else if defs.len() == 1{ // User provided only one version, we make the plural by adding an "s" at the end.
+          if plural{defs.at(0)+"s"}
+          else{defs.at(0)}
         }else{ // User provided more than one version. We assume the first is singular and the second is plural. All other are useless.
-          if plural{acronyms.at(acr).at(1)}
-          else{acronyms.at(acr).at(0)}
+          if plural{defs.at(1)}
+          else{defs.at(0)}
         }
       }else{
         panic("Definitions should be arrays of one or two strings. Definition of "+acr+ " is "+defs+" of type: "+type(defs))
@@ -40,63 +45,73 @@
   
 }
 
-#let acr(acr) = {
-  // Display an acronym in the singular form. Expands it if used for the first time.
+#let acr(acr, plural:false) = {
+  // Display an acronym in the singular form by default. Expands it if used for the first time.
   
   // Generate the key associated with this acronym
   let state-key = "acronym-state-" + acr
   // Test if the state for this acronym already exists and if the acronym was already used
   // to choose what to display.
-  context if state(state-key,false).get(){
-    acr
-  }else{
-    [#display-def(plural: false, acr) (#acr)]
+  context{
+    let data = acros.get()
+    if acr in data{
+      if data.at(acr).at(1){
+        acr
+      }else{
+        [#display-def(plural: plural, acr) (#acr)]
+      }
+      data.at(acr).at(1) = true
+    }else{
+      // TODO update this error message
+      panic("You requested an acronym that you did not define first.")
+    }
+    acros.update(data)
   }
-  // Now change the state to true because the acronym was already used.
-  state(state-key,false).update(true)
 }
 
-#let acrpl(acr) = {
-  // Display an acronym in the singular form. Expands it if used for the first time.
-  
-  // Generate the key associated with this acronym
-  let state-key = "acronym-state-" + acr
-  // Test if the state for this acronym already exists and if the acronym was already used
-  // to choose what to display.
-  context if state(state-key,false).get(){
-    [#acr\s]
-  }else{
-    [#display-def(plural: true, acr) (#acr\s)]
-  }
-  // Now change the state to true because the acronym was already used.
-  state(state-key,false).update(true)
-}
+#let acrpl(acr) = {acr(acr,plural:true)}
 
 #let acrfull(acr) = {
-  //Intentionally display an acronym in its full form. Does not expand it and does not update state.
-  [#display-def(plural: false, acr)]
+  //Intentionally display an acronym in its full form. Do not update state.
+  [#display-def(plural: false, acr) (#acr)]
 }
 
 #let acrfullpl(acr) = {
-  //Intentionally display an acronym in its full form in plural. Does not expand it and does not update state.
-  [#display-def(plural: true, acr)]
+  //Intentionally display an acronym in its full form in plural. Do not update state.
+  [#display-def(plural: true, acr) (#acr\s)]
 }
+
+// define shortcuts
 
 
 #let reset-acronym(acr) = { 
   // Reset a specific acronym. It will be expanded on next use.
-    state("acronym-state-" + acr, false).update(false)
+  context{
+    let data = acros.get()
+    if acr in data{
+      data.at(acr).at(1) = false
+    }else{
+      // TODO update this error message
+      panic("You requested an acronym that you did not define first.")
+    }
+  }
 }
 
 #let reset-all-acronyms() = { 
   // Reset all acronyms. They will all be expanded on the next use.
   context{
-    let acronyms = state("acronyms",none).get()
-    for acr in acronyms.keys() {
-      state("acronym-state-" + acr, false).update(false)
-    }
+    let acronyms = acros.get()
+  }
+  for acr in acronyms.keys(){
+    reset-acronym(acr)
   }
 }
+
+// Define shortcuts
+#let acrf(acr) = {acrfull(acr)}
+#let acrfpl(acr) = {acrfullpl(acr)}
+#let racr(acr) = {reset-acronym(acr)}
+#let raacr() = reset-all-acronyms
 
 
 #let print-index(level: 1, numbering: none, outlined: false, sorted:"",
@@ -118,7 +133,7 @@
   }
 
   context{
-    let acronyms = state("acronyms",none).get()
+    let acronyms = acros.get()
     
     // Updated
     // Build acronym list
@@ -130,7 +145,7 @@
       // but I don't know how to do that yet. Feel free to propose changes.
       let used-acr-list = ()
       for acr in acr-list{
-        if state("acronym-state-" + acr, false).final() {
+        if acros.final().at(acr).at(1) {
           used-acr-list.push(acr)
         }
       }
@@ -152,11 +167,10 @@
       stroke: none,
       row-gutter: row-gutter,
       ..for acr in acr-list{
-        let acr-long = acronyms.at(acr)
-        let acr-long = if type(acr-long) == array {
-          acr-long.at(0)
-        } else {acr-long}
-        ([*#acr#delimiter*], acr-long)
+        let desc = if type(acronyms.at(acr).at(0)) == array {
+          acronyms.at(acr).at(0).at(0)
+        } else {acronyms.at(acr).at(0)}
+        ([*#acr#delimiter*], desc)
       }
     )
   }
