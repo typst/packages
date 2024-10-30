@@ -614,8 +614,8 @@
     #linebreak()
     #if (time == none) [==== #translate("END")] else {
       timed(time)[==== #translate("END")]
+      last-time.update(time)
     }
-    #last-time.update(time)
   ]
 
   // Regex
