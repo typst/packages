@@ -10,7 +10,6 @@ keywords = ["CV", "Curriculum Vitae", "Resume", "Minimalistic", "Professional", 
 categories = ["cv"]
 disciplines = []
 exclude = ["resume-documentation*", "scripts*", "assets/images/*"]
-homepage = "https://github.com/DeveloperPaul123/modern-cv"
 repository = "https://github.com/DeveloperPaul123/modern-cv"
 
 [template]
