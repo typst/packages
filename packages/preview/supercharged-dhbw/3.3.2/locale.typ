@@ -84,12 +84,12 @@ The content of this thesis may not be made available, either in its entirety or 
 
 #let INSTITUTION_SINGLE = (
   "de": "Ausbildungsstätte",
-  "en": "insitution",
+  "en": "institution",
 )
 
 #let INSTITUTION_PLURAL = (
   "de": "Ausbildungsstätten",
-  "en": "insitutions",
+  "en": "institutions",
 )
 
 #let AND = (
