@@ -1,0 +1,10 @@
+[package]
+name = "lambdabus"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Luca Schlecker <@luca-schlecker>"]
+license = "MIT"
+description = "Easily parse, normalize and display simple λ-Calculus expressions."
+repository = "https://github.com/luca-schlecker/typst-lambdabus"
+keywords = ["lambda", "calculus"]
+categories = ["fun"]
