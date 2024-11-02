@@ -1,5 +1,9 @@
 # Supercharged-DHBW Changelog
 
+## [v3.3.3] - 2024-11-02
+
+- Fix typo in declaration of authorship
+
 ## [v3.3.1] - 2024-10-03
 
 - Fix expect company attribute in author if `at-university` is true
