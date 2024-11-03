@@ -387,7 +387,7 @@
   header-right: self => utils.display-current-heading(level: 1) + h(.3em) + self.info.logo,
   date: [HCERES – GQE-Le Moulon, 14-15/11/2024],
   gqe-equipe: "UMR",
-  gqe-font: "PT Sans",
+  gqe-font: "New Computer Modern Math",
   gqe-font-size: 20pt,
   gqe-color: rgb("#006600"),
   footer-columns: (10%, 1fr, 10%),
