@@ -11,17 +11,20 @@ jobs:
         id: extract_package
         uses: actions/github-script@v6
         with:
-          script: |
+            script: |
             const prTitle = context.payload.pull_request.title;
-            const packageName = prTitle.split(':')[0];
-            const packageVersion = prTitle.split(':')[1];
-            core.setOutput('package_name', packageName);
-            core.setOutput('package_version', packageVersion);
-
+            const packageName = prTitle.split(':')[0].map(pkg => {
+              const [name, version] = pkg.trim().split(':');
+              return { name, version };
+            });;
+            const packageNames = packages.map(pkg => pkg.name).join(' ');
+            const packageVersions = packages.map(pkg => pkg.version).join(' ');
+            core.setOutput('package_names', packageNames);
+            core.setOutput('package_versions', packageVersions);
       - uses: actions/checkout@v3
         with:
           sparse-checkout: |
-            packages/preview/${{ steps.extract_package.outputs.package_name }}/${{ steps.extract_package.outputs.package_version }}/
+            ${{ steps.extract_package.outputs.package_names.split(' ').map((name, index) => `packages/preview/${name}/${{ steps.extract_package.outputs.package_versions.split(' ')[index] }}/`).join('\n') }}
             bundler/
 
       - uses: dtolnay/rust-toolchain@stable
