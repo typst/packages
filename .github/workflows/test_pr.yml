@@ -1,0 +1,36 @@
+name: Test PR
+on:
+  pull_request: {}
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract package name
+        id: extract_package
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const prTitle = context.payload.pull_request.title;
+            const packageName = prTitle.split(':')[0];
+            const packageVersion = prTitle.split(':')[1];
+            core.setOutput('package_name', packageName);
+            core.setOutput('package_version', packageVersion);
+
+      - uses: actions/checkout@v3
+        with:
+          sparse-checkout: |
+            packages/preview/${{ steps.extract_package.outputs.package_name }}/${{ steps.extract_package.outputs.package_version }}/
+            bundler/
+
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: bundler
+
+      - name: Build bundler
+        run: cargo build --release --manifest-path bundler/Cargo.toml
+
+      - name: Test packaging
+        run: bundler/target/release/bundler
