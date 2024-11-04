@@ -1,0 +1,36 @@
+name: Test PR
+on:
+  pull_request: {}
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract package name
+        id: extract_package
+        uses: actions/github-script@v6
+        with:
+         script: |
+            const prTitle = context.payload.pull_request.title;
+            const packages = prTitle.split(',').map(pkg => {
+              const [name, version] = pkg.trim().split(':');
+              return { name, version };
+            });
+            const sparseCheckoutPaths = packages.map(pkg => `packages/preview/${pkg.name}/${pkg.version}/`).join('\n');
+            core.setOutput('sparse_checkout_paths', sparseCheckoutPaths);
+      - uses: actions/checkout@v3
+        with:
+          sparse-checkout: |
+            ${{ steps.extract_package.outputs.sparse_checkout_paths }}
+            bundler/
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: bundler
+
+      - name: Build bundler
+        run: cargo build --release --manifest-path bundler/Cargo.toml
+
+      - name: Test packaging
+        run: bundler/target/release/bundler
