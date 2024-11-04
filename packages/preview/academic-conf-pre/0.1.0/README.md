@@ -1,7 +1,7 @@
 # Australian Typst Conference Template
 
 ## 1. Introduction
-This is a template for **australian academic conference**. It is designed for the use in Typst which is simplier and more user-friendly than LaTeX. 
+This is a template for **academic conference presentations**. It is designed for the use in Typst which is simplier and more user-friendly than LaTeX. 
 
 ## 2. How to use this template
 themes documents are under **/themes/**
