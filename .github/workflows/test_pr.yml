@@ -7,18 +7,28 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: Extract package name
+      - name: Extract package names and versions from changed files
         id: extract_package
         uses: actions/github-script@v6
         with:
-         script: |
-            const prTitle = context.payload.pull_request.title;
-            const packages = prTitle.split(',').map(pkg => {
-              const [name, version] = pkg.trim().split(':');
-              return { name, version };
+          script: |
+            const { data: files } = await github.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
             });
-            const sparseCheckoutPaths = packages.map(pkg => `packages/preview/${pkg.name}/${pkg.version}/`).join('\n');
+
+            const packages = new Set();
+            files.forEach(file => {
+              const match = file.filename.match(/^packages\/preview\/([^\/]+)\/([^\/]+)\//);
+              if (match) {
+                packages.add(`${match[1]}/${match[2]}`);
+              }
+            });
+
+            const sparseCheckoutPaths = Array.from(packages).map(pkg => `packages/preview/${pkg}/`).join('\n');
             core.setOutput('sparse_checkout_paths', sparseCheckoutPaths);
+
       - uses: actions/checkout@v3
         with:
           sparse-checkout: |
