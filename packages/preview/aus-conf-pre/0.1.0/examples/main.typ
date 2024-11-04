@@ -1,7 +1,7 @@
 #import "@preview/touying:0.4.2": *
 #import "@preview/unify:0.6.0": num //标号
 //#import "../themes/aus-beamer.typ" as theme-aus
-#import "@preview/aus-conf-pre:0.1.0": theme-aus
+#import "@preview/aus-conf-pre:0.1.0" as theme-aus
 
 // 首先注册PPT的基本信息
 #let s = theme-aus.register(aspect-ratio: "4-3") //4-3, 16-9
