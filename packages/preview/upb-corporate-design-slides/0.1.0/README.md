@@ -1,14 +1,14 @@
 # Typst template for presentations using the corporate design of Paderborn University (UPB)
 
-This template can be used to create presentations in [Typst](https://typst.app/docs/) with the corporate design of [Paderborn University](https://www.uni-paderborn.de/).
+This template can be used to create presentations in [Typst](https://typst.app/docs/) with the corporate design of [Paderborn University](https://www.uni-paderborn.de/) using the [Touying](https://touying-typ.github.io/) slide engine.
 
 ## Usage
 
 Create a new typst project based on this template locally.
 
 ```bash
-typst init @preview/touying-upb-corporate-design
-cd touying-upb-corporate-design
+typst init @preview/upb-corporate-design-slides
+cd upb-corporate-design-slides
 ```
 
 Or create a project on the typst web app based on this template.

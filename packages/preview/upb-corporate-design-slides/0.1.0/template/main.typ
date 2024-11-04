@@ -1,4 +1,4 @@
-#import "@local/touying-upb-corporate-design:0.1.0": *
+#import "@preview/upb-corporate-design-slides:0.1.0": *
 
 #show: upb-theme.with(
   footer: self => self.info.title-short,
