@@ -13,6 +13,10 @@ template [Typst web app](https://typst.app/) to generate GQE slides
 typst init @preview/gqe-presentation:{version}
 ```
 
+## Documentation
+
+gqe-presentation is based on [touying](https://touying-typ.github.io/) package. The documentation is available [here](https://touying-typ.github.io/).
+
 ## Local installation
 
 ### Install Rust and Typst
@@ -45,12 +49,17 @@ cp -r gqe-presentation/* ~/.local/share/typst/packages/local/gqe-presentation/0.
 
 
 #show: gqe-theme.with(
+  aspect-ratio: "4-3",
+  gqe-font: "PT Sans"
+  // config-common(handout: true),
   config-info(
     title: [Full native timsTOF data parser implementation in the i2MassChroq software package],
+    subtitle: [sous titre],
     author: [Olivier Langella],
-    equipe: [Base],
+    gqe-equipe: [Base],
   ),
 )
+
 
 
 

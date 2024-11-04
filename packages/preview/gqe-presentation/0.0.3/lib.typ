@@ -198,7 +198,7 @@
 	      )
 	      }, {
 	      	set align(horizon + center)
-	      	self.store.date
+	      	info.date
 	      	}  )
 	    )
     
@@ -232,10 +232,6 @@
         if info.institution != none {
           parbreak()
           text(size: .9em, info.institution)
-        }
-        if info.date != none {
-          parbreak()
-          text(size: .8em, utils.display-info-date(self))
         }
       },
     )
@@ -385,9 +381,7 @@
   progress-bar: true,
   header: utils.display-current-heading(level: 2),
   header-right: self => utils.display-current-heading(level: 1) + h(.3em) + self.info.logo,
-  date: [HCERES – GQE-Le Moulon, 14-15/11/2024],
-  gqe-equipe: "UMR",
-  gqe-font: "New Computer Modern Math",
+  gqe-font: "PT Sans",
   gqe-font-size: 20pt,
   gqe-color: rgb("#006600"),
   footer-columns: (10%, 1fr, 10%),
@@ -398,13 +392,11 @@
   footer-b: self => {
     set align(left)
     set text(size: 12pt)
-    self.store.gqe-equipe
+    self.info.gqe-equipe
     h(1em)
-    self.store.date
+    self.info.date
   },
   footer-c: self => {
-    h(1fr)
-    utils.display-info-date(self)
     h(1fr)
     context utils.slide-counter.display() + " / " + utils.last-slide-number
     h(1fr)
@@ -432,6 +424,17 @@
       },
       alert: utils.alert-with-primary-color,
     ),
+  config-info(
+    title: none,
+    short-title: auto,
+    subtitle: none,
+    short-subtitle: auto,
+    author: none,
+    date: "HCERES – GQE-Le Moulon, 14-15/11/2024",
+    institution: none,
+    logo: none,
+    gqe-equipe: "UMR",
+  ),
     config-colors(
       primary: gqe-color,
       secondary: gqe-color.lighten(75%),
@@ -442,8 +445,6 @@
     // save the variables for later use
     config-store(
       progress-bar: progress-bar,
-      date: date,
-      gqe-equipe: gqe-equipe,
       gqe-font: gqe-font,
       gqe-font-size: gqe-font-size,  
       header: header,

@@ -4,11 +4,13 @@
 
 #show: gqe-theme.with(
   aspect-ratio: "4-3",
+  gqe-font: "PT Sans"
   // config-common(handout: true),
   config-info(
     title: [Full native timsTOF data parser implementation in the i2MassChroq software package],
+    subtitle: [sous titre],
     author: [Olivier Langella],
-    equipe: [Base],
+    gqe-equipe: [Base],
   ),
 )
 
