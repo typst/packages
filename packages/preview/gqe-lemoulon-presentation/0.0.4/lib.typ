@@ -381,7 +381,7 @@
   progress-bar: false,
   header: utils.display-current-heading(level: 2),
   header-right: self => utils.display-current-heading(level: 1) + h(.3em) + self.info.logo,
-  gqe-font: "PT Sans",
+  gqe-font: "New Computer Modern Math",
   gqe-font-size: 28pt,
   gqe-color: rgb("#006600"),
   footer-columns: (10%, 1fr, 10%),
