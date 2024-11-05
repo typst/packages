@@ -5,12 +5,12 @@ template [Typst web app](https://typst.app/) to generate GQE slides
 
 ## 🧑‍💻 Usage
 
-- Directly from [Typst web app](https://typst.app/) by clicking "Start from template" on the dashboard and searching for `gqe-presentation`.
+- Directly from [Typst web app](https://typst.app/) by clicking "Start from template" on the dashboard and searching for `gqe-lemoulon-presentation`.
 
 - With CLI:
 
 ```
-typst init @preview/gqe-presentation:{version}
+typst init @preview/gqe-lemoulon-presentation:{version}
 ```
 
 ## Documentation
@@ -32,19 +32,19 @@ cargo install typst-cli
 
 ### Install the "gqe-presentation" theme on linux
 
-clone the repository in your file system and install the theme "gqe-presentation" :
+clone the repository in your file system and install the theme "gqe-lemoulon-presentation" :
 
 ```
 git clone https://forgemia.inra.fr/gqe-moulon/gqe-presentation.git
-mkdir -p ~/.local/share/typst/packages/local/gqe-presentation/0.0.3/
-cp -r gqe-presentation/* ~/.local/share/typst/packages/local/gqe-presentation/0.0.3/
+mkdir -p ~/.local/share/typst/packages/local/gqe-lemoulon-presentation/0.0.4/
+cp -r gqe-presentation/* ~/.local/share/typst/packages/local/gqe-lemoulon-presentation/0.0.4/
 ```
 
 ### Start a new document
 
 ```
 
-#import "@local/gqe-presentation:0.0.3":*
+#import "@local/gqe-lemoulon-presentation:0.0.4":*
 
 
 

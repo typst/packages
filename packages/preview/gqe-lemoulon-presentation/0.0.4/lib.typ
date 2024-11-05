@@ -376,13 +376,13 @@
 ///   neutral-darkest: rgb("#000000"),
 /// )
 /// ```
-#let gqe-theme(
+#let gqe-lemoulon-presentation-theme(
   aspect-ratio: "4-3",
-  progress-bar: true,
+  progress-bar: false,
   header: utils.display-current-heading(level: 2),
   header-right: self => utils.display-current-heading(level: 1) + h(.3em) + self.info.logo,
-  gqe-font: "New Computer Modern Math",
-  gqe-font-size: 20pt,
+  gqe-font: "PT Sans",
+  gqe-font-size: 28pt,
   gqe-color: rgb("#006600"),
   footer-columns: (10%, 1fr, 10%),
   footer-a: {
@@ -414,6 +414,7 @@
     config-common(
       slide-fn: slide,
       new-section-slide-fn: new-section-slide,
+      show-strong-with-alert: false,
     ),
     config-methods(
       init: (self: none, body) => {
