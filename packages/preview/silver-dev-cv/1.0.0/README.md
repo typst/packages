@@ -48,7 +48,7 @@ The template has the following arguments:
   font-type: "PT Serif",
   continue-header: "false",
   name: "",
-  address: "","
+  address: "",
   lastupdated: "true",
   pagecount: "true",
   date: "2024-07-03",

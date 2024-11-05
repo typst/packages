@@ -3,57 +3,72 @@
 #show: cv.with(
   font-type: "PT Serif",
   continue-header: "false",
-  name: "John Doe",
-  address: "City, Country",
+  name: "Victor Vigon",
+  address: "Buenos Aires, Argentina",
   lastupdated: "true",
   pagecount: "true",
   date: "2024-07-03",
   contacts: (
-    (text: "your portfolio", link: "https://www.example.com"),
-    (text: "your github", link: "https://www.github.com"),
-    (text: "your email address", link: "mailto:123@example.com"),
+    (text: "LinkedIn", link: "https://www.example.com"),
+    (text: "Github", link: "https://www.github.com"),
+    (text: "victor.vigon@example.com", link: "mailto:123@example.com"),
   ),
 )
 
+
 // about
-#section[about]
-#descript[This section is your opportunity to showcase your profile, what you know to do, and what you seek in your career. You should write a brief overview that highlights your profile's key strengths.]
+#section[About Me]
+#descript[I'm a product-minded backend engineer with deep expertise in Fintech and operations and team leadership. I excel in high-growth high-expectations environments and handle pre and post-product market fit software products.]
+
 #sectionsep
 //Experience
 #section("Experience")
 #job(
-  position: "Software Engineer",
-  institution: [Company's name],
-  location: [Location],
-  date: "date-date",
+  position: "Back End Developer",
+  institution: [Nutbank],
+  location: "Argentina",
+  date: "2020-2024",
   description: [
-    - Here you want to show whoever is reading your resume your responsibilities and achievements at the company.
-    - Don't just list the techs you used, but rather showcase how you impacted the projects you worked on (even using metrics if applicable).
-    - You can use bullet points to format this section, but no more than 5 (with a maximum of 3 lines each).
-    - We recommend you list your last 3 professional experiences
+    - Led a team of four engineers to build a 0-1 product feature that helped users onboard on our application without needing to deposit funds. This involved working with payment railways, onboarding product testing, and owning the entire product pipeline.
+
+    - Designed and developed a new microservices architecture that helped scale our backend services from a 100QPS / 1% failure rate service to a 1000QPS / 0.01% failure rate. This involved infrastructure work as well as hands-on internal libraries design.
+
+    - Worked alongside the product team to improve the onboarding experience at the company, increasing our signup rate by 15% with a downstream impact of 1.5MM/yr revenue.
   ],
 )
+
+#job(
+  position: "Back End Developer",
+  institution: [Mercat Libre],
+  location: "Argentina",
+  date: "2018-2020",
+  description: [
+    - Worked in the MercatPago area in a multidisciplinary team with UX Writers and designers, project and product management and technical leadership in an Agile team organization. Shipped features that impacted more than 1 Million DAU.
+
+    - We developed product features for financial applications. Responsibilities include writing unit tests, testing applications, code reviewing, collaborating with product to refine features. The products and pipelines worked managed over 5 Million USD daily volume.
+  ],
+)
+
 #section("Skills")
 #oneline-title-item(
-  title: "Programming Languages",
-  content: [(for example): Python, C++, Java, JavaScript],
+  title: "Skills",
+  content: [Golang, Python, Java, SQL, JavaScript, React, AWS],
 )
+
+#sectionsep
+#section("Projects")
+#project(
+    title: [MercadoCat.com],
+    date: [2019],
+    description: [Built an online platform to connect rescue shelters with pet-adopters. More than 100 pets adopted through MercadoCat]
+)
+
+
 #sectionsep
 #section("Education")
 #education(
-  institution: [University's Name],
-  major: [Your degree],
-  date: "date-date",
-  location: "Country",
-  description: [
-    - Write here if you received any awards or academic recognition during your studies
-  ],
-)
-#sectionsep
-// Projects
-#section("Projects")
-#twoline-item(
-  entry1: "Project's name",
-  entry2: "date",
-  description: [This is a good chance to tell the Recruiter/Hiring Manager about a Product you worked on from scratch. It could a web app that helped a local store, a mobile app that solved users needs, etc. The point is to demonstrate your proactivity and sense of ownership.  ],
+  institution: [University of Buenos Aires],
+  major: [Software Engineering],
+  date: "2015-2018",
+  location: "Argentina",
 )
