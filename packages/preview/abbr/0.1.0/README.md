@@ -24,13 +24,15 @@ automatically.
   ("DOF", "Degree of Freedom", "Degrees of Freedom"),
 )
 
+= Constrained Equations
+
 #abbr.pla[BC] constrain the #abbr.pla[DOF] of the #abbr.pla[PDE] they act on.\
 #abbr.pla[BC] constrain the #abbr.pla[DOF] of the #abbr.pla[PDE] they act on.
 
-#abbr.add("PC", "Personal Computer")
-Your #abbr.a[PC] is the best!
-
+#abbr.add("MOL", "Method of Lines")
+The #abbr.a[MOL] is a procedure to solve #abbr.pla[PDE] in time.
 ```
+![](example.png)
 
 
 ## API Reference
@@ -68,7 +70,7 @@ plural. first occurence long form, then short
 
 ## Why yet another Abbreviations package?
 
-This mostly exists because I started working on it before checking is somebody
+This mostly exists because I started working on it before checking if somebody
 already made a package for it. After I saw that e.g. `acrotastic` exists, I kept
 convincing myself a new package still makes sense for the following reasons:
 * Getting to know Typst
@@ -77,3 +79,11 @@ convincing myself a new package still makes sense for the following reasons:
 
 Especially the last part seems to lower the friction of writing for me. It seems
 silly, I know.
+
+## Contributing
+
+Please head over to the [hub](https://sr.ht/~slowjo/typst-packages) to find the
+mailing list and ticket tracker.
+
+Or simply reach out on IRC ([#typst on
+libera.chat](https://web.libera.chat/gamja/?autojoin=#typst))!
