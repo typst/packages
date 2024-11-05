@@ -11,7 +11,7 @@
   layout: "medium",
   title-color: green.darken(60%),
   footer: true,
-  counter: true,
+  count: true,
   toc: true,
 )
 
