@@ -26,7 +26,12 @@ jobs:
               }
             });
 
-            const sparseCheckoutPaths = Array.from(packages).map(pkg => `packages/preview/${pkg}/`).join('\n');
+            let sparseCheckoutPaths;
+            if (packages.size === 0) {
+              sparseCheckoutPaths = "packages/";
+            } else {
+              sparseCheckoutPaths = Array.from(packages).map(pkg => `packages/preview/${pkg}/`).join('\n');
+            }
             core.setOutput('sparse_checkout_paths', sparseCheckoutPaths);
 
       - uses: actions/checkout@v3
