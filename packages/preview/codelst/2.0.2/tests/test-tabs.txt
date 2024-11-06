@@ -1,0 +1,22 @@
+	/*
+	* Example taken from
+	* https://typst.app/docs/tutorial/formatting/
+	*/
+	#show "ArtosFlow": name => box[
+		#box(image(
+			"logo.svg",
+			height: 0.7em,
+		))
+		#name
+	]
+
+	// Long line that breaks
+	This report is embedded in the ArtosFlow project. ArtosFlow is a project of the Artos Institute.
+
+	/*
+	Very long line without linebreak
+	with a preceeding block comment
+	*/
+	This_report_is_embedded_in_the_ArtosFlow_project._ArtosFlow_is_a_project_of_the_Artos_Institute.
+
+	// End example

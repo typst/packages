@@ -7,7 +7,7 @@ license = "MIT"
 description = "Advanced scientific number formatting."
 compiler = "0.11.0"
 
-homepage = "https://github.com/Mc-Zen/zero"
+repository = "https://github.com/Mc-Zen/zero"
 keywords = ["number", "table", "siunitx"]
 categories = ["visualization", "layout"]
 exclude = ["/docs/*", "/tests/*"]
