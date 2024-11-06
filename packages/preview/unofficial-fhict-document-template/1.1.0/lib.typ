@@ -198,7 +198,9 @@
   body,
 ) = {
   show: make-glossary
-  register-glossary(glossary-terms)
+  if glossary-terms != none {
+    register-glossary(glossary-terms)
+  }
 
   let meta-authors = ""
   let index-main(..args) = index(fmt: strong, ..args)
