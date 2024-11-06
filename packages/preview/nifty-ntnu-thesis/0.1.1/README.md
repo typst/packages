@@ -15,6 +15,8 @@ The template has many arguments you can specify:
 | `short-title` | `Title` | [content] | Short form of the title. If specified, will show up in the header |
 | `author` | `Author` | [array] | An array of authors |
 | `short-author` | `` | [string] | Short form version of the authors. If specified, will show up in header |
+| `font` | `Charter` | [string] | Main font of template |
+| `raw-font` | `DejaVu Sans Mono` | [string] | Font used for code listings |
 | `paper-size` | `a4` | [string] | Specify a [paper size string] to change the page size. |
 | `date` | `datetime.today()` | [datetime] | The date that will be displayed on the cover page. |
 | `date-format` | `[day padding:zero]/[month repr:numerical]/[year repr:full]` | [string] | The format for the date that will be displayed on the cover page. By default, the date will be displayed as `DD/MM/YYYY`. |
