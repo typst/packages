@@ -17,7 +17,7 @@
   language: "en",
   decimal-separator: ",",
   show-grade-table: true,
-  question-point-position: left,
+  question-points-position: left,
   clarifications: "Answer the questions in the spaces provided. If you run out of room for an answer, continue on the back of the page."
 )
 
