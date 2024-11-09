@@ -5,7 +5,6 @@ entrypoint = "lib.typ"
 authors = ["Yusheng Zhao <yushengzhao2020@outlook.com>"]
 license = "MIT"
 description = "Touying Slide Theme for HKUST(GZ)"
-homepage = "https://github.com/exAClior/touying-simpl-hkustgz"
 repository = "https://github.com/exAClior/touying-simpl-hkustgz"
 keywords = ["touying", "slide", "theme", "hkust(gz)"]
 categories = ["presentation"]
