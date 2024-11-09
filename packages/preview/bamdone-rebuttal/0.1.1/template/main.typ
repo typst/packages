@@ -1,4 +1,4 @@
-#import "@preview/bamdone-rebuttal:0.1.0": *
+#import "@preview/bamdone-rebuttal:0.1.1": *
 
 // Configure text colors for points, responses, and new text
 #let (point, response, new) = configure(
