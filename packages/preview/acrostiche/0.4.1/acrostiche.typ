@@ -12,11 +12,35 @@
   acros.update(states)
 }
 
-#let display-def(plural: false, acr) = {
+#let display-short(acr, plural: false) = {
+  // Display the short version of the requested acronym.
+  // In most cases, the short version is the passed acronym itself.
+  // In the case of advanced dictionary definitions, the short version is defined with the 'short' and 'short-pl' keys.
+  
+  context{
+    let acronyms = acros.get()
+    if acr in acronyms{
+      let defs = acronyms.at(acr).at(0)
+      if type(defs) == "dictionary"{
+        if plural {
+          if "short-pl" in defs{
+            defs.at("short-pl")
+          }else{
+            [#acr\s]
+          }
+        }else{
+          if "short" in defs{
+            defs.at("short")
+          }else{acr}
+        }
+      }else{acr}
+    }else{acr}
+  }
+}
+
+#let display-def(acr, plural: false) = {
   // Display the definition of an acronym by fetching it in the "acronyms" state's value (should be a dictionary).
   //
-  [grabbing def of #acr with plural:#plural ]
-
   // First, grab the dictionary of definitions of acronyms from the "acronyms" state
   context{ 
     let acronyms = acros.get()
@@ -47,7 +71,6 @@
       }else if type(defs) == "dictionary"{
         if plural{
           if "long-pl" in defs{
-            [should be here]
             defs.at("long-pl")
           }else{
             panic("The dictionary of definitions supplied for the key "+acr+" does not contain a plural definition with the key 'long-pl'.")
@@ -79,11 +102,11 @@
   context{
     let data = acros.get()
     if acr in data{
-      let short = if plural{[#acr\s]}else{acr}
+      let short = display-short(acr, plural: plural)
       if data.at(acr).at(1){
         short
       }else{
-        [#display-def(plural: plural, acr)~(#short)]
+        [#display-def(acr, plural: plural)~(#short)]
       }
       data.at(acr).at(1) = true
     }else{
@@ -97,12 +120,12 @@
 
 #let acrfull(acr) = {
   //Intentionally display an acronym in its full form. Do not update state.
-  [#display-def(plural: false, acr) (#acr)]
+  [#display-def(acr, plural: false) (#acr)]
 }
 
 #let acrfullpl(acr) = {
   //Intentionally display an acronym in its full form in plural. Do not update state.
-  [#display-def(plural: true, acr) (#acr\s)]
+  [#display-def(acr, plural: true) (#acr\s)]
 }
 
 // define shortcuts
