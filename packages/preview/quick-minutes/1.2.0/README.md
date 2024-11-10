@@ -70,7 +70,7 @@ With Quick Minutes you can record any meeting event by just typing it out. No fu
 || number-present | Should the number of people present be shown? | `false` | `bool`
 || show-arrival-time | Should the time of arrival be schown in the list of people present? | `true` | `bool`
 || locale | language of the document | `"en"`| `string`
-|| translation-overrides | [Translation](lang.json) Overrides | `(:)` | dictionary
+|| translation-overrides | [Translation](lang.json) Overrides | `(:)` | `dictionary`
 || custom-royalty-connectors | Additional `list` of surname beginnings like "von".<br>Already recognises "von", "von der" & "de" | `()` | `list`
 | debug | 
 ||
