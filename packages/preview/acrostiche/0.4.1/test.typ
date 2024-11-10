@@ -1,8 +1,9 @@
-#import "@preview/acrostiche:0.4.0": *
+#import "@preview/acrostiche:0.4.1": *
 
 #init-acronyms((
   "PFT": ("Package For Typst","Packages For Typst"),
   "AJT": ("Amicale des Joyeux Typistes"),
+  "ada": (short:"ADA", short-pl:"ADAs", long:"Advanced Definition Acronym", long-pl:"Advanced Definions Acronyms"),
   "TEA": ("The Extra Acronym",),
 )) 
 
@@ -29,6 +30,14 @@ Full definition of #acrf("PFT") and full plural definition of #acrfpl("PFT").
 First use of #acr("AJT") and second use of #acr("AJT").\
 #ref("First use of Amicale des Joyeux Typistes (AJT) and second use of AJT.")
 
+== Acronym with Advanced Definitions
+
+First use of #acr("ada") and second use of #acr("ada").\
+#ref("First use of Advanced Definition Acronym (ADA) and second use of (ADA).")
+
+//First use of iplural #acrpl("ada") and second use of plural #acrpl("ada").\
+//#ref("First use of Advanced Definitions Acronyms (ADAs) and second use of (ADAs).")
+
 
 Reset acronyms. #racr("AJT")
 
@@ -52,10 +61,10 @@ Use again Package For Typst (PFT) and Amicale des Joyeux Typistes (AJT).
 
 #print-index()
 
-#print-index(title:"Sorted Empty",sorted:"")
-#print-index(title:"Sorted up",   sorted:"up")
-#print-index(title:"Sorted down", sorted:"down")
-
-#print-index(title:"Used only up", sorted: "up", used-only:true)
-#print-index(title:"Used only down", sorted: "down", used-only:true)
+//#print-index(title:"Sorted Empty",sorted:"")
+//#print-index(title:"Sorted up",   sorted:"up")
+//#print-index(title:"Sorted down", sorted:"down")
+//
+//#print-index(title:"Used only up", sorted: "up", used-only:true)
+//#print-index(title:"Used only down", sorted: "down", used-only:true)
 

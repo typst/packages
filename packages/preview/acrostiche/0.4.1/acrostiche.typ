@@ -222,10 +222,7 @@
       stroke: none,
       row-gutter: row-gutter,
       ..for acr in acr-list{
-        let desc = if type(acronyms.at(acr).at(0)) == array {
-          acronyms.at(acr).at(0).at(0)
-        } else {acronyms.at(acr).at(0)}
-        ([*#acr#delimiter*], desc)
+        ([*#display-short(acr, plural:false)#delimiter*], display-def(acr,plural:false))
       }
     )
   }
