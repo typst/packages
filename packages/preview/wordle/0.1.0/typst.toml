@@ -1,0 +1,16 @@
+[package]
+name = "wordle"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["monaqa <https://github.com/monaqa>"]
+license = "MIT"
+description = "Wordle game in Typst"
+repository = "https://github.com/monaqa/typst-wordle"
+keywords = ["game", "fun", "wordle"]
+categories = ["fun"]
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
