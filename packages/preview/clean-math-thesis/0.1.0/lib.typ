@@ -17,8 +17,8 @@
   city: "Example City",
 
   // file paths for logos etc.
-  uni_logo: none,
-  institute_logo: none,
+  uni-logo: none,
+  institute-logo: none,
 
   // formatting settings
   citation-style: "ieee",
@@ -145,7 +145,7 @@ set text(font: cover-font)  // cover font
 
 v(1fr)
 //logos
-  if uni_logo != none and institute_logo != none {
+  if uni-logo != none and institute-logo != none {
     grid(
       columns: (1fr, 1fr),
       rows: (auto),
@@ -154,12 +154,12 @@ v(1fr)
       grid.cell(
         colspan: 1,
         align: center,
-        uni_logo,
+        uni-logo,
       ),
       grid.cell(
         colspan: 1,
         align: center,
-        institute_logo,
+        institute-logo,
       ),
       grid.cell(
         colspan: 1,
@@ -172,7 +172,7 @@ v(1fr)
         text(1.5em, weight: 700, institute)
       )
     )
-  } else if uni_logo != none {
+  } else if uni-logo != none {
     grid(
       columns: (0.5fr),
       rows: (auto),
@@ -181,7 +181,7 @@ v(1fr)
       grid.cell(
         colspan: 1,
         align: center,
-        uni_logo,
+        uni-logo,
       ),
       grid.cell(
         colspan: 1,
@@ -189,7 +189,7 @@ v(1fr)
         text(1.5em, weight: 700, university)
       )
     )
-  } else if institute_logo != none {
+  } else if institute-logo != none {
     grid(
       columns: (0.5fr),
       rows: (auto),
@@ -198,7 +198,7 @@ v(1fr)
       grid.cell(
         colspan: 1,
         align: center,
-        institute_logo,
+        institute-logo,
       ),
       grid.cell(
         colspan: 1,

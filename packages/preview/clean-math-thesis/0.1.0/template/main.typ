@@ -21,8 +21,8 @@
   city: "Example City",
 
   // file paths for logos etc.
-  uni_logo: image("images/logo_placeholder.svg", width: 50%),
-  institute_logo: image("images/logo_placeholder.svg", width: 50%),
+  uni-logo: image("images/logo_placeholder.svg", width: 50%),
+  institute-logo: image("images/logo_placeholder.svg", width: 50%),
 
   // formatting settings
   citation-style: "ieee",
