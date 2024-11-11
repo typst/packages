@@ -5,6 +5,7 @@
   "AJT": ("Amicale des Joyeux Typistes"),
   "ada": (short:[#text(fill:aqua)[ADA]], short-pl:"ADAs", long:"Advanced Definition Acronym", long-pl:"Advanced Definions Acronyms"),
   "TEA": ("The Extra Acronym",),
+  "TUA": ("The Unused Acronym",),
 )) 
 
 #let ref(str) = [#text(fill:green)[#str]]

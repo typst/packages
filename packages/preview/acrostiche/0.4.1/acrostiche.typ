@@ -6,7 +6,10 @@
 #let init-acronyms(acronyms) = {
   let states = (:)
   for (acr, defs) in acronyms{
-    let data = (defs, false)
+    // Add metadata to each entry.
+    // first boolean is "is it already defined?", used to know if expansion is needed.
+    // second boolean is "was it used before in the document?", used for the used-only filtering in the index.
+    let data = (defs, false, false)
     states.insert(acr,data)
   }
   acros.update(states)
@@ -108,7 +111,6 @@
       }else{
         [#display-def(acr, plural: plural)~(#short)]
       }
-      data.at(acr).at(1) = true
     }else{
       panic("You requested the acronym "+acr+" that you did not define first.")
     }
@@ -117,6 +119,7 @@
   acros.update(data => {
       let ndata = data
       ndata.at(acr).at(1) = true
+      ndata.at(acr).at(2) = true
       ndata 
     }
   )
@@ -198,12 +201,10 @@
 
     if used-only{
       // Select only acronyms where state is true at the end of the document.
-      // TODO Ideally, the code would check if the acronym is used anywhere in the document,
-      // but I don't know how to do that yet. Feel free to propose changes.
       let acronyms = acros.final() 
       let used-acr-list = ()
       for acr in acr-list{
-        if acros.final().at(acr).at(1) {
+        if acros.final().at(acr).at(2) {
           used-acr-list.push(acr)
         }
       }
