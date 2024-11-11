@@ -112,8 +112,14 @@
     }else{
       panic("You requested the acronym "+acr+" that you did not define first.")
     }
-    acros.update(data)
   }
+  //acros.update(data)
+  acros.update(data => {
+      let ndata = data
+      ndata.at(acr).at(1) = true
+      ndata 
+    }
+  )
 }
 
 #let acrpl(acronym) = {acr(acronym,plural:true)} // argument renamed acronym to differentiate with function acr
@@ -135,13 +141,17 @@
   // Reset a specific acronym. It will be expanded on next use.
   context{
     let data = acros.get()
-    if acr in data{
-      data.at(acr).at(1) = false
-    }else{
-      panic("You requested the acronym "+acr+" that you did not define first.")
+    if not acr in data{
+      panic("Cannot reset "+acr+", not in the list.")
     }
-    acros.update(data)
   }
+
+  acros.update(data => {
+      let ndata = data
+      ndata.at(acr).at(1) = false
+      ndata 
+    }
+  )
 }
 
 #let reset-all-acronyms() = { 
@@ -182,30 +192,23 @@
   context{
     
 
-    if used-only {
-      let acronyms = acros.final()
-      [#acronyms]
-    }
       
     let acronyms = acros.get()
-    
-    // Updated
-    // Build acronym list
-    
     let acr-list = acronyms.keys()
 
-    //if used-only{
-    //  // Select only acronyms where state is true at the end of the document.
-    //  // TODO Ideally, the code would check if the acronym is used anywhere in the document,
-    //  // but I don't know how to do that yet. Feel free to propose changes.
-    //  let used-acr-list = ()
-    //  for acr in acr-list{
-    //    if acros.final().at(acr).at(1) {
-    //      used-acr-list.push(acr)
-    //    }
-    //  }
-    //  acr-list = used-acr-list
-    //}
+    if used-only{
+      // Select only acronyms where state is true at the end of the document.
+      // TODO Ideally, the code would check if the acronym is used anywhere in the document,
+      // but I don't know how to do that yet. Feel free to propose changes.
+      let acronyms = acros.final() 
+      let used-acr-list = ()
+      for acr in acr-list{
+        if acros.final().at(acr).at(1) {
+          used-acr-list.push(acr)
+        }
+      }
+      acr-list = used-acr-list
+    }
 
     // FEATURE: allow ordering by occurences position in the document. Not sure if possible yet.
 

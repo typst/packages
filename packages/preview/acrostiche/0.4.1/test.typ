@@ -3,7 +3,7 @@
 #init-acronyms((
   "PFT": ("Package For Typst","Packages For Typst"),
   "AJT": ("Amicale des Joyeux Typistes"),
-  "ada": (short:"ADA", short-pl:"ADAs", long:"Advanced Definition Acronym", long-pl:"Advanced Definions Acronyms"),
+  "ada": (short:[#text(fill:aqua)[ADA]], short-pl:"ADAs", long:"Advanced Definition Acronym", long-pl:"Advanced Definions Acronyms"),
   "TEA": ("The Extra Acronym",),
 )) 
 
@@ -61,10 +61,10 @@ Use again Package For Typst (PFT) and Amicale des Joyeux Typistes (AJT).
 
 #print-index()
 
-//#print-index(title:"Sorted Empty",sorted:"")
-//#print-index(title:"Sorted up",   sorted:"up")
-//#print-index(title:"Sorted down", sorted:"down")
-//
-//#print-index(title:"Used only up", sorted: "up", used-only:true)
-//#print-index(title:"Used only down", sorted: "down", used-only:true)
+#print-index(title:"Sorted Empty",sorted:"")
+#print-index(title:"Sorted up",   sorted:"up")
+#print-index(title:"Sorted down", sorted:"down")
+
+#print-index(title:"Used only up", sorted: "up", used-only:true)
+#print-index(title:"Used only down", sorted: "down", used-only:true)
 
