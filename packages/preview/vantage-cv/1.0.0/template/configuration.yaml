@@ -1,0 +1,194 @@
+contacts:
+  name: John Doe
+  title: Software Engineer
+  email: johndoe@example.com
+  address: "City, Country"
+  location: Country
+  linkedin:
+    url: https://www.linkedin.com/in/johndoe/
+    displayText: johndoe
+  github:
+    url: https://github.com/johndoe/
+    displayText: "@johndoe"
+  website:
+    url: https://johndoe.com
+    displayText: www.johndoe.com
+
+position: Software Engineer
+
+tagline: Software engineer with 5 years of experience and a strong foundation in computer science, skilled in developing software for innovative industries. Proficient in JavaScript/TypeScript, Python, and C/C++, with a solid understanding of system architecture and design principles.
+
+jobs:
+  - position: Lead Software Developer
+    company:
+      name: Quantum Innovations
+      link: https://quantuminnovations.com/
+    product:
+      name: QuantumLeap
+      link: https://quantumleap.com
+    description:
+      - Spearheaded the development of a cutting-edge quantum computing simulator, optimizing algorithms for performance.
+      - Collaborated with a team to create intuitive user interfaces that simplified complex scientific data for end-users.
+    from: "2023 Mar."
+    to: "2024 Jul."
+    tags:
+      - Quantum Computing
+      - Algorithm Optimization
+      - UI Design
+    location: Remote
+  - position: Backend Developer
+    company:
+      name: CloudSync Solutions
+      link: https://cloudsyncsolutions.com/
+    product:
+      name: SyncManager
+      link: https://syncmanager.com
+    description:
+      - Built scalable backend services for SyncManager, ensuring high availability and performance for cloud synchronization.
+      - Designed and implemented RESTful APIs to facilitate data exchange between clients and servers.
+    from: "2024 Aug."
+    to: "present"
+    tags:
+      - API Development
+      - Cloud Computing
+      - Microservices
+    location: Remote
+  - position: DevOps Engineer
+    company:
+      name: AutoTech Dynamics
+      link: https://autotechdynamics.com/
+    product:
+      name: AutoPilot
+      link: https://autopilot.com
+    description:
+      - Streamlined CI/CD pipelines for the AutoPilot system, enhancing deployment frequency and reliability.
+      - Monitored system performance and implemented improvements for optimized infrastructure.
+    from: "2022 Feb."
+    to: "2023 Dec."
+    tags:
+      - DevOps
+      - CI/CD
+      - Infrastructure Management
+    location: Denver, USA
+  - position: Game Developer
+    company:
+      name: PixelForge Studios
+      link: "https://pixelforgestudios.com/"
+    product:
+      name: Realm of Adventure
+      link: https://realmofadventure.com
+    description:
+      - Developed engaging gameplay mechanics and interactive environments using Unity and C#.
+      - Collaborated with artists to ensure visual consistency and high-quality game experiences.
+    from: "2021 Jan."
+    to: "2022 Dec."
+    tags:
+      - Game Development
+      - Unity
+      - C#
+    location: Los Angeles, USA
+  - position: Data Engineer
+    company:
+      name: Insight Analytics
+      link: "https://insightanalytics.com/"
+    product:
+      name: DataVision
+      link: https://datavision.com
+    description:
+      - Engineered data pipelines to aggregate and process large datasets for analytics using Python and Apache Spark.
+      - Developed dashboards for real-time data visualization and business intelligence.
+    from: "2020 Jan."
+    to: "2021 Dec."
+    tags:
+      - Data Engineering
+      - Python
+      - Data Visualization
+    location: Chicago, USA
+  - position: Quality Assurance Intern
+    company:
+      name: CodeFix Labs
+      link: "https://codefixlabs.com/"
+    product:
+      name: TestSuite Pro
+      link: https://testsuitepro.com
+    description:
+      - Assisted in testing software applications for functionality and usability, reporting bugs and feedback.
+      - Gained experience in automated testing frameworks to improve product quality.
+    from: "2019 Jan."
+    to: "2019 Dec."
+    tags:
+      - Quality Assurance
+      - Testing
+      - Automation
+    location: Austin, USA
+
+objective: Seeking to advance my skills and build a strong career with a company that values innovation and creativity.
+
+education:
+  - place:
+      name: Example University
+      link: "http://exampleuniversity.edu"
+    degree: "B.Sc."
+    major: Computer Science
+    track: Computer Science
+    from: "2015"
+    to: "2019"
+    location: City, Country
+  - place:
+      name: Technical College
+      link: ""
+    degree: Diploma
+    major: IT Specialist
+    track: IT Specialist
+    from: "2012"
+    to: "2015"
+    location: City, Country
+
+technical_expertise:
+  - name: Kotlin
+    level: 4
+  - name: Angular
+    level: 5
+  - name: Ruby on Rails
+    level: 5
+  - name: Flutter
+    level: 4
+  - name: Go
+    level: 4
+  - name: Subversion
+    level: 5
+
+skills:
+  - JavaScript
+  - Python
+  - Java
+  - React
+  - Node.js
+  - Express
+  - MongoDB
+  - AWS
+  - Docker
+  - Git
+  - HTML/CSS
+  - SQL
+  - Material UI
+  - Tailwind CSS
+
+methodology:
+  - Lean
+  - Kanban
+  - Design Thinking
+  - Test-Driven Development
+  - Pair Programming
+
+tools:
+  - GitHub
+  - IntelliJ IDEA
+  - Asana
+  - Slack
+  - Adobe XD
+  - Postman
+
+achievements:
+  - name: "Best Project Award"
+    description: Developed an innovative solution for community service management and received recognition from the university.
