@@ -13,7 +13,7 @@ See the [preview](#example) below.
 To start, just use the following preamble (only the title is required).
 
 ```typst
-#import "@preview/slydst:0.1.2": *
+#import "@preview/slydst:0.1.3": *
 
 #show: slides.with(
   title: "Slydst: Slides with Typst",

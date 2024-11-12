@@ -1,4 +1,4 @@
-#import "@preview/slydst:0.1.2": *
+#import "@preview/slydst:0.1.3": *
 
 #show: slides.with(
   title: "Slydst: Slides in Typst",
