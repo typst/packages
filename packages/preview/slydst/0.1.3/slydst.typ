@@ -7,7 +7,7 @@
 )
 #let layout-space = state("space", v(-0.8cm))
 
-#let title-page(content) = {
+#let title-slide(content) = {
     set page(footer: none)
     set align(horizon)
     context layout-space.get()
@@ -86,7 +86,7 @@
     if (type(authors) != array) {
       authors = (authors,)
     }
-    title-page[
+    title-slide[
       #text(2.0em, weight: "bold", fill: title-color, title)
       #v(1.4em, weak: true)
       #if subtitle != none { text(1.1em, weight: "bold", subtitle) }

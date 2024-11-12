@@ -66,12 +66,12 @@ Note that the subtitle, date and authors arguments be ignored in that case.
 Insert your content here.
 ```
 
-We advise the use of the `title-page` function that ensures a proper centering and no page numbering.
+We advise the use of the `title-slide` function that ensures a proper centering and no page numbering.
 
 ```typst
 #show: slides
 
-#title-page(layout: "medium")[
+#title-slide(layout: "medium")[
   #text(2em, default-color)[*Slydst: Slides in Typst*]
 ]
 
