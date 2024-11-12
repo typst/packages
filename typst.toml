@@ -8,7 +8,7 @@ description = "河海大学本科生毕业论文（设计）模板。Unofficial 
 repository = "https://github.com/shaneworld/HHU-Thesis-Template"
 keywords = ["thesis", "HHU"]
 categories = ["thesis"]
-exclude = [demo_images]
+exclude = []
 
 [template]
 path = "init-files"
