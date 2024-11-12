@@ -6,7 +6,6 @@ compiler = "0.12.0"
 authors = ["Antonio Manjavacas <https://github.com/manjavacas>"]
 license = "GPL-3.0"
 description = "Minimalistic Typst slides"
-thumbnail = "img/logo.png"
 repository = "https://github.com/manjavacas/typslides"
 keywords = ["slides", "presentation"]
 categories = ["presentation", "layout"]
