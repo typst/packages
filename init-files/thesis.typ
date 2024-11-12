@@ -1,4 +1,4 @@
-#import "../hhu-thesis/template.typ": bachelor-conf, thanks, appendix, code
+#import "../hhu-thesis/lib.typ": bachelor-conf, thanks, appendix, code
 
 /*
   使用模板前，请先安装 https://github.com/csimide/SEU-Typst-Template/tree/master/fonts 内的所有字体。

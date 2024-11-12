@@ -12,12 +12,12 @@
 
 <div style="display:flex; flex-direction:column; gap: 20px;">
   <div style="display:flex; gap: 20px;">
-    <img src="./assets/title-zh.png" width="400"/>
-    <img src="./assets/title-en.png" width="400"/>
+    <img src="./demo_images/title-zh.png" width="400"/>
+    <img src="./demo_images/title-en.png" width="400"/>
   </div>
   <div style="display:flex; gap: 20px;">
-    <img src="./assets/statement.png" width="400"/>
-    <img src="./assets/outline.png" width="400"/>
+    <img src="./demo_images/statement.png" width="400"/>
+    <img src="./demo_images/outline.png" width="400"/>
   </div>
 </div>
 

@@ -1,13 +1,13 @@
-#import "parts/title-page-conf.typ": title-cn-conf, title-en-conf
-#import "parts/statement-page-conf.typ": statement-page-conf
-#import "parts/abstract-conf.typ": abstract-conf
-#import "parts/outline-conf.typ": outline-conf
-#import "parts/header-footer-conf.typ": header-footer-conf
-#import "parts/appendix-conf.typ": appendix
-#import "parts/thanks-conf.typ": thanks
-#import "parts/code-conf.typ": code
+#import "../parts/title-page-conf.typ": title-cn-conf, title-en-conf
+#import "../parts/statement-page-conf.typ": statement-page-conf
+#import "../parts/abstract-conf.typ": abstract-conf
+#import "../parts/outline-conf.typ": outline-conf
+#import "../parts/header-footer-conf.typ": header-footer-conf
+#import "../parts/appendix-conf.typ": appendix
+#import "../parts/thanks-conf.typ": thanks
+#import "../parts/code-conf.typ": code
 
-#import "setup/set-bachelor.typ": set-bachelor
+#import "set-bachelor.typ": set-bachelor
 
 #let bachelor-conf(
   author: (CN: "李华", EN: "Li Hua", ID: "2162510220", YEAR: "2021级"),
