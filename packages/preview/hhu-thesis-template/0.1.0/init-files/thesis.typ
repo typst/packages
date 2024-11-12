@@ -1,9 +1,4 @@
-#import "../hhu-thesis/lib.typ": bachelor-conf, thanks, appendix, code
-
-/*
-  使用模板前，请先安装 https://github.com/csimide/SEU-Typst-Template/tree/master/fonts 内的所有字体。
-  如果使用 Web App，请将这些字体上传到 Web App 项目的根目录中。
-*/
+#import "@preview/hhu-thesis-template:0.1.0": degree-conf, thanks, appendix
 
 #show: doc => bachelor-conf(
   author: (CN: "李华", EN: "Li Hua", ID: "2162510220", YEAR: "2021级"),

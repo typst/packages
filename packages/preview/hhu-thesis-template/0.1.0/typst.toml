@@ -1,7 +1,7 @@
 [package]
 name = "hhu-thesis-template"
 version = "0.1.0"
-entrypoint = "hhu-thesis/lib.typ"
+entrypoint = "hhu-thesis/template.typ"
 authors = ["shane"]
 license = "MIT"
 description = "河海大学本科生毕业论文（设计）模板。Unofficial Hohai University Undergraduate Thesis (Design) Template."
