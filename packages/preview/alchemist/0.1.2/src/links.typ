@@ -239,13 +239,15 @@
 /// })
 ///```)
 /// It is possible to change the stroke of the lines in the arrow
-/// with the `stroke` argument. You can also change the base length of the arrow with the `base-length` argument and distance between the dashes with the `dash-gap` argument
+/// with the `stroke` argument. You can also change the arrow base length with the `base-length` argument and the tip length with the `tip-length` argument.
+// You can also change distance between the dashes with the `dash-gap` argument
 /// #example(```
 /// #skeletize({
 ///   molecule("A")
 ///   cram-dashed-right(
 ///     stroke: red + 2pt,
 ///     base-length: 2em,
+///     tip-length: 1em,
 ///     dash-gap: .5em
 ///   )
 ///   molecule("B")

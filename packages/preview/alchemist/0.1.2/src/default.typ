@@ -25,6 +25,7 @@
 	dashed-cram: (
 		stroke: black + .05em,
 		dash-gap: .3em,
-		base-length: .8em
+		base-length: .8em,
+		tip-length: .1em
 	),
 )
