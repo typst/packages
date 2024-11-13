@@ -1,4 +1,4 @@
-#import "@preview/shane-hhu-thesis:0.1.0": degree-conf, thanks, appendix
+#import "@preview/shane-hhu-thesis:0.1.0": bachelor-conf, thanks, appendix
 
 
 // 使用前请先安装https://github.com/shaneworld/Dots/tree/master/fonts中的全部字体
