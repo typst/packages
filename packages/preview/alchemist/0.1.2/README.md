@@ -88,7 +88,8 @@ For more information, check the [manual](https://raw.githubusercontent.com/Robot
 ### 0.1.2
 
 - Added default values for link style properties.
-- Updated `cetz` to version 0.3.1
+- Updated `cetz` to version 0.3.1.
+- Added a `tip-lenght` argument to dashed cram links.
 
 ### 0.1.1
 
