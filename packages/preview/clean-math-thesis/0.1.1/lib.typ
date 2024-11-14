@@ -1,6 +1,7 @@
 // global
 #import "@preview/great-theorems:0.1.1": great-theorems-init
 #import "@preview/hydra:0.5.1": hydra
+#import "@preview/equate:0.2.1": equate
 
 
 #let template(
@@ -14,7 +15,7 @@
   university: "Example University",
   institute: "Example Institute",
   deadline: datetime.today().display(),
-  city: "Example City",
+
 
   // file paths for logos etc.
   uni-logo: none,
@@ -29,7 +30,10 @@
   abstract: none,
 
   // colors
-  colors: none, 
+  colors: none,
+
+  // equation settings
+  equate-settings: none,
 
   // the content of the thesis
   body
@@ -44,22 +48,26 @@ set enum(numbering: "(i)") // Enumerated lists
 set cite(style: citation-style)  // citation style
 
 // ------------------- Math equation settings -------------------
+
+set math.equation(numbering: "(1.1)") if equate-settings != none
 // only labeled equations get a number
 show math.equation:it => {
-  if it.has("label"){
-    math.equation(block:true, numbering: "(1.1)", it)
+  if equate-settings != none {
+    equate(..equate-settings, it)
+  } else if it.has("label"){
+    math.equation(block:true, numbering: "(1)", it)
   } else {
     it
   }
 }
 show ref: it => {
   let el = it.element
-  if el != none and el.func() == math.equation {
+  if equate-settings==none and el != none and el.func() == math.equation {
     link(el.location(), numbering(
       "(1)",
       counter(math.equation).at(el.location()).at(0) + 1
     ))
-  } else {
+  } else if equate-settings==none {
     it
   }
 }

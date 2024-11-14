@@ -1,7 +1,5 @@
 // global
-#import "@preview/great-theorems:0.1.1": *
-#import "@preview/hydra:0.5.1": hydra
-#import "@preview/clean-math-thesis:0.1.0": template
+#import "@preview/clean-math-thesis:0.1.1": template
 
 //local 
 #import "customization/colors.typ": *
@@ -18,7 +16,6 @@
   university: "Example University",
   institute: "Example Institute",
   deadline: datetime.today().display(),
-  city: "Example City",
 
   // file paths for logos etc.
   uni-logo: image("images/logo_placeholder.svg", width: 50%),
@@ -31,6 +28,9 @@
 
   // chapters that need special placement
   abstract: include "chapter/abstract.typ",
+
+  // equation settings
+  equate-settings: (breakable: true, sub-numbering: true, number-mode: "label"),
 
   // colors
   colors: (cover-color: color1, heading-color: color2),

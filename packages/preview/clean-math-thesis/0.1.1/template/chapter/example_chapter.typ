@@ -12,7 +12,7 @@
 == Example Use of the Theorem Environment <sec:example_theorem>
  An example citation is @Cooley65, then we also see the bibliography at the end of the document.
 
-Example definition in @def:Example
+Example definition in @def:Example. This and all the following are examples using `great-theorems`.
 #definition(title: "Example Definition")[
   This is how a definition looks like in this template.
   To also have a definition we state
@@ -56,6 +56,13 @@ $
 (a + b)^2 = a^2 + 2a b + b^2
 $<eq:first_binom>
 which is labeled and therefore numbered. We can also reference it: @eq:first_binom.
+In the following, we have a multiline equation to demonstrate how `equate` handles it (if activated).
+$
+15^2 &= (10 + 5)^2 \
+&= 10^2 + 2 * 10 * 5 + 5^2 \
+&= 100 + 100 + 25 \
+&= 225.
+$<eq:multi_line_binom>
 Equations that are not of the same importance can be inline, e.g. $(a + b) (a - b) = a^2 - b^2$ or unlabeled
 $
 (a - b)^2 = a^2 - 2a b + b^2.
@@ -64,7 +71,7 @@ To make sure we do not break inline equations, we have this long equation$a^2 + 
 
 === Example Algorithm, Table and Figure <sec:example_algo_table_and_fig>
 
-Here we have a complicated procedure in @algo:example_algo which we could elaborate on for pages
+Here we have a complicated procedure in @algo:example_algo (using `lovelace`) which we could elaborate on for pages
 #figure(
   kind: "algorithm",
   supplement: [Algorithm],
