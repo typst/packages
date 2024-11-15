@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/touying-brandred-uobristol:0.1.2": *
 
 #show: uobristol-theme.with(
   aspect-ratio: "16-9",

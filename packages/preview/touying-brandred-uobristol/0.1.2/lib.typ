@@ -161,20 +161,32 @@
         ))
         place(top + left, {
           set text(fill: self.colors.neutral-lightest)
-          grid(
-            rows: (4cm, 4cm),
-            columns: (24cm),
-            block(inset: (x: 2em, y: 1em), width: 100%, height: 100%, {
-              set align(bottom + left)
-              set text(size: 32pt, weight: "bold")
-              info.title
-            }),
-            block(inset: (left: 2em, right: 8em, y: 1em), width: 100%, height: 100%, {
-              set align(top + left)
-              set text(size: 24pt)
-              info.subtitle
-            })
-          )
+          if info.subtitle == none {
+            grid(
+              rows: (8cm),
+              columns: (24cm),
+              block(inset: (x: 2em, y: 1em), width: 100%, height: 100%, {
+                set align(horizon + left)
+                set text(size: 32pt, weight: "bold")
+                info.title
+              })
+            )
+          } else {
+            grid(
+              rows: (4cm, 4cm),
+              columns: (24cm),
+              block(inset: (x: 2em, y: 1em), width: 100%, height: 100%, {
+                set align(bottom + left)
+                set text(size: 32pt, weight: "bold")
+                info.title
+              }),
+              block(inset: (left: 2em, right: 8em, y: 1em), width: 100%, height: 100%, {
+                set align(top + left)
+                set text(size: 24pt)
+                info.subtitle
+              })
+            )
+          }
         })
         place(bottom + left, block(
           width: 100%,
