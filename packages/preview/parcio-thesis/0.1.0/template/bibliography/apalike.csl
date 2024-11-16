@@ -315,7 +315,7 @@
       <if type="bill legal_case legislation" match="none">
         <choose>
           <if variable="issued">
-            <group prefix=" (" suffix=")">
+            <group prefix="(" suffix=")">
               <date variable="issued">
                 <date-part name="year"/>
               </date>
@@ -336,13 +336,13 @@
             </group>
           </if>
           <else-if variable="status">
-            <group prefix=" (" suffix=")">
+            <group prefix="(" suffix=")">
               <text variable="status"/>
               <text variable="year-suffix" prefix="-"/>
             </group>
           </else-if>
           <else>
-            <group prefix=" (" suffix=")">
+            <group prefix="(" suffix=")">
               <text term="no date" form="short"/>
               <text variable="year-suffix" prefix="-"/>
             </group>
