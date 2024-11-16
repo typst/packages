@@ -64,7 +64,7 @@
 
   show figure.caption: set text(script-size)
 
-  show raw: set text(size: 12pt)
+  show raw: set text(size: script-size)
 
   let page-number-int() = {
     let lastpage-number = context{counter(page).final(here()).at(0)}
