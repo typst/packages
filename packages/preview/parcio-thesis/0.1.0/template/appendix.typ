@@ -1,9 +1,11 @@
-#counter(heading).update(0)
-#heading(numbering: "A.", supplement: "Appendix")[Appendix]<appendix>
+#import "@preview/parcio-thesis:0.1.0": appendix
+
+#appendix(reset: true, label: <appendix>)[Appendix]
 
 #figure(
   caption: "Caption", 
-  numbering: n => numbering("A.1", counter(heading).get().first(), n))[
+  numbering: n => numbering("A.1", counter(heading).get().first(), n)
+)[
   ```c
   printf("Hello World!\n");
 

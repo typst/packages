@@ -68,16 +68,15 @@
       counter(figure.where(kind: table)).update(0)
       counter(figure.where(kind: raw)).update(0)
 
-      block({
-        if h.body == [Appendix] {
-          counter(heading).update(1)
-          [Appendix #counter(heading).display(h.numbering)]
-        } else {
-          translations.chapter + " " + counter(heading.where(level: 1)).display()
-        }
+      block[
+        #let heading-prefix = if h.supplement == [Appendix] [
+          Appendix #counter(heading).display(h.numbering)
+        ] else [
+          #translations.chapter #counter(heading).display()
+        ]
 
-        v(0.25em) + h.body
-      })
+        #heading-prefix#v(0.25em)#h.body
+      ]
     } else {
       v(2.3cm) + h
     }

@@ -41,7 +41,7 @@
 
 /* ------------------------------- */
 
-// TODO box (default: no inline).
+// A TODO marker. (inline: false -> margin note, inline: true -> box).
 #let todo(inline: false, body) = if inline {
   rect(
     fill: ovgu-orange,
@@ -55,10 +55,10 @@
   margin-note(stroke: ovgu-orange, body)
 }
 
-// Like \section* (unnumbered level 2 heading, does not appear in ToC).
+// Like \section* in LaTeX. (unnumbered level 2 heading, not in ToC).
 #let section = heading.with(level: 2, outlined: false, numbering: none)
 
-// Neat inline-section in smallcaps and sans font.
+// A neat inline-section in smallcaps and sans font.
 #let inline-section(title) = smallcaps[*#text(font: "Libertinus Sans", title)*] 
 
 // Fully empty page, no page numbering.
@@ -74,7 +74,7 @@
   },
 )
 
-// Custom ParCIO table as illustrated in the template.
+// A ParCIO-like table with a design taken from the LaTeX template.
 #let parcio-table(max-rows, ..args) = table(
   ..args,
   row-gutter: (2.5pt, auto),
@@ -85,3 +85,9 @@
     bottom: if y == 0 or y == max-rows - 1 { 0.5pt }
   )
 )
+
+// Nicer handling of (multiple) appendices. Specify `reset: true` with your first appendix to reset the heading counter!
+#let appendix(reset: false, label: none, body) = {
+  if reset { counter(heading).update(0) }
+  [#heading(numbering: "A.", supplement: "Appendix", body)#label]
+}

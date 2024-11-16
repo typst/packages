@@ -60,23 +60,26 @@ See here for **all** possible arguments (and their default values) and utility f
 These could be useful while writing your thesis!
 
 ```typ
-// TODO box (default: no inline).
+// A TODO marker. (inline: false -> margin note, inline: true -> box).
 #let todo(inline: false, body)
 
-// Like \section* (unnumbered level 2 heading, does not appear in ToC).
+// Like \section* in LaTeX. (unnumbered level 2 heading, not in ToC).
 #let section = heading.with(level: 2, outlined: false, numbering: none)
 
-// Neat inline-section in smallcaps and sans font.
+// A neat inline-section in smallcaps and sans font.
 #let inline-section(title) = smallcaps[*#text(font: "Libertinus Sans", title)*] 
 
 // Fully empty page, no page numbering.
 #let empty-page = page([], footer: [])
 
-// Subfigures (see chapters/introduction).
+// Subfigures (see chapters/introduction for syntax).
 #let subfigure(..)
 
 // A ParCIO-like table with a design taken from the LaTeX template.
 #let parcio-table(max-rows, ..args)
+
+// Nicer handling of (multiple) appendices. Specify `reset: true` with your first appendix to reset the heading counter!
+#let appendix(reset: false, label: none, body)
 ```
 
 ### Translations

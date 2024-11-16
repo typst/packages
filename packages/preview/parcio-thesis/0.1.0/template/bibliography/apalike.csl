@@ -598,7 +598,8 @@
         <group prefix=". " suffix=".">
           <choose>
             <if type="thesis">
-              <text value="Master's thesis"/>
+              <!-- Specify thesis type in note. -->
+              <text variable="note"/>
             </if>
           </choose>
         </group>
