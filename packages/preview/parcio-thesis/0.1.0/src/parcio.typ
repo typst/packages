@@ -57,7 +57,7 @@
 
   // Create "Chapter X." heading for every numbered level 1 heading.
   show heading.where(level: 1): h => {
-    set text(huge, font: "Libertinus Sans")
+    set text(_huge, font: "Libertinus Sans")
 
     if h.numbering != none {
       pagebreak(weak: true)
@@ -173,8 +173,8 @@
   /* ----------------------------- */
 
   show heading: set block(spacing: 1.25em)
-  show heading.where(level: 2): set text(font: "Libertinus Sans", Large)
-  show heading.where(level: 3): set text(font: "Libertinus Sans", Large)
+  show heading.where(level: 2): set text(font: "Libertinus Sans", _Large)
+  show heading.where(level: 3): set text(font: "Libertinus Sans", _Large)
   
   set footnote.entry(separator: line(length: 40%, stroke: 0.5pt))
   set list(marker: (sym.bullet, "◦"))

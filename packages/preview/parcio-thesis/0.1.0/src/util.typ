@@ -8,10 +8,10 @@
 #let ovgu-purple = rgb("#7A003F")
 #let ovgu-red = rgb("#D13F58")
 
-#let large = 14.4pt
-#let Large = 17.28pt 
-#let LARGE = 20.74pt
-#let huge = 24.88pt
+#let _large = 14.4pt
+#let _Large = 17.28pt 
+#let _LARGE = 20.74pt
+#let _huge = 24.88pt
 
 /* ---- Convencience functions ---- */
 

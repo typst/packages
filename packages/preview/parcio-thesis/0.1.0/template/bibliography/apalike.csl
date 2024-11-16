@@ -130,7 +130,7 @@
   </macro>
   <macro name="access">
     <choose>
-      <if type="thesis report" match="any">
+      <if type="thesis report webpage" match="any">
         <choose>
           <if variable="archive" match="any">
             <group>
@@ -145,6 +145,12 @@
               <text term="retrieved" text-case="capitalize-first" suffix=" "/>
               <text term="from" suffix=" "/>
               <text variable="URL"/>
+              <choose>
+                <if variable="accessed" match="any">
+                  <text term="accessed" prefix=" (" suffix=" "/>
+                  <date variable="accessed" form="text" suffix=")"/>
+                </if>
+              </choose>
             </group>
           </else>
         </choose>
@@ -461,6 +467,12 @@
           <date-part name="year"/>
         </date>
       </else-if>
+      <else>
+        <group prefix=",">
+          <label prefix=" " suffix=" " variable="page"/>
+          <text variable="page"/>
+        </group>
+      </else>
     </choose>
   </macro>
   <macro name="citation-locator">
@@ -582,6 +594,13 @@
         <group delimiter=", " prefix=". ">
           <text macro="event"/>
           <text macro="publisher"/>
+        </group>
+        <group prefix=". " suffix=".">
+          <choose>
+            <if type="thesis">
+              <text value="Master's thesis"/>
+            </if>
+          </choose>
         </group>
       </group>
       <text macro="access" prefix=" "/>

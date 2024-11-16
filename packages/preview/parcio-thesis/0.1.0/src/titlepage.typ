@@ -1,4 +1,4 @@
-#import "util.typ": huge, large, Large
+#import "util.typ": _huge, _large, _Large
 
 #let title-page(
   title,
@@ -20,16 +20,16 @@
 
   v(4.75em)
 
-  text(Large, font: "Libertinus Serif")[*#thesis-type*]
+  text(_Large, font: "Libertinus Serif")[*#thesis-type*]
   v(2.5em)
-  text(huge, font: "Libertinus Sans")[
+  text(_huge, font: "Libertinus Sans")[
     #set par(justify: false)
     *#title*
   ]
   v(1.25em)
 
-  set text(Large)
-  show raw: set text(large * 0.95)
+  set text(_Large)
+  show raw: set text(_large * 0.95)
   
   author.name
   v(0.75em, weak: true)
