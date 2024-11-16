@@ -10,16 +10,7 @@
 >
 > 本模板使用 Typst 0.12.x 编译，Typst 更新频率较高，可能出现版本更新后无法编译成功的情况。
 
-<div style="display:flex; flex-direction:column; gap: 20px;">
-  <div style="display:flex; gap: 20px;">
-    <img src="./demo_images/title-cn.png" width="400"/>
-    <img src="./demo_images/title-en.png" width="400"/>
-  </div>
-  <div style="display:flex; gap: 20px;">
-    <img src="./demo_images/statement.png" width="400"/>
-    <img src="./demo_images/outline.png" width="400"/>
-  </div>
-</div>
+![demo](./demo_images/title.png)
 
 ## 使用方法
 
