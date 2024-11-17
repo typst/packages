@@ -1,0 +1,12 @@
+[package]
+name = "leipzig-glossing"
+version = "0.4.0"
+entrypoint = "leipzig-gloss.typ"
+authors = ["Greg Shuflin <greg@everydayimshuflin.com>", "Other open-source contributors"]
+license = "MIT"
+description = "Linguistic interlinear glosses according to the Leipzig Glossing rules"
+repository = "https://code.everydayimshuflin.com/greg/typst-lepizig-glossing"
+disciplines = ["linguistics"]
+categories = ["paper"]
+keywords = ["linguistics", "leipzig", "gloss", "glossing"]
+compiler = "0.12.0"

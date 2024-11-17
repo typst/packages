@@ -8,6 +8,7 @@ description = "A formal business letter template."
 categories = ["office"]
 disciplines = ["business", "communication"]
 keywords = ["professional", "business", "letter", "correspondence"]
+repository = "https://github.com/swaits/typst-collection"
 
 [template]
 path = "template"
