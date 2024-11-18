@@ -26,7 +26,7 @@ Example definition in @def:Example. This and all the following are examples usin
   $
   e ^a = sum_(k=0)^oo a^k/k!.
   $
-]<ex:Fourier_Gaussian>
+]
 
 #theorem[
   The number $e$ is irrational
@@ -45,7 +45,7 @@ Example definition in @def:Example. This and all the following are examples usin
 #proof[
   Trivial, but the proof is not done yet.
 
-  To demonstrate the breaking behaviour we add another
+  To demonstrate the breaking behavior we add another
 
   #lorem(150)
 ]
@@ -56,7 +56,7 @@ $
 (a + b)^2 = a^2 + 2a b + b^2
 $<eq:first_binom>
 which is labeled and therefore numbered. We can also reference it: @eq:first_binom.
-In the following, we have a multiline equation to demonstrate how `equate` handles it.
+In the following, we have a multiline equation to demonstrate how `equate` handles it (if activated).
 $
 15^2 &= (10 + 5)^2 \
 &= 10^2 + 2 * 10 * 5 + 5^2 \

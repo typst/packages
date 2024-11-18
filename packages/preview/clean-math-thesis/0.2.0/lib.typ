@@ -34,6 +34,7 @@
 
   // equation settings
   equate-settings: none,
+  numbering-pattern: "(1.1)",
 
   // the content of the thesis
   body
@@ -44,20 +45,20 @@ set enum(numbering: "(i)") // Enumerated lists
 
 // ------------------- Math equation settings -------------------
 
-set math.equation(numbering: "(1.1)") if equate-settings != none
+set math.equation(numbering: numbering-pattern) if equate-settings != none
 // only labeled equations get a number
-show math.equation:it => {
+show math.equation: it => {
   if equate-settings != none {
     equate(..equate-settings, it)
   } else if it.has("label"){
-    math.equation(block:true, numbering: "(1)", it)
+    math.equation(block:true, numbering: numbering-pattern, it)
   } else {
     it
   }
 }
 show ref: it => {
   let el = it.element
-  if equate-settings==none and el != none and el.func() == math.equation {
+  if equate-settings == none and el != none and el.func() == math.equation {
     link(el.location(), numbering(
       "(1)",
       counter(math.equation).at(el.location()).at(0) + 1

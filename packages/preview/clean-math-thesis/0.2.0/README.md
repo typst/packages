@@ -18,11 +18,11 @@ The template is already filled with dummy data, to give users an [impression how
 
 - after [installing Typst](https://github.com/typst/typst?tab=readme-ov-file#installation) you can conveniently use the following to create a new folder containing this project.
 ```bash
-typst init @preview/clean-math-thesis:0.1.0
+typst init @preview/clean-math-thesis:0.2.0
 ```
 
 
-- edit the data in `main.typ` $\Rightarrow$ `#show template.with([your data])`
+- edit the data in `main.typ` → `#show template.with([your data])`
 
 #### Parameters of the Template
 <ins>personal/subject related information</ins>
@@ -37,8 +37,8 @@ typst init @preview/clean-math-thesis:0.1.0
 - `deadline`: Submission deadline of the thesis.
 
 <ins>file paths for logos etc.</ins>
-- `uni_logo`: Image, e.g. `image("images/logo_placeholder.svg", width: 50%)`
-- `institute_logo`: Image.  
+- `uni-logo`: Image, e.g. `image("images/logo_placeholder.svg", width: 50%)`
+- `institute-logo`: Image.  
 
 <ins>formatting settings</ins>
 - `citation-style`: Citation style to be used in the thesis.
@@ -50,6 +50,7 @@ typst init @preview/clean-math-thesis:0.1.0
 
 <ins>equation settings</ins>
 - `equate-settings`: either none -> no equate use; or tuple with the settings for the equations (see [docs](https://typst.app/universe/package/equate)), e.g. (breakable: true, sub-numbering: true, number-mode: "label")
+- `numbering-pattern`: specify the [numbering](https://typst.app/docs/reference/model/numbering/#parameters-numbering) of the equations. The second counting symbol (e.g. the `a` in `"(1.a)"`) is only used when equate and subnumbering are activated, otherwise it's ignored
 
 <ins>colors</ins>
 - `colors`: Color scheme to be used in the thesis. has to be formatted like `(cover-color: rgb("#800080"), heading-color: rgb("#0000ff"))`
@@ -75,11 +76,11 @@ If you want to change an existing typst project structure to use this template, 
 
 
 ### Disclaimer 
-This template was created after I finished my master's thesis.  
-I do not guarantee that it will be accepted by any university, please clarify in advance if it fulfills all requirements. If not, this template might still be a good starting point.
+This template was created after Sebastian finished his master's thesis.  
+We do not guarantee that it will be accepted by any university, please clarify in advance if it fulfills all requirements. If not, this template might still be a good starting point.
 
 ### Acknowledgements
-As inspiration on how to structure this template, I used the [modern-unito-thesis](https://typst.app/universe/package/modern-unito-thesis) template. The design is inspired by the [fau-book](https://github.com/FAU-AMMN/fau-book) template.
+As inspiration on how to structure this template, We used the [modern-unito-thesis](https://typst.app/universe/package/modern-unito-thesis) template. The design is inspired by the [fau-book](https://github.com/FAU-AMMN/fau-book) template.
 
 ### Feedback & Improvements
-If you encounter problems, please open issues. In case you found useful extensions or improved anything I am also very happy to accept pull requests.
+If you encounter problems, please open issues. In case you found useful extensions or improved anything We are also very happy to accept pull requests.
