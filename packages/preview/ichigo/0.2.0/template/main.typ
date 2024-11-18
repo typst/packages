@@ -1,4 +1,4 @@
-#import "@preview/ichigo:0.1.0": config, prob
+#import "@preview/ichigo:0.2.0": config, prob
 
 #show: config.with(
   course-name: "Typst 使用小练习",
