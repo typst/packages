@@ -60,7 +60,7 @@ To use this package, simply add the following code to your document:
 ## Changelog
 
 ### v0.4.1
-- Fix grade table.
+- Fix student data.
 - Fix Indenting subquestion.
 
 ### v0.4.0
