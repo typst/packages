@@ -12,13 +12,13 @@ Put something akin to the following at the start of your `.typ` file:
   // top: 2.5cm,
   // bottom: 2.5cm,
   // book: false,
-  // flush_numbers: false,
+  // flush-numbers: false,
   // numbering: /* numbering-function */,
 )
 #marginalia.configure(..config)
 #set page(
   // setup margins:
-  ..marginalia.page_setup(..config),
+  ..marginalia.page-setup(..config),
   /* other page setup */
 )
 ```

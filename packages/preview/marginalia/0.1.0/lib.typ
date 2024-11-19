@@ -54,7 +54,7 @@
     top: config.at("top", default: 2.5cm),
     bottom: config.at("bottom", default: 2.5cm),
     book: config.at("book", default: false),
-    flush_numbers: config.at("flush_numbers", default: false),
+    flush-numbers: config.at("flush-numbers", default: false),
     numbering: config.at("numbering", default: as-note),
   )
 }
@@ -76,9 +76,9 @@
 /// - top (length): Top margin.
 /// - bottom (length): Bottom margin.
 ///
-///     These are not used for any of the Marginalia-functionality, they are only used when passed to @@page_setup().
+///     These are not used for any of the Marginalia-functionality, they are only used when passed to @@page-setup().
 /// - book (boolean): If ```typc true```, will use inside/outside margins, alternating on each page. If ```typc false```, will use left/right margins with all pages the same.
-/// - flush_numbers (boolean): Disallow note icons hanging into the whitespace.
+/// - flush-numbers (boolean): Disallow note icons hanging into the whitespace.
 /// - numbering (str, function): Function or `numbering`-string to generate the note markers from the `notecounter`.
 #let configure(
   inner: (far: 5mm, width: 15mm, sep: 5mm),
@@ -86,7 +86,7 @@
   top: 2.5cm,
   bottom: 2.5cm,
   book: false,
-  flush_numbers: false,
+  flush-numbers: false,
   numbering: as-note,
 ) = { }
 #let configure(..config) = (
@@ -105,12 +105,12 @@
 /// This will generate a dictionary ```typc ( margin: .. )``` compatible with the passed config.
 /// This can then be spread into the page setup like so:
 ///```typ
-/// #set page( ..page_setup(..config) )```
+/// #set page( ..page-setup(..config) )```
 ///
 /// Takes the same options as @@configure().
 /// - ..config (dictionary): Missing entries are filled with package defaults. Note: missing entries are _not_ taken from the current marginalia config, as this would require context.
 /// -> dictionary
-#let page_setup(..config) = {
+#let page-setup(..config) = {
   let config = _fill_config(..config)
   if config.book {
     return (
@@ -139,7 +139,7 @@
 ///
 /// Requires context.
 /// -> dictionary
-#let get_left() = {
+#let get-left() = {
   let config = _config.get()
   if not (config.book) or calc.odd(here().page()) {
     return config.inner
@@ -154,7 +154,7 @@
 ///
 /// Requires context.
 /// -> dictionary
-#let get_right() = {
+#let get-right() = {
   let config = _config.get()
   if not (config.book) or calc.odd(here().page()) {
     return config.outer
@@ -198,9 +198,9 @@
     } else {
       -lineheight
     }
-    let offset = get_left().far - anchor.x
-    let width = get_left().width
-    let notebox = box(width: get_left().width, body)
+    let offset = get-left().far - anchor.x
+    let width = get-left().width
+    let notebox = box(width: get-left().width, body)
     box(
       place(
         dx: offset,
@@ -228,9 +228,9 @@
     } else {
       -lineheight
     }
-    let offset = pagewidth - anchor.x - get_right().far - get_right().width
-    let width = get_right().width
-    let notebox = box(width: get_right().width, body)
+    let offset = pagewidth - anchor.x - get-right().far - get-right().width
+    let width = get-right().width
+    let notebox = box(width: get-right().width, body)
     box(
       width: 0pt,
       place(
@@ -257,7 +257,7 @@
   set text(size: 9pt, style: "italic", weight: "regular")
   if numbered {
     notecounter.step()
-    let body = context if _config.get().flush_numbers {
+    let body = context if _config.get().flush-numbers {
       notecounter.display(_config.get().numbering)
       h(1.5pt)
       body
@@ -310,7 +310,7 @@
 /// To be able to set this appendix in a many-page wideblock, this code was used:
 ///```typst
 ///#configure(..config, book: false)
-///#set page(..page_setup(..config, book: false))
+///#set page(..page-setup(..config, book: false))
 ///#wideblock(reverse: true)[...]
 ///```
 ///
