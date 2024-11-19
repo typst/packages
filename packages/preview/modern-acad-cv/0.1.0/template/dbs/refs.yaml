@@ -1,0 +1,102 @@
+Mustermensch2023:
+  type: "article"
+  date: 2023
+  page-range: 55-78
+  title: 
+    main: "Populismus und soziale Medien: Eine vergleichende Studie zur politischen Mobilisierung"
+    en: "Populism and Social Media: A Comparative Study of Political Mobilization"
+    pt: "Populismo e redes sociais: Um Estudo Comparativo de Mobilização Política"
+  tags: "peer"
+  author: [ "Mustermensch, Momo", "Rivera, Casey" ]
+  corresponding: true
+  parent:
+    title: "Journal of Political Communication"
+    volume: 41
+    issue: 3
+  serial-number:
+    doi: "10.1016/j.jpolcom.2023.102865"
+Mustermensch2022:
+  type: "article"
+  date: 2022
+  page-range: 201-220
+  title: "The Decline of Traditional Media in Electoral Politics: Evidence from European Democracies"
+  tags: "peer"
+  author: [ "Mustermensch, Momo" ]
+  parent:
+    title: "European Journal of Political Science"
+    volume: 50
+    issue: 2
+  serial-number:
+    doi: "10.1080/ejps.2022.123456"
+Mustermensch2019:
+  type: "book"
+  date: 2019
+  title: "The Politics of Identity: Nationalism and Multiculturalism in the 21st Century"
+  tags: "book"
+  author: [ "Mustermensch, Momo", "Adler, Quinn" ]
+  parent:
+    publisher: "Global Politics Press"
+    location: "London"
+Mustermensch2021:
+  type: "book"
+  date: 2021
+  title: "Democratic Erosion: Challenges and Responses in Contemporary Democracies"
+  tags: "book"
+  author: [ "Mustermensch, Momo", "Parker, Avery" ]
+  parent:
+    publisher: "Cambridge University Press"
+    location: "Cambridge"
+Mustermensch2020:
+  type: "chapter"
+  date: 2020
+  page-range: 102-120
+  title: "Globalization and Sovereignty: The Impact of Supranational Institutions"
+  tags: "edited"
+  author: [ "Mustermensch, Momo" ]
+  parent:
+    title: "Global Governance in the 21st Century"
+    author: [ "Morgan, Taylor", "Lopez, Morgan" ]
+    publisher: "Oxford University Press"
+    location: "Oxford"
+Mustermensch2018:
+  type: "chapter"
+  date: 2018
+  page-range: 67-85
+  title: "The Role of Civil Society in Authoritarian Regimes"
+  tags: "edited"
+  author: [ "Mustermensch, Momo", "Nguyen, Alex" ]
+  parent:
+    title: "Authoritarianism and Civil Society"
+    author: [ "Khan, Taylor", "Santos, Skylar" ]
+    publisher: "Routledge"
+    location: "New York"
+Mustermensch2023Report:
+  type: "report"
+  date: 2023
+  title: "Election Integrity in the Digital Age: A Policy Framework"
+  tags: "other"
+  author: [ "Mustermensch, Momo", "Garcia, Jordan" ]
+  parent:
+    archive: "International Institute for Democracy"
+    location: "Brussels"
+Mustermensch2022Report:
+  type: "report"
+  date: 2022
+  title: "Social Movements and Political Change: A Comparative Study"
+  tags: "other"
+  author: [ "Mustermensch, Momo" ]
+  parent:
+    archive: "Institute for Social Research"
+    location: "Berlin"
+Mustermensch2024Planned:
+  type: "planned-publication"
+  pubstate: submitted
+  title: "The Future of Liberal Democracy in an Era of Polarization"
+  tags: "planned"
+  author: [ "Mustermensch, Momo", "Kim, Sky" ]
+Mustermensch2025Planned:
+  type: "article"
+  pubstate: inpreparation
+  title: "Cybersecurity and State Sovereignty: A New Challenge for Global Politics"
+  tags: "planned"
+  author: [ "Mustermensch, Momo", "Singh, Cameron" ]
