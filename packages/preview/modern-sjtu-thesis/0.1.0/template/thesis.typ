@@ -144,7 +144,7 @@
 #figure(
   figure(
     image(
-      "figures/example.png",
+      "figures/energy-distribution.png",
       width: 70%,
     ),
     gap: 2em,
