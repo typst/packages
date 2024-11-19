@@ -22,21 +22,39 @@ Its main features are auto-expansion of the first occurence, global or selective
 The main goal of Acrostiche is to keep track of which acronyms to define.
 
 ### Define acronyms
-First, define the acronyms in a dictionary, with the keys being the acronyms and the values being arrays of their definitions.
+All acronyms used with Acrostiche must be defined in a dictionary passed to the `init-acronyms` function.
+There are two possible forms for the definition, depending on the required features.
+
+#### Simple Definitions
+For a quick and easy definion, you can use the acronym to display as the key and an array of one or more strings as the singular and plural versions of the expanded meaning of the acronym.
+
+```
+#init-acronyms((
+  "SDA": ("Simply Defined Acronym","Simply Defined Acronyms"),
+  "ASDA": ("Another Simply Defined Acronym","Another Simply Defined Acronyms"),
+))
+```
+
 If there is only a singular version of the definition, the array contains only one value.
 If there are both singular and plural versions, define the definition as an array where the first item is the singular definition and the second item is the plural.
-Then, initialize Arostiche with the acronyms you just defined with the `#init-acronyms(...)` function:
 
-Here is a sample of the `acronyms.typ` file:
+#### Advanced Definitions
+If you find yourself needing more flexibility when defining the acronyms, you can pass a dictionary for each acronym.
+The expected keys are: `short` the singular short form to display, `short-pl` the plural short form, `long` singular long (expanded) form to display, and `long-pl` the plural long form.
+The main benefit of this definition is to use a separate key for calling the acronym, useful when acronyms are long and tedious to write.
+
 ```
-#import "@preview/acrostiche:0.4.0": *
-
 #init-acronyms((
-  "NN": ("Neural Network"),
-  "OS": ("Operating System",),
-  "BIOS": ("Basic Input/Output System", "Basic Input/Output Systems"), 
-)) 
+  "la": (
+short: "LATATW",
+long: "Long And Tedious Acronym To Write",
+short-pl: "LATAsTW",
+long-pl: "Long And Tedious Acronyms To Write"),
+))
 ```
+
+Any other keys than these will be discarded.
+
 
 ### Call Acrostiche functions
 Once the acronyms are defined, you can use them in the text with the `#acr(...)` function.
@@ -47,7 +65,8 @@ To get the plural version of the acronym, you can use the `#acrpl(...)` function
 If a plural version of the definition is provided, it will be used if the first use of the acronym is plural.
 Otherwise, the singular version is used, and a trailing 's' is added.
 
-To intentionally print the full version of the acronym (definition + acronym, as for the first instance), without affecting the state, you can use the `#acrfull(...)` function. For the plural version, use the `#acrfullpl(...)` function.
+To intentionally print the full version of the acronym (definition + acronym, as for the first instance), without affecting the state, you can use the `#acrfull(...)` function. 
+For the plural version, use the `#acrfullpl(...)` function.
 Both functions have shortcuts with `#acrf(...)` and `#acrfpl(...)`.
 
 At any point in the document, you can reset acronyms with the functions `#reset-acronym(...)` (for a single acronym) or `reset-all-acronyms()` (to reset all acronyms). After a reset, the next use of the acronym is expanded.
@@ -91,11 +110,13 @@ I cannot guarantee that arbitrary content will remain available in future versio
 If you find cool uses, please reach out to show me!
 
 
-PS: For the smart trouble-maker in the back that are thinking about nesting an acronym call in the definition of an acronym, I am way ahead of you and yes it is (kinda) possible.
+<blockquote>
+Yes it is posible to build nest/recursive acronyms definitions.
 If you point to another acronym, it all works fine.
 If you point to the same acronym, you obviously create a recursive situation, and it fails.
 It will not converge, and the compiler will warn you and will panic.
 Be nice to the compiler, don't throw recursive traps.
+</blockquote>
 
 
 Here is a minimal working example of funky acronyms:
