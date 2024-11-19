@@ -1,4 +1,4 @@
-#import "../lib.typ": doc
+#import "@preview/inboisu:0.1.0": doc
 
 #set page(margin: (x: 25mm, y: 20mm))
 #show: doc.with(
