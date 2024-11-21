@@ -8,7 +8,7 @@
   inherited_levels: 1,
 )
 
-#let my_mathblock = mathblock.with(
+#let my-mathblock = mathblock.with(
   counter: theoremcounter,
   breakable: false,
   titlix: title => [(#title):],
@@ -16,40 +16,40 @@
 )
 
 // theorem etc. settings
-#let theorem = my_mathblock(
+#let theorem = my-mathblock(
   blocktitle: "Theorem",
   bodyfmt: text.with(style: "italic"),
 )
 
-#let proposition = my_mathblock(
+#let proposition = my-mathblock(
   blocktitle: "Proposition",
   bodyfmt: text.with(style: "italic"),
 )
 
-#let corollary = my_mathblock(
+#let corollary = my-mathblock(
   blocktitle: "Corollary",
   bodyfmt: text.with(style: "italic"),
 )
 
-#let lemma = my_mathblock(
+#let lemma = my-mathblock(
   blocktitle: "Lemma",
   bodyfmt: text.with(style: "italic"),
 )
 
-#let definition = my_mathblock(
+#let definition = my-mathblock(
   blocktitle: "Definition",
   bodyfmt: text.with(style: "italic"),
 )
 
-#let remark = my_mathblock(
+#let remark = my-mathblock(
   blocktitle: [_Remark_],
 )
 
-#let example = my_mathblock(
+#let example = my-mathblock(
   blocktitle: [_Example_],
 )
 
-#let question = my_mathblock(
+#let question = my-mathblock(
   blocktitle: [_Question_],
 )
 
