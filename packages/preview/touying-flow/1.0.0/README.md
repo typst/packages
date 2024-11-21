@@ -8,7 +8,7 @@ A [Typst](https://github.com/typst/typst) template created based on [Touying](ht
 
 ## Example
 
-See [content/example/main.pdf](content/example/main.pdf) for a sample PDF output. While the project is already complete, the example content is still under development.
+See [main.pdf](main.pdf) for a sample PDF output. While the project is already complete, the example content is still under development.
 
 ## Installation
 

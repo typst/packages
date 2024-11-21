@@ -10,7 +10,7 @@ keywords = ["presentation", "slides", "lecture", "touying", "university"]
 categories = ["presentation"]
 disciplines = []
 compiler = "0.11.0"
-exclude = ["content/example/main.pdf"]
+exclude = ["main.pdf"]
 
 [template]
 path = "content/example"
