@@ -1,5 +1,6 @@
 #import "@preview/silver-dev-cv:1.0.0": *
 
+#set document(author: "silver")
 #show: cv.with(
   font-type: "PT Serif",
   continue-header: "false",
