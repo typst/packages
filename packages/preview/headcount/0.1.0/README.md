@@ -2,11 +2,13 @@
 
 This package allows you to make **counters depend on the current chapter/section number**.
 
-The advantage compared to [`rich-counter`](https://typst.app/universe/package/rich-counters/) is that it is more efficient and you stick with native `counter`s.
+This works for **figures, theorems, and any other counters**.
+
+The advantage compared to [rich-counters](https://typst.app/universe/package/rich-counters/) is that you stick with native `counter`s and you can influence e.g. the `figure` counter directly without writing a new `show` rule with a custom counter or so.
 
 ## Showcase
 
-In the following example, `mycounter` inherits the first level from headings (but not deeper levels).
+In the following example, we demonstrate how you can inherit 1 level of the heading counter for figures and 2 levels for theorems.
 
 ```typ
 #import "@preview/headcount:0.1.0": *
@@ -91,6 +93,8 @@ To make another `counter` inherit from the heading counter, you have to do **two
    - `reset-counter(counter, level: 1)` (needs `context`)
 
      Returns a function that should be used as a `show` rule for `heading`. It will reset `counter` if the level of the heading is less than or equal to `level`.
+
+   **Important:** This `show` rule should be placed as the _last_ `show` rule for `heading`, or at least after `show` rules for `heading` that employ a custom design, see [here](https://forum.typst.app/t/i-figured-broken-with-custom-template/1730/10?u=jbirnick) for an explanation.
 
    ```typ
    #import "@preview/headcount:0.1.0": *
