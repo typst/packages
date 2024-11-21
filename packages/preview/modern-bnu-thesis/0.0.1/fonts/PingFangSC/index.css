@@ -1,0 +1,30 @@
+/* 苹方-简 极细体 */
+@font-face {
+    font-family: 'PingFangSC-Ultralight-ttf';
+    src: url('./PingFangSC-Ultralight.ttf') format('truetype');
+}
+/* 苹方-简 纤细体 */
+@font-face {
+    font-family: 'PingFangSC-Thin-ttf';
+    src: url('./PingFangSC-Thin.ttf') format('truetype');
+}
+/* 苹方-简 细体 */
+@font-face {
+    font-family: 'PingFangSC-Light-ttf';
+    src: url('./PingFangSC-Light.ttf') format('truetype');
+}
+/* 苹方-简 常规体 */
+@font-face {
+    font-family: 'PingFangSC-Regular-ttf';
+    src: url('./PingFangSC-Regular.ttf') format('truetype');
+}
+/* 苹方-简 中黑体 */
+@font-face {
+    font-family: 'PingFangSC-Medium-ttf';
+    src: url('./PingFangSC-Medium.ttf') format('truetype');
+}
+/* 苹方-简 中粗体 */
+@font-face {
+    font-family: 'PingFangSC-Semibold-ttf';
+    src: url('./PingFangSC-Semibold.ttf') format('truetype');
+}
