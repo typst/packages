@@ -1,4 +1,5 @@
 #import "lib.typ": *
+#import "components.typ" as flowcomponents:*
 #let _typst-builtin-repeat = repeat
 
 //页眉
@@ -36,7 +37,7 @@
     //   display-subsection: self.store.mini-slides.at("display-subsection", default: true),
     //   short-heading: self.store.mini-slides.at("short-heading", default: true),
     // )
-    components.mini-slides(
+    flowcomponents.mini-slides(
       self: self,
       fill: self.colors.primary,
       alpha: self.store.alpha,
@@ -262,7 +263,7 @@
         fill: self.colors.neutral-darkest,
         // font: Xe,
         // font:"Times New Roman",
-        components.progressive-outline(alpha: self.store.alpha, title: none, indent: 1em, depth: self.slide-level, ..args),
+        flowcomponents.progressive-outline(alpha: self.store.alpha, title: none, indent: 1em, depth: self.slide-level, ..args),
       ),
     ),
   )

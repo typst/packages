@@ -1,4 +1,4 @@
-#import "./src/exports.typ": *
+#import "@preview/touying:0.5.3": *
 #import "@preview/mitex:0.2.4" : *
 #import "@preview/numbly:0.1.0": numbly
 #import "@preview/cuti:0.2.1": show-cn-fakebold //显示粗体
@@ -83,19 +83,3 @@ algorithm, create it like this:
     content
   )
 }
-
-// #pdfpc.config(
-//   duration-minutes: 30,
-//   start-time: datetime(hour: 14, minute: 10, second: 0),
-//   end-time: datetime(hour: 14, minute: 40, second: 0),
-//   last-minutes: 5,
-//   note-font-size: 12,
-//   disable-markdown: false,
-//   default-transition: (
-//     type: "push",
-//     duration-seconds: 2,
-//     angle: ltr,
-//     alignment: "vertical",
-//     direction: "inward",
-//   ),
-// )
