@@ -1,5 +1,5 @@
 #import "@preview/touying-flow:1.0.0":*
-#show: dewdrop-theme.with(
+#show: flow-theme.with(
   aspect-ratio: "16-9",
   footer: self => self.info.title,
   footer-alt: self => self.info.subtitle,

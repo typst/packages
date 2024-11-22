@@ -1,6 +1,6 @@
 // #import "../../theme.typ":*
 #import "@preview/touying-flow:1.0.0":*
-#show: dewdrop-theme.with(
+#show: flow-theme.with(
   aspect-ratio: "16-9",
   footer: self => self.info.title,
   footer-alt: self => self.info.subtitle,
@@ -173,9 +173,9 @@ Consider using `#side-by-side` for a more flexible layout.
 
 #align(bottom+end)[#link("https://typst.app/docs/reference/layout/grid/")]
 
-= #smallcaps("Text")
+= #smallcaps("Content")
 
-== Style
+== Text
 
 #side-by-side[
 === Size
@@ -207,6 +207,36 @@ _emphasis_
 ```
 ]
 
-= #smallcaps("Code")
+== Image
 
-= #smallcaps("Math")
+== Table
+
+
+
+== Code
+
+#side-by-side[
+//伪代码
+][
+
+]
+
+== Math
+
+=== 
+
+
+
+=== 
+
+#pagebreak()
+
+=== mi(``)
+
+=== mitex(``)
+
+=== mitext(``)
+
+= #smallcaps("Components")
+
+== 

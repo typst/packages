@@ -3,7 +3,7 @@
 #let _typst-builtin-repeat = repeat
 
 //页眉
-#let dewdrop-header(self) = {
+#let flow-header(self) = {
   if self.store.navigation == "sidebar" {
     place(
       right + top,
@@ -51,7 +51,7 @@
 }
 
 //页脚
-#let dewdrop-footer(self) = {
+#let flow-footer(self) = {
   set align(bottom)
   set text(size: 0.8em)
   show: pad.with(.5em)
@@ -124,8 +124,8 @@
     self,
     config-page(
       fill: self.colors.neutral-lightest,
-      header: dewdrop-header,
-      footer: dewdrop-footer,
+      header: flow-header,
+      footer: flow-footer,
     ),
     config-common(subslide-preamble: self.store.subslide-preamble),
   )
@@ -142,7 +142,7 @@
 /// Example:
 ///
 /// ```typst
-/// #show: dewdrop-theme.with(
+/// #show: flow-theme.with(
 ///   config-info(
 ///     title: [Title],
 ///     logo: emoji.city,
@@ -210,7 +210,7 @@
     self,
     config-page(
       fill: self.colors.neutral-lightest,
-      footer: dewdrop-footer,
+      footer: flow-footer,
     ),
   )
   touying-slide(
@@ -289,7 +289,7 @@
     config-common(freeze-slide-counter: true),
     // config-page(fill: self.colors.primary, margin: 2em),
     // config-page(
-    //   footer:  dewdrop-footer,
+    //   footer:  flow-footer,
     // )
   )
   
@@ -333,12 +333,12 @@
   )
 })
 
-/// Touying dewdrop theme.
+/// Touying flow theme.
 ///
 /// Example:
 ///
 /// ```typst
-/// #show: dewdrop-theme.with(aspect-ratio: "16-9", config-colors(primary: blue))`
+/// #show: flow-theme.with(aspect-ratio: "16-9", config-colors(primary: blue))`
 /// ```
 ///
 /// - `aspect-ratio` is the aspect ratio of the slides. Default is `16-9`.
@@ -384,7 +384,7 @@
 ///   primary: rgb("#0c4842"),
 /// )
 /// ```
-#let dewdrop-theme(
+#let flow-theme(
   aspect-ratio: "16-9",
   navigation: "sidebar",
   sidebar: (width: 10em, filled: false, numbered: false, indent: .5em, short-heading: true),
