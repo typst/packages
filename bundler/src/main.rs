@@ -12,9 +12,13 @@ use std::path::Path;
 use anyhow::{bail, Context};
 use image::codecs::webp::{WebPEncoder, WebPQuality};
 use image::imageops::FilterType;
+use semver::Version;
+use typst_syntax::package::{PackageInfo, PackageManifest, TemplateInfo, UnknownFields};
 use unicode_ident::{is_xid_continue, is_xid_start};
 
 use self::author::validate_author;
+use self::categories::validate_category;
+use self::disciplines::validate_discipline;
 use self::model::*;
 use self::timestamp::determine_timestamps;
 
@@ -67,10 +71,26 @@ fn main() -> anyhow::Result<()> {
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
             let entry = entry?;
             if !entry.metadata()?.is_dir() {
-                continue;
+                bail!(
+                    "{}: a package directory may only contain version sub-directories, not files.",
+                    entry.path().display()
+                );
             }
 
             let path = entry.into_path();
+
+            if path
+                .file_name()
+                .and_then(|name| name.to_str())
+                .and_then(|name| Version::parse(name).ok())
+                .is_none()
+            {
+                bail!(
+                    "{}: Directory is not a valid version number",
+                    path.display()
+                );
+            }
+
             match process_package(&path, &namespace_dir, namespace)
                 .with_context(|| format!("failed to process package at {}", path.display()))
             {
@@ -152,6 +172,26 @@ fn process_package(
     })
 }
 
+fn validate_no_unknown_fields(
+    unknown_fields: &UnknownFields,
+    key: Option<&str>,
+) -> anyhow::Result<()> {
+    if !unknown_fields.is_empty() {
+        match key {
+            Some(key) => bail!(
+                "unknown fields in `{key}`: {:?}",
+                unknown_fields.keys().collect::<Vec<_>>()
+            ),
+            None => bail!(
+                "unknown fields: {:?}",
+                unknown_fields.keys().collect::<Vec<_>>()
+            ),
+        }
+    }
+
+    Ok(())
+}
+
 /// Read and validate the package's manifest.
 fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifest> {
     let src = fs::read_to_string(path.join("typst.toml"))?;
@@ -161,6 +201,9 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
         "packages/{namespace}/{}/{}",
         manifest.package.name, manifest.package.version
     );
+
+    validate_no_unknown_fields(&manifest.unknown_fields, None)?;
+    validate_no_unknown_fields(&manifest.package.unknown_fields, Some("package"))?;
 
     if path != Path::new(&expected) {
         bail!("package directory name and manifest are mismatched");
@@ -174,12 +217,28 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
         validate_author(author).context("error while checking author name")?;
     }
 
+    if manifest.package.description.is_none() {
+        bail!("package description is missing");
+    }
+
     if manifest.package.categories.len() > 3 {
         bail!("package can have at most 3 categories");
     }
 
-    let license = spdx::Expression::parse(&manifest.package.license)
-        .context("failed to parse SPDX license expression")?;
+    for category in &manifest.package.categories {
+        validate_category(category)?;
+    }
+
+    for discipline in &manifest.package.disciplines {
+        validate_discipline(discipline)?;
+    }
+
+    let Some(license) = &manifest.package.license else {
+        bail!("package license is missing");
+    };
+
+    let license =
+        spdx::Expression::parse(license).context("failed to parse SPDX license expression")?;
 
     for requirement in license.requirements() {
         let id = requirement
@@ -193,15 +252,19 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
         }
     }
 
-    let entrypoint = path.join(&manifest.package.entrypoint);
+    let entrypoint = path.join(manifest.package.entrypoint.as_str());
     validate_typst_file(&entrypoint, "package entrypoint")?;
 
     if let Some(template) = &manifest.template {
+        validate_no_unknown_fields(&template.unknown_fields, Some("template"))?;
+
         if manifest.package.categories.is_empty() {
             bail!("template packages must have at least one category");
         }
 
-        let entrypoint = path.join(&template.path).join(&template.entrypoint);
+        let entrypoint = path
+            .join(template.path.as_str())
+            .join(template.entrypoint.as_str());
         validate_typst_file(&entrypoint, "template entrypoint")?;
     }
 
@@ -213,7 +276,7 @@ fn read_readme(dir_path: &Path) -> anyhow::Result<String> {
     fs::read_to_string(dir_path.join("README.md")).context("failed to read README.md")
 }
 
-/// Build a comrpessed archive for a directory.
+/// Build a compressed archive for a directory.
 fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<Vec<u8>> {
     let mut buf = vec![];
     let compressed = flate2::write::GzEncoder::new(&mut buf, flate2::Compression::default());
@@ -278,7 +341,7 @@ fn process_thumbnail(
     template: &TemplateInfo,
     namespace_dir: &Path,
 ) -> anyhow::Result<()> {
-    let original_path = path.join(&template.thumbnail);
+    let original_path = path.join(template.thumbnail.as_str());
     let thumb_dir = namespace_dir.join(THUMBS_DIR);
     let filename = format!("{}-{}", manifest.package.name, manifest.package.version);
     let hopefully_max_encoded_size = 1024 * 1024;

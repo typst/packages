@@ -5,7 +5,9 @@ edition = "2021"
 publish = false
 
 [dependencies]
+typst-syntax = { git = "https://github.com/typst/typst", rev = "3c22902" }
 anyhow = "1"
+ecow = "0.2.2"
 email_address = { version = "0.2.4", default-features = false }
 flate2 = "1"
 ignore = "0.4"

@@ -6,11 +6,6 @@ A simple Graphviz binding for Typst using the WebAssembly plugin system.
 
 ### Basic usage
 
-This plugin is quite simple to use, you just need to import it:
-
-```typ
-#import "@preview/diagraph:0.2.3": *
-```
 
 You can render a Graphviz Dot string to a SVG image using the `render` function:
 
@@ -20,6 +15,7 @@ You can render a Graphviz Dot string to a SVG image using the `render` function:
 
 Alternatively, you can use `raw-render` to pass a `raw` instead of a string:
 
+<!--EXAMPLE(raw-render)-->
 ````typ
 #raw-render(
   ```dot
@@ -29,8 +25,7 @@ Alternatively, you can use `raw-render` to pass a `raw` instead of a string:
   ```
 )
 ````
-
-You can see an example of this in [`examples/`](https://github.com/Robotechnic/diagraph/tree/main/examples).
+![raw-render](https://raw.githubusercontent.com/Robotechnic/diagraph/main/images/raw-render1.png)
 
 For more information about the Graphviz Dot language, you can check the [official documentation](https://graphviz.org/documentation/).
 
@@ -54,6 +49,7 @@ By default, all node labels are rendered by Typst. If a node has no explicitly s
 
 If you want a node label to contain a more complex mathematical equation, or more complex markup, you can use the `labels` argument: pass a dictionary that maps node names to Typst `content`. Each node with a name within the dictionary will have its label overridden by the corresponding content.
 
+<!--EXAMPLE(labels)-->
 ````typ
 #raw-render(
   ```
@@ -72,25 +68,7 @@ If you want a node label to contain a more complex mathematical equation, or mor
   ),
 )
 ````
-
-See [`examples/`](https://github.com/Robotechnic/diagraph/tree/main/examples) for the rendered graph.
-
-## Build
-
-This project was built with emscripten `3.1.46`. Apart from that, you just need to run `make wasm` to build the wasm file. All libraries are downloaded and built automatically to get the right version that works.
-
-There are also some other make commands:
-
-- `make link`: Link the project to the typst plugin folder
-- `make clean`: Clean the build folder and the link
-- `make clean-link`: Only clean the link
-- `make compile_database`: Generate the compile_commands.json file
-- `make module`: It copy the files needed to run the plugin in a folder called `graphviz` in the current directory
-- `make wasi-stub`: Build the wasi stub executable, it require a rust toolchain properly configured
-
-### Wasi stub
-
-Somme functions need to be stubbed to work with the webassembly plugin system. The `wasi-stub` executable is a spetial one fitting the needs of the typst plugin system. You can find the source code [here](https://github.com/astrale-sharp/wasm-minimal-protocol/tree/master). It is important to use this one as the default subbed functions are not the same and the makefile is suited for this one.
+![labels](https://raw.githubusercontent.com/Robotechnic/diagraph/main/images/labels1.png)
 
 ## License
 

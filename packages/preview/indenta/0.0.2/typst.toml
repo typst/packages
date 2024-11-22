@@ -1,0 +1,10 @@
+[package]
+name = "indenta"
+version = "0.0.2"
+entrypoint = "lib.typ"
+authors = ["梦飞翔 <@flaribbit>"]
+license = "MIT"
+description = "Fix indent of first paragraph."
+categories = ["utility"]
+keywords = ["helper", "tool"]
+repository = "https://github.com/flaribbit/indenta"

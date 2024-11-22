@@ -1,88 +1,8 @@
-use semver::Version;
-use serde::{Deserialize, Serialize};
-
-use crate::categories::Category;
-use crate::disciplines::Discipline;
-
-/// A parsed package manifest.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct PackageManifest {
-    pub package: PackageInfo,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub template: Option<TemplateInfo>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub tool: Option<Tool>,
-}
-
-/// The `package` key in the manifest.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct PackageInfo {
-    /// The package's identifier in its namespace.
-    pub name: String,
-    /// The package's version as a full major-minor-patch triple.
-    pub version: Version,
-    /// The path to the main Typst file that is evaluated when the package is
-    /// imported.
-    pub entrypoint: String,
-    /// A list of the package's authors.
-    pub authors: Vec<String>,
-    ///  The package's license.
-    pub license: String,
-    /// A short description of the package.
-    pub description: String,
-    /// A link to the package's web presence.
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub homepage: Option<String>,
-    /// A link to the repository where this package is developed.
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub repository: Option<String>,
-    /// An array of search keywords for the package.
-    #[serde(default)]
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub keywords: Vec<String>,
-    /// An array with up to three of the predefined categories to help users
-    /// discover the package.
-    #[serde(default)]
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub categories: Vec<Category>,
-    /// An array of disciplines defining the target audience for which the
-    /// package is useful.
-    #[serde(default)]
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub disciplines: Vec<Discipline>,
-    /// The minimum Typst compiler version required for this package to work.
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub compiler: Option<Version>,
-    /// An array of globs specifying files that should not be part of the
-    /// published bundle.
-    #[serde(default)]
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub exclude: Vec<String>,
-}
-
-/// The `template` key in the manifest.
-#[derive(Debug, Clone, Default, Eq, PartialEq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct TemplateInfo {
-    /// The directory within the package that contains the files that should be
-    /// copied into the user's new project directory.
-    pub path: String,
-    /// A path relative to the template's path that points to the file serving
-    /// as the compilation target.
-    pub entrypoint: String,
-    /// A path relative to the package's root that points to a PNG or lossless
-    /// WebP thumbnail for the template.
-    pub thumbnail: String,
-}
-
-/// The `tool` key in the manifest.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
-pub struct Tool {}
+use serde::Serialize;
+use typst_syntax::package::{PackageInfo, TemplateInfo};
 
 /// A parsed package manifest with the release time.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize)]
+#[derive(Debug, Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct IndexPackageInfo {
     /// The package information from the package manifest.
@@ -106,7 +26,7 @@ impl From<&FullIndexPackageInfo> for IndexPackageInfo {
 }
 
 /// A parsed package manifest + extra metadata.
-#[derive(Debug, Clone, Eq, PartialEq, Serialize)]
+#[derive(Debug, Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct FullIndexPackageInfo {
     /// The package information from the package manifest.
