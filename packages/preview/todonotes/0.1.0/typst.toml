@@ -1,0 +1,11 @@
+[package]
+name = "todonotes"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jens Tinggaard <@Tinggaard>"]
+license = "MIT"
+description = "A simple margin note package inspired by the LaTeX todonotes package."
+repository = "https://github.com/Tinggaard/todonotes"
+keywords = ["Todo", "note", "Margin"]
+compiler = "0.11.0"
+exclude = ["assets/"]
