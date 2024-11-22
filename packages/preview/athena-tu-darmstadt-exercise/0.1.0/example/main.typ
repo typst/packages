@@ -1,4 +1,4 @@
-#import "@local/athena-tu-darmstadt-exercise:0.1.0": tudaexercise, tuda-section, tuda-subsection
+#import "@preview/athena-tu-darmstadt-exercise:0.1.0": tudaexercise, tuda-section, tuda-subsection
 
 #show: tudaexercise.with(
   language: "eng",
