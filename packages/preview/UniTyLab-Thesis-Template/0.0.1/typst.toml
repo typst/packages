@@ -14,6 +14,6 @@ categories = ["thesis", "report"]
 exclude = [""]
 
 [template]
-path = "/"
+path = ""
 entrypoint = "Studi/Document.typ"
 thumbnail = "thumbnail.png"
