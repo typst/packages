@@ -1,0 +1,2 @@
+It is a template that the students of the Faculty of Computer Science at Heilbronn University will use for their Bachelor's and Master's theses.
+However, it is so individualised that students from other universities can also easily adapt it.
