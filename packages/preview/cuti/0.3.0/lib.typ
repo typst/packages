@@ -45,7 +45,7 @@
 #let fakeitalic(
   ang: -18.4deg,
   s,
-) = regex-fakeitalic(reg-exp: "(?:\b[^\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}！-･〇-〰—]+?\b|[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}])", s)
+) = regex-fakeitalic(reg-exp: "(?:\b[^\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}！-･〇-〰—]+?\b|[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}])", ang: ang, s)
 
 #let fakesc(s, scaling: 0.75) = {
   show regex("\p{Ll}+"): it => {
