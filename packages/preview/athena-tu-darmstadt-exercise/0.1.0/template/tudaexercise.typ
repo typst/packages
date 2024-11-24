@@ -53,7 +53,7 @@
 
   design: design_defaults,
 
-  show_title: true,
+  show-title: true,
 
   subtask: "ruled",
 
@@ -225,7 +225,7 @@
       fill: background_color
     )
 
-    if show_title {
+    if show-title {
       tuda-make-title(
         tud_inner_page_margin_top, 
         tud_header_line_height,
