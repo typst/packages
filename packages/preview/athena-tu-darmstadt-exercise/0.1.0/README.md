@@ -62,7 +62,7 @@ Now you can install all fonts in the folders in `fonts` on your system.
 
 <details>
 <summary>Create a main.typ file for the manual template installation.</summary>
-Create a simple `main.typ` in the root folder (`my_thesis`) of your new project:
+Create a simple `main.typ` in the root folder (`my_exercise`) of your new project:
 
 ```typst
 #import "templates/tuda-typst-templates/templates/tudaexercise/template/lib.typ": *
@@ -72,7 +72,8 @@ Create a simple `main.typ` in the root folder (`my_thesis`) of your new project:
     title: "My Exercise",
     auhtor: "Your name",
     sheetnumber: 1    
-  )
+  ),
+  logo: image("assets/logos/tuda_logo.svg")
 )
 
 = My First Chapter
@@ -87,7 +88,7 @@ Some Text
 typst --watch main.typ --font-path asssets/fonts/
 ```
 
-This will watch your file and recompile it to a pdf when the file is saved. For writing, you can use [Vscode](https://code.visualstudio.com/) with these extensions: [Typst LSP](https://marketplace.visualstudio.com/items?itemName=nvarner.typst-lsp) and [Typst Preview](https://marketplace.visualstudio.com/items?itemName=mgt19937.typst-preview). Or use the [typst web app](https://typst.app/) (here you need to upload the logo and the fonts).
+This will watch your file and recompile it to a pdf when the file is saved. For writing, you can use [Vscode](https://code.visualstudio.com/) with these extensions: [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist). Or use the [typst web app](https://typst.app/) (here you need to upload the logo and the fonts).
 
 Note that we add `--font-path` to ensure that the correct fonts are used.
 Due to a bug (typst/typst#2917 typst/typst#2098) typst sometimes uses the font `Roboto condensed` instead of `Roboto`.
