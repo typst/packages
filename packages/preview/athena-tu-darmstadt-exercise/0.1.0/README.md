@@ -39,8 +39,7 @@ For a manual setup create a folder for your writing project and download this te
 
 ```bash
 mkdir my_exercise && cd my_exercise
-mkdir templates && cd templates
-git clone https://github.com/JeyRunner/tuda-typst-templates templates/
+git clone https://github.com/JeyRunner/tuda-typst-templates
 ```
 </details>
 
@@ -53,19 +52,23 @@ cd asssets/logos
 ./convert_logo.sh
 ```
 
+Note: The here used `pdf2svg` command might not be available. In this case we recommend a online converter like [PDF24 Tools](https://tools.pdf24.org/en/pdf-to-svg) 
+
 Also download the required fonts `Roboto` and `XCharter`:
 ```bash
 cd asssets/fonts
 ./download_fonts.sh
 ```
-Now you can install all fonts in the folders in `fonts` on your system.
+Optionally you can install all fonts in the folders in `fonts` on your system. But you can also use Typst's `--font-path` option.
+
+Note: wget might not be available. In this case either download it or replace the command with something like `curl <url> -o <filename> -L`
 
 <details>
 <summary>Create a main.typ file for the manual template installation.</summary>
 Create a simple `main.typ` in the root folder (`my_exercise`) of your new project:
 
 ```typst
-#import "templates/tuda-typst-templates/templates/tudaexercise/template/lib.typ": *
+#import "tuda-typst-templates/templates/tudaexercise/template/lib.typ": *
 
 #show: tudaexercise.with(
   info: (
@@ -73,10 +76,10 @@ Create a simple `main.typ` in the root folder (`my_exercise`) of your new projec
     auhtor: "Your name",
     sheetnumber: 1    
   ),
-  logo: image("assets/logos/tuda_logo.svg")
+  logo: image("tuda-typst-templates/assets/logos/tuda_logo.svg")
 )
 
-= My First Chapter
+= My First Task
 Some Text
 ```
 
