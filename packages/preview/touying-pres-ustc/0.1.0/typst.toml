@@ -1,5 +1,5 @@
 [package]
-name = "touying-ustc"
+name = "touying-pres-ustc"
 version = "0.1.0"
 entrypoint = "config.typ"
 authors = ["Quaternijkon<https://github.com/Quaternijkon>"]

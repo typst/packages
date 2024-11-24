@@ -1,5 +1,5 @@
 // #import "config.typ": *
-#import "@preview/touying-ustc:0.1.0": *
+#import "@preview/touying-pres-ustc:0.1.0": *
 
 #codly(languages: (
   rust: (name: "Rust", icon: icon("./assets/img/brand-rust.svg"), color: RED),
