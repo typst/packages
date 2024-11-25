@@ -1,4 +1,4 @@
-#import "../../theme.typ": *
+#import "@preview/report-flow-ustc:1.0.0": *
 
 #show: project.with(
   course: "计算机系统",

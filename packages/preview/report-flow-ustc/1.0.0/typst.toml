@@ -1,5 +1,5 @@
 [package]
-name = "lab-report-template-ustc"
+name = "report-flow-ustc"
 version = "1.0.0"
 entrypoint = "theme.typ"
 authors = ["Quaternijkon<https://github.com/Quaternijkon>"]
