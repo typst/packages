@@ -1,0 +1,15 @@
+[package]
+name = "optimal-ovgu-thesis"
+version = "0.1.1"
+entrypoint = "template.typ"
+authors = ["Valentin Rieß <@v411e>"]
+repository = "https://github.com/v411e/optimal-ovgu-thesis"
+license = "MIT"
+description = "A thesis template for Otto von Guericke University Magdeburg"
+keywords = ["thesis", "master", "bachelor", "university", "OvGU", "Magdeburg", "Otto von Guericke Universität"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
