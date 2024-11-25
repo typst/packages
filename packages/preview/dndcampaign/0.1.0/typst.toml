@@ -8,7 +8,7 @@ categories = ["layout", "text", "book"]
 license = "Apache-2.0"
 keywords = ["rpg", "5e", "dnd", "campaign"]
 repository = "https://github.com/yanwenywan/typst-packages/tree/master/dndcampaign"
-exclude = ["**/*.pdf"]
+exclude = ["**/*.pdf", "template/fonts/*"]
 
 [template]
 path = "template"

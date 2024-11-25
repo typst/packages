@@ -7,9 +7,14 @@ A template for writing RPG campaigns imitating the 5e theme. This was made as a 
 Packages:
 - `droplet:0.3.1`
 
-Fonts:
+Fonts: 
 - TeX Gyre Bonum
-- Plus everything in the template/fonts folder.
+- Scaly Sans
+- Scaly Sans Caps
+- Royal Initalen
+- 京華老宋体 KingHwa OldSong
+
+***Please note: in an effort to reduce the file size of the template, whilst fonts are included in the repository, they are excluded from download explicitly in the TOML.*** You may find the fonts in my [github repository in the fonts folder](https://github.com/yanwenywan/typst-packages/tree/master/dndcampaign/0.1.0/template/fonts).
 
 # Usage
 
