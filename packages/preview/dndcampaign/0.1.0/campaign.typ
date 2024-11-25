@@ -108,7 +108,7 @@
   }
 
   show heading.where(level: 2) : hd => {
-    set text(fill: colours.dndred, weight: "regular", size: 1.8*fontsize)
+    set text(fill: colours.dndred, weight: "regular", size: 2*fontsize)
     block(smallcaps(hd.body))
   }
 
@@ -118,8 +118,9 @@
     block(
       [
         #smallcaps(hd.body)
-        #v(-1em)
-        #line(start: (0%, 0%), length: 100%, stroke: 1pt + colours.rulegold)
+        #v(-1.2em)
+        #line(start: (0%, 0%), length: 100%, stroke: 0.7pt + colours.rulegold)
+        #v(-0.4em)
       ]
     )
   }
@@ -370,13 +371,18 @@
     #set text(font: sansFonts)
     #content
 
-    #place(  // box shadow
+    #place(  // bottom box shadow
       bottom,
       dx: -1em + 3pt, dy: 1em + 4.4pt,
       rect(width: 100% + 2em - 6pt, height: 4pt, stroke: none, fill: gradient.linear(
         colours.shadow, white, angle: 90deg
       ))
     )
+    // #place(
+    //   top + left, 
+    //   rect(width: 2pt, height: 1fr, stroke: none, fill: blue)
+    // )
+
     #place(  // bottom left
       bottom,
       dx: -1em, dy: 1em + 4.4pt,
