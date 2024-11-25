@@ -58,11 +58,14 @@ $<eq:first_binom>
 which is labeled and therefore numbered. We can also reference it: @eq:first_binom.
 In the following, we have a multiline equation to demonstrate how `equate` handles it (if activated).
 $
-15^2 &= (10 + 5)^2 \
-&= 10^2 + 2 * 10 * 5 + 5^2 \
+15^2 &= (10 + 5)^2 #<eq:sub1>\
+&= 10^2 + 2 * 10 * 5 + 5^2 #<eq:sub2>\
 &= 100 + 100 + 25 \
 &= 225.
 $<eq:multi_line_binom>
+
+If `equate` is activated by passing `equate-settings` to the `template`, we can reference a subequation @eq:sub1
+or the whole equation @eq:multi_line_binom.
 Equations that are not of the same importance can be inline, e.g. $(a + b) (a - b) = a^2 - b^2$ or unlabeled
 $
 (a - b)^2 = a^2 - 2a b + b^2.
@@ -76,7 +79,7 @@ Here we have a complicated procedure in @algo:example_algo (using `lovelace`) wh
   kind: "algorithm",
   supplement: [Algorithm],
   pseudocode-list(booktabs: true, numbered-title: [#smallcaps[Example Algorithm]])[
-    - Input: $A, B, C$ 
+    - Input: $A, B, C$
     + *for* $i in {A,B,C}$ #v(1mm)
       + do very fancy stuff
       + #line-label(<line:stopping>)*if* motivation is lost: *break*
@@ -105,10 +108,10 @@ In @table:irrational_numbers we compare some irrational numbers, my favourite on
   table(
   columns: 2,
   stroke: none,
-    [], table.vline(stroke: .6pt),[approx. value], 
+    [], table.vline(stroke: .6pt),[approx. value],
     table.hline(stroke: .6pt),
-    [$sqrt(2)$], [#calc.round(calc.sqrt(2), digits: 2)], 
+    [$sqrt(2)$], [#calc.round(calc.sqrt(2), digits: 2)],
     [$e$], [#calc.round(calc.exp(1), digits: 2)],
-    [$pi$], table.cell(fill:green)[#calc.round(calc.pi, digits: 2)], 
+    [$pi$], table.cell(fill:green)[#calc.round(calc.pi, digits: 2)],
 )
 )<table:irrational_numbers>

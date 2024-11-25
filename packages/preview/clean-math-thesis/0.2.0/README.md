@@ -7,8 +7,8 @@
 [Typst](https://typst.app/home/) thesis template for mathematical theses built for simple, efficient use and a clean look.
 Of course, it can also be used for other subjects, but the following math-specific features are already contained in the template:
 
-- theorems, lemmas, corollaries, proofs etc.  prepared using [great-theorems](https://typst.app/universe/package/great-theorems)
-- equation settings (optionally using [equate](https://typst.app/universe/package/equate))
+- theorems, lemmas, corollaries, proofs etc. prepared using [great-theorems](https://typst.app/universe/package/great-theorems)
+- equation settings (using either [equate](https://typst.app/universe/package/equate) for numbering of subequations or [i-figured](https://typst.app/universe/package/i-figured/) for equation numbering which includes the chapter number)
 - pseudocode package [lovelace](https://typst.app/universe/package/lovelace) included.
 
 Additionally, it has headers built with [hydra](https://typst.app/universe/package/hydra).
@@ -24,7 +24,7 @@ typst init @preview/clean-math-thesis:0.2.0
 
 - edit the data in `main.typ` → `#show template.with([your data])`
 
-#### Parameters of the Template
+### Parameters of the Template
 <ins>personal/subject related information</ins>
 - `author`: Name of the author of the thesis.
 - `title`: Title of the thesis.
@@ -38,25 +38,27 @@ typst init @preview/clean-math-thesis:0.2.0
 
 <ins>file paths for logos etc.</ins>
 - `uni-logo`: Image, e.g. `image("images/logo_placeholder.svg", width: 50%)`
-- `institute-logo`: Image.  
+- `institute-logo`: Image.
 
 <ins>formatting settings</ins>
 - `citation-style`: Citation style to be used in the thesis.
 - `body-font`: Font to be used for the body text.
-- `cover-font`: Font to be used for the cover text.  
+- `cover-font`: Font to be used for the cover text.
 
 <ins>content that needs to be placed differently then normal chapters</ins>
-- `abstract`: Content for the abstract section. 
+- `abstract`: Content for the abstract section.
 
 <ins>equation settings</ins>
-- `equate-settings`: either none -> no equate use; or tuple with the settings for the equations (see [docs](https://typst.app/universe/package/equate)), e.g. (breakable: true, sub-numbering: true, number-mode: "label")
-- `numbering-pattern`: specify the [numbering](https://typst.app/docs/reference/model/numbering/#parameters-numbering) of the equations. The second counting symbol (e.g. the `a` in `"(1.a)"`) is only used when equate and subnumbering are activated, otherwise it's ignored
-
+- `equate-settings`: either none -> use i-figured; or tuple with the settings for the equations (see [docs](https://typst.app/universe/package/equate)), e.g. (breakable: true, sub-numbering: true, number-mode: "label")
+The switching between these is currently not optimal: i-figured needs a prefix (`eq:`) so if we label an equation like `<equation>` the corresponding reference is `@eq:equation` and for equate we don't have this prefix, i.e. the reference would be `@equation` in this example. This is something to be improved in future releases.
+- `equation-numbering-pattern`: specify the [numbering](https://typst.app/docs/reference/model/numbering/#parameters-numbering) of the equations. The second counting symbol (e.g. the `a` in `"(1.a)"`) is either used for subequation numbering or for the numbering of equations in the chapters.
 <ins>colors</ins>
-- `colors`: Color scheme to be used in the thesis. has to be formatted like `(cover-color: rgb("#800080"), heading-color: rgb("#0000ff"))`
+- `cover-color`: Color used for the cover.
+- `heading-color`: Color used for headings.
+- `link-color`: Color used for links and references.
 
 
-#### Other Customizations
+### Other Customizations
 - `declaration.typ` should be modified
 - when adding chapters, remember to include them into the `main.typ`.
 - (optional) change colors and appearance of the theorem environment in the `customization/`-folder.
@@ -75,12 +77,12 @@ If you want to change an existing typst project structure to use this template, 
 ```
 
 
-### Disclaimer 
-This template was created after Sebastian finished his master's thesis.  
+## Disclaimer
+This template was created after Sebastian finished his master's thesis.
 We do not guarantee that it will be accepted by any university, please clarify in advance if it fulfills all requirements. If not, this template might still be a good starting point.
 
-### Acknowledgements
-As inspiration on how to structure this template, We used the [modern-unito-thesis](https://typst.app/universe/package/modern-unito-thesis) template. The design is inspired by the [fau-book](https://github.com/FAU-AMMN/fau-book) template.
+## Acknowledgements
+As inspiration on how to structure this template, we used the [modern-unito-thesis](https://typst.app/universe/package/modern-unito-thesis) template. The design is inspired by the [fau-book](https://github.com/FAU-AMMN/fau-book) template.
 
-### Feedback & Improvements
+## Feedback & Improvements
 If you encounter problems, please open issues. In case you found useful extensions or improved anything We are also very happy to accept pull requests.

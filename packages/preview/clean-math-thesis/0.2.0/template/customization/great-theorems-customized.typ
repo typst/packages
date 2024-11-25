@@ -1,16 +1,20 @@
 // packages
 #import "@preview/great-theorems:0.1.1": *
-#import "@preview/headcount:0.1.0": *
+#import "@preview/rich-counters:0.2.2": rich-counter
 
 // local
 #import "colors.typ": *
 
-#let mathcounter = counter("mathblocks")  // counter for mathblocks
+// counter for mathblocks
+#let mathcounter = rich-counter(
+  identifier: "mathblocks",
+  inherited_levels: 1
+)
+
 #let my_mathblock = mathblock.with(
   radius: 0.3em,
   inset: 0.8em,
   counter: mathcounter,
-  numbering: dependent-numbering("1.1"),
   breakable: false,
   titlix: title => [(#title):],
 )

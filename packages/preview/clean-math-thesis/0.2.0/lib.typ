@@ -2,7 +2,7 @@
 #import "@preview/great-theorems:0.1.1": great-theorems-init
 #import "@preview/hydra:0.5.1": hydra
 #import "@preview/equate:0.2.1": equate
-
+#import "@preview/i-figured:0.2.4": reset-counters, show-equation
 
 #let template(
   // personal/subject related stuff
@@ -30,43 +30,76 @@
   abstract: none,
 
   // colors
-  colors: (cover-color: rgb("#800080"), heading-color: rgb("#0000ff")),
+  cover-color: rgb("#800080"),
+  heading-color: rgb("#0000ff"),
+  link-color: rgb("#000000"),
 
   // equation settings
   equate-settings: none,
-  numbering-pattern: "(1.1)",
+  equation-numbering-pattern: "(1.1)",
 
   // the content of the thesis
   body
 ) = {
 // ------------------- settings -------------------
+set document(author: author, title: title)
 set heading(numbering: "1.1")  // Heading numbering
 set enum(numbering: "(i)") // Enumerated lists
+show link: set text(fill: link-color)
+show ref: set text(fill: link-color)
 
 // ------------------- Math equation settings -------------------
 
-set math.equation(numbering: numbering-pattern) if equate-settings != none
-// only labeled equations get a number
+// either use equate if equate-settings is set or use i-figured if equate-settings is none
+// i-figured settings
 show math.equation: it => {
-  if equate-settings != none {
-    equate(..equate-settings, it)
-  } else if it.has("label"){
-    math.equation(block:true, numbering: numbering-pattern, it)
+  if equate-settings == none {
+    show-equation(prefix: "eq:", only-labeled: true, numbering: equation-numbering-pattern, it)
   } else {
     it
   }
 }
+set math.equation(supplement: none) if equate-settings == none
+
+// equate settings
+show: it => {
+  if equate-settings != none {
+    equate(..equate-settings, it)
+  } else {
+    it
+  }
+}
+set math.equation(numbering: equation-numbering-pattern) if equate-settings != none
+
+// Reference equations with parentheses (for equate)
+// cf. https://forum.typst.app/t/how-can-i-set-numbering-for-sub-equations/1603/4
 show ref: it => {
+  let eq = math.equation
   let el = it.element
-  if equate-settings == none and el != none and el.func() == math.equation {
+
+  let is-normal-equation = el != none and el.func() == eq
+  let with-subnumbers = equate-settings != none and equate-settings.keys().contains("sub-numbering") and equate-settings.sub-numbering
+  let is-sub-equation = el != none and el.func() == figure and el.kind == eq
+  if equate-settings != none and is-normal-equation {
     link(el.location(), numbering(
-      "(1)",
-      counter(math.equation).at(el.location()).at(0) + 1
+      el.numbering,
+      ..counter(eq).at(el.location())
+    ))
+  } else if equate-settings != none and not with-subnumbers and is-sub-equation {
+    link(el.location(), numbering(
+      el.numbering,
+      counter(eq).at(el.location()).at(0) - 1
+    ))
+  } else if equate-settings != none and is-sub-equation {
+    link(el.location(), numbering(
+      el.numbering,
+      ..el.body.value
     ))
   } else {
     it
   }
 }
+
 show math.equation: box  // no line breaks in inline math
 show: great-theorems-init  // show rules for theorems
 
@@ -76,32 +109,31 @@ show heading.where(level: 1): set heading(supplement: [Chapter])
 show heading.where(
   level: 1,
 ): it => {
-  if it.numbering != none{
-  block(width: 100%)[
-
-  #line(length: 100%, stroke: 0.6pt + colors.heading-color)
-  #v(0.1cm)
-  #set align(left)
-  #set text(22pt)
-  #text(colors.heading-color)[Chapter
-  #counter(heading).display(
-    "1:" + it.numbering
-  )]
-
-  #it.body
-  #v(-0.5cm)
-  #line(length: 100%, stroke: 0.6pt + colors.heading-color)
-]
-  }
-  else{
+  if it.numbering != none {
     block(width: 100%)[
-      #line(length: 100%, stroke: 0.6pt + colors.heading-color)
+      #line(length: 100%, stroke: 0.6pt + heading-color)
+      #v(0.1cm)
+      #set align(left)
+      #set text(22pt)
+      #text(heading-color)[Chapter
+      #counter(heading).display(
+        "1:" + it.numbering
+      )]
+
+      #it.body
+      #v(-0.5cm)
+      #line(length: 100%, stroke: 0.6pt + heading-color)
+    ]
+  }
+  else {
+    block(width: 100%)[
+      #line(length: 100%, stroke: 0.6pt + heading-color)
       #v(0.1cm)
       #set align(left)
       #set text(22pt)
       #it.body
       #v(-0.5cm)
-      #line(length: 100%, stroke: 0.6pt + colors.heading-color)
+      #line(length: 100%, stroke: 0.6pt + heading-color)
     ]
   }
 }
@@ -137,6 +169,14 @@ show heading.where(
   linebreak()
 }
 
+// reset counter from i-figured for section-based equation numbering
+show heading: it => {
+  if equate-settings == none {
+    reset-counters(it)
+  } else {
+    it
+  }
+}
 // ------------------- other settings -------------------
 // Settings for Chapter in the outline
 show outline.entry.where(
@@ -220,9 +260,9 @@ v(1fr)
   }
 v(5fr)
 //title
-line(length: 100%, stroke: colors.cover-color)
+line(length: 100%, stroke: cover-color)
 align(center, text(3em, weight: 700, title))
-line(start: (10%, 0pt), length: 80%, stroke: colors.cover-color)
+line(start: (10%, 0pt), length: 80%, stroke: cover-color)
 v(5fr)
 //author
 align(center, text(1.5em, weight: 500, degree + " Thesis by " + author))
