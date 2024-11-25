@@ -9,9 +9,3 @@ repository = "https://github.com/ellsphiillips/lineal"
 keywords = ["typst", "touying", "slide", "theme", "template", "lecture", "presentation"]
 categories = ["presentation"]
 exclude = [".github/", "README.md"]
-
-
-[template]
-path = "template"
-entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
