@@ -451,6 +451,20 @@
     ..args,
   )
   show: codly-init.with()
+
+  show emph: it => {  
+    underline(stroke: (thickness: 1em, paint: primary.transparentize(95%), cap: "round"),offset: -7pt,background: true,evade: false,extent: -8pt,text(primary, it.body))
+  }
+
+  show outline.entry.where(
+    level: 1
+  ): it => {
+    v(1em, weak: true)
+    text(primary, it.body)
+  }
+
+  show :show-cn-fakebold // Used to display bold Chinese text
+
   // codly(
   //   display-icon: true,
   //   // default-color: rgb("#283593"),
