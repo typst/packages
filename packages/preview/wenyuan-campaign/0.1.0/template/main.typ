@@ -137,10 +137,10 @@ Besides the readaloud, there are a couple other things which may be useful. Such
 
 == Tables and More Tables
 
-Tables are styled according to the DnD styling. Due to a current limitation in typst, the header row is not automatically bolded, you will have to do that yourself.
+By default tables have no stroke. You can make a DnD-style table by using `#dndtable()`, the _exact same way_ you'd make a regular table.#footnote[In a dndtable, you cannot set the stroke, fill, or inset.] Due to a current limitation in typst, the header row is not automatically bolded, you will have to do that yourself.
 
 #sctitle[Make a nice title with `sctitle`]
-#table(
+#dndtable(
   columns: (auto, 1fr),
   table.header[*d2*][*Items*],
   [1], [An apple],
@@ -222,7 +222,7 @@ As such, there is less freedom with colours in my typst module (sorry).
 
 By using the `setThemeColour(color)` command you can set the colour to any colour you want. This will affect the colours of tables, comments, and fancy comments. Whilst you can pick any colour, I recommend the colours included in the package:
 
-#table(
+#dndtable(
   columns: (1fr),
   table.header[*Colour*],
   [`colours.phbgreen`],

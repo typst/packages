@@ -172,23 +172,7 @@
   }
 
   // ========================
-  show table.where(fill: none): tb => {
-    set text(font: sans-font)
-    
-    context {
-      let col = theme-colour.get()
-
-      table(
-        align: tb.align, rows: tb.rows, columns: tb.columns,
-        row-gutter: tb.row-gutter, column-gutter: tb.column-gutter,
-        fill: (_, y) => if calc.odd(y) { col },
-        stroke: none,
-        inset: (left: 5pt, right: 5pt, top: 2.5pt, bottom: 2.5pt),
-        ..tb.children
-      )
-    }
-  }
-
+  set table(stroke: none)
 
   // ========================
   
@@ -453,6 +437,26 @@
 }
 
 
+// creates a dnd-formatted table
+// the use of this table is identical to the default table() interface, EXCEPT
+// you do not have access to stroke, fill, or inset
+#let dndtable(
+  columns: (), rows: (), gutter: (), column-gutter: (), row-gutter: (), align: auto, 
+  ..children
+) = context {
+  let col = theme-colour.get()
+
+  table(
+    columns: columns, rows: rows, 
+    gutter: gutter, column-gutter: column-gutter, row-gutter: row-gutter,
+    align: align,
+    fill: (_, y) => if calc.odd(y) { col },
+    stroke: none,
+    inset: (left: 5pt, right: 5pt, top: 2.5pt, bottom: 2.5pt),
+    ..children
+  )
+}
+
 
 // begins the monster statblock environment
 #let begin-stat(content) = context {
@@ -461,7 +465,6 @@
     above: 2em, below: 2em, fill: colours.bgtan, inset: 1em,
     stroke: (top: 2pt + colours.rulegold, bottom: 2pt + colours.rulegold)
   )[
-    #set table(inset: 0% + 5pt, stroke: none, fill: colours.bgtan)
     #stat.smallconf(
       content,
       fontsize: theme-fontsize.get(),

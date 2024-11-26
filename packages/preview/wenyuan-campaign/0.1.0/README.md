@@ -126,6 +126,11 @@ Parameters:
 
 ---
 
+**dndtable**`(...)`.
+A theme-coloured dnd-style table. Parameters are identical to table except stroke, fill, and inset are not included.
+
+---
+
 **sctitle**`[]`.  
 Makes a small caps header block.  
 
