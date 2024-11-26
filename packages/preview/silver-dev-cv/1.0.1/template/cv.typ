@@ -1,4 +1,4 @@
-#import "@preview/silver-dev-cv:1.0.0": *
+#import "@preview/silver-dev-cv:1.0.1": *
 
 #show: cv.with(
   font-type: "PT Serif",
