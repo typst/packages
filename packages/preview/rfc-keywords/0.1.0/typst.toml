@@ -8,4 +8,4 @@ description = "Makes it easy to use the BCP14/RFC2119/RFC8174 keywords."
 categories = ["utility"]
 keywords = ["rfc", "keywords", "rfc2119", "rfc8174", "bcp14"]
 repository = "https://github.com/swaits/typst-collection"
-exclude = ["thumbnail.png", "examples/example.pdf"]
+exclude = ["thumbnail.png", "examples/*"]
