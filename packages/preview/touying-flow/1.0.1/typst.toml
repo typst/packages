@@ -1,6 +1,6 @@
 [package]
 name = "touying-flow"
-version = "1.0.0"
+version = "1.0.1"
 entrypoint = "theme.typ"
 authors = ["Quaternijkon<https://github.com/Quaternijkon>"]
 license = "MIT"

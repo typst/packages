@@ -17,7 +17,7 @@ These steps assume that you already have [Typst](https://typst.app/) installed a
 ### Import from Typst Universe
 
 ```typst
-#import "@preview/touying-flow:1.0.0":*
+#import "@preview/touying-flow:1.0.1":*
 
 #show: dewdrop-theme.with(
   aspect-ratio: "16-9",
@@ -33,22 +33,13 @@ These steps assume that you already have [Typst](https://typst.app/) installed a
   ),
 )
 
-#let primary= rgb("#004098")
-
-#show :show-cn-fakebold
-#show outline.entry.where(
-  level: 1
-): it => {
-  v(1em, weak: true)
-  text(primary, it.body)
-}
-#show emph: it => {  
-  underline(stroke: (thickness: 1em, paint: primary.transparentize(95%), cap: "round"),offset: -7pt,background: true,evade: false,extent: -8pt,text(primary, it.body))
-}
-
 #title-slide()
 
 = Example Section Title
 
 == Example Page Title
 ```
+
+## Change log
+
+### Simplify the use of template

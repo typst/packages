@@ -1,5 +1,5 @@
-#import "../../theme.typ":*
-// #import "@preview/touying-flow:1.0.0":*
+// #import "../../theme.typ":*
+#import "@preview/touying-flow:1.0.1":*
 #show: flow-theme.with(
   aspect-ratio: "16-9",
   footer: self => self.info.title,
