@@ -192,6 +192,10 @@
 #let outline-slide(self: none) = {
 
   self.ustc-title = context if text.lang == "zh" [大纲] else [Outline]
+    set page(background: rotate(-60deg,
+    place(right + horizon, image("assets/img/USTC-NO-TEXT.svg",format: "svg", width: 25%), dx: 14em,dy:18em)
+  ),
+  )
   let content = {
     set align(horizon)
     set text(weight: "bold")
@@ -247,7 +251,7 @@
   }
   self = utils.empty-page(self)
   self.page-args += (
-    fill: self.colors.primary-dark,
+    fill: self.colors.primary,
     margin: 1em,
     ..(if background-color != none { (fill: background-color) }),
     ..(if background-img != none { (background: {
@@ -338,7 +342,12 @@
     states.slide-counter.display() + " / " + states.last-slide-number
   },
   footer-g: self => {
-    link("https://github.com/Quaternijkon/Typst_USTC_CS.git",image("assets/img/github-mark-white.svg"))
+  let githublink= if self.info.github != none {
+    self.info.github
+  } else {
+    "https://github.com/Quaternijkon/Typst_USTC_CS.git"
+  }
+    link(githublink,image("assets/img/github-mark-white.svg"))
   },
   ..args,
 ) = {
@@ -346,7 +355,7 @@
   self = (self.methods.colors)(
     self: self,
     primary: rgb("#034ea1"),
-    primary-dark: rgb("#004098"),
+    // primary-dark: rgb("#004098"),
     secondary: rgb("#ffffff"),
     tertiary: rgb("#005bac"),
     neutral-lightest: rgb("#ffffff"),
@@ -384,8 +393,8 @@
     grid(
       columns: (ratio * 100%, 1fr),
       rows: 2pt,
-      components.cell(fill: self.colors.themegreen),
-      components.cell(fill: self.colors.themeyellow),
+      components.cell(fill: self.colors.primary),
+      components.cell(fill: self.colors.neutral-lightest),
     )
   })
 
@@ -444,7 +453,7 @@
       
       place(left + horizon, text(fill: self.colors.neutral-lightest, weight: "bold", size: 1.3em, self.ustc-title), dx: 1.5em)
 
-      place(right + horizon, image("assets/img/ustc_logo_side.svg",format: "svg"), dx: -1em)
+      place(right + horizon, image("assets/img/ustc_logo_side.svg",format: "svg",width: 20%), dx: -1em)
     }
   }
   // set page
@@ -496,14 +505,14 @@
       columns: 1,
       row-gutter: 0pt,
       block(
-      fill: self.colors.primary-dark,
+      fill: self.colors.primary,
       width: 100%,
       radius: (top: 6pt),
       inset: (top: 0.4em, bottom: 0.3em, left: 0.5em, right: 0.5em),
       text(fill: self.colors.neutral-lightest, weight: "bold", title),
     ),
       rect(
-        fill: gradient.linear(self.colors.primary-dark, self.colors.primary.lighten(90%), angle: 90deg),
+        fill: gradient.linear(self.colors.primary, self.colors.primary.lighten(90%), angle: 90deg),
         width: 100%,
         height: 4pt,
       ),

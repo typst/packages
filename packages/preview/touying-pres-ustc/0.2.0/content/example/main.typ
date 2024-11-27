@@ -1,16 +1,17 @@
-#import "@preview/touying-pres-ustc:0.2.0": *
+// #import "@preview/touying-pres-ustc:0.2.0": *
+#import "../../theme.typ":*
 
 #let s = register(aspect-ratio: "16-9")
 #let s = (s.methods.numbering)(self: s, section: "1.", "1.1")
 #let s = (s.methods.info)(
   self: s,
-  title: [Typst template for School of Computer Science and Technology, USTC],
+  title: [Typst template for University of Science and Technology of China],
   subtitle: [Continuously Improving...],
   author: [Quaternijkon],
   date: datetime.today(),
   institution: [School of Computer Science and Technology, USTC],
-  logo: image("../../assets/img/USTC.svg", width: 50%),
-  github: []
+  logo: image("../../assets/img/USTC_logo_side.svg", width: 50%),
+  github: ""
 )
 
 #let (init, slides) = utils.methods(s)
