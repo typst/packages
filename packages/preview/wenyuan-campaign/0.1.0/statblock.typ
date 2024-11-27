@@ -77,8 +77,9 @@
   set par(leading: 0.5em, first-line-indent: 0pt)
 
   show heading.where(level: 2) : hd => {
-    set text(font: smallcap-font, fill: dndred, size: fontsize * 1.2)
-    hd
+    set text(font: smallcap-font, fill: dndred, size: fontsize * 1.3, weight: "regular")
+    v(0.5em)
+    hd.body
     v(-1em)
     line(length: 100%, stroke: 0.6pt + dndred)
     v(0.2em)
