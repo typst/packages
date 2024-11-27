@@ -1,5 +1,5 @@
 [package]
-name = "rfc-keywords"
+name = "rfc-vibe"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Stephen Waits <steve@waits.net>"]
