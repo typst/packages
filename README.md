@@ -269,6 +269,7 @@ The infrastructure around the package repository is licensed under the terms of
 the Apache-2.0 license. Packages in `packages/` are licensed under their
 respective license.
 
+[list]: https://typst.app/universe/search/
 [universe]: https://typst.app/universe/
 [categories]: https://github.com/typst/packages/blob/main/CATEGORIES.md
 [disciplines]: https://github.com/typst/packages/blob/main/DISCIPLINES.md

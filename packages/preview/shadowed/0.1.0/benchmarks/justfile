@@ -1,0 +1,10 @@
+#!/usr/bin/env just --justfile
+
+# List all recipes
+@default:
+    just --list
+
+# Run and time benchmark
+@run:
+    time typst compile main.typ --root ..
+    rm main.pdf
