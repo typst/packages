@@ -1,15 +1,20 @@
-# `rfc-keywords` package
+# `rfc-vibe` package
+
+Bring that RFC lingo to your everyday documents.
 
 A [Typst](https://typst.app/) package that makes it easy to use the exact
 keywords, boilerplate, and definitions provided by BCP 14, RFC2119, and RFC8174.
 See the end of this README for an example of the output.
+
+In the future, this package may include other RFC-related patterns which are
+applicable to a wide variety of everyday documents.
 
 ## Usage
 
 Import the package in your Typst document:
 
 ```typst
-#import "@preview/rfc-keywords:0.1.0": *
+#import "@preview/rfc-vibe:0.1.0": *
 ```
 
 ### Keywords

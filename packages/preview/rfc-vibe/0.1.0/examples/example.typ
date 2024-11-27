@@ -1,10 +1,10 @@
-#import "@preview/rfc-keywords:0.1.0": *
+#import "@preview/rfc-vibe:0.1.0": *
 
 #set page(paper: "us-letter", margin: 0.75in)
 #set par(justify: true)
 #set text(size: 10pt)
 
-= `rfc-keywords` package
+= `rfc-vibe` package
 
 This package makes it easy to use the exact keywords, boilerplate, and
 definitions provided by #bcp14, #rfc2119, and #rfc8174.
