@@ -1,0 +1,18 @@
+[package]
+name = "report-flow-bit"
+version = "1.0.0"
+entrypoint = "theme.typ"
+authors = ["Quaternijkon<https://github.com/Quaternijkon>"]
+license = "MIT"
+description = "A template suitable for BIT students (of course, you can freely modify it for any school or organization) to complete course assignments or submit lab reports."
+repository = "https://github.com/Quaternijkon/Typst_Lab_Report"
+keywords = ["homework", "lab report", "bit", "report", "university"]
+categories = ["report"]
+disciplines = []
+compiler = "0.11.0"
+exclude = ["main.pdf"]
+
+[template]
+path = "content/example"
+entrypoint = "main.typ"
+thumbnail = "image.png"
