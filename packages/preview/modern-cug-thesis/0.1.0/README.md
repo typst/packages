@@ -44,8 +44,8 @@
 2. **安装插件**：在 VS Code 中安装 [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist)
 3. **准备项目文件**：
 
-   - **使用 Typst Packages**：按下 `Ctrl + Shift + P` 打开命令界面，输入 `Typst: Show available Typst templates (gallery) for picking up a template` 打开 Tinymist 提供的 Template Gallery，然后从里面找到 `cug-thesis`，点击 `❤` 按钮进行收藏，以及点击 `+` 号，就可以创建对应的论文模板了，会出现 `ref.bib` 以及 `thesis.typ`。
-   - **Clone Repo**: 使用命令 `git clone https://github.com/Rsweater/cug-thesis-typst.git` 将整个项目克隆到本地，寻找 `template/thesis.typ`。
+   - **方法一：Clone Repo**: 使用命令 `git clone https://github.com/Rsweater/cug-thesis-typst.git` 将整个项目克隆到本地，寻找 `template/thesis.typ`。
+   - **方法二：使用 Typst Packages**：按下 `Ctrl + Shift + P` 打开命令界面，输入 `Typst: Show available Typst templates (gallery) for picking up a template` 打开 Tinymist 提供的 Template Gallery，然后从里面找到 `cug-thesis`，点击 `❤` 按钮进行收藏，以及点击 `+` 号，就可以创建对应的论文模板了，会出现 `ref.bib` 以及 `thesis.typ`。
 4. 打开开始编写论文内容~
 
 ## Q&A
