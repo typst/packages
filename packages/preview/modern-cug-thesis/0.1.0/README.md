@@ -1,6 +1,7 @@
 # 基于 Typst 的中国地质大学（武汉）学位论文模板
 
 **cug-thesis-thesis** 适用于中国地质大学（武汉）学位论文模板，具有便捷、简单、实时渲染等特性。欢迎各位同学、校友们前来 [Issues](https://github.com/Rsweater/cug-thesis-typst/issues) 交流学习~
+
 ![预览](https://cdn.jsdelivr.net/gh/Rsweater/images/img/preview.gif)
 
 ## 为什么考虑 Typst 实现学位论文模板？
@@ -34,9 +35,9 @@
 
 ### 如果你经常使用 VS Code，也比较推荐使用这个~
 
-安装步骤：
+**使用步骤**：安装 typst (命令行工具) → VS Code 插件(实时预览、智能提醒)，随后就可以准备开始项目了(打开项目文件、撰写论文内容)
 
-1. **安装typst：**
+1. **安装 typst ：**
 
    - **macOS:** `brew install typst`
    - **Windows:** `winget install --id Typst.Typst -l "D:\bw_ch\toolkits\typst"`
