@@ -1,8 +1,7 @@
 # 基于 Typst 的中国地质大学（武汉）学位论文模板
 
 **cug-thesis-thesis** 适用于中国地质大学（武汉）学位论文模板，具有便捷、简单、实时渲染等特性。欢迎各位同学、校友们前来 [Issues](https://github.com/Rsweater/cug-thesis-typst/issues) 交流学习~
-
-![预览](https://gitee.com/Rsweater_admin/Blog_Images/raw/master/img/preview.gif)
+![预览](https://cdn.jsdelivr.net/gh/Rsweater/images/img/preview.gif)
 
 ## 为什么考虑 Typst 实现学位论文模板？
 
