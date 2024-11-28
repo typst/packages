@@ -9,7 +9,7 @@
 // Email:   gabriel@silver.dev
 ///////////////////////////////
 
-set document(author: "silver", title: "Silver dev CV")
+#set document(author: "silver", title: "Silver dev CV")
 
 // Define the colour scheme
 #let date-colour = rgb("#666666")

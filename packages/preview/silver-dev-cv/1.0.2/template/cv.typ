@@ -16,6 +16,7 @@
 )
 
 
+
 // about
 #section[About Me]
 #descript[I'm a product-minded backend engineer with deep expertise in Fintech and operations and team leadership. I excel in high-growth high-expectations environments and handle pre and post-product market fit software products.]
@@ -72,3 +73,5 @@
   date: "2015-2018",
   location: "Argentina",
 )
+
+#set document(author: "silver", title: "Silver CV Template")
