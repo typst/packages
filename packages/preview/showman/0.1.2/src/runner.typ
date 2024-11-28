@@ -6,8 +6,8 @@ Inspiration: https://github.com/typst/packages/blob/main/packages/preview/cetz/0
 #let label-counters = state("external-code-label-counters", (:))
 
 #let config = (
-  runnable-langs: ("example", ),
-  showable-labels: (<example-output>, ),
+  runnable-langs: ("example",),
+  showable-labels: (<example-output>,),
   output-label: <example-output>,
   input-label: <example-input>,
 )
@@ -34,7 +34,8 @@ Inspiration: https://github.com/typst/packages/blob/main/packages/preview/cetz/0
 #let _natural-sized-image(content, format: "svg") = {
   style(styles => {
     let (width, height) = measure(
-      image.decode(content, format: format), styles
+      image.decode(content, format: format),
+      styles,
     )
     image.decode(content, format: format, width: width, height: height)
   })
@@ -117,13 +118,19 @@ Inspiration: https://github.com/typst/packages/blob/main/packages/preview/cetz/0
   let input-source = raw-content.text
   let lang = raw-content.at("lang", default: "default")
   [#metadata(input-source)#label(lang)]
-  let pieces = (eval-prefix, raw-content.text, eval-suffix)
+  // Providing `output` provides compatibility with globalexample overrides
+  let pieces = (
+    "#let output = (body) => body",
+    eval-prefix,
+    raw-content.text,
+    eval-suffix,
+  )
   if unpack-modules {
     pieces.insert(0, wildcard-import-string-from-modules(scope))
   }
   let output = eval(pieces.join("\n"), mode: "markup", scope: scope)
 
-  let grid-args = (box(width: 1fr)[#raw-content#config.input-label], )
+  let grid-args = (box(width: 1fr)[#raw-content#config.input-label],)
   grid-args.push[
     #output#config.output-label
   ]
@@ -145,7 +152,10 @@ Inspiration: https://github.com/typst/packages/blob/main/packages/preview/cetz/0
     let lang = raw-content.at("lang", default: "default")
     [#metadata(raw-content.text)#label(lang)]
     standalone-example(
-      raw-content, eval-prefix: all-blocks.join("\n"), eval-suffix: eval-suffix, ..args
+      raw-content,
+      eval-prefix: all-blocks.join("\n"),
+      eval-suffix: eval-suffix,
+      ..args,
     )
   }
   example-blocks.update(old => {
@@ -155,7 +165,11 @@ Inspiration: https://github.com/typst/packages/blob/main/packages/preview/cetz/0
 }
 
 #let raw-with-eval(
-  it, global: auto, langs: config.runnable-langs, block: true, eval-kwargs: (:)
+  it,
+  global: auto,
+  langs: config.runnable-langs,
+  block: true,
+  eval-kwargs: (:),
 ) = {
   if type(langs) != array {
     langs = (langs,)
