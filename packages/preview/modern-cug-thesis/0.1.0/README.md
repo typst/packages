@@ -1,4 +1,3 @@
-
 # 基于 Typst 的中国地质大学（武汉）学位论文模板
 
 **cug-thesis-thesis** 适用于中国地质大学（武汉）学位论文模板，具有便捷、简单、实时渲染等特性。欢迎各位同学、校友们前来 [Issues](https://github.com/Rsweater/cug-thesis-typst/issues) 交流学习~
@@ -11,6 +10,11 @@
 2. 本人写文档相对来说较为粗心，使用 Word 模板会忍不住的反复去检查格式是否符合要求。又听说 Latex 写毕业论文可能后面编译一次需要几十秒~~ 虽然这个自己只是听说，但是 LaTex 在线编辑的方式 Overleaf 达到一定的编译时间收费这个是真的，就我小论文都勉强够用。自己使用开源的 Overleaf 搭建的平台功能上总是缺点什么，奈何自己又不懂~ 自己搭建的本地的 Tex 环境随解决了编译时间付费问题。但是涉及到的宏包、环境，前段时间打开突然不能用了，捣鼓半天不知是何原因~ 直至重新装了2024年的 LaTex 环境才重新运行自己的学位论文。
 3. 惊喜的发现 Typst 编译速度真的非常快~ 经过一段时间的了解，发现基本满足制作学位论文的需求，于是乎~就有了这个cug-thesis-typst。
 
+## 参考规范
+
+- 本科生论文模板参考：[学士学位论文写作规范（2018版）-中国地质大学本科生院](https://bksy.cug.edu.cn/info/1489/1851.htm)
+- 研究生论文模板参考：[研究生学位论文写作规范（2015版）-中国地质大学地理与信息工程学院](https://xgxy.cug.edu.cn/info/1073/3509.htm)（对研究生院相关通知附件进行了整理）
+
 ## 模板认可度问题
 
 **值得提醒的是**毕竟是民间实现模板，有不被学院认可的可能性~
@@ -20,11 +24,6 @@
 而且哈~ 咱们的研究生学位论文写作规范（2015版）似乎要求似乎不是特别苛刻。请自行斟酌~
 
 > 小声~ 研究生学位论文写作规范（2015版）似乎还有一处前后矛盾的要求，斯~
-
-## 参考规范
-
-- 本科生论文模板参考：[学士学位论文写作规范（2018版）-中国地质大学本科生院](https://bksy.cug.edu.cn/info/1489/1851.htm)
-- 研究生论文模板参考：[研究生学位论文写作规范（2015版）-中国地质大学地理与信息工程学院](https://xgxy.cug.edu.cn/info/1073/3509.htm)（对研究生院相关通知附件进行了整理）
 
 ## 使用方法
 
@@ -57,7 +56,8 @@
 
 **参考资料：**
 
-- 官网Tutorial：[Writing in Typst – Typst Documentation](https://typst.app/docs/tutorial/writing-in-typst/)
+- 官网Tutorial：[Writing in Typst – Typst Documentation](https://typst.app/docs/tutorial/writing-in-typst/)、[Tutorial中文翻译](https://typst-doc-cn.github.io/docs/tutorial/writing-in-typst/)
+- Typst 语法官网文档：[Syntax – Typst Documentation](https://typst.app/docs/reference/syntax/)、[语法中文翻译](https://typst-doc-cn.github.io/docs/reference/syntax/)
 - 中文社区小蓝书：[The Raindrop-Blue Book (Typst中文教程)](https://typst-doc-cn.github.io/tutorial/basic/writing-markup.html)
 
 ### 我不会代码、不会 LaTeX 可以使用吗？从接触到使用需要多久？

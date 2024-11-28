@@ -2,7 +2,7 @@
 #import "@preview/modern-cug-thesis:0.1.0": documentclass, indent
 
 // 本地模式
-// #import "../lib.typ": documentclass, indent
+// #import "/lib.typ": documentclass, indent
 
 #let (
   // 布局函数
@@ -41,6 +41,7 @@
     department-en: "National Engineering Research Center of Geographic Information System",
     doctype: "master", // "bachelor" | "master" | "doctor" | "postdoc", 文档类型，默认为本科生 bachelor
     degreetype: "professional", // "academic" | "professional", 学位类型，默认为学术型 academic
+    is-equivalent: false,   // 是否同等学力，默认为 false
     is-fulltime: true, // 是否全日制，默认为 true
     degree: "工程硕士",  // 学位名称，默认为工程硕士（专硕学位名称，学硕与专业名称类似）
     degree-en: "Master of Engineering",
@@ -115,20 +116,206 @@
 // 正文
 #show: mainmatter
 
-// 符号表
-// #notation[
-//   / DFT: 密度泛函理论 (Density functional theory)
-//   / DMRG: 密度矩阵重正化群密度矩阵重正化群密度矩阵重正化群 (Density-Matrix Reformation-Group)
-// ]
+// 可以直接在该文件中编写，Typst 编译足够的快 ~
+// 如果使用分章节存放，记得打开注释之后先预览（VS Code 右上角的预览按钮，快捷键 Ctrl+K V）一下，
+// 确保成功导入相关文件。
+// #include "chapters/intro.typ"
+// #include "chapters/chapter1.typ"
 
-#include "chapters/intro.typ"
+= 导　论
 
-#include "chapters/chapter1.typ"
+欢迎使用该模板的用户~ 
 
-// // 手动分页
-// #if twoside {
-//   pagebreak() + " "
-// }
+该模板基于 Typst 设计，为方便 CUG 学子撰写毕业论文而生\~ 后面简单介绍下关于该模板的使用。使用该模板的好处：
+#v(0.5em) // 正文格式20pt，段前段后0，这里先定义半个字符的间距，为了美观。
+#set enum(indent: 2em) // 有序列表缩进2个字符长度
+1. 不需要担心 Word 样式排版用的不熟练，模板样式按照 CUG 学位论文写作规范自动生成已经预先设定，仅需专注论文内容即可。
+2. 拥有超快的渲染速度，不用担心后期一起渲染几十秒的问题（LaTex 老大哥不好意思哦\~）。
+3. 预定义盲审、单双面混合打印模式，无需后续手动调整。
+5. 支持 Typst Web APP 以及本地编辑模式，方便用户根据习惯自行挑选。
+
+== 注意事项
+
+各位是勇敢的尝鲜者，但是再次提醒哦~ 该模板是民间自制，有不被官网认可的风险，请自行斟酌使用。
+
+最简单的确认方法，就是咨询各自的学长学姐，学院是否接受 PDF 格式的毕业论文，如果接受，可放心使用，样式排版与Word一致。
+
+== 论文撰写引导
+
+Typst 编辑模式有两种。一种是标记模式，一种是脚本模式。
+
+怎么理解这个呢？Markdown 这样的标记语言的使用方式就是标记模式，我们可以成为 Markdown Like 模式。当然，这里是我们自己简称，别人怎么称呼还真不知道。脚本模式就类似于 LaTex 那样，直接一行一行的命令跟着内容在一块。
+
+标记模式的好处是，我们可以使用简单的标记直接来划分内容：段落、列表、图表、引用还是公式或者代码。脚本模式的好处是，如果这个模板提供的样式不满足你个人的喜好，可以在遵循《写作规范》的前提下，调整样式。就类似上面导论那里。由于我们的论文要求段落行间距 20pt，段前段后 0 ，为了美观使用了`#v(0.5em)`以及`#set enum(indent: 2em)`。我们的脚本模式使用`#`表示脚本开始，如果有多条命令，后面可跟{}，例如`#{}`。
+
+注意哦\~，我们这里的脚本模式是有作用域的。默认直接全局，在花括号内，仅作用于花括号。具体的可参考 README 中提供的文档说明以及本模板的代码。
+
+后面小节简单的使用示例。
+
+== 列表
+
+=== 无序列表
+
+- 无序列表项一
+- 无序列表项二
+  - 无序子列表项一
+  - 无序子列表项二
+
+=== 有序列表
+
++ 有序列表项一
++ 有序列表项二
+  + 有序子列表项一
+  + 有序子列表项二
+
+=== 术语列表
+
+/ 术语一: 术语解释
+/ 术语二: 术语解释
+
+== 图表
+
+引用@tbl:timing，引用@tbl:timing-tlt，以及@fig:nju-logo。引用图表时，表格和图片分别需要加上 `tbl:`和`fig:` 前缀才能正常显示编号。
+
+#align(center, (stack(dir: ltr)[
+  #figure(
+    table(
+      align: center + horizon,
+      columns: 4,
+      [t], [1], [2], [3],
+      [y], [0.3s], [0.4s], [0.8s],
+    ),
+    caption: [常规表],
+  ) <timing>
+][
+  #h(50pt)
+][
+  #figure(
+    table(
+      columns: 4,
+      stroke: none,
+      table.hline(),
+      [t], [1], [2], [3],
+      table.hline(stroke: .5pt),
+      [y], [0.3s], [0.4s], [0.8s],
+      table.hline(),
+    ),
+    caption: [三线表],
+  ) <timing-tlt>
+]))
+
+#figure(
+  image("images/A-1.1.2校徽图案.jpg", width: 20%),
+  caption: [图片测试],
+) <nju-logo>
+
+
+== 数学公式
+
+可以像 Markdown 一样写行内公式 $x + y$，以及带编号的行间公式：
+
+$ phi.alt := (1 + sqrt(5)) / 2 $ <ratio>
+
+引用数学公式需要加上 `eqt:` 前缀，则由@eqt:ratio，我们有：
+
+$ F_n = floor(1 / sqrt(5) phi.alt^n) $
+
+我们也可以通过 `<->` 标签来标识该行间公式不需要编号
+
+$ y = integral_1^2 x^2 dif x $ <->
+
+而后续数学公式仍然能正常编号。
+
+$ F_n = floor(1 / sqrt(5) phi.alt^n) $
+
+== 参考文献
+
+可以像这样引用参考文献：图书#[@蒋有绪1998]和会议#[@中国力学学会1990]。
+
+== 代码块
+
+代码块支持语法高亮。引用时需要加上 `lst:` @lst:code
+
+#figure(
+  ```py
+  def add(x, y):
+    return x + y
+  ```,
+  caption:[代码块],
+) <code>
+
+= 正　文
+
+== 正文子标题
+
+=== 正文子子标题
+
+=== test
+
+==== test2
+
+== 2.2
+
+=== 2.2.1
+
+==== 2.2.1.1
+
+=== 2.2.2
+
+==== 2.2.2.1
+@wang2022keypointbased @wang2022keypointbased @chen2023bsnet @xiao2023adnet
+=== 2.2.3
+
+==== 2.2.3.1
+=== 2.2.4
+
+==== 2.2.4.1
+
+== 2.3
+=== 2.3.1
+
+==== 2.3.1.1
+
+=== 2.3.2
+
+==== 2.3.2.1
+
+=== 2.3.3
+
+==== 2.3.3.1
+
+== 2.4
+
+=== 2.4.1
+
+==== 2.4.1.1
+
+=== 2.4.2
+
+==== 2.4.2.1
+
+=== 2.4.3
+
+==== 2.4.3.1
+
+== 2.5
+
+=== 2.5.1
+
+==== 2.5.1.1
+
+=== 2.5.2
+正文内容
+
+#figure(
+  image("images/A-1.1.2校徽图案.jpg", width: 20%),
+  caption: [图片测试],
+) <nju-logo2>
+
+#figure(
+  image("images/A-1.1.2校徽图案.jpg", width: 20%),
+  caption: [图片测试],
+) <nju-log3>
 
 // 中英双语参考文献
 // 默认使用 gb-7714-2015-numeric 样式
