@@ -63,7 +63,7 @@
 
 // 文稿设置
 #show: doc
-// 字体展示测试页
+// 字体展示测试页，仅供测试使用，正式文档请注释掉
 #fonts-display-page()
 // 封面页
 #title-page()
@@ -76,21 +76,32 @@
     name:"张三", 
     gender: "男", 
     nation: "汉族", 
-    birthday: "2000-01-29",
+    birthday: "1996-09-01",
     native-place: "河南省鹤壁市",
     bachelor-time: "2018.09——2022.06",
-    bachelor-school: "河南农业大学",
+    bachelor-school: "河南农业大学", 
+    bachelor-type: "理学学士",
     master-time: "2022.09——2025.06",
     master-school: "中国地质大学（武汉）",
-    doctor-time: "2020-09-01",
-    doctor-school: "广东工业大学",
-    // 2. 学术论文信息
-    thesis-reference-1: "X. X研究[J]. X学报，2004（1）：53-55.",
-    thesis-reference-2: "X. X分析[J]. X技术，2005（5）：6-7.",
+    master-type: "工程硕士",
+    // doctor-time: "2025.09——2029.06",
+    // doctor-school: "最高学府",
+    // doctor-type: "测绘科学与技术博士",
+    // 2. 学术论文信息, 
+    thesises: (
+      "X. X研究[J]. X学报，2004（1）：53-55.",
+      "X. X分析[J]. X技术，2005（5）：6-7.",
+    ),
     // 3. 获奖、专利情况信息
-    award-1: "X. X. 江苏省科技进步奖三等奖.排名第2；",
+    awards: (
+      "X. X. 江苏省科技进步奖三等奖.排名第2；",
+      "2022年度优秀毕业生",
+      "2025年度优秀研究生",
+    ),
     // 4. 研究项目信息
-    project-1: "X项目, 国家自然基金,项目编号：X,参加人员；",
+    projects: (
+      "X项目, 国家自然基金,项目编号：X,参加人员；",
+    )
   )
 )
 
