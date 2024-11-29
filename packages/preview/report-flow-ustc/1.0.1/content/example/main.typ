@@ -1,4 +1,4 @@
-#import "@preview/report-flow-ustc:1.0.1": *
+#import "@preview/report-flow-ustc:1.1.0": *
 
 #show: project.with(
   course: "计算机系统",
@@ -9,10 +9,19 @@
   department: "计算机科学与技术学院",
   date: (2024, 10, 1),
   show_content_figure: true,
-  watermark: "USTC",
+//   text_font: ("STSong"),
+//   text_size: 10pt,
+//   code_font: ("Jetbrains Mono NL","PingFang SC"),
+//   code_size: 8pt,
+//   primary: rgb("#004098"),
+//   secondary: rgb("#004098"),
+//   watermark: "USTC",
+//   alpha:94.12%,
+//   watermark_font:("Times New Roman"),
+//   watermark_size: 240pt,
 )
 
-#set text(size:9pt)
+//#set text(size:9pt)
 
 = 第一次作业
 
