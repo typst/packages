@@ -9,3 +9,6 @@ desktop.ini
 
 # Rust
 /bundler/target
+
+# Local History (xyz.local-history)
+.history/
