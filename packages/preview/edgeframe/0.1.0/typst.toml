@@ -1,10 +1,10 @@
 [package]
-name = "paperparam"
+name = "edgeframe"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["neuralpain <https://github.com/neuralpain>"]
 license = "MIT"
 description = "For quick paper setups."
-repository = "https://github.com/neuralpain/paperparam"
-keywords = ["paperparam", "word"]
+repository = "https://github.com/neuralpain/edgeframe"
+keywords = ["edgeframe", "margin", "word"]
 categories = ["office", "layout"]

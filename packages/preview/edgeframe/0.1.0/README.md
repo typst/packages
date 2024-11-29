@@ -1,4 +1,4 @@
-# paperparam 0.1.0
+# edgeframe (v0.1.0)
 
 Custom margins and other components for page setup or layout.
 
@@ -7,7 +7,7 @@ Custom margins and other components for page setup or layout.
 Add the package with the following code. Remember to add the asterisk `: *` at the end.
 
 ```typ
-#include "@preview/paperparam:0.1.0": *
+#include "@preview/edgeframe:0.1.0": *
 ```
 
 ```typ
