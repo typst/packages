@@ -1,1 +1,2 @@
-**/test*.pdf
+tests/**/out/
+tests/**/diff/

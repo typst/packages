@@ -1,4 +1,4 @@
-#import "lib.typ": *
+#import "/lib.typ": *
 
 #let base-languages = (
   "aarch64",
@@ -95,6 +95,9 @@
   }
 }
 
+Found all base languages!
+
+
 #let aliases = (
   "arm",
   "bash",
@@ -148,6 +151,10 @@
   }
 }
 
+Found all language aliases!
+
 #if codly-languages.keys().len() != base-languages.len() + aliases.len() {
     panic("error: language count is incorrect")
 }
+
+Language key count matches: #codly-languages.keys().len() keys.
