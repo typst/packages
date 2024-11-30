@@ -7,4 +7,4 @@ license = "MIT"
 description = "A set of language configurations for use with codly"
 keywords = ["code", "languages", "template", "raw"]
 repository = "https://github.com/swaits/typst-collection"
-exclude = ["thumbnail.png"]
+exclude = ["thumbnail.png", "test.typ"]
