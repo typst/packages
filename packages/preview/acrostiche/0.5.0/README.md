@@ -138,6 +138,6 @@ Here is a minimal working example of funky acronyms:
 
 # Acknowledgments
 
-Thank you to the contributors: **caemor**, **AurelWeinhold**, **daniel-eder**, **iostapyshyn**. 
+Thank you to the contributors: **caemor**, **AurelWeinhold**, **daniel-eder**, **iostapyshyn**, **ChHecker**. 
 
 If you notice any bug or want to contribute a new feature, please open an issue or a merge request on the fork [Grisely/packages](https://github.com/Grisely/packages)
