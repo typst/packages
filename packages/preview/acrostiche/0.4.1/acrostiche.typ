@@ -221,8 +221,9 @@
     }
   
     // print the acronyms
-    grid(
+    table(
       columns: (20%,80%),
+      stroke: none,
       row-gutter: row-gutter,
       ..for acr in acr-list{
         ([*#display-short(acr, plural:false)#delimiter*], display-def(acr,plural:false))
