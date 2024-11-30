@@ -1,11 +1,11 @@
-#import "../template.typ": *
+#import "template.typ": *
 
 #show: note.with(
   title: "xyznote",
   author: "wardenxyz",
   abstract: "一个简单的 Typst 笔记模板",
   createtime: "2024-11-27",
-  bibliography-file: "template/ref.bib",
+  bibliography-file: "ref.bib",
 )
 
 = 介绍
@@ -23,12 +23,6 @@ $
 $
 
 $a^2-b^2 = (a-b)(a+b)$
-
-= 图片
-
-#figure(
-  image("../1.png", width: 80%),
-)
 
 = 代码
 
