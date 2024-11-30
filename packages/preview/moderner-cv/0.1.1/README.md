@@ -52,9 +52,9 @@ You can download fontawesome [here](https://fontawesome.com/download).
 
 ## Examples
 
-![Jane Doe's CV](assets/example.png)
+![Jane Doe's CV](assets/thumbnail.png)
 
 ## Building and Testing Locally
 
 To build and test the template locally, you can run `pixi run watch` in the root of this repository.
-Please ensure to use the version of moderner-cv that is in this repository instead of the one on the typst universe by temporarily changing the import in [`example.typ`](./template/example.typ) to `#import "../lib.typ": *`.
+Please ensure to use the version of moderner-cv that is in this repository instead of the one on the typst universe by temporarily changing the import in [`cv.typ`](./template/cv.typ) to `#import "../lib.typ": *`.
