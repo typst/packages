@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "@preview/xyznote:0.1.0": *
 
 #show: note.with(
   title: "xyznote",
