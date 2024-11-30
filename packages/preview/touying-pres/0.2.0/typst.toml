@@ -1,11 +1,11 @@
 [package]
-name = "touying-pres-ustc"
+name = "touying-pres"
 version = "0.2.0"
 entrypoint = "theme.typ"
 authors = ["Quaternijkon<https://github.com/Quaternijkon>"]
 license = "MIT"
 description = "Touying Slide Theme for USTC"
-repository = "https://github.com/Quaternijkon/Typst_USTC_CS"
+repository = "https://github.com/Quaternijkon/touying-pres"
 keywords = ["touying", "slide", "presentation", "ustc", "university"]
 categories = ["presentation"]
 exclude = ["main.pdf"]

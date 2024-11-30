@@ -3,19 +3,25 @@
 **www.中国科学技术大学.com**
 
 ```typ
-#import "@preview/touying-pres-ustc:0.2.0": *
+#import "@preview/touying-pres:0.2.0": *
 
 #let s = register(aspect-ratio: "16-9")
 #let s = (s.methods.numbering)(self: s, section: "1.", "1.1")
 #let s = (s.methods.info)(
   self: s,
-  title: [Typst template for School of Computer Science and Technology, USTC],
+  title: [Typst template for University of Science and Technology of China],
   subtitle: [Continuously Improving...],
   author: [Quaternijkon],
   date: datetime.today(),
   institution: [School of Computer Science and Technology, USTC],
-  logo: image("../../assets/img/USTC.svg", width: 50%),
-  github: []
+  logo: image("../../assets/img/USTC_logo_side.svg", width: 50%),
+  head-logo: image("../../assets/img/ustc_logo_side.svg",width: 20%),
+  github: ""
+)
+#let s = (s.methods.colors)(
+  self: s, 
+  primary: rgb("#004098"), 
+  secondary: rgb("#004098")
 )
 
 #let (init, slides) = utils.methods(s)
@@ -27,9 +33,9 @@
 
 #outline-slide()
 
-= Section
+= 第一章：样式
 
-== Page
+== 想分列显示？
 ```
 
 ## 省流版

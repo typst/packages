@@ -1,4 +1,4 @@
-#import "@preview/report-flow-ustc:1.1.0": *
+#import "@preview/report-flow:1.1.0": *
 
 #show: project.with(
   course: "计算机系统",

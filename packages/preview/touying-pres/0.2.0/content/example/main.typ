@@ -1,5 +1,4 @@
-// #import "@preview/touying-pres-ustc:0.2.0": *
-#import "../../theme.typ":*
+#import "@preview/touying-pres:0.2.0": *
 
 #let s = register(aspect-ratio: "16-9")
 #let s = (s.methods.numbering)(self: s, section: "1.", "1.1")
@@ -28,8 +27,6 @@
 #show: slides.with()
 
 #outline-slide()
-
-
 
 = 第一章：样式
 
