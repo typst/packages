@@ -1,18 +1,23 @@
-#import "@preview/touying-pres-bit:0.1.0": *
-// #import "../../theme.typ":*
-
+// #import "@preview/touying-pres-ustc:0.2.0": *
+#import "../../theme.typ":*
 
 #let s = register(aspect-ratio: "16-9")
 #let s = (s.methods.numbering)(self: s, section: "1.", "1.1")
 #let s = (s.methods.info)(
   self: s,
-  title: [Typst template for Beijing Institute of Technology],
+  title: [Typst template for University of Science and Technology of China],
   subtitle: [Continuously Improving...],
   author: [Quaternijkon],
   date: datetime.today(),
-  institution: [School of Computer Science and Technology, BIT],
-  logo: image("../../assets/img/BIT_text.svg", width: 30%),
+  institution: [School of Computer Science and Technology, USTC],
+  logo: image("../../assets/img/USTC_logo_side.svg", width: 50%),
+  head-logo: image("../../assets/img/ustc_logo_side.svg",width: 20%),
   github: ""
+)
+#let s = (s.methods.colors)(
+  self: s, 
+  primary: rgb("#004098"), 
+  secondary: rgb("#004098")
 )
 
 #let (init, slides) = utils.methods(s)

@@ -47,7 +47,7 @@
       continue
     }
     set text(fill: if current-index == 0 or i == current-index {
-      self.colors.secondary
+      self.colors.primary
     } else {
       self.colors.primary.lighten(80%)
     })
@@ -192,13 +192,10 @@
 #let outline-slide(self: none) = {
 
   self.ustc-title = context if text.lang == "zh" [大纲] else [Outline]
-  
-  set page(background: rotate(-60deg,
-
-  place(right + horizon, image("assets/img/BIT.svg",format: "svg", width: 18%), dx: 14em,dy:18em)
-  ),
-  )
-  
+  //   set page(background: rotate(-60deg,
+  //   place(right + horizon, image("assets/img/USTC-NO-TEXT.svg",format: "svg", width: 25%), dx: 14em,dy:18em)
+  // ),
+  // )
   let content = {
     set align(horizon)
     set text(weight: "bold")
@@ -345,10 +342,10 @@
     states.slide-counter.display() + " / " + states.last-slide-number
   },
   footer-g: self => {
-  let githublink= if self.info.github != none {
+  let githublink= if self.info.github != "" {
     self.info.github
   } else {
-    "https://github.com/Quaternijkon/Typst_USTC_CS.git"
+    "https://github.com/Quaternijkon/touying-pres"
   }
     link(githublink,image("assets/img/github-mark-white.svg"))
   },
@@ -357,9 +354,9 @@
   // color theme
   self = (self.methods.colors)(
     self: self,
-    primary: rgb("#006c3a"),
-    primary-dark: rgb("#004098"),
-    secondary: rgb("#a13f3d"),
+    // primary: rgb("#034ea1"),
+    // primary-dark: rgb("#004098"),
+    // secondary: rgb("#ffffff"),
     tertiary: rgb("#005bac"),
     neutral-lightest: rgb("#ffffff"),
     neutral-darkest: rgb("#000000"),
@@ -387,7 +384,7 @@
     grid(
       columns: (ratio * 100%, 1fr),
       rows: 2pt,
-      components.cell(fill: gradient.linear(self.colors.primary,self.colors.neutral-lightest,self.colors.secondary)),
+      components.cell(fill: gradient.linear(self.colors.primary.lighten(10%),self.colors.primary.darken(10%))),
       components.cell(fill: self.colors.neutral-lightest),
     )
   })
@@ -397,7 +394,7 @@
       columns: (ratio * 100%, 1fr),
       rows: 2pt,
       components.cell(fill: self.colors.primary),
-      components.cell(fill: self.colors.secondary),
+      components.cell(fill: self.colors.neutral-lightest),
     )
   })
 
@@ -456,7 +453,7 @@
       
       place(left + horizon, text(fill: self.colors.neutral-lightest, weight: "bold", size: 1.3em, self.ustc-title), dx: 1.5em)
 
-      place(right + horizon, image("assets/img/BIT_text.svg",format: "svg", width: 18%), dx: -1em,dy:0em)
+      place(right + horizon, self.info.head-logo, dx: -1em)
     }
   }
   // set page
