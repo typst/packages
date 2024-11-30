@@ -10,7 +10,6 @@ keywords = ["CV", "Curriculum Vitae", "Resume", "Minimalistic", "Professional", 
 categories = ["cv"]
 disciplines = []
 exclude = ["pixi.*", ".pixi"]
-homepage = "https://github.com/pavelzw/moderner-cv"
 repository = "https://github.com/pavelzw/moderner-cv"
 
 [template]
