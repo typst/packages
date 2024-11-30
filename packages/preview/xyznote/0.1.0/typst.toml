@@ -1,5 +1,5 @@
 [package]
-name = "xyznotw"
+name = "xyznote"
 version = "0.1.0"
 entrypoint = "template.typ"
 license = "GPL-3.0"
