@@ -2,25 +2,25 @@
 // Author: https://github.com/Rsweater
 // Repo: https://github.com/Rsweater/cug-thesis-typst
 // 在线模板可能不会更新得很及时，如果需要最新版本，请关注 Repo
-#import ".\layouts/doc.typ": doc
-#import ".\layouts/mainmatter.typ": mainmatter
-#import ".\layouts/appendix.typ": appendix
-#import ".\pages/fonts-display-page.typ": fonts-display-page
-#import ".\pages/postgraduate/titlepage.typ": postgraduate-titlepage
-#import ".\pages/postgraduate/declaration.typ": postgraduate-declaration
-#import ".\pages/postgraduate/resume.typ": postgraduate-resume
-#import ".\pages/postgraduate/abstract.typ": postgraduate-abstract
-#import ".\pages/postgraduate/abstract-en.typ": postgraduate-abstract-en
-#import ".\pages/postgraduate/outline.typ": postgraduate-outline
-#import ".\pages/list-of-figures-tables.typ": list-of-figures-tables
-#import ".\pages/notation.typ": notation
-#import ".\pages/postgraduate/acknowledgement.typ": acknowledgement
-#import ".\utils/custom-cuti.typ": *
-#import ".\utils/bilingual-bibliography.typ": bilingual-bibliography
-#import ".\utils/custom-numbering.typ": custom-numbering
-#import ".\utils/custom-heading.typ": heading-display, active-heading, current-heading
-#import ".\utils/indent.typ": indent, fake-par
-#import ".\utils/style.typ": 字体, 字号
+#import "layouts/doc.typ": doc
+#import "layouts/mainmatter.typ": mainmatter
+#import "layouts/appendix.typ": appendix
+#import "pages/fonts-display-page.typ": fonts-display-page
+#import "pages/postgraduate/titlepage.typ": postgraduate-titlepage
+#import "pages/postgraduate/declaration.typ": postgraduate-declaration
+#import "pages/postgraduate/resume.typ": postgraduate-resume
+#import "pages/postgraduate/abstract.typ": postgraduate-abstract
+#import "pages/postgraduate/abstract-en.typ": postgraduate-abstract-en
+#import "pages/postgraduate/outline.typ": postgraduate-outline
+#import "pages/list-of-figures-tables.typ": list-of-figures-tables
+#import "pages/notation.typ": notation
+#import "pages/postgraduate/acknowledgement.typ": acknowledgement
+#import "utils/custom-cuti.typ": *
+#import "utils/bilingual-bibliography.typ": bilingual-bibliography
+#import "utils/custom-numbering.typ": custom-numbering
+#import "utils/custom-heading.typ": heading-display, active-heading, current-heading
+#import "utils/indent.typ": indent, fake-par
+#import "utils/style.typ": 字体, 字号
 #import "@preview/anti-matter:0.0.2": anti-inner-end as mainmatter-end
 #import "@preview/i-figured:0.2.4": show-figure, show-equation
 

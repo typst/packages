@@ -95,6 +95,7 @@
   // 3.  设置基本样式
   // 3.1 文本和段落样式
   set text(..text-args)
+  show text: set block(breakable: true)
   set par(
     leading: leading,
     justify: justify,
@@ -119,6 +120,8 @@
   set figure.caption(separator: separator)
   show figure.caption: set text(font: fonts.宋体, size: 字号.五号)
   show figure.caption: set par(leading: caption-leading)
+  // 表格可跨页
+  show figure: set block(breakable: true)
   // 3.6 优化列表显示
   //     术语列表 terms 不应该缩进
   show terms: set par(first-line-indent: 0pt)

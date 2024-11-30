@@ -29,10 +29,10 @@
   黑体: ("Times New Roman", "SimHei", "Heiti SC"),
   // 楷体
   // 这一行分别是「新罗马体（有衬线英文字体）」、「锴体（Windows）」、「楷体（MacOS）」
-  楷体: ("Times New Roman", "KaiTi", "Kaiti SC"),
-  // 仿宋
-  // 这一行分别是「新罗马体（有衬线英文字体）」、「仿宋（Windows 11）」、「华文仿宋（MacOS）」
-  仿宋: ("Times New Roman", "FangSong", "FangSong SC"),
+  // 楷体: ("Times New Roman", "KaiTi", "Kaiti SC"),
+  // // 仿宋
+  // // 这一行分别是「新罗马体（有衬线英文字体）」、「仿宋（Windows 11）」、「华文仿宋（MacOS）」
+  // 仿宋: ("Times New Roman", "FangSong", "FangSong SC"),
   // 等宽字体，用于代码块环境，一般可以等同于英文中的 Monospaced Font
   // 这一行分别是「Courier New(等宽英文字体)」、「黑体（Windows）」、「黑体（MacOS）」、「Menlo(MacOS 等宽英文字体)」
   等宽: ("Courier New", "SimHei", "Heiti SC", "Menlo"),

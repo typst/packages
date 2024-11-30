@@ -73,9 +73,13 @@
 - [探索 Typst，一种类似于 LaTeX 的新排版系统](https://mp.weixin.qq.com/s/58IYHA3pROuh4iDHB4o1Vw)（译文）、[原文](https://blog.jreyesr.com/posts/typst/)
 - [Typst 中文用户使用体验 - OrangeX4大佬](https://zhuanlan.zhihu.com/p/669097092)
 
+### 在线模式字体显示异常，怎么办？
+
+你需要上传 <https://github.com/Rsweater/cug-thesis-typst/tree/main/fonts/Windows-SysFonts> 里面所有字体，将 `fonts/Windows-SysFonts` 文件夹上传至模板创建的项目根目录即可。
+
 ### 为什么提醒类似 `unknown font family: songti sc` 的 Warning ?
 
-如果你的设备是 Windows ，会遇见所有的 `sc` 结尾的字体找不到的提醒，因为这个是 Mac OS 系统字体，可以忽略。模板为了适应不同的平台，模板默认设置了多种字体。但是只要不是两种系统的字体均报 Warning，就不会影响渲染效果。
+如果你的设备是 Windows ，会遇见所有的 `sc` 结尾的字体找不到的提醒，因为这个是 Mac OS 系统字体，可以忽略。模板为了适应不同的平台，模板默认设置了多种字体。但是只要不是两种系统的字体均报 Warning，就不会影响渲染效果。如果不想看报错，可以去 [Rsweater/cug-thesis-typst/tree/main/fonts](https://github.com/Rsweater/cug-thesis-typst/tree/main/fonts) 安装所有字体。
 
 ## 致谢
 

@@ -27,23 +27,27 @@
   show: show-cn-fakebold
   set text(lang: lang)
   set page(margin: margin)
+  show regex("[\p{sc=Hani} 。 ； ， ： “ ”（ ） 、 ？ 《 》] [\p{sc=Hani} 。 ； ， ： “ ”（ ） 、 ？ 《 》]"): it => {
+    let (a, _, b) = it.text.clusters()
+    a + b
+  }
 
-  show list: it => {
-    it
-    fake-par
-  }
-  show figure: it => {
-    it
-    fake-par
-  }
-  show enum: it => {
-    it
-    fake-par
-  }
-  show math.equation.where(block: true): it=>{
-    it
-    fake-par
-  }
+  // show list: it => {
+  //   it
+  //   fake-par
+  // }
+  // show figure: it => {
+  //   it
+  //   fake-par
+  // }
+  // show enum: it => {
+  //   it
+  //   fake-par
+  // }
+  // show math.equation.where(block: true): it=>{
+  //   it
+  //   fake-par
+  // }
   show link: it => {
     underline(text(rgb(0, 0, 255), it))
   }
