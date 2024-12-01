@@ -1,5 +1,5 @@
-#import "../oasis-align.typ": *
-// #import "@preview/oasis-align:0.1.0": *
+// #import "../oasis-align.typ": *
+#import "@preview/oasis-align:0.2.0": *
 // #import "@local/oasis-align:0.1.1": *
 
 #set page(width: 6in, height: auto, margin: 1in)
