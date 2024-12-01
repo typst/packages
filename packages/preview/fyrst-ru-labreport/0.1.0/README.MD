@@ -82,4 +82,4 @@ This template exports the `project` function which takes the following optional 
 ```
 
 ## License 
-This template inherits a [Creative Commons CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en) license from the original overleaf template
+This template is under a [GPL license](GPL license)
