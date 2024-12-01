@@ -95,6 +95,21 @@
   
 }
 
+#let mark-acr-used(acr) = {
+  // Mark an acronym as used.
+  
+  // Generate the key associated with this acronym
+  let state-key = "acronym-state-" + acr
+  acros.update(data => {
+      let ndata = data
+      // Change both booleans to mark it used until reset AND in the overall document.
+      ndata.at(acr).at(1) = true
+      ndata.at(acr).at(2) = true
+      ndata 
+    }
+  )
+}
+
 #let acr(acr, plural:false) = {
   // Display an acronym in the singular form by default. Expands it if used for the first time.
   
@@ -115,14 +130,7 @@
       panic("You requested the acronym "+acr+" that you did not define first.")
     }
   }
-  //acros.update(data)
-  acros.update(data => {
-      let ndata = data
-      ndata.at(acr).at(1) = true
-      ndata.at(acr).at(2) = true
-      ndata 
-    }
-  )
+  mark-acr-used(acr)
 }
 
 #let acrpl(acronym) = {acr(acronym,plural:true)} // argument renamed acronym to differentiate with function acr
@@ -167,11 +175,17 @@
   }
 }
 
+
 // Define shortcuts
 #let acrf(acr) = {acrfull(acr)}
 #let acrfpl(acr) = {acrfullpl(acr)}
 #let racr(acr) = {reset-acronym(acr)}
 #let raacr() = reset-all-acronyms()
+
+// Define some functions as in the "acronym" package for LaTeX by Tobias Oetiker
+// https://ctan.org/pkg/acronym
+
+
 
 
 #let print-index(level: 1, numbering: none, outlined: false, sorted:"",
