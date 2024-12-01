@@ -137,12 +137,12 @@
 
 #let acrfull(acr) = {
   //Intentionally display an acronym in its full form. Do not update state.
-  [#display-def(acr, plural: false) (#acr)]
+  [#display-def(acr, plural: false) (#display-short(acr))]
 }
 
 #let acrfullpl(acr) = {
   //Intentionally display an acronym in its full form in plural. Do not update state.
-  [#display-def(acr, plural: true) (#acr\s)]
+  [#display-def(acr, plural: true) (#display-short(acr,plural:true))]
 }
 
 // define shortcuts
