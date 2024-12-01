@@ -185,6 +185,7 @@
 // Define some functions as in the "acronym" package for LaTeX by Tobias Oetiker
 // https://ctan.org/pkg/acronym
 
+#let acused(acr) = mark-acr-used(acr)
 
 
 
