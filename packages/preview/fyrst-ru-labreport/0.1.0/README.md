@@ -74,7 +74,7 @@ This template exports the `project` function which takes the following optional 
   supervisors-columns:2,
   bibliography:bibliography("bibliography.bib"),
   paper-size:"a4",
-  lang:"is",
+  lang:"is", 
 )
 
 // Your content here
