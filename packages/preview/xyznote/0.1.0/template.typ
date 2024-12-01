@@ -92,29 +92,27 @@
 
 
   //页眉
-  set page(
-    header: locate(loc => {
-      set text(font: ("Libertinus Serif", "NSimSun"))
-      if loc.page() == 1 {
-        return
-      }
+  set page(header: context {
+    set text(font: ("Libertinus Serif", "NSimSun"))
+    if here().page() == 1 {
+      return
+    }
 
-      let elems = query(heading.where(level: 1).after(loc))
+    let elems = query(heading.where(level: 1).after(here()))
 
-      let chapter-title = ""
+    let chapter-title = ""
 
-      if (elems == () or elems.first().location().page() != loc.page()) {
-        let elems = query(heading.where(level: 1).before(loc))
-        chapter-title = elems.last().body
-      } else {
-        chapter-title = elems.first().body
-      }
-      align(right)[#chapter-title]
+    if (elems == () or elems.first().location().page() != here().page()) {
+      let elems = query(heading.where(level: 1).before(loc))
+      chapter-title = elems.last().body
+    } else {
+      chapter-title = elems.first().body
+    }
+    align(right)[#chapter-title]
 
-      v(-8pt)
-      align(center)[#line(length: 105%, stroke: (thickness: 1pt, dash: "solid"))]
-    }),
-  )
+    v(-8pt)
+    align(center)[#line(length: 105%, stroke: (thickness: 1pt, dash: "solid"))]
+  })
 
 
 
