@@ -12,6 +12,7 @@
 
 == Acronym with Two Definitions.
 
+
 First use of #acr("PFT") and second use of #acr("PFT").\
 #ref("First use of Package For Typst (PFT) and second use of PFT.")
 
@@ -46,6 +47,7 @@ Full definition of #acrfull("AJT").\
 Full definition of #acrf("AJT").\
 #ref("Full definition of Amicale des Joyeux Typistes (AJT)")
 
+
 == Reset All Acronyms
 
 Use #acr("PFT") and #acr("AJT").\
@@ -57,6 +59,19 @@ Use Package For Typst (PFT) and Amicale des Joyeux Typistes (AJT).
 Reset.
 Use again Package For Typst (PFT) and Amicale des Joyeux Typistes (AJT).
 ")
+
+== Shortcuts and Functions Names from LaTeX
+#reset-all-acronyms()
+
+First use of #ac("PFT") and second use of #ac("PFT").\
+#ref("First use of Package For Typst (PFT) and second use of PFT.")
+
+Full definition singular #acf("PFT") and plural #acfp("ada")\
+#ref("Full Definition singular Package For Typst (PFT) and plural Advanced Definions Acronyms (ADAs)")
+
+Display short singular #acs("ada") and short plural #acsp("ada")\
+#ref("Display short singular ADA and short plural ADAs")
+
 
 == Print Index Variations
 

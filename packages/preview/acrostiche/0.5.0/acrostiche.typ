@@ -185,6 +185,12 @@
 // Define some functions as in the "acronym" package for LaTeX by Tobias Oetiker
 // https://ctan.org/pkg/acronym
 
+#let acresetall = reset-all-acronyms
+#let ac = acr
+#let acf(acro) = acrf(acro)
+#let acfp(acro) = acrfpl(acro)
+#let acs(acro) = display-short(acro,plural:false)
+#let acsp(acro) = display-short(acro,plural:true)
 #let acused(acr) = mark-acr-used(acr)
 
 
