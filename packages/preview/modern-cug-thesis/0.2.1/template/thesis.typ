@@ -1,7 +1,7 @@
 // 在线包管理器模式
-#import "@preview/modern-cug-thesis:0.2.1": documentclass, indent
+// #import "@preview/modern-cug-thesis:0.2.1": documentclass, indent
 // 本地模式
-// #import "../lib.typ": documentclass, indent
+#import "../lib.typ": documentclass, indent
 
 // 本模板使用的字体是 Windows、MacOS 系统自带的，本地使用理论上不需要额外安装。
 // 如果是 Web App 上编辑，你需要上传 https://github.com/Rsweater/cug-thesis-typst/tree/main/fonts/Windows-SysFonts 里面所有字体，将 fonts 文件夹上传至模板创建的项目根目录即可，否则 CJK 字符可能无法正常显示。
@@ -71,8 +71,6 @@
 
 // 文稿设置
 #show: doc
-// 字体展示测试页，仅供测试使用，正式文档请注释掉
-#fonts-display-page()
 // 封面页
 #title-page()
 // 声明页
@@ -84,7 +82,7 @@
     name:"张三", 
     gender: "男", 
     nation: "汉族", 
-    birthday: "1996-09-01",
+    birthday: "2000-01-29",
     native-place: "河南省鹤壁市",
     bachelor-time: "2018.09——2022.06",
     bachelor-school: "河南农业大学", 
@@ -92,26 +90,28 @@
     master-time: "2022.09——2025.06",
     master-school: "中国地质大学（武汉）",
     master-type: "工程硕士",
-    // doctor-time: "2025.09——2029.06",
-    // doctor-school: "最高学府",
-    // doctor-type: "测绘科学与技术博士",
-    // 2. 学术论文信息, 
+    // doctor-time: "",
+    // doctor-school: "",
+    // doctor-type: "",
+    // 2. 学术论文信息
     thesises: (
-      "X. X研究[J]. X学报，2004（1）：53-55.",
-      "X. X分析[J]. X技术，2005（5）：6-7.",
+      "1. X. X研究[J]. X学报，2004（1）：53-55.",
+      "2. X. X分析[J]. X技术，2005（5）：6-7.",
     ),
     // 3. 获奖、专利情况信息
     awards: (
-      "X. X. 江苏省科技进步奖三等奖.排名第2；",
-      "2022年度优秀毕业生",
-      "2025年度优秀研究生",
+      "1. X. X. 江苏省科技进步奖三等奖.排名第2；",
+      "2. 2022年度优秀毕业生",
+      "3. 2025年度优秀研究生",
     ),
     // 4. 研究项目信息
     projects: (
-      "X项目, 国家自然基金,项目编号：X,参加人员；",
+      "1. X项目, 国家自然基金,项目编号：X,参加人员；",
     )
   )
 )
+// 字体展示测试页，仅供测试使用，正式文档请注释掉
+#fonts-display-page()
 
 // 中文摘要
 #abstract(

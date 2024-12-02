@@ -16,7 +16,7 @@
     name:"张三", 
     gender: "男", 
     nation: "汉族", 
-    birthday: "1996-09-01",
+    birthday: "2000-01-29",
     native-place: "河南省鹤壁市",
     bachelor-time: "2018.09——2022.06",
     bachelor-school: "河南农业大学", 
@@ -42,7 +42,7 @@
     projects: (
       "X项目, 国家自然基金,项目编号：X,参加人员；",
     )
-  )
+  ) + info
 
   // 个人简介
   v(字号.五号 * 4)
