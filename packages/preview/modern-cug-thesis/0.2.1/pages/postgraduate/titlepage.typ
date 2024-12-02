@@ -119,10 +119,10 @@
   // 学生与指导老师信息
   { 
     set align(center+horizon)
-    block(width: 10cm, grid(
+    block(width: auto, height: auto,grid(
     align: (center, left),
-    columns: (4.33cm, 5cm),
-    rows: (0.99cm, 1.07cm, 1.14cm, 1.17cm, 1.23cm),
+    columns: (3.99cm, 6cm),
+    rows: (1.25cm, auto, 1.25cm, 1.25cm, auto),
     info-style("姓名", align-type: "justify"),
     info-style(anonymous-info(info.author)),
     ..(if info.degreetype == "professional" {(
@@ -144,7 +144,7 @@
     info-style("培养单位", align-type: "justify"),
     info-style(anonymous-info(info.department.join("\n"))),
   ))
-  v((9.54cm-(0.99cm+1.07cm+1.14cm+1.17cm+1.23cm))/2)
+  v((9.54cm-(1.25cm+1.25cm+1.25cm+1.25cm+1.25cm))/2)
   }
 
   {
@@ -191,10 +191,10 @@
   // 学生与指导老师信息
   { 
     set align(center+horizon)
-    block(width: 88%, grid(
+    block(width: auto, height: auto, grid(
     align: (center, left),
     columns: (6.99cm, auto),
-    rows: (0.99cm, 1.07cm, 1.14cm, 1.17cm, 1.23cm),
+    rows: (1.25cm, auto, 1.25cm, auto, auto),
     ..(if info.doctype == "doctor" {(
       {
         info-style("Ph.D. Candidate: ", align-type: right)
@@ -220,7 +220,7 @@
       info-style(info.supervisor-ii-en.map(str => anonymous-info(str)).intersperse(" ").sum()),
     )} else { () }),
   ))
-  v((9.54cm-(0.99cm+1.07cm+1.14cm+1.17cm+1.23cm))/2)
+  v((9.54cm-(1.25cm+1.25cm+1.25cm+1.25cm+1.25cm))/2)
   }
 
   {
