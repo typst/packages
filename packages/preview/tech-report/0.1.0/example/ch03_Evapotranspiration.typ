@@ -286,7 +286,7 @@
 === 图件
 
 #figure(
-  image("Penman1948_示意图.png", width: 75%),
+  image("Penman1948.png", width: 75%),
   caption: [Penman 1948水面蒸发示意图。]
 ) <fig_penman1948>
 
