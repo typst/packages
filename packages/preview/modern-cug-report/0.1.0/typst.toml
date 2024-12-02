@@ -1,5 +1,5 @@
 [package]
-name = "tech-report"
+name = "modern-cug-report"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Dongdong Kong"]
