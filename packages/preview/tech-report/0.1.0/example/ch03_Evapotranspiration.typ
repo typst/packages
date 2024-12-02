@@ -1,4 +1,6 @@
-#import "../lib.typ": *
+// #import "../lib.typ": *
+#import "@preview/tech-report:0.1.0"
+
 #counter(heading).update(2)
 #let delta(x) = $Delta #x$
 
