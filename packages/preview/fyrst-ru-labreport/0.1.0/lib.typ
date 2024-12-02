@@ -4,10 +4,10 @@
   course-abrev: [],
   organization: [],
   logo: image("Graphics/ru-logo.svg", width: 40%),
-  authors:none,
-  author-columns:auto,
-  supervisors:none,
-  supervisors-columns:auto,
+  authors:(),
+  author-columns:1,
+  supervisors:(),
+  supervisors-columns:1,
   bibliography:none,
   paper-size:"a4",
   lang:"is",
@@ -78,8 +78,8 @@
   let auths = authors.map(auth=>[
     #auth.name \ 
     #if auth.keys().contains("email") {
-      link("mailto:" + auth.email)
-    } \
+      [#link("mailto:" + auth.email) \ ]
+    } 
     #if auth.keys().contains("phone") {
       link("tel:" + auth.phone)
     }
@@ -117,11 +117,11 @@
   let sups = supervisors.map(sup=>[
     #sup.name \ 
     #if sup.keys().contains("title") {
-      sup.title
-    } \
+      [#sup.title \ ]
+    } 
     #if sup.keys().contains("email") {
-      link("mailto:" + sup.email)
-    } \
+      [#link("mailto:" + sup.email) \ ]
+    } 
     #if sup.keys().contains("phone") {
       link("tel:" + sup.phone)
     }
