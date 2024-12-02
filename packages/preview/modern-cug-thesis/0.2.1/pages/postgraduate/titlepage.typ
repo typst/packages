@@ -122,7 +122,7 @@
     block(width: auto, height: auto,grid(
     align: (center, left),
     columns: (3.99cm, 6cm),
-    rows: (1.25cm, auto, 1.25cm, 1.25cm, auto),
+    rows: (1.25cm, auto, 1.25cm, auto, auto),
     info-style("姓名", align-type: "justify"),
     info-style(anonymous-info(info.author)),
     ..(if info.degreetype == "professional" {(
