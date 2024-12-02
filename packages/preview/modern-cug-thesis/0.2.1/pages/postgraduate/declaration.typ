@@ -12,6 +12,11 @@
     return
   }
 
+  // 适应标题过长
+  if type(info.title) == str {
+    info.title = info.title.split("\n")
+  }
+
   // 1. 原创性声明
   v(字号.五号 * 2)
   align(

@@ -23,7 +23,7 @@
   info-inset: (bottom: -2pt),
 ) = {
   // 对参数进行处理
-  // 如果是字符串，则使用换行符将标题分隔为列表
+  // 适应标题过长
   if type(info.title) == str {
     info.title = info.title.split("\n")
   }
@@ -32,6 +32,9 @@
   }
   if type(info.department) == str {
     info.department = info.department.split("\n")
+  }
+  if type(info.department-en) == str {
+    info.department-en = info.department-en.split("\n")
   }
   assert(type(info.submit-date) == datetime, message: "submit-date must be datetime.")
 
