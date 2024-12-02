@@ -4,28 +4,28 @@
 #import "@preview/physica:0.9.3": *
 #import "@preview/cuti:0.2.1": show-cn-fakebold
 
-#let format_eq(it) = {
+#let format-eq(it) = {
   show "{": ""
   show "}": ""
   it
 }
 
-#let beamer_block(value) =  {
+#let beamer-block(value) =  {
   block(
     fill: luma(240), 
     inset: 0.6em,
     stroke: (left: 0.25em))[#value]
 }
 
-#let set_supplement(it) = {
+#let set-supplement(it) = {
   it
 }
 
-#let num_include_chapter(num) = {
+#let num-include-chapter(num) = {
   numbering("1.1", counter(heading).get().first(), num)
 }
 
-#let ref_zh(it) = {
+#let ref-zh(it) = {
   let el = it.element
   let eq = math.equation
   
@@ -55,7 +55,7 @@
   ]
 }
 
-#let set_figure(body) = {
+#let set-figure(body) = {
   set figure(numbering: it => strong[#numbering("1.1", it)])
   set figure.caption(separator: ". ")
   // set figure(numbering: it => strong[#numbering("1.1", it)])
@@ -69,7 +69,7 @@
 }
 
 
-#let set_table(it) = {
+#let set-table(it) = {
   show table.cell.where(y: 0): strong
   // See the strokes section for details on this!
   let frame(stroke) = (x, y) => (
@@ -99,7 +99,7 @@
   codly(stroke: 1pt + blue)
   codly(display-icon: true)
   
-  show ref: ref_zh  // 引用
+  show ref: ref-zh  // 引用
 
   // https://github.com/typst/typst/issues/1896
   show heading.where(level: 1): it => {
@@ -113,8 +113,8 @@
     numbering("(1.1)", counter(heading).get().first(), num)
   )
   
-  show: set_figure
-  show: set_table
+  show: set-figure
+  show: set-table
   show: show-cn-fakebold
 
   // 链接
@@ -150,7 +150,7 @@
 
 #let nonum(eq) = math.equation(block: true, numbering: none, eq)
 
-#let box_blue(it) = {
+#let box-blue(it) = {
   showybox(it, frame: (
     // title-color: red.darken(30%),
     border-color: blue.darken(10%),
@@ -159,7 +159,7 @@
   )
 }
 
-#let box_red(it) = {
+#let box-red(it) = {
   showybox(it, frame: (
     // title-color: red.darken(30%),
     border-color: red.darken(30%),
