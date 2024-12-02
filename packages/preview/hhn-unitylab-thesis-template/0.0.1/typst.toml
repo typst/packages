@@ -11,7 +11,7 @@ homepage = "https://www.hs-heilbronn.de/en"
 repository = "https://github.com/Ferrys93de/UniTyLab-Thesis-Template"
 keywords = ["hhn", "hochschule heilbronn", "heilbronn university", "unitylab", "thesis", "documentation"]
 categories = ["thesis", "report"]
-exclude = [""]
+
 
 [template]
 path = "template"
