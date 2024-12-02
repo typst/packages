@@ -806,7 +806,7 @@
     },
     footer: context {
       let current-page = here().page()
-      let page-count = counter(page).final().first() - if (warnings.final().len() > 0 and show-warnings) {1} else {0}
+      let page-count = counter(page).final().first() - if (warnings.final().len() > 0 and not hide-warnings) {1} else {0}
       if (custom-footer == auto) {
         align(center, [#translate("PAGE", current-page, page-count)])
       } else if (custom-footer != none) {
