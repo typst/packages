@@ -31,7 +31,7 @@
     title: ("中国地质大学学位论文Typst模板", "参考研究生学位论文写作规范（2015-）"),
     title-en: ("The Specification of Writting and Printing", "for CUG thesis"),
 
-    // 论文作者信息：学号、姓名、院系、专业、指导老师
+    // 论文作者信息：姓名、学号、年级、学校id、学校名称
     grade: "2025",
     student-id: "120222xxxx",
     school-code: "10491",
@@ -39,25 +39,31 @@
     school-name-en: "China University of Geosciences",
     author: "张三",
     author-en: "Ming Xing",
-    department: "国家地理信息系统\n工程技术研究中心",
-    department-en: "National Engineering Research Center of Geographic Information System",
+
+    // 学位信息
     doctype: "master", // "bachelor" | "master" | "doctor" | "postdoc", 文档类型，默认为本科生 bachelor
     degreetype: "professional", // "academic" | "professional", 学位类型，默认为学术型 academic
     is-equivalent: false,   // 是否同等学力，默认为 false
     is-fulltime: true, // 是否全日制，默认为 true
+
+    // 专业以及学院信息
     degree: "工程硕士",  // 学位名称，默认为工程硕士（专硕学位名称，学硕与专业名称类似）
     degree-en: "Master of Engineering",
     major: "测绘工程",  // 专业名称，默认为测绘工程
     major-en: "Surveying and Mapping Engineering",
+    department: "国家地理信息系统\n工程技术研究中心",
+    department-en: "National Engineering Research Center of Geographic Information System",
+    address-en: "Wuhan 430074 P.R. China",
+
     // 指导老师信息，以`("name", "title")` 数组方式传入
     supervisor: ("李四", "教授"),
     supervisor-en: ("Prof.", "Li Si"),
     supervisor-ii: ("王五", "副教授"),
     supervisor-ii-en: ("Prof.", "Wang Wu"),
-    address-en: "Wuhan 430074 P.R. China",
 
     // 提交日期，默认为论文 PDF 生成日期
-    submit-date: datetime.today(),
+    // 日期格式：datetime(year: 2020,month: 10,day: 4)
+    submit-date: datetime.today(), 
   ),
   // 参考文献源
   bibliography: bibliography.with("ref.bib"),

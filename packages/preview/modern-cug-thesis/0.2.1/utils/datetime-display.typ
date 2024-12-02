@@ -14,7 +14,7 @@
 )
 
 #let datetime-zh-display(date, anonymous: false) = {
-  let year = (str(datetime.today().year()).clusters().map(
+  let year = (str(date.year()).clusters().map(
     (n) => if map_number.keys().contains(n) {map_number.at(n)}
   ).join(""))
   let month = (str(date.month()))
