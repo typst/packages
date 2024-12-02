@@ -1,0 +1,10 @@
+[package]
+name = "tech-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Dongdong Kong"]
+license = "MIT"
+description = "Technical report writing standards."
+compiler = "0.12.0"
+repository = "https://github.com/CUG-hydro/tech-report.typ"
+exclude = ["example", "images", ".gitignore"]
