@@ -228,7 +228,7 @@ Optional: 尝试不同的 covariance structures，包括 spherical、diagonal、
 #codly(number-format: (n)=>[#n])
 
 #figure(
-    image("img/GMM.svg",width: 115%),
+    image("img/gmm.svg",width: 115%),
     caption: [不同covariance structures的结果]
 )
 
