@@ -222,7 +222,7 @@
     set text(font: ("Times New Roman", "KaiTi")) //设置参考文献字体
     pagebreak()
     show bibliography: set text(10.5pt)
-    bibliography(bibliography-file, style: bibliographystyle)
+    bibliography(template/bibliography-file, style: bibliographystyle)
   }
 
 }
