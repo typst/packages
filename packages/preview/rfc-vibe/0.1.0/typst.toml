@@ -1,6 +1,6 @@
 [package]
 name = "rfc-vibe"
-version = "0.1.1"
+version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Stephen Waits <steve@waits.net>"]
 license = "MIT"
