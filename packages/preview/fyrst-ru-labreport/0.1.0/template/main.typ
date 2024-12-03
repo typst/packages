@@ -2,8 +2,7 @@
 
 #import "@preview/unify:0.7.0":*
 
-#import "@preview/cetz:0.3.1"
-#import "@preview/cetz:0.3.1":*
+#import "@preview/cetz:0.3.1" as cetz: *
 
 #import "@preview/cetz-plot:0.1.0"
 
@@ -60,10 +59,7 @@
 )
 
 
-= Inngangur
-
-
-
+= Introduction
 In this section of the report you explain the basic physical phenomenon, the principle(s), and the basic equations.
 All notations or symbols used in the equations will be explained.
 Using one or two figures to make the explanations clear is highly recommended.
