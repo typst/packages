@@ -3,7 +3,7 @@
 **www.中国科学技术大学.com**
 
 ```typ
-#import "@preview/touying-pres:0.2.0": *
+#import "@preview/touying-pres-ustc:0.2.0": *
 
 #let s = register(aspect-ratio: "16-9")
 #let s = (s.methods.numbering)(self: s, section: "1.", "1.1")
