@@ -9,10 +9,11 @@
 #import "pages/postgraduate/titlepage.typ": postgraduate-titlepage
 #import "pages/postgraduate/declaration.typ": postgraduate-declaration
 #import "pages/postgraduate/resume.typ": postgraduate-resume
+#import "pages/postgraduate/list-of-defence-commitee.typ": list-of-defence-commitee
 #import "pages/postgraduate/abstract.typ": postgraduate-abstract
 #import "pages/postgraduate/abstract-en.typ": postgraduate-abstract-en
 #import "pages/postgraduate/outline.typ": postgraduate-outline
-#import "pages/list-of-figures-tables.typ": list-of-figures-tables
+#import "pages/postgraduate/list-of-figures-tables.typ": list-of-figures-tables
 #import "pages/notation.typ": notation
 #import "pages/postgraduate/acknowledgement.typ": acknowledgement
 #import "utils/custom-cuti.typ": *
@@ -60,7 +61,7 @@
     author: "张三",
     author-en: "Ming Xing",
     department: "国家地理信息系统\n工程技术研究中心",
-    department-en: "National Engineering Research Center of Geographic Information System",
+    department-en: "",
     doctype: "master",
     degreetype: "professional", 
     is-equivalent: false, 
@@ -195,6 +196,7 @@
       }
     },
 
+    // 简历页，通过 type 分发到不同函数
     resume-page: (..args) => {
       if info.doctype == "master" or info.doctype == "doctor" {
         postgraduate-resume(
@@ -217,6 +219,29 @@
       }
     },
     
+    // 委员会名单页
+    defence-page: (..args) => {
+      if info.doctype == "master" or info.doctype == "doctor" {
+        list-of-defence-commitee(
+          anonymous: anonymous,
+          twoside: if single-side.contains("defence-page") { true } else { false },
+          ..args,
+          info: info + args.named().at("info", default: (:)),
+        )
+      } else if info.doctype == "postdoc" {
+        panic("postdoc has not yet been implemented.")
+      } else {
+        panic("bachelor has not yet been implemented.")
+        // bachelor-decl-page(
+        //   anonymous: anonymous,
+        //   twoside: if single-side.contains("resume-page") { true } else { false },
+        //   ..args,
+        //   fonts: fonts + args.named().at("fonts", default: (:)),
+        //   info: info + args.named().at("info", default: (:)),
+        // )
+      }
+    },
+
     // 中文摘要页，通过 type 分发到不同函数
     abstract: (..args) => {
       if info.doctype == "master" or info.doctype == "doctor" {

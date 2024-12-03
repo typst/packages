@@ -10,7 +10,7 @@
   // 布局函数
   single-side, doc, mainmatter, mainmatter-end, appendix,
   // 页面函数
-  fonts-display-page, title-page, decl-page, resume-page, 
+  fonts-display-page, title-page, decl-page, resume-page, defence-page, 
   abstract, abstract-en, bilingual-bibliography,
   outline-page, list-of-figures-tables, notation, acknowledgement,
   // 其他
@@ -18,10 +18,10 @@
 ) = documentclass(
   anonymous: false,  // 盲审模式
   // 论文页面顺序：
-  // （封面，统一打印）、题名页（中文，英文）、声明页（原创性声明、导师承诺书、使用授权书）、简历页
+  // （封面，统一打印）、题名页（中文，英文）、声明页（原创性声明、导师承诺书、使用授权书）、简历页(、答辩委员会名单)
   // 中文摘要、Abstract、目录、图和表清单、正文、致谢、参考文献（、附录）。
   // 单面打印范围，自中文摘要后双面
-  single-side: ("title-page", "decl-page", "resume-page"),  
+  single-side: ("title-page", "decl-page", "resume-page", "defence-page"),  
   // 可自定义字体，先英文字体后中文字体，应传入「宋体」、「黑体」、「楷体」、「仿宋」、「等宽」
   // fonts: (楷体: ("Times New Roman", "FZKai-Z03S")),
   info: (
@@ -110,6 +110,8 @@
     )
   )
 )
+// 答辩委员会名单页，如不需要，注释掉即可
+#defence-page()
 // 字体展示测试页，仅供测试使用，正式文档请注释掉
 #fonts-display-page()
 
