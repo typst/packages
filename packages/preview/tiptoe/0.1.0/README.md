@@ -1,10 +1,11 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/out/logo.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/out/logo-dark.svg">
-    <img alt="Logo" src="docs/figures/out/logo.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/926e2412-c1dd-42e7-b524-ca2a6ed57122">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/2d536138-c74e-4a31-ab7e-1d9b76a37eb0">
+    <img alt="Logo" src="https://github.com/user-attachments/assets/926e2412-c1dd-42e7-b524-ca2a6ed57122">
   </picture>
 </p>
+
 
 _Arrows for [Typst][typst] paths and other stories._
 
@@ -43,9 +44,9 @@ Let us consider a simple example to start off.
 ```
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/out/intro-example.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/out/intro-example-dark.svg">
-    <img alt="Basic introductory example" src="docs/figures/out/intro-example.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/dc2712d0-0ee3-4fe9-ad88-c840cd5304a8">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/3d9eb742-e535-4738-b4bc-9e9c51b9490f">
+    <img alt="Basic introductory example" src="https://github.com/user-attachments/assets/dc2712d0-0ee3-4fe9-ad88-c840cd5304a8">
   </picture>
 </p>
 
@@ -67,9 +68,9 @@ Also note, that the tip sizing and configuration mechanism works quite different
 Tiptoe comes with a collection of predefined marks, listed below. In [Defining custom marks](#defining-custom-marks), you can learn how to define your own marks. 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/out/marks.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/out/marks-dark.svg">
-    <img alt="Available predefined marks" src="docs/figures/out/marks.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/0cea56df-409a-47da-84bb-b38f6aba7721">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/ba07e63f-f18d-4e36-b5b7-2ca3c51fcf50">
+    <img alt="Available predefined marks" src="https://github.com/user-attachments/assets/0cea56df-409a-47da-84bb-b38f6aba7721">
   </picture>
 </p>
 
@@ -97,11 +98,14 @@ With the predefined marks, the length/width encompasses the *full* length/width 
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/out/sizing.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/out/sizing-dark.svg">
-    <img alt="Arrow sizing" src="docs/figures/out/sizing.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/406dc364-e881-4bdb-834d-8df7b5b24e39">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/d0099a57-af6f-4308-aa24-0b098f5fab10">
+    <img alt="Arrow sizing" src="https://github.com/user-attachments/assets/406dc364-e881-4bdb-834d-8df7b5b24e39">
   </picture>
 </p>
+
+
+
 
 ### Colors!
 
@@ -111,9 +115,9 @@ Below are some examples for mark styling.
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/out/styling.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/out/styling-dark.svg">
-    <img alt="Examples for styling marks" src="docs/figures/out/styling.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/371560f0-f702-4e6c-95a4-9f27041a9328">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/62899b1d-5bce-4a1f-bd91-b1ca88c980b6">
+    <img alt="Examples for styling marks" src="https://github.com/user-attachments/assets/371560f0-f702-4e6c-95a4-9f27041a9328">
   </picture>
 </p>
 
@@ -129,12 +133,11 @@ The figure below shows the additional parameters that each mark supports. The re
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/out/mark-parameters.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/out/mark-parameters-dark.svg">
-    <img alt="Parameters of the predefined marks" src="docs/figures/out/mark-parameters.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/f8a8a6cf-a441-4e26-95d0-692a34cd39c3">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/3c6ee59c-e164-4729-9b34-62cbe450025b">
+    <img alt="Parameters of the predefined marks" src="https://github.com/user-attachments/assets/f8a8a6cf-a441-4e26-95d0-692a34cd39c3">
   </picture>
 </p>
-
 
 
 ## Mark alignment
@@ -145,9 +148,9 @@ The mark alignment for the built-in marks is summarized in the table below.
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/out/alignment.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/out/alignment-dark.svg">
-    <img alt="Alignment of marks" src="docs/figures/out/alignment.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/abfc24b9-393a-4511-acb8-31a5acf08eb1">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/18dc90dc-78f8-4b38-8de6-f02614fa6700">
+    <img alt="Alignment of marks" src="https://github.com/user-attachments/assets/abfc24b9-393a-4511-acb8-31a5acf08eb1">
   </picture>
 </p>
 
@@ -164,12 +167,11 @@ To compensate this issue, the path is _transformed_, i.e., shortened by some amo
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/out/shortening.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/out/shortening-dark.svg">
-    <img alt="Path shortening" src="docs/figures/out/shortening.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/0fca915e-b846-4908-ba61-187905c98139">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/cca724ae-3609-4750-bc72-1d49c0b6ee08">
+    <img alt="Path shortening" src="https://github.com/user-attachments/assets/0fca915e-b846-4908-ba61-187905c98139">
   </picture>
 </p>
-
 
 
 Not always is it desirable to shorten the path all the way (hey, a little asymmetry simply belongs in life). For this purpose, `path` has a parameter `shorten` which takes ratios between `0%` and `100%` (default). 
@@ -185,11 +187,12 @@ The function `combine()` makes it quite easy to combine multiple marks into a si
 ```
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/out/combine.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/out/combine-dark.svg">
-    <img alt="How to combine marks" src="docs/figures/out/combine.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/e2b8605d-3b1d-468a-9cb8-ca41a2438883">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/826ada71-092f-4b1e-866e-719189bd09d3">
+    <img alt="How to combine marks" src="https://github.com/user-attachments/assets/e2b8605d-3b1d-468a-9cb8-ca41a2438883">
   </picture>
 </p>
+
 
 
 
@@ -199,9 +202,9 @@ The combined marks are automatically lined up one after the other, always the ne
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/out/combined.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/out/combined-dark.svg">
-    <img alt="Examples for combined arrows and marks" src="docs/figures/out/combined.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/c73842e0-0355-4055-a10f-66b8b0be413a">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/b7ce8bed-07db-497b-a8de-e0d84394967a">
+    <img alt="Examples for combined arrows and marks" src="https://github.com/user-attachments/assets/c73842e0-0355-4055-a10f-66b8b0be413a">
   </picture>
 </p>
 
@@ -289,9 +292,9 @@ Until a built-in arc function makes it into the core of Typst, enjoy this one:
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/figures/out/arc.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="docs/figures/out/arc-dark.svg">
-    <img alt="Usage of the arc() primitive" src="docs/figures/out/arc.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/f8495d65-eede-4caf-ba1a-cda909351ddf">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/35b561a6-64d3-469b-8496-d4bebda2cdf5">
+    <img alt="Usage of the arc() primitive" src="https://github.com/user-attachments/assets/f8495d65-eede-4caf-ba1a-cda909351ddf">
   </picture>
 </p>
 
