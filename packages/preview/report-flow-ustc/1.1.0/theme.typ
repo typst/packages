@@ -411,6 +411,13 @@ set page(
   )
   show :show-cn-fakebold
 
+  show raw.where(block: false): box.with(
+    fill: luma(240),
+    inset: (x: 3pt, y: 0pt),
+    outset: (y: 3pt),
+    radius: 5pt,
+  )
+
   // show raw.where(lang: "pintora"): it => pintorita.render(it.text)
   
 
