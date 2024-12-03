@@ -94,6 +94,8 @@ To make another `counter` inherit from the heading counter, you have to do **two
 
      Returns a function that should be used as a `show` rule for `heading`. It will reset `counter` if the level of the heading is less than or equal to `level`.
 
+   **Important:** This `show` rule should be placed as the _last_ `show` rule for `heading`, or at least after `show` rules for `heading` that employ a custom design, see [here](https://forum.typst.app/t/i-figured-broken-with-custom-template/1730/10?u=jbirnick) for an explanation.
+
    ```typ
    #import "@preview/headcount:0.1.0": *
    
