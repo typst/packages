@@ -1,6 +1,6 @@
 # touying-flow
 
-Discard irrelevant decorative elements, aiming to better immerse the audience into a state of flow.
+Eliminate unnecessary decorative elements to enhance the audience's immersion and foster a deeper state of flow.
 
 Inspired by [Dewdrop](https://github.com/touying-typ/touying.git), made by [OrangeX4](https://github.com/OrangeX4)
 
