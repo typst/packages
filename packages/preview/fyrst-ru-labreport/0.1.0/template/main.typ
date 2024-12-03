@@ -59,7 +59,7 @@
 )
 
 
-= Introduction 
+= Introduction
 
 In this section of the report you explain the basic physical phenomenon, the principle(s), and the basic equations.
 All notations or symbols used in the equations will be explained.
