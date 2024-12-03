@@ -111,7 +111,20 @@
   )
 )
 // 答辩委员会名单页，如不需要，注释掉即可
-#defence-page()
+#defence-page(
+  info: (
+    // 主席
+    chair: (name: "张三", title: "教授", affiliation: "中国地质大学"),
+    // 委员
+    // members: (),
+    member-1: (name: "李四", title: "研究员", affiliation: "中国地质大学"),
+    member-2: (name: "王五", title: "副研究员", affiliation: "中国地质大学"),
+    member-3: (name: "一二三", title: "副教授", affiliation: "中国地质大学"),
+    member-4: (name: "四五六", title: "正高工", affiliation: "中交第二公路勘察设计有限公司"),
+    // 秘书
+    secretary:(name: "五六七", title: "高级工程师", affiliation: "中国地质大学")
+  )
+)
 // 字体展示测试页，仅供测试使用，正式文档请注释掉
 #fonts-display-page()
 
