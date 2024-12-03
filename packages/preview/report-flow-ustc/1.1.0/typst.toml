@@ -10,7 +10,7 @@ keywords = ["homework", "lab report", "ustc", "report", "university"]
 categories = ["report"]
 disciplines = []
 compiler = "0.11.0"
-exclude = ["main.pdf"]
+exclude = ["content/example/main.pdf"]
 
 [template]
 path = "content/example"
