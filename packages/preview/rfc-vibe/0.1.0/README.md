@@ -14,7 +14,7 @@ applicable to a wide variety of everyday documents.
 Import the package in your Typst document:
 
 ```typst
-#import "@preview/rfc-vibe:0.1.0": *
+#import "@preview/rfc-vibe:0.1.1": *
 ```
 
 ### Keywords
