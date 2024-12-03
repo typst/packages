@@ -178,7 +178,7 @@ All artwork, captions, figures, graphs, and tables will be reproduced exactly as
 Do not insert your tables and figures in text boxes. Figures should have no background, borders, or outlines. In the electronic template, use the “Figure” style from the pull-down formatting menu to type caption text. You may also insert the caption by going to the References menu and choosing Insert Caption. Make sure the label is “Fig.,” and type your caption text in the box provided. Captions are bold with a single tab (no hyphen or other character) between the figure number and figure description.
 
 #figure(
-  image("Picture1.png", width:50%),
+  rect(width: 1in, height: 1in),
   caption: [
     Magnetization as a function of applied fields.
   ],
