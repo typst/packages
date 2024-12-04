@@ -8,7 +8,7 @@
   id: "a"
 )
 
-#let template_info(title, abstract, authors, keywords, els-columns) = {
+#let template-info(title, abstract, authors, keywords, els-columns) = {
   // Set authors and affiliation
   let names = ()
   let names_meta = ()
