@@ -9,7 +9,7 @@ description = "Minimalistic Typst slides."
 repository = "https://github.com/manjavacas/typslides"
 keywords = ["slides", "presentation", "diapositives"]
 categories = ["presentation", "layout", "components"]
-exclude = ["img", "bibliography.bib"]
+exclude = ["img"]
 
 [template]
 path = "template"
