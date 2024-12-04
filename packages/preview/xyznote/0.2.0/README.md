@@ -31,14 +31,14 @@ This template is designed for efficient and organized note-taking with Typst. It
 ## Custom styles
 
 ```typ
-#greenbox[
-  Contents
+#tipbox[
+  contents
 ]
 ```
 
 ```typ
-#markblock[
-  Contents
+#markbox[
+  contents
 ]
 ```
 
