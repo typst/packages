@@ -15,8 +15,8 @@ This template is designed for efficient and organized note-taking with Typst. It
   abstract: "A simple typst note template",
   createtime: "2024-11-27",
   lang: "zh",
-  bibliographystyle: "ieee",
-  bibliography-file: "refs.bib", //Annotate this line to delete the bibliography page.
+  bibliography-style: "ieee",
+  bibliography-file: bibliography("refs.bib"), //Annotate this line to delete the bibliography page.
 )
 ```
 

@@ -7,7 +7,7 @@
   createtime: "2024-11-27",
   lang: "zh",
   bibliographystyle: "ieee",
-  bibliography-file: "refs.bib",
+  bibliography-file: bibliography("refs.bib"), //注释这一行删除参考文献页面
 )
 
 = 介绍
@@ -25,10 +25,6 @@ $
 $
 
 $a^2-b^2 = (a-b)(a+b)$
-
-= 图片
-
-
 
 = 代码
 
@@ -53,3 +49,11 @@ https://github.com/DVDTSB/dvdtyp @dvdtyp
 https://github.com/gRox167/typst-assignment-template @typst-assignment-template
 
 #sectionline
+
+#tipbox[
+  contents
+]
+
+#markbox[
+  contents
+]

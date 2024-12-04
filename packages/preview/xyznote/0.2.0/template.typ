@@ -7,22 +7,18 @@
   author: "",
   abstract: "",
   createtime: "",
-  bibliographystyle: "",
-  lang: "",
+  lang: "zh",
+  bibliography-style: "ieee",
   body,
   bibliography-file: none,
-  // paper-size: "a4",
 ) = {
   set text(lang: lang)
 
-
-  //文档属性
   set document(
     author: author,
     date: auto,
     title: title,
   )
-
 
   //标题计数器
   let chaptercounter = counter("chapter")
@@ -44,6 +40,7 @@
     }
   ]
 
+  // 大纲配置
   set outline(fill: repeat[~.], indent: 1em)
 
   show outline: set heading(numbering: none)
@@ -65,7 +62,6 @@
     bottom: 4cm,
     left: 2cm,
   ))
-
 
   polygon(
   fill: rgb("#bb4e4d"),
@@ -124,24 +120,11 @@
     align(center)[#line(length: 105%, stroke: (thickness: 1pt, dash: "solid"))]
   })
 
-
-
   //引用块
   set quote(block: true)
 
-
-
-  // // codeblock
-  // show raw.where(block: true): block.with(
-  //   fill: luma(87.45%),   // 设置背景颜色
-  //   inset: 7pt,         // 设置内边距
-  //   radius: 2pt,         // 设置圆角半径
-  //   width: 100%,         // 设置宽度为 100%
-  // )
   //inlinecode
   show raw.where(block: false): it => box(fill: rgb("#d7d7d7"), inset: (x: 2pt), outset: (y: 3pt), radius: 1pt)[#it]
-
-  // show raw: set text(font: "jetbrains mono") //修改代码字体
 
   show table.cell.where(y: 0): strong //表格表头加粗
 
@@ -219,17 +202,18 @@
 
   //参考文献
   if bibliography-file != none {
-    set text(font: ("Times New Roman", "KaiTi")) //设置参考文献字体
     pagebreak()
+    set text(font: ("Times New Roman", "KaiTi")) //设置参考文献字体
     show bibliography: set text(10.5pt)
-    bibliography("template/refs.bib", style: bibliographystyle)
+    set bibliography(style: bibliography-style)
+    bibliography-file
   }
-
 }
 
-// 自定义样式块
+// ---- 自定义组件 ----
 
-#let greenbox(body) = {
+// Green mark box
+#let markbox(body) = {
   block(
     fill: rgb(250, 255, 250),
     width: 100%,
@@ -240,7 +224,8 @@
   )
 }
 
-#let markblock(cite: none, body) = [
+// Blue tip box
+#let tipbox(cite: none, body) = [
   #set text(size: 10.5pt)
   #pad(left: 0.5em)[
     #block(
