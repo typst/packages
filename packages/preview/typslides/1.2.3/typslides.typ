@@ -8,7 +8,6 @@
   theme: "bluey",
   body,
 ) = {
-
   theme-color.update(_theme-colors.at(theme))
 
   set text(font: "Fira Sans")
@@ -22,6 +21,12 @@
   )
 
   show link: it => (
+    context {
+      text(fill: theme-color.get())[#it]
+    }
+  )
+
+  show footnote: it => (
     context {
       text(fill: theme-color.get())[#it]
     }
@@ -55,7 +60,6 @@
   content,
 ) = (
   context {
-
     let w = auto
 
     set block(
@@ -148,7 +152,6 @@
   info: none,
 ) = (
   context {
-
     _make-frontpage(
       title,
       subtitle,
@@ -156,7 +159,6 @@
       info,
       theme-color.get(),
     )
-
   }
 )
 
@@ -167,7 +169,6 @@
   text-size: 23pt,
 ) = (
   context {
-
     text(size: 42pt, weight: "bold")[
       #smallcaps(title)
       #v(-.9cm)
@@ -211,7 +212,6 @@
   text-size: 42pt,
 ) = (
   context {
-
     register-section(body)
 
     show heading: text.with(size: text-size, weight: "semibold")
@@ -234,7 +234,6 @@
   body,
 ) = (
   context {
-
     set page(
       fill: theme-color.get(),
     )
@@ -260,7 +259,6 @@
   body,
 ) = (
   context {
-
     let page-num = context counter(page).display(
       "1/1",
       both: true,
@@ -311,7 +309,6 @@
 
 #let blank-slide(body) = (
   context {
-
     let page-num = context counter(page).display(
       "1/1",
       both: true,
@@ -342,24 +339,42 @@
 
 //**************************************** Bibliography ***************************************\\
 
+// You can use this locally...
+// #let bibliography-slide(
+//   bib-path,
+//   title: "References",
+//   style: "ieee",
+// ) = (
+//   context {
+
+//     set text(size: 17pt)
+//     set par(justify: true)
+
+//     bibliography(
+//       bib-path,
+//       title: text(size: 30pt)[
+//         #smallcaps(title)
+//         #v(-.85cm)
+//         #_divider(color: theme-color.get())
+//         #v(.5cm)],
+//       style: style,
+//     )
+//   }
+// )
+//
+
 #let bibliography-slide(
-  bib-path,
+  bib-call,
   title: "References",
-  style: "ieee",
 ) = (
   context {
-
-    set text(size: 17pt)
+    set text(size: 19pt)
     set par(justify: true)
 
-    bibliography(
-      bib-path,
-      title: text(size: 30pt)[
-        #smallcaps(title)
-        #v(-.85cm)
-        #_divider(color: theme-color.get())
-        #v(.5cm)],
-      style: style,
+    set bibliography(
+      title: text(size: 30pt)[#smallcaps(title) #v(-.85cm) #_divider(color: theme-color.get()) #v(.5cm)],
     )
+
+    bib-call
   }
 )
