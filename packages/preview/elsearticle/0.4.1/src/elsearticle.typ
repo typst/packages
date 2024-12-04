@@ -7,7 +7,7 @@
 #import "els-globals.typ": *
 #import "els-environment.typ": *
 #import "els-utils.typ": *
-#import "els-template_info.typ": *
+#import "els-template-info.typ": *
 
 #let elsearticle(
   // The article's title.
@@ -126,7 +126,7 @@
   set par.line(numbering: linenum, numbering-scope: "page")
 
   // Define Template info
-  let els-info = template_info(title, abstract, authors, keywords, els-columns)
+  let els-info = template-info(title, abstract, authors, keywords, els-columns)
 
   // Set document metadata.
   set document(title: title, author: els-info.els-meta)
