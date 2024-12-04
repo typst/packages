@@ -6,5 +6,11 @@ authors = ["Dongdong Kong"]
 license = "MIT"
 description = "Chinese Technical report writing standards."
 compiler = "0.12.0"
-repository = "https://github.com/CUG-hydro/tech-report.typ"
+repository = "https://github.com/CUG-hydro/modern-cug-report.typ"
 exclude = ["example", ".gitignore"]
+categories = ["layout", "report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
