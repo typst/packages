@@ -36,7 +36,7 @@
 
   // The path to a bibliography file if you want to cite some external
   // works.
-  bibliography-file: none,
+  bibliography: none,
 
   // The paper's content.
   body,
@@ -214,10 +214,18 @@
   body
 
   // Display bibliography.
-  if bibliography-file != none {
-    show bibliography: set text(9pt)
-    bibliography(bibliography-file, title: text(10pt)[References], style: "american-institute-of-aeronautics-and-astronautics")
-  }
+
+  // Style bibliography.
+  show std.bibliography: set text(9pt)
+  // show std.bibliography: set block(spacing: 0.5em)
+  set std.bibliography(title: text(10pt)[References], style: "american-institute-of-aeronautics-and-astronautics")
+
+  bibliography
+
+  // if bibliography-file != none {
+  //   show bibliography: set text(9pt)
+  //   bibliography(bibliography-file, title: text(10pt)[References], style: "american-institute-of-aeronautics-and-astronautics")
+  // }
 }
 
 #let bEquation = it => { 

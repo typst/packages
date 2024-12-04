@@ -18,7 +18,8 @@
 
 #show: aiaa.with(
     title: "Preparation of Papers for AIAA Technical Conferences",
-    bibliography-file: "refs.bib",
+
+     bibliography: bibliography("refs.bib"),
     authors-and-affiliations: (
       (
         name:"First A. Author",
