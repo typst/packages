@@ -1,0 +1,13 @@
+[package]
+name = "echarm"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["lublak"]
+license = "MIT"
+description = "Run echarts in typst with the use of CtxJS."
+
+repository = "https://github.com/lublak/typst-echarm-package"
+
+keywords = ["js", "javascript", "charts", "echart", "ctxjs", "plot", "tree"]
+
+exclude = ["examples"]
