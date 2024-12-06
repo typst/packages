@@ -9,8 +9,8 @@
   author: [Quaternijkon],
   date: datetime.today(),
   institution: [School of Computer Science and Technology, USTC],
-  logo: image("../../assets/img/USTC_logo_side.svg", width: 50%),
-  head-logo: image("../../assets/img/ustc_logo_side.svg",width: 20%),
+  logo: image("./img/ustc_logo_side.svg", width: 50%),
+  head-logo: image("./img/ustc_logo_side.svg",width: 20%),
   github: ""
 )
 #let s = (s.methods.colors)(
