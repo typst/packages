@@ -1,4 +1,4 @@
-#import "lib.typ" : *; #show: doc => conf(title: [My assignment \ name], doc)
+#import "../lib.typ" : *; #show: doc => conf(title: [My assignment \ name], doc)
 
 #let a = "Sam"
 #let d = "Dog"
