@@ -18,6 +18,7 @@
     date: datetime.today(),
     institution: [USTC],
   ),
+  config-common(show-notes-on-second-screen: right),
 )
 
 #title-slide()
@@ -222,3 +223,12 @@ _emphasis_
 = #smallcaps("Components")
 
 == 
+
+= #smallcaps("Tools")
+
+== Pympress
+
+#speaker-note[
+  + This is a speaker note.
+  + You won't see it unless you use `config-common(show-notes-on-second-screen: right)`
+]
