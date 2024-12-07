@@ -36,6 +36,7 @@
   heading-numbering,
   math-numbering,
   ignored-link-label-keys-for-highlighting,
+  page-numbering,
 ) = {
   if (title == none or title == "") {
     panic("Title is missing. Specify a title in the 'title' attribute of the template.")
@@ -82,6 +83,22 @@
     heading-numbering: heading-numbering,
     math-numbering: math-numbering,
   )
+
+  if (page-numbering != none and type(page-numbering) != dictionary) {
+    panic("Page numbering is invalid. Specify a dictionary in the 'page-numbering' attribute of the template.")
+  }
+
+  if ("preface" in page-numbering) {
+    optional-string-attributes.insert("preface (page-numbering)", page-numbering.preface)
+  }
+
+  if ("main" in page-numbering) {
+    optional-string-attributes.insert("main (page-numbering)", page-numbering.main)
+  }
+
+  if ("appendix" in page-numbering) {
+    optional-string-attributes.insert("appendix (page-numbering)", page-numbering.appendix)
+  }
 
   for (key, attribute) in optional-string-attributes {
     if (attribute != none and (type(attribute) != str or attribute.len() == 0)) {

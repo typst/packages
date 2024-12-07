@@ -59,7 +59,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `title (str*)`: Title of the document
 
-`authors (dictionary*)`: List of authors with the following named arguments (max. 6 authors when in the company or 8 authors when at DHBW):
+`authors (dictionary*)`: List of authors with the following named arguments (max. 6 authors when in the company or 8 authors when at university):
 
 - name (str*): Name of the author
 - student-id (str*): Student ID of the author
@@ -87,7 +87,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `city (str)`: City of the author (only needed when `at-university` is `true`)
 
-`confidentiality-marker: (dictionary)`: Configure the confidentially marker (red or green circle) on the title page (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
+`confidentiality-marker: (dictionary)`: Configure the confidentially marker (red or green circle) on the title page (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at university)
 
 - display (bool*): Whether the confidentiality marker should be shown, default is `false`
 - offset-x (length): Horizontal offset of the confidentiality marker, default is `0pt`
@@ -157,9 +157,9 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `toc-depth (int)`: Depth of the table of contents, default is `3`
 
-`type-of-thesis (str)`: Type of the thesis, default is `none` (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
+`type-of-thesis (str)`: Type of the thesis, default is `none` (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at university)
 
-`type-of-degree (str)`: Type of the degree, default is `none` (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
+`type-of-degree (str)`: Type of the degree, default is `none` (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at university)
 
 `university (str*)`: Name of the university
 

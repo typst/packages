@@ -1,5 +1,10 @@
 # Supercharged-DHBW Changelog
 
+## [v3.4.0] - 2024
+
+- Update some descriptions in the documentation
+- 
+
 ## [v3.3.3] - 2024-11-02
 
 - Fix typo in declaration of authorship
