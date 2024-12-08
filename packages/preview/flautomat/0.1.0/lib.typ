@@ -44,7 +44,7 @@ diagram(
   for state in automat.States {
     for trans in state.Transitions {
       if trans.Target != trans.Source {
-        edge(label(str(trans.Source)), label(str(trans.Target)), "->", label: get-edge-label(trans.Labels, data.type), bend: if trans.x+trans.y !=0 {18deg} else {0deg})
+        edge(label(str(trans.Source)), label(str(trans.Target)), "->", label: get-edge-label(trans.Labels, data.type), bend: if trans.x != 0 or trans.y != 0 {18deg} else {0deg})
       } else {
         edge(label(str(trans.Source)), label(str(trans.Target)), "->", label: get-edge-label(trans.Labels, data.type), loop-angle: -calc.atan2(trans.x, trans.y), bend: 120deg)
       }
