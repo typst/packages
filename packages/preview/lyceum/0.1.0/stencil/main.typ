@@ -1,5 +1,5 @@
 // #import "@preview/lyceum:0.1.0": FRONT-MATTER
-#import "@local/lyceum:0.1.0": FRONT-MATTER, BODY-MATTER, APPENDIX, BACK-MATTER
+#import "@preview/lyceum:0.1.0": FRONT-MATTER, BODY-MATTER, APPENDIX, BACK-MATTER
 
 #let TEXT-SIZE = 11pt
 
