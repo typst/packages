@@ -132,6 +132,12 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `numbering-alignment (alignment)`: Alignment of the page numbering (for possible options check the [Typst documentation](https://typst.app/docs/reference/layout/alignment/)), default is `center`
 
+`page-numbering (dictionary)`: Configure the page numbering for the three sections (e.g. `page-numbering: (preface: "I", main: "1 / 1", appendix: "a")`)
+
+- preface (str): Page numbering for the preface, default is `I`
+- main (str): Page numbering for the main part, default is `1 / 1`
+- appendix (str): Page numbering for the appendix, default is `a`
+
 `show-abstract (bool)`: Whether the abstract should be shown, default is `true`
 
 `show-acronyms (bool)`: Whether the list of acronyms should be shown, default is `true`
@@ -148,7 +154,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `show-table-of-contents (bool)`: Whether the table of contents should be shown, default is `true`
 
-`supervisor (dictionary*)`: Name of the supervisor at the university and/or company (e.g. supervisor: (company: "John Doe", university: "Jane Doe"))
+`supervisor (dictionary*)`: Name of the supervisor at the university and/or company (e.g. `supervisor: (company: "John Doe", university: "Jane Doe")`)
 
 - company (str): Name of the supervisor at the company (note while the argument is optional at least one of the two arguments must be provided)
 - university (str): Name of the supervisor at the university (note while the argument is optional at least one of the two arguments must be provided)
@@ -165,7 +171,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `university-location (str*)`: Campus or city of the university
 
-`university-short (str*)`: Short name of the university (e.g. DHBW), displayed for the university supervisor
+`university-short (str*)`: Short name of the university (e.g. `DHBW`), displayed for the university supervisor
 
 Behind the arguments the type of the value is given in parentheses. All arguments marked with `*` are required.
 

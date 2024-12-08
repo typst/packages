@@ -1,11 +1,12 @@
 # Supercharged-DHBW Changelog
 
-## [v3.4.0] - 2024
+## [v3.4.0] - 2024-12-08
 
+- Fix inconsistency in the header spacing
+- Add option to provide the page numbering style
 - Update some descriptions in the documentation
-- 
 
-## [v3.3.3] - 2024-11-02
+## [v3.3.2] - 2024-11-02
 
 - Fix typo in declaration of authorship
 
