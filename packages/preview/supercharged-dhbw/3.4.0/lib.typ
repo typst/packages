@@ -10,6 +10,33 @@
 // Workaround for the lack of an `std` scope.
 #let std-bibliography = bibliography
 
+#let page-numbering-symbols = (
+  "1",
+  "a",
+  "A",
+  "i",
+  "I",
+  "α",
+  "Α",
+  "*",
+  "א",
+  "一",
+  "壹",
+  "あ",
+  "い",
+  "ア",
+  "イ",
+  "ㄱ",
+  "가",
+  "\u{0661}",
+  "\u{06F1}",
+  "\u{0967}",
+  "\u{09E7}",
+  "\u{0995}",
+  "①",
+  "⓵",
+)
+
 #let supercharged-dhbw(
   title: none,
   authors: (:),
@@ -295,14 +322,20 @@
     preface-numbering = page-numbering.preface
   }
 
-  set page(footer: context align(
-    numbering-alignment,
-    numbering(
-      preface-numbering,
-      ..counter(page).get(),
-      ..counter(page).at(<numbering-preface-end>),
-    ),
-  ))
+  set page(footer: context {
+    let display-total-page-number = preface-numbering.clusters().filter(c => c in page-numbering-symbols).len() >= 2
+
+    align(
+      numbering-alignment,
+      numbering(
+        preface-numbering,
+        ..counter(page).get(),
+        ..if display-total-page-number {
+          counter(page).at(<numbering-preface-end>)
+        },
+      ),
+    )
+  })
   counter(page).update(1)
 
   if (not at-university and show-confidentiality-statement) {
@@ -358,7 +391,7 @@
   }
 
   context {
-    let elems = query(figure.where(kind: image), here())
+    let elems = query(figure.where(kind: image))
     let count = elems.len()
 
     if (show-list-of-figures and count > 0) {
@@ -370,7 +403,7 @@
   }
 
   context {
-    let elems = query(figure.where(kind: table), here())
+    let elems = query(figure.where(kind: table))
     let count = elems.len()
 
     if (show-list-of-tables and count > 0) {
@@ -382,7 +415,7 @@
   }
 
   context {
-    let elems = query(figure.where(kind: raw), here())
+    let elems = query(figure.where(kind: raw))
     let count = elems.len()
 
     if (show-code-snippets and count > 0) {
@@ -412,14 +445,20 @@
     main-numbering = page-numbering.main
   }
 
-  set page(footer: context align(
-    numbering-alignment,
-    numbering(
-      main-numbering,
-      ..counter(page).get(),
-      ..counter(page).at(<numbering-main-end>),
-    ),
-  ))
+  set page(footer: context {
+    let display-total-page-number = main-numbering.clusters().filter(c => c in page-numbering-symbols).len() >= 2
+
+    align(
+      numbering-alignment,
+      numbering(
+        main-numbering,
+        ..counter(page).get(),
+        ..if display-total-page-number {
+          counter(page).at(<numbering-main-end>)
+        },
+      ),
+    )
+  })
   counter(page).update(1)
 
   body
@@ -431,14 +470,20 @@
     appendix-numbering = page-numbering.appendix
   }
 
-  set page(footer: context align(
-    numbering-alignment,
-    numbering(
-      appendix-numbering,
-      ..counter(page).get(),
-      // ..counter(page).at(<numbering-appendix-end>),
-    ),
-  ))
+  set page(footer: context {
+    let display-total-page-number = appendix-numbering.clusters().filter(c => c in page-numbering-symbols).len() >= 2
+
+    align(
+      numbering-alignment,
+      numbering(
+        appendix-numbering,
+        ..counter(page).get(),
+        ..if display-total-page-number {
+          counter(page).at(<numbering-appendix-end>)
+        },
+      ),
+    )
+  })
   counter(page).update(1)
 
   // Display bibliography.
@@ -456,5 +501,4 @@
   }
 
   [#metadata(none)<numbering-appendix-end>]
-
 }

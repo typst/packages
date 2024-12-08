@@ -12,7 +12,6 @@
       (name: "ABC S.L.", post-code: "08005", city: "Barcelona", country: "Spain")
     )),
   ),
-  page-numbering: (preface: "I"),
   acronyms: acronyms, // displays the acronyms defined in the acronyms dictionary
   at-university: false, // if true the company name on the title page and the confidentiality statement are hidden
   bibliography: bibliography("sources.bib"),
