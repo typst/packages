@@ -1,10 +1,10 @@
-# `gradient-slider`
+# `gradslide`
 
-Simple component to show a value between 0 and 1 on a nice slider.
+Simple component to show a value between 0 and 1 on a nice, customizable gradient slider.
 Here is an example:
 
 ```typ
-#import "@preview/gradient-slider:0.1.0": *
+#import "@preview/gradslide:0.1.0": *
 
 #slider(0.6,
   barHeight: 0.25cm,
