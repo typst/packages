@@ -1,25 +1,25 @@
 
 #let slider(
   p,
-  barHeight: 0.25cm,
-  barWidth: 4cm,
-  barGradientColors: (green.lighten(70%), yellow.lighten(70%), red.lighten(70%)),
-  barRadius: 1pt,
-  indicatorHeight: 0.5cm,
-  indicatorWidth: 0.1cm,
-  indicatorColor: black,
-  indicatorRadius: 100%,
-  labelSize: 8pt,
-  labelColor: black,
-  labelUnit: "",
-  outerPadding: 0.1cm,
-  spaceBetweenIndicatorAndLabel: 0.1cm,
+  bar-height: 0.25cm,
+  bar-width: 4cm,
+  bar-gradient-colors: (green.lighten(70%), yellow.lighten(70%), red.lighten(70%)),
+  bar-radius: 1pt,
+  indicator-height: 0.5cm,
+  indicator-width: 0.1cm,
+  indicator-color: black,
+  indicator-radius: 100%,
+  label-size: 8pt,
+  label-color: black,
+  label-unit: "",
+  outer-padding: 0.1cm,
+  space-between-indicator-and-label: 0.1cm,
 ) = context {
-  let barGradient = gradient.linear(..barGradientColors, angle: 0deg)
-  let indicatorXOffset = p * barWidth
-  let pContent = text(size: labelSize, fill: labelColor)[
-    #if labelUnit != "" {
-      [#str(p) #str(labelUnit)]
+  let barGradient = gradient.linear(..bar-gradient-colors, angle: 0deg)
+  let indicatorXOffset = p * bar-width
+  let pContent = text(size: label-size, fill: label-color)[
+    #if label-unit != "" {
+      [#str(p) #str(label-unit)]
     } else {
       [#str(p)]
     }
@@ -28,23 +28,23 @@
   let pHeight = measure(pContent).height
 
   box(
-    width: barWidth + outerPadding * 2,
-    height: calc.max(barHeight, indicatorHeight) + outerPadding * 2 + pHeight + spaceBetweenIndicatorAndLabel,
+    width: bar-width + outer-padding * 2,
+    height: calc.max(bar-height, indicator-height) + outer-padding * 2 + pHeight + space-between-indicator-and-label,
   )[
     #place(
-      dx: outerPadding,
-      dy: ((indicatorHeight - barHeight) / 2) + outerPadding,
+      dx: outer-padding,
+      dy: ((indicator-height - bar-height) / 2) + outer-padding,
     )[
-      #box(fill: barGradient, width: barWidth, height: barHeight, radius: barRadius)[]
+      #box(fill: barGradient, width: bar-width, height: bar-height, radius: bar-radius)[]
     ]
     #place(
-      dx: indicatorXOffset - (indicatorWidth / 2) + outerPadding,
-      dy: outerPadding,
+      dx: indicatorXOffset - (indicator-width / 2) + outer-padding,
+      dy: outer-padding,
     )[
-      #box(fill: indicatorColor, width: indicatorWidth, height: indicatorHeight, radius: indicatorRadius)[]
+      #box(fill: indicator-color, width: indicator-width, height: indicator-height, radius: indicator-radius)[]
       #place(
-        dx: (indicatorWidth / 2) - (pWidth / 2),
-        dy: spaceBetweenIndicatorAndLabel,
+        dx: (indicator-width / 2) - (pWidth / 2),
+        dy: space-between-indicator-and-label,
       )[
         #pContent
       ]
