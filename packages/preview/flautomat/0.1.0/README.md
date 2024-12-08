@@ -15,7 +15,7 @@ cat Automaton_MY_AUTOMAT.json | jq . > MY_AUTOMAT.json
 
 ...
 
-#flautomat(json("MY_AUTOMAT.json"), scaling_factor: 1)
+#flautomat(json("MY_AUTOMAT.json"), scaling-factor: 1)
 ```
 
 ## Supported Features
