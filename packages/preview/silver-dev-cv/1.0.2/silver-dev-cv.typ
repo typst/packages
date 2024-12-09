@@ -131,12 +131,16 @@
   contacts
     .map(contact => {
         if ("link" in contact) {
-          link(contact.link)[#contact.text]
-        } else {
-          [#contact.text]
-        })
+          link(contact.link)[#{
+              contact.text
+            }]
+        } else [
+          #{contact.text}
+        ]
+      })
     .join(" | ")
 }
+
 
 #let cv(
   font-type: "Times New Roman",
