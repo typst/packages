@@ -72,6 +72,23 @@
 }
 
 
+/// Attaches sub-/super-script values using text mode, while allowing for 
+/// stacking of a combined sub-script and super-script. 
+/// - body (content): Content to attach to
+/// - t (content): Superscript value
+/// - b (content): Subscript value
+#let non-math-attach(body, t: none, b: none) = {
+  t = if t != none { super(typographic: false, t) } 
+  b = if b != none { sub(typographic: false, b) } 
+  if t != none and b != none {
+    let width = calc.max(measure(t).width, measure(b).width)
+    body + box(width: width, sym.zws + place(top, sym.zws + t) + place(top, sym.zws + b))
+  } else {
+    body + t + b
+  }
+} 
+
+
 /// Takes a sequence of digits and returns a new sequence of length `digits`. 
 /// If the input sequence is too short, a corresponding number of trailing
 /// zeros is appended. Exceeding inputs are truncated. 
@@ -118,7 +135,7 @@
 
 
 #let format-uncertainty = it => {
-  /// pm, digits, mode, concise, tight
+  /// pm, digits, mode, concise, tight, math
   let pm = it.pm
   if pm == none { return () }
   let is-symmetric = type(pm.first()) != array
@@ -143,16 +160,30 @@
   )
   if is-symmetric {
     if it.concise { ("(", pm.first(), ")") }
-    else {
+    else if it.math {
       (
         math.class("normal", none),
         math.class(if it.tight {"normal"} else {"binary"}, sym.plus.minus),
         pm.first()
       )
+    } else {
+      let space = if not it.tight { sym.space.thin }
+      (
+        space, sym.plus.minus, space,
+        pm.first()
+      )
     }
-  } else {
+  } else if it.math {
      (
       math.attach(
+        none, 
+        t: sym.plus + pm.at(0), 
+        b: sym.minus + pm.at(1)
+      ),
+    )
+  } else {
+    (
+      non-math-attach(
         none, 
         t: sym.plus + pm.at(0), 
         b: sym.minus + pm.at(1)
@@ -164,20 +195,33 @@
 
 
 #let format-power = it => {
-  /// x, base, product, positive-sign-exponent, tight, 
+  /// x, base, product, positive-sign-exponent, tight, math
   if it.exponent == none { return () }
   
   let (sign, integer, fractional) = decompose-signed-float-string(it.exponent)
   let exponent = format-comma-number((sign: sign, int: integer, frac: fractional, digits: auto, group: false, positive-sign: it.positive-sign-exponent, decimal-separator: it.decimal-separator))
 
-  let power = math.attach([#it.base], t: [#exponent])
-  if it.product == none { (power,) }
-  else {
-    (
-      box(),
-      math.class(if it.tight {"normal"} else {"binary"}, it.product),
-      power
-    )
+  if it.math {
+    let power = math.attach([#it.base], t: [#exponent])
+    if it.product == none { (power,) }
+    else {
+      (
+        box(),
+        math.class(if it.tight {"normal"} else {"binary"}, it.product),
+        power
+      )
+    }
+  } else {    
+    let power = non-math-attach([#it.base], t: [#exponent])
+    if it.product == none { (power,) }
+    else {
+      let space = if not it.tight { sym.space.thin }
+      (
+        box(), 
+        space, it.product, space, 
+        power
+      )
+    }
   }
 }
 
@@ -211,6 +255,7 @@
     digits: it.digits,
     concise: concise-uncertainty,
     tight: it.tight,
+    math: it.math,
     mode: it.uncertainty-mode,
     decimal-separator: it.decimal-separator
   )
@@ -222,6 +267,7 @@
     product: if omit-mantissa {none} else {it.product},
     positive-sign-exponent: it.positive-sign-exponent,
     tight: it.tight,
+    math: it.math,
     decimal-separator: it.decimal-separator
   )
   
