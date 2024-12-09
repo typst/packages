@@ -6,7 +6,7 @@ authors = ["Dei Layborer"]
 license = "GPL-3.0"
 compiler = "0.11.1"
 description = "A package for creating O'Rly- / O'Reilly-type cover pages"
-repository = "https://github.com/dei-layborer/o-rly-typst"
+repository = "https://github.com/dei-layborer/fauxreilly"
 categories = ["components", "layout", "fun"]
 exclude = [
 	"$$$-gimmie.svg",
