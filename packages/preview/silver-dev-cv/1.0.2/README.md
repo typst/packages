@@ -4,6 +4,13 @@ This Typst CV template is a streamlined version of the the Latex template [Moder
 
 ## How to start
 
+## To test locally
+
+```
+export TYPST_PACKAGE_PATH=YOUR_PACKAGE_PATH
+typst init @preview/silver-dev-cv:your-desired-version
+```
+
 ### Use Typst CLI
 
 If you use Typst CLI, you can use the following command to create a new project:
