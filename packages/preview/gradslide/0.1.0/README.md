@@ -7,19 +7,19 @@ Here is an example:
 #import "@preview/gradslide:0.1.0": *
 
 #slider(0.6,
-  barHeight: 0.25cm,
-  barWidth: 4cm,
-  barGradientColors: (green.lighten(70%), yellow.lighten(70%), red.lighten(70%)),
-  barRadius: 1pt,
-  indicatorHeight: 0.5cm,
-  indicatorWidth: 0.1cm,
-  indicatorColor: black,
-  indicatorRadius: 100%,
-  labelSize: 8pt,
-  labelColor: black,
-  labelUnit: "%",
-  outerPadding: 0.1cm,
-  spaceBetweenIndicatorAndLabel: 0.1cm,
+  bar-height: 0.25cm,
+  bar-width: 4cm,
+  bar-gradient-colors: (green.lighten(70%), yellow.lighten(70%), red.lighten(70%)),
+  bar-radius: 1pt,
+  indicator-height: 0.5cm,
+  indicator-width: 0.1cm,
+  indicator-color: black,
+  indicator-radius: 100%,
+  label-size: 8pt,
+  label-color: black,
+  label-unit: "%",
+  outer-padding: 0.1cm,
+  space-between-indicator-and-label: 0.1cm,
 )
 ```
 
