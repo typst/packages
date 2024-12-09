@@ -1,4 +1,4 @@
-#import "../lib.typ" : *; #show: doc => conf(title: [My assignment \ name], doc)
+#import "@preview/chatter:0.1.0" : *; #show: doc => conf(title: [My assignment \ name], doc)
 
 #let a = "Sam"
 #let d = "Dog"
