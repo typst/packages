@@ -17,7 +17,7 @@
     #upper(name.slice(0, 3)).
   ]
 
-  #let log(number_lines: 5, body) = {
+  #let log(number-lines: 5, body) = {
     set terms(separator: h(2em), hanging-indent: 5em, spacing: 1em)
     set par.line(
       numbering: i => if calc.rem(i, number_lines) == 0 {i},
