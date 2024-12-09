@@ -4,7 +4,7 @@
 // Copyright (c) 2024
 // Author:  Gabriel Benmergui
 // License: MIT
-// Version: 1.0.1
+// Version: 1.0.2
 // Date:    2024-10-29
 // Email:   gabriel@silver.dev
 ///////////////////////////////

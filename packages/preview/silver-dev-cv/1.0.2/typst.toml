@@ -1,6 +1,6 @@
 [package]
 name = "silver-dev-cv"
-version = "1.0.1"
+version = "1.0.2"
 entrypoint = "silver-dev-cv.typ"
 authors = ["Gabriel Benmergui", "Santiago Barraza"]
 license = "MIT"
