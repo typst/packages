@@ -24,7 +24,4 @@
 )
 #let num-state = state("num-state", default-state)
 
-#let group-state = state("group-state", default-state.group)
-
-#let round-state = state("round-state", default-state.round)
 

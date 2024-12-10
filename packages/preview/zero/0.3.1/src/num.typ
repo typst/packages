@@ -1,4 +1,4 @@
-#import "state.typ": num-state, group-state, round-state
+#import "state.typ": num-state
 #import "formatting.typ": *
 #import "rounding.typ": *
 #import "assertations.typ": *
@@ -140,8 +140,6 @@
     if "group" in named { group-state += named.group }
     let it = num-state + (
       align: align,
-      prefix: prefix,
-      suffix: suffix,
       ..args.named()
     )
     it.round = round-state
