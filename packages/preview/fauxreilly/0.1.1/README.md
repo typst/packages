@@ -1,5 +1,9 @@
 # Fauxreilly
 
+![](made-with-(2s)-2,6-diamino-n-[(2s)-1-phenylpropan-2-yl]hexanamide-n-[(2s)-1-phenyl-2-propanyl]-l-lysinamide.svg)
+
+![](%24%24%24-gimmie.svg)
+
 A Typst package for creating **O'RLY?**-style cover pages.  See [here](https://boyter.org/2016/04/collection-orly-book-covers/) for general examples.
 
 Tested on Typst versions ``0.11.1`` and ``0.12``.
