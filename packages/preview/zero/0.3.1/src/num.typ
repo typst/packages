@@ -140,6 +140,8 @@
     if "group" in named { group-state += named.group }
     let it = num-state + (
       align: align,
+      prefix: prefix,
+      suffix: suffix,
       ..args.named()
     )
     it.round = round-state
