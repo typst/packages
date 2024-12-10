@@ -134,18 +134,12 @@
   if type(number) == array {
     let named = args.named()
     let num-state = if state == auto { num-state.get() } else { state }
-    let round-state = if state == auto { round-state.get() } else { num-state.round }
-    let group-state = if state == auto { group-state.get() } else { num-state.group }
-    if "round" in named { round-state += named.round }
-    if "group" in named { group-state += named.group }
     let it = num-state + (
       align: align,
       prefix: prefix,
       suffix: suffix,
       ..args.named()
     )
-    it.round = round-state
-    it.group = group-state
     return number.map(n => show-num(it + (number: n)))
   }
   
