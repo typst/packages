@@ -1,4 +1,4 @@
-# O'Rly, Typst?
+# Fauxreilly
 
 A Typst package for creating **O'RLY?**-style cover pages.  See [here](https://boyter.org/2016/04/collection-orly-book-covers/) for general examples.
 
