@@ -1,6 +1,6 @@
 # Fauxreilly
 
-![](made-with-(2s)-2,6-diamino-n-[(2s)-1-phenylpropan-2-yl]hexanamide-n-[(2s)-1-phenyl-2-propanyl]-l-lysinamide.svg)
+![](made-with.svg)
 
 ![](%24%24%24-gimmie.svg)
 
