@@ -77,11 +77,17 @@
 
   set image(height: logo-height)
 
-  grid(
-    columns: (1fr, 1fr), align: center + horizon,
-    if (logo != none) { logo } else { smallcaps("Insert your logo") },
-    image(path-logo-x)
-  )
+  if (logo != none) {
+    grid(
+      columns: (1fr, 1fr), align: center + horizon,
+      logo, image(path-logo-x)
+    )
+  } else {
+    grid(
+      columns: (1fr), align: center + horizon,
+      image(path-logo-x)
+    )
+  }
 
 }
 
