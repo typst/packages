@@ -5,7 +5,7 @@
 Put something akin to the following at the start of your `.typ` file:
 
 ```typ
-#import "@preview/marginalia:version": note, wideblock
+#import "@preview/marginalia:0.1.0" as marginalia: note, wideblock
 #let config = (
   // inner: ( far: 5mm, width: 15mm, sep: 5mm ),
   // outer: ( far: 5mm, width: 15mm, sep: 5mm ),
@@ -29,7 +29,7 @@ pages. Notes are placed in the outside margin by default.
 
 Where you can then customize `config` to your preferences. Shown here (as
 comments) are the default values taken if the corresponding keys are unset.
-[Please refer to the PDF documentation for more details on the configuration.](https://github.com/nleanba/typst-marginalia/blob/main/Marginalia.pdf)
+[Please refer to the PDF documentation for more details on the configuration.](https://github.com/nleanba/typst-marginalia/blob/v0.1.0/Marginalia.pdf)
 
 ## Margin-Notes
 
@@ -48,8 +48,8 @@ Provided via the `#wideblock[...]` command.
 - `#note(reverse: true)[...]` to extend into the inside margin instead.
 - `#note(double: true)[...]` to extend into both margins.
 
-Note: `reverse` and `double are mutually exclusive.
+Note: `reverse` and `double` are mutually exclusive.
 
 Note: It does not handle pagebreaks in `book: true` documents well.
 
-[![first page of the documentation](preview.svg)](https://github.com/nleanba/typst-marginalia/blob/main/Marginalia.pdf)
+[![first page of the documentation](https://raw.githubusercontent.com/nleanba/typst-marginalia/refs/tags/v0.1.0/preview.svg)](https://github.com/nleanba/typst-marginalia/blob/v0.1.0/Marginalia.pdf)
