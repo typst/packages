@@ -61,7 +61,7 @@
   page-margin: (inside: 30mm, rest: 25mm),
   page-binding: left,
   page-fill: color.hsl(45deg, 15%, 85%),  // ivory
-  text-font: ("EB Garamond", "Linux Libertine", "Libertinus Serif"),
+  text-font: ("EB Garamond", "Libertinus Serif"),
   text-size: 12pt,
   lang-name: "en",
   par-indent: 12mm,
@@ -144,7 +144,7 @@
       align(
         center + top,
         text(
-          font: ("EB Garamond", "Linux Libertine", "Libertinus Serif"),
+          font: ("EB Garamond", "Libertinus Serif"),
           size: FMT("it-size", size: text-size),
           weight: "extrabold",
         )[#it.body]
@@ -337,7 +337,7 @@
         align(
           center + horizon,
           text(
-            font: ("Alegreya", "Linux Libertine", "Libertinus Serif"),
+            font: ("Alegreya", "Libertinus Serif"),
             size: FMT("sn-size", size: text-size),
             weight: "extrabold",
             fill: FMT("sq-text", size: text-size)
@@ -356,7 +356,7 @@
           align(
             center + horizon,
             text(
-              font: ("EB Garamond", "Linux Libertine", "Libertinus Serif"),
+              font: ("EB Garamond", "Libertinus Serif"),
               size: 0.275 * FMT("sn-size", size: text-size),
               weight: "bold",
               fill: FMT("sq-text", size: text-size)
@@ -372,7 +372,7 @@
       align(
         center + top,
         text(
-          font: ("EB Garamond", "Linux Libertine", "Libertinus Serif"),
+          font: ("EB Garamond", "Libertinus Serif"),
           size: FMT("it-size", size: text-size),
           weight: "extrabold",
         )[#it.body]
@@ -481,7 +481,7 @@
         align(
           center + horizon,
           text(
-            font: ("Alegreya", "Linux Libertine", "Libertinus Serif"),
+            font: ("Alegreya", "Libertinus Serif"),
             size: FMT("sn-size", size: text-size),
             weight: "extrabold",
             fill: FMT("sq-text", size: text-size)
@@ -500,7 +500,7 @@
           align(
             center + horizon,
             text(
-              font: ("EB Garamond", "Linux Libertine", "Libertinus Serif"),
+              font: ("EB Garamond", "Libertinus Serif"),
               size: 0.275 * FMT("sn-size", size: text-size),
               weight: "bold",
               fill: FMT("sq-text", size: text-size)
@@ -516,7 +516,7 @@
       align(
         center + top,
         text(
-          font: ("EB Garamond", "Linux Libertine", "Libertinus Serif"),
+          font: ("EB Garamond", "Libertinus Serif"),
           size: FMT("it-size", size: text-size),
           weight: "extrabold",
         )[#it.body]
@@ -597,7 +597,7 @@
       align(
         center + top,
         text(
-          font: ("EB Garamond", "Linux Libertine", "Libertinus Serif"),
+          font: ("EB Garamond", "Libertinus Serif"),
           size: FMT("it-size", size: text-size),
           weight: "extrabold",
         )[#it.body]

@@ -45,7 +45,7 @@
   page-margin: (inside: 30mm, rest: 25mm),
   page-binding: left,
   page-fill: color.hsl(45deg, 15%, 85%),  // ivory
-  text-font: ("EB Garamond", "Libertinus Serif", "Linux Libertine"),
+  text-font: ("EB Garamond", "Libertinus Serif"),
   text-size: TEXT-SIZE,
   lang-name: "en",
 )
