@@ -35,10 +35,8 @@ First use of #acr("AJT") and second use of #acr("AJT").\
 == Acronym with Advanced Definitions
 
 First use of #acr("ada") and second use of #acr("ada").\
-#ref("First use of Advanced Definition Acronym (ADA) and second use of (ADA).")
+#ref("First use of Advanced Definition Acronym (ADA) and second use of ADA.")
 
-//First use of iplural #acrpl("ada") and second use of plural #acrpl("ada").\
-//#ref("First use of Advanced Definitions Acronyms (ADAs) and second use of (ADAs).")
 
 
 Reset acronyms. #racr("AJT")
@@ -67,7 +65,7 @@ First use of #ac("PFT") and second use of #ac("PFT").\
 #ref("First use of Package For Typst (PFT) and second use of PFT.")
 
 Full definition singular #acf("PFT") and plural #acfp("ada")\
-#ref("Full Definition singular Package For Typst (PFT) and plural Advanced Definions Acronyms (ADAs)")
+#ref("Full definition singular Package For Typst (PFT) and plural Advanced Definions Acronyms (ADAs)")
 
 Display short singular #acs("ada") and short plural #acsp("ada")\
 #ref("Display short singular ADA and short plural ADAs")
