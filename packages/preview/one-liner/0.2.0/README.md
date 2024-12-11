@@ -5,10 +5,10 @@ adjusting the text size based upon the context. This is useful in templates wher
 don't know the length of text that is supposed to fit in specific locations in your template.
 
 ## Example
-The current version(0.1.0) one-liner contains 1 function: fit-to-width that can used as follows:
+The current version(0.2.0) one-liner contains 1 function: fit-to-width that can used as follows:
 
 ```typst
-#import "@preview/one-liner:0.1.0": fit-to-width 
+#import "@preview/one-liner:0.2.0": fit-to-width 
 
 #block(
   height: 3cm,
