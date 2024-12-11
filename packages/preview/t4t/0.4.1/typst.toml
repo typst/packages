@@ -8,4 +8,4 @@ description = "A utility package for typst package authors"
 repository = "https://github.com/jneug/typst-tools4typst"
 keywords = ["utilities"]
 exclude = ["tbump.toml", "t4t-manual.pdf", "t4t-manual.typ"]
-compiler = "0.0.12"
+compiler = "0.12.0"

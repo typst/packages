@@ -76,7 +76,7 @@
 For Typst 0.6.0 and later, the package can be imported from the _preview_ repository:
 
 #codesnippet[```typ
-  #import "@preview/t4t:0.3.1": automaton
+  #import "@preview/t4t:0.4.1": automaton
   ```]
 
 Alternatively, the package can be downloaded and saved into the system dependent local package repository.
@@ -84,15 +84,15 @@ Alternatively, the package can be downloaded and saved into the system dependent
 Either download the current release from GitHub#footnote[#link("https://github.com/jneug/typst-tools4typst")] and unpack the archive into your system dependent local repository folder#footnote[#link("https://github.com/typst/packages#local-packages")] or clone it directly:
 
 #codesnippet[```shell-unix-generic
-  git clone https://github.com/jneug/typst-tools4typst.git t4t/0.3.1
+  git clone https://github.com/jneug/typst-tools4typst.git t4t/0.4.1
   ```]
 
-In either case, make sure the files are placed in a subfolder with the correct version number: `t4t/0.3.1`
+In either case, make sure the files are placed in a subfolder with the correct version number: `t4t/0.4.1`
 
 After installing the package, just import it inside your `typ` file:
 
 #codesnippet[```typ
-  #import "@local/t4t:0.3.1": automaton
+  #import "@local/t4t:0.4.1": automaton
   ```]
 
 == Manual
