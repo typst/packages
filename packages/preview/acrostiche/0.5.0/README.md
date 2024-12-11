@@ -98,6 +98,18 @@ Finally, you can call the `#display-def(...)` function to display the definition
 | **#display-def(...)**          | Displays the definition of an acronym. Use `plural: true` to display the plural version of the definition.           |
 | **racr, raacr, acrf, acrfpl**  | Shortcuts names for respectively `reset-acronym`, `reset-all-acronyms`, `acrfull`, and `acrfullpl`.                  | 
 
+Shortcut names inspired by the `acronym` package for LaTeX by Tobias Oetiker:
+
+| **Function**                  | **Description**                                                                                                     |
+|-------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| **#ac(...)**        | Same as `acr`, display an acronym.|
+| **#acf(...)**        | Same as `acrfull`, display the long version of an acronym.|
+| **#acfp(...)**        | Same as `acf` but plural.|
+| **#acs(...)**        | Display the short version of the acronym, does not update the acronym state.|
+| **#acsp(...)**        | Same as `acs` but plural.|
+| **#acused(...)**        | Mark an acronym as used without printing anything.|
+| **#acresetall(...)**        | Reset all acronyms.|
+
 ## Advanced Definitions
 This is a bit of a hacky feature coming from pure serendipity.
 There is no enforcement of the type of the definitions.
