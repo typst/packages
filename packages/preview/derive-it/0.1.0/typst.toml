@@ -1,0 +1,12 @@
+[package]
+name = "derive-it"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["0rphee <@0rphee>"]
+license = "MIT"
+description = "Simple functions for creating fitch-style natural deduction proofs and derivations."
+repository = "https://github.com/0rphee/derive-it"
+keywords = ["math", "logic", "fitch", "proof", "derivation", "natural deduction", "deduction"]
+categories = ["layout", "visualization"]
+disciplines = ["mathematics", "philosophy"]
+exclude = ["examples/", "*.pdf"]
