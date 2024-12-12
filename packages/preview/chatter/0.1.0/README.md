@@ -6,7 +6,7 @@ writing. For the best experience use variables for your characters:
 ### Use 
 This will all be created for you with with `typst init`. 
 ```typ
-#import "lib.typ" : *; 
+#import "@preview/chatter:0.1.0" : *; 
 
 #let H = "Howard Moon"
 #let T = "Tony Harrison"
