@@ -3,7 +3,7 @@
 #let a = "Sam"
 #let d = "Dog"
 
-#log(number_lines: 3)[
+#log(number-lines: 3)[
   Exercitation est dolore irure velit labore id. Eiusmod sit voluptate dolor
   aliqua exercitation ex sint laborum qui duis qui velit. Ipsum sint pariatur
   do fugiat excepteur et enim ipsum aliqua exercitation occaecat. Lorem est
