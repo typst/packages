@@ -20,7 +20,7 @@
   #let log(number-lines: 5, body) = {
     set terms(separator: h(2em), hanging-indent: 5em, spacing: 1em)
     set par.line(
-      numbering: i => if calc.rem(i, number_lines) == 0 {i},
+      numbering: i => if calc.rem(i, number-lines) == 0 {i},
       number-margin: right,
     )
     block(stroke: (left: 4pt), inset: 1em)[
