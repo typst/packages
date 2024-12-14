@@ -2,7 +2,7 @@
 name = "chordish"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["Finn Coffey <soxfox.me>"]
+authors = ["Finn Coffey <https://soxfox.me>"]
 license = "MIT"
 description = "A simple template for creating guitar and ukulele chord sheets."
 repository = "https://github.com/soxfox42/chordish"
