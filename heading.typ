@@ -30,7 +30,7 @@
 
   // H2 styling
   show heading.where(level:2): he => {
-    box[#{
+    box()[#{
       set text(
         size:20pt,
         weight: "medium",
@@ -39,7 +39,6 @@
       smallcaps(he)
       v(-0.5em)
       image("assets/filet-court.svg")
-      v(0.3em)
     }]
   }
 
@@ -59,18 +58,15 @@
 
   // H4 styling
   show heading.where(level: 4): he => {
-    he
-    v(0.2em)
+    counter(heading).display(he.numbering)
+    he.body
   }
 
   // Quick fix for paragraph indentation...
   // Any superior entity who might be reading, please forgive me
   show heading: he => {
-    {
       set par(first-line-indent: 0pt)
       he
-    }
-    par()[#text(size: 0em)[#h(0em)]]
   }
 
   // Don't forget to return doc cause

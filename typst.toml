@@ -1,6 +1,6 @@
 [package]
 name = "typographix-polytechnique-reports"
-version = "0.1.4"
+version = "0.1.5"
 entrypoint = "polytechnique.typ"
 authors = ["Rémi Germe <@remigerme>"]
 license = "MIT"
