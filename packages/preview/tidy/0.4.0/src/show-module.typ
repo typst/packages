@@ -139,7 +139,14 @@
       return raw(target)
     }
     let defs = def-state.final()
-    if defs.at(target, default: none) == 1 {
+
+    let base = target
+    if "." in base { base = base.split(".").first() }
+    let target-def = defs.at(target, default: none)
+    let base-def = defs.at(base, default: none)
+    if target-def == none and base-def == none { return it } 
+
+    if target-def == 1 {
       target += "()"
     }
     (eval-scope.tidy.show-reference)(label(label-prefix + target), target)
