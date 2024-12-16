@@ -1,0 +1,15 @@
+[package]
+name        = "CQUT-Thesis-Typst" # 包名称
+version     = "0.1.0" # 版本号
+entrypoint  = "lib.typ" # 入口点
+authors     = ["aFei"] # 作者
+license     = "MIT" # 许可证
+description = "重庆理工大学学位论文模板。" # 描述
+repository  = "https://github.com/aFei-CQUT/CQUT-Thesis-Typst" # 仓库地址
+keywords    = ["重庆理工大学", "学位论文"] # 关键词
+categories  = ["thesis"] # 分类
+
+[template]
+path        = "template" # 模板路径
+entrypoint  = "thesis.typ" # 模板入口文件
+thumbnail   = "thumbnail.png" # 缩略图文件
