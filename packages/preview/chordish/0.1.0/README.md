@@ -5,7 +5,7 @@ A simple template for creating chord sheets (or collections of chord sheets) in 
 Start by importing the `songbook` template and using it for your main document:
 
 ```typ
-#import "@preview/typstrum:0.1.0": songbook, song, section
+#import "@preview/chordish:0.1.0": songbook, song, section
 #show: songbook
 ```
 
