@@ -65,5 +65,5 @@ Although not required (and maybe discouraged), you can include the definitions o
 *`#rfc-keyword-should-not-definition`*, or
 *`#rfc-keyword-may-definition`*.
 
-Or, you can include dfinitions of all keywords with *`#rfc-keyword-definitions`*:
+Or, you can include definitions of all keywords with *`#rfc-keyword-definitions`*:
 #pad(left: 1em, rfc-keyword-definitions)
