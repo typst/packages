@@ -84,8 +84,7 @@
 #counter(page).update(1)
 #set page(numbering: "i")
 
-#heading([Acknowledgments], numbering: none)
-#lorem(128)
+#include "content/front/acknowledgments.typ"
 
 // Table of contents and lists
 #show outline.entry.where(level: 1): it => {
