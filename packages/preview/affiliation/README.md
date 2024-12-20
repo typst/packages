@@ -4,8 +4,8 @@ An auto affiliation function for Typst. This library provides a single function,
 1. Authors' names with superscripted affiliation indices and an email symbol if contact information is provided.
 2. A list of sorted affiliations.
 
-## Example
-![Example Output](assets/example-output.png)
+<!-- ## Example
+![Example Output](assets/example-output.png) -->
 
 ## `get-authors`
 The function `get-authors` is highly customizable:
