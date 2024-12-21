@@ -1,0 +1,11 @@
+[package]
+name = "affiliation"
+version = "0.1.0"
+repository = "https://github.com/han190/typst-affiliation"
+entrypoint = "src/lib.typ"
+authors = ["Han Tang <limpid.mazarine@gmail.com>"]
+categories = ["layout", "text", "scripting"]
+license = "LGPL-3.0-or-later"
+description = "An auto affiliation tool"
+keywords = ["typst", "affiliation"]
+exclude = []
