@@ -7,7 +7,7 @@ Zebraw is a lightweight and fast package for displaying code blocks with line nu
 To show a raw block with line numbers, just import `zebraw` package and then follow with `#show zebraw.with()`.
 
 ````typ
-  #import "src/lib.typ": *
+  #import "@preview/zebraw:0.1.0": *
 
   #show: zebraw.with()
 
