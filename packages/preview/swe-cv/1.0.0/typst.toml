@@ -7,7 +7,7 @@ license = "MIT"
 description = "Engineering oriented cv template"
 repository = "https://github.com/sardorml/swe-cv"
 keywords = ["cv-template", "developer-template", "cv", "template"]
-categories = ["cv","layout",""]
+categories = ["cv","layout"]
 
 [template]
 path = "template"
