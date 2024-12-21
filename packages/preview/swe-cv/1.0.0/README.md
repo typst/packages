@@ -6,8 +6,6 @@ This package provides a template for swe-cv. To use it, import the package as fo
 #import "@preview/swe-cv:1.0.0"
 ```
 
-![Preview](thumbnail.png)
-
 ## Configuration
 
 You can easily customize your personal data by editing the `configuration.yaml` file. This file allows you to set your name, contact information, work experience, education, and skills. Here’s how to do it:
