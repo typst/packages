@@ -541,6 +541,7 @@
 #let glossary(
   title: "Glossary",
   theme: theme-academic,
+  sort: true,
   ignore-case: false,
   groups: (),
 ) = context {
@@ -601,13 +602,17 @@
       group = if group == none { "" } else { group }
 
       // sort entries by case insensitivity if requested
-      let sorted_entries = current_entries
-        // 1. create array of tuples with (lower [if ignore-case], entry)
-        .map(e => { if ignore-case { (lower(e.short), e) } else { (e.short, e) } })
-        // 2. sort the tuples (by first element then second)
-        .sorted() // NOTE: sorted() is NOT language-aware
-        // 3. strip away the tuple's first element, leaving an array of entries
-        .map(t => t.last())
+      let sorted_entries = if sort {
+        current_entries
+          // 1. create array of tuples with (lower [if ignore-case], entry)
+          .map(e => { if ignore-case { (lower(e.short), e) } else { (e.short, e) } })
+          // 2. sort the tuples (by first element then second)
+          .sorted() // NOTE: sorted() is NOT language-aware
+          // 3. strip away the tuple's first element, leaving an array of entries
+          .map(t => t.last())
+      } else {
+        current_entries
+      }
 
       // add entries to this group's output map
       output.insert(group, sorted_entries)
