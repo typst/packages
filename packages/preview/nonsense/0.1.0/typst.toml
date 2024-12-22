@@ -11,6 +11,6 @@ exclude = ["*.pdf", "*.jpg, *.gif"]
 description = "Generate nonsensical math papers or sections of them."
 
 [template]
-path = "lib"
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
