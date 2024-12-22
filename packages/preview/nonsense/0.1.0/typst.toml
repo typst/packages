@@ -5,8 +5,8 @@ entrypoint = "lib.typ"
 authors = ["Sylvan Franklin"]
 license = "MIT-0"
 repository = "https://github.com/sylvanfranklin/nonsense"
-categories = ["Fun"]
-keywords = ["Fun"]
+categories = ["fun", "paper"]
+keywords = ["Fun", "Math", "Generator"]
 exclude = ["*.pdf", "*.jpg, *.gif"]
 description = "Generate nonsensical math papers or sections of them."
 
