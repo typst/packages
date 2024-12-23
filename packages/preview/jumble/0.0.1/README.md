@@ -24,19 +24,19 @@ For information, please refer to the [manual](manual.pdf)
 To use this package, you can either:
 - import the package as a module:
   ```typst
-  #import "jumble/src/lib.typ" as jumble
+  #import "@preview/jumble:0.0.1"
   ...
   #jumble.md5(...)
   ```
-- import the functions you need from `src/lib.typ`:
+- import only the functions you need:
   ```typst
-  #import "jumble/src/lib.typ": md5
+  #import "@preview/jumble:0.0.1": md5
   ...
   #md5(...)
   ```
 - import everything:
   ```typst
-  #import "jumble/src/lib.typ": *
+  #import "@preview/jumble:0.0.1": *
   ...
   #md5(...)
   ```
