@@ -11,4 +11,4 @@ categories = ["scripting", "utility"]
 license = "Apache-2.0"
 description = "A package providing some hash functions and related stuff"
 keywords = ["hash", "algorithm", "cryptography", "md5", "sha1", "hmac", "totp", "ntlm"]
-exclude = [ "gallery", "gallery.bash" ]
+exclude = [ "gallery", "gallery.bash", "manual.pdf" ]
