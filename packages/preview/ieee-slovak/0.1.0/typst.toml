@@ -1,0 +1,16 @@
+[package]
+name = "ieee-slovak"
+version = "0.1.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/MeheheCedy22/ieee-slovak"
+authors = ["Marek Čederle <marek@cederle.com>"]
+license = "MIT"
+description = "An IEEE-style paper template for use with Slovak language"
+keywords = ["Institute of Electrical and Electronics Engineers", "IEEE", "Electrical Engineering", "Computer Science", "Computer Engineering", "Software", "Slovak"]
+categories = ["paper"]
+disciplines = ["computer-science", "engineering"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
