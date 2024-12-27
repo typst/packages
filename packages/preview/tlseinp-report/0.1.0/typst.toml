@@ -13,4 +13,4 @@ description = "Template for Toulouse INP students."
 [template]
 path = ""
 entrypoint = "tlseinp.typ"
-thumbnail = "thumbnail.jpg"
+thumbnail = "thumbnail.png"
