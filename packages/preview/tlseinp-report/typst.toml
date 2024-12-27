@@ -1,0 +1,16 @@
+[package]
+name = "tlseinp-report"
+version = "0.1.0"
+entrypoint = "tlseinp.typ"
+authors = ["Killian Falguiere <@killian-fal>"]
+license = "Apache-2.0"
+categories = ["report"]
+repository = "https://github.com/Killian-fal/tlseinp-typst-template"
+keywords = ["inp", "toulouse-inp", "n7", "a7", "enseeiht", "ensat", "ensiacet", "engineering", "ingenieur", "rapport", "report", "tp", "td", "projet", "compte-rendu"]
+disciplines = ["engineering", "computer-science", "mathematics", "physics"]
+description = "Template for Toulouse INP students."
+
+[template]
+path = ""
+entrypoint = "tlseinp.typ"
+thumbnail = "thumbnail.jpg"
