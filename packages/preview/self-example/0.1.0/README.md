@@ -1,4 +1,4 @@
-# self-typst
+# self-example
 
 A typst package that will eval your typst command together with itself as a raw block.
 
