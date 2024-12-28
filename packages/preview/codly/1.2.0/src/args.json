@@ -124,7 +124,7 @@
             }
         ],
         "experimental": true,
-        "upcoming": true
+        "upcoming": false
     },
     "languages": {
         "title": "Languages",
@@ -376,7 +376,7 @@
             "desc": "If alignment between highlighted and non-highlighted lines is critical for your use case, as could be the case in presentation, you can set the horizontal inset to be zero, or close to zero, to maintain alignment between the lines.",
             "code": "#codly(\n  highlight-inset: (x: 0pt, y: 0.32em),\n  highlights: ((line: 2, start: 0), )\n)\n```kotlin\nprivate val n = 0\nprivate val n = 0\n```"
         }],
-        "upcoming": true
+        "upcoming": false
     },
     "highlight-outset": {
         "title": "Highlight outset",
@@ -384,7 +384,7 @@
         "default": "0em",
         "ty": [ "length", "dictionary" ],
         "function": true,
-        "upcoming": true
+        "upcoming": false
     },
     "highlight-clip": {
         "title": "Highlight clip",
@@ -392,7 +392,7 @@
         "default": "true",
         "ty": [ "bool" ],
         "function": true,
-        "upcoming": true
+        "upcoming": false
     },
     "reference-by": {
         "title": "Reference by",
