@@ -139,11 +139,11 @@
       ..unpairs(heading-text-args-lists
         .map((pair) => (pair.at(0), array-at(pair.at(1), it.level))))
     )
-    set block(
+    block(
+      counter(heading).display() + h(1em) + it.body,
       above: array-at(heading-above, it.level)*1.5,
       below: array-at(heading-below, it.level)*1.5,
     )
-    counter(heading).display() + h(1em) + it.body
     fake-par
   }
   show heading.where(level: 1): it => {
