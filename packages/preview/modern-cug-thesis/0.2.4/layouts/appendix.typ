@@ -3,7 +3,7 @@
 
 // 后记，重置 heading 计数器
 #let appendix(
-  numbering: custom-numbering.with(first-level: "", depth: 4, "1.1 "),
+  numbering: custom-numbering.with(first-level: "", depth: 4, "1.1"),
   // figure 计数
   show-figure: i-figured.show-figure.with(numbering: "1.1"),
   // equation 计数
@@ -15,6 +15,10 @@
   set heading(numbering: numbering)
   if reset-counter {
     counter(heading).update(0)
+  }
+  // 标题号与标题空一个汉字符
+  show heading: it => {
+    counter(heading).display() + h(1em) + it.body
   }
   // 设置 figure 的编号
   show figure: show-figure

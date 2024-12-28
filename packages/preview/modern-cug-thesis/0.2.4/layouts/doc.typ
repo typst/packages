@@ -44,10 +44,10 @@
     it
     fake-par
   }
-  // show math.equation.where(block: true): it=>{
-  //   it
-  //   fake-par
-  // }
+  show math.equation.where(block: true): it=>{
+    it
+    fake-par
+  }
   show link: it => {
     underline(text(rgb(0, 0, 255), it))
   }

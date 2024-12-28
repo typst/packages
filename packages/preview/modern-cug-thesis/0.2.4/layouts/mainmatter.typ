@@ -18,7 +18,7 @@
   spacing: 20pt-1.0em,
   justify: true,
   first-line-indent: 2em,
-  numbering: custom-numbering.with(first-level: "第一章 ", depth: 4, "1.1 "),
+  numbering: custom-numbering.with(first-level: "第一章", depth: 4, "1.1"),
   // 正文字体与字号参数
   text-args: auto, // auto =>宋体、小四, 20pt
   // 标题字体与字号
@@ -35,7 +35,7 @@
   header-vspace: 0.5cm,
   header-line-width: 0.6pt,
   // caption 的 separator
-  separator: " ",
+  separator: 1.0em,
   // caption 样式
   caption-leading: 1.0em, 
   caption-size: 字号.五号,
@@ -116,7 +116,7 @@
   show figure.where(
     kind: table
   ): set figure.caption(position: top)
-  set figure.caption(separator: separator)
+  set figure.caption(separator: h(separator))
   show figure.caption: set text(font: fonts.宋体, size: 字号.五号)
   show figure.caption: set par(leading: caption-leading)
   // 表格可跨页
@@ -143,7 +143,7 @@
       above: array-at(heading-above, it.level)*1.5,
       below: array-at(heading-below, it.level)*1.5,
     )
-    it
+    counter(heading).display() + h(1em) + it.body
     fake-par
   }
   show heading.where(level: 1): it => {
