@@ -38,11 +38,12 @@
   // 内置辅助函数
   let info-style(
     body, 
-    weight: "regular",
+    weight: "regular", leading: 22pt-1.0em,
     font: 字体.at(cover-meta-font, default: 字体.宋体),
     size: 字号.at(cover-meta-size, default: 字号.三号),
     align-type: "default", // str(justify), str(default), left, right, center, 
   ) = {
+    set par(leading: leading)
     rect(
       width: auto, 
       stroke: none,
@@ -62,7 +63,7 @@
     body, weight: "bold",
     font: 字体.宋体,
     size: 字号.一号,
-    leading-scale: 1.2,
+    leading: 1.0em,
   ) = {
     set align(center+horizon)
     rect(
@@ -71,7 +72,7 @@
       text(
         font: font, size: size,
         weight: weight,
-        par(body, leading: size * leading-scale)
+        par(body, leading: leading)
       )
     )
   }
@@ -87,10 +88,10 @@
     align: (right, left, right, left),
     rows: 1.38cm,
     columns: (1fr, 1fr, 1fr, 1fr), 
-    info-style("学校代码:"),
-    info-style(anonymous-info(info.school-code)),
-    info-style("研究生学号:"),
-    info-style(anonymous-info(info.student-id)),
+    info-style("学校代码:", leading: 1.0em),
+    info-style(anonymous-info(info.school-code), leading: 1.0em),
+    info-style("研究生学号:", leading: 1.0em),
+    info-style(anonymous-info(info.student-id), leading: 1.0em),
   )
   grid(
     columns: 15.43cm, 
@@ -98,9 +99,9 @@
     align: center,
     if info.degreetype == "academic" {
     if info.doctype == "doctor" { 
-      docname(anonymous-info(info.school-name) + "博士学位论文")
+      docname(anonymous-info(info.school-name) + "\n博士学位论文")
       } else {
-        docname(anonymous-info(info.school-name) + "硕士学位论文")
+        docname(anonymous-info(info.school-name) + "\n硕士学位论文")
       }
     } else if info.degreetype == "professional" {
       if info.is-fulltime { 
@@ -115,7 +116,7 @@
     columns: 15.43cm, 
     rows: 2.67cm,
     align: center,
-    title(info.title.join("\n"), font: 字体.黑体, size: 字号.二号, leading-scale: 1.0),
+    title(info.title.join("\n"), font: 字体.黑体, size: 字号.二号),
   )
 
   // 学生与指导老师信息
@@ -190,7 +191,7 @@
     rows: 2.67cm, 
     columns: 15.43cm, 
     align: center,
-    title-en(info.title-en.join("\n"), leading-scale: 0.8),
+    title-en(info.title-en.join("\n")),
   )
 
   // 学生与指导老师信息
