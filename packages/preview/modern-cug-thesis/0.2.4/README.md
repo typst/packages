@@ -84,6 +84,7 @@
 - 感谢 [modern-nju-thesis](https://github.com/nju-lug/modern-nju-thesis)、[better-thesis](https://github.com/sysu/better-thesis)、[HIT-Thesis-Typst](https://github.com/hitszosa/universal-hit-thesis) 为本模板提供了项目实现思路。
 - 感谢 [Timozer/CUGThesis: 中国地质大学（武汉）研究生学位论文 TeX 模板](https://github.com/Timozer/CUGThesis) 提供了页面布局依据。
 - 感谢 [Typst 非官方中文交流群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=6uP3n8PtpcyQeWytl7VK5xYKAw1JVadN&authKey=aFgMcHuImuMFT9ENdp9%2Ff7F6394iuYEaVTdRIGSDTeT9FQ1VXn7NLstPwJ1OaetW&noverify=0&group_code=793548390) 的大佬的答疑解惑，感谢 [tzhTaylor](https://github.com/tzhTaylor) 大佬交流 CJK 第一段首行缩进的解决方案。
+- 感谢 [evibhm](https://github.com/evibhm) 校友抓虫子。
 
 ## License
 
