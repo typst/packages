@@ -276,7 +276,7 @@ fn read_readme(dir_path: &Path) -> anyhow::Result<String> {
     fs::read_to_string(dir_path.join("README.md")).context("failed to read README.md")
 }
 
-/// Build a comrpessed archive for a directory.
+/// Build a compressed archive for a directory.
 fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<Vec<u8>> {
     let mut buf = vec![];
     let compressed = flate2::write::GzEncoder::new(&mut buf, flate2::Compression::default());

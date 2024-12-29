@@ -1,0 +1,106 @@
+{
+  "DEFAULT_ITEM_NUMBERING": {
+    "en": "1.a.i:",
+    "de": "1.a.i:"
+  },
+  "ITEM": {
+    "en": "Item",
+    "de": "TOP"
+  },
+  "SINCE": {
+    "en": "since",
+    "de": "ab"
+  },
+  "DEFAULT_TIME_FORMAT": {
+    "en": "[hour repr:12]:[minute] [period case:lower]",
+    "de": "[hour]:[minute] Uhr"
+  },
+  "DEFAULT_DATE_FORMAT": {
+    "en": "[year]-[month]-[day]",
+    "de": "[day].[month].[year]"
+  },
+  "CHAIR": {
+    "en": "Chairperson",
+    "de": "Sitzungsvorsitz"
+  },
+  "PROTOCOL": {
+    "en": "Secretary",
+    "de": "Protokoll"
+  },
+  "AWARENESS": {
+    "en": "Awareness",
+    "de": "Awareness"
+  },
+  "TRANSLATION": {
+    "en": "Translation",
+    "de": "Übersetzung"
+  },
+  "PRESENT": {
+    "en": "Present",
+    "de": "Anwesend"
+  },
+  "PRESENT_COUNT": {
+    "en": "Count present",
+    "de": "Anzahl Anwesender"
+  },
+  "START": {
+    "en": "Start of meeting",
+    "de": "Beginn der Sitzung"
+  },
+  "END": {
+    "en": "End of meeting",
+    "de": "Ende der Sitzung"
+  },
+  "SCHEDULE": {
+    "en": "Schedule",
+    "de": "Tagesordnung"
+  },
+  "DECISION": {
+    "en": "Vote",
+    "de": "Abstimmung"
+  },
+  "YES": {
+    "en": "For",
+    "de": "Dafür"
+  },
+  "NO": {
+    "en": "Against",
+    "de": "Dagegen"
+  },
+  "ABST": {
+    "en": "Abstain",
+    "de": "Enthaltung"
+  },
+  "JOIN": {
+    "en": "comes back: [0] present",
+    "de": "kommt zurück: [0] Anwesend"
+  },
+  "JOIN_LONG": {
+    "en": "arrives at the meeting: [0] present",
+    "de": "meldet sich an: [0] Anwesend"
+  },
+  "LEAVE": {
+    "en": "leaves: [0] present",
+    "de": "geht kurz: [0] Anwesend"
+  },
+  "LEAVE_LONG": {
+    "en": "leaves the meeting: [0] present",
+    "de": "verlässt die Sitzung: [0] Anwesend"
+  },
+  "SIGNATURE_PRE": {
+    "en": "This protocol is hereby approved",
+    "de": "Dieses Protokoll wird hiermit genehmigt"
+  },
+  "SIGNATURE": {
+    "en": "Signature",
+    "de": "Unterschrift"
+  },
+  "PLACE_DATE": {
+    "en": "Place, Date",
+    "de": "Ort, Datum"
+  },
+  "PAGE": {
+    "en": "Page [0] of [1]",
+    "de": "Seite [0] von [1]"
+  }
+}

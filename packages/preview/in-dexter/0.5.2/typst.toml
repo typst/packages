@@ -9,4 +9,4 @@ repository = "https://github.com/RolfBremer/in-dexter"
 keywords = [ "index", "metadata" ]
 categories = [ "components" ]
 exclude = [ "gallery", "sample-usage.*", ".git*" ]
-compiler = "0.11"
+compiler = "0.11.0"
