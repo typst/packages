@@ -1,5 +1,30 @@
 #import "args.typ": __codly-args, __codly-save, __codly-load
 
+#let __codly-trim(body) = {
+  if type(body) == str {
+    return body.trim()
+  }
+
+  if body.has("children") {
+    let out = ()
+    let start = true
+    for child in body.children {
+      if start and child.has("text") and child.text.trim().len() == 0 {
+        continue
+      } else if start and child == [ ] {
+        continue
+      }
+
+      start = false
+      out.push(child)
+    }
+
+    (body.func())(out)
+  } else {
+    body
+  }
+}
+
 #let __codly-inset(inset) = {
   if type(inset) == dictionary {
     let other = inset.at("rest", default: 0.32em)
@@ -408,7 +433,34 @@
     if block-label != none {
       let lab = label(str(block-label) + ":" + str(it.number))
 
-      return [#l#lab]
+      let sep = (
+        __codly-args.reference-sep.type_check
+      )(if "reference-sep" in extra {
+        extra.reference-sep
+      } else {
+        state("codly-reference-sep", __codly-args.reference-sep.default).get()
+      })
+
+      let reference-number-format = (
+        __codly-args.reference-number-format.type_check
+      )(if "reference-number-format" in extra {
+        extra.reference-number-format
+      } else {
+        state("codly-reference-number-format", __codly-args
+            .reference-number-format
+            .default).get()
+      })
+
+      return [#figure(
+        kind: "codly-line",
+        supplement: none,
+        numbering: (..) => {
+          ref(block-label)
+          sep
+          reference-number-format(it.number)
+        },
+        l
+      )#lab]
     } else {
       return l
     }
@@ -551,9 +603,25 @@
           assert("tag" in hl, message: "codly: tag is required for item reference")
           hl.tag
         }
-        place(
-          hide[#figure(kind: "codly-referencer", supplement: none)[#box(referenced)#box(str(block-label))]#hl.label],
-        )
+
+        let sep = (
+          __codly-args.reference-sep.type_check
+        )(if "reference-sep" in extra {
+          extra.reference-sep
+        } else {
+          state("codly-reference-sep", __codly-args.reference-sep.default).get()
+        })
+
+        place(hide[#figure(
+          kind: "codly-referencer",
+          supplement: none,
+          numbering: (..) => {
+            ref(block-label)
+            sep
+            __codly-trim(referenced)
+          },
+          []
+        )#hl.label])
       } else {
         none
       }
@@ -637,8 +705,34 @@
   // Build a label if the code block has one.
   if block-label != none {
     let lab = label(str(block-label) + ":" + str(it.number))
+    let sep = (
+      __codly-args.reference-sep.type_check
+    )(if "reference-sep" in extra {
+      extra.reference-sep
+    } else {
+      state("codly-reference-sep", __codly-args.reference-sep.default).get()
+    })
 
-    return [#l#lab]
+    let reference-number-format = (
+      __codly-args.reference-number-format.type_check
+    )(if "reference-number-format" in extra {
+      extra.reference-number-format
+    } else {
+      state("codly-reference-number-format", __codly-args
+          .reference-number-format
+          .default).get()
+    })
+    
+    return [#figure(
+      kind: "codly-line",
+      supplement: none,
+      numbering: (..) => {
+        ref(block-label)
+        sep
+        reference-number-format(it.number)
+      },
+      l
+    )#lab]
   } else {
     return l
   }
@@ -654,6 +748,11 @@
     block-label: block-label,
     extra: (:),
   )
+
+  show figure.where(kind: "codly-line"): it => {
+    set align(left + horizon)
+    it.body
+  }
 
   show figure.where(kind: "__codly-raw-line"): it => {
     set align(left + horizon)
@@ -1303,9 +1402,17 @@
         } else {
           num
         }
-        place(
-          hide[#figure(kind: "codly-referencer", supplement: none)[#box(referenced)#box(str(block-label))]#current-annot.label],
-        )
+
+        place(hide[#figure(
+          kind: "codly-referencer",
+          supplement: none,
+          numbering: (..) => {
+            ref(block-label)
+            sep
+            referenced
+          },
+          []
+        )#current-annot.label])
       } else {
         none
       }
@@ -1612,62 +1719,6 @@
   (num.body, label(lbl.body.text))
 }
 
-#let __codly-ref(it, extra: (:)) = context {
-  if it.element != none and it.element.func() == figure and it
-    .element
-    .kind == "codly-referencer" {
-    let sep = (
-      __codly-args.reference-sep.type_check
-    )(if "reference-sep" in extra {
-      extra.reference-sep
-    } else {
-      state("codly-reference-sep", __codly-args.reference-sep.default).get()
-    })
-    let (num, label) = __codly-get-parts(it.element)
-    link(
-      it.target,
-      (
-        ref(label),
-        sep,
-        num,
-      ).join(),
-    )
-  } else if it.element != none and it.element.func() == raw.line and type(it.target) == "label" {
-    let segments = str(it.target).split(":")
-    assert(segments.len() > 1, message: "codly: invalid label")
-    let lab = label(segments.slice(0, -1).join(":"))
-
-    let sep = (
-      __codly-args.reference-sep.type_check
-    )(if "reference-sep" in extra {
-      extra.reference-sep
-    } else {
-      state("codly-reference-sep", __codly-args.reference-sep.default).get()
-    })
-
-    let reference-number-format = (
-      __codly-args.reference-number-format.type_check
-    )(if "reference-number-format" in extra {
-      extra.reference-number-format
-    } else {
-      state("codly-reference-number-format", __codly-args
-          .reference-number-format
-          .default).get()
-    })
-
-    link(
-      it.target,
-      (
-        ref(lab),
-        sep,
-        reference-number-format(it.element.number),
-      ).join()
-    )
-  } else {
-    it
-  }
-}
-
 /// Initializes the codly show rule.
 ///
 /// ```typ
@@ -1690,7 +1741,6 @@
   }
 
   // Levels chosen randomly.
-  show ref: it => __codly-ref(it)
   show raw.where(block: true): it => __codly-raw(it)
 
   body
@@ -1726,7 +1776,6 @@
       })
 
       let args = current + extra
-      show ref: it => __codly-ref(it, extra: args)
       show raw.where(block: true): it => __codly-raw(it, extra: args)
       show figure.where(kind: raw): fig => {
         if "label" in fig.fields() {
@@ -1743,7 +1792,6 @@
   } else {
     let extra = args.named()
     state("codly-extra-args").update(extra)
-    show ref: it => __codly-ref(it, extra: args)
     show raw.where(block: true): it => __codly-raw(it, extra: extra)
     show figure.where(kind: raw): fig => {
       if "label" in fig.fields() {
