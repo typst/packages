@@ -93,7 +93,7 @@
     },
     "range": {
         "title": "Range",
-        "description": "The range of line numbers to display, zero-indexed. If set to `none`, all lines are displayed. Can also be achieved using the convenience function #link(<codly-range>)[`codly-range`]. If set to `none`, all lines are displayed.#one-indexed",
+        "description": "The range of line numbers to display, one-indexed. If set to `none`, all lines are displayed. Can also be achieved using the convenience function #link(<codly-range>)[`codly-range`]. If set to `none`, all lines are displayed.#one-indexed",
         "default": "none",
         "ty": [ "type(none)", "array"],
         "function": true,
@@ -102,7 +102,7 @@
     },
     "ranges": {
         "title": "Ranges",
-        "description": "The ranges of line numbers to display, zero-indexed. If set to `none`, all lines are displayed. Can also be achieved using the convenience function #link(<codly-range>)[`codly-range`] if provided with more than one range. If set to `none`, all lines are displayed. Note that it override the #link(<arg-range>)[`range`] argument. #one-indexed",
+        "description": "The ranges of line numbers to display, one-indexed. If set to `none`, all lines are displayed. Can also be achieved using the convenience function #link(<codly-range>)[`codly-range`] if provided with more than one range. If set to `none`, all lines are displayed. Note that it override the #link(<arg-range>)[`range`] argument. #one-indexed",
         "default": "none",
         "ty": [ "type(none)", "array"],
         "function": true,

@@ -2,16 +2,14 @@
   ty,
   function,
 ) = {
-  if type(ty) == array {
-    let tys = ty.map(t => eval(t, mode: "code"))
-    (value_ty, use) => {
-      value_ty in tys or (function and (not use) and value_ty == function)
-    }
-  } else {
-    let ty = eval(ty, mode: "code")
-    (value_ty, use) => {
-      value_ty == ty or (function and (not use) and value_ty == function)
-    }
+  assert(
+    type(ty) == array,
+    message: "codly: the type of a codly argument must be an array"
+  )
+
+  let tys = ty.map(t => eval(t, mode: "code"))
+  (value_ty, use) => {
+    value_ty in tys or (function and (not use) and value_ty == function)
   }
 }
 
@@ -19,31 +17,33 @@
   ty,
   function,
 ) = {
-  if type(ty) == array {
-    let tys = ty.map(t => {
-      let t = eval(t, mode: "code");
-      if t == none {
-        "none"
-      } else {
-        str(t)
-      }
-    })
-    let out = "either a " + tys.join(", a ", last: ", or a ")
-    let out_function = if function {
-      "either a " + tys.join(", a ") + ", or a function that returns one of the previous types"
+  assert(
+    type(ty) == array,
+    message: "codly: the type of a codly argument must be an array"
+  )
+
+  let tys = ty.map(t => {
+    let t = eval(t, mode: "code");
+    if t == none {
+      "none"
+    } else {
+      str(t)
+    }
+  })
+  
+  let out = "either a " + tys.join(", a ", last: ", or a ")
+  let out_function = if function {
+    "either a " + tys.join(", a ") + ", or a function that returns one of the previous types"
+  } else {
+    out
+  }
+
+  (use) => {
+    if function and (not use) {
+      out_function
     } else {
       out
     }
-
-    (use) => {
-      if function and (not use) {
-        out_function
-      } else {
-        out
-      }
-    }
-  } else {
-    (_) => ("a " + str(eval(ty, mode: "code")))
   }
 }
 

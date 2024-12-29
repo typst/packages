@@ -273,24 +273,23 @@
 /// The pre-existing settings will be restored after the block. This is useful
 /// if you want to apply settings to a specific block only.
 ///
-/// #pre-example()
-/// #example(`````
-///  *Special:*
-///  #local(default-color: red)[
-///    ```
-///    Hello, world!
-///    ```
-///  ]
+/// *Special:*
+/// #local(default-color: red)[
+///   ```
+///   Hello, world!
+///   ```
+/// ]
 ///
-///  *Normal:*
-///  ```
-///  Hello, world!
-///  ```
-/// `````, mode: "markup", scale-preview: 100%)
+/// *Normal:*
+/// ```
+/// Hello, world!
+/// ```
 ///
 /// See the full documentation: https://raw.githubusercontent.com/Dherse/codly/main/docs.pdf
 /// 
-/// - body (content): the content to be locally styled/// - nested (bool): whether to enable nested local states/// - enabled (bool, function): enabled
+/// - body (content): the content to be locally styled
+/// - nested (bool): whether to enable nested local states
+/// - enabled (bool, function): enabled
 /// - header (content, none, function): header
 /// - header-repeat (bool, function): header-repeat
 /// - header-cell-args (array, dictionary, arguments, function): header-cell-args

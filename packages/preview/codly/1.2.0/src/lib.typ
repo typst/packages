@@ -702,7 +702,7 @@
 
     // Return true if the line is contained in any of the ranges.
     for r in ranges {
-      assert(type(r) == array, message: "codly: ranges must be an array of arrays, found " + type(r))
+      assert(type(r) == array, message: "codly: ranges must be an array of arrays, found " + str(type(r)))
       assert(r.len() == 2, message: "codly: ranges must be an array of arrays with two elements")
 
       if r.at(0) == none {
@@ -1716,7 +1716,7 @@
 ///  ```
 /// `````, mode: "markup", scale-preview: 100%)
 #let __local-inner(body, nested: false, ..args) = {
-  assert(type(nested) == bool, message: "local: nested must be a boolean")
+  assert(type(nested) == bool, message: "local: nested must be a boolean, found: " + str(type(nested)))
   if nested {
     let extra = args.named()
     context {
