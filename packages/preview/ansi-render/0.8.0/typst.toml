@@ -5,7 +5,6 @@ entrypoint = "lib.typ"
 authors = ["8LWXpg"]
 license = "MIT"
 description = "provides a simple way to render text with ANSI escape sequences."
-homepage = "https://github.com/8LWXpg/typst-ansi-render"
 repository = "https://github.com/8LWXpg/typst-ansi-render"
 keywords = ["ansi", "escape", "terminal"]
 categories = ["visualization"]
