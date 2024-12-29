@@ -14,4 +14,4 @@ disciplines = ["education", "mathematics"]
 [template]
 path = "template"
 entrypoint = "project1.typ"
-thumbnail = "thumbnail.jpg"
+thumbnail = "thumbnail.png"
