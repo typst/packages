@@ -4,7 +4,7 @@
   words,
   type: "lorem"
 ) = {
-  let default-types = json("../data/data.json")
+  let default-types = json("../data.json")
   if type == "lorem" {
     return transliterate(lorem(words))
   }
