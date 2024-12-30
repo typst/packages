@@ -1,4 +1,4 @@
-#import "modules/titlePage.typ": *
+#import "modules/titlepage.typ": *
 #import "@preview/glossarium:0.5.1": print-glossary, register-glossary
 
 #let in-outline = state("in-outline", false)
