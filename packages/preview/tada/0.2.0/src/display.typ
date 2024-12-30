@@ -28,13 +28,13 @@
   // Adds commas after each 3 digits to make
   // pricing more readable
   if hundreds-separator == auto {
-    hundreds-separator = default-hundreds-separator.display()
+    hundreds-separator = context default-hundreds-separator.get()
   }
   if precision != none {
     number = calc.round(number, digits: precision)
   }
   if decimal == auto {
-    decimal = default-decimal.display()
+    decimal = context default-decimal.get()
   }
 
   // negative != hyphen, so grab from unicode
