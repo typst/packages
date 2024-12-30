@@ -1,20 +1,4 @@
-#let titlepage(
-  settings: (),
-  degree: "",
-  program: "",
-  title: "",
-  subtitle: "",
-  titleGerman: "",
-  subtitleGerman: "",
-  author: "",
-  matriculationNumber: "",
-  placeOfWork: "",
-  supervisor: "",
-  advisor: "",
-  startDate: none,
-  submissionDate: none,
-) = {
-  set document(title: title, author: author)
+#let openTitlePage(settings: ()) = {
   set page(
     paper: "a4",
     margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 40mm),
@@ -30,19 +14,24 @@
   )
 
   set par(leading: 1em)
+}
 
-  
-  // Title Page
-  //TODO: How to apply company logo?
-  grid(
-    columns: (1fr, 1fr),
-    align(left)[
-      #image("/assets/company.svg", height: 1.5cm)
-    ],
-    align(right)[
-      #image("/assets/HKALogo.png", height: 2cm)
-    ]
-  )
+#let finishTitlePage(
+  settings: (),
+  degree: "",
+  program: "",
+  title: "",
+  subtitle: "",
+  titleGerman: "",
+  subtitleGerman: "",
+  author: "",
+  matriculationNumber: "",
+  placeOfWork: "",
+  supervisor: "",
+  advisor: "",
+  startDate: none,
+  submissionDate: none,
+) = {
 
   v(5mm)
   align(center, text(font: settings.fontHeading, 1.9em, weight: 700, "University of Applied Sciences Karlsruhe"))

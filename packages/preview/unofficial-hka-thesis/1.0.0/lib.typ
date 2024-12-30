@@ -1,4 +1,4 @@
-#import "modules/titlepage.typ": *
+#import "modules/titlePage.typ": *
 #import "@preview/glossarium:0.5.1": print-glossary, register-glossary
 
 #let in-outline = state("in-outline", false)
@@ -7,36 +7,8 @@
 }
 
 #let preface(
-  settings: (),
-  degree: "",
-  program: "",
-  title: "",
-  subtitle: "",
-  author: "",
-  matriculationNumber: "",
-  placeOfWork: "",
-  supervisor: "",
-  advisor: "",
-  startDate: none,
-  submissionDate: none
+  settings: ()
 ) = {
-  set document(title: title, author: author)
-  
-  titlepage(
-    settings: settings,
-    degree: degree,
-    program: program,
-    title: title,
-    subtitle: subtitle,
-    author: author,
-    placeOfWork: placeOfWork,
-    matriculationNumber: matriculationNumber,
-    supervisor: supervisor,
-    advisor: advisor,
-    startDate: startDate,
-    submissionDate: submissionDate
-  )
-
   // Page Setup
   set page(
     margin: (

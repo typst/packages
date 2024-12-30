@@ -6,7 +6,20 @@
 
 #show: make-glossary
 
-#preface(
+#set document(title: titleEnglish, author: author)
+#openTitlePage(settings: settings)
+// Customize your company logo or just use the one from the university
+#grid(
+  columns: (1fr, 1fr),
+  align(left)[
+    #image("/logo/company.svg", height: 1.5cm)
+  ],
+  align(right)[
+    #image("/logo/HKALogo.png", height: 2cm)
+  ]
+)
+
+#finishTitlePage(
   settings: settings,
   degree: degree,
   program: program,
@@ -20,6 +33,8 @@
   startDate: startDate,
   submissionDate: submissionDate,
 )
+
+#preface(settings: settings)
 
 // Citations - applied here so that you are able to use a local CSL file to define the citation style
 #set cite(style: settings.citationStyle)
