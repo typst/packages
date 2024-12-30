@@ -1,0 +1,15 @@
+[package]
+name = "modern-sysu-thesis"
+version = "0.3.0"
+entrypoint = "lib.typ"
+repository = "https://gitlab.com/sysu-gitlab/thesis-template/better-thesis"
+authors = ["howardlau1999 <@howardlau1999>", "Sunny Huang <@huangjj27>"]
+license = "MIT"
+description = "中山大学学位论文 Typst 模板，A Typst template for SYSU thesis"
+keywords = ["SYSU", "thesis", "typst"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

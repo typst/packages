@@ -1,0 +1,21 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "dining-table"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["James R. Swift"]
+license = "Unlicense"
+description = "Column-wise table definitions for big data"
+repository = "https://github.com/JamesxX/dining-table"
+keywords = ["table", "data", "scientific"]
+categories = ["components", "visualization", "model"]
+disciplines = ["agriculture", "biology", "chemistry", "communication", "computer-science", "economics", "physics"]
+exclude = [
+	".github",
+	"docs",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+]

@@ -1,0 +1,31 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "frackable"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["James R. Swift"]
+license = "Unlicense"
+description = "Vulgar Fractions"
+repository = "https://www.github.com/jamesrswift/frackable"
+keywords = ["fraction", "common", "sfrac", "split-level", "xfrac"]
+categories = ["components", "text"]
+disciplines = []
+compiler = "0.11.0"
+exclude = [
+	".github",
+	"docs",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+	"example.png"
+]
+
+# [template]
+# path = "template"
+# entrypoint = "main.typ"
+# thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"

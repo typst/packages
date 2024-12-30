@@ -1,0 +1,10 @@
+[package]
+name = "weave"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Léana 江 <@leana8959>"]
+license = "MIT"
+description = "A helper library for chaining lambda abstractions"
+categories = ["scripting"]
+keywords = ["functional", "composition", "pipe"]
+exclude = [".gitignore", "tests/*"]

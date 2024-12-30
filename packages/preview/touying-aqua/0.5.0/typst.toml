@@ -1,0 +1,16 @@
+[package]
+name = "touying-aqua"
+version = "0.5.0"
+entrypoint = "lib.typ"
+authors = ["OrangeX4", "Andreas Kröpelin", "ntjess", "Enivex", "Pol Dellaiera", "pride7"]
+license = "MIT"
+description = "Aqua theme in Touying - a powerful package for creating presentation slides in Typst."
+repository = "https://github.com/touying-typ/touying"
+keywords = ["presentation", "slides", "lecture", "touying"]
+categories = ["presentation"]
+exclude = ["examples"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

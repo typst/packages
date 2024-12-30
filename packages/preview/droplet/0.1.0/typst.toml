@@ -3,10 +3,11 @@ name = "droplet"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Eric Biedert"]
-repository = "https://github.com/EpicEricEE/typst-plugins"
+repository = "https://github.com/EpicEricEE/typst-droplet"
 license = "MIT"
 description = "Customizable dropped capitals."
-exclude = ["README.md", "assets"]
+exclude = ["assets"]
+categories = ["text"]
 keywords = [
   "drop", "dropped", "dropcap", "big", "large", "caps", "capital", "capitals",
   "initial", "initials", "letter", "letters", "lettrine"

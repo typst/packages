@@ -1,0 +1,35 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "crudo"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = [
+	"Clemens Koza <https://github.com/SillyFreak/>"
+]
+license = "MIT"
+description = "Take slices from raw blocks"
+# homepage = ""
+repository = "https://github.com/SillyFreak/typst-crudo"
+keywords = ["raw", "code", "block"]
+categories = ["text", "scripting", "utility"]
+disciplines = []
+compiler = "0.9.0"
+exclude = [
+	".github",
+	"docs",
+	"gallery",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+	"thumbnail.png",
+]
+
+# [template]
+# path = "template"
+# entrypoint = "main.typ"
+# thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"
