@@ -29,13 +29,6 @@ $
 
 $a^2-b^2 = (a-b)(a+b)$
 
-= 图片
-
-#figure(
-  image("../image/1.png", width: 80%),
-  caption: "图片示例",
-)
-
 = 代码
 
 
