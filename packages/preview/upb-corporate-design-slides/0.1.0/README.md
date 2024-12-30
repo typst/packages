@@ -16,6 +16,8 @@ Or create a project on the typst web app based on this template.
 ### Font setup
 
 The font `Karla` needs to be installed on your system.
-The [UPB brand portal](https://www.uni-paderborn.de/universitaet/presse-kommunikation-marketing/brandportal) recommends to download it from google fonts, but if you use arch linux, you can also get it from the [AUR](https://aur.archlinux.org/packages/ttf-karla).
-If you use the typst web app, you will need to upload the font.
+The [UPB brand portal](https://www.uni-paderborn.de/universitaet/presse-kommunikation-marketing/brandportal) recommends to download it from google fonts.
+- If you use arch linux, you can also get it from the [AUR](https://aur.archlinux.org/packages/ttf-karla).
+- If you use NixOS, karla is available in the `24.11` and `unstable` channels.
+- If you use the typst web app, you will need to upload the font.
 
