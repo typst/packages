@@ -15,40 +15,41 @@
 
 #let card(
   id: "",
-  Q: "",
-  A: "",
+  q: "",
+  a: "",
   ..args
 ) = {
   let args = arguments(
     type: "basic",
     container: false,
-    show_labels: false,
+    show-labels: false,
     ..args
   )
   
   if args.at("container") == false {
-    if args.at("show_labels") == true {
+    if args.at("show-labels") == true {
       context [
-        Q: #Q \ 
-        A: #A
+        q: #q \ 
+        a: #a
       ]
     } else {
       context [
-        #Q \
-        #A
+        #q \
+        #a
       ]
     }
   } else {
-    if args.at("show_labels") == true {
+    if args.at("show-labels") == true {
       card-container[
-        Q: #Q \ 
-        A: #A
+        q: #q \ 
+        a: #a
       ]
     } else {
       card-container[
-        #Q \ 
-        #A
+        #q \ 
+        #a
       ]
     }
   }
 }
+

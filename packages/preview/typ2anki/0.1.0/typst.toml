@@ -7,5 +7,5 @@ license = "MIT"
 description = "Convert Typst files into Anki cards automatically."
 repository = "https://github.com/sgomezsal/typst2anki"
 keywords = ["anki", "flashcards", "typst", "automation"]
-categories = ["Integration", "Utility"]
+categories = ["integration", "utility"]
 compiler = "0.12.0"
