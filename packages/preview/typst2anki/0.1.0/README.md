@@ -1,27 +1,26 @@
 # Typst2Anki
 
-![Demo Video](assets/typst2anki.gif)
+**Typst2Anki** is a Typst package designed to create flashcards seamlessly within Typst-based notes. This package enables users to structure flashcards directly in their documents for easy integration with study and review workflows.
 
-**Typst2Anki** is a tool designed to integrate flashcard creation seamlessly into your Typst-based notes. By utilizing a custom Typst package, you can create cards directly in your notes and sync them effortlessly to a selected Anki deck. This enables you to transform study material into flashcards without disrupting your Typst workflow.
-
-- Create flashcards directly within your Typst documents.
-- Sync these flashcards to a chosen Anki deck effortlessly.
-- Streamlined workflow for note-taking and spaced repetition learning.
+- Create customizable flashcards using Typst syntax.
+- Supports structured note-taking with consistent flashcard styling.
+- Ideal for educational and professional use.
 
 ---
 
 ## Table of Contents
 
 1. **[Installation and Configuration](#installation-and-configuration)**
-   - [Installing AnkiConnect](#installing-ankiconnect)
-   - [Installing the Python Package](#installing-the-python-package)
+
    - [Installing the Typst Package](#installing-the-typst-package)
 
 2. **[Usage](#usage)**
+
    - [Basic Workflow](#basic-workflow)
    - [Customizing Cards](#customizing-cards)
 
 3. **[Troubleshooting](#troubleshooting)**
+
    - [Common Issues](#common-issues)
 
 4. **[Roadmap](#roadmap)**
@@ -36,35 +35,9 @@
 
 ## Installation and Configuration
 
-### Installing AnkiConnect
+### Complete Integration
 
-1. Open Anki and navigate to **Tools > Add-ons**.
-2. Click **Get Add-ons** and enter the following code to install AnkiConnect:
-   ```
-   2055492159
-   ```
-   Alternatively, visit the [AnkiConnect Add-on page](https://ankiweb.net/shared/info/2055492159) to learn more.
-3. Restart Anki to activate the add-on.
-4. Verify that AnkiConnect is running by visiting [http://localhost:8765](http://localhost:8765) in your browser. If it loads, the add-on is properly installed and functioning.
-
----
-
-### Installing the Python Package
-
-1. Make sure Python 3.8+ is installed on your system.
-2. Install the Typst2Anki package using pip:
-
-   ```bash
-   pip install typst2anki
-   ```
-
-3. Verify the installation:
-
-   ```bash
-   typst2anki --help
-   ```
-
----
+To fully utilize Typst2Anki, ensure you follow the installation instructions for the Python package available at [https://github.com/sgomezsal/typst2anki](https://github.com/sgomezsal/typst2anki).
 
 ### Installing the Typst Package
 
@@ -79,7 +52,7 @@
    ```typst
    // Custom imports for flashcards
    #import "@preview/pkgs"
-   
+
    #let conf(
      doc,
    ) = {
@@ -91,6 +64,14 @@
 ---
 
 ## Usage
+
+### Examples
+
+For detailed examples, visit the [examples folder](https://github.com/sgomezsal/typst2anki/tree/main/examples) in the original repository.
+
+### Important Note
+
+For full functionality, this Typst package requires the complementary Python package. Installation and usage instructions can be found at [https://github.com/sgomezsal/typst2anki](https://github.com/sgomezsal/typst2anki).
 
 ### Basic Workflow
 
@@ -110,7 +91,7 @@
    ```typst
    // Custom imports for flashcards
    #import "@preview/pkgs"
-   
+
    #let conf(
      doc,
    ) = {
@@ -119,13 +100,7 @@
    }
    ```
 
-3. Use Typst2Anki to compile all files in the project directory:
-
-   ```bash
-   typst2anki ./path/to/your/project
-   ```
-
-4. Open your Anki deck to check the newly added flashcards.
+3. Compile your Typst document using Typst's built-in commands to render the flashcards.
 
 ---
 
@@ -133,30 +108,28 @@
 
 To modify card appearance, you can define custom card logic:
 
-   ```typst
-   #let custom_card(
-     id: "",
-     Q: "",
-     A: "",
-     ..args
-   ) = {
-     card(
-       id: id,
-       Q: Q,
-       A: A,
-       container: true,
-       show_labels: true
-     )
-   }
-   ```
+```typst
+#let custom_card(
+  id: "",
+  Q: "",
+  A: "",
+  ..args
+) = {
+  card(
+    id: id,
+    Q: Q,
+    A: A,
+    container: true,
+    show_labels: true
+  )
+}
+```
 
 ---
 
 ## Troubleshooting
-### Common Issues
 
-- **AnkiConnect not responding**:
-  - Ensure Anki is running and AnkiConnect is installed correctly.
+### Common Issues
 
 - **Typst file compilation errors**:
   - Check for syntax issues in your Typst file.
@@ -166,16 +139,16 @@ To modify card appearance, you can define custom card logic:
 
 ## Roadmap
 
-1. **Command to Delete Cards**: Implement a feature to remove specific cards from Anki.
-2. **Efficiency Improvements**: Optimize the syncing process for speed and reliability.
-3. **Support for Other Card Types**: Expand compatibility to include more complex card formats.
+1. **Support for Advanced Flashcard Formats**: Add enhanced support for multi-part and hierarchical flashcards.
+2. **Efficiency Improvements**: Optimize rendering for large Typst projects with numerous flashcards.
+3. **Integration Enhancements**: Explore integration with additional Typst features for more dynamic output.
 
 ---
 
 ## Future Plans
 
-- Enhance user experience with more robust error handling and syncing options.
-- Broaden integration with Typst to support various output formats.
+- Expand compatibility to support more flashcard types.
+- Introduce configuration options for easier customization of flashcard styles.
 
 ---
 
