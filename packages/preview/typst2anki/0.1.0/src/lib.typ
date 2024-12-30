@@ -15,8 +15,8 @@
 
 #let card(
   id: "",
-  Q: "",
-  A: "",
+  q: "",
+  a: "",
   ..args
 ) = {
   let args = arguments(
@@ -29,25 +29,25 @@
   if args.at("container") == false {
     if args.at("show_labels") == true {
       context [
-        Q: #Q \ 
-        A: #A
+        Q: #q \ 
+        A: #a
       ]
     } else {
       context [
-        #Q \ 
-        #A
+        #q \ 
+        #a
       ]
     }
   } else {
     if args.at("show_labels") == true {
       card_container[
-        Q: #Q \ 
-        A: #A
+        Q: #q \ 
+        A: #a
       ]
     } else {
       card_container[
-        #Q \ 
-        #A
+        #q \ 
+        #a
       ]
     }
   }
