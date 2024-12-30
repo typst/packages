@@ -1,6 +1,6 @@
-# Typst2Anki
+# Typ2Anki
 
-**Typst2Anki** is a Typst package designed to create flashcards seamlessly within Typst-based notes. This package enables users to structure flashcards directly in their documents for easy integration with study and review workflows.
+**Typ2Anki** is a Typst package designed to create flashcards seamlessly within Typst-based notes. This package enables users to structure flashcards directly in their documents for easy integration with study and review workflows.
 
 - Create customizable flashcards using Typst syntax.
 - Supports structured note-taking with consistent flashcard styling.
@@ -37,14 +37,14 @@
 
 ### Complete Integration
 
-To fully utilize Typst2Anki, ensure you follow the installation instructions for the Python package available at [https://github.com/sgomezsal/typst2anki](https://github.com/sgomezsal/typst2anki).
+To fully utilize Typ2Anki, ensure you follow the installation instructions for the Python package available at [https://github.com/sgomezsal/typ2anki](https://github.com/sgomezsal/typ2anki).
 
 ### Installing the Typst Package
 
-1. Add the Typst2Anki package to your Typst document:
+1. Add the Typ2Anki package to your Typst document:
 
    ```typst
-   #import "@preview/typst2anki:0.1.0"
+   #import "@preview/typ2anki:0.1.0"
    ```
 
 2. Place your custom configuration file (`ankiconf.typ`) in the project directory for consistent flashcard rendering.
@@ -67,11 +67,11 @@ To fully utilize Typst2Anki, ensure you follow the installation instructions for
 
 ### Examples
 
-For detailed examples, visit the [examples folder](https://github.com/sgomezsal/typst2anki/tree/main/examples) in the original repository.
+For detailed examples, visit the [examples folder](https://github.com/sgomezsal/typ2anki/tree/main/examples) in the original repository.
 
 ### Important Note
 
-For full functionality, this Typst package requires the complementary Python package. Installation and usage instructions can be found at [https://github.com/sgomezsal/typst2anki](https://github.com/sgomezsal/typst2anki).
+For full functionality, this Typst package requires the complementary Python package. Installation and usage instructions can be found at [https://github.com/sgomezsal/typ2anki](https://github.com/sgomezsal/typ2anki).
 
 ### Basic Workflow
 
@@ -109,7 +109,7 @@ For full functionality, this Typst package requires the complementary Python pac
 To modify card appearance, you can define custom card logic:
 
 ```typst
-#let custom_card(
+#let custom-card(
   id: "",
   Q: "",
   A: "",
@@ -120,7 +120,7 @@ To modify card appearance, you can define custom card logic:
     Q: Q,
     A: A,
     container: true,
-    show_labels: true
+    show-labels: true
   )
 }
 ```
