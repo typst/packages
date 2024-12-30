@@ -9,5 +9,5 @@ description = "Convert Typst files into Anki cards automatically."
 homepage = "https://github.com/sgomezsal/typst2anki"
 repository = "https://github.com/sgomezsal/typst2anki"
 keywords = ["typst", "anki", "automation"]
-categories = ["productivity", "study-tools"]
+categories = ["Education", "Tools"]
 compiler = "0.12.0"
