@@ -29,8 +29,8 @@
   if args.at("container") == false {
     if args.at("show-labels") == true {
       context [
-        q: #q \ 
-        a: #a
+        Q: #q \ 
+        A: #a
       ]
     } else {
       context [
@@ -41,8 +41,8 @@
   } else {
     if args.at("show-labels") == true {
       card-container[
-        q: #q \ 
-        a: #a
+        Q: #q \ 
+        A: #a
       ]
     } else {
       card-container[
