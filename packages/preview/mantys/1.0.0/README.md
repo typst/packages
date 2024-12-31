@@ -41,13 +41,13 @@ A basic template for a manual could looks like this:
 
 // end of preamble
 
-# About
+= About
 #lorem(50)
 
-# Usage
+= Usage
 #lorem(50)
 
-# Available commands
+= Available commands
 #lorem(50)
 
 ```
