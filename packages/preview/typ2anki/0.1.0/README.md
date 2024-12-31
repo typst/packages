@@ -80,9 +80,9 @@ For full functionality, this Typst package requires the complementary Python pac
    ```typst
    #card(
      id: "001",
-     target_deck: "Typst",
-     Q: "What is Typst?",
-     A: "A modern typesetting system."
+     target-deck: "Typst",
+     q: "What is Typst?",
+     a: "A modern typesetting system."
    )
    ```
 
