@@ -26,7 +26,7 @@ This package is based on [CeTZ]("https://typst.app/universe/package/cetz/") and 
 
 # Usage
 
-See example.typ for a simple usage example, and the manual for precise references at [manual.pdf](https://codeberg.org/attachments/cfdad2b7-52ae-4e18-8d7b-453fadc45532)
+See example.typ for a simple usage example, and the manual for precise references at [manual.pdf](https://codeberg.org/attachments/34ba7e07-f79a-4fa0-a2d4-e5167012bba2)
 
 The steps to produce a tree are :
 
