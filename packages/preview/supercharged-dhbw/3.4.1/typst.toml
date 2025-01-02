@@ -1,6 +1,6 @@
 [package]
 name = "supercharged-dhbw"
-version = "3.4.0"
+version = "3.4.1"
 entrypoint = "lib.typ"
 authors = ["Danny Seidel <@DannySeidel>"]
 license = "MIT"

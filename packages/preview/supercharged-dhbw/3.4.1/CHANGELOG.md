@@ -1,5 +1,9 @@
 # Supercharged-DHBW Changelog
 
+## [v3.4.1] - 2025-01-02
+
+- Fix error that page numbering style is not applied to the table of contents
+
 ## [v3.4.0] - 2024-12-08
 
 - Fix inconsistency in the header spacing
