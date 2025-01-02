@@ -10,4 +10,4 @@ description = "Format numbers and units with styling."
 keywords = ["numbers", "units"]
 categories = ["visualization"]
 disciplines = ["chemistry", "engineering", "physics"]
-exclude = ["docs/*"]
+exclude = ["docs"]
