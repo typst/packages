@@ -3,7 +3,7 @@
   kerning: 0.3em,
   leading: 0.5em,
   spacing: 1em,
-  rotateChar: "[-ー\u{FF5E}\u{301C}\p{Open_Punctuation}\p{Close_Punctuation}]",
+  rotate-char: "[-ー\u{FF5E}\u{301C}\p{Open_Punctuation}\p{Close_Punctuation}]",
 ) = {
   set align(right)
   stack(
@@ -21,7 +21,7 @@
                 spacing: kerning,
                 ..for l in t.clusters() {
                   (
-                    if regex(rotateChar) in l {
+                    if regex(rotate-char) in l {
                       set align(center)
                       rotate(90deg, l)
                     } else {
