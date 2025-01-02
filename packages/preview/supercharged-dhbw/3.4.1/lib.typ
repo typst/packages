@@ -262,9 +262,7 @@
                 align(left + bottom)[
                   #let headings = query(heading.where(level: 1))
                   #if headings.len() > 0 and not headings.any(it => (it.location().page() == here().page())) {
-                    let elems = query(
-                      selector(heading.where(level: 1)).before(here()),
-                    )
+                    let elems = query(selector(heading.where(level: 1)).before(here()))
 
                     if (elems.len() > 0) {
                       let current-heading = elems.last()
@@ -277,9 +275,7 @@
                       [#heading-counter #current-heading.body]
                     }
                   } else {
-                    let elems = query(
-                      selector(heading.where(level: 1)).after(here()),
-                    )
+                    let elems = query(selector(heading.where(level: 1)).after(here()))
 
                     if (elems.len() > 0) {
                       let current-heading = elems.first()
@@ -322,20 +318,24 @@
     preface-numbering = page-numbering.preface
   }
 
-  set page(footer: context {
-    let display-total-page-number = preface-numbering.clusters().filter(c => c in page-numbering-symbols).len() >= 2
+  set page(
+    // necessary to apply numbering in the table of contents
+    numbering: preface-numbering,
+    footer: context {
+      let display-total-page-number = preface-numbering.clusters().filter(c => c in page-numbering-symbols).len() >= 2
 
-    align(
-      numbering-alignment,
-      numbering(
-        preface-numbering,
-        ..counter(page).get(),
-        ..if display-total-page-number {
-          counter(page).at(<numbering-preface-end>)
-        },
-      ),
-    )
-  })
+      align(
+        numbering-alignment,
+        numbering(
+          preface-numbering,
+          ..counter(page).get(),
+          ..if display-total-page-number {
+            counter(page).at(<numbering-preface-end>)
+          },
+        ),
+      )
+    },
+  )
   counter(page).update(1)
 
   if (not at-university and show-confidentiality-statement) {
@@ -445,20 +445,24 @@
     main-numbering = page-numbering.main
   }
 
-  set page(footer: context {
-    let display-total-page-number = main-numbering.clusters().filter(c => c in page-numbering-symbols).len() >= 2
+  set page(
+    // necessary to apply numbering in the table of contents
+    numbering: main-numbering,
+    footer: context {
+      let display-total-page-number = main-numbering.clusters().filter(c => c in page-numbering-symbols).len() >= 2
 
-    align(
-      numbering-alignment,
-      numbering(
-        main-numbering,
-        ..counter(page).get(),
-        ..if display-total-page-number {
-          counter(page).at(<numbering-main-end>)
-        },
-      ),
-    )
-  })
+      align(
+        numbering-alignment,
+        numbering(
+          main-numbering,
+          ..counter(page).get(),
+          ..if display-total-page-number {
+            counter(page).at(<numbering-main-end>)
+          },
+        ),
+      )
+    },
+  )
   counter(page).update(1)
 
   body
@@ -470,20 +474,24 @@
     appendix-numbering = page-numbering.appendix
   }
 
-  set page(footer: context {
-    let display-total-page-number = appendix-numbering.clusters().filter(c => c in page-numbering-symbols).len() >= 2
+  set page(
+    // necessary to apply numbering in the table of contents
+    numbering: appendix-numbering,
+    footer: context {
+      let display-total-page-number = appendix-numbering.clusters().filter(c => c in page-numbering-symbols).len() >= 2
 
-    align(
-      numbering-alignment,
-      numbering(
-        appendix-numbering,
-        ..counter(page).get(),
-        ..if display-total-page-number {
-          counter(page).at(<numbering-appendix-end>)
-        },
-      ),
-    )
-  })
+      align(
+        numbering-alignment,
+        numbering(
+          appendix-numbering,
+          ..counter(page).get(),
+          ..if display-total-page-number {
+            counter(page).at(<numbering-appendix-end>)
+          },
+        ),
+      )
+    },
+  )
   counter(page).update(1)
 
   // Display bibliography.
