@@ -7,7 +7,7 @@ Zebraw is a lightweight and fast package for displaying code blocks with line nu
 To use, import `zebraw` package then follow with `#show zebraw.with()`.
 
 ````typ
-#import "@preview/zebraw:0.1.1": *
+#import "@preview/zebraw:0.1.0": *
 
 #show: zebraw.with()
 
