@@ -19,7 +19,7 @@ With `worksheets-parser` you can convert all worksheets in the XML file to typst
 
 ```typ
 #worksheets-parser(
-  xmlPath: "/test-table.xml",
+  xml-path: "/test-table.xml",
   to-array: true, // default is false
   // below args will be passed to worksheet-parser
   with-table-styles: false,
@@ -35,7 +35,7 @@ With `worksheet-parser` you can convert a specific worksheet in the XML file to 
 
 ```typ
 #worksheet-parser(
-  xmlPath: "/test-table.xml",
+  xml-path: "/test-table.xml",
   worksheet: "Sheet2",
   with-table-styles: false,
   with-table-alignment: false,

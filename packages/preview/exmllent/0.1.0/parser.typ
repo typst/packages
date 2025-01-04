@@ -1,5 +1,5 @@
-#let xml-to-worksheets(xmlPath) = {
-  let workbook = xml(xmlPath).filter(e => if e.tag == "" { false } else { true }).first()
+#let xml-to-worksheets(xml-path) = {
+  let workbook = xml(xml-path).filter(e => if e.tag == "" { false } else { true }).first()
   let worksheets = workbook.children.filter(e => if "tag" in e { e.tag == "Worksheet" } else { false })
 
   let styles = workbook
@@ -46,7 +46,7 @@
 }
 
 #let worksheet-parser(
-  xmlPath: none,
+  xml-path: none,
   worksheets: none,
   styles: none,
   worksheet: "Sheet1",
@@ -55,8 +55,8 @@
   default-row-height: "20pt",
   ..table-args,
 ) = {
-  let (worksheets, styles) = if xmlPath != none {
-    xml-to-worksheets(xmlPath)
+  let (worksheets, styles) = if xml-path != none {
+    xml-to-worksheets(xml-path)
   } else {
     (worksheets, styles)
   }
@@ -154,11 +154,11 @@
 }
 
 #let worksheets-parser(
-  xmlPath: none,
+  xml-path: none,
   to-array: false,
   ..args,
 ) = {
-  let (worksheets, styles) = xml-to-worksheets(xmlPath)
+  let (worksheets, styles) = xml-to-worksheets(xml-path)
   for worksheet in worksheets {
     if to-array {
       (
