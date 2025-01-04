@@ -54,10 +54,6 @@ Use this block if a test is necessary:
 ```
 
 ## Preview
-The following image shows a preview of the lab report template.
-
-<img src="thumbnail.png" width="300">
-
 A detailed example can be found [here](https://github.com/a-mhamdi/ailab-isetbz/tree/main/example).
 
 ## Acknowledgements
