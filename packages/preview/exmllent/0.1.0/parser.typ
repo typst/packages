@@ -47,15 +47,15 @@
 
 /// Parse a named worksheet from an Excel file.
 ///
-/// - xml-path (str): The path to the XML Excel file.
-/// - worksheets (dict): Parsed worksheets from the XML Excel file. (Not available for users)
-/// - styles (dict): Parsed styles from the XML Excel file. (Not available for users)
-/// - worksheet (str): The name of the worksheet to be parsed.
-/// - with-table-styles (bool): If true, apply column width and row height to the table.
-/// - with-table-alignment (bool): If true, apply alignment to the table.
-/// - default-row-height (str): The default row height.
+/// - xml-path (string): The path to the XML Excel file.
+/// - worksheets (dictionary): Parsed worksheets from the XML Excel file. (Not available for users)
+/// - styles (dictionary): Parsed styles from the XML Excel file. (Not available for users)
+/// - worksheet (string): The name of the worksheet to be parsed.
+/// - with-table-styles (boolean): If true, apply column width and row height to the table.
+/// - with-table-alignment (boolean): If true, apply alignment to the table.
+/// - default-row-height (string): The default row height.
 /// - table-args (any): Arguments to be passed to table.
-/// -> 
+/// -> content
 #let worksheet-parser(
   xml-path: none,
   worksheets: none,
@@ -166,10 +166,10 @@
 
 /// Parse worksheets from an Excel file.
 ///
-/// - xml-path (str): The path to the XML Excel file. 
-/// - to-array (bool): If true, return an array of tables.
+/// - xml-path (string): The path to the XML Excel file. 
+/// - to-array (boolean): If true, return an array of tables.
 /// - args (any): Arguments to be passed to worksheet-parser.
-/// -> 
+/// -> content | array
 #let worksheets-parser(
   xml-path: none,
   to-array: false,

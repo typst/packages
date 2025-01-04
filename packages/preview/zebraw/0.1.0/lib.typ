@@ -1,3 +1,10 @@
+/// Block of code with highlighted lines.
+///
+/// - highlight-lines (array): List of line numbers to highlight. 
+/// - body (content): The code block.
+/// - highlight-color (color): The color to highlight the lines.
+/// - inset (dictionary): The padding around each line. Default is 3pt on all sides.
+/// -> content
 #let zebraw(highlight-lines: (), body, highlight-color: rgb("#fffd11a1").lighten(70%), inset: (:)) = {
   inset = (top: 3pt, bottom: 3pt, left: 3pt, right: 3pt) + inset
   show raw.where(block: true): it => {
