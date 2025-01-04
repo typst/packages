@@ -7,7 +7,7 @@ typst init @preview/ailab-isetbz:0.1.0
 ```
 **Typst** will create a new directory with all the files needed to get you started.
 
-## Usage
+## How To
 The title, abstract, students, emails, GitHub profiles, and terms pertaining to the lab report can all be defined in the section below.
 ```typst
 #let title = "Lab Report"
@@ -53,8 +53,8 @@ Use this block if a test is necessary:
 #test[Some test]
 ```
 
-## Preview
-A detailed example can be found [here](https://github.com/a-mhamdi/ailab-isetbz/tree/main/example).
+## Example Usage
+A detailed example can be found [here](https://github.com/a-mhamdi/ailab-isetbz/tree/main/Typst/example).
 
 ## Acknowledgements
 This template was inspired by the [charged-ieee](https://github.com/typst/packages/tree/main/packages/preview/charged-ieee) package.
