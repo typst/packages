@@ -28,7 +28,7 @@
       text(
         font: fonts.黑体, size: 字号.小二, 
         weight: abstract-title-weight, "摘　　要", 
-        bottom-edge: "descender", top-edge: "ascender", 
+        bottom-edge: 0em, top-edge: 1.0em, 
         )
       )
     )
@@ -36,7 +36,7 @@
 
     #set text(
       font: fonts.宋体, size: 字号.小四,
-      bottom-edge: "descender", top-edge: "ascender",
+      bottom-edge: 0em, top-edge: 1.0em,
     )
     #set par(leading: leading, justify: true, spacing: spacing)
     #par(first-line-indent: 2em, body)

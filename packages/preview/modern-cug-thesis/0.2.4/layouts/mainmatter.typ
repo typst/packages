@@ -51,7 +51,7 @@
   if (text-args == auto) {
     text-args = (
       font: fonts.宋体, size: 字号.小四, 
-      bottom-edge: "descender", top-edge: "ascender"
+      bottom-edge: 0em, top-edge: 1.0em,
       // cjk-latin-spacing: auto, // 自动添加cjk与latin间距
     )
   }

@@ -26,7 +26,7 @@
     #align(center, par(
       text(font: fonts.宋体, size: 字号.小二, 
       weight: abstract-title-weight, "Abstract", 
-      bottom-edge: "descender", top-edge: "ascender"))
+      bottom-edge: 0em, top-edge: 1.0em))
     )
     
     // #v(1.27em)

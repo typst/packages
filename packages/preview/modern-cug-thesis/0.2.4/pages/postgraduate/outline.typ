@@ -33,7 +33,7 @@
       font: fonts.黑体, 
       size: 字号.三号, 
       weight: "bold",
-      bottom-edge: "descender", top-edge: "ascender",
+      bottom-edge: 0em, top-edge: 1.0em,
     )
   }
   // 引用页数的字体，这里用于显示 Times New Roman
