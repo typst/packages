@@ -1,7 +1,7 @@
 [package]
-name = "affiliation"
+name = "fancy-affil"
 version = "0.1.0"
-repository = "https://github.com/han190/typst-affiliation"
+repository = "https://github.com/han190/fancy-affil"
 entrypoint = "src/lib.typ"
 authors = ["Han Tang <limpid.mazarine@gmail.com>"]
 categories = ["layout", "text", "scripting"]

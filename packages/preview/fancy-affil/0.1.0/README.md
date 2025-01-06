@@ -1,4 +1,4 @@
-# typst-affiliation
+# fancy-affil
 
 An auto affiliation function for Typst. This library provides a single function, `get-affiliations`, which aims to do one thing and (hopefully) do one thing well: extract authors' information from a given dictionary and output two contents:
 1. Authors' names with superscripted affiliation indices and an email symbol if contact information is provided.
