@@ -11,7 +11,7 @@
   
 }
 
-#let exp_header(content) = {
+#let exp-header(content) = {
   set text(weight: "semibold", size: 1.25em)
   block(above: 1em, below: 1em)[
     #grid(
@@ -23,7 +23,7 @@
   ]
 }
 
-#let project_header(content) = {
+#let project-header(content) = {
   set text(weight: "semibold", size: 1.25em)
   block(above: 1em, below: 1em)[
     #content.title \ 
