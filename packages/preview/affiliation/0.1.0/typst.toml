@@ -8,4 +8,4 @@ categories = ["layout", "text", "scripting"]
 license = "LGPL-3.0-or-later"
 description = "An auto affiliation tool"
 keywords = ["typst", "affiliation"]
-exclude = []
+exclude = ["tests/tests.typ"]
