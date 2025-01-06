@@ -21,5 +21,4 @@
 // https://typst.app/universe/package/gentle-clues
 #import "@preview/gentle-clues:1.1.0": *
 
-// https://typst.app/universe/package/babble-bubbles
-#import "@preview/babble-bubbles:0.1.0": *
+#import "src/call-out.typ": *

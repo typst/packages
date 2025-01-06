@@ -1,8 +1,5 @@
 #set text(font: "Source Han Serif", lang: "CN",region: "CN")
-#import "../lib.typ": *
-// #import "test-theme.typ": *
-// #show: "调试信息：模板加载成功111"
-// #show: dewdrop-theme.with(aspect-ratio: "16-9")
+#import "@preview/sdu-touying:0.1.0": *
 
 #show: sdu-theme.with(
   aspect-ratio: "16-9",
@@ -19,23 +16,9 @@
 #show heading.where(level: 1): set heading(numbering: "1.")
 #title-slide()
 
-
-//  config-info(
-  //   title: [Title],
-  //   subtitle: [子目录],
-  //   author: [Authors],
-  //   date: datetime.today(),
-  //   institution: [Institution],
-  // ),
-= 第一章：字体变
+= 第一章：基础功能
 
 == 想分列显示？
-
-// #slide[
-//   第一列
-// ][
-//   第二列
-// ]
 
 #slide(composer: (1fr,1fr, auto))[
   展示
@@ -52,22 +35,34 @@
 == 表格
 //表格内容设置在main.typ中
 
+#[
+  #set align(center+horizon)
+  #let a = table.cell(
+    fill: green.lighten(60%),
+  )[A]
+  #let b = table.cell(
+    fill: aqua.lighten(60%),
+  )[B]
 
-#let a = table.cell(
-  fill: green.lighten(60%),
-)[A]
-#let b = table.cell(
-  fill: aqua.lighten(60%),
-)[B]
 
-#table(
-  columns: 4,
-  [], [Exam 1], [Exam 2], [Exam 3],
 
-  [John], [], a, [],
-  [Mary], [], a, a,
-  [Robert], b, a, b,
-)
+  #table(
+    columns: 4,
+    [], [Exam 1], [Exam 2], [Exam 3],
+
+    [John], [], a, [],
+    [Mary], [], a, a,
+    [Robert], b, a, b,
+  )
+]
+== 数学公式
+行内公式：$a^2 + b^2 = c^2$
+
+块级公式：
+
+$ E=m c^2\ angle.l a, b angle.r &= arrow(a) dot arrow(b) \
+                       &= a_1 b_1 + a_2 b_2 + ... a_n b_n \
+                       &= sum_(i=1)^n a_i b_i.  $
 
 = 第二章：小组件
 
@@ -285,28 +280,28 @@ showybox(
 ][
   #align(center,{
 
-  // showybox(
-  // [Hello world!]
-  // )
+  showybox(
+  [Hello world!]
+  )
 
-// showybox(
-//   frame: (
-//     dash: "dashed",
-//     border-color: red.darken(40%)
-//   ),
-//   body-style: (
-//     align: center
-//   ),
-//   sep: (
-//     dash: "dashed"
-//   ),
-//   shadow: (
-// 	  offset: (x: 2pt, y: 3pt),
-//     color: yellow.lighten(70%)
-//   ),
-//   [This is an important message!],
-//   [Be careful outside. There are dangerous bananas!]
-// )
+showybox(
+  frame: (
+    dash: "dashed",
+    border-color: red.darken(40%)
+  ),
+  body-style: (
+    align: center
+  ),
+  sep: (
+    dash: "dashed"
+  ),
+  shadow: (
+	  offset: (x: 2pt, y: 3pt),
+    color: yellow.lighten(70%)
+  ),
+  [This is an important message!],
+  [Be careful outside. There are dangerous bananas!]
+)
 
   })
 ]
@@ -320,38 +315,38 @@ showybox(
 #tip(title: "Best tip ever")[Check out this cool package]
 ```
 ][
-//   #align(center,{
-// info[ This is the info clue ... ]
-// tip(title: "Best tip ever")[Check out this cool package]
-//   })
+  #align(center,{
+info[ This is the info clue ... ]
+tip(title: "Best tip ever")[Check out this cool package]
+  })
 ]
 
 == 类obsidian
 
-// #info[This is information]
+#info[This is information]
 
-// #success[I'm making a note here: huge success]
+#success[I'm making a note here: huge success]
 
-// #check[This is checked!]
+#check[This is checked!]
 
-// #warning[First warning...]
+#warning[First warning...]
 
-// #note[My incredibly useful note]
+#note[My incredibly useful note]
 
-// #question[Question?]
+#question[Question?]
 
-// #example[An example make things interesting]
+#example[An example make things interesting]
 
-// #quote[To be or not to be]
+#quote[To be or not to be]
 
-// #callout(
-//   title: "Callout",
-//   fill: blue,
-//   title-color: white,
-//   body-color: black,
-//   icon: none)[123]
+#callout(
+  title: "Callout",
+  fill: blue,
+  title-color: white,
+  body-color: black,
+  icon: none)[123]
 
-// #let mycallout = callout.with(title: "My callout")//TODO:放到config中去
+#let mycallout = callout.with(title: "My callout")//TODO:放到config中去
 
 // #mycallout[Hey this is my custom callout!]
 
@@ -387,14 +382,14 @@ showybox(
 
 == 致谢
 
-// #ending-slide[
-//   #align(center + horizon)[
-//   #set text(size: 3em, weight: "bold", s.colors.primary)
+#ending-slide[
+  #align(center + horizon)[
+  #set text(size: 3em, weight: "bold", sdu-red)
 
-//   THANKS FOR ALL
+  THANKS FOR ALL
 
-//   敬请指正！
-// ]
+  敬请指正！
+]
 ]
 
 

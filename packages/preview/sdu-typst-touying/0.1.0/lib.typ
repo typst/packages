@@ -1,5 +1,5 @@
 #import "dependency.typ": *
-#let sdu_red=rgb("#880000")
+#let sdu-red=rgb("#880000")
 #set text(region: "CN")
 #let title-slide(
   config:(:),
@@ -24,6 +24,7 @@
         inset: 1.5em,
         radius: 0.5em,
         breakable: false,
+        width: 80%,
         {
           text(size: 1.2em, fill: self.colors.neutral-lightest, weight: "bold", info.title)
           if info.subtitle != none {
@@ -34,17 +35,12 @@
       )
       grid(
         text(fill:black,info.author)
-        // if(info.authors!=)
-        // columns: (1fr,) * calc.min(info.authors.len(), 3),
-        // column-gutter: 1em,
-        // row-gutter: 1em,
-        // ..info.authors.map(author => text(fill: black, author)),
       )
-      v(0.5em)
+      v(0.2em)
       // 介绍
       if info.institution != none {
         parbreak()
-        text(size: 0.7em, info.institution)
+        text(size: 0.8em, info.institution)
       }
       // 日期
       if info.date != none {
@@ -57,17 +53,28 @@
   touying-slide(self: self,body)
 })
 
-#let sdu-footer(self) = {
-  set align(bottom)
+#let sdu-footer(self) ={
+  set align(bottom+center)
   set text(size: 0.8em)
-  show: pad.with(.5em)
-  components.left-and-right(
-    text(fill: self.colors.neutral-darkest.lighten(40%), utils.call-or-display(self, self.store.footer)),
-    text(fill: self.colors.neutral-darkest.lighten(20%), utils.call-or-display(self, self.store.footer-d)),
+  show: pad.with(.0em)
+  block(
+    width: 100%,
+    fill: self.colors.primary,
+    grid(
+      columns: (auto,auto, 0.9fr, auto,auto,auto),
+      h(0.5em),
+      text(fill: self.colors.neutral-lightest.lighten(40%), utils.call-or-display(self, self.store.footer-a)),
+      none,
+      text(fill: self.colors.neutral-lightest.lighten(10%), utils.call-or-display(self, self.store.footer-d)),
+      h(0.5em),
+      text(fill: self.colors.neutral-lightest.lighten(10%), utils.call-or-display(self, self.store.footer-g)),
+      v(0.2em)
+    )
   )
+  
 }
 
-#let footer_backend(self)={
+#let footer-backend(self)={
   self=>[
       #if self.store.footer == true {  
         set text(0.7em)
@@ -170,40 +177,6 @@
     ..args.pos(),
   )
 })
-
-
-
-// #let sdu-outline(self: none) = utils.touying-progress(dict => {
-//   let (current-sections, final-sections) = dict
-//   current-sections = current-sections.filter(section => section.loc != none).map(section => (
-//     section,
-//     section.children,
-//   )).flatten().filter(item => item.kind == "section")
-//   final-sections = final-sections.filter(section => section.loc != none).map(section => (
-//     section,
-//     section.children,
-//   )).flatten().filter(item => item.kind == "section")
-//   let current-index = current-sections.len() - 1
-
-//   for (i, section) in final-sections.enumerate() {
-//     if i == 0 {
-//       continue
-//     }
-//     set text(fill: if current-index == 0 or i == current-index {
-//       self.colors.primary
-//     } else {
-//       self.colors.primary.lighten(80%)
-//     })
-    
-//     block(
-//       spacing: 1.5em,
-//       [#link(section.loc, utils.section-short-title(section))<touying-link>],
-//     )
-//     if  i == current-index {
-//       block(height: 2pt, width: 100%, spacing: 0pt, utils.call-or-display(self, self.sdu-chapter-progress-bar))
-//     }
-//   }
-// })
 
 #let new-section-slide(config:(:),title: utils.i18n-outline-title, ..args, body) = touying-slide-wrapper(self=>{
   self = utils.merge-dicts(
@@ -335,7 +308,7 @@
   },
   footer-d:context utils.slide-counter.display() + " / " + utils.last-slide-number,
   footer-g: self => {
-    link("https://github.com/Quaternijkon/Typst_sdu_CS.git")
+    link("https://github.com/Dregen-Yor/sdu-typst-touying",image("img/github-mark-white.svg",width:1.2em))
   },
   ..args,
   body
@@ -343,10 +316,10 @@
 
   show: touying-slides.with(
     config-colors(
-      primary: sdu_red,
+      primary: sdu-red,
       primary-dark: rgb("#004098"),
       secondary: rgb("#ffffff"),
-      tertiary: sdu_red,
+      tertiary: sdu-red,
       neutral-lightest: rgb("#ffffff"),
       neutral-darkest: rgb("#000000"),
       themeblue: rgb("#4285f4"),
@@ -376,22 +349,21 @@
       footer-c: footer-c,
       footer-d: footer-d,
       footer-line-color: footer-line-color,
+      footer-g:footer-g,
     ),
     config-common(
       new-section-slide-fn: new-section-slide,
     ),
     config-page(
       paper: "presentation-" + aspect-ratio,
-      margin: (top: 3cm, bottom: 2cm, x: 2cm),
+      margin: (top: 2.5cm, bottom: 2cm, x: 1.3cm),
       header: self=>[
         #align(left+top)[
-          
           #context {  
             let page = here().page()
             let headings = query(selector(heading.where(level: 2)))
             let heading = headings.rev().find(x => x.location().page() <= page)
             if heading != none {
-              // Colored Style
               if (self.store.theme == "full") {
                 block(
                   width:100%,
@@ -407,7 +379,6 @@
                   ]
                 ]
               }
-              // NOrmal Style
               else if (self.store.theme == "normal") {
                 v(self.store.space /1)
                 // h(self)
@@ -450,7 +421,7 @@
           ] 
         }
       ],
-      footer: sdu-footer,
+      footer:sdu-footer,
       header-ascent:2cm,
       footer-descent:0%,
       
