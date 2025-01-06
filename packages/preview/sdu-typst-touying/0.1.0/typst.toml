@@ -13,4 +13,4 @@ compiler = "0.12.0"
 [template]
 path = "example"
 entrypoint = "main.typ"
-thumbnail = "example/figures/main.png"
+thumbnail = "exafigures/main.png"
