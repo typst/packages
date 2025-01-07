@@ -1,4 +1,4 @@
-#import "@preview/ieee-slovak:0.1.0": ieee
+#import "@preview/tatras-ieee:0.1.0": ieee
 // #import "../lib.typ": ieee
 
 #show: ieee.with(

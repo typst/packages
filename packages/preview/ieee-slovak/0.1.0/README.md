@@ -1,4 +1,4 @@
-# ieee-slovak
+# tatras-ieee
 Typst Template for IEEE papers (two-column style) for use in Slovak language.
 This is updated version of the 1st party [Typst template](https://github.com/typst/templates/tree/main/charged-ieee) for IEEE papers.
 

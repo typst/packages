@@ -1,8 +1,8 @@
 [package]
-name = "ieee-slovak"
+name = "tatras-ieee"
 version = "0.1.0"
 entrypoint = "lib.typ"
-repository = "https://github.com/MeheheCedy22/ieee-slovak"
+repository = "https://github.com/MeheheCedy22/tatras-ieee"
 authors = ["Marek Čederle <marek@cederle.com>"]
 license = "MIT"
 description = "An IEEE-style paper template for use with Slovak language"
