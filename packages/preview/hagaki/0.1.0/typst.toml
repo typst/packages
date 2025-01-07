@@ -8,4 +8,4 @@ keywords = ["postcard"]
 license = "MIT"
 repository = "https://github.com/34j/typst-hagaki"
 description = "Print address labels on Japanese postcards."
-exclude = ["tests"]
+exclude = ["tests/*", "*.png"]
