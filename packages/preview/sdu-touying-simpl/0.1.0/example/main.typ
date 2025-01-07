@@ -9,7 +9,7 @@
     author: [孙更欣],
     date: datetime.today(),
     institution: [Institution],
-    logo:image("../img/sdu.png",width:40%)
+    logo:sdu-logo
   ),
 )
 #set heading(numbering: "1.1")

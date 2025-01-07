@@ -1,5 +1,6 @@
 #import "dependency.typ": *
 #let sdu-red=rgb("#880000")
+#let sdu-logo = image("../img/sdu.png", width: 40%)
 #set text(region: "CN")
 #let title-slide(
   config:(:),
