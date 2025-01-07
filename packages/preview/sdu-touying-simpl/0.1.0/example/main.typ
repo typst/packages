@@ -1,5 +1,5 @@
 #set text(font: "Source Han Serif", lang: "CN",region: "CN")
-#import "@preview/sdu-touying:0.1.0": *
+#import "@preview/sdu-touying-simpl:0.1.0": *
 
 #show: sdu-theme.with(
   aspect-ratio: "16-9",
