@@ -251,7 +251,7 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
 
         if !id.is_osi_approved() && !is_allowed_cc(id) {
             bail!(
-                "license is neither OSI approved nor allowed CC license: {}",
+                "license is neither OSI approved nor an allowed CC license: {}",
                 id.full_name
             );
         }
@@ -463,7 +463,7 @@ fn is_id_continue(c: char) -> bool {
 // Check that a license is any version of CC-BY, CC-BY-SA, or CC0.
 fn is_allowed_cc(license: LicenseId) -> bool {
     static RE: LazyLock<regex::Regex> =
-        LazyLock::new(|| regex::Regex::new(r"^CC(-(BY(-SA)?)|0)-[0-9]\.[0-9](-[A-Z]+)?$").unwrap());
+        LazyLock::new(|| regex::Regex::new(r"^CC(-BY|-BY-SA|0)-[0-9]\.[0-9](-[A-Z]+)?$").unwrap());
 
     RE.is_match(license.name)
 }
