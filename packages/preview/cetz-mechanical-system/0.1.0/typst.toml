@@ -8,4 +8,4 @@ keywords = ["cetz", "draw"]
 license = "MIT"
 repository = "https://github.com/34j/typst-cetz-mechanical-system"
 description = "CeTZ library for drawing mechanical systems."
-exclude = ["tests"]
+exclude = ["tests/*", "*.png"]
