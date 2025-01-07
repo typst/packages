@@ -28,7 +28,7 @@
   figure-reference-supplement: [Obr.],  // default
   table-reference-supplement: [Tabuľka],  // default
   section-reference-supplement: [Sekcia],  // default
-  underline_links: 2,  // default
+  underline-links: 2,  // default
 )
 
 = Nadpis 1 úrovne

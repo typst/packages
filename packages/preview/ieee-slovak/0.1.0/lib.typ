@@ -76,19 +76,19 @@
   // CHANGE:
   // For acknowledgments (Poďakovanie), just use 1st level heading with the said string
   // CHANGE:
-  // underline_links == 3 --> underline all links
-  // underline_links == 2 --> underline all links except for email of the authors
-  // underline_links == 1 --> underline all links except for email of the authors and abstract / index terms
-  // underline_links == 0 --> underline no links
+  // underline-links == 3 --> underline all links
+  // underline-links == 2 --> underline all links except for email of the authors
+  // underline-links == 1 --> underline all links except for email of the authors and abstract / index terms
+  // underline-links == 0 --> underline no links
   // default: 2
-  underline_links: 2,
+  underline-links: 2,
 
   // The paper's content.
   body
 ) = {
   // CHANGE:
     show link: it => {
-    if underline_links == 3 {
+    if underline-links == 3 {
       underline[#it]
     } else {
       it
@@ -320,7 +320,7 @@
 
   // CHANGE:
   show link: it => {
-    if underline_links == 2 {
+    if underline-links == 2 {
       underline[#it]
     } else {
       it
@@ -360,7 +360,7 @@
 
   // CHANGE:
     show link: it => {
-    if underline_links == 1 {
+    if underline-links == 1 {
       underline[#it]
     } else {
       it
