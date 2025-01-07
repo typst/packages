@@ -162,6 +162,11 @@ Contributions are welcome! Feel free to open issues or submit pull requests for 
 
 This project is licensed under the [MIT License](LICENSE).
 
+### Icon License
+
+This project uses the "cards" icon from [Phosphor Icons](https://phosphoricons.com/), which is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+Phosphor Icons is an open-source and flexible icon library, allowing free use, modification, and distribution in personal and commercial projects.
+
 ---
 
 Developed with ❤️ by [sgomezsal](https://github.com/sgomezsal). Let’s make learning efficient and enjoyable!
