@@ -8,6 +8,7 @@ use std::env::args;
 use std::fs;
 use std::io;
 use std::path::Path;
+use std::sync::LazyLock;
 
 use anyhow::{bail, Context};
 use image::codecs::webp::{WebPEncoder, WebPQuality};
@@ -25,13 +26,6 @@ use self::timestamp::determine_timestamps;
 
 const DIST: &str = "dist";
 const THUMBS_DIR: &str = "thumbnails";
-
-macro_rules! regex {
-    ($re:literal $(,)?) => {{
-        static RE: once_cell::sync::OnceCell<regex::Regex> = once_cell::sync::OnceCell::new();
-        RE.get_or_init(|| regex::Regex::new($re).unwrap())
-    }};
-}
 
 fn main() -> anyhow::Result<()> {
     println!("Starting bundling.");
@@ -468,5 +462,8 @@ fn is_id_continue(c: char) -> bool {
 
 // Check that a license is any version of CC-BY, CC-BY-SA, or CC0.
 fn is_allowed_cc(license: LicenseId) -> bool {
-    regex!(r"^CC(-(BY(-SA)?)|0)-[0-9]\.[0-9](-[A-Z]+)?$").is_match(license.name)
+    static RE: LazyLock<regex::Regex> =
+        LazyLock::new(|| regex::Regex::new(r"^CC(-(BY(-SA)?)|0)-[0-9]\.[0-9](-[A-Z]+)?$").unwrap());
+
+    RE.is_match(license.name)
 }

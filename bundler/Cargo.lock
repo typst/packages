@@ -61,7 +61,6 @@ dependencies = [
  "flate2",
  "ignore",
  "image",
- "once_cell",
  "rayon",
  "regex",
  "semver",
