@@ -1,5 +1,5 @@
 [package]
-name = "sdu-touying"
+name = "sdu-touying-simpl"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Dregen_Yor"]
@@ -7,7 +7,7 @@ license = "GPL-3.0"
 description = "An templete based on touying, "
 keywords = ["presentation", "slides", "lecture", "sdu"  ]
 categories = ["presentation"]
-repository = "https://github.com/Dregen-Yor/sdu-touying"
+repository = "https://github.com/Dregen-Yor/sdu-touying-simpl"
 compiler = "0.12.0"
 
 [template]
