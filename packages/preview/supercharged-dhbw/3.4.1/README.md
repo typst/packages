@@ -81,7 +81,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `at-university (bool*)`: Whether the document is written at university or not, default is `false`
 
-`bibliography (content)`: Path to the bibliography file
+`bibliography (content)`: The bibliography function containing a path to the bibliography file (e.g. `bibliography("path/to/bibliography.bib")`)
 
 `bib-style (str)`: Style of the bibliography, default is `ieee`
 
