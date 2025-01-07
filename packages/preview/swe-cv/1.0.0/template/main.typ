@@ -25,7 +25,7 @@
 // Education
 #section([Education])
 #for ed in configuration.education [
-  #exp_header((left: ed.location, center: ed.name, right: ed.date))
+  #exp-header((left: ed.location, center: ed.name, right: ed.date))
   - #ed.degree
 ]
 
@@ -35,7 +35,7 @@
 // Work experience
 #section([Employment])
 #for exp in configuration.employment [
-  #exp_header((left: exp.location, center: exp.company, right: exp.date))
+  #exp-header((left: exp.location, center: exp.company, right: exp.date))
   #for responsibility in exp.responsibilities [
     - #responsibility
   ]
@@ -47,7 +47,7 @@
 // Projects
 #section([Projects])
 #for project in configuration.projects [
-  #project_header((title: project.title, website: project.website))
+  #project-header((title: project.title, website: project.website))
   #for contribution in project.contributions [
     - #contribution
   ]
