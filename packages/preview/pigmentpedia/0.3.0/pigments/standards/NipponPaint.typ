@@ -1,0 +1,3778 @@
+/*
+  Nippon Paint
+
+  A leading global paint and coatings manufacturer
+  based in Japan.
+*/
+
+#let Nippon-Paint = (
+  "RC0107-4": rgb("#FBFBF6"),
+  "RC0251-4": rgb("#F0DCE2"),
+  "RC0260-4": rgb("#EFD0DF"),
+  "RC0270-3": rgb("#D7AFC7"),
+  "RC0280-2": rgb("#C18CAB"),
+  "RC0290-2": rgb("#B17795"),
+  "RC0001-2": rgb("#A26D91"),
+  "RC0002-4": rgb("#FCEFFB"),
+  "RC0003-4": rgb("#F3DFF0"),
+  "RC0004-4": rgb("#F1D3E9"),
+  "RC0005-4": rgb("#EABEDC"),
+  "RC0006-3": rgb("#DDA8CE"),
+  "RC0007-2": rgb("#CF8BB5"),
+  "RC0008-2": rgb("#BC719D"),
+  "RC0009-4": rgb("#FCF2F9"),
+  "RC0010-4": rgb("#F9E1F3"),
+  "RC0011-4": rgb("#F6D3EC"),
+  "RC0012-4": rgb("#EDBCDF"),
+  "RC0013-3": rgb("#E0A5CF"),
+  "RC0014-2": rgb("#D586B8"),
+  "RC0015-2": rgb("#C46CA1"),
+  "RC0016-4": rgb("#FDF3F8"),
+  "RC0017-4": rgb("#F9E2EE"),
+  "RC0210-4": rgb("#F4CEE2"),
+  "RC0018-4": rgb("#ECC8DC"),
+  "RC0220-3": rgb("#E6ADD1"),
+  "RC0230-2": rgb("#D589B5"),
+  "RC0240-2": rgb("#CA71A4"),
+  "RC0307-4": rgb("#FCFBF7"),
+  "RC0019-4": rgb("#FFECF1"),
+  "RC0020-4": rgb("#FAE0EA"),
+  "RC0310-4": rgb("#FECECE"),
+  "RC0320-3": rgb("#EAAFCB"),
+  "RC0330-2": rgb("#DC89AD"),
+  "RC0340-2": rgb("#D47198"),
+  "RC0021-4": rgb("#FFF2F7"),
+  "RC0022-4": rgb("#FBE1EF"),
+  "RC0023-4": rgb("#F8D4E6"),
+  "RC0024-4": rgb("#F2BDD8"),
+  "RC0025-3": rgb("#EAA9CA"),
+  "RC0026-2": rgb("#DD87AD"),
+  "RC0027-2": rgb("#D27098"),
+  "RC0028-4": rgb("#FFEAED"),
+  "RC0029-4": rgb("#FADDE6"),
+  "RC0030-4": rgb("#F7D3E2"),
+  "RC0031-4": rgb("#ECBAD2"),
+  "RC0032-3": rgb("#E0A3C0"),
+  "RC0033-2": rgb("#D686A5"),
+  "RC0034-2": rgb("#C36B87"),
+  "RC0035-4": rgb("#FAF2F6"),
+  "RC0036-4": rgb("#FAE2F2"),
+  "RC0037-4": rgb("#F8CCE2"),
+  "RC0038-4": rgb("#EBB7CC"),
+  "RC0039-3": rgb("#E0A3BB"),
+  "RC0040-2": rgb("#D2839B"),
+  "RC0041-2": rgb("#C06C81"),
+  "RC0042-4": rgb("#FFF4F3"),
+  "RC0043-4": rgb("#FCE0EC"),
+  "RC0044-4": rgb("#FAD3E4"),
+  "RC0045-4": rgb("#F5BCD4"),
+  "RC0046-3": rgb("#EEA6C1"),
+  "RC0047-2": rgb("#E288A6"),
+  "RC0048-2": rgb("#D66F8E"),
+  "RC0207-4": rgb("#F8F1F0"),
+  "RC0201-4": rgb("#FAECEA"),
+  "RC0049-4": rgb("#F7DBE2"),
+  "RC0410-4": rgb("#F9D0DC"),
+  "RC0420-3": rgb("#F2ADC1"),
+  "RC0430-2": rgb("#E68DA6"),
+  "RC0440-2": rgb("#DD748F"),
+  "RC0050-4": rgb("#FDF6F7"),
+  "RC0051-4": rgb("#FEE4EC"),
+  "RC0052-4": rgb("#FDD7E3"),
+  "RC0053-4": rgb("#F2A7BE"),
+  "RC0054-3": rgb("#F2A7BD"),
+  "RC0055-2": rgb("#E7869E"),
+  "RC0056-2": rgb("#DD7189"),
+  "RC0057-4": rgb("#FFF2F3"),
+  "RC0058-4": rgb("#FFE5ED"),
+  "RC0059-4": rgb("#FED8E0"),
+  "RC0060-4": rgb("#FBBECF"),
+  "RC0061-3": rgb("#F4A7BB"),
+  "RC0062-2": rgb("#EB889C"),
+  "RC0063-2": rgb("#E17384"),
+  "RC0064-4": rgb("#FCEDEB"),
+  "RC8151-4": rgb("#FAD9DC"),
+  "RC0065-4": rgb("#FAD0D8"),
+  "RC8110-4": rgb("#F7BEC6"),
+  "RC8120-3": rgb("#EF97A2"),
+  "RC8130-2": rgb("#D96E80"),
+  "RC8140-1": rgb("#C95C70"),
+  "RC0066-4": rgb("#FEF7F9"),
+  "RC0067-4": rgb("#FDF0EE"),
+  "RC0068-4": rgb("#FFE2E9"),
+  "RC0510-4": rgb("#FBC8D3"),
+  "RC0520-3": rgb("#F9AEBC"),
+  "RC0530-2": rgb("#FD818A"),
+  "RC0540-2": rgb("#E87885"),
+  "RC0069-4": rgb("#FFEFEE"),
+  "RC0070-4": rgb("#FEDEE0"),
+  "RC0071-4": rgb("#FCCED4"),
+  "RC0072-4": rgb("#F6BAC3"),
+  "RC0073-3": rgb("#ECA3AC"),
+  "RC0074-2": rgb("#E08388"),
+  "RC0075-2": rgb("#CF6F72"),
+  "RC0076-4": rgb("#FDEAE8"),
+  "RC0077-4": rgb("#FEDEDE"),
+  "RC0078-4": rgb("#FDD3D7"),
+  "RC0079-4": rgb("#FAC0C6"),
+  "RC0080-3": rgb("#F2A9B1"),
+  "RC0081-2": rgb("#E98A8E"),
+  "RC0082-2": rgb("#DA7274"),
+  "RC0083-4": rgb("#FFEFE9"),
+  "RC0084-4": rgb("#FFE1E1"),
+  "RC0085-4": rgb("#FED1D5"),
+  "RC0086-4": rgb("#FAB9C0"),
+  "RC0087-3": rgb("#F9A9B3"),
+  "RC0088-2": rgb("#F28B92"),
+  "RC0089-2": rgb("#E8787E"),
+  "RC0090-4": rgb("#FEFEFE"),
+  "RC7901-4": rgb("#FBEFE8"),
+  "RC0501-4": rgb("#FFECE6"),
+  "RC0610-4": rgb("#FBC5C7"),
+  "RC0620-3": rgb("#F9A9AD"),
+  "RC0630-2": rgb("#EC8E90"),
+  "RC0640-2": rgb("#E27676"),
+  "RC0091-4": rgb("#FBF2ED"),
+  "RC0092-4": rgb("#FFE1DF"),
+  "RC0093-4": rgb("#FED2D0"),
+  "RC0094-4": rgb("#FABBBE"),
+  "RC0095-3": rgb("#FAABB0"),
+  "RC0096-2": rgb("#F5908E"),
+  "RC0097-2": rgb("#ED7D79"),
+  "RC0098-4": rgb("#FBE8E3"),
+  "RC8051-4": rgb("#FBD7D6"),
+  "RC0099-4": rgb("#FCC5C6"),
+  "RC8010-4": rgb("#F7BDBD"),
+  "RC8020-3": rgb("#F0999D"),
+  "RC8030-2": rgb("#DB6F76"),
+  "RC8040-1": rgb("#CF5864"),
+  "RC0401-4": rgb("#FBEAE8"),
+  "RC0100-4": rgb("#FAE1E8"),
+  "RC0651-4": rgb("#FDD6D6"),
+  "RC0660-4": rgb("#F8BFC2"),
+  "RC0670-3": rgb("#E99CA2"),
+  "RC0680-2": rgb("#DE8386"),
+  "RC0690-2": rgb("#C96B6B"),
+  "RN0507-4": rgb("#FDF2F2"),
+  "RN0308-4": rgb("#FAEFEE"),
+  "RN0001-4": rgb("#FCE0E6"),
+  "RN0002-4": rgb("#F6D2E2"),
+  "RN0003-3": rgb("#E6ABBD"),
+  "RN0004-3": rgb("#E0A0AD"),
+  "RN0490-2": rgb("#BB6C78"),
+  "RN8101-4": rgb("#FBF2F3"),
+  "RN8001-4": rgb("#FAE8E4"),
+  "RN0408-4": rgb("#F7E1E0"),
+  "RN0451-4": rgb("#F3CED4"),
+  "RN0460-4": rgb("#EFBEC8"),
+  "RN0470-3": rgb("#DCA0AE"),
+  "RN0480-2": rgb("#CA8492"),
+  "RN0407-4": rgb("#FAEDF0"),
+  "RN0208-4": rgb("#F8EBEC"),
+  "RN0351-4": rgb("#FBE1E8"),
+  "RN0360-4": rgb("#F5CEDA"),
+  "RN0370-3": rgb("#E3ABBE"),
+  "RN0380-2": rgb("#D08EA5"),
+  "RN0390-2": rgb("#BA748A"),
+  "RN0005-4": rgb("#FFF2F3"),
+  "RN0006-4": rgb("#FBDFE7"),
+  "RN0007-4": rgb("#F7CFD9"),
+  "RN0008-4": rgb("#EEB9CA"),
+  "RN0009-3": rgb("#E3A1B5"),
+  "RN0010-2": rgb("#D38091"),
+  "RN0011-2": rgb("#C46878"),
+  "RN0012-4": rgb("#FEECEC"),
+  "RN0013-4": rgb("#F9D9E0"),
+  "RN0014-4": rgb("#EFCBD4"),
+  "RN0015-4": rgb("#E2B5C2"),
+  "RN0016-3": rgb("#D29FAF"),
+  "RN0017-2": rgb("#BF7E8E"),
+  "RN0018-2": rgb("#AF6A78"),
+  "RN0019-4": rgb("#FFE2E9"),
+  "RN0020-4": rgb("#FADEE1"),
+  "RN0021-4": rgb("#EEC8D0"),
+  "RN0022-4": rgb("#E5B3BE"),
+  "RN0023-3": rgb("#D89DAB"),
+  "RN0024-2": rgb("#C67B86"),
+  "RN0025-2": rgb("#B56770"),
+  "RN0026-4": rgb("#FEF0ED"),
+  "RN0027-4": rgb("#F8D5D7"),
+  "RN0028-4": rgb("#F2C5C7"),
+  "RN0029-4": rgb("#E5ABB0"),
+  "RN0030-3": rgb("#D2939A"),
+  "RN0031-2": rgb("#C67578"),
+  "RN0032-1": rgb("#B96264"),
+  "RN0033-4": rgb("#FFF6F5"),
+  "RN0034-4": rgb("#FFE3E1"),
+  "RN0551-4": rgb("#FAD5D7"),
+  "RN0560-4": rgb("#ECB8B9"),
+  "RN0570-3": rgb("#D39394"),
+  "RN0580-2": rgb("#C97F82"),
+  "RN0590-2": rgb("#B16665"),
+  "RN0035-4": rgb("#FEEAE3"),
+  "RN0036-4": rgb("#F8D5D4"),
+  "RN0037-4": rgb("#F1C5C5"),
+  "RN0038-3": rgb("#E3ADAE"),
+  "RN0039-3": rgb("#D69597"),
+  "RN0040-2": rgb("#C57673"),
+  "RN0041-1": rgb("#B05E56"),
+  "RN0301-4": rgb("#FAEDE9"),
+  "RN0608-4": rgb("#FAE6E2"),
+  "RN0751-4": rgb("#FACBC6"),
+  "RN0760-4": rgb("#EEBCBA"),
+  "RN0770-3": rgb("#DE9D9E"),
+  "RN0780-2": rgb("#C47A79"),
+  "RN0790-2": rgb("#B46361"),
+  "RN0042-4": rgb("#F9F5EF"),
+  "RN0043-4": rgb("#FBE4E4"),
+  "RN0044-4": rgb("#EFC1BF"),
+  "RN0045-4": rgb("#F9B9B9"),
+  "RN0046-3": rgb("#E89E9D"),
+  "RN0047-3": rgb("#E19191"),
+  "RN0048-2": rgb("#CE7C7D"),
+  "RN0049-4": rgb("#FFFDF7"),
+  "RN0050-4": rgb("#FFEEEC"),
+  "RN0051-4": rgb("#FCECED"),
+  "RN0710-4": rgb("#F2B9B5"),
+  "RN0720-3": rgb("#DF9591"),
+  "RN0730-2": rgb("#D4827E"),
+  "RN0740-2": rgb("#C26963"),
+  "RN0708-4": rgb("#FCF2E7"),
+  "RN0607-4": rgb("#FBEDE5"),
+  "RN0052-4": rgb("#F1C5BC"),
+  "RN0053-4": rgb("#ECBAB3"),
+  "RN0054-3": rgb("#DD9F97"),
+  "RN0055-2": rgb("#D4867B"),
+  "RN0056-2": rgb("#B9675E"),
+  "RN0057-4": rgb("#FFEDE5"),
+  "RN0058-4": rgb("#F5CCC7"),
+  "RN0059-4": rgb("#ECBBB5"),
+  "RN0060-3": rgb("#DEA39B"),
+  "RN0061-3": rgb("#D18D86"),
+  "RN0062-2": rgb("#BF7163"),
+  "RN0063-1": rgb("#B16155"),
+  "RN0064-4": rgb("#FCFBF3"),
+  "RN0065-4": rgb("#FDF3F3"),
+  "RN1451-4": rgb("#FEDED3"),
+  "RN1460-4": rgb("#F5BAB2"),
+  "RN1470-3": rgb("#E2998E"),
+  "RN1480-2": rgb("#D17D73"),
+  "RN1490-2": rgb("#C0695B"),
+  "RN0066-4": rgb("#FFF1E5"),
+  "RN1508-4": rgb("#FEEBE0"),
+  "RN0067-4": rgb("#FFD6C7"),
+  "RN1410-4": rgb("#FACEC2"),
+  "RN1420-3": rgb("#E5A99E"),
+  "RN1430-2": rgb("#DC9586"),
+  "RN1440-2": rgb("#C77D6B"),
+  "RN0068-4": rgb("#FEF2E9"),
+  "RN0069-4": rgb("#FFEDE2"),
+  "RN0070-4": rgb("#F9D6CC"),
+  "RN0071-4": rgb("#FCCFC2"),
+  "RN0072-3": rgb("#E2A899"),
+  "RN0073-2": rgb("#CC7B6F"),
+  "RN0074-2": rgb("#B6655A"),
+  "RN0075-4": rgb("#FFF2EC"),
+  "RN1501-4": rgb("#FEF3E6"),
+  "RN1551-4": rgb("#FDE0D4"),
+  "RN1560-4": rgb("#F9C1B5"),
+  "RN1570-3": rgb("#EDA194"),
+  "RN1580-2": rgb("#DD8A7A"),
+  "RN1590-2": rgb("#CE6F5E"),
+  "RN0707-4": rgb("#FBF3E9"),
+  "RN1401-4": rgb("#FCEFE1"),
+  "RN0076-4": rgb("#FCDACB"),
+  "RN0077-4": rgb("#F8D7C7"),
+  "RN1660-4": rgb("#F2BDAB"),
+  "RN0078-2": rgb("#D48977"),
+  "RN0079-1": rgb("#B65C46"),
+  "RA8100-1": rgb("#BB4D65"),
+  "RA0500-1": rgb("#B84A44"),
+  "RA8000-1": rgb("#B63C41"),
+  "RA0300-1": rgb("#A03F4D"),
+  "RA0600-1": rgb("#A54739"),
+  "RA0400-1": rgb("#A53F3E"),
+  "RA1500-1": rgb("#DB1E0F"),
+  "RA7900-1": rgb("#C75237"),
+  "RA8300-1": rgb("#BA433B"),
+  "RA1600-1": rgb("#A04E36"),
+  "RA1400-1": rgb("#924841"),
+  "RA0700-1": rgb("#7D433C"),
+  "RA0800-1": rgb("#5B423E"),
+  "OC0601-4": rgb("#FDF1E9"),
+  "OC7951-4": rgb("#FCE4DD"),
+  "OC7910-4": rgb("#F9CEC7"),
+  "OC7920-3": rgb("#F8ADA3"),
+  "OC0001-2": rgb("#F28E8A"),
+  "OC7930-2": rgb("#E38078"),
+  "OC7940-1": rgb("#C95F58"),
+  "OC0002-4": rgb("#FBFAF2"),
+  "OC0508-4": rgb("#FAF1E8"),
+  "OC0701-4": rgb("#FDE8DE"),
+  "OC1510-4": rgb("#FEE4AC"),
+  "OC1520-3": rgb("#FBB7AC"),
+  "OC1530-2": rgb("#EF9989"),
+  "OC1540-2": rgb("#FF7065"),
+  "OC0003-4": rgb("#FFF8F1"),
+  "OC0004-4": rgb("#FFE3DD"),
+  "OC0005-4": rgb("#FFD5CF"),
+  "OC0006-4": rgb("#FEC2BC"),
+  "OC0007-3": rgb("#FBB0A9"),
+  "OC0008-2": rgb("#F59587"),
+  "OC0009-2": rgb("#EF7A6B"),
+  "OC0010-4": rgb("#FFF2EA"),
+  "OC0011-4": rgb("#FFE6DF"),
+  "OC0012-4": rgb("#FFDDD8"),
+  "OC0013-4": rgb("#FDC4BE"),
+  "OC0014-3": rgb("#FBB0AA"),
+  "OC0015-2": rgb("#F59284"),
+  "OC0016-2": rgb("#E87E6E"),
+  "OC0017-4": rgb("#FFF3E4"),
+  "OC0018-4": rgb("#FCDCC9"),
+  "OC1651-4": rgb("#FBCEBA"),
+  "OC1610-4": rgb("#FAC6B1"),
+  "OC1620-3": rgb("#EBA38D"),
+  "OC1630-2": rgb("#E19177"),
+  "OC1640-2": rgb("#CE775E"),
+  "OC0019-4": rgb("#FCE4D6"),
+  "OC0020-4": rgb("#F9D5C4"),
+  "OC0021-4": rgb("#F2C7B2"),
+  "OC0022-3": rgb("#E9B39E"),
+  "OC1670-3": rgb("#E4A188"),
+  "OC1680-2": rgb("#D88C74"),
+  "OC1690-2": rgb("#C67155"),
+  "OC0023-4": rgb("#FFF5E6"),
+  "OC0024-4": rgb("#F6CEB6"),
+  "OC0025-4": rgb("#F2C7AF"),
+  "OC0026-3": rgb("#E7B091"),
+  "OC0027-3": rgb("#E0A489"),
+  "OC0028-2": rgb("#CA8167"),
+  "OC0029-1": rgb("#B76249"),
+  "OC0030-4": rgb("#FFF7E9"),
+  "OC0031-4": rgb("#FEEDDB"),
+  "OC0032-4": rgb("#F9DAC4"),
+  "OC0033-3": rgb("#DFA685"),
+  "OC0034-2": rgb("#D38C6D"),
+  "OC0035-2": rgb("#C27958"),
+  "OC0036-1": rgb("#B05D40"),
+  "OC2207-4": rgb("#FCF3E2"),
+  "OC2201-4": rgb("#FEEBD8"),
+  "OC2251-4": rgb("#F8D4BE"),
+  "OC2210-4": rgb("#F0C5AB"),
+  "OC2220-3": rgb("#DEA586"),
+  "OC2230-2": rgb("#CE8A6A"),
+  "OC2240-2": rgb("#BC795A"),
+  "OC0037-4": rgb("#FFF7E7"),
+  "OC0038-4": rgb("#FFEFDA"),
+  "OC0039-4": rgb("#FCE4CB"),
+  "OC0040-4": rgb("#F1C6A5"),
+  "OC0041-3": rgb("#E4AC88"),
+  "OC0042-2": rgb("#D18B65"),
+  "OC0043-2": rgb("#BE7456"),
+  "OC1701-4": rgb("#FFF6E4"),
+  "OC0044-4": rgb("#FADBC1"),
+  "OC0045-4": rgb("#F4CCB1"),
+  "OC2260-4": rgb("#F4C7A8"),
+  "OC2270-3": rgb("#E2A880"),
+  "OC2280-2": rgb("#D49269"),
+  "OC2290-2": rgb("#C57D54"),
+  "OC0047-4": rgb("#FFF9EC"),
+  "OC0046-4": rgb("#FEF6EA"),
+  "OC0048-4": rgb("#F8D3B6"),
+  "OC0049-3": rgb("#E7B28B"),
+  "OC0050-2": rgb("#DD9A6F"),
+  "OC0051-2": rgb("#CB865C"),
+  "OC0052-1": rgb("#B8683F"),
+  "OC0053-4": rgb("#FFF2EB"),
+  "OC0054-4": rgb("#FFE7D8"),
+  "OC0055-4": rgb("#FFD9C8"),
+  "OC0056-4": rgb("#FFCDB9"),
+  "OC0057-3": rgb("#FDB39E"),
+  "OC0058-2": rgb("#F99977"),
+  "OC0059-2": rgb("#F18360"),
+  "OC0060-4": rgb("#FFF6E5"),
+  "OC0061-4": rgb("#FFE7D4"),
+  "OC0062-4": rgb("#FFE0CD"),
+  "OC0063-4": rgb("#FFCBB3"),
+  "OC0064-3": rgb("#FCB99E"),
+  "OC0065-2": rgb("#F89D77"),
+  "OC0066-2": rgb("#EB8761"),
+  "OC0067-4": rgb("#FDFCFB"),
+  "OC0068-4": rgb("#FFEBD8"),
+  "OC0069-4": rgb("#FFDDC6"),
+  "OC1710-4": rgb("#FFD6BA"),
+  "OC1720-3": rgb("#FEB99C"),
+  "OC1730-2": rgb("#F99E7A"),
+  "OC1740-2": rgb("#EF845D"),
+  "OC0070-4": rgb("#FFF3E0"),
+  "OC0071-4": rgb("#FFEBD6"),
+  "OC0072-4": rgb("#FFDDC3"),
+  "OC0073-4": rgb("#FFCDAB"),
+  "OC0074-3": rgb("#FFBC97"),
+  "OC0075-2": rgb("#FAA06E"),
+  "OC0076-2": rgb("#F18C58"),
+  "OC1607-4": rgb("#FBF9ED"),
+  "OC2208-4": rgb("#FDF2E1"),
+  "OC1751-4": rgb("#FFE5CE"),
+  "OC1760-4": rgb("#FED5B4"),
+  "OC1770-3": rgb("#F7B691"),
+  "OC1780-2": rgb("#F3A67B"),
+  "OC1790-2": rgb("#E28B5E"),
+  "ON0001-4": rgb("#FFF7E3"),
+  "ON8201-4": rgb("#FFF3DE"),
+  "ON8251-4": rgb("#FFE9CF"),
+  "ON8220-4": rgb("#FFCFA8"),
+  "ON8230-3": rgb("#FFBB8C"),
+  "ON0002-2": rgb("#F88B53"),
+  "ON0056-1": rgb("#C86D4C"),
+  "ON0003-4": rgb("#FFFAEA"),
+  "ON0004-4": rgb("#FFEDD5"),
+  "ON0005-4": rgb("#FFE0C0"),
+  "ON0006-4": rgb("#FFD2AB"),
+  "ON0007-3": rgb("#FFBF91"),
+  "ON0008-2": rgb("#FDA568"),
+  "ON0009-2": rgb("#F49257"),
+  "ON0010-4": rgb("#FFF3DD"),
+  "ON0011-4": rgb("#FFF3DD"),
+  "ON8210-4": rgb("#FFDEBB"),
+  "ON1820-3": rgb("#FBBE8C"),
+  "ON1830-2": rgb("#F7AD72"),
+  "ON8240-2": rgb("#FBA268"),
+  "ON1840-2": rgb("#EB8F55"),
+  "ON0012-4": rgb("#FFF6DE"),
+  "ON0013-4": rgb("#FFECD1"),
+  "ON0014-4": rgb("#FFE2C0"),
+  "ON0015-4": rgb("#FFD0A3"),
+  "ON0016-3": rgb("#FFC393"),
+  "ON0017-2": rgb("#FEA967"),
+  "ON0018-2": rgb("#FC9752"),
+  "ON0019-4": rgb("#FDF3DD"),
+  "ON0020-4": rgb("#FDEED2"),
+  "ON0021-4": rgb("#FFE3BD"),
+  "ON0022-4": rgb("#FFD39F"),
+  "ON0023-3": rgb("#FFC891"),
+  "ON0024-2": rgb("#FFB064"),
+  "ON0025-2": rgb("#FE9E4E"),
+  "ON0026-4": rgb("#FFFAE3"),
+  "ON0027-4": rgb("#FFE9C2"),
+  "ON0028-4": rgb("#FFE4B8"),
+  "ON0029-4": rgb("#FFD398"),
+  "ON0030-3": rgb("#FFC783"),
+  "ON0031-2": rgb("#FFB35C"),
+  "ON0032-2": rgb("#FFA549"),
+  "ON0033-4": rgb("#FFFCE3"),
+  "ON1901-4": rgb("#FFF8DC"),
+  "ON0034-4": rgb("#FFEECB"),
+  "ON1910-4": rgb("#FFDDAD"),
+  "ON1920-3": rgb("#FFCB89"),
+  "ON1930-2": rgb("#FEB665"),
+  "ON1940-2": rgb("#FEA249"),
+  "ON1908-4": rgb("#FFF5DC"),
+  "ON0035-4": rgb("#FFEECF"),
+  "ON1951-4": rgb("#FFE9C0"),
+  "ON1960-4": rgb("#FFDEAF"),
+  "ON1970-3": rgb("#FCC68C"),
+  "ON1980-2": rgb("#F8B46D"),
+  "ON1990-2": rgb("#EA9F55"),
+  "ON1907-4": rgb("#FFFCE5"),
+  "ON2708-4": rgb("#FEF5D6"),
+  "ON2751-4": rgb("#FFE9B0"),
+  "ON2760-3": rgb("#FED08B"),
+  "ON2770-3": rgb("#FFCA73"),
+  "ON2780-2": rgb("#FDBB51"),
+  "ON2790-2": rgb("#F2A741"),
+  "ON0036-4": rgb("#FFFDE6"),
+  "ON0037-4": rgb("#FFEEC4"),
+  "ON0038-4": rgb("#FFE7B1"),
+  "ON0039-4": rgb("#FFD994"),
+  "ON0040-3": rgb("#FFD17F"),
+  "ON0041-2": rgb("#FFBF4B"),
+  "ON0042-2": rgb("#FFB433"),
+  "ON0043-4": rgb("#FFFCDF"),
+  "ON3608-4": rgb("#FEF6D9"),
+  "ON2701-4": rgb("#FFF0C6"),
+  "ON2710-4": rgb("#FFDB97"),
+  "ON2720-3": rgb("#FFCC70"),
+  "ON2730-2": rgb("#FFC255"),
+  "ON2740-2": rgb("#FFB63D"),
+  "ON0044-4": rgb("#FFFFF5"),
+  "ON0045-4": rgb("#FFF6DE"),
+  "ON0046-4": rgb("#FEE5BA"),
+  "ON0047-3": rgb("#FBD9AA"),
+  "ON0048-3": rgb("#EDBC85"),
+  "ON0049-2": rgb("#DB9E5E"),
+  "ON0050-2": rgb("#C7925B"),
+  "ON0067-4": rgb("#FFFAE5"),
+  "ON0051-4": rgb("#FFFCE2"),
+  "ON0052-4": rgb("#FFEFD0"),
+  "ON0053-4": rgb("#FEE9C0"),
+  "ON0054-3": rgb("#FCDCA7"),
+  "ON0055-3": rgb("#F8C58A"),
+  "ON0057-2": rgb("#C68E5B"),
+  "ON0059-4": rgb("#FFF1D2"),
+  "ON0058-4": rgb("#F2ECDC"),
+  "ON0060-4": rgb("#FDE3BF"),
+  "ON0061-4": rgb("#F8D1A4"),
+  "ON0062-3": rgb("#F0C291"),
+  "ON0063-2": rgb("#DFAA6E"),
+  "ON0064-2": rgb("#D49A5D"),
+  "ON0065-4": rgb("#FEF8E6"),
+  "ON0066-4": rgb("#FDE7C8"),
+  "ON1810-4": rgb("#FED9B0"),
+  "ON0068-4": rgb("#F6CEA5"),
+  "ON0069-3": rgb("#EAB98F"),
+  "ON0070-2": rgb("#DBA16D"),
+  "ON0071-2": rgb("#D1915C"),
+  "ON2508-4": rgb("#FCF6DF"),
+  "ON0072-4": rgb("#FFF0D8"),
+  "ON0073-4": rgb("#FCE0C2"),
+  "ON0074-3": rgb("#F5C8A1"),
+  "ON0075-3": rgb("#F8C59B"),
+  "ON0076-3": rgb("#EFB387"),
+  "ON0077-2": rgb("#BD855B"),
+  "ON0078-4": rgb("#FFFBEB"),
+  "ON0079-4": rgb("#FFF2DB"),
+  "ON0080-4": rgb("#FBDBB6"),
+  "ON0081-3": rgb("#EEBD95"),
+  "ON0082-2": rgb("#DE9B6B"),
+  "ON0083-2": rgb("#DC996A"),
+  "ON0084-1": rgb("#C67945"),
+  "ON0085-4": rgb("#FFF6E3"),
+  "ON0086-4": rgb("#FEEBD2"),
+  "ON0087-4": rgb("#F8D3B2"),
+  "ON0088-4": rgb("#F3C9A6"),
+  "ON0089-3": rgb("#EBB68E"),
+  "ON0090-2": rgb("#E09F6F"),
+  "ON0091-1": rgb("#C67445"),
+  "ON0092-4": rgb("#FFFAEA"),
+  "ON0093-4": rgb("#FFECD1"),
+  "ON1851-4": rgb("#FFE7C3"),
+  "ON1860-4": rgb("#FBD7B5"),
+  "ON1870-3": rgb("#F1B288"),
+  "ON1880-2": rgb("#E49B68"),
+  "ON1890-2": rgb("#D1814E"),
+  "ON0094-4": rgb("#FFF1E3"),
+  "ON1708-4": rgb("#FBF1E0"),
+  "ON0095-4": rgb("#FDE5CE"),
+  "ON0096-3": rgb("#F7CCAA"),
+  "ON0097-3": rgb("#F0B58A"),
+  "ON0098-2": rgb("#DE9D73"),
+  "ON0099-2": rgb("#D08857"),
+  "ON1707-4": rgb("#FCF8EA"),
+  "ON2301-4": rgb("#FEF2DE"),
+  "ON1601-4": rgb("#FEEDDA"),
+  "ON2310-4": rgb("#F7CFAE"),
+  "ON2320-3": rgb("#ECB78E"),
+  "ON2330-2": rgb("#D79C71"),
+  "ON2340-2": rgb("#C8865D"),
+  "ON1807-4": rgb("#FDF6E4"),
+  "ON2401-4": rgb("#FDF3DF"),
+  "ON2351-4": rgb("#FCE4CB"),
+  "ON2360-4": rgb("#F3D1B6"),
+  "ON2370-3": rgb("#DCB08C"),
+  "ON2380-2": rgb("#CE9872"),
+  "ON2390-2": rgb("#BC835D"),
+  "OA2000-1": rgb("#AD6F46"),
+  "OA0001-1": rgb("#AE603D"),
+  "OA2200-1": rgb("#A05B39"),
+  "OA2400-1": rgb("#815A3E"),
+  "OA2100-1": rgb("#7D533D"),
+  "OA1200-1": rgb("#735445"),
+  "OA1000-1": rgb("#754C3F"),
+  "OA1800-1": rgb("#E47C36"),
+  "OA0004-1": rgb("#DF7033"),
+  "OA8200-1": rgb("#E2632C"),
+  "OA1700-1": rgb("#D2593C"),
+  "OA0003-1": rgb("#CC5F35"),
+  "OA0002-1": rgb("#964D34"),
+  "YC0002-4": rgb("#FFFDDF"),
+  "YC0001-4": rgb("#FFFADF"),
+  "YC0003-4": rgb("#FFF0C0"),
+  "YC0004-4": rgb("#FFEDB4"),
+  "YC0005-3": rgb("#FDD986"),
+  "YC0006-2": rgb("#FAC862"),
+  "YC0007-2": rgb("#FFC044"),
+  "YC2808-4": rgb("#FFFDE6"),
+  "YC3808-4": rgb("#FEFCE0"),
+  "YC2851-4": rgb("#FFF3C5"),
+  "YC2860-4": rgb("#FFE7A5"),
+  "YC2870-3": rgb("#FFD985"),
+  "YC2880-2": rgb("#FDCF6C"),
+  "YC2890-2": rgb("#F7B640"),
+  "YC2807-4": rgb("#FDFCEA"),
+  "YC2801-4": rgb("#FFFCDF"),
+  "YC3708-4": rgb("#FEFBE0"),
+  "YC2810-4": rgb("#FFE9A8"),
+  "YC2820-3": rgb("#FFFE7B"),
+  "YC2830-2": rgb("#FFCC5E"),
+  "YC2840-2": rgb("#FFBB36"),
+  "YC0008-4": rgb("#FFFFE5"),
+  "YC0009-4": rgb("#FFF6CE"),
+  "YC0010-4": rgb("#FFEFBA"),
+  "YC0011-4": rgb("#FFE6A4"),
+  "YC0012-3": rgb("#FFDB87"),
+  "YC0013-2": rgb("#FFD15F"),
+  "YC0014-2": rgb("#FFC032"),
+  "YC0015-4": rgb("#FFFFE4"),
+  "YC0016-4": rgb("#FFFBD2"),
+  "YC0017-4": rgb("#FFF5C4"),
+  "YC0018-4": rgb("#FFEBA4"),
+  "YC0019-3": rgb("#FFE289"),
+  "YC0020-2": rgb("#FFD562"),
+  "YC0021-2": rgb("#FFCB4A"),
+  "YC0022-4": rgb("#FFFFDD"),
+  "YC0023-4": rgb("#FFFFDB"),
+  "YC0024-4": rgb("#FFF7C4"),
+  "YC0025-4": rgb("#FFF3AF"),
+  "YC0026-3": rgb("#FFE790"),
+  "YC0027-2": rgb("#FFE07A"),
+  "YC0028-2": rgb("#FDC84C"),
+  "YC2907-4": rgb("#FFFEEC"),
+  "YC0029-4": rgb("#FFFFE1"),
+  "YC2951-4": rgb("#FFF5BF"),
+  "YC2960-4": rgb("#FFEFAF"),
+  "YC2970-3": rgb("#FFE188"),
+  "YC2980-2": rgb("#FFD96C"),
+  "YC2990-2": rgb("#FFC43E"),
+  "YC4808-4": rgb("#FEFEF0"),
+  "YC0030-4": rgb("#FFFFEE"),
+  "YC2901-4": rgb("#FFFBD6"),
+  "YC2910-4": rgb("#FFF2B2"),
+  "YC2920-3": rgb("#FFE383"),
+  "YC2930-2": rgb("#FFDA6E"),
+  "YC2940-2": rgb("#FFCB3B"),
+  "YC0031-4": rgb("#FFFEDF"),
+  "YC0032-4": rgb("#FFFBD1"),
+  "YC0033-4": rgb("#FFF2B2"),
+  "YC0034-4": rgb("#FFEBA7"),
+  "YC0035-3": rgb("#FFE38F"),
+  "YC0036-2": rgb("#FFD961"),
+  "YC0037-2": rgb("#FFC93A"),
+  "YC0038-4": rgb("#FEFFEE"),
+  "YC0039-4": rgb("#FFFCD1"),
+  "YC0040-4": rgb("#FFF7BA"),
+  "YC0041-4": rgb("#FFF1A9"),
+  "YC0042-3": rgb("#FFE990"),
+  "YC0043-2": rgb("#FFDD62"),
+  "YC0044-2": rgb("#FFD345"),
+  "YC0046-4": rgb("#FFFDD6"),
+  "YC0045-4": rgb("#FAFADE"),
+  "YC0048-4": rgb("#FFF7C2"),
+  "YC0047-4": rgb("#FFF7C2"),
+  "YC0049-3": rgb("#FFE68B"),
+  "YC0050-2": rgb("#FFDD6F"),
+  "YC0051-1": rgb("#FAC133"),
+  "YC0052-4": rgb("#FFFFE2"),
+  "YC3008-4": rgb("#FEFCD8"),
+  "YC3051-4": rgb("#FFF8C4"),
+  "YC3060-3": rgb("#FDE894"),
+  "YC3070-3": rgb("#FEE17A"),
+  "YC3080-2": rgb("#ECC451"),
+  "YC3090-1": rgb("#E0B336"),
+  "YC3107-4": rgb("#FEFFE6"),
+  "YC3101-4": rgb("#FFFDDA"),
+  "YC3251-4": rgb("#FFFBD0"),
+  "YC3110-4": rgb("#FFF3AF"),
+  "YC3120-3": rgb("#FFEC90"),
+  "YC3130-2": rgb("#FFE478"),
+  "YC3140-2": rgb("#FBD44A"),
+  "YC3201-4": rgb("#FFFFE4"),
+  "YC3001-4": rgb("#FFFEDE"),
+  "YC0053-4": rgb("#FFFCCA"),
+  "YC3010-4": rgb("#FFF6AF"),
+  "YC3020-3": rgb("#FFEB86"),
+  "YC3030-2": rgb("#FFE36C"),
+  "YC3040-2": rgb("#FFD13C"),
+  "YC0054-4": rgb("#FFFDD7"),
+  "YC0055-4": rgb("#FFFBC2"),
+  "YC0056-4": rgb("#FFF4A7"),
+  "YC0058-3": rgb("#FFEA8A"),
+  "YC0057-3": rgb("#FFEC88"),
+  "YC0059-3": rgb("#FFE16F"),
+  "YC0060-2": rgb("#FFD644"),
+  "YC0061-4": rgb("#FFFFE0"),
+  "YC0062-4": rgb("#FFFED3"),
+  "YC0063-4": rgb("#FFF8B8"),
+  "YC0064-4": rgb("#FFF4A9"),
+  "YC0065-3": rgb("#FFEF94"),
+  "YC0066-2": rgb("#FFE362"),
+  "YC0067-2": rgb("#FFDA42"),
+  "YC3707-4": rgb("#FBFDEC"),
+  "YC0068-4": rgb("#FFFEDF"),
+  "YC3151-4": rgb("#FFFDCF"),
+  "YC3210-4": rgb("#FFFCC2"),
+  "YC3220-3": rgb("#FFF595"),
+  "YC3230-2": rgb("#FFEC74"),
+  "YC3240-2": rgb("#FFDF45"),
+  "YC3108-4": rgb("#FEFEE3"),
+  "YC0069-4": rgb("#FFFDD6"),
+  "YC0070-4": rgb("#FFFCBC"),
+  "YC0071-3": rgb("#FFF493"),
+  "YC0072-3": rgb("#FFF07D"),
+  "YC0073-2": rgb("#FFEA78"),
+  "YC0074-2": rgb("#FBD74F"),
+  "YC0075-4": rgb("#FEFFEA"),
+  "YC0076-4": rgb("#FFFFD8"),
+  "YC0077-4": rgb("#FFFCBC"),
+  "YC0078-4": rgb("#FFF8A7"),
+  "YC0079-3": rgb("#FFF292"),
+  "YC0080-2": rgb("#FFEB67"),
+  "YC0081-2": rgb("#FFE444"),
+  "YC0082-4": rgb("#FFFECC"),
+  "YC0083-4": rgb("#FFF5A7"),
+  "YC3260-3": rgb("#FDF09E"),
+  "YC3270-3": rgb("#F8E685"),
+  "YC3280-2": rgb("#F3E17F"),
+  "YC0084-2": rgb("#F4D756"),
+  "YC3290-2": rgb("#E5CB53"),
+  "YN0001-4": rgb("#FFFFE4"),
+  "YN3207-4": rgb("#FAFDE3"),
+  "YN4951-4": rgb("#F7F4D7"),
+  "YN0002-4": rgb("#F1EDC7"),
+  "YN0003-3": rgb("#EBDEA8"),
+  "YN0004-2": rgb("#DAC680"),
+  "YN0005-2": rgb("#C6B268"),
+  "YN0006-4": rgb("#FFFFE0"),
+  "YN0007-4": rgb("#FFFFD8"),
+  "YN0008-4": rgb("#FDFAC7"),
+  "YN0009-4": rgb("#F9EFAE"),
+  "YN0010-3": rgb("#EFE399"),
+  "YN0011-2": rgb("#E5D170"),
+  "YN0012-2": rgb("#D4BF59"),
+  "YN0013-4": rgb("#FFFFE3"),
+  "YN0014-4": rgb("#FFFDD6"),
+  "YN0015-4": rgb("#FFF7C5"),
+  "YN0016-4": rgb("#FBEFAE"),
+  "YN0017-3": rgb("#F6E398"),
+  "YN0018-2": rgb("#EFD271"),
+  "YN0019-2": rgb("#E4C258"),
+  "YN2908-4": rgb("#FAFBE9"),
+  "YN3307-4": rgb("#FBFCDD"),
+  "YN0020-4": rgb("#FDFBD6"),
+  "YN3160-4": rgb("#F9EFB5"),
+  "YN3170-3": rgb("#F6E094"),
+  "YN3180-2": rgb("#EBD073"),
+  "YN3190-2": rgb("#DEBD59"),
+  "YN3308-4": rgb("#FEFCDF"),
+  "YN3301-4": rgb("#FFFDD8"),
+  "YN3351-4": rgb("#FBF4C6"),
+  "YN3310-4": rgb("#FCF0B6"),
+  "YN3320-3": rgb("#F8E398"),
+  "YN3330-2": rgb("#F5D97D"),
+  "YN3340-2": rgb("#DFBC53"),
+  "YN0021-4": rgb("#FFFDE1"),
+  "YN0022-4": rgb("#FFFBD3"),
+  "YN0023-4": rgb("#FFF8C9"),
+  "YN0024-4": rgb("#FCEAA9"),
+  "YN0025-3": rgb("#F8E096"),
+  "YN0026-2": rgb("#F3CF71"),
+  "YN0027-2": rgb("#E6BE5B"),
+  "YN0028-4": rgb("#FEFFEC"),
+  "YN0029-4": rgb("#FEF6CB"),
+  "YN0030-4": rgb("#FFF2B9"),
+  "YN3360-4": rgb("#FEEBB6"),
+  "YN3370-3": rgb("#F1D38A"),
+  "YN3380-2": rgb("#E2BD68"),
+  "YN3390-2": rgb("#D1AA4E"),
+  "YN0031-4": rgb("#FFFFE4"),
+  "YN0032-4": rgb("#FFF9D4"),
+  "YN0033-4": rgb("#FFF2C2"),
+  "YN0034-4": rgb("#FDE9AB"),
+  "YN0035-3": rgb("#FADC94"),
+  "YN0036-2": rgb("#F2C96E"),
+  "YN0037-2": rgb("#E8BA5A"),
+  "YN0038-4": rgb("#FFFDE9"),
+  "YN3807-4": rgb("#FCFCED"),
+  "YN3751-4": rgb("#FFF1CB"),
+  "YN3760-4": rgb("#FAE9BB"),
+  "YN3770-3": rgb("#EDD096"),
+  "YN3780-2": rgb("#DDBB7A"),
+  "YN3790-1": rgb("#BF9B4E"),
+  "YN3007-4": rgb("#FEFFF2"),
+  "YN3701-4": rgb("#FEFAE0"),
+  "YN0039-4": rgb("#F9F0D5"),
+  "YN3710-4": rgb("#F7E5B7"),
+  "YN3720-3": rgb("#DEBC78"),
+  "YN3730-2": rgb("#DEBC77"),
+  "YN3740-2": rgb("#CDA964"),
+  "YN0041-4": rgb("#FFFAE4"),
+  "YN0040-4": rgb("#FFFCE0"),
+  "YN0042-4": rgb("#FFE9B5"),
+  "YN0043-3": rgb("#FBD796"),
+  "YN0044-3": rgb("#FAD490"),
+  "YN0045-2": rgb("#F7C776"),
+  "YN0046-2": rgb("#EDB761"),
+  "YN0047-4": rgb("#FBF9E9"),
+  "YN0049-4": rgb("#FFFADF"),
+  "YN0048-4": rgb("#FFFADD"),
+  "YN0050-4": rgb("#FFEABC"),
+  "YN0051-3": rgb("#FAD69B"),
+  "YN0052-3": rgb("#FBD698"),
+  "YN0053-2": rgb("#F2C170"),
+  "YN0054-4": rgb("#FFFEEA"),
+  "YN3601-4": rgb("#FDF6DA"),
+  "YN3651-4": rgb("#FDE9BC"),
+  "YN3610-3": rgb("#EAC48B"),
+  "YN3620-2": rgb("#E0B472"),
+  "YN3630-2": rgb("#CE9B55"),
+  "YN3640-1": rgb("#B28441"),
+  "YN0055-4": rgb("#FFFBE1"),
+  "YN0056-4": rgb("#FDEDCA"),
+  "YN0057-4": rgb("#FCE5BE"),
+  "YN0058-4": rgb("#F8D7A7"),
+  "YN0059-3": rgb("#EDC791"),
+  "YN0060-2": rgb("#E5B470"),
+  "YN0061-2": rgb("#D5A25D"),
+  "YN0062-4": rgb("#FFF7D6"),
+  "YN0063-4": rgb("#FEEABA"),
+  "YN0064-3": rgb("#F8D198"),
+  "YN0065-3": rgb("#F7C581"),
+  "YN0066-3": rgb("#F6C37F"),
+  "YN0067-2": rgb("#DFA256"),
+  "YN0068-1": rgb("#CA8636"),
+  "YN0069-4": rgb("#FFFDED"),
+  "YN0070-4": rgb("#FFEDCB"),
+  "YN0071-4": rgb("#FDE4BD"),
+  "YN0072-4": rgb("#F8D3A4"),
+  "YN0073-3": rgb("#EEC48E"),
+  "YN0074-2": rgb("#E4B06F"),
+  "YN0075-2": rgb("#D89E5A"),
+  "YA3000-1": rgb("#FCCD33"),
+  "YA2900-1": rgb("#FEC125"),
+  "YA8700-1": rgb("#FFD200"),
+  "YA2700-1": rgb("#FBA530"),
+  "YA2800-1": rgb("#F9B123"),
+  "YA8600-1": rgb("#FFCA00"),
+  "YA1900-1": rgb("#EC8D2B"),
+  "YA3200-1": rgb("#F8E923"),
+  "YA3100-1": rgb("#ECC538"),
+  "YA3300-1": rgb("#CCA742"),
+  "YA2300-1": rgb("#A77144"),
+  "YA3600-1": rgb("#A5793A"),
+  "YA4800-1": rgb("#937A3B"),
+  "GC0001-4": rgb("#FCFFD9"),
+  "GC0002-4": rgb("#FBFECF"),
+  "GC0003-4": rgb("#FCFDC2"),
+  "GC0004-4": rgb("#FBF9A5"),
+  "GC0005-3": rgb("#F8F48D"),
+  "GC0006-2": rgb("#F1E962"),
+  "GC0007-2": rgb("#F7E84C"),
+  "GC0008-4": rgb("#F9FEDD"),
+  "GC0009-4": rgb("#F9FDD2"),
+  "GC0010-4": rgb("#F7FAC1"),
+  "GC0011-4": rgb("#F7F6AF"),
+  "GC0012-3": rgb("#F4F099"),
+  "GC0013-2": rgb("#EEE371"),
+  "GC0014-2": rgb("#E3D85D"),
+  "GC0015-4": rgb("#FAFFE3"),
+  "GC0016-4": rgb("#FDFFD8"),
+  "GC0017-4": rgb("#F7FBD0"),
+  "GC0018-3": rgb("#F1EF94"),
+  "GC0019-3": rgb("#E4E683"),
+  "GC0021-2": rgb("#DFE352"),
+  "GC0020-2": rgb("#D7DA56"),
+  "GC4001-4": rgb("#FAFCCA"),
+  "GC4051-4": rgb("#FEFCC0"),
+  "GC0022-4": rgb("#F8F9A6"),
+  "GC4010-3": rgb("#ECE685"),
+  "GC4020-2": rgb("#E2DC6B"),
+  "GC4030-2": rgb("#D2CF50"),
+  "GC4040-1": rgb("#C9C13A"),
+  "GC3208-4": rgb("#F8FBDA"),
+  "GC4007-4": rgb("#F5F9CF"),
+  "GC4008-4": rgb("#F1F4C1"),
+  "GC4070-2": rgb("#D2D960"),
+  "GC4060-3": rgb("#BAEF5B"),
+  "GC4080-2": rgb("#ACEB3B"),
+  "GC4090-1": rgb("#B0B83D"),
+  "GC4107-4": rgb("#F7FBDA"),
+  "GC4101-4": rgb("#F9FCD5"),
+  "GC0023-4": rgb("#F3F9C2"),
+  "GC4110-3": rgb("#E0FF93"),
+  "GC4120-3": rgb("#DBEB81"),
+  "GC4130-2": rgb("#C4DB5C"),
+  "GC4140-1": rgb("#B6CB49"),
+  "GC5001-4": rgb("#F9FDE8"),
+  "GC4108-4": rgb("#F1F9D5"),
+  "GC4151-4": rgb("#F0F7C1"),
+  "GC4160-3": rgb("#DEEEA4"),
+  "GC4170-3": rgb("#CFE589"),
+  "GC4180-2": rgb("#B0CC58"),
+  "GC4190-1": rgb("#9FBA46"),
+  "GC4507-4": rgb("#F8FDEB"),
+  "GC4208-4": rgb("#F1FBDA"),
+  "GC4251-4": rgb("#EEF6D2"),
+  "GC4210-4": rgb("#E3F7BA"),
+  "GC4220-3": rgb("#CBEB97"),
+  "GC4230-2": rgb("#BADE77"),
+  "GC4240-2": rgb("#A1D061"),
+  "GC4207-4": rgb("#F5FCE4"),
+  "GC0024-4": rgb("#E9FDD6"),
+  "GC4310-4": rgb("#E8FCBC"),
+  "GC0025-4": rgb("#DFFAC0"),
+  "GC4320-3": rgb("#CCECA1"),
+  "GC4330-2": rgb("#ABDA77"),
+  "GC4340-2": rgb("#93C761"),
+  "GC0026-4": rgb("#EFFFE3"),
+  "GC4551-4": rgb("#DFF8CD"),
+  "GC0027-4": rgb("#D6F7C1"),
+  "GC4510-4": rgb("#D0F0B9"),
+  "GC4520-3": rgb("#B8E59A"),
+  "GC4530-2": rgb("#A3D87E"),
+  "GC4540-2": rgb("#84C55E"),
+  "GC4608-4": rgb("#F1FCEA"),
+  "GC5301-4": rgb("#F0FEE8"),
+  "GC4651-4": rgb("#E1F9D8"),
+  "GC4610-4": rgb("#C9EFBF"),
+  "GC4620-3": rgb("#B0E5AB"),
+  "GC4630-2": rgb("#89CC81"),
+  "GC4640-2": rgb("#71C167"),
+  "GC5608-4": rgb("#EFFBEF"),
+  "GC5407-4": rgb("#F0FDEC"),
+  "GC0028-4": rgb("#CEF8CF"),
+  "GC5310-4": rgb("#C7F3CB"),
+  "GC5320-3": rgb("#A4E4AB"),
+  "GC5330-2": rgb("#7ECE87"),
+  "GC5340-2": rgb("#5FBC70"),
+  "GC6201-4": rgb("#EBFBF0"),
+  "GC6108-4": rgb("#E9F9EB"),
+  "GC0029-4": rgb("#D9F1DE"),
+  "GC5360-4": rgb("#BCE9C7"),
+  "GC5370-3": rgb("#9CD7AC"),
+  "GC5380-2": rgb("#79BF89"),
+  "GC5390-2": rgb("#63AB73"),
+  "GC4401-4": rgb("#EAFAE2"),
+  "GC4308-4": rgb("#EAF8E4"),
+  "GC0030-4": rgb("#D3F4D4"),
+  "GC4660-4": rgb("#CDF0CF"),
+  "GC4670-3": rgb("#ABDEB4"),
+  "GC4680-2": rgb("#8AC48F"),
+  "GC4690-2": rgb("#6FB073"),
+  "GC5408-4": rgb("#EFFBED"),
+  "GC5308-4": rgb("#EAF8E3"),
+  "GC4508-4": rgb("#E4FBDC"),
+  "GC4560-4": rgb("#C6EAC4"),
+  "GC4570-3": rgb("#9ED1A2"),
+  "GC4580-2": rgb("#8BC28B"),
+  "GC4590-2": rgb("#70A76F"),
+  "GC0031-4": rgb("#F3FFF6"),
+  "GC0032-4": rgb("#ECFFF3"),
+  "GC5401-4": rgb("#DEF7E7"),
+  "GC5410-4": rgb("#ADECCD"),
+  "GC5420-3": rgb("#8CE0B6"),
+  "GC5430-2": rgb("#69CD96"),
+  "GC5440-2": rgb("#41B77E"),
+  "GC5601-4": rgb("#EBFDF0"),
+  "GC5507-4": rgb("#E7FBEB"),
+  "GC5501-4": rgb("#E5FCEB"),
+  "GC5510-4": rgb("#B8EED6"),
+  "GC5520-3": rgb("#92E1BF"),
+  "GC5530-2": rgb("#5FC79D"),
+  "GC5540-2": rgb("#3DB485"),
+  "GC0033-4": rgb("#FCFFD9"),
+  "GC0034-4": rgb("#FBFECF"),
+  "GC5451-4": rgb("#C7F3D9"),
+  "GC5460-4": rgb("#B5E8CF"),
+  "GC5470-3": rgb("#8CC9AC"),
+  "GC5480-2": rgb("#74BB96"),
+  "GC5490-2": rgb("#5CA27D"),
+  "GC0035-4": rgb("#EDFFF9"),
+  "GC6207-4": rgb("#EAFCF4"),
+  "GC5551-4": rgb("#CCF7E2"),
+  "GC5560-4": rgb("#C5EDDF"),
+  "GC5570-3": rgb("#98D4C4"),
+  "GC5580-2": rgb("#71B7A5"),
+  "GC5590-2": rgb("#579E8B"),
+  "GC5801-4": rgb("#DEF5EC"),
+  "GC5651-4": rgb("#CAF7EA"),
+  "GC0036-4": rgb("#FBF9A5"),
+  "GC5660-4": rgb("#B5E5DB"),
+  "GC5670-3": rgb("#90CEC7"),
+  "GC5680-2": rgb("#5FACA2"),
+  "GC5690-2": rgb("#469189"),
+  "GC5908-4": rgb("#EDFBF1"),
+  "GC5708-4": rgb("#DEF9F0"),
+  "GC5751-4": rgb("#D2FAED"),
+  "GC5760-4": rgb("#B6E3DE"),
+  "GC5770-3": rgb("#8BC4C2"),
+  "GC5780-2": rgb("#62A8A8"),
+  "GC5790-2": rgb("#459190"),
+  "GN4908-4": rgb("#F9FCEC"),
+  "GN5007-4": rgb("#F5F8E7"),
+  "GN5051-4": rgb("#F1F3D0"),
+  "GN5010-4": rgb("#E6E9C3"),
+  "GN5020-3": rgb("#CED5A4"),
+  "GN5030-2": rgb("#B2B77A"),
+  "GN5040-2": rgb("#A3A567"),
+  "GN5207-4": rgb("#EDF1E7"),
+  "GN4408-4": rgb("#EBF0DF"),
+  "GN5107-4": rgb("#EBF0D9"),
+  "GN5060-4": rgb("#E4E8C5"),
+  "GN5070-3": rgb("#CBD0A5"),
+  "GN5080-2": rgb("#ACB57F"),
+  "GN5090-2": rgb("#9AA06A"),
+  "GN4201-4": rgb("#F7FDE5"),
+  "GN4501-4": rgb("#F1FCE2"),
+  "GN5201-4": rgb("#EFF4E9"),
+  "GN5110-4": rgb("#DAE5BC"),
+  "GN5120-3": rgb("#C1CE9D"),
+  "GN5130-2": rgb("#AFBF83"),
+  "GN5140-2": rgb("#94A468"),
+  "GN5108-4": rgb("#EDF5E4"),
+  "GN6007-4": rgb("#E4EDD8"),
+  "GN5151-4": rgb("#DFECD0"),
+  "GN5160-4": rgb("#D2E2C4"),
+  "GN5170-3": rgb("#BDCEA3"),
+  "GN5180-2": rgb("#A3B68A"),
+  "GN5190-2": rgb("#879C6F"),
+  "GN4301-4": rgb("#F7FEE4"),
+  "GN5101-4": rgb("#F5F8E2"),
+  "GN4307-4": rgb("#F1F9E1"),
+  "GN4260-4": rgb("#DBEABC"),
+  "GN4270-3": rgb("#CDDEA7"),
+  "GN4280-2": rgb("#ACC079"),
+  "GN4290-2": rgb("#98B066"),
+  "GN4607-4": rgb("#F8FEEE"),
+  "GN4601-4": rgb("#F2FDE5"),
+  "GN4351-4": rgb("#E6FAD7"),
+  "GN4360-4": rgb("#D3EDC3"),
+  "GN4370-3": rgb("#BCDAA6"),
+  "GN4380-2": rgb("#A0C685"),
+  "GN4390-2": rgb("#82AB67"),
+  "GN4407-4": rgb("#EDF7E8"),
+  "GN0005-4": rgb("#E4FDD9"),
+  "GN5351-4": rgb("#E2FADB"),
+  "GN4410-4": rgb("#CAE7C0"),
+  "GN4420-3": rgb("#B0D7A5"),
+  "GN4430-2": rgb("#89B57B"),
+  "GN4440-2": rgb("#76A76C"),
+  "GN5508-4": rgb("#EFFDEF"),
+  "GN5307-4": rgb("#EBF7E9"),
+  "GN4451-4": rgb("#DAF0D3"),
+  "GN4460-4": rgb("#C3E3C2"),
+  "GN4470-3": rgb("#A2CEA5"),
+  "GN4480-2": rgb("#8AB88A"),
+  "GN4490-2": rgb("#70A172"),
+  "GN6008-4": rgb("#ECF6E9"),
+  "GN5208-4": rgb("#E8F2E3"),
+  "GN6051-4": rgb("#D6E8D7"),
+  "GN6010-4": rgb("#D2E5D0"),
+  "GN6020-3": rgb("#B3CDB7"),
+  "GN6030-2": rgb("#8EAC91"),
+  "GN6040-2": rgb("#7B987D"),
+  "GN6607-4": rgb("#F3FDF5"),
+  "GN6001-4": rgb("#EEF9E9"),
+  "GN6107-4": rgb("#E2F1E5"),
+  "GN6060-4": rgb("#C6DFD0"),
+  "GN6070-3": rgb("#A3C2AF"),
+  "GN6080-2": rgb("#81A28A"),
+  "GN6090-2": rgb("#6A8D76"),
+  "GA4000-1": rgb("#D5CD33"),
+  "GA8800-1": rgb("#ACCF3D"),
+  "GA4100-1": rgb("#A3A741"),
+  "GA4200-1": rgb("#77AD43"),
+  "GA4900-1": rgb("#7A7247"),
+  "GA5000-1": rgb("#75763D"),
+  "GA4500-1": rgb("#3D9951"),
+  "GA6000-1": rgb("#4F725D"),
+  "GA5100-1": rgb("#5F714B"),
+  "GA4300-1": rgb("#488845"),
+  "GA0001-1": rgb("#4D694E"),
+  "GA4400-1": rgb("#4C684C"),
+  "GA4600-1": rgb("#2B724A"),
+  "BC6407-4": rgb("#F4FFF8"),
+  "BC5707-4": rgb("#E8FBF3"),
+  "BC5701-4": rgb("#E0FBF2"),
+  "BC5610-4": rgb("#AFF2E4"),
+  "BC5620-3": rgb("#84E1D1"),
+  "BC5630-2": rgb("#51CAB5"),
+  "BC5640-2": rgb("#2DB9A1"),
+  "BC6701-4": rgb("#E7F9F4"),
+  "BC0001-4": rgb("#C7FBF4"),
+  "BC5851-4": rgb("#BFEFEA"),
+  "BC5710-4": rgb("#ACECE4"),
+  "BC5720-3": rgb("#80DAD4"),
+  "BC5730-2": rgb("#4AC1B7"),
+  "BC5740-2": rgb("#19AFA5"),
+  "BC6608-4": rgb("#F0FCF6"),
+  "BC5808-4": rgb("#EAFCF7"),
+  "BC5951-4": rgb("#C7F0EE"),
+  "BC5810-4": rgb("#ACE8E5"),
+  "BC5820-3": rgb("#76D1D2"),
+  "BC5830-2": rgb("#44B9BC"),
+  "BC5840-2": rgb("#0AA4A7"),
+  "BC0002-4": rgb("#EEFBF5"),
+  "BC5907-4": rgb("#E7FAF6"),
+  "BC5901-4": rgb("#DFF8F3"),
+  "BC5910-4": rgb("#A6E2E8"),
+  "BC5920-3": rgb("#7DD2DD"),
+  "BC5930-2": rgb("#4AB3C1"),
+  "BC5940-2": rgb("#22A6B1"),
+  "BC7407-4": rgb("#F4FFFB"),
+  "BC0003-4": rgb("#E0F5F5"),
+  "BC6601-4": rgb("#DEF6F4"),
+  "BC6610-4": rgb("#A7E3EF"),
+  "BC6620-3": rgb("#81CDD1"),
+  "BC6630-2": rgb("#47B0C9"),
+  "BC6640-2": rgb("#0998B2"),
+  "BC7307-4": rgb("#EEFAF6"),
+  "BC7401-4": rgb("#E1F4F0"),
+  "BC0004-4": rgb("#D0ECEB"),
+  "BC5860-4": rgb("#B1DEE2"),
+  "BC5870-3": rgb("#86C4CB"),
+  "BC5880-2": rgb("#60A6AF"),
+  "BC5890-2": rgb("#428E96"),
+  "BC6807-4": rgb("#EDFCFA"),
+  "BC0005-4": rgb("#CEEDF1"),
+  "BC0006-4": rgb("#BBE4F1"),
+  "BC5960-4": rgb("#B4DFE5"),
+  "BC5970-3": rgb("#87C1CE"),
+  "BC5980-2": rgb("#61A2AE"),
+  "BC5990-2": rgb("#478A99"),
+  "BC0007-4": rgb("#E1FDFF"),
+  "BC0008-4": rgb("#B9DFE5"),
+  "BC6310-4": rgb("#ABD5DC"),
+  "BC0009-4": rgb("#A0CFD9"),
+  "BC6320-3": rgb("#7DB4C0"),
+  "BC6330-2": rgb("#619DA7"),
+  "BC6340-2": rgb("#48838F"),
+  "BC7301-4": rgb("#E6F2EE"),
+  "BC7501-4": rgb("#E2F2EF"),
+  "BC6308-4": rgb("#DAEFEF"),
+  "BC6210-4": rgb("#B4D7D8"),
+  "BC6220-3": rgb("#95BFC2"),
+  "BC6230-2": rgb("#709CA0"),
+  "BC6240-2": rgb("#538484"),
+  "BC5607-4": rgb("#F2FEF6"),
+  "BC6307-4": rgb("#E6F3EC"),
+  "BC6351-4": rgb("#D0E6E3"),
+  "BC6360-4": rgb("#C4DDDE"),
+  "BC6370-3": rgb("#96BDC6"),
+  "BC6380-2": rgb("#79A1A8"),
+  "BC6390-2": rgb("#5B8993"),
+  "BC0010-4": rgb("#E8FBFA"),
+  "BC6408-4": rgb("#E6F6F5"),
+  "BC0011-4": rgb("#C3E6EE"),
+  "BC6410-4": rgb("#BFE0E7"),
+  "BC6420-3": rgb("#90C0D2"),
+  "BC6430-2": rgb("#6AA0B2"),
+  "BC6440-2": rgb("#538A9D"),
+  "BC0012-4": rgb("#E2F7F5"),
+  "BC0013-4": rgb("#CDEEF4"),
+  "BC6651-4": rgb("#C1E4EC"),
+  "BC6660-4": rgb("#ACD6E2"),
+  "BC6670-3": rgb("#85BDD2"),
+  "BC6680-2": rgb("#5A9EB5"),
+  "BC6690-2": rgb("#3F869F"),
+  "BC0014-4": rgb("#EFFDFD"),
+  "BC6708-4": rgb("#DCF5FA"),
+  "BC6751-4": rgb("#BBE5F4"),
+  "BC6760-4": rgb("#9DCEE5"),
+  "BC6770-3": rgb("#7DBBDA"),
+  "BC6780-2": rgb("#58A2C5"),
+  "BC6790-2": rgb("#448BB2"),
+  "BC6707-4": rgb("#EDFBF9"),
+  "BC0015-4": rgb("#E5FCFB"),
+  "BC0016-4": rgb("#CAEDFB"),
+  "BC6710-4": rgb("#A4DBF1"),
+  "BC6720-3": rgb("#73BFE8"),
+  "BC6730-2": rgb("#45A4D7"),
+  "BC6740-2": rgb("#1E95D2"),
+  "BC0017-4": rgb("#DBF5FF"),
+  "BC0018-4": rgb("#CBEDFF"),
+  "BC0019-4": rgb("#B6DFFE"),
+  "BC6810-4": rgb("#ACD4ED"),
+  "BC6820-3": rgb("#8ABFE6"),
+  "BC6830-2": rgb("#65A2D5"),
+  "BC6840-2": rgb("#4087BF"),
+  "BC0021-4": rgb("#D3F2FF"),
+  "BC0020-4": rgb("#D5EFF7"),
+  "BC0022-4": rgb("#B3DFFD"),
+  "BC0023-3": rgb("#89C2F1"),
+  "BC0024-2": rgb("#66A6DE"),
+  "BC0025-2": rgb("#63A4DE"),
+  "BC0026-2": rgb("#4990CC"),
+  "BN0002-4": rgb("#EEFBF5"),
+  "BN0003-4": rgb("#E0F5F5"),
+  "BN0001-4": rgb("#C7FBF4"),
+  "BN0004-3": rgb("#8FBAEA"),
+  "BN0005-2": rgb("#6D9BD6"),
+  "BN0007-2": rgb("#5586C2"),
+  "BN0006-2": rgb("#5186C5"),
+  "BN6908-4": rgb("#E9F4F7"),
+  "BN0008-4": rgb("#D0E6F1"),
+  "BN0009-4": rgb("#C8E1F2"),
+  "BN6910-4": rgb("#B2D0EA"),
+  "BN6920-3": rgb("#8DB8E2"),
+  "BN6930-2": rgb("#6D9ACD"),
+  "BN6940-2": rgb("#5081BB"),
+  "BN7807-4": rgb("#EEF8F6"),
+  "BN0010-4": rgb("#D8E9F0"),
+  "BN6951-4": rgb("#CBE4F1"),
+  "BN6960-4": rgb("#AECDE2"),
+  "BN6970-3": rgb("#8BB4D9"),
+  "BN6980-2": rgb("#739FCB"),
+  "BN6990-2": rgb("#5181B2"),
+  "BN0011-4": rgb("#D9F5FF"),
+  "BN6851-4": rgb("#C4E3F4"),
+  "BN0012-4": rgb("#BDE1F3"),
+  "BN7510-4": rgb("#B6D4E4"),
+  "BN7520-3": rgb("#90B8D4"),
+  "BN7530-2": rgb("#6A98BB"),
+  "BN7540-2": rgb("#5080A8"),
+  "BN0013-4": rgb("#D8EFF7"),
+  "BN0014-4": rgb("#D0E9F8"),
+  "BN0015-4": rgb("#C8E3F2"),
+  "BN6860-4": rgb("#AED0E5"),
+  "BN6870-3": rgb("#83B0D5"),
+  "BN6880-2": rgb("#6E9ABF"),
+  "BN6890-2": rgb("#4C81AE"),
+  "BN7608-4": rgb("#DEECF3"),
+  "BN7651-4": rgb("#CCE0EA"),
+  "BN7660-4": rgb("#BED2E1"),
+  "BN7610-4": rgb("#B0CDE3"),
+  "BN7620-3": rgb("#85ACD0"),
+  "BN7630-2": rgb("#6D96B8"),
+  "BN7640-2": rgb("#5580A9"),
+  "BN7007-4": rgb("#F5FDFB"),
+  "BN0016-4": rgb("#D2E4EA"),
+  "BN7551-4": rgb("#C0D8E3"),
+  "BN7560-4": rgb("#B0D0DE"),
+  "BN7570-3": rgb("#80A7C2"),
+  "BN7580-2": rgb("#6589A6"),
+  "BN7590-1": rgb("#3F647E"),
+  "BN6907-4": rgb("#EBF8F8"),
+  "BN0017-4": rgb("#C6E3F2"),
+  "BN0018-4": rgb("#B5D7E3"),
+  "BN7410-4": rgb("#A6CDDE"),
+  "BN7420-3": rgb("#7FADC6"),
+  "BN7430-2": rgb("#6196B1"),
+  "BN7440-2": rgb("#477C98"),
+  "BN6808-4": rgb("#EDF8F9"),
+  "BN7707-4": rgb("#EBF1EC"),
+  "BN6451-4": rgb("#C7DFE3"),
+  "BN6460-4": rgb("#AECCD8"),
+  "BN6470-3": rgb("#89AFC1"),
+  "BN6480-2": rgb("#6D95A9"),
+  "BN6490-2": rgb("#537C92"),
+  "BN0019-4": rgb("#E9FAF4"),
+  "BN7408-4": rgb("#E2F4F4"),
+  "BN7451-4": rgb("#C5E0E6"),
+  "BN7460-4": rgb("#B0D2DD"),
+  "BN7470-3": rgb("#8BB3C8"),
+  "BN7480-2": rgb("#6B96AC"),
+  "BN7490-2": rgb("#4C7B92"),
+  "BA5400-1": rgb("#16956E"),
+  "BA5600-1": rgb("#00987B"),
+  "BA5300-1": rgb("#24905B"),
+  "BA5700-1": rgb("#008777"),
+  "BA5500-1": rgb("#20785B"),
+  "BA6100-1": rgb("#355C58"),
+  "BA6600-1": rgb("#08778B"),
+  "BA5900-1": rgb("#027D85"),
+  "BA7400-1": rgb("#2A5772"),
+  "BA5800-1": rgb("#007F6A"),
+  "BA6400-1": rgb("#295363"),
+  "BA6300-1": rgb("#165C63"),
+  "BA6200-1": rgb("#205757"),
+  "BA6700-1": rgb("#0E75A9"),
+  "BA6800-1": rgb("#2069A0"),
+  "BA6900-1": rgb("#2A5F93"),
+  "BA7600-1": rgb("#354F6D"),
+  "BA7000-1": rgb("#3C327A"),
+  "BA7500-1": rgb("#2C4C6A"),
+  "BA7300-1": rgb("#304047"),
+  "VC0001-4": rgb("#F4FAF6"),
+  "VC0002-4": rgb("#DDEDFF"),
+  "VC0003-4": rgb("#CADDEF"),
+  "VC7010-4": rgb("#BDD0E9"),
+  "VC7020-3": rgb("#95B2DA"),
+  "VC7030-2": rgb("#977DB1"),
+  "VC7040-2": rgb("#5A7BB2"),
+  "VC7008-4": rgb("#E4EEF1"),
+  "VC7051-4": rgb("#D1E2EF"),
+  "VC7060-4": rgb("#BDCFE4"),
+  "VC7070-3": rgb("#9BB5D9"),
+  "VC7080-2": rgb("#7F9DC7"),
+  "VC7090-2": rgb("#6685B6"),
+  "VC0004-2": rgb("#5F7CB7"),
+  "VC0005-4": rgb("#EDF4F6"),
+  "VC0006-4": rgb("#C9DDFA"),
+  "VC0007-3": rgb("#B3D0F5"),
+  "VC0008-3": rgb("#89B4E5"),
+  "VC0009-2": rgb("#7A9CD5"),
+  "VC0010-2": rgb("#6584C1"),
+  "VC0011-2": rgb("#5D82BE"),
+  "VC0012-4": rgb("#E4EDF3"),
+  "VC0013-4": rgb("#DAE8F4"),
+  "VC0014-4": rgb("#C7D8EA"),
+  "VC0015-4": rgb("#AFC4DC"),
+  "VC7670-3": rgb("#9CB5CF"),
+  "VC7680-2": rgb("#7692B0"),
+  "VC7690-2": rgb("#5E799C"),
+  "VC7710-4": rgb("#C4CFE3"),
+  "VC0016-4": rgb("#C0CBE3"),
+  "VC7720-3": rgb("#A3B4D3"),
+  "VC0017-3": rgb("#97A6CA"),
+  "VC7730-2": rgb("#8396B8"),
+  "VC7740-2": rgb("#6D82AC"),
+  "VC0018-2": rgb("#6578A0"),
+  "VC0019-4": rgb("#EEF3F2"),
+  "VC0020-4": rgb("#E8EFF1"),
+  "VC0021-4": rgb("#D0DBED"),
+  "VC7110-4": rgb("#C3CDE6"),
+  "VC7120-3": rgb("#9FADD4"),
+  "VC7130-2": rgb("#8392C3"),
+  "VC7140-2": rgb("#6A7BB0"),
+  "VC7108-4": rgb("#EFF4F6"),
+  "VC7208-4": rgb("#E7E9EB"),
+  "VC7151-4": rgb("#D2DAE4"),
+  "VC7160-4": rgb("#C2CBDF"),
+  "VC7170-3": rgb("#A1AED0"),
+  "VC7180-2": rgb("#8A95B9"),
+  "VC7190-2": rgb("#717DA3"),
+  "VC7708-4": rgb("#E1D9E1"),
+  "VC7751-4": rgb("#D5D9E1"),
+  "VC7760-4": rgb("#C3C9D9"),
+  "VC7770-3": rgb("#9FA8C0"),
+  "VC0022-3": rgb("#9FA6BA"),
+  "VC7780-2": rgb("#8D95AF"),
+  "VC7790-2": rgb("#6D7695"),
+  "VC0023-4": rgb("#E5EAFB"),
+  "VC0024-4": rgb("#D2D8F8"),
+  "VC0025-4": rgb("#C2C5E6"),
+  "VC0026-3": rgb("#B5B8E3"),
+  "VC0027-2": rgb("#8E95C4"),
+  "VC0028-2": rgb("#787EAE"),
+  "VC0029-1": rgb("#515381"),
+  "VC7251-4": rgb("#DDDCE8"),
+  "VC0030-4": rgb("#D9D9E8"),
+  "VC7260-4": rgb("#CDCCE2"),
+  "VC7270-3": rgb("#CA84A7"),
+  "VC7280-2": rgb("#918EBE"),
+  "VC7290-2": rgb("#7878AD"),
+  "VC0031-2": rgb("#7B7AA4"),
+  "VC0032-4": rgb("#EBE8F7"),
+  "VC0034-4": rgb("#E2D8F5"),
+  "VC0033-4": rgb("#DAD8EE"),
+  "VC7210-4": rgb("#CBC7E0"),
+  "VC7220-3": rgb("#A9A9D0"),
+  "VC7230-2": rgb("#9991BF"),
+  "VC7240-2": rgb("#837BB0"),
+  "VC0035-4": rgb("#FBE5F0"),
+  "VC0037-4": rgb("#E0DEF8"),
+  "VC0036-4": rgb("#DBD9F2"),
+  "VC0038-3": rgb("#B4AEDC"),
+  "VC0039-3": rgb("#B6ACDB"),
+  "VC0040-2": rgb("#A293CA"),
+  "VC0041-2": rgb("#857AB3"),
+  "VC0042-4": rgb("#F6F1F9"),
+  "VC0043-4": rgb("#ECE6F7"),
+  "VC0044-4": rgb("#E2D8F1"),
+  "VC0045-4": rgb("#DBCEF0"),
+  "VC0046-3": rgb("#BBADDA"),
+  "VC0047-2": rgb("#A18CC2"),
+  "VC0048-2": rgb("#8C75AC"),
+  "VC0049-4": rgb("#EFE9F7"),
+  "VC0050-4": rgb("#EDE4F8"),
+  "VC0051-4": rgb("#E8D7F2"),
+  "VC0052-4": rgb("#D8C2E8"),
+  "VC0053-3": rgb("#C3A7D3"),
+  "VC0054-2": rgb("#AF8ABE"),
+  "VC0055-2": rgb("#9A74AC"),
+  "VC0056-4": rgb("#F2EDFB"),
+  "VC0057-4": rgb("#F4E4F8"),
+  "VC0058-4": rgb("#ECD7F2"),
+  "VC0059-4": rgb("#DCC0E5"),
+  "VC0060-3": rgb("#CDAAD8"),
+  "VC0061-2": rgb("#BA8BBE"),
+  "VC0062-2": rgb("#A675AC"),
+  "VC0063-4": rgb("#FCEDF7"),
+  "VC0064-4": rgb("#F3E3F8"),
+  "VC0065-4": rgb("#EAD5F2"),
+  "VC0066-4": rgb("#E0BFE4"),
+  "VC0067-3": rgb("#D0A9D6"),
+  "VC0068-2": rgb("#BF8BBD"),
+  "VC0069-2": rgb("#AC74AA"),
+  "VN0070-4": rgb("#F8EBFD"),
+  "VN0071-4": rgb("#EADCEE"),
+  "VN0072-4": rgb("#E0CFE2"),
+  "VN0110-4": rgb("#DDC4D8"),
+  "VN0120-3": rgb("#BC9BB8"),
+  "VN0130-2": rgb("#AD8BAC"),
+  "VN0140-2": rgb("#906F92"),
+  "VN0108-4": rgb("#F4F1F4"),
+  "VN0151-4": rgb("#FAE2E2"),
+  "VN0073-4": rgb("#DCC5D8"),
+  "VN0160-4": rgb("#D6C6D5"),
+  "VN0170-3": rgb("#B9A5BA"),
+  "VN0180-2": rgb("#A98DA7"),
+  "VN0190-2": rgb("#91748E"),
+  "VN0074-4": rgb("#F7EFF7"),
+  "VN0075-4": rgb("#E6E0EF"),
+  "VN0076-4": rgb("#DFD4E6"),
+  "VN0077-4": rgb("#CCBED9"),
+  "VN0078-3": rgb("#BDABCA"),
+  "VN0079-2": rgb("#A189A9"),
+  "VN0080-2": rgb("#887292"),
+  "VN0081-4": rgb("#F0F4F8"),
+  "VN0082-4": rgb("#EDE8F6"),
+  "VN0083-4": rgb("#E4DCEF"),
+  "VN0084-4": rgb("#CFC4DF"),
+  "VN0085-3": rgb("#B8B1D2"),
+  "VN0086-2": rgb("#9F93B7"),
+  "VN0087-2": rgb("#877A9F"),
+  "VA0001-1": rgb("#765387"),
+  "VA8900-1": rgb("#68567F"),
+  "VA8500-1": rgb("#8A475D"),
+  "VA7200-1": rgb("#515381"),
+  "VA8400-1": rgb("#744165"),
+  "VA0200-1": rgb("#832D2D"),
+  "VA7100-1": rgb("#405583"),
+  "VA0004-1": rgb("#5B4E6C"),
+  "VA7700-1": rgb("#424E66"),
+  "VA0002-1": rgb("#454B66"),
+  "VA9000-1": rgb("#4D4860"),
+  "VA0100-1": rgb("#5F444D"),
+  "VA0003-1": rgb("#46445E"),
+  "NN0001-4": rgb("#F4F1F0"),
+  "NN7201-4": rgb("#EEEDEB"),
+  "NN2651-4": rgb("#D7D2CD"),
+  "NN2660-4": rgb("#CCC4BD"),
+  "NN2670-3": rgb("#A59A93"),
+  "NN2680-2": rgb("#998982"),
+  "NN2690-2": rgb("#7B6D66"),
+  "NN0002-4": rgb("#F8EDE5"),
+  "NN0003-4": rgb("#ECE3DE"),
+  "NN0004-4": rgb("#E3D8D1"),
+  "NN2610-4": rgb("#CCC2BB"),
+  "NN2620-3": rgb("#B1A29B"),
+  "NN2630-2": rgb("#94837A"),
+  "NN2640-2": rgb("#847268"),
+  "NN0005-4": rgb("#F6E9E9"),
+  "NN0101-4": rgb("#F3E8E6"),
+  "NN0851-4": rgb("#E1CDC7"),
+  "NN0860-4": rgb("#D6BEBA"),
+  "NN0870-3": rgb("#BE9D99"),
+  "NN0880-2": rgb("#A57F7C"),
+  "NN0890-2": rgb("#85615E"),
+  "NN0006-4": rgb("#FFF8F2"),
+  "NN0007-4": rgb("#EAD9D6"),
+  "NN0008-4": rgb("#DDC6C2"),
+  "NN0810-4": rgb("#D9BCBD"),
+  "NN0820-3": rgb("#C5A2A6"),
+  "NN0830-2": rgb("#AC8284"),
+  "NN0840-2": rgb("#8A6266"),
+  "NN0009-4": rgb("#FCF3ED"),
+  "NN0010-4": rgb("#F5E1D8"),
+  "NN0910-4": rgb("#D5B4B1"),
+  "NN0011-4": rgb("#DAB0AC"),
+  "NN0920-3": rgb("#C39996"),
+  "NN0930-2": rgb("#AB7A73"),
+  "NN0940-2": rgb("#90605A"),
+  "NN0012-4": rgb("#FFF7F2"),
+  "NN0013-4": rgb("#F9EBE3"),
+  "NN0014-4": rgb("#E9CCC5"),
+  "NN0960-4": rgb("#D8BFB7"),
+  "NN0970-3": rgb("#BC9E95"),
+  "NN0980-2": rgb("#A48076"),
+  "NN0990-2": rgb("#906A62"),
+  "NN0801-4": rgb("#EADCD6"),
+  "NN1001-4": rgb("#ECD4C9"),
+  "NN0015-4": rgb("#E6C6BE"),
+  "NN1010-4": rgb("#D3AAA0"),
+  "NN1020-3": rgb("#B78679"),
+  "NN1030-2": rgb("#A27064"),
+  "NN1040-2": rgb("#8D5D52"),
+  "NN0808-4": rgb("#F9EEE7"),
+  "NN0016-4": rgb("#EDD2C7"),
+  "NN1051-4": rgb("#E0BFB0"),
+  "NN1060-4": rgb("#D5AFA2"),
+  "NN1070-3": rgb("#B38777"),
+  "NN1080-2": rgb("#A67462"),
+  "NN1090-2": rgb("#8B5F4F"),
+  "NN1408-4": rgb("#F6EEE6"),
+  "NN1208-4": rgb("#F6EBDF"),
+  "NN0017-4": rgb("#E5BFAF"),
+  "NN1110-4": rgb("#E0B3A0"),
+  "NN1120-3": rgb("#C08F7E"),
+  "NN1130-2": rgb("#B47D69"),
+  "NN1140-2": rgb("#A46D59"),
+  "NN1407-4": rgb("#F5EFE4"),
+  "NN0807-4": rgb("#F7EDE2"),
+  "NN0951-4": rgb("#F1DDD0"),
+  "NN1210-4": rgb("#D9BFB0"),
+  "NN1220-3": rgb("#BC9D8B"),
+  "NN1230-2": rgb("#A2806E"),
+  "NN1240-2": rgb("#926F5E"),
+  "NN1108-4": rgb("#FCF3E6"),
+  "NN1007-4": rgb("#F0E4D8"),
+  "NN1251-4": rgb("#E7D3C2"),
+  "NN1260-4": rgb("#D2C1B2"),
+  "NN1270-3": rgb("#B49F8E"),
+  "NN1280-2": rgb("#A28A78"),
+  "NN1290-2": rgb("#917765"),
+  "NN0908-4": rgb("#FAF6EB"),
+  "NN1101-4": rgb("#FAEEE0"),
+  "NN1151-4": rgb("#F0D6C5"),
+  "NN1160-4": rgb("#DFC1AF"),
+  "NN1170-3": rgb("#CBA38D"),
+  "NN1180-2": rgb("#AF8268"),
+  "NN1190-2": rgb("#9F6F58"),
+  "NN1608-4": rgb("#FFF2E3"),
+  "NN0901-4": rgb("#F9F0E3"),
+  "NN1008-4": rgb("#FBEDDF"),
+  "NN2160-4": rgb("#E0C0A8"),
+  "NN2170-3": rgb("#C39A81"),
+  "NN2180-2": rgb("#B88C71"),
+  "NN2190-2": rgb("#9D7158"),
+  "NN2507-4": rgb("#FBF4E5"),
+  "NN1107-4": rgb("#F7EFE2"),
+  "NN2151-4": rgb("#F2D7C1"),
+  "NN2110-4": rgb("#E8C7AF"),
+  "NN2120-3": rgb("#D0A788"),
+  "NN2130-2": rgb("#B68567"),
+  "NN2140-2": rgb("#A27253"),
+  "NN2307-4": rgb("#FBF4E2"),
+  "NN2101-4": rgb("#FAEBD6"),
+  "NN2051-4": rgb("#F5DABE"),
+  "NN2060-4": rgb("#E7C4A6"),
+  "NN2070-3": rgb("#D4A783"),
+  "NN2080-2": rgb("#C8946C"),
+  "NN2090-2": rgb("#AA7854"),
+  "NN0018-4": rgb("#FFFDF6"),
+  "NN1801-4": rgb("#FEEFDB"),
+  "NN2001-4": rgb("#F8E6D1"),
+  "NN2010-4": rgb("#F2CEAB"),
+  "NN2020-3": rgb("#DCB08B"),
+  "NN2030-2": rgb("#CD9A71"),
+  "NN2040-2": rgb("#BB835D"),
+  "NN2108-4": rgb("#FDEFDB"),
+  "NN2007-4": rgb("#F9ECD8"),
+  "NN2451-4": rgb("#EFDECA"),
+  "NN2460-4": rgb("#D9BDA3"),
+  "NN2470-3": rgb("#B9997D"),
+  "NN2480-2": rgb("#A88468"),
+  "NN2490-2": rgb("#957357"),
+  "NN2008-4": rgb("#FBF8EB"),
+  "NN2308-4": rgb("#F9F3E2"),
+  "NN2408-4": rgb("#F9ECD9"),
+  "NN2410-4": rgb("#DFC6AC"),
+  "NN2420-3": rgb("#CAAB8E"),
+  "NN2430-2": rgb("#AD8B6C"),
+  "NN2440-2": rgb("#977658"),
+  "NN2407-4": rgb("#FBF6E4"),
+  "NN3401-4": rgb("#F7EDD9"),
+  "NN0019-4": rgb("#EDDABC"),
+  "NN3410-4": rgb("#F3E3A2"),
+  "NN3420-3": rgb("#D6B796"),
+  "NN3430-2": rgb("#B6906C"),
+  "NN3440-2": rgb("#A27D5A"),
+  "NN1808-4": rgb("#FBF8E7"),
+  "NN3508-4": rgb("#FAF6E2"),
+  "NN3551-4": rgb("#F6E7CD"),
+  "NN3560-4": rgb("#ECD9BB"),
+  "NN3570-3": rgb("#D6B894"),
+  "NN3580-2": rgb("#B4946D"),
+  "NN3590-1": rgb("#876742"),
+  "NN2607-4": rgb("#FCF9F0"),
+  "NN2601-4": rgb("#EFECE1"),
+  "NN0020-4": rgb("#ECE3D4"),
+  "NN2560-4": rgb("#E4D8C8"),
+  "NN2570-3": rgb("#CABBA7"),
+  "NN2580-2": rgb("#B19E85"),
+  "NN2590-2": rgb("#9B8570"),
+  "NN0907-4": rgb("#F8F4E7"),
+  "NN1201-4": rgb("#F0EADF"),
+  "NN2608-4": rgb("#E9E6DE"),
+  "NN2510-4": rgb("#DDD2BE"),
+  "NN2520-3": rgb("#C7B7A0"),
+  "NN2530-2": rgb("#B49E84"),
+  "NN2540-2": rgb("#9F896F"),
+  "NN1507-4": rgb("#F9F4EA"),
+  "NN2551-4": rgb("#EDE1CD"),
+  "NN3451-4": rgb("#EADCC5"),
+  "NN3460-4": rgb("#D8C6B0"),
+  "NN3470-3": rgb("#C1A98B"),
+  "NN3480-2": rgb("#A78D6D"),
+  "NN3490-2": rgb("#907657"),
+  "NN0021-4": rgb("#FFFCE9"),
+  "NN0023-4": rgb("#FFF8DE"),
+  "NN0022-4": rgb("#FFF6E0"),
+  "NN3510-4": rgb("#ECD9BA"),
+  "NN3520-3": rgb("#D1B893"),
+  "NN3530-2": rgb("#BE9C72"),
+  "NN3540-2": rgb("#A6845B"),
+  "NN0024-4": rgb("#FFFBE8"),
+  "NN2107-4": rgb("#F9F4E6"),
+  "NN0025-4": rgb("#EFD3A9"),
+  "NN3660-3": rgb("#DFC39C"),
+  "NN3670-3": rgb("#D4B487"),
+  "NN3680-2": rgb("#B99260"),
+  "NN3690-1": rgb("#916F45"),
+  "NN3407-4": rgb("#FFFCE6"),
+  "NN0026-4": rgb("#FFFADF"),
+  "NN2707-4": rgb("#FBF7DB"),
+  "NN3810-4": rgb("#EADBB9"),
+  "NN3820-3": rgb("#D8C296"),
+  "NN3830-2": rgb("#CBB180"),
+  "NN3840-2": rgb("#B99D6D"),
+  "NN4907-4": rgb("#F9F9EA"),
+  "NN4807-4": rgb("#F9F6E2"),
+  "NN4701-4": rgb("#F9F4DF"),
+  "NN4760-4": rgb("#E5DDBF"),
+  "NN4770-3": rgb("#CEC0A0"),
+  "NN4780-2": rgb("#C1AE88"),
+  "NN4790-2": rgb("#A5936F"),
+  "NN2501-4": rgb("#F9F3E3"),
+  "NN1207-4": rgb("#F4F0E3"),
+  "NN3851-4": rgb("#EEE6D0"),
+  "NN3860-4": rgb("#E1D8BF"),
+  "NN3870-3": rgb("#CEC3A7"),
+  "NN3880-2": rgb("#B2A689"),
+  "NN3890-2": rgb("#9A8E71"),
+  "NN3501-4": rgb("#FCF6E3"),
+  "NN3408-4": rgb("#FAF4E0"),
+  "NN4751-4": rgb("#F2E7CF"),
+  "NN4710-4": rgb("#F0E7CB"),
+  "NN4720-3": rgb("#DBCBA6"),
+  "NN4730-2": rgb("#C2AE82"),
+  "NN4740-2": rgb("#A99469"),
+  "NN0028-4": rgb("#FFFFEA"),
+  "NN0027-4": rgb("#FFFCE6"),
+  "NN4707-4": rgb("#F8F7E2"),
+  "NN0029-4": rgb("#F2E6C5"),
+  "NN0030-3": rgb("#DACBA1"),
+  "NN0031-2": rgb("#C9B27C"),
+  "NN0032-2": rgb("#B8A16C"),
+  "NN3801-4": rgb("#F7F5E2"),
+  "NN4901-4": rgb("#F8F3DE"),
+  "NN4851-4": rgb("#FAF0CF"),
+  "NN4810-4": rgb("#F6E9C0"),
+  "NN4820-3": rgb("#DFCEA0"),
+  "NN4830-2": rgb("#C4AB72"),
+  "NN4840-2": rgb("#AE965B"),
+  "NN3507-4": rgb("#F8F8E6"),
+  "NN3607-4": rgb("#F8F7E7"),
+  "NN4801-4": rgb("#FAF7DF"),
+  "NN4860-4": rgb("#EEE3C0"),
+  "NN4870-3": rgb("#D4C397"),
+  "NN4880-2": rgb("#BDAB78"),
+  "NN4890-2": rgb("#A89563"),
+  "NN3907-4": rgb("#F7F7E9"),
+  "NN5008-4": rgb("#F6F5E1"),
+  "NN0033-4": rgb("#F2F0D3"),
+  "NN4910-4": rgb("#EBE8C4"),
+  "NN4920-3": rgb("#D5CEA7"),
+  "NN4930-2": rgb("#C0B781"),
+  "NN4940-2": rgb("#ACA169"),
+  "NN1301-4": rgb("#F0F2E5"),
+  "NN4708-4": rgb("#F3F0D9"),
+  "NN0034-4": rgb("#ECE9D5"),
+  "NN4960-4": rgb("#DDD8BA"),
+  "NN4970-3": rgb("#C3BB99"),
+  "NN4980-2": rgb("#AAA27B"),
+  "NN4990-2": rgb("#968C66"),
+  "NN0035-4": rgb("#FDFFF5"),
+  "NN3901-4": rgb("#F5F1E6"),
+  "NN0036-4": rgb("#E4E2D4"),
+  "NN3910-4": rgb("#E1DDCA"),
+  "NN3920-3": rgb("#C6C0A9"),
+  "NN3930-2": rgb("#B3AC91"),
+  "NN3940-2": rgb("#9B9279"),
+  "NN1308-4": rgb("#F2F5EE"),
+  "NN3908-4": rgb("#EDEFE2"),
+  "NN3951-4": rgb("#DEE0D3"),
+  "NN3960-4": rgb("#CDCDC3"),
+  "NN3970-3": rgb("#B3B2A6"),
+  "NN3980-2": rgb("#9C9B8C"),
+  "NN3990-2": rgb("#858475"),
+  "NN1307-4": rgb("#F9FCF1"),
+  "NN7207-4": rgb("#F6F9F5"),
+  "NN1351-4": rgb("#DBDDD5"),
+  "NN1310-4": rgb("#CED0C8"),
+  "NN1320-3": rgb("#B0B3AC"),
+  "NN1330-2": rgb("#92938D"),
+  "NN1340-2": rgb("#7E7D76"),
+  "NN7107-4": rgb("#F2F6F3"),
+  "NN7101-4": rgb("#ECF1F0"),
+  "NN0037-4": rgb("#D3D9D6"),
+  "NN1360-4": rgb("#CCD0CC"),
+  "NN1370-3": rgb("#A9AFAC"),
+  "NN1380-2": rgb("#8E918F"),
+  "NN1390-2": rgb("#817D65"),
+  "NN7701-4": rgb("#EAF0EB"),
+  "NN7801-4": rgb("#E8F1EC"),
+  "NN0038-4": rgb("#C7D2D1"),
+  "NN6510-4": rgb("#BBC8C6"),
+  "NN6520-3": rgb("#97A5A5"),
+  "NN6530-2": rgb("#828E8E"),
+  "NN6540-2": rgb("#657A5C"),
+  "NN6508-4": rgb("#E7F2EF"),
+  "NN6801-4": rgb("#DFEDEB"),
+  "NN6551-4": rgb("#C7D6D5"),
+  "NN6560-4": rgb("#B7C7C8"),
+  "NN6570-3": rgb("#91A4A7"),
+  "NN6580-2": rgb("#74868B"),
+  "NN6590-2": rgb("#5F7275"),
+  "NN7808-4": rgb("#F0F6F2"),
+  "NN6901-4": rgb("#E4F0F0"),
+  "NN7851-4": rgb("#CEDBDB"),
+  "NN7860-4": rgb("#BBC9CC"),
+  "NN7870-3": rgb("#99A9B0"),
+  "NN7880-2": rgb("#75868C"),
+  "NN7890-2": rgb("#5E6D76"),
+  "NN7001-4": rgb("#E8F0EE"),
+  "NN7601-4": rgb("#E3F0F0"),
+  "NN0039-4": rgb("#CDDEE2"),
+  "NN7810-4": rgb("#C1D0D8"),
+  "NN7820-3": rgb("#9AACBC"),
+  "NN7830-2": rgb("#788C9D"),
+  "NN7840-2": rgb("#5D7282"),
+  "NN7607-4": rgb("#E6F2F0"),
+  "NN7308-4": rgb("#DCE8E6"),
+  "NN7351-4": rgb("#CCDBDD"),
+  "NN7360-4": rgb("#B7CBD1"),
+  "NN7370-3": rgb("#96ACB7"),
+  "NN7380-2": rgb("#708791"),
+  "NN7390-2": rgb("#5A737F"),
+  "NN7508-4": rgb("#D0E4E7"),
+  "NN0040-4": rgb("#C2D7DE"),
+  "NN7310-4": rgb("#B9D4DC"),
+  "NN0041-4": rgb("#B1CAD4"),
+  "NN7320-3": rgb("#95B2C0"),
+  "NN7330-2": rgb("#6B8C9C"),
+  "NN7340-2": rgb("#51707F"),
+  "NN7507-4": rgb("#EAF3EF"),
+  "NN6208-4": rgb("#DFF0EB"),
+  "NN6251-4": rgb("#C8E2E3"),
+  "NN6260-4": rgb("#B7D5D5"),
+  "NN6270-3": rgb("#8AB0B4"),
+  "NN6280-2": rgb("#6E99A0"),
+  "NN6290-2": rgb("#517E84"),
+  "NN0042-4": rgb("#EEFCF7"),
+  "NN6401-4": rgb("#E2F4F3"),
+  "NN6301-4": rgb("#E1F5EF"),
+  "NN6160-4": rgb("#C3DAD4"),
+  "NN6170-3": rgb("#9CB8B3"),
+  "NN6180-2": rgb("#7D9A95"),
+  "NN6190-2": rgb("#63807C"),
+  "NN5807-4": rgb("#E9F6ED"),
+  "NN6507-4": rgb("#E7F5EC"),
+  "NN6151-4": rgb("#D4E8DD"),
+  "NN6110-4": rgb("#C7DDD5"),
+  "NN6120-3": rgb("#A8C5BD"),
+  "NN6130-2": rgb("#84A197"),
+  "NN6140-2": rgb("#6B8980"),
+  "NN0044-4": rgb("#EDFBF4"),
+  "NN0043-4": rgb("#F2F6ED"),
+  "NN6101-4": rgb("#EBF5EA"),
+  "NN5210-4": rgb("#CAD6CC"),
+  "NN5220-3": rgb("#AAB6AC"),
+  "NN5230-2": rgb("#939F94"),
+  "NN5240-2": rgb("#798379"),
+  "NN0045-4": rgb("#F0FCF6"),
+  "NN6501-4": rgb("#F1F8E0"),
+  "NN5251-4": rgb("#DBE4D8"),
+  "NN5260-4": rgb("#CBD6CC"),
+  "NN5270-3": rgb("#A5B3AB"),
+  "NN5280-2": rgb("#909B91"),
+  "NN5290-2": rgb("#747F78"),
+  "NN4700-1": rgb("#826B47"),
+  "NN3800-1": rgb("#766545"),
+  "NN1300-1": rgb("#4B4F4F"),
+  "NN3900-1": rgb("#565142"),
+  "NN5200-1": rgb("#37413E"),
+  "NN6500-1": rgb("#333B3C"),
+  "NN7800-1": rgb("#2F3434"),
+  "NN3700-1": rgb("#8D6F46"),
+  "NN3500-1": rgb("#886B4B"),
+  "NN3400-1": rgb("#755D46"),
+  "NN1100-1": rgb("#724E41"),
+  "NN2500-1": rgb("#665143"),
+  "NN0900-1": rgb("#654B43"),
+  "NN2600-1": rgb("#534940"),
+  "OW001-4": rgb("#F6F9FE"),
+  "OW003-4": rgb("#F9F7FA"),
+  "OW002-4": rgb("#F1F5FE"),
+  "OW004-4": rgb("#F7F4F7"),
+  "OW073-4": rgb("#F0EDEF"),
+  "OW005-4": rgb("#F9FBFC"),
+  "OW009-4": rgb("#FAF9FB"),
+  "OW007-4": rgb("#FCFAF6"),
+  "OW006-4": rgb("#F9F6F5"),
+  "OW010-4": rgb("#F9F7F4"),
+  "OW012-4": rgb("#FEFEF8"),
+  "OW075-4": rgb("#FAFCFC"),
+  "OW074-4": rgb("#F9FAF5"),
+  "OW008-4": rgb("#FCF7F3"),
+  "OW011-4": rgb("#FAF7F2"),
+  "OW015-4": rgb("#FFFCF2"),
+  "OW013-4": rgb("#FBFCF3"),
+  "OW014-4": rgb("#FAF8F0"),
+  "OW016-4": rgb("#FCF8ED"),
+  "OW076-4": rgb("#F9F2E5"),
+  "OW021-4": rgb("#FEFFFD"),
+  "OW022-4": rgb("#FFFFF8"),
+  "OW079-4": rgb("#FEFEF6"),
+  "OW078-4": rgb("#FFFFF4"),
+  "OW077-4": rgb("#F6F3EB"),
+  "OW080-4": rgb("#FFFEF2"),
+  "OW018-4": rgb("#FBF9ED"),
+  "OW081-4": rgb("#FBFAEB"),
+  "OW082-4": rgb("#F8F8EF"),
+  "OW083-4": rgb("#F8F6EC"),
+  "OW085-4": rgb("#FEFCE9"),
+  "OW019-4": rgb("#FBFAEB"),
+  "OW084-4": rgb("#F7F6E7"),
+  "OW020-4": rgb("#F8F3E3"),
+  "OW064-4": rgb("#F1ECDA"),
+  "OW025-4": rgb("#FDFFFC"),
+  "OW033-4": rgb("#FDFFFC"),
+  "OW031-4": rgb("#FCFFF9"),
+  "OW086-4": rgb("#FBFEF7"),
+  "OW017-4": rgb("#FFFFF0"),
+  "OW030-4": rgb("#FCFFFA"),
+  "OW029-4": rgb("#FCFFF8"),
+  "OW027-4": rgb("#FAFEFA"),
+  "OW023-4": rgb("#FDFFF5"),
+  "OW034-4": rgb("#F9FCF2"),
+  "OW026-4": rgb("#FDFFF8"),
+  "OW039-4": rgb("#FCFFF8"),
+  "OW088-4": rgb("#FCFFF5"),
+  "OW087-4": rgb("#FFFEF0"),
+  "OW024-4": rgb("#FFFEED"),
+  "OW040-4": rgb("#FCFFF2"),
+  "OW028-4": rgb("#FBFDED"),
+  "OW070-4": rgb("#F9FCED"),
+  "OW035-4": rgb("#F8FBED"),
+  "OW032-4": rgb("#FBFCE7"),
+  "OW038-4": rgb("#FBFFF9"),
+  "OW037-4": rgb("#FBFFF8"),
+  "OW036-4": rgb("#FAFEF6"),
+  "OW065-4": rgb("#F6FBF2"),
+  "OW072-4": rgb("#F1F4E5"),
+  "OW042-4": rgb("#FAFFFD"),
+  "OW046-4": rgb("#F9FFFB"),
+  "OW047-4": rgb("#F8FFF5"),
+  "OW089-4": rgb("#F9FFF3"),
+  "OW071-4": rgb("#F5F9EB"),
+  "OW048-4": rgb("#F8FFFB"),
+  "OW090-4": rgb("#F9FFF8"),
+  "OW091-4": rgb("#F8FEF8"),
+  "OW052-4": rgb("#F2FDF7"),
+  "OW092-4": rgb("#F0FCF6"),
+  "OW041-4": rgb("#FAFFFE"),
+  "OW043-4": rgb("#FAFFFE"),
+  "OW044-4": rgb("#FAFFFD"),
+  "OW051-4": rgb("#F1FBF6"),
+  "OW050-4": rgb("#F0FBF6"),
+  "OW053-4": rgb("#F3FDFE"),
+  "OW058-4": rgb("#ECFDFF"),
+  "OW057-4": rgb("#EDFBFE"),
+  "OW055-4": rgb("#EDF7F5"),
+  "OW060-4": rgb("#DCE9EF"),
+  "OW045-4": rgb("#F8FEFF"),
+  "OW049-4": rgb("#EFF9FB"),
+  "OW059-4": rgb("#F0F6F8"),
+  "OW054-4": rgb("#EEF7F7"),
+  "OW056-4": rgb("#EEF5F5"),
+  "OW093-4": rgb("#F6FCF7"),
+  "OW066-4": rgb("#F3F6EE"),
+  "OW094-4": rgb("#F2F5ED"),
+  "OW067-4": rgb("#F0F1E5"),
+  "OW068-4": rgb("#EAEBE0"),
+  "OW069-4": rgb("#F7FAF4"),
+  "OW061-4": rgb("#F4F6F4"),
+  "OW062-4": rgb("#F2F2E8"),
+  "OW063-4": rgb("#EFF0E9"),
+  "OW095-4": rgb("#EBECE6"),
+)
+
+
+
+/*
+COLOR NAMES BELOW
+-----------------
+思念: #FBFBF6
+荷仙姑: #F0DCE2
+莲花仙子: #EFD0DF
+醉卧花丛: #D7AFC7
+雪玫瑰: #C18CAB
+紫绢: #B17795
+海滩暮色: #A26D91
+柔皙: #FCEFFB
+蜜桃粉: #F3DFF0
+粉唇: #F1D3E9
+野山莓: #EABEDC
+柔情丁香: #DDA8CE
+甜美殿堂: #CF8BB5
+贝蒂猫: #BC719D
+法国玫瑰: #FCF2F9
+初生: #F9E1F3
+珊瑚粉: #F6D3EC
+酸果蔓: #EDBCDF
+紫藤花园: #E0A5CF
+花语精华: #D586B8
+醉艳: #C46CA1
+山樱花: #FDF3F8
+粉彩: #F9E2EE
+甜蜜公主: #F4CEE2
+小桃园: #ECC8DC
+花季: #E6ADD1
+艳若桃李: #D589B5
+玫瑰之约: #CA71A4
+葡萄酒: #FCFBF7
+满架蔷薇: #FFECF1
+精灵之歌: #FAE0EA
+羞答答: #FECECE
+经典粉色: #EAAFCB
+红尘往事: #DC89AD
+倩女美唇: #D47198
+梦游仙境: #FFF2F7
+香水百合: #FBE1EF
+爱的味道: #F8D4E6
+粉红佳人: #F2BDD8
+草莓甜筒: #EAA9CA
+百花香: #DD87AD
+蔷薇花: #D27098
+挚爱芳华: #FFEAED
+诱惑: #FADDE6
+桃花红: #F7D3E2
+春光烂漫: #ECBAD2
+红裙飞舞: #E0A3C0
+粉艳霓裳: #D686A5
+风韵万千: #C36B87
+梦里花: #FAF2F6
+香芋紫粉: #FAE2F2
+花颜悦色: #F8CCE2
+茶花女: #EBB7CC
+樱桃沙: #E0A3BB
+绚光媚影: #D2839B
+锦鲤: #C06C81
+雾中玫瑰: #FFF4F3
+天堂花语: #FCE0EC
+纯真: #FAD3E4
+春桃: #F5BCD4
+公主粉: #EEA6C1
+粉色童话: #E288A6
+木棉花: #D66F8E
+雪山霞光: #F8F1F0
+大花蕙兰: #FAECEA
+小步舞曲: #F7DBE2
+怡然蝶园: #F9D0DC
+胭脂扣: #F2ADC1
+憧憬: #E68DA6
+洋红: #DD748F
+蝴蝶飞: #FDF6F7
+粉雨: #FEE4EC
+蜜桃派: #FDD7E3
+玫瑰舞: #F2A7BE
+夹竹桃: #F2A7BD
+粉装玉琢: #E7869E
+胭脂蝴蝶: #DD7189
+甜蜜之源: #FFF2F3
+小情歌: #FFE5ED
+水玉草莓: #FED8E0
+梦幻糖果: #FBBECF
+快乐天使: #F4A7BB
+杨桃: #EB889C
+娇艳欲滴: #E17384
+粉颜: #FCEDEB
+睡莲红: #FAD9DC
+缪斯女神: #FAD0D8
+玫瑰粉: #F7BEC6
+石竹花: #EF97A2
+樱桃白兰地: #D96E80
+精臻红: #C95C70
+清雅: #FEF7F9
+花样甜心: #FDF0EE
+丘比特: #FFE2E9
+荷兰石竹: #FBC8D3
+仙人翘: #F9AEBC
+甜蜜新娘: #FD818A
+热情西班牙: #E87885
+水灵: #FFEFEE
+浪漫樱花: #FEDEE0
+柔软心情: #FCCED4
+粉黛: #F6BAC3
+珊瑚色: #ECA3AC
+粉艳茶花: #E08388
+艳芳绝代: #CF6F72
+冰沁水粉: #FDEAE8
+蜜语: #FEDEDE
+草莓冰激凌: #FDD3D7
+婚礼祝福: #FAC0C6
+春色撩人: #F2A9B1
+粉蝶飞舞: #E98A8E
+艳阳珊瑚: #DA7274
+情窦初开: #FFEFE9
+婴儿粉: #FFE1E1
+巴黎诗人: #FED1D5
+涩樱红: #FAB9C0
+粉桃精灵: #F9A9B3
+烂漫: #F28B92
+艳光四射: #E8787E
+浪漫嫩粉: #FEFEFE
+春花红: #FBEFE8
+柔情依依: #FFECE6
+嫣然一笑: #FBC5C7
+幻色星辰: #F9A9AD
+迷情岁月: #EC8E90
+日出: #E27676
+雪之吻: #FBF2ED
+摇摆恋曲: #FFE1DF
+迷人淡红: #FED2D0
+倾城之恋: #FABBBE
+印尼风情: #FAABB0
+哈瓦那红: #F5908E
+蜜桃滋味: #ED7D79
+魅惑巴黎: #FBE8E3
+高地红: #FBD7D6
+花漾年华: #FCC5C6
+艳阳天: #F7BDBD
+樱草红: #F0999D
+锦红菱: #DB6F76
+珊瑚红: #CF5864
+出水芙蓉: #FBEAE8
+扶郎花: #FAE1E8
+菁菁校园: #FDD6D6
+红珊瑚: #F8BFC2
+海中珊瑚: #E99CA2
+淘气红娘: #DE8386
+埃及红: #C96B6B
+欢乐: #FDF2F2
+仙鹤红: #FAEFEE
+花仙子: #FCE0E6
+花开诱惑: #F6D2E2
+海棠粉: #E6ABBD
+红梅色: #E0A0AD
+姹紫嫣红: #BB6C78
+粉茶花: #FBF2F3
+红樱桃: #FAE8E4
+孔雀红: #F7E1E0
+亲亲宝贝: #F3CED4
+落日余辉: #EFBEC8
+红粉佳人: #DCA0AE
+如浴金香: #CA8492
+烛光: #FAEDF0
+巴蕾舞: #F8EBEC
+纤纤玉指: #FBE1E8
+傲霜冬梅: #F5CEDA
+雾都玫瑰: #E3ABBE
+鲤鱼吐芳: #D08EA5
+吉庆祥和: #BA748A
+春樱: #FFF2F3
+恋爱之色: #FBDFE7
+绚烂粉蜜: #F7CFD9
+生如夏花: #EEB9CA
+浓情蜜桃: #E3A1B5
+落燕: #D38091
+红磨坊: #C46878
+夏日精灵: #FEECEC
+娴静淑女: #F9D9E0
+香芋派: #EFCBD4
+醉颜羞涩: #E2B5C2
+烟熏粉: #D29FAF
+冰乌梅: #BF7E8E
+蜜豆: #AF6A78
+香甜嫩粉: #FFE2E9
+蕾丝公主: #FADEE1
+美人初醉: #EEC8D0
+海棠花香: #E5B3BE
+豆沙红: #D89DAB
+浆果色: #C67B86
+相思豆: #B56770
+天使之翼: #FEF0ED
+窈窕淑女: #F8D5D7
+露染胭脂: #F2C5C7
+空谷幽兰: #E5ABB0
+印度红: #D2939A
+红枫林: #C67578
+石榴红: #B96264
+粉果冻: #FFF6F5
+西雅图之夜: #FFE3E1
+静若处子: #FAD5D7
+千娇百媚: #ECB8B9
+想入非非: #D39394
+百思草: #C97F82
+宝塔红: #B16665
+宁静: #FEEAE3
+轻柔香吻: #F8D5D4
+蓓蕾绽放: #F1C5C5
+拉丁女郎: #E3ADAE
+立陶宛红: #D69597
+印第安红: #C57673
+深红烈焰: #B05E56
+顾影留盼: #FAEDE9
+水彩画: #FAE6E2
+三月桃红: #FACBC6
+跳跃粉彩: #EEBCBA
+爱莲小语: #DE9D9E
+怡然黏土: #C47A79
+布达拉宫: #B46361
+粉水晶: #F9F5EF
+梦寐: #FBE4E4
+浪漫之歌: #EFC1BF
+落英缤纷: #F9B9B9
+暖炉: #E89E9D
+甜蜜蜜: #E19191
+红薯: #CE7C7D
+哈达: #FFFDF7
+珠光淡粉: #FFEEEC
+蝶之恋: #FCECED
+玫瑰新娘: #F2B9B5
+珊瑚礁: #DF9591
+热情姜色: #D4827E
+深红: #C26963
+番薯红: #FCF2E7
+红丝带: #FBEDE5
+芙蓉仙子: #F1C5BC
+映花: #ECBAB3
+陶瓷: #DD9F97
+炉火: #D4867B
+朱丹: #B9675E
+淡粉: #FFEDE5
+漫步云间: #F5CCC7
+巴洛克圆舞曲: #ECBBB5
+私语: #DEA39B
+红豆沙: #D18D86
+墨西哥风情: #BF7163
+瓦砾红: #B16155
+梳妆: #FCFBF3
+伊甸园: #FDF3F3
+千千结: #FEDED3
+鲜泡夫: #F5BAB2
+神殿红: #E2998E
+映山红: #D17D73
+新新人类: #C0695B
+昙花一现: #FFF1E5
+玫瑰石: #FEEBE0
+丰润映像: #FFD6C7
+妩媚娇娃: #FACEC2
+小辣椒: #E5A99E
+圣诞夜: #DC9586
+矿物红: #C77D6B
+嫦娥: #FEF2E9
+淡粉迷香: #FFEDE2
+胭脂粉: #F9D6CC
+月季花: #FCCFC2
+嫣红: #E2A899
+火焰山: #CC7B6F
+焦糖玛奇朵: #B6655A
+粉芳淡雅: #FFF2EC
+轻纱遮面: #FEF3E6
+囡囡红: #FDE0D4
+玫瑰红: #F9C1B5
+三文鱼: #EDA194
+浓浓鲜橙: #DD8A7A
+红贝壳: #CE6F5E
+粉茉莉: #FBF3E9
+天然一色: #FCEFE1
+春城一瞥: #FCDACB
+花姿: #F8D7C7
+龙虾沙律: #F2BDAB
+陶罐: #D48977
+秋枫: #B65C46
+浪漫彩: #BB4D65
+激情岁月: #B84A44
+瓦红: #B63C41
+红色恋人: #A03F4D
+烈焰红唇: #A54739
+滚滚红尘: #A53F3E
+番茄汁: #DB1E0F
+圣女果: #C75237
+醉红: #BA433B
+泥土芬芳: #A04E36
+战地女神: #924841
+勃艮地红: #7D433C
+胡桃木: #5B423E
+纯真岁月: #FDF1E9
+粉红棉: #FCE4DD
+山茶花: #F9CEC7
+荷红: #F8ADA3
+玫瑰花茶: #F28E8A
+香山枫: #E38078
+榴花红: #C95F58
+淡水粉: #FBFAF2
+岩石红: #FAF1E8
+粉霜: #FDE8DE
+红颜知己: #FEE4AC
+天鹅绒: #FBB7AC
+黎明拂晓: #EF9989
+西班牙女_: #FF7065
+冰肌莹彻: #FFF8F1
+心随色动: #FFE3DD
+恋爱花火: #FFD5CF
+甜蜜粉: #FEC2BC
+香甜蜜桃: #FBB0A9
+桃乐丝: #F59587
+西柚红: #EF7A6B
+美妙约会: #FFF2EA
+粉杏: #FFE6DF
+粉若桃李: #FFDDD8
+藕荷色: #FDC4BE
+西瓜红: #FBB0AA
+红粉: #F59284
+红胭脂: #E87E6E
+柔美色: #FFF3E4
+浣纱: #FCDCC9
+雨花石: #FBCEBA
+日光浴: #FAC6B1
+芊芊虾米: #EBA38D
+小山羊: #E19177
+杏仁夹心: #CE775E
+嫩荷: #FCE4D6
+香盈袖: #F9D5C4
+暖心: #F2C7B2
+康乃馨: #E9B39E
+金银花: #E4A188
+棕瓦瓷: #D88C74
+热情白兰地: #C67155
+淡奶泡沫: #FFF5E6
+都市甜心: #F6CEB6
+浓郁芬芳: #F2C7AF
+梅花鹿: #E7B091
+窑土: #E0A489
+牛奶糖: #CA8167
+砖红: #B76249
+淡雅玫瑰: #FFF7E9
+精灵新娘: #FEEDDB
+丝柔百合: #F9DAC4
+远古呼唤: #DFA685
+秋日阳光: #D38C6D
+火山红: #C27958
+钢铁苍穹: #B05D40
+高地生活: #FCF3E2
+人面桃花: #FEEBD8
+十月红雾: #F8D4BE
+贝壳: #F0C5AB
+夕阳: #DEA586
+高粱穗: #CE8A6A
+采桔之乐: #BC795A
+莹嫩淡粉: #FFF7E7
+梦幻怡人: #FFEFDA
+丝袜奶茶: #FCE4CB
+三月东京: #F1C6A5
+部落风情: #E4AC88
+可可: #D18B65
+肯尼亚土地: #BE7456
+玉米彩: #FFF6E4
+江边映日: #FADBC1
+初妍: #F4CCB1
+三月桃花: #F4C7A8
+桃红灿烂: #E2A880
+琥珀叶: #D49269
+阳光女孩: #C57D54
+白杏色: #FFF9EC
+梦幻想: #FEF6EA
+婵韵: #F8D3B6
+荷兰木鞋: #E7B28B
+浅麻棕: #DD9A6F
+棕铜: #CB865C
+秋色: #B8683F
+胭红: #FFF2EB
+暗恋印象: #FFE7D8
+迷雾情缘: #FFD9C8
+蜜月: #FFCDB9
+橙香: #FDB39E
+香橙味: #F99977
+艳丽亮橘: #F18360
+金纯卓颜: #FFF6E5
+粉裸色: #FFE7D4
+落日清风: #FFE0CD
+江南水红: #FFCBB3
+瑚光珊色: #FCB99E
+活力亮橙: #F89D77
+火烧云: #EB8761
+樱花烂漫: #FDFCFB
+爱慕之情: #FFEBD8
+粉色夏恋: #FFDDC6
+温香暖玉: #FFD6BA
+杏黄: #FEB99C
+天籁之音: #F99E7A
+篝火彩: #EF845D
+嫩皙: #FFF3E0
+雪颜臻透: #FFEBD6
+美感粉瓷: #FFDDC3
+锦色流年: #FFCDAB
+温馨粉: #FFBC97
+午后沙滩: #FAA06E
+西部风情: #F18C58
+浅米色: #FBF9ED
+想往: #FDF2E1
+桃花彩: #FFE5CE
+蟠桃彩: #FED5B4
+天使之吻: #F7B691
+热情沙漠: #F3A67B
+水晶萝卜: #E28B5E
+魔恋仙灵: #FFF7E3
+薄雾杏色: #FFF3DE
+枇杷黄: #FFE9CF
+热带水果: #FFCFA8
+黄鲤: #FFBB8C
+激情荷兰: #F88B53
+枫叶红: #C86D4C
+如玉: #FFFAEA
+雪蜜: #FFEDD5
+摩登米兰: #FFE0C0
+金纯粉润: #FFD2AB
+橙红: #FFBF91
+奇想世界: #FDA568
+晚霞红日: #F49257
+风雪娇梅: #FFF3DD
+苍麒麟: #FFF3DD
+蜜桔: #FFDEBB
+温泉浴: #FBBE8C
+鲜橙汁: #F7AD72
+金盏花: #FBA268
+十月金秋: #EB8F55
+月色: #FFF6DE
+蜜霞: #FFECD1
+容光焕发: #FFE2C0
+沙舞: #FFD0A3
+甜蜜金橘: #FFC393
+晚霞: #FEA967
+木瓜芬芳: #FC9752
+温情: #FDF3DD
+和煦: #FDEED2
+乳橘色: #FFE3BD
+初夏枇杷: #FFD39F
+蜜橙: #FFC891
+芒果柑橘: #FFB064
+午后艳阳: #FE9E4E
+清新优雅: #FFFAE3
+水梦之乡: #FFE9C2
+雨过天晴: #FFE4B8
+奶油曲奇: #FFD398
+沙滩小屋: #FFC783
+金菊蟹黄: #FFB35C
+骄阳似火: #FFA549
+纯净光韵: #FFFCE3
+象牙海岸: #FFF8DC
+逐梦精灵: #FFEECB
+烛光摇曳: #FFDDAD
+缅甸玉: #FFCB89
+橘碧彩: #FEB665
+梦之果: #FEA249
+法式面包: #FFF5DC
+华丽印象: #FFEECF
+阿里巴巴: #FFE9C0
+黎明之月: #FFDEAF
+大漠戈壁: #FCC68C
+南瓜瓤: #F8B46D
+印度玉米: #EA9F55
+亚麻桌布: #FFFCE5
+果仁蛋糕: #FEF5D6
+金发碧眼: #FFE9B0
+倩女幽魂: #FED08B
+五谷丰登: #FFCA73
+金海螺: #FDBB51
+野菊花: #F2A741
+玄米: #FFFDE6
+粉嫩丝滑: #FFEEC4
+娇黄: #FFE7B1
+清新早晨: #FFD994
+芒果布丁: #FFD17F
+鸡蛋黄: #FFBF4B
+满月: #FFB433
+冬日午后: #FFFCDF
+胡椒黄: #FEF6D9
+象牙黄: #FFF0C6
+太白金星: #FFDB97
+正黄旗: #FFCC70
+天竺黄: #FFC255
+万寿菊: #FFB63D
+无瑕: #FFFFF5
+微光粼粼: #FFF6DE
+嫩水仙: #FEE5BA
+野餐时光: #FBD9AA
+甘草重生: #EDBC85
+浓情蜜意: #DB9E5E
+鸳鸯奶茶: #C7925B
+米绸色: #FFFAE5
+水晶月亮: #FFFCE2
+珊瑚花: #FFEFD0
+蛋奶甜品: #FEE9C0
+阳光小屋: #FCDCA7
+杨枝甘露: #F8C58A
+金棕榈: #C68E5B
+水清沙白: #FFF1D2
+春雨: #F2ECDC
+桂花糖: #FDE3BF
+醇香燕麦: #F8D1A4
+土耳其黄: #F0C291
+桂圆蛋糕: #DFAA6E
+秋日稻谷: #D49A5D
+古董白: #FEF8E6
+润采无暇: #FDE7C8
+橙花油: #FED9B0
+菠萝冻: #F6CEA5
+南海诗人: #EAB98F
+埃及古迹: #DBA16D
+时尚棕榈: #D1915C
+含羞草: #FCF6DF
+梦仙缭绕: #FFF0D8
+朝霞: #FCE0C2
+杏仁茶: #F5C8A1
+极地晨光: #F8C59B
+夕阳城堡: #EFB387
+苍茫大地: #BD855B
+轻幔绮罗: #FFFBEB
+淡雅韵味: #FFF2DB
+橘果酱: #FBDBB6
+金麒麟: #EEBD95
+秋之叶: #DE9B6B
+金陶黄: #DC996A
+灵感穆斯: #C67945
+釉粉: #FFF6E3
+盈漾淡雅: #FEEBD2
+流金岁月: #F8D3B2
+热情果: #F3C9A6
+沙漠之城: #EBB68E
+黄河: #E09F6F
+秋意绵绵: #C67445
+天鹅梦: #FFFAEA
+可可松饼: #FFECD1
+昨日再现: #FFE7C3
+杏仁花: #FBD7B5
+古龙香: #F1B288
+芒果彩: #E49B68
+琉璃橙: #D1814E
+莹彩粉色: #FFF1E3
+珊瑚海滩: #FBF1E0
+纤舞: #FDE5CE
+深裸粉: #F7CCAA
+黄枫叶: #F0B58A
+敦煌古迹: #DE9D73
+赭石: #D08857
+蜜柚: #FCF8EA
+飞絮: #FEF2DE
+粉色象牙: #FEEDDA
+浅杏: #F7CFAE
+彩云飞: #ECB78E
+橘柚: #D79C71
+福桔: #C8865D
+楸木红: #FDF6E4
+名瓷: #FDF3DF
+杏元饼干: #FCE4CB
+驼绒: #F3D1B6
+浅棕: #DCB08C
+茶色: #CE9872
+坚果: #BC835D
+红砖瓦: #AD6F46
+暖城: #AE603D
+铁锈红: #A05B39
+复活节: #815A3E
+巴厘岛: #7D533D
+哈瓦那雪茄: #735445
+蓝山咖啡: #754C3F
+鲜橙飘香: #E47C36
+孟加拉: #DF7033
+橙黄: #E2632C
+鹤顶红: #D2593C
+群枫林丽: #CC5F35
+印度檀香: #964D34
+明润丰采: #FFFDDF
+云香: #FFFADF
+魔法奇缘: #FFF0C0
+诱人芝士: #FFEDB4
+金色佳人: #FDD986
+澳洲海岸: #FAC862
+秋日原野: #FFC044
+睡莲: #FFFDE6
+官窑瓷器: #FEFCE0
+梨碧花: #FFF3C5
+大波斯菊: #FFE7A5
+茉莉花: #FFD985
+落日熔金: #FDCF6C
+欢歌笑语: #F7B640
+黄飘带: #FDFCEA
+秋日私语: #FFFCDF
+蜡烛黄: #FEFBE0
+喜气洋洋: #FFE9A8
+幸运彩: #FFFE7B
+飞黄腾达: #FFCC5E
+向日葵: #FFBB36
+甜奶油: #FFFFE5
+小岛金沙: #FFF6CE
+午后鹅黄: #FFEFBA
+芒果慕司: #FFE6A4
+星晴: #FFDB87
+油菜花: #FFD15F
+辉煌: #FFC032
+融雪: #FFFFE4
+水映朝阳: #FFFBD2
+月光林地: #FFF5C4
+凤梨酥: #FFEBA4
+榴莲飘香: #FFE289
+田园小麦: #FFD562
+琵琶满枝: #FFCB4A
+芝士彩: #FFFFDD
+醉清风: #FFFFDB
+沙琪玛: #FFF7C4
+柠檬香味: #FFF3AF
+灿烂: #FFE790
+新月: #FFE07A
+稻草人: #FDC84C
+精梳棉: #FFFEEC
+香浓椰浆: #FFFFE1
+花粉黄: #FFF5BF
+甜曲奇: #FFEFAF
+妙龄女_: #FFE188
+秋海棠: #FFD96C
+阳光灿烂: #FFC43E
+小木马: #FEFEF0
+栀子花: #FFFFEE
+琥珀彩: #FFFBD6
+柠檬香: #FFF2B2
+谷黄彩: #FFE383
+王室黄: #FFDA6E
+玛雅彩: #FFCB3B
+月半弯: #FFFEDF
+五月花: #FFFBD1
+金银花露: #FFF2B2
+阳光心情: #FFEBA7
+中秋月圆: #FFE38F
+碎金: #FFD961
+金丝带: #FFC93A
+蚕丝白: #FEFFEE
+星月神话: #FFFCD1
+金香槟: #FFF7BA
+淘气小熊: #FFF1A9
+蜜糖奶黄: #FFE990
+豆芽黄: #FFDD62
+金冠: #FFD345
+奶油杏仁: #FFFDD6
+轻抚: #FAFADE
+浓郁奶酪: #FFF7C2
+香蕉果泡: #FFF7C2
+樱草色: #FFE68B
+鹅黄香蓉: #FFDD6F
+塔里木: #FAC133
+透明黄: #FFFFE2
+金发美女: #FEFCD8
+晨光: #FFF8C4
+黄玫瑰: #FDE894
+菠萝蜜: #FEE17A
+芥末彩: #ECC451
+金光大道: #E0B336
+奇迹: #FEFFE6
+黄金海岸: #FFFDDA
+珍珠黄: #FFFBD0
+柠檬果冻: #FFF3AF
+满天星: #FFEC90
+正午阳光: #FFE478
+韭黄: #FBD44A
+黄麻彩: #FFFFE4
+和平之光: #FFFEDE
+谷道小米: #FFFCCA
+波尔尼香槟: #FFF6AF
+金土地: #FFEB86
+黄紫苑: #FFE36C
+阳光普照: #FFD13C
+开心果: #FFFDD7
+蛋奶酥: #FFFBC2
+波斯公主: #FFF4A7
+鹅黄: #FFEA8A
+柠檬果酒: #FFEC88
+阳光明媚: #FFE16F
+日光黄: #FFD644
+月光爱人: #FFFFE0
+驼铃: #FFFED3
+篱笆外: #FFF8B8
+俏丽曙光: #FFF4A9
+玉米甜心: #FFEF94
+金沙: #FFE362
+晨光依旧: #FFDA42
+帆布工装: #FBFDEC
+美人鱼: #FFFEDF
+蕾丝花边: #FFFDCF
+北极春: #FFFCC2
+报春花: #FFF595
+金榜题名: #FFEC74
+柠檬露: #FFDF45
+卡普里清酒: #FEFEE3
+茉莉飘香: #FFFDD6
+沉色月光: #FFFCBC
+萤火之光: #FFF493
+鲜柠果萃: #FFF07D
+浅桔黄: #FFEA78
+香蕉船: #FBD74F
+夜明珠: #FEFFEA
+柠檬汁: #FFFFD8
+雏菊: #FFFCBC
+菊花露: #FFF8A7
+太阳花: #FFF292
+金色华尔兹: #FFEB67
+酸甜柠檬: #FFE444
+煦日阳光: #FFFECC
+劲舞青春: #FFF5A7
+淡咖哩: #FDF09E
+百子莲: #F8E685
+宝石黄: #F3E17F
+温室花朵: #F4D756
+黄水晶: #E5CB53
+玉兰花: #FFFFE4
+三月阳光: #FAFDE3
+石上清泉: #F7F4D7
+舒活自然: #F1EDC7
+清新抹茶: #EBDEA8
+橄榄油: #DAC680
+绿咖喱: #C6B268
+浅黄帷幔: #FFFFE0
+棉花糖: #FFFFD8
+梨花香: #FDFAC7
+柠绿: #F9EFAE
+土豆色拉: #EFE399
+东藤: #E5D170
+芥末黄: #D4BF59
+北极光: #FFFFE3
+晨星: #FFFDD6
+邂逅柔情: #FFF7C5
+星光灿烂: #FBEFAE
+稻花芬芳: #F6E398
+玛雅之谜: #EFD271
+绚魅金彩: #E4C258
+色拉浆: #FAFBE9
+愉悦: #FBFCDD
+冰菊物语: #FDFBD6
+庭院深深: #F9EFB5
+木兰彩: #F6E094
+橄榄彩: #EBD073
+沙茶彩: #DEBD59
+残月: #FEFCDF
+鲜奶油: #FFFDD8
+石英砂: #FBF4C6
+醇黄: #FCF0B6
+小嫩芽: #F8E398
+蜂蜜黄: #F5D97D
+树皮色: #DFBC53
+珍珠母贝: #FFFDE1
+快乐之源: #FFFBD3
+月光派对: #FFF8C9
+活力绽放: #FCEAA9
+丰收梨: #F8E096
+花蕊: #F3CF71
+清新芒果: #E6BE5B
+幼羽: #FEFFEC
+回声: #FEF6CB
+乳黄: #FFF2B9
+流光溢彩: #FEEBB6
+金色年华: #F1D38A
+角斗士: #E2BD68
+黄铜彩: #D1AA4E
+俄国风情: #FFFFE4
+淡奶饼干: #FFF9D4
+南国韵味: #FFF2C2
+琵琶风: #FDE9AB
+法国干酪: #FADC94
+撒哈拉: #F2C96E
+罗马假日: #E8BA5A
+番木白: #FFFDE9
+素色: #FCFCED
+乡村印象: #FFF1CB
+回忆: #FAE9BB
+鹰击长空: #EDD096
+陨石: #DDBB7A
+编钟: #BF9B4E
+虔诚: #FEFFF2
+象牙: #FEFAE0
+沙滩: #F9F0D5
+嫩黄: #F7E5B7
+新木: #DEBC78
+浣溪流沙: #DEBC77
+香料黄: #CDA964
+绵密丝语: #FFFAE4
+芝心: #FFFCE0
+淳美豆香: #FFE9B5
+德克萨斯: #FBD796
+禅香: #FAD490
+吐司: #F7C776
+恒河圣水: #EDB761
+白巧克力: #FBF9E9
+晨之美: #FFFADF
+哈根: #FFFADD
+醇香蜂蜜: #FFEABC
+魔幻土豆: #FAD69B
+黄金酥: #FBD698
+斯巴达: #F2C170
+新白: #FFFEEA
+香草黄: #FDF6DA
+清风明月: #FDE9BC
+枯藤: #EAC48B
+金秋岁月: #E0B472
+金色果园: #CE9B55
+野外烧烤: #B28441
+软玉温香: #FFFBE1
+楼兰古城: #FDEDCA
+卡萨布兰卡: #FCE5BE
+软陶: #F8D7A7
+提拉米苏: #EDC791
+火舞黄沙: #E5B470
+复古焦糖: #D5A25D
+雅韵琥珀: #FFF7D6
+咖啡泡沫: #FEEABA
+旋转木马: #F8D198
+夏日枇杷: #F7C581
+姜糖奶茶: #F6C37F
+飘叶: #DFA256
+秋日漫步: #CA8636
+象牙塔: #FFFDED
+欢沁密语: #FFEDCB
+酒暖: #FDE4BD
+秋湖: #F8D3A4
+温馨奶咖: #EEC48E
+茫茫沙漠: #E4B06F
+麦风: #D89E5A
+春华秋实: #FCCD33
+明黄: #FEC125
+华盖金: #FFD200
+新奇士橙: #FBA530
+非洲菊: #F9B123
+奶黄: #FFCA00
+宝莲灯: #EC8D2B
+眩目: #F8E923
+交响乐: #ECC538
+南屏晚钟: #CCA742
+山核桃: #A77144
+琥珀: #A5793A
+刚果: #937A3B
+苏打水: #FCFFD9
+白桦林: #FBFECF
+青梅竹马: #FCFDC2
+薄阳: #FBF9A5
+深邃柠檬: #F8F48D
+苹果薄荷: #F1E962
+水清柳叶: #F7E84C
+君子之交: #F9FEDD
+青柠汽水: #F9FDD2
+轻扬晨光: #F7FAC1
+酸苹果: #F7F6AF
+豌豆色: #F4F099
+早春玉露: #EEE371
+雨露娇叶: #E3D85D
+雪融冰晶: #FAFFE3
+落日: #FDFFD8
+白茶: #F7FBD0
+清新宜人: #F1EF94
+嫩芽绿: #E4E683
+绿玉薄荷: #DFE352
+青柠乐园: #D7DA56
+叶飘香: #FAFCCA
+柳叶彩: #FEFCC0
+绿芽: #F8F9A6
+绿之灵: #ECE685
+树影婆娑: #E2DC6B
+酸柠檬: #D2CF50
+青橙彩: #C9C13A
+桂花黄: #F8FBDA
+秋思: #F5F9CF
+幻彩绿: #F1F4C1
+查特酒: #D2D960
+野性大自然: #BAEF5B
+绿野仙踪: #ACEB3B
+拂堤垂柳: #B0B83D
+冷黄: #F7FBDA
+尼河日照: #F9FCD5
+新茶: #F3F9C2
+春意盎然: #E0FF93
+树芽儿: #DBEB81
+春色满园: #C4DB5C
+翠竹: #B6CB49
+圣洁: #F9FDE8
+网纹甜瓜: #F1F9D5
+绿精灵: #F0F7C1
+春江水暖: #DEEEA4
+水果馅饼: #CFE589
+奇异果: #B0CC58
+青青苔原: #9FBA46
+草木芳华: #F8FDEB
+无忧草: #F1FBDA
+青橙淡彩: #EEF6D2
+香木缘: #E3F7BA
+新叶: #CBEB97
+甜蜜绿: #BADE77
+翠绿: #A1D061
+甘蓝草: #F5FCE4
+碧罗相依: #E9FDD6
+春意融融: #E8FCBC
+冰镇芭乐: #DFFAC0
+荷绿: #CCECA1
+草绿: #ABDA77
+倾城之绿: #93C761
+新绿百合: #EFFFE3
+亮绿: #DFF8CD
+原味绿茶: #D6F7C1
+游园惊梦: #D0F0B9
+田园交响曲: #B8E59A
+万象更新: #A3D87E
+三叶草: #84C55E
+薄荷新叶: #F1FCEA
+淡荷彩: #F0FEE8
+清风拂面: #E1F9D8
+沫香奶茶: #C9EFBF
+清凉薄荷: #B0E5AB
+无花果: #89CC81
+蕃石榴: #71C167
+峡谷烟云: #EFFBEF
+山泉水: #F0FDEC
+青涩果实: #CEF8CF
+冰薄荷: #C7F3CB
+百香茗: #A4E4AB
+祖母绿: #7ECE87
+都柏林狂欢: #5FBC70
+细雪: #EBFBF0
+匈奴铁骑: #E9F9EB
+间春绿色: #D9F1DE
+浮萍: #BCE9C7
+暹罗绿: #9CD7AC
+绿宝石: #79BF89
+明尼苏达之梦: #63AB73
+奶油黄瓜: #EAFAE2
+金山棕: #EAF8E4
+水漾活力: #D3F4D4
+青翠山岗: #CDF0CF
+沼泽地: #ABDEB4
+灌木苁蓉: #8AC48F
+茶园飘香: #6FB073
+溪水潺潺: #EFFBED
+惆怅: #EAF8E3
+常青树: #E4FBDC
+青山翠谷: #C6EAC4
+绿岛之梦: #9ED1A2
+翡翠: #8BC28B
+绿色召唤: #70A76F
+苏梅岛: #F3FFF6
+泉之绿: #ECFFF3
+台地风光: #DEF7E7
+绿火花: #ADECCD
+绿色旋风: #8CE0B6
+翠玉: #69CD96
+爱林岛: #41B77E
+沧海月明: #EBFDF0
+水果清香: #E7FBEB
+霜绿: #E5FCEB
+纯绿: #B8EED6
+平静湖水: #92E1BF
+云霓翻飞: #5FC79D
+锦茵: #3DB485
+天鹅湖: #FCFFD9
+夏草: #FBFECF
+小家碧玉: #C7F3D9
+雾中翡翠: #B5E8CF
+玉壶冰心: #8CC9AC
+心语: #74BB96
+弄臣: #5CA27D
+莹澈光芒: #EDFFF9
+冰晶蓝: #EAFCF4
+清川: #CCF7E2
+海隅微阳: #C5EDDF
+幻象浮生: #98D4C4
+烟霞: #71B7A5
+沙漠绿洲: #579E8B
+冰雾: #DEF5EC
+寂寞清秋: #CAF7EA
+往事如烟: #FBF9A5
+寒馨: #B5E5DB
+山水一色: #90CEC7
+长沟流月: #5FACA2
+磬罄之器: #469189
+圣殿山: #EDFBF1
+山间飞瀑: #DEF9F0
+海之女: #D2FAED
+冰兰: #B6E3DE
+蓬莱仙境: #8BC4C2
+西域奇宝: #62A8A8
+江枫渔火: #459190
+小溪流: #F9FCEC
+泉城风景: #F5F8E7
+洋葱: #F1F3D0
+草原回春: #E6E9C3
+灌木: #CED5A4
+青葱: #B2B77A
+春回大地: #A3A567
+寒江冷月: #EDF1E7
+极地雪橇: #EBF0DF
+苦艾草: #EBF0D9
+晨雾: #E4E8C5
+莴苣: #CBD0A5
+狮峰龙井: #ACB57F
+埃塞克斯绿: #9AA06A
+苦艾酒: #F7FDE5
+霜封苔原: #F1FCE2
+银狐: #EFF4E9
+甘蔗: #DAE5BC
+绿水涟涟: #C1CE9D
+柳浪闻莺: #AFBF83
+生菜: #94A468
+牧场风暴: #EDF5E4
+青涩酸橙: #E4EDD8
+薄荷绿: #DFECD0
+青青草场: #D2E2C4
+哈密瓜: #BDCEA3
+荷塘月色: #A3B68A
+发财树: #879C6F
+早春时节: #F7FEE4
+冬园即景: #F5F8E2
+青柠汁: #F1F9E1
+嘉年华: #DBEABC
+南卡风情: #CDDEA7
+绿树林: #ACC079
+冬青新绿: #98B066
+浅草绿: #F8FEEE
+松柏常青: #F2FDE5
+春水微澜: #E6FAD7
+绿水晶: #D3EDC3
+峻峭山崖: #BCDAA6
+苔绿: #A0C685
+蒲公英: #82AB67
+夏雨: #EDF7E8
+早春遐想: #E4FDD9
+冰绿: #E2FADB
+翠堤春晓: #CAE7C0
+幽谷兰香: #B0D7A5
+孤岛绿洲: #89B57B
+芳草青青: #76A76C
+草本精华: #EFFDEF
+秋水云庐: #EBF7E9
+似水柔情: #DAF0D3
+阿拉伯绿: #C3E3C2
+乡村四月: #A2CEA5
+豌豆荚: #8AB88A
+竞技场: #70A172
+薄荷精油: #ECF6E9
+蓝调爵士: #E8F2E3
+晨雾漫漫: #D6E8D7
+浅绿: #D2E5D0
+绿珍珠: #B3CDB7
+一叶轻舟: #8EAC91
+竹影: #7B987D
+细雨情丝: #F3FDF5
+柠檬汽水: #EEF9E9
+布鲁塞尔灰: #E2F1E5
+烟雨朦朦: #C6DFD0
+苔菁: #A3C2AF
+孔雀绿: #81A28A
+青铜宝鼎: #6A8D76
+早春三月: #D5CD33
+嫩黄绿: #ACCF3D
+枯木逢春: #A3A741
+眉目传情: #77AD43
+棕榈树: #7A7247
+佛罗里达棕: #75763D
+草木争春: #3D9951
+格林那达: #4F725D
+鳄梨: #5F714B
+圣诞树: #488845
+翡翠绿: #4D694E
+热带雨林: #4C684C
+野薄荷: #2B724A
+雁南飞: #F4FFF8
+在水一方: #E8FBF3
+萧瑟西风: #E0FBF2
+烟涛微茫: #AFF2E4
+竹露滴青: #84E1D1
+苍翠欲滴: #51CAB5
+玉珏: #2DB9A1
+思绪万千: #E7F9F4
+幽静湖蓝: #C7FBF4
+昨夜星辰: #BFEFEA
+秋波流转: #ACECE4
+清水湾: #80DAD4
+寒雨连江: #4AC1B7
+木兰岩: #19AFA5
+晨歌: #F0FCF6
+冒险精神: #EAFCF7
+仙乐飘飘: #C7F0EE
+浅蓝: #ACE8E5
+碧空如洗: #76D1D2
+珠箔: #44B9BC
+华烛: #0AA4A7
+素雅绿: #EEFBF5
+外层空间: #E7FAF6
+云林烟雾: #DFF8F3
+一望无际: #A6E2E8
+镜湖倒影: #7DD2DD
+地中海: #4AB3C1
+画楼西畔: #22A6B1
+水粉画: #F4FFFB
+碧幽水: #E0F5F5
+萍水相逢: #DEF6F4
+一帘幽梦: #A7E3EF
+霸王花: #81CDD1
+马赛蓝: #47B0C9
+金陵遗梦: #0998B2
+北欧港湾: #EEFAF6
+雾都黎明: #E1F4F0
+涟漪: #D0ECEB
+似水流年: #B1DEE2
+落山风: #86C4CB
+蓝色多瑙河: #60A6AF
+镜花缘: #428E96
+暮鼓晨钟: #EDFCFA
+森林公主: #CEEDF1
+冰清: #BBE4F1
+快乐老家: #B4DFE5
+谨慎: #87C1CE
+心情故事: #61A2AE
+亲密接触: #478A99
+青云: #E1FDFF
+秋泉: #B9DFE5
+蒂罗尔蓝: #ABD5DC
+波罗的海: #A0CFD9
+吸铁石: #7DB4C0
+波特兰: #619DA7
+幽幽深谷: #48838F
+太虚幻境: #E6F2EE
+极地寒冰: #E2F2EF
+雾锁冰洋: #DAEFEF
+蓝贵人: #B4D7D8
+阿拉斯加: #95BFC2
+叶脉青: #709CA0
+岩石: #538484
+希望: #F2FEF6
+大风暴: #E6F3EC
+牛津纺: #D0E6E3
+瑞雪丰年: #C4DDDE
+蓝色星球: #96BDC6
+云中漫步: #79A1A8
+海底世界: #5B8993
+清澈无瑕: #E8FBFA
+恋巢雏鸟: #E6F6F5
+幽兰: #C3E6EE
+睡美人: #BFE0E7
+蓝眼睛: #90C0D2
+蓝印花布: #6AA0B2
+佛罗伦萨蓝: #538A9D
+云水谣: #E2F7F5
+沁心冰蓝: #CDEEF4
+鸟鸣: #C1E4EC
+极地清晨: #ACD6E2
+战地钟声: #85BDD2
+风月: #5A9EB5
+马提尼: #3F869F
+云淡风轻: #EFFDFD
+平静海风: #DCF5FA
+法国蕾丝: #BBE5F4
+愚人码头: #9DCEE5
+暮蔼: #7DBBDA
+暴风雨: #58A2C5
+远见卓识: #448BB2
+羞涩: #EDFBF9
+夏日水蓝: #E5FCFB
+湖滨之恋: #CAEDFB
+爱情鸟: #A4DBF1
+兰桂飘香: #73BFE8
+风姿绰约: #45A4D7
+蓝色妖姬: #1E95D2
+细雨: #DBF5FF
+都柏林: #CBEDFF
+倩语: #B6DFFE
+挪威蓝: #ACD4ED
+淘气小孩: #8ABFE6
+银蓝: #65A2D5
+亮蓝: #4087BF
+露珠: #D3F2FF
+平和: #D5EFF7
+春水: #B3DFFD
+祖母宝石: #89C2F1
+海天一色: #66A6DE
+湖蓝之意: #63A4DE
+大洋风光: #4990CC
+水天一色: #EEFBF5
+爱尔兰: #E0F5F5
+微蓝: #C7FBF4
+茵梦湖: #8FBAEA
+爱琴海: #6D9BD6
+比利时蓝: #5586C2
+海洋之心: #5186C5
+冬日街灯: #E9F4F7
+淡淡忧郁: #D0E6F1
+晚塘月色: #C8E1F2
+水中花: #B2D0EA
+良辰美景: #8DB8E2
+雾紫: #6D9ACD
+意乱情迷: #5081BB
+夜色迷离: #EEF8F6
+冷感: #D8E9F0
+勿忘我: #CBE4F1
+蓝狐: #AECDE2
+林涧青天: #8BB4D9
+流连: #739FCB
+王室蓝: #5181B2
+钻石冰蓝: #D9F5FF
+飘渺: #C4E3F4
+天湖: #BDE1F3
+韵蓝: #B6D4E4
+湾流: #90B8D4
+海港晴空: #6A98BB
+蓝色魅影: #5080A8
+云天蓝: #D8EFF7
+浅蓝晨雾: #D0E9F8
+蓝色瓷器: #C8E3F2
+紫罗兰: #AED0E5
+贵夫人: #83B0D5
+惊涛骇浪: #6E9ABF
+狂野之城: #4C81AE
+风中低语: #DEECF3
+飘蓝: #CCE0EA
+幸运星: #BED2E1
+法国奶酪: #B0CDE3
+古镇运河: #85ACD0
+威尼斯水道: #6D96B8
+土耳其尖顶: #5580A9
+北风: #F5FDFB
+霜蓝: #D2E4EA
+亚得里亚海: #C0D8E3
+仲夏夜之梦: #B0D0DE
+北欧风情: #80A7C2
+拿破仑: #6589A6
+布里思托蓝: #3F647E
+甜蜜遐想: #EBF8F8
+水乡船曲: #C6E3F2
+渔人码头: #B5D7E3
+飞燕草: #A6CDDE
+海蓝: #7FADC6
+清花瓷器: #6196B1
+契木: #477C98
+里海清波: #EDF8F9
+青烟飘渺: #EBF1EC
+蓝灰: #C7DFE3
+远方: #AECCD8
+蓝地毯: #89AFC1
+历史车轮: #6D95A9
+蓝色庄园: #537C92
+马尔代夫: #E9FAF4
+畅想: #E2F4F4
+空谷回声: #C5E0E6
+冬日晴空: #B0D2DD
+蓝天娇子: #8BB3C8
+夜未央: #6B96AC
+怒海潮: #4C7B92
+绿松石: #16956E
+牙买加甜酒: #00987B
+绿甲虫: #24905B
+桌球绿: #008777
+高尔夫球场: #20785B
+冰海航船: #355C58
+深海蓝: #08778B
+深谷清泉: #027D85
+波西米亚蓝: #2A5772
+夏威夷: #007F6A
+蓖麻籽: #295363
+蓝色花瓶: #165C63
+禽鸟: #205757
+情愫蓝桥: #0E75A9
+末路狂花: #2069A0
+山海蓝: #2A5F93
+浩瀚深空: #354F6D
+蝶恋花: #3C327A
+扎染: #2C4C6A
+深藏青: #304047
+微白: #F4FAF6
+紫蔓: #DDEDFF
+青花瓷: #CADDEF
+水晶兰: #BDD0E9
+浪漫之都: #95B2DA
+紫丁香: #977DB1
+脂粉: #5A7BB2
+冬日黄昏: #E4EEF1
+紫气东升: #D1E2EF
+人约黄昏: #BDCFE4
+爱在深秋: #9BB5D9
+虞美人: #7F9DC7
+欢快紫丁: #6685B6
+蓝莓之夜: #5F7CB7
+典雅灰: #EDF4F6
+紫草森林: #C9DDFA
+蓝田生玉: #B3D0F5
+澄净思考: #89B4E5
+冬之心: #7A9CD5
+矢车菊: #6584C1
+遐想时刻: #5D82BE
+冰岛: #E4EDF3
+灰色空间: #DAE8F4
+寒露: #C7D8EA
+霜露: #AFC4DC
+法国蓝: #9CB5CF
+紫色缎带: #7692B0
+忧郁王子: #5E799C
+天山雪莲: #C4CFE3
+格调紫: #C0CBE3
+蓝色诱惑: #A3B4D3
+天蝎之吻: #97A6CA
+青藏高原: #8396B8
+托斯纳蓝: #6D82AC
+月色星空: #6578A0
+烟尘: #EEF3F2
+失落星: #E8EFF1
+莲之影: #D0DBED
+龙舌兰: #C3CDE6
+淡紫情调: #9FADD4
+紫苑芬芳: #8392C3
+庄严蓝光: #6A7BB0
+淡雅丁香: #EFF4F6
+渴望: #E7E9EB
+夜来香: #D2DAE4
+紫雾丁香: #C2CBDF
+紫芽蓓蕾: #A1AED0
+破晓: #8A95B9
+神秘紫衣: #717DA3
+浪漫情调: #E1D9E1
+紫色花边: #D5D9E1
+波斯绸: #C3C9D9
+花样年华: #9FA8C0
+紫烟袅袅: #9FA6BA
+石楠花: #8D95AF
+紫葡萄: #6D7695
+轻盈: #E5EAFB
+水晶之恋: #D2D8F8
+雪青: #C2C5E6
+紫秋: #B5B8E3
+优柔华贵: #8E95C4
+紫薇花: #787EAE
+紫青: #515381
+梦幻丁香: #DDDCE8
+紫蜻蜓: #D9D9E8
+丁香小溪: #CDCCE2
+寂静繁星: #CA84A7
+鸢尾花: #918EBE
+罗兰小饰: #7878AD
+安静旅程: #7B7AA4
+蓝莓奶昔: #EBE8F7
+洋李色: #E2D8F5
+爱的迷恋: #DAD8EE
+葡萄挂露: #CBC7E0
+紫光一隅: #A9A9D0
+马太福音: #9991BF
+风信子: #837BB0
+香芋奶昔: #FBE5F0
+薄纱: #E0DEF8
+迷迭香: #DBD9F2
+丁香少女: #B4AEDC
+浓郁紫罗兰: #B6ACDB
+林海之清: #A293CA
+夜上海: #857AB3
+樱花粉: #F6F1F9
+提子奶糖: #ECE6F7
+东洋兰: #E2D8F1
+紫霞: #DBCEF0
+奶油香芋: #BBADDA
+紫薯: #A18CC2
+紫色妖姬: #8C75AC
+柔静: #EFE9F7
+轻歌曼舞: #EDE4F8
+魔幻精灵: #E8D7F2
+爱的魔力: #D8C2E8
+紫色迷情: #C3A7D3
+情迷莫斯科: #AF8ABE
+紫芋香甜: #9A74AC
+酸甜蜜果: #F2EDFB
+香雾: #F4E4F8
+紫郁轻扬: #ECD7F2
+雨中起舞: #DCC0E5
+蔷薇紫: #CDAAD8
+冰紫: #BA8BBE
+紫荆花: #A675AC
+红粉相宜: #FCEDF7
+芦花映白: #F3E3F8
+婀娜背影: #EAD5F2
+紫玉兰: #E0BFE4
+晌午牵牛: #D0A9D6
+薰衣草田: #BF8BBD
+甜蜜黑加仑: #AC74AA
+粉沁之心: #F8EBFD
+爱丽丝梦境: #EADCEE
+浅紫烟云: #E0CFE2
+绣线菊: #DDC4D8
+梦幻佳人: #BC9BB8
+玉液琼浆: #AD8BAC
+神秘紫韵: #906F92
+瑞士红: #F4F1F4
+西洋丁香: #FAE2E2
+雾都恋人: #DCC5D8
+悠悠若兰: #D6C6D5
+旷谷幽兰: #B9A5BA
+马鞭草: #A98DA7
+清香李子: #91748E
+西西里岛: #F7EFF7
+木槿怡人: #E6E0EF
+倩紫: #DFD4E6
+优雅紫: #CCBED9
+兰花紫: #BDABCA
+淡雅紫藤: #A189A9
+水晶葡萄: #887292
+微风记忆: #F0F4F8
+梦幻精灵: #EDE8F6
+索菲亚: #E4DCEF
+紫绒花: #CFC4DF
+丁香紫: #B8B1D2
+六月紫薯: #9F93B7
+苍穹: #877A9F
+紫茄: #765387
+紫霭: #68567F
+梅红: #8A475D
+东方夜韵: #515381
+茄花紫: #744165
+红高梁: #832D2D
+夜色寂静: #405583
+紫色丝绒: #5B4E6C
+夜巴黎: #424E66
+无星之夜: #454B66
+紫光魅力: #4D4860
+江南丝竹: #5F444D
+夜色温柔: #46445E
+舒适: #F4F1F0
+蝴蝶兰: #EEEDEB
+幻影: #D7D2CD
+帏幔: #CCC4BD
+鼹鼠: #A59A93
+伊斯顿棕: #998982
+草原猎手: #7B6D66
+百利甜酒: #F8EDE5
+香盈藕粉: #ECE3DE
+复古橡粉: #E3D8D1
+哔叽灰: #CCC2BB
+暮秋时节: #B1A29B
+樵夫: #94837A
+土棕: #847268
+可爱泡泡: #F6E9E9
+幽幽熏草: #F3E8E6
+祥云飘渺: #E1CDC7
+珊瑚: #D6BEBA
+褐珊瑚: #BE9D99
+巧克力甜点: #A57F7C
+高丽红参: #85615E
+浮生若梦: #FFF8F2
+粉衣素裹: #EAD9D6
+水色如暮: #DDC6C2
+蔷薇: #D9BCBD
+失乐园: #C5A2A6
+巴黎玫瑰: #AC8284
+小浆果: #8A6266
+珍珠粉: #FCF3ED
+草莓牛奶: #F5E1D8
+春风桃红: #D5B4B1
+沙褐色: #DAB0AC
+大峡谷: #C39996
+辰砂: #AB7A73
+岁月留痕: #90605A
+海贝壳: #FFF7F2
+法国橙花: #F9EBE3
+烟灰粉: #E9CCC5
+香石竹: #D8BFB7
+夜色米兰: #BC9E95
+丰收苹果: #A48076
+深秋落叶: #906A62
+巧笑焉然: #EADCD6
+艳影: #ECD4C9
+巧克力慕斯: #E6C6BE
+成熟浆果: #D3AAA0
+棕红: #B78679
+热情爪哇: #A27064
+红杉树: #8D5D52
+甜蜜花香: #F9EEE7
+纯情奶咖: #EDD2C7
+粉红珊瑚: #E0BFB0
+欢快小鹿: #D5AFA2
+玫瑰心绪: #B38777
+健康黝褐: #A67462
+橡树叶: #8B5F4F
+澳洲坚果: #F6EEE6
+野蘑菇: #F6EBDF
+琥珀: #E5BFAF
+乡村小径: #E0B3A0
+面包布丁: #C08F7E
+藤蔓: #B47D69
+光明大地: #A46D59
+矿石场: #F5EFE4
+精制白脱: #F7EDE2
+静谧米兰: #F1DDD0
+茶红: #D9BFB0
+巧克力奶: #BC9D8B
+桤木: #A2806E
+熟柚: #926F5E
+粉红蕾丝: #FCF3E6
+麦乳精: #F0E4D8
+韵红: #E7D3C2
+绛石: #D2C1B2
+印度褐: #B49F8E
+伦敦褐: #A28A78
+肥沃大地: #917765
+杏仁果: #FAF6EB
+小桦树: #FAEEE0
+贝思黄: #F0D6C5
+凝褐: #DFC1AF
+丁香雨雾: #CBA38D
+奶油蛋糕: #AF8268
+貂尾: #9F6F58
+埃尔沙: #FFF2E3
+风尘仆仆: #F9F0E3
+贝壳红: #FBEDDF
+大漠风情: #E0C0A8
+日尔曼巧克力: #C39A81
+冰咖啡: #B88C71
+赤褐: #9D7158
+麦乡野花: #FBF4E5
+护花使者: #F7EFE2
+桃韫气息: #F2D7C1
+醇香奶酪: #E8C7AF
+秋叶: #D0A788
+切罗基棕: #B68567
+娇羞丽娜: #A27253
+星辰: #FBF4E2
+柔美肌肤: #FAEBD6
+胡桃彩: #F5DABE
+高原羊驼: #E7C4A6
+黄土高坡: #D4A783
+紫铜: #C8946C
+激情摇滚: #AA7854
+芭蕾舞曲: #FFFDF6
+樱花彩: #FEEFDB
+香子兰: #F8E6D1
+玫瑰花蜜: #F2CEAB
+大马士革: #DCB08B
+烟斗: #CD9A71
+朱古力: #BB835D
+锯叶草: #FDEFDB
+流沙: #F9ECD8
+亚麻: #EFDECA
+巧克力屑: #D9BDA3
+太妃糖: #B9997D
+可可豆: #A88468
+红糖: #957357
+香草冰激凌: #FBF8EB
+粉珍珠: #F9F3E2
+大麦茶: #F9ECD9
+陶土: #DFC6AC
+漫沙飞舞: #CAAB8E
+丰收地: #AD8B6C
+可可浆: #977658
+欧洲亚麻: #FBF6E4
+荷兰乳酪: #F7EDD9
+温柔时光: #EDDABC
+稻花香: #F3E3A2
+热带棕: #D6B796
+蚕茧: #B6906C
+橡木: #A27D5A
+维多利亚黄: #FBF8E7
+鸡蛋布丁: #FAF6E2
+柔软白沙: #F6E7CD
+驼毛: #ECD9BB
+黄褐色: #D6B894
+博卡: #B4946D
+桃花心木: #876742
+夏日莉莲: #FCF9F0
+粉白: #EFECE1
+奶咖: #ECE3D4
+可可果冻: #E4D8C8
+布莱垦棕: #CABBA7
+龙蒿: #B19E85
+薪柴: #9B8570
+可可蛋奶: #F8F4E7
+薄雾玫瑰: #F0EADF
+肩章红: #E9E6DE
+可可糖: #DDD2BE
+细沙海岸: #C7B7A0
+船缆: #B49E84
+楸木: #9F896F
+贝壳白: #F9F4EA
+古象牙: #EDE1CD
+曼哈顿印象: #EADCC5
+午后奶茶: #D8C6B0
+亚麻布: #C1A98B
+格林那达棕: #A78D6D
+渤海湾: #907657
+妩媚: #FFFCE9
+夏日闲情: #FFF8DE
+天然纯米: #FFF6E0
+小甜饼: #ECD9BA
+洛韦尔: #D1B893
+卡米龙: #BE9C72
+焦糖: #A6845B
+盈润无暇: #FFFBE8
+传世遗珍: #F9F4E6
+麦芽糖: #EFD3A9
+蜡黄: #DFC39C
+苹果树: #D4B487
+卡塞尔褐土: #B99260
+羚羊: #916F45
+丝光棉: #FFFCE6
+白朗姆酒: #FFFADF
+上弦月: #FBF7DB
+午后戈壁: #EADBB9
+米色: #D8C296
+肃穆佛堂: #CBB180
+光辉圣地: #B99D6D
+西风高原: #F9F9EA
+咖啡知己: #F9F6E2
+珍珠光华: #F9F4DF
+锡兰象牙: #E5DDBF
+滨海胜地: #CEC0A0
+田园风光: #C1AE88
+别有洞天: #A5936F
+蛋白奶糖: #F9F3E3
+毛绒玩具: #F4F0E3
+轻舞飞扬: #EEE6D0
+淡米色: #E1D8BF
+浅咖: #CEC3A7
+卡斯风情: #B2A689
+巴伐利亚棕: #9A8E71
+晨曦: #FCF6E3
+羊皮信纸: #FAF4E0
+金色牧场: #F2E7CF
+蟠桃: #F0E7CB
+稻田飘香: #DBCBA6
+白杨树: #C2AE82
+卷发: #A99469
+皓泽: #FFFFEA
+珍珠耳环: #FFFCE6
+落叶: #F8F7E2
+香槟夜色: #F2E6C5
+卡奇黄: #DACBA1
+秋香: #C9B27C
+乌金: #B8A16C
+新瓷: #F7F5E2
+白土布: #F8F3DE
+切尔沙的世界: #FAF0CF
+初冬街景: #F6E9C0
+日本棕: #DFCEA0
+咖喱: #C4AB72
+南瓜: #AE965B
+全麦饼干: #F8F8E6
+黄毕叽: #F8F7E7
+埃及艳后: #FAF7DF
+深棕黄: #EEE3C0
+橄榄树: #D4C397
+胡椒树: #BDAB78
+铜_: #A89563
+浅丁香: #F7F7E9
+青鸟翩翔: #F6F5E1
+利口酒: #F2F0D3
+韭菜: #EBE8C4
+新石器时代: #D5CEA7
+砀山梨: #C0B781
+海枣: #ACA169
+貂白: #F0F2E5
+阿拉伯帐篷: #F3F0D9
+面纱: #ECE9D5
+油石灰: #DDD8BA
+卡其布: #C3BB99
+退潮: #AAA27B
+草原风暴: #968C66
+晨间积雪: #FDFFF5
+初雪时节: #F5F1E6
+烟如浩淼: #E4E2D4
+飞沙走石: #E1DDCA
+冰河灰: #C6C0A9
+慕冬黄昏: #B3AC91
+热带香料: #9B9279
+飞马行空: #F2F5EE
+八卦星相: #EDEFE2
+苍茫穹顶: #DEE0D3
+霜林晚归: #CDCDC3
+故路尘封: #B3B2A6
+海洋水族: #9C9B8C
+牡蛎: #858475
+石膏岩: #F9FCF1
+科罗拉多: #F6F9F5
+雪花石膏: #DBDDD5
+淡灰: #CED0C8
+中灰: #B0B3AC
+乌云: #92938D
+深灰: #7E7D76
+细雪飞舞: #F2F6F3
+翩翩紫蝶: #ECF1F0
+太空漫步: #D3D9D6
+灰纽扣: #CCD0CC
+银烛台: #A9AFAC
+山雨欲来: #8E918F
+岩灰: #817D65
+轻纱: #EAF0EB
+牛津白: #E8F1EC
+烟云: #C7D2D1
+翩翩起舞: #BBC8C6
+企鹅: #97A5A5
+无烟煤: #828E8E
+忧郁: #657A5C
+利剑寒光: #E7F2EF
+圣音: #DFEDEB
+海市蜃楼: #C7D6D5
+曲径通幽: #B7C7C8
+磨刀石: #91A4A7
+海啸: #74868B
+文明古都: #5F7275
+迅捷: #F0F6F2
+天蓝色: #E4F0F0
+银_: #CEDBDB
+浅灰: #BBC9CC
+马蹄铁: #99A9B0
+灰呢制服: #75868C
+背影: #5E6D76
+雪花膏: #E8F0EE
+天人合一: #E3F0F0
+孤单背影: #CDDEE2
+寒江雪: #C1D0D8
+潜流涌动: #9AACBC
+灰蓝: #788C9D
+靛紫: #5D7282
+白桦: #E6F2F0
+雨季天空: #DCE8E6
+康塔塔: #CCDBDD
+暮色灰: #B7CBD1
+水鸟: #96ACB7
+阿尔卑斯山: #708791
+命运交响曲: #5A737F
+深遂太空: #D0E4E7
+水泥蓝: #C2D7DE
+渔光曲: #B9D4DC
+暮色: #B1CAD4
+静匿港湾: #95B2C0
+童话王国: #6B8C9C
+悲怆奏鸣曲: #51707F
+挪威森林: #EAF3EF
+惊蛰春雷: #DFF0EB
+蔚蓝天空: #C8E2E3
+白杨礼赞: #B7D5D5
+水帘洞: #8AB0B4
+荷兰印象: #6E99A0
+古堡: #517E84
+莹玉: #EEFCF7
+冰天雪地: #E2F4F3
+山间小溪: #E1F5EF
+大运河: #C3DAD4
+飞越巅峰: #9CB8B3
+战地豪情: #7D9A95
+海藻绿: #63807C
+润物细雨: #E9F6ED
+深海珍珠: #E7F5EC
+涓涓细流: #D4E8DD
+北国山川: #C7DDD5
+冰洋绿: #A8C5BD
+印地安绿: #84A197
+海港绿: #6B8980
+淡玉: #EDFBF4
+铃兰: #F2F6ED
+窃窃私语: #EBF5EA
+波音飞机: #CAD6CC
+伦敦雾: #AAB6AC
+写意山水: #939F94
+金属灰: #798379
+清风: #F0FCF6
+水色天光: #F1F8E0
+雨季: #DBE4D8
+灰姑娘: #CBD6CC
+冷峻: #A5B3AB
+海军灰: #909B91
+矿石: #747F78
+烟草黄: #826B47
+落基山脉: #766545
+黑土地: #4B4F4F
+砖茶: #565142
+黑森林: #37413E
+魔力黑: #333B3C
+纯黑: #2F3434
+乡村土布: #8D6F46
+山毛榉: #886B4B
+华丽棕: #755D46
+玛瑙: #724E41
+黑巧克力: #665143
+褐石: #654B43
+卡布基诺: #534940
+霞风玉露: #F6F9FE
+淡菊: #F9F7FA
+烟紫: #F1F5FE
+蕙心兰: #F7F4F7
+含羞紫: #F0EDEF
+日色微明: #F9FBFC
+杏雨梨云: #FAF9FB
+烟雨和风: #FCFAF6
+暮春: #F9F6F5
+傲霜: #F9F7F4
+晴空: #FEFEF8
+静谧之纯: #FAFCFC
+优雅日光: #F9FAF5
+婷玉: #FCF7F3
+韶光年华: #FAF7F2
+冰清玉透: #FFFCF2
+容华: #FBFCF3
+绮丽: #FAF8F0
+草莺: #FCF8ED
+柔粉: #F9F2E5
+珠贝色: #FEFFFD
+银珠: #FFFFF8
+丝滑飘羽: #FEFEF6
+柔珠彩: #FFFFF4
+雅粉: #F6F3EB
+粉象牙: #FFFEF2
+露水芙蓉: #FBF9ED
+清馨: #FBFAEB
+云端漫步: #F8F8EF
+白鸽: #F8F6EC
+原味酸奶: #FEFCE9
+白月皎洁: #FBFAEB
+生机: #F7F6E7
+芸黄: #F8F3E3
+梧桐树: #F1ECDA
+菱花白: #FDFFFC
+珍珠白: #FDFFFC
+韵白: #FCFFF9
+漫天风雪: #FBFEF7
+天朗气清: #FFFFF0
+天竺葵: #FCFFFA
+菊蕊白: #FCFFF8
+银装素裹: #FAFEFA
+燕黄: #FDFFF5
+贝卡黄: #F9FCF2
+蜜合色: #FDFFF8
+柳絮白: #FCFFF8
+白晶菊: #FCFFF5
+麦芽黄: #FFFEF0
+水蜜黄: #FFFEED
+松花黄: #FCFFF2
+柠檬绸: #FBFDED
+新叶黄: #F9FCED
+萱草: #F8FBED
+鸭嘴黄: #FBFCE7
+象牙白: #FBFFF9
+流花白: #FBFFF8
+钻石黄: #FAFEF6
+迷情白: #F6FBF2
+暖翠: #F1F4E5
+冰晶: #FAFFFD
+松耳石: #F9FFFB
+飞花点翠: #F8FFF5
+水月相融: #F9FFF3
+淡黄绿: #F5F9EB
+秋香绿: #F8FFFB
+冰雪精灵: #F9FFF8
+春的苏醒: #F8FEF8
+竹叶青: #F2FDF7
+薄荷种子: #F0FCF6
+霜花白: #FAFFFE
+藕荷绿: #FAFFFE
+玉青: #FAFFFD
+抹茶: #F1FBF6
+绿丝: #F0FBF6
+冰霜蓝: #F3FDFE
+蟹壳青: #ECFDFF
+海天蓝: #EDFBFE
+烟青: #EDF7F5
+雪蓝: #DCE9EF
+海滨微风: #F8FEFF
+碧落清泉: #EFF9FB
+浅莲灰: #F0F6F8
+青山淡彩: #EEF7F7
+纯净灰: #EEF5F5
+玉润雅静: #F6FCF7
+清萍白: #F3F6EE
+香醇豆奶: #F2F5ED
+杏子灰: #F0F1E5
+雅典白: #EAEBE0
+杨枝玉: #F7FAF4
+明斯克灰: #F4F6F4
+浅豆沙: #F2F2E8
+沙漠雾: #EFF0E9
+白桦树: #EBECE6
+*/
