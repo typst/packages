@@ -1,0 +1,14 @@
+[package]
+name = "mahjong-tiles"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["hongjr03 <https://github.com/hongjr03>"]
+description = "Riichi-hand-rs but in Typst."
+license = "MIT"
+repository = "https://github.com/hongjr03/typst-mahjong-tiles"
+keywords = [
+    "wasm",
+    "rust",
+    "mahjong",
+    "visualization",
+]
