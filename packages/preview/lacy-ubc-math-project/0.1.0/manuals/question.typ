@@ -1,6 +1,8 @@
+#import "../format.typ": showcode
+
 = Question
 The `question()` function is to create a question block. <ex:qs-block>
-```typst
+#showcode(```typst
 #question(4)[
   The question.
   #question(2)[
@@ -20,7 +22,7 @@ The `question()` function is to create a question block. <ex:qs-block>
   The risky bonus question.
 ]
 You see #link(<ex:qs:that-one>)[that question]?
-``` <show>
+```)
 
 == Referencing Questions
 Questions can be referenced by their automatically assigned labels. For example, question 1.b.ii has label `<qs:1-b-ii>` and can be referenced by `#link(<qs:1-b-ii>)[That question]`. Note that it cannot be referenced by `@qs:1-b-ii`.

@@ -1,3 +1,5 @@
+#import "../format.typ": showcode
+
 = Getting Started
 #quote[So, how do I even start using Typst?]
 
@@ -66,7 +68,7 @@ Below this ```typst #show: setup.with(...)``` is your project content.
 
 == Questions & Solutions
 A math group project mostly consists of questions and solutions. You can use the ```typc question()``` and ```typc solution()``` functions to structure your content.
-```typst
+#showcode(```typst
 #question(1)[
   What is the answer to the universe, life, and everything?
   // The solution should be in the question.
@@ -81,13 +83,13 @@ A math group project mostly consists of questions and solutions. You can use the
     ]
   ]
 ]
-``` <show>
+```)
 
 == Learn Typst
 Yes, you do have to learn it, but it is simple (for our purpose).
 
 Here is a quick peek at some useful syntaxes:
-```typst
+#showcode(```typst
 You will sometimes _emphasize important information_ in your questions and solutions. // 1 linebreak = 1 space.
 Or, go a step further to *boldly* state the matter. <ex:bold> // <label-name> to place a label.
 // 1+ blank lines = 1 paragraph break.
@@ -101,7 +103,7 @@ $
 // #link(<label-name>)[displayed text] to reference a label.
 // For equation, figure and bibliography, @label-name is also available.
 Want to get #link(<ex:bold>)[*_bold_*]? Let's look at @eq:ex:lim.
-``` <showt>
+```)
 
 For general techniques, consult the #link("https://staging.typst.app/docs")[Typst documentation].
 

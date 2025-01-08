@@ -1,3 +1,5 @@
+#import "../format.typ": showcode
+
 = Drawing
 As we are doing math, inevitably we will need to draw some graphs.
 
@@ -35,7 +37,7 @@ Find more visualization packages #link("https://staging.typst.app/universe/searc
 Besides importing the drawing packages, the `drawing` module also provides some helper functions.
 
 For example, the `cylinder()` function draws an upright no-perspective cylinder.
-```typst
+#showcode(```typst
 #import drawing: *
 #cetz.canvas({
   import cetz.draw: *
@@ -50,7 +52,7 @@ For example, the `cylinder()` function draws an upright no-perspective cylinder.
     )
   })
 })
-``` <show>
+```)
 
 == Example//s
 #[

@@ -14,21 +14,21 @@
 = The Problem
 
 #question(5)[
-  Hey there's a cool math problem, let's solve it!
+  Hey, there's a cool math problem, let's solve it!
   // Encapsulate important visuals in figures,
   // so that they can be referenced later.
   #figure(
     // Include images from the assets folder.
     image(
       "assets/madeline-math.jpg",
-      width: 90%,
-      height: 30%,
+      width: 80%,
+      height: 25%,
       fit: "stretch",
     ),
-    // Give descriptions and credits.
+    // Description.
+    // Don't forget to give credit while using others' work.
     caption: [
-      #link("https://preview.redd.it/madeline-has-math-homework-v0-8eaw2g1k2p191.png?auto=webp&s=8bffecf0548fb5e0ddb39eceb3e3cd933f5997c7")["Madeline has math homework"]
-      (#link("https://www.reddit.com/r/celestegame/comments/uxsb6t/madeline_has_math_homework/")[r/celestegame])
+      Madeline's math problem (image credit: #link("https://example.com")[Badeline]).
     ],
   )
 
