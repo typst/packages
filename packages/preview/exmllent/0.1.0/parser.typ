@@ -47,7 +47,7 @@
 
 /// Parse a named worksheet from an Excel file.
 ///
-/// - xml-workbook: The xml-loaded workbook.
+/// - xml-workbook (string): The xml-loaded workbook.
 /// - worksheets (dictionary): Parsed worksheets from the XML Excel file. (Not available for users)
 /// - styles (dictionary): Parsed styles from the XML Excel file. (Not available for users)
 /// - worksheet (string): The name of the worksheet to be parsed.
@@ -166,7 +166,7 @@
 
 /// Parse worksheets from an Excel file.
 ///
-/// - xml-workbook: The xml-loaded workbook.
+/// - xml-workbook (string): The xml-loaded workbook.
 /// - to-array (boolean): If true, return an array of tables.
 /// - args (any): Arguments to be passed to worksheet-parser.
 /// -> content | array
