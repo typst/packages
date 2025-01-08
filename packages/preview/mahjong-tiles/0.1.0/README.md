@@ -10,9 +10,8 @@ Parameters:
 
 - `hand`: A string of tiles in the hand.
 - `tile-set`: The tile set to use. Default is `"yellow-fluffy-stuff"`. `"red-fluffy-stuff"`, `"black-fluffy-stuff"`, `"martin-persson"` are also available.
-<!-- - tile_gap: 0.2, group_gap: 1.0 / 4.0 -->
-- `tile_gap`: The gap between tiles. Default is `0.0`.
-- `group_gap`: The gap between groups. Default is `1.0 / 3.0`.
+- `tile-gap`: The gap between tiles. Default is `0.0`.
+- `group-gap`: The gap between groups. Default is `1.0 / 3.0`.
 - `..args`: Other arguments to pass to the `image.decode()` fuction.
 
 ```typst
