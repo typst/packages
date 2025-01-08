@@ -4,7 +4,7 @@ Handy Dora is a wrapper of [riichi-hand-rs](https://github.com/m4tx/riichi-hand-
 
 ## Usage
 
-Start with `#import "src/lib.typ": mahjong`. Reminds that `handy-dora.wasm` should be in the same directory as where `src/` is.
+Start with `#import "@preview/handy-dora:0.1.0": mahjong`.
 
 Parameters:
 
