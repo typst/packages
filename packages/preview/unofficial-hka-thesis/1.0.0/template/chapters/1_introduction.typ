@@ -1,6 +1,6 @@
 
 #import "@preview/unofficial-hka-thesis:1.0.0": todo, flex-caption
-#import "@preview/glossarium:0.2.6": gls, glspl
+#import "@preview/glossarium:0.5.1": gls, glspl
 
 = Introduction
 

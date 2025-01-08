@@ -1,20 +1,20 @@
 #let settings = (
-  fontBody: "New Computer Modern",
-  fontBodySize: 12pt,
-  fontFiguresSubtitleSize: 0.85em,
+  font-body: "New Computer Modern",
+  font-body-size: 12pt,
+  font-figures-subtitle-size: 0.85em,
   // At the moment only used on the title page
   fontHeading: "New Computer Modern Sans",
-  fontHeadingSize: 16pt,
-  headingsNumberingStyle: "1.1.",
-  headingsSpacing: (
+  font-heading-size: 16pt,
+  headings-numbering-style: "1.1.",
+  headings-spacing: (
     below: 0.85em,
     above: 1.75em
   ),
   citationStyle: "ieee",
-  spaceBeforeParagraph: 24pt,
-  distanceBetweenLines: 1em,
-  listIndentation: 2.5em,
-  pageMargins: (
+  space-before-paragraph: 24pt,
+  distance-between-lines: 1em,
+  list-indentation: 2.5em,
+  page-margins: (
     top: 4cm,
     bottom: 2.5cm,
     left: 2.5cm,

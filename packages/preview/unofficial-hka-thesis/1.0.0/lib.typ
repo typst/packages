@@ -12,10 +12,10 @@
   // Page Setup
   set page(
     margin: (
-      left: settings.pageMargins.left, 
-      right: settings.pageMargins.right, 
-      top: settings.pageMargins.top, 
-      bottom: settings.pageMargins.bottom
+      left: settings.page-margins.left, 
+      right: settings.page-margins.right, 
+      top: settings.page-margins.top, 
+      bottom: settings.page-margins.bottom
     ),
     numbering: "I",
     number-align: center
@@ -24,8 +24,8 @@
 
   // Body Font Family
   set text(
-    font: settings.fontBody, 
-    size: settings.fontBodySize, 
+    font: settings.font-body, 
+    size: settings.font-body-size, 
     lang: "en"
   )
 
@@ -33,21 +33,21 @@
 
   // Headings
   show heading: set block(
-    below: settings.headingsSpacing.below, 
-    above: settings.headingsSpacing.above
+    below: settings.headings-spacing.below, 
+    above: settings.headings-spacing.above
   )
-  show heading: set text(font: settings.fontBody, size: settings.fontHeadingSize)
+  show heading: set text(font: settings.font-body, size: settings.font-heading-size)
   set heading(numbering: none)
 
   // Paragraphs
-  set par(leading: settings.distanceBetweenLines, justify: true)
+  set par(leading: settings.distance-between-lines, justify: true)
 
   // Figures
-  show figure: set text(size: settings.fontFiguresSubtitleSize)
+  show figure: set text(size: settings.font-figures-subtitle-size)
 
   //Indentation of Lists
-  set list(indent: settings.listIndentation)
-  set enum(indent: settings.listIndentation)
+  set list(indent: settings.list-indentation)
+  set enum(indent: settings.list-indentation)
 }
 
 #let listings(
@@ -120,7 +120,7 @@
   body
 ) = {
   // Main Body
-  set heading(numbering: settings.headingsNumberingStyle, supplement: [Chapter])
+  set heading(numbering: settings.headings-numbering-style, supplement: [Chapter])
   show heading.where(level: 1): it => {
     if it.numbering == none {
       [
@@ -139,9 +139,9 @@
   }
 
   set figure(numbering: it => {
-    let numberingOfHeading = counter(heading).display();
-    let topLevelNumber = numberingOfHeading.slice(0, numberingOfHeading.position("."))
-    [#topLevelNumber.#it]
+    let numbering-of-heading = counter(heading).display();
+    let top-level-number = numbering-of-heading.slice(0, numbering-of-heading.position("."))
+    [#top-level-number.#it]
   })
   
   set page(
@@ -156,19 +156,19 @@
           return;
       }
 
-      let displayHeading
-      let displayNumbering
+      let display-heading
+      let display-numbering
       let element
       elements = query(selector(heading).after(here()))
       if elements != () and elements.first().location().page() == here().page() {
         element = elements.first()
         if element.has("numbering") and element.numbering != none {
-          displayNumbering = numbering(element.numbering, ..counter(heading).at(element.location()))
+          display-numbering = numbering(element.numbering, ..counter(heading).at(element.location()))
         } else {
-          displayNumbering = numbering(settings.headingsNumberingStyle, ..counter(heading).at(element.location()))
+          display-numbering = numbering(settings.headings-numbering-style, ..counter(heading).at(element.location()))
         }
 
-        displayHeading = element.body
+        display-heading = element.body
       } else {
         // Otherwise take the next heading backwards
         elements = query(
@@ -177,26 +177,26 @@
         if elements != () {
           element = elements.last()
           if element.has("numbering") and element.numbering != none {
-            displayNumbering = numbering(element.numbering, ..counter(heading).at(element.location()))
+            display-numbering = numbering(element.numbering, ..counter(heading).at(element.location()))
           } else {
-            displayNumbering = numbering(settings.headingsNumberingStyle, ..counter(heading).at(element.location()))
+            display-numbering = numbering(settings.headings-numbering-style, ..counter(heading).at(element.location()))
           }
 
-          displayHeading = element.body
+          display-heading = element.body
         }
       }
 
-      align(center, displayNumbering + " " + displayHeading)
+      align(center, display-numbering + " " + display-heading)
       line(length: 100%, stroke: (paint: gray))
     },
     
     // Footer with Page Numbering
     footer: context {
-      let currentPage = counter(page).display()
-      let finalPage = counter(page).final().first()
+      let current-page = counter(page).display()
+      let final-page = counter(page).final().first()
   
       line(length: 100%, stroke: (paint: gray))
-      align(center)[#currentPage / #finalPage]
+      align(center)[#current-page / #final-page]
     }
   )
 
@@ -206,7 +206,7 @@
   )
   counter(page).update(1)
   // Set after header and after all initial pages to just apply it to the acutal content
-  set par(spacing: settings.spaceBeforeParagraph)
+  set par(spacing: settings.space-before-paragraph)
 
   // Actual Content
   body
@@ -227,32 +227,32 @@
   counter(heading).update(0)
   set heading(numbering: "A.1.", supplement: [Appendix])
   show heading: it => {
-    let prefixedNumbering;
+    let prefixed-numbering;
     if it.level == 1 and it.numbering != none {
-      prefixedNumbering = [#it.supplement #counter(heading).display()]
+      prefixed-numbering = [#it.supplement #counter(heading).display()]
     } else if it.numbering != none {
-      prefixedNumbering = [#counter(heading).display()]
+      prefixed-numbering = [#counter(heading).display()]
     }
     
     block(
       below: 0.85em, 
       above: 1.75em
     )[
-      #prefixedNumbering #it.body
+      #prefixed-numbering #it.body
     ]
   }
 
   set figure(numbering: it => {
     let alphabet = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
-    let numberingOfHeading = counter(heading).display();
-    let topLevelNumber = numberingOfHeading.slice(0, numberingOfHeading.position("."))
-    let index = alphabet.position((el) => { el == topLevelNumber})
+    let numbering-of-heading = counter(heading).display();
+    let top-level-number = numbering-of-heading.slice(0, numbering-of-heading.position("."))
+    let index = alphabet.position((el) => { el == top-level-number})
 
     if index == none {
-      let numberingToAlphabet = numbering("A", int(topLevelNumber))
+      let numberingToAlphabet = numbering("A", int(top-level-number))
       [#numberingToAlphabet.#it]
     } else {
-      [#topLevelNumber.#it]
+      [#top-level-number.#it]
     }
   })
 

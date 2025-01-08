@@ -6,7 +6,7 @@
 
 #show: make-glossary
 
-#set document(title: titleEnglish, author: author)
+#set document(title: title-english, author: author)
 #openTitlePage(settings: settings)
 // Customize your company logo or just use the one from the university
 #grid(
@@ -23,15 +23,15 @@
   settings: settings,
   degree: degree,
   program: program,
-  title: titleEnglish,
-  subtitle: subtitleEnglish,
+  title: title-english,
+  subtitle: subtitle-english,
   author: author,
-  matriculationNumber: matriculationNumber,
-  placeOfWork: placeOfWork,
+  matriculation-number: matriculation-number,
+  place-of-work: place-of-work,
   supervisor: supervisor,
   advisor: advisor,
   startDate: startDate,
-  submissionDate: submissionDate,
+  submission-date: submission-date,
 )
 
 #preface(settings: settings)
