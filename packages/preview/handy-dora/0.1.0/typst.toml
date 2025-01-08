@@ -1,9 +1,9 @@
 [package]
-name = "mahjong-tiles"
+name = "handy-dora"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["hongjr03 <https://github.com/hongjr03>"]
-description = "Riichi-hand-rs but in Typst."
+description = "Handy-dora is a package visualizing mahjong tiles. It's powered by wasm and Riichi-hand-rs."
 license = "MIT"
 repository = "https://github.com/hongjr03/typst-mahjong-tiles"
 keywords = [

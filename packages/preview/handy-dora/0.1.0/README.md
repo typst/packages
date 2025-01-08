@@ -1,10 +1,10 @@
-# Typst-Mahjong-Tiles
+# Typst-Handy-Dora
 
-[riichi-hand-rs](https://github.com/m4tx/riichi-hand-rs) in Typst, powered by wasm.
+Handy Dora is a wrapper of [riichi-hand-rs](https://github.com/m4tx/riichi-hand-rs) in Typst, powered by wasm.
 
 ## Usage
 
-Start with `#import "src/lib.typ": mahjong`. Reminds that `mahjong_tiles.wasm` should be in the same directory as where `src/` is.
+Start with `#import "src/lib.typ": mahjong`. Reminds that `handy-dora.wasm` should be in the same directory as where `src/` is.
 
 Parameters:
 
