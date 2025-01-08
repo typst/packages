@@ -1,5 +1,5 @@
-#let xml-to-worksheets(xml-path) = {
-  let workbook = xml(xml-path).filter(e => if e.tag == "" { false } else { true }).first()
+#let xml-to-worksheets(xml-workbook) = {
+  let workbook = xml-workbook.filter(e => if e.tag == "" { false } else { true }).first()
   let worksheets = workbook.children.filter(e => if "tag" in e { e.tag == "Worksheet" } else { false })
 
   let styles = workbook
@@ -47,7 +47,7 @@
 
 /// Parse a named worksheet from an Excel file.
 ///
-/// - xml-path (string): The path to the XML Excel file.
+/// - xml-workbook: The xml-loaded workbook.
 /// - worksheets (dictionary): Parsed worksheets from the XML Excel file. (Not available for users)
 /// - styles (dictionary): Parsed styles from the XML Excel file. (Not available for users)
 /// - worksheet (string): The name of the worksheet to be parsed.
@@ -57,7 +57,7 @@
 /// - table-args (any): Arguments to be passed to table.
 /// -> content
 #let worksheet-parser(
-  xml-path: none,
+  xml-workbook: none,
   worksheets: none,
   styles: none,
   worksheet: "Sheet1",
@@ -66,8 +66,8 @@
   default-row-height: "20pt",
   ..table-args,
 ) = {
-  let (worksheets, styles) = if xml-path != none {
-    xml-to-worksheets(xml-path)
+  let (worksheets, styles) = if xml-workbook != none {
+    xml-to-worksheets(xml-workbook)
   } else {
     (worksheets, styles)
   }
@@ -166,16 +166,16 @@
 
 /// Parse worksheets from an Excel file.
 ///
-/// - xml-path (string): The path to the XML Excel file. 
+/// - xml-workbook: The xml-loaded workbook.
 /// - to-array (boolean): If true, return an array of tables.
 /// - args (any): Arguments to be passed to worksheet-parser.
 /// -> content | array
 #let worksheets-parser(
-  xml-path: none,
+  xml-workbook: none,
   to-array: false,
   ..args,
 ) = {
-  let (worksheets, styles) = xml-to-worksheets(xml-path)
+  let (worksheets, styles) = xml-to-worksheets(xml-workbook)
   for worksheet in worksheets {
     if to-array {
       (
