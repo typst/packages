@@ -1,0 +1,11 @@
+[package]
+name = "self-example"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Zining Wang <https://github.com/wznmickey/>"]
+license = "MIT"
+description = "A typst package that will eval your typst command together with itself as a raw block."
+repository="https://github.com/wznmickey/typst-self-example"
+exclude = ["examples"]
+categories = ["utility","scripting"]
+keywords = ["example", "eval", "document"]
