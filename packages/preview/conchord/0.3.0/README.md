@@ -27,6 +27,8 @@ What can you do with this package?
 1. [Conchord](#conchord)
 2. [Overview](#overview)
    1. [Chord generation](#chord-generation)
+      1. [Under the hood](#under-the-hood)
+      2. [Ukulele (and many other tunings) moment](#ukulele-and-many-other-tunings-moment)
    2. [Drawing chords](#drawing-chords)
       1. [Chordgens and custom chords](#chordgens-and-custom-chords)
       2. [Song sheets](#song-sheets)
@@ -62,9 +64,11 @@ It's quite simple to use, see yourself[*](## "Boxing is required to put them in 
 // what variant number to select
 #box(smart-chord("Am", n: 4)) // forth "best" chord
 // what tuning to use
-#box(smart-chord("Am", tuning: "G C E A")) // ukulele
+#box(smart-chord("C", tuning: "G1 C1 E1 A1")) // ukulele
 ```
 ![](examples/simple-gen.png)
+
+### Under the hood
 
 Under the hood, this `smart-chord` uses `get-chord` function with very similar syntax. This function returns chord tabstring like `x03320`, and then it gets rendered with some [`chordgen`](## "A function that renders the chord by it's tabstring, displayed name and scale size").
 
@@ -89,6 +93,27 @@ Notice: the further, the worse are the variants. Okay, now let's take only five 
 You may have noticed that some chords are _red_. This means it's not "true" chord, but very close: on most instruments the perfect fifth in this chord can be created by overtones. They are marked by `?` in the end of tabstring. The `red-missing-fifth` function is a `chordgen` that displays such chords in red.
 
 `smart-chord` uses this `red-missing-fifth` as default `chordgen` too, so don't panic if you got red chord. You can use your own `chordgen` with specifying `smart-chord(chordgen: ...)`.
+
+
+### Ukulele (and many other tunings) moment
+
+There is another "music theory" important note. By default generator requires the lowest note (bass) in your chord to be the "root" note. This is very common for guitar, but may give quite unpleasant chords for ukulele and similar instruments. That's why there is an option to disable it:
+
+```typ
+= `Am`
+`true-bass = true`, default:
+
+#for c in n-best(get-chords("Am", tuning: "G1 C1 E1 A1"), n: 5) {
+  box(red-missing-fifth(c))
+}
+
+`true-bass = false`:
+
+#for c in n-best(get-chords("Am", tuning: "G1 C1 E1 A1", true-bass: false), n: 5) {
+  box(red-missing-fifth(c))
+}
+```
+![](examples/true-bass.png)
 
 ## Drawing chords
 

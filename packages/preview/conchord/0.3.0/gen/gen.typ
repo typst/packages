@@ -1,8 +1,8 @@
 /// This module uses WASM
 
 
-/// Classic 6-string Guitar tuning: `E A D G B E` 
-#let default-tuning = "E A D G B E"
+/// Classic 6-string Guitar tuning: `E1 A1 D2 G2 B2 E3` 
+#let default-tuning = "E1 A1 D2 G2 B2 E3"
 
 #let conchord_gen = plugin("conchord_gen.wasm")
 
@@ -23,9 +23,16 @@
   /// Tuning in format "A B C" -> str
   tuning: default-tuning,
   /// What fret to find chords at -> int | none
-  at: none) = {
+  at: none,
+  /// Whether to require the lowest note to be the root note. 
+  /// Note that doesn't affect chords with `/` that set bass, like `A/E`.
+  /// You can abuse it to make chords have true bass with `Am/A`.
+  /// 
+  /// Best to leave `true` for guitar, but `false` for ukulele, where the bas is not as important 
+  true-bass: true) = {
   let at = if at == none {255} else {at}
-  str(conchord_gen.get_chords(bytes(tuning), bytes(name), bytes((at,)))).split(";")
+  let true-bass = if true-bass {255} else {0}
+  str(conchord_gen.get_chords(bytes(tuning), bytes(name), bytes((at,)), bytes((true-bass, )))).split(";")
 }
 
 /// Gets individual chord string

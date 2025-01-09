@@ -112,10 +112,8 @@
 
       }
       else {
-        content("grid.north-east", [
+        content((right-end + 4, -17), [
           #set text(size: 13*scale-length)
-          #v(7*scale-length)
-          #h(5*scale-length)
           #raw(str(fret-number))
         ], anchor: "west")
       }

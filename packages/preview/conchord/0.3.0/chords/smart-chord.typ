@@ -34,6 +34,8 @@
   n: 0,
   /// tuning string in format "A B C D E"
   tuning: default-tuning,
+  /// whether to require the lowest note to be the root note 
+  true-bass: true,
   /// at which fret to search chord
   at: none,
   /// see `draw-chord` for reference

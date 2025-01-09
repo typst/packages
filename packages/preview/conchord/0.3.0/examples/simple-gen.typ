@@ -7,4 +7,4 @@
 // at what fret to play the chord
 #box(smart-chord("Am", at: 5, n: 1))
 // what tuning to use
-#box(smart-chord("Am", tuning: "G C E A")) // ukulele
+#box(smart-chord("C", tuning: "G1 C1 E1 A1")) // ukulele
