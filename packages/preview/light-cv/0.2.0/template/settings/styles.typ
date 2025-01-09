@@ -1,4 +1,4 @@
-#let accentColor = rgb("#007fad");
+#let accent-color = rgb("#007fad");
 #let styles = (
   page-style: (
     paper: "a4",
@@ -10,7 +10,7 @@
     )
   ),
   colors: (
-    accent: accentColor
+    accent: accent-color
   ),
   body-style: (
     fonts: ("Source Sans Pro", "Font Awesome 6 Brands", "Font Awesome 6 Free"),
@@ -72,7 +72,7 @@
     company-or-university: (
       size: 10pt,
       weight: "bold",
-      color: accentColor
+      color: accent-color
     ),
     time-and-location: (
       size: 10pt,
@@ -89,7 +89,7 @@
   ),
   skills-style: (
     columns: (18%, 1fr),
-    stroke: 1pt + accentColor,
+    stroke: 1pt + accent-color,
     radius: 20%,
     margins: (
       between-skill-tags: 6pt,
