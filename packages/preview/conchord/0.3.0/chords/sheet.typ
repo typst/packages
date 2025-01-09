@@ -107,16 +107,16 @@
   [#metadata(tonality-shift) <tonality>]
 }
 
-/// 2. Use `#show: chordify` in your document to allow auto square chords formatting and automatic tonality change 
+/// 2. Use `#show: chordify` in your document to allow auto square chords formatting and automatic tonality change
 /// inspired by soxfox42's chordish
 ///  
 /// -> content
 #let chordify(
   /// the document to apply show rule -> content
   doc,
-  /// enable square brackets chords writing -> boolean
+  /// enable square brackets for chords writing -> boolean
   squarechords: true,
-  /// function to apply to the chord names -> function(name) → content
+  /// function applying to the chord names when square brackets are used -> function(name) → content
   line-chord: overchord,
   // heading level to reset tonality at -> int | none
   heading-reset-tonality: none) = {
@@ -210,13 +210,13 @@
 /// 4. Draw a nice box with chords inside
 /// -> content
 #let sized-chordlib(
-  /// number of chords inside a box -> int
+  /// number of chords inside one line -> int
   N: 2,
   /// width of the box -> length
   width: 130pt,
-  /// content to add at chords start -> content
+  /// content to add to chordbox start -> content
   prefix: none,
-  /// content to add at chords end (e.g., some excluded chords) -> content
+  /// content to add to chords end (e.g., some excluded chords) -> content
   postfix: none,
   /// inset for block to use
   inset: 10pt,
