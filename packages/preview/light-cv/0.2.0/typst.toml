@@ -8,7 +8,7 @@ description = "Minimalistic CV template for your own CV. Please install the font
 repository = "https://github.com/AnsgarLichter/cv-typst-template"
 keywords = ["cv", "curriculum vitae", "computer science", "application", "resume"]
 categories = ["cv"]
-exclude = []
+exclude = [ "example.png" ]
 
 [template]
 path = "template"
