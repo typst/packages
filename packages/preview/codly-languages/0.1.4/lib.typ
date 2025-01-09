@@ -42,6 +42,8 @@
     cplusplus:     (name: "C++",              color: rgb("#00599c"), icon: __icon("cplusplus.svg")),
       cpp:         (name: "C++",              color: rgb("#00599c"), icon: __icon("cplusplus.svg")),
       cxx:         (name: "C++",              color: rgb("#00599c"), icon: __icon("cplusplus.svg")),
+    cuda:          (name: "CUDA",             color: rgb("#80bc00"), icon: __icon("cuda.svg")),
+      cu:          (name: "CUDA",             color: rgb("#80bc00"), icon: __icon("cuda.svg")),
     crystal:       (name: "Crystal",          color: rgb("#000000"), icon: __icon("crystal.svg")),
     csharp:        (name: "C#",               color: rgb("#9b4f96"), icon: __icon("csharp.svg")),
       cs:          (name: "C#",               color: rgb("#9b4f96"), icon: __icon("csharp.svg")),

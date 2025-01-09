@@ -97,6 +97,9 @@ Wikipedia](https://commons.wikimedia.org/wiki/File:Lisp_logo.svg), attribution:
 Jooja, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via
 Wikimedia Commons.
 
+The `cuda.svg` icon included in this package came from the MIT-licensed
+[vscode-icons](https://github.com/vscode-icons/vscode-icons) project.
+
 All other icons included here came from the MIT-licensed
 [devicon](https://github.com/devicons/devicon/) project.
 
