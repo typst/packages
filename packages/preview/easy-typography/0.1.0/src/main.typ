@@ -48,9 +48,14 @@
     number-type: "lining",
   )
 
-  // Top-heavy easing function for heading sizes/spacing:
-  //    - max = biggest size (H1), min = smallest size (H5), level in [1..5]
-  //    - sqrt(t) => gives biggest decrease at top, gentlest at bottom
+  /// Top-heavy easing function for heading sizes/spacing.
+  ///
+  /// `sqrt(t)` gives biggest decrease at top, gentlest at bottom.
+  ///
+  /// - max (length): Biggest size (H1)
+  /// - min (length): Smallest size (H5)
+  /// - level (length): From 1 to 5
+  /// -> length
   let compute-size(max, min, level) = {
     if level <= 1 {
       max
