@@ -1,5 +1,6 @@
 
 #import "@preview/octique:0.1.0": *
+#import emoji: quest
 
 // EXO
 #let c = counter("exo")
@@ -16,10 +17,7 @@
   
 // TEST SCENARIO
 #let test(tst) = [
-	#box(
-		height: 25pt,
-		image("common/attention.png", width: 10%)
-	)
+  #quest
 	#tst
 	]
   
@@ -70,7 +68,6 @@
   ): set figure.caption(position: top)
 
   // RAW THEME
-  set raw(theme: "common/Themes/Dracula.tmTheme")
   show raw: it => block(
  	fill: rgb("#1d2433"),
   	inset: 8pt,
