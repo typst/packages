@@ -12,8 +12,8 @@
   ),
 
   "source": (
-    heading: "Source Sans Pro",
-    body: "Source Serif Pro",
+    heading: "Source Sans 3",
+    body: "Source Serif 4",
     description: "Adobe's open-source pair. Clean, highly readable, and well-hinted for both screen and print."
   ),
 
