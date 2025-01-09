@@ -46,7 +46,10 @@
     kerning: true,
     ligatures: true,
     number-type: "lining",
+    number-width: "proportional",
   )
+
+  #show table: set text(number-width: "tabular")
 
   /// Top-heavy easing function for heading sizes/spacing.
   ///
