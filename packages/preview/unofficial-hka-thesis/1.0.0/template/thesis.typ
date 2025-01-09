@@ -7,7 +7,7 @@
 #show: make-glossary
 
 #set document(title: title-english, author: author)
-#openTitlePage(settings: settings)
+#open-title-page(settings: settings)
 // Customize your company logo or just use the one from the university
 #grid(
   columns: (1fr, 1fr),
@@ -19,7 +19,7 @@
   ]
 )
 
-#finishTitlePage(
+#finish-title-page(
   settings: settings,
   degree: degree,
   program: program,
@@ -37,7 +37,7 @@
 #preface(settings: settings)
 
 // Citations - applied here so that you are able to use a local CSL file to define the citation style
-#set cite(style: settings.citationStyle)
+#set cite(style: settings.citation-style)
 
 // Statutory Declaration
 #include "supplementary/statutoryDeclaration.typ"
@@ -53,7 +53,7 @@
 
 #listings(abbreviations: abbreviations)
 
-#show: mainBody.with(
+#show: main-body.with(
   settings: settings
 )
 

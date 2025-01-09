@@ -115,7 +115,7 @@
   )
 }
 
-#let mainBody(
+#let main-body(
   settings: (),
   body
 ) = {

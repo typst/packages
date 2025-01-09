@@ -1,4 +1,4 @@
-#let openTitlePage(settings: ()) = {
+#let open-title-page(settings: ()) = {
   set page(
     paper: "a4",
     margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 40mm),
@@ -16,7 +16,7 @@
   set par(leading: 1em)
 }
 
-#let finishTitlePage(
+#let finish-title-page(
   settings: (),
   degree: "",
   program: "",
@@ -34,32 +34,32 @@
 ) = {
 
   v(5mm)
-  align(center, text(font: settings.fontHeading, 1.9em, weight: 700, "University of Applied Sciences Karlsruhe"))
+  align(center, text(font: settings.font-heading, 1.9em, weight: 700, "University of Applied Sciences Karlsruhe"))
   
   v(15mm)
 
-  align(center, text(font: settings.fontHeading, 1.5em, weight: 100, degree + "’s Thesis in " + program))
+  align(center, text(font: settings.font-heading, 1.5em, weight: 100, degree + "’s Thesis in " + program))
   v(8mm)
 
   if title-german.len() > 0 {
     if subtitle.len() > 0 or subtitle-german.len() > 0 {
-      align(center, text(font: settings.fontHeading, 1.2em, weight: 700, title))
-      align(center, text(font: settings.fontHeading, 1.2em, weight: 500, subtitle))
+      align(center, text(font: settings.font-heading, 1.2em, weight: 700, title))
+      align(center, text(font: settings.font-heading, 1.2em, weight: 500, subtitle))
       v(10mm)
-      align(center, text(font: settings.fontHeading, 1.2em, weight: 700, title-german))
-      align(center, text(font: settings.fontHeading, 1.2em, weight: 500, subtitle-german))  
+      align(center, text(font: settings.font-heading, 1.2em, weight: 700, title-german))
+      align(center, text(font: settings.font-heading, 1.2em, weight: 500, subtitle-german))  
     } else {
-      align(center, text(font: settings.fontHeading, 1.4em, weight: 700, title))
+      align(center, text(font: settings.font-heading, 1.4em, weight: 700, title))
       v(10mm)
-      align(center, text(font: settings.fontHeading, 1.4em, weight: 700, title-german))
+      align(center, text(font: settings.font-heading, 1.4em, weight: 700, title-german))
     }
   } else {
     if subtitle.len() > 0 {
-      align(center, text(font: settings.fontHeading, 1.8em, weight: 700, title))
+      align(center, text(font: settings.font-heading, 1.8em, weight: 700, title))
       v(5mm)
-      align(center, text(font: settings.fontHeading, 1.4em, weight: 500, subtitle))
+      align(center, text(font: settings.font-heading, 1.4em, weight: 500, subtitle))
     } else {
-      align(center, text(font: settings.fontHeading, 2.0em, weight: 700, title))
+      align(center, text(font: settings.font-heading, 2.0em, weight: 700, title))
     }
     
   }
