@@ -1,4 +1,3 @@
-#import "../template/settings/styles.typ": *
 #import "utils.typ": *
 
 #let render-socials(
@@ -30,7 +29,7 @@
     full-name
   )
   linebreak()
-  hline()
+  h-line()
   linebreak()
   text(
     font: styles.header-style.fonts, 

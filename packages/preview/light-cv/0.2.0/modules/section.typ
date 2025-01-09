@@ -12,5 +12,5 @@
     title
   )
   h(styles.section-style.margins.right-to-hline)
-  hline()
+  h-line()
 }
