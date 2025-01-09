@@ -7,19 +7,13 @@
   ],
   authors: (
     (
-      name: "Martin Haug",
-      department: [Co-Founder],
-      organization: [Typst GmbH],
-      location: [Berlin, Germany],
-      email: "haug@typst.app"
+      name: "John Smith",
+      department: [Sample],
+      organization: [Placeholder],
+      location: [Somewhere],
+      email: "name@domain.com"
     ),
-    (
-      name: "Laurenz Mädje",
-      department: [Co-Founder],
-      organization: [Typst GmbH],
-      location: [Berlin, Germany],
-      email: "maedje@typst.app"
-    ),
+    
   ),
   index-terms: ("Scientific writing", "Typesetting", "Document creation", "Syntax"),
   bibliography: bibliography("refs.bib"),
