@@ -29,7 +29,7 @@
   place-of-work: "",
   supervisor: "",
   advisor: "",
-  startDate: none,
+  start-date: none,
   submission-date: none,
 ) = {
 
@@ -77,7 +77,7 @@
         strong("Place of Work: "), place-of-work,
         strong("Supervisor: "), supervisor,
         strong("Advisor: "), advisor,
-        strong("Start Date: "), startDate,
+        strong("Start Date: "), start-date,
         strong("Submission Date: "), submission-date,
       )
     )
@@ -93,7 +93,7 @@
         strong("Matriculation Number: "), matriculation-number,
         strong("Place of Work: "), place-of-work,
         strong("Supervisor: "), supervisor,
-        strong("Start Date: "), startDate,
+        strong("Start Date: "), start-date,
         strong("Submission Date: "), submission-date,
       )
     )

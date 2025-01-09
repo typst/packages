@@ -9,6 +9,6 @@
 #let place-of-work = "ABC"
 #let supervisor = "Prof Dr. Max Mustermann"
 #let advisor = "Prof Dr. John Doe"
-#let startDate = "01.03.2024"
+#let start-date = "01.03.2024"
 #let submission-date = "31.08.2024"
 #let place = "Karlsruhe"

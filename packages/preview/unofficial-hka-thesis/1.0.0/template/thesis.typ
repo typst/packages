@@ -30,7 +30,7 @@
   place-of-work: place-of-work,
   supervisor: supervisor,
   advisor: advisor,
-  startDate: startDate,
+  start-date: start-date,
   submission-date: submission-date,
 )
 
