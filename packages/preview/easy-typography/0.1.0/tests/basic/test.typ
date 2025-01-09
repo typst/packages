@@ -6,7 +6,7 @@
 #codly(languages: codly-languages)
 
 #show: easy-typography.with(
-  fonts: (heading: "Source Sans Pro", body: "Source Serif Pro"),
+  fonts: (heading: "Source Sans 3", body: "Source Serif 4"),
 )
 
 = Introducing Easy Typography

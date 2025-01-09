@@ -45,11 +45,11 @@
     hyphenate: true,
     kerning: true,
     ligatures: true,
-    number-type: "lining",
     number-width: "proportional",
+    // number-type: "lining", // commented: intentionally left up to the font to choose
   )
 
-  #show table: set text(number-width: "tabular")
+  show table: set text(number-width: "tabular")
 
   /// Top-heavy easing function for heading sizes/spacing.
   ///
