@@ -1,7 +1,7 @@
 #import "../src/mantys.typ": *
 #import "../src/_api.typ" as mantys-api
 #import "../src/core/schema.typ" as s
-#import "assets.typ": assets
+#import "_assets.typ": assets
 
 #let show-module(name, scope: (:), ..tidy-args) = tidy-module(
   name,
@@ -23,8 +23,8 @@
 
 #import "@preview/swank-tex:0.1.0": TeX, LaTeX
 
-#let CNLTX = package("CNLTX")
-#let TIDY = package("Tidy")
+#show "CNLTX": package
+#show "TIDY": _ => package("Tidy")
 
 #show: mantys(
   ..toml("../typst.toml"),
@@ -35,12 +35,13 @@
   abstract: [
     MANTYS is a Typst template to help package and template authors write beautiful and useful manuals. It provides functionality for consistent formatting of commands, variables and source code examples. The template automatically creates a table of contents and a command index for easy reference and navigation.
 
-    For even easier manual creation, MANTYS works well with #TIDY, the Typst docstring parser.
+    For even easier manual creation, MANTYS works well with TIDY, the Typst docstring parser.
 
-    The main idea and design were inspired by the #LaTeX package #CNLTX by #name[Clemens Niederberger].
+    The main idea and design were inspired by the #LaTeX package CNLTX by #name[Clemens Niederberger].
   ],
 
   show-index: false,
+  wrap-snippets: true,
 
   git: git-info(file => read(file)),
 
@@ -62,6 +63,7 @@
     ),
     imports: (mantys: "*"),
   ),
+
   assets: assets,
 )
 
@@ -74,7 +76,7 @@ This manual is a complete reference of all of MANTYS features. The source file o
 
 == Acknowledgements
 
-Mantys was inspired by the fantastic #LaTeX package #link("https://ctan.org/pkg/cnltx")[#CNLTX] by #name[Clemens Niederberger]#footnote[#link("*mailto:clemens@cnltx.de", "clemens@cnltx.de")].
+Mantys was inspired by the fantastic #LaTeX package #link("https://ctan.org/pkg/cnltx")[CNLTX] by #name[Clemens Niederberger]#footnote[#link("*mailto:clemens@cnltx.de", "clemens@cnltx.de")].
 
 Thanks to #github-user("tingerrr") and others for contributing to this package and giving feedback.
 
@@ -83,7 +85,7 @@ Thanks to #github-user("Mc-Zen") for developing #github("Mc-Zen/tidy").
 == Dependencies
 
 MANTYS is build using some of the great packages provided by the Typst community:
-#columns(3)[
+#balanced-cols(3, clearance: .05pt)[
   #let import-data = read("../src/_deps.typ")
   #for imp in import-data.split("\n") {
     if imp != "" {
@@ -97,7 +99,7 @@ MANTYS is build using some of the great packages provided by the Typst community
 
 == Some Terminology
 
-Since MANTYS was first developed as a port of #CNLTX, some terms used are derived from the original #LaTeX package.
+Since MANTYS was first developed as a port of CNLTX, some terms used are derived from the original #LaTeX package.
 
 Functions are called "commands" and paramteres "arguments". This has the benefit of avoiding collisions with the native #typ.t.function type.
 
@@ -125,7 +127,14 @@ Your project folder should look something like this:
   └── typst.toml
   ```]
 
-Open `docs/manual.typ` in your editor, delete the arguments in the #cmd-[mantys] call at the top from #arg[name] to #arg[respository]. Then uncomment the line ```..toml("../typst.toml"),```.
+```
+.
+├── docs
+│   └── manual.typ
+└── typst.toml
+```
+
+Open `docs/manual.typ` in your editor, delete the arguments in the @cmd:mantys[-] call at the top from #arg[name] to #arg[respository]. Then uncomment the line ```..toml("../typst.toml"),```.
 
 The top of your manual should look like this:
 #sourcecode[```typ
@@ -140,12 +149,12 @@ All uppercase occurrences of #arg[name] will be highlighted as a package name. F
 
 Start writing your manual.
 
-If you alread use #TIDY to document your functions, use @cmd:tidy-module to parse and display a module directly in MANTYS:
+If you alread use TIDY to document your functions, use @cmd:tidy-module to parse and display a module directly in MANTYS:
 #sourcecode[```typ
-  #tidy-module("utils", read("../src/lib/utils.typ"))
+  TIDY-module("utils", read("../src/lib/utils.typ"))
   ```]
 
-Read @subsec:using-tidy for more details about using #TIDY with MANTYS.
+Read @subsec:using-tidy for more details about using TIDY with MANTYS.
 
 = Usage <sec:usage>
 
@@ -182,9 +191,9 @@ MANTYS' defaults are configured with this structure in mind and will let you eas
 
 == Initializing the template <sec:init>
 
-After importing MANTYS the template is initialized by applying a show rule with the #cmd[mantys] command.
+After importing MANTYS the template is initialized by applying a show rule with the @cmd:mantys command.
 
-#cmd-[mantys] requires some information to setup the template with an initial title page. Most of the information can be read directly from the `typst.toml` of your package:
+@cmd:mantys[-] requires some information to setup the template with an initial title page. Most of the information can be read directly from the `typst.toml` of your package:
 ```typ
 #show: mantys(
 	..toml("../typst.toml"),
@@ -193,7 +202,7 @@ After importing MANTYS the template is initialized by applying a show rule with 
 ```
 
 #info-alert[Change the path to the `typst.toml` file according to your project structure.]
-#warning-alert[Note that since #version(1,0,0) @cmd:mantys no longer requires the use of #builtin[with].]
+#warning-alert[Note that since #version(1,0,0) @cmd:mantys no longer requires the use of #typ.with.]
 
 #command(
   "mantys",
@@ -272,7 +281,7 @@ The following keys can be passed to @cmd:mantys:
 ]
 
 #argument("examples-scope", default: (:), command: "mantys")[
-  Default scope for code examples. The examples scope is a #typ.t.dict with two keys: `scope` and `imports`. The `scope` is passed to #builtin[eval] for evaluation. `imports` maps module names to a set of imports that should be prepended to example code as a preamble.
+  Default scope for code examples. The examples scope is a #typ.t.dict with two keys: `scope` and `imports`. The `scope` is passed to #typ.eval for evaluation. `imports` maps module names to a set of imports that should be prepended to example code as a preamble.
 
   *Schema*:
   #schema(
@@ -296,7 +305,7 @@ The following keys can be passed to @cmd:mantys:
     )
     ```]
 
-  The #arg[scope] and #arg[imports] are passed to #TIDY for evaluating docstring examples.
+  The #arg[scope] and #arg[imports] are passed to TIDY for evaluating docstring examples.
 
   For further details refer to @sec:showing-examples and @cmd:example.
 ]
@@ -312,7 +321,7 @@ The following keys can be passed to @cmd:mantys:
 #argument("git", types: ("dictionary",), command: "mantys")[
   MANTYS can show information about the current commit in the manuals footer. This is useful if you compile your manual with a CI workflow like GitHub Actions.
 
-  The git information is read with the @cmd:git-info command. To allow MANTYS to read local files from your project you need to provide a reader function to #cmd-[git-info].
+  The git information is read with the @cmd:git-info command. To allow MANTYS to read local files from your project you need to provide a reader function to @cmd:git-info[-].
 
   ```typ
   #mantys(
@@ -458,7 +467,7 @@ The usual way to access the @type:document is by calling one of the #module[docu
 
 ==== Custom initialization
 
-Instead of using @cmd:mantys in a #builtin[show] rule, you can initialize MANTYS using @cmd:mantys-init directly (#cmd-[mantys] essentially is a shortcut for using #cmd-[mantys-init]).
+Instead of using @cmd:mantys in a #typ.show rule, you can initialize MANTYS using @cmd:mantys-init directly (@cmd:mantys[-] essentially is a shortcut for using @cmd:mantys-init[-]).
 
 #command("mantys-init", ret: array)[
   Calling this function will return a tuple with two elements:
@@ -482,9 +491,9 @@ Calling @cmd:mantys-init directly will give you direct access to the @type:docum
 
 == Using Tidy <subsec:using-tidy>
 
-MANTYS was build with #TIDY in mind and replaces the default template used by #TIDY. If you already use docstrings to document your code, you can easily show your function documentation in your MANTYS manual.
+MANTYS was build with TIDY in mind and replaces the default template used by TIDY. If you already use docstrings to document your code, you can easily show your function documentation in your MANTYS manual.
 
-@cmd:tidy-module is the main entrypoint for using #TIDY in MANTYS. The command will call #cmd(module:"tidy")[parse-module] and #cmd(module:"tidy")[show-module] for you and setup MANTYS as the template.
+@cmd:tidy-module is the main entrypoint for using TIDY in MANTYS. The command will call #cmd(module:"tidy")[parse-module] and #cmd(module:"tidy")[show-module] for you and setup MANTYS as the template.
 
 Since MANTYS can't read your packages files, you need to call #typ.read and pass the result to the function (same as you would do for #cmd-(module:"tidy")[parse-module]).
 
@@ -508,7 +517,7 @@ For easier usage it is recommended to define a custom function in the header of 
 See @sec:commands for an example of the result of @cmd:tidy-module.
 
 #info-alert[
-  When using #TIDY, most MANTYS concepts also apply to docstrings. For example, cross-referencing commands is done with the `cmd:` prefix. All MANTYS commands like @cmd:arg or @cmd:property are available in docstring.
+  When using TIDY, most MANTYS concepts also apply to docstrings. For example, cross-referencing commands is done with the `cmd:` prefix. All MANTYS commands like @cmd:arg or @cmd:property are available in docstring.
 ]
 
 == Documenting custom types and validation schemas
@@ -529,7 +538,7 @@ A custom type can appear anyplace in the manual where a data type can appear, li
 
 Place a custom type anchor with the @cmd:custom-type command.
 
-#command("custom-type", arg("name"), arg(color: auto))[
+#command("custom-type", arg("name"), arg(color: auto), label: none)[
   Places a custom type anchor in the document. Any occurrences of the data type #arg[name] will link to this location in the manual. THe anchor itself is invisible.
 ]
 
@@ -540,11 +549,11 @@ If your custom type is defined by a dictionary schema, you cann simply pass an e
 
 @cmd:schema also accepts a #universe("valkyrie") validation schema.
 
-#command("schema", arg("name"), arg("definition"), arg(color: auto))[
+#command("schema", arg("name"), arg("definition"), arg(color: auto), label: none)[
 
 ]
 
-#info-alert[
+#warning-alert[
   Support for #package[valkyrie] schemas is still in development. Some aspects (like optional keys) are not yet supported.
 ]
 
@@ -564,7 +573,7 @@ You can use the builtin `@` short-syntax for referencing commands, arguments and
   [Use the `type` prefix to reference custom types in the manual or use @cmd:typeref.], example[`@type:custom-type`],
 )
 
-Referencing a command will create an index entry. To prevent this, add `[-]` as a supplement. If #arg[index-references] was set to #typ.v.false, no index entries are created by default but by adding `[+]` to a reference it will be.
+Referencing a command will create an index entry. To prevent this, add `[-]` as a supplement. If @cmd:mantys.index-references was set to #typ.v.false, no index entries are created by default but adding `[+]` to a reference will set one.
 
 ```side-by-side
 @cmd:utils:dict-get[-]
@@ -572,7 +581,7 @@ Referencing a command will create an index entry. To prevent this, add `[-]` as 
 @cmd:mantys.index-references[+]
 ```
 
-Referencing the builtin commands and types can be done via the @cmd:builtin and #cmd[dtype] commands. For these cases MANTYS also provides shortcuts in the #var-("typ") dictionary.
+Referencing the builtin commands and types can be done via the @cmd:builtin and @cmd:dtype commands. For these cases MANTYS also provides shortcuts in the #var-("typ") dictionary.
 
 - #ex(`#typ.raw`)
 - #ex(`#typ.t.dict`)
@@ -580,7 +589,7 @@ Referencing the builtin commands and types can be done via the @cmd:builtin and 
 
 See @sec:shortcuts for a full list of available shortcuts.
 
-== Showing examples <sec:showing-examples>
+== Displaying examples <sec:showing-examples>
 
 Showing examples is easy by using the #link(<sec:examples>, "example commands"). Wrapping any typst code in @cmd:example or @cmd:side-by-side will show the raw code and the evaluated result in a @cmd:frame.
 
@@ -588,7 +597,7 @@ Showing examples is easy by using the #link(<sec:examples>, "example commands").
   @cmd:side-by-side is an alias for @cmd:example with #arg(side-by-side: true) set.
 ]
 
-By default, any #typ.raw blocks with the language set to `example` or `side-by-side` will automatically wrapped inside the corresponding command.
+By default, any #typ.raw blocks with the language set to `example` or `side-by-side` will automatically be wrapped inside the corresponding command.
 
 #example[````typ
   ```example
@@ -600,6 +609,30 @@ By default, any #typ.raw blocks with the language set to `example` or `side-by-s
   ```
   ````]
 
+#info-alert[
+  To show an example with fenced #typ.raw code, use more than three backticks for the example environment:
+  `````typ
+  ````example
+  ```typ
+  #let number = 4
+  ```
+  ````
+  `````
+]
+
+=== Preventing example evaluation
+
+Sometimes you don't want the example to be evaluated by Typst and provide the result yourself. In that case, simply add another content block after the example code:
+
+````example
+#example[
+  ```typ
+  Some #strong[bold] text?
+  ```
+][
+  Some #emph[bold] text?
+]
+````
 
 === Setting the evaluation scope <subsec:evaluation-scope>
 
@@ -614,7 +647,7 @@ The #arg[scope] passed to @cmd:example[-] is merged with the `scope` from #arg[e
 The #arg[imports] are parsed into a preamble by @cmd:utils:build-preamble. The value is a #typ.t.dict with `(module: import)` pairs that are prepended to the raw code of the example:
 #example[```typ
     #utils.add-preamble(
-      "#rawi[Some] #cmd[command].",
+      "#rawi[Some] @cmd:command.",
       (
         mantys: "cmd",
         utils: "rawi",
@@ -622,7 +655,40 @@ The #arg[imports] are parsed into a preamble by @cmd:utils:build-preamble. The v
     )
   ```]
 
-The @cmd:mantys.examples-scope is passed to #TIDY for evaluating examples in docstrings.
+The @cmd:mantys.examples-scope is passed to TIDY for evaluating examples in docstrings.
+
+=== Displaying other sourcecode
+
+Any #typ.raw code will be passed to #universe("codly") for display. You can pass new defaults to #package[CODLY] via the #cmd(module:"codly")[codly] command.
+
+#example[```typ
+  Some `raw` code
+  over *multiple*
+  lines.
+  ```][
+  #codly.local(```typ
+  Some `raw` code
+  over *multiple*
+  lines.
+  ```)
+]
+
+To modify the display you can wrap the #typ.raw block inside the @cmd:codesnippet[-] or @cmd:sourcecode[-] commands. By default both commands add a @cmd:frame around the content.
+
+@cmd:codesnippet can be used for small snippets of code like the `typst init` line seen in @sec:usage. The command disables line numbers. Any arguments will be passed to #cmd(module:"codly", "local").
+
+#info-alert[
+  Previous versions of MANTYS would wrap any #typ.raw block inside @cmd:codesnippet[-]. This was changed to allow more flexibility when showing code. To enable the old behaviour, pass #arg(wrap-snippets: true) to @cmd:mantys[-].
+]
+
+@cmd:sourcecode will wrap the #typ.raw block in a frame for nicer display.
+
+#example[````typ
+  #sourcecode[```typ
+  #let a = "Hello"
+  #strong(a), World!
+  ```]
+  ````]
 
 = Customizing the template <sec:customize>
 
@@ -657,41 +723,52 @@ Some themes can be further customized by options that get passed to @cmd:mantys 
 
 ==== Typst theme <subsec:theme-default>
 #grid(
-  columns: 2,
+  columns: (1fr, 50%),
   column-gutter: 5%,
-  [The default theme for MANTYS. Based on the Typst documentation and website.],
-  frame(arg(theme: "default", _value: theme-var)),
+  [
+    The default theme for MANTYS. Based on the Typst documentation and website.
+    #frame(arg(theme: "default", _value: theme-var))
+    #text(.88em)[Example: This manual.]
+  ],
+  image("assets/examples/theme-typst.png", width: 100%),
 )
-#align(center, image("assets/examples/theme-typst.png", height: 30%))
 
 ==== Modern theme
 #grid(
-  columns: 2,
+  columns: (1fr, 50%),
   column-gutter: 5%,
-  [A slightly more modern theme for the digital age. Based on the #link("https://creativecommons.org/2019/10/30/cc-style-guide/", [Creative Commons Style Guide]).],
-  frame(arg(theme: "modern", _value: theme-var)),
+  [
+    A slightly more modern theme for the digital age. Based on the #link("https://creativecommons.org/2019/10/30/cc-style-guide/", [Creative Commons Style Guide]).
+    #frame(arg(theme: "modern", _value: theme-var))
+    #text(.88em)[Example: The manual for #universe("finite").]
+  ],
+  image("assets/examples/theme-modern.png", width: 100%),
 )
-#align(center, image("assets/examples/theme-modern.png", height: 30%))
 
 ==== CNLTX theme <subsubsec:theme-cnltx>
 #grid(
-  columns: 2,
+  columns: (1fr, 50%),
   column-gutter: 5%,
-  [This theme is based on the original #CNLTX template.], frame(arg(theme: "cnltx", _value: theme-var)),
+  [
+    This theme is based on the original CNLTX template.
+    #frame(arg(theme: "cnltx", _value: theme-var))
+  ],
+  image("assets/examples/theme-cnltx.png", width: 100%),
 )
-#align(center, image("assets/examples/theme-cnltx.png", height: 30%))
 
 ==== O'Rly#super[?] theme
 #grid(
-  columns: 2,
+  columns: (1fr, 50%),
   column-gutter: 5%,
-  [This theme uses the #universe("fauxreilly") package to create a style similar to an O'Reilly book.],
-  frame(arg(theme: "orly", _value: theme-var)),
+  [
+    This theme uses the #universe("fauxreilly") package to create a style similar to an O'Reilly book.
+    #frame(arg(theme: "orly", _value: theme-var))
+  ],
+  image("assets/examples/theme-orly.png", width: 100%),
 )
-#align(center, image("assets/examples/theme-orly.png", height: 30%))
 
 ===== Theme Options
-#argument("pic", types: content)[
+#argument("title-image", types: content)[
   #typ.content to be passed to the #arg[pic] argument of #cmd-("orly", module:"fauxreilly").
 ]
 
@@ -737,7 +814,7 @@ MANTYS adds an index of all commands and custom types to the end of the manual. 
 
 === Adding entries to the index
 
-Using #cmd[idx] you can add new entries to the index. Entries may be categorized by #arg[kind]. Commands have #arg(kind: "cmd") set and custom types #arg(kind: "type"). You may add arbitrary new types. If your package handles colors, you may want to add a "color" category like this:
+Using @cmd:idx you can add new entries to the index. Entries may be categorized by #arg[kind]. Commands have #arg(kind: "cmd") set and custom types #arg(kind: "type"). You may add arbitrary new types. If your package handles colors, you may want to add a "color" category like this:
 ```typc
 idx("red", kind: "color")
 ```
@@ -793,6 +870,7 @@ Index entries are defined by a #arg[term] and a #arg[kind] that groups terms.
   Commands: "api/commands",
   Types: "api/types",
   Values: "api/values",
+  Links: "api/links",
   Elements: "api/elements",
   Examples: "api/examples",
   Icons: "api/icons",
@@ -809,7 +887,7 @@ Index entries are defined by a #arg[term] and a #arg[kind] that groups terms.
 
 The #var("typ") dictionary is a shortcut to the common Typst builtin functions, types (#var("typ.t")) and values (#var("typ.v")).
 
-=== Shortcuts for builtin commands
+=== Shortcuts for builtin commands <subsec:shortcuts-builtins>
 #balanced-cols(
   3,
   {
@@ -822,7 +900,7 @@ The #var("typ") dictionary is a shortcut to the common Typst builtin functions, 
   },
 )
 
-=== Shortcuts for builtin types
+=== Shortcuts for builtin types <subsec:shortcuts-types>
 #balanced-cols(
   3,
   {
@@ -833,7 +911,7 @@ The #var("typ") dictionary is a shortcut to the common Typst builtin functions, 
   },
 )
 
-=== Shortcuts for builtin values
+=== Shortcuts for builtin values <subsec:shortcuts-values>
 #balanced-cols(
   3,
   {

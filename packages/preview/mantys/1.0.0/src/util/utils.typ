@@ -123,6 +123,73 @@
   }
 }
 
+/// Creates a #typ.version object from the supplied arguments. #arg[args] can
+/// be a string with a version in dot-notation.
+/// - #ex(`#utils.ver(1,2,3)`)
+/// - #ex(`#utils.ver("1.2.3")`)
+/// - #ex(`#utils.ver("1.2", 3)`)
+/// -> version
+#let ver(
+  /// -> int | array | str
+  ..args,
+) = {
+  if args.pos() == () {
+    return version(0)
+  }
+
+  version(
+    ..args
+      .pos()
+      .map(v => {
+        if type(v) == version {
+          array(v)
+        } else if type(v) == str {
+          v.split(".")
+        } else {
+          v
+        }
+      })
+      .flatten()
+      .map(int),
+  )
+}
+
+
+#let _unreserved = (
+  (
+    "-",
+    "_",
+    ".",
+    "~",
+  )
+    + range(10).map(str)
+    + range(65, 65 + 26).map(str.from-unicode)
+    + range(97, 97 + 26).map(str.from-unicode)
+)
+
+#let to-hex(i) = {
+  let _hex-digits = "0123456789ABCDEF"
+
+  "%" + _hex-digits.at(i.bit-rshift(4).bit-and(0x0F)) + _hex-digits.at(i.bit-and(0x0F))
+}
+
+#let encode-char(char) = if char not in _unreserved {
+  array(bytes(char)).map(to-hex).join()
+} else {
+  char
+}
+
+/// URL-encode a string.
+///
+/// - #ex(`#utils.url-encode("ä b ß")`)
+///
+/// -> str
+#let url-encode(t) = {
+  t.codepoints().map(encode-char).join()
+}
+
+
+
 /// Displays #arg[code] as inline #typ.raw code (with #arg(inline: true)).
 /// - #ex(`#utils.rawi("my-code")`)
 /// -> content

@@ -86,9 +86,12 @@
       } else {
         ",\n  "
       })
-      if not inline-args {
-        "\n"
-      } + ")"
+      (
+        if not inline-args {
+          "\n"
+        }
+          + ")"
+      )
       if fn.return-types != none {
         box[~-> #fn.return-types.map(x => show-type(x)).join(" ")]
       }
@@ -155,21 +158,25 @@
   [
     #api.command(
       fn.name,
-      ..fn.args.pairs().map(((a, info)) => {
-        if a.starts-with("..") {
-          api.sarg(a.slice(2))
-        } else if "types" in info and info.types == ("content",) and "default" not in info {
-          api.barg(a)
-        } else {
-          if "default" in info {
-            api.arg(a, info.default, _value: api.value.with(parse-str: true))
+      ..fn
+        .args
+        .pairs()
+        .map(((a, info)) => {
+          if a.starts-with("..") {
+            api.sarg(a.slice(2))
+          } else if "types" in info and info.types == ("content",) and "default" not in info {
+            api.barg(a)
           } else {
-            api.arg(a)
+            if "default" in info {
+              api.arg(a, info.default, _value: api.value.with(parse-str: true))
+            } else {
+              api.arg(a)
+            }
           }
-        }
-      }),
+        }),
       ret: fn.return-types,
       module: fn.at("module", default: none),
+      label: style-args.enable-cross-references,
       {
         descr
 

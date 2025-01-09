@@ -110,8 +110,14 @@
       zebra-fill: none,
       stroke: none,
     )
-    // show raw.where(block: true): codesnippet
-    show raw.where(block: true): set par(justify: false)
+    show raw.where(block: true): it => {
+      set par(justify: false)
+      if doc.wrap-snippets {
+        codesnippet(it)
+      } else {
+        it
+      }
+    }
     show raw.where(lang: "example"): example
     show raw.where(lang: "side-by-side"): side-by-side
 

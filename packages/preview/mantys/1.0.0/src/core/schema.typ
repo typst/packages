@@ -160,6 +160,7 @@
     show-outline: t.boolean(default: true),
     show-urls-in-footnotes: t.boolean(default: true),
     index-references: t.boolean(default: true),
+    wrap-snippets: t.boolean(default: false),
     examples-scope: t.dictionary(
       (
         scope: t.dictionary((:)),

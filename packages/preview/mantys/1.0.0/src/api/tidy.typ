@@ -27,7 +27,7 @@
 }
 
 
-///  Parses and displays a library file with #package("Tidy").
+/// Parses and displays a library file with #package("Tidy").
 /// #sourcecode[```typ
 ///  #tidy-module("utils", read("../src/lib/utils.typ"))
 /// ```]

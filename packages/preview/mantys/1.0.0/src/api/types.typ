@@ -118,6 +118,7 @@
 
 /// Creates a colored box for a type, similar to those on the Typst website.
 /// - #ex(`#type-box("color", red)`)
+/// -> content
 #let type-box(
   /// Name of the type.
   /// -> str
@@ -139,9 +140,24 @@
 
 /// Test if #arg[name] was registered as a custom type.
 /// #property(requires-context: true)
-#let is-custom-type(name) = query(label("mantys:custom-type-" + name)) != ()
+/// -> bool
+#let is-custom-type(
+  /// Name to check.
+  /// -> str
+  name,
+) = query(label("mantys:custom-type-" + name)) != ()
 
-#let link-custom-type(name) = context {
+
+/// Displays a type link to the custom type #arg[name], if that
+/// name is registered as a @cmd:custom-type in the manual.
+/// - #ex(`#link-custom-type("document")`)
+/// - #ex(`#link-custom-type("theme")`)
+/// -> content
+#let link-custom-type(
+  /// Name of the custom type.
+  /// -> str
+  name,
+) = context {
   let _q = query(label("mantys:custom-type-" + name))
   if _q != () {
     let custom-type = _q.first()
@@ -155,8 +171,31 @@
   }
 }
 
-// TODO: (jneug) parse types like "array[str]"
-#let dtype(name, link: true) = context {
+
+/// Displays a type link to the type #arg[name]. #arg[name] can
+/// either be a #link(<subsec:shortcuts-types>, "builtin type") or a registered @type:custom-type.
+///
+/// Builtin types are linked to the official Typst reference documentation. Custom types to their location in the manual.
+/// Some builtin types can be referenced by aliases like `dict` for `dictionary`.
+///
+/// If #arg[name] is given as a #typ.t.str it is taken as the name of the type. If #arg[name] is a #typ.type or any other value, the type of the value is displayed.
+///
+/// - #ex(`#dtype("string")`)
+/// - #ex(`#dtype("dict")`)
+/// - #ex(`#dtype(1.0)`)
+/// - #ex(`#dtype(true)`)
+/// - #ex(`#dtype("document")`)
+/// -> content
+#let dtype(
+  /// Name of the type.
+  /// -> any
+  name,
+  /// If the type should be linked to the Typst documentation or the location of the custom type.
+  /// Set to #typ.v.false to disable linking.
+  /// -> bool
+  link: true,
+) = context {
+  // TODO: (jneug) parse types like "array[str]"
   let _type
   if is.type(name) or is._auto(name) or is._none(name) {
     _type = name
@@ -178,11 +217,20 @@
   return links.link-dtype(_type, type-box(_type, _type-colors.at(_type)))
 }
 
-/// Creates a list of datatypes.
-#let dtypes(..types, link: true, sep: box(inset: (left: 1pt, right: 1pt), sym.bar.v)) = {
+/// Creates a list of datatypes. Each value in
+/// #sarg[types] is passed to @cmd:dtype.
+/// - #ex(`#dtypes(int, str, "theme", "dict")`)
+/// - #ex(`#dtypes(int, float, sep: ", ")`)
+/// -> content
+#let dtypes(
+  ..types,
+  link: true,
+  sep: box(inset: (left: 1pt, right: 1pt), sym.bar.v),
+) = {
   types.pos().map(dtype.with(link: link)).join(sep)
 }
 
+/// Registers a custom type.
 #let custom-type(name, color: auto) = [
   #metadata((name: name, color: color))
   #label("mantys:custom-type-" + name)
@@ -229,6 +277,7 @@
 }
 
 // TODO: Merge with #custom-type ?
+/// Registeres a schema as a @type:custom-type.
 #let schema(name, definition, color: auto, ..args) = {
   assert(is.dict(definition))
 
