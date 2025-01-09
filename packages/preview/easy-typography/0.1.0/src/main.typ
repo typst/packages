@@ -1,10 +1,12 @@
 #import "constants.typ": *
 
 /// The main function for easy typography setup.
-/// - body-size: The size of body text (default 10pt).
-/// - fonts: A dictionary specifying heading/body fonts.
-/// - paper: The paper size to use (none to skip).
-/// - margin: Margin for the page (none to skip).
+///
+/// - body-size (): The size of body text (default 10pt).
+/// - fonts (): A dictionary specifying heading/body fonts.
+/// - paper (str): The paper size to use (none to skip).
+/// - margin (): Margin for the page (none to skip).
+/// -> content
 #let easy-typography(
   body-size: 10pt,
   fonts: (heading: "Libertinus Sans", body: "Libertinus Serif"),
