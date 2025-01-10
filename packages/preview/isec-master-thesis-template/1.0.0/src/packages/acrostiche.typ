@@ -1,7 +1,9 @@
 // Acrostiche package for Typst
 // Author: Grizzly
+// License: MIT
+// https://typst.app/universe/package/acrostiche
 
-// DOWNSTREAM VERSION WITH "SHOWING USAGE PAGES" FEATURE
+// Downstream version with extra patches
 // TODO: upstream patches
 // Patches: ecomaikgolf
 

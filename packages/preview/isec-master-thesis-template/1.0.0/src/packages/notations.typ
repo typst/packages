@@ -1,8 +1,9 @@
-// notattiche package for Typst
+// Acrostiche package for Typst
 // Author: Grizzly
+// License: MIT
+// https://typst.app/universe/package/acrostiche
 
-// DOWNSTREAM VERSION WITH "SHOWING USAGE PAGES" FEATURE
-// TODO: upstream patches
+// Downstream version with extra patches and rename to notation
 // Patches: ecomaikgolf
 
 #let notat = state("notations",none)
