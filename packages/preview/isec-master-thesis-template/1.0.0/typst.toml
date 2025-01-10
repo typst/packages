@@ -1,0 +1,16 @@
+[package]
+name = "isec-master-thesis-template"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["Ernesto Martínez <https://ecomaikgolf.com>"]
+license = "MIT"
+description = "ISEC TUGraz Master's Thesis Template"
+repository = "https://github.com/ecomaikgolf/typst-isec-master-thesis-template/"
+categories = ["thesis"]
+disciplines = ["computer-science", "engineering"]
+keywords = ["ISEC", "Institute of Information Security", "IAIK", "TUGraz", "Graz University of Technology", "thesis", "template", "Master Thesis"]
+compiler = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
