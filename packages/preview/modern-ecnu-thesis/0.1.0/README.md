@@ -13,7 +13,7 @@
 
 对于研究生，我们参考华东师范大研究生院于 2023 年发布的[华东师范大学博士、硕士学位论文基本格式要求](https://yjsy.ecnu.edu.cn/8e/62/c42090a429666/page.htm)；对于本科生，我们参考华东师范大学教务处于 2021 年更新的[华东师范大学本科生毕业论文（设计）格式要求](http://www.jwc.ecnu.edu.cn/d4/be/c40573a513214/page.htm)。格式适配于 2025 年初，后续使用的同学请留意参考校方的最新通知。
 
-![1736402244686](https://jtchen.s3.ap-northeast-1.amazonaws.com/v1/img/2025/01/08/1736402244686.png)
+![1736471485839](https://jtchen.s3.ap-northeast-1.amazonaws.com/v1/img/2025/01/09/1736471485839.png)
 
 在这里可以找到硕士学位论文的示例文档：[thesis.pdf](https://github.com/jtchen2k/modern-ecnu-thesis/releases/download/0.1.0/thesis.pdf)。
 
@@ -21,7 +21,7 @@
 
 ### 在 VSCode 中本地编辑（推荐）
 
-首先请确保安装的 typst 版本 >= 0.12.0，
+首先请确保安装的 typst 版本 >= 0.12.0。
 
 #### 从 Typst Universe 获取模板
 
@@ -61,7 +61,7 @@ ln -s </path/to/modern-ecnu-thesis> $DATA_DIR/typst/packages/preview/modern-ecnu
 
 在 Typst Web App 中选择 `Start from template`，随后搜索 `modern-ecnu-thesis` 即可开始使用。
 
-为了在 Web 编辑器中正确显示字体，你需要将[这里](https://github.com/jtchen2k/modern-ecnu-thesis/tree/main/fonts/)的字体文件上传到 Typst Web App。
+为了在 Web 编辑器中正确显示字体，你需要将[这里](https://github.com/jtchen2k/modern-ecnu-thesis/tree/main/fonts)的字体文件上传到 Typst Web App。
 
 ## Tips
 
