@@ -7,7 +7,7 @@ This template is designed for efficient and organized note-taking with Typst. It
 ## Usage
 
 ```typ
-#import "@preview/xyznote:1.0.0": *
+#import "@preview/xyznote:0.3.0": *
 
 #show: xyznote.with(
   title: "xyznote",
@@ -16,7 +16,7 @@ This template is designed for efficient and organized note-taking with Typst. It
   createtime: "2024-11-27",
   lang: "zh",
   bibliography-style: "ieee",
-    preface: [], //Annotate this line to delete the preface page.
+  preface: [], //Annotate this line to delete the preface page.
   bibliography-file: bibliography("refs.bib"), //Annotate this line to delete the bibliography page.
 )
 ```
