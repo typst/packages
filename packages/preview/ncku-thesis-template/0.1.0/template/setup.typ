@@ -1,4 +1,4 @@
-#import "../lib.typ": setup
+#import "@preview/ncku-thesis-template:0.1.0": setup
 
 /*
  * WARN:
