@@ -36,6 +36,6 @@
 }
 
 /// Gets individual chord string
-#let get-chord(name, n: 0, tuning: default-tuning, at: none) = {
-  get-chords(name, tuning: tuning, at: at).at(n)
+#let get-chord(name, n: 0, tuning: default-tuning, at: none, true-bass: true) = {
+  get-chords(name, tuning: tuning, at: at, true-bass: true-bass).at(n)
 }
