@@ -2,7 +2,7 @@
 
 // 辅助函数：创建单元格内容
 #let create_cell_content(cell) = {
-  if cell.style == none { return cell.value }
+  if not cell.keys().contains("style") or cell.style == none { return ({}, cell.value) }
 
   let content = cell.value
   let style = cell.style
