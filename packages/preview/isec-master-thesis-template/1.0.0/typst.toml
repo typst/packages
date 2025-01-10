@@ -14,3 +14,4 @@ compiler = "0.12.0"
 [template]
 path = "template"
 entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
