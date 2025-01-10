@@ -4,7 +4,7 @@
  * @project: modern-ecnu-thesis
  * @author: OrangeX4, Juntong Chen (dev@jtchen.io)
  * @created: 2025-01-06 22:37:34
- * @modified: 2025-01-10 01:52:22
+ * @modified: 2025-01-10 01:58:02
 *
  * 华东师范大学学位论文模板
  *    Repo: https://github.com/jtchen2k/modern-ecnu-thesis
@@ -232,7 +232,7 @@
           title-text-args: (font: 字体.黑体, size: 字号.三号, weight: "bold"),
           show-heading: true,
           vspace: (1.2em, 1em),
-          indent: (0em, 2.38em, 2.15em),
+          indent: (0em, 2.38em, 2em, 2.8em),
           ..args,
           fonts: fonts + args.named().at("fonts", default: (:)),
         )
@@ -242,7 +242,7 @@
           title-text-args: (font: 字体.黑体, size: 字号.三号, weight: "bold"),
           vspace: (1.35em, 1.2em),
           weight: ("regular", "regular"),
-          indent: (0em, 2.38em, 2em),
+          indent: (0em, 2.38em, 2em, 2.8em),
           doctype: doctype,
           show-heading: true,
           ..args,

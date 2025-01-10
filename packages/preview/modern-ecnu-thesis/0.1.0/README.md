@@ -6,7 +6,7 @@
 
 - 优化图片与表格的排版
 - 优化页眉排版和页码显示，支持奇偶页
-- 优化目录的缩进与对其
+- 优化目录的缩进与对齐
 - 优化引用格式
 - 优化段落缩进
 - 优化对多行标题 / 院系的处理逻辑
@@ -62,7 +62,7 @@ ln -s </path/to/modern-ecnu-thesis> $DATA_DIR/typst/packages/preview/modern-ecnu
 
 在 Typst Web App 中选择 `Start from template`，随后搜索 `modern-ecnu-thesis` 即可开始使用。
 
-为了在 Web 编辑器中正确显示字体，你需要将这里的字体文件上传到 Typst Web App。
+为了在 Web 编辑器中正确显示字体，你需要将[这里](https://github.com/jtchen2k/modern-ecnu-thesis/tree/main/fonts)的字体文件上传到 Typst Web App。
 
 ## Tips
 
