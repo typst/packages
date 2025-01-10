@@ -17,7 +17,7 @@
 #lorem(5)
 
 #figure(
-  rotate(90deg, image("../images/test.jpg", height: 20%)),
+  rotate(90deg, image("../images/image1.jpg", height: 20%)),
   caption: [This is a simple image],
 )
 
