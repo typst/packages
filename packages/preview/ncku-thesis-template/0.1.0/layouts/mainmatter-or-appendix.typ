@@ -1,12 +1,12 @@
 // Helper function: check whether the current heading is lavel-1 heading
 #let is-chapter-start-page() = {
   // find chapter headings on the current page.
-  let all_level_one_heading = query(heading.where(level: 1))
-  let current_page = here().page()
+  let all-level-one-heading = query(heading.where(level: 1))
+  let current-page = here().page()
   return (
-    all_level_one_heading
+    all-level-one-heading
       .filter(it => {
-        it.location().page() == current_page
+        it.location().page() == current-page
       })
       .len()
       > 0
@@ -14,14 +14,14 @@
 }
 
 // define custom numbering function
-#let custom_numbering_mainmatter(..args) = {
+#let custom-numbering-mainmatter(..args) = {
   if args.pos().len() == 1 {
     "Chapter " + str(args.pos().at(0)) + "."
   } else {
     numbering("1.1.1.", ..args)
   }
 }
-#let custom_numbering_appendix(..args) = {
+#let custom-numbering-appendix(..args) = {
   if args.pos().len() == 1 {
     "Appendix " + numbering("A", args.pos().at(0)) + "."
   } else {
@@ -32,7 +32,7 @@
 /*
  * NOTE: this should be applied to the mainmatter of the thesis/dissertation which excludes the appendix part
  */
-#let mainmatter_or_appendix(mode: (mainmatter: true, appendix: false), doc) = {
+#let mainmatter-or-appendix(mode: (mainmatter: true, appendix: false), doc) = {
   // check mode
   assert(
     (
@@ -43,9 +43,9 @@
   )
 
   // chose custom numbering function type according to mode
-  let custom_numbering(..args) = if mode.mainmatter {
-    custom_numbering_mainmatter(..args)
-  } else { custom_numbering_appendix(..args) }
+  let custom-numbering(..args) = if mode.mainmatter {
+    custom-numbering-mainmatter(..args)
+  } else { custom-numbering-appendix(..args) }
 
   // reset heading counter
   counter(heading).update(0)
@@ -59,19 +59,19 @@
     numbering: "1",
     header: context {
       if not is-chapter-start-page() {
-        let level_1_heading_so_far = query(
+        let level-1-heading-so-far = query(
           heading.where(level: 1).before(here()),
         )
-        let current_chapter_heading = level_1_heading_so_far.last()
+        let current-chapter-heading = level-1-heading-so-far.last()
 
-        // smallcaps([Chapter ] + str(current_chapter_number) + ".")
+        // smallcaps([Chapter ] + str(current-chapter-number) + ".")
         // h(0.75em)
-        // smallcaps(current_chapter_heading.body)
+        // smallcaps(current-chapter-heading.body)
         // display chapter info on the left
         smallcaps(
-          custom_numbering(counter(heading).get().at(0))
+          custom-numbering(counter(heading).get().at(0))
             + " "
-            + current_chapter_heading.body,
+            + current-chapter-heading.body,
         )
         // display page number on the right
         h(1fr)
@@ -93,7 +93,7 @@
     linebreaks: "optimized",
   )
 
-  set heading(numbering: custom_numbering)
+  set heading(numbering: custom-numbering)
 
   // NOTE: heading rule 1 -> apply to all headings except for level-1 heading
   show heading: it => {
@@ -103,19 +103,19 @@
       block(
         width: 100%,
         {
-          let all_prev_headings = query(
+          let all-prev-headings = query(
             selector(heading).before(here(), inclusive: false),
           )
-          if all_prev_headings.len() > 1 {
-            let pre_heading = all_prev_headings.last()
-            let is_same_page = (
-              pre_heading.location().page() == it.location().page()
+          if all-prev-headings.len() > 1 {
+            let pre-heading = all-prev-headings.last()
+            let is-same-page = (
+              pre-heading.location().page() == it.location().page()
             )
-            let is_colse = (
-              pre_heading.location().position().y + 65pt
+            let is-colse = (
+              pre-heading.location().position().y + 65pt
                 >= it.location().position().y
             )
-            if (is_same_page and is_colse) {
+            if (is-same-page and is-colse) {
               v(-30pt)
             }
           }

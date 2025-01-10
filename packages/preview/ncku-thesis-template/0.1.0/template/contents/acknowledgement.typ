@@ -1,9 +1,9 @@
-#import "../setup.typ": make_acknowledge_en, make_acknowledge_zh_tw
+#import "../setup.typ": make-acknowledge-en, make-acknowledge-zh-tw
 
-#make_acknowledge_zh_tw[
+#make-acknowledge-zh-tw[
   #lorem(250)
 ]
 
-#make_acknowledge_en[
+#make-acknowledge-en[
   #lorem(250)
 ]

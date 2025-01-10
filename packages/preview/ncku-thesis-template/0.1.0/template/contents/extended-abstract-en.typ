@@ -1,6 +1,6 @@
-#import "../setup.typ": extended_abstract_en
+#import "../setup.typ": extended-abstract-en
 
-#show: extended_abstract_en.with(
+#show: extended-abstract-en.with(
   summary: [
     #lorem(100)
 

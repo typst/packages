@@ -1,4 +1,4 @@
-#let make_abstract_en(keywords: (), it) = [
+#let make-abstract-en(keywords: (), it) = [
   #set text(12pt)
   #set par(
     leading: 1.2em,
@@ -27,7 +27,7 @@
   #pagebreak()
 ]
 
-#let make_abstract_zh_tw(keywords: (), it) = [
+#let make-abstract-zh-tw(keywords: (), it) = [
   #set text(size: 12pt)
   #set par(
     leading: 1.2em,

@@ -1,100 +1,100 @@
 #import "layouts/whole.typ": whole
-#import "layouts/mainmatter-or-appendix.typ": mainmatter_or_appendix
-#import "layouts/extended-abstract-en.typ": extended_abstract_en
+#import "layouts/mainmatter-or-appendix.typ": mainmatter-or-appendix
+#import "layouts/extended-abstract-en.typ": extended-abstract-en
 #import "pages/cover.typ": *
 // #import "pages/approved-by.typ": *
 #import "pages/abstract.typ": *
-#import "pages/acknowledge.typ": make_acknowledge_en, make_acknowledge_zh_tw
-#import "pages/outline.typ": make_outline
-#import "pages/ref.typ": make_ref
-#import "utils/page-numb.typ": begin_of_roman_page_num, begin_of_arabic_page_num
+#import "pages/acknowledge.typ": make-acknowledge-en, make-acknowledge-zh-tw
+#import "pages/outline.typ": make-outline
+#import "pages/ref.typ": make-ref
+#import "utils/page-numb.typ": begin-of-roman-page-num, begin-of-arabic-page-num
 
 #let setup(
-  in_degree: (master: false, doctor: false),
-  in_institute: "",
-  in_student: (en: "", zh_tw: ""),
-  in_advisor: (en: "", zh_tw: ""),
-  in_coadvisor: (), // it should be a list with one or many two-key dicts which is (en: "", zh_tw: "")
-  in_title: (en: "", zh_tw: ""),
-  in_main_lang: (en: false, zh_tw: false),
-  in_date: (en: "", zh_tw: ""),
+  in-degree: (master: false, doctor: false),
+  in-institute: "",
+  in-student: (en: "", zh-tw: ""),
+  in-advisor: (en: "", zh-tw: ""),
+  in-coadvisor: (), // it should be a list with one or many two-key dicts which is (en: "", zh-tw: "")
+  in-title: (en: "", zh-tw: ""),
+  in-main-lang: (en: false, zh-tw: false),
+  in-date: (en: "", zh-tw: ""),
 ) = {
   // assertions
   assert(
-    in_degree.master or in_degree.doctor,
+    in-degree.master or in-degree.doctor,
     message: "You should set degree correctly!",
   )
-  assert(in_institute != "", message: "You should set institute correctly!")
+  assert(in-institute != "", message: "You should set institute correctly!")
   assert(
-    in_student.en != "" and in_student.zh_tw != "",
+    in-student.en != "" and in-student.zh-tw != "",
     message: "You should set student name correctly!",
   )
   assert(
-    in_advisor.en != "" and in_advisor.zh_tw != "",
+    in-advisor.en != "" and in-advisor.zh-tw != "",
     message: "You should set advisor name correctly!",
   )
   assert(
-    in_title.en != "" and in_title.zh_tw != "",
+    in-title.en != "" and in-title.zh-tw != "",
     message: "You should set title of the thesis/dissertation correctly!",
   )
   assert(
-    in_main_lang.en or in_main_lang.zh_tw,
+    in-main-lang.en or in-main-lang.zh-tw,
     message: "You should set the main language type correctly!",
   )
   // return functions the author need
   return (
     // NOTE: pages
-    make_cover: () => {
-      make_cover(
-        degree: in_degree,
-        institute: in_institute,
-        title: in_title,
-        student: in_student,
-        advisor: in_advisor,
-        coadvisor: in_coadvisor,
+    make-cover: () => {
+      make-cover(
+        degree: in-degree,
+        institute: in-institute,
+        title: in-title,
+        student: in-student,
+        advisor: in-advisor,
+        coadvisor: in-coadvisor,
       )
     },
-    make_abstract_en: (keywords: (), doc) => {
-      make_abstract_en(keywords: keywords, doc)
+    make-abstract-en: (keywords: (), doc) => {
+      make-abstract-en(keywords: keywords, doc)
     },
-    make_abstract_zh_tw: (keywords: (), doc) => {
-      make_abstract_zh_tw(keywords: keywords, doc)
+    make-abstract-zh-tw: (keywords: (), doc) => {
+      make-abstract-zh-tw(keywords: keywords, doc)
     },
-    make_acknowledge_en: doc => {
-      make_acknowledge_en(doc)
+    make-acknowledge-en: doc => {
+      make-acknowledge-en(doc)
     },
-    make_acknowledge_zh_tw: doc => {
-      make_acknowledge_zh_tw(doc)
+    make-acknowledge-zh-tw: doc => {
+      make-acknowledge-zh-tw(doc)
     },
-    make_outline: () => {
-      make_outline()
+    make-outline: () => {
+      make-outline()
     },
-    make_ref: ref => {
-      make_ref(ref: ref)
+    make-ref: ref => {
+      make-ref(ref: ref)
     },
     // NOTE: layouts
     whole: doc => {
-      whole(main_lang: in_main_lang, doc)
+      whole(main-lang: in-main-lang, doc)
     },
-    extended_abstract_en: (summary: [], keywords: (), doc) => {
-      extended_abstract_en(
-        title_en: in_title.en,
-        institute: in_institute,
-        student_en: in_student.en,
-        advisor_en: in_advisor.en,
+    extended-abstract-en: (summary: [], keywords: (), doc) => {
+      extended-abstract-en(
+        title-en: in-title.en,
+        institute: in-institute,
+        student-en: in-student.en,
+        advisor-en: in-advisor.en,
         summary: summary,
         keywords: keywords,
         doc,
       )
     },
-    mainmatter_or_appendix: (mode: (:), doc) => {
-      mainmatter_or_appendix(mode: mode, doc)
+    mainmatter-or-appendix: (mode: (:), doc) => {
+      mainmatter-or-appendix(mode: mode, doc)
     },
-    begin_of_roman_page_num: doc => {
-      begin_of_roman_page_num(doc)
+    begin-of-roman-page-num: doc => {
+      begin-of-roman-page-num(doc)
     },
-    begin_of_arabic_page_num: doc => {
-      begin_of_arabic_page_num(doc)
+    begin-of-arabic-page-num: doc => {
+      begin-of-arabic-page-num(doc)
     },
   )
 }

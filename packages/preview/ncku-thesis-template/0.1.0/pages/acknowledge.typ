@@ -1,4 +1,4 @@
-#let make_acknowledge_en(it) = [
+#let make-acknowledge-en(it) = [
   #set text(12pt)
   #set par(
     leading: 1.2em,
@@ -20,7 +20,7 @@
   #pagebreak()
 ]
 
-#let make_acknowledge_zh_tw(keywords: (), it) = [
+#let make-acknowledge-zh-tw(keywords: (), it) = [
   #set text(size: 12pt)
   #set par(
     leading: 1.2em,
