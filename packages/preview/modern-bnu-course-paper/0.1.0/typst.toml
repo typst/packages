@@ -8,7 +8,6 @@ description = "北京师范大学课程论文模板。Modern Beijing Normal Univ
 repository = "https://github.com/EuanTop/modern-bnu-course-paper"
 keywords = ["Beijing Normal University", "paper"]
 categories = ["paper"]
-exclude = ["imgs"]
 
 [template]
 path = "template"

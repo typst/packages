@@ -1,4 +1,4 @@
-#import "../lib.typ": documentclass, indent
+#import "@preview/modern-bnu-course-paper:0.1.0": documentclass, indent
 
 // 你首先应该安装 https://github.com/nju-lug/modern-nju-thesis/tree/main/fonts/FangZheng 里的所有字体，
 // 如果是 Web App 上编辑，你应该手动上传这些字体文件，否则不能正常使用「楷体」和「仿宋」，导致显示错误。
