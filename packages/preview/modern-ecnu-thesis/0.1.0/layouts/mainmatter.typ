@@ -61,7 +61,11 @@
   set page(footer: context {
     set text(size: 字号.五号)
     let p = core.inner-counter().get().at(0)
-    if calc.rem(p, 2) == 1 {
+    if doctype == "bachelor" {
+      align(center)[
+        #core.inner-counter().display()
+      ]
+    } else if calc.rem(p, 2) == 1 {
       h(1fr)
       text(core.inner-counter().display())
     } else {
@@ -98,7 +102,7 @@
     justify: justify,
     first-line-indent: first-line-indent
   )
-  show par: set block(spacing: spacing)
+  // show par: set block(spacing: spacing)
   show raw: set text(font: fonts.等宽)
   show raw.where(block: true): set par(leading: 1em)
   // 3.2 脚注样式
@@ -122,7 +126,7 @@
   show figure.caption: set par(leading: 1.25em)
   show figure.caption: c => block(inset: (top: figure-caption-spacing, bottom: figure-caption-spacing))[
     #text(font: fonts.黑体, weight: "bold", style: "normal")[
-      #c.supplement #c.counter.display(c.numbering)
+      #c.supplement #context c.counter.display(c.numbering)
       ]
       #c.separator#c.body
   ]
@@ -191,13 +195,11 @@
     (
       header: {
         // needed by anti-matter
-        locate(loc => {
-          if header-render == auto {
-            heading-content(doctype: doctype, fonts: fonts)
-          } else {
-            header-render(loc)
-          }
-        })
+        if header-render == auto {
+          heading-content(doctype: doctype, fonts: fonts)
+        } else {
+          header-render(loc)
+        }
         v(header-vspace)
 
       }

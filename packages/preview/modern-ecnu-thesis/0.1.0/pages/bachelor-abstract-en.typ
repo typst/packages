@@ -56,7 +56,7 @@
   [
     #set text(font: fonts.宋体, size: 字号.小四)
     #set par(leading: leading, justify: true)
-    #show par: set block(spacing: spacing)
+    // #show par: set block(spacing: spacing)
 
     #invisible-heading(level: 1, outlined: outlined, outline-title)
 

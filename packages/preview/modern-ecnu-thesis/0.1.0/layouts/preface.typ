@@ -14,7 +14,11 @@
   set page(footer: context {
     set text(size: 字号.五号)
     let p = core.outer-counter().get().at(0)
-    if twoside == true {
+    if doctype == "bachelor" {
+      align(center)[
+        #core.outer-counter().display("I")
+      ]
+    } else if twoside == true {
       align(right)[
         #core.outer-counter().display("I")
       ]

@@ -60,7 +60,7 @@
   [
     #set par(leading: leading, justify: true)
 
-    #show par: set block(spacing: spacing)
+    // #show par: set block(spacing: spacing)
     #set block(spacing: spacing)
 
     #set align(center)

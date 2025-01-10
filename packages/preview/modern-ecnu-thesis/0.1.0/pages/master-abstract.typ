@@ -63,7 +63,7 @@
     #set text(font: fonts.楷体, size: 字号.四号)
     #set par(leading: leading, justify: true)
 
-    #show par: set block(spacing: spacing)
+    // #show par: set block(spacing: spacing)
     #set block(spacing: spacing)
 
     #set align(center)

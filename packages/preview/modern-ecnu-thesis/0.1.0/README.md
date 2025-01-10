@@ -15,6 +15,8 @@
 
 ![1736402244686](https://jtchen.s3.ap-northeast-1.amazonaws.com/v1/img/2025/01/08/1736402244686.png)
 
+在这里可以找到硕士学位论文的示例文档：[thesis.pdf](https://github.com/jtchen2k/modern-ecnu-thesis/releases/download/0.1.0/thesis.pdf)。
+
 ## Usage
 
 ### 在 VSCode 中本地编辑（推荐）
@@ -58,6 +60,8 @@ ln -s </path/to/modern-ecnu-thesis> $DATA_DIR/typst/packages/preview/modern-ecnu
 ### 在线编辑
 
 在 Typst Web App 中选择 `Start from template`，随后搜索 `modern-ecnu-thesis` 即可开始使用。
+
+为了在 Web 编辑器中正确显示字体，你需要将[这里](https://github.com/jtchen2k/modern-ecnu-thesis/tree/main/fonts/)的字体文件上传到 Typst Web App。
 
 ## Tips
 
