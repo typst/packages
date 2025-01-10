@@ -12,3 +12,4 @@ keywords = [
     "mahjong",
     "visualization",
 ]
+exclude = ["assets"]
