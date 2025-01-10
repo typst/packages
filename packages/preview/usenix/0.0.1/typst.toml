@@ -1,0 +1,15 @@
+[package]
+name = "usenix"
+version = "0.0.1"
+entrypoint = "usenix.typ"
+authors = ["Junliang Hu <jlhu@cse.cuhk.edu.hk>"]
+license = "MIT"
+description = "A USENIX paper template."
+repository = "https://github.com/vtta/usenix-typ"
+categories = ["paper"]
+disciplines = ["computer-science"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.webp"
