@@ -1,4 +1,4 @@
-#let make_outline() = {
+#let make-outline() = {
   // text size except for outline title
   set text(size: 12pt)
 

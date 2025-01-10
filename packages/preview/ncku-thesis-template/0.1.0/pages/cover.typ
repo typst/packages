@@ -1,15 +1,15 @@
-#let make_cover(
+#let make-cover(
   degree: (master: true, doctor: false),
   institute: "Department of Computer Science and Informantion Engineering",
   title: (
     en: "A Thesis/Dissertation Template written in Typst for National Cheng Kung University",
-    zh_tw: "以 Typst 撰寫之國立成功大學碩博士論文模板論文模板",
+    zh-tw: "以 Typst 撰寫之國立成功大學碩博士論文模板論文模板",
   ),
-  student: (en: "Chun-Hao Chang", zh_tw: "張峻豪"),
-  advisor: (en: "Dr. Chia-Chi Tsai", zh_tw: "蔡家齊 博士"),
+  student: (en: "Chun-Hao Chang", zh-tw: "張峻豪"),
+  advisor: (en: "Dr. Chia-Chi Tsai", zh-tw: "蔡家齊 博士"),
   coadvisor: (
-    (en: "Dr. Ha Ha Lin", zh_tw: "林哈哈 博士"),
-    (en: "Dr. Ha Ha Wang", zh_tw: "王哈哈 博士"),
+    (en: "Dr. Ha Ha Lin", zh-tw: "林哈哈 博士"),
+    (en: "Dr. Ha Ha Wang", zh-tw: "王哈哈 博士"),
   ),
 ) = {
   // checking degree
@@ -51,7 +51,7 @@
   place(
     center + horizon,
     stack(
-      text(size: 17pt)[#title.zh_tw],
+      text(size: 17pt)[#title.zh-tw],
       v(1.5em),
       text(size: 17pt)[#title.en],
     ),
@@ -61,11 +61,11 @@
   // check whether there is any co-advisor
   let has_coadvisor = (coadvisor.len() > 0)
   let coadvisor_en = ()
-  let coadvisor_zh_tw = ()
+  let coadvisor_zh-tw = ()
   if has_coadvisor {
     for element in coadvisor {
       coadvisor_en.push(element.en)
-      coadvisor_zh_tw.push(element.zh_tw)
+      coadvisor_zh-tw.push(element.zh-tw)
     }
   }
   align(bottom + center)[
@@ -80,7 +80,7 @@
           align: (right, center, left),
           text(size: 17pt)[學生],
           text(size: 17pt)[:],
-          text(size: 17pt)[#student.zh_tw],
+          text(size: 17pt)[#student.zh-tw],
         ),
         v(1cm),
         grid(
@@ -88,7 +88,7 @@
           align: (right, center, left),
           text(size: 17pt)[指導教授],
           text(size: 17pt)[:],
-          text(size: 17pt)[#advisor.zh_tw],
+          text(size: 17pt)[#advisor.zh-tw],
         ),
         if has_coadvisor { v(0.75cm) } else { none },
         if has_coadvisor {
@@ -97,7 +97,7 @@
             align: (right, center, left),
             text(size: 17pt)[共同指導教授],
             text(size: 17pt)[:],
-            text(size: 17pt)[#coadvisor_zh_tw.join("\n")],
+            text(size: 17pt)[#coadvisor_zh-tw.join("\n")],
           )
         } else { none },
       ),

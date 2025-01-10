@@ -1,4 +1,4 @@
-#let make_approved_by(
+#let make-approved-by(
   degree: "doctor",
   title-zh-tw: "以 Typst 撰寫之國立成功大學碩博士論文模板",
   title-en: "A Thesis/Dissertation Template written in Typst\nfor National Cheng Kung University",

@@ -1,6 +1,6 @@
-#import "../setup.typ": mainmatter_or_appendix
+#import "../setup.typ": mainmatter-or-appendix
 
-#show: mainmatter_or_appendix.with(mode: (mainmatter: true, appendix: false))
+#show: mainmatter-or-appendix.with(mode: (mainmatter: true, appendix: false))
 
 = #lorem(5)
 

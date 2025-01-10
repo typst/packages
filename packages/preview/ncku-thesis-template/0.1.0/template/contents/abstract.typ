@@ -1,6 +1,6 @@
-#import "../setup.typ": make_abstract_en, make_abstract_zh_tw
+#import "../setup.typ": make-abstract-en, make-abstract-zh-tw
 
-#make_abstract_zh_tw(keywords: ("關鍵字一", "關鍵字二", "關鍵字三"))[
+#make-abstract-zh-tw(keywords: ("關鍵字一", "關鍵字二", "關鍵字三"))[
   // NOTE: type your abstract (chinese ver.) here...
 
   哥又昔高昌禾兌辛收衣由抱人乍對裝弓昌姊貫，竹麼八送呀告鴨方草抄，白馬示扒習母升吧把個杯欠澡是法相起。
@@ -18,7 +18,7 @@
   娘唱卜夕字爸次黃。神坡犬功！象吹里母，象干包頭。
 ]
 
-#make_abstract_en(keywords: ("key 1", "key 2", "key 3"))[
+#make-abstract-en(keywords: ("key 1", "key 2", "key 3"))[
   // NOTE: type your abstract (english ver.) here...
 
   #lorem(200)

@@ -9,6 +9,7 @@ repository = "https://github.com/Haouo/NCKU-Thesis-Typst"
 keywords = ["NCKU", "thesis", "dissertation", "template"]
 categories = ["paper", "thesis"]
 compiler = "0.12.0"
+exclude = ["fonts"]
 
 [template]
 path = "template"

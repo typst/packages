@@ -1,8 +1,8 @@
-#let extended_abstract_en(
-  title_en: "A Thesis/Dissertation Template written in Typst for National Cheng Kung University",
+#let extended-abstract-en(
+  title-en: "A Thesis/Dissertation Template written in Typst for National Cheng Kung University",
   institute: "Department of Electrical Engineering",
-  student_en: "Chun-Hao Chang",
-  advisor_en: "Chia-Chi Tsai",
+  student-en: "Chun-Hao Chang",
+  advisor-en: "Chia-Chi Tsai",
   summary: none,
   keywords: (),
   doc,
@@ -10,13 +10,13 @@
   // show thesis/dissertation title
   set text(size: 14pt)
   set align(center)
-  strong(title_en)
+  strong(title-en)
   v(0.15cm)
   // student and advisor names
   set text(size: 12pt)
-  student_en
+  student-en
   linebreak()
-  advisor_en
+  advisor-en
   v(0.25em)
   institute
   v(0.5cm)
