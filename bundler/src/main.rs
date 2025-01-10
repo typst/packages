@@ -8,11 +8,13 @@ use std::env::args;
 use std::fs;
 use std::io;
 use std::path::Path;
+use std::sync::LazyLock;
 
 use anyhow::{bail, Context};
 use image::codecs::webp::{WebPEncoder, WebPQuality};
 use image::imageops::FilterType;
 use semver::Version;
+use spdx::LicenseId;
 use typst_syntax::package::{PackageInfo, PackageManifest, TemplateInfo, UnknownFields};
 use unicode_ident::{is_xid_continue, is_xid_start};
 
@@ -106,7 +108,7 @@ fn main() -> anyhow::Result<()> {
         determine_timestamps(&paths, &mut index)?;
 
         // Sort the index.
-        index.sort_by_key(|info| (info.package.name.clone(), info.package.version.clone()));
+        index.sort_by_key(|info| (info.package.name.clone(), info.package.version));
 
         println!("Writing index.");
         fs::write(
@@ -247,8 +249,11 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
             .id()
             .context("license must not contain a referencer")?;
 
-        if !id.is_osi_approved() {
-            bail!("license is not OSI approved: {}", id.full_name);
+        if !id.is_osi_approved() && !is_allowed_cc(id) {
+            bail!(
+                "license is neither OSI approved nor an allowed CC license: {}",
+                id.full_name
+            );
         }
     }
 
@@ -453,4 +458,12 @@ fn is_id_start(c: char) -> bool {
 /// Whether a character can continue an identifier.
 fn is_id_continue(c: char) -> bool {
     is_xid_continue(c) || c == '_' || c == '-'
+}
+
+// Check that a license is any version of CC-BY, CC-BY-SA, or CC0.
+fn is_allowed_cc(license: LicenseId) -> bool {
+    static RE: LazyLock<regex::Regex> =
+        LazyLock::new(|| regex::Regex::new(r"^CC(-BY|-BY-SA|0)-[0-9]\.[0-9](-[A-Z]+)?$").unwrap());
+
+    RE.is_match(license.name)
 }
