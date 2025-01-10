@@ -1,6 +1,6 @@
 [package]
 name = "rexllent"
-version = "0.2.0"
+version = "0.2.1"
 entrypoint = "lib.typ"
 authors = ["hongjr03 <https://github.com/hongjr03>"]
 description = "Parsing xlsx file into a typst table, powered by wasm."
