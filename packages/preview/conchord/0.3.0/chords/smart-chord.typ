@@ -1,4 +1,4 @@
-#import "draw-chord.typ": new-chordgen
+#import "draw-chord.typ": new-chordgen, parse-tabstring
 #import "../gen/gen.typ": default-tuning, get-chord
 
 /// Just a chordgen with arbitrary number of strings
@@ -32,7 +32,7 @@
   chordgen: red-missing-fifth,
   /// number of chord to select, the "best" is zero -> int
   n: 0,
-  /// tuning string in format "A B C D E"
+  /// tuning string in format "A1 B2 C3 D4"
   tuning: default-tuning,
   /// whether to require the lowest note to be the root note 
   true-bass: true,
@@ -41,4 +41,45 @@
   /// see `draw-chord` for reference
   scale-l: 1pt) = {
   chordgen(get-chord(name, n: n, tuning: tuning, at: at), name: name, scale-l: scale-l)
+}
+
+#let _notes = ("A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#")
+#let _chord-root-regex = regex("[A-G][#♯b♭]?")
+#let _pm = (
+  "#": 1,
+  "♯": 1,
+  "b": -1,
+  "♭": -1
+)
+
+/// 3. Shifts tonality of given chord name by given amount with regexes
+/// -> str
+#let shift-chord-tonality(
+  /// chord name -> str
+  chord,
+  /// number of halftones to move tonality -> int
+  tonality) = {
+  let match = chord.match(_chord-root-regex).text
+  let base = _notes.position(e => e == match.at(0))
+  let delta = if match.len() == 1 {0} else {_pm.at(match.at(1))}
+  let new = calc.rem(base + delta + tonality, 12)
+  chord.replace(_chord-root-regex, _notes.at(new))
+}
+
+/// Gives the played notes by the tabstring -> array
+#let chord-notes(
+  /// -> str
+  tabstring,
+  /// the same format as everywhere -> str
+  tuning
+) = {
+  let (arr, _) = parse-tabstring(tabstring)
+  for (t, c) in arr.zip(tuning.split()) {
+    if type(t) == int {
+      (shift-chord-tonality(c.slice(0, c.len() - 1), t), )
+    }
+    else {
+      (t,)
+    }
+  }
 }

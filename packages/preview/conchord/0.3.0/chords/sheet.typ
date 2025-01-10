@@ -1,5 +1,5 @@
 #import "../gen/gen.typ": default-tuning
-#import "smart-chord.typ": smart-chord, red-missing-fifth
+#import "smart-chord.typ": smart-chord, red-missing-fifth, shift-chord-tonality
 #import "draw-chord.typ": get-chordgram-width-scale
 
 /// 1. A simple function to place chord over text. Attaches <chord> tag to the text to apply tonality and make a chordlib. May be replaced with any custom.
@@ -31,29 +31,6 @@
   text,
   styling: strong
 ) = styling[\[\[#text<chord>\]\]]
-
-#let _notes = ("A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#")
-#let _chord-root-regex = regex("[A-G][#♯b♭]?")
-#let _pm = (
-  "#": 1,
-  "♯": 1,
-  "b": -1,
-  "♭": -1
-)
-
-/// 8. Shifts tonality of given chord name by given amount with regexes
-/// -> str
-#let shift-chord-tonality(
-  /// chord name -> str
-  chord,
-  /// number of halftones to move tonality -> int
-  tonality) = {
-  let match = chord.match(_chord-root-regex).text
-  let base = _notes.position(e => e == match.at(0))
-  let delta = if match.len() == 1 {0} else {_pm.at(match.at(1))}
-  let new = calc.rem(base + delta + tonality, 12)
-  chord.replace(_chord-root-regex, _notes.at(new))
-}
 
 /// 7. get current tonality in document
 /// -> int
@@ -174,7 +151,7 @@
   smart-chord: smart-chord,
   /// chordgen for smart-chord
   chordgen: red-missing-fifth,
-  /// tuning to use in "A B C D" format -> str
+  /// tuning to use in "A1 B2 C3 D4" format -> str
   tuning: default-tuning,
   /// whether to require the lowest note to be the root note 
   true-bass: true,

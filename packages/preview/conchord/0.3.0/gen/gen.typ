@@ -20,7 +20,7 @@
 #let get-chords(
   /// Chord name -> str
   name,
-  /// Tuning in format "A B C" -> str
+  /// Tuning in format "A1 B2 C3" -> str
   tuning: default-tuning,
   /// What fret to find chords at -> int | none
   at: none,

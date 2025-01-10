@@ -228,7 +228,9 @@
 
 /// 3. Parses tabstring 
 /// -> (array, boolean)
-#let parse-tabstring(string-tab) = {
+#let parse-tabstring(
+  /// -> str
+  string-tab) = {
   let to-int-or-ignore(s) = {
     s = s.trim()
     if s.matches(regex("^\d+$")).len() != 0 {int(s)} else {s}

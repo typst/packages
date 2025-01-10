@@ -63,7 +63,7 @@ It's quite simple to use, see yourself[*](## "Boxing is required to put them in 
 #box(smart-chord("Am", at: 5)) // chord at fifth fret
 // what variant number to select
 #box(smart-chord("Am", n: 4)) // forth "best" chord
-// what tuning to use
+// what tuning to use; note first, then octave (1-9)
 #box(smart-chord("C", tuning: "G1 C1 E1 A1")) // ukulele
 ```
 ![](examples/simple-gen.png)
