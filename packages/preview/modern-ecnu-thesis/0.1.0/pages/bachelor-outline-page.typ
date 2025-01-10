@@ -23,9 +23,10 @@
   // 字体与字号
   font: auto,
   size: (字号.四号, 字号.小四),
+  weight: ("bold", "regular"),
   // 垂直间距
   vspace: (12pt, 12pt),
-  indent: (0pt, 18pt, 28pt),
+  indent: (0pt, 2.4em, 1.8em),
   // 全都显示点号
   fill: (auto,),
   ..args,
@@ -47,11 +48,11 @@
   // 2.  正式渲染
   pagebreak-from-odd(twoside: twoside)
 
-  set page(..(if show-heading {(
-    header: {
-        heading-content(doctype: doctype, fonts: fonts)
-      }
-  )} else {()}))
+  set page(..(if show-heading {
+    (header: {
+      heading-content(doctype: doctype, fonts: fonts)
+    })
+  } else { () }))
 
   // 默认显示的字体
   set text(font: reference-font, size: reference-size)
@@ -77,7 +78,14 @@
       // 计算缩进
       let indent-list = indent + range(level - indent.len()).map((it) => indent.last())
       let indent-length = indent-list.slice(0, count: level).sum()
-      h(indent-length) + it
+      if "children" in it.fields() and it.children.len() > 2 {
+        set text(weight: weight.at(calc.min(level, weight.len()) - 1))
+        let (number, space, ..text) = it.children
+        [#h(indent-length) #box[#number] #h(if level > 1 {3pt} else {2pt}) #text.join()]
+      } else {
+        set text(weight: weight.at(calc.min(level, weight.len()) - 1))
+        h(indent-length) + it
+      }
     },
     vspace: vspace,
     fill: fill,
@@ -86,5 +94,4 @@
 
   // 显示目录
   outline(title: none, depth: depth)
-
 }

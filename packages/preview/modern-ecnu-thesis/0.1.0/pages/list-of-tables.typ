@@ -17,7 +17,7 @@
   title-vspace: 32pt,
   title-text-args: auto,
   // caption 的 separator
-  separator: "  ",
+  separator: "   ",
   // 字体与字号
   font: auto,
   size: 字号.小四,

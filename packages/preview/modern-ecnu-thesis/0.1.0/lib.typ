@@ -4,7 +4,7 @@
  * @project: modern-ecnu-thesis
  * @author: OrangeX4, Juntong Chen (dev@jtchen.io)
  * @created: 2025-01-06 22:37:34
- * @modified: 2025-01-09 18:14:18
+ * @modified: 2025-01-10 01:52:22
 *
  * 华东师范大学学位论文模板
  *    Repo: https://github.com/jtchen2k/modern-ecnu-thesis
@@ -226,22 +226,27 @@
         bachelor-outline-page(
           doctype: doctype,
           twoside: twoside,
+          size: (字号.小四, 字号.小四),
+          font: (fonts.黑体, fonts.宋体),
+          weight: ("bold", "regular"),
           title-text-args: (font: 字体.黑体, size: 字号.三号, weight: "bold"),
           show-heading: true,
-          vspace: (1.5em, 1.2em),
-          indent: (0em, 0.5em, 1em),
+          vspace: (1.2em, 1em),
+          indent: (0em, 2.38em, 2.15em),
           ..args,
-          fonts: fonts + args.named().at("fonts", default: (:)))
+          fonts: fonts + args.named().at("fonts", default: (:)),
+        )
       } else {
         bachelor-outline-page(
           twoside: twoside,
           title-text-args: (font: 字体.黑体, size: 字号.三号, weight: "bold"),
-          ..args,
-          vspace: (1.5em, 1em),
-          indent: (0em, 0.5em, 1em),
-          fonts: fonts + args.named().at("fonts", default: (:)),
+          vspace: (1.35em, 1.2em),
+          weight: ("regular", "regular"),
+          indent: (0em, 2.38em, 2em),
           doctype: doctype,
           show-heading: true,
+          ..args,
+          fonts: fonts + args.named().at("fonts", default: (:)),
         )
       }
     },
@@ -273,11 +278,11 @@
     // 符号表页
     notation: (..args) => {
       notation(
-        ..args,
         twoside: twoside,
         show-heading: true,
         title-text-args: (font: 字体.黑体, size: 字号.三号, weight: "bold"),
         doctype: doctype,
+        ..args,
         fonts: fonts + args.named().at("fonts", default: (:)),
       )
     },
