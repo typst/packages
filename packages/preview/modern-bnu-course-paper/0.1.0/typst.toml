@@ -1,0 +1,15 @@
+[package]
+name = "modern-bnu-course-paper"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Euan"]
+license = "MIT"
+description = "北京师范大学课程论文模板。Modern Beijing Normal University Course Paper."
+repository = "https://github.com/EuanTop/modern-bnu-course-paper"
+keywords = ["Beijing Normal University", "paper"]
+categories = ["paper"]
+
+[template]
+path = "template"
+entrypoint = "paper.typ"
+thumbnail = "thumbnail.png"
