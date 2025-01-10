@@ -1,4 +1,4 @@
-#import "@local/isec-master-thesis-template:1.0.0": *
+#import "@preview/isec-master-thesis-template:1.0.0": *
 
 // ----------------------------------------------------------------------------
 // Configuration
