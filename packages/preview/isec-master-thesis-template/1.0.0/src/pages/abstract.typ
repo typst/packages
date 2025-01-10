@@ -1,4 +1,4 @@
-#let abstract_page(abstract, keywords) = [
+#let abstract-page(abstract, keywords) = [
 
 	= Abstract
 

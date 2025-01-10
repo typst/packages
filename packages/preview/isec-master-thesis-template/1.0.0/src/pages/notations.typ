@@ -1,4 +1,4 @@
-#let notations_page(notat) = context [
+#let notations-page(notat) = context [
 	#let notation = notat.get()
 	#if notation != none [
 

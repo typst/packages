@@ -1,4 +1,4 @@
-#let affidavit_page() = [
+#let affidavit-page() = [
 	#set page(
 		margin: (
 		bottom: 2.6cm,

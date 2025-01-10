@@ -3,18 +3,18 @@
 
 // Fix for typst #311 "Behavior of first line indentation in paragraphs ..." 
 // https://github.com/typst/typst/issues/311#issuecomment-2023038611
-#let fix_311 = context {
+#let fix-311 = context {
   let a = par(box())
   a
   v(-0.8 * measure(2 * a).width)
 }
 
 // Transforms content into string
-#let content_to_string(content) = {
+#let content-to-string(content) = {
   if content.has("text") {
     content.text
   } else if content.has("children") {
-    content.children.map(content_to_string).join("")
+    content.children.map(content-to-string).join("")
   } else if content.has("body") {
     to-string(content.body)
   } else if content == [ ] {

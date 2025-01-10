@@ -1,15 +1,15 @@
-#let kurzfassung_page(ku_title, ku_abstract, ku_ktitle, ku_keywords) = [
+#let kurzfassung-page(ku-title, ku-abstract, ku-ktitle, ku-keywords) = [
 
-	= #ku_title
+	= #ku-title
 
-	#ku_abstract
+	#ku-abstract
 
 	#v(0.53cm)
 
 	// TODO improve the spacing between keywords and the actual keywords
 	// TODO mayube  
 	#par(first-line-indent:0pt)[
-		*#ku_ktitle:* #h(0.3cm) #ku_keywords.join(" · ")
+		*#ku-ktitle:* #h(0.3cm) #ku-keywords.join(" · ")
 	]
 
 ]

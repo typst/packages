@@ -19,10 +19,10 @@
 	)
 ]
 
-#let toc_page(
-	list_of_figures:  true,
-	list_of_tables:   true,
-	list_of_listings: true,
+#let toc-page(
+	list-of-figures:  true,
+	list-of-tables:   true,
+	list-of-listings: true,
 ) = [
 
 	// Disable spacing between grid & content
@@ -194,7 +194,7 @@
 		)
 	]
 
-	#if list_of_figures [
+	#if list-of-figures [
 		// Outline (of Figures)
 		#outline(
 			title: "List of Figures",
@@ -202,7 +202,7 @@
 		)
 	]
 
-	#if list_of_tables [
+	#if list-of-tables [
 		// Outline (of Tables)
 		#outline(
 			title: "List of Tables",
@@ -210,7 +210,7 @@
 		)
 	]
 
-	#if list_of_listings [
+	#if list-of-listings [
 		// Outline (of Tables)
 		#outline(
 			title: "List of Listings",

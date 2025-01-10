@@ -1,4 +1,4 @@
-#let acknowledgements_page(acknowledgements) = [
+#let acknowledgements-page(acknowledgements) = [
 
 	= Acknowledgements
 

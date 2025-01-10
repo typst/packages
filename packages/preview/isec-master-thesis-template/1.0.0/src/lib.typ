@@ -25,9 +25,9 @@
 	keywords: none,
 	notations: none,
 	acronyms: none,
-	list_of_figures: none,
-	list_of_tables: none,
-	list_of_listings: none,
+	list-of-figures: none,
+	list-of-tables: none,
+	list-of-listings: none,
 	body
 ) = [
 
@@ -53,14 +53,14 @@
 	#set document(
 		title: title,
 		author: author.at(0).text,
-		keywords: content_to_string(keywords.join(", "))
+		keywords: content-to-string(keywords.join(", "))
 	)
 
 	// --------------------------------------------------------------------------
 	// [CONTENT] Title Page
 	// - Title page
 
-	#title_page(
+	#title-page(
 		title: title,
 		author: author,
 		curriculum: curriculum,
@@ -210,17 +210,17 @@
 		#set page(footer: page_footer_roman)
 
 		// Show affidavit (authoring) page on the second page
-		#affidavit_page()
+		#affidavit-page()
 
 		// Show acknowledgements page (starts on page 3)
-		#acknowledgements_page(acknowledgements)
+		#acknowledgements-page(acknowledgements)
 
 		// Show abstract page
-		#abstract_page(abstract, keywords)
+		#abstract-page(abstract, keywords)
 
 		// Show kurzfassung page
 		#if kurzfassung != none [
-			#kurzfassung_page(
+			#kurzfassung-page(
 					kurzfassung.at("title"),
 					kurzfassung.at("abstract"),
 					kurzfassung.at("ktitle"),
@@ -229,10 +229,10 @@
 		]
 
 		// Table of Contents
-		#toc_page(
-			list_of_figures: list_of_figures,
-			list_of_tables: list_of_tables,
-			list_of_listings: list_of_listings,
+		#toc-page(
+			list-of-figures: list-of-figures,
+			list-of-tables: list-of-tables,
+			list-of-listings: list-of-listings,
 		)
 	]
 

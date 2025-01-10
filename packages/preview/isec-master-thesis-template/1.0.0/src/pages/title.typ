@@ -1,4 +1,4 @@
-#let title_page(
+#let title-page(
 	title: [],
 	author: (),
 	curriculum: [],

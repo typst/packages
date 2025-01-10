@@ -1,4 +1,4 @@
-#import "@preview/isec-master-thesis-template:1.0.0": *
+#import "@local/isec-master-thesis-template:1.0.0": *
 
 // ----------------------------------------------------------------------------
 // Configuration
@@ -49,9 +49,9 @@
 	acronyms: ((
 		"ISEC": "Institute of Information Security",
 	)),
-	list_of_figures:  true,
-	list_of_tables:   true, 
-	list_of_listings: true, // Wrap code in #figure
+	list-of-figures:  true,
+	list-of-tables:   true, 
+	list-of-listings: true, // Wrap code in #figure
 )
 
 // -------------------------------[[ CUT HERE ]]--------------------------------
@@ -154,7 +154,7 @@
 // - TLDR: #ntt("xor") from thesis.with notations
 // - Downstream "acrostiche" package with patches for notations + page numbers
 
-#notations_page(notat)
+#notations-page(notat)
 
 // ----------------------------------------------------------------------------
 // Acronyms
@@ -165,7 +165,7 @@
 // - Downstream "acrostiche" package with patches for listing page numbers
 // - See https://typst.app/universe/package/acrostiche/ for documentation
 
-#acronyms_page(acros)
+#acronyms-page(acros)
 
 // ----------------------------------------------------------------------------
 // Bibliography

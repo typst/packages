@@ -1,4 +1,4 @@
-#let acronyms_page(acros) = context [
+#let acronyms-page(acros) = context [
 	#let acronym = acros.get()
 	#if acronym != none [
 
