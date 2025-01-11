@@ -1,17 +1,17 @@
 #let cheatsheet(
   title: [], 
   authors: (),
-  write_title: false,
-  font_size: 5.5pt,
-  line_skip: 5.5pt,
-  x_margin: 30pt,
-  y_margin: 0pt,
-  num_columns: 5,
-  column_gutter: 4pt,
-  numbered_units: false,
+  write-title: false,
+  font-size: 5.5pt,
+  line-skip: 5.5pt,
+  x-margin: 30pt,
+  y-margin: 0pt,
+  num-columns: 5,
+  column-gutter: 4pt,
+  numbered-units: false,
   body) = {
 
-    let color_index = (
+    let color-index = (
       rgb("ff595e"),
       rgb("ff751f"),
       rgb("E0A500"),
@@ -27,35 +27,35 @@
     
     set page(paper: "a4",
              flipped: true,
-             margin: (x: x_margin, y: y_margin))
+             margin: (x: x-margin, y: y-margin))
 
-    set text(size: font_size)
+    set text(size: font-size)
 
     set heading(numbering: "1.1")
              
     show heading: it => {
       let index = counter(heading).at(it.location()).first()
-      let hue = color_index.at(calc.rem(index - 1, color_index.len()))
+      let hue = color-index.at(calc.rem(index - 1, color-index.len()))
       let color = hue.darken(8% * (it.depth - 1))
 
-      set text(white, size: font_size)
+      set text(white, size: font-size)
       block(
         radius: 1.0mm,
         inset: 1.0mm,
         width: 90%,
-        above: line_skip,
-        below: line_skip,
+        above: line-skip,
+        below: line-skip,
         fill: color,
         it
       )
     }
 
-    let new_body = {
-      if write_title {
+    let new-body = {
+      if write-title {
         par[#title by #authors]
       }
       body
     }
     
-    columns(num_columns, gutter: column_gutter, new_body)
+    columns(num-columns, gutter: column-gutter, new-body)
 }

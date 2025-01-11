@@ -5,14 +5,14 @@
 #show: cheatsheet.with(
   title: "Cheatsheet Title", 
   authors: "Authors",
-  write_title: false,
-  font_size: 5.5pt,
-  line_skip: 5.5pt,
-  x_margin: 30pt,
-  y_margin: 30pt,
-  num_columns: 5,
-  column_gutter: 4pt,
-  numbered_units: false,
+  write-title: false,
+  font-size: 5.5pt,
+  line-skip: 5.5pt,
+  x-margin: 30pt,
+  y-margin: 30pt,
+  num-columns: 5,
+  column-gutter: 4pt,
+  numbered-units: false,
 )
 
 #include "units/00-general-formula.typ"
