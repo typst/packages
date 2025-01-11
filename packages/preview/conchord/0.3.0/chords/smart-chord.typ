@@ -59,11 +59,19 @@
   chord,
   /// number of halftones to move tonality -> int
   tonality) = {
-  let match = chord.match(_chord-root-regex).text
-  let base = _notes.position(e => e == match.at(0))
-  let delta = if match.len() == 1 {0} else {_pm.at(match.at(1))}
-  let new = calc.rem(base + delta + tonality, 12)
-  chord.replace(_chord-root-regex, _notes.at(new))
+  if chord.match(_chord-root-regex) == none {
+    panic("Not a chord", chord)
+  }
+
+  chord.replace(_chord-root-regex, 
+    match => {
+      let match = match.text
+      let base = _notes.position(e => e == match.at(0))
+      let delta = if match.len() == 1 {0} else {_pm.at(match.at(1))}
+      let new = calc.rem(base + delta + tonality, 12)
+      _notes.at(new)
+    }
+  )
 }
 
 /// Gives the played notes by the tabstring -> array

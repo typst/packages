@@ -23,7 +23,7 @@
   /// width of space in current font,
   /// may be set to zero if you don't put
   /// any spaces between chords and words -> length
-  width: -0.25em) = box(place(align, styling([#text <chord>])), height: 1em + height, width: width)
+  width: -0.25em) = box(place(align, box(styling([#text <chord>]), width: float("inf")*1pt)), height: 1em + height, width: width)
 
 /// 1a. A replacement for overchord, displays chords inline in (double) square brackets
 /// -> content
