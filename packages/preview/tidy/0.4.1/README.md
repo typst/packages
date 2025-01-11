@@ -172,6 +172,6 @@ _Adds a help feature and more options_
 
 _Initial Release_
 
-[guide]: https://github.com/Mc-Zen/tidy/releases/download/v0.4.0/tidy-guide.pdf
+[guide]: https://github.com/Mc-Zen/tidy/releases/download/v0.4.1/tidy-guide.pdf
 
-[migration guide]: https://github.com/Mc-Zen/tidy/tree/v0.4.0/docs/migration-to-0.4.0.md
+[migration guide]: https://github.com/Mc-Zen/tidy/tree/v0.4.1/docs/migration-to-0.4.0.md
