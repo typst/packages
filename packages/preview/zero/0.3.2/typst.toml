@@ -1,6 +1,6 @@
 [package]
 name = "zero"
-version = "0.3.1"
+version = "0.3.2"
 entrypoint = "src/zero.typ"
 authors = ["Mc-Zen <https://github.com/Mc-Zen>"]
 license = "MIT"
