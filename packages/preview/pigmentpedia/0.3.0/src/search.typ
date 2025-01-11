@@ -1,29 +1,13 @@
 /*
   File: search.typ
   Author: neuralpain
-  Date Modified: 2025-01-08
+  Date Modified: 2025-01-11
 
   Description: Search logic for Pigmentpedia.
 */
 
 #import "private.typ": *
 #import "pigments.typ": *
-
-/// Converts spaces within a string to hyphens.
-///
-/// - char_str (str): The string to process.
-/// -> str
-#let convert-space-to-hyphen(char_str) = {
-  let cnv_str = ""
-  for char in char_str {
-    if char == " " {
-      cnv_str += "-"
-    } else {
-      cnv_str += char
-    }
-  }
-  cnv_str
-}
 
 /// Search logic for `pigmentpedia`.
 ///
@@ -44,7 +28,7 @@
   upper-level-name: none,
   is-hex: false,
 ) = {
-  key = convert-space-to-hyphen(key)
+  key = key.replace(" ", "-")
 
   // whether or not the name of the current group being
   // searched is displayed after finding a match
@@ -65,7 +49,16 @@
     )
   }
 
+  // pigment name formatting
+  let output-caps = false
+  let output-hyphen = false
+
   for (name, color) in current-level {
+    if name == "output" {
+      output-caps = color.caps
+      output-hyphen = color.hyphen
+      continue
+    }
     if type(color) == "dictionary" {
       // if the current "color" position is of type `dictionary`,
       // do a recursive search to find more matches
@@ -94,7 +87,7 @@
           current-level-breadcrumbs-displayed = true
         }
 
-        display-pgmt-block(name, color)
+        display-pgmt-block(format-pigment-name(name, output-caps, output-hyphen), color)
       }
     }
   }
@@ -116,77 +109,86 @@
     return
   }
 
-  pgmt-page-setup(bg: bg, {
-    if type(scope) == "color" {
-      pgmt-error.scope-is-color
-      return
-    }
+  if type(scope) == "color" {
+    pgmt-error.scope-is-color
+    return
+  }
 
-    if scope != none and type(scope) != "dictionary" {
-      pgmt-error.not-a-pgmt-group
-      return
-    }
+  if scope != none and type(scope) != "dictionary" {
+    pgmt-error.not-a-pgmt-group
+    return
+  }
 
-    v(0cm) // small padding from the header
+  if type(bg) != "color" {
+    pgmt-error.bg-not-a-color
+    return
+  }
 
-    align(center)[
-      #pigment(get-contrast-color(bg),
-        [
-          #if key.len() == 0 or key == " " or key == "#" {
-            [🔍 Find the perfect pigment...]
-            return // don't attempt search
-          } else if key.len() != 1 and "#" in key {
-            let valid-hex = true
+  pgmt-page-setup(
+    bg: bg,
+    {
+      v(0cm) // small padding from the header
 
-            // local scope copy of `key`
-            let _key = key.trim("#")
+      align(center)[
+        #pigment(
+          get-contrast-color(bg),
+          [
+            #if key.len() == 0 or key == " " or key == "#" {
+              [🔍 Find the perfect pigment...]
+              return // don't attempt search
+            } else if key.len() != 1 and "#" in key {
+              let valid-hex = true
 
-            // Value is reset for every input, If `key` is
-            // too large, its value will remain `none`,
-            // having skipped the validation check
-            let invalid-hex-symbol = none
+              // local scope copy of `key`
+              let _key = key.trim("#")
 
-            // verify the HEX string length is within bounds
-            if _key.len() > 6 {
-              valid-hex = false
-            } else {
-              for i in _key {
-                if lower(i) not in "0123456789abcdef" {
-                  valid-hex = false
-                  invalid-hex-symbol = i
-                  break
+              // Value is reset for every input, If `key` is
+              // too large, its value will remain `none`,
+              // having skipped the validation check
+              let invalid-hex-symbol = none
+
+              // verify the HEX string length is within bounds
+              if _key.len() > 6 {
+                valid-hex = false
+              } else {
+                for i in _key {
+                  if lower(i) not in "0123456789abcdef" {
+                    valid-hex = false
+                    invalid-hex-symbol = i
+                    break
+                  }
                 }
               }
-            }
 
-            if valid-hex {
-              [🔍 Showing results for "`#`#raw(_key)" #get-pgmt-group-name(l: "in", scope, bg: bg)]
-            } else if invalid-hex-symbol != none {
-              pigment(red)[`Sorry, "`#raw(invalid-hex-symbol)`" is not a valid HEX symbol.`]
+              if valid-hex {
+                [🔍 Showing results for "`#`#raw(_key)" #get-pgmt-group-name(l: "in", scope, bg: bg)]
+              } else if invalid-hex-symbol != none {
+                pigment(red)[`Sorry, "`#raw(invalid-hex-symbol)`" is not a valid HEX symbol.`]
+              } else {
+                pigment(red)[`Too long! "`#raw(key)`" is not a valid HEX code.`]
+              }
             } else {
-              pigment(red)[`Too long! "`#raw(key)`" is not a valid HEX code.`]
+              [🔍 Showing results for "#key" #get-pgmt-group-name(l: "in", scope, bg: bg)]
             }
-          } else {
-            [🔍 Showing results for "#key" #get-pgmt-group-name(l: "in", scope, bg: bg)]
-          }
-        ],
-      )
-    ]
+          ],
+        )
+      ]
 
-    if type(scope) != "dictionary" {
-      for (pgmt-list-name, pgmt-list) in pigmentpedia {
+      if type(scope) != "dictionary" {
+        for (pgmt-list-name, pgmt-list) in pigmentpedia {
+          if key != "#" and "#" in key {
+            pgmt-search(key.trim("#"), pgmt-list, current-level-name: pgmt-list-name, is-hex: true)
+          } else {
+            pgmt-search(key, pgmt-list, current-level-name: pgmt-list-name)
+          }
+        }
+      } else {
         if key != "#" and "#" in key {
-          pgmt-search(key.trim("#"), pgmt-list, current-level-name: pgmt-list-name, is-hex: true)
+          pgmt-search(key.trim("#"), scope, is-hex: true)
         } else {
-          pgmt-search(key, pgmt-list, current-level-name: pgmt-list-name)
+          pgmt-search(key, scope)
         }
       }
-    } else {
-      if key != "#" and "#" in key {
-        pgmt-search(key.trim("#"), scope, is-hex: true)
-      } else {
-        pgmt-search(key, scope)
-      }
-    }
-  })
+    },
+  )
 }

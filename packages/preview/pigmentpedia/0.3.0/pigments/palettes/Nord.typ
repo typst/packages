@@ -56,7 +56,7 @@ Lighter shade color of the base component color.
 Used as a lighter background color for UI elements like status bars.
 Used as semi-light background depending on the theme shading design.
 */
-#let nord5 = rgb("#E5E9F0") // Snow Storm Light 1
+#let nord5 = rgb("#E5E9F0") // Snow Storm Light
 
 /*
 Lighter shade color of the base component color.
@@ -64,7 +64,7 @@ Lighter shade color of the base component color.
 Used for punctuations, carets and structuring characters like curly- and square brackets.
 In the UI scope used as background, selection- and highlight color depending on the theme shading design.
 */
-#let nord6 = rgb("#ECEFF4") // Snow Storm Light 2
+#let nord6 = rgb("#ECEFF4") // Snow Storm White
 
 /*
 Bluish core color.
@@ -139,21 +139,22 @@ Used for numbers.
 
 
 
-#let Nord = (
-  "Polar-Night-1": nord0,
-  "Polar-Night-2": nord1,
-  "Polar-Night-3": nord2,
-  "Polar-Night-4": nord3,
-  "Snow-Storm": nord4,
-  "Snow-Storm-Light": nord5,
-  "Snow-Storm-White": nord6,
-  "Frost-1": nord7,
-  "Frost-2": nord8,
-  "Frost-3": nord9,
-  "Frost-4": nord10,
-  "Aurora-Red": nord11, // Aurora 1
-  "Aurora-Orange": nord12, // Aurora 2
-  "Aurora-Yellow": nord13, // Aurora 3
-  "Aurora-Green": nord14, // Aurora 4
-  "Aurora-Purple": nord15, // Aurora 5
+#let nord = (
+  output: (caps: "each", hyphen: false),
+  "polar-night-1": nord0,
+  "polar-night-2": nord1,
+  "polar-night-3": nord2,
+  "polar-night-4": nord3,
+  "snow-storm": nord4,
+  "snow-storm-light": nord5,
+  "snow-storm-white": nord6,
+  "frost-1": nord7,
+  "frost-2": nord8,
+  "frost-3": nord9,
+  "frost-4": nord10,
+  "aurora-red": nord11, // Aurora 1
+  "aurora-orange": nord12, // Aurora 2
+  "aurora-yellow": nord13, // Aurora 3
+  "aurora-green": nord14, // Aurora 4
+  "aurora-purple": nord15, // Aurora 5
 )

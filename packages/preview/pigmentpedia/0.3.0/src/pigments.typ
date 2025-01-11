@@ -13,57 +13,58 @@
 #import "../pigments/standards/CSS.typ": *
 
 // PANTONE® Colors • Pantone® and PANTONE® are registered trademarks of Pantone, Inc.
-#import "../pigments/standards/Pantone.typ": Pantone
+#import "../pigments/standards/Pantone.typ": pantone
 
 // RAL Colors
-#import "../pigments/standards/RAL.typ": RAL, RAL-Classic
+#import "../pigments/standards/RAL.typ": ral, ral-classic
 
 // DIC Digital Color Guide®
-#import "../pigments/standards/DIC.typ": DIC
+#import "../pigments/standards/DIC.typ": dic
 
 // HKS® Colors (Hostmann-Steinberg Druckfarben, Kast & Ehinger Druckfarben and H. Schmincke & Co.)
-#import "../pigments/standards/HKS.typ": HKS
+#import "../pigments/standards/HKS.typ": hks
 
 // ISCC–NBS System of Color Designation
-#import "../pigments/standards/ISCC-NBS/ISCC-NBS.typ": ISCC-NBS
+#import "../pigments/standards/ISCC-NBS/ISCC-NBS.typ": iscc-nbs
 
 // Natural Colour System®
-#import "../pigments/standards/NCS.typ": NCS
+#import "../pigments/standards/NCS.typ": ncs
 
 // Catppuccin community-driven pastel theme <https://github.com/catppuccin/catppuccin>
-#import "../pigments/palettes/Catppuccin.typ": Catppuccin
+#import "../pigments/palettes/Catppuccin.typ": catppuccin
 
 // Chinese Traditional Colors <https://colors.ichuantong.cn>
-#import "../pigments/misc/Chinese/zhcn-trad.typ": Zhongguo
+#import "../pigments/misc/Chinese/zhcn-trad.typ": zhongguo
 
 // Japanese Traditional Colors <https://nipponcolors.com>
-#import "../pigments/misc/Japanese/jajp-trad.typ": Nippon
+#import "../pigments/misc/Japanese/jajp-trad.typ": nippon
 
 // Nippon Paint
-#import "../pigments/standards/NipponPaint.typ": Nippon-Paint
+#import "../pigments/standards/NipponPaint.typ": nippon-paint
 
 // Nord Theme by Sven Greb <https://github.com/nordtheme/nord>
-#import "../pigments/palettes/Nord.typ": Nord
+#import "../pigments/palettes/Nord.typ": nord
 
 // Crayola® colors
-#import "../pigments/misc/Crayola.typ": Crayola
+#import "../pigments/misc/Crayola.typ": crayola
 
 // List of all pigments in `pigmentpedia`.
 #let pigmentpedia = (
-  "CSS": CSS,
-  "Pantone": Pantone,
-  "DIC": DIC,
-  "RAL": RAL,
-  "RAL-Classic": RAL-Classic,
-  "HKS": HKS,
-  "ISCC-NBS": ISCC-NBS,
-  "NCS": NCS,
-  "Catppuccin": Catppuccin,
-  "Zhongguo": Zhongguo,
-  "Nippon": Nippon,
-  "Nippon-Paint": Nippon-Paint,
-  "Nord": Nord,
-  "Crayola": Crayola,
+  output: (caps: "each", hyphen: true),
+  "css": css,
+  "pantone": pantone,
+  "dic": dic,
+  "ral": ral,
+  "ral-classic": ral-classic,
+  "hks": hks,
+  "iscc-nbs": iscc-nbs,
+  "ncs": ncs,
+  "catppuccin": catppuccin,
+  "zhongguo": zhongguo,
+  "nippon": nippon,
+  "nippon-paint": nippon-paint,
+  "nord": nord,
+  "crayola": crayola,
 )
 
 // For inline highlighting or coloring of content.
