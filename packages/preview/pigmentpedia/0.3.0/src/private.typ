@@ -1,7 +1,7 @@
 /*
   File: private.typ
   Author: neuralpain
-  Date Modified: 2025-01-08
+  Date Modified: 2025-01-11
 
   Description: Private functions shared by
   multiple modules, not accessible to the end
@@ -40,6 +40,8 @@
   length: 100%,
 )
 
+#let pgmt-page-text-size = 16pt
+
 /// Page setup for `pigmentpedia`
 ///
 /// - body (content): `pigmentpedia` pages data
@@ -52,19 +54,95 @@
     ..pigmentpage,
     fill: bg,
     header: align(center)[
-      #let svg-h = 5mm // logo height
       #if bg == white {
-        image("../assets/logo/pigmentpedia-logo.png", height: svg-h); v(4mm)
+        image("../assets/logo/pigmentpedia-logo.png", height: 5mm)
+        v(4mm)
       } else {
         text(11pt, pad(y: 4mm, pgmt-page-list-heading))
       }
     ],
   )
   counter(page).update(1)
-  set text(size: 16pt, get-contrast-color(bg), font: "Libertinus Serif")
+  set text(size: pgmt-page-text-size, get-contrast-color(bg), font: "Libertinus Serif")
   set grid(gutter: 2em)
   body
 }
+
+// Name conversions for the top-level pigment groups
+#let pgmt-group-name-fmt = (
+  "aqua": "Aqua",
+  "black": "Black",
+  "blue": "Blue",
+  "c": "Pantone C",
+  "cang": "cang",
+  "catppuccin": "Catppuccin",
+  "cg-vol-1": "CG Vol 1",
+  "cg-vol-2": "CG Vol 2",
+  "classic": "RAL Classic",
+  "cp": "Pantone CP",
+  "crayola": "Crayola",
+  "css": "CSS",
+  "design": "RAL Design",
+  "dic": "DIC",
+  "effect": "RAL Effect",
+  "en": "en",
+  "fluorescent": "Fluorescent",
+  "frappe": "Frappe",
+  "gold-silver": "Gold-Silver",
+  "gray": "Gray",
+  "green": "Green",
+  "grey": "Grey",
+  "grey-white": "Grey-White",
+  "hei": "hei",
+  "hexachrome": "Hexachrome",
+  "hks": "HKS",
+  "hong": "hong",
+  "huang": "huang",
+  "huibai": "huibai",
+  "iscc-nbs": "ISCC-NBS",
+  "jinyin": "jinyin",
+  "jp": "jp",
+  "lan": "lan",
+  "latte": "Latte",
+  "lu": "lu",
+  "macchiato": "Macchiato",
+  "metallic": "Metallic",
+  "mocha": "Mocha",
+  "ncs": "NCS",
+  "nippon": "Nippon",
+  "nippon-paint": "Nippon Paint",
+  "nord": "Nord",
+  "pantone": "Pantone",
+  "pastel": "Pastel",
+  "pinyin": "pinyin",
+  "pms": "PMS",
+  "process": "Process",
+  "ral": "RAL",
+  "ral-classic": "RAL Classic",
+  "red": "Red",
+  "romaji": "romaji",
+  "shui": "shui",
+  "skintone": "SkinTone",
+  "standard": "Standard",
+  "tc-china": "TC China",
+  "tc-france": "TC France",
+  "tc-japan": "TC Japan",
+  "u": "Pantone U",
+  "up": "Pantone UP",
+  "xgc": "Pantone XGC",
+  "yellow": "Yellow",
+  "zh": "zh",
+  "zhongguo": "Zhongguo",
+  "水": "水",
+  "灰白": "灰白",
+  "红": "红",
+  "绿": "绿",
+  "苍": "苍",
+  "蓝": "蓝",
+  "金银": "金银",
+  "黄": "黄",
+  "黑": "黑",
+)
 
 /// Show the name of the scope selected to search from.
 ///
@@ -84,43 +162,132 @@
 /// -> content
 #let get-pgmt-group-name(scope, depth: pigmentpedia, l: none, r: none, bg: white) = {
   for (a, b) in depth {
+    if a == "output" { continue }
     if b == scope {
-      [#l #pigment(get-contrast-color(bg),strong(a)) #r]
+      [#l #pigment(get-contrast-color(bg))[
+          #for (x, y) in pgmt-group-name-fmt {
+            if x == a { strong(y) }
+          }
+        ] #r]
     } else if type(b) == "dictionary" {
       get-pgmt-group-name(scope, depth: b, l: l, r: r, bg: bg)
     }
   }
 }
 
-/// Error messages for pigmentpedia
+/// Capitalize the first letter in a word.
+///
+/// - word (str): The word to capitalize.
+/// -> str
+#let cap-first-letter(word) = {
+  let _word = upper(word.at(0))
+  for i in range(word.len()) {
+    if i > 0 { _word += word.at(i) }
+  }
+
+  _word
+}
+
+/// Capitalize the first letter of each word.
+///
+/// - char_str (str): The string to process.
+/// -> str
+#let convert-caps-each-word(char_str) = {
+  let cnv-str = ""
+  char_str = char_str.split("-")
+
+  for word in char_str {
+    cnv-str += cap-first-letter(word) + " "
+  }
+
+  cnv-str.trim()
+}
+
+/// Format the output of the pigment names for the results pages.
+///
+/// - name (str): The name of the pigment or pigment group.
+/// - caps (str, none): The type of capitalization.
+/// - hyphen (bool, none): Whether or not the name of the pigment should contain hyphens.
+/// -> str
+#let format-pigment-name(name, caps, hyphen) = {
+  if hyphen != none {
+    if caps == "all" {
+      name = upper(name)
+    } else if caps == "each" {
+      name = convert-caps-each-word(name)
+    }
+
+    if hyphen {
+      name = name.replace(" ", "-")
+    } else if not hyphen {
+      name = name.replace("-", " ")
+    }
+  }
+
+  return name.trim("_")
+}
+
+/*
+  Error messages for pigmentpedia
+*/
+
+#let error-img = {
+  image("../assets/logo/pigmentpedia-icon.svg", height: 50mm)
+  text(pgmt-page-text-size, red)[
+    `Error:` \ \
+  ]
+}
+
 #let pgmt-error = (
   not-a-color: {
     align(center + horizon)[
-      #pigment(red)[
-        `Error: Not a pigment.` \ \
+      #error-img
+      #text(pgmt-page-text-size, red)[
+        `Not a color.`
+
         `Use 'view-pigments()'` \
-        `for pigment groups.` \ \
+        `for pigment groups.`
+
         `Use 'rgb("#000000")'` \
         `to enter HEX codes.`
+      ]
+    ]
+  },
+  bg-not-a-color: {
+    align(center + horizon)[
+      #error-img
+      #text(pgmt-page-text-size, red)[
+        `'bg' is not a color.`
+
+        `Use 'rgb("#000000")'` \
+        `to enter HEX codes.`
+
+        `Use 'view-pigments()' to` \
+        `view individual pigments.`
       ]
     ]
   },
   scope-is-color: {
     set page(fill: white)
     align(center + horizon)[
-      #pigment(red)[
-        `Error: 'scope' cannot be a pigment.` \ \
-        `Please select a pigment group for 'scope'.`
+      #error-img
+      #text(pgmt-page-text-size, red)[
+        `'scope' cannot be a color.`
+
+        `Please select a` \
+        `pigment group for 'scope'.`
       ]
     ]
   },
   not-a-pgmt-group: {
     set page(fill: white)
     align(center + horizon)[
-      #pigment(red)[
-        `Error: The selected item` \
-        `is not a pigment group.` \ \
-        `Use 'view-pigment()' to` \
+      #error-img
+      #text(pgmt-page-text-size, red)[
+        `The selected item` \
+        `is not a pigment group.`
+
+        `Use 'view-pigments()' to` \
         `view individual pigments.`
       ]
     ]

@@ -150,7 +150,8 @@
 #let whitesmoke = rgb("#F5F5F5")
 #let yellowgreen = rgb("#9ACD32")
 
-#let CSS = (
+#let css = (
+  output: (caps: none, hyphen: none),
   "black": rgb("#000000"),
   "blue": rgb("#0000FF"),
   "cyan": rgb("#00FFFF"),
