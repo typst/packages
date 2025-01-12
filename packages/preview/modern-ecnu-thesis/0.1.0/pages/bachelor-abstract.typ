@@ -18,8 +18,8 @@
   outline-title: "摘要",
   outlined: true,
   anonymous-info-keys: ("author", "supervisor", "supervisor-ii"),
-  leading: 1.28em,
-  spacing: 1.28em,
+  leading: 1.25em,
+  spacing: 1.25em,
   body,
 ) = {
   // 1.  默认参数
@@ -57,14 +57,12 @@
     #invisible-heading(level: 1, outlined: outlined, outline-title)
 
     #align(center)[
-      #set text(font: fonts.黑体, size: 字号.三号)
-      #context s.get()
+      #set text(font: fonts.黑体, size: 字号.小三)
+      摘要
     ]
 
     #v(1em)
-    #text(font: fonts.黑体)[摘要：]
-
-    #set text(font: fonts.宋体)
+    #set text(font: fonts.宋体, size: 字号.五号)
 
     #[
       #set par(first-line-indent: 2em)
@@ -72,7 +70,7 @@
       #body
     ]
 
-    #v(1em)
+    #v(2.5em)
 
     #text(font: fonts.黑体)[关键词：]#(("",)+ keywords.intersperse("，")).sum()
   ]

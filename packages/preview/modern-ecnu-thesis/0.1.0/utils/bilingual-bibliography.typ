@@ -137,6 +137,8 @@
 
   set text(lang: "zh")
 
+  context state("in-mainmatter").update(false)
+
   bibliography(
     title: title,
     full: full,

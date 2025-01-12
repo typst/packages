@@ -6,6 +6,7 @@
 #import "../utils/indent.typ": fake-par
 #import "../utils/unpairs.typ": unpairs
 #import "../utils/pagebreak-from-odd.typ": pagebreak-from-odd
+#import "../utils/word-counter.typ": *
 
 #let mainmatter(
   // documentclass 传入参数
@@ -46,6 +47,8 @@
   show-figure: i-figured.show-figure,
   // equation 计数
   show-equation: i-figured.show-equation,
+  // heading 文字（本科生论文需要）
+  heading-extra: "华东师范大学本科毕业论文",
   ..args,
   it,
 ) = {
@@ -154,10 +157,14 @@
   // 4.1 设置标题的 Numbering
   set heading(numbering: numbering)
   // 4.2 设置字体字号并加入假段落模拟首行缩进
-  show heading: it => {
+  show heading: it => context {
     set text(
       font: array-at(heading-font, it.level),
-      size: array-at(heading-size, it.level),
+      size: if it.level == 1 {
+          if state("in-mainmatter").get() { array-at(heading-size, it.level) } else {
+            if doctype == "bachelor" { 字号.小三 } else { 字号.三号 }
+          }
+        } else { array-at(heading-size, it.level) },
       weight: array-at(heading-weight, it.level),
       ..unpairs(heading-text-args-lists
         .map((pair) => (pair.at(0), array-at(pair.at(1), it.level))))
@@ -170,7 +177,7 @@
     fake-par
   }
   // 4.3 标题居中与自动换页
-  show heading: it => {
+  show heading: it => context {
     if (array-at(heading-pagebreak, it.level)) {
       // 如果打上了 no-auto-pagebreak 标签，则不自动换页
       if ("label" not in it.fields() or str(it.label) != "no-auto-pagebreak") {
@@ -178,7 +185,7 @@
       }
     }
     if (array-at(heading-align, it.level) != auto) {
-      set align(array-at(heading-align, it.level))
+      set align(if state("in-mainmatter").get() { array-at(heading-align, it.level) } else { center })
       it
     } else {
       it
@@ -215,8 +222,18 @@
     )
   }))
 
-  it
+  // 字数统计（正文 + 附录）
+  //     typst query main.typ '<total-words>' 2>/dev/null --field value --one
 
+  context [
+    #metadata(state("total-words-cjk").final()) <total-words>
+    #metadata(state("total-characters").final()) <total-chars>
+  ]
+
+  let s = state("in-mainmatter", true)
+  context s.update(true)
+
+  it
   // 正文结束标志，不可缺少
   // 这里放在附录后面，使得页码能正确计数
   fence()

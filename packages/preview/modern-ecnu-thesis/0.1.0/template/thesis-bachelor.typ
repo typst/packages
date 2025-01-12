@@ -1,3 +1,13 @@
+/*
+ * thesis copy.typ
+ *
+ * @project: modern-ecnu-thesis
+ * @author: Juntong Chen (dev@jtchen.io)
+ * @created: 2025-01-11 16:57:02
+ * @modified: 2025-01-11 16:57:17
+ *
+ * Copyright (c) 2025 Juntong Chen. All rights reserved.
+ */
 #import "@preview/modern-ecnu-thesis:0.1.0": documentclass, indent, no-indent, word-count-cjk, total-words
 
 // 模板用到的主要字体：https://github.com/jtchen2k/modern-ecnu-thesis/tree/main/fonts/
@@ -12,7 +22,7 @@
   outline-page, list-of-figures, list-of-tables, notation, acknowledgement,
 ) = documentclass(
   // doctype: "bachelor",  // "bachelor" | "master" | "doctor", 文档类型，默认为硕士生 master
-  doctype: "master",
+  doctype: "bachelor",
   // degree: "academic",  // "academic" | "professional", 学位类型，默认为学术型 academic
   degree: "academic",
   // anonymous: true,  // 盲审模式

@@ -24,7 +24,7 @@
   bold-level: "bold",
   datetime-display: datetime-display-bachelor,
   title-line-length: 320pt,
-  title-line-length-en: 300pt,
+  title-line-length-en: 320pt,
   meta-info-line-length: 200pt,
   meta-info-line-length-en: 230pt,
 ) = {
@@ -63,11 +63,11 @@
       width: 100%,
       inset: info-inset,
       stroke: none,
-      text(font: fonts.at(info-key-font, default: "宋体"), weight: "bold", size: 字号.小三, body + if with-tail { "：" } else { "" }),
+      text(font: fonts.at(info-key-font, default: "宋体"), weight: "bold", size: 字号.四号, body + if with-tail { "：" } else { "" }),
     )
   }
 
-  let info-value(size: 字号.小三, key, body) = {
+  let info-value(size: 字号.四号, key, body) = {
     set align(center)
     rect(width: 100%, inset: info-inset, stroke: (bottom: stoke-width + black), text(
       font: fonts.at(info-value-font, default: "宋体"),
@@ -78,7 +78,7 @@
     ))
   }
 
-  let info-long-value(size: 字号.小三, key, body) = {
+  let info-long-value(size: 字号.四号, key, body) = {
     grid.cell(colspan: 3, info-value(size: size, key, if anonymous and (key in anonymous-info-keys) {
       "██████████"
     } else {
@@ -86,7 +86,7 @@
     }))
   }
 
-  let info-title-value(size: 字号.小一, body) = {
+  let info-title-value(size: 字号.一号, body) = {
     set align(center)
     underline(offset: 6pt, stroke: 1.25pt, text(
       font: fonts.at(info-value-font, default: "宋体"),
@@ -124,7 +124,7 @@
     学校代码：#underline(stroke: 0.5pt, offset: 3pt)[*10269*]
   ]
 
-  v(12pt)
+  v(5pt)
 
   // 匿名化处理去掉封面标识
   if anonymous {
@@ -132,7 +132,7 @@
   } else {
     // 封面图标
     v(6pt)
-    image("../assets/ecnu-bachelor-thesis-cover.svg", width: 10cm)
+    image("../assets/ecnu-bachelor-thesis-cover.svg", width: 9.5cm)
   }
 
   if anonymous {
@@ -142,13 +142,13 @@
   }
 
   stack(dir: ttb, spacing: 1fr,
-    block(width: title-line-length)[
+    block(width: title-line-length * 1.5)[
       #stack(
         dir: ttb,
         spacing: 12pt,
-        ..info.title.map((it) => info-title-value(size: 字号.小一, it)),
+        ..info.title.map((it) => info-title-value(size: 字号.一号, it)),
         h(0.5em),
-        ..info.title-en.map((it) => info-title-value(size: 字号.二号, it))
+        ..info.title-en.map((it) => info-title-value(size: 字号.一号, it))
       )
     ],
 
@@ -160,7 +160,7 @@
       info-long-value("author", info.author),
       info-key("学　　号"),
       info-long-value("student-id", info.student-id),
-      info-key("院　　系"),
+      info-key("学　　院"),
       ..info.department.map((it) => info-long-value("department", it)).intersperse(info-key("", with-tail: false)),
       info-key("专　　业"),
       info-long-value("major", info.major),

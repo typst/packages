@@ -15,10 +15,10 @@
   // 其他参数
   keywords: (),
   outline-title: "Abstract",
-  outlined: false,
+  outlined: true,
   anonymous-info-keys: ("author-en", "supervisor-en", "supervisor-ii-en"),
-  leading: 1.28em,
-  spacing: 1.38em,
+  leading: 1.08em,
+  spacing: 1.25em,
   body,
 ) = {
   // 1.  默认参数
@@ -61,13 +61,11 @@
     #invisible-heading(level: 1, outlined: outlined, outline-title)
 
     #align(center)[
-      #set text(font: fonts.黑体, size: 字号.三号)
-      #context s.get()
+      #set text(font: fonts.黑体, size: 字号.小三)
+      Abstract
     ]
 
     #v(1em)
-
-    *Abstract:*
 
     #set text(font: fonts.宋体)
 
@@ -77,8 +75,8 @@
       #body
     ]
 
-    #v(1em)
+    #v(2.5em)
 
-    *Keywords: *_#(("",) + keywords.intersperse(", ")).sum()_
+    *Keywords: *#h(0.25em)#(("",) + keywords.intersperse(", ")).sum()
   ]
 }

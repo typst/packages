@@ -11,12 +11,24 @@
 - 优化段落缩进
 - 优化对多行标题 / 院系的处理逻辑
 - 优化开启 `twoside` 参数后的页码逻辑
+- 增加字数统计功能
 
 对于研究生，我们参考华东师范大研究生院于 2023 年发布的[华东师范大学博士、硕士学位论文基本格式要求](https://yjsy.ecnu.edu.cn/8e/62/c42090a429666/page.htm)；对于本科生，我们参考华东师范大学教务处于 2021 年更新的[华东师范大学本科生毕业论文（设计）格式要求](http://www.jwc.ecnu.edu.cn/d4/be/c40573a513214/page.htm)。格式适配于 2025 年初，后续使用的同学请留意参考校方的最新通知。
 
-![1736471485839](https://jtchen.s3.ap-northeast-1.amazonaws.com/v1/img/2025/01/09/1736471485839.png)
+![1736643710702](https://jtchen.s3.ap-northeast-1.amazonaws.com/v1/img/2025/01/11/1736643710702.png)
 
-在这里可以找到硕士学位论文的示例文档：[thesis.pdf](https://github.com/jtchen2k/modern-ecnu-thesis/releases/download/0.1.0/thesis.pdf)。
+示例文档：
+- 本科学位论文 [modern-ecnu-thesis-bachelor.pdf](https://github.com/jtchen2k/modern-ecnu-thesis/releases/latest/download/modern-ecnu-thesis-bachelor.pdf)
+- 硕士学位论文，学术学位 [modern-ecnu-thesis-master-academic.pdf](https://github.com/jtchen2k/modern-ecnu-thesis/releases/latest/download/modern-ecnu-thesis-master-academic.pdf)
+- 硕士学位论文，专业学位 [modern-ecnu-thesis-master-professional.pdf](https://github.com/jtchen2k/modern-ecnu-thesis/releases/latest/download/modern-ecnu-thesis-master-professional.pdf)
+- 博士学位论文，学术学位 [modern-ecnu-thesis-doctor-academic.pdf](https://github.com/jtchen2k/modern-ecnu-thesis/releases/latest/download/modern-ecnu-thesis-doctor-academic.pdf)
+- 博士学位论文，专业学位 [modern-ecnu-thesis-doctor-professional.pdf](https://github.com/jtchen2k/modern-ecnu-thesis/releases/latest/download/modern-ecnu-thesis-doctor-professional.pdf)
+
+## Why Typst
+
+> 天下苦 LaTeX 久矣。
+
+Typst 是一个基于 Rust 的现代化的排版引擎。它具备类似 Markdown 的简洁语法、清晰的错误提示、实时预览级的编译性能，又同时具备和 LaTeX 一样精准的排版控制和图灵完备的脚本能力。自 2023 年 4 月开源发布以来，已获得 ![](https://img.shields.io/github/stars/typst/typst?style=flat)。现代化的 Typst 可以让你更加专注于论文内容本身，而不被 LaTeX 漫长的编译时间与难以阅读的输出日志困扰。
 
 ## Usage
 
@@ -66,16 +78,45 @@ ln -s </path/to/modern-ecnu-thesis> $DATA_DIR/typst/packages/preview/modern-ecnu
 
 ## Tips
 
+默认模板有一些示例代码，清空前请留意。
+
+### 字数统计
+
+模板内置了字数统计功能。统计时会除去标题与标点符号，默认包括了正文与附录的所有内容。一个英语单词或一个 CJK 汉字将会被统计为一个 word，一个任意字符会被统计为一个 char。默认的统计范围为正文 + 附录，这取决于文中 `#show: word-count-cjk` 的位置。如果希望包括摘要、目录等能容，将这一行移动到 `#show: preface` 的下一行即可。
+
+如需统计字数，可以使用 `make count` 命令，你会得到类似如下的输出：
+
+```
+#word: 100
+#char: 200
+```
+
+具体而言，该命令使用 `typst query` 命令来查询嵌入在 `mainmatter.typ` 里的包含字数信息的 `metadata`。你也可以在正文中使用 `total-words-cjk`、`total-characters` 或使用以下代码来显示总字数 / 字符数：
+
+```typst
+context state("total-words-cjk").final()
+context state("total-characters").final()
+```
+
+### 从 LaTeX 到 Typst
+
 - Typst 支持的图片格式包括 png, jpeg, gif 与 svg，不支持 pdf 与 eps。你可以使用 InkSpace 或 [pdf2svg](https://github.com/dawbarton/pdf2svg) 等工具将 pdf 转换为 svg 格式：
 
     ```bash
     pdf2svg input.pdf output.svg
     ```
 
-- Typst 现在已经支持图片的浮动排版了。你可以使用 `figure` 的 `placement` 属性来控制图片位置。
-- Typst 有一套自己的公式语法，与 LaTeX 大同小异且更加简洁。如果你已经十分熟悉 LaTeX 的语法并希望使用，可以使用 [MiTeX](https://github.com/mitex-rs/mitex)，它将允许你在 Typst 中使用 LaTeX 数学语法。
+- Typst 现在已经支持图片的浮动排版了。你可以使用 `figure` 的 `placement` 属性来控制图片位置，可以实现类似 LaTeX 的 `[htbp]` 功能：
+
+    ```typst
+    figure {
+        placement: "top";
+        caption: "image caption";
+        ...
+    }[#image("...)] <label>
+    ```
+- Typst 有一套自己的公式语法，与 LaTeX 大同小异且更加简洁。如果你已经十分熟悉 LaTeX 的语法并希望继续使用，可以引入 [MiTeX](https://github.com/mitex-rs/mitex)，它将允许你在 Typst 中使用 LaTeX 数学语法。
 - Typst 原生兼容了 biblatex 引用格式，直接修改 ref.bib 即可。
-- 默认模板有一些示例代码，清空前请留意。
 
 更多 Typst 的介绍、学习资料与项目背景可参考[上游项目](https://github.com/nju-lug/modern-nju-thesis)的 README。
 

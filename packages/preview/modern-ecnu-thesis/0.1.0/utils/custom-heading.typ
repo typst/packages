@@ -52,12 +52,14 @@
 }
 
 // 页眉内容
-#let heading-content(doctype: "master", fonts: (:), stroke-width: 0.5pt) = {
+#let heading-content(doctype: "master", extra: "华东师范大学本科毕业论文", fonts: (:), stroke-width: 0.5pt) = {
   if doctype == "bachelor" {
-    set text(font: fonts.黑体, size: 字号.五号)
+    set text(font: fonts.宋体, size: 字号.小五)
     set align(center)
     let title = state("title")
-    stack(context title.get(), v(0.5em), line(length: 100%, stroke: stroke-width + black))
+    stack(extra + h(1fr) + context title.get(),
+    v(0.65em),
+    line(length: 100%, stroke: stroke-width + black))
     step()
   } else {
     step()

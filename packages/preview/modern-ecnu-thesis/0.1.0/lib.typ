@@ -4,7 +4,7 @@
  * @project: modern-ecnu-thesis
  * @author: OrangeX4, Juntong Chen (dev@jtchen.io)
  * @created: 2025-01-06 22:37:34
- * @modified: 2025-01-10 01:58:02
+ * @modified: 2025-01-11 16:46:35
 *
  * 华东师范大学学位论文模板
  *    Repo: https://github.com/jtchen2k/modern-ecnu-thesis
@@ -39,6 +39,7 @@
 #import "utils/custom-heading.typ": heading-display, active-heading, current-heading
 #import "utils/indent.typ": indent, fake-par, no-indent
 #import "utils/panic-page.typ": panic-page
+#import "utils/word-counter.typ": *
 #import "@preview/i-figured:0.2.4": show-figure, show-equation
 #import "utils/style.typ": 字体, 字号
 
@@ -53,6 +54,15 @@
   fonts: (:), // 字体，应传入「宋体」、「黑体」、「楷体」、「仿宋」、「等宽」
   info: (:),
 ) = {
+
+  // 开发用，用 sys input 覆盖 doctype 以方便编译多种类型的文档
+  if "doctype" in sys.inputs {
+    doctype = sys.inputs.at("doctype")
+  }
+  if "degree" in sys.inputs {
+    degree = sys.inputs.at("degree")
+  }
+
   // 默认参数
   fonts = 字体 + fonts
   info = (
@@ -104,13 +114,32 @@
       preface(doctype: doctype, twoside: twoside, ..args)
     },
     mainmatter: (..args) => {
-      mainmatter(doctype: doctype, twoside: twoside,  display-header: true, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
+      if doctype == "bachelor" {
+        mainmatter(doctype: doctype, twoside: twoside, display-header: true,
+         heading-size: (字号.小四, 字号.小四,),
+         numbering: custom-numbering.with(first-level: "1. ", depth: 4, "1.1 "),
+         heading-align: (left, auto),
+         heading-above: (0em, 1.8em),
+         heading-below: (1.8em, 1.5em),
+         ..args, fonts: fonts + args.named().at("fonts", default: (:)))
+      } else {
+        mainmatter(doctype: doctype, twoside: twoside,  display-header: true, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
+      }
     },
     mainmatter-end: (..args) => {
       mainmatter-end(..args)
     },
     appendix: (..args) => {
-      appendix(..args)
+      if doctype == "bachelor" {
+        appendix(
+          doctype: doctype,
+          numbering: custom-numbering.with(first-level: "", depth: 4, "1.1 "),
+          ..args,
+          fonts: fonts + args.named().at("fonts", default: (:))
+          )
+      } else {
+        appendix(doctype: doctype, ..args)
+      }
     },
     // 字体展示页
     fonts-display-page: (..args) => {
@@ -227,12 +256,12 @@
           doctype: doctype,
           twoside: twoside,
           size: (字号.小四, 字号.小四),
-          font: (fonts.黑体, fonts.宋体),
+          font: (fonts.宋体, fonts.宋体),
           weight: ("bold", "regular"),
-          title-text-args: (font: 字体.黑体, size: 字号.三号, weight: "bold"),
+          title-text-args: (font: 字体.黑体, size: 字号.小三, weight: "bold"),
           show-heading: true,
           vspace: (1.2em, 1em),
-          indent: (0em, 2.38em, 2em, 2.8em),
+          indent: (0em, 1.4em, 2em, 2.8em),
           ..args,
           fonts: fonts + args.named().at("fonts", default: (:)),
         )
@@ -256,7 +285,7 @@
       list-of-figures(
         twoside: twoside,
         show-heading: true,
-        title-text-args: (font: 字体.黑体, size: 字号.三号, weight: "bold"),
+        title-text-args: (font: 字体.黑体, size: if doctype == "master" { 字号.三号 } else { 字号.小三 } , weight: "bold"),
         doctype: doctype,
         ..args,
         fonts: fonts + args.named().at("fonts", default: (:)),
@@ -269,7 +298,7 @@
         twoside: twoside,
         doctype: doctype,
         show-heading: true,
-        title-text-args: (font: 字体.黑体, size: 字号.三号, weight: "bold"),
+        title-text-args: (font: 字体.黑体, size: if doctype == "master" { 字号.三号 } else { 字号.小三 } , weight: "bold"),
         ..args,
         fonts: fonts + args.named().at("fonts", default: (:)),
       )
@@ -280,8 +309,8 @@
       notation(
         twoside: twoside,
         show-heading: true,
-        title-text-args: (font: 字体.黑体, size: 字号.三号, weight: "bold"),
-        doctype: doctype,
+        title-text-args: (font: 字体.黑体, size: if doctype == "master" { 字号.三号 } else { 字号.小三 } , weight: "bold"),
+         doctype: doctype,
         ..args,
         fonts: fonts + args.named().at("fonts", default: (:)),
       )

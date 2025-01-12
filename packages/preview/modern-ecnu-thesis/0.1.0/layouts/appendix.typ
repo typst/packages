@@ -1,8 +1,11 @@
 #import "@preview/i-figured:0.2.4"
 #import "../utils/custom-numbering.typ": custom-numbering
+#import "../utils/style.typ": 字号, 字体
+#import "../utils/invisible-heading.typ": invisible-heading
 
 // 后记，重置 heading 计数器
 #let appendix(
+  doctype: "master",
   numbering: custom-numbering.with(first-level: "", depth: 4, "1.1 "),
   // figure 计数
   show-figure: i-figured.show-figure.with(numbering: "1.1"),
@@ -10,6 +13,7 @@
   show-equation: i-figured.show-equation.with(numbering: "(1.1)"),
   // 重置计数
   reset-counter: false,
+  fonts: (:),
   it,
 ) = {
   set heading(numbering: numbering)
@@ -20,5 +24,6 @@
   show figure: show-figure
   // 设置 equation 的编号
   show math.equation.where(block: true): show-equation
+
   it
 }
