@@ -1,5 +1,5 @@
 [package]
-name = "ref-sheet"
+name = "summy"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Wasay Saeed @wasaysir"]

@@ -1,4 +1,4 @@
-#import "@preview/ref-sheet:0.1.0": *
+#import "@preview/summy:0.1.0": *
 
 #set text(font: "Helvetica")
 

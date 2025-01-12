@@ -7,7 +7,7 @@ provide an overview of all coursework in an accessible, low-bloat manner with a 
 
 ### Web-app
 
-In the Typst web app dashboard, select "Start from template" and search for `ref-sheet`.
+In the Typst web app dashboard, select "Start from template" and search for `summy`.
 
 Name your project and select Create.
 
@@ -16,7 +16,7 @@ Name your project and select Create.
 To build this project via the CLI, use the command
 
 ```
-typst init @preview/ref-sheet
+typst init @preview/summy
 ```
 
 A sample project will be created with the template format.
@@ -40,13 +40,13 @@ arguments:
 
 To modify an existing project using this template:
 1. Import project to top of file
-2. Use Show rule to create instance of ref-sheet
+2. Use Show rule to create instance of cheatsheet
 3. Add cheatsheet information below (Recommmended to break into separate files for simplicity)
 
 ### Example:
 
 ```typst
-#import "@preview/ref-sheet:0.1.0": *
+#import "@preview/summy:0.1.0": *
 
 #set page(paper: "a4", flipped: true, margin: 1cm)
 #set text(font: "Arial", size: 11pt)
