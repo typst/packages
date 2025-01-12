@@ -1,4 +1,4 @@
-#import "@preview/zero:0.3.1": ztable
+#import "@preview/zero:0.3.2": ztable
 
 #let stdstroke = stroke
 #let stdtable = table
