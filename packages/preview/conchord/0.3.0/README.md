@@ -58,6 +58,8 @@ What can you do with this package?
 It's quite simple to use, see yourself[*](## "Boxing is required to put them in one line. By default the chords are blocks"):
 
 ```typ
+#import "@preview/conchord:0.3.0": smart-chord
+
 #box(smart-chord("Am"))
 // at what fret to play the chord
 #box(smart-chord("Am", at: 5)) // chord at fifth fret
@@ -75,9 +77,11 @@ Under the hood, this `smart-chord` uses `get-chord` function with very similar s
 `get-chord`, in turn, uses `get-chords`, a function that asks WASM to create all possible tabstrings. We can use `get-chords` to draw all possible chords, or use [`n-best`](## "This is just a slice of given length that doesn't panic if given number is bigger than length") to select n best chords:
 
 ```typ
+#import "@preview/conchord:0.3.0": n-best, get-chords, red-missing-fifth
+
 = `Am`
-// select five first chords
-#for c in n-best(get-chords("Am"), n: 5) {
+// select first 18 chords (empirically fine default)
+#for c in n-best(get-chords("Am")) {
   box(red-missing-fifth(c))
 }
 
@@ -122,7 +126,7 @@ There is another "music theory" important note. By default generator requires th
 `conchord` works with very simple tab chord representation. That means for custom chords you don't need to think about layout and pass all parameters of drawing barres. `Conchord` will do this for you. Just pass a string with held frets and it will work:
 
 ```typst
-#import "@preview/conchord:0.2.0": new-chordgen, overchord
+#import "@preview/conchord:0.3.0": new-chordgen
 
 // creating new chordgen without any parameters
 #let chord = new-chordgen()
