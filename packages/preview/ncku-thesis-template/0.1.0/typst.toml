@@ -1,5 +1,6 @@
 [package]
-name = "ncku-thesis-template"
+# Hinting at "See you later," perfect for a thesis that gets you through to graduation.
+name = "ncku-later"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Haouo"]
