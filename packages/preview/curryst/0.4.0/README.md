@@ -8,7 +8,7 @@ A Typst package for typesetting proof trees.
 You can import the latest version of this package with:
 
 ```typst
-#import "@preview/curryst:0.3.0": rule, proof-tree
+#import "@preview/curryst:0.4.0": rule, proof-tree
 ```
 
 ## Basic usage
