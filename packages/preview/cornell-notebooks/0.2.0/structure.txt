@@ -1,0 +1,34 @@
+|-- 文件: .gitignore
+|-- 文件夹: .vscode
+|   |-- 文件: typst.code-snippets
+|-- 文件夹: image
+|-- 文件夹: layouts
+|   |-- 文件: cornell-layouts.typ
+|   |-- 文件: cornell-lines.typ
+|   |-- 文件: heading-styles.typ
+|   |-- 文件: ordinary-layouts.typ
+|-- 文件夹: others
+|   |-- (空目录)
+|-- 文件夹: pages
+|   |-- 文件: cover.typ
+|   |-- 文件: preface.typ
+|-- 文件夹: src
+|   |-- 文件: lib-crisp.typ
+|   |-- 文件: lib.typ
+|-- 文件: structure.py
+|-- 文件: structure.txt
+|-- 文件夹: template
+|   |-- 文件: cornell-crisp.typ
+|   |-- 文件: cornell.typ
+|   |-- 文件: refs.bib
+|-- 文件: typt.toml
+|-- 文件夹: utils
+|   |-- 文件: bibliography.typ
+|   |-- 文件: bottom-note.typ
+|   |-- 文件: codly-languages.typ
+|   |-- 文件: codly.typ
+|   |-- 文件: color-box.typ
+|   |-- 文件: colors.typ
+|   |-- 文件: indent.typ
+|   |-- 文件: left-note.typ
+|   |-- 文件: sectionline.typ
