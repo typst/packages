@@ -51,7 +51,6 @@
 #let empty = ""
 #let name = "Patrick Rabier"
 #let role = "Lead Software Engineer"
-#let icon_size = 15pt
 #let font = "Inter"
 
 // --------------------------------------
@@ -138,7 +137,7 @@
 #let resume-layout = (
   sidebar: none,
   color: gray,
-  base_color: white,
+  base-color: white,
   content
 ) => {
   if sidebar == none {
@@ -147,13 +146,13 @@
     grid(
       columns: (1.9fr, 3fr),
       rows: (100%),
-      fill: (x, _) => if x == 0 { color } else { base_color },
+      fill: (x, _) => if x == 0 { color } else { base-color },
       context {
         set-current-background-color(color)
         sidebar
       },
       context {
-        set-current-background-color(base_color)
+        set-current-background-color(base-color)
         content
       },
     )
@@ -196,7 +195,7 @@
   context {
     set page("a4", margin: 0pt, fill: get-background-color())
     resume-layout(
-      base_color: get-background-color(),
+      base-color: get-background-color(),
       color: get-accent-color(),
       sidebar: if sidebar != none {
         render-area(detect-text-color(get-accent-color()), sidebar)
