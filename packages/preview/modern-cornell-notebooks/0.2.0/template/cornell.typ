@@ -40,10 +40,10 @@ $a^2-b^2 = (a-b)(a+b)$
 
 = 图片
 
-#figure(
-  image("../images/typst.png", width: 80%),
-  caption: "图片示例",
-)
+// #figure(
+//   image("../images/typst.png", width: 80%),
+//   caption: "图片示例",
+// )
 
 = 代码
 

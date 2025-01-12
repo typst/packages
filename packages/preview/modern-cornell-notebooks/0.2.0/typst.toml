@@ -1,5 +1,5 @@
 [package]
-name = "cornell-notebooks"
+name = "modern-cornell-notebooks"
 version = "0.2.0"
 entrypoint = "template/cornell.typ"
 license = "MIT"
@@ -13,14 +13,3 @@ compiler = "0.12.0"
 path = "template"
 entrypoint = "cornell.typ"
 thumbnail = "thumbnail.png"
-
-[export]
-files = [
-    "layouts/*.typ",
-    "pages/*.typ",
-    "lib/lib.typ",
-    "utils/*.typ",
-    "template/cornell.typ",
-    "template/refs.bib",
-    "images/typst.png",
-]

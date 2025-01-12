@@ -4,7 +4,8 @@
 
 | Cover | Contents | Main Body |
 |:--:|:--:|:--:|
-| ![Cover](images/cover.png) | ![Contents](images/contents.png) | ![Body](images/body1.png) |
+| ![Cover](https://raw.githubusercontent.com/aFei-CQUT/cornell-notebooks/main/images/cover.png) | ![Contents](https://raw.githubusercontent.com/aFei-CQUT/cornell-notebooks/main/images/contents.png) | ![Body](https://raw.githubusercontent.com/aFei-CQUT/cornell-notebooks/main/images/body1.png) |
+
 
 Simple and Functional Typst Note Template
 

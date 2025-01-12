@@ -4,7 +4,7 @@
 
 | 封面 | 目录 | 正文 |
 |:--:|:--:|:--:|
-| ![Cover](images/cover-zh.png) | ![Contents](images/contents-zh.png) | ![Body](images/body1-zh.png) |
+| ![Cover](https://raw.githubusercontent.com/aFei-CQUT/cornell-notebooks/main/images/cover-zh.png) | ![Contents](https://raw.githubusercontent.com/aFei-CQUT/cornell-notebooks/main/images/contents-zh.png) | ![Body](https://raw.githubusercontent.com/aFei-CQUT/cornell-notebooks/main/images/body1-zh.png) |
 
 简单且实用的 Typst 笔记模板
 
