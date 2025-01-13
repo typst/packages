@@ -23,7 +23,7 @@
     let acronyms = acros.get()
     if acr in acronyms{
       let defs = acronyms.at(acr).at(0)
-      if type(defs) == "dictionary"{
+      if type(defs) == dictionary{
         if plural {
           if "short-pl" in defs{
             defs.at("short-pl")
@@ -59,13 +59,13 @@
 
 
       // The Definition is a string============
-      if type(defs) == "string"{ // If user defined only one version and forgot the trailing comma the type is string
+      if type(defs) == str{ // If user defined only one version and forgot the trailing comma the type is string
         if plural{panic("You requested the plural version of the acronym but it seems like you only provided the singular version in #init-acronyms(dict)")}
         else{defs} // All is good, we return the definition found as the singular version
       }
 
       // The Definition is an array ============
-      else if type(defs) == "array"{
+      else if type(defs) == array{
         if defs.len() == 0{ // The user could have provided an empty array, unlikely but possible.
           panic("No definitions found for acronym "+acr+". Make sure it is defined in the dictionary passed to #init-acronyms(dict)")
         }else if defs.len() == 1{ // User provided only one version, we make the plural by adding an "s" at the end.
@@ -77,7 +77,7 @@
         }
 
       // The Definition is a dictionary ============
-      }else if type(defs) == "dictionary"{
+      }else if type(defs) == dictionary{
         if plural{
           if "long-pl" in defs{
             defs.at("long-pl")
@@ -92,7 +92,7 @@
           }
         }
       }else{
-        panic("Definitions should be a string, an array, or a dictionary. Definition of "+acr+ " is of type: "+type(defs))
+        panic("Definitions should be a string, an array, or a dictionary. Definition of "+acr+ " is of type: "+repr(type(defs)))
       }
     }else{
       panic(acr+" is not a key in the acronyms dictionary.")
