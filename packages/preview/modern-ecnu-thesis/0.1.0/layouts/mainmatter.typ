@@ -229,6 +229,8 @@
   show quote: set text(font: fonts.楷体)
   show quote: set pad(x: 2em)
 
+  set underline(stroke: 0.5pt + black, offset: 0.35em)
+
   // 字数统计（正文 + 附录）
   //   typst query main.typ '<total-words>' 2>/dev/null --field value --one
   context [

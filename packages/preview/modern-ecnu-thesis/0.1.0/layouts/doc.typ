@@ -9,6 +9,7 @@
   fallback: false,  // 字体缺失时使用 fallback，不显示豆腐块
   lang: "zh",
   fix-cjk: true,
+  fix-cjk-debug: false,
   margin: (top: 3cm, bottom: 2.5cm, left: 3.18cm, right: 3.18cm),
   it,
 ) = {
@@ -36,7 +37,7 @@
 
 
   show: if fix-cjk {
-    fix-cjk-linebreak
+    fix-cjk-linebreak.with(debug: fix-cjk-debug)
   } else {
     it
   }

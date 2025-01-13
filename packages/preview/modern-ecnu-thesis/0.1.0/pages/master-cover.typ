@@ -239,7 +239,7 @@
         info-key("学位申请人"),
         info-value-cn("author", info.author),
         info-key("指导教师"),
-        info-value-cn("supervisor", info.supervisor.intersperse(" ").sum()),
+        info-value-cn("supervisor", info.supervisor.intersperse(h(0.5em)).sum()),
         ..(
           if info.supervisor-ii != () { (info-key-indent(), info-value-cn("supervisor-ii", info.supervisor-ii.intersperse(" ").sum()),) } else { () }
         ),

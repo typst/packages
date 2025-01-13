@@ -228,9 +228,10 @@ int main() {
 
 == 中文字符的换行
 
-模板默认启用了 CJK 字符的换行修复。启用该修复后，你可以在源代码中
-任
-意
+模板启用了 CJK 字符的换行修复。启用该修复后，你
+可以在源
+代码中
+任意
 换
 行
 ，
@@ -238,7 +239,7 @@ int main() {
 模板输出时不会把中文源码里的换行转为空格，而只把西文内的换行转换为空格（this
 is
 an
-example）。在启用该修复后，Tinymist 的定位功能可能会失效，你可以将 `#show: doc.with(fix-cjk: true)` 一行修改为 `#show: doc.with(fix-cjk: false)`。来临时禁用该修复。
+example）。这是一个实验性的功能，在启用该修复后，Tinymist 的定位功能会失效，在少数情况下也可能去除不应去掉的空格。你可以将 `#show: doc.with(fix-cjk: true)` 一行修改为 `#show: doc.with(fix-cjk: false)` 来禁用该修复。
 
 == 字数统计
 
