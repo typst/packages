@@ -1,6 +1,7 @@
 #import "@preview/acrostiche:0.0.0": *
 
 #init-acronyms((
+  "STA": "String Type Acronym",
   "PFT": ("Package For Typst","Packages For Typst"),
   "AJT": ("Amicale des Joyeux Typistes"),
   "ada": (short:[#text(fill:aqua)[ADA]], short-pl:"ADAs", long:"Advanced Definition Acronym", long-pl:"Advanced Definitions Acronyms"),
@@ -31,6 +32,10 @@ Full definition of #acrf("PFT") and full plural definition of #acrfpl("PFT").
 
 First use of #acr("AJT") and second use of #acr("AJT").\
 #ref("First use of Amicale des Joyeux Typistes (AJT) and second use of AJT.")
+
+== Plural with string only definition
+First use of #acrpl("STA") and second use of #acrpl("STA").\
+#ref("First use of String Type Acronyms (STAs) and second use of STAs.")
 
 == Acronym with Advanced Definitions
 
