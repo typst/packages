@@ -55,7 +55,7 @@
 
   set page(
     header: {
-      heading-content(doctype: doctype, fonts: fonts)
+      heading-content(doctype: doctype, twoside: twoside, fonts: fonts)
     }
   )
 

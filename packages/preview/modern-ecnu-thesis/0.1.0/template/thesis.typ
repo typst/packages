@@ -51,8 +51,8 @@
   bibliography: bibliography.with("ref.bib"),
 )
 
-// 文稿设置
-#show: doc
+// 文稿设置。fix-cjk 用于修复中文字符的换行问题。
+#show: doc.with(fix-cjk: true)
 
 // 字体展示测试页
 // #fonts-display-page()
@@ -118,12 +118,16 @@
 
 === 无序列表
 
+这里是一些无序列表示例：
+
 - 无序列表项一
 - 无序列表项二
   - 无序子列表项一
   - 无序子列表项二
 
 === 有序列表
+
+这里是一些有序列表示例：
 
 + 有序列表项一
 + 有序列表项二
@@ -166,7 +170,7 @@
 
 你可以使用 figure 的 `placement` 属性 #footnote[
   需要 Typst 版本 >= 0.12.0：#link("https://github.com/typst/typst/releases/tag/v0.12.0")。
-] 来设置类似的浮动图表位置 。可用的值有 `top`、`bottom` 与 `none`，分别对应 LaTeX 中的 t、b 与 h。若要实现类似 LaTeX 中 `p` 属性的整页图表，可结合 `pagebreak()` 函数与图片上下的 `h(1fr)` 来实现。
+] 来设置类似的浮动图表位置。可用的值有 `top`、`bottom` 与 `none`，分别对应 LaTeX 中的 t、b 与 h。若要实现类似 LaTeX 中 `p` 属性的整页图表，可结合 `pagebreak()` 函数与图片上下的 `h(1fr)` 来实现。
 
 
 #figure(
@@ -222,9 +226,23 @@ int main() {
 
 #no-indent 比如，这是一个没有首行缩进的段落。
 
-=== 字数统计
+== 中文字符的换行
 
-正文与附录的的总字数为：#total-words。你也可以使用以下命令来使用命令行工具统计字数 / 字符数：
+模板默认启用了 CJK 字符的换行修复。启用该修复后，你可以在源代码中
+任
+意
+换
+行
+，
+// 或插入注释。只有两个连续的换行会被视为段落分割。
+模板输出时不会把中文源码里的换行转为空格，而只把西文内的换行转换为空格（this
+is
+an
+example）。在启用该修复后，Tinymist 的定位功能可能会失效，你可以将 `#show: doc.with(fix-cjk: true)` 一行修改为 `#show: doc.with(fix-cjk: false)`。来临时禁用该修复。
+
+== 字数统计
+
+正文与附录的的总字数为：#total-words。你也可以使用以下命令来使用 `typst` 命令行统计字数 / 字符数：
 
 ```bash
 typst query thesis.typ '<total-words>' 2>/dev/null --field value --one
@@ -242,9 +260,9 @@ typst query thesis.typ '<total-characters>' 2>/dev/null --field value --one
 === 正文子子标题
 
 #[
-#set enum(numbering: "1)")
-+ 自定义段落编号
-+ 自定义段落编号
+#set enum(numbering: "1)", indent: 0.75em)
++ 自定义列表编号与缩进
++ 自定义列表编号与缩进
 ]
 
 // 手动分页示例
@@ -254,11 +272,20 @@ typst query thesis.typ '<total-characters>' 2>/dev/null --field value --one
 
 // 中英双语参考文献
 // 默认使用修改后的 gb-7714-2015-numeric-nosup.csl 样式（引用文字非上标格式）。该文件嵌入在模板内。如需使用上标格式，使用 Typst 自带的 gb-t-7714-2015-numeric 即可。
+// 将 full 设置为 false 可以只显示正文中引用的文献。
 #bilingual-bibliography(full: true, style: "./gb-t-7714-2015-numeric-nosup.csl")
 
 // 致谢
 #acknowledgement[
-  感谢 #link("https://github.com/nju-lug/modern-nju-thesis")[modern-nju-thesis] 模板。
+
+_感谢以下模板提供的参考：_
+
+
+- #link("https://github.com/nju-lug/modern-nju-thesis")[modern-nju-thesis] by #link("https://github.com/Orangex4")[OrangeX4]
+- #link("https://github.com/YijunYuan/ECNU-Undergraduate-LaTeX")[ECNU-Undergraduate-LaTeX] by #link("https://github.com/YijunYuan")[YijunYuan]
+- #link("https://www.overleaf.com/latex/templates/hua-dong-shi-fan-da-xue-shuo-shi-lun-wen-mo-ban-2023/ctvnwyqtsbbz")[华东师范大学硕士论文模板-2023] by ivyee17
+- #link("https://github.com/ECNU-ICA/ECNU_graduation_thesis_template")[ECNU_graduation_thesis_template] by #link("https://github.com/ECNU-ICA")[ECNU-ICA]
+- #link("https://github.com/DeepTrial/ECNU-Dissertations-Latex-Template")[ECNU-Dissertations-Latex-Template] by #link("https://github.com/DeepTrial")[Karl Xing]
 ]
 
 // 手动分页

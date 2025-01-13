@@ -11,6 +11,7 @@
 - 优化段落缩进
 - 优化对多行标题 / 院系的处理逻辑
 - 优化开启 `twoside` 参数后的页码逻辑
+- 修复中文文字断行的问题
 - 增加字数统计功能
 
 对于研究生，我们参考华东师范大研究生院于 2023 年发布的[华东师范大学博士、硕士学位论文基本格式要求](https://yjsy.ecnu.edu.cn/8e/62/c42090a429666/page.htm)；对于本科生，我们参考华东师范大学教务处于 2021 年更新的[华东师范大学本科生毕业论文（设计）格式要求](http://www.jwc.ecnu.edu.cn/d4/be/c40573a513214/page.htm)。格式适配于 2025 年初，后续使用的同学请留意参考校方的最新通知。
@@ -28,13 +29,13 @@
 
 > 天下苦 LaTeX 久矣。
 
-Typst 是一个基于 Rust 的现代化的排版引擎。它具备类似 Markdown 的简洁语法、清晰的错误提示、实时预览级的编译性能，又同时具备和 LaTeX 一样精准的排版控制和图灵完备的脚本能力。自 2023 年 4 月开源发布以来，已获得 ![](https://img.shields.io/github/stars/typst/typst?style=flat)。现代化的 Typst 可以让你更加专注于论文内容本身，而不被 LaTeX 漫长的编译时间与难以阅读的输出日志困扰。
+Typst 是一个基于 Rust 的现代化的排版引擎。它具备类似 Markdown 的简洁语法、清晰的错误提示、实时预览级的编译性能，又同时具备和 LaTeX 一样精准的排版控制和图灵完备的脚本能力。自 2023 年 4 月开源发布以来，已获得 ![](https://img.shields.io/github/stars/typst/typst?style=flat)。现代化的 Typst 可以让你更加专注于论文内容本身，而不被 LaTeX 漫长的编译时间与难以阅读的输出日志困扰。当然，Typst 作为一个年轻的工具还在快速发展，生态远没有 LaTeX 丰富，也有大量的 issue 正在解决的路上。欢迎加入这个社区来共建现代排版生态。
 
 ## Usage
 
 ### 在 VSCode 中本地编辑（推荐）
 
-首先请确保安装的 typst 版本 >= 0.12.0，
+请确保本地安装的 typst 版本 >= 0.12.0。
 
 #### 从 Typst Universe 获取模板
 
@@ -128,6 +129,7 @@ context state("total-characters").final()
 
 - **本科**
   - [ ] 中英双语图片标题
+  - [ ] 本科学位论文的诚信承诺页
 - **研究生**
   - 暂无
 
@@ -136,6 +138,8 @@ context state("total-characters").final()
 - [modern-nju-thesis](https://github.com/nju-lug/modern-nju-thesis) by [OrangeX4](https://github.com/Orangex4)
 - [ECNU-Undergraduate-LaTeX](https://github.com/YijunYuan/ECNU-Undergraduate-LaTeX) by [YijunYuan](https://github.com/YijunYuan)
 - [华东师范大学硕士论文模板-2023](https://www.overleaf.com/latex/templates/hua-dong-shi-fan-da-xue-shuo-shi-lun-wen-mo-ban-2023/ctvnwyqtsbbz) by ivyee17
+- [ECNU_graduation_thesis_template](https://github.com/ECNU-ICA/ECNU_graduation_thesis_template) by [ECNU-ICA](https://github.com/ECNU-ICA)
+- [ECNU-Dissertations-Latex-Template](https://github.com/DeepTrial/ECNU-Dissertations-Latex-Template) by [Karl Xing](https://github.com/DeepTrial)
 - [关于2023-2024学年第二学期学术型学位硕士研究生论文答辩及学位申请工作的通知](https://yjsy.ecnu.edu.cn/c1/7a/c42079a573818/page.htm) by 华东师范大学研究生院
 - [毕业论文常用下载材料](http://www.jwc.ecnu.edu.cn/d4/be/c40573a513214/page.htm) by 华东师范大学教务处
 - [学校标识](https://www.ecnu.edu.cn/wzcd/xxgk/xxbs.htm) by 华东师范大学

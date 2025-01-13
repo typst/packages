@@ -1,11 +1,10 @@
 #import "style.typ": 字号
-#import "@preview/anti-matter:0.1.1": step, core
 // 展示一个标题
 #let heading-display(it) = {
   if it != none {
     if it.has("numbering") and it.numbering != none {
       numbering(it.numbering, ..counter(heading).at(it.location()))
-      [ ]
+      h(0.8em)
     }
     it.body
   } else {
@@ -52,7 +51,13 @@
 }
 
 // 页眉内容
-#let heading-content(doctype: "master", extra: "华东师范大学本科毕业论文", fonts: (:), stroke-width: 0.5pt) = {
+#let heading-content(
+    twoside: false,
+    doctype: "master",
+    extra: "华东师范大学本科毕业论文",
+    fonts: (:),
+    stroke-width: 0.5pt
+  ) = {
   if doctype == "bachelor" {
     set text(font: fonts.宋体, size: 字号.小五)
     set align(center)
@@ -60,18 +65,17 @@
     stack(extra + h(1fr) + context title.get(),
     v(0.65em),
     line(length: 100%, stroke: stroke-width + black))
-    step()
   } else {
-    step()
     context {
-      let outerpage = core.outer-counter().get().at(0)
-      let innerpage = core.inner-counter().get().at(0)
-      let page = if innerpage == 0 { outerpage } else { innerpage }
+      let page = counter(page).get().at(0)
       // 获取当前页面的一级标题
       let cur-heading = current-heading(level: 1)
       let first-level-heading = if cur-heading != none { heading-display(cur-heading) } else { heading-display(active-heading(level: 1)) }
       let docinfo = "华东师范大学" + if doctype == "master" { "硕士" } else { "博士" } + "学位论文"
       set text(font: fonts.宋体, size: 字号.五号)
+      if twoside {
+        page = here().position().page
+      }
       stack(
         if calc.rem(page, 2) == 1 {
           first-level-heading + h(1fr) + docinfo
@@ -83,7 +87,6 @@
         v(0.15em),
         line(length: 100%, stroke: stroke-width + black),
       )
-
     }
   }
 }

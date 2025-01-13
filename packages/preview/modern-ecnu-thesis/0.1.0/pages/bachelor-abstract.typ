@@ -40,7 +40,7 @@
 
   set page(
     header: {
-      heading-content(doctype: "bachelor", fonts: fonts)
+      heading-content(doctype: "bachelor", twoside: twoside, fonts: fonts)
     }
   )
 

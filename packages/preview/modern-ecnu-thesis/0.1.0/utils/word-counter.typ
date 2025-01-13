@@ -4,7 +4,7 @@
  * @project: modern-ecnu-thesis
  * @author: Juntong Chen (dev@jtchen.io)
  * @created: 2025-01-11 13:37:30
- * @modified: 2025-01-11 15:12:07
+ * @modified: 2025-01-12 16:21:32
  *
  * Copyright (c) 2025 Juntong Chen. All rights reserved.
  */
@@ -15,7 +15,7 @@
   let stats = word-count-of(content, exclude: (heading), counter: s => (
     characters: s.replace(regex("\s+"), "").clusters().len(),
     words: s.matches(regex("\b[\w'’.,\-]+\b")).len(),
-    words-cjk: s.matches(regex("[\u4e00-\u9fff\u3040-\u309f\u30a0-\u30ff\uac00-\ud7af]|[\w''.,\-]+")).len(),
+    words-cjk: s.matches(regex("[\p{Han}]|[\p{Latin}'’.,\-]+")).len(),
   ), ..options)
   state("total-words-cjk").update((prev) => prev + stats.words-cjk)
   state("total-words").update((prev) => prev + stats.words)

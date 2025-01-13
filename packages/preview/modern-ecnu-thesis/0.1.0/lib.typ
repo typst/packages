@@ -4,7 +4,7 @@
  * @project: modern-ecnu-thesis
  * @author: OrangeX4, Juntong Chen (dev@jtchen.io)
  * @created: 2025-01-06 22:37:34
- * @modified: 2025-01-11 16:46:35
+ * @modified: 2025-01-12 14:38:55
 *
  * 华东师范大学学位论文模板
  *    Repo: https://github.com/jtchen2k/modern-ecnu-thesis
@@ -13,7 +13,6 @@
  * Copyright (c) 2025 Juntong Chen. All rights reserved.
  */
 
-#import "@preview/anti-matter:0.1.1": fence as mainmatter-end
 #import "layouts/doc.typ": doc
 #import "layouts/preface.typ": preface
 #import "layouts/mainmatter.typ": mainmatter
@@ -123,7 +122,7 @@
          heading-below: (1.8em, 1.5em),
          ..args, fonts: fonts + args.named().at("fonts", default: (:)))
       } else {
-        mainmatter(doctype: doctype, twoside: twoside,  display-header: true, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
+        mainmatter(doctype: doctype, twoside: twoside, display-header: true, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
       }
     },
     mainmatter-end: (..args) => {

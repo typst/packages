@@ -17,7 +17,7 @@
   outline-title: "Abstract",
   outlined: true,
   anonymous-info-keys: ("author-en", "supervisor-en", "supervisor-ii-en"),
-  leading: 1.08em,
+  leading: 1.2em,
   spacing: 1.25em,
   body,
 ) = {
@@ -45,7 +45,7 @@
   }
 
   set page(header: {
-    heading-content(doctype: "bachelor", fonts: fonts)
+    heading-content(doctype: "bachelor", twoside: twoside, fonts: fonts)
   })
 
   // 4.  正式渲染
@@ -61,13 +61,13 @@
     #invisible-heading(level: 1, outlined: outlined, outline-title)
 
     #align(center)[
-      #set text(font: fonts.黑体, size: 字号.小三)
+      #set text(font: fonts.黑体, size: 字号.小三, weight: "bold")
       Abstract
     ]
 
     #v(1em)
 
-    #set text(font: fonts.宋体)
+    #set text(font: fonts.宋体, size: 字号.五号)
 
     #[
       #set par(first-line-indent: 2em)

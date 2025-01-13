@@ -1,4 +1,3 @@
-#import "@preview/anti-matter:0.1.1": anti-matter, core
 #import "../utils/style.typ": 字号
 
 // 前言，重置页面计数器
@@ -6,31 +5,32 @@
   doctype: "master",
   // documentclass 传入的参数
   twoside: false,
-  // 其他参数
-  numbering: ("I", "1", "I"),
   ..args,
   it,
 ) = {
+  counter(page).update(0)
   set page(footer: context {
     set text(size: 字号.五号)
-    let p = core.outer-counter().get().at(0)
+    let p = counter(page).get().at(0)
+    let pagealign = center
     if doctype == "bachelor" {
-      align(center)[
-        #core.outer-counter().display("I")
-      ]
+      pagealign = center
     } else if twoside == true {
-      align(right)[
-        #core.outer-counter().display("I")
-      ]
+      let preal = here().position().page
+      if calc.rem(preal, 2) == 1 {
+        pagealign = right
+      } else {
+        pagealign = left
+      }
     } else {
       if calc.rem(p, 2) == 1 {
-        h(1fr)
-        core.outer-counter().display("I")
+        pagealign = right
       } else {
-        core.outer-counter().display("I")
-        h(1fr)
+        pagealign = left
       }
     }
+    align(pagealign, counter(page).display("I"))
   })
-  anti-matter(numbering: numbering, ..args, it)
+  set par(linebreaks: "optimized")
+  it
 }

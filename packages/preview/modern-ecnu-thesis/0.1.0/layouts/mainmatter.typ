@@ -1,4 +1,3 @@
-#import "@preview/anti-matter:0.1.1": fence, step, core
 #import "@preview/i-figured:0.2.4"
 #import "../utils/style.typ": 字号, 字体
 #import "../utils/custom-numbering.typ": custom-numbering
@@ -53,28 +52,23 @@
   it,
 ) = {
 
-  // 0.  标志前言结束
-  {
-    // TODO: 用了一个很 tricky 的方式防止前言最后一页的页码打印出来，可能有更优解
-    set page(footer: { text(size: 0pt, ".") })
-    v(-1pt)
-    fence()
-  }
+  pagebreak-from-odd(twoside: twoside)
+  // // 0.  标志前言结束
+  counter(page).update(1)
+  set page(numbering: "1")
 
   set page(footer: context {
     set text(size: 字号.五号)
-    let p = core.inner-counter().get().at(0)
+    let p = counter(page).get().at(0)
+    let pagealign = center
     if doctype == "bachelor" {
-      align(center)[
-        #core.inner-counter().display()
-      ]
+      pagealign = center
     } else if calc.rem(p, 2) == 1 {
-      h(1fr)
-      text(core.inner-counter().display())
+      pagealign = right
     } else {
-      text(core.inner-counter().display())
-      h(1fr)
+      pagealign = left
     }
+    align(pagealign, counter(page).display())
   })
 
 
@@ -103,6 +97,7 @@
   set par(
     leading: leading,
     justify: justify,
+    linebreaks: "optimized",
     first-line-indent: first-line-indent
   )
   // show par: set block(spacing: spacing)
@@ -127,11 +122,12 @@
   show figure.caption: caption-style
   show figure.caption: set text(size: caption-size, font: fonts.楷体)
   show figure.caption: set par(leading: 1.25em)
+
   show figure.caption: c => block(inset: (top: figure-caption-spacing, bottom: figure-caption-spacing))[
     #text(font: fonts.黑体, weight: "bold", style: "normal")[
       #c.supplement #context c.counter.display(c.numbering)
       ]
-      #c.separator#c.body
+      #h(0.3em)#c.body
   ]
   show figure.where(placement: none): it => {
     v(figure-clearance / 6)
@@ -201,11 +197,10 @@
   set page(..(if display-header {
     (
       header: {
-        // needed by anti-matter
         if header-render == auto {
           heading-content(doctype: doctype, fonts: fonts)
         } else {
-          header-render(loc)
+          header-render()
         }
         v(header-vspace)
 
@@ -222,19 +217,28 @@
     )
   }))
 
-  // 字数统计（正文 + 附录）
-  //     typst query main.typ '<total-words>' 2>/dev/null --field value --one
+  // 斜体文字使用楷体
+  show emph: set text(font: fonts.楷体)
 
+  // 列表样式
+  set enum(indent: 0.9em, body-indent: 0.35em)
+  set list(indent: 1em, body-indent: 0.55em)
+
+  // 引述文本样式
+  set quote(block: true)
+  show quote: set text(font: fonts.楷体)
+  show quote: set pad(x: 2em)
+
+  // 字数统计（正文 + 附录）
+  //   typst query main.typ '<total-words>' 2>/dev/null --field value --one
   context [
     #metadata(state("total-words-cjk").final()) <total-words>
     #metadata(state("total-characters").final()) <total-chars>
   ]
 
+  // 用于本科毕业论文控制标题样式
   let s = state("in-mainmatter", true)
   context s.update(true)
 
   it
-  // 正文结束标志，不可缺少
-  // 这里放在附录后面，使得页码能正确计数
-  fence()
 }
