@@ -293,7 +293,7 @@
 	// Fix #311 issue (paragraph indent)
 	#show figure: it => context [
 		#it
-		#fix_311
+		#fix-311
 	]
 
 	// Listings
@@ -338,7 +338,7 @@
 			],
 			box[],
 		)
-		fix_311
+		fix-311
 		v(0.2cm)
 	}
 
@@ -407,7 +407,7 @@
 
 	#show list: l => {
 		l
-		fix_311
+		fix-311
 	}
 	//#set list(marker: (level) => {
 	//	// move is a hotfix for #1204. Won't work with different sizes/objects, so
