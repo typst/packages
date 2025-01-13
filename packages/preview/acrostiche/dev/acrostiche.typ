@@ -183,9 +183,9 @@
 
 
 // Define shortcuts
-#let acrf(acr) = {acrfull(acr)}
-#let acrfpl(acr) = {acrfullpl(acr)}
-#let racr(acr) = {reset-acronym(acr)}
+#let acrf(acr) = acrfull(acr)
+#let acrfpl(acr) = acrfullpl(acr)
+#let racr(acr) = reset-acronym(acr)
 #let raacr() = reset-all-acronyms()
 
 // Define some functions as in the "acronym" package for LaTeX by Tobias Oetiker
@@ -193,6 +193,9 @@
 
 #let acresetall = reset-all-acronyms
 #let ac = acr
+#let acp(acro) = acr(acro,plural:true)
+#let acl(acro) = display-def(acro, plural:false)
+#let aclp(acro) = display-def(acro, plural:true)
 #let acf(acro) = acrf(acro)
 #let acfp(acro) = acrfpl(acro)
 #let acs(acro) = display-short(acro,plural:false)

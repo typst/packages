@@ -3,7 +3,7 @@
 #init-acronyms((
   "PFT": ("Package For Typst","Packages For Typst"),
   "AJT": ("Amicale des Joyeux Typistes"),
-  "ada": (short:[#text(fill:aqua)[ADA]], short-pl:"ADAs", long:"Advanced Definition Acronym", long-pl:"Advanced Definions Acronyms"),
+  "ada": (short:[#text(fill:aqua)[ADA]], short-pl:"ADAs", long:"Advanced Definition Acronym", long-pl:"Advanced Definitions Acronyms"),
   "TEA": ("The Extra Acronym",),
   "TUA": ("The Unused Acronym",),
 )) 
@@ -65,11 +65,19 @@ First use of #ac("PFT") and second use of #ac("PFT").\
 #ref("First use of Package For Typst (PFT) and second use of PFT.")
 
 Full definition singular #acf("PFT") and plural #acfp("ada")\
-#ref("Full definition singular Package For Typst (PFT) and plural Advanced Definions Acronyms (ADAs)")
+#ref("Full definition singular Package For Typst (PFT) and plural Advanced Definitions Acronyms (ADAs)")
 
 Display short singular #acs("ada") and short plural #acsp("ada")\
 #ref("Display short singular ADA and short plural ADAs")
 
+Display plural with shortcut: #acp("ada") and #acp("ada").\
+#ref("Display plural with shortcut: Advanced Definitions Acronyms (ADAs) and ADAs.")
+
+Display long shortcut: #acl("ada").\
+#ref("Display long shortcut: Advanced Definition Acronym.")
+
+Display long plural shortcut: #aclp("ada").\
+#ref("Display long plural shortcut: Advanced Definitions Acronyms.")
 
 == Print Index Variations
 
