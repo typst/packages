@@ -1,5 +1,5 @@
 #let template(
-  title: "", institution: "", authors: [], abstract: [], keywords: [], resumen: [], palabras_clave: [], body,
+  title: "", institution: "", authors: [], abstract: [], keywords: [], resumen: [], palabras-clave: [], body,
 ) = {
   // Packages
   // Correct indent, thanks to: https://typst.app/universe/package/indenta
@@ -28,7 +28,7 @@
       #align(center)[= Resumen] \
       #align(left)[
         #resumen \
-        *Palabras clave:* #palabras_clave
+        *Palabras clave:* #palabras-clave
       ]
       #align(center)[= Abstract] \
       #align(left)[
