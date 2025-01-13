@@ -11,6 +11,7 @@ keywords = [
     " lab report",
     " uni",
 ]
+categories = ["report"]
 
 [tool.utpm]
 namespace = "local"

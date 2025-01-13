@@ -5,7 +5,7 @@
   institution: " Wayne Enterprises, Gotham City, 1007 Mountain Drive, Midtown.", 
     authors: [ A. Pepito, G. Fulanito, D. Pepita, D. Fulanita ], 
     resumen: [#lorem(60)], 
-    palabras_clave: [#lorem(10)],
+    palabras-clave: [#lorem(10)],
     abstract: [#lorem(60)], 
     keywords: [#lorem(10)], 
 )
