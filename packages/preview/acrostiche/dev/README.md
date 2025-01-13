@@ -155,6 +155,12 @@ All contributions are welcome.
 All merge requests should only modify the `dev` directory.
 Once enough modifications are added to the `dev` version, a new version folder will be created and merged upstream.
 
+To test modifications locally, copy the dev folder to the local directory for typst packages as version 0.0.0:
+
+```
+rm -rf ~/.local/share/typst/packages/preview/acrostiche/0.0.0 && cp -R ../dev ~/.local/share/typst/packages/preview/acrostiche/0.0.0
+```
+
 
 # Acknowledgments
 
