@@ -158,4 +158,4 @@ Once enough modifications are added to the `dev` version, a new version folder w
 
 # Acknowledgments
 
-Thank you to the contributors: **caemor**, **AurelWeinhold**, **daniel-eder**, **iostapyshyn**, **ChHecker**.
+Thank you to the contributors: **caemor**, **AurelWeinhold**, **daniel-eder**, **iostapyshyn**, **ChHecker** **Drodt**.
