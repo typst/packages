@@ -7,7 +7,8 @@
 #import "format.typ": author, question, solution, green-solution
 #import "shorthand.typ": *
 #import "drawing.typ" as drawing
-#import "help.typ": help
+
+// #import "help.typ": help
 
 #import "unsafe.typ" as unsafe
 

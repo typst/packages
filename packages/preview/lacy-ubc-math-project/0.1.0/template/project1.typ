@@ -37,9 +37,4 @@
   ]
 ]
 
-// Use help.<section> to get help.
-#help.getting-started
-// #help.setup
-// #help.math
-// #help.drawing
-// #help.caveats
+There is also a #link("/lace-wing/lacy-ubc-math-project/blob/master/manual.pdf")[manual] for this project.
