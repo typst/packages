@@ -30,8 +30,8 @@ Here is the template and its preview:
   // with this code, you can provide which kind you want on the command line
   //   typst compile input.typ output.pdf --input digital=(true|false)
   digital: json.decode(sys.inputs.at("digital", default: "false")),
-  // zine_page_margin: 0.25in // margin of zine pages
-  // draw_border: true // draw border boxes in printing mode
+  // zine-page-margin: 0.25in // margin of zine pages
+  // draw-border: true // draw border boxes in printing mode
 )
 
 // provide your content pages in order and they

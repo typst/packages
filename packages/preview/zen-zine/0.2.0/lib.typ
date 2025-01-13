@@ -28,16 +28,16 @@
   /// The inner margins are _shared_ between pages so this is also
   /// the inner distance between any two zine pages.
   /// -> length
-  zine_page_margin: 0.25in,
+  zine-page-margin: 0.25in,
   /// whether to draw the border of the zine pages in printer mode
   /// 
   /// This border is sometimes helpful for seeing the placement of
   /// content on the final printer-ready page.
   /// -> boolean
-  draw_border: true,
+  draw-border: true,
   /// whether to be in printer mode (false) or digital (true)
   ///
-  /// When creating a digital zine, the margin specified with `zine_page_margin`
+  /// When creating a digital zine, the margin specified with `zine-page-margin`
   /// is divided by two so that the digital visually looks like the printed
   /// zine with the pages cut out.
   /// -> boolean
@@ -50,35 +50,35 @@
   // in order to deduce the zine page height and width
   // each of the zine pages share the margin with their neighbors
   // this height/width is without margins
-  let zine_page_height = (page.width - 3*zine_page_margin)/2;
-  let zine_page_width = (page.height - 5*zine_page_margin)/4;
+  let zine-page-height = (page.width - 3*zine-page-margin)/2;
+  let zine-page-width = (page.height - 5*zine-page-margin)/4;
   if digital {
     // assign half the zine margin to each digital page
     // resize pages and then provide content since it has pagebreaks already
     set page(
-      height: zine_page_height+zine_page_margin/2,
-      width: zine_page_width+zine_page_margin/2,
-      margin: zine_page_margin/2
+      height: zine-page-height+zine-page-margin/2,
+      width: zine-page-width+zine-page-margin/2,
+      margin: zine-page-margin/2
     )
     content
   } else {
     // make sure page has the correct margin and it is flipped
-    set page(margin: zine_page_margin, flipped: true)
+    set page(margin: zine-page-margin, flipped: true)
     // break content into the array of pages using the pagebreak
     // function and then place those pages into the grid
     let contents = ()
-    let current_content = []
+    let current-content = []
     for child in content.at("children") {
       if child.func() == pagebreak {
-        contents.push(current_content)
-        current_content = []
+        contents.push(current-content)
+        current-content = []
       } else {
-        current_content = current_content + child
+        current-content = current-content + child
       }
     }
 
-    if current_content != [] {
-      contents.push(current_content)
+    if current-content != [] {
+      contents.push(current-content)
     }
 
     assert.eq(
@@ -93,8 +93,8 @@
       // wrap the contents in blocks the size of the zine pages so that we can
       // maneuver them at will
       elem => block(
-        width: zine_page_width,
-        height: zine_page_height,
+        width: zine-page-width,
+        height: zine-page-height,
         spacing: 0em,
         elem
       )
@@ -113,16 +113,16 @@
       }
     )
   
-    let zine_grid = grid.with(
-      columns: 4 * (zine_page_width, ),
-      rows: zine_page_height,
-      gutter: zine_page_margin,
+    let zine-grid = grid.with(
+      columns: 4 * (zine-page-width, ),
+      rows: zine-page-height,
+      gutter: zine-page-margin,
     )
-    if draw_border {
-      zine_grid = zine_grid.with(
+    if draw-border {
+      zine-grid = zine-grid.with(
         stroke: luma(0)
       )
     }
-    zine_grid(..contents)
+    zine-grid(..contents)
   }
 }
