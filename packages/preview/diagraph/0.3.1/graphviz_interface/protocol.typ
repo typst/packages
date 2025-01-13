@@ -346,6 +346,12 @@
     y: f_y,
   ), offset)
 }
+#let encode-GetGraphInfo(value) = {
+  encode-string(value.at("dot"))
+}
+#let encode-renderGraph(value) = {
+  encode-point(value.at("font_size")) + encode-string(value.at("dot")) + encode-list(value.at("labels"), encode-SizedNodeLabel) + encode-list(value.at("cluster_labels"), encode-SizedClusterLabel) + encode-string(value.at("engine"))
+}
 #let decode-Engines(bytes) = {
   let offset = 0
   let (f_engines, size) = decode-list(bytes.slice(offset, bytes.len()), decode-string)
@@ -353,9 +359,6 @@
   ((
     engines: f_engines,
   ), offset)
-}
-#let encode-renderGraph(value) = {
-  encode-point(value.at("font_size")) + encode-string(value.at("dot")) + encode-list(value.at("labels"), encode-SizedNodeLabel) + encode-list(value.at("cluster_labels"), encode-SizedClusterLabel) + encode-string(value.at("engine"))
 }
 #let decode-graphInfo(bytes) = {
   let offset = 0
@@ -373,9 +376,6 @@
     cluster_labels: f_cluster_labels,
     svg: f_svg,
   ), offset)
-}
-#let encode-GetGraphInfo(value) = {
-  encode-string(value.at("dot"))
 }
 #let decode-GraphInfo(bytes) = {
   let offset = 0
