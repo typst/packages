@@ -58,6 +58,12 @@ For the body, a `#section` component is available to add sections with icons. eg
 ]
 ```
 
+## Fonts
+
+This template uses FontAwesome icons. For icons to work properly, please include the ttf files into your project directory.
+
+You can download them here: [FontAwesome](https://fontawesome.com/v6/download)
+
 ## Multi-page resume
 
 This template supports multi-page resumes. To achieve this, you simply need to make multiple calls to the `resume-page` function.
