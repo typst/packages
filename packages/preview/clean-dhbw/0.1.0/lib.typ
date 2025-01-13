@@ -1,4 +1,4 @@
-#import "@preview/codelst:2.0.1": *
+#import "@preview/codelst:2.0.2": *
 #import "@preview/hydra:0.5.1": hydra
 #import "acronym-lib.typ": init-acronyms, print-acronyms, acr, acrpl, acrs, acrspl, acrl, acrlpl, acrf, acrfpl
 #import "glossary-lib.typ": init-glossary, print-glossary, gls
@@ -11,7 +11,7 @@
 // Workaround for the lack of an `std` scope.
 #let std-bibliography = bibliography
 
-#let supercharged-dhbw(
+#let clean-dhbw(
   title: none,
   authors: (:),
   language: none,

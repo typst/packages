@@ -2,7 +2,7 @@
 #import "acronyms.typ": acronyms
 #import "glossary.typ": glossary
 
-#show: supercharged-dhbw.with(
+#show: clean-dhbw.with(
   title: "Evaluation von Typst zur Erstellung einer Abschlussarbeit",
   authors: (
     (name: "Max Mustermann", student-id: "7654321", course: "TINF22B2", course-of-studies: "Informatik", company: (
