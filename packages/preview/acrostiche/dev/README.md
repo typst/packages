@@ -148,8 +148,14 @@ Here is a minimal working example of funky acronyms:
  * `display-def` leverages the state `display` function and only works if the return value is actually printed in the document. For more information on states, see the Typst documentation on states.
  * Acrostiche uses a state named `acronyms` to keep track of the definitions and usage. If you redefined this state or use it manually in your document, unexpacted behaviour might happen.
 
-# Acknowledgments
-
-Thank you to the contributors: **caemor**, **AurelWeinhold**, **daniel-eder**, **iostapyshyn**, **ChHecker**. 
+# Contributing
 
 If you notice any bug or want to contribute a new feature, please open an issue or a merge request on the fork [Grisely/packages](https://github.com/Grisely/packages)
+All contributions are welcome.
+All merge requests should only modify the `dev` directory.
+Once enough modifications are added to the `dev` version, a new version folder will be created and merged upstream.
+
+
+# Acknowledgments
+
+Thank you to the contributors: **caemor**, **AurelWeinhold**, **daniel-eder**, **iostapyshyn**, **ChHecker**.
