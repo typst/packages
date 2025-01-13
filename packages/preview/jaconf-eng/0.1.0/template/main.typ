@@ -1,7 +1,7 @@
 // MIT No Attribution
 // Copyright 2024, 2025 Shunsuke Kimura
 
-#import "@preview/jaconf-eng:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf-sice:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 #show: jaconf.with(
   title-ja: [日本語学会論文のテンプレート \ - サブタイトル - ],
@@ -90,7 +90,7 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 定理などのタイトルフォントをゴシックにしています。
 #red-warn[`definition`, `lemma`, `theorem`, `corollary`, `proof`はこのテンプレートで定義している関数です。]
 ```
-#import "@preview/jaconf-eng:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf-sice:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 ```
 #red-warn[他のテンプレートを使用する際には#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/5862f4fd21b4f00488a56657e198864625d117b8/jaconf-eng/lib.typ#L9-L35")[`lib.typ`のコード]を参考に、以下のようにご自身のコード内で定義および有効化をしてください。]
 

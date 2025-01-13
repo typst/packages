@@ -7,19 +7,19 @@ This is a template for **Japanese academic conference paper of engineerig**.
 ## Usage
 
 You can use this template in the Typst web app by clicking "Start from template"
-on the dashboard and searching for `jaconf-eng`.
+on the dashboard and searching for `jaconf-sice`.
 
 Alternatively, you can use the CLI to kick this project off using the command
 
 ```
-typst init @preview/jaconf-eng
+typst init @preview/jaconf-sice
 ```
 
 Typst will create a new directory with all the files needed to get you started.
 
 ## Configuration
 
-This template exports the `jaconf-eng` function with the following named arguments:
+This template exports the `jaconf-sice` function with the following named arguments:
 
 - `title-ja`: The paper's title in Japanese.
 - `title-en`: The paper's title in English.
@@ -39,7 +39,7 @@ function in a show rule. If you want to change an existing project to use this
 template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/jaconf-eng:0.1.0": temp, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf-sice:0.1.0": temp, definition, lemma, theorem, corollary, proof, appendix
 
 #show: temp.with(
   title-ja: [日本語学会論文のテンプレート \ - サブタイトル - ],
