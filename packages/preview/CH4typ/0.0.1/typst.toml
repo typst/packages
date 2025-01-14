@@ -1,7 +1,7 @@
 [package]
 name = "CH4typ"
 version = "0.0.1"
-licence = "MIT"
+license = "MIT"
 entrypoint = "lib.typ"
 authors = ["β-吲哚基丙氨酸"]
 description = "an alternative for chem-par packet"
