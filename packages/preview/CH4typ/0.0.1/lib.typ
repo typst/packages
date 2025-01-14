@@ -1,5 +1,5 @@
 /// Chemical formula typesetting package
-/// Version: 0.1.0
+/// Version: 0.0.1
 
 // 修改预编译的正则表达式模式
 #let rx = regex("([A-Z][a-z]?)(?:\\(([A-Z][A-Za-z]+|[0-9]*n(?:[+-][0-9]+)*)\\))?([0-9]+)?(?:\\^\\(([0-9+-]+)\\))?(?:\\(([a-z]+)\\))?")
