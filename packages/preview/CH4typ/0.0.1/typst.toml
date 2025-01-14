@@ -1,4 +1,4 @@
 [package]
-name = "chem-reaction"
-version = "0.1.0"
+name = "CH4ty["
+version = "0.0.1"
 entrypoint = "lib.typ"
