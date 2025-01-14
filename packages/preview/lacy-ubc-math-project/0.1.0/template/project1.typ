@@ -37,4 +37,5 @@
   ]
 ]
 
-There is also a #link("/lace-wing/lacy-ubc-math-project/blob/master/manual.pdf")[manual] for this project.
+There is also a #link("https://github.com/lace-wing/lacy-ubc-math-project")[manual] for this project.
+

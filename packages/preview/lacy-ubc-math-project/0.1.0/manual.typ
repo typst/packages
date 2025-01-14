@@ -527,6 +527,32 @@ Solution is usually put in a question block as a response to it.
 ]
 ```
 
+== Hiding Solutions
+There are 2 ways to hide solutions.
+
+To disable all solutions (all solutions will not show, no matter what), provide `hide-solution` to compile inputs:
+```bash
+typst compile filename.typ --input hide-solution=true
+```
+The value can be any of `true`, `1`, `yes`, `y`.
+
+This flag is also visible in the `unsafe` module as ```typc __solution-disabled```.
+
+To hide arbitrary solutions, use ```typc toggle-solution()``` before the solutions you wish to hide.
+In this case, individual solutions can be forced to show by setting ```typc force: true``` in the ```typc solution()``` function.
+#showcode(```typst
+#solution[Visible.]
+// toggle solutions off
+#toggle-solution(false)
+#solution[Hidden.]
+// force it to show
+#solution(force: true)[Forced to be visible.]
+// toggle them back on
+#toggle-solution(true)
+#solution[Visible again.]
+```)
+
+
 
 = Drawing
 As we are doing math, inevitably we will need to draw some graphs.

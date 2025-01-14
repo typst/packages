@@ -23,6 +23,14 @@
 // Make sure the numbering and labeling are consistent.
 #assert(__question-numbering.len() == __max-qs-level and __question-labels.len() == __max-qs-level)
 
+// solution visibility
+#let __solution-visible = state("solution-visible", true)
+#let toggle-solution(visible) = {
+  assert(type(visible) == bool, message: "The visibility of the solution must be a boolean.")
+  __solution-visible.update(v => visible)
+}
+#let __solution-disabled = sys.inputs.at("hide-solution", default: "") in ("1", "true", "yes", "y")
+
 /// Creates an author (a `dictionary`).
 /// - firstname (str, content): The author's first name, bold when displayed.
 /// - lastname (str, content): The author's last name.
@@ -125,12 +133,14 @@
 /// - body (content): The solution.
 /// - color (color): The color of the solution frame and text.
 /// - supplement (content): The supplemental text to be displayed before the solution.
-#let solution(body, color: green-solution, supplement: [*Solution*: ]) = {
-  block(
+#let solution(body, color: green-solution, supplement: [*Solution*: ], force: false) = {
+  context block(
     width: 100%,
     inset: 1em,
     stroke: color + 0.5pt,
   )[
+    #if __solution-disabled { return none }
+    #if not force and not __solution-visible.get() { return none }
     #set align(left)
     #set text(fill: color)
     #supplement#body

@@ -4,7 +4,7 @@
 #import prefixes: *
 #import "@preview/equate:0.2.1": *
 
-#import "format.typ": author, question, solution, green-solution
+#import "format.typ": author, question, solution, green-solution, toggle-solution
 #import "shorthand.typ": *
 #import "drawing.typ" as drawing
 
@@ -100,8 +100,12 @@
   #set page(numbering: none)
   #set par(first-line-indent: 0em)
   #set text(font: ("DejaVu Serif", "New Computer Modern"), size: 10pt)
-  #show ref: set text(fill: blue.darken(30%), stroke: 0.2pt + blue.darken(30%))
-  #show link: set text(fill: blue.darken(30%), stroke: 0.2pt + blue.darken(30%))
+  #let link_s = it => {
+    set text(fill: blue.darken(30%))
+    underline(it)
+  }
+  #show ref: link_s
+  #show link: link_s
 
   #set math.equation(numbering: "(1.1)")
 
