@@ -11,3 +11,7 @@ A Typst package (alpha) for typesetting chemical formulas, supporting both inorg
 - Reaction arrows and equilibrium symbols
 - Special support for phenyl group (Ph)
 - Support for C(n) general formula expressions
+
+## License
+
+This project is licensed under the MIT License.
