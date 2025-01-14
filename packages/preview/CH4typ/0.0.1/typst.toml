@@ -1,4 +1,5 @@
 [package]
 name = "CH4typ"
 version = "0.0.1"
+licence = "MIT"
 entrypoint = "lib.typ"
