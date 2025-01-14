@@ -1,0 +1,4 @@
+[package]
+name = "chem-reaction"
+version = "0.1.0"
+entrypoint = "lib.typ"
