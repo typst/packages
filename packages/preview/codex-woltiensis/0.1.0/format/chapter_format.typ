@@ -2,9 +2,6 @@
 #import "constant.typ"
 #import "utils.typ"
 
-
-
-
 #let chapter(
   title : "",                   // Titre de la page
   title-color : black,
@@ -14,6 +11,7 @@
   margin : constant.margin,     // Marge 
   numbering : false,            // Numération automatique ? 
   defaut-page : true,           // Page classique ou couverture ?
+  general-chapter-style-info : _General-Chapter-Style-Info
 ) = context {
 
   // définition de la page
@@ -31,15 +29,31 @@
   ) if not defaut-page
 
   let img = constant.image-settings + img
-  if (img.path != none) {img.path = "../images/" + img.path}
-  
   // alignement par défaut
   set align(alignment)
 
   if img.path != none and img.position == top [
     #align(img.alignment)[#image(img.path, width: img.width, height: img.height)]
   ]
-  title_book(color : title-color)[#title]
+
+
+  let font-info = (
+    fontname : general-chapter-style-info.at("Book-title-font"),
+    fontsize : general-chapter-style-info.at("Book-title-fontsize")
+  )
+    
+  title_book(color : title-color,font-info : font-info)[#title]
   
-  if (subtitle != none) {subtitle_chapter[#subtitle]}}
+  if (subtitle != none) {
+    let font-info = (
+      fontname : general-chapter-style-info.at("Subtitle-font"),
+      fontsize : general-chapter-style-info.at("Subtitle-fontsize")
+    )
+    subtitle_chapter(font-info : font-info)[#subtitle]
+  }
+
+  if img.path != none and img.position == bottom [
+    #align(img.alignment)[#image(img.path, width: img.width, height: img.height)]
+  ]
+
 }

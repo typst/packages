@@ -1,26 +1,25 @@
+#import "constant.typ" : *
 #import "utils.typ"
-
-// Titre du receuil
-#let _Book-title = "Codex Woltiensis" // "CODEX WOLTIENSIS"
-
-#let _Book-title-font = "Hammersmith One"
-#let _Subtitle-font = "Noto Sans"
-
-#let _Book-Title-fontsize = 25pt
-#let _Subtitle-fontsize = 12pt
 
 
 
 // Nom du Livre
-#let title_book(body, color : black) = {
+#let title_book(
+  body,
+  color : black,
+  font-info : (:)
+) = {
   text(
-    size: _Book-Title-fontsize,
-    font : _Book-title-font,
+    size: font-info.at("fontsize"),
+    font : font-info.at("fontname"),
     weight: "extrabold",
     fill: color
   )[#body \ ]
 }
 
-#let subtitle_chapter(body) = {
-  text(size : _Subtitle-fontsize, font : _Subtitle-font, weight: "bold")[#body \ ]
+#let subtitle_chapter(
+  body,
+  font-info : (:)
+) = {
+  text(size : font-info.at("fontsize"), font :font-info.at("fontname"), weight: "bold")[#body \ ]
 }

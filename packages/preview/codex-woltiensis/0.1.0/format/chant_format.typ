@@ -1,52 +1,166 @@
 /*
 Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles défini dans style.typ
 */
-
 #import "constant.typ"
 #import "../format/chant_style.typ" : *
 #import "utils.typ"
 
-#let iterate-over-body-list(body-list, body-list-format, max, min:0, step:1) = {
- for i in range(min,max,step:step){
-      // refrain francais
-      if (body-list-format.at(i) == "rf"){body_chorus(lang: "fr")[#body-list.at(i)]}
-      // refrain néerlandais
-      else if (body-list-format.at(i) == "rn"){body_chorus(lang: "nl")[#body-list.at(i)]}
-      // dernier refain francais
-      else if (body-list-format.at(i) == "rfl"){body_chorus(lang: "fr", last : true)[#body-list.at(i)]}
-      // dernier refain nl
-      else if (body-list-format.at(i) == "rnl"){body_chorus(lang: "nl", last : true)[#body-list.at(i)]}
-      // refain simple fr
-      else if (body-list-format.at(i) == "rfs"){body_chorus_simple(lang: "fr")}
-      // refain simple fr
-      else if (body-list-format.at(i) == "rns"){body_chorus_simple(lang: "nl")}
-      // couplet
-      else if (body-list-format.at(i) == "c") {body_lyrics()[#body-list.at(i)]
-      }
+#let iterate-over-body-list(
+  body-list,
+  body-list-format,
+  max,
+  min:0,
+  step:1,
+  general-body-style-info
+) = {
+  for i in range(min,max,step:step){
+    let body-chorus-spacing = general-body-style-info.at("Body-chorus-spacing")
+    let body-chorus-spacing-ref = general-body-style-info.at("Body-chorus-spacing-ref")
+    let body-chorus-fontinfo =  (
+        fontname : general-body-style-info.at("Body-chorus-font"),
+        fontsize :  general-body-style-info.at("Body-chorus-fontsize")
+    )
+  
+    let body-lyrics-spacing = general-body-style-info.at("Body-lyrics-spacing")
+    
+    let body-lyrics-fontinfo =  (
+        fontname : general-body-style-info.at("Body-lyrics-font"),
+        fontsize :  general-body-style-info.at("Body-lyrics-fontsize")
+      )
+  
+    
+    // refrain francais
+    if (body-list-format.at(i) == "rf"){
+      body_chorus(
+        lang: "fr",
+        spacing : body-chorus-spacing,
+        spacing-ref : body-chorus-spacing-ref,
+        font-info : body-chorus-fontinfo,
+      )[#body-list.at(i)]
+    }
+      
+    // refrain néerlandais
+    else if (body-list-format.at(i) == "rn"){
+      body_chorus(
+        lang: "nl",
+        spacing : body-chorus-spacing,
+        font-info : body-chorus-fontinfo
+      )[#body-list.at(i)]
+    }
+      
+    // dernier refain francais
+    else if (body-list-format.at(i) == "rfl"){
+      body_chorus(
+        lang: "fr",
+        last : true,
+        spacing : body-chorus-spacing,
+        spacing-ref : body-chorus-spacing-ref,
+        font-info : body-chorus-fontinfo
+      )[#body-list.at(i)]
+    }
+      
+    // dernier refain nl
+    else if (body-list-format.at(i) == "rnl"){
+      body_chorus(
+        lang: "nl",
+        last : true,
+        spacing : body-chorus-spacing,
+        font-info : body-chorus-fontinfo
+      )[#body-list.at(i)]
+    }
+      
+    // refain simple fr
+    else if (body-list-format.at(i) == "rfs"){
+      body_chorus_simple(
+        lang: "fr",
+        spacing : body-chorus-spacing,
+        font-info : body-chorus-fontinfo
+      )
+    }
+    // refain simple fr
+    else if (body-list-format.at(i) == "rns"){
+      body_chorus_simple(
+        lang: "nl",
+        spacing : body-chorus-spacing,
+        font-info : body-chorus-fontinfo
+      )
+    }
+    // couplet
+    else if (body-list-format.at(i) == "c") {
+      body_lyrics(
+        spacing : body-lyrics-spacing,
+        font-info : body-lyrics-fontinfo
+      )[#body-list.at(i)]
+    }
   }
 }
 
-#let manage-header(header) = {
+#let manage-header(header, general-header-style-info) = {
   let width1
   let width2
+  
   if (header.tune != none){
-    width1 = measure(header_tune(author : header.author)[#header.tune]).width
+    width1 = measure(
+      header_tune(
+        author : header.author,
+        spacing : general-header-style-info.at("Header-tune-spacing"),
+        font-info : (
+          fontname : general-header-style-info.at("Header-tune-font"),
+          fontsize : general-header-style-info.at("Header-tune-fontsize")
+        )
+      )[#header.tune]).width
   }
   
   if (header.lyrics != none){
-    width2 = measure(header_lyrics(pseudonym : header.pseudo)[#header.lyrics]).width
+    width2 = measure(
+      header_lyrics(
+        pseudonym : header.pseudo,
+        spacing : general-header-style-info.at("Header-lyrics-spacing"),
+        font-info : (
+          fontname : general-header-style-info.at("Header-lyrics-font"),
+          fontsize :  general-header-style-info.at("Header-lyrics-fontsize")
+        )
+      )[#header.lyrics]).width
   }
 
   // si les deux détails de header
   if header.lyrics != none and header.tune != none {
     // si la largeur est plus petite que la page -> mets les un a coté de l'autres
     if width1 + width2 < utils.get_page_measure_margin().width [
-      #header_tune(author : header.author, spacing : 0pt)[
-        #header.tune #text(" "*3) #header_lyrics(pseudonym : header.pseudo)[#header.lyrics]
+      #header_tune(
+        author : header.author,
+        spacing : 0pt,
+        font-info : (
+          fontname : general-header-style-info.at("Header-tune-font"),
+          fontsize :  general-header-style-info.at("Header-tune-fontsize")
+        )
+      )[
+        #header.tune #text(" "*3) #header_lyrics(
+          pseudonym : header.pseudo,
+          spacing : 0pt,
+          font-info : (
+            fontname : general-header-style-info.at("Header-lyrics-font"),
+            fontsize :  general-header-style-info.at("Header-lyrics-fontsize")
+          )
+        )[#header.lyrics]
       ]
     ]else [
-      #header_tune(author : header.author)[#header.tune]
-      #header_lyrics(pseudonym : header.pseudo)[#header.pseudo]
+      #header_tune(
+        author : header.author,
+        spacing : general-header-style-info.at("Header-tune-spacing"),
+        font-info : (
+          fontname : general-header-style-info.at("Header-tune-font"),
+          fontsize :  general-header-style-info.at("Header-tune-fontsize")
+        )
+      )[#header.tune]
+      #header_lyrics(
+        pseudonym : header.pseudo,
+        spacing : general-header-style-info.at("Header-lyrics-spacing"),
+        font-info : (
+          fontname : general-header-style-info.at("Header-lyrics-font"),
+          fontsize : general-header-style-info.at("Header-lyrics-fontsize")
+        )
+      )[#header.pseudo]
     ]
   } else if (header.tune != none){
     header_tune(author : header.author)[#header.tune]
@@ -68,36 +182,72 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
   columns(2)[#col1 #col2]
 }
 
-#let defaut-layout(body-list, body-list-format) = {
-  iterate-over-body-list(body-list,body-list-format, body-list.len())
+#let defaut-layout(body-list, body-list-format, general-body-style-info) = {
+  
+  iterate-over-body-list(body-list,body-list-format, body-list.len(), general-body-style-info)
 }
 
-#let manage-body(body-list, body-list-format, layout, layout-info) = {
+#let manage-body(
+  body-list,
+  body-list-format,
+  layout,
+  layout-info,
+  general-body-style-info
+) = {
+    
    if (layout == "default") {
-    defaut-layout(body-list, body-list-format)
+    defaut-layout(body-list, body-list-format, general-body-style-info)
   } else if (layout == "column") {
-    column-layout(body-list, body-list-format, layout-info)
+    column-layout(body-list, body-list-format, layout-info, general-body-style-info)
   }
 }
 
-#let manage-content(title,body-list,body-list-format,layout,layout-info,header,img,sub-content) = return {
+#let manage-content(
+  title,
+  body-list,
+  body-list-format,
+  layout,
+  layout-info,
+  header,
+  img,
+  sub-content,
+  general-chant-style-info
+) = return {
+  
   if img.path != none and img.position == top [
     #align(img.alignment)[#image(img.path, width: img.width, height: img.height)]
   ]
-  
-  song_title[#title]
-  
-  manage-header(header)
+
+  let _General-Title-Style-Info = general-chant-style-info.at("_General-Title-Style-Info")
+  song_title(
+    spacing : _General-Title-Style-Info.at("Title-spacing"),
+    font-info : (
+      fontname : _General-Title-Style-Info.at("Title-font"),
+      fontsize : _General-Title-Style-Info.at("Title-fontsize")
+    )
+  )[#title]
+
+  let general-header-style-info = general-chant-style-info.at("_General-Header-Style-Info")
+  manage-header(header, general-header-style-info)
+
   
   v(0.3cm, weak : true)// délimitation entre commentaire et 
   
   if (header.comments != none){
-    header_comment[#header.comments]
+    header_comment(
+      spacing : general-header-style-info.at("Header-comment-spacing"),
+      font-info : (
+        fontname : general-header-style-info.at("Header-comment-font"),
+        fontsize :  general-header-style-info.at("Header-comment-fontsize")
+      )
+    )[#header.comments]
   } 
   
   v(0.2cm, weak : true)// délimitation entre header et body
+
+  let general-body-style-info = general-chant-style-info.at("_General-Body-Style-Info")
   
-  manage-body(body-list, body-list-format, layout, layout-info)
+  manage-body(body-list, body-list-format, layout, layout-info, general-body-style-info)
   
   if img.path != none and img.position == bottom [
     #align(img.alignment)[#image(img.path, width: img.width, height: img.height)]
@@ -119,6 +269,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
   sub-content : none,     // Sous chant ? autre contenu ?
   new-page: true,         // Nouvelle page pour le chant ? utilisé  si sub-content = chant(...)
   type : "leekes",        // type de chant, utile pour les rectangle noirs
+  general-chant-style-info : constant._General-Chant-Style-Info,
 ) = context {
   // replace non complete entry by none
   let header = constant.header-settings + header
@@ -128,6 +279,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
 
 
   let layout-info = constant.layout-info + layout-info
+  //let general-chant-style-info = constant._General-Chant-Style-Info + general-chant-style-info
 
   let page-alignment = utils.get_footer_alignemnt()
   let page-num = utils.get_page_number()
@@ -159,7 +311,10 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
     layout,layout-info,
     header,
     img,
-    sub-content)
+    sub-content,
+    general-chant-style-info,
+  )
+
 
  
   

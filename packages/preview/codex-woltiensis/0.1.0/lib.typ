@@ -2,4 +2,3 @@
 #import "format/chapter_format.typ" : *
 #import "format/index_format.typ" : *
 
-
