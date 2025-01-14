@@ -32,8 +32,8 @@
   // alignement par défaut
   set align(alignment)
 
-  if img.path != none and img.position == top [
-    #align(img.alignment)[#image(img.path, width: img.width, height: img.height)]
+  if img.image != none and img.position == top [
+    #align(img.alignment)[#img.image]
   ]
 
 
@@ -52,8 +52,8 @@
     subtitle_chapter(font-info : font-info)[#subtitle]
   }
 
-  if img.path != none and img.position == bottom [
-    #align(img.alignment)[#image(img.path, width: img.width, height: img.height)]
+  if img.image != none and img.position == bottom [
+    #align(img.alignment)[#img.image]
   ]
 
 }

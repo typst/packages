@@ -214,8 +214,8 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
   general-chant-style-info
 ) = return {
   
-  if img.path != none and img.position == top [
-    #align(img.alignment)[#image(img.path, width: img.width, height: img.height)]
+  if img.image != none and img.position == top [
+    #align(img.alignment)[#img.image]
   ]
 
   let _General-Title-Style-Info = general-chant-style-info.at("_General-Title-Style-Info")
@@ -249,8 +249,8 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
   
   manage-body(body-list, body-list-format, layout, layout-info, general-body-style-info)
   
-  if img.path != none and img.position == bottom [
-    #align(img.alignment)[#image(img.path, width: img.width, height: img.height)]
+  if img.image != none and img.position == bottom [
+    #align(img.alignment)[#img.image]
   ]
   
   if (sub-content != none) { sub-content }  
@@ -275,7 +275,6 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
   let header = constant.header-settings + header
 
   let img = constant.image-settings + img
-  if (img.path != none) {img.path = "../images/" + img.path}
 
 
   let layout-info = constant.layout-info + layout-info

@@ -1,4 +1,6 @@
 # Codex Woltientis
+⚠️ Warning : This package is quite young and quite monolithic. It is not yet recommended to use it in serious projects but is actively being developed making it easier to define constant and overall layout.
+
 
 ## Introduction
 

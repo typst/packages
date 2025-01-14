@@ -77,5 +77,5 @@
 
 // Contenu des headers de chant 
 #let header-settings = (tune : none,author : none,lyrics : none,pseudo : none, comments : none) 
-#let image-settings = (path :none,position : bottom,height : auto,width : auto,alignment:center)
+#let image-settings = (image : none, position : bottom,alignment:center)
 #let layout-info = (col1 : none,col2 : none,) 
