@@ -8,8 +8,8 @@ description = "Just a template for a lab report"
 repository = "https://github.com/tedius-git/divine-words"
 keywords = [
     "template",
-    " lab report",
-    " uni",
+    "lab report",
+    "uni",
 ]
 categories = ["report"]
 
