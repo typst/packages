@@ -1,4 +1,4 @@
 [package]
-name = "CH4ty["
+name = "CH4typ"
 version = "0.0.1"
 entrypoint = "lib.typ"
