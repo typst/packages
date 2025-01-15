@@ -37,7 +37,7 @@ If you want to change an existing project to use this template, you can add a
 show rule like this at the top of your file:
 
 ```typst
-#import "@preview/cram-snap:0.2.1": *
+#import "@preview/cram-snap:0.2.2": *
 
 #set page(paper: "a4", flipped: true, margin: 1cm)
 #set text(font: "Arial", size: 11pt)
