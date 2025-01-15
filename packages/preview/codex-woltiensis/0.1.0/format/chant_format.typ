@@ -331,10 +331,10 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
       numbering: "1",
       number-align: utils.get_footer_alignemnt(),
       footer-descent: -1mm,
-      background:{
+      background: context {
         let page = utils.get_page_number()
-        let posit = utils.get_rectangle_position(type, page-alignment)
-        place(constant.rectangle, dy : posit.dy, utils.value_odd_even(page,right,left))
+        let posit = utils.get_rectangle_position(type, page)
+        place(utils.value_odd_even(page, right, left), constant.rectangle, dy: posit.dy)
       }
     ) if new-page
 

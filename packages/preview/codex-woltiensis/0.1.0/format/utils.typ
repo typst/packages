@@ -14,6 +14,7 @@
 
 #let get_page_number() = {
   return here().position().at("page")
+
 }
 
 #let get_footer_alignemnt() = {
