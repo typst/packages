@@ -2,10 +2,18 @@
 
 #show: mainmatter-or-appendix.with(mode: (mainmatter: false, appendix: true))
 
-= this is a appendix
+= This is first appendix
 
 #lorem(100)
 
-== test test test
+== this is a subsection of first appendix
+
+#lorem(1000)
+
+= This is second appendix
+
+#lorem(100)
+
+== This is a subsection in second appendix
 
 #lorem(100)

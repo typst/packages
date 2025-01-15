@@ -2,22 +2,24 @@
 
 #show: mainmatter-or-appendix.with(mode: (mainmatter: true, appendix: false))
 
-= #lorem(5)
+= This is first chapter
 
 #lorem(50)
 
-== #lorem(4) #context here().position()
+== A Subsection
 
-== asdasd #context here().position()
+I want to refer to @network2020, and also the @networkplusplus2022.
 
-#lorem(100)
+== Another Subsection
 
-=== #lorem(3)
+#lorem(50)
 
-#lorem(5)
+=== A Sub-subsection
+
+#lorem(50)
 
 #figure(
-  rotate(90deg, image("../images/image1.png", height: 20%)),
+  image("../images/image1.png", height: 15%),
   caption: [This is a simple image],
 )
 
@@ -30,7 +32,23 @@
   caption: [This is a simple table],
 )
 
-#lorem(100)
+#figure(
+  table(
+    columns: 3,
+    [1], [2], [2],
+    [4], [1], [6],
+  ),
+  caption: [This is second table],
+)
+
+#figure(
+  table(
+    columns: 3,
+    [1], [2], [3],
+    [10], [50], [60],
+  ),
+  caption: [This is third table],
+)
 
 #lorem(100)
 
@@ -66,15 +84,19 @@
 
 足干丁頁清成助幾：因吉頁水合跟至知棵母羊念丁虎百母荷，告去愛怎點，棵力巾頁怕問皮活立到尾叫，麻主出。
 
-== testsetest
+== Just A Subsection
 
 #lorem(50)
 
-= another chapter
+= Another Chapter
 
 #lorem(100)
 
-== test test test
+== Hello Subsection!
+
+#lorem(1000)
+
+= Final Chapter
 
 #lorem(1000)
 
