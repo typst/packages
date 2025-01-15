@@ -8,10 +8,10 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
 #let iterate-over-body-list(
   body-list,
   body-list-format,
+  general-body-style-info,
   max,
   min:0,
   step:1,
-  general-body-style-info
 ) = {
   for i in range(min,max,step:step){
     let body-chorus-spacing = general-body-style-info.at("Body-chorus-spacing")
@@ -44,6 +44,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
       body_chorus(
         lang: "nl",
         spacing : body-chorus-spacing,
+        spacing-ref : body-chorus-spacing-ref,
         font-info : body-chorus-fontinfo
       )[#body-list.at(i)]
     }
@@ -163,28 +164,54 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
       )[#header.pseudo]
     ]
   } else if (header.tune != none){
-    header_tune(author : header.author)[#header.tune]
+    header_tune(
+      author : header.author,
+      spacing : general-header-style-info.at("Header-tune-spacing"),
+      font-info : (
+          fontname : general-header-style-info.at("Header-tune-font"),
+          fontsize :  general-header-style-info.at("Header-tune-fontsize")
+      )
+    )[#header.tune]
   } else if (header.lyrics != none){
-    header_lyrics(pseudonym : header.pseudo)[#header.lyrics]
+    header_lyrics(
+      pseudonym : header.pseudo,
+      spacing : general-header-style-info.at("Header-lyrics-spacing"),
+      font-info : (
+        fontname : general-header-style-info.at("Header-lyrics-font"),
+        fontsize :  general-header-style-info.at("Header-lyrics-fontsize")
+      )
+    )[#header.lyrics]
   }
 }
 
-#let column-layout(body-list, body-list-format, layout-info) = {
+#let column-layout(body-list, body-list-format, layout-info,general-body-style-info) = {
   let mid = if (layout-info.col1 == none) {calc.ceil(body-list.len() / 2)} 
     else {layout-info.col1}
   let col1 = [
-    #iterate-over-body-list(body-list, body-list-format, mid)
+    #iterate-over-body-list(
+      body-list, 
+      body-list-format,
+      general-body-style-info,
+      mid)
     #colbreak()
   ]
   let col2 = [
-    #iterate-over-body-list(body-list, body-list-format, body-list.len(), min : mid)
+    #iterate-over-body-list(
+      body-list, 
+      body-list-format,
+      general-body-style-info,
+      body-list.len(), min : mid)
   ]
   columns(2)[#col1 #col2]
 }
 
 #let defaut-layout(body-list, body-list-format, general-body-style-info) = {
-  
-  iterate-over-body-list(body-list,body-list-format, body-list.len(), general-body-style-info)
+  iterate-over-body-list(
+    body-list,
+    body-list-format,
+    general-body-style-info,
+    body-list.len(),
+  )
 }
 
 #let manage-body(
@@ -198,7 +225,11 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
    if (layout == "default") {
     defaut-layout(body-list, body-list-format, general-body-style-info)
   } else if (layout == "column") {
-    column-layout(body-list, body-list-format, layout-info, general-body-style-info)
+    column-layout(
+      body-list,
+      body-list-format,
+      layout-info,
+      general-body-style-info)
   }
 }
 
@@ -247,7 +278,12 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
 
   let general-body-style-info = general-chant-style-info.at("_General-Body-Style-Info")
   
-  manage-body(body-list, body-list-format, layout, layout-info, general-body-style-info)
+  manage-body(
+    body-list,
+    body-list-format,
+    layout,
+    layout-info,
+    general-body-style-info)
   
   if img.image != none and img.position == bottom [
     #align(img.alignment)[#img.image]
