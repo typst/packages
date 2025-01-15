@@ -15,9 +15,9 @@ Of course such a concept is always a bit biased in some way. Therefore I explain
 There exists already a Typst template for these sorts of documents: It's the ["supercharged-dhbw"-template](https://github.com/DannySeidel/typst-dhbw-template) by Danny Seidel. It is a great piece of work with a lot of functionality covering a broad variety of use cases. But with respect to structure and layout, it implements exactly the above criticized current state (which is without doubt what many people want or maybe have to use). I discussed with Danny on how to realize further development. We agreed to keep `supercharged-dhbw` more or less as-is in order to reflect current state and needs and in consequence to build this new template as a fork of his work. This gave me also  more freedom to go new ways.
 
 For those interested, further and more detailed explanations about the design of the "*Clean DHBW Typst Template*" can be found here:
-- [Assumptions](docs/assumptions.md) made for the development
-- [Usability issues](docs/usability-issues.md) mentioned above in detail
-- [Explanation of the new document structure and layout](docs/design-explained.md)
+- [Assumptions](https://github.com/roland-KA/clean-dhbw-typst-template/blob/main/docs/assumptions.md) made for the development
+- [Usability issues](https://github.com/roland-KA/clean-dhbw-typst-template/blob/main/docs/usability-issues.md) mentioned above in detail
+- [Explanation of the new document structure and layout](https://github.com/roland-KA/clean-dhbw-typst-template/blob/main/docs/design-explained.md)
 
 ## Usage
 
