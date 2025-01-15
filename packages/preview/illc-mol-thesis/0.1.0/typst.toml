@@ -1,0 +1,11 @@
+[package]
+name = "illc-mol-thesis"
+version = "0.1.0"
+entrypoint = "src/main.typ"
+authors = ["Stefano Volpe"]
+license = "CC-BY-SA-4.0"
+description = "Typst port of the official \"Master of Logic Titlepage\" used by Master of Logic students at the ILLC in their thesis"
+repository = "https://codeberg.org/foxy/illc-mol-thesis"
+categories = ["thesis", "report"]
+keywords = ["thesis", "master", "ILLC", "university", "UvA", "MoL"]
+compiler = "0.12.0"
