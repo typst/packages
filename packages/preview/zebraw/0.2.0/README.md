@@ -107,6 +107,35 @@ You can also add a header or footer to the code block by passing the `header` / 
 
 Here is an example of using `zebraw` to highlight lines in a Rust code block:
 
+````typ
+#zebraw(
+  highlight-lines: (
+    (3, [to avoid negative numbers]),
+    (6, [0️⃣ is not a right argument to fibonacci_reccursive()!]),
+  ),
+  comment-font-args: (font: "IBM Plex Sans"),
+  header: "// fibonacci_reccursive()",
+  ```rust
+  pub fn fibonacci_reccursive(n: i32) -> u64 {
+      if n < 0 {
+          panic!("{} is negative!", n);
+      }
+      match n {
+          0 => panic!("zero is not a right argument to fibonacci_reccursive()!"),
+          1 | 2 => 1,
+          3 => 2,
+          /*
+          50    => 12586269025,
+          */
+          _ => fibonacci_reccursive(n - 1) + fibonacci_reccursive(n - 2),
+      }
+  }
+  ```,
+)
+````
+
+![rw-example](assets/example8.svg)
+
 ## Performance
 
 Focusing on performance, Zebraw is designed to be lightweight and fast with simple and proper features. It can handle code blocks with ease. The following is a test of a typst file with over 2000 code blocks, each containing 3 lines of code and a test of another typst file with only 30 code blocks.
