@@ -1,0 +1,12 @@
+[package]
+name = "minimal-typst-thesis"
+version = "0.1.0"
+entrypoint = "thesis_template.typ"
+authors = ["Falko Hemstra"]
+license = "MIT"
+description = "A minimalistic template for writing a thesis."
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
