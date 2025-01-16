@@ -188,7 +188,8 @@ Here is where you write your project content.
   flavor: [A], // Don't want a flavor? Just remove this line
   group: group-name,
   authors.jane-doe,
-  // Say, Alex is absent for this project, so their entry is not included.
+  // Say, Alex is absent for this project, so we suffix an "(NP)" to their name.
+  authors.alex-conquitlam + (suffix: [(NP)]),
   // If you just want all authors, instead write:
   // ..authors.values(),
 )
@@ -280,7 +281,22 @@ author("Jane", "Doe", 12345678)
 
 And in the PDF metadata there will be a "Jane Doe" in the authors field, student number not included.
 
-What if your last name is k\u{02b7}ik\u{02b7}\u{0259}\u{019b}\u{0313}, that happens to type...
+=== Name Suffix
+In MATH 100/101 group projects we will add "NP" next to a student's name if they are not present.
+The ```typc author()``` function has a named argument `suffix` for this purpose.
+```typc
+author("Jane", "Doe", 12345678, suffix: "(NP)") // She was not there!
+```
+
+However, as we are already using `common.typ` to define authors, it would be easier to add a suffix to an author dictionary on-demand.
+```typst
+#show: setup.with(
+  authors.jane-doe + (suffix: "(NP)"),
+)
+```
+
+=== Special Characters in Names
+What if your last name is k\u{03b7}ik\u{02b7}\u{0259}\u{019b}\u{0313}, that happens to type...
 ```
 k\u{02b7}ik\u{02b7}\u{0259}\u{019b}\u{0313}
 ```
