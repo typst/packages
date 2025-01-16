@@ -22,7 +22,11 @@
 
   #v(85pt)
 
-  = #text(smallcaps(title), size: title-size, weight: 100)
+  #heading(
+    outlined: false,
+    bookmarked: true,
+    text(smallcaps(title), size: title-size, weight: 100)
+  )
 
   #v(54pt)
 
