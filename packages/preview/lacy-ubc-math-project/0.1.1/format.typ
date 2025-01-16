@@ -36,7 +36,8 @@
 /// - lastname (str, content): The author's last name.
 /// - id (int, content): The author's student ID.
 /// - strname (str, none): `str` alternative as the full name. In case of special characters or formatting in the name, a plain text version can be used for PDF metadata.
-#let author(firstname, lastname, id, strname: none) = {
+/// - suffix (str, content, none): The author's suffix, e.g. "(NP)" for non-participant.
+#let author(firstname, lastname, id, strname: none, suffix: none) = {
   (
     name: (
       first: firstname,
@@ -44,6 +45,7 @@
     ),
     id: id,
     strname: strname,
+    suffix: suffix,
   )
 }
 

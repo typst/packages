@@ -124,7 +124,7 @@
           stack(
             dir: ttb,
             spacing: 0.65em,
-            [#a.name.first *#a.name.last*],
+            [#a.name.first *#a.name.last* #if a.suffix != none { a.suffix }],
             {
               if type(a.id) == int {
                 raw(str(a.id))

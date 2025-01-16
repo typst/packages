@@ -6,6 +6,8 @@
   flavor: [A], // Don't want a flavor? Just remove this line.
   group: group-name,
   authors.jane-doe,
+  // Alex was not there, so we add an "(NP)" suffix.
+  authors.alex-conquitlam + (suffix: [(NP)]),
   // If you just want all authors, instead write:
   // ..authors.values(),
 )
@@ -37,5 +39,5 @@
   ]
 ]
 
-There is also a #link("https://github.com/lace-wing/lacy-ubc-math-project")[manual] for this project.
+There is a #link("https://github.com/lace-wing/lacy-ubc-math-project")[GitHub repo] for this project, take a look at the #link("https://github.com/lace-wing/lacy-ubc-math-project/blob/master/manual.pdf")[manual] there!
 
