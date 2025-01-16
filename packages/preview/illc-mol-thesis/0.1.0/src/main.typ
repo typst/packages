@@ -1,6 +1,3 @@
-#let titleSize = 21pt
-#let subtitleSize = 14pt
-
 #let titlepage(
   title: "Title of the Thesis",
   author: "John Q. Public",
@@ -15,13 +12,16 @@
     "Dr Albert Heijn"),
   degree: "MSc in Logic"
 ) = align(alignment.center)[
+  #let title-size = 21pt
+  #let subtitle-size = 14pt
+
   #v(85pt)
 
-  = #text(smallcaps(title), size: titleSize, weight: 100)
+  = #text(smallcaps(title), size: title-size, weight: 100)
 
   #v(54pt)
 
-  #text([*MSc Thesis* _(Afstudeerscriptie)_], size: subtitleSize)
+  #text([*MSc Thesis* _(Afstudeerscriptie)_], size: subtitle-size)
 
   written by
 
@@ -41,7 +41,7 @@
     for the degree of
   ]
 
-  #text([*#degree*], size: subtitleSize)
+  #text([*#degree*], size: subtitle-size)
 
   at the _Universiteit van Amsterdam_.
 
