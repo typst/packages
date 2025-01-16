@@ -1,9 +1,11 @@
+// Shows a parametric thesis titlepage that follows the recommendations of the
+// Master of Logic.
 #let titlepage(
   title: "Title of the Thesis",
   author: "John Q. Public",
   birth-date: "April 1st, 1980",
   birth-place: "Alice Springs, Australia",
-  defense-date: "August 28, 2005",
+  defence-date: "August 28, 2005",
   supervisors: ("Dr Jack Smith", "Prof Dr Jane Williams"),
   committee: (
     "Dr Jack Smith",
@@ -12,7 +14,10 @@
     "Dr Albert Heijn"),
   degree: "MSc in Logic"
 ) = align(alignment.center)[
+  // Size of the thesis's title
   #let title-size = 21pt
+  // Size of frontpage elements that should be smaller of the thesis's title
+  // alone
   #let subtitle-size = 14pt
 
   #v(85pt)
@@ -51,9 +56,9 @@
     #par(spacing: 6pt)[
       #columns(2, gutter: -10%)[
         #align(alignment.left)[
-          *Date of the public defense:*
+          *Date of the public defence:*
 
-          _#defense-date _
+          _#defence-date _
 
           #colbreak()
 

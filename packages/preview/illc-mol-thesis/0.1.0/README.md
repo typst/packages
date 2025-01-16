@@ -19,7 +19,7 @@ and `degree` arguments.
   author: "John Q. Public",
   birth-date: "April 1st, 1980",
   birth-place: "Alice Springs, Australia",
-  defense-date: "August 28, 2005",
+  defence-date: "August 28, 2005",
   /* Only one supervisor? The singleton array ("Dr Jack Smith",) needs the
      training comma. */
   supervisors: ("Dr Jack Smith", "Prof Dr Jane Williams"),
