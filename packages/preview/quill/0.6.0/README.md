@@ -203,7 +203,7 @@ Note: Starting with this version, Typst 0.11.0 or higher is required.
 - Improvements: 
   - Improve layout (allow row/column spacing and min lengths to be specified in em-lengths).
   - Automatic bounds computation, even for labels. 
-  - Improve meter (allow multi-qubit gate meters and respect global (per-circuit) gate padding).d
+  - Improve meter (allow multi-qubit gate meters and respect global (per-circuit) gate padding).
 - Fixes:
   - `lstick`/`rstick` braces broke with Typst 0.7.0.
   - `lstick`/`rstick` bounds.
