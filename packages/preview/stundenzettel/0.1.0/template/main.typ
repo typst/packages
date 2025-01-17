@@ -1,4 +1,4 @@
-#import "../lib.typ" : *
+#import "@preview/stundenzettel:0.1.0" : *
 
 #timesheet(
 

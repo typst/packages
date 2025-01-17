@@ -6,7 +6,7 @@ A Typst template for tracking work hours, designed for German-speaking contexts.
 
 ## Usage:
 ```typst
-#import "@stundenzettel:0.1.0": timesheet
+#import "@preview/stundenzettel:0.1.0": timesheet
 
 #timesheet(
 
