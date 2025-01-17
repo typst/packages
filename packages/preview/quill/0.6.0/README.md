@@ -16,17 +16,16 @@
 
 
 **Quill** is a package for creating quantum circuit diagrams in [Typst](https://typst.app/). 
-
-It features two distinct operation models:
-- The very powerful and more manual [grid model](#basic-usage-the-grid-model).
-- The automatic and operational model [Tequila](#tequila) which is also useful for _composing sub-circuits_. 
+It features two distinct creation models:
+- The more manual and very powerful [grid model](#basic-usage-the-grid-model).
+- The automatic and instruction-driven model [Tequila](#tequila) which is also useful for _composing_ sub-circuits. These circuits are then embedded into the grid model. 
 
 Outline:
 
 
-- [**Usage**](#basic-usage) _quick introduction_
-- [**Cheat sheet**](#cheat-sheet) _gallery for quickly viewing all kinds of gates_
-- [**Tequila**](#tequila) _building (sub-)circuits in a way similar to QASM or Qiskit_
+- [**Usage.**](#basic-usage-the-grid-model) _a quick introduction_
+- [**Cheat sheet.**](#cheat-sheet) _a gallery that showcases all kinds of circuit elements_
+- [**Tequila.**](#tequila) _building (sub-)circuits in a way similar to QASM or Qiskit_
 - [**Examples**](#examples)
 - [**Changelog**](#changelog)
 
