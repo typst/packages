@@ -17,22 +17,25 @@
 
 **Quill** is a package for creating quantum circuit diagrams in [Typst](https://typst.app/). 
 It features two distinct creation models:
-- The more manual and very powerful [grid model](#basic-usage-the-grid-model).
-- The automatic and instruction-driven model [Tequila](#tequila) which is also useful for _composing_ sub-circuits. These circuits are then embedded into the grid model. 
+- The manual and powerful [grid model](#basic-usage-the-grid-model).
+- The automatic, instruction-driven model [Tequila](#tequila) which is also useful for _composing_ sub-circuits. These circuits are then embedded into the grid model. 
 
 Outline:
 
 
-- [**Usage.**](#basic-usage-the-grid-model) _a quick introduction_
-- [**Cheat sheet.**](#cheat-sheet) _a gallery that showcases all kinds of circuit elements_
-- [**Tequila.**](#tequila) _building (sub-)circuits in a way similar to QASM or Qiskit_
-- [**Examples**](#examples)
-- [**Changelog**](#changelog)
+- [Usage](#basic-usage-the-grid-model): _A quick introduction_
+- [Cheat sheet](#cheat-sheet): _A gallery showcasing various circuit elements_
+- [Tequila](#tequila): _Building circuits similar to QASM or Qiskit_
+- [Examples](#examples)
+- [Changelog](#changelog)
 
 
 ## Basic usage (the grid model)
 
-The function `quantum-circuit()` takes any number of positional gates and works similar to the built-in Typst functions `table()` and `grid()`. A variety of different gate and instruction commands are available for adding elements. Integers can be used to produce any number of empty cells (filled with the current wire style). A new wire is started by adding a `[\ ]` item. 
+The function `quantum-circuit()` takes any number of positional gates and works similar to the built-in Typst functions `table()` and `grid()`. 
+- A variety of different gate and instruction commands are available for adding elements. 
+- Integers can be used to produce any number of empty cells (filled with the current wire style). 
+- A new wire is started by adding a `[\ ]` item. 
 
 ```typ
 #{
@@ -52,11 +55,11 @@ The function `quantum-circuit()` takes any number of positional gates and works 
 
 Plain quantum gates — such as a Hadamard gate — can be written with the shorthand notation `$H$` instead of the more lengthy `gate($H$)`. The latter offers additional styling options. 
 
-Refer to the [user guide][guide] for a full documentation of this package. You can also look up the documentation of any function by calling the help module, e.g., `help("gate")` in order to print the signature and description of the `gate` command, just where you are currently typing (powered by [tidy][tidy]). 
+Refer to the [user guide][guide] for a full documentation of this package. You can also look up the documentation of any function by calling the help module, e.g., `#help("gate")` just where you are currently typing (powered by [tidy][tidy]). 
 
 ## Cheat Sheet
 
-Instead of listing every featured gate (as is done in the [user guide][guide]), this gallery quickly showcases a large selection of possible gates and decorations that can be added to any quantum circuit. 
+This gallery quickly showcases a large selection of possible gates and decorations that can be added to any quantum circuit. 
 
 <div align="center">
 
@@ -81,10 +84,10 @@ _Tequila_ is a submodule that adds a completely different way of building circui
   quill.gategroup(x: 2, y: 0, 3, 2)
 )
 ```
-This is similar to how _QASM_ and _Qiskit_ work: gates are successively applied to the circuit which is then layed out automatically by packing gates as tightly as possible. We start by calling the `tq.build()` function and filling it with quantum operations. This returns a collection of gates which we expand into the circuit with the `..` syntax. 
+This is similar to how _QASM_ and _Qiskit_ work: gates are successively applied to the circuit which is then laid out automatically by packing gates as tightly as possible. We start by calling the `tq.build()` function and filling it with quantum operations. This returns a collection of gates which we expand into the circuit with the `..` syntax. 
 Now, we still have the option to add annotations, groups, slices, or even more gates via manual placement. 
 
-The syntax works analog to Qiskit. Available gates are `x`, `y`, `z`, `h`, `s`, `sdg`, `sx`, `sxdg`, `t`, `tdg`, `p`, `rx`, `ry`, `rz`, `u`, `cx`, `cz`, and `swap`. With `barrier`, an invisible barrier can be inserted to prevent gates on different qubits to be packed tightly. Finally, with `tq.gate` and `tq.mqgate`, a generic gate can be created. These two accept the same styling arguments as the normal `gate` (or `mqgate`).
+The syntax works analogously to Qiskit. Available gates are `x`, `y`, `z`, `h`, `s`, `sdg`, `sx`, `sxdg`, `t`, `tdg`, `p`, `rx`, `ry`, `rz`, `u`, `cx`, `cz`, and `swap`. With `barrier`, an invisible barrier can be inserted to prevent gates on different qubits to be packed tightly. Finally, with `tq.gate` and `tq.mqgate`, a generic gate can be created. These two accept the same styling arguments as the normal `gate` (or `mqgate`).
 
 Also like Qiskit, all qubit arguments support ranges, e.g., `tq.h(range(5))` adds a Hadamard gate on the first five qubits and `tq.cx((0, 1), (1, 2))` adds two CX gates: one from qubit 0 to 1 and one from qubit 1 to 2. 
 
