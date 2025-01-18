@@ -4,15 +4,13 @@ Typst template based upon [The University of Manchester Presentation of Theses P
 
 
 ## Using the template on typst.app
-The template should ultimately be available on Typst Universe as casson_uom_thesis. Create an account at [Typst.app](https://typst.app/) and start a new project by clicking on Start from template and searching for casson_uom_thesis.
-
-Alternatively, you can download files from the template repository and upload them to your project folder. If doing this, in main.typ comment out
+You can download files from the template repository and upload them to your project folder. If doing this, in main.typ use the import line:
+  
+  `#import "casson-uom-thesis.typ": *`
+  
+The template should ultimately be available on Typst Universe as casson-uom-thesis. Using this approach, create an account at [Typst.app](https://typst.app/) and start a new project by clicking on Start from template and searching for casson-uom-thesis. Now, the import line in main.typ will need to be:
 
   `#import "@preview/casson-uom-thesis:0.1.0": *`
-
-and instead uncomment
-
-  `//#import "casson-uom-thesis.typ": *`
 
 
 ## Local installation
