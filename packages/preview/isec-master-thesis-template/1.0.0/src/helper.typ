@@ -27,5 +27,5 @@
   #block(above: 0.8cm)[
     *#title* #h(0.3cm) #body
   ]
-  #fix_311
+  #fix-311
 ]
