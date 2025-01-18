@@ -38,7 +38,7 @@
 		"abstract": [
 			Deutsche Kurzfassung der Abschlussarbeit (maximal eine Seite)
 		],
-		"ktitle": "Schlagwörter",
+		"ktitle": [Schlagwörter],
 		"keywords": ([Einige Stichwörter...],),
 	),
   keywords: ([Broad keyword], [Keyword], [Specific Keyword],
