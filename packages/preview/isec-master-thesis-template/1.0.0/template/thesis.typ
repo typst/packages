@@ -52,7 +52,7 @@
 	list-of-figures:  true,
 	list-of-tables:   true, 
 	list-of-listings: true, // Wrap code in #figure
-	debug: true,
+	debug: false,
 )
 
 // -------------------------------[[ CUT HERE ]]--------------------------------
@@ -81,15 +81,6 @@
 //
 // - https://typst.app/universe/
 // - https://github.com/qjcg/awesome-typst
-//
-// Grammar checker (LanguageTool backend):
-//
-// - Install maven (dependency of typst-languagetool)
-// - Install typst-languagetool:
-//     cargo install --git=https://github.com/antonWetzel/typst-languagetool \
-//				cli --features=bundle
-// - Run checker on each save:
-//		 typst-languagetool --bundle watch --path=thesis.typ
 //
 // Recommendations:
 //
@@ -185,8 +176,6 @@
 #show: appendix
 
 = Code Listings<sec:codelistings>
-
-
 
 
 // vim:tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab colorcolumn=81

@@ -47,6 +47,9 @@
 	#show outline: set par.line(numbering: none)
 	#show math.equation: set par.line(numbering: none)
 
+	// Highlight TODOs
+	#show regex("TODO"): m => { if debug { highlight(m) } else { m} }
+
 	// --------------------------------------------------------------------------
 	// Citation Hotfix 
 
