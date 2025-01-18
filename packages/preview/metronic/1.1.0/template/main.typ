@@ -1,4 +1,4 @@
-#import "@preview/metronic:1.0.0": *
+#import "@preview/metronic:1.1.0": *
 
 #theme(
   accent-color: rgb("61B7AE"),
@@ -25,7 +25,9 @@
       phone: "555-0123",
       linkedin: "janedoe",
       email: "jane.doe@email.com",
-      location: "Chicago, USA"
+      location: "Chicago, USA",
+      website: "janedoe.com",
+      x: "janedoe"
     )
 
     #v(5pt)
