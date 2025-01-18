@@ -1,5 +1,5 @@
 #import "meta.typ" as meta
-#import "@local/whs-thesis:0.1.0": *
+#import "@preview/whs-thesis:0.1.0": *
 #import "chapters/00_abstract.typ" as abstract
 #import "acronyms.typ" as acronyms
 
