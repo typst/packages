@@ -1,6 +1,5 @@
 // ------ TEMPLATE SETUP ------------------------------------------------
-#import "@preview/casson-uom-thesis:0.1.0": *
-//#import "casson-uom-thesis.typ": * // for local installation use
+#import "casson-uom-thesis.typ": *
 
 // Set up the project. Commented out fields are optional
 #show: uom-thesis.with(
