@@ -22,11 +22,11 @@
 ]
 
 #let print-trimmed(cap) = [
-	#let num = 70
+	#let num = 60
 	#let c = content-to-string(cap)
 	#if c.len() > num [
 		#let tr = c.slice(0, num).split(" ").slice(0, -1).join(" ")
-		#tr
+		#tr #text(size: 9pt, "(...)")
 	] else [
 		#c
 	]
