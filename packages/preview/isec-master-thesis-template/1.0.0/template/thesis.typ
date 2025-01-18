@@ -52,6 +52,7 @@
 	list-of-figures:  true,
 	list-of-tables:   true, 
 	list-of-listings: true, // Wrap code in #figure
+	debug: true,
 )
 
 // -------------------------------[[ CUT HERE ]]--------------------------------

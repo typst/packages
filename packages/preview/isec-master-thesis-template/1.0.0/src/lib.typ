@@ -28,8 +28,27 @@
 	list-of-figures: none,
 	list-of-tables: none,
 	list-of-listings: none,
+	debug: none,
 	body
 ) = [
+
+	// --------------------------------------------------------------------------
+	// Debug Options
+
+	// Line numbers
+	#set par.line(numbering: n => {
+		if debug { text(size: 7pt, red)[#n] }
+	})
+	#show figure: set par.line(numbering: none)
+	#show figure.caption: set par.line(numbering: n => {
+		if debug { text(size: 7pt, red)[#n] }
+	})
+	#show raw.where(block: true): set par.line(numbering: none)
+	#show outline: set par.line(numbering: none)
+	#show math.equation: set par.line(numbering: none)
+
+	// --------------------------------------------------------------------------
+	// Citation Hotfix 
 
 	// Hotfix to properly cite in abstract
 	#set cite(style: "alphanumeric")
