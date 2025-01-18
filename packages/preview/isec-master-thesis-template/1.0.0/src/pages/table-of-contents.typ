@@ -1,3 +1,5 @@
+#import "../helper.typ": *
+
 // Sections that shouldn't show the section number
 #let whtl  = ([Bibliography], [Acronyms], [Notation],)
 #let ruler = context box(width: 1fr)[
@@ -17,6 +19,17 @@
 			]
 		],
 	)
+]
+
+#let print-trimmed(cap) = [
+	#let num = 70
+	#let c = content-to-string(cap)
+	#if c.len() > num [
+		#let tr = c.slice(0, num).split(" ").slice(0, -1).join(" ")
+		#tr
+	] else [
+		#c
+	]
 ]
 
 #let toc-page(
@@ -176,7 +189,7 @@
 					// Spacing
 				],
 				box[
-					#cap
+					#print-trimmed(cap)
 				],
 				box[
 					// Spacing
