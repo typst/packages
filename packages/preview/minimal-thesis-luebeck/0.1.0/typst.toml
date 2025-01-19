@@ -10,3 +10,4 @@ description = "A minimalistic template for writing a thesis."
 path = "template"
 entrypoint = "thesis.typ"
 thumbnail = "thumbnail.png"
+categories = ["thesis"]
