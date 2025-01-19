@@ -1,5 +1,5 @@
 [package]
-name = "minimal-typst-thesis"
+name = "minimal-thesis"
 version = "0.1.0"
 entrypoint = "thesis_template.typ"
 authors = ["Falko Hemstra"]
