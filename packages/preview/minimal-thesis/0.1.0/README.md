@@ -19,6 +19,8 @@ I recommend using VS Code and the [tinymist extension](https://github.com/Myriad
 When installed, this template provides you with a `thesis.typ` file.
 This is where you write your thesis.
 
+Note that by default this template is configured to write thesis using english language in a german environment. However, you can exchange all strings in the template to match your preferred languages.
+
 _Hint_: You can take a look at `tutorial.typ` if you are new to Typst.
 
 ## Template Contents
