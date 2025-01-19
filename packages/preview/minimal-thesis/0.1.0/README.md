@@ -11,7 +11,7 @@ Just select this template by its name and version and start writing!
 
 ### Typst CLI (local)
 
-In your CLI, navigate to your empty project directory and use `typst init @preview/minimal-thesis:0.1.0`.
+In your CLI, navigate to your empty project directory and use `typst init @preview/minimal-thesis-luebeck:0.1.0`.
 I recommend using VS Code and the [tinymist extension](https://github.com/Myriad-Dreamin/tinymist) for working with a local installation.
 
 ## Usage
