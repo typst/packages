@@ -73,6 +73,7 @@ $
   + marktc(C, tag: #<t4>, color: #olive)
 
   #annot(<t1>)[annotation]
+  #annot(<t4>)[another annotation]
 $
 ```
 ![Usage4](examples/usage4.svg)
