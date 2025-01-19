@@ -13,8 +13,6 @@ By leaving a line blank in your `.typ`-file, you can create a new *paragraph*. T
 You can also create a simple line break by adding a backslash `\` at the end of a line.\
 This is usually not recommended.
 
-For general settings on line breaks, look for "`set par`" in the `config/thesis_template.typ` file.
-
 == Figures <sec:figures>
 Figures are referenced like this: @fig:findus shows a funny cat.
 
