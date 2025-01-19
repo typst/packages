@@ -5,9 +5,9 @@ entrypoint = "thesis_function.typ"
 authors = ["Falko Hemstra"]
 license = "MIT"
 description = "A minimalistic template for writing a thesis."
+categories = ["thesis"]
 
 [template]
 path = "template"
 entrypoint = "thesis.typ"
 thumbnail = "thumbnail.png"
-categories = ["thesis"]
