@@ -1,6 +1,6 @@
 # Codex Woltientis
-⚠️ Warning : This package is quite young and quite monolithic. It is not yet recommended to use it in serious projects but is actively being developed making it easier to define constant and overall layout.
-
+⚠️ Warning : This package is quite young and will probably undergo some big changes in the future. 
+Yet it is already usable and can be used to create a student songbook. Feel free to use it and give feedbacks.
 
 ## Introduction
 

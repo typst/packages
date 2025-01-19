@@ -6,6 +6,7 @@
   title : "",                   // Titre de la page
   title-color : black,
   subtitle : none,              // Sous-titre de la page
+  subtitle-color : black,
   alignment : center+horizon,   // Alignement du texte et de l'image sur la page
   img : (:),
   margin : constant.margin,     // Marge 
@@ -49,7 +50,7 @@
       fontname : general-chapter-style-info.at("Subtitle-font"),
       fontsize : general-chapter-style-info.at("Subtitle-fontsize")
     )
-    subtitle_chapter(font-info : font-info)[#subtitle]
+    subtitle_chapter(subtitle-color : subtitle-color,font-info : font-info)[#subtitle]
   }
 
   if img.image != none and img.position == bottom [
