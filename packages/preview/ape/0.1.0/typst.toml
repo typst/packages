@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Izan"]
 license = "MIT"
-description = "An example package."
+description = "Stop monkeying around with your layouts! Get sophisticated with Ape for Typst."
 
 [template]
 path = "template"
