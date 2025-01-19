@@ -28,7 +28,6 @@ _Hint_: You can take a look at `tutorial.typ` if you are new to Typst.
 - **images**: Contains all images. You should replace the example images with your own. Also, you might need to adjust some sizes afterwards (`config/titlepage.typ`).
 - **texts**: Contains texts that are separate from your main thesis such as the abstract. If you like, you can also put chapters of your thesis here. Personally however, I like having everything in one place.
 - **thesis.bib**: The bibliography. Put your refrences here.
-- **thesis.pdf**: This is an example output for you to look at. You can remove and replace it when you start adding your own results.
 
 ## Credits
 
