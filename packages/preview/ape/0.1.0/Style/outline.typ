@@ -1,5 +1,5 @@
 #let getOutline() = {
-  let firstRealPage = 0
+  let first-real-page = 0
   let customOutline = {
     set text(size: 10pt, hyphenate: true)
 
@@ -25,8 +25,8 @@
       align: (left, left, bottom),
 
       ..for e in query(heading) {
-        if firstRealPage == 0 {
-          firstRealPage = e.location().page()
+        if first-real-page == 0 {
+          first-real-page = e.location().page()
         }
 
         if e.body.text != "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
@@ -78,5 +78,5 @@
     )
   }
 
-  return (firstRealPage, customOutline)
+  return (first-real-page, customOutline)
 }

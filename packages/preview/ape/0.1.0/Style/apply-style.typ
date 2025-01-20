@@ -3,7 +3,7 @@
 #import "styles/plain.typ": *
 #import "styles/presentation.typ": *
 
-#let applyStyle(style, contenu) = {
+#let apply-style(style, contenu) = {
   set heading(numbering: "I)1)a)i)")
 
 

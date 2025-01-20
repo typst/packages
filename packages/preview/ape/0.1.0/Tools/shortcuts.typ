@@ -13,6 +13,8 @@
     circle(stroke: 1pt, radius: 1.5cm, fill: red.lighten(20%), outset: -0.5cm)[
       #set align(center + horizon)
       #set text(black, size: 12pt, font: "TeX Gyre Chorus")
+      t
+     
       *Nécessite\ relecture*
     ],
   )
@@ -40,7 +42,6 @@
 #let congru = $eq.triple$
 
 // Physique
-
 #let dt = $dif t$
 #let ar = math.arrow
 #let Nar(c) = math.norm(math.arrow(c))

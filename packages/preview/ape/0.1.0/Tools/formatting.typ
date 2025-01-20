@@ -1,8 +1,4 @@
-
-
-= Fonctions
-
-== Paragraphe
+== Paragraph
 #let para(nom, contenu) = context {
   grid(
     columns: 2,
@@ -12,17 +8,16 @@
   )
 }
 
-== Remarque
 
 #let rq(contenu) = {
   para("Remarque", contenu)
 }
 
-#let exmp(contenu) = {
+#let ex(contenu) = {
   para("Exemple", contenu)
 }
 
-== Inbox 1 et 2
+== Inbox
 #let inbox(contenu) = {
   box(
     width: 100%,
@@ -41,18 +36,18 @@
 
 
   layout(size => {
-    let inboxHeight = max(15pt, min(size.width * 0.15, pow(1.5, measure(c).width / size.width) * 4pt))
+    let inbox-height = max(15pt, min(size.width * 0.15, pow(1.5, measure(c).width / size.width) * 4pt))
 
 
     box([#{
-        place(line(length: inboxHeight, angle: 90deg))
+        place(line(length: inbox-height, angle: 90deg))
 
-        align(left, line(length: inboxHeight * 2))
+        align(left, line(length: inbox-height * 2))
 
         c
 
-        place(line(start: (100%, 0%), length: inboxHeight, angle: -90deg))
-        line(start: (100% - inboxHeight * 2, 0%), length: inboxHeight * 2)
+        place(line(start: (100%, 0%), length: inbox-height, angle: -90deg))
+        line(start: (100% - inbox-height * 2, 0%), length: inbox-height * 2)
       }])
   })
 }

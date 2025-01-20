@@ -1,4 +1,3 @@
-
 #import "@preview/ape:0.1.0": *
 
 #show: doc.with(
@@ -8,11 +7,9 @@
   authors: (),
   style: "numbered",
 
-  titlePage: true,
+  title-page: true,
   outline: true,
 )
-
-
 
 
 

@@ -1,7 +1,7 @@
-#let front-pages(title, titlePage, authors, outline, customOutline) = {
+#let front-pages(title, title-page, authors, outline, customOutline) = {
 	
 
-	let smallTitle3 = {
+	let small-title3 = {
 		 line(length: 100%)
     text(
       size: 22pt,
@@ -18,7 +18,7 @@
     line(length: 100%)
     v(15pt)
 	}
-	let smallTitle2 = {
+	let small-title2 = {
 		
   align(
       center,
@@ -63,7 +63,7 @@
     )
 
 	}
-	let smallTitle1 = {
+	let small-title1 = {
 	if type(title) == "string" {
   align(
       center,
@@ -80,20 +80,20 @@
 			))
 	}}
 	
-	let smallTitle = {
+	let small-title = {
 		if type(title) == "array" {
-			if titlePage or outline {
-				smallTitle3
+			if title-page or outline {
+				small-title3
 			}else{
-				smallTitle2
+				small-title2
 			}
 		}else {
-			smallTitle1
+			small-title1
 		}
 	}
 	
 	
-	if titlePage {
+	if title-page {
     align(
       center + horizon,
       [
@@ -135,14 +135,14 @@
       pagebreak()
     }
 
-   smallTitle
+   small-title
   } else {
     if outline {
       customOutline
       pagebreak()
     }
 
-			smallTitle
+			small-title
 
     v(15pt)
   }

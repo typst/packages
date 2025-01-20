@@ -1,4 +1,4 @@
-#let codeDisplay(contenu) = {
+#let code-display(contenu) = {
 	 // Code
 
   show raw: it => context {

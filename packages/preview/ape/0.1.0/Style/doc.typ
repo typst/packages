@@ -1,9 +1,9 @@
 #import "outline.typ": *
-#import "applyStyle.typ": *
+#import "apply-style.typ": *
 #import "header-footer.typ": *
 #import "front-pages.typ": *
 #import "../Tools/shortcuts.typ": *
-#import "codeDisplay.typ": *
+#import "code-display.typ": *
 #import "../Tools/formatting.typ": *
 
 
@@ -23,22 +23,22 @@ Style :
   title: ("Titre"),
   authors: (),
   style: "",
-  titlePage: false,
+  title-page: false,
   outline: false,
   contenu,
 ) = context {
   set text(lang: lang, font: "New Computer Modern")
 
-  let (firstRealPage, customOutline) = getOutline()
+  let (first-real-page, customOutline) = getOutline()
 
-  show: header-footer.with(firstRealPage, titlePage, outline, customOutline, title, authors)
+  show: header-footer.with(first-real-page, authors)
 
-  show: applyStyle.with(style)
+  show: apply-style.with(style)
 
-  front-pages(title, titlePage, authors, outline, customOutline)
+  front-pages(title, title-page, authors, outline, customOutline)
 
   show: shows-shortcuts
-  show: codeDisplay
+  show: code-display
 
   // Pre-set
 
