@@ -1,5 +1,5 @@
 
-== Cetz dessin
+== Cetz drawing
 #import "@preview/cetz:0.3.1"
 
 #let cetzStyle = {
@@ -18,7 +18,7 @@
 }
 
 
-#let Point_nom((x, y), nom: " ", dc: (-0.3, -0.3)) = {
+#let Point-name((x, y), nom: " ", dc: (-0.3, -0.3)) = {
   import cetz.draw: *
   let (dx, dy) = dc
 
@@ -27,8 +27,8 @@
 }
 
 
-=== Second degré
-#let eq_second_deg(a, b, c) = {
+=== Quadratic
+#let quadratic(a, b, c) = {
   let Delta = b * b - 4 * a * c
 
   return (
@@ -39,21 +39,20 @@
 
 
 === Base
-#let Base((x_0, y_0), nom_1: " ", nom_2: " ", angle: 0deg) = {
+#let Base((x_0, y_0), name1: " ", name2: " ", angle: 0deg) = {
   import cetz.draw: *
 
 
   line((x_0, y_0), (x_0 + calc.cos(angle), y_0 + calc.sin(angle)))
   line((x, y), (x + calc.sin(angle)), y + calc.cos(angle))
-  content(((x + calc.cos(angle)), y + calc.sin(angle) + 0.3), [nom_1])
-  content(((x + calc.sin(angle)), y + calc.cos(angle) + 0.3), [nom_2])
+  content(((x + calc.cos(angle)), y + calc.sin(angle) + 0.3), [name1])
+  content(((x + calc.sin(angle)), y + calc.cos(angle) + 0.3), [name2])
 }
 // A revoir
 
 
-=== Ressort (horizontal et vertical)
-// répétition, amplitude
-#let Ressort(x0, y0, xf, yf, rep, amp) = {
+=== Spring
+#let Spring(x0, y0, xf, yf, rep, amp) = {
   import calc: *
   import cetz.draw: *
   let dist = amp
