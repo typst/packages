@@ -14,8 +14,8 @@ Thus, this template does not guarantee completeness or correctness.
 
 Create a new typst project based on this template locally.
 ```bash
-typst init @preview/whs-thesis
-cd whs-thesis
+typst init @preview/modern-whs-thesis
+cd modern-whs-thesis
 ```
 
 Or create a project on the typst web app based on this template.
