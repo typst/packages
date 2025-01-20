@@ -28,7 +28,7 @@ Also, Typst currently cannot embed PDF-files. However, you can still use SVG.
 == Citations and references
 Citations are referenced like this: @alley1996craft is a great book about writing scientific reports.\
 Note that the bibliography tag stems from the `thesis.bib` file.\
-Also, sections can be referencedlike this: @sec:figures and @sec:tutorial
+Also, sections can be referenced like this: @sec:figures and @sec:tutorial
 
 == Equations
 Equations are written like this:
@@ -36,7 +36,7 @@ $sum_i^infinity (f^(\(n\))(a))/(n!) (x-a)^n$.\
 Note that adding a space around the equation places it in the center of the page:
 $ sum_i^infinity (f^(\(n\))(a))/(n!) (x-a)^n $
 
-Equaltions can be aligned using `&` for alignment and `\` for line breaks:
+Equations can be aligned using `&` for alignment and `\` for line breaks:
 $ sum_i^infinity (f^(\(n\))(a))/(n!) (x-a)^n &= f(a)
   + (f'(a))/(1!) (x-a)
   + (f''(a))/(2!) (x-a)^2
@@ -93,7 +93,7 @@ You can reference @tab:example_table as usual.
 
 == Symbols
 There is a wide catalog of symbols available in Typst. For example, #sym.arrow.r gives an arrow.
-Use the smart suggestions of your editor to find more smybols like #sym.alpha.
+Use the smart suggestions of your editor to find more symbols like #sym.alpha.
 
 == Code
 Source code can be typeset like this:
