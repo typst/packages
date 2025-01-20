@@ -16,7 +16,7 @@
   } else if content.has("children") {
     content.children.map(content-to-string).join("")
   } else if content.has("body") {
-    to-string(content.body)
+    content-to-string(content.body)
   } else if content == [ ] {
     " "
   }

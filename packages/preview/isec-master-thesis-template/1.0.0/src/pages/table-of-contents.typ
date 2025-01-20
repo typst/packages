@@ -22,8 +22,8 @@
 ]
 
 #let print-trimmed(cap) = [
-	#let num = 60
-	#let c = content-to-string(cap)
+	#let num = 55
+	#let c = cap //content-to-string(cap)
 	#if c.len() > num [
 		#let tr = c.slice(0, num).split(" ").slice(0, -1).join(" ")
 		#tr #text(size: 9pt, "(...)")
@@ -172,7 +172,7 @@
 	#show outline.entry.where(level: 1): it => [
 		#let loc  = it.element.location()
 		#let sec  = it.body.children.slice(0).at(2)
-		#let cap  = it.body.children.slice(0).at(4)
+		#let cap  = it.body.children.slice(0).slice(4)
 		#let page = it.page
 
 		// 1.1. Figure Caption . . . . . . . . . . . . . . . . . . . . . . . . . 12
@@ -189,7 +189,7 @@
 					// Spacing
 				],
 				box[
-					#print-trimmed(cap)
+					#print-trimmed(cap.map(content-to-string).join(""))
 				],
 				box[
 					// Spacing
