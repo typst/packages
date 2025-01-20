@@ -1,5 +1,5 @@
 [package]
-name = "whs-assignment"
+name = "modern-whs-assignment"
 version = "0.1.0"
 entrypoint = "template/lib.typ"
 authors = ["Alexander Konietzko <https://github.com/alex289>"]

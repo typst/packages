@@ -1,4 +1,4 @@
-# WHS Thesis Template
+# WHS Assignment Template
 
 ![Title page](thumbnail.png)
 
@@ -14,8 +14,8 @@ Thus, this template does not guarantee completeness or correctness.
 
 Create a new typst project based on this template locally.
 ```bash
-typst init @preview/whs-assignment
-cd whs-assignment
+typst init @preview/modern-whs-assignment
+cd modern-whs-assignment
 ```
 
 Or create a project on the typst web app based on this template.
