@@ -2,7 +2,7 @@
   title: "",
   degree: "",
   author: "",
-  submissionDate: datetime,
+  submission-date: datetime,
 ) = {
   let body-font = "New Computer Modern"
   let sans-font = "New Computer Modern Sans"

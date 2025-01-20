@@ -2,12 +2,12 @@
 #import "template/config/disclaimer.typ": *
 #import "template/config/acknowledgement.typ": acknowledgement as acknowledgement_config
 #import "template/config/abstract.typ": *
-#import "template/config/utils/print_page_break.typ": *
+#import "template/config/utils/print-page-break.typ": *
 #import "@preview/abbr:0.1.1"
 
 #let thesis(
   title: "",
-  titleGerman: "",
+  title-german: "",
   degree: "",
   program: "",
   supervisor: "",
@@ -16,9 +16,9 @@
   university: "",
   institute: "",
   company: none,
-  submissionDate: datetime,
-  abstract_en: "",
-  abstract_de: "",
+  submission-date: datetime,
+  abstract-en: "",
+  abstract-de: "",
   acknowledgement: none,
   place: none,
   is_print: false,
@@ -26,7 +26,7 @@
 ) = {
   titlepage(
     title: title,
-    titleGerman: titleGerman,
+    title-german: title-german,
     degree: degree,
     program: program,
     supervisor: supervisor,
@@ -35,11 +35,11 @@
     university: university,
     institute: institute,
     company: company,
-    submissionDate: submissionDate,
+    submission-date: submission-date,
     place: place
   )
 
-  print_page_break(print: is_print, to: "even")
+  print-page-break(print: is_print, to: "even")
 
   set page(
     margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 40mm),
@@ -50,17 +50,17 @@
     title: title,
     degree: degree,
     author: author,
-    submissionDate: submissionDate
+    submission-date: submission-date
   )
-  print_page_break(print: is_print)
+  print-page-break(print: is_print)
 
   if acknowledgement != none {
     acknowledgement_config(acknowledgement)
-    print_page_break(print: is_print)
+    print-page-break(print: is_print)
   }
 
-  abstract(lang: "en")[#abstract_en]
-  abstract(lang: "de")[#abstract_de]
+  abstract(lang: "en")[#abstract-en]
+  abstract(lang: "de")[#abstract-de]
   pagebreak()
 
   let body-font = "New Computer Modern"

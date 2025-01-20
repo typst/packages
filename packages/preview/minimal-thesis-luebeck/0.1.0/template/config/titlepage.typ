@@ -1,6 +1,6 @@
 #let titlepage(
   title: "",
-  titleGerman: "",
+  title-german: "",
   degree: "",
   program: "",
   supervisor: "",
@@ -9,7 +9,7 @@
   university: "",
   institute: "",
   company: none,
-  submissionDate: datetime,
+  submission-date: datetime,
   place: none
 ) = {  
   set page(
@@ -42,7 +42,7 @@
 
   align(center, text(2em, strong(title)))
   
-  align(center, text(2em, titleGerman))
+  align(center, text(2em, title-german))
   v(15mm)
 
   align(left, text(weight: "bold",
@@ -67,7 +67,7 @@
     grid(
       columns: (5cm, 3.5cm),
       gutter: 1fr,
-      place + ", den " + submissionDate.display("[day].[month].[year]"),
+      place + ", den " + submission-date.display("[day].[month].[year]"),
       image("../images/slogan.png")
     )
   )

@@ -1,15 +1,15 @@
 #import "@preview/minimal-thesis-luebeck:0.1.0": *
 #import "config/utils/todo.typ": TODO
 
-#let titleEnglish = "Towards Smart Inventions and their Novelty"
+#let title-english = "Towards Smart Inventions and their Novelty"
 #let author = "Findus"
 
-#set document(title: titleEnglish, author: author)
+#set document(title: title-english, author: author)
 
 #show: thesis.with(
-  title: titleEnglish,
+  title: title-english,
   author: author,
-  titleGerman: "Über schlaue Erfindungen und deren Neuartigkeit",
+  title-german: "Über schlaue Erfindungen und deren Neuartigkeit",
   degree: "Master",
   institute: "Institut für schlaue Erfindungen",
   program: "Tüfteln und Basteln",
@@ -17,10 +17,10 @@
   university: "Universität Småland",
   supervisor: "Pettersson",
   advisor: "Gustravsson",
-  submissionDate: datetime.today(), // or use: datetime(day: 1, month: 1, year: 2025)
+  submission-date: datetime.today(), // or use: datetime(day: 1, month: 1, year: 2025)
   place: "Lübeck",
-  abstract_en: include "texts/abstract_en.typ",
-  abstract_de: include "texts/abstract_de.typ"
+  abstract-en: include "texts/abstract-en.typ",
+  abstract-de: include "texts/abstract-de.typ"
 )
 
 #TODO[
