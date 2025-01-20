@@ -1,9 +1,9 @@
-#import "Style/doc.typ" : *
+#import "style/doc.typ" : *
 
 
-#import "Tools/formatting.typ" : *
-#import "Tools/shortcuts.typ" : *
+#import "tools/formatting.typ" : *
+#import "tools/shortcuts.typ" : *
 
-#import "Figure/drawing.typ" : *
-#import "Figure/plotting.typ" : *
+#import "figure/drawing.typ" : *
+#import "figure/plotting.typ" : *
 

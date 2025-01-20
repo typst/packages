@@ -40,5 +40,22 @@ This Typst package provides a comprehensive set of tools for structuring and sty
 
 **Functionalities:**
 
-  
-_soon_
+
+* Starting a new document
+```typst
+#import "@preview/ape:0.1.0": *
+
+#show: doc.with(
+  lang: "en",
+
+  title: "Title",
+  authors: ("Author1", "Author2"),
+  style: "numbered", // numbered, plain, colored
+
+  title-page: true,
+  outline: true,
+)
+```
+
+
+_will be completed later_ 

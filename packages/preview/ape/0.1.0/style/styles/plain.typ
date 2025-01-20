@@ -1,4 +1,4 @@
-#let plain(contenu) = {
+#let plain(content) = {
 	
 	
 
@@ -10,5 +10,5 @@
  	block(sticky: true, underline(it.body))
 	}
 
-	contenu
+	content
 }

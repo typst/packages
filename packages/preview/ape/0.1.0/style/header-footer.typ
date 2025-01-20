@@ -1,6 +1,4 @@
-
-
-#let header-footer(first-real-page, authors, contenu) = {
+#let header-footer(first-real-page, authors, content) = {
   set page(
     header: context {
       if (counter(page).get().at(0) > first-real-page and authors.len() > 0) {
@@ -29,5 +27,5 @@
     },
   )
 
-  contenu
+  content
 }

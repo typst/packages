@@ -1,4 +1,4 @@
-#let presentation(contenu) = {
+#let presentation(content) = {
 	
 	set text(fill: white, size: 18pt)
 
@@ -28,5 +28,5 @@ show heading: it => {
 }
 
 
-	contenu
+	content
 }

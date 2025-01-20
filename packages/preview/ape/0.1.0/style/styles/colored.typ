@@ -1,4 +1,4 @@
-#let colored(contenu) = {
+#let colored(content) = {
 	
 	
 
@@ -18,5 +18,5 @@
       ]
 	}
 
-	contenu
+	content
 }

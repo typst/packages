@@ -3,21 +3,21 @@
 #import "styles/plain.typ": *
 #import "styles/presentation.typ": *
 
-#let apply-style(style, contenu) = {
+#let apply-style(style, content) = {
   set heading(numbering: "I)1)a)i)")
 
 
 	if style == "numbered" {
-		return numbered(contenu)
+		return numbered(content)
 	}else if style == "colored" {
-		return colored(contenu)
+		return colored(content)
 	}else if style == "plain" {
-	return plain(contenu)
+	return plain(content)
 	}else if style == "presentation" {
-	return presentation(contenu)
+	return presentation(content)
 	
 	}else {
-		return numbered(contenu)
+		return numbered(content)
 	}
 
 }

@@ -1,4 +1,4 @@
-#let code-display(contenu) = {
+#let code-display(content) = {
 	 // Code
 
   show raw: it => context {
@@ -53,5 +53,5 @@
       }
     }
   }
-	contenu
+	content
 }

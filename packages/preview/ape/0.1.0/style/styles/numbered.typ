@@ -1,4 +1,4 @@
-#let numbered(contenu) = {
+#let numbered(content) = {
 	
 	
 	 set heading(numbering: "I)1)a)i)")
@@ -24,5 +24,5 @@
     } 
 	}
 
-	contenu
+	content
 }

@@ -2,7 +2,7 @@
 == Cetz drawing
 #import "@preview/cetz:0.3.1"
 
-#let cetzStyle = {
+#let cetz-style = {
   import cetz.draw: *
   set-style(
     stroke: 0.8pt,
@@ -12,13 +12,13 @@
 
 
 === Point
-#let Point(c) = {
+#let point(c) = {
   import cetz.draw: *
   circle(c, radius: 0.05, fill: black)
 }
 
 
-#let Point-name((x, y), nom: " ", dc: (-0.3, -0.3)) = {
+#let point-name((x, y), nom: " ", dc: (-0.3, -0.3)) = {
   import cetz.draw: *
   let (dx, dy) = dc
 
@@ -39,7 +39,7 @@
 
 
 === Base
-#let Base((x_0, y_0), name1: " ", name2: " ", angle: 0deg) = {
+#let base((x_0, y_0), name1: " ", name2: " ", angle: 0deg) = {
   import cetz.draw: *
 
 
@@ -52,7 +52,7 @@
 
 
 === Spring
-#let Spring(x0, y0, xf, yf, rep, amp) = {
+#let spring(x0, y0, xf, yf, rep, amp) = {
   import calc: *
   import cetz.draw: *
   let dist = amp

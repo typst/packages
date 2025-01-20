@@ -1,4 +1,4 @@
-#let getOutline() = {
+#let getOutline(lang) = {
   let first-real-page = 0
   let customOutline = {
     set text(size: 10pt, hyphenate: true)
@@ -8,7 +8,13 @@
 
       [
         #set text(size: 22pt)
-        Table des matières
+        #{
+          if lang == "fr" [
+            Table des matières
+          ]else[
+            Table of contents
+          ]
+        }
       ],
     )
 

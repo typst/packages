@@ -1,24 +1,24 @@
 == Paragraph
-#let para(nom, contenu) = context {
+#let para(nom, content) = context {
   grid(
     columns: 2,
     column-gutter: 3pt,
     align: left + top,
-    [_#nom _ : ], contenu + h(100%),
+    [_#nom _ : ], content + h(100%),
   )
 }
 
 
-#let rq(contenu) = {
-  para("Remarque", contenu)
+#let rq(content) = {
+  para("Remarque", content)
 }
 
-#let ex(contenu) = {
-  para("Exemple", contenu)
+#let ex(content) = {
+  para("Exemple", content)
 }
 
 == Inbox
-#let inbox(contenu) = {
+#let inbox(content) = {
   box(
     width: 100%,
     stroke: gray.darken(30%) + 0.6pt,
@@ -26,13 +26,13 @@
     inset: 15pt,
     radius: 5pt,
 
-    contenu,
+    content,
   )
 }
 
-#let inbox2(contenu) = context {
+#let inbox2(content) = context {
   import calc: *
-  let c = block(inset: (left: 10pt, right: 10pt), contenu)
+  let c = block(inset: (left: 10pt, right: 10pt), content)
 
 
   layout(size => {

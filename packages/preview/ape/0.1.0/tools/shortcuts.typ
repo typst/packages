@@ -1,10 +1,10 @@
 // Raccourcis
 
 
-#let shows-shortcuts(contenu) = {
+#let shows-shortcuts(content) = {
   show "SCH": align(
     center,
-    box(fill: gray.lighten(70%), inset: 2cm, stroke: 1pt, [#emoji.warning *METTRE SCHEMA ICI* #emoji.warning]),
+    box(fill: gray.lighten(70%), inset: 2cm, stroke: 1pt, text(size: 20pt)[#emoji.warning *Schema* #emoji.warning]),
   )
 
   show "ARL": place(
@@ -13,12 +13,11 @@
     circle(stroke: 1pt, radius: 1.5cm, fill: red.lighten(20%), outset: -0.5cm)[
       #set align(center + horizon)
       #set text(black, size: 12pt, font: "TeX Gyre Chorus")
-      t
      
       *Nécessite\ relecture*
     ],
   )
-  contenu
+  content
 }
 
 

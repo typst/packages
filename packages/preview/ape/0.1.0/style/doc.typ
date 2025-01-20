@@ -2,9 +2,9 @@
 #import "apply-style.typ": *
 #import "header-footer.typ": *
 #import "front-pages.typ": *
-#import "../Tools/shortcuts.typ": *
+#import "../tools/shortcuts.typ": *
 #import "code-display.typ": *
-#import "../Tools/formatting.typ": *
+#import "../tools/formatting.typ": *
 
 
 = Documents
@@ -25,11 +25,11 @@ Style :
   style: "",
   title-page: false,
   outline: false,
-  contenu,
+  content,
 ) = context {
   set text(lang: lang, font: "New Computer Modern")
 
-  let (first-real-page, customOutline) = getOutline()
+  let (first-real-page, customOutline) = getOutline(lang)
 
   show: header-footer.with(first-real-page, authors)
 
@@ -58,7 +58,7 @@ Style :
   }
 
 
-  // Contenu
+  // content
   set text(10pt)
   set par(justify: true)
 
@@ -66,8 +66,8 @@ Style :
 
   counter(heading).update(0)
 
-	// Preview quand le document est vide
-	if contenu == parbreak() {
+	// Preview when document is empty
+	if content == parbreak() {
 		[
 			= Titre
 			#lorem(20)
@@ -84,6 +84,6 @@ Style :
 			#para("Remarque")[#lorem(30)]
 		]
 	}
-  contenu
+  content
 }
 
