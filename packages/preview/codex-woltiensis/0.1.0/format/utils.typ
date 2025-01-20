@@ -8,32 +8,33 @@
 #let _index-list = state("index_list", ())
 #let _page = counter(page)
 
-#let value_odd_even(number, if_odd, if_even) = {
+#let value-odd-even(number, if_odd, if_even) = {
   if calc.odd(number) { return if_odd } else { return if_even }
 }
 
-#let get_page_number() = {
+#let get-page-number() = {
   return here().position().at("page")
 }
 
-#let get_footer_alignemnt() = {
-  let page_number = get_page_number()
-  return value_odd_even(page_number, right, left)
+#let get-footer-alignemnt() = {
+  let page_number = get-page-number()
+  return value-odd-even(page_number, right, left)
 }
 
-#let get_repeat(number) = {
+#let get-repeat(number) = {
   if (number == 2) {return "(bis)"}
   else if (number == 3) {return "(ter)"}
   else if (number == 4) {return "(quarter)"}
   else {return [(#number x)]}
 }
 
-#let get_line_size(number_of_line, font_size) = {
-  return number_of_line * font_size
+#let get-line-size(number-of-line, font-size) = {
+  return number-of-line * font-size
+
 }
 
 
-#let get_page_measure_margin() = {
+#let get-page-measure-margin() = {
   //dictionary
   return (
     width : 10.5cm - (constant.margin.inside + constant.margin.outside),
@@ -41,7 +42,7 @@
   )
 }
 
-#let get_grid_column(alignement) = {
+#let get-grid-column(alignement) = {
   if (alignment == right){
     return (auto, 0.4cm)
   } else {
@@ -50,7 +51,7 @@
 }
 
 
-#let get_rectangle_position(page_type, alignment) = {
+#let get_rectangle_position(page-type, alignment) = {
   let dx = 0cm
   let dy = - constant.margin.top
   
@@ -60,8 +61,8 @@
     dx = -constant.margin.outside
   }
 
-  if (constant.type.at(page_type) != 0){
-    dy += (constant.type.at(page_type) - 1)*(constant.rectangle.height)
+  if (constant.type.at(page-type) != 0){
+    dy += (constant.type.at(page-type) - 1)*(constant.rectangle.height)
   }
 
   return (dx : dx, dy : dy)

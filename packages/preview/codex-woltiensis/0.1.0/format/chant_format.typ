@@ -31,7 +31,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
     
     // refrain francais
     if (body-list-format.at(i) == "rf"){
-      body_chorus(
+      body-chorus(
         lang: "fr",
         spacing : body-chorus-spacing,
         spacing-ref : body-chorus-spacing-ref,
@@ -41,7 +41,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
       
     // refrain néerlandais
     else if (body-list-format.at(i) == "rn"){
-      body_chorus(
+      body-chorus(
         lang: "nl",
         spacing : body-chorus-spacing,
         spacing-ref : body-chorus-spacing-ref,
@@ -51,7 +51,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
       
     // dernier refain francais
     else if (body-list-format.at(i) == "rfl"){
-      body_chorus(
+      body-chorus(
         lang: "fr",
         last : true,
         spacing : body-chorus-spacing,
@@ -62,7 +62,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
       
     // dernier refain nl
     else if (body-list-format.at(i) == "rnl"){
-      body_chorus(
+      body-chorus(
         lang: "nl",
         last : true,
         spacing : body-chorus-spacing,
@@ -80,7 +80,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
     }
     // refain simple fr
     else if (body-list-format.at(i) == "rns"){
-      body_chorus_simple(
+      body-chorus-simple(
         lang: "nl",
         spacing : body-chorus-spacing,
         font-info : body-chorus-fontinfo
@@ -88,7 +88,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
     }
     // couplet
     else if (body-list-format.at(i) == "c") {
-      body_lyrics(
+      body-lyrics(
         spacing : body-lyrics-spacing,
         font-info : body-lyrics-fontinfo
       )[#body-list.at(i)]
@@ -102,7 +102,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
   
   if (header.tune != none){
     width1 = measure(
-      header_tune(
+      header-tune(
         author : header.author,
         spacing : general-header-style-info.at("Header-tune-spacing"),
         font-info : (
@@ -114,7 +114,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
   
   if (header.lyrics != none){
     width2 = measure(
-      header_lyrics(
+      header-lyrics(
         pseudonym : header.pseudo,
         spacing : general-header-style-info.at("Header-lyrics-spacing"),
         font-info : (
@@ -127,8 +127,8 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
   // si les deux détails de header
   if header.lyrics != none and header.tune != none {
     // si la largeur est plus petite que la page -> mets les un a coté de l'autres
-    if width1 + width2 < utils.get_page_measure_margin().width [
-      #header_tune(
+    if width1 + width2 < utils.get-page-measure-margin().width [
+      #header-tune(
         author : header.author,
         spacing : 0pt,
         font-info : (
@@ -136,7 +136,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
           fontsize :  general-header-style-info.at("Header-tune-fontsize")
         )
       )[
-        #header.tune #text(" "*3) #header_lyrics(
+        #header.tune #text(" "*3) #header-lyrics(
           pseudonym : header.pseudo,
           spacing : 0pt,
           font-info : (
@@ -146,7 +146,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
         )[#header.lyrics]
       ]
     ]else [
-      #header_tune(
+      #header-tune(
         author : header.author,
         spacing : general-header-style-info.at("Header-tune-spacing"),
         font-info : (
@@ -154,7 +154,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
           fontsize :  general-header-style-info.at("Header-tune-fontsize")
         )
       )[#header.tune]
-      #header_lyrics(
+      #header-lyrics(
         pseudonym : header.pseudo,
         spacing : general-header-style-info.at("Header-lyrics-spacing"),
         font-info : (
@@ -164,7 +164,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
       )[#header.pseudo]
     ]
   } else if (header.tune != none){
-    header_tune(
+    header-tune(
       author : header.author,
       spacing : general-header-style-info.at("Header-tune-spacing"),
       font-info : (
@@ -173,7 +173,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
       )
     )[#header.tune]
   } else if (header.lyrics != none){
-    header_lyrics(
+    header-lyrics(
       pseudonym : header.pseudo,
       spacing : general-header-style-info.at("Header-lyrics-spacing"),
       font-info : (
@@ -250,7 +250,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
   ]
 
   let _General-Title-Style-Info = general-chant-style-info.at("_General-Title-Style-Info")
-  song_title(
+  song-title(
     spacing : _General-Title-Style-Info.at("Title-spacing"),
     font-info : (
       fontname : _General-Title-Style-Info.at("Title-font"),
@@ -265,7 +265,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
   v(0.3cm, weak : true)// délimitation entre commentaire et 
   
   if (header.comments != none){
-    header_comment(
+    header-comment(
       spacing : general-header-style-info.at("Header-comment-spacing"),
       font-info : (
         fontname : general-header-style-info.at("Header-comment-font"),
@@ -316,8 +316,8 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
   let layout-info = constant.layout-info + layout-info
   //let general-chant-style-info = constant._General-Chant-Style-Info + general-chant-style-info
 
-  let page-alignment = utils.get_footer_alignemnt()
-  let page-num = utils.get_page_number()
+  let page-alignment = utils.get-footer-alignemnt()
+  let page-num = utils.get-page-number()
   
   // assert that length of both dictionnary are the same
   assert(                            
@@ -329,12 +329,12 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
       paper : "a6",
       margin : constant.margin,
       numbering: "1",
-      number-align: utils.get_footer_alignemnt(),
+      number-align: utils.get-footer-alignemnt(),
       footer-descent: -1mm,
       background: context {
-        let page = utils.get_page_number()
+        let page = utils.get-page-number()
         let posit = utils.get_rectangle_position(type, page)
-        place(utils.value_odd_even(page, right, left), constant.rectangle, dy: posit.dy)
+        place(utils.value-odd-even(page, right, left), constant.rectangle, dy: posit.dy)
       }
     ) if new-page
 

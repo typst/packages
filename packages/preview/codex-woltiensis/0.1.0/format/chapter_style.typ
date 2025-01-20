@@ -4,7 +4,7 @@
 
 
 // Nom du Livre
-#let title_book(
+#let title-book(
   body,
   color : black,
   font-info : (:)
@@ -17,7 +17,7 @@
   )[#body \ ]
 }
 
-#let subtitle_chapter(
+#let subtitle-chapter(
   body,
   subtitle-color : black,
   font-info : (:)

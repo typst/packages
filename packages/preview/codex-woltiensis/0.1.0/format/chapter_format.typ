@@ -20,7 +20,7 @@
       paper : "a6",
       margin : margin,
       numbering: if numbering {"1"} else {none},
-      number-align: utils.get_footer_alignemnt(),
+      number-align: utils.get-footer-alignemnt(),
       footer-descent: -1mm,
   ) if defaut-page
 
@@ -43,14 +43,14 @@
     fontsize : general-chapter-style-info.at("Book-title-fontsize")
   )
     
-  title_book(color : title-color,font-info : font-info)[#title]
+  title-book(color : title-color,font-info : font-info)[#title]
   
   if (subtitle != none) {
     let font-info = (
       fontname : general-chapter-style-info.at("Subtitle-font"),
       fontsize : general-chapter-style-info.at("Subtitle-fontsize")
     )
-    subtitle_chapter(subtitle-color : subtitle-color,font-info : font-info)[#subtitle]
+    subtitle-chapter(subtitle-color : subtitle-color,font-info : font-info)[#subtitle]
   }
 
   if img.image != none and img.position == bottom [
