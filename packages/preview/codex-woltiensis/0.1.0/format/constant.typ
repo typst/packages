@@ -60,7 +60,7 @@
 // Index
 
 
-#let a6_size = (width: 105mm, height : 148mm)
+#let a6-size = (width: 105mm, height : 148mm)
 
 #let type = (
   "reglement" : 0,
@@ -72,8 +72,8 @@
 
 #let margin = (top:0.5cm, inside : 1cm, outside : 0.5cm, bottom : 0.6cm)
 
-#let rectangle = rect(fill: black, width: 0.4cm, height: a6_size.height / type.len())
-#let rectangle-line = rect(fill: black, width: 0.4cm, height: a6_size.height)
+#let rectangle = rect(fill: black, width: 0.4cm, height: a6-size.height / type.len())
+#let rectangle-line = rect(fill: black, width: 0.4cm, height: a6-size.height)
 
 // Contenu des headers de chant 
 #let header-settings = (tune : none,author : none,lyrics : none,pseudo : none, comments : none) 

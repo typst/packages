@@ -72,7 +72,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
       
     // refain simple fr
     else if (body-list-format.at(i) == "rfs"){
-      body_chorus_simple(
+      body-chorus-simple(
         lang: "fr",
         spacing : body-chorus-spacing,
         font-info : body-chorus-fontinfo
@@ -333,7 +333,7 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
       footer-descent: -1mm,
       background: context {
         let page = utils.get-page-number()
-        let posit = utils.get_rectangle_position(type, page)
+        let posit = utils.get-rectangle-position(type, page)
         place(utils.value-odd-even(page, right, left), constant.rectangle, dy: posit.dy)
       }
     ) if new-page
@@ -353,9 +353,10 @@ Formatage des chants. Il s'agit d'un ensemble fonctions qui utilisent les styles
 
  
   
-  utils._index-list.update(index_list=> {
-      index_list.push((title : title, page : page-num))
-      index_list
+  utils._index-list.update(index-list=> {
+      index-list.push((title : title, page : page-num))
+      index-list
+
     }
   )
   counter(footnote).update(0) // reset le counter des notes en bas de pages

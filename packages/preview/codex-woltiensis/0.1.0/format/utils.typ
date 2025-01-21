@@ -1,15 +1,14 @@
 /*
   Défini des function utile pour le reste du projet
 */
-
 #import "constant.typ"
 
 //state pour les chants
-#let _index-list = state("index_list", ())
+#let _index-list = state("index-list", ())
 #let _page = counter(page)
 
-#let value-odd-even(number, if_odd, if_even) = {
-  if calc.odd(number) { return if_odd } else { return if_even }
+#let value-odd-even(number, if-odd, if-even) = {
+  if calc.odd(number) { return if-odd } else { return if-even }
 }
 
 #let get-page-number() = {
@@ -17,8 +16,8 @@
 }
 
 #let get-footer-alignemnt() = {
-  let page_number = get-page-number()
-  return value-odd-even(page_number, right, left)
+  let page-number = get-page-number()
+  return value-odd-even(page-number, right, left)
 }
 
 #let get-repeat(number) = {
@@ -51,7 +50,7 @@
 }
 
 
-#let get_rectangle_position(page-type, alignment) = {
+#let get-rectangle-position(page-type, alignment) = {
   let dx = 0cm
   let dy = - constant.margin.top
   
