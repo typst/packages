@@ -64,7 +64,7 @@
   ]
 }
 
-#let __coverletter_footer(author, language, date, lang_data) = {
+#let __coverletter_footer(author, language, date, lang-data) = {
   set text(
     fill: gray,
     size: 8pt,
@@ -79,7 +79,7 @@
         #author.firstname#sym.space#author.lastname
       ]
       #sym.dot.c
-      #linguify("cover-letter", from: lang_data)
+      #linguify("cover-letter", from: lang-data)
     ]
   ][
     #context {
@@ -88,7 +88,7 @@
   ]
 }
 
-#let __resume_footer(author, language, lang_data, date) = {
+#let __resume_footer(author, language, lang-data, date) = {
   set text(
     fill: gray,
     size: 8pt,
@@ -103,7 +103,7 @@
         #author.firstname#sym.space#author.lastname
       ]
       #sym.dot.c
-      #linguify("resume", from: lang_data)
+      #linguify("resume", from: lang-data)
     ]
   ][
     #context {
@@ -541,12 +541,12 @@
 
 /// ---- Coverletter ----
 
-#let default-closing(lang_data) = {
+#let default-closing(lang-data) = {
   align(bottom)[
     #text(weight: "light", style: "italic")[ #linguify(
         "attached",
-        from: lang_data,
-      )#sym.colon #linguify("curriculum-vitae", from: lang_data)]
+        from: lang-data,
+      )#sym.colon #linguify("curriculum-vitae", from: lang-data)]
   ]
 }
 
