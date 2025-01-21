@@ -39,4 +39,6 @@ _Hint_: You can take a look at `tutorial.typ` if you are new to Typst.
 ## Credits
 
 This template is inspired by this one: [thesis-template-typst
-](https://github.com/ls1intum/thesis-template-typst?tab=MIT-1-ov-file#readme) 
+](https://github.com/ls1intum/thesis-template-typst?tab=MIT-1-ov-file#readme)
+
+The example image of a cat was generated using OpenAI's DALL-E.
