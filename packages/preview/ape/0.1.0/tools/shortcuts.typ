@@ -43,7 +43,7 @@
 // Physique
 #let dt = $dif t$
 #let ar = math.arrow
-#let Nar(c) = math.norm(math.arrow(c))
+#let nar(c) = math.norm(math.arrow(c))
 #let dot2 = math.dot.double
 #let dot3 = math.dot.triple
 #let grad = ar("grad")

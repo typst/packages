@@ -1,4 +1,4 @@
-#let front-pages(title, title-page, authors, outline, customOutline) = {
+#let front-pages(title, title-page, authors, outline, custom-outline) = {
 	
 
 	let small-title3 = {
@@ -131,14 +131,14 @@
 
     pagebreak()
     if outline {
-      customOutline
+      custom-outline
       pagebreak()
     }
 
    small-title
   } else {
     if outline {
-      customOutline
+      custom-outline
       pagebreak()
     }
 

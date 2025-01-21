@@ -1,6 +1,6 @@
-#let getOutline(lang) = {
+#let get-outline(lang) = {
   let first-real-page = 0
-  let customOutline = {
+  let custom-outline = {
     set text(size: 10pt, hyphenate: true)
 
     align(
@@ -84,5 +84,5 @@
     )
   }
 
-  return (first-real-page, customOutline)
+  return (first-real-page, custom-outline)
 }
