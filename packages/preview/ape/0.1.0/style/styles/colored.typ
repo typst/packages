@@ -1,11 +1,9 @@
 #let colored(content) = {
-	
-	
-
   show heading: it => {
     if it.body.text == "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
       return none
     }
+    
    block(breakable: false)[
         #it.body
         #move(

@@ -17,6 +17,22 @@
   para("Exemple", content)
 }
 
+
+== List
+#let arrow-list(..item) = {
+  grid(columns: (auto, 1fr),
+  align: left,
+  column-gutter: 4pt,
+    row-gutter: 10pt,
+  ..for i in item.pos() {
+    ([$-->$], i)
+  }
+  )
+}
+
+
+
+
 == Inbox
 #let inbox(content) = {
   box(

@@ -1,6 +1,4 @@
 // Raccourcis
-
-
 #let shows-shortcuts(content) = {
   show "SCH": align(
     center,
@@ -24,8 +22,6 @@
 
 
 // Mathématiques
-
-
 #let recurrence(p: "Propriété", d: $n in NN$, ini: "", hd: "", cl: "") = {
   [
     Montrons par récurrence que la propriété $P(n) : $ "#p" est vraie pour tout #d

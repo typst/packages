@@ -1,4 +1,6 @@
-#import "@preview/ape:0.1.0": *
+//#import "@preview/ape:0.1.0": *
+#import "../lib.typ" : *
+
 
 #show: doc.with(
 	lang: "fr",
@@ -11,6 +13,12 @@
   outline: true,
 )
 
+
+#{
+  for _ in range(50){
+    [= Test]
+  }
+}
 
 
 

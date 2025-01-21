@@ -31,6 +31,10 @@ Style :
 
   let (first-real-page, custom-outline) = get-outline(lang)
 
+  [#measure(custom-outline).height ]
+
+
+
   show: header-footer.with(first-real-page, authors)
 
   show: apply-style.with(style)
