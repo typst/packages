@@ -35,8 +35,8 @@
   grid(
     columns: (4cm, 4cm),
     gutter: 1fr,
-    image("../images/top_left.png"),
-    image("../images/top_right.png")
+    image("../images/top-left.png"),
+    image("../images/top-right.png")
   )
   v(5mm)
 

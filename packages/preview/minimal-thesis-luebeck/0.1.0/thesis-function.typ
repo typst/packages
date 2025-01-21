@@ -1,6 +1,6 @@
 #import "template/config/titlepage.typ": *
 #import "template/config/disclaimer.typ": *
-#import "template/config/acknowledgement.typ": acknowledgement as acknowledgement_config
+#import "template/config/acknowledgement.typ": acknowledgement as acknowledgement-config
 #import "template/config/abstract.typ": *
 #import "template/config/utils/print-page-break.typ": *
 #import "@preview/abbr:0.1.1"
@@ -21,7 +21,7 @@
   abstract-de: "",
   acknowledgement: none,
   place: none,
-  is_print: false,
+  is-print: false,
   body,
 ) = {
   titlepage(
@@ -39,7 +39,7 @@
     place: place
   )
 
-  print-page-break(print: is_print, to: "even")
+  print-page-break(print: is-print, to: "even")
 
   set page(
     margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 40mm),
@@ -52,11 +52,11 @@
     author: author,
     submission-date: submission-date
   )
-  print-page-break(print: is_print)
+  print-page-break(print: is-print)
 
   if acknowledgement != none {
-    acknowledgement_config(acknowledgement)
-    print-page-break(print: is_print)
+    acknowledgement-config(acknowledgement)
+    print-page-break(print: is-print)
   }
 
   abstract(lang: "en")[#abstract-en]

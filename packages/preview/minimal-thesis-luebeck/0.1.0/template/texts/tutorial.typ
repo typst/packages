@@ -17,7 +17,7 @@ This is usually not recommended.
 Figures are referenced like this: @fig:findus shows a funny cat.
 
 #figure(
-  image("../images/top_right.png", width: 30%),
+  image("../images/top-right.png", width: 30%),
   caption: "This is the figure caption."
 ) <fig:findus>
 
@@ -87,9 +87,9 @@ Tables in Typst are written like this:
     [Row 3, Cell 1], [Row 3, Cell 2],
   ),
   caption: "This is the table caption."
-) <tab:example_table>
+) <tab:example-table>
 
-You can reference @tab:example_table as usual.
+You can reference @tab:example-table as usual.
 
 == Symbols
 There is a wide catalog of symbols available in Typst. For example, #sym.arrow.r gives an arrow.

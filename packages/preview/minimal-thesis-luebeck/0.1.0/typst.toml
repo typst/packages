@@ -1,7 +1,7 @@
 [package]
 name = "minimal-thesis-luebeck"
 version = "0.1.0"
-entrypoint = "thesis_function.typ"
+entrypoint = "thesis-function.typ"
 authors = ["Falko Hemstra"]
 license = "MIT"
 description = "A minimalistic template for writing a thesis."
