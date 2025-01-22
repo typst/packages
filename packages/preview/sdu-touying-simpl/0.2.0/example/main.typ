@@ -28,10 +28,7 @@
 ][
   *Second column.第二列*
 ][
-  #figure(
-    image("../img/sdu.png", width: 30%),
-    caption: [Rust logo],
-  )
+  #sdu-logo
 ]
 
 == 表格
