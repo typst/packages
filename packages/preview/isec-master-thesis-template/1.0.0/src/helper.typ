@@ -4,6 +4,7 @@
 // Fix for typst #311 "Behavior of first line indentation in paragraphs ..." 
 // https://github.com/typst/typst/issues/311#issuecomment-2023038611
 #let fix-311 = context {
+  set par.line(numbering: none)
   let a = par(box())
   a
   v(-0.8 * measure(2 * a).width)
