@@ -3,7 +3,7 @@
 #import "@preview/touying:0.5.5" : *
 
 // https://typst.app/universe/package/timeliney
-#import "@preview/timeliney:0.1.0"
+#import "@preview/timeliney:0.2.0"
 
 // https://typst.app/universe/package/codly
 #import "@preview/codly:1.1.1": *
