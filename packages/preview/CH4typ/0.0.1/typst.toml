@@ -4,4 +4,4 @@ version = "0.0.1"
 license = "MIT"
 entrypoint = "lib.typ"
 authors = ["β-吲哚基丙氨酸"]
-description = "an alternative for chem-par packet"
+description = "Typeset chemical formulas, both with inorganic and organic chemistry notation."
