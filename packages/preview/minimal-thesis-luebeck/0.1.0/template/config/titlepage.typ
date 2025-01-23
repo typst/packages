@@ -10,10 +10,7 @@
   institute: "",
   company: none,
   submission-date: datetime,
-  place: none,
-  top-left-img: none,
-  top-right-img: none,
-  slogan-img: none
+  place: none
 ) = {  
   set page(
     margin: (left: 20mm, right: 20mm, top: 20mm, bottom: 30mm),
@@ -38,8 +35,8 @@
   grid(
     columns: (4cm, 4cm),
     gutter: 1fr,
-    top-left-img,
-    top-right-img
+    image("../images/top-left.png"),
+    image("../images/top-right.png")
   )
   v(5mm)
 
@@ -71,7 +68,7 @@
       columns: (5cm, 3.5cm),
       gutter: 1fr,
       place + ", den " + submission-date.display("[day].[month].[year]"),
-      slogan-img
+      image("../images/slogan.png")
     )
   )
 }

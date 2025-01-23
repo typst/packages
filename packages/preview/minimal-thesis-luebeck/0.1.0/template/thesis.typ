@@ -20,22 +20,10 @@
   submission-date: datetime.today(), // or use: datetime(day: 1, month: 1, year: 2025)
   place: "Lübeck",
   abstract-en: include "texts/abstract-en.typ",
-  abstract-de: include "texts/abstract-de.typ",
-  acknowledgement: include "texts/acknowledgement.typ",
-  appendix: include "texts/appendix.typ",
-  acronyms: include "texts/acronyms.typ",
-  top-left-img: image("images/top-left.png"),
-  top-right-img: image("images/top-right.png"),
-  slogan-img: image("images/slogan.png"),
-  bib-path: "thesis.bib",
-  show-fig-list: false,
-  show-tab-list: false
+  abstract-de: include "texts/abstract-de.typ"
 )
 
 #TODO[
   Write your thesis here!
 ]
 #include "texts/tutorial.typ"
-
-#pagebreak()
-#bibliography("thesis.bib")
