@@ -1,4 +1,4 @@
-#import "@preview/minimal-thesis-luebeck:0.1.0": *
+#import "@preview/minimal-thesis-luebeck:0.2.0": *
 #import "config/utils/todo.typ": TODO
 
 #let title-english = "Towards Smart Inventions and their Novelty"
