@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/examify:0.1.0": *
 
 #show: examify.with(
   paper-size: "a4",

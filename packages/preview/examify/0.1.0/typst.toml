@@ -5,7 +5,6 @@ entrypoint = "lib.typ"
 authors = ["Tarun Kumar Jana <https://tarunjana.in>"]
 license = "MIT"
 description = "A simple typst template to create question papers for exams."
-homepage = "https://github.com/tarunjana/examify"
 repository = "https://github.com/tarunjana/examify"
 keywords = ["typst-template", "exam", "question-paper"]
 categories = ["report"]
