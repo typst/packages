@@ -17,11 +17,19 @@
   institute: "",
   company: none,
   submission-date: datetime,
+  place: none,
   abstract-en: "",
   abstract-de: "",
   acknowledgement: none,
-  place: none,
+  appendix: none,
+  acronyms: none,
+  top-left-img: image("template/images/top-left.png"),
+  top-right-img: image("template/images/top-right.png"),
+  slogan-img: image("template/images/slogan.png"),
+  bib-path: none,
   is-print: false,
+  show-fig-list: false,
+  show-tab-list: false,
   body,
 ) = {
   titlepage(
@@ -36,7 +44,10 @@
     institute: institute,
     company: company,
     submission-date: submission-date,
-    place: place
+    place: place,
+    top-left-img: top-left-img,
+    top-right-img: top-right-img,
+    slogan-img: slogan-img
   )
 
   print-page-break(print: is-print, to: "even")
@@ -122,7 +133,7 @@
   pagebreak()
 
   // List of acronyms
-  include "template/config/acronyms.typ"
+  acronyms
   abbr.list(title: "List of acronyms")
 
   pagebreak()
@@ -137,26 +148,27 @@
 
   body
 
-  pagebreak()
-  bibliography("template/thesis.bib")
+  if show-fig-list {
+    // List of figures.
+    pagebreak()
+    heading(numbering: none)[List of Figures]
+    outline(
+      title:"",
+      target: figure.where(kind: image),
+    )
+  }
 
-  // List of figures.
-  pagebreak()
-  heading(numbering: none)[List of Figures]
-  outline(
-    title:"",
-    target: figure.where(kind: image),
-  )
-
-  // List of tables.
-  pagebreak()
-  heading(numbering: none)[List of Tables]
-  outline(
-    title: "",
-    target: figure.where(kind: table)
-  )
+  if show-tab-list {
+    // List of tables.
+    pagebreak()
+    heading(numbering: none)[List of Tables]
+    outline(
+      title: "",
+      target: figure.where(kind: table)
+    )
+  }
 
   // Appendix.
   pagebreak()
-  include("template/texts/appendix.typ")
+  appendix
 }
