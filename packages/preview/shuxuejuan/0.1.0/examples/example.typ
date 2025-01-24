@@ -7,11 +7,11 @@
 
 #set document(title: "数学卷")
 
-#Title()
+#title()
 
 #si()
 
-#TitleSmall[第一章 基本功能展示]
+#title-small[第一章 基本功能展示]
 
 = 解答题（共$4$小题，$10$分）
 
@@ -34,7 +34,7 @@
 
 #v(6em)
 
-#withEnv(
+#with-env(
   qst-align-number: "One-Lined-Compact",
   [
     == （$4$分）求$sum_(k=1)^(+infinity)(2k+1)/(3^k)$。
@@ -62,13 +62,12 @@
 
 == #grid(
   columns: (1fr, 1fr),
-  align: (auto, center),
-  [这题选个对：#br([])，不对。#op(
+  align: (left, center),
+  [这题选个对：#br([])，不对。不对？对。#op(
     col:1,
     [对],
     [不对]
-  )
-  ],
+    )],
   [#table(
       columns: 6,
       [*哈哈*], [A], [B], [C], [D], [E],
@@ -81,7 +80,7 @@
 == 简单计算（本大题共$5$小题，每小题$5$分，共$25$分）
 
 #qg(
-  preprocessor: sxjQG_pcs_std,
+  preprocessor: sxj-qg-pcs-std,
   level: 3,
   col: 3,
   gutter: 3em,
@@ -105,7 +104,7 @@
 = 判断题（本大题共$8$小题，每小题$2$分，共$16$分）
 
 #qg(
-  preprocessor: sxjQG_pcs_tf,
+  preprocessor: sxj-qg-pcs-tf,
   [啊对的，对的],
   [啊不对，不对],
   [啊对，不对],
@@ -115,7 +114,7 @@
 == #br([])根据@test，这题是对的,然后我再凑点字数；
 
 #qg(
-  preprocessor: sxjQG_pcs_tf,
+  preprocessor: sxj-qg-pcs-tf,
   level: 2,
   col: 3,
   [这题是对的],
@@ -123,7 +122,7 @@
   [对对对的],
 )
 
-#TitleSmall[第二章 语法糖]
+#title-small[第二章 语法糖]
 
 #rn()
 
@@ -148,7 +147,7 @@
 
 #v(6em)
 
-#withEnv(qst-align-number: "One-Lined-Compact")[
+#with-env(qst-align-number: "One-Lined-Compact")[
   == （$4$分）求$sum_(k=1)^(+infinity)(2k+1)/(3^k)$。
 ]
 
@@ -188,7 +187,7 @@
 == 简单计算（本大题共$5$小题，每小题$5$分，共$25$分）
 
 #qg(
-  preprocessor: sxjQG_pcs_std,
+  preprocessor: sxj-qg-pcs-std,
   level: 3,
   col: 3,
   gutter: 3em,
@@ -217,12 +216,12 @@
 
 = 判断题（本大题共$8$小题，每小题$2$分，共$16$分）
 
-#qg(preprocessor: sxjQG_pcs_tf)[啊对的，对的][啊不对，不对][啊对，不对][对的，对的]
+#qg(preprocessor: sxj-qg-pcs-tf)[啊对的，对的][啊不对，不对][啊对，不对][对的，对的]
 
 == #br[]根据@test_，这题是对的,然后我再凑点字数；
 
 #qg(
-  preprocessor: sxjQG_pcs_tf,
+  preprocessor: sxj-qg-pcs-tf,
   level: 2,
   col: 3,
 )[这题是对的][啊不对][对对对的]

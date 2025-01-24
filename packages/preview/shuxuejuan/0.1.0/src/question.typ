@@ -4,12 +4,14 @@
 
 #let question = heading
 
-#let sxjResetQuestionNum() = {
+/// Reset all counters of question.
+/// -> none
+#let sxj-question-reset-num() = {
   counter(question).update(0)
-  counterQuestionL2.update(1)
+  counter-question-l2.update(1)
 }
 
-#let question_getNumber(
+#let _get-question-numbering(
   qst-style: ("一、", "1.", "(1)"),
   level2-index: none,
   numbers: none,
@@ -49,13 +51,13 @@
   return result
 }
 
-#let getDistanceTxtEqu() = {
+#let _get-dist-txt-equ() = {
   let a = query(selector(math.equation).after(here()))
   if a.len() == 0 { return 0em }
   return (measure(a.first()).height - measure[test].height) * 0.45
 }
 
-#let idQuestionUpdater(level, ..idCurrent) = {
+#let id-question-updater(level, ..idCurrent) = {
   let idNew = idCurrent.pos()
   idNew.pop()
   while idNew.len() - 1 < level {
@@ -67,26 +69,26 @@
   return idNew
 }
 
-#let sxjQuestion(level, body, qst-number-level2: none) = {
-  idQuestion.update((..args) => idQuestionUpdater(level, ..args))
+#let sxj-question(level, body, qst-number-level2: none) = {
+  id-question.update((..args) => id-question-updater(level, ..args))
 
   let numL2 = none
   if qst-number-level2 == auto {
     if level == 2 {
-      counterQuestionL2.step()
+      counter-question-l2.step()
     }
-    numL2 = counterQuestionL2.get().first()
+    numL2 = counter-question-l2.get().first()
   }
-  let aryNum = question_getNumber(
+  let aryNum = _get-question-numbering(
     level2-index: numL2,
     numbers: counter(question).get(),
   )
 
-  let questionStyle = envGet("qst-align-number")
+  let questionStyle = env-get("qst-align-number")
   let num = [#aryNum.last()]
-  let body = [#body#metadata(idQuestion.get())<lblQuestion>]
+  let body = [#body#metadata(id-question.get())<lblQuestion>]
 
-  set text(size: fontSize.small, weight: "medium")
+  set text(size: font-size.small, weight: "medium")
   set grid(gutter: 0em)
   if questionStyle == "One-Lined-Compact" {
     set grid(columns: 1fr)
@@ -105,7 +107,7 @@
   } else {
     let contentPosOffset = 0em
     if questionStyle == auto {
-      contentPosOffset = getDistanceTxtEqu()
+      contentPosOffset = _get-dist-txt-equ()
     }
     set grid(columns: (auto, 1fr))
     if level == 1 {

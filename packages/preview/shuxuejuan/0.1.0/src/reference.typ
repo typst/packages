@@ -1,25 +1,24 @@
 #import "env.typ": *
 #import "question.typ": *
 
-#let reference_fromQuestion(it, qst-number-level2: none) = {
-  let idRef = idQuestion.at(it.target)
-  let idCrt = idQuestion.at(here())
+#let sxj-ref-question(it, qst-number-level2: none) = {
+  let idRef = id-question.at(it.target)
+  let idCrt = id-question.at(here())
   idRef = idRef.slice(1, idRef.last() + 1)
   idCrt = idCrt.slice(1, idCrt.last() + 1)
   let idShow = counter(question).at(it.target)
   let level2-index = none
   if qst-number-level2 == auto {
-    level2-index = counterQuestionL2.at(it.target).first()
+    level2-index = counter-question-l2.at(it.target).first()
     if idShow.len() > 2 + 0 {
-      // could cause bug, need tested
-      // don't know why but it works
+      // Note: don't know why but it manages
       // to get the correct level2-index
       level2-index -= 1
     }
   }
 
-  let refStyle = envGet("ref-style")
-  let numArray = question_getNumber(
+  let refStyle = env-get("ref-style")
+  let numArray = _get-question-numbering(
     level2-index: level2-index,
     numbers: idShow,
   )

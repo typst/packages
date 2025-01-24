@@ -5,15 +5,15 @@
 #import "reference.typ": *
 #import "answer.typ"
 
-#let Title = sxjTitle
-#let TitleSmall = sxjTitleSmall
-#let si = sxjStudentInfo
-#let un = sxjUnit
-#let rn = sxjResetQuestionNum
-#let op = sxjOptions
-#let qg = sxjQuestionGroup
-#let bl = sxjBlank
-#let br = sxjBracket
+#let title = sxj-title
+#let title-small = sxj-title-small
+#let si = sxj-student-info
+#let un = sxj-unit
+#let rn = sxj-question-reset-num
+#let op = sxj-options
+#let qg = sxj-question-group
+#let bl = sxj-blank
+#let br = sxj-bracket
 
 #let shuxuejuan(font: (), font-bold: (), leading: .68em, qst-number-level2: none, body) = {
   set text(font: font)
@@ -23,7 +23,7 @@
   set par(leading: leading)
   set page(
     paper: "iso-b5",
-    footer: context sxjFooter(counter(page).get().first(), counter(page).final().first()),
+    footer: context sxj-footer(counter(page).get().first(), counter(page).final().first()),
   )
 
   show "。": "．"
@@ -31,16 +31,16 @@
     // Can't bold SimSun, use LXGW WenKai for substitution
     font: font-bold,
   )
-  show math.equation: sxjEqu
+  show math.equation: sxj-equ
 
-  show heading: it => sxjQuestion(it.level, it.body, qst-number-level2: qst-number-level2)
+  show heading: it => sxj-question(it.level, it.body, qst-number-level2: qst-number-level2)
   show ref: it => {
     if it.element.func() == heading {
-      reference_fromQuestion(it, qst-number-level2: qst-number-level2)
+      sxj-ref-question(it, qst-number-level2: qst-number-level2)
     }
   }
 
-  sxjResetQuestionNum()
+  sxj-question-reset-num()
 
   body
 }

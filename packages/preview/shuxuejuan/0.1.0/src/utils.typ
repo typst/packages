@@ -4,9 +4,9 @@
 #let lnbk = linebreak
 #let pgbk = pagebreak
 
-#let fontSize = (small: 10.5pt, medium: 12pt, large: 14pt)
+#let font-size = (small: 10.5pt, medium: 12pt, large: 14pt)
 
-#let getPageAvailableWidth() = {
+#let _get-page-width-available() = {
   if page.margin == auto {
     return page.width - 2 * calc.min(page.width, page.height) * 2.5 / 21
   } else if type(page.margin) == dictionary {
@@ -15,20 +15,28 @@
   return page.width - 2 * (page.margin.length + page.margin.ratio * page.width)
 }
 
-#let sxjTitle(body: none) = {
+/// Print a BIG TITLE at the start of a page.
+/// - body (auto, string, content):
+///   the title you want to print,
+///   when set to auto (by default), `document.title` would be used.
+/// -> content
+#let sxj-title(body: auto) = {
   pgbk()
   set align(center)
-  set text(size: fontSize.large, weight: "extrabold")
-  if body == none {
+  set text(size: font-size.large, weight: "extrabold")
+  if body == auto {
     context document.title
   } else {
     body
   }
 }
 
-#let sxjTitleSmall(body) = {
+/// Print a small title at the center of a line.
+/// - body (content): The small title you want to print.
+/// -> content
+#let sxj-title-small(body) = {
   set align(center)
-  set text(size: fontSize.medium, weight: "extrabold")
+  set text(size: font-size.medium, weight: "extrabold")
   if body == none {
     context document.title
   } else {
@@ -36,35 +44,50 @@
   }
 }
 
-#let sxjStudentInfo(line-length: 6, col-gutter: .5em, ..contents) = {
+/// A form of info for students to fill.
+/// - line-length (int): Length of each line.
+/// - gutter (length): Column gutter between two categories.
+/// - contents (arguments): The info required.
+/// -> content
+#let sxj-student-info(line-length: 6, gutter: .5em, ..contents) = {
   let _ctts = contents.pos()
   if _ctts.len() == 0 { _ctts = ([班级], [姓名], [学号]) }
   let _index = 0
   set align(center)
   while _index < _ctts.len() {
-    [#_ctts.at(_index)] + [：] + sxjBlank(line-length)
-    if _index != _ctts.len() - 1 { h(col-gutter) }
+    [#_ctts.at(_index)] + [：] + sxj-blank(line-length)
+    if _index != _ctts.len() - 1 { h(gutter) }
     _index += 1
   }
 }
 
-#let sxjPar(indent: 2em, body) = {
+#let sxj-par(indent: 2em, body) = {
   h(indent)
   body
 }
 
-#let sxjEqu(it) = {
-  let spacing = envGet("equ-spacing")
+#let sxj-equ(it) = {
+  let spacing = env-get("equ-spacing")
   h(spacing)
   math.display(it)
   h(spacing)
 }
 
-#let sxjUnit(unit) = {
+/// Print unit in the right variants.
+/// - unit (content): Unit you want to print like `km/h` etc.
+/// -> content
+#let sxj-unit(unit) = {
   math.equation(math.upright(unit))
 }
 
-#let sxjOptions(col: (4, 2), ..opt) = context {
+/// Print well-aligned options numbering `A.`, `B.`, `C.`...
+/// - col (array):
+///   An array of preferred column(int).
+///   Try automatically from the first to last
+///   until all options have enough space to present.
+/// - opt (arguments): Options you give.
+/// -> content
+#let sxj-options(col: (4, 2), ..opt) = context {
   let _opts = opt.pos()
   // Initializing _contents
   let _contents = ()
@@ -85,8 +108,8 @@
     .map(it => measure(it).width.pt())
     .reduce((accumulated, new) => calc.max(accumulated, new))
   let colMax = calc.min(
-    calc.max(calc.floor(getPageAvailableWidth().pt() / widthContentsMax), 1),
-    envGet("opt-columns-max"),
+    calc.max(calc.floor(_get-page-width-available().pt() / widthContentsMax), 1),
+    env-get("opt-columns-max"),
   )
   if type(col) == array {
     numCol = col.find(x => (x <= colMax))
@@ -106,10 +129,10 @@
   grid(columns: columns, column-gutter: 0pt, rows: auto, row-gutter: 1em, .._contents)
 }
 
-#let sxjFooter(numPageCurrent, numPageTotal) = {
-  set text(size: fontSize.small)
+#let sxj-footer(num-page-current, num-page-total) = {
+  set text(size: font-size.small)
   set align(center)
-  [共 ] + str(numPageCurrent) + [ 页]
+  [共 ] + str(num-page-current) + [ 页]
   h(.5em)
-  [共 ] + str(numPageTotal) + [ 页]
+  [共 ] + str(num-page-total) + [ 页]
 }

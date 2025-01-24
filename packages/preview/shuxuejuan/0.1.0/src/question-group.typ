@@ -2,7 +2,7 @@
 #import "utils.typ": *
 #import "question.typ": *
 
-#let sxjQG_getLevel(envs: (:)) = {
+#let sxj-qg-get-level(envs: (:)) = {
   let level = envs.level
   if level == auto {
     let questionBeforeHere = query(selector(question).before(here()))
@@ -13,7 +13,7 @@
   return level
 }
 
-#let sxjQG_getRow(envs: (:), contents) = {
+#let sxj-qg-get-rows(envs: (:), contents) = {
   let qtNum = int(contents.pos().len() / 2)
   let col = envs.col
   let rowNum = calc.ceil(qtNum / col)
@@ -27,7 +27,7 @@
   return rows
 }
 
-#let sxjQG_insertAnswerEmpty(envs: (:), contents) = {
+#let sxj-qg-ins-answer-empty(envs: (:), contents) = {
   let a = contents.pos()
   let b = ()
   for i in a {
@@ -37,17 +37,17 @@
   return arguments(..b)
 }
 
-#let sxjQG_addBracketEmpty(envs: (:), contents) = {
+#let sxj-qg-add-bracket-empty(envs: (:), contents) = {
   let r = contents.pos()
   let i = 0
   while i < r.len() {
-    r.at(i) = [#sxjBracket[]#r.at(i)]
+    r.at(i) = [#sxj-bracket[]#r.at(i)]
     i += 2
   }
   return arguments(..r)
 }
 
-#let sxjQG_addSuffixPunc(envs: (:), contents) = {
+#let sxj-qg-add-punc(envs: (:), contents) = {
   /// Tag: Codes for auto punc
   // let numQst = query(selector(<lblQuestion>).after(here())).map(x => x.value.last())
   // numQst.remove(0)
@@ -67,17 +67,17 @@
   return arguments(..r)
 }
 
-#let sxjQG_toQuestion(envs: (:), contents) = {
+#let sxj-qg-to-question(envs: (:), contents) = {
   let r = contents.pos()
   let i = 0
   while i < r.len() {
-    r.at(i) = question(level: sxjQG_getLevel(envs: envs), r.at(i))
+    r.at(i) = question(level: sxj-qg-get-level(envs: envs), r.at(i))
     i += 2
   }
   return arguments(..r)
 }
 
-#let sxjQG_rearrange(envs: (:), contents) = {
+#let sxj-qg-rearrange(envs: (:), contents) = {
   let ctt = contents.pos()
   // Getting questions into q and answers into a
   let q = ()
@@ -108,24 +108,33 @@
   return arguments(..r)
 }
 
-#let sxjQG_pcs_basic = (sxjQG_toQuestion, sxjQG_rearrange)
-#let sxjQG_pcs_std = (sxjQG_insertAnswerEmpty, sxjQG_addSuffixPunc) + sxjQG_pcs_basic
-#let sxjQG_pcs_tf = (sxjQG_insertAnswerEmpty, sxjQG_addSuffixPunc, sxjQG_addBracketEmpty) + sxjQG_pcs_basic
+#let sxj-qg-pcs-basic = (sxj-qg-to-question, sxj-qg-rearrange)
+#let sxj-qg-pcs-std = (sxj-qg-ins-answer-empty, sxj-qg-add-punc) + sxj-qg-pcs-basic
+#let sxj-qg-pcs-tf = (sxj-qg-ins-answer-empty, sxj-qg-add-punc, sxj-qg-add-bracket-empty) + sxj-qg-pcs-basic
 
-/// Core func:
 /// Grab questions into one group;
-/// Use sxjQG_*() to preprocess the contents you want to make into questions.
-/// - col (int):
+/// - col (int): The number of columns you want for this group of question
+/// - level (int, auto):
+///   The level for each question,
+///   when set to auto, it would be the next level of current question level.
 /// - gutter (length):
-/// - preprocessor (array): A array of funcs to process contents
-/// - contents (arguments):
+///   The gutter between two rows of questions,
+///   or the height for each question's answer.
+/// - preprocessor (array):
+///   A array of funcs to process contents,
+///   each func's args and return should be (envs, contents)=>arguments,
+///   where envs is a named parameter, a dictionary of necessary parameters given to sxj-question-group like level, col etc.
+///   and contents would be arguments of contents.
+///   Pre-defined funcs would be named like `sxj-qg-*()`,
+///   pre-defined preprocessor would be named like `sxj-qg-pcs-*`.
+/// - contents (arguments): arguments of questions' contents
 /// -> content
-#let sxjQuestionGroup(
+#let sxj-question-group(
   qst-align-number: "One-Lined-Compact",
   level: auto,
   col: 2,
   gutter: 1em,
-  preprocessor: sxjQG_pcs_std,
+  preprocessor: sxj-qg-pcs-std,
   ..contents,
 ) = {
   v(.5em)
@@ -135,12 +144,12 @@
     while pcs.len() != 0 {
       cnts = pcs.remove(0)(envs: (level: level, col: col, gutter: gutter), cnts)
     }
-    withEnv(qst-align-number: qst-align-number)[
+    with-env(qst-align-number: qst-align-number)[
       #grid(
         column-gutter: 0em,
         row-gutter: 0em,
         columns: col,
-        rows: sxjQG_getRow(envs: (level: level, col: col, gutter: gutter), cnts),
+        rows: sxj-qg-get-rows(envs: (level: level, col: col, gutter: gutter), cnts),
         align: (x, y) => {
           if calc.even(y) { return left + horizon }
           return auto

@@ -5,7 +5,8 @@ ShuXueJuan (数学卷 in Chinese, meaning math exam) is a simple math exam Typst
 ## Setup
 
 ```Typst
-#import "../lib.typ": *
+// 导入包，发布后应为`#import "@preview/shuxuejuan:0.1.0": *`
+#import "@local/shuxuejuan:0.1.0": *
 #show: shuxuejuan.with(
   font: ("SimSun",),                // 正文字体
   font-bold: ("LXGW WenKai Mono",), // 用于粗体的字体
@@ -18,11 +19,11 @@ ShuXueJuan (数学卷 in Chinese, meaning math exam) is a simple math exam Typst
 ```Typst
 // 大标题
 #set document(title: "第一、二章复习卷")
-#Title()
-#TitleSmall[第一章复习题]
-
+#title()
 // 个人信息
 #si[班级][姓名][学号]
+// 小标题
+#title-small[第一章复习题]
 
 // 标题即问题
 = 解答题
@@ -53,14 +54,14 @@ ShuXueJuan (数学卷 in Chinese, meaning math exam) is a simple math exam Typst
 )
 = 判断题
 #qg(
-  preprocessor: sxjQG_pcs_tf,
+  preprocessor: sxj-qg-pcs-tf,
   [啊对的，对的],
   [啊不对，不对],
   [啊对，不对],
   [对的，对的],
 )
 #qg(
-  preprocessor: sxjQG_pcs_tf,
+  preprocessor: sxj-qg-pcs-tf,
   level: 2,
   col: 3,
   [这题是对的],
@@ -73,3 +74,5 @@ ShuXueJuan (数学卷 in Chinese, meaning math exam) is a simple math exam Typst
 ```
 
 See [example.typ](./examples/example.typ) for a more concrete example.
+
+In case you want to know, some key functions are documented in the source code.
