@@ -2,6 +2,7 @@
 #import "utils/todo.typ": TODO
 #import "utils/print-page-break.typ": print-page-break
 #import "texts/metadata.typ": *
+#import "utils/bib_state.typ": *
 
 #set document(title: title-english, author: author)
 
@@ -40,6 +41,8 @@
 #set cite(style: "alphanumeric")
 // Figures
 #show figure: set text(size: 0.85em)
+// Bibliography
+#bib_state.update(none)
 // #############################################
 // ############## End of Settings ##############
 // #############################################

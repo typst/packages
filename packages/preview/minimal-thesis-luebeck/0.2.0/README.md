@@ -31,10 +31,12 @@ Note that by default this template is configured to write thesis using english l
 _Hint_: You can take a look at `tutorial.typ` if you are new to Typst.
 
 ## Template Contents
-- **config**: Contains the styles of the template's parts _except_ the main `thesis`-function that ties it all together. If you want to make small adjustments to parts of the template, this might suffice. If you want to change everything, you can download the entire template and change things as you like.
-- **images**: Contains all images. You should replace the example images with your own. Also, you might need to adjust some sizes afterwards (`config/titlepage.typ`).
-- **texts**: Contains texts that are separate from your main thesis such as the abstract. If you like, you can also put chapters of your thesis here. Personally however, I like having everything in one place.
+- **main.typ**: The central document that finally produces your PDF document. It contains all the configuration for front and back matter. It also includes `thesis.typ`.
+- **thesis.typ**: The main text. Initially, this includes `tutorial.typ` to give some examples. Just remove the tutorial when you start working.
 - **thesis.bib**: The bibliography. Put your references here.
+- **texts**: Contains texts that are separate from your main thesis such as the abstract. If you like, you can also put chapters of your thesis here. Personally however, I like having everything in one place.
+- **images**: Contains all images. You should replace the example images with your own. Also, you might need to adjust some sizes afterwards (`config/titlepage.typ`).
+- **utils**: Contains some useful code snippets. You don't really need to look at them.
 
 ## Credits
 
