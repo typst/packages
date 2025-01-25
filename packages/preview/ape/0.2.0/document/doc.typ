@@ -28,13 +28,13 @@ Style :
 ) = context {
   set text(lang: lang, font: "New Computer Modern")
 
+   show: apply-style.with(style)
+
   let (first-real-page, custom-outline) = get-outline(lang)
 
-  show: header-footer.with(first-real-page, authors)
+   show: header-footer.with(style, first-real-page, authors)
 
-  show: apply-style.with(style)
-
-  front-pages(title, title-page, authors, outline, custom-outline)
+  front-pages(style, title, title-page, authors, outline, custom-outline)
 
   show: shows-shortcuts
   show: code-display
@@ -58,7 +58,6 @@ Style :
 
 
   // content
-  set text(10pt)
   set par(justify: true)
 
   [= audhzifoduiygzbcjlxmwmwpadpozieuhgb]

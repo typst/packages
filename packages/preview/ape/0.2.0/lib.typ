@@ -1,4 +1,4 @@
-#import "style/doc.typ" : *
+#import "document/doc.typ" : *
 
 
 #import "tools/formatting.typ" : *
@@ -6,4 +6,3 @@
 
 #import "figure/drawing.typ" : *
 #import "figure/plotting.typ" : *
-

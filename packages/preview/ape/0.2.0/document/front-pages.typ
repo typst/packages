@@ -1,4 +1,4 @@
-#let front-pages(title, title-page, authors, outline, custom-outline) = {
+#let front-pages(style, title, title-page, authors, outline, custom-outline) = {
   let small-title3 = {
     line(length: 100%)
     text(
@@ -79,7 +79,9 @@
   }
 
   let small-title = {
-    if type(title) == "array" {
+    if style == "presentation" {
+      
+    }else if type(title) == "array" {
       if title-page or outline {
         small-title3
       } else {
@@ -88,6 +90,7 @@
     } else {
       small-title1
     }
+    
   }
 
 
@@ -96,32 +99,31 @@
       center + horizon,
       [
         #text(
-          size: 60pt,
           hyphenate: false,
           {
             if type(title) == "string" {
-              [*#title*]
+              text(size:7em, [*#title*])
             } else {
               [
-                *#title.at(1)*
-                #v(-30pt)
-                #text(size: 25pt, title.at(0))
+                #text(size: 6em, strong(title.at(1)))
+                #v(-4em)
+                #text(size: 3em, title.at(0))
               ]
             }
           },
         )
 
-        #set text(size: 12pt)
+       
         #v(1cm)
         #{
           if authors.len() > 0 {
             [
-              #authors.at(0)
+              #text(size: 1.45em, authors.at(0))
             ]
           }
           if authors.len() > 1 {
             [
-              #authors.slice(1).join(" - ")
+              #text(size: 1.45em, authors.slice(1).join(" - "))
             ]
           }
         }

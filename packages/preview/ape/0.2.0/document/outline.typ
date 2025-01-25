@@ -1,19 +1,23 @@
+#import "../tools/miscellaneous.typ" : content-to-string
 #let get-outline(lang) = {
   let first-real-page = 0
   let custom-outline = {
-    set text(size: 10pt, hyphenate: true)
+    set text(hyphenate: true)
 
     align(
       center,
-
       [
-        #set text(size: 22pt)
+       
         #{
-          if lang == "fr" [
-            Table des matières
-          ]else[
-            Table of contents
-          ]
+          if lang == "fr" {
+            text(size: 2.5em)[
+             Table des matières
+            ]
+          }else{
+            text(size: 2.5em)[
+             Table of content
+            ]
+          }
         }
       ],
     )
@@ -23,7 +27,6 @@
 
     set par(justify: true, spacing: 5pt)
 
-    v(1cm)
 
     grid(
       columns: (auto, 20fr, 1fr),
@@ -36,7 +39,7 @@
           first-real-page = e.location().page()
         }
 
-        if e.body.text != "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
+        if content-to-string(e) != "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
           let dotFill(c, correctif) = context {
             layout(size => {
               let w = size.width + correctif
@@ -68,10 +71,10 @@
               link(
                 e.location(),
                 grid(
-                  columns: ((e.depth - 1) * 20pt, 100% - ((e.depth - 1) * 20pt)),
+                  columns: ((e.depth - 1) * 2em, 100% - ((e.depth - 1) * 2em)),
                   align: (right, left),
                   column-gutter: 10pt,
-                  [#numbering(style, depthsMap.at(e.depth - 1))], [#dotFill(e.body, -10pt)],
+                  [#numbering(style, depthsMap.at(e.depth - 1))], box(clip: true)[#dotFill(e.body, -10pt)],
                 ),
               ),
               [#link(e.location(), str(e.location().page()))],

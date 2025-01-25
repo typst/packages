@@ -1,6 +1,7 @@
 [package]
 name = "ape"
-version = "0.1.0"
+version = "0.2.0"
+compiler = "0.12.0"
 entrypoint = "lib.typ"
 authors = ["Izan"]
 license = "MIT"
@@ -12,5 +13,3 @@ categories = ["layout", "utility","report"]
 path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
-
-

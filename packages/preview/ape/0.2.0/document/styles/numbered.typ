@@ -1,8 +1,11 @@
+#import "../../tools/miscellaneous.typ": content-to-string
 #let numbered(content) = {
+  set text(10pt)
+
   set heading(numbering: "I)1)a)i)")
 
   show heading: it => {
-    if it.body.text == "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
+    if content-to-string(it) == "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
       return none
     }
     set par(spacing: 15pt)

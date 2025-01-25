@@ -15,10 +15,13 @@
       *Nécessite\ relecture*
     ]
   )
+  
   content
 }
 
+// ...
 
+#let tab = [\ #h(32pt) #sym.triangle.filled.r]
 
 
 // Mathématiques

@@ -1,6 +1,10 @@
+#import "../../tools/miscellaneous.typ" : content-to-string
 #let colored(content) = {
+  set text(12pt)
+
+
   show heading: it => {
-    if it.body.text == "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
+    if content-to-string(it) == "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
       return none
     }
 

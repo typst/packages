@@ -8,7 +8,6 @@
   )
 }
 
-
 #let rq(content) = {
   para("Remarque", content)
 }
@@ -30,8 +29,6 @@
     }
   )
 }
-
-
 
 
 // Inbox

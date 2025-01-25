@@ -50,12 +50,19 @@ This Typst package provides a comprehensive set of tools for structuring and sty
 
   title: "Title",
   authors: ("Author1", "Author2"),
-  style: "numbered", // numbered, plain, colored
+  style: "numbered",
 
   title-page: true,
   outline: true,
 )
 ```
+
+* Available style
+  - Numbered
+  - Plain
+  - Colored
+
+
 
 
 _will be completed later_ 
