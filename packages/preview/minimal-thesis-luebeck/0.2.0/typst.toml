@@ -1,11 +1,12 @@
 [package]
 name = "minimal-thesis-luebeck"
-version = "0.2.0"
-entrypoint = "thesis-function.typ"
+version = "0.1.0"
+entrypoint = "entrypoint.typ"
 authors = ["Falko Hemstra"]
 license = "MIT"
 description = "A minimalistic template for writing a thesis."
 categories = ["thesis"]
+repository = "https://github.com/fhemstra/minimal-thesis-luebeck"
 
 [template]
 path = "template"

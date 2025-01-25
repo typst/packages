@@ -1,4 +1,4 @@
-#import "../config/utils/todo.typ": TODO
+#import "../utils/todo.typ": TODO
 #import "@preview/abbr:0.1.1"
 
 = Example Section <sec:tutorial>
