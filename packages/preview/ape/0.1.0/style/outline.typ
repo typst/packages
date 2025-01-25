@@ -22,11 +22,12 @@
     let depthsMap = (1,) * 20
 
     set par(justify: true, spacing: 5pt)
-
+    let size-1 = 10pt
     v(1cm)
+
     grid(
-      columns: (1.2fr, 20fr, 1fr),
-      column-gutter: 8pt,
+      columns: (auto, 20fr, 1fr),
+      column-gutter: (12pt, 5pt),
       row-gutter: 9pt,
       align: (left, left, bottom),
 

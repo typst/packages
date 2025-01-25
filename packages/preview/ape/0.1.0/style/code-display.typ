@@ -1,5 +1,5 @@
 #let code-display(content) = {
-	 // Code
+  // Code
 
   show raw: it => context {
     if ("py", "python", "ocaml").contains(it.lang) {
@@ -51,7 +51,9 @@
           ),
         )
       }
+    } else {
+      it
     }
   }
-	content
+  content
 }

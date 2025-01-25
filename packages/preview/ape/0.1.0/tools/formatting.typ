@@ -1,4 +1,4 @@
-== Paragraph
+// Paragraph
 #let para(nom, content) = context {
   grid(
     columns: 2,
@@ -18,22 +18,23 @@
 }
 
 
-== List
+// List
 #let arrow-list(..item) = {
-  grid(columns: (auto, 1fr),
-  align: left,
-  column-gutter: 4pt,
+  grid(
+    columns: (auto, 1fr),
+    align: left,
+    column-gutter: 4pt,
     row-gutter: 10pt,
-  ..for i in item.pos() {
-    ([$-->$], i)
-  }
+    ..for i in item.pos() {
+      ([$-->$], i)
+    }
   )
 }
 
 
 
 
-== Inbox
+// Inbox
 #let inbox(content) = {
   box(
     width: 100%,

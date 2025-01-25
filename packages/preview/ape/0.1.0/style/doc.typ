@@ -18,9 +18,8 @@ Style :
 */
 
 #let doc(
-	lang: "fr",
-
-  title: ("Titre"),
+  lang: "fr",
+  title: "Titre",
   authors: (),
   style: "",
   title-page: false,
@@ -66,24 +65,24 @@ Style :
 
   counter(heading).update(0)
 
-	// Preview when document is empty
-	if content == parbreak() {
-		[
-			= Titre
-			#lorem(20)
-			== Sous titre
-			#lorem(100)
-			#inbox[#lorem(20)]
-			#lorem(50)
-			== Sous titre
-			#lorem(50)
-			#inbox2[#lorem(20)]
-			#lorem(50)
-			=== Sous sous titre
-			#lorem(50)
-			#para("Remarque")[#lorem(30)]
-		]
-	}
+  // Preview when document is empty
+  if content == parbreak() {
+    [
+      = Titre
+      #lorem(20)
+      == Sous titre
+      #lorem(100)
+      #inbox[#lorem(20)]
+      #lorem(50)
+      == Sous titre
+      #lorem(50)
+      #inbox2[#lorem(20)]
+      #lorem(50)
+      === Sous sous titre
+      #lorem(50)
+      #para("Remarque")[#lorem(30)]
+    ]
+  }
   content
 }
 

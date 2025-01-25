@@ -1,7 +1,5 @@
 #let numbered(content) = {
-	
-	
-	 set heading(numbering: "I)1)a)i)")
+  set heading(numbering: "I)1)a)i)")
 
   show heading: it => {
     if it.body.text == "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
@@ -21,8 +19,8 @@
 
           ]),
       )
-    } 
-	}
+    }
+  }
 
-	content
+  content
 }

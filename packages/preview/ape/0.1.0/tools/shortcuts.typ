@@ -11,9 +11,9 @@
     circle(stroke: 1pt, radius: 1.5cm, fill: red.lighten(20%), outset: -0.5cm)[
       #set align(center + horizon)
       #set text(black, size: 12pt, font: "TeX Gyre Chorus")
-     
+
       *Nécessite\ relecture*
-    ],
+    ]
   )
   content
 }
@@ -38,11 +38,18 @@
 
 // Physique
 #let dt = $dif t$
+#let dx = $dif x$
+#let dtheta = $dif theta$
+
 #let ar = math.arrow
 #let nar(c) = math.norm(math.arrow(c))
+
 #let dot2 = math.dot.double
 #let dot3 = math.dot.triple
+
 #let grad = ar("grad")
+
+#let cste = $"Cste"$
 
 #let RTSG = "Référentiel terrestre supposé galiléen"
 #let TEC = "Théorème de l'énergie cinétique"
