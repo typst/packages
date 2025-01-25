@@ -66,7 +66,7 @@
       Team \# #team-control-number
       #h(1fr)
       Page
-      #counter(page).display(
+      #context counter(page).display(
       "1 of 1",
       both: true,
       )
