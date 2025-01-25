@@ -1,4 +1,4 @@
-#import "@preview/ape:0.1.0": *
+#import "@preview/ape:0.2.0": *
 
 #show: doc.with(
 	lang: "fr",
