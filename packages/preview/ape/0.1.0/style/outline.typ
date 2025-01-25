@@ -22,7 +22,7 @@
     let depthsMap = (1,) * 20
 
     set par(justify: true, spacing: 5pt)
-    let size-1 = 10pt
+
     v(1cm)
 
     grid(
