@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Tongji University Undergraduate Thesis Template (STEM) Typst"
+authors:
+  - family-names: "TJ-CSCCG"
+url: https://github.com/TJ-CSCCG/tongji-undergrad-thesis-typst
+date-released: 2024-06-09
+version: 0.1.1

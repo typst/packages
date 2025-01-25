@@ -1,0 +1,15 @@
+[package]
+name = "chicv"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["@skyzh"]
+license = "MIT"
+description = "A minimal and fully-customizable CV template."
+repository = "https://github.com/skyzh/chicv"
+keywords = ["cv"]
+categories = ["cv"]
+
+[template]
+path = "template"
+entrypoint = "cv.typ"
+thumbnail = "cv.png"

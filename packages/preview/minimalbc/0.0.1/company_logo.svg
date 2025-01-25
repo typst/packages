@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="company_logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.46502525"
+     inkscape:cx="392.45181"
+     inkscape:cy="562.33505"
+     inkscape:window-width="1360"
+     inkscape:window-height="701"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="303.20934"
+       y="531.15395"
+       width="182.78577"
+       height="55.910942"
+       id="rect25099" />
+    <rect
+       x="311.81102"
+       y="554.80858"
+       width="232.24545"
+       height="77.415151"
+       id="rect19901" />
+    <rect
+       x="276.20337"
+       y="449.70218"
+       width="147.42954"
+       height="128.76103"
+       id="rect3039" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text19899"
+       style="line-height:1.25;font-family:'Trebuchet MS';font-size:8px;-inkscape-font-specification:'Trebuchet MS';white-space:pre;shape-inside:url(#rect19901)" />
+    <g
+       id="g30306"
+       transform="matrix(0.49688503,0,0,0.55379259,23.733243,78.608388)"
+       inkscape:export-filename="C:\Users\Seve\g30306.png"
+       inkscape:export-xdpi="700"
+       inkscape:export-ydpi="700">
+      <rect
+         style="fill:#aa0000;stroke:#c2c2c2;stroke-width:1.64983;stroke-linecap:round;paint-order:markers stroke fill"
+         id="rect846"
+         width="19.028086"
+         height="19.356888"
+         x="-159.67546"
+         y="-6.4491291"
+         transform="matrix(-0.35919883,-0.93326106,0.42475543,-0.90530814,0,0)"
+         inkscape:export-filename="C:\Users\Seve\workspace\work2024\minimalbc\cover.png"
+         inkscape:export-xdpi="700"
+         inkscape:export-ydpi="700" />
+      <rect
+         style="fill:#0000ff;stroke:#c2c2c2;stroke-width:1.64983;stroke-linecap:round;paint-order:markers stroke fill"
+         id="rect846-4"
+         width="19.028086"
+         height="19.356888"
+         x="-182.15784"
+         y="-5.0887823"
+         transform="matrix(-0.35919883,-0.93326106,0.42475543,-0.90530814,0,0)"
+         inkscape:export-filename="C:\Users\Seve\workspace\work2024\minimalbc\cover.png"
+         inkscape:export-xdpi="700"
+         inkscape:export-ydpi="700" />
+      <rect
+         style="fill:#008000;stroke:#c2c2c2;stroke-width:1.64983;stroke-linecap:round;paint-order:markers stroke fill"
+         id="rect846-2"
+         width="19.028086"
+         height="19.356888"
+         x="-161.72241"
+         y="15.930025"
+         transform="matrix(-0.35919883,-0.93326106,0.42475543,-0.90530814,0,0)"
+         inkscape:export-filename="C:\Users\Seve\workspace\work2024\minimalbc\cover.png"
+         inkscape:export-xdpi="700"
+         inkscape:export-ydpi="700" />
+      <text
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,-1.0583333,2.1166667)"
+         id="text3037"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'Californian FB';-inkscape-font-specification:'Californian FB Bold';white-space:pre;shape-inside:url(#rect3039)"
+         inkscape:export-filename="C:\Users\Seve\workspace\work2024\minimalbc\cover.png"
+         inkscape:export-xdpi="700"
+         inkscape:export-ydpi="700"><tspan
+           x="276.20312"
+           y="502.12777"
+           id="tspan30327"><tspan
+             style="font-family:Broadway;-inkscape-font-specification:'Broadway Bold'"
+             id="tspan30325">LOGO</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,-1.5875,-1.5875)"
+         id="text25097"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.3333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Italic';white-space:pre;shape-inside:url(#rect25099)"
+         inkscape:export-filename="C:\Users\Seve\workspace\work2024\minimalbc\cover.png"
+         inkscape:export-xdpi="700"
+         inkscape:export-ydpi="700"><tspan
+           x="303.20898"
+           y="557.77085"
+           id="tspan30329">Tagline</tspan></text>
+    </g>
+  </g>
+</svg>

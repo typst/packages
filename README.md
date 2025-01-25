@@ -29,7 +29,12 @@ Required for submissions to this repository:
   address, homepage, or GitHub handle in angle brackets. The latter must start
   with an `@` character, and URLs must start with `http://` or `https://`.
 - `license`: The package's license. Must contain a valid SPDX-2 expression
-  describing one or multiple [OSI-approved][OSI] licenses.
+  describing one or multiple licenses that are either [OSI-approved][OSI]
+  licenses or a version of CC-BY, CC-BY-SA, or CC0. We recommend you do not
+  license your package using a Creative Commons license unless it is a
+  derivative work of a CC-BY-SA-licensed work or if it is not primarily code,
+  but content or data. In most other cases, [a free/open license specific to
+  software is better suited for Typst packages](https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software).
 - `description`: A short description of the package. Double-check this for
   grammar and spelling mistakes as it will appear in the [package list][list].
 
@@ -105,6 +110,17 @@ Required for submissions to this repository:
   referenced anywhere in the package.
 
 Template packages must specify at least one category in `package.categories`.
+
+If you're submitting a template, please test that it works locally on your
+system. The recommended workflow for this is as follows:
+
+- Add a symlink from `$XDG_DATA_HOME/typst/packages/preview` to the `preview`
+  folder of your fork of this repository (see the section on [local
+  packages](#local-packages)).
+- Run `typst init @preview/mypkg:version`. Note that you must manually specify
+  the version as the package is not yet in the index, so the latest version
+  won't be detected automatically.
+- Compile the freshly instantiated template.
 
 ### Third-party metadata
 Third-party tools can add their own entry under the `[tool]` section to attach
@@ -245,7 +261,7 @@ locally on your system. Here, `{data-dir}` is
 
 Packages in the data directory have precedence over ones in the cache directory.
 While you can create arbitrary namespaces with folders, a good namespace for
-system packages is `local`:
+system-local packages is `local`:
 
 - Store a package in `~/.local/share/typst/packages/local/mypkg/1.0.0`
 - Import from it with `#import "@local/mypkg:1.0.0": *`
@@ -253,12 +269,12 @@ system packages is `local`:
 Note that future iterations of Typst's package management may change/break this
 local setup.
 
-
 ## License
 The infrastructure around the package repository is licensed under the terms of
 the Apache-2.0 license. Packages in `packages/` are licensed under their
 respective license.
 
+[list]: https://typst.app/universe/search/
 [universe]: https://typst.app/universe/
 [categories]: https://github.com/typst/packages/blob/main/CATEGORIES.md
 [disciplines]: https://github.com/typst/packages/blob/main/DISCIPLINES.md

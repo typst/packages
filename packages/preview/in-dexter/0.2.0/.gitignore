@@ -1,0 +1,49 @@
+﻿# You may want to customize this file depending on your Operating System
+# and the editor that you use.
+#
+# We recommend that you use a Global Gitignore for files that are not related
+# to the project. (https://help.github.com/articles/ignoring-files/#create-a-global-gitignore)
+# Author: Rolf Bremer
+# OS
+#
+# Ref: https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/Linux.gitignore
+.DS_STORE
+Thumbs.db
+
+# Editors
+#
+# Ref: https://github.com/github/gitignore/blob/master/Global
+# Ref: https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
+.idea
+.vs
+.chrome
+
+# .vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+
+# Dependencies
+node_modules
+
+# Compiled files
+bin
+obj
+dist
+out
+
+# Office temp files
+~$*
+
+# DrawIO Backup files
+.$*.drawio.bkp
+
+# VSCode
+.vscode
+
+# Unwanted PDF Files of the project
+index.pdf

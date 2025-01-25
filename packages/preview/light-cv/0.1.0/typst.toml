@@ -1,0 +1,16 @@
+[package]
+name = "light-cv"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Ansgar Lichter"]
+license = "MIT"
+description = "Minimalistic CV template for your own CV. Please install the font awesome fonts on your system before using the template."
+repository = "https://github.com/AnsgarLichter/cv-typst-template"
+keywords = ["cv", "curriculum vitae", "computer science", "application", "resume"]
+categories = ["cv"]
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "cv-en.typ"
+thumbnail = "example.png"

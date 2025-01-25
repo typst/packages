@@ -1,0 +1,1 @@
+#import "@preview/dining-table:0.1.0": *

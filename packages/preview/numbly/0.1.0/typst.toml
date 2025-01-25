@@ -1,0 +1,10 @@
+[package]
+name = "numbly"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["flaribbit <@flaribbit>"]
+license = "MIT"
+description = "A package that helps you to specify different numbering formats for different levels of headings."
+categories = ["utility"]
+keywords = ["numbering", "helper", "tool"]
+repository = "https://github.com/flaribbit/numbly"

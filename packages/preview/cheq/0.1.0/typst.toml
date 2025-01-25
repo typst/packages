@@ -1,0 +1,11 @@
+[package]
+name = "cheq"
+version = "0.1.0"
+authors = ["OrangeX4", "Myriad-Dreamin"]
+entrypoint = "lib.typ"
+exclude = ["./examples"]
+keywords = ["checklist", "check list", "tasklist", "task list", "markdown", "gfm"]
+license = "MIT"
+repository = "https://github.com/OrangeX4/typst-cheq"
+description = "Write markdown-like checklist easily."
+categories = ["components", "utility"]

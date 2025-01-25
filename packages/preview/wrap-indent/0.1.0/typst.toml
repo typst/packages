@@ -1,0 +1,15 @@
+[package]
+name = "wrap-indent"
+license = "MIT"
+version = "0.1.0"
+entrypoint = "wrap-indent.typ"
+authors = ["Ian Wrzesinski (LectronPusher)"]
+description = "Wrap content in custom functions with just indentation"
+categories = ["scripting", "utility"]
+keywords = ["wrap", "indent", "syntax"]
+
+exclude = [
+  "example.typ",
+  "example_page1.png",
+  "example_page2.png",
+]

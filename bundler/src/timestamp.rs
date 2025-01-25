@@ -4,6 +4,7 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 
 use anyhow::{bail, Context};
+use ecow::EcoString;
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 
 use crate::FullIndexPackageInfo;
@@ -31,7 +32,7 @@ pub fn determine_timestamps(
 
     // Determine the release dates for all packages.
     // It is the minimum update date for any of its versions.
-    let mut release_dates: HashMap<String, u64> = HashMap::new();
+    let mut release_dates: HashMap<EcoString, u64> = HashMap::new();
     for (info, &t) in index.iter().zip(&timestamps) {
         release_dates
             .entry(info.package.name.clone())
