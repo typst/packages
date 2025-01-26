@@ -1,4 +1,4 @@
-#import "@local/polylux:0.4.0": *
+#import "@preview/polylux:0.4.0": *
 
 #set page(
   paper: "presentation-16-9",
