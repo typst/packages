@@ -6,7 +6,7 @@
   blank-row: 2, // 底部留空的行数
   blank-col: 2, // 右侧留空的列数
   type: "Normal", // 田字格类型：Normal（默认）、AllH（全留空行）、AllV（全留空列）、Full（无留白）
-  showTianZi: true, // 是否显示田字格线条
+  show-tian-zi: true, // 是否显示田字格线条
   spacing: 1.2em, // 田字格内部线条的间距
 ) = {
   // 根据类型调整空行和空列设置
@@ -56,7 +56,7 @@
 
         // 渲染剩余田字格区域
         ..(
-          grid.cell()[ #if showTianZi { tianzi } ],
+          grid.cell()[ #if show-tian-zi { tianzi } ],
         ) * (cols - blank-col) * (rows - blank-row)
       ),
     )
@@ -72,7 +72,7 @@
   blank-row: 2, // 底部空行数
   blank-col: 2, // 右侧空列数
   type: "Normal", // 纸张类型
-  showTianZi: true, // 是否显示田字格
+  show-tian-zi: true, // 是否显示田字格
   miao: false,  // 是否启用描红（灰色字样）
   body,         // 书写内容
 ) = {
@@ -91,7 +91,7 @@
       blank-row: blank-row,
       blank-col: blank-col,
       type: type,
-      showTianZi: showTianZi,
+      show-tian-zi: show-tian-zi,
       size: size,
     ),
   )
