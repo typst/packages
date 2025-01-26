@@ -9,6 +9,7 @@ categories = ["cv"]
 disciplines = ["business", "communication"]
 keywords = ["resume", "curriculum", "vitae", "cv"]
 repository = "https://github.com/swaits/typst-collection"
+exclude = ["thumbnail.png", "tests"]
 
 [template]
 path = "template"
