@@ -1,4 +1,4 @@
-#import "main.typ": * 
+#import "@preview/truthfy:0.6.0": * 
 #set page(width: auto, height: 500pt)
 
 #truth-table(order: "alphabetical",$u_7 => u_(22) => u$, $u_7 ? u_22 : u$)
