@@ -79,6 +79,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 此版本重构了目录结构，合并两个模板的大部分工具函数，并按 Typst template package 组织文件。
 
+[0.3.1]: https://github.com/csimide/SEU-Typst-Template/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/csimide/SEU-Typst-Template/compare/c44b5172178c0c2380b322e50931750e2d761168...v0.3.0
 [0.2.2]: https://github.com/csimide/SEU-Typst-Template/compare/908a28c7da02b260f04dcf31ed22278a212cad19...c44b5172178c0c2380b322e50931750e2d761168
 [0.2.1]: https://github.com/csimide/SEU-Typst-Template/compare/42b34b829bb9816d89a0955e2196346ab6e39ad4...908a28c7da02b260f04dcf31ed22278a212cad19

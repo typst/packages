@@ -1,4 +1,4 @@
-#import "@preview/cheda-seu-thesis:0.3.1": degree-conf, degree-utils
+#import "../seu-thesis/lib.typ": degree-conf, degree-utils
 #let (thanks, show-appendix) = degree-utils
 
 /*
@@ -7,13 +7,9 @@
 */
 
 // 由于研究生院模板没有严格规定代码块的字体，为了美观，在此设定代码块字体
-#import "@preview/sourcerer:0.2.1": code
-#show raw.where(block: false): set text(font: ("Fira Code", "SimHei"))
-#let code = code.with(
-  numbering: true,
-  radius: 0pt,
-  text-style: (font: ("Courier New", "SimHei")),
-)
+#show raw: set text(font: ("Fira Code", "SimHei"))
+#import "@preview/codelst:2.0.2": sourcecode
+#let code = sourcecode
 
 #let terminology = [
 
@@ -359,9 +355,6 @@ $ alpha + beta = gamma $ <eqexample>
 完成上述操作后，*在致谢章节之后！致谢章节之后！致谢章节之后！*，添加
 
 #code(
-  numbering: true,
-  radius: 0pt,
-  text-style: (font: ("Courier New", "SimHei")),
 ```typst
 #bibliography(
   "ref.bib", // 替换为自己的bib路径
