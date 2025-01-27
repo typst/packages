@@ -161,8 +161,26 @@
 
   let _mathed(obj) = eval(obj, mode: "math")
 
-  let truth-table-empty(reverse: false, sc: symboles-conv, info, data) = {
+  let truth-table-empty(reverse: false, order: "default", sc: symboles-conv, info, data) = {
     let base = _extract(..info)
+
+    if order.contains("alphabetical") {
+      base = base.sorted(
+        key: a => {
+          let val = a.split("_")
+          let m = (
+            for i in range(val.len()) {
+              if i == 0 { (val.at(i).to-unicode() * 1000,) } else { (int(val.at(i)),) }
+            }
+          )
+          m.reduce((a, b) => a + b)
+        },
+      )
+    }
+    if order.contains("reverse") {
+      base = base.rev()
+    }
+
     let bL = base.len()
     let L = calc.pow(2, bL)
     let iL = info.len()
@@ -211,8 +229,25 @@
     }
   }
 
-  let karnaugh-empty(reverse: false, sc: symboles-conv, info, data) = {
+  let karnaugh-empty(reverse: false, order: "default", sc: symboles-conv, info, data) = {
     let base = _extract(..info)
+
+    if order.contains("alphabetical") {
+      base = base.sorted(
+        key: a => {
+          let val = a.split("_")
+          let m = (
+            for i in range(val.len()) {
+              if i == 0 { (val.at(i).to-unicode() * 1000,) } else { (int(val.at(i)),) }
+            }
+          )
+          m.reduce((a, b) => a + b)
+        },
+      )
+    }
+    if order.contains("reverse") {
+      base = base.rev()
+    }
 
     let bL = base.len()
     assert(
@@ -298,7 +333,7 @@
     //karnaugh-empty(sc: sc, objInfo, data)
   }*/
 
-  let truth-table(reverse: false, sc: symboles-conv, ..inf) = {
+  let truth-table(reverse: false, sc: symboles-conv, order: "default", ..inf) = {
     let info = inf.pos()
     let base = _extract(..info)
     let bL = base.len()
@@ -306,6 +341,23 @@
     let iL = info.len()
     let nbBox = (iL + bL) * calc.pow(2, bL)
     let transform = info.map(_strstack)
+
+    if order.contains("alphabetical") {
+      base = base.sorted(
+        key: a => {
+          let val = a.split("_")
+          let m = (
+            for i in range(val.len()) {
+              if i == 0 { (val.at(i).to-unicode() * 1000,) } else { (int(val.at(i)),) }
+            }
+          )
+          m.reduce((a, b) => a + b)
+        },
+      )
+    }
+    if order.contains("reverse") {
+      base = base.rev()
+    }
 
     table(columns: iL + bL, ..base.map(_mathed), ..info, ..(
         for row in range(L) {

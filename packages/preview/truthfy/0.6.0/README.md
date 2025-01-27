@@ -36,6 +36,15 @@ Syntax:
 ## `reverse`
 Reverse your table, see issue #3 
 
+## `order`
+
+Change the order of your symbol.
+
+You can use any combination of theses values: "alphabetical", "reverse"
+
+- "alphabetical": sort your symbols based on the alphabetical order.
+- "reverse": sort by changing the order of the actual list into a reverse one
+
 # Examples
 
 ## Simple
@@ -59,6 +68,8 @@ Reverse your table, see issue #3
 ```
 
 ![image](https://github.com/Thumuss/truthfy/assets/42680097/1ccf6077-5cfb-4643-b621-1dc9529b8176)
+
+See [example.pdf](/example.pdf) and [example.typ](/example.typ) to have more examples.
 
 # Contributing
 
@@ -91,3 +102,4 @@ If you have any idea to add in this package, add a new issue [here](https://gith
 `0.6.0`:
 - Allow using `->` in math mode (see #9)
 - Fix a simple bug with how math expressions are read (see #6)
+- Add a new option: `order` (see #8)

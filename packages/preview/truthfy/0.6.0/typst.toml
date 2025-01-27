@@ -6,7 +6,6 @@ authors = ["Quemin Thomas <@Thumuss>"]
 license = "MIT"
 description = "Make empty or automatically filled truth table"
 repository = "https://github.com/Thumuss/truthfy"
-homepage = "https://github.com/Thumuss/truthfy"
 keywords = [
     "truth",
     "table",
