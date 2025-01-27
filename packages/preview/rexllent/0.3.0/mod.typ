@@ -71,7 +71,14 @@
   return (cell_args, content)
 }
 
-#let parse_excel_table(data, parse-table-style: true, parse-stroke: true, ..args) = {
+#let parse_excel_table(
+  data,
+  prepend-elems: (),
+  parse-header: false,
+  parse-table-style: true,
+  parse-stroke: true,
+  ..args,
+) = {
   // 解析维度信息
   let dims = data.dimensions
 
@@ -114,6 +121,7 @@
 
   // 处理每一行
   let cells = ()
+  let header_cells = ()
   for row in data.rows {
     // 创建单元格映射，方便快速查找
     let cell_map = (:)
@@ -141,7 +149,11 @@
           // 处理样式和内容
           let (_cell_args, content) = create_cell_content(cell)
           cell_args += _cell_args
-          cells.push(table.cell(..cell_args)[#content])
+          if row.row_number == 1 and parse-header {
+            header_cells.push(table.cell(..cell_args)[#content])
+          } else {
+            cells.push(table.cell(..cell_args)[#content])
+          }
         }
         // 如果不是起始点，跳过这个单元格
         continue
@@ -151,41 +163,59 @@
       let cell = cell_map.at(str(col), default: none)
       if cell != none {
         let (_cell_args, content) = create_cell_content(cell)
-        cells.push(table.cell(.._cell_args)[#content])
+        if row.row_number == 1 and parse-header {
+          header_cells.push(table.cell(.._cell_args)[#content])
+        } else {
+          cells.push(table.cell(.._cell_args)[#content])
+        }
       } else {
         // 空单元格
         if parse-stroke {
-          cells.push(table.cell(stroke: none)[#none])
+          if row.row_number == 1 and parse-header {
+            header_cells.push(table.cell(stroke: none)[#none])
+          } else { cells.push(table.cell(stroke: none)[#none]) }
         } else {
-          cells.push([])
+          if row.row_number == 1 and parse-header {
+            header_cells.push([])
+          } else { cells.push([]) }
         }
       }
     }
   }
-
-  table(..table_args, ..args, ..cells)
+  if type(prepend-elems) != array {
+    prepend-elems = (prepend-elems,)
+  }
+  if parse-header {
+    table(..table_args, ..prepend-elems, table.header(..header_cells), ..cells, ..args)
+  } else {
+    table(..table_args, ..prepend-elems, ..cells, ..args)
+  }
 }
 
 /// Parse the xlsx file content and return the table.
 ///
 /// - xlsx (bytes): Pass the xlsx file content by `read("path/to/file.xlsx", encoding: none)`.
+/// - prepend-elems (array): Arguments to be prepended to the table.
 /// - sheet-index (integer): The index of the sheet to be parsed.
 /// - parse-table-style (boolean): Whether to parse the table style(like column width and row height).
 /// - parse-alignment (boolean): Whether to parse the cell alignment.
 /// - parse-stroke (boolean): Whether to parse the cell border.
 /// - parse-fill (boolean): Whether to parse the cell fill color.
 /// - parse-font (boolean): Whether to parse the cell font style.
-/// - args (arguments): Other arguments for the table.
-/// ->
+/// - parse-header (boolean): Whether to parse the header row.
+/// - apprend-args (arguments): Other arguments for the table.
+/// -> table
 #let xlsx-parser(
   xlsx,
+  prepend-elems: (),
   sheet-index: 0,
   parse-table-style: true,
   parse-alignment: true,
   parse-stroke: true,
   parse-fill: true,
   parse-font: true,
-  ..args,
+  parse-header: false,
+  ..append-args,
 ) = {
   let data = p.to_typst(
     xlsx,
@@ -201,9 +231,11 @@
     } else {
       toml(data)
     },
+    prepend-elems: prepend-elems,
+    parse-header: parse-header,
     parse-table-style: parse-table-style,
     parse-stroke: parse-stroke,
-    ..args,
+    ..append-args,
   )
 }
 
@@ -212,7 +244,7 @@
 /// - dict (dictionary): spreet parsed table.
 /// - sheet-index (integer): The index of the sheet to be parsed.
 /// - args (arguments): Other arguments for the table.
-/// -> 
+/// ->
 #let spreet-parser(
   dict,
   sheet-index: 0,

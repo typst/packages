@@ -1,5 +1,9 @@
 # 🦖 ReXLlenT
 
+<a href="https://typst.app/universe/package/rexllent">
+<img src="https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Frexllent&query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&logo=typst&label=Universe&color=%2339cccc" />
+</a>
+
 ReXLlenT is a typst package that helps you:
 
 - Convert Excel **xlsx** tables to typst tables, powered by wasm.
@@ -32,11 +36,29 @@ By toggling parameters below, you can customize the output table:
 - `parse-stroke`: Parse cell stroke, default is `true`.
 - `parse-fill`: Parse cell fill, default is `true`.
 - `parse-font`: Parse font style, default is `true`.
+- `parse-header`: Parse header row, default is `false`.
 
 > [!NOTE]
 > Notice that 0pt height or 0pt width will be parsed as `auto`. Disable `parse-table-style` to prevent this behavior and set the width and height manually.
 
-Extra arguments passed to `xlsx-parser` function will be passed to `table`. Feel free to customize the output table.
+Extra arguments passed to `xlsx-parser` function will be passed to `table`. Feel free to customize the output table. For the prepend argument, you should pass them as array to `prepend-elems` parameter.
+
+```typ
+#xlsx-parser(
+  read("test.xlsx", encoding: none),
+  parse-header: true,
+  parse-stroke: false,
+  prepend-elems: (table.hline()),
+  stroke: (_, y) => {
+    if y == 0 {
+      return (bottom: black)
+    }
+  },
+  table.hline(),
+)
+```
+
+![three-line-table](assets/three-line-table.png)
 
 ## Work with Spreet
 
@@ -87,6 +109,22 @@ Through this way, you can convert excel/opendocument spreadsheets to typst table
 
   ![Typst](assets/example7.png)
 
+## Pixel Art
+
+You can also convert pixel art to typst table using ReXLlenT. Here are some examples:
+
+- Typst Logo
+
+  ![typst](assets/typst_example1.png)
+
+- Typst Guy
+
+  ![typst_guy](assets/typst_example2.png)
+
+- _Impression, soleil levant_
+
+  ![monet](assets/typst_example3.png)
+
 ## TODOs
 
 ReXLlenT is still in development and PRs are welcome. Here are some TODOs (also limitations):
@@ -105,3 +143,13 @@ ReXLlenT is still in development and PRs are welcome. Here are some TODOs (also 
 ## License
 
 This package is licensed under the MIT License.
+
+## Star History
+
+<a href="https://star-history.com/#hongjr03/typst-rexllent&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=hongjr03/typst-rexllent&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=hongjr03/typst-rexllent&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=hongjr03/typst-rexllent&type=Date" />
+ </picture>
+</a>
