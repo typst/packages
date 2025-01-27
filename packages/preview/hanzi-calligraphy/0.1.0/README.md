@@ -1,4 +1,4 @@
-# calligraphyWork
+# hanzi-calligraphy
 
 ![Example use of the template1](./thumbnail.png)
 ![Example use of the template2](./imgs/template-2.png)
@@ -6,7 +6,7 @@
 
 ## Overview
 
-This project provides a customizable **calligraphy practice template**, primarily designed for Chinese character writing exercises. The template features grid-based **Tian Zi Ge** (田字格) layout, allowing users to configure various parameters such as grid size, color, spacing, and blank areas. Additionally, it supports different layout modes and optional tracing to assist in writing practice.
+This project provides a customizable **calligraphy practice template**, primarily designed for Chinese character (Hanzi) writing exercises. The template features grid-based **Tian Zi Ge** (田字格) layout, allowing users to configure various parameters such as grid size, color, spacing, and blank areas. Additionally, it supports different layout modes and optional tracing to assist in writing practice.
 
 ## Features
 
@@ -29,7 +29,7 @@ Click "Start from template" in the Typst web app and search for calligraphyWork.
 Alternatively, run the following command to create a directory initialized with all necessary files:
 
 ```
-typst init @preview/calligraphy-work:0.1.0
+typst init @preview/hanzi-calligraphy:0.1.0
 ```
 
 ### Example Usage
