@@ -1,5 +1,5 @@
 [package]
-name = "CH4typ"
+name = "typsium"
 version = "0.0.1"
 license = "MIT"
 entrypoint = "lib.typ"
