@@ -1,5 +1,13 @@
-#import "../tools/miscellaneous.typ" : content-to-string
-#let get-outline(lang) = {
+#import "../tools/miscellaneous.typ": content-to-string
+#let get-outline(lang, small-caps) = {
+  let sc(c) = {
+    if small-caps == true {
+      return smallcaps(c)
+    } else {
+      return c
+    }
+  }
+
   let first-real-page = 0
   let custom-outline = {
     set text(hyphenate: true)
@@ -7,16 +15,22 @@
     align(
       center,
       [
-       
+
         #{
           if lang == "fr" {
-            text(size: 2.5em)[
-             Table des matières
-            ]
-          }else{
-            text(size: 2.5em)[
-             Table of content
-            ]
+            text(
+              size: 2.5em,
+              sc[
+                Table des matières
+              ],
+            )
+          } else {
+            text(
+              size: 2.5em,
+              sc[
+                Table of content
+              ],
+            )
           }
         }
       ],
@@ -87,6 +101,6 @@
       }
     )
   }
-  
+
   return (first-real-page, custom-outline)
 }

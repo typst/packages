@@ -54,6 +54,7 @@ This Typst package provides a comprehensive set of tools for structuring and sty
 
   title-page: true,
   outline: true,
+  smallcaps: true,
 )
 ```
 

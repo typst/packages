@@ -24,17 +24,18 @@ Style :
   style: "",
   title-page: false,
   outline: false,
+  smallcaps: true,
   content,
 ) = context {
   set text(lang: lang, font: "New Computer Modern")
 
-   show: apply-style.with(style)
+  show: apply-style.with(style)
 
-  let (first-real-page, custom-outline) = get-outline(lang)
+  let (first-real-page, custom-outline) = get-outline(lang, smallcaps)
 
-   show: header-footer.with(style, first-real-page, authors)
+  show: header-footer.with(style, smallcaps, first-real-page, authors)
 
-  front-pages(style, title, title-page, authors, outline, custom-outline)
+  front-pages(style, smallcaps, title, title-page, authors, outline, custom-outline)
 
   show: shows-shortcuts
   show: code-display

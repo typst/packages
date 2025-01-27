@@ -1,4 +1,12 @@
-#let front-pages(style, title, title-page, authors, outline, custom-outline) = {
+#let front-pages(style, small-caps, title, title-page, authors, outline, custom-outline) = {
+  let sc(c) = {
+    if small-caps == true {
+      return smallcaps(c)
+    } else {
+      return c
+    }
+  }
+
   let small-title3 = {
     line(length: 100%)
     text(
@@ -79,9 +87,7 @@
   }
 
   let small-title = {
-    if style == "presentation" {
-      
-    }else if type(title) == "array" {
+    if style == "presentation" { } else if type(title) == "array" {
       if title-page or outline {
         small-title3
       } else {
@@ -90,7 +96,6 @@
     } else {
       small-title1
     }
-    
   }
 
 
@@ -102,28 +107,35 @@
           hyphenate: false,
           {
             if type(title) == "string" {
-              text(size:7em, [*#title*])
+              text(size: 7em, sc[*#title*])
             } else {
               [
-                #text(size: 6em, strong(title.at(1)))
+                #text(size: 6em, sc(strong(title.at(1))))
                 #v(-4em)
-                #text(size: 3em, title.at(0))
+                #text(size: 3em, sc(title.at(0)))
               ]
             }
           },
         )
 
-       
+
         #v(1cm)
         #{
-          if authors.len() > 0 {
+          if type(authors) == "array" {
+            if authors.len() > 0 {
+              [
+                #text(size: 1.45em, sc(authors.at(0)))
+                \
+              ]
+            }
+            if authors.len() > 1 {
+              [
+                #text(size: 1.45em, authors.slice(1).map(sc).join(" - "))
+              ]
+            }
+          } else {
             [
-              #text(size: 1.45em, authors.at(0))
-            ]
-          }
-          if authors.len() > 1 {
-            [
-              #text(size: 1.45em, authors.slice(1).join(" - "))
+              #text(size: 1.45em, sc(authors))
             ]
           }
         }

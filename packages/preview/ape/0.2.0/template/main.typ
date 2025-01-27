@@ -9,8 +9,8 @@
 
   title-page: true,
   outline: true,
+  smallcaps: true,
 )
-
 
 
 
