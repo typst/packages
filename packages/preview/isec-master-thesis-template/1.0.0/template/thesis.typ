@@ -52,7 +52,7 @@
 	list-of-figures:  true,
 	list-of-tables:   true, 
 	list-of-listings: true, // Wrap code in #figure
-	debug: false,
+	debug: false, // Enable once before a revision (slow)
 )
 
 // -------------------------------[[ CUT HERE ]]--------------------------------
