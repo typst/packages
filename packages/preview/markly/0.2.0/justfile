@@ -15,7 +15,7 @@ compile:
 [doc('Generates template thumbnail from PDF')]
 template_thumbnail:
     cd template; \
-    typst compile --pages {{PAGE}} --ppi {{DPI}} main.typ ../template.png
+    typst compile --pages {{PAGE}} --ppi {{DPI}} main.typ template.png
 
     oxipng -o 4 --strip safe --alpha template.png
 
