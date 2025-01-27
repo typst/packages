@@ -1,7 +1,7 @@
 // This theme is inspired by https://github.com/matze/mtheme
 // The Polylux-port was originally performed by https://github.com/Enivex
 
-#import "@local/polylux:0.4.0": *
+#import "@preview/polylux:0.4.0": *
 
 #let bright = rgb("#eb811b")
 #let brighter = rgb("#d6c6b7")
