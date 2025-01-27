@@ -1,4 +1,4 @@
-#import "@preview/calligraphy-work:0.1.0": *
+#import "@preview/hanzi-calligraphy:0.1.0": *
 
 #calligraphy-work()[
   　　四十年来家国三千\
