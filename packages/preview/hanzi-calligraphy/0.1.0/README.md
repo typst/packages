@@ -24,7 +24,7 @@ This project provides a customizable **calligraphy practice template**, primaril
 
 ## Usage
 
-Click "Start from template" in the Typst web app and search for calligraphyWork.
+Click "Start from template" in the Typst web app and search for hanzi-calligraphy.
 
 Alternatively, run the following command to create a directory initialized with all necessary files:
 
