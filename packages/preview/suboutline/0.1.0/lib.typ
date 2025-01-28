@@ -1,4 +1,4 @@
-#let minitoc(
+#let suboutline(
   title: none,
   target: heading.where(outlined: true),
   depth: none,

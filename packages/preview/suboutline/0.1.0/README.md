@@ -1,25 +1,24 @@
-# Typst miniTOC
+# Typst sub-outlines
 
-This package provides the `minitoc` command that does the same thing as the `outline`
-command but only for headings under the heading above it.
+This package provides the `suboutline` command that does the same thing as `outline` but
+restricted to the current heading. This is inspired by
+[minitoc](https://ctan.org/pkg/minitoc?lang=en) package for LaTeX.
 
-This is inspired by [minitoc](https://ctan.org/pkg/minitoc?lang=en) package for LaTeX.
-
-*This package is a fork of the [original
-repository](https://gitlab.com/human_person/typst-local-outline), which is no longer
-maintained by the original author.*
+*This package is a fork of the
+[minitoc](https://gitlab.com/human_person/typst-local-outline) package, which is no
+longer maintained by the original author.*
 
 ## Example
 
 ```typst
-#import "@preview/minitoc:0.1.1": *
+#import "@preview/suboutline:0.1.0": *
 #set heading(numbering: "1.1")
 
 #outline()
 
 = Heading 1
 
-#minitoc()
+#suboutline()
 
 == Heading 1.1
 
@@ -39,14 +38,14 @@ maintained by the original author.*
 
 This produces
 
-![](https://github.com/sdiebolt/minitoc/blob/main/example/example.png?raw=true)
+![](https://github.com/sdiebolt/suboutline/blob/main/example/example.png?raw=true)
 
 ## Usage
 
-The `minitoc` function has the following signature:
+The `suboutline` function has the following signature:
 
 ```typst
-#let minitoc(
+#let suboutline(
   title: none, target: heading.where(outlined: true),
 	depth: none, indent: none, fill: repeat([.])
 ) { /* .. */ }
@@ -71,7 +70,7 @@ arguments are:
 
 ## Unintended consequences
 
-Because `minitoc` uses `outline`, if you apply numbering to the title of outline with
-`#show outline: set heading(numbering: "1.")` or similar, any title in `local-outline`
+Because `suboutline` uses `outline`, if you apply numbering to the title of outline with
+`#show outline: set heading(numbering: "1.")` or similar, any title in the sub-outline 
 will be numbered and be a level 1 heading. This cannot be changed with `#show outline:
 set heading(level: 3)` or similar unfortunately.
