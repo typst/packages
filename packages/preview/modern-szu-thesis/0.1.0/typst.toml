@@ -1,0 +1,16 @@
+[package]
+name = "modern-szu-thsis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["yjdyamv"]
+license = "MIT"
+description = "由南大的论文模板修改得到的深圳大学模板。Modern Shenzhen University Thesis."
+keywords = ["thesis"]
+categories = ["thesis"]
+exclude = ["imgs"]
+repository = "https://github.com/yjdyamv/mordern-szu-thesis"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
