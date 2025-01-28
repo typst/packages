@@ -46,7 +46,7 @@
   it,
 ) = {
   // 0.  标志前言结束
-  anti-front-end()
+  set page(numbering: "1")
 
   // 1.  默认参数
   fonts = 字体 + fonts
@@ -131,35 +131,33 @@
     }
   }
 
-  // 5.  处理页眉
-  set page(..(if display-header {
+    set page(..(if display-header {
     (
-      header: {
+      header: context {
         // 重置 footnote 计数器
         if reset-footnote {
           counter(footnote).update(0)
         }
-        locate(loc => {
-          // 5.1 获取当前页面的一级标题
-          let cur-heading = current-heading(level: 1, loc)
-          // 5.2 如果当前页面没有一级标题，则渲染页眉
-          if not skip-on-first-level or cur-heading == none {
-            if header-render == auto {
-              // 一级标题和二级标题
-              let first-level-heading = if not twoside or calc.rem(loc.page(), 2) == 0 { heading-display(active-heading(level: 1, loc)) } else { "" }
-              let second-level-heading = if not twoside or calc.rem(loc.page(), 2) == 2 { heading-display(active-heading(level: 2, prev: false, loc)) } else { "" }
-              set text(font: fonts.楷体, size: 字号.五号)
-              stack(
-                first-level-heading + h(1fr) + second-level-heading,
-                v(0.25em),
-                if first-level-heading != "" or second-level-heading != "" { line(length: 100%, stroke: stroke-width + black) },
-              )
-            } else {
-              header-render(loc)
-            }
-            v(header-vspace)
+        let loc = here()
+        // 5.1 获取当前页面的一级标题
+        let cur-heading = current-heading(level: 1)
+        // 5.2 如果当前页面没有一级标题，则渲染页眉
+        if not skip-on-first-level or cur-heading == none {
+          if header-render == auto {
+            // 一级标题和二级标题
+            let first-level-heading = if not twoside or calc.rem(loc.page(), 2) == 0 { heading-display(active-heading(level: 1, loc)) } else { "" }
+            let second-level-heading = if not twoside or calc.rem(loc.page(), 2) == 2 { heading-display(active-heading(level: 2, prev: false, loc)) } else { "" }
+            set text(font: fonts.楷体, size: 字号.五号)
+            stack(
+              first-level-heading + h(1fr) + second-level-heading,
+              v(0.25em),
+              if first-level-heading != "" or second-level-heading != "" { line(length: 100%, stroke: stroke-width + black) },
+            )
+          } else {
+            header-render(loc)
           }
-        })
+          v(header-vspace)
+        }
       }
     )
   } else {
@@ -173,5 +171,6 @@
     )
   }))
 
+  counter(page).update(1)
   it
 }
