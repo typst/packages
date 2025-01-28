@@ -33,7 +33,7 @@ It's likely that some future version of Typst will obsolete this package.  Until
 ```
 
 
-For a more detailed example, see [main.typ](template/main.typ) and [main.pdf](main.pdf).
+For a more detailed example, see [main.typ](example/main.typ) and [main.pdf](example/main.pdf).
 
 # Notes
 

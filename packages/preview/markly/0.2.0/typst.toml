@@ -9,8 +9,3 @@ repository = "https://github.com/cskeeters/typst-markly"
 categories = ["layout"]
 exclude = ["main.pdf"]
 compiler = "0.12.0"
-
-[template]
-path = "template"
-entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
