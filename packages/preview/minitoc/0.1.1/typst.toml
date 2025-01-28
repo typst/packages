@@ -2,7 +2,7 @@
 name = "minitoc"
 version = "0.1.1"
 description = "An outline function just for one section and nothing else"
-authors = ["nxe <https://github.com/RosiePuddles>"]
+authors = ["nxe <@RosiePuddles>", "sdiebolt <@sdiebolt>"]
 license = "GPL-3.0-only"
 entrypoint = "lib.typ"
-repository = "https://gitlab.com/human_person/typst-local-outline"
+respository = "https://github.com/sdiebolt/minitoc"
