@@ -4,7 +4,7 @@
 
 = Conclusion
 
-#option_style(type:option.type)[
+#option-style(type:option.type)[
   This final chapter summarizes the project outcomes, comparing them with the initial objectives. It also reflects on encountered difficulties and discusses possible improvements or future developments.
 
   Key elements:

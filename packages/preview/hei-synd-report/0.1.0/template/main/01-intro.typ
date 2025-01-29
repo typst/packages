@@ -4,7 +4,7 @@
 
 = Introduction
 
-#option_style(type:option.type)[
+#option-style(type:option.type)[
   This chapter provides an overview of the project, including its background, motivation, and objectives. It should clearly state the problem being addressed and why it is relevant.
 
   Key elements:

@@ -14,26 +14,26 @@
 #let huger   = 36pt
 
 // fontsize+
-#let tinyer_p  = tinyer+5pt
-#let tiny_p    = tiny+5pt
-#let smaller_p = smaller+5pt
-#let small_p   = small+5pt
-#let normal_p  = normal+5pt
-#let large_p   = large+5pt
-#let larger_p  = larger+5pt
-#let huge_p    = huge+5pt
-#let huger_p   = huger+5pt
+#let tinyer-p  = tinyer+5pt
+#let tiny-p    = tiny+5pt
+#let smaller-p = smaller+5pt
+#let small-p   = small+5pt
+#let normal-p  = normal+5pt
+#let large-p   = large+5pt
+#let larger-p  = larger+5pt
+#let huge-p    = huge+5pt
+#let huger-p   = huger+5pt
 
 // fontsizes++
-#let tinyer_pp  = tinyer+10pt
-#let tiny_pp    = tiny+10pt
-#let smaller_pp = smaller+10pt
-#let small_pp   = small+10pt
-#let normal_pp  = normal+10pt
-#let large_pp   = large+10pt
-#let larger_pp  = larger+10pt
-#let huge_pp    = huge+10pt
-#let huger_pp   = huger+10pt
+#let tinyer-pp  = tinyer+10pt
+#let tiny-pp    = tiny+10pt
+#let smaller-pp = smaller+10pt
+#let small-pp   = small+10pt
+#let normal-pp  = normal+10pt
+#let large-pp   = large+10pt
+#let larger-pp  = larger+10pt
+#let huge-pp    = huge+10pt
+#let huger-pp   = huger+10pt
 
 // Colors
 #let box-border      = rgb("#252525")

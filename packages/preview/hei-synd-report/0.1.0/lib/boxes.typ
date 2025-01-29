@@ -7,7 +7,7 @@
 //-------------------------------------
 // Option Style
 //
-#let option_style(
+#let option-style(
   type: none,
   size: small,
   style: "italic",
@@ -240,7 +240,7 @@
   ]
 }
 
-#let slantedBackground(
+#let slanted-background(
   color: black, body) = {
   set text(fill: white, weight: "bold")
   context {
@@ -259,7 +259,7 @@
   }
 }
 
-#let slantedColorbox(
+#let slanted-colorbox(
   title: "title",
   color: color-todo,
   stroke: 0.5pt,
@@ -276,7 +276,7 @@
     radius: radius,
     width: width
   )[
-    #slantedBackground(color: strokeColor)[#title]
+    #slanted-background(color: strokeColor)[#title]
     #block(
       width: 100%,
       inset: (top: -2pt, x: 10pt, bottom: 10pt)

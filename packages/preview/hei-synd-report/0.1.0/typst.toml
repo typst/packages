@@ -18,7 +18,7 @@ exclude = [
   "justfile",
   "cliff.toml",
   "template/resources/code/rustfmt.toml",
-  "CHANGELOG.md",
+  "template/report.pdf",
 ]
 keywords = [
   "Report",

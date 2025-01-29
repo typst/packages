@@ -4,7 +4,7 @@
 
 = Validation
 
-#option_style(type:option.type)[
+#option-style(type:option.type)[
   This chapter assesses the correctness and performance of the implementation. It includes testing methods, simulations, and any validation techniques used to ensure the system meets its requirements.
 
   Key elements:

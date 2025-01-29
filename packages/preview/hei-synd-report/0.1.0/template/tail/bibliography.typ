@@ -1,4 +1,4 @@
-#import "@local/hei-synd-report:0.1.0": *
+#import "@preview/hei-synd-report:0.1.0": *
 
 #let make_bibliography(
   bib:(

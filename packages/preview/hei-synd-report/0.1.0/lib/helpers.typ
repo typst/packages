@@ -5,7 +5,6 @@
 //
 #import "boxes.typ": *
 #import "constants.typ": *
-#import "sections.typ": *
 
 // External Plugins
 // Fancy pretty print with line numbers and stuff
@@ -42,7 +41,7 @@
   return keys.at(key)
 }
 
-#let getSupplement(
+#let get-supplement(
   it
 ) = {
     let f = it.func()
@@ -222,8 +221,8 @@
 //--------------------------------------
 // Heading shift
 //
-// #unshift_prefix[Prefix][Body]
-#let unshift_prefix(prefix, content) = context {
+// #unshift-prefix[Prefix][Body]
+#let unshift-prefix(prefix, content) = context {
   pad(left: -measure(prefix).width, prefix + content)
 }
 
@@ -232,7 +231,7 @@
 //
 // item, item, item and item List
 //
-#let enumerating_authors(
+#let enumerating-authors(
   items: none,
   multiline: false,
 ) = {
@@ -264,7 +263,7 @@
   }
 }
 
-#let enumerating_institutes(
+#let enumerating-institutes(
   items: none,
 ) = {
   let i = 1
@@ -283,7 +282,7 @@
 //
 // item, item, item and item List
 //
-#let enumerating_items(
+#let enumerating-items(
   items: none,
   bold: false,
   italic: false,
@@ -309,7 +308,7 @@
     }
   }
 }
-#let enumerating_links(
+#let enumerating-links(
   names: none,
   links: none,
 ) = {
@@ -326,7 +325,7 @@
     }
   }
 }
-#let enumerating_emails(
+#let enumerating-emails(
   names:  none,
   emails: none,
 ) = {
@@ -345,9 +344,9 @@
 }
 
 //-------------------------------------
-// safe_link
+// safe-link
 //
-#let safe_link(
+#let safe-link(
   name: none,
   url: none,
 ) = {
@@ -369,22 +368,22 @@
 //-------------------------------------
 // Chapter
 //
-#let add_chapter(
+#let add-chapter(
   file: none,
-  heading_offset: 0,
+  heading-offset: 0,
   after: none,
   before: none,
   pb: false,
-  minitoc_title: i18n("toc-title"),
+  minitoc-title: i18n("toc-title"),
   body
 ) = [
   #if (after != none and before != none) {
-    minitoc(title: minitoc_title, after:after, before:before, indent: true)
+    minitoc(title: minitoc-title, after:after, before:before, indent: true)
     if pb {
       pagebreak()
     }
   }
-  #set heading(offset: heading_offset)
+  #set heading(offset: heading-offset)
 
   #if (file != none) {
     include file

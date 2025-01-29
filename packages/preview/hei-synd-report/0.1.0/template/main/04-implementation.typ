@@ -4,7 +4,7 @@
 
 = Implementation
 
-#option_style(type:option.type)[
+#option-style(type:option.type)[
   This chapter details the development and execution of the project. It describes actual implementation from a top-down or bottom-up approach depending on the project.
 
   Key elements:

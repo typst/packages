@@ -4,7 +4,7 @@
 
 = Analysis
 
-#option_style(type:option.type)[
+#option-style(type:option.type)[
   This chapter defines the project requirements and presents the theoretical background. If applicable, it should also include a *State of the art* review to compare existing solutions and justify the chosen approach.
 
   Key elements:
