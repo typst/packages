@@ -87,7 +87,7 @@ For more information, check the [manual](https://raw.githubusercontent.com/Robot
 
 ### 0.1.4
 
-- Added the possibility to crate lewis formulae
+- Added the possibility to create Lewis formulae
 - Added parenthesis element to create groups and polymer
 
 ### 0.1.3
