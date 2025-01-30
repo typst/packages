@@ -12,14 +12,6 @@ description = "A report and project template tailored to the Systems Engineering
 entrypoint = "lib/template-report.typ"
 categories = ["report", "paper"]
 disciplines = ["engineering", "computer-science", "education"]
-exclude = [
-  "img",
-  "guide-to-typst.pdf",
-  "justfile",
-  "cliff.toml",
-  "template/resources/code/rustfmt.toml",
-  "template/report.pdf",
-]
 keywords = [
   "Report",
   "Project",
