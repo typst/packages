@@ -9,3 +9,6 @@ desktop.ini
 
 # Rust
 /bundler/target
+
+# PDF files for packages
+packages/**/*.pdf
