@@ -3,21 +3,14 @@
 #show: doc.with(
   lang: "fr",
 
-  title: ("Chapitre", "Titre"),
-  authors: "",
+  title: ("Chap" , "Voici un titre très très long qui prend bcp de plae"),
+  authors: "Auteur",
   style: "colored", // numbered, colored, plain
 
   title-page: true,
   outline: true,
   smallcaps: true,
 )
-
-= Algorithme
-== Fonction de tri
-=== Définition
-#lorem(100)
-= Test
-
-
+ 
 
 

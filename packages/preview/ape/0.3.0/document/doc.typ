@@ -14,7 +14,6 @@ Style :
 - Numbered
 - Colored
 - Plain
-
 */
 
 #let doc(
@@ -44,15 +43,14 @@ Style :
 
   set table(
     inset: 10pt,
-    stroke: 0.5pt,
+    stroke: 0.5pt + text.fill,
     align: center + horizon,
     fill: (x, y) => if (x == 0) or (y == 0) { gray.lighten(75%) },
   )
 
   set grid(column-gutter: 10pt, align: horizon)
 
-  set image(width: 40%)
-
+ 
   show image: it => {
     align(center, it)
   }

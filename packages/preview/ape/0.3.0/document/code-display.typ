@@ -5,7 +5,7 @@
 
   show raw: it => context {
     
-    if ("py", "python", "ocaml").contains(it.lang) {
+    if ("py", "python", "ocaml", "ml").contains(it.lang) {
       let breakableVar = false
       let lines = (..it.lines,)
   
@@ -29,7 +29,7 @@
             block(
               breakable: breakableVar,
               grid(
-                columns: (measure([#it.lines.at(0).count]).width + 10pt, 20fr),
+                columns: (measure([#lines.len()]).width + 10pt, 20fr),
                 column-gutter: 0pt,
                 inset: ((left: 5pt, right: 5pt, rest: 3pt), (left: 10pt, rest: 3pt)),
                 align: (horizon + left, left),

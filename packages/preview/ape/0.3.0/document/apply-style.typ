@@ -5,8 +5,7 @@
 
 #let apply-style(style, content) = {
   set heading(numbering: "I)1)a)i)")
-
-
+ 
   if style == "numbered" {
     return numbered(content)
   } else if style == "colored" {
@@ -20,3 +19,9 @@
   }
 }
 
+#let get-small-title(style, title) = {
+  import "styles/" + style + ".typ": *
+  
+  return get-small-title(title)
+
+}

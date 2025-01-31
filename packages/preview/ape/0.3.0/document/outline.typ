@@ -88,7 +88,7 @@
                   columns: ((e.depth - 1) * 2em, 100% - ((e.depth - 1) * 2em)),
                   align: (right, left),
                   column-gutter: 10pt,
-                  [#numbering(style, depthsMap.at(e.depth - 1))], box(clip: true)[#dotFill(e.body, -10pt)],
+                  [#numbering(style, depthsMap.at(e.depth - 1))], box(clip: false)[#dotFill(e.body, -10pt)],
                 ),
               ),
               [#link(e.location(), str(e.location().page()))],

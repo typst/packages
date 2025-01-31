@@ -27,3 +27,26 @@
 
   content
 }
+
+
+#let get-small-title(title) = context {
+  return {
+    line(length: 100%)
+    text(
+      size: 2em,
+      font: "Noto Sans Georgian",
+      align(
+        center,
+        if type(title) == "array" [
+          *#title.at(0) - #title.at(1)*
+        ] else [
+          *#title*
+        ],
+      ),
+    )
+
+
+    line(length: 100%)
+    v(15pt)
+  }
+}
