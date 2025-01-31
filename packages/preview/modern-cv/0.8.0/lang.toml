@@ -1,0 +1,83 @@
+[conf]
+default-lang = "en"
+
+[lang.en]
+resume = "Résumé"
+dear = "Dear"
+cover-letter = "Cover Letter"
+attached = "Attached"
+curriculum-vitae = "Curriculum Vitae"
+sincerely = "Sincerely"
+letter-position-pretext = "Job Application for"
+
+[lang.de]
+resume = "Lebenslauf"
+dear = "Sehr geehrte"
+cover-letter = "Anschreiben"
+attached = "Angehängt"
+curriculum-vitae = "Lebenslauf"
+sincerely = "Mit freundlichen Grüßen"
+letter-position-pretext = "Bewerbung für"
+
+[lang.gr]
+resume = "Βιογραφικό"
+dear = "Αγαπητέ"
+cover-letter = "Συνοδευτική Επιστολή"
+attached = "Συνημμένο"
+curriculum-vitae = "Βιογραφικό"
+sincerely = "Με εκτίμηση"
+letter-position-pretext = "Αίτηση εργασίας για"
+
+[lang.pt]
+resume = "Currículo"
+dear = "Caro(a)"
+cover-letter = "Carta de Apresentação"
+attached = "Em anexo"
+curriculum-vitae = "Currículo"
+sincerely = "Atenciosamente"
+letter-position-pretext = "Candidatura a emprego para"
+
+[lang.sp]
+resume = "Currículum"
+dear = "Estimado"
+cover-letter = "Carta de Presentación"
+attached = "Adjunto"
+curriculum-vitae = "Currículum"
+sincerely = "Sinceramente"
+letter-position-pretext = "Solicitud de empleo para"
+
+[lang.fr]
+resume = "Curriculum Vitae"
+dear = "Cher/Chère"
+cover-letter = "Lettre de motivation"
+attached = "Ci-joint"
+curriculum-vitae = "Curriculum Vitae"
+sincerely = "Sincèrement"
+letter-position-pretext = "Demande d'emploi pour"
+
+[lang.ru]
+resume = "Резюме"
+dear = "Уважаемый"
+cover-letter = "Сопроводительное письмо"
+attached = "Прилагается"
+curriculum-vitae = "Биографическая справка"
+sincerely = "Искренне"
+letter-position-pretext = "Заявление о приеме на работу"
+
+[lang.zh]
+resume = "简历"
+dear = "亲爱的"
+cover-letter = "求职信"
+attached = "附件"
+curriculum-vitae = "简历"
+sincerely = "真诚的"
+letter-position-pretext = "職位申請"
+
+[lang.it]
+resume = "Curriculum"
+dear = "Egregio"
+cover-letter = "Lettera di presentazione"
+attached = "Allegato"
+curriculum-vitae = "Curriculum Vitae"
+sincerely = "Cordiali saluti"
+letter-position-pretext = "Domanda di lavoro per"
