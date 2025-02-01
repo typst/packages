@@ -1,0 +1,19 @@
+[package]
+name = "create-lattes-cv"
+version = "0.1.0"
+compiler = "0.12.0"
+entrypoint = "lib.typ"
+authors = ["philkleer (Philipp Kleer) <philipp.kleer@posteo.com>"]
+license = "MIT"
+description = "Creating a CV from your LATTES XML-file."
+keywords = ["CV", "Curriculum Vitae", "Lattes", "Brazil", "Resume", "Academics", "Professional"]
+categories = ["cv"]
+disciplines = []
+repository = "https://github.com/philkleer/create-lattes-cv"
+exclude = ["assets"]
+
+
+[template]
+path = "template"
+entrypoint = "example.typ"
+thumbnail = "assets/example1.png"
