@@ -13,5 +13,5 @@ exclude = ["examples", "makefile", "assets"]
 
 [template]
 path = "template"
-entrypoint = "page-bordering-example.typ"
+entrypoint = "page-bordering.typ"
 thumbnail = "assets/page-bordering-example-table-header-footer.png"
