@@ -74,7 +74,7 @@ The `#render-icon` function is the base function, which the other functions use.
 ```typst
 #render-icon(body,
   fill: rgb("#000000"),
-  icon_type: "outline",
+  icon-type: "outline",
   width: 1em,
   height: auto
 )
@@ -83,7 +83,7 @@ The `#render-icon` function is the base function, which the other functions use.
 **Example**
 
 ```typst
-#tbl.render-icon("flag", fill: red, icon_type: "filled", width: 5em, height: 3em)
+#tbl.render-icon("flag", fill: red, icon-type: "filled", width: 5em, height: 3em)
 ```
 
 <div align="center">

@@ -1,52 +1,39 @@
-
-#let PATH_ICONS = "./icons/"
-#let DEFAULT_BASELINE = 15%
+#import "@preview/based:0.2.0": base64
 
 // preload the icon lists
-#let _full_filled = read(PATH_ICONS + "tabler-filled.svg")
-#let _full_outlined = read(PATH_ICONS + "tabler-outline.svg")
+#let _json-filled = json("icons/tabler-filled.json")
+#let _json-outlined = json("icons/tabler-outline.json")
 
 
 /* -------------------------------------------------------------------------- */
 /*                              General Functions                             */
 /* -------------------------------------------------------------------------- */
 
-
-
 /// The base function used for the other functions to draw icons from Tabler.io
 ///
 /// - body (str): icon name
 /// - fill (color): color of the icon
-/// - icon_type (str): style type of the icon (either "filled" or "outline")
+/// - icon-type (str): style type of the icon (either "filled" or "outline")
 /// - width (length): width of the icon (icon is contained)
 /// - height (length): height of the icon (icon is contained)
 /// ->
-#let render-icon(body, fill: rgb("#000000"), icon_type: "outline", width: 1em, height: auto) = {
+#let render-icon(body, fill: rgb("#000000"), icon-type: "outline", width: 1em, height: auto) = {
   if (type(body) != str) {
     panic("'icon' not set")
   }
-  if ((icon_type != "filled") and (icon_type != "outline")) {
+  if ((icon-type != "filled") and (icon-type != "outline")) {
     panic("'icon' not set to either 'outline' or 'filled'")
   }
 
-  let result_svg = ""
-  if icon_type == "outline" {
-    result_svg = _full_outlined
-      .match(regex("<symbol.*id=\"" + body + "\".*</symbol>"))
-      .text
-      .replace("<symbol", "<svg")
-      .replace("/symbol>", "/svg>")
-      .replace("currentColor", color.to-hex(fill))
+  let result-svg = ""
+  if icon-type == "outline" {
+    result-svg = _json-outlined.at(body)
   } else {
-    result_svg = _full_filled
-      .match(regex("<symbol.*id=\"" + body + "\".*</symbol>"))
-      .text
-      .replace("<symbol", "<svg")
-      .replace("/symbol>", "/svg>")
-      .replace("currentColor", color.to-hex(fill))
+    result-svg = _json-filled.at(body)
   }
+
   image.decode(
-    result_svg,
+    str(base64.decode(result-svg)).replace("currentColor", color.to-hex(fill)),
     width: width,
     height: height,
     fit: "contain",
@@ -60,7 +47,6 @@
 /*                              Special Functions                             */
 /* -------------------------------------------------------------------------- */
 
-
 /// Renders the filled version of the given icon
 ///
 /// - body (str): icon name
@@ -69,7 +55,7 @@
 /// - height (length): height of the icon (icon is contained)
 /// -> the desired icon with the parameters applied
 #let filled(body, fill: rgb("#000000"), width: 1em, height: auto) = {
-  render-icon(body, fill: fill, icon_type: "filled", width: width, height: height)
+  render-icon(body, fill: fill, icon-type: "filled", width: width, height: height)
 }
 
 /// Renders the outlined version of the given icon
@@ -80,7 +66,7 @@
 /// - height (length): height of the icon (icon is contained)
 /// -> the desired icon with the parameters applied
 #let outlined(body, fill: rgb("#000000"), width: 1em, height: auto) = {
-  render-icon(body, fill: fill, icon_type: "outline", width: width, height: height)
+  render-icon(body, fill: fill, icon-type: "outline", width: width, height: height)
 }
 
 /// Renders the filled version of the given icon as an inline object
@@ -91,10 +77,10 @@
 /// - width (length): width of the icon (icon is contained)
 /// - height (length): height of the icon (icon is contained)
 /// -> the desired icon with the parameters applied
-#let inline-filled(body, baseline: DEFAULT_BASELINE, fill: rgb("#000000"), width: 1em, height: auto) = {
+#let inline-filled(body, baseline: 15%, fill: rgb("#000000"), width: 1em, height: auto) = {
   box(
     baseline: baseline,
-    render-icon(body, fill: fill, icon_type: "filled", width: width, height: height),
+    render-icon(body, fill: fill, icon-type: "filled", width: width, height: height),
   )
 }
 
@@ -107,10 +93,10 @@
 /// - width (length): width of the icon (icon is contained)
 /// - height (length): height of the icon (icon is contained)
 /// -> the desired icon with the parameters applied
-#let inline-outlined(body, baseline: DEFAULT_BASELINE, fill: rgb("#000000"), width: 1em, height: auto) = {
+#let inline-outlined(body, baseline: 15%, fill: rgb("#000000"), width: 1em, height: auto) = {
   box(
     baseline: baseline,
-    render-icon(body, fill: fill, icon_type: "outline", width: width, height: height),
+    render-icon(body, fill: fill, icon-type: "outline", width: width, height: height),
   )
 }
 

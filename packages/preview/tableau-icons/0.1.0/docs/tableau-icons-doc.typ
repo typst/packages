@@ -1,4 +1,3 @@
-//#import "@preview/tableau-icons:0.1.0" as tbl
 #import "../tableau-icons.typ" as tbl
 
 #let package-info = toml("../typst.toml")
@@ -531,7 +530,7 @@ For the use, I highly recommend to not _wildcard_ include the package (#raw(sym.
   ```typst
   #render-icon(body,
     fill: rgb("#000000"),
-    icon_type: "outline",
+    icon-type: "outline",
     width: 1em,
     height: auto
   )
@@ -541,7 +540,7 @@ For the use, I highly recommend to not _wildcard_ include the package (#raw(sym.
   === Example:
 
   ```typst
-  #tbl.render-icon("flag", fill: red, icon_type: "filled", width: 5em, height: 3em)
+  #tbl.render-icon("flag", fill: red, icon-type: "filled", width: 5em, height: 3em)
   ```
   #set align(center)
   #grid(
@@ -552,7 +551,7 @@ For the use, I highly recommend to not _wildcard_ include the package (#raw(sym.
     box(stroke: (paint: (black), dash: (2pt, 2pt), thickness: 0.5pt))[#tbl.render-icon(
         "flag",
         fill: red,
-        icon_type: "filled",
+        icon-type: "filled",
         width: 5em,
         height: 3em,
       )]
