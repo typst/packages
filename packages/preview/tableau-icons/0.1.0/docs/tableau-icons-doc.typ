@@ -1,4 +1,4 @@
-#import "../tableau-icons.typ" as tbl
+#import "@preview/tableau-icons:0.1.0" as tbl
 
 #let package-info = toml("../typst.toml")
 
