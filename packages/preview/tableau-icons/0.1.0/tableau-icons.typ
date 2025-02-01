@@ -21,7 +21,7 @@
 /// - width (length): width of the icon (icon is contained)
 /// - height (length): height of the icon (icon is contained)
 /// ->
-#let icon(body, fill: rgb("#000000"), icon_type: "outline", width: 1em, height: auto) = {
+#let render-icon(body, fill: rgb("#000000"), icon_type: "outline", width: 1em, height: auto) = {
   if (type(body) != str) {
     panic("'icon' not set")
   }
@@ -69,7 +69,7 @@
 /// - height (length): height of the icon (icon is contained)
 /// -> the desired icon with the parameters applied
 #let filled(body, fill: rgb("#000000"), width: 1em, height: auto) = {
-  icon(body, fill: fill, icon_type: "filled", width: width, height: height)
+  render-icon(body, fill: fill, icon_type: "filled", width: width, height: height)
 }
 
 /// Renders the outlined version of the given icon
@@ -80,7 +80,7 @@
 /// - height (length): height of the icon (icon is contained)
 /// -> the desired icon with the parameters applied
 #let outlined(body, fill: rgb("#000000"), width: 1em, height: auto) = {
-  icon(body, fill: fill, icon_type: "outline", width: width, height: height)
+  render-icon(body, fill: fill, icon_type: "outline", width: width, height: height)
 }
 
 /// Renders the filled version of the given icon as an inline object
@@ -94,7 +94,7 @@
 #let inline-filled(body, baseline: DEFAULT_BASELINE, fill: rgb("#000000"), width: 1em, height: auto) = {
   box(
     baseline: baseline,
-    icon(body, fill: fill, icon_type: "filled", width: width, height: height),
+    render-icon(body, fill: fill, icon_type: "filled", width: width, height: height),
   )
 }
 
@@ -110,7 +110,7 @@
 #let inline-outlined(body, baseline: DEFAULT_BASELINE, fill: rgb("#000000"), width: 1em, height: auto) = {
   box(
     baseline: baseline,
-    icon(body, fill: fill, icon_type: "outline", width: width, height: height),
+    render-icon(body, fill: fill, icon_type: "outline", width: width, height: height),
   )
 }
 
