@@ -76,8 +76,8 @@ import / setting script is shown below.
   expand: 15pt,
   space-top: 15pt,
   space-bottom: 15pt,
-  strokeHeader: none,
-  strokeFooter: none,
+  stroke-header: none,
+  stroke-footer: none,
   header: "",
   footer: "",
 )
@@ -91,7 +91,7 @@ import / setting script is shown below.
 
 You can define like `#let header = [element]`, `#let header = {calls}`.
 
-`strokeHeader` and `strokeFooter` is used to config stroke border around header/footer.
+`stroke-header` and `stroke-footer` is used to config stroke border around header/footer.
 
 `margin`, `space-top`, `space-bottom` and `expand` works like below.
 

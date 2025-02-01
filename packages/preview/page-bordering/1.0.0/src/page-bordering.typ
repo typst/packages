@@ -4,8 +4,8 @@
   expand: 15pt,
   space-top: 15pt,
   space-bottom: 15pt,
-  strokeHeader: none,
-  strokeFooter: none,
+  stroke-header: none,
+  stroke-footer: none,
   header: "",
   footer: "",
   body,
@@ -39,7 +39,7 @@
           width: 100%,
           height: 100%,
           inset: (left: insetL, right: insetR, bottom: 0pt, top: space-top),
-          stroke: strokeHeader,
+          stroke: stroke-header,
           outset: (left: -insetL, right: -insetR, top: -space-top),
         )[
           #header
@@ -49,7 +49,7 @@
           width: 100%,
           height: 100%,
           inset: (left: insetL, right: insetR, top: 0pt, bottom: space-bottom),
-          stroke: strokeFooter,
+          stroke: stroke-footer,
           outset: (left: -insetL, right: -insetR, bottom: -space-bottom),
         )[
           #footer
