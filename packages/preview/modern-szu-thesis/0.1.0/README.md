@@ -2,7 +2,7 @@
 
 深圳大学毕业论文（设计）的 Typst 模板，能够简洁、快速、持续生成 PDF 格式的毕业论文，这是基于[modern-nju-thesis](https://typst.app/universe/package/modern-nju-thesis)的深大本科生论文模板。
 
-*此模板非官方模板，有不被接受的可能性*
+**此模板非官方模板，有不被接受的可能性**
 
 # 优势
 typst

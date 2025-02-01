@@ -1,1 +1,1 @@
-#import "@preview/cuti:0.3.0": *
+#import "@preview/cuti:0.2.1": *

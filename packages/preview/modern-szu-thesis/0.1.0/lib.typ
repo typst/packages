@@ -2,7 +2,6 @@
 // Author: https://github.com/OrangeX4
 // Repo: https://github.com/nju-lug/modern-nju-thesis
 // 在线模板可能不会更新得很及时，如果需要最新版本，请关注 Repo
-// 暂时删去了研究生的部分
 
 #import "layouts/doc.typ": doc
 #import "layouts/preface.typ": preface
@@ -32,7 +31,7 @@
 
 // 使用函数闭包特性，通过 `documentclass` 函数类进行全局信息配置，然后暴露出拥有了全局配置的、具体的 `layouts` 和 `templates` 内部函数。
 #let documentclass(
-  doctype: "bachelor",  // "bachelor" | "master" | "doctor" | "postdoc"，文档类型，默认为本科生 bachelor//目前仅保留了本科生的部分
+  doctype: "bachelor",  // "bachelor" | "master" | "doctor" | "postdoc"，文档类型，默认为本科生 bachelor
   degree: "academic",  // "academic" | "professional"，学位类型，默认为学术型 academic
   nl-cover: false,  // TODO: 是否使用国家图书馆封面，默认关闭
   twoside: false,  // 双面模式，会加入空白页，便于打印
@@ -99,7 +98,7 @@
         ..args,
       )
     },
-    mainmatter: (..args) => {//
+    mainmatter: (..args) => {
       if doctype == "master" or doctype == "doctor" {
         mainmatter(
           twoside: twoside,
@@ -115,7 +114,6 @@
         )
       }
     },
-    
     appendix: (..args) => {
       appendix(
         ..args,
@@ -178,7 +176,7 @@
         )
       }
     },
-    
+
     // 中文摘要页，通过 type 分发到不同函数
     abstract: (..args) => {
       if doctype == "master" or doctype == "doctor" {

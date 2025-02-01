@@ -16,8 +16,8 @@
   outline-title: "中文摘要",
   outlined: false,
   anonymous-info-keys: ("author", "supervisor", "supervisor-ii"),
-  leading: 1em,
-  spacing: 0.5em,
+  leading: 1.28em,
+  spacing: 1.28em,
   body,
 ) = {
   // 1.  默认参数
@@ -47,9 +47,9 @@
   pagebreak(weak: true, to: if twoside { "odd" })
 
   [
-    #set text(font: fonts.楷体, size: 字号.五号)
+    #set text(font: fonts.楷体, size: 字号.小四)
     #set par(leading: leading, justify: true)
-    //#show par: set block(spacing: spacing)
+
 
     // 标记一个不可见的标题用于目录生成
     #invisible-heading(level: 1, outlined: outlined, outline-title)
@@ -64,15 +64,15 @@
 
     #fakebold[题目：]#info-value("title", (("",)+ info.title).sum())
 
-    #fakebold(font: fonts.楷体, size: 字号.小四)[院系：]#info-value("department", info.department)
+    #fakebold[院系：]#info-value("department", info.department)
 
-    #fakebold(font: fonts.楷体, size: 字号.小四)[专业：]#info-value("major", info.major)
+    #fakebold[专业：]#info-value("major", info.major)
 
-    #fakebold(font: fonts.楷体, size: 字号.小四)[本科生姓名：]#info-value("author", info.author)
+    #fakebold[本科生姓名：]#info-value("author", info.author)
 
-    #fakebold(font: fonts.楷体, size: 字号.小四)[指导教师（姓名、职称）：]#info-value("supervisor", info.supervisor.at(0) + info.supervisor.at(1)) #(if info.supervisor-ii != () [#h(1em) #info-value("supervisor-ii", info.supervisor-ii.at(0) + info.supervisor-ii.at(1))])
+    #fakebold[指导教师（姓名、职称）：]#info-value("supervisor", info.supervisor.at(0) + info.supervisor.at(1)) #(if info.supervisor-ii != () [#h(1em) #info-value("supervisor-ii", info.supervisor-ii.at(0) + info.supervisor-ii.at(1))])
 
-    #fakebold(font: fonts.楷体, size: 字号.小四)[【摘要】：]
+    #fakebold[摘要：]
 
     #[
       #set par(first-line-indent: 2em)
@@ -84,6 +84,6 @@
 
     #v(1em)
 
-    #fakebold(font: fonts.楷体, size: 字号.小四)[【关键词】：]#(("",)+ keywords.intersperse("；")).sum()
+    #fakebold[关键词：]#(("",)+ keywords.intersperse("；")).sum()
   ]
 }

@@ -49,7 +49,7 @@
 
     #set text(font: fonts.楷体, size: 字号.五号)
     #set par(leading: leading, justify: true,first-line-indent: 0em)
-    //#show par: set block(spacing: spacing)
+    
 
     // 标记一个不可见的标题用于目录生成
     #invisible-heading(level: 1, outlined: outlined, outline-title)

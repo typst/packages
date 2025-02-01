@@ -1,6 +1,6 @@
 // 双下划线
-#let double-underline(body) = styles(styles => {
-  let size = measure(body, styles)
+#let double-underline(body) = context({
+  let size = measure(body)
   stack(
     body,
     v(3pt),

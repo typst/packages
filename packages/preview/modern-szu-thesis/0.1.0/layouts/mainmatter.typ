@@ -1,4 +1,3 @@
-#import "@preview/anti-matter:0.0.2": anti-front-end
 #import "@preview/i-figured:0.2.4"
 #import "../utils/style.typ": 字号, 字体
 #import "../utils/custom-numbering.typ": custom-numbering
@@ -11,16 +10,16 @@
   twoside: false,
   fonts: (:),
   // 其他参数
-  leading: 1em,
-  spacing: 0.5em,
+  leading: 1.5 * 15.6pt - 0.7em,
+  spacing: 1.5 * 15.6pt - 0.7em,
   justify: true,
   first-line-indent: 2em,
-  numbering: custom-numbering.with(first-level: "1",depth: 4, "1.1 "),
+  numbering: custom-numbering.with(first-level: "1. ", depth: 4, "1.1 "),
   // 正文字体与字号参数
   text-args: auto,
   // 标题字体与字号
   heading-font: auto,
-  heading-size: (字号.三号,字号.小三,字号.四号,字号.小四),
+  heading-size: (字号.四号,),
   heading-weight: ("regular",),
   heading-above: (2 * 15.6pt - 0.7em, 2 * 15.6pt - 0.7em),
   heading-below: (2 * 15.6pt - 0.7em, 1.5 * 15.6pt - 0.7em),
@@ -51,11 +50,11 @@
   // 1.  默认参数
   fonts = 字体 + fonts
   if (text-args == auto) {
-    text-args = (font: fonts.宋体, size: 字号.五号)
+    text-args = (font: fonts.宋体, size: 字号.小四)
   }
   // 1.1 字体与字号
   if (heading-font == auto) {
-    heading-font = (fonts.黑体,fonts.黑体,fonts.黑体,fonts.黑体)
+    heading-font = (fonts.黑体,)
   }
   // 1.2 处理 heading- 开头的其他参数
   let heading-text-args-lists = args.named().pairs()
@@ -75,7 +74,7 @@
     justify: justify,
     first-line-indent: first-line-indent
   )
-  //show par: set block(spacing: spacing)
+  show par: set block(spacing: spacing)
   show raw: set text(font: fonts.等宽)
   // 3.2 脚注样式
   show footnote.entry: set text(font: fonts.宋体, size: 字号.五号)
@@ -90,7 +89,7 @@
   ): set figure.caption(position: top)
   set figure.caption(separator: separator)
   show figure.caption: caption-style
-  show figure.caption: set text(font: fonts.宋体, size: 字号.小五,)
+  show figure.caption: set text(font: fonts.宋体, size: 字号.五号)
   // 3.6 优化列表显示
   //     术语列表 terms 不应该缩进
   show terms: set par(first-line-indent: 0pt)
@@ -116,7 +115,6 @@
   }
   // 4.3 标题居中与自动换页
   show heading: it => {
-    
     if (array-at(heading-pagebreak, it.level)) {
       // 如果打上了 no-auto-pagebreak 标签，则不自动换页
       if ("label" not in it.fields() or str(it.label) != "no-auto-pagebreak") {
@@ -131,7 +129,8 @@
     }
   }
 
-    set page(..(if display-header {
+  // 5.  处理页眉
+  set page(..(if display-header {
     (
       header: context {
         // 重置 footnote 计数器
@@ -172,5 +171,6 @@
   }))
 
   counter(page).update(1)
+
   it
 }

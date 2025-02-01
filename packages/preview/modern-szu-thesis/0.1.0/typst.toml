@@ -4,11 +4,10 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["yjdyamv"]
 license = "MIT"
-description = "由南大的论文模板修改得到的深圳大学模板。Modern Shenzhen University Thesis."
-keywords = ["thesis"]
+description = "深圳大学学位论文模板由南京大学学位论文模板修改而成。Modern Shenzhen University Thesis is modified from modern-nju-thesis."
+keywords = ["Shenzhen University", "thesis"]
 categories = ["thesis"]
 exclude = ["imgs"]
-repository = "https://github.com/yjdyamv/mordern-szu-thesis"
 
 [template]
 path = "template"
