@@ -1,4 +1,5 @@
-#import "@preview/tableau-icons:0.1.0" as tbl
+//#import "@preview/tableau-icons:0.1.0" as tbl
+#import "../tableau-icons.typ" as tbl
 
 #let package-info = toml("../typst.toml")
 
@@ -526,9 +527,9 @@ For the use, I highly recommend to not _wildcard_ include the package (#raw(sym.
 
 #columns(2)[
   == General Function
-  The `#icon` function is the base function, which the other functions use. It can be directly called.
+  The `#render-icon` function is the base function, which the other functions use. It can be directly called.
   ```typst
-  #icon(body,
+  #render-icon(body,
     fill: rgb("#000000"),
     icon_type: "outline",
     width: 1em,
@@ -540,7 +541,7 @@ For the use, I highly recommend to not _wildcard_ include the package (#raw(sym.
   === Example:
 
   ```typst
-  #tbl.icon("flag", fill: red, icon_type: "filled", width: 5em, height: 3em)
+  #tbl.render-icon("flag", fill: red, icon_type: "filled", width: 5em, height: 3em)
   ```
   #set align(center)
   #grid(
@@ -548,7 +549,7 @@ For the use, I highly recommend to not _wildcard_ include the package (#raw(sym.
     [],
     grid.cell(inset: (bottom: 2pt), align: center + horizon)[`5em`],
     grid.cell(align: center + horizon)[#rotate(-90deg, `3em`)],
-    box(stroke: (paint: (black), dash: (2pt, 2pt), thickness: 0.5pt))[#tbl.icon(
+    box(stroke: (paint: (black), dash: (2pt, 2pt), thickness: 0.5pt))[#tbl.render-icon(
         "flag",
         fill: red,
         icon_type: "filled",
@@ -585,7 +586,7 @@ $ python ./generate_svg_spritesheets.py
 
 - initial version
 - added Tabler Icons version v3.29.0
-- added #raw("#filled()", lang: "typst"), #raw("#outlined()", lang: "typst"), #raw("#inline-filled()", lang: "typst"), #raw("#inline-outlined()", lang: "typst"), #raw("#icon()", lang: "typst")
+- added #raw("#filled()", lang: "typst"), #raw("#outlined()", lang: "typst"), #raw("#inline-filled()", lang: "typst"), #raw("#inline-outlined()", lang: "typst"), #raw("#render-icon()", lang: "typst")
 
 #v(1cm)
 #line(length: 30%)

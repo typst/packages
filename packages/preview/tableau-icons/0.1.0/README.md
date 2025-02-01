@@ -69,10 +69,10 @@ It's time to set a flag right here #tbl.inline-filled("flag", fill: red, width: 
 
 ### General Function
 
-The `#icon` function is the base function, which the other functions use. It can be directly called.
+The `#render-icon` function is the base function, which the other functions use. It can be directly called.
 
 ```typst
-#icon(body,
+#render-icon(body,
   fill: rgb("#000000"),
   icon_type: "outline",
   width: 1em,
@@ -83,7 +83,7 @@ The `#icon` function is the base function, which the other functions use. It can
 **Example**
 
 ```typst
-#tbl.icon("flag", fill: red, icon_type: "filled", width: 5em, height: 3em)
+#tbl.render-icon("flag", fill: red, icon_type: "filled", width: 5em, height: 3em)
 ```
 
 <div align="center">
@@ -98,4 +98,4 @@ Read the same chapter in the pdf-version at [/docs/tableau-icons-doc.pdf](./docs
 - **v0.1.0**
   - initial version
   - added Tabler Icons version v3.29.0
-  - added `#filled()`, `#outlined()`, `#inline-filled()`, `#inline-outlined()`, `#icon()`
+  - added `#filled()`, `#outlined()`, `#inline-filled()`, `#inline-outlined()`, `#render-icon()`
