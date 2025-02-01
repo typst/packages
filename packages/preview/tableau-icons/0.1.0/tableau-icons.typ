@@ -3,8 +3,8 @@
 #let DEFAULT_BASELINE = 15%
 
 // preload the icon lists
-#let full_filled = read(PATH_ICONS + "tabler-filled.svg")
-#let full_outlined = read(PATH_ICONS + "tabler-outline.svg")
+#let _full_filled = read(PATH_ICONS + "tabler-filled.svg")
+#let _full_outlined = read(PATH_ICONS + "tabler-outline.svg")
 
 
 /* -------------------------------------------------------------------------- */
@@ -31,14 +31,14 @@
 
   let result_svg = ""
   if icon_type == "outline" {
-    result_svg = full_outlined
+    result_svg = _full_outlined
       .match(regex("<symbol.*id=\"" + body + "\".*</symbol>"))
       .text
       .replace("<symbol", "<svg")
       .replace("/symbol>", "/svg>")
       .replace("currentColor", color.to-hex(fill))
   } else {
-    result_svg = full_filled
+    result_svg = _full_filled
       .match(regex("<symbol.*id=\"" + body + "\".*</symbol>"))
       .text
       .replace("<symbol", "<svg")
