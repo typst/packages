@@ -7,5 +7,5 @@ license = "MIT"
 description = "Tabler.io Icons for Typst"
 repository = "https://github.com/joelvonrotz/tableau-icons"
 keywords = ["icon", "github", "tabler icons"]
-category = ["text"]
+categories = ["text"]
 exclude = ["docs","tools"]
