@@ -2,7 +2,7 @@
 name = "create-lattes-cv"
 version = "0.1.0"
 compiler = "0.12.0"
-entrypoint = "lib.typ"
+entrypoint = "src/lib.typ"
 authors = ["philkleer (Philipp Kleer) <philipp.kleer@posteo.com>"]
 license = "MIT"
 description = "Creating a CV from your LATTES XML-file."
