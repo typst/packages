@@ -1,6 +1,5 @@
 // import of libraries
-// #import "@preview/create-lattes-cv:0.1.0": *
-#import "../src/lib.typ": *
+#import "@preview/create-lattes-cv:0.1.0": *
 #import "@preview/datify:0.1.3": *
 
 // função: criar Lattes CV

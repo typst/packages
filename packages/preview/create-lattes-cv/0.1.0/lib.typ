@@ -1,5 +1,5 @@
 #import "@preview/datify:0.1.3": *
-#import "import.typ": *
+#import "src/import.typ": *
 
 // Função lattes_cv: criar o PDF com os dados de lattes
 // Arguments:
