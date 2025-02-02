@@ -41,12 +41,23 @@ Style :
 
   // Pre-set
 
-  set table(
+   set table(
     inset: 10pt,
-    stroke: 0.5pt + text.fill,
+    stroke: 0.5pt + text.fill.lighten(20%),
+    align: center + horizon,
+    fill: (x, y) => if (x == 0) or (y == 0) { text.fill.lighten(90%) },
+  )
+ 
+
+/*
+set table(
+    inset: 10pt,
+    stroke: 0.5pt,
     align: center + horizon,
     fill: (x, y) => if (x == 0) or (y == 0) { gray.lighten(75%) },
-  )
+)
+*/
+ 
 
   set grid(column-gutter: 10pt, align: horizon)
 

@@ -21,14 +21,14 @@
             text(
               size: 2.5em,
               sc[
-                Table des matières
+                *Table des matières*
               ],
             )
           } else {
             text(
               size: 2.5em,
               sc[
-                Table of content
+                *Table of content*
               ],
             )
           }

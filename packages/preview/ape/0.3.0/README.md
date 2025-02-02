@@ -43,7 +43,7 @@ This Typst package provides a comprehensive set of tools for structuring and sty
 
 * Starting a new document
 ```typst
-#import "@preview/ape:0.1.0": *
+#import "@preview/ape:0.3.0": *
 
 #show: doc.with(
   lang: "en",
@@ -62,6 +62,7 @@ This Typst package provides a comprehensive set of tools for structuring and sty
   - Numbered
   - Plain
   - Colored
+  - Presentation
 
 
 

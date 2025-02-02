@@ -1,6 +1,6 @@
 #import "../../tools/miscellaneous.typ": content-to-string
 #let colored(content) = {
-  set text(12pt, fill: blue.darken(40%))
+  set text(12pt, fill: blue.darken(50%))
 
 
   show heading: it => {
@@ -25,6 +25,7 @@
           ),
         ),
       )
+      #v(7pt)
     ]
   }
 

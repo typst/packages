@@ -15,7 +15,7 @@
     align(
       center + horizon,
       [
-        #par(leading: 8pt, text(
+        #par(leading: 0.24em, text(
           hyphenate: false,
           {
             if type(title) == "string" {

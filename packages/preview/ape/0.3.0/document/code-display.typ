@@ -1,14 +1,13 @@
-#import "../tools/miscellaneous.typ" : content-to-string
+#import "../tools/miscellaneous.typ": content-to-string
 
 #let code-display(content) = {
   // Code
 
   show raw: it => context {
-    
     if ("py", "python", "ocaml", "ml").contains(it.lang) {
       let breakableVar = false
       let lines = (..it.lines,)
-  
+
       while lines.len() > 0 and content-to-string(lines.first()).trim() == "" {
         lines.remove(0)
       }
@@ -17,36 +16,37 @@
       }
 
       if (it.lines.len() >= 15) {
-        breakableVar = true
-      }
-     
-        block(
-          clip: true,
-          radius: 10pt,
-          stroke: gray.darken(20%) + 1pt,
-          align(
-            center,
-            block(
-              breakable: breakableVar,
-              grid(
-                columns: (measure([#lines.len()]).width + 10pt, 20fr),
-                column-gutter: 0pt,
-                inset: ((left: 5pt, right: 5pt, rest: 3pt), (left: 10pt, rest: 3pt)),
-                align: (horizon + left, left),
-                fill: (gray.lighten(50%), gray.lighten(75%)),
-                [],
-                [],
-                ..for i in range(lines.len()) {
-                  let l = lines.at(i)
-                  (str(i + 1), l.body)
-                },
-                [],
-                [],
-              ),
+            breakableVar = true
+      } 
+
+      
+
+      block(
+        clip: true,
+        radius: calc.min(9pt, 4pt + 2pt * lines.len()),
+        stroke: text.fill.lighten(20%) + 0.7pt,
+        align(
+          center,
+          block(
+            breakable: breakableVar,
+            grid(
+              columns: (measure([#lines.len()]).width + 10pt, 20fr),
+              column-gutter: 0pt,
+              inset: ((left: 5pt, right: 5pt, rest: 3pt), (left: 10pt, rest: 3pt)),
+              align: (horizon + left, left),
+              fill: (text.fill.lighten(75%), text.fill.lighten(88%)),
+              [],
+              [],
+              ..for i in range(lines.len()) {
+                let l = lines.at(i)
+                (str(i + 1), l.body)
+              },
+              [],
+              [],
             ),
           ),
-        )
-       
+        ),
+      )
     } else {
       it
     }
