@@ -16,7 +16,6 @@
         [= Formação academica/titulação <formacao>]
 
         // loop pelas keys em dictionary e imprimir todas vagas
-        // TODO: check if necessary
         if type(formacao) == dictionary {
             for key in formacao.keys().rev() {
                 // criando banco de dados

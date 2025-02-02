@@ -385,7 +385,6 @@
         // para graduação
         let graduacao_concluidas = 0
         
-        // TODO: não tenho certeza sobre o key
         if "OUTRAS-ORIENTACOES-CONCLUIDAS" in concluidas.keys() {
             graduacao_concluidas = concluidas.OUTRAS-ORIENTACOES-CONCLUIDAS.len()
         }
@@ -442,7 +441,6 @@
             create-cols([#link(<orientacao_concluida_mestrado_coorientador>)[Orientação concluída (dissertação de mestrado - co-orientador) #box(width: 1fr, repeat[.])]], [#mestrado_concluidas_coorientador], "lastpage")
         }
 
-        //TODO: não tenho certeza sobre o key que usei acima, provavelmente dê erro
         // criando campo se o comprimento for maior que 0 (graduação)
         if graduacao_concluidas > 0 { 
             create-cols([#link(<orientacao_concluida_graduacao>)[Orientação concluída (trabalho de conclusão de curso de graduação) #box(width: 1fr, repeat[.])]], [#graduacao_concluidas], "lastpage")
@@ -510,7 +508,6 @@
                     } else if event == "OUTRAS-PARTICIPACOES-EM-EVENTOS-CONGRESSOS" { 
                         num_outras = subset.len()
                     }
-                // TODO: não tenho certeza sobre isso
                 } else if type(subset) == dictionary {
                     if event.at(1).NATUREZA == "Congresso" { 
                         num_congressos = 1

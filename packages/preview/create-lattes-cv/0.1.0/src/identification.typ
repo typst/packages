@@ -37,19 +37,26 @@
 
     // criando endereço (depende de FLAG)
     let endereco = []
+    
     if identificacao.ENDERECO.FLAG-DE-PREFERENCIA == "ENDERECO_RESIDENCIAL" {
+        // corrigindo formato de CEP
+        let cep = identificacao.ENDERECO.ENDERECO-RESIDENCIAL.CEP
+        cep = cep.slice(0, 5) + "-" + cep.slice(5)
         endereco = [
             #identificacao.ENDERECO.ENDERECO-RESIDENCIAL.LOGRADOURO,
             #identificacao.ENDERECO.ENDERECO-RESIDENCIAL.BAIRRO - #identificacao.ENDERECO.ENDERECO-RESIDENCIAL.CIDADE,
-            #identificacao.ENDERECO.ENDERECO-RESIDENCIAL.CEP
+            #cep
         ]
     } else if identificacao.ENDERECO.FLAG-DE-PREFERENCIA == "ENDERECO_PROFISSIONAL" {
+        // corrigindo formato de CEP
+        let cep = identificacao.ENDERECO.ENDERECO-PROFISSIONAL.CEP
+        cep = cep.slice(0, 5) + "-" + cep.slice(5)
         endereco = [
             #identificacao.ENDERECO.ENDERECO-PROFISSIONAL.NOME-INSTITUICAO-EMPRESA, #identificacao.ENDERECO.ENDERECO-PROFISSIONAL.NOME-ORGAO, #identificacao.ENDERECO.ENDERECO-PROFISSIONAL.NOME-UNIDADE
 
             #identificacao.ENDERECO.ENDERECO-PROFISSIONAL.LOGRADOURO,
             #identificacao.ENDERECO.ENDERECO-PROFISSIONAL.BAIRRO - #identificacao.ENDERECO.ENDERECO-PROFISSIONAL.CIDADE,
-            #identificacao.ENDERECO.ENDERECO-PROFISSIONAL.CEP
+            #cep
 
             #identificacao.ENDERECO.ENDERECO-PROFISSIONAL.HOME-PAGE
         ]

@@ -147,7 +147,11 @@
         if dados_ensino.FLAG-PERIODO == "ATUAL" {
             tempo_content = [#dados_ensino.MES-INICIO/#dados_ensino.ANO-INICIO - atual]
         } else {
-            tempo_content = [#dados_ensino.MES-INICIO/#dados_ensino.ANO-INICIO - #dados_ensino.MES-FIM/#dados_ensino.ANO-FIM]
+            if dados_ensino.ANO-FIM == dados_ensino.ANO-INICIO and dados_ensino.MES-FIM == dados_ensino.MES-INICIO {
+                tempo_content = [#dados_ensino.MES-INICIO/#dados_ensino.ANO-INICIO]
+            } else {
+                tempo_content = [#dados_ensino.MES-INICIO/#dados_ensino.ANO-INICIO - #dados_ensino.MES-FIM/#dados_ensino.ANO-FIM]
+            }
         }
 
         // criando nível
@@ -190,7 +194,11 @@
             if curso.FLAG-PERIODO == "ATUAL" {
                 tempo_content = [#curso.MES-INICIO/#curso.ANO-INICIO - atual]
             } else {
-                tempo_content = [#curso.MES-INICIO/#curso.ANO-INICIO - #curso.MES-FIM/#curso.ANO-FIM]
+                if curso.ANO-FIM == curso.ANO-INICIO and curso.MES-FIM == curso.MES-INICIO {
+                    tempo_content = [#curso.MES-INICIO/#curso.ANO-INICIO]
+                } else {
+                    tempo_content = [#curso.MES-INICIO/#curso.ANO-INICIO - #curso.MES-FIM/#curso.ANO-FIM]
+                }
             }
             
             // criando nível
@@ -286,7 +294,6 @@
         entry => entry.SEQUENCIA-IMPORTANCIA != ""
     )
 
-    // TODO: necessário de ordenar
     // tem dois tipos (array e dictionary)
     // processo para ordenar correto
     let helper_array = ()

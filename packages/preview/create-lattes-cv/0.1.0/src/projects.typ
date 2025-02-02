@@ -102,7 +102,6 @@
                 entry => entry.at("PROJETO-DE-PESQUISA").NATUREZA == "DESENVOLVIMENTO_TECNOLOGICA"
             )
 
-            // TODO: não tenho certeza sobre o key
             // criando array para extensão
             projetos_extensao = projetos.filter(
                 entry => entry.at("PROJETO-DE-PESQUISA").NATUREZA == "EXTENSAO"

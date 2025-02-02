@@ -136,8 +136,4 @@
         create-ct-area(congressos, eu, "Apresentação de trabalho e palestra")
     }
 
-    // TODO: HERE ADJUST LINEBREAK!
-    // linebreak()
-
-    // line(length: 100%)
-}
+ }

@@ -89,7 +89,6 @@
 }
 
 // Função create-organization-events(): Cria entradas eventos
-// TODO: até agora somente participação em eventos
 // Argumento:
 //  - dados_organizacao: sub-banco de dados para organização nos eventos
 #let create-organization-events(dados_organizacao, eu) = {

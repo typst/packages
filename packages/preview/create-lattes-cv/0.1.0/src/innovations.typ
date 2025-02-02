@@ -170,7 +170,6 @@
         }
 
         // Projetos primeiro
-        // TODO: there need to be the rest of it
         if proj_pesquisa.len() > 0 or proj_tecnico.len() > 0 or proj_extensao.len() > 0 or proj_ensino.len() > 0 {
             [= Inovação]
             [== Projetos <projetos_inovacao>] 
