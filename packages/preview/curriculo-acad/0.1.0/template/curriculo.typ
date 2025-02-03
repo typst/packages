@@ -4,7 +4,7 @@
 
 
 // criando banco de dados
-#let dados = toml(data/exemplo.toml)
+#let dados = toml("data/exemplo.toml")
 
 // função: criar Lattes CV
 // Argumentos:
