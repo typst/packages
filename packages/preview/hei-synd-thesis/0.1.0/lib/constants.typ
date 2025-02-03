@@ -22,7 +22,7 @@
 #let large-p   = large+5pt
 #let larger-p  = larger+5pt
 #let huge-p    = huge+5pt
-#let huger_p   = huger+5pt
+#let huger-p   = huger+5pt
 
 // fontsizes++
 #let tinyer-pp  = tinyer+10pt
@@ -33,7 +33,7 @@
 #let large-pp   = large+10pt
 #let larger-pp  = larger+10pt
 #let huge-pp    = huge+10pt
-#let huger_pp   = huger+10pt
+#let huger-pp   = huger+10pt
 
 // Colors
 #let box-border      = rgb("#252525")
