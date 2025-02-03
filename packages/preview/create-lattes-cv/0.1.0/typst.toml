@@ -1,11 +1,11 @@
 [package]
-name = "create-lattes-cv"
+name = "curriculo-acad"
 version = "0.1.0"
 compiler = "0.12.0"
 entrypoint = "src/lib.typ"
 authors = ["philkleer (Philipp Kleer) <philipp.kleer@posteo.com>"]
 license = "MIT"
-description = "Creating a CV from your LATTES XML-file."
+description = "Creating a CV from your LATTES entries."
 keywords = ["CV", "Curriculum Vitae", "Lattes", "Brazil", "Resume", "Academics", "Professional"]
 categories = ["cv"]
 disciplines = []

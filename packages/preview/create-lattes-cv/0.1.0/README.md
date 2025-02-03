@@ -1,4 +1,4 @@
-# create-lattes-cv
+# curriculo-acad
 
 # 👷🏼‍♀️ ⚠ Ainda em construção, não está pronto para todos os tipos de entradas.
 
