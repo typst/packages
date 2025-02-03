@@ -14,9 +14,9 @@ For the use, I highly recommend to not wildcard include the package (`...0.1.0":
 
 ```typst
 #import "@preview/tableau-icons:0.1.0" as tbl
+
+#tbl.draw-icon("hammer", fill: blue) //..args is for #box 
 ```
-
-
 
 ## Changelog
 - **v0.1.0**
