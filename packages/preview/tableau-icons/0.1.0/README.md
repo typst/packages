@@ -22,4 +22,4 @@ For the use, I highly recommend to not wildcard include the package (`...0.1.0":
 - **v0.1.0**
   - initial version
   - added Tabler Icons version v3.29.0
-  - added `#filled()`, `#outlined()`, `#inline-filled()`, `#inline-outlined()`, `#render-icon()`
+  - added `#draw-icon()`
