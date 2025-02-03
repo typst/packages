@@ -15,5 +15,5 @@ exclude = ["assets"]
 
 [template]
 path = "template"
-entrypoint = "example.typ"
+entrypoint = "curriculo.typ"
 thumbnail = "assets/pagina-1.png"
