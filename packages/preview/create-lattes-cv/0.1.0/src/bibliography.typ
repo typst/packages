@@ -267,14 +267,14 @@
     let i = dados_capitulos.len()
 
     for entrada in dados_capitulos {  
-        // sorting
-        entrada = entrada.sorted(
-            key: (item) => (item.DADOS-BASICOS-DO-CAPITULO.ANO, item.DADOS-BASICOS-DO-CAPITULO.TITULO-DO-CAPITULO-DO-LIVRO)
-        ).rev()
-
         if type(entrada) == array {
             
             let i = entrada.len()
+            
+            // sorting
+            entrada = entrada.sorted(
+                key: (item) => (item.DADOS-BASICOS-DO-CAPITULO.ANO, item.DADOS-BASICOS-DO-CAPITULO.TITULO-DO-CAPITULO-DO-LIVRO)
+            ).rev()
 
             // loop para entradas
             for book in entrada {
