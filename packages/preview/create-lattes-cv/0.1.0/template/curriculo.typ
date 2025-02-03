@@ -8,13 +8,13 @@
 
 // função: criar Lattes CV
 // Argumentos:
-// - database: o arquivo de TOML com os dados de Lattes (string)
+// - dados: o objeto de dados (criado acima)
 // - kind: o tipo de currículo Lattes (string)
 // - me: o nome para destacar nas citações (string)
-// - last_page: resumo de produção no final (boolean)
+// - last-page: resumo de produção no final (boolean)
 #show: lattes-cv.with(
-  database: dados,
+  dados,
   kind: "completo",
   me: "KLEER",
-  last_page: true
+  last-page: true
 )   

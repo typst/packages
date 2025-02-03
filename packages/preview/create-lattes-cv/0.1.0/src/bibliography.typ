@@ -3,19 +3,19 @@
 // Função create-technicals(): Cria área de produções técnicos (usado em create-bibliography)
 // TODO: Até agora somente categoria "demais produções técnicos" (relatório de pesquisa, material didático, cursos de curta duração ministrado)
 // Argumentos:
-//  - dados_tecnicos: subset do banco de dados com só técnios
+//  - dados-tecnicos: subset do banco de dados com só técnios
 //  - me: nome para destacar nas entradas
-//  - tipo_lattes: tipo de currículo Lattes
-#let create-technicals(dados_tecnicos, eu, tipo_lattes) = {
+//  - tipo-lattes: tipo de currículo Lattes
+#let create-technicals(dados-tecnicos, eu, tipo-lattes) = {
     [== Produção técnica <producao_tecnica>]
     
     [=== Demais produções técnicas <producao_tecnica_demais>]
 
     // #all
-    let i = dados_tecnicos.len()
+    let i = dados-tecnicos.len()
 
     // Then i loop into arrays
-    for entrada in dados_tecnicos.rev() {
+    for entrada in dados-tecnicos.rev() {
         // criando variáveis
         let autores = ()
         let palavras_chave = ()
@@ -125,7 +125,7 @@
 
         // criando o conteúdo
         let descricao_content = []
-        if tipo_lattes == "completo" {
+        if tipo-lattes == "completo" {
             descricao_content = [#autores #titulo. #ano (#emph(tipo)). #url_link#linebreak()#palavras_content #areas_content]
         } else {
             descricao_content = [#autores #titulo. #ano (#tipo). #url_link]
@@ -141,16 +141,16 @@
 
 // Função create-presentations: Cria produções bibliograficos: apresentacoes (usado em create-bibliography())
 // Argumentos:
-//  - dados_apresentacoes: subset do banco de dados com só apresentações
+//  - dados-apresentacoes: subset do banco de dados com só apresentações
 //  - me: nome para destacar nas entradas
-#let create-presentations(dados_apresentacoes, eu) = {
+#let create-presentations(dados-apresentacoes, eu) = {
 
     [=== Apresentação de trabalho e palestra <producao_apresentacoes>]
 
     // criando número para ordem
-    let i = dados_apresentacoes.len() + 1
+    let i = dados-apresentacoes.len() + 1
     // loop nas entradas de apresentacoes
-    for entrada in dados_apresentacoes.rev() {
+    for entrada in dados-apresentacoes.rev() {
         let palavras_chave = ()
         let conhecimento = ()
         let resumo = ""
@@ -256,17 +256,17 @@
 
 // Função create-chapters(): Cria produções bibliograficos: capitulos (usado em create-bibliography())
 // Argumentos:
-//  - dados_capitulos: subset do banco de dados com só capitulos
+//  - dados-capitulos: subset do banco de dados com só capitulos
 //  - me: nome para destacar nas entradas
-//  - tipo_lattes: tipo de currículo lattes
-#let create-chapters(dados_capitulos, eu, tipo_lattes) = {
+//  - tipo-lattes: tipo de currículo lattes
+#let create-chapters(dados-capitulos, eu, tipo-lattes) = {
 
     [=== Capitulos de livros publicados <publicacao_capitulos>]
 
     // criando número para ordem
-    let i = dados_capitulos.len()
+    let i = dados-capitulos.len()
 
-    for entrada in dados_capitulos {  
+    for entrada in dados-capitulos {  
         if type(entrada) == array {
             
             let i = entrada.len()
@@ -423,7 +423,7 @@
 
                 // criando conteúdo 
                 let descricao_content = []
-                if tipo_lattes == "completo" {
+                if tipo-lattes == "completo" {
                     descricao_content = [#citacao #palavras_content #areas_content]
                 } else {
                     descricao_content = [#citacao]
@@ -582,7 +582,7 @@
 
             // criando conteúdo 
             let descricao_content = []
-            if tipo_lattes == "completo" {
+            if tipo-lattes == "completo" {
                 descricao_content = [#citacao #palavras_content #areas_content]
             } else {
                 descricao_content = [#citacao]
@@ -598,18 +598,18 @@
 
 // Função create-books(): cria a área de produções bibliográficas - livros (usado em create-bibliography())
 // Argumentos:
-//  - dados_livros: subset do banco de dados com só livros
+//  - dados-livros: subset do banco de dados com só livros
 //  - me: nome para destacar nas entradas
-//  - tipo_lattes: tipo de currículo lattes
-#let create-books(dados_livros, eu, tipo_lattes) = {
+//  - tipo-lattes: tipo de currículo lattes
+#let create-books(dados-livros, eu, tipo-lattes) = {
     
     // criando cabeçalha
     [=== Livros publicados <publicacao_livros>]
     
     // criando número para ordem
-    let i = dados_livros.len()
+    let i = dados-livros.len()
 
-    for entrada in dados_livros {
+    for entrada in dados-livros {
         if type(entrada) == array {
             
             entrada = entrada.sorted(
@@ -714,7 +714,7 @@
 
                 // criando descricao
                 let descricao_content = []
-                if tipo_lattes == "completo" {
+                if tipo-lattes == "completo" {
                     descricao_content = [#citacao #palavras_content #areas_content]
                 } else {
                     descricao_content = [#citacao]
@@ -824,7 +824,7 @@
 
             // criando descricao
             let descricao_content = []
-            if tipo_lattes == "completo" {
+            if tipo-lattes == "completo" {
                 descricao_content = [#citacao #palavras_content #areas_content]
             } else {
                 descricao_content = [#citacao]
@@ -842,19 +842,19 @@
 
 // Função create-articles(): cria a área de produções bibliográficas - artigos (usado em create-bibliography())
 // Argumentos:
-//  - dados_artigos: subset do banco de dados com só livros
+//  - dados-artigos: subset do banco de dados com só livros
 //  - me: nome para destacar nas entradas
-//  - tipo_lattes: tipo de currículo Lattes
-#let create-articles(dados_artigos, eu, tipo_lattes) = {
+//  - tipo-lattes: tipo de currículo Lattes
+#let create-articles(dados-artigos, eu, tipo-lattes) = {
 
     // criando cabeçalho
     [=== Artigos completos publicados em periódicos <publicacao_artigos>]
     
     // criando número para ordem
-    let i = dados_artigos.len()
+    let i = dados-artigos.len()
 
     // criando entrada para cada artigo
-    for entrada in dados_artigos.rev() {
+    for entrada in dados-artigos.rev() {
         // initialize variables
         let palavras_chave = ()
         let conhecimento = ()
@@ -953,7 +953,7 @@
 
         // criando content para descrição 
         let descricao_content = []
-        if tipo_lattes == "completo" {
+        if tipo-lattes == "completo" {
             descricao_content = [#citacao #palavras_content #areas_content]
         } else {
             descricao_content = [#citacao]
@@ -971,8 +971,8 @@
 // Argumentos:
 // - dados: sub-banco de dados com as entradas de tipo
 // - eu: nome para destacar
-// - tipo_lattes: cabeçalho da área
-#let create-abstracts-area(dados, eu, tipo_lattes) = {
+// - tipo-lattes: cabeçalho da área
+#let create-abstracts-area(dados, eu, tipo-lattes) = {
     
     let i = dados.len()
 
@@ -1099,7 +1099,7 @@
 
         // criando conteúdo 
         let descricao_content = []
-        if tipo_lattes == "completo" {
+        if tipo-lattes == "completo" {
             descricao_content = [#citacao #palavras_content #areas_content]
         } else {
             descricao_content = [#citacao]
@@ -1114,29 +1114,29 @@
 
 // Função create-abstracts(): Cria área de produções técnicos (usado em create-bibliography)
 // Argumentos:
-//  - dados_completos: subset do banco de dados com completos
-//  - dados_resumos: subset do banco de dados com resumos simples
-//  - dados_expandidos: subset do banco de dados com resumos expandidos
+//  - dados-completos: subset do banco de dados com completos
+//  - dados-resumos: subset do banco de dados com resumos simples
+//  - dados-expandidos: subset do banco de dados com resumos expandidos
 //  - eu: nome para destacar nas entradas
-#let create-abstracts(dados_completos, dados_resumos, dados_expandidos, eu, tipo_lattes) = {
+#let create-abstracts(dados-completos, dados-resumos, dados-expandidos, eu, tipo-lattes) = {
 
-    if dados_completos.len() > 0 {
+    if dados-completos.len() > 0 {
         [=== Trabalhos publicados em anais de eventos (completos)<producao-anais>]
 
-        create-abstracts-area(dados_completos, eu, tipo_lattes)
+        create-abstracts-area(dados-completos, eu, tipo-lattes)
 
     }
 
-    if dados_resumos.len() > 0 {
+    if dados-resumos.len() > 0 {
         [=== Trabalhos publicados em anais de eventos (resumo)]
 
-        create-abstracts-area(dados_resumos, eu, tipo_lattes) 
+        create-abstracts-area(dados-resumos, eu, tipo-lattes) 
     }
 
-    if dados_expandidos.len() > 0 {
+    if dados-expandidos.len() > 0 {
         [=== Trabalhos publicados em anais de eventos (resumo expandido)]
 
-        create-abstracts-area(dados_expandidos, eu, tipo_lattes)
+        create-abstracts-area(dados-expandidos, eu, tipo-lattes)
         
     }
 }
@@ -1145,8 +1145,8 @@
 // Argumentos:
 //  - detalhes: o banco de dados com todas as informações (arquivo TOML)
 //  - me: nome para destacar nas entradas
-//  - tipo_lattes: tipo de currículo Lattes
-#let create-bibliography(detalhes, eu, tipo_lattes) = {
+//  - tipo-lattes: tipo de currículo Lattes
+#let create-bibliography(detalhes, eu, tipo-lattes) = {
     // criando banco de dados
 
     let artigos = ()
@@ -1355,26 +1355,26 @@
 
     // criando área de artigos
     if artigos.len() > 0 {
-        create-articles(artigos, eu, tipo_lattes)
+        create-articles(artigos, eu, tipo-lattes)
     }
 
     // criando área de livros
     if livros.len() > 0 {
-        create-books(livros, eu, tipo_lattes)
+        create-books(livros, eu, tipo-lattes)
     }
 
     // criando área de capítulos
     if capitulos.len() > 0 {
-        create-chapters(capitulos, eu, tipo_lattes)
+        create-chapters(capitulos, eu, tipo-lattes)
     }
 
     // criando área de resumos e resumos expandidos
     if resumos.len() > 0 or expandidos.len() > 0 {
-        create-abstracts(completos, resumos, expandidos, eu, tipo_lattes)
+        create-abstracts(completos, resumos, expandidos, eu, tipo-lattes)
     }
 
     // criando área de apresentações
-    if tipo_lattes == "completo" {
+    if tipo-lattes == "completo" {
         if apresentacoes.len() > 0 {
             create-presentations(apresentacoes, eu)
         }
@@ -1382,7 +1382,7 @@
     
     // criando área de técnicos
     if todos.len() > 0 {
-        create-technicals(todos, eu, tipo_lattes)
+        create-technicals(todos, eu, tipo-lattes)
     }
 
     linebreak()

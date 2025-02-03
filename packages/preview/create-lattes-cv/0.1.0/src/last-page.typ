@@ -3,8 +3,8 @@
 // Função create-lp-bibliography(): Calcular e criar números de sub-área
 // Argumentos:
 //  - detalhes: o banco de dados com todas as informações (arquivo TOML)
-//  - tipo_lattes: tipo de currículo Lattes
-#let create-lp-bibliography(detalhes, tipo_lattes) = {
+//  - tipo-lattes: tipo de currículo Lattes
+#let create-lp-bibliography(detalhes, tipo-lattes) = {
     // Producao bibliografica
     // criando variáveis
     let num_artigos = 0
@@ -177,7 +177,7 @@
 
 
     // criando a soma de apresentações: Conferências
-    if tipo_lattes == "completo" {
+    if tipo-lattes == "completo" {
         if num_conferencias > 0 {
             create-cols([#link(<producao_apresentacoes>)[Apresentações de trabalhos (Conferência ou palestra) #box(width: 1fr, repeat[.])]], [#num_conferencias], "lastpage")
         }  
@@ -207,8 +207,8 @@
 // Função create-lp-tecnicos(): Calcular e criar números de sub-área
 // Argumentos:
 //  - detalhes: o banco de dados com todas as informações (arquivo TOML)
-//  - tipo_lattes: tipo de currículo Lattes
-#let create-lp-tecnicos(detalhes, tipo_lattes) = {
+//  - tipo-lattes: tipo de currículo Lattes
+#let create-lp-tecnicos(detalhes, tipo-lattes) = {
     // Producao tecnica
     // criando bancos de dados
     let num_cursos_curtos = 0
@@ -267,8 +267,7 @@
 
         // criando cabeçalho
         if num_cursos_curtos > 0 or num_didaticos > 0 or num_relatorios > 0 {
-            // [#link(<producao_tecnica>)[== Produção técnica]]
-            [== Produção técnica]
+            [#link(<producao_tecnica>)[== Produção técnica]]
 
             // criando soma de cursos curtos
             if num_cursos_curtos > 0 {
@@ -291,8 +290,8 @@
 // Função create-lp-orientacoes(): Calcular e criar números de sub-área
 // Argumentos:
 //  - detalhes: o banco de dados com todas as informações (arquivo TOML)
-//  - tipo_lattes: tipo de currículo Lattes
-#let create-lp-orientacoes(detalhes, tipo_lattes) = {
+//  - tipo-lattes: tipo de currículo Lattes
+#let create-lp-orientacoes(detalhes, tipo-lattes) = {
     // Orientacoes
     // criando banca de dados
     let orientacoes = detalhes.OUTRA-PRODUCAO
@@ -451,12 +450,12 @@
 // Função create-lp-eventos(): Calcular e criar números de sub-área
 // Argumentos:
 //  - detalhes: o banco de dados com todas as informações (arquivo TOML)
-//  - tipo_lattes: tipo de currículo Lattes
-#let create-lp-events(detalhes, tipo_lattes) = {
+//  - tipo-lattes: tipo de currículo Lattes
+#let create-lp-events(detalhes, tipo-lattes) = {
     // Eventos
     // criando cabeçalho se um dos dois estiver pelo menos nos dados
     // se tem entradas, vai seguir para criar as entradas
-    if tipo_lattes == "completo" {
+    if tipo-lattes == "completo" {
 
         let marker1 = false
         if "PARTICIPACAO-EM-EVENTOS-CONGRESSOS" in detalhes.DADOS-COMPLEMENTARES.keys() {
@@ -583,32 +582,32 @@
             // somente se estiver "completo"
             // criando campo se o comprimento for maior que 0 (congressos)
             if num_congressos > 0 { 
-                create-cols([#link(<organizacao-eventos>)[Organização de evento (Congresso) #box(width: 1fr, repeat[.])]], [#num_congressos], "lastpage")
+                create-cols([#link(<organizacao_eventos>)[Organização de evento (Congresso) #box(width: 1fr, repeat[.])]], [#num_congressos], "lastpage")
             }
 
             // criando campo se o comprimento for maior que 0 (seminarios)
             if num_seminarios > 0 { 
-                create-cols([#link(<organizacao-eventos>)[Organização de evento (Seminários) #box(width: 1fr, repeat[.])]], [#num_seminarios], "lastpage")
+                create-cols([#link(<organizacao_eventos>)[Organização de evento (Seminários) #box(width: 1fr, repeat[.])]], [#num_seminarios], "lastpage")
             }
 
             // criando campo se o comprimento for maior que 0 (simposios)
             if num_simposios > 0 { 
-                create-cols([#link(<organizacao-eventos>)[Organização de evento (Simpósios) #box(width: 1fr, repeat[.])]], [#num_simposios], "lastpage")
+                create-cols([#link(<organizacao_eventos>)[Organização de evento (Simpósios) #box(width: 1fr, repeat[.])]], [#num_simposios], "lastpage")
             }
 
             // criando campo se o comprimento for maior que 0 (encontros)
             if num_encontros > 0 { 
-                create-cols([#link(<organizacao-eventos>)[Organização de evento (Encontros) #box(width: 1fr, repeat[.])]], [#num_encontros], "lastpage")
+                create-cols([#link(<organizacao_eventos>)[Organização de evento (Encontros) #box(width: 1fr, repeat[.])]], [#num_encontros], "lastpage")
             }
 
             // criando campo se o comprimento for maior que 0 (encontros)
             if num_feiras > 0 { 
-                create-cols([#link(<organizacao-eventos>)[Organização de evento (Feiras) #box(width: 1fr, repeat[.])]], [#num_feiras], "lastpage")
+                create-cols([#link(<organizacao_eventos>)[Organização de evento (Feiras) #box(width: 1fr, repeat[.])]], [#num_feiras], "lastpage")
             }
 
             // criando campo se o comprimento for maior que 0 (outras)
             if num_outras > 0 { 
-                create-cols([#link(<organizacao-eventos>)[Organização de evento (Outras) #box(width: 1fr, repeat[.])]], [#num_outras], "lastpage")
+                create-cols([#link(<organizacao_eventos>)[Organização de evento (Outras) #box(width: 1fr, repeat[.])]], [#num_outras], "lastpage")
             }
         }
 
@@ -679,16 +678,16 @@
 // Função create-last-page(): Cria resumo de produções na última página
 // Argumentos:
 //  - detalhes: o banco de dados com todas as informações (arquivo TOML)
-//  - tipo_lattes: tipo de currículo Lattes
-#let create-last-page(detalhes, tipo_lattes) = {
+//  - tipo-lattes: tipo de currículo Lattes
+#let create-last-page(detalhes, tipo-lattes) = {
   
     [= Totais de produção]
     
-    create-lp-bibliography(detalhes, tipo_lattes)
+    create-lp-bibliography(detalhes, tipo-lattes)
     
-    create-lp-tecnicos(detalhes, tipo_lattes)
+    create-lp-tecnicos(detalhes, tipo-lattes)
     
-    create-lp-orientacoes(detalhes, tipo_lattes)
+    create-lp-orientacoes(detalhes, tipo-lattes)
     
-    create-lp-events(detalhes, tipo_lattes)
+    create-lp-events(detalhes, tipo-lattes)
 }

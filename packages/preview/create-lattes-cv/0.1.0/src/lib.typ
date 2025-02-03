@@ -1,19 +1,19 @@
 #import "@preview/datify:0.1.3": *
 #import "import.typ": *
 
-// Função lattes_cv: criar o PDF com os dados de lattes
+// Função lattes-cv: criar o PDF com os dados de lattes
 // Arguments:
 // - database: o arquivo de TOML com os dados de Lattes (string)
 // - kind: o tipo de currículo Lattes (string)
 // - me: o nome para destacar nas citações (string)
-// - last_page: resumo de produção no final (boolean)
+// - last-page: resumo de produção no final (boolean)
 // - data: a data de currículo (datetime)
 // - subtitle: para a página inicial 
 #let lattes-cv(
   database,
   kind: "completo", 
   me: str,
-  last_page: true,
+  last-page: true,
   date: datetime.today(),
   subtitle: "Curriculum Vitae",
   body,
@@ -132,7 +132,7 @@
     }
 
     // Resumo de produções na última página
-    if last_page == true {
+    if last-page == true {
         pagebreak()
 
         create-last-page(details, kind)

@@ -2,14 +2,14 @@
 
 // Função create-positions(): cria vínculos (subárea Atuação, usado em create-experience())
 // Argumento:
-//  - dados_vagas: o banco de dados filtrado para vagas
-#let create-positions(dados_vagas) = {
+//  - dados-vagas: o banco de dados filtrado para vagas
+#let create-positions(dados-vagas) = {
     
     // depdende de informações na entrada é dictionary (1) ou array (>1)
-    if type(dados_vagas) == array {
+    if type(dados-vagas) == array {
         // criando nova entrada para ter atual mais acima
         let helper_array = ()
-        for entrada in dados_vagas {
+        for entrada in dados-vagas {
             if entrada.ANO-FIM == "" {
                 entrada.insert("ORDER1", "9999")
                 entrada.insert("ORDER2", "9999")
@@ -77,28 +77,28 @@
             create-cols([*#tempo_content*], [#descricao_content], "wide")
         }
     // caso somente uma entrada
-    } else if type(dados_vagas) == dictionary {
+    } else if type(dados-vagas) == dictionary {
         // criando variáveis
         let tempo_content = []
         
         // criando tempo
-        if dados_vagas.MES-FIM == "" {
-            if dados_vagas.ANO-FIM == "" {
-                tempo_content = [#dados_vagas.MES-INICIO/#dados_vagas.ANO-INICIO - atual]
+        if dados-vagas.MES-FIM == "" {
+            if dados-vagas.ANO-FIM == "" {
+                tempo_content = [#dados-vagas.MES-INICIO/#dados-vagas.ANO-INICIO - atual]
             }
         } else {
-            tempo_content = [#dados_vagas.MES-INICIO/#dados_vagas.ANO-INICIO - #dados_vagas.MES-FIM/#dados_vagas.ANO-FIM]
+            tempo_content = [#dados-vagas.MES-INICIO/#dados-vagas.ANO-INICIO - #dados-vagas.MES-FIM/#dados-vagas.ANO-FIM]
         }
 
         // criando outras variáveis
-        let vinculo = dados_vagas.TIPO-DE-VINCULO
+        let vinculo = dados-vagas.TIPO-DE-VINCULO
         let vinculo_parts = vinculo.split("_")
         vinculo = vinculo_parts.map(capitalize).join(" ")
             
 
-        let enquadramento = dados_vagas.OUTRO-ENQUADRAMENTO-FUNCIONAL-INFORMADO
-        let horas = dados_vagas.CARGA-HORARIA-SEMANAL
-        let informacao = dados_vagas.OUTRAS-INFORMACOES
+        let enquadramento = dados-vagas.OUTRO-ENQUADRAMENTO-FUNCIONAL-INFORMADO
+        let horas = dados-vagas.CARGA-HORARIA-SEMANAL
+        let informacao = dados-vagas.OUTRAS-INFORMACOES
 
         informacao = replace-quotes(informacao)
 
@@ -133,29 +133,29 @@
 
 // Função create-teaching: cria cursos de ensino (subárea Atuação, usado em create-experience())
 // Argumento:
-//  - dados_ensino: o banco de dados filtrado para vagas
-#let create-teaching(dados_ensino) = {
+//  - dados-ensino: o banco de dados filtrado para vagas
+#let create-teaching(dados-ensino) = {
     [== Atividades (Ensino)<ensino_atuacao>]
 
-    if type(dados_ensino) == dictionary {
+    if type(dados-ensino) == dictionary {
     // case only one entry
         // criando variáveis
         let disciplinas_text = str
         let tempo_content = []
 
         // criando tempo_content
-        if dados_ensino.FLAG-PERIODO == "ATUAL" {
-            tempo_content = [#dados_ensino.MES-INICIO/#dados_ensino.ANO-INICIO - atual]
+        if dados-ensino.FLAG-PERIODO == "ATUAL" {
+            tempo_content = [#dados-ensino.MES-INICIO/#dados-ensino.ANO-INICIO - atual]
         } else {
-            if dados_ensino.ANO-FIM == dados_ensino.ANO-INICIO and dados_ensino.MES-FIM == dados_ensino.MES-INICIO {
-                tempo_content = [#dados_ensino.MES-INICIO/#dados_ensino.ANO-INICIO]
+            if dados-ensino.ANO-FIM == dados-ensino.ANO-INICIO and dados-ensino.MES-FIM == dados-ensino.MES-INICIO {
+                tempo_content = [#dados-ensino.MES-INICIO/#dados-ensino.ANO-INICIO]
             } else {
-                tempo_content = [#dados_ensino.MES-INICIO/#dados_ensino.ANO-INICIO - #dados_ensino.MES-FIM/#dados_ensino.ANO-FIM]
+                tempo_content = [#dados-ensino.MES-INICIO/#dados-ensino.ANO-INICIO - #dados-ensino.MES-FIM/#dados-ensino.ANO-FIM]
             }
         }
 
         // criando nível
-            let nivel = str(dados_ensino.TIPO-ENSINO.slice(0, 1) + lower(dados_ensino.TIPO-ENSINO.slice(1)))
+            let nivel = str(dados-ensino.TIPO-ENSINO.slice(0, 1) + lower(dados-ensino.TIPO-ENSINO.slice(1)))
 
             // corrigir nível
             if nivel == "Graduacao" {
@@ -164,8 +164,8 @@
                 nivel = "Pós-Graduação"
             }
 
-            if "DISCIPLINA" in dados_ensino.keys() {
-                let disciplinas = dados_ensino.at("DISCIPLINA")
+            if "DISCIPLINA" in dados-ensino.keys() {
+                let disciplinas = dados-ensino.at("DISCIPLINA")
                 
                 let ministradas = ()
 
@@ -178,14 +178,14 @@
                 disciplinas_text = "Disciplinas ministradas: " + disciplinas_text + ";"
             }
                 
-            let descricao_content = [#nivel, #dados_ensino.NOME-CURSO #linebreak()#text(rgb("B2B2B2"), size: 0.85em, disciplinas_text)]
+            let descricao_content = [#nivel, #dados-ensino.NOME-CURSO #linebreak()#text(rgb("B2B2B2"), size: 0.85em, disciplinas_text)]
 
             // publicando content
             create-cols([*#tempo_content*], [#descricao_content], "wide")
             
     // case more than one entry
-    } else if type(dados_ensino) == array {
-        for curso in dados_ensino.rev() {
+    } else if type(dados-ensino) == array {
+        for curso in dados-ensino.rev() {
             // criando variáveis
             let disciplinas_text = str
             let tempo_content = []
@@ -235,37 +235,37 @@
 
 // Função create-comissions: cria commissões (subárea Atuação, usado em create-experience())
 // Argumento:
-//  - dados_comissoes: o banco de dados filtrado para vagas
-#let create-commissions(dados_comissoes) = {
+//  - dados-comissoes: o banco de dados filtrado para vagas
+#let create-commissions(dados-comissoes) = {
     // criando variáveis
     let tempo_content = []
     let descricao_content = []
     
     // caso: somente uma entrada
-    if type(dados_comissoes) == dictionary {
-        if "ATIVIDADES-DE-CONSELHO-COMISSAO-E-CONSULTORIA"in dados_comissoes.keys() {
+    if type(dados-comissoes) == dictionary {
+        if "ATIVIDADES-DE-CONSELHO-COMISSAO-E-CONSULTORIA"in dados-comissoes.keys() {
             [== Atividades (Comissões) <comissoes_atuacao>]
             
             // criando variaveis
             let tempo_content = []
-            if dados_comissoes.FLAG-PERIODO == "ATUAL" {
-                tempo_content = [#dados_comissoes.MES-INICIO/#dados_comissoes.ANO-INICIO - atual]
+            if dados-comissoes.FLAG-PERIODO == "ATUAL" {
+                tempo_content = [#dados-comissoes.MES-INICIO/#dados-comissoes.ANO-INICIO - atual]
             } else {
-                tempo_content = [#dados_comissoes.MES-INICIO/#posdados_comissoescao.ANO-INICIO - #dados_comissoes.MES-FIM/#dados_comissoes.ANO-FIM]
+                tempo_content = [#dados-comissoes.MES-INICIO/#posdados-comissoescao.ANO-INICIO - #dados-comissoes.MES-FIM/#dados-comissoes.ANO-FIM]
             }
             
             descricao_content = [
-                #dados_comissoes.ESPECIFICACAO, #emph(dados_comissoes.NOME-ORGAO)
+                #dados-comissoes.ESPECIFICACAO, #emph(dados-comissoes.NOME-ORGAO)
             ]
             
             // publicando content
             create-cols([*#tempo_content*], [#descricao_content], "wide")
         }
     // caso: mais de uma entrada
-    } else if type(dados_comissoes) == array {
+    } else if type(dados-comissoes) == array {
         [== Atividades (Comissões) <comissoes_atuacao>]
         
-        for posicao in dados_comissoes.rev() {
+        for posicao in dados-comissoes.rev() {
             if posicao.FLAG-PERIODO == "ATUAL" {
                 tempo_content = [#posicao.MES-INICIO/#posicao.ANO-INICIO - atual]
             } else {

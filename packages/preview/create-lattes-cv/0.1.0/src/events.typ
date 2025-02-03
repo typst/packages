@@ -2,13 +2,13 @@
 
 // Função create-participation-events(): Cria entradas eventos
 // Argumento:
-//  - dados_participation: sub-banco de dados para participação nos eventos
-#let create-participation-events(dados_participation, eu) = {
+//  - dados-participation: sub-banco de dados para participação nos eventos
+#let create-participation-events(dados-participation, eu) = {
 
     // criando variáveis
     let descricao_content = []
 
-    if dados_participation.len() > 0 {
+    if dados-participation.len() > 0 {
 
         [= Eventos <eventos>]
 
@@ -17,7 +17,7 @@
 
 
         // tirando todos eventos de sub-arrays
-        for tipo in dados_participation {
+        for tipo in dados-participation {
             let subset = tipo.at(1)
             for event in subset {
                 helper_array.push(event)
@@ -90,15 +90,15 @@
 
 // Função create-organization-events(): Cria entradas eventos
 // Argumento:
-//  - dados_organizacao: sub-banco de dados para organização nos eventos
-#let create-organization-events(dados_organizacao, eu) = {
+//  - dados-organizacao: sub-banco de dados para organização nos eventos
+#let create-organization-events(dados-organizacao, eu) = {
     // criando cabeçalho
-    [=== Organização de evento<organizacao-eventos>]
+    [=== Organização de evento<organizacao_eventos>]
 
 
-    let i = dados_organizacao.len()
+    let i = dados-organizacao.len()
     
-    for entry in dados_organizacao {
+    for entry in dados-organizacao {
         let autores = format-authors(entry.AUTORES, eu)
         
         let titulo = entry.DADOS-BASICOS-DA-ORGANIZACAO-DE-EVENTO.TITULO

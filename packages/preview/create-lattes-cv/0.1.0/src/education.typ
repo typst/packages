@@ -3,8 +3,8 @@
 // Função create-education(): Cria área de formação complementar
 // Argumentos:
 // - detalhes: o banco de dados de Lattes (TOML)
-// - tipo_lattes: tipo de currículo Lattes
-#let create-education(detalhes, tipo_lattes) = {
+// - tipo-lattes: tipo de currículo Lattes
+#let create-education(detalhes, tipo-lattes) = {
     let formacao = detalhes.DADOS-GERAIS.FORMACAO-ACADEMICA-TITULACAO
 
     // criando ordem na formacao
@@ -141,7 +141,7 @@
                 }
 
                 // criando conteúdo depende do tipo de lattes
-                if tipo_lattes == "completo" {
+                if tipo-lattes == "completo" {
                     // criando content para palavras-chave
                     let palavras_content = []
                     if palavras_chave.len() > 0 {
@@ -298,7 +298,7 @@
                 let descricao_content = [#estudo#linebreak()#titulo_content #orientacao_content]
                 
                 // criando conteúdo depende do tipo de lattes
-                if tipo_lattes == "completo" {
+                if tipo-lattes == "completo" {
                     // criando content para palavras-chave
                     let palavras_content = []
                     if palavras_chave.len() > 0 {

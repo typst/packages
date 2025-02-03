@@ -1,6 +1,6 @@
 #import "utils.typ": *
 // Sub files
-#import "lastpage.typ": * 
+#import "last-page.typ": * 
 #import "bibliography.typ": *
 #import "innovations.typ": * 
 #import "education-ct.typ": * 
