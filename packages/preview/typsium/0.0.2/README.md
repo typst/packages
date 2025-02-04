@@ -1,6 +1,6 @@
 # Typst Chemical Formula Package
 
-A Typst package (alpha) for typesetting chemical formulas, currently working on inorganic.
+A Typst package (alpha) for typesetting chemical formulas and currently working on inorganic.
 
 ## Features
 
@@ -12,12 +12,9 @@ A Typst package (alpha) for typesetting chemical formulas, currently working on 
 
 ## TODO
 
-- [ ] Improve organic chemistry structure support
-- [ ] Add special notation for phenyl group (Ph)
-- [ ] Implement C(n) general formula expressions
-- [ ] Enhanced support for complex reaction conditions
-- [ ] Optimize reversible reaction arrow styles
-- [ ] Add more documentation examples
+- [ ] Add documentation examples
+- [ ] Support the `smile` system
+- [ ] Improve using experience
 
 ## License
 
