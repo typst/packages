@@ -19,8 +19,8 @@
   text-args: auto,
   // 标题字体与字号
   heading-font: auto,
-  heading-size: (字号.四号,),
-  heading-weight: ("regular",),
+  heading-size: (字号.三号,字号.小三,字号.四号,字号.小四),
+  heading-weight: ("bold","bold","bold","bold"),
   heading-above: (2 * 15.6pt - 0.7em, 2 * 15.6pt - 0.7em),
   heading-below: (2 * 15.6pt - 0.7em, 1.5 * 15.6pt - 0.7em),
   heading-pagebreak: (true, false),
@@ -36,7 +36,7 @@
   separator: "  ",
   // caption 样式
   caption-style: strong,
-  caption-size: 字号.五号,
+  caption-size: 字号.小五,
   // figure 计数
   show-figure: i-figured.show-figure,
   // equation 计数
@@ -50,7 +50,7 @@
   // 1.  默认参数
   fonts = 字体 + fonts
   if (text-args == auto) {
-    text-args = (font: fonts.宋体, size: 字号.小四)
+    text-args = (font: fonts.宋体, size: 字号.五号)
   }
   // 1.1 字体与字号
   if (heading-font == auto) {
@@ -70,11 +70,12 @@
   // 3.1 文本和段落样式
   set text(..text-args)
   set par(
+    spacing: spacing,
     leading: leading,
     justify: justify,
     first-line-indent: first-line-indent
   )
-  set par(spacing: spacing)
+  //set par (spacing: spacing)
   show raw: set text(font: fonts.等宽)
   // 3.2 脚注样式
   show footnote.entry: set text(font: fonts.宋体, size: 字号.五号)

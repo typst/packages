@@ -18,9 +18,9 @@
   reference-size: 字号.小四,
   // 字体与字号
   font: auto,
-  size: (字号.四号, 字号.小四),
+  size: (字号.小四, 字号.小四, 字号.小四),
   // 垂直间距
-  vspace: (25pt, 14pt),
+  vspace: (1em, 1em,1em),
   indent: (0pt, 18pt, 28pt),
   // 全都显示点号
   fill: (auto,),

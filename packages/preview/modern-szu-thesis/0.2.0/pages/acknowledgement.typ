@@ -1,4 +1,5 @@
 // 致谢页
+#import "../utils/custom-cuti.typ":*
 #let acknowledgement(
   // documentclass 传入参数
   anonymous: false,
@@ -11,7 +12,7 @@
   if (not anonymous) {
     pagebreak(weak: true, to: if twoside { "odd" })
     [
-      #heading(level: 4, numbering: none, outlined: outlined, title, ) <no-auto-pagebreak>
+      #fakebold(heading(level: 4, numbering: none, outlined: outlined, title, )) <no-auto-pagebreak>
       #text()[#body]
     ]
 

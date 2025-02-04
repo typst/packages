@@ -1,6 +1,6 @@
 [package]
 name = "modern-szu-thesis"
-version = "0.1.0"
+version = "0.2.0"
 entrypoint = "lib.typ"
 authors = ["yjdyamv"]
 license = "MIT"
@@ -8,6 +8,7 @@ description = "深圳大学学位论文模板由南京大学学位论文模板�
 keywords = ["Shenzhen University", "thesis"]
 categories = ["thesis"]
 exclude = ["imgs"]
+repository = "https://gitee.com/yjdyamv/modern-szu-thesis"
 
 [template]
 path = "template"

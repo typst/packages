@@ -2,6 +2,7 @@
 // Tested only on GB-7714-2015-Numeric
 
 #import "style.typ":字体, 字号; 
+#import "custom-cuti.typ":*;
 
 #let bilingual-bibliography(
   bibliography: none,
@@ -138,7 +139,7 @@
     }
   }
   set par(first-line-indent: 0pt)
-  text(font: 字体.楷体, size: 字号.五号)[参考文献]
+  fakebold(font: 字体.楷体, size: 字号.五号)[参考文献]
   set par(spacing: 0.5em, leading:1em)
   set text(lang: "zh" , font: 字体.楷体, size: 字号.小五)
   bibliography(
