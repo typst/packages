@@ -7,7 +7,7 @@ A typst package providing environments for theorems and proofs.
 Before using any of the features this package has to offer, add the following lines to the top of your document:
 
 ```typ
-#import "@preview/typst-thmbox:0.1.1": *
+#import "@preview/thmbox:0.1.1": *
 
 #show: thmbox-init()
 ```
