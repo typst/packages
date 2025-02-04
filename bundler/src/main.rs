@@ -50,8 +50,12 @@ fn main() -> anyhow::Result<()> {
         .max_depth(1)
         .sort_by_file_name()
     {
-        let entry = entry?;
-        if !entry.metadata()?.is_dir() {
+        let entry = entry.context("cannot read entries in directory \"packages\".\nHint: does the current working directory contain a directory \"packages\"?")?;
+        if !entry
+            .metadata()
+            .context("cannot read metadata for entries in directory \"packages\"")?
+            .is_dir()
+        {
             continue;
         }
 
@@ -68,11 +72,27 @@ fn main() -> anyhow::Result<()> {
         let mut paths = vec![];
         let mut index = vec![];
         let mut package_errors = vec![];
-        fs::create_dir_all(namespace_dir.join(THUMBS_DIR))?;
+        fs::create_dir_all(namespace_dir.join(THUMBS_DIR))
+            .context("could not create output directory")?;
 
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
-            let entry = entry?;
-            if !entry.metadata()?.is_dir() {
+            let entry = entry.with_context(|| {
+                format!(
+                    "could not read item in namespace directory \"packages/{}\"",
+                    namespace
+                )
+            })?;
+
+            if !entry
+                .metadata()
+                .with_context(|| {
+                    format!(
+                        "could not read metadata for item in namespace directory \"packages/{}\"",
+                        namespace
+                    )
+                })?
+                .is_dir()
+            {
                 bail!(
                     "{}: a package directory may only contain version sub-directories, not files.",
                     entry.path().display()
@@ -105,7 +125,8 @@ fn main() -> anyhow::Result<()> {
         }
 
         println!("Determining timestamps.");
-        determine_timestamps(&paths, &mut index)?;
+        determine_timestamps(&paths, &mut index)
+            .context("failed to determine package creation timestamps")?;
 
         // Sort the index.
         index.sort_by_key(|info| (info.package.name.clone(), info.package.version));
@@ -113,11 +134,12 @@ fn main() -> anyhow::Result<()> {
         println!("Writing index.");
         fs::write(
             namespace_dir.join("index.json"),
-            serde_json::to_vec(&index.iter().map(IndexPackageInfo::from).collect::<Vec<_>>())?,
+            serde_json::to_vec(&index.iter().map(IndexPackageInfo::from).collect::<Vec<_>>())
+                .context("serialization of compact package index failed")?,
         )?;
         fs::write(
             namespace_dir.join("index.full.json"),
-            serde_json::to_vec(&index)?,
+            serde_json::to_vec(&index).context("serialization of full package index failed")?,
         )?;
 
         if !package_errors.is_empty() {
