@@ -10,7 +10,7 @@
       stroke: black)
   
   for i in range(electrons) {
-    circle((radius*calc.cos(360deg/electrons*i), radius*calc.sin(360deg/electrons*i)), radius: 0.13)
+    circle((radius*calc.sin(360deg/electrons*i), radius*calc.cos(360deg/electrons*i)), radius: 0.13)
     content((), "-")
   }
 }
