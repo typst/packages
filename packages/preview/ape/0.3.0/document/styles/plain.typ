@@ -22,7 +22,7 @@
       font: "Noto Sans Georgian",
       align(
         center,
-        if type(title) == "array" [
+        if type(title) == array [
           *#title.at(0) - #title.at(1)*
         ] else [
           *#title*

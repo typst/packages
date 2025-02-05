@@ -15,25 +15,22 @@
     align(
       center + horizon,
       [
-        #par(leading: 0.24em, text(
-          hyphenate: false,
-          {
-            if type(title) == "string" {
+        #{
+            if type(title) == text {
               text(size: 7em, [*#title*])
             } else {
               [
-                #text(size: 6em, (strong(title.at(1))))
-                #v(-4em)
-                #text(size: 3em, (title.at(0)))
+                #par(text(size: 6em, hyphenate: false, (strong(title.at(1)))))
+                #v(3em)
+                #par(text(size: 3em, hyphenate: false, (title.at(0))))
               ]
             }
-          },
-        ))
+          }
 
 
-        #v(1cm)
+        #v(1em)
         #{
-          if type(authors) == "array" {
+          if type(authors) == array {
             if authors.len() > 0 {
               [
                 #text(size: 1.45em, sc(authors.at(0)))

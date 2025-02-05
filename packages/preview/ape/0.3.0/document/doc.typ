@@ -65,8 +65,10 @@ set table(
   show image: it => {
     align(center, it)
   }
-
-
+ 
+  show table: it => {
+    block(clip: true, radius: 5pt, stroke: it.stroke, it)
+  }
   // content
   set par(justify: true)
 

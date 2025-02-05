@@ -24,7 +24,7 @@
       block(
         clip: true,
         radius: calc.min(9pt, 4pt + 2pt * lines.len()),
-        stroke: text.fill.lighten(20%) + 0.7pt,
+        stroke: text.fill.lighten(50%) + 0.5pt,
         align(
           center,
           block(

@@ -11,7 +11,7 @@
 }
 
 #let to-array(content) = {
-  if type(content) == "array" {
+  if type(content) == array {
     return content
   }else {
     return (content,)

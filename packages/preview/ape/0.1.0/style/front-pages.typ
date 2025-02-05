@@ -81,7 +81,7 @@
 	}}
 	
 	let small-title = {
-		if type(title) == "array" {
+		if type(title) == array {
 			if title-page or outline {
 				small-title3
 			}else{

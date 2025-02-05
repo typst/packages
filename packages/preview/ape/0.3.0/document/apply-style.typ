@@ -20,8 +20,8 @@
 }
 
 #let get-small-title(style, title) = {
-  import "styles/" + style + ".typ": *
+  import "styles/" + style + ".typ" as current-style
   
-  return get-small-title(title)
+  return current-style.get-small-title(title)
 
 }

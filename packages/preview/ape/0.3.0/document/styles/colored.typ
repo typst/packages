@@ -1,6 +1,6 @@
 #import "../../tools/miscellaneous.typ": content-to-string
 #let colored(content) = {
-  set text(12pt, fill: blue.darken(50%))
+  set text(12pt, fill: blue.darken(50%), weight: "extrabold")
 
 
   show heading: it => {
@@ -33,15 +33,17 @@
 }
 
 #let get-small-title(title) = context {
+ 
+
   return {
     line(length: 100%, stroke: 2pt + text.fill)
     text(
-      size: 2em,
       font: "Noto Sans Georgian",
       align(
-        center,
-        if type(title) == "array" [
-          *#title.at(0) - #title.at(1)*
+        left,
+        if type(title) == array [
+          ▸ *#emph(text(size: 1.5em, title.at(0)))* 
+           #align(center, text(size: 2em)[ #sym.diamond.filled *#title.at(1)*  #sym.diamond.filled])
         ] else [
           *#title*
         ],
