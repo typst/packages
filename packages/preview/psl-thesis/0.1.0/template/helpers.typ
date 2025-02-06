@@ -1,4 +1,4 @@
-#import "@preview/minitoc:0.1.0": minitoc
+#import "@preview/suboutline:0.1.0": suboutline
 
 #let colors = (
   accent: rgb(113, 127, 184),
@@ -41,7 +41,7 @@
 
   heading([Table of contents], depth: 2, outlined: false, numbering: none)
   line(length: 100%)
-  minitoc(title: none, indent: auto)
+  suboutline(title: none, indent: auto)
   line(length: 100%)
   pagebreak()
 }
