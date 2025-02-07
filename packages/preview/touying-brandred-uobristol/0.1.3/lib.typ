@@ -255,7 +255,11 @@
       } else if type(marker) == symbol {
         text(fill: self.colors.primary, marker)
       }
-      block(stack(dir: ltr, spacing: .8em, mark, it.body), below: 0pt)
+      if sys.version < version(0, 13) {
+        block(stack(dir: ltr, spacing: .8em, mark, it.body), below: 0pt)
+      } else {
+        block(stack(dir: ltr, spacing: .8em, mark, it.body()), below: 0pt)
+      }
     }
     show: pad.with(x: 1.6em)
     columns(column, outline(title: none, indent: 1em, depth: 1))
