@@ -35,22 +35,24 @@
 	// --------------------------------------------------------------------------
 	// Debug Options
 
-	//#if debug [
-	//	// Line numbers
-	//	#set par.line(numbering: n => {
-	//		text(size: 7pt, red)[#n]
-	//	})
-	//	#show figure: set par.line(numbering: none)
-	//	#show figure.caption: set par.line(numbering: n => {
-	//		text(size: 7pt, red)[#n]
-	//	})
-	//	#show raw.where(block: true): set par.line(numbering: none)
-	//	#show outline: set par.line(numbering: none)
-	//	#show math.equation: set par.line(numbering: none)
+	#show: rest => if debug { 
+		set par.line(numbering: n => {
+			text(size: 7pt, red)[#n]
+		})
+		show figure: set par.line(numbering: none)
+		show figure.caption: set par.line(numbering: n => {
+			text(size: 7pt, red)[#n]
+		})
+		show raw.where(block: true): set par.line(numbering: none)
+		show outline: set par.line(numbering: none)
+		show math.equation: set par.line(numbering: none)
 
-	//	// Highlight TODOs
-	//	#show regex("TODO"): m => { highlight(m) }
-	//]
+		// Highlight TODOs
+		show regex("TODO"): m => { highlight(m) }
+		rest
+	} else { 
+		rest 
+	}
 
 	// --------------------------------------------------------------------------
 	// Citation Hotfix 
