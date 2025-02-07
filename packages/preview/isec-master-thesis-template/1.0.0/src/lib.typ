@@ -35,7 +35,7 @@
 	// --------------------------------------------------------------------------
 	// Debug Options
 
-	#show: rest => if debug { 
+	#show: rest => if debug {
 		set par.line(numbering: n => {
 			text(size: 7pt, red)[#n]
 		})
@@ -50,8 +50,8 @@
 		// Highlight TODOs
 		show regex("TODO"): m => { highlight(m) }
 		rest
-	} else { 
-		rest 
+	} else {
+		rest
 	}
 
 	// --------------------------------------------------------------------------
