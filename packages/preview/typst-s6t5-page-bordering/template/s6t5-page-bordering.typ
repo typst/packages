@@ -37,8 +37,8 @@
     table.hline(),
   )
 }
-#import "@preview/page-bordering:1.0.0": page-bordering
-#show: page-bordering.with(
+#import "@preview/s6t5-page-bordering:1.0.0": s6t5-page-bordering
+#show: s6t5-page-bordering.with(
   margin: (left: 30pt, right: 30pt, top: 60pt, bottom: 60pt),
   expand: 15pt,
   space-top: 15pt,

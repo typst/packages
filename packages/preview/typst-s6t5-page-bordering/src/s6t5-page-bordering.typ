@@ -1,5 +1,5 @@
 
-#let page-bordering(
+#let s6t5-page-bordering(
   margin: (left: 30pt, right: 30pt, top: 60pt, bottom: 60pt),
   expand: 15pt,
   space-top: 15pt,
@@ -13,13 +13,13 @@
   if not (
     type(margin) == dictionary and "left" in margin and "right" in margin and "top" in margin and "bottom" in margin
   ) {
-    [`page-bordering` failed.
+    [`s6t5-page-bordering` failed.
 
-      *Please set page-bordering(margin: ) as dictionary of 4 direction.*
+      *Please set s6t5-page-bordering(margin: ) as dictionary of 4 direction.*
 
       e.g.
       ```
-      page-bordering(
+      s6t5-page-bordering(
         margin: (left: 30pt, right: 30pt, top: 60pt, bottom: 60pt),
       ),
       ```

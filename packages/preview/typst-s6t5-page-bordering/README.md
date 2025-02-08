@@ -9,18 +9,18 @@
 <!-- Project Logo -->
 <br />
 <div align="center">
-  <a href="https://github.com/Shumpei-Tanaka/typst-page-bordering">
-    <img src="assets/page-bordering-example-table-header-footer.png" alt="Logo" width="50%" height="50%">
+  <a href="https://github.com/Shumpei-Tanaka/typst-s6t5-page-bordering">
+    <img src="assets/s6t5-page-bordering-example-table-header-footer.png" alt="Logo" width="50%" height="50%">
   </a>
 
-  <h3 align="center">page-bordering</h3>
+  <h3 align="center">s6t5-page-bordering</h3>
 
   <p align="center">
     Way to write border around page margin and header/footer.
     <br />
-    <a href="https://github.com/Shumpei-Tanaka/typst-page-bordering/issues">Report Bug</a>
+    <a href="https://github.com/Shumpei-Tanaka/typst-s6t5-page-bordering/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Shumpei-Tanaka/typst-page-bordering/issues">Request Feature</a>
+    <a href="https://github.com/Shumpei-Tanaka/typst-s6t5-page-bordering/issues">Request Feature</a>
   </p>
 </div>
 
@@ -51,27 +51,27 @@ It is often required in business scene.
 
 ### Page border include table header/footer
 
-<img src="assets/page-bordering-example-table-header-footer.png" alt="Page border include table header/footer" width="50%" height="50%">
+<img src="assets/s6t5-page-bordering-example-table-header-footer.png" alt="Page border include table header/footer" width="50%" height="50%">
 
 ### Page border exclude header/footer
 
-<img src="assets/page-bordering-example-normal-header-footer.png" alt="Page border exclude header/footer" width="50%" height="50%">
+<img src="assets/s6t5-page-bordering-example-normal-header-footer.png" alt="Page border exclude header/footer" width="50%" height="50%">
 
 ### Page border include header/footer
 
-<img src="assets/page-bordering-example-normal-header-footer-border.png" alt="Page border include header/footer" width="50%" height="50%">
+<img src="assets/s6t5-page-bordering-example-normal-header-footer-border.png" alt="Page border include header/footer" width="50%" height="50%">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
 
-This package provide a function: `page-bordering`.
+This package provide a function: `s6t5-page-bordering`.
 
 import / setting script is shown below.
 
 ```typst
-#import "@preview/page-bordering:1.0.0": page-bordering
-#show: page-bordering.with(
+#import "@preview/s6t5-page-bordering:1.0.0": s6t5-page-bordering
+#show: s6t5-page-bordering.with(
   margin: (left: 30pt, right: 30pt, top: 60pt, bottom: 60pt),
   expand: 15pt,
   space-top: 15pt,
@@ -95,7 +95,7 @@ You can define like `#let header = [element]`, `#let header = {calls}`.
 
 `margin`, `space-top`, `space-bottom` and `expand` works like below.
 
-![page-bordering-show-setting](assets/page-bordering-show-setting.png)
+![s6t5-page-bordering-show-setting](assets/s6t5-page-bordering-show-setting.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -154,18 +154,18 @@ links are below.
 
 <!-- Markdown Links & Images -->
 
-[release-shield]: https://img.shields.io/github/v/release/Shumpei-Tanaka/typst-page-bordering?style=flat-square&sort=semver
-[release-url]: https://github.com/Shumpei-Tanaka/typst-page-bordering/releases/latest
-[license-shield]: https://img.shields.io/github/license/Shumpei-Tanaka/typst-page-bordering?flat-square
+[release-shield]: https://img.shields.io/github/v/release/Shumpei-Tanaka/typst-s6t5-page-bordering?style=flat-square&sort=semver
+[release-url]: https://github.com/Shumpei-Tanaka/typst-s6t5-page-bordering/releases/latest
+[license-shield]: https://img.shields.io/github/license/Shumpei-Tanaka/typst-s6t5-page-bordering?flat-square
 [license-url]: /LICENSE
-[contributors-shield]: https://img.shields.io/github/contributors/Shumpei-Tanaka/typst-page-bordering.svg?style=flat-square
-[contributors-url]: https://github.com/Shumpei-Tanaka/typst-page-bordering/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Shumpei-Tanaka/typst-page-bordering.svg?style=flat-square
-[forks-url]: https://github.com/Shumpei-Tanaka/typst-page-bordering/network/members
-[stars-shield]: https://img.shields.io/github/stars/Shumpei-Tanaka/typst-page-bordering.svg?style=flat-square
-[stars-url]: https://github.com/Shumpei-Tanaka/typst-page-bordering/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Shumpei-Tanaka/typst-page-bordering.svg?style=flat-square
-[issues-url]: https://github.com/Shumpei-Tanaka/typst-page-bordering/issues
+[contributors-shield]: https://img.shields.io/github/contributors/Shumpei-Tanaka/typst-s6t5-page-bordering.svg?style=flat-square
+[contributors-url]: https://github.com/Shumpei-Tanaka/typst-s6t5-page-bordering/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Shumpei-Tanaka/typst-s6t5-page-bordering.svg?style=flat-square
+[forks-url]: https://github.com/Shumpei-Tanaka/typst-s6t5-page-bordering/network/members
+[stars-shield]: https://img.shields.io/github/stars/Shumpei-Tanaka/typst-s6t5-page-bordering.svg?style=flat-square
+[stars-url]: https://github.com/Shumpei-Tanaka/typst-s6t5-page-bordering/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Shumpei-Tanaka/typst-s6t5-page-bordering.svg?style=flat-square
+[issues-url]: https://github.com/Shumpei-Tanaka/typst-s6t5-page-bordering/issues
 [Paypal-shield]: https://img.shields.io/badge/paypal.me-s6tanaka-white?style=flat-square&logo=paypal
 [Paypal-url]: https://paypal.me/s6tanaka
 [BuyMeACoffee-sheild]: https://img.shields.io/badge/buy_me_a_coffee-s6tanaka-white?style=flat-square&logo=buymeacoffee&logocolor=#FFDD00
