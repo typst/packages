@@ -1,10 +1,10 @@
-#let longitudAbstract = 138
+#let longitud-abstract = 138
 #let unirfisica(
   titulo: "Título de mi TFG",
   alumno: "Mi nombre",
   director: "Nombre de mi director",
-  resumen: lorem(longitudAbstract),
-  abstract: lorem(longitudAbstract),
+  resumen: lorem(longitud-abstract),
+  abstract: lorem(longitud-abstract),
   pclave: lorem(6).replace(" ", ", ").replace(",,", ","),
   kwords: lorem(6).replace(" ", ", ").replace(",,", ","),
   doc,
