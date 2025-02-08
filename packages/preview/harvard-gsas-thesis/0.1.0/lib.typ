@@ -1,11 +1,11 @@
-#let SchoolColor = rgb(165, 28, 48)
+#let school-color = rgb(165, 28, 48)
 
 #let frontmatter(
   title: none,
   abstract: [],
   author: "John Harvard",
   advisor: "My Dear Advisor",
-  doctor_of: "Physics",
+  doctor-of: "Physics",
   major: "Physics",
   doc
 ) = {
@@ -24,7 +24,7 @@
     #set text(20pt, weight: "regular")
     #pagebreak()
     #v(30%)
-    #text(100pt, SchoolColor, counter(heading).display())\
+    #text(100pt, school-color, counter(heading).display())\
     #text(24.88pt, it.body)
     #v(3em)
   ]
@@ -34,7 +34,7 @@
   counter(page).update(1)
   grid(
     [
-      #text(SchoolColor, 24.88pt)[_#(title)_]
+      #text(school-color, 24.88pt)[_#(title)_]
 
       #v(1fr)
       #show: smallcaps

@@ -5,7 +5,7 @@
   abstract: [this is abstract text],
   author: "John Harvard",
   advisor: "Melissa Franklin",
-  doctor_of: "Physics",
+  doctor-of: "Physics",
   major: "Physics",
 )
 
