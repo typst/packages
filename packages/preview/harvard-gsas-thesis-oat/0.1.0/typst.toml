@@ -1,11 +1,11 @@
 [package]
-name = "harvard-gsas-thesis"
+name = "harvard-gsas-thesis-oat"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Moelf <https://github.com/Moelf>"]
 license = "MIT"
 description = "PhD Thesis template for Harvard GSAS (Graduate School of Arts and Sciences)"
-repository = "https://github.com/Moelf/harvard-gsas-thesis-typst"
+repository = "https://github.com/Moelf/harvard-gsas-thesis-oat-typst"
 keywords = ["Harvard", "GSAS", "Harvard University", "dissertation", "thesis"]
 categories = ["thesis"]
 exclude = ["example_gsas.pdf", "example_gsas.typ"]

@@ -1,4 +1,4 @@
-#import "@preview/harvard-gsas-thesis:0.1.0": frontmatter, SchoolColor
+#import "@preview/harvard-gsas-thesis-oat:0.1.0": frontmatter, SchoolColor
 
 #show: frontmatter.with(
   title: "Dissertation Title",
