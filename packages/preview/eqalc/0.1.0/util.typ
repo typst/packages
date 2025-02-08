@@ -1,7 +1,8 @@
 /// Converts math equations to strings.
+/// -> string
 #let math-to-str(
   /// The math expression.
-  /// -> equation
+  /// - equation
   math,
 ) = {
   let map-math(n, depth: 0) = {

@@ -4,7 +4,7 @@
 /// -> math
 #let math-to-func(
   /// The math expression.
-  /// -> equation
+  /// - content
   math,
 ) = {
   x => eval("let x = " + str(x) + "; " + math-to-str(math))
@@ -14,22 +14,22 @@
 /// -> content
 #let func-to-table(
   /// The function to evaluate.
-  /// -> function
+  /// - function
   f,
   /// The minimum value of the domain.
-  /// -> number
+  /// - number
   min: 0,
   /// The maximum value of the domain.
-  /// -> number
+  /// - number
   max: 5,
   /// The step size.
-  /// -> number
+  /// - number
   step: 1,
   /// The number of decimal places to round to.
-  /// -> number
+  /// - number
   round: 2,
   /// The name of the function.
-  /// -> content
+  /// - content
   name: $f(x)$,
 ) = {
   assert(min < max, message: "min must be less than max")
@@ -49,7 +49,7 @@
 /// -> content
 #let math-to-code(
   /// The math expression.
-  /// -> equation
+  /// - equation
   math,
 ) = {
   let f = math-to-str(math)
