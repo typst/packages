@@ -6,6 +6,7 @@ authors = ["Alberto Corbi (UNIR)"]
 license = "MIT"
 description = "Plantilla para hacer TFGs en el Grado en Física de UNIR"
 repository = "https://github.com/pammacdotnet/TFGUF"
+categories = ["thesis"]
 
 [template]
 path = "./"
