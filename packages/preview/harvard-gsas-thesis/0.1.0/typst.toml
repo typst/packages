@@ -1,0 +1,16 @@
+[package]
+name = "harvard-gsas-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Moelf <https://github.com/Moelf>"]
+license = "MIT"
+description = "PhD Thesis template for Harvard GSAS (Graduate School of Arts and Sciences)"
+repository = "https://github.com/Moelf/harvard-gsas-thesis-typst"
+keywords = ["Harvard", "GSAS", "Harvard University", "dissertation", "thesis"]
+categories = ["thesis"]
+exclude = ["example_gsas.pdf", "example_gsas.typ"]
+
+[template]
+path = "templates"
+entrypoint = "main.typ"
+thumbnail = "img/thumbnail.png"
