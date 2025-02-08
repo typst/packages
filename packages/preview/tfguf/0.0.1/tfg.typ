@@ -1,4 +1,4 @@
-#import "@local/tfguf:0.0.1": unirfisica
+#import "@preview/tfguf:0.0.1": unirfisica
 
 #show: unirfisica.with(titulo: "Mi trabajo de fin de grado")
 
