@@ -8,7 +8,7 @@ So you only have to write your equation out ONCE!
 Install eqalc by cloning it and then importing like this:
 
 ```typ
-#import "@preview/eqalc:0.1.1": math-to-func, math-to-code, math-to-table
+#import "@preview/eqalc:0.1.0": math-to-func, math-to-code, math-to-table
 
 #let f = $g(t)=2t dot sqrt(e^t)+ln(t)+2pi$
 #f\
