@@ -464,7 +464,7 @@
   it,
 ) = {
   let el = it.element
-  if el.func() == metadata and type(el.value) == dictionary and el.value.at("theorem-kind", default: none) != none {
+  if el != none and el.func() == metadata and type(el.value) == dictionary and el.value.at("theorem-kind", default: none) != none {
     let val = el.value
     if it.supplement == [?] {
       link(it.target, [#val.supplement])
