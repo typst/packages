@@ -1,4 +1,4 @@
-#let sectionBlock(title, content) = [
+#let section-block(title, content) = [
   #grid(
     columns: (2.8fr, 13.8fr),
     smallcaps(text(font: "Cronos Pro", size: 14.5pt, title)), content,
@@ -6,7 +6,7 @@
   #v(20pt)
 ]
 
-#let eduHeading(department: [], location: [], role: [], time: []) = [
+#let edu-heading(department: [], location: [], role: [], time: []) = [
   #grid(
     columns: (3fr, 1fr),
     align: (left, right),
@@ -15,7 +15,7 @@
   )
 ]
 
-#let projHeading(title: [], institution: [], time: []) = [
+#let proj-heading(title: [], institution: [], time: []) = [
   #grid(
     columns: (3fr, 1fr),
     align: (left, right),
@@ -28,7 +28,7 @@
   )
 ]
 
-#let internHeading(company: [], location: [], time: []) = [
+#let intern-heading(company: [], location: [], time: []) = [
   #grid(
     columns: (3fr, 1fr),
     align: (left, right),
