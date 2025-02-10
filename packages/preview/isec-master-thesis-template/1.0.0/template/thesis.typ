@@ -16,6 +16,7 @@
     ([Firstname Lastname], [Academic Degrees]),
     ([Firstname Lastname], [Academic Degrees])
   ),
+  institute: [Institute of Information Security],
   date: [Month Year],
   acknowledgements: [
 		Thanks everyone who made this thesis possible

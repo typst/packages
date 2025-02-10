@@ -3,6 +3,7 @@
 	author: (),
 	curriculum: [],
 	supervisors: (),
+	institute: [],
 	date: [],
 ) = [
 
@@ -104,7 +105,7 @@
 	#v(0.14cm)
 
 	#text(size: 10pt)[
-		Institute of Information Security
+		#institute
 	]
 
 	#v(1.51cm)

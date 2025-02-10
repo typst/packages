@@ -18,6 +18,7 @@
 	author: none,
 	curriculum: none,
 	supervisors: none,
+	institute: none,
 	date: none,
 	acknowledgements: none,
 	abstract: none, 
@@ -91,6 +92,7 @@
 		author: author,
 		curriculum: curriculum,
 		supervisors: supervisors,
+		institute: institute,
 		date: date
 	)
 
