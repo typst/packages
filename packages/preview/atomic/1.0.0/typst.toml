@@ -1,0 +1,7 @@
+[package]
+name = "Atomic"
+version = "1.0.0"
+entrypoint = "atomic.typ"
+authors = ["Aarav Garg"]
+license = "MIT"
+description = "Drawing atoms."
