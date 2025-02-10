@@ -9,6 +9,6 @@ repository = "https://github.com/pammacdotnet/TFGUF"
 categories = ["thesis"]
 
 [template]
-path = "./"
+path = "template"
 entrypoint = "tfg.typ"
-thumbnail = "uflogo.png"
+thumbnail = "portada.png"
