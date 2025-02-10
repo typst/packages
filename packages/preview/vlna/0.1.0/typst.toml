@@ -1,9 +1,11 @@
 [package]
 name = "vlna"
 version = "0.1.0"
+compiler = "0.12.0"
+repository = "https://github.com/ShinoYumi/typst-vlna/"
 entrypoint = "vlna.typ"
 authors = ["ShinoYumi"]
+categories = ["text"]
 license = "MIT"
 description = "First version of czech vlna from LaTeX. All characters with less than 3 letters are connected to the next word."
-repository = "https://github.com/ShinoYumi/typst-vlna/"
-exclude = ["./examples"]
+keywords = ["vlna"]
