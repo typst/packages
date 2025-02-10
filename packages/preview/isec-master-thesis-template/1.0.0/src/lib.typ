@@ -79,7 +79,7 @@
 	// Set document metadata
 	#set document(
 		title: title,
-		author: author.at(0).text,
+		author: if type(author) == "content" { author.text } else { author.at(0).text },
 		keywords: content-to-string(keywords.join(", "))
 	)
 
