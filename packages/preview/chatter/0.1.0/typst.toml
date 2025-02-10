@@ -1,0 +1,16 @@
+[package]
+name = "chatter"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Sylvan Franklin"]
+license = "MIT-0"
+repository = "https://github.com/sylvanfranklin/chatter"
+categories = ["layout"]
+keywords = ["Homework", "English", "Translation", "Dialog", "Conversation"]
+exclude = ["*.pdf", "*.jpg", "*.png"]
+description = "Write dialog between any number of characters quickly and cleanly. Great for translations or short assignments"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

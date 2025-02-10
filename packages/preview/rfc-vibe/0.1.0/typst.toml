@@ -8,4 +8,4 @@ description = "Bring RFC language into everyday docs"
 categories = ["utility"]
 keywords = ["rfc", "keywords", "rfc2119", "rfc8174", "bcp14"]
 repository = "https://github.com/swaits/typst-collection"
-exclude = ["thumbnail.png", "examples/*"]
+exclude = ["thumbnail.png", "tests"]

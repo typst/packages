@@ -29,7 +29,12 @@ Required for submissions to this repository:
   address, homepage, or GitHub handle in angle brackets. The latter must start
   with an `@` character, and URLs must start with `http://` or `https://`.
 - `license`: The package's license. Must contain a valid SPDX-2 expression
-  describing one or multiple [OSI-approved][OSI] licenses.
+  describing one or multiple licenses that are either [OSI-approved][OSI]
+  licenses or a version of CC-BY, CC-BY-SA, or CC0. We recommend you do not
+  license your package using a Creative Commons license unless it is a
+  derivative work of a CC-BY-SA-licensed work or if it is not primarily code,
+  but content or data. In most other cases, [a free/open license specific to
+  software is better suited for Typst packages](https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software).
 - `description`: A short description of the package. Double-check this for
   grammar and spelling mistakes as it will appear in the [package list][list].
 
