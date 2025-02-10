@@ -7,6 +7,7 @@
   abstract: lorem(longitud-abstract),
   pclave: lorem(6).replace(" ", ", ").replace(",,", ","),
   kwords: lorem(6).replace(" ", ", ").replace(",,", ","),
+  logo: none,
   doc,
 ) = {
   set page(
@@ -25,11 +26,6 @@
   set text(font: "calibri", size: 12.5pt)
   set par(linebreaks: "optimized", justify: true, spacing: 1.8em, leading: 1.2em)
   let azulunir = rgb("#0098cd")
-
-  /*
-    Longitur del abstract de ejemplo
-  */
-  let longitud_abstract = 130
 
   /*
   Estilo de los títulos de cabecera de nivel 1 (sección )
@@ -60,8 +56,10 @@
   /*
   Definición de la portada
   */
+
   align(center)[
-    #image("unir logo.png", width: 60%)
+    #logo
+
     #text(font: "calibri", size: 24pt)[Universidad Internacional de la Rioja
     ]
 
@@ -93,9 +91,6 @@
       )
     ]
   ]
-
-  //pagebreak()
-
 
   pagebreak()
 
