@@ -41,11 +41,7 @@
 	// Author: 14pt 16pt
 	#v(2.83cm)
 	#text(size: 14pt)[
-		#if type(author) == "content" [
-			#author
-		] else [
-			#author.join(", ")
-		]
+		#if type(author) == content [ #author ] else [ #author.join(", ") ]
 	]
 
 
@@ -102,7 +98,7 @@
 	#box(width: 100%, height: 0.81cm)[
 		#set text(size: 10pt)
 		#for sup in supervisors [
-			#if type(sup) == "content" [ #sup ] else [ #sup.join(", ") ]
+			#if type(sup) == content [ #sup ] else [ #sup.join(", ") ]
 			#parbreak()
 		]
 	]
