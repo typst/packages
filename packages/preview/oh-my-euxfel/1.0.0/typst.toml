@@ -1,0 +1,16 @@
+[package]
+name = "oh-my-euxfel"
+version = "1.0.0"
+entrypoint = "theme.typ"
+authors = ["James Wrigley <@JamesWrigley>"]
+license = "MIT"
+description = "A Polylux theme for European XFEL presentations."
+repository = "https://github.com/JamesWrigley/euxfel-polylux-theme"
+keywords = ["euxfel", "xfel", "polylux"]
+categories = ["presentation"]
+exclude = ["*.png"]
+
+[template]
+path = "template"
+entrypoint = "presentation.typ"
+thumbnail = "thumbnail.png"
