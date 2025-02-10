@@ -1,33 +1,41 @@
-# IILC MoL Thesis
+# ILLC MoL Thesis
 
-This is a Typst port of the [official "Master of Logic
-Titlepage"](https://msclogic.illc.uva.nl/current-students/graduation/titlepage/)
-used by Master of Logic students at the ILLC in their thesis.
+[![status-badge](https://ci.codeberg.org/api/badges/14184/status.svg)](https://ci.codeberg.org/repos/14184)
+
+This is a Typst port of the [official Master of Logic thesis
+template](https://codeberg.org/m4lvin/illc-mol-thesis-template) of the
+Institute for Logic, Language, and Computation at the University of Amsterdam.
 
 ## Usage
 
-Please paste the following code in your Typst file. This snippet is using the
-default argument values, so if your name really is "John Q. Public" and you are
-indeed a MSc in Logic student, you do not need to pass values to the `author`
-and `degree` arguments.
+To use this template, run
 
-```typst
-#import "@preview/illc-mol-thesis:0.1.0": titlepage
-
-#titlepage(
-  title: "Title of the Thesis",
-  author: "John Q. Public",
-  birth-date: "April 1st, 1980",
-  birth-place: "Alice Springs, Australia",
-  defence-date: "August 28, 2005",
-  /* Only one supervisor? The singleton array ("Dr Jack Smith",) needs the
-     training comma. */
-  supervisors: ("Dr Jack Smith", "Prof Dr Jane Williams"),
-  committee: (
-    "Dr Jack Smith",
-    "Prof Dr Jane Williams",
-    "Dr Jill Jones",
-    "Dr Albert Heijn"),
-  degree: "MSc in Logic"
-)
+```bash
+typst init @preview/illc-mol-thesis:0.1.0
 ```
+
+from any directory to initialize a new project based on this template.
+
+## Functions
+
+- `mol-thesis` is to be initialized as a show rule;
+- `mol-titlepage` renders the first page of the thesis;
+- `mol-abstract` renders an abstract for the thesis;
+- `mol-chapter` renders the title of a new chapter.
+
+## Preview
+
+The PDF generated from the `main` branch of this repository is [available
+online](https://foxy.codeberg.page/illc-mol-thesis/main.pdf). Here is a
+(manually generated) image preview of the first page.
+
+![First page of the
+template](https://codeberg.org/foxy/illc-mol-thesis/raw/branch/main/img/template.png)
+
+## Attributions
+
+The original [MoL thesis
+template, along with the ILLC
+logo](https://codeberg.org/m4lvin/illc-mol-thesis-template) by the [Institute
+for Logic, Language, and Computation](https://illc.uva.nl) is released under
+[CC0](https://creativecommons.org/publicdomain/zero/1.0/).
