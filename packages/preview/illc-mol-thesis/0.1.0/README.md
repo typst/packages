@@ -30,7 +30,7 @@ online](https://foxy.codeberg.page/illc-mol-thesis/main.pdf). Here is a
 (manually generated) image preview of the first page.
 
 ![First page of the
-template](https://codeberg.org/foxy/illc-mol-thesis/raw/branch/main/img/template.png)
+template](https://codeberg.org/foxy/illc-mol-thesis/raw/branch/main/img/thumbnail.png)
 
 ## Attributions
 
