@@ -61,7 +61,7 @@
   input: none,
   output: none,
   indent-keywords: none,
-  dedent-keywords: none,
+  unindent-keywords: none,
   other-keywords: none,
   line-color : black,
   line-stroke: 1pt + black,
@@ -77,7 +77,7 @@
   let indent_array = range(test.len()).map(x => 0)
   let trigger = false;
 
-  if indent-keywords != none and dedent-keywords != none and other-keywords != none{
+  if indent-keywords != none and unindent-keywords != none and other-keywords != none{
   for it in range(test.len()){
     if type(test.at(it)) == content {
       if test.at(it).has("children") {
@@ -90,7 +90,7 @@
               indent_array.at(it) = indent
               indent = indent +1
               trigger = true
-            } else if dedent-keywords.contains(body.body) {
+            } else if unindent-keywords.contains(body.body) {
               indent = indent -1
               indent_array.at(it) = indent
               trigger = true
@@ -107,7 +107,7 @@
           indent_array.at(it) = indent
           indent = indent + 1
           trigger = true
-        } else if dedent-keywords.contains(test.at(it).body){ 
+        } else if unindent-keywords.contains(test.at(it).body){ 
           indent = indent - 1
           indent_array.at(it) = indent
           trigger = true
@@ -172,7 +172,7 @@
           head-color: none,
               stroke: none,
      indent-keywords: ([while], [if], [for]),
-     dedent-keywords: ([end while], [end if], [end for]),
+     unindent-keywords: ([end while], [end if], [end for]),
       other-keywords: ([else], [else if]),
               indent: true,
                inset: 5pt,
@@ -195,7 +195,7 @@
   // Disable the indeting with one command
   if not indent{
     indent-keywords=none
-    dedent-keywords=none
+    unindent-keywords=none
     other-keywords=none}
 
     
@@ -208,7 +208,7 @@
             fill: fill,
       head-color: head-color,
  indent-keywords: indent-keywords,
- dedent-keywords: dedent-keywords,
+ unindent-keywords: unindent-keywords,
   other-keywords: other-keywords,
      line-color : content-color.lines,
      line-stroke: content-color.stroke,

@@ -1,7 +1,7 @@
 # ez-algo
 
 A package to set algorithms in typst with ease.
-It indents and dedents the lines based on some simple keywords, which you can change if you like to.
+It indents and unindents the lines based on some simple keywords, which you can change if you like to.
 
 ## Examples
 
@@ -41,7 +41,7 @@ It indents and dedents the lines based on some simple keywords, which you can ch
 #import "@preview/ez-algo:0.1.0": ez-algo
 
 #ez-algo(
-  indent-keywords: ([while], [if], [function]),
+  unindent-keywords: ([while], [if], [function]),
 )[
   *function* $"gcd"(a,b)$ \
   *while* $a != b$ \
@@ -73,7 +73,7 @@ It indents and dedents the lines based on some simple keywords, which you can ch
           head_color: none,
               stroke: none,
      indent-keywords: ([while], [if], [for]),
-     dedent-keywords: ([end while], [end if], [end for]),
+     unindent-keywords: ([end while], [end if], [end for]),
       other-keywords: ([else], [else if]),
               indent: true,
                inset: 5pt,
@@ -99,7 +99,7 @@ Default: ```none```
 **indent-keywords:** ```array```
 Default: ```([while], [if], [for])```
 
-**dedent-keywords:** ```array```
+**unindent-keywords:** ```array```
 Default: ```([end while], [end if])```
 
 **other-keywords:** ```array```
