@@ -1,4 +1,4 @@
-#import "@preview/outrageous:0.1.0"
+#import "@preview/outrageous:0.3.0"
 #import "../utils/invisible-heading.typ": invisible-heading
 #import "../utils/style.typ": 字号, 字体
 

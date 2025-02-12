@@ -138,6 +138,11 @@
       reptext
     }
   }
+  pagebreak()
+
+  hide(heading(level: 1, outlined: true, "参考文献",numbering: none))
+  v(-3em)
+  //创造一标题，并将其隐藏起来，但由于hide是占据空间的，为了和插入标题前一致，我只好将其上移3em。有点生草。
   set par(first-line-indent: 0pt)
   fakebold(font: 字体.楷体, size: 字号.五号)[参考文献]
   set par(spacing: 1em, leading:1em)
