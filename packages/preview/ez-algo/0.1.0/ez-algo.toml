@@ -6,4 +6,5 @@ authors = ["the-mathing <https://github.com/the-mathing>"]
 license = "MIT"
 description = "A package to set algorithms with ease"
 disciplines = ["mathematics", "computer-science"]
+repository = "https://github.com/the-mathing/ez-algo"
 exclude = ["/gallery/*"]
