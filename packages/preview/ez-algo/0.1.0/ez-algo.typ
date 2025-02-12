@@ -1,5 +1,5 @@
 
-#let ind(input_text: "text",level: 0,h-spacing: 10pt,stroke: 1pt +black) = {
+#let ind(input-text: "text",level: 0,h-spacing: 10pt,stroke: 1pt +black) = {
   let nums = range(0, level+2 )
   let numbers = range(0, level+2 )
 
@@ -12,7 +12,7 @@
   if level ==0 {
     nums.at(0) = [#h(5pt)]
   }
-  nums.at(level + 1) = input_text
+  nums.at(level + 1) = input-text
 
   //nums = nums.map(x => text(x,red))
   //return #text([#text],red)]
@@ -33,7 +33,7 @@
   )
 }
 
-#let algo_header(input: none,output: none) = {
+#let algo-header(input: none,output: none) = {
   let a
   if input != none and type(input) != "array" {
       input = ([*Input:*],[#input])
@@ -56,7 +56,7 @@
   } 
 }
 
-#let ez-algo_backend(
+#let ez-algo-backend(
   pseudocode: (),
   input: none,
   output: none,
@@ -121,7 +121,7 @@
   }}
   
   for it in range(test.len()){
-    algo_ray.at(it) = ind(input_text: [#text(test.at(it),line-color)], stroke: line-stroke,level: indent_array.at(it))
+    algo_ray.at(it) = ind(input-text: [#text(test.at(it),line-color)], stroke: line-stroke,level: indent_array.at(it))
   }
   
   let numbers = range(1,algo_ray.len()+1).map(x => text([#x],number-color))
@@ -129,7 +129,7 @@
   let head_stroke = false
   let filling = (x,y) => fill(x,y)
   if input != none or output != none {
-    a = ([],algo_header(input: input,output: output)) + a
+    a = ([],algo-header(input: input,output: output)) + a
     head_stroke = true
     filling = (x,y) => if y >= 1 {fill(x,y)} else {head-color}
   } 
@@ -202,7 +202,7 @@
   rect(stroke:stroke,
   inset: inset,
   )[
-  #ez-algo_backend(input: input, 
+  #ez-algo-backend(input: input, 
           output: output,
       pseudocode: liste,
             fill: fill,
