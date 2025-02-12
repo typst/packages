@@ -1,0 +1,32 @@
+[package]
+name = "hei-synd-report"
+version = "0.1.0"
+authors = [
+  "Silvan Zahno <https://github.com/tschinz>",
+  "HEI-Vs <https://synd.hevs.io>",
+]
+repository = "https://github.com/hei-templates/hei-synd-report"
+homepage = "https://synd.hevs.io"
+license = "MIT"
+description = "A report and project template tailored to the Systems Engineering (Synd) program at the HEI-Vs School of Engineering, Sion, Switzerland."
+entrypoint = "lib/template-report.typ"
+categories = ["report", "paper"]
+disciplines = ["engineering", "computer-science", "education"]
+keywords = [
+  "Report",
+  "Project",
+  "University",
+  "HES-SO Valais//Wallis",
+  "HEI",
+  "HEI-Vs",
+  "School of engineering",
+  "Synd",
+  "Systems Engineering",
+  "Infotronics",
+  "Sion",
+]
+
+[template]
+path = "template"
+entrypoint = "report.typ"
+thumbnail = "thumbnail.png"
