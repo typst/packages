@@ -1,0 +1,167 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "fonts-androidFront": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1576222728,
+        "narHash": "sha256-MK7ueZD0a+90pKAOQNy1Ts19rP3bXpAVW+SXjd6lDpE=",
+        "owner": "Kangzhengwei",
+        "repo": "androidFront",
+        "rev": "8322ad41eea34d9a421ac063b365e6a2778ca98a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kangzhengwei",
+        "repo": "androidFront",
+        "type": "github"
+      }
+    },
+    "fonts-popular-fonts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1563726253,
+        "narHash": "sha256-fr1ltK9gYZtek7zeIqouBjS0NcZyjwqOKHKlCXlubSU=",
+        "owner": "chengda",
+        "repo": "popular-fonts",
+        "rev": "84e662179a1082eed4122de9bb66f0efa4028840",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chengda",
+        "repo": "popular-fonts",
+        "type": "github"
+      }
+    },
+    "fonts-pytorch": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721185688,
+        "narHash": "sha256-w+/GWbDowUTJtOvQKp9c4vZ4e3ZvJFoz4QF5KD4lZLg=",
+        "owner": "siaimes",
+        "repo": "pytorch",
+        "rev": "70ca4e6993f6fcad511cba06296b534a362078d3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "siaimes",
+        "repo": "pytorch",
+        "type": "github"
+      }
+    },
+    "fonts-scp_zh": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1449163522,
+        "narHash": "sha256-CSWrqmN9uuEoR1nOToSX3ouOkcgKVRirmG3mlZPkZsA=",
+        "owner": "StellarCN",
+        "repo": "scp_zh",
+        "rev": "27216301d7a233296b0a744a16445c037f2d3c16",
+        "type": "github"
+      },
+      "original": {
+        "owner": "StellarCN",
+        "repo": "scp_zh",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1739214665,
+        "narHash": "sha256-26L8VAu3/1YRxS8MHgBOyOM8xALdo6N0I04PgorE7UM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "64e75cd44acf21c7933d61d7721e812eac1b5a0a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "fonts-androidFront": "fonts-androidFront",
+        "fonts-popular-fonts": "fonts-popular-fonts",
+        "fonts-pytorch": "fonts-pytorch",
+        "fonts-scp_zh": "fonts-scp_zh",
+        "nixpkgs": "nixpkgs",
+        "typix": "typix",
+        "typst-packages": "typst-packages"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "typix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1738982361,
+        "narHash": "sha256-QWDOo/+9pGu63knSlrhPiESSC+Ij/QYckC3yH8QPK4k=",
+        "owner": "loqusion",
+        "repo": "typix",
+        "rev": "bdb42d3e9a8722768e2168e31077129207870f92",
+        "type": "github"
+      },
+      "original": {
+        "owner": "loqusion",
+        "repo": "typix",
+        "type": "github"
+      }
+    },
+    "typst-packages": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739435178,
+        "narHash": "sha256-5xFuPW46B2GJ4VXCoctAupLl7yBo2yn5tCK5mshFC94=",
+        "owner": "typst",
+        "repo": "packages",
+        "rev": "64879400e1ab47efe7309bb0113a7af6e2499515",
+        "type": "github"
+      },
+      "original": {
+        "owner": "typst",
+        "repo": "packages",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
