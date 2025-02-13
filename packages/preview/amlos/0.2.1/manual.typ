@@ -1,4 +1,4 @@
-#import "lib.typ": *
+#import "@preview/amlos:0.2.1": *
 #set document(author: "Uwni", date: datetime.today(), title: "Amlos: makes list of symbols")
 
 = Amlos makes list of symbols
