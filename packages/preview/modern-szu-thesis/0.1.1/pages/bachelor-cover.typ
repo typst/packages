@@ -146,7 +146,7 @@
     //image("../assets/vi/nju-emblem.svg", width: 2.38cm)
     v(22pt)
     // 调整一下左边的间距
-    pad(image("../assets/vi/szu.jpg", width: 200pt), left: 0.4cm)
+    pad(image("../assets/vi/szu.svg", width: 200pt), left: 0.4cm)
     v(-5pt)
   }
 
