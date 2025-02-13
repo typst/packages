@@ -1,0 +1,14 @@
+[package]
+name = "ballot-paper-de"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nico Haring <@G0STG0D>"]
+license = "MIT"
+description = "A German Election Ballot Paper including the 2 Votes System of First and Second vote."
+keywords = ["german", "de", "ballot", "ballot paper", "paper", "election", "vote", "voting"]
+categories = ["fun", "visualization"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
