@@ -1,9 +1,11 @@
 [package]
 name = "ballot-paper-de"
 version = "0.1.0"
+compiler = "0.12.0"
 entrypoint = "lib.typ"
 authors = ["Nico Haring <@G0STG0D>"]
 license = "MIT"
+repository = "https://github.com/G0STG0D/packages"
 description = "A German Election Ballot Paper including the 2 Votes System of First and Second vote."
 keywords = ["german", "de", "ballot", "ballot paper", "paper", "election", "vote", "voting"]
 categories = ["fun", "visualization"]
