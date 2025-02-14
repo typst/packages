@@ -12,7 +12,7 @@
 模板已经上传到了 Typst Universe，使用起来十分简单，理论上只需要通过
 
 ```typst
-#import "@preview/modern-sjtu-thesis:0.1.0": documentclass
+#import "@preview/modern-sjtu-thesis:0.1.1": documentclass
 ```
 
 导入即可。
