@@ -1,5 +1,5 @@
+#import "@preview/cetz:0.3.1"
 #import "@preview/cetz-plot:0.1.0": plot
-
 
 #let plotting(
   functions,
@@ -9,12 +9,12 @@
       fn:
       x => x,
       domain: (start, end),
-      projection: (x: (), y:()),
+      projection: (x: ((0, "0"),), y: ((0, "1"),)),
       stroke: color,
     ),
       fn: x => x,
       domain: (start, end),
-      projection: (x: (), y:()),
+      projection: (x: ((0, "0"),), y: ((0, "1"),)),
       stroke: color,
 
   )
@@ -25,10 +25,9 @@
   axis-style: "school-book",
   axis: ("x", "y"), // axis name
   size: (14, 7), // blueprint size
-) = context {
+) = {
   import calc: *
   import cetz.draw: *
-
 
   let domain-min-x = domain.at(0)
   for function in functions {
@@ -48,9 +47,7 @@
     }
   }
 
-
   let size-domain = domain-max-x - domain-min-x
-
 
   let amplitude-y = {
     let max-total = 0
@@ -78,112 +75,81 @@
         }
       }
     }
-
-    return round((max-total - min-total) / 2 * 100) / 100
+    round((max-total - min-total) / 2 * 100) / 100
   }
 
-
   let sgn(x) = {
-    if x == 0 {
-      return 1
-    }
+    if x == 0 { return 1 }
     return abs(x) / x
   }
 
   let projection-x(function, x, label) = {
     plot.add-vline(x, max: function(x), min: 0, style: (stroke: (dash: "dashed")))
-
     if label.len() > 0 {
       plot.annotate({
-        content((x, -(0.1 * sgn(function(x))) * 1 / (size.at(1) / 7) * amplitude-y()), [#label])
+        content((x, -(0.1 * sgn(function(x))) * 1 / (size.at(1) / 7) * amplitude-y), [#label])
       })
     }
-  }
-
-  [#amplitude-y()]
-
-
-  let projection-sur-y(x1, x2) = {
-    if (x1 > 0) { return x1 }
-    if (x2 < 0) { return x2 }
-    return 0
   }
 
   let projection-y(function, x, label) = {
-    plot.add-hline(
-      function(x),
-      max: x,
-      min: projection-sur-y(domain.at(0), domain.at(1)),
-      style: (stroke: (dash: "dashed")),
-    )
-
+    plot.add-hline(function(x), max: x, min: 0, style: (stroke: (dash: "dashed")))
     if label.len() > 0 {
       plot.annotate({
-        content(
-          (
-            projection-sur-y(domain.at(0), domain.at(1)) + (sgn(x) * (-0.18 - label.len() / 9)) * 1 / (size.at(0) / 14),
-            function(x),
-          ),
-          [#label],
-        )
+        content((0, function(x)), [#label])
       })
     }
   }
 
-
-  cetz.canvas({
-    // Set-up a thin axis style
+  return cetz.canvas({
     set-style(axes: (stroke: .5pt, tick: (stroke: .5pt)))
 
-
     plot.plot(
-      size: (size.at(0), size.at(1)),
-
+      size: size,
       x-tick-step: steps.at(0),
       y-tick-step: steps.at(1),
-
       axis-style: axis-style,
-
       x-label: axis.at(0),
       y-label: axis.at(1),
-
-      x-min: domain-min-x,
+      x-min: domain.at(0),
+      x-max: domain.at(1),
       {
         for function in functions {
-          if function.keys().contains("projection") and function.projection.keys().contains("x") {
-            for projection-x-value in function.projection.x {
-              if (type(projection-x-value) == array) {
-                projection-x(function.fn, projection-x-value.at(0), projection-x-value.at(1))
-              } else {
-                projection-x(function.fn, projection-x-value, "")
+          if function.keys().contains("fn") {
+            let dm = if function.keys().contains("domain") { function.domain } else { domain }
+            let st = if function.keys().contains("stroke") { function.stroke } else { black }
+            
+            plot.add(
+              function.fn,
+              domain: dm,
+              style: (stroke: st),
+              samples: samples,
+            )
+
+            if function.keys().contains("projection") {
+              if function.projection.keys().contains("x") {
+                for x in function.projection.x {
+                  if type(x) == array {
+                    projection-x(function.fn, x.at(0), x.at(1))
+                  } else {
+                    projection-x(function.fn, x, "")
+                  }
+                }
+              }
+              
+              if function.projection.keys().contains("y") {
+                for y in function.projection.y {
+                  if type(y) == array {
+                    projection-y(function.fn, y.at(0), y.at(1))
+                  } else {
+                    projection-y(function.fn, y, "")
+                  }
+                }
               }
             }
           }
-
-          if function.keys().contains("projection") and function.projection.keys().contains("y") {
-            for projection-y-value in function.projection.y {
-              if (type(projection-y-value) == array) {
-                projection-y(function.fn, projection-y-value.at(0), projection-y-value.at(1))
-              } else {
-                projection-y(function.fn, projection-y-value, "")
-              }
-            }
-          }
-
-          let dm = domain
-
-          if function.keys().contains("domain") {
-            dm = function.domain
-          }
-
-          plot.add(
-            function.fn,
-            domain: dm,
-            style: (stroke: black),
-            samples: samples,
-          )
         }
-      },
+      }
     )
   })
 }

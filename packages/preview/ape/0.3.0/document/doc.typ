@@ -20,7 +20,7 @@ Style :
   lang: "fr",
   title: "Titre",
   authors: (),
-  style: "",
+  style: "numbered",
   title-page: false,
   outline: false,
   smallcaps: true,

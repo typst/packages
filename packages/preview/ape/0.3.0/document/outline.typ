@@ -19,14 +19,14 @@
         #{
           if lang == "fr" {
             text(
-              size: 2.5em,
+              size: 2.6em,
               sc[
                 *Table des matières*
               ],
             )
           } else {
             text(
-              size: 2.5em,
+              size: 2.6em,
               sc[
                 *Table of content*
               ],

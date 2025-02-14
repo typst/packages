@@ -47,10 +47,10 @@
 #let inbox2(content) = context {
   import calc: *
   let c = block(inset: (left: 10pt, right: 10pt), content)
-
+  
 
   layout(size => {
-    let inbox-height = max(15pt, min(size.width * 0.15, pow(1.5, measure(c).width / size.width) * 4pt))
+    let inbox-height = max(25pt, min(size.width * 0.15, pow(1.5, measure(c).width / size.width) * 4pt))
 
 
     box([#{

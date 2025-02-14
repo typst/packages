@@ -17,18 +17,17 @@
       [
         #{
             if type(title) == text {
-              text(size: 7em, [*#title*])
+              text(size: 6em, [*#title*])
             } else {
               [
-                #par(text(size: 6em, hyphenate: false, (strong(title.at(1)))))
-                #v(3em)
-                #par(text(size: 3em, hyphenate: false, (title.at(0))))
+                #par(leading: 0.38em, text(size: 5em, hyphenate: false, (strong(title.at(1)))))
+                #v(-1em)
+                #par(text(size: 4em, hyphenate: false, (title.at(0))))
               ]
             }
           }
 
 
-        #v(1em)
         #{
           if type(authors) == array {
             if authors.len() > 0 {
