@@ -1,4 +1,4 @@
-#import "@preview/ballot-paper-de:0.1.0": ballot-paper
+#import "@preview/electify:0.1.0": ballot-paper
 
 #show: ballot-paper(
   type: "zum Deutschen Bundestag",
