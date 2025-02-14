@@ -9,7 +9,7 @@ This package currently has a few limitations, such as not being able to collapse
 To add this package to your project, use this:
 
 ```typ
-#import "@preview/alexandria:0.1.0": *
+#import "@preview/alexandria:0.1.1": *
 
 #show: alexandria(prefix: "x-", read: path => read(path))
 
