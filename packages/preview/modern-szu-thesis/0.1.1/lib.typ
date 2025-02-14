@@ -1,9 +1,6 @@
 // 南京大学学位论文模板 modern-nju-thesis
 // Author: https://github.com/OrangeX4
 // Repo: https://github.com/nju-lug/modern-nju-thesis
-// 深圳大学学位论文模板 modern-szu-thesis
-// Author: https://gitee.com/yjdyamv or https://github.com/yjdyamv
-// Repo: https://gitee.com/yjdyamv/modern-szu-thesis
 // 在线模板可能不会更新得很及时，如果需要最新版本，请关注 Repo
 
 #import "layouts/doc.typ": doc

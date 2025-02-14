@@ -12,7 +12,7 @@
   if (not anonymous) {
     pagebreak(weak: true, to: if twoside { "odd" })
     [
-      #fakebold(heading(level: 1, numbering: none, outlined: outlined, title, )) <no-auto-pagebreak>
+      #fakebold(heading(level: 4, numbering: none, outlined: outlined, title, )) <no-auto-pagebreak>
       #text()[#body]
     ]
 
