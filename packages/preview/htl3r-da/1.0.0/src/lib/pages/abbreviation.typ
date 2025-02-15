@@ -5,25 +5,25 @@
   #global.author.update(none)
   = Abkürzungsverzeichnis
   #for name in global.abbr.get().keys() [
+    #let abbr = global.abbr.get().at(name)
+    #let short = abbr.at("short", default: none)
+    #if short == none {
+      continue
+    }
+    #let short = short.at("singular", default: none)
+    #if short == none {
+      panic("Short for '" + name + "' does not exist in singular form!")
+    }
+    #let long = abbr.at("long", default: none)
+    #if long == none {
+      panic("Long for '" + name + "' does not exist!")
+    }
+    #let long = long.at("singular", default: none)
+    #if long == none {
+      panic("Long for '" + name + "' does not exist in singular form!")
+    }
+    #let description = abbr.at("description", default: none)
     #block(breakable: false)[
-      #let abbr = global.abbr.get().at(name)
-      #let short = abbr.at("short", default: none)
-      #if short == none {
-        continue
-      }
-      #let short = short.at("singular", default: none)
-      #if short == none {
-        panic("Short for '" + name + "' does not exist in singular form!")
-      }
-      #let long = abbr.at("long", default: none)
-      #if long == none {
-        panic("Long for '" + name + "' does not exist!")
-      }
-      #let long = long.at("singular", default: none)
-      #if long == none {
-        panic("Long for '" + name + "' does not exist in singular form!")
-      }
-      #let description = abbr.at("description", default: none)
       #par(spacing: 0pt)[
         #strong(short): #label("ABBR_DES_"+name) #long #h(1fr)
         #if description != none [
@@ -61,7 +61,7 @@
           ]
         ],
       )
-      #v(1em)
     ]
+    #v(1em)
   ]
 ]
