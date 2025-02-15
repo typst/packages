@@ -6,12 +6,7 @@ context preview(````typ
     (2, "columns..."),
   ),
   lang: true,
-  lang-color: eastern,
-  lang-font-args: (
-    font: "libertinus serif",
-    weight: "bold",
-    fill: white,
-  ),
+  comment-color: white,
   comment-font-args: (
     font: "IBM Plex Sans",
     style: "italic"

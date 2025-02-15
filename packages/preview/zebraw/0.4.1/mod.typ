@@ -32,8 +32,8 @@
   /// The flag at the beginning of comments.
   /// -> string | content
   comment-flag: ">",
-  /// Whether to show the language tab.
-  /// -> boolean
+  /// Whether to show the language tab, or a string or content of custom language name to display.
+  /// -> boolean | string | content
   lang: true,
   /// The arguments passed to comments' font.
   /// -> dictionary
@@ -246,7 +246,7 @@
   ///
   /// -> string | content
   comment-flag: none,
-  /// Whether to show the language tab on the top-right corner of the code block.
+  /// Whether to show the language tab, or a string or content of custom language name to display.
   ///
   /// #example(````typ
   /// #zebraw(
@@ -260,8 +260,21 @@
   /// )
   /// ````,
   /// scale-preview: 100%)
+  /// 
+  /// #example(````typ
+  /// #zebraw(
+  ///   lang: strong[Typst],
+  ///   ```typ
+  ///   #grid(
+  ///     columns: (1fr, 1fr),
+  ///     [Hello,], [world!],
+  ///   )
+  ///   ```
+  /// )
+  /// ````,
+  /// scale-preview: 100%)
   ///
-  /// -> boolean
+  /// -> boolean | string
   lang: none,
   /// The arguments passed to comments' font.
   ///
