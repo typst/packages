@@ -121,7 +121,10 @@
           #v(-5pt)
           */
           #for author in authors [
-            #text(size: 12pt, strong(author.name)) #h(1fr) #text(size: 12pt, author.supervisor) \
+            #text(size: 12pt, strong(author.name)) #h(1fr) #text(
+              size: 12pt,
+              author.supervisor,
+            ) \
           ]
         ],
       )

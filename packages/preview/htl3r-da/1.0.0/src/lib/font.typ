@@ -6,7 +6,12 @@
 
 /// Returns an array of missing fonts
 #let check-missing-fonts() = {
-  (settings.FONT_HEADING, settings.FONT_TEXT_BODY, settings.FONT_TEXT_DISPLAY, settings.FONT_TEXT_RAW)
+  (
+    settings.FONT_HEADING,
+    settings.FONT_TEXT_BODY,
+    settings.FONT_TEXT_DISPLAY,
+    settings.FONT_TEXT_RAW,
+  )
     .dedup()
     .filter(it => is-font-missing(it))
 }
