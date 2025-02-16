@@ -14,4 +14,4 @@ Full example:
 simple-page.with("Max Mustmann", "max.mustermann@example.com", middle-text: "Example GmbH", date: true, numbering: true, supress-mail-link: false)
 ```
 
-Reach me out if you have quastions!
+Reach me out if you have quastions! ✌️ 
