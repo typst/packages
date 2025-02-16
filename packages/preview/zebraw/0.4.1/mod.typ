@@ -260,7 +260,7 @@
   /// )
   /// ````,
   /// scale-preview: 100%)
-  /// 
+  ///
   /// #example(````typ
   /// #zebraw(
   ///   lang: strong[Typst],
@@ -438,11 +438,12 @@
   show raw.where(block: true): it => {
     // Language tab.
     if lang != false {
+      v(-.34em)
       align(
         right,
         block(
           sticky: true,
-          inset: 0.3em,
+          inset: 0.34em,
           outset: (bottom: inset.left),
           radius: (top: inset.left),
           fill: lang-color,
@@ -464,11 +465,14 @@
           inset: inset,
           if num {
             let lb = measure(
-              g(line-render((body: (linebreak()), fill: none))),
+              g(line-render((body: [#line.number], fill: none))),
               width: code-block-size.width,
             ).height
             let cnt = calc.ceil(height / lb) - 1
-            let number = [#line.number] + (linebreak()) * cnt
+            let number = (
+              [#if line.keys().contains("comment") { text(fill: line.fill, [#line.number]) } else { line.number }]
+                + [\ #text(fill: line.fill, [#line.number])] * cnt
+            )
             let rem = (
               height - measure(g(line-render((body: number, fill: none))), width: code-block-size.width).height
             )
@@ -547,6 +551,7 @@
           ..if header != none or comments.keys().contains("header") {
             (
               grid.header(
+                repeat: false,
                 grid.cell(
                   align: left + top,
                   colspan: 2,
@@ -570,8 +575,8 @@
           } else if extend {
             (
               grid.header(
+                repeat: true,
                 grid.cell(
-                  align: left + top,
                   colspan: 2,
                   b(
                     fill: curr-background-color(background-color, 0),
@@ -590,27 +595,32 @@
           // Footer.
           ..if footer != none or comments.keys().contains("footer") {
             (
-              grid.cell(
-                align: left + top,
-                colspan: 2,
-                b(
-                  inset: inset.pairs().map(((key, value)) => (key, value * 2)).to-dict(),
-                  radius: (bottom: inset.left),
-                  fill: comment-color,
-                  text(..comment-font-args, if footer != none { footer } else { comments.at("footer") }),
+              grid.footer(
+                repeat: false,
+                grid.cell(
+                  align: left + top,
+                  colspan: 2,
+                  b(
+                    inset: inset.pairs().map(((key, value)) => (key, value * 2)).to-dict(),
+                    radius: (bottom: inset.left),
+                    fill: comment-color,
+                    text(..comment-font-args, if footer != none { footer } else { comments.at("footer") }),
+                  ),
                 ),
               ),
             )
           } else if extend {
             (
-              grid.cell(
-                align: left + top,
-                colspan: 2,
-                b(
-                  fill: curr-background-color(background-color, lines.len() + 1),
-                  inset: (:) + (bottom: inset.bottom),
-                  radius: (bottom: inset.left),
-                  [],
+              grid.footer(
+                repeat: true,
+                grid.cell(
+                  colspan: 2,
+                  b(
+                    fill: curr-background-color(background-color, lines.len() + 1),
+                    inset: (:) + (bottom: inset.bottom),
+                    radius: (bottom: inset.left),
+                    [],
+                  ),
                 ),
               ),
             )
