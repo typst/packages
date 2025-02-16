@@ -1,4 +1,4 @@
-<svg class="typst-doc" viewBox="0 0 595.2755905511812 841.8897637795276" width="595.2755905511812pt" height="841.8897637795276pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+<svg class="typst-doc" viewBox="0 0 595.2755905511812 230.8774769230768" width="595.2755905511812pt" height="230.8774769230768pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
     <g>
         <g transform="translate(0 4.95)">
             <g class="typst-group">
@@ -442,7 +442,7 @@
                         <path class="typst-shape" fill="#fafafa" fill-rule="nonzero" d="M 0 2.992 C 0 1.3395641 1.3395641 0 2.992 0 L 280.89578 0 C 282.54822 0 283.8878 1.3395641 283.8878 2.992 L 283.8878 161.04 C 283.8878 162.69243 282.54822 164.032 280.89578 164.032 L 2.992 164.032 C 1.3395641 164.032 0 162.69243 0 161.04 Z "/>
                     </g>
                     <g transform="translate(5.5 5.5)">
-                        <g class="typst-group" clip-path="url(#cD7915B16EADBD8A2EF722B1C407D9133)">
+                        <g class="typst-group" clip-path="url(#c8239E8E834A3CCAFEC0ABBA308B044D8)">
                             <g>
                                 <g transform="translate(0 0)">
                                     <g class="typst-group">
@@ -1603,7 +1603,7 @@
         </symbol>
     </defs>
     <defs id="clip-path">
-        <clipPath id="cD7915B16EADBD8A2EF722B1C407D9133">
+        <clipPath id="c8239E8E834A3CCAFEC0ABBA308B044D8">
             <path d="M 0 2.992 C 0 1.3395641 1.3395641 0 2.992 0 L 280.89578 0 C 282.54822 0 283.8878 1.3395641 283.8878 2.992 L 283.8878 161.04 C 283.8878 162.69243 282.54822 164.032 280.89578 164.032 L 2.992 164.032 C 1.3395641 164.032 0 162.69243 0 161.04 Z "/>
         </clipPath>
     </defs>

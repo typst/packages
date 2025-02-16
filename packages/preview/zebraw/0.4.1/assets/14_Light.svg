@@ -1,4 +1,4 @@
-<svg class="typst-doc" viewBox="0 0 595.2755905511812 841.8897637795276" width="595.2755905511812pt" height="841.8897637795276pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+<svg class="typst-doc" viewBox="0 0 595.2755905511812 242.21492307692296" width="595.2755905511812pt" height="242.21492307692296pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
     <g>
         <g transform="translate(0 4.95)">
             <g class="typst-group">
@@ -525,7 +525,7 @@
                         <path class="typst-shape" fill="#ebebeb" fill-rule="nonzero" d="M 0 2.992 C 0 1.3395641 1.3395641 0 2.992 0 L 280.89578 0 C 282.54822 0 283.8878 1.3395641 283.8878 2.992 L 283.8878 51.784615 C 283.8878 53.43705 282.54822 54.776615 280.89578 54.776615 L 2.992 54.776615 C 1.3395641 54.776615 0 53.43705 0 51.784615 Z "/>
                     </g>
                     <g transform="translate(5.5 5.5)">
-                        <g class="typst-group" clip-path="url(#cAB83A7D28F0A4C7BE094B945DBE470BD)">
+                        <g class="typst-group" clip-path="url(#c1CE978F9E607F2A5EF6EA1F9B3C5A34B)">
                             <g>
                                 <g transform="translate(0 0)">
                                     <g class="typst-group">
@@ -793,7 +793,7 @@
                         <path class="typst-shape" fill="#ebebeb" fill-rule="nonzero" d="M 0 2.992 C 0 1.3395641 1.3395641 0 2.992 0 L 280.89578 0 C 282.54822 0 283.8878 1.3395641 283.8878 2.992 L 283.8878 51.784615 C 283.8878 53.43705 282.54822 54.776615 280.89578 54.776615 L 2.992 54.776615 C 1.3395641 54.776615 0 53.43705 0 51.784615 Z "/>
                     </g>
                     <g transform="translate(5.5 70.8366153846154)">
-                        <g class="typst-group" clip-path="url(#c9F90E5D5BDA1552947561807A324B4CE)">
+                        <g class="typst-group" clip-path="url(#cBE2351F621E303742E039148D459833B)">
                             <g>
                                 <g transform="translate(0 0)">
                                     <g class="typst-group">
@@ -1256,10 +1256,10 @@
         </symbol>
     </defs>
     <defs id="clip-path">
-        <clipPath id="cAB83A7D28F0A4C7BE094B945DBE470BD">
+        <clipPath id="c1CE978F9E607F2A5EF6EA1F9B3C5A34B">
             <path d="M 0 2.992 C 0 1.3395641 1.3395641 0 2.992 0 L 280.89578 0 C 282.54822 0 283.8878 1.3395641 283.8878 2.992 L 283.8878 51.784615 C 283.8878 53.43705 282.54822 54.776615 280.89578 54.776615 L 2.992 54.776615 C 1.3395641 54.776615 0 53.43705 0 51.784615 Z "/>
         </clipPath>
-        <clipPath id="c9F90E5D5BDA1552947561807A324B4CE">
+        <clipPath id="cBE2351F621E303742E039148D459833B">
             <path d="M 0 2.992 C 0 1.3395641 1.3395641 0 2.992 0 L 280.89578 0 C 282.54822 0 283.8878 1.3395641 283.8878 2.992 L 283.8878 51.784615 C 283.8878 53.43705 282.54822 54.776615 280.89578 54.776615 L 2.992 54.776615 C 1.3395641 54.776615 0 53.43705 0 51.784615 Z "/>
         </clipPath>
     </defs>
