@@ -1,5 +1,5 @@
-#import "@preview/simple-document:0.1.0": simplePage
-#show: simplePage.with("Max Mustmann", "max.mustermann@example.com", middleText: "Example GmbH", date: true, numbering: true, supressMailLink: false)
+#import "@preview/simple-document:0.1.0": simple-page
+#show: simple-page.with("Max Mustmann", "max.mustermann@example.com", middle-text: "Example GmbH", date: true, numbering: true, supress-mail-link: false)
 
 = Titel
 #lorem(200)
