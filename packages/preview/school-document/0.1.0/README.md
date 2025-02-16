@@ -4,14 +4,14 @@ thanks for interest in this package. It's my first step for automating my office
 It exports the function simplePage with the following arguments:
 - first unnamed parameter (string): name (or whatever should be on top left)
 - second unnamed parameter (string): mail (or whatever should be down left in the corner, if it isn't a mail please see supressMailLink)
-- middleText (string): text on top in the middle, optional
+- middle-text (string): text on top in the middle, optional
 - date (bool): date in germand format DD.MM.YYYY, optional
 - numbering (bool): page numbering in german format "Seite x von y", optional
-- supressMailLink (bool): mail text isn't covered as mailto-link if true, optional
+- supress-mail-link (bool): mail text isn't covered as mailto-link if true, optional
 
 Full example:
 ```python
-simplePage.with("Max Mustmann", "max.mustermann@example.com", middleText: "Example GmbH", date: true, numbering: true, supressMailLink: false)
+simple-page.with("Max Mustmann", "max.mustermann@example.com", middle-text: "Example GmbH", date: true, numbering: true, supress-mail-link: false)
 ```
 
 Reach me out if you have quastions!
