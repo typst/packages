@@ -1,10 +1,10 @@
-#let simple-page(author, mail, body, middleText: "", date: true, numbering: true,supressMailLink: false) = {
+#let simple-page(author, mail, body, middle-text: "", date: true, numbering: true, supress-mail-link: false) = {
   set text(lang: "de")
   set par(justify: true)
   set text(font: "STIX Two Text")
   set document(author: author)
   set page(footer: context [
-    #if (supressMailLink) [
+    #if (supress-mail-link) [
       #mail
     ] else [
       #link("mailto:" + mail)[#mail]
@@ -19,7 +19,7 @@
   ], header: context [
     #author
     #h(1fr)
-    #middleText
+    #middle-text
     #h(1fr)
     #datetime.today().display("[day].[month].[year]")
   ], margin: (left: 2cm, right: 2cm, bottom: 3cm, top: 3cm))
