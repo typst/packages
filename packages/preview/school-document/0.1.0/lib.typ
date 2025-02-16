@@ -1,4 +1,4 @@
-#let simplePage(author, mail, body, middleText: "", date: true, numbering: true,supressMailLink: false) = {
+#let simple-page(author, mail, body, middleText: "", date: true, numbering: true,supressMailLink: false) = {
   set text(lang: "de")
   set par(justify: true)
   set text(font: "STIX Two Text")
