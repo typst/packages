@@ -6,7 +6,7 @@ authors = ["Notme112"]
 license = "MIT"
 description = "Simple document with header, footer, page numbering and mail-adress"
 repository = "https://github.com/Notme112/typst-simple-document"
-category = "office"
+categories = ["office"]
 
 [template]
 path = "template"
