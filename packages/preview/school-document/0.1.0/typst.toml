@@ -10,5 +10,5 @@ categories = ["office"]
 
 [template]
 path = "template"
-entrypoint = "template/main.typ"
-thumbnail = "template/thumbnail.png"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
