@@ -285,7 +285,9 @@ Customize the language to display by pass a string or content to the `lang` para
 
 Line numbers will not be selected when selecting exported code in one page.
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/10_Dark.svg"><img alt="typst-block" src="assets/10_Light.svg" /></picture></p>
+|without `copyable` feature| with `copyable` feature|
+|:---:|:---:|
+|![without copyable](assets/copyable-false.png)|![copyable](assets/copyable-true.png)|
 
 ### Theme
 
