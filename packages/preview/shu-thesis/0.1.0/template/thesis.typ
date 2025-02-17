@@ -1,4 +1,4 @@
-#import "../lib.typ": documentclass
+#import "@preview/shu-thesis:0.1.0": documentclass
 
 #let (
   info,
