@@ -1,7 +1,7 @@
 Hi there 👋,
 thanks for interest in this package. It's my first step for automating my office work. I use this for school-related work.
 
-It exports the function simplePage with the following arguments:
+It exports the function `simple-page` with the following arguments:
 - first unnamed parameter (string): name (or whatever should be on top left)
 - second unnamed parameter (string): mail (or whatever should be down left in the corner, if it isn't a mail please see supressMailLink)
 - middle-text (string): text on top in the middle, optional
