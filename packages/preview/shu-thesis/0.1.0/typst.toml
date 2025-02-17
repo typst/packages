@@ -13,4 +13,4 @@ exclude = ["imgs"]
 [template]
 path = "template"
 entrypoint = "thesis.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "thumbnail.jpg"
