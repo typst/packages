@@ -10,7 +10,7 @@ It exports the function `simple-page` with the following arguments:
 - supress-mail-link (bool): mail text isn't covered as mailto-link if true, optional
 
 Full example:
-```python
+```typst
 simple-page.with("Max Mustmann", "max.mustermann@example.com", middle-text: "Example GmbH", date: true, numbering: true, supress-mail-link: false)
 ```
 
