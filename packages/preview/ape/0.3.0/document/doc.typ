@@ -43,20 +43,13 @@ Style :
 
    set table(
     inset: 10pt,
-    stroke: 0.5pt + text.fill.lighten(20%),
+    stroke: 0.4pt + text.fill.lighten(20%),
     align: center + horizon,
     fill: (x, y) => if (x == 0) or (y == 0) { text.fill.lighten(90%) },
   )
  
 
-/*
-set table(
-    inset: 10pt,
-    stroke: 0.5pt,
-    align: center + horizon,
-    fill: (x, y) => if (x == 0) or (y == 0) { gray.lighten(75%) },
-)
-*/
+ 
  
 
   set grid(column-gutter: 10pt, align: horizon)
@@ -67,7 +60,7 @@ set table(
   }
  
   show table: it => {
-    block(clip: true, radius: 5pt, stroke: it.stroke, it)
+    block(clip: true, radius: 0.75em, stroke: it.stroke, it)
   }
   // content
   set par(justify: true)
@@ -76,24 +69,7 @@ set table(
 
   counter(heading).update(0)
 
-  // Preview when document is empty
-  if content == parbreak() {
-    [
-      = Titre
-      #lorem(20)
-      == Sous titre
-      #lorem(100)
-      #inbox[#lorem(20)]
-      #lorem(50)
-      == Sous titre
-      #lorem(50)
-      #inbox2[#lorem(20)]
-      #lorem(50)
-      === Sous sous titre
-      #lorem(50)
-      #para("Remarque")[#lorem(30)]
-    ]
-  }
+ 
   content
 }
 

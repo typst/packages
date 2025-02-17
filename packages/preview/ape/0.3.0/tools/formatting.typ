@@ -32,11 +32,11 @@
 
 
 // Inbox
-#let inbox(content) = {
+#let inbox(content) = context {
   box(
     width: 100%,
-    stroke: gray.darken(30%) + 0.6pt,
-    fill: gray.lighten(75%),
+    stroke: text.fill.lighten(40%) + 0.6pt,
+    fill: text.fill.lighten(90%),
     inset: 15pt,
     radius: 5pt,
 
@@ -44,7 +44,12 @@
   )
 }
 
-#let inbox2(content) = context {
+#let inbox2(contenu) = context {
+  block(fill: text.fill.lighten(90%), stroke: (left: 3pt + text.fill.lighten(50%), rest: 0pt), inset: (left: 10pt, right: 10pt, rest:6pt), contenu)
+}
+
+
+#let inbox3(content) = context {
   import calc: *
   let c = block(inset: (left: 10pt, right: 10pt), content)
   
@@ -64,4 +69,8 @@
         line(start: (100% - inbox-height * 2, 0%), length: inbox-height * 2)
       }])
   })
+}
+
+#let inbox4(contenu) = context {
+  block(stroke: (left: 1pt + text.fill, rest: 0pt), inset: (top: 2pt, bottom: 2pt,left: 10pt,), contenu)
 }

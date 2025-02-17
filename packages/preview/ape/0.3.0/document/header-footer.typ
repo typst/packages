@@ -25,7 +25,7 @@
             columns: (1fr, 2fr),
             align(left, sc(to-array(authors).at(0))), align(right, to-array(authors).slice(1).map(sc).join(" - ")),
           )
-          #place(dy: 5pt, line(length: 100%, stroke: 0.5pt + text.fill))
+          #place(dy: 3.5pt, line(length: 100%, stroke: 0.5pt + text.fill))
         ]
       }
     },

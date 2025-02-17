@@ -22,7 +22,7 @@
 // ...
 
 #let tab = [\ #h(32pt) #sym.triangle.filled.r]
-
+#let sep = context line(length: 100%, stroke: 0.65pt + text.fill)
 
 // Mathématiques
 #let recurrence(p: "Propriété", d: $n in NN$, ini: "", hd: "", cl: "") = {

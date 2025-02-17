@@ -21,29 +21,28 @@
             } else {
               [
                 #par(leading: 0.38em, text(size: 5em, hyphenate: false, (strong(title.at(1)))))
-                #v(-1em)
-                #par(text(size: 4em, hyphenate: false, (title.at(0))))
+                #v(-3em)
+                #par(text(size: 3.25em, hyphenate: false, (title.at(0))))
               ]
             }
           }
-
-
+      #v(1em)
         #{
           if type(authors) == array {
             if authors.len() > 0 {
               [
-                #text(size: 1.45em, sc(authors.at(0)))
+                #text(size: 1.55em, sc(authors.at(0)))
                 \
               ]
             }
             if authors.len() > 1 {
               [
-                #text(size: 1.45em, authors.slice(1).map(sc).join(" - "))
+                #text(size: 1.55em, authors.slice(1).map(sc).join(" - "))
               ]
             }
           } else {
             [
-              #text(size: 1.45em, sc(authors))
+              #text(size: 1.55em, sc(authors))
             ]
           }
         }

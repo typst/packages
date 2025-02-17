@@ -43,7 +43,7 @@
         left,
         if type(title) == array [
           ▸ *#emph(text(size: 1.5em, title.at(0)))* 
-           #align(center, text(size: 2em)[ #sym.diamond.filled *#title.at(1)*  #sym.diamond.filled])
+           #align(center, text(size: 2em)[ *#title.at(1)*  ])
         ] else [
           *#title*
         ],

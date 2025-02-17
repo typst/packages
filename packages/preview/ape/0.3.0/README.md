@@ -26,15 +26,6 @@ This Typst package provides a comprehensive set of tools for structuring and sty
 
   
 
-**Benefits:**
-
-  
-
-*  **Consistent Formatting:** Ensures a uniform and professional look across all course materials.
-
-*  **Time Saving:** Reduces the effort required to manually format titles, tables of contents, and front pages.
-
-*  **Improved Readability:** Well-structured documents with clear numbering and formatting enhance the reader's experience.
 
   
 
@@ -68,6 +59,8 @@ This Typst package provides a comprehensive set of tools for structuring and sty
 
 
 ## Further informations
+Some shortcuts are currently only available in french.
+
 * Available style
   - Numbered
   - Plain
@@ -80,7 +73,7 @@ This Typst package provides a comprehensive set of tools for structuring and sty
   - `ex(content)`: Create an "Exemple" (example) paragraph
   - `arrow-list(items)`: Create a list with arrow bullets
   - `inbox(content)`: Create a box with gray background and border
-  - `inbox2(content)`: Create a box with custom line decorations
+    - There are a lot of varient accesible with `inbox2`, `inbox3`, `inbox4`
 
 * Drawing and Plotting
   - `plotting(functions, domain, samples, steps, axis-style, axis, size)`: Plot mathematical functions with customizable options
