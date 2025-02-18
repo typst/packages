@@ -1,4 +1,4 @@
-#import "@preview/shu-thesis:0.1.0": documentclass
+#import "@preview/modern-shu-thesis:0.1.0": documentclass
 
 #let (
   info,

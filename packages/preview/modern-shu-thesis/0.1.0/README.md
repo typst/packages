@@ -33,7 +33,7 @@
 
 Typst 提供了官方的 Web App，支持像 Overleaf 一样在线编辑。
 
-实际上，我们只需要在 [Web App](https://typst.app/?template=shu-thesis&version=0.1.0) 中的 `Start from template` 里选择 `shu-thesis`，即可在线创建模板并使用。
+实际上，我们只需要在 [Web App](https://typst.app/?template=modern-shu-thesis&version=0.1.0) 中的 `Start from template` 里选择 `modern-shu-thesis`，即可在线创建模板并使用。
 
 **但是 Web App 并没有安装本地 Windows 或 MacOS 所拥有的字体，所以字体上可能存在差异，所以推荐本地编辑！**
 
