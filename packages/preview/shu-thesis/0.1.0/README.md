@@ -1,4 +1,4 @@
-# 上海大学本科生毕业论文模板 typst-sjtu-thesis
+# 上海大学本科生毕业论文模板 typst-shu-thesis
 
 魔改自上交的模板: [typst-sjtu-thesis-master](https://github.com/tzhTaylor/typst-sjtu-thesis-master)
 
