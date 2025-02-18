@@ -9,12 +9,12 @@
       email: "email",
     ),
   ),
-  logos_paths: (
+  logos-paths: (
     "assets/Logo_univ_rennes.png",
     "assets/Logo_cyberschool.png",
   ),
   abstract: "abstract text",
-  outline_title: "Contents",
+  outline-title: "Contents",
 )
 
 = Hello, world !
