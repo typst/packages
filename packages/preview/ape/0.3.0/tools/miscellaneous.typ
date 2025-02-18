@@ -1,5 +1,7 @@
 #let content-to-string(content) = {
-  if content.has("text") {
+  if type(content) == string {
+    content
+  } else if content.has("text") {
     content.text
   } else if content.has("children") {
     content.children.map(content-to-string).join("")

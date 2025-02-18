@@ -87,7 +87,7 @@
   }
 
   let small-title = {
-    if style == "presentation" { } else if type(title) == array {
+    if style == "presentation" { } else if type(title) == "array" {
       if title-page or outline {
         small-title3
       } else {
@@ -121,7 +121,7 @@
 
         #v(1cm)
         #{
-          if type(authors) == array {
+          if type(authors) == "array" {
             if authors.len() > 0 {
               [
                 #text(size: 1.45em, sc(authors.at(0)))

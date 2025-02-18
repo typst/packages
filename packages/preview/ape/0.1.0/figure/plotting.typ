@@ -152,7 +152,7 @@
         for function in functions {
           if function.keys().contains("projection") and function.projection.keys().contains("x") {
             for projection-x-value in function.projection.x {
-              if (type(projection-x-value) == array) {
+              if (type(projection-x-value) == "array") {
                 projection-x(function.fn, projection-x-value.at(0), projection-x-value.at(1))
               } else {
                 projection-x(function.fn, projection-x-value, "")
@@ -162,7 +162,7 @@
 
           if function.keys().contains("projection") and function.projection.keys().contains("y") {
             for projection-y-value in function.projection.y {
-              if (type(projection-y-value) == array) {
+              if (type(projection-y-value) == "array") {
                 projection-y(function.fn, projection-y-value.at(0), projection-y-value.at(1))
               } else {
                 projection-y(function.fn, projection-y-value, "")
