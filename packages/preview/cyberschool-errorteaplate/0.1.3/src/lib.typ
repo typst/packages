@@ -7,7 +7,7 @@
   pre-title: none,
   subtitle: none,
   authors: (),
-  logos-paths: (),
+  logos: (),
   abstract: [],
   outline-title: none,
   doc,
@@ -22,11 +22,11 @@
   set page(number-align: center, numbering: "1")
 
   // Display logos
-  let nb_logos = logos-paths.len()
+  let nb_logos = logos.len()
   grid(
     columns: (1fr, )* nb_logos,
-    ..logos-paths.map(logo_path => image(logo_path, width: 100pt))
-  ) 
+    ..logos.map(logo => logo(width: 100pt))
+  )
 
   set align(center + horizon)
   strong(line(length: 100%, stroke: cyber_blue))

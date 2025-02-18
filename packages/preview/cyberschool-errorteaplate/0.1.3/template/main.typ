@@ -1,4 +1,4 @@
-#import "@preview/cyberschool-errorteaplate:0.1.3": *
+#import "@local/cyberschool-errorteaplate:0.1.3": *
 #show: conf.with(
   title: "Title",
   pre-title: "Pre-title",
@@ -9,9 +9,9 @@
       email: "email",
     ),
   ),
-  logos-paths: (
-    "assets/Logo_univ_rennes.png",
-    "assets/Logo_cyberschool.png",
+  logos: (
+    image.with("assets/Logo_univ_rennes.png"),
+    image.with("assets/Logo_cyberschool.png"),
   ),
   abstract: "abstract text",
   outline-title: "Contents",
