@@ -1,5 +1,5 @@
 [package]
-name = "cyberschool-ErrorTeaPlate"
+name = "cyberschool-errorteaplate"
 version = "0.1.3"
 entrypoint = "src/lib.typ"
 authors = ["ErrorTeaPot"]
