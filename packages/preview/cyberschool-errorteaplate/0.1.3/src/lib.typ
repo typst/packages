@@ -1,11 +1,15 @@
+#import "@preview/codly:1.2.0": *
+#import "@preview/codly-languages:0.1.1": *
+#show: codly-init.with()
+
 #let conf(
   title: none,
   pre-title: none,
   subtitle: none,
   authors: (),
-  logos_paths: (),
+  logos-paths: (),
   abstract: [],
-  outline_title: none,
+  outline-title: none,
   doc,
 ) = {
 
@@ -18,10 +22,10 @@
   set page(number-align: center, numbering: "1")
 
   // Display logos
-  let nb_logos = logos_paths.len()
+  let nb_logos = logos-paths.len()
   grid(
-     columns: (1fr, )* nb_logos,
-    ..logos_paths.map(logo_path => image(logo_path, width: 100pt))
+    columns: (1fr, )* nb_logos,
+    ..logos-paths.map(logo_path => image(logo_path, width: 100pt))
   ) 
 
   set align(center + horizon)
@@ -34,7 +38,7 @@
 
   // Display authors
   for chunk in authors.chunks(3) {
-   block(spacing: 24pt, grid(
+  block(spacing: 24pt, grid(
     columns: (1fr,) * chunk.len(),
     ..chunk.map(author => [
       #author.name \
@@ -53,7 +57,7 @@
   // Display current year
   datetime.today().display("[year]")
 
-    pagebreak(weak: true, to: "odd")
+  pagebreak(weak: true, to: "odd")
   //set align(start)
 
   show outline: it => {
@@ -65,16 +69,16 @@
   show outline.entry : it => {
     if (it.level == 1){
     v(20pt, weak: true)
-      strong(it)
-    } else {
-      it
-    }
+    strong(it)
+  } else {
+    it
+  }
   }
   set align(start + top)
   show outline: set text(cyber_blue)
 
   outline(
-    title: outline_title,
+    title: outline-title,
     fill: none,
     indent: 1em,
   )
@@ -85,10 +89,7 @@
   set heading(numbering: "1.")
   show heading.where(level: 1) : set text(purple)
   show heading.where(level: 2) : set text(darker_purple)
-show heading.where(level: 3) : set text(darker_darker_purple)
-
-// fucks up codly
-  // show raw.where(block: true) : set block(fill: gray, inset: 5pt, radius: 3pt)
+  show heading.where(level: 3) : set text(darker_darker_purple)
 
   doc
 }
