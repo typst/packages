@@ -106,5 +106,5 @@
       panic("请查看文档了解支持的语法：" + remaining[0])
     }
   }
-  $display(result)$
+  $upright(display(result))$
 }
