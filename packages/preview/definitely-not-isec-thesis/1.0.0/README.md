@@ -45,10 +45,8 @@ Check for [open issues](https://github.com/ecomaikgolf/typst-isec-master-thesis-
 
 According to Wikipedia:
 
-"""
-This logo image consists only of simple geometric shapes or text. It does not
-meet the threshold of originality needed for copyright protection, and is
-therefore in the public domain. [...]
-""""
+> This logo image consists only of simple geometric shapes or text. It does not
+> meet the threshold of originality needed for copyright protection, and is
+> therefore in the public domain. [...]
 
 https://en.m.wikipedia.org/wiki/File:TU_Graz.svg
