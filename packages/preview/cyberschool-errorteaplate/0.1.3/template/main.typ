@@ -1,4 +1,4 @@
-#import "@preview/Cyberschool-template:0.1.0": *
+#import "@preview/cyberschool-errorteaplate:0.1.3": *
 #show: conf.with(
   title: "Title",
   pre-title: "Pre-title",
