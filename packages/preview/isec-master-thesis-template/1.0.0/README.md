@@ -1,12 +1,12 @@
 # ISEC Master's Thesis Template
 
-Unofficial TUGraz's Institute of Information Security (ISEC) Master Thesis
-Template.
-
-The template **has not been officially checked for compliance**, but based on
-the PDF results, the differences are very subtle.
+An unofficial ISEC TUGraz Master's Thesis template
 
 Author: Ernesto Martínez García <[ecomaikgolf.com](https://ecomaikgolf.com)>
+
+> [!NOTE]
+> If you are an ISEC or TUGraz employee and want it renamed to `isec-thesis` or
+> `tugraz-thesis` I would need an approval to allocate the name :)
 
 ## Design
 
@@ -40,3 +40,15 @@ Check for [open issues](https://github.com/ecomaikgolf/typst-isec-master-thesis-
 ![acronyms](https://github.com/user-attachments/assets/96199ddf-4929-4948-b431-78a0d84d431f)
 ![bibliography](https://github.com/user-attachments/assets/f5afef77-4897-466b-8f38-1a92fc2f8b26)
 ![appendix](https://github.com/user-attachments/assets/c6e2b758-bb9d-4808-a0cb-3386e5aba9d2)
+
+## License `src/assets/tuglogo.svg`
+
+According to Wikipedia:
+
+"""
+This logo image consists only of simple geometric shapes or text. It does not
+meet the threshold of originality needed for copyright protection, and is
+therefore in the public domain. [...]
+""""
+
+https://en.m.wikipedia.org/wiki/File:TU_Graz.svg
