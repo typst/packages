@@ -1,5 +1,6 @@
 #import "../style/font.typ": ziti, zihao
 #import "../style/figures.typ": figures
+#import "../style/enums.typ": enums
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 #import "@preview/i-figured:0.2.4"
 
@@ -28,35 +29,23 @@
         font: ziti.songti,
         size: zihao.wuhao,
       )
-      v(-10pt)
+      v(-0.5em)
       line(length: 100%, stroke: 1pt)
     },
-    header-ascent: 0.5cm,
+    header-ascent: 0.3cm,
   )
 
   set text(font: ziti.songti, size: zihao.xiaosi)
-  set par(first-line-indent: 2em, leading: 16pt, spacing: 23pt)
+  set par(
+    first-line-indent: 2em,
+    leading: 24pt - 1em,
+    spacing: 24pt - 1em,
+    justify: true,
+  )
 
   show: show-cn-fakebold
   show: figures
-
-  let fake-par = context {
-    let b = par(box())
-    b
-    v(-measure(b + b).height)
-  }
-  show list: it => {
-    it
-    fake-par
-  }
-  show figure: it => {
-    it
-    fake-par
-  }
-  show enum: it => {
-    it
-    fake-par
-  }
+  show: enums
 
   set document(
     title: info.title,

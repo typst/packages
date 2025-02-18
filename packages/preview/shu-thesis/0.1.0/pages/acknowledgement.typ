@@ -9,8 +9,9 @@
 ) = {
   pagebreak(weak: true)
   show: none-heading
+  v(2em)
   heading(level: 1)[致#h(1em)谢]
-
+  v(2em)
   body
   {
     set align(right)

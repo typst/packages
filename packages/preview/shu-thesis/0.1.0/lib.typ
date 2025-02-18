@@ -9,6 +9,7 @@
 #import "pages/bib.typ": bibliography-page
 #import "pages/acknowledgement.typ": acknowledgement-page
 #import "pages/conclusion.typ": conclusion-page
+#import "pages/under-cover.typ": under-cover-page
 
 #let documentclass(
   info: (:),
@@ -20,7 +21,7 @@
       supervisor: "塔瘪教授",
       school: "某某学院",
       major: "某某专业",
-      title: "基于xxx的xxx",
+      title: "基于nana的nini",
     )
       + info
   )
@@ -49,5 +50,6 @@
       ..args,
       info: info + args.named().at("info", default: (:)),
     ),
+    under-cover: (..args) => under-cover-page(..args),
   )
 }

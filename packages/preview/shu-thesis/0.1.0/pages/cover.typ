@@ -16,7 +16,7 @@
     center,
     text(font: ziti.songti, size: zihao.chuhao, weight: "medium")[本科毕业论文（设计）],
   )
-
+  v(2em)
   align(
     center,
     text(font: ziti.songti, size: zihao.xiaoer, weight: "medium")[UNDERGRADUATE THESIS (PROJECT)],
