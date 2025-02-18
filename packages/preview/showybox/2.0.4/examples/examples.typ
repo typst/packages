@@ -1,5 +1,5 @@
 #import "@preview/codelst:2.0.1": sourcecode
-#import "../showy.typ": *
+#import "@preview/showybox:2.0.4": *
 
 #set text(font: "HK Grotesk", size: 12pt)
 #set heading(numbering: "I.")
