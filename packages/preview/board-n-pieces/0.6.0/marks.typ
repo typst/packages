@@ -24,7 +24,7 @@
 }
 
 /// Marks a square with a cross.
-#let cross(paint: default-color, thickness: 15%, margin: 5%) = {
+#let cross(paint: default-color, thickness: 15%, margin: 10%) = {
   // Force a (possibly relative) length.
   thickness = thickness + 0pt
   if type(thickness) == relative {
