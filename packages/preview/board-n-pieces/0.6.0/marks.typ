@@ -33,11 +33,9 @@
     })
   }
 
-  set align(top + left)
-
   let offset = thickness / calc.sqrt(8)
-  let start = 0% + margin + offset
-  let end = 100% - margin - offset
+  let start = 0%
+  let end = 100% - 2 * margin - 2 * offset
 
   std.curve(
     fill: none,
