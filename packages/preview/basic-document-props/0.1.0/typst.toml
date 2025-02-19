@@ -1,5 +1,5 @@
 [package]
-name = "basic-header-footer-document"
+name = "basic-document-props"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Notme112"]
