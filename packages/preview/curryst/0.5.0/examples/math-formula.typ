@@ -1,4 +1,4 @@
-#import "../curryst.typ": rule, prooftree
+#import "@preview/curryst:0.5.0": rule, prooftree
 #set document(date: none)
 #set page(width: auto, height: auto, margin: 0.5cm, fill: white)
 
