@@ -13,7 +13,7 @@ For full information, see the [docs.pdf](https://github.com/jomaway/typst-gentle
 
 To use this package, simply add the following code to your document:
 ```typst
-#import "@preview/gentle-clues:1.1.0": *
+#import "@preview/gentle-clues:1.2.0": *
 
 // add an info clue
 #info[ This is the info clue ... ]
