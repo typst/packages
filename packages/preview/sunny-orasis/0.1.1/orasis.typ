@@ -11,11 +11,10 @@
   keywords-fr: none,
   abstract-en: none,
   keywords-en: none,
+  document-fonts: ("TeX Gyre Termes",),
   body,
 ) = {
 
-  let document_font = "TeX Gyre Termes" // almost identical to Times-Roman (free alternative) but if you have Times-Roman available locally, you can select it here)
-  
   set page(
     paper: "a4",
     margin: (left: 1.9cm, right: 1.9cm, top: 3cm, bottom: 3cm),
@@ -24,11 +23,11 @@
   )
 
   set columns(gutter: 1cm)
-  set text(font: document_font, size: 10pt)
+  set text(font: document-fonts, size: 10pt)
   set text(lang: "fr")
 
   
-  show heading: set text(font: document_font, weight: "bold", size: 12pt)
+  show heading: set text(font: document-fonts, weight: "bold", size: 12pt)
   set footnote.entry(clearance: 4pt)
 
   // Title header in single column.
@@ -44,7 +43,7 @@
     ]
     
     // Author information.
-    #set text(font: document_font, size: 12pt)
+    #set text(font: document-fonts, size: 12pt)
     #pad(
       bottom: 0.3em,
       x: 7.5em,

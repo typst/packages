@@ -25,6 +25,8 @@
     This is the English version of the abstract. Exactly as in French it must be short. It must exhibit the same content...
   ],
   keywords-en: [Example, model, template.],
+
+  document-fonts: ("Times-Roman", "TeX Gyre Termes",), // la seconde police est une alternative libre et preque identique à Times-Roman)
 )
 
 = Introduction

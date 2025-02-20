@@ -9,7 +9,7 @@ This package is meant to be used as a starting template, with the included `temp
 
 However, you can also import the template using the following line:
 ```typst
-#import "@preview/sunny-orasis:0.1.0": orasis
+#import "@preview/sunny-orasis:0.1.1": orasis
 ```
 and then create the document in your main file:
 ```typst
@@ -34,6 +34,8 @@ and then create the document in your main file:
     This is the English version of the abstract. Exactly as in French it must be short. It must exhibit the same content...
   ],
   keywords_en: [Example, model, template.],
+
+  document-fonts: ("Times-Roman", "TeX Gyre Termes",), // la seconde police est une alternative libre et preque identique à Times-Roman)
 )
 ```
 And that's it ! You can then simply type your paragraphs using the classic Typst syntax for headings etc.
