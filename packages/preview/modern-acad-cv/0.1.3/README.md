@@ -46,7 +46,7 @@ colors:
 
 At the beginning of your document, you just set then set the metadata-object:
 ```typst
-#import "@preview/modern-acad-cv:0.1.0": *
+#import "@preview/modern-acad-cv:0.1.3": *
 
 #let metadata = yaml("metadata.yaml")
 ```
