@@ -1,6 +1,6 @@
 [package]
 name = "typslides"
-version = "1.2.3"
+version = "1.2.4"
 entrypoint = "lib.typ"
 compiler = "0.13.0"
 authors = ["Antonio Manjavacas <https://github.com/manjavacas>"]
