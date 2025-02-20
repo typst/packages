@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.3.1"
+#import "@preview/cetz:0.3.2"
 #import "@preview/suiji:0.3.0"
 
 #let s(start) = {

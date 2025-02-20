@@ -45,10 +45,6 @@
     outline(
       depth: 2,
       indent: auto,
-      fill: line(
-        stroke: colors.light,
-        length: 100%,
-      ),
     )
   },
   title: (
