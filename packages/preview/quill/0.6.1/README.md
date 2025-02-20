@@ -145,10 +145,10 @@ Some show-off examples, loosely replicating figures from [Quantum Computation an
 
 ## Contribution
 
-If you spot an issue or have a suggestion, you are invited to [post it](https://github.com/Mc-Zen/quill/issues) or to contribute to this package. In [architecture.md](https://github.com/Mc-Zen/quill/tree/v0.6.0/docs/architecture.md), you can also find a description of the algorithm that forms the base of `quantum-circuit()`. 
+If you spot an issue or have a suggestion, you are invited to [post it](https://github.com/Mc-Zen/quill/issues) or to contribute to this package. In [architecture.md](https://github.com/Mc-Zen/quill/tree/v0.6.1/docs/architecture.md), you can also find a description of the algorithm that forms the base of `quantum-circuit()`. 
 
 ## Tests
-This package uses [tytanic](https://github.com/tingerrr/tytanic) for running [tests](https://github.com/Mc-Zen/quill/tree/v0.6.0/tests/). 
+This package uses [tytanic](https://github.com/tingerrr/tytanic) for running [tests](https://github.com/Mc-Zen/quill/tree/v0.6.1/tests/). 
 
 
 ## Changelog
