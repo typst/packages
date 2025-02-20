@@ -1,4 +1,4 @@
-#import "../tablem.typ": tablem, three-line-table
+#import "@preview/tablem:0.2.0": tablem, three-line-table
 
 #set page(width: 35em, height: auto)
 #set table(align: center + horizon)
