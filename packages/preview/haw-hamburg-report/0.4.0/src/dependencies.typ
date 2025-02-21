@@ -1,1 +1,1 @@
-#import "@preview/glossarium:0.5.1": *
+#import "@preview/glossarium:0.5.3": *
