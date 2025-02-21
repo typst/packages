@@ -10,7 +10,7 @@
 // Fancy pretty print with line numbers and stuff
 #import "@preview/codelst:2.0.2": sourcecode
 // Glossarium for glossary
-#import "@preview/glossarium:0.5.1": *
+#import "@preview/glossarium:0.5.3": *
 // Wordometer for word and character count
 #import "@preview/wordometer:0.1.4": word-count
 
@@ -120,7 +120,7 @@
     toe: i18n("toe-title"),
   ),
   before: none,
-  indent: true,
+  indent: auto,
 ) = {
   // Table of content
     if tableof.toc == true {
@@ -189,7 +189,7 @@
   length: 100%,
   depth: 3,
   title: i18n("toc-title"),
-  indent: false,
+  indent: auto,
 ) = {
   v(2em)
   text(large, weight: "bold", title)
@@ -378,7 +378,7 @@
   body
 ) = [
   #if (after != none and before != none) {
-    minitoc(title: minitoc-title, after:after, before:before, indent: true)
+    minitoc(title: minitoc-title, after:after, before:before, indent: auto)
     if pb {
       pagebreak()
     }
