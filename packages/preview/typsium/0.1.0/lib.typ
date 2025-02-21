@@ -23,7 +23,7 @@
 #let process_charge(input, charge) = context {
   show "+": math.plus
   show "-": math.minus
-  $input #block(height: measure(input.children.last()).height)^charge$
+  $#block(height: measure(input.children.last()).height)^charge$
 }
 
 // === Formula Parser ===
