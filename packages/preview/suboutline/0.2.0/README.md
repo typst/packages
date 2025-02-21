@@ -49,7 +49,7 @@ The `suboutline` function has the following signature:
   title: none,
   target: heading.where(outlined: true),
   depth: none,
-  indent: 0pt,
+  indent: auto,
   fill: repeat([.], gap: 0.15em),
 ) { /* .. */ }
 ```
