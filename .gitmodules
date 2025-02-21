@@ -1,0 +1,3 @@
+[submodule "packages/preview/quizst"]
+	path = packages/preview/quizst
+	url = https://github.com/MuhammadAly11/Quizst.git
