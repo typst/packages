@@ -11,7 +11,7 @@ longer maintained by the original author.*
 ## Example
 
 ```typst
-#import "@preview/suboutline:0.1.1": *
+#import "@preview/suboutline:0.2.0": *
 #set heading(numbering: "1.1")
 
 #outline()
