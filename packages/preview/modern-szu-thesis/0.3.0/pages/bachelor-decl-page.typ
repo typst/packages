@@ -1,4 +1,3 @@
-#import "../utils/indent.typ": indent
 #import "../utils/style.typ": 字号, 字体
 
 // 本科生声明页
