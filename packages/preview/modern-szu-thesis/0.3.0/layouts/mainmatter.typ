@@ -2,7 +2,6 @@
 #import "../utils/style.typ": 字号, 字体
 #import "../utils/custom-numbering.typ": custom-numbering
 #import "../utils/custom-heading.typ": heading-display, active-heading, current-heading
-#import "../utils/indent.typ": fake-par
 #import "../utils/unpairs.typ": unpairs
 
 #let mainmatter(
