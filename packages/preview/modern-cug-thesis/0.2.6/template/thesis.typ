@@ -1,7 +1,7 @@
 // 在线包管理器模式
-// #import "@preview/modern-cug-thesis:0.2.6": documentclass, indent, no-indent, subpar-grid
+#import "@preview/modern-cug-thesis:0.2.6": documentclass, indent, no-indent, subpar-grid, word-count-cjk, total-words
 // 本地模式
-#import "../lib.typ": documentclass, indent, no-indent, subpar-grid, word-count-cjk, total-words
+// #import "../lib.typ": documentclass, indent, no-indent, subpar-grid, word-count-cjk, total-words
 
 // 本模板使用的字体是 Windows、MacOS 系统自带的，本地使用理论上不需要额外安装。
 // 如果是 Web App 上编辑，你需要上传 https://github.com/Rsweater/cug-thesis-typst/tree/main/fonts/Windows-SysFonts 里面所有字体，将 fonts 文件夹上传至模板创建的项目根目录即可，否则 CJK 字符可能无法正常显示。
