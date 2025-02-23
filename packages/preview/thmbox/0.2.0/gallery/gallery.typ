@@ -1,4 +1,4 @@
-#import "../src/lib.typ": *
+#import "@preview/thmbox:0.2.0": *
 
 #set text(font: "New Computer Modern")
 
