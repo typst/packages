@@ -17,7 +17,7 @@
   header-subtitle: "",
   body-font: "Libertinus Serif",
   code-font: "Cascadia Mono",
-  math-font: "Libertinus Math",
+  math-font: "New Computer Modern Math",
   mono-font: "Libertinus Mono",
   number-style: "old-style",
   body
