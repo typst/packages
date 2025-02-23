@@ -9,6 +9,7 @@ repository = "https://github.com/senaalem/ISMIN_reports_template"
 keywords = ["ISMIN", "EMSE", "Mines", "École des Mines de Saint-Étienne", "report"]
 categories = ["layout", "report"]
 exclude = ["template_report_ISMIN.pdf"]
+compiler = "0.13.0"
 
 [template]
 path = "template"
