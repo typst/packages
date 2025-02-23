@@ -1,7 +1,7 @@
 #set document(date: none)
 
 
-#import "@preview/fractusist:0.1.0": *
+#import "@preview/fractusist:0.1.1": *
 
 
 #set page(width: auto, height: auto, margin: 0pt)
