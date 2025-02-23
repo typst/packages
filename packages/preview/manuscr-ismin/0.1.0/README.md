@@ -41,7 +41,7 @@ Ci-suit une description des paramètres de la fonction `manuscr-ismin` :
 - `header-subtitle` : le text à droite et en italique de l'en-tête
 - `body-font` : la police pour le corps du texte ; par défaut, il s'agit de Libertinus Serif mais pour un _look_ LaTeX, utiliser New Computer Modern
 - `code-font` : la police pour la fonction `raw` ; par défaut, il s'agit de Cascadia Mono mais pour un _look_ __vraiment__ LaTeX, utiliser New Computer Modern Mono
-- `math-font` : la police pour la fonction `equation` ; par défaut, il s'agit de Libertinus Math mais pour un _look_ LaTeX, utiliser New Computer Modern Math
+- `math-font` : la police pour la fonction `equation` ; par défaut, il s'agit de New Computer Modern Math
 - `mono-font` : la police pour la fonction non-native `mono` ; par défaut il s'agit de Libertinus Mono (prendre une fonction monospace)
 - `number-style` : le style des nombres ; par défaut en `"old-style"` (donc elzéviriens), possible de le changer pour `"lining"` (chiffres classiques)
 
