@@ -1,4 +1,4 @@
-#import "@preview/modern-cug-report:0.1.0": *
+#import "@preview/modern-cug-report:0.1.1": *
 // #import "../lib.typ": *
 
 #counter(heading).update(2)

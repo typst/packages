@@ -1,4 +1,9 @@
-#import "@preview/codly:1.0.0": *
+// #import "@preview/codly:1.0.0": *
+// // 代码
+// show: codly-init.with()
+// codly(stroke: 1pt + blue)
+// codly(display-icon: true)
+
 #import "@preview/mitex:0.2.4": *
 #import "@preview/showybox:2.0.3": showybox
 #import "@preview/physica:0.9.3": *
@@ -94,10 +99,10 @@
   set math.equation(numbering: "(1.1)")
   set list(indent: 1em)
 
-  // 代码
-  show: codly-init.with()
-  codly(stroke: 1pt + blue)
-  codly(display-icon: true)
+  // // 代码
+  // show: codly-init.with()
+  // codly(stroke: 1pt + blue)
+  // codly(display-icon: true)
   
   show ref: ref-zh  // 引用
 
