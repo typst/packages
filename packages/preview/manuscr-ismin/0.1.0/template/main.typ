@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "@preview/manuscr-ismin:0.1.0": *
 
 #show: manuscr-ismin.with(
   title: "Titre",
