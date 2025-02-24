@@ -1,5 +1,5 @@
 #import "locale.typ": ACRONYMS
-#import "shared-lib.typ": display, display-link, is-in-dict
+#import "shared-lib.typ": display, display-link, assert-in-dict
 
 #let prefix = "acronym-state-"
 #let acros = state("acronyms", none)
@@ -26,32 +26,31 @@
   context {
     let acronyms = acros.get()
 
-    if is-in-dict("acronyms", acros, acr) {
-      let defs = acronyms.at(acr)
-      if type(defs) == str {
-        if plural {
-          display("acronyms", acros, acr, defs + "s", link: link)
+    assert-in-dict("acronyms", acros, acr) 
+    let defs = acronyms.at(acr)
+    if type(defs) == str {
+      if plural {
+        display("acronyms", acros, acr, defs + "s", link: link)
+      } else {
+        display("acronyms", acros, acr, defs, link: link)
+      }
+    } else if type(defs) == array {
+      if defs.len() == 0 {
+        panic("No definitions found for acronym " + acr + ". Make sure it is defined in the dictionary passed to #init-acronyms(dict)")
+      }
+      if plural {
+        if defs.len() == 1 {
+          display("acronyms", acros, acr, defs.at(0) + "s", link: link)
+        } else if defs.len() == 2 {
+          display("acronyms", acros, acr, defs.at(1), link: link)
         } else {
-          display("acronyms", acros, acr, defs, link: link)
-        }
-      } else if type(defs) == array {
-        if defs.len() == 0 {
-          panic("No definitions found for acronym " + acr + ". Make sure it is defined in the dictionary passed to #init-acronyms(dict)")
-        }
-        if plural {
-          if defs.len() == 1 {
-            display("acronyms", acros, acr, defs.at(0) + "s", link: link)
-          } else if defs.len() == 2 {
-            display("acronyms", acros, acr, defs.at(1), link: link)
-          } else {
-            panic("Definitions should be arrays of one or two strings. Definition of " + acr + " is: " + type(defs))
-          }
-        } else {
-          display("acronyms", acros, acr, defs.at(0), link: link)
+          panic("Definitions should be arrays of one or two strings. Definition of " + acr + " is: " + type(defs))
         }
       } else {
-        panic("Definitions should be arrays of one or two strings. Definition of " + acr + " is: " + type(defs))
+        display("acronyms", acros, acr, defs.at(0), link: link)
       }
+    } else {
+      panic("Definitions should be arrays of one or two strings. Definition of " + acr + " is: " + type(defs))
     }
   }
 }
