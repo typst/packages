@@ -1,0 +1,16 @@
+[package]
+name = "tricorder"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Y.D.X."]
+license = "MIT"
+description = "按占三格的节奏记录中文人名（花名册）Record Chinese names with a rhythm of three characters"
+repository = "https://github.com/YDX-2147483647/typst-tricorder"
+categories = [
+  "components",
+  "layout",
+  "languages",
+]
+exclude = [
+  "assets",
+]
