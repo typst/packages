@@ -127,7 +127,7 @@
   bodyfmt: x => x,
   separator: [#h(0.1em).#h(0.2em) \ ],
   base: "heading",
-  base_level: none,
+  base-level: none,
 ) = {
   if supplement == auto {
     supplement = head
@@ -163,7 +163,7 @@
   let auxthmenv = thmenv(
     identifier,
     base,
-    base_level,
+    base-level,
     boxfmt,
   ).with(supplement: supplement)
 
