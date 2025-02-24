@@ -1,4 +1,19 @@
-# v1.3.0 (2024-12-23)
+# v1.3.1 (2025-02-24)
+
+## General
+
+- Updated to Typst 0.13.0.
+- Updated to Touying 0.6.0.
+
+### Other
+
+- Added support for PDF outline bookmarks (will use the value of the `outlined` parameter in the `focus-slide()` function).
+
+## Fixes
+
+- Fixed footer upper separator showing when either title or subtitle was empty.
+
+# v1.3.0 (2025-01-06)
 
 ## General
 
