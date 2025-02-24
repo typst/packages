@@ -1,7 +1,7 @@
 //! This example replicates the outline of the paper on the rush programming language.
 //! See https://paper.rush-lang.de
 
-#import "../outrageous.typ"
+#import "@preview/outrageous:0.4.0"
 #import "@preview/i-figured:0.2.4"
 
 #set text(font: "New Computer Modern")

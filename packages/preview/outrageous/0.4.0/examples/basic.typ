@@ -1,4 +1,4 @@
-#import "../outrageous.typ"
+#import "@preview/outrageous:0.4.0"
 
 #set heading(numbering: "1.")
 #set outline(indent: auto)
