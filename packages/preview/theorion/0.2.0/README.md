@@ -265,6 +265,14 @@ Let's start with the most fundamental definition.
 
 ## Other Cosmos
 
+### Simple
+
+```typst
+#import "@preview/theorion:0.2.0": *
+#import cosmos.simple: *
+#show: show-theorion
+```
+
 ### 🌈Rainbow
 
 ```typst
