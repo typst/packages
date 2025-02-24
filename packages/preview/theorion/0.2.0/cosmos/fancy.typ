@@ -21,18 +21,18 @@
   body,
 ) = context showybox(
   frame: (
-    thickness: .5pt,
-    radius: 3pt,
-    inset: (x: 12pt, top: 7pt, bottom: 12pt),
+    thickness: .05em,
+    radius: .3em,
+    inset: (x: 1.2em, top: .7em, bottom: 1.2em),
     border-color: get-border-color(),
     title-color: get-border-color(),
     body-color: get-body-color(),
-    title-inset: (x: 10pt, y: 5pt),
+    title-inset: (x: 1em, y: .5em),
   ),
   title-style: (
     boxed-style: (
       anchor: (x: left, y: horizon),
-      radius: 0pt,
+      radius: 0em,
     ),
     color: white,
     weight: "semibold",
@@ -54,9 +54,9 @@
     if get-symbol() != none {
       place(
         right + bottom,
-        dy: 8pt,
-        dx: 9pt,
-        text(size: 6pt, fill: get-border-color(), get-symbol()),
+        dy: .8em,
+        dx: .9em,
+        text(size: .6em, fill: get-border-color(), get-symbol()),
       )
     }
   },

@@ -78,7 +78,7 @@
   body,
 ) = context if get-result() == "noanswer" { none } else {
   let qed-symbol = if qed == auto { get-qed-symbol() } else { qed }
-  [#emph(theorion-i18n(title)).#sym.space#body#box(width: 0pt)#h(1fr)#sym.wj#sym.space.nobreak$#qed-symbol$]
+  [#emph(theorion-i18n(title)).#sym.space#body#box(width: 0em)#h(1fr)#sym.wj#sym.space.nobreak$#qed-symbol$]
 }
 
 /// Create an emphasized box with yellow styling and dashed border
@@ -103,7 +103,7 @@
 /// - body (content): Content to be quoted
 /// -> content
 #let quote-box(body) = block(
-  stroke: (left: 3pt + luma(200)),
+  stroke: (left: .3em + luma(200)),
   inset: (left: 1em, y: .75em),
   text(luma(100), body),
 )
@@ -122,7 +122,7 @@
   icon-name: "info",
   body,
 ) = block(
-  stroke: (left: 3pt + fill),
+  stroke: (left: .3em + fill),
   inset: (left: 1em, top: .5em, bottom: .75em),
   {
     let title-i18n = theorion-i18n(title)

@@ -7,7 +7,7 @@
   title: "",
   full-title: auto,
   body,
-) = block(inset: 12pt, fill: fill, radius: 4pt, width: 100%)[#strong(full-title)#sym.space#body]
+) = block(inset: 1em, fill: fill, radius: .4em, width: 100%)[#strong(full-title)#sym.space#body]
 
 // Core theorems
 #let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(

@@ -8,7 +8,7 @@
   full-title: auto,
   body,
 ) = block(
-  stroke: (left: 3pt + fill),
+  stroke: (left: .3em + fill),
   inset: (left: 1em, y: .75em),
   [
     #strong(text(fill: fill, full-title))
