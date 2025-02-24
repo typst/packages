@@ -88,6 +88,10 @@
   ///
   /// -> array | int
   highlight-lines: (),
+  /// The offset of line numbers. The first line number will be `numbering-offset + 1`.
+  /// Defaults to `0`.
+  /// -> int
+  numbering-offset: 0,
   /// The header of the code block.
   ///
   /// -> string | content
@@ -404,7 +408,7 @@
             width: 100%,
             inset: inset,
             if num {
-              [#line.number]
+              [#(line.number + numbering-offset)]
             } else {
               line.body
             },
