@@ -7,7 +7,7 @@ the [ilm template](https://github.com/talal/ilm),
 and finally the [Diatypst template](https://github.com/skriptum/Diatypst).
 Many of the typography rules were taken from [Butterick's Practical Typography](https://practicaltypography.com/).
 
-If you're on GitHub, the `template_report_ISMIN.pdf` file is a PDF preview of the compilation result.
+The `template_report_ISMIN.pdf` file in the [GitHub repository](https://github.com/senaalem/ISMIN_reports_template) is a PDF preview of the compilation result.
 I tried to show all the possibilities that Typst offers, with the content obviously being adjustable as you wish.
 
 To learn more about Typst functions and usage, you can use [the documentation](https://typst.app/docs), it's very comprehensive.
