@@ -1,56 +1,85 @@
-# _Template_ rapport ISMIN
+# Manuscr-ISMIN
 
-Ce _template_ est celui que j'utilise pour écrire mes rapports à l'EMSE.
-Il utilise le langage Typst et est grandement inspiré de [celui de Timothé Dupuch](https://github.com/thimotedupuch/Template_Rapport_ISMIN_Typst),
-du [_template_ Bubble](https://github.com/hzkonor/bubble-template),
-du [_template_ ilm](https://github.com/talal/ilm),
-et enfin du [_template_ Diatypst](https://github.com/skriptum/Diatypst).
-Beaucoup des règles de typographie ont été tirées du [_Butterick's Practical Typography_](https://practicaltypography.com/).
+This template is the one I use to write my reports at the EMSE.
+It uses the Typst language and is largely inspired by [Timothé Dupuch's template](https://github.com/thimotedupuch/Template_Rapport_ISMIN_Typst),
+the [Bubble template](https://github.com/hzkonor/bubble-template),
+the [ilm template](https://github.com/talal/ilm),
+and finally the [Diatypst template](https://github.com/skriptum/Diatypst).
+Many of the typography rules were taken from [Butterick's Practical Typography](https://practicaltypography.com/).
 
-Le fichier `template_report_ISMIN.pdf` est un apercu en PDF du résultat de la compilation.
-J'ai essayé de montrer toutes les possibilités qu'offrait Typst, le contenu étant évidemment à ajuster à votre guise.
+If you're on GitHub, the `template_report_ISMIN.pdf` file is a PDF preview of the compilation result.
+I tried to show all the possibilities that Typst offers, with the content obviously being adjustable as you wish.
 
-Pour en savoir plus sur les fonctions l'utilisation de Typst, vous pouvez utiliser [la documentation](https://typst.app/docs), elle est très complète.
-Le Ctrl+Clic (ou Cmd+Clic) marche aussi sur les fonctions (dans l'éditeur de l'application web).
+To learn more about Typst functions and usage, you can use [the documentation](https://typst.app/docs), it's very comprehensive.
+Ctrl+Click (or Cmd+Click) also works on functions (in the web application editor).
 
-## Utilisation
+## Usage
 
-Je conseille d'utiliser [l'application Web Typst](https://typst.app/), mais il est possible de l'installer le compilateur en CLI sur sa machine.
-- Le fichier `template.typ` contient toutes les règles et fonctions d'affichage
-- Le fichier `main.typ` lui contient le contenu que vous souhaitez inclure dans le rapport
-- Le fichier `bibs.yaml` contient les références bibliographiques (au format Hayagriva, mais Typst prend aussi en charge le format BibLaTeX)
-- Le dossier `assets` contient les ressources graphiques pour le thème du _template_
-- Le dossier `fonts` contient des polices de caractères
-- Le dossier `images` contient les images inclues dans le document
+Copy the following code at the beginning of the document:
 
-### `manuscr-imsin`
+```typ
+#import "@preview/manuscr-ismin:0.1.0": *
 
-Ci-suit une description des paramètres de la fonction `manuscr-ismin` :
-- `title` : le titre du document (obligatoire)
-- `subtitle` : le sous-titre
-- `authors` : champ des auteurs sous forme de dictionnaire ; pour n'utiliser qu'un auteur, ne pas oublier de laisser quand même une virgule à la fin
-	- `name` : le nom de l'auteur
-	- `affiliation` : la filière de l'auteur
-	- `year` : l'année dans laquelle est l'auteur dans son cursus
-	- `class` : la classe de l'auteur
-- `date` : la date
-- `logo` : le logo que vous voulez utiliser ; par défaut, c'est celui de l'EMSE
-- `main-color` : la couleur de thème du document ; par défaut, il s'agit du "violet EMSE"
-- `header-title` : le texte à gauche dans l'en-tête
-- `header-middle` : le texte centré et gras dans l'en-tête
-- `header-subtitle` : le text à droite et en italique de l'en-tête
-- `body-font` : la police pour le corps du texte ; par défaut, il s'agit de Libertinus Serif mais pour un _look_ LaTeX, utiliser New Computer Modern
-- `code-font` : la police pour la fonction `raw` ; par défaut, il s'agit de Cascadia Mono mais pour un _look_ __vraiment__ LaTeX, utiliser New Computer Modern Mono
-- `math-font` : la police pour la fonction `equation` ; par défaut, il s'agit de New Computer Modern Math
-- `mono-font` : la police pour la fonction non-native `mono` ; par défaut il s'agit de Libertinus Mono (prendre une fonction monospace)
-- `number-style` : le style des nombres ; par défaut en `"old-style"` (donc elzéviriens), possible de le changer pour `"lining"` (chiffres classiques)
+#show: manuscr-ismin.with(
+  title: "Title",
+  subtitle: "Subtitle",
+  authors: (
+    (
+      name: "Auteur 1",
+      affiliation: "Filière 1",
+      year: "Année 1",
+      class: "Classe 1"
+    ),
+    (
+      name: "Auteur 2",
+      affiliation: "Filière 2",
+      year: "Année 2",
+      class: "Classe 2"
+    )
+  ),
+  logo: "assets/logo_emse_white.svg",
+  header-title: "Header 1",
+  header-subtitle: "Header 3",
+  header-middle: [Header 2],
+  date: "Date"
+)
+```
 
-### Les fonctions
+For the logo, you can either get the one in the GitHub repository or go the the [EMSE intranet](https://www.mines-stetienne.fr/intranet/).
 
-- `violet-emse` : la couleur violette de l'EMSE
-- `gray-emse` : la couleur grise de l'EMSE
-- `lining` : pour avoir des nombres en style classique localement si vous avez pris "old-style" ; les chiffres elzéviriens s'intégrent bien au texte minuscule, mais mal à celui en majusucule.
-	Par exemple, `#lining[STM32L436RG]` est bien plus élégant que `STM32L476RG`
-- `arcosh` : la fonction arc cosinus hyperbolique pour le mode mathématique
-- `mono` : à utiliser pour retourner rapidement du texte en monospace sans la mise en forme de `raw`.
-	À utiliser pour par exemple indiquer des noms de fichier : `toto_tigre.png`
+### `manuscr-ismin`
+
+Here's a description of the `manuscr-ismin` function parameters:
+- `title`: the document title (required)
+- `subtitle`: the subtitle
+- `authors`: authors field in dictionary form; to use only one author, don't forget to still leave a comma at the end
+    - `name`: the author's name
+    - `affiliation`: the author's department
+    - `year`: the author's year in their curriculum
+    - `class`: the author's class
+- `date`: the date
+- `logo`: the logo you want to use; by default, it's the EMSE logo
+- `main-color`: the document's theme color; by default, it's "violet EMSE"
+- `header-title`: the left text in the header
+- `header-middle`: the centered and bold text in the header
+- `header-subtitle`: the right and italic text in the header
+- `body-font`: the font for body text; by default, it's Libertinus Serif but for a LaTeX look, use New Computer Modern
+- `code-font`: the font for the `raw` function; by default, it's Cascadia Mono but for a __really__ LaTeX look, use New Computer Modern Mono
+- `math-font`: the font for the `equation` function; by default, it's New Computer Modern Math
+- `mono-font`: the font for the non-native `mono` function; by default it's Libertinus Mono (use a monospace font)
+- `number-style`: the number style; by default in `"old-style"` (so oldstyle figures), can be changed to `"lining"` (classic figures)
+
+### Functions
+
+- `violet-emse`: EMSE's purple color
+- `gray-emse`: EMSE's gray color
+- `lining`: to have numbers in classic style locally if you chose "old-style"; oldstyle figures integrate well with lowercase text, but poorly with uppercase text.
+    For example, `#lining[STM32L436RG]` will be much more elegant than `STM32L476RG` if you're using oldstyle figures by default.
+- `arcosh`: the hyperbolic arc cosine function for math mode
+- `mono`: to use for quickly returning monospace text without the formatting of `raw`.
+    To use for example to indicate file names: `toto_tigre.png`
+
+Aside from that, the template also replaces points with commas in math mode, so just use a point to render decimal numbers (commas insert a space after the number); for instance :
+```typ
+$ y: x arrow.r.bar 2.3 x + 5.7 $
+```
