@@ -82,13 +82,30 @@
 
   // `step` method for this richer-counter
   let step(depth: 1) = [
-    #metadata(depth)
+    #metadata((
+      kind: "richer-counter:step",
+      identifier: identifier,
+      value: depth,
+    ))
     #label("richer-counter:step:" + identifier)
+  ]
+
+  // `update` method for this richer-counter
+  // only support array of integers as counter value
+  let update(counter-value) = [
+    #metadata((
+      kind: "richer-counter:update",
+      identifier: identifier,
+      value: counter-value,
+    ))
+    #label("richer-counter:update:" + identifier)
   ]
 
   // find updates of own partial (!) counter in certain range
   let updates-during(after-key, before-key) = {
-    let query-for = selector(label("richer-counter:step:" + identifier))
+    let query-for = selector(label("richer-counter:step:" + identifier)).or(
+      selector(label("richer-counter:update:" + identifier)),
+    )
 
     if after-key == none and before-key == none {
       return query(query-for)
@@ -107,8 +124,15 @@
     let updates = updates-during(parent-last-update-location, before-key)
 
     for update in updates.rev() {
-      if update.value <= level - get-inherited-levels() {
-        return update.location()
+      let kind = update.value.kind
+      if kind == "richer-counter:step" {
+        if update.value.value <= level - get-inherited-levels() {
+          return update.location()
+        }
+      } else if kind == "richer-counter:update" {
+        if update.value.value.len() < level {
+          return update.location()
+        }
       }
     }
 
@@ -119,10 +143,17 @@
   let compute-counter(updates) = {
     let value = (0,)
     for update in updates {
-      let level = update.value
-      while value.len() < level { value.push(0) }
-      while value.len() > level { let _ = value.pop() }
-      value.at(level - 1) += 1
+      let kind = update.value.kind
+      if kind == "richer-counter:step" {
+        let level = update.value.value
+        while value.len() < level { value.push(0) }
+        while value.len() > level { let _ = value.pop() }
+        value.at(level - 1) += 1
+      } else if kind == "richer-counter:update" {
+        let inherited-levels = get-inherited-levels()
+        let counter-value = update.value.value
+        value = counter-value.slice(inherited-levels)
+      }
     }
 
     return value
@@ -163,6 +194,7 @@
 
   return (
     step: step,
+    update: update,
     at: at,
     get: get,
     final: final,
