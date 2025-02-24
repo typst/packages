@@ -38,7 +38,7 @@
 
     show link: text.with(fill: magenta)
     set text(fill: magenta)
-    if type(todo-list) == "array" and todo-list.len() > 0 {
+    if type(todo-list) == array and todo-list.len() > 0 {
         strong([To do:])
 
         list(tight: false, ..todo-list.map(e =>
