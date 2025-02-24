@@ -2,6 +2,11 @@
 
 [Theorion](https://github.com/OrangeX4/typst-theorion) (The Orion) is an out-of-the-box, customizable and multilingual **theorem** environment package for [Typst](https://typst.app/docs/).
 
+[![Typst Universe](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Ftheorion&query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&logo=typst&label=universe&color=%2339cccc)](https://typst.app/universe/package/theorion)
+![GitHub](https://img.shields.io/github/license/OrangeX4/typst-theorion)
+![GitHub Repo stars](https://img.shields.io/github/stars/OrangeX4/typst-theorion)
+![Cosmos badge](https://img.shields.io/badge/cosmos-4-aqua)
+
 ## Quick Start
 
 ```typst
@@ -88,7 +93,7 @@
 /// 4. Custom theorem environment for yourself
 // #let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
 //   "theorem",
-//   theorion-i18n-map.at("theorem"),
+//   "Theorem",  // supplement, string or dictionary like `(en: "Theorem")`, or `theorion-i18n-map.at("theorem")` for built-in i18n support
 //   counter: theorem-counter,  // inherit the counter, `none` by default
 //   inherited-levels: 2,  // useful when you need a new counter
 //   inherited-from: heading,  // heading or another counter
@@ -263,15 +268,19 @@ Let's start with the most fundamental definition.
 ]
 ```
 
-## Other Cosmos
+## All Cosmos
 
-### Simple
+### 📄Simple
 
 ```typst
 #import "@preview/theorion:0.2.0": *
 #import cosmos.simple: *
 #show: show-theorion
 ```
+
+[Customize from source code](cosmos\simple.typ)
+
+![image](https://github.com/user-attachments/assets/5c9061ab-117a-455c-bb11-4a9fff5edc7a)
 
 ### 🌈Rainbow
 
@@ -281,7 +290,9 @@ Let's start with the most fundamental definition.
 #show: show-theorion
 ```
 
-![image](https://github.com/user-attachments/assets/2edf36a6-6fe7-45f3-bb1a-d5dc741eb303)
+[Customize from source code](cosmos\rainbow.typ)
+
+![image](https://github.com/user-attachments/assets/715749c3-1464-4dd1-be57-111f2fc376ea)
 
 ### ☁️Clouds
 
@@ -291,7 +302,26 @@ Let's start with the most fundamental definition.
 #show: show-theorion
 ```
 
-![image](https://github.com/user-attachments/assets/1d39cf55-4044-4ac2-993d-6196a266d277)
+[Customize from source code](cosmos\clouds.typ)
+
+![image](https://github.com/user-attachments/assets/486bbaf5-d068-4bd6-8455-028f00cba2c5)
+
+### ✨Fancy
+
+```typst
+#import "@preview/theorion:0.2.0": *
+#import cosmos.fancy: *
+#show: show-theorion
+```
+
+[Customize from source code](cosmos\fancy.typ)
+
+![image](https://github.com/user-attachments/assets/742733f1-8d2e-4849-a3b7-d3f2cc743a18)
+
+### Contributing your cosmos
+
+Welcome to [open a pull request](htps://github.com/OrangeX4/typst-theorion/pulls) and contribute your beautiful cosmos to Theorion!
+
 
 ## Acknowledgements
 

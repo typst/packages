@@ -37,6 +37,9 @@
 // #theorem(title: "欧几里得定理")[
 //   素数有无穷多个。
 // ] <thm:euclid>
+// #theorem-box(title: "无编号定理")[
+//   这个定理没有编号。
+// ]
 
 = Theorion 环境示例
 
@@ -48,14 +51,6 @@
 // #import cosmos.rainbow: *
 // #import cosmos.clouds: *
 #show: show-theorion
-
-#theorem(title: "欧几里得定理")[
-  素数有无穷多个。
-] <thm:euclid>
-
-#theorem-box(title: "无编号定理框")[
-  这个定理没有编号。
-]
 ```
 
 == 自定义
@@ -87,9 +82,12 @@
 #show: show-theorem
 
 // 5. 开始使用
-#theorem(title: "Euclid's Theorem")[
-  There are infinitely many prime numbers.
+#theorem(title: "欧几里得定理")[
+  素数有无穷多个。
 ] <thm:euclid>
+#theorem-box(title: "无编号定理")[
+  这个定理没有编号。
+]
 ```
 
 == 基础定理环境
@@ -225,6 +223,11 @@
 ]
 
 == 注意事项
+
+#note-box[
+  请记住数学证明既要严谨又要清晰。
+  没有严谨性的清晰是不充分的，没有清晰性的严谨也是无效的。
+]
 
 #caution-box[
   在处理无穷级数时，一定要先检验其收敛性，再讨论其他性质。

@@ -25,7 +25,7 @@
 /// 4. Custom theorem environment for yourself
 // #let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
 //   "theorem",
-//   theorion-i18n-map.at("theorem"),
+//   "Theorem",  // supplement, string or dictionary like `(en: "Theorem")`, or `theorion-i18n-map.at("theorem")` for built-in i18n support
 //   counter: theorem-counter,  // inherit the counter, `none` by default
 //   inherited-levels: 2,  // useful when you need a new counter
 //   inherited-from: heading,  // heading or another counter
@@ -37,6 +37,9 @@
 // #theorem(title: "Euclid's Theorem")[
 //   There are infinitely many prime numbers.
 // ] <thm:euclid>
+// #theorem-box(title: "Theorem without numbering")[
+//   This theorem is not numbered.
+// ]
 
 = Theorion Environments
 
@@ -78,7 +81,7 @@
 // 4. Custom theorem environment for yourself
 #let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
   "theorem",
-  theorion-i18n-map.at("theorem"),
+  "Theorem",  // supplement, string or dictionary like `(en: "Theorem")`, or `theorion-i18n-map.at("theorem")` for built-in i18n support
   counter: theorem-counter,  // inherit the old counter, `none` by default
   inherited-levels: 2,  // useful when you need a new counter
   inherited-from: heading,  // heading or just another counter
@@ -90,6 +93,9 @@
 #theorem(title: "Euclid's Theorem")[
   There are infinitely many prime numbers.
 ] <thm:euclid>
+#theorem-box(title: "Theorem without numbering")[
+  This theorem is not numbered.
+]
 ```
 
 == Basic Theorem Environments
@@ -234,6 +240,11 @@ Let's start with the most fundamental definition.
 ]
 
 == Important Notes
+
+#note-box[
+  Remember that mathematical proofs should be both rigorous and clear.
+  Clarity without rigor is insufficient, and rigor without clarity is ineffective.
+]
 
 #caution-box[
   When dealing with infinite series, always verify convergence before discussing other properties.
