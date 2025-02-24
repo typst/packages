@@ -48,7 +48,7 @@
 }
 
 // 测试代码
-#postgraduate-abstract-en(
-  keywords: ("keyword1", "keyword2", "keyword3"),
-  [Abstract内容与中文摘要相对应。一般不少于300个英文实词，篇幅以一页为宜。如需要，字数可以略多。]
-)
+// #postgraduate-abstract-en(
+//   keywords: ("keyword1", "keyword2", "keyword3"),
+//   [Abstract内容与中文摘要相对应。一般不少于300个英文实词，篇幅以一页为宜。如需要，字数可以略多。]
+// )

@@ -234,10 +234,10 @@
 }
 
 // test code
-#import "../mythesis/others/test-text.typ": test-text, mainmatter-parms
-#set text(fallback: false, lang: "zh", region: "CN")
-#set page(margin: (x: 3cm, y: 3cm))
-#mainmatter(
-  ..mainmatter-parms,
-  test-text
-)
+// #import "../mythesis/others/test-text.typ": test-text, mainmatter-parms
+// #set text(fallback: false, lang: "zh", region: "CN")
+// #set page(margin: (x: 3cm, y: 3cm))
+// #mainmatter(
+//   ..mainmatter-parms,
+//   test-text
+// )

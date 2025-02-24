@@ -147,5 +147,5 @@
 }
 
 // 测试代码
-#import "../../mythesis/others/test-text.typ": mainmatter-parms
-#show: postgraduate-declaration(info: mainmatter-parms.info)
+// #import "../../mythesis/others/test-text.typ": mainmatter-parms
+// #show: postgraduate-declaration(info: mainmatter-parms.info)
