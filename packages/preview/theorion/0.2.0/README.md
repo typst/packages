@@ -278,7 +278,7 @@ Let's start with the most fundamental definition.
 #show: show-theorion
 ```
 
-[Customize from source code](cosmos\simple.typ)
+[Customize from source code](cosmos/simple.typ)
 
 ![image](https://github.com/user-attachments/assets/5c9061ab-117a-455c-bb11-4a9fff5edc7a)
 
@@ -290,7 +290,7 @@ Let's start with the most fundamental definition.
 #show: show-theorion
 ```
 
-[Customize from source code](cosmos\rainbow.typ)
+[Customize from source code](cosmos/rainbow.typ)
 
 ![image](https://github.com/user-attachments/assets/715749c3-1464-4dd1-be57-111f2fc376ea)
 
@@ -302,7 +302,7 @@ Let's start with the most fundamental definition.
 #show: show-theorion
 ```
 
-[Customize from source code](cosmos\clouds.typ)
+[Customize from source code](cosmos/clouds.typ)
 
 ![image](https://github.com/user-attachments/assets/486bbaf5-d068-4bd6-8455-028f00cba2c5)
 
@@ -314,7 +314,7 @@ Let's start with the most fundamental definition.
 #show: show-theorion
 ```
 
-[Customize from source code](cosmos\fancy.typ)
+[Customize from source code](cosmos/fancy.typ)
 
 ![image](https://github.com/user-attachments/assets/742733f1-8d2e-4849-a3b7-d3f2cc743a18)
 
