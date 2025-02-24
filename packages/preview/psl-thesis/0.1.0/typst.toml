@@ -8,6 +8,7 @@ description = "Template for a PhD thesis manuscript at Paris Sciences et Lettres
 keywords = ["Paris Sciences et Lettres", "PSL", "thesis", "manuscript", "PhD"]
 categories = ["thesis"]
 repository = "https://github.com/sdiebolt/psl-thesis"
+compiler = "0.13.0"
 
 [template]
 path = "template"

@@ -1,9 +1,9 @@
-#import "@preview/linguify:0.4.1": *
+#import "@preview/linguify:0.4.2": *
 
 #let database = toml("lang.toml")
 
 #let colors = (
-  psl: rgb(36, 56, 141),
+  psl: rgb(36, 56, 142),
 )
 
 #let psl-front-cover(
@@ -76,11 +76,11 @@
       column-gutter: 1cm,
       ..jury
         .map(member => {
-            (
-              [#member.firstname #smallcaps([#member.lastname])\ #member.title],
-              [_#member.role _],
-            )
-          })
+          (
+            [#member.firstname #smallcaps([#member.lastname])\ #member.title],
+            [_#member.role _],
+          )
+        })
         .flatten()
     )
   }
@@ -161,6 +161,13 @@
     #heading(level: 1, outlined: false)[Keywords]
     #text(size: 0.9em)[#keywords.en]
   ]
+
+  context place(
+    bottom + right,
+    dx: page.margin.right + 2cm,
+    dy: page.margin.bottom + 2cm,
+    circle(radius: 2cm, fill: colors.psl),
+  )
 }
 
 #let psl-thesis-covers(

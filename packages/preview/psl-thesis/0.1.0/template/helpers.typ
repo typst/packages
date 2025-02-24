@@ -1,4 +1,4 @@
-#import "@preview/suboutline:0.1.0": suboutline
+#import "@preview/suboutline:0.2.0": suboutline
 
 #let colors = (
   accent: rgb(113, 127, 184),
@@ -41,7 +41,7 @@
 
   heading([Table of contents], depth: 2, outlined: false, numbering: none)
   line(length: 100%)
-  suboutline(title: none, indent: auto)
+  suboutline()
   line(length: 100%)
   pagebreak()
 }

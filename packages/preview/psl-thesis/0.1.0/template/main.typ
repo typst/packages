@@ -1,6 +1,6 @@
 #import "helpers.typ": *
 #import "@preview/psl-thesis:0.1.0": psl-thesis-covers
-#import "@preview/glossarium:0.5.1": make-glossary, register-glossary, print-glossary, gls, glspl
+#import "@preview/glossarium:0.5.3": make-glossary, register-glossary, print-glossary, gls, glspl
 #show: make-glossary
 
 #let glossary = (
@@ -92,10 +92,7 @@
   strong(it)
 }
 
-#outline(
-  title: "Table of contents",
-  indent: true,
-)
+#outline(title: "Table of contents")
 
 #outline(
   title: "Figures",
