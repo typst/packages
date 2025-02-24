@@ -1,7 +1,7 @@
 #{
 // render_code
 context preview(````typ
-#show: zebraw-init.with(..zebraw-themes.zebra, lang: false)
+#show: zebraw-init.with(..zebraw-themes.zebra-reverse, lang: false)
 #show: zebraw
 
 ```rust

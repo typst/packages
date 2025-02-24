@@ -3,10 +3,12 @@
 context preview(````typ
 #zebraw(
   highlight-lines: (
+    (header: [*Fibonacci sequence*]),
     ..range(8, 13),
-    (12, [The first \#count numbers of the sequence.]),
+    // Numbers can be passed as a string in the dictionary, but it's too ugly.
+    ("12": [The first \#count numbers of the sequence.]),
+    (footer: [The fibonacci sequence is defined through the recurrence relation $F_n = F_(n-1) + F_(n-2)$]),
   ),
-  header: [*Fibonacci sequence*],
   ```typ
   #let count = 8
   #let nums = range(1, count + 1)
@@ -20,8 +22,7 @@ context preview(````typ
     ..nums.map(n => $F_#n$),
     ..nums.map(n => str(fib(n))),
   ))
-  ```,
-  footer: [The fibonacci sequence is defined through the recurrence relation $F_n = F_(n-1) + F_(n-2)$],
+  ```
 )
 ````)
 }

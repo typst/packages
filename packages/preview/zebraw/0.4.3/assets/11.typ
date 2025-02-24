@@ -1,21 +1,11 @@
 #{
 // render_code
-context preview(````typ
-#show: zebraw-init.with(..zebraw-themes.zebra, lang: false)
-#show: zebraw
-
-```rust
-pub fn fibonacci_reccursive(n: i32) -> u64 {
-    if n < 0 {
-        panic!("{} is negative!", n);
-    }
-    match n {
-        0 => panic!("zero is not a right argument to fibonacci_reccursive()!"),
-        1 | 2 => 1,
-        3 => 2,
-        _ => fibonacci_reccursive(n - 1) + fibonacci_reccursive(n - 2),
-    }
-}
-```
-````)
+context grid(
+  columns: 2,
+  align: center,
+  row-gutter: .5em,
+  column-gutter: .5em,
+  grid.header([`copyable: false`], [`copyable: true`]),
+  image("assets/copyable-false.png"), image("assets/copyable-true.png"),
+)
 }

@@ -3,9 +3,10 @@
 context preview(````typ
 #zebraw(
   highlight-lines: (
+    // Comments can only be passed when highlight-lines is an array, so at the end of the single element array, a comma is needed.
     (6, [The Fibonacci sequence is defined through the recurrence relation $F_n = F_(n-1) + F_(n-2)$]),
   ),
-  comment-flag: "",
+  comment-flag: "~~>",
   ```typ
   = Fibonacci sequence
   #let count = 8
