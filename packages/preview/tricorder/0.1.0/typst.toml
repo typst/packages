@@ -9,7 +9,6 @@ repository = "https://github.com/YDX-2147483647/typst-tricorder"
 categories = [
   "components",
   "layout",
-  "text",
   "languages",
 ]
 exclude = [
