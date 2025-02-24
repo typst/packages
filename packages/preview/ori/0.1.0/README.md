@@ -14,6 +14,8 @@
   ```typ
   #import "@preview/ori:0.1.0": *
 
+  #set heading(numbering: numbly("{1:一}、", default: "1.1  "))
+
   #show: ori.with(
     title: "文档标题",
     author: "张三",
