@@ -41,7 +41,8 @@
   #simpleplot(
     xsize: 5,
     ysize: 5,
-    alignment: top + left,
+    alignment: center+horizon,
+    axis-style: \"school-book\",
     {
       add(((0, 0), (4, 6)))
       add(((-5, -3), (4, 6),(5,4)))
@@ -69,7 +70,8 @@
   #simpleplot(
     xsize: 5,
     ysize: 5,
-    alignment: top + left,
+    alignment: center+horizon,
+    axis-style: \"school-book\",
     {
       add(((0, 0), (4, 6)))
       add(((-5, -3), (4, 6),(5,4)))
@@ -78,12 +80,13 @@
 
   will look like this:"
 }+simpleplot(
-    xsize: 5,
-    ysize: 5,
-    alignment: top + left,
-    {
-      add(((0, 0), (4, 6)))
-      add(((-5, -3), (4, 6),(5,4)))
-    }
-  )
+  xsize: 5,
+  ysize: 5,
+  alignment: top+left,
+  axis-style: "school-book",
+  {
+    add(((0, 0), (4, 6)))
+    add(((-5, -3), (4, 6),(5,4)))
+  }
+)
 
