@@ -35,7 +35,7 @@
 #let (corollary-counter, corollary-box, corollary, show-corollary) = make-frame(
   "corollary",
   theorion-i18n-map.at("corollary"),
-  counter: theorem-counter,
+  inherited-from: theorem-counter,
   render: render-fn.with(fill: fuchsia.darken(10%)),
 )
 
