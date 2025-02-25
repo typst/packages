@@ -1,5 +1,4 @@
-#import "../templete.typ" : *
-
+#import "@preview/sdu-report-cs:0.1.0" : *
 #show: report.with(
   institute: "计算机科学与技术",
   course: "人工智能引论",
