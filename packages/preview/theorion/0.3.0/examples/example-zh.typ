@@ -33,7 +33,7 @@
 // #theorem(title: "欧几里得定理")[
 //   素数有无穷多个。
 // ] <thm:euclid>
-// #theorem-box(title: "无编号定理")[
+// #theorem-box(title: "无编号定理", outlined: false)[
 //   这个定理没有编号。
 // ]
 
@@ -65,7 +65,7 @@
   素数有无穷多个。
 ] <thm:euclid>
 
-#theorem-box(title: "无编号定理")[
+#theorem-box(title: "无编号定理", outlined: false)[
   这个定理没有编号。
 ]
 ```
@@ -277,10 +277,10 @@
 == 重述定理
 
 // 1. 重述所有定理
-#theorion-restate(filter: it => it.identifier == "theorem", render: it => it.render)
+#theorion-restate(filter: it => it.outlined and it.identifier == "theorem", render: it => it.render)
 // 2. 重述所有定理（自定义格式）
 // #theorion-restate(
-//   filter: it => it.identifier == "theorem",
+//   filter: it => it.outlined and it.identifier == "theorem",
 //   render: it => (prefix: none, title: "", full-title: auto, body) => block[#strong[#full-title.]#sym.space#emph(body)],
 // )
 // 3. 重述特定定理

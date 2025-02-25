@@ -60,7 +60,7 @@
   There are infinitely many prime numbers.
 ] <thm:euclid>
 
-#theorem-box(title: "Theorem without numbering")[
+#theorem-box(title: "Theorem without numbering", outlined: false)[
   This theorem is not numbered.
 ]
 ```
@@ -93,7 +93,7 @@
 #theorem(title: "Euclid's Theorem")[
   There are infinitely many prime numbers.
 ] <thm:euclid>
-#theorem-box(title: "Theorem without numbering")[
+#theorem-box(title: "Theorem without numbering", outlined: false)[
   This theorem is not numbered.
 ]
 
@@ -285,10 +285,10 @@ Let's start with the most fundamental definition.
 == Restated Theorems
 
 // 1. Restate all theorems
-#theorion-restate(filter: it => it.identifier == "theorem", render: it => it.render)
+#theorion-restate(filter: it => it.outlined and it.identifier == "theorem", render: it => it.render)
 // 2. Restate all theorems with custom render function
 // #theorion-restate(
-//   filter: it => it.identifier == "theorem",
+//   filter: it => it.outlined and it.identifier == "theorem",
 //   render: it => (prefix: none, title: "", full-title: auto, body) => block[#strong[#full-title.]#sym.space#emph(body)],
 // )
 // 3. Restate a specific theorem

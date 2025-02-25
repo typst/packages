@@ -244,10 +244,15 @@
 /// Display the numbering of a theorem environment
 ///
 /// - el (content): Figure element to display the numbering
-#let display-theorion-number(el) = {
+#let theorion-display-number(el) = {
   assert(type(el) == content and el.func() == figure, message: "The element must be a figure.")
   // some magic to get the correct numbering
-  std.numbering(el.numbering.with(get-loc: () => el.location()))
+  if el.numbering == none {
+    return ""
+  } else {
+    assert(type(el.numbering) == function, message: "The numbering must be a function with get-loc.")
+    std.numbering(el.numbering.with(get-loc: () => el.location()))
+  }
 }
 
 
@@ -294,36 +299,60 @@
     counter-value = counter-value.slice(0, -1) + (counter-value.at(-1) + 1,)
     std.numbering(get-numbering(get-loc()), ..counter-value)
   }
+
+  /// Usefull functions for the frame.
+  let get-prefix(get-loc) = [#supplement-i18n #display-number(get-loc: get-loc)]
+  let get-full-title(get-loc, title) = [#get-prefix(get-loc)#{ if title != "" [ (#title)] }]
   /// Frame with the counter.
-  let frame(title: "", body) = figure(
+  let frame(
+    title: "",
+    outlined: true,
+    numbering: display-number,
+    get-prefix: get-prefix,
+    get-full-title: get-full-title,
+    ..args,
+    body,
+  ) = figure(
     kind: current-kind,
     supplement: supplement-i18n,
     caption: title,
-    numbering: display-number,
+    outlined: outlined,
+    numbering: numbering,
     {
-      let get-prefix(get-loc) = [#supplement-i18n #display-number(get-loc: get-loc)]
-      let get-full-title(get-loc) = [#get-prefix(get-loc)#{ if title != "" [ (#title)] }]
       [#metadata((
           identifier: identifier,
           supplement: supplement,
           supplement-i18n: supplement-i18n,
-          get-prefix: get-prefix,
           kind: current-kind,
           counter: frame-counter,
           title: title,
+          numbering: numbering,
+          outlined: outlined,
+          get-prefix: get-prefix,
           get-full-title: get-full-title,
           render: render,
+          args: args,
           body: body,
         )) <theorion-frame-metadata>]
       render(
         prefix: get-prefix(here),
         title: title,
-        full-title: get-full-title(here),
+        full-title: get-full-title(here, title),
+        ..args,
         body,
       )
       // Update the counter.
-      (frame-counter.step)()
+      if numbering != none {
+        (frame-counter.step)()
+      }
     },
+  )
+  /// Frame without the counter.
+  let frame-box = frame.with(
+    numbering: none,
+    outlined: false,
+    get-prefix: get-loc => none,
+    get-full-title: (get-loc, title) => title,
   )
   /// Show rule for the frame.
   let show-frame(body) = {
@@ -339,7 +368,7 @@
           link(
             el.location(),
             entry.indented(
-              [#el.supplement #context display-theorion-number(el)],
+              [#el.supplement #context theorion-display-number(el)],
               {
                 entry.body()
                 box(width: 1fr, inset: (x: .25em), entry.fill)
@@ -361,7 +390,7 @@
           {
             if it.supplement == auto { el.supplement } else { it.supplement }
             " "
-            context display-theorion-number(el)
+            context theorion-display-number(el)
           },
         )
       } else {
@@ -370,7 +399,7 @@
     }
     body
   }
-  return (frame-counter, render, frame, show-frame)
+  return (frame-counter, frame-box, frame, show-frame)
 }
 
 
@@ -391,7 +420,7 @@
       (render(it))(
         prefix: (it.get-prefix)(get-loc),
         title: it.title,
-        full-title: (it.get-full-title)(get-loc),
+        full-title: (it.get-full-title)(get-loc, it.title),
         it.body,
       )
     }
