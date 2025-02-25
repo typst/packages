@@ -1,4 +1,4 @@
-#import "@preview/sdu-report-cs:0.1.0" : *
+#import "@preview/sdu-exp-report:0.1.0" : *
 // #import "../templete.typ":*
 
 #show: report.with(
