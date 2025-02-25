@@ -11,7 +11,7 @@
   exp-time: "2"
 )
 
-#show figure.where(kind: image): it => {
+#show figure.where(kind == image): it => {
   set image(width: 67%)
   it
 }
