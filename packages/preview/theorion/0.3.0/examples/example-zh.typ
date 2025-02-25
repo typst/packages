@@ -8,22 +8,17 @@
 #set heading(numbering: "1.1")
 #set text(lang: "zh", region: "cn")
 
-/// 1. 更改配色方案（仅适用于 `fancy` cosmos）：
-// #set-primary-border-color(red)
-// #set-primary-body-color(red.lighten(95%))
-// #set-primary-symbol[#sym.suit.diamond.filled]
-
-/// 2. 更改计数器和编号：
+/// 1. 更改计数器和编号：
 // #set-inherited-levels(1)
 // #set-zero-fill(true)
 // #set-leading-zero(true)
 // #set-theorion-numbering("1.1")
 
-/// 3. 其他选项：
+/// 2. 其他选项：
 // #set-result("noanswer")
 // #set-qed-symbol[#math.qed]
 
-/// 4. 自定义定理环境
+/// 3. 自定义定理环境
 // #let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
 //   "theorem",
 //   theorion-i18n-map.at("theorem"),
@@ -34,7 +29,7 @@
 // )
 // #show: show-theorem
 
-/// 5. 开始使用
+/// 4. 开始使用
 // #theorem(title: "欧几里得定理")[
 //   素数有无穷多个。
 // ] <thm:euclid>
@@ -42,12 +37,12 @@
 //   这个定理没有编号。
 // ]
 
-/// 6. 附录示例
+/// 5. 附录示例
 // #counter(heading).update(0)
 // #set heading(numbering: "A.1")
 // #set-theorion-numbering("A.1")
 
-/// 7. 目录
+/// 6. 目录
 // #outline(title: none, target: figure.where(kind: "theorem"))
 
 
@@ -78,21 +73,17 @@
 == 自定义
 
 ```typst
-// 1. 更改配色方案（仅适用于 `fancy` cosmos）：
-#set-primary-border-color(red)
-#set-primary-body-color(red.lighten(95%))
-#set-primary-symbol[#sym.suit.diamond.filled]
-
-// 2. 更改继承级别：
+// 1. 更改计数器和编号：
 #set-inherited-levels(1)
 #set-zero-fill(true)
 #set-leading-zero(true)
+#set-theorion-numbering("1.1")
 
-// 3. 其他选项：
+// 2. 其他选项：
 #set-result("noanswer")
 #set-qed-symbol[#math.qed]
 
-// 4. 自定义定理环境
+// 3. 自定义定理环境
 #let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
   "theorem",
   theorion-i18n-map.at("theorem"),
@@ -103,7 +94,7 @@
 )
 #show: show-theorem
 
-// 5. 开始使用
+// 4. 开始使用
 #theorem(title: "欧几里得定理")[
   素数有无穷多个。
 ] <thm:euclid>
@@ -111,12 +102,12 @@
   这个定理没有编号。
 ]
 
-// 6. 附录示例
+// 5. 附录示例
 #counter(heading).update(0)
 #set heading(numbering: "A.1")
 #set-theorion-numbering("A.1")
 
-// 7. 目录
+// 6. 目录
 #outline(title: none, target: figure.where(kind: "theorem"))
 ```
 
@@ -282,3 +273,15 @@
   - 证明了几个重要定理
   - 展示了不同类型的数学环境
 ]
+
+== 重述定理
+
+// 1. 重述所有定理
+#theorion-restate(filter: it => it.identifier == "theorem", render: it => it.render)
+// 2. 重述所有定理（自定义格式）
+// #theorion-restate(
+//   filter: it => it.identifier == "theorem",
+//   render: it => (prefix: none, title: "", full-title: auto, body) => block[#strong[#full-title.]#sym.space#emph(body)],
+// )
+// 3. 重述特定定理
+// #theorion-restate(filter: it => it.label == <thm:euclid>)

@@ -28,22 +28,17 @@
 ## Customization
 
 ```typst
-// 1. Change the color scheme (only for `fancy` cosmos):
-#set-primary-border-color(red)
-#set-primary-body-color(red.lighten(95%))
-#set-primary-symbol[#sym.suit.diamond.filled]
-
-// 2. Change the counters and numbering:
+// 1. Change the counters and numbering:
 #set-inherited-levels(1)
 #set-zero-fill(true)
 #set-leading-zero(true)
 #set-theorion-numbering("1.1")
 
-// 3. Other options:
+// 2. Other options:
 #set-result("noanswer")
 #set-qed-symbol[#math.qed]
 
-// 4. Custom theorem environment for yourself
+// 3. Custom theorem environment for yourself
 #let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
   "theorem",
   "Theorem",  // supplement, string or dictionary like `(en: "Theorem")`, or `theorion-i18n-map.at("theorem")` for built-in i18n support
@@ -54,7 +49,7 @@
 )
 #show: show-theorem
 
-// 5. Just use it.
+// 4. Just use it.
 #theorem(title: "Euclid's Theorem")[
   There are infinitely many prime numbers.
 ] <thm:euclid>
@@ -62,13 +57,27 @@
   This theorem is not numbered.
 ]
 
-// 6. Example of appendix
+// 5. Example of appendix
 #counter(heading).update(0)
 #set heading(numbering: "A.1")
 #set-theorion-numbering("A.1")
 
-// 7. Table of contents
+// 6. Table of contents
 #outline(title: none, target: figure.where(kind: "theorem"))
+```
+
+## Restate Theorems
+
+```typst
+// 1. Restate all theorems
+#theorion-restate(filter: it => it.identifier == "theorem", render: it => it.render)
+// 2. Restate all theorems with custom render function
+#theorion-restate(
+  filter: it => it.identifier == "theorem",
+  render: it => (prefix: none, title: "", full-title: auto, body) => block[#strong[#full-title.]#sym.space#emph(body)],
+)
+// 3. Restate a specific theorem
+#theorion-restate(filter: it => it.label == <thm:euclid>)
 ```
 
 ## Example
@@ -307,6 +316,18 @@ Let's start with the most fundamental definition.
   - Proved several important theorems
   - Demonstrated different types of mathematical environments
 ]
+
+== Restated Theorems
+
+// 1. Restate all theorems
+#theorion-restate(filter: it => it.identifier == "theorem", render: it => it.render)
+// 2. Restate all theorems with custom render function
+// #theorion-restate(
+//   filter: it => it.identifier == "theorem",
+//   render: it => (prefix: none, title: "", full-title: auto, body) => block[#strong[#full-title.]#sym.space#emph(body)],
+// )
+// 3. Restate a specific theorem
+// #theorion-restate(filter: it => it.label == <thm:euclid>)
 ```
 
 ## All Cosmos
@@ -333,6 +354,17 @@ Let's start with the most fundamental definition.
 
 [Customize from source code](cosmos/rainbow.typ)
 
+```typst
+/// Custom color
+#let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
+  "theorem",
+  theorion-i18n-map.at("theorem"),
+  counter: theorem-counter,
+  render: render-fn.with(fill: blue.darken(10%)),
+)
+#show: show-theorem
+```
+
 ![image](https://github.com/user-attachments/assets/5e6e29f9-c493-4e21-b14a-347f3ca83b99)
 
 ### ☁️Clouds
@@ -345,6 +377,17 @@ Let's start with the most fundamental definition.
 
 [Customize from source code](cosmos/clouds.typ)
 
+```typst
+/// Custom color
+#let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
+  "theorem",
+  theorion-i18n-map.at("theorem"),
+  counter: theorem-counter,
+  render: render-fn.with(fill: blue.lighten(85%)),
+)
+#show: show-theorem
+```
+
 ![image](https://github.com/user-attachments/assets/1f0f280b-94f5-43b7-b685-d2998d867b58)
 
 ### ✨Fancy
@@ -356,6 +399,13 @@ Let's start with the most fundamental definition.
 ```
 
 [Customize from source code](cosmos/fancy.typ)
+
+```typst
+/// Custom color
+#set-primary-border-color(red)
+#set-primary-body-color(red.lighten(95%))
+#set-primary-symbol[#sym.suit.diamond.filled]
+```
 
 ![image](https://github.com/user-attachments/assets/a8938339-9510-4371-ae23-7f73a828c17d)
 

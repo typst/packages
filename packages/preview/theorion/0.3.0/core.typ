@@ -8,6 +8,8 @@
       let arg = args.pos().at(0, default: none)
       if arg == none {
         used-state.final()
+      } else if type(arg) == function {
+        used-state.at(arg())
       } else {
         used-state.at(arg)
       }
@@ -271,7 +273,7 @@
   render: (prefix: none, title: "", full-title: "", body) => block[*#full-title*: #body],
 ) = {
   let get-numbering = if type(numbering) != function { (..args) => numbering } else { numbering }
-  kind = if kind == auto { identifier } else { kind }
+  let current-kind = if kind == auto { identifier } else { kind }
   /// Counter for the frame.
   let frame-counter = if counter != none { counter } else {
     richer-counter(
@@ -281,41 +283,56 @@
     )
   }
   let supplement-i18n = theorion-i18n(supplement)
+  let display-number(get-loc: here, counter: frame-counter, ..args) = context {
+    let loc = get-loc()
+    // We need to add 1 to the counter value.
+    let counter-value = if type(counter) == dictionary {
+      (counter.at)(loc)
+    } else {
+      counter.at(loc)
+    }
+    counter-value = counter-value.slice(0, -1) + (counter-value.at(-1) + 1,)
+    std.numbering(get-numbering(get-loc()), ..counter-value)
+  }
   /// Frame with the counter.
   let frame(title: "", body) = figure(
-    kind: kind,
+    kind: current-kind,
     supplement: supplement-i18n,
     caption: title,
-    numbering: (get-loc: here, counter: frame-counter, ..args) => context {
-      let loc = get-loc()
-      // We need to add 1 to the counter value.
-      let counter-value = if type(counter) == dictionary {
-        (counter.at)(loc)
-      } else {
-        counter.at(loc)
-      }
-      counter-value = counter-value.slice(0, -1) + (counter-value.at(-1) + 1,)
-      std.numbering(get-numbering(get-loc()), ..counter-value)
-    },
+    numbering: display-number,
     {
-      (frame-counter.step)()
-      let prefix = [#supplement-i18n #context (frame-counter.display)(get-numbering(here()))]
+      let get-prefix(get-loc) = [#supplement-i18n #display-number(get-loc: get-loc)]
+      let get-full-title(get-loc) = [#get-prefix(get-loc)#{ if title != "" [ (#title)] }]
+      [#metadata((
+          identifier: identifier,
+          supplement: supplement,
+          supplement-i18n: supplement-i18n,
+          get-prefix: get-prefix,
+          kind: current-kind,
+          counter: frame-counter,
+          title: title,
+          get-full-title: get-full-title,
+          render: render,
+          body: body,
+        )) <theorion-frame-metadata>]
       render(
-        prefix: prefix,
+        prefix: get-prefix(here),
         title: title,
-        full-title: [#prefix#{ if title != "" [ (#title)] }],
+        full-title: get-full-title(here),
         body,
       )
+      // Update the counter.
+      (frame-counter.step)()
     },
   )
   /// Show rule for the frame.
   let show-frame(body) = {
     // skip the default figure style.
-    show figure.where(kind: kind): set align(left)
-    show figure.where(kind: kind): set block(breakable: true)
-    show figure.where(kind: kind): it => it.body
+    show figure.where(kind: current-kind): set align(left)
+    show figure.where(kind: current-kind): set block(breakable: true)
+    show figure.where(kind: current-kind): it => it.body
     // Custom outline for the theorem environment.
-    show outline.where(target: figure.where(kind: kind)): it => {
+    show outline.where(target: figure.where(kind: current-kind)): it => {
       show outline.entry: entry => {
         let el = entry.element
         block(
@@ -354,4 +371,29 @@
     body
   }
   return (frame-counter, render, frame, show-frame)
+}
+
+
+/// Restate the theorion frame with a custom filter and render function.
+///
+/// - filter (function): Filter function to select the frames to restate, such as `it => it.identifier == "theorem"`
+/// - render (function): Custom rendering function for the frames, such as `it => it.render` or `it => (prefix: none, title: "", full-title: auto, body) => block[#strong[#full-title.]#sym.space#emph(body)]`
+#let theorion-restate(filter: it => true, render: it => it.render) = context {
+  for el in query(<theorion-frame-metadata>) {
+    let figure-el = query(selector(figure).before(el.location())).last()
+    let get-loc = () => el.location()
+    let it = el.value
+    assert(type(it) == dictionary, message: "The metadata must be a dictionary.")
+    it.get-loc = get-loc
+    it.el = figure-el
+    it.label = if figure-el.has("label") { figure-el.label } else { none }
+    if filter(it) {
+      (render(it))(
+        prefix: (it.get-prefix)(get-loc),
+        title: it.title,
+        full-title: (it.get-full-title)(get-loc),
+        it.body,
+      )
+    }
+  }
 }

@@ -8,22 +8,17 @@
 #set heading(numbering: "1.1")
 #set text(lang: "en")
 
-/// 1. Change the color scheme (only for `fancy` cosmos):
-// #set-primary-border-color(red)
-// #set-primary-body-color(red.lighten(95%))
-// #set-primary-symbol[#sym.suit.diamond.filled]
-
-/// 2. Change the counters and numbering:
+/// 1. Change the counters and numbering:
 // #set-inherited-levels(1)
 // #set-zero-fill(true)
 // #set-leading-zero(true)
 // #set-theorion-numbering("1.1")
 
-/// 3. Other options:
+/// 2. Other options:
 // #set-result("noanswer")
 // #set-qed-symbol[#math.qed]
 
-/// 4. Custom theorem environment for yourself
+/// 3. Custom theorem environment for yourself
 // #let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
 //   "theorem",
 //   "Theorem",  // supplement, string or dictionary like `(en: "Theorem")`, or `theorion-i18n-map.at("theorem")` for built-in i18n support
@@ -34,7 +29,7 @@
 // )
 // #show: show-theorem
 
-/// 5. Just use it.
+/// 4. Just use it.
 // #theorem(title: "Euclid's Theorem")[
 //   There are infinitely many prime numbers.
 // ] <thm:euclid>
@@ -42,12 +37,12 @@
 //   This theorem is not numbered.
 // ]
 
-/// 6. Example of appendix
+/// 5. Example of appendix
 // #counter(heading).update(0)
 // #set heading(numbering: "A.1")
 // #set-theorion-numbering("A.1")
 
-/// 7. Table of contents
+/// 6. Table of contents
 // #outline(title: none, target: figure.where(kind: "theorem"))
 
 = Theorion Environments
@@ -73,22 +68,17 @@
 == Customization
 
 ```typst
-// 1. Change the color scheme (only for `fancy` cosmos):
-#set-primary-border-color(red)
-#set-primary-body-color(red.lighten(95%))
-#set-primary-symbol[#sym.suit.diamond.filled]
-
-// 2. Change the counters and numbering:
+// 1. Change the counters and numbering:
 #set-inherited-levels(1)
 #set-zero-fill(true)
 #set-leading-zero(true)
 #set-theorion-numbering("1.1")
 
-// 3. Other options:
+// 2. Other options:
 #set-result("noanswer")
 #set-qed-symbol[#math.qed]
 
-// 4. Custom theorem environment for yourself
+// 3. Custom theorem environment for yourself
 #let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
   "theorem",
   "Theorem",  // supplement, string or dictionary like `(en: "Theorem")`, or `theorion-i18n-map.at("theorem")` for built-in i18n support
@@ -99,7 +89,7 @@
 )
 #show: show-theorem
 
-// 5. Just use it.
+// 4. Just use it.
 #theorem(title: "Euclid's Theorem")[
   There are infinitely many prime numbers.
 ] <thm:euclid>
@@ -107,12 +97,12 @@
   This theorem is not numbered.
 ]
 
-// 6. Example of appendix
+// 5. Example of appendix
 #counter(heading).update(0)
 #set heading(numbering: "A.1")
 #set-theorion-numbering("A.1")
 
-// 7. Table of contents
+// 6. Table of contents
 #outline(title: none, target: figure.where(kind: "theorem"))
 ```
 
@@ -291,3 +281,15 @@ Let's start with the most fundamental definition.
   - Proved several important theorems
   - Demonstrated different types of mathematical environments
 ]
+
+== Restated Theorems
+
+// 1. Restate all theorems
+#theorion-restate(filter: it => it.identifier == "theorem", render: it => it.render)
+// 2. Restate all theorems with custom render function
+// #theorion-restate(
+//   filter: it => it.identifier == "theorem",
+//   render: it => (prefix: none, title: "", full-title: auto, body) => block[#strong[#full-title.]#sym.space#emph(body)],
+// )
+// 3. Restate a specific theorem
+// #theorion-restate(filter: it => it.label == <thm:euclid>)
