@@ -1,4 +1,4 @@
-#import "@preview/touying:0.6.0": *
+#import "@preview/touying:0.6.1": *
 #import "@preview/touying-unistra-pristine:1.3.1": *
 
 #show: unistra-theme.with(

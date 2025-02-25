@@ -3,7 +3,7 @@
 ## General
 
 - Updated to Typst 0.13.0.
-- Updated to Touying 0.6.0.
+- Updated to Touying 0.6.1.
 
 ### Other
 
