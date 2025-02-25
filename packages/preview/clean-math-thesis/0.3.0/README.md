@@ -18,7 +18,7 @@ The template is already filled with dummy data, to give users an [impression how
 
 - after [installing Typst](https://github.com/typst/typst?tab=readme-ov-file#installation) you can conveniently use the following to create a new folder containing this project.
 ```bash
-typst init @preview/clean-math-thesis:0.2.0
+typst init @preview/clean-math-thesis:0.3.0
 ```
 
 
@@ -67,7 +67,7 @@ The switching between these is currently not optimal: i-figured needs a prefix (
 If you want to change an existing typst project structure to use this template, just type the following lines
 
 ```typ
-#import "@preview/clean-math-thesis:0.1.0": template
+#import "@preview/clean-math-thesis:0.3.0": template
 
 #show: template.with(
   // your user specific data, parameters explained above

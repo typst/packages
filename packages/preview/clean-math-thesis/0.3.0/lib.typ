@@ -1,7 +1,7 @@
 // global
-#import "@preview/great-theorems:0.1.1": great-theorems-init
-#import "@preview/hydra:0.5.1": hydra
-#import "@preview/equate:0.2.1": equate
+#import "@preview/great-theorems:0.1.2": great-theorems-init
+#import "@preview/hydra:0.5.2": hydra
+#import "@preview/equate:0.3.0": equate
 #import "@preview/i-figured:0.2.4": reset-counters, show-equation
 
 #let template(
@@ -302,14 +302,14 @@ pagebreak()
 // ------------------- Tables of ... -------------------
 
 // Table of contents
-outline(depth: 3, indent: 1em, fill: line(length: 100%, stroke: (thickness: 1pt, dash: "loosely-dotted")))
+set outline.entry(fill: line(length: 100%, stroke: (thickness: 1pt, dash: "loosely-dotted")))
+outline(depth: 3, indent: 1em)
 pagebreak()
 
 // List of figures
 outline(
   title: [List of Figures],
-  target: figure.where(kind: image),
-  fill: line(length: 100%, stroke: (thickness: 1pt, dash: "loosely-dotted"))
+  target: figure.where(kind: image)
 )
 pagebreak()
 
@@ -317,8 +317,7 @@ pagebreak()
 // List of Tables
 outline(
   title: [List of Tables],
-  target: figure.where(kind: table),
-  fill: line(length: 100%, stroke: (thickness: 1pt, dash: "loosely-dotted"))
+  target: figure.where(kind: table)
 )
 pagebreak()
 
