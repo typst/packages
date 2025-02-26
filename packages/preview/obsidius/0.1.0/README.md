@@ -14,3 +14,5 @@ Get started by adding the following code to your document:
 ```
 
 For more detailed information, see the sample document in this repo.
+
+This template package is licensed under [MIT](https://opensource.org/license/mit).
