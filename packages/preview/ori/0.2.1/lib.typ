@@ -7,7 +7,7 @@
 #let md = cmarker-render.with(math: mitex)
 
 #let default-font = (
-  main: "IBM Plex Sans",
+  main: "IBM Plex Serif",
   mono: "IBM Plex Mono",
   cjk: "Noto Serif SC",
   emph-cjk: "KaiTi",

@@ -19,7 +19,7 @@
 要开始使用此模板，你需要
 
 + 安装必须的字体包，包括：
-  - #link("https://github.com/IBM/plex")[*IBM Plex Sans, Mono*]
+  - #link("https://github.com/IBM/plex")[*IBM Plex Serif, Mono*]
   - #link("https://github.com/notofonts/noto-cjk")[*Noto Serif CJK SC*]
 
 + 导入模板，并在文档开头设置参数，包括标题、作者、课程或主题、学期、时间；
@@ -166,7 +166,7 @@
 
 ```typ
 #let font = (
-  main: "IBM Plex Sans",
+  main: "IBM Plex Serif",
   mono: "IBM Plex Mono",
   cjk: "Noto Serif SC",
   emph-cjk: "KaiTi",
