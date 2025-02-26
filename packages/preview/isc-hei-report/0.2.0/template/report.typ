@@ -103,12 +103,12 @@ On peut si on le souhaite également avoir des blocs de code plus long si néces
 
 Il est tout à fait possible de mettre du code qui provient d'un fichier comme ci-dessous :
 
-#let code_sample = read("code_examples/example.scala")
+#let code_sample = read("sample.scala")
 #figure(
     code()[
       #raw(code_sample, lang: "scala")
     ],
-  caption: "Code included from the file `example.scala`"
+  caption: "Code included from the file `sample.scala`"
 )
 
 == Insertion d'images
