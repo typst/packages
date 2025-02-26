@@ -14,7 +14,7 @@
   ])
 }
 
-#let inactiveTextColor = rgb("#98A1AE")
+#let inactive-text-color = rgb("#98A1AE")
 
 #let notes(title, content) = {
   // meta information
@@ -27,7 +27,7 @@
       .at(0, default: (body: []))
 
 
-    set text(fill: inactiveTextColor)
+    set text(fill: inactive-text-color)
     set align(center)
     emph([
       #document.title
@@ -48,7 +48,7 @@
   show figure.caption: set text(rgb("#98A1AE"))
 
   show ref: it => {
-    set text(fill: inactiveTextColor)
+    set text(fill: inactive-text-color)
     [_(see #it)_]
   }
   show terms.item: it => {
@@ -75,7 +75,7 @@
   show raw: set text(font: "Noto Sans Mono")
   show raw.where(block: true): it => {
     emptyblock((black, rgb("#F9F9FB"), rgb("#F3F3F5")), {
-      place(top+right, text(font: "Noto Sans", fill: inactiveTextColor, it.lang))
+      place(top+right, text(font: "Noto Sans", fill: inactive-text-color, it.lang))
       it
     })
   }
@@ -94,7 +94,7 @@
 }
 
 #let questions(body) = {
-  set text(fill: inactiveTextColor)
+  set text(fill: inactive-text-color)
   [
     *Questions*
     #body
