@@ -1,0 +1,16 @@
+[package]
+name = "inboisu"
+authors = [ "mkpoli <mkpoli@mkpo.li>" ]
+entrypoint = "lib.typ"
+license = "MIT-0"
+version = "0.1.0"
+description = "Inboisu is a tool for creating Japanese invoices."
+keywords = [ "invoice", "japanese", "banking" ]
+categories = [ "layout", "office" ]
+disciplines = [ "business" ]
+repository = "https://github.com/mkpoli/typst-inboisu"
+
+[template]
+entrypoint = "invoice.typ"
+path = "template"
+thumbnail = "images/invoice.png"
