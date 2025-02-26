@@ -258,7 +258,7 @@ $ S = sqrt(S_x^2+S_y^2) = sqrt(109^2+185^2) =214.47 $
 #pagebreak()
 
 = #i18n(doc_language, "appendix-code-name")
-#let code_sample = read("code_examples/example.scala")
+#let code_sample = read("sample.scala")
 #figure(
     code()[
       #raw(code_sample, lang: "scala")
