@@ -8,8 +8,9 @@ description = "Modern template for study notes."
 repository = "https://github.com/l0drex/obsidius"
 keywords = ["Obsidian", "notes", "study", "university"]
 categories = ["report", "components"]
-exclude = ["./sample/"]
+exclude = ["sample/"]
 
 [template]
 path = "template"
 entrypoint = "main.typ"
+thumbnail = "sample/thumbnail.png"
