@@ -10,4 +10,4 @@ description = "A port of the ccicon LaTeX package for Typst."
 repository = "https://github.com/jneug/typst-ccicons"
 keywords = ["creative commons", "commons", "license", "icons"]
 categories = ["components"]
-exclude = ["README.md", "docs"]
+exclude = ["docs"]
