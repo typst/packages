@@ -1,0 +1,11 @@
+[package]
+name = "Jonas"
+version = "0.1.0"
+entrypoint = "template/ovgu-fma-polylux-theme.typ"
+license = "MIT-0"
+description = "Unofficial template for creating presentations with Polylux in the style of the Faculty of Mathematics at the Otto-von-Guericke-University Magdeburg."
+
+[template]
+path = "template"
+entrypoint = "presentation-demo.typ"
+thumbnail = "images/example-pres-01.png"
