@@ -6,5 +6,5 @@ authors = ["Eric Biedert"]
 license = "MIT"
 description = "Custom shorthands for math equations."
 repository = "https://github.com/EpicEricEE/typst-quick-maths"
-exclude = ["README.md", "assets"]
+exclude = ["assets"]
 categories = ["utility"]
