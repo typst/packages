@@ -3,7 +3,7 @@
 // See https://github.com/coli-saar/typst-acl-style for details.
 
 
-#import "@preview/tracl:0.4.1": *
+#import "@preview/tracl:0.5.0": *
 
 #show: doc => acl(doc,
   anonymous: false,
