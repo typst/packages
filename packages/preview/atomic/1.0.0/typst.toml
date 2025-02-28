@@ -1,6 +1,6 @@
 [package]
 name = "atomic"
-version = "0.1.0"
+version = "1.0.0"
 repository = "https://github.com/aargar1/atomic"
 license = "MIT"
 entrypoint = "lib.typ"
