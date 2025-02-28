@@ -1,6 +1,6 @@
 #import "@preview/cetz:0.3.2"
 
-#let draw_orbit(radius, electrons, color: luma(90%), point: (0, 0)) = {
+#let draw-orbit(radius, electrons, color: luma(90%), point: (0, 0)) = {
   import cetz.draw: *
       
   circle(point, radius: radius, fill: none)
@@ -15,7 +15,7 @@
   }
 }
 
-#let draw_center(atomic, mass, atom, radius: 0.6, color: luma(90%), point: (0, 0)) = {
+#let draw-center(atomic, mass, atom, radius: 0.6, color: luma(90%), point: (0, 0)) = {
 
   import cetz.draw: *
 
@@ -31,7 +31,7 @@
   content((),$""_atomic^(mass)atom$,)
 }
 
-#let draw_atom(atomic, mass, atom, electrons, orbitals: 1.0, step: 0.4, center: 0.6, color: luma(90%), point: (0, 0)) = {
+#let draw-atom(atomic, mass, atom, electrons, orbitals: 1.0, step: 0.4, center: 0.6, color: luma(90%), point: (0, 0)) = {
                   
   import cetz.draw: *
 
@@ -40,11 +40,11 @@
     let loop = 0
     
     for i in electrons {
-      draw_orbit((orbitals + loop*step), i, color: color, point: point)
+      draw-orbit((orbitals + loop*step), i, color: color, point: point)
       loop = loop + 1
     }
   
-    draw_center(atomic, mass, atom, radius: center, color: color, point: point)
+    draw-center(atomic, mass, atom, radius: center, color: color, point: point)
 
   }
 
@@ -61,7 +61,7 @@
       }
     }
 
-    draw_atom(atomic, mass, atom, rounds, orbitals: orbitals, step: step, center: center, color: color, point: point)
+    draw-atom(atomic, mass, atom, rounds, orbitals: orbitals, step: step, center: center, color: color, point: point)
   }
 }
 
@@ -82,14 +82,14 @@
       }
     }
 
-    draw_atom(atomic, mass, atom, rounds, orbitals: orbitals, step: step, center: center, color: color, point: point)
+    draw-atom(atomic, mass, atom, rounds, orbitals: orbitals, step: step, center: center, color: color, point: point)
   })
   }
 
   if type(electrons) == array {
     cetz.canvas({
     import cetz.draw: *
-    draw_atom(atomic, mass, atom, electrons, orbitals: orbitals, step: step,
+    draw-atom(atomic, mass, atom, electrons, orbitals: orbitals, step: step,
     center: center, color: color, point: point)
   })
   }
