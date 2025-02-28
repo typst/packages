@@ -2,7 +2,7 @@
 name = "obsidius"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["@l0drex"]
+authors = ["Lorenz Hoffmann <@l0drex>"]
 license = "MIT"
 description = "Modern template for study notes."
 repository = "https://github.com/l0drex/obsidius"
