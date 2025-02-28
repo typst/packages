@@ -1,5 +1,5 @@
 [package]
-name = "typsium-atomic"
+name = "atomic"
 version = "0.1.0"
 repository = "https://github.com/aargar1/atomic"
 license = "MIT"
