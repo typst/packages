@@ -1,0 +1,20 @@
+[package]
+name = "relescope"
+version = "0.0.1"
+entrypoint = "src/lib.typ"
+authors = ["sjfhsjfh"]
+description = "Crop the desired code."
+keywords = [
+    "code",
+    "split",
+    "select",
+    "raw",
+]
+categories = [
+    "visualization",
+    "integration",
+    "utility",
+]
+exclude = ["examples/*.svg"]
+
+[tool]
