@@ -1,8 +1,8 @@
 // === Declarations & Configurations ===
-
 // source: https://en.wikipedia.org/wiki/List_of_chemical_elements
 // source: https://github.com/BlueObelisk/bodr/blob/master/bodr/elements/elements.xml
 #let elements = csv("resources/elements.csv", row-type: dictionary).map(x=> (
+  kind: "element",
   atomic-number: int(x.atomic-number),
   symbol: x.symbol,
   common-name: x.common-name,
@@ -67,15 +67,6 @@
   "7p": 6,
 )
 
-#let regex-patterns = (
-  element: regex("^\s?([A-Z][a-z]?|[a-z])\s?(\d*x?|[a-z])"),
-  bracket: regex("^\s?([\(\[\]\)])(\d*)"),
-  charge: regex("^\^\(?([0-9|+-]+)\)?"),
-  arrow: regex("^\s?(<->|->|=)"),
-  coef: regex("^\s?(\d+)"),
-  plus: regex("^\s?\+"),
-)
-
 #let config = (
   arrow: (arrow_size: 120%, reversible_size: 150%),
   conditions: (
@@ -85,11 +76,12 @@
       units: ("°C", "K", "atm", "bar"),
     ),
   ),
-  match-order: (
-    basic: ("coef", "element", "bracket", "charge"),
-    full: ("coef", "element", "bracket", "plus", "charge", "arrow"),
+  match_order: (
+    basic: ("bracket","coefficient", "element",  "charge"),
+    full: ("bracket", "coefficient", "element", "plus", "charge", "arrow"),
   ),
 )
+
 
 // Following utility methods are from:
 // https://github.com/touying-typ/touying/blob/6316aa90553f5d5d719150709aec1396e750da63/src/utils.typ#L157C1-L166C2
@@ -150,4 +142,30 @@
   let children = if is-sequence(it) { it.children } else { (it,) }
 
   return children.map(sequence-to-array).flatten()
+}
+#let to-string(content) = {
+  if content.has("text") {
+    if type(content.text) == str {
+      content.text
+    } else {
+      to-string(content.text)
+    }
+  } else if content.has("children") {
+    content.children.map(to-string).join("")
+  } else if content.has("body") {
+    to-string(content.body)
+  } else if content == [ ] {
+    " "
+  }
+}
+
+#let get-molecule-dict(molecule)={
+  if is-metadata(molecule) and is-kind(molecule, "molecule"){
+    return molecule.value
+  }
+}
+#let get-element-dict(element)={
+  if is-metadata(element) and is-kind(element, "element"){
+    return element.value
+  }
 }

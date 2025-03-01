@@ -1,4 +1,7 @@
-#import "utils.typ": is-sequence, is-kind, is-heading, is-metadata, padright, get-all-children, regex-patterns, hydrates, elements, shell-capacities, orbital-capacities
+#import "utils.typ": is-sequence, is-kind, is-heading, is-metadata, padright, get-all-children, hydrates, elements, shell-capacities, orbital-capacities, get-element-dict, get-molecule-dict, to-string
+#import "regex.typ": patterns
+
+#import "formula-parser.typ": ce
 
 //TODO: properly parse bracket contents
 // maybe recursively with a bracket regex, passing in the bracket content and multiplier(?)
@@ -31,9 +34,10 @@
 }
 
 #let get-weight(molecule)={
-  
-  if type(molecule) == dictionary and  molecule.at("atomic-weight", default: none) != none{
-    return molecule.atomic-weight
+  let element = get-element-dict(molecule)
+  molecule = get-molecule-dict(molecule)
+  if type(element) == dictionary and  element.at("atomic-weight", default: none) != none{
+    return element.atomic-weight
   }
   let weight = 0
   for value in molecule.elements {
@@ -45,6 +49,7 @@
 }
 
 #let get-shell-configuration(element)={
+  element = get-element-dict(element)
   let charge = element.at("charge", default:0)
   let electron-amount = element.atomic-number - charge
 
@@ -67,6 +72,7 @@
 
 //TODO: fix Cr and Mo
 #let get-electron-configuration(element)={
+  element = get-element-dict(element)
   let charge = element.at("charge", default:0)
   let electron-amount = element.atomic-number - charge
 
@@ -117,22 +123,22 @@
   }  
 }
 
-
 #let get-element(
   symbol: auto,
   atomic-number:auto,
   common-name:auto,
   CAS:auto,
 )={
-  if symbol != auto {
-    return elements.find(x=> x.symbol == symbol)
+  let element = if symbol != auto {
+    elements.find(x=> x.symbol == symbol)
   } else if atomic-number != auto{
-    return elements.find(x=> x.atomic-number == atomic-number)
+    elements.find(x=> x.atomic-number == atomic-number)
   } else if common-name != auto{
-    return elements.find(x=> x.common-name == common-name)
+    elements.find(x=> x.common-name == common-name)
   } else if CAS != auto{
-    return elements.find(x=> x.CAS == CAS)
+    elements.find(x=> x.CAS == CAS)
   }
+  return metadata(element)
 }
 
 #let define-ion(
@@ -184,7 +190,7 @@
     InChI = none
   }
   
-  return (
+  return metadata((kind: "molecule",
     common-name: common-name, 
     iupac-name:iupac-name, 
     formula: formula, 
@@ -194,7 +200,7 @@
     h-p: h-p, 
     ghs: ghs, 
     elements: elements
-  )
+  ))
 }
 
 #let define-hydrate(
@@ -207,7 +213,9 @@
   override-CAS:none,
   override-h-p:none,
   override-ghs:none,
-) = define-molecule(
+) = {
+  molecule = get-molecule-dict(molecule)
+  define-molecule(
     common-name: if override-common-name != none {override-common-name} else {molecule.common-name + sym.space + hydrates.at(amount)},
     iupac-name: if override-iupac-name != none {override-iupac-name}else{molecule.iupac-name + sym.semi + hydrates.at(amount)},
     formula: molecule.formula + sym.space.narrow + sym.dot + sym.space.narrow + str(amount) + "H2O",
@@ -217,15 +225,26 @@
     h-p:  if override-h-p != none {override-h-p}else{molecule.h-p},
     ghs:  if override-ghs != none {override-ghs}else{molecule.ghs}
   )
+}
 
 #let reaction(body)={
   let children = get-all-children(body)
-  
+
+  // repr(body)
+
+  // linebreak()
+  let result = ""
   for child in children {
     if is-metadata(child){
-      if is-kind(child, "quick-cards.question"){
+      if is-kind(child, "molecule"){
+        result += child.value.formula
+      }else if is-kind(child, "element"){
+        result += child.value.symbol
       }
+      
+    }else{
+      result += child
     }
   }
-        
+  ce(to-string(result))
 }
