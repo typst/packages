@@ -4,7 +4,7 @@
 #set heading(numbering: "1.1")
 
 #import "@preview/touying:0.6.1": *
-#import "../lib.typ": *
+#import "@preview/touying-hust:0.1.0": *
 
 #show: hust-theme.with(
   theme: "red",
