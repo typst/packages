@@ -127,7 +127,7 @@
   symbol: auto,
   atomic-number:auto,
   common-name:auto,
-  CAS:auto,
+  cas:auto,
 )={
   let element = if symbol != auto {
     elements.find(x=> x.symbol == symbol)
@@ -135,8 +135,8 @@
     elements.find(x=> x.atomic-number == atomic-number)
   } else if common-name != auto{
     elements.find(x=> x.common-name == common-name)
-  } else if CAS != auto{
-    elements.find(x=> x.CAS == CAS)
+  } else if cas != auto{
+    elements.find(x=> x.cas == cas)
   }
   return metadata(element)
 }
@@ -158,8 +158,8 @@
   iupac-name:none,
   formula:"",
   smiles:"",
-  InChI:"",
-  CAS:"",
+  inchi:"",
+  cas:"",
   h-p:(),
   ghs:(),
 )={
@@ -176,18 +176,18 @@
     formula = smiles
   }
   
-  if CAS == ""{
-    CAS = none
+  if cas == ""{
+    cas = none
   }
   
   let elements = get-element-counts(formula)
 
-  if InChI != ""{
-    // TODO: create InChI keys from provided InChI:
+  if inchi != ""{
+    // TODO: create inchi keys from provided inchi:
     // https://typst.app/universe/package/jumble
-    // https://www.inchi-trust.org/download/104/InChI_TechMan.pdf
+    // https://www.inchi-trust.org/download/104/inchi_TechMan.pdf
   }else{
-    InChI = none
+    inchi = none
   }
   
   return metadata((kind: "molecule",
@@ -195,8 +195,8 @@
     iupac-name:iupac-name, 
     formula: formula, 
     smiles: smiles, 
-    InChI: InChI, 
-    CAS: CAS, 
+    inchi: inchi, 
+    cas: cas, 
     h-p: h-p, 
     ghs: ghs, 
     elements: elements
@@ -209,8 +209,8 @@
   override-common-name:none,
   override-iupac-name:none,
   override-smiles:none,
-  override-InChI:none,
-  override-CAS:none,
+  override-inchi:none,
+  override-cas:none,
   override-h-p:none,
   override-ghs:none,
 ) = {
@@ -220,8 +220,8 @@
     iupac-name: if override-iupac-name != none {override-iupac-name}else{molecule.iupac-name + sym.semi + hydrates.at(amount)},
     formula: molecule.formula + sym.space.narrow + sym.dot + sym.space.narrow + str(amount) + "H2O",
     smiles:  if override-smiles != none {override-smiles}else{molecule.smiles},
-    InChI:  if override-InChI != none {override-InChI}else{molecule.InChI},
-    CAS:  if override-CAS != none {override-CAS}else{molecule.CAS},
+    inchi:  if override-inchi != none {override-inchi}else{molecule.inchi},
+    cas:  if override-cas != none {override-cas}else{molecule.cas},
     h-p:  if override-h-p != none {override-h-p}else{molecule.h-p},
     ghs:  if override-ghs != none {override-ghs}else{molecule.ghs}
   )

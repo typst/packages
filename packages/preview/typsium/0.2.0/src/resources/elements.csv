@@ -1,4 +1,4 @@
-atomic-number,symbol,common-name,group,period,block,atomic-weight,covalent-radius,van-der-waal-radius,outshell-electrons,most-common-isotope,most-common-isotopic-mass,density,melting-point,boiling-point,electronegativity,phase,CAS
+atomic-number,symbol,common-name,group,period,block,atomic-weight,covalent-radius,van-der-waal-radius,outshell-electrons,most-common-isotope,most-common-isotopic-mass,density,melting-point,boiling-point,electronegativity,phase,cas
 1,H,Hydrogen,1,1,s-block,1.008,0.23,1.2,1,1,1.007825032,0.00008988,14.01,20.28,2.2,gas,1333-74-0
 2,He,Helium,18,1,s-block,4.0026,0.93,1.4,2,4,4.002603254,0.0001785,0,4.22,0,gas,7440-59-7
 3,Li,Lithium,1,2,s-block,6.94,0.68,1.82,1,7,7.01600455,0.534,453.69,1560,0.98,solid,7439-93-2

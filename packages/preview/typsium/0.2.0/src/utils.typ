@@ -19,7 +19,7 @@
   boiling-point: float(x.boiling-point),
   electronegativity: float(x.electronegativity),
   phase: x.phase,
-  CAS: x.CAS,
+  cas: x.cas,
   ))
 
 #let hydrates = (
