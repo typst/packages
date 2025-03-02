@@ -206,8 +206,8 @@
 }
 
 #let __has_attribute(entry, key) = {
-  let attr = entry.at(key, default: "")
-  return attr != "" and attr != []
+  let attr = entry.at(key, default: none)
+  return attr != none and attr != []
 }
 #let has-short(entry) = __has_attribute(entry, "short")
 #let has-long(entry) = __has_attribute(entry, "long")
