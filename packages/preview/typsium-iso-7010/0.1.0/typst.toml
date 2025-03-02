@@ -4,7 +4,10 @@ version = "0.1.0"
 repository = "https://github.com/Typsium/typsium-iso-7010"
 license = "MIT"
 entrypoint = "src/lib.typ"
-authors = [""]
+authors = [
+    "Typsium Community <https://github.com/Typsium>",
+    "Ants Aare Alamaa <@Ants-Aare>"
+]
 description = "Display Warning signs, Fire signs, Emergency signs, Mandatory signs, Prohibited signs following the ISO 7010 standard in Typst"
 categories = [ "components","report", "office" ]
 disciplines = [ "engineering", "chemistry", "transportation" ]
