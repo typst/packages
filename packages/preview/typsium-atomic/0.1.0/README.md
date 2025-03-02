@@ -1,4 +1,4 @@
-[![Typst Package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FTypsium%2Ftypsium-atomic%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://github.com/Typsium/typsium-atomic)
+[![Typst Package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FTypsium%2Ftypsium-atomic%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://typst.app/universe/package/typsium-atomic)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Typsium/typsium/blob/main/LICENSE)
 ![User Manual](https://img.shields.io/badge/manual-.pdf-purple)
 
@@ -18,7 +18,7 @@ The electrons should be passed in an array where the index corresponds to the sh
 ```typst
 #atom-shells(element:"Cu", electrons:(1, 8, 18, 2))
 ```
-![image](https://raw.githubusercontent.com/Typsium/typsium-atomic/main/tests/int-electrons-ref/1.png)
+![image](https://raw.githubusercontent.com/Typsium/typsium-atomic/main/tests/int-electrons/ref/1.png)
 
 To draw the same in a CeTZ canvas, use ```draw-atom-shells```, which takes the same arguments as ```atom-shells```
 
@@ -48,4 +48,3 @@ You can use the following options to customise the way atomic draws:
   stroke: 1pt + black,      // stroke color and width
 )
 ```
-
