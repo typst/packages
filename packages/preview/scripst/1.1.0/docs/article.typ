@@ -12,8 +12,8 @@
     "模板",
   ),
   contents: true,
-  content_depth: 3,
-  matheq_depth: 2,
+  content-depth: 3,
+  matheq-depth: 2,
   lang: "zh",
 )
 
@@ -36,8 +36,8 @@ Scripst 是一款简约易用的 Typst 语言模板，适用于日常文档、�
   abstract: [摘要],
   keywords: ("关键词1", "关键词2", "关键词3"),
   contents: true,
-  content_depth: 2,
-  matheq_depth: 2,
+  content-depth: 2,
+  matheq-depth: 2,
   lang: "zh",
 )
 ```
@@ -59,10 +59,10 @@ Scripst 的模板提供了一些参数，用来定制文档的样式。
   time: "",             // str, content, none
   abstract: none,       // str, content, none
   keywords: (),         // array
-  font_size: 11pt,      // length
+  font-size: 11pt,      // length
   contents: false,      // bool
-  content_depth: 2,     // int
-  matheq_depth: 2,      // int: (1, 2)
+  content-depth: 2,     // int
+  matheq-depth: 2,      // int: (1, 2)
   lang: "zh",           // str: ("zh", "en", "fr", ...)
   body,
 ) = {

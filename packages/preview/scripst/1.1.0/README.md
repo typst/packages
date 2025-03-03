@@ -6,9 +6,10 @@ Scripst
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-1.1.0-limegreen.svg)
-![License](https://img.shields.io/badge/license-MIT-greenyellow.svg)
-[![Docs Online](https://img.shields.io/badge/docs-online-lawngreen.svg)](https://an-314.github.io/scripst/)
+[![Current Version](https://img.shields.io/badge/version-v1.1.0-mediumaquamarine.svg)](https://github.com/An-314/scripst/releases/tag/v1.1.0)
+[![License](https://img.shields.io/badge/license-MIT-turquoise.svg)](https://github.com/An-314/scripst/blob/main/LICENSE)
+[![Docs Online](https://img.shields.io/badge/docs-online-deepskyblue.svg)](https://an-314.github.io/scripst)
+[![Latest Release](https://img.shields.io/github/v/release/An-314/scripst?label=latest&color=dodgerblue)](https://github.com/An-314/scripst/releases/latest)
 
 [简体中文](https://github.com/An-314/scripst/blob/main/README_zh-CN.md) | English
 
@@ -46,7 +47,7 @@ Scripst
 
 * High Extensibility: Modular design, easy to extend the templates.
 * Multilingual Design: Localization for different languages.
-* Supports custom countblock: Convenient for generating theorems, problems, and other counters or styles.
+* Supports module `countblock`, which allows custom names and colors, includes a built-in counter, and can be referenced anywhere in the document. It can be used for theorems, problems, notes, etc. For more details, see [🆕 `countblock` Module](#-countblock-module).
 
 ![Demo0](./previews/article-1.png)
 ![Demo1](./previews/article-12.png)
@@ -150,8 +151,8 @@ Import the template at the beginning of your Typst file:
   abstract: [Abstract content],
   keywords: ("Keyword1", "Keyword2", "Keyword3"),
   contents: true,
-  content_depth: 2,
-  matheq_depth: 2,
+  content-depth: 2,
+  matheq-depth: 2,
   lang: "en",
 )
 ```
@@ -170,10 +171,10 @@ Import the template at the beginning of your Typst file:
 | `abstract` | `content`, `str`, `none` | `none` | Document abstract |
 | `keywords` | `array` | `()` | Keywords |
 | `preface` | `content`, `str`, `none` | `none` | Preface |
-| `font_size` | `length` | `11pt` | Font size |
+| `font-size` | `length` | `11pt` | Font size |
 | `contents` | `bool` | `false` | Whether to generate a table of contents |
-| `content_depth` | `int` | `2` | Table of contents depth |
-| `matheq_depth` | `int` | `2` | Math equation numbering depth |
+| `content-depth` | `int` | `2` | Table of contents depth |
+| `matheq-depth` | `int` | `2` | Math equation numbering depth |
 | `lang` | `str` | `"zh"` | Language (`"zh"`, `"en"`, `"fr"`, etc.) |
 
 * * *
@@ -205,8 +206,8 @@ Scripst provides several default `countblock` modules, which already have preset
 You can also define your own `countblock` modules:
 
 ```typst
-#let cb = add_countblock("test", "This is a test", teal) // Define a "test" countblock
-#show: register_countblock.with("test") // Register the countblock
+#let cb = add-countblock("test", "This is a test", teal) // Define a "test" countblock
+#show: register-countblock.with("test") // Register the countblock
 ```
 
 This allows you to use the `test` module in your document.

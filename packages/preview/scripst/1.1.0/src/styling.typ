@@ -1,5 +1,5 @@
 #import "configs.typ": *
-#import "locale.typ" : *
+#import "locale.typ": *
 
 #let stydoc(title, author, body) = {
   set document(title: title, author: author)
@@ -40,7 +40,7 @@
     counter(math.equation).update(0)
     box(width: 100%)[
       #v(0.3em)
-      #set heading(numbering: {localize("number_format", lang: lang)})
+      #set heading(numbering: { localize("number_format", lang: lang) })
       #it
     ]
   }
@@ -146,11 +146,11 @@
   body
 }
 
-#let stymatheq(eq_depth: 2, body) = {
+#let stymatheq(eq-depth: 2, body) = {
   set math.equation(
     numbering: it => {
       let section = query(heading.where(level: 1, outlined: true).before(here())).len()
-      if eq_depth == 2 {
+      if eq-depth == 2 {
         numbering("(1.1)", section, it)
       } else {
         numbering("(1)", it)

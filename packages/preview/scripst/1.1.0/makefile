@@ -48,6 +48,7 @@ $(PREVIEW_DIR)/article-12.png $(PREVIEW_DIR)/article-9.png: $(PDF_DIR)/article.p
 thumbnail.png: template/main.typ
 	typst compile template/main.typ previews/main.pdf
 	magick convert -density $(DENSITY) previews/main.pdf[0] -quality $(QUALITY) -resize $(SIZE) -background white -alpha remove thumbnail.png
+	rm previews/main.pdf
 
 clean:
 	rm -rf $(PREVIEW_DIR) $(TEMPLATE_DOCS)

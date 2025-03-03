@@ -12,8 +12,8 @@
     "template",
   ),
   contents: true,
-  content_depth: 3,
-  matheq_depth: 2,
+  content-depth: 3,
+  matheq-depth: 2,
   lang: "en",
 )
 
@@ -136,8 +136,8 @@ After importing the template, create an `article` file in this way:
   abstract: [Abstract],
   keywords: ("Keyword1", "Keyword2", "Keyword3"),
   contents: true,
-  content_depth: 2,
-  matheq_depth: 2,
+  content-depth: 2,
+  matheq-depth: 2,
   lang: "en",
 )
 ```
@@ -159,10 +159,10 @@ The Scripst template provides some parameters to customise the style of the docu
   time: "",             // str, content, none
   abstract: none,       // str, content, none
   keywords: (),         // array
-  font_size: 11pt,      // length
+  font-size: 11pt,      // length
   contents: false,      // bool
-  content_depth: 2,     // int
-  matheq_depth: 2,      // int: (1, 2)
+  content-depth: 2,     // int
+  matheq-depth: 2,      // int: (1, 2)
   lang: "en",           // str: ("zh", "en", "fr", ...)
   body,
 ) = {
@@ -319,13 +319,13 @@ Like `author`, the parameter is a list, not a string.
 
 Keywords will only appear at the beginning of the document if `abstract` is not empty.
 
-== font_size
+== font-size
 
 #figure(
   three-line-table[
     | Parameter | Type | Default Value | Description |
     | --- | --- | --- | --- |
-    | font_size | `length`| `11pt` | Document font size |
+    | font-size | `length`| `11pt` | Document font size |
   ],
   numbering: none,
 )
@@ -351,13 +351,13 @@ Refer to the `length` type values, you can pass `pt`, `mm`, `cm`, `in`, `em`, et
 
 Whether to generate a table of contents. The default is `false`.
 
-== content_depth
+== content-depth
 
 #figure(
   three-line-table[
     | Parameter | Type | Default Value | Description |
     | --- | --- | --- | --- |
-    | content_depth | `int`| `2` | Depth of the table of contents |
+    | content-depth | `int`| `2` | Depth of the table of contents |
   ],
   numbering: none,
 )
@@ -366,13 +366,13 @@ Whether to generate a table of contents. The default is `false`.
 
 The depth of the table of contents. The default is `2`.
 
-== matheq_depth
+== matheq-depth
 
 #figure(
   three-line-table[
     | Parameter | Type | Optional Values | Default Value | Description |
     | --- | --- | --- | --- | --- |
-    | matheq_depth | `int`| `1`, `2` | `2` | Depth of math equation numbering |
+    | matheq-depth | `int`| `1`, `2` | `2` | Depth of math equation numbering |
   ],
   numbering: none,
 )
@@ -609,7 +609,7 @@ Whenever you feel the need to wrap, you can use the `#newpara()` function.
 
 Countblock is a counter module provided by Scripst for counting certain countable content in the document.
 
-The global variable `cb` records all available counters, and you can add a counter using the `add_countblock` function.
+The global variable `cb` records all available counters, and you can add a counter using the `add-countblock` function.
 
 The default countblocks include:
 ```typst
@@ -634,17 +634,17 @@ These counters are already initialised, and you can use them directly.
 
 === Creating and Registering countblocks
 
-You can also add (or overload) a counter using the `add_countblock` function and register it using the `register_countblock` function:
+You can also add (or overload) a counter using the `add-countblock` function and register it using the `register-countblock` function:
 
 ```typst
-#let cb = add_countblock("test", "This is a test", teal)
-#show: register_countblock.with("test")
+#let cb = add-countblock("test", "This is a test", teal)
+#show: register-countblock.with("test")
 ```
 
 After that, you can use the countblock function to count this counter.
 
-#let cb = add_countblock("test", "This is a test", teal)
-#show: register_countblock.with("test")
+#let cb = add-countblock("test", "This is a test", teal)
+#show: register-countblock.with("test")
 
 === Using countblocks
 

@@ -124,13 +124,13 @@ datetime.today().display()
 
 只有在`abstract`不为空时，关键词才会出现在文档的开头。
 
-== font_size
+== font-size
 
 #figure(
   three-line-table[
     | 参数 | 类型 | 默认值 | 说明 |
     | --- | --- | --- | --- |
-    | font_size | `length`| `11pt` | 文档字体大小 |
+    | font-size | `length`| `11pt` | 文档字体大小 |
   ],
   numbering: none,
 )
@@ -156,13 +156,13 @@ datetime.today().display()
 
 是否生成目录。默认为`false`。
 
-== content_depth
+== content-depth
 
 #figure(
   three-line-table[
     | 参数 | 类型 | 默认值 | 说明 |
     | --- | --- | --- | --- |
-    | content_depth | `int`| `2` | 目录的深度 |
+    | content-depth | `int`| `2` | 目录的深度 |
   ],
   numbering: none,
 )
@@ -171,13 +171,13 @@ datetime.today().display()
 
 目录的深度。默认为`2`。
 
-== matheq_depth
+== matheq-depth
 
 #figure(
   three-line-table[
     | 参数 | 类型 | 可选值 | 默认值 | 说明 |
     | --- | --- | --- | --- | --- |
-    | matheq_depth | `int`| `1`, `2` | `2` | 数学公式的深度 |
+    | matheq-depth | `int`| `1`, `2` | `2` | 数学公式的深度 |
   ],
   numbering: none,
 )

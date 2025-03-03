@@ -53,7 +53,7 @@
   ]
 }
 
-#let mkcontent(vup, vdown) = content_depth => {
+#let mkcontent(vup, vdown) = content-depth => {
   set par(first-line-indent: 2em, leading: 1em)
   show outline.entry.where(level: 1): it => {
     v(0.5em)
@@ -61,7 +61,7 @@
     strong(it)
   }
   set outline.entry(fill: repeat("  ·"))
-  outline(indent: auto, depth: content_depth)
+  outline(indent: auto, depth: content-depth)
   v(15pt)
   newpara()
 }
@@ -95,12 +95,12 @@
   mkcontent: mkcontent(0em, 0em),
 )
 
-#let add_countblock(cb: cb, name, info, color) = {
+#let add-countblock(cb: cb, name, info, color) = {
   cb.insert(name, (info, color))
   return cb
 }
 
-#let register_countblock(name, body) = {
+#let register-countblock(name, body) = {
   show heading.where(level: 1): it => {
     counter(name).update(0)
     it

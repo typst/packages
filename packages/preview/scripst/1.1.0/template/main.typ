@@ -24,8 +24,8 @@
   preface: preface,
   /* preface parameter not available if template sets to 'article'*/
   contents: true,
-  content_depth: 3,
-  matheq_depth: 2,
+  content-depth: 3,
+  matheq-depth: 2,
   lang: "fr",
 )
 
