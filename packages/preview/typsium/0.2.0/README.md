@@ -15,7 +15,7 @@ A Typst package for typesetting chemical formulas, currently working on inorgani
 To use Typsium, you need to include the package in your document:
 
 ```typst
-#import "@preview/typsium:0.1.0": ce
+#import "@preview/typsium:0.2.0": ce
 #ce("[Cu(H2O)4]^(2+) + 4NH3 -> [Cu(NH3)4]^(2+) + 4H2O")
 ```
 
