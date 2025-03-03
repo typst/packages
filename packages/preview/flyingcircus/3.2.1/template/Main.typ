@@ -1,5 +1,5 @@
 #import "@preview/flyingcircus:3.2.1" : *
-#import "@preview/cetz:0.3.2"
+#import "@preview/cetz:0.3.3"
 
 #let title = "Sample Flying Circus Book"
 #let author = "Tetragramm"
