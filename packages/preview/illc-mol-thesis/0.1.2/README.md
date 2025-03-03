@@ -16,7 +16,7 @@ online as a PDF](https://foxy.codeberg.page/illc-mol-thesis/main.pdf).
 To use this template, run
 
 ```bash
-typst init @preview/illc-mol-thesis:0.1.0
+typst init @preview/illc-mol-thesis:0.1.2
 ```
 
 from any directory to initialize a new project.
@@ -27,7 +27,7 @@ The following code assumes all names from this template were imported
 beforehand.
 
 ```typst
-#import "@preview/illc-mol-thesis:0.1.0": *
+#import "@preview/illc-mol-thesis:0.1.2": *
 ```
 
 ### `mol-thesis`
@@ -101,7 +101,7 @@ Introduces the appropriate block.
 A counter keeping all the mathematical elements of this template in sync.
 
 ```typst
-#import "@preview/great-theorems:0.1.1": *
+#import "@preview/great-theorems:0.1.2": *
 
 #let axiom = mathblock(
   blocktitle: "Axiom",
