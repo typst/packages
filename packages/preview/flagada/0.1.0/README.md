@@ -4,19 +4,23 @@ A typst package to display **country flags** in your Typst documents. This first
 
 ## Loading the package
 
-`#import "@preview/flagada:0.1.0" : *`
+```typst
+#import "@preview/flagada:0.1.0" : *
+```
 
 ## Calling a flag
 
 You need to know the ISO 3166-1 code of the country (string of 2 characters) to display.
 
-Either call the flag as with the long call version `flag_zz()` or short call `flag("ZZ")`,  `zz` or `"ZZ"` being the ISO 3166-1 code.
+Either call the flag as with the long call version `flag-zz()` or short call `flag("ZZ")`,  `zz` or `"ZZ"` being the ISO 3166-1 code.
 
-Please note that long call version, like `flag_zz()`, must use _lowercase_ of the ISO 3166-1 code. Short version can use both _lowercase_ or _uppercase_ of the ISO 3166-1
+Please note that long call version, like `flag-zz()`, must use _lowercase_ of the ISO 3166-1 code. Short version can use both _lowercase_ or _uppercase_ of the ISO 3166-1
 
 ### Example
 
-`Hello people coming from #flag_fr(), #flag_eu(), #flag("DE") and more`
+```typst
+Hello people coming from #flag-fr(), #flag-eu(), #flag("DE") and more
+```
 
 ![Hello people coming from France, Europe, Germany and more](doc/example_1.png)
 
@@ -26,11 +30,13 @@ By default the flag height is `0.65em`, which is usually the default text size.
 
 To modify the height, include the `height` parameter in your call.
 
-Either call the flag as `flag_zz(height:6em)` or `flag("ZZ",height:6em)`, `zz` or `"ZZ"` being the ISO 3166-1 code.
+Either call the flag as `flag-zz(height:6em)` or `flag("ZZ",height:6em)`, `zz` or `"ZZ"` being the ISO 3166-1 code.
 
 ### Example for height
 
-`Hello people coming from #flag_be(height: 1em), #flag_fr(height: 2em), #flag_eu(height:3em), #flag("DE",height: 2em), #flag("LU",height: 1em) and more`
+```typst
+Hello people coming from #flag-be(height: 1em), #flag-fr(height: 2em), #flag-eu(height:3em), #flag("DE",height: 2em), #flag("LU",height: 1em) and more
+```
 
 ![Hello people coming from Belgium, France, Europe, Germany, Luxembourg and more](doc/example_2.png)
 
@@ -38,7 +44,7 @@ Either call the flag as `flag_zz(height:6em)` or `flag("ZZ",height:6em)`, `zz` o
 
 ### Coat of arms
 
-Some flags include coat of arms or other specific components. As ususally these components are hard to build in Typst, a SVG version from wikimedia is used. The coat of arms for countries are in directory `coat_of_arms/`
+Some flags include coat of arms or other specific components. As ususally these components are hard to build in Typst, a SVG version from wikimedia is used. The coat of arms for countries are in directory `coat of arms/`
 
 #### Example of coat of arms
 

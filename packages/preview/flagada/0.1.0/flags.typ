@@ -1,4 +1,4 @@
-#let flag_v2(colors,height:.65em,ratio:3/5,color_width:(1/2,)*2) = {
+#let flag-v2(colors,height:.65em,ratio:3/5,color-width:(1/2,)*2) = {
   box(
     height:height,
     width:1/ratio*height,
@@ -10,15 +10,15 @@
       { 
         stack(
           dir:ltr,
-          rect(width:100%*color_width.at(0), height: 100%,fill:colors.at(0),),
-          rect(width:100%*color_width.at(1), height: 100%,fill:colors.at(1),),
+          rect(width:100%*color-width.at(0), height: 100%,fill:colors.at(0),),
+          rect(width:100%*color-width.at(1), height: 100%,fill:colors.at(1),),
         )
       }
     )
   )
 }
 
-#let flag_v3(colors,height:.65em,ratio:2/3,color_width:(1/3,)*3) = {
+#let flag-v3(colors,height:.65em,ratio:2/3,color-width:(1/3,)*3) = {
   box(
   height:height,
   width:1/ratio*height,
@@ -30,16 +30,16 @@
     { 
       stack(
         dir:ltr,
-        rect(width:100%*color_width.at(0), height: 100%,fill:colors.at(0),),
-        rect(width:100%*color_width.at(1), height: 100%,fill:colors.at(1),),
-        rect(width:100%*color_width.at(2), height: 100%,fill:colors.at(2),)
+        rect(width:100%*color-width.at(0), height: 100%,fill:colors.at(0),),
+        rect(width:100%*color-width.at(1), height: 100%,fill:colors.at(1),),
+        rect(width:100%*color-width.at(2), height: 100%,fill:colors.at(2),)
         )
       }
     )
   ) 
 }
 
-#let flag_h3(colors,height:.65em,ratio:3/5,color_height:(1/3,)*3) = {
+#let flag-h3(colors,height:.65em,ratio:3/5,color-height:(1/3,)*3) = {
   box(
   height:height,
   width:1/ratio*height,
@@ -51,52 +51,52 @@
     { 
       stack(
         dir:ttb,
-        rect(width:100%, height: 100%*color_height.at(0),fill:colors.at(0),stroke:none),
-        rect(width:100%, height: 100%*color_height.at(1),fill:colors.at(1),stroke:none),
-        rect(width:100%, height: 100%*color_height.at(2),fill:colors.at(2),stroke:none)
+        rect(width:100%, height: 100%*color-height.at(0),fill:colors.at(0),stroke:none),
+        rect(width:100%, height: 100%*color-height.at(1),fill:colors.at(1),stroke:none),
+        rect(width:100%, height: 100%*color-height.at(2),fill:colors.at(2),stroke:none)
         )
       }
     )
   ) 
 }
 
-#let flag_cross(colors,height:.65em,x_sets:(5,0,3,0,10),y_sets:(4,0,3,0,4), full_cross:true) = {
+#let flag-cross(colors,height:.65em,x-sets:(5,0,3,0,10),y-sets:(4,0,3,0,4), full-cross:true) = {
   // up to 3 colors and 2 crosses 
   box(
     height:height,
-    width:x_sets.sum()/y_sets.sum()*height,
+    width:x-sets.sum()/y-sets.sum()*height,
     grid(
-      columns: x_sets.map(i=>i*1fr),
+      columns: x-sets.map(i=>i*1fr),
       // first line 
-      rect(fill:colors.at(0),height: y_sets.at(0)/y_sets.sum()*100%,width: 100%, outset: (bottom: 1pt,right:if full_cross {0pt} else {1pt}),),
-      rect(fill:colors.at(1),height: y_sets.at(0)/y_sets.sum()*100%,width: 100%, outset: (bottom: 1pt), stroke:none),
-      rect(fill:if full_cross {colors.at(2)} else {colors.at(1)},height: y_sets.at(0)/y_sets.sum()*100%,width: 100%, outset: (bottom: 1pt,x:if full_cross {0pt} else {1pt}),),
-      rect(fill:colors.at(1),height: y_sets.at(0)/y_sets.sum()*100%,width: 100%, outset: (bottom: 1pt,x:1pt), stroke:none),
-      rect(fill:colors.at(0),height: y_sets.at(0)/y_sets.sum()*100%,width: 100%, outset: (bottom: 1pt,left:1pt)),
+      rect(fill:colors.at(0),height: y-sets.at(0)/y-sets.sum()*100%,width: 100%, outset: (bottom: 1pt,right:if full-cross {0pt} else {1pt}),),
+      rect(fill:colors.at(1),height: y-sets.at(0)/y-sets.sum()*100%,width: 100%, outset: (bottom: 1pt), stroke:none),
+      rect(fill:if full-cross {colors.at(2)} else {colors.at(1)},height: y-sets.at(0)/y-sets.sum()*100%,width: 100%, outset: (bottom: 1pt,x:if full-cross {0pt} else {1pt}),),
+      rect(fill:colors.at(1),height: y-sets.at(0)/y-sets.sum()*100%,width: 100%, outset: (bottom: 1pt,x:1pt), stroke:none),
+      rect(fill:colors.at(0),height: y-sets.at(0)/y-sets.sum()*100%,width: 100%, outset: (bottom: 1pt,left:1pt)),
       // second line
-      rect(fill:colors.at(1),height: y_sets.at(1)/y_sets.sum()*100%,width: 100%, stroke:none),
-      rect(fill:colors.at(1),height: y_sets.at(1)/y_sets.sum()*100%,width: 100%, outset: (left:1pt),stroke:none),
-      rect(fill:colors.at(2),height: y_sets.at(1)/y_sets.sum()*100%,width: 100%, outset: (bottom: 1pt,)),
-      rect(fill:colors.at(1),height: y_sets.at(1)/y_sets.sum()*100%,width: 100%, outset: (x:1pt), stroke:none),
-      rect(fill:colors.at(1),height: y_sets.at(1)/y_sets.sum()*100%,width: 100%, stroke:none),
+      rect(fill:colors.at(1),height: y-sets.at(1)/y-sets.sum()*100%,width: 100%, stroke:none),
+      rect(fill:colors.at(1),height: y-sets.at(1)/y-sets.sum()*100%,width: 100%, outset: (left:1pt),stroke:none),
+      rect(fill:colors.at(2),height: y-sets.at(1)/y-sets.sum()*100%,width: 100%, outset: (bottom: 1pt,)),
+      rect(fill:colors.at(1),height: y-sets.at(1)/y-sets.sum()*100%,width: 100%, outset: (x:1pt), stroke:none),
+      rect(fill:colors.at(1),height: y-sets.at(1)/y-sets.sum()*100%,width: 100%, stroke:none),
       // middle line
-      rect(fill:if full_cross {colors.at(2)} else {colors.at(1)},height: y_sets.at(2)/y_sets.sum()*100%,width: 100%, outset: (y:if full_cross {0pt} else {1pt})),
-      rect(fill:colors.at(2),height: y_sets.at(2)/y_sets.sum()*100%,width: 100%, outset: (x:1pt)),
-      rect(fill:colors.at(2),height: y_sets.at(2)/y_sets.sum()*100%,width: 100%, outset: (x:1pt,)),
-      rect(fill:colors.at(2),height: y_sets.at(2)/y_sets.sum()*100%,width: 100%, outset: (x:1pt)),
-      rect(fill:if full_cross {colors.at(2)} else {colors.at(1)},height: y_sets.at(2)/y_sets.sum()*100%,width: 100%, outset: (y:if full_cross {0pt} else {1pt})),
+      rect(fill:if full-cross {colors.at(2)} else {colors.at(1)},height: y-sets.at(2)/y-sets.sum()*100%,width: 100%, outset: (y:if full-cross {0pt} else {1pt})),
+      rect(fill:colors.at(2),height: y-sets.at(2)/y-sets.sum()*100%,width: 100%, outset: (x:1pt)),
+      rect(fill:colors.at(2),height: y-sets.at(2)/y-sets.sum()*100%,width: 100%, outset: (x:1pt,)),
+      rect(fill:colors.at(2),height: y-sets.at(2)/y-sets.sum()*100%,width: 100%, outset: (x:1pt)),
+      rect(fill:if full-cross {colors.at(2)} else {colors.at(1)},height: y-sets.at(2)/y-sets.sum()*100%,width: 100%, outset: (y:if full-cross {0pt} else {1pt})),
       // penultimate line
-      rect(fill:colors.at(1),height: y_sets.at(3)/y_sets.sum()*100%,width: 100%, stroke:none),
-      rect(fill:colors.at(1),height: y_sets.at(3)/y_sets.sum()*100%,width: 100%, outset: (left:0pt),stroke:none),
-      rect(fill:colors.at(2),height: y_sets.at(3)/y_sets.sum()*100%,width: 100%, outset: (top: 1pt)),
-      rect(fill:colors.at(1),height: y_sets.at(3)/y_sets.sum()*100%,width: 100%, outset: (right:0pt),stroke:none),
-      rect(fill:colors.at(1),height: y_sets.at(3)/y_sets.sum()*100%,width: 100%, stroke:none),
+      rect(fill:colors.at(1),height: y-sets.at(3)/y-sets.sum()*100%,width: 100%, stroke:none),
+      rect(fill:colors.at(1),height: y-sets.at(3)/y-sets.sum()*100%,width: 100%, outset: (left:0pt),stroke:none),
+      rect(fill:colors.at(2),height: y-sets.at(3)/y-sets.sum()*100%,width: 100%, outset: (top: 1pt)),
+      rect(fill:colors.at(1),height: y-sets.at(3)/y-sets.sum()*100%,width: 100%, outset: (right:0pt),stroke:none),
+      rect(fill:colors.at(1),height: y-sets.at(3)/y-sets.sum()*100%,width: 100%, stroke:none),
       // last line 
-      rect(fill:colors.at(0),height: y_sets.at(4)/y_sets.sum()*100%,width: 100%, outset: (top:if full_cross {0pt} else {1pt}, right: if full_cross {0pt} else {1pt}),),
-      rect(fill:colors.at(1),height: y_sets.at(4)/y_sets.sum()*100%,width: 100%, outset: (top:1pt), stroke:none),
-      rect(fill:if full_cross {colors.at(2)} else {colors.at(1)},height: y_sets.at(4)/y_sets.sum()*100%,width: 100%, outset: (top:1pt,x:if full_cross {0pt} else {1pt}),),
-      rect(fill:colors.at(1),height: y_sets.at(4)/y_sets.sum()*100%,width: 100%, outset: (top:1pt), stroke:none),
-      rect(fill:colors.at(0),height: y_sets.at(4)/y_sets.sum()*100%,width: 100%, outset: (top:if full_cross {0pt} else {1pt}, left: if full_cross {0pt} else {1pt}),),
+      rect(fill:colors.at(0),height: y-sets.at(4)/y-sets.sum()*100%,width: 100%, outset: (top:if full-cross {0pt} else {1pt}, right: if full-cross {0pt} else {1pt}),),
+      rect(fill:colors.at(1),height: y-sets.at(4)/y-sets.sum()*100%,width: 100%, outset: (top:1pt), stroke:none),
+      rect(fill:if full-cross {colors.at(2)} else {colors.at(1)},height: y-sets.at(4)/y-sets.sum()*100%,width: 100%, outset: (top:1pt,x:if full-cross {0pt} else {1pt}),),
+      rect(fill:colors.at(1),height: y-sets.at(4)/y-sets.sum()*100%,width: 100%, outset: (top:1pt), stroke:none),
+      rect(fill:colors.at(0),height: y-sets.at(4)/y-sets.sum()*100%,width: 100%, outset: (top:if full-cross {0pt} else {1pt}, left: if full-cross {0pt} else {1pt}),),
     )
   ) 
 }
@@ -126,9 +126,9 @@
 */
 
 // ad 
-#let flag_ad(height:.65em) = {
+#let flag-ad(height:.65em) = {
   box(
-    flag_v3(
+    flag-v3(
       (rgb(16,6,159),rgb(254,221,0),rgb(213,0,50)),
       height: height,
       ratio:7/10)
@@ -140,7 +140,7 @@
   ))
 }
 // ae 1:2
-#let flag_ae(height:.65em) = {
+#let flag-ae(height:.65em) = {
   box(
     rect(
       height:height,
@@ -159,7 +159,7 @@
   )
 }
 // ag 2:3
-#let flag_ag(height:.65em) = {
+#let flag-ag(height:.65em) = {
   box(
     rect(width:height*3/2,height:height, fill:rgb("cf0821"))
     +place(dy:-height,
@@ -200,15 +200,15 @@
   )
   }
 // al 5:7
-#let flag_al(height:.65em) = {
+#let flag-al(height:.65em) = {
   rect(height: height, width: 7/5*height, inset:0pt, fill:red,image("coat of arms/AL.svg",width: 100%))
 }
 // am 2:1
-#let flag_am(height:.65em) = {
-  flag_h3((rgb(217,0,18),rgb(0,51,160),rgb(242,168,0)), height: height, color_height: (1/3,1/3,1/3), ratio: 1/2)
+#let flag-am(height:.65em) = {
+  flag-h3((rgb(217,0,18),rgb(0,51,160),rgb(242,168,0)), height: height, color-height: (1/3,1/3,1/3), ratio: 1/2)
 }
 // ao 2:3
-#let flag_ao(height:.65em) = {
+#let flag-ao(height:.65em) = {
   box(
     rect(
       height: height,
@@ -228,9 +228,9 @@
   )
 }
 // ar 5:8
-#let flag_ar(height:.65em) = {
+#let flag-ar(height:.65em) = {
   box(
-    flag_h3((rgb("74acdf"),white,rgb("74acdf")),ratio: 5/8, height: height)
+    flag-h3((rgb("74acdf"),white,rgb("74acdf")),ratio: 5/8, height: height)
     + place(
       dx:(3/5+1/20)*height,
       dy:(-2/3+1/60)*height,
@@ -247,13 +247,13 @@
   )
 }
 // at 2:3
-#let flag_at(height:.65em) = {
-  flag_h3((rgb(200,16,46),white,rgb(200,16,46)),height: height, ratio:2/3)
+#let flag-at(height:.65em) = {
+  flag-h3((rgb(200,16,46),white,rgb(200,16,46)),height: height, ratio:2/3)
 }
 // az 
-#let flag_az(height:.65em) = {
+#let flag-az(height:.65em) = {
   box(
-    flag_h3((rgb(0,181,226),rgb(239,51,64),rgb(80,158,47)),height: height, ratio:2/3)
+    flag-h3((rgb(0,181,226),rgb(239,51,64),rgb(80,158,47)),height: height, ratio:2/3)
     + place(
         //dx:(3/2/2-1/3/2)*height,
         dx:(3/2/2-3/20-1/24)*height,
@@ -294,7 +294,7 @@
   )
 }
 // ba 
-#let flag_ba(height:.65em) = {
+#let flag-ba(height:.65em) = {
   box(height: height,width: height*2, fill:rgb("002395"), inset: 0pt, clip: true,
     align(left,
         polygon(
@@ -317,9 +317,9 @@
   )
 }
 // bb 2:3
-#let flag_bb(height:.65em) = {
+#let flag-bb(height:.65em) = {
   box(
-    flag_v3((rgb(0,38,127),rgb(255,199,38),rgb(0,38,127)), height:height, ratio: 2/3)
+    flag-v3((rgb(0,38,127),rgb(255,199,38),rgb(0,38,127)), height:height, ratio: 2/3)
     + place(
         dy:-80%,
         dx:35%,
@@ -332,7 +332,7 @@
 
 }
 // bd 3:5
-#let flag_bd(height:.65em) = {
+#let flag-bd(height:.65em) = {
   box(
     rect(
       height: height,
@@ -350,11 +350,11 @@
   )
 }
 // be 2:3
-#let flag_be(height:.65em) = {
-  flag_v3((rgb(0,0,0),rgb(255,233,54),rgb(255,15,33)), height:height)
+#let flag-be(height:.65em) = {
+  flag-v3((rgb(0,0,0),rgb(255,233,54),rgb(255,15,33)), height:height)
 }
 // bf 2:3?
-#let flag_bf(height:.65em) = {
+#let flag-bf(height:.65em) = {
   box(
     rect(
       height: height,
@@ -375,11 +375,11 @@
   )
 }
 // bg 3:5
-#let flag_bg(height:.65em) = {
-  flag_h3((rgb("FFFFFF"),rgb(0,155,117),rgb(208,28,31)),height: height, ratio:3/5)
+#let flag-bg(height:.65em) = {
+  flag-h3((rgb("FFFFFF"),rgb(0,155,117),rgb(208,28,31)),height: height, ratio:3/5)
 }
 // bh 3:5
-#let flag_bh(height:.65em) = {
+#let flag-bh(height:.65em) = {
   box(
     rect(
       height:height,
@@ -410,7 +410,7 @@
   )
 }
 // bi 3:5
-#let flag_bi(height:.65em) = {
+#let flag-bi(height:.65em) = {
   box(
     rect(
       height: height,
@@ -513,7 +513,7 @@
   )
 }
 // bj 2:3?
-#let flag_bj(height:.65em) = {
+#let flag-bj(height:.65em) = {
   box(
     rect(
       height: height,
@@ -534,7 +534,7 @@
   )
 }
 // bn 1:2
-#let flag_bn(height:.65em) = {
+#let flag-bn(height:.65em) = {
   box(
     rect(
       height: height,
@@ -554,9 +554,9 @@
   )
 }
 // bo 15:22
-#let flag_bo(height:.65em) = {
+#let flag-bo(height:.65em) = {
   box(
-    flag_h3((rgb(213,43,30),rgb(252,209,22),rgb(0,121,52)),height: height, ratio:15/22)
+    flag-h3((rgb(213,43,30),rgb(252,209,22),rgb(0,121,52)),height: height, ratio:15/22)
     +place(
       dy:-(2/3-1/3*1/20)*height,
       dx:(22/15/2-43/240)*height,
@@ -580,7 +580,7 @@
   )
 }
 // br 7:10
-#let flag_br(height:.65em) = {
+#let flag-br(height:.65em) = {
   box(
     rect(height:height, width:10/7*height, fill:rgb("00923e"))
     + place(
@@ -599,9 +599,9 @@
   )
 }
 // bs 
-#let flag_bs(height:.65em) = {
+#let flag-bs(height:.65em) = {
   box(
-    flag_h3((rgb(0,119,139),rgb(255,199,44), rgb(0,119,139)),height: height, ratio:1/2, color_height: (1/3,1/3,1/3))
+    flag-h3((rgb(0,119,139),rgb(255,199,44), rgb(0,119,139)),height: height, ratio:1/2, color-height: (1/3,1/3,1/3))
     + place(
       dy:-height,
       polygon(
@@ -614,7 +614,7 @@
   
 }
 // bt 2:3
-#let flag_bt(height:.65em) = {
+#let flag-bt(height:.65em) = {
   box(
     rect(
       height: height,
@@ -637,7 +637,7 @@
   )
 }
 // bw 
-#let flag_bw(height:.65em) = {
+#let flag-bw(height:.65em) = {
   box(
     rect(
       height: height,
@@ -651,9 +651,9 @@
 
 }
 // by 1:2
-#let flag_by(height:.65em) = {
+#let flag-by(height:.65em) = {
   box(
-    flag_h3((rgb(0,151,57),rgb(210,39,48), none),height: height, ratio:1/2, color_height: (2/3,1/3,0))
+    flag-h3((rgb(0,151,57),rgb(210,39,48), none),height: height, ratio:1/2, color-height: (2/3,1/3,0))
     + place(
       dy:-height,
       image("coat of arms/BY.svg", height: height)
@@ -661,9 +661,9 @@
     )
 }
 // bz coat of arms 3:5
-#let flag_bz(height:.65em) = {
+#let flag-bz(height:.65em) = {
   box(
-    flag_h3((rgb("d90f19"),rgb("171696"),rgb("d90f19")), height: height,ratio:3/5,color_height: (1/10,8/10,1/10))
+    flag-h3((rgb("d90f19"),rgb("171696"),rgb("d90f19")), height: height,ratio:3/5,color-height: (1/10,8/10,1/10))
     + place(
         dy:-5/6*height,
         dx:(1/2-1/5)*5/3*height,
@@ -689,9 +689,9 @@
   )
 }
 // ca 1:2
-#let flag_ca(height:.65em) = {
+#let flag-ca(height:.65em) = {
   box(
-    flag_v3((rgb("ed1c24"),white,rgb("ed1c24")), height:height, color_width: (1/4,1/2,1/4), ratio: 1/2)
+    flag-v3((rgb("ed1c24"),white,rgb("ed1c24")), height:height, color-width: (1/4,1/2,1/4), ratio: 1/2)
     + place(
       dx:(1/2+1/7)*height,
       dy:(-1+1/8)*height,
@@ -702,7 +702,7 @@
   )
 }
 // cd 4:3
-#let flag_cd(height:.65em) = {
+#let flag-cd(height:.65em) = {
   box(
     rect(
       height: height,
@@ -758,7 +758,7 @@
     */
 }
 // cf 2:3
-#let flag_cf(height:.65em) = {
+#let flag-cf(height:.65em) = {
   box(
     rect(
       height: height,
@@ -791,7 +791,7 @@
   )
 }
 // cg 2:3
-#let flag_cg(height:.65em) = {
+#let flag-cg(height:.65em) = {
   box(
     rect(
       height: height,
@@ -819,11 +819,11 @@
   )
 }
 // ch 5:5
-#let flag_ch(height:.65em) = {
-  flag_cross((rgb(200,16,46),rgb(200,16,46),white), height:height,x_sets: (1,1,1,1,1),y_sets: (1,1,1,1,1), full_cross: false)
+#let flag-ch(height:.65em) = {
+  flag-cross((rgb(200,16,46),rgb(200,16,46),white), height:height,x-sets: (1,1,1,1,1),y-sets: (1,1,1,1,1), full-cross: false)
 }
 // ci 2:3
-#let flag_ci(height:.65em) = {
+#let flag-ci(height:.65em) = {
   box(
     rect(
       height: height,
@@ -837,9 +837,9 @@
   )
 }
 // cl 2:3
-#let flag_cl(height:.65em) = {
+#let flag-cl(height:.65em) = {
   box(
-    flag_h3((white,rgb(213,43,30),none),color_height: (1/2,1/2,0),ratio:2/3, height: height)
+    flag-h3((white,rgb(213,43,30),none),color-height: (1/2,1/2,0),ratio:2/3, height: height)
     + place(
       dy:-height,
       rect(
@@ -863,7 +863,7 @@
   )
 }
 // cm 2:3
-#let flag_cm(height:.65em) = {
+#let flag-cm(height:.65em) = {
   box(
     rect(
       height: height,
@@ -883,7 +883,7 @@
   )
 }
 // cn 2:3
-#let flag_cn(height:.65em) = {
+#let flag-cn(height:.65em) = {
   box(
     rect(height: height,width: 3/2*height, fill:rgb(238,28,37))
     + place(
@@ -923,13 +923,13 @@
   )
 }
 // co 2:3
-#let flag_co(height:.65em) = {
+#let flag-co(height:.65em) = {
   box(
-    flag_h3((rgb("FFCD00"),rgb("003087"),rgb("C8102E")),color_height: (1/2,1/4,1/4), height: height, ratio:2/3)
+    flag-h3((rgb("FFCD00"),rgb("003087"),rgb("C8102E")),color-height: (1/2,1/4,1/4), height: height, ratio:2/3)
   )
 }
 // cr 3:5
-#let flag_cr(height:.65em) = {
+#let flag-cr(height:.65em) = {
   box(
     rect(fill:none, stroke:none,height:height,width: 5/3*height,inset: 0pt,
       stack(
@@ -984,7 +984,7 @@
     )
 }
 // cu 1/2
-#let flag_cu(height:.65em) = {
+#let flag-cu(height:.65em) = {
   box(
     rect(fill:none, stroke:none,height:height,width: 5/3*height,inset: 0pt,
       stack(
@@ -1038,7 +1038,7 @@
   
 }
 // cv 10:17
-#let flag_cv(height:.65em) = {
+#let flag-cv(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1067,7 +1067,7 @@
   )
 }
 // cy 3/5
-#let flag_cy(height:.65em) = {
+#let flag-cy(height:.65em) = {
   //align(left,
     rect(
       height: height,
@@ -1080,9 +1080,9 @@
     //)
 }
 // cz
-#let flag_cz(height:.65em) = {
+#let flag-cz(height:.65em) = {
   box(
-    flag_h3((white,cmyk(0%, 100%, 96%, 8%),none),height: height,color_height: (1/2,1/2,0), ratio:2/3)+
+    flag-h3((white,cmyk(0%, 100%, 96%, 8%),none),height: height,color-height: (1/2,1/2,0), ratio:2/3)+
     place(
       dx: 0pt,
       dy:-height,
@@ -1096,11 +1096,11 @@
   )
 }
 // de 3:5
-#let flag_de(height:.65em) = {
-  flag_h3((rgb("000000"),rgb("FF0000"), rgb("FFCC00")),height: height)
+#let flag-de(height:.65em) = {
+  flag-h3((rgb("000000"),rgb("FF0000"), rgb("FFCC00")),height: height)
 }
 // dj 2:3?
-#let flag_dj(height:.65em) = {
+#let flag-dj(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1134,7 +1134,7 @@
   )
 }
 // do 
-#let flag_do(height:.65em) = {
+#let flag-do(height:.65em) = {
   box(
     rect(width:3/2*height,height:height,fill:white)
     + place(
@@ -1173,11 +1173,11 @@
   )
 }
 // dk 28:37
-#let flag_dk(height:.65em) = {
-  flag_cross((rgb(200,16,46),none,white),height: height, x_sets: (12,0,4,0,21),y_sets: (12,0,4,0,12)) 
+#let flag-dk(height:.65em) = {
+  flag-cross((rgb(200,16,46),none,white),height: height, x-sets: (12,0,4,0,21),y-sets: (12,0,4,0,12)) 
 }
 // dz 2:3
-#let flag_dz(height:.65em) = {
+#let flag-dz(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1227,9 +1227,9 @@
   )
 }
 // ec 2:3
-#let flag_ec(height:.65em) = {
+#let flag-ec(height:.65em) = {
   box(
-    flag_h3((rgb("FFDD00"),rgb("034ea2"),rgb("ed1c24")),color_height: (1/2,1/4,1/4), height: height, ratio:2/3)
+    flag-h3((rgb("FFDD00"),rgb("034ea2"),rgb("ed1c24")),color-height: (1/2,1/4,1/4), height: height, ratio:2/3)
     +place(
       dy:-3/4*height,
       dx:2/4*height,
@@ -1242,11 +1242,11 @@
   )
 }
 // ee 7:11
-#let flag_ee(height:.65em) = {
-  flag_h3((rgb("0072ce"),rgb("000000"),white),height: height, ratio:7/11)
+#let flag-ee(height:.65em) = {
+  flag-h3((rgb("0072ce"),rgb("000000"),white),height: height, ratio:7/11)
 }
 // eg 
-#let flag_eg(height:.65em) = {
+#let flag-eg(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1260,7 +1260,7 @@
   )
 }
 // er 1:2
-#let flag_er(height:.65em) = {
+#let flag-er(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1288,9 +1288,9 @@
   )
 }
 // es 2:3
-#let flag_es(height:.65em) = {
+#let flag-es(height:.65em) = {
   box(
-    flag_h3((rgb("AD1519"),rgb("FABD00"),rgb("AD1519")), height:height,color_height: (1/4,1/2,1/4),ratio:2/3)+place(
+    flag-h3((rgb("AD1519"),rgb("FABD00"),rgb("AD1519")), height:height,color-height: (1/4,1/2,1/4),ratio:2/3)+place(
       // coat of arms
       dx:height*30%,
       dy:height*-72%,
@@ -1299,7 +1299,7 @@
   )
 }
 // et 1:2
-#let flag_et(height:.65em) = {
+#let flag-et(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1348,7 +1348,7 @@
   )
 }
 // eu 2:3
-#let flag_eu(height:.65em) = {
+#let flag-eu(height:.65em) = {
   let star = text(rgb("FFCC00"), size:2/9*height)[\u{2605}]
   box(
     height:height,
@@ -1366,15 +1366,15 @@
   )
 }
 // fi 11:18
-#let flag_fi(height:.65em) = {
-  flag_cross((white,none,blue), height: height, x_sets: (5,0,3,0,10), y_sets: (4,0,3,0,4) )
+#let flag-fi(height:.65em) = {
+  flag-cross((white,none,blue), height: height, x-sets: (5,0,3,0,10), y-sets: (4,0,3,0,4) )
 }
 // fr 2:3
-#let flag_fr(height:.65em) = {
-  flag_v3((rgb(0,85,164),white,rgb(239,65,53)), height:height)
+#let flag-fr(height:.65em) = {
+  flag-v3((rgb(0,85,164),white,rgb(239,65,53)), height:height)
 }
 // ga 3:4
-#let flag_ga(height:.65em) = {
+#let flag-ga(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1389,7 +1389,7 @@
   )
 }
 // gb 1:2
-#let flag_gb(height:.65em) = {
+#let flag-gb(height:.65em) = {
   rect(
     height:height,width:height*2, fill:white, inset: 0pt,
     // blue triangle left top top
@@ -1564,7 +1564,7 @@
   )
 }
 // au 1:2
-#let flag_au(height:.65em) = {
+#let flag-au(height:.65em) = {
   let heptagram(size,color) = {
   let reg_poly_pts = range(7).map(i=>(calc.cos(i*360deg/7),calc.sin(i*360deg/7))).map(i=>i.map(j=>j*size))
   polygon(
@@ -1586,7 +1586,7 @@
     )
     + place(
       top,
-      flag_gb(height:height/2)
+      flag-gb(height:height/2)
       + place(
         center,
         dx:height/14,
@@ -1647,9 +1647,9 @@
   )
 }
 // ge 2:3
-#let flag_ge(height:65em) = {
+#let flag-ge(height:65em) = {
   box(
-    flag_cross((white,none,red),height:height, x_sets: (130,0,40,0,130), y_sets: (80,0,40,0,80))
+    flag-cross((white,none,red),height:height, x-sets: (130,0,40,0,130), y-sets: (80,0,40,0,80))
     +place(dy:-180/200*100%, dx:10%,text(red, size: height/3,[\u{2720}]))
     +place(dy:-60/200*100%, dx:10%,text(red, size: height/3,[\u{2720}]))
     +place(dy:-180/200*100%, dx:65%,text(red, size: height/3,[\u{2720}]))
@@ -1657,7 +1657,7 @@
   )
 }
 // gh 2:3
-#let flag_gh(height:.65em) = {
+#let flag-gh(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1680,7 +1680,7 @@
   )
 }
 // gm 2:3
-#let flag_gm(height:.65em) = {
+#let flag-gm(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1697,7 +1697,7 @@
   )
 }
 // gn 2:3
-#let flag_gn(height:.65em) = {
+#let flag-gn(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1712,7 +1712,7 @@
   )
 }
 // gq 2:3
-#let flag_gq(height:.65em) = {
+#let flag-gq(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1739,23 +1739,23 @@
   )
 }
 // gr 2:3
-#let flag_gr(height:.65em) = {
+#let flag-gr(height:.65em) = {
   box(
   stack(
     dir:ttb,
-    flag_h3((rgb("004C98"),white,rgb("004C98")),height: height/3,color_height: (1/3,1/3,1/3), ratio:2/9),
-    flag_h3((white,rgb("004C98"),white),height: height/3,color_height: (1/3,1/3,1/3), ratio:2/9),
-    flag_h3((rgb("004C98"),white,rgb("004C98")),height: height/3,color_height: (1/3,1/3,1/3), ratio:2/9),
+    flag-h3((rgb("004C98"),white,rgb("004C98")),height: height/3,color-height: (1/3,1/3,1/3), ratio:2/9),
+    flag-h3((white,rgb("004C98"),white),height: height/3,color-height: (1/3,1/3,1/3), ratio:2/9),
+    flag-h3((rgb("004C98"),white,rgb("004C98")),height: height/3,color-height: (1/3,1/3,1/3), ratio:2/9),
   )+place(
       dy:-height,
-      flag_cross((rgb("004C98"),rgb("004C98"),white),height: height*10/18, x_sets: (1,1,1,1,1),y_sets: (1,1,1,1,1),)
+      flag-cross((rgb("004C98"),rgb("004C98"),white),height: height*10/18, x-sets: (1,1,1,1,1),y-sets: (1,1,1,1,1),)
     )
   )
 }
 // gt 5:8
-#let flag_gt(height:.65em) = {
+#let flag-gt(height:.65em) = {
   box(
-    flag_v3((blue,white,blue), height: height, ratio: 5/8)
+    flag-v3((blue,white,blue), height: height, ratio: 5/8)
     + place(
         dy:-65%,
         dx:38%,
@@ -1778,7 +1778,7 @@
   )
 }
 // gw 1:2
-#let flag_gw(height:.65em) = {
+#let flag-gw(height:.65em) = {
   box(
     rect(
       height: height,
@@ -1827,9 +1827,9 @@
   )
 }
 // hn 1:2
-#let flag_hn(height:.65em) = {
+#let flag-hn(height:.65em) = {
   box(
-    flag_h3((rgb(0, 188, 228),rgb(255,255,255),rgb(0, 188, 228)),height: height,ratio: 1/2)
+    flag-h3((rgb(0, 188, 228),rgb(255,255,255),rgb(0, 188, 228)),height: height,ratio: 1/2)
     +place(
       dx:26/72*2*height -2.5%,
       dy:height*-50%+2.5%,
@@ -1879,7 +1879,7 @@
   )
 }
 // gy 3:5
-#let flag_gy(height:.65em) = {
+#let flag-gy(height:.65em) = {
   box(
     clip: true,
     rect(
@@ -1911,8 +1911,8 @@
   )
 }
 // hr 
-#let flag_hr(height:.65em) = {
-  box(flag_h3((rgb(255, 0, 0),rgb(255,255,255),rgb(23, 23, 150)),height: height,ratio: 1/2)+place(
+#let flag-hr(height:.65em) = {
+  box(flag-h3((rgb(255, 0, 0),rgb(255,255,255),rgb(23, 23, 150)),height: height,ratio: 1/2)+place(
     // coat of arms
     dx:height*80%,
     dy:height*-84.2%,
@@ -1921,9 +1921,9 @@
   )
 }
 // ht 3:5
-#let flag_ht(height:.65em) = {
+#let flag-ht(height:.65em) = {
   box(
-    flag_h3((rgb("00209f"),rgb("d21034"),none),color_height: (1/2,1/2,0), height: height, ratio:3/5)
+    flag-h3((rgb("00209f"),rgb("d21034"),none),color-height: (1/2,1/2,0), height: height, ratio:3/5)
     +place(
       dy:-3/4*height,
       dx:5/3/3.2*height,
@@ -1945,11 +1945,11 @@
   )
 }
 // hu 1:2
-#let flag_hu(height:.65em) = {
-  flag_h3((rgb(206, 41, 57),rgb(255,255,255),rgb(71, 112, 80)),height: height,ratio: 1/2)
+#let flag-hu(height:.65em) = {
+  flag-h3((rgb(206, 41, 57),rgb(255,255,255),rgb(71, 112, 80)),height: height,ratio: 1/2)
 }
 // id 2:3
-#let flag_id(height:.65em) = {
+#let flag-id(height:.65em) = {
   box(
     rect(
       height:height,
@@ -1962,11 +1962,11 @@
   )
 }
 // ie 
-#let flag_ie(height:.65em) = {
-  flag_v3((rgb(22, 155, 98),rgb(255,255,255),rgb(255,136,62)), height:height, ratio:1/2)
+#let flag-ie(height:.65em) = {
+  flag-v3((rgb(22, 155, 98),rgb(255,255,255),rgb(255,136,62)), height:height, ratio:1/2)
 }
 // il 8:11
-#let flag_il(height:.65em) = {
+#let flag-il(height:.65em) = {
   box(
     rect(
       height:height,
@@ -2007,7 +2007,7 @@
 
 }
 // in 2:3
-#let flag_in(height:.65em) = {
+#let flag-in(height:.65em) = {
   box(
     rect(
       height:height,
@@ -2027,7 +2027,7 @@
   )
 }
 // iq 2:3
-#let flag_iq(height:.65em) = {
+#let flag-iq(height:.65em) = {
   box(
     rect(
       height:height,
@@ -2044,7 +2044,7 @@
   )
 }
 // ir 4:7
-#let flag_ir(height:.65em) = {
+#let flag-ir(height:.65em) = {
   box(
     rect(
       height: height,
@@ -2061,15 +2061,15 @@
   )
 }
 // is 
-#let flag_is(height:.65em) = {
-  flag_cross((rgb("02529C"),rgb("FFFFFF"),rgb("DC1E35")),height: height,x_sets: (7,1,2,1,14),y_sets: (7,1,2,1,7))
+#let flag-is(height:.65em) = {
+  flag-cross((rgb("02529C"),rgb("FFFFFF"),rgb("DC1E35")),height: height,x-sets: (7,1,2,1,14),y-sets: (7,1,2,1,7))
 }
 // it 2:3
-#let flag_it(height:.65em) = {
-  flag_v3((rgb(0,146,70),rgb(241,242,241),rgb(206,43,55)), height:height)
+#let flag-it(height:.65em) = {
+  flag-v3((rgb(0,146,70),rgb(241,242,241),rgb(206,43,55)), height:height)
 }
 // jm
-#let flag_jm(height:.65em) = {
+#let flag-jm(height:.65em) = {
   box(
     rect(height:height, width:height*2, fill:rgb("ffb81c"))
     +place(dy:-height, 
@@ -2126,7 +2126,7 @@
   )
 }
 // jo 1:2 (missing the 7-star)
-#let flag_jo(height:.65em) = {
+#let flag-jo(height:.65em) = {
   box(
     rect(
       height: height,
@@ -2155,7 +2155,7 @@
   )
 }
 // jp 2:3
-#let flag_jp(height:.65em) = {
+#let flag-jp(height:.65em) = {
   box(
     rect(height:height, width:3/2*height,fill:white)
     +place(
@@ -2172,7 +2172,7 @@
   )
 }
 // ke 2:3
-#let flag_ke(height:.65em) = {
+#let flag-ke(height:.65em) = {
   box(
     rect(
       height: height,
@@ -2194,7 +2194,7 @@
   )
 }
 // kh
-#let flag_kh(height:.65em) = {
+#let flag-kh(height:.65em) = {
   box(
     rect(
       height: height,
@@ -2214,7 +2214,7 @@
   )
 }
 // km 3:5
-#let flag_km(height:.65em) = {
+#let flag-km(height:.65em) = {
   box(
     rect(
       height: height,
@@ -2275,7 +2275,7 @@
   )
 }
 // kp
-#let flag_kp(height:.65em) = {
+#let flag-kp(height:.65em) = {
   box(
     rect(height:height,width:height*2,fill:
     gradient.linear(..(rgb("0047A0"),)*6,white,..(rgb("CD2E3A"),)*22,white,..(rgb("0047A0"),)*6,angle:90deg).sharp(36))
@@ -2293,7 +2293,7 @@
   )
 }
 // kr 2:3
-#let flag_kr(height:.65em) = {
+#let flag-kr(height:.65em) = {
   let width = 3/2*height
   box(
     rect(fill:white, height:height,width:width)
@@ -2489,7 +2489,7 @@
   )
 }
 // kw 1:2
-#let flag_kw(height:.65em) = {
+#let flag-kw(height:.65em) = {
    box(
     rect(
       height: height,
@@ -2515,7 +2515,7 @@
    )
 }
 // la 2:3
-#let flag_la(height:.65cm) = {
+#let flag-la(height:.65cm) = {
   box(
     rect(
       height:height,
@@ -2535,7 +2535,7 @@
   )
 }
 // lb 2:3
-#let flag_lb(height:.65cm) = {
+#let flag-lb(height:.65cm) = {
   box(
     rect(
       height: height,
@@ -2552,9 +2552,9 @@
   )
 }
 // li 3:5
-#let flag_li(height:.65em) = {
+#let flag-li(height:.65em) = {
   box(
-    flag_h3((rgb(0,39,128),rgb(207,9,33),none),height: height,ratio:3/5,color_height: (1/2,1/2,0))+place(
+    flag-h3((rgb(0,39,128),rgb(207,9,33),none),height: height,ratio:3/5,color-height: (1/2,1/2,0))+place(
       // coat of arms
       dx:height*40%,
       dy:height*-92%,
@@ -2564,7 +2564,7 @@
 // lt 7:11
 }
 // lk 1:2
-#let flag_lk(height:.65em) = {
+#let flag-lk(height:.65em) = {
   box(
     rect(
       height:height,
@@ -2595,7 +2595,7 @@
   )
 }
 // lr 10:19
-#let flag_lr(height:.65em) = {
+#let flag-lr(height:.65em) = {
   box(
     rect(
       height: height,
@@ -2627,7 +2627,7 @@
   )
 }
 // ls 2:3
-#let flag_ls(height:.65em) = {
+#let flag-ls(height:.65em) = {
   box(
     rect(
       height: height,
@@ -2647,19 +2647,19 @@
 
 }
 // lt
-#let flag_lt(height:.65em) = {
-  flag_h3((rgb("fdb913"),rgb("006a44"),rgb("c1272d")),height: height,ratio:7/11)
+#let flag-lt(height:.65em) = {
+  flag-h3((rgb("fdb913"),rgb("006a44"),rgb("c1272d")),height: height,ratio:7/11)
 }
 // lu 3:5
-#let flag_lu(height:.65em) = {
-  flag_h3((rgb(199,63,74),white,rgb(0,137,182)),height: height)
+#let flag-lu(height:.65em) = {
+  flag-h3((rgb(199,63,74),white,rgb(0,137,182)),height: height)
 }
 // lv 7:11
-#let flag_lv(height:.65em) = {
-  flag_h3((rgb(158, 27, 52),rgb("FFFFFF"),rgb(158, 27, 52)),height: height,ratio:1/2,color_height:(2/5,1/5,2/5))
+#let flag-lv(height:.65em) = {
+  flag-h3((rgb(158, 27, 52),rgb("FFFFFF"),rgb(158, 27, 52)),height: height,ratio:1/2,color-height:(2/5,1/5,2/5))
 }
 // ly 1:2?
-#let flag_ly(height:.65em) = {
+#let flag-ly(height:.65em) = {
   box(
     rect(
       height: height,
@@ -2708,7 +2708,7 @@
   )
 }
 // ma 2:3
-#let flag_ma(height:.65em) = {
+#let flag-ma(height:.65em) = {
   box(
     rect(
       height: height,
@@ -2725,20 +2725,20 @@
   )
 }
 // mc 
-#let flag_mc(height:.65em) = {
-  flag_h3((rgb("CF142B"),rgb("FFFFFF"),none), color_height: (1/2,1/2,0), height:height)
+#let flag-mc(height:.65em) = {
+  flag-h3((rgb("CF142B"),rgb("FFFFFF"),none), color-height: (1/2,1/2,0), height:height)
 }
 // md 1:2
-#let flag_md(height:.65em)={
+#let flag-md(height:.65em)={
   box(
-    flag_v3((rgb("0046ae"),rgb("ffd200"),rgb("cc092f")),height: height, ratio:1/2, color_width: (1/3,1/3,1/3))
+    flag-v3((rgb("0046ae"),rgb("ffd200"),rgb("cc092f")),height: height, ratio:1/2, color-width: (1/3,1/3,1/3))
     +place(dy:-76.8%*height, dx:(1-2/10)*height,image("coat of arms/MD.svg", width:2/5*height))
     //+place(dy:-50%*height,line(length:height*2))
     //+place(dy:-50%*height, dx:height/2,rotate(90deg,line(length:height)))
   )
 }
 // me 1:2
-#let flag_me(height:.65em) = {
+#let flag-me(height:.65em) = {
   box(
     rect(height: height, width: 2*height, fill:rgb("fdb913"))
     + place(
@@ -2762,7 +2762,7 @@
   )
 }
 // mg 2:3
-#let flag_mg(height:.65em) = {
+#let flag-mg(height:.65em) = {
   box(
     rect(
       height:height,
@@ -2782,7 +2782,7 @@
   )
 }
 // mk 1:2
-#let flag_mk(height:.65em) = {
+#let flag-mk(height:.65em) = {
   rect(
     height: height,
     width: height*2,
@@ -2948,7 +2948,7 @@
   )
 }
 // ml 2:3
-#let flag_ml(height:.65em) = {
+#let flag-ml(height:.65em) = {
   box(
     rect(
       height: height,
@@ -2962,7 +2962,7 @@
   )
 }
 // mm 2:3
-#let flag_mm(height:.65em) = {
+#let flag-mm(height:.65em) = {
   box(
     rect(
       height:height,
@@ -2981,7 +2981,7 @@
   )
 }
 // mn 1:2
-#let flag_mn(height:.65em) = {
+#let flag-mn(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3001,7 +3001,7 @@
   )
 }
 // mr 2:3
-#let flag_mr(height:.65em) = {
+#let flag-mr(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3048,9 +3048,9 @@
   )
 }
 // mt 2:3 coat of arms
-#let flag_mt(height:.65em) = {
+#let flag-mt(height:.65em) = {
   box(
-    flag_v2((rgb("FFFFFF"),rgb("CF142B")),height: height, ratio:2/3)+place(
+    flag-v2((rgb("FFFFFF"),rgb("CF142B")),height: height, ratio:2/3)+place(
     dx:(81/648-(112/648)/2)*height,
     dy:(81/432-(112/432)/2-1)*height,
     image("coat of arms/MT.svg", height:112/432*height
@@ -3058,7 +3058,7 @@
     )
 }
 // mu 2:3
-#let flag_mu(height:.65em) = {
+#let flag-mu(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3074,7 +3074,7 @@
   )
 }
 // mv
-#let flag_mv(height:.65em) = {
+#let flag-mv(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3106,7 +3106,7 @@
   )
 }
 // mw 2:3
-#let flag_mw(height:.65em) = {
+#let flag-mw(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3124,9 +3124,9 @@
   )
 }
 // mx coat of arms 4:7
-#let flag_mx(height:.65em) = {
+#let flag-mx(height:.65em) = {
   box(
-    flag_v3((rgb(0,104,71),white,rgb(206,17,38)), height: height, ratio:4/7)
+    flag-v3((rgb(0,104,71),white,rgb(206,17,38)), height: height, ratio:4/7)
     +place(
       dy:-2/3*height,
       dx:2/3*height,
@@ -3135,7 +3135,7 @@
   )
 }
 // my 1:2
-#let flag_my(height:.65em) = {
+#let flag-my(height:.65em) = {
   box(
     rect(
       height:height,
@@ -3188,7 +3188,7 @@
   )
 }
 // mz 2:3
-#let flag_mz(height:.65em) = {
+#let flag-mz(height:.65em) = {
   box(
     rect(
       height:height,
@@ -3231,7 +3231,7 @@
   )
 }
 // na 2:3
-#let flag_na(height:.65em) = {
+#let flag-na(height:.65em) = {
   box(
     rect(
       height:height,
@@ -3325,7 +3325,7 @@
   
 }
 // ne 6:7?
-#let flag_ne(height:.65em) = {
+#let flag-ne(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3346,7 +3346,7 @@
   )
 }
 // ng 1:2?
-#let flag_ng(height:.65em) = {
+#let flag-ng(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3358,9 +3358,9 @@
   )
 }
 // ni 3:5
-#let flag_ni(height:.65em) = {
+#let flag-ni(height:.65em) = {
   box(
-    flag_h3((rgb("0080FF"),rgb(255,255,255),rgb("0080FF")),height: height,ratio: 3/5)
+    flag-h3((rgb("0080FF"),rgb(255,255,255),rgb("0080FF")),height: height,ratio: 3/5)
     + place(
         dy:-66%,
         dx:40%*5/3*height,
@@ -3369,15 +3369,15 @@
   )
 }
 // nl 2:3
-#let flag_nl(height:.65em) = {
-  flag_h3((rgb(173,29,37),white,rgb(30,71,133)),height: height, ratio:2/3)
+#let flag-nl(height:.65em) = {
+  flag-h3((rgb(173,29,37),white,rgb(30,71,133)),height: height, ratio:2/3)
 }
 // no 
-#let flag_no(height:.65em) = {
-  flag_cross((rgb("BA0C2F"),rgb("FFFFFF"),rgb("00205B")),height: height,x_sets: (6,1,2,1,12),y_sets: (6,1,2,1,6))
+#let flag-no(height:.65em) = {
+  flag-cross((rgb("BA0C2F"),rgb("FFFFFF"),rgb("00205B")),height: height,x-sets: (6,1,2,1,12),y-sets: (6,1,2,1,6))
 }
 // np 4/3:1
-#let flag_np(height:.65em) = {
+#let flag-np(height:.65em) = {
   box(
 
     //clip:true,
@@ -3463,7 +3463,7 @@
   )
 }
 // nz 1:2
-#let flag_nz(height:.65em) = {
+#let flag-nz(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3472,7 +3472,7 @@
     )
     + place(
       top,
-      flag_gb(height:height/2)
+      flag-gb(height:height/2)
       )
     // gamma crucis
     + place(
@@ -3526,7 +3526,7 @@
   )
 }
 // om 1:2
-#let flag_om(height:.65em) = {
+#let flag-om(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3552,7 +3552,7 @@
   )
 }
 // pa 2:3
-#let flag_pa(height:.65em) = {
+#let flag-pa(height:.65em) = {
   box(
     height: height,
     width: 3/2*height,
@@ -3604,13 +3604,13 @@
   )
 }
 // pe 2:3
-#let flag_pe(height:.65em) = {
+#let flag-pe(height:.65em) = {
   box(
-    flag_v3((rgb(217,16,35),white,rgb(217,16,35)), height:height,ratio:2/3)
+    flag-v3((rgb(217,16,35),white,rgb(217,16,35)), height:height,ratio:2/3)
   )
 }
 // ph 1:2
-#let flag_ph(height:.65em) = {
+#let flag-ph(height:.65em) = {
   box(
     rect(
       height:height,
@@ -3666,7 +3666,7 @@
   )
 }
 // pk 2:3
-#let flag_pk(height:.65em) = {
+#let flag-pk(height:.65em) = {
   box(
     rect(
         height:height,
@@ -3729,11 +3729,11 @@
 
 }
 // pl 5:8
-#let flag_pl(height:.65em) = {
-  flag_h3((rgb("EEEEEE"),rgb("D4213D"),none),height: height, ratio:5/8,color_height: (1/2,1/2,0))
+#let flag-pl(height:.65em) = {
+  flag-h3((rgb("EEEEEE"),rgb("D4213D"),none),height: height, ratio:5/8,color-height: (1/2,1/2,0))
 }
 // ps 1:2
-#let flag_ps(height:.65em) = {
+#let flag-ps(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3757,8 +3757,8 @@
   )
 }
 // pt 2:3
-#let flag_pt(height:.65em) = {
-  box(flag_v2((rgb("006600"),rgb("FF0000")),height: height, ratio:2/3, color_width: (2/5,3/5))+place(
+#let flag-pt(height:.65em) = {
+  box(flag-v2((rgb("006600"),rgb("FF0000")),height: height, ratio:2/3, color-width: (2/5,3/5))+place(
     // coat of arms
     dx:(2/5)*height,
     dy:-2/3*height,
@@ -3767,9 +3767,9 @@
   )
 }
 // py 3:5 coat of arms
-#let flag_py(height:.65em) = {
+#let flag-py(height:.65em) = {
   box(
-    flag_h3((rgb("d52b1e"),white,rgb("0038a8")),height:height, ratio:3/5)
+    flag-h3((rgb("d52b1e"),white,rgb("0038a8")),height:height, ratio:3/5)
     + place(
         dy:-(2/3-1/24)*height,
         dx:height*(2/3+1/24),
@@ -3792,7 +3792,7 @@
   )
 }
 // qa 11:28
-#let flag_qa(height:.65em) = {
+#let flag-qa(height:.65em) = {
   box(
     rect(
       height:height,
@@ -3823,13 +3823,13 @@
     )
 }
 // ro 2:3
-#let flag_ro(height:.65em) = {
-  flag_v3((rgb("002b7f"),rgb("fcd116"),rgb("ce1126")),height: height, ratio:2/3, color_width: (1/3,1/3,1/3))
+#let flag-ro(height:.65em) = {
+  flag-v3((rgb("002b7f"),rgb("fcd116"),rgb("ce1126")),height: height, ratio:2/3, color-width: (1/3,1/3,1/3))
 }
 // rs 2:3
-#let flag_rs(height:.65em) = {
+#let flag-rs(height:.65em) = {
   box(
-    flag_h3((cmyk(0%, 90%, 70%, 10%),rgb("0C4077"),rgb("FFFFFF")),height: height, ratio:2/3)
+    flag-h3((cmyk(0%, 90%, 70%, 10%),rgb("0C4077"),rgb("FFFFFF")),height: height, ratio:2/3)
     +place(
       dx:2/3*height/2,
       dy:-(1-2/18)*height,
@@ -3837,11 +3837,11 @@
     )
 }
 // ru 2:3
-#let flag_ru(height:.65em) = {
-  flag_h3((white,rgb("0039A6"),rgb("D52b1e")), ratio:2/3, height: height)
+#let flag-ru(height:.65em) = {
+  flag-h3((white,rgb("0039A6"),rgb("D52b1e")), ratio:2/3, height: height)
 }
 // rw 2:3
-#let flag_rw(height:.65em) = {
+#let flag-rw(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3899,7 +3899,7 @@
   )
 }
 // sa 2:3
-#let flag_sa(height:.65em) = {
+#let flag-sa(height:.65em) = {
   box(
     rect(
       height:height,
@@ -3911,7 +3911,7 @@
   )
 }
 // sc 1:2
-#let flag_sc(height:.65em) = {
+#let flag-sc(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3963,7 +3963,7 @@
 
 }
 // sd 1:2
-#let flag_sd(height:.65em) = {
+#let flag-sd(height:.65em) = {
   box(
     rect(
       height: height,
@@ -3986,11 +3986,11 @@
   )
 }
 // se 5:8
-#let flag_se(height:.65em) = {
-  flag_cross((rgb("005293"),none,rgb("FFCD00")),height: height,x_sets: (5,0,2,0,9),y_sets: (4,0,2,0,4))
+#let flag-se(height:.65em) = {
+  flag-cross((rgb("005293"),none,rgb("FFCD00")),height: height,x-sets: (5,0,2,0,9),y-sets: (4,0,2,0,4))
 }
 // sg 
-#let flag_sg(height:.65em) = {
+#let flag-sg(height:.65em) = {
   box(
     rect(
       height:height,
@@ -4034,9 +4034,9 @@
   )
 }
 // si 1:2
-#let flag_si(height:.65em) = {
+#let flag-si(height:.65em) = {
   box(
-    flag_h3((white,rgb("#0004e6e0"),cmyk(0%,100%,100%,0%)),height: height,ratio: 1/2)
+    flag-h3((white,rgb("#0004e6e0"),cmyk(0%,100%,100%,0%)),height: height,ratio: 1/2)
     + place(
         dy:-(1-1/6)*height,
         dx:1.5/6*height,
@@ -4045,14 +4045,14 @@
     )
 }
 // sk 2:3
-#let flag_sk(height:.65em) = {
+#let flag-sk(height:.65em) = {
   box(
-    flag_h3((white,rgb("0b4ea2"),rgb("ee1c25")),height: height,ratio: 2/3)
+    flag-h3((white,rgb("0b4ea2"),rgb("ee1c25")),height: height,ratio: 2/3)
     + place(dy:(-1+15/60)*height, dx:15/90*height,image("coat of arms/SK.svg", height:height/2))
   )
 }
 // sl 2:3
-#let flag_sl(height:.65em) = {
+#let flag-sl(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4067,9 +4067,9 @@
   )
 }
 // sm 3:4
-#let flag_sm(height:.65em) = {
+#let flag-sm(height:.65em) = {
   box(
-    flag_h3((white,cmyk(55%,10%,5%,0%),none),height: height,ratio: 3/4,color_height: (1/2,1/2,0))
+    flag-h3((white,cmyk(55%,10%,5%,0%),none),height: height,ratio: 3/4,color-height: (1/2,1/2,0))
     + place(
         dy:-(1-5/18)*height,
         dx:1/2*height,
@@ -4078,7 +4078,7 @@
     )
 }
 // sn 2:3?
-#let flag_sn(height:.65em) = {
+#let flag-sn(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4106,7 +4106,7 @@
   )
 }
 // so 2:3?
-#let flag_so(height:.65em) = {
+#let flag-so(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4134,7 +4134,7 @@
   )
 }
 // sr 2:3
-#let flag_sr(height:.65em) = {
+#let flag-sr(height:.65em) = {
   box(
     rect(fill:white,height:height,width: 3/2*height)
     + place(
@@ -4168,7 +4168,7 @@
   )
 }
 // ss 1:2
-#let flag_ss(height:.65em) = {
+#let flag-ss(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4204,7 +4204,7 @@
   )
 }
 // st 1:2
-#let flag_st(height:.65em) = {
+#let flag-st(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4245,7 +4245,7 @@
   )
 }
 // sy 2:3
-#let flag_sy(height:.65em) = {
+#let flag-sy(height:.65em) = {
   box(
     rect(
       height:height,
@@ -4267,7 +4267,7 @@
   )
 }
 // sz 2:3
-#let flag_sz(height:.65em) = {
+#let flag-sz(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4286,11 +4286,11 @@
   )
 }
 // ua 3:4
-#let flag_ua(height:.65em) = {
-  flag_h3((rgb("0057b8"),rgb("ffd700"),none), height: height, color_height: (1/2,1/2,0), ratio: 2/3)
+#let flag-ua(height:.65em) = {
+  flag-h3((rgb("0057b8"),rgb("ffd700"),none), height: height, color-height: (1/2,1/2,0), ratio: 2/3)
 }
 // ug 2:3
-#let flag_ug(height:.65em) = {
+#let flag-ug(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4319,7 +4319,7 @@
 
 }
 // us 10:19
-#let flag_us(height:.65em) = {
+#let flag-us(height:.65em) = {
   box(
     rect(fill:none, stroke:none,height:height,width: 19/10*height,inset: 0pt,
       stack(
@@ -4368,7 +4368,7 @@
 
 }
 // uy 2:3
-#let flag_uy(height:.65em) = {
+#let flag-uy(height:.65em) = {
   box(
     rect(width: 3/2*height,height: height, fill:white)
     + place(
@@ -4414,7 +4414,7 @@
     )
 }
 // td 2:3
-#let flag_td(height:.65em) = {
+#let flag-td(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4428,7 +4428,7 @@
   )
 }
 // tg 1:phi
-#let flag_tg(height:.65em) = {
+#let flag-tg(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4461,7 +4461,7 @@
   )
 }
 // th 2:3
-#let flag_th(height:.65em) = {
+#let flag-th(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4475,7 +4475,7 @@
   )
 }
 // tl 1:2
-#let flag_tl(height:.65em) = {
+#let flag-tl(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4517,7 +4517,7 @@
   )
 }
 // tn 2:3
-#let flag_tn(height:.65em) = {
+#let flag-tn(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4568,7 +4568,7 @@
   )
 }
 // tr
-#let flag_tr(height:.65em) = {
+#let flag-tr(height:.65em) = {
   box(
       rect(height: height,width:3/2*height, fill:rgb("e30a17"),inset:0pt,
       align(
@@ -4599,7 +4599,7 @@
   )
 }
 // tw 2:3
-#let flag_tw(height:.65em) = {
+#let flag-tw(height:.65em) = {
   box(
     rect(height:height, width: 3/2*height,fill:rgb(254,0,0))
     +place(top,
@@ -4624,7 +4624,7 @@
   )
 }
 // tz 2:3?
-#let flag_tz(height:.65em) = {
+#let flag-tz(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4672,9 +4672,9 @@
   )
 }
 // va 1:1 
-#let flag_va(height:.65em) = {
+#let flag-va(height:.65em) = {
   box(
-    flag_v2((rgb(255,242,0),white),height: height, ratio:1, color_width: (1/2,1/2))
+    flag-v2((rgb(255,242,0),white),height: height, ratio:1, color-width: (1/2,1/2))
     +place(
       // coat of arms
       dx:(13/22)*height,
@@ -4684,9 +4684,9 @@
   )
 }
 // ve 2:3
-#let flag_ve(height:.65em) = {
+#let flag-ve(height:.65em) = {
   box(
-    flag_h3((rgb("FFCD00"),rgb("003087"),rgb("C8102E")),height:height, ratio:2/3)+
+    flag-h3((rgb("FFCD00"),rgb("003087"),rgb("C8102E")),height:height, ratio:2/3)+
     for i in range(8) {
       place(
         dx:(.71 + calc.cos(i*25.71*1deg)/4)*height,
@@ -4716,7 +4716,7 @@
     )
 }
 // vn
-#let flag_vn(height:.65em) = {
+#let flag-vn(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4749,7 +4749,7 @@
   )
 }
 // ye
-#let flag_ye(height:.65em) = {
+#let flag-ye(height:.65em) = {
   box(
       rect(
         height:height,
@@ -4762,7 +4762,7 @@
     )
   }
 // za 
-#let flag_za(height:.65em) = {
+#let flag-za(height:.65em) = {
   box(
     rect(
       height:height,
@@ -4857,7 +4857,7 @@
 
 }
 // zm 2:3
-#let flag_zm(height:.65em) = {
+#let flag-zm(height:.65em) = {
   box(
     rect(
       height: height,
@@ -4884,7 +4884,7 @@
   )
 }
 // zw 1:2
-#let flag_zw(height:.65em) = {
+#let flag-zw(height:.65em) = {
   box(
     clip:true,
     rect(
@@ -4926,192 +4926,183 @@
     )
   )
 }
-// example
-#let flag_zz(height:.65em) = {
-  box(
-    rect(
-      height: height,
-      width: 3/2*height,
-    )
-  )
-}
 
 // Make the iso3166 flag function 
 #let flag(iso3166, height:.65em,) = {
   assert(iso3166.len()==2 and type(iso3166)==str,message: "iso3166 code should be a string of 2 letters")
   let flags = (
-    AD: flag_ad(height:height),
-    AE: flag_ae(height:height),
-    AG: flag_ag(height:height),
-    AL: flag_al(height:height),
-    AM: flag_am(height:height),
-    AO: flag_ao(height:height),
-    AR: flag_ar(height:height),
-    AT: flag_at(height:height),
-    AU: flag_au(height:height),
-    AZ: flag_az(height:height),
-    BA: flag_ba(height:height),
-    BB: flag_bb(height:height),
-    BD: flag_bd(height:height),
-    BE: flag_be(height:height),
-    BF: flag_bf(height:height),
-    BG: flag_bg(height:height),
-    BH: flag_bh(height:height),
-    BI: flag_bi(height:height),
-    BJ: flag_bj(height:height),
-    BN: flag_bn(height:height),
-    BO: flag_bo(height:height),
-    BR: flag_br(height:height),
-    BS: flag_bs(height:height),
-    BT: flag_bt(height:height),
-    BW: flag_bw(height:height),
-    BY: flag_by(height:height),
-    BZ: flag_bz(height:height),
-    CA: flag_ca(height:height),
-    CD: flag_cd(height:height),
-    CF: flag_cf(height:height),
-    CG: flag_cg(height:height),
-    CH: flag_ch(height:height),
-    CI: flag_ci(height:height),
-    CL: flag_cl(height:height),
-    CM: flag_cm(height:height),
-    CN: flag_cn(height:height),
-    CO: flag_co(height:height),
-    CR: flag_cr(height:height),
-    CU: flag_cu(height:height),
-    CV: flag_cv(height:height),
-    CY: flag_cy(height:height),
-    CZ: flag_cz(height:height),
-    DE: flag_de(height:height),
-    DJ: flag_dj(height:height),
-    DK: flag_dk(height:height),
-    DO: flag_do(height:height),
-    DZ: flag_dz(height:height),
-    EC: flag_ec(height:height),
-    EE: flag_ee(height:height),
-    EG: flag_eg(height:height),
-    ER: flag_er(height:height),
-    ES: flag_es(height:height),
-    ET: flag_et(height:height),
-    EU: flag_eu(height:height),
-    FI: flag_fi(height:height),
-    FR: flag_fr(height:height),
-    GA: flag_ga(height:height),
-    GB: flag_gb(height:height),
-    GE: flag_ge(height:height),
-    GH: flag_gh(height:height),
-    GM: flag_gm(height:height),
-    GN: flag_gn(height:height),
-    GQ: flag_gq(height:height),
-    GR: flag_gr(height:height),
-    GT: flag_gt(height:height),
-    GY: flag_gy(height:height),
-    GW: flag_gw(height:height),
-    HN: flag_hn(height:height),
-    HR: flag_hr(height:height),
-    HT: flag_ht(height:height),
-    HU: flag_hu(height:height),
-    ID: flag_id(height:height),
-    IE: flag_ie(height:height),
-    IL: flag_il(height:height),
-    IN: flag_in(height:height),
-    IQ: flag_iq(height:height),
-    IR: flag_ir(height:height),
-    IS: flag_is(height:height),
-    IT: flag_it(height:height),
-    JM: flag_jm(height:height),
-    JO: flag_jo(height:height),
-    JP: flag_jp(height:height),
-    KE: flag_ke(height:height),
-    KH: flag_kh(height:height),
-    KM: flag_km(height:height),
-    KP: flag_kp(height:height),
-    KR: flag_kr(height:height),
-    KW: flag_kw(height:height),
-    LA: flag_la(height:height),
-    LB: flag_lb(height:height),
-    LI: flag_li(height:height),
-    LK: flag_lk(height:height),
-    LR: flag_lr(height:height),
-    LS: flag_ls(height:height),
-    LT: flag_lt(height:height),
-    LU: flag_lu(height:height),
-    LV: flag_lv(height:height),
-    LY: flag_ly(height:height),
-    MA: flag_ma(height:height),
-    MC: flag_mc(height:height),
-    MD: flag_md(height:height),
-    ME: flag_me(height:height),
-    MG: flag_mg(height:height),
-    MK: flag_mk(height:height),
-    ML: flag_ml(height:height),
-    MM: flag_mm(height:height),
-    MN: flag_mn(height:height),
-    MR: flag_mr(height:height),
-    MT: flag_mt(height:height),
-    MU: flag_mu(height:height),
-    MV: flag_mv(height:height),
-    MW: flag_mw(height:height),
-    MX: flag_mx(height:height),
-    MY: flag_my(height:height),
-    MZ: flag_mz(height:height),
-    NA: flag_na(height:height),
-    NE: flag_ne(height:height),
-    NG: flag_ng(height:height),
-    NI: flag_ni(height:height),
-    NL: flag_nl(height:height),
-    NO: flag_no(height:height),
-    NP: flag_np(height:height),
-    NZ: flag_nz(height:height),
-    OM: flag_om(height:height),
-    PA: flag_pa(height:height),
-    PE: flag_pe(height:height),
-    PH: flag_ph(height:height),
-    PK: flag_pk(height:height),
-    PL: flag_pl(height:height),
-    PS: flag_ps(height:height),
-    PT: flag_pt(height:height),
-    PY: flag_py(height:height),
-    QA: flag_qa(height:height),
-    RO: flag_ro(height:height),
-    RS: flag_rs(height:height),
-    RU: flag_ru(height:height),
-    RW: flag_rw(height:height),
-    SA: flag_sa(height:height),
-    SD: flag_sd(height:height),
-    SC: flag_sc(height:height),
-    SE: flag_se(height:height),
-    SG: flag_sg(height:height),
-    SI: flag_si(height:height),
-    SK: flag_sk(height:height),
-    SL: flag_sl(height:height),
-    SM: flag_sm(height:height),
-    SN: flag_sn(height:height),
-    SO: flag_so(height:height),
-    SR: flag_sr(height:height),
-    SS: flag_ss(height:height),
-    ST: flag_st(height:height),
-    SY: flag_sy(height:height),
-    SZ: flag_sz(height:height),
-    TD: flag_td(height:height),
-    TG: flag_tg(height:height),
-    TH: flag_th(height:height),
-    TL: flag_tl(height:height),
-    TN: flag_tn(height:height),
-    TR: flag_tr(height:height),
-    TW: flag_tw(height:height),
-    TZ: flag_tz(height:height),
-    UA: flag_ua(height:height),
-    UG: flag_ug(height:height),
-    US: flag_us(height:height),
-    UY: flag_uy(height:height),
-    VA: flag_va(height:height),
-    VE: flag_ve(height:height),
-    VN: flag_vn(height:height),
-    YE: flag_ye(height:height),
-    ZA: flag_za(height:height),
-    ZM: flag_zm(height:height),
-    ZW: flag_zw(height:height),
+    AD: flag-ad(height:height),
+    AE: flag-ae(height:height),
+    AG: flag-ag(height:height),
+    AL: flag-al(height:height),
+    AM: flag-am(height:height),
+    AO: flag-ao(height:height),
+    AR: flag-ar(height:height),
+    AT: flag-at(height:height),
+    AU: flag-au(height:height),
+    AZ: flag-az(height:height),
+    BA: flag-ba(height:height),
+    BB: flag-bb(height:height),
+    BD: flag-bd(height:height),
+    BE: flag-be(height:height),
+    BF: flag-bf(height:height),
+    BG: flag-bg(height:height),
+    BH: flag-bh(height:height),
+    BI: flag-bi(height:height),
+    BJ: flag-bj(height:height),
+    BN: flag-bn(height:height),
+    BO: flag-bo(height:height),
+    BR: flag-br(height:height),
+    BS: flag-bs(height:height),
+    BT: flag-bt(height:height),
+    BW: flag-bw(height:height),
+    BY: flag-by(height:height),
+    BZ: flag-bz(height:height),
+    CA: flag-ca(height:height),
+    CD: flag-cd(height:height),
+    CF: flag-cf(height:height),
+    CG: flag-cg(height:height),
+    CH: flag-ch(height:height),
+    CI: flag-ci(height:height),
+    CL: flag-cl(height:height),
+    CM: flag-cm(height:height),
+    CN: flag-cn(height:height),
+    CO: flag-co(height:height),
+    CR: flag-cr(height:height),
+    CU: flag-cu(height:height),
+    CV: flag-cv(height:height),
+    CY: flag-cy(height:height),
+    CZ: flag-cz(height:height),
+    DE: flag-de(height:height),
+    DJ: flag-dj(height:height),
+    DK: flag-dk(height:height),
+    DO: flag-do(height:height),
+    DZ: flag-dz(height:height),
+    EC: flag-ec(height:height),
+    EE: flag-ee(height:height),
+    EG: flag-eg(height:height),
+    ER: flag-er(height:height),
+    ES: flag-es(height:height),
+    ET: flag-et(height:height),
+    EU: flag-eu(height:height),
+    FI: flag-fi(height:height),
+    FR: flag-fr(height:height),
+    GA: flag-ga(height:height),
+    GB: flag-gb(height:height),
+    GE: flag-ge(height:height),
+    GH: flag-gh(height:height),
+    GM: flag-gm(height:height),
+    GN: flag-gn(height:height),
+    GQ: flag-gq(height:height),
+    GR: flag-gr(height:height),
+    GT: flag-gt(height:height),
+    GY: flag-gy(height:height),
+    GW: flag-gw(height:height),
+    HN: flag-hn(height:height),
+    HR: flag-hr(height:height),
+    HT: flag-ht(height:height),
+    HU: flag-hu(height:height),
+    ID: flag-id(height:height),
+    IE: flag-ie(height:height),
+    IL: flag-il(height:height),
+    IN: flag-in(height:height),
+    IQ: flag-iq(height:height),
+    IR: flag-ir(height:height),
+    IS: flag-is(height:height),
+    IT: flag-it(height:height),
+    JM: flag-jm(height:height),
+    JO: flag-jo(height:height),
+    JP: flag-jp(height:height),
+    KE: flag-ke(height:height),
+    KH: flag-kh(height:height),
+    KM: flag-km(height:height),
+    KP: flag-kp(height:height),
+    KR: flag-kr(height:height),
+    KW: flag-kw(height:height),
+    LA: flag-la(height:height),
+    LB: flag-lb(height:height),
+    LI: flag-li(height:height),
+    LK: flag-lk(height:height),
+    LR: flag-lr(height:height),
+    LS: flag-ls(height:height),
+    LT: flag-lt(height:height),
+    LU: flag-lu(height:height),
+    LV: flag-lv(height:height),
+    LY: flag-ly(height:height),
+    MA: flag-ma(height:height),
+    MC: flag-mc(height:height),
+    MD: flag-md(height:height),
+    ME: flag-me(height:height),
+    MG: flag-mg(height:height),
+    MK: flag-mk(height:height),
+    ML: flag-ml(height:height),
+    MM: flag-mm(height:height),
+    MN: flag-mn(height:height),
+    MR: flag-mr(height:height),
+    MT: flag-mt(height:height),
+    MU: flag-mu(height:height),
+    MV: flag-mv(height:height),
+    MW: flag-mw(height:height),
+    MX: flag-mx(height:height),
+    MY: flag-my(height:height),
+    MZ: flag-mz(height:height),
+    NA: flag-na(height:height),
+    NE: flag-ne(height:height),
+    NG: flag-ng(height:height),
+    NI: flag-ni(height:height),
+    NL: flag-nl(height:height),
+    NO: flag-no(height:height),
+    NP: flag-np(height:height),
+    NZ: flag-nz(height:height),
+    OM: flag-om(height:height),
+    PA: flag-pa(height:height),
+    PE: flag-pe(height:height),
+    PH: flag-ph(height:height),
+    PK: flag-pk(height:height),
+    PL: flag-pl(height:height),
+    PS: flag-ps(height:height),
+    PT: flag-pt(height:height),
+    PY: flag-py(height:height),
+    QA: flag-qa(height:height),
+    RO: flag-ro(height:height),
+    RS: flag-rs(height:height),
+    RU: flag-ru(height:height),
+    RW: flag-rw(height:height),
+    SA: flag-sa(height:height),
+    SD: flag-sd(height:height),
+    SC: flag-sc(height:height),
+    SE: flag-se(height:height),
+    SG: flag-sg(height:height),
+    SI: flag-si(height:height),
+    SK: flag-sk(height:height),
+    SL: flag-sl(height:height),
+    SM: flag-sm(height:height),
+    SN: flag-sn(height:height),
+    SO: flag-so(height:height),
+    SR: flag-sr(height:height),
+    SS: flag-ss(height:height),
+    ST: flag-st(height:height),
+    SY: flag-sy(height:height),
+    SZ: flag-sz(height:height),
+    TD: flag-td(height:height),
+    TG: flag-tg(height:height),
+    TH: flag-th(height:height),
+    TL: flag-tl(height:height),
+    TN: flag-tn(height:height),
+    TR: flag-tr(height:height),
+    TW: flag-tw(height:height),
+    TZ: flag-tz(height:height),
+    UA: flag-ua(height:height),
+    UG: flag-ug(height:height),
+    US: flag-us(height:height),
+    UY: flag-uy(height:height),
+    VA: flag-va(height:height),
+    VE: flag-ve(height:height),
+    VN: flag-vn(height:height),
+    YE: flag-ye(height:height),
+    ZA: flag-za(height:height),
+    ZM: flag-zm(height:height),
+    ZW: flag-zw(height:height),
     )
   flags.at(upper(iso3166))
 }
