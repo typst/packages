@@ -6,11 +6,6 @@ authors = ["baptiste <https://github.com/baptiste>"]
 license = "MPL-2.0"
 description = "A template for VUW assessments."
 categories = ["office"]
-
-[template]
-path = "template"
-entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
 repository = "https://github.com/vuw-scps/tuhi-assessment-vuw"
 exclude = [
     "vuw-logo.svg",
@@ -25,3 +20,8 @@ exclude = [
     ".gitignore",
     "**/*.pdf",
 ]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
