@@ -57,7 +57,6 @@
   date:none,
   title:none,
   subtitle:none,
-  body
 ) = {
   let content = context {
     set align(center+horizon)

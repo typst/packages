@@ -10,5 +10,6 @@ genutzt werden.
 #import "@preview/modern-ovgu-fma-polylux:0.1.0" : *
 ```
 
+# Slide-Types
 
 

@@ -26,7 +26,7 @@
 
 #title-slide(
   subtitle: [Hier könnte ihr Subtitel stehen]
-)[]
+)
 
 #outline-slide()[]
 
