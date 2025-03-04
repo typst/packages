@@ -1,52 +1,50 @@
-Inoffizielles Template, um Präsentationen mit [Polylux](https://typst.app/universe/package/polylux) im Stil der Fakultät für Mathematik der Otto-von-Guericke-Universität Magdeburg zu erstellen. Etwas Dokumentation und eine Einführung in Polylux findet ihr [hier](https://polylux.dev/book/).
+Unofficial template for creating presentations with [Polylux](https://typst.app/universe/package/polylux) in the style of the Faculty of Mathematics at Otto von Guericke University Magdeburg. Some documentation and an introduction to Polylux can be found [here](https://polylux.dev/book/).
 
-Das Template kann via:
+The template can be used via:
 ```
-typst init @preview/modern-ovgu-fma-polylux:0.1.0 
+typst init @preview/modern-ovgu-fma-polylux:0.1.0
 ```
-genutzt werden.
 
-Ihr könnt das Template auch via
+You can also use the template via:
 ```typ
 #import "@preview/modern-ovgu-fma-polylux:0.1.0" : *
 ```
-nutzen und es anschließend mit
+and then initialize it with:
 ```typ
 #show: ovgu-fma-theme.with(
-  author: [Vorname Nachname],
-  title: [Titel der Präsentation],
-  affilation: [affilation],
+  author: [First Name Last Name],
+  title: [Presentation Title],
+  affiliation: [affiliation],
   date: ez-today.today(),
 )
 ```
-initialisieren. Es gibt auch noch weitere Parameter mit dem ihr das Aussehen weiter anpassen könnt.
+Additional parameters allow further customization:
 ```typ
 #show: ovgu-fma-theme.with(
   text-font: "Liberation Sans",
-  text-lang: "de",
+  text-lang: "en",
   text-size: 20pt,
   author:[],
   title:[],
-  affilation:[],
+  affiliation:[],
   date:[],
 )
 ```
-Die Angaben zu Autor, Titel und Datum werden später für header und footer der Folien verwendet. 
+The author, title, and date will later be used for the header and footer of the slides.
 
-# Slide-Types
-
-## Title-Slide
+# Slide Types
+## Title Slide
 ![title-slide](./images/title-slide.png)
 ```typ
 #title-slide(
   author: none,
   date
-  title: [Titel der Präsentation],
-  subtitle: [Hier könnte ihr Subtitel stehen],
+  title: [Presentation Title],
+  subtitle: [Your subtitle here],
 )
 ```
 
-## Outline-Slide
+## Outline Slide
 ![outline-slide](./images/outline-slide.png)
 ```typ
 #let outline-slide(
@@ -54,85 +52,95 @@ Die Angaben zu Autor, Titel und Datum werden später für header und footer der 
 )[]
 ```
 
-## Header-Slide
+## Header Slide
 ![header-slide](./images/header-slide.png)
 ```typ
-#header-slide()[Beispiele für den Inhalt]
+#header-slide()[Examples for content]
 ```
-Die mit diesem Folientyp erzeugten Überschriften werden bei der Outline-Slide angezeigt. Sollen auch andere Überschriften in der Outline-Slide angezeigt werden, müssen diese selbst registriert werden. Dies geschieht mit dem Befehl:
+Headings created with this slide type will be displayed in the outline slide. To include additional headings in the outline slide, they must be registered manually using:
 ```typ
 #toolbox.register-section(head)
 ```
 
-## Base-Slide
+## Base Slide
 ```typ
 #slide-base(
   heading: none,
   show_section: true,
 )[]
 ```
-Das ist die Grundlage für alle Folientypen. 
-- `heading: content`: dient als Folienüberschrift
-- `show_section: bool`: falls true, dann wird in der Fußzeile der aktuelle Gliederungspunkt angezeigt.
+This is the foundation for all slide types.
+- `heading: content`: serves as the slide title.
+- `show_section: bool`: if true, the current section title is displayed in the footer.
 
-## Folie
-
-Dieser Slide-Typ basiert auf der Base-Slide. Nachfolgend ein paar Beispiele für Folien.
-
-### Multi-Column-Layout
+## Slide
+This slide type is based on the base slide. Below are some examples of slides.
+### Multi-Column Layout
 ![slide-content](./images/slide-content.png)
 ```typ
 #folie(
-  heading: [Multi-Column-Folien]
+  heading: [Multi-Column Slides]
 )[
   #toolbox.side-by-side()[#lorem(39)][#lorem(30)][#lorem(35)]
 ]
 ```
 
-### Verwenden mathematischer Umgebungen
+### Using Mathematical Environments
 ![slide-math](./images/slide-math.png)
 ```typ
 #folie()[
-  == Verwendung von Gleichungen
-  Wir können Gleichungen definieren:
+  == Using Equations
+  We can define equations:
     $ a/b = c/d $
-  Diese werden nummeriert, wenn sie mit einem Label markiert werden.
+  These are numbered when marked with a label.
     $ a^2 + b^2 = c^2 $ <pythagoras>
-  Entsprechend seht ihr, dass @pythagoras Pythagoras ist. Ein Beweis findet sich in @gerwig2021satz.
+  As you can see, @pythagoras is Pythagoras. A proof can be found in @gerwig2021satz.
 ]
 ```
 
-### Verwenden einer Abbildung
+### Using an Image
 ![slide-image](./images/slide-image.png)
 ```typ
 #folie()[
   #figure(
-    caption: [Beispielgrafik#footnote([Erstellt von Malte])]
-  )[#image("example-image.jpg",height: 80%)]
+    caption: [Example Graphic#footnote([Created by Malte])]
+  )[#image("example-image.jpg", height: 80%)]
 ]
 ```
 
-# Weitere Funktionen
-## Nummerieren von Gleichungen
-Mit der show-rule
+# Additional Features
+
+## Numbering Equations
+
+With the show-rule:
+
 ```typ
 #show: document => conf_equations(document)
 ```
-werden nur Gleichung nummeriert, die auch ein Label haben. Wenn ihr diesen Feature nutzen wollt, dann fügt den Befehl an den Anfang eurer Präsentation ein.
 
-## Mathematische Symbole
-Wenn du den Befehl für ein mathematisches Symbol nicht kennst ist die Webseite [detypify](https://detypify.quarticcat.com/) sehr hilfreich. Dort kannst du das Symbol einfach zeichnen und dir wird der entsprechende Befehl vorgeschlagen.
+Only equations with labels will be numbered. To use this feature, add this command at the beginning of your presentation.
 
-## Animationen
-Polylux bietet das Feature mit dem Befehl
+## Mathematical Symbols
+
+If you don't know the command for a mathematical symbol, the website [detypify](https://detypify.quarticcat.com/) is very helpful. You can simply draw the symbol there, and the corresponding command will be suggested.
+
+## Animations
+
+Polylux offers a feature to gradually reveal content on a slide using the command:
+
 ```typ
 #show: later
 ```
-Content nach und nach auf einer Folie erscheinen zu lassen. Es gibt noch einige weiterer solcher Befehle, die alle im [Polylux-Buch](https://polylux.dev/book/dynamic/helper.html#higher-level-helper-functions) nachgelesen werden können.
 
-## Handout aus der Präsentation
-Wenn am Anfang des Codes der Befehl
+There are several additional commands for animations, all of which can be found in the [Polylux book](https://polylux.dev/book/dynamic/helper.html#higher-level-helper-functions).
+
+## Creating a Handout from the Presentation
+
+If the following command is placed at the beginning of the code:
+
 ```typ
 #enable-handout-mode(true)
 ```
-steht, werden die Animationen ignoriert und die Präsentation als Handout gedruckt.
+
+Animations will be ignored, and the presentation will be printed as a handout.
+
