@@ -66,12 +66,12 @@ Headings created with this slide type will be displayed in the outline slide. To
 ```typ
 #slide-base(
   heading: none,
-  show_section: true,
+  show-section: true,
 )[]
 ```
 This is the foundation for all slide types.
 - `heading: content`: serves as the slide title.
-- `show_section: bool`: if true, the current section title is displayed in the footer.
+- `show-section: bool`: if true, the current section title is displayed in the footer.
 
 ## Slide
 This slide type is based on the base slide. Below are some examples of slides.

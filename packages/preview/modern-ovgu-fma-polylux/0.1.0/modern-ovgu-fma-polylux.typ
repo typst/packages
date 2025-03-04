@@ -92,7 +92,7 @@
 /// Base for the rest of the slides
 #let slide-base(
   heading: none,
-  show_section: true,
+  show-section: true,
   body
 ) = {
   set page(
@@ -161,7 +161,7 @@
         )[
           //CENTER
           #set align(center)
-          #if show_section {
+          #if show-section {
             toolbox.all-sections(
               (sections,current)=>[*#current*]
             )

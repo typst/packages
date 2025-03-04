@@ -138,7 +138,7 @@
 #header-slide()[Bibliographie]
 
 #slide-base(
-  show_section: false,
+  show-section: false,
 )[
   #bibliography(
     "example.bib",
