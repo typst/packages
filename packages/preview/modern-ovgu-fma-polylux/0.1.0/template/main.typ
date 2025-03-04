@@ -9,7 +9,7 @@
   text-lang: "de",
 )
 
-#show: document => conf_equations(document)
+#show: document => conf-equations(document)
 
 #title-slide(
   subtitle: [Hier könnte ihr Subtitel stehen]

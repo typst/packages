@@ -1,5 +1,5 @@
 
-#let conf_equations(document) = {
+#let conf-equations(document) = {
   set math.equation(numbering: "(1)",supplement: none)
   show ref: it => {
       // provide custom reference for equations
