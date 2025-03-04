@@ -206,7 +206,7 @@
   body
 ) = {
   let content = body
-  slide-base(show_section: true,heading: heading)[#content]
+  slide-base(show-section: true,heading: heading)[#content]
 }
 
 /// Slide to show a outline
@@ -225,7 +225,7 @@
   }
   slide-base(
     heading: [#if heading==none [#head] else {heading}],
-    show_section: false,
+    show-section: false,
   )[
     #toolbox.all-sections((sections,current)=> {
       enum(
@@ -257,7 +257,7 @@
     ]
   }
   //Show slide
-  slide-base(show_section: false, content)
+  slide-base(show-section: false, content)
 }
 
 /// Slide to show the bibliography
@@ -277,7 +277,7 @@
 //   }
 //   slide-base(
 //     heading: if heading == none [#head] else [#heading],
-//     show_section: false,)[
+//     show-section: false,)[
 //     #if path_to_bib != none {
 //       bibliography(title: none,path_to_bib)
 //     } else {
