@@ -81,7 +81,7 @@ theme: terminal-themes.vscode
 )
 ```
 
-![1.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/1.png)
+![1.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/1.png?raw=true)
 
 ```typst
 #ansi-render(
@@ -97,7 +97,7 @@ theme: terminal-themes.vscode
 )
 ```
 
-![2.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/2.png)
+![2.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/2.png?raw=true)
 
 ```typst
 #ansi-render(
@@ -110,11 +110,34 @@ theme: terminal-themes.vscode
 )
 ```
 
-![3.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/3.png)
+![3.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/3.png?raw=true)
 
 ```typst
 // uses the font that supports ligatures
 #ansi-render(read("./test/test.txt"), inset: 5pt, radius: 3pt, font: "Cascadia Code", theme: terminal-themes.putty)
 ```
 
-![4.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/4.png)
+![4.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/4.png?raw=true)
+
+## Capturing ANSI output
+
+### Output to File
+
+The most straight forward way is writing to a file then read that in Typst.
+
+```bash
+command > out.txt
+```
+
+### Other Method
+
+If writing to a file doesn't work, that means the program will detect the output and trim ANSI sequence accordingly, which means we need a pty interface to execute the script, the following should work in Linux:
+
+```bash
+script "command" out.txt
+exit
+```
+
+## About Default Font
+
+Typst's default font for `raw` is `Dejavu Sans Mono`, but it has [incorrect top-edge](https://github.com/typst/typst/issues/2231), so the default is set to `Cascadia Code`, which is contained in web editor.
