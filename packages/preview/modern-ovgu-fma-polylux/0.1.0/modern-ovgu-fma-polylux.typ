@@ -13,9 +13,6 @@
 #let fma-light = rgb(232, 159, 171)
 #let fma-lighter = rgb(251, 240, 242)
 
-// Multi-Column content
-
-
 // Base-Theme
 #let ovgu-fma-theme(
   //aspect-ratio: "16-9",

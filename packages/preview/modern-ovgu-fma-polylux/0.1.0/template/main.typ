@@ -11,19 +11,6 @@
 
 #show: document => conf_equations(document)
 
-#set footnote.entry(clearance: 0.25em)
-
-#let strongbox(body) = block(
-  stroke: 2.5pt + fma,
-  fill: fma-lighter,
-  radius: 0.5em,
-  inset: 0.5em, 
-)[
-  #set text(fill: rgb(0, 0, 255, 255))
-  #set align(center+horizon)
-  #body
-]
-
 #title-slide(
   subtitle: [Hier könnte ihr Subtitel stehen]
 )
@@ -51,7 +38,9 @@
   #toolbox.side-by-side()[#lorem(39)][#lorem(30)][#lorem(35)]
 ]
 
+#set footnote.entry(clearance: 0.25em)
 #folie()[
+  
   #figure(
     caption: [Beispielgrafik#footnote([Erstellt von Malte])]
   )[#image("example-image.jpg",height: 80%)]
@@ -61,17 +50,48 @@
 
 #folie()[
   Keine Idee wie man dieses mathematische Symbol in Typst schreibt?
-  #align(center)[#strongbox()[#link("https://detypify.quarticcat.com/")]]
+  
+  #align(center)[
+    #block(
+      stroke: 2.5pt + fma,
+      fill: fma-lighter,
+      radius: 0.5em,
+      inset: 0.5em, 
+    )[
+      #set text(fill: rgb(0, 0, 255, 255))
+      #set align(center+horizon)
+      #link("https://detypify.quarticcat.com/")
+    ]
+  ]
   
   #show: later
 
   Welche Funktionen bietet eigentlich Polylux noch?
-  #align(center)[#strongbox()[#link("https://polylux.dev/book/getting-started/getting-started.html")]]
+  #align(center)[
+    #block(
+      stroke: 2.5pt + fma,
+      fill: fma-lighter,
+      radius: 0.5em,
+      inset: 0.5em, 
+    )[
+      #set text(fill: rgb(0, 0, 255, 255))
+      #set align(center+horizon)
+      #link("https://polylux.dev/book/getting-started/getting-started.html")
+    ]
+  ]
   
   #show: later
 
   Wie erstelle ich aus meiner Präsentation ein Handout? ("Animationen" ausschalten)
-  #align(center)[#strongbox()[
+  #align(center)[
+    #block(
+      stroke: 2.5pt + fma,
+      fill: fma-lighter,
+      radius: 0.5em,
+      inset: 0.5em, 
+    )[
+      #set text(fill: rgb(0, 0, 255, 255))
+      #set align(center+horizon)
       Setze an den Anfang deines Codes den Befehl: 
       ```typ 
         #enable-handout-mode(true)
@@ -84,12 +104,31 @@
   heading: ["Animationen"]
 )[
   Ist es dir aufgefallen? Auf der vorherigen Folie haben wir die Items mit
-  #align(center)[#strongbox()[```typ
-    #show: later  
-  ```]]
+  #align(center)[
+    #block(
+      stroke: 2.5pt + fma,
+      fill: fma-lighter,
+      radius: 0.5em,
+      inset: 0.5em, 
+    )[
+      #set text(fill: rgb(0, 0, 255, 255))
+      #set align(center+horizon)
+      ```typ
+        #show: later  
+      ```
+    ]
+  ]
+
   nacheinander erscheinen lassen. Es gibt viele weitere alternative Hilfsfunktionen. Details könnt ihr hier:
   #align(center)[
-    #strongbox()[
+    #block(
+      stroke: 2.5pt + fma,
+      fill: fma-lighter,
+      radius: 0.5em,
+      inset: 0.5em, 
+    )[
+      #set text(fill: rgb(0, 0, 255, 255))
+      #set align(center+horizon)
       #link("https://polylux.dev/book/dynamic/helper.html")
     ]
   ]
