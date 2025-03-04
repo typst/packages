@@ -1,0 +1,4 @@
+#!/usr/bin/env -S gitlint -C
+[ignore-by-title]
+regex=.*
+ignore=body-is-missing
