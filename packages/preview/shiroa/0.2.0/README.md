@@ -24,7 +24,7 @@ shiroa currently requires at least Rust version 1.75.
 To build with precompiled artifacts, run the following commands:
 
 ```sh
-cargo install --git https://github.com/Myriad-Dreamin/shiroa --locked shiroa-cli
+cargo install --git https://github.com/Myriad-Dreamin/shiroa --locked shiroa
 ```
 
 To build from source, run the following commands:
