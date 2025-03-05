@@ -209,7 +209,7 @@
     if el != none {
       link(el.location(),numbering(
         el.numbering,
-        ..el.counter.at(el.location())
+        ..counter(el.func()).at(el.location())
       ).trim())
     } else {
       it
