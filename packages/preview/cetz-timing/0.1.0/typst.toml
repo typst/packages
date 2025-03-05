@@ -1,0 +1,13 @@
+[package]
+name = "cetz-timing"
+version = "0.1.0"
+entrypoint = "cetz-timing.typ"
+authors = ["Johannes Schiffer"]
+license = "GPLv3"
+description = "A Typst Package for Timing Diagrams"
+keywords = ["CeTZ", "timing", "diagram", "engineering", "electronics", "spi", "uart", "serial", "plot", "digital", "hardware"]
+categories = ["visualization"]
+compiler = "0.12"
+exclude = ["manual.pdf", "manual.typ"]
+disciplines = ["engineering", "computer-science"]
+repository = "https://github.com/JohannesProgrammiert/cetz-timing"
