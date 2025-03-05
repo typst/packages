@@ -1,6 +1,6 @@
 #import "@preview/tuhi-labscript-vuw:0.2.0": tuhi-labscript-vuw, lightgreen, middlegreen
 
-#let ornament = align(center + horizon,image("figures/gaiwan.svg", width: 12pt))
+#let ornament = align(center + horizon, raw("¯\_(ツ)_/¯C(_)~"))
 
 #show: tuhi-labscript-vuw.with(
   experiment: text[cup of tea\ preparation],
