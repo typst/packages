@@ -1,0 +1,5 @@
+[tool.mdformat]
+number = true
+
+[tool.codespell]
+ignore-words-list = "sist"
