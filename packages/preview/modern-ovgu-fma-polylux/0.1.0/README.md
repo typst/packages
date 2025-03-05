@@ -115,7 +115,7 @@ This slide type is based on the base slide. Below are some examples of slides.
 With the show-rule:
 
 ```typ
-#show: document => conf_equations(document)
+#show: document => conf-equations(document)
 ```
 
 Only equations with labels will be numbered. To use this feature, add this command at the beginning of your presentation.
