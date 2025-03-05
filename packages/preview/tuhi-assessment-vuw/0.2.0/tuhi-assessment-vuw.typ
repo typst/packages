@@ -7,6 +7,16 @@
 #let answer-bg = rgb(250, 240, 245)
 
 
+
+#let mark(x) = if x <= 1 {
+  h(1fr)
+  box[#strong("[" + str(x) + " mark]")]
+} else {
+  h(1fr)
+  box[#strong("[" + str(x) + " marks]")]
+}
+
+
 #let submark(x) = if x <= 1 {
   h(1fr)
   box[#("[" + str(x) + " mark]")]
@@ -26,7 +36,7 @@
   breakable: true, 
   fill: answer-bg,
   stroke: (left: answer-col + 5pt), inset: (left: 1em, right: 1em, rest:0.8em))[#x]
-  } else {hide[x]}
+  } else {box[]}
 
 #let setup(visible: false) = {
   (answer: answer.with(visible: visible),)
@@ -104,13 +114,3 @@ weight: "medium", number-type: "lining")
 
   body
 }
-
-
-#let mark(x) = if x <= 1 {
-  h(1fr)
-  box[#strong("[" + str(x) + " mark]")]
-} else {
-  h(1fr)
-  box[#strong("[" + str(x) + " marks]")]
-}
-
