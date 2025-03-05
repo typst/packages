@@ -9,7 +9,7 @@
   doctor-of: "Philosophy",
   major: "Physics",
   completion-date: datetime.today().display("[month repr:long] [year]"),
-  cretive_commons: true,
+  creative-commons: true,
   doc
 ) = {
   set page(
@@ -70,7 +70,7 @@
   show link: it => {set text(fill: school-color); it}
 
   [
-    #if cretive_commons [
+    #if creative-commons [
       This work is licensed via #underline[
         #link("https://creativecommons.org/licenses/by/4.0/")[CC BY 4.0]
       ]
