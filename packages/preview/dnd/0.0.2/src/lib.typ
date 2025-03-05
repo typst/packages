@@ -1,5 +1,5 @@
-#import "const/theme.typ": dnd-theme
-#import "template/dnd.typ": dnd
+#import "style/theme.typ": dnd-theme
+#import "templates/dnd.typ": dnd
 
 #let dnd-note-fold = (
   top-left: polygon(

@@ -1,6 +1,6 @@
 #import "@preview/droplet:0.3.1": dropcap
 
-#import "../const/theme.typ": dnd-theme
+#import "../style/theme.typ": dnd-theme
 
 #let chapter_style = (
   chapters: true,

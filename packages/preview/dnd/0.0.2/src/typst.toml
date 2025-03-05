@@ -1,6 +1,6 @@
 [package]
 name = "dnd"
-version = "0.0.1"
+version = "0.0.2"
 compiler = "0.12.0"
 entrypoint = "lib.typ"
 authors = ["Doggo Bit <bark@doggobit.xyz>"]
@@ -9,8 +9,3 @@ repository = "https://www.github.com/doggobit0/typst-dnd-template"
 categories = ["model", "fun", "layout"]
 keywords = ["dnd", "dungeons", "dragons", "rpg", "ttrpg", "tabletop", "game"]
 description = "Create fancy-looking homebrewn Dungeons and Dragons 2024 edition"
-
-[template]
-path = "template"
-entrypoint = "dnd.typ"
-thumbnail = "thumbnail.png"
