@@ -5,6 +5,7 @@ authors = ["Martin Heuschober"]
 license = "MIT"
 entrypoint = "lib/lib.typ"
 description = "An unofficial template for community scenarios for the TTRPG 'KULT: divinity lost'"
+category = "book"
 
 [template]
 path = "template/main"

@@ -4,6 +4,14 @@ This is a typst template for the horror tabletop RPG 'KULT: Divinity Lost'.
 It has been designed based on the LaTeX scenario template for Ryan Northcott's memorial scenarios.
 The scenario is made for A4 paper and uses the [Mathison](https://www.dafontfree.io/mathison-typeface/) and the [Ubuntu Sans](https://github.com/canonical/Ubuntu-Sans-fonts/releases) font.
 
+To publish a scenario for 'KULT: divinity lost' you must follow the [Helmgast AB - fan content policy](https://helmgast.se/en/meta/fan-content-policy)
+
+> ## Warning
+>
+> Fonts are not included please download them from the links above and install
+> them on your system OR unpack them in a local folder, e.g. `./main/assets/`
+> and use the `--font-paths` command line option to compile.
+
 The printer friendly version can be compiled with
 
 ```sh

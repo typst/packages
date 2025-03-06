@@ -1,4 +1,6 @@
 #import "@preview/kdl-unofficial-template:0.1.0" as kdl
+// NOTE: before compiling follow the README.md and install the fonts used in this template
+//
 // if you use direnv you can compile with
 // typst compile main.typ
 //
