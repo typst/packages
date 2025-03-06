@@ -26,7 +26,7 @@ summarised by the following goals:
 - Promote open source projects, where possible: for example, instead of
   replicating the official fonts, this project uses
   [Open Font License](https://opensource.org/licenses/OFL-1.1) fonts that match
-  the vibe of the official ones. \[^fonts\]
+  the vibe of the official ones. [^fonts]
 - Optimised for home printing: the official books are printed on high-quality
   paper, with a lot of ink and using fancy backgrounds. This project aims to
   look good when printed on a home printer, balancing style with ink usage.
@@ -35,7 +35,7 @@ summarised by the following goals:
   In theory, this should allow anyone to create and share themes that match the
   style of their homebrew world.
 
-\[^fonts\]: Read more about the font choices in this [document](https://gitlab.com/doggobit/typst-owlbear/-/blob/main/docs/fonts.md?ref_type=heads)
+[^fonts]: Read more about the font choices in this [document](https://gitlab.com/doggobit/typst-owlbear/-/blob/main/docs/fonts.md?ref_type=heads)
 
 ## Example
 
@@ -87,12 +87,12 @@ The project was developed using the following stack:
   to write the document.
 - [Typst](https://github.com/typst/typst?tab=readme-ov-file#installation):
 - [Tinymist VSCode Extension](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist):
-  Used to preview the document and export it as a PDF file. \[^tinymist\]
+  Used to preview the document and export it as a PDF file. [^tinymist]
 - [Git](https://github.com/git-guides/install-git) (optional): Even though it
   might seem scary at first, keeping track of how your documents change over
   time can be incredibly powerful, while also enabling collaborative effort.
 
-\[^tinymist\]: Keep in mind that there can be slight differences between the
+[^tinymist]: Keep in mind that there can be slight differences between the
 preview and the exported PDF. You can read more about
 [known limitations](#known-limitations).
 
