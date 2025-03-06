@@ -10,6 +10,6 @@ categories = ["document", "template"]
 disciplines = ["technical sciences", "natural sciences"]
 
 [template]
-path = "."
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.jpg"
