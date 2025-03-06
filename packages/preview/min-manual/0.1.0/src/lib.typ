@@ -395,12 +395,11 @@
           #align(right)[ (_required_) ]
         ]
       }
-      #linebreak()
-      #if body != [] {
-        // Show padded text:
-        pad(left: 1em)[#body]
-      }
     ]
+    #if body != [] {
+      // Show padded text:
+      pad(left: 1em)[#body]
+    }
   ]
 }
 
