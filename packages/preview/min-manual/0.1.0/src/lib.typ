@@ -310,7 +310,14 @@
     title = title.replace("<required>", "")
   }
   
-  let arrow = title.match(regex("<-|->")).text
+  let arrow = title.match(regex("<-|->"))
+  
+  if arrow == none {
+    arrow = "<-"
+  }
+  else {
+    arrow = arrow.text
+  }
   
   if arrow == "->" {
     output = true
