@@ -1,5 +1,5 @@
-#import "style/theme.typ": dnd-theme
-#import "templates/dnd.typ": dnd
+#import "style/theme.typ": book-theme
+#import "templates/book.typ": book-template
 
 #let dnd-note-fold = (
   top-left: polygon(
@@ -25,10 +25,10 @@
     (0%, 0%),
     (100%, 0.75pt),
     (0%, 100%),
-  )
+  ),
 )
 
-#let dnd-with-folds = (body) => block(
+#let dnd-with-folds = body => block(
   breakable: false,
   align(left)[
     #block(
@@ -38,13 +38,13 @@
       #box(
         width: 3mm,
         height: 1mm,
-        dnd-note-fold.top-left
+        dnd-note-fold.top-left,
       )
       #h(1fr)
       #box(
         width: 3mm,
         height: 1mm,
-        dnd-note-fold.top-right
+        dnd-note-fold.top-right,
       )
     ]
     #body
@@ -55,30 +55,26 @@
       #box(
         width: 3mm,
         height: 1mm,
-        dnd-note-fold.bottom-left
+        dnd-note-fold.bottom-left,
       )
       #h(1fr)
       #box(
         width: 3mm,
         height: 1mm,
-        dnd-note-fold.bottom-right
+        dnd-note-fold.bottom-right,
       )
     ]
-  ]
+  ],
 )
 
-#let dnd-note = (body, theme: dnd-theme()) => {
-  set par(
-    justify: true
-  )
+#let dnd-note = (body, theme: book-theme()) => {
+  set par(justify: true)
 
-  set text(
-    font: theme.font.aside
-  )
+  set text(font: theme.font.aside)
 
   set heading(
     level: 10,
-    outlined: false
+    outlined: false,
   )
 
   show heading: smallcaps
@@ -100,33 +96,27 @@
           y: (
             paint: luma(0%),
             thickness: 1.5pt,
-          )
+          ),
         ),
         inset: 8pt,
         breakable: false,
-        body
-      )
-    )
+        body,
+      ),
+    ),
   )
 }
 
-#let dnd-dialogue = (..lines, highlight: (), theme: dnd-theme()) => {
-  set text(
-    font: theme.font.aside
-  )
+#let dnd-dialogue = (..lines, highlight: (), theme: book-theme()) => {
+  set text(font: theme.font.aside)
 
-  show <dnd-dm>: set text(
-    fill: theme.paint.label.dm.fill,
-  )
+  show <dnd-dm>: set text(fill: theme.paint.label.dm.fill)
 
-  show <dnd-player>: set text(
-    fill: theme.paint.label.player.fill,
-  )
+  show <dnd-player>: set text(fill: theme.paint.label.player.fill)
 
-  show terms: (it) => block(
-    fill: gradient.linear(rgb(222,192,133,50%), rgb(222,192,133,0)),
+  show terms: it => block(
+    fill: theme.paint.dialogue.fill,
     inset: 3mm,
-    it
+    it,
   )
 
   lines = lines.pos().map(((speaker, line)) => {
@@ -140,19 +130,20 @@
   terms(..lines)
 }
 
-#let dnd-enum = (..items, cols: 2, theme: dnd-theme()) => {
-  set text(
-    font: theme.font.aside
-  )
-  
-  let items = items.pos().map((item) => par(item))
+#let dnd-enum = (..items, cols: 2, theme: book-theme()) => {
+  set text(font: theme.font.aside)
+
+  let items = items.pos().map(item => par(item))
   let count = items.len()
   let rows = calc.div-euclid(count, cols)
 
-  items = items.chunks(rows).map((chunk) => {
-    (..chunk, colbreak())
-  }).join()
-  
+  items = items
+    .chunks(rows)
+    .map(chunk => {
+        (..chunk, colbreak())
+      })
+    .join()
+
   block(inset: (x: 1cm), columns(cols, items.join()))
 }
 

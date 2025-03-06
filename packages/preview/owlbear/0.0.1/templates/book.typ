@@ -1,6 +1,6 @@
 #import "@preview/droplet:0.3.1": dropcap
 
-#import "../style/theme.typ": dnd-theme
+#import "../style/theme.typ": book-theme
 
 #let chapter_style = (
   chapters: true,
@@ -27,11 +27,11 @@
   }
 } else { return (body) => body }
 
-#let dnd = (
+#let book-template = (
   body,
   chapters: false,
   dropcaps: true,
-  theme: dnd-theme(),
+  theme: book-theme(),
 ) => {
   set page(
     paper: "a4",
