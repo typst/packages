@@ -1,0 +1,15 @@
+[package]
+name = "student-report-aau"
+version = "0.1.2"
+entrypoint = "template.typ"
+authors = ["Kresten Laust <https://github.com/krestenlaust>"]
+license = "MIT"
+description = "Official student report template at Aalborg University (AAU) recreated in Typst"
+keywords = ["academic", "report", "thesis", "university", "aau"]
+categories = ["document", "template"]
+disciplines = ["technical sciences", "natural sciences"]
+
+[template]
+path = "."
+entrypoint = "main.typ"
+thumbnail = "thumbnail.jpg"
