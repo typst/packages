@@ -10,7 +10,7 @@ It's likely that some future version of Typst will obsolete this package.  Until
 ...can be generated with:
 
 ```typst
-#import "@preview/markly:0.2.0"
+#import "@preview/markly:0.3.0"
 
 #let markly-context = markly.setup(
   stock-width:6in,
