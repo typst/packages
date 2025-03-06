@@ -6,7 +6,7 @@ authors = ["Kresten Laust <https://github.com/krestenlaust>"]
 license = "MIT"
 description = "Official student report template at Aalborg University (AAU) recreated in Typst"
 keywords = ["academic", "report", "thesis", "university", "aau"]
-categories = ["document", "template"]
+categories = ["report"]
 disciplines = ["technical sciences", "natural sciences"]
 
 [template]
