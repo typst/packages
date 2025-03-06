@@ -1,4 +1,4 @@
-#import "src/lib.typ": *
+#import "@preview/frame-it:1.1.0": *
 
 #let base-color-arg = (:)
 #let text-color = black
