@@ -10,4 +10,4 @@ repository = "https://github.com/ZaninDavide/wicked"
 keywords = ["physics", "notation", "science", "QFT"]
 categories = ["paper"]
 disciplines = ["physics", "mathematics"]
-exclude = ["docs.pdf", "docs.typ", "/images/*"]
+exclude = ["docs.pdf", "docs.typ", "images"]
