@@ -19,6 +19,7 @@ categories = [
 exclude = [
     "assets",
     "bench",
+    "manual.pdf"
 ]
 
 [tool]
