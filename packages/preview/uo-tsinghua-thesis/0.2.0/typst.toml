@@ -13,4 +13,4 @@ exclude = ["pkuthss-info"]
 [template]
 path = "template"
 entrypoint = "正文.typ"
-thumbnail = "images/thumbnail.png"
+thumbnail = "thumbnail.png"
