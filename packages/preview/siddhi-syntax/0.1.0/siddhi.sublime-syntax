@@ -1,0 +1,792 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: Siddhi
+file_extensions:
+  - siddhi
+scope: source.siddhi
+contexts:
+  name:
+    - include: keywords
+    - include: id
+  main:
+    - include: siddhiApp
+    - include: comment
+  comment:
+    - match: \-\-.*
+      scope: comment.line.double-dash.siddhi
+    - match: \/\*
+      push:
+        - meta_scope: comment.block.siddhi
+        - match: \*\/
+          pop: true
+  aggregationName:
+    - match: '(?<= aggregation)((\s*)[a-zA-Z_][a-zA-Z_0-9]*)'
+      scope: entity.other.attribute-name.name.aggregation.siddhi
+  aggregationTime:
+    - match: \b(?i)every\b
+      push:
+        - meta_scope: aggregation.time.siddhi
+        - match: (?=;)
+          pop: true
+        - include: comment
+        - match: \.\s*\.\s*\.
+          scope: support.constnst.siddhi
+        - match: \b(?i)(years|months|days|hours|minutes|seconds|sec|min|hour|year|month|day)\b
+          scope: constant.other.timevalue.siddhi
+  annotation:
+    - match: '(@)(\s*)([a-zA-Z_][a-zA-Z_0-9]*)(\s*)(\()'
+      captures:
+        1: keyword.control.siddhi
+        3: keyword.control.siddhi
+        5: support.constant.punctuation.paren.open.siddhi
+      push:
+        - meta_scope: annotation.siddhi
+        - match: \)
+          pop: true
+        - include: comment
+        - include: annotation
+        - include: annotationElement
+  annotationElement:
+    - match: '(?<=\()|(?=((([a-zA-Z_][a-zA-Z_0-9]*[.])*[a-zA-Z_][a-zA-Z_0-9]*))(?=\s*\=)|(?<=,))'
+      push:
+        - meta_scope: annotation.annotationelement.siddhi
+        - match: (?=\))
+          pop: true
+        - include: comment
+        - include: annotation
+        - include: propertyName
+        - include: propertyValue
+  anonymousStream:
+    - match: (\()(\s*)((?i)from)
+      captures:
+        1: support.constant.siddhi
+        3: keyword.control.siddhi
+      push:
+        - meta_scope: anonymousstream.siddhi
+        - match: \)
+          pop: true
+        - include: comment
+        - match: (?i)return
+          scope: keyword.control.siddhi
+        - include: queryInput
+        - include: querySection
+        - include: outputRate
+        - include: outputEventType
+  appAnnotation:
+    - match: (@)(\s*)((?i)App)(\s*)(:)(\s*)((?i)name|(?i)description|(?i)statistics)(\s*)(\()
+      captures:
+        1: keyword.control.siddhi
+        3: keyword.control.siddhi
+        5: support.constant.siddhi
+        7: keyword.control.siddhi
+        9: support.constant.punctuation.paren.open.siddhi
+      push:
+        - meta_scope: appannotation.siddhi
+        - match: \)
+          pop: true
+        - include: comment
+        - include: annotationElement
+  attribute:
+    - include: comment
+    - include: mathOperation
+  attributeIndex:
+    - match: '\['
+      push:
+        - meta_scope: attribute.index.siddhi
+        - match: '\]'
+          pop: true
+        - include: integerLiteral
+        - match: \b(?i)last\b
+          scope: keyword.control.siddhi
+        - match: \-|\+
+          scope: keyword.control.siddhi
+  attributeList:
+    - match: \(
+      push:
+        - meta_scope: attributelist.siddhi
+        - match: \)
+          pop: true
+        - include: attributeList
+        - include: mathOperation
+  attributeName:
+    - include: comment
+    - match: "([a-zA-Z_][a-zA-Z_0-9]*)"
+      scope: variable.parameter.attributename.siddhi
+  attributeReference:
+    - include: comment
+    - match: "#|!"
+      scope: support.constant.siddhi
+    - match: "[a-zA-Z_][a-zA-Z_0-9]*"
+      scope: variable.parameter.attributereference.siddhi
+    - include: attributeIndex
+  attributeType:
+    - include: comment
+    - match: \b((?i)string|(?i)int|(?i)long|(?i)float|(?i)double|(?i)bool|(?i)object)\b
+      scope: storage.type.attributetype.siddhi
+  basicMathOperation:
+    - match: \(
+      push:
+        - meta_scope: basic.math.operation.siddhi
+        - match: \)
+          pop: true
+        - include: mathOperation
+  constantValue:
+    - include: comment
+    - match: \b(?i)(true|false)\b
+      scope: constant.language.boolean.siddhi
+    - match: (\d*\.?\d*)\b(?i)d\b
+      scope: constant.numeric.double.siddhi
+    - match: (\d)\s*(?i)\bl\b
+      scope: constant.numeric.long.siddhi
+    - match: \d
+      scope: constant.numeric.int.siddhi
+    - match: \d\.?\d
+      scope: constant.numeric.float.siddhi
+    - match: (?i)\b(years|months|hours|minutes|seconds|sec|min|hour|year|month)\b
+      scope: constant.other.timevalue.siddhi
+    - include: stringValue
+  definitionAggregation:
+    - match: ((?i)define)(\s*)((?i)aggregation)
+      captures:
+        1: keyword.control.siddhi
+        3: keyword.control.siddhi
+      push:
+        - meta_scope: aggregation.definition.siddhi
+        - match: ;
+          pop: true
+        - include: comment
+        - match: (?i)by
+          scope: keyword.control.siddhi
+        - match: (?i)aggregate
+          scope: keyword.control.siddhi
+        - match: (?i)from
+          scope: keyword.control.siddhi
+        - include: groupByQuerySelection
+        - include: standardStream
+        - include: aggregationTime
+        - include: aggregationName
+        - include: attributeReference
+  definitionAttributeList:
+    - match: \(
+      push:
+        - meta_scope: attributelist.siddhi
+        - match: \)
+          pop: true
+        - include: comment
+        - include: attributeType
+        - include: attributeName
+  definitionFunction:
+    - match: (?i)(\bdefine\b)(\s*)(\bfunction\b)
+      captures:
+        1: keyword.control.siddhi
+        3: keyword.control.siddhi
+      push:
+        - meta_scope: definition.function.siddhi
+        - match: ;
+          pop: true
+        - include: comment
+        - match: (?i)\breturn\b
+          scope: keyword.control.siddhi
+        - include: attributeType
+        - include: keywords
+        - include: languageName
+        - include: functionName
+        - include: functionBody
+  definitionStream:
+    - match: ((?i)define)(\s*)((?i)stream)
+      captures:
+        1: keyword.control.siddhi
+        3: keyword.control.siddhi
+      push:
+        - meta_scope: definition.stream.siddhi
+        - match: ;
+          pop: true
+        - include: comment
+        - include: annotation
+        - include: definitionAttributeList
+        - include: source
+  definitionTable:
+    - match: ((?i)define)(\s*)((?i)table)
+      captures:
+        1: keyword.control.siddhi
+        3: keyword.control.siddhi
+      push:
+        - meta_scope: definition.table.siddhi
+        - match: ;
+          pop: true
+        - include: comment
+        - include: definitionAttributeList
+        - include: source
+  definitionTrigger:
+    - match: ((?i)define)(\s*)((?i)trigger)
+      captures:
+        1: keyword.control.siddhi
+        3: keyword.control.siddhi
+      push:
+        - meta_scope: definition.trigger.siddhi
+        - match: ;
+          pop: true
+        - include: comment
+        - include: keywords
+        - include: triggerName
+        - match: (?!)at
+          scope: keyword.control.siddhi
+        - match: (?i)every
+          scope: keyword.control.siddhi
+        - include: timeValue
+        - include: stringValue
+  definitionWindow:
+    - match: ((?i)define)(\s*)((?i)window)
+      captures:
+        1: keyword.control.siddhi
+        3: keyword.control.siddhi
+      push:
+        - meta_scope: definition.window.siddhi
+        - match: ;
+          pop: true
+        - include: comment
+        - include: definitionAttributeList
+        - include: functionOperation
+        - include: source
+        - match: \b(?i)output\b
+          scope: keyword.control.siddhi
+        - include: outputEventType
+  executionElement:
+    - match: (\b(?i)from\b|(\b(?i)partition\b)(\s*)(\b(?i)with)\b)
+      push:
+        - meta_scope: executionelement.siddhi
+        - match: ;
+          pop: true
+        - include: comment
+        - include: query
+        - include: partition
+  expression:
+    - include: mathOperation
+  filter:
+    - match: '(#?)(\s*)(\[)'
+      captures:
+        1: support.constant.siddhi
+        3: support.constant.siddhi
+      push:
+        - meta_scope: filter.siddhi
+        - match: '\]'
+          pop: true
+        - include: expression
+  functionBody:
+    - match: '\{'
+      push:
+        - meta_scope: function.body.siddhi
+        - match: '\}'
+          pop: true
+        - include: comment
+        - include: scope:source.js
+  functionId:
+    - match: '([a-zA-Z_][a-zA-Z_0-9]*)(?=\()'
+      scope: support.function.functionid.siddhi
+  functionName:
+    - include: comment
+    - match: "[a-zA-Z_][a-zA-Z_0-9]*"
+      scope: entity.other.attribute-name.function.name.siddhi
+  functionNamespace:
+    - match: "([a-zA-Z_][a-zA-Z_0-9]*)(?=:)"
+      scope: storage.modifier.namespace.function.operation.siddhi
+  functionOperation:
+    - match: '(?=[a-zA-Z_][a-zA-Z_0-9]*\s*:\s*[a-zA-Z_][a-zA-Z_0-9]*\(|[a-zA-Z_][a-zA-Z_0-9]*\()'
+      push:
+        - meta_scope: function.operation.siddhi
+        - match: (?<=\))
+          pop: true
+        - include: comment
+        - include: functionNamespace
+        - include: functionId
+        - include: attributeList
+  groupBy:
+    - match: ((?i)group)(\s*)((?i)by)
+      captures:
+        1: keyword.control.siddhi
+        3: keyword.control.siddhi
+      push:
+        - meta_scope: phrase.groupbys.siddhi
+        - match: (?=aggregate|having|order\s*by|limit|offset|insert|update|output|;)
+          pop: true
+        - include: comment
+        - include: attributeReference
+  groupByQuerySelection:
+    - match: (?i)select
+      push:
+        - meta_scope: groupbyqueryselection.siddhi
+        - match: (?=(?i)aggregate)
+          pop: true
+        - include: comment
+        - match: \*
+          scope: support.constant.siddhi
+        - include: groupBy
+        - include: outputAttribute
+  having:
+    - match: (?i)having
+      push:
+        - meta_scope: phrase.having.siddhi
+        - match: (?i)(?=order\s*by|limit|offset|insert|update|output|;)
+          pop: true
+        - include: comment
+        - include: expression
+  id:
+    - match: '\b[a-zA-Z_][a-zA-Z_0-9]*\b'
+      scope: string.unquoted
+    - include: idQuotes
+  idQuotes:
+    - match: "`'(.*?)'`"
+      scope: string.constant.idquotes.siddhi
+  integerLiteral:
+    - match: '[0-9]\d*'
+      scope: constant.numeric.timevalue.siddhi
+  join:
+    - include: comment
+    - match: (?i)left(\W*)(?i)outer(\W*)(?i)join
+      scope: keyword.other.siddhi.leftouterjoin.join.siddhi
+    - match: (?i)right(\W*)(?i)outer(\W*)(?i)join
+      scope: keyword.other.rightouterjoin.join.sidhdi
+    - match: (?i)full(\W*)(?i)outer(\W*)(?i)join
+      scope: keyword.other.fullouterjoin.join.sidhdi
+    - match: (?i)outer(\W*)(?i)join
+      scope: keyword.other.outerjoin.join.siddhi
+    - match: (?i)inner(\W*)(?i)join
+      scope: keyword.other.innerjoin.join.siddhi
+    - match: (?i)join
+      scope: keyword.other.join.siddhi
+  keywords:
+    - match: \b((?i)define|(?i)stream|(?i)table|(?i)window|(?i)output|(?i)function)\b
+      scope: keyword.control.siddhi
+    - match: (!|%|\+|\-|~=|==|=|!=|<|>|&&|\|\||\?:|\.\.\.|@)
+      scope: keyword.operator.siddhi
+    - match: \b((?i)all|(?i)events|(?i)expired|(?i)current)\b
+      scope: keyword.control.event.siddhi
+    - match: \b((?i)at|(?i)every)\b
+      scope: keyword.other.siddhi
+    - match: \b(?i)(years|months|hours|minutes|seconds|sec|min|hour|year|month)\b
+      scope: storage.type.timevalue.siddhi
+    - match: \(|\)
+      scope: support.constant.punctuation.siddhi
+  languageName:
+    - match: '\['
+      push:
+        - match: '\]'
+          pop: true
+        - include: comment
+        - match: "[a-zA-Z_][a-zA-Z_0-9]*"
+          scope: entity.name.tag.language.siddhi
+  limit:
+    - match: (?i)limit
+      push:
+        - meta_scope: phrase.limit.siddhi
+        - match: (?i)(?=offset|insert|update|output|;)
+          pop: true
+        - include: expression
+  mathOperation:
+    - include: comment
+    - match: \+|\*|\/|-|%|==|!=|\>=|<=|\>|\<
+      scope: operator.numerical.math.operation.siddhi
+    - match: \b(?i)(not|or|and)\b
+      scope: keyword.operator.logical.math.operation.siddhi
+    - match: \b(?i)is\b
+      scope: keyword.operator.is.math.operation.siddhi
+    - match: \b(?i)null\b
+      scope: keyword.operator.null.matoperation.siddhi
+    - match: \b(?i)in\b
+      scope: keyword.operator.in.math.operation.siddhi
+    - include: functionOperation
+    - include: constantValue
+    - include: attributeReference
+    - include: streamReference
+    - include: basicMathOperation
+  offset:
+    - match: (?i)offset
+      push:
+        - meta_scope: phrase.offset.siddhi
+        - match: (?i)(?=insert|update|output|\)|;)
+          pop: true
+        - include: expression
+  onCondition:
+    - match: (?i)(?<=\son)
+      push:
+        - meta_scope: on.expression.siddhi
+        - match: (?i)(?=select|within|;)
+          pop: true
+        - include: comment
+        - include: expression
+  onDemandInput:
+    - match: (?<=from)
+      push:
+        - meta_scope: input.ondemand.siddhi
+        - match: (?i)(?=select|delete|update|output)
+          pop: true
+        - include: comment
+        - match: (?i)\bas\b
+          scope: keyword.control.siddhi
+        - match: (?i)\bon\b
+          scope: keyword.control.siddhi
+        - match: (?i)\bper\b
+          scope: keyword.control.siddhi
+        - match: '(?<=from\Wevery)(\s*)[a-zA-Z_][a-zA-Z_0-9]*'
+          scope: variable.parameter.name.sourceid.ondemandquery.siddhi
+        - match: '(?<=from)(\s*)[a-zA-Z_][a-zA-Z_0-9]*'
+          scope: variable.parameter.name.sourceid.ondemandquery.siddhi
+        - match: '(?<=as)(\s*)[a-zA-Z_][a-zA-Z_0-9]*'
+          scope: variable.parameter.name.alias.ondemandquery.siddhi
+        - include: withinTimeRange
+        - include: expression
+  onDemandQuery:
+    - match: (?i)from
+      push:
+        - meta_scope: ondemand.query.siddhi
+        - match: ;
+          pop: true
+        - include: comment
+        - match: (?i)insert(\s*)(?i)into
+          scope: keyword.control.siddhi
+        - match: (?i)update
+          scope: keyword.control.siddhi
+        - match: (?i)delete
+          scope: keyword.control.siddhi
+        - match: (?i)update(\s*)(?i)or
+          scope: keyword.control.siddhi
+        - match: (?i)on
+          scope: keyword.control.siddhi
+        - include: onDemandInput
+        - include: querySection
+        - include: target
+        - include: setClause
+        - include: onDemandQueryOutput
+        - include: expression
+  onDemandQueryOutput:
+    - match: (?<= update|delete)
+      push:
+        - meta_scope: output.ondemand.siddhi
+        - match: (?=;)
+          pop: true
+        - include: comment
+        - include: target
+        - include: expression
+  order:
+    - match: (?i)\basc\b
+      scope: support.constant.siddhi
+    - match: (?i)\bdesc\b
+      scope: support.constant.siddhi
+  orderBy:
+    - match: ((?i)order)(\s*)((?i)by)
+      captures:
+        1: keyword.control.siddhi
+        3: keyword.control.siddhi
+      push:
+        - meta_scope: phrase.orderby.siddhi
+        - match: (?i)(?=limit|offset|insert|update|output|;)
+          pop: true
+        - include: comment
+        - include: order
+        - include: expression
+  outputAttribute:
+    - include: comment
+    - match: (?i)\bas\b
+      scope: keyword.control.siddhi
+    - include: attribute
+    - include: attributeName
+    - include: attributeReference
+  outputEventType:
+    - match: \b(?i)(all(\s\s*)events|expired(\s\s*)events|current(\s\s*)events|events)\b
+      scope: keyword.control.output.event.type.siddhi
+  outputRate:
+    - match: (?i)output
+      push:
+        - meta_scope: outputrate.siddhi
+        - match: (?i)(?=return|insert|delete|update|;)
+          pop: true
+        - include: comment
+        - include: outputRateType
+        - include: integerLiteral
+        - match: (?i)EVENTS
+          scope: keyword.control.siddhi
+        - match: (?i)EVERY
+          scope: keyword.control.siddhi
+        - match: (?i)SNAPSHOT
+          scope: keyword.control.siddhi
+        - match: \b(?i)(years|months|hours|minutes|seconds|sec|min|hour|year|month)\b
+          scope: constant.other.timevalue.siddhi
+  outputRateType:
+    - match: (?i)\b(ALL|LAST|FIRST)\b
+      scope: keyword.control.outputratetype.siddhi
+  partition:
+    - match: (?i)(?<=with)
+      push:
+        - meta_scope: partition.siddhi
+        - match: (?=;)
+          pop: true
+        - include: comment
+        - include: partitionWithStreamList
+        - include: queryBlock
+  partitionWithStream:
+    - include: comment
+    - match: (?i)of
+      scope: keyword.other.siddhi
+    - match: (?i)as
+      scope: keyword.other.siddhi
+    - include: attribute
+    - match: '(?i)(?<=of)\s*[a-zA-Z_][a-zA-Z_0-9]*'
+      scope: variable.parameter.streamid.siddhi
+    - include: stringValue
+    - include: expression
+  partitionWithStreamList:
+    - match: \(
+      push:
+        - meta_scope: partitionwithstreamlist.siddhi
+        - match: \)
+          pop: true
+        - include: comment
+        - include: partitionWithStream
+  perExpression:
+    - match: (?i)(?<=per)
+      push:
+        - meta_scope: on.expression.siddhi
+        - match: (?i)(?=select|output|insert|delete|update|return|;)
+          pop: true
+        - include: comment
+        - include: expression
+  propertyName:
+    - match: '(([a-zA-Z_][a-zA-Z_0-9]*[.])*[a-zA-Z_][a-zA-Z_0-9]*)(?=\s*\=)'
+      scope: variable.parameter.property.name.siddhi
+  propertyValue:
+    - include: stringValue
+  qqstring:
+    - match: \"
+      push:
+        - match: \"
+          pop: true
+        - match: \\.
+          scope: constant.character.escape.siddhi
+        - match: .
+          scope: string.quoted.double.siddhi
+  qstring:
+    - match: \'
+      push:
+        - match: \'
+          pop: true
+        - match: .
+          scope: string.quoted.single.siddhi
+  query:
+    - match: (?i)(?<=from)
+      push:
+        - meta_scope: query.siddhi
+        - match: (?=;)
+          pop: true
+        - include: comment
+        - include: queryInput
+        - include: querySection
+        - include: outputRate
+        - include: queryOutput
+  queryBlock:
+    - match: (?i)begin
+      push:
+        - match: (?i)end
+          pop: true
+        - include: comment
+        - match: (?i)from
+          scope: keyword.control.siddhi
+        - match: ;
+          scope: support.constant.siddhi
+        - include: query
+  queryInput:
+    - match: (?i)(?<=from)
+      push:
+        - meta_scope: input.query.siddhi
+        - match: (?i)(?=select|update|delete|return|insert)
+          pop: true
+        - include: comment
+        - match: (?<=from)\s*(?i)\bevery\b
+          scope: keyword.other.siddhi
+        - match: every
+          scope: keyword.other.siddhi
+        - match: (?i)\bper\b
+          scope: keyword.other.siddhi
+        - match: (?i)\bfor\b
+          scope: keyword.other.siddhi
+        - match: (?i)\bunidirectional\b
+          scope: keyword.other.siddhi
+        - match: (?i)\bas\b
+          scope: keyword.other.siddhi
+        - match: (?i)\b(and|or|not)\b
+          scope: keyword.operator.logical.siddhi
+        - match: \b(?i)on\b
+          scope: keyword.other.siddhi
+        - match: \b(?i)(years|months|hours|minutes|seconds|sec|min|hour|year|month)\b
+          scope: constant.other.timevalue.siddhi
+        - match: \b(?i)(not|or|and)\b
+          scope: keyword.operator.logical.math.operation.siddhi
+        - match: \?
+          scope: support.constant.siddhi
+        - match: \*
+          scope: support.constant.siddhi
+        - include: join
+        - include: onCondition
+        - match: '(?i)(?<=as)\s*[a-zA-Z_][a-zA-Z_0-9]*'
+          scope: entity.other.attribute-name.alias.siddhi
+        - match: '(?i)(?<=join)\s*[a-zA-Z_][a-zA-Z_0-9]*'
+          scope: entity.other.attribute-name.joinsource.right.siddhi
+        - include: withinTimeRange
+        - include: perExpression
+        - include: window
+        - include: filter
+        - include: anonymousStream
+        - include: sequenceSource
+        - include: streamFunction
+        - include: source
+        - include: propertyName
+        - include: integerLiteral
+  queryOutput:
+    - match: (?i)(insert|delete|update\s*or\s*insert\s*into|update|delete|return)
+      captures:
+        1: keyword.control.siddhi
+      push:
+        - meta_scope: output.query.siddhi
+        - match: (?=;)
+          pop: true
+        - match: (?i)\binto\b
+          scope: keyword.control.siddhi
+        - include: comment
+        - match: (?i)for
+          scope: keyword.control.siddhi
+        - match: (?i)on
+          scope: keyword.control.siddhi
+        - include: onCondition
+        - include: setClause
+        - include: outputEventType
+        - include: target
+  querySection:
+    - match: (?i)select
+      push:
+        - meta_scope: querysection.siddhi
+        - match: (?i)(?=insert|update|delete|return|output|\)|;)
+          pop: true
+        - include: comment
+        - match: \*
+          scope: support.constant.sddhi
+        - match: (?i)\bas\b
+          scope: keyword.other.siddhi
+        - include: groupBy
+        - include: having
+        - include: orderBy
+        - include: limit
+        - include: offset
+        - include: outputAttribute
+  sequenceSource:
+    - include: comment
+    - match: '(?<=\=)(\s*)[a-zA-Z_][a-zA-Z_0-9]*'
+      scope: entity.other.attribute-name.sequence.source.siddhi
+  setClause:
+    - match: (?i)set
+      push:
+        - meta_scope: setclause.ondemand.siddhi
+        - match: (?i)(?=on|update|delete)
+          pop: true
+        - include: attributeReference
+        - include: expression
+  siddhiApp:
+    - include: appAnnotation
+    - include: annotation
+    - include: definitionStream
+    - include: definitionTable
+    - include: definitionWindow
+    - include: definitionFunction
+    - include: definitionAggregation
+    - include: definitionTrigger
+    - include: comment
+    - include: executionElement
+    - include: keywords
+  source:
+    - include: comment
+    - match: '(?i)(?<=\stable)(\s*)(\s*[a-zA-Z_][a-zA-Z_0-9]*)'
+      scope: entity.other.attribute-name.streamid.source.siddhi
+    - match: '(?i)(?<=\sstream)(\s*[a-zA-Z_][a-zA-Z_0-9]*)'
+      scope: entity.other.attribute-name.streamid.source.siddhi
+    - match: '(?i)(?<=\swindow)(\s*[a-zA-Z_][a-zA-Z_0-9]*)'
+      scope: entity.other.attribute-name.streamid.source.siddhi
+    - match: '(?i)(?<=from)(\s*[a-zA-Z_][a-zA-Z_0-9]*)'
+      scope: entity.other.attribute-name.streamid.source.siddhi
+    - match: '(#)(\s*)([a-zA-Z_][a-zA-Z_0-9]*)'
+      scope: streamid.innserstream.source.siddhi
+      captures:
+        1: support.constant.siddhi
+        3: entity.other.attribute-name
+    - match: '(!)(\s*)([a-zA-Z_][a-zA-Z_0-9]*)'
+      scope: streamid.faultstream.source.siddhi
+      captures:
+        1: support.constant.siddhi
+        3: entity.other.attribute-name
+  standardStream:
+    - match: (?i)(?<=from)
+      push:
+        - meta_scope: standardstream.siddhi
+        - match: (?i)(?=select)
+          pop: true
+        - include: comment
+        - include: filter
+        - include: streamFunction
+        - include: source
+  streamFunction:
+    - match: '(#)(\s*)(?=[a-zA-Z_][a-zA-Z_0-9]*\(|[a-zA-Z_][a-zA-Z_0-9]*\s*:)'
+      captures:
+        1: support.constant.siddhi
+      push:
+        - meta_scope: stream.function.siddhi
+        - match: (?<=\))
+          pop: true
+        - include: comment
+        - include: functionOperation
+  streamReference:
+    - include: comment
+    - match: "#|!"
+      scope: support.constant.siddhi
+    - match: "[a-zA-Z_][a-zA-Z_0-9]*"
+      scope: variable.parameter.stream.reference.siddhi
+    - include: attributeIndex
+  stringLiteral:
+    - include: qstring
+    - include: qqstring
+  stringValue:
+    - include: stringLiteral
+  target:
+    - include: comment
+    - match: '(?i)(?<=into|update|delete)(\s*)([a-zA-Z_][a-zA-Z_0-9]*)'
+      scope: entity.other.attribute-name.source.target.siddhi
+    - match: '(?i)(?<=into|update|delete)(\s*)(#)(\W*)([a-zA-Z_][a-zA-Z_0-9]*)'
+      scope: source.target.siddhi
+      captures:
+        2: support.constant.siddhi
+        4: entity.other.attribute-name.siddhi
+    - match: '(?i)(?<=into|update|delete)(\s*)(!)(\W*)([a-zA-Z_][a-zA-Z_0-9]*)'
+      scope: source.target.siddhi
+      captures:
+        2: support.constant.siddhi
+        4: entity.other.attribute-name.siddhi
+  timeValue:
+    - include: integerLiteral
+  triggerName:
+    - match: "[a-zA-Z_][a-zA-Z_0-9]*"
+      scope: entity.other.attribute-name.name.trigger.siddhi
+  window:
+    - match: (#)(\s*)((?i)window)
+      captures:
+        1: support.constant.siddhi
+        3: keyword.control.siddhi
+      push:
+        - meta_scope: definition.stream.window.siddhi
+        - match: \b(?=(i?)select)\b|\b(?=(i?)as)\b
+          pop: true
+        - include: functionOperation
+  withinTimeRange:
+    - match: (?i)within
+      push:
+        - meta_scope: withintimerange.siddhi
+        - match: (?=per|select)
+          pop: true
+        - include: comment
+        - include: expression
