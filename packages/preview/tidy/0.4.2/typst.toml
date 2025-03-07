@@ -1,0 +1,12 @@
+[package]
+name = "tidy"
+version = "0.4.2"
+entrypoint = "src/tidy.typ"
+authors = ["Mc-Zen <https://github.com/Mc-Zen>"]
+license = "MIT"
+description = "Documentation generator for Typst code in Typst."
+
+repository = "https://github.com/Mc-Zen/tidy"
+categories = ["utility", "scripting", "model"]
+compiler = "0.11.0"
+exclude = ["/docs/*"]
