@@ -1,0 +1,27 @@
+[package]
+name = "tuhi-exam-vuw"
+version = "0.2.0"
+entrypoint = "tuhi-exam-vuw.typ"
+authors = ["baptiste <https://github.com/baptiste>"]
+license = "MPL-2.0"
+description = "A template for VUW exams."
+categories = ["office"]
+repository = "https://github.com/vuw-scps/tuhi-exam-vuw"
+exclude = [
+    "vuw-logo.svg",
+    "makefile",
+    "examples",
+    "package.sh",
+    "tests",
+    "docs",
+    ".github",
+    ".vscode",
+    ".git",
+    ".gitignore",
+    "**/*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
