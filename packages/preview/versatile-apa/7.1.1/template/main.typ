@@ -1,4 +1,4 @@
-#import "@preview/versatile-apa:7.1.0": *
+#import "@preview/versatile-apa:7.1.1": *
 
 #let doc-title = [American Psychological Association (APA) Style Template for Typst]
 

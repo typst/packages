@@ -1,4 +1,4 @@
-#import "@preview/versatile-apa:7.1.0": apa-figure
+#import "@preview/versatile-apa:7.1.1": apa-figure
 
 = Computer code
 The template has some support for raw/computer code, but if further customization is wanted, I recommend using #link("https://typst.app/universe/package/codly/")[Codly].
