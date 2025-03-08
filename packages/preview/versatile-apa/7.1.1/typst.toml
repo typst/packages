@@ -1,7 +1,7 @@
 [package]
 name = "versatile-apa"
 version = "7.1.1"
-compiler = "0.13.1"
+compiler = "0.13.0"
 entrypoint = "lib.typ"
 repository = "https://github.com/jassielof/typst-templates"
 authors = ["Jassiel Ovando <@jassielof>"]
