@@ -1,4 +1,4 @@
-#import "lib.typ": flexwrap
+#import "@preview/biceps:0.0.1": *
 
 #box(
   fill: blue,

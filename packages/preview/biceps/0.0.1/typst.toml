@@ -5,5 +5,6 @@ entrypoint = "lib.typ"
 authors = ["Julien Scholz <https://www.julien-scholz.dev>"]
 exclude = ["example.*", "screenshots/*", "flake.*"]
 categories = ["components", "layout"]
+keywords = ["flex", "flexbox", "wrap"]
 license = "MIT"
 description = "Layout algorithm for CSS-style flex-wrap behavior. 💪"
