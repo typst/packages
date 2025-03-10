@@ -85,7 +85,7 @@ typst init @preview/Quizst
 ### Basic Example
 
 ```typst
-#import "@preview/Quizst:0.1.0": quiz
+#import "@preview/quizst:0.3.2": quiz
 
 #let json_data = json("quiz.json")
 
