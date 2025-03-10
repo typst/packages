@@ -1,10 +1,11 @@
 [package]
-name = "Quizst"
+name = "quizst"
 version = "0.3.2"
 entrypoint = "lib.typ"
 authors = ["MuhammadAly11"]
 license = "MIT"
 description = "Typst template for McQ exams"
+exclude = ["example"]
 
 [template]
 path = "template"

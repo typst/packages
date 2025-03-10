@@ -2,18 +2,18 @@
 #let quiz(
   title: none,
   authors: (),
-  json_data: (),
+  json-data: (),
   paper-size: "a4",
   highlight-answer: false,
   body
 ) = {
   // Determine document title based on quiz type
-  let doc_title = if json_data.type == "lesson" {
-    json_data.module + " - " + json_data.subject
+  let doc_title = if json-data.type == "lesson" {
+    json-data.module + " - " + json-data.subject
   } else if title != none {
     title
   } else {
-    json_data.title + (if "module" in json_data { " - " + json_data.module } else { "" })
+    json-data.title + (if "module" in json-data { " - " + json-data.module } else { "" })
   }
 
   set document(title: doc_title, author: authors.map(author => author.name))
@@ -31,22 +31,22 @@
 
   // Header based on quiz type
   v(3pt, weak: true)
-  if json_data.type == "lesson" {
+  if json-data.type == "lesson" {
     align(center)[
-      #text(24pt, smallcaps(json_data.module))
+      #text(24pt, smallcaps(json-data.module))
       #v(2mm)
-      #text(18pt, json_data.subject + " - " + json_data.lesson)
+      #text(18pt, json-data.subject + " - " + json-data.lesson)
     ]
   } else {
     align(center)[
-      #text(24pt, smallcaps(json_data.title))
-      #if "module" in json_data {
+      #text(24pt, smallcaps(json-data.title))
+      #if "module" in json-data {
         v(2mm)
-        text(18pt, json_data.module)
+        text(18pt, json-data.module)
       }
-      #if "tags" in json_data and json_data.tags.len() > 0 {
+      #if "tags" in json-data and json-data.tags.len() > 0 {
         v(2mm)
-        text(14pt, json_data.tags.join(", "))
+        text(14pt, json-data.tags.join(", "))
       }
     ]
   }
@@ -73,7 +73,7 @@
   set text(20pt, weight: 500)
   v(2em)
   
-  for mcq in json_data.questions [
+  for mcq in json-data.questions [
     + #mcq.question:
       #set text(17pt, weight: 500)
       #block(inset: (left: 1.5em))[
@@ -100,7 +100,7 @@
     align: center,
     columns: (1fr, 1fr, 1fr, 1fr),
     gutter: 1em,
-    ..json_data.questions.map(mcq => [#mcq.sn. #mcq.answer])
+    ..json-data.questions.map(mcq => [#mcq.sn. #mcq.answer])
   )
 
   // add body
