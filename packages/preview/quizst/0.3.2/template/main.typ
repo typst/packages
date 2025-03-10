@@ -1,4 +1,4 @@
-#import "../lib.typ": quiz
+#import "@preview/Quizst": quiz
 
 #let json_data = json("input/example.json")
 
