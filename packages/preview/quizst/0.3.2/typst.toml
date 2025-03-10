@@ -6,6 +6,7 @@ authors = ["MuhammadAly11"]
 license = "MIT"
 description = "Typst template for McQ exams"
 exclude = ["example"]
+categories = "utility"
 
 [template]
 path = "template"
