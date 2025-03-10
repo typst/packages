@@ -40,7 +40,7 @@
 
         if type(item-flex) == fraction {
           if item-flex <= 0fr {
-            panic("Flex paramter can not be 0fr or less.")
+            panic("Flex parameter can not be 0fr or less.")
           }
           return axis-box(size: 0pt, [])
         }
@@ -98,7 +98,7 @@
           let item-flex = remaining-flex.at(index)
           if type(item-flex) == fraction {
             if item-flex <= 0fr {
-              panic("Flex paramter can not be 0fr or less.")
+              panic("Flex parameter can not be 0fr or less.")
             }
             let size = remaining-size * (item-flex / total-fractional)
 
