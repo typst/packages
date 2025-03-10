@@ -1,0 +1,38 @@
+{
+  "type": "lesson",
+  "module": "Mathematics",
+  "subject": "Algebra",
+  "lesson": "Quadratic Equations",
+  "questions": [
+    {
+      "sn": "1",
+      "source": "Chapter 3",
+      "question": "What is the standard form of a quadratic equation?",
+      "answer": "a",
+      "a": "ax² + bx + c = 0",
+      "b": "ax + b = 0",
+      "c": "ax³ + bx² + cx + d = 0",
+      "d": "ax + by = c"
+    },
+    {
+      "sn": "2",
+      "source": "Chapter 3",
+      "question": "What is the discriminant formula?",
+      "answer": "b",
+      "a": "a + b + c",
+      "b": "b² - 4ac",
+      "c": "a² + b²",
+      "d": "-b/2a"
+    },
+    {
+      "sn": "3",
+      "source": "Chapter 3",
+      "question": "If the discriminant is negative, what does it mean?",
+      "answer": "c",
+      "a": "One real root",
+      "b": "Two real roots",
+      "c": "Two complex roots",
+      "d": "No solution exists"
+    }
+  ]
+} 

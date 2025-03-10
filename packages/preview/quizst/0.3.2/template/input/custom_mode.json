@@ -1,0 +1,38 @@
+{
+  "type": "custom",
+  "title": "Programming Basics",
+  "module": "Computer Science",
+  "tags": ["programming", "beginners", "fundamentals"],
+  "questions": [
+    {
+      "sn": "1",
+      "source": "Variables",
+      "question": "What is a variable?",
+      "answer": "b",
+      "a": "A fixed value that never changes",
+      "b": "A container for storing data",
+      "c": "A type of function",
+      "d": "A programming language"
+    },
+    {
+      "sn": "2",
+      "source": "Data Types",
+      "question": "Which of the following is a primitive data type?",
+      "answer": "a",
+      "a": "Boolean",
+      "b": "Array",
+      "c": "Object",
+      "d": "Class"
+    },
+    {
+      "sn": "3",
+      "source": "Control Flow",
+      "question": "What is the purpose of an if statement?",
+      "answer": "c",
+      "a": "To repeat a block of code",
+      "b": "To define a function",
+      "c": "To make decisions in code",
+      "d": "To store data"
+    }
+  ]
+} 
