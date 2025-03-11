@@ -5,7 +5,6 @@ entrypoint = "lib.typ"
 authors = ["MuhammadAly11"]
 license = "MIT"
 description = "Typst template for McQ exams"
-exclude = ["input/"]
 categories = ["utility"]
 
 [template]
