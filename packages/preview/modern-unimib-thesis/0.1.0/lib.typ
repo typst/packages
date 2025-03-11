@@ -10,6 +10,7 @@
   date: (),
   logo: none,
   lang: "en",
+  bib:(),
   body
 ) = {
   // Language dictionary
@@ -114,5 +115,5 @@
   body
 
   pagebreak()
-  bibliography("refs.bib")
+  bibliography(bib)
 }

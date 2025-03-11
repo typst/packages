@@ -15,6 +15,7 @@
   supervisor: "Prof. Luca Manzi",
   co-supervisor: ("Saira Sanchez", "Prof. Annalisa Di Pasquali"),
   lang: "en",
+  bib: "refs.bib",
 )
 
 = Introduction
