@@ -2,7 +2,7 @@
 name = "modern-unimib-thesis"
 version = "0.1.0"
 compiler = "0.13.0"
-entrypoint = "main.typ"
+entrypoint = "lib.typ"
 repository = "https://github.com/michelebanfi/unimib-typst-template"
 authors = ["Michele Banfi"]
 license = "MIT"
