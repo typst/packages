@@ -12,4 +12,4 @@ categories = ["thesis"]
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "thumbnail.jpg"
