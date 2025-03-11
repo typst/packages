@@ -114,6 +114,8 @@
   })
   body
 
-  pagebreak()
-  bibliography(bib)
+  if bib != () {
+    pagebreak()
+    bibliography(bib)
+  }
 }

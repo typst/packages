@@ -15,7 +15,7 @@
   supervisor: "Prof. Luca Manzi",
   co-supervisor: ("Saira Sanchez", "Prof. Annalisa Di Pasquali"),
   lang: "en",
-  bib: "refs.bib",
+  // bib: "refs.bib",
 )
 
 = Introduction
@@ -28,7 +28,7 @@ $<POVM>
 
 @POVM are Great!
 = Preliminaries
-@Yoder_2014
+// @Yoder_2014
 
 = Acknowledgments // Ringraziamenti This is a special title name
 #lorem(100)
