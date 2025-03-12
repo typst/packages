@@ -20,7 +20,7 @@
   date: datetime.today(),
   show-country-code: false,
   letter: (
-    enterprise: none,
+    enterprise: true,
     dept: auto,
   ),
   skills: (

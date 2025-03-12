@@ -18,7 +18,8 @@ exclude = [
   ".git",
   ".gitignore",
   "justfile",
-  "CHANGELOG.md"
+  "CHANGELOG.md",
+  "SETUP.md"
 ]
 
 [template]
