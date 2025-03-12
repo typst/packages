@@ -1,0 +1,29 @@
+lowercase-letter = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" |
+                   "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" |
+                   "u" | "v" | "w" | "x" | "y" | "z";
+uppercase-letter = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" |
+                   "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "T" | "S" | "T" |
+                   "U" | "V" | "W" | "X" | "Y" | "Z";
+digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
+
+(* Arrows *)
+ltr-arrow = ["o" | "x"] ("-" | "--") right-tip ["o" | "x"];
+rtl-arrow = ["o" | "x"] left-tip ("-" | "--") ["o" | "x"];
+double-arrow = ["o" | "x"] left-tip ("-" | "--") right-tip ["o" | "x"];
+tip = "\\" | "\" | "/" | "//";
+left-tip = "<<" | "<" | tip;
+right-tip = ">>" | ">" | tip;
+arrow = ltr-arrow | rtl-arrow | double-arrow;
+
+id-char = lowercase-letter | uppercase-letter | digit | "_";
+id = id-char {id-char};
+participant-name = id ["as" id];
+
+color = "#";
+
+whitespace = " " | "\t" ;
+space = whitespace {whitespace};
+
+shape = "participant" | "actor" | "boundary" | "control" | "entity" | "database" | "collections" | "queue" | "custom";
+par-stmt = shape space participant-name [space color];
+seq-stmt = (participant-name | "?" | "[") [space] arrow [space] (participant-name | "?" | "]");
