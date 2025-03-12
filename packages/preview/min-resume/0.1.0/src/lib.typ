@@ -1,7 +1,7 @@
 // NAME: Minimal Résumé
 // REQ: linguify, icu-datetime, cades
 
-#import "@preview/linguify:0.4.0": linguify, set-database
+#import "@preview/linguify:0.4.2": linguify, set-database
 
 #let resume-name-state = state("resume-name")
 #let resume-title-state = state("reume-title")
