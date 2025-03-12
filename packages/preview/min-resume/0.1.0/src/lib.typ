@@ -1,5 +1,5 @@
 // NAME: Minimal Résumé
-// REQ: linguify, icu-datetime, cades
+// REQ: linguify, icu-datetime, tiaoma
 
 #import "@preview/linguify:0.4.2": linguify, set-database
 
@@ -485,25 +485,29 @@
 
 
 // Generate a Linkedin QR code:
-#let linkedin-qrcode(user, size) = {
-  import "@preview/cades:0.3.0": qr-code
+#let linkedin-qrcode(
+  user
+) = {
+  import "@preview/tiaoma:0.3.0": qrcode
   
   set align(center)
-  
   v(1fr)
   block(width: 100%)[
     // Link to Linkedin profile
     #link("https://www.linkedin.com/in/" + user)[
       // Generate QR Code to Linkedin profile
-      #qr-code(
+      #qrcode(
         "https://www.linkedin.com/in/" + user,
-        height: size
+        options: (
+          scale: 1.3,
+          option-1: 3
+        )
       )
       // Insert Linkedin logo above QR code:
       #place(center + horizon,
         block(
-          height: size * 0.4,
-          width: size * 0.4,
+          height: 1cm,
+          width: 1cm,
           image("assets/linkedin.png")  
         )
       )

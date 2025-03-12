@@ -86,7 +86,7 @@ My objective is to be hired and my goal is to work hard and earn some money.
 - Awarded as _Best Employee Ever 2025_
 
 
-#linkedin-qrcode("linkedin-username", 2cm)
+#linkedin-qrcode("linkedin-username")
 
 
 #letter[  
