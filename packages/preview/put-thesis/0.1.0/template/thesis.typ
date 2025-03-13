@@ -1,3 +1,12 @@
+/****************************************************************/
+/*                put-thesis – a Typst template                 */
+/*                Copyleft 2025 Piotr Kaszubski                 */
+/*                                                              */
+/*        based on Bachelor's & Master's Thesis Template        */
+/*  Copyleft by Dawid Weiss, Marta Szachniuk, Maciej Komosiński */
+/*          Faculty of Computing and Telecommunication          */
+/*            Poznan University of Technology, 2022             */
+/****************************************************************/
 #import "@preview/put-thesis:0.1.0": *
 
 #show: put-thesis.with(
