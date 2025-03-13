@@ -1,5 +1,5 @@
 #import "private.typ": *
-#import "@preview/linguify:0.4.1": linguify, set-database
+#import "@preview/linguify:0.4.2": linguify, set-database
 #import "@preview/headcount:0.1.0": dependent-numbering, reset-counter
 
 /// Initialize the thesis. This must be called before any other function of the template.
@@ -36,8 +36,8 @@
 
 	body,
 ) = {
-	if sys.version < version(0, 12, 0) {
-		panic("This template requires typst >=0.12.0")
+	if sys.version < version(0, 13, 0) {
+		panic("This template requires typst >=0.13.0")
 	}
 	assert(lang == "pl" or lang == "en", message: "Only \"pl\" or \"en\" languages are currently supported.")
 	assert(ttype == "bachelor" or ttype == "master", message: "Only \"bachelor\" or \"master\" thesis types are currently supported.")
@@ -65,60 +65,23 @@
 		indent: auto,
 	)
 	show: body => {
-		if sys.version < version(0, 13, 0) {
-			show outline.entry: it => {
-				let chapter_num = []
-				if it.element.numbering != none {
-					chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
-				} else {
-					// Ugly hack: bibliography is the only unnumbered top-level entry
-					v(18.5pt, weak: true)
-					link(it.element.location(), strong(linguify("bibliography")))
-					h(1fr)
-					link(it.element.location(), strong(it.page))
-					return
-				}
+		set outline.entry(fill: [#box(width: 1fr, repeat([.], gap: 4pt))#h(16pt)])
+		show outline.entry.where(level: 1): set block(above: 18.5pt)
+		show outline.entry.where(level: 1): set outline.entry(fill: none)
+		show outline.entry.where(level: 1): it => link(
+			it.element.location(),
+			strong(it.indented(it.prefix(), it.inner(), gap: 0pt)),
+		)
+		show outline.entry.where(level: 2): it => link(
+			it.element.location(),
+			it.indented([#h(2.5pt)#it.prefix()], it.inner(), gap: 0pt),
+		)
+		show outline.entry.where(level: 3): it => link(
+			it.element.location(),
+			it.indented(it.prefix(), it.inner(), gap: 1pt),
+		)
 
-				if it.level == 1 {
-					v(18.5pt, weak: true)
-					link(it.element.location())[
-						#strong(chapter_num)
-						#strong(it.element.body)
-					]
-					h(1fr)
-					link(it.element.location(), strong(it.page))
-				} else {
-					h(2pt)
-					link(it.element.location())[
-						#chapter_num
-						#it.element.body
-					]
-					h(6pt)
-					box(width: 1fr, repeat[.#h(4pt)])
-					h(16pt)
-					link(it.element.location(), it.page)
-				}
-			}
-			body
-		} else {
-			set outline.entry(fill: [#box(width: 1fr, repeat([.], gap: 4pt))#h(16pt)])
-			show outline.entry.where(level: 1): set block(above: 18.5pt)
-			show outline.entry.where(level: 1): set outline.entry(fill: none)
-			show outline.entry.where(level: 1): it => link(
-				it.element.location(),
-				strong(it.indented(it.prefix(), it.inner(), gap: 0pt)),
-			)
-			show outline.entry.where(level: 2): it => link(
-				it.element.location(),
-				it.indented([#h(2.5pt)#it.prefix()], it.inner(), gap: 0pt),
-			)
-			show outline.entry.where(level: 3): it => link(
-				it.element.location(),
-				it.indented(it.prefix(), it.inner(), gap: 1pt),
-			)
-
-			body
-		}
+		body
 	}
 
 	// Style bibliography
