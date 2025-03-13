@@ -38,7 +38,7 @@ Output:
 **Note:** Remember to terminate the list with a comma, even if only one pair of items is passed.
 
 ```typ
-#import "@preview/koma-labeling:0.1.0": labeling
+#import "@preview/koma-labeling:0.2.0": labeling
 
 #labeling(
   (
