@@ -218,13 +218,8 @@
     ]
   ]
   
-  show heading: it => {
-    block(
-      above: 1.5em,
-      below: 1em,
-      upper(it)
-    )
-  }
+  show heading: set block(above: par-margin, below: par-margin)
+  show heading: it => upper(it)
   
   body
 }
@@ -285,6 +280,7 @@
 
 
 // Insert a professional experience entry.
+// TODO: cfg.time-calc option
 #let xp(
   role: none,
   place: none,
@@ -299,8 +295,6 @@
       cfg.insert(key, value)
     }
   }
-  
-  set par(spacing: 0.65em)
   
   // Job role
   strong(role)
@@ -410,24 +404,33 @@
   }
   "."
   
+  set text(size: 1em - 1pt)
   
   // Show skills inline:
-  if cfg.display == "inline" and type(skills) == content {
+  if cfg.display == "inline" {
     let items = ()
     
-    for child in skills.children {
-      if child.has("body") {
-        items.push(child.body)
+    if type(skills) == content and skills.at("children", default: none) != none {
+      for child in skills.children {
+        if child.has("body") {
+          items.push(child.body)
+        }
       }
+      
+      linebreak()
+      items.join(cfg.sep)
     }
-    
-    linebreak()
-    items.join(cfg.sep)
+    else {
+      linebreak()
+      skills
+    }
   }
   // Show skills as topics:
   else if cfg.display == "list" {
-    parbreak()
-    pad(left: 1em)[#skills]
+    par(
+      spacing: 0.65em,
+      pad(left: 1em)[#skills]
+    )
   }
   else {
     panic("Invalid skills value: must be 'inline' or 'list'")
