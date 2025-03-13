@@ -1,7 +1,7 @@
 [package]
 name = "minimal-presentation"
 version = "0.6.0"
-compiler = "0.13.1"
+compiler = "0.13.0"
 entrypoint = "lib.typ"
 repository = "https://github.com/flavio20002/typst-presentation-minimal-template"
 authors = ["Flavio Barisi"]
