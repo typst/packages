@@ -8,7 +8,7 @@ description = "Unofficial thesis template for Poznań University of Technology"
 repository = "https://github.com/RoyalDonkey/put-thesis-typst"
 categories = ["thesis", "layout"]
 keywords = ["Poznań University of Technology", "Poznan University of Technology", "PUT", "Politechnika Poznańska", "PP", "bachelor", "master", "thesis", "dissertation"]
-compiler = "0.12.0"
+compiler = "0.13.0"
 exclude = [".gitignore", "*.sh", "shell.nix", ".envrc"]
 
 [template]
