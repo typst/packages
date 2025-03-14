@@ -5,4 +5,4 @@ entrypoint = "statementsp.typ"
 authors = ["Riley"]
 license = "MIT"
 repository = "https://github.com/Riley719/typst-statementsp"
-description = "Happy statementbox and its cross refference system."
+description = "Happy statement box and its cross referrence system."

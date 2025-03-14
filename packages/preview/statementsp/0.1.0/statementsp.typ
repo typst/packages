@@ -29,7 +29,7 @@
     let box-title-display = ""
     if box-title != none {
       if box-title != "" {
-        box-title-display = " :(" + box-title + ")"
+        box-title-display = ": " + box-title
       }
     }
     if number {
