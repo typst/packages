@@ -9,7 +9,7 @@ This package requires typst 0.13
 To use this package, simply add the following code to your document:
 
 ```typ
-#import "@preview/arborly:0.1.1"
+#import "@preview/arborly:0.2.0"
 
 #let tree = ("TP", (
   ("NP", (
