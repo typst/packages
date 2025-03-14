@@ -45,7 +45,7 @@ For example, the code below...
 
 ## Reference
 
-_Note: For a detailed explanation of the functions and parameters, see Chic-header's Manual.pdf._
+_Note: For a detailed explanation of the functions and parameters, see [Chic-header's Manual.pdf](https://github.com/Pablo-Gonzalez-Calderon/chic-header-package)_
 
 While using `#show: chic.with()`, you can give the following parameters inside the parenthesis:
 - `width`: Indicates the width of headers and footers in all the document (default is `100%`).
