@@ -109,6 +109,19 @@ Required for submissions to this repository:
   will automatically be excluded from the package files and must not be
   referenced anywhere in the package.
 
+   If you have ImageMagick and [oxipng] installed, you could produce
+   a thumbnail file `thumbnail.png` from `foo.typ` as follows:
+   
+   ```shell
+   typst compile foo.typ
+   magick -density 250 foo.pdf[0] -flatten thumbnail.png
+   oxipng -o 2 thumbnail.png
+   ```
+   
+   (`foo.pdf[0]` selects the first page, `-flatten` uses white
+   rather than transparent background, and `-o 2` is a good
+   optimisation level for `oxipng`.)
+
 Template packages must specify at least one category in `package.categories`.
 
 If you're submitting a template, please test that it works locally on your
