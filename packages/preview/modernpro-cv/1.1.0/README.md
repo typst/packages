@@ -59,7 +59,7 @@ The template has the following arguments:
 If you want to use the single column version, you create a new `.typ` file and copy the following code:
 
 ```Typst
-#import "@preview/modernpro-cv:1.0.2": *
+#import "@preview/modernpro-cv:1.1.0": *
 #import "@preview/fontawesome:0.5.0": *
 
 #show: cv-single.with(
