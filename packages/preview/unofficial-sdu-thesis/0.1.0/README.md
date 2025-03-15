@@ -17,14 +17,14 @@
 - [thesis.pdf](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/template/thesis.pdf)
 - [thesis.typ](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/template/thesis.typ)
 
-实际上，理想的情况下，你几乎只需要修改`thesis.typ`文件即可完成你的工作。
+实际上，理想的情况下，你几乎只需要修改 `thesis.typ`文件即可完成你的工作。
 
 ## 简洁示例
 
 > 此示例未包含正文之后的部分及图表应用，具体仍请参考[thesis.typ](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/template/thesis.typ)
 
 ```typst
-#import "../lib.typ": documentclass, algox, tablex, fonts, fontsize
+#import "@preview/unofficial-sdu-thesis:0.1.0": documentclass, algox, tablex, fonts, fontsize
 
 #let (
   info,
@@ -94,22 +94,22 @@ Many years later, as he faced the firing squad, Colonel Aureliano Buendía was t
 ## 特性 / 路线图
 
 - 模板
-  - [x] 本科生模板
-  - [x] 封面
-  - [x] 中文摘要
-  - [x] 英文摘要
-  - [x] 目录页
+  - [X] 本科生模板
+  - [X] 封面
+  - [X] 中文摘要
+  - [X] 英文摘要
+  - [X] 目录页
   - [ ] 插图目录
   - [ ] 表格目录
   - [ ] 符号表
-  - [x] 致谢
+  - [X] 致谢
   - [ ] 引用
 - 编号
-  - [x] 正文-关联章节图表编号
+  - [X] 正文-关联章节图表编号
   - [ ] 附录-无关联图表编号
 - 全局配置
-  - [x] 类似 LaTeX 中的 documentclass 的全局信息配置
+  - [X] 类似 LaTeX 中的 documentclass 的全局信息配置
   - [ ] 盲审模式，将个人信息替换成小黑条，并且隐藏致谢页面，论文提交阶段使用
   - [ ] 双面模式，会加入空白页，便于打印
-  - [x] 自定义字体配置，可以配置「宋体」、「黑体」与「楷体」等字体对应的具体字体
-  - [x] 数学字体配置：模板不提供配置，用户可以自己使用 #show math.equation: set text(font: "Fira Math").
+  - [X] 自定义字体配置，可以配置「宋体」、「黑体」与「楷体」等字体对应的具体字体
+  - [X] 数学字体配置：模板不提供配置，用户可以自己使用 #show math.equation: set text(font: "Fira Math").
