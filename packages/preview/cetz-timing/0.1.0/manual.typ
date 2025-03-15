@@ -1,5 +1,5 @@
 #import "@preview/mantys:1.0.1": *
-#import "@preview/cetz:0.3.2"
+#import "@preview/cetz:0.3.4"
 #import "./cetz-timing.typ": texttiming, timingtable, wave, parse-sequence
 
 #let package = toml("typst.toml").package
