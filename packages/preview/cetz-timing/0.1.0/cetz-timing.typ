@@ -1,4 +1,4 @@
-  #import "@preview/cetz:0.3.2"
+#import "@preview/cetz:0.3.2"
 
 /// Width used for transition between different signal levels.
 /// Value between 0.0 and 2.0
@@ -27,17 +27,17 @@
   )
 )
 
-#let is_sig(c) = (
+#let is-sig(c) = (
   return c in ("H", "L", "Z", "X", "M")
 )
 
-#let is_data(c) = (
+#let is-data(c) = (
   return c in ("D", "U")
 )
 
-#let resolve_color(c: str, color: color) = {
+#let resolve-color(c: str, color: color) = {
   let predefined = none
-  if is_sig(c) {
+  if is-sig(c) {
     predefined = sig-info.at(c).color
   }
   else {
@@ -52,7 +52,7 @@
   }
 }
 
-#let from_data(pos, sig, amplitude: float) = {
+#let from-data(pos, sig, amplitude: float) = {
   import cetz.draw: line
   let trans_startA = (x: pos.x, y: pos.y - amplitude / 2.0)
   let trans_startB = (x: pos.x, y: pos.y + amplitude / 2.0)
@@ -64,7 +64,7 @@
   line(trans_startB, trans_end)
 }
 
-#let to_data(pos, sig, amplitude: float) = {
+#let to-data(pos, sig, amplitude: float) = {
   import cetz.draw: line
   let trans_start = (x: pos.x + transition-width / 2.0, y: pos.y)
   let trans_endA = (x: pos.x + transition-width, y: pos.y - amplitude / 2.0)
@@ -80,12 +80,12 @@
   #place(line(start: (0%, 100%), end: (100%, 0%), stroke: 0.5pt))
 ]
 
-#let data(pos, sig, x_end: float, amplitude: float) = {
+#let data(pos, sig, x-end: float, amplitude: float) = {
   import cetz.draw: line, rect
   let sig_startA = (x: pos.x, y: pos.y + amplitude / 2.0)
-  let sig_endA = (x: x_end, y: pos.y + amplitude / 2.0)
+  let sig_endA = (x: x-end, y: pos.y + amplitude / 2.0)
   let sig_startB = (x: pos.x, y: pos.y - amplitude / 2.0)
-  let sig_endB = (x: x_end, y: pos.y - amplitude / 2.0)
+  let sig_endB = (x: x-end, y: pos.y - amplitude / 2.0)
   if sig == "U" {
     rect(sig_startA, sig_endB, stroke: none, fill: pat)
   }
@@ -96,7 +96,7 @@
   line(sig_startB, sig_endB)
 }
 
-#let from_sig(pos, sig, instant: bool, amplitude: float) = {
+#let from-sig(pos, sig, instant: bool, amplitude: float) = {
   import cetz.draw: line
   // resolve transition width
   let width = if instant { 0 } else { transition-width }
@@ -105,7 +105,7 @@
   line(trans_start, trans_end)
 }
 
-#let to_sig(pos, sig, instant: bool, amplitude: float) = {
+#let to-sig(pos, sig, instant: bool, amplitude: float) = {
   import cetz.draw: line
   // resolve transition width
   let width = if instant { 0 } else { transition-width }
@@ -114,10 +114,10 @@
   line(trans_start, trans_end)
 }
 
-#let sig(pos, sig, x_end: float, amplitude: float) = {
+#let sig(pos, sig, x-end: float, amplitude: float) = {
   import cetz.draw: line
   let sig_start = (x: pos.x, y: pos.y + sig-info.at(sig).level * amplitude / 2.0)
-  let sig_end = (x: x_end, y: pos.y + sig-info.at(sig).level * amplitude / 2.0)
+  let sig_end = (x: x-end, y: pos.y + sig-info.at(sig).level * amplitude / 2.0)
   if sig == "M" {
 
     // zick zack repetitions
@@ -125,7 +125,7 @@
     // zick zack amplitude
     let amp = amplitude * 0.4
     // length of one zick zack repetition
-    let rep_len = (x_end - pos.x) / rep
+    let rep_len = (x-end - pos.x) / rep
     // length of one zick zack element
     let seg_len = rep_len / 4
 
@@ -359,40 +359,40 @@
       c = toggle-lut.at(previous)
       instant = true
     }
-    let col = resolve_color(c: c, color: stroke.paint)
+    let col = resolve-color(c: c, color: stroke.paint)
     set-style(stroke: stroke.thickness + col)
     let pos = (x: origin.x + tick * xunit, y: origin.y)
     let sig_pos = pos
     if c != previous or explicit-transition {
-      if is_sig(previous) {
-        from_sig(pos, previous, instant: instant, amplitude: amplitude)
+      if is-sig(previous) {
+        from-sig(pos, previous, instant: instant, amplitude: amplitude)
       }
-      else if is_data(previous) {
-        from_data(pos, previous, amplitude: amplitude)
+      else if is-data(previous) {
+        from-data(pos, previous, amplitude: amplitude)
       }
-      if is_sig(c) {
-        to_sig(pos, c, instant: instant, amplitude: amplitude)
+      if is-sig(c) {
+        to-sig(pos, c, instant: instant, amplitude: amplitude)
       }
-      else if is_data(c){
-        to_data(pos, c, amplitude: amplitude)
+      else if is-data(c){
+        to-data(pos, c, amplitude: amplitude)
       }
       if not instant {
         sig_pos.x += transition-width
       }
     }
-    if is_sig(c) {
+    if is-sig(c) {
       sig(
         sig_pos,
         c,
-        x_end: pos.x + xunit,
+        x-end: pos.x + xunit,
         amplitude: amplitude
       )
     }
-    else if is_data(c) {
+    else if is-data(c) {
       data(
         sig_pos,
         c,
-        x_end: pos.x + xunit,
+        x-end: pos.x + xunit,
         amplitude: amplitude
       )
     }
