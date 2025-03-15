@@ -1,5 +1,4 @@
-#import "../styles/fonts.typ": fonts, fontsize
-#import "../lib.typ": documentclass, algox, tablex
+#import "../lib.typ": documentclass, algox, tablex, fonts, fontsize
 
 #let (
   info,
