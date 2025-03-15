@@ -2,11 +2,13 @@
 #import "@preview/cetz:0.3.4"
 
 // LaTeX font sizes: https://tex.stackexchange.com/a/24600
-#let footnotesize = 8pt
-#let small = 9pt
-#let large = 12pt
-#let Large = 14.4pt
-#let huge = 20.74pt
+#let font-sizes = (
+  footnotesize: 8pt,
+  small: 9pt,
+  large:  12pt,
+  Large:  14.4pt,
+  huge:  20.74pt
+)
 
 // Put the name of an author in the margin next to the previous heading.
 #let heading-author(content) = context {
@@ -19,7 +21,7 @@
     move(
       dx: -here-pos.x + 2.5mm,
       dy: -here-pos.y + heading-pos.y,
-      box(width: 25mm, align(right, text(content, footnotesize)))
+      box(width: 25mm, align(right, text(content, font-sizes.footnotesize)))
     )
   )
 }
@@ -31,7 +33,7 @@
 
 // Add an abstract to the document.
 #let abstract(content) = {
-  set text(small)
+  set text(font-sizes.small)
   set par(first-line-indent: (amount: 1.8em, all: true), justify: false)
   v(1em)
   align(center,
@@ -166,7 +168,7 @@
             image("logoUvA_en.svg", width: 5cm),
           ),
           align(right,
-            text(footnotesize,
+            text(font-sizes.footnotesize,
               smallcaps[
                 #assignment-type \
                 #assignment-name
@@ -186,17 +188,17 @@
 
       let c = counter(page)
       if c.get() == (1,) {
-        text(small,
+        text(font-sizes.small,
           emph[#total-words #nl-en[woorden][words]]
         )
       } else {
-        text(footnotesize, authors.join([, ]))
+        text(font-sizes.footnotesize, authors.join([, ]))
       }
 
       h(1fr)
 
       upper(
-        text(small * 0.8,
+        text(font-sizes.small * 0.8,
           c.display(
             both: true,
             (from, to) => {
@@ -218,13 +220,13 @@
         image("logoUvA_en.svg", width: 7cm),
       ),
       v(1cm),
-      text(Large, smallcaps(assignment-name)),
+      text(font-sizes.Large, smallcaps(assignment-name)),
       v(0.4cm),
-      text(huge, strong(title)),
+      text(font-sizes.huge, strong(title)),
       v(0.4cm),
       andrew-line(0.1, 29, 0.5, gradient: true),
       v(0.4cm),
-      text(large, nl-en(format-date-nl(), format-date-en())),
+      text(font-sizes.large, nl-en(format-date-nl(), format-date-en())),
       v(0.5cm),
 
       grid(columns: (1fr, 41%, 41%, 1fr),
@@ -237,7 +239,7 @@
           }:_ \
           #authors.zip(ids).map(((author, id)) => [
             #author \
-            #text(small, id)
+            #text(font-sizes.small, id)
             #v(0.2cm - 0.5em) \
           ]).join()
         ],
