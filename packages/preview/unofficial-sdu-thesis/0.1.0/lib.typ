@@ -8,10 +8,6 @@
 #import "pages/bib.typ": bibliography-page
 #import "pages/acknowledgement.typ": acknowledgement-page
 #import "styles/figures.typ": algox, tablex
-// #import "pages/declare.typ": declare-page
-// #import "pages/conclusion.typ": conclusion-page
-// #import "pages/under-cover.typ": under-cover-page
-// 
 #let documentclass(
   info: (:),
 ) = {
