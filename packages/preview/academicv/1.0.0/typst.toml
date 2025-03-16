@@ -9,7 +9,6 @@ description = "A clean, flexible curriculum vitae (CV) template using Typst and 
 keywords = ["CV", "Curriculum Vitae", "Resume", "Minimalistic", "Academic", "Academia", "Science", "YAML", "Data"]
 categories = ["cv"]
 disciplines = []
-homepage = "https://github.com/roaldarbol/academicv"
 repository = "https://github.com/roaldarbol/academicv"
 
 
