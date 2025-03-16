@@ -1,10 +1,11 @@
-#import "@preview/unofficial-hka-thesis:1.0.0": *
+#import "@preview/unofficial-hka-thesis:1.0.1": *
 #import "abbreviations.typ": abbreviations
 #import "settings/metadata.typ": *
 #import "settings/settings.typ": *
-#import "@preview/glossarium:0.5.1": make-glossary
+#import "@preview/glossarium:0.5.4": make-glossary, register-glossary
 
 #show: make-glossary
+#register-glossary(abbreviations)
 
 #set document(title: title-english, author: author)
 #open-title-page(settings: settings)
@@ -34,7 +35,7 @@
   submission-date: submission-date,
 )
 
-#preface(settings: settings)
+#show: preface.with(settings: settings)
 
 // Citations - applied here so that you are able to use a local CSL file to define the citation style
 #set cite(style: settings.citation-style)

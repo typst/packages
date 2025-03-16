@@ -11,7 +11,7 @@ on the dashboard and searching for `unofficial-hka-thesis`.
 Locally, you can use the following command to start with this templates:
 
 ```bash
-typst init @preview/unofficial-hka-thesis:1.0.0
+typst init @preview/unofficial-hka-thesis:1.0.1
 ```
 
 ### Features

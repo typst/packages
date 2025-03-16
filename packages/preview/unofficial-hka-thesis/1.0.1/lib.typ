@@ -1,5 +1,5 @@
 #import "modules/titlepage.typ": *
-#import "@preview/glossarium:0.5.1": print-glossary, register-glossary
+#import "@preview/glossarium:0.5.4": print-glossary, register-glossary
 
 #let in-outline = state("in-outline", false)
 #let flex-caption(long, short) = context {
@@ -7,7 +7,8 @@
 }
 
 #let preface(
-  settings: ()
+  settings: (),
+  preface
 ) = {
   // Page Setup
   set page(
@@ -48,6 +49,8 @@
   //Indentation of Lists
   set list(indent: settings.list-indentation)
   set enum(indent: settings.list-indentation)
+
+  preface
 }
 
 #let listings(
@@ -68,7 +71,7 @@
       
     },
     target: heading.where(supplement: [Chapter], outlined: true),
-    indent: true,
+    indent: auto,
     depth: 3
   )
   
@@ -206,7 +209,7 @@
   )
   counter(page).update(1)
   // Set after header and after all initial pages to just apply it to the acutal content
-  set par(spacing: settings.space-before-paragraph)
+  set par(spacing: settings.space-before-paragraph, justify: true)
 
   // Actual Content
   body
@@ -220,7 +223,7 @@
       heading("Appendix", outlined: true, numbering: none)
     },
     target: heading.where(supplement: [Appendix], outlined: true),
-    indent: true,
+    indent: auto,
     depth: 3
   )
 
