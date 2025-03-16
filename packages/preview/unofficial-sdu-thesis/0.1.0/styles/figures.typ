@@ -53,7 +53,7 @@
   header: (),
   columns: auto,
   rows: auto,
-  colnum,
+  colnum: 1,
   caption: none,
   label-name: "",
   alignment: center,
