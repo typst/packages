@@ -40,7 +40,7 @@
         }
     }
 
-    #set text(font: settings.font_body, weight: "medium", size: settings.fontsize)
+    #set text(font: settings.font-body, weight: "medium", size: settings.fontsize)
     #pad(x: 0em)[
         #profiles.join([#sym.space.en | #sym.space.en])
     ]
