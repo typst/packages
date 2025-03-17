@@ -1,5 +1,8 @@
 #import "@preview/academicv:1.0.0": *
 
+// Or for local development
+// #import "../cv.typ": *
+
 // Import your CV data
 #let cv_data = yaml("template.yml")
 

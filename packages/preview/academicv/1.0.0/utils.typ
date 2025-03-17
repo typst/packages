@@ -1,5 +1,5 @@
 // Merge with defaults for any missing settings
-#let convert_string_to_length(string) = {
+#let convert-string-to-length(string) = {
   if type(string) == str {
     if string.ends-with("pt") {
       return float(string.replace("pt", "")) * 1pt
@@ -17,17 +17,17 @@
   }
 }
 
-#let convert_string_to_color(string_value) = {
-  if type(string_value) == str {
-    if string_value.starts-with("rgb(") and string_value.ends-with(")") {
-      let rgb_str = string_value.slice(4, string_value.len() - 1)
-      let components = rgb_str.split(",").map(s => int(float(s.trim())))
+#let convert-string-to-color(string-value) = {
+  if type(string-value) == str {
+    if string-value.starts-with("rgb(") and string-value.ends-with(")") {
+      let rgb-str = string-value.slice(4, string-value.len() - 1)
+      let components = rgb-str.split(",").map(s => int(float(s.trim())))
       if components.len() == 3 {
         return rgb(components.at(0), components.at(1), components.at(2))
       }
-    } else if string_value.starts-with("rgba(") and string_value.ends-with(")") {
-      let rgba_str = string_value.slice(5, string_value.len() - 1)
-      let components = rgba_str.split(",")
+    } else if string-value.starts-with("rgba(") and string-value.ends-with(")") {
+      let rgba-str = string-value.slice(5, string-value.len() - 1)
+      let components = rgba-str.split(",")
       if components.len() == 4 {
         let r = int(float(components.at(0).trim()))
         let g = int(float(components.at(1).trim()))
@@ -35,9 +35,9 @@
         let a = float(components.at(3).trim())
         return rgba(r, g, b, a)
       }
-    } else if string_value.starts-with("#") {
+    } else if string-value.starts-with("#") {
       // Convert hex color to rgb
-      let hex = string_value.slice(1)
+      let hex = string-value.slice(1)
       if hex.len() == 6 {
         let r = int(hex.slice(0, 2), base: 16)
         let g = int(hex.slice(2, 4), base: 16)

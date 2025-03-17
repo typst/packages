@@ -1,30 +1,30 @@
-#import "utils.typ": convert_string_to_length, convert_string_to_color
+#import "utils.typ": convert-string-to-length, convert-string-to-color
 
-#import "layouts/header.typ": layout_header
-#import "layouts/numbered_list.typ": layout_numbered_list
-#import "layouts/prose.typ": layout_prose
-#import "layouts/timeline.typ": layout_timeline
+#import "layouts/header.typ": layout-header
+#import "layouts/numbered-list.typ": layout-numbered-list
+#import "layouts/prose.typ": layout-prose
+#import "layouts/timeline.typ": layout-timeline
 
 // set rules
 #let setrules(settings, doc) = {
     set text(
-        font: settings.font_body,
+        font: settings.font-body,
         size: settings.fontsize,
         hyphenate: false,
     )
 
     set list(
-        spacing: settings.spacing_line
+        spacing: settings.spacing-line
     )
 
     set par(
-        leading: settings.spacing_line,
+        leading: settings.spacing-line,
         justify: true,
     )
 
     show link: it => {
         text(
-            fill: settings.color_hyperlink,
+            fill: settings.color-hyperlink,
         )[#it]
     }
 
@@ -37,9 +37,9 @@
     show heading.where(
         level: 2,
     ): it => block(width: 100%)[
-        #v(settings.spacing_section)
+        #v(settings.spacing-section)
         #set align(left)
-        #set text(font: settings.font_heading, size: 1em, weight: "semibold")
+        #set text(font: settings.font-heading, size: 1em, weight: "semibold")
         #if (settings.at("headingsmallcaps", default:false)) {
             smallcaps(it.body)
         } else {
@@ -52,7 +52,7 @@
     show heading.where(
         level: 1,
     ): it => block(width: 100%)[
-        #set text(font: settings.font_heading, size: 1.1em, weight: "semibold")
+        #set text(font: settings.font-heading, size: 1.1em, weight: "semibold")
         #if (settings.at("headingsmallcaps", default:false)) {
             smallcaps(it.body)
         } else {
@@ -75,37 +75,37 @@
 // Main section rendering function
 #let cvsection(info, layout: none, section: none, title: none, settings: none, isbreakable: true) = {
     // Use the provided section, or default to the layout name if no section is specified
-    let section_key = section
+    let section-key = section
     
     // Set default title based on layout type if not provided
-    let section_title = title
+    let section-title = title
 
     // Only render the section if it exists in the info data (skip title check for header)
-    if ((section_key in info) and (info.at(section_key) != none)) or layout == "header" {
+    if ((section-key in info) and (info.at(section-key) != none)) or layout == "header" {
         // For header layout, don't add a section title
         if layout == "header" {
-            layout_header(info.personal, isbreakable: isbreakable)
+            layout-header(info.personal, isbreakable: isbreakable)
         } else {
             block[
-                == #section_title
+                == #section-title
                 
                 // Use the appropriate layout function based on layout
                 #if layout == "prose" {
-                    layout_prose(info.at(section_key), isbreakable: isbreakable)
+                    layout-prose(info.at(section-key), isbreakable: isbreakable)
                 } else if layout == "timeline" {
                     // Get the primary, secondary, tertiary elements from the section if they exist
-                    let primary = if "primary_element" in info { info.primary_element } else { "none" }
-                    let secondary = if "secondary_element" in info { info.secondary_element } else { "none" }
-                    let tertiary = if "tertiary_element" in info { info.tertiary_element } else { "none" }
+                    let primary = if "primary-element" in info { info.primary-element } else { "none" }
+                    let secondary = if "secondary-element" in info { info.secondary-element } else { "none" }
+                    let tertiary = if "tertiary-element" in info { info.tertiary-element } else { "none" }
                     
-                    layout_timeline(info.at(section_key), 
-                                   primary_element: primary, 
-                                   secondary_element: secondary, 
-                                   tertiary_element: tertiary, 
+                    layout-timeline(info.at(section-key), 
+                                   primary-element: primary, 
+                                   secondary-element: secondary, 
+                                   tertiary-element: tertiary, 
                                    settings: settings,
                                    isbreakable: isbreakable)
-                } else if layout == "numbered_list" {
-                    layout_numbered_list(info.at(section_key), isbreakable: isbreakable)
+                } else if layout == "numbered-list" {
+                    layout-numbered-list(info.at(section-key), isbreakable: isbreakable)
                 } else {
                     [No layout function defined for "#layout"]
                 }
@@ -117,7 +117,7 @@
 }
 
 // Function to create data for a section that uses the new structure
-#let get_section_data(section, cv_data) = {
+#let get-section-data(section, cv-data) = {
   // Create a dictionary that will hold all relevant section data
   let result = (:)
   
@@ -127,8 +127,8 @@
     result.insert("entries", section.entries)
   } else {
     // If the section doesn't have entries, use the existing top-level data
-    if section.key in cv_data {
-      result.insert("entries", cv_data.at(section.key))
+    if section.key in cv-data {
+      result.insert("entries", cv-data.at(section.key))
     } else {
       // Set empty array if data is not found
       result.insert("entries", [])
@@ -136,14 +136,14 @@
   }
   
   // Add layout configuration if present
-  if "primary_element" in section {
-    result.insert("primary_element", section.primary_element)
+  if "primary-element" in section {
+    result.insert("primary-element", section.primary-element)
   }
-  if "secondary_element" in section {
-    result.insert("secondary_element", section.secondary_element)
+  if "secondary-element" in section {
+    result.insert("secondary-element", section.secondary-element)
   }
-  if "tertiary_element" in section {
-    result.insert("tertiary_element", section.tertiary_element)
+  if "tertiary-element" in section {
+    result.insert("tertiary-element", section.tertiary-element)
   }
   
   return result

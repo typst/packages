@@ -1,4 +1,4 @@
-#let layout_numbered_list(data, isbreakable: true) = {
+#let layout-numbered-list(data, isbreakable: true) = {
   // Set width for the number column
   let number_width = 2em
   

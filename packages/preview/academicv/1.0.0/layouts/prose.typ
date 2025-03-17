@@ -1,4 +1,4 @@
-#let layout_prose(data, isbreakable: true) = {
+#let layout-prose(data, isbreakable: true) = {
   // Set left margin to match the numbered list for consistency
   let left_margin = 2em
   

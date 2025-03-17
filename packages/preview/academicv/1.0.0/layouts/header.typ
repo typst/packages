@@ -1,5 +1,5 @@
 // Job titles
-#let jobtitletext(data, settings) = {
+#let jobtitle-text(data, settings) = {
     if ("titles" in data.personal and data.personal.titles != none) {
         block(width: 100%)[
             #text(weight: "semibold", data.personal.titles.join("  /  "))
@@ -9,7 +9,7 @@
 }
 
 // Address
-#let addresstext(data, settings) = {
+#let address-text(data, settings) = {
     if ("location" in data.personal and data.personal.location != none) {
         // Filter out empty address fields
         let address = data.personal.location.pairs().filter(it => it.at(1) != none and str(it.at(1)) != "")
@@ -23,7 +23,7 @@
     } else {none}
 }
 
-#let contacttext(data, settings) = block(width: 100%)[
+#let contact-text(data, settings) = block(width: 100%)[
     #let profiles = (
         if "email" in data.personal.contact and data.personal.contact.email != none { box(link("mailto:" + data.personal.contact.email)) },
         if ("phone" in data.personal.contact and data.personal.contact.phone != none) {box(link("tel:" + data.personal.contact.phone))} else {none},
@@ -47,7 +47,7 @@
 ]
 
 
-#let layout_header(data, settings, isbreakable: true) = {
+#let layout-header(data, settings, isbreakable: true) = {
 
     align(center)[
         = #data.personal.name
@@ -56,15 +56,15 @@
             if "include" in section {
                 for item in section.include {
                     if item == "titles" {
-                        jobtitletext(data, settings)
+                        jobtitle-text(data, settings)
                     }
                     
                     if item == "location" {
-                        addresstext(data, settings)
+                        address-text(data, settings)
                     }
                     
                     if item == "contact" {
-                        contacttext(data, settings)
+                        contact-text(data, settings)
                     }
                 }
             }
