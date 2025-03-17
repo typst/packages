@@ -8,7 +8,6 @@ description = "A Clean Slide Theme for Touying"
 repository = "https://github.com/kazuyanagimoto/touying-clean-theme"
 keywords = ["touying", "slide", "theme"]
 categories = ["presentation"]
-exclude = ["template"]
 
 [template]
 path = "template"

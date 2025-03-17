@@ -2,7 +2,7 @@
 
 A minimalistic, clean and simple [Touying](https://touying-typ.github.io/) slide theme for [Typst](https://typst.app). Theme design is deeply inspired by Grant McDermott's [Clean theme](https://github.com/grantmcdermott/quarto-revealjs-clean) for [Quarto](https://quarto.org) + [Reveal.js](https://revealjs.com).
 
-![](thumbnail.png)
+![Thumbnail](thumbnail.png)
 
 ## Quarto Clean Theme
 
