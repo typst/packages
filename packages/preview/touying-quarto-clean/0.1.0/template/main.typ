@@ -1,4 +1,4 @@
-#import "@preview/touying-clean-theme:0.1.0": *
+#import "@preview/touying-quarto-clean:0.1.0": *
 
 #show: clean-theme.with()
 
