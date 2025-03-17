@@ -4,10 +4,10 @@
 // #import "../cv.typ": *
 
 // Import your CV data
-#let cv_data = yaml("template.yml")
+#let cv-data = yaml("template.yml")
 
 // Validate that required fields exist in each section
-#for section in cv_data.sections {
+#for section in cv-data.sections {
   if "key" not in section {
     panic("Missing 'key' in section: " + str(section))
   }
@@ -20,49 +20,49 @@
 }
 
 // Get settings from YAML file
-#let settings = cv_data.settings
+#let settings = cv-data.settings
 
 // Define default settings if not present in YAML
-#let default_settings = (
-  font_heading: "Libertinus Serif",
-  font_body: "Libertinus Serif",
+#let default-settings = (
+  font-heading: "Libertinus Serif",
+  font-body: "Libertinus Serif",
   fontsize: 10pt,         // Must be a string with unit
-  spacing_section: 12pt,  // Space between sections. Must be a string with unit
-  spacing_entry: 0.1em,   // Space between entries within a section. Must be a string with unit
-  spacing_element: 3pt,   // Space between elements within an entry. Must be a string with unit
-  spacing_line: 5pt,      // Space between lines within an element. Must be a string with unit
-  color_hyperlink: rgb(0, 0, 255),   // Can be either a colour string or a rgb() value
+  spacing-section: 12pt,  // Space between sections. Must be a string with unit
+  spacing-entry: 0.1em,   // Space between entries within a section. Must be a string with unit
+  spacing-element: 3pt,   // Space between elements within an entry. Must be a string with unit
+  spacing-line: 5pt,      // Space between lines within an element. Must be a string with unit
+  color-hyperlink: rgb(0, 0, 255),   // Can be either a colour string or a rgb() value
 )
 
 // Merge with defaults for any missing settings
 #let settings = if settings != none {
   // First add any missing settings from defaults
-  for (k, v) in default_settings {
+  for (k, v) in default-settings {
     if k not in settings {
       settings.insert(k, v)
     }
   }
   
   // Convert length strings to actual length values
-  let settings_length = ("fontsize", "spacing_line", "spacing_section", "spacing_entry", "spacing_element")
+  let settings-length = ("fontsize", "spacing-line", "spacing-section", "spacing-entry", "spacing-element")
 
   // Page settings separately
-  for setting in settings_length {
-    settings.at(setting) = convert_string_to_length(settings.at(setting))
+  for setting in settings-length {
+    settings.at(setting) = convert-string-to-length(settings.at(setting))
   }
   if "page" in settings and "margin" in settings.page {
-    settings.page.margin = convert_string_to_length(settings.page.margin)
+    settings.page.margin = convert-string-to-length(settings.page.margin)
   }
 
   // Convert color strings to actual colors
-  let settings_color = ("color_hyperlink",)
-  for setting in settings_color {
-    settings.at(setting) = convert_string_to_color(settings.at(setting))
+  let settings-color = ("color-hyperlink",)
+  for setting in settings-color {
+    settings.at(setting) = convert-string-to-color(settings.at(setting))
   }
   
   settings
 } else {
-  default_settings
+  default-settings
 }
 
 #let customrules(doc) = {
@@ -98,8 +98,8 @@
     // Set hyperlink styling
     show link: it => {
         text(
-            fill: if "color_hyperlink" in settings { 
-              settings.color_hyperlink 
+            fill: if "color-hyperlink" in settings { 
+              settings.color-hyperlink 
             } else { 
               rgb(0, 0, 255) // Default blue
             },
@@ -120,12 +120,12 @@
 #show: doc => cvinit(doc)
 
 // Process CV sections dynamically based on the YAML configuration
-#if "sections" in cv_data {
-  for section in cv_data.sections {
+#if "sections" in cv-data {
+  for section in cv-data.sections {
     if section.at("show", default: true) == true {
       if section.key == "personal" {
         // Special case for personal/heading section
-        layout_header(cv_data, settings)
+        layout-header(cv-data, settings)
       } else {
         // Standard sections
         let layout = section.layout
@@ -133,27 +133,27 @@
         let title = section.title
         
         // Get the data for this section
-        let section_data = get_section_data(section, cv_data)
+        let section-data = get-section-data(section, cv-data)
         
         // Create a temporary dictionary with just this section's data
-        let temp_data = (
-          personal: cv_data.personal,  // Keep personal for reference
-          (key): section_data.entries,  // Add this section's entries
+        let temp-data = (
+          personal: cv-data.personal,  // Keep personal for reference
+          (key): section-data.entries,  // Add this section's entries
         )
         
         // Add layout configuration if present
-        if "primary_element" in section_data {
-          temp_data.insert("primary_element", section_data.primary_element)
+        if "primary-element" in section-data {
+          temp-data.insert("primary-element", section-data.primary-element)
         }
-        if "secondary_element" in section_data {
-          temp_data.insert("secondary_element", section_data.secondary_element)
+        if "secondary-element" in section-data {
+          temp-data.insert("secondary-element", section-data.secondary-element)
         }
-        if "tertiary_element" in section_data {
-          temp_data.insert("tertiary_element", section_data.tertiary_element)
+        if "tertiary-element" in section-data {
+          temp-data.insert("tertiary-element", section-data.tertiary-element)
         }
         
         // Call cvsection with the appropriate data
-        cvsection(temp_data, layout: layout, section: key, settings: settings, title: title)
+        cvsection(temp-data, layout: layout, section: key, settings: settings, title: title)
       }
     }
   }

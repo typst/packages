@@ -2,14 +2,14 @@
 
 # Document settings
 settings:
-  font_heading: "Libertinus Serif"
-  font_body: "Libertinus Serif"
+  font-heading: "Libertinus Serif"
+  font-body: "Libertinus Serif"
   fontsize: 10pt
-  spacing_section: 12pt
-  spacing_entry: 0.1em
-  spacing_element: 3pt
-  spacing_line: 5pt
-  color_hyperlink: rgb(50, 120, 180)
+  spacing-section: 12pt
+  spacing-entry: 0.1em
+  spacing-element: 3pt
+  spacing-line: 5pt
+  color-hyperlink: rgb(50, 120, 180)
   page:
     paper: "a4"
     numbering: "1 / 1"
@@ -55,56 +55,56 @@ sections:
 
   - key: education
     layout: timeline
-    primary_element: ["institution"]
-    secondary_element: ["title"]
+    primary-element: ["institution"]
+    secondary-element: ["title"]
     title: Education
     show: true
     entries:
       - institution: Stanford University
         location: Stanford, CA
         title: Ph.D. in Computer Science, Machine Learning
-        start_date: 2015
-        end_date: 2019
+        start-date: 2015
+        end-date: 2019
       - institution: Massachusetts Institute of Technology
         location: Cambridge, MA
         title: M.S. in Computer Science
-        start_date: 2013
-        end_date: 2015
+        start-date: 2013
+        end-date: 2015
       - institution: University of California, Berkeley
         location: Berkeley, CA
         title: B.S. in Computer Science
-        start_date: 2009
-        end_date: 2013
+        start-date: 2009
+        end-date: 2013
 
   - key: experience
     layout: timeline
-    primary_element: ["institution"]
-    secondary_element: ["title"]
-    tertiary_element: ["description"]
+    primary-element: ["institution"]
+    secondary-element: ["title"]
+    tertiary-element: ["description"]
     title: Professional Experience
     show: true
     entries:
       - institution: TechCorp AI
         title: Senior Data Scientist
-        start_date: 01/2020
-        end_date: Present
+        start-date: 01/2020
+        end-date: Present
         description: |
           Lead a team of five data scientists developing computer vision algorithms for autonomous systems. Developed and deployed machine learning models that improved object detection accuracy by 35% while reducing false positives by 40%. Collaborated with cross-functional teams to integrate AI solutions into production systems.
       - institution: DataViz Solutions
         title: Machine Learning Engineer
-        start_date: 06/2019
-        end_date: 12/2019
+        start-date: 06/2019
+        end-date: 12/2019
         description: |
           Designed and implemented natural language processing systems for customer sentiment analysis. Created a scalable pipeline for processing over 1 million text documents daily. Reduced model training time by 60% through optimization techniques.
       - institution: Stanford AI Lab
         title: Research Assistant
-        start_date: 09/2015
-        end_date: 05/2019
+        start-date: 09/2015
+        end-date: 05/2019
         description: |
           Conducted research on reinforcement learning algorithms for robotic applications. Published three papers in top-tier ML conferences (NeurIPS, ICML). Developed open-source libraries for deep reinforcement learning research.
 
   - key: publications
-    layout: numbered_list
+    layout: numbered-list
     title: Publications
     show: true
     entries:
@@ -118,60 +118,60 @@ sections:
 
   - key: teaching
     layout: timeline
-    primary_element: ["title", "institution"]
-    secondary_element: ["professors"]
-    tertiary_element: ["description"]
+    primary-element: ["title", "institution"]
+    secondary-element: ["professors"]
+    tertiary-element: ["description"]
     title: Teaching Experience
     show: true
     entries:
       - institution: Stanford University
         title: Advanced Machine Learning
         professors: ["Prof. Sarah Johnson"]
-        start_date: 2018
-        end_date: 2019
+        start-date: 2018
+        end-date: 2019
         description: |
           Teaching assistant for graduate-level course. Led weekly discussion sections, created homework assignments, and held office hours for a class of 120 students.
       - institution: Stanford University
         title: Introduction to Artificial Intelligence
         professors: ["Prof. Michael Brown", "Prof. Lisa Chen"]
-        start_date: 2017
-        end_date: 2018
+        start-date: 2017
+        end-date: 2018
         description: |
           Teaching assistant for undergraduate course. Developed programming assignments and grading rubrics. Received Teaching Excellence Award based on student evaluations.
       - institution: MIT OpenCourseWare
         title: Python for Data Science
-        start_date: 2016
+        start-date: 2016
         description: |
           Created and recorded a series of online tutorials covering Python programming for data analysis and machine learning applications. Course has been accessed by over 50,000 students worldwide.
 
   - key: awards
     layout: timeline
-    primary_element: ["title", "institution"]
-    tertiary_element: ["description"]
+    primary-element: ["title", "institution"]
+    tertiary-element: ["description"]
     title: Honors & Awards
     show: true
     entries:
       - institution: Association for Computing Machinery (ACM)
         title: Rising Star in Artificial Intelligence
-        start_date: 2022
+        start-date: 2022
         description: |
           Annual award recognizing early-career researchers with exceptional contributions to the field of artificial intelligence.
       - institution: NeurIPS
         title: Best Paper Award
-        start_date: 2020
+        start-date: 2020
         description: |
           Awarded for our paper "A Novel Approach to Uncertainty Estimation in Deep Reinforcement Learning."
       - institution: Stanford University
         title: Outstanding Doctoral Dissertation
-        start_date: 2019
+        start-date: 2019
         description: |
           Awarded for dissertation "Advancing Reinforcement Learning for Real-world Applications."
       - institution: Stanford Computer Science Department
         title: Teaching Excellence Award
-        start_date: 2018
+        start-date: 2018
       - institution: National Science Foundation
         title: Graduate Research Fellowship
-        start_date: 2015
-        end_date: 2018
+        start-date: 2015
+        end-date: 2018
         description: |
           Three-year fellowship funding doctoral research in computer science.
