@@ -3,12 +3,12 @@ name = "unofficial-sdu-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["gr00ve"]
-license = "MIT"
+license = "WTFPL"
 description = "山东大学本科毕业论文（设计）模板"
-repository = "https://github.com/GrooveWJH/unofficial-sdu-thesis"
+repository = "https://github.com/GrooveWJH/typst-sdu-thesis"
 keywords = ["Shandong University", "Thesis"]
 categories = ["thesis"]
-exclude = ["fonts"]
+exclude = ["fonts","template/img","template/thesis.pdf"]
 
 [template]
 path = "template"
