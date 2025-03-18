@@ -1,4 +1,4 @@
-#import "src/lib.typ": *
+#import "@preview/frame-it:1.1.1": *
 #import "src/utils/html.typ": *
 
 #let base-color-arg = (:)
