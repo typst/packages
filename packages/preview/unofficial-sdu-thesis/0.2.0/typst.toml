@@ -8,7 +8,7 @@ description = "山东大学本科毕业论文（设计）模板"
 repository = "https://github.com/GrooveWJH/typst-sdu-thesis"
 keywords = ["Shandong University", "Thesis"]
 categories = ["thesis"]
-exclude = ["fonts","template/img","template/thesis.pdf","imgs/readme"]
+exclude = ["fonts","template/img","template/thesis.pdf","imgs/readme/gif.gif"]
 
 [template]
 path = "template"
