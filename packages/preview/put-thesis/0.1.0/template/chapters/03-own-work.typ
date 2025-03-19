@@ -1,7 +1,7 @@
 = Own work <chap:own-work>
 
 "Own work" is a a very informal title that should be redacted to whatever makes
-sence for a particular thesis.
+sense for a particular thesis.
 
 In general, this is where one or more chapters must document the original work
 done by the authors -- from the idea and the methodology used to solve the
