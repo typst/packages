@@ -1,5 +1,6 @@
 #import "@preview/unofficial-sdu-thesis:0.2.0": documentclass, algox, tablex, fonts, fontsize
-
+// 如果是本地安装，则使用
+// #import "@local/unofficial-sdu-thesis:0.2.0": documentclass, algox, tablex, fonts, fontsize
 #let (
   info,
   doc,
@@ -170,10 +171,7 @@ The world was so recent that many things lacked names, and in order @bay_surf_20
   ),
 )
 
-
 == 公式格式
-
-
 // 公式的引用请以 eqt 开头
 我要引用 @eqt:equation。
 
@@ -213,7 +211,6 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
     ),
   )
 ]
-
 
 = 总结与展望
 总结全文并展望。主要撰写论文工作的结论、创新点、不足之处、进一步研究展望等内容，不宜插入图表。
