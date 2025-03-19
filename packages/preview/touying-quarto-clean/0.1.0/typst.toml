@@ -5,7 +5,7 @@ authors = ["Kazuharu Yanagimoto <kazuharu.yanagimoto@gmail.com>"]
 license = "MIT"
 entrypoint = "lib.typ"
 description = "A Clean Slide Theme for Touying"
-repository = "https://github.com/kazuyanagimoto/touying-quarto-clean"
+repository = "https://github.com/kazuyanagimoto/quarto-clean-typst"
 keywords = ["touying", "slide", "theme"]
 categories = ["presentation"]
 
