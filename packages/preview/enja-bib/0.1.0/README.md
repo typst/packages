@@ -45,7 +45,7 @@ Licensed under MIT.
 
 > 現在すぐに使用可能なスタイル一覧
 > - `bib_setting_plain`：bibtexの`jplain`を再現したスタイル
-> - `bib_setting_jsme`：日本機会学会の引用を再現したスタイル
+> - `bib_setting_jsme`：日本機械学会の引用を再現したスタイル
 
 ## それぞれの関数の使い方
 
