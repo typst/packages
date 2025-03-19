@@ -2,7 +2,7 @@
 name = "now-radboud-thesis"
 version = "0.1.0"
 entrypoint = "radboud-thesis.typ"
-authors = ["Jorrit de Boer @Jorritboer"]
+authors = ["Jorrit de Boer <@Jorritboer>"]
 license = "BSD-2-Clause"
 description = "Thesis template for Radboud University"
 repository = "https://github.com/Jorritboer/radboud-thesis-typst"
