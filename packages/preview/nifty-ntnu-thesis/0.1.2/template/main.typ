@@ -1,5 +1,5 @@
 //#import "lib.typ": *
-#import "@preview/nifty-ntnu-thesis:0.1.1": *
+#import "@preview/nifty-ntnu-thesis:0.1.2": *
 #let chapters-on-odd = false
 #show: nifty-ntnu-thesis.with(
   title: [An NTNU Thesis typst template],
@@ -150,7 +150,7 @@ caption: [
 )
 <fig:mapNTNU>
 
-For figures compsed of several sub-figures, the `subpar` module has been used. See #link(<fig:subfig>)[2.4]
+For figures compsed of several sub-figures, the `subpar` module has been used. To use it, use the function ```typst #subfigure()```. See #link(<fig:subfig>)[2.2]
 with #link(<sfig:a>)[\[sfig:a\]] for an example.
 
 #subfigure(
@@ -164,6 +164,17 @@ with #link(<sfig:a>)[\[sfig:a\]] for an example.
 <fig:subfig>
     
 )
+```typst 
+#subfigure(
+  figure(image("figures/kart_student.png", width: 100%),
+    caption: [First sub-figure]), <sfig:a>,
+  figure(image("figures/kart_student.png", width: 100%),
+    caption: [Second sub-figure]), <sfig:b>,
+    columns: (1fr, 1fr),
+   caption: [A figure composed of two sub-figures. It has a long caption in order to demonstrate how that is typeset.
+  ],
+<fig:subfig>
+```
 
 == Tables
 <tables>
