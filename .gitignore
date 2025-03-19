@@ -9,3 +9,4 @@ desktop.ini
 
 # Rust
 /bundler/target
+/packages/preview/tuhi-presentation-vuw/0.1.0/test
