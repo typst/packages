@@ -63,7 +63,7 @@ _Ars Gong Fu Cha_ adhibita est non solum in domibus, sed etiam in monasteriis, u
 ]
 
 #image-slide(background: image("bkg.jpg"))[
-  #set text(font:"Virgil 3 YOFF", size: 38pt)
+  #set text(font:("Virgil 3 YOFF", "Permanent Marker",), size: 34pt)
   #place(dx:5.0in,dy:1.0em)[#align(center)[tene tranquillus  \ tea bibe#v(1em,weak:true) \~ ]]
 ]
 
