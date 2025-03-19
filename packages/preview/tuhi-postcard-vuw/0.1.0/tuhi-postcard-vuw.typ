@@ -1,6 +1,5 @@
 
 #import "@preview/codetastic:0.2.2": qrcode
-#import "@preview/octique:0.1.0": octique-inline
 
 #let bleed = 8.5pt
 #let trim = 29.5pt
@@ -84,6 +83,24 @@ logo-width: 4.21cm,
 colours: (rgb(110,81,55), rgb(113, 135, 121)),
 ) = {
 
+let phone-raw = read("telephone-fill.svg")
+let phone-icon = phone-raw.replace(
+  "black", // white
+  colours.at(0).to-hex(),
+)
+
+let email-raw = read("envelope-at-fill.svg")
+let email-icon = email-raw.replace(
+  "black", // white
+  colours.at(0).to-hex(),
+)
+
+let info-raw = read("info-circle-fill.svg")
+let info-icon = info-raw.replace(
+  "black", // white
+  colours.at(0).to-hex(),
+)
+
 
 let bright-replace = logo-bytes.replace(
   "black", // white
@@ -137,20 +154,22 @@ place(dx:1.8cm,dy:1.9cm)[#set par(leading: 0.15em)
 let contact-details = {
 set text(fill:darkgrey,size: 7.5pt, tracking:0.1pt, weight: 400)
 // text(font: "fontello", fill: colours.at(0), size: 11pt)[]
-octique-inline("device-mobile", color: colours.at(0), width: 1.2em)
+// octique-inline("device-mobile", color: colours.at(0), width: 1.2em)
+box(baseline: 20%,image(bytes(phone-icon), width:1.2em))
 h(1em)
 text(font: "Inter")[#contact.phone]
 v(1em, weak: true)
 // text(font: "fontello", fill: colours.at(0), size: 11pt)[]
-octique-inline("mail", color: colours.at(0), width: 1.2em)
+// octique-inline("mail", color: colours.at(0), width: 1.2em)
+box(baseline: 20%,image(bytes(email-icon), width:1.2em))
 h(1em)
 text(font: "Inter")[#contact.email]
 v(1em, weak: true)
 // text(font: "fontello", fill: colours.at(0), size: 11pt)[]
-octique-inline("info", color: colours.at(0), width: 1.2em)
+// octique-inline("info", color: colours.at(0), width: 1.2em)
+box(baseline: 20%,image(bytes(info-icon), width:1.2em))
 h(1em)
 text(font: "Inter")[#contact.url]}
-
 place(dx:1.8cm,dy:4.7cm)[
   #box(width: page-width - 2.2cm)[
 #columns(3, gutter: 12pt)[
