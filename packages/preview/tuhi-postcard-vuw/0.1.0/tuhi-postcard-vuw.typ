@@ -1,6 +1,6 @@
 
 #import "@preview/codetastic:0.2.2": qrcode
-
+#import "@preview/octique:0.1.0": octique-inline
 
 #let bleed = 8.5pt
 #let trim = 29.5pt
@@ -136,15 +136,18 @@ place(dx:1.8cm,dy:1.9cm)[#set par(leading: 0.15em)
 // 
 let contact-details = {
 set text(fill:darkgrey,size: 7.5pt, tracking:0.1pt, weight: 400)
-text(font: "fontello", fill: colours.at(0), size: 11pt)[]
+// text(font: "fontello", fill: colours.at(0), size: 11pt)[]
+octique-inline("device-mobile", color: colours.at(0), width: 1.2em)
 h(1em)
 text(font: "Inter")[#contact.phone]
 v(1em, weak: true)
-text(font: "fontello", fill: colours.at(0), size: 11pt)[]
+// text(font: "fontello", fill: colours.at(0), size: 11pt)[]
+octique-inline("mail", color: colours.at(0), width: 1.2em)
 h(1em)
 text(font: "Inter")[#contact.email]
 v(1em, weak: true)
-text(font: "fontello", fill: colours.at(0), size: 11pt)[]
+// text(font: "fontello", fill: colours.at(0), size: 11pt)[]
+octique-inline("info", color: colours.at(0), width: 1.2em)
 h(1em)
 text(font: "Inter")[#contact.url]}
 
