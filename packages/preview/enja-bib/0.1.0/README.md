@@ -9,7 +9,7 @@ Licensed under MIT.
 - 日本語文献と英語文献が混在した文書に対応
     - 日本語文献と英語文献で異なる設定が可能
     - yomiフィールドの利用で，日本語文献のアルファベット順に並び替えが可能
-- typstで使用される`bibliography`関数を使用しないため，CSLファイルによる設定が不要（代わりに`bib_style/bib_setting_custom/bib_setting_〇〇.typ`ファイル内で設定）
+- typstで使用される`bibliography`関数を使用しないため，CSLファイルによる設定が不要（代わりに`bib-style/bib-setting-custom/bib-setting-〇〇.typ`ファイル内で設定）
 - 文中のどこでも引用が可能（`citet`，`citep`関数が利用可能）
 - 「アルファベット順並び替え／リスト順」「引用文献のみ／全て表示」「バンクーバー／ハーバード方式表示」の切り替えが可能
 
@@ -23,18 +23,18 @@ Licensed under MIT.
 1. 自分のtypstファイルの最初の方に以下を追記
     ```typst
     #import "@preview/enja-bib:0.1.0": *
-    #import bib_setting_plain: *
-    #show: bib_init
+    #import bib-setting-plain: *
+    #show: bib-init
     ```
 
 ### フォルダを直接コピーする方法
 
-1. `bib_style`フォルダを自分のディレクトリにコピー
+1. `bib-style`フォルダを自分のディレクトリにコピー
 1. 自分のtypstファイルの最初の方に以下を追記
     ```typst
-    #import "bib_style/lib.typ": *
-    #import bib_setting_plain: *
-    #show: bib_init
+    #import "bib-style/lib.typ": *
+    #import bib-setting-plain: *
+    #show: bib-init
     ```
 1. 自分のtypstファイルの中で文献を挿入したい部分に，`bibliography-list`関数を利用して文献を書く
     ```typst
@@ -44,8 +44,8 @@ Licensed under MIT.
     ```
 
 > 現在すぐに使用可能なスタイル一覧
-> - `bib_setting_plain`：bibtexの`jplain`を再現したスタイル
-> - `bib_setting_jsme`：日本機械学会の引用を再現したスタイル
+> - `bib-setting-plain`：bibtexの`jplain`を再現したスタイル
+> - `bib-setting-jsme`：日本機械学会の引用を再現したスタイル
 
 ## それぞれの関数の使い方
 
@@ -88,7 +88,7 @@ Licensed under MIT.
 
 `bib-file`関数には，`read`で囲われた`.bib`ファイル名を入れる
 
-> `bib_file`関数は複数文献の配列として返すため，`..`の記述が**必須**であることに注意
+> `bib-file`関数は複数文献の配列として返すため，`..`の記述が**必須**であることに注意
 
 ### `bib-item`関数
 
@@ -134,7 +134,7 @@ Licensed under MIT.
 
 ## 独自のスタイルを適用する方法
 
-`bib_setting_plain`や`bib_setting_jsme`以外の独自のスタイルを設定，或いは一部を変更するには，それぞれの関数に引数を設定します．
+`bib-setting-plain`や`bib-setting-jsme`以外の独自のスタイルを設定，或いは一部を変更するには，それぞれの関数に引数を設定します．
 
 ### 全体設定
 
@@ -145,7 +145,7 @@ Licensed under MIT.
   bib-sort-ref,
   bib-full,
   bib-vancouver,
-  vancouver_style,
+  vancouver-style,
   bib-year-doubling,
   bib-vancouver-manual,
   ...
@@ -157,14 +157,14 @@ Licensed under MIT.
 - `bib-sort-ref`：引用されている順番にソートを行うか（`bool`型）
 - `bib-full`：引用されている文献だけでなく全ての文献を表示するか（`bool`型）
 - `bib-vancouver`：vancouverスタイル設定時の番号付け（`string`型）
-- `vancouver_style`：vancouverスタイルにするか（`bool`型）
+- `vancouver-style`：vancouverスタイルにするか（`bool`型）
 - `bib-year-doubling`：重複著者・年号文献の year-doubling に表示する文字列（`string`型）
 - `bib-vancouver-manual`：`bib-vancouver = "manual"`のときの設定
 
 ### 参照設定
 
 ```typst
-#bib_init(
+#bib-init(
   bib-cite
 )
 ```

@@ -1,5 +1,5 @@
 
-#import "bib_tex.typ": *
+#import "bib-tex.typ": *
 
 
 // --------------------------------------------------
@@ -71,7 +71,7 @@
 //  INITIALIZATION
 // --------------------------------------------------
 
-#let bib_init(
+#let bib-init(
   bib-cite: (),
   body,
 ) = {
@@ -107,13 +107,13 @@
 
 
 
-#let from_content_to_output(
+#let from-content-to-output(
   year-doubling,
   bib-sort,
   bib-sort-ref,
   bib-full,
   bib-vancouver,
-  vancouver_style,
+  vancouver-style,
   bib-year-doubling,
   bib-vancouver-manual,
   hanging-indent,
@@ -185,7 +185,7 @@
 
     // ----- 重複文献に記号を挿入 ----- //
 
-    if vancouver_style == false{//ハーバード方式のとき
+    if vancouver-style == false{//ハーバード方式のとき
       let cite-arr = ()
       for value in output_contents{
         cite-arr.push(value.at(1).join(", "))
@@ -225,7 +225,7 @@
     let num = 1
     let output_bib = ()
 
-    if vancouver_style and bib-vancouver != "manual"{
+    if vancouver-style and bib-vancouver != "manual"{
       for value in output_contents{
         let cite-arr = value.at(1)
         cite-arr.push(value.at(4))
@@ -249,7 +249,7 @@
 
     // ----- 出力 ----- //
 
-    if vancouver_style{
+    if vancouver-style{
       if bib-vancouver == "manual"{
         let output_bib2 = ()
         let cite-arr = ()
@@ -297,7 +297,7 @@
   bib-sort-ref: false,
   bib-full: false,
   bib-vancouver: "(1)",
-  vancouver_style: false,
+  vancouver-style: false,
   bib-year-doubling: "a",
   bib-vancouver-manual: "",
   hanging-indent: 2em,
@@ -317,13 +317,13 @@
   }
 
   let bib_content = body
-  from_content_to_output(
+  from-content-to-output(
     year-doubling,
     bib-sort,
     bib-sort-ref,
     bib-full,
     bib-vancouver,
-    vancouver_style,
+    vancouver-style,
     bib-year-doubling,
     bib-vancouver-manual,
     hanging-indent,
@@ -369,11 +369,11 @@
     lang: auto,
     it
   ) = {
-  let dict = bibtex_to_dict(it)
-  let dict = add_dict_lang(dict, lang)
+  let dict = bibtex-to-dict(it)
+  let dict = add-dict-lang(dict, lang)
 
   let output_arr = ()
-  let bib_element_function = get_element_function(
+  let bib_element_function = get-element-function(
     bibtex-article-en,
     bibtex-article-ja,
     bibtex-book-en,
@@ -546,5 +546,3 @@
 
   return output-bib
 }
-
-//#import "bib_setting_style.typ": *

@@ -1,5 +1,5 @@
-#import "../bib_style.typ"
-#import "../bib_setting_fucntion.typ": *
+#import "../bib-style.typ" as bib_style
+#import "../bib-setting-fucntion.typ": *
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 // 引用スタイル設定 (ここにある変数名は変えたり消したりしないよう注意)
@@ -23,7 +23,7 @@
 
 // vancouverスタイル設定
 #let bib-vancouver = "(1)"
-#let vancouver_style = false
+#let vancouver-style = false
 
 // 重複著者・年号文献の year-doubling に表示する文字列
 #let bib-year-doubling = "a"
@@ -768,7 +768,7 @@
 // 関数の設定（以下は何も変更しないよう注意）
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-#let bib_init = bib_style.bib_init.with(bib-cite: bib-cite)
+#let bib-init = bib_style.bib-init.with(bib-cite: bib-cite)
 
 #let bibliography-list = bib_style.bibliography-list.with(
   year-doubling: year-doubling,
@@ -776,7 +776,7 @@
   bib-sort-ref: bib-sort-ref,
   bib-full: bib-full,
   bib-vancouver: bib-vancouver,
-  vancouver_style: vancouver_style,
+  vancouver-style: vancouver-style,
   bib-year-doubling: bib-year-doubling,
   bib-vancouver-manual: bib-vancouver-manual,
 )

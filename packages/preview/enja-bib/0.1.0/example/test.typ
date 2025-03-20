@@ -1,7 +1,7 @@
 #import "@preview/enja-bib:0.1.0": *
 
-#import bib_setting_jsme: *
-#show: bib_init
+#import bib-setting-jsme: *
+#show: bib-init
 
 #set text(font: ("Times New Roman", "Harano Aji Mincho"))
 

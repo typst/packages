@@ -1,7 +1,7 @@
-#import "bib_setting_fucntion.typ": *
+#import "bib-setting-fucntion.typ": *
 
 //---------- 文字列から，最初の{までを取り除く関数 ---------- //
-#let remove_brace_l(text, remove_str: "{") = {
+#let remove-brace-l(text, remove_str: "{") = {
 
   // 出力文字列
   let output_str = ""
@@ -14,7 +14,7 @@
 }
 
 //---------- 文字列から，最後の}までを取り入れる関数 ---------- //
-#let remove_brace_r(text, remove_str: "}") = {
+#let remove-brace-r(text, remove_str: "}") = {
 
   // 出力文字列
   let output_str = ""
@@ -25,7 +25,7 @@
 }
 
 //---------- 文字列の一部から，ラベル名を取得する関数 ---------- //
-#let text_to_label(bib_text) = {
+#let text-to-label(bib_text) = {
 
   // 出力文字列
   let output_str = ""
@@ -34,7 +34,7 @@
 
   if bib_text.contains("{") {//文字列に{が含まれる場合
     // {を削除した文字列を取得
-    output_str = remove_brace_l(bib_text)
+    output_str = remove-brace-l(bib_text)
   }
   else {
     // {が含まれない場合，そのまま代入
@@ -54,7 +54,7 @@
 
 //---------- 文字列の一部から，辞書型に変換する関数 ---------- //
 
-#let text_to_dict(bib_text, contents_num, brace_num) = {
+#let text-to-dict(bib_text, contents_num, brace_num) = {
 
   let name_list = ()//名前のリスト
   let contents = ()//内容のリスト
@@ -120,13 +120,13 @@
 
 //---------- 文字列に日本語が含まれるかを判定する関数 ---------- //
 
-#let check_japanese_tex_str(str) = {
+#let check-japanese-tex-str(str) = {
   return (regex("[\p{scx:Han}\p{scx:Hira}\p{scx:Kana}]") in str)
 }
 
 //---------- 文献リストに日本語が含まれるかを判定する関数 ---------- //
 
-#let check_japanese_tex(bibtex) = {
+#let check-japanese-tex(bibtex) = {
 
   let bib_arr = bibtex.pairs()
 
@@ -142,7 +142,7 @@
         tmp = contents-to-str(tmp)
       }
 
-      if check_japanese_tex_str(tmp){
+      if check-japanese-tex-str(tmp){
         return true
       }
     }
@@ -152,7 +152,7 @@
 
 //---------- 文献リストにlang要素を加える関数 ---------- //
 
-#let add_dict_lang(biblist, lang) = {
+#let add-dict-lang(biblist, lang) = {
 
   let output_list = biblist
   let check_exist_lang = biblist.at("lang", default: "")
@@ -160,7 +160,7 @@
   if check_exist_lang != ("en",) and check_exist_lang != ("ja",){
 
     if lang == auto or lang != "ja" or lang != "en"{
-      if check_japanese_tex(biblist){
+      if check-japanese-tex(biblist){
         output_list.insert("lang", "ja")
       }
       else{
@@ -181,7 +181,7 @@
 
 //---------- bibtexの文字列から辞書型を返す関数 ---------- //
 
-#let bibtex_to_dict(bibtex_raw) = {
+#let bibtex-to-dict(bibtex_raw) = {
 
   let contents_num = 0
   let remove_bite = 0
@@ -240,7 +240,7 @@
 
     if value.has("text"){//テキストの場合
 
-      contents = text_to_dict(value.text, contents_num, brace_num)//辞書型に変換
+      contents = text-to-dict(value.text, contents_num, brace_num)//辞書型に変換
 
       for value_num in contents.at(3){//辞書へ順番に代入
 
@@ -285,7 +285,7 @@
 }
 
 //---------- 要素の関数を取得 ---------- //
-#let get_element_function(
+#let get-element-function(
   bibtex-article-en,
   bibtex-article-ja,
   bibtex-book-en,
