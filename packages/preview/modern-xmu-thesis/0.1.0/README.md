@@ -25,6 +25,15 @@ Typst 非官方中文交流群：793548390
 - [modern-nju-thesis](https://github.com/nju-lug/modern-nju-thesis) by [OrangeX4](https://github.com/OrangeX4)，本模板建立在该项目的基础之上。
 - [xmu-template](https://github.com/F5Soft/xmu-template) by [F5Soft](https://github.com/F5Soft)，许多不在规范中的样式都参考了这一项目。
 
+
+## 许可证
+
+本项目遵循 MIT 许可证。
+
+本项目中的 `assets/xmu-zi-jiageng.svg` 和 `template/images/xmu-logo.svg` 图片由厦门大学提供，版权归厦门大学所有。未经厦门大学许可，禁止用于其他任何用途。
+
 ## License
 
 This project is licensed under the MIT License.
+
+The images `assets/xmu-zi-jiageng.svg` and `template/images/xmu-logo.svg` are provided by Xiamen University, and copyright belongs to Xiamen University. Unauthorized use for any other purpose is prohibited without permission from Xiamen University.
