@@ -1,4 +1,4 @@
-#import "../bib-style.typ" as bib_style
+#import "../bib-style.typ"
 #import "../bib-setting-fucntion.typ": *
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -768,9 +768,9 @@
 // 関数の設定（以下は何も変更しないよう注意）
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-#let bib-init = bib_style.bib-init.with(bib-cite: bib-cite)
+#let bib-init = bib-style.bib-init.with(bib-cite: bib-cite)
 
-#let bibliography-list = bib_style.bibliography-list.with(
+#let bibliography-list = bib-style.bibliography-list.with(
   year-doubling: year-doubling,
   bib-sort: bib-sort,
   bib-sort-ref: bib-sort-ref,
@@ -781,7 +781,7 @@
   bib-vancouver-manual: bib-vancouver-manual,
 )
 
-#let bib-tex  = bib_style.bib-tex.with(
+#let bib-tex  = bib-style.bib-tex.with(
   year-doubling:  year-doubling,
   bibtex-article-en:  bibtex-article-en,
   bibtex-article-ja:  bibtex-article-ja,
@@ -817,7 +817,7 @@
   bib-cite-year:  bib-cite-year,
 )
 
-#let bib-file = bib_style.bib-file.with(
+#let bib-file = bib-style.bib-file.with(
   year-doubling:   year-doubling,
   bibtex-article-en:   bibtex-article-en,
   bibtex-article-ja:   bibtex-article-ja,
@@ -853,12 +853,12 @@
   bib-cite-year:   bib-cite-year,
 )
 
-#let bib-item = bib_style.bib-item
+#let bib-item = bib-style.bib-item
 
-#let citet = bib_style.bib-cite-func.with(bib-cite: bib-citet)
+#let citet = bib-style.bib-cite-func.with(bib-cite: bib-citet)
 
-#let citep = bib_style.bib-cite-func.with(bib-cite: bib-citep)
+#let citep = bib-style.bib-cite-func.with(bib-cite: bib-citep)
 
-#let citen = bib_style.bib-cite-func.with(bib-cite: bib-citen)
+#let citen = bib-style.bib-cite-func.with(bib-cite: bib-citen)
 
-#let citefull = bib_style.bib-cite-func.with(bib-cite: bib-citefull)
+#let citefull = bib-style.bib-cite-func.with(bib-cite: bib-citefull)
