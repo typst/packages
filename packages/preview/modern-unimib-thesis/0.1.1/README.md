@@ -14,56 +14,17 @@ A modern thesis template for University of Milano-Bicocca (UNIMIB) students usin
 
 - Typst (v0.3.0 or newer)
 
-## Installation
+## Getting Started
 
-1. Clone this repository:
+You can use this template in the Typst web app by clicking “Start from template” on the dashboard and searching for `modern-unimib-thesis`.
 
-```bash
-git clone https://github.com/michelebanfi/unimib-typst-template.git
-cd modern-unimib-thesis
+Alternatively, you can use the CLI to kick this project off using the command
+
+```
+typst init @preview/modern-unimib-thesis
 ```
 
-2. Make sure you have Typst installed. Visit [Typst's official website](https://typst.app/) for installation instructions.
-
-## Usage
-
-1. Create a new file `thesis.typ` in the project directory.
-
-2. Import the template and configure it with your information:
-
-```typst
-#import "@preview/modern-unimib-thesis:0.1.0": template
-
-#template(
-  title: "Higher Order Quantum Theory, the \"Double-Ket\" notation",
-  candidate:(
-    name: "Michelino Banfi",
-    number: "869294"
-  ),
-  date: "2024/2025",
-  university: "Universitá degli studi Milano - Bicocca",
-  school: "Scuola di Scienze",
-  department: "Dipartimento di Fisica",
-  course: "Master Degree in Artificial Intelligence for Science and Technology",
-  logo: image("logo_unimib.png", width: 30%),
-  supervisor: "Prof. Luca Manzi",
-  co-supervisor: ("Saira Sanchez", "Prof. Annalisa Di Pasquali")
-)
-
-= Introduction
-
-Your thesis content goes here...
-
-= Chapter One
-
-More content...
-```
-
-3. Compile your thesis:
-
-```bash
-typst compile thesis.typ
-```
+Typst will create a new directory with all the files needed to get you started.
 
 ## Customization
 
@@ -83,6 +44,10 @@ The template accepts the following parameters:
 ## License
 
 MIT License
+
+## Logo License
+
+Read the [UNIMIB logo usage guidelines](https://www.unimib.it/sites/default/files/Redazione_web/policy.pdf) before using the UNIMIB logo.
 
 ## Contributing
 
