@@ -1,9 +1,9 @@
 #import "@preview/showybox:2.0.2": showybox
 
-#let problem_counter = counter("problem")
+#let problem-counter = counter("problem")
 
 #let prob(title: "", color: green, ..body) = {
-  [== Problem #problem_counter.step() #context {problem_counter.display()}]
+  [== Problem #problem-counter.step() #context {problem-counter.display()}]
   showybox(
     frame: (
       border-color: color.darken(10%),
