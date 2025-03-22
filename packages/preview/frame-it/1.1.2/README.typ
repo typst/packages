@@ -250,18 +250,32 @@ Here is a list of examples:
     To skip the header entirely, leave the title parameter blank.
   ]
   ```
-  Beware that internally, this has to second two figures for technical reason.
-  In general, this approach will be less robust than using the `show: frame-style()` function.
-  #divide()
-  When you want to change the styling used for a passage of your document,
-  you can just add more `show: frame-style()` rules:
-  ```typst
-  #show: frame-style(styles.boxy)
-  #example[In boxy style][]
-  #show: frame-style(styles.hint)
-  #example[In hint Style][]
-  ```
 ]
+Beware that internally, this has to create two distinct figures for technical reason.
+In general, this approach will be less robust than using the `show: frame-style()` function.
+
+When you want to change the styling used for a passage of your document,
+you can just add more `show: frame-style()` rules:
+```typst
+#show: frame-style(styles.boxy)
+#example[In boxy style][]
+#show: frame-style(styles.hint)
+#example[In hint Style][]
+```
+
+I usually define the abbreviations for the show rule:
+```typst
+// Define once
+#let boxy(document) = {show: frame-style(styles.boxy); document}
+#let hint(document) = {show: frame-style(styles.hint); document}
+
+// Use changing the style used
+#show: boxy
+#example[In boxy style]
+#example[Also in boxy style]
+#show: hint
+#example[In hint style]
+```
 
 = Custom Styling
 Internally, there is nothing special about the predefined styles.
