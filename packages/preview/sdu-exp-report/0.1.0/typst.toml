@@ -1,0 +1,16 @@
+[package]
+name = "sdu-exp-report"
+version = "0.1.0"
+entrypoint = "templete.typ"
+authors = ["Dregen_Yor"]
+license = "GPL-3.0"
+description = "A report template for SDU CS students"
+keywords = ["presentation", "report", "experience", "sdu"  ]
+categories = ["presentation"]
+repository = "https://github.com/Dregen-Yor/sdu-exp-report"
+compiler = "0.13.0"
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "example/figures/main.png"
