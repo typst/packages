@@ -1,16 +1,8 @@
 #import "styling.typ"
-
-#let unique-frame-metadata-tag = "_THIS-IS-METADATA-USED-FOR-FRAME-IT-FRAMES"
-
-// Encode info as invisible metadata so when rendered in outline, only the title is seen
-#let encode-title-and-info(title, info) = (
-  metadata(unique-frame-metadata-tag) + metadata(info) + title
-)
-#let retrieve-info-from-code(code) = code.children.at(1).value
-#let code-has-info-attached(code) = (
-  "children" in code.fields().keys()
-    and code.children.first().fields().at("value", default: "")
-      == unique-frame-metadata-tag
+#import "utils/encode.typ": (
+  encode-title-and-info,
+  retrieve-info-from-code,
+  code-has-info-attached,
 )
 
 #let spawn-frame(

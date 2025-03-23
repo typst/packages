@@ -1,4 +1,4 @@
-#import "@preview/frame-it:1.1.2": *
+#import "src/lib.typ": *
 #import "src/utils/html.typ": *
 
 #let base-color-arg = (:)
@@ -195,22 +195,21 @@ Here is a list of examples:
   ```
 ]
 
-#syntax[Per–frame custom figure parameters][Frame outline][
-  All named arguments passed to a frame–function like `example[][]` are going to be passed
+#feature[Per–frame custom figure parameters][Frame outline][
+  All named parameters passed to a frame–function like `example[][]` are going to be passed
   to the figure function which places the frame in the document.
-  #divide()
-  For example, you can create an outline which only contains some intentional of your frames like so.
-  The `figure` function includes a parameter for including a figure in the outline.
-  ```typst
-  // By default, don't include a frame
-  #show figure.where(kind: "frame"): set figure(outlined: false)
-  // Create the outline
-  #outline(target: figure.where(kind: "frame"))
-  // Include a frame in the outline with the `outlined` parameter.
-  #example(outlined: true)[Important frame][For the outline]
-  ```
-
 ]
+
+For example, you can create an outline which only contains some intentional of your frames like so.
+The `figure` function includes a parameter for including a figure in the outline.
+```typst
+// By default, don't include frames in outlines by default
+#show figure.where(kind: "frame"): set figure(outlined: false)
+// Create the outline
+#outline(target: figure.where(kind: "frame"))
+// Explicitly include a frame in the outline with the `outlined` parameter.
+#example(outlined: true)[Important frame][For the outline]
+```
 
 #variant[Different numbering][
   Numbering in figures is a bit of a mess.
@@ -303,9 +302,36 @@ The content returned will be placed as–is in the document.
 
 For more information on how to define your own styling function, please look into the `styling` module.
 
+= Experimentl APIs
+These APIs are still experimental and subject to change. Use sparingly.
+
+#syntax[Retrieving information of a frame][Experimental][
+  When you want to do more intricate styling for your frames, sometimes it is necessary to
+  obtain all the information which.
+
+  For this, use the `inspect.lookup-frame-info(figure)` function.
+  Given a figure (which represents a frame), it returns a dictionary with the entries
+  `title`, `tags`, `body`, `supplement`, `color`.
+
+  When the provided figure is not a frame, this function throws an error.
+]
+For example, you can use this to color the entries in a outline according to the color of the frame:
+```typst
+#show outline.entry: it => {
+  let color = inspect.lookup-frame-info(it.element).color
+  text(fill: color.saturate(70%), it)
+}
+#outline(target: figure.where(kind: "frame"))
+```
+
+#syntax[Checking whether a figure is a frame][Experimental][
+  In order to test whether a figure is a frame, use the `inspect.is-frame(figure)` function.
+]
+Whenever possible, try to discern it using the figures kind instead of this function.
+
 = Edge Cases
 
-Here are a few edge cases. Temporarily, they do not work because
+Here are a few edge cases.
 
 #example[Test][Long tag example without space for the supplement][notice the number moves up][
   #lorem(20)
@@ -327,3 +353,12 @@ Here are a few edge cases. Temporarily, they do not work because
 #example[][
   Counters continue incrementing sequentially in non-nested elements.
 ]
+
+// Tests
+#context {
+  let frames = query(figure.where(kind: "frame"))
+  for frame in query(figure.where(kind: "frame")) {
+    assert(inspect.is-frame(frame), message: repr(frame))
+    assert(type(inspect.lookup-frame-info(frame).color) == color)
+  }
+}

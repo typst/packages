@@ -347,6 +347,19 @@ rule to your frames. Here is a list of examples:
 
 </div>
 
+For example, you can create an outline which only contains some
+intentional of your frames like so. The `figure` function includes a
+parameter for including a figure in the outline.
+
+```typst
+// By default, don't include frames in outlines by default
+#show figure.where(kind: "frame"): set figure(outlined: false)
+// Create the outline
+#outline(target: figure.where(kind: "frame"))
+// Explicitly include a frame in the outline with the `outlined` parameter.
+#example(outlined: true)[Important frame][For the outline]
+```
+
 <div id="frame-wrapper-53">
 
  <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/marc-thieme/frame-it/refs/heads/assets/README-svg-dark-29.svg"> <img src="https://raw.githubusercontent.com/marc-thieme/frame-it/refs/heads/assets/README-svg-light-29.svg"> </picture> 
@@ -421,9 +434,9 @@ The content returned will be placed as–is in the document.
 For more information on how to define your own styling function, please
 look into the `styling` module.
 
-## Edge Cases
+## Experimentl APIs
 
-Here are a few edge cases. Temporarily, they do not work because
+These APIs are still experimental and subject to change. Use sparingly.
 
 <div id="frame-wrapper-58">
 
@@ -431,11 +444,28 @@ Here are a few edge cases. Temporarily, they do not work because
 
 </div>
 
+For example, you can use this to color the entries in a outline
+according to the color of the frame:
+
+```typst
+#show outline.entry: it => {
+  let color = inspect.lookup-frame-info(it.element).color
+  text(fill: color.saturate(70%), it)
+}
+#outline(target: figure.where(kind: "frame"))
+```
 <div id="frame-wrapper-59">
 
  <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/marc-thieme/frame-it/refs/heads/assets/README-svg-dark-35.svg"> <img src="https://raw.githubusercontent.com/marc-thieme/frame-it/refs/heads/assets/README-svg-light-35.svg"> </picture> 
 
 </div>
+
+Whenever possible, try to discern it using the figures kind instead of
+this function.
+
+## Edge Cases
+
+Here are a few edge cases.
 
 <div id="frame-wrapper-60">
 
@@ -443,8 +473,20 @@ Here are a few edge cases. Temporarily, they do not work because
 
 </div>
 
-<div id="frame-wrapper-65">
+<div id="frame-wrapper-61">
 
  <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/marc-thieme/frame-it/refs/heads/assets/README-svg-dark-37.svg"> <img src="https://raw.githubusercontent.com/marc-thieme/frame-it/refs/heads/assets/README-svg-light-37.svg"> </picture> 
+
+</div>
+
+<div id="frame-wrapper-62">
+
+ <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/marc-thieme/frame-it/refs/heads/assets/README-svg-dark-38.svg"> <img src="https://raw.githubusercontent.com/marc-thieme/frame-it/refs/heads/assets/README-svg-light-38.svg"> </picture> 
+
+</div>
+
+<div id="frame-wrapper-67">
+
+ <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/marc-thieme/frame-it/refs/heads/assets/README-svg-dark-39.svg"> <img src="https://raw.githubusercontent.com/marc-thieme/frame-it/refs/heads/assets/README-svg-light-39.svg"> </picture> 
 
 </div>
