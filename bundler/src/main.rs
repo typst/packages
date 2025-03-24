@@ -456,7 +456,7 @@ fn validate_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
         bail!("{name} is missing");
     }
 
-    if path.extension().map_or(true, |ext| ext != "typ") {
+    if path.extension().is_none_or(|ext| ext != "typ") {
         bail!("{name} must have a .typ extension");
     }
 
