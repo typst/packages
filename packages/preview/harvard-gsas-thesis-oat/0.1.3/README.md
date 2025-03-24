@@ -5,6 +5,9 @@ Follow formatting guidelines from https://gsas.harvard.edu/resource/dissertation
 
 # Changelog
 
+## 0.1.3
+- Improved figure caption alignment, size, and separation
+
 ## 0.1.2
 - Fixed title style
 - Added Numbering for equations and figures

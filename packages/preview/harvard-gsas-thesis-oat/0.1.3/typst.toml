@@ -8,7 +8,6 @@ description = "PhD Thesis template for Harvard GSAS (Graduate School of Arts and
 repository = "https://github.com/Moelf/harvard-gsas-thesis-oat"
 keywords = ["Harvard", "GSAS", "Harvard University", "dissertation", "thesis"]
 categories = ["thesis"]
-exclude = ["example_gsas.pdf", "example_gsas.typ"]
 
 [template]
 path = "templates"
