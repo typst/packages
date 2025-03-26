@@ -53,4 +53,5 @@
 #bibliography("references.bib", style: "ieee")
 
 #show: appendices
-#include("chapters/05-appendix-a.typ.typ")
+#include("chapters/05-appendix-a.typ")
+#include("chapters/06-appendix-b.typ")
