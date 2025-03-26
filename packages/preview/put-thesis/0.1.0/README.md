@@ -24,9 +24,9 @@ This assumes you already have Typst installed on your system.
     - **Windows**: `%APPDATA%/typst/packages/preview/put-thesis/`
     - **macOS**: `~/Library/Application Support/typst/packages/preview/put-thesis/`
     - see the official guidelines at [typst/packages/README#local-packages](https://github.com/typst/packages?tab=readme-ov-file#local-packages)
-3. Use `template/thesis.typ` as a starting point. It should compile on your
-   machine. If you are seeing import errors, you have made a mistake in the
-   previous step.
+3. Run `typst init @preview/put-thesis:0.1.0`.
+4. A new directory `put-thesis` containing the default template should be
+   created. Use it as a starting point for your document.
 
 The template relies on 3rd party packages that need to be downloaded from the
 internet. If you wish to work fully offline, be sure to compile the document at
