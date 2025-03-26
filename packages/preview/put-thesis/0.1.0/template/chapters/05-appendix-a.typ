@@ -77,7 +77,8 @@
 	sentence.
 
 - Use non-breaking space after periods which do not terminate a sentence, e.g.
-	"`e.g.~`", "`w.r.t.~`", "`i.e.~`", etc. In Polish "`np.~`", "`tj.~`", etc.
+	"`e.g.~`", "`w.r.t.~`", "`i.e.~`", etc. In Polish #text(lang: "pl")[`np.~`", "`tj.~`",
+	etc.]
 
 - In American typography, closing quotes and footnotes are placed _after_
 	adjacent punctuation. This is not a recommendation, but something to
