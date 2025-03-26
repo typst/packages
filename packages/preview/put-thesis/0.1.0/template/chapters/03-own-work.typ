@@ -1,28 +1,26 @@
 = Own work <chap:own-work>
 
-"Own work" is a a very informal title that should be redacted to whatever makes
-sense for a particular thesis.
+This is where one or more chapters must document the original work done by the
+authors -- from the idea and the methodology used to solve the problem, to
+technical descriptions of the solution -- formal documentation, conducted
+tests, research and the final results.
 
-In general, this is where one or more chapters must document the original work
-done by the authors -- from the idea and the methodology used to solve the
-problem, to technical descriptions of the solution -- formal documentation,
-conducted tests, research and the final results.
-
-The work must contain pieces of original work done by the authors, adequate to
+This part must contain pieces of original work done by the authors, adequate to
 their practical knowledge acquired during their studies. "Original work" can be
-understood as e.g.: creation of a software application or a part of it,
-proposal of an algorithm to solve a particular problem, design of a computer
-system or network, analysis and evaluation of new technologies or solutions used
-in the industry, etc.
+understood as e.g.: the creation of a software application or a part of it,
+proposal of an algorithm to solve a particular problem, the design of a
+computer system or network, analysis and evaluation of new technologies or
+solutions used in the industry, etc.
 
-The authors are expected to include a full documentation of their work,
-including any made assumptions and the method of realization of each task, along
-with an evaluation and description of encountered problems. In the case of
-implementation-focused works, this section is replaced by a technical
-documentation and a user's documentation of the developed system or program.
+The authors are expected to provide a full documentation of their work. The
+documentation should specify problem constraints or assumptions. It should also
+recall what method was used to complete every task, along with an evaluation
+and description of encountered problems. In the case of implementation-focused
+works, this section is replaced by a technical documentation and a user's
+documentation for the developed system or program.
 
-*Do not include the full source code* of the developed solutions inside the body
-of the thesis. Any software written for the purpose of the thesis, as well as
+*Do not include the full source code* of the developed solutions inside the
+body of the thesis. Any software written for the purpose of the thesis, or
 results of experiments, should be uploaded to the PUT online repository or
 shared via a medium, e.g. a CD disk, as an addition to the
 work#footnote[Uploading and linking to online services such as GitHub is also
