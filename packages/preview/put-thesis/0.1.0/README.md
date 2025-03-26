@@ -1,6 +1,6 @@
-# put-thesis-typst
+# put-thesis
 
-An unofficial Typst template for writing a thesis for Poznań University of
+The official Typst template for writing theses for Poznań University of
 Technology. Based on
 [PUT Dissertation Template](https://www.overleaf.com/latex/templates/put-dissertation-template/dpqxdndmgkpg)
 by Dawid Weiss, Marta Szachniuk and Maciej Komosiński (2022), as well as
@@ -13,7 +13,29 @@ was adapted from a template for the faculty of Computing and Telecommunications
 adjustable to any faculty or field of study.
 
 ## Usage
-Copy the provided template and work from there.
+There are a few ways this template can be used.
+
+### 1. Local copy (Linux, Windows, macOS)
+This assumes you already have Typst installed on your system.
+
+1. Download this repository.
+2. Copy the contents into:
+    - **Linux**: `${XDG_DATA_HOME:-$HOME/.local/share}/typst/packages/preview/put-thesis/`
+    - **Windows**: `%APPDATA%/typst/packages/preview/put-thesis/`
+    - **macOS**: `~/Library/Application Support/typst/packages/preview/put-thesis/`
+    - see the official guidelines at [typst/packages/README#local-packages](https://github.com/typst/packages?tab=readme-ov-file#local-packages)
+3. Use `template/thesis.typ` as a starting point. It should compile on your
+   machine. If you are seeing import errors, you have made a mistake in the
+   previous step.
+
+The template relies on 3rd party packages that need to be downloaded from the
+internet. If you wish to work fully offline, be sure to compile the document at
+least once with internet access. Typst caches downloaded packages locally (see
+[typst/packages/README#downloads](https://github.com/typst/packages?tab=readme-ov-file#downloads)),
+so after that you should be good to go.
+
+### 2. Typst Online Editor (requires sign-in)
+Coming soon!
 
 ## Acknowledgements
 The Typst implementation was partially inspired by RefDevX's
