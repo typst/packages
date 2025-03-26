@@ -45,6 +45,7 @@ The introduction chapter should include the following information:
 	#v(2mm)
 / or, in Polish\::
 	#v(1mm)
+	#set text(lang: "pl")
 	1. #quote(block: true)[
 		Celem pracy jest opracowanie / wykonanie analizy / zaprojektowanie / ...
 	]
@@ -53,6 +54,7 @@ The introduction chapter should include the following information:
 		przegląd literatury na temat ... . @chap:own-work[Rozdział] jest poświęcony ...
 		(kilka zdań). @chap:conclusions[Rozdział] stanowi podsumowanie pracy.
 	]
+	#set text(lang: "en")
 
 #v(1em)
 #block(breakable: false)[
@@ -69,10 +71,12 @@ The introduction chapter should include the following information:
 	]
 	Or, in Polish:
 	#v(-1em)
+	#set text(lang: "pl")
 	#quote(block: true)[
 		Jan Kowalski w ramach niniejszej pracy wykonał projekt tego i tego,
 		opracował ... .
 
 		Grzegorz Brzęczyszczykiewicz wykonał ..., itd.
 	]
+	#set text(lang: "en")
 ]
