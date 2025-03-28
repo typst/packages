@@ -1,10 +1,10 @@
 # `k-mapper` for Typst (1.2.0)
 
-📖 See the `k-mapper` Manual [here]([https://github.com/derekchai/k-mapper/blob/1f334d9e0f02cc656c01835302474bf728db9f80/manual.pdf](https://github.com/derekchai/k-mapper/blob/main/manual.pdf))! The Manual features much more documentation, and is typeset using Typst.
+📖 See the `k-mapper` Manual [here](https://github.com/derekchai/k-mapper/blob/main/manual.pdf)! The Manual features much more documentation, and is typeset using Typst.
 
 This is a package for adding Karnaugh maps into your Typst projects.
 
-See the changelog for the package [here]([https://github.com/derekchai/k-mapper/blob/698e8554ce67e3a61dd30319ab8f712a6a6b8daa/changelog.md](https://github.com/derekchai/k-mapper/blob/main/changelog.md)).
+See the changelog for the package [here](https://github.com/derekchai/k-mapper/blob/main/changelog.md).
 
 ## Features
 
