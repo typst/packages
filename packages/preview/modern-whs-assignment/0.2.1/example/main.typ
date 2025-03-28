@@ -1,5 +1,5 @@
 #import "meta.typ" as meta
-#import "@preview/modern-whs-assignment:0.2.0": *
+#import "@preview/modern-whs-assignment:0.2.1": *
 
 #show: whs-assignment.with(
   meta.title,
