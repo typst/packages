@@ -1,4 +1,4 @@
-#import "stonewall.typ": flags
+#import "@preview/stonewall:0.2.0": flags
 
 #set page(width: 200pt, height: auto, margin: 0pt)
 #set text(fill: black, size: 12pt)
