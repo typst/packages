@@ -10,7 +10,7 @@ Si utilizas la webapp de Typst puedes presionar "Start from template" y buscar "
 ### Typst CLI
 Teniendo el CLI con la versión 0.11.0 o mayor, puedes realizar:
 ```sh
-typst init @preview/minerva-report-fcfm:0.2.1
+typst init @preview/minerva-report-fcfm:0.2.2
 ```
 Esto va a descargar el template en la cache de typst y luego va a iniciar el proyecto en la carpeta actual.
 
