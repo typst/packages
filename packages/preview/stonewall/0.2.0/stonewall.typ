@@ -254,7 +254,7 @@
   rgb("#b55690"),
   rgb("#a30262")
 )
-#let black_lesbian = (
+#let blacklesbian = (
   rgb("#5f232d"),
   rgb("#71443f"),
   rgb("#875e5c"),
@@ -308,7 +308,7 @@
   ("bisexual",bisexual),
   ("lesbian",lesbian),
   ("aroace", aroace),
-  ("blacklesbian", black_lesbian),
+  ("blacklesbian", blacklesbian),
   ("abrosexual", abrosexual),
   
 )
