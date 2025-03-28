@@ -1,6 +1,6 @@
-#import "@preview/codly:1.2.0": *
-#import "@preview/codly-languages:0.1.7": *
-#import "@preview/glossarium:0.5.3": make-glossary, print-glossary, gls, glspl, register-glossary
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.8": *
+#import "@preview/glossarium:0.5.4": make-glossary, print-glossary, gls, glspl, register-glossary
 #import "@preview/in-dexter:0.7.0": *
 #import "@preview/hydra:0.6.0": hydra
 
