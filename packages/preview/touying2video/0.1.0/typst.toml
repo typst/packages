@@ -1,0 +1,11 @@
+[package]
+name = "touying2video"
+version = "0.1.0"
+entrypoint = "p2vmeta.typ"
+authors = ["Paul Yang <https://github.com/yangwenbo99>"]
+license = "	AGPL-3.0-only"
+description = "The tools converts a touying-typ presentation slide to a presentation video with voice over.  The typst tool need to be used with an external package."
+
+repository = "https://github.com/yangwenbo99/touying2video"
+keywords = ["presentation", "video", "tts", "voiceover"]
+categories = ["integration"]
