@@ -89,3 +89,7 @@ Example:
       )
 ```
 
+
+## License
+
+[aGPL-3.0](https://github.com/yangwenbo99/touying2video/blob/main/LICENSE)
