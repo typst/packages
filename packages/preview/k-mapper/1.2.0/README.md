@@ -17,7 +17,7 @@ See the changelog for the package [here](https://github.com/derekchai/k-mapper/b
 Simply import `k-mapper` using the Typst package manager to begin using `k-mapper` within your Typst documents.
 
 ```typst
-#import "@preview/k-mapper:1.1.0": *
+#import "@preview/k-mapper:1.2.0": *
 ```
 
 ## Example
