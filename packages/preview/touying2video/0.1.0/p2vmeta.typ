@@ -3,14 +3,14 @@
  */
 
 #let t2sdefaults(
-  duration_physical: 2,
+  duration-physical: 2,
   transition: "fade",
-  transition_duration: 0,
+  transition-duration: 0,
 ) = {
   [ #metadata((t: "T2sdefaults", v: (
-    duration_physical: duration_physical,
+    duration_physical: duration-physical,
     transition: transition,
-    transition_duration: transition_duration,
+    transition_duration: transition-duration,
   ))) <pdfpc> ]
 }
 
@@ -80,7 +80,7 @@
   }
 }
 
-#let t2s(start_from: -1, body) = {
+#let t2s(start-from: -1, body) = {
   /*
   let body = if type(body) == str {
     body
@@ -101,7 +101,7 @@
   } else {
     markup-text(body)
   }
-  [ #metadata((t: "T2s", v: (start_from: start_from, body: body))) <pdfpc> ]
+  [ #metadata((t: "T2s", v: (start_from: start-from, body: body))) <pdfpc> ]
 }
 
 // label: section number
@@ -119,12 +119,12 @@
 }
 
 #let video-overlay(
-  start_from: -1,
+  start-from: -1,
   video: "", x: 0, y: 0, width: -1, height: -1,
   reverse: false,
 ) = {
   [ #metadata((t: "T2s-video-overlay", v: (
-    start_from: start_from,
+    start_from: start-from,
     video: video,
     x: x,
     y: y,
