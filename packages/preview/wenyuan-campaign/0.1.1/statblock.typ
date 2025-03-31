@@ -4,7 +4,6 @@
 /// This module does monster statblocks.
 /// it should be imported as something and used qualified, to avoid polluting the global scope
 
-#import calc
 #import "colours.typ" as colour
 
 #let dndred = colour.dndred

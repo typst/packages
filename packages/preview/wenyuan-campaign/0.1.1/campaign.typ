@@ -4,7 +4,6 @@
 // also uses a modified version of my statblock library
 // // requires droplet for dropcaps
 
-#import calc
 #import "statblock.typ" as stat
 #import "colours.typ" as colours
 #import "dnditem.typ" as item
