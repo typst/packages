@@ -1,8 +1,8 @@
 #let last-page(
   department: "",
   university: "",
-  addressI: "",
-  addressII: "",
+  address-I: "",
+  address-II: "",
   departmentwebsite: "",
   body) = {
   set page(
@@ -26,8 +26,8 @@
 
       #v(1em)
 
-      #addressI \
-      #addressII
+      #address-I \
+      #address-II
 
       #v(1em)
 

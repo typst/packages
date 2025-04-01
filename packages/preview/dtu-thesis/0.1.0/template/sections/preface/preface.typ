@@ -11,7 +11,7 @@ _what is the thesis about???_
 
 The thesis was written from "x" February 2025 to "x" June 2025 under the supervision of _XXXX_ and is worth 30 ECTS credits.
 
-// #addNote[double check before handin]
+// #add-note[double check before handin]
 
 #v(1fr)
 #[

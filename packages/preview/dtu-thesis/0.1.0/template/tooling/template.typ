@@ -3,8 +3,8 @@
 #import "dtu-template/last-page.typ": *
 #import "preamble.typ": *
 
-#let hideFormalities = false
-// #let hideFormalities = true
+#let hide-formalities = false
+// #let hide-formalities = true
 
 #let dtu-project(
   //General details
@@ -15,9 +15,9 @@
   //Department
   university: "", 
   department: "",
-  departmentFullTitle: "",
-  addressI: "",
-  addressII: "",
+  department-full-title: "",
+  address-I: "",
+  address-II: "",
   departmentwebsite: "",
   //preface
   before: (),
@@ -31,7 +31,7 @@
     date: date,
     university: university,
     department: department,
-    departmentFullTitle: departmentFullTitle,
+    department-full-title: department-full-title,
   )
 
   // ---- SETUP ----
@@ -46,7 +46,7 @@
   show heading: set block(above: 1.4em, below: 1em)
 
   // ---- FORMALITIES ----
-  if not hideFormalities {
+  if not hide-formalities {
     // ---- COPYRIGHT ----
     show: copyright.with(
       title: title,
@@ -55,9 +55,9 @@
       date: date,
       university: university, 
       department: department,
-      departmentFullTitle: departmentFullTitle,
-      addressI: addressI,
-      addressII: addressII,
+      department-full-title: department-full-title,
+      address-I: address-I,
+      address-II: address-II,
     )
   
     // ---- IncludePagesBefore ----
@@ -82,7 +82,7 @@
   set text(hyphenate: false)
 
   // ---- CUSTOM HEADINGS
-  show heading.where(level: 1): it => customHeading(it)
+  show heading.where(level: 1): it => custom-heading(it)
 
   //---- CUSTOM FOOTER ----
   set page(footer: context{
@@ -100,8 +100,8 @@
   show: last-page.with(
     department: department,
     university: university,
-    addressI: addressI,
-    addressII: addressII,
+    address-I: address-I,
+    address-II: address-II,
     departmentwebsite: departmentwebsite
   )
 }

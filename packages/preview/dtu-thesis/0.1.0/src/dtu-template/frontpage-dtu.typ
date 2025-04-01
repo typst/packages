@@ -6,9 +6,8 @@
   authors: (), 
   date: none, 
   university: "", 
-  groupName: "",
   department: "",
-  departmentFullTitle: "",
+  department-full-title: "",
   body) = {
     
   // Set the document's basic properties.
@@ -26,7 +25,7 @@
         #align(right)[
           #text(weight: 700, 1.0em, department )
           #v(0.7em, weak: true)
-          #text(weight: 400, 1.0em, departmentFullTitle)
+          #text(weight: 400, 1.0em, department-full-title)
           #v(0.7em, weak: true)
           
           #text(weight: 400, 1.0em, university)

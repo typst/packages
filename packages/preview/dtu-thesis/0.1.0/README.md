@@ -61,8 +61,8 @@ DTU typography information or other guidelines can be found https://designguide.
 
 
 ### 😎 Functions and extra features
-- Inside the `tooling/functions.typ` you can find different extra tools like a fun way to do notes with `#addnote`. \
-- If using template files. In the `tooling/template.typ` at the very top you can uncomment and comment the `// #let hideFormalities = true` to hide the formalities (*copyright, abstract, ...*) in the report easily. 
+- Inside the `tooling/functions.typ` you can find different extra tools like a fun way to do notes with `#add-note`. \
+- If using template files. In the `tooling/template.typ` at the very top you can uncomment and comment the `// #let hide-formalities = true` to hide the formalities (*copyright, abstract, ...*) in the report easily. 
 
 ## 📜 License
 This template is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.

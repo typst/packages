@@ -12,7 +12,7 @@
 // ---- Notes Functionality ----
 #let todoes = state("todo", [])  // Initialize with empty content instead of ()
 
-#let addNote(content) = {
+#let add-note(content) = {
   // Create the formatted note block
   let formatted-note = block(
     width: 100%,
@@ -36,7 +36,7 @@
   formatted-note
 }
 
-#let showAllNotes() = {
+#let show-all-notes() = {
   let notes = context todoes.final()
   if notes != [] {
     block(
@@ -54,7 +54,7 @@
 }
 
 //---- Custom Top Level Head(ings/lines)  ----
-#let customHeading(it) = [
+#let custom-heading(it) = [
   #set align(left)
   #set text(weight: "bold", size: 1.8em)
 
@@ -69,7 +69,7 @@
 ]
 
 //---- Custom Footer
-#let numberingH(c)={
+#let numbering-headline(c)={
   if c.numbering!= none{
     return numbering(c.numbering,..counter(heading).at(c.location()))
   }
@@ -80,17 +80,17 @@
   let elems = query(selector(heading.where(level: level)).after(here()))
 
   if elems.len() != 0 and elems.first().location().page() == here().page(){
-    return [#numberingH(elems.first()) #elems.first().body] 
+    return [#numbering-headline(elems.first()) #elems.first().body] 
   } else {
     elems = query(selector(heading.where(level: level)).before(here()))
     if elems.len() != 0 {
-      return [#numberingH(elems.last()) #elems.last().body] 
+      return [#numbering-headline(elems.last()) #elems.last().body] 
     }
   }
   return ""
 }
 
-#let applyCustomFooter() = {
+#let apply-custom-footer() = {
  set page(footer: context{
     if calc.rem(here().page(), 2) == 0 [  
       #align(left, text(currentH(), size: 10pt))

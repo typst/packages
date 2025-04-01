@@ -5,4 +5,4 @@
 
 #lorem(250)
 
-// #addNote[Remember to fact check this]
+// #add-note[Remember to fact check this]
