@@ -50,7 +50,7 @@ Inside of the `main.typ` file in the `#show`, update the relevant information li
 ### 🖌️ styling
 - The `tooling/template.typ` is responsible for primary styling throughout the tymplate and some header styling and more. 
 - The `tooling/functions.typ` contains footer and top level header styling.  
-- The `tooling/dtu_template/` contains frontpage, copyright and last page.  
+- The `tooling/dtu-template/` contains frontpage, copyright and last page.  
 
 ### 🎨 Fonts
 To add new fonts not available already, simply download it's files and add them anywhere inside the template or the dedicated folder `tooling/fonts/YourFont`.

@@ -1,12 +1,12 @@
-#import "dtu_template/frontpage_dtu.typ": *
-#import "dtu_template/copyright.typ": *
-#import "dtu_template/last_page.typ": *
+#import "dtu-template/frontpage-dtu.typ": *
+#import "dtu-template/copyright.typ": *
+#import "dtu-template/last-page.typ": *
 #import "preamble.typ": *
 
 #let hideFormalities = false
 // #let hideFormalities = true
 
-#let dtu_project(
+#let dtu-project(
   //General details
   title: "", 
   description: "",
@@ -97,7 +97,7 @@
   body
 
   // ---- LAST PAGE ----
-  show: last_page.with(
+  show: last-page.with(
     department: department,
     university: university,
     addressI: addressI,

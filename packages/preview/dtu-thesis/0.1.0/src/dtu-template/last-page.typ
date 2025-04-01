@@ -1,4 +1,4 @@
-#let last_page(
+#let last-page(
   department: "",
   university: "",
   addressI: "",

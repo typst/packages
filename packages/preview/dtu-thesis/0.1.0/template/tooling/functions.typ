@@ -14,7 +14,7 @@
 
 #let addNote(content) = {
   // Create the formatted note block
-  let formatted_note = block(
+  let formatted-note = block(
     width: 100%,
     fill: yellow,
     radius: 0.5em,
@@ -31,9 +31,9 @@
   )
   
   // Store the formatted note directly
-  todoes.update(t => t + formatted_note + v(0.5em))
+  todoes.update(t => t + formatted-note + v(0.5em))
   
-  formatted_note
+  formatted-note
 }
 
 #let showAllNotes() = {

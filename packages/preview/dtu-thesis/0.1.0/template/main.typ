@@ -11,7 +11,7 @@
 #set text(font: "Noto Sans", lang: "en")
   
 
-#show: dtu_project.with(
+#show: dtu-project.with(
   //General details
   title: 
   "Using Typst Instead Of Latex To Write A \nThesis, DTU Template",
@@ -31,12 +31,12 @@
 
   //preface
   before: (
-    summary_english: include "sections/preface/english.typ",
-    summary_danish: include "sections/preface/danish.typ",
+    summary-english: include "sections/preface/english.typ",
+    summary-danish: include "sections/preface/danish.typ",
     preface: include "sections/preface/preface.typ",
     acknowledgement: include "sections/preface/acknowledgement.typ",
     contents: include "sections/preface/contents.typ", // consider keeping this one
-    readers_guide: include "sections/preface/readers_guide.typ",
+    readers-guide: include "sections/preface/readers-guide.typ",
   ),
 )
 
