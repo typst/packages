@@ -1,0 +1,107 @@
+#import "dtu_template/frontpage_dtu.typ": *
+#import "dtu_template/copyright.typ": *
+#import "dtu_template/last_page.typ": *
+#import "preamble.typ": *
+
+#let hideFormalities = false
+// #let hideFormalities = true
+
+#let dtu_project(
+  //General details
+  title: "", 
+  description: "",
+  authors: (), 
+  date: none, 
+  //Department
+  university: "", 
+  department: "",
+  departmentFullTitle: "",
+  addressI: "",
+  addressII: "",
+  departmentwebsite: "",
+  //preface
+  before: (),
+  body) = {
+    
+  // ---- FRONTPAGE ----
+  show: frontpage.with(
+    title: title,
+    description: description,
+    authors: authors,
+    date: date,
+    university: university,
+    department: department,
+    departmentFullTitle: departmentFullTitle,
+  )
+
+  // ---- SETUP ----
+  // Set the document's basic properties.
+  set text(size: 10pt, fill: black)
+  set document(author: authors, title: title)
+  
+  //make typst look like latex
+  set page(numbering: none, number-align: center, fill: none, margin: auto)
+  set par(leading: 0.65em)
+  set heading(numbering: none)
+  show heading: set block(above: 1.4em, below: 1em)
+
+  // ---- FORMALITIES ----
+  if not hideFormalities {
+    // ---- COPYRIGHT ----
+    show: copyright.with(
+      title: title,
+      description: description,
+      authors: authors,
+      date: date,
+      university: university, 
+      department: department,
+      departmentFullTitle: departmentFullTitle,
+      addressI: addressI,
+      addressII: addressII,
+    )
+  
+    // ---- IncludePagesBefore ----
+    set page(numbering: "i", number-align: center)
+    counter(page).update(1)
+    include-files(before)
+  
+     //---- EMPTY PAGE ---- 
+    pagebreak()
+    
+  } else {
+    set page(numbering: "i", number-align: center)
+    counter(page).update(1)
+    before.contents
+  }
+
+  // ---- Main Report body ----
+  set page(numbering: "1", number-align: center)
+  set heading(numbering: "1.1")
+  counter(page).update(1)
+  set par(justify: true)
+  set text(hyphenate: false)
+
+  // ---- CUSTOM HEADINGS
+  show heading.where(level: 1): it => customHeading(it)
+
+  //---- CUSTOM FOOTER ----
+  set page(footer: context{
+    if calc.rem(here().page(), 2) == 0 [           // even pages
+      #text(currentH(level: 1)) #h(1fr) #counter(page).display() 
+    ] else [                                       //odd pages
+      #counter(page).display() #h(1fr) #text(currentH(level: 1))
+    ]
+  })
+
+  // BODY
+  body
+
+  // ---- LAST PAGE ----
+  show: last_page.with(
+    department: department,
+    university: university,
+    addressI: addressI,
+    addressII: addressII,
+    departmentwebsite: departmentwebsite
+  )
+}
