@@ -1,0 +1,16 @@
+[package]
+name = "typographic-resume"
+version = "0.1.0"
+authors = ["tsnobip <https://github.com/tsnobip>"]
+license = "MIT"
+description = "A stylish and customizable résumé template for Typst, designed with elegant typographic variations."
+categories = ["cv"]
+keywords = ["CV", "Curriculum Vitae", "Resume", "Minimal", "Typographic", "Professional"]
+repository = "https://github.com/tsnobip/typst-typographic-resume"
+exclude = ["*.pdf", "profile_pic_example.jpg"]
+entrypoint = "package.typ"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.webp"
