@@ -16,8 +16,8 @@
   university: "", 
   department: "",
   department-full-title: "",
-  address-I: "",
-  address-II: "",
+  address-i: "",
+  address-ii: "",
   departmentwebsite: "",
   //preface
   before: (),
@@ -56,8 +56,8 @@
       university: university, 
       department: department,
       department-full-title: department-full-title,
-      address-I: address-I,
-      address-II: address-II,
+      address-i: address-i,
+      address-ii: address-ii,
     )
   
     // ---- IncludePagesBefore ----
@@ -87,9 +87,9 @@
   //---- CUSTOM FOOTER ----
   set page(footer: context{
     if calc.rem(here().page(), 2) == 0 [           // even pages
-      #text(currentH(level: 1)) #h(1fr) #counter(page).display() 
+      #text(current-h(level: 1)) #h(1fr) #counter(page).display() 
     ] else [                                       //odd pages
-      #counter(page).display() #h(1fr) #text(currentH(level: 1))
+      #counter(page).display() #h(1fr) #text(current-h(level: 1))
     ]
   })
 
@@ -100,8 +100,8 @@
   show: last-page.with(
     department: department,
     university: university,
-    address-I: address-I,
-    address-II: address-II,
+    address-i: address-i,
+    address-ii: address-ii,
     departmentwebsite: departmentwebsite
   )
 }

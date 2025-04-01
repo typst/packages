@@ -25,8 +25,8 @@
   university: "Technical University of Denmark",
   department: "DTU Compute",
   department-full-title: "Department of Applied Mathematics and Computer Science",
-  address-I: "Richard Petersens Plads, Bygning 321",
-  address-II: "2800 Kgs. Lyngby Denmark",
+  address-i: "Richard Petersens Plads, Bygning 321",
+  address-ii: "2800 Kgs. Lyngby Denmark",
   departmentwebsite: "www.compute.dtu.dk",  
 
   //preface

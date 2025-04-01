@@ -76,7 +76,7 @@
   return ""
 }
 
-#let currentH(level: 1)={
+#let current-h(level: 1)={
   let elems = query(selector(heading.where(level: level)).after(here()))
 
   if elems.len() != 0 and elems.first().location().page() == here().page(){
@@ -93,9 +93,9 @@
 #let apply-custom-footer() = {
  set page(footer: context{
     if calc.rem(here().page(), 2) == 0 [  
-      #align(left, text(currentH(), size: 10pt))
+      #align(left, text(current-h(), size: 10pt))
     ] else [  
-      #align(right, currentH(level: 2))
+      #align(right, current-h(level: 2))
     ]
   })
 }

@@ -6,8 +6,8 @@
   university: "", 
   department: "",
   department-full-title: "",
-  address-I: "",
-  address-II: "",
+  address-i: "",
+  address-ii: "",
   body) = { 
   
   set page(
@@ -42,7 +42,7 @@
     row-gutter: 1.2em,
     [Copyright:], [Reproduction of this publication in whole or in part must include the customary bibliographic citation, including author attribution, report title, etc.],
     [Cover photo:], [Vibeke Hempler, 2012],
-    [Published by:], [#department, #university, #address-I, #address-II],
+    [Published by:], [#department, #university, #address-i, #address-ii],
   )
 
   pagebreak()
