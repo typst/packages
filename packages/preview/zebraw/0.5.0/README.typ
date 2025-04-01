@@ -1,6 +1,6 @@
 #set page(paper: "a4")
 
-#import "src/lib.typ": *
+#import "@preview/zebraw:0.5.0": *
 
 #set raw(theme: "assets/tokyo-night.tmTheme") if sys.inputs.at("x-color-theme", default: none) == "dark"
 #show raw: set text(font: "Fira Code")
