@@ -9,4 +9,4 @@ compiler = "0.10.0"
 
 repository = "https://github.com/Mc-Zen/curli"
 keywords = ["ligatures"]
-categories = ["text"]
+categories = ["text", "fun"]
