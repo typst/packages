@@ -71,16 +71,17 @@
 
     #fakebold[指导教师（姓名、职称）：]#info-value("supervisor", info.supervisor.at(0) + info.supervisor.at(1)) #(if info.supervisor-ii != () [#h(1em) #info-value("supervisor-ii", info.supervisor-ii.at(0) + info.supervisor-ii.at(1))])
 
-    #fakebold[摘要：]
+    #fakebold[【摘要：】]
 
     #[
       #set par(first-line-indent: (amount:2em, all:true))
-      
+      #set text(size: 字号.五号)
       #body
     ]
 
     #v(1em)
 
-    #fakebold[关键词：]#(("",)+ keywords.intersperse("；")).sum()
+    #fakebold[【关键词：】]
+    #text(size: 字号.五号,(("",)+ keywords.intersperse("；")).sum())
   ]
 }
