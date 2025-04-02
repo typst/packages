@@ -1,4 +1,4 @@
-#import "@preview/starter-journal-article:0.2.0": article, author-meta
+#import "@preview/starter-journal-article:0.3.2": article, author-meta
 
 #let affiliations = (
   "UCL": "UCL Centre for Advanced Spatial Analysis, First Floor, 90 Tottenham Court Road, London W1T 4TJ, United Kingdom",
