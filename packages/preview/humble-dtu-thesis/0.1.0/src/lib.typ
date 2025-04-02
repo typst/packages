@@ -21,18 +21,25 @@
   departmentwebsite: "",
   //preface
   before: (),
+  //extra
+  frontpage-input: none,
+  background-color: rgb("#224ea9"),
   body) = {
   
   // ---- FRONTPAGE ----
-  show: frontpage.with(
-    title: title,
-    description: description,
-    authors: authors,
-    date: date,
-    university: university,
-    department: department,
-    department-full-title: department-full-title,
-  )
+  if frontpage-input == none {
+    show: frontpage.with(
+      title: title,
+      description: description,
+      authors: authors,
+      date: date,
+      university: university,
+      department: department,
+      department-full-title: department-full-title,
+    )
+  } else {
+    frontpage-input
+  }
 
   // ---- SETUP ----
   // Set the document's basic properties.
@@ -102,6 +109,7 @@
     university: university,
     address-i: address-i,
     address-ii: address-ii,
-    departmentwebsite: departmentwebsite
+    departmentwebsite: departmentwebsite,
+    background-color: background-color
   )
 }

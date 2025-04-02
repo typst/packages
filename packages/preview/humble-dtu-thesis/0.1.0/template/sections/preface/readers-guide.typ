@@ -1,4 +1,4 @@
-#import "../../tooling/preamble.typ": *
+#import "@preview/humble-dtu-thesis:0.1.0": *
 
 #heading(
   level: 1,
@@ -17,5 +17,3 @@ stuff about how to read or do stuff...
 ))
 
 #print-index()
-
-#pagebreak()

@@ -1,9 +1,4 @@
-#import "tooling/template.typ": *
-#import "tooling/preamble.typ": *
-// #import "@preview/humble-dtu-thesis:0.1.0": *
-
-// Take a look at the file `template.typ` in the file panel
-// to customize this template and discover how it works.
+#import "@preview/humble-dtu-thesis:0.1.0": *
 
 // ---- FONT ----
 // #set text(font: "Neo Sans Pro",lang: "en")
@@ -38,6 +33,10 @@
     contents: include "sections/preface/contents.typ", // consider keeping this one
     readers-guide: include "sections/preface/readers-guide.typ",
   ),
+
+  //extra
+  // frontpage-input: include "path-to-frontpage", //if wanting to create a custom frontpage
+  // background-color: rgb("#224ea9"), //change background color of last page
 )
 
 // *Todos*
@@ -46,7 +45,6 @@
 
 #include "sections/introduction.typ"
 #include "sections/conclusion.typ"
-
 
 #pagebreak()
 #bibliography("works.bib")

@@ -1,4 +1,4 @@
-#import "../tooling/functions.typ": *
+#import "@preview/humble-dtu-thesis:0.1.0": *
 
 = Introduction
 - Why is this interesting @WikipediaBanana

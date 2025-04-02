@@ -4,12 +4,13 @@
   address-i: "",
   address-ii: "",
   departmentwebsite: "",
+  background-color: rgb("#224ea9"),
   body) = {
   set page(
     footer: [],
     numbering: none, 
     margin: auto,
-    fill: rgb("#224ea9")
+    fill: background-color
   )
 
   set text(
