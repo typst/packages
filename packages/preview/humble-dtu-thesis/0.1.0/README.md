@@ -5,11 +5,11 @@ This is a Typst template for writing a **Thesis** at the **Technical University 
 The original Latex template this is based on and related DTU Latex can be found at [Overleaf DTU](https://www.overleaf.com/edu/dtu#overview)
 
 ## 📥 Installation & Usage
-You can use this template in the Typst web app by clicking “Start from template” on the dashboard and search for this, dtu-thesis.
+You can use this template in the Typst web app by clicking “Start from template” on the dashboard and search for this, humble-dtu-thesis.
 
 Alternatively, you can use the CLI to kick this project off locally using the command
 ```sh
-typst init @preview/dtu-thesis
+typst init @preview/humble-dtu-thesis
 ```
 
 This will create a new project based on this template.
@@ -17,7 +17,7 @@ This will create a new project based on this template.
 ## 📑 Template Structure
 The template follows a structured layout:
 ```
-dtu-thesis/
+humble-dtu-thesis/
 ├── main.typ   <-- Thesis entrypoint
 ├── works.bib  <-- Bibliography file
 ├── images/    <-- DTU logos and images
@@ -31,7 +31,7 @@ dtu-thesis/
 - 📑 **Reference management** (BibTeX integration)
 
 ## How to use
-As typst has packages and templates is this initial version of `dtu-thesis` also appending some code inside of the template for easier access and customization. 
+As typst has packages and templates is this initial version of `humble-dtu-thesis` also appending some code inside of the template for easier access and customization. 
 
 Make sure to explore the `tooling/template.typ` file if interested in modifying certain parts in more details or simply to understand the structure and how the template works. 
 
@@ -41,7 +41,7 @@ And decide if you wish to use package or included template files to run on. Simp
 // --main.typ
 #import "tooling/template.typ": *
 #import "tooling/preamble.typ": *
-// #import "@preview/dtu-thesis:0.1.0": *
+// #import "@preview/humble-dtu-thesis:0.1.0": *
 ```
 
 ### ℹ️ Core information
