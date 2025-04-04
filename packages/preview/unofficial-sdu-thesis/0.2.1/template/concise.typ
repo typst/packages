@@ -1,4 +1,8 @@
-#import "@preview/unofficial-sdu-thesis:0.1.0": documentclass, algox, tablex, fonts, fontsize
+// 使用typst packages库
+#import "@preview/unofficial-sdu-thesis:0.2.1": *
+// 如果是本地安装，则使用
+// #import "@local/unofficial-sdu-thesis:0.2.1": *
+
 #let (
   info,
   doc,
