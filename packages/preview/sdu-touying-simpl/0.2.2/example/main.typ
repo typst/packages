@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/sdu-touying-simpl:0.2.2": *
 #set text(font: (
   (
     name: "Inria Serif",
