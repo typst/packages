@@ -56,8 +56,8 @@ See here for **all** possible arguments (and their default values) and utility f
 
 // Use these to *enable* or *change* page numbering for your frontmatter and mainmatter respectively.
 // (By default, this template hides the page numbering!)
-#show: roman-numbering.with(reset: <true|false>)
-#show: arabic-numbering.with(alternate: <true|false>, reset: <true|false>)
+#show: roman-numbering.with(reset: <true|false>, alternate: <true|false>)
+#show: arabic-numbering.with(reset: <true|false>, alternate: <true|false>)
 ```
 
 ### Utility Functions
