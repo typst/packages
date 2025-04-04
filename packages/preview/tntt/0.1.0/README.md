@@ -30,7 +30,7 @@ $ typst init @preview/tntt
 
 ## 预览
 
-![preview](template/thumbnail.png)
+![preview](thumbnail.png)
 
 ## 致谢
 
@@ -80,7 +80,7 @@ Of course, you can also import this template in any Typst file by adding:
 
 ## Preview
 
-![preview](template/thumbnail.png)
+![preview](thumbnail.png)
 
 ## Acknowledgements
 
