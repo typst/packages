@@ -1,0 +1,36 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "scrutinize"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = [
+	"Clemens Koza <https://github.com/SillyFreak/>"
+]
+license = "MIT"
+description = "A library for building exams, tests, etc. with Typst"
+# homepage = ""
+repository = "https://github.com/SillyFreak/typst-scrutinize"
+keywords = ["exam", "test", "school", "teaching"]
+categories = ["model", "scripting", "office"]
+disciplines = ["education"]
+compiler = "0.11.0"
+exclude = [
+	".github",
+	"docs",
+	"gallery",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+	"thumbnail.png",
+	"thumbnail-solved.png",
+]
+
+# [template]
+# path = "template"
+# entrypoint = "main.typ"
+# thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"

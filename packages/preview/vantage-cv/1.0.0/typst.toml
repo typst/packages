@@ -1,0 +1,37 @@
+[package]
+name = "vantage-cv"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Sardor <@sardorml>"]
+license = "MIT"
+description = "An ATS friendly simple Typst CV template"
+repository = "https://github.com/sardorml/vantage-typst"
+keywords = [
+  "resume",
+  "developer-template",
+  "cv",
+  "template",
+  "professional",
+  "clean-design",
+  "modern",
+  "portfolio",
+  "tech-resume",
+  "minimalist",
+  "two-page",
+  "job-application",
+  "software-engineer",
+  "IT-professional",
+  "digital-resume",
+  "editable",
+  "customizable",
+  "developer-portfolio",
+  "coding-resume",
+  "engineer-cv",
+  "tech-career"
+]
+categories = ["cv","layout"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
