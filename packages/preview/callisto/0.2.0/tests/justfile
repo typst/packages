@@ -1,0 +1,11 @@
+run-all:
+    #!/usr/bin/env bash
+    shopt -s nullglob
+    set -eu
+    for file in *.typ; do
+        just run-test "$file"
+    done
+
+run-test filename:
+    typst c --root=.. {{filename}} output/{{file_stem(filename)}}.pdf
+
