@@ -1,0 +1,16 @@
+[package]
+name = "lth-msc-cs"
+version = "0.1.0"
+compiler = "0.13.0"
+entrypoint = "lib.typ"
+authors = ["Theodor Lundqvist & Ludvig Delvret"]
+license = "MIT-0"
+description = "A typst version of the offical LaTeX-template for master thesises in computer science at LTH."
+keywords = ["LTH", "Computer Science", "Master Thesis", "Lund University"]
+categories = ["paper"]
+disciplines = ["computer-science", "engineering"]
+
+[template]
+path = "."
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
