@@ -142,8 +142,8 @@
     #stack(
       dir: ltr,
       spacing: 1fr,
-      image(unidad-academica-logo, height: 2cm),
-      image(institucion-logo, height: 2cm),
+      image(unidad-academica-logo, height: 1.4cm),
+      image(institucion-logo, height: 1.4cm),
     )
     #v(1em)
     #text(size: 14pt, smallcaps(opts.asignatura))

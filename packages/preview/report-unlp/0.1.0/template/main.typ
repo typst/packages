@@ -1,4 +1,4 @@
-#import "../src/lib.typ": informe, nomenclatura, apendice
+#import "@preview/report-unlp:0.1.0": informe, nomenclatura, apendice
 
 #show: informe.with(
   unidad-academica: "ingeniería",

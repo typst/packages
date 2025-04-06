@@ -26,7 +26,7 @@ Plantilla de informe para estudiantes de la UNLP, especialmente para ingeniería
   - Si se desea usar un logo diferente, basta con escribir la ruta la logo
 - `unidad-academica`: el logo de la unidad académica del informe.
   - `"informática"`: Facultad de Informática
-  - `"ingenieria"`: Facultad de Ingeniería
+  - `"ingeniería"`: Facultad de Ingeniería
   - Si se desea usar un logo diferente, basta con escribir la ruta la logo
   - Si la unidad académica de la UNLP no está en la lista, [creá un reporte](https://github.com/JuanM04/report-unlp/issues/new) con el link al logo y lo agregamos a la plantilla.
 - `asignatura`: el nombre de la asignatura (`str`).
