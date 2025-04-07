@@ -1,4 +1,5 @@
 # Typst Package Categories
+
 Categories help users explore packages, make finding the right one easier, and
 provide package authors with a reference for best-practices in similar packages.
 In addition to categories, packages can also specify a list of [disciplines]
@@ -17,6 +18,7 @@ for example, are of big relevance to template packages and less so to a general
 utility package that may apply to most publication kinds.
 
 ## Functional Categories
+
 - **`components`:** Building blocks for documents. This includes boxes, layout
   elements, marginals, icon packs, color palettes, and more.
 - **`visualization`:** Packages producing compelling visual representations of
@@ -39,6 +41,7 @@ utility package that may apply to most publication kinds.
   always entertaining.
 
 ## Publication Categories
+
 - **`book`:** Long-form fiction and non-fiction books with multiple chapters.
 - **`report`:** A multipage informational or investigative document focused on
   a single topic. This category contains templates for tech reports, homework,
