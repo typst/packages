@@ -22,7 +22,7 @@
 
 #import "font.typ": font-family, font-size
 
-#let defineConfig(
+#let define-config(
   doctype: "bachelor", // "bachelor" | "master" | "doctor" | "postdoc"，文档类型，默认为本科生 bachelor
   degree: "academic", // "academic" | "professional"，学位类型，默认为学术型 academic
   twoside: false, // 双面模式，会加入空白页，便于打印

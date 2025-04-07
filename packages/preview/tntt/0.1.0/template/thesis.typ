@@ -1,4 +1,4 @@
-#import "@preview/tntt:0.1.0": defineConfig
+#import "@preview/tntt:0.1.0": define-config
 
 #let (
   // 布局函数
@@ -21,7 +21,7 @@
   ack,
   decl,
   achv,
-) = defineConfig(
+) = define-config(
   doctype: "bachelor", // "bachelor" | "master" | "doctor" | "postdoc", 文档类型，默认为本科生 bachelor
   degree: "academic", // "academic" | "professional", 学位类型，默认为学术型 academic
   anonymous: false, // 盲审模式
