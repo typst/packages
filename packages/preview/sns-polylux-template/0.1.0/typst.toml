@@ -1,5 +1,5 @@
 [package]
-name        = "sns-polylux-theme"
+name        = "sns-polylux-template"
 version     = "0.1.0"
 entrypoint  = "sns-theme.typ"
 authors     = ["M. Barbieri <https://mbarbieri.it>"]
