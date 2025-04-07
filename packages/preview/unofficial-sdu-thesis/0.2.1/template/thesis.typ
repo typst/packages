@@ -213,37 +213,6 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
   )
 ]
 
-= 第四章
-
-== 图格式
-#figure(
-  image(
-    "img/AlbertEinstein.png",
-    width: 50%,
-  ),
-  // kind: "image",
-  supplement: [图],
-  caption: [Albert Einstein], // 英文图例
-)<Einstein-2>
-
-#tablex(
-  header: (
-    [感应频率 #linebreak() (kHz)],
-    [感应发生器功率 #linebreak() (%×80kW)],
-    [工件移动速度 #linebreak() (mm/min)],
-    [感应圈与零件间隙 #linebreak() (mm)],
-  ),
-  //必须声明且同时声明columns 和 colnum.
-  columns: (1fr, 1fr, 1fr, 1fr),
-  colnum: 4,
-  caption: [这是一个表格示例],
-  label-name: "这张表格的label2",
-  ..for i in range(10) {
-    ([250], [88], [5900], [1.65])
-  },
-)
-
-
 = 总结与展望
 总结全文并展望。主要撰写论文工作的结论、创新点、不足之处、进一步研究展望等内容，不宜插入图表。
 

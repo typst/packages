@@ -1,13 +1,13 @@
 # 山东大学本科毕业论文（设计）typst模板
 
 <p align="center", >
-  <a href="https://typst.app/universe/package/typsium"><img src="https://img.shields.io/badge/version-0.2.0-3230E3?style=for-the-badge" alt="Typst Package"></a>
+  <a href="https://typst.app/universe/package/typsium"><img src="https://img.shields.io/badge/version-0.2.1-3230E3?style=for-the-badge" alt="Typst Package"></a>
   <a href="https://github.com/Typsium/typsium/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-red?style=for-the-badge" alt="MIT License"></a>
 </p>
 
 > 山东大学本科毕业论文（设计）typst模板，带来超越word与tex的体验，助你轻松编辑，简洁书写。
 > 本项目借鉴了[modern-nju-thesis](https://typst.app/universe/package/modern-nju-thesis)，在此表示感谢。
-> 如果这帮到了你，阁下不妨点击⭐️作为给予我的我的奖励
+> 如果这帮到了你，阁下不妨点击⭐️作为激励
 
 - Typst 非官方中文交流群:793548390
 - **如遇到任何问题或需求，请联系GG:** _`groovewjh@foxmail.com`_，或提交[issue](https://github.com/GrooveWJH/unofficial-sdu-thesis/issues)
@@ -27,8 +27,8 @@
 
 请参考[此项目库](https://github.com/GrooveWJH/unofficial-sdu-thesis)
 
-- [thesis.typ](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/template/thesis.typ)：示例代码
-- [thesis.pdf](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/template/thesis.pdf)：由示例代码生成PDF
+- [thesis.typ](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/src/latest/template/thesis.typ)：示例代码
+- [thesis.pdf](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/src/latest/template/thesis.pdf)：由示例代码生成PDF
 
 实际上，理想的情况下，你几乎只需要修改 `thesis.typ`文件即可完成你的工作。
 
@@ -41,7 +41,6 @@
 ### 推荐编辑方式
 
 - [Visual Studio Code](https://visualstudio.microsoft.com/) + [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist)，推荐使用此种方式。
-
 - [Typst app](https://typst.app/universe/package/unofficial-sdu-thesis) -> Start from a template, 快速由Typst Template创建以体验此模板，由于Typst app对中文字体支持未完善，因此建议预览体验后使用本地编辑完成您的工作。
 
 ### 本地安装
@@ -63,11 +62,11 @@ sudo bash ./local_install.sh
 
 自行查阅
 
-## 简洁示例
+## 各部分简要示例
 
-> 此示例未包含正文之后的部分及图表应用，具体仍请参考[thesis.typ](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/template/thesis.typ)
+> 此示例未包含正文之后的部分及图表应用，相关使用仍请务必参考[thesis.typ](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/src/latest/template/thesis.typ)
 
-```typst
+```
 #import "@preview/unofficial-sdu-thesis:0.2.1": *
 // 如果是本地安装，则使用
 // #import "@local/unofficial-sdu-thesis:0.2.1": *
@@ -109,10 +108,9 @@ sudo bash ./local_install.sh
   ],
   keywords-en: ("dissertation", "dissertation format"),
 )
+
 #outline()
 
-#set heading(numbering: "1.1")
-#counter(page).update(1)
 #show: mainmatter
 
 = 绪#h(2em)论
@@ -123,17 +121,31 @@ sudo bash ./local_install.sh
 === 三级标题
 本文...
 
-=== 三级标题
-许多年后奥雷里亚诺·布恩迪亚上校站在行刑队面前，准会想起父亲带他去见识冰块的那个遥远的下午。
+= 总结与展望
+总结全文并展望。主要撰写论文工作的结论、创新点、不足之处、进一步研究展望等内容，不宜插入图表。
 
-Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice.
-= 本科毕业论文写作规范
+// 文献引用
+#bib(bibfunc: bibliography("ref.bib"))
 
-== 二级标题
-本组织...
+// 致谢
+#acknowledgement()[
 
-=== 三级标题
-本文将...
+]
+
+// 附录
+#show: appendix
+
+= 附#h(2em)录
+
+== 附图示例
+
+参考template.typ文件
+
+#pagebreak()
+== 附表示例
+
+参考template.typ文件
+
 ```
 
 ## 特性 / 路线图

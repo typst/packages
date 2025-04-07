@@ -12,7 +12,7 @@
     spacing: 20pt - 1em,
     justify: true,
   )
-  set page(numbering: none)
+  set page(numbering: none,footer: none)
   show heading: set align(center)
   show: appendix-first-heading
   pagebreak(weak: true)

@@ -4,8 +4,11 @@
   doctype: "master",
   body,
 ) = {
-  set page(numbering: "1")
+  // set page(numbering: "1")
   set heading(numbering: "1.1")
+
+  // 这很抽象，使用footer实现的页码标注...
+  set page(footer: align(center)[#text(rgb("808080"))[#context counter(page).display("1")]])
   counter(page).update(1)
   show: main-heading
   set text(font: fonts.宋体, size: fontsize.小四)
