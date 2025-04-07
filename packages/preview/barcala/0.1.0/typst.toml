@@ -1,9 +1,9 @@
 [package]
-name = "report-unlp"
+name = "barcala"
 version = "0.1.0"
 compiler = "0.13.1"
 authors = ["Juan Martín Seery <https://github.com/JuanM04>"]
-repository = "https://github.com/JuanM04/report-unlp"
+repository = "https://github.com/JuanM04/barcala"
 license = "MIT"
 description = "A report template for UNLP students, specially for engineering."
 entrypoint = "src/lib.typ"

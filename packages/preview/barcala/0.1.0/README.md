@@ -1,4 +1,4 @@
-# report-unlp
+# barcala
 
 ![](https://img.shields.io/badge/Typst-0.13.1-blue?style=flat-square&logo=typst&logoColor=white&labelColor=239DAD&color=555555)
 
@@ -7,14 +7,14 @@ A report template for UNLP students, specially for engineering. Not affiliated w
 
 ---
 
-Plantilla de informe para estudiantes de la UNLP, especialmente para ingeniería. No está afiliada a la universidad.
+Plantilla de informe para estudiantes de la Universidad Nacional de La Plata, especialmente para ingeniería. No está afiliada a la universidad.
 
 ![Documento de ejemplo](./thumbnail.png)
 
 ## Uso
 
 ```typst
-#import "@preview/report-unlp@0.1.0": informe
+#import "@preview/barcala@0.1.0": informe
 
 #show: informe.with(
   // parámetros del informe
@@ -28,7 +28,7 @@ Plantilla de informe para estudiantes de la UNLP, especialmente para ingeniería
   - `"informática"`: Facultad de Informática
   - `"ingeniería"`: Facultad de Ingeniería
   - Si se desea usar un logo diferente, basta con escribir la ruta la logo
-  - Si la unidad académica de la UNLP no está en la lista, [creá un reporte](https://github.com/JuanM04/report-unlp/issues/new) con el link al logo y lo agregamos a la plantilla.
+  - Si la unidad académica de la UNLP no está en la lista, [creá un reporte](https://github.com/JuanM04/barcala/issues/new) con el link al logo y lo agregamos a la plantilla.
 - `asignatura`: el nombre de la asignatura (`str`).
 - `titulo` (`content`): el título más formal del informe, como `[Trabajo Práctico Nº 3]`.
 - `equipo` (`content`): el nombre del equipo, como `[Grupo 12]`.
@@ -53,7 +53,7 @@ Plantilla de informe para estudiantes de la UNLP, especialmente para ingeniería
 Para agregar apéndices al informe, se puede usar el comando `apendice` en el lugar empiezan los apéndices. Por ejemplo:
 
 ```typst
-#import "@preview/report-unlp@0.1.0": informe, apendice
+#import "@preview/barcala@0.1.0": informe, apendice
 
 #show: informe.with(
   // parámetros del informe
@@ -75,7 +75,7 @@ Para agregar apéndices al informe, se puede usar el comando `apendice` en el lu
 Para agregar una tabla de símbolos/nomenclatura al informe, se puede usar el comando `nomenclatura` en el lugar donde empieza la tabla. Por ejemplo:
 
 ```typst
-#import "@preview/report-unlp@0.1.0": informe, nomenclatura
+#import "@preview/barcala@0.1.0": informe, nomenclatura
 
 #show: informe.with(
   // parámetros del informe
@@ -93,7 +93,7 @@ Para agregar una tabla de símbolos/nomenclatura al informe, se puede usar el co
 Para generar la imagen `thumbnail.png` de la portada, se debe cambiar
 
 ```diff
--  #import "@preview/report-unlp@0.1.0": ...
+-  #import "@preview/barcala@0.1.0": ...
 +  #import "../src/lib.typ": ...
 ```
 
