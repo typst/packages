@@ -1,5 +1,5 @@
 #import "@preview/polylux:0.4.0": *
-#import "@preview/sns-polylux-theme:0.1.0": *
+#import "@preview/sns-polylux-template:0.1.0": *
 
 #set text(lang: "en")
 #show: sns-theme.with(
