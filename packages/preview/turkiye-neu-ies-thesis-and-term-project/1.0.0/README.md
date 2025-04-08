@@ -1,5 +1,5 @@
 # turkiye-neu-ies-thesis-and-term-project
-[Necmettin Erbakan Üniversitesi Eğitim Bilimleri Enstitiüsü](https://erbakan.edu.tr/tr/birim/egitim-bilimleri-enstitusu) lisansüstü eğitim için **RESMÎ OLMAYAN** tez önerisi, tez ve dönem projesi şablonudur. [**UNOFFICIAL** thesis proposal, thesis and term project template for graduate education at [Necmettin Erbakan University Institute of Educational Sciences](https://erbakan.edu.tr/tr/birim/egitim-bilimleri-enstitusu).]
+[Necmettin Erbakan Üniversitesi Eğitim Bilimleri Enstitüsü](https://erbakan.edu.tr/tr/birim/egitim-bilimleri-enstitusu) lisansüstü eğitim için **RESMÎ OLMAYAN** tez önerisi, tez ve dönem projesi şablonudur. [**UNOFFICIAL** thesis proposal, thesis and term project template for graduate education at [Necmettin Erbakan University Institute of Educational Sciences](https://erbakan.edu.tr/tr/birim/egitim-bilimleri-enstitusu).]
 
 ## İçindekiler [Table of Contents]
 <details>
