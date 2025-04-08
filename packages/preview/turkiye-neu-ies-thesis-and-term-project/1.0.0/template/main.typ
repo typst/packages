@@ -10,8 +10,7 @@
 
 // Şablonu yukarıda bahsedilen araçlarla çevrim içi kullanmak için aşağıdaki gibi içe aktarma yapabilirsiniz:
 // NOT: Tinymist Typst uzantısının 'Template Gallery'si üzerinden bir şablonu seçerek proje oluşturduğunuzda bu şekilde içe aktarma yapabilirsiniz.
-/*
-#import "@preview/turkiye-neu-ies-thesis-and-term-project:0.1.0": (
+#import "@preview/turkiye-neu-ies-thesis-and-term-project:1.0.0": (
   template-configurations,
   LANGUAGES,
   REPORT-TYPES,
@@ -19,7 +18,6 @@
   PROGRAMS,
   ACADEMIC-MEMBER-TITLES,
 )
-*/
 
 /* ---- ŞABLONU ÇEVRİM DIŞI KULLANMAK ---- */
 
@@ -27,7 +25,7 @@
 
 // Şablonu [adresindeki](https://github.com/typst/packages/?tab=readme-ov-file#local-packages) bahsedilen konuma indirerek kullanıyorsanız aşağıdaki gibi içe aktarma yapabilirsiniz:
 /*
-#import "@local/turkiye-neu-ies-thesis-and-term-project:0.1.0": (
+#import "@local/turkiye-neu-ies-thesis-and-term-project:1.0.0": (
   template-configurations,
   LANGUAGES,
   REPORT-TYPES,
@@ -38,6 +36,7 @@
 */
 
 // Şablonu, şablonun bütün dosyalarının bulunduğu [Geliştirici GitHub Reposu](https://github.com/ertugruluyar-github/turkiye-neu-ies-thesis-and-term-project) üzerinden manuel olarak bilgisayarınızda istediğiniz herhangi bir konuma indirerek kullanıyorsanız aşağıdaki gibi içe aktarma yapabilirsiniz:
+/*
 #import "/src/lib.typ": (
   template-configurations,
   LANGUAGES,
@@ -46,6 +45,7 @@
   PROGRAMS,
   ACADEMIC-MEMBER-TITLES,
 )
+*/
 // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "/src/lib.typ": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
 
 // Şablon ayarlarını giriniz.\
