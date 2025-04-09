@@ -1,4 +1,4 @@
-#import "@preview/juti:0.0.1"
+#import "@preview/juti:0.0.2"
 
 #let authors = (
   (
