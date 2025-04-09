@@ -6,7 +6,7 @@
     entrypoint = "src/lib.typ"
     authors = ["ivaquero"]
     license = "MIT"
-    description = "A quick start template for scientific booklets"
+    description = "A quick start utility for scientific booklets"
     categories = ["book", "layout"]
     keywords = ["book", "booklet"]
     exclude = ["examples"]

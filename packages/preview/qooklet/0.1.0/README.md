@@ -1,6 +1,6 @@
 # Qooklet
 
-A quick start template for scientific booklets.
+A quick start utility for scientific booklets.
 
 ## Features
 
@@ -29,23 +29,32 @@ A quick start template for scientific booklets.
   author: "ivaquero",
   header-cap: "Reinforcement Learning",
   footer-cap: "ivaquero",
-  outline-on: false,
-  doc,
-)
-```
-
-## Get Started
-
-```typst
-#import "@local/qooklet:0.1.0": *
-#show: doc => conf(
-  title: "Bellman Eqation",
-  author: "ivaquero",
-  header-cap: "Reinforcement Learning",
-  footer-cap: "ivaquero",
-  outline-on: false,
+  // the following are optional arguments
+  // outline-on: false,
+  // par-leading: 1em,
+  // list-indent: 1.2em,
+  // block-above: 1em,
+  // block-below: 1em,
+  // figure-break: false,
+  // lang: "en",
   doc,
 )
 ```
 
 See [qooklet](https://github.com/ivaquero/qooklet.git) for example.
+
+## Clone Official Repository
+
+Clone the [qooklet](https://github.com/ivaquero/qooklet) repository to your `@local` workspace:
+
+- Linux：
+  - `$XDG_DATA_HOME/typst/packages/local`
+  - `~/.local/share/typst/packages/local`
+- macOS：`~/Library/Application\ Support/typst/packages/local`
+- Windows：`%APPDATA%/typst/packages/local`
+
+Import `qooklet` in the document
+
+```typst
+#import "@local/qooklet:0.1.0": *
+```
