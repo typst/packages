@@ -80,7 +80,7 @@
 	}
 }
 
-#let myBlock(
+#let my-block(
 	title: none,
 	body
 ) = {

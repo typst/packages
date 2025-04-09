@@ -24,7 +24,7 @@
 	- Some content
 	- Some citation @ref of Leonux #footnote("Leonux - minimalistic typst slides")
 	// Create a block (e.g. for a definition)
-	#myBlock(title: "Definition: Law of large numbers")[
+	#my-block(title: "Definition: Law of large numbers")[
 		$ forall epsilon > 0: lim_(n -> infinity) P(|r_n - p| <= epsilon) = 1 $
 		Or in words: For large $n$ applies: $p approx r_n$.
 	]
