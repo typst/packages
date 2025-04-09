@@ -48,6 +48,4 @@ A quick start template for scientific booklets.
 )
 ```
 
-See [examples.typ](./examples/example.typ).
-
-![example](examples/example.png)
+See [qooklet](https://github.com/ivaquero/qooklet.git) for example.
