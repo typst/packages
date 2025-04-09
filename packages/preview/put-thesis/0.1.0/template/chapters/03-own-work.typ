@@ -24,12 +24,12 @@ body of the thesis. Any software written for the purpose of the thesis, or
 results of experiments, should be uploaded to the PUT online repository or
 shared via a medium, e.g. a CD disk, as an addition to the
 work#footnote[Uploading and linking to online services such as GitHub is also
-	acceptable.].
+  acceptable.].
 
 == Writing style
 
 Passive mode is preferred#footnote[Remarks on the style of writing partially
-	originate from the web pages of prof. Maciej Drozdowski~@Drozdowski2006.],
+  originate from the web pages of prof. Maciej Drozdowski~@Drozdowski2006.],
 i.e. "... was considered", "... was implemented", and not: "I considered ...",
 "I implemented ...". References to earlier parts should be written as follows:
 "As mentioned earlier, ...", "As shown above, ...". Avoid long sentences.
@@ -37,7 +37,8 @@ i.e. "... was considered", "... was implemented", and not: "I considered ...",
 Informal language is strictly prohibited. It is imperative to use well-defined,
 precise terminology that carries clear meaning.
 
-Directly copying & pasting from external sources is strictly prohibited as
-plagiarism and proof of intellectual indolence of the authors. Each matter is to
-be described using the authors' own words. It is sometimes necessary to cite
-external sources.
+Directly copying and pasting from external sources is strictly prohibited as
+plagiarism#footnote[How to identify and avoid plagiarism (in Polish):
+  https://akademickaporadniaprawna.pl/plagiat-na-studiach/] and proof of
+intellectual indolence of the authors. Each matter should be described using
+the authors' own words, and sources should be cited.

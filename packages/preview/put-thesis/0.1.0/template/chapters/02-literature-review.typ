@@ -2,9 +2,9 @@
 
 A theoretical chapter -- literature review shedding some light onto the current
 state of knowledge on the topic (pl. #text(lang: "pl")[
-	_"Podstawy teoretyczne"_,
-	_"Przegląd literatury"_,
-	lub podobnie]).
+  _"Podstawy teoretyczne"_,
+  _"Przegląd literatury"_,
+  lub podobnie]).
 
 Literature review comprises in-depth summaries of relevant works in the field.
 The discussed resources must be cited and jointly listed near the end of the
