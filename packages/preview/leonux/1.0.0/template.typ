@@ -12,7 +12,7 @@
 #let priv-date = state("date", none)
 #let priv-author = state("author", none)
 #let priv-institute = state("institute", none)
-#let priv-content = state("Content",())
+#let priv-content = state("priv-content",())
 
 #let setup(
 	ratio: "16-9",
