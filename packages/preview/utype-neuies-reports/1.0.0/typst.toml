@@ -1,12 +1,12 @@
 [package]
-name = "turkiye-neu-ies-thesis-and-term-project"
+name = "utype-neuies-reports"
 version = "1.0.0"
 compiler = "0.13.1"
 entrypoint = "src/lib.typ"
 authors = ["Ertuğrul UYAR <@ertugruluyar-github>"]
 license = "MIT"
 description = "Necmettin Erbakan Üniversitesi Eğitim Bilimleri Enstitiüsü lisansüstü eğitim için RESMÎ OLMAYAN tez önerisi, tez ve dönem projesi şablonudur. [Necmettin Erbakan University Institute of Educational Sciences is an UNOFFICIAL thesis proposal, thesis and term project template for graduate education.]"
-repository = "https://github.com/ertugruluyar-github/turkiye-neu-ies-thesis-and-term-project"
+repository = "https://github.com/ertugruluyar-github/utype-neuies-reports"
 categories = ["thesis", "report"]
 keywords = [
     "thesis",

@@ -1,11 +1,11 @@
-# turkiye-neu-ies-thesis-and-term-project
+# utype-neuies-reports
 [Necmettin Erbakan Üniversitesi Eğitim Bilimleri Enstitüsü](https://erbakan.edu.tr/tr/birim/egitim-bilimleri-enstitusu) lisansüstü eğitim için **RESMÎ OLMAYAN** tez önerisi, tez ve dönem projesi şablonudur. [**UNOFFICIAL** thesis proposal, thesis and term project template for graduate education at [Necmettin Erbakan University Institute of Educational Sciences](https://erbakan.edu.tr/tr/birim/egitim-bilimleri-enstitusu).]
 
 ## İçindekiler [Table of Contents]
 <details>
   <summary>İçindekileri göstermek/gizlemek için tıklayınız [Click to show/hide the Table of Contents]</summary>
 
-- [turkiye-neu-ies-thesis-and-term-project](#turkiye-neu-ies-thesis-and-term-project)
+- [utype-neuies-reports](#utype-neuies-reports)
   - [İçindekiler \[Table of Contents\]](#i̇çindekiler-table-of-contents)
   - [Resmî Şablon Hakkında \[About the Official Template\]](#resmî-şablon-hakkında-about-the-official-template)
   - [Ön İzleme Görselleri \[Thumbnails\]](#ön-i̇zleme-görselleri-thumbnails)
@@ -125,7 +125,7 @@ Bu projelerde emeği geçen herkese çok büyük teşekkürlerimi sunarım.
 
   ```typst
   // Şablonu, Kurulum başlığında bahsedilden durumlardan size uygun olana göre içe aktarınız:
-  #import "@preview/turkiye-neu-ies-thesis-and-term-project:1.0.0": (
+  #import "@preview/utype-neuies-reports:1.0.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -133,7 +133,7 @@ Bu projelerde emeği geçen herkese çok büyük teşekkürlerimi sunarım.
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@preview/turkiye-neu-ies-thesis-and-term-project:1.0.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
+  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@preview/utype-neuies-reports:1.0.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
 
   // Şablon ayarlarını giriniz.
   #show: template-configurations.with(
@@ -256,7 +256,7 @@ Bu durumda, ilk defa şablonu indirirken internete ihtiyaç vardır. İlk indirm
   <summary>Kodu göstermek/gizlemek için tıklayınız</summary>
 
   ```typst
-  #import "@preview/turkiye-neu-ies-thesis-and-term-project:1.0.0": (
+  #import "@preview/utype-neuies-reports:1.0.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -264,7 +264,7 @@ Bu durumda, ilk defa şablonu indirirken internete ihtiyaç vardır. İlk indirm
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@preview/turkiye-neu-ies-thesis-and-term-project:1.0.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
+  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@preview/utype-neuies-reports:1.0.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
   ```
 
 </details>
@@ -278,7 +278,7 @@ Bu durumda, ilk defa şablonu indirirken internete ihtiyaç vardır. İlk indirm
   <summary>Kodu göstermek/gizlemek için tıklayınız</summary>
 
   ```typst
-  #import "@local/turkiye-neu-ies-thesis-and-term-project:1.0.0": (
+  #import "@local/utype-neuies-reports:1.0.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -286,12 +286,12 @@ Bu durumda, ilk defa şablonu indirirken internete ihtiyaç vardır. İlk indirm
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@local/turkiye-neu-ies-thesis-and-term-project:1.0.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
+  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@local/utype-neuies-reports:1.0.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
   ```
 
 </details>
 
-Şablonu, şablonun bütün dosyalarının bulunduğu [geliştiricinin GitHub deposu](https://github.com/ertugruluyar-github/turkiye-neu-ies-thesis-and-term-project) üzerinden manuel olarak bilgisayarınızda istediğiniz herhangi bir konuma indirerek kullanıyorsanız aşağıdaki gibi içe aktarma yapabilirsiniz:
+Şablonu, şablonun bütün dosyalarının bulunduğu [geliştiricinin GitHub deposu](https://github.com/ertugruluyar-github/utype-neuies-reports) üzerinden manuel olarak bilgisayarınızda istediğiniz herhangi bir konuma indirerek kullanıyorsanız aşağıdaki gibi içe aktarma yapabilirsiniz:
 
 <details>
   <summary>Kodu göstermek/gizlemek için tıklayınız</summary>
@@ -354,7 +354,7 @@ First, import the template for your project. Then, enter the template configurat
 
   ```typst
   // Import the template according to the appropriate situation mentioned in the Installation section:
-  #import "@preview/turkiye-neu-ies-thesis-and-term-project:1.0.0": (
+  #import "@preview/utype-neuies-reports:1.0.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -362,7 +362,7 @@ First, import the template for your project. Then, enter the template configurat
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@preview/turkiye-neu-ies-thesis-and-term-project:1.0.0": *`.
+  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@preview/utype-neuies-reports:1.0.0": *`.
 
   // Enter the template configurations.
   #show: template-configurations.with(
@@ -485,7 +485,7 @@ To use the template online with the tools mentioned above, you can import it as 
   <summary>Click to show/hide the code</summary>
 
   ```typst
-  #import "@preview/turkiye-neu-ies-thesis-and-term-project:1.0.0": (
+  #import "@preview/utype-neuies-reports:1.0.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -493,7 +493,7 @@ To use the template online with the tools mentioned above, you can import it as 
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@preview/turkiye-neu-ies-thesis-and-term-project:1.0.0": *`.
+  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@preview/utype-neuies-reports:1.0.0": *`.
   ```
 
 </details>
@@ -507,7 +507,7 @@ If you are using the template by downloading it to the location mentioned [here]
   <summary>Click to show/hide the code</summary>
 
   ```typst
-  #import "@local/turkiye-neu-ies-thesis-and-term-project:1.0.0": (
+  #import "@local/utype-neuies-reports:1.0.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -515,12 +515,12 @@ If you are using the template by downloading it to the location mentioned [here]
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@local/turkiye-neu-ies-thesis-and-term-project:1.0.0": *`.
+  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@local/utype-neuies-reports:1.0.0": *`.
   ```
 
 </details>
 
-If you are using the template by manually downloading it to any location on your computer from the [developer's GitHub repository](https://github.com/ertugruluyar-github/turkiye-neu-ies-thesis-and-term-project) where all the template files are located, you can import it as follows:
+If you are using the template by manually downloading it to any location on your computer from the [developer's GitHub repository](https://github.com/ertugruluyar-github/utype-neuies-reports) where all the template files are located, you can import it as follows:
 
 <details>
   <summary>Click to show/hide the code</summary>
