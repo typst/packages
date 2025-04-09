@@ -7,12 +7,12 @@
 	slides_background: white
 )
 
-#let Title = state("title", none)
-#let Subtitle = state("subtitle", none)
-#let Date = state("date", none)
-#let Author = state("author", none)
-#let Institute = state("institute", none)
-#let Content = state("Content",())
+#let priv-title = state("title", none)
+#let priv-subtitle = state("subtitle", none)
+#let priv-date = state("date", none)
+#let priv-author = state("author", none)
+#let priv-institute = state("institute", none)
+#let priv-content = state("Content",())
 
 #let setup(
 	ratio: "16-9",
@@ -23,11 +23,11 @@
 	institute: none,
 	body
 ) = {
-	Title.update(title)
-	Subtitle.update(subtitle)
-	Date.update(date)
-	Author.update(author)
-	Institute.update(institute)
+	priv-title.update(title)
+	priv-subtitle.update(subtitle)
+	priv-date.update(date)
+	priv-author.update(author)
+	priv-institute.update(institute)
 	set align(horizon)
 	set text(
 		font: "Fira Sans",
@@ -60,21 +60,21 @@
 		inset: 1em,
 		outset: 1em,
 	)[
-		#text(size: 24pt,fill: colors.text_title)[#context(Title.get())]
+		#text(size: 24pt,fill: colors.text_title)[#context(priv-title.get())]
 
-		#text(size: 16pt, fill: colors.text_title)[#context(Subtitle.get())]
+		#text(size: 16pt, fill: colors.text_title)[#context(priv-subtitle.get())]
 	]
 	context{
 		let information = []
 		information += v(1cm)
-		if Author.get() != none {
-			information += text(size: 16pt, fill: colors.text_titlepage)[#context(Author.get())]
+		if priv-author.get() != none {
+			information += text(size: 16pt, fill: colors.text_titlepage)[#context(priv-author.get())]
 		}
-		if Institute.get() != none {
-			information += text(size: 16pt, fill: colors.text_titlepage)[ \@ #context(Institute.get())]
+		if priv-institute.get() != none {
+			information += text(size: 16pt, fill: colors.text_titlepage)[ \@ #context(priv-institute.get())]
 		}
-		if Date.get() != none {
-			information += text(size: 18pt, fill: colors.text_titlepage)[#v(.2cm) #context(Date.get())]	
+		if priv-date.get() != none {
+			information += text(size: 18pt, fill: colors.text_titlepage)[#v(.2cm) #context(priv-date.get())]	
 		}
 		information
 	}
@@ -112,7 +112,7 @@
 	name
 ) = context{
 	let page = here().position()
-	Content.update(
+	priv-content.update(
 		content => {
 			content.push((title:name,loc:page))
 			content
@@ -138,7 +138,7 @@
 				#block(
 					width: 100%, height: auto, fill: colors.primary, inset: .2cm
 				)[#text(size: 10pt, fill: colors.text_title)[
-					#Date.get(): #Title.get() [#Subtitle.get()] #h(4cm) #Author.get() \@ #Institute.get() #h(1fr) #counter(page).display("1/1",both: true) 
+					#priv-date.get(): #priv-title.get() [#priv-subtitle.get()] #h(4cm) #priv-author.get() \@ #priv-institute.get() #h(1fr) #counter(page).display("1/1",both: true) 
 				]]
 			]
 		}
@@ -165,7 +165,7 @@
 ) = {
 	slide(title: title)[
 		#context{
-		let content = Content.final()
+		let content = priv-content.final()
 		enum(..content.map(section => link(section.loc, section.title)))
 		}
 	]
