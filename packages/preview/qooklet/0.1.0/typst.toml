@@ -7,6 +7,6 @@
     authors = ["ivaquero"]
     license = "MIT"
     description = "A quick start template for scientific booklets"
-    categories = ["book", "booklet"]
+    categories = ["book", "layout"]
     keywords = ["book", "booklet"]
     exclude = ["examples"]
