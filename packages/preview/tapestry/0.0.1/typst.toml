@@ -4,7 +4,7 @@ version = "0.0.1"
 entrypoint = "lib.typ"
 authors = ["Branden Xia <https://github.com/BrandenXia>"]
 license = "MIT-0"
-description = "A template creating Latex-like class notes"
+description = "A template for creating LaTeX-like class notes"
 
 [template]
 path = "template"
