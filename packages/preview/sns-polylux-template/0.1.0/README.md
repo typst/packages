@@ -1,24 +1,12 @@
 # Polylux SNS template
-Copy `sns-theme.typ` and the `fonts/` dir in your project folder, then run in your shell
-```
-$ source ./env.sh
-$ typst watch <INPUT>
-```
-
-In your source file, import
-```
-#import "@preview/polylux:0.4.0": *
-#import "@preview/sns-polylux-theme:0.1.0": *
-```
-and launch
-```
-#show: sns-theme.with([OPTIONS])
-```
-
-You can also start the project with
+In your terminal, launch
 ```
 typst init @preview/sns-polylux-theme:0.1.0
 ```
+Then, download the required fonts
+- [Roboto](https://fonts.google.com/share?selection.family=Roboto)
+- [Raleway](https://fonts.google.com/share?selection.family=Raleway)
+and put them into a folder; [Make them available to the Typst compiler](https://typst.app/docs/reference/text/text/#parameters-font).
 
 ## Supported `sns-theme` options
 + `aspect-ratio` (default: `16-9`). Also supported `4-3`.

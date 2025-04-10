@@ -1,5 +1,15 @@
 #import "@preview/polylux:0.4.0": *
-#import "@preview/sns-polylux-template:0.1.0": *
+#import "@preview/sns-polylux-template:0.1.0" as sns-theme: *
+
+/*
+  ACHTUNG: You should seriously consider downloading
+  the recommended fonts for this package.
+  You can find the fonts here:
+    https://fonts.google.com/share?selection.family=Roboto
+    https://fonts.google.com/share?selection.family=Raleway
+  You can find the installation guide here:
+    https://typst.app/docs/reference/text/text/#parameters-font
+*/
 
 #set text(lang: "en")
 #show: sns-theme.with(

@@ -52,8 +52,8 @@ cmyk(25%,7%,0%,0%),
   // General parameters
   aspect-ratio : "16-9",
 
-  txt-font     : "Roboto",
-  title-font   : "Raleway",
+  txt-font     : ("Roboto", "Fira Sans", "DejaVu Sans"),
+  title-font   : ("Raleway", "PT Sans", "DejaVu Sans"),
   txt-color1   : black,
   txt-color2   : white,
   title-color  : rgb("#444444"),
