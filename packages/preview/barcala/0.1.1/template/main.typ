@@ -1,4 +1,4 @@
-#import "@preview/barcala:0.1.0": informe, nomenclatura, apendice
+#import "@preview/barcala:0.1.1": informe, nomenclatura, apendice
 #import "@preview/fancy-units:0.1.1": unit, fancy-units-configure // Paquete para unidades de medida, puede ser omitido
 #import "@preview/lilaq:0.2.0" as lq // Paquete para gráficos, puede ser omitido
 #import "@preview/physica:0.9.5": * // Paquete para matemática y física, puede ser omitido
