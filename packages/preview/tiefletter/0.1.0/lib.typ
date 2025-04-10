@@ -1,4 +1,4 @@
-#import "@preview/cades:0.3.0": qr-code
+#import "@preview/tiaoma:0.3.0"
 
 #set page(margin: 2cm)
 
@@ -283,7 +283,11 @@
       #box(inset: 10pt, radius: 2pt, stroke: 0.3pt, width: 100%, fill: cmyk(5%, 0%, 0%, 5%), [
         #place(right, dx: -0.25cm,
           box(inset: 4pt, fill: luma(95%), radius: 10pt, stroke: 1pt,
-            qr-code(epc-qr-content, height: 4em, background: luma(95%))))
+            tiaoma.qrcode(epc-qr-content, options: (
+              scale: 1.1,
+              bg-color: luma(95%),
+              fg-color: luma(0%),
+            ))))
 
         #grid(align: left,
           columns: 2,
