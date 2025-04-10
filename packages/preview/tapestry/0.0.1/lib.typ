@@ -1,4 +1,8 @@
-#let tapestry(title, year, doc) = {
+#let tapestry(
+  title: [],
+  year: [],
+  doc,
+) = {
   set document(
     title: title,
   )
