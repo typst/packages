@@ -26,8 +26,8 @@ Alternatively, you can download the `lib.typ` file and use:
 #import "@preview/tiefletter:0.1.0": invoice
 
 #invoice(
-  invoice_number: "2025-001",
-  invoice_date: "07.04.2025",
+  invoice-number: "2025-001",
+  invoice-date: "07.04.2025",
   seller: (
     name: "Tiefseetauchner",
     address: "Schottenring 12\n1010, Wien",
@@ -38,17 +38,17 @@ Alternatively, you can download the `lib.typ` file and use:
   iban: "AT92 1234 1412 1245 3928",
   bic: "XXXXXXXXXXX",
   client: (
-    gender_marker: "O",
-    full_name: "Muster GesmbH",
-    short_name: "Aron Schlosser",
+    gender-marker: "O",
+    full-name: "Muster GesmbH",
+    short-name: "Aron Schlosser",
     address: "Liselottenstraße 42c\n6049, Gamsagadorf",
   ),
   items: (
-    (quantity: 2, description: "Beispiel 1", unit_price: 400.0),
-    (quantity: 1, description: "Beispiel 2", unit_price: 300.0),
-    (quantity: 1, description: "Beispiel 3", unit_price: 50.0, vat_rate: 10),
+    (quantity: 2, description: "Beispiel 1", unit-price: 400.0),
+    (quantity: 1, description: "Beispiel 2", unit-price: 300.0),
+    (quantity: 1, description: "Beispiel 3", unit-price: 50.0, vat-rate: 10),
   ),
-  payment_due_date: "21.04.2025",
+  payment-due-date: "21.04.2025",
 )
 ```
 
@@ -58,9 +58,9 @@ Alternatively, you can download the `lib.typ` file and use:
 #import "@preview/tiefletter:0.1.0": offer
 
 #offer(
-  offer_number: "2025-004",
-  offer_date: "05.04.2025",
-  offer_valid_until: "30.04.2025",
+  offer-number: "2025-004",
+  offer-date: "05.04.2025",
+  offer-valid-until: "30.04.2025",
   seller: (
     name: "Tiefseetauchner",
     address: "Schottenring 12\n1010, Wien",
@@ -69,19 +69,19 @@ Alternatively, you can download the `lib.typ` file and use:
     tel: "+43 123 456 789",
   ),
   client: (
-    gender_marker: "F",
-    full_name: "Beispiel Kundin",
-    short_name: "Maria Musterfrau",
+    gender-marker: "F",
+    full-name: "Beispiel Kundin",
+    short-name: "Maria Musterfrau",
     address: "Beispielstraße 11\n1020, Wien",
   ),
   items: (
-    (quantity: 1, description: "Dienstleistung A", unit_price: 500.0),
-    (quantity: 2, description: "Beratungseinheit", unit_price: 150.0),
+    (quantity: 1, description: "Dienstleistung A", unit-price: 500.0),
+    (quantity: 2, description: "Beratungseinheit", unit-price: 150.0),
   ),
-  offer_text: [Die Dienstleistung A umfasst ......
+  offer-text: [Die Dienstleistung A umfasst ......
   
   Außerdem bieten wir eine Beratungseinheit zu ......],
-  pre_payment_amount: 20,
+  pre-payment-amount: 20,
 )
 ```
 
@@ -90,8 +90,8 @@ Alternatively, you can download the `lib.typ` file and use:
 ### Invoice Parameters
 
 ```typst
-invoice_number: none,
-invoice_date: none,
+invoice-number: none,
+invoice-date: none,
 seller: (
 name: none,
 address: none,
@@ -99,18 +99,18 @@ uid: none,
 tel: none,
 email: none,
 ),
-footer_middle: none,
-footer_right: none,
+footer-middle: none,
+footer-right: none,
 banner-image: none,
 client: (
-gender_marker: none,
-full_name: none,
-short_name: none,
+gender-marker: none,
+full-name: none,
+short-name: none,
 address: none,
 ),
 items: none,
-after_table_text: none,
-payment_due_date: none,
+after-table-text: none,
+payment-due-date: none,
 iban: none,
 bic: none,
 lang: "en",
@@ -119,9 +119,9 @@ lang: "en",
 ### Offer Parameters
 
 ```typst
-offer_number: none,
-offer_date: none,
-offer_valid_until: none,
+offer-number: none,
+offer-date: none,
+offer-valid-until: none,
 seller: (
 name: none,
 address: none,
@@ -129,18 +129,18 @@ uid: none,
 tel: none,
 email: none,
 ),
-footer_middle: none,
-footer_right: none,
+footer-middle: none,
+footer-right: none,
 banner-image: none,
 client: (
-gender_marker: none,
-full_name: none,
-short_name: none,
+gender-marker: none,
+full-name: none,
+short-name: none,
 address: none,
 ),
 items: none,
-offer_text: none,
-pre_payment_amount: 20,
+offer-text: none,
+pre-payment-amount: 20,
 lang: "en",
 ```
 
