@@ -13,4 +13,4 @@ categories = ["office", "utility"]
 [template]
 path = "template"
 entrypoint = "letter.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "thumbnail.jpg"
