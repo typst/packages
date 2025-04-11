@@ -1,4 +1,4 @@
-#import "@local/ijimai:0.0.4": *
+#import "@preview/ijimai:0.0.4": *
 #let conf = toml("paper.toml")
 #let author-photos = conf.authors.map(author => read(author.name + ".jpg", encoding: none))
 #show: ijimai.with(
