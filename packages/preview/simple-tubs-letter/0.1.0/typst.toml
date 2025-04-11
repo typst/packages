@@ -1,5 +1,5 @@
 [package]
-name = "tubs-letter"
+name = "simple-tubs-letter"
 version = "0.1.0"
 entrypoint = "template.typ"
 authors = ["Malte Kumlehn"]
