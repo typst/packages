@@ -1,0 +1,9 @@
+[en]
+    title = "Palatino"
+    context = "Georgia"
+    math = "Times New Roman"
+
+[zh]
+    title = "STKaiti"
+    context = "Songti SC"
+    math = "Kaiti SC"
