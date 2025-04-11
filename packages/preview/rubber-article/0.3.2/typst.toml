@@ -1,0 +1,29 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "rubber-article"
+version = "0.3.2"
+entrypoint = "src/lib.typ"
+authors = ["Niko Pikall"]
+license = "MIT"
+description = "A simple template recreating the look of the classic LaTeX article."
+repository = "https://github.com/npikall/rubber-article.git"
+keywords = ["template", "article"]
+categories = ["paper", "report"]
+disciplines = ["biology", "chemistry", "engineering", "geography", "mathematics", "physics"]
+exclude = [
+	".github",
+	"docs",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"
