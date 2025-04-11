@@ -40,6 +40,10 @@ git clone https://github.com/Cangarw/simple-tubs-letter.git
 mv simple-tubs-letter 0.1.0
 ```
 
+## Licence
+
+The licence can be found in COPYING.
+
 ## Acknoledgments
 
 Thanks to [Valentin Riess](https://github.com/v411e) and his [optimal-ovgu-thesis](https://github.com/v411e/optimal-ovgu-thesis) which was used as a starting point for this project.
