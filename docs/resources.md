@@ -57,7 +57,7 @@ With something like:
 ```
 
 Note that this means that the user will be able to provide arbitrary content and
-not necessarely an image.
+not necessarily an image.
 
 It will be possible to take paths as arguments directly, [once a dedicated
 type will exist][path-type].

@@ -6,7 +6,7 @@ The packages submitted here are available on [Typst Universe][universe].
 
 A package is a collection of Typst files and assets that can be imported as a
 unit. A `typst.toml` manifest with metadata is required at the root of a
-package. [Read more about the manifest format][manifest]
+package. [Read more about the manifest format][manifest].
 
 ## Published packages
 

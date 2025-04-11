@@ -9,27 +9,27 @@ by [`typst-package-check`][check] (which you can run locally too).
 - [ ] The package manifest (`typst.toml`) is valid (no syntax error, and follows
   [the defined schema][manifest]).
 - [ ] The package can be imported without errors. In particular, they should not
-  contain any syntax errors. It does not mean that should not contain bugs or
-  unexpected behaviors, since it is impossible to tell for sure that they will
-  work flawlessly. You can always submit a patch release if you find issues
-  after the package is accepted.
-- [ ] The template compiles, as it is out-of-the-box. Especially, it should use
-  the "absolute" package import and not a relative one (i.e
+  contain any syntax errors. This does not mean that they should not contain
+  bugs or unexpected behaviors, since it is impossible to tell for sure whether
+  they will work flawlessly. You can always submit a patch release if you find
+  issues after the package is accepted.
+- [ ] The template compiles, as it is out-of-the-box. In particular, it should
+  use the "absolute" package import and not a relative one (i.e
   `@preview/my-package:0.1.0` and not `../lib.typ`).
-- [ ] identifiers should preferably use kebab-case, as this is the convention that
+- [ ] Identifiers should preferably use kebab-case, as this is the convention that
   is used in the standard library and in most packages. There can be exceptions
   (for instance it can make sense to have a variable called `Alpha` and not
   `alpha`) and if you have a strong preference for camelCase or snake_case it
   can be accepted.
-- [ ] large files should be excluded from the package archive or simply not
+- [ ] Large files should be excluded from the package archive or simply not
   committed to this repository, [as explained here][exclusion].
 - [ ] The README and license file should never be [excluded][exclusion] from the
   package archive.
-- [ ] the author of a package update should be the same person as the one who
+- [ ] The author of a package update should be the same person as the one who
   submitted the previous version. If not, the previous author will be asked
   before approving and publishing the new version.
-- [ ] It is better if example files [use the absolute package
-  import][absolute-import]., as it allows people to copy/paste them and start
+- [ ] Example files should preferably [use the absolute package
+  import][absolute-import], as it allows people to copy/paste them and start
   from there immediately.
 - [ ] The `homepage` and `repository` fields of the manifest should not be the
   same (if there is no dedicated website, only the repository should be kept),
@@ -37,13 +37,13 @@ by [`typst-package-check`][check] (which you can run locally too).
 - [ ] The title of the PR should be in the format `package-name:version` and it
   should have the correct `new` or `update` label.
 
-You must also follow these rules, but they have to checked manually by a human
+You must also follow these rules, but they have to be checked manually by a human
 being.
 
 - [ ] The examples in the README should work.
 - [ ] Version number in documentation and README should be up-to-date.
 - [ ] The authors and copyright year in the license file (if any) should be correct.
-- [ ] The license file contents and the license field in the manifest should match
+- [ ] The license file contents and the `license` field in the manifest should match.
 - [ ] The package should adhere to our [naming guidelines][name].
 - [ ] There should be no [copyrighted material][copyright] in the package.
 

@@ -41,7 +41,7 @@ files to this repository in the first place.
 
 To know which strategy to apply to each files, we can split them in three groups:
 
-- files that are necessary for the package to work. If any of these files is
+- files that are necessary for the package to work. If any of these files are
   removed, the package would break for the end user. This includes the manifest
   file, main Typst file and its dependencies, and any file in the template
   directory.

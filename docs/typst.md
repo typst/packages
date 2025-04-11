@@ -43,7 +43,7 @@ Let's look at an example. Here is my `package.typ` file:
 
 ```typ
 #let private(a, b) = a + b
-#let public(a, b, c) = private(a, b) * private(b, c) 
+#let public(a, b, c) = private(a, b) * private(b, c)
 ```
 
 Then, if your package entrypoint is set to `lib.typ`, you can chose what
@@ -94,7 +94,7 @@ The contents of the document go here.
 
 Another solution is to provide a lot of different parameters to your main
 template function to let the user override as much of the content and styles as
-they want. The downside here is that it hads a lot of complexity, both for users
+they want. The downside here is that it adds a lot of complexity, both for users
 and package maintainers.
 
 If you are curious, possible future solutions to properly address this problem

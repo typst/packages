@@ -19,7 +19,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["The Typst Project Developers"]
 license = "MIT"
-description = "Calculate elementary arithemtics with functions"
+description = "Calculate elementary arithemtics with functions."
 ```
 
 The following fields are required by the compiler:
@@ -114,20 +114,20 @@ are some rules to follow to write great descriptions:
 - Keep it short. Try to maximise the content:length ratio and weigh your words
   thoughtfully. Ideally, it should be 40 to 60 characters long.
 
-- Don’t terminate your description with a full stop.
+- Terminate your description with a full stop.
 
 - Avoid the word "Typst", which is redundant unless your package or template
   actually has to do with Typst itself or its ecosystem (like in the case of
   [mantys] or [t4t]).
 
 - Avoid the words "package" for packages and "template" for templates; instead:
-   - Packages allow the user to *do* things; use the imperative mood. For
-    example, `Draw Venn diagrams` is better than `A package for drawing Venn
+  - Packages allow the user to *do* things; use the imperative mood. For
+    example, `Draw Venn diagrams.` is better than `A package for drawing Venn
     diagrams`.
-   - Templates allow the user to write certain *types* of documents; clearly
+  - Templates allow the user to write certain *types* of documents; clearly
     indicate the type of document your template allows. For example, `Master’s
-    thesis at the Unseen University` is better than `A template for writing a
-    master’s thesis at the Unseen University`. Omit the indefinite article ("A
+    thesis at the Unseen University.` is better than `A template for writing a
+    master’s thesis at the Unseen University.`. Omit the indefinite article ("A
     …", "An …") at the beginning of the description for conciseness.
 
 ## Templates
