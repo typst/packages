@@ -19,6 +19,7 @@
     - [Kullanılan Paketler](#kullanılan-paketler)
     - [Özellikler](#özellikler)
     - [Kullanım](#kullanım)
+      - [Typst'ı Kullanmaya Başlamak İçin Nasıl Öğrenebilirim?](#typstı-kullanmaya-başlamak-i̇çin-nasıl-öğrenebilirim)
       - [Şablonu Kullanmaya Başlamak](#şablonu-kullanmaya-başlamak)
       - [Şablon Yapısı](#şablon-yapısı)
       - [Yazı Tipi Hakkında Bilgilendirme](#yazı-tipi-hakkında-bilgilendirme)
@@ -34,6 +35,7 @@
     - [Packages Used](#packages-used)
     - [Features](#features)
     - [Usage](#usage)
+      - [How Can I Learn to Get Started Using Typst?](#how-can-i-learn-to-get-started-using-typst)
       - [Getting Started with the Template](#getting-started-with-the-template)
       - [Template Structure](#template-structure)
       - [Information About Font](#information-about-font)
@@ -116,6 +118,12 @@ Bu projelerde emeği geçen herkese çok büyük teşekkürlerimi sunarım.
 - [x] Açılır liste mantığında tanımlanmış bilgiler içerisinden seçim yapılabilmesi sağlanarak hata yapılması ihtimalini azaltmak.
 
 ### Kullanım
+
+#### Typst'ı Kullanmaya Başlamak İçin Nasıl Öğrenebilirim?
+1. Dökümantasyondaki başlayan dostu [Öğreticiyi](https://typst.app/docs/tutorial/) okuyarak başlayabilirsiniz.
+2. [Typst YouTube Oynatma Listesini](https://youtube.com/playlist?list=PLCO-MGSsHcdArXIfeOGoUwjH0oz8vMr8M&si=c_kTmN4FKmwdMitE) izlebilir ve izlerken kafanıza takılan veya daha detaylı ögrenmek istediğiniz durumlarda dokümantasyondaki [Referansa](https://typst.app/docs/reference/) bakabilirsiniz.
+3. Dökümantasyondaki ayrıntılı [Referans](https://typst.app/docs/reference/) kısmını okuyabilirsiniz.
+4. Dökümantasyonu ezberlemeye çalışmamalısınız. Bir şeyin nasıl yapıldığını merak ettiğinizde veya yapmanız gerektiğinde dokümantasyondaki ilgili [referansı](https://typst.app/docs/reference/) okuyarak başlayabilirsiniz. Aynı zamanda internette videolu anlatımları araştırabilirsiniz. Karmaşık veya anlaşılmayan durumlarda, bunları nasıl yapabileceğinizi ya da sorunları nasıl çözebileceğinizi [Typst Forumunda](https://forum.typst.app/) benzer durumları yaşayıp soru soran veya örnek kullanım senaryoları paylaşanların olup olmadığına bakabilirsiniz. Ayrıca, diğer Typst kullanıcılarından yardım almak için [Typst Forumunda bir soru](https://forum.typst.app/c/questions/) oluşturabilirsiniz.
 
 #### Şablonu Kullanmaya Başlamak
 Öncelikle, şablonu projeniz için içe aktarınız. Daha sonra, şablon ayarlarını giriniz.
@@ -352,6 +360,12 @@ I sincerely thank everyone who contributed to these projects.
 - [x] Reducing the possibility of making mistakes by providing the ability to choose from the information defined in the logic of the drop-down list.
 
 ### Usage
+
+#### How Can I Learn to Get Started Using Typst?
+1. You can start by reading the beginner-friendly [Tutorial](https://typst.app/docs/tutorial/) in the documentation.
+2. You can watch the [Typst YouTube Playlist](https://youtube.com/playlist?list=PLCO-MGSsHcdArXIfeOGoUwjH0oz8vMr8M&si=c_kTmN4FKmwdMitE) and refer to the [Reference](https://typst.app/docs/reference/) in the documentation if you have any questions or want to learn more in detail.
+3. You can read the detailed [Reference](https://typst.app/docs/reference/) in the documentation.
+4. You should not try to memorize the documentation. When you are curious about how to do something or need to do something, you can start by reading the relevant [reference](https://typst.app/docs/reference/) in the documentation. You can also search for video tutorials on the internet. In complicated or unclear situations, you can find out how to do things or solve problems on the [Typst Forum](https://forum.typst.app/) and see if anyone has been in a similar situation and has asked questions or shared example use cases. You can also create a question in the [Typst Forum](https://forum.typst.app/c/questions/) to get help from other Typst users.
 
 #### Getting Started with the Template
 First, import the template for your project. Then, enter the template configurations.
