@@ -35,6 +35,7 @@ keywords = [
 exclude = [
     "/assets",
     "*.pdf",
+    ".gitignore",
 ]
 
 [template]
