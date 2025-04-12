@@ -1,4 +1,4 @@
-#import "/src/constants/document-settings-constants.typ": FONT-NAME-MATH-EQUATIONS
+#import "/src/constants/document-settings-constants.typ": MATH-EQUATIONS-FONT-NAME
 #import "/src/constants/numbering-constants.typ": MATH-EQUATION-NUMBERING
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
@@ -13,7 +13,7 @@
   )
 
   // Matematiksel Denklemlerin yazı ayarlarını ayarla. [Set text settings of the Math Equations.
-  show math.equation: set text(font: FONT-NAME-MATH-EQUATIONS)
+  show math.equation: set text(font: MATH-EQUATIONS-FONT-NAME)
 
   // Blok Matematiksel Denklemler sonraki sayfaya taştığında bölünmesin. [Block Math Equations should not be split when it overflows to the next page.]
   show math.equation: set block(breakable: false)
