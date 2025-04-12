@@ -115,11 +115,11 @@
     value-description: "Şablon ayarlarındaki şekil figürleri listesini göster seçeneği",
   )
 
-  // Denklem figürleri listesini göster parametresini doğrula. [Validate show-list-of-math-equations parameter.]
+  // Matematiksel Denklemler listesini göster parametresini doğrula. [Validate show-list-of-math-equations parameter.]
   boolean-type-validator(
     value: show-list-of-math-equations,
     value-name: "template-configurations.show-list-of-math-equations",
-    value-description: "Şablon ayarlarındaki denklem figürleri listesini göster seçeneği",
+    value-description: "Şablon ayarlarındaki Matematiksel Denklemler listesini göster seçeneği",
   )
 
   // Kod figürleri listesini göster parametresini doğrula. [Validate show-list-of-code-figures parameter.]

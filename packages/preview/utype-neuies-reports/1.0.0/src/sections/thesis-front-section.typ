@@ -72,7 +72,7 @@
     list-of-image-figures-page()
   }
 
-  /* --- Denklem Figürleri Listesi Sayfası [List of Equation Figures Page] --- */
+  /* --- Matematiksel Denklemler Listesi Sayfası [List of Math Equations Page] --- */
   if (
     (
       report-type == REPORT-TYPES.MASTER-THESIS

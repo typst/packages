@@ -1,4 +1,4 @@
-#import "/src/styles/equation-outline-entry-style.typ": equation-outline-entry-style
+#import "/src/styles/math-equation-outline-entry-style.typ": math-equation-outline-entry-style
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
 
@@ -13,7 +13,7 @@
   )
 
   // Matematiksel Denklem listelerinin girdilerinin stili. [Style of the entries of the figures lists.]
-  show: equation-outline-entry-style
+  show: math-equation-outline-entry-style
 
   content
 }
