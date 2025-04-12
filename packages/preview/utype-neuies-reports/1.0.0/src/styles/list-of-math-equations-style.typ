@@ -2,7 +2,7 @@
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
 
-// Matematiksel Denklem listesi stili. [List of equations style.]
+// Matematiksel Denklem listesi stili. [List of Math Equations style.]
 #let list-of-math-equations-style(content) = {
   // Ana hattın stili. [Outline style.]
   set outline(

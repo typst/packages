@@ -15,7 +15,7 @@
   // Matematiksel Denklemlerin yazı ayarlarını ayarla. [Set text settings of the Math Equations.
   show math.equation: set text(font: FONT-NAME-MATH-EQUATIONS)
 
-  // Blok denklem sonraki sayfaya taştığında bölünmesin.
+  // Blok Matematiksel Denklemler sonraki sayfaya taştığında bölünmesin. [Block Math Equations should not be split when it overflows to the next page.]
   show math.equation: set block(breakable: false)
 
   content

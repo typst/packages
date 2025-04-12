@@ -17,8 +17,6 @@
 
 @figür-tablo-csv-dosyasıyla-tablo-örneği CSV dosyasından tablo oluşturmaya örnektir. Bu örnekte tablonun başlığı elle yazıldı ve içeriği CSV dosyasından yüklendi.
 
-// TODO: Elle (manuel) bölünmüş bir tablo için örnek ekle.
-
 // Başka bir '.typ' uzantılı Typst dosyasındaki içeriği eklemek için "include" komutunu kullanabilirsiniz.
 #include "/template/assets/examples/image-figure-example.typ"
 
