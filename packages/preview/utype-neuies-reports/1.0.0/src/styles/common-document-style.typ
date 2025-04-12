@@ -1,5 +1,5 @@
 #import "/src/constants/document-settings-constants.typ": *
-#import "/src/constants/numbering-constants.typ": PAGE-NUMBERING-ROMAN, MATH-NUMBERING
+#import "/src/constants/numbering-constants.typ": PAGE-NUMBERING-ROMAN
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
 #import "/src/styles/math-equation-style.typ": math-equation-style

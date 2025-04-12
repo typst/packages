@@ -13,7 +13,7 @@
 #let FIGURE-NUMBERING = "1.1"
 
 // Matematiksel Denklemler numaralandırması. [Math Equations numbering.]
-#let MATH-NUMBERING = "(1.1)"
+#let MATH-EQUATION-NUMBERING = "(1.1)"
 
 // Liste numaralandırması. [List numbering.]
 #let LIST-NUMBERING = "1."
