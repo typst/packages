@@ -228,6 +228,16 @@ Bu sorunu çözmek için, bahsedilen yazı tiplerinin neredeyse bire bir aynıs�
 
 Şablonu [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) ile kullananlar için, eğer 'Times New Roman' ve 'Cambria Math' bilgisayarınızda yüklü değilse [adresinde](https://erbakan.edu.tr/tr/birim/buyuk-veri-koordinatorlugu/sayfa/lisansli-yazilimlar) anlatıldığı gibi Microsoft Office 365 yazılımı yüklenerek bu yazı tiplerinin bilgisayarınıza yüklenmesi sağlanabilir. Alternatif olarak yukarıda bahsedilen [TeX Gyre Termes](https://www.gust.org.pl/projects/e-foundry/tex-gyre/termes) ve [TeX Gyre Termes Math](https://www.gust.org.pl/projects/e-foundry/tg-math) yazı tipleri de resmî web sitelerinden indirilip indirilen dosyaya farenin sol tuşuyla çift tıklandıktan sonra açılan pencerede 'Yükle' butonuna tıklanarak yüklenebilir.
 
+**NOT:** Bir yazı tipi eksikliği söz konusu olduğunda [Typst.app](https://typst.app/) ve [Visual Studio Code](https://code.visualstudio.com/)'daki [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) eklentisinde sırasıyla aşağıdaki gibi uyarılar kullanıcıya geri bildirim olarak verilir. Bu uyarılar göz ardı edilebilir ya da istenildiği taktirde yukarıdaki gibi çözülebilir.
+
+<details>
+  <summary>Görselleri göstermek/gizlemek için tıklayınız</summary>
+
+<p align="center"><img src="assets/images/typst.app_unknown-font-family-warning.png" width=20%>&nbsp;</p>
+<p align="center"><img src="assets/images/tinymist-typst_unknown-font-family-warning.png" width=20%>&nbsp;</p>
+
+</details>
+
 #### Alternatiflere sahip başlıklardaki alternatiflerden birini seçmek.
 Türkçe dilindeki başlıklar için `/template/assets/languages/turkish.toml`, İngilizce dilindeki başlıklar için `/template/assets/languages/english.toml` dosyasını açınız. Ardından, kullanmak istediğiniz başlık dışındaki başlıkları siliniz.
 
@@ -469,6 +479,16 @@ The official templates use 'Times New Roman' for text and 'Cambria Math' for mat
 To solve this problem, [TeX Gyre Termes](https://www.gust.org.pl/projects/e-foundry/tex-gyre/termes) and [TeX Gyre Termes Math](https://www.gust.org.pl/projects/e-foundry/tg-math) fonts, which are almost identical to the mentioned fonts, are set to be used automatically when the mentioned fonts are not available. The [TeX Gyre Termes](https://www.gust.org.pl/projects/e-foundry/tex-gyre/termes) and [TeX Gyre Termes Math](https://www.gust.org.pl/projects/e-foundry/tg-math) fonts are licensed under the [GUST font license (GFL)](https://www.gust.org.pl/projects/e-foundry/licenses/GUST-FONT-LICENSE.txt/view) and come installed on the [Typst.app](https://typst.app/) as they are open source and free for personal and commercial use. Therefore, those using the template via [Typst.app](https://typst.app/) do not need to do anything. However, **though not recommended**, if you still want to use the 'Times New Roman' and 'Cambria Math' fonts and **legally have the right to do so**, you can upload the static font files for those fonts to the `/template/assets/fonts/times-new-roman/` and `/template/assets/fonts/cambria-math/` folders. When you do this [Typst.app](https://typst.app/) will automatically detect the fonts (see: https://typst.app/docs/reference/text/text/#parameters-font).
 
 For those using the template with [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist), if you do not have 'Times New Roman' and 'Cambria Math' installed on your computer, you can install Microsoft Office 365 software as described in [at](https://erbakan.edu.tr/tr/birim/buyuk-veri-koordinatorlugu/sayfa/lisansli-yazilimlar) to have these fonts installed on your computer. Alternatively, the fonts [TeX Gyre Termes](https://www.gust.org.pl/projects/e-foundry/tex-gyre/termes) and [TeX Gyre Termes Math](https://www.gust.org.pl/projects/e-foundry/tg-math) mentioned above can also be downloaded from their official websites and installed by double-clicking the downloaded file with the left mouse button and clicking the 'Install' button in the window that opens.
+
+**NOTE:** When a font is missing, the [Typst.app](https://typst.app/) and the [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) plugin in [Visual Studio Code](https://code.visualstudio.com/) give the following warnings as feedback to the user, respectively. These warnings can be ignored or can be resolved as above if desired.
+
+<details>
+  <summary>Click to show/hide the images</summary>
+
+<p align="center"><img src="assets/images/typst.app_unknown-font-family-warning.png" width=20%>&nbsp;</p>
+<p align="center"><img src="assets/images/tinymist-typst_unknown-font-family-warning.png" width=20%>&nbsp;</p>
+
+</details>
 
 #### Selecting one of the alternatives in headings with alternatives
 For Turkish language headings, open the `/template/assets/languages/turkish.toml` file. For English language headings, open the `/template/assets/languages/english.toml` file. Then, delete all headings except the one you want to use.
