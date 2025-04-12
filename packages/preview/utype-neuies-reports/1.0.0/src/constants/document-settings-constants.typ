@@ -13,8 +13,11 @@
 
 /* ---- Yazı Tipi Ayarları [Font Settings] ---- */
 
-// Yazı tipi adı [Font name]
-#let FONT-NAME = "Times New Roman"
+// Metnin yazı tipi adı [Font name of the text]
+#let FONT-NAME = ("Times New Roman", "TeX Gyre Termes")
+
+// Matematiksel Denklem metninin yazı tipi adı [Font name of the Math Equations text]
+#let FONT-NAME-MATH-EQUATIONS = ("Cambria Math", "TeX Gyre Termes Math")
 
 // Ana yazı tipi boyutu [Main font size]
 #let FONT-SIZE = 12pt
