@@ -1,6 +1,6 @@
 #import "/src/styles/list-of-math-equations-style.typ": list-of-math-equations-style
 
-// Matematiksel Denklem Listesi sayfası. [Equation List page.]
+// Matematiksel Denklem Listesi sayfası. [List of Math Equations page.]
 #let list-of-math-equations-page() = {
   // Matematiksel Denklem listelerinin stilini uygula. [Apply the style of the equation figure lists.]
   list-of-math-equations-style(outline())

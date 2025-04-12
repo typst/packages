@@ -3,7 +3,7 @@
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
 
-// Matematiksel denklem stili. [Math equation style.]
+// Matematiksel Denklem stili. [Math Equation style.]
 #let math-equation-style(content) = {
   // Denklem numaralandırması, numaralandırma hizalandırması ve atıf eki. [Equation numbering, numbering alingment and reference supplement.]
   set math.equation(
