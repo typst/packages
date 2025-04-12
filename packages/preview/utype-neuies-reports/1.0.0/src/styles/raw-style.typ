@@ -7,7 +7,7 @@
 // Ham/Kod stili. [Raw/Code style.]
 #let raw-style(content) = {
   // Yazı boyutunu ayarla. [Set text size.]
-  show raw: set text(ALTERNATE-FONT-SIZE-2)
+  show raw: set text(size: ALTERNATE-FONT-SIZE-2)
 
   // Blok ham/kod stilini ayarla. [Set block raw/code style.]
   show raw.where(block: true): it => {
