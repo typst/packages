@@ -19,7 +19,7 @@
     - [Kullanılan Paketler](#kullanılan-paketler)
     - [Özellikler](#özellikler)
     - [Kullanım](#kullanım)
-      - [Kullanmaya Başlamak](#kullanmaya-başlamak)
+      - [Şablonu Kullanmaya Başlamak](#şablonu-kullanmaya-başlamak)
       - [Şablon Yapısı](#şablon-yapısı)
       - [Yazı Tipi Hakkında Bilgilendirme](#yazı-tipi-hakkında-bilgilendirme)
       - [Alternatiflere sahip başlıklardaki alternatiflerden birini seçmek.](#alternatiflere-sahip-başlıklardaki-alternatiflerden-birini-seçmek)
@@ -34,7 +34,7 @@
     - [Packages Used](#packages-used)
     - [Features](#features)
     - [Usage](#usage)
-      - [Getting Started](#getting-started)
+      - [Getting Started with the Template](#getting-started-with-the-template)
       - [Template Structure](#template-structure)
       - [Information About Font](#information-about-font)
       - [Selecting one of the alternatives in headings with alternatives](#selecting-one-of-the-alternatives-in-headings-with-alternatives)
@@ -117,7 +117,7 @@ Bu projelerde emeği geçen herkese çok büyük teşekkürlerimi sunarım.
 
 ### Kullanım
 
-#### Kullanmaya Başlamak
+#### Şablonu Kullanmaya Başlamak
 Öncelikle, şablonu projeniz için içe aktarınız. Daha sonra, şablon ayarlarını giriniz.
 
 **NOT:** Şablonu [Kurulum](#kurulum) başlığında bahsedildiği gibi kullandığınızda bu kısım otomatik olarak mevcut olacaktır. Sadece şablon ayarlarındaki bilgileri projenize göre güncellemeniz yeterlidir. Şablon ayarlarında yer alan parametrelerin değerlerinin nasıl girileceğiyle ilgili açıklamalar ilgili parametrenin bir üstündeki satırda yorum satırı olarak yer almaktadır.
@@ -353,7 +353,7 @@ I sincerely thank everyone who contributed to these projects.
 
 ### Usage
 
-#### Getting Started
+#### Getting Started with the Template
 First, import the template for your project. Then, enter the template configurations.
 
 **NOTE:** When you use the template as mentioned in the [Installation](#installation) section, this part will be automatically available. You only need to update the information in the template configurations according to your project. Explanations on how to set the values of the parameters in the template configurations are given as a comment line on the line above the relevant parameter.
