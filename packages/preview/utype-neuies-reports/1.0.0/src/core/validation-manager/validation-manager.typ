@@ -34,7 +34,7 @@
   keywords: none,
   show-list-of-table-figures: none,
   show-list-of-image-figures: none,
-  show-list-of-equations: none,
+  show-list-of-math-equations: none,
   show-list-of-code-figures: none,
   have-symbols: none,
   have-abbreviations: none,
@@ -115,10 +115,10 @@
     value-description: "Şablon ayarlarındaki şekil figürleri listesini göster seçeneği",
   )
 
-  // Denklem figürleri listesini göster parametresini doğrula. [Validate show-list-of-equations parameter.]
+  // Denklem figürleri listesini göster parametresini doğrula. [Validate show-list-of-math-equations parameter.]
   boolean-type-validator(
-    value: show-list-of-equations,
-    value-name: "template-configurations.show-list-of-equations",
+    value: show-list-of-math-equations,
+    value-name: "template-configurations.show-list-of-math-equations",
     value-description: "Şablon ayarlarındaki denklem figürleri listesini göster seçeneği",
   )
 

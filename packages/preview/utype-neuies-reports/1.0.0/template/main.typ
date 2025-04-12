@@ -149,8 +149,8 @@
   show-list-of-table-figures: true,
   // Şekil figürleri listesinin raporda yer almasını istiyorsanız "show-list-of-image-figures: true", istemiyorsanız "show-list-of-image-figures: false" yapınız.
   show-list-of-image-figures: true,
-  // Matematiksel Denklemler listesinin raporda yer almasını istiyorsanız "show-list-of-equations: true", istemiyorsanız "show-list-of-equations: false" yapınız.
-  show-list-of-equations: true,
+  // Matematiksel Denklemler listesinin raporda yer almasını istiyorsanız "show-list-of-math-equations: true", istemiyorsanız "show-list-of-math-equations: false" yapınız.
+  show-list-of-math-equations: true,
   // Kod figürleri listesinin raporda yer almasını istiyorsanız "show-list-of-code-figures: true", istemiyorsanız "show-list-of-code-figures: false" yapınız.
   show-list-of-code-figures: true,
   // Raporda simgeler kullandıysanız "Simgeler" başlığındaki içeriğin rapora dahil edilmesi için "have-symbols: true" yapınız. Ancak, tez önerisi ise "true" ya da "false" olsa bile "Simgeler ve Kısaltmalar" başlığındaki içerik rapora dahil edilmeyecektir.

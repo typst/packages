@@ -108,8 +108,8 @@
   show-list-of-table-figures: true,
   // Şekil figürleri listesinin raporda yer almasını istiyorsanız "show-list-of-image-figures: true", istemiyorsanız "show-list-of-image-figures: false" yapınız. [If you want the list of image figures to be included in the report, do show-list-of-image-figures: true”, if not, do show-list-of-image-figures: false”.]
   show-list-of-image-figures: true,
-  // Matematiksel Denklemler listesinin raporda yer almasını istiyorsanız "show-list-of-equations: true", istemiyorsanız "show-list-of-equations: false" yapınız. [If you want the list of equations to be included in the report, do "show-list-of-equations: true", if not, do "show-list-of-equations: false".]
-  show-list-of-equations: true,
+  // Matematiksel Denklemler listesinin raporda yer almasını istiyorsanız "show-list-of-math-equations: true", istemiyorsanız "show-list-of-math-equations: false" yapınız. [If you want the list of equations to be included in the report, do "show-list-of-math-equations: true", if not, do "show-list-of-math-equations: false".]
+  show-list-of-math-equations: true,
   // Kod figürleri listesinin raporda yer almasını istiyorsanız "show-list-of-code-figures: true", istemiyorsanız "show-list-of-code-figures: false" yapınız. [If you want the list of code figures to be included in the report, do "show-list-of-code-figures: true", if not, do "show-list-of-code-figures: false".]
   show-list-of-code-figures: true,
   // Raporda simgeler kullandıysanız "Simgeler" başlığındaki içeriğin rapora dahil edilmesi için "have-symbols: true" yapınız. Ancak, tez önerisi ise "true" ya da "false" olsa bile "Simgeler ve Kısaltmalar" başlığındaki içerik rapora dahil edilmeyecektir. [To include the content of the "Symbols" heading in the report, do "have-symbols: true". However, if the thesis proposal is "true" or "false", the content of the "Symbols and Abbreviations" heading will not be included in the report.]
@@ -236,7 +236,7 @@
     keywords: keywords,
     show-list-of-table-figures: show-list-of-table-figures,
     show-list-of-image-figures: show-list-of-image-figures,
-    show-list-of-equations: show-list-of-equations,
+    show-list-of-math-equations: show-list-of-math-equations,
     show-list-of-code-figures: show-list-of-code-figures,
     have-symbols: have-symbols,
     have-abbreviations: have-abbreviations,
@@ -288,7 +288,7 @@
     keywords: keywords,
     show-list-of-table-figures: show-list-of-table-figures,
     show-list-of-image-figures: show-list-of-image-figures,
-    show-list-of-equations: show-list-of-equations,
+    show-list-of-math-equations: show-list-of-math-equations,
     show-list-of-code-figures: show-list-of-code-figures,
     have-symbols: have-symbols,
     have-abbreviations: have-abbreviations,

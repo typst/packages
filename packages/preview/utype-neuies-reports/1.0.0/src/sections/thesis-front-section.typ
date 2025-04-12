@@ -4,7 +4,7 @@
 #import "/src/sections/01-front/table-of-contents-page.typ": table-of-contents-page
 #import "/src/sections/01-front/list-of-table-figures-page.typ": list-of-table-figures-page
 #import "/src/sections/01-front/list-of-image-figures-page.typ": list-of-image-figures-page
-#import "/src/sections/01-front/list-of-equations-page.typ": list-of-equations-page
+#import "/src/sections/01-front/list-of-math-equations-page.typ": list-of-math-equations-page
 #import "/src/sections/01-front/list-of-code-figures-page.typ": list-of-code-figures-page
 #import "/src/sections/01-front/thesis-study-originality-report-page.typ": thesis-study-originality-report-page
 #import "/src/sections/01-front/scientific-ethics-declaration-page.typ": scientific-ethics-declaration-page
@@ -25,7 +25,7 @@
   keywords: none,
   show-list-of-table-figures: none,
   show-list-of-image-figures: none,
-  show-list-of-equations: none,
+  show-list-of-math-equations: none,
   show-list-of-code-figures: none,
   have-symbols: none,
   have-abbreviations: none,
@@ -79,9 +79,9 @@
         or report-type == REPORT-TYPES.DOCTORAL-THESIS
         or report-type == REPORT-TYPES.TERM-PROJECT
     )
-      and show-list-of-equations
+      and show-list-of-math-equations
   ) {
-    list-of-equations-page()
+    list-of-math-equations-page()
   }
 
   /* --- Kod Figürleri Listesi Sayfası [List of Code Figures Page] --- */
