@@ -2,6 +2,7 @@
 #import "/src/constants/language-keys.typ": language-keys
 #import "/src/styles/outline-entry-fill-style.typ": outline-entry-fill-style
 
+// İçindekiler stili. [Table of Contents' style.]
 #let table-of-contents-style(content) = {
   // Ana hat ayarları. [Outline settings.]
   set outline(
