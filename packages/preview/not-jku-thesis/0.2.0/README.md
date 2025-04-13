@@ -1,6 +1,3 @@
-
-[The compiled demo thesis.pdf](./template/thesis.pdf)
-
 # jku-thesis
 This is a Typst template for a thesis at JKU.
 
