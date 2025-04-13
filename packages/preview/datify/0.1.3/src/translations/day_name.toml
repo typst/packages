@@ -1,0 +1,44 @@
+[en]
+1 = "monday"
+2 = "tuesday"
+3 = "wednesday"
+4 = "thursday"
+5 = "friday"
+6 = "saturday"
+7 = "sunday"
+
+[fr]
+1 = "lundi"
+2 = "mardi"
+3 = "mercredi"
+4 = "jeudi"
+5 = "vendredi"
+6 = "samedi"
+7 = "dimanche"
+
+[de]
+1 = "montag"
+2 = "dienstag"
+3 = "mittwoch"
+4 = "donnerstag"
+5 = "freitag"
+6 = "samstag"
+7 = "sonntag"
+
+[es]
+1 = "lunes"
+2 = "martes"
+3 = "miércoles"
+4 = "jueves"
+5 = "viernes"
+6 = "sábado"
+7 = "domingo"
+
+[pt]
+1 = "segunda-feira"
+2 = "terça-feira"
+3 = "quarta-feira"
+4 = "quinta-feira"
+5 = "sexta-feira"
+6 = "sábado"
+7 = "domingo"

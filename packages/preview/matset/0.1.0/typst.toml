@@ -1,0 +1,12 @@
+[package]
+name = "matset"
+version = "0.1.0"
+entrypoint = "api.typ"
+authors = ["OptimisticPeach <patrikbuhring@gmail.com>"]
+license = "MIT"
+description = "An ergonomic expression evaluator in Typst"
+repository = "https://github.com/OptimisticPeach/matset"
+keywords = ["calculator", "graphing", "plotting"]
+categories = ["visualization", "scripting", "fun"]
+exclude = ["./example.png"]
+

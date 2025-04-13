@@ -1,0 +1,12 @@
+[package]
+name = "one-liner"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Marco <https://github.com/mtolk>"]
+license = "MIT"
+description = "Automatically adjust the text size to make it fit on one line filling the available space."
+repository = "https://github.com/mtolk/one-liner"
+keywords = ["fit-text","width","no-wrap"]
+categories = ["layout","text","utility"]
+compiler = "0.12.0"
+exclude = ["example.typ","example.pdf","example1.png"]

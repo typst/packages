@@ -1,0 +1,17 @@
+[package]
+name = "flyingcircus"
+version = "3.2.0"
+compiler = "0.12.0"
+entrypoint = "src/FlyingCircus.typ"
+repository = "https://github.com/Tetragramm/flying-circus-typst-template"
+authors = ["Tetragramm"]
+license = "MIT"
+description = "For creating homebrew documents with the same fancy style as the Flying Circus book? Provides simple commands to generate a whole aircraft stat page, vehicle, or even ship."
+keywords = ["Flying Circus", "RPG", "TTRPG"]
+categories = ["book", "fun", "layout"]
+disciplines = ["engineering","design","transportation"]
+
+[template]
+path = "template"
+entrypoint = "Main.typ"
+thumbnail = "thumbnail.png"
