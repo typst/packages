@@ -1,6 +1,6 @@
-#import "/src/styles/math-equation-outline-entry-style.typ": math-equation-outline-entry-style
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
+#import "/src/styles/math-equation-outline-entry-style.typ": math-equation-outline-entry-style
 
 // Matematiksel Denklem listesi stili. [List of Math Equations style.]
 #let list-of-math-equations-style(content) = {

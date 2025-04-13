@@ -1,6 +1,6 @@
-#import "/src/styles/figure-outline-entry-style.typ": figure-outline-entry-style
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
+#import "/src/styles/figure-outline-entry-style.typ": figure-outline-entry-style
 
 // Tablo figürleri listesi stili. [List of table figures style.]
 #let list-of-table-figures-style(content) = {

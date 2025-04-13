@@ -1,8 +1,8 @@
+#import "/src/core/language-manager/language-manager.typ": translator
+#import "/src/constants/language-keys.typ": language-keys
 #import "/src/components/full-date-with-author-fullname-component.typ": full-date-with-author-fullname-component
 #import "/src/components/fullname-with-title-component.typ": fullname-with-title-component
 #import "/src/components/date-component.typ": date-component
-#import "/src/core/language-manager/language-manager.typ": translator
-#import "/src/constants/language-keys.typ": language-keys
 
 // Tez Çalışması Orijinallik Raporu sayfası. [Thesis Study Originality Report page.]
 #let thesis-study-originality-report-page(

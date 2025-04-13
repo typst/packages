@@ -1,10 +1,10 @@
-#import "/src/constants/work-schedule-month-count-rule.typ": work-schedule-month-count-rule
 #import "/src/constants/validation-constants.typ": (
   STRING-ERROR-INLINE-TITLE,
   STRING-RELATED-DOCUMENTATION-INLINE-TITLE,
   STRING-TYPST-ARRAY-DOCUMENTATION-LINK,
 )
 #import "/src/constants/drop-down-list-constants.typ": REPORT-TYPES
+#import "/src/constants/work-schedule-month-count-rule.typ": work-schedule-month-count-rule
 #import "/src/core/validation-manager/validators/dictionary-type-validator.typ": dictionary-type-validator
 #import "/src/core/validation-manager/validators/array-type-validator.typ": array-type-validator
 

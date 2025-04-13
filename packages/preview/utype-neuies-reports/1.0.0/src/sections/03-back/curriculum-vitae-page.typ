@@ -1,8 +1,8 @@
 #import "/src/constants/date-constants.typ": FULL-DATE-FORMAT, MONTH-YEAR-DATE-FORMAT
 #import "/src/constants/language-free-string-constants.typ": STRING-ORCID
+#import "/src/styles/curriculum-vitae-page-style.typ": curriculum-vitae-page-style
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
-#import "/src/styles/curriculum-vitae-page-style.typ": curriculum-vitae-page-style
 #import "/src/components/fullname-with-title-component.typ": fullname-with-title-component
 #import "/src/components/orcid-link-component.typ": orcid-link-component
 #import "/src/components/email-link-component.typ": email-link-component

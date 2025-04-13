@@ -1,6 +1,6 @@
-#import "/src/styles/heading-spacing-style.typ": heading-spacing-style
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
+#import "/src/styles/heading-spacing-style.typ": heading-spacing-style
 
 // Tezin arka kısmındaki başlıkların stili. [Style of the headings in the back section of the thesis.]
 #let thesis-back-section-heading-style(content) = {

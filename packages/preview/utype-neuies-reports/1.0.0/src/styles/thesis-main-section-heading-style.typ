@@ -1,8 +1,8 @@
 #import "/src/constants/document-settings-constants.typ": DEFAULT-PARAGRAPH-SPACING-SIZE
 #import "/src/constants/numbering-constants.typ": HEADING-NUMBERING
-#import "/src/styles/heading-spacing-style.typ": heading-spacing-style
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
+#import "/src/styles/heading-spacing-style.typ": heading-spacing-style
 
 // Tezin ana kısmındaki başlıkların stili. [Style of the headings in the main section of the thesis.]
 #let thesis-main-section-heading-style(content) = {

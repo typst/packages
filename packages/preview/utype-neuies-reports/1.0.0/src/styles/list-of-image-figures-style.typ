@@ -1,6 +1,6 @@
-#import "/src/styles/figure-outline-entry-style.typ": figure-outline-entry-style
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
+#import "/src/styles/figure-outline-entry-style.typ": figure-outline-entry-style
 
 // Şekil figürleri listesi stili. [List of image figures style.]
 #let list-of-image-figures-style(content) = {

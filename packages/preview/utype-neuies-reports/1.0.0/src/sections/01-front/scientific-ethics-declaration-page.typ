@@ -1,6 +1,6 @@
-#import "/src/components/full-date-with-author-fullname-component.typ": full-date-with-author-fullname-component
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
+#import "/src/components/full-date-with-author-fullname-component.typ": full-date-with-author-fullname-component
 
 // Bilimsel Etik Beyannamesi sayfası. [Scientific Ethics Declaration page.]
 #let scientific-ethics-declaration-page(

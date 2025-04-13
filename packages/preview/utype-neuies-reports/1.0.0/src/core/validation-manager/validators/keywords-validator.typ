@@ -1,9 +1,9 @@
+#import "/src/constants/validation-constants.typ": STRING-TYPST-DICTIONARY-DOCUMENTATION-LINK
+#import "/src/constants/keyword-count-rule.typ": keyword-count-rule
 #import "/src/core/validation-manager/validators/dictionary-type-validator.typ": dictionary-type-validator
 #import "/src/core/validation-manager/validators/array-type-validator.typ": array-type-validator
 #import "/src/core/validation-manager/validators/minimum-value-validator.typ": minimum-value-validator
 #import "/src/core/validation-manager/validators/maximum-value-validator.typ": maximum-value-validator
-#import "/src/constants/keyword-count-rule.typ": keyword-count-rule
-#import "/src/constants/validation-constants.typ": STRING-TYPST-DICTIONARY-DOCUMENTATION-LINK
 
 // Anahtar Kelime girdisinin geçerli ve anahtar kelime sayısı kuralına uygun olduğunu doğrular. [Validates if the keywords value is valid and matches the keyword count rule.]
 #let keywords-validator(value: none) = {

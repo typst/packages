@@ -1,8 +1,8 @@
-#import "/src/components/fullname-component.typ": fullname-component
-#import "/src/components/date-component.typ": date-component
 #import "/src/constants/date-constants.typ": LONG-MONTH-YEAR-DATE-FORMAT
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
+#import "/src/components/fullname-component.typ": fullname-component
+#import "/src/components/date-component.typ": date-component
 
 // Ön Söz sayfası. [Preface page.]
 #let preface-page(

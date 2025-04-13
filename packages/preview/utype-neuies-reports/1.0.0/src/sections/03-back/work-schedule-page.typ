@@ -1,6 +1,6 @@
-#import "/src/styles/work-schedule-page-style.typ": work-schedule-page-style
 #import "/src/constants/work-schedule-month-count-rule.typ": work-schedule-month-count-rule
 #import "/src/constants/drop-down-list-constants.typ": REPORT-TYPES
+#import "/src/styles/work-schedule-page-style.typ": work-schedule-page-style
 #import "/src/core/language-manager/language-manager.typ": translator
 #import "/src/constants/language-keys.typ": language-keys
 
