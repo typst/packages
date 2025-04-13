@@ -5,8 +5,6 @@
 #import "/src/components/inner-cover-page/double-logo-organization-info-heading-component.typ": (
   double-logo-organization-info-heading-component,
 )
-#import "/src/core/language-manager/language-manager.typ": translator
-#import "/src/constants/language-keys.typ": language-keys
 #import "/src/components/report-title-text-component.typ": report-title-text-component
 #import "/src/components/fullname-component.typ": fullname-component
 #import "/src/components/orcid-with-prefix-component.typ": orcid-with-prefix-component

@@ -1,10 +1,10 @@
 #import "/src/styles/inner-cover-page-style.typ": inner-cover-page-style
 #import "/src/constants/drop-down-list-constants.typ": LANGUAGES
+#import "/src/core/language-manager/language-manager.typ": translator
+#import "/src/constants/language-keys.typ": language-keys
 #import "/src/components/inner-cover-page/single-logo-organization-info-heading-component.typ": (
   single-logo-organization-info-heading-component,
 )
-#import "/src/core/language-manager/language-manager.typ": translator
-#import "/src/constants/language-keys.typ": language-keys
 #import "/src/components/report-title-text-component.typ": report-title-text-component
 #import "/src/components/fullname-component.typ": fullname-component
 #import "/src/components/orcid-with-prefix-component.typ": orcid-with-prefix-component
