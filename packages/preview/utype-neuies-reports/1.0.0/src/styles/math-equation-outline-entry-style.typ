@@ -1,4 +1,3 @@
-#import "/src/constants/document-settings-constants.typ": SINGLE-LINE-PARAGRAPH-LEADING-SIZE
 #import "/src/styles/outline-entry-fill-style.typ": outline-entry-fill-style
 
 // Matematiksel Denklemler listesinin girdilerinin stili. [Style of the entries of the Math Equation lists.]

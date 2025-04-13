@@ -1,4 +1,3 @@
-#import "/src/constants/document-settings-constants.typ": SINGLE-LINE-PARAGRAPH-LEADING-SIZE
 #import "/src/constants/separator-constants.typ": FIGURE-OUTLINE-ENTRY-PREFIX-SEPARATOR
 #import "/src/styles/outline-entry-fill-style.typ": outline-entry-fill-style
 
