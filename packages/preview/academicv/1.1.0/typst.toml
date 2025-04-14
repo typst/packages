@@ -1,6 +1,6 @@
 [package]
 name = "academicv"
-version = "1.0.0"
+version = "1.1.0"
 compiler = "0.13.1"
 entrypoint = "cv.typ"
 authors = [ "Mikkel Roald-Arbøl <https://roald-arboel.com>", "Je Sian Keith Herman <https://jskherman.com>"]
