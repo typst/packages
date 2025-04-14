@@ -4,7 +4,7 @@
 #show: upb-cn-report.with(
   title: "Thesis Proposal: Tentative Title of Your Thesis",
   author: "Your Name",
-  matriculationNumber: "Matriculation Number",
+  matriculation-number: "Matriculation Number",
   left-header: "BSc/MSc Thesis",
   meta: (
     ([Research group], [Computer Networks (CN)]),

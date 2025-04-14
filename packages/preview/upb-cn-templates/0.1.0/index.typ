@@ -77,7 +77,7 @@
 #let upb-cn-report(
   title: "Title",
   author: none,
-  matriculationNumber: none,
+  matriculation-number: none,
   left-header: none, // defaults to title
   right-header: none, // defaults to author
   meta: none, // e.g. (([key1], [value1]), ([key2], [value2]))
@@ -135,7 +135,7 @@
   if author != none {
     set text(weight: "bold", font: heading-font, size: 1.2em)
     author
-    if matriculationNumber != none [~(#matriculationNumber)]
+    if matriculation-number != none [~(#matriculation-number)]
     v(.5em)
   }
 

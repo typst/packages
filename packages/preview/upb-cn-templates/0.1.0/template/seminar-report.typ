@@ -3,7 +3,7 @@
 #show: upb-cn-report.with(
   title: "Seminar: XXX (SS24)", // XXX is the name of the seminar
   author: "Your Name",
-  matriculationNumber: "Matriculation Number",
+  matriculation-number: "Matriculation Number",
   meta: (
     ([Research group], [Computer Networks (CN)]),
     ([Study program], [BSc/MSc Computer Science / Computer Engineering]),
