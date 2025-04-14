@@ -1,7 +1,7 @@
 
 # A timeline typst package
 
-This package uses [cetz]() to provide a interface in
+This package uses [cetz](https://typst.app/universe/package/cetz/) to provide a interface in
 typst for making horizontal timelines, inspired by the latex
 [`chronology`](https://ctan.org/pkg/chronology) package.
 
@@ -63,7 +63,7 @@ constructor without setting any of the optional style settings.
 
 The settable properties for customizing the look
 of the timeline. Visual examples can be seen in
-the example.pdf
+the [example.pdf](example.pdf)
 
 ## event
 
