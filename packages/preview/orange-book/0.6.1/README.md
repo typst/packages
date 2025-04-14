@@ -40,15 +40,15 @@ use this template, you can add a show rule like this at the top of your file:
   subtitle: "A Practical Guide",
   date: "Anno scolastico 2023-2024",
   author: "Goro Akechi",
-  mainColor: rgb("#F36619"),
+  main-color: rgb("#F36619"),
   lang: "en",
   cover: image("./background.svg"),
-  imageIndex: image("./orange1.jpg"),
-  listOfFigureTitle: "List of Figures",
-  listOfTableTitle: "List of Tables",
-  supplementChapter: "Chapter",
-  supplementPart: "Part",
-  part_style: 0,
+  image-index: image("./orange1.jpg"),
+  list-of-figure-title: "List of Figures",
+  list-of-table-title: "List of Tables",
+  supplement-chapter: "Chapter",
+  supplement-part: "Part",
+  part-style: 0,
   copyright: [
     Copyright © 2023 Flavio Barisi
 
