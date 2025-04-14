@@ -105,6 +105,8 @@
                                    tertiary-element: tertiary, 
                                    settings: settings,
                                    isbreakable: isbreakable)
+                } else if layout == "bullet-list" {
+                    layout-bullet-list(info.at(section-key), isbreakable: isbreakable)
                 } else if layout == "numbered-list" {
                     layout-numbered-list(info.at(section-key), isbreakable: isbreakable)
                 } else {
