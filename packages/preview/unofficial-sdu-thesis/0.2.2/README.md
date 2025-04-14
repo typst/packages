@@ -79,9 +79,9 @@ sudo bash ./local_install.sh
 > 此示例未包含正文之后的部分及图表应用，相关使用仍请务必参考[thesis.typ](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/src/latest/template/thesis.typ)
 
 ```
-#import "@preview/unofficial-sdu-thesis:0.2.1": *
+#import "@preview/unofficial-sdu-thesis:0.2.2": * // 上一版本为0.2.1
 // 如果是本地安装，则使用
-// #import "@local/unofficial-sdu-thesis:0.2.1": *
+// #import "@local/unofficial-sdu-thesis:0.2.2": *
 #let (
   info,
   doc,
