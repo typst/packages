@@ -26,7 +26,7 @@ The `upb-cn-report` function is defined as follows:
 #let upb-cn-report(
   title: "Title",
   author: none,
-  matriculationNumber: none,
+  matriculation-number: none,
   left-header: none, // defaults to title
   right-header: none, // defaults to author
   meta: none, // e.g. (([key1], [value1]), ([key2], [value2]))
