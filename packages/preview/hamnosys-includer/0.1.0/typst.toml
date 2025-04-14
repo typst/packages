@@ -1,5 +1,5 @@
 [package]
-name = "HamNoSys includer"
+name = "hamnosys-includer"
 version = "0.1.0"
 entrypoint = "hamnosys.typ"
 authors = ["Timothy Green"]
