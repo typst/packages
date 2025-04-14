@@ -1,0 +1,12 @@
+[package]
+name = "HamNoSys includer"
+version = "0.1.0"
+entrypoint = "hamnosys.typ"
+authors = ["Timothy Green"]
+license = "LPPL"
+description = "For using HamNoSys in Typst"
+keywords = ["HamNoSys", "Deaf", "Sign Language", "linguistics"]
+categories = ["text", "languages"]
+disciplines = ["linguistics"]
+exclude = ["readme.pdf", "LPPL.typ"]
+repository = "https://github.com/TestTimothy/Typst-HamNoSys"
