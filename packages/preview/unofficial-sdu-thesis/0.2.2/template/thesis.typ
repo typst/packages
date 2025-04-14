@@ -110,7 +110,7 @@ The world was so recent that many things lacked names, and in order @bay_surf_20
     "img/AlbertEinstein.png",
     width: 50%,
   ),
-  // kind: "image",
+  // kind: "image", 被弃用的特性
   supplement: [图],
   caption: [Albert Einstein], // 英文图例
 )<Einstein>
@@ -130,9 +130,8 @@ The world was so recent that many things lacked names, and in order @bay_surf_20
     [工件移动速度 #linebreak() (mm/min)],
     [感应圈与零件间隙 #linebreak() (mm)],
   ),
-  //必须声明且同时声明columns 和 colnum.
   columns: (1fr, 1fr, 1fr, 1fr),
-  colnum: 4,
+  // colnum: 4,被弃用的特性
   caption: [这是一个表格示例],
   label-name: "这张表格的label",
   ..for i in range(10) {
@@ -144,7 +143,6 @@ The world was so recent that many things lacked names, and in order @bay_surf_20
 
 #tablex(
   columns: (1fr, 1fr),
-  colnum: 2,
   caption: [两位科学家],
   label-name: "包含两位科学家的表",
   header: (
@@ -156,19 +154,14 @@ The world was so recent that many things lacked names, and in order @bay_surf_20
       "img/ClaudeElwoodShannon.png",
       width: 50%,
     ),
-    // kind: "image",
     supplement: [图],
-    // caption: [Claude Elwood Shannon], // 英文图例
   ),
-
   figure(
     image(
       "img/John von Neumann.png",
       width: 50%,
     ),
-    // kind: "image",
     supplement: [图],
-    // caption: [John von Neumann], // 英文图例
   ),
 )
 
@@ -176,7 +169,7 @@ The world was so recent that many things lacked names, and in order @bay_surf_20
 // 公式的引用请以 eqt 开头
 我要引用 @eqt:equation。
 
-$ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Alpha) + J_0 = 0 $<equation>
+$ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Alpha) + J_0 = 0 $<equation> //添加公式引用键使用<>符号
 
 == 算法格式
 我要引用 @algo:algorithm
@@ -280,7 +273,6 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
 
 #tablex(
   columns: (1fr, 1fr, 1fr),
-  colnum: 3,
   caption: [用于构成十进倍数和分数单位的词头],
   supplement: "附表",
   label-name: "续表示例",

@@ -57,8 +57,7 @@
   supplement: "表",
   header: (),
   columns: auto,
-  rows: auto,
-  colnum: int,
+  colnum: 0, // colnum已被弃用
   caption: none,
   label-name: "",
 ) = {
@@ -79,7 +78,7 @@
         columns: columns,
         table.header(
           table.cell(
-            colspan: colnum,
+            colspan: columns.len(),
             {
               context if nxt.get() {
                 set align(center)
