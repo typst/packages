@@ -1,6 +1,7 @@
 #import "utils.typ": convert-string-to-length, convert-string-to-color
 
 #import "layouts/header.typ": layout-header
+#import "layouts/bullet-list.typ": layout-bullet-list
 #import "layouts/numbered-list.typ": layout-numbered-list
 #import "layouts/prose.typ": layout-prose
 #import "layouts/timeline.typ": layout-timeline
@@ -104,6 +105,8 @@
                                    tertiary-element: tertiary, 
                                    settings: settings,
                                    isbreakable: isbreakable)
+                } else if layout == "bullet-list" {
+                    layout-bullet-list(info.at(section-key), isbreakable: isbreakable)
                 } else if layout == "numbered-list" {
                     layout-numbered-list(info.at(section-key), isbreakable: isbreakable)
                 } else {
