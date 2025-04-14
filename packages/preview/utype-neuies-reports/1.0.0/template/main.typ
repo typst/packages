@@ -10,6 +10,7 @@
 
 // Şablonu yukarıda bahsedilen araçlarla çevrim içi kullanmak için aşağıdaki gibi içe aktarma yapabilirsiniz:
 // NOT: Tinymist Typst uzantısının 'Template Gallery'si üzerinden bir şablonu seçerek proje oluşturduğunuzda bu şekilde içe aktarma yapabilirsiniz.
+/*
 #import "@preview/utype-neuies-reports:1.0.0": (
   template-configurations,
   LANGUAGES,
@@ -18,6 +19,7 @@
   PROGRAMS,
   ACADEMIC-MEMBER-TITLES,
 )
+*/
 
 /* ---- ŞABLONU ÇEVRİM DIŞI KULLANMAK ---- */
 
@@ -36,7 +38,6 @@
 */
 
 // Şablonu, şablonun bütün dosyalarının bulunduğu [Geliştirici GitHub Reposu](https://github.com/ertugruluyar-github/utype-neuies-reports) üzerinden manuel olarak bilgisayarınızda istediğiniz herhangi bir konuma indirerek kullanıyorsanız aşağıdaki gibi içe aktarma yapabilirsiniz:
-/*
 #import "/src/lib.typ": (
   template-configurations,
   LANGUAGES,
@@ -45,7 +46,6 @@
   PROGRAMS,
   ACADEMIC-MEMBER-TITLES,
 )
-*/
 // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "/src/lib.typ": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
 
 // Şablon ayarlarını giriniz.\
@@ -149,8 +149,8 @@
   show-list-of-table-figures: true,
   // Şekil figürleri listesinin raporda yer almasını istiyorsanız "show-list-of-image-figures: true", istemiyorsanız "show-list-of-image-figures: false" yapınız.
   show-list-of-image-figures: true,
-  // Matematiksel Denklemler listesinin raporda yer almasını istiyorsanız "show-list-of-math-equations: true", istemiyorsanız "show-list-of-math-equations: false" yapınız.
-  show-list-of-math-equations: true,
+  // Matematiksel Denklemler listesinin raporda yer almasını istiyorsanız "show-list-of-equations: true", istemiyorsanız "show-list-of-equations: false" yapınız.
+  show-list-of-equations: true,
   // Kod figürleri listesinin raporda yer almasını istiyorsanız "show-list-of-code-figures: true", istemiyorsanız "show-list-of-code-figures: false" yapınız.
   show-list-of-code-figures: true,
   // Raporda simgeler kullandıysanız "Simgeler" başlığındaki içeriğin rapora dahil edilmesi için "have-symbols: true" yapınız. Ancak, tez önerisi ise "true" ya da "false" olsa bile "Simgeler ve Kısaltmalar" başlığındaki içerik rapora dahil edilmeyecektir.

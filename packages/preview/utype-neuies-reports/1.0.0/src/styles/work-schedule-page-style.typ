@@ -1,4 +1,4 @@
-#import "/src/constants/document-settings-constants.typ": ALTERNATE-FONT-SIZE
+#import "/src/constants/document-settings-constants.typ": ALTERNATE-FONT-SIZE, ONE-AND-HALF-LINE-PARAGRAPH-LEADING-SIZE
 
 // Çalışma Takvimi sayfası stili. [Work Schedule page style.]
 #let work-schedule-page-style(content) = {

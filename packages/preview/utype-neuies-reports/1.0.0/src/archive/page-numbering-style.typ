@@ -1,7 +1,6 @@
 /* ARCHIVE: src/styles/page-numbering-style.typ
 #import "/src/constants/numbering-constants.typ": PAGE-NUMBERING-ARABIC
 
-// Sayfa numaralandırması stili. [Page numbering style.]
 #let page-numbering-style(
   content,
   numbering: PAGE-NUMBERING-ARABIC,

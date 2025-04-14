@@ -19,10 +19,8 @@
     - [Kullanılan Paketler](#kullanılan-paketler)
     - [Özellikler](#özellikler)
     - [Kullanım](#kullanım)
-      - [Typst'ı Kullanmaya Başlamak İçin Nasıl Öğrenebilirim?](#typstı-kullanmaya-başlamak-i̇çin-nasıl-öğrenebilirim)
-      - [Şablonu Kullanmaya Başlamak](#şablonu-kullanmaya-başlamak)
+      - [Kullanmaya Başlamak](#kullanmaya-başlamak)
       - [Şablon Yapısı](#şablon-yapısı)
-      - [Yazı Tipi Hakkında Bilgilendirme](#yazı-tipi-hakkında-bilgilendirme)
       - [Alternatiflere sahip başlıklardaki alternatiflerden birini seçmek.](#alternatiflere-sahip-başlıklardaki-alternatiflerden-birini-seçmek)
     - [Kurulum](#kurulum)
       - [Gerekli Yazılımlar](#gerekli-yazılımlar)
@@ -35,10 +33,8 @@
     - [Packages Used](#packages-used)
     - [Features](#features)
     - [Usage](#usage)
-      - [How Can I Learn to Get Started Using Typst?](#how-can-i-learn-to-get-started-using-typst)
-      - [Getting Started with the Template](#getting-started-with-the-template)
+      - [Getting Started](#getting-started)
       - [Template Structure](#template-structure)
-      - [Information About Font](#information-about-font)
       - [Selecting one of the alternatives in headings with alternatives](#selecting-one-of-the-alternatives-in-headings-with-alternatives)
     - [Installation](#installation)
       - [Required Softwares](#required-softwares)
@@ -119,13 +115,7 @@ Bu projelerde emeği geçen herkese çok büyük teşekkürlerimi sunarım.
 
 ### Kullanım
 
-#### Typst'ı Kullanmaya Başlamak İçin Nasıl Öğrenebilirim?
-1. Dökümantasyondaki başlayan dostu [Öğreticiyi](https://typst.app/docs/tutorial/) okuyarak başlayabilirsiniz.
-2. [Typst YouTube Oynatma Listesini](https://youtube.com/playlist?list=PLCO-MGSsHcdArXIfeOGoUwjH0oz8vMr8M&si=c_kTmN4FKmwdMitE) izlebilir ve izlerken kafanıza takılan veya daha detaylı ögrenmek istediğiniz durumlarda dokümantasyondaki [Referansa](https://typst.app/docs/reference/) bakabilirsiniz.
-3. Dökümantasyondaki ayrıntılı [Referans](https://typst.app/docs/reference/) kısmını okuyabilirsiniz.
-4. Dökümantasyonu ezberlemeye çalışmamalısınız. Bir şeyin nasıl yapıldığını merak ettiğinizde veya yapmanız gerektiğinde dokümantasyondaki ilgili [referansı](https://typst.app/docs/reference/) okuyarak başlayabilirsiniz. Aynı zamanda internette videolu anlatımları araştırabilirsiniz. Karmaşık veya anlaşılmayan durumlarda, bunları nasıl yapabileceğinizi ya da sorunları nasıl çözebileceğinizi [Typst Forumunda](https://forum.typst.app/) benzer durumları yaşayıp soru soran veya örnek kullanım senaryoları paylaşanların olup olmadığına bakabilirsiniz. Ayrıca, diğer Typst kullanıcılarından yardım almak için [Typst Forumunda bir soru](https://forum.typst.app/c/questions/) oluşturabilirsiniz.
-
-#### Şablonu Kullanmaya Başlamak
+#### Kullanmaya Başlamak
 Öncelikle, şablonu projeniz için içe aktarınız. Daha sonra, şablon ayarlarını giriniz.
 
 **NOT:** Şablonu [Kurulum](#kurulum) başlığında bahsedildiği gibi kullandığınızda bu kısım otomatik olarak mevcut olacaktır. Sadece şablon ayarlarındaki bilgileri projenize göre güncellemeniz yeterlidir. Şablon ayarlarında yer alan parametrelerin değerlerinin nasıl girileceğiyle ilgili açıklamalar ilgili parametrenin bir üstündeki satırda yorum satırı olarak yer almaktadır.
@@ -218,23 +208,6 @@ Aşağıdaki şemada şablon yapısını yer almaktadır. Burada, şablondaki kl
               └── appendix-2-text.typ
   └── main.typ                                                    <-- Şablondan oluşturmaya başlama dosyası
   ```
-
-</details>
-
-#### Yazı Tipi Hakkında Bilgilendirme
-Resmî şablonlarda metin için 'Times New Roman' ve matematiksel denklemler için 'Cambria Math' yazı tipi kullanılmaktadır. Bu yazı tipleri kapalı kaynak ve kişisel ve ticari kullanımları ücretli olup lisans satın alınması gerekmektedir. Bu yazı tipleri Windows ve Office 365 ile birlikte yüklü olarak gelir. Bu lisans durumundan dolayı [Typst.app](https://typst.app/) üzerinde yüklü olarak gelememektedir. 
-
-Bu sorunu çözmek için, bahsedilen yazı tiplerinin neredeyse bire bir aynısı olan [TeX Gyre Termes](https://www.gust.org.pl/projects/e-foundry/tex-gyre/termes) ve [TeX Gyre Termes Math](https://www.gust.org.pl/projects/e-foundry/tg-math) yazı tipleri bahsedilen yazı tipleri mevcut olmadığında otomatik olarak kullanılacak şekilde ayarlanmıştır. [TeX Gyre Termes](https://www.gust.org.pl/projects/e-foundry/tex-gyre/termes) ve [TeX Gyre Termes Math](https://www.gust.org.pl/projects/e-foundry/tg-math) yazı tipleri [GUST yazı tipi lisansı (GFL)](https://www.gust.org.pl/projects/e-foundry/licenses/GUST-FONT-LICENSE.txt/view) altında lisanslanmış olup açık kaynak ve kişisel ve ticari kullanım için ücretsiz olduğundan [Typst.app](https://typst.app/) üzerinde yüklü olarak gelmektedir. Bu yüzden, şablonu [Typst.app](https://typst.app/) üzerinden kullananların bir şey yapmasına gerek yoktur. Ancak, **önerilmemekle birlikte**, yine de 'Times New Roman' ve 'Cambria Math' yazı tipini kullanmak istiyor ve **yasal olarak kullanma hakkına sahipseniz** ilgili yazı tiplerinin statik yazı tipi dosyalarını `/template/assets/fonts/times-new-roman/` ve `/template/assets/fonts/cambria-math/` klasörlerine yükleyebilirsiniz. Bunu yaptığınızda [Typst.app](https://typst.app/) otomatik olarak yazı tiplerini algılayacaktır (Bakınız: https://typst.app/docs/reference/text/text/#parameters-font).
-
-Şablonu [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) ile kullananlar için, eğer 'Times New Roman' ve 'Cambria Math' bilgisayarınızda yüklü değilse [adresinde](https://erbakan.edu.tr/tr/birim/buyuk-veri-koordinatorlugu/sayfa/lisansli-yazilimlar) anlatıldığı gibi Microsoft Office 365 yazılımı yüklenerek bu yazı tiplerinin bilgisayarınıza yüklenmesi sağlanabilir. Alternatif olarak yukarıda bahsedilen [TeX Gyre Termes](https://www.gust.org.pl/projects/e-foundry/tex-gyre/termes) ve [TeX Gyre Termes Math](https://www.gust.org.pl/projects/e-foundry/tg-math) yazı tipleri de resmî web sitelerinden indirilip indirilen dosyaya farenin sol tuşuyla çift tıklandıktan sonra açılan pencerede 'Yükle' butonuna tıklanarak yüklenebilir.
-
-**NOT:** Bir yazı tipi eksikliği söz konusu olduğunda [Typst.app](https://typst.app/) ve [Visual Studio Code](https://code.visualstudio.com/)'daki [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) eklentisinde sırasıyla aşağıdaki gibi uyarılar kullanıcıya geri bildirim olarak verilir. Bu uyarılar göz ardı edilebilir ya da istenildiği taktirde yukarıdaki gibi çözülebilir.
-
-<details>
-  <summary>Görselleri göstermek/gizlemek için tıklayınız</summary>
-
-<p align="center"><img src="assets/images/typst.app_unknown-font-family-warning.png" width=20%>&nbsp;</p>
-<p align="center"><img src="assets/images/tinymist-typst_unknown-font-family-warning.png" width=20%>&nbsp;</p>
 
 </details>
 
@@ -371,13 +344,7 @@ I sincerely thank everyone who contributed to these projects.
 
 ### Usage
 
-#### How Can I Learn to Get Started Using Typst?
-1. You can start by reading the beginner-friendly [Tutorial](https://typst.app/docs/tutorial/) in the documentation.
-2. You can watch the [Typst YouTube Playlist](https://youtube.com/playlist?list=PLCO-MGSsHcdArXIfeOGoUwjH0oz8vMr8M&si=c_kTmN4FKmwdMitE) and refer to the [Reference](https://typst.app/docs/reference/) in the documentation if you have any questions or want to learn more in detail.
-3. You can read the detailed [Reference](https://typst.app/docs/reference/) in the documentation.
-4. You should not try to memorize the documentation. When you are curious about how to do something or need to do something, you can start by reading the relevant [reference](https://typst.app/docs/reference/) in the documentation. You can also search for video tutorials on the internet. In complicated or unclear situations, you can find out how to do things or solve problems on the [Typst Forum](https://forum.typst.app/) and see if anyone has been in a similar situation and has asked questions or shared example use cases. You can also create a question in the [Typst Forum](https://forum.typst.app/c/questions/) to get help from other Typst users.
-
-#### Getting Started with the Template
+#### Getting Started
 First, import the template for your project. Then, enter the template configurations.
 
 **NOTE:** When you use the template as mentioned in the [Installation](#installation) section, this part will be automatically available. You only need to update the information in the template configurations according to your project. Explanations on how to set the values of the parameters in the template configurations are given as a comment line on the line above the relevant parameter.
@@ -470,23 +437,6 @@ The diagram below shows the template structure. Here you can see the hierarchica
               └── appendix-2-text.typ
   └── main.typ                                                    <-- Entry point file to start building from template
   ```
-
-</details>
-
-#### Information About Font
-The official templates use 'Times New Roman' for text and 'Cambria Math' for mathematical equations. These fonts are closed source and personal and commercial use is paid and requires the purchase of a license. These fonts come installed with Windows and Office 365. Due to this license situation, they cannot be installed on [Typst.app](https://typst.app/). 
-
-To solve this problem, [TeX Gyre Termes](https://www.gust.org.pl/projects/e-foundry/tex-gyre/termes) and [TeX Gyre Termes Math](https://www.gust.org.pl/projects/e-foundry/tg-math) fonts, which are almost identical to the mentioned fonts, are set to be used automatically when the mentioned fonts are not available. The [TeX Gyre Termes](https://www.gust.org.pl/projects/e-foundry/tex-gyre/termes) and [TeX Gyre Termes Math](https://www.gust.org.pl/projects/e-foundry/tg-math) fonts are licensed under the [GUST font license (GFL)](https://www.gust.org.pl/projects/e-foundry/licenses/GUST-FONT-LICENSE.txt/view) and come installed on the [Typst.app](https://typst.app/) as they are open source and free for personal and commercial use. Therefore, those using the template via [Typst.app](https://typst.app/) do not need to do anything. However, **though not recommended**, if you still want to use the 'Times New Roman' and 'Cambria Math' fonts and **legally have the right to do so**, you can upload the static font files for those fonts to the `/template/assets/fonts/times-new-roman/` and `/template/assets/fonts/cambria-math/` folders. When you do this [Typst.app](https://typst.app/) will automatically detect the fonts (see: https://typst.app/docs/reference/text/text/#parameters-font).
-
-For those using the template with [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist), if you do not have 'Times New Roman' and 'Cambria Math' installed on your computer, you can install Microsoft Office 365 software as described in [at](https://erbakan.edu.tr/tr/birim/buyuk-veri-koordinatorlugu/sayfa/lisansli-yazilimlar) to have these fonts installed on your computer. Alternatively, the fonts [TeX Gyre Termes](https://www.gust.org.pl/projects/e-foundry/tex-gyre/termes) and [TeX Gyre Termes Math](https://www.gust.org.pl/projects/e-foundry/tg-math) mentioned above can also be downloaded from their official websites and installed by double-clicking the downloaded file with the left mouse button and clicking the 'Install' button in the window that opens.
-
-**NOTE:** When a font is missing, the [Typst.app](https://typst.app/) and the [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) plugin in [Visual Studio Code](https://code.visualstudio.com/) give the following warnings as feedback to the user, respectively. These warnings can be ignored or can be resolved as above if desired.
-
-<details>
-  <summary>Click to show/hide the images</summary>
-
-<p align="center"><img src="assets/images/typst.app_unknown-font-family-warning.png" width=20%>&nbsp;</p>
-<p align="center"><img src="assets/images/tinymist-typst_unknown-font-family-warning.png" width=20%>&nbsp;</p>
 
 </details>
 
