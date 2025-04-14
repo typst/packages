@@ -1,7 +1,6 @@
 #import "utils.typ": convert-string-to-length, convert-string-to-color
 
 #import "layouts/header.typ": layout-header
-#import "layouts/bullet-list.typ": layout-bullet-list
 #import "layouts/numbered-list.typ": layout-numbered-list
 #import "layouts/prose.typ": layout-prose
 #import "layouts/timeline.typ": layout-timeline
