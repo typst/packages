@@ -19,5 +19,40 @@ Matematiksel denklemler metinle satır içi veya ayrı bir blok biçiminde gör�
 Blok deklem bir satırı kaplarlar.
 */
 *Satır içi denklem ekleme örneği ve devamında blok denklem ekleme örneği aşağıdaki gibidir:*
-Dik açılı üçgenin kenar uzunlukları $a$, $b$, ve $c$ olsun. O zaman:
+//Dik açılı üçgenin kenar uzunlukları $a$, $b$, ve $c$ olsun. O zaman:
 
+$ "Blok denklem ekleme örneği:" a^2 + b^2 = c^2 $
+
+#v(0.5cm)
+
+/*
+"&" İşareti ve Hizalama: Her "&" işareti, kendinden önceki kısmın hizalamasını belirler ve dolaylı olarak her zaman sonraki kısmın hizalaması önceki kısmın zıttı olur.
+
+Tek Sayıda "&" İşareti: Eğer "&" işaretleri tek sayıda ise (1, 3, 5, ...), önceki kısım sola hizalanır ve sonraki kısım sağa hizalanır.
+
+Çift Sayıda "&" İşareti: Eğer "&" işaretleri çift sayıda ise (2, 4, 6, ...), önceki kısım sağa hizalanır ve sonraki kısım sola hizalanır.
+
+Kısaca, tek sayıda "&" işareti önceki kısmı sola hizalarken çift sayıda "&" işareti önceki kısmı sağa hizalar ve her zaman sonraki kısmın hizalaması önceki kısmın zıttı olur.\
+*/
+*Denklemlerde hizalama örneği:*\
+Aşağıdaki örnekte denklemler "=" işaretinin konumuna göre hizlandı:
+$
+  (3x + y) / 7 &= 9\
+  3x + y &= 63\
+  3x &= 63 - y\
+  x &= 21 - y / 3
+$
+
+#v(0.5cm)
+
+*Denklemlerinize etiketler koyarak atıfda bulunabilirsiniz:*\
+Ardışık sayıların toplamı:
+$
+  sum_(k=1)^n k = (n(n+1)) / 2
+$ <denklem-ardışık-sayıların-toplamı> // Denkleme atıf yapılırken kullanılacak etiket belirtilir. Bütün denklemler 'denklme' kelimesi şeklinde sistemli yazılırsa istenen figür aranırken bulması kolaylaşır.
+
+@denklem-ardışık-sayıların-toplamı ardışık sayıların toplamının formülüdür.
+
+#v(0.5cm)
+
+Daha fazla bilgi için #link("https://typst.app/docs/reference/math/") adresini ziyaret edebilirsiniz.
