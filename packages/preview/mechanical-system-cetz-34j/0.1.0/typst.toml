@@ -1,5 +1,5 @@
 [package]
-name = "34j-cetz-mechanical-system"
+name = "mechanical-system-cetz-34j"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["34j <@34j>"]
