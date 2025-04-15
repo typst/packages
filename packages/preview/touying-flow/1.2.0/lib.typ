@@ -1,9 +1,9 @@
 #import "@preview/touying:0.6.1": *
-#import "@preview/mitex:0.2.4" : *
+#import "@preview/mitex:0.2.5" : *
 #import "@preview/numbly:0.1.0": numbly
-#import "@preview/cuti:0.2.1": show-cn-fakebold //显示粗体
+#import "@preview/cuti:0.3.0": show-cn-fakebold //显示粗体
 #import "@preview/lovelace:0.3.0": * //伪代码
-#import "@preview/codly:1.0.0":*
+#import "@preview/codly:1.3.0":*
 /*
 three-line table, create it like this:
 
