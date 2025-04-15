@@ -127,7 +127,10 @@
 
   [#salutation #client.short-name,
   
-  #content(t)]
+  #content(t)
+  
+  #t.closing\
+  #seller.name]
 }
 
 #let invoice(
@@ -348,9 +351,6 @@
           t.payment.reference, invoice-number,
         )
       ])
-
-      #t.closing\
-      #seller.name
     ]}
   )
 }
@@ -406,17 +406,20 @@
     pre-offer: [We hereby submit to you our offer with No. #offer-number\.],
     pre-table: [Please find the offered items below, individually orderable:],
     post-table: (total) => {
-      if pre-payment-amount == none or pre-payment-amount == 0 {
-        [Upon acceptance of this offer, we will send you a proforma invoice.]} 
-      else {
+      [
+      #if pre-payment-amount == none or pre-payment-amount == 0 {
+        [Upon acceptance of this offer, we will send you a proforma invoice.]
+      } else {
         [Upon acceptance of this offer, we will send you both an invoice for a prepayment of #pre-payment-amount % of the total amount (€ #format-currency(total * (pre-payment-amount / 100))) and a proforma invoice. The prepayment is to be made before the start of the project. The remaining amount is to be paid 14 days after delivery.]
       }
 
-      if offer-valid-until == none {
+      #if offer-valid-until == none {
         [The offer is valid for 30 days from the date of issue.]
       } else {
         [The offer is valid until #offer-valid-until.]
       }
+      
+      ]
     },
     closing: [I am looking forward to your response, and am always available for further questions.
     
@@ -427,22 +430,20 @@
     pre-offer: [Hiermit übermitteln wir Ihnen unser Angebot Nr. #offer-number\.],
     pre-table: [Zudem nachfolgend die angebotenen Positionen, einzeln beauftragbar:],
     post-table: (total) => {
-      if pre-payment-amount == none or pre-payment-amount == 0 {
-        [Mit Annahme dieses Angebots werden wir Ihnen eine Proformarechnung übermitteln.
-        
-        ]} 
-      else {
-        [Mit Annahme dieses Angebots werden wir Ihnen sowohl eine Rechnung zur Vorauszahlung über #pre-payment-amount % des Gesamtbetrages (€ #format-currency(total * (pre-payment-amount / 100))) als auch eine Proformarechnung übermitteln. Die Vorauszahlung ist vor Beginn des Projektes zu leisten. Die Restzahlung ist binnen 14 Tagen nach Lieferung zu leisten.
-        
-        ]
+      [
+      #if pre-payment-amount == none or pre-payment-amount == 0 {
+        [Mit Annahme dieses Angebots werden wir Ihnen eine Proformarechnung übermitteln.]
+      } else {
+        [Mit Annahme dieses Angebots werden wir Ihnen sowohl eine Rechnung zur Vorauszahlung über #pre-payment-amount % des Gesamtbetrages (€ #format-currency(total * (pre-payment-amount / 100))) als auch eine Proformarechnung übermitteln. Die Vorauszahlung ist vor Beginn des Projektes zu leisten. Die Restzahlung ist binnen 14 Tagen nach Lieferung zu leisten.]
       }
 
-      if offer-valid-until == none {
+      #if offer-valid-until == none {
         [Dieses Angebot ist für 30 Tage ab Erstellung gültig.]
       } else {
         [Dieses Angebot ist maximal Gültig bis #offer-valid-until.]
       }
-      []
+
+      ]
     },
     closing: [Ich freue mich auf Ihre Antwort, und stehe stets für Rückfragen zur Verfügung.
     
@@ -525,9 +526,6 @@
       #set text(number-type: "lining")
 
       #t.at("post-table")(total-with-vat)
-
-      #t.closing\
-      #seller.name
     ]}
   )
 }
