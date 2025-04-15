@@ -1,0 +1,15 @@
+#!/usr/bin/expect
+
+spawn ../typship publish universe
+
+expect {
+    "\[packages\]"
+}
+send "\n"
+expect {
+    "\[y/N\]"
+}
+send "y\n"
+
+
+expect eof
