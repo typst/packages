@@ -6,7 +6,7 @@
 //$ "Alan" = pi dot "yarıçap"^2 $
 
 $
-  cal(A) := { x in RR | x "bir reel sayı" }
+  cal(B) := { x in RR | x "bir reel syı" }
 $
 // Tanımladığınız değişkenleri denklemlerin içinde kullanabilirsiniz:
 #let x = 5
