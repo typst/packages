@@ -19,7 +19,7 @@ Matematiksel denklemler metinle satır içi veya ayrı bir blok biçiminde gör�
 Blok deklem bir satırı kaplarlar.
 */
 *Satır içi denklem ekleme örneği ve devamında blok denklem ekleme örneği aşağıdaki gibidir:*
-Dik açılı üçgenin kenar uzunlukları $a $, $b $, ve $c $ olsun. O zaman:
+Dik açılı üçgenin kenar uzunlukları $ a $, $ b $, ve $ c $ olsun. O zaman:
 
 $ "Blok denklem ekleme örneği:" a^2 + b^2 = c^2 $
 
