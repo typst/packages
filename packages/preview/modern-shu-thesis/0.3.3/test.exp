@@ -1,0 +1,29 @@
+#!/usr/bin/expect
+
+spawn ../typship publish universe
+
+expect {
+    "\[packages\]"
+}
+send "\n"
+expect {
+    "\[y/N\]"
+}
+send "y\n"
+
+while {1} {
+    expect {
+        -ex "PR created" { exit 0}
+
+        -ex "ERROR" {
+            puts "Error occurred"
+            exit 1
+        }
+
+        eof {
+            puts "EOF reached without matched target string"
+            exit 1
+        }
+    }
+}
+
