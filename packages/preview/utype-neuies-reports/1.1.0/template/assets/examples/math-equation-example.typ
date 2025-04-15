@@ -36,12 +36,12 @@ Kısaca, tek sayıda "&" işareti önceki kısmı sola hizalarken çift sayıda 
 */
 *Denklemlerde hizalama örneği:*\
 Aşağıdaki örnekte denklemler "=" işaretinin konumuna göre hizlandı:
-$
+/*$
   (3x + y) / 7 &= 9\
   3x + y &= 63\
   3x &= 63 - y\
   x &= 21 - y / 3
-$
+$*/
 
 #v(0.5cm)
 
