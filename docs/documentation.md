@@ -2,7 +2,7 @@
 
 Packages must contain a `README.md` file documenting (at least briefly) what the
 package does and all definitions intended for usage by downstream users.
-Examples in the README should show how to use the package through an `@preview`
+Examples in the README should show how to use the package through a `@preview`
 import. Also consider running [`typos`][typos] through your package before
 release.
 

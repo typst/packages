@@ -23,7 +23,7 @@ git checkout main
 The Typst package repository requires the files to be actually copied
 to their respective directory, they should not be included as Git submodules.
 
-When copying a package from another git repository, you should not copy the
+When copying a package from another Git repository, you should not copy the
 `.git` folder, otherwise when creating a commit to publish your package,
 Git will replace the copied files with a submodule.
 
@@ -36,17 +36,17 @@ being included, making the size of this repository and of the final archives
 larger than they need to be.
 
 There are two solutions to limit this problem: excluding files from the archive
-(using the `exclude` key in your package manifest), and simply not commiting the
-files to this repository in the first place.
+(using the `exclude` key in your [package manifest][manifest]), or simply not
+commiting the files to this repository in the first place.
 
 To know which strategy to apply to each files, we can split them in three groups:
 
 - files that are necessary for the package to work. If any of these files are
   removed, the package would break for the end user. This includes the manifest
-  file, main Typst file and its dependencies, and any file in the template
-  directory.
+  file, main Typst file and its dependencies, and in case of a template package,
+  any file in the template directory.
 - files that are necessary for the package to be displayed correctly on Typst
-  Universe. This includes the README, and any files that are linked from here
+  Universe. This includes the README, and any files that are linked from there
   (manuals, examples, illustrations, etc.). These files can easily be accessed
   by opening the package README.
 - other files. This generally includes test files, build scripts, but also
@@ -56,9 +56,10 @@ To know which strategy to apply to each files, we can split them in three groups
 
 The first two groups should be commited to this repository, but files that are
 not strictly necessary for the package to work (the second group) should be
-excluded. The third group should simply not be copied here, or you should
-consider linking them from your README so that they are easily discoverable. A
-good example showing how to link examples and a manual is [cetz].
+excluded in `typst.toml`. The third group should simply not be copied here, or
+you should consider linking them from your README so that they are easily
+discoverable. A good example showing how to link examples and a manual is
+[CeTZ][cetz].
 
 The only exceptions to this rule are the LICENSE file (that should always be
 available along with the source code, so it should not be excluded), and the
@@ -83,3 +84,4 @@ The community created some tools that can help when developing your package:
 [tytanic]: https://tingerrr.github.io/tytanic/index.html
 [typship]: https://github.com/sjfhsjfh/typship
 [showman]: https://github.com/ntjess/showman
+[manifest]: manifest.md

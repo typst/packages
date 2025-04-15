@@ -13,9 +13,9 @@ by [`typst-package-check`][check] (which you can run locally too).
   bugs or unexpected behaviors, since it is impossible to tell for sure whether
   they will work flawlessly. You can always submit a patch release if you find
   issues after the package is accepted.
-- [ ] The template compiles, as it is out-of-the-box. In particular, it should
-  use the "absolute" package import and not a relative one (i.e
-  `@preview/my-package:0.1.0` and not `../lib.typ`).
+- [ ] If the package is a template, it should compile as it is out-of-the-box.
+  In particular, it should use the "absolute" package import and not a relative
+  one (i.e `@preview/my-package:0.1.0` and not `../lib.typ`).
 - [ ] Identifiers should preferably use kebab-case, as this is the convention that
   is used in the standard library and in most packages. There can be exceptions
   (for instance it can make sense to have a variable called `Alpha` and not
@@ -35,7 +35,8 @@ by [`typst-package-check`][check] (which you can run locally too).
   same (if there is no dedicated website, only the repository should be kept),
   and they should be valid URLs.
 - [ ] The title of the PR should be in the format `package-name:version` and it
-  should have the correct `new` or `update` label.
+  should have the correct `new` or `update` label. This is done automatically by
+  our CI bot.
 
 You must also follow these rules, but they have to be checked manually by a human
 being.

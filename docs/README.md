@@ -8,7 +8,7 @@ namespace is `preview`. You can then [copy your package files][copy] here,
 commit your changes and open a pull request.
 
 We have guidelines that you have to follow to be accepted in Typst Universe.
-They ensure that the published package meet some quality standards and work
+They ensure that the published packages meet some quality standards and work
 properly for everyone. Please note that this list may be extended over time as
 improvements/issues to the process are discovered. Given a good reason, we
 reserve the right to reject any package submission.

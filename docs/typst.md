@@ -10,13 +10,13 @@ when importing your own package, instead of relative imports. In other words,
 it is better to write:
 
 ```typ
-#import "@preview/my-package:1.0.0": my-function"
+#import "@preview/my-package:1.0.0": my-function
 ```
 
 than:
 
 ```typ
-#import "../lib.typ": my-function"
+#import "../lib.typ": my-function
 ```
 
 This is especially true for example files. The reasoning here is that
@@ -26,6 +26,9 @@ from that.
 For template files, this is not only a recommendation but a requirement. Users
 should never have to edit a project freshly created from a template to make it
 compile.
+
+This recommendation does not apply to files that are directly part of the package
+however, as this could cause a cyclic import.
 
 ## Only exposing specific functions publicly
 
@@ -75,7 +78,7 @@ The main one is to always split styles and content. Template generally export a
 global function that define styles using `show` and `set` rules, and wrap the
 document body in some common structure (title page, abstract, outline, etc.). To
 make it possible to customize the content provided by the template, they should
-actually be defined in another function that the styles. This way it is possible
+actually be defined in another function than the styles. This way it is possible
 to first apply the template styles, customize them, and finally include the
 common structure with modified styles.
 

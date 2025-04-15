@@ -42,18 +42,19 @@ Required for submissions to this repository:
   address, homepage, or GitHub handle in angle brackets. The latter must start
   with an `@` character, and URLs must start with `http://` or `https://`.
 - `license`: The package's license. Must contain a valid SPDX-2 expression
-  describing one or multiple licenses. Please make sure to meet our [licensing requirements]
-  if you want to submit your package to Typst Universe.
+  describing one or multiple licenses. Please make sure to meet our [licensing
+  requirements][license] if you want to submit your package to Typst Universe.
 - `description`: A short description of the package. Double-check this for
   grammar and spelling mistakes as it will appear in the [package list][list].
   If you want some tips on how to write a great description, you can refer to
-  [the dedicated section below].
+  [the dedicated section below][description].
 
 Optional:
 
 - `homepage`: A link to the package's web presence, where there could be more
   details, an issue tracker, or something else. Will be linked to from the
-  package list.
+  package list. If there is no dedicated web page for the package, don't link to
+  its repository here. Omit this field and prefer `repository`.
 - `repository`: A link to the repository where this package is developed. Will
   be linked to from the package list if there is no homepage.
 - `keywords`: An array of search keywords for the package.
@@ -111,7 +112,7 @@ for languages that are not generally written using the latin alphabet.
 A good package description is simple, easily-understandable and succinct. Here
 are some rules to follow to write great descriptions:
 
-- Keep it short. Try to maximise the content:length ratio and weigh your words
+- Keep it short. Try to maximise the content to length ratio and weigh your words
   thoughtfully. Ideally, it should be 40 to 60 characters long.
 
 - Terminate your description with a full stop.
@@ -152,7 +153,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Typst GmbH <https://typst.app>"]
 license = "MIT-0"
-description = "IEEE-style paper to publish at conferences and journals"
+description = "IEEE-style paper to publish at conferences and journals."
 
 [template]
 path = "template"
@@ -176,7 +177,7 @@ Required for submissions to this repository:
   at least 1080px in length. Its file size must not exceed 3MB. Exporting a PNG
   at 250 DPI resolution is usually a good way to generate a thumbnail. You can
   use the following command for that: `typst compile -f png --pages 1 --ppi 250
-  template.typ`. You are encouraged to use [oxipng] to reduce the thumbnail's
+  main.typ`. You are encouraged to use [oxipng] to reduce the thumbnail's
   file size. The thumbnail will automatically be excluded from the package files
   and must not be referenced anywhere in the package.
 
@@ -188,7 +189,7 @@ system. The recommended workflow for this is as follows:
 - Add a symlink from `$XDG_DATA_HOME/typst/packages/preview` to the `preview`
   folder of your fork of this repository (see the documentation on [local
   packages]).
-- Run `typst init @preview/mypkg:version`. Note that you must manually specify
+- Run `typst init @{namespace}/{name}:{version}`. Note that you must manually specify
   the version as the package is not yet in the index, so the latest version
   won't be detected automatically.
 - Compile the freshly instantiated template.
@@ -216,3 +217,5 @@ foo = "bar"
 [local packages]: ../README.md#local-packages
 [SemVer]: https://semver.org/
 [oxipng]: https://github.com/shssoichiro/oxipng
+[license]: licensing.md
+[description]: #writing-a-good-description

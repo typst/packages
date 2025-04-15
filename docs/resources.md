@@ -41,18 +41,18 @@ is to take `content` as an argument directly, not a `string`. For example, you s
 replace this:
 
 ```typ
-#let cover-page = (logo-path: "logo.png", title) => {
-  #image(logo-path)
-  #heading(title)
+#let cover-page(logo-path: "logo.png", title) = {
+  image(logo-path)
+  heading(title)
 }
 ```
 
 With something like:
 
 ```typ
-#let cover-page = (logo: image("logo.png"), title) => {
-  #logo
-  #heading(title)
+#let cover-page(logo: image("logo.png"), title) = {
+  logo
+  heading(title)
 }
 ```
 
