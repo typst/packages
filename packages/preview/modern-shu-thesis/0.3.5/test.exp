@@ -1,0 +1,24 @@
+#!/usr/bin/expect
+
+spawn ../typship publish universe
+
+expect {
+    timeout { exit 1 }
+    eof { exit 1 }
+    "\[packages\]"
+}
+send "\n"
+expect {
+    timeout { exit 1 }
+    eof { exit 1 }
+    "\[y/N\]"
+}
+send "y\n"
+
+# expect {
+#     timeout { exit 1 }
+#     eof { exit 1 }
+# }
+# send "y\n"
+
+expect eof
