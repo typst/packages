@@ -13,10 +13,16 @@
 
 /* ---- Yazı Tipi Ayarları [Font Settings] ---- */
 
-// Metnin yazı tipi adı [Font name of the text]
+/*
+  Metnin yazı tipi adı [Font name of the text]\
+  UYARI [WARNING]: Typst'ın varsayılan yazı tiplerini, typst/packages GitHub önizleme CI kontrolünde hata almamak için yazı tipi dizilerinin sonuna ekle. [Add Typst's default fonts to the end of the fonts arrays to not get error with typst/packages GitHub preview CI check.]
+*/
 #let FONT-NAME = ("Times New Roman", "TeX Gyre Termes", "Libertinus Serif")
 
-// Matematiksel Denklem metninin yazı tipi adı [Font name of the Math Equations text]
+/*
+  Matematiksel Denklem metninin yazı tipi adı [Font name of the Math Equations text]\
+  UYARI [WARNING]: Typst'ın varsayılan yazı tiplerini, typst/packages GitHub önizleme CI kontrolünde hata almamak için yazı tipi dizilerinin sonuna ekle. [Add Typst's default fonts to the end of the fonts arrays to not get error with typst/packages GitHub preview CI check.]
+*/
 #let MATH-EQUATIONS-FONT-NAME = ("Cambria Math", "TeX Gyre Termes Math", "New Computer Modern Math")
 
 // Ana yazı tipi boyutu [Main font size]
