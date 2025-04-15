@@ -3,7 +3,7 @@
 #let tapestry(
   title: [],
   year: [],
-  author: str,
+  author: "",
   doc,
 ) = {
   set document(
