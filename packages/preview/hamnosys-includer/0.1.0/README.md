@@ -16,11 +16,12 @@ hamextfingerul,hampalmdl,hamforehead,hamlrat,hamclose,hamparbegin,
 hammover,hamreplace,hampinchall,hamfingerstraightmod,hamparend")
 ```
 
-In the input string, symbol names should be separated with commas. You may optionally additionally use spaces. All symbol names begin with `ham`, and you can leave that off, so the above
-could just as easily be given as
+In the input string, symbol names should be separated with commas. You may optionally additionally use whitespace. All symbol names begin with `ham`, and you can leave that off, so the above could just as easily be given as
 
 ```
 You can sign "Hamburg" as #hamnosys("ceeall, thumbopenmod, fingerstraightmod,
 extfingerul, palmdl, forehead, lrat, close, parbegin, mover, replace, pinchall,
 fingerstraightmod, parend")
 ```
+
+HamNoSys symbol names occasionally include digits. The TeX package changed these to words, so for example `hampinch12open` was changed to `hampinchonetwoopen`, because that's necessary in TeX. For this Typst package, both sets of names work.
