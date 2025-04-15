@@ -9,7 +9,7 @@ Typst package for printing address labels on Japanese Hagaki paper.
 ```typst
 #import "@preview/hagaki:0.1.0": hagaki-from-csv
 
-#hagaki-from-csv("jyuusyoroku.csv", 0, 1, 2, 3, debug: true)
+#hagaki-from-csv(csv("jyuusyoroku.csv"), 0, 1, 2, 3, debug: true)
 ```
 
 `jyuusyoroku.csv`: first name, last name, postal code, address

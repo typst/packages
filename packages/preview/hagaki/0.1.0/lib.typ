@@ -158,16 +158,16 @@
 /// Generate a batch of address labels for Japanese postcards 
 /// with the given information from the CSV file.
 ///
-/// - path (string): The path to the CSV file, e.g., "jyusyoroku.csv".
-/// - lastNameColumn (integer): The column number for the last name, e.g., 0.
-/// - firstNameColumn (integer): The column number for the first name, e.g., 1.
-/// - postCodeColumn (integer): The column number for the post code, e.g., 2.
-/// - addressColumn (integer): The column number for the address, e.g., 3.
-/// - myLine (number): The line number for the sender, e.g., 1.
+/// - lines (string): The CSV file contents, e.g., csv("jyusyoroku.csv").
+/// - last-name-col (integer): The column number for the last name, e.g., 0.
+/// - first-name-col (integer): The column number for the first name, e.g., 1.
+/// - postal-code-col (integer): The column number for the post code, e.g., 2.
+/// - address-col (integer): The column number for the address, e.g., 3.
+/// - my-line (number): The line number for the sender, e.g., 1.
 /// - debug (boolean): Whether to show the debug image, e.g., true.
 /// -> none
 #let hagaki-from-csv(
-  path,
+  lines,
   last-name-col,
   first-name-col,
   postal-code-col,
@@ -175,7 +175,6 @@
   my-line: 1,
   debug: false,
 ) = {
-  let lines = csv(path)
   for (i, line) in lines.slice(1).enumerate() {
     if i + 1 == my-line {
       continue
