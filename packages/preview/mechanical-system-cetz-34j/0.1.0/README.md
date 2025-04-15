@@ -12,6 +12,7 @@ CeTZ library for drawing mechanical systems.
 //which connects anchors with zigzag lines instead of straight lines
 
 #set page(paper: "a8", flipped: true)
+#set align(center + horizon)
 #cetz.canvas({
   import cetz.draw: *
   import circuiteria: *
