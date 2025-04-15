@@ -46,7 +46,7 @@
 
 ### 快速预览
 
-请参考[此项目库](https://github.com/GrooveWJH/unofficial-sdu-thesis)
+请参考[github仓库](https://github.com/GrooveWJH/unofficial-sdu-thesis)内容
 
 - [thesis.typ](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/src/latest/template/thesis.typ)：示例代码
 - [thesis.pdf](https://github.com/GrooveWJH/unofficial-sdu-thesis/blob/main/src/latest/template/thesis.pdf)：由示例代码生成PDF
