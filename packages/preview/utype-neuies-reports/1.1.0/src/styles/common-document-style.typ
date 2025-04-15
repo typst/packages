@@ -37,9 +37,6 @@
     columns: 1,
   )
 
-  /* ---- Matematiksel Denklem Stili [Math Equation Style] ---- */
-  show: math-equation-style
-
   // Yazı ayarlarını ayarla. [Set text settings.]
   set text(
     font: FONT-NAME,
@@ -85,6 +82,9 @@
     leading: ONE-AND-HALF-LINE-PARAGRAPH-LEADING-SIZE,
     spacing: DEFAULT-PARAGRAPH-SPACING-SIZE,
   )
+
+  /* ---- Matematiksel Denklem Stili [Math Equation Style] ---- */
+  show: math-equation-style
 
   /* ---- Liste Stili [List Style] ---- */
   show: list-style
