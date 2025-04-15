@@ -6,7 +6,7 @@ $
   cal(A) := { x in RR | x "bir reel sayı" }
 $
 // Tanımladığınız değişkenleri denklemlerin içinde kullanabilirsiniz:
-#let x = 5
+#let x = 10
 $ #x < 17 $
 
 #v(0.5cm)
