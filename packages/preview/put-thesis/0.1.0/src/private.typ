@@ -13,7 +13,7 @@
 
   let signet_imgpath
   if lang == "pl" {
-    signet_imgpath = "../assets/sygnet-pp.svg"
+    signet_imgpath = "../assets/sygnet-pp-pl.svg"
   } else {
     signet_imgpath = "../assets/sygnet-pp-eng.svg"
   }
