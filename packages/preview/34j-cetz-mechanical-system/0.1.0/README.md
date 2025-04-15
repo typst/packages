@@ -5,7 +5,7 @@ CeTZ library for drawing mechanical systems.
 ## Usage
 
 ```typst
-#import "@preview/cetz-mechanical-system": spring, damper, wall
+#import "@preview/34j-cetz-mechanical-system": spring, damper, wall
 #import "@preview/cetz:0.3.0"
 #import "@preview/circuiteria:0.1.0"
 // use circuiteria to utlize the wire, 
