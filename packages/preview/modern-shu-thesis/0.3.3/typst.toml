@@ -1,0 +1,31 @@
+[package]
+name = "modern-shu-thesis"
+version = "0.3.3"
+entrypoint = "lib.typ"
+authors = ["XY_cpp"]
+license = "Apache-2.0"
+description = "上海大学本科毕业论文模板"
+repository = "https://github.com/XY-cpp/typst-shu-thesis"
+keywords = [
+    "Shanghai University",
+    "Thesis",
+]
+categories = ["thesis"]
+exclude = [
+    "fonts/FangSong.ttf",
+    "fonts/Kaiti.ttf",
+    "fonts/SimHei.ttf",
+    "fonts/SimSun.ttf",
+    "fonts/TimesNewRoman",
+    "fonts/TimesNewRoman/TimesNewRoman-Bold-Italic.ttf",
+    "fonts/TimesNewRoman/TimesNewRoman-Bold.ttf",
+    "fonts/TimesNewRoman/TimesNewRoman-Italic.ttf",
+    "fonts/TimesNewRoman/TimesNewRoman.ttf",
+]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
+
+[tool]
