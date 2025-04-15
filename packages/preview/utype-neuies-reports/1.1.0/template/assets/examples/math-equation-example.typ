@@ -10,7 +10,7 @@
 $*/
 // Tanımladığınız değişkenleri denklemlerin içinde kullanabilirsiniz:
 #let x = 5
-$ #x < 17 $
+//$ #x < 17 $
 
 #v(0.5cm)
 
