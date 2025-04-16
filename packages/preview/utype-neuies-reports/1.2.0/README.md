@@ -135,7 +135,7 @@ Bu projelerde emeği geçen herkese çok büyük teşekkürlerimi sunarım.
 
   ```typst
   // Şablonu, Kurulum başlığında bahsedilden durumlardan size uygun olana göre içe aktarınız:
-  #import "@preview/utype-neuies-reports:1.1.0": (
+  #import "@preview/utype-neuies-reports:1.2.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -143,7 +143,7 @@ Bu projelerde emeği geçen herkese çok büyük teşekkürlerimi sunarım.
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@preview/utype-neuies-reports:1.1.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
+  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@preview/utype-neuies-reports:1.2.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
 
   // Şablon ayarlarını giriniz.
   #show: template-configurations.with(
@@ -283,7 +283,7 @@ Bu durumda, ilk defa şablonu indirirken internete ihtiyaç vardır. İlk indirm
   <summary>Kodu göstermek/gizlemek için tıklayınız</summary>
 
   ```typst
-  #import "@preview/utype-neuies-reports:1.1.0": (
+  #import "@preview/utype-neuies-reports:1.2.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -291,7 +291,7 @@ Bu durumda, ilk defa şablonu indirirken internete ihtiyaç vardır. İlk indirm
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@preview/utype-neuies-reports:1.1.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
+  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@preview/utype-neuies-reports:1.2.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
   ```
 
 </details>
@@ -305,7 +305,7 @@ Bu durumda, ilk defa şablonu indirirken internete ihtiyaç vardır. İlk indirm
   <summary>Kodu göstermek/gizlemek için tıklayınız</summary>
 
   ```typst
-  #import "@local/utype-neuies-reports:1.1.0": (
+  #import "@local/utype-neuies-reports:1.2.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -313,7 +313,7 @@ Bu durumda, ilk defa şablonu indirirken internete ihtiyaç vardır. İlk indirm
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@local/utype-neuies-reports:1.1.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
+  // NOT: Yukarıdaki durumlarda olduğu gibi içe aktarılan değişkenleri tek tek belirtmek yerine `#import "@local/utype-neuies-reports:1.2.0": *` şeklinde tüm değişkenleri içe aktararak da yapabilirsiniz.
   ```
 
 </details>
@@ -387,7 +387,7 @@ First, import the template for your project. Then, enter the template configurat
 
   ```typst
   // Import the template according to the appropriate situation mentioned in the Installation section:
-  #import "@preview/utype-neuies-reports:1.1.0": (
+  #import "@preview/utype-neuies-reports:1.2.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -395,7 +395,7 @@ First, import the template for your project. Then, enter the template configurat
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@preview/utype-neuies-reports:1.1.0": *`.
+  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@preview/utype-neuies-reports:1.2.0": *`.
 
   // Enter the template configurations.
   #show: template-configurations.with(
@@ -535,7 +535,7 @@ To use the template online with the tools mentioned above, you can import it as 
   <summary>Click to show/hide the code</summary>
 
   ```typst
-  #import "@preview/utype-neuies-reports:1.1.0": (
+  #import "@preview/utype-neuies-reports:1.2.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -543,7 +543,7 @@ To use the template online with the tools mentioned above, you can import it as 
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@preview/utype-neuies-reports:1.1.0": *`.
+  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@preview/utype-neuies-reports:1.2.0": *`.
   ```
 
 </details>
@@ -557,7 +557,7 @@ If you are using the template by downloading it to the location mentioned [here]
   <summary>Click to show/hide the code</summary>
 
   ```typst
-  #import "@local/utype-neuies-reports:1.1.0": (
+  #import "@local/utype-neuies-reports:1.2.0": (
     template-configurations,
     LANGUAGES,
     REPORT-TYPES,
@@ -565,7 +565,7 @@ If you are using the template by downloading it to the location mentioned [here]
     PROGRAMS,
     ACADEMIC-MEMBER-TITLES,
   )
-  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@local/utype-neuies-reports:1.1.0": *`.
+  // NOTE: As in the above cases, instead of specifying the imported variables individually, you can also do it by importing all variables as `#import "@local/utype-neuies-reports:1.2.0": *`.
   ```
 
 </details>
