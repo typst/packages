@@ -41,7 +41,4 @@
     // Enstitü logosu. [Institute logo.]
     align(right, image(institute-logo-path, width: 2.7cm, height: 2.7cm)),
   )
-
-  // Bir miktar boşluk bırak. [Leave some space.]
-  v(3.7cm)
 }

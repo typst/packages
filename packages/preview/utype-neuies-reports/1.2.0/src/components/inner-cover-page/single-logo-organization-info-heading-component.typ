@@ -30,7 +30,4 @@
     // Organizasyon bilgisi başlığı. [Organization information heading.]
     organization-info-heading-component()
   )
-
-  // Bir miktar boşluk bırak. [Leave some space.]
-  v(2cm)
 }

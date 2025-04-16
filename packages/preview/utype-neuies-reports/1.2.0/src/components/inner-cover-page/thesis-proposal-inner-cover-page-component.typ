@@ -30,6 +30,9 @@
   // Tek logolu başlık. [Single logo heading.]
   single-logo-organization-info-heading-component(language: language)
 
+  // Bir miktar boşluk bırak. [Leave some space.]
+  v(2cm)
+
   // Ana Bilim Dalı bilgisi. [Department information.]
   department
 

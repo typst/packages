@@ -33,6 +33,9 @@
   // Çift logolu başlık. [Double logo heading.]
   double-logo-organization-info-heading-component(language: language)
 
+  // Bir miktar boşluk bırak. [Leave some space.]
+  v(3.25cm)
+
   // Ana Bilim Dalı bilgisi. [Department information.]
   department
 

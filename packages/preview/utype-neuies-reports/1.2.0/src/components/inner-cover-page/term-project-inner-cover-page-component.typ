@@ -30,6 +30,9 @@
   // Çift logolu başlık. [Double logo heading.]
   double-logo-organization-info-heading-component(language: language)
 
+  // Bir miktar boşluk bırak. [Leave some space.]
+  v(3.75cm)
+
   // Ana Bilim Dalı bilgisi. [Department information.]
   department
 
@@ -46,7 +49,7 @@
   report-type
 
   // Bir miktar boşluk bırak. [Leave some space.]
-  v(2.35cm)
+  v(2.75cm)
 
   // Dile göre rapor başlığını seç. [Select the report title according to the language.]
   let report-title = if language == LANGUAGES.TR-TR {
