@@ -25,6 +25,7 @@
       - [Yazı Tipi Hakkında Bilgilendirme](#yazı-tipi-hakkında-bilgilendirme)
       - [Alternatiflere Sahip Başlıklardaki Alternatiflerden Birini Seçmek](#alternatiflere-sahip-başlıklardaki-alternatiflerden-birini-seçmek)
       - [İpuçları](#i̇puçları)
+        - [CSV dosyasından tablo oluşturmak](#csv-dosyasından-tablo-oluşturmak)
         - [Diğer yazılımlardan kopyalanan ya da dosyalarda bulunan tabloları Typst'ın söz dizimine göre dönüştürmek](#diğer-yazılımlardan-kopyalanan-ya-da-dosyalarda-bulunan-tabloları-typstın-söz-dizimine-göre-dönüştürmek)
     - [Kurulum](#kurulum)
       - [Gerekli Yazılımlar](#gerekli-yazılımlar)
@@ -43,6 +44,7 @@
       - [Information About Font](#information-about-font)
       - [Selecting One of the Alternatives in Headings with Alternatives](#selecting-one-of-the-alternatives-in-headings-with-alternatives)
       - [Tips](#tips)
+        - [Generate a table from a CSV file](#generate-a-table-from-a-csv-file)
         - [Convert tables copied from other software or contained in files according to Typst's syntax](#convert-tables-copied-from-other-software-or-contained-in-files-according-to-typsts-syntax)
     - [Installation](#installation)
       - [Required Softwares](#required-softwares)
@@ -262,6 +264,9 @@ PREFACE = "ÖN SÖZ"
 </details>
 
 #### İpuçları
+
+##### CSV dosyasından tablo oluşturmak
+Tablodaki hücrelerin içeriğini `[hücre içeriği]` şeklinde tek tek elle yazmak yerine CSV (Comma Separated Values) dosyasını okuyarak kolayca tablo oluşturabilirsiniz. Buna dair bir örnek şablonda `/template/examples/table-figure-from-csv-example.typ` dosyasında yer almaktadır.
 
 ##### Diğer yazılımlardan kopyalanan ya da dosyalarda bulunan tabloları Typst'ın söz dizimine göre dönüştürmek
 Tablodaki hücrelerin içeriğini `[hücre içeriği]` şeklinde tek tek elle yazmak yerine https://www.latex-tables.com/ adresindeki araç ile diğer yazılımlardan kopyalanan ya da dosyalarda bulunan tabloları Typst'ın söz dizimine göre dönüştürerek kolayca tablo içeriğini elde edebilirsiniz.
@@ -528,6 +533,9 @@ PREFACE = "PREFACE"
 </details>
 
 #### Tips
+
+##### Generate a table from a CSV file
+You can easily create a table by reading a CSV (Comma Separated Values) file instead of manually typing the contents of the cells in the table as `[cell content]`. An example of this can be found in the template `/template/examples/table-figure-from-csv-example.typ`.
 
 ##### Convert tables copied from other software or contained in files according to Typst's syntax
 Instead of manually typing the contents of the cells in the table as `[cell content]` one by one, you can easily obtain the table contents by converting tables copied from other software or contained in files according to Typst's syntax with the tool at https://www.latex-tables.com/.
