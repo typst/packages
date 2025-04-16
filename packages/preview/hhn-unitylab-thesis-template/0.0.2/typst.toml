@@ -4,7 +4,7 @@ version = "0.0.2"
 entrypoint = "src/config.typ"
 
 authors = ["@Ferrys93de"]
-license = "https://opensource.org/license/mit"
+license = "MIT"
 description = "The official Thesis Template from the Usability and Interaction Technology Laboratory (UniTyLab) of the Heilbronn University (HHN)"
 
 homepage = "https://www.hs-heilbronn.de/en"
