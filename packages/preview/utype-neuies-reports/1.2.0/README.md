@@ -264,11 +264,11 @@ PREFACE = "ÖN SÖZ"
 #### İpuçları
 
 ##### Diğer yazılımlardan kopyalanan ya da dosyalarda bulunan tabloları Typst'ın söz dizimine göre dönüştürmek
- Tablodaki hücrelerin içeriğini `[hücre içeriği]` şeklinde tek tek elle yazmak yerine https://www.latex-tables.com/ adresindeki araç ile diğer yazılımlardan kopyalanan ya da dosyalarda bulunan tabloları Typst'ın söz dizimine göre dönüştürerek kolayca tablo içeriğini elde edebilirsiniz.
+Tablodaki hücrelerin içeriğini `[hücre içeriği]` şeklinde tek tek elle yazmak yerine https://www.latex-tables.com/ adresindeki araç ile diğer yazılımlardan kopyalanan ya da dosyalarda bulunan tabloları Typst'ın söz dizimine göre dönüştürerek kolayca tablo içeriğini elde edebilirsiniz.
 
- Aşağıdaki haraketli görselde [jamovi](https://www.jamovi.org/) yazılımdan kopyalanan bir tablonun Typst'ın söz dizimine göre dönüştürüldüğü bir örnek yer almaktadır:
+Aşağıdaki haraketli görselde [jamovi](https://www.jamovi.org/) yazılımdan kopyalanan bir tablonun Typst'ın söz dizimine göre dönüştürüldüğü bir örnek yer almaktadır:
 
- <details>
+<details>
   <summary>Hareketli görseli göstermek/gizlemek için tıklayınız</summary>
 
 <p align="center"><img src="assets/images/latex-tables.com-convert-tables-from-other-sources.gif" width=100%>&nbsp;</p>
