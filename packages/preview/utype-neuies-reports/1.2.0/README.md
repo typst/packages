@@ -1,36 +1,36 @@
 # utype-neuies-reports
 [Necmettin Erbakan Üniversitesi Eğitim Bilimleri Enstitüsü](https://erbakan.edu.tr/tr/birim/egitim-bilimleri-enstitusu) lisansüstü eğitim için **RESMÎ OLMAYAN** tez önerisi, tez ve dönem projesi şablonudur. [**UNOFFICIAL** thesis proposal, thesis and term project template for graduate education at [Necmettin Erbakan University Institute of Educational Sciences](https://erbakan.edu.tr/tr/birim/egitim-bilimleri-enstitusu).]
 
-## İçindekiler [Table of Contents]
+## İÇİNDEKİLER [TABLE OF CONTENTS]
 <details>
   <summary>İçindekileri göstermek/gizlemek için tıklayınız [Click to show/hide the Table of Contents]</summary>
 
 - [utype-neuies-reports](#utype-neuies-reports)
-  - [İçindekiler \[Table of Contents\]](#i̇çindekiler-table-of-contents)
-  - [Resmî Şablon Hakkında \[About the Official Template\]](#resmî-şablon-hakkında-about-the-official-template)
-  - [Ön İzleme Görselleri \[Thumbnails\]](#ön-i̇zleme-görselleri-thumbnails)
+  - [İÇİNDEKİLER \[TABLE OF CONTENTS\]](#i̇çi̇ndeki̇ler-table-of-contents)
+  - [RESMÎ ŞABLON HAKKINDA \[ABOUT THE OFFICIAL TEMPLATE\]](#resmî-şablon-hakkinda-about-the-official-template)
+  - [ÖN İZLEME GÖRSELLERİ \[THUMBNAILS\]](#ön-i̇zleme-görselleri̇-thumbnails)
     - [Türkçe \[Turkish\]](#türkçe-turkish)
     - [İngilizce \[English\]](#i̇ngilizce-english)
-  - [Örnek Çıktılar \[Sample Outputs\]](#örnek-çıktılar-sample-outputs)
+  - [ÖRNEK ÇIKTILAR \[SAMPLE OUTPUTS\]](#örnek-çiktilar-sample-outputs)
     - [Türkçe \[Turkish\]](#türkçe-turkish-1)
     - [İngilizce \[English\]](#i̇ngilizce-english-1)
-  - [Türkçe \[Turkish\]](#türkçe-turkish-2)
+  - [TÜRKÇE \[TURKISH\]](#türkçe-turkish-2)
     - [Teşekkür](#teşekkür)
     - [Kullanılan Paketler](#kullanılan-paketler)
     - [Özellikler](#özellikler)
     - [Kullanım](#kullanım)
-      - [Typst'ı Kullanmaya Başlamak İçin Nasıl Öğrenebilirim?](#typstı-kullanmaya-başlamak-i̇çin-nasıl-öğrenebilirim)
+      - [Typst'ı Kullanmaya Başlamak için Nasıl Öğrenebilirim?](#typstı-kullanmaya-başlamak-için-nasıl-öğrenebilirim)
       - [Şablonu Kullanmaya Başlamak](#şablonu-kullanmaya-başlamak)
       - [Şablon Yapısı](#şablon-yapısı)
       - [Yazı Tipi Hakkında Bilgilendirme](#yazı-tipi-hakkında-bilgilendirme)
-      - [Alternatiflere sahip başlıklardaki alternatiflerden birini seçmek.](#alternatiflere-sahip-başlıklardaki-alternatiflerden-birini-seçmek)
+      - [Alternatiflere Sahip Başlıklardaki Alternatiflerden Birini Seçmek](#alternatiflere-sahip-başlıklardaki-alternatiflerden-birini-seçmek)
     - [Kurulum](#kurulum)
       - [Gerekli Yazılımlar](#gerekli-yazılımlar)
       - [Çevrim İçi](#çevrim-i̇çi)
-        - [Şablonu Typst.app Web Sitesinden Kullanmak](#şablonu-typstapp-web-sitesinden-kullanmak)
-        - [Şablonu Tinymist Typst Visual Studio Code Uzantısıyla Kullanmak](#şablonu-tinymist-typst-visual-studio-code-uzantısıyla-kullanmak)
+        - [Şablonu Typst.app web uygulamasından kullanmak](#şablonu-typstapp-web-uygulamasından-kullanmak)
+        - [Şablonu Tinymist Typst Visual Studio Code uzantısıyla kullanmak](#şablonu-tinymist-typst-visual-studio-code-uzantısıyla-kullanmak)
       - [Çevrim Dışı](#çevrim-dışı)
-  - [İngilizce \[English\]](#i̇ngilizce-english-2)
+  - [İNGİLİZCE \[ENGLISH\]](#i̇ngi̇li̇zce-english)
     - [Acknowledgement](#acknowledgement)
     - [Packages Used](#packages-used)
     - [Features](#features)
@@ -39,17 +39,17 @@
       - [Getting Started with the Template](#getting-started-with-the-template)
       - [Template Structure](#template-structure)
       - [Information About Font](#information-about-font)
-      - [Selecting one of the alternatives in headings with alternatives](#selecting-one-of-the-alternatives-in-headings-with-alternatives)
+      - [Selecting One of the Alternatives in Headings with Alternatives](#selecting-one-of-the-alternatives-in-headings-with-alternatives)
     - [Installation](#installation)
       - [Required Softwares](#required-softwares)
       - [Online](#online)
-        - [Using the Template from the Typst.app Website](#using-the-template-from-the-typstapp-website)
-        - [Using the Template with the Tinymist Typst Visual Studio Code Extension](#using-the-template-with-the-tinymist-typst-visual-studio-code-extension)
+        - [Using the template from the Typst.app web application](#using-the-template-from-the-typstapp-web-application)
+        - [Using the template with the Tinymist Typst Visual Studio Code extension](#using-the-template-with-the-tinymist-typst-visual-studio-code-extension)
       - [Offline](#offline)
 
 </details>
 
-## Resmî Şablon Hakkında [About the Official Template]
+## RESMÎ ŞABLON HAKKINDA [ABOUT THE OFFICIAL TEMPLATE]
 Necmettin Erbakan Üniversitesi Eğitim Bilimleri Enstitüsü lisansüstü eğitim için **RESMÎ** tez önerisi, tez ve dönem projesi şablonları [Typst](https://typst.app/home/) ve [LaTeX](https://www.latex-project.org/) formatında bulunmamakta olup yalnızca "docx" uzantılı [Microsoft Word](https://www.microsoft.com/tr-tr/microsoft-365/word) şablonları bulunmaktadır. [Necmettin Erbakan University Institute of Educational Sciences does not have **OFFICIAL** thesis proposal, thesis and term project templates for graduate education in [Typst](https://typst.app/home/) and [LaTeX](https://www.latex-project.org/) format and only [Microsoft Word](https://www.microsoft.com/tr-tr/microsoft-365/word) templates with “docx” extension are available.]
 
 Resmî kılavuz ve şablonlar aşağıdaki verilen bağlantılarda yer almaktadır: [Official guidelines and templates are available at the links provided below:]
@@ -57,7 +57,7 @@ Resmî kılavuz ve şablonlar aşağıdaki verilen bağlantılarda yer almaktad�
 - [Necmettin Erbakan Üniversitesi Eğitim Bilimleri Enstitüsü Doktora için Kılavuz ve Şablonlar [Necmettin Erbakan University Institute of Educational Sciences Guidelines and Templates for Doctorate (PhD)]](https://erbakan.edu.tr/tr/birim/egitim-bilimleri-enstitusu/sayfa/doktora-programi-kilavuz-ve-sablonlari)
 - [Necmettin Erbakan Üniversitesi Eğitim Bilimleri Enstitüsü II. Öğretim Tezsiz Yüksek Lisans için Kılavuz ve Şablonlar [Necmettin Erbakan University Institute of Educational Sciences Guidelines and Templates for Evening Education Non-Thesis Master's Degree]](https://erbakan.edu.tr/tr/birim/egitim-bilimleri-enstitusu/sayfa/ii-ogretim-tezsiz-yuksek-lisans-kilavuz-ve-sablonlari)
 
-## Ön İzleme Görselleri [Thumbnails]
+## ÖN İZLEME GÖRSELLERİ [THUMBNAILS]
 
 ### Türkçe [Turkish]
 <p align="center">
@@ -73,7 +73,7 @@ Resmî kılavuz ve şablonlar aşağıdaki verilen bağlantılarda yer almaktad�
     <img src="assets/thumbnails/english/main_term-project-sample-output-inner-cover-page.png" width=33%>&nbsp;
 </p>
 
-## Örnek Çıktılar [Sample Outputs]
+## ÖRNEK ÇIKTILAR [SAMPLE OUTPUTS]
 
 ### Türkçe [Turkish]
 - [Tez Önerisi Örnek Çıktı](assets/sample-outputs/turkish/main_tez-onerisi-ornek-cikti.pdf)
@@ -85,7 +85,7 @@ Resmî kılavuz ve şablonlar aşağıdaki verilen bağlantılarda yer almaktad�
 - [Thesis Sample Output](assets/sample-outputs/english/main_thesis-sample-output.pdf)
 - [Term Project Sample Output](assets/sample-outputs/english/main_term-project-sample-output.pdf)
 
-## Türkçe [Turkish]
+## TÜRKÇE [TURKISH]
 
 ### Teşekkür
 Bu proje yazılmadan önce ve sonrasında aşağıdaki projeler incelenerek bazı durumlarda fikir almak için yararlanılmıştır:
@@ -119,7 +119,7 @@ Bu projelerde emeği geçen herkese çok büyük teşekkürlerimi sunarım.
 
 ### Kullanım
 
-#### Typst'ı Kullanmaya Başlamak İçin Nasıl Öğrenebilirim?
+#### Typst'ı Kullanmaya Başlamak için Nasıl Öğrenebilirim?
 1. Dökümantasyondaki başlayan dostu [Öğreticiyi](https://typst.app/docs/tutorial/) okuyarak başlayabilirsiniz.
 2. [Typst YouTube Oynatma Listesini](https://youtube.com/playlist?list=PLCO-MGSsHcdArXIfeOGoUwjH0oz8vMr8M&si=c_kTmN4FKmwdMitE) izlebilir ve izlerken kafanıza takılan veya daha detaylı ögrenmek istediğiniz durumlarda dokümantasyondaki [Referansa](https://typst.app/docs/reference/) bakabilirsiniz.
 3. Dökümantasyondaki ayrıntılı [Referans](https://typst.app/docs/reference/) kısmını okuyabilirsiniz.
@@ -238,7 +238,7 @@ Bu sorunu çözmek için, bahsedilen yazı tiplerinin neredeyse bire bir aynıs�
 
 </details>
 
-#### Alternatiflere sahip başlıklardaki alternatiflerden birini seçmek.
+#### Alternatiflere Sahip Başlıklardaki Alternatiflerden Birini Seçmek
 Türkçe dilindeki başlıklar için `/template/assets/languages/turkish.toml`, İngilizce dilindeki başlıklar için `/template/assets/languages/english.toml` dosyasını açınız. Ardından, kullanmak istediğiniz başlık dışındaki başlıkları siliniz.
 
 Örneğin, `/template/assets/languages/turkish.toml` dosyasında şu şekilde bir değişiklik yapılarak istenen başlık seçilebilir:
@@ -269,10 +269,10 @@ PREFACE = "ÖN SÖZ"
 
 #### Çevrim İçi
 
-##### Şablonu [Typst.app](https://typst.app/) Web Sitesinden Kullanmak
+##### Şablonu [Typst.app](https://typst.app/) web uygulamasından kullanmak
 Bu durumda internete her zaman bağlı olmanız gerekmektedir.
 
-##### Şablonu [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) [Visual Studio Code](https://code.visualstudio.com/) Uzantısıyla Kullanmak
+##### Şablonu [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) [Visual Studio Code](https://code.visualstudio.com/) uzantısıyla kullanmak
 Bu durumda, ilk defa şablonu indirirken internete ihtiyaç vardır. İlk indirme işleminden sonra internete bağlı olmadan kullanılabilir ve şablonun farklı bir sürümünü indirmek veya yeni bir sürümüne geçmek istediğinizde anlık olarak internete ihtiyaç vardır. Sonrasında internete bağlı olmadan kullanmaya devam edilebilir.
 
 Şablonu yukarıda bahsedilen araçlarla çevrim içi kullanmak için aşağıdaki gibi içe aktarma yapabilirsiniz:
@@ -337,7 +337,7 @@ Bu durumda, ilk defa şablonu indirirken internete ihtiyaç vardır. İlk indirm
 
 </details>
 
-## İngilizce [English]
+## İNGİLİZCE [ENGLISH]
 
 ### Acknowledgement
 Before and after writing this project, the following projects were examined and in some cases used for ideas:
@@ -490,7 +490,7 @@ For those using the template with [Tinymist Typst](https://marketplace.visualstu
 
 </details>
 
-#### Selecting one of the alternatives in headings with alternatives
+#### Selecting One of the Alternatives in Headings with Alternatives
 For Turkish language headings, open the `/template/assets/languages/turkish.toml` file. For English language headings, open the `/template/assets/languages/english.toml` file. Then, delete all headings except the one you want to use.
 
 For example, in the `/template/assets/languages/turkish.toml` file, you can select the desired heading by making the following change:
@@ -521,10 +521,10 @@ PREFACE = "PREFACE"
 
 #### Online
 
-##### Using the Template from the [Typst.app](https://typst.app/) Website
+##### Using the template from the [Typst.app](https://typst.app/) web application
 In this case, you need to be connected to the internet at all times.
 
-##### Using the Template with the [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) [Visual Studio Code](https://code.visualstudio.com/) Extension
+##### Using the template with the [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) [Visual Studio Code](https://code.visualstudio.com/) extension
 In this case, you need the internet when downloading the template for the first time. After the first download, it can be used without being connected to the internet, and you need the internet momentarily when you want to download a different version of the template or switch to a new version. Afterwards, you can continue to use it without being connected to the internet.
 
 To use the template online with the tools mentioned above, you can import it as follows:
