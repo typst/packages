@@ -24,6 +24,8 @@
       - [Şablon Yapısı](#şablon-yapısı)
       - [Yazı Tipi Hakkında Bilgilendirme](#yazı-tipi-hakkında-bilgilendirme)
       - [Alternatiflere Sahip Başlıklardaki Alternatiflerden Birini Seçmek](#alternatiflere-sahip-başlıklardaki-alternatiflerden-birini-seçmek)
+      - [İpuçları](#i̇puçları)
+        - [Diğer yazılımlardan kopyalanan ya da dosyalarda bulunan tabloları Typst'ın söz dizimine göre dönüştürmek](#diğer-yazılımlardan-kopyalanan-ya-da-dosyalarda-bulunan-tabloları-typstın-söz-dizimine-göre-dönüştürmek)
     - [Kurulum](#kurulum)
       - [Gerekli Yazılımlar](#gerekli-yazılımlar)
       - [Çevrim İçi](#çevrim-i̇çi)
@@ -40,6 +42,8 @@
       - [Template Structure](#template-structure)
       - [Information About Font](#information-about-font)
       - [Selecting One of the Alternatives in Headings with Alternatives](#selecting-one-of-the-alternatives-in-headings-with-alternatives)
+      - [Tips](#tips)
+        - [Convert tables copied from other software or contained in files according to Typst's syntax](#convert-tables-copied-from-other-software-or-contained-in-files-according-to-typsts-syntax)
     - [Installation](#installation)
       - [Required Softwares](#required-softwares)
       - [Online](#online)
@@ -50,7 +54,7 @@
 </details>
 
 ## RESMÎ ŞABLON HAKKINDA [ABOUT THE OFFICIAL TEMPLATE]
-Necmettin Erbakan Üniversitesi Eğitim Bilimleri Enstitüsü lisansüstü eğitim için **RESMÎ** tez önerisi, tez ve dönem projesi şablonları [Typst](https://typst.app/home/) ve [LaTeX](https://www.latex-project.org/) formatında bulunmamakta olup yalnızca "docx" uzantılı [Microsoft Word](https://www.microsoft.com/tr-tr/microsoft-365/word) şablonları bulunmaktadır. [Necmettin Erbakan University Institute of Educational Sciences does not have **OFFICIAL** thesis proposal, thesis and term project templates for graduate education in [Typst](https://typst.app/home/) and [LaTeX](https://www.latex-project.org/) format and only [Microsoft Word](https://www.microsoft.com/tr-tr/microsoft-365/word) templates with “docx” extension are available.]
+Necmettin Erbakan Üniversitesi Eğitim Bilimleri Enstitüsü lisansüstü eğitim için **RESMÎ** tez önerisi, tez ve dönem projesi şablonları [Typst](https://typst.app/home/) ve [LaTeX](https://www.latex-project.org/) formatında bulunmamakta olup yalnızca "docx" uzantılı [Microsoft Word](https://www.microsoft.com/tr-tr/microsoft-365/word) şablonları bulunmaktadır. [Necmettin Erbakan University Institute of Educational Sciences does not have **OFFICIAL** thesis proposal, thesis and term project templates for graduate education in [Typst](https://typst.app/home/) and [LaTeX](https://www.latex-project.org/) format and only [Microsoft Word](https://www.microsoft.com/tr-tr/microsoft-365/word) templates with "docx" extension are available.]
 
 Resmî kılavuz ve şablonlar aşağıdaki verilen bağlantılarda yer almaktadır: [Official guidelines and templates are available at the links provided below:]
 - [Necmettin Erbakan Üniversitesi Eğitim Bilimleri Enstitüsü Tezli Yüksek Lisans için Kılavuz ve Şablonlar [Necmettin Erbakan University Institute of Educational Sciences Guidelines and Templates for Master's Degree with Thesis]](https://erbakan.edu.tr/tr/birim/egitim-bilimleri-enstitusu/sayfa/tezli-yuksek-lisans-kilavuzlari-ve-sablonlari)
@@ -254,6 +258,20 @@ Türkçe dilindeki başlıklar için `/template/assets/languages/turkish.toml`, 
 # Seçtikten sonra:
 PREFACE = "ÖN SÖZ"
 ```
+
+</details>
+
+#### İpuçları
+
+##### Diğer yazılımlardan kopyalanan ya da dosyalarda bulunan tabloları Typst'ın söz dizimine göre dönüştürmek
+ Tablodaki hücrelerin içeriğini `[hücre içeriği]` şeklinde tek tek elle yazmak yerine https://www.latex-tables.com/ adresindeki araç ile diğer yazılımlardan kopyalanan ya da dosyalarda bulunan tabloları Typst'ın söz dizimine göre dönüştürerek kolayca tablo içeriğini elde edebilirsiniz.
+
+ Aşağıdaki haraketli görselde [jamovi](https://www.jamovi.org/) yazılımdan kopyalanan bir tablonun Typst'ın söz dizimine göre dönüştürüldüğü bir örnek yer almaktadır:
+
+ <details>
+  <summary>Hareketli görseli göstermek/gizlemek için tıklayınız</summary>
+
+<p align="center"><img src="assets/images/latex-tables.com-convert-tables-from-other-sources.gif" width=100%>&nbsp;</p>
 
 </details>
 
@@ -506,6 +524,20 @@ For example, in the `/template/assets/languages/turkish.toml` file, you can sele
 # After selection:
 PREFACE = "PREFACE"
 ```
+
+</details>
+
+#### Tips
+
+##### Convert tables copied from other software or contained in files according to Typst's syntax
+Instead of manually typing the contents of the cells in the table as `[cell content]` one by one, you can easily obtain the table contents by converting tables copied from other software or contained in files according to Typst's syntax with the tool at https://www.latex-tables.com/.
+
+The following animated image shows an example where a table copied from [jamovi](https://www.jamovi.org/) is converted according to Typst's syntax:
+
+<details>
+  <summary>Click to show/hide the animated image</summary>
+
+<p align="center"><img src="assets/images/latex-tables.com-convert-tables-from-other-sources.gif" width=100%>&nbsp;</p>
 
 </details>
 
