@@ -64,7 +64,7 @@ discoverable. A good example showing how to link examples and a manual is
 The only exceptions to this rule are the LICENSE file (that should always be
 available along with the source code, so it should not be excluded), and the
 README (which is generally a lightweight file, and can provide minimal
-documentation in case the user is offline or can't access anything else that
+documentation in case the user is offline or can't access anything else than
 their local package cache for some other reason).
 
 Also note that there is no need to exclude template thumbnails: they are
