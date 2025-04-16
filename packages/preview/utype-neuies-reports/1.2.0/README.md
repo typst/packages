@@ -67,16 +67,16 @@ Resmî kılavuz ve şablonlar aşağıdaki verilen bağlantılarda yer almaktad�
 
 ### Türkçe [Turkish]
 <p align="center">
-    <img src="assets/thumbnails/turkish/main_tez-onerisi-ornek-cikti-ic-kapak-sayfasi.png" width=33%>&nbsp;
-    <img src="assets/thumbnails/turkish/main_tez-ornek-cikti-ic-kapak-sayfasi.png" width=33%>&nbsp;
-    <img src="assets/thumbnails/turkish/main_donem-projesi-ornek-cikti-ic-kapak-sayfasi.png" width=33%>&nbsp;
+  <img src="assets/thumbnails/turkish/main_tez-onerisi-ornek-cikti-ic-kapak-sayfasi.png" width=33%>&nbsp;
+  <img src="assets/thumbnails/turkish/main_tez-ornek-cikti-ic-kapak-sayfasi.png" width=33%>&nbsp;
+  <img src="assets/thumbnails/turkish/main_donem-projesi-ornek-cikti-ic-kapak-sayfasi.png" width=33%>&nbsp;
 </p>
 
 ### İngilizce [English]
 <p align="center">
-    <img src="assets/thumbnails/english/main_thesis-proposal-sample-output-inner-cover-page.png" width=33%>&nbsp;
-    <img src="assets/thumbnails/english/main_thesis-sample-output-inner-cover-page.png" width=33%>&nbsp;
-    <img src="assets/thumbnails/english/main_term-project-sample-output-inner-cover-page.png" width=33%>&nbsp;
+  <img src="assets/thumbnails/english/main_thesis-proposal-sample-output-inner-cover-page.png" width=33%>&nbsp;
+  <img src="assets/thumbnails/english/main_thesis-sample-output-inner-cover-page.png" width=33%>&nbsp;
+  <img src="assets/thumbnails/english/main_term-project-sample-output-inner-cover-page.png" width=33%>&nbsp;
 </p>
 
 ## ÖRNEK ÇIKTILAR [SAMPLE OUTPUTS]
@@ -239,8 +239,8 @@ Bu sorunu çözmek için, bahsedilen yazı tiplerinin neredeyse bire bir aynıs�
 <details>
   <summary>Görselleri göstermek/gizlemek için tıklayınız</summary>
 
-<p align="center"><img src="assets/images/typst.app_unknown-font-family-warning.png" width=20%>&nbsp;</p>
-<p align="center"><img src="assets/images/tinymist-typst_unknown-font-family-warning.png" width=20%>&nbsp;</p>
+  <p align="center"><img src="assets/images/typst.app_unknown-font-family-warning.png" width=20%>&nbsp;</p>
+  <p align="center"><img src="assets/images/tinymist-typst_unknown-font-family-warning.png" width=20%>&nbsp;</p>
 
 </details>
 
@@ -252,14 +252,14 @@ Türkçe dilindeki başlıklar için `/template/assets/languages/turkish.toml`, 
 <details>
   <summary>Kodu göstermek/gizlemek için tıklayınız</summary>
 
-```toml
-[translations]
-# Başlıklardan sadece birini kullanmak için parantez içinde olmayan ya da parantez içindeki ifadelerden birini seçip diğerlerini siliniz.
-# Seçmeden önce:
-#PREFACE = "ÖN SÖZ (TEŞEKKÜR)"
-# Seçtikten sonra:
-PREFACE = "ÖN SÖZ"
-```
+  ```toml
+  [translations]
+  # Başlıklardan sadece birini kullanmak için parantez içinde olmayan ya da parantez içindeki ifadelerden birini seçip diğerlerini siliniz.
+  # Seçmeden önce:
+  #PREFACE = "ÖN SÖZ (TEŞEKKÜR)"
+  # Seçtikten sonra:
+  PREFACE = "ÖN SÖZ"
+  ```
 
 </details>
 
@@ -276,7 +276,7 @@ Aşağıdaki haraketli görselde [jamovi](https://www.jamovi.org/) yazılımdan 
 <details>
   <summary>Hareketli görseli göstermek/gizlemek için tıklayınız</summary>
 
-<p align="center"><img src="assets/images/latex-tables.com-convert-tables-from-other-sources.gif" width=100%>&nbsp;</p>
+  <p align="center"><img src="assets/images/latex-tables.com-convert-tables-from-other-sources.gif" width=100%>&nbsp;</p>
 
 </details>
 
@@ -508,8 +508,8 @@ For those using the template with [Tinymist Typst](https://marketplace.visualstu
 <details>
   <summary>Click to show/hide the images</summary>
 
-<p align="center"><img src="assets/images/typst.app_unknown-font-family-warning.png" width=20%>&nbsp;</p>
-<p align="center"><img src="assets/images/tinymist-typst_unknown-font-family-warning.png" width=20%>&nbsp;</p>
+  <p align="center"><img src="assets/images/typst.app_unknown-font-family-warning.png" width=20%>&nbsp;</p>
+  <p align="center"><img src="assets/images/tinymist-typst_unknown-font-family-warning.png" width=20%>&nbsp;</p>
 
 </details>
 
@@ -521,14 +521,14 @@ For example, in the `/template/assets/languages/turkish.toml` file, you can sele
 <details>
   <summary>Click to show/hide the code</summary>
 
-```toml
-[translations]
-# To use only one of the headings, select either the expression not in parentheses or one of the expressions in parentheses and delete the others.
-# Before selection:
-#PREFACE = "PREFACE (ACKNOWLEDGEMENTS)"
-# After selection:
-PREFACE = "PREFACE"
-```
+  ```toml
+  [translations]
+  # To use only one of the headings, select either the expression not in parentheses or one of the expressions in parentheses and delete the others.
+  # Before selection:
+  #PREFACE = "PREFACE (ACKNOWLEDGEMENTS)"
+  # After selection:
+  PREFACE = "PREFACE"
+  ```
 
 </details>
 
@@ -545,7 +545,7 @@ The following animated image shows an example where a table copied from [jamovi]
 <details>
   <summary>Click to show/hide the animated image</summary>
 
-<p align="center"><img src="assets/images/latex-tables.com-convert-tables-from-other-sources.gif" width=100%>&nbsp;</p>
+  <p align="center"><img src="assets/images/latex-tables.com-convert-tables-from-other-sources.gif" width=100%>&nbsp;</p>
 
 </details>
 
