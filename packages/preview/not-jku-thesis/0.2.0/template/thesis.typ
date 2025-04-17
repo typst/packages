@@ -1,4 +1,4 @@
-#import "@local/not-jku-thesis:0.2.0": jku-thesis
+#import "@preview/not-jku-thesis:0.2.0": jku-thesis
 #import "utils.typ": inwriting, draft, todo, flex-caption, flex-caption-styles
 #import "glossary.typ": glossary
 #import "@preview/glossarium:0.5.4": make-glossary, register-glossary, print-glossary, gls, glspl
