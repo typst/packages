@@ -8,3 +8,4 @@ description = "Allows you to write with Minecraft banners."
 repository = "https://git.sr.ht/~thezipcreator/typst-banners/"
 homepage = "https://sr.ht/~thezipcreator/typst-banners/"
 categories = ["text"]
+exclude = ["thumbnails"]
