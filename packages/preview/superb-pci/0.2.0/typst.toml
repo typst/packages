@@ -4,7 +4,6 @@ version = "0.2.0"
 compiler = "0.13.1"
 entrypoint = "lib.typ"
 repository = "https://codeberg.org/alxsim/superb-pci"
-homepage = "https://codeberg.org/alxsim/superb-pci"
 authors = ["Alexis Simon"]
 license = "MIT-0"
 description = "A Peer Community In (PCI) and Peer Community Journal (PCJ) template."
