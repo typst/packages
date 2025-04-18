@@ -1,5 +1,5 @@
-# Typst Banners
-Banners is a Typst extension to write Minecraft banners. This was created so
+# Bannering
+Bannering is a Typst extension to write Minecraft banners. This was created so
 that documents could be typeset for [Clongcraft](https://linktr.ee/clongcraft),
 but it may have other uses too.
 
