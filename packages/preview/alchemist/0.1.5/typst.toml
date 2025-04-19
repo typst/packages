@@ -1,0 +1,13 @@
+[package]
+name = "alchemist"
+version = "0.1.5"
+entrypoint = "lib.typ"
+authors = ["Robotechnic <@Robotechnic>"]
+license = "MIT"
+compiler = "0.13.1"
+repository = "https://github.com/Typsium/alchemist"
+description = "A package to render skeletal formulas using CeTZ"
+exclude = ["generate_images.sh", "generate_images.awk", ".gitignore","images"]
+categories = ["visualization", "paper"]
+disciplines = ["education", "chemistry", "biology"]
+keywords = ["chemistry", "chemical", "formula", "molecule", "chemiviz", "structure", "organic", "lewis", "bond", "aromatic"]
