@@ -15,7 +15,7 @@
   if lang == "pl" {
     signet_imgpath = "../assets/sygnet-pp-pl.svg"
   } else {
-    signet_imgpath = "../assets/sygnet-pp-eng.svg"
+    signet_imgpath = "../assets/sygnet-pp-en.svg"
   }
 
   place(center + top, dy: 41pt)[
