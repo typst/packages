@@ -11,10 +11,10 @@
 1. Add Pigmentpedia to your project.
 
    ```typ
-   #import "@preview/pigmentpedia:0.3.1": *
+   #import "@preview/pigmentpedia:0.3.2": *
    ```
 
-2. Watch your source file (if you're working offline).
+2. `watch` your source file (if working offline).
 
    ```
    typst watch file.typ
@@ -49,7 +49,7 @@ View the compiled [example.pdf][example] from the GitHub repository.
 ```typ
 // An example document to familiarize yourself with Pigmentpedia
 
-#import "@preview/pigmentpedia:0.3.1": *
+#import "@preview/pigmentpedia:0.3.2": *
 
 #set page(background: rotate(-45deg, text(11em, fill: luma(97%))[EXAMPLE]))
 #show heading: it => [#v(5mm) #it #v(2mm)]
@@ -160,7 +160,7 @@ and 2 auxiliary functions:
    //                                       ^^^^^^^^^^^^
    ```
 
-### Display all pigments from (...) using `view-pigments()`
+### Display all pigments from [...] using `view-pigments()`
 
 There are a lot of pigments included in Pigmentpedia and it would be a hassle to remember the exact names or codes of specific pigments. Fortunately, you can do a quick search through the list to view and find pigments that you want to use in your project/document.
 
@@ -197,7 +197,7 @@ If you're unfamiliar with the standards or pigments here in Pigmentpedia, I reco
 
 To view a single pigment in isolation, use the `view-pigments()` function with the pigment as an argument.
 
-This will display the pigment on its own page, allowing for a focused examination.
+This will display the pigment on its own page.
 
 ```typ
 #view-pigments(ral.classic.raspberry-red)
@@ -217,7 +217,9 @@ Find a pigment you're familiar with, or one even better. You can search with eit
 
 #### Search by pigment name
 
-Search is not case-sensitive, but multiple keywords strictly reserves the order of precedence, and they are treated as a single keyword. For example, `find-pigment("foo bar")` will return results for `foo-bar` and `find-pigment("bar foo")` will return results for `bar-foo`.
+Search is not case-sensitive, but multiple keywords strictly reserves the order of precedence, and they are treated as a single keyword.
+
+For example, `find-pigment("foo bar")` will return results for `foo-bar` and `find-pigment("bar foo")` will return results for `bar-foo`.
 
 Currently, `find-pigment()` will not return results for both `foo` and `bar` individually.
 

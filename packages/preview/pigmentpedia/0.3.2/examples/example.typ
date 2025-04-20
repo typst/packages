@@ -7,7 +7,7 @@
   familiarize themselves with Pigmentpedia.
 */
 
-#import "@preview/pigmentpedia:0.3.1": *
+#import "@preview/pigmentpedia:0.3.2": *
 
 #set page(background: rotate(-45deg, text(11em, fill: luma(97%))[EXAMPLE]))
 #show heading: it => [#v(5mm) #it #v(2mm)]
