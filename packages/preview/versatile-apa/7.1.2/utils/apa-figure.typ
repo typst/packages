@@ -21,10 +21,10 @@
       #set par(first-line-indent: 0em)
       #body
       #set align(left)
-      #if note != none {
-        emph[#get-terms(text.lang).Note.]
-        note
-      }
+      #if note != none [
+        _#get-terms(text.lang).Note._
+        #note
+      ]
       #parbreak()
       #specific-note
       #parbreak()
