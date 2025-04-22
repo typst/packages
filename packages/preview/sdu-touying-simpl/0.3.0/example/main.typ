@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/sdu-touying-simpl:0.3.0": *
 // https://typst.app/universe/package/timeliney
 #import "@preview/timeliney:0.2.0"
 
