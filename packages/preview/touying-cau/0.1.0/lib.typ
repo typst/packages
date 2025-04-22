@@ -11,13 +11,13 @@
 /// - aspect-ratio (str): 纵横比 
 /// - lang (str):  语言
 /// - font (list): 字体覆盖列表
-/// - useBackground (bool): 是否使用背景图 
+/// - use-background (bool): 是否使用背景图 
 /// -> 
 #let cau-theme(
   aspect-ratio: "16-9",
   lang: "en",
   font: ("Libertinus Serif", "Source Han Sans SC", "Noto Sans CJK SC", "SimHei", "Heiti SC", "STHeiti"),
-  useBackground: true,
+  use-background: true,
   ..args,
   body,
 ) = {
