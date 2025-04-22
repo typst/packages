@@ -42,7 +42,7 @@
       neutral-darkest: rgb("#000000"),
     ),
     config-page(
-      background: if useBackground {
+      background: if use-background {
         place(
           center + horizon,
           dx: 47%,
