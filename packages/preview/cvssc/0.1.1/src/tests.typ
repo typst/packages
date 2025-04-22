@@ -1,4 +1,4 @@
-#import "cvssc.typ"
+#import "@preview/cvssc:0.1.1"
 
 #cvssc.get-version("CVSS:2.0/AV:L/AC:L/Au:N/C:C/I:C/A:C")
 
