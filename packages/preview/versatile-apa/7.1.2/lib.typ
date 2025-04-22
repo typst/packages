@@ -103,9 +103,12 @@
     spacing: double-spacing,
   )
 
-  show link: set text(fill: blue)
-
-  show link: underline
+  show link: it => {
+    if type(it.dest) == str {
+      set text(fill: blue)
+      underline(it)
+    } else { it }
+  }
 
   if running-head != none and running-head != [] and running-head != "" {
     if to-string(running-head).len() > 50 {
@@ -188,7 +191,7 @@
 
   show table.cell: set par(leading: 1em)
 
-  show figure: set block(breakable: true)
+  show figure: set block(breakable: true, sticky: true)
 
   set figure(
     gap: double-spacing,
@@ -200,7 +203,7 @@
   show figure.caption: set par(first-line-indent: 0em)
   show figure.caption: it => {
     strong[#it.supplement #context it.counter.display(it.numbering)]
-    parbreak()
+    it.separator
     emph(it.body)
   }
 
@@ -281,6 +284,19 @@
       ]
     }
   }
+
+  show outline.entry: it => {
+    if it.element.supplement != [Section] and it.element.has("level") and it.element.level == 1 {
+      link(
+        it.element.location(),
+        it.indented([#it.element.supplement #it.prefix().], it.inner()),
+      )
+    } else {
+      it
+    }
+  }
+
+  set outline(depth: 3, indent: 2em)
 
   set bibliography(style: "apa")
   show bibliography: set par(first-line-indent: 0in)

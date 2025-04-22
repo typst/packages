@@ -105,6 +105,14 @@
 
 #outline()
 #pagebreak()
+#outline(target: figure.where(kind: table), title: [Tables])
+#pagebreak()
+#outline(target: figure.where(kind: image), title: [Figures])
+#pagebreak()
+#outline(target: figure.where(kind: math.equation), title: [Equations])
+#pagebreak()
+#outline(target: figure.where(kind: raw), title: [Listings])
+#pagebreak()
 
 = #doc-title // Implicit introduction heading level 1, remove if implicit-introduction-heading is true
 #include "sections/introduction.typ"
@@ -128,21 +136,6 @@
   title: auto,
 )
 
-#pagebreak()
-#include "sections/footnote.typ"
-
-#pagebreak()
-#include "sections/tables.typ"
-
-#pagebreak()
-#include "sections/figures.typ"
-
-#show: appendix.with(
-  heading-numbering: "A",
-  supplement: "Appendix",
-)
+#show: appendix
 
 #include "sections/appendix.typ"
-
-= List of Appendices
-#appendix-outline(title: none)

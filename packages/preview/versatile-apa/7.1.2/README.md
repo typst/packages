@@ -58,16 +58,6 @@ For appendix figures, use the `appendix-figure` function (which accepts the same
 
 **LaTeX `apa7` class inspiration**: This template draws heavily from the `apa7` class in LaTeX (which itself builds on the `apa6` class). The `journal` and `document` formats are not included due to styling and formatting variations. While technically possible to port these formats from LaTeX, they serve limited use cases beyond academic submission, as most APA-compliant journals implement their own specific styling requirements.
 
-## Known Issues and Limitations
-
-### Appendix Figure Numbering
-
-The `appendix-figure` function works reliably but has some formatting inconsistencies. While the numbering functions correctly, the figure supplement uses the heading number instead of the figure number, causing outline inconsistencies. For example, a figure labeled `Figure B2` appears as `Figure B 2` in the outline.
-
-**Solution**: You can manually adjust the outline entries, or set `joined-figure-numbering` to `false` in the `appendix` settings to consistently use the `B 2` format in both figures and outline.
-
-> Note: The separation between letter and number in the figure supplement occurs because setting "A" for the first figures caused numbering issues where the letter was interpreted as the numbering value, resulting in figures displaying only as "A, B, ..." without proper sequence numbers.
-
 ## License
 
 This package is licensed under the MIT License. See the repository for complete license information.

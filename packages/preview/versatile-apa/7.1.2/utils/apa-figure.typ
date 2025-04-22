@@ -1,12 +1,25 @@
 #import "languages.typ": *
 #import "to-string.typ": *
 
+#let apa-figure-numbering(n) = {
+  let header-counter = counter(heading).get().first()
+  let queried-heading = query(selector(heading).before(here())).last().numbering
+  if queried-heading == none {
+    queried-heading = "A"
+  }
+  if header-counter == 0 {
+    numbering("1", n)
+  } else {
+    numbering(queried-heading + "1", header-counter, n)
+  }
+}
+
 #let apa-figure(
   body,
   caption: none,
   gap: 1.5em,
   kind: auto,
-  numbering: "1",
+  numbering: n => apa-figure-numbering(n),
   outlined: true,
   placement: auto,
   scope: "column",

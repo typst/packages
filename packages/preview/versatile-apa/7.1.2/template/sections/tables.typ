@@ -1,7 +1,7 @@
 #import "@preview/versatile-apa:7.1.2": apa-figure
 
-= Sample Tables
 // Sample tables taken from https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-tables
+= Sample Tables
 == Sample Demographic Characteristics Table
 Referencing @table:sample-demographic-characteristics.
 
