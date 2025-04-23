@@ -12,8 +12,8 @@ A Typst package for reading from Jupyter notebooks. It currently addresses the f
 
 The examples below illustrate the basic functionality. For more information see
 
--  the [tutorial](docs/Tutorial.md),
--  the [function reference](docs/Reference.md).
+-  the [tutorial](https://github.com/knuesel/callisto/blob/release-0.2/docs/Tutorial.md),
+-  the [function reference](https://github.com/knuesel/callisto/blob/release-0.2/docs/Reference.md).
 
 ```typst
 #import "@preview/callisto:0.2.2"
@@ -111,7 +111,7 @@ The API is centered on the following main functions:
 
 - `outputs`: takes a cell specification and returns cell outputs of the desired type (result, displays, errors, streams).
 
-The function parameters are described in detail in the [function reference](docs/Reference.md).
+The function parameters are described in detail in the [function reference](https://github.com/knuesel/callisto/blob/release-0.2/docs/Reference.md).
 
 The cell specification can be a cell index, execution count, tag, ID, metadata label, user-defined cell field or filter function. Code cells can start with header lines of the form `#| key: value`. When a notebook is processed, header lines are used to define corresponding fields in the cell metadata, and are removed from the cell source.
 
