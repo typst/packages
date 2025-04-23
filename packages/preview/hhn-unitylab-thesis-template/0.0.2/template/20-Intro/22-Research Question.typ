@@ -1,5 +1,4 @@
-#import "../../src/config.typ": *
-//#import "@preview/unitylab-thesis-template:0.0.1": *
+#import "../Template-Import.typ": *
 
 = Research Question
 This is my Research Question

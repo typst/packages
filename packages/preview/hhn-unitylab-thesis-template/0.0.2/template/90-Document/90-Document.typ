@@ -1,6 +1,4 @@
-// General Configuration Template
-#import "../../src/config.typ": *
-//#import "@preview/unitylab-thesis-template:0.0.1": *
+#import "../Template-Import.typ": *
 #show: format-doc-general.with()
 
 
