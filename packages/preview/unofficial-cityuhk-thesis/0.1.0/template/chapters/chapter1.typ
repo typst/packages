@@ -19,7 +19,7 @@
 #lorem(40)
 
 #figure(
-  image("../figures/minion.svg", width: 50%),
+  image("../figures/sample-figure.png", width: 50%),
   caption: [Example figure Minion],
 )
 
@@ -28,7 +28,7 @@
 #lorem(40)
 
 #figure(
-  image("../figures/minion.svg", width: 50%),
+  image("../figures/sample-figure.png", width: 50%),
   caption: [Example figure Minion],
 )
 
