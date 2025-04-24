@@ -14,7 +14,7 @@
 
   // Basic information
   config-info(
-    title: [基于 Touying 的中国农业大学 Typst 幻灯片模板 \ 源自 touyng-buaa],
+    title: [基于 Touying 的中国农业大学 Typst 幻灯片模板 \ 源自 touying-buaa],
     short-title: [基于 Touying 的中国农业大学 Typst 幻灯片模板],
     subtitle: [Typst Slide Theme for China Agricultural University Based on Touying],
     author: [Yip Coekjan, Max Chang],
