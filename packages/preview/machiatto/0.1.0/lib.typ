@@ -177,7 +177,7 @@
   )
 }
 
-#let frame(title: none, body, fill: none, line_numbers: true, line_number_color: gray) = {
+#let frame(title: none, body, fill: none, line-numbers: true, line-number-color: gray) = {
   let stroke = black + 1pt
   let radius = 5pt
 
@@ -197,7 +197,7 @@
       width: 100%,
       inset: (x: 0em, y: 0.5em),
       {
-        if line_numbers {
+        if line-numbers {
           // Split the body into lines
           let lines = body.text.split("\n")
           // Create a table with line numbers and code
@@ -208,7 +208,7 @@
             stroke: (y: 0.5pt + rgb(220, 220, 220)),
             ..lines.enumerate().map(((i, line)) => {
               (
-                align(right)[#text(fill: line_number_color)[#(i + 1)]],
+                align(right)[#text(fill: line-number-color)[#(i + 1)]],
                 align(left)[#raw(lang: body.lang, line)]
               )
             }).flatten(),
@@ -221,13 +221,13 @@
   ]
 }
 
-#let code_file(file_path, lang, fill, line_numbers: true, line_number_color: gray) = {
+#let code-file(file-path, lang, fill, line-numbers: true, line-number-color: gray) = {
   frame(
-    title: file_path,
+    title: file-path,
     fill: fill,
-    line_numbers: line_numbers,
-    line_number_color: line_number_color,
-    [#raw(read(file_path), lang: lang)],
+    line-numbers: line-numbers,
+    line-number-color: line-number-color,
+    [#raw(read(file-path), lang: lang)],
   )
 }
 
@@ -238,11 +238,11 @@
   // The body content
   fill: black,
   // Background color of the terminal
-  text_color: white,
+  text-color: white,
   // Text color for the terminal content
-  title_color: luma(240),
+  title-color: luma(240),
   // Title bar text color
-  title_bg_color: black,
+  title-bg-color: black,
   // Title bar background color
   radius: 6pt,
   // Corner radius
@@ -255,11 +255,11 @@
     // Title bar (if title is provided)
     #if title != none {
       box(
-        fill: title_bg_color,
+        fill: title-bg-color,
         inset: 0.5em,
         radius: (top-left: radius, top-right: radius),
         width: 100%,
-        align(center)[#text(fill: title_color)[*#title*]],
+        align(center)[#text(fill: title-color)[*#title*]],
       )
     }
     // Terminal content area
@@ -268,7 +268,7 @@
       inset: (x: 1em, y: 0.7em),
       radius: (bottom-left: radius, bottom-right: radius),
       width: 100%,
-      text(fill: text_color)[#content],
+      text(fill: text-color)[#content],
     )
   ]
 }

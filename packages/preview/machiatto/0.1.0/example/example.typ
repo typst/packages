@@ -29,7 +29,7 @@
   What next do I need to do
 ])
 
-#code_file(
+#code-file(
   "example/hello.c",
   "C",
   color.aqua,
