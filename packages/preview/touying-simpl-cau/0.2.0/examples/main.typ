@@ -14,8 +14,9 @@
 
   // Basic information
   config-info(
-    title: [Typst Slide Theme for Beihang University Based on Touying],
-    subtitle: [基于 Touying 的中国农业大学 Typst 幻灯片模板 \ 源自北京航空航天大学模板],
+    title: [基于 Touying 的中国农业大学 Typst 幻灯片模板 \ 源自 touyng-buaa],
+    short-title: [基于 Touying 的中国农业大学 Typst 幻灯片模板],
+    subtitle: [Typst Slide Theme for China Agricultural University Based on Touying],
     author: [Yip Coekjan, Max Chang],
     date: datetime.today(),
     institution: [中国农业大学],
@@ -23,21 +24,23 @@
 
   // Pdfpc configuration
   // typst query --root . ./examples/main.typ --field value --one "<pdfpc-file>" > ./examples/main.pdfpc
-  config-common(preamble: pdfpc.config(
-    duration-minutes: 30,
-    start-time: datetime(hour: 14, minute: 10, second: 0),
-    end-time: datetime(hour: 14, minute: 40, second: 0),
-    last-minutes: 5,
-    note-font-size: 12,
-    disable-markdown: false,
-    default-transition: (
-      type: "push",
-      duration-seconds: 2,
-      angle: ltr,
-      alignment: "vertical",
-      direction: "inward",
+  config-common(
+    preamble: pdfpc.config(
+      duration-minutes: 30,
+      start-time: datetime(hour: 14, minute: 10, second: 0),
+      end-time: datetime(hour: 14, minute: 40, second: 0),
+      last-minutes: 5,
+      note-font-size: 12,
+      disable-markdown: false,
+      default-transition: (
+        type: "push",
+        duration-seconds: 2,
+        angle: ltr,
+        alignment: "vertical",
+        direction: "inward",
+      ),
     ),
-  )),
+  ),
 )
 
 #title-slide()
@@ -90,17 +93,20 @@
 
 == 复杂动画 - Callback-Style
 
-#slide(repeat: 3, self => [
-  #let (uncover, only, alternatives) = utils.methods(self)
+#slide(
+  repeat: 3,
+  self => [
+    #let (uncover, only, alternatives) = utils.methods(self)
 
-  在子幻灯片 #self.subslide 中，我们可以：
+    在子幻灯片 #self.subslide 中，我们可以：
 
-  使用 #uncover("2-")[```typ #uncover``` 函数]（预留空间）
+    使用 #uncover("2-")[```typ #uncover``` 函数]（预留空间）
 
-  使用 #only("2-")[```typ #only``` 函数]（不预留空间）
+    使用 #only("2-")[```typ #only``` 函数]（不预留空间）
 
-  #alternatives[多次调用 ```typ #only``` 函数 \u{2717}][使用 ```typ #alternatives``` 函数 #sym.checkmark] 从多个备选项中选择一个。
-])
+    #alternatives[多次调用 ```typ #only``` 函数 \u{2717}][使用 ```typ #alternatives``` 函数 #sym.checkmark] 从多个备选项中选择一个。
+  ],
+)
 
 
 == 数学公式动画
@@ -129,17 +135,17 @@
 #cetz-canvas({
   import cetz.draw: *
 
-  rect((0,0), (5,5))
+  rect((0, 0), (5, 5))
 
   (pause,)
 
-  rect((0,0), (1,1))
-  rect((1,1), (2,2))
-  rect((2,2), (3,3))
+  rect((0, 0), (1, 1))
+  rect((1, 1), (2, 2))
+  rect((2, 2), (3, 3))
 
   (pause,)
 
-  line((0,0), (2.5, 2.5), name: "line")
+  line((0, 0), (2.5, 2.5), name: "line")
 })
 
 
@@ -151,16 +157,16 @@
   node-stroke: .1em,
   node-fill: gradient.radial(blue.lighten(80%), blue, center: (30%, 20%), radius: 80%),
   spacing: 4em,
-  edge((-1,0), "r", "-|>", `open(path)`, label-pos: 0, label-side: center),
-  node((0,0), `reading`, radius: 2em),
-  edge((0,0), (0,0), `read()`, "--|>", bend: 130deg),
+  edge((-1, 0), "r", "-|>", `open(path)`, label-pos: 0, label-side: center),
+  node((0, 0), `reading`, radius: 2em),
+  edge((0, 0), (0, 0), `read()`, "--|>", bend: 130deg),
   pause,
   edge(`read()`, "-|>"),
-  node((1,0), `eof`, radius: 2em),
+  node((1, 0), `eof`, radius: 2em),
   pause,
   edge(`close()`, "-|>"),
-  node((2,0), `closed`, radius: 2em, extrude: (-2.5, 0)),
-  edge((0,0), (2,0), `close()`, "-|>", bend: -40deg),
+  node((2, 0), `closed`, radius: 2em, extrude: (-2.5, 0)),
+  edge((0, 0), (2, 0), `close()`, "-|>", bend: -40deg),
 )
 
 == 其他例子
