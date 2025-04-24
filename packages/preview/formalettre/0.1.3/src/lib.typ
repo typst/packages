@@ -51,7 +51,7 @@
     if expediteur.email != "" {
         [
             #linebreak()
-            email: #link("mailto:" + expediteur.email)[#raw(expediteur.email)]
+            email : #link("mailto:" + expediteur.email)[#raw(expediteur.email)]
         ]
     }
     v(1cm)
