@@ -1,0 +1,11 @@
+[package]
+name = "color-my-agda"
+version = "0.1.0"
+compiler = "0.12.0"
+repository = "https://codeberg.org/foxy/color-my-agda"
+entrypoint = "main.typ"
+authors = ["Stefano Volpe"]
+categories = ["text"]
+license = "AGPL-3.0-or-later"
+description = "Syntax highlight for Agda on Typst"
+keywords = ["syntax-highlighting", "agda", "code", "programming"]
