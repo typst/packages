@@ -1,0 +1,16 @@
+[package]
+name = "touying-simpl-cau"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Yip Coekjan <cn_yzr@qq.com>", "Max Chang <maxcfoo@gmail.com>"]
+license = "MIT"
+description = "Touying Slide Theme for China Agricultural University"
+repository = "https://github.com/maxchang3/touying-simpl-cau"
+keywords = ["touying", "slide", "theme", "cau", "china agricultural university"]
+categories = ["presentation"]
+exclude = [".github/", "examples/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
