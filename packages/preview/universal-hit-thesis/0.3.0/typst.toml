@@ -1,0 +1,17 @@
+[package]
+name = "universal-hit-thesis"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["CHOSER Tech", "HITSZ OSA"]
+license = "MIT"
+description = "哈尔滨工业大学学位论文模板 | Universal Harbin Institute of Technology Thesis"
+repository = "https://github.com/hitszosa/universal-hit-thesis"
+keywords = ["Harbin Institute of Technology", "thesis"]
+categories = ["thesis"]
+exclude = []
+compiler = "0.13.0"
+
+[template]
+path = "templates"
+entrypoint = "universal-bachelor.typ"
+thumbnail = "thumbnail.png"

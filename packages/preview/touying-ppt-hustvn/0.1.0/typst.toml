@@ -1,0 +1,18 @@
+[package]
+name = "touying-ppt-hustvn"
+version = "0.1.0"
+compiler = "0.13.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/btmxh/touying-ppt-hustvn"
+authors = ["btmxh <@btmxh>"]
+license = "MIT-0"
+description = "Touying Slide Theme for HUST (Hanoi University of Science and Technology)"
+keywords = ["touying", "hust"]
+categories = ["presentation"]
+disciplines = ["computer-science", "mathematics"]
+exclude = ["examples/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

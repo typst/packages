@@ -1,0 +1,13 @@
+[package]
+name = "tapestry"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Branden Xia <https://github.com/BrandenXia>"]
+license = "MIT-0"
+description = "A template for creating LaTeX-like class notes"
+categories = ["report", "layout", "utility"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
