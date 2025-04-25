@@ -1,14 +1,14 @@
-#import "@preview/project-isi-zac": config
+#import "@preview/project-isi-zac:0.1.0": config
 
 #show: config.with(
-  display : ("titlepage", "toc"), // pass the arguments you want to dispaly  horizon
+  display : ("title-page", "toc"), // pass the arguments you want to dispaly  horizon
   title: [Crazy Good Thesis Title],
   // Add affiliations to the authors
   authors: (
     "Author 1",
     "Author 2",
   ),
-  uni_info : (
+  uni-info : (
     department: [Some Department],
     university: [University name],
     faculty: [Faculty Name],

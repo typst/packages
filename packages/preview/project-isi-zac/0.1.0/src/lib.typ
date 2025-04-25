@@ -1,4 +1,4 @@
-#import "titlepage.typ": titlepage
+#import "title-page.typ": title-page
 #import "@preview/hydra:0.6.1": hydra, anchor
 // #import "@preview/i-figured:0.2.4" // List of figures and better figures
 
@@ -6,7 +6,7 @@
   display : (),
   title: [],
   authors: (),
-  uni_info : (
+  uni-info : (
     department: none,
     university: none,
     faculty: none,
@@ -38,10 +38,10 @@
   // Set type of heading
   set heading(numbering: "1.1")
 
-  // --------------------- START TITLEPAGE --------------------- 
+  // --------------------- START title-page --------------------- 
 
-  if display.contains("titlepage") [
-    #titlepage(title, authors, uni_info, date, img)
+  if display.contains("title-page") [
+    #title-page(title, authors, uni-info, date, img)
   ]
   
   set page(margin: (left: 30mm, right: 30mm, top: 45mm, bottom: 45mm))

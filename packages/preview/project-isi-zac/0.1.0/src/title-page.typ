@@ -1,4 +1,4 @@
-#let titlepage(title, authors, uni_info , date, img) = {
+#let title-page(title, authors, uni-info , date, img) = {
   /*
   grid(
     columns:  (1fr, 4fr, 1fr),
@@ -29,16 +29,16 @@
 
   // Department
   align(center)[
-     #if uni_info.department != none [
-      #uni_info.department
+     #if uni-info.department != none [
+      #uni-info.department
       #v(-.5em)
     ]
   ]
 
   align(center)[
     Faculty of 
-    #if uni_info.faculty != none [
-      #uni_info.faculty
+    #if uni-info.faculty != none [
+      #uni-info.faculty
       #v(.5em)
     ]
   ]
@@ -51,8 +51,8 @@
     
     #v(-.5em)
     
-    #if uni_info.university != none [
-      #uni_info.university
+    #if uni-info.university != none [
+      #uni-info.university
       #v(.5em)
     ]
     #date
@@ -86,7 +86,7 @@ v(6em)
 
   align(center)[
     Academic Year
-    #uni_info.academic_year
+    #uni-info.academic_year
     
   ]
 }
