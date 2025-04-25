@@ -9,7 +9,7 @@ Feel free to make suggestions on the [dedicated repo](https://github.com/ErrorTe
 These instructions will get you a copy of the project up and running on the typst web app.
 
 ```typ
-#import "@preview/cyberschool-errorteaplate:0.1.3": *
+#import "@preview/cyberschool-errorteaplate:0.1.4": *
 
 #show: conf.with(
   title: "Title",
