@@ -1,4 +1,4 @@
-#import "@preview/algo:0.3.4":*
+#import "@preview/algo:0.3.6":*
 #import "@preview/i-figured:0.2.4":show-figure
 
 #let show-algo(it) = context { 

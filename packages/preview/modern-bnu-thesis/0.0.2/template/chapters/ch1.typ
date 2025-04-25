@@ -1,4 +1,4 @@
-#import "@preview/algo:0.3.4":*
+#import "@preview/algo:0.3.6":*
 #import "@preview/modern-bnu-thesis:0.0.2": indent,字体,字号
 = 图表示例
 
