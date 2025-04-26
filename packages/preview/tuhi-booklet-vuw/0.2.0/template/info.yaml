@@ -1,0 +1,143 @@
+year: 2024
+
+address:	|
+  CO202, First floor, Tea House,
+  Gate 3, Bath House Road
+  Spirited Campus
+hours: 10 am–6 pm, Monday to Saturday
+phone: 0800 55 55 55
+email: info@spiritedtea.edu
+website: www.spiritedtea.edu/student-success
+
+ad_students: 
+  first: Chihiro
+  last: Ogino
+  preferred: Chihiro Ogino
+  position: Associate Dean, Students
+  title: "Ms"
+  email: chihiro.ogino@spiritedtea.edu
+
+ad_academic: 
+  first: Haku
+  last: Kohaku
+  preferred: Haku Kohaku
+  title: Dr
+  position: Associate Dean, Academic (Postgraduate)
+  email: haku.kohaku@spiritedtea.edu
+
+spirit_tea_school: 
+  address: |
+    Spirit Tea School
+    Bathhouse of the Spirits
+    Kamaji's Boiler Room
+    Aburaya District, Spirit Realm
+  phone: +81 123 456 7890
+  fax: +81 098 765 4321
+  email: info@spirittea.edu.sp
+  website: www.spirittea.edu.sp
+  principal: yubaaba
+  vice_principal: zeniba
+  tea_master: kamaji
+
+cha_gong_fu:
+  ug_coordinator: chihiro
+  hons_coordinator: haku
+  pg_coordinator: lin
+teapot_care:
+  ug_coordinator: no_face
+
+  
+kamaji:
+  first: Kame
+  last: Ji
+  preferred: Kamaji
+  position: Tea Master
+  title: Mr.
+  office: Boiler Room 101
+  phone: 04 123 4567
+  email: kamaji@spiritedtea.edu
+
+chihiro:
+  first: chihiro
+  last: ogino
+  preferred: Chihiro Ogino
+  title: Miss
+  office: Tea Room 202
+  phone: 04 234 5678
+  position: Undergraduate Coordinator for Cha Gong Fu
+
+haku:
+  first: haku
+  last: na
+  preferred: Haku
+  title: Dr.
+  office: Spirit Hall 303
+  phone: 04 345 6789
+  position: Honors Coordinator for Cha Gong Fu
+
+lin:
+  first: lin
+  last: na
+  preferred: Lin
+  title: Miss
+  office: Guest Room 404
+  phone: 04 456 7890
+  position: Postgraduate Coordinator for Cha Gong Fu
+
+no_face:
+  first: kaonashi
+  last: noface
+  preferred: No Face
+  title: Mr.
+  office: Teapot Care Center 505
+  phone: 04 567 8901
+  position: Undergraduate Coordinator for Teapot Care
+
+yubaaba:
+  first: yubaaba
+  last: na
+  preferred: Yubaaba
+  title: Ms.
+  office: Principal's Office
+  phone: 04 678 9012
+  position: Principal
+
+zeniba:
+  first: zeniba
+  last: ba
+  preferred: Zeniba
+  office: Vice Principal's Office
+  phone: 04 789 0123
+  position: Herbal Tea Specialist
+  title: Madam
+  email: zeniba@spiritedtea.edu
+  
+
+yubaba:
+  first: Yuba
+  last: Baba
+  preferred: Yubaba
+  position: Manager
+  phone: 04 789 0123
+  title: Madam
+  email: yubaba@spiritedtea.edu
+  
+  
+lin:
+  first: Lin
+  last: Tan
+  preferred: Lin Tan
+  position: Tea House Assistant
+  office: Tea Room
+  phone: 04 789 0123
+  title: Ms
+  email: lin.tan@spiritedtea.edu
+
+boh:
+  first: Boh
+  last: Baby
+  preferred: Boh Baby
+  phone: 04 789 0123
+  position: Tea House Assistant
+  title: 
+  email: boh.baby@spiritedtea.edu
