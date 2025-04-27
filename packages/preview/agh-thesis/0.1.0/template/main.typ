@@ -1,4 +1,4 @@
-#import "../lib.typ": agh
+#import "@preview/agh-thesis:0.1.0": agh
 
 #show: agh.with(
   titles: ("Klasyfikacja wybranych komórek szpiku kostnego na podstawie zdjęć rozmazów przy użyciu algorytmu opartego na splotowych sieciach neuronowych", "Classification of selected bone marrow cells from smear images using convolutional neural networks"),
