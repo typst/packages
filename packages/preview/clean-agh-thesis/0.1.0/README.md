@@ -1,14 +1,14 @@
-# agh-thesis
+# clean-agh-thesis
 
-This template allows you to create documents following the AGH University of Science and Technology formatting guidelines. It's designed for bachelor's and master's theses, lab reports, and other academic documents at AGH UST.
+This unofficial template allows you to create documents following the AGH University of Science and Technology formatting guidelines. It's designed for bachelor's and master's theses, lab reports, and other academic documents at AGH UST.
 
 ## Usage
 
-You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `agh-thesis`.
+You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `clean-agh-thesis`.
 
 Alternatively, you can use the CLI to start a new project with this template using the command:
 ```
-typst init @preview/agh-thesis
+typst init @preview/clean-agh-thesis
 ```
 
 Typst will create a new directory with all the files needed to get you started.
@@ -31,7 +31,7 @@ This template exports the `agh` function with the following named arguments:
 Here's how to use the template:
 
 ```typ
-#import "@preview/agh-thesis:0.1.0": agh
+#import "@preview/clean-agh-thesis:0.1.0": agh
 
 #show: agh.with(
   titles: ("Tytuł pracy w języku polskim", "Title in English"),

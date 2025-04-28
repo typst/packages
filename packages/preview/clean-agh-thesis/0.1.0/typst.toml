@@ -1,5 +1,5 @@
 [package]
-name = "agh-thesis"
+name = "clean-agh-thesis"
 version = "0.1.0"
 compiler = "0.12.0"
 entrypoint = "lib.typ"
