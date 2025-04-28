@@ -1,4 +1,3 @@
-#import "@preview/tablex:0.0.8": tablex, colspanx, rowspanx, cellx
 #import table: cell
 
 #let dokumentation(persons: ()) = [
