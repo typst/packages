@@ -13,7 +13,7 @@ You can draw a Steane code by calling the `steane_code` function. The name of th
     }
 })
 ```
-![Steane code](examples/steane.svg)
+![Steane code](examples/steane.png)
 
 ## Surface code
 You can draw a surface code with different size, color and orientation by `surface_code` function. The name of the qubits can be defined with `name` parameter as `name_i_j`. By default, they will be named as `surface_i_j`. The `type_tag` parameter can be set to `false` to change the orientation of the surface code. Here is an example of two surface codes.
@@ -30,7 +30,7 @@ You can draw a surface code with different size, color and orientation by `surfa
   surface_code((4, 0), 15, 7,color1:red,color2:green,size:0.5,type_tag: false)
   })
 ```
-![Surface code](examples/surface.svg)
+![Surface code](examples/surface.png)
 
 ## Toric code
 You can draw a toric code with different size and color by `toric_code` function. The name of the qubits can be defined with `name` parameter as `name_point_vertical_i_j` and `name_point_horizontal_i_j`. By default, they will begin with `toric`. Here is an example of a toric code with 5x3 size. `plaquette_code_label` and `vertex_code_label` functions can be used to label the plaquette and vertex stabilizers at a specified location. `stabilizer_label` generates a stabilizer legend.
@@ -53,7 +53,7 @@ You can draw a toric code with different size and color by `toric_code` function
   }
 })
 ```
-![![Toric code](examples/toric.svg)](examples/toric1.svg)
+![Toric code](examples/toric1.png)
 
 `plaquette_code_label` and `vertex_code_label` functions can be adjusted to change the label of the stabilizers. Here is an example of$〚98,8,12〛$BB code.
 
@@ -66,7 +66,7 @@ You can draw a toric code with different size and color by `toric_code` function
   stabilizer_label((10, -3))
 })
 ```
-![BB code](examples/toric2.svg)
+![BB code](examples/toric2.png)
 ## License
 
 Licensed under the [MIT License](LICENSE).
