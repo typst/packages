@@ -11,6 +11,6 @@ compiler = "0.13.1"
 categories = ["book"]
 
 [template]
-path = "."
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "Thumbnail.png"
