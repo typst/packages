@@ -236,19 +236,19 @@
   ]
 }
 
-#let code-file(file-path, lang, fill, line-numbers: true, line-number-color: gray) = {
+#let code-file(title: str, file-contents: str, lang, fill, line-numbers: true, line-number-color: gray) = {
   frame(
-    title: file-path,
+    title: title,
     fill: fill,
     line-numbers: line-numbers,
     line-number-color: line-number-color,
-    [#raw(read(file-path), lang: lang)],
+    [#raw(file-contents, lang: lang)],
   )
 }
 
-#let code-snippet(path, subtitle: none, lang, fill, line-numbers: true, line-number-color: gray, from: 0, to: int) = {
+#let code-snippet(title: str, file-content: str, subtitle: none, lang, fill, line-numbers: true, line-number-color: gray, from: 0, to: int) = {
   // 1. Read the entire file as a string
-  let content = read(path)
+  let content = file-content
 
   // 2. Split on newlines → array of lines
 
@@ -264,9 +264,8 @@
 
   // 5. Return as a raw block (verbatim)
 
-  let title = path
   if (subtitle != none) {
-    title = path + " - " + subtitle
+    title = title + " - " + subtitle
   }
   frame(
     title: title,

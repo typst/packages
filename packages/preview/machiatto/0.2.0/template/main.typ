@@ -61,8 +61,11 @@
 
 #lorem(40)
 
+#let hello-c = read("hello.c")
+
 #code-file(
   "hello.c",
+  hello-c,
   "C",
   color.aqua,
 )
@@ -84,6 +87,7 @@
 This is useful for code snippets, allowing you to choose the line range to show from your source file.
 #code-snippet(
   "hello.c",
+  hello-c,
   subtitle: "snippet",
   "C",
   color.aqua,
