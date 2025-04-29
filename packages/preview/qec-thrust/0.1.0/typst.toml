@@ -1,8 +1,8 @@
 [package]
-name = "qec-codes"
+name = "qec-thrust"
 version = "0.1.0"
 entrypoint = "lib.typ"
-repository = "https://github.com/nzy1997/qec-codes"
+repository = "https://github.com/nzy1997/qec-thrust"
 authors = [
   "Zhongyi Ni <https://github.com/nzy1997>",
   "Jin-Guo Liu <https://github.com/GiggleLiu>"
