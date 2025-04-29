@@ -72,35 +72,6 @@ cannot be modified to fit their needs. Only placeholder configuration and
 content is generally part of the template code that the user can edit in their
 own project.
 
-There are still strategies to make your template as customizable as possible.
-
-The main one is to always split styles and content. Template generally export a
-global function that define styles using `show` and `set` rules, and wrap the
-document body in some common structure (title page, abstract, outline, etc.). To
-make it possible to customize the content provided by the template, they should
-actually be defined in another function than the styles. This way it is possible
-to first apply the template styles, customize them, and finally include the
-common structure with modified styles.
-
-```typ
-#import "@preview/my-template:1.0.0"
-
-// Apply the default styles
-#show: my-template.default-styles
-// Overwrite some of them
-#set text(font: "Comic Neue")
-// Show the template contents
-#show: my-template.layout
-
-The contents of the document go here.
-```
-
-Another solution is to provide a lot of different parameters to your main
-template function to let the user override as much of the content and styles as
-they want. The downside here is that it adds a lot of complexity, both for users
-and package maintainers.
-
-If you are curious, possible future solutions to properly address this problem
-have been discussed in [this forum thread][forum].
-
-[forum]: https://forum.typst.app/t/overriding-template-parameters-missing-social-convention-or-typst-design-flaw
+There is no proper solution to that problem for now. In the future, types
+and custom elements will be a good way to give user control over the template
+contents and appearance if they need, while providing good defaults.
