@@ -1,0 +1,16 @@
+[package]
+name = "silky-report-insa"
+version = "0.5.0"
+entrypoint = "document-template.typ"
+authors = ["SkytAsul"]
+license = "MIT"
+description = "A template made for reports and other documents of INSA, a French engineering school."
+repository = "https://github.com/SkytAsul/INSA-Typst-Template"
+keywords = ["insa", "school", "engineering", "report"]
+disciplines = ["engineering", "computer-science", "mathematics", "physics", "education"]
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

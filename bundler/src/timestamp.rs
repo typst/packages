@@ -23,7 +23,7 @@ pub fn determine_timestamps(
         .par_iter()
         .map(|p| {
             if has_git {
-                timestamp_for_path_with_git(p)
+                timestamp_for_path_with_git(p).or_else(|_| timestamp_for_path_with_fs(p))
             } else {
                 timestamp_for_path_with_fs(p)
             }

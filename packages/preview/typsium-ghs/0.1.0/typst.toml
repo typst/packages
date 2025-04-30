@@ -1,0 +1,14 @@
+[package]
+name = "typsium-ghs"
+version = "0.1.0"
+repository = "https://github.com/Typsium/typsium-ghs"
+license = "MIT"
+entrypoint = "src/lib.typ"
+authors = [
+    "Typsium Community <https://github.com/Typsium>",
+    "Ants Aare Alamaa <@Ants-Aare>"
+]
+description = "Display and format Hazard & Precautionary statements and GHS pictograms in Typst."
+categories = [ "layout", "text", "paper" ]
+disciplines = [ "education", "chemistry" ]
+keywords = ["chemistry", "chemical", "hazard", "precaution", "h and p", "statement", "hp", "ghs", "icon", "pictogram"]

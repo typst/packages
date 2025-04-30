@@ -1,0 +1,1443 @@
+┌───────────────────────────────────────────────────────────────────────────────┬─────────────────────────────────────┐
+│ Software                                                                      │ License                             │
+├───────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────┤
+│ hikerpig/pintora                                                              │ MIT                                 │
+│ inexorabletash/text-encoding                                                  │ (Apache-2.0 OR Unlicensed)          │
+│ json-schema (dev)                                                             │ (AFL-2.1 OR BSD-3-Clause)           │
+│ @algolia*                                                                     │ MIT                                 │
+│ @ampproject/remapping                                                         │ Apache-2.0                          │
+│ @antv/*                                                                       │ ISC                                 │
+│ @apideck/better-ajv-errors (dev)                                              │ MIT                                 │
+│ @babel/*                                                                      │ MIT                                 │
+│ @bcoe/v8-coverage (dev)                                                       │ MIT                                 │
+│ @changesets/*                                                                 │ MIT                                 │
+│ @cnakazawa/watch (dev)                                                        │ Apache-2.0                          │
+│ @codemirror/*                                                                 │ MIT                                 │
+│ @colors/colors                                                                │ MIT                                 │
+│ @cspotcode/source-map-support (dev)                                           │ MIT                                 │
+│ @cypress/request (dev)                                                        │ Apache-2.0                          │
+│ @cypress/xvfb (dev)                                                           │ MIT                                 │
+│ @discoveryjs/json-ext                                                         │ MIT                                 │
+│ @docsearch/css                                                                │ MIT                                 │
+│ @docsearch/react                                                              │ MIT                                 │
+│ @docusaurus/*                                                                 │ MIT                                 │
+│ @edge-runtime/*                                                               │ MPL-2.0                             │
+│ @esbuild/win32-x64                                                            │ MIT                                 │
+│ @eslint-community/eslint-utils (dev)                                          │ MIT                                 │
+│ @eslint-community/regexpp (dev)                                               │ MIT                                 │
+│ @eslint/eslintrc                                                              │ MIT                                 │
+│ @hapi/hoek                                                                    │ BSD-3-Clause                        │
+│ @hapi/topo                                                                    │ BSD-3-Clause                        │
+│ @hikerpig/moo                                                                 │ BSD-3-Clause                        │
+│ @hikerpig/nearley                                                             │ MIT                                 │
+│ @humanwhocodes/config-array                                                   │ Apache-2.0                          │
+│ @humanwhocodes/gitignore-to-minimatch                                         │ Apache-2.0                          │
+│ @humanwhocodes/module-importer                                                │ Apache-2.0                          │
+│ @humanwhocodes/object-schema                                                  │ BSD-3-Clause                        │
+│ @isaacs/cliui (dev)                                                           │ ISC                                 │
+│ @istanbuljs/load-nyc-config (dev)                                             │ ISC                                 │
+│ @istanbuljs/schema (dev)                                                      │ MIT                                 │
+│ @jest/console (dev)                                                           │ MIT                                 │
+│ @jest/core (dev)                                                              │ MIT                                 │
+│ @jest/environment (dev)                                                       │ MIT                                 │
+│ @jest/expect (dev)                                                            │ MIT                                 │
+│ @jest/expect-utils (dev)                                                      │ MIT                                 │
+│ @jest/fake-timers (dev)                                                       │ MIT                                 │
+│ @jest/globals (dev)                                                           │ MIT                                 │
+│ @jest/reporters (dev)                                                         │ MIT                                 │
+│ @jest/schemas                                                                 │ MIT                                 │
+│ @jest/source-map (dev)                                                        │ MIT                                 │
+│ @jest/test-result (dev)                                                       │ MIT                                 │
+│ @jest/test-sequencer (dev)                                                    │ MIT                                 │
+│ @jest/transform (dev)                                                         │ MIT                                 │
+│ @jest/types                                                                   │ MIT                                 │
+│ @jridgewell/gen-mapping                                                       │ MIT                                 │
+│ @jridgewell/resolve-uri                                                       │ MIT                                 │
+│ @jridgewell/set-array                                                         │ MIT                                 │
+│ @jridgewell/source-map                                                        │ MIT                                 │
+│ @jridgewell/sourcemap-codec                                                   │ MIT                                 │
+│ @jridgewell/trace-mapping                                                     │ MIT                                 │
+│ @leichtgewicht/ip-codec                                                       │ MIT                                 │
+│ @lezer/common                                                                 │ MIT                                 │
+│ @lezer/highlight                                                              │ MIT                                 │
+│ @lezer/javascript                                                             │ MIT                                 │
+│ @lezer/json                                                                   │ MIT                                 │
+│ @lezer/lr                                                                     │ MIT                                 │
+│ @manypkg/find-root (dev)                                                      │ MIT                                 │
+│ @manypkg/get-packages (dev)                                                   │ MIT                                 │
+│ @mapbox/node-pre-gyp                                                          │ BSD-3-Clause                        │
+│ @mdx-js/mdx                                                                   │ MIT                                 │
+│ @mdx-js/react                                                                 │ MIT                                 │
+│ @mdx-js/util                                                                  │ MIT                                 │
+│ @nodelib/fs.scandir                                                           │ MIT                                 │
+│ @nodelib/fs.stat                                                              │ MIT                                 │
+│ @nodelib/fs.walk                                                              │ MIT                                 │
+│ @percy/cli (dev)                                                              │ MIT                                 │
+│ @percy/cli-app (dev)                                                          │ MIT                                 │
+│ @percy/cli-build (dev)                                                        │ MIT                                 │
+│ @percy/cli-command (dev)                                                      │ MIT                                 │
+│ @percy/cli-config (dev)                                                       │ MIT                                 │
+│ @percy/cli-exec (dev)                                                         │ MIT                                 │
+│ @percy/cli-snapshot (dev)                                                     │ MIT                                 │
+│ @percy/cli-upload (dev)                                                       │ MIT                                 │
+│ @percy/client (dev)                                                           │ MIT                                 │
+│ @percy/config (dev)                                                           │ MIT                                 │
+│ @percy/core (dev)                                                             │ MIT                                 │
+│ @percy/cypress (dev)                                                          │ MIT                                 │
+│ @percy/dom (dev)                                                              │ MIT                                 │
+│ @percy/env (dev)                                                              │ MIT                                 │
+│ @percy/logger (dev)                                                           │ MIT                                 │
+│ @percy/sdk-utils (dev)                                                        │ MIT                                 │
+│ @percy/webdriver-utils (dev)                                                  │ MIT                                 │
+│ @pintora/dagre                                                                │ MIT                                 │
+│ @pintora/graphlib                                                             │ MIT                                 │
+│ @pkgjs/parseargs (dev)                                                        │ MIT                                 │
+│ @pkgr/utils (dev)                                                             │ MIT                                 │
+│ @pnpm/config.env-replace                                                      │ MIT                                 │
+│ @pnpm/network.ca-file                                                         │ MIT                                 │
+│ @pnpm/npm-conf                                                                │ MIT                                 │
+│ @polka/url                                                                    │ MIT                                 │
+│ @react-hook/debounce                                                          │ MIT                                 │
+│ @react-hook/latest                                                            │ MIT                                 │
+│ @reduxjs/toolkit                                                              │ MIT                                 │
+│ @rollup/plugin-alias (dev)                                                    │ MIT                                 │
+│ @rollup/plugin-babel (dev)                                                    │ MIT                                 │
+│ @rollup/plugin-commonjs (dev)                                                 │ MIT                                 │
+│ @rollup/plugin-json (dev)                                                     │ MIT                                 │
+│ @rollup/plugin-node-resolve (dev)                                             │ MIT                                 │
+│ @rollup/plugin-replace (dev)                                                  │ MIT                                 │
+│ @rollup/pluginutils (dev)                                                     │ MIT                                 │
+│ @rollup/rollup-win32-x64-msvc (dev)                                           │ MIT                                 │
+│ @sideway/address                                                              │ BSD-3-Clause                        │
+│ @sideway/formula                                                              │ BSD-3-Clause                        │
+│ @sideway/pinpoint                                                             │ BSD-3-Clause                        │
+│ @sinclair/typebox                                                             │ MIT                                 │
+│ @sindresorhus/is                                                              │ MIT                                 │
+│ @sinonjs/commons (dev)                                                        │ BSD-3-Clause                        │
+│ @sinonjs/fake-timers (dev)                                                    │ BSD-3-Clause                        │
+│ @slorber/remark-comment                                                       │ MIT                                 │
+│ @slorber/static-site-generator-webpack-plugin                                 │ MIT                                 │
+│ @surma/rollup-plugin-off-main-thread (dev)                                    │ Apache-2.0                          │
+│ @svgr/babel-plugin-add-jsx-attribute                                          │ MIT                                 │
+│ @svgr/babel-plugin-remove-jsx-attribute                                       │ MIT                                 │
+│ @svgr/babel-plugin-remove-jsx-empty-expression                                │ MIT                                 │
+│ @svgr/babel-plugin-replace-jsx-attribute-value                                │ MIT                                 │
+│ @svgr/babel-plugin-svg-dynamic-title                                          │ MIT                                 │
+│ @svgr/babel-plugin-svg-em-dimensions                                          │ MIT                                 │
+│ @svgr/babel-plugin-transform-react-native-svg                                 │ MIT                                 │
+│ @svgr/babel-plugin-transform-svg-component                                    │ MIT                                 │
+│ @svgr/babel-preset                                                            │ MIT                                 │
+│ @svgr/core                                                                    │ MIT                                 │
+│ @svgr/hast-util-to-babel-ast                                                  │ MIT                                 │
+│ @svgr/plugin-jsx                                                              │ MIT                                 │
+│ @svgr/plugin-svgo                                                             │ MIT                                 │
+│ @svgr/webpack                                                                 │ MIT                                 │
+│ @swc/helpers (dev)                                                            │ Apache-2.0                          │
+│ @szmarczak/http-timer                                                         │ MIT                                 │
+│ @tootallnate/once (dev)                                                       │ MIT                                 │
+│ @trysound/sax                                                                 │ ISC                                 │
+│ @tsconfig/docusaurus (dev)                                                    │ MIT                                 │
+│ @tsconfig/node10 (dev)                                                        │ MIT                                 │
+│ @tsconfig/node12 (dev)                                                        │ MIT                                 │
+│ @tsconfig/node14 (dev)                                                        │ MIT                                 │
+│ @tsconfig/node16 (dev)                                                        │ MIT                                 │
+│ @types/*                                                                      │ MIT                                 │
+│ @typescript-eslint/eslint-plugin (dev)                                        │ MIT                                 │
+│ @typescript-eslint/parser (dev)                                               │ BSD-2-Clause                        │
+│ @typescript-eslint/scope-manager (dev)                                        │ MIT                                 │
+│ @typescript-eslint/type-utils (dev)                                           │ MIT                                 │
+│ @typescript-eslint/types (dev)                                                │ MIT                                 │
+│ @typescript-eslint/typescript-estree (dev)                                    │ BSD-2-Clause                        │
+│ @typescript-eslint/utils (dev)                                                │ MIT                                 │
+│ @typescript-eslint/visitor-keys (dev)                                         │ MIT                                 │
+│ @ungap/structured-clone                                                       │ ISC                                 │
+│ @vitejs/plugin-react-refresh (dev)                                            │ MIT                                 │
+│ @webassemblyjs/ast                                                            │ MIT                                 │
+│ @webassemblyjs/floating-point-hex-parser                                      │ MIT                                 │
+│ @webassemblyjs/helper-api-error                                               │ MIT                                 │
+│ @webassemblyjs/helper-buffer                                                  │ MIT                                 │
+│ @webassemblyjs/helper-numbers                                                 │ MIT                                 │
+│ @webassemblyjs/helper-wasm-bytecode                                           │ MIT                                 │
+│ @webassemblyjs/helper-wasm-section                                            │ MIT                                 │
+│ @webassemblyjs/ieee754                                                        │ MIT                                 │
+│ @webassemblyjs/leb128                                                         │ Apache-2.0                          │
+│ @webassemblyjs/utf8                                                           │ MIT                                 │
+│ @webassemblyjs/wasm-edit                                                      │ MIT                                 │
+│ @webassemblyjs/wasm-gen                                                       │ MIT                                 │
+│ @webassemblyjs/wasm-opt                                                       │ MIT                                 │
+│ @webassemblyjs/wasm-parser                                                    │ MIT                                 │
+│ @webassemblyjs/wast-printer                                                   │ MIT                                 │
+│ @xtuc/ieee754                                                                 │ BSD-3-Clause                        │
+│ @xtuc/long                                                                    │ Apache-2.0                          │
+│ abab (dev)                                                                    │ BSD-3-Clause                        │
+│ abbrev                                                                        │ ISC                                 │
+│ accepts                                                                       │ MIT                                 │
+│ acorn                                                                         │ MIT                                 │
+│ acorn-globals (dev)                                                           │ MIT                                 │
+│ acorn-import-assertions                                                       │ MIT                                 │
+│ acorn-jsx                                                                     │ MIT                                 │
+│ acorn-node (dev)                                                              │ Apache-2.0                          │
+│ acorn-walk                                                                    │ MIT                                 │
+│ address                                                                       │ MIT                                 │
+│ agent-base                                                                    │ MIT                                 │
+│ aggregate-error                                                               │ MIT                                 │
+│ ajv                                                                           │ MIT                                 │
+│ ajv-formats                                                                   │ MIT                                 │
+│ ajv-keywords                                                                  │ MIT                                 │
+│ algoliasearch                                                                 │ MIT                                 │
+│ algoliasearch-helper                                                          │ MIT                                 │
+│ ansi-align                                                                    │ ISC                                 │
+│ ansi-colors (dev)                                                             │ MIT                                 │
+│ ansi-escapes (dev)                                                            │ MIT                                 │
+│ ansi-html-community                                                           │ Apache-2.0                          │
+│ ansi-regex (dev)                                                              │ MIT                                 │
+│ ansi-sequence-parser                                                          │ MIT                                 │
+│ ansi-styles (dev)                                                             │ MIT                                 │
+│ anymatch                                                                      │ ISC                                 │
+│ aproba                                                                        │ ISC                                 │
+│ arch (dev)                                                                    │ MIT                                 │
+│ are-we-there-yet                                                              │ ISC                                 │
+│ arg (dev)                                                                     │ MIT                                 │
+│ argparse                                                                      │ Python-2.0                          │
+│ argv (dev)                                                                    │ Unknown                             │
+│ arr-diff (dev)                                                                │ MIT                                 │
+│ arr-flatten (dev)                                                             │ MIT                                 │
+│ arr-union (dev)                                                               │ MIT                                 │
+│ array-flatten                                                                 │ MIT                                 │
+│ array-union                                                                   │ MIT                                 │
+│ array-unique (dev)                                                            │ MIT                                 │
+│ array.prototype.flat (dev)                                                    │ MIT                                 │
+│ arrify (dev)                                                                  │ MIT                                 │
+│ asn1 (dev)                                                                    │ MIT                                 │
+│ assert-plus (dev)                                                             │ MIT                                 │
+│ assign-symbols (dev)                                                          │ MIT                                 │
+│ astral-regex (dev)                                                            │ MIT                                 │
+│ astring                                                                       │ MIT                                 │
+│ async (dev)                                                                   │ MIT                                 │
+│ async-listen (dev)                                                            │ MIT                                 │
+│ asynckit                                                                      │ MIT                                 │
+│ asyncro (dev)                                                                 │ MIT                                 │
+│ at-least-node                                                                 │ ISC                                 │
+│ atob (dev)                                                                    │ (MIT OR Apache-2.0)                 │
+│ autoprefixer                                                                  │ MIT                                 │
+│ available-typed-arrays (dev)                                                  │ MIT                                 │
+│ aws-sign2 (dev)                                                               │ Apache-2.0                          │
+│ aws4 (dev)                                                                    │ MIT                                 │
+│ axios (dev)                                                                   │ MIT                                 │
+│ babel-jest (dev)                                                              │ MIT                                 │
+│ babel-loader                                                                  │ MIT                                 │
+│ babel-plugin-apply-mdx-type-prop                                              │ MIT                                 │
+│ babel-plugin-dynamic-import-node                                              │ MIT                                 │
+│ babel-plugin-extract-import-names                                             │ MIT                                 │
+│ babel-plugin-istanbul (dev)                                                   │ BSD-3-Clause                        │
+│ babel-plugin-jest-hoist (dev)                                                 │ MIT                                 │
+│ babel-plugin-macros (dev)                                                     │ MIT                                 │
+│ babel-plugin-polyfill-corejs2                                                 │ MIT                                 │
+│ babel-plugin-polyfill-corejs3                                                 │ MIT                                 │
+│ babel-plugin-polyfill-regenerator                                             │ MIT                                 │
+│ babel-plugin-transform-async-to-promises (dev)                                │ MIT                                 │
+│ babel-plugin-transform-replace-expressions (dev)                              │ MIT                                 │
+│ babel-preset-current-node-syntax (dev)                                        │ MIT                                 │
+│ babel-preset-jest (dev)                                                       │ MIT                                 │
+│ bail                                                                          │ MIT                                 │
+│ balanced-match                                                                │ MIT                                 │
+│ base (dev)                                                                    │ MIT                                 │
+│ base64-js (dev)                                                               │ MIT                                 │
+│ batch                                                                         │ MIT                                 │
+│ bcrypt-pbkdf (dev)                                                            │ BSD-3-Clause                        │
+│ better-path-resolve (dev)                                                     │ MIT                                 │
+│ big-integer (dev)                                                             │ Unlicense                           │
+│ big.js                                                                        │ MIT                                 │
+│ binary-extensions                                                             │ MIT                                 │
+│ blob-util (dev)                                                               │ Apache-2.0                          │
+│ bluebird (dev)                                                                │ MIT                                 │
+│ body-parser                                                                   │ MIT                                 │
+│ bonjour-service                                                               │ MIT                                 │
+│ boolbase                                                                      │ ISC                                 │
+│ boxen                                                                         │ MIT                                 │
+│ bplist-parser (dev)                                                           │ MIT                                 │
+│ brace-expansion (dev)                                                         │ MIT                                 │
+│ braces                                                                        │ MIT                                 │
+│ breakword (dev)                                                               │ gpl-2.0                             │
+│ brotli (dev)                                                                  │ MIT                                 │
+│ brotli-size (dev)                                                             │ MIT                                 │
+│ browser-fs-access                                                             │ Apache-2.0                          │
+│ browser-process-hrtime (dev)                                                  │ BSD-2-Clause                        │
+│ browserslist                                                                  │ MIT                                 │
+│ bser (dev)                                                                    │ Apache-2.0                          │
+│ buffer (dev)                                                                  │ MIT                                 │
+│ buffer-crc32 (dev)                                                            │ MIT                                 │
+│ buffer-from                                                                   │ MIT                                 │
+│ builtin-modules (dev)                                                         │ MIT                                 │
+│ bundle-name (dev)                                                             │ MIT                                 │
+│ bytes                                                                         │ MIT                                 │
+│ cache-base (dev)                                                              │ MIT                                 │
+│ cacheable-lookup                                                              │ MIT                                 │
+│ cacheable-request                                                             │ MIT                                 │
+│ cachedir (dev)                                                                │ MIT                                 │
+│ call-bind                                                                     │ MIT                                 │
+│ callsites                                                                     │ MIT                                 │
+│ camel-case                                                                    │ MIT                                 │
+│ camelcase                                                                     │ MIT                                 │
+│ camelcase-css                                                                 │ MIT                                 │
+│ camelcase-keys (dev)                                                          │ MIT                                 │
+│ caniuse-api                                                                   │ MIT                                 │
+│ caniuse-lite                                                                  │ CC-BY-4.0                           │
+│ canvas                                                                        │ MIT                                 │
+│ capture-exit (dev)                                                            │ ISC                                 │
+│ caseless (dev)                                                                │ Apache-2.0                          │
+│ ccount                                                                        │ MIT                                 │
+│ chalk (dev)                                                                   │ MIT                                 │
+│ char-regex                                                                    │ MIT                                 │
+│ character-entities                                                            │ MIT                                 │
+│ character-entities-html4                                                      │ MIT                                 │
+│ character-entities-legacy                                                     │ MIT                                 │
+│ character-reference-invalid                                                   │ MIT                                 │
+│ chardet (dev)                                                                 │ MIT                                 │
+│ check-more-types (dev)                                                        │ MIT                                 │
+│ cheerio                                                                       │ MIT                                 │
+│ cheerio-select                                                                │ BSD-2-Clause                        │
+│ chokidar                                                                      │ MIT                                 │
+│ chownr                                                                        │ ISC                                 │
+│ chrome-trace-event                                                            │ MIT                                 │
+│ ci-info (dev)                                                                 │ MIT                                 │
+│ cjs-module-lexer (dev)                                                        │ MIT                                 │
+│ class-utils (dev)                                                             │ MIT                                 │
+│ classnames                                                                    │ MIT                                 │
+│ clean-css                                                                     │ MIT                                 │
+│ clean-stack                                                                   │ MIT                                 │
+│ cli-boxes                                                                     │ MIT                                 │
+│ cli-cursor (dev)                                                              │ MIT                                 │
+│ cli-table3                                                                    │ MIT                                 │
+│ cli-truncate (dev)                                                            │ MIT                                 │
+│ cliui (dev)                                                                   │ ISC                                 │
+│ clone (dev)                                                                   │ MIT                                 │
+│ clone-deep                                                                    │ MIT                                 │
+│ clsx                                                                          │ MIT                                 │
+│ co (dev)                                                                      │ MIT                                 │
+│ codecov (dev)                                                                 │ MIT                                 │
+│ collapse-white-space                                                          │ MIT                                 │
+│ collect-v8-coverage (dev)                                                     │ MIT                                 │
+│ collection-visit (dev)                                                        │ MIT                                 │
+│ color-convert                                                                 │ MIT                                 │
+│ color-name                                                                    │ MIT                                 │
+│ color-support                                                                 │ ISC                                 │
+│ colord                                                                        │ MIT                                 │
+│ colorette                                                                     │ MIT                                 │
+│ combine-promises                                                              │ MIT                                 │
+│ combined-stream                                                               │ MIT                                 │
+│ comma-separated-tokens                                                        │ MIT                                 │
+│ commander                                                                     │ MIT                                 │
+│ common-path-prefix                                                            │ ISC                                 │
+│ common-tags (dev)                                                             │ MIT                                 │
+│ commondir (dev)                                                               │ MIT                                 │
+│ component-emitter (dev)                                                       │ MIT                                 │
+│ compressible                                                                  │ MIT                                 │
+│ compression                                                                   │ MIT                                 │
+│ concat-map                                                                    │ MIT                                 │
+│ concat-with-sourcemaps (dev)                                                  │ ISC                                 │
+│ config-chain                                                                  │ MIT                                 │
+│ configstore                                                                   │ BSD-2-Clause                        │
+│ connect-history-api-fallback                                                  │ MIT                                 │
+│ consola                                                                       │ MIT                                 │
+│ console-control-strings                                                       │ ISC                                 │
+│ content-disposition                                                           │ MIT                                 │
+│ content-type                                                                  │ MIT                                 │
+│ convert-hrtime (dev)                                                          │ MIT                                 │
+│ convert-source-map                                                            │ MIT                                 │
+│ cookie                                                                        │ MIT                                 │
+│ cookie-signature                                                              │ MIT                                 │
+│ copy-anything                                                                 │ MIT                                 │
+│ copy-descriptor (dev)                                                         │ MIT                                 │
+│ copy-text-to-clipboard                                                        │ MIT                                 │
+│ copy-webpack-plugin                                                           │ MIT                                 │
+│ core-js                                                                       │ MIT                                 │
+│ core-js-compat                                                                │ MIT                                 │
+│ core-js-pure                                                                  │ MIT                                 │
+│ core-util-is                                                                  │ MIT                                 │
+│ cosmiconfig                                                                   │ MIT                                 │
+│ create-require (dev)                                                          │ MIT                                 │
+│ crelt                                                                         │ MIT                                 │
+│ cross-spawn                                                                   │ MIT                                 │
+│ crypto-random-string                                                          │ MIT                                 │
+│ css-declaration-sorter                                                        │ ISC                                 │
+│ css-loader                                                                    │ MIT                                 │
+│ css-minimizer-webpack-plugin                                                  │ MIT                                 │
+│ css-select                                                                    │ BSD-2-Clause                        │
+│ css-tree                                                                      │ MIT                                 │
+│ css-what                                                                      │ BSD-2-Clause                        │
+│ cssesc                                                                        │ MIT                                 │
+│ cssnano                                                                       │ MIT                                 │
+│ cssnano-preset-advanced                                                       │ MIT                                 │
+│ cssnano-preset-default                                                        │ MIT                                 │
+│ cssnano-utils                                                                 │ MIT                                 │
+│ csso                                                                          │ MIT                                 │
+│ cssom (dev)                                                                   │ MIT                                 │
+│ cssstyle (dev)                                                                │ MIT                                 │
+│ csstype                                                                       │ MIT                                 │
+│ csv (dev)                                                                     │ MIT                                 │
+│ csv-generate (dev)                                                            │ MIT                                 │
+│ csv-parse (dev)                                                               │ MIT                                 │
+│ csv-stringify (dev)                                                           │ MIT                                 │
+│ cypress (dev)                                                                 │ MIT                                 │
+│ d3-array                                                                      │ ISC                                 │
+│ d3-color                                                                      │ BSD-3-Clause                        │
+│ d3-ease                                                                       │ BSD-3-Clause                        │
+│ d3-format                                                                     │ ISC                                 │
+│ d3-interpolate                                                                │ BSD-3-Clause                        │
+│ d3-path                                                                       │ ISC                                 │
+│ d3-scale                                                                      │ ISC                                 │
+│ d3-shape                                                                      │ ISC                                 │
+│ d3-time                                                                       │ ISC                                 │
+│ d3-time-format                                                                │ ISC                                 │
+│ d3-timer                                                                      │ BSD-3-Clause                        │
+│ daisyui                                                                       │ MIT                                 │
+│ dashdash (dev)                                                                │ MIT                                 │
+│ data-urls (dev)                                                               │ MIT                                 │
+│ dayjs                                                                         │ MIT                                 │
+│ debounce                                                                      │ MIT                                 │
+│ debug                                                                         │ MIT                                 │
+│ decamelize (dev)                                                              │ MIT                                 │
+│ decamelize-keys (dev)                                                         │ MIT                                 │
+│ decimal.js                                                                    │ MIT                                 │
+│ decode-named-character-reference                                              │ MIT                                 │
+│ decode-uri-component (dev)                                                    │ MIT                                 │
+│ decompress-response                                                           │ MIT                                 │
+│ dedent                                                                        │ MIT                                 │
+│ deep-extend                                                                   │ MIT                                 │
+│ deep-is                                                                       │ MIT                                 │
+│ deepmerge                                                                     │ MIT                                 │
+│ default-browser (dev)                                                         │ MIT                                 │
+│ default-browser-id (dev)                                                      │ MIT                                 │
+│ default-gateway                                                               │ BSD-2-Clause                        │
+│ defaults (dev)                                                                │ MIT                                 │
+│ defer-to-connect                                                              │ MIT                                 │
+│ define-data-property                                                          │ MIT                                 │
+│ define-lazy-prop                                                              │ MIT                                 │
+│ define-properties                                                             │ MIT                                 │
+│ define-property (dev)                                                         │ MIT                                 │
+│ defined (dev)                                                                 │ MIT                                 │
+│ del                                                                           │ MIT                                 │
+│ delayed-stream                                                                │ MIT                                 │
+│ delegates                                                                     │ MIT                                 │
+│ depd                                                                          │ MIT                                 │
+│ dequal                                                                        │ MIT                                 │
+│ destroy                                                                       │ MIT                                 │
+│ detab                                                                         │ MIT                                 │
+│ detect-browser                                                                │ MIT                                 │
+│ detect-indent (dev)                                                           │ MIT                                 │
+│ detect-libc                                                                   │ Apache-2.0                          │
+│ detect-newline (dev)                                                          │ MIT                                 │
+│ detect-node                                                                   │ MIT                                 │
+│ detect-port                                                                   │ MIT                                 │
+│ detect-port-alt                                                               │ MIT                                 │
+│ detective (dev)                                                               │ MIT                                 │
+│ devlop                                                                        │ MIT                                 │
+│ dfa (dev)                                                                     │ MIT                                 │
+│ didyoumean (dev)                                                              │ Apache-2.0                          │
+│ diff (dev)                                                                    │ BSD-3-Clause                        │
+│ diff-sequences (dev)                                                          │ MIT                                 │
+│ dir-glob                                                                      │ MIT                                 │
+│ discontinuous-range                                                           │ MIT                                 │
+│ dlv (dev)                                                                     │ MIT                                 │
+│ dns-equal                                                                     │ MIT                                 │
+│ dns-packet                                                                    │ MIT                                 │
+│ doctrine                                                                      │ Apache-2.0                          │
+│ docusaurus-plugin-less                                                        │ MIT                                 │
+│ dom-converter                                                                 │ MIT                                 │
+│ dom-serializer                                                                │ MIT                                 │
+│ domelementtype                                                                │ BSD-2-Clause                        │
+│ domexception (dev)                                                            │ MIT                                 │
+│ domhandler                                                                    │ BSD-2-Clause                        │
+│ domutils                                                                      │ BSD-2-Clause                        │
+│ dot-case                                                                      │ MIT                                 │
+│ dot-prop                                                                      │ MIT                                 │
+│ duplexer                                                                      │ MIT                                 │
+│ eastasianwidth                                                                │ MIT                                 │
+│ ecc-jsbn (dev)                                                                │ MIT                                 │
+│ edge-runtime (dev)                                                            │ MPL-2.0                             │
+│ ee-first                                                                      │ MIT                                 │
+│ ejs (dev)                                                                     │ Apache-2.0                          │
+│ electron-to-chromium                                                          │ ISC                                 │
+│ emitter-component (dev)                                                       │ Unknown                             │
+│ emittery (dev)                                                                │ MIT                                 │
+│ emoji-regex                                                                   │ MIT                                 │
+│ emojilib                                                                      │ MIT                                 │
+│ emojis-list                                                                   │ MIT                                 │
+│ emoticon                                                                      │ MIT                                 │
+│ encodeurl                                                                     │ MIT                                 │
+│ end-of-stream (dev)                                                           │ MIT                                 │
+│ enhanced-resolve                                                              │ MIT                                 │
+│ enquirer (dev)                                                                │ MIT                                 │
+│ entities                                                                      │ BSD-2-Clause                        │
+│ errno                                                                         │ MIT                                 │
+│ error-ex                                                                      │ MIT                                 │
+│ es-abstract (dev)                                                             │ MIT                                 │
+│ es-module-lexer                                                               │ MIT                                 │
+│ es-shim-unscopables (dev)                                                     │ MIT                                 │
+│ es-to-primitive (dev)                                                         │ MIT                                 │
+│ esbuild                                                                       │ MIT                                 │
+│ esbuild-jest (dev)                                                            │ MIT                                 │
+│ esbuild-visualizer (dev)                                                      │ MIT                                 │
+│ escalade                                                                      │ MIT                                 │
+│ escape-goat                                                                   │ MIT                                 │
+│ escape-html                                                                   │ MIT                                 │
+│ escape-string-regexp                                                          │ MIT                                 │
+│ escodegen (dev)                                                               │ BSD-2-Clause                        │
+│ eslint                                                                        │ MIT                                 │
+│ eslint-plugin-prettier (dev)                                                  │ MIT                                 │
+│ eslint-plugin-unused-imports (dev)                                            │ MIT                                 │
+│ eslint-rule-composer (dev)                                                    │ MIT                                 │
+│ eslint-scope                                                                  │ BSD-2-Clause                        │
+│ eslint-utils                                                                  │ MIT                                 │
+│ eslint-visitor-keys                                                           │ Apache-2.0                          │
+│ espree                                                                        │ BSD-2-Clause                        │
+│ esprima                                                                       │ BSD-2-Clause                        │
+│ esquery                                                                       │ BSD-3-Clause                        │
+│ esrecurse                                                                     │ BSD-2-Clause                        │
+│ estraverse                                                                    │ BSD-2-Clause                        │
+│ estree-util-attach-comments                                                   │ MIT                                 │
+│ estree-util-build-jsx                                                         │ MIT                                 │
+│ estree-util-is-identifier-name                                                │ MIT                                 │
+│ estree-util-to-js                                                             │ MIT                                 │
+│ estree-util-value-to-estree                                                   │ MIT                                 │
+│ estree-util-visit                                                             │ MIT                                 │
+│ estree-walker                                                                 │ MIT                                 │
+│ esutils                                                                       │ BSD-2-Clause                        │
+│ eta                                                                           │ MIT                                 │
+│ etag                                                                          │ MIT                                 │
+│ eval                                                                          │ MIT                                 │
+│ event-stream (dev)                                                            │ MIT                                 │
+│ eventemitter2 (dev)                                                           │ MIT                                 │
+│ eventemitter3                                                                 │ MIT                                 │
+│ events                                                                        │ MIT                                 │
+│ exec-sh (dev)                                                                 │ MIT                                 │
+│ execa                                                                         │ MIT                                 │
+│ executable (dev)                                                              │ MIT                                 │
+│ exit (dev)                                                                    │ MIT                                 │
+│ expand-brackets (dev)                                                         │ MIT                                 │
+│ expect (dev)                                                                  │ MIT                                 │
+│ express                                                                       │ MIT                                 │
+│ extend                                                                        │ MIT                                 │
+│ extend-shallow                                                                │ MIT                                 │
+│ extendable-error (dev)                                                        │ MIT                                 │
+│ external-editor (dev)                                                         │ MIT                                 │
+│ extglob (dev)                                                                 │ MIT                                 │
+│ extract-zip (dev)                                                             │ BSD-2-Clause                        │
+│ extsprintf (dev)                                                              │ MIT                                 │
+│ fast-deep-equal                                                               │ MIT                                 │
+│ fast-diff (dev)                                                               │ Apache-2.0                          │
+│ fast-glob                                                                     │ MIT                                 │
+│ fast-json-stable-stringify                                                    │ MIT                                 │
+│ fast-levenshtein                                                              │ MIT                                 │
+│ fast-url-parser                                                               │ MIT                                 │
+│ fastq                                                                         │ ISC                                 │
+│ fault                                                                         │ MIT                                 │
+│ faye-websocket                                                                │ Apache-2.0                          │
+│ fb-watchman (dev)                                                             │ Apache-2.0                          │
+│ fd-slicer (dev)                                                               │ MIT                                 │
+│ feed                                                                          │ MIT                                 │
+│ figures (dev)                                                                 │ MIT                                 │
+│ file-entry-cache                                                              │ MIT                                 │
+│ file-loader                                                                   │ MIT                                 │
+│ filelist (dev)                                                                │ Apache-2.0                          │
+│ filesize                                                                      │ BSD-3-Clause                        │
+│ fill-range                                                                    │ MIT                                 │
+│ finalhandler                                                                  │ MIT                                 │
+│ find-cache-dir                                                                │ MIT                                 │
+│ find-up                                                                       │ MIT                                 │
+│ find-yarn-workspace-root2 (dev)                                               │ Apache-2.0                          │
+│ flat                                                                          │ BSD-3-Clause                        │
+│ flat-cache                                                                    │ MIT                                 │
+│ flatted                                                                       │ ISC                                 │
+│ follow-redirects                                                              │ MIT                                 │
+│ fontkit (dev)                                                                 │ MIT                                 │
+│ for-each (dev)                                                                │ MIT                                 │
+│ for-in (dev)                                                                  │ MIT                                 │
+│ foreground-child (dev)                                                        │ ISC                                 │
+│ forever-agent (dev)                                                           │ Apache-2.0                          │
+│ fork-ts-checker-webpack-plugin                                                │ MIT                                 │
+│ form-data                                                                     │ MIT                                 │
+│ form-data-encoder                                                             │ MIT                                 │
+│ format                                                                        │ MIT                                 │
+│ forwarded                                                                     │ MIT                                 │
+│ fraction.js                                                                   │ MIT                                 │
+│ fragment-cache (dev)                                                          │ MIT                                 │
+│ fresh                                                                         │ MIT                                 │
+│ from (dev)                                                                    │ MIT                                 │
+│ fs-extra                                                                      │ MIT                                 │
+│ fs-minipass                                                                   │ ISC                                 │
+│ fs-monkey                                                                     │ Unlicense                           │
+│ fs.realpath                                                                   │ ISC                                 │
+│ function-bind                                                                 │ MIT                                 │
+│ function.prototype.name (dev)                                                 │ MIT                                 │
+│ functions-have-names (dev)                                                    │ MIT                                 │
+│ gauge                                                                         │ ISC                                 │
+│ generic-names (dev)                                                           │ MIT                                 │
+│ gensync                                                                       │ MIT                                 │
+│ get-caller-file                                                               │ ISC                                 │
+│ get-east-asian-width (dev)                                                    │ MIT                                 │
+│ get-intrinsic                                                                 │ MIT                                 │
+│ get-own-enumerable-property-symbols                                           │ ISC                                 │
+│ get-package-type (dev)                                                        │ MIT                                 │
+│ get-stream                                                                    │ MIT                                 │
+│ get-symbol-description (dev)                                                  │ MIT                                 │
+│ get-tsconfig (dev)                                                            │ MIT                                 │
+│ get-value (dev)                                                               │ MIT                                 │
+│ getos (dev)                                                                   │ MIT                                 │
+│ getpass (dev)                                                                 │ MIT                                 │
+│ github-slugger                                                                │ ISC                                 │
+│ gl-matrix                                                                     │ MIT                                 │
+│ glob                                                                          │ ISC                                 │
+│ glob-parent                                                                   │ ISC                                 │
+│ glob-to-regexp                                                                │ BSD-2-Clause                        │
+│ global-dirs                                                                   │ MIT                                 │
+│ global-modules                                                                │ MIT                                 │
+│ global-prefix                                                                 │ MIT                                 │
+│ globals                                                                       │ MIT                                 │
+│ globalyzer (dev)                                                              │ MIT                                 │
+│ globby                                                                        │ MIT                                 │
+│ globrex (dev)                                                                 │ MIT                                 │
+│ goober                                                                        │ MIT                                 │
+│ gopd                                                                          │ MIT                                 │
+│ got                                                                           │ MIT                                 │
+│ graceful-fs                                                                   │ ISC                                 │
+│ grapheme-splitter                                                             │ MIT                                 │
+│ graphemer (dev)                                                               │ MIT                                 │
+│ gray-matter                                                                   │ MIT                                 │
+│ gzip-size (dev)                                                               │ MIT                                 │
+│ handle-thing                                                                  │ MIT                                 │
+│ hard-rejection (dev)                                                          │ MIT                                 │
+│ has                                                                           │ MIT                                 │
+│ has-ansi (dev)                                                                │ MIT                                 │
+│ has-bigints (dev)                                                             │ MIT                                 │
+│ has-flag                                                                      │ MIT                                 │
+│ has-property-descriptors                                                      │ MIT                                 │
+│ has-proto                                                                     │ MIT                                 │
+│ has-symbols                                                                   │ MIT                                 │
+│ has-tostringtag (dev)                                                         │ MIT                                 │
+│ has-unicode                                                                   │ ISC                                 │
+│ has-value (dev)                                                               │ MIT                                 │
+│ has-values (dev)                                                              │ MIT                                 │
+│ has-yarn                                                                      │ MIT                                 │
+│ hasown                                                                        │ MIT                                 │
+│ hast-to-hyperscript                                                           │ MIT                                 │
+│ hast-util-from-parse5                                                         │ MIT                                 │
+│ hast-util-parse-selector                                                      │ MIT                                 │
+│ hast-util-raw                                                                 │ MIT                                 │
+│ hast-util-to-estree                                                           │ MIT                                 │
+│ hast-util-to-jsx-runtime                                                      │ MIT                                 │
+│ hast-util-to-parse5                                                           │ MIT                                 │
+│ hast-util-whitespace                                                          │ MIT                                 │
+│ hastscript                                                                    │ MIT                                 │
+│ he                                                                            │ MIT                                 │
+│ history                                                                       │ MIT                                 │
+│ hoist-non-react-statics                                                       │ BSD-3-Clause                        │
+│ hosted-git-info (dev)                                                         │ ISC                                 │
+│ hpack.js                                                                      │ MIT                                 │
+│ html-encoding-sniffer (dev)                                                   │ MIT                                 │
+│ html-entities                                                                 │ MIT                                 │
+│ html-escaper                                                                  │ MIT                                 │
+│ html-minifier-terser                                                          │ MIT                                 │
+│ html-tags                                                                     │ MIT                                 │
+│ html-void-elements                                                            │ MIT                                 │
+│ html-webpack-plugin                                                           │ MIT                                 │
+│ htmlparser2                                                                   │ MIT                                 │
+│ http-cache-semantics                                                          │ BSD-2-Clause                        │
+│ http-deceiver                                                                 │ MIT                                 │
+│ http-errors                                                                   │ MIT                                 │
+│ http-parser-js                                                                │ MIT                                 │
+│ http-proxy                                                                    │ MIT                                 │
+│ http-proxy-agent (dev)                                                        │ MIT                                 │
+│ http-proxy-middleware                                                         │ MIT                                 │
+│ http-signature (dev)                                                          │ MIT                                 │
+│ http2-wrapper                                                                 │ MIT                                 │
+│ https-proxy-agent                                                             │ MIT                                 │
+│ human-id (dev)                                                                │ MIT                                 │
+│ human-signals                                                                 │ Apache-2.0                          │
+│ husky (dev)                                                                   │ MIT                                 │
+│ iconv-lite                                                                    │ MIT                                 │
+│ icss-replace-symbols (dev)                                                    │ ISC                                 │
+│ icss-utils                                                                    │ ISC                                 │
+│ idb (dev)                                                                     │ ISC                                 │
+│ ieee754 (dev)                                                                 │ BSD-3-Clause                        │
+│ ignore                                                                        │ MIT                                 │
+│ ignore-walk (dev)                                                             │ ISC                                 │
+│ image-size                                                                    │ MIT                                 │
+│ immer                                                                         │ MIT                                 │
+│ import-cwd (dev)                                                              │ MIT                                 │
+│ import-fresh                                                                  │ MIT                                 │
+│ import-from (dev)                                                             │ MIT                                 │
+│ import-lazy                                                                   │ MIT                                 │
+│ import-local (dev)                                                            │ MIT                                 │
+│ imurmurhash                                                                   │ MIT                                 │
+│ indent-string                                                                 │ MIT                                 │
+│ infima                                                                        │ MIT                                 │
+│ inflight                                                                      │ ISC                                 │
+│ inherits                                                                      │ ISC                                 │
+│ ini                                                                           │ ISC                                 │
+│ inline-style-parser                                                           │ MIT                                 │
+│ internal-slot (dev)                                                           │ MIT                                 │
+│ internmap                                                                     │ ISC                                 │
+│ interpret                                                                     │ MIT                                 │
+│ invariant                                                                     │ MIT                                 │
+│ ipaddr.js                                                                     │ MIT                                 │
+│ is-accessor-descriptor (dev)                                                  │ MIT                                 │
+│ is-alphabetical                                                               │ MIT                                 │
+│ is-alphanumerical                                                             │ MIT                                 │
+│ is-arguments (dev)                                                            │ MIT                                 │
+│ is-arrayish                                                                   │ MIT                                 │
+│ is-bigint (dev)                                                               │ MIT                                 │
+│ is-binary-path                                                                │ MIT                                 │
+│ is-boolean-object (dev)                                                       │ MIT                                 │
+│ is-buffer                                                                     │ MIT                                 │
+│ is-callable (dev)                                                             │ MIT                                 │
+│ is-ci (dev)                                                                   │ MIT                                 │
+│ is-core-module                                                                │ MIT                                 │
+│ is-data-descriptor (dev)                                                      │ MIT                                 │
+│ is-date-object (dev)                                                          │ MIT                                 │
+│ is-decimal                                                                    │ MIT                                 │
+│ is-descriptor (dev)                                                           │ MIT                                 │
+│ is-docker                                                                     │ MIT                                 │
+│ is-extendable                                                                 │ MIT                                 │
+│ is-extglob                                                                    │ MIT                                 │
+│ is-fullwidth-code-point                                                       │ MIT                                 │
+│ is-generator-fn (dev)                                                         │ MIT                                 │
+│ is-generator-function (dev)                                                   │ MIT                                 │
+│ is-glob                                                                       │ MIT                                 │
+│ is-hexadecimal                                                                │ MIT                                 │
+│ is-inside-container (dev)                                                     │ MIT                                 │
+│ is-installed-globally                                                         │ MIT                                 │
+│ is-module (dev)                                                               │ MIT                                 │
+│ is-negative-zero (dev)                                                        │ MIT                                 │
+│ is-npm                                                                        │ MIT                                 │
+│ is-number                                                                     │ MIT                                 │
+│ is-number-object (dev)                                                        │ MIT                                 │
+│ is-obj                                                                        │ MIT                                 │
+│ is-path-cwd                                                                   │ MIT                                 │
+│ is-path-inside                                                                │ MIT                                 │
+│ is-plain-obj                                                                  │ MIT                                 │
+│ is-plain-object                                                               │ MIT                                 │
+│ is-potential-custom-element-name                                              │ MIT                                 │
+│ is-reference                                                                  │ MIT                                 │
+│ is-regex (dev)                                                                │ MIT                                 │
+│ is-regexp                                                                     │ MIT                                 │
+│ is-root                                                                       │ MIT                                 │
+│ is-shared-array-buffer (dev)                                                  │ MIT                                 │
+│ is-stream                                                                     │ MIT                                 │
+│ is-string (dev)                                                               │ MIT                                 │
+│ is-subdir (dev)                                                               │ MIT                                 │
+│ is-symbol (dev)                                                               │ MIT                                 │
+│ is-typed-array (dev)                                                          │ MIT                                 │
+│ is-typedarray                                                                 │ MIT                                 │
+│ is-unicode-supported (dev)                                                    │ MIT                                 │
+│ is-weakref (dev)                                                              │ MIT                                 │
+│ is-what                                                                       │ MIT                                 │
+│ is-whitespace-character                                                       │ MIT                                 │
+│ is-windows (dev)                                                              │ MIT                                 │
+│ is-word-character                                                             │ MIT                                 │
+│ is-wsl                                                                        │ MIT                                 │
+│ is-yarn-global                                                                │ MIT                                 │
+│ isarray                                                                       │ MIT                                 │
+│ isexe                                                                         │ ISC                                 │
+│ isobject                                                                      │ MIT                                 │
+│ isstream (dev)                                                                │ MIT                                 │
+│ istanbul-lib-coverage (dev)                                                   │ BSD-3-Clause                        │
+│ istanbul-lib-instrument (dev)                                                 │ BSD-3-Clause                        │
+│ istanbul-lib-report (dev)                                                     │ BSD-3-Clause                        │
+│ istanbul-lib-source-maps (dev)                                                │ BSD-3-Clause                        │
+│ istanbul-reports (dev)                                                        │ BSD-3-Clause                        │
+│ jackspeak (dev)                                                               │ BlueOak-1.0.0                       │
+│ jake (dev)                                                                    │ Apache-2.0                          │
+│ jest (dev)                                                                    │ MIT                                 │
+│ jiti                                                                          │ MIT                                 │
+│ joi                                                                           │ BSD-3-Clause                        │
+│ js-sdsl                                                                       │ MIT                                 │
+│ js-tokens                                                                     │ MIT                                 │
+│ js-yaml                                                                       │ MIT                                 │
+│ jsbn (dev)                                                                    │ MIT                                 │
+│ jsdom (dev)                                                                   │ MIT                                 │
+│ jsesc                                                                         │ MIT                                 │
+│ json-buffer                                                                   │ MIT                                 │
+│ json-parse-even-better-errors                                                 │ MIT                                 │
+│ json-schema-traverse                                                          │ MIT                                 │
+│ json-stable-stringify-without-jsonify                                         │ MIT                                 │
+│ json-stringify-safe (dev)                                                     │ ISC                                 │
+│ json5                                                                         │ MIT                                 │
+│ jsonc-parser                                                                  │ MIT                                 │
+│ jsonfile                                                                      │ MIT                                 │
+│ jsonpointer (dev)                                                             │ MIT                                 │
+│ jsprim (dev)                                                                  │ MIT                                 │
+│ keyv                                                                          │ MIT                                 │
+│ kind-of                                                                       │ MIT                                 │
+│ kleur                                                                         │ MIT                                 │
+│ klona                                                                         │ MIT                                 │
+│ latest-version                                                                │ MIT                                 │
+│ launch-editor                                                                 │ MIT                                 │
+│ lazy-ass (dev)                                                                │ MIT                                 │
+│ less                                                                          │ Apache-2.0                          │
+│ less-loader                                                                   │ MIT                                 │
+│ leven                                                                         │ MIT                                 │
+│ levn (dev)                                                                    │ MIT                                 │
+│ lilconfig                                                                     │ MIT                                 │
+│ lines-and-columns                                                             │ MIT                                 │
+│ lint-staged (dev)                                                             │ MIT                                 │
+│ listr2 (dev)                                                                  │ MIT                                 │
+│ load-yaml-file (dev)                                                          │ MIT                                 │
+│ loader-runner                                                                 │ MIT                                 │
+│ loader-utils                                                                  │ MIT                                 │
+│ locate-path                                                                   │ MIT                                 │
+│ lodash                                                                        │ MIT                                 │
+│ lodash-es                                                                     │ MIT                                 │
+│ lodash.camelcase (dev)                                                        │ MIT                                 │
+│ lodash.debounce                                                               │ MIT                                 │
+│ lodash.memoize                                                                │ MIT                                 │
+│ lodash.merge                                                                  │ MIT                                 │
+│ lodash.once (dev)                                                             │ MIT                                 │
+│ lodash.sortby (dev)                                                           │ MIT                                 │
+│ lodash.startcase (dev)                                                        │ MIT                                 │
+│ lodash.uniq                                                                   │ MIT                                 │
+│ log-symbols (dev)                                                             │ MIT                                 │
+│ log-update (dev)                                                              │ MIT                                 │
+│ longest-streak                                                                │ MIT                                 │
+│ loose-envify                                                                  │ MIT                                 │
+│ lower-case                                                                    │ MIT                                 │
+│ lowercase-keys                                                                │ MIT                                 │
+│ lru-cache (dev)                                                               │ ISC                                 │
+│ magic-string (dev)                                                            │ MIT                                 │
+│ make-dir                                                                      │ MIT                                 │
+│ make-error (dev)                                                              │ ISC                                 │
+│ makeerror (dev)                                                               │ BSD-3-Clause                        │
+│ map-cache (dev)                                                               │ MIT                                 │
+│ map-obj (dev)                                                                 │ MIT                                 │
+│ map-stream (dev)                                                              │ Unknown                             │
+│ map-visit (dev)                                                               │ MIT                                 │
+│ markdown-escapes                                                              │ MIT                                 │
+│ markdown-extensions                                                           │ MIT                                 │
+│ markdown-table                                                                │ MIT                                 │
+│ maxmin (dev)                                                                  │ MIT                                 │
+│ mdast-squeeze-paragraphs                                                      │ MIT                                 │
+│ mdast-util-definitions                                                        │ MIT                                 │
+│ mdast-util-directive                                                          │ MIT                                 │
+│ mdast-util-find-and-replace                                                   │ MIT                                 │
+│ mdast-util-from-markdown                                                      │ MIT                                 │
+│ mdast-util-frontmatter                                                        │ MIT                                 │
+│ mdast-util-gfm                                                                │ MIT                                 │
+│ mdast-util-gfm-autolink-literal                                               │ MIT                                 │
+│ mdast-util-gfm-footnote                                                       │ MIT                                 │
+│ mdast-util-gfm-strikethrough                                                  │ MIT                                 │
+│ mdast-util-gfm-table                                                          │ MIT                                 │
+│ mdast-util-gfm-task-list-item                                                 │ MIT                                 │
+│ mdast-util-mdx                                                                │ MIT                                 │
+│ mdast-util-mdx-expression                                                     │ MIT                                 │
+│ mdast-util-mdx-jsx                                                            │ MIT                                 │
+│ mdast-util-mdxjs-esm                                                          │ MIT                                 │
+│ mdast-util-phrasing                                                           │ MIT                                 │
+│ mdast-util-to-hast                                                            │ MIT                                 │
+│ mdast-util-to-markdown                                                        │ MIT                                 │
+│ mdast-util-to-string                                                          │ MIT                                 │
+│ mdn-data                                                                      │ CC0-1.0                             │
+│ mdurl                                                                         │ MIT                                 │
+│ mdx-embed                                                                     │ MIT                                 │
+│ media-typer                                                                   │ MIT                                 │
+│ memfs                                                                         │ Unlicense                           │
+│ meow (dev)                                                                    │ MIT                                 │
+│ merge-descriptors                                                             │ MIT                                 │
+│ merge-stream                                                                  │ MIT                                 │
+│ merge2                                                                        │ MIT                                 │
+│ methods                                                                       │ MIT                                 │
+│ microbundle (dev)                                                             │ MIT                                 │
+│ micromark                                                                     │ MIT                                 │
+│ micromark-core-commonmark                                                     │ MIT                                 │
+│ micromark-extension-directive                                                 │ MIT                                 │
+│ micromark-extension-frontmatter                                               │ MIT                                 │
+│ micromark-extension-gfm                                                       │ MIT                                 │
+│ micromark-extension-gfm-autolink-literal                                      │ MIT                                 │
+│ micromark-extension-gfm-footnote                                              │ MIT                                 │
+│ micromark-extension-gfm-strikethrough                                         │ MIT                                 │
+│ micromark-extension-gfm-table                                                 │ MIT                                 │
+│ micromark-extension-gfm-tagfilter                                             │ MIT                                 │
+│ micromark-extension-gfm-task-list-item                                        │ MIT                                 │
+│ micromark-extension-mdx-expression                                            │ MIT                                 │
+│ micromark-extension-mdx-jsx                                                   │ MIT                                 │
+│ micromark-extension-mdx-md                                                    │ MIT                                 │
+│ micromark-extension-mdxjs                                                     │ MIT                                 │
+│ micromark-extension-mdxjs-esm                                                 │ MIT                                 │
+│ micromark-factory-destination                                                 │ MIT                                 │
+│ micromark-factory-label                                                       │ MIT                                 │
+│ micromark-factory-mdx-expression                                              │ MIT                                 │
+│ micromark-factory-space                                                       │ MIT                                 │
+│ micromark-factory-title                                                       │ MIT                                 │
+│ micromark-factory-whitespace                                                  │ MIT                                 │
+│ micromark-util-character                                                      │ MIT                                 │
+│ micromark-util-chunked                                                        │ MIT                                 │
+│ micromark-util-classify-character                                             │ MIT                                 │
+│ micromark-util-combine-extensions                                             │ MIT                                 │
+│ micromark-util-decode-numeric-character-reference                             │ MIT                                 │
+│ micromark-util-decode-string                                                  │ MIT                                 │
+│ micromark-util-encode                                                         │ MIT                                 │
+│ micromark-util-events-to-acorn                                                │ MIT                                 │
+│ micromark-util-html-tag-name                                                  │ MIT                                 │
+│ micromark-util-normalize-identifier                                           │ MIT                                 │
+│ micromark-util-resolve-all                                                    │ MIT                                 │
+│ micromark-util-sanitize-uri                                                   │ MIT                                 │
+│ micromark-util-subtokenize                                                    │ MIT                                 │
+│ micromark-util-symbol                                                         │ MIT                                 │
+│ micromark-util-types                                                          │ MIT                                 │
+│ micromatch                                                                    │ MIT                                 │
+│ mime                                                                          │ MIT                                 │
+│ mime-db                                                                       │ MIT                                 │
+│ mime-types                                                                    │ MIT                                 │
+│ mimic-fn                                                                      │ MIT                                 │
+│ mimic-response                                                                │ MIT                                 │
+│ min-indent (dev)                                                              │ MIT                                 │
+│ mini-css-extract-plugin                                                       │ MIT                                 │
+│ minimalistic-assert                                                           │ ISC                                 │
+│ minimatch                                                                     │ ISC                                 │
+│ minimist                                                                      │ MIT                                 │
+│ minimist-options (dev)                                                        │ MIT                                 │
+│ minipass                                                                      │ ISC                                 │
+│ minizlib                                                                      │ MIT                                 │
+│ mixin-deep (dev)                                                              │ MIT                                 │
+│ mixme (dev)                                                                   │ MIT                                 │
+│ mkdirp                                                                        │ MIT                                 │
+│ moo                                                                           │ BSD-3-Clause                        │
+│ mri (dev)                                                                     │ MIT                                 │
+│ mrmime                                                                        │ MIT                                 │
+│ ms                                                                            │ MIT                                 │
+│ multicast-dns                                                                 │ MIT                                 │
+│ nan                                                                           │ MIT                                 │
+│ nanoid                                                                        │ MIT                                 │
+│ nanomatch (dev)                                                               │ MIT                                 │
+│ natural-compare                                                               │ MIT                                 │
+│ needle                                                                        │ MIT                                 │
+│ negotiator                                                                    │ MIT                                 │
+│ neo-async                                                                     │ MIT                                 │
+│ nice-try (dev)                                                                │ MIT                                 │
+│ no-case                                                                       │ MIT                                 │
+│ node-emoji                                                                    │ MIT                                 │
+│ node-fetch                                                                    │ MIT                                 │
+│ node-forge                                                                    │ (BSD-3-Clause OR GPL-2.0)           │
+│ node-int64 (dev)                                                              │ MIT                                 │
+│ node-releases                                                                 │ MIT                                 │
+│ nopt                                                                          │ ISC                                 │
+│ normalize-package-data (dev)                                                  │ BSD-2-Clause                        │
+│ normalize-path                                                                │ MIT                                 │
+│ normalize-range                                                               │ MIT                                 │
+│ normalize-url                                                                 │ MIT                                 │
+│ npm-run-path                                                                  │ MIT                                 │
+│ npmlog                                                                        │ ISC                                 │
+│ nprogress                                                                     │ MIT                                 │
+│ nth-check                                                                     │ BSD-2-Clause                        │
+│ number-is-nan (dev)                                                           │ MIT                                 │
+│ nwsapi                                                                        │ MIT                                 │
+│ object-assign                                                                 │ MIT                                 │
+│ object-copy (dev)                                                             │ MIT                                 │
+│ object-hash (dev)                                                             │ MIT                                 │
+│ object-inspect                                                                │ MIT                                 │
+│ object-keys                                                                   │ MIT                                 │
+│ object-visit (dev)                                                            │ MIT                                 │
+│ object.assign                                                                 │ MIT                                 │
+│ object.pick (dev)                                                             │ MIT                                 │
+│ obuf                                                                          │ MIT                                 │
+│ on-finished                                                                   │ MIT                                 │
+│ on-headers                                                                    │ MIT                                 │
+│ once                                                                          │ ISC                                 │
+│ onetime                                                                       │ MIT                                 │
+│ open                                                                          │ MIT                                 │
+│ opener                                                                        │ (WTFPL OR MIT)                      │
+│ optionator (dev)                                                              │ MIT                                 │
+│ os-tmpdir (dev)                                                               │ MIT                                 │
+│ ospath (dev)                                                                  │ MIT                                 │
+│ outdent (dev)                                                                 │ MIT                                 │
+│ p-cancelable                                                                  │ MIT                                 │
+│ p-filter (dev)                                                                │ MIT                                 │
+│ p-finally (dev)                                                               │ MIT                                 │
+│ p-limit                                                                       │ MIT                                 │
+│ p-locate                                                                      │ MIT                                 │
+│ p-map                                                                         │ MIT                                 │
+│ p-queue (dev)                                                                 │ MIT                                 │
+│ p-retry                                                                       │ MIT                                 │
+│ p-timeout (dev)                                                               │ MIT                                 │
+│ p-try                                                                         │ MIT                                 │
+│ package-json                                                                  │ MIT                                 │
+│ pako (dev)                                                                    │ MIT                                 │
+│ param-case                                                                    │ MIT                                 │
+│ parent-module                                                                 │ MIT                                 │
+│ parse-entities                                                                │ MIT                                 │
+│ parse-json                                                                    │ MIT                                 │
+│ parse-ms (dev)                                                                │ MIT                                 │
+│ parse-node-version                                                            │ MIT                                 │
+│ parse-numeric-range                                                           │ ISC                                 │
+│ parse5                                                                        │ MIT                                 │
+│ parse5-htmlparser2-tree-adapter                                               │ MIT                                 │
+│ parseurl                                                                      │ MIT                                 │
+│ pascal-case                                                                   │ MIT                                 │
+│ pascalcase (dev)                                                              │ MIT                                 │
+│ path (dev)                                                                    │ MIT                                 │
+│ path-browserify                                                               │ MIT                                 │
+│ path-exists                                                                   │ MIT                                 │
+│ path-is-absolute                                                              │ MIT                                 │
+│ path-is-inside                                                                │ (WTFPL OR MIT)                      │
+│ path-key (dev)                                                                │ MIT                                 │
+│ path-parse                                                                    │ MIT                                 │
+│ path-scurry (dev)                                                             │ BlueOak-1.0.0                       │
+│ path-to-regexp                                                                │ MIT                                 │
+│ path-type                                                                     │ MIT                                 │
+│ pause-stream (dev)                                                            │ Unknown                             │
+│ pend (dev)                                                                    │ MIT                                 │
+│ performance-now (dev)                                                         │ MIT                                 │
+│ periscopic                                                                    │ MIT                                 │
+│ picocolors                                                                    │ ISC                                 │
+│ picomatch                                                                     │ MIT                                 │
+│ pidtree (dev)                                                                 │ MIT                                 │
+│ pify (dev)                                                                    │ MIT                                 │
+│ pirates (dev)                                                                 │ MIT                                 │
+│ pkg-dir                                                                       │ MIT                                 │
+│ pkg-up                                                                        │ MIT                                 │
+│ posix-character-classes (dev)                                                 │ MIT                                 │
+│ postcss                                                                       │ MIT                                 │
+│ postcss-calc                                                                  │ MIT                                 │
+│ postcss-colormin                                                              │ MIT                                 │
+│ postcss-convert-values                                                        │ MIT                                 │
+│ postcss-discard-comments                                                      │ MIT                                 │
+│ postcss-discard-duplicates                                                    │ MIT                                 │
+│ postcss-discard-empty                                                         │ MIT                                 │
+│ postcss-discard-overridden                                                    │ MIT                                 │
+│ postcss-discard-unused                                                        │ MIT                                 │
+│ postcss-import (dev)                                                          │ MIT                                 │
+│ postcss-js (dev)                                                              │ MIT                                 │
+│ postcss-load-config (dev)                                                     │ MIT                                 │
+│ postcss-loader                                                                │ MIT                                 │
+│ postcss-merge-idents                                                          │ MIT                                 │
+│ postcss-merge-longhand                                                        │ MIT                                 │
+│ postcss-merge-rules                                                           │ MIT                                 │
+│ postcss-minify-font-values                                                    │ MIT                                 │
+│ postcss-minify-gradients                                                      │ MIT                                 │
+│ postcss-minify-params                                                         │ MIT                                 │
+│ postcss-minify-selectors                                                      │ MIT                                 │
+│ postcss-modules (dev)                                                         │ MIT                                 │
+│ postcss-modules-extract-imports                                               │ ISC                                 │
+│ postcss-modules-local-by-default                                              │ MIT                                 │
+│ postcss-modules-scope                                                         │ ISC                                 │
+│ postcss-modules-values                                                        │ ISC                                 │
+│ postcss-nested (dev)                                                          │ MIT                                 │
+│ postcss-normalize-charset                                                     │ MIT                                 │
+│ postcss-normalize-display-values                                              │ MIT                                 │
+│ postcss-normalize-positions                                                   │ MIT                                 │
+│ postcss-normalize-repeat-style                                                │ MIT                                 │
+│ postcss-normalize-string                                                      │ MIT                                 │
+│ postcss-normalize-timing-functions                                            │ MIT                                 │
+│ postcss-normalize-unicode                                                     │ MIT                                 │
+│ postcss-normalize-url                                                         │ MIT                                 │
+│ postcss-normalize-whitespace                                                  │ MIT                                 │
+│ postcss-ordered-values                                                        │ MIT                                 │
+│ postcss-reduce-idents                                                         │ MIT                                 │
+│ postcss-reduce-initial                                                        │ MIT                                 │
+│ postcss-reduce-transforms                                                     │ MIT                                 │
+│ postcss-selector-parser                                                       │ MIT                                 │
+│ postcss-sort-media-queries                                                    │ MIT                                 │
+│ postcss-svgo                                                                  │ MIT                                 │
+│ postcss-unique-selectors                                                      │ MIT                                 │
+│ postcss-value-parser                                                          │ MIT                                 │
+│ postcss-zindex                                                                │ MIT                                 │
+│ preferred-pm (dev)                                                            │ MIT                                 │
+│ prelude-ls (dev)                                                              │ MIT                                 │
+│ prettier (dev)                                                                │ MIT                                 │
+│ prettier-linter-helpers (dev)                                                 │ MIT                                 │
+│ pretty-bytes (dev)                                                            │ MIT                                 │
+│ pretty-error                                                                  │ MIT                                 │
+│ pretty-format (dev)                                                           │ MIT                                 │
+│ pretty-ms (dev)                                                               │ MIT                                 │
+│ pretty-time                                                                   │ MIT                                 │
+│ prism-react-renderer                                                          │ MIT                                 │
+│ prismjs                                                                       │ MIT                                 │
+│ process (dev)                                                                 │ MIT                                 │
+│ process-nextick-args                                                          │ MIT                                 │
+│ promise.series (dev)                                                          │ MIT                                 │
+│ prompts                                                                       │ MIT                                 │
+│ prop-types                                                                    │ MIT                                 │
+│ property-information                                                          │ MIT                                 │
+│ proto-list                                                                    │ ISC                                 │
+│ proxy-addr                                                                    │ MIT                                 │
+│ proxy-from-env (dev)                                                          │ MIT                                 │
+│ prr                                                                           │ MIT                                 │
+│ ps-tree (dev)                                                                 │ MIT                                 │
+│ pseudomap (dev)                                                               │ ISC                                 │
+│ psl                                                                           │ MIT                                 │
+│ pump (dev)                                                                    │ MIT                                 │
+│ punycode                                                                      │ MIT                                 │
+│ pupa                                                                          │ MIT                                 │
+│ qs                                                                            │ BSD-3-Clause                        │
+│ querystringify                                                                │ MIT                                 │
+│ queue                                                                         │ MIT                                 │
+│ queue-microtask                                                               │ MIT                                 │
+│ quick-lru                                                                     │ MIT                                 │
+│ railroad-diagrams                                                             │ CC0-1.0                             │
+│ randexp                                                                       │ MIT                                 │
+│ randombytes                                                                   │ MIT                                 │
+│ range-parser                                                                  │ MIT                                 │
+│ raw-body                                                                      │ MIT                                 │
+│ rc                                                                            │ (BSD-2-Clause OR MIT OR Apache-2.0) │
+│ react                                                                         │ MIT                                 │
+│ react-dev-utils                                                               │ MIT                                 │
+│ react-dom                                                                     │ MIT                                 │
+│ react-error-boundary                                                          │ MIT                                 │
+│ react-error-overlay                                                           │ MIT                                 │
+│ react-fast-compare                                                            │ MIT                                 │
+│ react-helmet-async                                                            │ Apache-2.0                          │
+│ react-hot-toast                                                               │ MIT                                 │
+│ react-is                                                                      │ MIT                                 │
+│ react-json-view-lite                                                          │ MIT                                 │
+│ react-loadable-ssr-addon-v5-slorber                                           │ MIT                                 │
+│ react-redux                                                                   │ MIT                                 │
+│ react-refresh (dev)                                                           │ MIT                                 │
+│ react-router                                                                  │ MIT                                 │
+│ react-router-config                                                           │ MIT                                 │
+│ react-router-dom                                                              │ MIT                                 │
+│ read-cache (dev)                                                              │ MIT                                 │
+│ read-pkg (dev)                                                                │ MIT                                 │
+│ read-pkg-up (dev)                                                             │ MIT                                 │
+│ read-yaml-file (dev)                                                          │ MIT                                 │
+│ readable-stream                                                               │ MIT                                 │
+│ readdirp                                                                      │ MIT                                 │
+│ reading-time                                                                  │ MIT                                 │
+│ rechoir                                                                       │ MIT                                 │
+│ recursive-readdir                                                             │ MIT                                 │
+│ redent (dev)                                                                  │ MIT                                 │
+│ redux                                                                         │ MIT                                 │
+│ redux-thunk                                                                   │ MIT                                 │
+│ regenerate                                                                    │ MIT                                 │
+│ regenerate-unicode-properties                                                 │ MIT                                 │
+│ regenerator-runtime                                                           │ MIT                                 │
+│ regenerator-transform                                                         │ MIT                                 │
+│ regex-not (dev)                                                               │ MIT                                 │
+│ regexp.prototype.flags (dev)                                                  │ MIT                                 │
+│ regexpp                                                                       │ MIT                                 │
+│ regexpu-core                                                                  │ MIT                                 │
+│ registry-auth-token                                                           │ MIT                                 │
+│ registry-url                                                                  │ MIT                                 │
+│ regjsparser                                                                   │ BSD-2-Clause                        │
+│ rehype-raw                                                                    │ MIT                                 │
+│ relateurl                                                                     │ MIT                                 │
+│ remark-directive                                                              │ MIT                                 │
+│ remark-emoji                                                                  │ MIT                                 │
+│ remark-footnotes                                                              │ MIT                                 │
+│ remark-frontmatter                                                            │ MIT                                 │
+│ remark-gfm                                                                    │ MIT                                 │
+│ remark-mdx                                                                    │ MIT                                 │
+│ remark-parse                                                                  │ MIT                                 │
+│ remark-rehype                                                                 │ MIT                                 │
+│ remark-squeeze-paragraphs                                                     │ MIT                                 │
+│ remark-stringify                                                              │ MIT                                 │
+│ remove-trailing-separator (dev)                                               │ ISC                                 │
+│ renderkid                                                                     │ MIT                                 │
+│ repeat-element (dev)                                                          │ MIT                                 │
+│ repeat-string                                                                 │ MIT                                 │
+│ request-progress (dev)                                                        │ MIT                                 │
+│ require-directory                                                             │ MIT                                 │
+│ require-from-string                                                           │ MIT                                 │
+│ require-like                                                                  │ Unknown                             │
+│ require-main-filename (dev)                                                   │ ISC                                 │
+│ requires-port                                                                 │ MIT                                 │
+│ reselect                                                                      │ MIT                                 │
+│ resolve                                                                       │ MIT                                 │
+│ resolve-alpn                                                                  │ MIT                                 │
+│ resolve-cwd (dev)                                                             │ MIT                                 │
+│ resolve-from                                                                  │ MIT                                 │
+│ resolve-pathname                                                              │ MIT                                 │
+│ resolve-pkg-maps (dev)                                                        │ MIT                                 │
+│ resolve-url (dev)                                                             │ MIT                                 │
+│ resolve.exports (dev)                                                         │ MIT                                 │
+│ responselike                                                                  │ MIT                                 │
+│ restore-cursor (dev)                                                          │ MIT                                 │
+│ restructure (dev)                                                             │ MIT                                 │
+│ ret                                                                           │ MIT                                 │
+│ retry                                                                         │ MIT                                 │
+│ reusify                                                                       │ MIT                                 │
+│ rfdc (dev)                                                                    │ MIT                                 │
+│ rimraf                                                                        │ ISC                                 │
+│ rollup (dev)                                                                  │ MIT                                 │
+│ rollup-plugin-bundle-size (dev)                                               │ MIT                                 │
+│ rollup-plugin-postcss (dev)                                                   │ MIT                                 │
+│ rollup-plugin-terser (dev)                                                    │ MIT                                 │
+│ rollup-plugin-typescript2 (dev)                                               │ MIT                                 │
+│ rollup-plugin-visualizer (dev)                                                │ MIT                                 │
+│ rollup-pluginutils (dev)                                                      │ MIT                                 │
+│ rrweb-cssom                                                                   │ MIT                                 │
+│ rsvp (dev)                                                                    │ MIT                                 │
+│ rtl-detect                                                                    │ BSD-3-Clause                        │
+│ rtlcss                                                                        │ MIT                                 │
+│ run-applescript (dev)                                                         │ MIT                                 │
+│ run-parallel                                                                  │ MIT                                 │
+│ rxjs (dev)                                                                    │ Apache-2.0                          │
+│ sade (dev)                                                                    │ MIT                                 │
+│ safe-buffer                                                                   │ MIT                                 │
+│ safe-identifier (dev)                                                         │ ISC                                 │
+│ safe-regex (dev)                                                              │ MIT                                 │
+│ safer-buffer                                                                  │ MIT                                 │
+│ sane (dev)                                                                    │ MIT                                 │
+│ sax                                                                           │ ISC                                 │
+│ saxes                                                                         │ ISC                                 │
+│ scheduler                                                                     │ MIT                                 │
+│ schema-utils                                                                  │ MIT                                 │
+│ search-insights                                                               │ MIT                                 │
+│ section-matter                                                                │ MIT                                 │
+│ select-hose                                                                   │ MIT                                 │
+│ selfsigned                                                                    │ MIT                                 │
+│ semver                                                                        │ ISC                                 │
+│ semver-diff                                                                   │ MIT                                 │
+│ send                                                                          │ MIT                                 │
+│ serialize-javascript                                                          │ BSD-3-Clause                        │
+│ serve-handler                                                                 │ MIT                                 │
+│ serve-index                                                                   │ MIT                                 │
+│ serve-static                                                                  │ MIT                                 │
+│ set-blocking                                                                  │ ISC                                 │
+│ set-function-length                                                           │ MIT                                 │
+│ set-value (dev)                                                               │ MIT                                 │
+│ setprototypeof                                                                │ ISC                                 │
+│ shallow-clone                                                                 │ MIT                                 │
+│ shallowequal                                                                  │ MIT                                 │
+│ shebang-command                                                               │ MIT                                 │
+│ shebang-regex                                                                 │ MIT                                 │
+│ shell-exec                                                                    │ MIT                                 │
+│ shell-quote                                                                   │ MIT                                 │
+│ shelljs                                                                       │ BSD-3-Clause                        │
+│ shiki                                                                         │ MIT                                 │
+│ side-channel                                                                  │ MIT                                 │
+│ signal-exit (dev)                                                             │ ISC                                 │
+│ simple-concat                                                                 │ MIT                                 │
+│ simple-get                                                                    │ MIT                                 │
+│ sirv                                                                          │ MIT                                 │
+│ sisteransi                                                                    │ MIT                                 │
+│ sitemap                                                                       │ MIT                                 │
+│ skin-tone                                                                     │ MIT                                 │
+│ slash                                                                         │ MIT                                 │
+│ slice-ansi (dev)                                                              │ MIT                                 │
+│ smartwrap (dev)                                                               │ MIT                                 │
+│ snake-case                                                                    │ MIT                                 │
+│ snapdragon (dev)                                                              │ MIT                                 │
+│ snapdragon-node (dev)                                                         │ MIT                                 │
+│ snapdragon-util (dev)                                                         │ MIT                                 │
+│ sockjs                                                                        │ MIT                                 │
+│ sort-css-media-queries                                                        │ MIT                                 │
+│ source-map                                                                    │ BSD-3-Clause                        │
+│ source-map-js                                                                 │ BSD-3-Clause                        │
+│ source-map-resolve (dev)                                                      │ MIT                                 │
+│ source-map-support                                                            │ MIT                                 │
+│ source-map-url (dev)                                                          │ MIT                                 │
+│ sourcemap-codec (dev)                                                         │ MIT                                 │
+│ space-separated-tokens                                                        │ MIT                                 │
+│ spawndamnit (dev)                                                             │ MIT                                 │
+│ spdx-correct (dev)                                                            │ Apache-2.0                          │
+│ spdx-exceptions (dev)                                                         │ CC-BY-3.0                           │
+│ spdx-expression-parse (dev)                                                   │ MIT                                 │
+│ spdx-license-ids (dev)                                                        │ CC0-1.0                             │
+│ spdy                                                                          │ MIT                                 │
+│ spdy-transport                                                                │ MIT                                 │
+│ split (dev)                                                                   │ MIT                                 │
+│ split-string (dev)                                                            │ MIT                                 │
+│ sprintf-js                                                                    │ BSD-3-Clause                        │
+│ srcset                                                                        │ MIT                                 │
+│ sshpk (dev)                                                                   │ MIT                                 │
+│ stable                                                                        │ MIT                                 │
+│ stack-utils (dev)                                                             │ MIT                                 │
+│ start-server-and-test (dev)                                                   │ MIT                                 │
+│ state-toggle                                                                  │ MIT                                 │
+│ static-extend (dev)                                                           │ MIT                                 │
+│ statuses                                                                      │ MIT                                 │
+│ std-env                                                                       │ MIT                                 │
+│ stream (dev)                                                                  │ MIT                                 │
+│ stream-browserify (dev)                                                       │ MIT                                 │
+│ stream-combiner (dev)                                                         │ MIT                                 │
+│ stream-events (dev)                                                           │ MIT                                 │
+│ stream-transform (dev)                                                        │ MIT                                 │
+│ string-argv (dev)                                                             │ MIT                                 │
+│ string-hash (dev)                                                             │ CC0-1.0                             │
+│ string-length (dev)                                                           │ MIT                                 │
+│ string-width                                                                  │ MIT                                 │
+│ string.prototype.matchall (dev)                                               │ MIT                                 │
+│ string.prototype.trimend (dev)                                                │ MIT                                 │
+│ string.prototype.trimstart (dev)                                              │ MIT                                 │
+│ string_decoder                                                                │ MIT                                 │
+│ stringify-entities                                                            │ MIT                                 │
+│ stringify-object                                                              │ BSD-2-Clause                        │
+│ strip-ansi (dev)                                                              │ MIT                                 │
+│ strip-bom (dev)                                                               │ MIT                                 │
+│ strip-bom-string                                                              │ MIT                                 │
+│ strip-comments (dev)                                                          │ MIT                                 │
+│ strip-eof (dev)                                                               │ MIT                                 │
+│ strip-final-newline                                                           │ MIT                                 │
+│ strip-indent (dev)                                                            │ MIT                                 │
+│ strip-json-comments                                                           │ MIT                                 │
+│ stubs (dev)                                                                   │ MIT                                 │
+│ style-inject (dev)                                                            │ MIT                                 │
+│ style-mod                                                                     │ MIT                                 │
+│ style-to-object                                                               │ MIT                                 │
+│ stylehacks                                                                    │ MIT                                 │
+│ supports-color (dev)                                                          │ MIT                                 │
+│ supports-hyperlinks (dev)                                                     │ MIT                                 │
+│ supports-preserve-symlinks-flag                                               │ MIT                                 │
+│ svg-parser                                                                    │ MIT                                 │
+│ svgdom (dev)                                                                  │ MIT                                 │
+│ svgo                                                                          │ MIT                                 │
+│ symbol-tree                                                                   │ MIT                                 │
+│ synckit (dev)                                                                 │ MIT                                 │
+│ tailwindcss (dev)                                                             │ MIT                                 │
+│ tapable                                                                       │ MIT                                 │
+│ tar                                                                           │ ISC                                 │
+│ teeny-request (dev)                                                           │ Apache-2.0                          │
+│ temp-dir (dev)                                                                │ MIT                                 │
+│ tempy (dev)                                                                   │ MIT                                 │
+│ term-size (dev)                                                               │ MIT                                 │
+│ terminal-link (dev)                                                           │ MIT                                 │
+│ terser                                                                        │ BSD-2-Clause                        │
+│ terser-webpack-plugin                                                         │ MIT                                 │
+│ test-exclude (dev)                                                            │ ISC                                 │
+│ text-table                                                                    │ MIT                                 │
+│ throttle-debounce                                                             │ MIT                                 │
+│ throttleit (dev)                                                              │ MIT                                 │
+│ through (dev)                                                                 │ MIT                                 │
+│ thunky                                                                        │ MIT                                 │
+│ time-span (dev)                                                               │ MIT                                 │
+│ tiny-glob (dev)                                                               │ MIT                                 │
+│ tiny-inflate (dev)                                                            │ MIT                                 │
+│ tiny-invariant                                                                │ MIT                                 │
+│ tiny-warning                                                                  │ MIT                                 │
+│ tinycolor2                                                                    │ MIT                                 │
+│ titleize (dev)                                                                │ MIT                                 │
+│ tmp (dev)                                                                     │ MIT                                 │
+│ tmpl (dev)                                                                    │ BSD-3-Clause                        │
+│ to-fast-properties                                                            │ MIT                                 │
+│ to-object-path (dev)                                                          │ MIT                                 │
+│ to-regex (dev)                                                                │ MIT                                 │
+│ to-regex-range                                                                │ MIT                                 │
+│ toidentifier                                                                  │ MIT                                 │
+│ totalist                                                                      │ MIT                                 │
+│ tough-cookie                                                                  │ BSD-3-Clause                        │
+│ tr46 (dev)                                                                    │ MIT                                 │
+│ trim                                                                          │ Unknown                             │
+│ trim-lines                                                                    │ MIT                                 │
+│ trim-newlines (dev)                                                           │ MIT                                 │
+│ trim-trailing-lines                                                           │ MIT                                 │
+│ trough                                                                        │ MIT                                 │
+│ ts-api-utils (dev)                                                            │ MIT                                 │
+│ ts-node (dev)                                                                 │ MIT                                 │
+│ tsconfck (dev)                                                                │ MIT                                 │
+│ tslib                                                                         │ 0BSD                                │
+│ tsx (dev)                                                                     │ MIT                                 │
+│ tty-table (dev)                                                               │ MIT                                 │
+│ tunnel-agent (dev)                                                            │ Apache-2.0                          │
+│ turbo (dev)                                                                   │ MPL-2.0                             │
+│ turbo-windows-64 (dev)                                                        │ MPL-2.0                             │
+│ tweetnacl (dev)                                                               │ Unlicense                           │
+│ type-check (dev)                                                              │ MIT                                 │
+│ type-detect (dev)                                                             │ MIT                                 │
+│ type-fest                                                                     │ (MIT OR CC0-1.0)                    │
+│ type-is                                                                       │ MIT                                 │
+│ typedarray-to-buffer                                                          │ MIT                                 │
+│ typescript (dev)                                                              │ Apache-2.0                          │
+│ unbox-primitive (dev)                                                         │ MIT                                 │
+│ unherit                                                                       │ MIT                                 │
+│ unicode-canonical-property-names-ecmascript                                   │ MIT                                 │
+│ unicode-emoji-modifier-base                                                   │ MIT                                 │
+│ unicode-match-property-ecmascript                                             │ MIT                                 │
+│ unicode-match-property-value-ecmascript                                       │ MIT                                 │
+│ unicode-properties (dev)                                                      │ MIT                                 │
+│ unicode-property-aliases-ecmascript                                           │ MIT                                 │
+│ unicode-trie (dev)                                                            │ MIT                                 │
+│ unified                                                                       │ MIT                                 │
+│ union-value (dev)                                                             │ MIT                                 │
+│ unique-string                                                                 │ MIT                                 │
+│ unist-builder                                                                 │ MIT                                 │
+│ unist-util-generated                                                          │ MIT                                 │
+│ unist-util-is                                                                 │ MIT                                 │
+│ unist-util-position                                                           │ MIT                                 │
+│ unist-util-position-from-estree                                               │ MIT                                 │
+│ unist-util-remove                                                             │ MIT                                 │
+│ unist-util-remove-position                                                    │ MIT                                 │
+│ unist-util-stringify-position                                                 │ MIT                                 │
+│ unist-util-visit                                                              │ MIT                                 │
+│ unist-util-visit-parents                                                      │ MIT                                 │
+│ universalify                                                                  │ MIT                                 │
+│ unpipe                                                                        │ MIT                                 │
+│ unset-value (dev)                                                             │ MIT                                 │
+│ untildify (dev)                                                               │ MIT                                 │
+│ upath (dev)                                                                   │ MIT                                 │
+│ update-browserslist-db                                                        │ MIT                                 │
+│ update-notifier                                                               │ BSD-2-Clause                        │
+│ uri-js                                                                        │ BSD-2-Clause                        │
+│ urix (dev)                                                                    │ MIT                                 │
+│ url (dev)                                                                     │ MIT                                 │
+│ url-loader                                                                    │ MIT                                 │
+│ url-parse                                                                     │ MIT                                 │
+│ urlgrey (dev)                                                                 │ BSD-2-Clause                        │
+│ use (dev)                                                                     │ MIT                                 │
+│ use-sync-external-store                                                       │ MIT                                 │
+│ usehooks-ts                                                                   │ MIT                                 │
+│ util (dev)                                                                    │ MIT                                 │
+│ util-deprecate                                                                │ MIT                                 │
+│ utila                                                                         │ MIT                                 │
+│ utility-types                                                                 │ MIT                                 │
+│ utils-merge                                                                   │ MIT                                 │
+│ uuid                                                                          │ MIT                                 │
+│ v8-compile-cache-lib (dev)                                                    │ MIT                                 │
+│ v8-to-istanbul (dev)                                                          │ ISC                                 │
+│ validate-npm-package-license (dev)                                            │ Apache-2.0                          │
+│ value-equal                                                                   │ MIT                                 │
+│ vary                                                                          │ MIT                                 │
+│ verror (dev)                                                                  │ MIT                                 │
+│ vfile                                                                         │ MIT                                 │
+│ vfile-location                                                                │ MIT                                 │
+│ vfile-message                                                                 │ MIT                                 │
+│ vite (dev)                                                                    │ MIT                                 │
+│ vite-plugin-pwa (dev)                                                         │ MIT                                 │
+│ vite-tsconfig-paths (dev)                                                     │ MIT                                 │
+│ vscode-oniguruma                                                              │ MIT                                 │
+│ vscode-textmate                                                               │ MIT                                 │
+│ w3c-hr-time (dev)                                                             │ MIT                                 │
+│ w3c-keyname                                                                   │ MIT                                 │
+│ w3c-xmlserializer (dev)                                                       │ MIT                                 │
+│ wait-on (dev)                                                                 │ MIT                                 │
+│ walker (dev)                                                                  │ Apache-2.0                          │
+│ watchpack                                                                     │ MIT                                 │
+│ wbuf                                                                          │ MIT                                 │
+│ wcwidth (dev)                                                                 │ MIT                                 │
+│ web-namespaces                                                                │ MIT                                 │
+│ webidl-conversions                                                            │ BSD-2-Clause                        │
+│ webpack                                                                       │ MIT                                 │
+│ websocket-driver                                                              │ Apache-2.0                          │
+│ websocket-extensions                                                          │ Apache-2.0                          │
+│ whatwg-encoding (dev)                                                         │ MIT                                 │
+│ whatwg-mimetype (dev)                                                         │ MIT                                 │
+│ whatwg-url (dev)                                                              │ MIT                                 │
+│ which                                                                         │ ISC                                 │
+│ which-boxed-primitive (dev)                                                   │ MIT                                 │
+│ which-module (dev)                                                            │ ISC                                 │
+│ which-pm (dev)                                                                │ MIT                                 │
+│ which-typed-array (dev)                                                       │ MIT                                 │
+│ wide-align                                                                    │ ISC                                 │
+│ widest-line                                                                   │ MIT                                 │
+│ wildcard                                                                      │ MIT                                 │
+│ word-wrap                                                                     │ MIT                                 │
+│ workbox                                                                       │ MIT                                 │
+│ wrap-ansi                                                                     │ MIT                                 │
+│ wrappy                                                                        │ ISC                                 │
+│ write-file-atomic (dev)                                                       │ ISC                                 │
+│ ws                                                                            │ MIT                                 │
+│ xdg-basedir                                                                   │ MIT                                 │
+│ xml (dev)                                                                     │ MIT                                 │
+│ xml-js                                                                        │ MIT                                 │
+│ xml-name-validator (dev)                                                      │ Apache-2.0                          │
+│ xmlchars                                                                      │ MIT                                 │
+│ xtend                                                                         │ MIT                                 │
+│ y18n                                                                          │ ISC                                 │
+│ yallist                                                                       │ ISC                                 │
+│ yaml                                                                          │ ISC                                 │
+│ yargs (dev)                                                                   │ MIT                                 │
+│ yargs-parser (dev)                                                            │ ISC                                 │
+│ yauzl (dev)                                                                   │ MIT                                 │
+│ yn (dev)                                                                      │ MIT                                 │
+│ yocto-queue                                                                   │ MIT                                 │
+│ zwitch                                                                        │ MIT                                 │
+└───────────────────────────────────────────────────────────────────────────────┴─────────────────────────────────────┘

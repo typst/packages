@@ -1,0 +1,14 @@
+[package]
+name = "leonux"
+version = "1.0.0"
+entrypoint = "template.typ"
+authors = ["LordBlacky"]
+license = "MIT"
+description = "Minimalistic Typst slides (similar to LaTeX beamer)"
+repository = "https://github.com/LordBlacky/leonux"
+categories = ["presentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
