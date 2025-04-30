@@ -1,0 +1,17 @@
+[package]
+name = "polimi-phd-thesis"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["Vittorio Robecchi <https://github.com/VictuarVi>"]
+repository = "https://github.com/VictuarVi/PoliMi-PhD-Thesis"
+license = "GPL 3.0"
+description = "An unofficial thesis template for the Polytechnic University of Milan"
+keywords = ["thesis", "polimi", "politecnico di milano"]
+categories = ["thesis", "paper"]
+disciples = ["engineering", "mathematics", "physics"]
+compiler = "0.13.0
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
