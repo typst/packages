@@ -16,7 +16,7 @@ A simple <a href="https://typst.app/universe/package/polylux/">polylux</a> slide
 To use this template, simply import it as shown below and define a `title-slide` with the following possible options:
 
 ```typ
-#import "@preview/parcio-slides:0.1.0: *"
+#import "@preview/parcio-slides:0.1.0": *
 
 #show parcio-slides.with(
   aspect-ratio: "16-9", // "16-9" and "4-3" are the only possible options.
