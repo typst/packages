@@ -158,11 +158,11 @@
 
       block(fill: ovgu-lightgray, inset: 1em, width: 100%, height: 100%)[
         #set align(horizon)
-        #set text(fill: ovgu-blue, 1.1em)
+        #set text(fill: ovgu-blue, 1em)
 
         *#title*#h(1fr)
         #if show-current-section [
-          #text(0.9em)[*#toolbox.current-section*]
+          #text(0.75em)[*#toolbox.current-section*]
         ]
       ]
     } else {
