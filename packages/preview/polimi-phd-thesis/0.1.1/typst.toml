@@ -8,7 +8,7 @@ license = "GPL-3.0"
 description = "An unofficial thesis template for the Polytechnic University of Milan"
 keywords = ["thesis", "polimi", "politecnico di milano"]
 categories = ["thesis", "paper"]
-disciples = ["engineering", "mathematics", "physics"]
+disciplines = ["engineering", "mathematics", "physics"]
 compiler = "0.13.0"
 
 [template]
