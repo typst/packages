@@ -1,3 +1,9 @@
+/* Flyer in Typst
+Author: Mariano Mollo <marianomollo@protonmail.ch>
+*/
+
+#import "@preview/impaginato:0.1.0": *
+
 // Leave a null margin here. It will be handled later in the grid.
 // Horizontal A4 format, to be cut in half by hand.
 #set page(paper: "a4", margin: 0pt, flipped: true)
@@ -56,10 +62,4 @@
   ]
 ]
 
-#grid(
-  columns: 2,
-  inset: 12pt,
-  single_flyer,
-  grid.vline(stroke: (thickness: 0.1mm, dash: "dashed")),
-  single_flyer
-)
+#impagina(single_flyer)
