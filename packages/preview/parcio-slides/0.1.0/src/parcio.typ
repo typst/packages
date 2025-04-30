@@ -1,5 +1,5 @@
 #import "@preview/polylux:0.4.0": slide as polylux-slide, toolbox
-#import "@preview/subpar:0.2.1"
+#import "@preview/subpar:0.2.2"
 
 #let m-dark-teal = rgb("#23373b")
 #let m-light-brown = rgb("#eb811b")

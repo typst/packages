@@ -115,7 +115,7 @@
 ]
 
 #bib-slide(bibliography(
-  "/bibliography/report.bib",
+  "bibliography/report.bib",
    title: none,
-   style: "/bibliography/apalike.csl"
+   style: "bibliography/apalike.csl"
 ))
