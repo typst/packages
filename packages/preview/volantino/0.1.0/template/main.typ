@@ -4,45 +4,45 @@
 // Set your language here.
 #set text(lang: "it")
 
-#let volantino_singolo = [
+#let single_flyer = [
   // Place your logo if you wish.
   #place(
     bottom + right,
-    dx: 0mm, dy: -10mm,
-    image("fantasma.svg", height: 2.8cm))
+    dx: 0mm, dy: 0mm,
+    image("fantasma.svg", height: 3.5cm))
   
   // Main heading
   #set text(font: "Bebas Neue", size: 48pt)
   #set par(leading: 10pt, spacing: 10pt)
 
-  Non un euro per la loro guerra,
-  No al riarmo UE
+  A simple flyer for activists using Typst
   
   // Body
   #set text(font: "Myriad Pro", size: 14pt)
   #set par(leading: 9pt, justify: true, spacing: 13pt)
   
-  Ursula Von der Leyen ha presentato un piano di spesa per l’Unione Europea di *800 miliardi di euro*.
-  Non per sanità, istruzione o salari.
-  Non per il clima.
-  Ma per una folle corsa agli armamenti.
-  Questo disperato tentativo dell'UE di recuperare peso politico rispetto a USA e Russia
-  allontana la pace e regala enormi profitti alle multinazionali delle armi.
+  This document features two identical A5 flyers, ready to print at home or at local copy shops on A4 paper, with a dashed line guide to cut in half precisely.
+  Write once, and the content will appear on both sides with the same formatting.
 
-  Questi fiumi di denaro pubblico andranno nelle tasche di Leonardo, Rheinmetall, BAE Systems, Thales e altre aziende che moltiplicano i fatturati quando Israele bombarda Gaza e quando giovani russi e ucraini si massacrano al fronte.
+  This was possible thanks to the usage of Typst variables in the source code.
+  The variable `single_flyer` is assigned with the content of one A5 flyer.
+  This is then repeated twice inside a grid with two columns.
+  Each column of the grid has a inset, and the two columns are separated by a dashed `vline`.
 
-  In Italia, chi appoggia questo piano bellicista sono soprattutto il PD di Schlein e il partito di Giorgia Meloni.
+  This flyer features a big uppercase and catchy left-aligned heading on the top, and a medium-large, center-aligned footer for a call to action.
+  The footer is flushed to the bottom, using a `#v(1fr)` at the end of the body text.
 
-  *Vergognosi* gli appelli del centrosinistra a un ipocrita europeismo che significa guerra e riarmo.
+  You can place a logo or an image of your choice in this flyer.
+  This is done using the `#place` function.
+  By default, the logo is placed at the bottom right.
+  You can move the logo changing its placement keywords, or tweaking the `dx` and `dy` parameters for a finer tuning.
 
-  *Vergognosa* la condotta del Governo Meloni che per obbedire a NATO e UE sacrifica le priorità dei cittadini.
-
-  Per le nostre case minacciate dal *bradisismo* sono stati stanziati appena *50 milioni*, mentre per il *riarmo* il governo spenderà *65 miliardi* nei prossimi anni.
+  Using Typst for graphics design guarantees reproducibility, do-what-i-mean behaviour, reduces technical debt (goodbye expensive tools), and allows more people to collaborate freely.
 
   #strong[
-    Per i bisogni della gente: mai soldi.
+    Ditch proprietary software and closed file formats.
 
-    Per le armi e la guerra: miliardi.
+    Embrace declarative design and open source tools.
   ]
 
   // Flush the rest to bottom.
@@ -51,15 +51,15 @@
   // Footer
   #set text(font: "Bebas Neue", size: 24pt)
   #align(center)[
-    Manifestazione nazionale \
-    #text(size: 32pt)[Roma, 15 marzo 2025, ore 15]
+    I design in Typst \
+    #text(size: 32pt)[You can do it too]
   ]
 ]
 
 #grid(
   columns: 2,
   inset: 12pt,
-  volantino_singolo,
+  single_flyer,
   grid.vline(stroke: (thickness: 0.1mm, dash: "dashed")),
-  volantino_singolo
+  single_flyer
 )
