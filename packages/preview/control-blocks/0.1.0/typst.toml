@@ -1,0 +1,8 @@
+[package]
+    name = "control-block"
+    version = "0.1.0"
+    entrypoint = "control-block.typ"
+    authors = ["ivaquero"]
+    license = "MIT"
+    description = "Control Block using fletcher and CeTZ"
+    repository = "https://github.com/ivaquero/typst-control-block"
