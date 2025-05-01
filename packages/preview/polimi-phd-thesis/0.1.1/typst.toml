@@ -10,6 +10,7 @@ keywords = ["thesis", "polimi", "politecnico di milano"]
 categories = ["thesis", "paper"]
 disciplines = ["engineering", "mathematics", "physics"]
 compiler = "0.13.0"
+exclude = [ "*.pdf" ]
 
 [template]
 path = "template"
