@@ -1,0 +1,14 @@
+[package]
+name = "tfguf"
+version = "0.0.2"
+entrypoint = "unirfisica.typ"
+authors = ["Alberto Corbi (UNIR)"]
+license = "MIT"
+description = "Plantilla para hacer TFGs en el Grado en Física de UNIR"
+repository = "https://github.com/pammacdotnet/TFGUF"
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "tfg.typ"
+thumbnail = "portada.png"
