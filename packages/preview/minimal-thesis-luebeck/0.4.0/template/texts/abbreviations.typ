@@ -5,8 +5,7 @@
   ("BC", "Boundary Condition"),
   ("DOF", "Degree of Freedom", "Degrees of Freedom"),
 )
-#let char(null) = {sym.space.nobreak}
-#abbr.config(space-char: char)
+#abbr.config(space-char: {sym.space.nobreak})
 
 #context {
   let lang = text.lang
