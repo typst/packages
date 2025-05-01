@@ -1,4 +1,4 @@
-#import "@preview/abbr:0.2.1":
+#import "@preview/abbr:0.2.3":
 #import "utils/todo.typ": TODO
 #import "utils/print-page-break.typ": print-page-break
 #import "styles/acknowledgement.typ": *
