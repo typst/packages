@@ -1,4 +1,4 @@
-#import "../lib.typ": article, author-meta, appendix, suffix, booktab
+#import "@preview/starter-journal-article:0.5.0": article, author-meta, appendix, suffix, booktab
 #import "@preview/cjk-unbreak:0.1.0": remove-cjk-break-space
 #import "@preview/kouhu:0.2.0": kouhu
 

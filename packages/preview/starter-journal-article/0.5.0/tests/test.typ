@@ -1,4 +1,4 @@
-#import "../lib.typ": article, author-meta, appendix, suffix, booktab
+#import "@preview/starter-journal-article:0.5.0": article, author-meta, appendix, suffix, booktab
 
 #let affiliations = (
   "UCL": "UCL Centre for Advanced Spatial Analysis, First Floor, 90 Tottenham Court Road, London W1T 4TJ, United Kingdom",
