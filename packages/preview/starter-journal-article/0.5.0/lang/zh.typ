@@ -8,45 +8,52 @@
   title
 }
 
-#let default-author(author) = context {
+#let default-author(authors) = context {
+  show: block.with(width: 100%, below: par.leading)
   let (gettext, locale) = i18n(text.lang)
   set text(cjk-latin-spacing: none)
-  [#author.name#super(author.insts.map(it => numbering("1", it + 1)).join(","))]
-  if author.corresponding {
-    footnote[
-      #gettext("corresponding.note")
-      #strfmt(gettext("corresponding.address"), address: author.address)
-      #if author.email != none {
-        [#strfmt(gettext("corresponding.email"), email: author.email)]
-      }
+  for author in authors {
+    [#author.name#super(author.insts.map(it => numbering("1", it + 1)).join(","))]
+    if author.corresponding {
+      footnote[
+        #gettext("corresponding.note")
+        #strfmt(gettext("corresponding.address"), address: author.address)
+        #if author.email != none {
+          [#strfmt(gettext("corresponding.email"), email: author.email)]
+        }
+      ]
+    }
+    if author.cofirst == "thefirst" [
+      #footnote(gettext("cofirst")) <fnt:cofirst-author>
+    ] else if author.cofirst == "cofirst" [
+      #footnote(<fnt:cofirst-author>)
     ]
+
   }
-  if author.cofirst == "thefirst" [
-    #footnote(gettext("cofirst")) <fnt:cofirst-author>
-  ] else if author.cofirst == "cofirst" [
-    // #footnote(<fnt:cofirst-author>)
-  ]
 }
 
-#let default-affiliation(id, address) = {
+#let default-affiliation(affiliations) = {
+  show: block.with(width: 100%)
   set text(size: 0.8em)
-  numbering("1", id + 1)
-  h(1pt)
-  address
+  set par(leading: 0.4em)
+  for (ik, address) in affiliations.enumerate() {
+    super(numbering("1", ik + 1))
+    h(1pt)
+    address
+    linebreak()
+  }
 }
 
-#let default-author-info(authors, affiliations) = context {
+#let default-author-info(authors, affiliations, styles: (:)) = context {
   set align(center)
-  block(width: 100%, below: par.leading, {
-    authors.map(it => default-author(it)).join(", ")
-  })
+  let styles = (
+    author: default-author,
+    affiliation: default-affiliation,
+    ..styles
+  )
+  (styles.author)(authors)
   let used_affiliations = authors.map(it => it.insts).flatten().dedup().map(it => affiliations.keys().at(it))
-  block(width: 100%, {
-    set par(leading: 0.4em)
-    used_affiliations.enumerate().map(((ik, key)) => {
-      default-affiliation(ik, affiliations.at(key))
-    }).join(linebreak())
-  })
+  (styles.affiliation)(used_affiliations.map(it => affiliations.at(it)))
 }
 
 #let default-abstract(abstract, keywords) = context {

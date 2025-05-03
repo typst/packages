@@ -1,4 +1,4 @@
-#import "lang/index.typ": templates
+#import "lang/index.typ": lang-templates
 #import "lang/i18n.typ": i18n
 
 #let author-meta(
@@ -101,7 +101,7 @@
     default-author-info,
     default-abstract,
     default-body,
-  ) = templates.at(text.lang, default: templates.en)
+  ) = lang-templates.at(text.lang, default: lang-templates.en)
   let template = (
     title: default-title,
     author-info: default-author-info,
@@ -194,7 +194,7 @@
     author_list.push(author_list_item)
   }
 
-  (template.author-info)(author_list, affiliations)
+  (template.author-info)(author_list, affiliations, styles: template)
 
   (template.abstract)(abstract, keywords)
 

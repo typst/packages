@@ -3,7 +3,7 @@
 #import "en.typ"
 #import "zh.typ"
 
-#let templates = (
+#let lang-templates = (
   en: en.template,
   zh: zh.template,
 )
