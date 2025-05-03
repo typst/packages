@@ -1,0 +1,18 @@
+[package]
+name = "clean-math-presentation"
+version = "0.1.1"
+compiler = "0.12.0"
+entrypoint = "lib.typ"
+authors = ["Joshua Lampert <@JoshuaLampert>"]
+license = "MIT"
+description = "A simple and good looking template for mathematical presentations"
+repository = "https://github.com/JoshuaLampert/clean-math-presentation"
+keywords = ["presentation", "slides", "lecture", "touying", "clean", "math", "mathematical", "mathematics", "computer science"]
+categories = ["presentation"]
+disciplines = ["mathematics", "engineering", "computer-science"]
+exclude = [".gitignore"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

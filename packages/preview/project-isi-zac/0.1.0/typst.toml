@@ -1,0 +1,14 @@
+[package]
+name = "project-isi-zac"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+repository = "https://github.com/Jac-Zac/project-isi-zac.git"
+authors = ["Jacopo Zacchigna", "Tina Isidoro"]
+categories = ["report", "thesis"]
+license = "MIT-0"
+description = "A template for writing reports and thesis"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

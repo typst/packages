@@ -1,0 +1,16 @@
+[package]
+name = "htlwienwest-da"
+version = "0.3.3"
+entrypoint = "lib.typ"
+authors = ["Johannes Zottele <https://github.com/jozott00>", "peterw16 <https://github.com/peterw16>"]
+license = "MIT"
+description = "The diploma thesis template for students of the HTL Wien West."
+repository = "https://github.com/htlwienwest/da-vorlage-typst"
+keywords = ["HTL Wien West", "Diplomarbeit", "thesis"]
+categories = ["thesis"]
+exclude = ["blob", "diplomarbeit.pdf"]
+
+[template]
+path = "template"
+entrypoint = "diplomarbeit.typ"
+thumbnail = "thumbnail.png"

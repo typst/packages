@@ -1,0 +1,100 @@
+@Comment{
+  from https://api.zotero.org/users/{xxx}/collections/{xxx}/items/top?key={xxx}&format=biblatex
+  --> you can use the following shell script to copy the data to the clipboard
+
+#!/bin/bash
+
+limit=25
+start=0
+your_user_id="98765"
+your_collection_id="ABC123"
+your_zotero_key="xxxxxx"
+
+# Retrieve data from the link
+while true; do
+  response=$(curl -s "https://api.zotero.org/users/$your_user_id/collections/$your_collection_id/items/top?key=$your_zotero_key&format=biblatex&limit=$limit&start=$start")
+  if [ -z "$response" ]; then
+    break
+  fi
+  echo "$response"
+  start=$((start + limit))
+done | pbcopy
+
+}
+
+@misc{cite_todo,
+  title = {todo},
+  author = {todo},
+}
+
+@book{Bradshaw2012,
+  author    = {John W. S. Bradshaw},
+  title     = {Cat Sense: How the New Feline Science Can Make You a Better Friend to Your Pet},
+  publisher = {Basic Books},
+  year      = {2012},
+  address   = {New York},
+  isbn      = {978-0465021222}
+}
+
+@book{Turner2017,
+  author    = {David C. Turner and Patrick Bateson},
+  title     = {The Domestic Cat: The Biology of Its Behaviour},
+  publisher = {Cambridge University Press},
+  year      = {2017},
+  edition   = {4th},
+  address   = {Cambridge},
+  isbn      = {978-1107405795}
+}
+
+@article{Mason2003,
+  author    = {G. J. Mason},
+  title     = {Behavioural problems of companion animals: An overview},
+  journal   = {Applied Animal Behaviour Science},
+  year      = {2003},
+  volume    = {81},
+  number    = {3},
+  pages     = {169-179},
+  doi       = {10.1016/S0168-1591(02)00229-6}
+}
+
+@article{McComb2009,
+  author    = {K. McComb and K. P. Taylor},
+  title     = {Vocal communication in cats: Evidence of intentional communication},
+  journal   = {Journal of Animal Science},
+  year      = {2009},
+  volume    = {87},
+  number    = {4},
+  pages     = {208-215},
+  doi       = {10.2527/jas.2008-1198}
+}
+
+@book{Serpell2017,
+  author    = {James A. Serpell},
+  title     = {The Domestic Cat: A Comprehensive Guide},
+  publisher = {Oxford University Press},
+  year      = {2017},
+  address   = {Oxford},
+  isbn      = {978-0198728062}
+}
+
+@article{Odendaal2000,
+  author    = {J. S. J. Odendaal and D. R. Meintjes},
+  title     = {Neurophysiological correlates of the bond between humans and their pets},
+  journal   = {Journal of Comparative Psychology},
+  year      = {2000},
+  volume    = {114},
+  number    = {4},
+  pages     = {285-292},
+  doi       = {10.1037/0735-7036.114.4.285}
+}
+
+@article{Horwitz2010,
+  author    = {David F. Horwitz and Sarah A. Mills},
+  title     = {Feline behavior and human-animal interactions},
+  journal   = {Veterinary Clinics of North America: Small Animal Practice},
+  year      = {2010},
+  volume    = {40},
+  number    = {1},
+  pages     = {39-54},
+  doi       = {10.1016/j.cvsm.2009.09.002}
+}
