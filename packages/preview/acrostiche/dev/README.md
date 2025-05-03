@@ -161,7 +161,11 @@ To test modifications locally, copy the dev folder to the local directory for ty
 rm -rf ~/.local/share/typst/packages/preview/acrostiche/0.0.0 && cp -R ../dev ~/.local/share/typst/packages/preview/acrostiche/0.0.0
 ```
 
+Then compile the `test.typ` document to test your changes or new features.
+You can use `typst watch test.typ` and typst will recompile every time you copy the changes to the 0.0.0 local package.
+You can modify the test document but please only commit changes that add simple and clear tests of your feature.
+
 
 # Acknowledgments
 
-Thank you to the contributors: **caemor**, **AurelWeinhold**, **daniel-eder**, **iostapyshyn**, **ChHecker** **Drodt**.
+Thank you to the contributors: **caemor**, **AurelWeinhold**, **daniel-eder**, **iostapyshyn**, **ChHecker**, **Drodt**, **seyfu-t**.

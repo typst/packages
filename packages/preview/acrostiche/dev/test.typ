@@ -95,3 +95,7 @@ Display long plural shortcut: #aclp("ada").\
 #print-index(title:"Used only up", sorted: "up", used-only:true)
 #print-index(title:"Used only down", sorted: "down", used-only:true)
 
+#print-index(title:"Column ratio 0.5",sorted:"", column-ratio:0.5)
+#print-index(title:"Column ratio 0.75",sorted:"", column-ratio:0.75)
+#print-index(title:"Column ratio 1",sorted:"", column-ratio:1)
+#print-index(title:"Column ratio 2",sorted:"", column-ratio:2)

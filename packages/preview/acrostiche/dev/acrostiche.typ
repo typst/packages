@@ -214,10 +214,11 @@
   //   title: set the title of the heading. Default to "Acronyms Index". Passing an empty string will result in removing the heading.
   //   delimiter: String to place after the acronym in the list. Defaults to ":"
   //   used-only: if true, only include in the index the acronyms that are used in the document. Warning, if you reset acronyms and don't used them after, they may not appear.
+  // column-ratio: a float positive value that indicate the width ratio of the first column (acronyms) with respect to the second (definitions).
 
   // assert on input values to avoid cryptic error messages
   assert(sorted in ("","up","down"), message:"Sorted must be a string either \"\", \"up\" or \"down\"")
-  assert(0 <= column-ratio and column-ratio <= 1, message: "column-ratio must be a value between 0 and 1.")
+  assert(0 <= column-ratio, message: "\"column-ratio\" must be a positive value.")
 
   if title != ""{
     heading(level: level, numbering: numbering, outlined: outlined)[#title]
