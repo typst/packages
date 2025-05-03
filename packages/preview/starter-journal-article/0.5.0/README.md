@@ -117,74 +117,72 @@ You can override any of the by setting the `template` argument in the `article()
   title
 }
 
-#let default-author(author) = {
-  text(author.name)
-  super(author.insts.map(it => str(it)).join(","))
-  if author.corresponding {
-    footnote[
-      Corresponding author. Address: #author.address.
-      #if author.email != none {
-        [Email: #underline(author.email).]
-      }
+#let default-author(authors) = context {
+  show: block.with(width: 100%)
+  let (gettext, locale) = i18n(text.lang)
+  set text(cjk-latin-spacing: none)
+  authors.map(author => {
+    [#author.name#super(author.insts.map(it => numbering("a", it + 1)).join(","))]
+    if author.corresponding {
+      footnote[
+        #gettext("corresponding.note")
+        #strfmt(gettext("corresponding.address"), address: author.address)
+        #if author.email != none {
+          [#strfmt(gettext("corresponding.email"), email: author.email)]
+        }
+      ]
+    }
+    if author.cofirst == "thefirst" [
+      #footnote(gettext("cofirst")) <fnt:cofirst-author>
+    ] else if author.cofirst == "cofirst" [
+      #footnote(<fnt:cofirst-author>)
     ]
-  }
-  if author.cofirst == "thefirst" {
-    footnote("cofirst-author-mark")
-  } else if author.cofirst == "cofirst" {
-    locate(loc => query(footnote.where(body: [cofirst-author-mark]), loc).last())
-  }
+  }).join(gettext("comma"))
 }
 
-#let default-affiliation(id, address) = {
+#let default-affiliation(affiliations) = {
+  show: block.with(width: 100%)
   set text(size: 0.8em)
-  super([#(id+1)])
-  address
+  set par(leading: 0.4em)
+  affiliations.enumerate().map(((ik, address)) => {
+    super(numbering("a", ik + 1))
+    h(1pt)
+    address
+  }).join(linebreak())
 }
 
-#let default-author-info(authors, affiliations) = {
-  {
-    show: block.with(width: 100%)
-    authors.map(it => default-author(it)).join(", ")
-  }
-  {
-    show: block.with(width: 100%)
-    set par(leading: 0.4em)
-    affiliations.keys().enumerate().map(((ik, key)) => {
-      default-affiliation(ik, affiliations.at(key))
-    }).join(linebreak())
-  }
+#let default-author-info(authors, affiliations, styles: (:)) = {
+  let styles = (
+    author: default-author,
+    affiliation: default-affiliation,
+    ..styles
+  )
+  (styles.author)(authors)
+  let used_affiliations = authors.map(it => it.insts).flatten().dedup().map(it => affiliations.keys().at(it))
+  (styles.affiliation)(used_affiliations.map(it => affiliations.at(it)))
 }
 
-#let default-abstract(abstract, keywords) = {
+#let default-abstract(abstract, keywords) = context {
+  let (gettext, locale) = i18n(text.lang)
   // Abstract and keyword block
   if abstract != [] {
-    stack(
-      dir: ttb,
-      spacing: 1em,
-      ..([
-        #heading([Abstract])
-        #abstract
-      ], if keywords.len() > 0 {
-        text(weight: "bold", [Key words: ])
-        text([#keywords.join([; ]).])
-      } else {none} )
-    )
+    heading(gettext("abstract"), numbering: none, outlined: false)
+    par(first-line-indent: 1em, abstract)
+    if keywords.len() > 0 {
+      strong(gettext("keywords.title"))
+      strfmt(gettext("keywords.text"), keywords: keywords.join(gettext("keywords.sep")))
+    }
   }
+  v(1em)
 }
 
-#let default-bibliography(bib) = {
-  show bibliography: set text(1em)
-  show bibliography: set par(first-line-indent: 0em)
-  set bibliography(title: [References], style: "apa")
-  bib
-}
-
-#let default-body(body) = {
-  show heading.where(level: 1): it => block(above: 1.5em, below: 1.5em)[
-    #set pad(bottom: 2em, top: 1em)
-    #it.body
-  ]
-  set par(first-line-indent: 2em)
+#let default-body(body) = context {
+  let (gettext, locale) = i18n(text.lang)
+  show heading.where(level: 1): set block(above: 1em, below: 1em)
+  set par(first-line-indent: 1em)
+  set figure(placement: top)
+  set figure.caption(separator: ". ")
+  show figure.where(kind: table): set figure.caption(position: top)
   set footnote(numbering: "1")
   body
 }
@@ -368,6 +366,13 @@ Example:
 ## Changelog
 
 ### 0.5.0
+
+Breaking changes:
+
+- Template interface for `author-info`, `author` and `affiliation` is changed.
+  - `author-info`: `(authors, affiliations, styles: (:)) => {}` This function use the styles provided in `styles` or default styles to show authors and affiliations.
+  - `author`: `(authors) => {}` This function now accepts a list of authors.
+  - `affiliation`: `(affiliations) => {}` This function now accepts a list of used affiliations.
 
 New features:
 
