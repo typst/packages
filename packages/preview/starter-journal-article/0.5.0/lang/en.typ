@@ -12,7 +12,7 @@
   show: block.with(width: 100%)
   let (gettext, locale) = i18n(text.lang)
   set text(cjk-latin-spacing: none)
-  for author in authors{
+  authors.map(author => {
     [#author.name#super(author.insts.map(it => numbering("a", it + 1)).join(","))]
     if author.corresponding {
       footnote[
@@ -28,19 +28,18 @@
     ] else if author.cofirst == "cofirst" [
       #footnote(<fnt:cofirst-author>)
     ]
-  }
+  }).join(gettext("comma"))
 }
 
 #let default-affiliation(affiliations) = {
   show: block.with(width: 100%)
   set text(size: 0.8em)
   set par(leading: 0.4em)
-  for (ik, address) in affiliations.enumerate() {
+  affiliations.enumerate().map(((ik, address)) => {
     super(numbering("a", ik + 1))
     h(1pt)
     address
-    linebreak()
-  }
+  }).join(linebreak())
 }
 
 #let default-author-info(authors, affiliations, styles: (:)) = {

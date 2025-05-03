@@ -11,7 +11,9 @@ en:
     email: "Email: {email}"
   cofirst: "These authors contributed equally to this work."
   period: ". "
+  colon: ": "
   semicolon: "; "
+  comma: ", "
 zh:
   abstract: "摘要"
   keywords:
@@ -25,4 +27,6 @@ zh:
     email: "电子邮箱：{email}"
   cofirst: "共同第一作者。"
   period: "。"
+  colon: "："
   semicolon: "；"
+  comma: "，"
