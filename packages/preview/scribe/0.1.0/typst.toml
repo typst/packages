@@ -7,8 +7,6 @@ license = "MIT"
 description = "Write math in ascii notation."
 repository = "https://github.com/lentilus/typst-scribe"
 exclude = [
-  "flake.nix",
-  "flake.lock",
   "tests",
   "assets"
 ]
