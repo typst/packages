@@ -66,8 +66,8 @@
 #code-file(
   "hello.c",
   hello-c,
-  "C",
-  color.aqua,
+  lang: "C",
+  fill: color.aqua,
 )
 
 #lorem(20)
@@ -78,7 +78,7 @@
   $ clang hello.c
   $ ./a.out
   Hello, World!
-  ```,
+  ```
 )
 
 #info-box([
@@ -89,7 +89,7 @@ This is useful for code snippets, allowing you to choose the line range to show 
   "hello.c",
   hello-c,
   subtitle: "snippet",
-  "C",
-  color.aqua,
+  lang: "C",
+  fill: color.aqua,
   to: 3,
 )
