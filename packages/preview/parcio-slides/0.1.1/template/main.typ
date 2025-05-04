@@ -1,4 +1,4 @@
-#import "@local/parcio-slides:0.1.0": *
+#import "@preview/parcio-slides:0.1.1": *
 #show: parcio-theme
 
 #title-slide(
