@@ -13,14 +13,8 @@
 #import "@preview/codly-languages:0.1.8": codly-languages
 // subfigures
 #import "@preview/subpar:0.2.2": grid as sgrid
-// diagram
-#import "@preview/fletcher:0.5.7": diagram, node, edge
 // excel
 #import "@preview/rexllent:0.3.0": xlsx-parser
-// wrap
-#import "@preview/wrap-it:0.1.1": wrap-content
-// annot
-#import "@preview/pinit:0.2.2": pin, pinit-highlight, pinit-place
 
 #let qooklet(
   title: none,
