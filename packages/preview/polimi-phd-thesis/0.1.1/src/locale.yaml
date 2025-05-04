@@ -3,8 +3,8 @@ it:
   coadvisor: Correlatore
   tutor: Tutor
   toc: Indice
-  list_of_figures: Lista delle Figure
-  list_of_tables: Lista delle Tabelle
+  list-of-figures: Lista delle Figure
+  list-of-tables: Lista delle Tabelle
   nomenclature: Nomenclatura
   theorem: Teorema
   proof: Dimostrazione
@@ -14,8 +14,8 @@ en:
   coadvisor: Coadvisor
   tutor: Tutor
   toc: Contents
-  list_of_figures: List of Figures
-  list_of_tables: List of Tables
+  list-of-figures: List of Figures
+  list-of-tables: List of Tables
   nomenclature: Nomenclature
   theorem: Theorem
   proof: Proof

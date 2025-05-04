@@ -29,7 +29,7 @@ A very simple document:
 ```typ
 #import "@preview/polimi-phd-thesis:0.1.1": *
 
-#show: polimi_thesis.with(
+#show: polimi-thesis.with(
   title: "Thesis Title",
   author: "Vittorio Robecchi",
   advisor: "Prof. Donatella Sciuto",

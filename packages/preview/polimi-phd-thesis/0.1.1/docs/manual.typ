@@ -1,9 +1,9 @@
 #import "@preview/polimi-phd-thesis:0.1.1": *
 
-#show: polimi_thesis.with(
+#show: polimi-thesis.with(
   title: [`polimi-phd-thesis` manual],
   author: "Vittorio Robecchi",
-  language: "en"
+  language: "en",
 )
 
 #show: frontmatter.with()
@@ -11,8 +11,8 @@
 #include "sections/abstract.typ"
 
 #toc
-#list_of_figures
-#list_of_tables
+#list-of-figures
+#list-of-tables
 
 #let nomenclature_ = (
   "Polimi": "Politecnico di Milano",

@@ -17,7 +17,7 @@
 
 #let bluepoli = rgb("#5f859f")
 
-#let polimi_thesis(
+#let polimi-thesis(
   title: "Thesis Title",
   author: "Name Surname",
   advisor: "",
@@ -113,7 +113,7 @@
 
   // Didascalia delle figure
   show figure.caption: it => context {
-    if (it.kind != "lists" and it.kind != "blank_toc") {
+    if (it.kind != "lists" and it.kind != "blank-toc") {
       let heading_num = counter(heading).get().first()
       text(
         weight: "bold",
@@ -350,7 +350,7 @@
         ),
       )
     } else if (
-      it.element.func() == figure and it.element.at("kind") == "blank_toc"
+      it.element.func() == figure and it.element.at("kind") == "blank-toc"
     ) {
       v(1em) // \addtocontents{toc}{\vspace{2em}}
     } else {
@@ -382,7 +382,7 @@
 
   show figure
     .where(kind: "lists")
-    .or(figure.where(kind: "blank_toc"))
+    .or(figure.where(kind: "blank-toc"))
     .or(figure.where(kind: "theorem"))
     .or(figure.where(kind: "proposition")): it => {
     align(start, it)
@@ -402,8 +402,8 @@
   body
 }
 
-#let blank_toc = figure.with(
-  kind: "blank_toc",
+#let blank-toc = figure.with(
+  kind: "blank-toc",
   numbering: none,
   supplement: none,
   outlined: true,
@@ -423,7 +423,7 @@
 #let acknowledgements(body) = {
   {
     show heading: none
-    blank_toc("")
+    blank-toc("")
   }
   document-state.update("ACKNOWLEDGEMENTS")
   set heading(numbering: none)
@@ -434,7 +434,7 @@
 #let mainmatter(body) = {
   {
     show heading: none
-    blank_toc("")
+    blank-toc("")
   }
   document-state.update("MAINMATTER")
   set heading(numbering: "1.1")
@@ -447,7 +447,7 @@
 #let appendix(body) = context {
   {
     show heading: none
-    blank_toc("")
+    blank-toc("")
   }
   document-state.update("APPENDIX")
   counter(heading).update(0)
@@ -459,7 +459,7 @@
 #let backmatter(body) = context {
   {
     show heading: none
-    blank_toc("")
+    blank-toc("")
   }
   document-state.update("BACKMATTER")
   set heading(numbering: none)
@@ -475,7 +475,7 @@
       kind: "lists",
       outlined: true,
     )
-    .or(figure.where(kind: "blank_toc", outlined: true))
+    .or(figure.where(kind: "blank-toc", outlined: true))
     .or(heading.where(outlined: true))
 )
 
@@ -496,7 +496,7 @@
 }
 
 // Table of contents
-#let list_of_figures = context {
+#let list-of-figures = context {
   show outline.entry: it => {
     let count = (
       str(counter(heading.where(level: 1)).at(it.element.location()).at(0))
@@ -516,12 +516,12 @@
     linebreak()
   }
   outline(
-    title: lists(localization.at(text.lang).list_of_figures),
+    title: lists(localization.at(text.lang).list-of-figures),
     target: figure.where(kind: image),
   )
 }
 
-#let list_of_tables = context {
+#let list-of-tables = context {
   show outline.entry: it => {
     let count = (
       str(counter(heading.where(level: 1)).at(it.element.location()).at(0))
@@ -541,7 +541,7 @@
     linebreak()
   }
   outline(
-    title: lists(localization.at(text.lang).list_of_tables),
+    title: lists(localization.at(text.lang).list-of-tables),
     target: figure.where(kind: table),
   )
 }
