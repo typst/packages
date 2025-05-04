@@ -28,7 +28,7 @@
   semester: "Summer 1970",
   due-time: "Feb 29, 23:59",
   accent-color: rgb("#000000"),
-  paper-size: "A4",
+  paper-size: "a4",
   body,
 ) = {
   // Document Metadata
