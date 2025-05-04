@@ -1,5 +1,4 @@
 #import "@preview/machiatto:0.2.0": *
-
 #let license = [
   #heading("License", outlined: false)
   - The goal of this page is to discuss your licensing or copyright terms, as we usually reccamond publications to be under a creative commons license. Examples are CC BY-NC-SA 4.0 or CC BY-NC-ND 4.0.
@@ -64,8 +63,8 @@
 #let hello-c = read("hello.c")
 
 #code-file(
-  "hello.c",
-  hello-c,
+  title: "hello.c",
+  file-content: hello-c,
   lang: "C",
   fill: color.aqua,
 )
@@ -86,8 +85,8 @@
 ])
 This is useful for code snippets, allowing you to choose the line range to show from your source file.
 #code-snippet(
-  "hello.c",
-  hello-c,
+  title: "hello.c",
+  file-content: hello-c,
   subtitle: "snippet",
   lang: "C",
   fill: color.aqua,
