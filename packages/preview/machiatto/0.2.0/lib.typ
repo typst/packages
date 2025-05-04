@@ -236,17 +236,17 @@
   ]
 }
 
-#let code-file(title: str, file-contents: str, lang, fill, line-numbers: true, line-number-color: gray) = {
+#let code-file(title: str, file-content: "", lang, fill, line-numbers: true, line-number-color: gray) = {
   frame(
     title: title,
     fill: fill,
     line-numbers: line-numbers,
     line-number-color: line-number-color,
-    [#raw(file-contents, lang: lang)],
+    [#raw(file-content, lang: lang)],
   )
 }
 
-#let code-snippet(title: str, file-content: str, subtitle: none, lang, fill, line-numbers: true, line-number-color: gray, from: 0, to: int) = {
+#let code-snippet(title: str, file-content: "", subtitle: none, lang, fill, line-numbers: true, line-number-color: gray, from: 0, to: int) = {
   // 1. Read the entire file as a string
   let content = file-content
 
