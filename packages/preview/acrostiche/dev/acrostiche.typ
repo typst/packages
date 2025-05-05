@@ -205,7 +205,7 @@
 
 
 #let print-index(level: 1, numbering: none, outlined: false, sorted:"",
-                 title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false) = {
+                 title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column-ratio: 0.25,) = {
   //Print an index of all the acronyms and their definitions.
   // Args:
   //   level: level of the heading. Default to 1.
@@ -214,9 +214,11 @@
   //   title: set the title of the heading. Default to "Acronyms Index". Passing an empty string will result in removing the heading.
   //   delimiter: String to place after the acronym in the list. Defaults to ":"
   //   used-only: if true, only include in the index the acronyms that are used in the document. Warning, if you reset acronyms and don't used them after, they may not appear.
+  // column-ratio: a float positive value that indicate the width ratio of the first column (acronyms) with respect to the second (definitions).
 
   // assert on input values to avoid cryptic error messages
   assert(sorted in ("","up","down"), message:"Sorted must be a string either \"\", \"up\" or \"down\"")
+  assert(0 <= column-ratio, message: "\"column-ratio\" must be a positive value.")
 
   if title != ""{
     heading(level: level, numbering: numbering, outlined: outlined)[#title]
@@ -251,8 +253,10 @@
     }
   
     // print the acronyms
+    let col1 = column-ratio / (1 + column-ratio)
+    let col2 = 1 - col1
     grid(
-      columns: (20%,80%),
+      columns: (col1 * 100%, col2 * 100%),
       row-gutter: row-gutter,
       ..for acr in acr-list{
         ([*#display-short(acr, plural:false)#delimiter*], display-def(acr,plural:false))
