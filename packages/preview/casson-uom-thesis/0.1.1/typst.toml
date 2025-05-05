@@ -1,6 +1,6 @@
 [package]
 name = "casson-uom-thesis"
-version = "0.1.0"
+version = "0.1.1"
 entrypoint = "casson-uom-thesis.typ"
 authors = ["Alex Casson <https://research.manchester.ac.uk/en/persons/alex.casson>"]
 license = "MIT-0"
