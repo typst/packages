@@ -7,5 +7,5 @@ authors = ["Grizzly"]
 license = "MIT"
 keywords = ["acronyms"]
 categories = ["utility","model"]
-exclude = ["test.typ"]
+exclude = ["test.typ", "test.pdf"]
 description = "Manage acronyms and their definitions in Typst."
