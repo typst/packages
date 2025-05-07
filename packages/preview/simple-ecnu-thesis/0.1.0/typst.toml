@@ -1,0 +1,16 @@
+[package]
+name = "simple-ecnu-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jacky Lee <@JackyLee3362>"]
+license = "MIT"
+description = "一份简单华东师范大学研究生/博士论文模板 Simple ECNU Thesis"
+repository = "https://github.com/JackyLee3362/simple-ecnu-thesis"
+keywords = ["thesis", "master", "doctor", "university", "ecnu"]
+categories = ["thesis"]
+exclude = [".vscode", ".github", "assets", "demo", "test", "fonts", "tmp"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "public/thumbnail.png"
