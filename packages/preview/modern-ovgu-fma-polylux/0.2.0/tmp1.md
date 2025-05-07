@@ -15,7 +15,7 @@ nutzen und es anschließend mit
 #show: ovgu-fma-theme.with(
   author: [Vorname Nachname],
   title: [Titel der Präsentation],
-  affilation: [affilation],
+  affiliation: [affiliation],
   date: ez-today.today(),
 )
 ```
@@ -27,7 +27,7 @@ initialisieren. Es gibt auch noch weitere Parameter mit dem ihr das Aussehen wei
   text-size: 20pt,
   author:[],
   title:[],
-  affilation:[],
+  affiliation:[],
   date:[],
 )
 ```
