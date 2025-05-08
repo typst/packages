@@ -1,4 +1,4 @@
-#import "/src/lib.typ": *
+#import "@preview/examine-ib:0.1.1": *
 
 #show: conf.with(exam-id: [0000-0001])
 
