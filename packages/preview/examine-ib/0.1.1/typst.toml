@@ -1,0 +1,35 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "examine-ib"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["Avah Xiao <@NycRat>"]
+license = "Unlicense"
+description = "Template for creating exams, tests, quizzes, based on the IB exam formatting."
+# homepage = ""
+repository = "https://github.com/nycrat/typst-ib-exam-template"
+# keywords = [""]
+categories = ["layout"]
+disciplines = ["education"]
+# compiler = ""
+exclude = [
+  ".github",
+  "docs",
+  "examples",
+  "fonts",
+  "scripts",
+  "tests",
+  ".typstignore",
+  ".gitignore",
+  "Justfile",
+  "thumbnail.png"
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"
