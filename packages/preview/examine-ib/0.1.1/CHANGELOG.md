@@ -19,11 +19,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
-## [0.1.1] - 2025-05-07
+## [0.1.1] - 2025-05-08
 
 ### Added
 
 - README documentation with examples
+
+### Removed
+
+- Arial as default font
 
 ## [0.1.0] - 2025-05-07
 

@@ -16,7 +16,8 @@
     ],
   )
   set par(spacing: 0.25in, leading: 0.25in)
-  set text(11pt, font: "Arial")
+
+  set text(11pt)
   set table(inset: 0em, stroke: none)
 
   exam-id-state.update(exam-id)

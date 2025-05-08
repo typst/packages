@@ -41,9 +41,10 @@ This is a template for creating exams, tests, quizzes, based on the Internationa
 <!-- $ Final step -->
 <!-- ``` -->
 <!---->
-<!-- ### Fonts -->
-<!---->
-<!-- Default font for this format is Arial, if you don't have it installed on your system, install Arial. -->
+
+### Fonts
+
+The font for the actual IB exam format is Arial, if you want to use it and don't have it installed on your system, install Arial.
 
 ## Usage
 
