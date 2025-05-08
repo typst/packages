@@ -205,7 +205,7 @@
 
 
 #let print-index(level: 1, numbering: none, outlined: false, sorted:"",
-                 title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false) = {
+                 title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, first_column: 10%, acr-weight: "bold") = {
   //Print an index of all the acronyms and their definitions.
   // Args:
   //   level: level of the heading. Default to 1.
@@ -214,7 +214,8 @@
   //   title: set the title of the heading. Default to "Acronyms Index". Passing an empty string will result in removing the heading.
   //   delimiter: String to place after the acronym in the list. Defaults to ":"
   //   used-only: if true, only include in the index the acronyms that are used in the document. Warning, if you reset acronyms and don't used them after, they may not appear.
-
+  //   first_column: sets the width of the first column of th grid
+  //   acr-weight: sets the text weight of the acronyms 
   // assert on input values to avoid cryptic error messages
   assert(sorted in ("","up","down"), message:"Sorted must be a string either \"\", \"up\" or \"down\"")
 
@@ -223,9 +224,6 @@
   }
 
   context{
-    
-
-      
     let acronyms = acros.get()
     let acr-list = acronyms.keys()
 
@@ -252,10 +250,10 @@
   
     // print the acronyms
     grid(
-      columns: (20%,80%),
+      columns: (first_column, auto),
       row-gutter: row-gutter,
       ..for acr in acr-list{
-        ([*#display-short(acr, plural:false)#delimiter*], display-def(acr,plural:false))
+        (text(weight: acr-weight, [#display-short(acr, plural:false)#delimiter]), display-def(acr,plural:false))
       }
     )
   }
