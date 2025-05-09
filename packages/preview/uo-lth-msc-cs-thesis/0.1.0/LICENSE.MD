@@ -12,11 +12,13 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 
-Important: This license applies solely to the typst version of the template
-created by Flavius Gruian. The original LaTeX template from which this work was
-derived remains unlicensed and is not covered by this license.
+IMPORTANT LICENSE EXCLUSIONS:
+- This license applies ONLY to the Typst implementation created by Theodor Lundqvist.
+- The original LaTeX template by Flavius Gruian and all its assets are NOT covered by this license.
+- All LTH (Lund University Faculty of Engineering) logos, images, and assets are NOT covered 
+  by this license and may require LTH affiliation for legitimate use.
 
-Original template available here: https://bitbucket.org/flavius_gruian/msccls/src/master/
+Original template and assets available here: https://bitbucket.org/flavius_gruian/msccls/src/master/
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
