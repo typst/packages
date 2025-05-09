@@ -1,7 +1,1 @@
-#set heading(numbering: "1.")
-= Chapter
-== Section
-=== Subsection
-= Chapter
-== Another Section
-= Chapter
+/home/gasche/Prog/typst-packages/packages/preview/anti-matter/0.1.0/example/chapters.typ

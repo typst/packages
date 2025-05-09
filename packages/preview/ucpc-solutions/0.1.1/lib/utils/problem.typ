@@ -1,5 +1,1 @@
-#import "/lib/i18n.typ": en-us
-#import "/lib/colors.typ": color
-#import "/lib/utils/make-problem.typ": make-problem
-
-#let problem = make-problem
+/home/gasche/Prog/typst-packages/packages/preview/ucpc-solutions/0.1.0/lib/utils/problem.typ

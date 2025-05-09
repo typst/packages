@@ -1,8 +1,1 @@
-#import "../lib.typ": shadowed
-
-#set page(margin: 15pt, height: auto)
-#set par(justify: true)
-
-#shadowed(radius: 4pt, inset: 12pt)[
-  #lorem(50)
-]
+/home/gasche/Prog/typst-packages/packages/preview/shadowed/0.1.0/examples/lorem.typ

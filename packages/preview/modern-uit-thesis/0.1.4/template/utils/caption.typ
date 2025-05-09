@@ -1,11 +1,1 @@
-#import "global.typ": in-outline
-
-#let dynamic-caption(long, short) = (
-  context {
-    if in-outline.get() {
-      short
-    } else {
-      long
-    }
-  }
-)
+/home/gasche/Prog/typst-packages/packages/preview/modern-uit-thesis/0.1.3/template/utils/caption.typ

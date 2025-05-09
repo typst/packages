@@ -1,3 +1,1 @@
-#import "boxes.typ": *
-#import "layouts.typ": *
-#import "themes.typ": *
+/home/gasche/Prog/typst-packages/packages/preview/peace-of-posters/0.4.0/lib.typ

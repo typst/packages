@@ -1,9 +1,1 @@
-all: demo.svg
-
-%.pdf: %.typ
-	typst compile $<
-
-%.svg: %.pdf
-	pdf2svg $< $@
-	rsvg-convert --zoom 3 --background-color white --format svg --output $@ $@
-
+/home/gasche/Prog/typst-packages/packages/preview/metalogo/1.0.2/makefile

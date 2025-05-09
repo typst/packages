@@ -1,16 +1,1 @@
-#import "lib.typ": *
-
-#register-glossary(
-  glossary-entry(
-    "ac:tgm",
-    short: "TGM",
-    long: "Technologisches Gewerbemuseum",
-    // group: "Accronyms",
-  ),
-  glossary-entry(
-    "syt",
-    short: "SYT",
-    long: "Systemtechnik",
-    description: ["Als Systemtechnik bezeichnet man verschiedene Aufbau- und Verbindungstechniken, aber auch eine Fachrichtung der Ingenieurwissenschaften. Er bedeutet in der Unterscheidung zu den Mikrotechnologien die Verbindung verschiedener einzelner Module eines Systems und deren Konzeption." @wiki:syt]
-  ),
-)
+/home/gasche/Prog/typst-packages/packages/preview/tgm-hit-thesis/0.3.0/template/glossaries.typ

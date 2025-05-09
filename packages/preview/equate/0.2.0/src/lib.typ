@@ -1,1 +1,1 @@
-#import "equate.typ": equate
+/home/gasche/Prog/typst-packages/packages/preview/equate/0.1.0/src/lib.typ

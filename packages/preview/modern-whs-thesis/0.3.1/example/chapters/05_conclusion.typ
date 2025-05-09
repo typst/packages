@@ -1,3 +1,1 @@
-= Fazit
-
-Zusammenfassung und Ausblick.
+/home/gasche/Prog/typst-packages/packages/preview/modern-whs-thesis/0.2.0/example/chapters/05_conclusion.typ

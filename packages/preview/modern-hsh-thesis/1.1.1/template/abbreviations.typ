@@ -1,1 +1,1 @@
-#let hsh = "Hochschule Hannover"
+/home/gasche/Prog/typst-packages/packages/preview/modern-hsh-thesis/1.0.0/template/abbreviations.typ

@@ -1,2 +1,1 @@
-#import "templates/bachelor.typ": bachelor-conf, thanks, appendix
-#import "templates/degree.typ": degree-conf
+/home/gasche/Prog/typst-packages/packages/preview/cheda-seu-thesis/0.2.0/seu-thesis/lib.typ

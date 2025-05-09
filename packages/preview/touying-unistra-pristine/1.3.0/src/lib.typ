@@ -1,3 +1,1 @@
-#import "unistra.typ": *
-#import "colors.typ": *
-#import "admonition.typ": *
+/home/gasche/Prog/typst-packages/packages/preview/touying-unistra-pristine/1.2.0/src/lib.typ

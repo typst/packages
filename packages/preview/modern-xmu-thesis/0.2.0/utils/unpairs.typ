@@ -1,10 +1,1 @@
-// 取自 modern-nju-thesis
-
-// 将 pairs 数组转成 dict 字典
-#let unpairs(pairs) = {
-  let dict = (:)
-  for pair in pairs {
-    dict.insert(..pair)
-  }
-  dict
-}
+/home/gasche/Prog/typst-packages/packages/preview/modern-xmu-thesis/0.1.0/utils/unpairs.typ

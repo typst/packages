@@ -1,15 +1,1 @@
-= The Thing
-
-== Software Design
-
-#lorem(50)
-
-== Implementation
-
-#lorem(1250)
-
-=== An Example Listing
-
-#figure(caption: [An innocuous command], raw("rm -rf /")) <thing:impl:cmd>
-
-#lorem(30)
+/home/gasche/Prog/typst-packages/packages/preview/kthesis/0.1.0/template/content/ch04-the-thing.typ

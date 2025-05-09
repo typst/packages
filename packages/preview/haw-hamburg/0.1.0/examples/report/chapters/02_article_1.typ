@@ -1,6 +1,1 @@
-#import("../dependencies.typ"): *
-
-= The First Article
-
-All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
-@UN[Article 1]
+/home/gasche/Prog/typst-packages/packages/preview/haw-hamburg/0.1.0/examples/bachelor-thesis/chapters/02_article_1.typ

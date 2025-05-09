@@ -1,3 +1,1 @@
-= Prototypeische Umsetzung
-
-Prototypen und Ergebnisse.
+/home/gasche/Prog/typst-packages/packages/preview/modern-whs-thesis/0.2.0/example/chapters/04_implementation.typ

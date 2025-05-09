@@ -1,11 +1,1 @@
-#import "abbr-impl.typ": (
-	a, pla,
-	s, pls,
-	l, pll,
-	lo, pllo,
-	list,
-	load,
-	config,
-	add,
-	make,
-)
+/home/gasche/Prog/typst-packages/packages/preview/abbr/0.2.1/abbr.typ

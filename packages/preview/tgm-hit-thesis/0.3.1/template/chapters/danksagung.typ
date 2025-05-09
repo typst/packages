@@ -1,5 +1,1 @@
-#import "../lib.typ": *
-
-= Danksagung
-
-#lorem(150)
+/home/gasche/Prog/typst-packages/packages/preview/tgm-hit-thesis/0.1.0/template/chapters/danksagung.typ

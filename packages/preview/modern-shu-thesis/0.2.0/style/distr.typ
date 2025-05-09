@@ -1,10 +1,1 @@
-#let distr(s, w: auto) = {
-  block(
-    width: w,
-    stack(
-      dir: ltr,
-      ..s.clusters().map(x => [#x]).intersperse(1fr),
-    ),
-  )
-}
-
+/home/gasche/Prog/typst-packages/packages/preview/modern-shu-thesis/0.1.0/style/distr.typ

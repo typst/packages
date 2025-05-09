@@ -1,9 +1,1 @@
-[en]
-    title = "Palatino"
-    context = "Georgia"
-    math = "Times New Roman"
-
-[zh]
-    title = "STKaiti"
-    context = "Songti SC"
-    math = "Kaiti SC"
+/home/gasche/Prog/typst-packages/packages/preview/qooklet/0.1.0/src/fonts.toml

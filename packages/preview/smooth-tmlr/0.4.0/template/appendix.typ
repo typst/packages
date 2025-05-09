@@ -1,3 +1,1 @@
-= Appendix
-
-You may include other additional sections here.
+/home/gasche/Prog/typst-packages/packages/preview/smooth-tmlr/0.3.0/template/appendix.typ

@@ -1,5 +1,1 @@
-#import "src/nassi.typ"
-
-#nassi.diagram({
-  nassi.elements.process("Hello World")
-})
+/home/gasche/Prog/typst-packages/packages/preview/nassi/0.1.1/tests/template.typ

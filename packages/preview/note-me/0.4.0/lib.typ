@@ -1,2 +1,1 @@
-#import "note-me.typ": admonition, note, tip, important, warning, caution
-#import "note-me-more.typ": todo
+/home/gasche/Prog/typst-packages/packages/preview/note-me/0.2.1/lib.typ

@@ -1,3 +1,1 @@
-// Don't add a title. It's already included in the template.
-
-Lorem, Ipsum, Dolor, Sit, Amet
+/home/gasche/Prog/typst-packages/packages/preview/thesist/0.1.0/template/Beginning/Keywords-en.typ

@@ -1,1 +1,1 @@
-# ucpc-solutions examples
+/home/gasche/Prog/typst-packages/packages/preview/ucpc-solutions/0.1.0/examples/README.md

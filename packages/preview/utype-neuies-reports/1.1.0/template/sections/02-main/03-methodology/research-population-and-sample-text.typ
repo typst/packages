@@ -1,2 +1,1 @@
-// Araştırmanın Evreni ve Örneklemi (Araştırmanın Çalışma Grubu) (Katılımcılar) metnini yazınız.
-#lorem(50)
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/sections/02-main/03-methodology/research-population-and-sample-text.typ

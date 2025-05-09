@@ -1,8 +1,1 @@
-# Curryst test suite
-
-To run the tests, use
-```
-$ typst compile tests.typ 'test-{n}.png' --root ..
-```
-
-This will override the images. If no image changes, this means the tests passed.
+/home/gasche/Prog/typst-packages/packages/preview/curryst/0.2.0/tests/README.md

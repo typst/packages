@@ -1,3 +1,1 @@
-#lorem(40)
-
-#lorem(40)
+/home/gasche/Prog/typst-packages/packages/preview/unofficial-cityuhk-thesis/0.1.0/template/front-pages/abstract.typ

@@ -1,1 +1,1 @@
-#import "mod.typ": xlsx-parser, spreet-parser
+/home/gasche/Prog/typst-packages/packages/preview/rexllent/0.3.0/lib.typ

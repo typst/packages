@@ -1,11 +1,1 @@
-= Transcripts
-
-#lorem(500)
-
-== Interview 1
-
-#lorem(250)
-
-=== Details
-
-#lorem(250)
+/home/gasche/Prog/typst-packages/packages/preview/unofficial-hka-thesis/1.0.0/template/chapters/A2_Transcripts.typ

@@ -1,1 +1,1 @@
-#import "impl.typ": template
+/home/gasche/Prog/typst-packages/packages/preview/graceful-genetics/0.1.0/src/lib.typ

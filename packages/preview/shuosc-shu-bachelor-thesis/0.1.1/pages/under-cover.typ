@@ -1,8 +1,1 @@
-#let under-cover-page() = {
-  set page(
-    header: none,
-    background: image("../assets/under-cover.png", width: 100%),
-    numbering: none,
-  )
-  pagebreak()
-}
+/home/gasche/Prog/typst-packages/packages/preview/modern-shu-thesis/0.3.1/pages/under-cover.typ

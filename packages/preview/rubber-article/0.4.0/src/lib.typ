@@ -1,3 +1,1 @@
-// Import the available functions
-#import "styles.typ": article, appendix
-#import "constructors.typ": maketitle, ctable
+/home/gasche/Prog/typst-packages/packages/preview/rubber-article/0.3.2/src/lib.typ

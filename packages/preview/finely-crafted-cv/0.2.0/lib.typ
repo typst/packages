@@ -1,1 +1,1 @@
-#import "src/resume.typ": cv, resume, company-heading, job-heading, school-heading, degree-heading
+/home/gasche/Prog/typst-packages/packages/preview/finely-crafted-cv/0.1.0/lib.typ

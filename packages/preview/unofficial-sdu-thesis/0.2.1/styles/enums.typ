@@ -1,11 +1,1 @@
-#import "@preview/numbly:0.1.0": numbly
-#let enums(
-  body,
-) = {
-  set enum(
-    numbering: numbly("({1})"),
-    indent: 2em,
-    full: true,
-  )
-  body
-}
+/home/gasche/Prog/typst-packages/packages/preview/unofficial-sdu-thesis/0.1.0/styles/enums.typ

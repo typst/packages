@@ -1,2 +1,1 @@
-#import "src/gloss.typ": init-glossary, glossary
-#import "src/themes.typ": *
+/home/gasche/Prog/typst-packages/packages/preview/glossy/0.2.0/lib.typ

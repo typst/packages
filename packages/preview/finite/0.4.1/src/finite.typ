@@ -1,2 +1,1 @@
-
-#import "./cmd.typ": *
+/home/gasche/Prog/typst-packages/packages/preview/finite/0.1.0/finite.typ

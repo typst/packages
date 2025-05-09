@@ -1,13 +1,1 @@
-#let data = (
-  ("SYRIAC LETTER MALAYALAM NGA", "Lo", 0),
-  ("SYRIAC LETTER MALAYALAM JA", "Lo", 0),
-  ("SYRIAC LETTER MALAYALAM NYA", "Lo", 0),
-  ("SYRIAC LETTER MALAYALAM TTA", "Lo", 0),
-  ("SYRIAC LETTER MALAYALAM NNA", "Lo", 0),
-  ("SYRIAC LETTER MALAYALAM NNNA", "Lo", 0),
-  ("SYRIAC LETTER MALAYALAM BHA", "Lo", 0),
-  ("SYRIAC LETTER MALAYALAM RA", "Lo", 0),
-  ("SYRIAC LETTER MALAYALAM LLA", "Lo", 0),
-  ("SYRIAC LETTER MALAYALAM LLLA", "Lo", 0),
-  ("SYRIAC LETTER MALAYALAM SSA", "Lo", 0),
-)
+/home/gasche/Prog/typst-packages/packages/preview/unichar/0.1.0/ucd/block-0860.typ

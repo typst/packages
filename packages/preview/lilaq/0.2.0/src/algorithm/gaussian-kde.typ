@@ -1,9 +1,1 @@
-
-
-#let gaussian-kde(x, bw-method) = {
-  if type(bw-method) in (int, float) {
-    bw-method = (x => bw-method)
-  }
-  let factor = bw-method()
-  let dim = x.len()
-}
+/home/gasche/Prog/typst-packages/packages/preview/lilaq/0.1.0/src/algorithm/gaussian-kde.typ

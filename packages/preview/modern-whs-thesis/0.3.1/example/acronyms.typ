@@ -1,12 +1,1 @@
-#let acronyms = (
-  (
-    key: "api",
-    short: "API",
-    long: "Application Programming Interface",
-  ),
-  (
-    key: "html",
-    short: "HTML",
-    long: "Hypertext Markup Language",
-  ),
-)
+/home/gasche/Prog/typst-packages/packages/preview/modern-whs-thesis/0.3.0/example/acronyms.typ

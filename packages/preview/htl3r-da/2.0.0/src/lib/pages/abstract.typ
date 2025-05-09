@@ -1,12 +1,1 @@
-#import "../util.typ": insert-blank-page
-
-#let create-page(
-  abstract-german,
-  abstract-english,
-) = [
-  = Kurzfassung
-  #abstract-german
-  #insert-blank-page()
-  = Abstract
-  #abstract-english
-]
+/home/gasche/Prog/typst-packages/packages/preview/htl3r-da/1.0.0/src/lib/pages/abstract.typ

@@ -1,1 +1,1 @@
-#import "@preview/alexandria:0.1.3" as alexandria: load-bibliography as bibliography
+/home/gasche/Prog/typst-packages/packages/preview/tgm-hit-thesis/0.3.0/src/bib.typ

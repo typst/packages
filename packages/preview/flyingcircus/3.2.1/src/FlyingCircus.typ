@@ -1,1 +1,1 @@
-#import "Impl.typ" : FlyingCircus, FCPlane, FCShip, FCVehicleFancy, FCVehicleSimple, FCWeapon, KochFont, HiddenHeading, FCPlaybook, FCPRule, FCPSection, FCPStatTable, FCShortNPC, FCShortAirship
+/home/gasche/Prog/typst-packages/packages/preview/flyingcircus/3.2.0/src/FlyingCircus.typ

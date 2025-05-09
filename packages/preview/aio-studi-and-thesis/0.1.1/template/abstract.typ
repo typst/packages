@@ -1,5 +1,1 @@
-#let abstract() = [
-  
-  #lorem(20)
-
-]
+/home/gasche/Prog/typst-packages/packages/preview/aio-studi-and-thesis/0.1.0/template/abstract.typ

@@ -1,11 +1,1 @@
-// 双下划线
-#let double-underline(body) = style(styles => {
-  let size = measure(body, styles)
-  stack(
-    body,
-    v(3pt),
-    line(length: size.width),
-    v(2pt),
-    line(length: size.width),
-  )
-})
+/home/gasche/Prog/typst-packages/packages/preview/modern-bnu-course-paper/0.1.0/utils/double-underline.typ

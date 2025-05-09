@@ -1,10 +1,1 @@
-#let acknowledgements-page(body) = {
-  pagebreak(weak: true, to: "even")
-
-  // --- Acknowledgements ---
-  align(left)[
-    = Acknowledgements
-    #v(1em)
-    #body
-  ]
-}
+/home/gasche/Prog/typst-packages/packages/preview/modern-uit-thesis/0.1.0/modules/acknowledgements.typ

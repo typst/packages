@@ -1,5 +1,1 @@
-#lorem(100)
-
-#lorem(150)
-
-#lorem(35)
+/home/gasche/Prog/typst-packages/packages/preview/kthesis/0.1.0/template/content/acknowledgements.typ

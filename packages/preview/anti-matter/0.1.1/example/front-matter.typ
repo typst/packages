@@ -1,9 +1,1 @@
-#set heading(numbering: none)
-#show outline: set heading(outlined: true)
-#outline()
-= Figures
-Content
-= Tables
-Content
-= Listings
-Content
+/home/gasche/Prog/typst-packages/packages/preview/anti-matter/0.1.0/example/front-matter.typ

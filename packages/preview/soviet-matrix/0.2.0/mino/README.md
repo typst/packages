@@ -1,7 +1,1 @@
-# Mino
-
-This directory contains a fork of the [Enter-tainer/mino](https://github.com/Enter-tainer/mino) project, with a modification to support custom column counts and stylistic customizations。
-
-## License
-
-[MIT](https://github.com/Enter-tainer/mino/blob/master/LICENSE)
+/home/gasche/Prog/typst-packages/packages/preview/soviet-matrix/0.1.0/mino/README.md

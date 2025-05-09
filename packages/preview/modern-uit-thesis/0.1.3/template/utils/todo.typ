@@ -1,11 +1,1 @@
-// Utility to highlight TODOs to easily find them in the PDF
-#let TODO(body, color: yellow, title: "TODO") = {
-  rect(
-    width: 100%,
-    radius: 3pt,
-    stroke: 0.5pt,
-    fill: color,
-  )[
-    #text(weight: 700)[#title]: #body
-  ]
-}
+/home/gasche/Prog/typst-packages/packages/preview/modern-uit-thesis/0.1.0/template/utils/todo.typ

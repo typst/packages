@@ -1,3 +1,1 @@
-# We can write Markdown!
-
-*Using* __lots__ ~of~ `fancy` [features](https://example.org/).
+/home/gasche/Prog/typst-packages/packages/preview/cmarker/0.1.0/examples/simple.md

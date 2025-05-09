@@ -1,9 +1,1 @@
-#let abstract-page(body) = {
-  pagebreak(weak: true, to: "even")
-  // --- Abstract ---
-  align(left)[
-    = Abstract
-    #v(1em)
-    #body
-  ]
-}
+/home/gasche/Prog/typst-packages/packages/preview/modern-uit-thesis/0.1.0/modules/abstract.typ

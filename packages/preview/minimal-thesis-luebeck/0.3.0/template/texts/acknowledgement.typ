@@ -1,2 +1,1 @@
-Write your acknowledgement here or leave it out if you do not want one.
-#lorem(50)
+/home/gasche/Prog/typst-packages/packages/preview/minimal-thesis-luebeck/0.2.0/template/texts/acknowledgement.typ

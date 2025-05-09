@@ -1,3 +1,1 @@
-#import "stub/draw.typ"
-
-#let canvas(..args) = none
+/home/gasche/Prog/typst-packages/packages/preview/flow/0.1.2/src/gfx/stub.typ

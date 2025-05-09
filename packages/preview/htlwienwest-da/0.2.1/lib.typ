@@ -1,6 +1,1 @@
-#import "lib/template.typ" as template
-
-// Reexport of template functions
-#let diplomarbeit = template.diplomarbeit
-
-#let autor = template.autor
+/home/gasche/Prog/typst-packages/packages/preview/htlwienwest-da/0.1.0/lib.typ

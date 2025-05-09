@@ -1,3 +1,1 @@
-#let a = [
-  #lorem(800)
-]
+/home/gasche/Prog/typst-packages/packages/preview/sunny-famnit/0.1.0/examples/attachments.typ

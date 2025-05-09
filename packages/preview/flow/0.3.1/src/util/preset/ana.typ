@@ -1,7 +1,1 @@
-// Utils for mathematical analysis.
-
-/// Domain of a function.
-#let (dom,) = ("dom",).map(math.op)
-/// Variadic function.
-#let fn(var) = $f(var_1, ..., var_n)$
-
+/home/gasche/Prog/typst-packages/packages/preview/flow/0.3.0/src/util/preset/ana.typ

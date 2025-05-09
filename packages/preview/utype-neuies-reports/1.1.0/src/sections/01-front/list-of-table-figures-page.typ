@@ -1,10 +1,1 @@
-#import "/src/styles/list-of-table-figures-style.typ": list-of-table-figures-style
-
-// Tablo Listesi sayfası. [List of Table Figures page.]
-#let list-of-table-figures-page() = {
-  // Tablo listelerinin stilini uygula. [Apply the style of the table figure lists.]
-  list-of-table-figures-style(outline())
-
-  // Mevcut sayfa zaten boşsa sayfa sonu pasif olsun (weak: true). [Disable page break if the current page is already empty (weak: true).]
-  pagebreak(weak: true)
-}
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/src/sections/01-front/list-of-table-figures-page.typ

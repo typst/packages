@@ -1,2 +1,1 @@
-// Exports rules defaulting to leaky mode.
-#import "../element.typ": leaky-set as set_, leaky-apply as apply, leaky-revoke as revoke, leaky-reset as reset
+/home/gasche/Prog/typst-packages/packages/preview/lilaq/0.1.0/src/libs/elembic/pub/leaky.typ

@@ -1,1 +1,1 @@
-#import "src/lib.typ": config, prob
+/home/gasche/Prog/typst-packages/packages/preview/ichigo/0.1.0/export.typ

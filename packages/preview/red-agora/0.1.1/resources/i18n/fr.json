@@ -1,13 +1,1 @@
-{
-  "mentor": "Encadrant",
-  "mentor_plural": "Encadrants",
-  "jury": "Jury",
-  "author": "Auteur",
-  "author_plural": "Auteurs",
-  "academic_year": "Année universitaire",
-
-  "figures_table": "Table des figures",
-  "tables_table": "Table des tableaux",
-
-  "chapter": "Chapitre"  
-}
+/home/gasche/Prog/typst-packages/packages/preview/red-agora/0.1.0/resources/i18n/fr.json

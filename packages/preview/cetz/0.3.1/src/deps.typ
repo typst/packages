@@ -1,1 +1,1 @@
-#import "@preview/oxifmt:0.2.0"
+/home/gasche/Prog/typst-packages/packages/preview/cetz/0.2.0/src/deps.typ

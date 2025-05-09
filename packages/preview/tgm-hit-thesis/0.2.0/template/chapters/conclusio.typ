@@ -1,5 +1,1 @@
-#import "../lib.typ": *
-
-= Conclusio
-
-Hier findet eine letzte Zusammenfassung der Arbeit statt.
+/home/gasche/Prog/typst-packages/packages/preview/tgm-hit-thesis/0.1.0/template/chapters/conclusio.typ

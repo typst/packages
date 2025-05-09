@@ -1,7 +1,1 @@
-
-
-#let get-length(len, container-length) = {
-  if type(len) == length { return len }
-  if type(len) == ratio { return len * container-length}
-  if type(len) == relative { return len.length + len.ratio * container-length}
-}
+/home/gasche/Prog/typst-packages/packages/preview/quill/0.5.0/src/length-helpers.typ

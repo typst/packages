@@ -1,6 +1,1 @@
-#import "default.typ"
-#import "simple.typ"
-#import "metropolis.typ"
-#import "dewdrop.typ"
-#import "university.typ"
-#import "aqua.typ"
+/home/gasche/Prog/typst-packages/packages/preview/touying/0.3.2/themes/themes.typ

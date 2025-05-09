@@ -1,11 +1,1 @@
-#align(right + horizon)[
-  Wings are a constraint that makes\
-  it possible to fly.\
-  --- Robert Bringhurst
-]
-
-#v(4cm)
-
-#align(center + horizon)[
-  To my parents...
-]
+/home/gasche/Prog/typst-packages/packages/preview/scholarly-epfl-thesis/0.1.0/example/head/dedication.typ

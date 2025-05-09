@@ -1,1 +1,1 @@
-#import "@preview/cetz:0.2.2"
+/home/gasche/Prog/typst-packages/packages/preview/fletcher/0.4.4/src/deps.typ

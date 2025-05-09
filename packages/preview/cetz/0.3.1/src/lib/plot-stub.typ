@@ -1,2 +1,1 @@
-// DEPRECATED TODO: Remove this after 0.3.0
-#let plot(..args) = panic("cetz plotting library has been moved to its own package, cetz-plot")
+/home/gasche/Prog/typst-packages/packages/preview/cetz/0.3.0/src/lib/plot-stub.typ

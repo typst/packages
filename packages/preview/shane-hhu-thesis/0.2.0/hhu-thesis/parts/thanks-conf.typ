@@ -1,4 +1,1 @@
-#let thanks(title: "致谢", s) = {
-  heading(bookmarked: true, outlined: true, numbering: none, level: 1, title)
-  s
-}
+/home/gasche/Prog/typst-packages/packages/preview/shane-hhu-thesis/0.1.0/hhu-thesis/parts/thanks-conf.typ

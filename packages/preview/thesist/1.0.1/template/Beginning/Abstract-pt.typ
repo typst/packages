@@ -1,5 +1,1 @@
-// Don't add a title. It's already included in the template.
-
-#lorem(90)
-
-#lorem(30)
+/home/gasche/Prog/typst-packages/packages/preview/thesist/0.1.0/template/Beginning/Abstract-en.typ

@@ -1,1 +1,1 @@
-#import "slydst.typ": slides, frame, definition, theorem, lemma, corollary, algorithm
+/home/gasche/Prog/typst-packages/packages/preview/slydst/0.1.0/lib.typ

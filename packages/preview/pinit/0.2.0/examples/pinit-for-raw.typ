@@ -1,12 +1,1 @@
-#import "../lib.typ": *
-
-#set text(size: 24pt)
-
-#show raw: it => {
-  show regex("pin\d"): it => pin(eval(it.text.slice(3)))
-  it
-}
-
-`print(pin1"hello, world"pin2)`
-
-#pinit-highlight(1, 2)
+/home/gasche/Prog/typst-packages/packages/preview/pinit/0.1.4/examples/pinit-for-raw.typ

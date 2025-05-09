@@ -1,1 +1,1 @@
-#import "./wavy.typ": render
+/home/gasche/Prog/typst-packages/packages/preview/wavy/0.1.1/lib.typ

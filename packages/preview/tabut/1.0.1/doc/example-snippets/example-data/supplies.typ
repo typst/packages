@@ -1,5 +1,1 @@
-#let supplies = (
-  (name: "Notebook", price: 3.49, quantity: 5),
-  (name: "Ballpoint Pens", price: 5.99, quantity: 2),
-  (name: "Printer Paper", price: 6.99, quantity: 3),
-)
+/home/gasche/Prog/typst-packages/packages/preview/tabut/1.0.0/doc/example-snippets/example-data/supplies.typ

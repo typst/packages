@@ -1,13 +1,1 @@
-#{
-// render_code
-context preview(````typ
-#zebraw(
-  ```typ
-  #grid(
-    columns: (1fr, 1fr),
-    [Hello], [world!],
-  )
-  ```
-)
-````)
-}
+/home/gasche/Prog/typst-packages/packages/preview/zebraw/0.5.0/assets/2.typ

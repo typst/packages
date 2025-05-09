@@ -1,7 +1,1 @@
-= An appendix
-
-#lorem(100)
-
-#pagebreak()
-
-#lorem(100)
+/home/gasche/Prog/typst-packages/packages/preview/scholarly-epfl-thesis/0.1.0/example/tail/appendix.typ

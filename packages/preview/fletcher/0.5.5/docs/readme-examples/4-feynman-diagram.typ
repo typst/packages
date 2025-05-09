@@ -1,5 +1,1 @@
-#diagram(/*darkmode*/edge-stroke: white,/*end*/$
-	e^- edge("rd", "-<|-") & & & edge("ld", "-|>-") e^+ \
-	& edge(gamma, "wave") \
-	e^+ edge("ru", "-|>-") & & & edge("lu", "-<|-") e^- \
-$)
+/home/gasche/Prog/typst-packages/packages/preview/fletcher/0.5.3/docs/readme-examples/feynman-diagram.typ

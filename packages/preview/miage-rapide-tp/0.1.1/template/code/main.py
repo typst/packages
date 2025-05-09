@@ -1,2 +1,1 @@
-def print_hello():
-    print("Hello, world!")
+/home/gasche/Prog/typst-packages/packages/preview/miage-rapide-tp/0.1.0/template/code/main.py

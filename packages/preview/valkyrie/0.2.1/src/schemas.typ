@@ -1,2 +1,1 @@
-#import "schemas/author.typ": author
-#import "schemas/enumerations.typ": papersize
+/home/gasche/Prog/typst-packages/packages/preview/valkyrie/0.2.0/src/schemas.typ

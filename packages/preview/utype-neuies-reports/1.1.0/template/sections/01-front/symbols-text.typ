@@ -1,1 +1,1 @@
-// Simgeleriniz varsa yazınız. Yoksa, ilgili sayfayı kaldırmak için /template/main.typ dosyasındaki have-symbols parametresini "false" yapınız (have-symbols: false).
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/sections/01-front/symbols-text.typ

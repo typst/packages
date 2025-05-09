@@ -1,7 +1,1 @@
-#import "types/any.typ": *
-#import "types/array.typ": *
-#import "types/dictionary.typ": *
-#import "types/logical.typ": *
-#import "types/number.typ": *
-#import "types/string.typ": *
-#import "types/tuple.typ": *
+/home/gasche/Prog/typst-packages/packages/preview/valkyrie/0.1.0/src/types.typ

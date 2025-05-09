@@ -1,1 +1,1 @@
-= 引用文献的标注
+/home/gasche/Prog/typst-packages/packages/preview/modern-bnu-thesis/0.0.1/template/chapters/ch2.typ

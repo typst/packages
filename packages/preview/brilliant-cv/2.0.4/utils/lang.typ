@@ -1,4 +1,1 @@
-#let isNonLatin(lang) = {
-  let nonLatinLanguageCode = ("zh", "ja", "ko", "ru")
-  return nonLatinLanguageCode.contains(lang)
-}
+/home/gasche/Prog/typst-packages/packages/preview/brilliant-cv/2.0.0/utils/lang.typ

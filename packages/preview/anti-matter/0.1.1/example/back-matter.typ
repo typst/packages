@@ -1,7 +1,1 @@
-#set heading(numbering: none)
-= Glossary
-Content
-= Appendix
-Content
-= Acknowledgement
-Content
+/home/gasche/Prog/typst-packages/packages/preview/anti-matter/0.1.0/example/back-matter.typ

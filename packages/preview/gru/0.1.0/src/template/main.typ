@@ -1,3 +1,1 @@
-#import "@preview/gru:0.1.0": gru
-#show: gru.with(last-content: lorem(10))
-#lorem(200)
+/home/gasche/Prog/typst-packages/packages/preview/gru/0.1.0/sample/lorem.typ

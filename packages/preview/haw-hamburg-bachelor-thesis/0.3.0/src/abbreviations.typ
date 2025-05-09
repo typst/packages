@@ -1,17 +1,1 @@
-#import "dependencies.typ": print-glossary, register-glossary
-
-#set heading(numbering: none)
-
-= Abbreviations
-
-#let entry-list = (
-  (
-    key: "cpu", 
-    short: "CPU",
-    long: "Central Processing Unit",
-  ),
-)
-
-#register-glossary(entry-list)
-
-#print-glossary(entry-list, disable-back-references: true)
+/home/gasche/Prog/typst-packages/packages/preview/haw-hamburg/0.2.0/template/abbreviations.typ

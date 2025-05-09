@@ -1,1 +1,1 @@
-// This file is redundant, but required by the Typst packaging system
+/home/gasche/Prog/typst-packages/packages/preview/haw-hamburg-bachelor-thesis/0.3.0/lib.typ

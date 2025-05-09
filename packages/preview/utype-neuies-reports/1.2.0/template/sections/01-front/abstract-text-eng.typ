@@ -1,2 +1,1 @@
-// Türkçe özetin İngilizceye çevrilmiş halini yazınız.
-Özet sayfasının İngilizceye çevrilmiş halini yazınız. ....... ................. ............ ......... ........... ......... ....... ....... ........ .
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/sections/01-front/abstract-text-eng.typ

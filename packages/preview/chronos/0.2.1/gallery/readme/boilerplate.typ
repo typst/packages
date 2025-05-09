@@ -1,13 +1,1 @@
-#import "/src/lib.typ" as chronos
-
-#set page(
-  width: auto,
-  height: auto,
-  margin: 0.5cm
-)
-
-#chronos.diagram({
-  import chronos: *
-  _par("Alice")
-  _par("Bob")
-})
+/home/gasche/Prog/typst-packages/packages/preview/chronos/0.1.0/gallery/readme/boilerplate.typ

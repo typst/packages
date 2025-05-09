@@ -1,1 +1,1 @@
-#import "src/export.typ": *
+/home/gasche/Prog/typst-packages/packages/preview/shuxuejuan/0.1.0/lib.typ

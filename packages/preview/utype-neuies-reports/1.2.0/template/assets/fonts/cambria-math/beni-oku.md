@@ -1,3 +1,1 @@
-Typst.app uygulamasında, bu dosyanın bulunduğu klasöre ilgili statik yazı tipi dosyalarını, yasal olarak kullanma hakkına sahipseniz, ekleyebilirsiniz.
-
-NOT: Bu işlem zorunlu değildir, https://typst.app/universe/package/utype-neuies-reports bağlantısındaki yazı tipleri hakkındaki bilgilendirmeyi okuyabilirsiniz.
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.1.0/template/assets/fonts/cambria-math/beni-oku.md

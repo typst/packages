@@ -1,1 +1,1 @@
-#import "backlinks.typ": generate, get
+/home/gasche/Prog/typst-packages/packages/preview/basalt-backlinks/0.1.0/src/exports.typ

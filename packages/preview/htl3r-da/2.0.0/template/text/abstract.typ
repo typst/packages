@@ -1,5 +1,1 @@
-#text(lang: "en")[
-  This is the English version of the "Kurzfassung"
-
-  #lorem(100)
-]
+/home/gasche/Prog/typst-packages/packages/preview/htl3r-da/1.0.0/template/text/abstract.typ

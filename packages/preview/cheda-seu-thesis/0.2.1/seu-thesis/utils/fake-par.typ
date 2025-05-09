@@ -1,3 +1,1 @@
-// by Myriad-Dreamin
-#let empty-par = par[#box()]
-#let fake-par = context empty-par + v(-measure(empty-par + empty-par).height)
+/home/gasche/Prog/typst-packages/packages/preview/cheda-seu-thesis/0.2.0/seu-thesis/utils/fake-par.typ

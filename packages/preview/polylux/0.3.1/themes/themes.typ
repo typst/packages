@@ -1,5 +1,1 @@
-#import "simple.typ"
-#import "clean.typ"
-#import "bipartite.typ"
-#import "university.typ"
-#import "metropolis.typ"
+/home/gasche/Prog/typst-packages/packages/preview/polylux/0.2.0/themes/themes.typ

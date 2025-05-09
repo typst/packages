@@ -1,2 +1,1 @@
-#import "template-link.typ": *
-#import "template-theme.typ": *
+/home/gasche/Prog/typst-packages/packages/preview/shiroa/0.2.2/templates.typ

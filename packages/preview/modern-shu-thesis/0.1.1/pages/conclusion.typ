@@ -1,13 +1,1 @@
-#import "../style/heading.typ": none-heading
-
-#let conclusion-page(
-  body,
-) = {
-  show: none-heading
-  v(2em)
-  heading(level: 1)[结论]
-  v(2em)
-  body
-  pagebreak(weak: true)
-}
-
+/home/gasche/Prog/typst-packages/packages/preview/modern-shu-thesis/0.1.0/pages/conclusion.typ

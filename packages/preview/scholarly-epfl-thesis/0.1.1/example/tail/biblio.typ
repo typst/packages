@@ -1,8 +1,1 @@
-// \cleardoublepage
-// \phantomsection
-// % ************* The working stuff *************
-// % Print the bibliography just here
-
-#bibliography("references.bib", style: "apa")
-
-// \addcontentsline{toc}{chapter}{Bibliography}
+/home/gasche/Prog/typst-packages/packages/preview/scholarly-epfl-thesis/0.1.0/example/tail/biblio.typ

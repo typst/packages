@@ -1,1 +1,1 @@
-// 硕士学位论文封面统一打印
+/home/gasche/Prog/typst-packages/packages/preview/modern-cug-thesis/0.1.0/pages/postgraduate/cover.typ

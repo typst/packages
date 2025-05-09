@@ -1,3 +1,1 @@
-= Appendix
-If you need one, write your appendix here.
-#lorem(100)
+/home/gasche/Prog/typst-packages/packages/preview/minimal-thesis-luebeck/0.2.0/template/texts/appendix.typ

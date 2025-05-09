@@ -1,1 +1,1 @@
-#import "neoplot.typ": exec
+/home/gasche/Prog/typst-packages/packages/preview/neoplot/0.0.2/lib.typ

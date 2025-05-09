@@ -1,3 +1,1 @@
-#import "styles/default.typ"
-#import "styles/minimal.typ"
-#import "styles/help.typ"
+/home/gasche/Prog/typst-packages/packages/preview/tidy/0.3.0/src/styles.typ

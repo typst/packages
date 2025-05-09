@@ -1,3 +1,1 @@
-#heading(outlined: false, numbering: none)[Abstract]
-
-Perönlicher Zugang zum Thema. Gründe für die Themenwahl.
+/home/gasche/Prog/typst-packages/packages/preview/modern-whs-thesis/0.2.0/example/chapters/00_abstract.typ

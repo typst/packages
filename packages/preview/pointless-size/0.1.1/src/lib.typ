@@ -1,1 +1,1 @@
-#import "./zihao.typ": zh, zihao
+/home/gasche/Prog/typst-packages/packages/preview/pointless-size/0.1.0/lib.typ

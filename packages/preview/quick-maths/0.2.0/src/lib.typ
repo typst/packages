@@ -1,1 +1,1 @@
-#import "quick-maths.typ": shorthands
+/home/gasche/Prog/typst-packages/packages/preview/quick-maths/0.1.0/src/lib.typ

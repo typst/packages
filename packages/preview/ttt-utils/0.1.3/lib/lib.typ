@@ -1,6 +1,1 @@
-#import "components.typ"
-#import "assignments.typ"
-#import "grading.typ"
-#import "helpers.typ"
-#import "layout.typ"
-#import "random.typ"
+/home/gasche/Prog/typst-packages/packages/preview/ttt-utils/0.1.0/lib/lib.typ

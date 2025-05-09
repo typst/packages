@@ -1,4 +1,1 @@
-#{
-// render_code
-context figure(image("assets/html-example.png", width: 76%))
-}
+/home/gasche/Prog/typst-packages/packages/preview/zebraw/0.4.3/assets/14.typ

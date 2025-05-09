@@ -1,2 +1,1 @@
-#import "clues.typ": *
-#import "predefined.typ": *
+/home/gasche/Prog/typst-packages/packages/preview/gentle-clues/0.8.0/lib/lib.typ

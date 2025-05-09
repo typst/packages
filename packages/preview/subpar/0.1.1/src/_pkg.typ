@@ -1,1 +1,1 @@
-#import "@preview/t4t:0.3.2"
+/home/gasche/Prog/typst-packages/packages/preview/subpar/0.1.0/src/_pkg.typ

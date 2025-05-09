@@ -1,12 +1,1 @@
-= Code Snippets
-
-#lorem(20)
-
-#figure(
-  ```rs
-fn main() {
-    println!("Hello World!");
-}
-  ```,
-  caption: [A simple hello world program in Rust]
-)
+/home/gasche/Prog/typst-packages/packages/preview/classic-aau-report/0.1.0/template/appendices/code-snippets.typ

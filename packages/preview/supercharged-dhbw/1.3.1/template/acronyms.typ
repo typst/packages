@@ -1,7 +1,1 @@
-// Define your acronyms here
-// For more information look at the used package https://typst.app/universe/package/acrostiche
-
-#let acronyms = (
-  "API": ("Application Programming Interface"),
-  "AWS": ("Amazon Web Services"),
-)
+/home/gasche/Prog/typst-packages/packages/preview/supercharged-dhbw/1.3.0/template/acronyms.typ

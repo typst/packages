@@ -1,1 +1,1 @@
-Write your abstract here. #lorem(80)
+/home/gasche/Prog/typst-packages/packages/preview/minimal-thesis-luebeck/0.2.0/template/texts/abstract-en.typ

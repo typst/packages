@@ -1,7 +1,1 @@
-#let glossary-entry-list = (
-  (
-    key: "freedom", 
-    short: "freedom",
-    description: "Freedom is the power or right to speak, act and change as one wants without hindrance or restraint. Freedom is often associated with liberty and autonomy in the sense of \"giving oneself one's own laws\"",
-  ),
-)
+/home/gasche/Prog/typst-packages/packages/preview/haw-hamburg-bachelor-thesis/0.3.1/src/glossary.typ

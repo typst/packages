@@ -1,2 +1,1 @@
-#import "@preview/hydra:0.6.1": hydra
-#import "@preview/pillar:0.3.1"
+/home/gasche/Prog/typst-packages/packages/preview/rubber-article/0.3.2/src/dependencies.typ

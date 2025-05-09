@@ -1,2 +1,1 @@
-// Tezi İngilizce yazıyorsanız Genişletilmiş Türkçe Özet metnini yazınız.
-Genişletilmiş Türkçe özeti, tez hazırlama kılavuzunda verilen açıklamaları dikkate alarak yazınız. ....... ................. ............ ......... ........... ......... ....... ....... ........ .
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/sections/03-back/expanded-turkish-abstract-text.typ

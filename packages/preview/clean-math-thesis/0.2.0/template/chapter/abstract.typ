@@ -1,3 +1,1 @@
-#heading(level: 2, outlined: false, numbering: none)[Abstract]
-
-#lorem(150)
+/home/gasche/Prog/typst-packages/packages/preview/clean-math-thesis/0.1.0/template/chapter/abstract.typ

@@ -1,1 +1,1 @@
-// Kısaltmalarınız varsa yazınız. Yoksa, ilgili sayfayı kaldırmak için /template/main.typ dosyasındaki have-abbreviations parametresini "false" yapınız (have-abbreviations: false).
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/sections/01-front/abbreviations-text.typ

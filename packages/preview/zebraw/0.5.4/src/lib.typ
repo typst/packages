@@ -1,5 +1,1 @@
-#import "mod.typ": (
-  zebraw,
-  zebraw-init,
-)
-#import "theme.typ" as zebraw-themes
+/home/gasche/Prog/typst-packages/packages/preview/zebraw/0.5.0/src/lib.typ

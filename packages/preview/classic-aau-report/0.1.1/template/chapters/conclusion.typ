@@ -1,3 +1,1 @@
-= Conclusion
-
-In summary, the problem statement is fulfilled.
+/home/gasche/Prog/typst-packages/packages/preview/classic-aau-report/0.1.0/template/chapters/conclusion.typ

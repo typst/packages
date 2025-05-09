@@ -1,1 +1,1 @@
-#lorem(300)
+/home/gasche/Prog/typst-packages/packages/preview/kthesis/0.1.0/template/content/abstract-1-en.typ

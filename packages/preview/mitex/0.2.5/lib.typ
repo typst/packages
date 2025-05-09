@@ -1,1 +1,1 @@
-#import "mitex.typ": mitex-wasm, mitex-convert, mitex-scope, mitex, mitext, mimath, mi
+/home/gasche/Prog/typst-packages/packages/preview/mitex/0.2.0/lib.typ

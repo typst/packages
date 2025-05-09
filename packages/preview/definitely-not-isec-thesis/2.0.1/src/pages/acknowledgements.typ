@@ -1,9 +1,1 @@
-#let acknowledgements-page(acknowledgements) = [
-
-	= Acknowledgements
-
-	#acknowledgements
-
-]
-
-// vim:tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab colorcolumn=81
+/home/gasche/Prog/typst-packages/packages/preview/definitely-not-isec-thesis/1.0.0/src/pages/acknowledgements.typ

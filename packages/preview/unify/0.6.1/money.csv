@@ -1,11 +1,1 @@
-bitcoin,btc,bitcoin,true
-dollar,usd,dollar,true
-euro,eur,euro,true
-franc,fr,franc,true
-lira,try,lira,true
-peso,peso,peso,true
-pound,gbp,pound,true
-ruble,rub,ruble,true
-rupee,inr,rupee,true
-won,krw,won,true
-yen,jpy,yen,true
+/home/gasche/Prog/typst-packages/packages/preview/unify/0.6.0/money.csv

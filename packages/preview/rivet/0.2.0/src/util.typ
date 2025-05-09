@@ -1,4 +1,1 @@
-#let z-fill(string, length) = {
-  let filled = "0" * length + string
-  return filled.slice(-length)
-}
+/home/gasche/Prog/typst-packages/packages/preview/rivet/0.1.0/src/util.typ

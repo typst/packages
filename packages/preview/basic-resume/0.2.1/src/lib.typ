@@ -1,6 +1,1 @@
-/*
-* Package Entrypoint, links only to resume.typ for now
-* May add more later if I decide to also add cover letter support
-*/
-
-#import "./resume.typ": *
+/home/gasche/Prog/typst-packages/packages/preview/basic-resume/0.1.0/src/lib.typ

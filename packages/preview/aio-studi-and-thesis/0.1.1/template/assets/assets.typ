@@ -1,1 +1,1 @@
-// Hier können deine eigenen Assets stehen
+/home/gasche/Prog/typst-packages/packages/preview/aio-studi-and-thesis/0.1.0/template/assets/assets.typ

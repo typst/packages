@@ -1,1 +1,1 @@
-#import "cvssc.typ": *;
+/home/gasche/Prog/typst-packages/packages/preview/cvssc/0.1.0/src/main.typ

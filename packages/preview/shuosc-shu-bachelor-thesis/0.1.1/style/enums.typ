@@ -1,12 +1,1 @@
-#import "font.typ": ziti, zihao
-#import "@preview/numbly:0.1.0": numbly
-#let enums(
-  body,
-) = {
-  set enum(
-    numbering: numbly("({1})"),
-    indent: 2em,
-    full: true,
-  )
-  body
-}
+/home/gasche/Prog/typst-packages/packages/preview/modern-shu-thesis/0.2.0/style/enums.typ

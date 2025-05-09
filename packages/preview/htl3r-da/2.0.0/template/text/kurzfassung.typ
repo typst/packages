@@ -1,3 +1,1 @@
-Hier steht eine kurze Zusammenfassung der Diplomarbeit.
-
-#lorem(100)
+/home/gasche/Prog/typst-packages/packages/preview/htl3r-da/1.0.0/template/text/kurzfassung.typ

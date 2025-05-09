@@ -1,7 +1,1 @@
-#let print-page-break(print: bool, to: "even") = {
-  if print {
-    pagebreak(to: to)
-  } else {
-    pagebreak()
-  }
-}
+/home/gasche/Prog/typst-packages/packages/preview/minimal-thesis-luebeck/0.2.0/utils/print-page-break.typ

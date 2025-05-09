@@ -1,5 +1,1 @@
-def main():
-    print("Hello, world!")
-
-if __name__ == "__main__":
-    main()
+/home/gasche/Prog/typst-packages/packages/preview/versatile-apa/7.0.0/template/assets/src/main.py
