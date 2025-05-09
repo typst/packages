@@ -1,0 +1,17 @@
+[package]
+name = "thusliding"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Jez (https://github.com/Jzzzi)"]
+license = "MIT-0"
+description = "A slide template for Tsinghua University, modified from https://github.com/skriptum/Diatypst"
+repository = "https://github.com/Jzzzi/slide-thu"
+keywords = ["slides", "presentation", "beamer", "Tsinghua University"]
+categories = ["presentation"]
+compiler = "0.13.1"
+exclude = ["out", "assets"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "img/thumbnail.png"
