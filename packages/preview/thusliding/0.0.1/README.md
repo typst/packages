@@ -13,13 +13,13 @@ typst compile main.typ
 
 ## Preview
 The title page will be like this:
-![preview](./img/thumbnail.png)
+![preview](./assets/thumbnail.png)
 
 The table of contents will be like this: 
-![](./img/coontent.png)
+![](./assets/coontent.png)
 
 The section page will be like this(1 level heading):
-![](./img/section.png)
+![](./assets/section.png)
 
 The slide page will be like this(2 level heading):
-![](./img/slide.png)
+![](./assets/slide.png)

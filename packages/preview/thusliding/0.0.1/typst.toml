@@ -9,7 +9,7 @@ repository = "https://github.com/Jzzzi/slide-thu"
 keywords = ["slides", "presentation", "beamer", "Tsinghua University"]
 categories = ["presentation"]
 compiler = "0.13.1"
-exclude = ["out"]
+exclude = ["out", "assets"]
 
 [template]
 path = "template"
