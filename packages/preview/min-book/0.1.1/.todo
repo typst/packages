@@ -1,3 +1,0 @@
-[config]
-exclude = ["dev", "scripts"]
-codetag = "todo+fixme+name"
