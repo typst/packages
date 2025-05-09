@@ -2,6 +2,11 @@
 
 This is an unofficial Typst version of the official LaTeX template for Master's Theses in Computer Science at LTH (Lund University). The template follows the department's guidelines and formatting requirements. A complete example is provided together with all typst code for customisation purposes.
 
+## Important
+The fonts has to be downloaded as they cannot be part of the typst template.
+Get them [here](https://drive.google.com/file/d/1EjXn3qhxQ9OOOP-vwQuvA0lzrfvzQTEx/view?usp=sharing) and replace the empty `fonts/` folder.
+
+
 ## Usage
 
 You can create a new project using this template by running:

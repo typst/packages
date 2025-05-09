@@ -11,6 +11,8 @@
 #let LTHcream = rgb(214,219,196)
 #let LTHcyan = rgb(185,211,220)
 #let LTHgrey = rgb(191,184,175)
+
+// Download the fonts from Google Drive and replace the empty `fonts/` folder (see README.md)
 #let fonts = (
     serif: "Adobe Garamond Pro",
     sansserif: "Frutiger LT Pro",
