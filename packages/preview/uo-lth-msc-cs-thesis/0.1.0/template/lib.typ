@@ -1,3 +1,9 @@
+
+// This file contains styling configuration for the LTH Master's thesis template,
+// including LTH brand colors, fonts, and heading styles. Feel free to customize
+// these settings or logic to match your needs.
+
+
 #let LTHblue = rgb(0,0,128)
 #let LTHbronze = rgb(156,97,20)
 #let LTHgreen = rgb(173,202,184)

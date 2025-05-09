@@ -1,13 +1,13 @@
 # LTH Master's Thesis Template for Computer Science
 
-This is a Typst version of the official LaTeX template for Master's theses in Computer Science at LTH (Lund University). The template follows the department's guidelines and formatting requirements.
+This is an unofficial Typst version of the official LaTeX template for Master's Theses in Computer Science at LTH (Lund University). The template follows the department's guidelines and formatting requirements. A complete example is provided together with all typst code for customisation purposes.
 
 ## Usage
 
 You can create a new project using this template by running:
 
 ```
-typst init @preview/lth-msc-cs
+typst init @preview/uo-lth-msc-cs-thesis
 ```
 
 This will create a new directory with all the necessary files to get started with your thesis.
@@ -41,7 +41,7 @@ The template exports a `template` function with the following named arguments:
 ## Minimal Working Example
 
 ```typst
-#import "@preview/lth-msc-cs:0.1.0": template, createAppendices
+#import "@preview/uo-lth-msc-cs-thesis:0.1.0": template, createAppendices
 
 #show: template.with(
   title: "Your Thesis Title",

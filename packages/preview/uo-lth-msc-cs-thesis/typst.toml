@@ -1,5 +1,5 @@
 [package]
-name = "lth-msc-cs"
+name = "uo-lth-msc-cs-thesis"
 version = "0.1.0"
 compiler = "0.13.0"
 entrypoint = "lib.typ"

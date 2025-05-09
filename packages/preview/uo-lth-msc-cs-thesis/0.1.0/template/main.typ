@@ -89,8 +89,8 @@ are not really needed in here],
 
   popular_science_summary: (
     title: [#lorem(6)],
-    abstract: include("pop_abstract.typ"),
-    body: include("pop_body.typ"),
+    abstract: include("popsci/abstract.typ"),
+    body: include("popsci/body.typ"),
   )
 
 )
