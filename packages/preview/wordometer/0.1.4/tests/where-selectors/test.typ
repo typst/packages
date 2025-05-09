@@ -1,13 +1,1 @@
-#import "/src/lib.typ": *
-#set page(width: 15cm, height: auto)
-
-#let el = [
-	
-	= One
-	== Not me!
-	=== Two three four five
-
-]
-
-#rect(el)
-#word-count-of(el, exclude: heading.where(depth: 2))
+/home/gasche/Prog/typst-packages/packages/preview/wordometer/0.1.3/tests/where-selectors/test.typ

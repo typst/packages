@@ -1,2 +1,1 @@
-#import "src/formatter.typ"
-#import "src/runner.typ"
+/home/gasche/Prog/typst-packages/packages/preview/showman/0.1.0/lib.typ

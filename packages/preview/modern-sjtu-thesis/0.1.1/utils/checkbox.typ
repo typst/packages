@@ -1,1 +1,1 @@
-#let checkbox = box(grid(gutter: -8pt, $square$, $checkmark$))
+/home/gasche/Prog/typst-packages/packages/preview/modern-sjtu-thesis/0.1.0/utils/checkbox.typ

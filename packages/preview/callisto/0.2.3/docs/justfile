@@ -1,6 +1,1 @@
-lorenz: (screenshot "lorenz-extract.typ")
-
-screenshot filename:
-    typst c --root=.. {{filename}} {{file_stem(filename)}}.png
-
-
+/home/gasche/Prog/typst-packages/packages/preview/callisto/0.2.2/docs/justfile

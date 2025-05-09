@@ -1,3 +1,1 @@
-#let abstract = [
-  #lorem(200)
-]
+/home/gasche/Prog/typst-packages/packages/preview/supercharged-dhbw/1.3.0/template/abstract.typ

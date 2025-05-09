@@ -1,2 +1,1 @@
-// Public re-exports for element-related functions.
-#import "../element.typ": declare
+/home/gasche/Prog/typst-packages/packages/preview/lilaq/0.1.0/src/libs/elembic/pub/element.typ

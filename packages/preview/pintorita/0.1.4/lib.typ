@@ -1,3 +1,1 @@
-#import "./pintorita.typ": render, render-svg
-
-
+/home/gasche/Prog/typst-packages/packages/preview/pintorita/0.1.2/lib.typ

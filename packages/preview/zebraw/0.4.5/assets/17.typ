@@ -1,13 +1,1 @@
-#{
-// render_code
-context preview(````typ
-#zebraw(
-  highlight-lines: 1,
-  highlight-color: blue.lighten(90%),
-  ```text
-  I'm so blue!
-              -- George III
-  ```,
-)
-````)
-}
+/home/gasche/Prog/typst-packages/packages/preview/zebraw/0.4.2/assets/16.typ

@@ -1,5 +1,1 @@
-= #lorem(2)
-#lorem(40)
-
-== #lorem(2)
-#lorem(50)
+/home/gasche/Prog/typst-packages/packages/preview/summy/0.1.0/template/units/02-lorem-ipsum.typ

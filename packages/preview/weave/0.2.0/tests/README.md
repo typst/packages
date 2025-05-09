@@ -1,5 +1,1 @@
-Run
-```bash
-typst compile tests.typ --root ..
-```
-to test the package
+/home/gasche/Prog/typst-packages/packages/preview/weave/0.1.0/tests/README.md

@@ -1,1 +1,1 @@
-Hello World
+/home/gasche/Prog/typst-packages/packages/preview/codelst/2.0.2/tests/gobble/test.typ

@@ -1,5 +1,1 @@
-solution = 解答
-homeworkOrd = 作业 #{ $ord }
-homeworkWeek = 第 { $weekNo } 周作业
-pageNo = 第 { $pageNo } 页
-problem = 习题
+/home/gasche/Prog/typst-packages/packages/preview/ichigo/0.1.0/src/L10n/zh.ftl

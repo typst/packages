@@ -1,6 +1,1 @@
-[supported-languages]
-# Türkçe [Turkish]
-tr = { name = "Türkçe (Türkiye)", file-path = "turkish.toml" }
-# İngilizce [English]
-en = { name = "English (United States)", file-path = "english.toml" }
-# Gerektiğindedaha fazla dil eklenebilir. [You can add more languages if needed.]
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/src/core/language-manager/supported-languages.toml

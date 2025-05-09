@@ -1,1 +1,1 @@
-#import "@preview/glossarium:0.5.3": *
+/home/gasche/Prog/typst-packages/packages/preview/haw-hamburg-bachelor-thesis/0.4.0/src/dependencies.typ

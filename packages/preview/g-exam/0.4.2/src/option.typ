@@ -1,14 +1,1 @@
-#import"./global.typ": *
-
-/// Define a new block of options.
-/// 
-/// *Example:*
-/// ``` 
-/// #g-subquestion(points:2)[This is a sub-question]
-/// ```
-///
-/// - body (string, content): Body of option label.
-#let option(
-    body) = {
-      body
-    }
+/home/gasche/Prog/typst-packages/packages/preview/g-exam/0.4.0/src/option.typ

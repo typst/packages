@@ -1,11 +1,1 @@
-{
-  "zbuffer": {
-    "short": "z-bufer",
-    "long": "the depth buffer"
-  },
-  "pbr": {
-    "short": "PBR",
-    "long": "physically based rendering",
-    "group": "abbreviations"
-  }
-}
+/home/gasche/Prog/typst-packages/packages/preview/glossy/0.3.0/tests/group-specified/abbreviations.json

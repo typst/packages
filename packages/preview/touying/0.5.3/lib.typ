@@ -1,2 +1,1 @@
-#import "src/exports.typ": *
-#import "themes/themes.typ"
+/home/gasche/Prog/typst-packages/packages/preview/touying/0.5.0/lib.typ

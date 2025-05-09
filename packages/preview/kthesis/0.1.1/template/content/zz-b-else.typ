@@ -1,3 +1,1 @@
-= Something Else
-
-Whoa!
+/home/gasche/Prog/typst-packages/packages/preview/kthesis/0.1.0/template/content/zz-b-else.typ

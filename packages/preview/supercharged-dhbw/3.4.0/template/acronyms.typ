@@ -1,5 +1,1 @@
-#let acronyms = (
-  API: "Application Programming Interface",
-  HTTP: "Hypertext Transfer Protocol",
-  REST: "Representational State Transfer",
-)
+/home/gasche/Prog/typst-packages/packages/preview/clean-dhbw/0.1.0/template/acronyms.typ

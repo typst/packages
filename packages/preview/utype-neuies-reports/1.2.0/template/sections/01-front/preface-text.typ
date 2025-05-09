@@ -1,2 +1,1 @@
-// Ön söz (veya teşekkür) metnini yazınız.
-Ön söz (veya teşekkür) metnini, tez hazırlama kılavuzunda verilen açıklamaları dikkate alarak yazınız. …………………………………………………
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/sections/01-front/preface-text.typ

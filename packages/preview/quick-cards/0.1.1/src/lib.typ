@@ -1,2 +1,1 @@
-#import "core.typ": quick-cards-layout, quick-cards-show, question, answer, category, hint
-#import "card-templates.typ": flashcard-simple, flashcard-modern, flashcard-classic, set-category-database, reset-category-database
+/home/gasche/Prog/typst-packages/packages/preview/quick-cards/0.1.0/lib.typ

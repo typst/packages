@@ -1,3 +1,1 @@
-#let data = (
-  ("LISU LETTER YHA", "Lo", 0),
-)
+/home/gasche/Prog/typst-packages/packages/preview/unichar/0.1.0/ucd/block-11FB0.typ

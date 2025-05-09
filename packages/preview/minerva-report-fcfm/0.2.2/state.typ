@@ -1,4 +1,1 @@
-/// Es `true` si la compilación partió desde el archivo con la
-/// show rule `minerva.report`
-/// Es `false` si la compilación partió desde un archivo secundario.
-#let is-main = state("minerva.is-main", false)
+/home/gasche/Prog/typst-packages/packages/preview/minerva-report-fcfm/0.2.0/state.typ

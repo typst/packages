@@ -1,9 +1,1 @@
-class Message: 
-   def __init__(self,txt):
-       self.m=txt
-   def __str__(self):
-       return f"{self.m}"
-       
-       
-class SecureMessage(Message):
-    pass
+/home/gasche/Prog/typst-packages/packages/preview/fh-joanneum-iit-thesis/1.1.0/template/code-snippets/msg.py

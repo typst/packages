@@ -1,6 +1,1 @@
-// Operations and placeholders for such.
-
-#let (op, opb) = (
-  $circle$,
-  $diamond.filled$,
-).map(math.class.with("binary"))
+/home/gasche/Prog/typst-packages/packages/preview/flow/0.2.0/src/util/preset/ops.typ

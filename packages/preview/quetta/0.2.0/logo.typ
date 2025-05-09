@@ -1,7 +1,1 @@
-#import "src/quetta.typ": *
-
-#set page(height: auto, width: auto, margin: 0pt, fill: black)
-
-#set text(top-edge: "bounds", bottom-edge: "bounds", fill: white)
-
-#quenya[Quetta]
+/home/gasche/Prog/typst-packages/packages/preview/quetta/0.1.0/logo.typ

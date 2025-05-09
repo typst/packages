@@ -1,1 +1,1 @@
-#import "nup.typ": nup
+/home/gasche/Prog/typst-packages/packages/preview/nup/0.1.0/src/lib.typ

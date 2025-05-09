@@ -1,4 +1,1 @@
-// 一条水平横线
-#let hline() = {
-  line(length: 100%)
-}
+/home/gasche/Prog/typst-packages/packages/preview/modern-szu-thesis/0.1.0/utils/hline.typ

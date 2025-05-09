@@ -1,6 +1,1 @@
-watchexec \
-  --watch . \
-  --clear \
-  --ignore 'tests/**/diff/**' \
-  --ignore 'tests/**/out/**' \
-  "typst-test r"
+/home/gasche/Prog/typst-packages/packages/preview/glossy/0.5.2/bin/autotest.sh

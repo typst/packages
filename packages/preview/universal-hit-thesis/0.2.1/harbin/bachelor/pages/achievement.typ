@@ -1,10 +1,1 @@
-#import "../config/constants.typ": special-chapter-titles
-
-#let achievement(
-  content,
-) = [
-
-  #heading(special-chapter-titles.成果, level: 1, numbering: none)
-
-  #content
-]
+/home/gasche/Prog/typst-packages/packages/preview/universal-hit-thesis/0.2.0/harbin/bachelor/pages/achievement.typ

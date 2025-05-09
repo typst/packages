@@ -1,1 +1,1 @@
-#import "src/lib.typ": branner, praat, sil, xsampa, phonetic, phnt, phonemic, phnm, orthographic, orth, prosodic, prsd
+/home/gasche/Prog/typst-packages/packages/preview/ascii-ipa/1.1.0/ascii-ipa.typ

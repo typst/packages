@@ -1,7 +1,1 @@
-#!/bin/bash
-
-for f in ./*.svg; 
-do
-  echo "Processing $f file..."
-  svgcleaner $f $f
-done
+/home/gasche/Prog/typst-packages/packages/preview/gentle-clues/0.2.0/assets/cleanup-script.sh

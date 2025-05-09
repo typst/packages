@@ -1,1 +1,1 @@
-#import "./mj.typ": render
+/home/gasche/Prog/typst-packages/packages/preview/m-jaxon/0.1.0/lib.typ

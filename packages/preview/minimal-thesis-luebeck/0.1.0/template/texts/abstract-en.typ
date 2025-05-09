@@ -1,1 +1,1 @@
-#lorem(100)
+/home/gasche/Prog/typst-packages/packages/preview/minimal-thesis-luebeck/0.1.0/template/texts/abstract-de.typ

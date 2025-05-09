@@ -1,3 +1,1 @@
-= Conclusions and Outlook <chap:conclusions_outlook>
-
-#lorem(300)
+/home/gasche/Prog/typst-packages/packages/preview/clean-math-thesis/0.1.0/template/chapter/conclusions_outlook.typ

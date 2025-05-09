@@ -1,5 +1,1 @@
-solution = Solution
-homeworkOrd = Homework #{ $ord }
-homeworkWeek = Homework Week { $weekNo }
-pageNo = Page { $pageNo }
-problem = Problem
+/home/gasche/Prog/typst-packages/packages/preview/ichigo/0.1.0/src/L10n/en.ftl

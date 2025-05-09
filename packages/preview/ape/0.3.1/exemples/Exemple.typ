@@ -1,2 +1,1 @@
-#import "../lib.typ" : *
-
+/home/gasche/Prog/typst-packages/packages/preview/ape/0.3.0/exemples/Exemple.typ

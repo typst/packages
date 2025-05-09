@@ -1,7 +1,1 @@
-// Ana hattın girdilerindeki doldurma stili. [Outline entry's fill style.]
-#let outline-entry-fill-style(content) = {
-  // Ana hattaki girdi satırlarının içeriğindeki doldurma stili. [Outline entry content's fill style.]
-  set outline.entry(fill: repeat(justify: true, gap: 0.1em)[.])
-
-  content
-}
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/src/styles/outline-entry-fill-style.typ

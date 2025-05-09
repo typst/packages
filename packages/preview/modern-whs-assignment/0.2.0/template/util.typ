@@ -1,7 +1,1 @@
-#let footcite(source) = [
-  #footnote()[#cite(source, form: "prose")]
-]
-
-#let footcitesuf(source, suffix) = [
-  #footnote()[#cite(source, form: "prose"), #suffix]
-]
+/home/gasche/Prog/typst-packages/packages/preview/modern-whs-assignment/0.1.0/template/util.typ

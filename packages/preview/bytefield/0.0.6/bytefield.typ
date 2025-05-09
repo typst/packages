@@ -1,7 +1,1 @@
-// Bytefield - generate protocol headers and more
-
-// pull in the user facing api
-#import "lib/api.typ": bytefield, bit, bits, byte, bytes, flag, group, note, bitheader, section
-#import "lib/states.typ": bf-config
-// import common network protocols
-#import "common.typ";
+/home/gasche/Prog/typst-packages/packages/preview/bytefield/0.0.5/bytefield.typ

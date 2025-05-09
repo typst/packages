@@ -1,9 +1,1 @@
-#let epigraph-page(body) = {
-  // --- Epigraphs ---
-  page(
-    numbering: none,
-    align(right + bottom)[
-      #body
-    ],
-  )
-}
+/home/gasche/Prog/typst-packages/packages/preview/modern-uit-thesis/0.1.0/modules/epigraph.typ

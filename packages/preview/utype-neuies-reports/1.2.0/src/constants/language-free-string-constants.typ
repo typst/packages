@@ -1,7 +1,1 @@
-/* ---- Dilden bağımsız yazı sabitleri. [Language independent string constants] ---- */
-
-// Şehir adı [City name]
-#let STRING-CITY-NAME = "Konya"
-
-// "ORCID" yazısı ["ORCID" text]
-#let STRING-ORCID = "ORCID"
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/src/constants/language-free-string-constants.typ

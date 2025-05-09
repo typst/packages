@@ -1,2 +1,1 @@
-// Tartışma, Sonuç ve Öneriler bölümünü alt başlıklara ayırarak yazıyorsanız buraya Öneriler metnini yazınız.
-#lorem(50)
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/sections/02-main/05-discussion-conclusion-and-suggestions/suggestions-text.typ

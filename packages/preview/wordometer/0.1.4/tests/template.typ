@@ -1,2 +1,1 @@
-#import "/src/lib.typ": *
-#set page(width: 15cm, height: auto)
+/home/gasche/Prog/typst-packages/packages/preview/wordometer/0.1.3/tests/template.typ

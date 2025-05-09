@@ -1,5 +1,1 @@
-#import "line.typ": line
-#import "path.typ": path
-#import "arc.typ": arc
-#import "utility.typ"
-#import "marks.typ": *
+/home/gasche/Prog/typst-packages/packages/preview/tiptoe/0.1.0/src/tiptoe.typ

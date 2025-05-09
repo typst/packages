@@ -1,1 +1,1 @@
-#import "shadowed.typ": shadowed
+/home/gasche/Prog/typst-packages/packages/preview/shadowed/0.1.2/src/lib.typ

@@ -1,4 +1,1 @@
-#import "grading.typ"
-#import "question.typ"
-
-#import "questions.typ"
+/home/gasche/Prog/typst-packages/packages/preview/scrutinize/0.1.0/src/lib.typ

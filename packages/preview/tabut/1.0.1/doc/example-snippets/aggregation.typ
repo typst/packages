@@ -1,9 +1,1 @@
-#import "usd.typ": usd
-#import "example-data/titanic.typ": titanic, classes
-
-#table(
-  columns: (auto, auto),
-  [*Fare, Total:*], [#usd(titanic.map(r => r.Fare).sum())],
-  [*Fare, Avg:*], [#usd(titanic.map(r => r.Fare).sum() / titanic.len())], 
-  stroke: none
-)
+/home/gasche/Prog/typst-packages/packages/preview/tabut/1.0.0/doc/example-snippets/aggregation.typ

@@ -1,2 +1,1 @@
-#import "decorations/brace.typ": brace, brace-default-style, flat-brace, flat-brace-default-style
-#import "decorations/path.typ": zigzag, wave, coil, square
+/home/gasche/Prog/typst-packages/packages/preview/cetz/0.3.2/src/lib/decorations.typ

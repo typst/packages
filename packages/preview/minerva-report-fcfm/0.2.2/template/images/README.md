@@ -1,2 +1,1 @@
-Estructura de archivos de ejemplo, esta carpeta estaría destinada a 
-guardar las imágenes usadas en el documento.
+/home/gasche/Prog/typst-packages/packages/preview/minerva-report-fcfm/0.1.0/template/images/README.md

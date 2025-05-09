@@ -1,5 +1,1 @@
-#import "src/apply.typ": apply, apply-theme
-
-#import "src/themes/rose-pine.typ" : rose-pine
-#import "src/themes/rose-pine-dawn.typ" : rose-pine-dawn
-#import "src/themes/rose-pine-moon.typ" : rose-pine-moon
+/home/gasche/Prog/typst-packages/packages/preview/rose-pine/0.1.0/lib.typ

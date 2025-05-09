@@ -1,2 +1,1 @@
-// Expose functionality 
-#import "wick.typ": wick
+/home/gasche/Prog/typst-packages/packages/preview/wicked/0.1.0/src/lib.typ

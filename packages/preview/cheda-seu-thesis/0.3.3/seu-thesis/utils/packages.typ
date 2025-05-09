@@ -1,5 +1,1 @@
-// 统一在此文件导入包，方便后续更新
-
-#import "@preview/a2c-nums:0.0.1": int-to-cn-num
-#import "@preview/cuti:0.3.0": show-cn-fakebold, fakebold
-#import "@preview/i-figured:0.2.4"
+/home/gasche/Prog/typst-packages/packages/preview/cheda-seu-thesis/0.3.1/seu-thesis/utils/packages.typ

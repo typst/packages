@@ -1,9 +1,1 @@
-#import "../lib.typ": *
-
-#abstract(lang: "de")[
-  #lorem(150)
-]
-
-#abstract(lang: "en")[
-  #lorem(150)
-]
+/home/gasche/Prog/typst-packages/packages/preview/tgm-hit-thesis/0.1.0/template/chapters/kurzfassung.typ

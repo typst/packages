@@ -1,5 +1,1 @@
-SELECT * 
-FROM Test
-WHERE id = 1
-AND name = 'John Doe'
-OR name = 'Jane Doe';
+/home/gasche/Prog/typst-packages/packages/preview/miage-rapide-tp/0.1.0/template/code/example.sql

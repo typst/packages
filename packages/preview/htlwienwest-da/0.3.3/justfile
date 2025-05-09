@@ -1,7 +1,1 @@
-
-
-package target *options:
-  ./scripts/package "{{target}}" {{options}}
-
-install target="@local":
-  ./scripts/package "{{target}}"
+/home/gasche/Prog/typst-packages/packages/preview/htlwienwest-da/0.3.2/justfile

@@ -1,7 +1,1 @@
-= Additional Material
-
-#lorem(450)
-
-== Subchapter
-
-#lorem(450)
+/home/gasche/Prog/typst-packages/packages/preview/unofficial-hka-thesis/1.0.0/template/chapters/A1_Material.typ

@@ -1,1 +1,1 @@
-= Einleitung
+/home/gasche/Prog/typst-packages/packages/preview/modern-whs-assignment/0.1.0/example/chapters/01_introduction.typ

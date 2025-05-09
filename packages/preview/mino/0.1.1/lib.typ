@@ -1,2 +1,1 @@
-#import "mino.typ": decode-fumen
-#import "tetris.typ": render-field
+/home/gasche/Prog/typst-packages/packages/preview/mino/0.1.0/lib.typ

@@ -1,7 +1,1 @@
-/// Numblex
-
-// Main function
-#import "lib/numblex.typ": numblex
-
-// Misc
-#import "lib/circle_numbers.typ": circle_numbers
+/home/gasche/Prog/typst-packages/packages/preview/numblex/0.1.0/lib.typ

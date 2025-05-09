@@ -1,7 +1,1 @@
-#let vLine() = [
-  #h(5pt)
-]
-
-#let hline() = [
-  #box(width: 1fr, line(stroke: 0.9pt, length: 100%))
-]
+/home/gasche/Prog/typst-packages/packages/preview/light-cv/0.1.0/modules/utils.typ

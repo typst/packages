@@ -1,8 +1,1 @@
-#let terminology-conf(terminology) = {
-  set page(
-    numbering: "I",
-    number-align: center
-  )
-  heading(numbering: none, level: 1, outlined: true, bookmarked: true)[本论文专用术语的注释表]
-  terminology
-}
+/home/gasche/Prog/typst-packages/packages/preview/cheda-seu-thesis/0.2.0/seu-thesis/parts/terminology.typ

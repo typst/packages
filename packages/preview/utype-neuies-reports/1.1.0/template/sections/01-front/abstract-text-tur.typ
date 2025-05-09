@@ -1,2 +1,1 @@
-// Türkçe özeti yazınız.
-Özet metnini, tez (ya da dönem projesi) hazırlama kılavuzunda verilen açıklamaları dikkate alarak yazınız. ....... ................. ............ ......... ........... ......... ....... ....... ........ .
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/sections/01-front/abstract-text-tur.typ

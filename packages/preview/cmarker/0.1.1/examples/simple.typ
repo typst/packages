@@ -1,3 +1,1 @@
-#import "../lib.typ" as cmarker
-
-#cmarker.render(read("simple.md"))
+/home/gasche/Prog/typst-packages/packages/preview/cmarker/0.1.0/examples/simple.typ

@@ -1,15 +1,1 @@
-#let acronyms = (
-  (
-    key: "kth",
-    short: "KTH",
-    long: "KTH Royal Institute of Technology",
-    description: "A university in Stockholm",
-  ),
-  (
-    key: "os",
-    short: "OS",
-    plural: "OSes",
-    long: "Operating System",
-    longplural: "Operating Systems",
-  ),
-)
+/home/gasche/Prog/typst-packages/packages/preview/kthesis/0.1.0/template/acronyms.typ

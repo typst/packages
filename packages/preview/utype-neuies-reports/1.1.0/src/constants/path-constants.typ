@@ -1,13 +1,1 @@
-/* ---- Dosya Yolları [Paths] ---- */
-
-// Üniversite logosu dosya yolları
-#let UNIVERSITY-LOGO-PATH = (
-  TR-TR: "/src/organization-logos/university-logo-tr.png",
-  EN-US: "/src/organization-logos/university-logo-en.png",
-)
-
-// Enstite logosu dosya yolları
-#let INSTITUTE-LOGO-PATH = (
-  TR-TR: "/src/organization-logos/institute-logo-tr.png",
-  EN-US: "/src/organization-logos/institute-logo-en.png",
-)
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/src/constants/path-constants.typ

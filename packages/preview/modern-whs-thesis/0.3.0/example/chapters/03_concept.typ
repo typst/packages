@@ -1,3 +1,1 @@
-= Konzept zu irgendwas
-
-Konzept zum Thema und zur Arbeit.
+/home/gasche/Prog/typst-packages/packages/preview/modern-whs-thesis/0.2.0/example/chapters/03_concept.typ

@@ -1,3 +1,1 @@
-#let author = state("author", none)
-#let abbr = state("abbr", none)
-#let disable-book-binding = state("disable-book-binding", false)
+/home/gasche/Prog/typst-packages/packages/preview/htl3r-da/1.0.0/src/lib/global.typ

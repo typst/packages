@@ -1,5 +1,1 @@
-= Usage Instructions <usage>
-
-Hmm...
-
-#lorem(1000)
+/home/gasche/Prog/typst-packages/packages/preview/kthesis/0.1.0/template/content/zz-a-usage.typ

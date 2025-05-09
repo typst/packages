@@ -1,11 +1,1 @@
-#import "../dependencies.typ": *
-
-= Background
-
-== Subsection
-
-#lorem(400)
-
-== Another Subsection
-
-#lorem(300)
+/home/gasche/Prog/typst-packages/packages/preview/haw-hamburg/0.2.0/template/chapters/02_background.typ

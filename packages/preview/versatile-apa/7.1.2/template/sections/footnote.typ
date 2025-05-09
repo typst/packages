@@ -1,3 +1,1 @@
-= Footnotes
-#lorem(200)
-#footnote[#lorem(10)]
+/home/gasche/Prog/typst-packages/packages/preview/versatile-apa/7.0.0/template/sections/footnote.typ

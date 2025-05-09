@@ -1,5 +1,1 @@
-#import "default.typ"
-#import "simple.typ"
-#import "fancy.typ"
-#import "rainbow.typ"
-#import "clouds.typ"
+/home/gasche/Prog/typst-packages/packages/preview/theorion/0.2.0/cosmos/cosmos.typ

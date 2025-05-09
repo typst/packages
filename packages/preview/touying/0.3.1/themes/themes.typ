@@ -1,4 +1,1 @@
-#import "simple.typ"
-#import "metropolis.typ"
-#import "dewdrop.typ"
-#import "university.typ"
+/home/gasche/Prog/typst-packages/packages/preview/touying/0.2.1/themes/themes.typ

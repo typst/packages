@@ -1,1 +1,1 @@
-Schreibe deine Zusammenfassung hier. #lorem(80)
+/home/gasche/Prog/typst-packages/packages/preview/minimal-thesis-luebeck/0.2.0/template/texts/abstract-de.typ

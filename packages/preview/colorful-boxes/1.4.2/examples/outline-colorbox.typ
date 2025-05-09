@@ -1,11 +1,1 @@
-#import "../lib.typ": outline-colorbox
-
-#set page(paper: "a4", margin: 0.5cm, height: auto)
-
-#outline-colorbox(title: lorem(5), color: "gray")[
-  #lorem(50)
-]
-
-#outline-colorbox(title: lorem(5), centering: true, color: "green")[
-  #lorem(50)
-]
+/home/gasche/Prog/typst-packages/packages/preview/colorful-boxes/1.4.0/examples/outline-colorbox.typ

@@ -1,1 +1,1 @@
-#import "@preview/tablex:0.0.9": *
+/home/gasche/Prog/typst-packages/packages/preview/modern-bnu-thesis/0.0.2/utils/custom-tablex.typ

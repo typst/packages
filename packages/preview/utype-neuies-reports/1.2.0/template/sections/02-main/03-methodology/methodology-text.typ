@@ -1,2 +1,1 @@
-// Yöntem metnini (bölüm başlığı ile bölümün ilk alt başlığı arasındaki kısmı) yazınız.
-#lorem(50)
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/sections/02-main/03-methodology/methodology-text.typ

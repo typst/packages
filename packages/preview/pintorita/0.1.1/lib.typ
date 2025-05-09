@@ -1,1 +1,1 @@
-#import "./pintorita.typ": render
+/home/gasche/Prog/typst-packages/packages/preview/pintorita/0.1.0/lib.typ

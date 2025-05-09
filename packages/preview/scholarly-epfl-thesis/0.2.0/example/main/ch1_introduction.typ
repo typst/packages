@@ -1,11 +1,1 @@
-= Introduction
-
-#lorem(100)
-
-#pagebreak()
-
-#lorem(75)
-
-#pagebreak()
-
-#lorem(75)
+/home/gasche/Prog/typst-packages/packages/preview/scholarly-epfl-thesis/0.1.0/example/main/ch1_introduction.typ

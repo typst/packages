@@ -1,6 +1,1 @@
-
-// https://typst.app/universe/package/touying
-#import "@preview/touying:0.6.1"  as ty :*
-
-
-#import "src/call-out.typ": *
+/home/gasche/Prog/typst-packages/packages/preview/sdu-touying-simpl/0.2.2/dependency.typ

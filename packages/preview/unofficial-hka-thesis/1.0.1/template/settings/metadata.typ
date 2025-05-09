@@ -1,14 +1,1 @@
-#let degree = "Master" //Bachelor or Master
-#let program = "Computer Science"
-#let title-english = "Title English"
-#let subtitle-english = "Subtitle English"
-#let title-german = "Title German"
-#let subtitle-german = "Subtitle German"
-#let author = "Max Mustermann"
-#let matriculation-number = "12345"
-#let place-of-work = "ABC"
-#let supervisor = "Prof Dr. Max Mustermann"
-#let advisor = "Prof Dr. John Doe"
-#let start-date = "01.03.2024"
-#let submission-date = "31.08.2024"
-#let place = "Karlsruhe"
+/home/gasche/Prog/typst-packages/packages/preview/unofficial-hka-thesis/1.0.0/template/settings/metadata.typ

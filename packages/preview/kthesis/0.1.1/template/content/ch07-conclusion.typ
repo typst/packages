@@ -1,5 +1,1 @@
-= Conclusions and Future Work
-
-In conclusion, execute @thing:impl:cmd.
-
-This is another reference to @os:pl.
+/home/gasche/Prog/typst-packages/packages/preview/kthesis/0.1.0/template/content/ch07-conclusion.typ

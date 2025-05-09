@@ -1,6 +1,1 @@
-// Auxiliary files, neatly accessible.
-
-#let path(name) = "/asset/" + name
-
-#let halcyon = path("halcyon.tmTheme")
-#let data = toml(path("data.toml"))
+/home/gasche/Prog/typst-packages/packages/preview/flow/0.3.0/src/asset.typ

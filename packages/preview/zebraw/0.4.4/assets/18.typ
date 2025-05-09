@@ -1,17 +1,1 @@
-#{
-// render_code
-context preview(````typ
-#zebraw(
-  highlight-lines: (
-    (2, "auto indent!"),
-  ),
-  comment-color: yellow.lighten(90%),
-  ```text
-  I'm so blue!
-              -- George III
-  I'm not.
-              -- Hamilton
-  ```,
-)
-````)
-}
+/home/gasche/Prog/typst-packages/packages/preview/zebraw/0.4.2/assets/17.typ

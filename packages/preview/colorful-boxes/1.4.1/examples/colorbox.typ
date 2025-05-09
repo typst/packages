@@ -1,7 +1,1 @@
-#import "../lib.typ": colorbox
-
-#set page(paper: "a4", margin: 0.5cm, height: auto)
-
-#colorbox(title: lorem(5), color: "blue")[
-  #lorem(50)
-]
+/home/gasche/Prog/typst-packages/packages/preview/colorful-boxes/1.4.0/examples/colorbox.typ

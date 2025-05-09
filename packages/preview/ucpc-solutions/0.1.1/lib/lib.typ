@@ -1,6 +1,1 @@
-#import "./colors.typ": color
-#import "./ucpc.typ": ucpc
-#import "./i18n.typ"
-
-#import "./presets/presets.typ"
-#import "./utils/utils.typ"
+/home/gasche/Prog/typst-packages/packages/preview/ucpc-solutions/0.1.0/lib/lib.typ

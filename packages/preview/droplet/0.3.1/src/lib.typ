@@ -1,1 +1,1 @@
-#import "droplet.typ": dropcap
+/home/gasche/Prog/typst-packages/packages/preview/droplet/0.3.0/src/lib.typ

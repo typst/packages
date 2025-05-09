@@ -1,5 +1,1 @@
-#let contributor-link(name, url) = link(url, text(fill: blue)[#name])
-
-#let contributors = (
-  TeddyHuang-00: contributor-link("@TeddyHuang-00", "https://github.com/TeddyHuang-00")
-)
+/home/gasche/Prog/typst-packages/packages/preview/uo-tsinghua-thesis/0.2.0/pkuthss-info/pkuthss-contributors.typ

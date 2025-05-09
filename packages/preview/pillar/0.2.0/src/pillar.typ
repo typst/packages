@@ -1,1 +1,1 @@
-#import "impl.typ": cols, table
+/home/gasche/Prog/typst-packages/packages/preview/pillar/0.1.0/src/pillar.typ

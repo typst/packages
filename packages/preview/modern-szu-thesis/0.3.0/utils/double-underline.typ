@@ -1,11 +1,1 @@
-// 双下划线
-#let double-underline(body) = context({
-  let size = measure(body)
-  stack(
-    body,
-    v(3pt),
-    line(length: size.width),
-    v(2pt),
-    line(length: size.width),
-  )
-})
+/home/gasche/Prog/typst-packages/packages/preview/modern-szu-thesis/0.1.0/utils/double-underline.typ

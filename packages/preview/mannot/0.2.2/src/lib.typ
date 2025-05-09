@@ -1,2 +1,1 @@
-#import "mark.typ": core-mark, mark, markrect, markul, marktc
-#import "annot.typ": core-annot, annot
+/home/gasche/Prog/typst-packages/packages/preview/mannot/0.2.0/src/lib.typ

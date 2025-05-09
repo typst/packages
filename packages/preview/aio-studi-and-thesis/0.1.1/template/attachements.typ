@@ -1,4 +1,1 @@
-#let attachements() = (
-  (a: [ Irgendeine Anlage ]),
-  (a: [ Noch eine Anlage ]),
-)
+/home/gasche/Prog/typst-packages/packages/preview/aio-studi-and-thesis/0.1.0/template/attachements.typ

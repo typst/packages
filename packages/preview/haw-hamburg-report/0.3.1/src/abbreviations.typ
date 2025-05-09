@@ -1,7 +1,1 @@
-#let abbreviations-entry-list = (
-  (
-    key: "cpu", 
-    short: "CPU",
-    long: "Central Processing Unit",
-  ),
-)
+/home/gasche/Prog/typst-packages/packages/preview/haw-hamburg-bachelor-thesis/0.3.1/src/abbreviations.typ

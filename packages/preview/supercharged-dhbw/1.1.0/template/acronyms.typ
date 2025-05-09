@@ -1,6 +1,1 @@
-// Define your acronyms here
-
-#let acronyms = (
-    API: "Application programmable interface",
-    AWS: "Amazon Web Services"
-)
+/home/gasche/Prog/typst-packages/packages/preview/supercharged-dhbw/1.0.0/template/acronyms.typ

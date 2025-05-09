@@ -1,4 +1,1 @@
-#{
-// render_code
-$[a, b)$
-}
+/home/gasche/Prog/typst-packages/packages/preview/zebraw/0.5.0/assets/6.typ

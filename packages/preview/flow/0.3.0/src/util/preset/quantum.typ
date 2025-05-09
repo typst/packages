@@ -1,3 +1,1 @@
-// Quantum mechanics!
-
-#let state = sym.phi.alt
+/home/gasche/Prog/typst-packages/packages/preview/flow/0.2.0/src/util/preset/quantum.typ

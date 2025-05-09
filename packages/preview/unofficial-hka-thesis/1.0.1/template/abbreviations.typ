@@ -1,7 +1,1 @@
-#let abbreviations = (
-      (
-        key: "oidc",
-        short: "OIDC",
-        long: "Open ID Connect"
-      ),
-    )
+/home/gasche/Prog/typst-packages/packages/preview/unofficial-hka-thesis/1.0.0/template/abbreviations.typ

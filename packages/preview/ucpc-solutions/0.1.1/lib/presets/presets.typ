@@ -1,1 +1,1 @@
-#import "./difficulties.typ": difficulties
+/home/gasche/Prog/typst-packages/packages/preview/ucpc-solutions/0.1.0/lib/presets/presets.typ

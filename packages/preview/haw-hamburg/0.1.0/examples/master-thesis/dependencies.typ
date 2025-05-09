@@ -1,1 +1,1 @@
-#import "@preview/glossarium:0.4.1": make-glossary, print-glossary, gls, glspl 
+/home/gasche/Prog/typst-packages/packages/preview/haw-hamburg/0.1.0/examples/bachelor-thesis/dependencies.typ

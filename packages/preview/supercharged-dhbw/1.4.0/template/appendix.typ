@@ -1,4 +1,1 @@
-// level 1 headings are not allowed in the appendix
-#let appendix = [
-  #lorem(100)
-]
+/home/gasche/Prog/typst-packages/packages/preview/supercharged-dhbw/1.3.0/template/appendix.typ

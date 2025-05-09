@@ -1,6 +1,1 @@
-#let data = (
-  ("SHORTHAND FORMAT LETTER OVERLAP", "Cf", 0),
-  ("SHORTHAND FORMAT CONTINUING OVERLAP", "Cf", 0),
-  ("SHORTHAND FORMAT DOWN STEP", "Cf", 0),
-  ("SHORTHAND FORMAT UP STEP", "Cf", 0),
-)
+/home/gasche/Prog/typst-packages/packages/preview/unichar/0.1.0/ucd/block-1BCA0.typ

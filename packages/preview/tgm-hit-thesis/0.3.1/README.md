@@ -1,17 +1,1 @@
-# TGM HIT diploma thesis template
-
-This is a port of the [LaTeX diploma thesis template](https://github.com/TGM-HIT/diploma-thesis) available for students of the information technology department at the TGM technical secondary school in Vienna.
-
-## Getting Started
-
-Using the Typst web app, you can create a project by e.g. using this link: https://typst.app/?template=tgm-hit-thesis&version=latest.
-
-To work locally, use the following command:
-
-```bash
-typst init @preview/tgm-hit-thesis
-```
-
-## Usage
-
-The template ([rendered PDF](example.pdf)) contains thesis writing advice (in German) as example content. If you are looking for the details of this template package's function, take a look at the [manual](docs/manual.pdf).
+/home/gasche/Prog/typst-packages/packages/preview/tgm-hit-thesis/0.1.0/README.md

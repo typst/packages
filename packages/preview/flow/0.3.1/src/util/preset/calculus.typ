@@ -1,7 +1,1 @@
-//! Calculus! Derivatives, integration, taylor series and the works.
-
-#let iab = $integral_a^b$
-#let iba = $integral_b^a$
-#let iinf = $integral_(-infinity)^infinity$
-
-// use $dif$ for the step
+/home/gasche/Prog/typst-packages/packages/preview/flow/0.2.0/src/util/preset/calculus.typ

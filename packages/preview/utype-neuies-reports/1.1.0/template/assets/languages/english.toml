@@ -1,6 +1,1 @@
-[translations]
-# Başlıklardan sadece birini kullanmak için parantez içinde olmayan ya da parantez içindeki ifadelerden birini seçip diğerlerini siliniz.
-# Document Sections
-PREFACE = "PREFACE (ACKNOWLEDGMENT)"
-ASSUMPTIONS = "Hypothesis (Assumptions)"
-RESEARCH-POPULATION-AND-SAMPLE = "Research Population and Sample (Research Study Group) (Participants)"
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/assets/languages/english.toml

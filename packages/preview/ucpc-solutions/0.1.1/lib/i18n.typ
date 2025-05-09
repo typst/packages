@@ -1,8 +1,1 @@
-#import "./i18n/en-us.typ"
-#import "./i18n/ko-kr.typ"
-
-#let supports = (
-  // Insert locales here
-  ("en-us", en-us),
-  ("ko-kr", ko-kr)
-)
+/home/gasche/Prog/typst-packages/packages/preview/ucpc-solutions/0.1.0/lib/i18n.typ

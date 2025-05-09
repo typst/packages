@@ -1,2 +1,1 @@
-// Sayıltılar (Varsayımlar) metnini yazınız.
-#lorem(50)
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/sections/02-main/01-introduction/assumptions-text.typ

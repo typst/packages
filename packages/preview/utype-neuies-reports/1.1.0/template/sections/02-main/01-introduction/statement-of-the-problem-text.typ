@@ -1,6 +1,1 @@
-// Problem Durumu metnini yazınız.
-First line #lorem(50)
-
-Problem Durumu başlığına atıf örneği: @başlık-problem-durumu'de yer almaktadır.
-
-#lorem(50)
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/template/sections/02-main/01-introduction/statement-of-the-problem-text.typ

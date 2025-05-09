@@ -1,6 +1,1 @@
-#import "../src/lib.typ": schema, config
-
-#let example = schema.load("/gallery/example1.yaml")
-#schema.render(example, config: config.config(
-  full-page: true
-))
+/home/gasche/Prog/typst-packages/packages/preview/rivet/0.1.0/gallery/example1.typ

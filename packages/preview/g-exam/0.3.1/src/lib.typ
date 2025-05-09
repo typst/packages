@@ -1,3 +1,1 @@
-#let version = version((0,3,0))
-
-#import "g-exam.typ":  g-exam, g-question, g-subquestion, g-solution, g-clarification
+/home/gasche/Prog/typst-packages/packages/preview/g-exam/0.3.0/src/lib.typ

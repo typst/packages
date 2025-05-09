@@ -1,1 +1,1 @@
-#import "../data.typ": fields, counter_ as counter, ctx, scope,  func, func-name, eid, tid, repr_ as repr
+/home/gasche/Prog/typst-packages/packages/preview/lilaq/0.1.0/src/libs/elembic/pub/data.typ

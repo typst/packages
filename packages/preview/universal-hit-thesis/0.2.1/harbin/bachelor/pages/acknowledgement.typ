@@ -1,10 +1,1 @@
-#import "../config/constants.typ": special-chapter-titles
-
-#let acknowledgement(
-  content,
-) = [
-
-  #heading(special-chapter-titles.致谢, level: 1, numbering: none)
-
-  #content
-]
+/home/gasche/Prog/typst-packages/packages/preview/universal-hit-thesis/0.2.0/harbin/bachelor/pages/acknowledgement.typ

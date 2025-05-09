@@ -1,9 +1,1 @@
-#import "../lib.typ": *
-#set page(width: 20em, height: auto, margin: 1em)
-
-#show: setup-lovelace
-
-#pseudocode(
-  [A statement #comment[and a comment]],
-  [Another statement #comment[and another comment]],
-)
+/home/gasche/Prog/typst-packages/packages/preview/lovelace/0.1.0/examples/comment.typ

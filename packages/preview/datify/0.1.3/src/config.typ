@@ -1,2 +1,1 @@
-// Set the default lang for every file.
-#let default-date-lang = "en"
+/home/gasche/Prog/typst-packages/packages/preview/datify/0.1.2/src/config.typ

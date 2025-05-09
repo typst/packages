@@ -1,1 +1,1 @@
-#import "pavemat.typ": pavemat
+/home/gasche/Prog/typst-packages/packages/preview/pavemat/0.1.0/src/lib.typ

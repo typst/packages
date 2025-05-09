@@ -1,7 +1,1 @@
-#let title = "Titel"
-#let author = "Max Mustermann"
-#let course = "Algorithmen und Datenstrukturen"
-#let lecturer = "Prof. Dr.-Ing. Max Mustermann"
-#let submission-date = datetime.today()
-#let keywords = ("GIT", "Algorithmen", "Datenstrukturen")
-#let bibliography = bibliography.with("references.bib")
+/home/gasche/Prog/typst-packages/packages/preview/modern-whs-assignment/0.1.0/example/meta.typ

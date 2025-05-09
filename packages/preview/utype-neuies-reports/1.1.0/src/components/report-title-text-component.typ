@@ -1,3 +1,1 @@
-// Rapor Başlığı yazısı bileşeni. [Report Title text component.]\
-// Örnek [Example]: [*TEZ BAŞLIĞI*]
-#let report-title-text-component(report-title: none) = text(weight: "bold", upper(report-title.upper-case))
+/home/gasche/Prog/typst-packages/packages/preview/utype-neuies-reports/1.0.0/src/components/report-title-text-component.typ
