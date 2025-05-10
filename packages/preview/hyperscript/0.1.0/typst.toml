@@ -1,0 +1,10 @@
+[package]
+name = "hyperscript"
+version = "0.1.0"
+entrypoint = "hyperscript.typ"
+authors = ["Tom Short <@tshort>"]
+repository = "https://github.com/tshort/hyperscript"
+license = "MIT"
+keywords = ["html"]
+categories = ["components"]
+description = "Hyperscript-style HTML creation for Typst"
