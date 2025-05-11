@@ -4,9 +4,6 @@
 ![License](https://img.shields.io/github/license/l0uisgrange/zap?style=flat-square)
 ![Milestone](https://img.shields.io/github/milestones/progress-percent/l0uisgrange/zap/1?style=flat-square&cacheSeconds=60&link=https%3A%2F%2Fgithub.com%2Fl0uisgrange%2Fzap%2Fmilestones)
 
-> [!IMPORTANT]
-> Zap is not yet available on Typst Universe. Follow [this discussion](https://github.com/l0uisgrange/zap/discussions/2) to stay updated on the first release 🌟!
-
 **Zap** is a lightweight 🪶 Typst package that makes drawing electronic circuits simple and intuitive. It's the first Typst library designed to align with widely recognized standards like **IEC** and **IEEE/ANSI** 📜.
 
 ## Examples
