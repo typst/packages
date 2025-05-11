@@ -6,4 +6,4 @@ authors = ["HPCesia <me@hpcesia.com>"]
 license = "MIT"
 description = "A package to parse Plist XML file"
 repository = "https://github.com/HPCesia/plist-typ"
-exclude = ["test"]
+exclude = ["test", "assets"]
