@@ -64,13 +64,13 @@
   let body = {
     block(
       text(size: 20pt, weight: "bold", utils.display-current-heading(level: 2), fill: self.colors.ultrablau),
-      width: 60%,
+      width: 80%,
     )
 
     show heading: it => {
       block(
         text(size: 18pt, weight: "bold", it.body, fill: self.colors.ultrablau),
-        width: 65%,
+        width: 80%,
       )
       v(6pt)
     }
