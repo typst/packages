@@ -33,7 +33,7 @@
   fill: primary,
 )
 
-#import "@preview/gentle-clues:1.0.0"
+#import "@preview/gentle-clues:1.2.0"
 
 #let _alert-funcs = (
   "info": gentle-clues.info,
