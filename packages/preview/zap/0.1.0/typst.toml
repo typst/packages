@@ -11,4 +11,4 @@ repository = "https://github.com/l0uisgrange/zap"
 categories = ["visualization", "components"]
 disciplines = ["engineering"]
 keywords = ["zap", "electronic", "circuit", "cetz", "voltage", "draw", "schema", "engineering"]
-exclude = [".github", "docs"]
+exclude = [".github", "docs", "examples"]
