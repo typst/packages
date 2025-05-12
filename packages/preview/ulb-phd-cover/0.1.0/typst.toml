@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 Julien Rippinger
+#
+# SPDX-License-Identifier: MIT-0
+
+[package]
+name = "ulb-phd-cover"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Julien Rippinger <https://julienrippinger.eu>"]
+license = "MIT-0"
+description = "Standard cover for a doctoral thesis submitted at the ULB (Université libre de Bruxelles)"
+keywords = ["ULB", "cover"]
+categories = ["thesis"]
+repository = "https://codeberg.org/mononym/typst-ulb-phd-cover"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "img/thumbnail-fr.png"
