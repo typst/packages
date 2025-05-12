@@ -12,6 +12,7 @@ description = "Standard cover for a doctoral thesis submitted at the ULB (Univer
 keywords = ["ULB", "cover"]
 categories = ["thesis"]
 repository = "https://codeberg.org/mononym/typst-ulb-phd-cover"
+exclude = ["img"]
 
 [template]
 path = "template"
