@@ -15,5 +15,3 @@ disciplines = ["computer-science", "engineering", "business", "economics"]
 path = "example"
 entrypoint = "main.typ"
 thumbnail = "example/snapshots/thumbnail.png"
-title = "HS Emden/Leer Template"
-description = "A modern template for academic documents at University of Applied Sciences Emden/Leer."
