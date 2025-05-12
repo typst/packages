@@ -1,5 +1,5 @@
 [package]
-name = "hs-emden-leer-template"
+name = "ostfriesen-layout"
 version = "0.1.0"
 entrypoint = "lib/lib.typ"
 authors = ["Tobias Behrendt"]
