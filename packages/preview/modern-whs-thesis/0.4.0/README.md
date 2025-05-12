@@ -27,7 +27,10 @@ The package can be configured where it is initialized. The configuration is done
 ```typst
 #show: whs-thesis.with(
    meta.title,
+   meta.titleSize,
    meta.author,
+   meta.firstName,
+   meta.lastName,
    meta.date,
    meta.keywords,
    [#abstract],
