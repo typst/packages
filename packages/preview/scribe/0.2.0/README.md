@@ -1,6 +1,6 @@
 # scribe
 
-**Scribe** makes typst's mathematical markup more readable by defining an `ASCII` based notation.
+**scribe** lets you write more readable math by defining an `ASCII`-based notation.
 The notation aims to be intuitive and resemble its rendered form visually. 
 Large parts of it are derived from [asciimath](http://asciimath.org). 
 
@@ -21,11 +21,23 @@ $cal(F) dot.op (f compose g)(x) without {0} equiv plus.minus 1 quad (mod n)$
 
 It is possible to only use a subset of the features.
 ```typst
-#import "@preview/scribe:0.2.0": scribe, operations, logicals
+#import "@preview/scribe:0.2.0": *
 #show: scribe.with("operations", "logicals")
 
 $ a * b = 0 vv a +- b = 3 $
 ```
+
+If you need to keep the namespace clean, you can import only the features you use.
+```typst
+#import "@preview/scribe:0.2.0": scribe, operations, logicals
+#import operations: *
+#import logicals: *
+
+#show: scribe.with("operations", "logicals")
+
+$ a * b = 0 vv a +- b = 3 $
+```
+
 
 ## Index
 Below is a complete list of everything that is supported. Unsupported symbols are marked with an empty cell.
