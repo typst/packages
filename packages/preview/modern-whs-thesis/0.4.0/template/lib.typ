@@ -7,14 +7,14 @@
 
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.8": *
-#import "@preview/glossarium:0.5.3": make-glossary
+#import "@preview/glossarium:0.5.6": make-glossary
 
 #let whs-thesis(
   title,
-  titleSize,
+  title-size,
   author,
-  firstName,
-  lastName,
+  first-name,
+  last-name,
   date,
   keywords,
   font: settings.FONT_PRIMARY,
@@ -160,16 +160,16 @@
     first-examiner,
     second-examiner,
     date-of-submission,
-    titleSize,
+    title-size,
   )
   affidavit.affidavit(
     background,
-    lastName,
-    firstName,
+    last-name,
+    first-name,
     title,
     place,
     date,
-    titleSize,
+    title-size,
   )
   pagebreak()
   abstract

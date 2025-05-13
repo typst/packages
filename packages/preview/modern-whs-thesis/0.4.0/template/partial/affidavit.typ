@@ -1,11 +1,11 @@
 #let affidavit(
   background,
-  lastName,
-  firstName,
+  last-name,
+  first-name,
   title,
   place,
   date,
-  titleSize
+  title-size
 ) = {
   set page(margin: (top: 10cm), background: background)
 
@@ -14,7 +14,7 @@
   v(0.3cm)
   stack(
     spacing: 2mm,
-    [#lastName, #firstName],
+    [#last-name, #first-name],
     line(length: 100%, stroke: 0.5pt),
     [#text(8pt)[Name, Vorname /\/ Name, First Name]]
   )
@@ -25,7 +25,7 @@
   [Ich versichere hiermit an Eides statt, dass ich die vorliegende Abschlussarbeit mit dem Titel]
 
   v(-10pt)
-  text(titleSize, hyphenate: true)[*#title*]
+  text(title-size, hyphenate: true)[*#title*]
   v(-10pt)
 
   [selbstständig und ohne unzulässige fremde Hilfe erbracht habe. Ich habe keine anderen als die angegebenen Quellen und Hilfsmittel benutzt sowie wörtliche und sinngemäße Zitate kenntlich gemacht. Die Arbeit hat in gleicher oder ähnlicher Form noch keine Prüfungsbehörde vorgelegen.]
