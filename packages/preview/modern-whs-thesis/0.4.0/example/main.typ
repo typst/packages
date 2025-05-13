@@ -5,10 +5,10 @@
 
 #show: whs-thesis.with(
   meta.title,
-  meta.titleSize,
+  meta.title-size,
   meta.author,
-  meta.firstName,
-  meta.lastName,
+  meta.first-name,
+  meta.last-name,
   meta.date,
   meta.keywords,
   [#abstract],
@@ -17,7 +17,7 @@
   meta.degree,
   meta.place,
   meta.thesis-type,
-  meta.studyCourse,
+  meta.study-course,
   meta.department,
   meta.first-examiner,
   meta.second-examiner,
