@@ -50,7 +50,7 @@
     ),
   )
 
-  set cite(style: "iso-690-author-date")
+  set cite(style: "ieee")
 
   // ========== Plugins ============
 
@@ -306,6 +306,6 @@
   heading(outlined: false, numbering: none)[Literaturverzeichnis]
   bibliography(
     title: none,
-    style: "iso690-author-date-de.csl",
+    style: "ieee",
   )
 }
