@@ -131,7 +131,7 @@
         ..for group in groups {
           (
             table.cell(group, colspan: 2),
-            ..for entry in entries.filter(x => x.group == group) {
+            ..for entry in entries.sorted(key: it => (it.key, it.key)).filter(x => x.group == group) {
               (
                 text.with(weight: 600)(emph(entry.short)) + h(20pt),
                 entry.long,
