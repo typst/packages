@@ -1,4 +1,4 @@
-#import "@preview/modern-iu-thesis:0.1.0": *
+#import "@preview/modern-iu-thesis:0.1.1": *
 
 #show: thesis.with(
   title: [My Thesis],
