@@ -1,0 +1,14 @@
+[config]
+    default-lang = "en"
+
+[family.en]
+    title = "Palatino"
+    preface = "Georgia"
+    context = "Georgia"
+    math = "Times New Roman"
+
+[family.zh]
+    title = "STKaiti"
+    preface = "Songti SC"
+    context = "Songti SC"
+    math = "Kaiti SC"
