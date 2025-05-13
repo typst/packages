@@ -1,0 +1,32 @@
+[config]
+    default-lang = "en"
+
+[lang.en]
+    preface = "Preface"
+    chapter = "Chapter"
+    content = "Content"
+    bibliography = "Bibliography"
+    definition = "Definition"
+    theorem = "Theorem"
+    lemma = "Lemma"
+    corollary = "Corollary"
+    algorithm = "Algorithm"
+    eq = " Eq."
+    rule = "Rule"
+    law = "Law"
+    tip = "Tip"
+
+[lang.zh]
+    preface = "前言"
+    chapter = "章节"
+    content = "主要内容"
+    bibliography = "参考文献"
+    definition = "定义"
+    theorem = "定理"
+    lemma = "引理"
+    corollary = "推论"
+    algorithm = "算法"
+    eq = "式 "
+    rule = "法则"
+    law = "定律"
+    tip = "提示"
