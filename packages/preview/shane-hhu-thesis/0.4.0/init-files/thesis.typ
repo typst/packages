@@ -1,6 +1,6 @@
-// #import "@preview/shane-hhu-thesis:0.4.0": bachelor-conf, thanks, appendix, code
+#import "@preview/shane-hhu-thesis:0.4.0": bachelor-conf, thanks, appendix, code
 
-#import "../hhu-thesis/template.typ": bachelor-conf, thanks, appendix, code
+// #import "../hhu-thesis/template.typ": bachelor-conf, thanks, appendix, code
 // 使用前请先安装 `https://github.com/shaneworld/Dots/tree/master/fonts` 中的全部字体
 
 #show: doc => bachelor-conf(
