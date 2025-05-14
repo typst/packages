@@ -41,9 +41,9 @@ Forked from [JamesxX/graceful-genetics](https://github.com/JamesxX/graceful-gene
 To use this template, simply import it as shown below:
 
 ```typ
-#import "@preview/typst-quic-style:0.0.1"
+#import "@preview/quic-style:0.0.1"
 
-#show: typst-quic-style.template.with(
+#show: quic-style.template.with(
   title: [タイトル],
   authors: (
     (
