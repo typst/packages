@@ -1,6 +1,6 @@
-#import "@local/typst-quic-style:0.0.1"
+#import "@local/quic-style:0.0.1"
 
-#show: typst-quic-style.template.with(
+#show: quic-style.template.with(
   title: [量子エラー訂正コードの最適化に関する研究進捗報告],
   authors: (
     (
@@ -28,7 +28,7 @@
     シミュレーション結果から、提案手法により従来手法と比較して約15%のエラー率削減が確認された。
     現在は、より大規模な量子回路での実験を進めており、スケーラビリティの検証を行っている。
   ],
-  doc_type: "PROGRESS_REPORT"
+  doc_type: "PROGRESS_REPORT",
 )
 
 = 1. 前回からの進捗

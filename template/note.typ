@@ -1,6 +1,6 @@
-#import "@local/typst-quic-style:0.0.1"
+#import "@local/quic-style:0.0.1"
 
-#show: typst-quic-style.template.with(
+#show: quic-style.template.with(
   title: [富士山周辺における高山植物の生態調査ノート],
   authors: (
     (
@@ -28,7 +28,7 @@
     環境要因との相関関係について記録する。特に注目すべき発見として、
     従来よりも高所でのタカネビランジの生育が確認された。
   ],
-  doc_type: "NOTE"
+  doc_type: "NOTE",
 )
 
 = 調査概要

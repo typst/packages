@@ -1,7 +1,7 @@
 # for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
 
 [package]
-name = "typst-quic-style"
+name = "quic-style"
 version = "0.0.1"
 compiler = "0.12.0"
 entrypoint = "src/lib.typ"
