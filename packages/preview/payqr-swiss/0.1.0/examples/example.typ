@@ -1,10 +1,10 @@
-#import "../payqr-swiss.typ": swiss_qr_bill
+#import "@preview/payqr-swiss:0.1.0": swiss-qr-bill
 
 // Example 1: Basic QR bill with QR-IBAN
 #page[
   = Example 1: Basic QR bill with QR reference
 
-  #swiss_qr_bill(
+  #swiss-qr-bill(
     account: "CH4431999123000889012",
     creditor-name: "Max Muster & Söhne",
     creditor-street: "Musterstrasse",
@@ -30,7 +30,7 @@
 #page[
   = Example 2: QR bill with Creditor Reference
   
-  #swiss_qr_bill(
+  #swiss-qr-bill(
     account: "CH5800791123000889012",
     creditor-name: "Muster Krankenkasse",
     creditor-street: "Musterstrasse",
@@ -55,7 +55,7 @@
 #page[
   = Example 3: QR bill without amount (e.g., for donations)
   
-  #swiss_qr_bill(
+  #swiss-qr-bill(
     account: "CH5204835012345671000",
     creditor-name: "Muster Stiftung",
     creditor-street: "P.O. Box",
@@ -71,7 +71,7 @@
 #page[
   = Example 4: QR bill with billing information
   
-  #swiss_qr_bill(
+  #swiss-qr-bill(
     account: "CH5800791123000889012",
     creditor-name: "Max Muster & Söhne",
     creditor-street: "Musterstrasse",

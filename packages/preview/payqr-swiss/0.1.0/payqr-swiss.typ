@@ -30,7 +30,7 @@
 }
 
 // Swiss QR Bill function that returns a content element
-#let swiss_qr_bill(
+#let swiss-qr-bill(
   account: "",
   creditor-name: "",
   creditor-street: "",
