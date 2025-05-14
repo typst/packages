@@ -1,0 +1,13 @@
+[family.en]
+    title = "Palatino"
+    author = "Times New Roman"
+    preface = "Georgia"
+    context = "Georgia"
+    math = "Times New Roman"
+
+[family.zh]
+    title = "STKaiti"
+    author = "Kaiti SC"
+    preface = "Songti SC"
+    context = "Songti SC"
+    math = "Kaiti SC"

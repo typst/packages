@@ -1,0 +1,27 @@
+[section.en]
+    preface = "Preface"
+    chapter = "Chapter"
+    content = "Contents"
+    bibliography = "Bibliography"
+
+[section.zh]
+    preface = "前言"
+    chapter = "章节"
+    content = "主要内容"
+    bibliography = "参考文献"
+
+[block.en]
+    algorithm = "Algorithm"
+    table = "Table"
+    figure = "Figure"
+    equation = " Eq."
+    rule = "Rule"
+    law = "Law"
+
+[block.zh]
+    algorithm = "算法"
+    table = "表"
+    figure = "图"
+    equation = "式 "
+    rule = "法则"
+    law = "定律"

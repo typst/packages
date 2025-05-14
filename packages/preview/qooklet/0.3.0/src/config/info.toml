@@ -1,0 +1,13 @@
+[global]
+    book = ""
+    footer-cap = ""
+    header-cap = ""
+    lang = "en"
+    paper = "a4"
+
+[book]
+    book = "Book Mode"
+    footer-cap = ""
+    header-cap = ""
+    lang = "en"
+    paper = "iso-b5"
