@@ -11,12 +11,12 @@
   (
     network: "GitHub",
     username: "austinyu",
-    url: "github.com",
+    url: "github.com/austinyu",
   ),
   (
     network: "LinkedIn",
     username: "xinmiao-yu-619128174",
-    url: "linkedin.com/in",
+    url: "linkedin.com/in/xinmiao-yu-619128174",
   ),
 )
 
@@ -361,58 +361,58 @@
   ),
 )
 
+
 /*
-[
-  {
-    title: str,
-    highlights: [
-      {
-        summary: str,
-        description: str,
-      }
-    ]
-  }
-]
+custom sections
+{
+  title: str,
+  highlights: [
+    {
+      summary: str,
+      description: str,
+    }
+  ]
+}
 */
-#let custom_sections = (
-  (
-    title: "Programming Languages",
-    highlights: (
-      (
-        summary: "Languages",
-        description: "Python, Java, C++, JavaScript, TypeScript",
-      ),
-      (
-        summary: "Frameworks",
-        description: "React, Node.js, Express, Flask, Django",
-      ),
-      (
-        summary: "Databases",
-        description: "MySQL, MongoDB, PostgreSQL",
-      ),
-      (
-        summary: "Tools",
-        description: "Git, Docker, Kubernetes, AWS, GCP",
-      )
+
+#let programming_language_section = (
+  title: "Programming Languages",
+  highlights: (
+    (
+      summary: "Languages",
+      description: "Python, Java, C++, JavaScript, TypeScript",
+    ),
+    (
+      summary: "Frameworks",
+      description: "React, Node.js, Express, Flask, Django",
+    ),
+    (
+      summary: "Databases",
+      description: "MySQL, MongoDB, PostgreSQL",
+    ),
+    (
+      summary: "Tools",
+      description: "Git, Docker, Kubernetes, AWS, GCP",
     )
-  ),
-  (
-    title: "Skills",
-    highlights: (
-      (
-        summary: "Soft Skills",
-        description: "Teamwork, Communication, Problem Solving, Time Management",
-      ),
-      (
-        summary: "Technical Skills",
-        description: "Data Structures, Algorithms, Software Development, Web Development",
-      ),
-      (
-        summary: "Languages",
-        description: "English (Fluent), Spanish (Conversational)",
-      )
+  )
+)
+
+#let skills_section = (
+  title: "Skills",
+  highlights: (
+    (
+      summary: "Soft Skills",
+      description: "Teamwork, Communication, Problem Solving, Time Management",
+    ),
+    (
+      summary: "Technical Skills",
+      description: "Data Structures, Algorithms, Software Development, Web Development",
+    ),
+    (
+      summary: "Languages",
+      description: "English (Fluent), Spanish (Conversational)",
     )
-  ),
+  )
 )
 
 #let render_font = "New Computer Modern"
@@ -434,15 +434,15 @@
 
 #show: config.with(
   font: render_font,
-  font_size: render_size,
-  page_paper: render_page_paper,
+  font-size: render_size,
+  page-paper: render_page_paper,
   margin: render_margin,
-  accent_color: render_accent_color,
-  space_between_sections: render_space_between_sections,
-  space_between_highlight: render_space_between_highlight,
+  accent-color: render_accent_color,
+  space-between-sections: render_space_between_sections,
+  space-between-highlight: render_space_between_highlight,
 )
 
-#section_basic_info(
+#render-basic-info(
   name: name,
   location: location,
   email: email,
@@ -451,18 +451,20 @@
   profiles: profiles,
 )
 
-#section_education(educations)
+#render-education(educations)
 
-#section_work(works)
+#render-work(works)
 
-#section_project(projects)
+#render-project(projects)
 
-#section_volunteer(volunteers)
+#render-volunteer(volunteers)
 
-#section_award(awards)
+#render-award(awards)
 
-#section_certificate(certificates)
+#render-certificate(certificates)
 
-#section_publication(publications)
+#render-publication(publications)
 
-#sections_custom(custom_sections)
+#render-custom(programming_language_section)
+
+#render-custom(skills_section)

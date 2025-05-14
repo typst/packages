@@ -5,42 +5,42 @@
 
 #let config(
   font: "New Computer Modern",
-  font_size: 10pt,
-  page_paper: "a4",
+  font-size: 10pt,
+  page-paper: "a4",
   margin: (
     top: 0.5in,
     bottom: 0.5in,
     left: 0.5in,
     right: 0.5in,
   ),
-  accent_color: "#26428b",
-  space_between_sections: -0.5em,
-  space_between_highlight: -0.5em,
+  accent-color: "#26428b",
+  space-between-sections: -0.5em,
+  space-between-highlight: -0.5em,
   body
 ) = {
-  let font_size_title = font_size * 1.5
-  let font_size_section = font_size * 1.3
-  let font_size_entry = font_size * 1.1
+  let font_size_title = font-size * 1.5
+  let font_size_section = font-size * 1.3
+  let font_size_entry = font-size * 1.1
 
   set text(
     font: font,
-    size: font_size,
+    size: font-size,
     lang: "en",
     ligatures: false,
   )
 
   set page(
     margin: margin,
-    paper: page_paper,
+    paper: page-paper,
   )
 
   set par(justify: true)
 
   show link: underline
 
-  show heading: set text(fill: rgb(accent_color))
+  show heading: set text(fill: rgb(accent-color))
 
-  show link: set text(fill: rgb(accent_color))
+  show link: set text(fill: rgb(accent-color))
 
   // name heading
   show heading.where(level: 1): it => [#text(font_size_title, weight: "extrabold")[#it]]
@@ -85,7 +85,7 @@
 }
 
 
-#let section_basic_info(
+#let render-basic-info(
   name: "",
   location: "",
   phone: "",
@@ -120,8 +120,7 @@
         profiles
           .map(profile => {
             profile.network + ": "
-            let url_concat = profile.url + "/" + profile.username
-            link(url_concat)[#url_concat]
+            link(profile.url)[#profile.username]
           })
           .join("  |  ")
       }
@@ -129,12 +128,12 @@
   )
 }
 
-#let section_education(_educations) = {
-  if _educations.len() == 0 {
+#let render-education(educations) = {
+  if educations.len() == 0 {
     return
   }
   let section_body = {
-    _educations
+    educations
       .map(education => {
         let main = link(education.url)[#education.institution]
         if education.url.len() == 0 {
@@ -159,12 +158,12 @@
   _section("Education", section_body)
 }
 
-#let section_work(_works) = {
-  if _works.len() == 0 {
+#let render-work(works) = {
+  if works.len() == 0 {
     return
   }
   let section_body = {
-    _works
+    works
       .map(work => {
         let main = link(work.url)[#work.name]
         if work.url.len() == 0 {
@@ -188,12 +187,12 @@
   _section("Work", section_body)
 }
 
-#let section_project(_projects) = {
-  if _projects.len() == 0 {
+#let render-project(projects) = {
+  if projects.len() == 0 {
     return
   }
   let section_body = {
-    _projects
+    projects
       .map(project => {
         let main = link(project.url)[#project.name]
         if project.url.len() == 0 {
@@ -220,12 +219,12 @@
   _section("Projects", section_body)
 }
 
-#let section_volunteer(_volunteers) = {
-  if _volunteers.len() == 0 {
+#let render-volunteer(volunteers) = {
+  if volunteers.len() == 0 {
     return
   }
   let section_body = {
-    _volunteers
+    volunteers
       .map(volunteer => {
         let main = link(volunteer.url)[#volunteer.organization]
         if volunteer.url.len() == 0 {
@@ -248,13 +247,13 @@
   _section("Volunteering", section_body)
 }
 
-#let section_award(_awards) = {
-  if _awards.len() == 0 {
+#let render-award(awards) = {
+  if awards.len() == 0 {
     return
   }
   let section_body = [
     #(
-      _awards
+      awards
         .map(award => {
           let awarder_str = " - Awarded by " + award.awarder
           if award.awarder.len() == 0 {
@@ -276,11 +275,11 @@
   _section("Awards", section_body)
 }
 
-#let section_certificate(_certificates) = {
-  if _certificates.len() == 0 {
+#let render-certificate(certificates) = {
+  if certificates.len() == 0 {
     return
   }
-  let section_body = _certificates
+  let section_body = certificates
     .map(certificate => {
       let post_fix = h(1fr) + certificate.date
       let issue_str = " - issued by " + certificate.issuer
@@ -299,13 +298,13 @@
 
 
 
-#let section_publication(_publications) = {
-  if _publications.len() == 0 {
+#let render-publication(publications) = {
+  if publications.len() == 0 {
     return
   }
   let section_body = [
     #(
-      _publications
+      publications
         .map(publication => {
           let prefix = link(publication.url)[#publication.name]
           if publication.url.len() == 0 {
@@ -327,9 +326,9 @@
   _section("Publications", section_body)
 }
 
-#let _section_custom(title, highlights) = {
+#let render-custom(custom_section) = {
   let section_body = {
-    highlights
+    custom_section.highlights
       .map(highlight => {
         let summary_str = highlight.summary + ": "
         let description_str = highlight.description
@@ -340,18 +339,5 @@
       })
       .join(v(render_space_between_highlight))
   }
-  _section(title, section_body)
-}
-
-#let sections_custom(_custom_sections) = {
-  if _custom_sections.len() == 0 {
-    return
-  }
-  _custom_sections
-    .map(custom_section => {
-      let title = custom_section.title
-      let highlights = custom_section.highlights
-      _section_custom(title, highlights)
-    })
-    .join(v(render_space_between_sections))
+  _section(custom_section.title, section_body)
 }
