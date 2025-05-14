@@ -8,7 +8,7 @@
 ## Quick Start
 
 ```typst
-#import "@preview/min-book:0.1.0": book
+#import "@preview/min-book:0.1.1": book
 #show: book.with(
   title: "Book Title",
   subtitle: "Complementary subtitle, not more than two lines long",
