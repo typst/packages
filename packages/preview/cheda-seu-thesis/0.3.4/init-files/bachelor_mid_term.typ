@@ -1,4 +1,4 @@
-#import "../seu-thesis/lib.typ": bachelor-mid-term-conf
+#import "@preview/cheda-seu-thesis:0.3.4": bachelor-mid-term-conf
 
 // 注意：不是所有院系都要求填写此中期检查表。部分学院只要求提交在线表格，不需要提交此附件。
 

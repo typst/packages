@@ -1,4 +1,4 @@
-#import "../seu-thesis/lib.typ": degree-conf, degree-utils
+#import "@preview/cheda-seu-thesis:0.3.4": degree-conf, degree-utils
 #let (thanks, show-appendix) = degree-utils
 
 /*

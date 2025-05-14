@@ -1,4 +1,4 @@
-#import "../seu-thesis/lib.typ": bachelor-trans-conf, bachelor-utils
+#import "@preview/cheda-seu-thesis:0.3.4": bachelor-trans-conf, bachelor-utils
 #let (thanks, show-appendix) = bachelor-utils
 
 
