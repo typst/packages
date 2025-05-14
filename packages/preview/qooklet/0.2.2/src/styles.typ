@@ -112,7 +112,7 @@
 #let figure-style(x) = {
   show figure.caption.where(kind: figure): it => [
     #if it.supplement == none {
-      config-sections.block.lang.figure
+      config-sections.block.at(lang).figure
     } else {
       it.supplement
     }
@@ -121,7 +121,7 @@
   ]
   show figure.caption.where(kind: table): it => [
     #if it.supplement == none {
-      config-sections.block.lang.table
+      config-sections.block.at(lang).table
     } else {
       it.supplement
     }
@@ -132,21 +132,26 @@
   x
 }
 
-#let equation-style(x) = {
+#let equation-style(x, book: "") = {
   show heading.where(level: 1): it => {
     counter(math.equation).update(0)
     it
   }
 
   show math.equation: it => {
-    let count = counter(heading).get()
-    let h1 = count.first()
-    let h2 = count.at(1, default: 0)
     if it.has("label") {
       math.equation(
         block: true,
-        numbering: n => {
-          numbering("(1.1)", h1, n)
+        numbering: if book != "" {
+          let title-index = if book != "" { context counter(label-title).display("1") } else { none }
+          (..numbers) => {
+            "(" + title-index + "." + numbering("1", numbers.at(0)) + ")"
+          }
+        } else {
+          let h1 = counter(heading).get().first()
+          n => {
+            numbering("(1.1)", h1, n)
+          }
         },
         it,
       )
@@ -157,15 +162,28 @@
   x
 }
 
-#let ref-style(it) = {
+#let ref-style(it, book: "") = {
   {
     let el = it.element
     if el != none and el.func() == math.equation {
       let loc = el.location()
-      let h1 = counter(heading).at(loc).first()
       let index = counter(math.equation).at(loc).first()
 
-      link(loc, numbering("(1.1)", h1, index + 1))
+      if book != "" {
+        let title-index = if book != "" { context counter(label-title).display("1") } else { none }
+        link(
+          loc,
+          numbering(
+            (..numbers) => {
+              "(" + title-index + "." + numbering("1", numbers.at(0)) + ")"
+            },
+            index + 1,
+          ),
+        )
+      } else {
+        let h1 = counter(heading).at(loc).first()
+        link(loc, numbering("(1.1)", h1, index + 1))
+      }
     } else {
       it
     }
@@ -233,12 +251,12 @@
 
   set heading(
     numbering: (..numbers) => {
-      let titile-index = if info.book != "" { context counter(label-title).display("1.") } else { none }
+      let title-index = if info.book != "" { context counter(label-title).display("1.") } else { none }
       let level = numbers.pos().len()
       if (level == 1) {
-        titile-index + numbering("1.", numbers.at(0))
+        title-index + numbering("1.", numbers.at(0))
       } else if (level == 2) {
-        titile-index + numbering("1.", numbers.at(0)) + numbering("1.", numbers.at(1))
+        title-index + numbering("1.", numbers.at(0)) + numbering("1.", numbers.at(1))
       } else {
         h(-0.3em)
       }
@@ -255,10 +273,12 @@
     pagebreak()
   }
 
+  show math.equation: equation-style.with(book: info.book)
+
   set ref(
     supplement: it => {
       if it.func() == heading {
-        config-sections.section.lang.chapter
+        config-sections.section.at(lang).chapter
       } else if it.func() == table {
         it.caption
       } else if it.func() == image {
@@ -266,17 +286,15 @@
       } else if it.func() == figure {
         it.supplement
       } else if it.func() == math.equation {
-        config-sections.block.lang.equation
+        config-sections.block.at(lang).equation
       } else { }
     },
   )
 
-
-  show ref: ref-style
+  show ref: ref-style.with(book: info.book)
   show raw.where(block: true): code-block-style
   show figure: figure-style
   show figure.where(kind: table): set figure.caption(position: top)
-  show math.equation: equation-style
 
   show heading.where(level: 1): it => {
     counter(math.equation).update(0)

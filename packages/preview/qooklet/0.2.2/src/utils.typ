@@ -22,7 +22,7 @@
   } else {
     pagebreak(weak: true, to: "odd")
 
-    let titile-index = context counter(label-title).display("1")
+    let title-index = context counter(label-title).display("1")
 
     let bottom-pad = 10%
     block(
@@ -46,7 +46,7 @@
           ),
         ),
         line(angle: 90deg, length: 100%),
-        pad(text(50pt, titile-index, font: config-fonts.family.at(lang).title, weight: "bold")),
+        pad(text(50pt, title-index, font: config-fonts.family.at(lang).title, weight: "bold")),
       ),
     )
   }
