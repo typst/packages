@@ -11,6 +11,6 @@ categories = ["paper"]
 disciplines = ["computer-science", "engineering"]
 
 [template]
-path = "."
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
