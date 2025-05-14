@@ -1,0 +1,27 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "typst-quic-style"
+version = "0.0.1"
+compiler = "0.12.0"
+entrypoint = "src/lib.typ"
+authors = ["Taniii <https://taniii.com>"]
+license = "Unlicense"
+description = "A cohesive Typst design template that can be used in various situations—daily life, research, and experiments!"
+repository = "https://github.com/taniiicom/typst-quic-style"
+keywords = ["paper", "article", "journal", "conference"]
+categories = ["paper"]
+exclude = [
+	".github",
+	"docs",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+	"thumbnails",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/progress_report.png"
