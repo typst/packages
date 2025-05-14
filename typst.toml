@@ -23,5 +23,5 @@ exclude = [
 
 [template]
 path = "template"
-entrypoint = "main.typ"
+entrypoint = "progress_report.typ"
 thumbnail = "thumbnails/progress_report.png"
