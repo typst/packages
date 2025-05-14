@@ -55,12 +55,12 @@
         ],
       )
     },
+    depth: 2,
   )
 
   set outline.entry(fill: repeat(".", gap: 0.2em))
   show outline.entry: x => {
     if x.element.func() == figure {
-      // parts
       link(
         x.element.location(),
         {
@@ -72,7 +72,6 @@
         },
       )
     } else if x.level == 1 {
-      // level 1 headings
       link(
         x.element.location(),
         {
@@ -81,82 +80,39 @@
             if prefix != none {
               box(width: indent-base, prefix)
             }
-            x.body()
+            h(.8em) + x.body()
           })
           h(1fr)
           strong(x.page())
         },
       )
       v(0em)
-    } else {
+    } else if x.level == 2 {
       x
     }
   }
   body
 }
 
-#let header-footer-style(header-cap, footer-cap) = {
-  set page(
-    header: context {
-      set text(size: 8pt)
-      align-odd-even(header-cap, emph(hydra(1)))
-      line(length: 100%)
-    },
-    footer: context {
-      set text(size: 8pt)
-      let page_num = here().page()
-      align-odd-even(footer-cap, page_num)
-    },
-  )
-}
-
-#let heading-styles(x, book: false) = {
+#let heading-style(x) = {
   if x.level == 1 {
-    // set page(header: none)
-    if book == true {
-      pagebreak(to: "odd")
-    }
-    let bottom-pad = 10%
-
-    grid(
-      columns: (20fr, 2fr, 5fr),
-      rows: (1fr, 12fr),
-      align: (right + bottom, center, left + bottom),
-      pad(
-        text(25pt, x.body),
-        bottom: bottom-pad,
-      ),
-      line(angle: 90deg, length: 100%),
-      pad(
-        text(50pt, counter(heading).display(heading.numbering)),
-        bottom: bottom-pad,
-      ),
-    )
-    v(1em)
+    set text(16pt)
   } else if x.level == 2 {
-    v(1em, weak: true)
     set text(14pt)
-    x
-    v(1em, weak: true)
   } else if x.level == 3 {
-    v(1em, weak: true)
     set text(12pt)
-    x
-    v(1em, weak: true)
-  } else if x.level == 4 {
-    v(1em, weak: true)
-    set text(10.5pt)
-    x
-    v(1em, weak: true)
   } else {
-    x
+    set text(10.5pt)
   }
+  v(1em, weak: true)
+  x
+  v(1em, weak: true)
 }
 
 #let figure-style(x) = {
   show figure.caption.where(kind: figure): it => [
     #if it.supplement == none {
-      linguify("figure")
+      config-sections.block.lang.figure
     } else {
       it.supplement
     }
@@ -165,14 +121,14 @@
   ]
   show figure.caption.where(kind: table): it => [
     #if it.supplement == none {
-      linguify("table")
+      config-sections.block.lang.table
     } else {
       it.supplement
     }
     #context it.counter.display(it.numbering)
     #it.body
   ]
-  show figure.where(kind: table): set figure.caption(position: top)
+  show figure.caption.where(kind: "title"): none
   x
 }
 
@@ -229,18 +185,30 @@
   body
 }
 
-#let body-style(body, header-cap: "", footer-cap: "", lang: "en") = {
+#let body-style(
+  body,
+  title: "",
+  info: info-default,
+  outline-on: false,
+  paper: "iso-b5",
+) = {
   show: common-style
-  // heading style
-  // show heading: heading-styles
-  // heading numbering
-  set heading(
-    numbering: numbly(
-      "{1}",
-      "{1}.{2}",
-    ),
+  let header-cap = info.header-cap
+  let footer-cap = info.footer-cap
+  let lang = info.lang
+
+  set page(
+    header: context {
+      set text(size: 8pt)
+      align-odd-even(header-cap, emph(hydra(1)))
+      line(length: 100%)
+    },
+    footer: context {
+      set text(size: 8pt)
+      let page_num = here().page()
+      align-odd-even(footer-cap, page_num)
+    },
   )
-  show: header-footer-style(header-cap, footer-cap)
 
   set par(
     first-line-indent: (
@@ -259,10 +227,38 @@
     lang: lang,
   )
 
+  align(center, chapter-title(title, book: info.book, lang: lang))
+
+  show heading: heading-style
+
+  set heading(
+    numbering: (..numbers) => {
+      let titile-index = if info.book != "" { context counter(label-title).display("1.") } else { none }
+      let level = numbers.pos().len()
+      if (level == 1) {
+        titile-index + numbering("1.", numbers.at(0))
+      } else if (level == 2) {
+        titile-index + numbering("1.", numbers.at(0)) + numbering("1.", numbers.at(1))
+      } else {
+        h(-0.3em)
+      }
+    },
+  )
+
+  show pagebreak.where(weak: true): it => {
+    counter(heading).update(0)
+    it
+  }
+
+  if outline-on == true {
+    outline(depth: 2)
+    pagebreak()
+  }
+
   set ref(
     supplement: it => {
       if it.func() == heading {
-        linguify("chapter")
+        config-sections.section.lang.chapter
       } else if it.func() == table {
         it.caption
       } else if it.func() == image {
@@ -270,15 +266,24 @@
       } else if it.func() == figure {
         it.supplement
       } else if it.func() == math.equation {
-        linguify("eq")
+        config-sections.block.lang.equation
       } else { }
     },
   )
 
+
   show ref: ref-style
+  show raw.where(block: true): code-block-style
   show figure: figure-style
-  show: equation-style
-  show: code-block-style
+  show figure.where(kind: table): set figure.caption(position: top)
+  show math.equation: equation-style
+
+  show heading.where(level: 1): it => {
+    counter(math.equation).update(0)
+    it
+  }
+
+  show: show-theorion
   body
 }
 
@@ -291,5 +296,9 @@
     ),
   )
 
+  show heading.where(level: 1): it => {
+    pagebreak()
+    it
+  }
   body
 }

@@ -9,16 +9,13 @@ A quick start template for scientific booklets.
   - link quote to source
 - Figure
   - auto numbering based on chapter
-  - subfigure (using [subpar](https://github.com/tingerrr/subpar))
 - Table
-  - read as three-line table (`#ktable()`)
-  - read from .xlsx (using [rexllent](https://github.com/hongjr03/typst-rexllent))
+  - read as three-line table (`tableq()`)
 - Code Block
-  - highlighting (using [coldly](https://github.com/Dherse/codly))
+  - stylized by (using [coldly](https://github.com/Dherse/codly))
   - read code block (`#code(text, lang: "python", breakable: true, width: 100%)`)
 - Theorem
-  - auto numbering based on chapter (using [ctheorems](https://github.com/sahasatvik/typst-theorems))
-  - multilingual (using [linguify](https://github.com/typst-community/linguify))
+  - theorems enviroment is implemented by using [theorion](https://github.com/OrangeX4/typst-theorion)
 
 ## Get Started
 
@@ -26,7 +23,7 @@ Import `qooklet` from the `@preview` namespace.
 
 ```typst
 #import "@preview/qooklet:0.2.2": *
-#show: qooklet.with(
+#show: body-style.with(
   title: "Bellman Eqation",
   // the following are optional arguments
   // info: none
@@ -39,7 +36,7 @@ where `info` is an argument that let you customize the information of your book 
 
 ```toml
 [key-you-like]
-    author = "ivaquero"
+    book = "My First Book"
     footer-cap = "ivaquero"
     header-cap = "Reinforcement Learning"
     lang = "en"

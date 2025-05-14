@@ -1,6 +1,3 @@
-[config]
-    default-lang = "en"
-
 [family.en]
     title = "Palatino"
     preface = "Georgia"
