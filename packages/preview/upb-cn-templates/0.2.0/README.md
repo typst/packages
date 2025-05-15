@@ -12,7 +12,7 @@ Currently, the following templates are provided:
 
 ## How to Use the Templates
 
-You can use the templates either via Typst's [web app](https://typst.app/universe/package/upb-cn-templates) ("Create project in app") or via its CLI (`typst init @preview/upb-cn-templates:0.1.0`).
+You can use the templates either via Typst's [web app](https://typst.app/universe/package/upb-cn-templates) ("Create project in app") or via its CLI (`typst init @preview/upb-cn-templates:0.2.0`).
 If you are using Typst via the CLI, make sure that the ["Linux Biolinum"](https://www.dafont.com/linux-biolinum.font) font is installed on your machine.
 
 For each type of document (seminar report/review, thesis proposal, thesis) there is a dedicated `typ` file that contains detailed instructions regarding how to fill in the document.
