@@ -1,24 +1,28 @@
 #import "styles.typ": *
-#import "utils.typ": chap-title, info-default, book-title
+#import "utils.typ": label-chapter, default-info, default-layout
 
 #let cover(
-  title: "The Title",
-  author: "The Author",
+  info,
   date: datetime.today(),
-  lang: "en",
+  layout: default-layout,
 ) = {
   show: cover-style
+
+  let title = info.book
+  let lang = info.lang
+  let author = info.author
+
   align(
     center + horizon,
     [
       #text(
         size: 36pt,
         weight: "bold",
-        font: config-fonts.family.at(lang).title,
+        font: layout.fonts.at(lang).title,
         title,
       )
       #v(1em)
-      #text(24pt, font: config-fonts.family.at(lang).author, author)
+      #text(24pt, font: layout.fonts.at(lang).author, author)
       #v(1em)
       #text(18pt, date.display())
     ],
@@ -35,30 +39,32 @@
   )
 }
 
-#let preface(body, author: "", lang: "en") = {
+#let preface(body, info: default-info, layout: default-layout, names: default-names) = {
   show: common-style
   show: front-matter-style
+
+  let lang = info.lang
+  let author = info.author
+
   heading(
     level: 1,
     text(
-      config-sections.section.at(lang).preface,
-      font: config-fonts.family.at(lang).preface,
+      names.sections.at(lang).preface,
+      font: layout.fonts.at(lang).preface,
     ),
   )
   body
   align(right)[#emph(author)]
-  pagebreak()
+  pagebreak(to: "odd")
 }
 
 #let label-part = <part>
-#let contents = {
-  show: contents-style
-  outline(target: selector(heading).or(label-part).or(chap-title), depth: 3)
-}
-
 #let part-page(title) = {
   show: front-matter-style
   show figure.caption: none
+
+  set page(header: none, footer: none)
+
   align(
     center + horizon,
     [
@@ -71,4 +77,10 @@
       ) #label-part
     ],
   )
+}
+
+#let contents(lang: "en", depth: 2) = {
+  show: contents-style.with(lang: lang)
+  outline(target: selector(heading).or(label-part).or(label-chapter), depth: depth)
+  pagebreak(to: "odd")
 }

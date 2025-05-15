@@ -2,6 +2,6 @@
 
 #show: body-style.with(
   title: "",
-  info: info-default,
+  info: default-info,
   outline-on: false,
 )

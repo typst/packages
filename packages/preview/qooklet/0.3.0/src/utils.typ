@@ -1,21 +1,24 @@
 #import "deps.typ": *
 
-#let book-title = <book-title>
-#let chap-title = <chapter>
+#let label-chapter = <chapter>
 
 #let align-odd-even(odd-left, odd-right) = {
-  if calc.odd(here().page()) {
-    align(right, [#odd-left #h(6fr) #odd-right])
-  } else {
-    align(right, [#odd-right #h(6fr) #odd-left])
+  let chapter-page = query(label-chapter).filter(h => h.location().page() == here().page()).len()
+
+  if chapter-page != 1 {
+    if calc.odd(here().page()) {
+      align(right, [#odd-left #h(6fr) #odd-right])
+    } else {
+      align(right, [#odd-right #h(6fr) #odd-left])
+    }
   }
 }
 
-#let chapter-title(title, book: false, lang: "en") = {
+#let chapter-title(title, book: false, lang: "en", layout: default-layout) = {
   let the-title = text(
     24pt,
     title,
-    font: config-fonts.family.at(lang).title,
+    font: layout.fonts.at(lang).title,
     style: "italic",
     weight: "bold",
   )
@@ -24,8 +27,8 @@
     v(2em)
   } else {
     pagebreak(weak: true, to: "odd")
-
-    let title-index = context counter(chap-title).display("1")
+    show figure.caption: none
+    let title-index = context counter(label-chapter).display("1")
 
     let bottom-pad = 10%
     block(
@@ -43,13 +46,13 @@
                 kind: "title",
                 supplement: none,
                 numbering: _ => none,
-                caption: none,
-              )#chap-title],
+                caption: title,
+              )#label-chapter],
             bottom: bottom-pad,
           ),
         ),
         line(angle: 90deg, length: 100%),
-        pad(text(50pt, title-index, font: config-fonts.family.at(lang).title, weight: "bold")),
+        pad(text(50pt, title-index, font: layout.fonts.at(lang).title, weight: "bold")),
       ),
     )
   }
@@ -104,7 +107,7 @@
   ..data.flatten(),
 )
 
-#let ctext(body) = text(body, font: config-fonts.family.at("zh").math)
+#let ctext(body) = text(body, font: layout.fonts.at("zh").math)
 
 #let code(text, lang: "python", breakable: true, width: 100%) = block(
   fill: rgb("#F3F3F3"),

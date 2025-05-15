@@ -1,3 +1,3 @@
-#import "pages.typ": cover, epigraph, preface, contents, part-page, book-title
-#import "styles.typ": body-style, heading-style, appendix-style
+#import "pages.typ": cover, epigraph, preface, contents, part-page
+#import "styles.typ": body-style, appendix-style
 #import "utils.typ": *

@@ -1,13 +1,13 @@
 [global]
-    book = ""
+    book = "Qooklet Book"
+    author = "ivaquero"
     footer-cap = ""
     header-cap = ""
     lang = "en"
-    paper = "a4"
 
-[book]
-    book = "Book Mode"
-    footer-cap = ""
+[rf]
+    book = "Reinforcement Learning"
+    author = "ivaquero"
+    footer-cap = "Reinforcement Learning"
     header-cap = ""
     lang = "en"
-    paper = "iso-b5"

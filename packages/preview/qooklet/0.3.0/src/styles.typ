@@ -2,97 +2,104 @@
 
 #let indent-base = 1.2em
 #let book-state = state("book-state", false)
+#let header-state = state("header-state", true)
 
-#let cover-style(body, info: info-default) = {
+#let cover-style(body, paper: "iso-b5", lang: "en") = {
   set page(
-    paper: info.paper,
+    paper: paper,
     margin: 10%,
   )
   body
   book-state.update(true)
 }
 
-#let common-style(body, list-indent: indent-base, info: info-default) = {
+#let common-style(body, list-indent: indent-base, paper: "iso-b5", lang: "en") = {
   set list(indent: list-indent)
   set enum(indent: list-indent)
-  set page(paper: info.paper, margin: 10%)
+  set page(paper: paper, margin: 10%)
 
   show link: set text(blue.lighten(10%))
   show link: underline
   body
 }
 
-#let front-matter-style(body, info: info-default) = {
-  set page(paper: info.paper, margin: 10%)
+#let front-matter-style(body, paper: "iso-b5", lang: "en") = {
+  set page(paper: paper, margin: 10%)
   set par(justify: true)
   show heading.where(level: 1): it => {
     v(0.1em)
-    set text(24pt)
+    set text(22pt)
     it
     v(0.5em)
   }
   text(body, size: 14pt)
 }
 
-#let contents-style(body, info: info-default, depth: 2) = {
-  set page(paper: info.paper, margin: 10%)
-  show heading.where(level: 1): it => {
-    v(0.1em)
-    set text(24pt)
-    it
-    v(0.5em)
-  }
+#let contents-style(body, depth: 2, lang: "en", names: default-names, layout: default-layout) = {
+  set page(paper: layout.paper.normal-size, margin: 10%)
+
   show link: set text(black)
-  show underline: it => it.body
+  show heading.where(level: 1): it => {
+    set text(22pt)
+    it
+    v(0.1em)
+  }
 
   set outline(
-    indent: indent-base,
     title: {
       heading(
         outlined: true,
         level: 1,
-        [
-          Contents
-        ],
+        names.sections.at(lang).content,
       )
     },
-    depth: 2,
   )
 
-  set outline.entry(fill: repeat(".", gap: 0.2em))
   show outline.entry: x => {
-    if x.element.func() == figure {
+    let loc = x.element.location()
+    let chap-counter = state("chap-counter", 0)
+    let chap-counter2 = state("chap-counter2", 0)
+    let fill = box(width: 1fr, x.fill)
+
+    let prefix = x.prefix()
+    if (depth >= 0) and (x.element.func() == figure) {
+      chap-counter.update(s => s + 1)
       link(
-        x.element.location(),
+        loc,
         {
-          v(.1em)
-          smallcaps(strong(x.body()))
-          h(1fr)
-          strong(x.page())
-          v(.1em)
+          (
+            { context chap-counter.get() }
+              + "."
+              + h(.5em)
+              + smallcaps(strong(x.body()))
+              + fill
+              + strong(x.page())
+              + v(0em)
+          )
         },
       )
-    } else if x.level == 1 {
+    } else if (depth == 2) and (x.level == 1) and (prefix != none) {
       link(
-        x.element.location(),
+        loc,
         {
-          strong({
-            let prefix = x.prefix()
-            if prefix != none {
-              box(width: indent-base, prefix)
+          strong(
+            if prefix.has("children") {
+              if prefix.children.at(1).text == "1." {
+                chap-counter2.update(s => s + 1)
+              }
+              context { h(1.2em) + str(chap-counter2.get()) } + "." + context { prefix.children.at(1) } + h(.5em)
+            } else if prefix.has("text") {
+              prefix + h(.5em)
             }
-            h(.8em) + x.body()
-          })
-          h(1fr)
-          strong(x.page())
+              + x.body(),
+          )
+          fill + strong(x.page())
         },
       )
       v(0em)
-    } else if x.level == 2 {
-      x
-    }
+    } else if (depth < 0) or (depth > 2) { panic("depth can only be either 1 or 2") }
   }
-  body
+  text(body, font: layout.fonts.at(lang).contents)
 }
 
 #let heading-style(x) = {
@@ -105,15 +112,14 @@
   } else {
     set text(10.5pt)
   }
-  v(1em, weak: true)
   x
   v(1em, weak: true)
 }
 
-#let figure-style(x) = {
+#let figure-style(x, names: default-names) = {
   show figure.caption.where(kind: figure): it => [
     #if it.supplement == none {
-      config-sections.block.at(lang).figure
+      names.blocks.at(lang).figure
     } else {
       it.supplement
     }
@@ -122,7 +128,7 @@
   ]
   show figure.caption.where(kind: table): it => [
     #if it.supplement == none {
-      config-sections.block.at(lang).table
+      names.blocks.at(lang).table
     } else {
       it.supplement
     }
@@ -133,20 +139,16 @@
   x
 }
 
-#let equation-style(x, book: false) = {
-  show heading.where(level: 1): it => {
-    counter(math.equation).update(0)
-    it
-  }
-
+#let equation-style(x) = {
   show math.equation: it => {
     if it.has("label") {
       math.equation(
         block: true,
-        numbering: if book == true {
-          let title-index = context counter(chap-title).display("1")
-          (..numbers) => {
-            "(" + title-index + "." + numbering("1", numbers.at(0)) + ")"
+        numbering: if book-state.get() {
+          let title-index = context counter(label-chapter).display("1")
+          let eq-index = counter(selector(math.equation).before(here())).get().first()
+          n => {
+            "(" + title-index + "." + str(eq-index + 1) + ")"
           }
         } else {
           let h1 = counter(heading).get().first()
@@ -163,27 +165,28 @@
   x
 }
 
-#let ref-style(it, book: false) = {
+#let ref-style(it) = {
   {
     let el = it.element
     if el != none and el.func() == math.equation {
       let loc = el.location()
-      let index = counter(math.equation).at(loc).first()
 
-      if book == true {
-        let title-index = context counter(chap-title).display("1")
+      if book-state.get() {
+        let title-index = context counter(label-chapter).get().first()
+        let eq-index = counter(selector(math.equation).before(here())).get().first()
 
         link(
           loc,
           numbering(
-            (..numbers) => {
-              "(" + title-index + "." + numbering("1", numbers.at(0)) + ")"
+            n => {
+              "(" + title-index + "." + str(eq-index) + ")"
             },
-            index + 1,
+            eq-index + 1,
           ),
         )
       } else {
         let h1 = counter(heading).at(loc).first()
+        let index = counter(math.equation).at(loc).first()
         link(loc, numbering("(1.1)", h1, index + 1))
       }
     } else {
@@ -208,15 +211,21 @@
 #let body-style(
   body,
   title: "",
-  info: info-default,
+  paper: "",
+  info: default-info,
+  layout: default-layout,
+  names: default-names,
   outline-on: false,
 ) = {
   show: common-style
+
   let header-cap = info.header-cap
   let footer-cap = info.footer-cap
   let lang = info.lang
+  let paper = if paper == "" { layout.paper.normal-size } else { paper }
 
   set page(
+    paper: paper,
     header: context {
       set text(size: 8pt)
       align-odd-even(header-cap, emph(hydra(1)))
@@ -241,7 +250,7 @@
 
   set block(above: 1em, below: 1em, radius: 20%)
   set text(
-    font: config-fonts.family.at(lang).context,
+    font: layout.fonts.at(lang).context,
     size: 10.5pt,
     lang: lang,
   )
@@ -257,7 +266,7 @@
 
   set heading(
     numbering: (..numbers) => {
-      let title-index = if book-state.get() { context counter(chap-title).display("1.") } else {
+      let title-index = if book-state.get() { context counter(label-chapter).display("1.") } else {
         none
       }
       let level = numbers.pos().len()
@@ -281,12 +290,12 @@
     pagebreak()
   }
 
-  show math.equation: equation-style.with(book: info.book)
+  show math.equation: equation-style
 
   set ref(
     supplement: it => {
       if it.func() == heading {
-        config-sections.section.at(lang).chapter
+        names.sections.at(lang).chapter
       } else if it.func() == table {
         it.caption
       } else if it.func() == image {
@@ -294,12 +303,16 @@
       } else if it.func() == figure {
         it.supplement
       } else if it.func() == math.equation {
-        config-sections.block.at(lang).equation
+        names.blocks.at(lang).equation
       } else { }
     },
   )
 
-  show ref: ref-style.with(book: info.book)
+  context if not book-state.get() {
+    set-inherited-levels(1)
+  } else { set-inherited-levels(0) }
+
+  show ref: ref-style
   show raw.where(block: true): code-block-style
   show figure: figure-style
   show figure.where(kind: table): set figure.caption(position: top)
@@ -314,17 +327,12 @@
 }
 
 #let appendix-style(body) = {
-  counter(heading).update(0)
-  set heading(
-    numbering: numbly(
-      "{1:A}",
-      "{1:A}.{2}",
-    ),
-  )
-
   show heading.where(level: 1): it => {
     pagebreak()
     it
   }
+
+  set heading(numbering: "A.1")
+  set-theorion-numbering("A.1")
   body
 }

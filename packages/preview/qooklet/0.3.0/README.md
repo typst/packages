@@ -10,7 +10,7 @@ A quick start template for scientific booklets.
   - the default mode is note mode
   - when `cover()` is called the book mode will be activated
 - Styles
-  - call `cover()`, `epigraph()`, `preface()`, `contents()`(still very buggy, don't use until next version) and `part-page()` to generate corresponding page
+  - call `cover()`, `epigraph()`, `preface()`, `contents()` and `part-page()` to generate corresponding page
   - call `body-style()` and `appendix-style()` to change to customized layout
 
 ### Automation
@@ -29,7 +29,7 @@ A quick start template for scientific booklets.
 ### Environments
 
 - Theorem
-  - theorems enviroment is implemented by using [theorion](https://github.com/OrangeX4/typst-theorion)
+  - theorems enviroment is implemented by using [theorion](https://github.com/OrangeX4/typst-theorion) (the counters still needs tweaking in the book mode)
 - Shorthands
   - scientific shorthands are provided by [physica](https://github.com/Leedehai/typst-physics)
 
@@ -113,4 +113,3 @@ Also thanks the creators of the following packages
 - [coldly](https://github.com/Dherse/codly)
 - [codly-languages](https://github.com/swaits/typst-collection)
 - [theorion](https://github.com/OrangeX4/typst-theorion)
-- [numbly](https://github.com/flaribbit/numbly)
