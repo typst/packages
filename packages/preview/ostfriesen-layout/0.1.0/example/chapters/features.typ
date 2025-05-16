@@ -1,4 +1,4 @@
-#import "../../lib/pages/dependencies.typ": *
+#import "../lib/pages/dependencies.typ": *
 #show: codly-init
 = Features
 
