@@ -21,10 +21,38 @@ A quick start template for scientific booklets.
 - Figure
   - auto numbering based on chapter
 - Table
-  - read as three-line table (`tableq()`)
+  - read as three-line table
 - Code Block
-  - stylized by (using [coldly](https://github.com/Dherse/codly))
-  - read code block (`#code(text, lang: "python", breakable: true, width: 100%)`)
+  - stylized by (using [codly](https://github.com/Dherse/codly))
+  - read code block
+
+### Useful Functions
+
+#### Tables
+
+- `tableq(data, k, stroke: table-three-line(rgb("000")), inset: 0.3em)`: reading .csv, where `k` is the number of columns, and for stroke, `qooklet` provide 2 predefined styles
+  - `table-three-line(stroke-color)`: default style, for three-line table
+  - `table-no-left-right(stroke-color)`: for grid without left border and right border
+
+```typst
+#let data = csv("data.csv")
+#figure(
+  tableq(data, 5),
+  // stroke: table-three-line(rgb("000")),
+  // caption: ""
+  // supplement: "",
+  kind: table,
+)
+```
+
+#### Codes
+
+- `code(text, lang: "python", breakable: true, width: 100%)`: read stylized code blocks
+
+```typst
+#let compose = read("docker-compose.yml")
+#code(compose, lang: "yaml")
+```
 
 ### Environments
 
@@ -37,7 +65,7 @@ A quick start template for scientific booklets.
 
 Import `qooklet` from the `@preview` namespace.
 
-## Get Started
+### Note Mode
 
 ```typst
 #import "@preview/qooklet:0.3.0": *
@@ -65,20 +93,52 @@ You can read you info file by the following sentence
 #let info = toml("your path").key-you-like
 ```
 
-## Useful Functions
-
-The function `tableq(data, k, stroke: table-three-line(rgb("000")), inset: 0.3em)` is a quick shortcut of reading .csv, where `k` is the number of columns, and for stroke, `qooklet` provide 2 predefined styles
-
-- `table-three-line(stroke-color)`: default style, for three-line table
-- `table-no-left-right(stroke-color)`: for grid without left border and right border
-
-## Examples
-
-### Note Mode
-
 ![example](https://raw.githubusercontent.com/ivaquero/typst-qooklet/refs/heads/main/example.png)
 
 ### Book Mode
+
+The book mode will be mode will be activated.
+
+```typst
+#import "@preview/qooklet:0.3.0": *
+
+#let info = toml(your-info-file-path).key-you-like
+// for example
+// #let info = toml("../config/info.toml").global
+
+// add a cover
+#cover(
+  // info,
+  // date: datetime.today(),
+)
+
+#epigraph[
+  // Add an epigraph to the document.
+]
+
+#preface[
+  // Add a preface to the document.
+]
+
+#contents
+
+// body
+#show: body-style.with(
+  title: "chapter-title 1",
+  info: info,
+)
+
+#show: body-style.with(
+  title: "chapter-title 2",
+  info: info,
+)
+...
+
+// appendix
+#part-page[Appendix]
+#show: appendix-style
+...
+```
 
 ![example-book](https://raw.githubusercontent.com/ivaquero/typst-qooklet/refs/heads/main/example-book.png)
 
@@ -110,6 +170,6 @@ Also thanks the creators of the following packages
 
 - [hydra](https://github.com/tingerrr/hydra)
 - [physica](https://github.com/Leedehai/typst-physics)
-- [coldly](https://github.com/Dherse/codly)
+- [codly](https://github.com/Dherse/codly)
 - [codly-languages](https://github.com/swaits/typst-collection)
 - [theorion](https://github.com/OrangeX4/typst-theorion)

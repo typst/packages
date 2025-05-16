@@ -36,6 +36,7 @@
 }
 
 #let contents-style(body, depth: 2, lang: "en", names: default-names, layout: default-layout) = {
+  assert(depth in (1, 2), message: "depth can only be either 1 or 2")
   set page(paper: layout.paper.normal-size, margin: 10%)
 
   show link: set text(black)
@@ -62,7 +63,7 @@
     let fill = box(width: 1fr, x.fill)
 
     let prefix = x.prefix()
-    if (depth >= 0) and (x.element.func() == figure) {
+    if (depth >= 1) and (x.element.func() == figure) {
       chap-counter.update(s => s + 1)
       link(
         loc,
@@ -97,7 +98,7 @@
         },
       )
       v(0em)
-    } else if (depth < 0) or (depth > 2) { panic("depth can only be either 1 or 2") }
+    }
   }
   text(body, font: layout.fonts.at(lang).contents)
 }
