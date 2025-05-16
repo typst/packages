@@ -76,6 +76,7 @@ template, you can add a show rule like this at the top of your file:
 ```typ
 #import "@preview/jaconf:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
+// デフォルト値でよい引数は省略可能
 #show: jaconf.with(
   // 基本 Basic
   title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
@@ -125,4 +126,3 @@ template, you can add a show rule like this at the top of your file:
 ```
 
 You may remove the lines where arguments are set if the default values are sufficient.
-デフォルト値でよい場合には、その設定をしている行を削除していただいてもかまいません。
