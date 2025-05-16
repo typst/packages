@@ -7,7 +7,7 @@
   date: none,
   documentType: none,
   faculty: none,
-  department: none,
+  module: none,
   course_of_studies: none,
   supervisor1: none,
   supervisor2: none,
@@ -67,16 +67,14 @@
       ),
       v(5mm),
       line(start: (0pt, 0pt), length: 30pt, stroke: 1mm),
-      v(12mm),
-      // Faculty
-      if faculty != none {
-        text(faculty, size: 10pt, weight: "bold")
-        v(2mm)
+      v(10mm),
+      //module
+      if module != none {
+        text(t.at("cover_module"), size: 10pt, weight: "bold")
+        v(-2mm)
+        text(module, size: 10pt)
       },
-      // Department
-      if department != none {
-        text(department, size: 10pt)
-      }
+      
     )
   )
 
@@ -307,7 +305,7 @@
     
     // Adjust for fewer than 5 authors - similar to supervision section
     let author_adjustment = if authors.len() < 5 {
-      ((5 - authors.len()) * 5.5mm)  // Match the supervisor adjustment
+      ((5 - authors.len()) * 5mm)  // Match the supervisor adjustment
     } else {
       0mm
     }
@@ -315,7 +313,7 @@
     // Adjust for fewer supervisor entries (if any supervisors are present)
     let supervisor_adjustment = if supervisor_count > 0 {
       // Assuming max of 5 supervisors, adjust by 3mm for each missing one
-      ((5 - supervisor_count) * 5.5mm)
+      ((5 - supervisor_count) * 5mm)
     } else {
       0mm  // No adjustment needed if no supervisors
     }
@@ -345,14 +343,14 @@
         } else {
           text(t.at("thesis_submitted_for_examination"))
         },
-        if course_of_studies != none {
-          text(t.at("in_the_study_course") + " " + text(course_of_studies, style: "italic"))
+        if module != none {
+          text(t.at("in_the_module") + " " + text(module, style: "italic"))
         },
-        if department != none {
-          text(t.at("at_the_department") + " " + department)
+        if course_of_studies != none {
+          text(t.at("of_the_study_course") + " " + text(course_of_studies, style: "italic"))
         },
         if faculty != none {
-          text(t.at("at_the_faculty_of") + " " + faculty)
+          text(t.at("at_the_faculty_of") + " " + text(faculty, style: "italic"))
         },
         text(t.at("at_university"))
       )

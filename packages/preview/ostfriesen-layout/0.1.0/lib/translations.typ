@@ -6,9 +6,9 @@
     
     // University structure
     "faculty_of": "Faculty of",
-    "department_of": "Department of", 
-    "in_the_study_course": "in the study course",
-    "at_the_department": "at the Department",
+    "cover_module": "Module",
+    "of_the_study_course": "of the study course",
+    "in_the_module": "in the Module",
     "at_the_faculty_of": "at the Faculty of",
     "at_university": "at University of Applied Sciences Emden/Leer",
     
@@ -51,9 +51,9 @@
     
     // University structure
     "faculty_of": "Fakultät",
-    "department_of": "Department", 
-    "in_the_study_course": "im Studiengang",
-    "at_the_department": "am Department",
+    "cover_module": "Modul",
+    "of_the_study_course": "des Studiengangs",
+    "in_the_module": "im Modul",
     "at_the_faculty_of": "der Fakultät",
     "at_university": "der Hochschule für Angewandte Wissenschaften Emden/Leer",
     

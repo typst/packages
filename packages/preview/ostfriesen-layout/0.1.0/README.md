@@ -1,4 +1,4 @@
-# HS Emden/Leer Typst Template
+# Ostfriesen Layout Typst Template
 
 [![Typst](https://img.shields.io/badge/Typst-v0.13.1+-blue)](https://typst.app/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
@@ -52,7 +52,7 @@ You can use this template in several ways:
 Just add the following code to your Typst document:
 
 ```typst
-#import "@preview/hs-emden-leer-template:0.1.0": thesis
+#import "@preview/ostfriesen-layout:0.1.0": thesis
 
 #show: thesis.with(
   // Your configuration here
@@ -92,6 +92,8 @@ The template provides numerous configuration options to customize your document:
 | `font`                    | string           | "New Computer Modern"| optional | Font family                                                |
 | `font_size`               | length           | 11pt                 | optional | Base font size                                             |
 | `line_spacing`            | float            | 1.5                  | optional | Line spacing multiplier                                    |
+| **Layout Settings**       |                  |                      |          |                                                            |
+| `lower_chapter_headings`  | boolean          | false                | optional | Reduce spacing for level-1-headings                        |
 | **Code Highlighting**     |                  |                      |          |                                                            |
 | `enable_code_highlighting`| boolean          | true                 | optional | Enable syntax highlighting for code blocks                 |
 

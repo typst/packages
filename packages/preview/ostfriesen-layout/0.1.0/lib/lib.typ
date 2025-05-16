@@ -10,7 +10,7 @@
   
   // University information
   faculty: none,
-  department: none,
+  module: none,
   course_of_studies: none,
   
   // Supervision details
@@ -38,6 +38,9 @@
   // Code highlighting
   enable_code_highlighting: true,
   
+  // Layout settings
+  lower_chapter_headings: false,
+  
   body
 ) = {
   // Handle case where a single string is passed instead of array
@@ -52,7 +55,7 @@
     date: date,
     documentType: documentType,
     faculty: faculty,
-    department: department,
+    module: module,
     course_of_studies: course_of_studies,
     supervisor1: supervisor1,
     supervisor2: supervisor2,
@@ -67,6 +70,7 @@
     font_size: font_size,
     line_spacing: line_spacing,
     enable_code_highlighting: enable_code_highlighting,
+    lower_chapter_headings: lower_chapter_headings,
     body
   )
 }

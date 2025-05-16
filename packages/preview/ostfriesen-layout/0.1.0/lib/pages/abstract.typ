@@ -10,8 +10,10 @@
   // Localization
   let t = translations.at(if lang in translations.keys() { lang } else { "en" })
   
-  // Add heading for the abstract - changed outlined to true
-  heading(t.at("abstract"), numbering: none, outlined: true)
+  // Add heading for the abstract - always styled like frontmatter headings
+  set block(spacing: 0pt)
+  text(size: 16pt, weight: "bold")[#t.at("abstract")]
+  v(1em)
 
   set par(justify: true)
 

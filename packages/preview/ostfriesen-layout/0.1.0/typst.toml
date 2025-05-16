@@ -10,6 +10,7 @@ keywords = ["academic", "thesis", "report", "research", "hochschule-emden-leer"]
 categories = ["report", "thesis"]
 compiler = "0.13.1"
 disciplines = ["computer-science", "engineering", "business", "economics"]
+exclude = ["**/*.pdf"]
 
 [template]
 path = "example"

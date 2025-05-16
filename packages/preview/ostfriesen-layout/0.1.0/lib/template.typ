@@ -16,7 +16,7 @@
   date: none,
   documentType: none,
   faculty: none,
-  department: none,
+  module: none,
   course_of_studies: none,
   abstract: none,
   keywords: (),
@@ -31,6 +31,7 @@
   font_size: 11pt,
   line_spacing: 1.5,
   enable_code_highlighting: true,
+  lower_chapter_headings: false,
   body
 ) = {
   // Define the document (use first author for metadata)
@@ -51,7 +52,7 @@
   show grid.cell.where(y: 0): set text(weight: "bold")
   
   // Constants for formatting
-  let HEADING_1_TOP_MARGIN = 104pt
+  let HEADING_1_TOP_MARGIN = if lower_chapter_headings { 20pt } else { 104pt }
   let PAGE_MARGIN_TOP = 37mm
   
   // Set font and typography
@@ -190,7 +191,7 @@
     date: date,
     documentType: documentType,
     faculty: faculty,
-    department: department,
+    module: module,
     course_of_studies: course_of_studies,
     supervisor1: supervisor1,
     supervisor2: supervisor2,
