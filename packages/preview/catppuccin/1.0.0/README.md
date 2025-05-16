@@ -48,7 +48,7 @@ Each document is styled using this package!
 In your project, import the package (be sure to replace the version number with the correct one) with
 
 ```typst
-#import "@preview/catppuccin:0.0.0": catppuccin, flavors
+#import "@preview/catppuccin:1.0.0": catppuccin, flavors
 ```
 
 To format your document with a theme, use the following syntax towards the top of your document:
