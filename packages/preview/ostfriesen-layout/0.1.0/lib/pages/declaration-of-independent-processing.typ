@@ -13,16 +13,16 @@
     outlined: true,
     numbering: none,
     bookmarked: true,
-    text(t.at("declaration_of_independent_processing")),
+    text(t.at("declaration-of-independent-processing")),
   )
   
   // Choose the correct declaration content based on the number of authors
   if authors.len() <= 1 {
     // Single author declaration
-    text(t.at("declaration_of_independent_processing_content_single"))
+    text(t.at("declaration-of-independent-processing-content-single"))
   } else {
     // Multiple authors declaration
-    text(t.at("declaration_of_independent_processing_content_group"))
+    text(t.at("declaration-of-independent-processing-content-group"))
   }
 
   v(40pt)

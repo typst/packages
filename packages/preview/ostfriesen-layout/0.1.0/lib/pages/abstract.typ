@@ -12,7 +12,7 @@
   
   // Add heading for the abstract - always styled like frontmatter headings
   set block(spacing: 0pt)
-  text(size: 16pt, weight: "bold")[#t.at("abstract")]
+  text(size: 21pt, weight: 600)[#t.at("abstract")]
   v(1em)
 
   set par(justify: true)

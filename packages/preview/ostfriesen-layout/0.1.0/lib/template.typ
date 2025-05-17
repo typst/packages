@@ -3,42 +3,42 @@
 #import "pages/cover.typ": create_cover_page
 #import "pages/abstract.typ": create_abstract_page
 #import "pages/outline.typ": create_outline
-#import "pages/list_of_figures.typ": create_list_of_figures
-#import "pages/list_of_tables.typ": create_list_of_tables
+#import "pages/list-of-figures.typ": create_list_of_figures
+#import "pages/list-of-tables.typ": create_list_of_tables
 #import "pages/listings.typ": create_listings
-#import "pages/declaration_of_independent_processing.typ": create_declaration_of_independent_processing
+#import "pages/declaration-of-independent-processing.typ": create_declaration_of_independent_processing
 #import "pages/dependencies.typ": *  // Import dependencies for the template
 
 #let create_document(
   title: none,
   authors: (),
-  matriculation_numbers: (),
+  matriculation-numbers: (),
   date: none,
   documentType: none,
   faculty: none,
   module: none,
-  course_of_studies: none,
+  course-of-studies: none,
   abstract: none,
   keywords: (),
   supervisor1: none,
   supervisor2: none,
   supervisor3: none,
   company: none,
-  company_supervisor: none,
-  include_declaration: true,
+  company-supervisor: none,
+  include-declaration: true,
   lang: "en",
   font: "New Computer Modern",
-  font_size: 11pt,
-  line_spacing: 1.5,
-  enable_code_highlighting: true,
-  lower_chapter_headings: false,
+  font-size: 11pt,
+  line-spacing: 1.5,
+  enable-code-highlighting: true,
+  lower-chapter-headings: false,
   body
 ) = {
   // Define the document (use first author for metadata)
   set document(title: title, author: if authors.len() > 0 { authors.at(0) } else { none })
 
   // Initialize codly for code highlighting if enabled
-  if enable_code_highlighting {
+  if enable-code-highlighting {
     show: codly-init.with()
     // Configure codly with default settings
     codly(
@@ -52,11 +52,11 @@
   show grid.cell.where(y: 0): set text(weight: "bold")
   
   // Constants for formatting
-  let HEADING_1_TOP_MARGIN = if lower_chapter_headings { 20pt } else { 104pt }
+  let HEADING_1_TOP_MARGIN = if lower-chapter-headings { 20pt } else { 104pt }
   let PAGE_MARGIN_TOP = 37mm
   
   // Set font and typography
-  set text(font: font, size: font_size, lang: lang)
+  set text(font: font, size: font-size, lang: lang)
   
   // Set up page configuration (page margins as in the original template)
   set page(
@@ -187,17 +187,17 @@
   create_cover_page(
     title: title,
     authors: authors,
-    matriculation_numbers: matriculation_numbers,
+    matriculation-numbers: matriculation-numbers,
     date: date,
     documentType: documentType,
     faculty: faculty,
     module: module,
-    course_of_studies: course_of_studies,
+    course-of-studies: course-of-studies,
     supervisor1: supervisor1,
     supervisor2: supervisor2,
     supervisor3: supervisor3,
     company: company,
-    company_supervisor: company_supervisor,
+    company-supervisor: company-supervisor,
     lang: lang
   )
 
@@ -272,7 +272,7 @@
   
 
   // Declaration of independent processing
-  if include_declaration {
+  if include-declaration {
     pagebreak()
     create_declaration_of_independent_processing(
       authors: authors,

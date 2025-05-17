@@ -6,11 +6,11 @@
 #show: thesis.with(
   title: "Sample Document Title",
   authors: ("Jane Doe", "John Smith"),
-  matriculation_numbers: ("123456", "654321"),
+  matriculation-numbers: ("123456", "654321"),
   documentType: "Sample Document Type",
   faculty:  "Engineering",
   module: "Computer Science",
-  course_of_studies: "Applied Computer Science",
+  course-of-studies: "Applied Computer Science",
   supervisor1: "Prof. Dr. Example Supervisor",
   supervisor2: "Second Supervisor, M.Sc.",
   date: datetime(year: 2025, month: 05, day: 05),
@@ -21,8 +21,8 @@
   ],
   keywords: ("Template", "Academic", "Thesis"),
   lang: "de",
-  enable_code_highlighting: true,
-  font_size: 12pt,
+  enable-code-highlighting: true,
+  font-size: 12pt,
 )
 
 // Set roman numbering for preliminary sections
