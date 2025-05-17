@@ -1,0 +1,16 @@
+[package]
+name = "ctu-report"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Tomas Kysela <@tomkys144>"]
+license = "MIT"
+description = "A simple template for reports adapted from basic-report for CTU"
+repository = "https://github.com/tomkys144/ctu-report"
+keywords = ["report", "non-fiction", "basic"]
+categories = ["paper", "report"]
+exclude = ["template/main.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
