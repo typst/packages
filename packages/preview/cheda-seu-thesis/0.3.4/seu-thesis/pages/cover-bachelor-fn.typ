@@ -2,14 +2,14 @@
 #import "../utils/fonts.typ": 字体, 字号, chineseunderline, justify-words
 
 #let bachelor-cover-conf(
-  student_id: "00121001",
+  student-id: "00121001",
   author: "王东南",
   school: "示例学院",
   major: "示例专业",
   advisor: "湖牌桥",
   thesis-name: "示例论文标题\n此行空白时下划线自动消失",
   date: "某个起止日期",
-  cover_date: datetime.today()
+  cover-date: datetime.today(),
 ) = page(
   paper: "a4",
   margin: (
@@ -20,7 +20,7 @@
   ),
   // 原模板中调整了图片亮度和对比度，因此直接导出了调整后的版本
   // 原始图片在本仓库的 ref 目录中
-  background: image("../assets/bachelor_cover_adjusted.png")
+  background: image("../assets/bachelor_cover_adjusted.png"),
 )[
 
   #set text(lang: "zh", region: "cn")
@@ -52,7 +52,7 @@
       set par(spacing: 0.9cm)
       block(
         width: 12.84cm,
-        chineseunderline(thesis-name)
+        chineseunderline(thesis-name),
       )
     },
   )
@@ -61,37 +61,34 @@
 
   #{
     set text(font: 字体.思源黑体, size: 字号.小二, weight: "medium")
-    let label(s) = align(left, pad(top: 5pt, text(font: 字体.思源黑体, size: 字号.四号, weight: "medium", justify-words(s, width: 4em) + "：")))
+    let label(s) = align(
+      left,
+      pad(top: 5pt, text(font: 字体.思源黑体, size: 字号.四号, weight: "medium", justify-words(s, width: 4em) + "：")),
+    )
     // 模板中直接使用宋体，无 Times New Roman 回退
     let value(s) = text(font: "SimSun", size: 字号.小二, chineseunderline(s, bottom: 8pt))
     grid(
       columns: (3.44cm, 7.99cm),
       rows: 1.21cm,
       gutter: 0pt,
-      label("学号"),
-      value(student_id),
-      label("姓名"),
-      value(author),
-      label("学院"),
-      value(school),
-      label("专业"),
-      value(major),
-      label("指导教师"),
-      value(advisor),
-      label("起止日期"),
-      value(date),
+      label("学号"), value(student-id),
+      label("姓名"), value(author),
+      label("学院"), value(school),
+      label("专业"), value(major),
+      label("指导教师"), value(advisor),
+      label("起止日期"), value(date),
     )
   }
 
   #v(20pt)
 
   // 模板中直接使用楷体，无 Times New Roman 回退
-  #text(font: "KaiTi", size: 字号.四号, cover_date.display("[year]年[month padding:none]月[day padding:none]日"),)
+  #text(font: "KaiTi", size: 字号.四号, cover-date.display("[year]年[month padding:none]月[day padding:none]日"))
 ]
 
 // 测试部分
 #bachelor-cover-conf(
-  student_id: "00121001",
+  student-id: "00121001",
   author: "王东南",
   school: "示例学院",
   major: "示例专业",

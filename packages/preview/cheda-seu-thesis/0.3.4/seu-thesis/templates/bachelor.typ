@@ -22,7 +22,7 @@
   advisor: none,
   thesis-name: none,
   date: none,
-  cover_date: datetime.today(),
+  cover-date: datetime.today(),
   cn-abstract: none,
   cn-keywords: none,
   en-abstract: none,
@@ -35,14 +35,14 @@
 
   // 封面
   bachelor-cover-conf(
-    student_id: student-id,
+    student-id: student-id,
     author: author,
     school: school,
     major: major,
     advisor: advisor,
     thesis-name: thesis-name,
     date: date,
-    cover_date: cover_date,
+    cover-date: cover-date,
   )
 
   // 独创性声明

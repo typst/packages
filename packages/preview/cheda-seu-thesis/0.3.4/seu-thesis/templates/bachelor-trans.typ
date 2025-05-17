@@ -33,7 +33,7 @@
 
   // 封面
   bachelor-trans-cover-conf(
-    student_id: student-id,
+    student-id: student-id,
     author: author,
     school: school,
     major: major,
