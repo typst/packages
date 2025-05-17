@@ -1,0 +1,79 @@
+# 英文学術論文誌
+kimura2015asymptotic:
+    type: Article
+    title: Asymptotic stabilization of two-wheeled mobile robot via locally semiconcave generalized homogeneous control Lyapunov function
+    author: ["Kimura, Shunsuke", "Nakamura, Hisakazu", "Yamashita, Yuh"]
+    page-range: 122–130
+    date: 2015
+    parent:
+        type: Periodical
+        title: SICE Journal of Control, Measurement, and System Integration
+        volume: 5
+        issue: 2
+        publisher: Taylor & Francis
+
+# 和文学術論文誌
+kimura2023doctor:
+    language: japanese
+    type: Article
+    title: 制御理論専攻の学生生活と建設会社への入社
+    author: ["木村, 駿介"]
+    page-range: 342-345
+    date: 2023
+    parent:
+        type: Periodical
+        title: 計測と制御
+        volume: 62
+        issue: 6
+        publisher: 公益社団法人 計測自動制御学会
+
+# 国際会議論文
+kimura2021control:
+    type: Article
+    author:  ["Kimura, Shunsuke", "Naito,  Kakuya"]
+    title: Control barrier function based assist control with shifting sensor and footprint positions
+    date: 2021
+    # page-range: 1-6
+    parent:
+        - type: Proceedings
+          title: IECON2021 - 47th annual conference of the IEEE industrial electronics society
+
+# 国内学会
+kimura2020facility:
+    language: japanese
+    type: Article
+    author:  ["木村, 駿介", "Pham, Van, Phuc"]
+    title: 施設管理システムと自律移動ロボットとの連携実証試験
+    date: 2020
+    # page-range: 2A1–A03
+    parent:
+        - type: Proceedings
+          title: ロボティクス・メカトロニクス講演会講演概要集
+
+# 英文書籍
+khalil2002control:
+    type: Book
+    title: Control of nonlinear systems, Global Edition
+    author: Khalil, Hassan K
+    page-range: 1-400
+    publisher: Pearson Education
+    date: 2002
+
+# 和文書籍
+sugie1999feedback:
+    language: japanese
+    type: Book
+    title: フィードバック制御入門
+    author: ["杉江, 俊治", "藤田, 政之"]
+    page-range: 1-223
+    publisher: コロナ社
+    date: 1999
+
+# Web サイト
+caamp2025aisuitcase:
+    type: Web
+    title: 自律型ナビゲーションロボット「AIスーツケース」実証実験 大阪・関西万博での体験予約受付を開始
+    publisher: 清水建設株式会社
+    url:
+        value: https://www.shimz.co.jp/company/about/news-release/2025/2025004.html
+        date: 2025-05-13
