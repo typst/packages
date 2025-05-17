@@ -5,7 +5,7 @@
   subtitle: "",
   author-size: 14pt,
   footer-size: 14pt,
-  bgimg: none,
+  bgimg: image("config/sky.png", width: 100%),
   info: default-info,
   styles: default-styles,
   names: default-names,
