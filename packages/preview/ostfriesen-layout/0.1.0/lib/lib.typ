@@ -1,12 +1,15 @@
 #import "template.typ": create_document
 
-#let thesis(
-  // Document basics
+#let thesi    title: title,
+    authors: authors-array,
+    matriculation-numbers: matriculation-numbers-array,
+    date: date,
+    document-type: document-type,// Document basics
   title: none,
   authors: (),
   matriculation-numbers: (),
   date: none,
-  documentType: none,
+  document-type: none,
   
   // University information
   faculty: none,

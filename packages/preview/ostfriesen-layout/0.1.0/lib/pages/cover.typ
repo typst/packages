@@ -5,7 +5,7 @@
   authors: (),
   matriculation-numbers: (),
   date: none,
-  documentType: none,
+  document-type: none,
   faculty: none,
   module: none,
   course-of-studies: none,
@@ -41,8 +41,8 @@
     right: 18mm,
     stack(
       // Document Type
-      if documentType != none {
-        upper(text(documentType, size: 9pt, weight: "bold"))
+      if document-type != none {
+        upper(text(document-type, size: 9pt, weight: "bold"))
         v(3mm)
       },
 
@@ -338,8 +338,8 @@
       dy: content_pos,
       stack(
         spacing: 3mm,
-        if documentType != none {
-          text(documentType + " " + t.at("submitted-for-examination"))
+        if document-type != none {
+          text(document-type + " " + t.at("submitted-for-examination"))
         } else {
           text(t.at("thesis-submitted-for-examination"))
         },

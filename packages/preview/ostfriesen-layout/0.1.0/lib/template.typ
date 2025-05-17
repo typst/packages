@@ -14,7 +14,7 @@
   authors: (),
   matriculation-numbers: (),
   date: none,
-  documentType: none,
+  document-type: none,
   faculty: none,
   module: none,
   course-of-studies: none,
@@ -189,7 +189,7 @@
     authors: authors,
     matriculation-numbers: matriculation-numbers,
     date: date,
-    documentType: documentType,
+    document-type: document-type,
     faculty: faculty,
     module: module,
     course-of-studies: course-of-studies,
@@ -228,7 +228,7 @@
       
       // List of figures
       create_list_of_figures(
-        title: t.at("list_of_figures"),
+        title: t.at("list-of-figures"),
         lang: lang
       )
     }
@@ -241,7 +241,7 @@
       
       // List of tables
       create_list_of_tables(
-        title: t.at("list_of_tables"),
+        title: t.at("list-of-tables"),
         lang: lang
       )
     }

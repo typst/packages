@@ -70,7 +70,7 @@ The template provides numerous configuration options to customize your document:
 | `authors`                 | array or string  | ()                   | required | Author names (single author or multiple)                   |
 | `matriculation-numbers`   | array or string  | ()                   | optional | Student matriculation numbers                              |
 | `date`                    | string or date   | none                 | required | Publication date (e.g., "May 2025" or datetime object)     |
-| `documentType`            | string           | none                 | required | Type of document (e.g., "Bachelor Thesis", "Master Thesis")|
+| `document-type`            | string           | none                 | required | Type of document (e.g., "Bachelor Thesis", "Master Thesis")|
 | **University Information**|                  |                      |          |                                                            |
 | `faculty`                 | string           | none                 | required | Faculty name                                               |
 | `department`              | string           | none                 | required | Department name                                            |
@@ -108,7 +108,7 @@ The template provides numerous configuration options to customize your document:
   authors: "John Doe",
   matriculation-numbers: "123456",
   date: "May 2025", 
-  documentType: "Master Thesis",
+  document-type: "Master Thesis",
   faculty: "Faculty of Technology",
   department: "Computer Science",
   supervisor1: "Prof. Dr. Jane Smith"
@@ -125,7 +125,7 @@ The template provides numerous configuration options to customize your document:
   authors: ("John Doe", "Jane Smith"),
   matriculation-numbers: ("123456", "789012"),
   date: datetime(year: 2025, month: 5, day: 11),
-  documentType: "Group Project Report",
+  document-type: "Group Project Report",
   
   faculty: "Faculty of Business Studies",
   department: "Business Informatics",
@@ -146,7 +146,7 @@ The template provides numerous configuration options to customize your document:
   authors: "John Doe",
   matriculation-numbers: "123456",
   date: "May 2025",
-  documentType: "Bachelor Thesis",
+  document-type: "Bachelor Thesis",
   
   faculty: "Faculty of Engineering",
   department: "Electrical Engineering",

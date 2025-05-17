@@ -7,7 +7,7 @@
   title: "Sample Document Title",
   authors: ("Jane Doe", "John Smith"),
   matriculation-numbers: ("123456", "654321"),
-  documentType: "Sample Document Type",
+  document-type: "Sample Document Type",
   faculty:  "Engineering",
   module: "Computer Science",
   course-of-studies: "Applied Computer Science",
