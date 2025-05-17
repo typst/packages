@@ -164,7 +164,7 @@
       numbering: none,
       level: 1,
     )[参考文献]
-    assert(type(font-size) in (auto, length), message: "字体大小需要为 `auto` 或 `length`")
+    assert(font-size == auto or type(font-size) == length, message: "字体大小需要为 `auto` 或 `length`")
     set text(size: font-size) if font-size != auto
     if bilingual {
       bilingual-bibliography(mapping: mapping, it)
