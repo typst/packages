@@ -1,10 +1,7 @@
 #import "template.typ": create_document
 
-#let thesi    title: title,
-    authors: authors-array,
-    matriculation-numbers: matriculation-numbers-array,
-    date: date,
-    document-type: document-type,// Document basics
+#let thesis(
+  // Document basics
   title: none,
   authors: (),
   matriculation-numbers: (),
@@ -56,7 +53,7 @@
     authors: authors-array,
     matriculation-numbers: matriculation-numbers-array,
     date: date,
-    documentType: documentType,
+    document-type: document-type,
     faculty: faculty,
     module: module,
     course-of-studies: course-of-studies,
