@@ -58,15 +58,13 @@
 
   align(
     center + horizon,
-    [
-      #figure(
-        text(36pt, strong(title), font: styles.fonts.at(lang).part),
-        kind: "part",
-        supplement: none,
-        numbering: _ => none,
-        caption: title,
-      ) #label-part
-    ],
+    figure(
+      text(36pt, strong(title), font: styles.fonts.at(lang).part),
+      kind: "part",
+      supplement: none,
+      numbering: _ => none,
+      caption: title,
+    ),
   )
   pagebreak(to: "odd")
 }

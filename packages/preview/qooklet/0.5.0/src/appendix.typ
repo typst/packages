@@ -24,18 +24,17 @@
     lang: lang,
   )
 
-
   align(center, chapter-title(title, book: true, lang: lang, appendix: true))
 
   show heading: heading-size-style
   set heading(
     numbering: (..numbers) => {
-      let title-index = context counter(label-appendix).display("A.")
+      let append-index = context counter-appendix.display("A.")
       let level = numbers.pos().len()
       if (level == 1) {
-        title-index + numbering("1", numbers.at(0))
+        append-index + numbering("1", numbers.at(0))
       } else if (level == 2) {
-        title-index + numbering("1.", numbers.at(0)) + numbering("1", numbers.at(1))
+        append-index + numbering("1.", numbers.at(0)) + numbering("1", numbers.at(1))
       } else {
         h(-0.3em)
       }

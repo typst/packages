@@ -3,10 +3,13 @@
 #let book-state = state("book-state", false)
 #let content-prefix = state("content-prefix")
 
-#let label-chapter = <chapter>
-#let label-appendix = <appendix>
-#let label-part = <part>
-#let label-chapimg = <chapimg>
+#let fig-chapter = figure.where(kind: "chapter")
+#let fig-appendix = figure.where(kind: "appendix")
+#let fig-part = figure.where(kind: "part")
+#let fig-chapimg = figure.where(kind: "chapimg")
+
+#let counter-chapter = counter(fig-chapter)
+#let counter-appendix = counter(fig-appendix)
 
 #let book-style(body, styles: default-styles) = {
   show: it => context {
