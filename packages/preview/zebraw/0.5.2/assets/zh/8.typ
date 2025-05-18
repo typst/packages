@@ -1,4 +1,0 @@
-#{
-// render_code
-$b$
-}
