@@ -31,7 +31,7 @@
     date: datetime(year: 2024, month: 12, day: 31)
 )
 
-#task[Pegasus in der Mythologie][
+#task[Pegasus in der Mythologie][][
     #subtask[
         Beschreiben Sie die Entstehungsgeschichte des Pegasus in der griechischen Mythologie. Gehen Sie dabei auf seine Herkunft und die wichtigsten Figuren ein, die mit ihm verbunden sind.
     ]
@@ -39,7 +39,7 @@
     #subtask[
         Analysieren Sie die Rolle des Pegasus im Mythos von Bellerophon. Welche Bedeutung hat Pegasus für den Verlauf und den Ausgang der Geschichte?
     ]
-][][ // Solution
+][ // Solution
     #subtask[
         #lorem(20)
     ]

@@ -12,6 +12,7 @@
     "example": [Example],
 )
 
+#let otype = type // should have called the argument "type"...
 #let project(
     no: none,
 
@@ -166,6 +167,18 @@
             } else {
                 4cm
             }, bottom: 3cm)
+        },
+
+        background: context {
+            let point-list = query(metadata).filter(e => if "type" in e.value { e.value.type == "grape-suite-subtask-points" })
+
+            if otype(point-list) == array and point-list.len() > 0 {
+                for p in point-list {
+                    if p.location().page() == here().page() {
+                        place(dx: 89.5%, dy: p.location().position().y, p.value.content)
+                    }
+                }
+            }
         },
 
         header: if header != none {header} else [
