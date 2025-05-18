@@ -430,7 +430,7 @@ Protocol:
 
 ### Documentation
 
-The base layout of these functions is provided by `exercise.project`. Other named arguments than the following are passed to `exercise.project`.
+The base layout of these functions is provided by `exercise.project`.
 
 | `essay`      |                                                   |
 | :----------- | :------------------------------------------------ |
