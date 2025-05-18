@@ -198,7 +198,7 @@
 
     set heading(numbering: "1.")
 
-    show heading: set par(leading: 0.65em)
+    show heading: set par(leading: 0.65em, justify: false)
     set par(justify: true, leading: 1em, spacing: 1em, first-line-indent: 1.5em)
 
     counter(page).update(1)
