@@ -8,6 +8,7 @@ license = "MIT"
 description = "A vanilla Typst package. Aims for minimilist styling fimilar to class MS Word defaults."
 compiler = "0.13.0"
 categories = ["paper"]
+exclude = ["examples"]
 
 [template]
 path = "template"
