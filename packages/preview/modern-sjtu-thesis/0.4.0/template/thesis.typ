@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/modern-sjtu-thesis:0.4.0": *
 
 #let (
   doctype,
