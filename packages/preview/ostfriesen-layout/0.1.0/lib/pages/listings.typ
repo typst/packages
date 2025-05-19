@@ -1,6 +1,6 @@
 #import "../translations.typ": translations
 
-#let create_listings(title: "Listings", lang: "en") = {
+#let create-listings(title: "Listings", lang: "en") = {
   // Localization
   let t = translations.at(if lang in translations.keys() { lang } else { "en" })
   

@@ -1,6 +1,6 @@
 #import "../translations.typ": translations
 
-#let create_abstract_page(
+#let create-abstract-page(
   abstract: none,
   keywords: (),
   lang: "en",
@@ -26,12 +26,12 @@
     },
     
     if authors.len() > 0 {
-      let formatted_authors = if authors.len() == 1 { 
+      let formatted-authors = if authors.len() == 1 { 
         authors.at(0) 
       } else { 
         authors.join(", ", last: " & ") 
       }
-      text(size: 12pt, weight: "bold", formatted_authors)
+      text(size: 12pt, weight: "bold", formatted-authors)
     },
     
     // Keywords section
@@ -40,14 +40,14 @@
         spacing: 6mm,
         text(weight: "bold", t.at("keywords")),
         {
-          let keywords_text = if type(keywords) == str {
+          let keywords-text = if type(keywords) == str {
             keywords
           } else if keywords.len() == 0 {
             ""
           } else {
             keywords.join(", ")
           }
-          keywords_text
+          keywords-text
         }
       )
     },

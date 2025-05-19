@@ -1,6 +1,6 @@
 #import "../translations.typ": translations
 
-#let create_cover_page(
+#let create-cover-page(
   title: none,
   authors: (),
   matriculation-numbers: (),
@@ -48,14 +48,14 @@
 
       // Authors
       {
-        let formatted_authors = if authors.len() == 0 { 
+        let formatted-authors = if authors.len() == 0 { 
           "" 
         } else if authors.len() == 1 { 
           authors.at(0) 
         } else { 
           authors.join(", ", last: " & ") 
         }
-        text(formatted_authors, size: 10pt)
+        text(formatted-authors, size: 10pt)
       },
 
       v(13mm),
@@ -113,14 +113,14 @@
     align(
       center,
       {
-        let formatted_authors = if authors.len() == 0 { 
+        let formatted-authors = if authors.len() == 0 { 
           "" 
         } else if authors.len() == 1 { 
           authors.at(0) 
         } else { 
           authors.join(", ", last: " & ") 
         }
-        text(formatted_authors, size: 14pt, font: "New Computer Modern")
+        text(formatted-authors, size: 14pt, font: "New Computer Modern")
       },
     ),
     v(23mm),
@@ -137,7 +137,7 @@
 
   // The main content of the second page needs to be placed
   // with fixed positions to ensure consistent layout
-  let page_height = 297mm - 55mm - 67mm // A4 height minus top and bottom margins
+  let page-height = 297mm - 55mm - 67mm // A4 height minus top and bottom margins
   
   // Now we build the page using place() to position key elements
 
@@ -162,19 +162,19 @@
   // Step 2: Place the matriculation numbers section
   {
     // Limit the number of authors to 10
-    let display_authors = if authors.len() > 10 {
+    let display-authors = if authors.len() > 10 {
       authors.slice(0, 10)
     } else {
       authors
     }
     
     // Use consistent spacing of 19mm for all cases
-    let mat_numbers_pos = 19mm
+    let mat-numbers-pos = 19mm
     
-    if matriculation-numbers.len() > 0 or display_authors.len() > 0 {
+    if matriculation-numbers.len() > 0 or display-authors.len() > 0 {
       place(
         bottom,
-        dy: mat_numbers_pos,
+        dy: mat-numbers-pos,
         stack(
           line(start: (0pt, 0pt), length: 25pt, stroke: 1mm),
           v(4mm),
@@ -182,24 +182,24 @@
           // Use grid layout for all cases - with different column config based on author count
           {
             // Define consistent author entry styling
-            let author_entry(author, has_matnum, matnum) = {
-              if has_matnum {
+            let author-entry(author, has-matnum, matnum) = {
+              if has-matnum {
                 text(author + ": " + t.at("matriculation-number") + " " + matnum, size: 10pt)
               } else {
                 text(author, size: 10pt)
               }
             }
             
-            if display_authors.len() > 5 {
+            if display-authors.len() > 5 {
               // Two column layout for more than 5 authors
               grid(
                 columns: 2,
                 gutter: 10mm,
                 // Left column (first 5 authors)
                 stack(
-                  ..display_authors.slice(0, 5).enumerate().map(((i, author)) => {
+                  ..display-authors.slice(0, 5).enumerate().map(((i, author)) => {
                     stack(
-                      author_entry(
+                      author-entry(
                         author, 
                         i < matriculation-numbers.len(), 
                         if i < matriculation-numbers.len() { matriculation-numbers.at(i) } else { "" }
@@ -211,16 +211,16 @@
                 // Right column (remaining authors)
                 align(top,
                 stack(
-                  ..display_authors.slice(5).enumerate().map(((i, author)) => {
+                  ..display-authors.slice(5).enumerate().map(((i, author)) => {
                     // Calculate actual index in the full list
-                    let actual_i = i + 5
+                    let actual-i = i + 5
                     stack(
-                      author_entry(
+                      author-entry(
                         author, 
-                        actual_i < matriculation-numbers.len(), 
-                        if actual_i < matriculation-numbers.len() { matriculation-numbers.at(actual_i) } else { "" }
+                        actual-i < matriculation-numbers.len(), 
+                        if actual-i < matriculation-numbers.len() { matriculation-numbers.at(actual-i) } else { "" }
                       ),
-                      if i < display_authors.slice(5).len() - 1 { v(3mm) }
+                      if i < display-authors.slice(5).len() - 1 { v(3mm) }
                     )
                   })
                 ))
@@ -231,14 +231,14 @@
                 columns: 1,
                 // Use the exact same stack structure as the two-column case
                 stack(
-                  ..display_authors.enumerate().map(((i, author)) => {
+                  ..display-authors.enumerate().map(((i, author)) => {
                     stack(
-                      author_entry(
+                      author-entry(
                         author, 
                         i < matriculation-numbers.len(), 
                         if i < matriculation-numbers.len() { matriculation-numbers.at(i) } else { "" }
                       ),
-                      if i < display_authors.len() - 1 { v(3mm) }
+                      if i < display-authors.len() - 1 { v(3mm) }
                     )
                   })
                 )
@@ -253,16 +253,16 @@
   // Step 3: Place the supervision section
   {
     // Use a consistent position for the supervision section
-    let supervision_pos = -14mm  
+    let supervision-pos = -14mm  
     // Adjust position based on number of authors - move down when fewer authors
-    let adjusted_pos = if authors.len() < 5 {
-      supervision_pos - ((5 - authors.len()) * -5.5mm)
+    let adjusted-pos = if authors.len() < 5 {
+      supervision-pos - ((5 - authors.len()) * -5.5mm)
     } else {
-      supervision_pos
+      supervision-pos
     }
     place(
       bottom,
-      dy: adjusted_pos,
+      dy: adjusted-pos,
       stack(
         line(start: (0pt, 0pt), length: 25pt, stroke: 1mm),
         v(4mm),
@@ -292,7 +292,7 @@
   // Step 4: Place the document type and university info
   {
     // Count the number of supervisor entries present
-    let supervisor_count = (
+    let supervisor-count = (
       (if supervisor1 != none { 1 } else { 0 }) +
       (if supervisor2 != none { 1 } else { 0 }) +
       (if supervisor3 != none { 1 } else { 0 }) +
@@ -301,30 +301,30 @@
     )
     
     // Base position
-    let base_content_pos = -44mm
+    let base-content-pos = -44mm
     
     // Adjust for fewer than 5 authors - similar to supervision section
-    let author_adjustment = if authors.len() < 5 {
+    let author-adjustment = if authors.len() < 5 {
       ((5 - authors.len()) * 5mm)  // Match the supervisor adjustment
     } else {
       0mm
     }
     
     // Adjust for fewer supervisor entries (if any supervisors are present)
-    let supervisor_adjustment = if supervisor_count > 0 {
+    let supervisor-adjustment = if supervisor-count > 0 {
       // Assuming max of 5 supervisors, adjust by 3mm for each missing one
-      ((5 - supervisor_count) * 5mm)
+      ((5 - supervisor-count) * 5mm)
     } else {
       0mm  // No adjustment needed if no supervisors
     }
     
     // Calculate final position
-    let content_pos = if supervisor1 != none or supervisor2 != none or supervisor3 != none or company != none or company-supervisor != none {
+    let content-pos = if supervisor1 != none or supervisor2 != none or supervisor3 != none or company != none or company-supervisor != none {
       // If supervisors exist, adjust based on author count and supervisor count
-      base_content_pos + author_adjustment + supervisor_adjustment
+      base-content-pos + author-adjustment + supervisor-adjustment
     } else if matriculation-numbers.len() > 0 or authors.len() > 0 {
       // If no supervisors but authors exist, use a different position
-      -45mm + author_adjustment
+      -45mm + author-adjustment
     } else if date != none {
       // If only date exists
       -45mm
@@ -335,25 +335,42 @@
     
     place(
       bottom,
-      dy: content_pos,
-      stack(
-        spacing: 3mm,
-        if document-type != none {
+      dy: content-pos,
+      {
+        // Create an array of content items that are present
+        let content-items = ()
+        
+        // Add the document type
+        content-items.push(if document-type != none {
           text(document-type + " " + t.at("submitted-for-examination"))
         } else {
           text(t.at("thesis-submitted-for-examination"))
-        },
+        })
+        
+        // Add module if present
         if module != none {
-          text(t.at("in-the-module") + " " + text(module, style: "italic"))
-        },
+          content-items.push(text(t.at("in-the-module") + " " + text(module, style: "italic")))
+        }
+        
+        // Add course of studies if present
         if course-of-studies != none {
-          text(t.at("of-the-study-course") + " " + text(course-of-studies, style: "italic"))
-        },
+          content-items.push(text(t.at("of-the-study-course") + " " + text(course-of-studies, style: "italic")))
+        }
+        
+        // Add faculty if present
         if faculty != none {
-          text(t.at("at-the-faculty-of") + " " + text(faculty, style: "italic"))
-        },
-        text(t.at("at-university"))
-      )
+          content-items.push(text(t.at("at-the-faculty-of") + " " + text(faculty, style: "italic")))
+        }
+        
+        // Always add the university name
+        content-items.push(text(t.at("at-university")))
+        
+        // Create a stack with the content items, separated by appropriate spacing
+        stack(
+          spacing: 3mm,
+          ..content-items
+        )
+      }
     )
   }
 }

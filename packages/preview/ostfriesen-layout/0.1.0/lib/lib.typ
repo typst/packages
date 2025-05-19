@@ -1,4 +1,4 @@
-#import "template.typ": create_document
+#import "template.typ": create-document
 
 #let thesis(
   // Document basics
@@ -48,7 +48,7 @@
   let matriculation-numbers-array = if type(matriculation-numbers) == str { (matriculation-numbers,) } else { matriculation-numbers }
   let keywords-array = if type(keywords) == str { (keywords,) } else { keywords }
   
-  create_document(
+  create-document(
     title: title,
     authors: authors-array,
     matriculation-numbers: matriculation-numbers-array,

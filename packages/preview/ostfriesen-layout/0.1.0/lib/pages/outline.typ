@@ -1,6 +1,6 @@
 #import "../translations.typ": translations
 
-#let create_outline(title: "Table of Contents", lang: "en", frontmatter_style: "i") = {
+#let create-outline(title: "Table of Contents", lang: "en", frontmatter-style: "i") = {
   // Localization
   let t = translations.at(if lang in translations.keys() { lang } else { "en" })
 

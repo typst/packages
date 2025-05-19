@@ -1,6 +1,6 @@
 #import "../translations.typ": translations
 
-#let create_list_of_figures(title: "List of Figures", lang: "en") = {
+#let create-list-of-figures(title: "List of Figures", lang: "en") = {
   // Localization
   let t = translations.at(if lang in translations.keys() { lang } else { "en" })
   

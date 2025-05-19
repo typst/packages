@@ -1,6 +1,6 @@
 #import "../translations.typ": translations
 
-#let create_declaration_of_independent_processing(
+#let create-declaration-of-independent-processing(
   authors: (),
   title: none,
   place: none,

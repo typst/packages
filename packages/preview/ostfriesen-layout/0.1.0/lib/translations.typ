@@ -55,7 +55,7 @@
     "of-the-study-course": "des Studiengangs",
     "in-the-module": "im Modul",
     "at-the-faculty-of": "der Fakultät",
-    "at-university": "der Hochschule für Angewandte Wissenschaften Emden/Leer",
+    "at-university": "der Hochschule Emden/Leer",
     
     // Supervisors and company
     "first-supervisor": "Erstprüfer",
