@@ -3,11 +3,12 @@
 No specific code style is mandated, but two spaces of indent and kebab-case for
 variable and function names are recommended.
 
-## Use package specification in imports
+## Use package specifications in imports
 
-When writing a package, it is better to use the full package specification
-when importing your own package, instead of relative imports. In other words,
-it is better to write:
+When writing example files, it is better to use the full package
+specification when importing your own package, instead of relative imports. The
+reasoning here is that it should be possible to copy any provided file as is and
+start working from that. In other words, it is better to write:
 
 ```typ
 #import "@preview/my-package:1.0.0": my-function
@@ -19,10 +20,6 @@ than:
 #import "../lib.typ": my-function
 ```
 
-This is especially true for example files. The reasoning here is that
-it should be possible to copy any provided file as is and start working
-from that.
-
 For template files, this is not only a recommendation but a requirement. Users
 should never have to edit a project freshly created from a template to make it
 compile.
@@ -32,15 +29,15 @@ however, as this could cause a cyclic import.
 
 ## Only exposing specific functions publicly
 
-When writing your package, you will probably create internal functions
-and variables that should not be accessible to the end user. However,
-Typst doesn't provide any keyword to indicate that a given binding should
-be public or private, as most other programming languages do.
+When writing your package, you will probably create internal functions and
+variables that should not be accessible to the end user. However, Typst
+currently doesn't provide any keyword to indicate that a given binding should be
+public or private, as most other programming languages do.
 
-Fortunately, there is an easy pattern to select specific items to be public,
-and keep the rest private to your package: the entrypoint of the package
-should not contain any actual code, but simply import the items you want to
-be public from other files.
+Fortunately, there is an easy pattern to select specific items to be public, and
+keep the rest private to your package: instead of putting actual code in the
+entrypoint of the package, simply import the items you want to be public from
+other files.
 
 Let's look at an example. Here is my `package.typ` file:
 
@@ -59,7 +56,7 @@ to export to the user by writing the following in `lib.typ`:
 The user won't be able to call the `private` function, but can access the one
 named `public` as they wish.
 
-## Editable templates
+## Template customization
 
 When providing a template, it is often desirable to let users customize the
 styles you provide. You may also want to let them override the default contents

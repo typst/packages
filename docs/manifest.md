@@ -56,7 +56,7 @@ Optional:
   package list. If there is no dedicated web page for the package, don't link to
   its repository here. Omit this field and prefer `repository`.
 - `repository`: A link to the repository where this package is developed. Will
-  be linked to from the package list if there is no homepage.
+  be linked to from Typst Universe if there is no homepage.
 - `keywords`: An array of search keywords for the package.
 - `categories`: An array with up to three categories from the
   [list of categories][categories] to help users discover the package.
@@ -105,14 +105,14 @@ If you are an author of an original template not affiliated with any
 organization, only the standard package naming guidelines apply to you.
 
 These rules also apply to names in other languages, including transliterations
-for languages that are not generally written using the latin alphabet.
+for languages that are not generally written using the Latin alphabet.
 
 ### Writing a good description
 
-A good package description is simple, easily-understandable and succinct. Here
+A good package description is simple, easily understandable and succinct. Here
 are some rules to follow to write great descriptions:
 
-- Keep it short. Try to maximise the content to length ratio and weigh your words
+- Keep it short. Try to maximize the content to length ratio and weigh your words
   thoughtfully. Ideally, it should be 40 to 60 characters long.
 
 - Terminate your description with a full stop.
@@ -124,7 +124,7 @@ are some rules to follow to write great descriptions:
 - Avoid the words "package" for packages and "template" for templates; instead:
   - Packages allow the user to *do* things; use the imperative mood. For
     example, `Draw Venn diagrams.` is better than `A package for drawing Venn
-    diagrams`.
+    diagrams.`.
   - Templates allow the user to write certain *types* of documents; clearly
     indicate the type of document your template allows. For example, `Master’s
     thesis at the Unseen University.` is better than `A template for writing a
@@ -177,11 +177,12 @@ Required for submissions to this repository:
   at least 1080px in length. Its file size must not exceed 3MB. Exporting a PNG
   at 250 DPI resolution is usually a good way to generate a thumbnail. You can
   use the following command for that: `typst compile -f png --pages 1 --ppi 250
-  main.typ`. You are encouraged to use [oxipng] to reduce the thumbnail's
-  file size. The thumbnail will automatically be excluded from the package files
-  and must not be referenced anywhere in the package.
+  main.typ thumbnail.png`. You are encouraged to use [oxipng] to reduce the
+  thumbnail's file size. The thumbnail will automatically be excluded from the
+  package files and must not be referenced anywhere in the package.
 
-Template packages must specify at least one category in `package.categories`.
+Template packages must specify at least one category in `categories` (under the
+`[package]` section).
 
 If you're submitting a template, please test that it works locally on your
 system. The recommended workflow for this is as follows:

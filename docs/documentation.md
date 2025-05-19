@@ -6,7 +6,7 @@ Examples in the README should show how to use the package through a `@preview`
 import. Also consider running [`typos`][typos] through your package before
 release.
 
-A more complete documentation (usually written in Markdown, or in a PDF
+More complete documentation (usually written in Markdown, or in a PDF
 generated from a Typst file) can be linked from this README.
 
 If your package has a dedicated documentation website, it can be linked in the
@@ -21,7 +21,7 @@ will be displayed as expected.
 
 The most visible processing that is done is to remove top-level headings: a web
 page should only have a single `<h1>` tag for accessibility and SEO reasons, and
-Typst Universe already shows the name of the package in such heading.
+Typst Universe already shows the name of the package in such a heading.
 
 Also note that some Markdown extensions that are present on GitHub, like
 [alert blocks] or [emoji shortcodes] are not available on Typst Universe.

@@ -39,17 +39,17 @@ There are two solutions to limit this problem: excluding files from the archive
 (using the `exclude` key in your [package manifest][manifest]), or simply not
 commiting the files to this repository in the first place.
 
-To know which strategy to apply to each files, we can split them in three groups:
+To know which strategy to apply to each file, we can split them in three groups:
 
-- files that are necessary for the package to work. If any of these files are
+- Files that are necessary for the package to work. If any of these files are
   removed, the package would break for the end user. This includes the manifest
   file, main Typst file and its dependencies, and in case of a template package,
   any file in the template directory.
-- files that are necessary for the package to be displayed correctly on Typst
+- Files that are necessary for the package to be displayed correctly on Typst
   Universe. This includes the README, and any files that are linked from there
   (manuals, examples, illustrations, etc.). These files can easily be accessed
   by opening the package README.
-- other files. This generally includes test files, build scripts, but also
+- Other files. This generally includes test files, build scripts, but also
   examples or manuals that are not linked in the README. These files would be
   almost impossible to access for the final user, unless they browse this GitHub
   repository or their local package cache.

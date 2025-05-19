@@ -7,9 +7,9 @@ properly handle resource files and avoid common mistakes.
 
 When reading external files, the path that is given to the function
 (like `image`, `json` or `read`) is relative to the current file
-and can only access file in the current package. This means it can't
+and can only access files in the current package. This means it can't
 access files from other packages. But more importantly, in case your package
-is a template, it can't access files in the users project.
+is a template, it can't access files in the user's project.
 
 For instance, let's say you have the following file hierarchy:
 
@@ -32,9 +32,9 @@ were to replace the provided logo with their own, your package would still use
 the original one.
 
 It also means that allowing for customization using a string parameter called `logo-path`
-that would then give to `image` in your package will not work either: the file
+that is passed to `image` in your package won't work either: the file
 access is made relatively to where the `image` function is called, not to where
-the path is created.
+the path string is created.
 
 The proper way to let the people using your template overwrite the file to use
 is to take `content` as an argument directly, not a `string`. For example, you should
@@ -56,20 +56,20 @@ With something like:
 }
 ```
 
-Note that this means that the user will be able to provide arbitrary content and
-not necessarily an image.
+It is still possible to customize define some default values to configure how
+the image is displayed (its width for example), using a `set image(..)` rule.
 
 It will be possible to take paths as arguments directly, [once a dedicated
-type will exist][path-type].
+type exists][path-type].
 
 ## Fonts are not supported in packages
 
 As of now, it is not possible to ship font files within a package. Fonts need to
-be present in the users project to be detected in the web app, or to be included
+be present in the user's project to be detected in the web app, or be included
 with the `--font-path` argument on the command line, and a package can't
 interfere with either of these.
 
-Technically it would be possible to ship fonts with templates by putting them in
+Technically, it would be possible to ship fonts with templates by putting them into
 the template directory and asking command line users to specify the correct
 directory when compiling. But this experience would be suboptimal, and would
 result in a lot of large font files being duplicated both in this repository and
@@ -79,7 +79,7 @@ The current solution if your package requires specific fonts is simply to
 document how to download them and use them in the web app or on the command
 line.
 
-This is not a perfect solution either, but it will be improved in future Typst
+This is not a perfect solution either. The situation will be improved in future Typst
 versions.
 
 ## Licensing non-code assets

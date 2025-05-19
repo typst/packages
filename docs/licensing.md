@@ -27,14 +27,14 @@ file, you must not exclude it from the package.
 
 ## Copyrighted material
 
-It is sometimes desirable to distribute copyrighted files, that are not under an
-open-source license in your package (for instance, a university logo if you are
-making a template for your university). However, this is not allowed on Typst
-Universe in general. It is only possible if it is clearly stated by the
-copyright holder under which terms their file can be distributed and if the
-package respect these terms. In that case, this information should be
-explicitely stated again in the package. A good place for that is a dedicated
-section the end of the README.
+Sometimes you may want to distribute assets which are not under an open-source
+license, for example, the logo of a university. Typst Universe allows you to
+distribute those assets only if the copyright holder has a policy that clears
+distribution of the asset in the package.
+
+If you are including such assets in your package, have your README clearly
+indicate which files are not covered by the license given in the manifest file
+and include or link to the relevant terms by the copyright holder.
 
 [cc-faq]: https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software
 [OSI]: https://opensource.org/licenses/

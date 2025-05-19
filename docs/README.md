@@ -1,17 +1,17 @@
 # Package submission guidelines
 
-To submit a package, simply make a pull request with the package to this
+To submit a package, make a pull request with the package to this
 repository. Start by cloning the repository (we recommend using a [sparse
 checkout][sparse-checkout]), and create a new directory for your package named
 `packages/{namespace}/{package-name}/{version}`. For now, the only allowed
 namespace is `preview`. You can then [copy your package files][copy] here,
 commit your changes and open a pull request.
 
-We have guidelines that you have to follow to be accepted in Typst Universe.
-They ensure that the published packages meet some quality standards and work
-properly for everyone. Please note that this list may be extended over time as
-improvements/issues to the process are discovered. Given a good reason, we
-reserve the right to reject any package submission.
+We have guidelines that you have to follow for your package to be published on
+Typst Universe. They ensure that the published packages meet some quality
+standards and work properly for everyone. Please note that this list may be
+extended over time as improvements/issues to the process are discovered. Given a
+good reason, we reserve the right to reject any package submission.
 
 The following links will teach you what to pay attention to when working on:
 
@@ -56,10 +56,6 @@ Once submitted, a package will not be changed or removed without good reason to
 prevent breakage for downstream consumers. By submitting a package, you agree
 that it is here to stay. If you discover a bug or issue, you can of course
 submit a new version of your package.
-
-There is one exception: Minor fixes to the documentation or TOML metadata of a
-package are allowed _if_ they can not affect the package in a way that might
-break downstream users.
 
 [sparse-checkout]: tips.md#sparse-checkout-of-the-repository
 [copy]: tips.md#what-to-commit-what-to-exclude
