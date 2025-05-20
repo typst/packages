@@ -19,7 +19,7 @@ disciplines = ["computer-science"]
 
 [template]
 path = "template"
-entrypoint = "template/main.typ"
+entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
 
 [tool]
