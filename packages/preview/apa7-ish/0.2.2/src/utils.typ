@@ -46,6 +46,6 @@
   "abcdefghijklmnopqrstuvwxyz".at(num)
 }
 
-#let orcid(height: 10pt, o_id) = [
-  #box(height: height, baseline: 10%, image("assets/orcid.svg")) #link("https://orcid.org/" + o_id)
+#let orcid(height: 10pt, o-id) = [
+  #box(height: height, baseline: 10%, image("assets/orcid.svg")) #link("https://orcid.org/" + o-id)
 ]
