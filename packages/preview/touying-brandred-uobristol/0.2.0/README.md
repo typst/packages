@@ -7,7 +7,7 @@ Inspired by the brand guidelines of University of Bristol and modified from the 
 Use the following command to create a new project with this theme.
 
 ```bash
-typst init @preview/touying-uobristol
+typst init @preview/touying-branded-uobristol
 ```
 
 ## Examples
