@@ -1,4 +1,4 @@
-#import "@preview/lemmify:0.1.4": *
+#import "@preview/lemmify:0.1.8": *
 
 
 ///// private stuff
