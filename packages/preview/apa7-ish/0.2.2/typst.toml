@@ -9,6 +9,7 @@ repository = "https://github.com/mrwunderbar666/typst-apa7ish"
 keywords = ["apa", "american psychological association", "manuscript", "article"]
 categories = ["paper"]
 compiler = "0.13.1"
+exclude = ["example/*"]
 
 [template]
 path = "template"

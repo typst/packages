@@ -23,7 +23,7 @@ This is still not finished:
 
 # Basic Usage
 
-The easiest way to get started is to edit the example file, which has sensible default values. Most fields in the configuration are optional and will safely be ignored (not rendered) when you set them to `none`.
+The easiest way to get started is to edit the example file, which has sensible default values. Most fields in the configuration are optional and will safely be ignored (not rendered) when you set them to `none`. For a full example with a figure and a table go to the [github repository](https://github.com/mrwunderbar666/typst-apa7ish) and have a look at `example/example.typ`.
 
 ## Authors
 

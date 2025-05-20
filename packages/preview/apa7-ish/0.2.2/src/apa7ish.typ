@@ -135,7 +135,7 @@
     #v(3em, weak: true)
   ]
 
-  let authors_parsed = parse_authors(authors)
+  let authors-parsed = parse-authors(authors)
 
   // List Authors
   if not anonymous {
@@ -144,22 +144,22 @@
       bottom: 0.3em,
       x: 2em,
       grid(
-        columns: (1fr,) * calc.min(3, authors_parsed.authors.len()),
+        columns: (1fr,) * calc.min(3, authors-parsed.authors.len()),
         gutter: 1em,
-        ..authors_parsed.authors.map(author => align(center)[
-          #author.name#super[#author.affiliation_parsed.map(pos => number2letter(pos)).sorted().join(", ")] \
+        ..authors-parsed.authors.map(author => align(center)[
+          #author.name#super[#author.affiliation-parsed.map(pos => number2letter(pos)).sorted().join(", ")] \
         ]),
       ),
     )
 
     v(1em)
 
-    let affiliation_counter = counter("affiliation_counter")
-    affiliation_counter.update(1)
+    let affiliation-counter = counter("affiliation-counter")
+    affiliation-counter.update(1)
 
     align(center)[
-      #for affiliation in authors_parsed.affiliations [
-        #context super(affiliation_counter.display("a"))#h(1pt)#emph(affiliation) #affiliation_counter.step() \
+      #for affiliation in authors-parsed.affiliations [
+        #context super(affiliation-counter.display("a"))#h(1pt)#emph(affiliation) #affiliation-counter.step() \
       ]
       #v(1em)
       #date
@@ -197,7 +197,7 @@
     heading(outlined: false, numbering: none, text(normal-size, weight: "bold", [Author Note]))
 
     // ORCID IDs
-    for author in authors_parsed.authors {
+    for author in authors-parsed.authors {
       set par(spacing: 0.4em)
       if "orcid" in author [
         #author.name #orcid(author.orcid) \
@@ -218,11 +218,11 @@
 
     // Contact Information
     [Correspondence concerning this article should be addressed to
-      #authors_parsed.corresponding.name,]
-    if "postal" in authors_parsed.corresponding [ #authors_parsed.corresponding.postal, ]
+      #authors-parsed.corresponding.name,]
+    if "postal" in authors-parsed.corresponding [ #authors-parsed.corresponding.postal, ]
     if (
-      "email" in authors_parsed.corresponding
-    ) [Email: #link("mailto:" + authors_parsed.corresponding.email, authors_parsed.corresponding.email)]
+      "email" in authors-parsed.corresponding
+    ) [Email: #link("mailto:" + authors-parsed.corresponding.email, authors-parsed.corresponding.email)]
   }
 
   pagebreak()

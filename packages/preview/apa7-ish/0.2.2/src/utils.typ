@@ -4,13 +4,13 @@
 // returns a dict with two keys:
 // "authors" (modified author array)
 // "affiliations": array with unique affiliations
-#let parse_authors(authors) = {
+#let parse-authors(authors) = {
   let affiliations = ()
-  let parsed_authors = ()
+  let parsed-authors = ()
   let corresponding = ()
   let pos = 0
   for author in authors {
-    author.insert("affiliation_parsed", ())
+    author.insert("affiliation-parsed", ())
     if "affiliation" in author {
       if type(author.affiliation) == str {
         author.at("affiliation") = (author.affiliation,)
@@ -20,13 +20,13 @@
           affiliations.push(affiliation)
         }
         pos = affiliations.position(a => a == affiliation)
-        author.affiliation_parsed.push(pos)
+        author.affiliation-parsed.push(pos)
       }
     } else {
       // if author has no affiliation, just use the same as the previous author
-      author.affiliations_parsed.push(pos)
+      author.affiliations-parsed.push(pos)
     }
-    parsed_authors.push(author)
+    parsed-authors.push(author)
     if "corresponding" in author {
       if author.corresponding {
         corresponding = author
@@ -34,7 +34,7 @@
     }
   }
   (
-    authors: parsed_authors,
+    authors: parsed-authors,
     affiliations: affiliations,
     corresponding: corresponding,
   )
