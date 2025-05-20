@@ -221,7 +221,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 == 算法格式
 
 // 算法的引用请以 algo 开头
-我们可以通过@algo:fibonacci 来计算斐波那契数列第 $n$ 项。
+我们可以通过@algo:fibonacci 来计算斐波那契数列。
 
 #let tmp = math.italic("tmp")
 #algox(
