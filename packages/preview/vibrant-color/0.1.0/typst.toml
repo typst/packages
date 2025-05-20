@@ -9,6 +9,7 @@ repository = "https://github.com/SHAfoin/shafoin-typst-template"
 keywords = ["engineering", "report", "color', "modern"]
 disciplines = ["engineering", "computer-science", "education", "design"]
 categories = ["report"]
+exclude = ["thumbnail-custom_blocks.png", "thumbnail-colors.png"]
 
 [template]
 path = "template"
