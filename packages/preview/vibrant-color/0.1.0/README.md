@@ -36,8 +36,7 @@ There are 4 different themes available : **blue**, **red**, **green** and **past
 A complete example illustrating the use of this template and all its features is available in the [github repository](https://github.com/SHAfoin/shafoin-typst-template/blob/main/example/example.pdf).
 
 ```typst
-
-#import "@preview/vibrant-color-template:0.1.0": *
+#import "@preview/vibrant-color:0.1.0": *
 
 #show: doc => vibrant-color(
   theme: "green-theme",
