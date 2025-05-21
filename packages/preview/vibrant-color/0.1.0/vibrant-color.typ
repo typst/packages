@@ -526,7 +526,7 @@
   // Image
   place(right, image("assets/" + theme + "/" + theme + "-back.png"))
 
-  set par(justify: true)
+  set par(justify: false)
   set text(hyphenate: true)
 
   // Logo
@@ -554,13 +554,14 @@
       // Description
       block(
         width: 9.45cm,
+        par(justify: true, 
         text(
           size: 11pt,
           fill: white,
           font: normal-fonts,
           weight: "regular",
           description,
-        ),
+        ),)
       ),
     ),
   )
