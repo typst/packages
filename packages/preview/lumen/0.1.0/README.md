@@ -92,8 +92,6 @@ This template is intended for creating a personalized cover in the form of a sin
 </tr>
 </table>
 
-Note: The parameters `subtitle`, `co-supervisor`, `lab`, `jury1`, `fund-logo` can be disabled by providing the value `none`.
-
 ## Licenses
 
 + All original code is licensed under the MIT-0 license.
