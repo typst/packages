@@ -1,4 +1,4 @@
-#import "@preview/vibrant-color-template:0.1.0": *
+#import "@preview/vibrant-color:0.1.0": *
 
 // IMPORTANT : IF YOU WANT TO USE THE ORIGINAL FONTS 
 // - Download the font from https://github.com/SHAfoin/shafoin-typst-template/tree/main/font
