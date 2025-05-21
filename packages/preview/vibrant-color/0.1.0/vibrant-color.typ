@@ -598,13 +598,13 @@
   )
 }
 
-#let codeblock(filename: "", line_number: true, content) = {
+#let codeblock(filename: "", line-number: true, content) = {
   set text(fill: white)
 
   let term = ((content.lang == "bash" or content.lang == "term") and filename == "")
 
   show raw.line: line => {
-    if (line_number and not term) {
+    if (line-number and not term) {
       text(fill: rgb("ffffff55"))[#line.number]
       h(2em)
     }
