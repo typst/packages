@@ -1,0 +1,1 @@
+The official Thesis Template from the Usability and Interaction Technology Laboratory (UniTyLab) of the Heilbronn University (HHN)
