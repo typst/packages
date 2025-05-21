@@ -1,6 +1,6 @@
 #import "dependencies.typ": *
 #import "common.typ": *
-#import "blocks.typ": *
+#import "referable.typ": *
 
 #let align-odd-even(odd-left, odd-right, hide: false) = {
   let chapter-page = query(selector(fig-chapter).or(fig-appendix))
@@ -89,15 +89,10 @@
 }
 
 #let heading-size-style(x) = {
-  if x.level == 1 {
-    set text(16pt)
-  } else if x.level == 2 {
-    set text(14pt)
-  } else if x.level == 3 {
-    set text(12pt)
-  } else {
-    set text(10.5pt)
-  }
+  show heading.where(level: 1): set text(size: 16pt)
+  show heading.where(level: 2): set text(size: 14pt)
+  show heading.where(level: 3): set text(size: 12pt)
+  show heading.where(level: 4): set text(size: 10.5pt)
   x
   v(1em, weak: true)
 }
@@ -157,9 +152,7 @@
   show heading: heading-size-style
   set heading(
     numbering: (..numbers) => {
-      let chapter-index = if book-state.get() { context counter-chapter.display("1.") } else {
-        none
-      }
+      let chapter-index = if book-state.get() { context counter-chapter.display("1.") }
       let level = numbers.pos().len()
       if (level == 1) {
         chapter-index + numbering("1.", numbers.at(0))
@@ -190,12 +183,10 @@
   show math.equation: equation-numbering-style
   show heading.where(level: 1): it => {
     counter(math.equation).update(0)
-    counter(figure).update(0)
     it
   }
 
-  show ref: ref-supplement-style.with(lang: lang)
-  show ref: ref-numbering-style.with(lang: lang, names: names)
+  show ref: ref-style.with(lang: lang, names: names)
   show figure: figure-supplement-style
   show figure.where(kind: table): set figure.caption(position: top)
   show raw.where(block: true): code-block-style

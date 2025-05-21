@@ -4,5 +4,6 @@
 #import "contents.typ": contents, contents-style
 #import "chapters.typ": chapter-style
 #import "appendix.typ": appendix-style
-#import "blocks.typ": *
+#import "bibliography.typ": *
+#import "referable.typ": *
 #import "utils.typ": *
