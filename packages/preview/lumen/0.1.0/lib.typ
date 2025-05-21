@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Julien Rippinger
+// SPDX-FileCopyrightText: 2025 Julien Rippinger <https://julienrippinger.eu>
 //
 // SPDX-License-Identifier: MIT-0
 

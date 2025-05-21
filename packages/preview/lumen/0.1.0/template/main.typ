@@ -1,8 +1,8 @@
-// SPDX-FileCopyrightText: 2025 Julien Rippinger
+// SPDX-FileCopyrightText: 2025 Julien Rippinger <https://julienrippinger.eu>
 //
 // SPDX-License-Identifier: MIT-0
 
-#import "@preview/ulb-phd-cover:0.1.0": cover
+#import "@preview/lumen:0.1.0": cover
 
 // CHOOSE LANGUAGE
 #set text(lang: "fr") // or "en"
