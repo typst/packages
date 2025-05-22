@@ -1,6 +1,6 @@
-// #import "@preview/shane-hhu-thesis:0.5.0": bachelor-conf, thanks, appendix, code, hhu-bibliography 
+#import "@preview/shane-hhu-thesis:0.6.0": bachelor-conf, thanks, appendix, code, hhu-bibliography, translation-bilingual
 
-#import "../hhu-thesis/template.typ": bachelor-conf, thanks, appendix, code, hhu-bibliography, translation-bilingual
+// #import "../hhu-thesis/template.typ": bachelor-conf, thanks, appendix, code, hhu-bibliography, translation-bilingual
 
 // 使用前请先安装 `https://github.com/shaneworld/Dots/tree/master/fonts` 中的全部字体
 
