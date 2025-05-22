@@ -7,6 +7,9 @@
   keywords-en : [keywords1, keywords2, keywords3],
   it
 ) = {
+
+  set text(font: "TeX Gyre Pagella")
+
   align(center)[
     #par(
       justify: false,
@@ -25,12 +28,12 @@
 
   ]
 
-  set par(first-line-indent: 0em)
+  set par(first-line-indent: 0em, leading: 1em)
 
   align(left)[
-    #text(weight: "bold")[Abstract:]#h(5pt)#abstract-en
+    #text(font: "TeX Gyre Pagella", weight: "bold")[Abstract:]#h(5pt)#abstract-en
 
-    #text(weight: "bold")[Keywords:]#h(5pt)#keywords-en
+    #text(font: "TeX Gyre Pagella", weight: "bold")[Keywords:]#h(5pt)#keywords-en
   ]
 
   v(1em)
@@ -38,19 +41,15 @@
   show: columns.with(1)
   counter(heading).update(0)
 
+  set heading(outlined: false)
   show heading: it => {
     set par(first-line-indent: 0em) // 重置段落属性
-    set text(font: ziti.黑体)
-    counter(heading).step(level: it.level) // 确保计数器递增
-    let numbers = counter(heading).at(here()).slice(0, it.level).map(n => n+1) // 获取当前层级编号
-    let number-str = numbers.map(str).join(".") // 转换为 "1.1" 格式
-
+    set text(font: "TeX Gyre Heros", fill: rgb("004b71"), size: 12pt)
     align(left)[
-      #number-str #h(5pt) #it.body
+      #context counter(heading).display("1. ") #it.body
     ]
   }
 
-  set heading(numbering: none, outlined: false)
   show figure: i-figured.show-figure.with(numbering: "1-1")
   show figure.where(kind: table): i-figured.show-figure.with(numbering: "1.1")
 
@@ -97,19 +96,15 @@
   show: columns.with(1)
   counter(heading).update(0)
 
+  set heading(outlined: false)
   show heading: it => {
     set par(first-line-indent: 0em) // 重置段落属性
     set text(font: ziti.黑体)
-    counter(heading).step(level: it.level) // 确保计数器递增
-    let numbers = counter(heading).at(here()).slice(0, it.level).map(n => n+1) // 获取当前层级编号
-    let number-str = numbers.map(str).join(".") // 转换为 "1.1" 格式
-
     align(left)[
-      #number-str #h(5pt) #it.body
+      #context counter(heading).display("1. ") #it.body
     ]
   }
 
-  set heading(numbering: none, outlined: false)
   show figure: i-figured.show-figure.with(numbering: "1-1")
   show figure.where(kind: table): i-figured.show-figure.with(numbering: "1.1")
 

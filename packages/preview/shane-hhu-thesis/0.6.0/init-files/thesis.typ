@@ -1,6 +1,6 @@
-#import "@preview/shane-hhu-thesis:0.6.0": bachelor-conf, thanks, appendix, code, hhu-bibliography, translation-bilingual
+// #import "@preview/shane-hhu-thesis:0.5.0": bachelor-conf, thanks, appendix, code, hhu-bibliography 
 
-// #import "../hhu-thesis/template.typ": bachelor-conf, thanks, appendix, code, hhu-bibliography, translation-bilingual
+#import "../hhu-thesis/template.typ": bachelor-conf, thanks, appendix, code, hhu-bibliography, translation-bilingual
 
 // 使用前请先安装 `https://github.com/shaneworld/Dots/tree/master/fonts` 中的全部字体
 
@@ -342,10 +342,18 @@ Typst 默认尝试使用数学方式表现，例如 ```typ $I=V / R$``` 会显�
     CN: [
       = 引言
       这里写中文正文内容
+
+      == 二级标题
+
+      === 三级标题
+
     ],
     EN: [
       = Introduction
-      这里写英文原文内容
+      #lorem(80)
+
+      == Second title
+
     ],
   )
 )
