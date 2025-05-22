@@ -45,6 +45,8 @@ Each document is styled using this package!
 
 ## Installation & Usage
 
+### General Use
+
 In your project, import the package (be sure to replace the version number with the correct one) with
 
 ```typst
@@ -58,6 +60,27 @@ To format your document with a theme, use the following syntax towards the top o
 ```
 
 Replace `mocha` with the flavour of your choice! This can also be passed as a string literal `"mocha"`.
+
+### Advanced Usage
+
+For users who wish to further extend their documents, graphics, or packages, you can access each flavor's palette to directly use the colors in your own code.
+
+```typst
+#import "@preview/catppuccin:1.0.0": flavors, get-flavor
+
+#let flavor = get-flavor("mocha")
+// or: #let flavor = flavors.mocha
+#let palette = flavor.colors
+
+The current flavor is #flavor.name #flavor.emoji.
+
+#let color-list = (
+  palette.values().map(v => v.name + " (" + text(fill: v.rgb, v.hex) + ")")
+)
+Colors: #list(..color-list)
+```
+
+For more information, check out the section on the **Flavor Schema** in the manual.
 
 ## 💝 Thanks to
 
