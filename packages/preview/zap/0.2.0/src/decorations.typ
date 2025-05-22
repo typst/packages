@@ -68,7 +68,7 @@
     let a-center = (rel: (0, .3 * side.first()), to: "component." + side.last())
     let a-label = (width / 2 * calc.abs(calc.sin(p-rotate)) + height / 2 * calc.abs(calc.cos(p-rotate)))
 
-    content((rel: (0, 11pt * side.first()), to: a-center), p-label)
+    content((rel: (0, a-label), to: (rel: (0, 5pt * side.first()), to: a-center)), p-label)
     if p-position.x == start {
         hobby(a-end, a-center, a-start, mark: (end: ">", fill: black), scale: 0.8, stroke: 0.55pt)
     } else {
