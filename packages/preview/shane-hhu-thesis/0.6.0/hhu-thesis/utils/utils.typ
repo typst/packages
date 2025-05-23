@@ -177,10 +177,10 @@
 
 // 单行公式后的段落首行缩进两字符
 #let show-math-equation(eq) = {
-  v(-0.4em)
+  v(-0.8em)
   par()[#text(size:0em)[#h(0em)]]
   eq
-  v(-0.4em)
+  v(-0.8em)
   par()[#text(size:0em)[#h(0em)]]
 }
 
