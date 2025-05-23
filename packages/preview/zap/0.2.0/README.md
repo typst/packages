@@ -1,4 +1,4 @@
-# ⚡️ Zap for Typst
+# Zap for Typst
 
 **Zap** is a lightweight 🪶 Typst package that makes drawing electronic circuits simple and intuitive. It's the first Typst library designed to align with widely recognized standards like **IEC** and **IEEE/ANSI** 📜.
 
