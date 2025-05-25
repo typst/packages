@@ -1,0 +1,16 @@
+[package]
+name = "unofficial-fontys-paper-template"
+version = "0.1.0"
+compiler = "0.13.0"
+entrypoint = "lib.typ"
+authors = ["TomVer99"]
+license = "MIT"
+description = "This is a template for creating research papers in Typst, tailored for Fontys Hogeschool."
+repository = "hhttps://github.com/TomVer99/Fontys-paper-template"
+keywords = ["fontys", "fontys hogeschool"]
+categories = ["paper", "thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "img/cover.png"
