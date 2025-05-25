@@ -4,7 +4,7 @@
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/TomVer99/Fontys-paper-template?style=flat-square)
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/TomVer99/Fontys-paper-template?style=flat-square)
-![License](https://img.shields.io/github/license/TomVer99/Fontys-paper-template?style=flat-square)
+<!-- ![License](https://img.shields.io/github/license/TomVer99/Fontys-paper-template?style=flat-square) -->
 
 ![Maintenance](https://img.shields.io/maintenance/Yes/2025?style=flat-square)
 ![Issues](https://img.shields.io/github/issues-raw/TomVer99/Fontys-paper-template?label=Issues&style=flat-square)
