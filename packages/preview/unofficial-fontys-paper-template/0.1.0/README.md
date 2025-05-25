@@ -19,10 +19,6 @@ This research paper template is designed to help students and researchers at Fon
 
 Should the style update, you can easily update the template by changing the version number in the import statement (if there were no braking changes).
 
-<div align="center">
-  <img src="./img/cover.png" alt="Showcase" width="49%">
-</div>
-
 ## Requirements
 
 - Typst builder installed on your system (Explained in `Getting Started`).
