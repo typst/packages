@@ -1,4 +1,4 @@
-#import "@preview/qooklet:0.5.1": *
+#import "@preview/qooklet:0.5.2": *
 
 #show: chapter-style.with(
   title: "",
