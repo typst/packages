@@ -2,7 +2,7 @@
 #import "@preview/unofficial-sdu-thesis:1.0.0": * //上一版本为0.2.2
 
 // 如果是本地安装，则使用
-#import "@local/unofficial-sdu-thesis:1.0.0": *
+// #import "@local/unofficial-sdu-thesis:1.0.0": *
 
 // 如果是源码调试，则使用
 // #import "../lib.typ": *
