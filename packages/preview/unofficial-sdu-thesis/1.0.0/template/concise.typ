@@ -34,7 +34,10 @@
 )
 
 #show: doc
+
+// 封面
 #cover()
+
 #abstract(
   body: [
     摘要

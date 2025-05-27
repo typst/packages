@@ -1,7 +1,9 @@
-// 使用typst packages库
+// 使用typst packages库，则使用
 #import "@preview/unofficial-sdu-thesis:1.0.0": * //上一版本为0.2.2
+
 // 如果是本地安装，则使用
 // #import "@local/unofficial-sdu-thesis:1.0.0": *
+
 // 如果是源码调试，则使用
 // #import "../lib.typ": *
 
@@ -29,42 +31,48 @@
     mentor: "MENTORNAME",
     time: "20XX年X月XX日",
   ),
+
   // 此项控制是否开启匿名模式，开启后自动匹配全文范围的导师名MENTORNAME，替换为****
-  ifMentorAnonymous: false
+  ifMentorAnonymous: false,
 )
 
 #show: doc
+
+// 封面
 #cover()
+
 #abstract(
   body: [
     中文摘要应将学位论文的内容要点简短明了地表达出来，一般约300\~800个汉字，字体为宋体小四号。内容应包括目的与意义、研究内容与方法以及研究结论等。
-
     同时需要突出论文的新论点、新见解或创造性成果，语言力求精炼。注意：中英文摘要和中英文关键词，要一一对应。
   ],
   keywords: ("关键词1", "关键词2", "关键词3", "关键词4", "关键词5"),
   body-en: [
     This dissertation explores innovative approaches in artificial intelligence applications. The research methodology combines theoretical analysis with practical experiments, resulting in novel insights and frameworks. The findings contribute significantly to the field, offering potential solutions for real-world implementation.
-
     The study highlights original perspectives and creative outcomes, demonstrating both academic rigor and practical relevance.
   ],
   keywords-en: ("dissertation", "dissertation format", "standardization", "template"),
 )
-#outline()
 
+#outline()
 
 #show: mainmatter
 
 //===========开始正文============
+
 = 绪#h(2em)论
 
 == 二级标题
+
 山東大學本科畢業論文（設計）Typst模板。
 
 === 三级标题
+
 本文...
 
 === 三级标题
-许多年后 @toshev_deeppose_2014，奥雷里亚诺·布恩迪亚上校站在行刑队面前，准会想起父亲带他去见识冰块的那个遥远的下午。
+
+许多年后 @toshev_deeppose_2014，见 @img:image2，奥雷里亚诺·布恩迪亚上校站在行刑队面前，准会想起父亲带他去见识冰块的那个遥远的下午。
 
 Many years later, as he faced the firing squad @stumberg_dmvio_2022 , Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice.
 
@@ -76,55 +84,68 @@ At that time Macondo was a village of twenty adobe houses, built on the bank of 
 
 The world was so recent that many things lacked names, and in order @bay_surf_2006 to indicate them it was necessary to point.
 
-你可以看到 @img:image2
-
 = 本科毕业论文写作规范
 
-- *养成良好的写作习惯*：
-  - 写作过程中，及时保存并备份文档，特别是当版本有较大更新时。
-  - 为突出显示、方便修改，成文时，全文中所有与序号有关的章节号、图号、表号、式号、文献号、附录号等，均用#text(fill: rgb("c00000"))[深红色]标注。#text(fill:gray,font: "Courier New")[rgb:C00000]
+*养成良好的写作习惯*：
+
+- 写作过程中，及时保存并备份文档，特别是当版本有较大更新时。
+
+- 为突出显示、方便修改，成文时，全文中所有与序号有关的章节号、图号、表号、式号、文献号、附录号等，均用#text(fill: rgb("c00000"))[深红色]（#text(fill:gray,font: "Courier New")[rgb:C00000]）标注。
 
 == 正文写作规范
 
 === 正文字体规范
 
 + *正文字体字号*：
+
   - 中文使用小四号宋体
+
   - 外文字母（英文字母、希腊字母等）和数字使用小四号 Times New Roman 字体
 
 + *图表名称字体字号*：
+
   - 中文使用五号宋体
+
   - 外文字母和数字使用五号 Times New Roman 字体
+
   - 图表名称需加粗并居中对齐
 
 + *标点符号使用规则*：
+
   - 中文句子使用中文标点符号
+
   - 英文句子使用英文标点符号
+
   - 全文括号、引号、波浪号等统一使用 Times New Roman 字体：
+
   - 英文摘要和参考文献中，英文标点符号后需空一格（段落最后一个标点符号除外）
 
 == 二级标题
+
 本组织...
 
 === 三级标题
+
 本文将...
 
 = 图表格式
+
 == 图格式
+
 #figure(
-  rect(image(
+  image(
     "img/AlbertEinstein.png",
     width: 50%,
-  )),
-  // kind: "image", 被弃用的特性
+  ),
   supplement: [图],
   caption: [Albert Einstein], // 英文图例
-)<Einstein>
+)<Einstein> // <Einstein> 定义了此图引用键
 
-// 图片引用采用@img:<image>，具体细节在figures.typ内。
+// 图片引用采用@img:<image-key>
 如@img:Einstein 所示，这是爱因斯坦。
 
 == 表格格式
+
 // 表的引用请以 tbl 开头
 这里展示了一张数据表格，见@tbl:这张表格的label
 
@@ -172,18 +193,24 @@ The world was so recent that many things lacked names, and in order @bay_surf_20
 )
 
 == 公式格式
+
 // 公式的引用请以 eqt 开头
 我要引用 @eqt:equation。
 
-$ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Alpha) + J_0 = 0 $<equation> //添加公式引用键使用<>符号
+$
+  1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Alpha) + J_0 = 0
+$<equation> //添加公式引用键使用<>符号
 
 == 算法格式
+
 我要引用 @algo:algorithm
+
 #rect(width: 50%, height: 5em, fill: black)[
   #align(center + alignment.horizon)[
     #text(fill: white)[填充: width:50%, height:5em]
   ]
 ]
+
 #[
   #import "@preview/lovelace:0.2.0": *
   #algox(
@@ -213,21 +240,28 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
 ]
 
 = 总结与展望
+
 总结全文并展望。主要撰写论文工作的结论、创新点、不足之处、进一步研究展望等内容，不宜插入图表。
 
 == 工作总结
+
 #lorem(20)
+
 == 不足之处与进一步研究展望
+
 #lorem(20)
 
 === 不足之处与进一步研究展望
+
 #lorem(20)
 
 ==== 不足之处与进一步研究展望
+
 test here
 #lorem(20)
 
 ===== 不足之处与进一步研究展望
+
 #lorem(20)
 
 // 文献引用 使用前请确保存在ref.bib文件，相关内容请查阅BibTeX
@@ -238,26 +272,26 @@ test here
   表达真情实感即可。
   （致谢部分切勿照搬，本部分内容也在论文查重范围之内）
   （格式：宋体，Times New Roman小四号字，两边对齐，首行缩进2个字符，行距23磅，字符间距为“标准”）
-
 ]
-
-
 
 // 附录
 #show: appendix
 
 = 附#h(2em)录
+
 “附录”二字黑体小二号加粗居中，中间空4个空格；内容为宋体小四号、首行缩进两字符、1.5倍行距。对于不宜放在正文中，但有参考价值的内容，可放附录中。例如，重复测试的实验结果图表，篇幅较大的图、表、数学式的推演、编写的算法、程序代码段等。注意：正文文字统领图表式、文献、附录。所有的附录均应在正文文字中提及。
+
 == 附图示例
+
 #figure(
   image(
     "./img/appendix/Lenna.png",
     width: 70%,
   ),
-  kind: "appendix",
   supplement: [附图],
   caption: [Lenna], // 英文图例
 )<image2>
+
 这里可以记录文字描述。
 
 #figure(
@@ -265,7 +299,6 @@ test here
     "./img/appendix/Sierpinski_pyramid.jpg",
     width: 70%,
   ),
-  kind: "appendix",
   supplement: [附图],
   caption: [Sierpinski pyramid], // 英文图例
 )<image4>
@@ -277,12 +310,12 @@ test here
     "./img/appendix/Sigmoid.svg",
     width: 100%,
   ),
-  kind: "appendix",
   supplement: [附图],
   caption: [Sigmoid function], // 英文图例
 )<image3>
 
 #pagebreak()
+
 == 附表示例
 
 这是一个示例附表 @tbl:续表示例
@@ -376,4 +409,3 @@ test here
   [阿\[托\]],
   [a],
 )
-
