@@ -51,7 +51,7 @@
     // 英文关键字
     {
       set par(first-line-indent: 0em)
-      [*Key Words*: #(("",)+ keywords-en.intersperse("; ")).sum()]
+      [*Key Words*: #(("",)+ keywords-en.intersperse(", ")).sum()]
       pagebreak(weak: true)
     }
   }

@@ -2,7 +2,7 @@
 #import "@preview/unofficial-sdu-thesis:1.0.0": * //上一版本为0.2.2
 
 // 如果是本地安装，则使用
-// #import "@local/unofficial-sdu-thesis:1.0.0": *
+#import "@local/unofficial-sdu-thesis:1.0.0": *
 
 // 如果是源码调试，则使用
 // #import "../lib.typ": *
@@ -252,15 +252,10 @@ $<equation> //添加公式引用键使用<>符号
 #lorem(20)
 
 === 不足之处与进一步研究展望
-
+笑死笑死笑死笑死笑死
 #lorem(20)
 
 ==== 不足之处与进一步研究展望
-
-test here
-#lorem(20)
-
-===== 不足之处与进一步研究展望
 
 #lorem(20)
 
