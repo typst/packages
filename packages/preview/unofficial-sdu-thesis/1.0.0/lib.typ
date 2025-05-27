@@ -10,15 +10,15 @@
 #import "styles/figures.typ": algox, tablex
 #let documentclass(
   info: (:),
-  ifMentorAnonymous: false,
+  if-mentor-anonymous: false,
 ) = {
   (
     info: info,
     doc: (..args) => doc(
       ..args,
       info: info + args.named().at("info", default: (:)),
-      ifMentorAnonymous: ifMentorAnonymous,
-      Mentor: info.mentor
+      if-mentor-anonymous: if-mentor-anonymous,
+      mentor: info.mentor
     ),
     conclusion: (..args) => conclusion-page(..args),
     mainmatter: (..args) => mainmatter(..args),

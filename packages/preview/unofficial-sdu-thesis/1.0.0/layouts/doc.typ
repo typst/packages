@@ -8,8 +8,8 @@
   info: (:),
   fallback: false, // 字体缺失时使用 fallback，不显示豆腐块
   it,
-  ifMentorAnonymous: false,
-  Mentor: "MentorName",
+  if-mentor-anonymous: false,
+  mentor: "MentorName",
 ) = {
   info = (
     (
@@ -67,7 +67,7 @@
   )
 
   // 导师设为隐藏
-  show Mentor: if ifMentorAnonymous { `****` } else { Mentor }
+  show mentor: if if-mentor-anonymous { `****` } else { mentor }
 
   it
 }

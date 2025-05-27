@@ -30,7 +30,7 @@
     time: "20XX年X月XX日",
   ),
     // 此项控制是否开启匿名模式，开启后自动匹配全文范围的导师名MENTORNAME，替换为****
-  ifMentorAnonymous: false
+  if-mentor-anonymous: false
 )
 
 #show: doc
