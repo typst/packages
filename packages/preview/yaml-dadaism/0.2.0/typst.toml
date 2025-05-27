@@ -7,7 +7,7 @@ repository = "https://github.com/baptiste/yaml-dadaism"
 license = "MPL-2.0"
 description = "Calendar with linear monthly layout filled with yaml-defined events."
 categories = ["layout", "office"]
-exclude = ["assets"]
+exclude = ["assets","examples"]
 keywords = [
   "calendar", "yaml", "datetime"
 ]

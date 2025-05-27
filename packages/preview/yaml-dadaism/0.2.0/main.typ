@@ -4,7 +4,7 @@
 #set page(width: 420mm, height: auto, margin: 20pt)
 #set text(size: 9pt, font: "Source Sans Pro")
 
-#let tea = yaml("examples/tea.yaml")
+#let tea = yaml("tea.yaml")
 
 #let events-by-month = split-by-month(import-events(tea))
 
