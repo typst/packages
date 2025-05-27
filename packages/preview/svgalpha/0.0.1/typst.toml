@@ -5,7 +5,4 @@ entrypoint = "svgopacity.typ"
 authors = ["Alberto Corbi"]
 license = "MIT"
 repository = "https://github.com/pammacdotnet/SVGAlpha"
-description = "Add global transparency to a SVG image"
-
-[tool.utpm]
-namespace = "local"
+description = "Add global transparency to a SVG image."
