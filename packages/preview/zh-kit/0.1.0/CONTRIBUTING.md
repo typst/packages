@@ -1,6 +1,6 @@
 # 贡献指南
 
-我们非常欢迎并感谢您对 ctypst-base 项目的贡献！您的帮助对我们至关重要。
+我们非常欢迎并感谢您对 zh-kit 项目的贡献！您的帮助对我们至关重要。
 
 在开始之前，请确保您已阅读并同意遵守我们的 [行为准则](CODE_OF_CONDUCT.md)。
 
@@ -8,8 +8,8 @@
 
 您可以通过多种方式为项目做出贡献：
 
-*   **报告 Bug**: 如果您在使用过程中发现了任何问题或错误，请通过 [GitHub Issues](https://github.com/ctypst/ctypst-base/issues) 提交 Bug 报告。请尽可能详细地描述问题，包括复现步骤、期望行为和实际行为。
-*   **提出功能建议**: 如果您有关于新功能或改进现有功能的想法，也请通过 [GitHub Issues](https://github.com/ctypst/ctypst-base/issues) 告诉我们。
+*   **报告 Bug**: 如果您在使用过程中发现了任何问题或错误，请通过 [GitHub Issues](https://github.com/ctypst/zh-kit/issues) 提交 Bug 报告。请尽可能详细地描述问题，包括复现步骤、期望行为和实际行为。
+*   **提出功能建议**: 如果您有关于新功能或改进现有功能的想法，也请通过 [GitHub Issues](https://github.com/ctypst/zh-kit/issues) 告诉我们。
 *   **提交代码 (Pull Requests)**:
     *   如果您希望直接贡献代码，请先 Fork 本仓库。
     *   在您的 Fork 中创建一个新的分支进行修改。

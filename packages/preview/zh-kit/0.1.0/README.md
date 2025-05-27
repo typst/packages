@@ -1,10 +1,9 @@
-# ctypst-base
+# zh-kit
 
-[![Typst Package Version](https://img.shields.io/badge/typst%20package-v0.1.0-blue)](https://github.com/ctypst/ctypst-base)
+[![Typst Package Version](https://img.shields.io/badge/typst%20package-v0.1.0-blue)](https://github.com/ctypst/zh-kit)
 [![License: LGPL-2.1](https://img.shields.io/badge/License-LGPL--2.1-blue.svg)](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
-<!-- TODO: 考虑添加其他相关徽章，例如 CI/CD 状态、下载量等 (如果适用) -->
 
-ctypst-base 是一个基础的 Typst 中文支持库，旨在为使用 Typst 进行中文写作的用户提供便捷的字体配置和常用的中文排版功能，帮助用户轻松上手，专注于内容创作。
+zh-kit 是一个基础的 Typst 中文支持库，旨在为使用 Typst 进行中文写作的用户提供便捷的字体配置和常用的中文排版功能，帮助用户轻松上手，专注于内容创作。
 
 您可以**基于**本项目开发自己的中文排版模板，也可以使用其它由 CTypst 小组提供的模板。
 
@@ -15,11 +14,17 @@ ctypst-base 是一个基础的 Typst 中文支持库，旨在为使用 Typst 进
 *   **智能拼音显示**: 能够将带声调数字的拼音字符串 (例如 `pinyin("ni3 hao3")`) 渲染为标准的拼音格式 (nǐ hǎo)。
 *   **中文占位文本**: 提供 `zhlorem()` 函数，方便生成中文随机文本，用于排版测试。
 
+> [!note]
+>
+> `zh-kit` 是通用的，它不会破坏您的版式设置，而仅仅是提供一些中文排版支持。
+>
+> `zh-kit` 中提供的中文排版功能通常优于您手动配置的，我们更推荐您使用本库。
+
 ## 🚀 快速开始
 
 ### 1. 安装字体 (推荐)
 
-为了获得最佳的显示效果，建议您在您的操作系统上安装以下字体。`ctypst-base` 会优先使用列表中靠前的字体。
+为了获得最佳的显示效果，建议您在您的操作系统上安装以下字体。`zh-kit` 会优先使用列表中靠前的字体。
 
 *   **中文衬线 (Serif):** 思源宋体 CN, LXGW WenKai SC (霞鹜文楷 SC), Songti SC, SimSun
 *   **中文无衬线 (Sans-serif):** 思源黑体 CN, Inter, PingFang SC, SimHei
@@ -32,11 +37,11 @@ ctypst-base 是一个基础的 Typst 中文支持库，旨在为使用 Typst 进
 
 ### 2. 在项目中使用
 
-在您的 Typst 项目的入口文件 (通常是 `.typ` 文件) 的开头，通过以下方式导入 `ctypst-base` 并应用基础设置：
+在您的 Typst 项目的入口文件 (通常是 `.typ` 文件) 的开头，通过以下方式导入 `zh-kit` 并应用基础设置：
 
 ```typ
 // 从 Typst Universe 导入 (推荐方式，当包发布后)
-// #import "@preview/ctypst-base:0.1.0": * 
+// #import "@preview/zh-kit:0.1.0": * 
 // 请将 0.1.0 替换为最新的版本号。您可以在项目的 GitHub 仓库或 Typst Universe 上查找最新版本。
 
 // 如果是本地开发或直接使用仓库代码
@@ -48,7 +53,7 @@ ctypst-base 是一个基础的 Typst 中文支持库，旨在为使用 Typst 进
 
 = 我的第一个中文 Typst 文档
 
-欢迎使用 ctypst-base！
+欢迎使用 zh-kit！
 
 这是一个段落，使用了默认的字体设置和首行缩进。
 #zhlorem(30)
@@ -74,7 +79,7 @@ ctypst-base 是一个基础的 Typst 中文支持库，旨在为使用 Typst 进
 
 ### 中文数字
 
-`ctypst-base` 提供了将阿拉伯数字转换为中文数字的功能。
+`zh-kit` 提供了将阿拉伯数字转换为中文数字的功能。
 
 ```typ
 // 小写中文数字
@@ -118,7 +123,7 @@ ctypst-base 是一个基础的 Typst 中文支持库，旨在为使用 Typst 进
 
 ## 🛠️ 主要 API
 
-以下是 `ctypst-base` 提供的主要函数：
+以下是 `zh-kit` 提供的主要函数：
 
 *   `setup-base-fonts(doc, cjk-serif-family: tuple, cjk-sans-family: tuple, cjk-mono-family: tuple, latin-serif-family: tuple, latin-sans-family: tuple, latin-mono-family: tuple, first-line-indent: length)`
     *   **描述:** 初始化文档的字体和基础排版设置。
@@ -164,13 +169,13 @@ ctypst-base 是一个基础的 Typst 中文支持库，旨在为使用 Typst 进
 本项目采用 [LGPL-2.1](LICENSE) 许可证。这意味着：
 
 *   **您可以自由地：**
-    *   **使用 (Use):** 在您的任何 Typst 项目（无论是开源还是闭源）中使用 `ctypst-base`。
-    *   **分发 (Distribute):** 分发 `ctypst-base` 的原始版本。
-    *   **修改 (Modify):** 修改 `ctypst-base` 的源代码。
+    *   **使用 (Use):** 在您的任何 Typst 项目（无论是开源还是闭源）中使用 `zh-kit`。
+    *   **分发 (Distribute):** 分发 `zh-kit` 的原始版本。
+    *   **修改 (Modify):** 修改 `zh-kit` 的源代码。
 
 *   **在以下条件下：**
-    *   **共享修改 (Share Alike for Modifications to the Library):** 如果您修改了 `ctypst-base` 的源代码，并且您选择分发这个修改后的版本，那么这个修改后的版本也必须在 LGPL-2.1 许可下提供。
+    *   **共享修改 (Share Alike for Modifications to the Library):** 如果您修改了 `zh-kit` 的源代码，并且您选择分发这个修改后的版本，那么这个修改后的版本也必须在 LGPL-2.1 许可下提供。
     *   **声明和版权 (Notice and Copyright):** 您必须保留原始的版权声明和许可证文本。
 
 *   **请注意：**
-    *   **链接不“传染” (No "Viral" Effect on Your Project):** 仅仅在您的 Typst 文档或项目中通过 `#import` 使用 `ctypst-base`，并**不会**强制要求您的整个文档或项目也必须采用 LGPL-2.1 许可证。您可以为您的作品选择任何您希望的许可证。
+    *   **链接不“传染” (No "Viral" Effect on Your Project):** 仅仅在您的 Typst 文档或项目中通过 `#import` 使用 `zh-kit`，并**不会**强制要求您的整个文档或项目也必须采用 LGPL-2.1 许可证。您可以为您的作品选择任何您希望的许可证。

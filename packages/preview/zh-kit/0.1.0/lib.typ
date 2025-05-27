@@ -48,13 +48,7 @@
     font: serif-family
   )
 
-  show par: it => {
-    set par(first-line-indent: (amount: first-line-indent, all: true))
-
-    // TODO: 对齐工作
-
-    it
-  }
+  set par(first-line-indent: (amount: first-line-indent, all: true))
 
   show heading: x => {
     set text(font: sans-family)
