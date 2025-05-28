@@ -1,6 +1,6 @@
 [package]
 name = "modern-sysu-touying"
-version = "0.0.1"
+version = "0.1.0"
 entrypoint = "lib.typ"
 repository = "https://github.com/sysu/modern-sysu-touying"
 authors = ["Sunny Huang <@huangjj27>"]
