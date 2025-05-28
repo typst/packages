@@ -404,7 +404,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 
 使用#link("https://typst.app/universe/package/fletcher", underline([Fletcher]))可以绘制流程图，点击横线处链接查看使用文档。
 
-#import "./figures/fletcher.typ"
+#import "figures/fletcher.typ"
 #imagex(
   fletcher.resnet_block(100%),
   caption: [残差块],
@@ -415,7 +415,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 
 Fletcher是基于#link("https://typst.app/universe/package/cetz", underline([CeTZ]))的，CeTZ可以绘制更复杂的图形，点击横线处链接查看使用文档。
 
-#import "./figures/cetz.typ"
+#import "figures/cetz.typ"
 #imagex(
   cetz.camera_model(70%),
   caption: [相机针孔成像模型],
