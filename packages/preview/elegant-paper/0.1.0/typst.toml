@@ -6,7 +6,6 @@ authors = ["Xyber Nova <xyber-nova@outlook.com>"]
 license = "LGPL-3.0"
 description = "A Typst template for elegant papers."
 categories = ["paper"]
-homepage = "https://github.com/ctypst/elegant-paper-typst"
 repository = "https://github.com/ctypst/elegant-paper-typst"
 keywords = ["typst", "template", "paper", "elegant", "cjk", "中文"]
 exclude = ["*.pdf"]
