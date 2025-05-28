@@ -1,0 +1,15 @@
+[package]
+name = "hsrm-master-thesis"
+entrypoint = "lib.typ"
+description = "Unofficial template for writing a master-thesis in the Hochschule Rhein Main department of Computer Science design. Fork from the HAW-Hamburg template."
+categories = ['thesis']
+version = "0.6.0"
+compiler = "0.13.0"
+authors = ['Simon Johannes Engelhardt', 'Lasse Rosenow']
+license = "MIT"
+repository = "https://github.com/SimonJohannesEngelhardt/HSRM-Typist-Template"
+
+[template]
+path = "src"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
