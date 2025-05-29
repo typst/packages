@@ -1,0 +1,30 @@
+[package]
+name = "rowmantic"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Ulrik Sverdrup <ulrik.sverdrup@gmail.com>"]
+license = "EUPL-1.2"
+description = "Define tables row by row with inline separators between cells."
+repository = "https://github.com/typst-community/rowmantic"
+
+compiler = "0.13.0"
+categories = ["components"]
+keywords = [
+    "table",
+    "row",
+    "delimiter",
+    "separator",
+    "latex",
+]
+
+# .typstignore is the most deciding file
+# since packaging is filtered through that one first
+exclude = [
+  ".typstignore",
+  "docs",
+  "Justfile",
+  ".github",
+  "scripts",
+  "tests",
+  "Justfile",
+]
