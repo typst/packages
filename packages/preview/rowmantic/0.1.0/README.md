@@ -3,7 +3,7 @@ A Typst package for editing tables row-by-row.
 
 The idea is a row-oriented way to input tables, with just a little less syntactical overhead than the usual `table` function in Typst.
 
-The `rowtable` function works like the usual `table` function but takes one markup block (`[...]`) per row, and the markup is split internally#footnote[But shallowly - not looking into styled or nested content] on a delimiter which is `&` by default.
+The `rowtable` function works like the usual `table` function but takes one markup block (`[...]`) per row, and the markup is split internally on a delimiter which is `&` by default.
 
 For example, given typst `[A & B & C]`, the effective table row is `..([A], [B], [C])`.
 
