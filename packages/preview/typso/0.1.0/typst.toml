@@ -1,0 +1,17 @@
+[package]
+name = "typso"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Sylvan Franklin"]
+license = "MIT"
+description = "Make custom bingo boards in Typst "
+repository = "https://github.com/sylvanfranklin/typso"
+categories = ["Fun"]
+keywords = ["Fun"]
+exclude = ["*.pdf", "*.jpg, *.gif"]
+
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
