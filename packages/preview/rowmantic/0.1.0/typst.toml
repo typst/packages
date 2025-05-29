@@ -17,8 +17,8 @@ keywords = [
     "latex",
 ]
 
-# .typstignore is the most deciding file
-# since packaging is filtered through that one first
+# .typstignore decides what is (not) pushed to typst/packages
+# exclude decides what is (not) downloaded by the compiler
 exclude = [
   ".typstignore",
   "docs",
