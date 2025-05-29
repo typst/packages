@@ -1,0 +1,15 @@
+[package]
+name = "upb-letter"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Christian Plessl"]
+license = "MIT"
+repository = "https://github.com/pc2/upb-letter-typst"
+description = "Letter template matching the  Paderborn University corporate design."
+keywords = ["letter", "upb", "Paderborn University", "Universität Paderborn"]
+categories = ["office"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
