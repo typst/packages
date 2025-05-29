@@ -20,6 +20,7 @@ keywords = [
 # .typstignore decides what is (not) pushed to typst/packages
 # exclude decides what is (not) downloaded by the compiler
 exclude = [
+  "CHANGELOG.md",
   ".typstignore",
   "docs",
   "Justfile",
