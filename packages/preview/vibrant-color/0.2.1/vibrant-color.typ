@@ -389,14 +389,20 @@
         )]
       // Page number
       #place(
-        dx: -1.8cm,
+        dx: -2.2cm,
         dy: -0.7cm,
-        text(
-          fill: white,
-          weight: "semibold",
-          size: 12pt,
-          counter(page).display("1"),
-        ),
+        rect(
+          fill: none,
+          stroke: none,
+          width: 1.1cm,
+          text(
+            fill: white,
+            weight: "semibold",
+            size: 12pt,
+            align(center, counter(page).display("1"))
+            ,
+        ),)
+        
       )
     ],
   )
