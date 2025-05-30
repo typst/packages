@@ -72,15 +72,62 @@ This example [taken from Wikipedia](https://en.wikipedia.org/wiki/Interlinear_gl
 TBD
 -->
 
-## Usage
+## Function Documentation
 
-A more in-depth description of usage. Any template arguments? A complicated example that showcases most if not all of the functions the package provides? This is also an excellent place to signpost the manual.
+
+### `rowtable`
 
 ```typ
-#import "@preview/rowmantic:0.1.0": rowtable, expandcell
+/// Table which takes cell input row-by row
+///
+/// Each row is passed as one markup block (`[...]` syntax) which is split internally on
+/// the separator. Rows that are shorter than the longest row (or the configured `columns`)
+/// will be filled to be the same length as all other rows.
+///
+/// Leading/trailing spaces are removed from each table element in a row.
+/// To preserve such spaces, use `~`.
+///
+/// This function wraps the standard `table` function and passes through all its regular arguments.
+///
+/// Passing `table.cell` outside rows is possible but not recommended. Passing `#table.cell[]`
+/// inside a row, between separators, is supported and can be used with `colspan` > 1.
+///
+/// It is supported to input rows inside `table.header` and `table.footer`.
+///
+/// - args (arguments): Rows like `[A & B & C]` and other positional or named table function parameters.
+///   Arguments to `table` pass through. A `columns` argument to the table is possible but not
+///   mandatory.
+/// - separator (str): configurable cell separator in a row. Good choices are `&`, `,`, or `;`.
+///   Escape the separator using e.g. `\&`
+/// - row-filler (any): object used to fill rows that are too short
+#let rowtable(..args, separator: "&", row-filler: none) = { [...] }
 ```
 
-*To be added*
+### `expandcell`
+
+```typ
+/// An expandcell is a `table.cell` that expands its colspan to available width
+/// The expandcell can be passed alone as a row, or should be placed inside a row markup block.
+///
+/// - args (arguments): table.cell arguments. colspan and rowspan are not permitted.
+/// - body (content): cell body
+#let expandcell(..args, body) = { [...] }
+
+```
+
+### `row-split`
+
+```typ
+/// Take a sequence (content) and split it into an array by the given separator.
+/// It's split only shallowly, not deeply; the separators must exist in the uppermost sequence's
+/// content.
+///
+/// - it (content): text or sequence or other content
+/// - sep (str): separator
+/// - strip-space (bool): Remove leading/trailing spaces from split sequences
+/// -> array
+#let row-split(it, sep: "&", strip-space: true) = { [...] }
+```
 
 
 ## License
