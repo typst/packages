@@ -75,10 +75,18 @@
           subtitle = self.info.short-subtitle
         }
 
+        let first-col-width = auto
+        let second-col-width = 75%
+        if self.info.logo.func() == image {
+          first-col-width = 19%
+          second-col-width = 71.5%
+        }
+
         grid(
-          columns: (19%, 70%, 10%),
+          columns: (first-col-width, second-col-width, 8.5%),
           rows: 0.5em,
-          cell(box(self.info.logo, height: 100%, fill: none)),
+          stroke: (x: 1pt + self.colors.black),
+          cell(box(self.info.logo, height: 100%)),
           cell(
             box(
               width: 100%,
