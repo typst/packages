@@ -5,6 +5,7 @@
   depth: 3,
   title: "目　　录",
   outlined: false,
+  font: "SimSun",
   title-vspace: 25pt,
   title-text-args: auto,
   reference-font: auto,
@@ -59,7 +60,7 @@
         none,
         {
           text(
-            font: ("Times New Roman", "SimSun"),
+            font: ("Times New Roman", font),
             size: zh(-4),
             {
               if entry.prefix() not in (none, []) {

@@ -7,6 +7,7 @@
   twoside: false,
   leading: 1.5 * 15.6pt - 0.7em,
   spacing: 1.5 * 15.6pt - 0.7em,
+  font: "SimSun",
   justify: true,
   text-args: auto,
   heading-font: auto,
@@ -21,7 +22,7 @@
     "{1}.{2}.{3}.{4}.{5}.{6} ",
   ),
   heading-weight: ("regular",),
-  heading-above: (2 * 15.6pt - 0.7em, 2 * 15.6pt - 0.7em),
+  heading-above: (2 * 15.6pt - 0.7em, 1.5 * 15.6pt - 0.7em),
   heading-below: (2 * 15.6pt - 0.7em, 1.5 * 15.6pt - 0.7em),
   heading-pagebreak: (true, false),
   heading-size: (zh(-3), zh(4), zh(-4)),
@@ -61,7 +62,7 @@
 
   // 字体
   if text-args == auto {
-    text-args = (font: ("Times New Roman", "SimSun"), size: zh(-4))
+    text-args = (font: ("Times New Roman", font), size: zh(-4))
   }
   if heading-font == auto {
     heading-font = (("Times New Roman", "SimHei"),)
@@ -108,7 +109,7 @@
   show raw.where(block: true): set par(leading: 0.55em)
 
   // 脚注样式
-  show footnote.entry: set text(font: ("Times New Roman", "SimSun"), size: zh(5))
+  show footnote.entry: set text(font: ("Times New Roman", font), size: zh(5))
 
   // figure 编号
   show heading: i-figured.reset-counters

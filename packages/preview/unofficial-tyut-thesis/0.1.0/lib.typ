@@ -16,6 +16,8 @@
   twoside: false,
   anonymous: false,
   bibliography: none,
+  font: "SimSun",
+  reference-font: ("Times New Roman", "SimSun"),
 ) = {
   return (
     doc: (..args) => {
@@ -40,6 +42,7 @@
     abstract: (..args) => abstract(
       twoside: twoside,
       info: info,
+      font: font,
       ..args,
     ),
     abstract-en: (..args) => abstract-en(
@@ -53,10 +56,12 @@
     ),
     outline-page: (..args) => outline-page(
       twoside: twoside,
+      font: font,
       ..args,
     ),
     mainmatter: (..args) => mainmatter(
       twoside: twoside,
+      font: font,
       ..args,
     ),
     gloss: gloss,
@@ -64,6 +69,7 @@
     bilingual-bibliography: (..args) => {
       bilingual-bibliography(
         bibliography: bibliography,
+        font: reference-font,
         ..args,
       )
     },
@@ -71,11 +77,13 @@
       acknowledgement(
         anonymous: anonymous,
         twoside: twoside,
+        font: font,
         ..args,
       )
     },
     appendix: (..args) => {
-      appendix(..args)
+      appendix(
+        ..args)
     },
     twoside: twoside,
   )

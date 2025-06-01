@@ -7,6 +7,7 @@
   // 其他参数
   title: "致　　谢",
   outlined: true,
+  font: "SimSun",
   body,
 ) = {
   if not anonymous {
@@ -20,7 +21,7 @@
         #title
       ]
 
-      #set text(size: zh(5), font: ("Times New Roman", "SimSun"))
+      #set text(size: zh(5), font: ("Times New Roman", font))
       #body
     ]
   }

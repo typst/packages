@@ -4,6 +4,7 @@
   bibliography: none,
   title: "参考文献",
   full: false,
+  font: ("Times New Roman", "SimSun"),
   style: "gb-7714-2015-numeric",
   mapping: (:),
   extra-comma-before-et-al-trans: false,
@@ -142,7 +143,7 @@
     }
   }
 
-  set text(lang: "zh")
+  set text(lang: "zh", font: font)
   bibliography(
     title: title,
     full: full,
