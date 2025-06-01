@@ -58,24 +58,3 @@ The `abbreviations` submodule provides `leipzig`-style abbreviation commands. Th
 Customization is done via the global show rule: `#show eggs.with()`.
 
 See [documentation.pdf](https://github.com/retroflexivity/typst-eggs/blob/main/documentation.pdf) for more info.
-
-## Contributing
-
-Please submit an issue for any bug you find and any suggestion you have.
-
-Contributions are much welcome, too.
-
-TODO:
-- Automatic numbering in footnotes;
-- Smarter gloss line styling;
-- Figure out how to modify spacing between examples specifically;
-- `\trailingcitation`.
-
-## License
-
-MIT License.
-
-## Special thanks
-
-- [Thumus](https://github.com/Thumuss), [bluss](https://github.com/bluss), and especially [Laurenz](https://github.com/laurmaedje) for an important discussion on row splitting functionality.
-- [Greg Shuflin](https://github.com/neunenak) and contributors for creating the original leipzig-glossing.
