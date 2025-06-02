@@ -6,7 +6,7 @@ Draw Nassi-Shneiderman diagrams, also called structograms, in Typst.
 
 Import with:
 ```typ
-#import "@preview/structogrammer:0.1.1": structogram
+#import "@preview/structogrammer:0.1.2": structogram
 ```
 
 You can then draw structograms, like so:
