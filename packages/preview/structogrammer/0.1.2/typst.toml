@@ -2,7 +2,8 @@
 name = "structogrammer"
 description = "Draw Nassi-Shneiderman diagrams (or structograms)"
 version = "0.1.2"
+license = "MIT"
 entrypoint = "main.typ"
 authors = ["Charlotte <https://cza.li>"]
 repository = "https://gitlab.com/czarlie/structogrammer"
-disciplines = ["conputer-science"]
+disciplines = ["computer-science"]
