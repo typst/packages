@@ -24,7 +24,6 @@ and then, the functions are automatically available.
 ]
 ```
 Results in 
-![image](https://github.com/user-attachments/assets/04cfc447-12e3-4f06-95c3-a419d71593ad)
 
 ### CeTZ, Equation, Pinit, and Fletcher Support
 Please look at the examples in [demo](https://github.com/pacaunt/typst-presentate/blob/main/examples/demo.pdf).
