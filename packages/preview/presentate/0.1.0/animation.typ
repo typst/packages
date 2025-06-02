@@ -3,9 +3,9 @@
 #import "freeze_counters.typ": default-frozen-counters
 
 
-// animations
 #let sequence = [].func()
 #let style = [#set text(fill: red)].func()
+
 // update marker
 #let update-pause(s) = {
   s.pause += 1
@@ -18,6 +18,8 @@
   return s
 }
 
+// Ideas from Touying. Metadatas are in the form
+// `metadata((kind: .., value: ..))`
 #let is-kind(it, kind) = {
   if it.func() == metadata and type(it.value) == dictionary and "kind" in it.value.keys() {
     it.value.kind == store.prefix + kind
@@ -74,20 +76,23 @@
   update-pause: true,
   marker: auto,
   reserve-space: true,
+  combine: (it, mark) => it + mark,
 ) = {
   let n = store.subslides.get()
   hider = if not reserve-space { clear } else if reserve-space {
     cover
   }
-  if store.subslides.get() == store.dynamics.get().pause {
+  let output = if store.subslides.get() == store.dynamics.get().pause {
     body
   } else {
     hider(body)
   }
-  //marker = get-option-if-auto(marker, "marker")
-  if update-pause {
+
+  let mark = if update-pause {
     marker(pause)
   }
+
+  combine(output, mark)
 }
 
 #let step-transform(
@@ -99,6 +104,7 @@
   marker: it => it,
   reserve-space: true,
   align: center,
+  combine: (it, mark) => it + mark,
 ) = {
   let n = store.subslides.get()
   let start-idx = if start == auto { store.dynamics.get().pause } else if type(start) == int {
@@ -117,7 +123,7 @@
   } else { it => it }
 
   // for space reservation, not wobbling around.
-  wrapper(for (i, body) in bodies.enumerate() {
+  let output = wrapper(for (i, body) in bodies.enumerate() {
     let curr-idx = start-idx + i + 1
     if (
       curr-idx == n
@@ -127,7 +133,7 @@
           false
         }
     ) {
-      body
+      bodyI
     } else {
       hider(body)
     }
@@ -153,14 +159,16 @@
     }
   }
 
-  marker(store.dynamics.update(updater))
+  let mark = marker(store.dynamics.update(updater))
+
+  combine(output, mark)
 }
 
 #let animate(cover: hide, clear: it => none, marker: it => it, combine: (it, mark) => it + mark) = (
   only: only.with(hider: clear, marker: marker, combine: combine),
   uncover: uncover.with(hider: cover, marker: marker, combine: combine),
-  // blink: blink.with(cover: cover, clear: clear, marker: marker),
-  // step-transform: step-transform.with(hider: clear, marker: marker),
+  blink: blink.with(cover: cover, clear: clear, marker: marker, combine: combine),
+  step-transform: step-transform.with(hider: clear, marker: marker, combine: combine),
 )
 
 // Ideas from Touying.
@@ -200,6 +208,7 @@
   }
 }
 
+// Convert the element into metadata, and reconstruct it once the context is known.
 #let reducer(func: it => it, cover: hide, ..args) = {
   let kwargs = args.named()
   let args = args.pos()

@@ -21,6 +21,8 @@
 
   {
     set heading(outlined: i == 1)
+
+    // applying updates to pause/meanwhile/reducer.
     show metadata: it => {
       if is-kind(it, "pause") {
         store.pauses(i).update(n => n + 1)
@@ -70,7 +72,6 @@
 }
 
 #let slide(body, steps: auto, logical-slide: true) = {
-  // Index Metadata for pdfpc
   show: it => (
     context {
       if store.settings.get().freeze-counter {
@@ -82,15 +83,16 @@
     }
   )
 
-  // Put the first slide for steps data. Steps to tell if it is the last subslide.
+  // Put the first slide for steps data. 
   subslide(1, body, logical-slide: logical-slide)
 
-  context {
+  context if not store.settings.get().handout {
     let steps = if steps != auto {
       steps
     } else {
       store.dynamics.get().steps
     }
+    // marks here because now we know the current number of steps.
     freeze-counter-marker(1, steps)
     pagebreak(weak: true)
     if not store.settings.get().handout {

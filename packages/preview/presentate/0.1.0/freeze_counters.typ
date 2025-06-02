@@ -2,7 +2,7 @@
 #import "store.typ" as store: default-frozen-counters
 
 
-
+// put `alias-counter.step()` after each specified elements.
 #let apply-cover-counters(cont, covering: default-frozen-counters) = {
   let is-numbering(element) = element.at("numbering") != none
 
@@ -45,6 +45,7 @@
   cont
 }
 
+// Rewind the counter values by subtracting the current counter number by its alias counter.
 #let freeze-counter-marker(
   i,
   steps,
@@ -67,7 +68,7 @@
     .zip(cover-counter-values) {
     real.update((..n) => {
       utils.subtract-array(n.pos().map(it => it), cover).map(it => {
-        it //if it < 0 { it + 999 } else { it } // for debugging
+        it 
       })
     })
   }
