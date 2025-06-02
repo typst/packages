@@ -43,12 +43,14 @@
         it
       }
     }
-    // Force generation of `sequence`
-    show text: it => it + []
-    show block: it => it + []
-    show box: it => it + []
 
-    show sequence: reconstruct-sequence.with(i)
+    show text: paused-content.with(i)
+    show block: paused-content.with(i)
+    show box: paused-content.with(i)
+    show math.equation: it => {
+      show sequence: reconstruct-sequence.with(i)
+      it + []
+    }
 
     body
   }
@@ -75,7 +77,10 @@
   show: it => (
     context {
       if store.settings.get().freeze-counter {
-        show: apply-cover-counters.with(covering: store.settings.get().frozen-counters)
+        show: apply-cover-counters.with(covering: store
+          .settings
+          .get()
+          .frozen-counters)
         it
       } else {
         it
@@ -83,7 +88,7 @@
     }
   )
 
-  // Put the first slide for steps data. 
+  // Put the first slide for steps data.
   subslide(1, body, logical-slide: logical-slide)
 
   context if not store.settings.get().handout {
