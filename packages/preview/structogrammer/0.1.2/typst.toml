@@ -7,3 +7,4 @@ entrypoint = "main.typ"
 authors = ["Charlotte <https://cza.li>"]
 repository = "https://gitlab.com/czarlie/structogrammer"
 disciplines = ["computer-science"]
+keywords = ["struktogramm", "diagramm"]
