@@ -11,6 +11,6 @@ description = "You can set up style templates for writing reports, papers, and s
 keywords = [ "Japanese", "article", "slide", "cjk-latin-spacing", "cal", "scr" ]
 
 [template]
-path = "template
+path = "template"
 entrypoint = "document.typ"
 thumbnail = "images/document.png"
