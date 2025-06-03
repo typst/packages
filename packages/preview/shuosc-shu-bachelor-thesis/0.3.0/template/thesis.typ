@@ -1,5 +1,5 @@
 #import "@preview/shuosc-shu-bachelor-thesis:0.3.0": documentclass, algox, tablex, citex, imagex, subimagex
-  
+   
 #let (
   info,
   doc,
