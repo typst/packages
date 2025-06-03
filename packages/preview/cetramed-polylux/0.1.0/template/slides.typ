@@ -1,5 +1,5 @@
 #import "@preview/polylux:0.4.0": *
-#import "@local/cetramed-polylux:0.1.0" as cetramed
+#import "@preview/cetramed-polylux:0.1.0" as cetramed
 
 #show: cetramed.setup
 
