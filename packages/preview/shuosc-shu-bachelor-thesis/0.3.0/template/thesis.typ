@@ -424,7 +424,7 @@ Fletcher是基于#link("https://typst.app/universe/package/cetz", underline([CeT
 
 #import "figures/cetz_graph.typ"
 #imagex(
-  cetz.camera_model(70%),
+  cetz_graph.camera_model(70%),
   caption: [相机针孔成像模型],
   label-name: "camera_model",
 )
