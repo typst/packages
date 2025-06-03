@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.3.3": canvas, draw
+#import "@preview/cetz:0.3.4": canvas, draw
 
 #let camera_model(size) = {
   set text(1em * size)
