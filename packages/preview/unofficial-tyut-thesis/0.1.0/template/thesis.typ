@@ -21,6 +21,7 @@
   info: (
     title: ("基于 Typst 的太原理工大学论文模板", "——非官方版本"),
     title-en: " A Typst Template for TYUT Thesis - Unofficial Edition",
+    session: "20XX",
     author: "爱因斯坦",
     student-id: "11001101010086",
     department: "XX学院",
@@ -179,7 +180,7 @@
   caption: [多图示例],
 ) <multiple-figures>
 
-@fig:multiple-figures 是一个多图示范的例子。
+@fig:multiple-figures 是一个多子图的例子。
 
 == 引用
 
@@ -192,7 +193,7 @@
 
 我们可以利用求根公式来得到一般形式的一元二次方程：$a x^2 + b x + c = 0$ 的解，其具体内容为（如果不希望公式后边段落有缩进，可以加入 `box`）：
 #box[$ x_(1,2) = (-b plus.minus sqrt(b^2 - 4 a c)) / (2 a), $ <root-finder>]
-其中，$a$，$b$和$c$为原始方程的系数。根据@eqt:root-finder, 可以看到，每个一元二次方程，都有两个解，不过有时候两个根可能相等，有时候可能会出现复数根。
+其中，$a, b$ 和 $c$ 为原始方程的系数。根据@eqt:root-finder, 可以看到，每个一元二次方程，都有两个根，不过有时候两个根可能相等，有时候可能会出现复数根。
 
 根据相关公式，我们可以得到 $e^x$ 的泰勒展示：
 

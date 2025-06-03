@@ -27,8 +27,8 @@
   heading-pagebreak: (true, false),
   heading-size: (zh(-3), zh(4), zh(-4)),
   heading-align: (center, auto),
-  show-figure: i-figured.show-figure.with(numbering: "1-1"),
-  show-equation: i-figured.show-equation.with(numbering: "(1-1)"),
+  show-figure: i-figured.show-figure,
+  show-equation: i-figured.show-equation,
   caption-style: none,
   caption-size: zh(5),
   separator: "  ",
@@ -114,7 +114,7 @@
   // figure 编号
   show heading: i-figured.reset-counters
   show heading: i-figured.reset-counters.with(extra-kinds: ("algo",))
-  show figure: i-figured.show-figure.with(extra-prefixes: (algo: "alg:"))
+  show figure: show-figure.with(extra-prefixes: (algo:"alg:"))
 
   // 公式编号
   show math.equation.where(block: true): show-equation
