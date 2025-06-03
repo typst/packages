@@ -1,0 +1,22 @@
+[package]
+name = "bob-draw"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Luca Ciucci"]
+license = "MIT"
+description = "svgbob for typst, powered by wasm"
+compiler = "0.9.0"
+
+homepage = "https://github.com/LucaCiucci/bob-typ"
+repository = "https://github.com/LucaCiucci/bob-typ"
+categories = [ "visualization" ]
+keywords = [
+    "wasm",
+    "rust",
+    "svgbob",
+    "bob",
+    "diagram",
+    "graph",
+    "draw",
+]
+exclude = ["examples"]
