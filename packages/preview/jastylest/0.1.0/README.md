@@ -63,5 +63,5 @@ authors = ["raygo"]
 
 ## サンプル
 
-- ドキュメントを作成したい場合は，document.typを参考にしてください．
-- スライドを作成したい場合は，slide.typを参考にしてください．
+- ドキュメントを作成したい場合は，[document.typ](./template/document.typ)を参考にしてください．
+- スライドを作成したい場合は，[slide.typ](./template/slide.typ)を参考にしてください．

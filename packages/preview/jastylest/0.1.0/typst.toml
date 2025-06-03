@@ -9,4 +9,8 @@ categories = [ "report", "paper", "presentation" ]
 license = "MIT-0"
 description = "You can set up style templates for writing reports, papers, and slides in Japanese. It works similarly to LaTeX."
 keywords = [ "Japanese", "article", "slide", "cjk-latin-spacing", "cal", "scr" ]
-exclude = ["/template/*"]
+
+[template]
+path = "template
+entrypoint = "document.typ"
+thumbnail = "images/document.png"
