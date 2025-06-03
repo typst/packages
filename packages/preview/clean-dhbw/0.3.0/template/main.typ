@@ -1,4 +1,4 @@
-//#import "@preview/clean-dhbw:0.3.0": *
+#import "@preview/clean-dhbw:0.3.0": *
 #import "glossary.typ": glossary-entries
 
 #show: clean-dhbw.with(
