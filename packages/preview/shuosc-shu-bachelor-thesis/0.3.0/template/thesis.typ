@@ -411,12 +411,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 
 使用#link("https://typst.app/universe/package/fletcher", underline([Fletcher]))可以绘制流程图，点击横线处链接查看使用文档。
 
-#import "figures/fletcher.typ"
-#imagex(
-  fletcher.resnet_block(100%),
-  caption: [残差块],
-  label-name: "residual",
-)
+
 
 == 复杂图形绘制
 
