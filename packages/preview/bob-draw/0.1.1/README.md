@@ -5,7 +5,7 @@ This package provides a typst plugin for rendering [svgbob](https://github.com/i
 
 # Basic example
 ````typ
-#import "@preview/bob-draw:0.1.0": *
+#import "@preview/bob-draw:0.1.1": *
 #render(```
          /\_/\
 bob ->  ( o.o )
@@ -22,7 +22,7 @@ output:
 
 ## Full example
 ````typ
-#import "@preview/bob-draw:0.1.0": *
+#import "@preview/bob-draw:0.1.1": *
 #show raw.where(lang: "bob"): it => render(it)
 
 #let svg = bob2svg("<--->")
