@@ -2,7 +2,7 @@
 /// this file is used to import and config packages
 ///
 
-#import "@preview/uwnibook-color-typ:0.1.0": *
+#import "@preview/uwnibook-color:0.1.0": *
 #import "header_imgs/imgs.typ": imgs
 #import "../documentation/my-preset.typ"
 

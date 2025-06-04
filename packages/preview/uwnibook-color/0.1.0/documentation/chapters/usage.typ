@@ -16,7 +16,7 @@
 君可以 shell 命令復刻簡單範本。
 
 ```sh
-  typst init @preview/uwnibook-color-typ:0.1.0
+  typst init @preview/uwnibook-color:0.1.0
 ```
 
 範本內已有 uwnibook-color 模板之基礎。循理衍其文章，行快而便也。惟範本素而不饰，本冊 @chap:example 各例悉備，可以效也。

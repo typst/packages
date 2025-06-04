@@ -5,7 +5,7 @@ A colorful book template with English, Chinese, Japanese support.
 
 ## Usage
 ```sh
-typst init @preview/uwnibook-color-typ:0.1.0
+typst init @preview/uwnibook-color:0.1.0
 ```
 > [!WARNING]
 > Under active development. use it on your own risk.
