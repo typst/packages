@@ -5,7 +5,7 @@
 
 #import "metadata.typ": tubs-logo, institute-logo, institute-name, institute-prof, author, phone-nr, fax-nr, email, website, institute-address-header, institute-name-en, to-address, date, subject
 
-#import "@preview/simple-tubs-letter:0.1.1": tubs-letter
+#import "@preview/simple-tubs-letter:0.1.2": tubs-letter
 
 #show: tubs-letter.with(
   lang: "en",
