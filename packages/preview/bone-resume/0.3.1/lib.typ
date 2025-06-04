@@ -36,8 +36,7 @@
     )
     v(0.5em, weak: true)
   }
-  show par: set block(spacing: 0.65em)
-  set par(justify: true)
+  set par(spacing: 0.65em, justify: true)
   show-common-state.update(show-common)
   body
 }
