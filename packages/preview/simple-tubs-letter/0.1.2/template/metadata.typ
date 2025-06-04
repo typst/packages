@@ -35,4 +35,3 @@
   Germany]
 #let date = [#datetime.today().display("[day].[month].[year]")]
 #let subject = [This is a very important examplary letter]
-#let font = "Liberation Sans"
