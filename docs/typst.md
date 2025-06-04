@@ -1,7 +1,10 @@
 # Writing high-quality Typst files
 
 No specific code style is mandated, but two spaces of indent and kebab-case for
-variable and function names are recommended.
+variable and function names are recommended. There can be exceptions (for
+instance it can make sense to have a variable called `Alpha` and not `alpha`)
+and if you have a strong preference for camelCase or snake_case, it can be
+accepted.
 
 ## Use package specifications in imports
 
