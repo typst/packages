@@ -6,18 +6,21 @@
   header: none,
   footer: none,
   show-common: true,
-  size:11pt, 
+  size: 11pt,
   body,
 ) = {
   set document(author: author)
   set page(margin: (x: 3.2em, y: 3.2em), header: header, footer: footer)
   set list(marker: [‣])
-  set text(size:size, font: ("Source Han Sans"), lang: "zh")
-  show emph: set text(font: ("Times New Roman", "LXGW WenKai GB"), style: "italic")
-  show raw: set text(font: ("Hack Nerd Font"))
+  set text(size: size, font: "Source Han Sans", lang: "zh")
+  show emph: set text(
+    font: ("Times New Roman", "LXGW WenKai GB"),
+    style: "italic",
+  )
+  show raw: set text(font: "Hack Nerd Font")
   show link: set text(fill: blue, weight: "bold")
   show heading.where(level: 1): it => {
-    set text(rgb("#448"), font: ("LXGW WenKai GB"))
+    set text(rgb("#448"), font: "LXGW WenKai GB")
     v(1em, weak: true)
     stack(
       dir: ttb,
@@ -29,8 +32,7 @@
     )
     v(0.5em, weak: true)
   }
-  show par: set block(spacing: 0.65em)
-  set par(justify: true)
+  set par(spacing: 0.65em, justify: true)
   show-common-state.update(show-common)
   body
 }
