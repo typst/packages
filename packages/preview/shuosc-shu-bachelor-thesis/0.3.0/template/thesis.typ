@@ -54,8 +54,8 @@
 
 // 显示声明
 #declare(
-  author_sign: image("figures/sign.png"), // 学生签名
-  supervisor_sign: image("figures/sign.png"), // 教师签名
+  author-sign: image("figures/sign.png"), // 学生签名
+  supervisor-sign: image("figures/sign.png"), // 教师签名
   date: none, // 日期为空则默认为当天
 )
 
