@@ -27,23 +27,22 @@
   )
 
   set par(first-line-indent: 0pt, leading: 1em, spacing: 1em)
-  set text(13.75pt, weight: 450, font: config._serif_font, lang: config._lang)
+  set text(config._main_size, weight: 450, font: config._serif_font, lang: config._lang)
 
-  let large = text.with(config._title_size)
-  let title_text = text.with(22pt, font: config._title_font, weight: 600)
+  let title_text = text.with(config._title_size, font: config._title_font, weight: 600)
   set align(horizon)
   show: move.with(dx: config._page_margin_note_width)
   block[
     #set align(left)
     #title_text(title.at(config._lang))
     #v(2em)
-    #large[◎ #author.at(config._lang)]
+    ◎ #author.at(config._lang)
     #v(0.5em)
     #if affiliation != none {
-      large(affiliation)
+      affiliation
       v(0.5em)
     }
-    #if date != none { large(date.display(config._date_format)) }
+    #if date != none { date.display(config._date_format) }
   ]
 
   if draft {

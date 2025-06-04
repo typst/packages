@@ -17,7 +17,7 @@
   counter(figure.where(kind: image)).update(0)
   counter(figure.where(kind: raw)).update(0)
   _reset_env_counting()
-  justify_page()
+  justify-page()
 }
 
 #let preamble(body) = {
@@ -46,8 +46,8 @@
   author,
   date,
   draft,
-  two_sided,
-  chap_imgs,
+  two-sided,
+  chap-imgs,
   body,
 ) = {
   ///utilities
@@ -69,7 +69,7 @@
   set document(title: title.at(config._lang), author: author_en, date: date)
   let marginaliaconfig = (
     .._page_geo(config),
-    book: two_sided,
+    book: two-sided,
     numbering: note-numbering.with(config),
   )
 
@@ -219,7 +219,7 @@
 
   set bibliography(title: config.i18n.bibliography) if "i18n" in config and "bibliography" in config.i18n
   show bibliography: it => {
-    justify_page()
+    justify-page()
     it
   }
 
@@ -259,14 +259,14 @@
   columns(2, [#outline(..args, title: none)#v(1pt)])
 }
 
-#let mainbody(config, body, two_sided, chap_imgs) = {
+#let mainbody(config, body, two-sided, chap-imgs) = {
   // make sure the page is start at right
-  justify_page()
+  justify-page()
   let sans = text.with(font: config._sans_font)
 
   let marginaliaconfig = (
     .._page_geo(config),
-    book: two_sided,
+    book: two-sided,
   )
 
   marginalia.configure(..marginaliaconfig)
@@ -279,7 +279,7 @@
       place(
         top + center,
         block(
-          chap_imgs.at(counter(heading).get().at(0)),
+          chap-imgs.at(counter(heading).get().at(0)),
           clip: true,
           width: 100%,
           height: config._chap_top_margin,
@@ -376,7 +376,7 @@
 
 // TODO: specify the appendix heading
 #let appendix(config, body) = {
-  justify_page()
+  justify-page()
 
   context {
     let offset = counter(heading).get().first()
@@ -413,7 +413,7 @@
 }
 
 #let make-index(config, group: "default", indent: 1em, separator: [, ], columns: 3) = {
-  justify_page()
+  justify-page()
   set page(
     margin: (top: config._page_top_margin, x: config._page_margin + config._page_margin_sep),
     header: none,

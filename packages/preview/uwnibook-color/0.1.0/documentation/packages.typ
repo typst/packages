@@ -24,12 +24,12 @@
   notefigure,
   wideblock,
   subheading,
-) = config_uwni(
+) = config-uwni(
   // ["en"|"ja"]
   preset: my-preset,
   title: (
     lzh: [
-      樣本
+      uwnibook Color 樣本
     ],
   ),
   // author information
@@ -39,10 +39,8 @@
   // set to true to enable draft watermark, so that you can prevent from submitting a draft version
   draft: false,
   // set to true to enable two-sided layout
-  two_sided: true,
+  two-sided: true,
   // "modern"|"classic"
-  title_style: "book",
-  chap_imgs: imgs,
+  title-style: "book",
+  chap-imgs: imgs,
 )
-
-#import "@preview/equate:0.3.0"

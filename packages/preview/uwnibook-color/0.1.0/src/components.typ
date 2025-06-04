@@ -110,7 +110,7 @@
 }
 
 /// todo: fancy pattern
-#let justify_page() = {
+#let justify-page() = {
   set page(header: none, footer: none)
   pagebreak(to: "odd", weak: true)
 }
@@ -212,7 +212,7 @@
     columns: 2,
     column-gutter: 10pt,
     block(
-      fill:config._color_palette.accent,
+      fill: config._color_palette.accent,
       inset: (x: 10pt),
       outset: (top: config._chap_top_margin + heading_size, bottom: 10pt),
       default_num,
@@ -229,7 +229,7 @@
   set text(size: heading_size, .._heading_text_style(config))
   show text: upper
   v(-config._page_top_margin)
-  block(fill:config._color_palette.accent, height: config._page_top_margin, spacing: heading_size, hide(it.body))
+  block(fill: config._color_palette.accent, height: config._page_top_margin, spacing: heading_size, hide(it.body))
   it.body
   v(lineskip)
 }
@@ -245,7 +245,7 @@
   let prefix = text(prefix_size, config.i18n.appendix + h(.5em) + counter(heading).display(it.numbering))
   v(-config._page_top_margin)
   block(
-    fill:config._color_palette.accent,
+    fill: config._color_palette.accent,
     height: config._page_top_margin,
     spacing: heading_size,
     inset: (x: 10pt),

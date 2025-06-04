@@ -3,7 +3,7 @@
 
 // re-export the following modules
 
-#let config_uwni(
+#let config-uwni(
   /// lzh: 文言
   /// zh: 標準漢語
   /// en: English
@@ -14,9 +14,9 @@
   affiliation: "[Department]",
   date: datetime.today(),
   draft: false,
-  two_sided: false,
-  title_style: "[title_style]",
-  chap_imgs: (),
+  two-sided: false,
+  title-style: "[title-style]",
+  chap-imgs: (),
 ) = {
   import "src/components.typ": heavyrule, midrule
   import "src/template.typ": template, appendix, subheading, _outline, make-index, mainbody
@@ -43,12 +43,12 @@
       author,
       date,
       draft,
-      two_sided,
-      chap_imgs,
+      two-sided,
+      chap-imgs,
     ),
     titlepage: titlepage(
       preset,
-      style: title_style,
+      style: title-style,
       title,
       author,
       affiliation,
@@ -56,7 +56,7 @@
       draft,
     ),
     appendix: appendix.with(preset),
-    mainbody: body => mainbody(preset, body, two_sided, chap_imgs),
+    mainbody: body => mainbody(preset, body, two-sided, chap-imgs),
     subheading: subheading.with(preset),
     outline: _outline.with(preset),
     proposition: _proposition.with(preset),
@@ -76,4 +76,4 @@
 #import "src/index.typ": index
 #import "src/template.typ": preamble, asterism
 #import "src/environments.typ": multi-row
-#import "src/components.typ": justify_page
+#import "src/components.typ": justify-page

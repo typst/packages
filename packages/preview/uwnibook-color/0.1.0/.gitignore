@@ -8,7 +8,7 @@ ehthumbs.db
 Thumbs.db
 
 # PDF files
-*.pdf
+# *.pdf
 
 # Typst cache
 .typst-cache/

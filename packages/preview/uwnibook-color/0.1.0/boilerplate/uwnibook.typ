@@ -4,7 +4,6 @@
 
 #import "@preview/uwnibook-color:0.1.0": *
 #import "header_imgs/imgs.typ": imgs
-#import "../documentation/my-preset.typ"
 
 #let (
   template,
@@ -23,7 +22,7 @@
   notefigure,
   wideblock,
   subheading,
-) = config_uwni(
+) = config-uwni(
   /// ["en"|"zh"|"lzh"]
   preset: "zh",
   title: (
@@ -43,8 +42,8 @@
   // set to true to enable draft watermark, so that you can prevent from submitting a draft version
   draft: false,
   // set to true to enable two-sided layout
-  two_sided: true,
+  two-sided: true,
   // "modern"|"classic"
-  title_style: "book",
-  chap_imgs: imgs,
+  title-style: "book",
+  chap-imgs: imgs,
 )
