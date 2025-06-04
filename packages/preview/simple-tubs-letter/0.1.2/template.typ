@@ -19,7 +19,7 @@
   body,
   our-ref: none,
   your-ref: none,
-  font: "Liberation Sans",
+  font: ("NexusSerifPro", "Liberation Sans", "Arial"),
 ) = {
   set document(title: [#subject], author: author)
   set text(font: font, lang: lang)
