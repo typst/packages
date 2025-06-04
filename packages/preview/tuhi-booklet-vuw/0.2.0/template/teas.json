@@ -1,0 +1,198 @@
+{
+  "teas101": [
+    {
+      "course": "teas101",
+      "level": "1",
+      "year": "2024",
+      "crn": ["45001"],
+      "title": "Introduction to Tea Appreciation",
+      "points": "15",
+      "trimester": ["1"],
+      "prerequisites": "A love for hot beverages and a willingness to sip with sophistication.",
+      "restrictions": "Coffee enthusiasts may experience FOMO (Fear of Missing Out).",
+      "description": "TEAS 101 is designed for students who want a university-level introduction to the world of tea. Topics covered include the history of tea, different types of tea (black, green, yellow, oolong, and pu'er), and the fine art of tea brewing. Students will learn to distinguish between 'a good cuppa' and 'leaf juice'. Assignments will include tasting sessions and creating your own blend, with a strong emphasis on pinky finger elevation while sipping."
+    }
+  ],
+  "teas102": [
+    {
+      "course": "teas102",
+      "level": "1",
+      "year": "2024",
+      "crn": ["1791", "11333", "4442"],
+      "title": "Herbal Tea and Wellness",
+      "points": "15",
+      "trimester": ["2","2","3"],
+      "prerequisites": "None, but an affinity for natural remedies is a plus.",
+      "restrictions": "Those allergic to peppermint may discuss alternatives with the HoS.",
+      "description": "TEAS 103 introduces students to the soothing world of herbal teas. Topics include the health benefits of chamomile, peppermint, and ginger teas, as well as how to craft your own herbal infusions. Students will participate in 'herbal hunts' to gather ingredients and will learn the secret recipe for 'Sleepy Time Potion' – guaranteed to make even the most restless insomniac doze off. The course culminates in a 'Wellness Tea Fair' where students showcase their own herbal blends."
+    }
+  ],
+  "teas103": [
+    {
+      "course": "teas103",
+      "level": "1",
+      "year": "2024",
+      "crn": ["45005"],
+      "title": "Introduction to Gong Fu Tea",
+      "points": "15",
+      "trimester": ["1"],
+      "prerequisites": "None, but an appreciation for tea culture is recommended.",
+      "restrictions": "Cannot run out of steam.",
+      "description": "TEAS 103 introduces students to the art of Gong Fu tea. Topics include the history of Cha, the importance of mindfulness in tea preparation, and an overview of essential tea utensils. Students will contrast the practice of using gaiwans and yixing teapots, mastering the delicate balance of minerality, aromatics, astringency in the brewing process. The course culminates in a 'High Tea' session where students compete in categories like 'Most Graceful Pour' and 'Best Aroma Appreciation Slurp.'"
+    }
+  ],
+  "teas202": [
+    {
+      "course": "teas202",
+      "level": "2",
+      "year": "2024",
+      "crn": ["45002"],
+      "title": "Advanced Tea Blending",
+      "points": "15",
+      "trimester": ["2"],
+      "prerequisites": "TEAS 101 or a demonstrated ability to take tea without sugar or milk.",
+      "restrictions": "Teabag enthusiasts may find this course challenging.",
+      "description": "TEAS 202 delves deeper into the science and artistry of blending teas. Students will explore advanced techniques in combining different tea leaves, herbs, and spices to create harmonious and unique blends. The course includes field trips to tea plantations, where students will practice 'the tea leaf shuffle' – a dance believed to bring good luck to the harvest. Final projects involve creating a blend that pairs perfectly with sweet or savoury snacks."
+    }
+  ],
+  "teas202": [
+    {
+      "course": "teas202",
+      "level": "2",
+      "year": "2024",
+      "crn": ["45006"],
+      "title": "Advanced Gong Fu Techniques",
+      "points": "15",
+      "trimester": ["2"],
+      "prerequisites": "TEAS 103 and a steady hand.",
+      "restrictions": "Teaware with capacity greater than 200 mL",
+      "description": "TEAS 204 takes students deeper into the nuances of Gong Fu tea preparation. Focus areas include mastering the use of the gong dao bei (fairness pitcher) and cha ze (tea scoop), as well as perfecting the art of multiple infusions. Students will explore the subtle differences between Dan Cong and Pu'er teas, and learn to adjust brewing techniques accordingly. The course includes a field trip to a farm in Yunnan, where students will pick their own leaves and attempt to replicate the farm's signature brew back in the lab."
+    }
+  ],
+  "teas204": [
+    {
+      "course": "teas204",
+      "level": "2",
+      "year": "2024",
+      "crn": ["45006"],
+      "title": "Tea and Literature",
+      "points": "15",
+      "trimester": ["1"],
+      "prerequisites": "TEAS 101 and a love for reading while sipping tea.",
+      "restrictions": "None, but a distaste for Earl Grey may affect enjoyment of some readings.",
+      "description": "TEAS 204 explores the role of tea in classic and contemporary literature. Students will analyze tea scenes in novels, poems, and plays, and discuss how tea has influenced literary culture. The course includes 'Tea and Book Club' sessions where students pair different teas with their favorite books. Highlights include a dramatic reading of 'Alice in Wonderland' with a tea party reenactment and a special lecture on 'The Mystery of the Missing Tea Cup' in Agatha Christie's novels."
+    }
+  ],
+  "teas301": [
+    {
+      "course": "teas301",
+      "level": "3",
+      "year": "2024",
+      "crn": ["45003"],
+      "title": "Tea and Culture: A Global Perspective",
+      "points": "15",
+      "trimester": ["1"],
+      "prerequisites": "TEAS 202 and a passport ready for tea world travel.",
+      "restrictions": "Participants must not have any strong aversions to unglazed clay.",
+      "description": "TEAS 301 explores the cultural significance of tea around the world. From the Japanese tea ceremony to Russian afternoon tea, students will learn how different cultures have embraced this beloved beverage. Special emphasis will be placed on the ancient art of reading tea leaves, and watching water boil. The course includes daily physical exercises with clay and cast iron kettles.'"
+    }
+  ],
+  "teas302": [
+    {
+      "course": "teas302",
+      "level": "3",
+      "year": "2024",
+      "crn": ["45007"],
+      "title": "How to Train you Tea Pet",
+      "points": "15",
+      "trimester": ["1"],
+      "prerequisites": "TEAS 204 and a sense of familiarity with inanimate objects.",
+      "restrictions": "Students must provide their own familiar/gargoyle.",
+      "description": "TEAS 305 delves into the whimsical world of tea pets and their role in Gong Fu tea ceremonies. Students will learn the history and symbolism of tea pets, and how to properly 'train' them through repeated tea pouring. The course includes creative assignments like crafting personalized bedtime stories for their tea pets and participating in a 'Tea Pet Show and Tell.' Additionally, students will study the cultural significance of Gong Fu Cha, exploring how it reflects and shapes social interactions and personal mindfulness."
+    }
+  ],
+  "teas305": [
+    {
+      "course": "teas305",
+      "level": "3",
+      "year": "2024",
+      "crn": ["45007"],
+      "title": "Tea Etiquette and Diplomacy",
+      "points": "15",
+      "trimester": ["2"],
+      "prerequisites": "TEAS 202.",
+      "restrictions": "Students prone to spilling tea may need extra napkins.",
+      "description": "TEAS 305 delves into the refined world of tea etiquette and its role in diplomacy. Students will learn proper tea-serving techniques, the art of the tea toast, and how to handle delicate teacups without chipping them. The course includes role-playing scenarios where students must navigate complex diplomatic situations over tea. The final exam is a 'Diplomatic Tea Summit' where students must resolve an international crisis brewing in a teacup."
+    }
+  ],
+  "teas401": [
+    {
+      "course": "teas401",
+      "level": "4",
+      "year": "2024",
+      "crn": ["45008"],
+      "title": "Tea Chemistry and Innovations",
+      "points": "15",
+      "trimester": ["1"],
+      "prerequisites": "TEAS 301.",
+      "restrictions": "None",
+      "description": "TEAS 401 is an advanced course that explores the chemistry of tea and modern innovations in tea production. Students will study the chemical compounds responsible for tea's flavour and health benefits, and experiment with new brewing technologies. The course includes lab sessions where students create 'super teas' with enhanced flavors and benefits. Highlights include a visit from a leading tea scientist and a 'Tea Innovation Fair'."
+    }
+  ],
+  "teas402": [
+    {
+      "course": "teas402",
+      "level": "4",
+      "year": "2024",
+      "crn": ["45004"],
+      "title": "Tea Sommelier Training",
+      "points": "15",
+      "trimester": ["2"],
+      "prerequisites": "TEAS 301 or the ability to distinguish Earl Grey from Lady Grey in a blind taste test.",
+      "restrictions": "None.",
+      "description": "TEAS 402 is the pinnacle of tea education, training students for their journey to become professional tea sommeliers. Coursework includes advanced tea tasting techniques, the chemistry of tea, and the art of pairing tea with food. Students will be expected to develop a tea menu for a five-star restaurant and pass a rigorous 'tea sommelier certification exam,' which includes identifying the origin of a tea by smell alone."
+    }
+  ],
+  "teas403": [
+    {
+      "course": "teas403",
+      "level": "4",
+      "year": "2024",
+      "crn": ["45008"],
+      "title": "The Chemistry of Pu'er and Dan Cong Teas",
+      "points": "15",
+      "trimester": ["2"],
+      "prerequisites": "TEAS 305 and a curiosity for the science behind aging.",
+      "restrictions": "None, but students with a fear of aging may find some topics unsettling.",
+      "description": "TEAS 401 offers an in-depth exploration of the chemical processes that give Pu'er and Dan Cong teas their unique characteristics. Students will study the fermentation and aging processes of Pu'er, and the distinctive floral and fruity notes of Dan Cong oolongs. The course includes lab sessions where students will age their own tea samples and conduct taste tests to observe flavor evolution. Guest lectures from renowned tea chemists will provide insights into the latest research and innovations in tea processing."
+    }
+  ],
+  "teas502": [
+    {
+      "course": "teas502",
+      "level": "5",
+      "year": "2024",
+      "crn": ["45009"],
+      "title": "Masterclass in Tea Ceremonies",
+      "points": "15",
+      "trimester": ["2"],
+      "prerequisites": "TEAS 402.",
+      "restrictions": "Students must wear white gloves during ceremonies to avoid fingerprints.",
+      "description": "TEAS 502 offers an in-depth study of traditional tea ceremonies from around the world. Students will master the intricate rituals of Japanese, Chinese, and Morrocan tea ceremonies, learning the significance of each gesture and component. The course includes guest appearances from renowned tea masters and a chance to perform a tea ceremony for visiting dignitaries. The final project is a 'Global Tea Ceremony Showcase' where students demonstrate their proficiency in multiple tea traditions, aiming to achieve the perfect brew every time."
+    }
+  ],
+  "teas504": [
+    {
+      "course": "teas504",
+      "level": "5",
+      "year": "2024",
+      "crn": ["45009"],
+      "title": "Masterclass in Gong Fu Tea Ceremonies",
+      "points": "15",
+      "trimester": ["1"],
+      "prerequisites": "TEAS 502.",
+      "restrictions": "Students must wear traditional tea attire during ceremonies.",
+      "description": "TEAS 504 is a masterclass dedicated to perfecting the Gong Fu tea ceremony. Students will refine their skills in using yixing teapots and other utensils with precision and grace. The course covers advanced pouring techniques, the choreography of tea ceremonies, and the subtle art of creating the perfect tea environment. The final project is a 'Gong Fu Tea Showcase,' where students will perform a full tea ceremony for an audience, demonstrating their mastery of both technical skills and the cultural essence of Gong Fu Cha."
+    }
+  ]
+}
