@@ -42,7 +42,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 0.3.4
 
-- Added an `alt` parameter to the `render` and `raw-render` functions to specify an alternative text for the image.
+- Added an `alt` parameter to the `render` and `raw-render` functions to specify an alternative text for the image
+- Fixed a bug with landscape mode not being applied correctly
 
 
 ### 0.3.3
