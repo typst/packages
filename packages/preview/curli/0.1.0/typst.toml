@@ -1,0 +1,12 @@
+[package]
+name = "curli"
+version = "0.1.0"
+entrypoint = "src/curli.typ"
+authors = ["Mc-Zen <https://github.com/Mc-Zen>"]
+license = "MIT"
+description = "Cursed ligatures for everyone"
+compiler = "0.10.0"
+
+repository = "https://github.com/Mc-Zen/curli"
+keywords = ["ligatures"]
+categories = ["text", "fun"]
