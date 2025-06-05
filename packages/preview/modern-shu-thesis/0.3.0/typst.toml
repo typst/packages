@@ -1,0 +1,16 @@
+[package]
+name = "modern-shu-thesis"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["XY_cpp"]
+license = "MIT"
+description = "上海大学本科毕业论文模板"
+repository = "https://github.com/XY-cpp/typst-shu-thesis"
+keywords = ["Shanghai University", "Thesis"]
+categories = ["thesis"]
+exclude = ["imgs"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,72 @@
+<svg width="500" height="350" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .label { font: bold 14px sans-serif; fill: #333; }
+    .axis-label { font: 12px sans-serif; fill: #555; }
+    .axis { stroke: #000; stroke-width: 1; }
+    .grid { stroke: #ccc; stroke-width: 0.5; stroke-dasharray: 2,2; }
+    .line-t { stroke: blue; stroke-width: 2; fill: none; }
+    .line-e2 { stroke: red; stroke-width: 2; fill: none; }
+    .legend-text { font: 12px sans-serif; }
+  </style>
+
+  <rect x="1" y="1" width="498" height="348" fill="none" stroke="#ccc"/>
+
+  <text x="250" y="25" text-anchor="middle" class="label">性激素水平动态变化 (T0 - T+6m)</text>
+
+  <line class="axis" x1="50" y1="300" x2="480" y2="300"/>
+  <line class="axis" x1="50" y1="50" x2="50" y2="300"/>
+
+  <text x="40" y="60" text-anchor="end" class="axis-label">高</text>
+  <line class="grid" x1="50" y1="60" x2="480" y2="60"/>
+  <text x="40" y="120" text-anchor="end" class="axis-label">中</text>
+  <line class="grid" x1="50" y1="120" x2="480" y2="120"/>
+  <text x="40" y="180" text-anchor="end" class="axis-label">正常女</text>
+  <line class="grid" x1="50" y1="180" x2="480" y2="180"/>
+  <text x="40" y="240" text-anchor="end" class="axis-label">低/女</text>
+  <line class="grid" x1="50" y1="240" x2="480" y2="240"/>
+  <text x="40" y="300" text-anchor="end" class="axis-label">0</text>
+  <text x="25" y="175" text-anchor="middle" transform="rotate(-90, 25, 175)" class="axis-label">激素水平 (示意)</text>
+
+  <text x="50" y="315" text-anchor="middle" class="axis-label">T0</text>
+  <text x="120" y="315" text-anchor="middle" class="axis-label">T+7d</text>
+  <text x="190" y="315" text-anchor="middle" class="axis-label">T+1m</text>
+  <text x="260" y="315" text-anchor="middle" class="axis-label">T+2m</text>
+  <text x="330" y="315" text-anchor="middle" class="axis-label">T+3m</text>
+  <text x="400" y="315" text-anchor="middle" class="axis-label">T+4m</text>
+  <text x="470" y="315" text-anchor="middle" class="axis-label">T+6m</text>
+  <text x="265" y="335" text-anchor="middle" class="axis-label">时间</text>
+
+  <polyline class="line-t" points="
+    50,80
+    80,180
+    100,230
+    120,240
+    190,245
+    260,240
+    330,245
+    400,240
+    470,245
+  "/>
+
+  <polyline class="line-e2" points="
+    50,250
+    100,230
+    120,180
+    190,150
+    225,200
+    260,140
+    295,190
+    330,130
+    365,180
+    400,145
+    435,195
+    470,150
+  "/>
+
+  <rect x="380" y="40" width="100" height="50" fill="#fff" stroke="#ccc"/>
+  <line x1="390" y1="55" x2="410" y2="55" class="line-t"/>
+  <text x="420" y="60" class="legend-text">睾酮 (T)</text>
+  <line x1="390" y1="75" x2="410" y2="75" class="line-e2"/>
+  <text x="420" y="80" class="legend-text">雌二醇 (E2)</text>
+
+</svg>

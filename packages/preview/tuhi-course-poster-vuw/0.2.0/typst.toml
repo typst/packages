@@ -1,0 +1,27 @@
+[package]
+name = "tuhi-course-poster-vuw"
+version = "0.2.0"
+entrypoint = "tuhi-course-poster-vuw.typ"
+authors = ["baptiste <https://github.com/baptiste>"]
+license = "MPL-2.0"
+description = "A poster template for VUW course descriptions."
+categories = ["poster"]
+repository = "https://github.com/vuw-scps/tuhi-course-poster-vuw"
+exclude = [
+    "vuw-logo.svg",
+    "makefile",
+    "examples",
+    "package.sh",
+    "tests",
+    "docs",
+    ".github",
+    ".vscode",
+    ".git",
+    ".gitignore",
+    "**/*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

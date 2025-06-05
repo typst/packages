@@ -1,0 +1,16 @@
+[package]
+name = "electify"
+version = "0.1.0"
+compiler = "0.12.0"
+entrypoint = "lib.typ"
+authors = ["Nico Haring <@G0STG0D>"]
+license = "MIT"
+repository = "https://github.com/G0STG0D/typst-packages"
+description = "A German Election Ballot Paper helping visualize the dual-voting system (Erststimme & Zweitstimme)."
+keywords = ["german", "de", "ballot", "ballot paper", "paper", "election", "vote", "voting", "elect"]
+categories = ["fun", "visualization"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

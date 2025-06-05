@@ -4,7 +4,7 @@
 // To use:
 //
 // ```typst
-// #import "@preview/codly:1.1.1": *
+// #import "@preview/codly:1.2.0": *
 // #show: codly-init
 //
 // #import "codly-languages.typ": *

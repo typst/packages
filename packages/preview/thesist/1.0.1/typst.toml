@@ -1,0 +1,16 @@
+[package]
+name = "thesist"
+version = "1.0.1"
+compiler = "0.13.0"
+entrypoint = "src/layout.typ"
+authors = ["Tomás Fachada <https://github.com/tfachada>"]
+license = "MIT"
+description = "A Master's thesis template for Instituto Superior Técnico (IST)"
+repository = "https://github.com/tfachada/thesist"
+categories = ["thesis"]
+keywords = ["Instituto Superior Técnico", "Técnico Lisboa", "tecnico", "IST", "tese", "thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
