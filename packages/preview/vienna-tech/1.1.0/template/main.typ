@@ -1,5 +1,4 @@
-// #import "@preview/vienna-tech:1.1.0": *
-#import "../src/lib.typ": *
+#import "@preview/vienna-tech:1.1.0": *
 
 #show "Typst": fancy-typst
 #show "LaTeX": fancy-latex
