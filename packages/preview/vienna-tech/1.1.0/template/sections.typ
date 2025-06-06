@@ -1,6 +1,6 @@
 #import "@preview/rubber-article:0.4.1": ctable
 #import "@preview/vienna-tech:1.1.0": shortcap
-#import "@preview/codly:1.2.0": *
+#import "@preview/codly:1.3.0": *
 #show: codly-init.with()
 
 #codly(languages: (python: (name: "Python", color: rgb("#006699"))))

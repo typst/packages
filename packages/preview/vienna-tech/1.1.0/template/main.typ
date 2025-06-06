@@ -11,7 +11,7 @@
   title: [Instruktionen zur Abfassung der Bachelorarbeit],
   thesis-type: [Bachelorarbeit],
   authors: (
-    Author("Vorname Nachname",
+    author("Vorname Nachname",
       email: "email@email.com",
       matrnr: "123456789",
     ),

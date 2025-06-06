@@ -161,7 +161,7 @@
 /// for an Author. Any attributes can be added to the dictionary.
 /// The default attributes are `name`, `email`, and `matrnr` and are needed for the default `maketitle` function. But these can be modified or extended, via the fields and field-prefixes arguments.
 /// -> dict
-#let Author(
+#let author(
   /// The name of the author. (mandatory)
   /// -> string
   name,
