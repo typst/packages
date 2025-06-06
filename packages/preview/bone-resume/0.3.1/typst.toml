@@ -1,0 +1,13 @@
+[package]
+name = "bone-resume"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["zrr1999"]
+license = "Apache-2.0"
+description = "A colorful resume template for chinese."
+categories = ["cv"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

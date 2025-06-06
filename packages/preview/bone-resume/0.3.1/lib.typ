@@ -10,7 +10,11 @@
   body,
 ) = {
   set document(author: author)
-  set page(margin: (x: 3.2em, y: 3.2em), header: header, footer: footer)
+  context {
+    if target() != "html" {
+      set page(margin: (x: 3.2em, y: 3.2em), header: header, footer: footer)
+    }
+  }
   set list(marker: [‣])
   set text(size: size, font: "Source Han Sans", lang: "zh")
   show emph: set text(
