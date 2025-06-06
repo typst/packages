@@ -1,0 +1,27 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "css-colors"
+version = "0.1.0"
+entrypoint = "src/css-colors.typ"
+authors = ["nandac"]
+license = "Unlicense"
+description = "Allows CSS named colors to be used directly in a Typst document"
+# homepage = ""
+repository = "https://github.com/nandac/css-colors"
+keywords = ["named CSS colors"]
+categories = ["components"]
+disciplines = ["design", "drawing"]
+compiler = "0.13.0"
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+  "thumbnail-2-dark.svg",
+  "thumbnail-2-light.svg",
+]
