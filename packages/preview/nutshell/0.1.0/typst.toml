@@ -8,7 +8,7 @@ description = "Template for promotional postcards."
 categories = ["office","cv"]
 repository = "https://github.com/baptiste/nutshell"
 exclude = [
-    "assets",
+    "examples",
     ".github",
     ".vscode",
     ".git",
