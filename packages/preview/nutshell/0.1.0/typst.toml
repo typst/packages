@@ -1,0 +1,22 @@
+[package]
+name = "nutshell"
+version = "0.1.0"
+entrypoint = "nutshell.typ"
+authors = ["baptiste <https://github.com/baptiste>"]
+license = "MPL-2.0"
+description = "Template for promotional postcards."
+categories = ["office","cv"]
+repository = "https://github.com/baptiste/nutshell"
+exclude = [
+    "assets",
+    ".github",
+    ".vscode",
+    ".git",
+    ".gitignore",
+    "**/*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
