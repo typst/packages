@@ -277,11 +277,11 @@
 
 
 // Some fancy logos
-// credits go to discord user @adriandelgado
+// adapted from original by discord user @adriandelgado
 #let TeX = context (
   {
     set text(font: "New Computer Modern")
-    let e = measure("E", styles)
+    let e = measure("E")
     let T = "T"
     let E = text(1em, baseline: e.height * 0.31, "E")
     let X = "X"
@@ -293,8 +293,8 @@
   {
     set text(font: "New Computer Modern")
     let a-size = 0.66em
-    let l = measure("L", styles)
-    let a = measure(text(a-size, "A"), styles)
+    let l = measure("L")
+    let a = measure(text(a-size, "A"))
     let L = "L"
     let A = box(scale(x: 110%, text(
       a-size,
