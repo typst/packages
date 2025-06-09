@@ -1,4 +1,4 @@
-// Raccourcis
+// Shortcuts
 #let shows-shortcuts(content) = {
   show "SCH": align(
     center,
@@ -24,7 +24,9 @@
 #let tab = [\ #h(32pt) #sym.triangle.filled.r]
 #let sep = context line(length: 100%, stroke: 0.65pt + text.fill)
 
-// Mathématiques
+// Maths
+#let scal(x,y) = $angle.l #x, #y angle.r$
+
 #let recurrence(p: "Propriété", d: $n in NN$, ini: "", hd: "", cl: "") = {
   [
     Montrons par récurrence que la propriété $P(n) : $ "#p" est vraie pour tout #d
@@ -37,7 +39,23 @@
 
 #let congru = $eq.triple$
 
-// Physique
+#let card = "card"
+#let ah = $arrow.r.hook$
+#let Inter = $inter.big$
+#let Union = $union.big$ 
+#let Id = "Id"
+#let Mat = "Mat"
+#let Vect = "Vect"
+#let Ann = $"Ann"$
+#let diag = "diag"
+#let Ker = "Ker"
+#let Im = "Im"
+#let End = "End"
+#let GL = $cal(G L)$
+#let SO = $cal(S O)$
+#let Sp = $cal(S p)$
+
+// Physics
 #let dt = $dif t$
 #let dx = $dif x$
 #let dtheta = $dif theta$

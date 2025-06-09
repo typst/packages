@@ -34,10 +34,10 @@
       if (counter(page).get().at(0) >= first-real-page) {
         [
           #place(dy: -0.25cm, line(length: 100%, stroke: 0.5pt + text.fill))
+
+
           #set align(center)
-
-
-          _Page #counter(page).display() / #counter(page).final().at(0)_
+          #counter(page).display() / #counter(page).final().at(0)
 
         ]
       }

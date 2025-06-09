@@ -50,12 +50,12 @@
 }
 
 // French Shortcuts.... 
-
 #let def(titre, contenu)  = context maths_block("Définition", titre, contenu)
 #let prop(titre, contenu) = context maths_block("Proposition", titre, contenu)
 #let remarque(titre, contenu) = context maths_block_no_stroke("Remarque", titre, contenu)
 #let theorem(titre, contenu) = context maths_block("Théorème", titre, contenu)
 #let corollaire(titre, contenu) = context maths_block("Corollaire", titre, contenu)
+#let lemme(titre, contenu) = context maths_block("Lemme", titre, contenu)
 #let exemple(titre, contenu) = context maths_block_no_stroke("Exemple", titre, contenu)
 
 #let demo(contenu) = context {

@@ -26,6 +26,7 @@ Style :
   smallcaps: true,
   content,
 ) = context {
+	set page(margin: 1.75cm)
   set text(lang: lang, font: "New Computer Modern")
 
   show: apply-style.with(style)

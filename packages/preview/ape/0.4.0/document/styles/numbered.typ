@@ -16,9 +16,8 @@
       block(
         sticky: true,
         h(1cm * n)
-          + underline([
-            #counter(heading).display(it.numbering).split(")").at(-2))
-            #it.body
+          + ([
+            #counter(heading).display(it.numbering).split(")").at(-2) -- #it.body
 
           ]),
       )
@@ -38,7 +37,7 @@
       align(
       center,
       box(
-        width: 110%,
+        width: 100%,
         inset: 0.75cm,
 
         radius: 0.2cm,
