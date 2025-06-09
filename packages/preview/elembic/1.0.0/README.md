@@ -25,7 +25,7 @@ Elembic is especially suited for:
 
 Just import the latest elembic version from the package manager and you're ready to go!
 
-```rs
+```typ
 #import "@preview/elembic:1.0.0" as e
 
 // See the full example below
