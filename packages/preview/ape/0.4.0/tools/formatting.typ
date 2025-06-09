@@ -44,8 +44,8 @@
   )
 }
 
-#let inbox2(contenu) = context {
-  block(width: 100%, fill: text.fill.lighten(90%), stroke: (left: 3pt + text.fill.lighten(50%), rest: 0pt), inset: (left: 10pt, right: 10pt, rest:6pt), contenu)
+#let inbox2(content) = context {
+  block(width: 100%, fill: text.fill.lighten(90%), stroke: (left: 3pt + text.fill.lighten(50%), rest: 0pt), inset: (left: 10pt, right: 10pt, rest:6pt), content)
 }
 
 
@@ -71,6 +71,6 @@
   })
 }
 
-#let inbox4(contenu) = context {
-  block(stroke: (left: 1pt + text.fill, rest: 0pt), inset: (top: 2pt, bottom: 2pt,left: 10pt,), contenu)
+#let inbox4(content) = context {
+  block(stroke: (left: 1pt + text.fill, rest: 0pt), inset: (top: 2pt, bottom: 2pt,left: 10pt,), content)
 }

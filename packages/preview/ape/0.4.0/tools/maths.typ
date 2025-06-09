@@ -11,57 +11,57 @@
   )
 }
 
-#let maths_block_no_stroke(type, titre, contenu) = context {
+#let maths_block_no_stroke(type, title, content) = context {
   cpt.step()
   let n = cpt.get().at(0) + 1
 
-  if(titre == []){
+  if(title == []){
   [
-    *#type #n ---* #contenu
+    *#type #n ---* #content
   ]
 }else{
     [
-      *#type #n --- #titre*
+      *#type #n --- #title*
 
-      #contenu
+      #content
     ]
   }
   
 }
 
-#let maths_block(type, titre, contenu) = context {
+#let maths_block(type, title, content) = context {
   cpt.step()
   let n = cpt.get().at(0) + 1
 
-  if(titre == []){
+  if(title == []){
   enclose[
     *#type #n*
 
-    #contenu
+    #content
   ]
 }else{
     enclose[
-      *#type #n --- #titre*
+      *#type #n --- #title*
 
-      #contenu
+      #content
     ]
   }
   
 }
 
 // French Shortcuts.... 
-#let def(titre, contenu)  = context maths_block("Définition", titre, contenu)
-#let prop(titre, contenu) = context maths_block("Proposition", titre, contenu)
-#let remarque(titre, contenu) = context maths_block_no_stroke("Remarque", titre, contenu)
-#let theorem(titre, contenu) = context maths_block("Théorème", titre, contenu)
-#let corollaire(titre, contenu) = context maths_block("Corollaire", titre, contenu)
-#let lemme(titre, contenu) = context maths_block("Lemme", titre, contenu)
-#let exemple(titre, contenu) = context maths_block_no_stroke("Exemple", titre, contenu)
+#let def(title, content)  = context maths_block("Définition", title, content)
+#let prop(title, content) = context maths_block("Proposition", title, content)
+#let remarque(title, content) = context maths_block_no_stroke("Remarque", title, content)
+#let theorem(title, content) = context maths_block("Théorème", title, content)
+#let corollaire(title, content) = context maths_block("Corollaire", title, content)
+#let lemme(title, content) = context maths_block("Lemme", title, content)
+#let exemple(title, content) = context maths_block_no_stroke("Exemple", title, content)
 
-#let demo(contenu) = context {
+#let demo(content) = context {
   [*Démonstration*]
 
-  block(stroke: (left: 0.5pt + text.fill, rest: 0pt), inset: (top: 2pt, bottom: 2pt,left: 10pt,), contenu)
+  block(stroke: (left: 0.5pt + text.fill, rest: 0pt), inset: (top: 2pt, bottom: 2pt,left: 10pt,), content)
 }
 
 
