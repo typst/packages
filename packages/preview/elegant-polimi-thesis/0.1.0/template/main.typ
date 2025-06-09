@@ -1,8 +1,8 @@
-#import "@preview/polimi-phd-thesis:0.1.1": *
+#import "@preview/elegant-polimi-thesis:0.1.0": *
 
-#show: polimi-thesis.with()
+#show: polimi-thesis
 
-#show: frontmatter.with()
+#show: frontmatter
 
 = Abstract
 
@@ -15,6 +15,7 @@
 #toc
 #list-of-figures
 #list-of-tables
+
 #let nomenclature_ = (
   "Polimi": "Politecnico di Milano",
   "CdL": "Corso di Laurea",
@@ -36,10 +37,7 @@
 
 #show: backmatter.with()
 
-#bibliography(
-  "Thesis_bibliography.bib",
-  full: true,
-)
+// bibliography
 
 #show: appendix.with()
 

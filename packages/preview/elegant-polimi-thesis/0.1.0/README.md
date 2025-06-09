@@ -1,4 +1,4 @@
-# polimi-phd-thesis 🎓
+# elegant-polimi-thesis 🎓
 
 Elegant and simple thesis template for [Typst](https://typst.app/), a modern typesetting program alternative to LaTeX. I based the design of the document on the following two templates:
 
@@ -27,9 +27,9 @@ typst c main.typ --pdf-standard a-3b
 A very simple document:
 
 ```typ
-#import "@preview/polimi-phd-thesis:0.1.1": *
+#import "@preview/elegant-polimi-thesis:0.1.0": *
 
-#show: polimi-thesis.with(
+#show: polimi_thesis.with(
   title: "Thesis Title",
   author: "Vittorio Robecchi",
   advisor: "Prof. Donatella Sciuto",
@@ -38,19 +38,20 @@ A very simple document:
   colored-headings: true
 )
 
-#show: frontmatter.with()
+#show: frontmatter
 
 // abstract in English
 
 // sommario in Italian
 
-#show: acknowledgements.with()
+#show: acknowledgements
 
 // acknowledgements
 
 #toc
 #list_of_figures
 #list_of_tables
+
 #let nomenclature_ = (
   "key" : "value"
 )
@@ -59,28 +60,29 @@ A very simple document:
   indented: true
 )
 
-#show: mainmatter.with()
+#show: mainmatter
 
 // main section of the thesis
 
-#show: backmatter.with()
+#show: backmatter
 
 // backmatter
 
-#show: appendix.with()
+#show: appendix
 
 // appendix
 
-#show: backmatter.with()
+#show: backmatter
 
 // bibliography
 
-#show: acknowledgements.with()
+#show: acknowledgements
 
 // acknowlegments
 ```
 
 The full list of options is as follows:
+
 - `title`: title of the thesis
 - `author`: name and surname of the author
 - `advisor`: name and surname of the advisor

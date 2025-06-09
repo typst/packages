@@ -311,7 +311,7 @@ See @first-algorithm.
 
 == Theorems, propositions and lists
 
-#import "@preview/polimi-phd-thesis:0.1.1": *
+#import "@preview/elegant-polimi-thesis:0.1.0": *
 
 I have implemented my own version of the classic LaTeX environments:
 

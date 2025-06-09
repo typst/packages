@@ -1,14 +1,14 @@
-#import "@preview/polimi-phd-thesis:0.1.1": *
+#import "@preview/elegant-polimi-thesis:0.1.0": *
 
 #show: polimi-thesis.with(
-  title: [`polimi-phd-thesis` manual],
+  title: [`elegant-polimi-thesis` manual],
   author: "Vittorio Robecchi",
   language: "en",
 )
 
-#show: frontmatter.with()
+#show: frontmatter
 
-#include "sections/abstract.typ"
+// #include "sections/abstract.typ"
 
 #toc
 #list-of-figures
@@ -26,23 +26,22 @@
   indented: false,
 )
 
-#show: mainmatter.with()
+#show: mainmatter
 
 #include "sections/chapter_1.typ"
 #include "sections/chapter_2.typ"
 
-#show: appendix.with()
+#show: appendix
 
 #include "sections/appendix_1.typ"
-#include "sections/appendix_2.typ"
 
-#show: acknowledgements.with()
+#show: acknowledgements
 
 #include "sections/acknowledgements.typ"
 
-#show: backmatter.with()
+#show: backmatter
 
 #bibliography(
-  "../template/Thesis_bibliography.bib",
+  "Thesis_bibliography.bib",
   full: true,
 )
