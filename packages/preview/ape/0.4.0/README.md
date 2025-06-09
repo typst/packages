@@ -8,7 +8,7 @@ Tired of documents that look like they were formatted by a troop of baboons? Try
 
 This Typst package provides a comprehensive set of tools for structuring and styling academic course documents across various disciplines. It simplifies the process of creating good looking and consistent layouts, allowing students to focus on content creation.
 
-  
+_It mainly supports French (especially for shortcuts)._
 
 **Key Features:**
 
