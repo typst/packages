@@ -27,7 +27,7 @@
 #lorem(80)
 
 #figure(
-  image("example.jpeg", width: 50%),
+  image("fig.jpeg", width: 50%),
   caption: [My figure],
 ) <fig1>
 
@@ -55,7 +55,7 @@ Some math: $E=m c^2$
 
 = References
 #v(-3em)
-#bibliography("example.bib", style: "nature", title: "")
+#bibliography("refs.bib", style: "nature", title: "")
 
 
 
