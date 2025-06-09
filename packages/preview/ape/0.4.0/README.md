@@ -34,7 +34,7 @@ _It mainly supports French (especially for shortcuts)._
 
 * Starting a new document
 ```typst
-#import "@preview/ape:0.3.2": *
+#import "@preview/ape:0.4.0": *
 
 #show: doc.with(
   lang: "en",
