@@ -1,4 +1,5 @@
 # Typst Package Disciplines
+
 Disciplines define the target audience of a package, making it easy for users to
 discover domain-specific packages and templates. Not all packages are
 domain-specific, those can simply omit the `disciplines` key from their
