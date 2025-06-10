@@ -1,49 +1,56 @@
 # Package submission guidelines
 
-Before creating and submitting your package, you must be aware of the rules we
-are applying to packages on Typst Universe. These rules ensure that the
-published packages meet some quality standards and work properly for everyone.
-Please note that this list may be extended over time as improvements/issues to
-the process are discovered. Given a good reason, we reserve the right to reject
-any package submission. These rules are the following.
+Before creating and submitting your package, please carefully read through the
+package submission guidelines listed below. These rules ensure that published
+packages meet a certain quality standard and work properly for everyone.
 
 - **Functionality:** Packages should conceivably be useful to other users and
   should expose their capabilities in a reasonable fashion.
-- **Security:** Packages must not attempt to exploit the compiler or packaging
-  implementation, in particular not to exfiltrate user data.
-- **Safety:** Names and package contents must be safe for work.
+
+- **Name:** We have somewhat unusual [naming rules] that all packages must
+  adhere to. Please read them carefully. The naming rules ensure that multiple
+  packages for the same purpose can co-exist without one having an unfair
+  advantage.
+
+- **Correctness:** Typst files and the manifest should not contain any syntax
+  errors. More generally, your package should be importable without errors.
+  (This does not mean that the package must be flawless; it's always possible
+  for bugs to slip in. If you find a mistake or bug after the package is
+  accepted, you can simply submit a patch release.) If your package includes a
+  template, it should compile out-of-the-box. In particular, it should use the
+  absolute package-style import and not a relative file import (i.e
+  `@preview/my-package:0.1.0` rather than `../lib.typ`).
+
+- **Documentation:** Your package must include a `README.md` file, documenting
+  its purpose succinctly. This README should include examples, and may contain
+  illustrations. Examples in the README and other documentation files should be
+  up-to-date and compile. In particular, version numbers in package imports
+  should be updated with each release. The contents of the README file will be
+  displayed on Typst Universe.
+
+- **Licensing:** The license provided in the package manifest should match the
+  contents of the license file. The authors and copyright year in the license
+  file should be correct. Your package should not contain any copyrighted
+  material for which you don't have distribution rights.
+
 - **Size:** Packages should not contain large files or a large number of files.
   This will be judged on a case-by-case basis, but any exception should be
   well-motivated. To keep the package small and fast to download, please
   `exclude` images for the README or PDF files with documentation from the
   bundle. For more detailed guidelines, please refer to [the "What to commit?
   What to exclude?"][exclusion] section.
-- **Correctness:** Typst files and the manifest should not contain any syntax
-  error. More generally, your package can be imported without errors. This does
-  not mean that the package must be flawless; it's always possible for bugs to
-  slip in. If you find a mistake or bug after the package is accepted, you can
-  simply submit a patch release. If your package includes a template, it should
-  compile out-of-the-box. In particular, it should use the "absolute" package
-  import and not a relative one (i.e `@preview/my-package:0.1.0` and not
-  `../lib.typ`).
-- **Name:** Package names should be unique enough to be easily distinguishable
-  from alternative implementations. Even if your package currently is the only
-  available for its purpose, its name should not be canonical, to leave room for
-  potential future alternatives. Some exceptions exists, and are detailed in
-  our [Naming rules].
-- **Licensing:** The license provided in the package manifest should match the
-  contents of the license file. The authors and copyright year in the license file should
-  be correct. Your package should not contain any copyrighted material for
-  which you don't have distribution rights.
-- **Documentation:** Your package must include a `README.md` file, documenting
-  its purpose succintly. This README should include examples, and may contain
-  illustrations. Examples in the README and other documentation files should be
-  up-to-date and compile. In particular, version numbers in package imports should
-  be updated with each release.
+
+- **Security and Safety:** Packages must not attempt to exploit the compiler or
+  packaging implementation, in particular not to exfiltrate user data. Names and
+  package contents must be safe for work.
 
 If you don't meet our requirements, it may take a bit more time for your package
 to be published, as we will ask you to make changes, but it will not prevent
 your package from being published once the required changes are made.
+
+Please note that the list above may be extended over time as improvements/issues
+to the process are discovered. Given a good reason, we reserve the right to
+reject any package submission.
 
 ## Package submission in practice
 
@@ -61,18 +68,19 @@ commit your changes and open a pull request.
 > before approving and publishing the new version.
 
 We have collected tips to make your experience as a package author easier and to
-avoid common pitfalls. They are split in the following categories:
+avoid common pitfalls. They are split into the following categories:
 
-- your [package manifest][manifest]
-- your [Typst files][typst] (including template and example files)
-- [images, fonts and other assets][resources]
-- the [README file, and documentation in general][documentation]
-- the [license] of your package
+- [The package manifest][manifest]
+- [Typst files][typst] (including template and example files)
+- [Images, fonts and other assets][resources]
+- [The README file, and documentation in general][documentation]
+- [Licensing][license] of your package
+- [Further Tips][tips]
 
 When a package's PR has been merged and CI has completed, the package will be
-available for use. However, it can currently take a longer while until the
-package will be visible on [Typst Universe][universe]. We'll reduce this delay
-in the future.
+available for use. However, it can currently take up to a day until the package
+will be visible on [Typst Universe][universe]. We'll reduce this delay in the
+future.
 
 ## Fixing or removing a package
 
@@ -88,5 +96,6 @@ submit a new version of your package.
 [resources]: resources.md
 [documentation]: documentation.md
 [license]: licensing.md
+[naming rules]: manifest.md#naming-rules
+[tips]: tips.md
 [universe]: https://typst.app/universe/
-[Naming rules]: manifest.md#naming-rules
