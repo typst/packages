@@ -12,14 +12,14 @@
 
 #show: hwr.with(
   metadata: (
-    title: [Quantum Computing in Practice],
-    student_id: "12345678",
+    title: [HWR PTB Template],
+    student_id: "12345678910",
     authors: ("Alice Becker", "Bob Klein"),
     field_of_study: "Computer Science",
-    company: "IBM Quantum",
+    company: "Example Company",
     enrollment_year: "2024",
     semester: "2",
-    company_supervisor: "Dr. Eva Schwarz",
+    company_supervisor: "Prof. Dr. Schwarz",
   ),
   custom_entries: (
     (key: "GitHub", value: "aliceb-quantum", index: 0),
