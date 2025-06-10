@@ -1,7 +1,7 @@
 #import "@preview/clean-hwr-template:0.1.0": *
 
 // These packages are used to displaying the acronyms and glossaries
-// It needs to be imported here so you can use #acr / #gls
+// They need to be imported here so you can use #acr / #gls
 // to reference them
 #import "@preview/acrostiche:0.5.2": *
 #import "@preview/glossarium:0.5.6": *
