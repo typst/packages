@@ -5,7 +5,6 @@ entrypoint = "lib.typ"
 authors = ["Myriad-Dreamin <camiyoru@gmail.com>"]
 description = "Loads environment variables from .env for typst projects."
 license = "Apache-2.0"
-homepage = "https://github.com/Myriad-Dreamin/dotenv-typ"
 repository = "https://github.com/Myriad-Dreamin/dotenv-typ"
 keywords = ["dotenv", "parser"]
 categories = ["text", "utility", "scripting"]
