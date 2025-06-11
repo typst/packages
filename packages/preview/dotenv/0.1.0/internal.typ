@@ -9,7 +9,6 @@
 #let quote-re = ("'", "\"", "`").map(quote-re)
 
 /// Parses a dotenv-syntax content into a dictionary.
-/// TODO: multiple-line values are not supported.
 ///
 /// - lines (str): The content of the `.env` file.
 /// -> dictionary
