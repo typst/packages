@@ -272,9 +272,9 @@
           if command.at(1) not in rings {
             panic("There is no ring at the coordinate '" + str(command.at(1)) + "' ")
           }
-          if status.at(command.at(1)).color-type != color-type {
-            panic("Only when the color of a ring is the same as the stones that were removed from the board can the ring be removed.")
-          }
+          // if status.at(command.at(1)).color-type != color-type {
+          //   panic("Only when the color of a ring is the same as the stones that were removed from the board can the ring be removed.")
+          // }
           _ = status.remove(command.at(1))
           score.at("wb".position(color-type)) += 1
           rings = rings.filter(it => it != command.at(1))
