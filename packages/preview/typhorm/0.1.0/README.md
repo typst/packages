@@ -12,7 +12,7 @@ Import `typhorm` from the `@preview` namespace.
 
 ![example](https://raw.githubusercontent.com/ivaquero/typhorm/refs/heads/main/docs/docs.png)
 
-For more details, see [examples.typ](https://github.com/ivaquero/typhorm/blob/main/docs/docs.typ).
+For more details, see [examples.pdf](https://github.com/ivaquero/typhorm/blob/main/docs/docs.pdf).
 
 ## Clone the Repository
 

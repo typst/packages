@@ -81,7 +81,7 @@
   )
 }
 
-#let idx-tab-body-box2(
+#let with-idx-tab-box2(
   idx,
   tab,
   col,
@@ -116,7 +116,7 @@
   )
 }
 
-#let idx-tab-body-box(
+#let with-idx-tab-box(
   idx,
   tab,
   col,
@@ -145,7 +145,7 @@
   )
 }
 
-#let idx-body-box2(
+#let with-idx-box2(
   idx,
   col,
   idx2,
@@ -173,7 +173,7 @@
   )
 }
 
-#let idx-body-box(
+#let with-idx-box(
   idx,
   col,
   idx-ratio: 15%,
@@ -194,7 +194,7 @@
   )
 }
 
-#let idx-tab4-box(
+#let with-idx-tab4-box(
   idx,
   tab,
   tab2,
@@ -226,7 +226,7 @@
   )
 }
 
-#let idx-body-mat23-box(
+#let with-idx-mat32-box(
   idx,
   body,
   idx21,
@@ -268,7 +268,7 @@
   )
 }
 
-#let body-mat31-box(
+#let with-mat31-box(
   body,
   idx,
   row,
