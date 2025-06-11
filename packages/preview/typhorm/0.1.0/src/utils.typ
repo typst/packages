@@ -61,7 +61,7 @@
   )
 }
 
-#let idx-box(
+#let index-box(
   body,
   height: auto,
   inset: 8pt,
@@ -81,13 +81,13 @@
   )
 }
 
-#let with-idx-tab-box2(
-  idx,
+#let with-index-tab-box2(
+  index,
   tab,
   col,
   tab2,
   col2,
-  idx-ratio: 15%,
+  index-ratio: 15%,
   col-hcoef: 0.75pt,
   tab-height: 24pt,
   styles: default-styles,
@@ -101,10 +101,10 @@
     align(
       horizon,
       grid(
-        columns: (idx-ratio, (100% - idx-ratio) / 2, (100% - idx-ratio) / 2),
+        columns: (index-ratio, (100% - index-ratio) / 2, (100% - index-ratio) / 2),
 
         grid.cell(
-          idx-box(height: b-h + tab-height, styles: styles)[#idx],
+          index-box(height: b-h + tab-height, styles: styles)[#index],
           rowspan: 2,
         ),
         tab-box(height: tab-height, styles: styles, info: info)[#tab],
@@ -116,11 +116,11 @@
   )
 }
 
-#let with-idx-tab-box(
-  idx,
+#let with-index-tab-box(
+  index,
   tab,
   col,
-  idx-ratio: 15%,
+  index-ratio: 15%,
   col-hcoef: 0.55pt,
   tab-height: 24pt,
   styles: default-styles,
@@ -132,10 +132,10 @@
     align(
       horizon,
       grid(
-        columns: (idx-ratio, (100% - idx-ratio)),
+        columns: (index-ratio, (100% - index-ratio)),
 
         grid.cell(
-          idx-box(height: b-h + tab-height, styles: styles, info: info)[#idx],
+          index-box(height: b-h + tab-height, styles: styles, info: info)[#index],
           rowspan: 2,
         ),
         tab-box(height: tab-height, styles: styles, info: info)[#tab],
@@ -145,12 +145,12 @@
   )
 }
 
-#let with-idx-box2(
-  idx,
+#let with-index-box2(
+  index,
   col,
-  idx2,
+  index2,
   col2,
-  idx-ratio: 15%,
+  index-ratio: 15%,
   col-hcoef: 0.55pt,
   styles: default-styles,
   info: default-info.global,
@@ -163,20 +163,20 @@
     align(
       horizon,
       grid(
-        columns: (idx-ratio, (100% - idx-ratio) / 2, idx-ratio * .7, (100% - idx-ratio) / 2 - idx-ratio * .7),
-        idx-box(height: b-h, styles: styles, info: info)[#idx],
+        columns: (index-ratio, (100% - index-ratio) / 2, index-ratio * .7, (100% - index-ratio) / 2 - index-ratio * .7),
+        index-box(height: b-h, styles: styles, info: info)[#index],
         body-box(height: b-h, styles: styles, info: info)[#col],
-        idx-box(height: b-h, styles: styles, info: info)[#idx2],
+        index-box(height: b-h, styles: styles, info: info)[#index2],
         body-box(height: b-h, styles: styles, info: info)[#col2],
       ),
     ),
   )
 }
 
-#let with-idx-box(
-  idx,
+#let with-index-box(
+  index,
   col,
-  idx-ratio: 15%,
+  index-ratio: 15%,
   col-hcoef: 0.35pt,
   styles: default-styles,
   info: default-info.global,
@@ -187,20 +187,20 @@
     align(
       horizon,
       grid(
-        columns: (idx-ratio, (100% - idx-ratio)),
-        idx-box(height: b-h)[#idx], body-box(height: b-h)[#col],
+        columns: (index-ratio, (100% - index-ratio)),
+        index-box(height: b-h)[#index], body-box(height: b-h)[#col],
       ),
     ),
   )
 }
 
-#let with-idx-tab4-box(
-  idx,
+#let with-index-tab4-box(
+  index,
   tab,
   tab2,
   tab3,
   tab4,
-  idx-ratio: 15%,
+  index-ratio: 15%,
   tab-height: 24pt,
   styles: default-styles,
   info: default-info.global,
@@ -210,15 +210,15 @@
       center,
       grid(
         columns: (
-          idx-ratio,
-          (100% - idx-ratio) / 2,
-          idx-ratio * .7,
-          ((100% - idx-ratio) / 2 - idx-ratio * .7) * .4,
-          ((100% - idx-ratio) / 2 - idx-ratio * .7) * .6,
+          index-ratio,
+          (100% - index-ratio) / 2,
+          index-ratio * .7,
+          ((100% - index-ratio) / 2 - index-ratio * .7) * .4,
+          ((100% - index-ratio) / 2 - index-ratio * .7) * .6,
         ),
-        idx-box(height: tab-height, styles: styles, info: info)[*#idx*],
+        index-box(height: tab-height, styles: styles, info: info)[*#index*],
         body-box(height: tab-height, styles: styles, info: info)[*#tab*],
-        idx-box(height: tab-height, styles: styles, info: info)[*#tab2*],
+        index-box(height: tab-height, styles: styles, info: info)[*#tab2*],
         body-box(height: tab-height, styles: styles, info: info)[*#tab3*],
         body-box(height: tab-height, styles: styles, info: info)[*#tab4*],
       ),
@@ -226,16 +226,16 @@
   )
 }
 
-#let with-idx-mat32-box(
-  idx,
+#let with-index-mat32-box(
+  index,
   body,
-  idx21,
-  idx31,
+  index21,
+  index31,
   col21,
-  idx22,
-  idx32,
+  index22,
+  index32,
   col22,
-  idx-ratio: 15%,
+  index-ratio: 15%,
   col-hcoefs: (0.6pt, 1.35pt),
   styles: default-styles,
   info: default-info.global,
@@ -250,19 +250,19 @@
   block(
     grid(
       columns: (
-        idx-ratio,
-        (100% - idx-ratio) / 2,
-        idx-ratio * .7,
-        ((100% - idx-ratio) / 2 - idx-ratio * .7) * .4,
-        ((100% - idx-ratio) / 2 - idx-ratio * .7) * .6,
+        index-ratio,
+        (100% - index-ratio) / 2,
+        index-ratio * .7,
+        ((100% - index-ratio) / 2 - index-ratio * .7) * .4,
+        ((100% - index-ratio) / 2 - index-ratio * .7) * .6,
       ),
-      grid.cell(idx-box(height: b-h, styles: styles, info: info)[#idx], rowspan: 2),
+      grid.cell(index-box(height: b-h, styles: styles, info: info)[#index], rowspan: 2),
       grid.cell(body-box(height: b-h, styles: styles, info: info)[#body], rowspan: 2),
-      idx-box(height: b-h / 2, styles: styles, info: info)[#idx21],
-      idx-box(height: b-h / 2, styles: styles, info: info)[#idx31],
+      index-box(height: b-h / 2, styles: styles, info: info)[#index21],
+      index-box(height: b-h / 2, styles: styles, info: info)[#index31],
       body-box(height: b-h / 2, info: info)[#col21],
-      idx-box(height: b-h / 2, styles: styles, info: info)[#idx22],
-      idx-box(height: b-h / 2, styles: styles, info: info)[#idx32],
+      index-box(height: b-h / 2, styles: styles, info: info)[#index22],
+      index-box(height: b-h / 2, styles: styles, info: info)[#index32],
       body-box(height: b-h / 2, styles: styles, info: info)[#col22],
     ),
   )
@@ -270,13 +270,13 @@
 
 #let with-mat31-box(
   body,
-  idx,
+  index,
   row,
-  idx2,
+  index2,
   row2,
-  idx3,
+  index3,
   row3,
-  idx-ratio: 50%,
+  index-ratio: 50%,
   col-hcoefs: (0.35pt, 1.05pt),
   styles: default-styles,
   info: default-info.global,
@@ -293,17 +293,16 @@
     align(
       horizon,
       grid(
-        columns: (idx-ratio, (100% - idx-ratio) / 3, (100% - idx-ratio) / 3 * 2),
+        columns: (index-ratio, (100% - index-ratio) / 3, (100% - index-ratio) / 3 * 2),
 
         grid.cell(body-box(height: b-h)[#body], rowspan: 3),
-        idx-box(height: b-h / 2, styles: styles)[#idx],
+        index-box(height: b-h / 2, styles: styles)[#index],
         body-box(height: b-h / 2, styles: styles)[#row],
-        idx-box(height: b-h / 4, styles: styles)[#idx2],
+        index-box(height: b-h / 4, styles: styles)[#index2],
         body-box(height: b-h / 4, styles: styles)[#row2],
-        idx-box(height: b-h / 4, styles: styles)[#idx3],
+        index-box(height: b-h / 4, styles: styles)[#index3],
         body-box(height: b-h / 4, styles: styles)[#row3],
       ),
     ),
   )
 }
-
