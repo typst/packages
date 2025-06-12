@@ -5,7 +5,7 @@
 Put something akin to the following at the start of your `.typ` file:
 
 ```typ
-#import "@preview/marginalia:0.1.5" as marginalia: note, wideblock
+#import "@preview/marginalia:0.2.0" as marginalia: note, wideblock
 
 #show: marginalia.setup.with(
   // inner: ( far: 5mm, width: 15mm, sep: 5mm ),
@@ -71,8 +71,8 @@ For small figures, the package also provides a `notefigure` command which places
 <!-- [![first page of the documentation](https://github.com/nleanba/typst-marginalia/raw/refs/heads/main/preview.svg)](https://github.com/nleanba/typst-marginalia/blob/main/Marginalia.pdf)
 [Full Manual →](https://github.com/nleanba/typst-marginalia/blob/main/Marginalia.pdf) -->
 
-[![first page of the documentation](https://github.com/nleanba/typst-marginalia/raw/refs/tags/v0.1.5/preview.svg)](https://github.com/nleanba/typst-marginalia/blob/v0.1.5/Marginalia.pdf)
-[Full Manual →](https://github.com/nleanba/typst-marginalia/blob/v0.1.5/Marginalia.pdf)
+[![first page of the documentation](https://github.com/nleanba/typst-marginalia/raw/refs/tags/v0.2.0/preview.svg)](https://github.com/nleanba/typst-marginalia/blob/v0.2.0/Marginalia.pdf)
+[Full Manual →](https://github.com/nleanba/typst-marginalia/blob/v0.2.0/Marginalia.pdf)
 
 ## Feedback
 Have you encountered a bug? [Please report it as an issue in my github repository.](https://github.com/nleanba/typst-marginalia/issues)

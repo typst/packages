@@ -129,7 +129,7 @@
 /// The default values for the margins have been chosen such that they match the default typst margins for a4. It is strongly recommended to change at least one of either `inner` or `outer` to be wide enough to actually contain text.
 ///
 /// #compat((
-///   "0.1.5": (
+///   "0.2.0": (
 ///     [`numberig` has been replaced with @note.numbering/@notefigure.numbering.
 ///      #ergo[set \````typc numbering: /**/```\` directly on your notes instead of via @setup.\ Use ```typ #let note = note.with(numbering: /**/)``` for consistency.]],
 ///     [`flush-numbers` has been replaced by @note.flush-numbering.
@@ -489,7 +489,7 @@
 /// Will adjust it's position downwards to avoid previously placed notes, and upwards to avoid extending past the bottom margin.
 ///
 /// #compat((
-///   "0.1.5": (
+///   "0.2.0": (
 ///     [`reverse` has been replaced with @note.side.
 ///      #ergo[use \````typc side: "inner"```\` instead of \````typc reverse: true```\`]],
 ///     [`numbered` has been replaced with @note.numbering.
@@ -637,7 +637,7 @@
 /// possible for this package to insert the marker _into_ the caption without adding a newline.
 ///
 /// #compat((
-///   "0.1.5": (
+///   "0.2.0": (
 ///     [`reverse` has been replaced with @notefigure.side.
 ///      #ergo[use \````typc side: "inner"```\` instead of \````typc reverse: true```\`]],
 ///     [`numbered` has been replaced with @notefigure.numbering.
@@ -781,7 +781,7 @@
 /// ```
 ///
 /// #compat((
-///   "0.1.5": (
+///   "0.2.0": (
 ///     [`reverse` and `double` have been replaced with @wideblock.side.
 ///      #ergo[use \````typc side: "inner"```\` instead of \````typc reverse: true```\`]
 ///      #ergo[use \````typc side: "both"```\` instead of \````typc double: true```\`]],
