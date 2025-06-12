@@ -6,21 +6,14 @@ Put something akin to the following at the start of your `.typ` file:
 
 ```typ
 #import "@preview/marginalia:0.1.5" as marginalia: note, wideblock
-#let config = (
+
+#show: marginalia.setup.with(
   // inner: ( far: 5mm, width: 15mm, sep: 5mm ),
   // outer: ( far: 5mm, width: 15mm, sep: 5mm ),
   // top: 2.5cm,
   // bottom: 2.5cm,
   // book: false,
   // clearance: 12pt,
-  // flush-numbers: false,
-  // numbering: /* numbering-function */,
-)
-#marginalia.configure(..config)
-#set page(
-  // setup margins:
-  ..marginalia.page-setup(..config),
-  /* other page setup */
 )
 ```
 
@@ -28,8 +21,8 @@ If `book` is `false`, `inner` and `outer` correspond to the left and right
 margins respectively. If book is true, the margins swap sides on even and odd
 pages. Notes are placed in the outside margin by default.
 
-Where you can then customize `config` to your preferences. Shown here (as
-comments) are the default values taken if the corresponding keys are unset.
+Where you can then customize these options to your preferences.
+Shown here (as comments) are the default values taken if the corresponding keys are unset.
 [Please refer to the PDF documentation for more details on the configuration and the provided commands.](https://github.com/nleanba/typst-marginalia/blob/main/Marginalia.pdf)
 
 (Note that the above configuration step is not neccessary if you are happy with the defaults provided.)
