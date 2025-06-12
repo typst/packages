@@ -32,6 +32,8 @@ Where you can then customize `config` to your preferences. Shown here (as
 comments) are the default values taken if the corresponding keys are unset.
 [Please refer to the PDF documentation for more details on the configuration and the provided commands.](https://github.com/nleanba/typst-marginalia/blob/main/Marginalia.pdf)
 
+(Note that the above configuration step is not neccessary if you are happy with the defaults provided.)
+
 ## Margin-Notes
 
 Provided via the `#note[...]` command.
