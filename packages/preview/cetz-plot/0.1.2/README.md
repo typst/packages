@@ -59,7 +59,7 @@ CeTZ-Plot requires CeTZ version ≥ 0.4.0!
 
 ## Usage
 
-For information, see the [manual (stable)](https://github.com/cetz-package/cetz-plot/blob/stable/manual.pdf?raw=true).
+For information, see the [manual](./manual.pdf).
 
 To use this package, simply add the following code to your document:
 ```
