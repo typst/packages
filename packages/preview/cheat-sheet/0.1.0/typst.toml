@@ -22,4 +22,4 @@ keywords = [
 [template]
 path = "template"
 entrypoint = "cheatsheet.typ"
-thumbnail = "../thumbnail.png"
+thumbnail = "thumbnail.png"
