@@ -26,7 +26,6 @@
     (key: "LinkedIn", value: "Alice Becker", index: 1),
   ),
   acronyms: (
-    title: "Abbreviations",
     entries: (
       "QPU": ("Quantum Processing Unit", "Quantum Processing Units"),
     ),

@@ -61,11 +61,9 @@
 
   // The content of the appendix
   appendix: (
-    enabled: true,
-    content: [
-      = Appendix
-      Add some appendix here
-    ]
+    enabled: false,
+    title: "",
+    content: []
   ),
 
   body,
@@ -160,9 +158,9 @@
   v(0.6em, weak: true)
   $circle.filled.small$
   v(0.6em, weak: true)
-  metadata.at("field_of_study", default: "Computer Science")
+  metadata.at("field_of_study", default: if language == "de" { "Informatik" } else { "Computer Science" })
   v(0.6em, weak: true)
-  metadata.at("university", default: "Berlin School of Economics and Law")
+  metadata.at("university", default: if language == "de" { "Hochschule für Wirtschaft und Recht Berlin" } else { "Berlin School of Economics and Law" })
 
   v(equal_spacing)
 
@@ -321,18 +319,28 @@
     show: make-glossary
     register-glossary(glossary.entries)
 
-    heading(glossary.at("title", default: "Glossary"), numbering: none)
+    heading(glossary.at("title", default: if language == "de" { "Glossar" } else { "Glossary" }), numbering: none)
     print-glossary(glossary.entries, show-all: true)
     pagebreak()
   }
 
   // Acronyms
   if acronyms.entries != () {
-    print-index(outlined: true, title: acronyms.at("title", default: "Acronyms"))
+    print-index(outlined: true, title: acronyms.at("title", default: if language == "de" { "Acronyme" } else { "Acronyms" }))
     pagebreak()
   }
 
   // Display indices of figures, tables, and listings.
+  let default_titles = (
+    figure_title: "Index of Figures",
+    table_title: "Index of Tables",
+    listing_title: "Index of Listings"
+  )
+  if language == "de" {
+    default_titles.figure_title = "Abbildungsverzeichnis"
+    default_titles.table_title = "Tabellenverzeichnis"
+    default_titles.listing_title = "Aufzählungsverzeichnis"
+  }
   let fig-t(kind) = figure.where(kind: kind)
   if figure-index.enabled or table-index.enabled or listing-index.enabled {
     show outline: set heading(outlined: true)
@@ -342,19 +350,19 @@
       let lsts = listing-index.enabled
       if imgs {
         outline(
-          title: figure-index.at("title", default: "Index of Figures"),
+          title: figure-index.at("title", default: default_titles.figure_title),
           target: fig-t(image),
         )
       }
       if tbls {
         outline(
-          title: table-index.at("title", default: "Index of Tables"),
+          title: table-index.at("title", default: default_titles.table_title),
           target: fig-t(table),
         )
       }
       if lsts {
         outline(
-          title: listing-index.at("title", default: "Index of Listings"),
+          title: listing-index.at("title", default: default_titles.listing_title),
           target: fig-t(raw),
         )
       }
@@ -377,11 +385,12 @@
   if bibliography-object != none {
     set bibliography(style: citation_style)
     bibliography-object
-    pagebreak()
   }
 
   // Appendix
   if appendix.enabled {
+    pagebreak()
+    heading(appendix.at("title", default: if language == "de" { "Anhang" } else { "Appendix" }), numbering: none)
     appendix.content
   }
 }
