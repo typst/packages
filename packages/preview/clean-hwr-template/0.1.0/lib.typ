@@ -76,11 +76,6 @@
   let sup = if language == "de" [Kapitel] else [Chapter]
   set heading(numbering: "1.1", supplement: sup)
 
-  show heading.where(): it => {
-    it
-    linebreak()
-  }
-
   // SETUP Acronyms
   if acronyms.entries != () {
     init-acronyms(acronyms.entries)
