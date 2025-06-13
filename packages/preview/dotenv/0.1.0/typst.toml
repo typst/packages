@@ -1,10 +1,11 @@
 [package]
-name = "dotenv"
+name = "dovenv"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Myriad-Dreamin <camiyoru@gmail.com>"]
-description = "Loads environment variables from .env for typst projects."
+description = "Smoothly loads environment variables from dotenv (.env) files"
 license = "Apache-2.0"
 repository = "https://github.com/Myriad-Dreamin/dotenv-typ"
 keywords = ["dotenv", "parser"]
 categories = ["text", "utility", "scripting"]
+exclude = ["test.typ", "examples"]
