@@ -9,4 +9,4 @@ description = "3D plotting for surfaces and parametric equations using CeTZ simi
 keywords = ["3d","plotting","graphing","cetz"]
 categories = ["visualization"]
 disciplines = ["mathematics"]
-exclude = ["examples/*"]
+exclude = ["./examples"]
