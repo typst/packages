@@ -1,0 +1,25 @@
+[package]
+name = "cheat-sheet"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Zhihao Li <https://lzhms.github.io>"]
+repository = "https://github.com/LZHMS/CheatSheet.git"
+license = "MIT"
+description = "A automatical colored and well organised cheatsheet template for writing daily notes with colored bounding box and line titles."
+categories = ["report"]
+disciplines = ["engineering", "computer-science"]
+keywords = [
+  "Report",
+  "Project",
+  "University",
+  "Course",
+  "Note",
+  "Sheet",
+  "Summary",
+  "Poster"
+]
+
+[template]
+path = "template"
+entrypoint = "cheatsheet.typ"
+thumbnail = "thumbnail.png"
