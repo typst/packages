@@ -1,5 +1,5 @@
 [package]
-name = "modern-unimi-thesis"
+name = "simple-unimi-thesis"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Vittorio Robecchi <https://github.com/VictuarVi>"]

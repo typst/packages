@@ -1,4 +1,4 @@
-#import "@preview/modern-unimi-thesis:0.1.0": *
+#import "@preview/simple-unimi-thesis:0.1.0": *
 
 #show: project.with(
   printedtitle: {
@@ -24,17 +24,17 @@
   language: "it",
 )
 
-#show: frontmatter.with()
+#show: frontmatter
 
 #include "sections/dedica.typ"
 
-#show: acknowledgements.with()
+#show: acknowledgements
 
 #include "sections/ringraziamenti.typ"
 
 #toc
 
-#show: mainmatter.with()
+#show: mainmatter
 
 #include "sections/1_introduzione.typ"
 #include "sections/2_stato_dellarte.typ"
@@ -43,12 +43,12 @@
 #include "sections/5_test.typ"
 #include "sections/6_conclusioni.typ"
 
-#show: appendix.with()
+#show: appendix
 
 #include "sections/A1_tirocinio.typ"
 #include "sections/A2_documenti.typ"
 
-#show: backmatter.with()
+#show: backmatter
 
 #bibliography(full: true, "bibliografia.bib")
 

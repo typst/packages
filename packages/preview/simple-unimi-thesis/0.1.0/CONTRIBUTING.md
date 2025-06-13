@@ -6,7 +6,7 @@ If you want to test the package, you must clone the repository in the local pack
 - `~/Library/Application Support` on macOS
 - `%APPDATA%` on Windows
 
-Then, the structure will be `typst/packages/local/{package.name}/{package.version}` where `name` and `version` are matching the `typst.toml` file. In this project they are `modern-unimi-thesis` and `1.0.0`.
+Then, the structure will be `typst/packages/local/{package.name}/{package.version}` where `name` and `version` are matching the `typst.toml` file. In this project they are `simple-unimi-thesis` and `1.0.0`.
 
 Finally, create a new project with:
 

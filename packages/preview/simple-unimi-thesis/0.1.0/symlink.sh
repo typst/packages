@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pkg_name="modern-unimi-thesis"
+pkg_name="simple-unimi-thesis"
 version=0.1.0
 
 source=$PWD
