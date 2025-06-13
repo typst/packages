@@ -5,13 +5,13 @@ This is a simple typst handout template, **original made for my course 'Polymer 
 ## Usage
 
 ```bash
-typst init @preview/simple-handout-template
+typst init @preview/simple-handout
 ```
 
 Or in your typst file:
 
 ```typ
-#import "@preview/simple-handout-template:0.1.0": define-config
+#import "@preview/simple-handout:0.1.0": define-config
 ```
 
 ## Example

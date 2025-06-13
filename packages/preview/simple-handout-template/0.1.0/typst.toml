@@ -1,5 +1,5 @@
 [package]
-name = "simple-handout-template"
+name = "simple-handout"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["chillcicada"]
