@@ -1,13 +1,11 @@
 #import "@preview/cheq:0.2.2": checklist
 #import "@preview/zebraw:0.5.5": zebraw
-#import "@preview/treet:0.2.0": *
+#import "@preview/treet:0.1.1": *
 #import "../packages.typ": components, note
 #show: checklist
 #show: zebraw.with(numbering: false)
 
 = 說明書
-
-
 
 == 快速入門
 

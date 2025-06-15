@@ -43,15 +43,14 @@
   )
 }
 
-#let _note(config, ..args) = context {
-  marginalia.note(
-    text-style: note_text_style(config),
-    par-style: note_par_style,
-    block-style: block-style(config),
-    numbering: note-numbering.with(config),
-    ..args,
-  )
-}
+#let _note(config, ..args) = marginalia.note(
+  text-style: note_text_style(config),
+  par-style: note_par_style,
+  block-style: block-style(config),
+  numbering: note-numbering.with(config),
+  ..args,
+)
+
 
 #let _notefigure(config) = marginalia.notefigure.with(text-style: note_text_style(config), par-style: note_par_style)
 #let _wideblock = marginalia.wideblock
