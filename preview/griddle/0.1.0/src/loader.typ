@@ -166,9 +166,10 @@
 }
 
 // Loads a crossword from a YAML file and returns the grid structure.
-#let load-crossword(file, solved: false) = {
-	let data = yaml(file)
-	let defs = get-definitions(data, solved: solved)
+// The raw data should be read from a YAML file, which can be done using the `yaml` function.
+// The `solved` parameter indicates whether the crossword is solved or not.
+#let load-crossword(raw-data, solved: false) = {
+	let defs = get-definitions(raw-data, solved: solved)
 	let sche = get-schema(defs, solved: solved)
 
 	return ( // Crossword data structure

@@ -1,6 +1,6 @@
 #import "../src/lib.typ": *
 
-#let cw = load-crossword("../examples/data_mini.yaml")
+#let cw = load-crossword(yaml("../examples/data_mini.yaml"))
 
 #align(center)[
 = Crossword Example

@@ -1,6 +1,6 @@
 #import "../src/lib.typ": *
 
-#let cw = load-crossword("../examples/data_crossword16.yaml")
+#let cw = load-crossword(yaml("../examples/data_crossword16.yaml"))
 
 #show heading.where(level: 1): set align(center)
 #set text(font: "Helvetica")

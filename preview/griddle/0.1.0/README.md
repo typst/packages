@@ -60,10 +60,12 @@ To load the crossword data into your Typst document, use the `load-crossword` fu
 ```typ
 #import "@preview/griddle:0.1.0": load-crossword
 
-#let cw = load-crossword("path/to/data.yaml")
+#let cw = load-crossword(yaml("path/to/data.yaml"))
 ```
 
-This functions reads and checks your YAML file, producing a data structure (a `dictionary`) with the following fields:
+This functions requires in input the data read from your YAML file. It is mandatory to pass the content of the file as a **YAML data structure**, which can be done using the [`yaml()`](https://typst.app/docs/reference/data-loading/yaml/) function in Typst.
+
+The `load-crossword` function returns a data structure with the following fields:
 
 ```yaml
 cw: the whole crossword data; 
@@ -129,7 +131,7 @@ Here is a complete example of a Typst document using _Griddle_ to visualize a cr
 ```typ
 #import "@preview/griddle:0.1.0": *
 
-#let cw = load-crossword("path/to/data.yaml")
+#let cw = load-crossword(yaml("path/to/data.yaml"))
 // Data file is the one from the previous examples
 
 #show heading.where(level: 1): set align(center)
@@ -170,7 +172,7 @@ down:
 ```typ
 #import "@preview/griddle:0.1.0": *
 
-#let cw = load-crossword("path/to/data.yaml")
+#let cw = load-crossword(yaml("path/to/data.yaml"))
 
 #show heading.where(level: 1): set align(center)
 #set text(font: "Helvetica")
