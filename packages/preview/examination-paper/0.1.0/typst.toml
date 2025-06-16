@@ -1,0 +1,17 @@
+[package]
+name = "examination-paper"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["pdcxs"]
+license = "MIT"
+description = "Template for examination paper: 考试试题模板"
+repository = "https://github.com/pdcxs/examination-paper"
+keywords = ["examination", "paper", "exam", "考试"]
+categories = ["utility"]
+exclude = []
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "exam.typ"
+thumbnail = "thumbnail.png"
