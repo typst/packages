@@ -1,0 +1,10 @@
+[package]
+name = "roremu"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["mkpoli"]
+license = "Unlicense"
+description = "日本語のダミーテキスト生成（Lorem Ipsum）"
+repository = "https://github.com/mkpoli/roremu"
+keywords = ["lorem", "lorem ipsum", "lipsum", "dummy text", "blind text", "placeholder", "japanese"]
+exclude = ["test/*", "docs/*"]

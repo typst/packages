@@ -1,0 +1,212 @@
+{
+    "enabled": {
+        "description": "Enable or disable codly formatting.",
+        "default": "true",
+        "ty": "bool",
+        "function": true
+    },
+    "offset": {
+        "description": "Offset applied to the line numbers",
+        "default": "0",
+        "ty": "int",
+        "function": true
+    },
+    "range": {
+        "description": "Range of lines to display",
+        "default": "none",
+        "ty": [ "type(none)", "array"],
+        "function": true
+    },
+    "languages": {
+        "description": "Languages to format in the language box",
+        "default": "(:)",
+        "ty": [ "dictionary" ],
+        "function": true
+    },
+    "display-name": {
+        "description": "Whether to display the language names",
+        "default": "true",
+        "ty": [ "bool" ],
+        "function": true
+    },
+    "display-icon": {
+        "description": "Whether to display the language icons",
+        "default": "true",
+        "ty": [ "bool" ],
+        "function": true
+    },
+    "default-color": {
+        "description": "Default color for the language box",
+        "default": "rgb(\"#283593\")",
+        "ty": [ "color", "gradient", "pattern" ],
+        "function": true
+    },
+    "radius": {
+        "description": "Radius of the code block",
+        "default": "0.32em",
+        "ty": [ "length" ],
+        "function": true
+    },
+    "inset": {
+        "description": "Inset of the code lines",
+        "default": "0.32em",
+        "ty": [ "length" ],
+        "function": true
+    },
+    "fill": {
+        "description": "Background color of the code lines",
+        "default": "none",
+        "ty": [ "type(none)", "color", "gradient", "pattern" ],
+        "function": true
+    },
+    "zebra-fill": {
+        "description": "Background color of the code lines when zebra-stripped",
+        "default": "luma(240)",
+        "ty": [ "type(none)", "color", "gradient", "pattern" ],
+        "function": true
+    },
+    "stroke": {
+        "description": "The stroke to surround the whole code block with",
+        "default": "1pt + luma(240)",
+        "ty": [ "type(none)", "stroke" ],
+        "function": true
+    },
+    "lang-outset": {
+        "description": "Outset of the language box, must be a dictionary with an x and y value",
+        "default": "(x: 0.32em, y: 0em)",
+        "ty": [ "dictionary" ],
+        "function": true
+    },
+    "lang-inset": {
+        "description": "Inset of the language box",
+        "default": "0.32em",
+        "ty": [ "length", "dictionary" ],
+        "function": true
+    },
+    "lang-radius": {
+        "description": "Radius of the language box",
+        "default": "0.32em",
+        "ty": [ "length" ],
+        "function": true
+    },
+    "lang-stroke": {
+        "description": "The stroke to surround the language box with, can be a function that gets called with the language definition or none.",
+        "default": "(lang) => lang.color + 0.5pt",
+        "ty": [ "type(none)", "stroke", "function" ],
+        "function": false
+    },
+    "lang-fill": {
+        "description": "The background color of the language box, can be a function that gets called with the language definition or none.",
+        "default": "(lang) => lang.color.lighten(80%)",
+        "ty": [ "type(none)", "color", "gradient", "pattern", "function" ],
+        "function": false
+    },
+    "lang-format": {
+        "description": "The formatter for the language box",
+        "default": "auto",
+        "ty": [ "type(auto)", "type(none)", "function" ],
+        "function": false
+    },
+    "number-format": {
+        "description": "The format of the line numbers, a function that takes in number and returns a content. If set to none, disables line numbers.",
+        "default": "numbering.with(\"1\")",
+        "ty": [ "function", "type(none)" ],
+        "function": false
+    },
+    "number-align": {
+        "description": "The alignment of the numbers.",
+        "default": "left + horizon",
+        "ty": [ "alignment" ],
+        "function": true
+    },
+    "breakable": {
+        "description": "Whether tthe codeblocks are breakable",
+        "default": "true",
+        "ty": [ "bool" ],
+        "function": false
+    },
+    "skips": {
+        "description": "The lines skipped in the code block.",
+        "default": "none",
+        "ty": [ "array", "type(none)" ],
+        "function": true
+    },
+    "skip-line": {
+        "description": "The content with which to fill the line.",
+        "default": "align(center)[ ... ]",
+        "ty": [ "content", "type(none)" ],
+        "function": true
+    },
+    "skip-number": {
+        "description": "The content with which to fill the number.",
+        "default": "[ ... ]",
+        "ty": [ "content", "type(none)" ],
+        "function": true
+    },
+    "smart-indent": {
+        "description": "Whether to smart indent the code.",
+        "default": "false",
+        "ty": [ "bool" ],
+        "function": false
+    },
+    "annotations": {
+        "description": "The annotations to display in the code block.",
+        "default": "none",
+        "ty": [ "array", "type(none)" ],
+        "function": true
+    },
+    "annotation-format": {
+        "description": "The formatter for the annotations.",
+        "default": "numbering.with(\"(1)\")",
+        "ty": [ "type(none)", "function" ],
+        "function": false
+    },
+    "highlights": {
+        "description": "The highlights to display in the code block.",
+        "default": "none",
+        "ty": [ "array", "type(none)" ],
+        "function": true
+    },
+    "highlight-radius": {
+        "description": "The radius of the highlights.",
+        "default": "0.32em",
+        "ty": [ "length" ],
+        "function": true
+    },
+    "highlight-fill": {
+        "description": "The fill transformer of the highlights.",
+        "default": "(color) => color.lighten(80%)",
+        "ty": [ "function" ],
+        "function": false
+    },
+    "highlight-stroke": {
+        "description": "The stroke of the highlights.",
+        "default": "(color) => 0.5pt + color",
+        "ty": [ "stroke", "function" ],
+        "function": false
+    },
+    "highlight-inset": {
+        "description": "The inset of the highlights.",
+        "default": "0.32em",
+        "ty": [ "length" ],
+        "function": true
+    },
+    "reference-by": {
+        "description": "The reference mode to use.",
+        "default": "\"line\"",
+        "ty": [ "str" ],
+        "function": true
+    },
+    "reference-sep": {
+        "description": "The separator to use when referencing highlights and annotations.",
+        "default": "\"-\"",
+        "ty": [ "str", "content" ],
+        "function": true
+    },
+    "reference-number-format": {
+        "description": "The format of the referenced line.",
+        "default": "numbering.with(\"1\")",
+        "ty": [ "function" ],
+        "function": false
+    }
+}

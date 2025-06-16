@@ -1,0 +1,21 @@
+[package]
+name = "touying-unistra-pristine"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = [
+  "Enzo Doyen <https://edoyen.com/>"
+]
+license = "MIT"
+description = "Touying theme adhering to the core principles of the style guide of the University of Strasbourg, France"
+# homepage = ""
+repository = "https://github.com/spidersouris/touying-unistra-pristine"
+keywords = ["touying", "unistra", "strasbourg", "presentation"]
+categories = ["presentation"]
+disciplines = []
+compiler = "0.11.0"
+exclude = ["/example", "assets/cat1.jpg", "assets/cat2.jpg"]
+
+[template]
+path = "template"
+entrypoint = "template.typ"
+thumbnail = "assets/thumbnail.webp"

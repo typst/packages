@@ -1,0 +1,14 @@
+name: 📦 Packaging issue
+description: Issue with the package system itself. Not for issues with packages!
+title: Write a short and descriptive title!
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting an issue with Typst's package system. Please only open an issue here if you want to report or discuss something related to the packaging itself. For issues with individual packages, please open an issue on the package's repository instead. You can find it by clicking on the chain link in the [package list](https://typst.app/docs/packages).
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please describe your issue.
+    validations:
+      required: true

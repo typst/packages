@@ -1,0 +1,14 @@
+[package]
+name = "stundenzettel"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Julius Schmitt"]
+license = "MIT"
+description = "Track your work hours with typst."
+categories = ["report"]
+repository = "https://github.com/bratorange/stundenzettel.typ"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

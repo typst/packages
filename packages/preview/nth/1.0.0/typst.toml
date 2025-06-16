@@ -1,0 +1,10 @@
+[package]
+name = "nth"
+version = "1.0.0"
+entrypoint = "nth.typ"
+authors = ["Pierre Marshall <pierre.marshall@gmail.com>", "fnoaman", "Andrew Jeffery"]
+license = "MIT-0"
+description = "Add english ordinals to numbers, eg. 1st, 2nd, 3rd, 4th."
+compiler = "0.8.0"
+repository = "https://github.com/extua/nth"
+exclude = ["typstfmt.toml"]

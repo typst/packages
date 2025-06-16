@@ -1,0 +1,15 @@
+[package]
+name = "enunciado-facil-fcfm"
+version = "0.1.0"
+categories = ["report"]
+entrypoint = "lib/enunciado-facil-fcfm.typ"
+authors = ["Blaz Korecic <@bkorecic>"]
+license = "MIT"
+description = "Documentos de ejercicios (controles, auxiliares, tareas, pautas) para la FCFM, UChile"
+repository = "https://github.com/bkorecic/enunciado-facil-fcfm"
+keywords = ["fcfm", "problemset", "worksheet", "uchile", "Universidad de Chile", "enunciados", "problemas", "homework", "es", "español", "spanish"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

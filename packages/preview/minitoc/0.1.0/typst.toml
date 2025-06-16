@@ -5,4 +5,4 @@ description = "An outline function just for one section and nothing else"
 authors = ["nxe <https://github.com/RosiePuddles>"]
 license = "GPL-3.0-only"
 entrypoint = "lib.typ"
-respository = "https://gitlab.com/human_person/typst-local-outline"
+repository = "https://gitlab.com/human_person/typst-local-outline"

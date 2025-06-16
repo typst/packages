@@ -1,0 +1,27 @@
+unitotmplt:
+  type: Repository
+  title: "UniTO typst template"
+  url: "https://github.com/eduardz1/UniTO-typst-template"
+
+typst:
+  type: Web
+  title: "Typst"
+  url: "http://typst.app"
+
+cormen:
+  type: Book
+  title: "Introduction to Algorithms, Third Edition"
+  author:
+    [
+      "Thomas H. Cormen",
+      "Charles E. Leiserson",
+      "Ronald L. Rivest",
+      "Clifford Stein",
+    ]
+  publisher: "MIT Press"
+  date: 2009
+  edition: "3rd"
+  abstract: "If you had to buy just one text on algorithms, Introduction to Algorithms is a magnificent choice. The book begins by considering the mathematical foundations of the analysis of algorithms and maintains this mathematical rigor throughout the work. The tools developed in these opening sections are then applied to sorting, data structures, graphs, and a variety of selected algorithms including computational geometry, string algorithms, parallel models of computation, fast Fourier transforms (FFTs), and more. This book's strength lies in its encyclopedic range, clear exposition, and powerful analysis. Pseudo-code explanation of the algorithms coupled with proof of their accuracy makes this book is a great resource on the basic tools used to analyze the performance of algorithms."
+  serial-number:
+    isbn: "0262033844"
+    doi: "10.5555/1614191"

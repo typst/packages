@@ -1,0 +1,14 @@
+[package]
+name = "ssrn-scribe"
+version = "0.6.0"
+entrypoint = "paper_template.typ"
+authors = [ "jxpeng98",]
+repository = "https://github.com/jxpeng98/Typst-Paper-Template"
+license = "MIT"
+description = "Personal working paper template for general doc and SSRN paper."
+categories = [ "paper",]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,20 @@
+[package]
+name = "brilliant-cv"
+version = "2.0.4"
+entrypoint = "lib.typ"
+authors = ["Yunan Wang <https://github.com/mintyfrankie>"]
+license = "Apache-2.0"
+description = "💼 another CV template for your job application, yet powered by Typst and more"
+repository = "https://github.com/mintyfrankie/brilliant-CV"
+keywords = ["cv", "resume", "cover-letter", "curriculum-vitae", "modular", "multilingual", "ai-injection"]
+categories = ["cv", "languages", "layout"]
+compiler = "0.11.0"
+exclude = ["docs", ".pre-commit-config.yaml", ".gitignore"]
+
+[template]
+path = "template"
+entrypoint = "cv.typ"
+thumbnail = "thumbnail.png"
+
+[tool.utpm]
+namespace = "preview"
