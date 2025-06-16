@@ -13,14 +13,14 @@
   body: content,
   alignment: start,
   width: 100%,
-  fill_color: white,
+  fill-color: white,
 ) = context {
   let heading-count = counter(heading).at(here()).first()
   let current-color = color-box.at(calc.rem(heading-count - 1, color-box.len()))
 
   block(
     stroke: current-color,
-    fill: fill_color,
+    fill: fill-color,
     radius: 3pt,
     inset: 6pt,
     width: width,
@@ -138,7 +138,7 @@
     columns(num-columns, gutter: column-gutter, new-body)
 }
 
-#let cheatsheet_scaling(
+#let cheatsheet-scaling(
   title: [], 
   authors: (),
   write-title: false,

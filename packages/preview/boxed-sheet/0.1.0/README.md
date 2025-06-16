@@ -37,7 +37,7 @@ arguments:
 - `column_gutter`: Space between columns (Default = 4pt)
 - `numbered_units`: Numbering of units (Default = false)
 
-### cheatsheet_scaling config
+### cheatsheet-scaling config
 In this template we add the extral parameters to adjust the page size and keep other parameters same.
 
 - `page-w`: The width of page (Default = auto)
