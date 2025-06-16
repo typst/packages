@@ -1,4 +1,4 @@
-#import "../src/lib.typ": *
+#import "@preview/boxed-sheet:0.1.0": *
 
 #set text(font: (
   "Times New Roman",

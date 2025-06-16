@@ -1,5 +1,5 @@
 [package]
-name = "cheat-sheet"
+name = "boxed-sheet"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Zhihao Li <https://lzhms.github.io>"]
@@ -21,5 +21,5 @@ keywords = [
 
 [template]
 path = "template"
-entrypoint = "cheatsheet.typ"
+entrypoint = "boxedsheet.typ"
 thumbnail = "thumbnail.png"

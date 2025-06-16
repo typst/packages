@@ -1,4 +1,4 @@
-# Cheat Sheet
+# Boxed Sheet
 
 Colorful and organised cheatsheet template for [Typst](https://typst.app/) that allows you to make a overview of learning notes. Only one or few pages can cover all content about what you want to review and what you need to explore. This way make it convenient to the way of learning one technology and then getting a cheat sheet, and go on. 
 
@@ -10,7 +10,7 @@ Colorful and organised cheatsheet template for [Typst](https://typst.app/) that 
 To build this project via the CLI, use the command
 
 ```
-typst init @preview/cheat-sheet
+typst init @preview/boxed-sheet
 ```
 
 A sample project will be created with the template format.
