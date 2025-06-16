@@ -7,6 +7,7 @@
 
 #let (
   template,
+  preamble,
   titlepage,
   outline,
   mainbody,
@@ -41,8 +42,6 @@
   date: datetime.today(),
   // set to true to enable draft watermark, so that you can prevent from submitting a draft version
   draft: false,
-  // set to true to enable two-sided layout
-  two-sided: true,
   // "modern"|"classic"
   title-style: "book",
   chap-imgs: imgs,
