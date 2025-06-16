@@ -1,6 +1,6 @@
 #set page("a5", flipped:true, margin: (x:5pt, y:5pt))
 #set text(size:14pt)
-#import "../plotsy-3d.typ": *
+#import "@preview/plotsy-3d:0.2.0"
 
 
 #let xfunc(u,v) = u*calc.sin(v) 

@@ -27,8 +27,7 @@
 * Parametric surface plotting of the form `x(u,v), y(u,v), z(u,v)`
 * Plots autoscale with font size for consistent style
 
-See **Usage** or `examples/examples.typ` for the code
-
+See **Usage** or [`examples/examples.typ`](examples/examples.typ) for the code
 
 ## Future Plans (contributors welcome):
 - [ ] Nicer way to draw vectors
