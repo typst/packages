@@ -246,7 +246,7 @@
       numbering: none,
       text(0.85em, smallcaps[Abstract]),
     )
-    #abstract
+    #box(width: 90%)[#align(left)[#par(justify: true)[#abstract]]]
   ]
   v(1.618fr)
   pagebreak()
