@@ -88,13 +88,13 @@
   tab2,
   col2,
   index-ratio: 15%,
-  col-hcoef: 0.75pt,
+  col-hcoef: .95pt,
   tab-height: 24pt,
   styles: default-styles,
   info: default-info.global,
 ) = {
-  let b-h1 = col.at("text").len()
-  let b-h2 = col2.at("text").len()
+  let b-h1 = col.children.len() * 10
+  let b-h2 = col2.children.len() * 10
   let b-h = calc.max(b-h1, b-h2) * col-hcoef
 
   block(
@@ -121,12 +121,12 @@
   tab,
   col,
   index-ratio: 15%,
-  col-hcoef: 0.55pt,
+  col-hcoef: .95pt,
   tab-height: 24pt,
   styles: default-styles,
   info: default-info.global,
 ) = {
-  let b-h = col.at("text").len() * col-hcoef
+  let b-h = col.children.len() * 10 * col-hcoef
 
   block(
     align(
@@ -151,12 +151,12 @@
   index2,
   col2,
   index-ratio: 15%,
-  col-hcoef: 0.55pt,
+  col-hcoef: 1.05pt,
   styles: default-styles,
   info: default-info.global,
 ) = {
-  let b-h1 = col.at("text").len()
-  let b-h2 = col2.at("text").len()
+  let b-h1 = col.children.len() * 10
+  let b-h2 = col2.children.len() * 10
   let b-h = calc.max(b-h1, b-h2) * col-hcoef
 
   block(
@@ -177,11 +177,11 @@
   index,
   col,
   index-ratio: 15%,
-  col-hcoef: 0.35pt,
+  col-hcoef: .95pt,
   styles: default-styles,
   info: default-info.global,
 ) = {
-  let b-h = col.at("text").len() * col-hcoef
+  let b-h = col.children.len() * 10 * col-hcoef
 
   block(
     align(
@@ -236,13 +236,13 @@
   index32,
   col22,
   index-ratio: 15%,
-  col-hcoefs: (0.6pt, 1.35pt),
+  col-hcoefs: (0.8pt, .75pt),
   styles: default-styles,
   info: default-info.global,
 ) = {
-  let b-h1 = body.at("text").len()
-  let b-h21 = col21.at("text").len()
-  let b-h22 = col22.at("text").len()
+  let b-h1 = body.children.len() * 10
+  let b-h21 = col21.children.len() * 10
+  let b-h22 = col22.children.len() * 10
 
   let (col-hcoef, col-hcoef2) = col-hcoefs
   let b-h = calc.max(b-h1 * col-hcoef, (b-h21 + b-h22) * col-hcoef2)
@@ -281,7 +281,7 @@
   styles: default-styles,
   info: default-info.global,
 ) = {
-  let b-h0 = body.at("text").len()
+  let b-h0 = body.children.len() * 10
   let b-h1 = row.at("text").len()
   let b-h2 = row2.at("text").len()
   let b-h3 = row3.at("text").len()
