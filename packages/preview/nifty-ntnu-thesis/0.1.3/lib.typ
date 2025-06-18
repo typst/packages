@@ -1,5 +1,5 @@
 #import "@preview/subpar:0.2.2"
-#import "@preview/physica:0.9.4": *
+#import "@preview/physica:0.9.5": *
 
 #let stroke-color = luma(200)
 #let std-bibliography = bibliography
@@ -79,7 +79,6 @@
         #let v-space = v(2em, weak: true)
         #text(2em)[*#title*]
  
-        #v(0%) 
         #for author in authors {
           text(1.1em, author)
           v(0.7em, weak: true)
