@@ -203,9 +203,14 @@
 
 #let meter(qubit, ..args) = construct-single-qubit-gate(qubit, gates.meter.with(..args))
 
-#let measure(..args) = {
+#let measure(label: none, ..args) = {
   let qubits = args.pos()
   assert(qubits.len() > 0, message: "Missing argument `qubit`")
+
+  if type(label) == content {
+    label = (content: label, pos: bottom)
+  }
+
   if qubits.len() == 1 {
     construct-single-qubit-gate(qubits.first(), gates.meter.with(..args.named()))
   } else {
@@ -213,7 +218,7 @@
     construct-two-qubit-gate(
       qubits.last(), 
       qubits.first(), 
-      gates.ctrl.with(open: true, wire-count: 2), 
+      gates.ctrl.with(open: true, wire-count: 2, label: label), 
       gates.meter.with(..args.named())
     )
   }
