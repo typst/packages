@@ -5,7 +5,7 @@ Port of [thesis-NTNU](https://github.com/COPCSE-NTNU/thesis-NTNU) template to Ty
 To use this template you need to import it at the beginning of your document: 
 
 ```typ
-#import "@preview/nifty-ntnu-thesis:0.1.2": *
+#import "@preview/nifty-ntnu-thesis:0.1.3": *
 ```
 
 The template has many arguments you can specify:
