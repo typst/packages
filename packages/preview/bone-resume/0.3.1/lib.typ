@@ -11,7 +11,7 @@
 ) = {
   set document(author: author)
   context {
-    if target() != "html" {
+    if "target" in dictionary(std) and target() != "html" {
       set page(margin: (x: 3.2em, y: 3.2em), header: header, footer: footer)
     }
   }
