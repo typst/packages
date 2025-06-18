@@ -1,5 +1,5 @@
 //#import "lib.typ": *
-#import "@preview/nifty-ntnu-thesis:0.1.2": *
+#import "@preview/nifty-ntnu-thesis:0.1.3": *
 #let chapters-on-odd = false
 #show: nifty-ntnu-thesis.with(
   title: [An NTNU Thesis typst template],
