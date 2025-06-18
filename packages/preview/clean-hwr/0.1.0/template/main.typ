@@ -1,4 +1,4 @@
-#import "@preview/clean-hwr-template:0.1.0": *
+#import "@preview/clean-hwr:0.1.0": *
 
 // These packages are used to displaying the acronyms and glossaries
 // They need to be imported here so you can use #acr / #gls
@@ -13,15 +13,15 @@
 #show: hwr.with(
   metadata: (
     title: [HWR PTB Template],
-    student_id: "12345678910",
+    student-id: "12345678910",
     authors: ("Alice Becker", "Bob Klein"),
-    field_of_study: "Computer Science",
+    field-of-study: "Computer Science",
     company: "Example Company",
-    enrollment_year: "2024",
+    enrollment-year: "2024",
     semester: "2",
-    company_supervisor: "Prof. Dr. Schwarz",
+    company-supervisor: "Prof. Dr. Schwarz",
   ),
-  custom_entries: (
+  custom-entries: (
     (key: "GitHub", value: "aliceb-quantum", index: 0),
     (key: "LinkedIn", value: "Alice Becker", index: 1),
   ),
@@ -44,7 +44,7 @@
   figure-index: (enabled: true),
   table-index: (enabled: true),
   listing-index: (enabled: true, title: "Index of Code Snippets"),
-  word_count: total-words,
+  word-count: total-words,
 )
 
 = Introduction to Quantum Computing

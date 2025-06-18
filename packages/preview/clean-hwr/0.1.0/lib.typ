@@ -5,24 +5,24 @@
   // Main Metadata for the title page
   metadata: (
     title: [PTB Template],
-    student_id: "",
+    student-id: "",
     authors: (),
     company: "",
-    enrollment_year: "",
+    enrollment-year: "",
     semester: "",
-    company_supervisor: "",
+    company-supervisor: "",
     // These do not need to be changed by the user
-    field_of_study: none,
+    field-of-study: none,
     university: none,
-    date_of_publication: none,
+    date-of-publication: none,
     uni-logo: none,
     company-logo: none,
   ),
-  custom_entries: (),
-  word_count: none,
+  custom-entries: (),
+  word-count: none,
 
   // Declaration of authorship
-  custom_declaration_of_authorship: [],
+  custom-declaration-of-authorship: [],
 
   // Abstract content
   abstract: [#lorem(30)],
@@ -57,7 +57,7 @@
 
   // Bibliography settings
   bibliography-object: none,
-  citation_style: "hwr_citation.csl",
+  citation-style: "hwr_citation.csl",
 
   // The content of the appendix
   appendix: (
@@ -82,11 +82,11 @@
   }
 
   // SETUP Title page
-  let equal_spacing = 0.25fr
+  let equal-spacing = 0.25fr
   set align(center)
 
   // Logo settings
-  v(equal_spacing)
+  v(equal-spacing)
   if metadata.at("uni-logo", default: "template/images/header_logo.png") != none and metadata.at("company-logo", default: none) != none {
     grid(
       columns: (1fr, 1fr),
@@ -127,13 +127,13 @@
       )
     )
   }
-  v(equal_spacing)
+  v(equal-spacing)
 
   // Title settings
-  let line_length = 90%
-  line(length: line_length)
+  let line-length = 90%
+  line(length: line-length)
   text(2em, weight: 700, metadata.title)
-  line(length: line_length)
+  line(length: line-length)
 
   // Author information.
   pad(
@@ -146,20 +146,20 @@
 
   // Middle section
   if language == "de" {
-    text(1.1em, [vorgelegt am #metadata.at("date_of_publication", default: datetime.today().display())])
+    text(1.1em, [vorgelegt am #metadata.at("date-of-publication", default: datetime.today().display())])
   } else {
-    text(1.1em, [published on #metadata.at("date_of_publication", default: datetime.today().display())])
+    text(1.1em, [published on #metadata.at("date-of-publication", default: datetime.today().display())])
   }
   v(0.6em, weak: true)
   $circle.filled.small$
   v(0.6em, weak: true)
-  metadata.at("field_of_study", default: if language == "de" { "Informatik" } else { "Computer Science" })
+  metadata.at("field-of-study", default: if language == "de" { "Informatik" } else { "Computer Science" })
   v(0.6em, weak: true)
   metadata.at("university", default: if language == "de" { "Hochschule für Wirtschaft und Recht Berlin" } else { "Berlin School of Economics and Law" })
 
-  v(equal_spacing)
+  v(equal-spacing)
 
-  let merge_entries(defaults, customs) = {
+  let merge-entries(defaults, customs) = {
     let base = defaults
     for entry in customs {
       let idx = entry.at("index", default: base.len())
@@ -169,16 +169,16 @@
   }
 
   if language == "de" {
-    let default_entries = (
+    let default-entries = (
       ("Unternehmen:", metadata.company),
-      ("Studienjahrgang:", metadata.enrollment_year),
+      ("Studienjahrgang:", metadata.enrollment-year),
       ("Semester:", metadata.semester),
-      ("Matrikelnummer:", metadata.student_id),
-      ("Betreuer im Unternehmen:", metadata.company_supervisor),
-      ("Anzahl der Wörter:", word_count),
+      ("Matrikelnummer:", metadata.student-id),
+      ("Betreuer im Unternehmen:", metadata.company-supervisor),
+      ("Anzahl der Wörter:", word-count),
     )
 
-    let final_entries = merge_entries(default_entries, custom_entries)
+    let final-entries = merge-entries(default-entries, custom-entries)
 
     show table.cell.where(x: 0): strong
     table(
@@ -186,19 +186,19 @@
       stroke: none,
       align: left,
       column-gutter: 5%,
-      ..final_entries.flatten()
+      ..final-entries.flatten()
     )
   } else {
-    let default_entries = (
+    let default-entries = (
       ("Company:", metadata.company),
-      ("Enrollment Year:", metadata.enrollment_year),
+      ("Enrollment Year:", metadata.enrollment-year),
       ("Semester:", metadata.semester),
-      ("Student ID:", metadata.student_id),
-      ("Company Supervisor:", metadata.company_supervisor),
-      ("Word Count:", word_count),
+      ("Student ID:", metadata.student-id),
+      ("Company Supervisor:", metadata.company-supervisor),
+      ("Word Count:", word-count),
     )
 
-    let final_entries = merge_entries(default_entries, custom_entries)
+    let final-entries = merge-entries(default-entries, custom-entries)
 
     show table.cell.where(x: 0): strong
     table(
@@ -206,11 +206,11 @@
       stroke: none,
       align: left,
       column-gutter: 5%,
-      ..final_entries.flatten()
+      ..final-entries.flatten()
     )
   }
 
-  v(2*equal_spacing)
+  v(2*equal-spacing)
 
   if language == "de" {
     table(
@@ -232,7 +232,7 @@
     )
   }
 
-  v(equal_spacing)
+  v(equal-spacing)
   pagebreak()
   set align(left)
   // END OF TITLE PAGE
@@ -261,8 +261,8 @@
   }
 
   // Declaration of authorship
-  if custom_declaration_of_authorship != [] {
-    custom_declaration_of_authorship
+  if custom-declaration-of-authorship != [] {
+    custom-declaration-of-authorship
   } else if language == "de" {
     heading("Ehrenwörtliche Erkärung", numbering: none)
     [
@@ -326,15 +326,15 @@
   }
 
   // Display indices of figures, tables, and listings.
-  let default_titles = (
-    figure_title: "Index of Figures",
-    table_title: "Index of Tables",
-    listing_title: "Index of Listings"
+  let default-titles = (
+    figure-title: "Index of Figures",
+    table-title: "Index of Tables",
+    listing-title: "Index of Listings"
   )
   if language == "de" {
-    default_titles.figure_title = "Abbildungsverzeichnis"
-    default_titles.table_title = "Tabellenverzeichnis"
-    default_titles.listing_title = "Aufzählungsverzeichnis"
+    default-titles.figure-title = "Abbildungsverzeichnis"
+    default-titles.table-title = "Tabellenverzeichnis"
+    default-titles.listing-title = "Aufzählungsverzeichnis"
   }
   let fig-t(kind) = figure.where(kind: kind)
   if figure-index.enabled or table-index.enabled or listing-index.enabled {
@@ -345,19 +345,19 @@
       let lsts = listing-index.enabled
       if imgs {
         outline(
-          title: figure-index.at("title", default: default_titles.figure_title),
+          title: figure-index.at("title", default: default-titles.figure-title),
           target: fig-t(image),
         )
       }
       if tbls {
         outline(
-          title: table-index.at("title", default: default_titles.table_title),
+          title: table-index.at("title", default: default-titles.table-title),
           target: fig-t(table),
         )
       }
       if lsts {
         outline(
-          title: listing-index.at("title", default: default_titles.listing_title),
+          title: listing-index.at("title", default: default-titles.listing-title),
           target: fig-t(raw),
         )
       }
@@ -378,7 +378,7 @@
 
   // Biblography
   if bibliography-object != none {
-    set bibliography(style: citation_style)
+    set bibliography(style: citation-style)
     bibliography-object
   }
 

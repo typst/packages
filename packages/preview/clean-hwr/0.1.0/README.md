@@ -4,11 +4,11 @@ Welcome! This repository offers two Typst templates (English and German) designe
 
 ## Usage
 You can use this template in the Typst web app by clicking "Start from template"
-on the dashboard and searching for `clean-hwr-template`.
+on the dashboard and searching for `clean-hwr`.
 
 Alternatively, you can use the CLI to kick this project off using the command
 ```
-typst init @preview/clean-hwr-template:0.1.0
+typst init @preview/clean-hwr:0.1.0
 ```
 
 Typst will create a new directory with all the files needed to get you started.
@@ -23,20 +23,20 @@ The `hwr(...)` function is the main entry point to configure and render the **PT
 
   metadata: (
     title: ["My Report Title"],
-    student_id: "12345678",
+    student-id: "12345678",
     authors: ("Your Name",),
     company: "Example Corp",
-    enrollment_year: "2024",
+    enrollment-year: "2024",
     semester: "2",
-    company_supervisor: "Jane Doe",
+    company-supervisor: "Jane Doe",
   ),
 
-  custom_entries: (
+  custom-entries: (
     (key: "GitHub", value: "yourhandle", index: 0),
   ),
 
-  word_count: total-words, // Optional: total word count
-  custom_declaration_of_authorship: [], // Optional override for default declaration
+  word-count: total-words, // Optional: total word count
+  custom-declaration-of-authorship: [], // Optional override for default declaration
 
   abstract: [
     This report analyzes...
@@ -83,7 +83,7 @@ The `hwr(...)` function is the main entry point to configure and render the **PT
   ),
 
   bibliography-object: bibliography("refs.bib"),
-  citation_style: "template/hwr_citation.csl",
+  citation-style: "template/hwr_citation.csl",
 
   appendix: (
     enabled: true,
@@ -96,9 +96,9 @@ The `hwr(...)` function is the main entry point to configure and render the **PT
 ```
 
 ### Notes:
-* **Fields marked optional** (like `word_count` or `custom_declaration_of_authorship`) may be omitted if not needed.
+* **Fields marked optional** (like `word-count` or `custom-declaration-of-authorship`) may be omitted if not needed.
 * `abstract` is shown before the table of contents.
-* The `metadata.university` and `metadata.date_of_publication` will be filled automatically unless explicitly overridden.
+* The `metadata.university` and `metadata.date-of-publication` will be filled automatically unless explicitly overridden.
 
 ## How to Create a PDF (locally)
 Once you’ve made your changes, you can compile your document into a PDF by running this command in the root folder of the project:

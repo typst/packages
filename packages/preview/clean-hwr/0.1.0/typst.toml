@@ -1,5 +1,5 @@
 [package]
-name = "clean-hwr-template"
+name = "clean-hwr"
 version = "0.1.0"
 compiler = "0.13.1"
 entrypoint = "lib.typ"
