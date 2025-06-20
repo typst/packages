@@ -1,0 +1,3 @@
+*.pdf
+# Vim files
+*.sw[op]
