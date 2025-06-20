@@ -32,7 +32,7 @@ function in a show rule. If you want to change an existing project to use this
 template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/bone-resume:0.3.0": resume-init
+#import "@preview/bone-resume:0.3.1": resume-init
 
 #show: resume-init.with(
   author: "六个骨头"
