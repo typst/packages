@@ -21,8 +21,6 @@
 2. 安装 [typsite](https://github.com/Glomzzz/typsite) 二进制文件，推荐使用 [typsite-template](https://github.com/Glomzzz/typsite-template)
 3. 开始你的 typst 静态网站之旅吧！
 
-另外，如果你想本地安装：
-- 执行 `python install.py`，这会将 `typsite` 包安装到本地的包目录中。
 
 ## 致谢
 - [Myriad-Dreamin](https://github.com/Myriad-Dreamin) ：[typ](https://github.com/Myriad-Dreamin/typ)

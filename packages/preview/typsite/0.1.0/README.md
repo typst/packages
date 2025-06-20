@@ -21,8 +21,6 @@ And this typst package is a standard lib for typsite, it provides these features
 2. Install [typsite](https://github.com/Glomzzz/typsite) bin, RECOMMENDED [typsite-template](https://github.com/Glomzzz/typsite-template)
 3. Start your journey of typst-static-site !
 
-By the way, if you want to install local:
-- Execute `python install.py`. This will install the `typsite` package to the local package folder.
 
 
 ## Acknowledgements
