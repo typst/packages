@@ -10,6 +10,10 @@ And edit the `main.typ` example.
 
 ![Preview of the first page](thumbnail.png)
 
+## Further examples
+
+Many colours and fonts can be configured by the user, see [examples/dummy.typ](examples/dummy.typ) for a minimal example.
+
 ## Contributing
 
 PRs are welcome! And if you encounter any bugs or have any requests/ideas, feel free to open an issue.
