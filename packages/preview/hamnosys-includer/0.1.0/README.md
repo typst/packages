@@ -1,12 +1,10 @@
-# HamNoSys
+HamNoSys is a system for the phonetic transcription of signed languages. The HamNoSysUnicode font uses the Unicode Private Use Area for the HamNoSys symbols. The font (and the symbol names) are taken from the TeX package _[hamnosys](https://ctan.org/pkg/hamnosys?lang=en)_, maintained by Thomas Hanke & Marc Schulder.
 
-HamNoSys is a system for the phonetic transcription of signed languages. The HamNoSysUnicode font uses the Unicode Private Use Area for the HamNoSys symbols. The font (and the symbol names) are taken from the TeX package _[hamnosys]("https://ctan.org/pkg/hamnosys?lang=en")_, maintained by Thomas Hanke & Marc Schulder.
-
-To use, first install the font HamNoSysUnicode. (If you're using the [Typst web service]("https://typst.app"), you just need to include the font among your uploaded files.) Without the font, this package is useless.
+To use, first install the font HamNoSysUnicode. You can find the font within the TeX package linked above. (If you're using the [Typst web service](https://typst.app), you just need to include the font among your uploaded files.) Without the font, this package is useless.
 
 This defines the functions `#hamnosys-text`, which allows input of HamNoSys symbols directly, and `#hamnosys`, which allows input of symbols by name.
 
-Most HamNoSys symbols are defined in the Unicode Private Use Area, so cannot be typed, but if you copy and paste symbols from elsewhere you should use `#hamnosys-text` to ensure that the HamNoSysUnicode font is used.
+Most (not all) HamNoSys symbols are defined in the Unicode Private Use Area, so cannot be typed, but if you copy and paste symbols from elsewhere you should use `#hamnosys-text` to ensure that the HamNoSysUnicode font is used.
 
 To enter symbols by name, use the `#hamnosys` function.
 
