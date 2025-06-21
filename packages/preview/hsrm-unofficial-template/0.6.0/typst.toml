@@ -1,0 +1,10 @@
+[package]
+name = "hsrm-unofficial-template"
+entrypoint = "lib.typ"
+description = "Unofficial template for writing a report or thesis in the HSRM department of Computer Science design. Direct fork from "
+categories = ['report', 'thesis']
+version = "0.6.0"
+compiler = "0.13.0"
+authors = ['Simon Johannes Engelhardt', 'Lasse Rosenow']
+license = "MIT"
+repository = "https://github.com/SimonJohannesEngelhardt/HSRM-Typist-Template"
