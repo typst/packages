@@ -32,7 +32,7 @@ Shown here (as comments) are the default values taken if the corresponding keys 
 Provided via the `#note[...]` command.
 
 - `#note(side: "inner")[...]` to put it on the inside margin (left margin for single-sided documents).
-- `#note(numbered: false)[...]` to remove the marker.
+- `#note(numbering: none)[...]` to remove the marker.
 - `#note(shift: false)[...]` to force exact position of the note.
 - `#note(shift: "ignore")[...]` to force exact position of the note and disable collision.
 - ..and more
