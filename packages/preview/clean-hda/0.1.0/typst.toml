@@ -12,5 +12,5 @@ exclude = ["template/main.pdf"]
 
 [template]
 path = "template"
-entrypoint = "lib.typ"
+entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
