@@ -8,17 +8,17 @@
   return obj
 }
 
-#let init_translations = (additional-translations) => {
-  let lang_data = toml("translations.toml")
+#let init-translations = (additional-translations) => {
+  let lang-data = toml("translations.toml")
 
   for (key, value) in additional-translations {
     if value != none {
       value = set-defaults(value, ("en", "de"), "")
-      lang_data.lang.en.insert(key, value.en)
-      lang_data.lang.de.insert(key, value.de)
+      lang-data.lang.en.insert(key, value.en)
+      lang-data.lang.de.insert(key, value.de)
     }
   }
-  set-database(lang_data);
+  set-database(lang-data);
 }
 
 #let translate = key => {

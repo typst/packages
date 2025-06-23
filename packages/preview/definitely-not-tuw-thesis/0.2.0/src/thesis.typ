@@ -1,4 +1,4 @@
-#import "translations/translations.typ": init_translations
+#import "translations/translations.typ": init-translations
 #import "frontpage.typ": frontpage
 #import "statement.typ": statement
 
@@ -40,7 +40,7 @@
     thesis-type: thesis-type,
     curriculum: curriculum,
   )
-  init_translations(additional-translations)
+  init-translations(additional-translations)
 
   let filled-frontpage = frontpage.with(font, author, advisor, assistants, reviewers, show-curriculum, date)
 
