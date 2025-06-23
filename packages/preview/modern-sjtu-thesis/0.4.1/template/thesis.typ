@@ -454,7 +454,7 @@ $
 我们可以在论文中插入算法，但是不建议插入大段的代码。如果确实需要插入代码，推荐使用 `codly` 包插入代码。
 
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.8": *
 #show: codly-init.with()
 #codly(languages: codly-languages)
 
@@ -608,7 +608,7 @@ $
   label-name: "lilaq-line-example",
 )
 
-#import "@preview/suiji:0.3.0"
+#import "@preview/suiji:0.4.0"
 #let rng = suiji.gen-rng(33)
 #let (rng, x) = suiji.uniform(rng, size: 20)
 #let (rng, y) = suiji.uniform(rng, size: 20)
