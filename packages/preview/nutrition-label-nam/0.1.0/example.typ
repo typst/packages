@@ -1,4 +1,4 @@
-#import "lib.typ": nutrition-label
+#import "@preview/nutrition-label-nam:0.1.0": nutrition-label
 
 // =====================================================================
 // EXAMPLE USAGE
