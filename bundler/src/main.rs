@@ -308,6 +308,7 @@ fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<
     let mut buf = vec![];
     let compressed = flate2::write::GzEncoder::new(&mut buf, flate2::Compression::default());
     let mut builder = tar::Builder::new(compressed);
+    builder.mode(tar::HeaderMode::Deterministic);
 
     let mut overrides = ignore::overrides::OverrideBuilder::new(dir_path);
     for exclusion in &manifest.package.exclude {
@@ -456,7 +457,7 @@ fn validate_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
         bail!("{name} is missing");
     }
 
-    if path.extension().map_or(true, |ext| ext != "typ") {
+    if path.extension().is_none_or(|ext| ext != "typ") {
         bail!("{name} must have a .typ extension");
     }
 
