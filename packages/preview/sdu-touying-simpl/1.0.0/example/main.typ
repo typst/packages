@@ -1,5 +1,5 @@
-// #import "@preview/sdu-touying-simpl:1.0.0" :*
-#import "../lib.typ" :*
+#import "@preview/sdu-touying-simpl:1.0.0" :*
+// #import "../lib.typ" :*
 // https://typst.app/universe/package/timeliney
 #import "@preview/timeliney:0.3.0"
 
