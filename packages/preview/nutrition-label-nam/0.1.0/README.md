@@ -34,5 +34,5 @@ Then, define your data and call the function:
   ),
 )
 
-#nutrition-label(sample-data)
+#nutrition-label-nam(sample-data)
 ```
