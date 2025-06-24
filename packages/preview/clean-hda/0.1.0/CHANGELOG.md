@@ -1,6 +1,6 @@
 # Changelog
 
-# 0.1.0
+## 0.1.0
 - add license information
 - prepare release for typst package page
 
@@ -13,14 +13,16 @@
 The following section is a states direct changes compared to [forked DHBW
 project](https://github.com/roland-KA/clean-dhbw-typst-template.git).
 
-## Logo
+Originally forked from v0.3.1.
+
+### Logo
 The logo from [Hochschule Darmstadt - University of Applied Sciences] has been
 used. The file has been taken from
 [Wikipedia](https://de.m.wikipedia.org/wiki/Datei:Hda_logo.svg) and is similar
 to the logo used in
 [mbredel/thesis-template](https://github.com/mbredel/thesis-template).
 
-## Font && Font Size
+### Font && Font Size
 
 |Description|From (DHBW)|To (HDA)|
 |---|---|---|
@@ -37,7 +39,7 @@ to the logo used in
 |link color|`show link: set text(fill: blue.darken(40%))`|disabled!|
 
 
-## Margin
+### Margin
 
 |Description|From (DHBW)|To (HDA)|
 |---|---|---|
@@ -47,7 +49,7 @@ to the logo used in
 |`right`|`3cm`|`2.5cm`|
 |`paper`|(not stated)|`a4`|
 
-## Misc
+### Misc
 - `h1` formatting: various margin and size adjustment|various margin and size
   adjustment in [81568b](https://github.com/stefan-ctrl/clean-hda-typst-template/commit/81568b3cbfb99ded764c61644215d265ce204c38)
 
