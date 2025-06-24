@@ -5,12 +5,12 @@
 
 // https://typst.app/universe/package/codly
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.8": *
 #show: codly-init.with()
 
 #codly(languages: codly-languages)
 //https://typst.app/universe/package/fletcher
-#import "@preview/fletcher:0.5.7" as fletcher: diagram, node, edge
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 
 //https://typst.app/universe/package/ctheorems
 // 数学定理相关
