@@ -36,3 +36,4 @@ Then, define your data and call the function:
 
 #nutrition-label-nam(sample-data)
 ```
+![capture_temp](https://github.com/user-attachments/assets/52dc0f8a-f29f-4de6-b679-cf99d76db0df)
