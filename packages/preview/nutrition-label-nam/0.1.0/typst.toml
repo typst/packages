@@ -1,5 +1,5 @@
 [package]
-name = "nutrition-label"
+name = "nutrition-label-nam"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Markus Schulz <schulz@alpharesearch.de>"]
