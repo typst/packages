@@ -3,7 +3,7 @@
 // =====================================================================
 // This function takes a dictionary of data and renders a nutrition label.
 // =====================================================================
-#let nutrition-label(data) = {
+#let nutrition-label-nam(data) = {
   // Define reusable components for the separator lines.
   let thick-separator() = {
     v(1pt)
