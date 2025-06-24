@@ -1,7 +1,7 @@
-#import "@preview/sdu-touying-simpl:1.0.0" :*
-// #import "../lib.typ" :*
+// #import "@preview/sdu-touying-simpl:1.0.0" :*
+#import "../lib.typ" :*
 // https://typst.app/universe/package/timeliney
-#import "@preview/timeliney:0.2.1"
+#import "@preview/timeliney:0.3.0"
 
 // https://typst.app/universe/package/codly
 #import "@preview/codly:1.3.0": *
@@ -75,7 +75,7 @@
     place(top, dx: 1.1em)[X]
   })
 }
-#import "@preview/octique:0.1.0": *
+
 #let LaTeX = {
   set text(font: "New Computer Modern", weight: "regular")
   box(width: 2.55em, {
