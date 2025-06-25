@@ -6,6 +6,10 @@
 
 The `elsevier` package is designed to closely resemble the `LaTeX` class used by Elsevier for article formatting, which is not publicly available. It is not intended for submission, but rather to help authors prepare articles that resemble the final published version. It mainly serves as a proof of concept, demonstrating that Typst is a viable option for academic writing and scientific publishing.
 
+The template uses the following fonts to conform to the Elsevier style:
+- [`Charis SIL`](https://fonts.google.com/specimen/Charis+SIL) for the main text
+- [`STIX Two Math`](https://www.stixfonts.org/) for maths
+
 ## Basic usage
 
 This section provides the minimal amount of information to get started with the template. For more detailed information, see the [manual](https://github.com/maucejo/elsevier/blob/main/docs/manual.pdf).

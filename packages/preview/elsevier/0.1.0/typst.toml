@@ -1,0 +1,15 @@
+[package]
+name = "elsevier"
+version = "0.1.0"
+authors = ["Mathieu Aucejo", "James R Swift"]
+license = "MIT"
+description = "Elsevier article template for Typst"
+entrypoint = "src/elsevier.typ"
+categories = ["Paper", "Model"]
+keywords = ["elsevier", "article", "template"]
+repository = "https://github.com/maucejo/elsevier"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/main.png"
