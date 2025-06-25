@@ -7,9 +7,12 @@
   <img src="https://github.com/ISC-HEI/isc_logos/blob/4f8d335f7f4b99d3d83ee579ef334c201a15166a/ISC%20Logo%20inline%20v1.png?raw=true" width="50%"/>        
 </p>
 
-# ISC report template :scroll:
+# ISC templates :scroll:
 
-This is an official template for students reports for the [ISC degree programme](https://isc.hevs.ch/) at the School of engineering in Sion. An example of the generated output can be [accessed here](https://github.com/ISC-HEI/isc-hei-report/blob/master/template/report.pdf?raw=true).
+This is the official templates for reports and bachelors thesis for the [ISC degree programme](https://isc.hevs.ch/) at the School of engineering in Sion. 
+
+An example of a generated report can be [accessed here](https://github.com/ISC-HEI/isc-hei-report/blob/master/template/examples/report.pdf?raw=true).
+An example of a generated bachelor theis can be [accessed here](https://github.com/ISC-HEI/isc-hei-report/blob/master/template/examples/bachelor_thesis.pdf?raw=true).
 
 ## Using the template, on the Web
 
@@ -71,9 +74,8 @@ Another nice possibility is of course to use VScod(e | ium) via the `Typst LSP` 
 
 In the future, several things _might_ be updated, such as :
 
-- [ ] State diagrams and UML diagrams examples
-- [ ] Master thesis version of this template
-- [ ] Other nice things
+- [x] Cleaning-up of user experience when writing a thesis or a report
+- [x] Master thesis version of this template
 - [x] Glossary inclusion
 - [x] Themes for code
 - [x] Appendix
