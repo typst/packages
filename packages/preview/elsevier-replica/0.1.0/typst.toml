@@ -7,7 +7,7 @@ description = "Elsevier article template for Typst"
 entrypoint = "src/elsevier.typ"
 categories = ["paper", "model", "report"]
 keywords = ["elsevier", "article", "template"]
-repository = "https://github.com/maucejo/elsevier"
+repository = "https://github.com/maucejo/elsevier-replica"
 
 [template]
 path = "template"
