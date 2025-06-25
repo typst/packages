@@ -14,4 +14,4 @@ disciplines = ["computer-science", "engineering"]
 [template]
 path = "src"
 entrypoint = "report.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "report_thumb.png"

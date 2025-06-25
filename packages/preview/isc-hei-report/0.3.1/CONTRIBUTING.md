@@ -5,7 +5,12 @@ Since v0.2.0, the build process is based on [`just`](https://github.com/casey/ju
 
 
 # Toolchain
-To build, test and deploy new releases I'm using [Just](https://github.com/casey/just). On Ubuntu, I'm using the `snapd` version of `just`.
+To build, test and deploy new releases I'm using [Just](https://github.com/casey/just). On Ubuntu, I'm using the the app version of `just`. `ImageMagick` is used for creating the thumbnails.
+
+```bash
+sudo apt install just
+sudo apt install imagemagick
+```
 
 In reality there's a single repos and source folder for both the report and the bachelor thesis, which are then split and handled differently from Typst perspecive. All the heavy-lifting for this is made using `just`.
 
