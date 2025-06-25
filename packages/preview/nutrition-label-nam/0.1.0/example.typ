@@ -1,4 +1,4 @@
-#import "@preview/nutrition-label-nam:0.1.0": nutrition-label
+#import "@preview/nutrition-label-nam:0.1.0": nutrition-label-nam
 
 // =====================================================================
 // EXAMPLE USAGE
@@ -27,4 +27,4 @@
   ),
 )
 
-#nutrition-label(sample-data)
+#nutrition-label-nam(sample-data)
