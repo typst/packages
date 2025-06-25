@@ -11,8 +11,8 @@
 
 This is the official templates for reports and bachelors thesis for the [ISC degree programme](https://isc.hevs.ch/) at the School of engineering in Sion. 
 
-An example of a generated report can be [accessed here](https://github.com/ISC-HEI/isc-hei-report/blob/master/template/examples/report.pdf?raw=true).
-An example of a generated bachelor theis can be [accessed here](https://github.com/ISC-HEI/isc-hei-report/blob/master/template/examples/bachelor_thesis.pdf?raw=true).
+An example of a generated report can be [accessed here](https://github.com/ISC-HEI/isc-hei-report/blob/master/examples/report.pdf?raw=true).
+An example of a generated bachelor theis can be [accessed here](https://github.com/ISC-HEI/isc-hei-report/blob/master/examples/bachelor_thesis.pdf?raw=true).
 
 ## Using the template, on the Web
 
