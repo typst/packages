@@ -1,6 +1,6 @@
-#import "@preview/elsevier:0.1.0": *
+#import "@preview/elsevier-replica:0.1.0": *
 
-#show: elsevier.with(
+#show: elsevier-replica.with(
   journal: newast,
   paper-type: none,
   title: [Foundations of geometric thought: From practical measurement to mathematical harmony],
