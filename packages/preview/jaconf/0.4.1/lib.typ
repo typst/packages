@@ -164,8 +164,7 @@
         )
         set par(first-line-indent: 0em)
         [
-          #show: remove-cjk-break-space
-          #heading-abstract #h(0.5em) #abstract
+          #heading-abstract #h(0.5em) #remove-cjk-break-space(abstract)
         ]
         if keywords != () {
           [#v(1em) #heading-keywords #h(0.5em) #keywords.join(", ")]
@@ -188,8 +187,7 @@
   }
 
   // Display the paper's contents.
-  show: remove-cjk-break-space
-  body
+  remove-cjk-break-space(body)
 }
 
 // Appendix
