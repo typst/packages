@@ -1,5 +1,5 @@
 [package]
-name = "elsevier"
+name = "elsevier-replica"
 version = "0.1.0"
 authors = ["Mathieu Aucejo", "James R Swift"]
 license = "MIT"

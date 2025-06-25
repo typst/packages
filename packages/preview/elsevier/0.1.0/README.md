@@ -4,7 +4,7 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/elsearticle/blob/main/LICENSE)
 [![User Manual](https://img.shields.io/badge/doc-.pdf-mediumpurple)](https://github.com/maucejo/elsevier/blob/main/docs/manual.pdf)
 
-The `elsevier` package is designed to closely resemble the `LaTeX` class used by Elsevier for article formatting, which is not publicly available. It is not intended for submission, but rather to help authors prepare articles that resemble the final published version. It mainly serves as a proof of concept, demonstrating that Typst is a viable option for academic writing and scientific publishing.
+The `elsevier-replica` package is designed to closely resemble the `LaTeX` class used by Elsevier for article formatting, which is not publicly available. It is not intended for submission, but rather to help authors prepare articles that resemble the final published version. It mainly serves as a proof of concept, demonstrating that Typst is a viable option for academic writing and scientific publishing.
 
 The template uses the following fonts to conform to the Elsevier style:
 - [`Charis SIL`](https://fonts.google.com/specimen/Charis+SIL) for the main text
@@ -14,15 +14,15 @@ The template uses the following fonts to conform to the Elsevier style:
 
 This section provides the minimal amount of information to get started with the template. For more detailed information, see the [manual](https://github.com/maucejo/elsevier/blob/main/docs/manual.pdf).
 
-To use the `elsevier` template, you need to include the following line at the beginning of your `typ` file:
+To use the `elsevier-replica` template, you need to include the following line at the beginning of your `typ` file:
 
 ```typ
-#import "@preview/elsevier:0.1.0": *
+#import "@preview/elsevier-replica:0.1.0": *
 ```
 
 ### Initializing the template
 
-After importing `elsevier`, you have to initialize the template by a show rule with the `#elsevier()` command. This function takes an optional argument to specify the title of the document.
+After importing `elsevier-replica`, you have to initialize the template by a show rule with the `#elsevier-replica()` command. This function takes an optional argument to specify the title of the document.
 
 * `paper-type`: Type of the paper (e.g. `Article`, `Review`, `Letter`).
 * `journal`: Dictionary containing the journal information (e.g. `mssp`).
@@ -36,7 +36,7 @@ After importing `elsevier`, you have to initialize the template by a show rule w
 
 ## Additional features
 
-The `elsevier` template provides additional features to help you format your document properly.
+The `elsevier-replica` template provides additional features to help you format your document properly.
 
 ### Appendix
 
@@ -49,7 +49,7 @@ To activate the appendix environment, all you have to do is to place the followi
 
 ### Subfigures
 
-Subfigures are not built-in features of Typst, but the `elsevier` template provides a way to handle them. It is based on the `subpar` package that allows you to create subfigures and properly reference them.
+Subfigures are not built-in features of Typst, but the `elsevier-replica` template provides a way to handle them. It is based on the `subpar` package that allows you to create subfigures and properly reference them.
 
 ```typ
   #subfigure(
@@ -70,4 +70,4 @@ Subfigures are not built-in features of Typst, but the `elsevier` template provi
 ## License
 MIT licensed
 
-Copyright (C) 2025 Mathieu AUCEJO (maucejo)
+Copyright (C) 2025 Mathieu AUCEJO (maucejo) and James R Swift (jamesrswift)

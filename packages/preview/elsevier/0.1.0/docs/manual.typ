@@ -5,11 +5,11 @@
 #show: checklist.with(fill: eastern.lighten(95%), stroke: eastern, radius: .2em)
 
 #let abstract = [
-   The #package[Elsevier] template is designed to mimic the final appearance of Elsevier journals. It is not intended for submission, but rather to help authors prepare articles that resemble the final published version. It mainly serves as a proof of concept, demonstrating that Typst is a viable option for academic writing and scientific publishing.
+   The #package[elsevier-replica] template is designed to mimic the final appearance of Elsevier journals. It is not intended for submission, but rather to help authors prepare articles that resemble the final published version. It mainly serves as a proof of concept, demonstrating that Typst is a viable option for academic writing and scientific publishing.
 ]
 
 #show: mantys(
-  name: "elsevier.typ",
+  name: "elsevier-replica.typ",
   version: "0.1.0",
   authors: (
     "Mathieu Aucejo",
@@ -19,7 +19,7 @@
   description: "Elsevier article template for Typst",
   repository: "https://github.com/maucejo/elsevier",
 
-  title: "Elsevier Typst Template",
+  title: "Elsevier-replica Template",
   date: datetime.today(),
 
   abstract: abstract,
@@ -32,32 +32,36 @@ The #package[elsevier] package is designed to closely resemble the #LaTeX class 
 
 This template has been initiated by James R swift (#github-user("jamesrswift")) and finalized by Mathieu Aucejo (#github-user("maucejo")). However, it is still in development and may not be fully compatible with all Elsevier journals.
 
+The template uses the following fonts to conform to the Elsevier style:
+- #link("https://fonts.google.com/specimen/Charis+SIL")[Charis SIL] for the main text
+- #link("https://www.stixfonts.org/")[STIX Two Math] for maths
+
 This manual provides an overview of the features of the #package[elsevier] template and how to use it.
 
 #warning-alert[The template is provided as is by the Typst community and is not affiliated with Elsevier.]
 
 = Usage
 
-== Using Elsevier
+== Using `elsevier-replica`
 
-To use the #package[Elsevier] template, you need to include the following line at the beginning of your `typ` file:
+To use the #package[elsevier-replica] template, you need to include the following line at the beginning of your `typ` file:
 #codesnippet[```typ
-#import "@preview/elsevier:0.1.0": *
+#import "@preview/elsevier-replica:0.1.0": *
 ```
 ]
 
 == Initializing the template
 
-After importing #package[Elsevier], you have to initialize the template by a show rule with the #cmd[elsevier] command. This function takes an optional argument to specify the title of the document.
+After importing #package[elsevier-replica], you have to initialize the template by a show rule with the #cmd[elsevier-replica] command. This function takes an optional argument to specify the title of the document.
 #codesnippet[```typ
-#show: elsevier.with(
+#show: elsevier-replica.with(
   ...
 )
 ```
 ]
 
-#cmd[elsevier] takes the following arguments:
-#command("elsevier", ..args(
+#cmd[elsevier-replica] takes the following arguments:
+#command("elsevier-replica", ..args(
   paper-type: [Article],
   journal: "mssp",
   title: [],
@@ -206,7 +210,7 @@ After importing #package[Elsevier], you have to initialize the template by a sho
 #pagebreak()
 == Additional features
 
-The #package[elsevier] template provides additional features to help you format your document properly.
+The #package[elsevier-replica] template provides additional features to help you format your document properly.
 
 === Appendix
 
@@ -223,7 +227,7 @@ To activate the appendix environment, all you have to do is to place the followi
 
 === Subfigures
 
-Subfigures are not built-in features of Typst, but the #package[elsevier] template provides a way to handle them. It is based on the #package[subpar] package that allows you to create subfigures and properly reference them.
+Subfigures are not built-in features of Typst, but the #package[elsevier-replica] template provides a way to handle them. It is based on the #package[subpar] package that allows you to create subfigures and properly reference them.
 
 To create a subfigure, you can use the following syntax:
 
@@ -243,11 +247,11 @@ To create a subfigure, you can use the following syntax:
 
 = Roadmap
 
-The #package[elsevier] template is still in development and may not be fully compatible with all Elsevier journals. The following features are planned for future releases:
+The #package[elsevier-replica] template is still in development and may not be fully compatible with all Elsevier journals. The following features are planned for future releases:
 #v(1em)
 
 - [ ] Add more journals dictionaries
-#info-alert[If you want to add a journal dictionary, feel free to submit a pull request on the Github repository of the template, (#link-repo("maucejo/elsevier")).]
+#info-alert[If you want to add a journal dictionary, feel free to submit a pull request on the Github repository of the template, (#link-repo("maucejo/elsevier-replica")).]
 
 - [ ] Add more journal-specific styles to the template
 

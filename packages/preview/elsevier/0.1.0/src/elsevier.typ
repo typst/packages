@@ -5,7 +5,7 @@
 #import "els-journal.typ": *
 #import "els-environment.typ": *
 
-#let elsevier(
+#let elsevier-replica(
   paper-type: [Article],
   journal: mssp,
   title: [],
