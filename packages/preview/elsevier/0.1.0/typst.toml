@@ -5,7 +5,7 @@ authors = ["Mathieu Aucejo", "James R Swift"]
 license = "MIT"
 description = "Elsevier article template for Typst"
 entrypoint = "src/elsevier.typ"
-categories = ["Paper", "Model"]
+categories = ["report"]
 keywords = ["elsevier", "article", "template"]
 repository = "https://github.com/maucejo/elsevier"
 
