@@ -37,6 +37,7 @@ or if you need a specific version, use:
 
 ```bash
 typst init @preview/isc-hei-bthesis:0.5.0
+```
 
 ## Installing fonts locally
 

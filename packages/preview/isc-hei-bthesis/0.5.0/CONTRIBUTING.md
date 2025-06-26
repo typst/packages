@@ -3,21 +3,24 @@ This file explains how to to build locally and deploy to Typst app and Typst tem
 
 Since v0.2.0, the build process is based on [`just`](https://github.com/casey/just)
 
+# Toolchain & dependencies
+To build, test and deploy new releases I'm using [just](https://github.com/casey/just), which is really nice! On Ubuntu, I'm using the the app version of `just`. 
 
-# Toolchain
-To build, test and deploy new releases I'm using [Just](https://github.com/casey/just). On Ubuntu, I'm using the the app version of `just`. `ImageMagick` is used for creating the thumbnails.
+`ImageMagick` is used for creating the thumbnails.
 
+Both can be installed with:
 ```bash
 sudo apt install just
 sudo apt install imagemagick
 ```
 
-In reality there's a single repos and source folder for both the report and the bachelor thesis, which are then split and handled differently from Typst perspecive. All the heavy-lifting for this is made using `just`.
+# Development process
+For the sake of simplicity from a developer's perspective, there's a single repository on this side, containing a singe source folder for both the report and the bachelor thesis. When building, the repos is split and handled differently from Typst perspecive. All the heavy-lifting for this is made using `just`.
 
 ## Working on the template
 :warning: If running on Mac, you might have to adapt the shell used in `scripts/package` (uncomment the second line).
 
-To develop new features in the template, a symblink the working directory to the preview directory can be created using :
+To develop new features in the template, a symlink to the preview directory (of either the bachelor thesis or the report) can be created using:
 
 ```bash
 just install-symblink-bthesis
@@ -27,17 +30,14 @@ OR
 just install-symblink-report
 ```
 
-> [!TIP]
-> The idea of the `just` command is to create a symlink to the location Typst looks for templates locally. For instance in a Linux environment it would be:
->
-> ```shell
-> mkdir ~/.local/share/typst/packages/local/PACKAGE.NAME
-> ln -s REPO_FOLDER \
-> ~/.local/share/typst/packages/local/PACKAGE.NAME/PACKAGE.VERSION
-> ```
->
+Once done, you can work on one of the document and compile it with 
 
-These creates both `report` and `bachelor-thesis` packages for testing conveniently from a single directory.
+```bash
+typst watch bachelor_thesis.typ
+```
+
+for instance.
+
 
 ## Testing local deployment
 When sufficiently confident that it seems to work, it's time to test a `preview` version as created by `typst`.
@@ -48,7 +48,7 @@ To deploy locally for `typst` command-line
 just uninstall-preview pack_distro_preview
 ```
 
-then test the template as needed by creating a local sample
+This creates both `report` and `bachelor-thesis` packages for testing conveniently from the preview directory. The templates can be tested as needed by creating a local sample using:
 
 ```bash
 typst init @preview/isc-hei-report:0.3.1
@@ -56,13 +56,15 @@ typst init @preview/isc-hei-report:0.3.1
 
 Then go the directory, try to compile with `typst watch report.typ`.
 
+For convenience, `scripts/test-report.sh` and `scripts/test-thesis.sh` enable to quickly check for errors before deploying to the universe.
+
 ## Deploying to Typst universe
 
-- Clone the [Typst universe repos](https://github.com/typst/packages/tree/main), and `just pack_distro DEST_TO_REPOS/packages/preview`. 
+- Fork the [Typst universe repos](https://github.com/typst/packages/tree/main)
+- Clone the fork it into `DEST_TO_REPOS`, and then `just pack_distro DEST_TO_REPOS/packages/preview`. 
 - Lint for kebab-case only (at least publicly accessible functions)
-- Test using `typst-package-check` from https://github.com/typst/package-check
-- Do not forget to add a proper `.gitignore` to remove all PDFs
-- Create PR as usual. A template creates automatically the PR text with update etc... If changes are required by CI/CD, push to local repository. It updates the PR automatically.
+- Test using `typst-package-check` from https://github.com/typst/package-check, using `typst-package-check check @preview/isc-hei-bthesis:0.5.0` from the `packages` directory *inside* of the cloned repos.
+- From github, create PR as usual. A template creates automatically the PR text with update etc... If changes are required by CI/CD, push to local repository. It updates the PR automatically.
 
 ## Image quantization
 To reduce the size of images, which is nice for reducing the template size on the Universe.
