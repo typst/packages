@@ -1,4 +1,4 @@
-#import "@local/latex-lookalike:0.1.0"
+#import "@preview/latex-lookalike:0.1.0"
 
 #set heading(numbering: "1.1")
 
