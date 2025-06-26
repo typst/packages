@@ -5,7 +5,7 @@ A typst package to display **country flags** in your Typst documents. This first
 ## Loading the package
 
 ```typst
-#import "@preview/flagada:0.2.0" : *
+#import "@preview/flagada:1.0.0" : *
 ```
 
 ## Calling a flag
@@ -44,7 +44,7 @@ Hello people coming from #flag-be(height: 1em), #flag-fr(height: 2em), #flag-eu(
 
 ### Coat of arms
 
-Some flags include coat of arms or other specific components. As ususally these components are hard to build in Typst, a SVG version from wikimedia is used. The coat of arms for countries are in directory `coat of arms/`
+Some flags include coat of arms or other specific components. As ususally these components are hard to build in Typst, a SVG version from Wikimedia is used. The coat of arms for countries are in directory `coat of arms/`
 
 #### Example of coat of arms
 
@@ -56,21 +56,16 @@ In this example, coats of arms are used for Spanish and Portuguese flags (but no
 
 For the moment, the official format defined by each country has been used to build their flag (e.g. 1:2 fro GB, 2:3 for FR, 10:19 for US ...). No possibility to modify the width has been considered. As a consequence, when you display two or more flags close to each other at the same height, their width might not be equal for each flag.
 
-### Flags covered so far
+### Flags covered
 
-Flags for the following ISO 3166-1 codes are available in the current version (0.2.0):
+Flags for most of the ISO 3166-1 codes are available in the current version (1.0.0):
 
-AD AE AF AG AL AM AO AR AT AU AZ BA BB BD BE BF BG BH BI BJ BN BO BR BS BT BW BY BZ CA CD CF CG CH CI CL CM CN CO CR CU CV CY CZ DE DJ DK DM DO DZ EC EE EG ER ES ET EU FI FJ FM FR GA GB GD GE GH GM GN GQ GR GT GW GY HN HR HT HU ID IE IL IN IQ IR IS IT JM JO JP KE KG KH KM KN KP KR KW KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MR MT MU MV MW MX MY MZ NA NE NG NI NL NO NP NR NZ OM PA PE PG PH PK PL PS PT PW PY QA RO RS RU RW SA SB SC SD SE SG SI SK SL SM SN SO SR SS ST SV SY SZ TD TG TH TJ TL TM TN TO TR TT TV TW TZ UA UG US UY UZ VA VC VE VN VU WS YE ZA ZM ZW
+AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET EU FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT
+ZA ZM ZW
 
 For these flags, comments are welcome
 
-![A list of flags](doc/example_4.png)
-
-### Flags not yet covered so far
-
-The flags for remaining ISO 3166-1 codes have not been developped and might be developped for the next version
-
-KI AS AI AQ AW AX BL BM BQ BV CC CK CW CX EH FK FO GF GG GI GL GP GS GU HK HM IM IO JE KY MF MO MP MQ MS NC NF NU PF PM PN PR RE SH SJ SX TC TF TK UM VG VI WF YT
+![A list of flags available in flagada](doc/example_4.png)
 
 ## History
 
@@ -80,4 +75,23 @@ The inital version of flags, not covering all countries, but mainly independant 
 
 ### V0.2.0
 
-Adding some of missing country flags. In this version, only KI is a missing flag of an independant country. The missing flags not covering ISO3166 codes are for specific places (islands, local place ...) related to another country.
+Adding some of missing country flags. In this version, only KI is a missing flag of an independant country. The missing flags not covering ISO 3166-1 codes are for specific places (islands, local place ...) related to another country.
+
+### V1.0.0
+
+All country flags for an ISO 3166-1 code are now available.
+
+## Extra
+
+Flagada has an internal function `polygram` to display easily regular stars (5, 7 or more sides)
+
+```typst
+polygram(schlafli,size,color,paint:none)
+```
+
+- `schlafi` must be an array of two integers (to be a [Schläfi symbol](https://en.wikipedia.org/wiki/Schl%C3%A4fli_symbol))
+- `size` is the size of the polygram
+- `color` is the filling color of the generated polygram
+- `paint` is the stroke color of the generated polygram. By default, it is not used (`none`)
+
+Please note that there are no variables controls for this fonction.

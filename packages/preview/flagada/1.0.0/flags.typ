@@ -200,6 +200,87 @@
 
   )
 }
+// aq 2:3
+#let flag-aq(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill:rgb(7,43,95)
+    )
+    + place(
+      horizon+center,
+      circle(
+        height:98%*height,
+        stroke: (paint:white, thickness: .8%*height),
+        ))
+    + place(
+      horizon+center,
+      circle(
+        height:104%*2/3*height,
+        stroke: (paint:white, thickness: .8%*height),
+        ))
+    + place(
+      horizon+center,
+      circle(
+        height:98%*1/3*height,
+        stroke: (paint:white, thickness: .8%*height),
+        ))
+    + place(
+        horizon,
+        line(length: 3/2*height,stroke: (paint:white, thickness: .8%*height)))
+    + place(
+        horizon+center,
+        line(
+          length: height,
+          angle:90deg,
+          stroke: (paint:white, thickness: .8%*height)
+        )
+      )
+    + place(
+        horizon+center,
+        line(
+          length: 1.75*height,
+          angle:30deg,
+          stroke: (paint:white, thickness: .8%*height)
+        )
+      )
+    + place(
+        horizon+center,
+        scale(
+          x:-100%,
+          line(
+            length: 1.75*height,
+            angle:30deg,
+            stroke: (paint:white, thickness: .8%*height)
+          )
+        )
+      )
+    + place(
+        horizon+center,
+        line(
+          length: 1.16*height,
+          angle:60deg,
+          stroke: (paint:white, thickness: .8%*height)
+        )
+      )
+    + place(
+        horizon+center,
+        scale(
+          x:-100%,
+          line(
+            length: 1.16*height,
+            angle:60deg,
+            stroke: (paint:white, thickness: .8%*height)
+          )
+        )
+      )
+    + place(
+        horizon+center,
+        image("coat of arms/AQ.svg", height:height)
+      )
+  )
+}
 // ar 5:8
 #let flag-ar(height:.65em) = {
   box(
@@ -219,9 +300,127 @@
     */
   )
 }
+// as 1:2
+#let flag-as(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill:rgb(0,0,102)
+    )
+    +place(
+      top,
+      polygon(
+        fill:rgb(189,16,33),
+        (1*2*height,0*height),
+        (0*2*height,1/2*height),
+        (1*2*height,1*height),
+      )
+      )
+    +place(
+      top,
+      polygon(
+        fill:white,
+        (1*2*height,30/500*height),
+        (120/1000*2*height,1/2*height),
+        (1*2*height,470/500*height),
+      )
+      )
+    +place(
+      horizon+right,
+      dx:-20/1000*height*2,
+      image("coat of arms/AS.svg",height: 6.5/10*height)
+      )
+  )
+}
 // at 2:3
 #let flag-at(height:.65em) = {
   flag-h3((rgb(200,16,46),white,rgb(200,16,46)),height: height, ratio:2/3)
+}
+// aw 2:3
+#let flag-aw(height:.65em) = {
+  box(
+    rect(
+      height:height,
+      width:3/2*height,
+      fill: rgb(65,143,222)
+    )
+    + place(
+        bottom,
+        dy:-3/18*height,
+        rect(
+          height: 3/18*height,
+          width: 3/2*height,
+          fill:gradient.linear(
+            dir: ttb,
+            rgb(255,210,0),
+            rgb(65,143,222),
+            rgb(255,210,0),
+
+            ).sharp(3)
+          )
+    )
+    + place(
+      top,
+      polygon(
+        fill:red,
+        stroke:(paint:white, thickness: height/100, ),
+        (1/27*3/2*height,4/18*height),
+        (3.5/27*3/2*height,3.5/18*height),
+        (4/27*3/2*height,1/18*height),
+        (4.5/27*3/2*height,3.5/18*height),
+        (7/27*3/2*height,4/18*height),
+        (4.5/27*3/2*height,4.5/18*height),
+        (4/27*3/2*height,7/18*height),
+        (3.5/27*3/2*height,4.5/18*height),
+        )
+    )
+  )
+}
+// ax 17:26
+#let flag-ax(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 26/17*height,
+      fill:rgb(0,100,174)
+    )
+    + place(
+        top,
+        dx:160/520*26/17*height,
+        rect(
+          height:height,
+          width: 100/520*26/17*height,
+          fill: rgb(255,211,0),
+        )
+    )
+    + place(
+        horizon,
+        rect(
+          height:100/340*height,
+          width: 26/17*height,
+          fill: rgb(255,211,0),
+        )
+    )
+    + place(
+        top,
+        dx:190/520*26/17*height,
+        rect(
+          height:height,
+          width: 40/520*26/17*height,
+          fill: rgb(218,14,21),
+        )
+    )
+    + place(
+        horizon,
+        
+        rect(
+          height:40/340*height,
+          width: 26/17*height,
+          fill: rgb(218,14,21),
+        )
+    )
+  )
 }
 // az 
 #let flag-az(height:.65em) = {
@@ -506,6 +705,20 @@
     )
   )
 }
+// bl 2:3
+#let flag-bl(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill:white
+    )
+    +place(
+      horizon+center,
+      image("coat of arms/BL.svg",height: 9/10*height)
+      )
+  )
+}
 // bn 1:2
 #let flag-bn(height:.65em) = {
   box(
@@ -672,6 +885,75 @@
     )
     //+ place(dy:-height/2,line(length: 2*height))
     //+ place(dy:-height/2, dx:height/2,rotate(90deg,line(length: height)))
+  )
+}
+// cc 1:2
+#let flag-cc(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill:rgb(0,128,0)
+    )
+    +place(
+      top,
+      dx:40/600*height*2,
+      dy:25/300*height,
+      circle(
+        radius:50/300*height,
+        fill: rgb(255,224,0)
+        )
+        +place(
+          center+horizon,
+          image("coat of arms/CC.svg", height:1/4*height)
+        )
+      )
+    
+    +place(
+      center+horizon,
+      circle(
+        radius:50/300*height,
+        fill: rgb(255,224,0)
+        )
+      )
+    +place(
+      center+horizon,
+      dx:20/600*height*2,
+      circle(
+        radius:40/300*height,
+        fill: rgb(0,128,0)
+        )
+      )
+    +place(
+      top,
+      dx:360/600*height*2,
+      dy:140/300*height,
+      rotate(14deg,polygram((7,3),height/12,rgb(255,224,0)))
+    )
+    +place(
+      top,
+      dx:500/600*height*2,
+      dy:120/300*height,
+      rotate(14deg,polygram((7,3),height/12,rgb(255,224,0)))
+    )
+    +place(
+      top,
+      dx:430/600*height*2,
+      dy:60/300*height,
+      rotate(14deg,polygram((7,3),height/12,rgb(255,224,0)))
+    )
+    +place(
+      top,
+      dx:430/600*height*2,
+      dy:240/300*height,
+      rotate(14deg,polygram((7,3),height/12,rgb(255,224,0)))
+    )
+    +place(
+      top,
+      dx:470/600*height*2,
+      dy:160/300*height,
+      rotate(-18deg,polygram((5,2),height/16,rgb(255,224,0)))
+    )
   )
 }
 // cd 4:3
@@ -1059,6 +1341,87 @@
           ),
         )
     }
+  )
+}
+// cw 2:3
+#let flag-cw(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill: gradient.linear(
+        dir: ttb,
+        ..(
+          (rgb(1,33,105),)*5,
+        (rgb(252,227,0),)*1,
+        (rgb(1,33,105),)*2,
+        ).flatten()
+        ).sharp(8)
+    )
+    +place(
+      top,
+      dx:1/2.85*height,
+      dy:1/3.2*height,
+      rotate(-18deg,polygram((5,2),1/9*height,white))
+    )
+    +place(
+      top,
+      dx:1/5.65*height,
+      dy:1/6.3*height,
+      rotate(-18deg,polygram((5,2),1/12*height,white))
+    )
+  )
+}
+// cx 1:2
+#let flag-cx(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill:rgb(13,176,43)
+    )
+    +place(
+      top,
+      polygon(
+        fill:rgb(1,33,105),
+        (0*2*height,0*height),
+        (0*2*height,1*height),
+        (1*2*height,1*height),
+        )
+      )
+    +place(
+      top,
+      dx:100/512*height*2,
+      dy:110/256*height,
+      rotate(62deg,polygram((7,3),height/12,white))
+      )
+    +place(
+      top,
+      dx:120/512*height*2,
+      dy:230/256*height,
+      rotate(62deg,polygram((7,3),height/12,white))
+      )
+    +place(
+      top,
+      dx:160/512*height*2,
+      dy:150/256*height,
+      rotate(62deg,polygram((7,3),height/12,white))
+      )
+    +place(
+      top,
+      dx:50/512*height*2,
+      dy:170/256*height,
+      rotate(62deg,polygram((7,3),height/12,white))
+      )
+    +place(
+      top,
+      dx:150/512*height*2,
+      dy:170/256*height,
+      rotate(-18deg,polygram((5,2),height/15,white))
+      )
+    +place(
+      top,
+      image("coat of arms/CX.svg", height: height))
   )
 }
 // cy 3/5
@@ -1538,6 +1901,55 @@
     )
   )
 }
+// eh 1:2
+#let flag-eh(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width:height*2,
+      fill:gradient.linear(
+        dir:ttb,
+        black,
+        white,
+        rgb(0,151,54)
+      ).sharp(3)
+    )
+    + place(
+        top,
+        polygon(
+          (0*height,0*height),
+          (1/3*2*height,1/2*height),
+          (0*height,1*height),
+          fill:rgb(238,42,53)
+        )
+      )
+    + place(
+      center+horizon,
+      circle(
+        radius: height/7,
+        fill:rgb(238,42,53)
+      )
+      )
+    + place(
+      center+horizon,
+      dx:3/100*height*2,
+      circle(
+        radius: height/7,
+        fill:white        
+      )
+      )
+    + place(
+      center+horizon,
+      dx:6/100*height*2,
+      dy:3/100*height,
+      rotate(-18deg,polygram(
+        (5,2),
+        height/9,
+        rgb(238,42,53)
+      ))
+      )
+  )
+}
 // er 1:2
 #let flag-er(height:.65em) = {
   box(
@@ -1702,6 +2114,50 @@
       dx:-height/3,
       dy:height/20,
       scale(x:-100%,polygram((5,2),height/10,white))
+    )
+  )
+}
+// fo 8:11
+#let flag-fo(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 11/8*height,
+      fill:white,
+    )
+    +place(
+      top,
+      dx:6/22*11/8*height,
+      rect(
+        height: height,
+        width: 4/22*11/8*height,
+        fill: rgb("005EB9")
+        )
+    )
+    +place(
+      horizon,
+      rect(
+        height: 4/16*height,
+        width: 11/8*height,
+        fill: rgb("005EB9")
+        )
+    )
+    +place(
+      top,
+      dx:7/22*11/8*height,
+      rect(
+        height: height,
+        width: 2/22*11/8*height,
+        fill: rgb("EF303E")
+        )
+    )
+    +place(
+      horizon,
+      rect(
+        height: 2/16*height,
+        width: 11/8*height,
+        fill: rgb("EF303E")
+        )
     )
   )
 }
@@ -1899,6 +2355,68 @@
     */
   )
 }
+// bm 1:2
+#let flag-bm(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill: rgb("c8102e"),
+    )
+    +place(top+left,
+      flag-gb(height:height/2)
+    )
+    +place(horizon,
+      dx:325/500*2*height,
+      image("coat of arms/BM.svg", height:height/2)
+    )
+  )
+}
+// ck 1:2
+#let flag-ck(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill: rgb("012169")
+    )
+    +place(
+      top,
+      flag-gb(height:height/2))
+    +place(
+      horizon,
+      dx:3/4*height*2,
+      dy:-1/20*height,
+      for i in range(15) {
+        place(
+          dx:calc.cos(i*24deg)*1/3*height,
+          dy:calc.sin(i*24deg)*1/3*height,
+          rotate(i*24deg,rotate(-i*1deg,polygram((5,2),height/15,white)), origin: left+bottom)
+          )
+      }
+      )
+  )
+}
+// ai 1:2
+#let flag-ai(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill:rgb("012169")
+    )
+    +place(
+      top,
+      flag-gb(height: height/2)
+      )
+    + place(
+        horizon,
+        dx: 2/3*2*height,
+        image("coat of arms/AI.svg",
+        height:height/2)
+    )
+  )
+}
 // au 1:2
 #let flag-au(height:.65em) = {
   let heptagram(size,color) = {
@@ -2000,6 +2518,24 @@
       image("coat of arms/FJ.svg", height: height/2)
     )
   )  
+}
+// fk 1:2
+#let flag-fk(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill:rgb("012169")
+    )
+    + place(
+      top,
+      flag-gb(height:height/2)
+    )
+    + place(horizon+center,
+      dx:4/15*2*height,
+      image("coat of arms/FK.svg", height: 2/3*height)
+      )
+  )
 }
 // gd 3:5
 #let flag-gd(height:.65em) = {
@@ -2204,6 +2740,90 @@
     +place(dy:-60/200*100%, dx:65%,text(red, size: height/3,[\u{2720}]))
   )
 }
+// gf
+#let flag-gf(height:.65em) = {
+  flag-fr(height:height)
+}
+// gg 2:3
+#let flag-gg(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill:white
+    )
+    +place(
+      top+center,
+      rect(
+        height:height,
+        width: 1/6*3/2*height,
+        fill:rgb(232,17,45)
+      ))
+    +place(
+      horizon+center,
+      rect(
+        height:1/4*height,
+        width: 3/2*height,
+        fill:rgb(232,17,45)
+      ))
+    +place(
+      horizon+center,
+      rect(
+        height:450/600*height,
+        width: 1/18*3/2*height,
+        fill:rgb(249,221,22)
+      ))
+    +place(
+      horizon+center,
+      rect(
+        height:1/18*3/2*height,
+        width: 450/600*height,
+        fill:rgb(249,221,22)
+      ))
+    +place(
+      top,
+      dx:225/900*height,
+      polygon(
+        fill:rgb(249,221,22),
+        (375/900*height,74/600*height),
+        (525/900*height,74/600*height),
+        (450/900*height,120/600*height)
+        )
+      )
+    +place(
+      bottom,
+      dx:225/900*height,
+      polygon(
+        fill:rgb(249,221,22),
+        (375/900*height,-74/600*height),
+        (525/900*height,-74/600*height),
+        (450/900*height,-120/600*height)
+        )
+      )
+    +place(
+      horizon+center,
+      dx:360/900*height,
+      dy:-125/600*height,
+      rotate(90deg,polygon(
+        fill:rgb(249,221,22),
+        (375/900*height,74/600*height),
+        (525/900*height,74/600*height),
+        (450/900*height,120/600*height)
+        )
+      ))
+    +place(
+      horizon+center,
+      dx:-360/900*height,
+      dy:125/600*height,
+      rotate(-90deg,polygon(
+        fill:rgb(249,221,22),
+        (375/900*height,74/600*height),
+        (525/900*height,74/600*height),
+        (450/900*height,120/600*height)
+        )
+      ))
+  )
+}
 // gh 2:3
 #let flag-gh(height:.65em) = {
   box(
@@ -2225,6 +2845,49 @@
           size:height*.98*2/3,
           [\u{2605}])
     )
+  )
+}
+// gi 1:2
+#let flag-gi(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill:gradient.linear(
+        dir:ttb,
+        white,white,rgb(218,0,12)
+        
+        ).sharp(3)
+    )
+    +place(
+      center+horizon,
+      dy:2%*height,
+      image("coat of arms/GI.svg", height: 93%*height)
+      )
+  )
+}
+// gl 2:3
+#let flag-gl(height:.65em) = {
+  box(
+    rect(
+      height:height,
+      width: 3/2*height,
+      fill:gradient.linear(
+        dir:ttb,
+        white,rgb(200,16,46)
+        ).sharp(2)
+    )
+    + place(
+          horizon,
+          dx:2/18*3/2*height,
+          circle(
+            radius: 4/12*height,
+            fill:gradient.linear(
+            dir:btt,
+            white,rgb(200,16,46)
+            ).sharp(2)
+          )
+        )
   )
 }
 // gm 2:3
@@ -2258,6 +2921,10 @@
 
     )
   )
+}
+// gp
+#let flag-gp(height:.65em) = {
+  flag-fr(height:height)
 }
 // gq 2:3
 #let flag-gq(height:.65em) = {
@@ -2325,6 +2992,25 @@
     )
   )
 }
+// gs
+#let flag-gs(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill:rgb("012169")
+    )
+    + place(
+      top,
+      flag-gb(height:height/2)
+    )
+    + place(
+      horizon+center,
+      dx:1/4*height*2,
+      image("coat of arms/GS.svg", height: 5/6*height)
+    )
+  )
+}
 // gt 5:8
 #let flag-gt(height:.65em) = {
   box(
@@ -2348,6 +3034,28 @@
       )
     )
     */
+  )
+}
+// gu 22:41
+#let flag-gu(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 41/22*height,
+      fill: rgb(198,33,57),
+    )
+    + place(
+      center+horizon,
+      rect(
+        height: 20/22*height,
+        width: 38/40*41/22*height,
+        fill: rgb(0,41,123),
+      )
+    )
+    + place(
+      center+horizon,
+      image("coat of arms/GU.svg", height: 24/40*height)
+      )
   )
 }
 // gw 1:2
@@ -2398,6 +3106,24 @@
     )
     */
   )
+}
+// hk 2:3
+#let flag-hk(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill:rgb("FF0000")
+    )
+    +place(
+      horizon+center,
+      image("coat of arms/HK.svg", height:4/7*height)
+    )
+  )
+}
+// hm
+#let flag-hm(height:.65em) = {
+  flag-au(height:height)
 }
 // hn 1:2
 #let flag-hn(height:.65em) = {
@@ -2579,6 +3305,20 @@
   )
 
 }
+// im 1:2
+#let flag-im(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill: rgb(207,20,43)
+    )
+    +place(
+      center+horizon,
+      image("coat of arms/IM.svg", height:height/1.5)
+    )
+  )
+}
 // in 2:3
 #let flag-in(height:.65em) = {
   box(
@@ -2597,6 +3337,37 @@
       image("coat of arms/IN.svg",
       height:height/3)
     )
+  )
+}
+// io 1:2
+#let flag-io(height:.65em) = {
+  let pat(ch,cw) = tiling(
+            box(fill:white,
+            curve(
+                fill:rgb("012169"),
+                curve.move((0%*cw, 40%*ch)),
+                curve.cubic((20%*cw, 40%*ch),(20%*cw,0%*ch),(40%*cw, 0%*ch)),
+                curve.cubic((75%*cw, 0%*ch),(75%*cw,40%*ch),(100%*cw, 40%*ch)),
+                curve.line((100%*cw,100%*ch)),
+                curve.cubic((75%*cw, 100%*ch),(75%*cw,60%*ch),(40%*cw, 60%*ch)),
+                curve.cubic((20%*cw, 60%*ch),(20%*cw,100%*ch),(0%*cw, 100%*ch)),
+            )
+        ))
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill:pat(height/6,2*height/5.2)
+    )
+    +place(
+      top,
+      flag-gb(height: height/2)
+      )
+    +place(
+      horizon+right,
+      dx:-1/4*height,
+      image("coat of arms/IO.svg", height: 9/10*height)
+      )
   )
 }
 // iq 2:3
@@ -2680,6 +3451,45 @@
 // it 2:3
 #let flag-it(height:.65em) = {
   flag-v3((rgb(0,146,70),rgb(241,242,241),rgb(206,43,55)), height:height)
+}
+// je 3:5
+#let flag-je(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 5/3*height,
+      fill:white
+    )
+    + place(
+      top,
+      polygon(
+        fill: rgb("c8102e"),
+        (0*5/3*height,18/300*height),
+        (0*5/3*height,0*height),
+        (30/500*5/3*height,0*height),
+        (1*5/3*height,282/300*height),
+        (1*5/3*height,300/300*height),
+        (470/500*5/3*height,300/300*height),
+      )
+    )
+    + place(
+      top,
+      polygon(
+        fill: rgb("c8102e"),
+        (0*5/3*height,282/300*height),
+        (0*5/3*height,1*height),
+        (30/500*5/3*height,1*height),
+        (1*5/3*height,18/300*height),
+        (1*5/3*height,0/300*height),
+        (470/500*5/3*height,0/300*height),
+      )
+    )
+    +place(
+      top+center,
+      dy:9/300*height,
+      image("coat of arms/JE.svg",height: 1/2.8*height)
+    )
+  )
 }
 // jm
 #let flag-jm(height:.65em) = {
@@ -2846,25 +3656,128 @@
     rect(
       height:height,
       width: 2*height,
+      fill:gradient.linear(
+            dir:ttb,
+            ..(rgb(200,16,16),rgb(200,16,16),rgb(24,48,112))
+        ).sharp(3)
     )
+    +place(
+        center+top,
+        dy:22/300*height,
+        image("coat of arms/KI.svg", height: height/1.7)
+      )
     +place(
       top,
       curve(
         fill:white,
-        curve.move((0*height, 150/300*height)),
-        curve.cubic((1/10*height*2, 16/30*height),(1/5*height*2, 1/2*height),(3/10*height*2, 8/15*height)),
-        curve.line((24/60*height*2, 1/2*height)),
-        curve.line((30/60*height*2, 8/15*height)),
-        curve.line((36/60*height*2, 1/2*height)),
-        curve.line((42/60*height*2, 8/15*height)),
-        curve.line((48/60*height*2, 1/2*height)),
-        curve.line((54/60*height*2, 8/15*height)),
-        curve.line((1*height*2, 15/30*height)),
-        curve.line((1*height*2, 1*height)),
-        curve.line((0*height*2, 1*height)),
-        ),
-        
+        curve.move((0/600*2*height, 150/300*height)),
+        curve.cubic((30/600*2*height,  150/300*height),(30/600*2*height,   162/300*height),(60/600*2*height,   162/300*height)),
+        curve.cubic((90/600*2*height,  162/300*height),(90/600*2*height,   150/300*height),(120/600*2*height,  150/300*height)),
+        curve.cubic((150/600*2*height, 150/300*height),(150/600*2*height,  162/300*height),(180/600*2*height,  162/300*height)),
+        curve.cubic((210/600*2*height, 162/300*height),(210/600*2*height,  150/300*height),(240/600*2*height,  150/300*height)),
+        curve.cubic((270/600*2*height, 150/300*height),(270/600*2*height,  162/300*height),(300/600*2*height,  162/300*height)),
+        curve.cubic((330/600*2*height, 162/300*height),(330/600*2*height,  150/300*height),(360/600*2*height,  150/300*height)),
+        curve.cubic((390/600*2*height, 150/300*height),(390/600*2*height,  162/300*height),(420/600*2*height,  162/300*height)),
+        curve.cubic((450/600*2*height, 162/300*height),(450/600*2*height,  150/300*height),(480/600*2*height,  150/300*height)),
+        curve.cubic((510/600*2*height, 150/300*height),(510/600*2*height,  162/300*height),(540/600*2*height,  162/300*height)),
+        curve.cubic((570/600*2*height, 162/300*height),(570/600*2*height,  150/300*height),(600/600*2*height,  150/300*height)),
+        curve.line((600/600*2*height,  175/300*height)),
+        curve.cubic((570/600*2*height, 175/300*height),(570/600*2*height,  187/300*height),(540/600*2*height,  187/300*height)),
+        curve.cubic((510/600*2*height, 187/300*height),(510/600*2*height,  175/300*height),(480/600*2*height,  175/300*height)),
+        curve.cubic((450/600*2*height, 175/300*height),(450/600*2*height,  187/300*height),(420/600*2*height,  187/300*height)),
+        curve.cubic((390/600*2*height, 187/300*height),(390/600*2*height,  175/300*height),(360/600*2*height,  175/300*height)),
+        curve.cubic((330/600*2*height, 175/300*height),(330/600*2*height,  187/300*height),(300/600*2*height,  187/300*height)),
+        curve.cubic((270/600*2*height, 187/300*height),(270/600*2*height,  175/300*height),(240/600*2*height,  175/300*height)),
+        curve.cubic((210/600*2*height, 175/300*height),(210/600*2*height,  187/300*height),(180/600*2*height,  187/300*height)),
+        curve.cubic((150/600*2*height, 187/300*height),(150/600*2*height,  175/300*height),(120/600*2*height,  175/300*height)),
+        curve.cubic((90/600*2*height,  175/300*height),(90/600*2*height,   187/300*height),(60/600*2*height,   187/300*height)),
+        curve.cubic((30/600*2*height,  187/300*height),(30/600*2*height,   175/300*height),(000/600*2*height,  175/300*height)),
+        ), 
       )
+      + place(
+        top,
+        curve(
+                fill: rgb(24,48,112),
+                curve.move((0/600*2*height, 175/300*height)),
+                curve.cubic((30/600*2*height,  175/300*height),(30/600*2*height,   187/300*height),(60/600*2*height,   187/300*height)),
+                curve.cubic((90/600*2*height,  187/300*height),(90/600*2*height,   175/300*height),(120/600*2*height,  175/300*height)),
+                curve.cubic((150/600*2*height, 175/300*height),(150/600*2*height,  187/300*height),(180/600*2*height,  187/300*height)),
+                curve.cubic((210/600*2*height, 187/300*height),(210/600*2*height,  175/300*height),(240/600*2*height,  175/300*height)),
+                curve.cubic((270/600*2*height, 175/300*height),(270/600*2*height,  187/300*height),(300/600*2*height,  187/300*height)),
+                curve.cubic((330/600*2*height, 187/300*height),(330/600*2*height,  175/300*height),(360/600*2*height,  175/300*height)),
+                curve.cubic((390/600*2*height, 175/300*height),(390/600*2*height,  187/300*height),(420/600*2*height,  187/300*height)),
+                curve.cubic((450/600*2*height, 187/300*height),(450/600*2*height,  175/300*height),(480/600*2*height,  175/300*height)),
+                curve.cubic((510/600*2*height, 175/300*height),(510/600*2*height,  187/300*height),(540/600*2*height,  187/300*height)),
+                curve.cubic((570/600*2*height, 187/300*height),(570/600*2*height,  175/300*height),(600/600*2*height,  175/300*height)),
+                curve.line((600/600*2*height,  200/300*height)),
+                curve.cubic((570/600*2*height, 200/300*height),(570/600*2*height,  212/300*height),(540/600*2*height,  212/300*height)),
+                curve.cubic((510/600*2*height, 212/300*height),(510/600*2*height,  200/300*height),(480/600*2*height,  200/300*height)),
+                curve.cubic((450/600*2*height, 200/300*height),(450/600*2*height,  212/300*height),(420/600*2*height,  212/300*height)),
+                curve.cubic((390/600*2*height, 212/300*height),(390/600*2*height,  200/300*height),(360/600*2*height,  200/300*height)),
+                curve.cubic((330/600*2*height, 200/300*height),(330/600*2*height,  212/300*height),(300/600*2*height,  212/300*height)),
+                curve.cubic((270/600*2*height, 212/300*height),(270/600*2*height,  200/300*height),(240/600*2*height,  200/300*height)),
+                curve.cubic((210/600*2*height, 200/300*height),(210/600*2*height,  212/300*height),(180/600*2*height,  212/300*height)),
+                curve.cubic((150/600*2*height, 212/300*height),(150/600*2*height,  200/300*height),(120/600*2*height,  200/300*height)),
+                curve.cubic((90/600*2*height,  200/300*height),(90/600*2*height,   212/300*height),(60/600*2*height,   212/300*height)),
+                curve.cubic((30/600*2*height,  212/300*height),(30/600*2*height,   200/300*height),(000/600*2*height,  200/300*height)),
+            )
+        )
+    + place(
+        top,
+        curve(
+                fill: white,
+                curve.move((0/600*2*height, 200/300*height)),
+                curve.cubic((30/600*2*height,  200/300*height),(30/600*2*height,   212/300*height),(60/600*2*height,   212/300*height)),
+                curve.cubic((90/600*2*height,  212/300*height),(90/600*2*height,   200/300*height),(120/600*2*height,  200/300*height)),
+                curve.cubic((150/600*2*height, 200/300*height),(150/600*2*height,  212/300*height),(180/600*2*height,  212/300*height)),
+                curve.cubic((210/600*2*height, 212/300*height),(210/600*2*height,  200/300*height),(240/600*2*height,  200/300*height)),
+                curve.cubic((270/600*2*height, 200/300*height),(270/600*2*height,  212/300*height),(300/600*2*height,  212/300*height)),
+                curve.cubic((330/600*2*height, 212/300*height),(330/600*2*height,  200/300*height),(360/600*2*height,  200/300*height)),
+                curve.cubic((390/600*2*height, 200/300*height),(390/600*2*height,  212/300*height),(420/600*2*height,  212/300*height)),
+                curve.cubic((450/600*2*height, 212/300*height),(450/600*2*height,  200/300*height),(480/600*2*height,  200/300*height)),
+                curve.cubic((510/600*2*height, 200/300*height),(510/600*2*height,  212/300*height),(540/600*2*height,  212/300*height)),
+                curve.cubic((570/600*2*height, 212/300*height),(570/600*2*height,  200/300*height),(600/600*2*height,  200/300*height)),
+                curve.line((600/600*2*height,  225/300*height)),
+                curve.cubic((570/600*2*height, 225/300*height),(570/600*2*height,  237/300*height),(540/600*2*height,  237/300*height)),
+                curve.cubic((510/600*2*height, 237/300*height),(510/600*2*height,  225/300*height),(480/600*2*height,  225/300*height)),
+                curve.cubic((450/600*2*height, 225/300*height),(450/600*2*height,  237/300*height),(420/600*2*height,  237/300*height)),
+                curve.cubic((390/600*2*height, 237/300*height),(390/600*2*height,  225/300*height),(360/600*2*height,  225/300*height)),
+                curve.cubic((330/600*2*height, 225/300*height),(330/600*2*height,  237/300*height),(300/600*2*height,  237/300*height)),
+                curve.cubic((270/600*2*height, 237/300*height),(270/600*2*height,  225/300*height),(240/600*2*height,  225/300*height)),
+                curve.cubic((210/600*2*height, 225/300*height),(210/600*2*height,  237/300*height),(180/600*2*height,  237/300*height)),
+                curve.cubic((150/600*2*height, 237/300*height),(150/600*2*height,  225/300*height),(120/600*2*height,  225/300*height)),
+                curve.cubic((90/600*2*height,  225/300*height),(90/600*2*height,   237/300*height),(60/600*2*height,   237/300*height)),
+                curve.cubic((30/600*2*height,  237/300*height),(30/600*2*height,   225/300*height),(000/600*2*height,  225/300*height)),
+            )
+        )
+    + place(
+        top,
+        curve(
+                fill: white,
+                curve.move((0/600*2*height, 250/300*height)),
+                curve.cubic((30/600*2*height,  250/300*height),(30/600*2*height,   262/300*height),(60/600*2*height,   262/300*height)),
+                curve.cubic((90/600*2*height,  262/300*height),(90/600*2*height,   250/300*height),(120/600*2*height,  250/300*height)),
+                curve.cubic((150/600*2*height, 250/300*height),(150/600*2*height,  262/300*height),(180/600*2*height,  262/300*height)),
+                curve.cubic((210/600*2*height, 262/300*height),(210/600*2*height,  250/300*height),(240/600*2*height,  250/300*height)),
+                curve.cubic((270/600*2*height, 250/300*height),(270/600*2*height,  262/300*height),(300/600*2*height,  262/300*height)),
+                curve.cubic((330/600*2*height, 262/300*height),(330/600*2*height,  250/300*height),(360/600*2*height,  250/300*height)),
+                curve.cubic((390/600*2*height, 250/300*height),(390/600*2*height,  262/300*height),(420/600*2*height,  262/300*height)),
+                curve.cubic((450/600*2*height, 262/300*height),(450/600*2*height,  250/300*height),(480/600*2*height,  250/300*height)),
+                curve.cubic((510/600*2*height, 250/300*height),(510/600*2*height,  262/300*height),(540/600*2*height,  262/300*height)),
+                curve.cubic((570/600*2*height, 262/300*height),(570/600*2*height,  250/300*height),(600/600*2*height,  250/300*height)),
+                curve.line((600/600*2*height,  275/300*height)),
+                curve.cubic((570/600*2*height, 275/300*height),(570/600*2*height,  287/300*height),(540/600*2*height,  287/300*height)),
+                curve.cubic((510/600*2*height, 287/300*height),(510/600*2*height,  275/300*height),(480/600*2*height,  275/300*height)),
+                curve.cubic((450/600*2*height, 275/300*height),(450/600*2*height,  287/300*height),(420/600*2*height,  287/300*height)),
+                curve.cubic((390/600*2*height, 287/300*height),(390/600*2*height,  275/300*height),(360/600*2*height,  275/300*height)),
+                curve.cubic((330/600*2*height, 275/300*height),(330/600*2*height,  287/300*height),(300/600*2*height,  287/300*height)),
+                curve.cubic((270/600*2*height, 287/300*height),(270/600*2*height,  275/300*height),(240/600*2*height,  275/300*height)),
+                curve.cubic((210/600*2*height, 275/300*height),(210/600*2*height,  287/300*height),(180/600*2*height,  287/300*height)),
+                curve.cubic((150/600*2*height, 287/300*height),(150/600*2*height,  275/300*height),(120/600*2*height,  275/300*height)),
+                curve.cubic((90/600*2*height,  275/300*height),(90/600*2*height,   287/300*height),(60/600*2*height,   287/300*height)),
+                curve.cubic((30/600*2*height,  287/300*height),(30/600*2*height,   275/300*height),(000/600*2*height,  275/300*height)),
+            )
+        )
   )
 }
 // km 3:5
@@ -3240,6 +4153,24 @@
 
    )
 }
+// ky 1:2
+#let flag-ky(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill: rgb("012169"),
+    )
+    +place(
+      top,
+      flag-gb(height:height/2)
+    )
+    +place(
+      horizon+right,
+      dx:-100/500*height,
+      image("coat of arms/KY.svg",height: height/1.5))
+  )
+}
 // kz 1:2
 #let flag-kz(height:.65em) = {
   box(
@@ -3537,6 +4468,10 @@
     */
   )
 }
+// mf
+#let flag-mf(height:.65em) = {
+  flag-fr(height: height,)  
+}
 // mg 2:3
 #let flag-mg(height:.65em) = {
   box(
@@ -3831,6 +4766,82 @@
     )
   )
 }
+// mo 2:3
+#let flag-mo(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill: rgb(15,117,98)
+    )
+    +place(
+      horizon+center,
+      image("coat of arms/MO.svg", height:3/5*height)
+      )
+    +place(
+      horizon+center,
+      dx:2.5%*3/2*height,
+      dy:-20%*3/2*height,
+      rotate(-18deg,polygram((5,2),height/16,yellow))
+    )
+    +place(
+      horizon+center,
+      dx:12%*3/2*height,
+      dy:-16%*3/2*height,
+      rotate(18deg,polygram((5,2),height/20,yellow))
+    )
+    +place(
+      horizon+center,
+      dx:-10%*3/2*height,
+      dy:-16%*3/2*height,
+      rotate(18deg,polygram((5,2),height/20,yellow))
+    )
+    +place(
+      horizon+center,
+      dx:18%*3/2*height,
+      dy:-9%*3/2*height,
+      rotate(40deg,polygram((5,2),height/20,yellow))
+    )
+    +place(
+      horizon+center,
+      dx:-17%*3/2*height,
+      dy:-10%*3/2*height,
+      rotate(-5deg,polygram((5,2),height/20,yellow))
+    )
+  )
+}
+// mp 1:2
+#let flag-mp(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill:rgb(0,51,161)
+    )
+    + place(
+        horizon+center,
+        image("coat of arms/MP.svg", height:5/6*height)
+    )
+    + place(
+        horizon+center,
+        dx:55/550*height,
+        dy:80/550*height,
+        rotate(-18deg,polygram((5,2),height/5,black))
+      )
+    + place(
+        horizon+center,
+        dx:44/550*height,
+        dy:75/550*height,
+        rotate(-18deg,polygram((5,2),height/6,white))
+      )
+  )
+}
+// mq
+#let flag-mq(height:.65em) = {
+  box(
+    flag-fr(height: height)
+  )
+}
 // mr 2:3
 #let flag-mr(height:.65em) = {
   box(
@@ -3875,6 +4886,25 @@
         size: height/2,
         [\u{2605}]
       )
+    )
+  )
+}
+// ms 1:2
+#let flag-ms(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill: rgb("012169"),
+    )
+    +place(
+      top,
+      flag-gb(height: height/2)
+    )
+    +place(
+      horizon+center,
+      dx:1/4*2*height,
+      image("coat of arms/MS.svg",height:height/2)
     )
   )
 }
@@ -4155,6 +5185,33 @@
   )
   
 }
+// nc fr + kanaky
+#let flag-nc(height:.65em) = {
+  stack(
+    dir:ltr,
+    flag-fr(height:height),
+    box(
+      rect(
+        height: height,
+        width: 5/3*height,
+        fill:gradient.linear(
+          dir:ttb,
+          rgb(0,115,206),
+          rgb(225,60,50),
+          rgb(0,152,57),
+        ).sharp(3)
+      )
+      +place(horizon,
+        dx:1/6*height,
+        circle(
+          radius: 1/3*height,
+          fill:rgb(254,220,0),
+          place(center+horizon,
+          image("coat of arms/NC.svg", height: height*4/7))
+          ))
+    )
+  )
+}
 // ne 6:7?
 #let flag-ne(height:.65em) = {
   box(
@@ -4174,6 +5231,23 @@
         fill:rgb(224,82,6)
         )
     )
+  )
+}
+// nf 1:2
+#let flag-nf(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill: gradient.linear(
+        dir:ltr,
+        ..(rgb(0,121,52),)*7,
+        ..(white,)*9,
+        ..(rgb(0,121,52),)*7
+      ).sharp(7+9+7)
+    )
+    +place(horizon+center,
+    image("coat of arms/NF.svg", height: 9/10*height))
   )
 }
 // ng 1:2?
@@ -4202,6 +5276,9 @@
 // nl 2:3
 #let flag-nl(height:.65em) = {
   flag-h3((rgb(173,29,37),white,rgb(30,71,133)),height: height, ratio:2/3)
+}
+#let flag-bq(height:.65em) = {
+  flag-nl(height: height)
 }
 // no 8:11
 #let flag-no(height:.65em) = {
@@ -4246,6 +5323,9 @@
       )
     )
   )
+}
+#let flag-bv(height:.65em) = {
+  flag-no(height: height)
 }
 // np 4/3:1
 #let flag-np(height:.65em) = {
@@ -4354,6 +5434,44 @@
         dy:17/24*height,
         polygram((12,5),height/6,white)
       )
+  )
+}
+// nu 1:2
+#let flag-nu(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill: yellow,
+    )
+    + place(
+      top,
+      flag-gb(height:height/2)
+      + place(top,
+      dx:23/100*height,
+      dy:49/200*height,
+      rotate(-18deg,polygram((5,2),height/20,yellow)))
+      + place(top+right,
+      dx:-20/100*height,
+      dy:49/200*height,
+      rotate(-18deg,polygram((5,2),height/20,yellow)))
+      + place(top+center,
+      dx:3/100*height,
+      dy:20/200*height,
+      rotate(-18deg,polygram((5,2),height/20,yellow)))
+      + place(top+center,
+      dx:3/100*height,
+      dy:80/200*height,
+      rotate(-18deg,polygram((5,2),height/20,yellow)))
+      + place(center+horizon,
+      circle(radius: height/12,fill:rgb("012169")))
+      + place(center+horizon,
+      dx:5/100*height,
+      dy:5/200*height,
+      rotate(-18deg,polygram((5,2),height/12,yellow))
+      )
+
+    )
   )
 }
 // nz 1:2
@@ -4501,6 +5619,22 @@
 #let flag-pe(height:.65em) = {
   box(
     flag-v3((rgb(217,16,35),white,rgb(217,16,35)), height:height,ratio:2/3)
+  )
+}
+// pf 2:3
+#let flag-pf(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill:gradient.linear(
+        dir:ttb,
+        rgb(206,17,38),white,white,rgb(206,17,38)
+      ).sharp(4)
+    )
+    +place(horizon+center,
+    image("coat of arms/PF.svg",height:height/2)
+    )
   )
 }
 // pg 3:4
@@ -4700,6 +5834,60 @@
 #let flag-pl(height:.65em) = {
   flag-h3((rgb("EEEEEE"),rgb("D4213D"),none),height: height, ratio:5/8,color-height: (1/2,1/2,0))
 }
+// pm
+#let flag-pm(height:.65em) = {
+  flag-fr(height:height)
+}
+// pn 1:2
+#let flag-pn(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill: rgb("012169"),
+    )
+    +place(
+      top,
+      flag-gb(height: height/2)
+    )
+    +place(
+      horizon+right,
+      dx:-1/16*2*height,
+      image("coat of arms/PN.svg", height:3/4*height)
+    )
+  )
+}
+// pr 2:3
+#let flag-pr(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill: gradient.linear(
+        dir:ttb,
+        rgb(237,0,0),
+        white,
+        rgb(237,0,0),
+        white,
+        rgb(237,0,0),
+      ).sharp(5)
+    )
+    +place(
+      top,
+      polygon(
+        fill:rgb(8,68,255),
+        (0*height*3/2,0*height),
+        (25.98/45*height*3/2,0.5*height),
+        (0*height*3/2,1*height),
+      )+place(
+        horizon+center,
+        dx:-1/45*3/2*height,
+        dy:1/30*height,
+        rotate(-18deg,polygram((5,2),height/6,white))
+      )
+      )
+  )
+}
 // ps 1:2
 #let flag-ps(height:.65em) = {
   box(
@@ -4807,6 +5995,10 @@
       }
       )
     )
+}
+// re 2:3
+#let flag-re(height:.65em) = {
+  flag-fr(height: height)
 }
 // ro 2:3
 #let flag-ro(height:.65em) = {
@@ -5131,6 +6323,11 @@
       } 
   )
 }
+// sh
+#let flag-sh(height:.65em) = {
+  flag-gb(height: height,)
+    
+}
 // si 1:2
 #let flag-si(height:.65em) = {
   box(
@@ -5141,6 +6338,10 @@
         image("coat of arms/SI.svg",height:height/3)
       )
     )
+}
+// sj
+#let flag-sj(height:.65em) = {
+  flag-no(height: height,)
 }
 // sk 2:3
 #let flag-sk(height:.65em) = {
@@ -5356,6 +6557,32 @@
     +place(
       center+horizon,
       image("coat of arms/SV.svg", height: height/3.2)
+      )
+  )
+}
+// sx 2:3
+#let flag-sx(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill:gradient.linear(
+        dir:ttb,
+        rgb(173,29,37),rgb(30,71,133)
+        ).sharp(2)
+    )
+    +place(
+      top,
+      polygon(
+        fill:white,
+        (0*3/2*height,0*height),
+        (4/9*3/2*height,1/2*height),
+        (0*3/2*height,1*height),
+        )
+      )+place(
+        horizon,
+        dx:1/18*3/2*height,
+        image("coat of arms/SX.svg",height: 3/8*height)
       )
   )
 }
@@ -5633,6 +6860,25 @@
     )
   )
 }
+// tc 1:2
+#let flag-tc(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+    fill: rgb("012169"),
+    )
+    +place(
+      top,
+      flag-gb(height: height/2)
+    )
+    +place(
+      horizon+right,
+      dx:-1/8*2*height,
+      image("coat of arms/TC.svg", height:1/2*height)
+    )
+  )
+}
 // td 2:3
 #let flag-td(height:.65em) = {
   box(
@@ -5645,6 +6891,55 @@
         rgb(210, 15, 54),
       ).sharp(3)
     )
+  )
+}
+// tf 2:3
+#let flag-tf(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill:rgb(0,85,164),
+    )
+    +place(
+      top,
+      flag-fr(height:1/2*height))
+    +place(
+      bottom+right,
+      dx:-.95/8*3/2*height,
+      image("coat of arms/TF.svg",height:height/2)
+      )
+
+    +place(
+      bottom+right,
+      dx:-22/100*3/2*height,
+      rotate(-18deg,polygram((5,2),height/27,white))
+      )
+    +place(
+      bottom+right,
+      dx:-16.9/100*3/2*height,
+      dy:-8.9/100*height,
+      rotate(-18deg,polygram((5,2),height/27,white))
+      )
+    +place(
+      bottom+right,
+      dx:-27.8/100*3/2*height,
+      dy:-8.9/100*height,
+      rotate(-18deg,polygram((5,2),height/27,white))
+      )
+    +place(
+      bottom+right,
+      dx:-33/100*3/2*height,
+      dy:-35.5/100*height,
+      rotate(-18deg,polygram((5,2),height/27,white))
+      )
+    +place(
+      bottom+right,
+      dx:-11.2/100*3/2*height,
+      dy:-35.5/100*height,
+      rotate(-18deg,polygram((5,2),height/27,white))
+      )
+    
   )
 }
 // tg 1:phi
@@ -5713,6 +7008,42 @@
       horizon+center,
       image("coat of arms/TJ.svg", height:2.7/7*height)
     )
+  )
+}
+// tk 1:2
+#let flag-tk(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+      fill:rgb(1,33,105)
+    )
+    +place(top,
+    image("coat of arms/TK.svg", height: height))
+    +place(
+      top,
+      dx:19.5/100*2*height,
+      dy:11.5/100*height,
+      rotate(-18deg,polygram((5,2),1/20*height,white))
+      )
+    +place(
+      top,
+      dx:19.5/100*2*height,
+      dy:72/100*height,
+      rotate(-18deg,polygram((5,2),1/20*height,white))
+      )
+    +place(
+      top,
+      dx:8/100*2*height,
+      dy:35/100*height,
+      rotate(-18deg,polygram((5,2),1/20*height,white))
+      )
+    +place(
+      top,
+      dx:29/100*2*height,
+      dy:29/100*height,
+      rotate(-18deg,polygram((5,2),1/25*height,white))
+      )
   )
 }
 // tl 1:2
@@ -6132,6 +7463,10 @@
     )
   )
 }
+// um
+#let flag-um(height:.65em) = {
+  flag-us(height:height)
+}
 // va 1:1 
 #let flag-va(height:.65em) = {
   box(
@@ -6240,6 +7575,37 @@
     */
     )
 }
+// vg 1:2
+#let flag-vg(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 2*height,
+     fill: rgb("012169"),
+    )
+    +place(
+      top,
+      flag-gb(height: height/2)
+    )
+    +place(
+      horizon+right,
+      dx:-1/12*2*height,
+      image("coat of arms/VG.svg", height:2/3*height)
+    )
+  )
+}
+// vi 2:3
+#let flag-vi(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill:white
+    )
+    +place(horizon+center,
+    image("coat of arms/VI.svg", height: height))
+  )
+}
 // vn
 #let flag-vn(height:.65em) = {
   box(
@@ -6325,6 +7691,52 @@
           height: height/3
           )
         )
+  )
+}
+// wf 2:3
+#let flag-wf(height:.65em) = {
+  box(
+    rect(
+      height: height,
+      width: 3/2*height,
+      fill: rgb(239,65,53)
+    )
+    +place(
+      top,
+      rect(flag-fr(height:height/3), stroke:(paint:white, thickness: 1%*height), inset: 0pt)
+    )
+    +place(
+      horizon+right,
+      dx:-3/9*height,
+      rect(
+        height:height/3,
+        width:height/3,
+        fill:white)
+      +place(
+        top,
+        polygon(
+          fill:rgb(239,65,53),
+          (0%*height/3,10%*height/3),
+          (0%*height/3,0%*height/3),
+          (10%*height/3,0%*height/3),
+          (100%*height/3,90%*height/3),
+          (100%*height/3,100%*height/3),
+          (90%*height/3,100%*height/3),
+          )
+        )
+      +place(
+        top,
+        polygon(
+          fill:rgb(239,65,53),
+          (100%*height/3,10%*height/3),
+          (100%*height/3,0%*height/3),
+          (90%*height/3,0%*height/3),
+          (0%*height/3,90%*height/3),
+          (0%*height/3,100%*height/3),
+          (10%*height/3,100%*height/3),
+          )
+        )
+    )
   )
 }
 // ws 1:2
@@ -6431,6 +7843,10 @@
       )
     )
   }
+// yt
+#let flag-yt(height:.65em) = {
+  flag-fr(height: height)
+}
 // za 
 #let flag-za(height:.65em) = {
   box(
@@ -6605,12 +8021,17 @@
     AE: flag-ae(height:height),
     AF: flag-af(height:height),
     AG: flag-ag(height:height),
+    AI: flag-ai(height:height),
     AL: flag-al(height:height),
     AM: flag-am(height:height),
     AO: flag-ao(height:height),
+    AQ: flag-aq(height:height),
     AR: flag-ar(height:height),
+    AS: flag-as(height:height),
     AT: flag-at(height:height),
     AU: flag-au(height:height),
+    AX: flag-ax(height:height),
+    AW: flag-aw(height:height),
     AZ: flag-az(height:height),
     BA: flag-ba(height:height),
     BB: flag-bb(height:height),
@@ -6621,20 +8042,26 @@
     BH: flag-bh(height:height),
     BI: flag-bi(height:height),
     BJ: flag-bj(height:height),
+    BL: flag-bl(height:height),
+    BM: flag-bm(height:height),
     BN: flag-bn(height:height),
     BO: flag-bo(height:height),
+    BQ: flag-bq(height:height),
     BR: flag-br(height:height),
     BS: flag-bs(height:height),
     BT: flag-bt(height:height),
+    BV: flag-bv(height:height),
     BW: flag-bw(height:height),
     BY: flag-by(height:height),
     BZ: flag-bz(height:height),
     CA: flag-ca(height:height),
+    CC: flag-cc(height:height),
     CD: flag-cd(height:height),
     CF: flag-cf(height:height),
     CG: flag-cg(height:height),
     CH: flag-ch(height:height),
     CI: flag-ci(height:height),
+    CK: flag-ck(height:height),
     CL: flag-cl(height:height),
     CM: flag-cm(height:height),
     CN: flag-cn(height:height),
@@ -6642,6 +8069,8 @@
     CR: flag-cr(height:height),
     CU: flag-cu(height:height),
     CV: flag-cv(height:height),
+    CW: flag-cw(height:height),
+    CX: flag-cx(height:height),
     CY: flag-cy(height:height),
     CZ: flag-cz(height:height),
     DE: flag-de(height:height),
@@ -6653,26 +8082,38 @@
     EC: flag-ec(height:height),
     EE: flag-ee(height:height),
     EG: flag-eg(height:height),
+    EH: flag-eh(height:height),
     ER: flag-er(height:height),
     ES: flag-es(height:height),
     ET: flag-et(height:height),
     EU: flag-eu(height:height),
     FI: flag-fi(height:height),
     FJ: flag-fj(height:height),
+    FK: flag-fk(height:height),
     FM: flag-fm(height:height),
+    FO: flag-fo(height:height),
     FR: flag-fr(height:height),
     GA: flag-ga(height:height),
     GB: flag-gb(height:height),
     GD: flag-gd(height:height),
     GE: flag-ge(height:height),
+    GF: flag-gf(height:height),
+    GG: flag-gg(height:height),
     GH: flag-gh(height:height),
+    GI: flag-gi(height:height),
+    GL: flag-gl(height:height),
     GM: flag-gm(height:height),
     GN: flag-gn(height:height),
+    GP: flag-gp(height:height),
     GQ: flag-gq(height:height),
     GR: flag-gr(height:height),
+    GS: flag-gs(height:height),
     GT: flag-gt(height:height),
+    GU: flag-gu(height:height),
     GY: flag-gy(height:height),
     GW: flag-gw(height:height),
+    HK: flag-hk(height:height),
+    HM: flag-hm(height:height),
     HN: flag-hn(height:height),
     HR: flag-hr(height:height),
     HT: flag-ht(height:height),
@@ -6680,11 +8121,14 @@
     ID: flag-id(height:height),
     IE: flag-ie(height:height),
     IL: flag-il(height:height),
+    IM: flag-im(height:height),
     IN: flag-in(height:height),
+    IO: flag-io(height:height),
     IQ: flag-iq(height:height),
     IR: flag-ir(height:height),
     IS: flag-is(height:height),
     IT: flag-it(height:height),
+    JE: flag-je(height:height),
     JM: flag-jm(height:height),
     JO: flag-jo(height:height),
     JP: flag-jp(height:height),
@@ -6697,6 +8141,7 @@
     KP: flag-kp(height:height),
     KR: flag-kr(height:height),
     KW: flag-kw(height:height),
+    KY: flag-ky(height:height),
     KZ: flag-kz(height:height),
     LA: flag-la(height:height),
     LB: flag-lb(height:height),
@@ -6713,13 +8158,18 @@
     MC: flag-mc(height:height),
     MD: flag-md(height:height),
     ME: flag-me(height:height),
+    MF: flag-mf(height:height),
     MG: flag-mg(height:height),
     MH: flag-mh(height:height),
     MK: flag-mk(height:height),
     ML: flag-ml(height:height),
     MM: flag-mm(height:height),
     MN: flag-mn(height:height),
+    MO: flag-mo(height:height),
+    MP: flag-mp(height:height),
+    MQ: flag-mq(height:height),
     MR: flag-mr(height:height),
+    MS: flag-ms(height:height),
     MT: flag-mt(height:height),
     MU: flag-mu(height:height),
     MV: flag-mv(height:height),
@@ -6728,26 +8178,34 @@
     MY: flag-my(height:height),
     MZ: flag-mz(height:height),
     NA: flag-na(height:height),
+    NC: flag-nc(height:height),
     NE: flag-ne(height:height),
+    NF: flag-nf(height:height),
     NG: flag-ng(height:height),
     NI: flag-ni(height:height),
     NL: flag-nl(height:height),
     NO: flag-no(height:height),
     NP: flag-np(height:height),
     NR: flag-nr(height:height),
+    NU: flag-nu(height:height),
     NZ: flag-nz(height:height),
     OM: flag-om(height:height),
     PA: flag-pa(height:height),
     PE: flag-pe(height:height),
+    PF: flag-pf(height:height),
     PG: flag-pg(height:height),
     PH: flag-ph(height:height),
     PK: flag-pk(height:height),
     PL: flag-pl(height:height),
+    PM: flag-pm(height:height),
+    PN: flag-pn(height:height),
+    PR: flag-pr(height:height),
     PS: flag-ps(height:height),
     PT: flag-pt(height:height),
     PW: flag-pw(height:height),
     PY: flag-py(height:height),
     QA: flag-qa(height:height),
+    RE: flag-re(height:height),
     RO: flag-ro(height:height),
     RS: flag-rs(height:height),
     RU: flag-ru(height:height),
@@ -6758,7 +8216,9 @@
     SD: flag-sd(height:height),
     SE: flag-se(height:height),
     SG: flag-sg(height:height),
+    SH: flag-sh(height:height),
     SI: flag-si(height:height),
+    SJ: flag-sj(height:height),
     SK: flag-sk(height:height),
     SL: flag-sl(height:height),
     SM: flag-sm(height:height),
@@ -6768,12 +8228,16 @@
     SS: flag-ss(height:height),
     ST: flag-st(height:height),
     SV: flag-sv(height:height),
+    SX: flag-sx(height:height),
     SY: flag-sy(height:height),
     SZ: flag-sz(height:height),
+    TC: flag-tc(height:height),
     TD: flag-td(height:height),
+    TF: flag-tf(height:height),
     TG: flag-tg(height:height),
     TH: flag-th(height:height),
     TJ: flag-tj(height:height),
+    TK: flag-tk(height:height),
     TL: flag-tl(height:height),
     TM: flag-tm(height:height),
     TN: flag-tn(height:height),
@@ -6785,16 +8249,21 @@
     TZ: flag-tz(height:height),
     UA: flag-ua(height:height),
     UG: flag-ug(height:height),
+    UM: flag-um(height:height),
     US: flag-us(height:height),
     UY: flag-uy(height:height),
     UZ: flag-uz(height:height),
     VA: flag-va(height:height),
     VC: flag-vc(height:height),
     VE: flag-ve(height:height),
+    VG: flag-vg(height:height),
+    VI: flag-vi(height:height),
     VN: flag-vn(height:height),
     VU: flag-vu(height:height),
+    WF: flag-wf(height:height),
     WS: flag-ws(height:height),
     YE: flag-ye(height:height),
+    YT: flag-yt(height:height),
     ZA: flag-za(height:height),
     ZM: flag-zm(height:height),
     ZW: flag-zw(height:height),
