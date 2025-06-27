@@ -55,10 +55,10 @@
     bibfile: none, // Optional bibliography content, highly recommended
     bibstyle: "institute-of-electrical-and-electronics-engineers", // For example "american-psychological-association" or "institute-of-electrical-and-electronics-engineers"
     language: "bokmål", // One of: english, bokmål, nynorsk
-    column_number: 1, // Should be 1 or 2
-    show_toc: true, // Determines if table of content is printed, only relevant for long reports
-    show_figure_index: false, // Determines if list of figures is printed, only relevant for long reports
-    show_table_index: false, // Determines if list of indices is printed, only relevant for long reports
+    column-number: 1, // Should be 1 or 2
+    show-toc: true, // Determines if table of content is printed, only relevant for long reports
+    show-figure_index: false, // Determines if list of figures is printed, only relevant for long reports
+    show-table_index: false, // Determines if list of indices is printed, only relevant for long reports
     body) = {
 
 
