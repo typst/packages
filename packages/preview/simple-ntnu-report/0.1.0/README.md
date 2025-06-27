@@ -33,3 +33,4 @@ The package allso localizes number formats correctly, use the `num` function fro
 
 # License
 The boiler plate template located in the template folder is licensed under the MIT No Attribution license, the rest of this project is licensed under the GNU Affero General Public License v3.0 or later.
+The logo of NTNU (located at template/figures/NTNU.svg) is owned by NTNU, guidelines for usage is located at https://i.ntnu.no/wiki/-/wiki/Norsk/Bruksregler+for+NTNU-logoen.
