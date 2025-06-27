@@ -1,0 +1,15 @@
+[package]
+name = "touying-sjtu"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["tzhTaylor"]
+license = "MIT"
+description = "基于 Touying 的上海交通大学 Typst 幻灯片模板。Typst Slide Theme for SJTU Based on Touying."
+repository = "https://github.com/tzhTaylor/touying-sjtu"
+keywords = ["touying", "slide", "sjtu"]
+categories = ["presentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
