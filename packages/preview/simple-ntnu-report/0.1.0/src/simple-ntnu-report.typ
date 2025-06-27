@@ -57,8 +57,8 @@
     language: "bokmål", // One of: english, bokmål, nynorsk
     column-number: 1, // Should be 1 or 2
     show-toc: true, // Determines if table of content is printed, only relevant for long reports
-    show-figure_index: false, // Determines if list of figures is printed, only relevant for long reports
-    show-table_index: false, // Determines if list of indices is printed, only relevant for long reports
+    show-figure-index: false, // Determines if list of figures is printed, only relevant for long reports
+    show-table-index: false, // Determines if list of indices is printed, only relevant for long reports
     body) = {
 
 
@@ -189,15 +189,15 @@
 
     set page(numbering: "I", number-align: center)
     counter(page).update(1)
-    if show_toc {
+    if show-toc {
       outline(title: toc-title)
       pagebreak()
     }
-    if show_figure_index {
+    if show-figure-index {
       outline(title: lof-title, target: figure.where(kind: image))
       pagebreak()
     }
-    if show_table_index {
+    if show-table-index {
       outline(title: lot-title, target: figure.where(kind: table))
       pagebreak()
     }
@@ -207,7 +207,7 @@
     counter(page).update(1)
     
     set par(justify: true)
-    set page(columns: column_number)
+    set page(columns: column-number)
 
     body
 
@@ -219,7 +219,7 @@
   // Short report
   else if length == "short"{
     set page(numbering: "1", number-align: center)
-    set page(columns: column_number)
+    set page(columns: column-number)
 
     place(top + center, scope: "parent", float: true, {
       v(0.8cm, weak: true)
@@ -245,11 +245,11 @@
     set par(justify: true)
     
     if abstract != none {
-      if column_number == 1 {line(length: 100%)}
+      if column-number == 1 {line(length: 100%)}
       set text(9pt, weight: 700)
       [= #h(1em) _#{abstract-heading}_ <nonumber>]
       abstract
-      if column_number == 1 {line(length: 100%)}
+      if column-number == 1 {line(length: 100%)}
     }
 
     body
