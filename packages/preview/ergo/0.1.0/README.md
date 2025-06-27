@@ -85,25 +85,22 @@ Refer to `examples/` for more examples.
 
 `Ergo` has three different types of environments: _proofs_, _statements_, and _problems_.
 
-Note the arguments are all positional but only one is required for valid syntax.
-In the following table the priority refers to which arguments are used when `n` arguments are given.
-> Example: If `2` arguments are given to the Proof type the first will be for `statement` and the second for `proof`.
-> If `3` arguments are given the first will be for `name`, the second for `statement`, and the third for `proof`).
+The following table details the different environment types and there arguments.
 
 <table>
     <caption><strong>Environments</strong></caption>
     <tr>
         <td><b>Type</b></td>
-        <td><b>Args (Priority)</b></td>
+        <td><b>Args</b></td>
         <td><b>Environments</b></td>
     </tr>
     <tr>
         <td>Proof</td>
         <td>
             <ol>
-                <li><code>name</code> (3)</li>
-                <li><code>statement</code> (1)</li>
-                <li><code>proof</code> (2)</li>
+                <li><code>name</code></li>
+                <li><code>statement</code></li>
+                <li><code>proof</code></li>
             </ol>
         </td>
         <td>
@@ -119,8 +116,8 @@ In the following table the priority refers to which arguments are used when `n` 
         <td>Statement</td>
         <td>
             <ol>
-                <li><code>name</code> (2)</li>
-                <li><code>statement</code> (1)</li>
+                <li><code>name</code></li>
+                <li><code>statement</code></li>
             </ol>
         </td>
         <td>
@@ -141,9 +138,9 @@ In the following table the priority refers to which arguments are used when `n` 
         <td>Problem</td>
         <td>
             <ol>
-                <li><code>name</code> (3)</li>
-                <li><code>statement</code> (1)</li>
-                <li><code>solution</code> (2)</li>
+                <li><code>name</code></li>
+                <li><code>statement</code></li>
+                <li><code>solution</code></li>
             </ol>
         </td>
         <td>
@@ -155,7 +152,16 @@ In the following table the priority refers to which arguments are used when `n` 
     </tr>
 </table>
 
-These share a set of (optional) keyword arguments:
+Note the arguments are all positional but `name` is optional such that the following example details their behavior:
+```typ
+// no `name` given
+#theorem[ statement ][ proof ]
+
+// `name` given
+#theorem[ name ][ statement ][ proof ]
+```
+
+All of these environments (regardless of type) share a set of (optional) keyword arguments:
 - `breakable` (default: `false`) - whether the current environment is breakable across multiple pages.
 - `width` (default: `100%`) - width of the current environment in its current scope.
 - `height` (default: `auto`) - height of the current environment in its current scope.
