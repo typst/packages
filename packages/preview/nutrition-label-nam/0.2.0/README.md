@@ -6,7 +6,7 @@ A configurable template to generate FDA-style nutrition fact labels in Typst.
 
 First, import the package:
 ``` typst
-#import "@preview/nutrition-label-nam:0.1.0": nutrition-label-nam
+#import "@preview/nutrition-label-nam:0.2.0": nutrition-label-nam
 ```
 
 Then, define your data and call the function:
@@ -34,6 +34,11 @@ Then, define your data and call the function:
   ),
 )
 
-#nutrition-label-nam(sample-data, font: "Tex Gyre Heros")
+#nutrition-label-nam(
+  sample-data,
+  font: "Tex Gyre Heros",
+  scale-factor: 100%,
+  show-footnote: true,
+)
 ```
 ![capture_temp](https://github.com/user-attachments/assets/52dc0f8a-f29f-4de6-b679-cf99d76db0df)
