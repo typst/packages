@@ -33,11 +33,11 @@
   bibstyle: "institute-of-electrical-and-electronics-engineers",
 
   language: "bokmål",
-  column_number: 2,
+  column-number: 2,
   
-  show_toc: true,
-  show_figure_index: false,
-  show_table_index: false,
+  show-toc: true,
+  show-figure-index: false,
+  show-table-index: false,
 )
 
 

@@ -20,10 +20,10 @@ The template takes the following arguments:
 - bibfile: Optional parsed bibfile on the form bibliography("path"), required for bibliography.
 - bibstyle: Optional string, defaults to "institute-of-electrical-and-electronics-engineers". Many subjects require "american-psychological-association"
 - language: Optional string, defaults to "bokmål". One of english, bokmål or nynorsk.
-- column_number: Optional int, default 1.
-- show_toc: Optional bool, default true. Determines if table of content is printed, only relevant for long reports
-- show_figure_index: Optional bool, default false. Determines if list of figures is printed, only relevant for long reports
-- show_table_index: Optional bool, default false. Determines if list of indices is printed, only relevant for long reports
+- column-number: Optional int, default 1.
+- show-toc: Optional bool, default true. Determines if table of content is printed, only relevant for long reports
+- show-figure-index: Optional bool, default false. Determines if list of figures is printed, only relevant for long reports
+- show-table-index: Optional bool, default false. Determines if list of indices is printed, only relevant for long reports
 
 
 # Quality of life
