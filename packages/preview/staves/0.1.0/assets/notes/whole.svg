@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="142.82149mm"
+   height="106.74408mm"
+   viewBox="0 0 142.82149 106.74408"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="whole.svg"
+   inkscape:export-filename="whole.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="102.005"
+     inkscape:cy="347.86797"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g892"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:snap-global="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="142.82149"
+       height="106.74408"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-35.804839,-92.076837)">
+    <g
+       id="g892"
+       transform="matrix(1.3985119,0,0,1.3985119,-85.800597,29.860118)">
+      <g
+         id="layer3"
+         inkscape:label="Note"
+         style="display:inline;opacity:1"
+         transform="matrix(2.9301156,0,0,2.9301156,-50.235621,-34.092244)">
+        <path
+           style="fill:#090000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 64.732422,26.818359 c -3.991969,-0.02243 -8.219245,1.259238 -12.039063,4.0625 -9.229607,6.773361 -6.473407,13.10202 0.648438,18.310547 5.879434,4.299894 14.322674,5.459453 22.550781,0.02148 8.443028,-5.580009 7.098209,-12.209617 -0.541016,-18.63086 -2.870982,-2.413239 -6.627171,-3.741242 -10.61914,-3.763672 z m -2.072266,4.84961 c 3.405046,0.04073 6.440866,3.633538 7.460938,5.53125 1.255473,2.335645 2.286247,7.591738 -1.177735,10.447265 -3.463983,2.855527 -9.481856,-0.577699 -10.982421,-4.875 -1.500567,-4.297301 -1.98829,-8.187728 2.304687,-10.5 0.804933,-0.433551 1.608752,-0.612914 2.394531,-0.603515 z"
+           id="path5194"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="layer7"
+         inkscape:label="Rest" />
+      <g
+         id="layer5"
+         inkscape:label="Note Stripe"
+         style="display:none">
+        <path
+           style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 40,40 H 88.939389"
+           id="Staff5-6"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="layer4"
+         inkscape:label="Staff mask"
+         style="display:inline" />
+    </g>
+  </g>
+</svg>
