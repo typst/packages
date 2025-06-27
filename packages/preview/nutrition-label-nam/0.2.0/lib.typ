@@ -1,6 +1,6 @@
 // lib.typ for version 0.2.0
 // =====================================================================
-// NUTRITION LABEL TEMPLATE
+// NUTRITION LABEL TEMPLATE V0.2.0
 // =====================================================================
 // This function takes a dictionary of data and renders a nutrition label.
 // =====================================================================
