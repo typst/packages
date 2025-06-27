@@ -41,4 +41,6 @@ Then, define your data and call the function:
   show-footnote: true, // default is true
 )
 ```
+[Link to example.typ](example.typ)  
+[Link to example.pdf](example.pdf)  
 ![capture_temp](https://github.com/user-attachments/assets/52dc0f8a-f29f-4de6-b679-cf99d76db0df)
