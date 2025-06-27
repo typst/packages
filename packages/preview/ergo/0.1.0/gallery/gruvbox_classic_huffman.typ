@@ -49,7 +49,7 @@
   )
 ]
 
-#comp_prob[Optimal Coding Scheme][
+#comp-prob[Optimal Coding Scheme][
   Let $C$ denote our alphabet, and let $f(p)$ denote the frequency of a letter $p$.
   Let $T$ be the tree for a prefix code, and let $d_T (p)$ be the depth of $p$ in $T$.
   Then the total number of bits needed to encode a file using this code is

@@ -1,5 +1,5 @@
 #import "@local/ergo:0.1.0": *
-#show: ergo-init.with(inline_qed: true)
+#show: ergo-init.with(inline-qed: true)
 
 #set page(
   width: 18cm,

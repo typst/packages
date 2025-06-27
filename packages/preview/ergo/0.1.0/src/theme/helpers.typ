@@ -4,8 +4,8 @@
   [#content#ergo-title-selector]
 }
 
-#let proof(body, inline_qed) = {
-  if inline_qed {
+#let proof(body, inline-qed) = {
+  if inline-qed {
     [*Proof:* ]; body; [$square.big$]
   } else {
     [*Proof:* ]; body; [#v(0.2em) #h(90%) $square.big$]
@@ -65,7 +65,7 @@
   return pad(x: xpad, y: ypad, name_content)
 }
 
-#let get_proof_content(statement, problem, inline_qed) = {
+#let get_proof_content(statement, problem, inline-qed) = {
   let xpad = 12pt
   let ypad = 6pt
 
@@ -75,7 +75,7 @@
     if problem {
       return pad(x: xpad, y: ypad, solution(statement))
     } else {
-      return pad(x: xpad, y: ypad, proof(statement, inline_qed))
+      return pad(x: xpad, y: ypad, proof(statement, inline-qed))
     }
   }
 }

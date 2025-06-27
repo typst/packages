@@ -23,15 +23,15 @@
 
 
 //-----Setup-----//
-#let all_breakable_toggle = state("all_breakable_toggle", false)
-#let inline_qed_toggle    = state("inline_qed_toggle", false)
+#let all-breakable-toggle = state("all-breakable-toggle", false)
+#let inline-qed-toggle    = state("inline-qed-toggle", false)
 
 #let ergo-init(
   body,
   colors:         "bootstrap",
   headers:        "tab",
-  all_breakable:  false,
-  inline_qed:     false,
+  all-breakable:  false,
+  inline-qed:     false,
 ) = context {
   if type(colors) == str and valid_colors(colors) {
     env_colors.update(colors)
@@ -43,13 +43,13 @@
   } else {
     panic("Unrecognized or invalid header style")
   }
-  if type(all_breakable) == bool {
-    all_breakable_toggle.update(all_breakable)
+  if type(all-breakable) == bool {
+    all-breakable-toggle.update(all-breakable)
   } else {
     panic("Non boolean passed to boolean")
   }
-  if type(inline_qed) == bool {
-    inline_qed_toggle.update(inline_qed)
+  if type(inline-qed) == bool {
+    inline-qed-toggle.update(inline-qed)
   } else {
     panic("Non boolean passed to boolean")
   }
@@ -107,7 +107,7 @@
   )
 }
 
-#let equation_box(
+#let equation-box(
   equation,
 ) = context {
   let theme   = env_colors.get()
@@ -130,7 +130,7 @@
   kind,
   id,
   problem,
-  inline_qed: none,
+  inline-qed: none,
   breakable:  none,
   width:      100%,
   height:     auto,
@@ -158,13 +158,13 @@
     "raw": get_ratio(color_name, "raw", "saturation")
   )
 
-  let new_breakable  = if type(breakable) == bool { breakable } else { all_breakable_toggle.get() }
-  let new_inline_qed = if type(inline_qed) == bool { inline_qed } else { inline_qed_toggle.get() }
+  let new_breakable  = if type(breakable) == bool { breakable } else { all-breakable-toggle.get() }
+  let new_qed = if type(inline-qed) == bool { inline-qed } else { inline-qed-toggle.get() }
 
   let child_argv = arguments(
     kind:       kind,
     id:         id,
-    inline_qed: new_inline_qed,
+    inline-qed: new_qed,
     breakable:  new_breakable,
     width:      width,
     height:     height,
@@ -270,7 +270,7 @@
     "raw": get_ratio(color_name, "raw", "saturation")
   )
 
-  let new_breakable = if type(breakable) == bool { breakable } else { all_breakable_toggle.get() }
+  let new_breakable = if type(breakable) == bool { breakable } else { all-breakable-toggle.get() }
 
   let child_argv = arguments(
     kind:      kind,
@@ -335,9 +335,9 @@
   "concept"
 )
 
-#let computational_problem = statement_env.with(
+#let computational-problem = statement_env.with(
   [Computational Problem],
-  "computational_problem"
+  "computational-problem"
 )
 
 #let algorithm = statement_env.with(

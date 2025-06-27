@@ -3,7 +3,7 @@
   ergo-title-selector,
   correction,
   bookmark,
-  equation_box,
+  equation-box,
   theorem,
   lemma,
   corollary,
@@ -14,14 +14,14 @@
   notation,
   example,
   concept,
-  computational_problem,
+  computational-problem,
   algorithm,
   runtime,
   problem,
   exercise,
 )
 
-#let eqbox  = equation_box
+#let eqbox  = equation-box
 
 #let thm    = theorem
 #let lem    = lemma
@@ -34,7 +34,7 @@
 #let notn   = notation
 #let ex     = example
 #let conc   = concept
-#let comp_prob = computational_problem
+#let comp-prob = computational-problem
 #let algo   = algorithm
 
 #let prob   = problem

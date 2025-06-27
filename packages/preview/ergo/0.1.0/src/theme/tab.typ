@@ -42,7 +42,7 @@
     )
   )
 
-  let proof_content = get_proof_content(proof_statement, kwargs.problem, kwargs.inline_qed)
+  let proof_content = get_proof_content(proof_statement, kwargs.problem, kwargs.inline-qed)
 
   block(
     stroke:     strokecolor1,

@@ -3,7 +3,7 @@
 #show: ergo-init.with(
   colors: "ayu_light",
   headers: "classic",
-  inline_qed: true,
+  inline-qed: true,
 )
 #set page(
   width: 18cm,

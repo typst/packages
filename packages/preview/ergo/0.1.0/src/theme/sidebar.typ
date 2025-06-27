@@ -23,7 +23,7 @@
 
   let name_content      = get_proofname_content(kwargs.kind, name, problem: kwargs.problem)
   let statement_content = get_statement_content(statement)
-  let proof_content     = get_proof_content(proof_statement, kwargs.problem, kwargs.inline_qed)
+  let proof_content     = get_proof_content(proof_statement, kwargs.problem, kwargs.inline-qed)
 
   block(
     stroke:     (left: strokecolor + 3pt),
