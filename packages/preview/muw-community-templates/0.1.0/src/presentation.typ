@@ -13,7 +13,7 @@
 // MedUni Wien logo in dark blue and white for the footer
 #let muw-logo-white(..args) = image("./../img/MedUni-Wien-white.svg", ..args)
 #let muw-logo-blue(..args) = image("./../img/MedUni-Wien.svg", ..args)
-#let muw_logos = (muw-logo-blue, muw-logo-white)
+#let muw-logos = (muw-logo-blue, muw-logo-white)
 
 // box with roundet corners (tl and br with 15%)
 #let muw-box(radius: 15%, ..args) = box(radius: (top-left: radius, bottom-right: radius), clip: true, ..args)
@@ -31,13 +31,13 @@
  *  optional date is being displayed
  */
 #let custom-footer(
-  logos: muw_logos,
+  logos: muw-logos,
   footer-title: [Titel der Präsentation ODER des Vortragenden],
   orga: [Organisationseinheit],
   show-date: false,
   page-numbering: (n, total) => { [ #strong[#n] / #total ] },
 ) = {
-  let logos = if logos != none {logos} else {muw_logos}
+  let logos = if logos != none {logos} else {muw-logos}
 
   context {
     set text(fill: if page.fill != muw_colors.dunkelblau { white } else { muw_colors.dunkelblau })
