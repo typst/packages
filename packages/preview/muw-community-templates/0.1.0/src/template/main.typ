@@ -110,7 +110,7 @@
       #figure(
         muw-box(
           stroke: 1pt + white,
-          image("./../../img/Knie_mr.jpg", width: 30%)
+          box([ ~ ./img/Knie_mr.jpg ~ \ ~ oder so ~ ], width: 30%)
         ),
         caption: [
           Magnetresonanztomographie Aufnahme eines \
