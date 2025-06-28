@@ -85,83 +85,86 @@
     v(3pt)
   }
 
-  scale(scale-percent, origin: top + left)[
-    #block[
-      #set text(font: font)
-      #set par(leading: 0.4em)
-      #set block(spacing: 0.5em)
+  
+    box[
+      #scale(scale-percent, origin: top + left, reflow: true)[
+      #block[
+        #set text(font: font)
+        #set par(leading: 0.4em)
+        #set block(spacing: 0.5em)
 
-      #rect(width: 3in, stroke: 1pt, inset: (x: 6pt, y: 6pt))[
-        #text(weight: "black", size: 29pt)[Nutrition~Facts]
-        #line(length: 100%, stroke: 0.5pt)
-
-        #block[
-          #set text(size: 12pt)
-          #data.servings servings per container \
-          *Serving size* #h(1fr) #text(weight: "bold", data.serving_size)
-        ]
-
-        #thicker-separator()
-
-        #block[
-          #set text(size: 8pt, weight: "black")
-          Amount per serving \
-          #text(weight: "black", size: 22pt)[*Calories*] #h(1fr) #text(weight: "black", size: 30pt, data.calories)
-          #thick-separator()
-        ]
-
-        #block[
-          #set text(size: 10pt)
-          #v(1pt)
-          #align(right)[*\% Daily Value\**]
+        #rect(width: 3in, stroke: 1pt, inset: (x: 6pt, y: 6pt))[
+          #text(weight: "black", size: 29pt)[Nutrition~Facts]
           #line(length: 100%, stroke: 0.5pt)
 
-          *Total Fat* #data.total_fat.value#data.total_fat.unit #h(1fr) *#calc-dv("total_fat", data.total_fat.value)*
-          #line(length: 100%, stroke: 0.5pt)
-
-          #h(1em) Saturated Fat #data.saturated_fat.value#data.saturated_fat.unit #h(1fr) *#calc-dv("saturated_fat", data.saturated_fat.value)*
-          #line(length: 100%, stroke: 0.5pt)
-
-          #h(1em) _Trans_ Fat #data.trans_fat.value#data.trans_fat.unit #h(1fr)
-          #line(length: 100%, stroke: 0.5pt)
-
-          *Cholesterol* #data.cholesterol.value#data.cholesterol.unit #h(1fr) *#calc-dv("cholesterol", data.cholesterol.value)*
-          #line(length: 100%, stroke: 0.5pt)
-
-          *Sodium* #data.sodium.value#data.sodium.unit #h(1fr) *#calc-dv("sodium", data.sodium.value)*
-          #line(length: 100%, stroke: 0.5pt)
-
-          *Total Carbohydrate* #data.carbohydrate.value#data.carbohydrate.unit #h(1fr) *#calc-dv("carbohydrate", data.carbohydrate.value)*
-          #line(length: 100%, stroke: 0.5pt)
-
-          #h(1em) Dietary Fiber #data.fiber.value#data.fiber.unit #h(1fr) *#calc-dv("fiber", data.fiber.value)*
-          #line(length: 100%, stroke: 0.5pt)
-
-          #h(1em) Total Sugars #data.sugars.value#data.sugars.unit #h(1fr)
-          #pad(left: 2em)[#line(length: 100%, stroke: 0.5pt)]
-
-          #h(2em) Includes #data.added_sugars.value#data.added_sugars.unit Added Sugars #h(1fr) *#calc-dv("added_sugars", data.added_sugars.value)*
-          #line(length: 100%, stroke: 0.5pt)
-
-          *Protein* #data.protein.value#data.protein.unit #h(1fr) //*#calc-dv("protein", data.protein.value)*
+          #block[
+            #set text(size: 12pt)
+            #data.servings servings per container \
+            *Serving size* #h(1fr) #text(weight: "bold", data.serving_size)
+          ]
 
           #thicker-separator()
 
-          #for (i, nutrient) in data.micronutrients.enumerate() {
-            [#nutrient.name #nutrient.value#nutrient.unit #h(1fr) *#calc-dv(nutrient.key, nutrient.value)*]
-            if i < data.micronutrients.len() - 1 {
-              line(length: 100%, stroke: 0.5pt)
+          #block[
+            #set text(size: 8pt, weight: "black")
+            Amount per serving \
+            #text(weight: "black", size: 22pt)[*Calories*] #h(1fr) #text(weight: "black", size: 30pt, data.calories)
+            #thick-separator()
+          ]
+
+          #block[
+            #set text(size: 10pt)
+            #v(1pt)
+            #align(right)[*\% Daily Value\**]
+            #line(length: 100%, stroke: 0.5pt)
+
+            *Total Fat* #data.total_fat.value#data.total_fat.unit #h(1fr) *#calc-dv("total_fat", data.total_fat.value)*
+            #line(length: 100%, stroke: 0.5pt)
+
+            #h(1em) Saturated Fat #data.saturated_fat.value#data.saturated_fat.unit #h(1fr) *#calc-dv("saturated_fat", data.saturated_fat.value)*
+            #line(length: 100%, stroke: 0.5pt)
+
+            #h(1em) _Trans_ Fat #data.trans_fat.value#data.trans_fat.unit #h(1fr)
+            #line(length: 100%, stroke: 0.5pt)
+
+            *Cholesterol* #data.cholesterol.value#data.cholesterol.unit #h(1fr) *#calc-dv("cholesterol", data.cholesterol.value)*
+            #line(length: 100%, stroke: 0.5pt)
+
+            *Sodium* #data.sodium.value#data.sodium.unit #h(1fr) *#calc-dv("sodium", data.sodium.value)*
+            #line(length: 100%, stroke: 0.5pt)
+
+            *Total Carbohydrate* #data.carbohydrate.value#data.carbohydrate.unit #h(1fr) *#calc-dv("carbohydrate", data.carbohydrate.value)*
+            #line(length: 100%, stroke: 0.5pt)
+
+            #h(1em) Dietary Fiber #data.fiber.value#data.fiber.unit #h(1fr) *#calc-dv("fiber", data.fiber.value)*
+            #line(length: 100%, stroke: 0.5pt)
+
+            #h(1em) Total Sugars #data.sugars.value#data.sugars.unit #h(1fr)
+            #pad(left: 2em)[#line(length: 100%, stroke: 0.5pt)]
+
+            #h(2em) Includes #data.added_sugars.value#data.added_sugars.unit Added Sugars #h(1fr) *#calc-dv("added_sugars", data.added_sugars.value)*
+            #line(length: 100%, stroke: 0.5pt)
+
+            *Protein* #data.protein.value#data.protein.unit #h(1fr) //*#calc-dv("protein", data.protein.value)*
+
+            #thicker-separator()
+
+            #for (i, nutrient) in data.micronutrients.enumerate() {
+              [#nutrient.name #nutrient.value#nutrient.unit #h(1fr) *#calc-dv(nutrient.key, nutrient.value)*]
+              if i < data.micronutrients.len() - 1 {
+                line(length: 100%, stroke: 0.5pt)
+              }
             }
+          ]
+
+          #if show-footnote {
+            if data.micronutrients.len() >= 1 { thick-separator() }
+
+            text(size: 9pt)[
+              \* The \% Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.
+            ]
           }
         ]
-
-        #if show-footnote {
-          if data.micronutrients.len() >= 1 { thick-separator() }
-
-          text(size: 9pt)[
-            \* The \% Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.
-          ]
-        }
       ]
     ]
   ]
