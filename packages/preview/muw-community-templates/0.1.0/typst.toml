@@ -1,5 +1,5 @@
 [package]
-name = "muw"
+name = "muw-community-templates"
 version = "0.1.0"
 entrypoint = "src/presentation.typ"
 authors = ["Felix D"]
