@@ -87,7 +87,7 @@
 
   
     box[
-      #scale(scale-percent, origin: top + left, reflow: true)[
+      #scale(scale-percent, reflow: true)[
       #block[
         #set text(font: font)
         #set par(leading: 0.4em)
