@@ -85,7 +85,7 @@
     v(3pt)
   }
 
-  scale(scale-percent)[
+  scale(scale-percent, origin: top + left)[
     #block[
       #set text(font: font)
       #set par(leading: 0.4em)
