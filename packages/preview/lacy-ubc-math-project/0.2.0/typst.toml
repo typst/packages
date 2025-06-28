@@ -14,5 +14,5 @@ exclude = ["test"]
 
 [template]
 path = "template"
-entrypoint = "project1.typ"
+entrypoint = "project-1.typ"
 thumbnail = "thumbnail.png"
