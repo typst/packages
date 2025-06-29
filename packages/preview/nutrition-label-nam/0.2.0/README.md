@@ -1,95 +1,124 @@
-# Typst Nutrition Label
+# Nutrition Label
 
-A configurable template to generate FDA-style nutrition fact labels in Typst. 
-
-## Usage
-
-First, import the package:
-``` typst
-#import "@preview/nutrition-label-nam:0.2.0": nutrition-label-nam
-```
-
-Then, define your data and call the function:
-``` typst
-#let sample-data = (
-  servings: "8",
-  serving_size: "2/3 cup (55g)",
-  calories: "230",
-  total_fat: (value: 8, unit: "g"),
-  saturated_fat: (value: 1, unit: "g"),
-  trans_fat: (value: 0, unit: "g"),
-  cholesterol: (value: 0, unit: "mg"),
-  sodium: (value: 160, unit: "mg"),
-  carbohydrate: (value: 37, unit: "g"),
-  fiber: (value: 4, unit: "g"),
-  sugars: (value: 12, unit: "g"),
-  added_sugars: (value: 10, unit: "g"),
-  protein: (value: 3, unit: "g"),
-  micronutrients: (
-    (name: "Vitamin D", key: "vitamin_d", value: 2, unit: "mcg"),
-    (name: "Calcium", key: "calcium", value: 260, unit: "mg"),
-    (name: "Iron", key: "iron", value: 8.0, unit: "mg"),
-    (name: "Potassium", key: "potassium", value: 240, unit: "mg"),
-  ),
-)
-
-#nutrition-label-nam(
-  sample-data,
-  font: "Tex Gyre Heros", // default is "Liberation Sans" because it's likely preinstalled, but "Tex Gyre Heros" is closer to the FDA recommendation "Helvetica" and can be installed for free. I never tested Helvetica because I don't have access to it.
-  scale-percent: 100%, // default is 100%
-  show-footnote: true, // default is true
-)
-```
-## Font
-The default font is "Liberation Sans" because it's likely preinstalled, but "Tex Gyre Heros" is closer to the FDA recommendation "Helvetica" and can be installed for free. I never tested Helvetica because I don't have access to it.
+A configurable Typst template to generate FDA-style nutrition fact labels. This package automates the layout and daily value percentage calculations, allowing you to create professional, accurate labels with minimal effort.
 
 ![image](https://github.com/user-attachments/assets/7dddb279-ad14-431a-a970-b1bcfda8297d)
 
-## Key for micronutrients and daily value percentage calculation
+## Features
 
-Per FDA the DV for protein and trans fat is not printed on the label. But here is a list of all the micronutrients the [FDA has published daily values](https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels) on their page. There is no unit conversion, so please use the units printed here for the label as well. This will then calculate the DV% for you. This calculation is provided as-is, and you need to make sure all the values are correct. If you use the label on your product, make sure to follow FDA guidelines. We are not liable for any mislabeling. 
+-   **Automatic DV Calculation:** Automatically calculates the % Daily Value based on the latest FDA reference data.
+-   **Highly Configurable:** Adjust the font, scale the entire label, and toggle the footnote with optional parameters.
+-   **Pixel-Perfect Layout:** Faithfully reproduces the official FDA nutrition label's fonts, weights, indentation, and line spacing.
+-   **Flexible Micronutrients:** Dynamically generates the list of vitamins and minerals. Add, remove, or reorder them as needed.
 
-``` typst
-#let daily-values = (
-  added_sugars: 50, // g
-  biotin: 30, // mcg
-  calcium: 1300, // mg
-  carbohydrate: 275, // g
-  chloride: 2300, // mg
-  choline: 550, // mg
-  cholesterol: 300, // mg
-  chromium: 35, // mcg
-  copper: 0.9, // mg
-  fiber: 28, // g
-  folate: 400, // mcg DFE
-  iodine: 150, // mcg
-  iron: 18, // mg
-  magnesium: 420, // mg
-  manganese: 2.3, // mg
-  molybdenum: 45, // mcg
-  niacin: 16, // mg NE
-  pantothenic_acid: 5, // mg
-  phosphorus: 1250, // mg
-  potassium: 4700, // mg
-  protein: 50, // g
-  riboflavin: 1.3, // mg
-  saturated_fat: 20, // g
-  selenium: 55, // mcg
-  sodium: 2300, // mg
-  thiamin: 1.2, // mg
-  total_fat: 78, // g
-  vitamin_a: 900, // mcg RAE
-  vitamin_b6: 1.7, // mg
-  vitamin_b12: 2.4, // mcg
-  vitamin_c: 90, // mg
-  vitamin_d: 20, // mcg
-  vitamin_e: 15, // mg alpha-tocopherol
-  vitamin_k: 120, // mcg
-  zinc: 11, // mg
+## Usage
+
+1.  **Import the Package**  
+    Add the following line to your document's preamble:
+    ```typst
+    #import "@preview/nutrition-label-nam:0.2.0": nutrition-label-nam
+    ```
+    *(Note: Remember to update the version number as new releases become available.)*
+
+2.  **Define Your Data**  
+    Create a dictionary with your product's nutritional information. See the [Data Structure](#data-structure) section for details.
+    ```typst
+    #let sample-data = (
+      servings: "8",
+      serving_size: "2/3 cup (55g)",
+      calories: "230",
+      total_fat: (value: 8, unit: "g"),
+      saturated_fat: (value: 1, unit: "g"),
+      trans_fat: (value: 0, unit: "g"),
+      cholesterol: (value: 0, unit: "mg"),
+      sodium: (value: 160, unit: "mg"),
+      carbohydrate: (value: 37, unit: "g"),
+      fiber: (value: 4, unit: "g"),
+      sugars: (value: 12, unit: "g"),
+      added_sugars: (value: 10, unit: "g"),
+      protein: (value: 3, unit: "g"),
+      micronutrients: (
+        (name: "Vitamin D", key: "vitamin_d", value: 2, unit: "mcg"),
+        (name: "Calcium", key: "calcium", value: 260, unit: "mg"),
+        (name: "Iron", key: "iron", value: 8.0, unit: "mg"),
+        (name: "Potassium", key: "potassium", value: 240, unit: "mg"),
+      ),
+    )
+    ```
+
+3.  **Call the Function**  
+    Call the `nutrition-label-nam` function with your data to render the label.
+    ```typst
+    #nutrition-label-nam(sample-data)
+    ```
+
+## Parameters
+
+The `nutrition-label-nam` function accepts the following optional parameters to customize its appearance:
+
+| Parameter       | Type            | Default             | Description                                                                                                                              |
+| --------------- | --------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `font`          | `string`        | `"Liberation Sans"` | The font family to use. `"Tex Gyre Heros"` is a recommended free alternative that closely resembles the official "Helvetica" font.          |
+| `scale-percent` | `relative length` | `100%`              | Scales the entire label proportionally. For example, `50%` will render the label at half its original size.                               |
+| `show-footnote` | `boolean`       | `true`              | Toggles the visibility of the asterisk and the footnote explaining the % Daily Value.                                                      |
+
+### Example with Options
+
+```typst
+#nutrition-label-nam(
+  sample-data,
+  font: "Tex Gyre Heros",
+  scale-percent: 75%,
+  show-footnote: false,
 )
 ```
 
+## Data Structure
 
-[Link to example.typ](example.typ)  
-[Link to example.pdf](example.pdf)  
+The main `data` dictionary requires keys for `servings`, `serving_size`, `calories`, and then a dictionary for each nutrient.
 
+-   **Main Nutrients:** (e.g., `total_fat`, `sodium`) require a dictionary with a `value` (number) and `unit` (string).
+-   **Micronutrients:** The `micronutrients` key holds an array of dictionaries. This allows you to list any number of vitamins and minerals. Each must have a `name`, `key` (for DV calculation), `value`, and `unit`.
+
+```typst
+micronutrients: (
+  (name: "Vitamin D", key: "vitamin_d", value: 2, unit: "mcg"),
+  (name: "Calcium", key: "calcium", value: 260, unit: "mg"),
+  // ... add as many as you need
+)
+```
+
+## Daily Value Automation
+
+The package automatically calculates the % Daily Value for nutrients based on the internal database below. To ensure correct calculation, provide the nutrient `value` in the unit specified by the FDA. The `key` in your `micronutrients` data must match a key from this table.
+
+The %DV for Protein and Trans Fat is intentionally not calculated, in accordance with standard FDA labeling practices.
+
+> **Source:** [FDA Daily Value Reference Tables](https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels)
+
+| Nutrient           | Key                | Daily Value |     | Nutrient       | Key            | Daily Value  |
+| ------------------ | ------------------ | ----------- | --- | -------------- | -------------- | ------------ |
+| Added Sugars       | `added_sugars`     | 50g         |     | Phosphorus     | `phosphorus`     | 1250mg       |
+| Biotin             | `biotin`           | 30mcg       |     | Potassium      | `potassium`      | 4700mg       |
+| Calcium            | `calcium`          | 1300mg      |     | Protein        | `protein`        | 50g          |
+| Carbohydrate       | `carbohydrate`     | 275g        |     | Riboflavin     | `riboflavin`     | 1.3mg        |
+| Chloride           | `chloride`         | 2300mg      |     | Saturated Fat  | `saturated_fat`  | 20g          |
+| Choline            | `choline`          | 550mg       |     | Selenium       | `selenium`       | 55mcg        |
+| Cholesterol        | `cholesterol`      | 300mg       |     | Sodium         | `sodium`         | 2300mg       |
+| Chromium           | `chromium`         | 35mcg       |     | Thiamin        | `thiamin`        | 1.2mg        |
+| Copper             | `copper`           | 0.9mg       |     | Total Fat      | `total_fat`      | 78g          |
+| Dietary Fiber      | `fiber`            | 28g         |     | Vitamin A      | `vitamin_a`      | 900mcg RAE   |
+| Folate             | `folate`           | 400mcg DFE  |     | Vitamin B6     | `vitamin_b6`     | 1.7mg        |
+| Iodine             | `iodine`           | 150mcg      |     | Vitamin B12    | `vitamin_b12`    | 2.4mcg       |
+| Iron               | `iron`             | 18mg        |     | Vitamin C      | `vitamin_c`      | 90mg         |
+| Magnesium          | `magnesium`        | 420mg       |     | Vitamin D      | `vitamin_d`      | 20mcg        |
+| Manganese          | `manganese`        | 2.3mg       |     | Vitamin E      | `vitamin_e`      | 15mg         |
+| Molybdenum         | `molybdenum`       | 45mcg       |     | Vitamin K      | `vitamin_k`      | 120mcg       |
+| Niacin             | `niacin`           | 16mg NE     |     | Zinc           | `zinc`           | 11mg         |
+| Pantothenic Acid   | `pantothenic_acid` | 5mg         |     |                |                |              |
+
+---
+
+> ⚠️ **Disclaimer**  
+> This package is provided as-is for design and templating purposes. The automatic calculation is a convenience feature. It is your responsibility to ensure all data provided is accurate and that the final rendered label complies with all applicable FDA regulations for your product. The authors of this package are not liable for any mislabeling.
+---
