@@ -1,7 +1,6 @@
-#import "@preview/muw-community-templates:0.1.0" as muw_presentation
-// #import "./../presentation.typ" as muw_presentation
-
-#import muw_presentation: *
+#import "@preview/muw-community-templates:0.1.0" as muw-presentation
+// #import "./../presentation.typ" as muw-presentation
+#import muw-presentation: *
 
 #set text(lang: "de")
 
@@ -43,9 +42,6 @@
     )%
   ]},*/
 )
-
-
-
 
 
 // Use #slide to create a slide and style it using your favourite Typst functions
@@ -110,7 +106,7 @@
       #figure(
         muw-box(
           stroke: 1pt + white,
-          box([ ~ ./img/Knie_mr.jpg ~ \ ~ oder so ~ ], width: 30%)
+          image("./img/Knie_mr.jpg", width: 30%)
         ),
         caption: [
           Magnetresonanztomographie Aufnahme eines \
