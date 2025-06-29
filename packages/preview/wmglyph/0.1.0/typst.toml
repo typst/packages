@@ -1,0 +1,11 @@
+[package]
+name = "wmglyph"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Kusaanko"]
+repository = "https://github.com/kusaanko/typst-wmglyph"
+license = "MIT"
+description = "Read Windows Metafile as a SVG image"
+categories = ["visualization"]
+keywords = ["svg", "wmf", "windows", "metafile", "image"]
+compiler = "0.13.0"
