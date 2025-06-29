@@ -37,3 +37,9 @@ Then, define your data and call the function:
 #nutrition-label-nam(sample-data)
 ```
 ![capture_temp](https://github.com/user-attachments/assets/52dc0f8a-f29f-4de6-b679-cf99d76db0df)
+
+---
+
+> ⚠️ **Disclaimer**  
+> This package is provided as-is for design and templating purposes. The automatic calculation is a convenience feature. It is your responsibility to ensure all data provided is accurate and that the final rendered label complies with all applicable FDA regulations for your product. The authors of this package are not liable for any mislabeling.
+---
