@@ -90,9 +90,9 @@ micronutrients: (
 
 ## Daily Value Automation
 
-The package automatically calculates the % Daily Value for nutrients based on the internal database below. To ensure correct calculation, provide the nutrient `value` in the unit specified by the FDA. The `key` in your `micronutrients` data must match a key from this table.
+The package automatically calculates the % Daily Value for nutrients based on the internal database below. To ensure correct calculation, provide the nutrient `value` in the unit specified by the FDA. The `key` in your `micronutrients` data must match a key from this table. In case you want to enter the DV% yourself or have micronutrients not found in this table, please use V0.1.0 that allows for this.
 
-The %DV for Protein and Trans Fat is intentionally not calculated, in accordance with standard FDA labeling practices.
+%DV for Protein and Trans Fat is intentionally not calculated, in accordance with standard FDA labeling practices.
 
 > **Source:** [FDA Daily Value Reference Tables](https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels)
 
