@@ -2,6 +2,7 @@
 #import muw-presentation: *
 
 #set text(lang: "de")
+#polylux.enable-handout-mode(false)
 
 #let muw-logo-white(..args) = muw-box(fill: gray, figure(box([Hello], ..args)))
 #let muw-logo-blue(..args) = muw-box(fill: gray, figure(box([Hallo], ..args)))
