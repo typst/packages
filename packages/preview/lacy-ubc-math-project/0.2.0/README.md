@@ -1,7 +1,7 @@
 # Lacy-UBC Math Project Template
 This is a Typst template for UBC Math 100/101 group projects. It aims to reproduce most of the existing LaTex template while providing a more user-friendly interface for students who are not familiar with LaTex.
 
-For more information, please refer to the [documentation](/manual.pdf).
+For more information, please refer to the [documentation](manual.pdf).
 
 ## Update Note
 **0.1.1 → 0.2.0** The package had undergo a revamp, backward compatibility is broken. Please refer to the updated manual to learn about the new project structure.
