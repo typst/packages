@@ -4,6 +4,8 @@ A configurable Typst template to generate FDA-style nutrition fact labels. This 
 
 ![image](https://github.com/user-attachments/assets/7dddb279-ad14-431a-a970-b1bcfda8297d)
 
+[View Example PDF](./example.pdf) · [View Example Typst File](./example.typ)
+
 ## Features
 
 -   **Automatic DV Calculation:** Automatically calculates the % Daily Value based on the latest FDA reference data.
