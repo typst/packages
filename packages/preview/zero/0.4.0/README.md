@@ -35,7 +35,7 @@ A number in scientific notation consists of three parts: the _mantissa_, an opti
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/a78ff9a4-eb90-44b4-9168-37d100452363">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/b75dad9b-f4af-4caf-989b-f327603b2bf8">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/feb578b1-9c8b-43e6-a825-fe0f57fd2d9b">
     <img alt="Anatomy of a formatted number" src="https://github.com/user-attachments/assets/a78ff9a4-eb90-44b4-9168-37d100452363">
   </picture>
 </p>
@@ -49,7 +49,7 @@ A number in scientific notation consists of three parts: the _mantissa_, an opti
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/925fb0ff-5af2-4373-a3e6-63f23523d60c">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/655c57b0-b4d5-4ca4-b928-3b90104ed93c">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/3cd8948a-d0cb-4b77-bd12-9b582abed46d">
     <img alt="Quick demo" src="https://github.com/user-attachments/assets/925fb0ff-5af2-4373-a3e6-63f23523d60c">
   </picture>
 </p>
@@ -102,7 +102,7 @@ Zero's core is the `num()` function, which provides flexible number formatting. 
   <p align="center">
     <picture>
       <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/b7f5b106-efd5-477a-8299-c8daacdbd6e4">
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/f6bc45ff-74cb-499b-86a9-a03ba032bd33">
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/9afc2776-b9a2-4c2a-abc7-c453727f36ea">
       <img alt="Uncertainty modes" src="https://github.com/user-attachments/assets/b7f5b106-efd5-477a-8299-c8daacdbd6e4">
     </picture>
   </p>
@@ -125,7 +125,7 @@ Digit grouping is important for keeping large figures readable. It is customary 
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/f900e134-b1d9-482f-b2c2-3100cad38793">
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/67e8516f-98d5-4678-8af0-b2a8786da507">
-    <img alt="Digit grouping" src="https://github.com/user-attachments/assets/f900e134-b1d9-482f-b2c2-3100cad38793">
+    <img alt="Digit grouping" src="https://github.com/user-attachments/assets/adb6376d-8c42-4f15-818e-b67ca2f7d530">
   </picture>
 </p>
 
@@ -227,7 +227,7 @@ In scientific publication, presenting many numbers in a readable fashion can be 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/f964e693-b65a-43c5-81ce-e37a3122bea8">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/c73d5fb5-56b6-42d4-90a6-924f6f03abd1">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/cf708395-ecea-49d4-bf67-d1acad0261ec">
     <img alt="Number alignment in tables" src="https://github.com/user-attachments/assets/f964e693-b65a-43c5-81ce-e37a3122bea8">
   </picture>
 </p>
@@ -275,7 +275,7 @@ In addition, you can prefix or suffix a numeral with content wrapped by the func
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/337054ef-c7e6-4feb-b5fd-f50e36eb043a">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/8e169759-f0cc-4c7a-a3e7-1de0f17d2114">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/a1692f23-a8fa-40d0-a7e9-85ad6b74d020">
     <img alt="Avoid number recognition in tables" src="https://github.com/user-attachments/assets/337054ef-c7e6-4feb-b5fd-f50e36eb043a">
   </picture>
 </p>
@@ -299,7 +299,7 @@ Zero not only aligns numbers at the decimal point but also at the uncertainty an
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/0d707e0c-2231-4c0c-afd5-97f6bdf7fca0">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/19ccb15c-c5ba-4b03-a4e1-054862543d75">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/ee5c1734-93ff-4cce-a59d-2d4f8b7d66f7">
     <img alt="Advanced number alignment in tables" src="https://github.com/user-attachments/assets/0d707e0c-2231-4c0c-afd5-97f6bdf7fca0">
   </picture>
 </p>
@@ -328,7 +328,7 @@ Take a look at the example below:
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/566500e3-7e4f-44eb-ae2e-b527084703bc">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/3e8a6365-fddc-4876-baef-3b4dc6719dce">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/316ed789-8777-4ff1-b885-9f079bb4b10c">
     <img alt="Units and quantities" src="https://github.com/user-attachments/assets/566500e3-7e4f-44eb-ae2e-b527084703bc">
   </picture>
 </p>
@@ -343,7 +343,7 @@ You can create a new unit through the `zi.declare` function. We recommend the fo
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/c0c6b280-d53e-4b4f-a719-5f86001c326e">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/93954701-5c34-47cb-8ac2-457cff777283">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/761fe5c4-ee2c-49e1-b438-f0589104b06c">
     <img alt="Declaring new units" src="[https://github.com/user-attachments/assets/9aa4a915-f8e3-4270-8f97-36a312340e75](https://github.com/user-attachments/assets/c0c6b280-d53e-4b4f-a719-5f86001c326e)">
   </picture>
 </p>
