@@ -2,9 +2,9 @@
 
 A configurable Typst template to generate FDA-style nutrition fact labels. This package automates the layout and daily value percentage calculations, allowing you to create professional, accurate labels with minimal effort.
 
-![image](https://github.com/user-attachments/assets/7dddb279-ad14-431a-a970-b1bcfda8297d)
+![image](./example.png)
 
-[View Example PDF](./example.pdf) · [View Example Typst File](./example.typ)
+[View Example PDF](https://github.com/typst/packages/tree/main/packages/preview/nutrition-label-nam/0.2.0/example.pdf) · [View Example Typst File](https://github.com/typst/packages/tree/main/packages/preview/nutrition-label-nam/0.2.0/example.typ)
 
 ## Features
 
