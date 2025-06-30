@@ -1,4 +1,4 @@
-#import "@preview/modern-ecnu-thesis:0.2.0": documentclass, indent, no-indent, word-count-cjk, total-words
+#import "@preview/modern-ecnu-thesis:0.3.0": documentclass, indent, no-indent, word-count-cjk, total-words
 #import "../utils/bilingual-figure.typ": *
 
 // 模板用到的主要字体：https://github.com/jtchen2k/modern-ecnu-thesis/tree/main/fonts/
