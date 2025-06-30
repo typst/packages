@@ -1,15 +1,11 @@
 #import "@preview/muw-community-templates:0.1.0" as muw-presentation
-// #import "./../presentation.typ" as muw-presentation
 #import muw-presentation: *
 
 #set text(lang: "de")
 
-#polylux.enable-handout-mode(false)
-
 #let muw-logo-white(..args) = muw-box(fill: gray, figure(box([Hello], ..args)))
 #let muw-logo-blue(..args) = muw-box(fill: gray, figure(box([Hallo], ..args)))
 #let custom-muw-logos = (muw-logo-white, muw-logo-blue)
-
 
 #show: slides.with(
   title: [Titel mit blauem Hintergrund],
@@ -20,7 +16,7 @@
   author: [Univ. Prof. Dr. Maximilian Mustermann],
   email: none,  // link("mailto:n12345678@students.meduniwien.ac.at"),
 
-  paper: "presentation-16-9",
+  paper: "presentation-16-9",  // or use ...-4-3
   toc: false,
   show-date: true,
   
@@ -49,7 +45,13 @@
   #set align(horizon)
   = Very minimalist slides
 
+  Check #link("https://github.com/typst/packages/tree/main/packages/preview/muw-community-templates/") to make sure you are using the latest version of this template
+
   #lorem(10)
+]
+
+#slide[
+  = MedUni Wien Box
 
   #muw-box(
     height: 25mm,
@@ -64,7 +66,7 @@
 
 
 #slide[
-  == a random list
+  == list
 
   - abc
   - def
@@ -93,7 +95,6 @@
 #black-slide[
 
   == Are you a radiologist or do you want to show a CT, MRI or X-ray image?
-
 
   #stack(dir: ltr, spacing: 1fr,
     [
@@ -131,10 +132,8 @@
 ]
 
 
-
-
 #slide[
-  == syde by side text
+  == side by side text
 
   #polylux.toolbox.side-by-side[
     #lorem(7)
