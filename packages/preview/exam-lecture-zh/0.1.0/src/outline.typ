@@ -66,7 +66,7 @@
   ]
 }
 
-#let scoring-box_(x: 0pt, y: 0pt) = {
+#let score-box(x: 0pt, y: 0pt) = {
   place(dx: x, dy: y, right + top)[
     #table(
       rows: (auto, 1.2cm),
