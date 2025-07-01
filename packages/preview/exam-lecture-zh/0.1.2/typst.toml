@@ -1,0 +1,16 @@
+[package]
+name = "exam-lecture-zh"
+version = "0.1.2"
+entrypoint = "exam-lecture-zh.typ"
+authors = ["<https://github.com/February-bird>"]
+license = "MIT"
+description = "A test paper and lecture notes template inspired by the LaTeX package exam-zh."
+repository = "https://github.com/February-bird/exam-lecture-zh.git"
+keywords = ["paper", "test", "exam", "exam-zh","lecture", "讲义","考试"]
+compiler = "0.13.1"
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumnail.png"
