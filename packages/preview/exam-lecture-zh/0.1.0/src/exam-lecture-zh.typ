@@ -1,6 +1,6 @@
-#import "outline.typ": *
-#import "question.typ": explain, fillin, paren, question, score, text-figure
-#import "choice.typ": *
+#import "src/outline.typ": *
+#import "src/question.typ": explain, fillin, paren, question, score, text-figure
+#import "src/choice.typ": *
 
 #let setup(
   mode: LECTURE,
