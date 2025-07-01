@@ -1,5 +1,5 @@
 [package]
-name = "exam-lecture-zh"
+name = "../src/exam-lecture-zh"
 version = "0.1.0"
 entrypoint = "exam-lecture-zh.typ"
 authors = ["<https://github.com/February-bird>"]
