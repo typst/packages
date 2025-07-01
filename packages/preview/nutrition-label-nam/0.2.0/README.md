@@ -4,7 +4,7 @@ A configurable Typst template to generate FDA-style nutrition fact labels. This 
 
 ![image](./example.png)
 
-[View Example PDF](https://github.com/typst/packages/tree/main/packages/preview/nutrition-label-nam/0.2.0/example.pdf) · [View Example Typst File](https://github.com/typst/packages/tree/main/packages/preview/nutrition-label-nam/0.2.0/example.typ)
+[View Example PDF](example.pdf) · [View Example Typst File](example.typ)
 
 ## Features
 
