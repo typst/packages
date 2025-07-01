@@ -22,7 +22,7 @@ With **pillar**, you can significantly simplify the column setup of tables by un
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/ad25fe6e-6ea0-4879-baca-d49977054c0a">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/8c849536-a9a4-4fbb-9e2a-fab562c32c05">
     <img alt="Table of some piano notes and their names and frequencies" src="https://github.com/user-attachments/assets/120c2d3c-9224-456a-916f-5f850688cde6">
   </picture>
 </p>
@@ -96,7 +96,7 @@ Choosing capital letters `L`, `C`, `R`, or `A` instead of lower-case letters act
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/c3c8edbf-432f-41ff-a93b-32e68c8f23af">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/c05aa3a4-ddac-420c-ba53-41f166388380">
     <img alt="Number alignment" src="https://github.com/user-attachments/assets/6f751897-91a8-46fe-9849-e3e08ee8b08d">
   </picture>
 </p>
@@ -145,7 +145,7 @@ The following example uses a double line for visually separating repeated table 
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/b2796b82-f46b-45a6-88b5-8ee57b126a80">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/41768348-f72c-479f-82c5-d216de7f4b26">
     <img alt="Demonstration example using double vertical lines" src="https://github.com/user-attachments/assets/6d32f969-f6bb-48fe-be70-bcc0c49a4f48">
   </picture>
 </p>
@@ -176,7 +176,7 @@ This example shows the codes of the first ten printable ASCII characters, demons
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/40b732e5-3072-49e5-94e3-4af9993887cc">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/7aded878-6cb2-4677-83dd-51be35400459">
     <img alt="Demonstration example using double vertical lines" src="https://github.com/user-attachments/assets/b126cf2e-1516-4fda-b38f-2b0cb3388654">
   </picture>
 </p>
