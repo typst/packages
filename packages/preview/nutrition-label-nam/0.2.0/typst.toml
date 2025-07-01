@@ -7,4 +7,4 @@ license = "MIT"
 description = "A configurable template to generate FDA-style nutrition fact labels."
 repository = "https://github.com/alpharesearch/packages"
 keywords = ["nutrition", "label", "template", "food", "health"]
-exclude = ["example.typ","example.pdf"]
+exclude = ["example.typ", "example.pdf", "example.png"]
