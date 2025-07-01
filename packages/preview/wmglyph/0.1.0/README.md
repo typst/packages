@@ -7,6 +7,6 @@ Typst plugin to read Windows Metafile
 ```typst
 #import "@preview/wmglyph:0.1.0": *
 
-#image(wmf("wmf_file.wmf"))
-#wmf-image("wmf_file.wmf")
+#image(wmf(read("wmf_file.wmf", encoding: none)))
+#wmf-image(read("wmf_file.wmf", encoding: none))
 ```
