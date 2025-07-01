@@ -101,52 +101,46 @@
       author = (author,)
     }
     author = author.join(", ")
-    align(
-      center,
-      {
-        if titlepage {
-          context {
-            let pageheight = page.height
-            set text(size: 1.5em)
-            v(pageheight / 7)
-            text(size: 2em)[#title]
-            if subtitle != none {
-              v(0.5em)
-              text(size: 1.2em)[#subtitle]
-            }
-            v(pageheight / 7)
-            office
-            parbreak()
-            author
-            v(pageheight / 7)
-            date
-            pagebreak()
+    align(center, {
+      if titlepage {
+        context {
+          let pageheight = page.height
+          set text(size: 1.5em)
+          v(pageheight / 7)
+          text(size: 2em)[#title]
+          if subtitle != none {
+            v(0.5em)
+            text(size: 1.2em)[#subtitle]
           }
-        } else {
-          text(size: 1.7em)[#title]
+          v(pageheight / 7)
+          office
           parbreak()
-          text(size: 1.2em)[#subtitle]
-          parbreak()
-          [#office\ #author]
-          parbreak()
+          author
+          v(pageheight / 7)
           date
-          v(1em)
+          pagebreak()
         }
-      },
-    )
+      } else {
+        text(size: 1.7em)[#title]
+        parbreak()
+        text(size: 1.2em)[#subtitle]
+        parbreak()
+        [#office\ #author]
+        parbreak()
+        date
+        v(1em)
+      }
+    })
   }
 
   // アブストラクト生成
   if abstract != none {
     set text(size: 0.9em)
     set align(center)
-    box(
-      width: 90%,
-      {
-        set align(left)
-        abstract
-      },
-    )
+    box(width: 90%, {
+      set align(left)
+      abstract
+    })
   }
 
   it
@@ -214,23 +208,13 @@
         }
       }
 
-      place(
-        top,
-        dx: -margin,
-        block(
-          width: width,
-          height: 2em,
-          fill: title-color,
-          inset: 0.5em,
-          {
-            set text(1.2em, weight: "bold")
-            heading.body
-            if is-multi-pages [
-              #numbering("(i)", page - heading-page + 1)
-            ]
-          },
-        ),
-      )
+      place(top, dx: -margin, block(width: width, height: 2em, fill: title-color, inset: 0.5em, {
+        set text(1.2em, weight: "bold")
+        heading.body
+        if is-multi-pages [
+          #numbering("(i)", page - heading-page + 1)
+        ]
+      }))
     },
     header-ascent: 0pt,
     footer: {
@@ -244,10 +228,7 @@
     footer-descent: 0.5em,
   )
   // テキスト設定
-  set text(
-    size: font-size,
-    font: ((name: font-cjk, covers: "latin-in-cjk"), font),
-  )
+  set text(size: font-size, font: ((name: font-cjk, covers: "latin-in-cjk"), font))
   // その他の設定
   set align(horizon)
   set outline(target: heading.where(level: 1), title: none)
@@ -273,7 +254,6 @@
     text(
       size: 2.0em,
       weight: "bold",
-      fill: title-color,
       title,
     )
     if subtitle != none {
@@ -345,7 +325,10 @@
       stroke: title-color,
       inset: 10pt,
       spacing: 0pt,
-      radius: (top: 0pt, bottom: 5pt),
+      radius: (
+        top: if title != none { 0pt } else { 5pt },
+        bottom: 5pt,
+      ),
       doc,
     )
   ]
