@@ -1,4 +1,4 @@
-#import "@preview/exam-lecture-zh:0.1.0": *
+#import "/src/exam-lecture-zh.typ": *
 #show: setup.with(
   // paper: a3,
   mode: EXAM,
