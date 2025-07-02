@@ -153,7 +153,7 @@
     )
     grid(
       inset: (x: 1.9em),
-      rows: (auto, auto),
+      rows: (auto, auto, auto),
       row-gutter: 15%,
       grid(
         columns: (75%, 25%),
@@ -226,10 +226,7 @@
 ) = touying-slide-wrapper(self => {
   let self = utils.merge-dicts(
     self,
-    config-page(
-      header: sjtu-header,
-      footer: sjtu-footer,
-    ),
+    config-page(header: sjtu-header, footer: sjtu-footer, margin: (x: 2.5cm)),
     config-common(subslide-preamble: self.store.subslide-preamble),
   )
   touying-slide(self: self, config: config, repeat: repeat, setting: setting, composer: composer, ..bodies)
@@ -271,12 +268,15 @@
       == right { 50% } else { 100% })))
     block(width: 100%, inset: 3em, {
       block(
-        text(
-          size: 1.7em,
-          fill: self.colors.primary,
-          weight: "bold",
-          info.title,
-        )
+        if info.subtitle == none {
+          linebreak()
+        }
+          + text(
+            size: if info.subtitle == none { 2em } else { 1.7em },
+            fill: self.colors.primary,
+            weight: "bold",
+            info.title,
+          )
           + (
             if info.subtitle != none {
               linebreak()

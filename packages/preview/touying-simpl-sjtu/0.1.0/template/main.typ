@@ -1,5 +1,5 @@
 #import "@preview/touying:0.6.1": *
-#import "@preview/touying-sjtu:0.1.0": *
+#import "@preview/touying-simpl-sjtu:0.1.0": *
 
 #show: sjtu-theme.with(config-info(
   title: [Touying for SJTU: Customize Your Slide Title Here],
