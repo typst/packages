@@ -28,7 +28,7 @@ typst init @preview/wenyuan-campaign:0.1.2
 
 This will copy over all required fonts and comes prefilled with the standard template so you can see how it works. To use this you need to either install all the fonts locally or pass the folder into --font-path when compiling.
 
-[See the guide for more info](https://github.com/yanwenywan/typst-packages/tree/campaign/docs.pdf)
+[See the guide for more info](docs.pdf)
 
 # Configuration
 
@@ -61,7 +61,7 @@ You are encouraged to copy the template files and modify them if they are not up
 
 # Sample
 
-[See the full sample here](https://github.com/yanwenywan/typst-packages/tree/campaign/sample.pdf)
+[See the full sample here](sample.pdf)
 
 ![sample](./sample.png)
 

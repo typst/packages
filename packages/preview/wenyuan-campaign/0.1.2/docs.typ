@@ -1,8 +1,6 @@
 #import "@preview/tidy:0.4.3"
 #import "@preview/wenyuan-campaign:0.1.2" as wenyuan
 
-// #set page(columns: 2)
-
 #show: wenyuan.conf.with()
 
 #set text(size: 9pt)
