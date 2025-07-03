@@ -76,7 +76,7 @@ This repository hosts community maintained unofficial templates for the Medical 
 // your slides go here
 ```
 
-> [!WARNING]
+> **WARNING**:
 >
 > As the correct fonts are not freely available, they are not supported in this template.
 >
