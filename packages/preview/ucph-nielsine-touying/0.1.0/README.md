@@ -146,9 +146,9 @@ The music experience has been #pi.pin(1)cancelled#pi.pin(2).
 #bibliography("bibliography.bib", style: "harvard-cite-them-right", title: none)
 ```
 
-<kbd><img src="assets/slide4.png" width="300"></kbd><kbd><img src="assets/slide5.png" width="300"></kbd><kbd><img src="assets/slide6.png" width="300"></kbd>
+<kbd><img src="assets/slide3.png" width="300"></kbd><kbd><img src="assets/slide4.png" width="300"></kbd><kbd><img src="assets/slide5.png" width="300"></kbd>
 
-<kbd><img src="assets/slide7.png" width="300"></kbd><kbd><img src="assets/slide8.png" width="300"></kbd>
+<kbd><img src="assets/slide6.png" width="300"></kbd><kbd><img src="assets/slide7.png" width="300"></kbd>
 
 ## Working locally
 Follow the initial steps from the official [repo](https://github.com/typst/typst) to install Typst on your machine. Open your terminal and type:
