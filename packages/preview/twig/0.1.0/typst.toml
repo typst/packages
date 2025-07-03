@@ -16,3 +16,7 @@ keywords = [
 categories = [
     "visualization",
 ]
+
+exclude = [
+    "assets/image.png"
+]
