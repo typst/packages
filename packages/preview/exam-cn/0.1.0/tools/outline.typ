@@ -103,7 +103,7 @@
 
 #let _create-seal(
   dash: "dashed",
-  supplement: "密封线内不得答题",
+  supplement: "弥封线内不得答题",
   info: (:),
 ) = {
   set par(spacing: 10pt)
@@ -126,7 +126,7 @@
   line(length: 100%, stroke: (dash: dash))
 }
 
-// 密封线
+// 弥封线
 #let _seal-line(
   student-info: (
     姓名: underline[~~~~~~~~~~~~~],
@@ -135,11 +135,11 @@
     座位号: inline-square(2),
   ),
   dash: "dashed",
-  supplement: "此卷只装订不密封",
+  supplement: "此卷只装订不弥封",
   is-separate: true,
 ) = context {
-  // 根据页码决定是否显示密封线
-  // 如果当前页面有<title>,则显示密封线,并在该章节最后一页的右侧也设置密封线
+  // 根据页码决定是否显示弥封线
+  // 如果当前页面有<title>,则显示弥封线,并在该章节最后一页的右侧也设置弥封线
   let chapter-location = for value in query(<title>) {
     counter(page).at(value.location())
   }
@@ -148,7 +148,7 @@
   let current = counter(page).get().first()
   let last = counter(page).final()
 
-  // 获取上一章最后一页的页码,给最后一页加上密封线
+  // 获取上一章最后一页的页码,给最后一页加上弥封线
   let chapter-last-page-location = chapter-location.map(item => item - 1) + last
   if page.columns == 2 and is-separate {
     chapter-last-page-location = chapter-location.map(item => item - 2) + (last.first() - 1,)
@@ -162,7 +162,7 @@
   if page.flipped { _width = page.width - _margin-y }
   block(width: _width)[
     // 判断当前是在当前章节第一页还是章节最后一页
-    //当前章节第一页密封线
+    //当前章节第一页弥封线
     #if chapter-location.contains(current) {
       place(
         dx: -_width - 1em,
@@ -179,7 +179,7 @@
       _width = if page.flipped {
         page.height
       } else { page.width }
-      // 章节最后页的密封线
+      // 章节最后页的弥封线
       place(dx: _width - page.margin - 2em, dy: 2em)[
         #rotate(90deg, origin: left + top, _create-seal())
       ]
