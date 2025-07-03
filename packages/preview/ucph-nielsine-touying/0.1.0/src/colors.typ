@@ -29,7 +29,7 @@
   yellow: rgb("ffbd38"),
 )
 
-#let gradient_darks = gradient.linear(
+#let gradient-darks = gradient.linear(
   ucph-dark.red,
   ucph-dark.blue,
   ucph-dark.petroleum,
@@ -38,7 +38,7 @@
   ucph-dark.grey,
 )
 
-#let gradient_medium = gradient.linear(
+#let gradient-medium = gradient.linear(
   ucph-medium.red,
   ucph-medium.blue,
   ucph-medium.petroleum,
@@ -47,7 +47,7 @@
   ucph-medium.grey,
 )
 
-#let gradient_light = gradient.linear(
+#let gradient-light = gradient.linear(
   ucph-light.red,
   ucph-light.blue,
   ucph-light.petroleum,

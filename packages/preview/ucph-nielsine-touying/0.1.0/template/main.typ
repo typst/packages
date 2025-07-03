@@ -36,7 +36,7 @@ wqewqe
 
 == Let me show you the colors
 
-#uc.show_color_pallette()
+#uc.show-color-pallette()
 
 == References
 #set text(size: 14pt)
