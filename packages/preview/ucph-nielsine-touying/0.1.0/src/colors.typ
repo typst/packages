@@ -2,7 +2,7 @@
 
 #let white = rgb("ffffff")
 
-#let ucph_dark = (
+#let ucph-dark = (
   red: rgb("901a1E"),
   blue: rgb("122947"),
   petroleum: rgb("0a5963"),
@@ -11,7 +11,7 @@
   white: white,
 )
 
-#let ucph_medium = (
+#let ucph-medium = (
   red: rgb("c73028"),
   blue: rgb("425570"),
   petroleum: rgb("197f8e"),
@@ -20,7 +20,7 @@
   champagne: rgb("fefaf2"),
 )
 
-#let ucph_light = (
+#let ucph-light = (
   red: rgb("dB3B0A"),
   blue: rgb("bac7d9"),
   petroleum: rgb("b7d7de"),
@@ -30,30 +30,30 @@
 )
 
 #let gradient_darks = gradient.linear(
-  ucph_dark.red,
-  ucph_dark.blue,
-  ucph_dark.petroleum,
-  ucph_dark.green,
-  ucph_dark.green,
-  ucph_dark.grey,
+  ucph-dark.red,
+  ucph-dark.blue,
+  ucph-dark.petroleum,
+  ucph-dark.green,
+  ucph-dark.green,
+  ucph-dark.grey,
 )
 
 #let gradient_medium = gradient.linear(
-  ucph_medium.red,
-  ucph_medium.blue,
-  ucph_medium.petroleum,
-  ucph_medium.green,
-  ucph_medium.green,
-  ucph_medium.grey,
+  ucph-medium.red,
+  ucph-medium.blue,
+  ucph-medium.petroleum,
+  ucph-medium.green,
+  ucph-medium.green,
+  ucph-medium.grey,
 )
 
 #let gradient_light = gradient.linear(
-  ucph_light.red,
-  ucph_light.blue,
-  ucph_light.petroleum,
-  ucph_light.green,
-  ucph_light.green,
-  ucph_light.yellow,
+  ucph-light.red,
+  ucph-light.blue,
+  ucph-light.petroleum,
+  ucph-light.green,
+  ucph-light.green,
+  ucph-light.yellow,
 )
 
 
@@ -68,23 +68,23 @@
   grid(
     columns: 5,
     rows: 3,
-    palette_box(ucph_dark.red, "Dark red", text_color: white),
-    palette_box(ucph_dark.blue, "Dark blue", text_color: white),
-    palette_box(ucph_dark.petroleum, "Dark petroleum", text_color: white),
-    palette_box(ucph_dark.green, "Dark green", text_color: white),
-    palette_box(ucph_dark.grey, "Dark grey", text_color: white),
+    palette_box(ucph-dark.red, "Dark red", text_color: white),
+    palette_box(ucph-dark.blue, "Dark blue", text_color: white),
+    palette_box(ucph-dark.petroleum, "Dark petroleum", text_color: white),
+    palette_box(ucph-dark.green, "Dark green", text_color: white),
+    palette_box(ucph-dark.grey, "Dark grey", text_color: white),
 
-    palette_box(ucph_medium.red, "Red", text_color: white),
-    palette_box(ucph_medium.blue, "Blue", text_color: white),
-    palette_box(ucph_medium.petroleum, "Petroleum", text_color: white),
-    palette_box(ucph_medium.green, "Green", text_color: white),
-    palette_box(ucph_medium.grey, "Grey", text_color: white),
+    palette_box(ucph-medium.red, "Red", text_color: white),
+    palette_box(ucph-medium.blue, "Blue", text_color: white),
+    palette_box(ucph-medium.petroleum, "Petroleum", text_color: white),
+    palette_box(ucph-medium.green, "Green", text_color: white),
+    palette_box(ucph-medium.grey, "Grey", text_color: white),
 
-    palette_box(ucph_light.red, "Light red", text_color: white),
-    palette_box(ucph_light.blue, "Light blue"),
-    palette_box(ucph_light.petroleum, "Light petroleum"),
-    palette_box(ucph_light.green, "Light green"),
-    palette_box(ucph_light.grey, "Light grey"),
+    palette_box(ucph-light.red, "Light red", text_color: white),
+    palette_box(ucph-light.blue, "Light blue"),
+    palette_box(ucph-light.petroleum, "Light petroleum"),
+    palette_box(ucph-light.green, "Light green"),
+    palette_box(ucph-light.grey, "Light grey"),
   )
 }
 

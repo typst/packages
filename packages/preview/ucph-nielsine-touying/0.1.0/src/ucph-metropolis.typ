@@ -3,7 +3,7 @@
 
 #import "@preview/touying:0.6.1" as ty
 #import "colors.typ" as colors
-#import "utils.typ" as ucph_utils
+#import "utils.typ" as ucph-utils
 
 /// Default slide function for the presentation.
 ///
@@ -195,7 +195,7 @@
   config: (:),
   align: horizon + center,
   logo: place(right, image("../assets/ucph_1_negative.svg", width: 15%), dx: -15pt, dy: -8pt),
-  fill: colors.ucph_dark.red,
+  fill: colors.ucph-dark.red,
   body,
 ) = ty.touying-slide-wrapper(self => {
   self = ty.utils.merge-dicts(self, ty.config-common(freeze-slide-counter: true), ty.config-page(
@@ -244,8 +244,8 @@
     depth: self.slide-level,
   ),
   header-right: align(right, image("../assets/ucph_1_seal.svg", height: 1.2cm)),
-  footer: self => ucph_utils.section-links(self),
-  footer-right: self => ucph_utils.slide-counter-label(self),
+  footer: self => ucph-utils.section-links(self),
+  footer-right: self => ucph-utils.slide-counter-label(self),
   footer-progress: true,
   footer-appendix-label: "A-",
   ..args,
@@ -273,9 +273,9 @@
     ),
     ty.config-methods(alert: (self: none, it) => text(fill: self.colors.primary, body)),
     ty.config-colors(
-      primary: colors.ucph_dark.red,
+      primary: colors.ucph-dark.red,
       primary-light: rgb("#d6c6b7"),
-      secondary: colors.ucph_dark.petroleum,
+      secondary: colors.ucph-dark.petroleum,
       neutral-lightest: rgb("#fafafa"),
       neutral-dark: rgb("#23373b"),
       neutral-darkest: rgb("#23373b"),
