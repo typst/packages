@@ -16,7 +16,6 @@ exclude = [
   "Justfile",
   "examples",
   "assets/*.png",
-  "examples/*.pdf",
   "template/*.pdf"
 ]
 

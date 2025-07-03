@@ -3,8 +3,7 @@
 
 Slide template built on Touying for the University of Copenhagen.
 
-> [!WARNING]
-> This theme is **NOT** affiliated with the University of Copenhagen. The logo is the property of the University of Copenhagen.
+_This theme is **NOT** affiliated with the University of Copenhagen. The logo is the property of the University of Copenhagen._
 
 **ucph-nielsine-touying** is a [Touying](https://github.com/touying-typ/touying) theme for creating presentation slides in [Typst](https://github.com/typst/typst), adhering to the core principles of the [style guide of the University of Copenhagen, Denmark](https://designguide.ku.dk/) (Danish). It is an **unofficial** theme and it is **NOT** affiliated with the University of Copenhagen.
 

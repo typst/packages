@@ -1,4 +1,4 @@
-#import "@preview/ucph-nielsine-slides:0.1.0" as uc
+#import "@preview/ucph-nielsine-touying:0.1.0" as uc
 #import "@preview/touying:0.6.1" as ty
 
 #show: uc.ucph-metropolis-theme.with(ty.config-info(
