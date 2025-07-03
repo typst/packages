@@ -2,7 +2,7 @@
 name = "exam-cn"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["<https://github.com/gbchu>"]
+authors = ["gbchu <https://github.com/gbchu>"]
 license = "MIT"
 description = "A test paper and lecture notes template inspired by the LaTeX package exam-zh."
 repository = "https://github.com/gbchu/exam-cn.git"
