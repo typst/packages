@@ -47,14 +47,14 @@ It is strongly recommended to explore the [documentation](https://touying-typ.gi
 #import "@preview/pinit:0.2.2" as pi
 
 #show: uc.ucph-metropolis-theme.with(
-  header-right: align(right, image("../assets/ucph-1-seal.svg", height: 1.1cm)),
+  header-right: align(right, image("assets/ucph-1-seal.svg", height: 1.1cm)),
   ty.config-info(
     title: [Title],
     subtitle: [Subtitle],
     author: [Authors],
     date: datetime.today(),
     institution: [University of Copenhagen],
-    logo: image("../assets/ucph-1-seal.svg"),
+    logo: image("assets/ucph-1-seal.svg"),
   ),
   // ty.config-common(
   //   handout: true
