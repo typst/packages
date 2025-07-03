@@ -2,13 +2,7 @@
 #show: setup.with(
   // paper: a3,
   mode: EXAM,
-  // show-answer: true,
-  seal-line-student-info: (
-    姓名: underline[~~~~~~~~~~~~~],
-    准考证号: inline-square(14),
-    考场号: inline-square(2),
-    座位号: inline-square(2),
-  ),
+  // show-answer: true
 )
 
 #outline()
