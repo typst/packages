@@ -11,7 +11,7 @@ If you have installed a different one, you can specify it with `#change-nerd-fon
 
 ### Example
 ```typst
-#import "@preview/typst-nerdfont:0.1.0": change-nerd-font
+#import "@preview/nerd-icons:0.1.0": change-nerd-font
 #change-nerd-font("monoid nerd font")
 ```
 ## Usage
@@ -20,7 +20,7 @@ nerd font icon name, which are found on [nerd fonts website](https://www.nerdfon
 
 ### Example
 ```typst
-#import "@preview/typst-nerdfont:0.1.0": nf-icon
+#import "@preview/nerd-icons:0.1.0": nf-icon
 #nf-icon("nf-md-dog")
 ```
 
@@ -28,7 +28,7 @@ Each icon is also defined as a constant that you can use directly
 
 ### Example
 ```typst
-#import "@preview/typst-nerdfont:0.1.0": *
+#import "@preview/nerd-icons:0.1.0": *
 #nf-md-dog()
 ```
 
