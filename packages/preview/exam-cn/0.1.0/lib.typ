@@ -8,7 +8,7 @@
   page-numbering: auto,
   page-align: center,
   gap: 1in,
-  show-gap-line: true,
+  show-gap-line: false,
   footer-is-separate: true,
   outline-page-numbering: "⚜ I ⚜",
   font-size: 11pt,
