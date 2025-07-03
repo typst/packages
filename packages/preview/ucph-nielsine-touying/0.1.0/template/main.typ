@@ -7,7 +7,7 @@
   author: [Authors],
   date: datetime.today(),
   institution: [University of Copenhagen],
-  logo: image("assets/ucph_1_seal.svg"),
+  logo: image("assets/ucph-1-seal.svg"),
 ))
 
 #uc.title-slide()

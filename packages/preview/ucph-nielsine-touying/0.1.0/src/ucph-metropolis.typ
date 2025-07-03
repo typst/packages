@@ -93,7 +93,7 @@
 /// #show: ucph-metropolis-theme.with(
 ///   config-info(
 ///     title: [Title],
-///     logo: image("assets/ucph_1_seal.svg"),
+///     logo: image("assets/ucph-1-seal.svg"),
 ///   ),
 /// )
 ///
@@ -194,7 +194,7 @@
 #let focus-slide(
   config: (:),
   align: horizon + center,
-  logo: place(right, image("../assets/ucph_1_negative.svg", width: 15%), dx: -15pt, dy: -8pt),
+  logo: place(right, image("../assets/ucph-1-negative.svg", width: 15%), dx: -15pt, dy: -8pt),
   fill: colors.ucph-dark.red,
   body,
 ) = ty.touying-slide-wrapper(self => {
@@ -243,7 +243,7 @@
     setting: ty.utils.fit-to-width.with(grow: false, 100%),
     depth: self.slide-level,
   ),
-  header-right: align(right, image("../assets/ucph_1_seal.svg", height: 1.2cm)),
+  header-right: align(right, image("../assets/ucph-1-seal.svg", height: 1.2cm)),
   footer: self => ucph-utils.section-links(self),
   footer-right: self => ucph-utils.slide-counter-label(self),
   footer-progress: true,

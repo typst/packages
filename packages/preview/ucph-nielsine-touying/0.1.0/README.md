@@ -14,7 +14,7 @@ This theme was partly created using components from [typslides](https://github.c
 These instructions will get you a copy of the project up and running on the typst web app. 
 
 ```typ
-#import "@preview/ucph-nielsine-slides:0.1.0" as uc
+#import "@preview/ucph-nielsine-touying:0.1.0" as uc
 #import "@preview/touying:0.6.1" as ty
 
 #show: uc.ucph-metropolis-theme.with(ty.config-info(
@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on the typs
   author: [Authors],
   date: datetime.today(),
   institution: [University of Copenhagen],
-  logo: image("assets/ucph_1_seal.svg"),
+  logo: image("assets/ucph-1-seal.svg"),
 ))
 
 #uc.title-slide()
@@ -47,14 +47,14 @@ It is strongly recommended to explore the [documentation](https://touying-typ.gi
 #import "@preview/pinit:0.2.2" as pi
 
 #show: uc.ucph-metropolis-theme.with(
-  header-right: align(right, image("../assets/ucph_1_seal.svg", height: 1.1cm)),
+  header-right: align(right, image("../assets/ucph-1-seal.svg", height: 1.1cm)),
   ty.config-info(
     title: [Title],
     subtitle: [Subtitle],
     author: [Authors],
     date: datetime.today(),
     institution: [University of Copenhagen],
-    logo: image("../assets/ucph_1_seal.svg"),
+    logo: image("../assets/ucph-1-seal.svg"),
   ),
   // ty.config-common(
   //   handout: true

@@ -57,34 +57,34 @@
 )
 
 
-#let palette_box(color, name, text_color: black) = {
-  rect(width: 7em, height: 5em, fill: color, inset: 1em, text(fill: text_color, size: 14pt, [
+#let palette-box(color, name, text-color: black) = {
+  rect(width: 7em, height: 5em, fill: color, inset: 1em, text(fill: text-color, size: 14pt, [
     #name\
     #color.to-hex()
   ]))
 }
 
-#let show_color_pallette() = {
+#let show-color-pallette() = {
   grid(
     columns: 5,
     rows: 3,
-    palette_box(ucph-dark.red, "Dark red", text_color: white),
-    palette_box(ucph-dark.blue, "Dark blue", text_color: white),
-    palette_box(ucph-dark.petroleum, "Dark petroleum", text_color: white),
-    palette_box(ucph-dark.green, "Dark green", text_color: white),
-    palette_box(ucph-dark.grey, "Dark grey", text_color: white),
+    palette-box(ucph-dark.red, "Dark red", text-color: white),
+    palette-box(ucph-dark.blue, "Dark blue", text-color: white),
+    palette-box(ucph-dark.petroleum, "Dark petroleum", text-color: white),
+    palette-box(ucph-dark.green, "Dark green", text-color: white),
+    palette-box(ucph-dark.grey, "Dark grey", text-color: white),
 
-    palette_box(ucph-medium.red, "Red", text_color: white),
-    palette_box(ucph-medium.blue, "Blue", text_color: white),
-    palette_box(ucph-medium.petroleum, "Petroleum", text_color: white),
-    palette_box(ucph-medium.green, "Green", text_color: white),
-    palette_box(ucph-medium.grey, "Grey", text_color: white),
+    palette-box(ucph-medium.red, "Red", text-color: white),
+    palette-box(ucph-medium.blue, "Blue", text-color: white),
+    palette-box(ucph-medium.petroleum, "Petroleum", text-color: white),
+    palette-box(ucph-medium.green, "Green", text-color: white),
+    palette-box(ucph-medium.grey, "Grey", text-color: white),
 
-    palette_box(ucph-light.red, "Light red", text_color: white),
-    palette_box(ucph-light.blue, "Light blue"),
-    palette_box(ucph-light.petroleum, "Light petroleum"),
-    palette_box(ucph-light.green, "Light green"),
-    palette_box(ucph-light.grey, "Light grey"),
+    palette-box(ucph-light.red, "Light red", text-color: white),
+    palette-box(ucph-light.blue, "Light blue"),
+    palette-box(ucph-light.petroleum, "Light petroleum"),
+    palette-box(ucph-light.green, "Light green"),
+    palette-box(ucph-light.grey, "Light grey"),
   )
 }
 
