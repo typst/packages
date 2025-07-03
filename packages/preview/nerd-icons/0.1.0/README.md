@@ -1,4 +1,4 @@
-# nerd font
+# Nerd Icons
 Easy access to all nerd font icons in your typst documents
 This is my first time working with typst, so this package is very similar to
 [fontawesome package](https://typst.app/universe/package/fontawesome)
