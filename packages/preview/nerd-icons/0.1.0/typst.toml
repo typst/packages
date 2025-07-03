@@ -5,7 +5,6 @@ entrypoint = "lib.typ"
 authors = ["Myriade / TuTiuTe"]
 license = "LGPL-3.0-or-later"
 description = "Incldue seemlessly nerd font icons (10 000+ icons) in your documents."
-repository = "https://gitlab.com/TuTiuTe/typst-nerfont"
-exclude = ['README.md']
+repository = "https://gitlab.com/TuTiuTe/typst-nerdfont"
 categories = ['text']
 
