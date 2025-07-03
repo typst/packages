@@ -135,9 +135,9 @@ The music experience has been #pi.pin(1)cancelled#pi.pin(2).
   Wake up!
 ]
 
-#let my_gradient = gradient.linear(uc.colors.ucph_dark.red, uc.colors.ucph_dark.blue, angle: 45deg)
+#let my-gradient = gradient.linear(uc.colors.ucph-dark.red, uc.colors.ucph-dark.blue, angle: 45deg)
 
-#uc.focus-slide(fill: my_gradient)[
+#uc.focus-slide(fill: my-gradient)[
   Wake up with a gradient!
 ]
 
