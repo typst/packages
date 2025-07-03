@@ -26,7 +26,7 @@
   answer-color: blue,
   seal-line-student-info: (:),
   seal-line-type: "dashed",
-  seal-line-supplement: "密封线内不得答题",
+  seal-line-supplement: "弥封线内不得答题",
   doc,
 ) = {
   mode-state.update(mode)
