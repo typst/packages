@@ -139,7 +139,7 @@
         } else { page.width }
         // 章节最后页的弥封线
         place(dx: _width - page.margin - 2em, dy: 2em)[
-          #rotate(90deg, origin: left + top, _create-seal())
+          #rotate(90deg, origin: left + top, _create-seal(supplement:supplement))
         ]
       }
     ]
