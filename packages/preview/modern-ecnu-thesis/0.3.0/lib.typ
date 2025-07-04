@@ -4,7 +4,7 @@
  * @project: modern-ecnu-thesis
  * @author: OrangeX4, Juntong Chen (dev@jtchen.io)
  * @created: 2025-01-06 22:37:34
- * @modified: 2025-07-04 15:02:03
+ * @modified: 2025-07-04 15:32:11
  *
  * 华东师范大学学位论文模板
  *    Repo: https://github.com/jtchen2k/modern-ecnu-thesis
@@ -20,7 +20,6 @@
 #import "pages/fonts-display-page.typ": fonts-display-page
 #import "pages/bachelor-cover.typ": bachelor-cover
 #import "pages/master-cover.typ": master-cover
-#import "pages/bachelor-decl-page.typ": bachelor-decl-page
 #import "pages/master-decl-page.typ": master-decl-page
 #import "pages/master-committee.typ": master-committee
 #import "pages/bachelor-abstract.typ": bachelor-abstract
@@ -187,7 +186,13 @@
       } else if doctype == "postdoc" {
         panic("postdoc has not yet been implemented.")
       } else if doctype == "bachelor" {
-        panic-page("declaration page has not yet been implemented for bachelors.")
+        bachelor-academic-integrity(
+          twoside: twoside,
+          ..args,
+          fonts: fonts + args.named().at("fonts", default: (:)),
+          info: info + args.named().at("info", default: (:)),
+          anonymous: anonymous,
+        )
       }
     },
     // 诚信承诺页，通过 type 分发到不同函数

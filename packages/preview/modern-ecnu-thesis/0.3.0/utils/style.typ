@@ -1,3 +1,13 @@
+/*
+ * style.typ
+ *
+ * @project: modern-ecnu-thesis
+ * @author: Juntong Chen (dev@jtchen.io)
+ * @created: 2025-07-04 15:11:20
+ * @modified: 2025-07-04 15:11:32
+ *
+ * Copyright (c) 2025 Juntong Chen. All rights reserved.
+ */
 #let 字号 = (
   初号: 42pt,
   小初: 36pt,

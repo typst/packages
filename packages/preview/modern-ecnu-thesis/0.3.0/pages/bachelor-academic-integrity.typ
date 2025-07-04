@@ -22,16 +22,16 @@
     center,
     text(
       font: fonts.宋体,
-      size: 字号.四号, 
+      size: 字号.四号,
       weight: "bold",
       "华东师范大学学位论文诚信承诺",
     ),
   )
 
-  v(16pt) 
+  v(16pt)
 
   block[
-    #set text(font: fonts.宋体, size: 字号.小四) 
+    #set text(font: fonts.宋体, size: 字号.小四)
     #set par(justify: true, first-line-indent: 2em, leading: 1.5em)
 
     #indent 本毕业论文是本人在导师指导下独立完成的，内容真实、可靠。本人在撰写毕业论文过程中不存在请人代写、抄袭或者剽窃他人作品、伪造或者篡改数据以及其他学位论文作假行为。
@@ -46,13 +46,13 @@
     承诺人签名：#h(12em)日期：#h(4em)年#h(2em)月#h(2em)日
   ]
 
-  v(56pt) 
+  v(56pt)
 
   // 第二部分：使用授权说明
   align(
     center,
     text(
-      font: fonts.宋体, 
+      font: fonts.宋体,
       size: 字号.四号,
       weight: "bold",
       "华东师范大学学位论文使用授权说明",

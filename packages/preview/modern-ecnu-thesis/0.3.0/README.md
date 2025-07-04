@@ -140,8 +140,9 @@ context state("total-characters").final()
 
 - **本科**
   - [x] 中英双语图片标题（[@ruoyiqiao](https://github.com/ruoyiqiao)）
+  - [x] 本科学位论文的诚信承诺页（[@ruoyiqiao](https://github.com/ruoyiqiao), [@SeeYouCowboi](https://github.com/SeeYouCowboi)）
+  - [ ] 本科学位论文学术委员会页面
   - [ ] 中英双语图标自动编号
-  - [ ] 本科学位论文的诚信承诺页
 - **研究生**
   - 暂无
 
@@ -199,9 +200,10 @@ context state("total-characters").final()
 
 ## Changelog
 
-### 0.3.0 (2025.6.30)
+### 0.3.0 (2025.7.4)
 
 - feat: 支持中英双语图片标题（[@ruoyiqiao](https://github.com/ruoyiqiao)）
+- feat: 支持本科生学位论文的诚信承诺页（[@ruoyiqiao](https://github.com/ruoyiqiao), [@SeeYouCowboi](https://github.com/SeeYouCowboi)）
 - fix: 修复摘要页面的页码错误
 - fix: 修复摘要首行缩进的问题
 - fix: 修复页脚编号错误的问题

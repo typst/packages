@@ -67,7 +67,7 @@
   meta-info-line-length-en: 230pt,
 )
 
-// 声明页（仅研究生）
+// 学位论文原创性声明
 #decl-page()
 
 // 答辩委员会页（仅研究生）
@@ -75,9 +75,6 @@
 
 // 前言
 #show: preface
-
-// 学位论文原创性声明
-#academic-integrity()
 
 // 中文摘要
 #abstract(
