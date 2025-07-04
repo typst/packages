@@ -8,12 +8,12 @@
 #import "@preview/polylux:0.4.0" as polylux
 
 // colors for MedUni Wien CD
-#import "colors.typ" as muw_colors
+#import "colors.typ" as muw-colors
 
 // MedUni Wien logo in dark blue and white for the footer
 #let muw-logo-white(..args) = image("./../img/MedUni-Wien-white.svg", ..args)
 #let muw-logo-blue(..args) = image("./../img/MedUni-Wien.svg", ..args)
-#let muw_logos = (muw-logo-blue, muw-logo-white)
+#let muw-logos = (muw-logo-blue, muw-logo-white)
 
 // box with roundet corners (tl and br with 15%)
 #let muw-box(radius: 15%, ..args) = box(radius: (top-left: radius, bottom-right: radius), clip: true, ..args)
@@ -31,16 +31,16 @@
  *  optional date is being displayed
  */
 #let custom-footer(
-  logos: muw_logos,
+  logos: muw-logos,
   footer-title: [Titel der Präsentation ODER des Vortragenden],
   orga: [Organisationseinheit],
   show-date: false,
   page-numbering: (n, total) => { [ #strong[#n] / #total ] },
 ) = {
-  let logos = if logos != none {logos} else {muw_logos}
+  let logos = if logos != none { logos } else { muw-logos }
 
   context {
-    set text(fill: if page.fill != muw_colors.dunkelblau { white } else { muw_colors.dunkelblau })
+    set text(fill: if page.fill != muw-colors.dunkelblau { white } else { muw-colors.dunkelblau })
 
     let current-margin = if page.margin == auto {
       (2.5 / 21) * calc.min(page.height, page.width)       
@@ -51,7 +51,7 @@
 
     place(bottom, dx: -current-margin)[
       #box(
-        fill: if page.fill == muw_colors.dunkelblau { white } else { muw_colors.dunkelblau },
+        fill: if page.fill == muw-colors.dunkelblau { white } else { muw-colors.dunkelblau },
         height: 100% + 1mm,
         width: 100% + 2 * current-margin
       )[
@@ -61,7 +61,7 @@
         #stack(dir: ltr, spacing: 1fr,
           [
             #box(inset: (x: 1mm))[
-              #if page.fill != muw_colors.dunkelblau {
+              #if page.fill != muw-colors.dunkelblau {
                 logos.last()(height: 10mm)
               } else {
                 logos.first()(height: 10mm)
@@ -108,7 +108,7 @@
 }
 
 #let color-slide(
-  bg-fill: muw_colors.coral,
+  bg-fill: muw-colors.coral,
   font-fill: black,
   ..args
 ) = {
@@ -130,7 +130,7 @@
 }
 
 #let blue-slide(
-  bg-fill: muw_colors.dunkelblau,
+  bg-fill: muw-colors.dunkelblau,
   ..args
 ) = {
   set page(fill: bg-fill)
