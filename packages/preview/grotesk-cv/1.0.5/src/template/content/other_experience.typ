@@ -1,6 +1,6 @@
 #let meta = toml("../info.toml")
 
-#import "@preview/grotesk-cv:1.0.4": experience-entry
+#import "@preview/grotesk-cv:1.0.5": experience-entry
 #import meta.import.fontawesome: *
 
 #let icon = meta.section.icon.other_experience
@@ -15,21 +15,11 @@
 
 #if language == "en" [
 
-  #experience-entry(
-    title: [Combat Training],
-    date: [2029],
-    company: [Resistance],
-    location: [Los Angeles, CA],
-  )
+  #experience-entry(title: [Combat Training], date: [2029], company: [Resistance], location: [Los Angeles, CA])
 
 ] else if language == "es" [
 
-  #experience-entry(
-    title: [Entrenamiento de combate],
-    date: [2029],
-    company: [Resistencia],
-    location: [Los Ángeles, CA],
-  )
+  #experience-entry(title: [Entrenamiento de combate], date: [2029], company: [Resistencia], location: [Los Ángeles, CA])
 
 ]
 
