@@ -64,7 +64,7 @@ This repository hosts community maintained unofficial templates for the Medical 
 
   #muw-box(
     height: 25mm,
-    fill: muw_colors.dunkelblau,
+    fill: muw-colors.dunkelblau,
     text(fill: white)[
       ~ Hier ist eine MedUni Wien box ... ~ \
       ~ Hier könnte auch ein bild sein ... ~
