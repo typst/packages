@@ -261,7 +261,6 @@
     // Update figure numbering for appendix figures
     let fig-numbering(.., last) = "A." + str(last)
     set figure(numbering: fig-numbering)
-
     appendix
   }
 }
