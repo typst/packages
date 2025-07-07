@@ -15,4 +15,4 @@ exclude = ["other/"]
 [template]
 path = "template"
 entrypoint = "sample-article.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "assets/thumbnail.png"
