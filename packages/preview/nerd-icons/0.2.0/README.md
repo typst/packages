@@ -22,6 +22,7 @@ nerd font icon name, which are found on the [nerdfonts website](https://www.nerd
 
 ### Example
 ```typst
+
 #import "@preview/nerd-icons:0.2.0": nf-icon
 #nf-icon("nf-md-dog")
 ```
