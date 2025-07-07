@@ -4,14 +4,15 @@ This is my first time working with typst, so this package is very similar to
 [fontawesome package](https://typst.app/universe/package/fontawesome)
 
 ## Setting up
-You need to install a nerd font from your preferred source
+You need to install a nerd font. [ See how ](https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#various-download-options-for-fonts)  
+On Linux, there is most likely a repo to enable for your distro
 
 On my system, I use Symbols Nerd Font Mono, hence it's the default  
 If you have installed a different one, you can specify it with `#change-nerd-font`
 
 ### Example
 ```typst
-#import "@preview/typst-nerdfont:0.2.0": change-nerd-font
+#import "@preview/nerd-icons:0.2.0": change-nerd-font
 #change-nerd-font("monoid nerd font")
 ```
 
@@ -21,7 +22,7 @@ nerd font icon name, which are found on the [nerdfonts website](https://www.nerd
 
 ### Example
 ```typst
-#import "@preview/typst-nerdfont:0.2.0": nf-icon
+#import "@preview/nerd-icons:0.2.0": nf-icon
 #nf-icon("nf-md-dog")
 ```
 
@@ -30,7 +31,7 @@ the library will resolve every possible prefix until it finds one that is valid
 
 ### Example
 ```typst
-#import "@preview/typst-nerdfont:0.2.0": nf-icon, set-favorite-nf-prefix
+#import "@preview/nerd-icons:0.2.0": nf-icon, set-favorite-nf-prefix
 #nf-icon("dog") // Will resolve to nf-md-dog
 #set-favorite-nf-prefix("fa")
 #nf-icon("dog") // Will resolve to nf-fa-dog
@@ -47,7 +48,7 @@ Each icon is also defined as a constant that you can use directly
 
 ### Example
 ```typst
-#import "@preview/typst-nerdfont:0.2.0": *
+#import "@preview/nerd-icons:0.2.0": *
 #nf-md-dog()
 ```
 
