@@ -3,6 +3,7 @@ name = "digestify"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["paran3xus"]
+license = "MIT"
 description = "A blazing fast cryptographic hash package for Typst, powered by WebAssembly."
 homepage = "https://github.com/ParaN3xus/digestify"
 repository = "https://github.com/ParaN3xus/digestify"
