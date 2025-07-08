@@ -18,7 +18,7 @@ A **[Typst](https://typst.app)** template for BUAA graduate thesis, capable of q
 
 ## Quick Start
 
-Check out [thesis.typ](./template/thesis.typ) and [thesis.pdf](./example/thesis.pdf) to see the specific code and generated PDF file.
+Check out [thesis.typ](https://github.com/wangjq4214/buaa-thesis/blob/main/template/thesis.typ) and [thesis.pdf](https://github.com/wangjq4214/buaa-thesis/blob/main/example/thesis.pdf) to see the specific code and generated PDF file.
 
 This package only provides one main API for writing your own graduate thesis, greatly simplifying the writing process:
 
