@@ -23,7 +23,7 @@ The function also accepts a single, positional argument for the body of the pape
 The template will initialize your package with a sample call to the `minimal-note` function in a show rule. If you want to change an existing project to use this template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/minimal-note:0.1.0": minimal-note
+#import "@preview/minimal-note:0.10.0": minimal-note
 
 #show: minimal-note.with(
   title: [Paper Title],

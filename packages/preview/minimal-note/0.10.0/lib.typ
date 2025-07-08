@@ -32,7 +32,7 @@
 
 
 // === Prompting Boxes ===
-#let color_box(header, body, color: rgb("B8F0D3")) = {
+#let color-box(header, body, color: rgb("B8F0D3")) = {
   set align(center)
   
   box(
@@ -51,10 +51,10 @@
 
 // To 
 
-#let green_box(header, body) = {
+#let green-box(header, body) = {
   color_box(header, body, color: rgb("B8F0D3"))
 }
 
-#let orange_box(header, body) = {
+#let orange-box(header, body) = {
   color_box(header, body, color: rgb("FFDAB8"))
 }
