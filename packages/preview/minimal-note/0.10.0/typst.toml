@@ -1,5 +1,5 @@
 [package]
-name = "@preview/minimal-note"
+name = "minimal-note"
 version = "0.10.0"
 entrypoint = "lib.typ"
 authors = ["Michel Liao"]

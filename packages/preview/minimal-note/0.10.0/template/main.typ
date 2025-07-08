@@ -1,9 +1,9 @@
-#import "@preview/minimal-note:0.1.0": minimal-note
+#import "@preview/minimal-note:0.10.0": *
 
 #show: minimal-note.with(
   title: [Paper Title],
   author: [Your Name],
-  date: datetime.today().display("[month repr:long], [year]")
+  date: datetime.today().display("[month repr:long], [year]"),
 )
 
 = Basic Probability Laws
