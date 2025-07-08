@@ -58,7 +58,7 @@ typship install local
 ```
 This allows you to import the template using 
 ```
-#import "@local/fine-lncs:0.1.0": lncs, institute, author, theorem, proof
+#import "@local/fine-lncs:0.2.0": lncs, institute, author, theorem, proof
 ```
 
 ## Development
