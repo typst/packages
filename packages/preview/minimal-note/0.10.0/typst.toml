@@ -1,6 +1,6 @@
 [package]
-name = "minimal-note"
-version = "0.1.0"
+name = "@preview/minimal-note"
+version = "0.10.0"
 entrypoint = "lib.typ"
 authors = ["Michel Liao"]
 license = "MIT-0"
