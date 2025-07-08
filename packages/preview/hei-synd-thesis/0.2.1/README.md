@@ -14,7 +14,7 @@
   <br>
 </div>
 
-This is the official template for a Bachlorthesis at the [HEI-Vs Engineering School](https://synd.hevs.io) in Sion, Switzerland. More templates can the found in our [GitHub organization](https://github.com/hei-templates)
+This is the official template for a Bachelorthesis at the [HEI-Vs Engineering School](https://synd.hevs.io) in Sion, Switzerland. More templates can the found in our [GitHub organization](https://github.com/hei-templates)
 
 ![](https://github.com/hei-templates/hei-synd-thesis/blob/main/sample.png)
 
