@@ -1,0 +1,16 @@
+[package]
+name = "modern-buaa-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+license = "LICENCE"
+authors = ["wangjq4214"]
+description = "A modern thesis template for BUAA."
+repository = "https://github.com/wangjq4214/buaa-thesis"
+keywords = ["BUAA", "Beihang University", "thesis"]
+categories = ["thesis"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
