@@ -5,7 +5,7 @@
 ## Usage
 
 ```typst
-#import "@preview/fine-lncs:0.1.0": lncs, institute, author, theorem, proof
+#import "@preview/fine-lncs:0.2.0": lncs, institute, author, theorem, proof
 
 #let inst_princ = institute("Princeton University", 
   addr: "Princeton NJ 08544, USA"
