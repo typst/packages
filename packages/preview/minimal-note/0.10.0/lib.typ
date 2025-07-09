@@ -1,3 +1,8 @@
+// === Algorithmic Logistics ===
+#import "@preview/algorithmic:1.0.0"
+#import algorithmic: *
+
+
 // === Template ===
 #let minimal-note(
   title: [Paper Title],
@@ -38,7 +43,8 @@
   box(
     fill: color,
     inset: 13pt,
-    radius: 10%,
+    radius: 10pt,
+    width: 100%
   )[
     #set align(left)
     
@@ -49,7 +55,7 @@
   ]
 }
 
-// To 
+// To add additional box colors, follow the below function definitions and replace the color named argument.
 
 #let green-box(header, body) = {
   color-box(header, body, color: rgb("B8F0D3"))
@@ -57,4 +63,8 @@
 
 #let orange-box(header, body) = {
   color-box(header, body, color: rgb("FFDAB8"))
+}
+
+#let blue-box(header, body) = {
+  color-box(header, body, color: rgb("B5EAFF"))
 }
