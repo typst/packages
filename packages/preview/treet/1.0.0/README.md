@@ -20,7 +20,7 @@ contribution is welcomed!
 ## Usage
 
 ```typst
-#import "@preview/treet:0.1.1": *
+#import "@preview/treet:1.0.0": *
 
 #tree-list(
   marker:       content,
