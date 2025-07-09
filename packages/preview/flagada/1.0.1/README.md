@@ -81,6 +81,10 @@ Adding some of missing country flags. In this version, only KI is a missing flag
 
 All country flags for an ISO 3166-1 code are now available.
 
+### V1.0.1
+
+Some limited flags (like GB) forced a newline before and after each invocation. This issue has been corrected.
+
 ## Extra
 
 Flagada has an internal function `polygram` to display easily regular stars (5, 7 or more sides)

@@ -174,7 +174,9 @@
   }
 // al 5:7
 #let flag-al(height:.65em) = {
-  rect(height: height, width: 7/5*height, inset:0pt, fill:red,image("coat of arms/AL.svg",width: 100%))
+  box(
+    rect(height: height, width: 7/5*height, inset:0pt, fill:red,image("coat of arms/AL.svg",width: 100%))
+  )
 }
 // am 2:1
 #let flag-am(height:.65em) = {
@@ -1426,7 +1428,7 @@
 }
 // cy 3/5
 #let flag-cy(height:.65em) = {
-  //align(left,
+  box(
     rect(
       height: height,
       width: height*5/3, 
@@ -1435,7 +1437,7 @@
       align(center+horizon,
       image("coat of arms/CY.svg")
       ))
-    //)
+    )
 }
 // cz
 #let flag-cz(height:.65em) = {
@@ -2182,177 +2184,179 @@
 }
 // gb 1:2
 #let flag-gb(height:.65em) = {
-  rect(
-    height:height,width:height*2, fill:white, inset: 0pt,
-    // blue triangle left top top
-    place(
-      dx: 6/60*height*2,
-      polygon(
-        (0%,0%),
-        (19/30*height,0%),
-        (19/30*height,8/25*height),
-        fill:rgb("012169")
-        ),
+  box(
+    rect(
+      height:height,width:height*2, fill:white, inset: 0pt,
+      // blue triangle left top top
+      place(
+        dx: 6/60*height*2,
+        polygon(
+          (0%,0%),
+          (19/30*height,0%),
+          (19/30*height,8/25*height),
+          fill:rgb("012169")
+          ),
+        )+
+      // blue triangle left top bottom
+      place(
+        dy:3/30*height,
+        polygon(
+          (0%,0%),
+          (0%,(7/30)*height),
+          (12/25*height,(7/30)*height),
+          fill:rgb("012169")
+          ),
+        )+
+      // blue triangle right top top
+      place(
+        dx:35/60*height*2,
+        polygon(
+          (0%,0%),
+          (19/30*height,0%),
+          (0%,8/25*height),
+          fill:rgb("012169")
+          )
+        )+
+      // blue triangle right top bottom
+      place(
+        //dy:-27/30*height,
+        dy:3/30*height,
+        dx: height*2,
+        polygon(
+          (0%,0%),
+          (0%,(7/30)*height),
+          (-12/25*height,(7/30)*height),
+          fill:rgb("012169")
+          )
+        )+
+      // blue triangle left bottom top
+      place(
+        dy:2/3*height,
+        polygon(
+          (0%,0%),
+          (0%,(7/30)*height),
+          (12/25*height,0%),
+          fill:rgb("012169")
+          )
+        )+
+      // blue triangle left bottom bottom
+      place(
+        dy:height,
+        dx:6/60*height*2,
+        polygon(
+          (0%,0%),
+          (19/30*height,0%),
+          (19/30*height,-8/25*height),
+          fill:rgb("012169")
+          )
       )+
-    // blue triangle left top bottom
-    place(
-      dy:3/30*height,
-      polygon(
-        (0%,0%),
-        (0%,(7/30)*height),
-        (12/25*height,(7/30)*height),
-        fill:rgb("012169")
-        ),
-      )+
-    // blue triangle right top top
-    place(
-      dx:35/60*height*2,
-      polygon(
-        (0%,0%),
-        (19/30*height,0%),
-        (0%,8/25*height),
-        fill:rgb("012169")
+      // blue triangle right bottom top
+      place(
+        dy:2/3*height,//-1/3*height,
+        dx:height*2,
+        polygon(
+          (0%,0%),
+          (0%,(7/30)*height),
+          (-12/25*height,0%),
+          fill:rgb("012169")
         )
       )+
-    // blue triangle right top bottom
-    place(
-      //dy:-27/30*height,
-      dy:3/30*height,
-      dx: height*2,
-      polygon(
-        (0%,0%),
-        (0%,(7/30)*height),
-        (-12/25*height,(7/30)*height),
-        fill:rgb("012169")
+      // blue triangle right bottom bottom
+      place(
+        dy:height,
+        dx:35/60*height*2,
+        polygon(
+          (0%,0%),
+          (19/30*height,0%),
+          (0%,-8/25*height),
+          fill:rgb("012169")
         )
       )+
-    // blue triangle left bottom top
-    place(
-      dy:2/3*height,
-      polygon(
-        (0%,0%),
-        (0%,(7/30)*height),
-        (12/25*height,0%),
-        fill:rgb("012169")
+      // red quadrilater left top
+      place(
+        polygon(
+          (0%,0%),
+          (20/60*height*2,10/30*height),
+          (16/60*height*2,10/30*height),
+          (0%,2/30*height),
+          fill:rgb("c8102e")
         )
       )+
-    // blue triangle left bottom bottom
-    place(
-      dy:height,
-      dx:6/60*height*2,
-      polygon(
-        (0%,0%),
-        (19/30*height,0%),
-        (19/30*height,-8/25*height),
-        fill:rgb("012169")
+      // red quadrilater right top
+      place(
+        dx:height*2,
+        polygon(
+          (0%,0%),
+          (-4/60*height*2,0%),
+          (-24/60*height*2,10/30*height),
+          (-20/60*height*2,10/30*height),
+          fill:rgb("c8102e")
         )
-    )+
-    // blue triangle right bottom top
-    place(
-      dy:2/3*height,//-1/3*height,
-      dx:height*2,
-      polygon(
-        (0%,0%),
-        (0%,(7/30)*height),
-        (-12/25*height,0%),
-        fill:rgb("012169")
-      )
-    )+
-    // blue triangle right bottom bottom
-    place(
-      dy:height,
-      dx:35/60*height*2,
-      polygon(
-        (0%,0%),
-        (19/30*height,0%),
-        (0%,-8/25*height),
-        fill:rgb("012169")
-      )
-    )+
-    // red quadrilater left top
-    place(
-      polygon(
-        (0%,0%),
-        (20/60*height*2,10/30*height),
-        (16/60*height*2,10/30*height),
-        (0%,2/30*height),
-        fill:rgb("c8102e")
-      )
-    )+
-    // red quadrilater right top
-    place(
-      dx:height*2,
-      polygon(
-        (0%,0%),
-        (-4/60*height*2,0%),
-        (-24/60*height*2,10/30*height),
-        (-20/60*height*2,10/30*height),
-        fill:rgb("c8102e")
-      )
-    )+
-    // red quadrilater left bottom
-    place(
-      dy:height,
-      polygon(
-        (0%,0%),
-        (4/60*height*2,0%),
-        (24/60*height*2,-10/30*height),
-        (20/60*height*2,-10/30*height),
-        fill:rgb("c8102e")
-      )
-    )+
-    // red quadrilater right bottom
-    place(
-      dy:height,
-      dx:height*2,
-      polygon(
-        (0%,0%),
-        (0%,-2/30*height),
-        (-16/60*height*2,-10/30*height),
-        (-20/60*height*2,-10/30*height),
-        fill:rgb("c8102e")
-      )
-    )+
-    // red cross
-    place(
-      dy:12/30*height,//-18/30*height,
-      polygon(
-        (0%,0%),
-        ((27/30)*height,0%),
-        (27/30*height,-12/30*height),
-        (33/30*height,-12/30*height),
-        (33/30*height,0%),
-        (60/30*height,0%),
-        (60/30*height,6/30*height),
-        (33/30*height,6/30*height),
-        (33/30*height,18/30*height),
-        (27/30*height,18/30*height),
-        (27/30*height,6/30*height),
-        (0%,6/30*height),
-        fill:rgb("c8102e")
+      )+
+      // red quadrilater left bottom
+      place(
+        dy:height,
+        polygon(
+          (0%,0%),
+          (4/60*height*2,0%),
+          (24/60*height*2,-10/30*height),
+          (20/60*height*2,-10/30*height),
+          fill:rgb("c8102e")
         )
-      ) 
-    // construction support lines
-    /*
-    // horizontal support line
-    + place(
-      dy:20/30*height,
-      line(length: 100%*height*2, stroke:orange)
+      )+
+      // red quadrilater right bottom
+      place(
+        dy:height,
+        dx:height*2,
+        polygon(
+          (0%,0%),
+          (0%,-2/30*height),
+          (-16/60*height*2,-10/30*height),
+          (-20/60*height*2,-10/30*height),
+          fill:rgb("c8102e")
+        )
+      )+
+      // red cross
+      place(
+        dy:12/30*height,//-18/30*height,
+        polygon(
+          (0%,0%),
+          ((27/30)*height,0%),
+          (27/30*height,-12/30*height),
+          (33/30*height,-12/30*height),
+          (33/30*height,0%),
+          (60/30*height,0%),
+          (60/30*height,6/30*height),
+          (33/30*height,6/30*height),
+          (33/30*height,18/30*height),
+          (27/30*height,18/30*height),
+          (27/30*height,6/30*height),
+          (0%,6/30*height),
+          fill:rgb("c8102e")
+          )
+        ) 
+      // construction support lines
+      /*
+      // horizontal support line
+      + place(
+        dy:20/30*height,
+        line(length: 100%*height*2, stroke:orange)
+      )
+      +// vertical support line
+      place(
+        dx: 10/30*height,
+        rotate(90deg,line(length: 100%*height*2, stroke:orange))
+      )
+      //diag support line
+      +place(
+        line(start:(0%,0%),end:(height*2,height), stroke:(dash:"dashed"))
+        )
+      // opposite diag support line
+      +place(
+        line(start:(height*2,0%),end:(0%,height), stroke:(dash:"dashed"))
+        )
+      */
     )
-    +// vertical support line
-    place(
-      dx: 10/30*height,
-      rotate(90deg,line(length: 100%*height*2, stroke:orange))
-    )
-    //diag support line
-    +place(
-      line(start:(0%,0%),end:(height*2,height), stroke:(dash:"dashed"))
-      )
-    // opposite diag support line
-    +place(
-      line(start:(height*2,0%),end:(0%,height), stroke:(dash:"dashed"))
-      )
-    */
   )
 }
 // bm 1:2
@@ -4549,167 +4553,169 @@
 }
 // mk 1:2
 #let flag-mk(height:.65em) = {
-  rect(
-    height: height,
-    width: height*2,
-    fill: rgb("d82126"),
-    inset:0pt,
-    align(left,
-      none
-      // the polygon top left
-      + place(
-        polygon(
-          (0%,0%),
-          (.3*height,0%),
-          ((1+(2/7)/2-(2/7)/8)*height,1/2*(1+2/7/2-2/7/8)*height),
-          
-          fill:rgb("f8e92e")
-        )
-      )
-      // the polygon top right
-      + place(
-        polygon(
-          (100%,0%),
-          ((2-.3)*height,0%),
-          ((1-(2/7)/2+(2/7)/8)*height,1/2*(1+2/7/2-2/7/8)*height),
-          fill:rgb("f8e92e")
-        )
-      )
-      // the polygon bottom right
-      + place(
-        polygon(
-          (100%,100%),
-          ((2-.3)*height,100%),
-          ((1-(2/7)/2+(2/7)/8)*height,1/2*(1-2/7/2+2/7/8)*height),
-          //(height,height/2),
-          fill:rgb("f8e92e")
-        )
-      )
-      // the polygon bottom left
-      + place(
-        polygon(
-          (0%,100%),
-          (.3*height,100%),
-          ((1+(2/7)/2-(2/7)/8)*height,1/2*(1-2/7/2+2/7/8)*height),
-          fill:rgb("f8e92e")
-        )
-      )
-      // the polygon left
-      + place(
-        polygon(
-          (0%,.4*height),
-          (0%,.6*height),
-          (height,.5*height),
-          fill:rgb("f8e92e")
+  box(
+    rect(
+      height: height,
+      width: height*2,
+      fill: rgb("d82126"),
+      inset:0pt,
+      align(left,
+        none
+        // the polygon top left
+        + place(
+          polygon(
+            (0%,0%),
+            (.3*height,0%),
+            ((1+(2/7)/2-(2/7)/8)*height,1/2*(1+2/7/2-2/7/8)*height),
+            
+            fill:rgb("f8e92e")
           )
         )
-      // the polygon right
-      + place(
-        polygon(
-          (100%,.4*height),
-          (100%,.6*height),
-          (height,.5*height),
-          fill:rgb("f8e92e")
+        // the polygon top right
+        + place(
+          polygon(
+            (100%,0%),
+            ((2-.3)*height,0%),
+            ((1-(2/7)/2+(2/7)/8)*height,1/2*(1+2/7/2-2/7/8)*height),
+            fill:rgb("f8e92e")
           )
         )
-      // the polygon central top
-      + place(
-        polygon(
-          (.45*height*2,0%),
-          (.55*height*2,0%),
-          (height,(1/2-(2/14)+2/14/4)*height),
-          fill:rgb("f8e92e")
+        // the polygon bottom right
+        + place(
+          polygon(
+            (100%,100%),
+            ((2-.3)*height,100%),
+            ((1-(2/7)/2+(2/7)/8)*height,1/2*(1-2/7/2+2/7/8)*height),
+            //(height,height/2),
+            fill:rgb("f8e92e")
           )
         )
-      // the polygon central bottom
-      + place(
-        polygon(
-          (.45*height*2,100%),
-          (.55*height*2,100%),
-          (height,(1/2+(2/14)-2/14/4)*height),
-          fill:rgb("f8e92e")
+        // the polygon bottom left
+        + place(
+          polygon(
+            (0%,100%),
+            (.3*height,100%),
+            ((1+(2/7)/2-(2/7)/8)*height,1/2*(1-2/7/2+2/7/8)*height),
+            fill:rgb("f8e92e")
           )
         )
-      // the central yellow red (that will hide points of polygones)
-      + place(
-        dx: height * (1 - (2/7 + ((2/7)/8)*2)/2),
-        dy: height * (1/2 - (2/7 + ((2/7)/8)*2)/2),
-        circle(
-          fill:rgb("d82126"), 
-          radius: (2/7 + ((2/7)/8)*2)/2*height,
+        // the polygon left
+        + place(
+          polygon(
+            (0%,.4*height),
+            (0%,.6*height),
+            (height,.5*height),
+            fill:rgb("f8e92e")
+            )
           )
-        )
-      // the central yellow circle
-      + place(
-        dx: height * (1 - (2/7)/2),
-        dy: height * (1/2 - (2/7)/2),
-        circle(fill:rgb("f8e92e"),radius: (2/7)/2*height)
-        )
-      /*
-      // supporting lines (normally hidden)
-      // almost diagonal
-      + place(
-          line(
-            start:(.075*height*2,0%),
-            end:((1-.075)*height*2,100%),
+        // the polygon right
+        + place(
+          polygon(
+            (100%,.4*height),
+            (100%,.6*height),
+            (height,.5*height),
+            fill:rgb("f8e92e")
+            )
+          )
+        // the polygon central top
+        + place(
+          polygon(
+            (.45*height*2,0%),
+            (.55*height*2,0%),
+            (height,(1/2-(2/14)+2/14/4)*height),
+            fill:rgb("f8e92e")
+            )
+          )
+        // the polygon central bottom
+        + place(
+          polygon(
+            (.45*height*2,100%),
+            (.55*height*2,100%),
+            (height,(1/2+(2/14)-2/14/4)*height),
+            fill:rgb("f8e92e")
+            )
+          )
+        // the central yellow red (that will hide points of polygones)
+        + place(
+          dx: height * (1 - (2/7 + ((2/7)/8)*2)/2),
+          dy: height * (1/2 - (2/7 + ((2/7)/8)*2)/2),
+          circle(
+            fill:rgb("d82126"), 
+            radius: (2/7 + ((2/7)/8)*2)/2*height,
+            )
+          )
+        // the central yellow circle
+        + place(
+          dx: height * (1 - (2/7)/2),
+          dy: height * (1/2 - (2/7)/2),
+          circle(fill:rgb("f8e92e"),radius: (2/7)/2*height)
+          )
+        /*
+        // supporting lines (normally hidden)
+        // almost diagonal
+        + place(
+            line(
+              start:(.075*height*2,0%),
+              end:((1-.075)*height*2,100%),
+              stroke:(dash: "dotted")
+            )
+          )
+        // almost opposite diagonal
+        + place(
+            line(
+              start:((1-.075)*height*2,0%),
+              end:(.075*height*2,100%),
+              stroke:(dash: "dotted")
+            )
+          )
+        // the central circle that touches top and bottom polygones
+        + place(
+          dx: height * (1 - (2/7 - ((2/7)/8)*2)/2),
+          dy: height * (1/2 - (2/7 - ((2/7)/8)*2)/2),
+          circle(
+            fill:none, 
+            radius: (2/7 - ((2/7)/8)*2)/2*height,
             stroke:(dash: "dotted")
+            )
           )
-        )
-      // almost opposite diagonal
-      + place(
-          line(
-            start:((1-.075)*height*2,0%),
-            end:(.075*height*2,100%),
+        // the central yellow circle 
+        + place(
+          dx: height * (1 - (2/7)/2),
+          dy: height * (1/2 - (2/7)/2),
+          circle(
+            fill:none, 
+            radius: (2/7)/2*height,
             stroke:(dash: "dotted")
+            )
           )
+        // the central red circle (that will hide points of polygones)
+        + place(
+          dx: height * (1 - (2/7 + ((2/7)/8)*2)/2),
+          dy: height * (1/2 - (2/7 + ((2/7)/8)*2)/2),
+          circle(
+            fill:none, 
+            radius: (2/7 + ((2/7)/8)*2)/2*height,
+            stroke:(dash: "dotted")
+            )
+          )
+        // middle h line
+        +place(
+          line(
+            start:(50%,0%),
+            end:(50%,100%),
+            stroke:(dash: "dotted")
+            )
         )
-      // the central circle that touches top and bottom polygones
-      + place(
-        dx: height * (1 - (2/7 - ((2/7)/8)*2)/2),
-        dy: height * (1/2 - (2/7 - ((2/7)/8)*2)/2),
-        circle(
-          fill:none, 
-          radius: (2/7 - ((2/7)/8)*2)/2*height,
-          stroke:(dash: "dotted")
-          )
+        // middle v line
+        +place(
+          line(
+            start:(0%,50%),
+            end:(100%,50%),
+            stroke:(dash: "dotted")
+            )
         )
-      // the central yellow circle 
-      + place(
-        dx: height * (1 - (2/7)/2),
-        dy: height * (1/2 - (2/7)/2),
-        circle(
-          fill:none, 
-          radius: (2/7)/2*height,
-          stroke:(dash: "dotted")
-          )
-        )
-      // the central red circle (that will hide points of polygones)
-      + place(
-        dx: height * (1 - (2/7 + ((2/7)/8)*2)/2),
-        dy: height * (1/2 - (2/7 + ((2/7)/8)*2)/2),
-        circle(
-          fill:none, 
-          radius: (2/7 + ((2/7)/8)*2)/2*height,
-          stroke:(dash: "dotted")
-          )
-        )
-      // middle h line
-      +place(
-        line(
-          start:(50%,0%),
-          end:(50%,100%),
-          stroke:(dash: "dotted")
-          )
+      */
       )
-      // middle v line
-      +place(
-        line(
-          start:(0%,50%),
-          end:(100%,50%),
-          stroke:(dash: "dotted")
-          )
-      )
-    */
     )
   )
 }
@@ -5187,28 +5193,30 @@
 }
 // nc fr + kanaky
 #let flag-nc(height:.65em) = {
-  stack(
-    dir:ltr,
-    flag-fr(height:height),
-    box(
-      rect(
-        height: height,
-        width: 5/3*height,
-        fill:gradient.linear(
-          dir:ttb,
-          rgb(0,115,206),
-          rgb(225,60,50),
-          rgb(0,152,57),
-        ).sharp(3)
+  box(
+    stack(
+      dir:ltr,
+      flag-fr(height:height),
+      box(
+        rect(
+          height: height,
+          width: 5/3*height,
+          fill:gradient.linear(
+            dir:ttb,
+            rgb(0,115,206),
+            rgb(225,60,50),
+            rgb(0,152,57),
+          ).sharp(3)
+        )
+        +place(horizon,
+          dx:1/6*height,
+          circle(
+            radius: 1/3*height,
+            fill:rgb(254,220,0),
+            place(center+horizon,
+            image("coat of arms/NC.svg", height: height*4/7))
+            ))
       )
-      +place(horizon,
-        dx:1/6*height,
-        circle(
-          radius: 1/3*height,
-          fill:rgb(254,220,0),
-          place(center+horizon,
-          image("coat of arms/NC.svg", height: height*4/7))
-          ))
     )
   )
 }

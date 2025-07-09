@@ -1,6 +1,6 @@
 [package]
 name = "flagada"
-version = "1.0.0"
+version = "1.0.1"
 entrypoint = "flags.typ"
 authors = ["samrenault <renault.samuel@free.fr>"]
 license = "MIT"
