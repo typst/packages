@@ -12,6 +12,10 @@ generated from a Typst file) can be linked from this README.
 If your package has a dedicated documentation website, it can be linked in the
 README, but also via the `homepage` field of your [manifest].
 
+When linking to a manual, images, etc. from another git repository, consider
+linking to a specific tag or revision, instead of the `main` branch. This will
+ensure that the linked resources always match the version of the package.
+
 ## Differences from standard Markdown
 
 Typst Universe processes your package README before displaying it,
