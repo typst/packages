@@ -9,13 +9,13 @@
   set heading(numbering: "1.")
   
   show link: it => {
-    let default_color = rgb("#57B9FF")
-    let label_color = rgb("#57B94F")
+    let default-color = rgb("#57B9FF")
+    let label-color = rgb("#57B94F")
   
     if type(it.dest) == label {
-      underline(text(fill: label_color)[#it])
+      underline(text(fill: label-color)[#it])
     } else {
-      underline(text(fill: default_color)[#it])
+      underline(text(fill: default-color)[#it])
     }
   }
 
@@ -52,9 +52,9 @@
 // To 
 
 #let green-box(header, body) = {
-  color_box(header, body, color: rgb("B8F0D3"))
+  color-box(header, body, color: rgb("B8F0D3"))
 }
 
 #let orange-box(header, body) = {
-  color_box(header, body, color: rgb("FFDAB8"))
+  color-box(header, body, color: rgb("FFDAB8"))
 }
