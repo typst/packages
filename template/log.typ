@@ -1,5 +1,5 @@
 
-#import "@local/quic-style:0.0.1"
+#import "@preview/quic-style:0.0.1"
 
 #show: quic-style.template.with(
   title: [実験 : テルミット反応における酸化剤の影響],
@@ -31,7 +31,7 @@
     具体的には，酸化剤として，酸化鉄(III)と過酸化水素を用い，それぞれの反応における生成物を比較する．
     さらに，反応の進行速度を比較するために，反応の進行を可視化する．
   ],
-  doc_type: "LOG",
+  doc-type: "LOG",
 )
 
 = 1. 仮説

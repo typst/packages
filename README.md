@@ -108,7 +108,7 @@ To use this template, simply import it as shown below:
   abstract: [
     Recent advances in space-based document processing have enabled faster mail delivery between different planets of a solar system. Given the time it takes for a message to be transmitted from one planet to the next, its estimated that even a one-way trip to a distant destination could take up to one year. During these periods of interplanetary mail delivery there is a slight possibility of mail being lost in transit. This issue is considered so serious that space management employs P.I. agents to track down and retrieve lost mail. We propose A-Mail, a new anti-matter based approach that can ensure that mail loss occurring during interplanetary transit is unobservable and therefore potentially undetectable. Going even further, we extend A-Mail to predict problems and apply existing and new best practices to ensure the mail is delivered without any issues. We call this extension AI-Mail.
   ],
-  doc_type: "PROGRESS_REPORT", // or "NOTE", "LOG", "PAPER"
+  doc-type: "PROGRESS_REPORT", // or "NOTE", "LOG", "PAPER"
 )
 
 // セクション
