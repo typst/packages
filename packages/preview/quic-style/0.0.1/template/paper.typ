@@ -1,4 +1,4 @@
-#import "@local/quic-style:0.0.1"
+#import "@preview/quic-style:0.0.1"
 
 #show: quic-style.template.with(
   title: [日本語における助詞「は」と「が」の使い分けに関する認知言語学的考察],
@@ -29,7 +29,7 @@
     「が」は新情報の導入と一時的な焦点化に使用されることを明らかにした。
     この知見は、日本語教育における助詞指導の改善に貢献することが期待される。
   ],
-  doc_type: "PAPER",
+  doc-type: "PAPER",
 )
 
 = 1. はじめに
