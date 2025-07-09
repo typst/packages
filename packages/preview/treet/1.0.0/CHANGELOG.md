@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.0] - 2025-07-09
+
+- Changed default font to `Dejavu Sans Mono`
+
 ## [0.1.1] - 2024-04-14
 
 - Fixed content with body other than `item` [#1](https://github.com/8LWXpg/typst-treet/issues/1)
