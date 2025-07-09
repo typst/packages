@@ -3,7 +3,7 @@
 // Github: https://github.com/maucejo
 // License: MIT
 // Date : 11/2024
-#import "@preview/equate:0.2.1": *
+#import "@preview/equate:0.3.2": *
 #import "els-globals.typ": *
 #import "els-environment.typ": *
 #import "els-utils.typ": *
@@ -43,17 +43,17 @@
   set text(size: font-size.normal, font: "New Computer Modern")
 
   // Conditional formatting
-  let els-linespace = if format == "review" {linespace.review} else {linespace.preprint}
+  let els-linespace = if format.contains("review") {linespace.review} else {linespace.preprint}
 
-  let els-margin = if format == "review" {margins.review}
-  else if format == "preprint" {margins.preprint}
-  else if format == "1p" {margins.one_p}
-  else if format == "3p" {margins.three_p}
-  else if format == "5p" {margins.five_p}
+  let els-margin = if format.contains("review") {margins.review}
+  else if format.contains("preprint") {margins.preprint}
+  else if forma.contains("1p") {margins.one_p}
+  else if format.contains("3p") {margins.three_p}
+  else if format.contains("5p") {margins.five_p}
   else {margins.review}
 
-  let els-columns = if format == "1p" {1}
-  else if format == "5p" {2}
+  let els-columns = if format.contains("1p") {1}
+  else if format.contains("5p") {2}
   else {if numcol > 2 {2} else {if numcol <= 0  {1} else {numcol}}}
 
   // Heading
