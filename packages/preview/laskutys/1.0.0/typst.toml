@@ -14,7 +14,7 @@ exclude = ["tests/**", ".vscode/**", "rust_tools/target/**", ".github/**"]
 
 [template]
 path = "template"
-entrypoint = "template/main.typ"
+entrypoint = "main.typ"
 thumbnail = "docs/images/thumbnail.webp"
 
 [tool.packager]
