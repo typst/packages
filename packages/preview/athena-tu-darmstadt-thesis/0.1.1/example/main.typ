@@ -1,4 +1,3 @@
-
 #import "@preview/athena-tu-darmstadt-thesis:0.1.1": *
 
 // setup the template
@@ -17,7 +16,9 @@
     Institute ABC
   ],
 
-  logo_tuda: image("logos/tuda_logo.svg"),
+  // TODO: download actual log and convert according to README,
+  // then replace with image("logos/tuda_logo.svg")
+  logo_tuda: image("logos/tuda_logo_replace.svg"),
   accentcolor: "9c",
  
   abstract: [
@@ -65,9 +66,9 @@
 
   // pages after outline that will not be included in the outline
   additional_pages_after_outline_table_of_contents: [
-    == List of Symbols
+    === List of Symbols
     - $t$ - time
-    == List of Figures
+    - $m$ - mass
   ]
 )
 

@@ -109,6 +109,9 @@
         // sub block with reviewers and other text
         block(inset: (left: title_page_inner_margin_left))[
           #set text(size: 12pt)
+          #set par(
+            leading: 5.8pt
+          )
           #title_german
           \
           #set text(weight: "regular")
@@ -121,7 +124,7 @@
             #(i+1). Review: #reviewer_name
             \
           ]
-          #v(-5pt) // spacing optional
+          #v(-8pt) // spacing optional
           #location
         ],
         v(15pt)
