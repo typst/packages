@@ -101,8 +101,8 @@
     margin: (
       top: top_margin,
       bottom: bottom_margin,
-      left: 0cm,
-      right: 0cm
+      left: 32mm,
+      right: 32mm
     ),
   ) 
 
