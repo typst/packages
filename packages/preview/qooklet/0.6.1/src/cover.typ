@@ -1,5 +1,4 @@
-#import "dependencies.typ": default-info, default-styles
-#import "common.typ": book-state, book-style
+#import "common.typ": *
 
 #let cover-style(body, styles: default-styles) = {
   book-state.update(true)
@@ -20,32 +19,38 @@
 
   align(center + horizon, [
     #text(
+      title,
       size: styles.sizes.at(lang).cover * 1pt,
       font: styles.fonts.at(lang).cover,
       weight: "bold",
-      title,
     )
     #v(1em)
     #text(
+      author,
       size: styles.sizes.at(lang).author * 1pt,
       font: styles.fonts.at(lang).author,
-      author,
     )
     #v(1em)
-    #text(size: styles.sizes.at(lang).date * 1pt, font: styles.fonts.at(lang).date, date.display())
+    #text(
+      date.display(),
+      size: styles.sizes.at(lang).date * 1pt,
+      font: styles.fonts.at(lang).date,
+    )
   ])
 }
 
 #let epigraph(
-  info,
   body,
+  info: default-info,
+  styles: default-styles,
 ) = {
   show: cover-style
 
   let lang = info.lang
   align(center + horizon, text(
+    body,
     size: styles.sizes.at(lang).epigraph * 1pt,
     font: styles.fonts.at(lang).epigraph,
-    body,
   ))
 }
+

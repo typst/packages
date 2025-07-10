@@ -1,4 +1,3 @@
-#import "dependencies.typ": default-info, default-names, default-styles
 #import "common.typ": *
 
 #let front-matter-style(body, styles: default-styles) = {
@@ -48,14 +47,23 @@
   pagebreak(to: "odd")
 }
 
-#let part-page(title, lang: "en", styles: default-styles) = {
+#let part-page(
+  title,
+  info: default-info,
+  styles: default-styles,
+) = {
   show: front-matter-style
   show: book-style.with(styles: styles)
-
   show figure.caption: none
 
+  let lang = info.lang
+
   align(center + horizon, figure(
-    text(size: styles.sizes.at(lang).part, font: styles.fonts.at(lang).part, strong(title)),
+    text(
+      strong(title),
+      size: styles.sizes.at(lang).part * 1pt,
+      font: styles.fonts.at(lang).part,
+    ),
     kind: "part",
     supplement: none,
     numbering: _ => none,
