@@ -12,5 +12,5 @@ entrypoint = "package.typ"
 
 [template]
 path = "template"
-entrypoint = "main.typ"
+entrypoint = "cv.typ"
 thumbnail = "thumbnail.png"
