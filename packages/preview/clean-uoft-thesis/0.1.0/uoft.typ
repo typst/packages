@@ -313,7 +313,7 @@
 
   show heading: it => block(width: 100%)[
     #set text(weight: "regular")
-    #(it.body)
+    #(it)
   ]
 
   check_valid_degree(degree)
