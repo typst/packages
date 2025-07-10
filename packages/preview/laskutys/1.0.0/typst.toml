@@ -10,7 +10,13 @@ compiler = "0.13.1"
 license = "MIT-0"
 categories = ["office"]
 disciplines = ["business"]
-exclude = ["tests/**", ".vscode/**", "rust_tools/target/**", ".github/**"]
+exclude = [
+    "tests/**",
+    ".vscode/**",
+    "rust_tools/target/**",
+    ".github/**",
+    "examples/**",
+]
 
 [template]
 path = "template"
