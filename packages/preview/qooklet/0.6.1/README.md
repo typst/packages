@@ -113,7 +113,7 @@ The booklet mode will be activated after calling `cover()`
 
 // add a cover
 #cover(
-  info: info,
+  info,
   date: datetime.today(),
 )
 
