@@ -1,0 +1,17 @@
+[package]
+name = "alpin-cv"
+version = "0.1.0"
+authors = ["Edwin Cox <https://github.com/edwin-cox>"]
+license = "MIT"
+description = "A clean and customizable CV template"
+categories = ["cv"]
+keywords = ["CV", "Curriculum Vitae", "Resume", "Minimal", "Professional"]
+repository = "https://github.com/edwin-cox/typst-alpin-cv"
+homepage = "https://github.com/edwin-cox/typst-alpin-cv"
+exclude = ["*.pdf"]
+entrypoint = "package.typ"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
