@@ -255,7 +255,7 @@ Set `qrcode` or `barcode` to `false`:
 
 ## License
 
-The project is licensed under [MIT-license](/LICENSE).
+The project is licensed under the [MIT-0 license](/LICENSE).
 Licenses of libraries used in this project are listed in [/licenses](/licenses/).
 
 [^epc_qr]: European Payments Council, Quick Response Code: Guidelines to Enable Data Capture for the Initiation of a SEPA Credit Transfer, https://www.europeanpaymentscouncil.eu/document-library/guidance-documents/quick-response-code-guidelines-enable-data-capture-initiation
