@@ -1,0 +1,23 @@
+cab:
+  short: "cab"
+  long: "taxi cab"
+
+coo:
+  short: "COO"
+  long: "Chief Operations Officer"
+
+cuckoo:
+  short: "cuckoo"
+  long: "really crazy"
+
+delta:
+  short: "delta"
+  long: "difference between two values"
+
+dal:
+  short: "DAL"
+  long: "Delta Airlines"
+
+čr:
+  short: "ČR"
+  long: "Česká Republika"
