@@ -34,13 +34,11 @@
   info: default-info,
   styles: default-styles,
 ) = {
-  let lang = info.lang
-
-  set list(indent: styles.spaces.at(lang).list-indent * 1em)
-  set enum(indent: styles.spaces.at(lang).list-indent * 1em)
+  set list(indent: styles.spaces.list-indent * 1em)
+  set enum(indent: styles.spaces.list-indent * 1em)
   set block(
-    above: styles.spaces.at(lang).block-above * 1em,
-    below: styles.spaces.at(lang).block-below * 1em,
+    above: styles.spaces.block-above * 1em,
+    below: styles.spaces.block-below * 1em,
     radius: 20%,
   )
 

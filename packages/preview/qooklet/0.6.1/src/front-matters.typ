@@ -14,16 +14,16 @@
   styles: default-styles,
   names: default-names,
 ) = {
-  show: common-style.with(info: info)
-  show: front-matter-style
-
   let author = info.author
   let lang = info.lang
   let dir = if lang == "zh" { center } else { left }
 
+  show: common-style
+  show: front-matter-style
+
   align(dir, heading(level: 1, text(
     names.sections.at(lang).preface,
-    size: styles.sizes.at(lang).preface * 1pt,
+    size: styles.sizes.preface * 1pt,
     font: styles.fonts.at(lang).preface,
   )))
 
@@ -34,7 +34,7 @@
   }
 
   set text(
-    size: styles.sizes.at(lang).context * 1pt,
+    size: styles.sizes.context * 1pt,
     font: styles.fonts.at(lang).context,
     lang: lang,
   )
@@ -61,7 +61,7 @@
   align(center + horizon, figure(
     text(
       strong(title),
-      size: styles.sizes.at(lang).part * 1pt,
+      size: styles.sizes.part * 1pt,
       font: styles.fonts.at(lang).part,
     ),
     kind: "part",

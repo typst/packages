@@ -113,15 +113,15 @@ The booklet mode will be activated after calling `cover()`
 
 // add a cover
 #cover(
-  // info,
-  // date: datetime.today(),
+  info: info,
+  date: datetime.today(),
 )
 
-#epigraph[
+#epigraph(info: info)[
   // Add an epigraph to the document.
 ]
 
-#preface[
+#preface(info: info)[
   // Add a preface to the document.
 ]
 
@@ -140,7 +140,7 @@ The booklet mode will be activated after calling `cover()`
 ...
 
 // appendix
-#part-page[Appendix]
+#part-page(info: info)[Appendix]
 
 #show: appendix-style.with(
   title: "Appendix-title 1",
@@ -189,20 +189,16 @@ If you are not satisfied with the default styles such as font-family, font-size,
     note = "a4"
     booklet = "iso-b5"
 
-[fonts.en]
-    chapter = "Palatino"
-    chapter-index = "Palatino"
-    cover = "Palatino"
-    author = "Times New Roman"
-    date = "Times New Roman"
-    epigraph = "Georgia"
-    preface = "Georgia"
-    contents = "Georgia"
-    part = "Georgia"
-    context = "Georgia"
-    math = "Times New Roman"
+[spaces]
+    par-indent = 2
+    par-leading = 1
+    par-spacing = 1
+    list-indent = 1.2
+    block-above = 1
+    block-below = 1
+    contents-indent = 1.2
 
-[sizes.en]
+[sizes]
     chapter = 24
     chapter-index = 50
     cover = 36
@@ -220,19 +216,23 @@ If you are not satisfied with the default styles such as font-family, font-size,
     header = 8
     footer = 8
 
-[spaces.en]
-    par-indent = 2
-    par-leading = 1
-    par-spacing = 1
-    list-indent = 1.2
-    block-above = 1
-    block-below = 1
-    contents-indent = 1.2
+[fonts.en]
+    chapter = "Palatino"
+    chapter-index = "Palatino"
+    cover = "Palatino"
+    author = "Times New Roman"
+    date = "Times New Roman"
+    epigraph = "Georgia"
+    preface = "Georgia"
+    contents = "Georgia"
+    part = "Georgia"
+    context = "Georgia"
+    math = "Times New Roman"
 ```
 
 after reading this file by `toml()`, assign its value to the argument in style functions, such as `chapter-style()`, `appendix-style()`.
 
-Don't forget to change the key `lang` in your info toml metioned above!
+Don't forget to change the key `lang` in your info toml metioned above.
 
 For more details, see [examples.typ](https://github.com/ivaquero/typst-qooklet/blob/main/examples/example.pdf) and [examples-book.typ](https://github.com/ivaquero/typst-qooklet/blob/main/examples/example-book.pdf).
 

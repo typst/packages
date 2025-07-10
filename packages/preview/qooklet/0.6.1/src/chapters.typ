@@ -24,7 +24,7 @@
 ) = {
   let the-title = text(
     title,
-    size: styles.sizes.at(lang).chapter * 1pt,
+    size: styles.sizes.chapter * 1pt,
     font: styles.fonts.at(lang).chapter,
     style: "italic",
     weight: "bold",
@@ -58,7 +58,7 @@
       line(angle: 90deg, length: 100%),
       pad(text(
         chapter-idx,
-        size: styles.sizes.at(lang).chapter-index * 1pt,
+        size: styles.sizes.chapter-index * 1pt,
         font: styles.fonts.at(lang).chapter-index,
         weight: "bold",
       )),
@@ -79,22 +79,20 @@
 
 #let heading-size-style(
   x,
-  info: default-info,
+  lang: "en",
   styles: default-styles,
 ) = {
-  let lang = info.lang
-
   show heading.where(level: 1): set text(
-    size: styles.sizes.at(lang).heading-1 * 1pt,
+    size: styles.sizes.heading-1 * 1pt,
   )
   show heading.where(level: 2): set text(
-    size: styles.sizes.at(lang).heading-2 * 1pt,
+    size: styles.sizes.heading-2 * 1pt,
   )
   show heading.where(level: 3): set text(
-    size: styles.sizes.at(lang).heading-3 * 1pt,
+    size: styles.sizes.heading-3 * 1pt,
   )
   show heading.where(level: 4): set text(
-    size: styles.sizes.at(lang).heading-4 * 1pt,
+    size: styles.sizes.heading-4 * 1pt,
   )
   x
   v(1em, weak: true)
@@ -138,37 +136,37 @@
     message: "depth can only be either 1, 2 or 3",
   )
 
-  show: common-style.with(info: info)
-  show: book-style.with(styles: styles)
-
   let header = info.header
   let footer = info.footer
   let lang = info.lang
 
+  show: common-style
+  show: book-style.with(styles: styles)
+
   set par(
     first-line-indent: (
-      amount: styles.spaces.at(lang).par-indent * 1em,
+      amount: styles.spaces.par-indent * 1em,
       all: if lang == "zh" { true } else { false },
     ),
     justify: true,
-    leading: styles.spaces.at(lang).par-leading * 1em,
-    spacing: styles.spaces.at(lang).par-spacing * 1em,
+    leading: styles.spaces.par-leading * 1em,
+    spacing: styles.spaces.par-spacing * 1em,
   )
 
   set text(
-    size: styles.sizes.at(lang).context * 1pt,
+    size: styles.sizes.context * 1pt,
     font: styles.fonts.at(lang).context,
     lang: lang,
   )
 
   set page(
     header: context {
-      set text(size: styles.sizes.at(lang).header * 1pt)
+      set text(size: styles.sizes.header * 1pt)
       align-odd-even(header, emph(hydra(1)), hide: true)
       line(length: 100%)
     },
     footer: context {
-      set text(size: styles.sizes.at(lang).footer * 1pt)
+      set text(size: styles.sizes.footer * 1pt)
       let page_num = here().page()
       align-odd-even(footer, page_num)
     },
@@ -176,7 +174,7 @@
 
   align(center, chapter-title(title, lang: lang, prefix: prefix))
 
-  show heading: heading-size-style.with(info: info, styles: styles)
+  show heading: heading-size-style.with(lang: lang, styles: styles)
   set heading(numbering: (..numbers) => heading-numbering(
     ..numbers,
     prefix: prefix,

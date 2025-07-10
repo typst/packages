@@ -4,19 +4,17 @@
 #let contents-style(
   body,
   depth: 2,
-  info: default-info,
+  lang: "en",
   names: default-names,
   styles: default-styles,
 ) = {
   assert(depth in (1, 2), message: "depth can only be either 1 or 2")
 
-  let lang = info.lang
-
   show: book-style.with(styles: styles)
   show link: set text(black)
   show heading.where(level: 1): it => {
     set text(
-      size: styles.sizes.at(lang).contents * 1pt,
+      size: styles.sizes.contents * 1pt,
       font: styles.fonts.at(lang).contents,
     )
     it
@@ -83,7 +81,9 @@
   info: default-info,
   styles: default-styles,
 ) = {
-  show: contents-style.with(depth: depth, info: info, styles: styles)
+  let lang = info.lang
+
+  show: contents-style.with(lang: lang, depth: depth, styles: styles)
   outline(
     target: selector(heading).or(fig-part).or(fig-chapter).or(fig-appendix),
     depth: depth,
