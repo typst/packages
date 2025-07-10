@@ -17,7 +17,7 @@ The following files are found within the `content/` directory:
 ## `main.typ`
 
 This is the file which yields the complete thesis upon compilation.
-Settings that adjust the formatting of the thesis are also placed here.
+Settings that adjust the formatting of the thesis are also placed in the main `#show: uoft.with(...)` call here.
 
 ## `body.typ`
 
@@ -33,7 +33,7 @@ Feel free to adjust the organization or included components of this file as you 
 ## `abstract.typ` and `acknowledgements.typ`
 
 The abstract and acknowledgement sections are the only content files whose positions in the thesis are not controlled within `body.typ`.
-The abstract and optionally the acknowledgements will be automatically added into the thesis upon compilation of `main.typ`.
+They are instead passed into the `#show: uoft.with(...)` statement in `main.typ`.
 Do not manually `#include()` these files into `body.typ`.
 
 ## `references.bib`

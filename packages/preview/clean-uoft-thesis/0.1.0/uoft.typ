@@ -123,7 +123,8 @@
 //  // }}}
 
 // init_abstract() // {{{
-#let init_abstract(title,
+#let init_abstract(abstract,
+                   title,
                    author,
                    degree,
                    department,
@@ -131,7 +132,6 @@
 
   show heading: set block(above: 0em, below: 1em)
 
-  let abstract = [#include("content/abstract.typ")]
   let wc = word-count-of(abstract).words
 
   let within_d_lim = (int(wc) <= 350)
@@ -179,17 +179,17 @@
 //  // }}}
 
 // init_acknowledgements() // {{{
-#let init_acknowledgements() = {
+#let init_acknowledgements(acknowledgements) = {
   show heading: set block(above: 0em, below: 1em)
   heading("Acknowledgements")
-  include("content/acknowledgements.typ")
+  acknowledgements
 }
 //  // }}}
 
-// init_main() // {{{
-#let init_main() = {
+// init_body() // {{{
+#let init_body(body) = {
   set heading(numbering: "1.1.1.a")
-  include("content/body.typ")
+  body
 }
 //  // }}}
 
@@ -279,6 +279,9 @@
           department: [*missing_param_department*],
           degree: [*missing_param_degree*],
           graduation_year: [*missing_param_year*],
+          abstract: [],
+          acknowledgements: [],
+          body: [],
           show_acknowledgements: true,
           show_list_of_tables: true,
           show_list_of_plates: false,
@@ -335,6 +338,7 @@
   set page(numbering: "i")
 
   init_abstract(
+    abstract,
     title,
     author,
     degree,
@@ -347,7 +351,7 @@
   pagebreak()
 
   if (show_acknowledgements) {
-    init_acknowledgements()
+    init_acknowledgements(acknowledgements)
     pagebreak()
   }
 
@@ -378,7 +382,7 @@
   set page(numbering: "1")
   counter(page).update(1)
 
-  init_main()
+  init_body(body)
 
   doc
   //set page(margin: 10cm)

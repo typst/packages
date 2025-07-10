@@ -6,5 +6,8 @@
   department: "Physiology",
   degree: "Doctor of Philosophy",
   graduation_year: "2025",
+  abstract: include("abstract.typ"),
+  acknowledgements: include("acknowledgements.typ"),
+  body: include("body.typ"),
   font_size: 12pt
 )
