@@ -1,0 +1,8 @@
+[package]
+name = "burik"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Gabin Calmet"]
+license = "MIT"
+description = "Anatomy of a Font. Visualise metrics."
+exclude = ["example.pdf", "example.typ"]
