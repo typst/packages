@@ -1,0 +1,21 @@
+[package]
+name = "fibber"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Gautham Ramanarayanan"]
+license = "MIT"
+description = "Draw microfabrication process diagrams in typst."
+repository = "https://github.com/gauthamrmn/fibber"
+keywords = [
+    "diagram",
+    "microfabrication",
+    "fabrication",
+]
+categories = ["components"]
+disciplines = ["engineering"]
+exclude = [
+    "examples/*",
+    "examples/",
+]
+
+[tool]
