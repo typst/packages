@@ -102,7 +102,7 @@
       counter(page).at(value.location())
     }
 
-    if chapter-location.len() == 0 { return }
+    if chapter-location == none or chapter-location.len() == 0 { return }
     let current = counter(page).get().first()
     let last = counter(page).final()
 
