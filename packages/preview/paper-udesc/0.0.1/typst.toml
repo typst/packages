@@ -1,0 +1,24 @@
+[package]
+name = "paper-udesc"
+version = "0.0.1"
+entrypoint = "src/lib.typ"
+authors = ["Lucas Vinícius Bublitz <https://bublitz.art.br>"]
+description = "An Udesc-style academic paper template"
+repository = "https://github.com/lucas-bublitz/UDESC"
+license = "LGPL-2.1"
+categories = ["paper"]
+keywords = [
+    "UDESC",
+    "TCC",
+    "ABNT",
+    "tese"
+]
+compiler = "0.13.1"
+disciplines = ["computer-science", "engineering"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+[tool]
