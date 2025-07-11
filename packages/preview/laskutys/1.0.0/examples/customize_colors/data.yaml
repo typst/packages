@@ -1,0 +1,23 @@
+- description: Apple
+  quantity: 10
+  unit_price: "2"
+  vat_rate: "0.14"
+
+- description: Battery AA
+  quantity: 2
+  unit_price: "2"
+  vat_rate: "0.255"
+
+- description: Newspaper
+  quantity: 3
+  unit_price: "9.99"
+  vat_rate: "0.10"
+
+- description: Phone
+  quantity: 1
+  unit_price: "10000"
+  vat_rate: "0"
+
+- description: Item with default VAT
+  quantity: 3
+  unit_price: "10"
