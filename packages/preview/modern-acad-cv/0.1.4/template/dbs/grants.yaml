@@ -1,0 +1,54 @@
+grant3:
+  title:
+    de: Forschungsreisestipendium
+    en: Research Travel Grant
+    pt: Bolsa de Pesquisa para Viagem
+  subtitle:
+    de: Alexander von Humboldt-Stiftung
+    en: Alexander von Humboldt Foundation
+    pt: Fundação Alexander von Humboldt
+  location:
+    de: Brasilien
+    en: Brazil
+    pt: Brasil
+  left: "2024"
+  description:
+    de: "Fördersumme: 1.250 Euro"
+    en: "amount: 1,250 Euros"
+    pt: "valor: 1.250 Euros"
+grant2:
+  title:
+    de: Konferenzteilnahme-Stipendium
+    en: Conference Participation Grant
+    pt: Bolsa de Participação em Conferências
+  subtitle:
+    de: Fritz Thyssen Stiftung
+    en: Fritz Thyssen Foundation
+    pt: Fundação Fritz Thyssen
+  location:
+    de: Jahrestagung der Deutschen Vereinigung für Politikwissenschaft, Universität zu Köln
+    en: Annual Meeting of the German Political Science Association, University of Cologne
+    pt: Encontro Anual da Associação Alemã de Ciência Política, Universidade de Colônia
+  left: "2023"
+  description:
+    de: "Fördersumme: 1.500 Euro"
+    en: "amount: 1,500 Euros"
+    pt: "valor: 1.500 Euros"
+grant1:
+  title:
+    de: Sachbeihilfe
+    en: Research Grant
+    pt: Bolsa de Pesquisa
+  subtitle:
+    de: Deutsche Forschungsgemeinschaft (DFG)
+    en: German Research Foundation (DFG)
+    pt: Fundação Alemã de Pesquisa (DFG)
+  location:
+    de: 'Forschungsprojekt: "Demokratisierung in Autoritären Regimen", Freie Universität Berlin'
+    en: 'Research Project: "Democratization in Authoritarian Regimes," Freie Universität Berlin'
+    pt: 'Projeto de Pesquisa: "Democratização em Regimes Autoritários," Universidade Livre de Berlim'
+  left: "2022"
+  description:
+    de: "Fördersumme: 380.000 Euro"
+    en: "amount: 380,000 Euros"
+    pt: "valor: 380.000 Euros"

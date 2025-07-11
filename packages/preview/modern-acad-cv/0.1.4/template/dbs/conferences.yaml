@@ -1,0 +1,22 @@
+"2024":
+  conference2:
+    name: European Conference on Gender and Politics
+    action: P
+  conference1:
+    name: ECPR General Conference
+    action: P, C
+"2023":
+  conference3:
+    name: International Conference on Political Theory
+    action: P, C
+  conference2:
+    name: Annual Meeting of the American Political Science Association (APSA)
+    action: P
+  conference1:
+    name: Comparative Politics Workshop, European University Institute
+    action: P
+"2022":
+  conference1:
+    name: Global Forum on Democratic Innovation
+    action: P
+
