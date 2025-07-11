@@ -11,7 +11,7 @@ I suggest to also take a look at the [drafting package](https://typst.app/univer
 The package provides a `todo(message, position: auto | left | right)` method. Call it anywhere you need a todo message.
 
 ```typst
-#import "@preview/dashy-todo": todo
+#import "@preview/dashy-todo:0.1.0": todo
 
 // It automatically goes to the closer side (left or right)
 A todo on the left #todo[On the left].
