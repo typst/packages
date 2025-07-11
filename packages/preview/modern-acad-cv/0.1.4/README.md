@@ -158,7 +158,7 @@ For example, to get work entries, you choose `work`, which you defined beforehan
 ```
 
 ### Sorting publications and referencing your own name or correpsonding
-Since `typst` so far does not support multiple bibliographies or subsetting these, this function let you choose specific entries via the `entries` argument or group of entries by the `tag` argument. Furthermore, you can indicate a string in `me` that can be highlighted in every output entry (i.e., your formatted name). So far, this function leads to another function that create APA-style format, if you want to use any other citation style, you need to download the template on [github](https://github.com/bpkleer/modern-acad-cv), introduce your own styling and then add it in the `cv-refs()` function. 
+Since `typst` so far does not support multiple bibliographies or subsetting these, this function let you choose specific entries via the `entries` argument or group of entries by the `tag` argument. Furthermore, you can indicate a content in `me` that can be highlighted in every output entry (i.e., your formatted name). If you have different publication names, you can also provide an array of content for `me`, i.e. `([Mustermensch, M.], [Person, M.])`. So far, this function leads to another function that create APA-style format, if you want to use any other citation style, you need to download the template on [github](https://github.com/bpkleer/modern-acad-cv), introduce your own styling and then add it in the `cv-refs()` function. 
 
 ```typst
 #let multilingual = yaml("dbs/multilingual.yaml")
@@ -166,6 +166,9 @@ Since `typst` so far does not support multiple bibliographies or subsetting thes
 
 // function call of group of peer-reviewed with tag `peer`
 #cv-refs(refs, multilingual, tag: "peer", me: [Mustermensch, M.], lang: language)
+
+// function call of group of peer-reviewed with tag `peer` and with array of contents for different publication names
+#cv-refs(refs, multilingual, tag: "peer", me: ([Mustermensch, M.], [Person, M.]), lang: language)
 ```
 
 You see in the example pictures that I used this function to built five different subheaders, i.e. for peer reviewed articles (`tag: "peer"`) and chapters in edited books (`tag: "edited"`). You can define the tags how you want, however, they need to put them into `tag: <str>`. 

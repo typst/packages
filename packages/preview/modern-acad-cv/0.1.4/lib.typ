@@ -633,12 +633,14 @@
       let parts = auths.at(index).split(", ")
       let author = text(parts.at(0) + ", " + parts.at(1).first() + ".")
 
-      // Highlight the author's name if it matches `me`.
-      if not me == none and author == me {
-        if "corresponding" in fields and fields.corresponding == true {
-          author = strong(me + super("C"))  // Add a superscript "C" for corresponding author.
-        } else {
-          author = strong(me)
+      // Highlight the author's name if it matches `me` or one of the names in the array `me`
+      if not me == none {
+        if author == me or type(me) == array and author in me {
+          if "corresponding" in fields and fields.corresponding == true {
+            author = strong(author + super("C"))  // Add a superscript "C" for corresponding author.
+          } else {
+            author = strong(author)
+          }
         }
       }
       formatted_authors.push(author)
