@@ -44,12 +44,11 @@
       // 当选项为图片时,设置百分比宽度使用mesure获取宽度时为0pt
       let _choice-width = none
       if result.func() == image {
-        result = box(baseline: 40%, result)
         // 设置百分比宽度的处理
-        let result-body = result.body
-        if result-body.has("width") and result-body.width.length == 0pt {
-          _choice-width = result.body.width.ratio * container.width
+        if result.has("width") and result.width.length == 0pt {
+          _choice-width = result.width.ratio * container.width
         }
+        result = box(baseline: 40%, result)
         arr.at(index) = h(indent) + numbering(label, index + 1) + h(body-indent) + result
       }
 
