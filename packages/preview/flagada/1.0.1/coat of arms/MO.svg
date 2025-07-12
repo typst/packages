@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="384.375"
+   height="316.875"
+   viewBox="-1440 -960 1230 1014"
+   version="1.1"
+   id="svg24"
+   sodipodi:docname="MO.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview24"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.385"
+     inkscape:cx="192.41877"
+     inkscape:cy="149.09747"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg24" />
+  <defs
+     id="defs10">
+    <clipPath
+       id="b">
+      <path
+         d="M -224,0 H 224 V 400 H -224 Z"
+         id="path1" />
+    </clipPath>
+    <clipPath
+       id="o4">
+      <circle
+         cx="-158"
+         cy="-149"
+         r="324.5"
+         id="circle1" />
+    </clipPath>
+    <clipPath
+       id="o3">
+      <circle
+         cx="-199"
+         cy="-118"
+         r="324.5"
+         id="circle2" />
+    </clipPath>
+    <clipPath
+       id="o2">
+      <circle
+         cx="-212"
+         cy="-100"
+         r="324.5"
+         id="circle3" />
+    </clipPath>
+    <clipPath
+       id="o1">
+      <circle
+         cy="-38"
+         r="576"
+         id="circle4"
+         cx="0" />
+    </clipPath>
+    <clipPath
+       id="o6">
+      <circle
+         cx="-182"
+         cy="-96"
+         r="324.5"
+         id="circle5" />
+    </clipPath>
+    <clipPath
+       id="o7">
+      <circle
+         cx="-213"
+         cy="-91"
+         r="324.5"
+         id="circle6" />
+    </clipPath>
+    <clipPath
+       id="o8">
+      <circle
+         cx="-234"
+         cy="-64"
+         r="324.5"
+         id="circle7" />
+    </clipPath>
+    <g
+       id="s">
+      <g
+         id="B">
+        <path
+           id="A"
+           d="M 0,0 V 1 H 0.5 Z"
+           fill="#ffde23"
+           transform="rotate(18,3.1568758,-0.5)" />
+        <use
+           xlink:href="#A"
+           transform="scale(-1,1)"
+           id="use7" />
+      </g>
+      <g
+         id="C">
+        <use
+           xlink:href="#B"
+           transform="rotate(72)"
+           id="use8" />
+        <use
+           xlink:href="#B"
+           transform="rotate(-144)"
+           id="use9" />
+      </g>
+      <use
+         xlink:href="#C"
+         transform="rotate(72)"
+         id="use10" />
+    </g>
+  </defs>
+  <g
+     clip-path="url(#b)"
+     fill="#ffffff"
+     id="g11"
+     transform="translate(-825,-484)">
+    <circle
+       cx="-209"
+       cy="-7"
+       r="324.5"
+       id="circle10" />
+    <circle
+       cx="209"
+       cy="-7"
+       r="324.5"
+       id="circle11" />
+  </g>
+  <circle
+     cx="-601"
+     cy="-523"
+     r="324.5"
+     fill="#0f7562"
+     id="circle12" />
+  <circle
+     cx="-1049"
+     cy="-523"
+     r="324.5"
+     fill="#0f7562"
+     id="circle13" />
+  <g
+     clip-path="url(#o1)"
+     fill="#ffffff"
+     id="g13"
+     transform="translate(-825,-484)">
+    <path
+       d="m -500,285.5 h 291 v 32 h -291 z m 0,65 H 500 v 16 H -500 Z m 0,49 H 500 v 25 H -500 Z m 0,50 H 500 v 32 H -500 Z m 0,48 H 500 v 50 H -500 Z M 500,285.5 H 209 v 32 h 291 z"
+       id="path13" />
+  </g>
+  <circle
+     cx="158"
+     cy="-149"
+     r="324.5"
+     clip-path="url(#o4)"
+     fill="#ffffff"
+     id="circle14"
+     transform="translate(-825,-484)" />
+  <circle
+     cx="199"
+     cy="-118"
+     r="324.5"
+     clip-path="url(#o3)"
+     fill="#0f7562"
+     id="circle15"
+     transform="translate(-825,-484)" />
+  <circle
+     cy="-830"
+     r="130"
+     fill="#0f7562"
+     id="circle16"
+     cx="-825" />
+  <circle
+     cx="212"
+     cy="-100"
+     r="324.5"
+     clip-path="url(#o2)"
+     fill="#ffffff"
+     id="circle17"
+     transform="translate(-825,-484)" />
+  <g
+     id="h"
+     transform="translate(-825,-484)">
+    <circle
+       cx="-379"
+       cy="307"
+       r="381.5"
+       clip-path="url(#o8)"
+       fill="#ffffff"
+       id="circle18" />
+    <circle
+       cx="-370"
+       cy="343"
+       r="381.5"
+       clip-path="url(#o7)"
+       fill="#0f7562"
+       id="circle19" />
+    <circle
+       cx="-485"
+       cy="21"
+       r="130"
+       fill="#0f7562"
+       id="circle20" />
+    <g
+       clip-path="url(#o8)"
+       fill="#ffffff"
+       id="g21">
+      <circle
+         cx="-339"
+         cy="372"
+         r="381.5"
+         clip-path="url(#o6)"
+         id="circle21" />
+      <path
+         d="m -100,50 60,50 h 50 v 100 h -60 z"
+         id="path21" />
+    </g>
+  </g>
+  <use
+     xlink:href="#h"
+     transform="matrix(-1,0,0,1,-1650,0)"
+     id="use23" />
+</svg>
