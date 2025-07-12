@@ -1,0 +1,15 @@
+[package]
+name = "biz-cv"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["chin"]
+description = "resume for business professionals"
+repository = "https://github.com/chinpeerapat/biz-cv"
+keywords = ["cv", "resume", "professional", "business", "ATS"]
+categories = ["cv"]
+disciplines = ["business"]
+license = "MIT"
+
+[template]
+path = "."
+entrypoint = "resume.typ"
