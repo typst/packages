@@ -16,6 +16,7 @@ disciplines = ["engineering"]
 exclude = [
     "examples/*",
     "examples/",
+    "src/*.pdf",
 ]
 
 [tool]
