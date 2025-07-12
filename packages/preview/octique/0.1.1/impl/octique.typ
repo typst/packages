@@ -332,8 +332,8 @@
 
 // Returns decoded image for name
 #let _octique-image(name, color: rgb("#000000"), width: 1em, height: 1em) = {
-  image.decode(
-    _octique-svg(name).replace("#000000", color.to-hex()),
+  image(
+    bytes(_octique-svg(name).replace("#000000", color.to-hex())),
     width: width,
     height: height,
     alt: name,
