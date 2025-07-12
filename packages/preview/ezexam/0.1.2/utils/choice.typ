@@ -27,9 +27,17 @@
     for index in range(choice-number) {
       // 加[] 是为了将内容转为content,有可能咋使用时直接传入整数
       let result = [#arr.at(index)]
+      arr.at(index) = enum(
+        indent: indent,
+        body-indent: body-indent,
+        numbering: _ => numbering(label, index + 1),
+        result,
+      )
+
       // 选项为表格的处理
       if result.func() == table {
-        result = box(baseline: 40%, result, inset: (left: body-indent))
+        result = box(baseline: 40%, inset: (left: body-indent), result)
+        arr.at(index) = h(indent) + numbering(label, index + 1) + h(body-indent) + result
       }
 
       // 选项为图片的处理
@@ -42,14 +50,8 @@
         if result-body.has("width") and result-body.width.length == 0pt {
           _choice-width = result.body.width.ratio * container.width
         }
+        arr.at(index) = h(indent) + numbering(label, index + 1) + h(body-indent) + result
       }
-
-      arr.at(index) = enum(
-        indent: indent,
-        body-indent: body-indent,
-        numbering: _ => numbering(label, index + 1),
-        result,
-      )
 
       let item-width = measure(arr.at(index)).width
       if _choice-width == none {
