@@ -63,7 +63,7 @@
     block(height: 1fr)[
       #rect(width: 100%, height: 1fr, fill: aqua, inset: 0pt)[
         #align(right, [
-          #image("assets/logo.svg", width: 75%)
+          #image("template/assets/logo.svg", width: 75%)
         ])
       ]
       #text(font: "Georgia", size: 20pt, fill: marine, [
@@ -96,7 +96,7 @@
           columns: (70pt, 30%, 1fr),
           gutter: 5pt,
           rect(width: 100%, inset: (left: 3pt, right: 0pt, y: 0pt), fill: aqua, [
-            #image("assets/logo.svg")
+            #image("template/assets/logo.svg")
           ]),
           rect(stroke: (top: 2pt + aqua, bottom: 2pt + aqua), width: 100%, height: 45.5pt)[
             #align(horizon, [
