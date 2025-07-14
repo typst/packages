@@ -37,7 +37,7 @@
       continue
     }
     else {
-      affiliations.push((super(new-author.id), new-author.affiliation, v(font-size.script)).join())
+      affiliations.push((super(new-author.id), new-author.affiliation, linebreak()).join())
     }
   }
 
