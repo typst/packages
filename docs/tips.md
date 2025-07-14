@@ -31,7 +31,7 @@ Git will replace the copied files with a submodule.
 
 In some case, simply copying and pasting the contents of the repository in which
 you developed your package to a new directory in this repository is enough to
-publish a package. However, this naive approach may result in unecessary files
+publish a package. However, this naive approach may result in unnecessary files
 being included, making the size of this repository and of the final archives
 larger than they need to be.
 
