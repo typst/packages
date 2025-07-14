@@ -2,7 +2,7 @@
 
 [package]
 name = "clickworthy-resume"
-version = "0.1.0"
+version = "1.0.0"
 entrypoint = "src/lib.typ"
 authors = ["Abdullah Hendy <https://github.com/AbdullahHendy>"]
 license = "MIT"
