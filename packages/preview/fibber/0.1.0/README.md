@@ -17,7 +17,7 @@ Import like so
 ```
 #import "@preview/fibber:0.1.0"
 ```
-See examples in the examples directory.
+See examples in the [examples directory](https://github.com/gauthamrmn/fibber/tree/main/0.1.0/examples).
 Overall, diagram data is created using the `#device-steps` function.
 
 ```
