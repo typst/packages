@@ -17,7 +17,7 @@ Among other things, this template features:
 
 ## Usage
 
-See [API documentation](/docs/api.md) for all arguments.
+See [API documentation](./docs/api.md) for all arguments.
 
 ```typst
 #import "@preview/laskutys:1.0.0": invoice
@@ -33,10 +33,10 @@ See [API documentation](/docs/api.md) for all arguments.
   bic: "NDEAFIHH",
   seller: (
     name: "Yritys Oy",
-    business_id: "1234567-8",
+    business-id: "1234567-8",
     address: [Talousosasto\ PL 12\ 00100 Helsinki],
   ),
-  /// Recipient can also have business_id
+  /// Recipient can also have business-id
   recipient: (
     name: "Kuluttaja Nimi",
     address: [Kotikatu 1\ 00100 Helsinki],
@@ -56,36 +56,36 @@ YAML data of items:
 - description: Ruoka
   quantity: 10
   # Unit price including VAT
-  unit_price: "2"
-  vat_rate: "0.14"
+  unit-price: "2"
+  vat-rate: "0.14"
 
 - description: AA paristo
   quantity: 2
-  unit_price: "1.99"
-  vat_rate: "0.255"
+  unit-price: "1.99"
+  vat-rate: "0.255"
 
 - description: Sanomalehti
   quantity: 3
-  unit_price: "9.99"
-  vat_rate: "0.10"
+  unit-price: "9.99"
+  vat-rate: "0.10"
 
 - description: "!Phone"
   quantity: 1
-  unit_price: "1000"
+  unit-price: "1000"
 
   # \_ is non breaking space
 - description: "Sijoituskulta, AVL\_43\_a\_§"
   quantity: 3
-  unit_price: "10"
-  vat_rate: "0"
+  unit-price: "10"
+  vat-rate: "0"
 
 ```
 
 Output of the above code:
-![Example generated invoice](/docs/images/thumbnail.webp)
+![Example generated invoice](./docs/images/thumbnail.webp)
 
 > [!IMPORTANT]
-> Pass `unit_price` and `vat_rate` as string, so that they can be converted to decimal without errors.
+> Pass `unit-price` and `vat-rate` as string, so that they can be converted to decimal without errors.
 > This avoids rounding errors due to imprecision of floating-point numbers.
 
 The data can also be defined directly in Typst as an array:
@@ -95,19 +95,19 @@ The data can also be defined directly in Typst as an array:
   (
     description: "Apple",
     quantity: 10,
-    unit_price: "2",
-    vat_rate: "0.14",
+    unit-price: "2",
+    vat-rate: "0.14",
   ),
   (
     description: "Battery AA",
     quantity: 2,
-    unit_price: "2",
-    vat_rate: "0.255",
+    unit-price: "2",
+    vat-rate: "0.255",
   ),
   (
     description: "Item with default VAT",
     quantity: 3,
-    unit_price: "10",
+    unit-price: "10",
   ),
 ),
 ```
@@ -116,40 +116,40 @@ You can also use other [loader functions](https://typst.app/docs/reference/data-
 
 ## Documentation
 
-- [API](/docs/api.md)
-- [Development](/docs/development.md)
-- [Architecture](/docs/architecture.md)
-- [Color presets](/docs/color_presets.md)
+- [API](./docs/api.md)
+- [Development](./docs/development.md)
+- [Architecture](./docs/architecture.md)
+- [Color presets](./docs/color_presets.md)
 
 ## Examples
 
 ### Customize colors
 
 ```typst
-#import "@preview/laskutys:1.0.0": DEFAULT_COLORS, invoice
+#import "@preview/laskutys:1.0.0": DEFAULT-COLORS, invoice
 
 #let data = yaml("data.yaml")
 
 #invoice(
   ...
   colors: (
-    ..DEFAULT_COLORS
+    ..DEFAULT-COLORS
     active: blue,
-    bg_passive: teal.lighten(85%),
+    bg-passive: teal.lighten(85%),
     passive: teal,
   ),
   data,
 )
 ```
 
-[![Changing colors](/docs/images/example_customize_colors.svg)](/examples/customize_colors/main.typ)
+[![Changing colors](./docs/images/example_customize_colors.svg)](./examples/customize_colors/main.typ)
 
 > [!TIP]
-> The `DEFAULT_COLORS` is needed if you don't want to override all colors.
+> The `DEFAULT-COLORS` is needed if you don't want to override all colors.
 > You can also override any other preset similarly.
 
-See Typst [documentation](https://typst.app/docs/reference/visualize/color/) for more colors and [API documentation](/docs/api.md)  for configurable colors.
-There are also some presets available, see [Color presets](/docs/color_presets.md).
+See Typst [documentation](https://typst.app/docs/reference/visualize/color/) for more colors and [API documentation](./docs/api.md)  for configurable colors.
+There are also some presets available, see [Color presets](./docs/color_presets.md).
 
 ### Change language
 
@@ -197,7 +197,7 @@ bic: OKOYFIHH
 
 seller:
   name: Company Oy
-  business_id: 1234567-8
+  business-id: 1234567-8
   address: "Street 123\n01234 City"
 
 recipient:
@@ -255,7 +255,7 @@ Set `qrcode` or `barcode` to `false`:
 
 ## License
 
-The project is licensed under the [MIT-0 license](/LICENSE).
-Licenses of libraries used in this project are listed in [/licenses](/licenses/).
+The project is licensed under the [MIT-0 license](./LICENSE).
+Licenses of libraries used in this project are listed in [/licenses](./licenses/).
 
 [^epc_qr]: European Payments Council, Quick Response Code: Guidelines to Enable Data Capture for the Initiation of a SEPA Credit Transfer, https://www.europeanpaymentscouncil.eu/document-library/guidance-documents/quick-response-code-guidelines-enable-data-capture-initiation

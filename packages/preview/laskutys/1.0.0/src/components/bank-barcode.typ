@@ -1,25 +1,25 @@
 #import "@preview/tiaoma:0.3.0": code128
-#import "/src/utils/get_bank_barcode_payload.typ": get_bank_barcode_payload
+#import "/src/utils/get-bank-barcode-payload.typ": get-bank-barcode-payload
 
 /// -> content
-#let bank_barcode(
+#let bank-barcode(
   amount,
   iban,
-  reference_number,
-  due_date,
-  show_text: true,
+  reference-number,
+  due-date,
+  show-text: true,
 ) = {
-  let barcode = get_bank_barcode_payload(
+  let barcode = get-bank-barcode-payload(
     amount,
     iban,
-    reference_number,
-    due_date,
+    reference-number,
+    due-date,
   )
 
   set text(size: 10pt)
 
   align(center)[
-    #if show_text {
+    #if show-text {
       v(1em)
       barcode
     }

@@ -4,7 +4,7 @@
 #let data = yaml("/template/data.yaml")
 
 #invoice(
-  colors: PRESET_OCEAN,
+  colors: PRESET-OCEAN,
   ..config,
   data,
 )

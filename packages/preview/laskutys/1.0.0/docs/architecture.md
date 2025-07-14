@@ -29,21 +29,21 @@ The content of Typst files and directories:
 - `lib.typ`: entrypoint, exposes public functions
 - `themes.typ`: color themes
 
-The dependency graph components:
+The dependency graph of components:
 
 ```mermaid
 graph LR
 invoice --> header
-invoice --> item_list
-invoice --> vat_section
-invoice --> payment_info
+invoice --> item-list
+invoice --> vat-section
+invoice --> payment-info
 
-header --> legal_entity
+header --> legal-entity
 
-item_list --> item_row
+item-list --> item-row
 
-vat_section --> vat_row
+vat-section --> vat-row
 
-payment_info --> bank_barcode
-payment_info --> bank_qr_code
+payment-info --> bank-barcode
+payment-info --> bank-qrcode
 ```

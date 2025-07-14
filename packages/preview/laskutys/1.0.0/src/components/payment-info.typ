@@ -1,34 +1,34 @@
 #import "/src/utils/translate.typ": translate
 #import "/src/utils/formatter.typ": formatter
 #import plugin("/rust_tools/rust_tools.wasm"): (
-  check_reference_number, iban as iban_constructor,
+  check_reference_number, iban as iban-constructor,
 )
-#import "/src/utils/call_wasm.typ": call_wasm
-#import "/src/config.typ": CURRENCY, DEFAULT_COLORS, FONT_SIZES
-#import "/src/components/bank_barcode.typ": bank_barcode
-#import "/src/components/bank_qrcode.typ": bank_qr_code
+#import "/src/utils/call-wasm.typ": call-wasm
+#import "/src/config.typ": CURRENCY, DEFAULT-COLORS, FONT-SIZES
+#import "/src/components/bank-barcode.typ": bank-barcode
+#import "/src/components/bank-qrcode.typ": bank-qr-code
 
 /// Payment info: IBAN, BIC, amount to pay, etc.
 ///
 /// -> content
-#let payment_info(
+#let payment-info(
   beneficiary: none,
   amount: none,
   iban: none,
   bic: none,
-  due_date: none,
-  reference_number: none,
+  due-date: none,
+  reference-number: none,
   // Show bank barcode
   barcode: true,
-  show_barcode_text: true,
+  show-barcode-text: true,
   // Show EPC QR code
   qrcode: true,
-  colors: DEFAULT_COLORS,
+  colors: DEFAULT-COLORS,
 ) = {
   assert(beneficiary != none, message: "Missing beneficiary")
   assert(amount != none, message: "Missing amount")
-  assert(due_date != none, message: "Missing due date")
-  assert(reference_number != none, message: "Missing reference number")
+  assert(due-date != none, message: "Missing due date")
+  assert(reference-number != none, message: "Missing reference number")
   assert(iban != none, message: "Missing IBAN")
   assert(bic != none, message: "Missing BIC")
 
@@ -37,14 +37,14 @@
   assert(amount > decimal("0"), message: "Amount must be greater than zero")
 
   assert(
-    call_wasm(check_reference_number, reference_number),
+    call-wasm(check_reference_number, reference-number),
     message: "Invalid reference number",
   )
 
-  let iban = call_wasm(iban_constructor, iban)
+  let iban = call-wasm(iban-constructor, iban)
 
-  let payment_block = [
-    #set text(size: FONT_SIZES.SMALL)
+  let payment-block = [
+    #set text(size: FONT-SIZES.SMALL)
 
     #grid(
       columns: 2,
@@ -53,19 +53,19 @@
       [#translate("beneficiary"):], beneficiary,
       [IBAN:], iban,
       [BIC:], bic,
-      [#translate("reference_number"):], reference_number,
+      [#translate("reference-number"):], reference-number,
     )]
-  let amount_block = [
+  let amount-block = [
     #set text(size: 1.3em)
 
     #grid(
       columns: 2,
       column-gutter: 1em,
       row-gutter: 0.5em,
-      [#translate("to_pay"):], [*#formatter("{:.2}", amount) #CURRENCY*],
+      [#translate("to-pay"):], [*#formatter("{:.2}", amount) #CURRENCY*],
 
-      [#translate("due_date"):],
-      due_date.display("[year]-[month padding:zero]-[day padding:zero]"),
+      [#translate("due-date"):],
+      due-date.display("[year]-[month padding:zero]-[day padding:zero]"),
     )]
 
   box(stroke: colors.active, radius: 0.5em, inset: 2em, grid(
@@ -75,32 +75,32 @@
     grid.cell(
       colspan: 2,
       align: left,
-      payment_block,
+      payment-block,
     ),
     grid.cell(
       colspan: 2,
       align: right,
-      amount_block,
+      amount-block,
     ),
 
     grid.cell(colspan: 3, align: left + bottom, if barcode {
-      bank_barcode(
+      bank-barcode(
         amount,
         iban,
-        reference_number,
-        due_date,
-        show_text: show_barcode_text,
+        reference-number,
+        due-date,
+        show-text: show-barcode-text,
       )
     }),
 
     grid.cell(align: right + bottom, if qrcode {
-      bank_qr_code(
+      bank-qr-code(
         amount,
         beneficiary,
         iban,
         bic,
-        reference_number,
-        due_date,
+        reference-number,
+        due-date,
       )
     }),
   ))

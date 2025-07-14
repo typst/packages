@@ -1,23 +1,23 @@
-- description: Apple
+- description: Ruoka
   quantity: 10
-  unit_price: "2"
-  vat_rate: "0.14"
+  unit-price: "2"
+  vat-rate: "0.14"
 
-- description: Battery AA
+- description: AA paristo
   quantity: 2
-  unit_price: "2"
-  vat_rate: "0.255"
+  unit-price: "1.99"
+  vat-rate: "0.255"
 
-- description: Newspaper
+- description: Sanomalehti
   quantity: 3
-  unit_price: "9.99"
-  vat_rate: "0.10"
+  unit-price: "9.99"
+  vat-rate: "0.10"
 
-- description: Phone
+- description: "!Phone"
   quantity: 1
-  unit_price: "10000"
-  vat_rate: "0"
+  unit-price: "1000"
 
-- description: Item with default VAT
+- description: "Sijoituskulta, AVL\_43\_a\_§"
   quantity: 3
-  unit_price: "10"
+  unit-price: "10"
+  vat-rate: "0"

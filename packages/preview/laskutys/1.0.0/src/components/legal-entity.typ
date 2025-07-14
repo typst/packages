@@ -1,7 +1,7 @@
 /// Content block containing name and other information of a legal entity i.e. seller or purchaser
 ///
 /// -> content
-#let legal_entity(
+#let legal-entity(
   entity,
   title,
 ) = {
@@ -12,7 +12,7 @@
   (
     [*#title*],
     entity.name,
-    entity.at("business_id", default: none),
+    entity.at("business-id", default: none),
     entity.address,
   )
     .filter(x => x != none)

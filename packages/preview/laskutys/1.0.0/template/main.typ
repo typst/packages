@@ -9,7 +9,7 @@
   bic: "NDEAFIHH",
   seller: (
     name: "Yritys Oy",
-    business_id: "1234567-8",
+    business-id: "1234567-8",
     address: [Talousosasto\ PL 12\ 00100 Helsinki],
   ),
   recipient: (

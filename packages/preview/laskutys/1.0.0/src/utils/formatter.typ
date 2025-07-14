@@ -1,10 +1,10 @@
 #import "@preview/oxifmt:1.0.0": strfmt
 
 /// -> str
-#let get_decimal_separator(lang) = {
-  let decimal_separators = ("fi": ",", "en": ".", "sv": ",")
+#let get-decimal-separator(lang) = {
+  let decimal-separators = ("fi": ",", "en": ".", "sv": ",")
 
-  decimal_separators.at(lang)
+  decimal-separators.at(lang)
 }
 
 /// -> content
@@ -12,7 +12,7 @@
   format,
   ..replacements,
 ) = context {
-  strfmt(format, ..replacements, fmt-decimal-separator: get_decimal_separator(
+  strfmt(format, ..replacements, fmt-decimal-separator: get-decimal-separator(
     text.lang,
   ))
 }

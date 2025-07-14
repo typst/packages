@@ -2,13 +2,13 @@
 #import "@preview/tiaoma:0.3.0": qrcode
 
 /// -> str
-#let get_bank_qr_payload(
+#let get-bank-qr-payload(
   amount,
   beneficiary,
   iban,
   bic,
-  reference_number,
-  due_date,
+  reference-number,
+  due-date,
 ) = {
   assert(
     beneficiary.len() <= 70,
@@ -27,11 +27,11 @@
     bic,
     beneficiary,
     iban.replace(" ", ""),
-    strfmt("EUR{:.2}", amount, decimal_separator: "."),
+    strfmt("EUR{:.2}", amount, fmt-decimal-separator: "."),
     "",
-    reference_number.replace(" ", ""),
+    reference-number.replace(" ", ""),
     "",
-    due_date.display(
+    due-date.display(
       "ReqdExctnDt/[year]-[month padding:zero]-[day padding:zero]",
     ),
   ).join("\n")

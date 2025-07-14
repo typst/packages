@@ -5,7 +5,7 @@
   bic: "OKOYFIHH",
   seller: (
     name: "Company Oy",
-    business_id: "1234567-8",
+    business-id: "1234567-8",
     address: [Street 123\ 01234 City],
   ),
   recipient: (

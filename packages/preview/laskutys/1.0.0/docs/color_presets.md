@@ -3,27 +3,27 @@
 Import presets from the package:
 
 ```typst
-#import "@preview/laskutys:1.0.0": PRESET_OCEAN
+#import "@preview/laskutys:1.0.0": PRESET-OCEAN
 ```
 
-## PRESET_MINIMAL (default)
+## PRESET-MINIMAL (default)
 
-![PRESET_MINIMAL](/docs/images/preset_minimal.svg)
+![PRESET-MINIMAL](./images/PRESET-minimal.svg)
 
-## PRESET_OCEAN
+## PRESET-OCEAN
 
-![PRESET_OCEAN](/docs/images/preset_ocean.svg)
+![PRESET-OCEAN](./images/PRESET-ocean.svg)
 
-## PRESET_DESERT
+## PRESET-DESERT
 
-![PRESET_DESERT](/docs/images/preset_desert.svg)
+![PRESET-DESERT](./images/PRESET-desert.svg)
 
-## PRESET_FOREST
+## PRESET-FOREST
 
-![PRESET_FOREST](/docs/images/preset_forest.svg)
+![PRESET-FOREST](./images/PRESET-forest.svg)
 
-## PRESET_ARCTIC
+## PRESET-ARCTIC
 
 Inspirated by GMK Arctic keycaps by Mcnos.
 
-![PRESET_ARCTIC](/docs/images/preset_arctic.svg)
+![PRESET-ARCTIC](./images/PRESET-arctic.svg)
