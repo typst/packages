@@ -1,5 +1,5 @@
 #import "../utils.typ": todo, silentheading, flex-caption
-#import "@preview/cheq:0.1.0": checklist
+#import "@preview/cheq:0.2.2": checklist
 
 #show: checklist
 
