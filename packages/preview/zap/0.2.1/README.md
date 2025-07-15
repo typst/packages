@@ -16,10 +16,10 @@ You can find the full list of examples [here](https://l0uisgrange.github.io/zap/
 <table>
 <tr>
   <td>
-    <img alt="Example 1" src="https://github.com/l0uisgrange/zap/blob/9522dfe0fb540a910ee2df9b57e9b7c31c7393f9/examples/example1.png?raw=true" width="250px">
+    <img alt="Example 1" src="https://github.com/l0uisgrange/zap/blob/21f34b7cebb3c59629d7a5c1b02b9a6db60e8f8e/examples/example1.png?raw=true" width="250px">
   </td>
   <td>
-    <img alt="Example 2" src="https://github.com/l0uisgrange/zap/blob/9522dfe0fb540a910ee2df9b57e9b7c31c7393f9/examples/example2.png?raw=true" width="250px">
+    <img alt="Example 2" src="https://github.com/l0uisgrange/zap/blob/21f34b7cebb3c59629d7a5c1b02b9a6db60e8f8e/examples/example2.png?raw=true" width="250px">
   </td>
 </tr>
 <tr>
