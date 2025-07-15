@@ -9,7 +9,7 @@
 
 [Documentation](https://l0uisgrange.github.io/zap/) — [Examples](https://l0uisgrange.github.io/zap/examples) — [Forum](https://github.com/l0uisgrange/zap/discussions/categories/q-a)
 
-## Examples
+## Simple examples
 
 You can find the full list of examples [here](https://l0uisgrange.github.io/zap/examples).
 
@@ -29,7 +29,7 @@ You can find the full list of examples [here](https://l0uisgrange.github.io/zap/
 </table>
 
 
-## Usage
+## Quick usage
 
 ```typst
 #import "@preview/zap:0.2.1"
@@ -43,10 +43,10 @@ You can find the full list of examples [here](https://l0uisgrange.github.io/zap/
 })
 ```
 
-## Documentation
+## Online documentation
 
 You can find the full documentation 📚 [available online](https://l0uisgrange.github.io/zap/). It provides comprehensive guides, a detailed list of components, full API references, and example codes to get you started easily.
 
 ## Contributing
 
-I highly welcome contributions 🌱! Creating and maintaining Zap takes time and love. If you'd like to help, check out the [contribution guidelines](CONTRIBUTING.md) and join the journey 🤩!
+I highly welcome contributions 🌱! Creating and maintaining Zap takes time and love. If you'd like to help, check out the [contribution procedure](https://github.com/l0uisgrange/zap/blob/main/CONTRIBUTING.md) and join the journey 🤩!
