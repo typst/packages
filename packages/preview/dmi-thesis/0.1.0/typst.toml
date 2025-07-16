@@ -1,0 +1,16 @@
+[package]
+name = "dmi-thesis"
+version = "0.1.0"
+entrypoint = "src/main.typ"
+authors = ["Nico Bachmann <typst@nifalu.ch>"]
+license = "MIT"
+description = "A Typst template for DMI theses"
+keywords = ["thesis", "bachelor", "master", "unibas", "dmi", "computer science"]
+categories = ["thesis"]
+disciplines = []
+repository = "https://github.com/Nifalu/dmi-thesis"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "src/assets/thumbnail.png"
