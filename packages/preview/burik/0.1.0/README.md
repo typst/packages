@@ -24,10 +24,16 @@ You can check the example file for more details.
 #oll("r U R' U R U2 r'")
 #pll("R' U R' U' R3 U' R' U R U R2")
 ````
-
+<table>
+<tr> Click on the image to open an example file </tr>
+<td>
 <p align="center">
-  <img src="./thumbnail.png" alt="Example" />
+  <a href="./example.typ">
+  <img src="./thumbnail.png">
+  </a>
 </p>
+</td>
+</table>
 
 ## How it works ?
 

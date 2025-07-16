@@ -1,7 +1,8 @@
-#import "@preview/burik:0.1.0": *
+//#import "@preview/burik:0.1.0": *
+#import "lib.typ": *
 
 = Burik — A Typst Library for easy Rubik's Cube tutorials edition
-
+#v(1em)
 *Burik* is a Typst library specifically designed to facilitate the creation of tutorials for *3x3 Rubik's Cube* solving.
 
 Burik was first designed to make life easier for tutorial creators, as it allows algorithms manipulation in strings and algorithms visualization with parametrizable drawing functions from different point of view.
@@ -29,7 +30,7 @@ To use this package, clone this #link("https://github.com/Gcalmet/burik", "GitHu
 #oll("r U R' U R U2 r'")
 #pll("R' U R' U' R3 U' R' U R U R2")
 
-You can check the example file for more examples.
+You can check the #link("example.typ", "example file") for more usage examples.
 
 == How does it work ?
 
