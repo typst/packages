@@ -3,6 +3,7 @@
 
 
 #let acros = state("acronyms",none)
+#let index = state("index", false)
 #let init-acronyms(acronyms) = {
   let states = (:)
   for (acr, defs) in acronyms{
@@ -23,24 +24,36 @@
     let acronyms = acros.get()
     if acr in acronyms{
       let defs = acronyms.at(acr).at(0)
+      let out
       if type(defs) == dictionary{
         if plural {
           if "short-pl" in defs{
-            defs.at("short-pl")
+            out = defs.at("short-pl")
           }else{
-            [#acr\s]
+            out = [#acr\s]
           }
         }else{
           if "short" in defs{
-            defs.at("short")
-          }else{acr}
+            out = defs.at("short")
+          }else{
+            out = acr
+          }
         }
       }else{
         if plural{
-          [#acr\s]
+          out = [#acr\s]
+        }else{
+          out = acr
         }
-        else{acr}
       }
+
+      // add link if index is printed
+      if index.final() {
+        link(label(acr), out)
+      }else{
+        out
+      }
+      
     }else{
       panic("Could not display the short version of an acronym not defined: "+acr)
     }
@@ -225,11 +238,10 @@ title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column
   }
 
   context{
-    
 
-      
     let acronyms = acros.get()
     let acr-list = acronyms.keys()
+    index.update(true)  
 
     if used-only{
       // Select only acronyms where state is true at the end of the document.
@@ -259,7 +271,7 @@ title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column
       columns: (col1 * 100%, col2 * 100%),
       row-gutter: row-gutter,
       ..for acr in acr-list{
-        ([*#display-short(acr, plural:false)#delimiter*], display-def(acr,plural:false))
+        ([*#display-short(acr, plural:false)#label(acr)#delimiter*], display-def(acr,plural:false))
       }
     )
   }
