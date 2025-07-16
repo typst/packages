@@ -1,5 +1,4 @@
-//#import "@preview/burik:0.1.0": *
-#import "lib.typ": *
+#import "@preview/burik:0.1.0": *
 
 = Burik — A Typst Library for easy Rubik's Cube tutorials edition
 #v(1em)
