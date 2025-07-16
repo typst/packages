@@ -218,7 +218,7 @@
 
 
 #let print-index(level: 1, numbering: none, outlined: false, sorted:"",
-title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column-ratio: 0.25) = {
+title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column-ratio: 0.25, clickable:true) = {
   //Print an index of all the acronyms and their definitions.
   // Args:
   //   level: level of the heading. Default to 1.
@@ -241,7 +241,10 @@ title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column
 
     let acronyms = acros.get()
     let acr-list = acronyms.keys()
-    index.update(true)  
+
+    if clickable {
+      index.update(true)  
+    }
 
     if used-only{
       // Select only acronyms where state is true at the end of the document.
