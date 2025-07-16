@@ -26,7 +26,7 @@ For advice on writing an effective cover letter, this [guide](https://career.eng
 
 ### **Local**
 1. [Install Typst](https://github.com/typst/typst?tab=readme-ov-file#installation)
-2. Create a workspace in the location of choice and run `typst init @preview/clickworthy-resume:1.0.0` to create a template. 
+2. Create a workspace in the location of choice and run `typst init @preview/clickworthy-resume` to create a template. 
 3. Edit the desired template, including `resume`, `cv`, or `cover-letter` and run `typst compile <template>.typ` **to generate a pdf** version or see the [**Typst** guide](https://github.com/typst/typst?tab=readme-ov-file#usage) for more options. 
 > **NOTE**: See more information on the [**project's main repository**](https://github.com/AbdullahHendy/clickworthy-resume)
 
@@ -326,7 +326,7 @@ The cover letter is generated using a customizable `cover-letter` function that 
 
 ##### Example
 ```typ
-#show: resume.with(
+#show: cover-letter.with(
   author: "Dr. Alex Morgan",
   location: "San Francisco, CA",
   contacts: (
