@@ -8,7 +8,7 @@
   font: (
     text: "New Computer Modern",
     math: "New Computer Modern Math",
-    homepage: "Roboto",
+    homepage: ("Roboto", "New Computer Modern"),
   ),
   numcol: 1,
   foot-info: [Published by Elsevier Inc.]
