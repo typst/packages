@@ -1,0 +1,82 @@
+---
+my-periodical:
+  type: article
+  title: 已发表期刊文章
+  author:
+    - 君の名前
+    - 指导老师
+  serial-number:
+    doi: 10.1007/978-3-540-89275-5_7
+  page-range: 114514-1919810
+  date: 1970-01-01
+  url: https://arxiv.org/abs/2501.00001
+  parent:
+    - type: periodical
+      title: 期刊名
+      volume: 251
+      issue: 42
+      publisher: 出版商
+    - type: repository
+      url: https://github.com/ustctug/modern-ustc-proposal/
+
+my-proceedings:
+  type: article
+  title: 已接收会议文章
+  author:
+    - 君の名前
+    - 指导老师
+  date: 1970-01-01
+  url: https://arxiv.org/abs/2501.00001
+  parent:
+    - type: conference
+      title: 会议名
+      organization: Apple Inc.
+      date: 1970-01-01
+      location: 会议地点
+    - type: repository
+      url: https://github.com/ustctug/modern-ustc-proposal/
+
+my-patent:
+  type: patent
+  title: 专利或专利申请
+  author:
+    - 君の名前
+    - 指导老师
+  serial-number:
+    serial: 专利号
+  url: https://www.patent.com.cn/
+  note: 专利状态
+
+my-report:
+  type: report
+  title: 技术报告
+  author:
+    - 君の名前
+    - 指导老师
+  url: https://github.com/ustctug/modern-ustc-proposal/
+
+my-reference:
+  type: reference
+  title: 标准提案
+  author:
+    - 君の名前
+    - 指导老师
+  date: 1970-01-01
+  organization: Apple Inc.
+  url: https://tools.ietf.org/html/rfc8216/
+
+my-dataset:
+  type: misc
+  title: 数据集
+  author:
+    - 君の名前
+    - 指导老师
+  url: https://github.com/ustctug/modern-ustc-proposal/releases
+
+my-repository:
+  type: repository
+  title: 开源软件库
+  author:
+    - 君の名前
+    - 指导老师
+  url: https://github.com/ustctug/modern-ustc-proposal/

@@ -8,3 +8,4 @@ description = "Numeric Typst"
 exclude = ["test.typ"]
 repository = "https://github.com/PabloRuizCuevas/numty"
 categories = ["utility","scripting"]
+keywords = ["matrix", "array", "matrices", "math", "numpy", "vector"]
