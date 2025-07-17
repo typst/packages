@@ -5,7 +5,7 @@ A template for bachelor and master theses at the university of Basel.
 ## Usage
 
 ```typst
-#import "@preview/unibas-thesis:0.1.0": *
+#import "@preview/dmi-basilea-thesis:0.1.0": *
 
 #show: thesis.with(
   title: "Your Thesis Title",
