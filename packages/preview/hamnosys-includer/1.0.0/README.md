@@ -9,7 +9,7 @@ If you're working locally, install the font (or pass its location to Typst with 
 Second, include the line
 
 ```Typst
-#import "hamnosys.typ": ham, hamnosys, hamnosys-text
+#import "@preview/hamnosys-includer:1.0.0": ham, hamnosys, hamnosys-text
 ```
 
 in your document.
@@ -18,7 +18,7 @@ in your document.
 
 You can enter the symbols directly into your Typst document. There's no way to actually type most of them, as they're mostly in the Unicode Private Use Area, but this is handy if you want to copy and paste from elsewhere. If you do this, you should wrap them in the `#hamnosys-text` function.
 
-(I cannot demonstrate this here, as there's no way to force rendering with a specific font here. View `docs/README.pdf` in the GitHub project for a clear example.)
+This is demonstrated in [`README.pdf`](https://github.com/TestTimothy/Typst-HamNoSys/blob/main/docs/README.pdf).
 
 If you don't use the function, it might work anyway, but you may have some other font which uses the same Unicode code points for other purposes. (And some of the symbols, such as `hamquery` and `hamexclaim`, are not in the Private Use Area, and are certainly defined by other fonts.) Using `#hamnosys-text` ensures that the HamNoSysUnicode font is used, which is what you want.
 
