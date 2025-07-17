@@ -1,0 +1,38 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "typewind"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Emrik Östling (C4illin)"]
+license = "MIT"
+description = "tailwindcss colors"
+# homepage = "https://github.com/C4illin/typewind"
+repository = "https://github.com/C4illin/typewind"
+keywords = [
+  "tailwind",
+  "color",
+  "colors",
+  "tailwindcss",
+]
+# categories = []
+# disciplines = []
+# compiler = ""
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+]
+
+# [template]
+# path = "template"
+# entrypoint = "main.typ"
+# thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"
