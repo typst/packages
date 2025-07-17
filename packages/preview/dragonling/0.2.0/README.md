@@ -2,7 +2,7 @@
 
 This is a [Typst](https://typst.app) template for DND 5E content, suitable for [DMs Guild](https://www.dmsguild.com) and the like.
 
-The template is called "dragonling" and can be imported as: `#import "@preview/dragonling:0.1.0": *`
+The template is called "dragonling" and can be imported as: `#import "@preview/dragonling:0.2.0": *`
 
 **Note:** This package has been updated for compatibility with the latest version of Typst (0.13) and is ready for submission to Typst Universe.
 

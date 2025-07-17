@@ -9,5 +9,4 @@ repository = "https://github.com/coljac/typst-dnd5e"
 keywords = ["roleplaying", "dnd", "dungeons-dragons", "rpg", "template", "gaming"]
 categories = ["templates"]
 compiler = "0.13.0"
-minimum = "0.13.0"
 exclude = ["example"]
