@@ -1,6 +1,6 @@
-# DMI Thesis Template
+# DMI Basilea Thesis Template
 
-A Typst template for Bachelor and Master theses at the University of Basel.
+A template for bachelor and master theses at the university of Basel.
 
 ## Usage
 
@@ -22,4 +22,4 @@ typst c thesis.typ
 ```
 The resulting pdf will provide explanations on how to use the template. Also take a look at the code within the template.
 
-Visit the original repo for additional details and to report any issues: http://github.com/Nifalu/dmi-thesis
+Visit the original repo for additional details and to report any issues: http://github.com/Nifalu/dmi-basilea-thesis
