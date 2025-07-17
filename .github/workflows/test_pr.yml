@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Extract package names and versions from changed files
-        id: extract_package
+        id: extract-package
         uses: actions/github-script@v7
         with:
           script: |
@@ -22,7 +22,7 @@ jobs:
             files.forEach(file => {
               const match = file.filename.match(/^packages\/preview\/([^\/]+)\/([^\/]+)\//);
               if (match) {
-                packages.add(`${match[1]}/${match[2]}`);
+                packages.add({ namespace: "preview", name: match[1], version: match[2] });
               }
             });
 
@@ -30,14 +30,14 @@ jobs:
             if (packages.size === 0) {
               sparseCheckoutPaths = "packages/";
             } else {
-              sparseCheckoutPaths = Array.from(packages).map(pkg => `packages/preview/${pkg}/`).join('\n');
+              sparseCheckoutPaths = Array.from(packages).map((pkg) => `packages/preview/${pkg.name}/${pkg.version}/`).join('\n');
             }
-            core.setOutput('sparse_checkout_paths', sparseCheckoutPaths);
+            core.setOutput('sparse-checkout-paths', sparseCheckoutPaths);
 
       - uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            ${{ steps.extract_package.outputs.sparse_checkout_paths }}
+            ${{ steps.extract-package.outputs.sparse-checkout-paths }}
             bundler/
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
@@ -49,3 +49,25 @@ jobs:
 
       - name: Test packaging
         run: bundler/target/release/bundler
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Count how many commits need to be fetched
+        id: base-depth
+        run: echo "base-depth=$(expr ${{ github.event.pull_request.commits }} + 1)" >> $GITHUB_OUTPUT
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: ${{ steps.base-depth.outputs.base-depth }}
+      - name: Fetch necessary Git objects
+        run: |
+          merge_sha=$(/usr/bin/git log -1 --format=%H)
+          git fetch origin ${{ github.base_ref }}
+          git checkout ${{ github.base_ref }}
+          git checkout $merge_sha
+      - uses: typst/package-check@v0.3.0
+        with:
+          installation-id: ${{ secrets.GH_INSTALLATION_ID }}
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_PRIVATE_KEY }}
