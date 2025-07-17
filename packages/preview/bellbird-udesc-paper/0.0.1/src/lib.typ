@@ -4,7 +4,7 @@
 // Licença livre nos termos do GNU!
 // Construído com base no Manual para Elaboração de Trabalhados Acadêmicos da Udesc, acessível em https://www.udesc.br/bu/manuais.
 
-#let paper-udesc(
+#let bellbird-udesc-paper(
 
   // ARGUMENTOS OBRIGATÓRIOSS
 

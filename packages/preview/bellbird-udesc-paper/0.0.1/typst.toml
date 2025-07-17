@@ -1,10 +1,10 @@
 [package]
-name = "paper-udesc"
+name = "bellbird-udesc-paper"
 version = "0.0.1"
 entrypoint = "src/lib.typ"
 authors = ["Lucas Vinícius Bublitz <https://bublitz.art.br>"]
 description = "An Udesc-style academic paper template"
-repository = "https://github.com/lucas-bublitz/UDESC"
+repository = "https://github.com/lucas-bublitz/bellbird-udesc-paper"
 license = "LGPL-2.1"
 categories = ["paper"]
 keywords = [

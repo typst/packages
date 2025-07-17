@@ -1,5 +1,5 @@
 
-#import "../pacakges.typ" : *
+#import "../imports.typ" : *
 
 = Introdução
 

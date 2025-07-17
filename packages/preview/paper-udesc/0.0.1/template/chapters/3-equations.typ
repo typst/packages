@@ -1,3 +1,0 @@
-
-= FÓRMULAS E EQUAÇÕES
-
