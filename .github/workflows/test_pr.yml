@@ -1,6 +1,6 @@
 name: Test PR
 on:
-  pull_request: {}
+  pull_request_target: {}
 
 jobs:
   test:
@@ -19,11 +19,14 @@ jobs:
             });
 
             const packages = new Set();
+            let bundlerChanges = false;
             files.forEach(file => {
               const match = file.filename.match(/^packages\/preview\/([^\/]+)\/([^\/]+)\//);
               if (match) {
                 packages.add({ namespace: "preview", name: match[1], version: match[2] });
               }
+
+              bundlerChanges = bundlerChanges || file.filename.startsWith("bundler/");
             });
 
             let sparseCheckoutPaths;
@@ -33,9 +36,18 @@ jobs:
               sparseCheckoutPaths = Array.from(packages).map((pkg) => `packages/preview/${pkg.name}/${pkg.version}/`).join('\n');
             }
             core.setOutput('sparse-checkout-paths', sparseCheckoutPaths);
-
+            core.setOutput('bundler-changes', bundlerChanges);
+      - name: Debug
+        run: |
+          echo ${{ steps.extract-package.outputs.bundler-changes }}
+          echo ${{ contains(github.event.pull_request.labels.*.name, 'safe-bundler-changes') }}
+          echo '${{ toJSON(github.event.pull_request.labels) }}'
+      - name: Require approval for bundler changes
+        if: ${{ steps.extract-package.outputs.bundler-changes && ! contains(github.event.pull_request.labels.*.name, 'safe-bundler-changes') }}
+        run: echo "The changes made to the bundler needs to be approved first." && false
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           sparse-checkout: |
             ${{ steps.extract-package.outputs.sparse-checkout-paths }}
             bundler/
@@ -59,6 +71,7 @@ jobs:
         run: echo "base-depth=$(expr ${{ github.event.pull_request.commits }} + 1)" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: ${{ steps.base-depth.outputs.base-depth }}
       - name: Fetch necessary Git objects
         run: |
@@ -66,6 +79,8 @@ jobs:
           git fetch origin ${{ github.base_ref }}
           git checkout ${{ github.base_ref }}
           git checkout $merge_sha
+      - name: Debug
+        run: echo $GITHUB_REF_NAME $GITHUB_REF
       - uses: typst/package-check@v0.3.0
         with:
           installation-id: ${{ secrets.GH_INSTALLATION_ID }}
