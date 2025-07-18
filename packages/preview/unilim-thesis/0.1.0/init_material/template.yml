@@ -1,0 +1,29 @@
+# +===============================================================+
+# |                    Edit the parameters                        |
+# |                     follow the syntax                         |
+# +===============================================================+
+
+- faculty : UNILIM # FST / FLSH / FDSE / UNILIM (defautl)
+- lang : eng # fr or eng (default)
+- glossary: Y # Display of the glossary? N / Y (default)
+- appendix: Y # Display of the appendix? N / Y (default)
+- epigraphy: Y # Display of the epygraphy ? N / Y (default)
+
+- degree: Master
+- name-degree: Cryptis 
+- degree-description: Information Security and Cryptology - Computer Science major
+- student: M # W / M / O (default)  (Woman/Man/Other)
+- author : Jean VALJEAN
+- date: 10 september 2025
+- thesis-title : An explicit title for the manuscript
+- organization : Nice corp.
+- supervisors:
+    - name: Ms. First SUPERVISOR 
+      function : Department manager
+    - name: Mr. Second SUPERVISOR
+      function : Research engineer
+- fac-supervisors:
+  - name: Pr. Penultimate SUPERVISOR
+    function : University Professor, XLIM, CNRS
+  - name: Pr. Last SUPERVISOR
+    function : Associate Professor, XLIM, CNRS
