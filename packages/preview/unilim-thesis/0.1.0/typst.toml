@@ -13,4 +13,4 @@ disciplines = ["education"]
 [template]
 path="init_material"
 entrypoint="main.typ"
-thumbnail = "asset/thumbail.png"
+thumbnail = ["thumbnail/preview_en_unilim.png","thumbnail/preview_en_flsh.png","thumbnail/preview_fr_fst.png","thumbnail/preview_fr_fdse.png"]
