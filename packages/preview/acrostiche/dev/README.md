@@ -74,6 +74,7 @@ Both functions have shortcuts with `#racr(...)` and `#raacr(...)`.
 
 You can also print an index of all acronyms used in the document with the `#print-index()` function.
 The index is printed as a section for which you can choose the heading level, the numbering, and the outline parameters (with respectively the `level: int`, `numbering: none | string | function`, and `outlined: bool` parameters).
+Clicking on an acronym in the text links to the index, this can be disabled with `clicking: false`.
 You can also choose their order with the `sorted: string` parameter that accepts either an empty string (print in the order they are defined), "up" (print in ascending alphabetical order), or "down" (print in descending alphabetical order).
 By default, the index contains all the acronyms you defined. You can choose to only display acronyms that are actually used in the document by passing `used-only: true` to the function. Warning, the detection of used acronym uses the states at the end of the document. Thus, if you reset an acronym and do not use it again until the end, it will not appear in the index.
  You can use the `title: string` parameter to change the name of the heading for the index section.

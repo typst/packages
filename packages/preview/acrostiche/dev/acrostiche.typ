@@ -228,6 +228,7 @@ title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column
   //   delimiter: String to place after the acronym in the list. Defaults to ":"
   //   used-only: if true, only include in the index the acronyms that are used in the document. Warning, if you reset acronyms and don't used them after, they may not appear.
   //   column-ratio: a float positive value that indicate the width ratio of the first column (acronyms) with respect to the second (definitions).
+  // clickable: if true, create a clickable link to the acryonym in the first acronym index
 
   // assert on input values to avoid cryptic error messages
   assert(sorted in ("","up","down"), message:"Sorted must be a string either \"\", \"up\" or \"down\"")
@@ -242,9 +243,6 @@ title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column
     let acronyms = acros.get()
     let acr-list = acronyms.keys()
 
-    if clickable {
-      index.update(true)  
-    }
 
     if used-only{
       // Select only acronyms where state is true at the end of the document.
@@ -274,9 +272,17 @@ title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column
       columns: (col1 * 100%, col2 * 100%),
       row-gutter: row-gutter,
       ..for acr in acr-list{
-        ([*#display-short(acr, plural:false)#label(acr)#delimiter*], display-def(acr,plural:false))
+        // check if a label for a link should be created and if it is the first acronyms index, since it can not create multiple labels
+        if clickable and (not index.get()) {
+          ([*#display-short(acr, plural:false)#delimiter#label(acr)*], display-def(acr,plural:false))
+        } else {
+          ([*#display-short(acr, plural:false)#delimiter*], display-def(acr,plural:false))
+        }
       }
     )
+    if clickable {
+      index.update(true)  
+    }
   }
 }
 
