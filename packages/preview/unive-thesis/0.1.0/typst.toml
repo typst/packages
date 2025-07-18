@@ -1,0 +1,15 @@
+[package]
+name = "typst-unive-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/biipo/typst-unive-template"
+authors = ["Filippo Zangrossi"]
+license = "MIT"
+description = "A thesis template of the University of Venice"
+keywords = ["thesis", "university", "Unive", "Venice", "Università Ca' Foscari", "Tesi"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "frontpage.png"
