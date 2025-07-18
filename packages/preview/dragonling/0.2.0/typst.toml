@@ -7,6 +7,6 @@ license = "MIT"
 description = "A comprehensive Typst template for creating Dungeons & Dragons 5E content including stat blocks, spell cards, and adventure modules."
 repository = "https://github.com/coljac/typst-dnd5e"
 keywords = ["roleplaying", "dnd", "dungeons-dragons", "rpg", "template", "gaming"]
-categories = ["templates"]
+categories = ["layout", "report"]
 compiler = "0.13.0"
 exclude = ["example"]
