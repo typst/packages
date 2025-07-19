@@ -22,5 +22,3 @@ compiler = "0.13.1"
 path = "template"
 entrypoint = "template/thesis.typ"
 thumbnail = "thumbnail.png"
-
-[tool]
