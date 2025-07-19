@@ -1,4 +1,4 @@
-#import "@local/poster-syndrome:0.1.0": *
+#import "@preview/poster-syndrome:0.1.0": *
 #import "@preview/codetastic:0.2.2": qrcode
 
 #let custom-theme = theme-helper(
@@ -22,9 +22,23 @@
     methods: (fill: luma(30%)),
     title: (font:"Source Sans Pro",size: 180pt, weight:100, tracking: 4pt, fill: rgb("#3A4D6Eff")))))
 
+
 // retrieve frames from yVuCuVsA6v8JU76e7VOdwo
 // https://www.figma.com/developers/api#files-endpoints
 #let (container, frames) = figma-layout(json("figma_layout.json")) 
+// or manually defined
+
+// #let frames = (
+//   methods: (x: 847, y: 60, width: 272, height: 410),
+//   illustration: (x: 629, y: 479, width: 500, height: 108),
+//   description: (x: 629, y: 60, width: 189, height: 403),
+//   introduction: (x: 186, y: 657, width: 374, height: 200),
+//   details: (x: 66, y: 660, width: 106, height: 112),
+//   subtitle: (x: 66, y: 618, width: 494, height: 25),
+//   title: (x: 60, y: 563, width: 500, height: 55),
+//   cover-image: (x: 60, y: 60, width: 500, height: 500),
+//   outlook: (x: 629, y: 601, width: 500, height: 200),
+// )
 
 // initialise with given frames
 #let (poster, frame) = poster-syndrome-setup(theme: custom-theme, frames: frames)

@@ -1,4 +1,4 @@
-#import "@local/poster-syndrome:0.1.0": *
+#import "@preview/poster-syndrome:0.1.0": *
 #import "@preview/codetastic:0.2.2": qrcode
 
 #let debug-boxes = true
