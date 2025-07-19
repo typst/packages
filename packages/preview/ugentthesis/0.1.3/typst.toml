@@ -1,0 +1,25 @@
+[package]
+name = "ugentthesis"
+version = "0.1.3"
+entrypoint = "lib/lib.typ"
+authors = ["Lieven Vandevelde"]
+description = "Theses following guidelines at Ghent University and using additional features compared to standard Typst element functions."
+repository = "https://github.com/lvandevelde/Typst-UGent-thesis"
+keywords = [
+    "template",
+    "thesis",
+    "Ghent University",
+]
+categories = [
+    "model",
+    "layout",
+    "thesis",
+]
+compiler = "0.13.1"
+
+[template]
+path = "template"
+entrypoint = "template/thesis.typ"
+thumbnail = "thumbnail.png"
+
+[tool]
