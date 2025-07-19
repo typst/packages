@@ -1,4 +1,4 @@
-#import "@preview/hetvid: 0.1.0": *
+#import "@preview/hetvid:0.1.0": *
 
 #show: hetvid.with(
   title: [Hetvid: A Typst template for lightweight notes],
