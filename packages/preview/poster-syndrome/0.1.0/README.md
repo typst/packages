@@ -2,7 +2,7 @@
 
 A Typst template for posters with custom frame placement. To get started:
 
-```typst
+```
 typst init @preview/poster-syndrome:0.1.0
 ```
 
@@ -24,7 +24,7 @@ Aesthetics and layout can be configured by the user, see [examples/custom-theme.
 
 The layout can be provided as a dictionary such as,
 
-```json
+```
 #let container = (
   x: 0,
   y: 0,
@@ -49,7 +49,7 @@ Alternatively, the frames may be obtained from a Figma project [exported as JSON
 
 ![Screenshot of Figma project](examples/figma.png)
 
-```json
+```
 #let (container, frames) = figma-layout(json("figma_layout.json")) 
 ```
 Using Figma (or a similar design tool) for defining the layout has several advantages: 
