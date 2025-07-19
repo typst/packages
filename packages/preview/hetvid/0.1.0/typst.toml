@@ -6,7 +6,7 @@ authors = ["itpyi"]
 license = "MIT-0"
 description = "A template for light notes"
 exclude = ["doc/doc.pdf", "doc/doc-cn.pdf"]
-categories = ["notes"]
+categories = ["Report"]
 
 [template]
 path = "template"
