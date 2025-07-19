@@ -9,5 +9,5 @@ exclude = ["doc/doc.pdf", "doc/doc-cn.pdf"]
 
 [template]
 path = "template"
-entrypoint = "hetvid.typ"
+entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
