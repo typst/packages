@@ -1,0 +1,12 @@
+[package]
+name = "hetvid"
+version = "0.1.0"
+entrypoint = "hetvid.typ"
+authors = ["itpyi"]
+license = "MIT-0"
+description = "A template for light notes"
+
+[template]
+path = "template"
+entrypoint = "hetvid.typ"
+thumbnail = "thumbnail.png"
