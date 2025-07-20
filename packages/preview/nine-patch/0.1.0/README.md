@@ -37,7 +37,7 @@ Import the plugin:
   ]
 ]
 ```
-![](./docs/example2.svg)
+![](./docs/example3.svg)
 
 ```typ
 #let img = read("example.png", encoding: none)
@@ -47,7 +47,7 @@ Import the plugin:
 ]
 ```
 
-![](./docs/example3.svg)
+![](./docs/example2.svg)
 
 
 ## Develop
