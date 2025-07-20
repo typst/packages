@@ -178,7 +178,7 @@
     print-page-break(print: is-print)
   }
 
-  // --- Abstract ---
+  // --- Abstract --- 
   v(0.5fr) // these insert fractions of vertical space
   context {
     let lang = text.lang
