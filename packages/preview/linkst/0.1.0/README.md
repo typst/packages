@@ -12,7 +12,7 @@ For examples of all available features, check the test file:
 📄 `tests/test.typ`
 
 ```typst
-#import "@preview/linkst:0.1.0": *
+#import "@preview/linkst:0.1.0"
 
 
 // Example of drawing a trefoil knot:
