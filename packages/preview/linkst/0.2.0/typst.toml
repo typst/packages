@@ -1,0 +1,10 @@
+[package]
+name = "linkst"
+version = "0.1.0"
+entrypoint = "src/user-lib.typ"
+authors = ["Leonard Cleusters <https://github.com/Mearleo>"]
+license = "MIT-0"
+description = "A knot drawing package for knot theory."
+categories = [ "visualization" ]
+keywords = [ "draw", "knot" ]
+exclude = [ "/gallery/*" ]
