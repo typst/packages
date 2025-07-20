@@ -1,5 +1,5 @@
 [package]
-name = "typst-unive-thesis"
+name = "unive-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 repository = "https://github.com/biipo/typst-unive-template"
