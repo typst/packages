@@ -184,11 +184,11 @@
     let lang = text.lang
     if lang == "de" {
       abstract(title: "Zusammenfassung", dark-color: dark-color, abstract-de)
-      v(1fr)
+      v(1cm)
       abstract(title: "Abstract", dark-color: dark-color, abstract-en)
     } else {
       abstract(title: "Abstract", dark-color: dark-color, abstract-en)
-      v(1fr)
+      v(1cm)
       abstract(title: "Zusammenfassung", dark-color: dark-color, abstract-de)
     }
   }
