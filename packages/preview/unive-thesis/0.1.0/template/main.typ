@@ -1,6 +1,6 @@
+//#import "@preview/unive-thesis:0.1.0": template
 #import "./lib.typ": template
 
-// Create bibliography object first
 #let bib = bibliography("./refs.bib")
 
 #show: template.with(
@@ -11,8 +11,8 @@
   ),
   date: "202x/202x",
   course: "Course name",
-  logo: image("images/UNIVE.png", width: 20%),
-  is_master: false,
+  logo: image("images/Unive.svg", width: 20%),
+  is_master: false, // Change the title if it is a bachelor's or master's thesis
   supervisor: "Prof. Nome Cognome",
   co-supervisor: "Prof. Nome Cognome",
   abstract: "./abstract.typ",
@@ -22,43 +22,31 @@
 
 = Introduzione
 #lorem(100)
-== Part one
+
+== Parte uno
 #lorem(100)
 
-== Part two
+== Parte due
 #lorem(300)
+
 = Background
 #lorem(100)
 
-== Part one
+== Parte uno
 #lorem(100)
 
-=== Part one on one
+=== Parte extra
 
 #lorem(100)
 
-==== Part extra
-
-== Part two
+== Parte due
 #lorem(150)
 
-== Part three
+== Parte tre
 #lorem(100)
 
-= Technical Part
+= Terzo capitolo
 #lorem(50)
 
-== First Part
-#lorem(150)
-
-=== First subpart
-#lorem(150)
-
-==== First subsubpart
-#lorem(150)
-
-== Second part
-#lorem(150)
-
-= Riconoscimenti // Ringraziamenti This is a special title name
+= Riconoscimenti
 #lorem(100)
