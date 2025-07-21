@@ -1,0 +1,26 @@
+[package]
+name = "hdm-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Mia Rose Winter <https://github.com/miawinter98>"]
+license = "MIT"
+description = "Unofficial HdM Thesis Template inspired by the template by Prof. Dr. Dirk Heuzeroth"
+repository = "https://github.com/miawinter98/hdm-thesis"
+keywords = [
+    "HdM",
+	"Hochschule der Medien",
+	"Stuttgart Media University",
+	"Stuttgart",
+	"thesis",
+	"bachelor",
+	"master"
+]
+categories = ["paper", "thesis"]
+disciplines = ["education", "engineering", "computer-science"]
+compiler = "0.13.1"
+exclude = [".gitignore"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
