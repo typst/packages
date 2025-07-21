@@ -55,15 +55,14 @@ jobs:
     runs-on: ubuntu-latest
     environment: Package Check
     steps:
-      - name: Count how many commits need to be fetched
-        id: base-depth
-        run: echo "base-depth=$(expr ${{ github.event.pull_request.commits }} + 1)" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: ${{ steps.base-depth.outputs.base-depth }}
-      - name: Fetch necessary Git objects
+          fetch-depth: 0
+      - name: Rebase branch before linting
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           pr_head=$(/usr/bin/git log -1 --format=%H)
           git fetch origin ${{ github.base_ref }}
           git checkout ${{ github.base_ref }}
