@@ -1,3 +1,5 @@
+#import "../draw/compute-items.typ": compute-items
+
 #let knot(
   ..items,
   style: (:),

@@ -1,5 +1,5 @@
 #let std-style = (
-  stroke: (paint: black),
+  stroke: stroke(),
   scale: 1,
   debug: false,
 
@@ -18,4 +18,44 @@
   background: none,
   padding: 0pt,
   canvas-stroke: none,
+)
+
+#let knot-bool-style = (
+  stroke: true,
+  scale: true,
+  debug: true,
+
+  connection-size: true,
+  bezier-connection: true,
+  bridge-space: true,
+  bridge-offset: true,
+  bridge-type: true,
+
+  transform: true,
+)
+
+#let edge-bool-style = (
+  stroke: true,
+  scale: true,
+  debug: (
+    edges: true,
+    bezier: true,
+    arc: true,
+    bend: true,
+  ),
+)
+
+#let node-bool-style = (
+  scale: true,
+  debug: (
+    nodes: true,
+    connections: true,
+    connect: true,
+  ),
+
+  connection-size: true,
+  bezier-connection: true,
+  bridge-space: true,
+  bridge-offset: true,
+  bridge-type: true,
 )

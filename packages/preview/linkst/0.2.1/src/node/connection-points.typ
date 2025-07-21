@@ -6,18 +6,16 @@
   nodes,
   edges,
 ) = {
-  let connection-points = () 
-  
-  let new-edges = ()
+  let connection-points = ()
 
-  for (i, edge) in node.edges {
+  for edge-index in node.edges {
+    let edge = edges.at(edge-index)
     let is-start-node = edge.start-node == index
     let other-node-index = if(is-start-node) { edge.end-node } else { edge.start-node }
     let other-node = nodes.at(other-node-index)
-    let points = get-connection-points(node, other-node, edge, i, is-start-node)
+    let points = get-connection-points(node, other-node, edge, is-start-node)
 
     if(is-start-node) { edge.start-connection-point = points.at(0).position } else { edge.end-connection-point = points.at(0).position }
-    new-edges.push((i, edge))
     connection-points += points
   }
 

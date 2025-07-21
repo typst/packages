@@ -6,21 +6,15 @@
 
 #let draw-knot(knot) = {
   import cetz.draw: *
-  
+
   let style = knot.style
-  let items = knot.items.pos()
 
-  items = compute-items(items, style)
-
-  let nodes = items.filter(e => e.type == "node")
-  let edges = items.filter(e => e.type == "edge")
-
-  let all-nodes = items.filter(e => e.type == "node")
+  let (_, edges, nodes) = compute-items(knot.items.pos(), style)
 
   group({
-    resolve-transform(knot.style.transform)
+    resolve-transform(style.transform)
 
-    for edge in edges { draw-edge(edge, all-nodes.at(edge.start-node), all-nodes.at(edge.end-node)) }
+    for edge in edges { draw-edge(edge, nodes.at(edge.start-node), nodes.at(edge.end-node)) }
     for node in nodes { draw-node(node) }
   })
 }

@@ -36,3 +36,31 @@
   dict
 
 }
+
+/// argument is now a dict with bools that determines whether the pair should be in the returned dictionary
+#let match-dict-bool(dict, bool-dict) = {
+
+  // get keys
+  let keys = dict.keys()
+  let bool-keys = bool-dict.keys()
+
+  
+  for key in keys {
+
+    let value = dict.at(key)
+
+    if key not in bool-keys { // remove if boolean dictionary is false
+
+      let _ = dict.remove(key)
+
+    } else if type(value) == dictionary { // if dict has a dictionary in it, it recursively matches it
+
+      if bool-dict.at(key) != true { dict.at(key) = match-dict-bool(value, bool-dict.at(key)) }
+
+    }
+
+  }
+
+  dict
+
+}

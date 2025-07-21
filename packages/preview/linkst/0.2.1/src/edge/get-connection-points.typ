@@ -11,7 +11,7 @@
 }
 
 
-#let straight(node, other-node, edge, index, is-start-node) = {
+#let straight(node, other-node, edge, is-start-node) = {
   if(edge.start-node == edge.end-node) {
     panic("Straight edge cannot be a loop")
   } else {
@@ -19,7 +19,7 @@
     let border-point = scale(n, node.style.connection-size)
     let intersection-point = add(node.position, border-point)
 
-    let connection-point = (position: intersection-point, edge: index, normal: neg(n), edge-style: edge.style)
+    let connection-point = (position: intersection-point, edge: edge.index, normal: neg(n), edge-style: edge.style)
     return (connection-point,)
   }
 }
@@ -28,7 +28,7 @@
   
 }
 
-#let quadratic-bezier(node, other-node, edge, index, is-start-node) = {
+#let quadratic-bezier(node, other-node, edge, is-start-node) = {
   let ctrl = edge.bezier-abs.at(0)
 
   if(edge.start-node == edge.end-node) {
@@ -36,12 +36,12 @@
   } else {
     let (border-point, n) = node-border-point(node, ctrl)
     let intersection-point = add(node.position, border-point)
-    let connection-point = (position: intersection-point, edge: index, normal: n, edge-style: edge.style)
+    let connection-point = (position: intersection-point, edge: edge.index, normal: n, edge-style: edge.style)
     return (connection-point,)
   }
 }
 
-#let cubic-bezier(node, other-node, edge, index, is-start-node) = {
+#let cubic-bezier(node, other-node, edge, is-start-node) = {
   let ctrl-1 = edge.bezier-abs.at(0)
   let ctrl-2 = edge.bezier-abs.at(1)
 
@@ -50,18 +50,18 @@
     let (border-point-2, n-2) = node-border-point(node, ctrl-2)
     let intersection-point-1 = add(node.position, border-point-1)
     let intersection-point-2 = add(node.position, border-point-2)
-    let connection-point-1 = (position: intersection-point-1, edge: index, normal: n-1, edge-style: edge.style)
-    let connection-point-2 = (position: intersection-point-2, edge: index, normal: n-2, edge-style: edge.style)
+    let connection-point-1 = (position: intersection-point-1, edge: edge.index, normal: n-1, edge-style: edge.style)
+    let connection-point-2 = (position: intersection-point-2, edge: edge.index, normal: n-2, edge-style: edge.style)
     return (connection-point-1, connection-point-2)
   } else {
     let (border-point, n) = node-border-point(node, if is-start-node { ctrl-1 } else { ctrl-2 })
     let intersection-point = add(node.position, border-point)
-    let connection-point = (position: intersection-point, edge: index, normal: n, edge-style: edge.style)
+    let connection-point = (position: intersection-point, edge: edge.index, normal: n, edge-style: edge.style)
     return (connection-point,)
   }
 }
 
-#let bend(node, other-node, edge, index, is-start-node) = {
+#let bend(node, other-node, edge, is-start-node) = {
   if(edge.start-node == edge.end-node) {
     let border-point-1 = rotate-z((node.style.connection-size, 0), edge.bend + edge.orientation)
     let border-point-2 = rotate-z((node.style.connection-size, 0), -edge.bend + edge.orientation)
@@ -70,8 +70,8 @@
     let intersection-point-1 = add(node.position, border-point-1)
     let intersection-point-2 = add(node.position, border-point-2)
 
-    let connection-point-1 = (position: intersection-point-1, edge: index, normal: n-1, edge-style: edge.style)
-    let connection-point-2 = (position: intersection-point-2, edge: index, normal: n-2, edge-style: edge.style)
+    let connection-point-1 = (position: intersection-point-1, edge: edge.index, normal: n-1, edge-style: edge.style)
+    let connection-point-2 = (position: intersection-point-2, edge: edge.index, normal: n-2, edge-style: edge.style)
     return (connection-point-1, connection-point-2)
 
   } else {
@@ -92,7 +92,7 @@
 
     // infinitely large arc needed, so straight line
     if theta == 0deg {
-      return straight(node, other-node, edge, index, is-start-node)
+      return straight(node, other-node, edge, is-start-node)
     }
 
     // explenation:
@@ -117,22 +117,22 @@
     p = add(p, start-node.position)
     n = rotate-z(n, node-angle)
 
-    let connection-point = (position: p, edge: index, normal: n, edge-style: edge.style)
+    let connection-point = (position: p, edge: edge.index, normal: n, edge-style: edge.style)
     return (connection-point,)
 
   }
 }
 
-#let get-connection-points(node, other-node, edge, index, is-start-node) = {
+#let get-connection-points(node, other-node, edge, is-start-node) = {
   if(edge.edge-type == "arc") {
-    return arc(node, other-node, edge, index, is-start-node)
+    return arc(node, other-node, edge, is-start-node)
   } else if(edge.edge-type == "bend") {
-    return bend(node, other-node, edge, index, is-start-node)
+    return bend(node, other-node, edge, is-start-node)
   } else if(edge.edge-type == "quadratic-bezier") {
-    return quadratic-bezier(node, other-node, edge, index, is-start-node)
+    return quadratic-bezier(node, other-node, edge, is-start-node)
   } else if(edge.edge-type == "cubic-bezier") {
-    return cubic-bezier(node, other-node, edge, index, is-start-node)
+    return cubic-bezier(node, other-node, edge, is-start-node)
   } else if(edge.edge-type == "straight") {
-    return straight(node, other-node, edge, index, is-start-node)
+    return straight(node, other-node, edge, is-start-node)
   }
 }

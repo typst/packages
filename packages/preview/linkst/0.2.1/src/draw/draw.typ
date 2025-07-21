@@ -8,12 +8,7 @@
 #import "../edge/lib.typ": draw-edge
 #import "../node/lib.typ": draw-node
 
-#let draw-items(items, style) = {
-  // filter items by type
-  let nodes = items.filter(e => e.type == "node")
-  let edges = items.filter(e => e.type == "edge")
-  let knots = items.filter(e => e.type == "knot")
-
+#let draw-items(knots, edges, nodes, style) = {
   cetz.canvas(
     {
       scale(style.scale)
@@ -50,7 +45,7 @@
   style.stroke = resolve-stroke(style.stroke)
 
   // fetch edge indices for nodes, get connection points, etc.
-  items = compute-items(items, style)
+  let (knots, edges, nodes) = compute-items(items, style)
 
-  draw-items(items, style)
+  draw-items(knots, edges, nodes, style)
 }
