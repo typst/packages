@@ -68,7 +68,7 @@ jobs:
           git fetch origin ${{ github.base_ref }}
           git checkout ${{ github.base_ref }}
           git checkout $pr_head
-          git rebase ${{ github.base_ref }}
+          git rebase ${{ github.base_ref }} -X ours
       - uses: typst/package-check@v0.3.0
         with:
           installation-id: ${{ secrets.GH_INSTALLATION_ID }}
