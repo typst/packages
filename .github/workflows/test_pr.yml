@@ -1,6 +1,6 @@
 name: Test PR
 on:
-  pull_request: {}
+  pull_request_target: {}
 
 jobs:
   test:
@@ -33,9 +33,9 @@ jobs:
               sparseCheckoutPaths = Array.from(packages).map((pkg) => `packages/preview/${pkg.name}/${pkg.version}/`).join('\n');
             }
             core.setOutput('sparse-checkout-paths', sparseCheckoutPaths);
-
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           sparse-checkout: |
             ${{ steps.extract-package.outputs.sparse-checkout-paths }}
             bundler/
@@ -53,19 +53,22 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    environment: Package Check
     steps:
       - name: Count how many commits need to be fetched
         id: base-depth
         run: echo "base-depth=$(expr ${{ github.event.pull_request.commits }} + 1)" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: ${{ steps.base-depth.outputs.base-depth }}
       - name: Fetch necessary Git objects
         run: |
-          merge_sha=$(/usr/bin/git log -1 --format=%H)
+          pr_head=$(/usr/bin/git log -1 --format=%H)
           git fetch origin ${{ github.base_ref }}
           git checkout ${{ github.base_ref }}
-          git checkout $merge_sha
+          git checkout $pr_head
+          git rebase ${{ github.base_ref }}
       - uses: typst/package-check@v0.3.0
         with:
           installation-id: ${{ secrets.GH_INSTALLATION_ID }}
