@@ -146,4 +146,4 @@ $ cd ucph-nielsine-touying
 ```
 
 ## Why "nielsine"?
-Nielsine Nielsen was the first female to get a degree in medicine in Denmark on Friday 23rd January 1885, paving the way for other females to follow in her footsteps. The reply (by royal decree) to her application read: _"Women are hereby allowed to obtain an academic degree at the University of Copenhagen."_ That is pretty cool. Read more [here](https://news.ku.dk/nielsine-nielsen/).
+On Friday, January 23, 1885, Nielsine Nielsen made history in Denmark by becoming the first woman to earn a degree in medicine and the nation's first female academic. The reply (by royal decree) to her application read: _"Women are hereby allowed to obtain an academic degree at the University of Copenhagen."_ That is pretty cool. Read more [here](https://news.ku.dk/nielsine-nielsen/).
