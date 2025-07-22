@@ -18,7 +18,7 @@ See [english version](./preview/preview_en.pdf)
 
 ## Installation
 
-### From typst univers
+### From Typst Universs
 
 In your project directory, initialize the project
 ```sh
@@ -64,7 +64,7 @@ Use the free tool Zotero during your literature review to collect and organize y
 
 ## Resources
 
-[Official MS Word & Latex Templates](https://support.unilim.fr/publications-et-redaction/depot-et-modeles-de-documents/telecharger-un-modele-de-document/) from the Limoges' University
+[Official MS Word & Latex Templates](https://support.unilim.fr/publications-et-redaction/depot-et-modeles-de-documents/telecharger-un-modele-de-document/) from the Limoges' University. The logo as well as the example image are the property of the University of Limoges.
 
 ## Contributing
 

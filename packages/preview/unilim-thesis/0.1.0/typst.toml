@@ -1,23 +1,20 @@
 [package]
-name="unilim-thesis"
+name="minimal-unilim-thesis"
 version="0.1.0"
 entrypoint="lib.typ"
 authors=["@kawiluca"]
 license="MIT"
-description="Master's thesis at University of Limoges"
+description="Minimal example for a thesis at University of Limoges"
 repository="https://github.com/kawiluca/template-typst-unilim"
 keywords=["university","limoges","thesis"]
 categories=["report", "thesis"]
 disciplines = ["education"]
 exclude = [
-    "thumbnail/preview_en_unilim.png",
-    "thumbnail/preview_en_flsh.png",
-    "thumbnail/preview_fr_fdse.png",
-    "thumbnail/preview_fr_fst.png",
+    "thumbnail.png",
     ".gitignore"
 ]
 
 [template]
 path="init-material"
 entrypoint="main.typ"
-thumbnail = "thumbnail/preview_en_unilim.png"
+thumbnail = "thumbnail.png"
