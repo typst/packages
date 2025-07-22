@@ -18,17 +18,17 @@ The `dndmodule` template sets up your document for you. The arguments you may wa
 - `subtitle`: A slug line for down the bottom of the front cover.
 - `author`: Your name.
 - `cover`: An `image` to use on the front cover
-- `fancy_author`: This will put the author's name in that red flame thingy that D&D books tend to have.
+- `fancy-author`: This will put the author's name in that red flame thingy that D&D books tend to have.
 - `logo`: Supply an `image` to put the logo on the front page.
-- `font_size`: Defaults to `12pt`.
+- `font-size`: Defaults to `12pt`.
 - `paper`: Defaults (sensibly) to `a4` (Americans, you might want `us-letter`).
-- `add_title`: (bool) Whether to print the title on the front page. Set to false if you've made your own image, for instance. 
+- `add-title`: (bool) Whether to print the title on the front page. Set to false if you've made your own image, for instance.
 
 From there, just about everything you need can be done with basic Typst markup. Some convenience functions are provided in the template:
 
 `dnd`: Prints "Dungeons & Dragons" in small caps, as required per the official style guide.
 
-`dndtab(name, columns: (1fr, 4fr), ..contents)`: A table with the conventional formatting. Defaults to 2 columns with ratio 1:4 as shown.
+`dndtab(name, columns: (1fr, 4fr), breakable: false, ..contents)`: A table with the conventional formatting. Defaults to 2 columns with ratio 1:4 as shown; if `breakable` is `true`, can be split over multiple pages.
 
 `breakoutbox(title, contents)`: Inserts a box with coloured background, and the optional title in small caps.
 
@@ -66,7 +66,7 @@ From there, just about everything you need can be done with basic Typst markup. 
 ```
 #spell((
   name: "",
-  spell_type: [2nd level ...],
+  spell-type: [2nd level ...],
   properties: (
     ("Casting time", []),
     ("Range", []),

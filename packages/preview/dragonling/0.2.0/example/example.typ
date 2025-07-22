@@ -7,7 +7,7 @@
   cover: image("img/party.png", height: 100%),
   paper: "a4",
   logo: image("img/GenericLogo.png", width: 13%),
-  fancy_author: true
+  fancy-author: true
 )
 
 #outline(title: "Table of Contents\n")
@@ -119,7 +119,7 @@ And more here!
 
 #spell((
   name: "Dancing Legs",
-  spell_type: [2nd level evocation],
+  spell-type: [2nd level evocation],
   properties: (
     ("Casting time", [Special]), 
     ("Range", [Self]), 
@@ -132,7 +132,7 @@ And more here!
 
 #spell((
   name: "Clapping Hands",
-  spell_type: [2nd level evocation],
+  spell-type: [2nd level evocation],
   properties: (
     ("Casting time", [Special]), 
     ("Range", [Self]), 
