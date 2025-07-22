@@ -21,7 +21,7 @@
 #set text(font: ("Arial", "Times New Roman", "STIX Two Text"))
 
 #import "@preview/bellbird-udesc-paper:0.0.1": bellbird-udesc-paper
-// #import "../src/lib.typ": bellbird-udesc-paper 
+// #import "../src/lib.typ": bellbird-udesc-paper
 
 #show: bellbird-udesc-paper.with(
   // ARGUMENTOS OBRIGATÓRIOS 
@@ -29,8 +29,8 @@
   departament: [Programa de Pós-Graduação em Engenharia Mecânica],
   abstract: lorem(100),
   keywords: ("Primeira", "Segunda", "Terceira"),
-  foreignAbstract: lorem(100),
-  foreignKeywords: ("First", "Second", "Third"),
+  foreign-abstract: lorem(100),
+  foreign-keywords: ("First", "Second", "Third"),
   title : [Modelo de Trabalhos Acadêmicos da Udesc],
   subtitle: [em Typst!],
   city: "Joinville",

@@ -19,9 +19,9 @@
   keywords: (),
   class: "dissertação",
   advisor: (),
-  foreignAbstract: [],
+  foreign-abstract: [],
   committee: (),
-  foreignKeywords: (),
+  foreign-keywords: (),
 
   // ARGUMENTOS OPCIONAIS
 
@@ -459,7 +459,7 @@
   if epigraph        != none   {epigraph-page(epigraph)}
 
   abstract-page(abstract, keywords)
-  foreign-abstract-page(foreignAbstract, foreignKeywords)
+  foreign-abstract-page(foreign-abstract, foreign-keywords)
   outline(title: [Lista de Figuras], target: figure.where(kind: image))
   outline(title: [Lista de Tabelas], target: figure.where(kind: table))
   outline(title: [Sumário])
