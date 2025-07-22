@@ -1,24 +1,28 @@
 #import "../utils/lib.typ": match-dict
 
+#let false-debug = (
+  knots: false,
+  edges: false,
+  nodes: false,
+  connections: false,
+  bezier: false,
+  arc: false,
+  bend: false,
+  grid: false,
+)
+
 /// convert debug input to the debug sections:
 /// 
 /// resolve-debug("nodes") -> (knots: true, ...)
 /// 
 #let resolve-debug(debug) = {
-  let dict = (
-    knots: false,
-    edges: false,
-    nodes: false,
-    connections: false,
-    bezier: false,
-    arc: false,
-    bend: false,
-    grid: false,
-  )
+  let dict = false-debug
 
   let true-dict = (knots: true, edges: true, nodes: true, connections: true)
 
+
   if debug == false { return dict }
+  if type(debug) == dictionary { return dict }
   
   // multi
   if debug == true { return match-dict(true-dict, dict) }

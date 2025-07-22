@@ -1,5 +1,6 @@
 #import "../utils/lib.typ": match-dict, match-dict-bool, resolve-stroke
 #import "std-style.typ": knot-bool-style, edge-bool-style, node-bool-style
+#import "resolve-debug.typ": resolve-debug, false-debug
 
 //
 // About this would be the typical style data for every item (every node, edge and knot):
@@ -47,9 +48,10 @@
 /// Reduces the style data for certain styles
 ///
 #let resolve-style(style, type, parent-style) = {
-  if style.keys().find(k => k == "stroke") != none { style.stroke = resolve-stroke(style.stroke) } // resolve strokes to dictionaries
-  if style.keys().find(k => k == "transform") != none { style.transform = parent-style.transform + style.transform } // add the transformation of the parent style
-
+  if style.keys().any(k => k == "stroke") { style.stroke = resolve-stroke(style.stroke) } // resolve strokes to dictionaries
+  if style.keys().any(k => k == "transform") { style.transform = parent-style.transform + style.transform } // add the transformation of the parent style
+  if style.keys().any(k => k == "scale") { style.scale *= parent-style.scale } // attach the parent scale
+  
   style = match-dict(style, parent-style) // standardize style
   style = reduce-style(style, type) // reduce the data of the style
   style

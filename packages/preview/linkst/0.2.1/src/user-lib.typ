@@ -1,1 +1,1 @@
-#import "lib.typ": draw, knot, edge, node
+#import "lib.typ": draw, knot, edge, node, transform-knot

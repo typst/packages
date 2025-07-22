@@ -2,11 +2,16 @@
 
 #set page(width: auto, height: auto, margin: 1cm)
 
+#set heading(numbering: "(I)")
+#show heading: it => [
+  #set align(center)
+  \~ #emph(it.body) \~
+]
 
 
-== bridges
+= Bridges
 
-#let bridge-types = (none, "gap", "jump-50", "dive-30", "opacity-40")
+#let bridge-types = (none, "gap", "jump-50", "dive-30", "fade-70")
 #let bridge-layers = (0, 0, 0, -1, -1)
 
 #let height = (bridge-types.len() - 1) * 0.3
@@ -19,7 +24,7 @@
   args += (
     node(-1, pos),
     node(0, pos, layer: bridge-layers.at(i), style: (connection-size: 0.3, bridge-type: bridge-type)),
-    node(1, pos),
+    node(1, pos, label: [#repr(bridge-type)], label-offset: (0.5, 0.025)),
     edge(0 + add-index, 1 + add-index, style: (stroke: blue)),
     edge(1 + add-index, 2 + add-index, style: (stroke: (paint: red, dash: "dashed"))),
   )
@@ -44,14 +49,17 @@
 
 #pagebreak()
 
-== edges
+= Edges
 
 #table(
   columns: 2,
   stroke: none,
   [
-    === normal
+    == node to node
 
+    \ 
+    
+    
     #draw(
       node(0, 0),
       node(1, 0),
@@ -84,20 +92,23 @@
   ],
   
   [
-    === loop
+    == loops
+
+    \ 
+    
     
     #draw(
-      node(0, 0),
-      edge(0, 0, bend: -60deg),
+      node(0, -0.5),
+      edge(0, 0, bend: -60deg, orientation: 90deg),
       
-      node(0.5, -1, label: [none]),
+      node(0, -1, label: [none]),
       
-      node(0, -2),
-      edge(2, 2, bezier-rel: ((-2, 1), (2, 1)), orientation: 0deg),
+      node(0, -2.5),
+      edge(2, 2, bezier-rel: ((-2, 1), (2, 1)), orientation: 90deg),
 
       style: (
         scale: 2,
-        debug: "true",
+        debug: "lines",
         stroke: 2.5pt,
         connection-size: 0.2,
       )
@@ -109,7 +120,7 @@
 
 #pagebreak()
 
-== layers
+= Layers
 
 #let n = 8
 #let r = range(n)
@@ -138,7 +149,7 @@
 
 #pagebreak()
 
-== debug mode
+= Debug Mode
 
 #let args = arguments(
   node((0, 0), style: (connection-size:0.6,)),
@@ -202,7 +213,7 @@
 
 #pagebreak()
 
-== laughing avocado
+= Laughing Avocado
 
 #let edge-range = 8
 #let connect-range = range(edge-range).map(p => (p, p + edge-range))
@@ -213,13 +224,11 @@
     args
   }
 )
-// let the bridge be drawn last
-#connect-swap-range.push(connect-swap-range.remove(0))
 
 
 #let args = arguments(
   node((0, 0), style: (connection-size: 2), connect: connect-range),
-  node((4, -0.5), style: (connection-size: 1.5, bridge-space: 0.4, bridge-offset: -0.5, bridge-type: "opacity-30"), connect: connect-swap-range),
+  node((4, -0.5), style: (connection-size: 1.5, bridge-space: 0.4, bridge-offset: -0.5, bridge-type: "fade-60"), connect: connect-swap-range),
 
   ..range(edge-range).map(p => edge(0, 1, bend: p * 150deg / edge-range - 20deg, style: (stroke: (thickness: 1pt, paint: color.hsl(p / edge-range * 260deg, 100%, 50%))))),
   ..range(edge-range).map(p => edge(0, 1, bezier-rel: ((-0.5 - p * 0.1 - p * p * 0.04, 0.7 + p * 0.15), (0.9 + p * 0.4, 0.8 + p * 0.18 - p * p * 0.01)), style: (stroke: 1pt + color.hsl((p + 1) / edge-range * 260deg, 100%, 50%)))),
@@ -235,8 +244,12 @@
   ),
 )
 
+#let eye = rotate(10deg)[#text(size: 30pt)[$sigma$]]
+
 #draw(
   ..args,
+  node(0.3, 0.2, label: [ #eye ]),
+  node(3.7, -0.1, label: [ #scale(x: -100%)[ #eye ] ]),
   style: (
     scale: 0.5,
     stroke: 1pt + rgb("#29b3b3"),

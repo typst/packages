@@ -169,46 +169,51 @@
 
   edge.bend = calc.rem(edge.bend / 1deg, 180) * 1deg
   if edge.bend == 0deg {
-    return draw-straight(edge, node1, node2, edge.index)
+    return draw-straight(edge, node1, node2, style)
   }
 
-  let p1 = node1-connection-point.position
-  // to align to the normal
-  let p2 = sub(node1-connection-point.position, scale(node1-connection-point.normal, 10e-6))
-  let p3 = node2-connection-point.position
-
   arc-through(
-    p1,
-    p2,
-    p3,
+    node1-connection-point.position,
+    sub(node1-connection-point.position, scale(node1-connection-point.normal, 10e-6)), // to align to the normal
+    node2-connection-point.position,
     name: "edge",
     stroke: style.stroke,
   )
 
   if style.debug.bend {
+    if node1.index == node2.index {
+      anchor("b1", node1-connection-point.position)
+      anchor("b2", node1.position)
+      anchor("b3", node2-connection-point.position)
+    } else {
+      anchor("b1", node1.position)
+      anchor("b2", "edge.origin")
+      anchor("b3", node2.position)
+    }
+
     line(
-      node1.position,
-      "edge.origin",
-      node2.position,
+      "b1",
+      "b2",
+      "b3",
       stroke: help-line-stroke-dashed,
     )
 
     circle(
-      node1.position,
+      "b1",
       radius: help-line-dot-radius,
       fill: help-line-color,
       stroke: none,
     )
 
     circle(
-      "edge.origin",
+      "b2",
       radius: help-line-dot-radius,
       fill: help-line-color,
       stroke: none,
     )
 
     circle(
-      node2.position,
+      "b3",
       radius: help-line-dot-radius,
       fill: help-line-color,
       stroke: none,
@@ -221,17 +226,17 @@
 
       if edge.bend > 0deg {
         cetz.angle.angle(
-          "edge.origin",
-          node2.position,
-          node1.position,
+          "b2",
+          "b3",
+          "b1",
           radius: circle-radius / 10,
           stroke: help-line-stroke
         )
       } else {
         cetz.angle.angle(
-          "edge.origin",
-          node1.position,
-          node2.position,
+          "b2",
+          "b1",
+          "b3",
           radius: circle-radius / 10,
           stroke: help-line-stroke
         )

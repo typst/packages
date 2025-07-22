@@ -10,6 +10,7 @@
   bridge-space: 0.4,
   bridge-offset: 0,
   bridge-type: none,
+  bridge-color: rgb(0, 0, 0, 0),
 
   // translation
   transform: (),
@@ -30,8 +31,10 @@
   bridge-space: true,
   bridge-offset: true,
   bridge-type: true,
+  bridge-color: true,
 
   transform: true,
+  pre-transform: true,
 )
 
 #let edge-bool-style = (
@@ -58,4 +61,5 @@
   bridge-space: true,
   bridge-offset: true,
   bridge-type: true,
+  bridge-color: true,
 )

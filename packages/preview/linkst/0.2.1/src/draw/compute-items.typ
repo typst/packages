@@ -1,5 +1,5 @@
-#import "../utils/lib.typ": match-dict, resolve-relative, resolve-to-2d, resolve-stroke
-#import "../edge/lib.typ": resolve-type, auto-mode
+#import "../utils/lib.typ": match-dict, resolve-relative, resolve-to-1d, resolve-to-2d, resolve-stroke
+#import "../edge/lib.typ": resolve-type, auto-mode, resolve-short-not
 #import "../node/lib.typ": resolve-pos, connection-points
 #import "resolve-style.typ": resolve-style
 
@@ -26,7 +26,8 @@
 
   // compute edge data
   edges = edges.map(edge => {
-    edge.edge-type = resolve-type(edge);
+    edge = resolve-short-not(edge)
+    edge.edge-type = resolve-type(edge)
     edge.mode = auto-mode(edge.edge-type, edge.mode)
     edge = resolve-relative(edge, nodes.at(edge.start-node), nodes.at(edge.end-node))
     edge

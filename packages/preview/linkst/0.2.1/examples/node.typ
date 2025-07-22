@@ -16,10 +16,8 @@
 
 #let nodePi = node(
   (0.5, calc.sqrt(3) / 2 / 3),
-  label: text(size: 30pt)[$Pi$],
-  style: (
-    debug: false,
-  ),
+  label: text(blue, size: 30pt)[$Pi$],
+  style: (connection-size: 0)
 )
 
 #draw(
@@ -31,8 +29,8 @@
   style: (
     scale: 2,
     debug: true,
-    background: rgb("#dff9ff"),
+    background: luma(10%),
     padding: 15pt,
-    canvas-stroke: (paint: black, thickness: 1pt)
+    canvas-stroke: (paint: orange, thickness: 1pt)
   ),
 )
