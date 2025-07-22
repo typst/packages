@@ -151,7 +151,7 @@
   }
 
   v(40pt) // Corso di laurea in ...
-  align(center, text(size: sizes.big, if is_master { ref.master } else { ref.bachelor }, weight: "regular"))
+  align(center, text(size: sizes.big, if is-master { ref.master } else { ref.bachelor }, weight: "regular"))
   align(center, text(size: sizes.large, course, weight: "regular"))
 
   v(40pt) // "Tesi di laurea"

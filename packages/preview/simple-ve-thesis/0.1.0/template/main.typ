@@ -10,11 +10,11 @@
   ),
   date: "202x/202x",
   course: "Course name",
-  logo: image("images/Unive.svg", width: 20%),
+  logo: image("../images/Unive.svg", width: 20%),
   is-master: false, // Change the title if it is a bachelor's or master's thesis
   supervisor: "Prof. Nome Cognome",
   co-supervisor: "Prof. Nome Cognome",
-  abstract: "./abstract.typ",
+  abstract: "template/abstract.typ",
   lang: "it",
   bib: bib, // Pass the bibliography object instead of a file path
 )
