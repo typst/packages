@@ -208,12 +208,12 @@
   // Green tea (绿茶 - lǜchá), White tea (白茶 - báichá), Yellow tea (黄茶 - huángchá), Black tea (红茶 - hóngchá), Oolong tea (乌龙茶 - wūlóngchá), and Dark tea (黑茶 - hēichá)
 
   #let li = (
-    insta(image("green-tea.jpg"), description: text[白茶]),
-    insta(image("white-tea.jpg"), description: text[绿茶]),
-    insta(image("yellow-tea.jpg"), description: text[黄茶]),
-    insta(image("red-tea.jpg"), description: text[乌龙茶]),
-    insta(image("oolong-tea.jpg"), description: text[红茶]),
-    insta(image("dark-tea.jpg"), description: text[黑茶]),
+    insta(img: image("green-tea.jpg"), description: text[白茶]),
+    insta(img: image("white-tea.jpg"), description: text[绿茶]),
+    insta(img: image("yellow-tea.jpg"), description: text[黄茶]),
+    insta(img: image("red-tea.jpg"), description: text[乌龙茶]),
+    insta(img: image("oolong-tea.jpg"), description: text[红茶]),
+    insta(img: image("dark-tea.jpg"), description: text[黑茶]),
   )
 
 
