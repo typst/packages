@@ -386,9 +386,7 @@ if lang=="fr" {
   }
 
   title("Références Bibliographiques")
-  bibliography(src-biblio,
-  title: none
-  )
+  src-biblio
   if data.at(3).appendix!="N" {
     title("Annexes")
     appendix
