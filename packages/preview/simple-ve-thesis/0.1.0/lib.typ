@@ -23,7 +23,7 @@
   co-supervisor: (),
   course: (),
   date: (),
-  logo: none, // TODO: utilizzare file SVG così che se esportato in svg, tutto il documento è scalabile
+  logo: image("images/Unive.svg", width: 20%),
   is-master: false,
   abstract: (),
   lang: "en",
