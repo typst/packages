@@ -1,4 +1,4 @@
-#let UGentlogo(language: "EN") = image(
+#let ugentlogo(language: "EN") = image(
   "../img/logo_UGent_" + upper(language) + ".svg",
   height: 21mm,
 )
@@ -77,7 +77,7 @@
 
     v(1fr)
 
-    UGentlogo(language: language)
+    ugentlogo(language: language)
   }
   
   pagebreak()
