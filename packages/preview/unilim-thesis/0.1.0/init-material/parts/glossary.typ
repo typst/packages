@@ -5,6 +5,9 @@
 // #import "@local/unilim-thesis:0.1.0":*
 
 
+// local development 
+// #import "../../lib.typ":*
+
 
 
 // /!\ Follow the alphabetical order /!\

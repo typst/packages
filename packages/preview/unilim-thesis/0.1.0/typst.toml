@@ -14,10 +14,12 @@ exclude = [
     "thumbnail/preview_en_flsh.png",
     "thumbnail/preview_fr_fdse.png",
     "thumbnail/preview_fr_fst.png",
+    "init-material/resources/example.png",
+    "init-material/example.bib",
     ".gitignore"
 ]
 
 [template]
-path="init_material"
+path="init-material"
 entrypoint="main.typ"
 thumbnail = "thumbnail/preview_en_unilim.png"

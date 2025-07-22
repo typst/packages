@@ -5,6 +5,10 @@
 // #import "@local/unilim-thesis:0.1.0":*
 
 
+// local development 
+// #import "../../lib.typ":*
+
+
 = chapter 1:
 == subtitle  
 
@@ -35,7 +39,7 @@
 == subtitle
 
 
-*HQC*@aragon_hamming_nodate
+*HQC*@aragon-hamming-nodate
 
 Encryption:
 $bold(c) = bold(m) * bold(G) + bold(e)$

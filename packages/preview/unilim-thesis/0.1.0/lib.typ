@@ -35,7 +35,7 @@
 </svg>
 "
 
-#let footer_cover ="
+#let footer-cover ="
 <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
 	 width=\"100%\" viewBox=\"0 0 770 96\" enable-background=\"new 0 0 770 96\" xml:space=\"preserve\">
 <path fill=\"#EFBFCA\" opacity=\"1.000000\" stroke=\"none\" 
@@ -413,7 +413,7 @@ block(
     }
   ]
   align(right,
-  image(bytes(footer_cover), width: 20%)
+  image(bytes(footer-cover), width: 20%)
   )
   
   set page(
@@ -454,7 +454,7 @@ block(
 
 }
 
-#let tableContents(titre)={
+#let table-of-contents(titre)={
   pagebreak()
   outline(
     title: [
@@ -463,7 +463,7 @@ block(
     ],
   )
 }
-#let tableFigures(titre)={
+#let table-of-figures(titre)={
   pagebreak()
   outline(
     title: [
@@ -474,7 +474,7 @@ block(
   )
 }
 
-#let tableTable(titre)={
+#let table-of-tables(titre)={
   pagebreak()
   outline(
     title: [
@@ -486,9 +486,9 @@ block(
   
 }
 
-#let title(my_title)={
+#let title(my-title)={
   pagebreak(weak: true)
-  [= #my_title]
+  [= #my-title]
   line(length: 100%)
 }
 
@@ -527,9 +527,9 @@ figure(
   epigra,
   acknow,
   intro,
-  my_content,
+  my-content,
   conclusion,
-  src_biblio,
+  src-biblio,
   glossary,
   appendix,
   body
@@ -565,15 +565,15 @@ if lang=="fr" {
   title("Remerciements")
   acknow
 
-  tableContents("Table des Matières")
-  tableFigures("Table des Figures")
-  tableTable("Table des Tableaux")
+  table-of-contents("Table des Matières")
+  table-of-figures("Table des Figures")
+  table-of-tables("Table des Tableaux")
 
   title("Introduction")
   intro
 
   pagebreak(weak: true)
-  my_content
+  my-content
 
   title("Conclusion")
   conclusion
@@ -587,7 +587,7 @@ if lang=="fr" {
   }
 
   title("Références Bibliographiques")
-  bibliography(src_biblio,
+  bibliography(src-biblio,
   title: none
   )
   if data.at(3).appendix!="N" {
@@ -598,15 +598,15 @@ if lang=="fr" {
   title("Acknowlegments")
   acknow
 
-  tableContents("Table of Contents")
-  tableFigures("List of Figures")
-  tableTable("List of Tables")
+  table-of-contents("Table of Contents")
+  table-of-figures("List of Figures")
+  table-of-tables("List of Tables")
 
   title("Introduction")
   intro
 
   pagebreak(weak: true)
-  my_content
+  my-content
 
   title("Conclusion")
   conclusion
@@ -620,7 +620,7 @@ if lang=="fr" {
   }
 
   title("Bibliography")
-  bibliography(src_biblio,
+  bibliography(src-biblio,
   title: none
   )
   if data.at(3).appendix!="N" {
