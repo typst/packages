@@ -1,6 +1,6 @@
 #schema: https://www.schemastore.org/typst.json
 [package]
-name = "gruvbox"
+name = "gruvy"
 entrypoint = "lib.typ"
 version = "1.0.0"
 authors = ["arsmoriendy <@arsmoriendy>"]
@@ -8,5 +8,5 @@ license = "MIT"
 description = "Gruvbox colors."
 exclude = ["./assets", "./examples"]
 keywords = ["theme", "gruvbox"]
-repository = "https://github.com/arsmoriendy/typst-gruvbox"
+repository = "https://github.com/arsmoriendy/typst-gruvy"
 categories = ["components"]

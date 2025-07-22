@@ -3,7 +3,7 @@
 ## Usage
 
 ```typst
-#import "@preview/gruvbox:1.0.0": gruvbox
+#import "@preview/gruvy:1.0.0": gruvbox
 
 #show: gruvbox
 ```
@@ -22,15 +22,15 @@ By default, the configuration will use the `dark` theme, `hard` contrast and `bl
 For example:
 
 ```typst
-#import "@preview/gruvbox:1.0.0": gruvbox
+#import "@preview/gruvy:1.0.0": gruvbox
 
-#show: gruvbox.with(theme: "light", contrast: `soft`, accent: `orange`)
+#show: gruvbox.with(theme: "light", contrast: "soft", accent: "orange")
 ```
 
 ## Accessing colors
 
 ```typst
-#import "@preview/gruvbox:1.0.0": colors, theme-colors
+#import "@preview/gruvy:1.0.0": colors, theme-colors
 ```
 
 Within the snippet above:
@@ -57,7 +57,7 @@ Within the snippet above:
 For example:
 
 ```typst
-#import "@preview/gruvbox:1.0.0": colors, theme-colors
+#import "@preview/gruvy:1.0.0": colors, theme-colors
 
 #text(fill: colors.bright.red)[Example]
 #text(fill: colors.monochrome.at(0))[Example]
