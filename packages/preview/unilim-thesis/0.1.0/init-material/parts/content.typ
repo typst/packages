@@ -14,7 +14,7 @@
 
 #lorem(30)
 #figure(
-  image("../resources/example.png", width: 50%),
+  image("../resources/my-ressource.png", width: 50%),
   caption: [example]
 )
 

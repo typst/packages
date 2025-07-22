@@ -31,7 +31,7 @@ Edward Snowden
 #let conclusion = include "parts/conclusion.typ"
 #let glossary = include "parts/glossary.typ"
 #let appendix = include "parts/appendix.typ"
-#let path_biblio = "init-material/example.bib"
+#let path_biblio = "init-material/my-biblio.bib"
 #let data = yaml("./template.yml")
 
 
