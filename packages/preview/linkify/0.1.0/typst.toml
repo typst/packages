@@ -1,0 +1,7 @@
+[package]
+name = "linkify"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["F. X. P."]
+license = "MIT"
+description = "Generate URLs and nicely formatted links to web media contents."
