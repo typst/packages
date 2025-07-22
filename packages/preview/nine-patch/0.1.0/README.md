@@ -8,6 +8,20 @@ This plugin adds support for resizable PNG images using the Android-style 9-patc
 
 * Only `.png` images with 1-pixel black border markers are supported.
 
+## Example
+
+Given an image like this:
+
+![A small speech bubble with no content.](docs/example-1.svg)
+
+Scaling the image non-uniformly would result into a highly stretched one:
+
+![A highly stretched speech bubble saying "Oh No! Why did this happen?" ](docs/example-2.svg)
+
+Using 9-tile-scaling would solve this, as it only scales the edges and center of the image:
+
+![A regular speech bubble saying "Oh No! Why did this happen?"](docs/example-3.svg)
+
 ## Usage
 
 Import the plugin:
@@ -19,35 +33,26 @@ Import the plugin:
 ### Simple Scaling
 
 ```typ
-#let img = read("example.png", encoding: none)
-#scale-9patch(img, 200pt, 300pt)
+#let img = read("bubble.9.png", encoding: none)
+
+#scale-9patch(img, 400pt, 400pt)
 ```
 
-![](./docs/example1.svg)
+![A large speech bubble with no content.](./docs/example-4.svg)
 
 ### Auto-scaling with context content
 
-```typ
-#let img = read("example.png", encoding: none)
-#context auto-9patch(img)[
-  #text(size: 50pt, fill: white)[
-    Oh No
-    
-    Whats this!
-  ]
-]
-```
-![](./docs/example3.svg)
+The `auto-9patch` function automatically resizes to its content size.
 
 ```typ
-#let img = read("example.png", encoding: none)
-#context auto-9patch(img, scale: .5pt)[
-  #set text(20pt)
-  #box(width: 460pt, lorem(20))
+#let img = read("bubble.9.png", encoding: none)
+
+#context auto-9patch(img, scale: .1pt)[
+  #box(width: 300pt,lorem(20))
 ]
 ```
 
-![](./docs/example2.svg)
+![A large and fitted speech bubble with a lorem ipsum text.](./docs/example-5.svg)
 
 
 ## Develop
