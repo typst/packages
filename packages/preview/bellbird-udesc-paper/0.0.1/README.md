@@ -13,8 +13,8 @@ All **pre-textual elements** have been automated, along with a few style convent
   - Therefore, they must be added manually.
   - Due to package guidelines, it's **not allowed** to include external font files directly in a template.
 - In the Typst web app, local font files are automatically recognized when present in the project.
-  - However, the font must also be **installed on your operating system** to render correctly.
-    - On Windows, these fonts are typically pre-installed.
+  - However, if you run Typst localy, the fonts must be **installed on your operating system** to render correctly (alternatively, it's possible to specify a path to the font folder using the `--font-path` flag).
+  - On Windows, these fonts are typically pre-installed.
 
 ## Configuration
 
