@@ -19,7 +19,9 @@ There is a french and english version.
 To modify the template, you need to edit the `template.yml` file. The epigraphy, glossary, and appendix can be disabled (in the `template.yml` file). The epigraphy can be modified in the `main.typ` file.
 
 ## Tips for generating a bibliography
+
 Use the free tool [Zotero](https://www.zotero.org/) during your literature review to collect and organize your sources. Once your library is ready, you can export it in BibLaTeX format (.bib), which can be easily included in your Typst file.
+
 
 ## Resources
 
