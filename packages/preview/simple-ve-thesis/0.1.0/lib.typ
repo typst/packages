@@ -24,7 +24,7 @@
   course: (),
   date: (),
   logo: none, // TODO: utilizzare file SVG così che se esportato in svg, tutto il documento è scalabile
-  is_master: false,
+  is-master: false,
   abstract: (),
   lang: "en",
   bib: (),
@@ -226,7 +226,6 @@
 
   if bib != () {
     // pagebreak()
-    //bib
-    bibliography("./refs.bib")
+    bib
   }
 }

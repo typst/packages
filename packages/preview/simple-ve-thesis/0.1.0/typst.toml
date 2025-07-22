@@ -1,11 +1,12 @@
 [package]
-name = "unive-thesis"
+name = "simple-ve-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 repository = "https://github.com/biipo/typst-unive-template"
 authors = ["Filippo Zangrossi"]
 license = "MIT"
-description = "A thesis template of the University of Venice"
+compiler = "0.13.0"
+description = "Unofficial thesis template for Ca' Foscari University of Venice"
 keywords = ["thesis", "university", "Unive", "Venice", "Università Ca' Foscari", "Tesi"]
 categories = ["thesis"]
 
