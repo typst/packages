@@ -9,6 +9,7 @@
 - appendix: Y # Display of the appendix? N / Y (default)
 - epigraphy: Y # Display of the epygraphy ? N / Y (default)
 
+
 - degree: Master
 - name-degree: Cryptis 
 - degree-description: Information Security and Cryptology - Computer Science major
