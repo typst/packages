@@ -419,9 +419,8 @@ if lang=="fr" {
   }
 
   title("Bibliography")
-  bibliography(src-biblio,
-  title: none
-  )
+  src-biblio
+  
   if data.at(3).appendix!="N" {
     title("Appendix")
     appendix

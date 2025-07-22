@@ -31,9 +31,11 @@ Edward Snowden
 #let conclusion = include "parts/conclusion.typ"
 #let glossary = include "parts/glossary.typ"
 #let appendix = include "parts/appendix.typ"
-#let path_biblio = "init-material/my-biblio.bib"
 #let data = yaml("./template.yml")
 
+#let biblio = bibliography("my-biblio.bib",
+  title: none
+  )
 
 #show: unilim-thesis-template.with(
   data,
@@ -42,7 +44,7 @@ Edward Snowden
   intro,
   my-content,
   conclusion,
-  path_biblio,
+  biblio,
   glossary,
   appendix
 )
