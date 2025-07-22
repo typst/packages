@@ -2,10 +2,10 @@
 name="minimal-unilim-thesis"
 version="0.1.0"
 entrypoint="lib.typ"
-authors=["@kawiluca"]
+authors=["kawiluca"]
 license="MIT"
 description="Minimal example for a thesis at University of Limoges"
-repository="https://github.com/kawiluca/template-typst-unilim"
+repository="https://github.com/kawiluca/packages-unilim-thesis"
 keywords=["university","limoges","thesis"]
 categories=["report", "thesis"]
 disciplines = ["education"]
