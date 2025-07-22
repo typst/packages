@@ -1,8 +1,8 @@
 // install from typst univers
-#import "@preview/unilim-thesis:0.1.0":*
+#import "@preview/minimal-unilim-thesis:0.1.0":*
 
 // install in local version
-// #import "@local/unilim-thesis:0.1.0":*
+// #import "@local/minimal-unilim-thesis:0.1.0":*
 
 // local development 
 // #import "../lib.typ":*
