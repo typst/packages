@@ -1,5 +1,5 @@
 [package]
-name = "ugentthesis"
+name = "minerva-thesis"
 version = "0.1.3"
 license = "MIT"
 entrypoint = "lib/lib.typ"
