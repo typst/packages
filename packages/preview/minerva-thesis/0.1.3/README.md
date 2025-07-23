@@ -18,8 +18,8 @@ A template for writing theses with [Typst](https://typst.app/) following guideli
 
 For installing the template and compiling the main file (`thesis.typ`) execute:
     
-        typst init @preview/ugentthesis:0.1.3 
-        cd ugentthesis
+        typst init @preview/minerva-thesis:0.1.3 
+        cd minerva-thesis
         typst watch thesis.typ
  
 
