@@ -36,9 +36,23 @@
   } else { it }
 }
 
-#let bili(..args, format: auto, prefix: true) = {
+#let bili(..args, uid: missing, format: auto, prefix: true) = {
   let pos-args = args.pos()
-  if pos-args.len() == 1 {
+  if uid != missing {
+    assert.eq(type(uid), int)
+    let display-text = if pos-args.len() == 0 {
+      "uid" + str(uid)
+    } else if pos-args.len() == 1 {
+      let (username,) = pos-args
+      assert.eq(type(username), str)
+      "@" + username
+    } else {
+      panic("Too many positional arguments.")
+    }
+    let url = url_.bili(uid: uid)
+    link(url, raw(display-text))
+  } else {
+    assert.eq(pos-args.len(), 1, message: "Incorrect number of positional arguments")
     let (video-id,) = pos-args
     let url = url_.bili(video-id)
     let display-text = bili_.video-id-fmt(
@@ -47,13 +61,6 @@
       prefix: prefix
     )
     link(url, raw(display-text))
-  } else if pos-args.len() == 2 {
-    let (user-id, username) = pos-args
-    let url = url_.bili(user: user-id)
-    assert.eq(type(username), str)
-    link(url, raw("@" + username))
-  } else {
-    panic("Invalid number of positional arguments.")
   }
 }
 

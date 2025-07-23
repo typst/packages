@@ -6,12 +6,12 @@
 
 #let bili(
   ..args,
-  user: missing
+  uid: missing
 ) = {
-  if user != missing {
+  if uid != missing {
     // user homepage link
-    assert.eq(type(user), int)
-    "https://space.bilibili.com/" + str(user)
+    assert.eq(type(uid), int)
+    "https://space.bilibili.com/" + str(uid)
   } else {
     // video link
     let pos-args = args.pos()
