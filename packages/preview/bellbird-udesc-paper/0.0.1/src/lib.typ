@@ -9,7 +9,7 @@
   // ARGUMENTOS OBRIGATÓRIOSS
 
   campus: [],
-  departament: [],
+  department: [],
   author: "",
   title: [],
   subtitle: [],
@@ -192,14 +192,14 @@
 
   // CAPA
 
-  let cover-page(title, campus, departament, author, city, date) = page(numbering: none, {
+  let cover-page(title, campus, department, author, city, date) = page(numbering: none, {
     set text(weight: "bold")
     set align(center)
 
     [UNIVERSIDADE DO ESTADO DE SANTA CATARINA – UDESC\ ]
     upper(campus)
     linebreak()
-    upper(departament)
+    upper(department)
 
     multiLinebreak(6)
     upper(author)
@@ -249,7 +249,7 @@
 
   // FICHA CATALOGRÁFICA 
 
-  let index-card-page(author, title, date, advisor, class, departament, city) = page(numbering: none, {
+  let index-card-page(author, title, date, advisor, class, department, city) = page(numbering: none, {
     let name = author.split(" ")
     let lastNames = name.pop()
     let nameAdvisor = advisor.name.split(" ")
@@ -270,9 +270,9 @@
         
           Orientador: #advisor.name
 
-          #class (#if class == "Tese" [doutorado] else [mestrado]) \-\- Universidade do Estado de Santa Catarina, #campus, #departament, #city, #date.year. \ \
+          #class (#if class == "Tese" [doutorado] else [mestrado]) \-\- Universidade do Estado de Santa Catarina, #campus, #department, #city, #date.year. \ \
           
-          #keywords.enumerate(start: 1).join().map(str).join("."). I. #lastNamesAdvisor, #nameAdvisor.join(" "). II Universidade do Estado de Santa Catarina, #campus, #departament. III Título.
+          #keywords.enumerate(start: 1).join().map(str).join("."). I. #lastNamesAdvisor, #nameAdvisor.join(" "). II Universidade do Estado de Santa Catarina, #campus, #department. III Título.
         ]
       )
     })
@@ -449,10 +449,10 @@
   // A redundâncias desses argumentos, os mesmos da função principal, possibilita uma futura separação
   // deste código em múltiplos arquivos.
   
-  cover-page(title, campus, departament, author, city, date)
+  cover-page(title, campus, department, author, city, date)
   obverse-page(title, author, obverse, city, date)
  
-  if index-card {index-card-page(author, title, date, advisor, class, departament, city)}
+  if index-card {index-card-page(author, title, date, advisor, class, department, city)}
   if committee       != ()     {approval-page(author, title, subtitle, obverse, advisor, committee, city, date)}
   if dedication      != none   {dedication-page(dedication)}
   if acknowledgments != none   {acknowledgments-page(acknowledgments)}

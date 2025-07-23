@@ -20,13 +20,13 @@
 // Definição da ordem de preferência das fontes (ignora as fontes não instaladas, porém gera um warning do compilador)
 #set text(font: ("Arial", "Times New Roman", "STIX Two Text"))
 
-#import "@preview/bellbird-udesc-paper:0.0.1": bellbird-udesc-paper
-// #import "../src/lib.typ": bellbird-udesc-paper
+// #import "@preview/bellbird-udesc-paper:0.0.1": bellbird-udesc-paper
+#import "../src/lib.typ": bellbird-udesc-paper
 
 #show: bellbird-udesc-paper.with(
   // ARGUMENTOS OBRIGATÓRIOS 
   campus: [Centro de Ciências Tecnológicas -- CCT],
-  departament: [Programa de Pós-Graduação em Engenharia Mecânica],
+  department: [Programa de Pós-Graduação em Engenharia Mecânica],
   abstract: lorem(100),
   keywords: ("Primeira", "Segunda", "Terceira"),
   foreign-abstract: lorem(100),
