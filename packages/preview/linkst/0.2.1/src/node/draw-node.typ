@@ -11,7 +11,7 @@
     circle(
       node.position,
       radius: node.style.connection-size,
-      stroke: (thickness: 0.7pt, paint: rgb("#ff923988")),
+      stroke: (thickness: 3pt * node.style.connection-size, paint: rgb("#ff923988")),
     )
 
     // connection point inices

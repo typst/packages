@@ -19,7 +19,7 @@
     let border-point = scale(n, node.style.connection-size)
     let intersection-point = add(node.position, border-point)
 
-    let connection-point = (position: intersection-point, edge: edge.index, normal: neg(n), edge-style: edge.style)
+    let connection-point = (position: intersection-point, edge: edge.index, normal: neg(n), edge-stroke: edge.style.stroke)
     return (connection-point,)
   }
 }
@@ -36,7 +36,7 @@
   } else {
     let (border-point, n) = node-border-point(node, ctrl)
     let intersection-point = add(node.position, border-point)
-    let connection-point = (position: intersection-point, edge: edge.index, normal: n, edge-style: edge.style)
+    let connection-point = (position: intersection-point, edge: edge.index, normal: n, edge-stroke: edge.style.stroke)
     return (connection-point,)
   }
 }
@@ -50,13 +50,13 @@
     let (border-point-2, n-2) = node-border-point(node, ctrl-2)
     let intersection-point-1 = add(node.position, border-point-1)
     let intersection-point-2 = add(node.position, border-point-2)
-    let connection-point-1 = (position: intersection-point-1, edge: edge.index, normal: n-1, edge-style: edge.style)
-    let connection-point-2 = (position: intersection-point-2, edge: edge.index, normal: n-2, edge-style: edge.style)
+    let connection-point-1 = (position: intersection-point-1, edge: edge.index, normal: n-1, edge-stroke: edge.style.stroke)
+    let connection-point-2 = (position: intersection-point-2, edge: edge.index, normal: n-2, edge-stroke: edge.style.stroke)
     return (connection-point-1, connection-point-2)
   } else {
     let (border-point, n) = node-border-point(node, if is-start-node { ctrl-1 } else { ctrl-2 })
     let intersection-point = add(node.position, border-point)
-    let connection-point = (position: intersection-point, edge: edge.index, normal: n, edge-style: edge.style)
+    let connection-point = (position: intersection-point, edge: edge.index, normal: n, edge-stroke: edge.style.stroke)
     return (connection-point,)
   }
 }
@@ -70,8 +70,8 @@
     let intersection-point-1 = add(node.position, border-point-1)
     let intersection-point-2 = add(node.position, border-point-2)
 
-    let connection-point-1 = (position: intersection-point-1, edge: edge.index, normal: n-1, edge-style: edge.style)
-    let connection-point-2 = (position: intersection-point-2, edge: edge.index, normal: n-2, edge-style: edge.style)
+    let connection-point-1 = (position: intersection-point-1, edge: edge.index, normal: n-1, edge-stroke: edge.style.stroke)
+    let connection-point-2 = (position: intersection-point-2, edge: edge.index, normal: n-2, edge-stroke: edge.style.stroke)
     return (connection-point-1, connection-point-2)
 
   } else {
@@ -117,13 +117,15 @@
     p = add(p, start-node.position)
     n = rotate-z(n, node-angle)
 
-    let connection-point = (position: p, edge: edge.index, normal: n, edge-style: edge.style)
+    let connection-point = (position: p, edge: edge.index, normal: n, edge-stroke: edge.style.stroke)
     return (connection-point,)
 
   }
 }
 
 #let get-connection-points(node, other-node, edge, is-start-node) = {
+  edge.style.remove("debug") // no debug info required here
+
   if(edge.edge-type == "arc") {
     return arc(node, other-node, edge, is-start-node)
   } else if(edge.edge-type == "bend") {

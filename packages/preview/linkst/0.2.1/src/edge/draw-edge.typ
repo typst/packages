@@ -274,7 +274,7 @@
 
     content(
       "edge.mid",
-      [#text(6pt * edge.style.scale)[#edge.index]]
+      [#text(5pt * edge.style.scale)[#edge.index]]
     )
 
   }

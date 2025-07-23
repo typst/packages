@@ -191,11 +191,79 @@
   )
 )
 
+#let n = 10
+#let r = range(n)
+#let items = ()
+#let last-style = none
+#let style = none
+#for i in r {
+  let scale = calc.pow(2, -i / 4)
+  let next-scale = calc.pow(2, -(i+1) / 4)
+  let x = 4 - 4 * scale
+
+  last-style = style
+  style = (connection-size: 0.15 * scale, bridge-space: 0.4 * calc.sqrt(scale), stroke: 1.5pt * scale + black)
+  let next-style = (connection-size: 0.15 * scale, bridge-space: 0.4 * calc.sqrt(scale), stroke: 1.5pt * next-scale + black)
+
+
+  if i == 0 {
+    items += (
+      node((x + 0.5 * scale, 0.5 * scale), style: {let a = style; a.insert("bridge-offset", 0.1); a}, connect: ((0, 1, true), (2, 3))),
+      node((x + 0.8 * scale, 0.15 * scale), style: {let a = style; a.insert("bridge-offset", -0.2); a}, connect: ((0, 1, true), (2, 3))),
+      node((x + 0.9 * scale, -0.3 * scale), style: {let a = style; a.insert("bridge-offset", -0.25); a}, connect: ((0, 1), (2, 3, true))),
+      edge(-1, -2, bend: -10deg, style: style),
+      edge(-2, -3, bend: -10deg, style: style),
+      edge(-3, -1, bend: -100deg),
+    )
+  } else if i == n - 1 {
+    items += (
+      node((x + 0.5 * scale, 0.5 * scale), style: {let a = style; a.insert("bridge-offset", 0.15); a}, connect: ((0, 2, true), (1, 3))),
+      node((x + 0.8 * scale, 0.15 * scale), style: style),
+      node((x + 0.9 * scale, -0.3 * scale), style: style),
+      edge(-1, -2, bend: -10deg, style: last-style),
+      edge(-2, -3, bend: -10deg, style: last-style),
+      edge(-4, -1, bend: -60deg, style: last-style),
+      edge(-5, -3, bend: 20deg, style: style),
+      edge(-6, -3, bend: 60deg, style: last-style),
+      edge(-4, -5, bend: 80deg, style: style),
+    )
+  } else {
+    items += (
+      node((x + 0.5 * scale, 0.5 * scale), style: style, connect: ((0, 2, true), (1, 3))),
+      node((x + 0.8 * scale, 0.15 * scale), style: {let a = style; a.insert("bridge-offset", -0.2); a}, connect: ((0, 1, true), (2, 3))),
+      node((x + 0.9 * scale, -0.3 * scale), style: {let a = style; a.insert("bridge-offset", -0.1); a}, connect: ((0, 1), (2, 3, true))),
+      edge(-1, -2, bend: -10deg, style: style),
+      edge(-2, -3, bend: -10deg, style: style),
+      edge(-4, -1, bend: -60deg, style: style),
+      edge(-5, -3, bend: 20deg, style: style),
+      edge(-6, -3, bend: 50deg, style: last-style),
+      edge(-4, -5, bend: 80deg, style: style),
+    )
+  }
+}
+
+#let wild = knot(
+  edge(2, -4, bend: -20deg),
+  node(0.1, -0.8),
+  node(2.3, -1.2),
+  edge(-2, -1, bezier-rel: ((-0.3, 0.1), (0.2, 0.1))),
+  node(4.6, 0, style: (connection-size: 0.6)),
+  edge(-2, -1, bezier-rel: ((-0.3, 0.1), (0.3, 0.2))),
+
+  edge(0, 3, bezier-abs: ((-0.6, -0.1), (-0.1, 1))),
+  ..items,
+
+  style: (
+    stroke: 1.5pt + black,
+  ),
+)
+
 #draw(
   unknot,
   transform-knot(hopf, ((0, -1.6),)),
   transform-knot(trefoil, ((0, -3.8),)),
   transform-knot(figure-eight, ((0, -7.5), 1.3)),
+  transform-knot(wild, ((-2.1, -9.7), 1.3, 0.8)),
   style: (
     stroke: 3pt,
   ),

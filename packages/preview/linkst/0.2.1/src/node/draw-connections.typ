@@ -51,8 +51,8 @@
   let cut-pos = 50% + node.style.bridge-offset * 50%
 
   // get the stroke styles of the edges
-  let stroke1 = resolve-stroke-all(c1.edge-style.stroke)
-  let stroke2 = resolve-stroke-all(c2.edge-style.stroke)
+  let stroke1 = resolve-stroke-all(c1.edge-stroke)
+  let stroke2 = resolve-stroke-all(c2.edge-stroke)
 
   let grad = gradient.linear(stroke1.paint, stroke2.paint, angle: angle)
 
