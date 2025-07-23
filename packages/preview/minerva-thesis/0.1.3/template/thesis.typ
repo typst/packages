@@ -1,4 +1,4 @@
-#import "@preview/ugentthesis:0.1.3": *
+#import "@preview/minerva-thesis:0.1.3": *
 
 
 #show: thesis.with( // Here default values of the arguments are used for your reference. 
