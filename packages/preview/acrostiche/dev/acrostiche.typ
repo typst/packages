@@ -49,7 +49,7 @@
 
       // add link if index is printed
       if index.final() {
-        link(label(acr), out)
+        link(label("acrostiche-"+acr), out)
       }else{
         out
       }
@@ -274,7 +274,7 @@ title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column
       ..for acr in acr-list{
         // check if a label for a link should be created and if it is the first acronyms index, since it can not create multiple labels
         if clickable and (not index.get()) {
-          ([*#display-short(acr, plural:false)#delimiter#label(acr)*], display-def(acr,plural:false))
+          ([*#display-short(acr, plural:false)#delimiter#label("acrostiche-"+acr)*], display-def(acr,plural:false))
         } else {
           ([*#display-short(acr, plural:false)#delimiter*], display-def(acr,plural:false))
         }
