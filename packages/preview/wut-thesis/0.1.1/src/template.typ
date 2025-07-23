@@ -198,10 +198,8 @@
 
   // Table of contents.
   {
-    show outline.entry.where(level: 1): it => {
-      v(1em, weak: true)
-      strong(it)
-    }
+    show outline.entry.where(level: 1): set text(weight: "bold")
+    show outline.entry.where(level: 1): set block(above: 1em)
     outline(indent: 2em, depth: 3, target: (
       selector(heading).before(<appendix_cutoff_label>)
     ).or(heading.where(body: [TODOs])))
@@ -253,7 +251,7 @@
   show figure: set text(size: 0.9em)
 
   // Set spacings
-  show figure: it => [#v(1em) #it #v(1em)]
+  show figure: set block(spacing: 3em)
 
   show heading.where(level: 1): set block(above: 1.95em, below: 1em)
   show heading.where(level: 2): set block(above: 1.85em, below: 1em)
