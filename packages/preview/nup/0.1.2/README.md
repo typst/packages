@@ -34,7 +34,7 @@ When using the online typst.app rather than a local typst compiler, one must fir
 
 ## Example
 
-The script below illustrates the use of a script to export images from a multipage document, and arrange them using `nup`.
+The script below generates a multipage document, and arranges them using `nup`.
 
 ```typ
 #set page(margin:0pt, flipped: true)
@@ -81,3 +81,69 @@ Of course one must try to export _these_ pages and preview them,
 
 
 ![Inception left as an exercise to the reader](assets/inception.svg)
+
+
+## Command line helper
+
+The following bash script may be useful for generating a quick multipage preview of a document with the default settings (disclaimer: it hasn't been tested much), 
+
+```bash
+#!/bin/bash
+
+# Exit on error
+set -e
+
+# Parse options
+LAYOUT="1x2"  # default
+while getopts "l:" opt; do
+  case ${opt} in
+    l ) LAYOUT="$OPTARG" ;;
+    \? ) echo "Usage: nup [-l layout] document.typ"; exit 1 ;;
+  esac
+done
+shift $((OPTIND -1))
+
+# Input file
+INPUT_FILE="$1"
+if [ -z "$INPUT_FILE" ]; then
+  echo "Error: No Typst input file provided."
+  exit 1
+fi
+
+# Filenames and paths
+TMPDIR=$(mktemp -d)
+BASENAME=$(basename "$INPUT_FILE" .typ)
+NUP_FILE="${TMPDIR}/nup_typst_document.typ"
+OUTPUT_PDF="${BASENAME}-nup.pdf"
+
+# Compile original document to SVG pages
+typst compile "$INPUT_FILE" "${TMPDIR}/preview{p}.svg"
+
+# Count number of SVG files
+NUM_PAGES=$(ls "$TMPDIR"/preview*.svg | wc -l)
+UPPER_BOUND=$((NUM_PAGES + 1))
+
+# Generate Typst file to n-up the pages
+cat > "$NUP_FILE" <<EOF
+#import "@preview/nup:0.1.2": nup
+#let pages = range(1, ${UPPER_BOUND}).map(
+  i => image("preview" + str(i) + ".svg"))
+#nup("${LAYOUT}", pages)
+EOF
+
+# Absolute path to output
+OUTPUT_PNG="$(pwd)/${BASENAME}-nup.png"
+
+# Move into TMPDIR and compile the nup document from there
+(
+  cd "$TMPDIR"
+  typst compile --ppi 200 "$(basename "$NUP_FILE")" "$OUTPUT_PNG"
+  optipng "$OUTPUT_PNG"
+)
+
+
+# Clean up
+rm -r "$TMPDIR"
+
+echo "Done! Output written to $OUTPUT_PNG"
+```

@@ -1,5 +1,5 @@
-// #import "@preview/nup:0.1.2": nup
-#import "@local/nup:0.1.2": nup
+#import "@preview/nup:0.1.2": nup
+// #import "@local/nup:0.1.2": nup
 
 // with native support for pdf import
 // #nup("2x3", range(1,13).map(p => image("preview.pdf", page: p)))
