@@ -1,4 +1,4 @@
-#import "@preview/hdm-stuttgart:0.1.0": hdm-stuttgart
+#import "@preview/pretty-hdm-thesis:0.1.0": pretty-hdm-thesis
 #import "@preview/glossarium:0.5.7": gls, glspl
 
 #import "abstract.typ": abstract-de, abstract-en
@@ -7,7 +7,7 @@
 
 #let metadata = yaml("metadata.yaml")
 
-#show: hdm-stuttgart.with(
+#show: pretty-hdm-thesis.with(
     metadata, datetime.today(),
     bib: bibliography("sources.bib"),
     glossary: glossary, acronyms: acronyms,

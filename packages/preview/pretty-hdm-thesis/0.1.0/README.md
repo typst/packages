@@ -11,7 +11,7 @@ You can add basic information such as language, contributors, title, etc. in the
 In the main file, you will need this:
 
 ```typst
-#import "@preview/hdm-stuttgart:0.1.0": hdm-stuttgart
+#import "@preview/pretty-hdm-thesis:0.1.0": pretty-hdm-thesis
 #import "@preview/glossarium:0.5.7": gls, glspl
 
 #import "abstract.typ": abstract_de, abstract_en
@@ -20,7 +20,7 @@ In the main file, you will need this:
 
 #let metadata = yaml("metadata.yaml")
 
-#show: hdm-stuttgart.with(
+#show: pretty-hdm-thesis.with(
     metadata, datetime(year: 2025, month: 8, day: 1),
     bib: bibliography("sources.bib"),
     glossary: glossary, acronyms: acronyms,
@@ -38,7 +38,7 @@ The template supports adding the HdM logo (or some other logo) to the first page
 The Logo can be added using the `logo` attribute:
 
 ```
-#show: hdm-stuttgart.with(
+#show: pretty-hdm-thesis.with(
     metadata, datetime(year: 2025, month: 8, day: 1),
     bib: bibliography("sources.bib"),
     logo: image("assets/hdm_logo.svg"))

@@ -1,5 +1,5 @@
 [package]
-name = "hdm-stuttgart"
+name = "pretty-hdm-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Mia Rose Winter <https://github.com/miawinter98>"]

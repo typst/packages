@@ -3,7 +3,7 @@
 #import "content/titlepage.typ": titlepage
 #import "content/declaration-of-authorship.typ": declaration-of-authorship
 
-#let hdm-stuttgart(
+#let pretty-hdm-thesis(
     metadata, date, content,
 
     logo: none,
