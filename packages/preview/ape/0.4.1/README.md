@@ -62,7 +62,7 @@ _It mainly supports French (especially for shortcuts)._
 Some shortcuts are currently only available in french.
 
 * Available style
-  - Numbered
+  - Numbered (or numbered-book)
   - Plain
   - Colored
   - Presentation

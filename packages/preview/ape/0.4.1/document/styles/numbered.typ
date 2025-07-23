@@ -1,21 +1,33 @@
 #import "../../tools/miscellaneous.typ": content-to-string
-#let numbered(content) = {
-  set text(10pt)
+#let numbered(content, style) = context {
+
+
+	set text(size: if style == "numbered-book" {
+		8pt
+	}else {
+		10pt
+	})
 
   set heading(numbering: "I)1)a)i)")
 
   show heading: it => {
-    if content-to-string(it) == "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
+    if content-to-string(it) == "audhzifoduiygzbcjlxmwmwpadpozieuhgb" or it.depth == 100 {
       return none
     }
+
+		if it.depth == 99 {
+			return it.body;
+		}
+
+
     set par(spacing: 15pt)
     if it.numbering != none {
       let n = it.level - 1
-      set text(size: 15pt - 1pt * n)
+      set text(size: 1.2em - 0.1em * n)
 
       block(
         sticky: true,
-        h(1cm * n)
+        h(0.8cm * n)
           + ([
             #counter(heading).display(it.numbering).split(")").at(-2) -- #it.body
 
@@ -25,6 +37,7 @@
   }
 
   content
+ 
 }
 
 
@@ -32,7 +45,8 @@
 
     return {
       
-      v(0.5cm)
+    v(2cm)
+   
       
       align(
       center,
@@ -47,10 +61,11 @@
 
 
           #place(
-            dy: -1.2cm,
+            dy: -1.1cm,
+           
             [
               #rect(fill: white)[
-                #text(size: 16pt, [*#title.at(0)*])
+                #text(size: 1.5em, [*#title.at(0)*])
               ]
             ],
           )
@@ -62,10 +77,10 @@
             if title.at(1).len() > 0 {
               place(
                 dy: 0.3cm,
-                dx: 99% - measure(text(size: 18pt, [*#title.at(1)*])).width,
+                dx: 50% - measure(text(size: 2em, [*#title.at(1)*])).width / 2,
                 [
                   #rect(fill: white)[
-                    #text(size: 18pt, [*#title.at(1)*])
+                    #text(size: 2em, heading(depth: 99)[*#title.at(1)*])
                   ]
                 ],
               )
@@ -75,10 +90,8 @@
         ],
       ),
     )
-    v(1.2cm)
-  }
 
-  
+    v(2cm)
 }
   /*
   return {

@@ -6,8 +6,8 @@
 #let apply-style(style, content) = {
   set heading(numbering: "I)1)a)i)")
  
-  if style == "numbered" {
-    return numbered(content)
+  if style == "numbered" or style == "numbered-book" {
+    return numbered(content, style)
   } else if style == "colored" {
     return colored(content)
   } else if style == "plain" {
@@ -20,6 +20,9 @@
 }
 
 #let get-small-title(style, title) = {
+	if(style == "numbered-book" ){
+		style = "numbered"
+	}
   import "styles/" + style + ".typ" as current-style
   
   return current-style.get-small-title(title)
