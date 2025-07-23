@@ -41,10 +41,14 @@ For examples of all available features, check the example files:
 
 ## Gallery 🖼️
 
-| [![Random Knot](gallery/random.png)](gallery/random.png) | [![Trefoil Knot](gallery/trefoil.png)](gallery/trefoil.png) | [![Layer Function](gallery/layers.png)](gallery/layers.png) |
+| ![Random Knot](gallery/random.png) | ![Trefoil Knot](gallery/trefoil.png) | ![Layer Function](gallery/layers.png) |
 |:---:|:---:|:---:|
 | Random Knot | Trefoil Knot | Layer Function |
 
-| [![Wild Trefoils](gallery/wild-trefoils.png)](gallery/wild-trefoils.png) | [![Bridge Types](gallery/bridges.png)](gallery/bridges.png) | [![Avocado](gallery/avocado.png)](gallery/avocado.png) |
+| ![Wild Trefoils](gallery/wild-trefoils.png) | ![Bridge Types](gallery/bridges.png) | ![Avocado](gallery/avocado.png) |
 |:---:|:---:|:---:|
 | Wild Trefoils | Bridge Types | Avocado |
+
+| ![Hopf Link](gallery/hopf.png) | ![Wild Knot](gallery/wild.png) | ![Figure Eight](gallery/figure-eight.png) |
+|:---:|:---:|:---:|
+| Hopf Link | Wild Knot | Figure Eight |

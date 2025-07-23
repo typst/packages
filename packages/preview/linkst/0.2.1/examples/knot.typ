@@ -260,7 +260,7 @@
 
 #draw(
   unknot,
-  transform-knot(hopf, ((0, -1.6),)),
+  transform-knot(hopf, ((0, -1.7),)),
   transform-knot(trefoil, ((0, -3.8),)),
   transform-knot(figure-eight, ((0, -7.5), 1.3)),
   transform-knot(wild, ((-2.1, -9.7), 1.3, 0.8)),
