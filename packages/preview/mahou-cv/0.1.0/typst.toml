@@ -7,8 +7,7 @@ description = "A clean and composable CV template"
 categories = ["cv"]
 keywords = ["CV", "Curriculum Vitae", "Resume", "Minimal", "Professional"]
 repository = "https://github.com/NanamiNakano/typst-mahou-cv"
-homepage = "https://github.com/NanamiNakano/typst-mahou-cv"
-exclude = ["*.pdf"]
+exclude = ["*.pdf", "tests/*"]
 entrypoint = "src/lib.typ"
 
 [template]
