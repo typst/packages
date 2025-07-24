@@ -10,7 +10,7 @@
   ),
   date: "202x/202x",
   course: "Course name",
-  logo: none, // image("../images/Unive.svg", width: 20%),
+  logo: none, // image("images/Unive.svg", width: 20%),
   is-master: false, // Change the title if it is a bachelor's or master's thesis
   supervisor: "Prof. Nome Cognome",
   co-supervisor: "Prof. Nome Cognome",
