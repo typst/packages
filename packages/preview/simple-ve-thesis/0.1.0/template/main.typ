@@ -1,5 +1,4 @@
-//#import "@preview/simple-ve-thesis:0.1.0": template
-#import "../lib.typ" : template
+#import "@preview/simple-ve-thesis:0.1.0": template
 
 #let bib = bibliography("./refs.bib")
 
