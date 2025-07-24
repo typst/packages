@@ -9,9 +9,9 @@ This package is in early development (`v0.2.x`) and may change frequently.
 **Linkst** is a Typst package for drawing knots in knot theory.  
 Since the package is new, formal documentation is limited.  
 For examples of all available features, check the example files:  
-📄 `examples/node.typ`, `examples/edge.typ` and `examples/knot.typ`
+[`examples/node.typ`](examples/node.typ), [`examples/edge.typ`](examples/edge.typ), and [`examples/knot.typ`](examples/knot.typ)
 
-```typst
+```typ
 #import "@preview/linkst:0.2.1": *
 
 // Example of drawing a trefoil knot:
