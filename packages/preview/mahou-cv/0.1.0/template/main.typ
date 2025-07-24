@@ -1,5 +1,4 @@
-#import "../src/element.typ": cv, item, label, progress-bar, section
-#import "../src/theme.typ": set-theme
+#import "@preview/mahou-cv:0.1.0": cv, item, label, progress-bar, section, set-theme
 
 #let theme = (
   color: (
@@ -44,7 +43,7 @@
   ]
 }
 
-#cv(
+#show: cv(
   "Nanami Nakano",
   "developer",
   main,
