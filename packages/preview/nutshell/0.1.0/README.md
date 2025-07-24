@@ -10,7 +10,12 @@ typst init @preview/nutshell:0.1.0
 
 And edit the `main.typ` example. 
 
-![Preview of the default resume](main-nup.png)
+![Preview of the default resume](examples/main-nup.png)
+
+## Customisation example
+
+Click on the image to access gandalf's resume,
+[![Preview of a custom example](examples/thumbnail.png)](examples/gandalf.typ)
 
 ## Contributing
 
