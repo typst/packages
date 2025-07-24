@@ -1,6 +1,6 @@
-#import "@local/hetvid:0.1.0": *
+#import "../hetvid.typ": *
 #import "@preview/metalogo:1.2.0": TeX, LaTeX // For displaying the LaTeX logo
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.4.1": canvas, draw
 #import "@preview/fancy-units:0.1.1": num, unit, qty
 
 #show: hetvid.with(
