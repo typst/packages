@@ -13,7 +13,7 @@ This is a basic template that follows the format recommended for the thesis at C
 Inside the `template` folder, there is the following example...
 
 ```typ
-#import "@preview/unive-thesis:0.1.0": template
+#import "@preview/simple-ve-thesis:0.1.0": template
 
 #let bib = bibliography("./refs.bib")
 
@@ -26,7 +26,7 @@ Inside the `template` folder, there is the following example...
   date: "202x/202x",
   course: "Course name",
   logo: image("images/Unive.svg", width: 20%),
-  is_master: false, // Change the title if it is a bachelor's or master's thesis
+  is-master: false, // Change the title if it is a bachelor's or master's thesis
   supervisor: "Prof. Nome Cognome",
   co-supervisor: "Prof. Nome Cognome",
   abstract: "./abstract.typ",

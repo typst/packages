@@ -196,7 +196,8 @@
       #block(width: 100%, height: 15%)[
         #align(center, text(size: sizes.LARGE, "Abstract", weight: "bold"))
       ]
-      #include abstract
+      //#include abstract
+      #abstract
     ]
   }
 

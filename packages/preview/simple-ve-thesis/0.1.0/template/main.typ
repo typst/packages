@@ -1,4 +1,5 @@
-#import "@preview/simple-ve-thesis:0.1.0": template
+//#import "@preview/simple-ve-thesis:0.1.0": template
+#import "../lib.typ" : template
 
 #let bib = bibliography("./refs.bib")
 
@@ -10,11 +11,11 @@
   ),
   date: "202x/202x",
   course: "Course name",
-  logo: none, // image("images/Unive.svg", width: 20%)
+  logo: none, // image("../images/Unive.svg", width: 20%),
   is-master: false, // Change the title if it is a bachelor's or master's thesis
   supervisor: "Prof. Nome Cognome",
   co-supervisor: "Prof. Nome Cognome",
-  abstract: "template/abstract.typ",
+  abstract: include "abstract.typ",
   lang: "it",
   bib: bib, // Pass the bibliography object instead of a file path
 )
