@@ -29,7 +29,7 @@ A minimal setup is as follows:
 )
 ```
 
-See `doc.pdf` for a detailed explanation of how to use this template.
+See [`doc.pdf`](https://github.com/itpyi/hetvid/blob/main/0.1.0/doc/doc.pdf) for a detailed explanation of how to use this template.
 
 ## Acknowledgements
 

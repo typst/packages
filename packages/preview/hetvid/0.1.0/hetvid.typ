@@ -2,7 +2,7 @@
 // #import "@preview/linguify:0.4.2": *
 // Set theorem environments
 #import "dingli.typ": *
-#import "@preview/zebraw:0.5.3": *
+#import "@preview/zebraw:0.5.5": *
 
 // Function not supposed to be used by users
 #let link-color = rgb("#3282B8")
