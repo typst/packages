@@ -1,7 +1,7 @@
 #import "@preview/tableau-icons:0.334.1": *
 #import "thumbnail_list.typ": *
 
-#import "@preview/tidy:0.4.2"
+#import "@preview/tidy:0.4.3"
 #import "@preview/shadowed:0.2.0": shadowed
 
 /* -------------------------------------------------------------------------- */
