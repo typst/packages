@@ -1,4 +1,4 @@
-#import "../src/user-lib.typ": *
+#import "@preview/linkst:0.2.1": *
 
 #set page(width: auto, height: auto, margin: 1cm)
 

@@ -1,9 +1,5 @@
 # Linkst
 
-## Status 🚧  
-
-This package is in early development (`v0.2.x`) and may change frequently.
-
 ## Introduction  
 
 **Linkst** is a Typst package for drawing knots in knot theory.  
