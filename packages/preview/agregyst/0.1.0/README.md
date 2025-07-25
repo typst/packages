@@ -16,7 +16,7 @@ Here a very basic example
 
 // Definition of a graph
 #item("Définition")[A Graph][
-    is 
+    is
 ]
 
 #pagebreak()
@@ -92,3 +92,4 @@ More complete example with a full recap :
 - the format is made for 3 pages and no more. The final Recap will not work for
   more than 3 pages.
 - adding the recap will add the warning that typst is using more than 5 passes
+

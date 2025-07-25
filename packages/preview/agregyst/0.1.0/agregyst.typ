@@ -1,24 +1,24 @@
-#import "@preview/cetz:0.4.1" : *
+#import "@preview/cetz:0.3.4" : *
 #import calc: *
 #import "utils.typ": *
 
 ///// COUNTER
-#let global_counter = counter("global")
+#let global-counter = counter("global")
 
-#let cite_counter = counter("cite")
-#let dev_counter = counter("dev")
-#let item_counter = counter("item")
+#let cite-counter = counter("cite")
+#let dev-counter = counter("dev")
+#let item-counter = counter("item")
 
-#let heading_1_counter = counter("heading_1")
-#let heading_2_counter = counter("heading_2")
-#let heading_3_counter = counter("heading_3")
+#let heading-1-counter = counter("heading_1")
+#let heading-2-counter = counter("heading_2")
+#let heading-3-counter = counter("heading_3")
 
-#let item_in_dev = state("item_in_dev")
+#let item-in-dev = state("item-in-dev")
 
 #let citations = state("citations")
 
 ///// COLORS
-#let heading_2_color = red.darken(10%)
+#let heading-2-color = red.darken(10%)
 #let heading_3_color = green.darken(20%)
 #let heading_4_color = purple.darken(20%)
 #let item_color = blue
@@ -36,7 +36,7 @@
 // )
 
 #let color_box(c, color: dev_accent_color, title: [DEV]) = context {
-  dev_counter.step()
+  dev-counter.step()
   let stroke_width = 1pt
   let stroke_box = color + stroke_width
   let title = text(color, 10pt, align(center + horizon,
@@ -69,7 +69,6 @@
     dx: if on-the-left { 100% - titlew + outset + dec + offset } 
         else {-titlew - outset - dec},
     rotate(if on-the-left {90deg} else { -90deg }, box(
-      // sticky: true,
       stroke: stroke_width + color,
       width: titlew,
       height: titleh,
@@ -90,27 +89,27 @@
 )
 
 ///// ITEM
-#let item(type, name, c, show_title: true) = {
+#let item(type, name, c, show-title: true) = {
   block(width: 100%, context [
-      // #let i = item_counter.display()
+      // #let i = item-counter.display()
       #metadata(type)
-      #label("item_type" + item_counter.display() + "_" + global_counter.display())
+      #label("item_type" + item-counter.display() + "_" + global-counter.display())
       #metadata(name)
-      #label("item" + item_counter.display() + "_" + global_counter.display())
+      #label("item" + item-counter.display() + "_" + global-counter.display())
       #underline[
-        *#text(item_color)[#type#h(0.3em)#item_counter.display()]*]
-      #if show_title { if name != [] [*#name*] }
+        *#text(item_color)[#type#h(0.3em)#item-counter.display()]*]
+      #if show-title { if name != [] [*#name*] }
       #c
   ])
-  item_counter.step()
+  item-counter.step()
   
-  // item_in_dev.update(l => {
-  //   if in_dev.get() { l.push(item_counter.get()) }
+  // item-in-dev.update(l => {
+  //   if in_dev.get() { l.push(item-counter.get()) }
   //   l
   // })
 }
 
-#let color-from-string-cite(s) = {
+#let color_from_string_cite(s) = {
   if s == "NAN" { gray } 
   else if s in colors-default {
     colors-default.at(s)
@@ -123,7 +122,7 @@
 
 #let tableau(
   margin: 12pt,
-  nb_columns : 3,
+  nb_columns : 2,
   title: none,
   body
 ) = {
@@ -131,16 +130,16 @@
   import "@preview/layout-ltd:0.1.0": layout-limiter
   show: layout-limiter.with(max-iterations: 5)
   */
-  
-  global_counter.step()
-  dev_counter.update(0)
-  heading_1_counter.update(0)
-  heading_2_counter.update(0)
-  heading_3_counter.update(0)
-  cite_counter.update(0)
-  item_counter.update(1)
+
+  global-counter.step()
+  dev-counter.update(0)
+  heading-1-counter.update(0)
+  heading-2-counter.update(0)
+  heading-3-counter.update(0)
+  cite-counter.update(0)
+  item-counter.update(1)
   // in_dev.update(false)
-  item_in_dev.update(())
+  item-in-dev.update(())
 
   set document(title: title)
   set footnote.entry(gap: 0.1em, clearance: 0em, separator: none)
@@ -202,8 +201,8 @@
     }
     let all_citations = citations.get()
     
-    for i in range(cite_counter.get().at(0)) {
-      let lab = label("cite_" + str(i) + "_" + global_counter.display())
+    for i in range(cite-counter.get().at(0)) {
+      let lab = label("cite_" + str(i) + "_" + global-counter.display())
       
       let pos = locate(lab).position()
       let item = query(lab).at(0).value
@@ -221,7 +220,7 @@
             authors = book.author.split(",")
           }
           let resume_authors = authors.map(a => resume_author(a)).join(" & ")
-          [#h(0.8em) #text(fill:color-from-string-cite(item))[[#item]]#h(0.5em)#resume_authors, #emph(book.title). #linebreak()]
+          [#h(0.8em) #text(fill:color_from_string_cite(item))[[#item]]#h(0.5em)#resume_authors, #emph(book.title). #linebreak()]
         } else {
           assert(false, message:[#item not in #it.path.at(0)])
         }
@@ -230,26 +229,26 @@
     }
   }
   show cite : it => {
-    if str(it.key) != "NAN" { text(fill: color-from-string-cite(str(it.key)))[
+    if str(it.key) != "NAN" { text(fill: color_from_string_cite(str(it.key)))[
       [#str(it.key)#if it.supplement != none [ #it.supplement]]
     ] }
-    let lbl = label("cite_" + cite_counter.display() + "_" + global_counter.display())
+    let lbl = label("cite_" + cite-counter.display() + "_" + global-counter.display())
     
     if query(selector(lbl).before(here())).len() == 0 {
     // if query(selector(lbl)).len() == 0 {
     [
       #metadata(str(it.key))
       #lbl
-      #cite_counter.step()
+      #cite-counter.step()
     ]
     }
   }
   
   show heading.where(level: 1): c => [
     #block(below: below, above: above, text(0.8em, underline(c)))
-    #label("heading_1_" + heading_1_counter.display() + "_"
-    + global_counter.display())
-    #heading_1_counter.step()
+    #label("heading_1_" + heading-1-counter.display() + "_"
+    + global-counter.display())
+    #heading-1-counter.step()
   ]
 
   set heading(numbering: (..nums) => {
@@ -265,16 +264,16 @@
   
   show heading.where(level: 2): c => [
     #block(below: below, above: above,
-      text(0.9em, heading_2_color, underline(c)))
-    #label("heading_2_" + heading_2_counter.display() + "_" + global_counter.display())
-    #heading_2_counter.step()
+      text(0.9em, heading-2-color, underline(c)))
+    #label("heading_2_" + heading-2-counter.display() + "_" + global-counter.display())
+    #heading-2-counter.step()
   ]
   
   show heading.where(level: 3): c => [
     #block(below:below, above:above,
       text(0.9em, heading_3_color, underline(c)))
-    #label("heading_3_" + heading_3_counter.display() + "_" + global_counter.display())
-    #heading_3_counter.step()
+    #label("heading_3_" + heading-3-counter.display() + "_" + global-counter.display())
+    #heading-3-counter.step()
   ]
 
   show heading.where(level: 4): it => [
@@ -345,7 +344,7 @@
     without-refs(it.body)
   } else if it.func() == ref {
     let s = str(it.target)
-    text(color-from-string-cite(s))[\[#s#if "supplement" in it.fields() [ #it.supplement]\]]
+    text(color_from_string_cite(s))[\[#s#if "supplement" in it.fields() [ #it.supplement]\]]
   } else {
     it
   }
@@ -371,14 +370,14 @@
   }
 
   let ratio = 1em.to-absolute()
-  let global_id = str(global_counter.get().at(0))
+  let global_id = str(global-counter.get().at(0))
 
   rect(xy(0, - a4h * 1), (rel: xy(a4w, a4h)))
   rect(xy(0, - a4h * 2), (rel: xy(a4w, a4h)))
   rect(xy(0, - a4h * 3), (rel: xy(a4w, a4h)))
   line(xy(a4w / 2, 0), xy(a4w / 2, - a4h * 3))
 
-  assert(item_counter.get().at(0) > 1, message: "Should have at least one item")
+  assert(item-counter.get().at(0) > 1, message: "Should have at least one item")
   let fst_page = locate(label("item" + str(1) + "_" + global_id)).page()
   let todo = ()
   let seen = ()
@@ -401,7 +400,7 @@
 
   // Citation
   let citation_f(seen, pos, fst_page) = {}
-  for i in range(0, cite_counter.get().at(0)) {
+  for i in range(0, cite-counter.get().at(0)) {
     let name = "cite_" + str(i) + "_" + global_id
     let lab = label(name)
     let pos = locate(lab).position()
@@ -430,7 +429,7 @@
             if current_page == p1 and y1 != none { y1 }
             else { -(calc.div-euclid(current_page, 2) + 1) * a4h } 
           ),
-          fill: color-from-string-cite(name0).transparentize(80%),
+          fill: color_from_string_cite(name0).transparentize(80%),
           stroke: none
         )
         current_page += 1
@@ -456,7 +455,7 @@
     return (real_page, posx, posy + dy, res, x, y)
   }
   
-  for i in range(0, heading_1_counter.get().at(0)) {
+  for i in range(0, heading-1-counter.get().at(0)) {
     let lab = label("heading_1_" + str(i) + "_" + global_id)
     let pos = locate(lab).position()
     let item = without-refs(query(lab).at(0))
@@ -491,7 +490,7 @@
     return (real_page, posx, posy + dy + padding, res, x, y)
   }
 
-  for i in range(0, heading_2_counter.get().at(0)) {
+  for i in range(0, heading-2-counter.get().at(0)) {
     let lab = label("heading_2_" + str(i) + "_" + global_id)
     let pos = locate(lab).position()
     let item = without-refs(query(lab).at(0))
@@ -518,7 +517,7 @@
     
     return (real_page, posx, posy + dy + padding, res, x, y)
   }
-  for i in range(0, heading_3_counter.get().at(0)) {
+  for i in range(0, heading-3-counter.get().at(0)) {
     let name = "heading_3_" + str(i) + "_" + global_id
     let lab = label(name)
     let pos = locate(lab).position()
@@ -550,7 +549,7 @@
     )
     return (real_page, posx, min(posy + 5 - 35, posy + dy), res, x, y)
   }
-  for i in range(1, item_counter.get().at(0)) {
+  for i in range(1, item-counter.get().at(0)) {
     let lab = label("item_type" + str(i) + "_" + global_id)
     let pos = locate(lab).position()
     let item_type = query(lab).at(0).value
@@ -616,6 +615,7 @@
 }
 
 // Graph
+#import "@preview/cetz:0.3.1"
 #let graph(g) = cetz.canvas(length: 1em, {
     import cetz.draw: *
     let r = g.radius
@@ -641,9 +641,9 @@
 })
 
 #let bibliography-all() = context {
-  for global_counter in range(global_counter.get().at(0)) {
-    for i in range(cite_counter.get().at(0)) {
-      let lab = label("cite_" + str(i) + "_" + str(global_counter))
+  for global-counter in range(global-counter.get().at(0)) {
+    for i in range(cite-counter.get().at(0)) {
+      let lab = label("cite_" + str(i) + "_" + str(global-counter))
       let pos = locate(lab).position()
       let item = query(lab).at(0).value
       if item == "NAN" { continue }
