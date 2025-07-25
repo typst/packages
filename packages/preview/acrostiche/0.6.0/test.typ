@@ -1,4 +1,4 @@
-#import "@preview/acrostiche:0.0.0": *
+#import "@preview/acrostiche:0.6.0": *
 
 #init-acronyms((
   "STA": "String Type Acronym",
