@@ -28,7 +28,7 @@
 #let todo = text(red, [*TODO*])
 
 #let max = 1.bit-lshift(15)
-#let color_from_string(s0, h: 150, s:200, v:255) = {
+#let color-from-string(s0, h: 150, s:200, v:255) = {
   let hash = array(sha1(s0))
   let value = hash.at(0).bit-lshift(8).bit-or(hash.at(1)).bit-lshift(8).bit-or(hash.at(2)) / (1.bit-lshift(8 * 3) - 1)
   // color.hsv(360deg * hash.at(0) / 255, h, s, v)
@@ -37,12 +37,12 @@
 }
 
 
-#let colors_default = (
+#let colors-default = (
   GARD: red,
   // BOUQUIN : colors.rgb("#696969"),
 )
 
-#let colors_for_dev = (
+#let colors-for-dev = (
   CSAPP: color.rgb("#696969"),
   PAT: color.rgb("#556b2f"),
   TOR:color.rgb("#a0522d"),

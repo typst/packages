@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.3.4" : *
+#import "@preview/cetz:0.4.1" : *
 #import calc: *
 #import "utils.typ": *
 
@@ -69,6 +69,7 @@
     dx: if on-the-left { 100% - titlew + outset + dec + offset } 
         else {-titlew - outset - dec},
     rotate(if on-the-left {90deg} else { -90deg }, box(
+      // sticky: true,
       stroke: stroke_width + color,
       width: titlew,
       height: titleh,
@@ -109,12 +110,12 @@
   // })
 }
 
-#let color_from_string_cite(s) = {
+#let color-from-string-cite(s) = {
   if s == "NAN" { gray } 
-  else if s in colors_default {
-    colors_default.at(s)
+  else if s in colors-default {
+    colors-default.at(s)
   } else {
-    color_from_string(s, h:80%, s:80%, v:100%)
+    color-from-string(s, h:80%, s:80%, v:100%)
   }
 }
 
@@ -122,7 +123,7 @@
 
 #let tableau(
   margin: 12pt,
-  nb_columns : 2,
+  nb_columns : 3,
   title: none,
   body
 ) = {
@@ -130,7 +131,7 @@
   import "@preview/layout-ltd:0.1.0": layout-limiter
   show: layout-limiter.with(max-iterations: 5)
   */
-
+  
   global_counter.step()
   dev_counter.update(0)
   heading_1_counter.update(0)
@@ -220,7 +221,7 @@
             authors = book.author.split(",")
           }
           let resume_authors = authors.map(a => resume_author(a)).join(" & ")
-          [#h(0.8em) #text(fill:color_from_string_cite(item))[[#item]]#h(0.5em)#resume_authors, #emph(book.title). #linebreak()]
+          [#h(0.8em) #text(fill:color-from-string-cite(item))[[#item]]#h(0.5em)#resume_authors, #emph(book.title). #linebreak()]
         } else {
           assert(false, message:[#item not in #it.path.at(0)])
         }
@@ -229,7 +230,7 @@
     }
   }
   show cite : it => {
-    if str(it.key) != "NAN" { text(fill: color_from_string_cite(str(it.key)))[
+    if str(it.key) != "NAN" { text(fill: color-from-string-cite(str(it.key)))[
       [#str(it.key)#if it.supplement != none [ #it.supplement]]
     ] }
     let lbl = label("cite_" + cite_counter.display() + "_" + global_counter.display())
@@ -344,7 +345,7 @@
     without-refs(it.body)
   } else if it.func() == ref {
     let s = str(it.target)
-    text(color_from_string_cite(s))[\[#s#if "supplement" in it.fields() [ #it.supplement]\]]
+    text(color-from-string-cite(s))[\[#s#if "supplement" in it.fields() [ #it.supplement]\]]
   } else {
     it
   }
@@ -429,7 +430,7 @@
             if current_page == p1 and y1 != none { y1 }
             else { -(calc.div-euclid(current_page, 2) + 1) * a4h } 
           ),
-          fill: color_from_string_cite(name0).transparentize(80%),
+          fill: color-from-string-cite(name0).transparentize(80%),
           stroke: none
         )
         current_page += 1
@@ -615,7 +616,6 @@
 }
 
 // Graph
-#import "@preview/cetz:0.3.1"
 #let graph(g) = cetz.canvas(length: 1em, {
     import cetz.draw: *
     let r = g.radius
