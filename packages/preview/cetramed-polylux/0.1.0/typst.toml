@@ -1,0 +1,15 @@
+[package]
+name = "cetramed-polylux"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Andreas Kröpelin"]
+license = "Unlicense"
+description = "CeTraMed template for Polylux"
+repository = "https://github.com/andreasKroepelin/cetramed-polylux"
+keywords = ["cetramed", "ukj", "jena", "polylux", "presentation", "slides", "slide", "talk", "lecture"]
+categories = ["presentation"]
+
+[template]
+path = "template"
+entrypoint = "slides.typ"
+thumbnail = "thumbnail.png"
