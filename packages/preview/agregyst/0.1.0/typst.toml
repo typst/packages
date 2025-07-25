@@ -1,7 +1,7 @@
 [package]
 name = "agregyst"
 version = "0.1.0"
-entrypoint = "lib.typ"
+entrypoint = "agregyst.typ"
 authors = ["Paul Adam <@pauladam94>"]
 license = "MIT"
 description = "Agregation Template for writting teaching lesson"
@@ -10,7 +10,7 @@ keywords = ["lesson", "teaching", "agreg", "agregation"]
 categories = ["teaching", "template"]
 disciplines = ["computer-science", "mathematics"]
 compiler = "0.13.1"
-exclude = [".gitignore", "examples/*"]
+exclude = [".gitignore"]
 
 [template]
 path = "template"
