@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.3.3"
+#import "@preview/cetz:0.4.1"
 #import "@preview/jumble:0.0.1" : sha1
 #let graph(g) = cetz.canvas(length: 1em, {
     import cetz.draw: *
