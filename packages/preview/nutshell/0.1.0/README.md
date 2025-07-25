@@ -15,7 +15,7 @@ And edit the `main.typ` example.
 ## Customisation example
 
 Click on the image to access gandalf's resume,
-[![Preview of a custom example](examples/thumbnail.png)](examples/gandalf.typ)
+[![Preview of a custom example](thumbnail.png)](examples/gandalf.typ)
 
 ## Contributing
 
