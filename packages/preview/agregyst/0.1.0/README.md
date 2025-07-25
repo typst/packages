@@ -84,7 +84,7 @@ More complete example with a full recap :
 <!--   <source media="(prefers-color-scheme: dark)" srcset="example-dark.png"> -->
 <!--   <img alt="Example output" src="example-light.png"> -->
 <!-- </picture> -->
-[]!(thumbnail/thumbnail.png)
+![](thumbnail/thumbnail.png)
 
 
 ## Limitations
