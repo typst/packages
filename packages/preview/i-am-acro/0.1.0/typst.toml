@@ -1,0 +1,12 @@
+[package]
+name = "i-am-acro"
+version = "0.1.0"
+entrypoint = "i-am-acro.typ"
+authors = ["etwasmitbaum <https://github.com/etwasmitbaum>"]
+license = "MIT"
+description = "Acronym package for typst, aiming for multilanguage support and feature richness."
+
+repository = "https://github.com/etwasmitbaum/i-am-acro"
+categories = ["utility", "model", "languages"]
+compiler = "0.13.0"
+exclude = ["docs.typ", "testing.typ", "docs.pdf"]
