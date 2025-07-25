@@ -87,7 +87,7 @@ Display long plural shortcut: #aclp("ada").\
 == Print Index Variations
 Acronyms can be clicked and link to the first index table that has the default flag `clickable: true`.
 
-#print-index(clickable: false)
+#print-index(title: "Default index (clickeable deactivated)", clickable: false)
 #print-index(title:"Clickable acronyms", clickable: true)
 
 #print-index(title:"Sorted Empty",sorted:"")
