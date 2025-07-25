@@ -1,0 +1,11 @@
+[package]
+name = "thmbox"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["s15n <@s15n>"]
+license = "MIT"
+description = "Creating beautiful theorem environments in typst with ease."
+repository = "https://github.com/s15n/typst-thmbox"
+keywords = [ "theorem", "proof" ]
+categories = [ "components" ] # "languages"
+exclude = ["/gallery/*"]
