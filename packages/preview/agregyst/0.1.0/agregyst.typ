@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.3.4" : *
+#import "@preview/cetz:0.4.1" : *
 #import calc: *
 #import "utils.typ": *
 
@@ -21,8 +21,8 @@
 #let heading-2-color = red.darken(10%)
 #let heading_3_color = green.darken(20%)
 #let heading_4_color = purple.darken(20%)
-#let item_color = blue
-#let dev_accent_color = purple // black // purple
+#let item-color = blue
+#let dev-accent-color = purple // black // purple
 
 #let a4h = 595
 #let a4w = 842
@@ -35,7 +35,7 @@
 //   ("l.r", "⧓"),
 // )
 
-#let color_box(c, color: dev_accent_color, title: [DEV]) = context {
+#let color-box(c, color: dev-accent-color, title: [DEV]) = context {
   dev-counter.step()
   let stroke_width = 1pt
   let stroke_box = color + stroke_width
@@ -82,8 +82,8 @@
 }
 
 ///// DEV
-#let dev(c) = color_box(c)
-#let warning(c) = color_box(c, 
+#let dev(c) = color-box(c)
+#let warning(c) = color-box(c, 
   color: orange,
   title: emoji.warning
 )
@@ -97,7 +97,7 @@
       #metadata(name)
       #label("item" + item-counter.display() + "_" + global-counter.display())
       #underline[
-        *#text(item_color)[#type#h(0.3em)#item-counter.display()]*]
+        *#text(item-color)[#type#h(0.3em)#item-counter.display()]*]
       #if show-title { if name != [] [*#name*] }
       #c
   ])
@@ -109,7 +109,7 @@
   // })
 }
 
-#let color_from_string_cite(s) = {
+#let color-from-string-cite(s) = {
   if s == "NAN" { gray } 
   else if s in colors-default {
     colors-default.at(s)
@@ -122,7 +122,7 @@
 
 #let tableau(
   margin: 12pt,
-  nb_columns : 2,
+  nb-columns : 2,
   title: none,
   body
 ) = {
@@ -162,10 +162,10 @@
   set page(
     flipped: true,
     margin: margin,
-    columns: nb_columns,
+    columns: nb-columns,
     background: {
-      for i in range(1, nb_columns) {
-        place(dx: i * 100% / nb_columns, dy: 0 * 40%,
+      for i in range(1, nb-columns) {
+        place(dx: i * 100% / nb-columns, dy: 0 * 40%,
           rotate(90deg, origin: left + bottom,
             line(length: 100%)
           )
@@ -220,7 +220,7 @@
             authors = book.author.split(",")
           }
           let resume_authors = authors.map(a => resume_author(a)).join(" & ")
-          [#h(0.8em) #text(fill:color_from_string_cite(item))[[#item]]#h(0.5em)#resume_authors, #emph(book.title). #linebreak()]
+          [#h(0.8em) #text(fill:color-from-string-cite(item))[[#item]]#h(0.5em)#resume_authors, #emph(book.title). #linebreak()]
         } else {
           assert(false, message:[#item not in #it.path.at(0)])
         }
@@ -229,7 +229,7 @@
     }
   }
   show cite : it => {
-    if str(it.key) != "NAN" { text(fill: color_from_string_cite(str(it.key)))[
+    if str(it.key) != "NAN" { text(fill: color-from-string-cite(str(it.key)))[
       [#str(it.key)#if it.supplement != none [ #it.supplement]]
     ] }
     let lbl = label("cite_" + cite-counter.display() + "_" + global-counter.display())
@@ -289,7 +289,7 @@
   body
 }
 
-#let short_item_dictionnary = (
+#let short-item-dictionnary = (
   "Définition" : "Def",
   "Problème" : "Prob",
   "Proposition" : "Prop",
@@ -315,12 +315,12 @@
   "Alorithm": "Algo",
   "Theorem": "Thm",
 )
-#let short_item_type(item) = {
+#let short-item-type(item) = {
   // assert(type(item) == content, message: "Some error")
   if type(item) == content {
     item 
-  } else if item in short_item_dictionnary {
-    short_item_dictionnary.at(item)
+  } else if item in short-item-dictionnary {
+    short-item-dictionnary.at(item)
   } else { item }
 }
 
@@ -344,14 +344,14 @@
     without-refs(it.body)
   } else if it.func() == ref {
     let s = str(it.target)
-    text(color_from_string_cite(s))[\[#s#if "supplement" in it.fields() [ #it.supplement]\]]
+    text(color-from-string-cite(s))[\[#s#if "supplement" in it.fields() [ #it.supplement]\]]
   } else {
     it
   }
 }
 
 #let recap(
-  show_heading_big_numeral: true
+  show-heading-big-numeral: true
 ) = {
   pagebreak()
   set text(9pt, weight: "black")
@@ -429,7 +429,7 @@
             if current_page == p1 and y1 != none { y1 }
             else { -(calc.div-euclid(current_page, 2) + 1) * a4h } 
           ),
-          fill: color_from_string_cite(name0).transparentize(80%),
+          fill: color-from-string-cite(name0).transparentize(80%),
           stroke: none
         )
         current_page += 1
@@ -466,7 +466,7 @@
   let heading2(seen, seen_citation, pos, fst_page, item, i, cite_attach) = {
     let (real_page, posx, posy) = compute_pos(pos, fst_page, seen, 10)
     let res
-    if show_heading_big_numeral {
+    if show-heading-big-numeral {
       res += content(
         xy(
           a4w / 4  + a4w / 2 * rem(real_page, 2),
@@ -528,7 +528,7 @@
   // ITEM
   let item_f(seen, seen_citation, pos, fst_page, item_type, item, i, cite_attach) = {
     let (real_page, posx, posy) = compute_pos(pos, fst_page, seen, 0)
-    item_type = short_item_type(item_type)
+    item_type = short-item-type(item_type)
     item = text(black, item_type) + [ ] + item
     let res = content(
       xy(posx, posy), (rel: xy(40, - 35)),
@@ -615,9 +615,8 @@
 }
 
 // Graph
-#import "@preview/cetz:0.3.1"
-#let graph(g) = cetz.canvas(length: 1em, {
-    import cetz.draw: *
+#let graph(g) = canvas(length: 1em, {
+    import draw: *
     let r = g.radius
     let links = g.links
     let nodes = g.nodes
@@ -659,7 +658,7 @@
             authors = book.author.split(",")
           }
           let resume_authors = authors.map(a => resume_author(a)).join(" & ")
-          [#h(0.8em) #text(fill:color_from_string_cite(item))[[#item]]#h(0.5em)#resume_authors, #emph(book.title). #linebreak()]
+          [#h(0.8em) #text(fill:color-from-string-cite(item))[[#item]]#h(0.5em)#resume_authors, #emph(book.title). #linebreak()]
         } else {
           assert(false, message:[#item not in #it.path.at(0)])
         }
