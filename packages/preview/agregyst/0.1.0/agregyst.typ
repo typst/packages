@@ -19,8 +19,8 @@
 
 ///// COLORS
 #let heading-2-color = red.darken(10%)
-#let heading_3_color = green.darken(20%)
-#let heading_4_color = purple.darken(20%)
+#let heading-3-color = green.darken(20%)
+#let heading-4-color = purple.darken(20%)
 #let item-color = blue
 #let dev-accent-color = purple // black // purple
 
@@ -271,14 +271,14 @@
   
   show heading.where(level: 3): c => [
     #block(below:below, above:above,
-      text(0.9em, heading_3_color, underline(c)))
+      text(0.9em, heading-3-color, underline(c)))
     #label("heading_3_" + heading-3-counter.display() + "_" + global-counter.display())
     #heading-3-counter.step()
   ]
 
   show heading.where(level: 4): it => [
     #block(below:below, above:above,
-      text(0.8em, heading_4_color, underline(it)))
+      text(0.8em, heading-4-color, underline(it)))
   ]
   
   // show heading.where(level: 4): it => {
