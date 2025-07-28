@@ -2,7 +2,6 @@
 name = "utoronto-syllabus"
 version = "0.1.0"
 compiler = "0.13.0"
-homepage = "https://github.com/siefkenj/typst-utoronto-syllabus"
 repository = "https://github.com/siefkenj/typst-utoronto-syllabus"
 entrypoint = "src/lib.typ"
 authors = ["Jason Siefken <https://github.com/siefkenj>"]
