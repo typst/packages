@@ -28,7 +28,7 @@ Typst will create a new directory with all the files needed to get you started.
 
 ## Fonts
 
- _**Vollkorn**_ is used for the body text. It's a high quality font for long texts designed by [Friedrich Althausen](http://friedrichalthausen.de/). It was one of the first Google Fonts. But I recommend to download it from the designers [project web page](http://vollkorn-typeface.com/), because that variant has the small caps font included (on [Google Fonts](https://fonts.google.com/specimen/Vollkorn) that's a separate font). The online version of Typst hast Vollkorn preinstalled.
+ _**Vollkorn**_ is used for the body text. It's a high quality font for long texts designed by [Friedrich Althausen](http://friedrichalthausen.de/). It was one of the first Google Fonts. But I recommend to download it from the designers [project web page](http://vollkorn-typeface.com/), because that variant has the small caps font included (on [Google Fonts](https://fonts.google.com/specimen/Vollkorn) that's a separate font). The online version of Typst has Vollkorn preinstalled.
 
  In it's current version it's an extensive font with 12 styles as well as true small caps, a variety of localisations, a complete set of figures (proportional/tabular, lining/old style, small caps), many ligatures etc.
 
