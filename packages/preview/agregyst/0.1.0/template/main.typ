@@ -28,4 +28,12 @@
 
 #recap()
 
-#bibliography(read("bib.yaml", encoding: none))
+// #bibliography(read("bib.yaml", encoding: none))
+
+
+===== Remark
+
+
+#align(center + bottom)[
+    fst author & snd author
+]
