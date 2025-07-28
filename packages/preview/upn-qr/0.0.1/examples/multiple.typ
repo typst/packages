@@ -1,4 +1,4 @@
-#import "../src/upn-qr.typ": upn-qr
+#import "@preview/upn-qr:0.0.1": upn-qr
 
 #let debug = true
 
