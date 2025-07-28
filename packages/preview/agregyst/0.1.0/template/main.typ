@@ -8,12 +8,13 @@
 
 // This item does not have a source
 // is will be show gray in the recap
-#item("Définition")[@NAN A Graph][
+// @NAN
+#item("Définition")[A Graph][
     is ...
 ]
 
-
-#item("Définition")[@NAN A Graph][
+// @NAN
+#item("Définition")[A Graph][
     is ...
 ]
 
@@ -21,18 +22,18 @@
 
 // This part has the SIP reference
 // it will have a special color in the recap
-== Second Part @SIP
+// @SIP
+== Second Part 
 
 #pagebreak()
-== Third Part @NAN
+// @NAN
+== Third Part 
 
 #recap()
 
 // #bibliography(read("bib.yaml", encoding: none))
 
-
 ===== Remark
-
 
 #align(center + bottom)[
     fst author & snd author
