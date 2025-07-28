@@ -8,7 +8,7 @@ authors = ["Pierre GUYOT <@toyhugs>"]
 license = "MIT-0"
 description = "✨ Colorful and elegant 2-column CV and cover letter template. Simple to use and adapt to your needs."
 keywords = ["CV", "resume", "cover letter"]
-exclude = ["*.pdf", "src/fonts/", "/flake.*", ".*"]
+exclude = ["*.pdf", "src/fonts/", "flake.*", ".*", "previews/"]
 categories = ["cv"]
 disciplines = []
 

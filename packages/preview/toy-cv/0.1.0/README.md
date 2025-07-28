@@ -16,9 +16,9 @@
 
 ## Examples
 
-| Cover Letter                                                   | CV                                         |
-| -------------------------------------------------------------- | ------------------------------------------ |
-| ![Cover Letter Example](./templates/previews/cover-letter.png) | ![CV Example](./templates/previews/cv.png) |
+| Cover Letter                                                                                             | CV                                                                                   |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| ![Cover Letter Example](https://raw.githubusercontent.com/toyhugs/toy-cv/main/previews/cover-letter.png) | ![CV Example](https://raw.githubusercontent.com/toyhugs/toy-cv/main/previews/cv.png) |
 
 ---
 
