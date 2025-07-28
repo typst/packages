@@ -23,8 +23,8 @@ exclude = [
   "tests",
   ".typstignore",
   "Justfile",
-  "thumbnail-dark.svg",
-  "thumbnail-light.svg",
+  # "thumbnail-dark.svg",
+  # "thumbnail-light.svg",
 ]
 
 # [template]
