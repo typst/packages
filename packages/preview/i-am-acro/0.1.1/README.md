@@ -19,8 +19,8 @@ A quick overview of the features:
   LED: ( // key
     en: ( // language key
       short: [LED], //requiered
-      short-pl: [LEDs], // requiered
-      long: [Light Emitting Diode], //optional
+      short-pl: [LEDs], //optional
+      long: [Light Emitting Diode],c// requiered
     ),
     de: (
       short: "LED",
