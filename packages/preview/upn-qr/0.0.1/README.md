@@ -2,7 +2,7 @@
 
 Univerzalni plačilni nalog UPN QR (Obrazec UPN QR) template for [typst](https://typst.app/docs/)
 
-![Preview](/thumbnail.png)
+![Preview](thumbnail.png)
 
 ## Example
 
