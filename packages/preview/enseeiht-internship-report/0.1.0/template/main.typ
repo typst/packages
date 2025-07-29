@@ -1,7 +1,7 @@
-#import "@preview/enseeiht-internship-report:0.1.0": *
+#import "@preview/enseeiht-internship-report:0.1.0": cover
 
 
-#show: cover.with(
+#show: doc => cover(
   title: [PFE - Rapport de Stage en Entreprise],
   subtitle: [Nom du Stage],
   subject: [Sujet du Stage, consigne, etc...],
@@ -27,9 +27,8 @@
     ),
   ),
   abstract: lorem(80),
-  logo-company: "asset/example.png",
-  logo-school: "asset/logo_enseeiht.png",
-  doc,
+  logo_company: "asset/example.png",
+  logo_school: "asset/logo_enseeiht.png",
 )
 #show heading.where(level: 1): it => {
   pagebreak()

@@ -5,8 +5,8 @@
   author: (),
   tutors: (),
   abstract: [],
-  logo-company: none,
-  logo-school: none,
+  logo_company: none,
+  logo_school: none,
   doc,
 ) = {
 
@@ -31,8 +31,8 @@
   grid(
     columns: (30%,110%),
     row-gutter: 24pt,
-    image(logo-school, height: 40pt),
-    image(logo-company, height: 40pt ), 
+    image(logo_school, height: 40pt),
+    image(logo_company, height: 40pt ), 
   )
   v(0.2fr)
   text(26pt, title)
@@ -81,8 +81,8 @@
         #grid(
           columns: (1fr, 1fr),
           align: (left, right),
-          image(logo-school, height: 15pt),
-          image(logo-company, height: 15pt)
+          image(logo_school, height: 15pt),
+          image(logo_company, height: 15pt)
       )],
 
     footer: pad(
