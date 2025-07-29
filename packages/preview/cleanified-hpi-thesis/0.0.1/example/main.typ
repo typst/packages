@@ -22,7 +22,7 @@
   professor: "Prof. Dr. Rosseforp Renttalp",
   advisors: ("This person", "Someone Else"),
   abstract: abstract,
-  abstract-de: abstract_de,
+  abstract-de: abstract-de,
   acknowledgements: acknowledgements,
   type: "Master",
   for-print: false
