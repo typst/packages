@@ -40,8 +40,8 @@ Un template Typst pour les rapports de stage de l'ENSEEIHT (École Nationale Sup
     ),
   ),
   abstract: [Résumé du rapport...],
-  logo_company: "chemin/vers/logo_entreprise.png",
-  logo_school: "chemin/vers/logo_enseeiht.png",
+  logo-company: "chemin/vers/logo_entreprise.png",
+  logo-school: "chemin/vers/logo_enseeiht.png",
   doc,
 )
 
@@ -57,8 +57,8 @@ Votre contenu ici...
 - `author`: Informations sur l'étudiant (nom, poste, affiliation, email, dates)
 - `tutors`: Liste des tuteurs (école et entreprise)
 - `abstract`: Résumé du rapport
-- `logo_company`: Chemin vers le logo de l'entreprise
-- `logo_school`: Chemin vers le logo de l'ENSEEIHT
+- `logo-company`: Chemin vers le logo de l'entreprise
+- `logo-school`: Chemin vers le logo de l'ENSEEIHT
 
 ## Structure recommandée
 
