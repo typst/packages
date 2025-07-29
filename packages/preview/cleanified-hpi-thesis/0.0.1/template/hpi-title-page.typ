@@ -5,7 +5,7 @@
   name: "",
   title: "",
   translation: "",
-  study_program: "",
+  study-program: "",
   date: "",
   type: "Bachelor",
 ) = {
@@ -40,7 +40,7 @@
   
       align(center, block[
         im Studiengang \
-        #study_program
+        #study-program
       ])
   
       align(center, block[
@@ -74,7 +74,7 @@
   
       align(center, block[
         im Studiengang \
-        #study_program
+        #study-program
       ])
   
       align(center, block[

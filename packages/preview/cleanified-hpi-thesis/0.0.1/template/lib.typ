@@ -1,4 +1,4 @@
-#import "hpi_title_page.typ": *
+#import "hpi-title-page.typ": *
 
 // The project function defines how your document looks.
 // It takes your content and some metadata and formats it.
@@ -20,7 +20,7 @@
   type: "",
 
   // Study Program of the student
-  study_program: "",
+  study-program: "",
 
   // Chair where the thesis is written
   chair: "",
@@ -34,9 +34,9 @@
   // The abstract of the thesis
   abstract: "",
 
-  // The German translation of the abstract 
+  // The German translation of the abstract
   // If not given, the page for German translation of abstract will not appear
-  abstract_de: "",
+  abstract-de: "",
 
   // The student may want to add acknowledgements
   // If not giving, the page for acknowledgements will not appear
@@ -44,7 +44,7 @@
 
   // Determines if the document is intended for print or electronic use. 
   // If for_print: true is set, additional pages will be added.
-  for_print: true,
+  for-print: true,
   
   body,
 ) = {  
@@ -64,7 +64,7 @@
     advisors: advisors,
     title: title,
     translation: translation,
-    study_program: study_program,
+    study-program: study-program,
     chair: chair,
     type: type,
     date: date
@@ -128,15 +128,15 @@
   set page(numbering: none)
 
   // Count the number of intro pages
-  let intro_pages = 1
+  let intro-pages = 1
   
   pagebreak()
-  intro_pages += 1
+  intro-pages += 1
   
   set page(numbering: none)
-  if for_print {
+  if for-print {
     pagebreak()
-    intro_pages += 1
+    intro-pages += 1
   }
   counter(page).update(1)
   set page(numbering: "i")
@@ -146,26 +146,26 @@
   text(abstract)
 
   pagebreak()
-  intro_pages += 1
+  intro-pages += 1
   set page(numbering: none)
-  if for_print { 
+  if for-print { 
     pagebreak()
-    intro_pages += 1
+    intro-pages += 1
   }
   set page(numbering: "i")
 
-  if abstract_de != "" {
+  if abstract-de != "" {
     set page(numbering: "i")
     heading(level: 1, numbering: none, "Zusammenfassung")
   v(0.5cm)
-    text(abstract_de)
+    text(abstract-de)
   
     pagebreak()
-    intro_pages += 1
+    intro-pages += 1
     set page(numbering: none)
-    if for_print { 
+    if for-print { 
       pagebreak()
-      intro_pages += 1
+      intro-pages += 1
     }
     set page(numbering: "i")
   }
@@ -177,11 +177,11 @@
     text(acknowledgements)
   
     pagebreak()
-    intro_pages += 1
+    intro-pages += 1
     set page(numbering: none)
-    if for_print {
+    if for-print {
       pagebreak()
-      intro_pages += 1
+      intro-pages += 1
     }
     set page(numbering: "i")
   }
@@ -192,11 +192,11 @@
   ], depth: 4)
   
   pagebreak()
-  intro_pages += 1
+  intro-pages += 1
   set page(numbering: none)
-  if for_print {
+  if for-print {
     pagebreak()
-    intro_pages += 1
+    intro-pages += 1
   }
 
 
@@ -230,7 +230,7 @@
       }
 
       // Are we on a page that starts a chapter?
-      let i = here().page() - intro_pages + 1
+      let i = here().page() - intro-pages + 1
       if query(heading).any(it => it.location().page() == i) {
         return
       }
