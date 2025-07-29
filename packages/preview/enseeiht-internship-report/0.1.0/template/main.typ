@@ -27,8 +27,9 @@
     ),
   ),
   abstract: lorem(80),
-  logo_company: "asset/example.png",
-  logo_school: "asset/logo_enseeiht.png",
+  logo-company: "asset/example.png",
+  logo-school: "asset/logo_enseeiht.png",
+  doc,
 )
 #show heading.where(level: 1): it => {
   pagebreak()

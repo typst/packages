@@ -7,6 +7,7 @@ license = "MIT"
 description = "Template de rapport de stage pour l'ENSEEIHT."
 keywords = ["template", "report", "internship", "enseeiht"]
 categories = ["report"]
+exclude = ["template/asset/example.png"]
 
 [template]
 path = "template"
