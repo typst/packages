@@ -1,15 +1,14 @@
 [package]
 name = "enseeiht-internship-report"
 version = "0.1.0"
-entrypoint = "template.typ"
+entrypoint = "lib.typ"
 authors = ["Victor Marti"]
 license = "MIT"
 description = "Template de rapport de stage pour l'ENSEEIHT."
 keywords = ["template", "report", "internship", "enseeiht"]
 categories = ["report"]
-exclude = ["example.png", "example.svg", "test.typ"]
 
 [template]
-path = "template.typ"
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"

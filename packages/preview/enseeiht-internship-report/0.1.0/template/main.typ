@@ -1,7 +1,7 @@
-#import "@preview/enseeiht-internship-report:0.1.0": cover
+#import "@preview/enseeiht-internship-report:0.1.0": *
 
 
-#show: doc => cover(
+#show: cover.with(
   title: [PFE - Rapport de Stage en Entreprise],
   subtitle: [Nom du Stage],
   subject: [Sujet du Stage, consigne, etc...],
