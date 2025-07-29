@@ -1,0 +1,15 @@
+[package]
+name = "enseeiht-internship-report"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Victor Marti"]
+license = "MIT"
+description = "Template de rapport de stage pour l'ENSEEIHT."
+repository = "https://github.com/VictorMarti/enseeiht-internship-report"
+keywords = ["template", "report", "internship", "enseeiht"]
+categories = ["report"]
+
+[template]
+path = "template.typ"
+entrypoint = "template.typ"
+thumbnail = "thumbnail.png"
