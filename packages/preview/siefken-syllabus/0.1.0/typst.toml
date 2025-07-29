@@ -1,8 +1,8 @@
 [package]
-name = "utoronto-syllabus"
+name = "siefken-syllabus"
 version = "0.1.0"
 compiler = "0.13.0"
-repository = "https://github.com/siefkenj/typst-utoronto-syllabus"
+repository = "https://github.com/siefkenj/typst-siefken-syllabus"
 entrypoint = "src/lib.typ"
 authors = ["Jason Siefken <https://github.com/siefkenj>"]
 categories = ["office", "layout"]

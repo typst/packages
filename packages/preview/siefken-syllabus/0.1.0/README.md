@@ -1,15 +1,15 @@
-# utoronto-syllabus
+# siefken-syllabus
 
 Typst Syllabus template for my courses at the University of Toronto.
 
 <p align="center">
-    <img src="https://github.com/siefkenj/typst-utoronto-syllabus/raw/main/docs/images/example.svg" alt="Example rendering of thesis template" />
+    <img src="https://github.com/siefkenj/typst-siefken-syllabus/raw/main/docs/images/example.svg" alt="Example rendering of thesis template" />
 </p>
 
 ## Usage
 
 ```typst
-#import "@preview/utoronto-syllabus:0.1.0" as s
+#import "@preview/siefken-syllabus:0.1.0" as s
 #import "@preview/elembic:1.1.1" as e
 
 // Initialize all settings for the course
