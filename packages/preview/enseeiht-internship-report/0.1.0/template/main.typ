@@ -27,8 +27,8 @@
     ),
   ),
   abstract: lorem(80),
-  logo-company: "asset/example.png",
-  logo-school: "asset/logo_enseeiht.png",
+  logo-company: "template/asset/example.png",
+  logo-school: "template/asset/logo_enseeiht.png",
   doc,
 )
 #show heading.where(level: 1): it => {
