@@ -1,6 +1,6 @@
 [package]
 name = "nutshell"
-version = "0.1.0"
+version = "0.1.1"
 entrypoint = "nutshell.typ"
 authors = ["baptiste <https://github.com/baptiste>"]
 license = "MPL-2.0"

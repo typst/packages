@@ -5,7 +5,7 @@ This is a typst template for resumes, en résumé.
 To get started:
 
 ```typst
-typst init @preview/nutshell:0.1.0
+typst init @preview/nutshell:0.1.1
 ```
 
 And edit the `main.typ` example. 

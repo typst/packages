@@ -1,4 +1,4 @@
-#import "@preview/nutshell:0.1.0": nutshell-setup, colorize
+#import "@preview/nutshell:0.1.1": nutshell-setup, colorize
 
 #let (nutshell, fonts, palette, status, details) = nutshell-setup()
 
