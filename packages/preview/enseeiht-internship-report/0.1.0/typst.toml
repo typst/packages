@@ -1,7 +1,6 @@
 [package]
 name = "enseeiht-internship-report"
 version = "0.1.0"
-entrypoint = "template.typ"
 authors = ["Victor Marti"]
 license = "MIT"
 description = "Template de rapport de stage pour l'ENSEEIHT."
