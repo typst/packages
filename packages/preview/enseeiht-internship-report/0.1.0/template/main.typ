@@ -27,7 +27,7 @@
     ),
   ),
   abstract: lorem(80),
-  logo-company: "template/asset/example.png",
+  logo-company: "template/asset/logo_mistral.png",
   logo-school: "template/asset/logo_enseeiht.png",
   doc,
 )
