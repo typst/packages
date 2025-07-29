@@ -5,10 +5,9 @@ entrypoint = "template.typ"
 authors = ["Victor Marti"]
 license = "MIT"
 description = "Template de rapport de stage pour l'ENSEEIHT."
-repository = "https://github.com/VTNK7/enseeiht-internship-report"
 keywords = ["template", "report", "internship", "enseeiht"]
 categories = ["report"]
-exclude = ["example.png", "example.svg"]
+exclude = ["example.png", "example.svg", "test.typ"]
 
 [template]
 path = "template.typ"

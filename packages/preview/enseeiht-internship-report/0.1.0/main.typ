@@ -1,4 +1,4 @@
-#import "@local/enseeiht-internship-report:0.1.0": cover
+#import "@preview/enseeiht-internship-report:0.1.0": cover
 
 
 #show: doc => cover(
