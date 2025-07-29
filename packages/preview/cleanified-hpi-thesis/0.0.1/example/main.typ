@@ -1,10 +1,10 @@
-#import "@preview/hpi-thesis:0.0.1": *
+#import "@preview/cleanified-hpi-thesis:0.0.1": *
 
 #let abstract = [
   This is a very good abstract.
 ]
 
-#let abstract_de = [
+#let abstract-de = [
   Die ist eine wirklich gute Zusammenfassung.
 ]
 
@@ -17,15 +17,15 @@
   translation: "Eine adäquate Übersetzung meines Titels",
   name: "Max Mustermann",
   date: "17. Juli, 2025",
-  study_program: "IT-Systems Engineering",
+  study-program: "IT-Systems Engineering",
   chair: "Data-Intensive Internet Computing",
   professor: "Prof. Dr. Rosseforp Renttalp",
   advisors: ("This person", "Someone Else"),
   abstract: abstract,
-  abstract_de: abstract_de,
+  abstract-de: abstract_de,
   acknowledgements: acknowledgements,
   type: "Master",
-  for_print: false
+  for-print: false
 )
 
 = Introduction
