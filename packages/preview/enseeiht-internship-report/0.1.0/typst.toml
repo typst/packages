@@ -1,6 +1,7 @@
 [package]
 name = "enseeiht-internship-report"
 version = "0.1.0"
+entrypoint = "template.typ"
 authors = ["Victor Marti"]
 license = "MIT"
 description = "Template de rapport de stage pour l'ENSEEIHT."
@@ -10,5 +11,5 @@ exclude = ["example.png", "example.svg", "test.typ"]
 
 [template]
 path = "template.typ"
-entrypoint = "template.typ"
+entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
