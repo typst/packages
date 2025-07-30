@@ -7,7 +7,6 @@ description = "A clean and customizable CV template"
 categories = ["cv"]
 keywords = ["CV", "Curriculum Vitae", "Resume", "Minimal", "Professional"]
 repository = "https://github.com/lelimacon/typst-minimal-cv"
-homepage = "https://github.com/lelimacon/typst-minimal-cv"
 exclude = ["*.pdf"]
 entrypoint = "package.typ"
 
