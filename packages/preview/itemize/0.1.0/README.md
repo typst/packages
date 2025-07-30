@@ -121,7 +121,7 @@ These parameters can specify styles for specific levels of nested enumerations a
 - `enum-spacing`: Controls the **spacing above and below** the enumerations and lists. Can be a `length` (same spacing above and below) or a `dictionary` (e.g., `(above: length1, below: length2)`).
 - `item-spacing`: Controls the **spacing between items** for each level.
 
-The model for `itemize` lists is as follows:
+The model for `itemize` is as follows:
 
 ![alt text](./assert/item.svg)
 
@@ -343,7 +343,6 @@ For fun:
 #show: el.default-enum-list
 
 #let emoji = (alien, book.orange, butterfly, cloud.storm)
-#emoji
 #let ff = (..num) => context {
   set text(fill: red)
   let count = el.level-count()
@@ -507,15 +506,15 @@ For example:
 
 ## Using `set rule`
 
-In the current version of `typst` (0.13.1), we cannot use custom functions with `set rule`, which prevents us from retaining previously set property values when using `default-item-list`, `paragraph-item-list`, etc. Now, with the `elembic` package, we can achieve this functionality. To this end, we have repackaged `default-item-list` and `paragraph-item-list` into `set_default` and `set_paragraph` methods, which work the same as the original functions but retain previously set property values.
+In the current version of `typst` (0.13.1), we cannot use custom functions with `set rule`, which prevents us from retaining previously set property values when using `default-item-list`, `paragraph-item-list`, etc. Now, with the `elembic` package, we can achieve this functionality. To this end, we have repackaged `default-item-list` and `paragraph-item-list` into `set-default` and `set-paragraph` methods, which work the same as the original functions but retain previously set property values.
 
 Here's how to use them:
 
 Include the following at the beginning of your document:
 ```typst
-#show: el.set_default() // need ()!!!
+#show: el.set-default() // need ()!!!
 ```
-> Note: The key difference is that `set_default` requires **parentheses**!
+> Note: The key difference is that `set-default` requires **parentheses**!
 ```typst
 #let item = [
   + #lorem(10)
@@ -528,29 +527,29 @@ Include the following at the beginning of your document:
   + #lorem(10)
 ]
 
-#show: el.set_default()
+#show: el.set-default()
 #set enum(numbering: "(1).(a).(i)")
 #item
 
 // change the label color
-#show: el.set_default(fill: (red, blue, green, auto))
+#show: el.set-default(fill: (red, blue, green, auto))
 #item
 
 // change the label size
-#show: el.set_default(size: (20pt, 16pt, 14pt, auto))
+#show: el.set-default(size: (20pt, 16pt, 14pt, auto))
 #item
 
 // change the body-indent and indent
-#show: el.set_default(body-indent: (auto, 0.5em), indent: (auto, 0em, 1em, auto))
+#show: el.set-default(body-indent: (auto, 0.5em), indent: (auto, 0em, 1em, auto))
 #item
 
 // use the default style
-#show: el.set_default()
+#show: el.set-default()
 #item
 ```
 ![alt text](./assert/set-rule-test0.png)
 
-> Note: Property values set via `#set enum` and `#set list` cannot be restored using `#show: el.set_default()`.
+> Note: Property values set via `#set enum` and `#set list` cannot be restored using `#show: el.set-default()`.
 
 # Acknowledge
 

@@ -190,7 +190,7 @@
 }
 
 /// Configures default styling for enumerations and lists.
-#let set_default = set_.with("classic")
+#let set-default = set_.with("classic")
 
 /// Configures paragraph styling for enumerations and lists.
-#let set_paragraph = set_.with("paragraph")
+#let set-paragraph = set_.with("paragraph")

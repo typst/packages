@@ -11,22 +11,22 @@
   + tree
 ]
 
-#show: el.set_default()
+#show: el.set-default()
 #set enum(numbering: "(1).(a).(i)")
 #item
 
 // change the label color
-#show: el.set_default(fill: (red, blue, green, auto))
+#show: el.set-default(fill: (red, blue, green, auto))
 #item
 
 // change the label size
-#show: el.set_default(size: (20pt, 16pt, 14pt, auto))
+#show: el.set-default(size: (20pt, 16pt, 14pt, auto))
 #item
 
 // change the body-indent and indent
-#show: el.set_default(body-indent: (auto, 0.5em), indent: (auto, 0em, 1em, auto))
+#show: el.set-default(body-indent: (auto, 0.5em), indent: (auto, 0em, 1em, auto))
 #item
 
 // use the default style
-#show: el.set_default()
+#show: el.set-default()
 #item
