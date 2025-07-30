@@ -1,0 +1,17 @@
+[package]
+name = "kunskap"
+version = "0.1.0"
+compiler = "0.12.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/mbollmann/typst-kunskap"
+authors = ["Marcel Bollmann <marcel@bollmann.me>"]
+license = "MIT-0"
+description = "A template with generous spacing for reports, assignments, course documents, and similar (shorter) documents."
+keywords = ["notes", "report", "non-fiction", "class", "lecture"]
+categories = ["report"]
+exclude = ["example.*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

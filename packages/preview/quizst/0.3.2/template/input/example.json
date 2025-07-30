@@ -1,0 +1,94 @@
+{
+  "type": "lesson",
+  "module": "Medical Sciences",
+  "subject": "Cardiology",
+  "lesson": "Heart Anatomy and Function",
+  "questions": [
+    {
+      "sn": "1",
+      "source": "Basic Anatomy",
+      "question": "Which chamber of the heart receives deoxygenated blood from the body?",
+      "answer": "b",
+      "a": "Left Atrium",
+      "b": "Right Atrium",
+      "c": "Left Ventricle",
+      "d": "Right Ventricle",
+      "e": "Pulmonary Artery"
+    },
+    {
+      "sn": "2",
+      "source": "Cardiac Cycle",
+      "question": "What is the correct sequence of heart sounds in a normal cardiac cycle?",
+      "answer": "a",
+      "a": "Lub-Dub (S1-S2)",
+      "b": "Dub-Lub (S2-S1)",
+      "c": "Single sound (S1)",
+      "d": "Triple sound (S1-S2-S3)"
+    },
+    {
+      "sn": "3",
+      "source": "Physiology",
+      "question": "Which valve prevents backflow of blood from the aorta into the left ventricle?",
+      "answer": "c",
+      "a": "Tricuspid valve",
+      "b": "Mitral valve",
+      "c": "Aortic valve",
+      "d": "Pulmonary valve"
+    },
+    {
+      "sn": "4",
+      "source": "ECG",
+      "question": "The P wave in an ECG represents:",
+      "answer": "a",
+      "a": "Atrial depolarization",
+      "b": "Ventricular depolarization",
+      "c": "Atrial repolarization",
+      "d": "Ventricular repolarization",
+      "e": "Bundle branch conduction"
+    },
+    {
+      "sn": "5",
+      "source": "Blood Flow",
+      "question": "Through which blood vessels does blood flow from the heart to the lungs?",
+      "answer": "d",
+      "a": "Aorta",
+      "b": "Pulmonary veins",
+      "c": "Superior vena cava",
+      "d": "Pulmonary arteries",
+      "e": "Coronary arteries"
+    },
+    {
+      "sn": "6",
+      "source": "Pathology",
+      "question": "Which condition is characterized by reduced blood flow to the heart muscle?",
+      "answer": "b",
+      "a": "Cardiomyopathy",
+      "b": "Ischemia",
+      "c": "Pericarditis",
+      "d": "Endocarditis",
+      "e": "Heart block"
+    },
+    {
+      "sn": "7",
+      "source": "Clinical",
+      "question": "What is the most common type of congenital heart defect?",
+      "answer": "c",
+      "a": "Tetralogy of Fallot",
+      "b": "Patent ductus arteriosus",
+      "c": "Ventricular septal defect",
+      "d": "Atrial septal defect",
+      "e": "Coarctation of aorta"
+    },
+    {
+      "sn": "8",
+      "source": "Pharmacology",
+      "question": "Beta blockers primarily work by:",
+      "answer": "d",
+      "a": "Increasing heart rate",
+      "b": "Dilating blood vessels",
+      "c": "Increasing contractility",
+      "d": "Reducing sympathetic stimulation",
+      "e": "Blocking calcium channels"
+    }
+  ]
+} 

@@ -1,0 +1,11 @@
+[package]
+name = "efilrst"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["Joan Marcè i Igual <@jmigual>"]
+license = "MIT"
+repository = "https://github.com/jmigual/typst-efilrst"
+keywords = ["typst", "list", "referenceable"]
+compiler = "0.12.0"
+description = "A simple referenceable list library for typst."
+exclude = ["examples/*", "img/*"]

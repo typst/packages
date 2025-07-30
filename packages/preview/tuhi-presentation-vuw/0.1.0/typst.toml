@@ -1,0 +1,27 @@
+[package]
+name = "tuhi-presentation-vuw"
+version = "0.1.0"
+entrypoint = "tuhi-presentation-vuw.typ"
+authors = ["baptiste <https://github.com/baptiste>"]
+license = "MPL-2.0"
+description = "Template for presentation slides with tailored aesthetics."
+categories = ["office"]
+repository = "https://github.com/vuw-scps/tuhi-presentation-vuw"
+exclude = [
+    "vuw-logo.svg",
+    "makefile",
+    "examples",
+    "package.sh",
+    "tests",
+    "docs",
+    ".github",
+    ".vscode",
+    ".git",
+    ".gitignore",
+    "**/*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,16 @@
+[package]
+name = "finely-crafted-cv"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Stephen Waits <steve@waits.net>"]
+license = "MIT"
+description = "A modern résumé/curriculum vitæ template with high attention to detail."
+categories = ["cv"]
+disciplines = ["business", "communication"]
+keywords = ["resume", "curriculum", "vitae", "cv"]
+repository = "https://github.com/swaits/typst-collection"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
