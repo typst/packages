@@ -5,8 +5,6 @@ Booktabs is a Typst package inspired by the fabulous LaTeX's Booktabs package.
 
 ## Usage
 
-For information, see the [online manual](https://booktabs.github.io/docs).
-
 To use this package, simply add the following code to your document:
 
 ```typ
