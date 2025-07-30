@@ -1,4 +1,4 @@
-#import "../lib.typ" as el
+#import "@preview/itemize:0.1.0" as el
 #set page(height: auto, margin: 25pt) //,
 
 == custom body
