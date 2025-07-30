@@ -1,0 +1,21 @@
+[package]
+authors = ["Willem Vanhulle"]
+categories = ["cv"]
+compiler = "0.13.0"
+description = "A flexible resume template with priority-based content filtering and adaptive page layouts"
+disciplines = ["computer-science", "mathematics", "engineering", "education"]
+entrypoint = "resume-template-style.typ"
+keywords = [
+    "resume",
+    "cv",
+    "template",
+    "flexible",
+    "priority-filtering",
+    "software-engineering",
+    "adaptive-layout",
+]
+license = "MIT"
+name = "flexible-resume"
+repository = "https://github.com/wvhulle/flexible-resume"
+version = "0.1.0"
+
