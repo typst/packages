@@ -4,8 +4,8 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Victor Marti"]
 license = "MIT"
-description = "Template de rapport de stage pour l'ENSEEIHT."
-keywords = ["template", "report", "internship", "enseeiht"]
+description = "Unofficial Internship Report Template for ENSEEIHT."
+keywords = ["professional", "report", "internship", "enseeiht"]
 categories = ["report"]
 
 [template]

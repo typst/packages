@@ -1,15 +1,18 @@
 # ENSEEIHT Internship Report Template
 
-Un template Typst pour les rapports de stage de l'ENSEEIHT (École Nationale Supérieure d'Électrotechnique, d'Électronique, d'Informatique, d'Hydraulique et des Télécommunications).
+Unofficial Typst Internship Report Template for ENSEEIHT
+An unofficial Typst template designed for internship reports at ENSEEIHT (École Nationale Supérieure d'Électrotechnique, d'Électronique, d'Informatique, d'Hydraulique et des Télécommunications).
+Features:
 
-## Fonctionnalités
+Customizable cover page with school and company logos
+Automatic title formatting and numbering
+Headers and footers with integrated logos
+Support for multiple authors and supervisors
+Built-in bibliography management
+Typography optimized for French academic reports
 
-- Page de couverture personnalisable avec logos école et entreprise
-- Mise en forme automatique des titres et numérotation
-- En-têtes et pieds de page avec logos
-- Support pour auteurs multiples et tuteurs
-- Bibliographie intégrée
-- Style typographique adapté aux rapports académiques français
+This community-created template streamlines the creation of professional internship reports while following typical ENSEEIHT formatting conventions.
+
 
 ## Usage
 

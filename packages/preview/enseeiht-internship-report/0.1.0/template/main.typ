@@ -1,6 +1,5 @@
 #import "@preview/enseeiht-internship-report:0.1.0": cover
 
-
 #show: doc => cover(
   title: [PFE - Rapport de Stage en Entreprise],
   subtitle: [Nom du Stage],
@@ -27,8 +26,12 @@
     ),
   ),
   abstract: lorem(80),
-  logo-company: "template/asset/logo_mistral.png",
-  logo-school: "template/asset/logo_enseeiht.png",
+  logo-company: image("./asset/placeholder.png", height: 40pt),
+  logo-school: image("./asset/placeholder.png", height: 40pt),
+
+  logo-company-header: image("./asset/placeholder.png", height: 15pt),
+  logo-school-header: image("./asset/placeholder.png", height: 15pt),
+
   doc,
 )
 #show heading.where(level: 1): it => {

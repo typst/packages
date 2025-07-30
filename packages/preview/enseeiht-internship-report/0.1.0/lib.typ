@@ -7,6 +7,8 @@
   abstract: [],
   logo-company: none,
   logo-school: none,
+  logo-company-header: none,
+  logo-school-header: none,
   doc,
 ) = {
 
@@ -31,8 +33,8 @@
   grid(
     columns: (30%,110%),
     row-gutter: 24pt,
-    image(logo-school, height: 40pt),
-    image(logo-company, height: 40pt ), 
+    logo-school,
+    logo-company,
   )
   v(0.2fr)
   text(26pt, title)
@@ -81,8 +83,8 @@
         #grid(
           columns: (1fr, 1fr),
           align: (left, right),
-          image(logo-school, height: 15pt),
-          image(logo-company, height: 15pt)
+          logo-school-header,
+          logo-company-header,
       )],
 
     footer: pad(
