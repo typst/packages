@@ -30,5 +30,6 @@ To use this package, simply add the following code to your document:
   [16.6],
   [104],
   bottomrule() // added by this package
+)
 ```
 [<img src="./examples/simple_table.png">](./examples/simple_table.pdf)
