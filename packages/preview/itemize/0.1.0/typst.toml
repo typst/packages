@@ -9,4 +9,4 @@ license = "MIT"
 description = "An easy way to customize enum and list."
 keywords = ["item", "list"]
 categories = ["components", "utility"]
-exclude = ["/assert/*", "/test/*"]
+exclude = ["assert/*", "test/*"]
