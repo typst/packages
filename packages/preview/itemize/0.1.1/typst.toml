@@ -1,6 +1,6 @@
 [package]
 name = "itemize"
-version = "0.1.0"
+version = "0.1.1"
 compiler = "0.13.1"
 repository = "https://github.com/tianyi-smile/itemize"
 entrypoint = "lib.typ"
