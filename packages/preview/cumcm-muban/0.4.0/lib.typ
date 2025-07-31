@@ -40,8 +40,7 @@
   ]
 
   [
-    #set par(leading: 13pt)
-    #show par: set block(spacing: 13pt)
+    #set par(leading: 13pt, spacing: 13pt)
   
     #par[我们仔细阅读了《全国大学生数学建模竞赛章程》和《全国大学生数学建模竞赛参赛规则》（以下简称 “竞赛章程和参赛规则”，可从http://www.mcm.edu.cn下载）。] 
   

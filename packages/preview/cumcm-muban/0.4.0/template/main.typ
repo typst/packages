@@ -91,7 +91,7 @@ cover-display: false, // 是否显示封面与编号页
 在数学建模中，我们经常需要插入图片。Typst 支持的图片格式有 "png", "jepg", ""gif"", "svg"，其他类型的图片无法插入文档。我们可以通过改变参数 `width` 来改变图片的大小，详见#link("https://typst.app/docs/reference/visualize/image/")[typst/docs/image]。下面是一些图片插入的示例：
 
 #figure(
-  image("./figures/f2.svg", width: 70%),
+  image("./figures/f2.png", width: 70%),
   caption: [
     单图示例
   ],
