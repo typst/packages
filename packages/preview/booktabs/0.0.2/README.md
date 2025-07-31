@@ -10,6 +10,8 @@ To use this package, simply add the following code to your document:
 ```typ
 #import "@preview/booktabs:0.0.2": *
 
+#set table(stroke: none)
+
 #table(
   columns: 3,
   align: (left, center, center),
