@@ -2,6 +2,10 @@
 
 Welcome! This repository offers two Typst templates (English and German) designed to help you write your papers following the HWR style guidelines.
 
+> [!CAUTION]
+> The logo included in this template is the property of the Berlin School of Economics and Law (Hochschule für Wirtschaft und Recht Berlin).
+> It is used under their licensing terms and should not be misappropriated or reproduced outside the scope permitted by the institution.
+
 ## Usage
 You can use this template in the Typst web app by clicking "Start from template"
 on the dashboard and searching for `clean-hwr`.
@@ -24,7 +28,7 @@ The `hwr(...)` function is the main entry point to configure and render the **PT
   metadata: (
     title: ["My Report Title"],
     student-id: "12345678",
-    authors: ("Your Name",),
+    authors: ("Your Name",), // The `,` is mandatory for an array with a single entry
     company: "Example Corp",
     enrollment-year: "2024",
     semester: "2",
