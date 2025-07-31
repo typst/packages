@@ -69,7 +69,7 @@
 
   body,
 ) = {
-  import "@preview/acrostiche:0.5.2": *
+  import "@preview/acrostiche:0.6.0": *
 
   set document(author: metadata.authors, title: metadata.title)
   set page(numbering: none, number-align: center)
@@ -132,7 +132,7 @@
 
   // Title settings
   let line-length = 90%
-  text(1em, weight: 700, baseline: -13.5pt, metadata.paper_type)
+  text(1em, weight: 700, baseline: -13.5pt, metadata.at("paper_type", default: []))
   line(length: line-length)
   text(2em, weight: 700, metadata.title)
   line(length: line-length)
@@ -312,7 +312,7 @@
 
   // Glossary
   if glossary.entries != () {
-    import "@preview/glossarium:0.5.6": *
+    import "@preview/glossarium:0.5.8": *
     show: make-glossary
     register-glossary(glossary.entries)
 

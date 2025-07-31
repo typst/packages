@@ -3,8 +3,8 @@
 // These packages are used to displaying the acronyms and glossaries
 // They need to be imported here so you can use #acr / #gls
 // to reference them
-#import "@preview/acrostiche:0.5.2": *
-#import "@preview/glossarium:0.5.6": *
+#import "@preview/acrostiche:0.6.0": *
+#import "@preview/glossarium:0.5.8": *
 
 // Count words automatically
 #import "@preview/wordometer:0.1.4": word-count, total-words
