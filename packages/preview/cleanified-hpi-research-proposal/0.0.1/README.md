@@ -18,7 +18,7 @@ An example configuration is located in [`example/`](./example/main.typ).
 
 #show: project.with(
   title: "My Very Long, Informative, Expressive, and Definitely Fancy Title",
-  name: "Max Mustermann",
+  author: "Max Mustermann",
   date: "17. Juli, 2025",
   chair: "Data-Intensive Internet Computing",
 )
