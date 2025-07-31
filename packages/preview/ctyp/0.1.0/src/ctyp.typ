@@ -1,4 +1,4 @@
-#import "@preview/cjk-unbreak:0.1.0": remove-cjk-break-space
+#import "@preview/cjk-unbreak:0.1.1": remove-cjk-break-space
 #import "./fonts/index.typ": *
 #import "./utils/enumitem.typ": enumitem
 #import "./utils/page-grid.typ": page-grid
