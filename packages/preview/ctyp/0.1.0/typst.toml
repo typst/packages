@@ -18,5 +18,6 @@ categories = [
     "languages",
 ]
 compiler = "0.13.1"
+exclude = ["*.pdf", "thumbnail.png", ".gitignore", "doc", "tests"]
 
 [tool]
