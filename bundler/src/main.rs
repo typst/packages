@@ -8,11 +8,13 @@ use std::env::args;
 use std::fs;
 use std::io;
 use std::path::Path;
+use std::sync::LazyLock;
 
 use anyhow::{bail, Context};
 use image::codecs::webp::{WebPEncoder, WebPQuality};
 use image::imageops::FilterType;
 use semver::Version;
+use spdx::LicenseId;
 use typst_syntax::package::{PackageInfo, PackageManifest, TemplateInfo, UnknownFields};
 use unicode_ident::{is_xid_continue, is_xid_start};
 
@@ -48,8 +50,12 @@ fn main() -> anyhow::Result<()> {
         .max_depth(1)
         .sort_by_file_name()
     {
-        let entry = entry?;
-        if !entry.metadata()?.is_dir() {
+        let entry = entry.context("cannot read entries in directory \"packages\".\nHint: does the current working directory contain a directory \"packages\"?")?;
+        if !entry
+            .metadata()
+            .context("cannot read metadata for entries in directory \"packages\"")?
+            .is_dir()
+        {
             continue;
         }
 
@@ -66,11 +72,27 @@ fn main() -> anyhow::Result<()> {
         let mut paths = vec![];
         let mut index = vec![];
         let mut package_errors = vec![];
-        fs::create_dir_all(namespace_dir.join(THUMBS_DIR))?;
+        fs::create_dir_all(namespace_dir.join(THUMBS_DIR))
+            .context("could not create output directory")?;
 
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
-            let entry = entry?;
-            if !entry.metadata()?.is_dir() {
+            let entry = entry.with_context(|| {
+                format!(
+                    "could not read item in namespace directory \"packages/{}\"",
+                    namespace
+                )
+            })?;
+
+            if !entry
+                .metadata()
+                .with_context(|| {
+                    format!(
+                        "could not read metadata for item in namespace directory \"packages/{}\"",
+                        namespace
+                    )
+                })?
+                .is_dir()
+            {
                 bail!(
                     "{}: a package directory may only contain version sub-directories, not files.",
                     entry.path().display()
@@ -103,19 +125,21 @@ fn main() -> anyhow::Result<()> {
         }
 
         println!("Determining timestamps.");
-        determine_timestamps(&paths, &mut index)?;
+        determine_timestamps(&paths, &mut index)
+            .context("failed to determine package creation timestamps")?;
 
         // Sort the index.
-        index.sort_by_key(|info| (info.package.name.clone(), info.package.version.clone()));
+        index.sort_by_key(|info| (info.package.name.clone(), info.package.version));
 
         println!("Writing index.");
         fs::write(
             namespace_dir.join("index.json"),
-            serde_json::to_vec(&index.iter().map(IndexPackageInfo::from).collect::<Vec<_>>())?,
+            serde_json::to_vec(&index.iter().map(IndexPackageInfo::from).collect::<Vec<_>>())
+                .context("serialization of compact package index failed")?,
         )?;
         fs::write(
             namespace_dir.join("index.full.json"),
-            serde_json::to_vec(&index)?,
+            serde_json::to_vec(&index).context("serialization of full package index failed")?,
         )?;
 
         if !package_errors.is_empty() {
@@ -247,8 +271,11 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
             .id()
             .context("license must not contain a referencer")?;
 
-        if !id.is_osi_approved() {
-            bail!("license is not OSI approved: {}", id.full_name);
+        if !id.is_osi_approved() && !is_allowed_cc(id) {
+            bail!(
+                "license is neither OSI approved nor an allowed CC license: {}",
+                id.full_name
+            );
         }
     }
 
@@ -276,11 +303,12 @@ fn read_readme(dir_path: &Path) -> anyhow::Result<String> {
     fs::read_to_string(dir_path.join("README.md")).context("failed to read README.md")
 }
 
-/// Build a comrpessed archive for a directory.
+/// Build a compressed archive for a directory.
 fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<Vec<u8>> {
     let mut buf = vec![];
     let compressed = flate2::write::GzEncoder::new(&mut buf, flate2::Compression::default());
     let mut builder = tar::Builder::new(compressed);
+    builder.mode(tar::HeaderMode::Deterministic);
 
     let mut overrides = ignore::overrides::OverrideBuilder::new(dir_path);
     for exclusion in &manifest.package.exclude {
@@ -429,7 +457,7 @@ fn validate_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
         bail!("{name} is missing");
     }
 
-    if path.extension().map_or(true, |ext| ext != "typ") {
+    if path.extension().is_none_or(|ext| ext != "typ") {
         bail!("{name} must have a .typ extension");
     }
 
@@ -453,4 +481,12 @@ fn is_id_start(c: char) -> bool {
 /// Whether a character can continue an identifier.
 fn is_id_continue(c: char) -> bool {
     is_xid_continue(c) || c == '_' || c == '-'
+}
+
+// Check that a license is any version of CC-BY, CC-BY-SA, or CC0.
+fn is_allowed_cc(license: LicenseId) -> bool {
+    static RE: LazyLock<regex::Regex> =
+        LazyLock::new(|| regex::Regex::new(r"^CC(-BY|-BY-SA|0)-[0-9]\.[0-9](-[A-Z]+)?$").unwrap());
+
+    RE.is_match(license.name)
 }
