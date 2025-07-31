@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.5.0": fa-icon
+#import "@preview/fontawesome:0.6.0": fa-icon
 
 // Global state for theme and author information
 #let __st-theme = state("theme")
@@ -58,7 +58,13 @@
       width: size,
       height: size,
       radius: size / 2,
-      align(center + horizon, fa-icon(icon, fill: white, size: size - .5em)),
+      align(
+        center + horizon,
+        [
+          #v(-0.15 * size)
+          #fa-icon(icon, fill: white, size: size - .5em)
+        ],
+      ),
     )
   }
 )
