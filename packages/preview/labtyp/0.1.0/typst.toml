@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["evidlabel"]
 license = "MIT"
-description = "A Typst package for creating labeled notes with underlined text, footnotes, and a hyperlinked table, supporting standard headings and document metadata."
+description = "A Typst package for labelling text and enabling json label extraction using typst query"
 repository = "https://github.com/evidlabel/labtyp" # Optional, update if hosting on GitHub
 keywords = ["headings", "labels", "footnotes", "metadata", "hyperlinks"]
 
