@@ -1,4 +1,9 @@
-# CTyp: Typst 的基础中文环境
+# CTyp
+
+CTyp is a Typst package providing basic Chinese typography support.
+This package integrates some common Chinese typography settings for a quick Chinese typesetting experience.
+As the Chinese typesetting support in Typst is still under development, this package can only provide non-language-level typesetting support and does not guarantee to meet all Chinese typesetting needs.
+Considering this package is mainly for Chinese users, the remainder of this README is currently only available in Chinese.
 
 CTyp 是一个用于提供 Typst 中文排版支持的包。
 该包集成了一些常用的中文排版设置，用于提供快速的中文排版体验。
@@ -12,7 +17,7 @@ CTyp 是一个用于提供 Typst 中文排版支持的包。
 通过以下代码快速使用 CTyp 包的设置：
 
 ```typ
-#import "@local/ctyp:0.1.0": ctyp
+#import "@preview/ctyp:0.1.0": ctyp
 #let (ctypset, cjk) = ctyp()
 #show: ctypset
 ```
