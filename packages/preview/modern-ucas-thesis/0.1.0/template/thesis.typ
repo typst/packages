@@ -1,4 +1,4 @@
-#import "@preview/modern-ucas-thesis:0.0.3": documentclass
+#import "@preview/modern-ucas-thesis:0.1.0": documentclass
 // #import "../lib.typ": documentclass
 // 你首先应该安装 fonts下的所有字体，或在编译的时候指定字体路径：
 // typst watch template/thesis.typ --font-path ./fonts
