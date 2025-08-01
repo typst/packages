@@ -5,7 +5,7 @@ This package deals about the literal naming of numbers in French before the 1990
 
 ## Example
 ```typst
-#import "@preview/frogst:1.0.0": nb-fr
+#import "@preview/frogst:1.0.0": fr-nb
 #set page(width: 10cm, height: auto, margin: 0.7cm)
 #set par(justify: true)
 
