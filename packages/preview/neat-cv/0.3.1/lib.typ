@@ -224,10 +224,14 @@
         #text(weight: "semibold", title)
 
         #text(size: 0.9em, smallcaps([
-          #institution
-          #h(1fr)
-          #fa-icon("location-dot", size: 0.85em, fill: theme.accent-color)
-          #location
+          #if institution != "" or location != "" [
+            #institution
+            #h(1fr)
+            #if location != "" [
+              #fa-icon("location-dot", size: 0.85em, fill: theme.accent-color)
+              #location
+            ]
+          ]
         ]))
 
         #text(size: 0.9em, description)
