@@ -7,6 +7,8 @@ license = "MIT"
 description = "A Typst package for labelling text and enabling json label extraction using typst query"
 repository = "https://github.com/evidlabel/labtyp" # Optional, update if hosting on GitHub
 keywords = ["headings", "labels", "footnotes", "metadata", "hyperlinks"]
+categories = ["law","labels"]
+
 
 [template]
 path = "template"
