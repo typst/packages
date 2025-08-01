@@ -11,3 +11,4 @@ keywords = ["headings", "labels", "footnotes", "metadata", "hyperlinks"]
 [template]
 path = "template"
 entrypoint = "main.typ"
+thumbnail = "template/preview.png"
