@@ -1,6 +1,6 @@
-// #import "@preview/frogst:1.0.0": fr-nb, fr-int
+#import "@preview/frogst:1.0.0": fr-nb, fr-int
 // #import "@local/frogst:1.0.0": fr-nb, fr-int
-#import "../lib.typ": fr-nb, fr-int
+// #import "../lib.typ": fr-nb, fr-int
 
 #set document(date: none)
 #set page("a5", columns: 2)
