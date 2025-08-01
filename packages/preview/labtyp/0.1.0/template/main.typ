@@ -1,5 +1,5 @@
-// #import "@preview/labtyp:0.1.0": lablist, lab, mset
-#import "../lib.typ": lablist, lab, mset
+#import "@preview/labtyp:0.1.0": lablist, lab, mset
+// #import "../lib.typ": lablist, lab, mset
 
 #mset(values: (
   title: "The title of the document", 
