@@ -1,3 +1,5 @@
+cumcm-muban is a Typst template designed for the CUMCM (Contemporary Undergraduate Mathematical Contest in Modeling) in China.
+
 cumcm-muban 是一个为高教社杯全国大学生数学建模竞赛设计的 Typst 模板。
 
 ## 使用方法
