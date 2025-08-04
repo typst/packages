@@ -1,7 +1,6 @@
 #import "@preview/touying:0.6.1": *
-#import "../colors.typ" as muw_colors
-#import "../lib.typ": *  
-// #import "@preview/muw-touying:0.1.1": *
+#import "@preview/muw-touying:0.1.0": *
+
 
 #set text(lang: "en")
 
