@@ -37,7 +37,7 @@
 )
 
 
-#let calc-N(nb) = {
+#let calc-n(nb) = {
     // Calcule le nombre termes d'un entier positif
     // - nb : entier positif
     // - out : entier > 0
@@ -64,7 +64,7 @@
     //   // (1, 0, 2, 4)
 
     // Méthode 1 - maths
-    range(calc-N(nb)).rev().map(
+    range(calc-n(nb)).rev().map(
         x => calc.rem(calc.quo(nb, calc.pow(10, x)), 10)
     )
     // Méthode 2 - string

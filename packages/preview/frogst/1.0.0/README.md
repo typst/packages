@@ -16,5 +16,5 @@ La vitesse de la lumière dans le vide est exactement #fr-nb(299792458) mètres 
 ![ouptut image of the code above](./examples/readme.png)
 
 ## Future improvements
-- orthorapgh of 1990 reform variant
+- 1990 reform spelling variant
 - Swiss, Belgian, etc. variants
