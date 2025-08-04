@@ -1,6 +1,6 @@
 # Typst/Touying Template for MedUni Wien
 
-This is a template built on [`Touying`](https://github.com/touying-typ/touying) to create presentation slides that captures the design of the official PowerPoint templates following [Medizinischen Universität Wien Corporate Design](https://www.meduniwien.ac.at/web/en/studierende/service-center/meduni-wien-vorlagen/).
+This is a template built on [`Touying`](https://github.com/touying-typ/touying) to create presentation slides that capture the design of the official PowerPoint templates following Medizinischen Universität Wien [Corporate Design](https://www.meduniwien.ac.at/web/en/studierende/service-center/meduni-wien-vorlagen/).
 
 ## Disclaimer
 
@@ -16,7 +16,6 @@ Use the following code as a starting point to create your own slides.
 
 ```typst
 #import "@preview/touying:0.6.1": *
-#import "colors.typ" as muw_colors
 #import "lib.typ": *
 
 #set text(lang: "en")
@@ -39,7 +38,7 @@ Use the following code as a starting point to create your own slides.
 = Section Header
 Version – white background
 
-== Title, subtitle and content
+== Title of the slide
 
 === Subtitle
 
@@ -49,7 +48,7 @@ Hello, MedUni Wien!
 
 ## License and copyright
 
-- This template builds upon Touying and is licensed under [MIT license](LICENSE).
+- This template builds upon `Touying` and is licensed under [MIT license](LICENSE).
 - The MedUni Wien logo is the intellectual property of the Medical University of Vienna and is subject to copyright.
 - Some beautiful pictures used in the example template are copyright of Nihon Falcom Corporation and are used for demonstration purpose only.
 
