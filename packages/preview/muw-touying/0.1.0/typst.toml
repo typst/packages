@@ -7,7 +7,7 @@ description = "Touying theme for Medical University of Vienna"
 license = "MIT"
 entrypoint = "lib.typ"
 keywords = ["touying", "presentation", "slides", "muw", "Medizinische Universität Wien", "Medical University of Vienna", "meduni", "wien", "vienna", "academic", "clinical"]
-categories = ["presentation"，"office"]
+categories = ["presentation", "office"]
 exclude = ["examples/"]
  
 [template]
