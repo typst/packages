@@ -7,7 +7,7 @@ Univerzalni plačilni nalog UPN QR (Obrazec UPN QR) template for [typst](https:/
 ## Example
 
 ```typ
-#import "@preview/olaii-upn-qr-typst-template:0.0.1": olaii-upn-qr
+#import "@preview/olaii-upn-qr:0.0.1": olaii-upn-qr
 
 // Page setup
 #set page(
