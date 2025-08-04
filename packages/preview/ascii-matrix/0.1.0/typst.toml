@@ -1,0 +1,11 @@
+[package]
+name = "ascii-matrix"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["waterlens <waterlens@waterlens.moe>"]
+license = "MIT"
+description = "Displaying ASCII tables with a 16x16 grid and overlays on elements."
+repository = "https://github.com/waterlens/ascii-matrix"
+keywords = ["ascii", "table", "overlay"]
+categories = ["visualization"]
+exclude = ["example.typ", "example2.typ"]
