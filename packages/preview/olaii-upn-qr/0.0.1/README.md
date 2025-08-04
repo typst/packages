@@ -1,4 +1,4 @@
-# UPN QR typst template
+# Olaii UPN QR typst template
 
 Univerzalni plačilni nalog UPN QR (Obrazec UPN QR) template for [typst](https://typst.app/docs/)
 
@@ -7,7 +7,7 @@ Univerzalni plačilni nalog UPN QR (Obrazec UPN QR) template for [typst](https:/
 ## Example
 
 ```typ
-#import "@preview/upn-qr-typst-template:0.0.1": upn-qr
+#import "@preview/olaii-upn-qr-typst-template:0.0.1": olaii-upn-qr
 
 // Page setup
 #set page(
@@ -16,7 +16,7 @@ Univerzalni plačilni nalog UPN QR (Obrazec UPN QR) template for [typst](https:/
 )
 
 // UPN QR
-#upn-qr(
+#olaii-upn-qr(
   ime-placnika: "Poljubno podjetje d.o.o.",
   naslov-placnika: "Lepa cesta 10",
   kraj-placnika: "2000 Maribor",
@@ -51,7 +51,7 @@ typst watch examples/multiple.typ --root ../
 
 ## License
 
-Download the [MIT License](https://github.com/Olaii/upn-qr-typst-template/blob/main/LICENSE)
+Download the [MIT License](https://github.com/Olaii/olaii-upn-qr-typst-template/blob/main/LICENSE)
 
 ## Changelog
 

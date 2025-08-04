@@ -1,15 +1,23 @@
-#import "@preview/upn-qr:0.0.1": upn-qr
+#import "@preview/olaii-upn-qr:0.0.1": *
 
 #let debug = true
 
 // Page setup
 #set page(
-  width: 210mm,
-  height: 99.1mm,
+  paper: "a4",
   margin: 0pt,
 )
 
-#upn-qr(
+// 3 on one page
+#set par(spacing: 0pt)
+
+#block(
+  height: 198mm,
+  inset: 2cm,
+  lorem(200)
+)
+
+#olaii-upn-qr(
   ime-placnika: "Poljubno podjetje d.o.o.",
   naslov-placnika: "Lepa cesta 10",
   kraj-placnika: "2000 Maribor",
@@ -30,5 +38,5 @@
   znesek: "***100,00",
   qr-content: "This is a test",
   debug: debug,
-  debug-with-background: debug
+  debug-with-background: false
 )

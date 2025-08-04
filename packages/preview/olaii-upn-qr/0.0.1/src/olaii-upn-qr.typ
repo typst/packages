@@ -1,6 +1,6 @@
 #import "@preview/tiaoma:0.3.0" // For QR code
 
-#let upn-qr(
+#let olaii-upn-qr(
   ime-placnika: "",
   naslov-placnika: "",
   kraj-placnika: "",
