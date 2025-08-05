@@ -4,18 +4,6 @@
 /// - b (int): The divisor.
 /// -> int
 #let mod(a, b) = {
-  if type(a) != int {
-    text("DiceError: a must be an integer", fill: red)
-    return
-  }
-  if type(b) != int {
-    text("DiceError: b must be an integer", fill: red)
-    return
-  }
-  if b == 0 {
-    text("DiceError: b must not be zero", fill: red)
-    return
-  }
   let div = a / b
   div = int(div)
   let rem = a - (div * b)
@@ -29,10 +17,6 @@
 /// - seed (int): Starting seed.
 /// -> array
 #let random(seed: 0) = {
-  if type(seed) != int {
-    text("DiceError: seed must be an integer", fill: red)
-    return
-  }
   let a = 1664525
   let c = 1013904223
   let m = 2147483648
@@ -49,14 +33,6 @@
 /// - seed (int): Starting seed.
 /// -> array
 #let randoms(n, seed: 0) = {
-  if type(n) != int {
-    text("DiceError: n must be an integer", fill: red)
-    return
-  }
-  if type(seed) != int {
-    text("DiceError: seed must be an integer", fill: red)
-    return
-  }
   let random_floats = ()
   for i in range(0, n) {
     let (random_float, next) = random(seed: seed)
@@ -75,18 +51,6 @@
 /// - seed (int): Starting seed.
 /// -> array
 #let randint(a, b, seed: 0) = {
-  if type(a) != int {
-    text("DiceError: a must be an integer", fill: red)
-    return
-  }
-  if type(b) != int {
-    text("DiceError: b must be an integer", fill: red)
-    return
-  }
-  if type(seed) != int {
-    text("DiceError: seed must be an integer", fill: red)
-    return
-  }
   let (random_float, seed) = random(seed: seed)
   let rand_int = int(random_float * (b - a + 1)) + a
   return (rand_int, seed)
@@ -102,22 +66,6 @@
 /// - seed (int): Starting seed.
 /// -> array
 #let randints(a, b, n, seed: 0) = {
-  if type(a) != int {
-    text("DiceError: a must be an integer", fill: red)
-    return
-  }
-  if type(b) != int {
-    text("DiceError: b must be an integer", fill: red)
-    return
-  }
-  if type(n) != int {
-    text("DiceError: n must be an integer", fill: red)
-    return
-  }
-  if type(seed) != int {
-    text("DiceError: seed must be an integer", fill: red)
-    return
-  }
   let random_ints = ()
   for i in range(0, n) {
     let (rand_int, next) = randint(a, b, seed: seed)
@@ -135,14 +83,6 @@
 /// - seed (int): Starting seed.
 /// -> array
 #let choice(arr, seed: 0) = {
-  if type(arr) != array {
-    text("DiceError: arr must be an array", fill: red)
-    return
-  }
-  if type(seed) != int {
-    text("DiceError: seed must be an integer", fill: red)
-    return
-  }
   let (index, next) = randint(0, arr.len() - 1, seed: seed)
   return (arr.at(index), next)
 }
@@ -155,14 +95,6 @@
 /// - seed (int): Starting seed.
 /// -> array
 #let shuffle(arr, seed: 0) = {
-  if type(arr) != array {
-    text("DiceError: arr must be an array", fill: red)
-    return
-  }
-  if type(seed) != int {
-    text("DiceError: seed must be an integer", fill: red)
-    return
-  }
   let shuffled = array(arr)
   for i in range(arr.len()-1, 0, step: -1) {
     let (j, next) = randint(0, i, seed: seed)
