@@ -159,8 +159,8 @@
   }
 
   //外部包
-  import "@preview/codly:1.2.0": *
-  import "@preview/codly-languages:0.1.1": *
+  import "@preview/codly:1.3.0": *
+  import "@preview/codly-languages:0.1.8": *
   show: codly-init //初始化 codly
   // codly(number-format: none) //不显示行号
   codly(languages: codly-languages) //设置语言图标

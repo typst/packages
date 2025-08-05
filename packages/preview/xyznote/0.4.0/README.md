@@ -112,7 +112,7 @@ This is #highlight(fill: red.C)[highlighted in red].
 2. Start the project
 
 ```bash
-typst init @preview/xyznote:0.3.0
+typst init @preview/xyznote:0.4.0
 ```
 
 ```bash
