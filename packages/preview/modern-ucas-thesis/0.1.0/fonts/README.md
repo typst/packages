@@ -1,8 +1,8 @@
 # fonts 目录说明 | Fonts Directory Instructions
 
-本目录用于存放项目所需的字体文件。由于版权原因，上传时请勿包含任何字体文件，仅保留本说明文件。
+本目录用于存放项目所需的字体文件。由于版权原因，仅保留本说明文件。
 
-This directory is for storing font files required by the project. Due to copyright reasons, do not upload any font files; only keep this instruction file.
+This directory is for storing font files required by the project. Due to copyright reasons, only keep this instruction file.
 
 ## 所需字体列表 | Required Fonts
 
