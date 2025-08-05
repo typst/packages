@@ -300,6 +300,27 @@ make format-check     # Check format
 
 MIT License. See [../LICENSE](../LICENSE).
 
+### ⚖️ UCAS Logo Copyright Notice
+
+**Important Notice**: The UCAS (University of Chinese Academy of Sciences) logos and visual identity elements included in this template (located in the `assets/vi/` directory) are **NOT covered by the above MIT License**.
+
+According to the official statement from UCAS:
+
+1. The copyright of UCAS visual identity belongs to the Chinese Academy of Sciences and UCAS
+2. Unauthorized use is prohibited and will be considered copyright infringement, **except for reasonable use such as personal study and classroom teaching**
+3. UCAS reserves the right to pursue legal action against unauthorized use of their visual identity
+
+**This template, as an academic thesis writing tool, falls under the category of personal study and classroom teaching use, which is considered reasonable use.**
+
+If you intend to use the UCAS logos for other purposes, please:
+
+- Contact UCAS authorities for proper authorization
+- Or replace the relevant files with your own logos
+
+**Disclaimer**: Users should understand and comply with relevant copyright laws and regulations. Any legal liability arising from improper use of UCAS logos shall be borne by the user.
+
+📋 **For detailed copyright information, see: [LOGO_COPYRIGHT.md](../LOGO_COPYRIGHT.md)**
+
 ## 💬 Support & Feedback
 
 If you have questions or suggestions:
