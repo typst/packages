@@ -16,7 +16,7 @@ Use the following code as a starting point to create your own slides.
 
 ```typst
 #import "@preview/touying:0.6.1": *
-#import "lib.typ": *
+#import "@preview/muw-touying-community:0.1.0": *
 
 #set text(lang: "en")
 #show: muw-slides.with(
@@ -50,7 +50,7 @@ Hello, MedUni Wien!
 
 - This template builds upon `Touying` and is licensed under [MIT license](LICENSE).
 - The MedUni Wien logo is the intellectual property of the Medical University of Vienna and is subject to copyright.
-- Some beautiful pictures used in the example template are copyright of Nihon Falcom Corporation and are used for demonstration purpose only.
+- The image `examples/example_brain_mri.png` is licensed under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
 
 ## Acknowledgement
 
