@@ -74,7 +74,7 @@ Version – white background
 
 
 == Slide „Bild mit Bildunterschrift“ (Picture and Caption)
-#image("example_wide_picture.jpg", 
+#image("examples/example_wide_picture.jpg", 
         width: 92%,     
 )
 #text(size: 12pt)[Default text colour black; can be changed to blue. Highlights: please use *bold* characters.]
@@ -219,7 +219,7 @@ Version – white background
     #block(inset: (-0.5em))[
       #muw-box(        
         inset: 0em,
-        image("example_infobox_picture.jpg"),
+        image("examples/example_infobox_picture.jpg"),
       )
     ]
   ]
