@@ -51,6 +51,8 @@ Hello, MedUni Wien!
 - This template builds upon `Touying` and is licensed under [MIT license](LICENSE).
 - The MedUni Wien logo is the intellectual property of the Medical University of Vienna and is subject to copyright.
 - The image `examples/example_brain_mri.png` is licensed under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
+- The image `examples/example_infobox_picture.jpg` ([Vienna General Hospital, Main Entrance](https://commons.wikimedia.org/wiki/File:Vienna_General_Hospital,_Main_Entrance.jpg)) by Thomas Ledl is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+- The image `examples/example_wide_picture.jpg` ([Josephinum in Vienna](https://commons.wikimedia.org/wiki/File:Josephinum_P2.JPG)) by Gryffindor stitched by Marku1988 (created with Hugin) is licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
 
 ## Acknowledgement
 

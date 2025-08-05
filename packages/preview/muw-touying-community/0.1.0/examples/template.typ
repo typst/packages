@@ -1,5 +1,5 @@
 #import "@preview/touying:0.6.1": *
-#import "@preview/muw-touying:0.1.0": *
+#import "@preview/muw-touying-community:0.1.0": *
 
 
 #set text(lang: "en")
@@ -74,10 +74,10 @@ Version – white background
 
 
 == Slide „Bild mit Bildunterschrift“ (Picture and Caption)
-#image("example_wide_picture.png", 
-        width: 95%,     
+#image("example_wide_picture.jpg", 
+        width: 92%,     
 )
-#text(size: 12pt)[Default text colour black; can be changed to blue. Highlights: please use bold characters.]
+#text(size: 12pt)[Default text colour black; can be changed to blue. Highlights: please use *bold* characters.]
 
 
 == Slide „Zwei Inhalte“ (Two content)
