@@ -93,7 +93,7 @@ Book Antiqua
 [Inconsolata](https://fonts.google.com/specimen/Inconsolata)
 
 **Cover title:**
-[Cinzel](https://fonts.google.com/specimen/Cinzel")
+[Cinzel](https://fonts.google.com/specimen/Cinzel)
     
 **Cover text:**
 [Alice](https://fonts.google.com/specimen/Alice)
