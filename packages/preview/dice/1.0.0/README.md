@@ -1,4 +1,4 @@
-# Dice - Deterministic Random Number Generator
+# Dice
 
 A versatile random number toolkit for Typst.
 
