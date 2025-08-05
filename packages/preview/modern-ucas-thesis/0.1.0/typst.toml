@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Wenjie Xu <@WayneXuCN>"]
 license = "MIT"
-description = "A Thesis/Dissertation Template for University of Chinese Academy of Sciences in Typst"
+description = "Master's or doctoral thesis at the University of Chinese Academy of Sciences."
 repository = "https://github.com/WayneXuCN/modern-ucas-thesis"
 keywords = [
     "University of Chinese Academy of Sciences",
