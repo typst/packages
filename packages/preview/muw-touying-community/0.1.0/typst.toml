@@ -8,7 +8,7 @@ license = "MIT"
 entrypoint = "lib.typ"
 keywords = ["touying", "presentation", "slides", "muw", "Medizinische Universität Wien", "Medical University of Vienna", "meduni", "wien", "vienna", "academic", "clinical"]
 categories = ["presentation", "office"]
- 
+
 [template]
 path = "examples"
 entrypoint = "template.typ"
