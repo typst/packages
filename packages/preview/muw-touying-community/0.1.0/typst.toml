@@ -2,12 +2,13 @@
 name = "muw-touying-community"
 version = "0.1.0"
 authors = ["Emberwhirl <n12440050@students.meduniwien.ac.at>"]
-repository = "https://github.com/Emberwhirl/muw-touying"
+repository = "https://github.com/Emberwhirl/muw-touying-community"
 description = "Touying theme for Medical University of Vienna"
 license = "MIT"
 entrypoint = "lib.typ"
 keywords = ["touying", "presentation", "slides", "muw", "Medizinische Universität Wien", "Medical University of Vienna", "meduni", "wien", "vienna", "academic", "clinical"]
 categories = ["presentation", "office"]
+exclude = ["examples/example_brain_mri.png", "examples/example_infobox_picture.jpg", "examples/example_wide_picture.jpg"]
  
 [template]
 path = "examples"
