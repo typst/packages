@@ -5,7 +5,7 @@ ASCII Matrix displays a pretty 16x16 grid that contains ASCII characters (as wel
 ## Usage
 
 ```typst
-#import "@preview/ascii-matrix:0.1.0": make-ascii-matrix
+#import "@preview/asciim:0.1.0": make-ascii-matrix
 
 #set text(
   font: (
