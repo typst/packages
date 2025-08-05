@@ -179,5 +179,5 @@
 /// -> int
 #let randominit() = {
   let d = datetime.today() - datetime(year: 1980, month: 1, day: 1)
-  return mod(d.seconds(), 2147483647)
+  return mod(int(d.seconds()), 2147483647)
 }
