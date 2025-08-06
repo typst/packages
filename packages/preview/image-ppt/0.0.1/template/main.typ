@@ -1,5 +1,5 @@
 // PPT模板使用示例 - 展示所有功能
-#import "@preview/image-ppt:0.0.1": *
+#import "@local/image-ppt:0.0.1": *
 
 #show: doc => ppt-conf(
   title: "image-ppt 模板",
@@ -31,12 +31,7 @@
     image("manbo.png"), // 测试图片
     none, // 占位符
   ),
-  captions: (
-    "测试图片1",
-    "占位符示例",
-    "测试图片2",
-    "占位符示例",
-  ),
+  captions: (),
   content: [
     #floating-box(
       x: 35%,
@@ -63,7 +58,7 @@
     none,
     none,
   ),
-  captions: ("大图1", "大图2", "", ""),
+  captions: (),
   content: [
     #floating-box(
       x: 35%,
@@ -84,9 +79,9 @@
   show-footer: false,
   title: none, // 无标题
   content: none, // 无额外内容
-  gap: 0.1em,
+  gap: 0.0em,
   images: (
-    image("manbo.png"),
+    image("manbo.png"), // 全屏模式图片更大
     image("manbo.png"),
     image("manbo.png"),
     image("manbo.png"),
@@ -344,6 +339,7 @@
 // 12. 多个浮动框组合示例
 #text-page(
   title: "多浮动框组合",
+  column-count: 2,
   content: [
     = 浮动内容框高级用法
 

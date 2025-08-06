@@ -1,3 +1,295 @@
+# Typst PPT Template
+
+This is a Typst template specifically designed for presentations, especially suitable for academic reports and experimental displays. The template supports various page types including four-image layout, custom image positioning, and text-only pages.
+
+## Main Features
+
+- **Four-image layout**: Allows up to 4 images per page, automatically divided into quadrants
+- **Flexible image control**: Rich parameters to control image position, size, scaling, etc.
+- **Grid alignment control**: New parameters for overall grid alignment, supporting nine alignment combinations
+- **Multiple page types**: Title page, outline page, four-image page, custom layout page, text-only page
+- **Floating content box**: Add customizable content boxes at any position on the page, supporting notes, tips, warnings, etc.
+- **Header and footer control**: Independently control visibility; images automatically adapt to available space
+- **Responsive design**: Images are center-aligned and scaled proportionally
+- **Professional appearance**: 16:9 presentation ratio with clean headers and footers
+
+## Quick Start
+![22](template/thumbnail.png)
+### 1. Basic Configuration
+
+```typst
+#import "lib.typ": *
+
+#show: doc => ppt-conf(
+  title: "My Presentation",
+  author: "Author Name", 
+  theme: rgb("#1f4e79"),  // Theme color
+  font-size: 12pt,
+  doc
+)
+```
+
+### 2. Create Title Page
+
+```typst
+#title-page(
+  main-title: "Presentation Title",
+  subtitle: "Subtitle",
+  author: "Author",
+  institution: "Institution Name",
+  logo: "logo.png"  // Optional
+)
+```
+### 3. Add Outline Page
+
+```typst
+#outline-page()
+```
+
+## Page Types Explained
+
+### Four-image Page (`four-image-page`)
+This is the core feature of the template, supporting the display of up to 4 images on one page.
+
+```typst
+#let img1 = image("img1.png")
+#let img2 = image("img2.png")
+#let img3 = image("img3.png")
+#let img4 = image("img4.png")
+
+#four-image-page(
+  title: "Experimental Results",
+  images: (img1, img2, img3, img4),
+  captions: ("Caption 1", "Caption 2", "Caption 3", "Caption 4"),
+  content: [Descriptive text for the page],
+  image-height: 35%,
+  image-width: 40%,  
+  gap: 1em,
+  caption-size: 10pt,
+  layout: "grid",
+  grid-align-x: center,
+  grid-align-y: center,
+  show-header: true,
+  show-footer: true,
+)
+```
+**Parameter Explanation:**
+- `images`: Array of images, **must be preloaded**; supports 1-4 images, automatically leaves space for fewer than 4
+- `captions`: Corresponding captions for each image
+- `layout`: 
+  - `"grid"` (default): 2×2 grid layout
+  - `"linear"`: Vertical linear arrangement
+- `image-height`/`image-width`: Control image size, supports percentage and absolute values
+- `gap`: Space between images
+- **New** `grid-align-x`: Horizontal grid alignment (`left`, `center`, `right`)
+- **New** `grid-align-y`: Vertical grid alignment (`top`, `center`, `bottom`)
+- `show-header`/`show-footer`: Control header and footer visibility
+
+**Grid Alignment Example:**
+```typst
+// Top-left grid alignment
+#four-image-page(
+  images: (img1, img2, img3, img4),
+  grid-align-x: left,
+  grid-align-y: top,
+)
+// Bottom-right grid alignment
+#four-image-page(
+  images: (img1, img2, img3, img4),
+  grid-align-x: right,
+  grid-align-y: bottom,
+)
+```
+**Header and Footer Control:**
+```typst
+// Full-screen image mode
+#four-image-page(
+  images: (img1, img2, img3, img4),
+  show-header: false,  // Hide header, images enlarge automatically
+  show-footer: false,  // Hide footer, images enlarge automatically
+)
+```
+### Custom Layout Page (`custom-layout-page`)
+Use this when you need precise control over image positioning:
+```typst
+#custom-layout-page(
+  title: "Custom Layout",
+  content: [Text content],
+  images: (
+    (
+      path: "img1.png",
+      x: 10%,
+      y: 20%,  
+      width: 30%,
+      height: 25%,
+      caption: "Image 1"
+    ),
+    (
+      path: "img2.png", 
+      x: 60%, 
+      y: 20%, 
+      width: 30%,
+      caption: "Image 2"
+    ),
+  )
+)
+```
+### Floating Content Box (`floating-box`)
+Add floating content boxes anywhere on the page, useful for notes, tips, warnings, etc.
+```typst
+#floating-box(
+  [
+    = Important Notice
+    This is a floating content box!
+    
+    *Features*:
+    - Can be placed anywhere
+    - Supports semi-transparent background  
+    - Optional shadow effect
+  ],
+  x: 60%,
+  y: 20%,
+  width: 30%,
+  height: auto,
+  background: rgb(255, 255, 255, 200),
+  border-color: rgb("#e74c3c"),
+  border-width: 2pt,
+  border-radius: 5pt,
+  padding: 8pt,
+  shadow: true,
+)
+```
+**Position Parameters:**
+- **x**: Horizontal position, 0% = left edge, 50% = center, 100% = right edge
+- **y**: Vertical position, 0% = top edge, 50% = center, 100% = bottom edge
+**Other Parameters:**
+- First parameter is the content of the box (position parameters)
+- `width`, `height`: Size of the box, `height` defaults to `auto` to fit content
+- `background`: Background color, supports transparency (4th parameter in rgb)
+- `border-*`: Border style control
+- `padding`: Spacing between content and border
+- `shadow`: Whether to show shadow effect
+**Usage Scenarios:**
+- 📝 **Annotation Box**: Add explanations for specific content
+- ⚠️ **Warning Box**: Highlight important information or precautions
+- 💡 **Tip Box**: Provide additional help information and suggestions
+- 🎨 **Decorative Box**: Enhance visual effects and layering on the page
+
+### Text-only Page (`text-page`)
+```typst
+#text-page(
+  title: "Theoretical Background",
+  content: [
+    = Level 1 Heading
+    Paragraph content...
+    
+    == Level 2 Heading
+    More content...
+  ],
+  column-count: 2  // Optional: display in columns
+)
+```
+### Floating Content Box (`floating-box`)
+Add floating content boxes to the page, supporting various styles and precise positioning.
+```typst
+#floating-box(
+  x: 70%,
+  y: 15%,
+  width: 25%,
+  height: auto,
+  content: [📌 Important Tip],
+  fill: rgb("#e8f4fd"),
+  stroke: rgb("#1f4e79"),
+  radius: 8pt,
+  inset: 8pt,
+)
+```
+**Position Parameters:**
+- `x`, `y`: Absolute positioning relative to the top-left corner of the page (supports percentage and absolute values)
+- `width`, `height`: Size of the box, `height: auto` will adjust based on content
+**Style Parameters:**
+- `fill`: Background color
+- `stroke`: Border color and style
+- `radius`: Corner radius
+- `inset`: Spacing between content and border
+**Preset Style Example:**
+```typst
+// Warning Box
+#floating-box(
+  x: 5%, y: 60%,
+  width: 35%, 
+  fill: rgb("#fff2cc"),
+  stroke: rgb("#d6b656"),
+  content: [⚠️ Important Notes...]
+)
+// Tip Box
+#floating-box(
+  x: 60%, y: 60%, 
+  width: 35%,
+  fill: rgb("#e8f5e8"),
+  stroke: rgb("#4caf50"), 
+  content: [💡 Useful Tips...]
+)
+// Decorative Box
+#floating-box(
+  x: 70%, y: 5%,
+  width: 25%,
+  fill: rgb("#f3e5f5"),
+  stroke: rgb("#9c27b0"),
+  content: [🎨 Design Highlights...]
+)
+```
+**Multiple Box Combination:**
+```typ
+// Add multiple floating boxes on the same page
+#floating-box(x: 5%, y: 20%, width: 40%, content: [Main Explanation])
+#floating-box(x: 55%, y: 20%, width: 40%, content: [Supplementary Information])
+#floating-box(x: 5%, y: 70%, width: 90%, content: [Summary Overview])
+```
+## Image Handling Features
+### Automatic Scaling and Alignment
+- All images are automatically **center-aligned**
+- Maintain **proportional scaling** for both dimensions
+- **Vertically fill** the specified area
+- Use `fit: "contain"` to ensure images are fully displayed
+### Supported Image Formats
+- PNG, JPG, SVG and other common formats
+- Vector graphics (SVG) provide the best display quality
+
+### Responsive Layout
+- Image sizes automatically adapt to page dimensions
+- Supports mixing percentage and absolute units
+## Style Customization
+### Theme Color Configuration
+```typst
+#show: doc => ppt-conf(
+  theme: rgb("#1f4e79"),  // Deep blue
+  // or
+  theme: rgb("#8B0000"),  // Deep red
+  doc
+)
+```
+### Font Configuration
+The template defaults to using Times New Roman + SimSun combination, ensuring good display for both Chinese and English text.
+### Page Layout
+- 16:9 presentation ratio
+- Automatic headers and footers
+- Page number display
+## Complete Example
+Refer to the `example.typ` file for a complete usage example, including:
+- Title page setup and presentation information
+- Automatic outline generation
+- Four-image page display (comparison of grid and linear layouts)
+- Grid alignment control demonstration (nine alignment combinations)
+- Header and footer control demonstration (full-screen mode)
+- Custom layout page design
+- Floating content box applications (annotation, warning, tip, decorative styles)
+- Multiple floating box combination effects
+- Text-only page layout (single and double columns)
+- Best practices for image preloading demonstration
+## Technical Support
+For issues or suggestions, please refer to the Typst official documentation or submit an issue.
+
 # Typst PPT 模板
 （绝大多数内容都是ai写的，主要是为了应付组会上可能出现的大量图片展示）
 这是一个专为演示文稿设计的 Typst 模板，特别适合学术报告和实验展示。模板支持四图片布局、自定义图片位置、文字页面等多种页面类型。

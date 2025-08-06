@@ -20,8 +20,8 @@
   if content == none {
     // 显示空白占位符
     box(
-      height: height,
-      width: width,
+      height: 10%,
+      width: 10%,
     )[]
   } else {
     // 显示已加载的图片内容
@@ -98,7 +98,7 @@
 
   set heading(numbering: "1.")
   show heading: it => [
-    #set text(size: if it.level == 1 { 26pt } else { 16pt }, fill: theme, weight: "bold")
+    #set text(size: if it.level == 1 { 26pt } else { 20pt }, fill: theme, weight: "bold")
     #v(0.5em)
     #it
     #v(0.3em)
@@ -255,7 +255,7 @@
       if layout == "grid" { 100% } else { 90% }
     } else {
       // 其他模式 - 图片本身的宽度
-      if layout == "grid" { 100% } else { 80% }
+      if layout == "grid" { 80% } else { 80% }
     }
     // 应用缩放比例
     base-width * grid-scale
@@ -537,9 +537,12 @@
   column-count: 1, // 改名避免与columns函数冲突
 ) = {
   pagebreak()
+  let al-style = if content == [] {
+    center + horizon
+  } else { center }
 
   if title != none [
-    #align(center)[
+    #align(al-style)[
       #heading(level: 1)[#title]
     ]
     #v(0.5em)
@@ -548,7 +551,10 @@
   if column-count > 1 {
     columns(column-count)[#content]
   } else {
-    content
+    align(center, block[
+      #set align(left)
+      #content
+    ])
   }
 }
 
