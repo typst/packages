@@ -1,4 +1,4 @@
-# Typst/Touying Presentation Slide Template for MedUni Wien
+# Typst/Touying Slide Template for MedUni Wien
 
 This is a template built on [`Touying`](https://github.com/touying-typ/touying) to create presentation slides that capture the design of the official PowerPoint templates following Medizinischen Universität Wien [Corporate Design](https://www.meduniwien.ac.at/web/en/studierende/service-center/meduni-wien-vorlagen/).
 

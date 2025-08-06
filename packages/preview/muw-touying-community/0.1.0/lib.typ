@@ -470,11 +470,10 @@
         set text(size: 20pt, lang: "en")
         set par(justify: true)
         show math.equation: set text(size: 20pt)
-        // show strong: utils.alert-with-primary-color
-        
+
         body
       },
-      alert: utils.alert-with-primary-color,
+      // alert: utils.alert-with-primary-color, // Uncomment to alert using primary color
     ),
     config-colors(
       primary: muw_colors.colors.dunkelblau,
