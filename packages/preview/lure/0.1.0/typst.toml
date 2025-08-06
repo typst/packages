@@ -1,6 +1,7 @@
 [package]
 name = "lure"
 version = "0.1.0"
+license = "MIT"
 entrypoint = "typ/lib.typ"
 authors = ["Y.D.X."]
 description = "Parse and normalize URLs, based on the WHATWG URL Standard, powered by rust-url and WebAssembly."
@@ -18,4 +19,4 @@ disciplines = [
     "communication",
     "computer-science",
 ]
-compiler = "0.13"
+compiler = "0.13.0"
