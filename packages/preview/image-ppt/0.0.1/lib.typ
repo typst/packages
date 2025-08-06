@@ -1,3 +1,5 @@
+#import "@preview/cuti:0.2.1": show-cn-fakebold
+
 /// PPT模板 - 支持四图片布局和文字添加
 ///
 /// 主要功能：
@@ -33,6 +35,7 @@
   }
 }
 
+
 /// 配置PPT文档
 /// === 参数
 /// - `title`: 演示文稿标题
@@ -56,6 +59,7 @@
   font-size: 12pt,
   doc,
 ) = {
+  show: show-cn-fakebold
   // 设置页面为16:9横向
   set page(
     paper: "presentation-16-9",
@@ -94,7 +98,7 @@
 
   set heading(numbering: "1.")
   show heading: it => [
-    #set text(size: if it.level == 1 { 18pt } else { 16pt }, fill: theme, weight: "bold")
+    #set text(size: if it.level == 1 { 26pt } else { 16pt }, fill: theme, weight: "bold")
     #v(0.5em)
     #it
     #v(0.3em)
@@ -118,6 +122,7 @@
 /// - `layout`: 布局方式 ("grid"为2x2网格, "linear"为线性排列) (默认: "grid")
 /// - `grid-align-x`: 网格水平对齐 (left, center, right) (默认: center)
 /// - `grid-align-y`: 网格垂直对齐 (top, center, bottom) (默认: center)
+/// - `grid-scale`: 整体缩放比例 (默认: 1.0，0.8为80%，1.2为120%)
 ///
 /// === 正确用法
 /// **在主文件中预加载图片，然后传递给模板函数**：
@@ -152,6 +157,16 @@
 /// )
 /// ```
 ///
+/// === 缩放控制用法
+/// ```typst
+/// #four-image-page(
+///   images: (img1, img2, img3, img4),
+///   grid-scale: 0.8,     // 缩小到80%
+///   // 或
+///   grid-scale: 1.2,     // 放大到120%
+/// )
+/// ```
+///
 /// === 错误用法
 /// ```typst
 /// #four-image-page(
@@ -172,6 +187,7 @@
   layout: "grid",
   grid-align-x: center, // 网格水平对齐：left, center, right
   grid-align-y: center, // 网格垂直对齐：top, center, bottom
+  grid-scale: 1.0, // 整体缩放比例：1.0为正常大小，0.8为80%，1.2为120%
 ) = {
   pagebreak()
 
@@ -214,9 +230,9 @@
   let has-content = content != none
   let has-captions = captions.len() > 0 and captions.any(c => c != none and c != "")
 
-  // 动态计算图片尺寸
+  // 动态计算图片尺寸（应用缩放比例）
   let calc-image-height = if image-height == auto {
-    if not show-header and not show-footer and not has-title {
+    let base-height = if not show-header and not show-footer and not has-title {
       // 全屏模式：填满整个页面
       if layout == "grid" { if captions == () { 49.99% } else { 47% } } else { 80% }
     } else if not show-header and not show-footer {
@@ -226,20 +242,26 @@
       // 标准模式
       if layout == "grid" { 35% } else { 60% }
     }
+    // 应用缩放比例
+    base-height * grid-scale
   } else {
-    image-height
+    // 用户指定的尺寸也应用缩放
+    image-height * grid-scale
   }
 
   let calc-image-width = if image-width == auto {
-    if not show-header and not show-footer and not has-title {
+    let base-width = if not show-header and not show-footer and not has-title {
       // 全屏模式 - 图片本身的宽度，而不是网格的宽度
       if layout == "grid" { 100% } else { 90% }
     } else {
       // 其他模式 - 图片本身的宽度
       if layout == "grid" { 100% } else { 80% }
     }
+    // 应用缩放比例
+    base-width * grid-scale
   } else {
-    image-width
+    // 用户指定的尺寸也应用缩放
+    image-width * grid-scale
   }
 
   // 页面标题
@@ -417,9 +439,43 @@
 #let custom-layout-page(
   title: none,
   content: none,
+  show-header: false,
+  show-footer: false,
   images: (),
 ) = {
   pagebreak()
+  set page(
+    paper: "presentation-16-9",
+    margin: (
+      x: 0.5cm,
+      top: if show-header { 1.8cm } else { 0.05cm }, // 为页眉留出足够空间
+      bottom: if show-footer { 1.8cm } else { 0.05cm }, // 为页脚留出足够空间
+    ),
+    header: if show-header {
+      // 使用原有页眉
+      [
+        #v(0.3em)
+        #set text(size: 10pt, fill: rgb("#1f4e79"))
+        #box(width: 100%)[
+          #align(center)[
+            #text(size: 9pt)[演示文稿]
+          ]
+        ]
+        #v(0.1em)
+        #line(length: 100%, stroke: 0.5pt + rgb("#1f4e79"))
+      ]
+    } else { none },
+    footer: if show-footer {
+      // 使用原有页脚
+      [
+        #set text(size: 8pt, fill: gray)
+        #line(length: 100%, stroke: 0.5pt + gray)
+        #v(0.2em)
+        作者 #h(1fr) #datetime.today().display() #h(1fr) #context (counter(page).display())
+        #v(0.2em)
+      ]
+    } else { none },
+  )
 
   // 页面标题
   if title != none [
@@ -571,11 +627,14 @@
 #let outline-page(
   outline-title: "目录",
   depth: 2,
+  is-first-page: false,
 ) = {
-  pagebreak()
+  if not is-first-page {
+    pagebreak()
+  }
 
   align(center)[
-    #heading(level: 1)[#outline-title]
+    #heading(numbering: none, level: 2)[#outline-title]
   ]
 
   v(1em)
@@ -620,7 +679,7 @@
   content,
   x: 10%,
   y: 10%,
-  width: 25%,
+  width: auto,
   height: auto,
   background: rgb(255, 255, 255, 220), // 半透明白色
   border-color: rgb("#1f4e79"), // 默认主题色

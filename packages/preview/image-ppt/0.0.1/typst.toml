@@ -8,7 +8,7 @@ description = "4 images per slide, for group meeting."
 repository = "https://github.com/pku-typst/PKU-typst-template"
 keywords = ["template", "image"]
 categories = ["report", "poster", "presentation"]
-compiler = "0.13"
+compiler = "0.13.20"
 exclude = []
 
 [template]
