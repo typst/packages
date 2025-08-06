@@ -1,7 +1,6 @@
 #import "@preview/touying:0.6.1": *
 #import "@preview/muw-touying-community:0.1.0": *
 
-
 #set text(lang: "en")
 
 #show: muw-slides.with(
@@ -57,8 +56,8 @@ Version – white background
 #imaging-slide(
   title: [Slide „Titel und Inhalt – schwarz" (Title and content – black)],
   // subtitle: [Enter subtitle here],
-  image-path: "example_brain_mri.png",
-  image-width: 123pt, 
+  picture: image("example_brain_mri.png"),
+  picture-width: 123pt, 
 )[
   - Especially for images in radiology
   - Enter explanation text – e.g. what can be seen in the picture
@@ -74,9 +73,9 @@ Version – white background
 
 
 == Slide „Bild mit Bildunterschrift“ (Picture and Caption)
-#image("example_wide_picture.jpg", 
-        width: 92%,     
-)
+#image("example_wide_picture.jpg",
+       width: 92%)
+       
 #text(size: 12pt)[Default text colour black; can be changed to blue. Highlights: please use *bold* characters.]
 
 
