@@ -1,0 +1,21 @@
+[package]
+name = "lure"
+version = "0.1.0"
+entrypoint = "typ/lib.typ"
+authors = ["Y.D.X."]
+description = "Parse and normalize URLs, based on the WHATWG URL Standard, powered by rust-url and WebAssembly."
+repository = "https://github.com/YDX-2147483647/typst-lure"
+keywords = [
+    "url",
+    "encode",
+    "decode",
+    "escape",
+    "percent",
+    "link",
+]
+categories = ["scripting", "utility", "languages"]
+disciplines = [
+    "communication",
+    "computer-science",
+]
+compiler = "0.13"
