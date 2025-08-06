@@ -1,4 +1,4 @@
-#import "@preview/cuti:0.2.1": show-cn-fakebold
+#import "@preview/cuti:0.3.0": show-cn-fakebold
 
 /// PPT模板 - 支持四图片布局和文字添加
 ///
