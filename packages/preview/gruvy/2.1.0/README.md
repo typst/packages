@@ -20,7 +20,7 @@
 ## Simple usage example
 
 ```typst
-#import "@preview/gruvy:2.0.0": gruvbox
+#import "@preview/gruvy:2.1.0": gruvbox
 
 #show: gruvbox
 ```
@@ -28,7 +28,7 @@
 ## In-depth usage example
 
 ```typst
-#import "@preview/gruvy:2.0.0": gruvbox, theme-colors, colors
+#import "@preview/gruvy:2.1.0": gruvbox, theme-colors, colors
 
 // choose your preferred theme color
 #let theme-color = theme-colors.dark.hard
