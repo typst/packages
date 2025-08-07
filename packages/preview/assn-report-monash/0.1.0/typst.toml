@@ -8,7 +8,7 @@ repository = "https://github.com/Eryc123Y/assn-report-monash"
 keywords = ["monash", "monash university", "report", "assignment"]
 categories = ["Paper", "Text", "Report"]
 homepage = "https://github.com/Eryc123Y/assn-report-monash"
-documentation = "https://github.com/Eryc123Y/assn-report-monash/blob/main/README.md"
+documentation = "https://github.com/Eryc123Y/assn-report-monash/blob/main/0.1.0/README.md"
 compiler = "0.13.1"
 
 [template]
