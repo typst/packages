@@ -1,4 +1,4 @@
-#import "../template/main.typ": *
+#import "@preview/assn-report-monash:0.1.0": monash-report
 
 #monash-report(
   [Ancora Imparo],
