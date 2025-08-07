@@ -1,4 +1,4 @@
-#import "../lib.typ": monash-report
+#import "@preview/assn-report-monash:0.1.0": monash-report
 
 #show: monash-report.with(
   [Sample Assignment],        // title (positional)
