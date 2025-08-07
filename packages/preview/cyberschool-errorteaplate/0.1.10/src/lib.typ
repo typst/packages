@@ -108,12 +108,5 @@
     }
   }
 
-  show ref: it => {
-    let el = it.element
-    if el != none {
-      link(el.location(), lower(it))
-    }
-  }
-
   doc
 }
