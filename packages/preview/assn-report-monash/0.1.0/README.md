@@ -105,7 +105,7 @@ The template includes theorem environments powered by the `thmbox` package:
 
 ```typ
 // Basic theorem
-#theorem[
+#theorem[thm name][
   Let $f: R -> R$ be a continuous function on the closed interval $[a, b]$. 
   Then $f$ attains its maximum and minimum values on $[a, b]$.
 ]
@@ -118,18 +118,38 @@ The template includes theorem environments powered by the `thmbox` package:
 ]
 
 // Lemma
-#lemma(title: "Lemma")[
+#lemma[lemma title][
   If a function $f$ is differentiable at a point $c$, then $f$ is continuous at $c$.
 ]
 ```
-## Installation
+This templates overrides predefined theorem environments in thmbox with Monash-specific color schemes, so you may see all available theorem environments [here](https://github.com/s15n/typst-thmbox). 
+The thmbox should be enough to cover most theorem environments you need, but you may also use the `#thmbox` function to create custom theorem boxes of your own.
+
+Below are some other recommeded packages that you may find useful when using this template(there could be multiple packages available, yet I only recommend the ones I prefer):
+- plotting & data visualization: 
+  - https://typst.app/universe/package/lilaq
+  - https://typst.app/universe/package/cetz
+- pseudo-code: https://typst.app/universe/package/lovelace
+- code listing: https://typst.app/universe/package/codly
+- text-image formatting: https://typst.app/universe/package/wrap-it
+- math shorthands: https://typst.app/universe/package/quick-maths
+- :)for those who are taking FIT2014(good luck): 
+  -https://typst.app/universe/package/finite
+  -https://typst.app/universe/package/curryst 
+- For FIT1047: 
+  - https://typst.app/universe/package/k-mapper
+  - https://typst.app/universe/package/circuiteria
+- FIT2099: https://typst.app/universe/package/pintorita
+- Note-taking: https://typst.app/universe/package/gentle-clues
+
+## Using the Template
 
 ### Local Development
-
+If you want to use this template locally, you can clone the repository and just work with it directly. 
 1. Clone the repository:
 ```bash
-git clone https://github.com/eric/typst-report-monash.git
-cd typst-report-monash
+git clone https://github.com/Eryc123Y/assn-report-monash.git
+cd assn-report-monash
 ```
 
 2. Ensure you have the "New Computer Modern Sans" font installed
@@ -138,7 +158,8 @@ cd typst-report-monash
 
 ### Via Typst Package Manager
 
-The package is available on the Typst package manager as `monash-university-report`.
+The package is available on the Typst package manager as `assn-report-monash
+`.
 
 ## Project Structure
 
@@ -191,12 +212,6 @@ Check the `example/` directory for a complete sample report demonstrating all fe
 ## Support
 
 For issues and questions:
-- Check the [existing issues](https://github.com/eric/typst-report-monash/issues)
+- Check the [existing issues](https://github.com/Eryc123Y/assn-report-monash/issues)
 - Create a new issue if needed
 - Review the example files for usage patterns
-
-## A Note from the Author
-
-Hi! I'm Eric, and this is my first contribution to the Typst community and the open source world! As a newcomer, I'm still learning the ropes of open source development, so any feedback, suggestions, or help would be greatly appreciated. Whether you're a seasoned Typst user or just starting out, your insights and contributions can help make this template better for everyone.
-
-If you notice any issues, have ideas for improvements, or want to contribute, please don't hesitate to reach out. I'm excited to learn and grow with the community!
