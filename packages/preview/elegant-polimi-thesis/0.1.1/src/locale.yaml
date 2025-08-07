@@ -1,0 +1,26 @@
+it:
+  advisor: Relatore
+  coadvisor: Correlatore
+  tutor: Tutor
+  toc: Indice
+  list-of-figures: Lista delle Figure
+  list-of-tables: Lista delle Tabelle
+  nomenclature: Nomenclatura
+  theorem: Teorema
+  proof: Dimostrazione
+  proposition: Proposizione
+  lemma: Lemma
+  remark: Osservazione
+en:
+  advisor: Advisor
+  coadvisor: Coadvisor
+  tutor: Tutor
+  toc: Contents
+  list-of-figures: List of Figures
+  list-of-tables: List of Tables
+  nomenclature: Nomenclature
+  theorem: Theorem
+  proof: Proof
+  proposition: Proposition
+  lemma: Lemma
+  remark: Remark
