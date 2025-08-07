@@ -8,8 +8,8 @@ description = "A report/assignment template for Monash University students with 
 repository = "https://github.com/Eryc123Y/assn-report-monash"
 keywords = ["monash", "monash university", "report", "assignment"]
 categories = ["paper", "text", "report"]
-homepage = "https://github.com/Eryc123Y/assn-report-monash"
 compiler = "0.13.1"
+exclude = ["example/*", "assets/example.bib"]
 
 [template]
 path = "template"
