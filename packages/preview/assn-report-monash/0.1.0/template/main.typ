@@ -2,7 +2,7 @@
 #import "../monash-template/report/heading.typ": apply as apply-heading
 #import "../monash-template/report/page.typ": apply as apply-page, apply-header-footer
 #import "../monash-template/report/monash-colors.typ": monash-blue, monash-bright-blue, monash-navy, monash-yellow, monash-light-blue, monash-deep-blue
-#import "@preview/thmbox:0.3.0": thmbox-init, thmbox, proof
+#import "../../../thmbox/0.3.0/src/lib.typ": thmbox-init, thmbox, proof
 
 #let monash-report(
   // Required parameters
