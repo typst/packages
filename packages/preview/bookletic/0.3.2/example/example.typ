@@ -1,4 +1,4 @@
-#import "@preview/bookletic:0.3.0" // To use through preview
+#import "@preview/bookletic:0.3.2" // To use through preview
 
 //#import "..\src\lib.typ" // To use on a local clone of the library
 

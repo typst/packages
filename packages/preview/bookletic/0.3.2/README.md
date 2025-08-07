@@ -1,7 +1,7 @@
   # Bookletic :book:
 Create beautiful booklets with ease.
 
-The current version of this library (0.3.0) contains a single function to take in an array of content blocks and order them into a ready to print booklet, bulletin, etc. No need to fight with printer settings or document converters. 
+The current version of this library (0.3.2) contains a single function to take in an array of content blocks and order them into a ready to print booklet, bulletin, etc. No need to fight with printer settings or document converters. 
 
 ### Example Output
 
@@ -13,6 +13,8 @@ Here is an example with some customization applied:
 
 ![Example2](example/fancy.png)
 
+You can find these examples along with a few more in an example typst file at: [example/example.typ](example/example.typ)
+
 ## `sig` Function
 
 The `sig` function is used to create a signature (booklet) layout from provided content. It takes various parameters to automatically configure the layout. 
@@ -23,8 +25,9 @@ The `sig` function is used to create a signature (booklet) layout from provided 
 - `page_border`: Takes a color space value to draw a border around each page. If set to none no border will be drawn.
 - `draft`: A boolean value indicating whether to output an unordered draft or final layout.
 - `p-num-layout`: A configuration for page numbering styles, allowing multiple layouts that apply to specified page ranges. Each layout can be provided as a dictonary specifying the following options:
-    - `p-num-start`: Starting page number for this layout
-    - `p-num-alt-start`: Alternative starting page number (e.g., for chapters)
+  - `num-layout`: An individual page number layout can accept the following parameters: 
+    - `p-num-start`: Starting page number for this layout to begin taking affect.
+    - `p-num-alt-start`: Alternative page number to begin numbering from (e.g. for introduction, chapters, etc.)
     - `p-num-pattern`: Pattern for page numbering (e.g., `"1"`, `"i"`, `"a"`, `"A"`)
     - `p-num-placment`: Placement of page numbers (`top` or `bottom`)
     - `p-num-align-horizontal`: Horizontal alignment of page numbers (`left`, `center`, or `right`)
@@ -34,6 +37,7 @@ The `sig` function is used to create a signature (booklet) layout from provided 
     - `p-num-size`: Size of page numbers
     - `p-num-border`: The border color for the page numbers. If set to none no border will be drawn.
     - `p-num-halign-alternate`: A boolean for whether to alternate horizontal alignment between left and right pages.
+  - `num-layout`: You may add as many additional layouts as desired to accomodate different styles of numbering over different sections. 
 - `pad_content`: The padding around the page content.
 - `contents`: The content to be laid out in the booklet. This should be an array of blocks.
 
@@ -91,15 +95,19 @@ You can customize the layout by passing different values for the various paramet
 This will create an unordered draft signature layout with US Legal paper size, larger margins, no page borders, page numbers at the bottom right corner with a red border, and more padding around the content.
 
 ### Notes
-- The `sig` function is currently hardcoded to only handle two-page single-fold signatures. This means that it supports 4, 8, 12, etc. page signatures without any blank pages. If you feed it an odd number of pages, it will opt for laying out your pages in the closest size signature possible. It accomplishes this by inseting needed blank pages at the end of the signature. An example of how this works is: if you start with five pages of content the sig function will create an eight page signature (two sheets front and back) adding the three needed blank pages to the back of the signature. If you would like to shift where these blank pages are in the signature you can feed the sig function empty pages.
-- Other more complicated signatures may be supported in the future.
-- The `num-layout` function is a helper to create page number layouts with default values.
+- The `sig` function is currently hardcoded to only handle two-page single-fold signatures. This means that it supports 4, 8, 12, etc. page signatures without any blank pages. If you feed it an odd number of pages, it will opt for laying out your pages in the closest size signature possible. It accomplishes this by inserting needed blank pages at the end of the signature. An example of how this works is if you start with five pages of content the sig function will create an eight page signature (two sheets front and back) adding the three needed blank pages to the back of the signature. If you would like to shift where these blank pages are in the signature you can feed the sig function empty pages at the beginning of the contents array.
+- Other more complicated signatures may be supported in the future. Please reach out to ask if you have one in particular that is useful for you!
+- The `num-layout` function is a helper that can be fed to the p-num-layout parameter to create page number layouts with default values.
 - The `booklet` function is a placeholder for automatically breaking a single content block into pages dynamically. It is not implemented yet due to limitations with typst. It is hoped that these limitations will be lifted in the future.
 
 ## Collaboration
 I would love to see this package eventually turn into a community effort. So any interest in collaboration is very welcome! You can find the github repository for this library here: [Bookletic Repo](https://github.com/harrellbm/Bookletic). Feel free to file an issue, pull request, or start a discussion. 
 
 ## Changlog
+#### 0.3.1 and 0.3.2
+- Maintenance updates for continued compatibility with Types 0.13.0.
+- Typo and other minor fixes and expansions for examples and documentation.
+  
 #### 0.3.0
 - Remove internal dependency on native page function. This allows the user to set the page function separately with full control over paper type, outer margins and everything else defined by the native page function.
 - Add p-num-halign-alternate to page number layout allowing setting page numbers to alternate on facing pages making it possible to place page numbers along the outside or inside edges of facing pages.
