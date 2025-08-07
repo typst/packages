@@ -1,5 +1,5 @@
 [package]
-name = "monash-university-report"
+name = "assn-report-monash"
 version = "0.1.0"
 authors = ["Xingyu Yang <https://github.com/Eryc123Y>"]
 license = "MIT"
@@ -7,14 +7,9 @@ description = "A report/assignment template for Monash University students with 
 repository = "https://github.com/Eryc123Y/assn-report-monash"
 keywords = ["monash", "monash university", "report", "assignment"]
 categories = ["Paper", "Text", "Report"]
-homepage = "https://github.com/your-username/typst-report-monash"
-documentation = "https://github.com/your-username/typst-report-monash/blob/main/README.md"
+homepage = "https://github.com/Eryc123Y/assn-report-monash"
+documentation = "https://github.com/Eryc123Y/assn-report-monash/blob/main/README.md"
 compiler = "0.13.1"
-exclude = [
-    ".gitignore",
-    "guide.typ", "guide.pdf",
-    "assets/example.bib", "assets/typst.png",
-]
 
 [template]
 path = "template"
