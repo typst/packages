@@ -1,6 +1,7 @@
 [package]
 name = "assn-report-monash"
 version = "0.1.0"
+entrypoint = "template/main.typ"
 authors = ["Xingyu Yang <https://github.com/Eryc123Y>"]
 license = "MIT"
 description = "A report/assignment template for Monash University students with official brand colors and basic theorem environments."
