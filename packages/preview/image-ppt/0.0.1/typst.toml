@@ -1,0 +1,17 @@
+[package]
+name = "image-ppt"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["xbttkunhao <https://github.com/xbttkunhao>"]
+license = "MIT"
+description = "4 images per slide, for group meeting."
+repository = "https://github.com/pku-typst/PKU-typst-template"
+keywords = ["template", "image"]
+categories = ["report", "poster", "presentation"]
+compiler = "0.13.1"
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
