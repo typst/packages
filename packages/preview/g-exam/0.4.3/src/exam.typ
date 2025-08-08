@@ -1,4 +1,4 @@
-#import "@preview/oxifmt:0.2.0": strfmt
+#import "@preview/oxifmt:1.0.0": strfmt
 #import "./global.typ" : *
 #import "./auxiliary.typ": *
 #import "question.typ": *
