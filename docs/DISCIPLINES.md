@@ -49,4 +49,4 @@ The following disciplines are currently defined:
 - `theology`
 - `transportation`
 
-[categories]: https://github.com/typst/packages/blob/main/CATEGORIES.md
+[categories]: https://github.com/typst/packages/blob/main/docs/CATEGORIES.md
