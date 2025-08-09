@@ -1,0 +1,1 @@
+#import "./tricorder.typ": tricorder
