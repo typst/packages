@@ -1,0 +1,12 @@
+[package]
+name = "pavemat"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["QuadnucYard"]
+license = "MIT"
+description = "Style matrices with custom paths, strokes and fills for appealing visualizations."
+compiler = "0.12.0"
+categories = ["visualization", "layout"]
+keywords = ["matrix", "grid", "fill", "line"]
+repository = "https://github.com/QuadnucYard/pavemat"
+exclude = ["examples"]

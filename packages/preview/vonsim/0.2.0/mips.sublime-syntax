@@ -1,0 +1,58 @@
+%YAML 1.2
+---
+# https://www.sublimetext.com/docs/syntax.html
+
+version: 2
+name: MIPS
+file_extensions: [mips, s]
+scope: source.asm.mips
+
+contexts:
+  main:
+    - match: ;.*
+      scope: comment.line.asm.mips
+
+    - match: (?i)(\.(data|text|code|org|align))\b
+      scope: entity.name.function.asm.mips
+
+    - match: (?i)(\.(space|asciiz?|byte|word(16|32)?|double))\b
+      scope: storage.type.asm.mips
+
+    - match: (?i)\b(beqz?|bnez?|j(al)?r?|bc1[ft])\b
+      scope: keyword.control.asm.mips
+
+    - match: (?i)\b(l\.?d|l[bhw]u?|lui|s\.?d|s[bhw]|m[tf]c1|mov(\.d|z|n))\b
+      scope: storage.modifier.asm.mips
+
+    - match: (?i)\b(daddu?i?|andi?|x?ori?|d(sub|mul|div)u?|slti?u?|ds(ll|rl|ra)v?|(add|sub|mul|div)\.d|cvt\.d\.l|cvt\.l\.d|c\.(lt|le|eq)\.d|nop|halt)\b
+      scope: keyword.operator.word.asm.mips
+
+    - match: (?i)\b([rf](\d|[12]\d|3[01]))\b
+      scope: variable.language.asm.mips
+
+    - match: (?i)(?:(\$)(\d|[12]\d|3[01]|zero|at|gp|sp|fp|ra|[kv][01]|a[0-3]|s[0-7]|t[0-9]))\b
+      captures:
+        1: punctuation.asm.mips
+        2: variable.language.asm.mips
+
+    - match: (?i)\b(0x[\da-f]+)\b
+      scope: constant.numeric.integer.hexadecimal.asm.mips
+
+    - match: (?i)\b(0b[01]+)\b
+      scope: constant.numeric.integer.binary.asm.mips
+
+    - match: (?:(?=[-.\d])(?<![\w\.-]))-?\d*\.?\d+\b
+      scope: constant.numeric.integer.decimal.asm.mips
+
+    - match: ([\(\),])
+      scope: punctuation.asm.mips
+
+    - match: '"'
+      push: string
+
+  string:
+    - meta_scope: string.quoted.double.asm.mips
+    - match: \\.
+      scope: constant.character.escape.asm.mips
+    - match: '"'
+      pop: true
