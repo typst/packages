@@ -95,8 +95,8 @@
 }
 
 // 类似英文中的7选5题型专用语法糖
-#let paren_ = paren.with(with-number: true, update: true)
-#let fillin_ = fillin.with(with-number: true, update: true)
+#let parenn = paren.with(with-number: true, update: true)
+#let fillinn = fillin.with(with-number: true, update: true)
 
 // 图文混排(左文右图)
 #let text-figure(
@@ -182,3 +182,4 @@
 #let answer(body, color: maroon) = {
   par(text(weight: 700, fill: color)[答案: #body])
 }
+
