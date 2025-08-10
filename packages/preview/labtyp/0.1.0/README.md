@@ -29,7 +29,7 @@ Which can then be translated into `hayagriva` or `biblatex` formats.
 
 ## Test document
 ```typst
-#import "@local/labtyp:0.1.0": mset, lab, lablist
+#import "@preview/labtyp:0.1.0": mset, lab, lablist
 
 #mset(values: (
 title: "My Document",
