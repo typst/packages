@@ -27,7 +27,6 @@
   enum-numbering: "（1.1.i.a）",
   enum-spacing: 2em,
   enum-indent: 0pt,
-  title-color: blue,
   show-answer: false,
   answer-color: blue,
   show-seal-line: true,
@@ -218,6 +217,7 @@
 
   doc
 }
+
 
 
 
