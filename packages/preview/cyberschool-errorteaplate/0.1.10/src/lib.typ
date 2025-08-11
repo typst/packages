@@ -11,6 +11,7 @@
   authors: (),
   logos: (),
   abstract: [],
+  show_outline: true,
   outline-title: none,
   outline-level: 3,
   doc,
@@ -62,9 +63,9 @@
   // Display current year
   datetime.today().display("[year]")
 
+  // Manage outline
+  if show_outline {
   pagebreak(weak: true, to: "odd")
-  //set align(start)
-
   set page(number-align: center, numbering: "1")
   show outline: it => {
     show heading: set align(center)
@@ -90,6 +91,9 @@
     title: outline-title,
     indent: 1em,
   )
+}
+
+set page(number-align: center, numbering: "1")
 
   pagebreak()
 
@@ -105,6 +109,13 @@
     } else {
       set text(darker_darker_purple)
       it
+    }
+  }
+
+  show ref: it => {
+    let el = it.element
+    if el != none {
+      link(el.location(), lower(it))
     }
   }
 
