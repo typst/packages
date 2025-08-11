@@ -11,7 +11,7 @@
   authors: (),
   logos: (),
   abstract: [],
-  show_outline: true,
+  show-outline: true,
   outline-title: none,
   outline-level: 3,
   doc,
@@ -64,7 +64,7 @@
   datetime.today().display("[year]")
 
   // Manage outline
-  if show_outline {
+  if show-outline {
   pagebreak(weak: true, to: "odd")
   set page(number-align: center, numbering: "1")
   show outline: it => {

@@ -14,7 +14,7 @@
     image.with("assets/Logo_cyberschool.png"),
   ),
   abstract: "abstract text",
-  show_outline: true,
+  show-outline: true,
   outline-title: "Contents",
   outline-level: 3,
 )
