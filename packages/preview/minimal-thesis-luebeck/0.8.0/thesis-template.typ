@@ -1,5 +1,5 @@
 #import "@preview/abbr:0.2.3":
-#import "@preview/hydra:0.6.1": hydra
+#import "@preview/hydra:0.6.2": hydra
 #import "utils/todo.typ": TODO
 #import "utils/print-page-break.typ": print-page-break
 #import "styles/acknowledgement.typ": *
