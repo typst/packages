@@ -1,0 +1,9 @@
+[package]
+name = "smartaref"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Robin Eklind"]
+license = "0BSD"
+description = "Smart handling of consecutive references (i.e. cleveref for Typst)."
+exclude = ["example", "inc"]
+repository = "https://github.com/mewmew/smartaref-typ"
