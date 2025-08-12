@@ -142,13 +142,14 @@
 #show: setup.with(show-seal-line: false, page-numbering: zh-arabic(suffix: "答案"), show-answer: true)
 #title[参考答案]
 
-#explain[
+#solution[
   答案
 ]
-#explain[
+#solution[
   答案
 ]
-#explain[
+#solution[
   答案
 ]
+
 
