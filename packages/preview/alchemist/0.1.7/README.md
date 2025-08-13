@@ -78,7 +78,7 @@ Alchemist uses cetz to draw the molecules. This means that you can draw cetz sha
 To start using alchemist, just use the following code:
 
 ```typ
-#import "@preview/alchemist:0.1.4": *
+#import "@preview/alchemist:0.1.7": *
 
 #skeletize({
   // Your molecule here
@@ -95,7 +95,7 @@ For more information, check the [manual](https://raw.githubusercontent.com/Robot
 - Added default values for `color` and `font` for `fragment` elements
 - Added a `skeletize-config` function to create a `skeletize` function with a specific configuration
 - Fixed a bug with cetz anchors not being correctly translated
-- Added an `over` argument to links to allow hide overlapped links
+- Added an `over` argument to links to allow hiding overlapped links
 
 ### 0.1.6
 
