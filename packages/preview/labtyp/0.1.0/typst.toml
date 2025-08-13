@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["evidlabel"]
 license = "MIT"
-description = "A Typst package for labelling text and enabling json label extraction using typst query"
+description = "Label text and extract to json using typst query"
 repository = "https://github.com/evidlabel/labtyp" # Optional, update if hosting on GitHub
 keywords = ["headings", "labels", "footnotes", "metadata", "hyperlinks"]
 categories = ["utility"]
@@ -13,4 +13,4 @@ categories = ["utility"]
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "template/preview.png"
+thumbnail = "preview.png"
