@@ -29,7 +29,7 @@ This template exports the `project` function with the following named arguments:
 - `main-color`: The main color of the template.
 - `lang`: The language of the presentation.
 - `aspect-ratio`: Defaults to `16-9`. Can be also `4-3`.
-- `text`: Text font size. Defaults to `20pt`
+- `text-size`: Text font size. Defaults to `20pt`
 - `heading-1-size`: Heading 1 font size. Defaults to `2.9em`
 - `heading-2-size`: Heading 2 font size. Defaults to `1.9em`
 - `caption-size`: Caption font size. Defaults to `0.75em`
