@@ -16,17 +16,6 @@ Which can then be translated into `hayagriva` or `biblatex` formats.
 - Each label ends up being a concatenation of the label information, and the mset information.
 - `lablist`: prints a table of the labels created
 
-## Installation
-
-### Local Installation
-1. Place the package in:
-- Linux/macOS: `~/.local/share/typst/packages/local/labtyp/0.1.0`
-- Windows: `%APPDATA%\typst\packages\local\labtyp\0.1.0`
-2. Import in your document:
-```typ
-#import "@local/labtyp:0.1.0": mset, lab, lablist
-```
-
 ## Test document
 ```typst
 #import "@preview/labtyp:0.1.0": mset, lab, lablist
