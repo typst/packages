@@ -30,7 +30,7 @@ function in a show rule. If you, however, want to change an existing project to
 use this template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/minimal-presentation:0.6.0": *
+#import "@preview/minimal-presentation:0.7.0": *
 
 #set text(font: "Lato")
 #show math.equation: set text(font: "Lato Math")
