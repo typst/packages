@@ -21,6 +21,12 @@ This template exports the `project` function with the following named arguments:
 - `main-color`: The main color of the template.
 - `lang`: The language of the presentation.
 - `aspect-ratio`: Defaults to `16-9`. Can be also `4-3`.
+- `text-size`: Text font size. Defaults to `20pt`
+- `heading-1-size`: Heading 1 font size. Defaults to `2.9em`
+- `heading-2-size`: Heading 2 font size. Defaults to `1.9em`
+- `caption-size`: Caption font size. Defaults to `0.75em`
+- `cover-title-size`: Cover title font size. Defaults to `3.1em`
+- `cover-subtitle-size`: Cover subtitle font size. Defaults to `1.5em`
 
 The function also accepts a single, positional argument for the body of the
 book.
@@ -30,7 +36,7 @@ function in a show rule. If you, however, want to change an existing project to
 use this template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/minimal-presentation:0.7.0": *
+#import "@preview/minimal-presentation:0.6.0": *
 
 #set text(font: "Lato")
 #show math.equation: set text(font: "Lato Math")
