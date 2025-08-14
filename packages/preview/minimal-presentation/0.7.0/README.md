@@ -1,14 +1,6 @@
 # minimal presentation
 A modern minimalistic presentation template ready to use.
 
-<img src="./tests/sample_presentation/ref01.png" alt="cover" width="400"/>
-<img src="./tests/sample_presentation/ref02.png" alt="index" width="400"/>
-<img src="./tests/sample_presentation/ref03.png" alt="section" width="400"/>
-<img src="./tests/sample_presentation/ref04.png" alt="page1" width="400"/>
-<img src="./tests/sample_presentation/ref05.png" alt="page2" width="400"/>
-<img src="./tests/sample_presentation/ref06.png" alt="page3" width="400"/>
-<img src="./tests/sample_presentation/ref07.png" alt="page4" width="400"/>
-
 ## Usage
 You can use this template in the Typst web app by clicking "Start from template"
 on the dashboard and searching for `minimal-presentation`.
