@@ -1,5 +1,4 @@
-#import "../lib.typ": go-board, go-board-9, go-board-19
-
+#import "@preview/lets-go:0.1.0": go-board, go-board-9, go-board-19
 
 #set page(margin: 1cm, height: auto)
 
