@@ -32,7 +32,7 @@ You can find the full list of examples [here](https://zap.grangelouis.ch/example
 ## Quick usage
 
 ```typst
-#import "@preview/zap:0.2.1"
+#import "@preview/zap:0.3.0"
 
 #zap.canvas({
     import zap: *
