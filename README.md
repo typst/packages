@@ -1,11 +1,5 @@
 # axiomst
 
-<div align="center">
-    <figure>
-        <img src="https://raw.githubusercontent.com/rezaarezvan/axiomst/refs/heads/main/thumbnail.png" alt="Axiomst">
-    </figure>
-</div>
-
 a clean, elegant template for academic problem sets and homework assignments in [typst](https://typst.app/).
 
 ## Features
