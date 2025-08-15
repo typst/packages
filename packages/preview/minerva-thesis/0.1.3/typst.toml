@@ -1,0 +1,24 @@
+[package]
+name = "minerva-thesis"
+version = "0.1.3"
+license = "MIT"
+entrypoint = "lib/lib.typ"
+authors = ["Lieven Vandevelde"]
+description = "Theses following guidelines at Ghent University and with some additional functions and features."
+repository = "https://github.com/lvandevelde/Typst-UGent-thesis"
+keywords = [
+    "template",
+    "thesis",
+    "Ghent University",
+]
+categories = [
+    "model",
+    "layout",
+    "thesis",
+]
+compiler = "0.13.1"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
