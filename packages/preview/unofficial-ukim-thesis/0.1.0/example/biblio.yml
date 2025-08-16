@@ -1,0 +1,19 @@
+avtor:
+    type: Article
+    author:
+        - Avtorski, Avtor
+        - Drug, Avtor
+        - Tret, Avtor
+    title:
+        value: "Some Paper: A paper about something that happens somewhere"
+        verbatim: true
+    date: 2025
+    page-range: 1-10
+    serial-number:
+        doi: 00.0000/0000000.00000000
+    parent:
+        - type: Proceedings
+          title: Journal of Something That Happens
+          publisher: Association for Some Kind of Research
+          location: Skopje, Macedonia
+          serial-number: { isbn: "000-000000000" }
