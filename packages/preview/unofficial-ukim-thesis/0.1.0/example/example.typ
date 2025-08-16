@@ -29,23 +29,23 @@
 
 #pagebreak()
 
-#intro()
+= Вовед
 
 #pagebreak()
 
-#theory()
+= Теорија
 
 #pagebreak()
 
-#experimental() 
+= Експериментален дел
 
 #pagebreak()
 
-#results()
+= Резултати
 
 #pagebreak()
 
-#conclusion()
+= Заклучок
 
 #pagebreak()
 
