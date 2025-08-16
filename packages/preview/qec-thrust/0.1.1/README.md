@@ -1,7 +1,7 @@
 # Visualization of Quantum Error Correction Codes
 This is a Typst package for visualizing quantum error correction codes.
 
-**Note: Requires CeTZ version >= 0.3 and compiler version >= 0.13**
+**Note: Requires CeTZ version >= 0.4 and compiler version >= 0.13**
 
 
 ## Steane code
