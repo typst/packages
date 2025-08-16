@@ -1,0 +1,17 @@
+[package]
+name = "unofficial-ukim-thesis"
+version = "0.1.0"
+entrypoint = "uthesis.typ"
+authors = ["nikkelo <https://github.com/nikkelo>"]
+license = "MIT"
+description = "Unofficial thesis style for the University of St. Cyril and Methodius in Skopje."
+repository = "https://github.com/nikkelo/unofficial-ukim-thesis"
+keywords = ["UKIM", "Skopje", "Cyril and Methodius", "thesis"]
+categories = ["thesis"]
+disciplines = ["chemistry","biology","physics"]
+exclude = ["example"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "img/thumbnail.png"
