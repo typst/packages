@@ -14,13 +14,13 @@
   chair: "",
 
   // Additional logos the research should be conducted with
-  additional_logos: (),
+  additional-logos: (),
 
   // Define at which position the HPI Logo should be at
-  hpi_logo_index: 0,
+  hpi-logo-index: 0,
 
   // Remove HPI logo
-  remove_hpi_logo: false,
+  remove-hpi-logo: false,
  
   body,
 ) = {  
@@ -104,11 +104,11 @@
   
   set heading(numbering: "1.1.1.1.1 ·")
 
-  if not remove_hpi_logo {
-    additional_logos.insert(hpi_logo_index, image("hpi_logo.svg"))
+  if not remove-hpi-logo {
+    additional-logos.insert(hpi-logo-index, image("hpi_logo.svg"))
   }
 
-  let _logos = additional_logos
+  let _logos = additional-logos
   if _logos.len() > 6 {
     panic("Cannot display this template with more than 6 logos (HPI + 5 additional logos")
   }

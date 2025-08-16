@@ -5,9 +5,9 @@
   author: "Max Mustermann",
   date: "Febuary 29, 2025",
   chair: "Data-Intensive Internet Computing",
-  additional_logos: (image("../template/hpi_logo.svg"),),
-  hpi_logo_index: 0,
-  remove_hpi_logo: false,
+  additional-logos: (image("hpi_logo.svg"),),
+  hpi-logo-index: 0,
+  remove-hpi-logo: false,
 )
 
 = Introduction
