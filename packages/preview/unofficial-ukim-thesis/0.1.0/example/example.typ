@@ -27,8 +27,6 @@
   dedication: none
 )
 
-#abbreviations()
-
 #pagebreak()
 
 #intro()
