@@ -2,7 +2,6 @@
 #show: init-glossary.with(yaml("glossary.yaml"), term-links: true)
 
 #import "@preview/volt-internship-ensea:0.1.0": *
-// #import "../template-internship.typ": *
 
 // ============================
 // VARIABLES TO MODIFY
