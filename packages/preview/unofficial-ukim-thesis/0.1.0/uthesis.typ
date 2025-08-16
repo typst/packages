@@ -228,23 +228,3 @@
 }
  
 }
-
-#let intro() = {
-  heading(level: 1)[ВОВЕД]
-}
-
-#let theory() = {
-  heading(level: 1)[ТЕОРЕТСКИ ДЕЛ]
-}
-
-#let experimental() = {
-  heading(level: 1)[ЕКСПЕРИМЕНТАЛЕН ДЕЛ]
-}
-
-#let results() = {
-  heading(level: 1)[РЕЗУЛТАТИ И ДИСКУСИЈА]
-}
-
-#let conclusion() = {
-  heading(level: 1)[ЗАКЛУЧОК]
-}
