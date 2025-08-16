@@ -2,7 +2,7 @@
 
 ## 0.5.9
 
-> [!INFO]
+> [!TIP]
 > Glossarium now supports invisible glossaries by @quachpas in #155.
 > You can use the `invisible` parameter in `print-glossary` to create
 > a glossary that does not take up any space in the document.
@@ -13,7 +13,7 @@
 > )
 > ```
 
-> [!INFO]
+> [!TIP]
 > Version v0.5.9 introduces a new contextual function `reset-counts`
 > that clears the usage counts of entries by @quachpas in #156.
 > By default, it clears all usage counts.
@@ -29,7 +29,7 @@
 > Note that `print-glossary` will print all used entries regardless of
 > whether they have been reset throughout the document.
 
-> [!INFO]
+> [!TIP]
 > More shorthand options have been added to each entry in #158. Previously,
 > only `@key`, `@key:pl`, `@Key` and `Key:pl` were available. Now,
 > you can also use `@key:short` and `key:long` to display the short
