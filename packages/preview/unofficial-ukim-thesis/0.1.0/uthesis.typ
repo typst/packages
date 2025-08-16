@@ -226,21 +226,6 @@
   // Главен текст
   body
 }
-
-
-// Кратенки и нивни објаснувања
-#let abbreviations() = {
-  heading(level: 1,numbering: none)[КРАТЕНКИ]
-  table(
-  columns: (auto, auto),
-  inset: 10pt,
-  align: horizon,
-  table.header(
-    [*Кратенка*], [*Значење*],
-  ),
-  "Кратенка 1", "Кратенка 1 Значење",
-  "Кратенка 2", "Кратенка 2 Значење",
-)
  
 }
 
