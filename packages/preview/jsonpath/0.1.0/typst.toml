@@ -1,0 +1,12 @@
+[package]
+name = "jsonpath"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Jebbs <https://github.com/qjebbs>"]
+license = "MIT"
+description = "jsonpath extracts values from dictionary or array using a JSONPath expression as per RFC 9535, except the filter syntax is different."
+repository = "https://github.com/qjebbs/typst-jsonpath"
+compiler = "0.13.1"
+keywords = ["json", "path", "jsonpath", "extraction", "querying", "data processing"]
+categories = ["scripting", "utility"]
+exclude = []
