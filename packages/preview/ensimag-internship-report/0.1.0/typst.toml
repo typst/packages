@@ -1,0 +1,33 @@
+[package]
+name = "ensimag-internship-report"
+version = "0.1.0"
+compiler = "0.13.1"
+entrypoint = "src/lib.typ"
+authors = ["Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com>"]
+license = "GPL-3.0-or-later"
+description = "A Typst template for ENSIMAG internship report"
+repository = "https://github.com/beatussum/typst-ensimag-internship-report-template"
+keywords = [
+  "ensimag",
+  "ieee",
+  "internship",
+  "internship-report",
+  "report",
+]
+categories = ["report"]
+disciplines = ["computer-science", "engineering", "mathematics"]
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
