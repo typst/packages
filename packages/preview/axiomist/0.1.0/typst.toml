@@ -1,0 +1,16 @@
+[package]
+name = "axiomst"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Reza Rezvan <reza@rezvan.xyz>"]
+license = "MIT"
+description = "A clean, elegant template for academic problem sets and homework assignments."
+repository = "https://github.com/rezaarezvan/axiomst"
+keywords = ["homework", "problem set", "assignment", "academic", "template"]
+categories = ["report"]
+compiler = "0.10.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
