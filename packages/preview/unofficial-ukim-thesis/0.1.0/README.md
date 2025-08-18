@@ -29,6 +29,7 @@ Your most important parts of the template are the ones placed at the top of the 
 - **keywords-en** - keywords in English
 - **dedication** - optional dedication to family members, students, advisors...
 
+You can view an example of the usage at [this link](https://github.com/nikkelo/unofficial-ukim-thesis/tree/main/example). 
 # Bibliography / Користена литература
 At the bottom of the main page you can add a bibliography section:
 
