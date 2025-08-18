@@ -1,0 +1,11 @@
+[package]
+name = "proteograph"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Olivier Langella <https://codeberg.org/olangella>"]
+license = "GPL-3.0"
+compiler = "0.13.0"
+description = "A package to visualise proteomics data."
+homepage = "https://codeberg.org/olangella/proteograph"
+repository = "https://codeberg.org/olangella/proteograph"
+keywords = ["proteomics", "mass spectrometry", "peptide", "protein"]
