@@ -42,9 +42,9 @@
   title: none,
   original: array,
   aligned: array,
-  ms2_delta_rt: none,
-  ms2_mean: none,
-  ms2_median: none
+  ms2-delta-rt: none,
+  ms2-mean: none,
+  ms2-median: none
 ) = {
   let rt_diff = ()
   let i=0
@@ -64,10 +64,10 @@
         ylim: ylim,
         xlim: xlim,
         title: title,
-        ..if (ms2_delta_rt != none) {(
-          lq.scatter(ms2_delta_rt.x, ms2_delta_rt.y, color: rgb("#0074d9").transparentize(90%), stroke: 1pt, mark: ".", label: [MS2 in common]),
-          if (ms2_median != none) {lq.plot(ms2_delta_rt.x,ms2_median, mark: none, label: [MS2 median], color: aqua)},
-          if (ms2_mean != none) {lq.plot(ms2_delta_rt.x,ms2_mean, mark: none, label: [MS2 mean], color: eastern)},
+        ..if (ms2-delta-rt != none) {(
+          lq.scatter(ms2-delta-rt.x, ms2-delta-rt.y, color: rgb("#0074d9").transparentize(90%), stroke: 1pt, mark: ".", label: [MS2 in common]),
+          if (ms2-median != none) {lq.plot(ms2-delta-rt.x,ms2-median, mark: none, label: [MS2 median], color: aqua)},
+          if (ms2-mean != none) {lq.plot(ms2-delta-rt.x,ms2-mean, mark: none, label: [MS2 mean], color: eastern)},
         ).flatten()},
         lq.plot(original,rt_diff, mark: none, label: [rt aligned], color: red)
     )
@@ -107,7 +107,12 @@
       ]
       
       
-      rtalign-plot(title: [#msrun vs #msrun_ref], ylim: (-40,40), ..msrun_item)
+      rtalign-plot(title: [#msrun vs #msrun_ref], ylim: (-40,40),  
+  ms2-delta-rt: msrun_item.ms2_delta_rt,
+  aligned: msrun_item.aligned,
+  ms2-mean: msrun_item.ms2_mean,
+  ms2-median: msrun_item.ms2_median,
+  original: msrun_item.original)
      
   }).join(pagebreak()))
 }

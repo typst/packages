@@ -148,12 +148,12 @@
   /// m/z range to display. *Optional*.
   /// #parbreak() Example: ```js (450, 950)```
   /// -> none | array
-  mz_range: none,
+  mz-range: none,
 
   /// maximum intensity to display. *Optional*.
   /// #parbreak() Example: ```js 30000```
   /// -> none | float
-  max_intensity: none,
+  max-intensity: none,
 
 
   /// Mass spectra values. *Optional*.
@@ -177,10 +177,10 @@
   delta-fragments: false
 ) = {
     let ylimit = auto;
-    if (max_intensity != none) {ylimit = (0, max_intensity)}
+    if (max-intensity != none) {ylimit = (0, max-intensity)}
     let mzpc = (spectra.mz.last() - spectra.mz.first()) / 100
     let inside_xlim = (spectra.mz.first()- 2*mzpc, spectra.mz.last()+ 2*mzpc)
-    if (mz_range != none) {inside_xlim = mz_range}
+    if (mz-range != none) {inside_xlim = mz-range}
     let ms2-height = height
     if (delta-fragments) {ms2-height = height - 1.5cm}
 

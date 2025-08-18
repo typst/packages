@@ -2,9 +2,9 @@
 
 #let rt_align = json("../examples/data/one_alignment.json")
 #rtalign-plot(title: "Whatever", ylim: (-40,40), 
-  ms2_delta_rt: rt_align.ms2_delta_rt,
+  ms2-delta-rt: rt_align.ms2_delta_rt,
   aligned: rt_align.aligned,
-  ms2_mean: rt_align.ms2_mean,
-  ms2_median: rt_align.ms2_median,
+  ms2-mean: rt_align.ms2_mean,
+  ms2-median: rt_align.ms2_median,
   original: rt_align.original)
 
