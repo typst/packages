@@ -10,7 +10,7 @@ Either use this template in the Typst web app:
 ```
 or use the command line to initialize a new project based on this template:
 ```typst
-typst init volt-lab-ensea:0.1.0
+typst init @preview/volt-lab-ensea:0.1.0
 ```
 
 ## Default Values
@@ -19,7 +19,7 @@ typst init volt-lab-ensea:0.1.0
 |-----------------|---------------|------------------------------------------------------|
 | `title`         | `none`        | Title of the lab report                              |
 | `authors`       | `none`        | Name(s) of the student(s) contributing to the report |
-| `studentInfo`   | `none`        | Information about the student(s)                     |
+| `student-info`   | `none`        | Information about the student(s)                     |
 | `labDescription`| `none`        | Description of the lab objectives                    |
 
 All fields listed above are **mandatory**.
@@ -35,10 +35,10 @@ All fields listed above are **mandatory**.
     "Jean DUPONT",
     "Marie DUBOIS",
   ),
-  studentInfo: [*Élève ingénieur en X#super[ème] année* #linebreak()
+  student-info: [*Élève ingénieur en X#super[ème] année* #linebreak()
     Promotion 20XX #linebreak()
     Année 20XX/20XX],
-  labDescription: [
+  lab-description: [
     - #lorem(15) #linebreak()
     - #lorem(15) #linebreak()
     - #lorem(15)

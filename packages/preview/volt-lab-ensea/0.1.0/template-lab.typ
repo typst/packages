@@ -5,8 +5,8 @@
 #let report(
   title: none,
   authors: none,
-  studentInfo: none,
-  labDescription: none,
+  student-info: none,
+  lab-description: none,
   body,
 ) = {
   // Check if all mandatory variables are defined.
@@ -20,8 +20,8 @@
     )
   }
 
-  if studentInfo == none {
-    panic("The `studentInfo` variable must be defined. It should be a string with the student's information.")
+  if student-info == none {
+    panic("The `student-info` variable must be defined. It should be a string with the student's information.")
   }
 
   if labDescription == none {
@@ -122,7 +122,7 @@
       ),
     )
 
-    #block(text(weight: 400, size: 14pt, studentInfo))
+    #block(text(weight: 400, size: 14pt, student-info))
 
     #align(left)[
       #linebreak()

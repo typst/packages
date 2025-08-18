@@ -10,23 +10,23 @@ Either use this template in the Typst web app:
 ```
 or use the command line to initialize a new project based on this template:
 ```typst
-typst init volt-internship-ensea:0.1.0
+typst init @preview/volt-internship-ensea:0.1.0
 ```
 
 ## Default Values
 
 | Parameter                | Default Value  | Description                            | Mandatory  |
 |--------------------------|----------------|----------------------------------------|------------|
-| `companyLogo`            | `none`         | Path to the company logo               | ✅         |
+| `company-logo`            | `none`         | Path to the company logo               | ✅         |
 | `authors`                | `none`         | Name(s) of the report author(s)        | ✅         |
-| `studentInfo`            | `none`         | Information about the student(s)       | ✅         |
+| `student-info`            | `none`         | Information about the student(s)       | ✅         |
 | `title`                  | `none`         | Title of the internship report         | ✅         |
-| `internshipDetails`      | `none`         | Company name, location, duration, etc. | ✅         |
-| `enableListOfFigures`    | `true`         | Enable the list of figures             | ❌         |
-| `enableListOfTables`     | `false`        | Enable the list of tables              | ❌         |
-| `enableGlossary`         | `false`        | Enable the glossary                    | ❌         |
-| `enableAbstract`         | `true`         | Enable the abstract                    | ❌         |
-| `enableBibliography`     | `true`         | Enable the bibliography                | ❌         |
+| `internship-details`      | `none`         | Company name, location, duration, etc. | ✅         |
+| `enable-list-figures`    | `true`         | Enable the list of figures             | ❌         |
+| `enable-list-tables`     | `false`        | Enable the list of tables              | ❌         |
+| `enable-glossary`         | `false`        | Enable the glossary                    | ❌         |
+| `enable-abstract`         | `true`         | Enable the abstract                    | ❌         |
+| `enable-bibliography`     | `true`         | Enable the bibliography                | ❌         |
 
 ## Example
 
@@ -34,22 +34,22 @@ typst init volt-internship-ensea:0.1.0
 #import "@preview/volt-internship-ensea:0.1.0": *
 
 #show: internship.with(
-  companyLogo: "template/media/logo.png",
+  company-logo: "template/media/logo.png",
   authors: (
     "Jean DUPONT",
   ),
-  studentInfo: [*Élève ingénieur en X#super[ème] année* #linebreak()
+  student-info: [*Élève ingénieur en X#super[ème] année* #linebreak()
     Promotion 20XX #linebreak()
     Année 20XX/20XX],
   title: [#lorem(10)],
-  internshipDetails: [Stage effectué du *1er mars au 30 août 2025*, au sein de la société *TechSolutions*, située à Paris.
+  internship-details: [Stage effectué du *1er mars au 30 août 2025*, au sein de la société *TechSolutions*, située à Paris.
 
     Sous la responsabilité de : #linebreak()
     - M. *Pierre LEFEVRE*, Directeur de la Stratégie #linebreak()
     - Mme *Marie DUBOIS*, Responsable des Opérations #linebreak()
   ],
-  enableListOfFigures: false,
-  enableBibliography: false,
+  enable-list-figures: false,
+  enable-bibliography: false,
 )
 
 = Introduction

@@ -7,25 +7,25 @@
 
 #let internship(
   // Mandatory variable
-  companyLogo: none,
+  company-logo: none,
   authors: none,
-  studentInfo: none,
+  student-info: none,
   title: none,
-  internshipDetails: none,
+  internship-details: none,
   // Optional variable
-  enableListOfFigures: true,
-  enableListOfTables: false,
-  enableListOfAppendices: false,
-  enableGlossary: false,
-  enableAbstract: true,
-  enableBibliography: true,
-  enableAppendices: true,
+  enable-list-figures: true,
+  enable-list-tables: false,
+  enable-list-appendices: false,
+  enable-glossary: false,
+  enable-abstract: true,
+  enable-bibliography: true,
+  enable-appendices: true,
   body,
 ) = {
   // Check if all mandatory variables are defined.
-  if companyLogo == none {
+  if company-logo == none {
     panic(
-      "The `companyLogo` variable must be defined. It should be a string representing the path to the company logo.",
+      "The `company-logo` variable must be defined. It should be a string representing the path to the company logo.",
     )
   }
 
@@ -35,17 +35,17 @@
     )
   }
 
-  if studentInfo == none {
-    panic("The `studentInfo` variable must be defined. It should be a string with the student's information.")
+  if student-info == none {
+    panic("The `student-info` variable must be defined. It should be a string with the student's information.")
   }
 
   if title == none {
     panic("The `title` variable must be defined. It should be a string representing the title of the report.")
   }
 
-  if internshipDetails == none {
+  if internship-details == none {
     panic(
-      "The `internshipDetails` variable must be defined. It should be a string describing the details of the internship.",
+      "The `internship-details` variable must be defined. It should be a string describing the details of the internship.",
     )
   }
 
@@ -180,7 +180,7 @@
       dir: ltr, // left-to-right
       spacing: 5em, // space between contents
       image("assets/logo-ENSEA.png", height: 40mm),
-      image(companyLogo, height: 40mm),
+      image(company-logo, height: 40mm),
     )
 
     #linebreak()
@@ -203,7 +203,7 @@
       ),
     )
 
-    #block(text(weight: 400, size: 14pt, studentInfo))
+    #block(text(weight: 400, size: 14pt, student-info))
 
     #linebreak()
     #block(text(weight: 700, size: 20pt, title))
@@ -211,7 +211,7 @@
 
   linebreak()
   set par(justify: true)
-  block(text(weight: 400, size: 12pt, [#internshipDetails]))
+  block(text(weight: 400, size: 12pt, [#internship-details]))
 
   pagebreak()
   // Definition of the following pages with different margins
@@ -239,7 +239,7 @@
             ]]
         ],
 
-        align(right + horizon, image(companyLogo, height: 12mm)),
+        align(right + horizon, image(company-logo, height: 12mm)),
       )
 
       #box(width: 100%, height: 1pt, fill: black)
@@ -298,7 +298,7 @@
   show outline.entry: set text(hyphenate: false)
   show outline: set par(justify: false)
 
-  if not (enableListOfAppendices) {
+  if not (enable-list-appendices) {
     outline(
       title: [Table des matières #v(outline-spacing)],
       indent: 1em,
@@ -323,7 +323,7 @@
   }
 
   // Figure contents configuration
-  if (enableListOfFigures) {
+  if (enable-list-figures) {
     pagebreak()
     heading(numbering: none)[Liste des figures]
     v(outline-spacing)
@@ -331,14 +331,14 @@
   }
 
   // Table contents configuration
-  if (enableListOfTables) {
+  if (enable-list-tables) {
     pagebreak()
     heading(numbering: none)[Liste des tableaux]
     v(outline-spacing)
     outline(indent: 1em, title: none, target: figure.where(kind: table))
   }
 
-  if (enableListOfAppendices) and (enableAppendices) {
+  if (enable-list-appendices) and (enable-appendices) {
     pagebreak()
     heading(numbering: none)[Liste des annexes]
     v(outline-spacing)
@@ -410,7 +410,7 @@
     },
   )
 
-  if (enableGlossary) {
+  if (enable-glossary) {
     pagebreak()
     glossary(
       title: "Glossaire",
@@ -421,7 +421,7 @@
     )
   }
 
-  if (enableAbstract) {
+  if (enable-abstract) {
     pagebreak()
     heading(outlined: false, numbering: none)[]
     import "template/abstract.typ": abstract
@@ -438,7 +438,7 @@
   body
 
   // Bibliography configuration
-  if (enableBibliography) {
+  if (enable-bibliography) {
     pagebreak()
     set par(justify: false)
     show bibliography: set heading(numbering: "I.1.a.")
@@ -446,7 +446,7 @@
   }
 
   // Appendices configuration
-  if (enableAppendices) {
+  if (enable-appendices) {
     pagebreak()
     show: backmatter // to change numbering style in Appendix
     import "template/appendices.typ": annexes

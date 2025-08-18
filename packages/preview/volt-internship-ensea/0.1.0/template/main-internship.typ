@@ -9,7 +9,7 @@
 
 #show: internship.with(
   // Path to the company logo
-  companyLogo: "template/media/logo.png",
+  company-logo: "template/media/logo.png",
 
   // Name(s) of the report author(s)
   authors: (
@@ -17,7 +17,7 @@
   ),
 
   // Information about the student(s)
-  studentInfo: [*Élève ingénieur en X#super[ème] année* #linebreak()
+  student-info: [*Élève ingénieur en X#super[ème] année* #linebreak()
     Promotion 20XX #linebreak()
     Année 20XX/20XX],
 
@@ -25,7 +25,7 @@
   title: [#lorem(10)],
 
   // Company name, location, duration, etc.
-  internshipDetails: [Stage effectué du *1er mars au 30 août 2025*, au sein de la société *TechSolutions*, située à Paris.
+  internship-details: [Stage effectué du *1er mars au 30 août 2025*, au sein de la société *TechSolutions*, située à Paris.
 
     Sous la responsabilité de : #linebreak()
     - M. *Pierre LEFEVRE*, Directeur de la Stratégie #linebreak()
@@ -33,19 +33,19 @@
   ],
 
   // Enable the list of figures
-  enableListOfFigures: true,
+  enable-list-figures: true,
   // Enable the list of tables
-  enableListOfTables: true,
+  enable-list-tables: true,
   // Enable the list of appendices
-  enableListOfAppendices: true,
+  enable-list-appendices: true,
   // Enable the glossary section
-  enableGlossary: true,
+  enable-glossary: true,
   // Enable the abstract section
-  enableAbstract: true,
+  enable-abstract: true,
   // Enable the bibliography
-  enableBibliography: true,
+  enable-bibliography: true,
   // Enable the appendix section
-  enableAppendices: true,
+  enable-appendices: true,
 )
 
 // ============================

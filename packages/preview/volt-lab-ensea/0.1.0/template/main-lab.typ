@@ -15,12 +15,12 @@
   ),
 
   // Information about the student(s)
-  studentInfo: [*Élève ingénieur en X#super[ème] année* #linebreak()
+  student-info: [*Élève ingénieur en X#super[ème] année* #linebreak()
     Promotion 20XX #linebreak()
     Année 20XX/20XX],
 
   // Description of the lab objectives
-  labDescription: [
+  lab-description: [
     - #lorem(15) #linebreak()
     - #lorem(15) #linebreak()
     - #lorem(15)
