@@ -20,7 +20,7 @@ typst init @preview/volt-lab-ensea:0.1.0
 | `title`         | `none`        | Title of the lab report                              |
 | `authors`       | `none`        | Name(s) of the student(s) contributing to the report |
 | `student-info`   | `none`        | Information about the student(s)                     |
-| `labDescription`| `none`        | Description of the lab objectives                    |
+| `lab-description`| `none`        | Description of the lab objectives                    |
 
 All fields listed above are **mandatory**.
 
