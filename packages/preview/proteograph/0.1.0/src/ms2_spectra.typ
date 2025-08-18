@@ -1,5 +1,5 @@
 #import "@preview/lilaq:0.4.0" as lq
-#import "@preview/tiptoe:0.3.0"
+#import "@preview/tiptoe:0.3.1"
 #import "ion_series.typ": *
 
 

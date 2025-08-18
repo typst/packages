@@ -1,4 +1,4 @@
-#import "@preview/tidy:0.4.2"
+#import "@preview/tidy:0.4.3"
 #import "../src/ion_series.typ": *
 
 #let code-block(code, language, title: none) = {
