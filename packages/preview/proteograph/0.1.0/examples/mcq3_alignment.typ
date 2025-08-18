@@ -1,4 +1,4 @@
-#import "@local/proteograph:0.0.1": *
+#import "@local/proteograph:0.1.0": *
 
 = Display retention time alignment informations
 

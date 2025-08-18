@@ -1,4 +1,4 @@
-#import "@local/proteograph:0.0.1": *
+#import "@local/proteograph:0.1.0": *
 
 #let rt_align = json("../examples/data/one_alignment.json")
 #rtalign-plot(title: "Whatever", ylim: (-40,40), 

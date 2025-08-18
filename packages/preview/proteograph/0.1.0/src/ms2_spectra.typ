@@ -1,4 +1,4 @@
-#import "@preview/lilaq:0.3.0" as lq
+#import "@preview/lilaq:0.4.0" as lq
 #import "@preview/tiptoe:0.3.0"
 #import "ion_series.typ": *
 
@@ -161,7 +161,7 @@
   /// with the same length for each array
   /// #parbreak() (e.g., `spectra: (mz: (256.45, 356.89, 523.78), intensity: (200, 298 ,253))`)
   /// ```example
-  /// #import "@local/proteograph:0.0.1": *
+  /// #import "@local/proteograph:0.1.0": *
   /// #set text(size: 12pt)
   /// #ms2spectra-plot( spectra: (mz: (256.45, 356.89, 523.78), intensity: (200, 298, 253)))
   /// ```

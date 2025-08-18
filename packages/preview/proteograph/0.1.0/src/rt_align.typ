@@ -1,4 +1,4 @@
-#import "@preview/lilaq:0.3.0" as lq
+#import "@preview/lilaq:0.4.0" as lq
 
 #let rtalign-diagram = it => {
   show: lq.set-diagram(

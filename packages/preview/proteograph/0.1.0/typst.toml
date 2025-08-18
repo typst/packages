@@ -6,7 +6,6 @@ authors = ["Olivier Langella <https://codeberg.org/olangella>"]
 license = "GPL-3.0"
 compiler = "0.13.1"
 description = "A package to visualise proteomics data."
-homepage = "https://codeberg.org/olangella/proteograph"
 repository = "https://codeberg.org/olangella/proteograph"
 keywords = ["proteomics", "mass spectrometry", "peptide", "protein"]
 exclude = ["docs/series.json", "docs/ion_description.typ", "docs/mcq3_alignment.json", "docs/proteograph-docs.pdf", "docs/proteograph-docs.typ", "docs/spectra.json", "docs/template.typ", "examples/simple_psm.typ", "examples/rt_align.typ", "examples/mcq3_alignment.typ", "examples/complete_psm_mzrange.typ", "examples/complete_psm_delta_fragments.typ", "examples/complete_psm.typ", "examples/data/complete_psm.json", "examples/data/one_alignment.json"]
