@@ -1,0 +1,36 @@
+[package]
+name = "laskutys"
+version = "1.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Jiahao Li"]
+description = "Make invoices satisfying Finnish standards (VH/3634/00.01.00/2023) and with bank barcode and/or EPC QR code."
+repository = "https://github.com/TheJiahao/laskutys"
+keywords = ["invoice", "finnish", "banking", "accounting"]
+compiler = "0.13.1"
+license = "MIT-0"
+categories = ["office"]
+disciplines = ["business"]
+exclude = [
+    "tests/**",
+    ".vscode/**",
+    "rust_tools/target/**",
+    ".github/**",
+    "examples/**",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "docs/images/thumbnail.webp"
+
+[tool.packager]
+paths = [
+    "src",
+    "template",
+    "docs",
+    "rust_tools/rust_tools.wasm",
+    "LICENSE",
+    "licenses",
+    "examples",
+    "README.md",
+]
