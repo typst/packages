@@ -1,12 +1,12 @@
 #import "@preview/fontawesome:0.6.0": fa-icon
 
-#let document_lang = state("document_lang", "en")
+#let __document_lang = state("document_lang", "en")
 
 #let __translate(val) = {
   if type(val) == dictionary {
-    let is_val = val.at(document_lang.get(), default: none)
+    let is_val = val.at(__document_lang.get(), default: none)
     if is_val != none {
-      str(val.at(document_lang.get()))
+      str(val.at(__document_lang.get()))
     }
   } else {
     str(val)
@@ -75,7 +75,7 @@
       return true
     } else if one_e.at("optional", default: none) == true {
       return false
-    } else if one_e.at(field).keys().contains(document_lang.get()) {
+    } else if one_e.at(field).keys().contains(__document_lang.get()) {
       return true
     }
     return false
@@ -89,7 +89,7 @@
     *#data.firstname #data.lastname*
     #linebreak()
   ])
-  if document_lang.get() == "en" {
+  if __document_lang.get() == "en" {
     align(center, __translate(data.bio))
   } else {
     align(center, [
@@ -317,7 +317,7 @@
 /// - data (dictionary): Structure that contains the cv data
 #let show-cv(data, lang: "en") = {
   let doc_lang = sys.inputs.at("CV_LANG", default: lang)
-  document_lang.update(x => doc_lang)
+  __document_lang.update(x => doc_lang)
 
   set document(
     title: "CV - " + data.me.firstname + " " + data.me.lastname,
