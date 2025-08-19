@@ -64,7 +64,7 @@ I enjoy working in teams that emphasize functionality and reliability and use ex
 
 ## Icons for Programming Languages and other Tools
 ```typst
-#import "@preview:cv-soft-and-hard": rust, cpp
+#import "@preview/cv-soft-and-hard:0.1.0": rust, cpp, python, hugo
 
 #section("Selected Projects")
 #entry(
