@@ -8,7 +8,7 @@ It was designed with software and hardware people in mind (hence the name).
 
 ## Predefined styling scheme
 ```typst
-#import "@preview:cv-soft-and-hard:0.1.0": styling, section, entry
+#import "@preview/cv-soft-and-hard:0.1.0": styling, section, entry
 
 #set document(author: "Jonas Pleyer", title: "CV Jonas Pleyer")
 #show: styling
