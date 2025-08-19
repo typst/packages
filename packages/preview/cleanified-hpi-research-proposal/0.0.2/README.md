@@ -21,9 +21,9 @@ An example configuration is located in [`example/`](./example/main.typ).
   author: "Max Mustermann",
   date: "Febuary 29, 2025",
   chair: "Data-Intensive Internet Computing",
-  additional_logos: (image("path/to/my/logo.png"),),
-  hpi_logo_index: 0,
-  remove_hpi_logo: false,
+  additional-logos: (image("path/to/my/logo.png"),),
+  hpi-logo-index: 0,
+  remove-hpi-logo: false,
 )
 
 = Introduction
