@@ -1,0 +1,16 @@
+[package]
+name = "wonderous-book"
+version = "0.1.2"
+compiler = "0.12.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/typst/templates"
+authors = ["Typst GmbH <https://typst.app>"]
+license = "MIT-0"
+description = "A fiction book template with running headers and serif typography"
+keywords = ["book", "fiction", "running header", "novel"]
+categories = ["book"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
