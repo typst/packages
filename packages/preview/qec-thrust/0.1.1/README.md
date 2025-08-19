@@ -7,7 +7,7 @@ This is a Typst package for visualizing quantum error correction codes.
 ## Steane code
 You can draw a Steane code by calling the `steane-code` function. The name of the qubits are automatically generated as `steane-1`, `steane-2`, etc.
 ```java
-#import "@preview/qec-thrust:0.1.0": *
+#import "@preview/qec-thrust:0.1.1": *
 
 #canvas({
   import draw: *
