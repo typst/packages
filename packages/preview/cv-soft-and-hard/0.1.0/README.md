@@ -74,7 +74,7 @@ I enjoy working in teams that emphasize functionality and reliability and use ex
     - Written with generics and custom templates for performance and flexibility
     - Dedicated documentation, examples & guides
       (#link("https://cellular-raza.com", "cellular-raza.com"))
-    - Peer-reviewed and published @Pleyer2025
+    - Peer-reviewed and published
   ],
   [_08/2022_]
 )
