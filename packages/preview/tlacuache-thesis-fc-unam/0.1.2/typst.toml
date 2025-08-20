@@ -1,0 +1,14 @@
+[package]
+name = "tlacuache-thesis-fc-unam"
+version = "0.1.2"
+entrypoint = "lib.typ"
+authors = ["David Valencia, davidalencia@ciencias.unam.mx"]
+license = "MIT"
+description = "Template para escribir una tesis para la facultad de ciencias."
+categories = ["thesis"]
+keywords = ["thesis", "tesis", "facultad", "ciencias"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.webp"
