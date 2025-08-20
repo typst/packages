@@ -308,7 +308,7 @@
   // Title Slide
   if (title == none) {
     panic("A title is required")
-  } else if (title-slide == false) {
+  } else if (first-slide == false) {
     // Remove the first page for custom arrangements
   } else {
     if (type(authors) != array) {
