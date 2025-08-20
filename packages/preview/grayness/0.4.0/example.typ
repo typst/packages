@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#import "@preview/grayness:0.3.0": *
+#import "@preview/grayness:0.4.0": *
 #let data = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 #let data2 = read("gallardo.svg", encoding: none)
 #set page(height: 12cm, columns: 3)
@@ -98,3 +98,14 @@ Invert:
 HueRotate:
 #image-huerotate(data2, amount: 100, width: 90%, format: "svg")
 #colbreak()
+
+#pagebreak()
+
+Mask with alpha:
+#let mask = read("mask.png", encoding: none)
+#image-mask(data, mask, use-alpha-channel: true)
+
+#colbreak()
+
+Mask with brightness:
+#image-mask(data, mask, use-alpha-channel: false)

@@ -454,8 +454,34 @@ limitations under the License.
   }
 }
 
+///Update the alpha-channel of the image by applying the masking image to it.
+///The if the mask image is not the same size as the target image, it will be resized automatically
+///This function does not work with SVG data.
+#let image-mask(
+  /// Raw imagedata, e.g. provided by the `read()` function
+  /// -> bytes
+  imagebytes,
+  /// Raw imagedata, e.g. provided by the `read()` function
+  /// -> bytes
+  maskbytes,
+  /// Defines if the alpha-channel of the mask image is used (default). If set to false, the brightness
+  /// of the mask image is used instead. Therefore, images without an alpha-channel can also be used as mask.
+  use-alpha-channel: true,
+  /// Arguments to pass to the typst image function
+  /// e.g. width, height, alt, fit, ...
+  /// -> any
+  ..args,
+) = {
+  if args.named().keys().contains("format") and args.named().format == "svg" {
+    panic("The image-mask() function does not work with SVG-Data")
+  }
+  let alpha = 1.to-bytes()
+  if not use-alpha-channel { alpha = 0.to-bytes() }
+  image(plg.mask(imagebytes, maskbytes, alpha, ..args))
+}
+
 #let help(..args) = {
-  import "@preview/tidy:0.4.1"
+  import "@preview/tidy:0.4.3"
   let namespace = (
     ".": read.with("lib.typ"),
   )
