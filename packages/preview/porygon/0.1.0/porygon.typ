@@ -272,6 +272,7 @@
       dir: ttb,
       circle(radius: 0.5cm, fill: rgb("4a90d9"))[
         #set align(center + horizon)
+        #v(-0.4em)
         #text(size: 1em, fill: white)[#fa-icon(ico)]
       ],
       v(0.4em),
@@ -282,16 +283,23 @@
 
 #let __show-hobbies((title, data)) = {
   __show-title-bar(title)
+  let gen_interest(idx) = {
+    if data.len() > idx {
+      __interest(data.at(idx))
+    }
+    []
+  }
+  let interest = (0, 1, 2).map(gen_interest)
   block(
     width: 100%,
     [
       #grid(
         columns: (1fr, 1fr),
         align: horizon,
-        __interest(data.at(0)), __interest(data.at(1)),
+        interest.at(0), interest.at(1),
       )
       #align(center)[
-        #__interest(data.at(2))
+        #interest.at(2)
       ]
     ],
   )
