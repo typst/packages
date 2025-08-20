@@ -14,4 +14,4 @@ repository = "https://github.com/Its-Just-Nans/porygon"
 [template]
 path = "template"
 entrypoint = "porygon_template.typ"
-thumbnail = "template/porygon_template.png"
+thumbnail = "screenshots/porygon_template.png"
