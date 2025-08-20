@@ -1,0 +1,14 @@
+[package]
+name = "umbra"
+version = "0.1.0"
+compiler = "0.10.0"
+repository = "https://github.com/davystrong/umbra"
+entrypoint = "src/lib.typ"
+authors = [
+  "David Armstrong <https://github.com/davystrong>"
+]
+license = "MIT"
+description = "Basic shadows for Typst"
+categories = [ "visualization" ]
+keywords = [ "shadow", "path", "border", "gradient" ]
+exclude = [ "/gallery/*"]

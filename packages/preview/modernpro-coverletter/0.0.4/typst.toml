@@ -1,0 +1,15 @@
+[package]
+name = "modernpro-coverletter"
+version = "0.0.4"
+entrypoint = "modernpro-coverletter.typ"
+authors = [ "jxpeng98",]
+repository = "https://github.com/jxpeng98/typst-coverletter"
+license = "MIT"
+description = "A cover letter template with modern Sans font for job applications and other formal letters."
+keywords = [ "coverletter", "CV", "Job",]
+categories = [ "cv", "utility",]
+
+[template]
+path = "template"
+entrypoint = "coverletter.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,75 @@
+name: Test PR
+on:
+  pull_request_target: {}
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract package names and versions from changed files
+        id: extract-package
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+            });
+
+            const packages = new Set();
+            files.forEach(file => {
+              const match = file.filename.match(/^packages\/preview\/([^\/]+)\/([^\/]+)\//);
+              if (match) {
+                packages.add({ namespace: "preview", name: match[1], version: match[2] });
+              }
+            });
+
+            let sparseCheckoutPaths;
+            if (packages.size === 0) {
+              sparseCheckoutPaths = "packages/";
+            } else {
+              sparseCheckoutPaths = Array.from(packages).map((pkg) => `packages/preview/${pkg.name}/${pkg.version}/`).join('\n');
+            }
+            core.setOutput('sparse-checkout-paths', sparseCheckoutPaths);
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          sparse-checkout: |
+            ${{ steps.extract-package.outputs.sparse-checkout-paths }}
+            bundler/
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: bundler
+
+      - name: Build bundler
+        run: cargo build --release --manifest-path bundler/Cargo.toml
+
+      - name: Test packaging
+        run: bundler/target/release/bundler
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    environment: Package Check
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Rebase branch before linting
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          pr_head=$(/usr/bin/git log -1 --format=%H)
+          git fetch origin ${{ github.base_ref }}
+          git checkout ${{ github.base_ref }}
+          git checkout $pr_head
+          git rebase ${{ github.base_ref }} -X ours
+      - uses: typst/package-check@v0.3.0
+        with:
+          installation-id: ${{ secrets.GH_INSTALLATION_ID }}
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_PRIVATE_KEY }}

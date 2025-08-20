@@ -12,8 +12,9 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    environment: Deploy
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           # Download the whole history for the package timestamps
           fetch-depth: 0
@@ -29,17 +30,30 @@ jobs:
       - name: Package
         run: bundler/target/release/bundler
 
-      - uses: azure/login@v1
+      - uses: kheiakiyama/install-azcopy-action@v1
         with:
+          version: 'v10'
           creds: ${{ secrets.AZURE_PACKAGE_CREDENTIALS }}
 
       - name: Sync files
-        uses: azure/CLI@v1
+        env:
+          ACCOUNT_NAME: typstpackages
+        run: |
+          azcopy_v10 cp --recursive ./dist/* "https://$ACCOUNT_NAME.blob.core.windows.net/\$web" \
+            --overwrite true --exclude-pattern '*.json' \
+            --cache-control 'public, max-age=7776000' --put-md5
+
+          azcopy_v10 cp --recursive ./dist/* "https://$ACCOUNT_NAME.blob.core.windows.net/\$web" \
+            --overwrite true --include-pattern '*.json' \
+            --cache-control 'must-revalidate' --put-md5
+
+      - name: Log in to Azure
+        uses: azure/login@v2
         with:
-          inlineScript: az storage blob sync --account-name typstpackages --container '$web' --source ./dist --delete-destination true
+          creds: ${{ secrets.AZURE_PACKAGE_CREDENTIALS }}
 
       - name: Purge CDN endpoint
-        uses: azure/CLI@v1
+        uses: azure/CLI@v2
         with:
           inlineScript: az afd endpoint purge -g Landing-Page --profile-name LandingPage --content-paths '/*' --endpoint-name 'packages'
 

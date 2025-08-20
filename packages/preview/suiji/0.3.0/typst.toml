@@ -1,0 +1,12 @@
+[package]
+name = "suiji"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["Guangxi Liu <https://github.com/liuguangxi>"]
+license = "MIT"
+description = "A high efficient random number generator in Typst."
+repository = "https://github.com/liuguangxi/suiji"
+compiler = "0.11.0"
+categories = ["utility"]
+keywords = ["random", "uniform", "normal", "discrete", "shuffle", "choice", "chinese"]
+exclude = ["examples", "tests"]

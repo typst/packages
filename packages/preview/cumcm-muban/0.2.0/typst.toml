@@ -1,0 +1,16 @@
+[package]
+name = "cumcm-muban"
+version = "0.2.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/a-kkiri/CUMCM-typst-template"
+authors = ["Akkiri <https://github.com/a-kkiri>"]
+license = "Apache-2.0"
+description = "为高教社杯全国大学生数学建模竞赛设计的 Typst 模板"
+keywords = ["CUMCM"]
+categories = ["thesis"]
+disciplines = ["mathematics", "computer-science"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

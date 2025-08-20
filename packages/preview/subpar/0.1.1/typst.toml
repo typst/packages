@@ -1,0 +1,16 @@
+[package]
+entrypoint = "src/lib.typ"
+name = "subpar"
+version = "0.1.1"
+compiler = "0.11.0"
+authors = ["tinger <me@tinger.dev>"]
+repository = "https://github.com/tingerrr/subpar"
+description = "Create sub figures easily."
+categories = ["components", "model"]
+keywords = ["figures", "sub"]
+license = "MIT"
+exclude = ["examples", "doc", "README.md"]
+
+[tool.typst-test]
+tests = "test"
+template = "test/template.typ"

@@ -1,0 +1,11 @@
+[package]
+name = "ibanator"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["@mainrs"]
+license = "EUPL-1.2"
+description = "A package for validating and formatting International Bank Account Numbers (IBANs) according to ISO 13616-1."
+homepage = "https://github.com/mainrs/typst-iban-formatter"
+repository = "https://github.com/mainrs/typst-iban-formatter.git"
+keywords = ["IBAN", "ISO 13616-1", "bank account", "validation", "formatting", "finance", "banking", "international", "SEPA", "EU"]
+categories = ["text"]

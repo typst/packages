@@ -1,0 +1,15 @@
+[package]
+name = "haw-hamburg"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["Lasse Rosenow"]
+license = "MIT"
+description = "Unofficial template for writing a report or thesis in the `HAW Hamburg` department of `Computer Science` design."
+repository = "https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template"
+exclude = ["examples/*"]
+categories = ["report", "thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,15 @@
+[package]
+name = "examify"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Tarun Kumar Jana <https://tarunjana.in>"]
+license = "MIT"
+description = "A simple typst template to create question papers for exams."
+repository = "https://github.com/tarunjana/examify"
+keywords = ["typst-template", "exam", "question-paper"]
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

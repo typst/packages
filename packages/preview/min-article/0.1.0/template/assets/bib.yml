@@ -1,0 +1,21 @@
+# This is a Brazilian meme.
+vozes:
+    type: Book
+    title: Narrativas delirantes de uma mente perturbada
+    author: Cabeça, Vozes da minha
+    date: 2019
+    publisher: 
+        name: Surto, Paranóia, Esquizofrenia
+        location: São Paulo
+
+# Translation of the meme.
+# Is used like: "From which source did you get this crazy idea?". The source:
+voices:
+    type: Book
+    title: Delirious Narratives of a Disturbed Mind
+    author: Head, Voices of my
+    date: 2019
+    publisher: 
+        name: Outburst, Paranoia, Schizophrenia
+        location: São Paulo
+    
