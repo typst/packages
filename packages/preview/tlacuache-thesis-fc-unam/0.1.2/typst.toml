@@ -11,4 +11,4 @@ keywords = ["thesis", "tesis", "facultad", "ciencias"]
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail.webp"
+thumbnail = "thumbnail.png"
