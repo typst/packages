@@ -1,6 +1,6 @@
 # ENSEA - Typst Internship Template (unofficial)
 
-Unofficial Typst template for internship reports at ENSEA, a French engineering school.
+Unofficial template for internship reports at ENSEA, a French engineering school.
 
 ## Usage
 
@@ -31,10 +31,22 @@ typst init @preview/volt-internship-ensea:0.1.1
 ## Example
 
 ```typst
+#import "@preview/glossy:0.8.0": *
+#show: init-glossary.with(yaml("glossary.yaml"), term-links: true)
+#import "abstract.typ": *
+#import "acknowledgements.typ": *
+#import "appendices.typ": *
+#import "references.bib"
+
 #import "@preview/volt-internship-ensea:0.1.1": *
 
 #show: internship.with(
-  company-logo: "template/media/logo.png",
+  abstract: abstract(),
+  acknowledgements: acknowledgements(),
+  appendices: annexes(),
+  references: bibliography("references.bib", full: true),
+
+  company-logo: image("media/logo.png"),
   authors: (
     "Jean DUPONT",
   ),

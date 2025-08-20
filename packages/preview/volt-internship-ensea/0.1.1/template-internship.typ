@@ -23,6 +23,7 @@
   abstract: none,
   acknowledgements: none,
   appendices: none,
+  references: none,
   body,
 ) = {
   // Check if all mandatory variables are defined.
@@ -451,7 +452,7 @@
     pagebreak()
     set par(justify: false)
     show bibliography: set heading(numbering: "I.1.a.")
-    bibliography("template/references.bib", full: true)
+    references
   }
 
   // Appendices configuration

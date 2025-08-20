@@ -11,6 +11,7 @@
   abstract: abstract(),
   acknowledgements: acknowledgements(),
   appendices: annexes(),
+  references: bibliography("references.bib", full: true),
 
   // ============================
   // VARIABLES TO MODIFY
