@@ -24,7 +24,7 @@ Proper number formatting is essential for clear and readable scientific document
 - **Standardized** formatting
 - Digit [**grouping**](#grouping), e.g., 299 792 458 instead of 299792458
 - **Plug-and-play** number [**alignment in tables**](#table-alignment)
-- Quick scientific notation, e.g., `"2e4"` becomes 2×10⁴a
+- Quick scientific notation, e.g., `"2e4"` becomes 2×10⁴
 - Symmetric and asymmetric [**uncertainties**](#specifying-uncertainties)
 - [**Rounding**](#rounding) in various modes
 - [**Unit and quantity formatting**](#units-and-quantities)
