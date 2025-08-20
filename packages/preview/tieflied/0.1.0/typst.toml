@@ -13,4 +13,4 @@ disciplines = []
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail.jpg"
+thumbnail = "thumbnail.png"
