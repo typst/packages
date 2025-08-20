@@ -22,9 +22,9 @@ _Advanced scientific number formatting for Typst._
 Proper number formatting is essential for clear and readable scientific documents. **Zero** provides tools for consistent formatting and simplifies adherence to established publication standards. Key features include:
 
 - **Standardized** formatting
-- Digit [**grouping**](#grouping), e.g., $`299\,792\,458`$ instead of $299792458$
+- Digit [**grouping**](#grouping), e.g., 299 792 458 instead of 299792458
 - **Plug-and-play** number [**alignment in tables**](#table-alignment)
-- Quick scientific notation, e.g., `"2e4"` becomes $2\times10^4$
+- Quick scientific notation, e.g., `"2e4"` becomes 2×10⁴a
 - Symmetric and asymmetric [**uncertainties**](#specifying-uncertainties)
 - [**Rounding**](#rounding) in various modes
 - [**Unit and quantity formatting**](#units-and-quantities)
@@ -82,6 +82,7 @@ See below for a few examples of the syntax that can be used with `num`.
     <img alt="Quick demo" src="https://github.com/user-attachments/assets/925fb0ff-5af2-4373-a3e6-63f23523d60c">
   </picture>
 </p>
+
 ---
 
 ## Number Formatting
@@ -119,11 +120,11 @@ Zero's core is the `num()` function, which provides flexible number formatting. 
 - `fixed: none | int = none` : If not `none`, forces a fixed exponent. Additional exponents given in the number input are taken into account. 
 - `decimal-separator: str = "."` : Specifies the marker that is used for separating integer and decimal part.
 - `product: content = sym.times` : Specifies the multiplication symbol used for scientific notation. 
-- `tight: bool = false` : If true, tight spacing is applied between operands (applies to $\times$ and $\pm$). 
+- `tight: bool = false` : If true, tight spacing is applied between operands (applies to × and ±). 
 - `math: bool = true` : If set to `false`, the parts of the number won't be wrapped in a `math.equation`. This makes it possible to use `num()` with non-math fonts.
-- `omit-unity-mantissa: bool = false` : Determines whether a mantissa of 1 is omitted in scientific notation, e.g., $10^4$ instead of $1\cdot 10^4$. 
-- `positive-sign: bool = false` : If set to `true`, positive coefficients are shown with a $+$ sign. 
-- `positive-sign-exponent: bool = false` : If set to `true`, positive exponents are shown with a $+$ sign. 
+- `omit-unity-mantissa: bool = false` : Determines whether a mantissa of 1 is omitted in scientific notation, e.g., 10⁴ instead of 1·10⁴. 
+- `positive-sign: bool = false` : If set to `true`, positive coefficients are shown with a + sign. 
+- `positive-sign-exponent: bool = false` : If set to `true`, positive exponents are shown with a + sign. 
 - `base: int | content = 10` : The base used for scientific power notation. 
 - `uncertainty-mode: str = "separate"` : Selects one of the modes `"separate"`, `"compact"`, or `"compact-separator"` for displaying uncertainties. The different behaviors are shown below:
 
@@ -218,13 +219,13 @@ Rounding can be configured with the `set-round()` function.
 
 There are two ways of specifying uncertainties:
 - Applying an uncertainty to the least significant digits using parentheses, e.g., `2.3(4)`,
-- Denoting an absolute uncertainty, e.g., `2.3+-0.4` becomes $2.3\pm0.4$. 
+- Denoting an absolute uncertainty, e.g., `2.3+-0.4` becomes 2.3±0.4. 
 
 Zero supports both and can convert between these two, so that you can pick the displayed style (configured via `uncertainty-mode`, see above) independently of the input style. 
 
 How do uncertainties interplay with exponents? The uncertainty needs to come first, and the exponent applies to both the mantissa and the uncertainty, e.g., `num("1.23+-.04e2")` becomes
 
-$$ (1.23\pm0.04)\times 10^2. $$
+ (1.23±0.04)×10².
 
 Note that the mantissa is now put in parentheses to disambiguate the application of the power. 
 
