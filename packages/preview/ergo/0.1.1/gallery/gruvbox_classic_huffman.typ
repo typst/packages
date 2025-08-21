@@ -1,5 +1,5 @@
-#import "@preview/cetz:0.4.0": *
-#import "@local/ergo:0.1.1": *
+#import "@preview/cetz:0.4.1": *
+#import "@preview/ergo:0.1.1": *
 #import "@preview/lovelace:0.3.0": *
 
 #show: ergo-init.with(colors: "gruvbox-dark", headers: "classic")

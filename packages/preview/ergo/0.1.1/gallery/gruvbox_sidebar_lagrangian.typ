@@ -1,5 +1,5 @@
 #import "@preview/physica:0.9.5": *
-#import "@local/ergo:0.1.1": *
+#import "@preview/ergo:0.1.1": *
 #show: ergo-init.with(colors: "gruvbox-dark", headers: "sidebar")
 
 #set page(

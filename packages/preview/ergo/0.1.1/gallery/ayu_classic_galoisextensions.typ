@@ -1,5 +1,5 @@
-#import "@local/ergo:0.1.1": *
-#import "@preview/fletcher:0.5.4" as fletcher: diagram, node, edge
+#import "@preview/ergo:0.1.1": *
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 #show: ergo-init.with(
   colors: "ayu-light",
   headers: "classic",

@@ -1,4 +1,4 @@
-#import "@local/ergo:0.1.1": *
+#import "@preview/ergo:0.1.1": *
 #show: ergo-init.with(inline-qed: true)
 
 #set page(
