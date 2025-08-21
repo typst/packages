@@ -6,6 +6,7 @@ Modern but sober manuals inspired by the manpages of old.
 
 [![Tests](https://github.com/mayconfmelo/min-manual/actions/workflows/tests.yml/badge.svg)](https://github.com/mayconfmelo/min-manual/actions/workflows/tests.yml)
 [![Build](https://github.com/mayconfmelo/min-manual/actions/workflows/build.yml/badge.svg)](https://github.com/mayconfmelo/min-manual/actions/workflows/build.yml)
+[![Spellcheck](https://github.com/mayconfmelo/min-manual/actions/workflows/spellcheck.yml/badge.svg)](https://github.com/mayconfmelo/min-manual/actions/workflows/spellcheck.yml)
 
 </center>
 
