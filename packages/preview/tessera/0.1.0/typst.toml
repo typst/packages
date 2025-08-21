@@ -8,3 +8,4 @@ repository = "https://github.com/vanleefxp/tesselate_typ"
 description = "A package for combining multiple images into masonry or matrix layout."
 categories = ["layout"]
 keywords = ["image", "masonry", "matrix"]
+exclude=["assets/"]
