@@ -226,7 +226,11 @@
     math: num-state.math
   )
   if not num-state.unit.breakable {
-    result = box(result)
+    if num-state.math {
+      result = $result$
+    } else {
+      result = box(result)
+    }
   }
   result
 }
@@ -242,9 +246,14 @@
   
   let num-state = update-num-state(num-state.get(), (unit: args.named()) + args.named())
 
+  let separator = sym.space.thin
+  if num-state.math {
+    separator = $separator$
+  }
+
   let result = {
     num(value, state: num-state, force-parentheses-around-uncertainty: true) // force parens around numbers with uncertainty
-    sym.space.thin
+    separator
     show-unit(
       unit, 
       fraction: num-state.unit.fraction,
@@ -254,7 +263,11 @@
   }
   
   if not num-state.unit.breakable {
-    result = box(result)
+    if num-state.math {
+      result = $result$
+    } else {
+      result = box(result)
+    }
   }
   result
 }
