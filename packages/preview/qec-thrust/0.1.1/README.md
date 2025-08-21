@@ -6,7 +6,7 @@ This is a Typst package for visualizing quantum error correction codes.
 
 ## Steane code
 You can draw a Steane code by calling the `steane-code` function. The name of the qubits are automatically generated as `steane-1`, `steane-2`, etc.
-```java
+```typ
 #import "@preview/qec-thrust:0.1.1": *
 
 #canvas({
@@ -21,7 +21,7 @@ You can draw a Steane code by calling the `steane-code` function. The name of th
 
 ## Surface code
 You can draw a surface code with different size, color and orientation by `surfacecode` function. The name of the qubits can be defined with `name` parameter as `name-i-j`. By default, they will be named as `surface-i-j`. The `type-tag` parameter can be set to `false` to change the orientation of the surface code. Here is an example of two surface codes.
-```java
+```typ
 #canvas({
   import draw: *
   let n = 3
@@ -38,7 +38,7 @@ You can draw a surface code with different size, color and orientation by `surfa
 
 ## Toric code
 You can draw a toric code with different size and color by `toric-code` function. The name of the qubits can be defined with `name` parameter as `name-point-vertical-i-j` and `name-point-horizontal-i-j`. By default, they will begin with `toric`. Here is an example of a toric code with 5x3 size. `plaquette-code-label` and `vertex-code-label` functions can be used to label the plaquette and vertex stabilizers at a specified location. `stabilizer-label` generates a stabilizer legend.
-```java
+```typ
 #canvas({
   import draw: *
   let m = 5
@@ -61,7 +61,7 @@ You can draw a toric code with different size and color by `toric-code` function
 
 `plaquette-code-label` and `vertex-code-label` functions can be adjusted to change the label of the stabilizers. Here is an example of$〚98,8,12〛$BB code.
 
-```java
+```typ
 #canvas({
   import draw: *
   toric-code((0, 0), 7, 7, size: 1)
