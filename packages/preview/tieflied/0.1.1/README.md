@@ -1,6 +1,5 @@
 # TiefLied
 
-
 > _Lied (\[liːt\]), German for Song_
 
 A template to make halfway decent songbooks in a markup language that people can actually read.

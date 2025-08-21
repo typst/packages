@@ -123,7 +123,7 @@
     box(width: 100% - (if show-annotations { 3em } else { 0pt }), [
       #if show-annotations {
         set text(size: 11pt)
-        place(right, dx: 3em, [#annotation-text])
+        place(right, dx: -6pt, [#annotation-text])
       }
       #body
       \
