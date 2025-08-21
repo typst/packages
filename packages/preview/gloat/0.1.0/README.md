@@ -4,7 +4,6 @@
 
 A resume/curriculum vitae package and template geared towards the physical sciences and research-based careers.
 Still in early development; releases should not yet be considered stable.
-Be sure to pin the version used to prevent your project from breaking!
 
 Originally modified from [guided-resume-starter-cgc][cgc].
 
