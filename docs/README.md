@@ -78,9 +78,8 @@ avoid common pitfalls. They are split into the following categories:
 - [Further Tips][tips]
 
 When a package's PR has been merged and CI has completed, the package will be
-available for use. However, it can currently take up to a day until the package
-will be visible on [Typst Universe][universe]. We'll reduce this delay in the
-future.
+available for use. However, it can currently take up to 30 minutes until the package
+will be visible on [Typst Universe][universe].
 
 ## Fixing or removing a package
 
