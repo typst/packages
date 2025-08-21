@@ -1,0 +1,11 @@
+[package]
+name = "intextual"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["euwbah"]
+license = "MIT"
+description = "Flushed left/right text and individual line tagging in equations"
+compiler = "0.13"
+repository = "https://github.com/euwbah/intextual"
+keywords = ["intertext", "LaTeX", "llap", "rlap", "flush text", "flushed", "flush", "equation", "tag", "eqref"]
+categories = ["components", "model", "layout"]
