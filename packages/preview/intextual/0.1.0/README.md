@@ -4,6 +4,21 @@ For interspersing equations with flushed left/right text while preserving alignm
 
 For use inside a block math equation only.
 
+## Quickstart
+
+```typst
+#import "@preview/intextual:0.1.0": flushl, flushr, intertext, tag, eqref, intertext-rule
+
+// intertext-rule show rule is required for elements to display properly.
+#show: intertext-rule
+```
+
+### Side Effects ⚠️
+
+The `show: intertext-rule` rule will draw an invisible 100% width line to determine the boundaries of the container. This affects standard behaviour in enums/lists and grids/tables with `auto` width.
+
+In default Typst, block equations in enums/lists will be centered according to the maximum horizontal space required by any enum/list item, however, with the `intertext-rule` applied, the maximum available width will always be used.
+
 ## Methods
 
 ### `flushl`, `flushr`
@@ -64,7 +79,7 @@ Similar to LaTeX's `\eqref`, creates a link to an equation created by `tag`.
 ```typst
 #import "lib.typ": flushl, flushr, intertext, tag, eqref, intertext-rule
 
-// intertext-rule show-set rule is required to display properly.
+// intertext-rule show rule is required to display properly.
 #show: intertext-rule
 
 Without grid:

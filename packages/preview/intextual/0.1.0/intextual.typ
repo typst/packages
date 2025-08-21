@@ -120,7 +120,7 @@
 #let tag(
   /// Text to display in the tag.
   /// -> str | content
-  body,
+  body: none,
   /// Supplementary text when referencing the equation.
   /// -> str | content
   supplement: "Equation",
@@ -142,12 +142,27 @@
   /// references, use the `flushl` and `flushr` methods instead.
   /// -> auto | str | none
   label-str: auto,
+  /// A label and body (content | str) can be provided in optional args.
+  /// -> args
+  ..args
 ) = {
   let fn = if right {flushr} else {flushl}
-  let label-str = label-str
+
+  for arg in args.pos() {
+    if type(arg) == content or type(arg) == str {
+      body = arg
+    } else if type(arg)== label {
+      label-str = str(arg)
+    }
+  }
+
   if label-str == auto {
     label-str = label-prefix + "-" + {
-      body.text.replace(regex("[^0-9A-Za-z.-_]"), "").replace(regex("\\\\w+"), " ")
+      if body.at("text", default: none) != none {
+        body.text.replace(regex("[^0-9A-Za-z.-_]"), "").replace(regex("\\\\w+"), " ")
+      } else {
+        repr(body).replace(regex("[^0-9A-Za-z.-_]"), "").replace(regex("\\\\w+"), " ")
+      }
     }
   }
 
@@ -193,11 +208,12 @@
 #let intertext-rule = it => {
   show math.equation.where(block: true): it => {
     // return it // uncomment to test if layout is being alteered by pre-eqn-width-ruler
-    context {
-      // Setting block.below to 0 should make the line not take up any vertical space.
-      set block(below: 0em)
-      [#line(length: 100%, stroke: 0pt)<pre-eqn-width-ruler>]
-    }
+
+    let (above-old, below-old) = (block.above, block.below)
+    // Setting block.below to 0 should make the line not take up any vertical space.
+    set block(above: 0em)
+    [#line(length: 100%, stroke: 0pt)<pre-eqn-width-ruler>]
+
     context {
       let ruler = query(selector(<pre-eqn-width-ruler>).before(here())).last()
       place(
@@ -211,12 +227,23 @@
         })
       )
     }
+    set block(above: above-old, below: below-old)
     it
   }
 
   show ref.where(supplement: auto): it => {
-    if it.element != none and it.element.func() == figure and it.element.kind == "intertext-eq-tag" {
-      return it.element.supplement + " " + it.element.body.text
+    if it.element != none and it.element.func() == figure and {
+      it.element.kind == "intertext-eq-tag" and it.element.body != none
+    } {
+      let body = if it.element.body.at("text", default: none) != none {
+        [#it.element.supplement #it.element.body.text]
+      } else if it.element.body.at("supplement", default: none) != none {
+        it.element.body.supplement
+      } else {
+        it.element.body
+      }
+
+      return link(it.element.location(), body)
     }
 
     it
