@@ -75,7 +75,7 @@
 
 
 #let mcq3-alignment-summary(
-  mcq3_json
+  mcq3-json
 ) = {
 //    "identification_data": {
 //        "msrun_list": {
@@ -84,11 +84,11 @@
 // ral/LFQ_Astral_DDA_15min_50ng_Condition_A_REP1.mzML"
 //            },
 
-  let msrun_list = mcq3_json.identification_data.msrun_list
+  let msrun_list = mcq3-json.identification_data.msrun_list
   
-  let msrun_ref = mcq3_json.alignment_data.first().alignment.msrun_ref
+  let msrun_ref = mcq3-json.alignment_data.first().alignment.msrun_ref
   
-  let msrun_ref_file = msrun_list.at(mcq3_json.alignment_data.first().alignment.msrun_ref).file
+  let msrun_ref_file = msrun_list.at(mcq3-json.alignment_data.first().alignment.msrun_ref).file
   
   [msrun reference for alignment is #msrun_ref (#msrun_ref_file)]
 //      "alignment_data": [
@@ -98,7 +98,7 @@
   
   
   
-  (mcq3_json.alignment_data.first().alignment.corrections.pairs().map(((msrun, msrun_item)) => {
+  (mcq3-json.alignment_data.first().alignment.corrections.pairs().map(((msrun, msrun_item)) => {
       heading(level: 1)[#msrun vs #msrun_ref]
       [
         #msrun data file path : #msrun_list.at(msrun).file
