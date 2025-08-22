@@ -77,7 +77,7 @@ Similar to LaTeX's `\eqref`, creates a link to an equation created by `tag`.
 ## Example
 
 ```typst
-#import "lib.typ": flushl, flushr, intertext, tag, eqref, intertext-rule
+#import "@preview/intextual:0.1.0": flushl, flushr, intertext, tag, eqref, intertext-rule
 
 // intertext-rule show rule is required to display properly.
 #show: intertext-rule
