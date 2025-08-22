@@ -5,7 +5,7 @@
 /// - right (bool): Get right page margin if `true`, left otherwise.
 /// -> relative
 #let _get-page-margin(right: true) = {
-  if type(page.margin) == relative {
+  if type(page.margin) == relative or type(page.margin) == length {
     return page.margin
   } else if type(page.margin) == dictionary {
     if right and page.margin.at("right") != none {
