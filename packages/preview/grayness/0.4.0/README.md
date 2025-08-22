@@ -9,12 +9,12 @@ The package name is inspired by the blurry, gray images of Nessie, the [Loch Nes
 
 ## Usage
 
-Due to the way typst currently interprets given paths, you have to read the images yourself in the calling typst file. This raw imagedata can then be passed to the grayness-package functions, like grayscale-image. These functions also optionally accept all additional parameters of the original typst image function like `width` or `height`:
+Due to the way typst currently interprets given paths, you have to read the images yourself in the calling typst file. This raw imagedata can then be passed to the grayness-package functions, like image-grayscale. These functions also optionally accept all additional parameters of the original typst image function like `width` or `height`:
 
 ```typst
-#import "@preview/grayness:0.3.0": image-grayscale
+#import "@preview/grayness:0.4.0": image-grayscale
 
-#let data = read("Art.webp", encoding: none)
+#let data = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 #image-grayscale(data, width: 50%)
 ```
 
@@ -23,14 +23,14 @@ A detailed descriptions of all available functions is provided in the [manual](m
 You can also use the built-in help functions provided by tidy:
 
 ```typst
-#import "@preview/grayness:0.3.0": *
+#import "@preview/grayness:0.4.0": *
 #help("image-flip-vertical")
 ```
 
-All functions also works with SVG images. To do so you must specify the format as `"svg"`:
+All functions except `image-mask()` also works with SVG images. To do so you must specify the format as `"svg"`:
 
 ```typst
-#let data = read("example.svg", encoding: none)
+#let data = read("gallardo.svg", encoding: none)
 #image-grayscale(data, format: "svg")
 ```
 
