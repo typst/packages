@@ -15,7 +15,7 @@ For use inside a block math equation only.
 
 ### Side Effects ⚠️
 
-The `show: intertext-rule` rule will draw an invisible 100% width line to determine the boundaries of the container. This affects standard behaviour in enums/lists and grids/tables with `auto` width.
+The `show: intertext-rule` rule will draw an invisible 100% width line above each `math.equation.where(block: true)` to determine the boundaries of the container. This affects standard equation alignment in enums/lists and grids/tables with `auto` width.
 
 In default Typst, block equations in enums/lists will be centered according to the maximum horizontal space required by any enum/list item, however, with the `intertext-rule` applied, the maximum available width will always be used.
 
@@ -35,14 +35,14 @@ Places floating text/content to the left or right of the equation for annotation
 
 ### `intertext`
 
-Similar to LaTeX's `\intertext`, this method allows for the insertion of text between lines of an equation while maintaining `&` alignment. This is function is implemented as a special case of `flushl` with `overlap = false`. A new line must still be used after the equation before `intertext`.
+Similar to LaTeX's `\intertext`, this method allows for the insertion of text between lines of an equation while maintaining `&` alignment. This function is implemented as a special case of `flushl` with `overlap = false`. A new line must still be used after the equation before `intertext`.
 
 ### `tag`
 
 Tag a particular line of a multi-line block equation and automatically generate a label
 for referencing.
 
-Unlike LaTeX's \tag, it doesn't automatically wrap with parentheses.
+Unlike LaTeX's \tag, it doesn't automatically surround the contents with parentheses.
 
 If `label-str` is not given, it automatically creates a label for referencing, based on the
 `label-prefix` and `body`. Only alphanumberic characters, period, hyphen and underscore are
