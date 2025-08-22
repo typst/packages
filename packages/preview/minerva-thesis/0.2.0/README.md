@@ -30,7 +30,7 @@ For installing the template and compiling the main file (`thesis.typ`) execute:
  
 ## Examples
 
-In the folder `examples` of the GitHub Repository [lvandevelde/typst-minerva-thesis](https://github.com/lvandevelde/typst-minerva-thesis) basic examples of a PhD and a master's thesis are given. 
+In the folder `examples` of the GitHub Repository [lvandevelde/typst-minerva-thesis](https://github.com/lvandevelde/typst-minerva-thesis/tree/v0.2.0) basic examples of a PhD and a master's thesis are given. 
 
 Theses example files illustrate most of the functions of the package, in particular:
 
