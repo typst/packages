@@ -2,7 +2,7 @@
 
 # minerva-thesis
 
-The `minerva-thesis` package provides a template for writing doctoral and master's theses with [Typst](https://typst.app/) presenting both [Ghent University](https://www.ugent.be/en) specific features and additional generic functions and features (in comparison to standard functions of Typst 0.13):
+The `minerva-thesis` package provides a template for writing doctoral and master's theses presenting both [Ghent University](https://www.ugent.be/en) specific features and additional generic functions and features (in comparison to standard functions of Typst 0.13):
 
 - A Ghent University specific title page. 
 - Improved layout of outlines (in particular for outline entries spanning multiple lines)
