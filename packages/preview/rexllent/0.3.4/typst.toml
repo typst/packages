@@ -8,3 +8,4 @@ license = "MIT"
 repository = "https://github.com/hongjr03/typst-rexllent"
 categories = ["visualization", "utility"]
 keywords = ["excel", "table"]
+exclude = ["assets"]
