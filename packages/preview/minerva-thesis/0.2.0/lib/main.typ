@@ -156,6 +156,7 @@
   raw-style: "1",
   style-function: none,
   bold-ref: false,
+  tabular-caption: false,
   fill: none,
   inset: 0pt,
   store: none
@@ -163,7 +164,7 @@
     
   figure-settings.update(
     it => {
-      it.insert(store,(image: image-style, table: table-style, raw: raw-style, style-function: style-function, bold-ref: bold-ref, fill: fill, inset: inset ))
+      it.insert(store,(image: image-style, table: table-style, raw: raw-style, style-function: style-function, bold-ref: bold-ref, tabular-caption: tabular-caption, fill: fill, inset: inset ))
       it
     }
   )
@@ -240,7 +241,8 @@
   page-margin: (y: 15mm, inside: 25mm, outside: 15mm),
   figure-fill: none,
   figure-inset: 0.5em,
-  bold-figure-ref: false,
+  figure-tabular-caption: false,
+  figure-bold-ref: auto,
   body,
 ) = {
   
@@ -330,7 +332,8 @@
       table-style:"1",
       raw-style:"1",
       style-function: add-chapter-number,
-      bold-ref: bold-figure-ref,
+      tabular-caption: figure-tabular-caption,
+      bold-ref: if figure-bold-ref==auto {figure-tabular-caption} else {figure-bold-ref},
       fill: if figure-fill==auto {colour-tertiary} else {figure-fill},
       inset: figure-inset,
       store: "m")
@@ -338,15 +341,17 @@
     show figure.caption: it => context {
       set text(font: caption-font)  if caption-font != auto
       set text(size: if caption-font-size==auto {0.9*base-font-size} else {caption-font-size} )
-      table(
-        [*#it.supplement #it.counter.display(it.numbering)*#it.separator],
-        it.body,
-        column-gutter: 0.15em,
-        stroke: none,
-        inset: 0pt,
-        align: (right, left),
-        columns: 2,
-      )
+      if figure-settings.get().at(store.get()).tabular-caption {
+        table(
+          [*#it.supplement #it.counter.display(it.numbering)*#it.separator],
+          it.body,
+          column-gutter: 0.15em,
+          stroke: none,
+          inset: 0pt,
+          align: (right, left),
+          columns: 2,
+        )
+      } else {it}
     }
     
 
@@ -485,8 +490,6 @@
       } else {it}
     }
   
- 
-
     set document(title: title) if title!=none
     set document(author: authors) if type(authors)==str or type(authors) == array 
     set document(keywords: keywords) if type(keywords)==str or type(keywords)==array

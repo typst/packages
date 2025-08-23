@@ -65,14 +65,6 @@
   
     show: set-figures(image-style:"1", table-style:"I", raw-style:"1", store: "ea")  
 
-    show figure.caption: it => context{
-      set text(font: caption-font)  if caption-font != auto
-      set text(size: if caption-font-size==auto {0.9*base-font-size} else {caption-font-size} )
-      align(left, [
-      #it.supplement #it.counter.display(it.numbering)#it.separator #it.body
-      ])
-    }
-
     show math.equation: set text(font: math-font) if math-font != auto 
     show math.equation: set text(size: if math-font-size==auto {base-font-size} else {math-font-size})
 
