@@ -247,11 +247,18 @@
   key,
   /// Language to be displayed. none will use the default language -> string | none
   lang: none,
+  /// Second langauge to be displayed. If "auto" is passed, @_default-second-lang will be used. -> string | none
+  second-lang: auto,
 ) = {
   context {
     let selected-lang = if lang == none { _default-lang.get() } else { lang }
     verfiy-acronym-exists(key, selected-lang)
     let selected-acro = _acronyms.get().at(key)
+
+    // Auto is the default, so we extraxt the default language.
+    let selected-second-lang = if second-lang == auto {
+      _default-second-lang.get()
+    } else { second-lang }
 
     // First get the short-pl form, append "s" if none was defined.
     // Do this first, since it is needed either way
@@ -273,7 +280,36 @@
         // short-pl was not defined
         selected-acro.value.at(selected-lang).long + "s"
       }
-      text = [#long-pl-text (#short-pl-text)]
+
+      // in case the default-second-lang is used, but it does not exist -> selected-second-lang will be none
+      // This will result in not using the second-lang.
+      // This is implemented so you do not have to define all acronym for the main and second language
+      if (
+        (selected-second-lang != none) and (second-lang == auto) and (selected-second-lang not in selected-acro.value)
+      ) {
+        selected-second-lang = none
+      }
+
+      if selected-second-lang != none {
+        // second language was provided and long form not shown before
+        // so we must display both languages.
+        verfiy-acronym-exists(key, selected-second-lang)
+
+        let second-long-pl-text = if "long-pl" in selected-acro.value.at(selected-second-lang) {
+          selected-acro.value.at(selected-second-lang).long-pl
+        } else {
+          // short-pl was not defined
+          selected-acro.value.at(selected-second-lang).long + "s"
+        }
+
+        let second-lang-display = _language-display.final().at(selected-second-lang)
+        text = [#long-pl-text (#selected-acro.value.at(selected-lang).short-pl, #second-lang-display: #second-long-pl-text)]
+      } else {
+        // dont display second language
+        text = [#long-pl-text (#short-pl-text)]
+      }
+
+
       update-acronym-long-shown(key, true)
     }
 
