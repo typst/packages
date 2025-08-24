@@ -1,0 +1,16 @@
+[package]
+name = "chemicoms-paper"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["James R. Swift"]
+license = "MIT-0"
+repository = "https://github.com/JamesxX/chemicoms-paper"
+keywords = ["paper", "article", "journal", "conference"]
+categories = ["paper"]
+description = "An RSC-style paper template to publish at conferences and journals"
+exclude = ["CHANGELOG.md", "Justfile", "docs", "tests", ".github"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/1.png"

@@ -1,0 +1,11 @@
+[package]
+name = "rich-counters"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Johann Birnick <https://jbirnick.net>"]
+license = "MIT"
+description = "Counters which can depend on other counters."
+repository = "https://github.com/jbirnick/typst-rich-counters"
+keywords = ["counter", "theorem"]
+categories = ["model", "scripting", "utility"]
+exclude = ["example.typ", "example.png"]

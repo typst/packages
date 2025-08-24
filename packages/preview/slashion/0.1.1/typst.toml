@@ -1,0 +1,10 @@
+[package]
+name = "slashion"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["sjfhsjfh"]
+license = "MIT"
+description = "Fractions with slash."
+repository = "https://github.com/sjfhsjfh/slashion"
+keywords = ["fractions", "frac", "slash", "equation", "formula", "math"]
+categories = ["layout"]

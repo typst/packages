@@ -1,0 +1,30 @@
+[conf]
+default-lang = "en"
+
+[lang.en]
+points = "Points"
+assignment = "Assignment"
+total = "Total"
+awarded = "Awarded"
+good_luck = "Good Luck"
+grade = "Grade"
+name = "Name"
+class = "Class"
+subject = "Subject"
+date = "Date"
+appendix = "Appendix"
+solution = "Solution"
+
+[lang.de]
+points = "Punkte"
+assignment = "Aufgabe"
+total = "Gesamt"
+awarded = "Erreicht"
+good_luck = "Viel Erfolg"
+grade = "Note"
+name = "Name"
+class = "Klasse"
+subject = "Fach"
+date = "Datum"
+appendix = "Anhang"
+solution = "Lösung"

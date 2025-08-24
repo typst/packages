@@ -1,0 +1,10 @@
+
+[package]
+name = "blinky"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alexander Koller <akoller@gmail.com>"]
+license = "MIT"
+description = "Typesets paper titles in bibliographies as hyperlinks."
+repository = "https://github.com/alexanderkoller/typst-blinky"
+
