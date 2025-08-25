@@ -1,8 +1,8 @@
 
 
-# Typst thesis
+# minerva-thesis
 
-A template for writing theses with [Typst](https://typst.app/) following guidelines at [Ghent University](https://www.ugent.be/en) (UGent) and providing additional features in comparison to standard functions of Typst 0.13:
+A template for writing theses following guidelines at [Ghent University](https://www.ugent.be/en) and providing additional features in comparison to standard functions of Typst 0.13:
 
 - Improved layout of outlines (in particular for outline entries spanning multiple lines)
 - Support of Parts and Appendices
@@ -14,7 +14,7 @@ A template for writing theses with [Typst](https://typst.app/) following guideli
 - Possibility of left-aligned equations (with a settable left margin)
 - Possibility to set background colour (`fill`) and `breakable` feature of figures (experimental)
 
-# Usage
+## Usage
 
 For installing the template and compiling the main file (`thesis.typ`) execute:
     
@@ -24,9 +24,9 @@ For installing the template and compiling the main file (`thesis.typ`) execute:
  
 
 
-# Example
+## Example
 
-In the GitHub repository [lvandevelde/Typst-UGent-thesis](https://github.com/lvandevelde/Typst-UGent-thesis),  a basic example of a PhD thesis is given in the folder `example-preview`. 
+In the GitHub repository [lvandevelde/typst-minerva-thesis](https://github.com/lvandevelde/typst-minerva-thesis/tree/v0.1.3), a basic example of a PhD thesis is given in the folder `example-preview`. 
 
 The files in this folder illustrate most of the functions of the package, in particular:
 
@@ -35,16 +35,16 @@ The files in this folder illustrate most of the functions of the package, in par
 - `Titlepage/titlepage.typ`: the title page using the `titlepage` function which is specific for Ghent University theses as it uses logos of Ghent University and its faculties for building the title page. You can build your title page manually for usage at other institutions.
 
 
-# Functions
+## Functions
 
-The documentation on the functions of this package can be found in [`Documentation.md`](https://github.com/lvandevelde/Typst-UGent-thesis/blob/master/Documentation.md) 
+The documentation on the functions of this package can be found in [`Documentation.md`](https://github.com/lvandevelde/typst-minerva-thesis/blob/v0.1.3/Documentation.md) 
  
 
-# Fonts
+## Fonts
 
-In the  [example](#example) and the template, the lines for selecting the "UGent Panno Text" font have been commented, such that `thesis.typ` can be compiled out-of-the-box. The "UGent Panno Text" font is not a free font and can only be used for Ghent University purposes. For using this font, it has to be installed on your system (with this specific font name).
+In the [example](#example) and the template, the lines for selecting the "UGent Panno Text" font have been commented, such that `thesis.typ` can be compiled out-of-the-box. The "UGent Panno Text" font is not a free font and can only be used for Ghent University purposes. For using this font, it has to be installed on your system (with this specific font name).
 
 
-# License
+## License
 This template is licensed under the MIT license.
 The logos and icons of Ghent University (stored in folder `img`) are copyrighted and are not covered by the MIT license. Use them only when there is a direct link to Ghent University. 
