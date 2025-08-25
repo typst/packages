@@ -1,4 +1,3 @@
-> [!NOTE]
 > This is a [Typst](https://typst.app/) package. Click [here](https://typst.app/universe/package/stash/) to find it in the Typst Universe.
 
 
