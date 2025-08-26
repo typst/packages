@@ -1,4 +1,4 @@
-#import "@preview/harvard-gsas-thesis-oat:0.1.4": frontmatter, school-color, appendix
+#import "@preview/harvard-gsas-thesis-oat:0.1.5": frontmatter, school-color, appendix
 
 #let ifb = $"fb"^(-1)$
 #let total-lumi = [140 #ifb]
