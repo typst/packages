@@ -168,7 +168,7 @@ will still show the self-loop because the reset restores default behavior.
 Rendering parameters let you pass values into the renderer from inside the text, using `#key: value;`. Examples:
 
 ```
-#cir_n: 3;
+#cir-n: 3;
 #scl: 0.8;
 ```
 
@@ -203,7 +203,7 @@ which sets that edge's length to `100pt` — useful for resolving overlaps.
 
 ```
 polar-render(
-  cir_n: 1, // number of concentric circles
+  cir-n: 1, // number of concentric circles
   scl: 1,   // scale
 )
 ```

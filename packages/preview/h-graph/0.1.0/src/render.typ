@@ -36,10 +36,10 @@
  * place it in circles
  */
 #let polar-render(
-  cir_n: 1,
+  cir-n: 1,
   scl: 1,
 ) = (nodes: dictionary, edges: array) => {
-  let cir_n = int(cir_n)
+  let cir_n = int(cir-n)
   let scl = float(scl)
   assert(cir_n >= 1)
   let node_num = nodes.keys().len()
