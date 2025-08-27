@@ -1,6 +1,0 @@
-# Only building to provide package cache
-builds:
-  include:
-    - "packages.x86_64-linux.default"
-  exclude: []
-  branch: main

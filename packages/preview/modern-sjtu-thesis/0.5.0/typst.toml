@@ -1,0 +1,16 @@
+[package]
+name = "modern-sjtu-thesis"
+version = "0.5.0"
+entrypoint = "lib.typ"
+authors = ["tzhtaylor"]
+license = "MIT"
+description = "上海交通大学学位论文 Typst 模板。Shanghai Jiao Tong University Thesis Typst Template."
+repository = "https://github.com/tzhtaylor/modern-sjtu-thesis"
+keywords = ["Shanghai Jiao Tong University", "thesis"]
+categories = ["thesis"]
+exclude = ["imgs"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
