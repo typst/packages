@@ -1,0 +1,15 @@
+[package]
+name = "beautiful-abs"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Robert Richter <https://github.com/judgeNotFound>"]
+license = "MIT"
+description = "A package for creating beautiful standard abbreviations like i.e. or e.g."
+repository = "https://github.com/judgeNotFound/beautiful-abs"
+keywords = ["abbreviations", "beautifying"]
+categories = ["utility"]
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

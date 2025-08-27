@@ -1,0 +1,30 @@
+#! /usr/bin/env bash
+
+readonly OUTPUT_DIR="logos"
+readonly OUTPUT_FILE="${OUTPUT_DIR}/ensimag_logo.png"
+
+set -o pipefail
+
+die()
+{
+	local msg="$*"
+	[[ -n "${msg}" ]] || msg="(none)"
+	printf "%s\n" "${msg}" >&2
+	exit 1
+}
+
+main()
+{
+	if [[ ! -d "${OUTPUT_DIR}" ]]; then
+		mkdir"${OUTPUT_DIR}" || die "Cannot create the output directory"
+	fi
+
+	wget \
+		"https://ensimag.grenoble-inp.fr/uas/alias2/LOGO/Grenoble+INP+-+Ensimag+%28couleur%2C+RVB%2C+120px%29.png" \
+		-O "${OUTPUT_FILE}" \
+		|| die "Cannot download the logo file"
+
+	sha512sum -c "${OUTPUT_FILE}.DIGEST" || die "The logo file is not valid"
+}
+
+(return 0 2>> /dev/null) || main "$@"
