@@ -8,6 +8,7 @@ use std::env::args;
 use std::fs;
 use std::io;
 use std::path::Path;
+use std::path::PathBuf;
 use std::sync::LazyLock;
 
 use anyhow::{bail, Context};
@@ -27,22 +28,31 @@ use self::timestamp::determine_timestamps;
 const DIST: &str = "dist";
 const THUMBS_DIR: &str = "thumbnails";
 
+struct Config {
+    out_dir: PathBuf,
+    skip_license_validation: bool,
+}
+
 fn main() -> anyhow::Result<()> {
     println!("Starting bundling.");
 
     let mut next_is_out = false;
-    let out_dir = args()
-        .skip(1)
-        .find(|arg| {
-            if next_is_out {
-                return true;
-            }
-            next_is_out = arg == "--out-dir" || arg == "-o";
-            false
-        })
-        .unwrap_or_else(|| DIST.to_string());
 
-    let out_dir = Path::new(&out_dir);
+    let config = Config {
+        out_dir: args()
+            .skip(1)
+            .find(|arg| {
+                if next_is_out {
+                    return true;
+                }
+                next_is_out = arg == "--out-dir" || arg == "-o";
+                false
+            })
+            .unwrap_or_else(|| DIST.to_string())
+            .into(),
+        skip_license_validation: args().skip(1).any(|arg| arg == "--skip-license-validation"),
+    };
+
     let mut namespace_errors = vec![];
 
     for entry in walkdir::WalkDir::new("packages")
@@ -67,7 +77,7 @@ fn main() -> anyhow::Result<()> {
             .context("invalid namespace")?;
 
         println!("Processing namespace: {}", namespace);
-        let namespace_dir = Path::new(&out_dir).join(namespace);
+        let namespace_dir = config.out_dir.join(namespace);
 
         let mut paths = vec![];
         let mut index = vec![];
@@ -113,7 +123,7 @@ fn main() -> anyhow::Result<()> {
                 );
             }
 
-            match process_package(&path, &namespace_dir, namespace)
+            match process_package(&config, &path, &namespace_dir, namespace)
                 .with_context(|| format!("failed to process package at {}", path.display()))
             {
                 Ok(info) => {
@@ -167,13 +177,15 @@ fn main() -> anyhow::Result<()> {
 
 /// Create an archive for a package.
 fn process_package(
+    config: &Config,
     path: &Path,
     namespace_dir: &Path,
     namespace: &str,
 ) -> anyhow::Result<FullIndexPackageInfo> {
     println!("Bundling {}.", path.display());
 
-    let manifest = parse_manifest(path, namespace).context("failed to parse package manifest")?;
+    let manifest =
+        parse_manifest(config, path, namespace).context("failed to parse package manifest")?;
     let buf = build_archive(path, &manifest).context("failed to build archive")?;
     let readme = read_readme(path)?;
 
@@ -217,7 +229,11 @@ fn validate_no_unknown_fields(
 }
 
 /// Read and validate the package's manifest.
-fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifest> {
+fn parse_manifest(
+    config: &Config,
+    path: &Path,
+    namespace: &str,
+) -> anyhow::Result<PackageManifest> {
     let src = fs::read_to_string(path.join("typst.toml"))?;
 
     let manifest: PackageManifest = toml::from_str(&src)?;
@@ -257,25 +273,27 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
         validate_discipline(discipline)?;
     }
 
-    let Some(license) = &manifest.package.license else {
-        bail!("package license is missing");
-    };
+    if !config.skip_license_validation {
+        let Some(license) = &manifest.package.license else {
+            bail!("package license is missing");
+        };
 
-    let license =
-        spdx::Expression::parse(license).context("failed to parse SPDX license expression")?;
+        let license =
+            spdx::Expression::parse(license).context("failed to parse SPDX license expression")?;
 
-    for requirement in license.requirements() {
-        let id = requirement
-            .req
-            .license
-            .id()
-            .context("license must not contain a referencer")?;
+        for requirement in license.requirements() {
+            let id = requirement
+                .req
+                .license
+                .id()
+                .context("license must not contain a referencer")?;
 
-        if !id.is_osi_approved() && !is_allowed_cc(id) {
-            bail!(
-                "license is neither OSI approved nor an allowed CC license: {}",
-                id.full_name
-            );
+            if !id.is_osi_approved() && !is_allowed_cc(id) {
+                bail!(
+                    "license is neither OSI approved nor an allowed CC license: {}",
+                    id.full_name
+                );
+            }
         }
     }
 
