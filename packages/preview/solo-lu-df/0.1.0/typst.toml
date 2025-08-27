@@ -1,0 +1,34 @@
+[package]
+name = "solo-lu-df"
+version = "0.1.0"
+compiler = "0.13.0"
+entrypoint = "src/lib.typ"
+repository = "https://github.com/kristoferssolo/LU-DF-Typst-Template"
+authors = ["Kristofers Solo <dev@kristofers.xyz>"]
+license = "MIT"
+description = "Write qualification papers, bachelor’s theses, and master’s theses for University of Lativa, Computer Science programme."
+keywords = [
+  "University of Latvia",
+  "LU",
+  "Latvijas Universitāte",
+  "Computer Science",
+  "Computer Engineering",
+  "Software",
+]
+categories = ["paper"]
+disciplines = ["computer-science"]
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "examples",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail.png",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
