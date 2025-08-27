@@ -1,0 +1,26 @@
+typst:
+  type: Web
+  title: Typst
+  author:
+    - Mädje
+    - Laurenz
+    - Haug
+    - Martin
+    - Typst Projekta Izstrādātāji
+  url: {value: "https://typst.app/", date: 2025-01-01}
+lvs_68:
+  type: Book
+  title: Programmatūras prasību specifikācijas ceļvedis
+  author: Institūcija SIA "Latvijas standarts"
+  issue: 68
+  date: 1996-03-27
+  organization: Latvijas Nacionālais standartizācijas un metroloģijas centrs
+  page-total: 22
+lvs_72:
+  type: Book
+  title: Ieteicamā prakse programmatūras projektējuma aprakstīšanai
+  author: Institūcija SIA "Latvijas standarts"
+  issue: 72
+  date: 1996-03-27
+  organization: Latvijas Nacionālais standartizācijas un metroloģijas centrs
+  page-total: 13
