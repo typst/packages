@@ -17,7 +17,7 @@ H-Graph 是一个基于 [Typst](https://typst.app/) 的简洁图描述语言, �
 ### 1.利用`raw`替换:
 ```typst
 
-#import ...
+#import #import "@preview/h-graph:0.1.0"
 
 #show raw.where(lang: "graph"): enable-graph-in-raw(polar-render)
 // or #show raw.where(lang: "graph"): enable-graph-in-raw(tree-render)
@@ -47,12 +47,12 @@ H-Graph 是一个基于 [Typst](https://typst.app/) 的简洁图描述语言, �
 ```
 ---
 ## 📷 示例
-![](./img/demo1.png)
-![](./img/demo2.png)
+![tree-render 的示例](./img/demo1.png)
+![更多示例](./img/demo2.png)
 ![](./img/demo3.png)
 ![](./img/demo4.png)
-![](./img/demo5.png)
-![](./img/demo6.png)
+![一些参数](./img/demo5.png)
+![奇妙的效果](./img/demo6.png)
 
 ---
 ## ⚙️ 语言规则
