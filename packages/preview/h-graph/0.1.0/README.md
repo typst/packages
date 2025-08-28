@@ -17,11 +17,11 @@ It lets you describe a graph's **nodes, edges, and content** with a minimal DSL,
 
 ### 1. Enable with `raw`:
 ```typst
-#import ...
+#import "@preview/h-graph: 0.1.0"
 
 #show raw.where(lang: "graph"): enable-graph-in-raw(polar-render)
 // or #show raw.where(lang: "graph"): enable-graph-in-raw(tree-render)
-\`\`\`graph
+```graph
 #scl: 0.8;
 1-2, 3, 4;
 5-6, 7, 8;
@@ -29,7 +29,7 @@ It lets you describe a graph's **nodes, edges, and content** with a minimal DSL,
 6 - 7, 8;
 3 > 7;
 4- 8;
-`\`\`
+```
 
 ```
 
@@ -51,12 +51,12 @@ It lets you describe a graph's **nodes, edges, and content** with a minimal DSL,
 
 ## 📷 Examples
 
-![](./docs/img/demo1.png)
-![](./docs/img/demo2.png)
-![](./docs/img/demo3.png)
-![](./docs/img/demo4.png)
-![](./docs/img/demo5.png)
-![](./docs/img/demo6.png)
+![using tree-render with bend parammeter](./docs/img/demo1.png)
+![using tree-render](./docs/img/demo2.png)
+![multiple connected component](./docs/img/demo3.png)
+![add other fletcher parameter](./docs/img/demo4.png)
+![polar renderer, add fletcher parameter](./docs/img/demo5.png)
+![polar renderer,cadd fletcher parameter](./docs/img/demo6.png)
 
 ---
 
