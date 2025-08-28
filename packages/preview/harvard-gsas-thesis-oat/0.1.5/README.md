@@ -5,6 +5,9 @@ Follow formatting guidelines from https://gsas.harvard.edu/resource/dissertation
 
 # Changelog
 
+## 0.1.5
+- `Chapter` and `Section` are used for suppliment correctly
+
 ## 0.1.4
 - Added `appendix()` function for appendix, which resets numbering to start with `A.`
 - fix equation numbering style to include `()`
