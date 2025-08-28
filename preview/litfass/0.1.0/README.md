@@ -4,7 +4,7 @@ Litfass, named after printer and publisher [Ernst Litfaß](https://en.wikipedia.
 who invented who invented free-standing [advertising columns](https://en.wikipedia.org/wiki/Advertising_column)
 (commonly known as Litfaßsäulen), is a library to create tiling layouts which 
 can be applied and rendered to arbitrary bounding boxes. The most interesting
-use case, which Litfass also originally was developed for, are (scientific Posters.) 
+use case, which Litfass also originally was developed for, are (scientific) posters. 
 
 ## Usage
 
