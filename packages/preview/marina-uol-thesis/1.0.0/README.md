@@ -19,7 +19,7 @@ Unofficial Typst thesis template for the University of Lincoln.
   programme: "Cultural Studies",
   school: "School of Journalism",
   supervisor: "Dr Winston S. Paceape",
-  header_text: "Masters Thesis",
+  header-text: "Masters Thesis",
   date: 2024,
   bib: bibliography("references.yml")
 )
@@ -46,10 +46,10 @@ The template can be initalised with the following:
 - `programme`: Programme/course being studied (Computer Science, Engineering etc)
 - `school`: Name of school the programme is associated with
 - `supervisor`: Name of the supervisor of the thesis
-- `header_text`: Text to show in the header, repeated on all pages
+- `header-text`: Text to show in the header, repeated on all pages
 - `date`: Date of the thesis
 - `bib`: A `bibliography()` object
-- `bib_style`: A string or path containing a bibliography style or `.csl` file
+- `bib-style`: A string or path containing a bibliography style or `.csl` file
 
 By default, the template uses a slighly modified version of Harvard citation. Make sure to check which style is appropriate for your course.
 

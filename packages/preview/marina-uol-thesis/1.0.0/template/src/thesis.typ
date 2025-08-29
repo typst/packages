@@ -1,3 +1,5 @@
+// these variables are intended to be private
+// please do not interact with them outside of this template!
 #let ack_body = state("ack_body", [])
 #let abstract_body = state("abstract_body", [])
 #let appendix_body = state("appendix_body", [])
@@ -98,9 +100,9 @@
   school: none,
   supervisor: none,
   date: none,
-  header_text: none,
+  header-text: none,
   bib: none,
-  bib_style: "harvard-cite-them-right-edited.csl",
+  bib-style: "harvard-cite-them-right-edited.csl",
 
   doc
   ) = {
@@ -115,7 +117,7 @@
   set bibliography(
     // style: "harvard-cite-them-right"
     // style: "harvard-cite-them-right-edited.csl"
-    style: bib_style
+    style: bib-style
   )
 
   set math.equation(
@@ -140,7 +142,7 @@
     header: [
       #set text(size: 10pt)
       #align(right)[
-        #text(weight: "light", emph(header_text))
+        #text(weight: "light", emph(header-text))
       ]
     ],
 
@@ -399,7 +401,7 @@
   #code
 ]
 
-#let code(code, caption: none, label_id: none, placement: auto, outlined: true) = [
+#let code(code, caption: none, label-id: none, placement: auto, outlined: true) = [
 
   #show figure: this => {
     set block(breakable: true)
@@ -412,8 +414,8 @@
     #figure(caption: caption)[
       #_make_code_block(code)
     ]
-    #if label_id != none {
-      label(label_id)
+    #if label-id != none {
+      label(label-id)
     }
   ] else [
     #figure(

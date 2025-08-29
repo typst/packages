@@ -8,7 +8,7 @@
   programme: "Cultural Studies",
   school: "School of Journalism",
   supervisor: "Dr Winston S. Paceape",
-  header_text: "Masters Thesis",
+  header-text: "Masters Thesis",
   date: 2024,
   // bib: bibliography("references.yml")
 )
