@@ -1,6 +1,6 @@
 [package]
 name = "polytonoi"
-version = "0.1.0"
+version = "0.2.0"
 entrypoint = "polytonoi.typ"
 authors = ["Dei Layborer"]
 license = "GPL v. 3.0"
