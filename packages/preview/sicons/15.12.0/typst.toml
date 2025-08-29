@@ -1,7 +1,7 @@
 [package]
 name = "sicons"
 version = "15.12.0"
-entrypoint = "/src/lib.typ"
+entrypoint = "src/lib.typ"
 authors = ["Cason Kervis <cscnk52@outlook.com>"]
 license = "MIT"
 compiler = "0.13.1"
