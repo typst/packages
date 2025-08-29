@@ -3,7 +3,7 @@ _Text threading and image wrap-around for Typst._
 
 `meander` provides a core function `reflow` to segment a page and wrap content around images.
 
-See the [documentation](docs/main.pdf).
+See the [documentation](https://github.com/Vanille-N/meander.typ/releases/download/v0.1.0/main.pdf).
 
 ## Quick start
 
@@ -36,7 +36,7 @@ The (contextual) function `meander.reflow` splits content into
 </td>
 <td>
 
-![](gallery/multi-obstacles.png)
+![a page where text flows between 5 rectangular obstacles](gallery/multi-obstacles.png)
 
 </td>
 </tr>
@@ -67,7 +67,7 @@ Use multiple `container`s to produce layouts in columns.
 </td>
 <td>
 
-![](gallery/columns.png)
+![a two-column page](gallery/columns.png)
 
 </td>
 </tr>
@@ -107,7 +107,7 @@ More complex text outlines can be achieved by playing with obstacles.
 </td>
 <td>
 
-![](gallery/shape.png)
+![text with a half-circle cutout](gallery/shape.png)
 
 </td>
 </tr>
