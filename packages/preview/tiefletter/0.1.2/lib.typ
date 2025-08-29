@@ -93,7 +93,7 @@
     #seller.name\
     #seller.address\
     #v(0.5em)
-    #if seller.kleinunternehmer and seller.uid != none { [UID: #seller.uid] }
+    #if seller.at("kleinunternehmer", default: false) and seller.at("uid", default: none) != none { [UID: #seller.uid] }
   ]
 
   place(top + left, dx: 0.5cm, dy: 4cm, [
