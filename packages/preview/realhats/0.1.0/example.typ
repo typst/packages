@@ -1,6 +1,6 @@
 #set page("a5", margin: (2em))
 #import "@preview/physica:0.8.1": hbar, bra, ket, braket
-#import "@local/realhats:0.1.0": hat, realhats-list
+#import "@preview/realhats:0.1.0": hat, realhats-list
 
 #let grace-example(hat) = [
   The transition probability between two states is related to the off-diagonal matrix elements of the perturbation Hamiltonian. Since our perturbation Hamiltonian is proportial to the identity operator, there are no off-diagonal matrix elements, making the transition probability from an eigenstate of $hat(H)_0$ to some other state $ket(m^((0)))$ zero.
