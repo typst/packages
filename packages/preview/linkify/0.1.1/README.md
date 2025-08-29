@@ -20,7 +20,7 @@ The currently supported platforms include:
 * Apply the `url-as-raw` `show` rule to `link` elements. Display all URL `link`s in `raw` format.
 
     ```typst
-    #import "@preview/linkify:0.1.0": url as ln,
+    #import "@preview/linkify:0.1.1": url as ln
     #import linkify.display: *
 
     #show: url-as-raw
@@ -40,7 +40,7 @@ The currently supported platforms include:
 * Creating links to contents.
 
     ```typst
-    #import "@preview/linkify:0.1.0": url as lu, // abbreviation for `linkify.url`
+    #import "@preview/linkify:0.1.1": url as lu // abbreviation for `linkify.url`
     #import linkify.display: *
 
     // Bibibili
@@ -107,7 +107,7 @@ The currently supported platforms include:
 * 对 `link` 元素应用 `url-as-raw` 的 `show` 规则，将所有直接以 URL 形式呈现的 `link` 元素，包括网址、邮箱地址和电话号码展示为 `raw` 格式。
 
     ```typst
-    #import "@preview/linkify:0.1.0": url as ln,
+    #import "@preview/linkify:0.1.1": url as ln,
     #import linkify.display: *
 
     #show link: url-as-raw
@@ -127,7 +127,7 @@ The currently supported platforms include:
 * 创建内容链接
 
     ```typst
-    #import "@preview/linkify:0.1.0": url as lu, // `linkify.url` 的简写
+    #import "@preview/linkify:x.y.z": url as lu, // `linkify.url` 的简写
     #import linkify.display: *
 
     // B 站
