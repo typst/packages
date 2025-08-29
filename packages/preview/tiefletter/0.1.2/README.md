@@ -4,18 +4,18 @@ Tiefletter is a template for easily and modularly creating invoices and offers.
 It primarily focuses on creating a neat, consistent portfolio in few steps that
 are also easily automatable using typst.
 
-Tiefletter is developed by Lena Tauchner (Tiefseetauchner) for her own personal 
+Tiefletter is developed by Lena Tauchner (Tiefseetauchner) for her own personal
 use, but it has applications outside that.
 
 ## Usage
 
-To use TiefLetter with the Typst web app, choose "Start from template" and select 
+To use TiefLetter with the Typst web app, choose "Start from template" and select
 TiefLetter. You will also need to include or install the Cormorant Garamond Fonts.
 
 To import the package manually in your Typst project, use:
 
 ```typst
-#import "@preview/tiefletter:0.1.1": invoice, offer
+#import "@preview/tiefletter:0.1.2": invoice, offer
 ```
 
 Choose the appropriate document type here, or import letter preset for a simple
@@ -43,12 +43,12 @@ a invoice Nr. and a table of the positions including
 After the table follows an automatic calculation of the total excluding VAT, the
 total VAT charged and the Total including VAT.
 
-Then an optional text, some disclaimers like the Kleinunternehmerregelung as well as a delivery date 
+Then an optional text, some disclaimers like the Kleinunternehmerregelung as well as a delivery date
 (Lieferdatum/Lieferzeitraum) disclaimer. After those, the payment request, including a (quite handy)
 payment QR code.
 
 ```typst
-#import "@preview/tiefletter:0.1.1": invoice
+#import "@preview/tiefletter:0.1.2": invoice
 
 #invoice(
   invoice-number: "2025-001",
@@ -85,13 +85,13 @@ of writing offers, it isn't run of the mill, it has to be customized quite heavi
 
 An offer starts with the usual greeting and introduction, followed by a free text. Then, the same table
 as with the invoice (offer does not yet support Kleinunternehmerregelungen), as well as an optional
-pre-payment amount. There is also a clause for the validity of the offer, which is generally 30 days, 
+pre-payment amount. There is also a clause for the validity of the offer, which is generally 30 days,
 but can be set to a certain date.
 
 Closing statement and that's pretty much it.
 
 ```typst
-#import "@preview/tiefletter:0.1.1": offer
+#import "@preview/tiefletter:0.1.2": offer
 
 #offer(
   offer-number: "2025-004",
@@ -115,7 +115,7 @@ Closing statement and that's pretty much it.
     (quantity: 2, description: "Beratungseinheit", unit-price: 150.0),
   ),
   offer-text: [Die Dienstleistung A umfasst ......
-  
+
   Außerdem bieten wir eine Beratungseinheit zu ......],
   pre-payment-amount: 20,
 )
@@ -185,9 +185,8 @@ Offer takes the following additional arguments:
 
 ## License and Contributions
 
-TiefLetter is currently under active development. Feedback, bug reports, and 
-suggestions are welcome. Please open an issue or contribute via pull requests 
+TiefLetter is currently under active development. Feedback, bug reports, and
+suggestions are welcome. Please open an issue or contribute via pull requests
 if you have ideas for improvement.
 
 This package is released under the MIT License.
-
