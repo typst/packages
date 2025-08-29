@@ -8,7 +8,7 @@
 
 # sicons
 
-Access High quality Simple Icons SVGs from Typst.
+Access High quality [Simple Icons](https://simpleicons.org) SVGs from Typst.
 
 </div>
 
