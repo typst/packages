@@ -127,7 +127,7 @@ The currently supported platforms include:
 * 创建内容链接
 
     ```typst
-    #import "@preview/linkify:x.y.z": url as lu, // `linkify.url` 的简写
+    #import "@preview/linkify:0.1.1": url as lu, // `linkify.url` 的简写
     #import linkify.display: *
 
     // B 站
