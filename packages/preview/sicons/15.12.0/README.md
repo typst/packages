@@ -35,16 +35,16 @@ Parameters:
 
 = typst sicons package Example
 
-#sIcon(slug: "typst", size: 1em, iconColor: "default")
+#sicon(slug: "typst", size: 1em, iconColor: "default")
 
-#sTitle(slug: "typst", size: 1em, textColor: "#000000")
+#stitle(slug: "typst", size: 1em, textColor: "#000000")
 
-#sIconLabel(slug: "typst", size: 1em, textColor: "#000000")
+#sicon-label(slug: "typst", size: 1em, textColor: "#000000")
 
-#sIconRaw(slug: "typst")
+#sicon-raw(slug: "typst")
 ```
 
-![](/test/test.svg)
+![](./test/test.svg)
 
 # License
 
