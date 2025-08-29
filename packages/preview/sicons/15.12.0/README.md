@@ -16,36 +16,38 @@ Access High quality Simple Icons SVGs from Typst.
 
 Function:
 
-- sIcon: return icon in SVG format
-- sTitle: return icon name
-- sIconLabel: return icon and name
-- sIconRaw: return Icon SVG code
+- sicon: return icon in SVG format
+- stitle: return icon name
+- sicon-label: return icon and name
+- sicon-raw: return Icon SVG code
 
 Parameters:
 
 - slug: icon slug, can be found at <https://simpleicon.org>
 - size: the icon size
-- iconColor: icons hex color, default is "default", representation Simple Icons Color
-- textColor: text color, default to `#000000`
+- icon-color: icons hex color, default is "default", representation Simple Icons Color
+- text-color: text color, default to `#000000`
 
 # Example
 
 ```typst
-#import "@preview/sicons": *
+#import "@preview/sicons:15.12.0": *
 
 = typst sicons package Example
 
-#sicon(slug: "typst", size: 1em, iconColor: "default")
+#sicon(slug: "typst", size: 1em, icon-color: "default")
 
-#stitle(slug: "typst", size: 1em, textColor: "#000000")
+#stitle(slug: "typst", size: 1em, icon-color: "default", text-color: "#000000")
 
-#sicon-label(slug: "typst", size: 1em, textColor: "#000000")
+#sicon-label(slug: "typst", size: 1em, text-color: "#000000")
 
 #sicon-raw(slug: "typst")
 ```
 
-![](./test/test.svg)
+![Example page of sicons](./test/test.svg)
 
 # License
 
-MIT
+This package is under MIT LICENSE
+
+Simple Icons is under CC0-1.0 and additional [legal disclaimer](https://github.com/simple-icons/simple-icons/blob/develop/DISCLAIMER.md)
