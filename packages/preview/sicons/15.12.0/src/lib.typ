@@ -2,17 +2,17 @@
 
 #let p = plugin(wasm-path)
 
-#let sicon = (slug: "typst", size: 1em, iconColor: "default") => {
+#let sicon = (slug: "typst", size: 1em, icon-color: "default") => {
   image(p.simple_icons_slug_colored(bytes(slug), bytes(iconColor)), width: size)
 }
 
-#let stitle = (slug: "typst", size: 1em, textColor: "#000000") => text(
+#let stitle = (slug: "typst", size: 1em, text-color: "#000000") => text(
   str(p.simple_icons_title(bytes(slug))),
   size: size,
   fill: rgb(textColor),
 )
 
-#let sicon-label = (slug: "typst", size: 1em, iconColor: "default", textColor: "#000000") => {
+#let sicon-label = (slug: "typst", size: 1em, icon-color: "default", text-color: "#000000") => {
   let resolvedTextColor = if textColor == "default" {
     rgb(str(p.simple_icons_color(bytes(slug))))
   } else {
