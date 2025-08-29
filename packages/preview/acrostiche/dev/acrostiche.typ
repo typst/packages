@@ -217,13 +217,25 @@
 
 
 
-#let print-index(level: 1, numbering: none, outlined: false, sorted:"",
-title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column-ratio: 0.25, clickable:true) = {
+#let print-index(
+  level: 1,
+  numbering: none,
+  outlined: false,
+  sorted: "",
+  case-sensitive: true,
+  title: "Acronyms Index",
+  delimiter: ":",
+  row-gutter: 2pt,
+  used-only: false,
+  column-ratio: 0.25,
+  clickable: true,
+) = {
   //Print an index of all the acronyms and their definitions.
   // Args:
   //   level: level of the heading. Default to 1.
   //   outlined: make the index section outlined. Default to false
   //   sorted: define if and how to sort the acronyms: "up" for alphabetical order, "down" for reverse alphabetical order, "" for no sort (print in the order they are defined). Default to "".
+  //   case-sensitive: sort the acronyms case-senstive. Default to true.
   //   title: set the title of the heading. Default to "Acronyms Index". Passing an empty string will result in removing the heading.
   //   delimiter: String to place after the acronym in the list. Defaults to ":"
   //   used-only: if true, only include in the index the acronyms that are used in the document. Warning, if you reset acronyms and don't used them after, they may not appear.
@@ -259,12 +271,13 @@ title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column
     // FEATURE: allow ordering by occurences position in the document. Not sure if possible yet.
 
     // order list depending on the sorted argument
-    if sorted=="down"{
-      acr-list = acr-list.sorted().rev()
-    }else if sorted=="up"{
-      acr-list = acr-list.sorted()
+    let sort-key = if case-sensitive { x => x } else { lower }
+    if sorted == "down" {
+      acr-list = acr-list.sorted(key: sort-key).rev()
+    } else if sorted == "up" {
+      acr-list = acr-list.sorted(key: sort-key)
     }
-  
+
     // print the acronyms
     let col1 = column-ratio / (1 + column-ratio)
     let col2 = 1 - col1
