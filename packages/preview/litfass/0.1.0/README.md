@@ -41,6 +41,8 @@ clear visual edges and level box alignments.
 <img alt="Poster Example" src="examples/example-poster.png" width="300"/>
 </a>
 
+[PDF version](examples/example-poster.pdf)
+
 ### Tiling 
 Once defined, a tiling can be applied to different bounding boxes, also inline boxes usable in standard typst documents.
 ```typ
