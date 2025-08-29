@@ -5,7 +5,7 @@ entrypoint = "lib.typ"
 authors = ["Tom Krüger"]
 license = "MIT"
 description = "A typst package to design content like posters based on a tiling layout"
-exclude = ["doc", "examples", "README.md"]
+exclude = ["doc", "examples"]
 keywords = ["poster", "layout", "tiling"]
 categories = ["layout", "components"]
 
