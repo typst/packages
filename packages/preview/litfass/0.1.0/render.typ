@@ -1,5 +1,4 @@
 #import "tiling.typ": pad
-#import "@preview/cetz:0.4.0"
 #import "themes/lib.typ": basic as theme
 
 // Applies a tiling layout to a given context and renders the provided contents
