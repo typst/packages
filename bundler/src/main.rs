@@ -404,7 +404,7 @@ fn process_thumbnail(
     // Get file size.
     let file_size = fs::metadata(&original_path)?.len() as usize;
     if file_size > 3 * 1024 * 1024 {
-        bail!("thumbnail must be smaller than 3MB");
+        bail!("thumbnail must be smaller than 3 MiB");
     }
 
     let mut image = image::open(&original_path)?;
@@ -412,7 +412,7 @@ fn process_thumbnail(
     // Ensure that the image has at least a certain minimum size.
     let longest_edge = image.width().max(image.height());
     if longest_edge < 1080 {
-        bail!("each thumbnail's longest edge must be at least 1080px long");
+        bail!("each thumbnail's longest edge must be at least 1080 px long");
     }
 
     // We produce a full-size and a miniature thumbnail.
