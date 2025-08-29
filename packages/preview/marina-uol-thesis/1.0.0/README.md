@@ -97,7 +97,7 @@ Example:
 You can create code blocks with captions and labels by calling `thesis.code()`. It accepts the following arguments:
 - `code`: `raw` text (code block made with backticks or other)
 - `caption`: Caption to place under the code block
-- `label_id`: Reference within the document so that you can cite it
+- `label-id`: Reference within the document so that you can cite it
 - `placement`: Define where to place the code block, identical to `figure`
 - `outlined`: Determine whether it shows in the list of listings (`true`/`false`)
 
@@ -109,7 +109,7 @@ Example:
     return "Hello World!"
   ```,
   caption: [Simple hello world program in Python],
-  label_id: "code:simple_hello_world"
+  label-id: "code:simple_hello_world"
 )
 ```
 
