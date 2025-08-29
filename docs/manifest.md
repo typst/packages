@@ -175,10 +175,10 @@ Required for submissions to this repository:
 - `thumbnail`: A path relative to the package's root that points to a PNG or
   lossless WebP thumbnail for the template. The thumbnail must depict one of the
   pages of the template **as initialized.** The longer edge of the image must be
-  at least 1080px in length. Its file size must not exceed 3MB. Exporting a PNG
-  at 250 DPI resolution is usually a good way to generate a thumbnail. You can
-  use the following command for that: `typst compile -f png --pages 1 --ppi 250
-  main.typ thumbnail.png`. You are encouraged to use [oxipng] to reduce the
+  at least 1080 px in length. Its file size must not exceed 3 MiB. Exporting a
+  PNG at 250 PPI resolution is usually a good way to generate a thumbnail. You
+  can use the following command for that: `typst compile -f png --pages 1 --ppi
+  250 main.typ thumbnail.png`. You are encouraged to use [oxipng] to reduce the
   thumbnail's file size. The thumbnail will automatically be excluded from the
   package files and must not be referenced anywhere in the package.
 
