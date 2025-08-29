@@ -149,7 +149,7 @@
   ),
   "vueltiao": (
     "image": image(
-      "hats/vueltiao.png",
+      "hats/typst-realhats-vueltiao.svg",
       width: 1.0em
     ),
     "dx": 0.000em,

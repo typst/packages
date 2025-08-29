@@ -8,3 +8,4 @@ description = "Put real hats on symbols instead of circumflexes."
 keywords = ["realhats", "hat"]
 categories = ["fun"]
 disciplines = ["mathematics", "physics"]
+exclude = ["example*"]
