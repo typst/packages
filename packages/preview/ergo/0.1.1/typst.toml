@@ -1,0 +1,12 @@
+[package]
+name = "ergo"
+version = "0.1.1"
+compiler = "0.13.0"
+entrypoint = "lib.typ"
+
+authors = ["Jesse Cobb <https://github.com/EsotericSquishyy>", "Nate Annau <https://github.com/aneziac>"]
+repository = "https://github.com/EsotericSquishyy/ergo"
+description = "A suite of customizable block environments for taking notes and doing problem sets, especially in Mathematics, Computer Science, and Physics."
+disciplines = ["mathematics", "computer-science", "physics"]
+license = "MIT-0"
+exclude = [ "gallery/*", "utils/*" ]

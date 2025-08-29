@@ -1,0 +1,23 @@
+[package]
+name = "politemplate"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Alan José <https://github.com/AlanJs26>"]
+license = "Unlicense"
+description = "Report and assignment template for Poli-USP university"
+repository = "https://github.com/AlanJs26/politemplate"
+keywords = ["report", "usp", "poli"]
+categories = ["report"]
+disciplines = ["engineering"]
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  ".typstignore",
+  "Justfile",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

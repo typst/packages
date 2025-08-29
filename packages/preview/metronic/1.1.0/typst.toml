@@ -1,0 +1,16 @@
+[package]
+name = "metronic"
+version = "1.1.0"
+entrypoint = "template.typ"
+authors = ["Patrick Rabier <https://tronica.io>"]
+license = "MIT"
+description = "A clean, colorful, and modern CV template."
+repository = "https://github.com/patrixr/metronic-cv"
+categories = ["cv"]
+keywords = ["CV", "Resume", "Color", "Sidebar"]
+exclude = ["*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
