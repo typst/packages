@@ -1,15 +1,15 @@
-# Reflow
+# Meander
 _Text threading and image wrap-around for Typst._
 
-`reflow` provides a function to segment a page and wrap content around images.
+`meander` provides a core function `reflow` to segment a page and wrap content around images.
 
 See the [documentation](docs/main.pdf).
 
 ## Quick start
 
-The (contextual) function `reflow.reflow` splits content into
+The (contextual) function `meander.reflow` splits content into
 - obstacles: all `place`d content at the toplevel (i.e. not inside a subcontainer such as a `box`)
-- containers: produced by `reflow.container()`, optionally specifying an alignment, `dx`, `dy`, `width`, `height`
+- containers: produced by `meander.container()`, optionally specifying an alignment, `dx`, `dy`, `width`, `height`
 - flowing text: everything else
 
 <table>
@@ -17,7 +17,7 @@ The (contextual) function `reflow.reflow` splits content into
 <td>
 
 ```typ
-#context reflow.reflow[
+#context meander.reflow[
   // Obstacles
   #place(top + left, my-image-1)
   #place(top + right, my-image-2)
@@ -26,7 +26,7 @@ The (contextual) function `reflow.reflow` splits content into
   #place(bottom + left, my-image-5, dx: 2cm)
 
   // Container
-  #reflow.container()
+  #meander.container()
 
   // Flowing text
   #lorem(500)
@@ -49,15 +49,15 @@ Use multiple `container`s to produce layouts in columns.
 <td>
 
 ```typ
-#context reflow.reflow[
+#context meander.reflow[
   // Obstacles
   #place(bottom + right, my-image-1)
   #place(center + horizon, my-image-2, dy: -1cm)
   #place(top + right, my-image-3)
 
   // Containers
-  #reflow.container(width: 55%)
-  #reflow.container(right, width: 40%)
+  #meander.container(width: 55%)
+  #meander.container(right, width: 40%)
 
   // Flowing text
   #lorem(600)
@@ -80,7 +80,7 @@ More complex text outlines can be achieved by playing with obstacles.
 <td>
 
 ```typ
-#context reflow.reflow[
+#context meander.reflow[
   // Draw a half circle shape with obstacles
   #let vradius = 45%
   #let vcount = 50
@@ -97,7 +97,7 @@ More complex text outlines can be achieved by playing with obstacles.
   }
 
   // Container
-  #reflow.container()
+  #meander.container()
 
   // Flowing text
   #lorem(600)
