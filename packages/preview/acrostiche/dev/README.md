@@ -72,6 +72,8 @@ Both functions have shortcuts with `#acrf(...)` and `#acrfpl(...)`.
 At any point in the document, you can reset acronyms with the functions `#reset-acronym(...)` (for a single acronym) or `reset-all-acronyms()` (to reset all acronyms). After a reset, the next use of the acronym is expanded.
 Both functions have shortcuts with `#racr(...)` and `#raacr(...)`.
 
+The `#acr(...)` function also exposes a `cap` boolean parameter (default `false`) that can be set to `true` to froce the first letter of the definition to be capitalized. This parameter does not force the definition to be printed, only changes the first letter if it is printed. The `cap` parameter is set to true chen using functions like `acrcap` and `acrfullcap`.
+
 
 ### Acronyms Index
 You can print an index of all acronyms used in the document with the `#print-index()` function.
@@ -89,13 +91,14 @@ Finally, you can call the `#display-def(...)` function to display the definition
 
 ### Functions Summary:
 
-| **Function**                  | **Description**                                                                                                     |
-|-------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| **#init-acronyms(...)**        | Initializes the acronyms by defining them in a dictionary where the keys are acronyms and the values are definitions. |
-| **#acr(...)**                  | Prints the acronym with its definition on the first call, then just the acronym in subsequent calls.                  |
+| **Function**                  | **Description**                                                                                                       |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| **#init-acronyms(...)**        | Initializes the acronyms by defining them in a dictionary where the keys are acronyms and the values are definitions.|
+| **#acr(...)**                  | Prints the acronym with its definition on the first call, then just the acronym in subsequent calls.                 |
 | **#acrpl(...)**                | Prints the plural version of the acronym. Uses plural definition if available, otherwise adds an 's' to the acronym. |
-| **#acrfull(...)**              | Displays the full (long) version of the acronym without affecting the state or tracking its usage.                    |
-| **#acrfullpl(...)**            | Displays the full plural version of the acronym without affecting the state or tracking its usage.                    |
+| **#acrfull(...)**              | Displays the full (long) version of the acronym without affecting the state or tracking its usage.                   |
+| **#acrfullpl(...)**            | Displays the full plural version of the acronym without affecting the state or tracking its usage.                   |
+| **#acrcap, #acrfullcap**       | Same as the non-`cap` version but forces the first letter of the definition to be capitalized                        |
 | **#reset-acronym(...)**        | Resets a single acronym so the next usage will include its definition again.                                         |
 | **#reset-all-acronyms()**      | Resets all acronyms so the next usage will include their definitions again.                                          |
 | **#print-index(...)**          | Prints an index of all acronyms used, with customizable heading level, order, and display parameters.                |
@@ -104,15 +107,15 @@ Finally, you can call the `#display-def(...)` function to display the definition
 
 Shortcut names inspired by the `acronym` package for LaTeX by Tobias Oetiker:
 
-| **Function**                  | **Description**                                                                                                     |
-|-------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| **#ac(...)**        | Same as `acr`, display an acronym.|
-| **#acf(...)**        | Same as `acrfull`, display the long version of an acronym.|
-| **#acfp(...)**        | Same as `acf` but plural.|
-| **#acs(...)**        | Display the short version of the acronym, does not update the acronym state.|
-| **#acsp(...)**        | Same as `acs` but plural.|
-| **#acused(...)**        | Mark an acronym as used without printing anything.|
-| **#acresetall(...)**        | Reset all acronyms.|
+| **Function**                  | **Description**                                                                                                       |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| **#ac(...)**                  | Same as `acr`, display an acronym.                                                                                    |
+| **#acf(...)**                 | Same as `acrfull`, display the long version of an acronym.                                                            |
+| **#acfp(...)**                | Same as `acf` but plural.                                                                                             |
+| **#acs(...)**                 | Display the short version of the acronym, does not update the acronym state.                                          |
+| **#acsp(...)**                | Same as `acs` but plural.                                                                                             |
+| **#acused(...)**              | Mark an acronym as used without printing anything.                                                                    |
+| **#acresetall(...)**          | Reset all acronyms.                                                                                                   |
 
 ## Advanced Definitions
 This is a bit of a hacky feature coming from pure serendipity.
