@@ -55,12 +55,7 @@
         }
       }
 
-      // add link if index is printed
-      if acrostiche-index.final() {
-        link(label("acrostiche-"+acr), out)
-      }else{
-        out
-      }
+      out
       
     }else{
       panic("Could not display the short version of an acronym not defined: "+acr)
@@ -188,11 +183,19 @@
     if acr in data{
       let short = display-short(acr, plural: plural)
       if data.at(acr).at(1){
-        short
+        // test of a clickable index is used in the document to add a link in the acronym
+        if acrostiche-index.final(){
+          link(label("acrostiche-"+acr), short)
+        }
+        else{
+          short
+        }
+        //short
       }else{
         [#display-def(acr, plural: plural, cap: cap)~(#short)]
       }
-    }else{
+    }
+    else{
       panic("You requested the acronym "+acr+" that you did not define first.")
     }
   }
@@ -332,6 +335,7 @@ title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column
       }
     )
     if clickable {
+      // set the index state to true to avoid subsequent clickable indexes to have labels that would conflict with the ones just created
       acrostiche-index.update(true)  
     }
   }
