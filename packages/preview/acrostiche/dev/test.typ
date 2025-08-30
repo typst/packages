@@ -7,6 +7,7 @@
   "ada": (short:[#text(fill:aqua)[ADA]], short-pl:"ADAs", long:"Advanced Definition Acronym", long-pl:"Advanced Definitions Acronyms"),
   "TEA": ("The Extra Acronym",),
   "TUA": ("The Unused Acronym",),
+  "NCA": ("non-capitalized acronym")
 )) 
 
 #let ref(str) = [#text(fill:green)[#str]]
@@ -49,6 +50,13 @@ Reset acronyms. #racr("AJT")
 Full definition of #acrfull("AJT").\
 Full definition of #acrf("AJT").\
 #ref("Full definition of Amicale des Joyeux Typistes (AJT)")
+
+== Capitalized Definitions
+#reset-all-acronyms()
+#acr("NCA")
+
+#reset-all-acronyms()
+#acrcap("NCA")
 
 
 == Reset All Acronyms

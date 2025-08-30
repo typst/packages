@@ -16,6 +16,14 @@
   acros.update(states)
 }
 
+#let capitalize_first(string) = {
+  // return the passed string with the first letter capitalized and the rest unchanged
+  if not type(string) == str{
+    panic("Trying to capitalize the first letter of a non-string element: "+string+" ("+repr(type(string))+").")
+  }
+  (upper(string.first()),string.slice(1)).join("")
+}
+
 #let display-short(acr, plural: false) = {
   // Display the short version of the requested acronym.
   // In most cases, the short version is the passed acronym itself.
@@ -60,7 +68,7 @@
   }
 }
 
-#let display-def(acr, plural: false) = {
+#let display-def(acr, plural: false, cap: false) = {
   // Display the definition of an acronym by fetching it in the "acronyms" state's value (should be a dictionary).
   //
   // First, grab the dictionary of definitions of acronyms from the "acronyms" state
@@ -69,45 +77,84 @@
     if acr in acronyms{
       let defs = acronyms.at(acr).at(0)
 
-
-
       // The Definition is a string============
       if type(defs) == str{ // If user defined only one version and forgot the trailing comma the type is string
-        if plural{defs+"s"}
-        else{defs} // All is good, we return the definition found as the singular version
+        if plural{
+          // Return the plural version
+          if cap{
+            capitalize_first(defs)+"s"
+          }
+          else{
+            defs+"s"
+          }
+        }
+        else{
+          // Return the singular version
+          if cap{
+            capitalize_first(defs)
+          }
+          else{
+            defs
+          }
+        }
       }
 
       // The Definition is an array ============
       else if type(defs) == array{
         if defs.len() == 0{ // The user could have provided an empty array, unlikely but possible.
           panic("No definitions found for acronym "+acr+". Make sure it is defined in the dictionary passed to #init-acronyms(dict)")
-        }else if defs.len() == 1{ // User provided only one version, we make the plural by adding an "s" at the end.
-          if plural{defs.at(0)+"s"}
-          else{defs.at(0)}
-        }else{ // User provided more than one version. We assume the first is singular and the second is plural. All other are useless.
-          if plural{defs.at(1)}
-          else{defs.at(0)}
         }
+        else if defs.len() == 1{ // User provided only one version, we make the plural by adding an "s" at the end.
+          if not plural and not cap {defs.at(0)}
+          else if plural and not cap{defs.at(0)+"s"}
+          else if not plural and cap{capitalize_first(defs.at(0))}
+          else if plural and cap    {capitalize_first(defs.at(0))+"s"}
+          else{panic("Impossible combination of plural and cap. Please report to acrostiche package maintainer.")}
+        }
+        else{ // User provided more than one version. We assume the first is singular and the second is plural. All other are useless.
+          if not plural and not cap {defs.at(0)}
+          else if plural and not cap{defs.at(1)}
+          else if not plural and cap{capitalize_first(defs.at(0))}
+          else if plural and cap    {capitalize_first(defs.at(1))}
+          else{panic("How did you even get here?")}
+        }
+      }
 
       // The Definition is a dictionary ============
-      }else if type(defs) == dictionary{
+      else if type(defs) == dictionary{
+        // The dictionary case is a bit more complexe so instead of the "if A and B" we revert to nested ifs.
         if plural{
           if "long-pl" in defs{
-            defs.at("long-pl")
-          }else{
+            if cap{
+              capitalize_first(defs.at("long-pl"))
+            }
+            else{
+              defs.at("long-pl")
+            }
+          }
+          else{
             panic("The dictionary of definitions supplied for the key "+acr+" does not contain a plural definition with the key 'long-pl'.")
           }
-        }else{
+        }
+        else{
           if "long" in defs{
-            defs.at("long")
-          }else{
+            if cap{
+              capitalize_first(defs.at("long"))
+            }
+            else{
+              defs.at("long")
+            }
+          }
+          else{
             panic("The dictionary of definitions supplied for the key "+acr+" does not contain a cingular definition with the key 'long'.")
           }
         }
-      }else{
+      }
+      else{
         panic("Definitions should be a string, an array, or a dictionary. Definition of "+acr+ " is of type: "+repr(type(defs)))
       }
-    }else{
+    }
+    else{
       panic(acr+" is not a key in the acronyms dictionary.")
     }
   }
@@ -129,7 +176,7 @@
   )
 }
 
-#let acr(acr, plural:false) = {
+#let acr(acr, plural:false, cap: false) = {
   // Display an acronym in the singular form by default. Expands it if used for the first time.
   
   // Generate the key associated with this acronym
@@ -143,7 +190,7 @@
       if data.at(acr).at(1){
         short
       }else{
-        [#display-def(acr, plural: plural)~(#short)]
+        [#display-def(acr, plural: plural, cap: cap)~(#short)]
       }
     }else{
       panic("You requested the acronym "+acr+" that you did not define first.")
@@ -153,6 +200,7 @@
 }
 
 #let acrpl(acronym) = {acr(acronym,plural:true)} // argument renamed acronym to differentiate with function acr
+#let acrcap(acronym) = {acr(acronym,plural: false, cap: true)}
 
 #let acrfull(acr) = {
   //Intentionally display an acronym in its full form. Do not update state.
@@ -160,8 +208,11 @@
 }
 
 #let acrfullpl(acr) = {
-  //Intentionally display an acronym in its full form in plural. Do not update state.
   [#display-def(acr, plural: true) (#display-short(acr,plural:true))]
+}
+
+#let acrfullcap(acr) = {
+  [#display-def(acr, plural: true, cap: true) (#display-short(acr,plural:true))]
 }
 
 // define shortcuts
