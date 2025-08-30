@@ -14,4 +14,4 @@ disciplines = ["politics", "law", "business", "engineering", "education"]
 [template]
 path = "template"
 entrypoint = "usaf-template.typ"
-thumbnail = "assets/thumbnail.png"
+thumbnail = "template/assets/thumbnail.png"
