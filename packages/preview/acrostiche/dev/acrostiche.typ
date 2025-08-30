@@ -3,7 +3,7 @@
 
 
 #let acros = state("acronyms",none)
-#let index = state("index", false)
+#let acrostiche-index = state("acrostiche-index", false)
 #let init-acronyms(acronyms) = {
   let states = (:)
   for (acr, defs) in acronyms{
@@ -56,7 +56,7 @@
       }
 
       // add link if index is printed
-      if index.final() {
+      if acrostiche-index.final() {
         link(label("acrostiche-"+acr), out)
       }else{
         out
@@ -324,7 +324,7 @@ title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column
       row-gutter: row-gutter,
       ..for acr in acr-list{
         // check if a label for a link should be created and if it is the first acronyms index, since it can not create multiple labels
-        if clickable and (not index.get()) {
+        if clickable and (not acrostiche-index.get()) {
           ([*#display-short(acr, plural:false)#delimiter#label("acrostiche-"+acr)*], display-def(acr,plural:false))
         } else {
           ([*#display-short(acr, plural:false)#delimiter*], display-def(acr,plural:false))
@@ -332,7 +332,7 @@ title:"Acronyms Index", delimiter:":", row-gutter: 2pt, used-only: false, column
       }
     )
     if clickable {
-      index.update(true)  
+      acrostiche-index.update(true)  
     }
   }
 }
