@@ -66,10 +66,11 @@ Optional:
 - `compiler`: The minimum Typst compiler version required for this package to
   work.
 - `exclude`: An array of globs specifying files that should not be part of the
-  published bundle that the compiler downloads when importing the package. To be
-  used for large support files like images or PDF documentation that would
+  published bundle that the compiler downloads when importing the package. These
+  files will still be available on typst universe to link to from the README.\
+  To be used for large support files like images or PDF documentation that would
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
-  the LICENSE.
+  the LICENSE, see [what to exclude].
 
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
@@ -220,3 +221,4 @@ foo = "bar"
 [oxipng]: https://github.com/shssoichiro/oxipng
 [license]: licensing.md
 [description]: #writing-a-good-description
+[what to exclude]: tips.md#what-to-commit-what-to-exclude
