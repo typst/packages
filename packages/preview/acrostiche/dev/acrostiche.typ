@@ -32,30 +32,30 @@
     let acronyms = acros.get()
     if acr in acronyms{
       let defs = acronyms.at(acr).at(0)
-      let out
+      let short
       if type(defs) == dictionary{
         if plural {
           if "short-pl" in defs{
-            out = defs.at("short-pl")
+            short = defs.at("short-pl")
           }else{
-            out = [#acr\s]
+            short = [#acr\s]
           }
         }else{
           if "short" in defs{
-            out = defs.at("short")
+            short = defs.at("short")
           }else{
-            out = acr
+            short = acr
           }
         }
       }else{
         if plural{
-          out = [#acr\s]
+          short = [#acr\s]
         }else{
-          out = acr
+          short = acr
         }
       }
 
-      out
+      short
       
     }else{
       panic("Could not display the short version of an acronym not defined: "+acr)
