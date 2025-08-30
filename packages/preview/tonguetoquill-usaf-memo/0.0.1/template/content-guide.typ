@@ -98,7 +98,9 @@
   )
 )[
 
-This document demonstrates every parameter and feature of the USAF memorandum template. Replace all bracketed placeholders with your actual content.
+tonguetoquill-usaf-memo is maintained on GitHub at https://github.com/SnpM/tonguetoquill-usaf-memo. See [the README](https://github.com/SnpM/packages/tree/main?tab=readme-ov-file#typst-packages) for documentation. Please send bug reports and contributions to this repository.
+
+This memo template demonstrates every parameter and feature of the USAF memorandum template. Replace all bracketed placeholders with your actual content.
 
 This memorandum serves as both a comprehensive guide and working example of the USAF memo template system. The template automatically handles all AFH 33-337 formatting requirements while providing flexibility for various memo types and organizational needs.
 
@@ -153,9 +155,4 @@ Template features include automatic AFH 33-337 compliant formatting, smart parag
 For Air Force memos, use `letterhead-title: "DEPARTMENT OF THE AIR FORCE"` and rank format `"Colonel, USAF"`.
 
 For Space Force memos, use `letterhead-title: "DEPARTMENT OF THE SPACE FORCE"` and rank format `"Colonel, USSF"`.
-
-#SET_LEVEL(0)
-
-All formatting, spacing, fonts, and positioning are handled automatically per AFH 33-337 standards. This ensures compliance while allowing you to focus on content rather than formatting details.
-
 ]
