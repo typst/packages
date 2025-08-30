@@ -1,5 +1,5 @@
 
-[![github-repository](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/SnpM/typst-usaf-memo)
+[![github-repository](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/SnpM/tonguetoquill-usaf-memo)
 
 # tonguetoquill: USAF Memo Template for Typst
 
@@ -39,7 +39,7 @@ For working with the library files, you can clone this repository directly. See 
 typst compile --root . --font-path . template/usaf-template.typ pdfs/usaf-template.pdf
 ```
 
-If you are using the Typst web app or local Typst Universe package, you can download [the `.otf` file](https://github.com/SnpM/typst-usaf-memo/blob/main/template/assets/fonts/CopperplateCC-Bold.otf) and upload it to the root folder in your project.
+If you are using the Typst web app or local Typst Universe package, you can download [the `.otf` file](https://github.com/SnpM/tonguetoquill-usaf-memo/blob/main/template/assets/fonts/CopperplateCC-Bold.otf) and upload it to the root folder in your project.
 
 ### Basic Usage
 
@@ -226,7 +226,7 @@ The template enforces strict AFH 33-337 compliance through:
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit issues or pull requests to the [GitHub repository](https://github.com/SnpM/typst-usaf-memo).
+Contributions are welcome! Please feel free to submit issues or pull requests to the [GitHub repository](https://github.com/SnpM/tonguetoquill-usaf-memo).
 
 ## License
 
