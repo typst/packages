@@ -236,7 +236,7 @@ External assets used in this project:
 
 - `template/assets/dod_seal.png` is [public domain](https://commons.wikimedia.org/wiki/File:Seal_of_the_United_States_Department_of_Defense_(2001%E2%80%932022).svg).
 - `template/assets/starkindustries_seal.png` is [public domain](https://commons.wikimedia.org/wiki/File:Stark_Industries.png).
-- `template/assets/fonts/CopperplateCC-Bold.otf` is [SIL Open Font License](./template/assets/fonts/LICENSE.md)
+- `template/assets/fonts/Copperplate-Heavy.otf` is [SIL Open Font License](./template/assets/fonts/LICENSE.md) pulled from [here](https://github.com/CowboyCollective/CopperplateCC/)
 
 ## Author
 
