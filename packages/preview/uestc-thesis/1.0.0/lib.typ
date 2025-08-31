@@ -25,12 +25,12 @@
 
 
 
-#let global-conf(title:none,body) =  {
+#let global-conf(title:none,author:"",body) =  {
 
 //**********文档元数据设置**********
 set document(
   title: title,
-  author: "author",
+  author: author,
   keywords: "keyword1,keyword2,keyoword3"
 )
 
@@ -39,6 +39,8 @@ set document(
 set page(
   paper: "a4",
   margin: (top: 30mm, bottom: 30mm, left: 30mm, right: 30mm),
+  header-ascent: 10mm,
+  footer-descent: 10mm,
   header: dynamic-header,
   numbering: "1", 
 )
@@ -105,7 +107,7 @@ show figure: i-figured.show-figure.with(
 )
 //去除图表编号和文本间的默认分隔符 ：
 show figure.where(
-  kind: image,
+  kind: "image",
 ): set figure.caption(separator: [ ])
 show figure.where(
   kind: table,

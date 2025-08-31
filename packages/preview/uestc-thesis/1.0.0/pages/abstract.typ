@@ -5,6 +5,9 @@
 
 #let abstract(abstract-cn:[], abstract-en:[], keywords:[], keywords-en:[]) = {
 
+  set page(numbering: "I")
+  counter(page).update(1)
+
   let format_abstract_cn = text.with(font: "Times New Roman", size: zh(-4), weight: "bold")
   let format_abstract_en = text.with(font: "Times New Roman", size: zh(-4), weight: "regular")
 

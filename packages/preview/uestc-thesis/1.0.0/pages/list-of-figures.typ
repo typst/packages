@@ -3,7 +3,8 @@
 #import "@preview/i-figured:0.2.4"
 
 // Function to generate List of Figures
-#let list-of-figures() = {
+#let list-of-figures() = {  
+  set page(numbering: "I")
   set page(header: header-content("图目录"))
   
   // 使用 outlined: false 防止标题出现在目录中
@@ -18,6 +19,7 @@
 
 // Function to generate List of Tables
 #let list-of-tables() = {
+  set page(numbering: "I")
   set page(header: header-content("表目录"))
   
   // 使用 outlined: false 防止标题出现在目录中

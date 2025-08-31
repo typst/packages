@@ -1,6 +1,7 @@
 # 电子科技大学论文模板
 
-分享一个自用的电子科技大学（UESTC）硕士学位论文的 Typst 模板，按照《电子科技大学研究生学位论文规范》的硕士论文模板编写，欢迎fork，提交 issue和PR.
+电子科技大学（UESTC）专业硕士学位论文的 Typst 模板，按照《电子科技大学研究生学位论文规范》的硕士论文模板编写，[欢迎fork，提交 issue和PR](https://github.com/pldxxm/uestc-thesis/issues)
+！该模板非官方模板，具有不被学校认可的风险。
 
 ## 适用人群：
 
@@ -10,11 +11,11 @@
 
 | 版本号 | 日期       | 变更内容 |
 | ------ | ---------- | -------- |
-| 1.0    | 2025-08-26 | 在线发布版本 |
+| 1.0    | 2025-08-31 | 在线发布版本 |
 
 ## 功能特色
 
-- 实现了带样式图表的封装组件
+- 实现了封装样式的图、表格组件
 - 可以实现分章节编写正文再 #include 引入
 
 ## 需求规划
@@ -25,8 +26,36 @@
 
 ## 缺陷列表
 
-- 暂未实现封面和标题页的完美复刻，需要手动导入 pdf
-- 尚未发布到 typst universe
+- 暂未实现封面页和声明页的完美复刻，需要手动导入 pdf
+
+
+## 使用方法
+
+**(1) vscode  + tinymist插件(推荐）**
+无需下载typst，可实时预览
+1. 在 VS Code 中安装`Tinymist Typst`插件，**插件对应的typst需要0.13 及之后版本**
+  
+
+2. 按下 `Ctrl + Shift + P` 打开命令面板，输入 `Typst: Show available Typst templates (gallery)`，打开 Tinymist 提供的模板库。找到 `uestc-thesis`，点击 ❤ 收藏，并点击 + 号（需在空文件夹下），即可创建对应论文模板。
+
+3. 用 VS Code 打开生成的目录，打开 `main.typ` 文件，按下 `Ctrl + K V` 进行实时编辑和预览
+![预览或导出](./template/images/usage.png)
+
+4. material 目录下准备封面pdf文件(可包含声明页），然后在main文件下取消注释 ```
+#set page(...)
+#muchpdf(read("materials/cover.pdf", encoding: none))```将文件名改为你的封面pdf命名。
+
+5. 开始编辑。
+
+
+**(2) CLI方式**
+**提前下载typst CLI工具，typst0.13 及之后版本**
+```
+// 初始化一个新模板
+typst init "@preveiw/uestc-thesis:1.0.0"
+// 将源文件导出为pdf 
+typst compile main.typ
+```
 
 ## 主要函数说明
 
@@ -42,26 +71,7 @@
 | reference       | 页面函数 | 插入参考文献   | 自定义 bib 文件路径                        |
 | appendix        | 页面函数 | 插入附录       | 附录内容                                   |
 
-## 使用方法
 
-1. 下载源文件
-
-```
-git clone https://github.com/pldxmm/uestc-thesis.git
-```
-
-2. 下载 vsccode tinymist 插件，即可实时预览
-
-3. 提前填写论文封面 docx 模板，转为 pdf 并放入 materials 文件夹
-4. main-example.typ文件, 修改封面导入路径，填写页面函数参数
-5. 编写正文（main.typ）和参考文献(references.bib)
-6. 快捷编译使用 tinymist 插件 export ，或使用命令行编译，生成 pdf
-
-**注 请使用 typst0.13 及之后版本**
-
-```
-typst compile main.typ
-```
 
 ### 封面导入
 
