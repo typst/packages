@@ -1,3 +1,0 @@
-= Second chapter
-
-Future development.

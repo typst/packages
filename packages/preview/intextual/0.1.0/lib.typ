@@ -1,1 +1,0 @@
-#import "intextual.typ": flushl, flushr, intertext, tag, eqref, intertext-rule
