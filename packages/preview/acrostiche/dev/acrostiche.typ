@@ -210,13 +210,10 @@
   [#display-def(acr, plural: false) (#display-short(acr))]
 }
 
-#let acrfullpl(acr) = {
-  [#display-def(acr, plural: true) (#display-short(acr,plural:true))]
-}
+#let acrfullpl(acr) = {[#display-def(acr, plural: true) (#display-short(acr,plural:true))]}
+#let acrfullplcap(acr) = {[#display-def(acr, plural: true) (#display-short(acr,plural:true))]}
 
-#let acrfullcap(acr) = {
-  [#display-def(acr, plural: true, cap: true) (#display-short(acr,plural:true))]
-}
+#let acrfullcap(acr) = {[#display-def(acr, plural: false, cap: true) (#display-short(acr,plural:true))]}
 
 // define shortcuts
 
