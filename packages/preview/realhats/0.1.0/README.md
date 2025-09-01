@@ -9,15 +9,13 @@ Before and after realhats:
 
 ## Using realhats
 
-[Install](https://github.com/typst/packages?tab=readme-ov-file#local-packages) realhats into your local package directory under version 0.1.0.
-
-To replace the default math mode `hat` function, import `hat` from realhats:
+Import `hat` from realhats:
 
 ```typst
-#import "@local/realhats:0.1.0": hat
+#import "@preview/realhats:0.1.0": hat
 ```
 
-Use it as you would the default `hat` function. If you would like to specify which hat a variable wears, use the `hat` named argument in the `hat` function:
+Use it as you would [`math.hat`](https://typst.app/docs/reference/math/accent/#parameters-accent). If you would like to specify which hat a variable wears, use the `hat` named argument in the `hat` function:
 
 ```typst
 $ 2 hat(x, hat: "vueltiao") + 3 $
@@ -25,8 +23,7 @@ $ 2 hat(x, hat: "vueltiao") + 3 $
 
 For a list of available hats, import `realhats-list`:
 ```typst
-#import "@local/realhats:0.1.0": realhats-list
-
+#import "@preview/realhats:0.1.0": realhats-list
 #realhats-list
 ```
 

@@ -1,5 +1,5 @@
 #set page("a5", margin: (2em))
-#import "@preview/physica:0.8.1": hbar, bra, ket, braket
+#import "@preview/physica:0.8.1": hbar, ket
 #import "@preview/realhats:0.1.0": hat, realhats-list
 
 #let grace-example(hat) = [
