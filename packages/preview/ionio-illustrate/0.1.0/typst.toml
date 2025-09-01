@@ -1,8 +1,0 @@
-[package]
-name = "ionio-illustrate"
-version = "0.1.0"
-entrypoint = "lib.typ"
-authors = ["James (Fuzzy) Swift"]
-license = "MIT"
-description = "Mass spectra with annotations for typst."
-exclude = ["/assets/*", "/manual.pdf", "/manual.typ"]
