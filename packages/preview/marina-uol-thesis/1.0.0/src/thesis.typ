@@ -27,7 +27,7 @@
 
     #v(1cm)
     #align(center)[
-      #image("/template/resources/logo.jpg", width: 35%)
+      #image("/resources/logo.jpg", width: 35%)
     ]
 
     #v(1.5cm)
@@ -271,6 +271,18 @@
     #show heading.where(level: 3): this => {
       set text(size: 16pt)
       this
+    }
+
+    #show figure.caption: it => if (it.body == []) {
+      // no caption
+      context text(
+        [#it.supplement #it.counter.display()],
+      )
+    } else {
+      // with caption
+      context text(
+        [#it.supplement #it.counter.display()#it.separator#it.body],
+      )
     }
 
     #show figure.caption: this => {

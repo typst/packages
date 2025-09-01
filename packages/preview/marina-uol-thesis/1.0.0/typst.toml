@@ -7,7 +7,7 @@ description = "Unofficial thesis template for the University of Lincoln"
 repository = "https://github.com/krisjdev/university-of-lincoln-thesis"
 keywords = ["uol", "lincoln", "university of lincoln", "UoL", "UOL"]
 categories = ["thesis"]
-entrypoint = "template/src/thesis.typ"
+entrypoint = "src/thesis.typ"
 exclude = ["images"]
 
 [template]

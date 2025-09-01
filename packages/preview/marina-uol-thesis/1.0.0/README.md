@@ -2,9 +2,11 @@
 Unofficial Typst thesis template for the University of Lincoln.
 
 <p align="center">
-    <img src="images/titlepage.png" width=32%>&nbsp;
-    <img src="images/abstract.png" width=32%>&nbsp;
-    <img src="images/toc.png" width=32%>
+    <img src="images/titlepage.png" width=32% alt="Front page of the thesis containing the title of the work, the 
+      University of Lincoln crest, student name & ID, degree its relevant to, and the supervisor's name.">&nbsp;
+    <img src="images/abstract.png" width=32% alt="Abstract page of the thesis filled with Lorem Ipsum text. ">&nbsp;
+    <img src="images/toc.png" width=32% alt="Table of contents of the thesis, containing a handful of example chapters
+      and appendices.">
 </p>
 
 ## Example Usage
