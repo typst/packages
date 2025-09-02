@@ -5,7 +5,7 @@
 #set par(justify: true)
 #show link: underline.with(stroke: blue.lighten(50%))
 #set table(stroke: none, gutter: 2em, inset: 0pt)
-#show heading: it => v(2em, weak: true) + it
+#show heading: it => v(2.5em, weak: true) + it + v(1.5em)
 
 #let VERSION = toml("/typst.toml").package.version
 
@@ -139,7 +139,7 @@ The basic *#fn[word-count-of()]* function takes content and returns a dictionary
 #example(```typ
 #import "@preview/wordometer:VERSION": word-count-of
 #let it = [Hello world!]
-#it
+#it \
 #word-count-of(it)
 ```, size: 60%)
 
@@ -236,6 +236,27 @@ Figures have a slightly special treatment to exclude the body or caption indepen
 #word-count(.., exclude: "figure-body") // exclude figure body but count captions
 ```
 
+== Doing arithmetic on the word count
+
+When #fn[word-count()] is used in callback form, you can directly access the word count as a number:
+#example(```typ
+#let target = 50
+#word-count(total => [
+You are #(total.words/target*100)% of the way to #target words.
+])
+```)
+However, the global state variable ```typ #total-words``` is *contextual content*, not a number.
+You can directly access the state variable `state("wordometer")` if you want to use the word count as a variable.
+```typ
+#show: word-count
+#lorem(100)
+#context { // context is needed to access state variables
+  let target = 1000
+	let words = state("wordometer").final().words
+  [Essay is #calc.round(words/target*100, digits: 2)% finished!]
+}
+```
+
 == Custom counters
 
 You can customise the _counting function_ used by #fn[word-count()] or #fn[word-count-of()] function with the `counter` option.
@@ -278,3 +299,4 @@ Some elements only render their content after we can inspect them, making them i
 = Function reference
 
 #show-module("/src/lib.typ")
+

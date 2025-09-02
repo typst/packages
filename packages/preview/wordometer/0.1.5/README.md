@@ -7,7 +7,7 @@
 
 
 
-A small [Typst]("https://typst.app/") package for quick and easy in-document word counts.
+A small [Typst](https://typst.app/) package for quick and easy in-document word counts.
 
 
 ## Basic usage
