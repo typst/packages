@@ -23,7 +23,7 @@ Function:
 
 Parameters:
 
-- slug: icon slug, can be found at <https://simpleicon.org>
+- slug: icon slug, can be found at <https://simpleicons.org>
 - size: the icon size
 - icon-color: icons hex color, default is "default", representation Simple Icons Color
 - text-color: text color, default to `#000000`
