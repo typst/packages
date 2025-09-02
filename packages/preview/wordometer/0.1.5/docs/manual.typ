@@ -1,4 +1,4 @@
-#import "@preview/tidy:0.1.0"
+#import "@preview/tidy:0.4.3"
 #import "/src/exports.typ" as wordometer
 
 #set page(numbering: "1")
@@ -16,48 +16,24 @@
 
 #let show-module(path) = {
 	show heading.where(level: 3): it => {
+		let prefix = {
+			if it.body.text in dictionary(wordometer) { "" }
+			else { "utils." }
+		}
 		align(center, line(length: 100%, stroke: black.lighten(70%)))
-		block(text(1.3em, raw(it.body.text + "()")))
+		block(text(1.3em, raw(prefix + it.body.text + "()")))
 	}
 	tidy.show-module(
 		tidy.parse-module(
 			read(path),
 			scope: scope,
+			label-prefix: "",
 		),
 		show-outline: false,
 		sort-functions: x => {
 			str(int(not x.name.starts-with("word-count"))) + x.name
 		},
-		style: dictionary(tidy.styles.default) + (
-			show-function: (fn, style-args) => {
-				let prefix = {
-					if fn.name in dictionary(wordometer) { "" }
-					else if fn.name in dictionary(wordometer.utils) { "utils." }
-				}
-				[
-					#heading(prefix + fn.name, level: style-args.first-heading-level + 1)
-					#label(style-args.label-prefix + fn.name + "()")
-				]
-				fn.description
-
-				block(breakable: style-args.break-param-descriptions, {
-					heading("Parameters", level: style-args.first-heading-level + 2)
-					(style-args.style.show-parameter-list)(fn, style-args.style.show-type)
-				})
-
-				for (name, info) in fn.args {
-					let types = info.at("types", default: ())
-					let description = info.at("description", default: "")
-					if description == [] and style-args.omit-empty-param-descriptions { continue }
-					(style-args.style.show-parameter-block)(
-						name, types, description, 
-						style-args,
-						show-default: "default" in info, 
-						default: info.at("default", default: none),
-					)
-				}
-			}
-		)
+		style: tidy.styles.default,
 	)
 }
 
