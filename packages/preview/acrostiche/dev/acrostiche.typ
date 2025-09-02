@@ -205,15 +205,19 @@
 #let acrpl(acronym) = {acr(acronym,plural:true)} // argument renamed acronym to differentiate with function acr
 #let acrcap(acronym) = {acr(acronym,plural: false, cap: true)}
 
+// Intentionally display an acronym in its full form. Do not update state.
 #let acrfull(acr) = {
-  //Intentionally display an acronym in its full form. Do not update state.
-  [#display-def(acr, plural: false) (#display-short(acr))]
+  [#display-def(acr, plural: false)~(#display-short(acr))]
 }
-
-#let acrfullpl(acr) = {[#display-def(acr, plural: true) (#display-short(acr,plural:true))]}
-#let acrfullplcap(acr) = {[#display-def(acr, plural: true) (#display-short(acr,plural:true))]}
-
-#let acrfullcap(acr) = {[#display-def(acr, plural: false, cap: true) (#display-short(acr,plural:true))]}
+#let acrfullpl(acr) = {
+  [#display-def(acr, plural: true)~(#display-short(acr, plural: true))]
+}
+#let acrfullplcap(acr) = {
+  [#display-def(acr, plural: true, cap: true)~(#display-short(acr, plural: true))]
+}
+#let acrfullcap(acr) = {
+  [#display-def(acr, plural: false, cap: true)~(#display-short(acr, plural: false))]
+}
 
 // define shortcuts
 
