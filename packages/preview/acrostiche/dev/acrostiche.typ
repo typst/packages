@@ -72,46 +72,30 @@
     if acr in acronyms{
       let defs = acronyms.at(acr).at(0)
 
-      // The Definition is a string============
-      if type(defs) == str{ // If user defined only one version and forgot the trailing comma the type is string
-        if plural{
-          // Return the plural version
-          if cap{
-            capitalize_first(defs)+"s"
-          }
-          else{
-            defs+"s"
-          }
-        }
-        else{
-          // Return the singular version
-          if cap{
-            capitalize_first(defs)
-          }
-          else{
-            defs
-          }
-        }
-      }
-
+      // The Definition is a string ============
+      if type(defs) == str {
+        // If user defined only one version and forgot the trailing comma the type is string
+        let def = if cap { capitalize_first(defs) } else { defs }
+        // Return the plural version
+        if plural { def += "s" }
+        return def
+      } 
       // The Definition is an array ============
-      else if type(defs) == array{
+      else if type(defs) == array {
         if defs.len() == 0{ // The user could have provided an empty array, unlikely but possible.
           panic("No definitions found for acronym "+acr+". Make sure it is defined in the dictionary passed to #init-acronyms(dict)")
         }
-        else if defs.len() == 1{ // User provided only one version, we make the plural by adding an "s" at the end.
-          if not plural and not cap {defs.at(0)}
-          else if plural and not cap{defs.at(0)+"s"}
-          else if not plural and cap{capitalize_first(defs.at(0))}
-          else if plural and cap    {capitalize_first(defs.at(0))+"s"}
-          else{panic("Impossible combination of plural and cap. Please report to acrostiche package maintainer.")}
-        }
-        else{ // User provided more than one version. We assume the first is singular and the second is plural. All other are useless.
-          if not plural and not cap {defs.at(0)}
-          else if plural and not cap{defs.at(1)}
-          else if not plural and cap{capitalize_first(defs.at(0))}
-          else if plural and cap    {capitalize_first(defs.at(1))}
-          else{panic("How did you even get here?")}
+        else if defs.len() == 1 {
+          // User provided only one version, we make the plural by adding an "s" at the end.
+          let def = defs.at(0)
+          if cap { def = capitalize_first(def) }
+          if plural { def += "s" }
+          return def
+        } else {
+          // User provided more than one version. We assume the first is singular and the second is plural. All other are useless.
+          let def = if plural { defs.at(1) } else { defs.at(0) }
+          if cap { def = capitalize_first(defs.at(0)) }
+          return def
         }
       }
 
