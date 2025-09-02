@@ -80,7 +80,7 @@
         } else {
           // User provided more than one version. We assume the first is singular and the second is plural. All other are useless.
           let def = if plural { defs.at(1) } else { defs.at(0) }
-          if cap { def = capitalize_first(defs.at(0)) }
+          if cap { def = capitalize_first(def) }
           return def
         }
       }
