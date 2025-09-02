@@ -28,37 +28,23 @@
   // Display the short version of the requested acronym.
   // In most cases, the short version is the passed acronym itself.
   // In the case of advanced dictionary definitions, the short version is defined with the 'short' and 'short-pl' keys.
-  context{
+  context {
     let acronyms = acros.get()
-    if acr in acronyms{
+    if acr in acronyms {
       let defs = acronyms.at(acr).at(0)
-      let short
-      if type(defs) == dictionary{
+      if type(defs) == dictionary {
         if plural {
-          if "short-pl" in defs{
-            short = defs.at("short-pl")
-          }else{
-            short = [#acr\s]
-          }
-        }else{
-          if "short" in defs{
-            short = defs.at("short")
-          }else{
-            short = acr
-          }
+          defs.at("short-pl", default: [#acr\s])
+        } else {
+          defs.at("short", default: acr)
         }
-      }else{
-        if plural{
-          short = [#acr\s]
-        }else{
-          short = acr
-        }
+      } else {
+        if plural { [#acr\s] } else { acr }
       }
-
-      short
-      
-    }else{
-      panic("Could not display the short version of an acronym not defined: "+acr)
+    } else {
+      panic(
+        "Could not display the short version of an undefined acronym: " + acr,
+      )
     }
   }
 }
