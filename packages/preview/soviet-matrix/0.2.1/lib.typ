@@ -1,4 +1,4 @@
-#import "@preview/suiji:0.3.0": gen-rng, choice, shuffle
+#import "@preview/suiji:0.4.0": gen-rng, choice, shuffle
 #import "mino/tetris.typ": render-field
 
 #let parse-actions(body) = {
@@ -172,7 +172,7 @@
       top + left,
       dy: 40pt,
       dx: 2pt,
-      block(stroke: luma(80%) + 0.5pt, radius: 2pt, inset: 0pt, fill: pattern(size: (10pt, 10pt))[
+      block(stroke: luma(80%) + 0.5pt, radius: 2pt, inset: 0pt, fill: tiling(size: (10pt, 10pt))[
         #box(stroke: 0.1pt + luma(50%), width: 100%, height: 100%, fill: rgb("#f3f3ed")),
       ], height: rows * 10pt, width: cols * 10pt),
     )
