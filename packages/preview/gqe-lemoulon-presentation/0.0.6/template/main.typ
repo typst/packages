@@ -1,4 +1,4 @@
-#import "@preview/gqe-lemoulon-presentation:0.0.5":*
+#import "@preview/gqe-lemoulon-presentation:0.0.6":*
 #import themes.gqe: *
 
 
