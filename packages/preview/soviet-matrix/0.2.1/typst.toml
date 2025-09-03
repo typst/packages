@@ -1,0 +1,17 @@
+[package]
+name = "soviet-matrix"
+version = "0.2.1"
+compiler = "0.11.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/YouXam/soviet-matrix"
+authors = ["YouXam <https://github.com/YouXam>"]
+license = "MIT"
+description = "Tetris game in Typst"
+keywords = ["game", "fun", "tetris"]
+categories = ["fun"]
+exclude = ["thumbnail.png", "demo.gif"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
