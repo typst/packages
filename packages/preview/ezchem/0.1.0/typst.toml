@@ -1,0 +1,12 @@
+[package]
+name = "ezchem"
+version = "0.1.0"
+entrypoint = "lib.typ"
+homepage = "https://ezexam.pages.dev/chem"
+authors = ["gbchu <https://github.com/gbchu>"]
+license = "MIT"
+description = "Draw atomic or ionic structures powered by ctez and single or double line bridge."
+repository = "https://github.com/gbchu/ezchem.git"
+keywords = ["chem","atomic","electron", "离子结构", "化学", "单线桥", "双线桥","原子结构"]
+compiler = "0.13.1"
+categories = ["utility","visualization"]
