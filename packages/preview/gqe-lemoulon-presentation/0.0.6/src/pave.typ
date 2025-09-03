@@ -1,4 +1,4 @@
-#import "@preview/touying:0.5.3": *
+#import "@preview/touying:0.6.1": *
 #import "@preview/showybox:2.0.3": showybox
 
 #let intern-gros-pave(self: none, title: none, content) = {
