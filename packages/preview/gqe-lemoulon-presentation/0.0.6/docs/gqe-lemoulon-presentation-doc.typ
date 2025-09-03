@@ -1,4 +1,4 @@
-#import "@preview/tidy:0.4.2"
+#import "@preview/tidy:0.4.3"
 #import "template.typ": *
 #import "../src/exports.typ": *
 

@@ -1,5 +1,5 @@
 #import "@preview/touying:0.6.1": *
-#import "@preview/tablem:0.1.0": tablem
+#import "@preview/tablem:0.3.0": tablem
 
 
 #let intern-tableaum(self: none, coltable:auto, ..args,  body) = {

@@ -1,5 +1,5 @@
 #import "@preview/touying:0.6.1": *
-#import "@preview/showybox:2.0.3": showybox
+#import "@preview/showybox:2.0.4": showybox
 
 #let intern-gros-pave(self: none, title: none, content) = {
   set text(size: 0.9em)
