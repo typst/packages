@@ -105,7 +105,7 @@
 /// Renders the date section (right-aligned).
 /// -> content
 #let render-date-section() = {
-  align(right)[#datetime.today().display("[day] [month repr:long] [year]")]
+  align(right)[#datetime.today().display("[day padding:none] [month repr:long] [year]")]
 }
 
 /// Renders the MEMORANDUM FOR section.
