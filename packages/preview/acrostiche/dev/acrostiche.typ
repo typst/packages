@@ -123,7 +123,10 @@
       panic(acr+" is not a key in the acronyms dictionary.")
     }
   }
-  
+}
+
+#let display-full(acr, plural: false, cap: false) = {
+  [#display-def(acr, plural: plural, cap: cap)~(#display-short(acr, plural: plural))]
 }
 
 #let mark-acr-used(acr) = {
@@ -176,20 +179,10 @@
 #let acrcap(acronym) = {acr(acronym,plural: false, cap: true)}
 
 // Intentionally display an acronym in its full form. Do not update state.
-#let acrfull(acr) = {
-  [#display-def(acr, plural: false)~(#display-short(acr))]
-}
-#let acrfullpl(acr) = {
-  [#display-def(acr, plural: true)~(#display-short(acr, plural: true))]
-}
-#let acrfullplcap(acr) = {
-  [#display-def(acr, plural: true, cap: true)~(#display-short(acr, plural: true))]
-}
-#let acrfullcap(acr) = {
-  [#display-def(acr, plural: false, cap: true)~(#display-short(acr, plural: false))]
-}
-
-// define shortcuts
+#let acrfull(acr) = { display-full(acr, plural: false, cap: false) }
+#let acrfullpl(acr) = { display-full(acr, plural: true, cap: false) }
+#let acrfullcap(acr) = { display-full(acr, plural: false, cap: true) }
+#let acrfullplcap(acr) = { display-full(acr, plural: true, cap: true) }
 
 
 #let reset-acronym(acr) = { 
