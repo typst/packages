@@ -239,7 +239,7 @@
   level: 1,
   numbering: none,
   outlined: false,
-  sorted: "",
+  sorted: none,
   case-sensitive: true,
   title: "Acronyms Index",
   delimiter: ":",
@@ -258,10 +258,13 @@
   //   delimiter: String to place after the acronym in the list. Defaults to ":"
   //   used-only: if true, only include in the index the acronyms that are used in the document. Warning, if you reset acronyms and don't used them after, they may not appear.
   //   column-ratio: a float positive value that indicate the width ratio of the first column (acronyms) with respect to the second (definitions).
-  // clickable: if true, create a clickable link to the acryonym in the first acronym index
+  // clickable: if true, create a clickable link to the acronym in the first acronym index
 
   // assert on input values to avoid cryptic error messages
-  assert(sorted in ("","up","down"), message:"Sorted must be a string either \"\", \"up\" or \"down\"")
+  assert(
+    sorted in (none, "up", "down"),
+    message: "Sorted must be either none, \"up\" or \"down\"",
+  )
   assert(0 <= column-ratio, message: "\"column-ratio\" must be a positive value.")
 
   if title != ""{

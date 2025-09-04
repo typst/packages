@@ -96,16 +96,16 @@ Display long plural shortcut: #aclp("ada").\
 Acronyms can be clicked and link to the first index table that has the default flag `clickable: true`.
 
 #print-index(title: "Default index (clickeable deactivated)", clickable: false)
-#print-index(title:"Clickable acronyms", clickable: true)
+#print-index(title: "Clickable acronyms", clickable: true)
 
-#print-index(title:"Sorted Empty",sorted:"")
-#print-index(title:"Sorted up",   sorted:"up")
-#print-index(title:"Sorted down", sorted:"down")
+#print-index(title: "Sorted Empty", sorted: none)
+#print-index(title: "Sorted up", sorted: "up")
+#print-index(title: "Sorted down", sorted: "down")
 
-#print-index(title:"Used only up", sorted: "up", used-only:true)
-#print-index(title:"Used only down", sorted: "down", used-only:true)
+#print-index(title: "Used only up", sorted: "up", used-only: true)
+#print-index(title: "Used only down", sorted: "down", used-only: true)
 
-#print-index(title:"Column ratio 0.5",sorted:"", column-ratio:0.5)
-#print-index(title:"Column ratio 0.75",sorted:"", column-ratio:0.75)
-#print-index(title:"Column ratio 1",sorted:"", column-ratio:1)
-#print-index(title:"Column ratio 2",sorted:"", column-ratio:2)
+#print-index(title: "Column ratio 0.5", column-ratio: 0.5)
+#print-index(title: "Column ratio 0.75", column-ratio: 0.75)
+#print-index(title: "Column ratio 1", column-ratio: 1)
+#print-index(title: "Column ratio 2", column-ratio: 2)
