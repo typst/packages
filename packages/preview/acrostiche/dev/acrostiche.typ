@@ -268,22 +268,16 @@
     heading(level: level, numbering: numbering, outlined: outlined)[#title]
   }
 
-  context{
-
-    let acronyms = acros.get()
-    let acr-list = acronyms.keys()
-
-
-    if used-only{
+  context {
+    let acr-list = if used-only {
       // Select only acronyms where state is true at the end of the document.
-      let acronyms = acros.final() 
-      let used-acr-list = ()
-      for acr in acr-list{
-        if acros.final().at(acr).at(2) {
-          used-acr-list.push(acr)
-        }
-      }
-      acr-list = used-acr-list
+      acros
+        .final()
+        .pairs()
+        .filter(((_, state)) => state.at(2))
+        .map(((acr, _)) => acr)
+    } else {
+      acros.get().keys()
     }
 
     // FEATURE: allow ordering by occurences position in the document. Not sure if possible yet.
