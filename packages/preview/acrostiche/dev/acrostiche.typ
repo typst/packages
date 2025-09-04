@@ -296,18 +296,20 @@
     grid(
       columns: (col1 * 100%, col2 * 100%),
       row-gutter: row-gutter,
-      ..for acr in acr-list{
-        // check if a label for a link should be created and if it is the first acronyms index, since it can not create multiple labels
+      ..for acr in acr-list {
+        let short = [*#display-short(acr, plural: false)#delimiter*]
+        // check if a label for a link should be created and if it is the first acronyms index,
+        // since it can not create multiple labels
         if clickable and (not acrostiche-index.get()) {
-          ([*#display-short(acr, plural:false)#delimiter#label("acrostiche-"+acr)*], display-def(acr,plural:false))
-        } else {
-          ([*#display-short(acr, plural:false)#delimiter*], display-def(acr,plural:false))
+          short = [#short#label("acrostiche-" + acr)]
         }
+        (short, display-def(acr, plural: false))
       }
     )
     if clickable {
-      // set the index state to true to avoid subsequent clickable indexes to have labels that would conflict with the ones just created
-      acrostiche-index.update(true)  
+      // set the index state to true to avoid subsequent clickable indexes to have labels
+      // that would conflict with the ones just created
+      acrostiche-index.update(true)
     }
   }
 }
