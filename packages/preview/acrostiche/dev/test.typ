@@ -49,7 +49,7 @@ Reset acronyms. #racr("AJT")
 
 Full definition of #acrfull("AJT").\
 Full definition of #acrf("AJT").\
-#ref("Full definition of Amicale des Joyeux Typistes (AJT)")
+#ref("Full definition of Amicale des Joyeux Typistes (AJT).")
 
 == Capitalized Definitions
 #reset-all-acronyms()
