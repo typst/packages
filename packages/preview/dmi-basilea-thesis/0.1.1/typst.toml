@@ -1,0 +1,16 @@
+[package]
+name = "dmi-basilea-thesis"
+version = "0.1.1"
+entrypoint = "src/main.typ"
+authors = ["Nico Bachmann <typst@nifalu.ch>"]
+license = "MIT"
+description = "A thesis template for the dmi at the university of basel"
+keywords = ["thesis", "bachelor", "master", "unibas", "dmi", "computer science"]
+categories = ["thesis"]
+disciplines = ["computer-science"]
+repository = "https://github.com/Nifalu/dmi-basilea-thesis"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "src/assets/thumbnail.png"

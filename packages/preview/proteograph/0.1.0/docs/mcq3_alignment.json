@@ -1,0 +1,35 @@
+{
+    "corrections": {
+        "msruna1": {
+            "aligned": [],
+            "ms2_delta_rt": {
+                "x": [],
+                "y": []
+            },
+            "ms2_mean": [],
+            "ms2_median": [],
+            "original": []
+        },
+        "msruna2": {
+            "aligned": [],
+            "ms2_delta_rt": {
+                "x": [],
+                "y": []
+            },
+            "ms2_mean": [],
+            "ms2_median": [],
+            "original": []
+        },
+        "msruna3": {
+            "aligned": [],
+            "ms2_delta_rt": {
+                "x": [],
+                "y": []
+            },
+            "ms2_mean": [],
+            "ms2_median": [],
+            "original": []
+        },
+    },
+    "msrun_ref": "msruna4"
+}

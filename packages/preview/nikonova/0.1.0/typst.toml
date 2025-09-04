@@ -1,0 +1,18 @@
+[package]
+name = "nikonova"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+
+description = "For Math exercises, with a unique dark theme."
+categories = ["fun", "report"]
+
+authors = ["Nile Jocson <atraphaxia@gmail.com>"]
+license = "0BSD"
+repository = "https://github.com/atraphaxia/nikonova"
+
+
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

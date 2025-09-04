@@ -1,0 +1,16 @@
+[package]
+name = "typographix-polytechnique-slides"
+version = "0.1.0"
+entrypoint = "main.typ"
+authors = ["Rémi Germe <@remigerme>"]
+license = "MIT"
+description = "A presentation slide template for Polytechnique students (from TypographiX)."
+repository = "https://github.com/remigerme/typst-polytechnique"
+keywords = ["polytechnique", "école polytechnique", "slide", "présentation", "oral", "stage", "typographix"]
+categories = ["presentation"]
+exclude = [ "/gallery/*" ]
+
+[template]
+path = "template"
+entrypoint = "slide.typ"
+thumbnail = "slide-thumbnail.png"
