@@ -96,6 +96,9 @@
   acros.update(states)
 }
 
+
+//// Display acronyms
+
 #let capitalize_first(string) = {
   // return the passed string with the first letter capitalized and the rest unchanged
   if not type(string) == str{
@@ -105,21 +108,15 @@
 }
 
 #let display-short(acr, plural: false) = {
-  // Display the short version of the requested acronym.
-  // In most cases, the short version is the passed acronym itself.
-  // In the case of advanced dictionary definitions, the short version is defined with the 'short' and 'short-pl' keys.
+  // Display the short version of the acronym
   context {
     let acronyms = acros.get()
     if acr in acronyms {
       let defs = acronyms.at(acr).at(0)
-      if type(defs) == dictionary {
-        if plural {
-          defs.at("short-pl", default: [#acr\s])
-        } else {
-          defs.at("short", default: acr)
-        }
+      if plural {
+        defs.at("short-pl")
       } else {
-        if plural { [#acr\s] } else { acr }
+        defs.at("short")
       }
     } else {
       panic(
@@ -130,77 +127,24 @@
 }
 
 #let display-def(acr, plural: false, cap: false) = {
-  // Display the definition of an acronym by fetching it in the "acronyms" state's value (should be a dictionary).
-  //
-  // First, grab the dictionary of definitions of acronyms from the "acronyms" state
-  context{ 
+  // Display the definition of the acronym
+  context {
     let acronyms = acros.get()
-    if acr in acronyms{
+    if acr in acronyms {
       let defs = acronyms.at(acr).at(0)
-
-      // The Definition is a string ============
-      if type(defs) == str {
-        // If user defined only one version and forgot the trailing comma the type is string
-        let def = if cap { capitalize_first(defs) } else { defs }
-        // Return the plural version
-        if plural { def += "s" }
-        return def
-      } 
-      // The Definition is an array ============
-      else if type(defs) == array {
-        if defs.len() == 0{ // The user could have provided an empty array, unlikely but possible.
-          panic("No definitions found for acronym "+acr+". Make sure it is defined in the dictionary passed to #init-acronyms(dict)")
-        }
-        else if defs.len() == 1 {
-          // User provided only one version, we make the plural by adding an "s" at the end.
-          let def = defs.at(0)
-          if cap { def = capitalize_first(def) }
-          if plural { def += "s" }
-          return def
-        } else {
-          // User provided more than one version. We assume the first is singular and the second is plural. All other are useless.
-          let def = if plural { defs.at(1) } else { defs.at(0) }
-          if cap { def = capitalize_first(def) }
-          return def
-        }
+      let def = if plural {
+        defs.at("long-pl")
+      } else {
+        defs.at("long")
       }
-
-      // The Definition is a dictionary ============
-      else if type(defs) == dictionary{
-        // The dictionary case is a bit more complexe so instead of the "if A and B" we revert to nested ifs.
-        if plural{
-          if "long-pl" in defs{
-            if cap{
-              capitalize_first(defs.at("long-pl"))
-            }
-            else{
-              defs.at("long-pl")
-            }
-          }
-          else{
-            panic("The dictionary of definitions supplied for the key "+acr+" does not contain a plural definition with the key 'long-pl'.")
-          }
-        }
-        else{
-          if "long" in defs{
-            if cap{
-              capitalize_first(defs.at("long"))
-            }
-            else{
-              defs.at("long")
-            }
-          }
-          else{
-            panic("The dictionary of definitions supplied for the key "+acr+" does not contain a cingular definition with the key 'long'.")
-          }
-        }
+      if cap {
+        def = capitalize_first(def)
       }
-      else{
-        panic("Definitions should be a string, an array, or a dictionary. Definition of "+acr+ " is of type: "+repr(type(defs)))
-      }
-    }
-    else{
-      panic(acr+" is not a key in the acronyms dictionary.")
+      return def
+    } else {
+      panic(
+        "Could not display the definition of an undefined acronym: " + acr,
+      )
     }
   }
 }
@@ -224,32 +168,29 @@
   )
 }
 
-#let acr(acr, plural:false, cap: false) = {
+#let acr(acr, plural: false, cap: false) = {
   // Display an acronym in the singular form by default. Expands it if used for the first time.
-  
+
   // Generate the key associated with this acronym
   let state-key = "acronym-state-" + acr
   // Test if the state for this acronym already exists and if the acronym was already used
   // to choose what to display.
-  context{
+  context {
     let data = acros.get()
-    if acr in data{
-      let short = display-short(acr, plural: plural)
-      if data.at(acr).at(1){
-        // test of a clickable index is used in the document to add a link in the acronym
-        if acrostiche-index.final(){
-          link(label("acrostiche-"+acr), short)
+    if acr in data {
+      let already-used = data.at(acr).at(1)
+      if already-used {
+        let short = display-short(acr, plural: plural)
+        // test if a clickable index is used in the document to add a link in the acronym
+        if acrostiche-index.final() {
+          short = link(label("acrostiche-" + acr), short)
         }
-        else{
-          short
-        }
-        //short
-      }else{
-        [#display-def(acr, plural: plural, cap: cap)~(#short)]
+        short
+      } else {
+        display-full(acr, plural: plural, cap: cap)
       }
-    }
-    else{
-      panic("You requested the acronym "+acr+" that you did not define first.")
+    } else {
+      panic("Cannot reference an undefined acronym: " + acr)
     }
   }
   mark-acr-used(acr)
