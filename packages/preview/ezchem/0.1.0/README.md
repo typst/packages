@@ -1,5 +1,5 @@
 ## Introduction
-Draw atomic or ionic structures powered by cetz and single or double line bridge.
+Draw atomic or ionic structures powered by CeTZ and single or double line bridge.
 
 
 ## Usage
@@ -37,5 +37,6 @@ Draw atomic or ionic structures powered by cetz and single or double line bridge
 #ai-struct(proton: "z", electrons: (2, 8, 8, "X"))
 ```
 ![效果图](./img/5.png)
+
 
 more [Online Documentation](https://ezexam.pages.dev/chem)
