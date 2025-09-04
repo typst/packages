@@ -101,10 +101,13 @@
 
 #let capitalize_first(string) = {
   // return the passed string with the first letter capitalized and the rest unchanged
-  if not type(string) == str{
-    panic("Trying to capitalize the first letter of a non-string element: "+string+" ("+repr(type(string))+").")
+  if not type(string) == str {
+    panic(
+      "Trying to capitalize the first letter of a non-string element: "
+        + (string + " (" + repr(type(string)) + ")."),
+    )
   }
-  (upper(string.first()),string.slice(1)).join("")
+  (upper(string.first()), string.slice(1)).join("")
 }
 
 #let display-short(acr, plural: false) = {
@@ -155,17 +158,16 @@
 
 #let mark-acr-used(acr) = {
   // Mark an acronym as used.
-  
+
   // Generate the key associated with this acronym
   let state-key = "acronym-state-" + acr
   acros.update(data => {
-      let ndata = data
-      // Change both booleans to mark it used until reset AND in the overall document.
-      ndata.at(acr).at(1) = true
-      ndata.at(acr).at(2) = true
-      ndata 
-    }
-  )
+    let ndata = data
+    // Change both booleans to mark it used until reset AND in the overall document.
+    ndata.at(acr).at(1) = true
+    ndata.at(acr).at(2) = true
+    ndata
+  })
 }
 
 #let acr(acr, plural: false, cap: false) = {
@@ -196,8 +198,9 @@
   mark-acr-used(acr)
 }
 
-#let acrpl(acronym) = {acr(acronym,plural:true)} // argument renamed acronym to differentiate with function acr
-#let acrcap(acronym) = {acr(acronym,plural: false, cap: true)}
+// argument renamed acronym to differentiate with function acr
+#let acrpl(acronym) = { acr(acronym, plural: true) }
+#let acrcap(acronym) = { acr(acronym, plural: false, cap: true) }
 
 // Intentionally display an acronym in its full form. Do not update state.
 #let acrfull(acr) = { display-full(acr, plural: false, cap: false) }
@@ -206,35 +209,33 @@
 #let acrfullplcap(acr) = { display-full(acr, plural: true, cap: true) }
 
 
-#let reset-acronym(acr) = { 
+#let reset-acronym(acr) = {
   // Reset a specific acronym. It will be expanded on next use.
-  context{
-    let data = acros.get()
-    if not acr in data{
-      panic("Cannot reset "+acr+", not in the list.")
+  context {
+    if not acr in acros.get() {
+      panic("Cannot reset an undefined acronym: " + acr)
     }
   }
 
   acros.update(data => {
-      let ndata = data
-      ndata.at(acr).at(1) = false
-      ndata 
-    }
-  )
+    let ndata = data
+    ndata.at(acr).at(1) = false
+    ndata
+  })
 }
 
-#let reset-all-acronyms() = { 
+#let reset-all-acronyms() = {
   // Reset all acronyms. They will all be expanded on the next use.
-  context{
-    let acronyms = acros.get()
-    for acr in acronyms.keys(){
+  context {
+    for acr in acros.get().keys() {
       reset-acronym(acr)
     }
   }
 }
 
 
-// Define shortcuts
+//// Define shortcuts
+
 #let acrf(acr) = acrfull(acr)
 #let acrfpl(acr) = acrfullpl(acr)
 #let racr(acr) = reset-acronym(acr)
@@ -243,15 +244,15 @@
 // Define some functions as in the "acronym" package for LaTeX by Tobias Oetiker
 // https://ctan.org/pkg/acronym
 
-#let acresetall = reset-all-acronyms
+#let acresetall() = reset-all-acronyms()
 #let ac = acr
-#let acp(acro) = acr(acro,plural:true)
-#let acl(acro) = display-def(acro, plural:false)
-#let aclp(acro) = display-def(acro, plural:true)
+#let acp(acro) = acr(acro, plural: true)
+#let acl(acro) = display-def(acro, plural: false)
+#let aclp(acro) = display-def(acro, plural: true)
 #let acf(acro) = acrf(acro)
 #let acfp(acro) = acrfpl(acro)
-#let acs(acro) = display-short(acro,plural:false)
-#let acsp(acro) = display-short(acro,plural:true)
+#let acs(acro) = display-short(acro, plural: false)
+#let acsp(acro) = display-short(acro, plural: true)
 #let acused(acr) = mark-acr-used(acr)
 
 
@@ -286,9 +287,12 @@
     sorted in (none, "up", "down"),
     message: "Sorted must be either none, \"up\" or \"down\"",
   )
-  assert(0 <= column-ratio, message: "\"column-ratio\" must be a positive value.")
+  assert(
+    0 <= column-ratio,
+    message: "\"column-ratio\" must be a positive value.",
+  )
 
-  if title != ""{
+  if title != "" {
     heading(level: level, numbering: numbering, outlined: outlined)[#title]
   }
 
