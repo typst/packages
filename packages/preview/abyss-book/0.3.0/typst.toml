@@ -1,0 +1,16 @@
+[package]
+name = "abyss-book"         # 项目名
+version = "0.3.0"        # 项目版本
+entrypoint = "lib.typ"   # 项目入口文件
+authors = ["跨越晨昏 <@CrossDark>"] # 开发人员
+license = "MIT"          # 许可证书
+description = "A dark-themed typst template"      # 项目描述
+repository = "https://github.com/CrossDark/AbyssBook"       # Github 仓库目录
+# keywords = ["thesis"]    # 可选，项目关键字
+# categories = ["thesis"]  # 可选，项目类型
+# exclude = ["tmp"]        # 可选，排除目录
+
+# [template]               # 如果你有模板文件，可以配置该项，否则注释
+# path = "template"        # 模板目录
+# entrypoint = "main.typ"  # 模板入口，这是基于模板路径的，即 template/main.typ
+# thumbnail = "thumb.png"  # 缩略图路径，这是基于项目路径的
