@@ -1,5 +1,5 @@
 ## Introduction
-`Draw atomic or ionic structures powered by ctez and single or double line bridge.`
+Draw atomic or ionic structures powered by cetz and single or double line bridge.
 
 
 ## Usage
