@@ -2,16 +2,96 @@
 // Author: Grizzly
 
 
-#let acros = state("acronyms",none)
+//// Initialize and validate acronyms
+#let __allowed-definitions = ("short", "short-pl", "long", "long-pl")
+
+#let __complete-acronym-entry-dict(key, definitions) = {
+  if "long" not in definitions {
+    panic(
+      "\"long\" should always be present, contact maintainer of the package.",
+    )
+  }
+  // if there is no short definition we use the key as acronym
+  if "short" not in definitions {
+    definitions.insert("short", key)
+  }
+  // for plural add an s if they are not explicitly provided
+  if "short-pl" not in definitions {
+    definitions.insert("short-pl", [#definitions.at("short")\s])
+  }
+  if "long-pl" not in definitions {
+    definitions.insert("long-pl", [#definitions.at("long")\s])
+  }
+
+  definitions
+}
+
+
+#let __validate-acronym-entry(key, definitions) = {
+  let entry = (:)
+
+  if type(definitions) == str {
+    // if definitions is a single str it is the long definiton
+    entry.insert("long", definitions)
+  } else if type(definitions) == array {
+    // if definitions is an array it is the long and optionally long-plural definition
+    let n_defs = definitions.len()
+    if n_defs == 0 {
+      panic(
+        ("No definitions found for acronym " + acr + ". ")
+          + "Make sure it is defined in the dictionary passed to #init-acronyms()",
+      )
+    } else if n_defs > 2 {
+      // alternatively ignore additional entries?
+      panic(
+        "Too many definitions, only 2 definitions allowed when using an array",
+      )
+    }
+    for (key, def) in ("long", "long-pl").zip(definitions) {
+      entry.insert(key, def)
+    }
+  } else if type(definitions) == dictionary {
+    // if definitions is a dictionary
+
+    // at least the long definition must exist
+    if "long" not in definitions {
+      panic(
+        "The \"long\" definition must be defined when using a dictionary to define the acronym",
+      )
+    }
+    for (key, def) in definitions {
+      if key in __allowed-definitions {
+        entry.insert(key, def)
+      } else {
+        // alternatively ignore additional keys?
+        panic(
+          "Illegal definition. Allowed definitions are: "
+            + __allowed-definitions.join(", "),
+        )
+      }
+    }
+  } else {
+    // invalid input type for definitions
+    panic(
+      "Definitions should be a str, an array, or a dictionary. "
+        + ("Definition of " + acr + " is of type: " + repr(type(defs))),
+    )
+  }
+
+  __complete-acronym-entry-dict(key, entry)
+}
+
+#let acros = state("acrostiche-acronyms", none)
 #let acrostiche-index = state("acrostiche-index", false)
+
 #let init-acronyms(acronyms) = {
   let states = (:)
-  for (acr, defs) in acronyms{
+  for (acr, defs) in acronyms {
     // Add metadata to each entry.
     // first boolean is "is it already defined?", used to know if expansion is needed.
     // second boolean is "was it used before in the document?", used for the used-only filtering in the index.
-    let data = (defs, false, false)
-    states.insert(acr,data)
+    let data = (__validate-acronym-entry(acr, defs), false, false)
+    states.insert(acr, data)
   }
   acros.update(states)
 }
