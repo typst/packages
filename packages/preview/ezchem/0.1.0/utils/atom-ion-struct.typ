@@ -10,9 +10,9 @@
   cetz.canvas({
     import cetz.draw: *
     set-style(stroke: .5pt)
-    let _radius = if type(proton) == str or proton < 10 { .75em } else if proton < 100 { 1em } else { 1.25em }
+    let _radius = if type(proton) == str or proton < 10 { .75em } else if proton < 100 { 1.15em } else { 1.25em }
     circle((), radius: _radius, name: "proton", anchor: "east")
-    content("proton", [+#proton])
+    content("proton", [#text(font: "Lucida Sans Unicode")[+]#proton])
     let index = 0
     let base-x = .24
     let base-deg = 22deg
@@ -31,4 +31,5 @@
     }
   })
 }
+
 
