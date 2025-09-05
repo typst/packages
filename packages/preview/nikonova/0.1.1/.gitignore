@@ -1,0 +1,15 @@
+*
+
+!/.gitignore
+!/CHANGELOG.md
+!/LICENSE
+!/README.md
+!/thumbnail.png
+
+!/typst.toml
+
+!/src/
+!/src/lib.typ
+
+!/template/
+!/template/main.typ
