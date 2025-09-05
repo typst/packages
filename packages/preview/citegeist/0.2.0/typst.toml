@@ -1,0 +1,11 @@
+
+[package]
+name = "citegeist"
+version = "0.2.0"
+compiler = "0.13.0"
+entrypoint = "lib.typ"
+authors = ["Alexander Koller <akoller@gmail.com>"]
+license = "MIT"
+description = "Makes a Bibtex bibliography available as a Typst dictionary."
+repository = "https://github.com/alexanderkoller/typst-citegeist"
+
