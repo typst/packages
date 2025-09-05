@@ -1,0 +1,16 @@
+[package]
+name = "uestc-thesis"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Devin Yang"]
+license = "MIT"
+keywords= ["UESTC","THESIS"]
+categories = ["thesis"]
+compiler="0.13.0"
+description = "电子科技大学硕士学位论文模板.Modern UESTC Thesis Template."
+
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
