@@ -8,17 +8,16 @@ a unique dark color theme.
 ## Usage
 
 ```typ
-#import "@preview/nikonova:0.1.0": nikonova, nikonova-problem as problem, nikonova-final as final
+#import "@preview/nikonova:0.1.1": nikonova, nikonova-problem as problem, nikonova-final as final
 
 #show: nikonova.with(
-	title: "Math 22",
+	title: "Math",
 	subtitle: "Notes and Solutions",
-	subsubtitle: [
-		Techniques of Integration \
-		Integration by Parts
-	],
+	subsubtitle: "Algebra",
 	number: "1",
-	email: "atraphaxia@gmail.com",
+	author: "Annie Nikonova",
+	email: "annie@nikonova.com",
+	font: "New Computer Modern",
 	bg-color: rgb("#182133"),
 	fg-color: rgb("#a1e3d2"),
 	emph-color: rgb("#e3a1b2")
