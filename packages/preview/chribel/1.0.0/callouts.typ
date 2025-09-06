@@ -52,7 +52,7 @@
   }
 
   chribel-callout-templates.update(old => {
-    old.insert("dog", (color: red, icon: "dog", placeholder: "hello"))
+    old.insert(name,config)
     old
   })
 }
