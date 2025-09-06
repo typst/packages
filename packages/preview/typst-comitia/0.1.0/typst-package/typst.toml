@@ -1,0 +1,20 @@
+[package]
+name = "comitia"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Tobias Heidler"]
+license = "MIT"
+description = "Explore voting mechanisms and produce clear results."
+
+homepage = "https://github.com/pteridin/typst-comitia"
+repository = "https://github.com/pteridin/typst-comitia"
+keywords = [
+    "voting",
+    "election",
+    "stv",
+    "plurality",
+    "democracy"
+]
+exclude = ["examples", "example.typ"]
+categories = ["utility","fun"]
+discipline = ["politics", "education"]
