@@ -1,4 +1,4 @@
-#import "./lib.typ" : vote-report, vote
+#import "@preview/comitia:0.1.0" : vote-report, vote
 
 #set heading(numbering: "1.1")
 
