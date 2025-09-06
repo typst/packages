@@ -22,7 +22,7 @@ This theme was partly created using components from [tud-slides](https://github.
 
 # Examples
 
-The [example folder](https://github.com/spidersouris/touying-unistra-pristine/tree/1.4.1-dev/example) contains two examples:
+The [examples folder](https://github.com/spidersouris/touying-unistra-pristine//examples) contains two examples:
 - a **basic example** highlighting main features of the theme ([examples/basic.typ](examples/basic.typ); [examples/basic.pdf](examples/basic.pdf) for output),
 - an **extensively commented, real-usage example** of slides made for an academic presentation for the ACL 2025 conference ([examples/acl25.typ](examples/acl25.typ); [examples/acl25.pdf](examples/acl25.pdf) for output),
 
@@ -34,7 +34,7 @@ These steps assume that you already have [Typst](https://typst.app/) installed a
 
 ```typst
 #import "@preview/touying:0.6.1": *
-#import "@preview/touying-unistra-pristine:1.4.1": *
+#import "@preview/touying-unistra-pristine:1.4.2": *
 
 #show: unistra-theme.with(
   aspect-ratio: "16-9",
