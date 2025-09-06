@@ -1,5 +1,5 @@
 [package]
-name = "Chribel"
+name = "chribel"
 version = "1.0.0"
 entrypoint = "chribel-template.typ"
 authors = [ "Joel von Rotz <https://joelvonrotz.ch/>"]
