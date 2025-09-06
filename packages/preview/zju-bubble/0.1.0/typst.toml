@@ -1,0 +1,17 @@
+[package]
+name = "zju-bubble"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["inuEbisu"]
+license = "MIT-0"
+description = "Modern Zhejiang Univerisity report."
+repository = "https://github.com/inuEbisu/zju-bubble"
+keywords = ["Zhejiang University", "report"]
+categories = ["report"]
+exclude = ["images"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "report.typ"
+thumbnail = "thumbnail.png"
