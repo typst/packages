@@ -1,4 +1,4 @@
-#import "@preview/tiefletter:0.1.2": invoice
+#import "@preview/tiefletter:0.1.3": invoice
 
 #invoice(
   invoice-number: "2025-001",

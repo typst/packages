@@ -1,6 +1,6 @@
 [package]
 name = "tiefletter"
-version = "0.1.2"
+version = "0.1.3"
 compiler = "0.13.1"
 authors = ["Lena Tauchner"]
 entrypoint = "lib.typ"
