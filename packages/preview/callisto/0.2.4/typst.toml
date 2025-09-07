@@ -1,0 +1,12 @@
+[package]
+name = "callisto"
+version = "0.2.4"
+entrypoint = "src/callisto.typ"
+authors = ["Jeremie Knuesel <https://github.com/knuesel>"]
+license = "MIT"
+description = "Import Jupyter notebooks"
+repository = "https://github.com/knuesel/callisto"
+keywords = ["jupyter", "notebook", "import"]
+categories = ["integration", "utility"]
+exclude = ["/tests/", "/docs/"]
+compiler = "0.13.1"

@@ -1,0 +1,16 @@
+[package]
+name = "jastylest-zh"
+version = "0.1.0"
+compiler = "0.13.0"
+repository = "https://github.com/mike-unk/jastylest-zh.git"
+entrypoint = "jastylest-zh.typ"
+authors = ["mike-unk"]
+categories = [ "report", "paper" ]
+license = "MIT"
+description = "Article optimized for Chinese typesetting"
+keywords = [ "Chinese", "article", "cjk", "cjk-latin-spacing" ]
+
+[template]
+path = "template"
+entrypoint = "document.typ"
+thumbnail = "thumbnail.png"
