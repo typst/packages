@@ -6,7 +6,6 @@ authors = ["Tobias Heidler"]
 license = "MIT"
 description = "Explore voting mechanisms and produce clear results."
 
-homepage = "https://github.com/pteridin/typst-comitia"
 repository = "https://github.com/pteridin/typst-comitia"
 keywords = [
     "voting",
