@@ -17,4 +17,3 @@ keywords = [
 ]
 exclude = ["examples", "example.typ"]
 categories = ["utility","fun"]
-discipline = ["politics", "education"]
