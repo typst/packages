@@ -69,22 +69,27 @@
     )
   }
 
-  set page(paper: "a4", margin: 2cm, footer-descent: -0.5cm, footer: context {
-    set text(size: 9pt)
-    box(width: 100%, inset: 10pt, grid(
-      align: center,
-      columns: 3,
-      box(width: 1fr, align(center, seller.name + "\n" + seller.tel + "\n" + seller.email)),
-      grid.vline(stroke: 0.3pt),
-      if footer-middle != none {
-        box(width: 1fr, align(center, footer-middle))
-      },
-      grid.vline(stroke: 0.3pt),
-      if footer-right != none {
-        box(width: 1fr, align(center, footer-right))
-      },
-    ))
-  })
+  set page(
+    paper: "a4",
+    margin: (top: 2cm, right: 2cm, bottom: 2.5cm, left: 2cm),
+    footer-descent: -0.5cm,
+    footer: context {
+      set text(size: 9pt)
+      box(width: 100%, inset: 10pt, grid(
+        align: center,
+        columns: 3,
+        box(width: 1fr, align(center, seller.name + "\n" + seller.tel + "\n" + seller.email)),
+        grid.vline(stroke: 0.3pt),
+        if footer-middle != none {
+          box(width: 1fr, align(center, footer-middle))
+        },
+        grid.vline(stroke: 0.3pt),
+        if footer-right != none {
+          box(width: 1fr, align(center, footer-right))
+        },
+      ))
+    },
+  )
 
   set text(font: "Cormorant Garamond", number-type: "lining", size: 12pt)
 
@@ -93,7 +98,9 @@
     #seller.name\
     #seller.address\
     #v(0.5em)
-    #if seller.at("is-kleinunternehmer", default: false) and seller.at("uid", default: none) != none { [UID: #seller.uid] }
+    #if seller.at("is-kleinunternehmer", default: false) and seller.at("uid", default: none) != none {
+      [UID: #seller.uid]
+    }
   ]
 
   place(top + left, dx: 0.5cm, dy: 4cm, [
