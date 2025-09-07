@@ -82,7 +82,7 @@ Into this
 ### A random function : $f(x) = \sqrt{x²-4}$ & $f'(x) = \frac {x} {\sqrt{x² - 4}}$
 
 ```js
-#import "@preview/Tabvar:0.2.1": tabvar, hatch
+#import "@preview/vartable:0.2.1": tabvar, hatch
 
 #tabvar(
   variable: $t$,
