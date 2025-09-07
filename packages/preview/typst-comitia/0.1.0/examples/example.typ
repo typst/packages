@@ -105,9 +105,8 @@ is used to break the tie.
 
 == Tie Method: All
 
-Call:
-
 ```typst
+//Call:
 #vote-report(input)
 ```
 
@@ -116,56 +115,62 @@ Call:
 
 == Tie Method: Random
 
-Call:
-
 ```typst
-#vote-report(input, ties_method: "Random")
+//Call:
+#vote-report(input, tie-method: "Random")
 ```
 
-#vote-report(input, ties_method: "Random")
+#vote-report(input, tie-method: "Random")
 #pagebreak()
 
 == Tie Method: Count
 
-Call:
-
 ```typst
-#vote-report(input, ties_method: "Count")
+//Call:
+#vote-report(input, tie-method: "Count")
 ```
 
-#vote-report(input, ties_method: "Count")
+#vote-report(input, tie-method: "Count")
 #pagebreak()
 
 = Examples Reports for STV-Voting  <Example-SVT>
 
 == Tie Method: All
 
-Call:
-
 ```typst
-#vote-report(input, method: "STV", ties_method: "All")
+//Call:
+#vote-report(input, method: "STV", tie-method: "All")
 ```
 
-#vote-report(input, method: "STV", ties_method: "All")
+#vote-report(input, method: "STV", tie-method: "All")
 #pagebreak()
 
 == Tie Method: Random
 
-Call:
-
 ```typst
-#vote-report(input, method: "STV", ties_method: "Random")
+//Call:
+#vote-report(input, method: "STV", tie-method: "Random")
 ```
 
-#vote-report(input, method: "STV", ties_method: "Random")
+#vote-report(input, method: "STV", tie-method: "Random")
 #pagebreak()
 
 == Tie Method: Count
 
-Call:
-
 ```typst
-#vote-report(input, method: "STV", ties_method: "Count")
+//Call:
+#vote-report(input, method: "STV", tie-method: "Count")
 ```
 
-#vote-report(input, method: "STV", ties_method: "Count")
+#vote-report(input, method: "STV", tie-method: "Count")
+
+== Change Header Level
+
+Changes the top header of the report to level 3:
+
+```typst
+//Call:
+#vote-report(input, method: "STV", tie-method: "All", level-start: 3)
+```
+
+#vote-report(input, method: "STV", tie-method: "All", level-start: 3)

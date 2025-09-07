@@ -13,8 +13,9 @@
   }
   [*#n#super[#x]*]
 }
+
 // Adds a link to the current used method
-#let method_link(method) = {
+#let method-link(method) = {
   if method == "Plurality" {
     link("https://en.wikipedia.org/wiki/Plurality_voting")[*Plurality*]
   } else if method == "STV" {
@@ -61,27 +62,27 @@
 }
 
 // Returns the results for each iteration of voting
-#let vote(ballots, method: "Plurality", ties_method : "All" ) = {
+#let vote(ballots, method: "Plurality", tie-method : "All" ) = {
   let ballots = json.encode(ballots)
   let args = "{
       \"ballots\": "+ballots+",
       \"vote_method\": \""+method+"\",
-      \"tie_method\": \""+ties_method+"\"
+      \"tie_method\": \""+tie-method+"\"
     }"
 
   json(p.vote(bytes(args)))
 }
 
 // Displays a detailled voting report for each step
-#let vote-report(ballots, method: "Plurality", ties_method : "All") = {
-  let vote_results = vote(ballots, method : method, ties_method : ties_method)
+#let vote-report(ballots, method: "Plurality", tie-method : "All", level-start : 4) = {
+  let vote_results = vote(ballots, method : method, tie-method : tie-method)
 
   [
-    ==== Report
+    #heading(level: level-start)[Report]
 
-    ===== Method
+    #heading(level: level-start+1)[Method]
 
-    We performed a *#method_link(method)* vote with *#ties_method* tie-breaking.
+    We performed a *#method-link(method)* vote with *#tie-method* tie-breaking.
 
   ]
 
@@ -89,14 +90,14 @@
   let winners = vote_results.filter(r => r.is_winner)
 
   [
-    ===== Results
+    #heading(level: level-start+1)[Results]
 
     The vote finished after *#max_rounds* rounds.
 
     The winner(s) is/are:
     #winners.map(w => [- *#w.candidate*]).join()
 
-    ===== Details
+    #heading(level: level-start+2)[Details]
   ]
 
   for i in range(1, max_rounds + 1) {
@@ -111,7 +112,7 @@
 
     [
 
-      ====== Round #i
+      #heading(level: level-start+3)[Round #i]
 
       We performed the #xth(i) round of the vote:
 
@@ -132,7 +133,7 @@
     if winner_candidates.len() > 1 {
       [ We have multiple winner candidates: #winner_candidates.map(c => [*#c*]).join([, ])
 
-        We need to break the tie. The tie-breaking method is *#ties_method*. The final winner(s) is/are: #winners.map(w => [*#w.candidate*]).join([, ])
+        We need to break the tie. The tie-breaking method is *#tie-method*. The final winner(s) is/are: #winners.map(w => [*#w.candidate*]).join([, ])
       
       ]
     }
@@ -151,7 +152,7 @@
     if elimination_candidates.len() > 1 {
       [ We have multiple elimination candidates: #elimination_candidates.map(c => [*#c*]).join(", ")
 
-        We need to break the tie. The tie-breaking method is *#ties_method*. The final eliminated candidate(s) is/are: #eliminated.map(e => [*#e.candidate*]).join([, ]) 
+        We need to break the tie. The tie-breaking method is *#tie-method*. The final eliminated candidate(s) is/are: #eliminated.map(e => [*#e.candidate*]).join([, ]) 
       
       ]
     }
