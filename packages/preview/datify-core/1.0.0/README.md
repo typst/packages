@@ -97,7 +97,7 @@ Get the date formatting pattern for a given locale, or use a custom pattern.
 
 | Name         | Type   | Description                                                     | Default |
 |--------------|--------|-----------------------------------------------------------------|---------|
-| pattern_type | str    | "full", "long", "medium", "short", or any custom pattern string | required |
+| pattern-type | str    | "full", "long", "medium", "short", or any custom pattern string | required |
 | lang         | str    | Locale code, e.g. "en", "fr"                                    | "en"    |
 
 **Example:**

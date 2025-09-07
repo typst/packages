@@ -97,7 +97,7 @@
 }
 
 #let get-date-pattern = (
-  pattern_type,
+  pattern-type,
   lang: "en",
 ) => {
   if not data.keys().contains(lang) {
