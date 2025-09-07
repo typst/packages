@@ -106,11 +106,11 @@
   let patterns = data.at(lang).at("patterns")
   // If pattern_type is a known key, return the pattern from data.
   // Otherwise, if a string, treat as custom pattern and return as-is.
-  if patterns.keys().contains(pattern_type) {
-    patterns.at(pattern_type)
-  } else if (type(pattern_type) == str) {
-    pattern_type
+  if patterns.keys().contains(pattern-type) {
+    patterns.at(pattern-type)
+  } else if (type(pattern-type) == str) {
+    pattern-type
   } else {
-    panic("Invalid pattern type: must be a string or a known pattern key, got " + str(type(pattern_type)))
+    panic("Invalid pattern type: must be a string or a known pattern key, got " + str(type(pattern-type)))
   }
 }
