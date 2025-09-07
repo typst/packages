@@ -1,6 +1,6 @@
 #import "calc-functions.typ": *
 
-#import "@preview/cetz:0.4.0": draw
+#import "@preview/cetz:0.4.1": draw
 #import draw: *
 
 #let draw-infos(person) = {

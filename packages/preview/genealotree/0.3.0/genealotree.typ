@@ -1,5 +1,3 @@
-#import "@preview/cetz:0.4.0": canvas
-
 #import "calc-functions.typ": *
 #import "draw-functions.typ": *
 
