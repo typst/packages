@@ -99,7 +99,7 @@
 
 //// Display acronyms
 
-#let capitalize_first(string) = {
+#let capitalize-first(string) = {
   // return the passed string with the first letter capitalized and the rest unchanged
   if not type(string) == str {
     panic(
@@ -141,7 +141,7 @@
         defs.at("long")
       }
       if cap {
-        def = capitalize_first(def)
+        def = capitalize-first(def)
       }
       return def
     } else {
