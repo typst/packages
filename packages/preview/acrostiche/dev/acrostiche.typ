@@ -81,15 +81,21 @@
   __complete-acronym-entry-dict(key, entry)
 }
 
+/// Dictionary of defined acronyms.
+///
+/// Each enty consists of the acronym definitions, whether it will be expanded on next usage, and whether it was used.
 #let acros = state("acrostiche-acronyms", none)
+
+/// Whether an acronym index was inserted in teh document.
 #let acrostiche-index = state("acrostiche-index", false)
 
+/// Initialize acronyms and validate their definitions.
+///
+/// - acronyms (dictionary): Acronyms to initialize
 #let init-acronyms(acronyms) = {
   let states = (:)
   for (acr, defs) in acronyms {
     // Add metadata to each entry.
-    // first boolean is "is it already defined?", used to know if expansion is needed.
-    // second boolean is "was it used before in the document?", used for the used-only filtering in the index.
     let data = (__validate-acronym-entry(acr, defs), false, false)
     states.insert(acr, data)
   }
@@ -99,6 +105,9 @@
 
 //// Display acronyms
 
+/// Capitalize the first letter of the acronym definition.
+///
+/// Capitalizes the first letter if the definition is a string else panics.
 #let capitalize-first(string) = {
   // return the passed string with the first letter capitalized and the rest unchanged
   if not type(string) == str {
@@ -110,8 +119,11 @@
   (upper(string.first()), string.slice(1)).join("")
 }
 
+/// Display the short version of the acronym
+///
+/// - acr (string): Acronym key
+/// - plural (bool): Plural version of the acronym
 #let display-short(acr, plural: false) = {
-  // Display the short version of the acronym
   context {
     let acronyms = acros.get()
     if acr in acronyms {
@@ -129,8 +141,12 @@
   }
 }
 
+/// Display the long definition of the acronym
+///
+/// - acr (string): Acronym key
+/// - plural (bool): Plural version of the definition
+/// - cap (bool): Capitalize the first letter if the definition is a string
 #let display-def(acr, plural: false, cap: false) = {
-  // Display the definition of the acronym
   context {
     let acronyms = acros.get()
     if acr in acronyms {
@@ -152,13 +168,19 @@
   }
 }
 
+/// Display the full version (long + short) of the acronym
+///
+/// - acr (string): Acronym key
+/// - plural (bool): Plural version of the definition
+/// - cap (bool): Capitalize the first letter if the definition is a string
 #let display-full(acr, plural: false, cap: false) = {
   [#display-def(acr, plural: plural, cap: cap)~(#display-short(acr, plural: plural))]
 }
 
+/// Mark an acronym as used.
+///
+/// - acr (string): Acronym key
 #let mark-acr-used(acr) = {
-  // Mark an acronym as used.
-
   // Generate the key associated with this acronym
   let state-key = "acronym-state-" + acr
   acros.update(data => {
@@ -170,6 +192,13 @@
   })
 }
 
+/// Display an acronym.
+///
+/// Expands the acronym if it is used for the first time.
+///
+/// - acr (string): Acronym key
+/// - plural (bool): Plural version of the definition
+/// - cap (bool): Capitalize the first letter if the definition is a string
 #let acr(acr, plural: false, cap: false) = {
   // Display an acronym in the singular form by default. Expands it if used for the first time.
 
@@ -199,18 +228,30 @@
 }
 
 // argument renamed acronym to differentiate with function acr
+
+/// Display plural version of an acronym
 #let acrpl(acronym) = { acr(acronym, plural: true) }
+/// Display capitalized version of an acronym
 #let acrcap(acronym) = { acr(acronym, plural: false, cap: true) }
 
 // Intentionally display an acronym in its full form. Do not update state.
+
+/// Display full version of an acronym
 #let acrfull(acr) = { display-full(acr, plural: false, cap: false) }
+/// Display full, plural version of an acronym
 #let acrfullpl(acr) = { display-full(acr, plural: true, cap: false) }
+/// Display full, capitalized version of an acronym
 #let acrfullcap(acr) = { display-full(acr, plural: false, cap: true) }
+/// Display full, plural, capitalized version of an acronym
 #let acrfullplcap(acr) = { display-full(acr, plural: true, cap: true) }
 
-
+/// Reset an acronym.
+///
+/// Resetting an acronym leads to its expansion on next use.
+/// It will be included in the index even after resetting if it was used before.
+///
+/// - acr (string): acronym key
 #let reset-acronym(acr) = {
-  // Reset a specific acronym. It will be expanded on next use.
   context {
     if not acr in acros.get() {
       panic("Cannot reset an undefined acronym: " + acr)
@@ -224,8 +265,11 @@
   })
 }
 
+/// Reset all acronyms.
+///
+/// This leads to their expansion on next usage.
+/// Acronyms that have been reset will still be included in the index if they have been used before.
 #let reset-all-acronyms() = {
-  // Reset all acronyms. They will all be expanded on the next use.
   context {
     for acr in acros.get().keys() {
       reset-acronym(acr)
@@ -256,7 +300,21 @@
 #let acused(acr) = mark-acr-used(acr)
 
 
-
+/// Print an index of all the acronyms and their definitions.
+///
+/// - depth (int): Relative nesting of the depth of the index header. See documentation of heading() for details.
+/// - numbering (none, string, function): Numbering of the index header. See documentation of numbering() for details.
+/// - outlined (bool): Whether to outline the header of the index section. See documentation of heading() for details.
+/// - sorted (none, string): Sort the acronyms: "up" for alphabetical order,
+///                          "down" for reverse alphabetical order,
+///                          none for no sort (print in the order they are defined).
+/// - case-sensitive (bool): Whehter to sort the acronyms case-sensitive. Only relevant if sorting is enabled.
+/// - title (content): Title of the acronym index.
+/// - delimiter (string): Delimiter between acronym and its definition.
+/// - row-gutter (): Row-gutter argument used to arrange the index in a grid. See documentation of grid() for details.
+/// - used-only (bool): Only include the acronyms in the index that are used in the document.
+/// - column-ratio (float): A positive float that indicates the width ratio of the first column (acronyms) with respect to the second (definitions).
+/// - clickable (bool): Create a clickable link to the acronym definition in the first index if true.
 #let print-index(
   depth: 1,
   numbering: none,
@@ -270,18 +328,6 @@
   column-ratio: 0.25,
   clickable: true,
 ) = {
-  //Print an index of all the acronyms and their definitions.
-  // Args:
-  //   level: level of the heading. Default to 1.
-  //   outlined: make the index section outlined. Default to false
-  //   sorted: define if and how to sort the acronyms: "up" for alphabetical order, "down" for reverse alphabetical order, "" for no sort (print in the order they are defined). Default to "".
-  //   case-sensitive: sort the acronyms case-senstive. Default to true.
-  //   title: set the title of the heading. Default to "Acronyms Index". Passing an empty string will result in removing the heading.
-  //   delimiter: String to place after the acronym in the list. Defaults to ":"
-  //   used-only: if true, only include in the index the acronyms that are used in the document. Warning, if you reset acronyms and don't used them after, they may not appear.
-  //   column-ratio: a float positive value that indicate the width ratio of the first column (acronyms) with respect to the second (definitions).
-  // clickable: if true, create a clickable link to the acronym in the first acronym index
-
   // assert on input values to avoid cryptic error messages
   assert(
     sorted in (none, "up", "down"),
