@@ -4,7 +4,7 @@
 
 A toki pona spellchecker and transliteration library.
 
-See the [documentation](docs/main.pdf)
+See the [documentation](https://github.com/Vanille-N/penpo.typ/releases/download/v0.1.0/lipu-sona.pdf).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="logo/penpo-dark.svg">
@@ -26,7 +26,7 @@ penpo provides
 - the sitelen pona font
   ["sitelen seli kiwen"](https://www.kreativekorp.com/software/fonts/sitelenselikiwen/)
   is required, and must be downloaded manually.
-  See an example usage in [sama-ni/](sama-ni/).
+  See an example usage in [sama-ni/](https://github.com/Vanille-N/penpo.typ/tree/v0.1.0/sama-ni).
 
 ## Example
 

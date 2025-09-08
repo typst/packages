@@ -4,7 +4,7 @@
 
 o pona e lipu sina a!
 
-o lukin e [lipu pi pana sona (toki Inli)](docs/main.pdf).
+o lukin e [lipu pi pana sona (toki Inli)](https://github.com/Vanille-N/penpo.typ/releases/download/v0.1.0/lipu-sona.pdf).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="logo/penpo-dark.svg">
@@ -39,6 +39,7 @@ lipu mute lon "sama-ni/" kin.
   ["sitelen seli kiwen"](https://www.kreativekorp.com/software/fonts/sitelenselikiwen/).
   ona li ken sitelen pona.
   o pana e lipu ".ttf" lon poka pi lipu sina.
+  o lukin e lipu [sama-ni/](https://github.com/Vanille-N/penpo.typ/tree/v0.1.0/sama-ni).
 
 ## o lukin
 
