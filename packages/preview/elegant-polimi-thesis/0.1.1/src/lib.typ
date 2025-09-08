@@ -217,7 +217,7 @@
     phdcycle = str(datetime.today().year() - 1) + " - " + str(datetime.today().year())
   }
   if (academic-year == "") {
-    academic-year = phdcycle
+    academic-year = str(datetime.today().year() - 1)
   }
 
   // helper function to detect whether a field is present
