@@ -46,6 +46,7 @@
   seal-line-supplement: "弥封线内不得答题",
   doc,
 ) = {
+  assert(mode in (HANDOUTS, EXAM), message: "mode must be HANDOUTS or EXAM")
   mode-state.update(mode)
   let _footer(label) = context {
     assert(
@@ -242,3 +243,4 @@
 
   doc
 }
+
