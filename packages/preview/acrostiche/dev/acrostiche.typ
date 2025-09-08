@@ -231,20 +231,20 @@
 // argument renamed acronym to differentiate with function acr
 
 /// Display plural version of an acronym
-#let acrpl(acronym) = { acr(acronym, plural: true) }
+#let acrpl(acronym) = acr(acronym, plural: true)
 /// Display capitalized version of an acronym
-#let acrcap(acronym) = { acr(acronym, plural: false, cap: true) }
+#let acrcap(acronym) = acr(acronym, plural: false, cap: true)
 
 // Intentionally display an acronym in its full form. Do not update state.
 
 /// Display full version of an acronym
-#let acrfull(acr) = { display-full(acr, plural: false, cap: false) }
+#let acrfull(acr) = display-full(acr, plural: false, cap: false)
 /// Display full, plural version of an acronym
-#let acrfullpl(acr) = { display-full(acr, plural: true, cap: false) }
+#let acrfullpl(acr) = display-full(acr, plural: true, cap: false)
 /// Display full, capitalized version of an acronym
-#let acrfullcap(acr) = { display-full(acr, plural: false, cap: true) }
+#let acrfullcap(acr) = display-full(acr, plural: false, cap: true)
 /// Display full, plural, capitalized version of an acronym
-#let acrfullplcap(acr) = { display-full(acr, plural: true, cap: true) }
+#let acrfullplcap(acr) = display-full(acr, plural: true, cap: true)
 
 /// Reset an acronym.
 ///
