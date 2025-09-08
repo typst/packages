@@ -137,11 +137,34 @@ toki ni li tan #link("https://wikipesija.org/wiki/mun_Masi")[lipu Wikipesija]
   ona li kiwen li sike lukin ala. /sp/
 ][
   #figure(
-    image("assets/mun-Masi.jpg"),
+    {
+      // sina jo ala e sitelen lon:
+      box(width: 5cm, height: 5cm, fill: black)[
+        #place(center + horizon)[
+          #circle(fill: rgb("bf4d21"), radius: 2cm)
+        ]
+      ]
+      // o kama jo e sitelen ni:
+      // "https://wikipesija.org/wiki/sitelen:OSIRIS_Mars_true_color.jpg"
+      // image("/assets/mun-Masi.jpg")
+    },
     caption: "sitelen pi mun Masi",
   )
   #figure(
-    image("assets/mun-Popo-en-Temo.jpg"),
+    {
+      // sina jo ala e sitelen lon:
+      box(width: 6cm, height: 4cm, fill: black)[
+        #place(left + horizon, dx: 5mm)[
+          #circle(fill: rgb("a6654c"), radius: 1.3cm)
+        ]
+        #place(right + horizon, dx: -5mm)[
+          #circle(fill: rgb("b8701f"), radius: 0.8cm)
+        ]
+      ]
+      // o kama jo e sitelen ni:
+      // https://wikipesija.org/wiki/sitelen:Phobos_and_Deimos.jpg
+      // image("/assets/mun-Popo-en-Temo.jpg"),
+    },
     caption: "sitelen pi mun Popo en mun Temo",
   )
 ]
@@ -158,6 +181,8 @@ toki ni li tan #link("https://wikipesija.org/wiki/mun_Masi")[lipu Wikipesija]
 // lipu: main-sp.typ
 #import "@preview/penpo:0.1.0"
 
+// sina wile pana e nasin sitelen tan https://www.kreativekorp.com/software/fonts/sitelenselikiwen
+// lon /fonts/sitelenselikiwenasuki.ttf
 #show: penpo.pona.sitelen
 
 #include "toki.typ"
