@@ -38,7 +38,12 @@
   }
   let width_map = day_usage.at(width)
   if not width_map.keys().contains(weekday_str) {
-    panic("No day name for weekday " + weekday_str + " in language " + lang + ", usage " + usage + ", width " + width)
+    panic(
+      "No day name for weekday " + weekday_str +
+      " in language " + lang +
+      ", usage " + usage +
+      ", width " + width
+    )
   }
   return width_map.at(weekday_str)
 }
@@ -81,7 +86,12 @@
   }
   let width_map = month_usage.at(width)
   if not width_map.keys().contains(month_str) {
-    panic("No month name for month " + month_str + " in language " + lang + ", usage " + usage + ", width " + width)
+    panic(
+      "No month name for month " + month_str +
+      " in language " + lang +
+      ", usage " + usage +
+      ", width " + width
+    )
   }
   return width_map.at(month_str)
 }
@@ -94,13 +104,11 @@
     panic("Unknown language: " + lang)
   }
   let patterns = _cldr_data.at(lang).at("patterns")
-  // If pattern_type is a known key, return the pattern from _cldr_data.
-  // Otherwise, if a string, treat as custom pattern and return as-is.
+  if not (type(pattern-type) == str) {
+    panic("Invalid pattern type: must be a string and a known pattern key, got " + str(type(pattern-type)))
+  }
   if patterns.keys().contains(pattern-type) {
     return patterns.at(pattern-type)
-  } else if (type(pattern-type) == str) {
-    return pattern-type
-  } else {
-    panic("Invalid pattern type: must be a string or a known pattern key, got " + str(type(pattern-type)))
   }
+  panic("Unknown pattern type: " + pattern-type + " (must be one of " + patterns.keys().join(", ") + ")")
 }

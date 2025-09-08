@@ -91,19 +91,18 @@ Get the localized name of a month.
 
 ### `get-date-pattern`
 
-Get the date formatting pattern for a given locale, or use a custom pattern.
+Get the date formatting pattern for a given locale.
 
 **Parameters:**
 
 | Name         | Type   | Description                                                     | Default |
 |--------------|--------|-----------------------------------------------------------------|---------|
-| pattern-type | str    | "full", "long", "medium", "short", or any custom pattern string | required |
+| pattern-type | str    | "full", "long", "medium", "short"                               | required|
 | lang         | str    | Locale code, e.g. "en", "fr"                                    | "en"    |
 
 **Example:**
 ```typst
 #get-date-pattern("medium", lang: "de") // dd.MM.y
-#get-date-pattern("yyyy/MM/dd", lang: "en") // yyyy/MM/dd
 ```
 
 ---
