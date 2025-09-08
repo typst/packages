@@ -59,6 +59,8 @@ Use multiple `container`s to produce layouts in columns.
 Meander allows precise control over the boundaries of obstacles, to draw complex paragraph shapes.
 
 ```typ
+#import "@preview/meander:0.2.0"
+
 #meander.reflow({
   import meander: *
 
