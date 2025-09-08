@@ -15,6 +15,12 @@ The function `meander.reflow` splits the input sequence into
 ```typ
 #import "@preview/meander:0.2.0"
 
+#let my-img-1 = box(width: 7cm, height: 7cm, fill: orange)
+#let my-img-2 = box(width: 5cm, height: 3cm, fill: blue)
+#let my-img-3 = box(width: 8cm, height: 4cm, fill: green)
+#let my-img-4 = box(width: 5cm, height: 5cm, fill: red)
+#let my-img-5 = box(width: 4cm, height: 3cm, fill: yellow)
+
 #meander.reflow({
   import meander: *
 
@@ -39,6 +45,10 @@ Use multiple `container`s to produce layouts in columns.
 
 ```typ
 #import "@preview/meander:0.2.0"
+
+#let my-img-1 = box(width: 7cm, height: 7cm, fill: orange)
+#let my-img-2 = box(width: 5cm, height: 3cm, fill: blue)
+#let my-img-3 = box(width: 8cm, height: 4cm, fill: green)
 
 #meander.reflow({
   import meander: *
