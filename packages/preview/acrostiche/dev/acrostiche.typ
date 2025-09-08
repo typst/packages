@@ -85,10 +85,10 @@
 /// Dictionary of defined acronyms.
 ///
 /// Each enty consists of the acronym definitions, whether it will be expanded on next usage, and whether it was used.
-#let acros = state("acrostiche-acronyms", none)
+#let _acronyms = state("acrostiche-acronyms", none)
 
 /// Whether an acronym index was inserted in the document.
-#let acrostiche-index = state("acrostiche-index", false)
+#let _acrostiche-index = state("acrostiche-index", false)
 
 /// Initialize acronyms and validate their definitions.
 ///
@@ -100,7 +100,7 @@
     let data = (__validate-acronym-entry(acr, defs), false, false)
     states.insert(acr, data)
   }
-  acros.update(states)
+  _acronyms.update(states)
 }
 
 
@@ -126,7 +126,7 @@
 /// - plural (bool): Plural version of the acronym
 #let display-short(acr, plural: false) = {
   context {
-    let acronyms = acros.get()
+    let acronyms = _acronyms.get()
     if acr in acronyms {
       let defs = acronyms.at(acr).at(0)
       if plural {
@@ -149,7 +149,7 @@
 /// - cap (bool): Capitalize the first letter if the definition is a string
 #let display-def(acr, plural: false, cap: false) = {
   context {
-    let acronyms = acros.get()
+    let acronyms = _acronyms.get()
     if acr in acronyms {
       let defs = acronyms.at(acr).at(0)
       let def = if plural {
@@ -184,7 +184,7 @@
 #let mark-acr-used(acr) = {
   // Generate the key associated with this acronym
   let state-key = "acronym-state-" + acr
-  acros.update(data => {
+  _acronyms.update(data => {
     let ndata = data
     // Change both booleans to mark it used until reset AND in the overall document.
     ndata.at(acr).at(1) = true
@@ -208,13 +208,13 @@
   // Test if the state for this acronym already exists and if the acronym was already used
   // to choose what to display.
   context {
-    let data = acros.get()
+    let data = _acronyms.get()
     if acr in data {
       let already-used = data.at(acr).at(1)
       if already-used {
         let short = display-short(acr, plural: plural)
         // test if a clickable index is used in the document to add a link in the acronym
-        if acrostiche-index.final() {
+        if _acrostiche-index.final() {
           short = link(label("acrostiche-" + acr), short)
         }
         short
@@ -254,12 +254,12 @@
 /// - acr (string): acronym key
 #let reset-acronym(acr) = {
   context {
-    if not acr in acros.get() {
+    if not acr in _acronyms.get() {
       panic("Cannot reset an undefined acronym: " + acr)
     }
   }
 
-  acros.update(data => {
+  _acronyms.update(data => {
     let ndata = data
     ndata.at(acr).at(1) = false
     ndata
@@ -272,7 +272,7 @@
 /// Acronyms that have been reset will still be included in the index if they have been used before.
 #let reset-all-acronyms() = {
   context {
-    for acr in acros.get().keys() {
+    for acr in _acronyms.get().keys() {
       reset-acronym(acr)
     }
   }
@@ -346,13 +346,13 @@
   context {
     let acr-list = if used-only {
       // Select only acronyms where state is true at the end of the document.
-      acros
+      _acronyms
         .final()
         .pairs()
         .filter(((_, state)) => state.at(2))
         .map(((acr, _)) => acr)
     } else {
-      acros.get().keys()
+      _acronyms.get().keys()
     }
 
     // FEATURE: allow ordering by occurences position in the document. Not sure if possible yet.
@@ -375,7 +375,7 @@
         let short = [*#display-short(acr, plural: false)#delimiter*]
         // check if a label for a link should be created and if it is the first acronyms index,
         // since it can not create multiple labels
-        if clickable and (not acrostiche-index.get()) {
+        if clickable and (not _acrostiche-index.get()) {
           short = [#short#label("acrostiche-" + acr)]
         }
         (short, display-def(acr, plural: false))
@@ -384,7 +384,7 @@
     if clickable {
       // set the index state to true to avoid subsequent clickable indexes to have labels
       // that would conflict with the ones just created
-      acrostiche-index.update(true)
+      _acrostiche-index.update(true)
     }
   }
 }
