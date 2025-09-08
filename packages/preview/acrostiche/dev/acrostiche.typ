@@ -3,6 +3,7 @@
 
 
 //// Initialize and validate acronyms
+
 #let __allowed-definitions = ("short", "short-pl", "long", "long-pl")
 
 #let __complete-acronym-entry-dict(key, definitions) = {
@@ -86,7 +87,7 @@
 /// Each enty consists of the acronym definitions, whether it will be expanded on next usage, and whether it was used.
 #let acros = state("acrostiche-acronyms", none)
 
-/// Whether an acronym index was inserted in teh document.
+/// Whether an acronym index was inserted in the document.
 #let acrostiche-index = state("acrostiche-index", false)
 
 /// Initialize acronyms and validate their definitions.
@@ -311,7 +312,7 @@
 /// - case-sensitive (bool): Whehter to sort the acronyms case-sensitive. Only relevant if sorting is enabled.
 /// - title (content): Title of the acronym index.
 /// - delimiter (string): Delimiter between acronym and its definition.
-/// - row-gutter (): Row-gutter argument used to arrange the index in a grid. See documentation of grid() for details.
+/// - row-gutter: Row-gutter argument used to arrange the index in a grid. See documentation of grid() for details.
 /// - used-only (bool): Only include the acronyms in the index that are used in the document.
 /// - column-ratio (float): A positive float that indicates the width ratio of the first column (acronyms) with respect to the second (definitions).
 /// - clickable (bool): Create a clickable link to the acronym definition in the first index if true.
