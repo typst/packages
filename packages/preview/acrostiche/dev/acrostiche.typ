@@ -109,7 +109,7 @@
 /// Capitalize the first letter of the acronym definition.
 ///
 /// Capitalizes the first letter if the definition is a string else panics.
-#let capitalize-first(string) = {
+#let _capitalize-first(string) = {
   // return the passed string with the first letter capitalized and the rest unchanged
   if not type(string) == str {
     panic(
@@ -158,7 +158,7 @@
         defs.at("long")
       }
       if cap {
-        def = capitalize-first(def)
+        def = _capitalize-first(def)
       }
       return def
     } else {
