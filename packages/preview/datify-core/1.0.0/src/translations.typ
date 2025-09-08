@@ -1,4 +1,4 @@
-#let data = toml("translations/cldr-dates.toml")
+#let _cldr_data = toml("translations/cldr-dates.toml")
 
 #let get-day-name = (
   weekday,
@@ -25,10 +25,10 @@
 
   let weekday_str = str(weekday)
 
-  if not data.keys().contains(lang) {
+  if not _cldr_data.keys().contains(lang) {
     panic("Unknown language: " + lang)
   }
-  let days = data.at(lang).at("days")
+  let days = _cldr_data.at(lang).at("days")
   if not days.keys().contains(usage) {
     panic("Invalid day usage: " + usage + " (must be 'format' or 'stand-alone')")
   }
@@ -68,10 +68,10 @@
 
   let month_str = str(month)
 
-  if not data.keys().contains(lang) {
+  if not _cldr_data.keys().contains(lang) {
     panic("Unknown language: " + lang)
   }
-  let months = data.at(lang).at("months")
+  let months = _cldr_data.at(lang).at("months")
   if not months.keys().contains(usage) {
     panic("Invalid month usage: " + usage + " (must be 'format' or 'stand-alone')")
   }
@@ -90,11 +90,11 @@
   pattern-type,
   lang: "en",
 ) => {
-  if not data.keys().contains(lang) {
+  if not _cldr_data.keys().contains(lang) {
     panic("Unknown language: " + lang)
   }
-  let patterns = data.at(lang).at("patterns")
-  // If pattern_type is a known key, return the pattern from data.
+  let patterns = _cldr_data.at(lang).at("patterns")
+  // If pattern_type is a known key, return the pattern from _cldr_data.
   // Otherwise, if a string, treat as custom pattern and return as-is.
   if patterns.keys().contains(pattern-type) {
     return patterns.at(pattern-type)
