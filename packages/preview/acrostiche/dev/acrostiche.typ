@@ -258,7 +258,7 @@
 
 
 #let print-index(
-  level: 1,
+  depth: 1,
   numbering: none,
   outlined: false,
   sorted: none,
@@ -293,7 +293,7 @@
   )
 
   if title != "" {
-    heading(level: level, numbering: numbering, outlined: outlined)[#title]
+    heading(depth: depth, numbering: numbering, outlined: outlined)[#title]
   }
 
   context {
