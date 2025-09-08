@@ -31,7 +31,7 @@ The function `meander.reflow` splits the input sequence into
   ]
 })
 ```
-![a page where text flows between 5 rectangular obstacles](gallery/multi-obstacles.png)
+![a page where text flows between 5 rectangular obstacles](gallery/multi-obstacles.svg)
 
 -----
 
@@ -52,7 +52,7 @@ Use multiple `container`s to produce layouts in columns.
   content[#lorem(600)]
 })
 ```
-![a two-column page with 3 obstacles](gallery/columns.png)
+![a two-column page with 3 obstacles](gallery/two-columns.svg)
 
 ------
 
@@ -86,4 +86,4 @@ Meander allows precise control over the boundaries of obstacles, to draw complex
   ]
 })
 ```
-![text with a circular cutout](gallery/shape.png)
+![text with a circular cutout](gallery/circle-hole.svg)
