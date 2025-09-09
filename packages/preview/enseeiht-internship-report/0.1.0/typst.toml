@@ -1,0 +1,14 @@
+[package]
+name = "enseeiht-internship-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Victor Marti"]
+license = "MIT"
+description = "Unofficial Internship Report Template for ENSEEIHT."
+keywords = ["professional", "report", "internship", "enseeiht"]
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
