@@ -1,5 +1,9 @@
-#import "@preview/fontawesome:0.5.0": *
+#import "@preview/fontawesome:0.6.0": *
 #import "@preview/linguify:0.4.2": *
+
+// TODO(PT): Move to Fontawesome 7
+// for now, specify Fontawesome 6
+#fa-version("6")
 
 // const color
 #let color-darknight = rgb("#131A28")
@@ -559,8 +563,8 @@
 }
 
 /// Show a grid of skill lists with each row corresponding to a category of skills, followed by the skills themselves. The dictionary given to this function should have the skill categories as the dictionary keys and the values should be an array of values for the corresponding key.
-/// - categories_with_values (dictionary): key value pairs of skill categories and it's corresponding values (skills)
-#let resume-skill-grid(categories_with_values: (:)) = {
+/// - categories-with-values (dictionary): key value pairs of skill categories and it's corresponding values (skills)
+#let resume-skill-grid(categories-with-values: (:)) = {
   set block(below: 1.25em)
   set pad(top: 2pt)
 
@@ -568,7 +572,7 @@
     #grid(
       columns: (auto, auto),
       gutter: 10pt,
-      ..categories_with_values
+      ..categories-with-values
         .pairs()
         .map(((key, value)) => (
           resume-skill-category(key),
@@ -583,12 +587,12 @@
 
 /// ---- Coverletter ----
 
-#let default-closing(lang_data) = {
+#let default-closing(lang-data) = {
   align(bottom)[
     #text(weight: "light", style: "italic")[
-      #linguify("attached", from: lang_data)#sym.colon #linguify(
+      #linguify("attached", from: lang-data)#sym.colon #linguify(
         "curriculum-vitae",
-        from: lang_data,
+        from: lang-data,
       )]
   ]
 }

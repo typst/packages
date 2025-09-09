@@ -9,7 +9,7 @@ description = "A modern resume template based on the Awesome-CV Latex template."
 keywords = ["CV", "Curriculum Vitae", "Resume", "Minimalistic", "Professional", "Modern"]
 categories = ["cv"]
 disciplines = []
-exclude = ["resume-documentation*", "scripts*", "assets/images/*"]
+exclude = ["resume-documentation*", "scripts*", "assets/images/*", "tests/*"]
 repository = "https://github.com/DeveloperPaul123/modern-cv"
 
 [template]
