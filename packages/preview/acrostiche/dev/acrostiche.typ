@@ -182,8 +182,6 @@
 ///
 /// - acr (string): Acronym key
 #let mark-acr-used(acr) = {
-  // Generate the key associated with this acronym
-  let state-key = "acronym-state-" + acr
   _acronyms.update(data => {
     let ndata = data
     // Change both booleans to mark it used until reset AND in the overall document.
@@ -201,16 +199,12 @@
 /// - plural (bool): Plural version of the definition
 /// - cap (bool): Capitalize the first letter if the definition is a string
 #let acr(acr, plural: false, cap: false) = {
-  // Display an acronym in the singular form by default. Expands it if used for the first time.
-
-  // Generate the key associated with this acronym
-  let state-key = "acronym-state-" + acr
   // Test if the state for this acronym already exists and if the acronym was already used
   // to choose what to display.
   context {
-    let data = _acronyms.get()
-    if acr in data {
-      let already-used = data.at(acr).at(1)
+    let acronyms = _acronyms.get()
+    if acr in acronyms {
+      let already-used = acronyms.at(acr).at(1)
       if already-used {
         let short = display-short(acr, plural: plural)
         // test if a clickable index is used in the document to add a link in the acronym
