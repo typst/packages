@@ -28,7 +28,7 @@ The function `meander.reflow` splits the input sequence into
   placed(top + right, my-img-2)
   placed(horizon + right, my-img-3)
   placed(bottom + left, my-img-4)
-  placed(bottom + left, dx: 35%, my-img-5)
+  placed(bottom + left, dx: 32%, my-img-5)
 
   container()
   content[
