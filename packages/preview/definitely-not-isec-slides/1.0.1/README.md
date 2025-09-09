@@ -8,7 +8,7 @@ Tested typst version: `0.13.1`.
 
 > [!NOTE]
 > If you are an ISEC or TUGraz employee and think that `isec-slides` or
-> `tugraz-slieds` fits more, I would need an approval to allocate the name :)
+> `tugraz-slides` fits more, I would need an approval to allocate the name :)
 
 Need a thesis? Check out the sibling package [definitely-not-isec-thesis](https://typst.app/universe/package/definitely-not-isec-thesis)
 
