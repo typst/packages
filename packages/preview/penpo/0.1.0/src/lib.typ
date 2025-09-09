@@ -2,7 +2,7 @@
 
 #import "pakala.typ"
 
-#import "nimisin.typ": nimisin, nimisin-mute
+#import "nimisin.typ": nimi-ijo
 
 #import "dyn.typ"
 #import dyn: o-ante-e-sitelen-lili, o-oke-e-nimi

@@ -8,7 +8,7 @@
 #let toggle() = dyn.kokosila.update(b => not b)
 
 #import "dyn.typ": o-ante-e-sitelen-lili as update-punct, o-oke-e-nimi as allow-words
-#import "nimisin.typ": nimisin as spelling, nimisin-mute as spellings
+#import "nimisin.typ": nimi-ijo as spelling
 #import "pakala.typ": open as begin-log, pini as end-log
 #import "pona.typ": nanpa-ala-li-nanpa as default-sp-variant
 

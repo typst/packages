@@ -71,7 +71,7 @@
         let spelling = if shorten and data.short != none { data.short } else { data.full }
         [#nasin-sitelen.Nimi(spelling)]
         if not shorten {
-          nimisin.nimisin-kama-lili(base, data.short, spelling)
+          nimisin.nimi-ijo-kama-lili(base, data.short, spelling)
         }
       } else {
         let (color, log) = pakala.pu-ala-pu(base)
