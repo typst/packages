@@ -41,7 +41,7 @@
       }
     }
     // Leave it a little room
-    // 1em margin at the bottom to let it potentially add an extra line
+    // 0.5em margin at the bottom to let it potentially add an extra line
     let old-lo = cont.dy + cont.height
     let new-lo = old-lo + geometry.resolve(size, y: 0.5em).y
     new-lo = calc.min(new-lo, cont.bounds.y + cont.bounds.height)
@@ -69,7 +69,7 @@
     for (full-box,_) in full {
       if new-hi > lo { continue }
       if geometry.intersects((cont.dx, cont.dx + cont.width), (full-box.dx, full-box.dx + full-box.width), tolerance: 1mm) {
-        if geometry.intersects((new-hi, lo), (full-box.dy, full-box.dy + full-box.height + lineskip)) {
+        if geometry.intersects((new-hi, lo), (full-box.dy, full-box.dy + full-box.height + lineskip), tolerance: 1mm) {
           new-hi = calc.max(new-hi, full-box.dy + full-box.height + lineskip)
         }
       }

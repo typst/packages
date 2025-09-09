@@ -3,7 +3,8 @@ _Text threading and image wrap-around for Typst._
 
 `meander` provides a core function `reflow` to segment a page and wrap content around images.
 
-See the [documentation](https://github.com/Vanille-N/meander.typ/tree/v0.2.0/docs/main.pdf).
+<!-- @helper(if publish; grep https) -->
+See the [documentation](https://github.com/Vanille-N/meander.typ/releases/download/v0.2.0/docs.pdf).
 
 ## Quick start
 
@@ -12,6 +13,7 @@ The function `meander.reflow` splits the input sequence into
 - containers: produced by `container`, optionally specifying an alignment and dimensions,
 - flowing content: produced by `content`.
 
+<!-- @helper(until ```; diff gallery/multi-obstacles.typ) -->
 ```typ
 #import "@preview/meander:0.2.0"
 
@@ -24,12 +26,15 @@ The function `meander.reflow` splits the input sequence into
 #meander.reflow({
   import meander: *
 
+  // As many obstacles as you want
   placed(top + left, my-img-1)
   placed(top + right, my-img-2)
   placed(horizon + right, my-img-3)
   placed(bottom + left, my-img-4)
-  placed(bottom + left, dx: 32%, my-img-5)
+  placed(bottom + left, dx: 32%,
+         my-img-5)
 
+  // The container wraps around all
   container()
   content[
     #set par(justify: true)
@@ -43,6 +48,7 @@ The function `meander.reflow` splits the input sequence into
 
 Use multiple `container`s to produce layouts in columns.
 
+<!-- @helper(until ```; diff gallery/two-columns.typ) -->
 ```typ
 #import "@preview/meander:0.2.0"
 
@@ -57,6 +63,8 @@ Use multiple `container`s to produce layouts in columns.
   placed(center + horizon, my-img-2)
   placed(top + right, my-img-3)
 
+  // With two containers we can
+  // emulate two columns.
   container(width: 55%)
   container(align: right, width: 40%)
   content[#lorem(600)]
@@ -68,6 +76,7 @@ Use multiple `container`s to produce layouts in columns.
 
 Meander allows precise control over the boundaries of obstacles, to draw complex paragraph shapes.
 
+<!-- @helper(until ```; diff gallery/circle-hole.typ) -->
 ```typ
 #import "@preview/meander:0.2.0"
 
@@ -78,7 +87,7 @@ Meander allows precise control over the boundaries of obstacles, to draw complex
     center + horizon,
     boundary:
       // Override the default margin
-      contour.margin(4pt) +
+      contour.margin(1cm) +
       // Then redraw the shape as a grid
       contour.grid(
         // 25 vertical and horizontal subdivisions (choose whatever looks good)
@@ -87,7 +96,7 @@ Meander allows precise control over the boundaries of obstacles, to draw complex
         (x, y) => calc.pow(2 * x - 1, 2) + calc.pow(2 * y - 1, 2) <= 1
       ),
     // Underlying object
-    circle(radius: 1.5cm, fill: yellow),
+    circle(radius: 3cm, fill: yellow),
   )
 
   container(width: 48%)

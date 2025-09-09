@@ -11,5 +11,5 @@ repository = "https://github.com/Vanille-N/meander.typ"
 keywords = ["wrapping", "threading", "float", "layout"]
 categories = ["layout"]
 
-exclude = ["*.png", "*.svg"]
+exclude = ["*.svg"]
 

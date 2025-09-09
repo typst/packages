@@ -184,7 +184,7 @@
     }
     for obj in bounds {
       forbidden.push(obj)
-      debug += place(top + left)[#move(dx: obj.x, dy: obj.y)[#box(stroke: red, fill: pat-forbidden(10pt), width: obj.width, height: obj.height)]]
+      debug += place(top + left)[#move(dx: obj.x, dy: obj.y)[#box(stroke: red, fill: pat-forbidden(30pt), width: obj.width, height: obj.height)]]
     }
   }
   (rects: forbidden, display: display, debug: debug)
@@ -278,7 +278,7 @@
       for zone in valid-zones {
         assert(lo >= hi)
         assert(zone.width >= 0pt)
-        debug += place(dx: zone.x, dy: hi)[#box(width: zone.width, height: lo - hi, fill: pat-allowed(10pt), stroke: green)]
+        debug += place(dx: zone.x, dy: hi)[#box(width: zone.width, height: lo - hi, fill: pat-allowed(30pt), stroke: green)]
         zones-to-fill.push((dx: zone.x, dy: hi, height: lo - hi, width: zone.width, bounds: bounds))
       }
     }
