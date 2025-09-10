@@ -1,5 +1,5 @@
 #import "@preview/unofficial-hka-thesis:1.0.2": todo, flex-caption
-#import "@preview/acrostiche:0.2.0": acr, acrpl
+#import "@preview/acrostiche:0.6.0": acr, acrpl
 
 = Foundations
 

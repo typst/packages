@@ -2,7 +2,7 @@
 #import "abbreviations.typ": abbreviations
 #import "settings/metadata.typ": *
 #import "settings/settings.typ": *
-#import "@preview/glossarium:0.5.4": make-glossary, register-glossary
+#import "@preview/glossarium:0.5.9": make-glossary, register-glossary
 
 #show: make-glossary
 #register-glossary(abbreviations)
