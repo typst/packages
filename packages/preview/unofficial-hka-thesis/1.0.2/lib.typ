@@ -1,5 +1,5 @@
 #import "modules/titlepage.typ": *
-#import "@preview/glossarium:0.5.4": print-glossary, register-glossary
+#import "@preview/glossarium:0.5.9": print-glossary, register-glossary
 
 #let in-outline = state("in-outline", false)
 #let flex-caption(long, short) = context {
