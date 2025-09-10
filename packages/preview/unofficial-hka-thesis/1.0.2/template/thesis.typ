@@ -1,4 +1,4 @@
-#import "@preview/unofficial-hka-thesis:1.0.1": *
+#import "@preview/unofficial-hka-thesis:1.0.2": *
 #import "abbreviations.typ": abbreviations
 #import "settings/metadata.typ": *
 #import "settings/settings.typ": *
