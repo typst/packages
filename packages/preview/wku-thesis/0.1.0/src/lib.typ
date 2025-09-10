@@ -1,4 +1,4 @@
-#let graduate_thesis(
+#let graduate-thesis(
   title: [thesis title],
   author: "author name",
   degree: [MS of Computer Information Systems],
@@ -7,10 +7,10 @@
   supervisor: [Supervisor Name],
   month: [Month],
   year: [Year],
-  degree_year: [Year],
-  program_type: [Master of Science],
-  degree_type: [Master],
-  degree_department: [Computer Science and Technology],
+  degree-year: [Year],
+  program-type: [Master of Science],
+  degree-type: [Master],
+  degree-department: [Computer Science and Technology],
   abstract: none,
   keywords: none,
   acknowledgments: none,
@@ -95,9 +95,9 @@
     row-gutter: 1.5em,
     align: (left, right),
     [
-      #program_type (#degree_year)
+      #program-type (#degree-year)
       #linebreak()
-      #degree_department
+      #degree-department
     ],
     [
       #university
@@ -123,7 +123,7 @@
     [
       #author
       #linebreak()
-      #degree_type, (#degree_department)
+      #degree-type, (#degree-department)
       #linebreak()
       #university
       #linebreak()

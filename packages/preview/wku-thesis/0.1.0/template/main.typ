@@ -1,7 +1,7 @@
 // WKU Thesis Template
-#import "@preview/wku-thesis:0.1.0": graduate_thesis
+#import "@preview/wku-thesis:0.1.0": graduate-thesis
 
-#show: graduate_thesis.with(
+#show: graduate-thesis.with(
   title: [Your Thesis Title Goes Here],
   author: "Your Name",
   degree: [MS of Computer Information Systems],
@@ -10,8 +10,8 @@
   supervisor: [Your Supervisor],
   month: [December],
   year: [2025],
-  degree_year: [2025],
-  program_type: [Master of Science],
+  degree-year: [2025],
+  program-type: [Master of Science],
   abstract: [
     Classical Traceability Management Systems (TMS) help track links between software parts like requirements, designs, Code, and test cases. They help keep projects organized and meet quality goals. But they have issues. Pulling out data takes too long. Searching is hard. The results are greasy and not easy to understand. These problems slow teams down and make fast decisions, especially for agile teams.
 

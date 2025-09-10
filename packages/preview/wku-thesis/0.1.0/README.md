@@ -16,7 +16,7 @@ Typst will create a new directory with all the files needed to get you started.
 
 ## Configuration
 
-This template exports the `graduate_thesis` function with the following named arguments:
+This template exports the `graduate-thesis` function with the following named arguments:
 
 - **title**: The title of the thesis
 - **author**: Author name (e.g., "John Doe" or "John Doe, Jane Smith" for multiple authors)
@@ -41,9 +41,9 @@ The function also accepts a single, positional argument for the body of the thes
 ## Example
 
 ```typ
-#import "@preview/wku-thesis:0.1.0": graduate_thesis
+#import "@preview/wku-thesis:0.1.0": graduate-thesis
 
-#show: graduate_thesis.with(
+#show: graduate-thesis.with(
   title: [Automatic Visualization of Traceability Information],
   author: "Cheng Bao",
   degree: [MS of Computer Information Systems],
@@ -52,8 +52,8 @@ The function also accepts a single, positional argument for the body of the thes
   supervisor: [Dr. Nasser Mustafa],
   month: [December],
   year: [2025],
-  degree_year: [2025],
-  program_type: [Master of Science],
+  degree-year: [2025],
+  program-type: [Master of Science],
   abstract: [
     Classical Traceability Management Systems (TMS) help track links between software parts like requirements, designs, code, and test cases.
 
