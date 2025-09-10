@@ -2,15 +2,15 @@
 name = "typxidian"
 version = "0.1.0"
 compilter = "0.13.0"
-entrypoint = "template.typ"
+entrypoint = "lib.typ"
 authors = ["Angelo Nazzaro <https://github.com/angelonazzaro>"]
 keywords = ["thesis", "report", "note-taking", "academic", "university"]
 categories = ["report", "thesis", "note taking"]
 license = "MIT"
-description = "A modern template for note-taking, thesis and academic reports inspried by Obsidian."
+description = "Modern note-taking, thesis and academic reports inspried by Obsidian."
 repository = "https://github.com/angelonazzaro/typxidian"
 
 [template]
 path = "./"
-entrypoint = "main.typ"
+entrypoint = "typxidian.typ"
 thumbnail = "assets/figures/thumbnail.png"

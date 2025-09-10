@@ -1,5 +1,5 @@
 
-#import "@local/typxidian:0.1.0": template
+#import "template.typ": template
 #import "dependencies.typ": cetz, subfigure, gls, glspl, booktabs-default-table-style, wrap-content, wrap-top-bottom
 
 #show: template.with(
