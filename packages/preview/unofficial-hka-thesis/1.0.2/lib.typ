@@ -56,7 +56,6 @@
 #let listings(
   abbreviations: ()
 ) = {
-  register-glossary(abbreviations)
   // Enable short captions to omit citations
   show outline: it => {
       in-outline.update(true)
