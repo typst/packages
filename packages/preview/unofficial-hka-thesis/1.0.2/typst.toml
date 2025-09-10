@@ -1,6 +1,6 @@
 [package]
 name = "unofficial-hka-thesis"
-version = "1.0.1"
+version = "1.0.2"
 entrypoint = "lib.typ"
 authors = ["Ansgar Lichter <https://www.linkedin.com/in/ansgar-lichter-8532661b1>"]
 license = "MIT"
