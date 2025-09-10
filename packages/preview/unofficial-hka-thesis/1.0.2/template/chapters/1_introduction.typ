@@ -22,7 +22,7 @@
 
 #lorem(300)
 
-This is an example citation @Smith.2020. #gls("oidc_custom") means @oidc_custom. @figure describes @table which is shown in @listing. Test a b c d.
+This is an example citation @Smith.2020. #gls("oidc") means @oidc. @figure describes @table which is shown in @listing. Test a b c d.
 
 #figure(
   image("/figures/tiger.png", width: 80%),
