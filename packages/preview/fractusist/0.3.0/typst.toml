@@ -1,0 +1,13 @@
+[package]
+name = "fractusist"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["Guangxi Liu <https://github.com/liuguangxi>"]
+license = "MIT"
+description = "Create a variety of wonderful fractals and curves in Typst."
+repository = "https://github.com/liuguangxi/fractusist"
+keywords = ["fractal", "L-system", "iterative", "recursive", "parametric"]
+categories = ["components", "visualization"]
+disciplines = ["computer-science", "mathematics"]
+compiler = "0.13.1"
+exclude = ["examples", "tests"]

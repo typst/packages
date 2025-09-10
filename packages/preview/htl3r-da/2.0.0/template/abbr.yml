@@ -1,0 +1,10 @@
+# Beispiel - kann entfernt werden
+da:
+  short:
+    singular: DA
+    plural: DA
+  long:
+    singular: Diplomarbeit
+    plural: Diplomarbeiten
+  description: Abschlussarbeit an einer HTL
+# Beispiel - kann entfernt werden

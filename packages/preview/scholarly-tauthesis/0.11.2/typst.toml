@@ -1,0 +1,18 @@
+[package]
+name = "scholarly-tauthesis"
+version = "0.11.2"
+entrypoint = "tauthesis.typ"
+authors = ["Santtu Söderholm <santtu.soderholm@tuni.fi>"]
+license = "MIT"
+description = "A template for writing Tampere University theses."
+homepage = "https://gitlab.com/tuni-official/thesis-templates/tau-typst-thesis-template"
+repository = "https://gitlab.com/tuni-official/thesis-templates/tau-typst-thesis-template"
+keywords = ["Tampere University", "thesis template"]
+categories = ["thesis"]
+disciplines = ["education"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

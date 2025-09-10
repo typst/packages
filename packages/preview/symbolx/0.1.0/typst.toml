@@ -1,0 +1,13 @@
+[package]
+name = "symbolx"
+description = "More powerful symbols"
+categories = ["utility"]
+authors = ["T0mstone <realt0mstone@gmail.com>"]
+repository = "https://codeberg.org/T0mstone/typst-symbolx"
+license = "MIT-0"
+
+version = "0.1.0"
+compiler = "0.12.0"
+
+entrypoint = "lib.typ"
+exclude = ["example*"]
