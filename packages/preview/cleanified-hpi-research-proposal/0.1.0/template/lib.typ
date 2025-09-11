@@ -164,7 +164,7 @@
     )
   }
 
-  content_before_toc
+  content-before-toc
 
   // Outline
   // Does not show heading lower than level 2.
