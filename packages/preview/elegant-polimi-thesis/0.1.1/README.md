@@ -8,12 +8,12 @@ Elegant and simple thesis template for [Typst](https://typst.app/), a modern typ
 They are rather similar. The main difference is the PoliBlu colour spread across the headings. I recommend to check them out.
 
 > [!NOTE]
-> See the [manual](https://github.com/VictuarVi/PoliMi-PhD-Thesis/blob/main/docs/manual.pdf) and [documentation](https://github.com/VictuarVi/PoliMi-PhD-Thesis/blob/main/docs/docs.pdf) for more information.
+> See the [manual](docs/manual.pdf) and [documentation](docs/docs.pdf) for more information.
 
 ## Preview ✨
 
 <p align="center">
-  <img alt="Frontspiece" src="thumbnail.png" width="45%">
+  <img alt="Frontispiece" src="thumbnail.png" width="45%">
 </p>
 
 ## Usage 🖋
@@ -29,7 +29,7 @@ A very simple document:
 ```typ
 #import "@preview/elegant-polimi-thesis:0.1.1": *
 
-#show: polimi_thesis.with(
+#show: polimi-thesis.with(
   title: "Thesis Title",
   author: "Vittorio Robecchi",
   advisor: "Prof. Donatella Sciuto",
@@ -49,8 +49,8 @@ A very simple document:
 // acknowledgements
 
 #toc
-#list_of_figures
-#list_of_tables
+#list-of-figures
+#list-of-tables
 
 #let nomenclature_ = (
   "key" : "value"
