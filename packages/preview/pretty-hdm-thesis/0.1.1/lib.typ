@@ -1,4 +1,4 @@
-#import "@preview/glossarium:0.5.7": make-glossary, register-glossary, print-glossary, gls, glspl
+#import "@preview/glossarium:0.5.9": make-glossary, register-glossary, print-glossary, gls, glspl
 
 #import "content/titlepage.typ": titlepage
 #import "content/declaration-of-authorship.typ": declaration-of-authorship-page
