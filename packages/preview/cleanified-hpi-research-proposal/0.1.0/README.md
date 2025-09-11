@@ -14,7 +14,7 @@ typst init @preview/cleanified-hpi-research-proposal
 An example configuration is located in [`example/`](./example/main.typ).
 
 ```typst
-#import "@preview/cleanified-hpi-research-proposal:0.0.2": *
+#import "@preview/cleanified-hpi-research-proposal:0.1.0": *
 
 #show: project.with(
   title: "My Very Long, Informative, Expressive, and Definitely Fancy Title",
