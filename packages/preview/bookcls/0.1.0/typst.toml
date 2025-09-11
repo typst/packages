@@ -1,0 +1,14 @@
+[package]
+name = "bookcls"
+version = "0.1.0"
+authors = ["Mathieu Aucejo"]
+license = "MIT"
+description = "Book template for Typst"
+entrypoint = "src/book.typ"
+categories = ["book", "model"]
+repository = "https://github.com/maucejo/book_template"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/main.png"
