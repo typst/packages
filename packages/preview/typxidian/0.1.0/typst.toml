@@ -1,7 +1,7 @@
 [package]
 name = "typxidian"
 version = "0.1.0"
-compilter = "0.13.0"
+compiler = "0.13.0"
 entrypoint = "template.typ"
 authors = ["Angelo Nazzaro <https://github.com/angelonazzaro>"]
 keywords = ["thesis", "report", "note-taking", "academic", "university"]
