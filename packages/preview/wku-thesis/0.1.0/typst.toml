@@ -1,0 +1,17 @@
+[package]
+name = "wku-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Timmycheng"]
+license = "MIT"
+description = "A Typst template for graduate thesis at Wenzhou-Kean University Computer Science and Mathematics department."
+repository = "https://github.com/Timmycheng/wku-thesis"
+keywords = ["thesis", "template", "university", "academic", "wku"]
+categories = ["thesis"]
+disciplines = ["computer-science", "mathematics"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "template/thumbnail.png"
+
