@@ -1,4 +1,12 @@
-#import "@preview/lavandula:0.1.0": *
+/*
+=== NOTICE ===
+This template uses the Font Awesome 7 Desktop icons 
+You can download the fonts here: https://fontawesome.com/download
+You either need to install them on your system, or upload them
+to your project folder if you use the Typst web app.
+*/
+
+#import "@preview/lavandula:0.1.1": *
 
 #show: lavandula-theme
 

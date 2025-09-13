@@ -1,6 +1,6 @@
 [package]
 name = "lavandula"
-version = "0.1.0"
+version = "0.1.1"
 compiler = "0.13.1"
 entrypoint = "src/lib.typ"
 repository = "https://github.com/face0xff/lavandula"
