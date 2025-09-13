@@ -109,11 +109,12 @@
   debug: false,
   /// Controls the behavior in case the content overflows the provided
   /// containers.
-  /// - `auto` -> adds a warning box to the document
-  /// - `true` -> ignores the issue
-  /// - `false` -> panics
-  /// -> bool
-  allow-overflow: auto,
+  /// - `false` -> adds a warning box to the document
+  /// - `true` -> ignores any overflow
+  /// - `pagebreak` -> the text that overflows is simply placed normally on the next page
+  /// - `panic` -> refuses to compile the document
+  /// -> any
+  overflow: false,
 ) = layout(size => {
   import "tiling.typ" as tiling
   let (flow, pages) = tiling.separate(ct)
@@ -147,7 +148,7 @@
     }
   }
   if flow != () {
-    if allow-overflow == auto {
+    if overflow == false {
       place(dx: latest-container.dx, dy: latest-container.dy)[
         #box(fill: red, stroke: black + 5pt, inset: 5mm)[
           #align(center)[
@@ -157,10 +158,18 @@
           ]
         ]
       ]
-    } else if allow-overflow == true {
+    } else if overflow == true {
       // Ignore
-    } else {
+    } else if overflow == std.pagebreak or overflow == tiling.pagebreak {
+      colbreak()
+      for ct in flow {
+        // TODO: when flow gets styles added, don't forget to apply them
+        ct.data
+      }
+    } else if overflow == panic {
       panic("The containers provided cannot hold the remaining text: " + repr(flow))
+    } else {
+      panic("Not a valid value for overflow")
     }
   }
 })
