@@ -37,32 +37,21 @@
   )
 
   let columns = (sidebar-width, 1fr)
-  
-  let blocks = (
-    block(
-      width: 100%,
-      height: 100%,
-      inset: (x: 0% + 17pt, y: 0% + 25pt),
-      fill: get-color("sidebar"),
-      sidebar,
-    ),
-    block(
-      width: 100%,
-      height: 100%,
-      inset: (x: 0% + 17pt, y: 0% + 25pt),
-      main-content,
-    ),
-  )
+  let blocks = (sidebar, main-content)
+  let fills = (get-color("sidebar"), get-color("bg"))
 
   if sidebar-position == "right" {
     columns = columns.rev()
     blocks = blocks.rev()
+    fills = fills.rev()
   }
   
   grid(
     columns: columns,
-    rows: (auto),
+    rows: (auto, 1fr),
     gutter: 0pt,
+    inset: (x: 0% + 17pt, y: 0% + 25pt),
+    fill: fills,
     ..blocks,
   )
 }
