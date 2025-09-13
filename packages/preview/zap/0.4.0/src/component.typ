@@ -82,7 +82,6 @@
                 let anchor = get-label-anchor(p-rotate)
                 let resolved-anchor = if type(l.anchor) == str and "south" in l.anchor { opposite-anchor(anchor) } else { anchor }
                 content(
-                    ..l,
                     if type(l.anchor) == str { "component." + l.anchor } else { l.anchor },
                     anchor: l.at("align", default: resolved-anchor),
                     l.content,
@@ -93,8 +92,8 @@
 
         // Decorations
         if position.len() == 2 {
-            line("in", "component.west", ..pre-style.at("wires"))
-            line("component.east", "out", ..pre-style.at("wires"))
+            line("in", "component.west", ..style.at("wires"))
+            line("component.east", "out", ..style.at("wires"))
 
             if i != none {
                 current(ctx, i)

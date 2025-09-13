@@ -9,8 +9,8 @@
     // Diode style
     let style = (
         radius: .3,
-        line: .25,
-        tunnel-length: .1,
+        width: .25,
+        tunnel-length: .11,
     )
 
     // Drawing function
@@ -22,28 +22,28 @@
         line((0deg, style.radius), (180deg, style.radius / 2), ..style.at("wires"))
 
         // Main cathode line (vertical)
-        line((style.radius, -style.line), (style.radius, style.line), ..style)
+        line((style.radius, -style.width), (style.radius, style.width), ..style)
 
         // Diode specific lines - horizontal lines orthogonal to cathode
         if (type in ("tunnel", "zener", "schottky")) {
             // Calculate extension to account for cathode line thickness
-            let stroke-width = style.at("stroke", default: 0.8pt)
-            let half-stroke = (stroke-width / 2).cm() // Convert to float
+            let stroke-width = cetz.util.resolve-stroke(style.at("stroke", default: 0.8pt)).at("thickness", default: 0.8pt).cm()
+            let half-stroke = stroke-width / 2
 
             if (type == "tunnel") {
-                line((style.radius - style.tunnel-length, style.line), (style.radius + half-stroke, style.line), ..style)
+                line((style.radius - style.tunnel-length, style.width), (style.radius + half-stroke, style.width), ..style)
             } else {
-                line((style.radius + style.tunnel-length, style.line), (style.radius - half-stroke, style.line), ..style)
+                line((style.radius + style.tunnel-length, style.width), (style.radius - half-stroke, style.width), ..style)
             }
 
             // Lower line toward anode
-            line((style.radius - style.tunnel-length, -style.line), (style.radius + half-stroke, -style.line), ..style)
+            line((style.radius - style.tunnel-length, -style.width), (style.radius + half-stroke, -style.width), ..style)
 
             // Shottky specific lines
             if (type == "schottky") {
                 let shottky-offset = style.tunnel-length - half-stroke
-                line((style.radius + shottky-offset, style.line), (style.radius + shottky-offset, style.line - style.tunnel-length), ..style)
-                line((style.radius - shottky-offset, -style.line), (style.radius - shottky-offset, -style.line + style.tunnel-length), ..style)
+                line((style.radius + shottky-offset, style.width), (style.radius + shottky-offset, style.width - style.tunnel-length), ..style)
+                line((style.radius - shottky-offset, -style.width), (style.radius - shottky-offset, -style.width + style.tunnel-length), ..style)
             }
         }
 
