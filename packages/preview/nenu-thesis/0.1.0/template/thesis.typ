@@ -1,4 +1,4 @@
-#import "../lib.typ": thesis
+#import "@preview/nenu-thesis:0.1.0": thesis
 #import "@preview/kouhu:0.1.0": kouhu
 #import "@preview/codly:1.1.1": codly, codly-init, no-codly
 #import "@preview/codly-languages:0.1.1": *
