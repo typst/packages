@@ -9,4 +9,4 @@ repository = "https://github.com/Robotechnic/diagraph.git"
 keywords = ["graphviz", "graph", "diagram"]
 categories = ["components", "visualization", "integration"]
 compiler = "0.13.0"
-exclude = ["graphviz_interface/src/*", "graphviz_interface/.*", "graphviz_interface/Makefile","graphviz_interface/*.prot", "examples/*", ".gitignore", "Makefile"]
+exclude = ["graphviz_interface/*/*", "graphviz_interface/*.tar.gz", "*.supp", "*.txt",  "graphviz_interface/.*", "graphviz_interface/Makefile","graphviz_interface/*.prot", "examples/*", ".gitignore", "Makefile"]

@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.4.1": *
+#import "@preview/cetz:0.4.2": *
 
 // Render graph as lines and rectangles,
 #let render-layout(graph) = {
