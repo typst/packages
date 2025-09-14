@@ -1,0 +1,14 @@
+[package]
+name = "olaii-upn-qr"
+version = "0.0.1"
+entrypoint = "src/olaii-upn-qr.typ"
+authors = ["Olaii d.o.o. <https://olaii.com>"]
+license = "MIT"
+description = "Univerzalni plačilni nalog UPN QR (Obrazec UPN QR)."
+repository = "https://github.com/Olaii/olaii-upn-qr-typst-template"
+keywords = ["UPN", "UPN QR", "Univerzalni plačilni nalog"]
+categories = ["components"]
+exclude = [
+	".github",
+	".typstignore",
+]
