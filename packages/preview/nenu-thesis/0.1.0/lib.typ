@@ -90,6 +90,14 @@
   /// - supervisor-en: 导师英文信息
   /// - submit-date: 提交日期
   /// - school-code: 学校代码
+  /// - reviewers: 论文评阅人
+  ///   - name: 姓名
+  ///   - workplace: 工作单位/职称
+  ///   - evaluation: 总体评价
+  /// - committee-members: 答辩委员会成员
+  ///   - name: 姓名
+  ///   - workplace: 工作单位/职称
+  ///   - title: 总体评价
   /// -> dictionary
   info: (:),
 ) = {
@@ -216,6 +224,7 @@
     committee-page: (..args) => {
       if doctype == "master" or doctype == "doctor" {
         master-comm-page(
+          info: info,
           anonymous: anonymous,
           twoside: twoside,
           ..args,

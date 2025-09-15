@@ -134,11 +134,11 @@
           columns: grid-columns,
           row-gutter: grid-row-gutter,
           column-gutter: grid-column-gutter,
-          grid.cell()[#justify-text("论文作者签名")],
-          info-value-cell()[#box[]],
-          grid.cell()[#justify-text("日期")],
-          info-value-cell()[#box(datetime-display(info.submit-date))
-          ],
+          grid.cell(justify-text("论文作者签名")),
+          info-value-cell(box()),
+          grid.cell(justify-text("日期")),
+          info-value-cell(box(datetime-display(info.submit-date)))
+          ,
         ),
       )
     ]
@@ -152,25 +152,25 @@
 
       （保密的学位论文在解密后适用本授权书）
 
-      #pad()[
-        #grid(
+      #pad(
+        grid(
           columns: (.7fr, 1fr, .7fr, 1fr),
           column-gutter: (0em, 1em, 0em),
-          grid.cell()[#justify-text("论文作者签名")],
-          info-value-cell()[#box[]],
-          grid.cell()[#justify-text("指导教师签名")],
-          info-value-cell()[#box[]],
-        )
-      ]
+          grid.cell(justify-text("论文作者签名")),
+          info-value-cell(box()),
+          grid.cell(justify-text("指导教师签名")),
+          info-value-cell(box()),
+        ),
+      )
 
       #pad(
         grid(
           columns: (.7fr, 1fr, .7fr, 1fr),
           column-gutter: (0em, 1em, 0em),
-          grid.cell()[#justify-text("日期")],
-          info-value-cell()[#box(datetime-display(info.submit-date))],
-          grid.cell()[#justify-text("日期")],
-          info-value-cell()[#box(datetime-display(info.submit-date))],
+          grid.cell(justify-text("日期")),
+          info-value-cell(box(datetime-display(info.submit-date))),
+          grid.cell(justify-text("日期")),
+          info-value-cell(box(datetime-display(info.submit-date))),
         ),
       )
     ]
