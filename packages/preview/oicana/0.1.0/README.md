@@ -72,7 +72,7 @@ This package is available under the [MIT license](./LICENSE.md).
 Oicana itself is source available under PolyForm Noncommercial License 1.0.0. For other licensing details, please take a look at [the website][Oicana]. 
 
 
-[Oicana]: "https://oicana.com"
+[Oicana]: https://oicana.com
 [example-templates]: https://github.com/oicana/oicana-example-templates
 [getting-started]: https://docs.oicana.com/getting-started
 [oicana-template]: https://docs.oicana.com/templates
