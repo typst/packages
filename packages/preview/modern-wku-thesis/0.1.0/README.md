@@ -1,4 +1,4 @@
-# WKU Thesis
+# Modern WKU Thesis Templates
 
 A Typst template for graduate thesis at Wenzhou-Kean University Computer Science and Mathematics department.
 
