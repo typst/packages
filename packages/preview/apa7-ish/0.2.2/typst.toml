@@ -1,0 +1,17 @@
+[package]
+name = "apa7-ish"
+version = "0.2.2"
+entrypoint = "src/apa7ish.typ"
+authors = ["MrWunderbar"]
+license = "MIT"
+description = "Manuscript template that (mostly) complies with APA7 Style (Work in Progress)."
+repository = "https://github.com/mrwunderbar666/typst-apa7ish"
+keywords = ["apa", "american psychological association", "manuscript", "article"]
+categories = ["paper"]
+compiler = "0.13.1"
+exclude = ["example/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
