@@ -1,5 +1,5 @@
 // WKU Thesis Template
-#import "@preview/wku-thesis:0.1.0": graduate-thesis
+#import "@preview/modern-wku-thesis:0.1.0": graduate-thesis
 
 #show: graduate-thesis.with(
   title: [Your Thesis Title Goes Here],
