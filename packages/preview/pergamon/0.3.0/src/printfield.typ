@@ -24,7 +24,7 @@
       [Google Books: #link("http://books.google.com/books?id=" + eprint, eprint)]
     } else {
       let suffix = ifdef(reference, "eprintclass", options, eprintclass => options.at("format-brackets")(eprintclass))
-      if eprint-type == none { eprint-type = "eprint" }
+      let eprint-type = if eprint-type == none { "eprint" } else { eprint-type }
       [#eprint-type: #link(eprint, spaces(eprint, suffix))]
     }
   })
