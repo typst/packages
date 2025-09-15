@@ -27,7 +27,7 @@ In the main file, you will need this:
     bib-style: "chicago-notes",
     glossary: glossary, acronyms: acronyms,
     abstract-de: abstract-de, abstract-en: abstract-en,
-    )
+)
 ```
 
 You should edit the date to be your submission date, or just use datetime.today() (the default in the template).
