@@ -4,12 +4,12 @@ A Typst template for graduate thesis at Wenzhou-Kean University Computer Science
 
 ## Usage
 
-You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `wku-thesis`.
+You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `modern-wku-thesis`.
 
 Alternatively, you can use the CLI to kick this project off using the command:
 
 ```bash
-typst init @preview/wku-thesis
+typst init @preview/modern-wku-thesis
 ```
 
 Typst will create a new directory with all the files needed to get you started.
@@ -41,7 +41,7 @@ The function also accepts a single, positional argument for the body of the thes
 ## Example
 
 ```typ
-#import "@preview/wku-thesis:0.1.0": graduate-thesis
+#import "@preview/modern-wku-thesis:0.1.0": graduate-thesis
 
 #show: graduate-thesis.with(
   title: [Automatic Visualization of Traceability Information],
