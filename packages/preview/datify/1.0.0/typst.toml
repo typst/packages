@@ -8,6 +8,3 @@ description = "Datify is a Typst package for flexible, locale-aware date formatt
 repository = "https://github.com/Jeomhps/datify"
 compiler = "0.13.1"
 exclude = ["tests*"]
-
-[dependencies]
-datify-core = "1.0.0"
