@@ -51,6 +51,20 @@
     supervisor: ("李四", "教授"),
     supervisor-en: "Professor My Supervisor",
     submit-date: datetime.today(),
+    reviewers: (
+      (name: "张三", workplace: "工作单位", evaluation: "总体评价"),
+      (name: "李四", workplace: "工作单位", evaluation: "总体评价"),
+      (name: "王五", workplace: "工作单位", evaluation: "总体评价"),
+      (name: "赵六", workplace: "工作单位", evaluation: "总体评价"),
+      (name: "孙七", workplace: "工作单位", evaluation: "总体评价"),
+    ),
+    committee-members: (
+      (name: "张三", workplace: "工作单位", title: "职称"),
+      (name: "李四", workplace: "工作单位", title: "职称"),
+      (name: "王五", workplace: "工作单位", title: "职称"),
+      (name: "赵六", workplace: "工作单位", title: "职称"),
+      (name: "孙七", workplace: "工作单位", title: "职称"),
+    ),
   ),
   bibliography: bibliography.with("ref.bib"),
 )
@@ -65,7 +79,7 @@
 #cover()
 
 //* 委员会页
-// #committee-page()
+#committee-page()
 
 //* 声明页
 #decl-page()

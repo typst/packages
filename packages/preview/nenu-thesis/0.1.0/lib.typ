@@ -116,6 +116,20 @@
       supervisor-en: "Professor My Supervisor",
       submit-date: datetime.today(),
       school-code: "10200",
+      reviewers: (
+        (name: "张三", workplace: "工作单位", evaluation: "总体评价"),
+        (name: "李四", workplace: "工作单位", evaluation: "总体评价"),
+        (name: "王五", workplace: "工作单位", evaluation: "总体评价"),
+        (name: "赵六", workplace: "工作单位", evaluation: "总体评价"),
+        (name: "孙七", workplace: "工作单位", evaluation: "总体评价"),
+      ),
+      committee-members: (
+        (name: "张三", workplace: "工作单位", title: "职称"),
+        (name: "李四", workplace: "工作单位", title: "职称"),
+        (name: "王五", workplace: "工作单位", title: "职称"),
+        (name: "赵六", workplace: "工作单位", title: "职称"),
+        (name: "孙七", workplace: "工作单位", title: "职称"),
+      ),
     )
       + info
   )
@@ -202,7 +216,6 @@
     committee-page: (..args) => {
       if doctype == "master" or doctype == "doctor" {
         master-comm-page(
-          info: info,
           anonymous: anonymous,
           twoside: twoside,
           ..args,
