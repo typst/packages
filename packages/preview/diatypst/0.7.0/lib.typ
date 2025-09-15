@@ -15,7 +15,7 @@
   layout: "medium",
   ratio: 4/3,
   title-color: none,
-  first-slide: false,
+  first-slide: true,
   bg-color: white,
   count: "dot",
   footer: true,
