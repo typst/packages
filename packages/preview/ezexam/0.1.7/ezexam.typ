@@ -195,10 +195,7 @@
   }
 
   set par(leading: line-height, spacing: par-spacing, first-line-indent: (amount: first-line-indent, all: true))
-  set text(
-    font: font,
-    size: font-size,
-  )
+  set text(font: font, size: font-size)
 
   if heading-numbering == auto {
     if mode == EXAM {
@@ -243,3 +240,4 @@
 
   doc
 }
+
