@@ -6,6 +6,9 @@
 [![github-repository](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/SnpM/tonguetoquill-usaf-memo)
 [![Nibs](https://img.shields.io/badge/author-Nibs-white?logo=github)](https://github.com/SnpM)
 
+[![typst-universe](https://img.shields.io/badge/Typst-Universe-aqua)](
+https://github.com/snpm/tonguetoquill-usaf-memo)
+
 A comprehensive Typst template for creating official United States Air Force memorandums that comply with AFH 33-337 "The Tongue and Quill" formatting standards.
 
 ## Features
@@ -21,13 +24,12 @@ A comprehensive Typst template for creating official United States Air Force mem
 
 ## Quick Start
 
-### (Recommended)
+### Typst.app (Easiest)
 
-1. Find `tonguetoquill-usaf-memo` on [the app](https://typst.app/?q=tonguetoquill-usaf-memo&template=tonguetoquill-usaf-memo)
+1. Go to [the package page](https://typst.app/universe/package/tonguetoquill-usaf-memo) and click "Create project in app".
 
-2. Create a new project from the template.
-
-3. Download the [CopperplateCC-Heavy.otf](https://github.com/SnpM/tonguetoquill-usaf-memo/blob/bebba4c1a51f9d67ca66e08109439b2c637e1015/template/assets/fonts/CopperplateCC-Heavy.otf) font and upload it to your project folder.
+3. Download the [*CopperplateCC-Heavy*](https://github.com/SnpM/tonguetoquill-usaf-memo/blob/bebba4c1a51f9d67ca66e08109439b2c637e1015/template/assets/fonts/CopperplateCC-Heavy.otf) font and upload it to your project folder. This is an open-source clone of *Copperplate Gothic Bold*.
+    - **Note:** *Times New Roman* is a proprietary Microsoft font that I can't distribute legally. The package will automatically use the built-in *TeX Gyre Termes* font, an open-source clone of *Times New Roman*.
 
 ### Local Installation
 

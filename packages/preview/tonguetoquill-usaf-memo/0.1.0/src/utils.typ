@@ -18,7 +18,7 @@
   context{
     set par(leading: spacing.line, spacing:spacing.line, justify: true)
     set block(above:spacing.line, below:0em,spacing: 0em)
-    set text(font: body-font, size: 12pt)
+    set text(font: body-font, size: 12pt, fallback: false)
     ctx
   }
 }
@@ -300,7 +300,7 @@
 /// - indorsements (array): Array of indorsement objects.
 /// - body-font (str): Font to use for indorsement text.
 /// -> content
-#let process-indorsements(indorsements, body-font: "Times New Roman") = {
+#let process-indorsements(indorsements, body-font: none) = {
   if not falsey(indorsements) {
     for indorsement in indorsements {
       (indorsement.render)(body-font: body-font)
