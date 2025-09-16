@@ -1,4 +1,4 @@
-#import "@preview/formalettre:0.2": *
+#import "@preview/formalettre:0.2.0": *
 
 #set text(lang: "fr")
 
