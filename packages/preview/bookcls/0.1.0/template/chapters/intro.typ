@@ -1,4 +1,4 @@
-#import "@preview/bookcls:0.1.0": *
+#import "@preview/bookly:0.1.0": *
 // #import "../../src/book.typ": *
 
 // #show: chapter.with(
@@ -33,5 +33,6 @@ caption: [#ls-caption([#lorem(10)], [#lorem(2)])],
 
 #pagebreak()
 == Methodology
+
 
 #lorem(1000)
