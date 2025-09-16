@@ -1,4 +1,4 @@
-#import "@preview/bookcls:0.1.0": *
+#import "@preview/bookly:0.1.0": *
 
 #let config-colors = (
   primary: blue,
@@ -6,7 +6,7 @@
   header: blue.lighten(50%),
 )
 
-#show: book.with(
+#show: bookly.with(
   author: "Author Name",
   book-config: (
     theme: "modern",
@@ -48,3 +48,4 @@
 
 
 #back-cover(resume: lorem(100), abstract: lorem(100), logo: (align(left)[#image("images/typst-logo.svg", width: 50%)], align(right)[#image("images/typst-logo.svg", width: 50%)]))
+
