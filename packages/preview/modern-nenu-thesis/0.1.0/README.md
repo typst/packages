@@ -23,7 +23,7 @@
 模板可以下载到本地使用，也可以通过导入包使用：
 
 ```typ
-#import "@preview/nenu-thesis:0.1.0"
+#import "@preview/modern-nenu-thesis:0.1.0": thesis
 ```
 
 > [!IMPORTANT]
