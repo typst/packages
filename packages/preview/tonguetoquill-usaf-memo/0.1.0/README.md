@@ -130,6 +130,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 External assets used in this project:
 
-- `template/assets/dod_seal.gif` is [public domain](https://commons.wikimedia.org/wiki/File:Seal_of_the_United_States_Department_of_Defense_(2001%E2%80%932022).svg).
-- `template/assets/starkindustries_seal.png` is [public domain](https://commons.wikimedia.org/wiki/File:Stark_Industries.png).
-- `template/assets/fonts/CopperplateCC-Heavy.otf` is [SIL Open Font License](./template/assets/fonts/LICENSE.md) pulled from [here](https://github.com/CowboyCollective/CopperplateCC)
+- `dod_seal.gif` is [public domain](https://www.e-publishing.af.mil/Portals/1/Documents/Official%20Memorandum%20Template_10Nov2020.dotx?ver=M7cny_cp1_QDajkyg0xWBw%3D%3D)
+- `starkindustries_seal.png` is [public domain](https://commons.wikimedia.org/wiki/File:Stark_Industries.png).
+- `Copperlate CC` is under [SIL Open Font License](./template/assets/fonts/LICENSE.md) pulled from [here](https://github.com/CowboyCollective/CopperplateCC)
+- `TeX Gyre Termes` is under [GUST Font License](https://www.gust.org.pl/projects/e-foundry/tex-gyre/term) pulled from [here](https://www.fontsquirrel.com/fonts/tex-gyre-termes)

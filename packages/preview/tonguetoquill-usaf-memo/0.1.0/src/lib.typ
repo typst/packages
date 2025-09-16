@@ -19,7 +19,12 @@
 #let render-letterhead(title, caption, letterhead-seal, font) = {
   //Normalize to array
   if type(font) != array {
-    font = (font,)
+    if type(font) != str {
+      font = ()
+    }
+    else{
+      font = (font,)
+    }
   }
   place(
     dy: 0.625in - spacing.margin, // 5/8in from top of page
@@ -32,10 +37,8 @@
         #place(
           center + top,
           align(center)[
-            // Use default fonts as backup
-            #let fonts = font + DEFAULT_LETTERHEAD_FONTS
-            #text(12pt, font: fonts, fill: rgb("#000099"), fallback: false)[#title]\
-            #text(10.5pt, font: fonts, fill: rgb("#000099"), fallback: false)[#caption]
+            #text(12pt, font: font, fill: rgb("#000099"))[#title]\
+            #text(10.5pt, font: font, fill: rgb("#000099"))[#caption]
           ],
         )
       ],
@@ -461,7 +464,7 @@
   distribution: none,
   indorsements: none,
   // Optional styling parameters
-  letterhead-font: DEFAULT_BODY_FONTS,
+  letterhead-font: DEFAULT_LETTERHEAD_FONTS,
   body-font: DEFAULT_BODY_FONTS,
   memo-for-cols: 3,
   paragraph-block-indent: false,

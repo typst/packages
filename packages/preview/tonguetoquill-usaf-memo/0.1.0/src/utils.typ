@@ -186,7 +186,7 @@
   if level < paragraph-config.numbering-formats.len() {
     paragraph-config.numbering-formats.at(level)
   } else {
-    "1"  // Fallback for deep nesting
+    "i."  // Fallback for deep nesting
   }
 }
 
