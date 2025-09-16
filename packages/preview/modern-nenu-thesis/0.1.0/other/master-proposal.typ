@@ -5,7 +5,7 @@
 #import "@preview/cuti:0.3.0": *
 #import "@preview/i-figured:0.2.4"
 #import "@preview/lovelace:0.3.0": *
-#import "@preview/cetz:0.3.1"
+#import "@preview/cetz:0.4.2"
 #import "../utils/style.typ": font-family, font-size
 #import "../utils/justify-text.typ": justify-text
 

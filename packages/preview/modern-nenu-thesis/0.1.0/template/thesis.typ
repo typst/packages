@@ -1,7 +1,7 @@
 #import "@preview/modern-nenu-thesis:0.1.0": thesis
 #import "@preview/kouhu:0.2.0": kouhu
 #import "@preview/codly:1.3.0": codly, codly-init, no-codly
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.8": *
 
 #show: codly-init.with()
 #codly(languages: codly-languages)

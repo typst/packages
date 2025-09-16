@@ -29,7 +29,6 @@
 #import "utils/custom-heading.typ": active-heading, current-heading, heading-display
 #import "@preview/i-figured:0.2.4": show-equation, show-figure
 #import "utils/style.typ": font-family, font-size
-#import "@preview/kouhu:0.1.0": kouhu
 
 
 #let indent = h(2em)

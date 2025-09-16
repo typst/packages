@@ -1,6 +1,6 @@
 #import "@preview/tidy:0.4.3"
 #import "@preview/codly:1.3.0": codly, codly-init, no-codly
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.8": *
 
 // Color to highlight function names in
 #let function-name-color = rgb("#4b69c6")
