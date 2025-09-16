@@ -1,4 +1,4 @@
-#import "@preview/bookcls:0.1.0": *
+#import "@preview/bookly:0.1.0": *
 // #import "../../src/book.typ": *
 
 // #show: chapter.with(title: "First chapter")
@@ -86,5 +86,6 @@ label: <fig:subfig>,
 #question-box[
   #lorem(10)
 ]
+
 
 #lorem(1000)
