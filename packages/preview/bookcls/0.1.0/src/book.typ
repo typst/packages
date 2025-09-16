@@ -8,7 +8,7 @@
 #import "book-helper.typ": *
 
 // Template
-#let book(
+#let bookly(
   title: "Title",
   author: "Author Name",
   book-config: default-book-config,
@@ -144,3 +144,4 @@
 
   body
 }
+
