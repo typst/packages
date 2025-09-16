@@ -1,4 +1,4 @@
-#import "@preview/bookcls:0.1.0": *
+#import "@preview/bookly:0.1.0": *
 // #import "../../src/book.typ": *
 
 // #show: chapter.with(
@@ -33,4 +33,5 @@ figure(image("../images/typst-logo.svg"), caption: []), <b3>,
 columns: (1fr, 1fr),
 caption: [(a) Left image and (b) Right image],
 label: <fig:subfig3>,
+
 )
