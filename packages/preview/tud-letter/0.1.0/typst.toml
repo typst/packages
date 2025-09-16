@@ -1,6 +1,6 @@
 [package]
 entrypoint = "src/lib.typ"
-name = "tudletter"
+name = "tud-letter"
 version = "0.1.0"
 compiler = "0.13.0"
 authors = ["Hugo Ledoux <@hugoledoux"]
