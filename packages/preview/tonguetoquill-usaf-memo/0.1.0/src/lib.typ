@@ -7,6 +7,7 @@
 
 #let DEFAULT_LETTERHEAD_FONTS = ("Copperplate CC",)
 #let DEFAULT_BODY_FONTS = ("times new roman","tex gyre termes")
+#let LETTERHEAD_COLOR = rgb("#000099")
 
 //===Rendering Functions===
 
@@ -37,8 +38,8 @@
         #place(
           center + top,
           align(center)[
-            #text(12pt, font: font, fill: rgb("#000099"))[#title]\
-            #text(10.5pt, font: font, fill: rgb("#000099"))[#caption]
+            #text(12pt, font: font, fill: LETTERHEAD_COLOR)[#title]\
+            #text(10.5pt, font: font, fill: LETTERHEAD_COLOR)[#caption]
           ],
         )
       ],
@@ -67,7 +68,7 @@
 /// - recipients (str | array): Recipient organization(s).
 /// - columns (int): Number of columns for recipient grid.
 /// -> content
-#let render-memo-for-section(recipients, cols) = {
+#let render-for-section(recipients, cols) = {
   blank-line()
   grid(
     columns: (auto, spacing.two-spaces, 1fr),
@@ -340,10 +341,10 @@
       // Get original subject from main-memo
       let original-subject = main-memo.subject
       // Extract original-office from memo-from; if multiple lines, use the first line
-      let original-office = if type(main-memo.from-block) == array {
-          main-memo.from-block.at(0)
+      let original-office = if type(main-memo.memo-from) == array {
+          main-memo.memo-from.at(0)
         } else {
-          main-memo.from-block
+          main-memo.memo-from
         }
 
       let indorsement-number = counters.indorsement.get().first()
@@ -424,7 +425,7 @@
 /// - letterhead-seal (str): Image content for organization seal.
 /// - date (datetime): Date of the memorandum; defaults to today if not provided.
 /// - memo-for (str | array): Recipient(s) - string, array of strings.
-/// - from-block (array): Sender information as array of strings.
+/// - memo-from (array): Sender information as array of strings.
 /// - subject (str): Memorandum subject line.
 /// - references (array): Optional array of reference documents.
 /// - signature-block (array): Array of signature lines.
@@ -446,7 +447,7 @@
   memo-for: (
     "[FIRST/OFFICE]", "[SECOND/OFFICE]", "[THIRD/OFFICE]", "[FOURTH/OFFICE]", "[FIFTH/OFFICE]", "[SIXTH/OFFICE]"
   ),
-  from-block: (
+  memo-from: (
     "[YOUR/SYMBOL]",
     "[Your Organization Name]",
     "[Street Address]",
@@ -479,7 +480,7 @@
     letterhead-seal: letterhead-seal,
     date: if date == none { datetime.today() } else { date },
     memo-for: memo-for,
-    from-block: from-block,
+    memo-from: memo-from,
     subject: subject,
     references: references,
     signature-block: signature-block,
@@ -523,8 +524,8 @@
   context {
     render-date-section(self.date)
   }
-  render-memo-for-section(self.memo-for, self.memo-for-cols)
-  render-from-section(self.from-block)
+  render-for-section(self.memo-for, self.memo-for-cols)
+  render-from-section(self.memo-from)
   render-subject-section(self.subject)
   render-references-section(self.references)
 

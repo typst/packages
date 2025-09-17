@@ -5,7 +5,7 @@
   letterhead-caption: "1ST SPACE OPERATIONS SQUADRON",
   letterhead-seal: image("assets/dod_seal.gif"),
   memo-for: "SPACECOM/CC",
-  from-block: (
+  memo-from: (
     "1 SOPS/CC",
     "1st Space Operations Squadron",
     "Schriever Space Force Base",

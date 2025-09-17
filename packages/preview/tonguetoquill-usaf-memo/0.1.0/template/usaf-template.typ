@@ -7,7 +7,7 @@
   memo-for: (
     "123 ES/CC", "123 ES/DO", "123 ES/CSS", "456 ES/CC", "456 ES/DO", "456 ES/CSS"
   ),
-  from-block: (
+  memo-from: (
     "ORG/SYMBOL",
     "Organization",
     "Street Address",
@@ -61,7 +61,11 @@
   ),
   //leading-backmatter-pagebreak: true, // Forces a break before backmatter sections (attachments, cc, distribution)
 )[
+
 Use only approved organizational letterhead for all correspondence.~ This applies to all letterhead, both pre-printed and computer generated.~ Reference (a) details the format and style of official letterhead such as centering the first line of the header 5/8ths of an inch from the top of the page in 12 point Copperplate Gothic Bold font.~ The second header line is centered 3 points below the first line in 10.5 point Copperplate Gothic Bold font.
+
+  - *If you are on the Typst app, upload #text(color.blue)[#link("https://github.com/SnpM/tonguetoquill-usaf-memo/blob/bebba4c1a51f9d67ca66e08109439b2c637e1015/template/assets/fonts/CopperplateCC-Heavy.otf")[Copperplate CC]] to your project folder*
+
 
 Note that this template provides proper formatting for various elements via Typst functions.~ The recipient line uses proper grid formatting, the body uses automatic paragraph numbering, the signature block uses precise positioning, and so on.~ The template handles all AFH 33-337 formatting requirements automatically.
 
