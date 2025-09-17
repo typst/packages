@@ -12,7 +12,7 @@
 #import "tick.typ": tick as lq-tick, tick-label as lq-tick-label
 #import "spine.typ": spine
 
-#import "@preview/zero:0.4.0"
+#import "@preview/zero:0.5.0"
 #import "@preview/tiptoe:0.3.1"
 
 
