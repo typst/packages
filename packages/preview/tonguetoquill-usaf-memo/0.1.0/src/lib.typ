@@ -1,21 +1,59 @@
 // lib.typ: A Typst template backend for AFH 33-337 compliant official memorandums.
+//
+// This module provides the core functionality for creating United States Air Force
+// memorandums that comply with AFH 33-337 "The Tongue and Quill" formatting standards.
+// It includes functions for rendering all standard memorandum sections and handling
+// proper document structure, typography, and spacing.
+//
+// Key features:
+// - Automatic AFH 33-337 compliant formatting
+// - Hierarchical paragraph numbering with proper indentation
+// - Smart page break handling for backmatter sections
+// - Professional typography with configurable fonts
+// - Complete letterhead automation including seal placement
+// - Flexible content management for various memo types
+// - Proper signature block positioning and orphan prevention
 
 #import "utils.typ": *
 
-//===Global State and defaults===
-#let MAIN_MEMO = state("main-memo-state", none) // Tracks if we are in the main memo or indorsements
+// =============================================================================
+// GLOBAL STATE AND CONFIGURATION
+// =============================================================================
 
+/// Global state tracking whether we are in the main memo or indorsements.
+/// This is used internally to manage document structure and formatting.
+/// -> state
+#let MAIN_MEMO = state("main-memo-state", none)
+
+/// Default fonts for letterhead text.
+/// Uses Copperplate CC (open-source clone of Copperplate Gothic Bold).
+/// -> array
 #let DEFAULT_LETTERHEAD_FONTS = ("Copperplate CC",)
+
+/// Default fonts for body text.
+/// Prioritizes Times New Roman, falls back to TeX Gyre Termes (open-source clone).
+/// -> array
 #let DEFAULT_BODY_FONTS = ("times new roman","tex gyre termes")
+
+/// Standard color for letterhead text per AFH 33-337 guidelines.
+/// -> color
 #let LETTERHEAD_COLOR = rgb("#000099")
 
-//===Rendering Functions===
+// =============================================================================
+// DOCUMENT RENDERING FUNCTIONS
+// =============================================================================
 
-/// Renders the document letterhead section.
-/// - title (str): Primary organization title.
-/// - caption (str): Sub-organization or command.
-/// - seal-path (str): Seal image to place in the letterhead.
-/// - font (str): Font for letterhead text.
+/// Renders the document letterhead section with organization title, caption, and optional seal.
+/// 
+/// Positions elements according to AFH 33-337 standards:
+/// - Title and caption are centered at 5/8" from top of page
+/// - Optional seal is placed in the upper left corner with automatic scaling
+/// - Uses standard DoD blue color (#000099) for text
+/// 
+/// - title (str): Primary organization title (e.g., "DEPARTMENT OF THE AIR FORCE")
+/// - caption (str): Sub-organization or command (e.g., "123RD EXAMPLE SQUADRON")
+/// - letterhead-seal (content): Organization seal image content to display
+/// - font (str | array): Font(s) for letterhead text, normalized to array internally
 /// -> content
 #let render-letterhead(title, caption, letterhead-seal, font) = {
   //Normalize to array
@@ -57,16 +95,25 @@
   }
 }
 
-/// Renders the date section (right-aligned).
-/// - date (datetime): The date to display.
+/// Renders the date section in proper AFH 33-337 format.
+/// 
+/// Displays the date right-aligned using standard military date format
+/// (e.g., "1 January 2024"). The date appears immediately below the letterhead.
+/// 
+/// - date (datetime): The date to display in the memorandum header
 /// -> content
 #let render-date-section(date) = {
   align(right)[#display-date(date)]
 }
 
-/// Renders the MEMORANDUM FOR section.
-/// - recipients (str | array): Recipient organization(s).
-/// - columns (int): Number of columns for recipient grid.
+/// Renders the "MEMORANDUM FOR" section with recipient organization(s).
+/// 
+/// Formats recipients in a grid layout when multiple recipients are provided.
+/// Supports both single recipient (string) and multiple recipients (array).
+/// Grid columns are configurable to accommodate varying numbers of recipients.
+/// 
+/// - recipients (str | array): Recipient organization(s) or individual(s)
+/// - cols (int): Number of columns for recipient grid layout (default: 3)
 /// -> content
 #let render-for-section(recipients, cols) = {
   blank-line()
@@ -84,8 +131,13 @@
   )
 }
 
-/// Renders the FROM section.
-/// - from-info (array): Sender information array.
+/// Renders the "FROM" section with sender information.
+/// 
+/// Displays sender organization, address, and contact information in standard format.
+/// Accepts either a single string or array of strings, automatically joining
+/// array elements with newlines for proper address formatting.
+/// 
+/// - from-info (str | array): Sender information (organization, address, etc.)
 /// -> content
 #let render-from-section(from-info) = {
   blank-line()
@@ -100,8 +152,12 @@
   )
 }
 
-/// Renders the SUBJECT section.
-/// - subject-text (str): Memorandum subject line.
+/// Renders the "SUBJECT" section with memorandum topic.
+/// 
+/// Displays the subject line in proper format with consistent spacing.
+/// The subject should be descriptive and in title case per AFH 33-337 standards.
+/// 
+/// - subject-text (str): Memorandum subject line in title case
 /// -> content
 #let render-subject-section(subject-text) = {
   blank-line()
@@ -111,8 +167,13 @@
   )
 }
 
-/// Renders the optional references section.
-/// - references (array): Array of reference documents.
+/// Renders the optional "References" section with supporting documents.
+/// 
+/// Lists reference documents in lettered format (a), (b), (c), etc.
+/// Only renders if references are provided (not empty or none).
+/// Commonly used for regulations, instructions, or prior correspondence.
+/// 
+/// - references (array): Array of reference document strings
 /// -> content
 #let render-references-section(references) = {
   if not falsey(references) {
@@ -125,8 +186,16 @@
 }
 
 /// Renders a signature block with proper AFH 33-337 formatting and orphan prevention.
+/// 
+/// Positions the signature block at the bottom right of the memorandum with:
+/// - 5 blank lines above for handwritten signature space
+/// - 4.5" left margin positioning (right-aligned)
+/// - Hanging indent of 1em for multi-line entries
+/// - Breakable: false to prevent orphaned signature blocks
+/// 
 /// Per AFH 33-337: "The signature block is never on a page by itself."
-/// - signature-lines (array): Array of signature lines.
+/// 
+/// - signature-lines (array): Array of signature lines (name/rank, title, organization)
 /// -> content
 #let render-signature-block(signature-lines) = {
   blank-lines(5, weak: false)
@@ -143,8 +212,18 @@
   ]
 }
 
-/// Processes document body content with automatic paragraph numbering.
-/// - content (content): Document body content.
+/// Processes document body content with automatic paragraph numbering and AFH 33-337 compliance.
+/// 
+/// Handles the complex logic for:
+/// - Automatic hierarchical paragraph numbering (1., a., (1), (a), etc.)
+/// - Converting Typst enum/list items to proper military paragraph format
+/// - Managing paragraph indentation and spacing
+/// - Tracking paragraph levels and counter states
+/// 
+/// The function intercepts Typst's native enum and list structures and converts
+/// them to AFH 33-337 compliant numbered paragraphs with proper indentation.
+/// 
+/// - content (content): Document body content with enums/lists for paragraph structure
 /// -> content
 #let render-body(content) = {
   counter("par-counter-0").update(1)
@@ -241,10 +320,19 @@
 }
 
 /// Renders all backmatter sections with proper spacing and page breaks.
-/// - attachments (array): Array of attachment descriptions.
-/// - cc (array): Array of courtesy copy recipients.
-/// - distribution (array): Array of distribution list entries.
-/// - leading-backmatter-pagebreak (bool): Whether to force page break before backmatter.
+/// 
+/// Handles the formatting of optional memorandum backmatter sections:
+/// - Attachments: Supporting documents attached to the memorandum
+/// - CC (Courtesy Copy): Additional recipients who receive copies
+/// - Distribution: Broader distribution list for information
+/// 
+/// Features smart page break handling to prevent orphaned section headers
+/// and provides continuation formatting when sections span multiple pages.
+/// 
+/// - attachments (array): Array of attachment descriptions
+/// - cc (array): Array of courtesy copy recipients  
+/// - distribution (array): Array of distribution list entries
+/// - leading-backmatter-pagebreak (bool): Whether to force page break before backmatter
 /// -> content
 #let render-backmatter-sections(
   attachments: none,
@@ -292,15 +380,27 @@
 // =============================================================================
 
 /// Creates an indorsement object with proper AFH 33-337 formatting.
-/// - office-symbol (str): Sending organization symbol.
-/// - memo-for (str): Recipient organization symbol.
-/// - signature-block (array): Array of signature lines.
-/// - attachments (array): Array of attachment descriptions.
-/// - cc (array): Array of courtesy copy recipients.
-/// - leading-pagebreak (bool): Whether to force page break before indorsement.
-/// - separate-page (bool): Whether to use separate-page indorsement format.
-/// - indorsement-date (datetime): Date of the indorsement.
-/// - body (content): Indorsement body content.
+/// 
+/// Indorsements are used to forward, comment on, or take action on a memorandum
+/// as it moves through the chain of command. Each indorsement is numbered sequentially
+/// (1st Ind, 2nd Ind, etc.) and includes its own signature block and optional backmatter.
+/// 
+/// Key features:
+/// - Automatic indorsement numbering (1st Ind, 2nd Ind, etc.)
+/// - Proper date and subject line formatting referencing the original memorandum
+/// - Support for both same-page and separate-page indorsement formats
+/// - Individual signature blocks and backmatter sections
+/// - Page break control for document flow management
+/// 
+/// - office-symbol (str): Sending organization symbol for the indorsement
+/// - memo-for (str): Recipient organization symbol
+/// - signature-block (array): Array of signature lines for the indorsing official
+/// - attachments (array): Array of attachment descriptions (optional)
+/// - cc (array): Array of courtesy copy recipients (optional)
+/// - leading-pagebreak (bool): Whether to force page break before this indorsement
+/// - separate-page (bool): Whether to use separate-page indorsement format
+/// - indorsement-date (datetime): Date of the indorsement (defaults to today)
+/// - body (content): Indorsement body content
 /// -> dictionary
 #let indorsement(
   office-symbol: "ORG/SYMBOL",
@@ -419,25 +519,46 @@
 // MAIN MEMORANDUM TEMPLATE
 // =============================================================================
 
-/// Creates an official memorandum following AFH 33-337 standards.
-/// - letterhead-title (str): Primary organization title.
-/// - letterhead-caption (str): Sub-organization or command.
-/// - letterhead-seal (str): Image content for organization seal.
-/// - date (datetime): Date of the memorandum; defaults to today if not provided.
-/// - memo-for (str | array): Recipient(s) - string, array of strings.
-/// - memo-from (array): Sender information as array of strings.
-/// - subject (str): Memorandum subject line.
-/// - references (array): Optional array of reference documents.
-/// - signature-block (array): Array of signature lines.
-/// - attachments (array): Array of attachment descriptions.
-/// - cc (array): Array of courtesy copy recipients.
-/// - distribution (array): Array of distribution list entries.
-/// - indorsements (array): Array of Indorsement objects.
-/// - letterhead-font (str): Font for letterhead text.
-/// - body-font (str): Font for body text.
-/// - paragraph-block-indent (bool): Enable paragraph block indentation.
-/// - leading-backmatter-pagebreak (bool): Force page break before backmatter sections.
-/// - body (content): Main memorandum content.
+/// Creates an official memorandum following AFH 33-337 "The Tongue and Quill" standards.
+/// 
+/// This is the main template function that generates a complete, properly formatted
+/// United States Air Force memorandum. It handles all aspects of document structure,
+/// typography, spacing, and formatting to ensure full compliance with military
+/// correspondence standards.
+/// 
+/// Key features:
+/// - Automatic letterhead with configurable organization title, caption, and seal
+/// - Proper header sections (date, memo for, from, subject, references)
+/// - AFH 33-337 compliant paragraph numbering and indentation
+/// - Professional signature block positioning with orphan prevention
+/// - Optional backmatter sections (attachments, cc, distribution)
+/// - Support for indorsements with proper sequential numbering
+/// - Configurable fonts and styling options
+/// - Smart page break handling and continuation formatting
+/// 
+/// Required parameters:
+/// - subject: Memorandum subject line (must be descriptive and in title case)
+/// - body: Main memorandum content (use enums for numbered paragraphs)
+/// 
+/// - letterhead-title (str): Primary organization title (e.g., "DEPARTMENT OF THE AIR FORCE")
+/// - letterhead-caption (str): Sub-organization or command (e.g., "123RD EXAMPLE SQUADRON")
+/// - letterhead-seal (content): Organization seal image content (optional)
+/// - date (datetime): Date of the memorandum; defaults to today if not provided
+/// - memo-for (str | array): Recipient(s) - string or array of organization symbols
+/// - memo-from (str | array): Sender information (organization, address, contact info)
+/// - subject (str): Memorandum subject line in title case (REQUIRED)
+/// - references (array): Optional array of reference documents (AFI, regulation citations)
+/// - signature-block (array): Array of signature lines (name/rank, title, organization)
+/// - attachments (array): Array of attachment descriptions (optional)
+/// - cc (array): Array of courtesy copy recipients (optional)
+/// - distribution (array): Array of distribution list entries (optional)
+/// - indorsements (array): Array of indorsement objects for document routing (optional)
+/// - letterhead-font (str | array): Font(s) for letterhead text (defaults to Copperplate CC)
+/// - body-font (str | array): Font(s) for body text (defaults to Times New Roman/TeX Gyre Termes)
+/// - memo-for-cols (int): Number of columns for recipient grid layout (default: 3)
+/// - paragraph-block-indent (bool): Enable paragraph block indentation (default: false)
+/// - leading-backmatter-pagebreak (bool): Force page break before backmatter sections (default: false)
+/// - body (content): Main memorandum content with paragraph structure using enums
 /// -> content
 #let official-memorandum(
   letterhead-title: "DEPARTMENT OF THE AIR FORCE",
