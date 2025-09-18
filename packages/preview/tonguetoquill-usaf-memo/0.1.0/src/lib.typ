@@ -622,20 +622,24 @@
   set page(
     paper: "us-letter",
     margin: (left: spacing.margin, right: spacing.margin, top: spacing.margin, bottom: spacing.margin),
+    header: context {
+      // Page numbering starting from page 2
+      // Position 0.5 inches from top, flush with right margin
+      if counter(page).get().first() > 1 {
+        place(
+          dy: +.5in,
+          block(
+            width: 100%,
+            align(right,
+              text(12pt)[#counter(page).display()]
+            )
+          )
+        )
+        
+      }
+    }
   )
   paragraph-config.block-indent-state.update(self.paragraph-block-indent)
-
-  // Page numbering starting from page 2
-  context {
-    if counter(page).get().first() > 1 {
-      place(
-        top + right,
-        dx: 0in,
-        dy: -0.5in,
-        text(12pt)[#counter(page).display()],
-      )
-    }
-  }
 
   // Document letterhead
   render-letterhead(self.letterhead-title, self.letterhead-caption, self.letterhead-seal, self.letterhead-font)
