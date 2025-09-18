@@ -1,4 +1,4 @@
-#import "@local/gallus-hsg:1.0.0": *
+#import "@preview/gallus-hsg:1.0.0": *
 #import "./metadata.typ": *
 
 #set document(title: title, author: author)
@@ -16,7 +16,7 @@
   acknowledgement: include "./content/acknowledgement.typ",
   writing-aids-directory: include "./content/writing-aids-directory.typ",
   appendix: include "./content/appendix.typ",
-  bibliography-as-bytes: read("./bibliography.bib", encoding: none)
+  bibliography-as-bytes: read("./bibliography.bib", encoding: none),
 )
 
 #include "./content/01-content.typ"

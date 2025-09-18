@@ -1,4 +1,4 @@
-#import "@local/gallus-hsg:1.0.0": *
+#import "@preview/gallus-hsg:1.0.0": *
 
 = Heading 1
 == Heading 2
@@ -9,5 +9,5 @@ There are also some utils. Like Todo:
 
 #TODO("This is a todo")
 
-Or formfield: 
+Or formfield:
 #formfield("Label", "Test", length: 3cm)
