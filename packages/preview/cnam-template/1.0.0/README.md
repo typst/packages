@@ -1,6 +1,6 @@
 # CNAM TYPST Template
 
-A modular and organized TYPST template for creating professional documents using CNAM branding and styling.
+A modular and organized template for creating professional documents using CNAM branding and styling.
 
 Originally based on [hzkonor's bubble-template](https://github.com/hzkonor/bubble-template) and uses [CNAM](https://www.cnam.fr/)'s logo and colors.
 
@@ -37,7 +37,7 @@ Originally based on [hzkonor's bubble-template](https://github.com/hzkonor/bubbl
 
 1. Import the template in your document:
 ```typst
-#import "lib.typ": *
+#import "@preview/clean-cnam-template:1.0.0": *
 ```
 
 2. Configure your document:
