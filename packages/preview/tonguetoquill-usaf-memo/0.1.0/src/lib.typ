@@ -399,7 +399,7 @@
 /// - cc (array): Array of courtesy copy recipients (optional)
 /// - leading-pagebreak (bool): Whether to force page break before this indorsement
 /// - separate-page (bool): Whether to use separate-page indorsement format
-/// - indorsement-date (datetime): Date of the indorsement (defaults to today)
+/// - indorsement-date (str|datetime): Date of the indorsement (defaults to today)
 /// - body (content): Indorsement body content
 /// -> dictionary
 #let indorsement(
@@ -543,7 +543,7 @@
 /// - letterhead-title (str): Primary organization title (e.g., "DEPARTMENT OF THE AIR FORCE")
 /// - letterhead-caption (str): Sub-organization or command (e.g., "123RD EXAMPLE SQUADRON")
 /// - letterhead-seal (content): Organization seal image content (optional)
-/// - date (datetime): Date of the memorandum; defaults to today if not provided
+/// - date (str|datetime): Date of the memorandum; defaults to today if not provided
 /// - memo-for (str | array): Recipient(s) - string or array of organization symbols
 /// - memo-from (str | array): Sender information (organization, address, contact info)
 /// - subject (str): Memorandum subject line in title case (REQUIRED)

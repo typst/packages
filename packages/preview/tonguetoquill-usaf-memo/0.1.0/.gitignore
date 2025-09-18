@@ -4,3 +4,4 @@ dev_assets/
 pdfs/
 tests/
 build.sh
+.gitignore~*

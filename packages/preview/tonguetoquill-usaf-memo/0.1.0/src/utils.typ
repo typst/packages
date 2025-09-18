@@ -147,10 +147,15 @@
 /// Converts a datetime object to the standard format used in military correspondence:
 /// "1 January 2024" (day without padding, full month name, four-digit year).
 /// 
-/// - date (datetime): Date to format for display
+/// - date (str|datetime): Date to format for display
 /// -> str
 #let display-date(date) = {
-  date.display("[day padding:none] [month repr:long] [year]")
+  if type(date) == str {
+    date = parse.date(date)
+  }
+  else {
+    date.display("[day padding:none] [month repr:long] [year]")
+  }
 }
 
 // =============================================================================
