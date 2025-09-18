@@ -37,9 +37,9 @@
 
 #let secret(body: [绝密★启用前]) = place(top, float: true, clearance: 20pt, text(font: "SimHei", body))
 
-#let exam-type(body, prefix: "试卷类型: ") = place(top + right, text(
+#let exam-type(type, prefix: "试卷类型: ") = place(top + right, text(
   font: hei-ti,
-)[#prefix#body])
+)[#prefix#type])
 
 #let exam-info(
   info: (
@@ -130,3 +130,4 @@
   title(name.split("").join(h(1em)), bottom: 0pt)
   _create-seal(dash: dash, supplement: supplement, info: student-info)
 }
+
