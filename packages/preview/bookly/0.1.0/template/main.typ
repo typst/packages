@@ -3,10 +3,6 @@
 #show: book.with(
   author: "Author Name",
   book-config: (
-    fonts: (
-      body: "Lato",
-      math: "Lete Sans Math"
-    ),
     theme: "modern",
     lang: "en",
     title-page: book-title-page(
@@ -42,5 +38,6 @@
 #show: appendix
 
 #include "appendix/app_main.typ"
+
 
 #back-cover(resume: lorem(100), abstract: lorem(100), logo: (align(left)[#image("images/typst-logo.svg", width: 50%)], align(right)[#image("images/typst-logo.svg", width: 50%)]))
