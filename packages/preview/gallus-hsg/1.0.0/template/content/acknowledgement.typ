@@ -1,4 +1,4 @@
-#import "@preview/gallus-hsg:1.0.0": *
+#import "@local/gallus-hsg:1.0.0": *
 
 First, I'd like to thank coffee for fueling my brain cells and making this thesis possible.
 

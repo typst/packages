@@ -1,4 +1,4 @@
-#let formField(label, content, length: 5cm) = {
+#let formfield(label, content, length: 5cm) = {
   stack(
     text(1em, weight: "bold")[#content],
     v(2mm),

@@ -1,8 +1,8 @@
 #import "/layout/titlepage.typ": *
 #import "/layout/disclaimer.typ": *
-#import "/layout/directory_writing_aids.typ": directory_writing_aids as directory_writing_aids_layout
+#import "/layout/writing-aids-directory.typ": writing-aids-directory as writing-aids-directory-layout
 #import "/layout/abstract.typ": abstract as abstract_layout
-#import "/utils/print_page_break.typ": *
+#import "/utils/print-pagebreak.typ": *
 #import "/utils/todo.typ": *
 #import "/utils/formfield.typ": *
 
@@ -13,15 +13,15 @@
   type: "",
   professor: "",
   author: "",
-  matriculationNumber: "",
-  submissionDate: datetime,
+  matriculation-number: "",
+  submission-date: datetime,
   abstract: "",
   language: "en",
   acknowledgement: "",
-  directory_writing_aids: "",
+  writing-aids-directory: "",
   appendix: "",
-  is_print: false,
-  bibliography_raw: bytes(""),
+  is-print: false,
+  bibliography-as-bytes: bytes(""),
   body,
 ) = {
   assert(language in ("de", "en"), message: "The language supported are only 'de' and 'en'.")
@@ -32,12 +32,12 @@
     type: type,
     professor: professor,
     author: author,
-    matriculationNumber: matriculationNumber,
-    submissionDate: submissionDate,
+    matriculation-number: matriculation-number,
+    submission-date: submission-date,
     language: language,
   )
 
-  print_page_break(print: is_print, to: "even")
+  print-pagebreak(print: is-print, to: "even")
 
 
   if abstract != "" {
@@ -176,7 +176,7 @@
   )
 
   // List of tables.
-  print_page_break(print: is_print)
+  print-pagebreak(print: is-print)
   let tableListTitle = (en: "List of Tables", de: "Tabellenverzeichnis")
   heading(numbering: none)[#tableListTitle.at(language)]
   outline(
@@ -207,24 +207,24 @@
     appendix
   }
 
-  if bibliography_raw != bytes("") {
+  if bibliography-as-bytes != bytes("") {
     pagebreak()
     let bibliographyTitle = (en: "References", de: "Literaturverzeichnis")
-    bibliography(bibliography_raw, style: "apa", title: bibliographyTitle.at(language))
+    bibliography(bibliography-as-bytes, style: "apa", title: bibliographyTitle.at(language))
   }
  
 
-  print_page_break(print: is_print)
+  print-pagebreak(print: is-print)
 
   disclaimer(
     title: title,
     author: author,
     language: language,
-    submissionDate: submissionDate,
+    submission-date: submission-date,
   )
 
 
-  print_page_break(print: is_print)
+  print-pagebreak(print: is-print)
 
-  directory_writing_aids_layout(language: language, directory_writing_aids)
+  writing-aids-directory-layout(language: language, writing-aids-directory)
 }

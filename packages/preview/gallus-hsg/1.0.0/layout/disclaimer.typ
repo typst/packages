@@ -2,7 +2,7 @@
   title: "",
   author: "",
   language: "en",
-  submissionDate: datetime,
+  submission-date: datetime,
 ) = {
   set page(
     margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 40mm),
@@ -63,6 +63,6 @@ Mit Einreichung der schriftlichen Arbeit stimme ich mit konkludentem Handeln zu,
   grid(
       columns: 2,
       gutter: 1fr,
-      "St. Gallen, " + submissionDate.display("[day]/[month]/[year]"), author
+      "St. Gallen, " + submission-date.display("[day]/[month]/[year]"), author
   )
 }

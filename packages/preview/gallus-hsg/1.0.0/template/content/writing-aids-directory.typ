@@ -1,4 +1,4 @@
-#import "@preview/gallus-hsg:1.0.0": *
+#import "@local/gallus-hsg:1.0.0": *
 
 #TODO[
   Update this paragraph to reflect the tools you used in your thesis. Please see Guide in #link("https://universitaetstgallen.sharepoint.com/sites/PruefungenDE/SitePages/ChatGPT.aspx")[StudentWeb] for more information. (HSG Account required)

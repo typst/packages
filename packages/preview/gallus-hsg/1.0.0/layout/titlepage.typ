@@ -4,8 +4,8 @@
   type: "",
   professor: "",
   author: "",
-  matriculationNumber: "",
-  submissionDate: datetime,
+  matriculation-number: "",
+  submission-date: datetime,
   abstract: "",
   language: "en",
 ) = {
@@ -47,10 +47,10 @@
 
   let submittedBy = (en: "Submitted by", de: "Eingereicht von")
   let approvedBy = (en: "Approved on Application by:", de: "Genehmigt auf Antrag von:")
-  let submissionDateText = (en: "Date of Submission:", de: "Einreichungsdatum:")
+  let submission-dateText = (en: "Date of Submission:", de: "Einreichungsdatum:")
   align(
     center,
-    text(font: body-font, 12pt, weight: 400, submittedBy.at(language) + ": \n" + author + "\n" + matriculationNumber),
+    text(font: body-font, 12pt, weight: 400, submittedBy.at(language) + ": \n" + author + "\n" + matriculation-number),
   )
   align(center, text(font: body-font, 12pt, weight: 400, approvedBy.at(language) + "\n" + professor))
   v(5mm)
@@ -60,9 +60,9 @@
       font: body-font,
       12pt,
       weight: 400,
-      submissionDateText.at(language)
+      submission-dateText.at(language)
         + "\n"
-        + submissionDate.display("[day padding:zero].[month padding:zero].[year repr:full]"),
+        + submission-date.display("[day padding:zero].[month padding:zero].[year repr:full]"),
     ),
   )
 }

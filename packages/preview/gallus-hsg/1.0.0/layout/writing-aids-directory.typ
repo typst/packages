@@ -1,4 +1,4 @@
-#let directory_writing_aids(language: "en", body) = {
+#let writing-aids-directory(language: "en", body) = {
   set page(
     margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 40mm),
     numbering: none,

@@ -1,7 +1,7 @@
 [package]
 name = "gallus-hsg"
 version = "1.0.0"
-entrypoint = "thesis_template.typ"
+entrypoint = "thesis-template.typ"
 categories = [ "thesis" ]
 disciplines = [ ]
 description = "Thesis at the University of St. Gallen (HSG)"

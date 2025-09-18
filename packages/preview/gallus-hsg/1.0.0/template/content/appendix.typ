@@ -1,3 +1,3 @@
-#import "@preview/gallus-hsg:1.0.0": *
+#import "@local/gallus-hsg:1.0.0": *
 
 -- Supplementary Material --
