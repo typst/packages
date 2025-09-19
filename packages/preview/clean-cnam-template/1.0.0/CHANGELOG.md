@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Core Template System
 - **Modular template architecture** with organized library structure in `lib/` directory
 - **CNAM branding integration** with official colors and styling
-- **Main configuration function** `cnam-typst-template()` for easy document setup
+- **Main configuration function** `clean-cnam-template()` for easy document setup
 - **Centralized package entrypoint** in `lib.typ` for clean imports
 
 #### Document Configuration
@@ -104,11 +104,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Clean import structure** with optimized exports
 
 #### Package Information
-- **Package name**: cnam-typst-template
+- **Package name**: clean-cnam-template
 - **Version**: 1.0.0
 - **Author**: Tom Planche
-- **Repository**: https://github.com/TomPlanche/cnam-typst-template
+- **Repository**: https://github.com/TomPlanche/clean-cnam-template
 - **Keywords**: template, cnam, academic, document, styling
 - **Categories**: template, academic
 
-[1.0.0]: https://github.com/TomPlanche/cnam-typst-template/releases/tag/v1.0.0
+[1.0.0]: https://github.com/TomPlanche/clean-cnam-template/releases/tag/v1.0.0

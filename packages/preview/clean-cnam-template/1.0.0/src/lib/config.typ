@@ -38,7 +38,7 @@
  * @param code-font - Font family for code blocks and monospace text
  * @param body - Document content
  */
-#let cnam-typst-template(
+#let clean-cnam-template(
   title: "",
   subtitle: "",
   author: "",

@@ -1,7 +1,7 @@
 
 #import "@preview/clean-cnam-template:1.0.0": *
 
-#show: cnam-typst-template.with(
+#show: clean-cnam-template.with(
   title: "Main Title",
   author: "Tom Planche",
   class: "Class name",

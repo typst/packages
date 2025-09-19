@@ -9,7 +9,7 @@ authors = [
 ]
 license = "MIT"
 description = "A modular and organized TYPST template for creating professional documents using CNAM branding and styling."
-repository = "https://github.com/TomPlanche/cnam-typst-template"
+repository = "https://github.com/TomPlanche/clean-cnam-template"
 keywords = ["template", "cnam", "academic", "document", "styling"]
 categories = ["utility", "model"]
 exclude = [
