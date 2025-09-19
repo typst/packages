@@ -1,0 +1,17 @@
+[package]
+name = "lime-hicss"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.12.0"
+repository = "https://github.com/typst/templates"
+authors = ["Jennings Zhang <https://jennydaman.gitlab.io/>", "FNNDSC <https://fnndsc.org>"]
+license = "MIT-0"
+description = "Unofficial template for submission to the Hawaii International Conference on System Sciences (HICSS)."
+keywords = ["Hawaii Conference on System Sciences", "Hawaii", "HICSS", "System Science"]
+categories = ["paper"]
+disciplines = ["computer-science", "engineering"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
