@@ -1,4 +1,4 @@
-#import "@preview/modern-kul-thesis:0.1.0": template
+#import "@preview/modern-se-kul-thesis:0.1.0": template
 #show: template.with(
   // Your title goes here
   title: "An example title",
