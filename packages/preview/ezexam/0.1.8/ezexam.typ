@@ -25,7 +25,7 @@
   heading-color: luma(0%),
   heading-top: 10pt,
   heading-bottom: 15pt,
-  enum-numbering: "（1.1.i.a）",
+  enum-numbering: "（1.i.a）",
   enum-spacing: 2em,
   enum-indent: 0pt,
   watermark: none,
@@ -253,3 +253,4 @@
 
   doc
 }
+
