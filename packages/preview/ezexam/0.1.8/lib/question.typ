@@ -2,7 +2,7 @@
 
 #let question(
   body,
-  body-indent: .6em,
+  body-indent: .7em,
   indent: 0pt,
   label: auto,
   label-color: black,
@@ -31,7 +31,7 @@
       if mode-state.get() == HANDOUTS {
         _label = "【1.1.1.1.1.1】"
       } else {
-        _label = "1."
+        _label = "1．"
       }
     }
 
@@ -45,7 +45,7 @@
       // 去除heading label数组中的0
       arr = counter(heading).get().filter(item => item != 0) + arr
     }
-    text(label-color, weight: label-weight, box(align(right, numbering(_label, ..arr)), width: 1em))
+    text(label-color, weight: label-weight, box(align(right, numbering(_label, ..arr)), width: 1.45em))
   })
 
   v(top - padding-top)
@@ -191,5 +191,6 @@
 ]
 
 #let answer(body, color: maroon) = par(text(weight: 700, color)[答案: #body])
+
 
 
