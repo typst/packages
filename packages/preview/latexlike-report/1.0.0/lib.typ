@@ -1,5 +1,5 @@
 #import "@preview/chic-hdr:0.5.0":*
-#import "@preview/equate:0.3.1":*
+#import "@preview/equate:0.3.2":*
 #let latexlike-report(
  // ======== Cover ============
   author: none,
