@@ -23,7 +23,7 @@
   h1-size: auto,
   heading-font: hei-ti,
   heading-color: luma(0%),
-  heading-top: 10pt,
+  heading-top: 30pt,
   heading-bottom: 15pt,
   enum-numbering: "（1.i.a）",
   enum-spacing: 2em,
@@ -253,4 +253,5 @@
 
   doc
 }
+
 
