@@ -45,12 +45,12 @@
       // 去除heading label数组中的0
       arr = counter(heading).get().filter(item => item != 0) + arr
     }
-    text(label-color, weight: label-weight, box(numbering(_label, ..arr), width: 1.5em))
+    text(label-color, weight: label-weight, box(align(right, numbering(_label, ..arr)), width: 1.25em))
   })
 
   v(top - padding-top)
-  enum(
-    numbering: _ => _format,
+  list(
+    marker: _format,
     body-indent: body-indent,
     indent: indent,
     pad(top: padding-top, bottom: padding-bottom, body),
@@ -191,3 +191,4 @@
 ]
 
 #let answer(body, color: maroon) = par(text(weight: 700, color)[答案: #body])
+
