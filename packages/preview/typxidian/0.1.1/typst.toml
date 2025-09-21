@@ -13,4 +13,4 @@ repository = "https://github.com/angelonazzaro/typxidian"
 [template]
 path = "src/template/"
 entrypoint = "main.typ"
-thumbnail = "figures/thumbnail.png"
+thumbnail = "src/figures/thumbnail.png"
