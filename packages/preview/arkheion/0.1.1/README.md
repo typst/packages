@@ -7,7 +7,7 @@ A Typst template based on popular LateX template used in arXiv and bio-arXiv. In
 **Import**
 
 ```
-#import "@preview/arkheion:0.1.0": arkheion, arkheion-appendices
+#import "@preview/arkheion:0.1.1": arkheion, arkheion-appendices
 ```
 
 **Main body**
