@@ -1,7 +1,7 @@
 # almost-tud-letter
 
 A Typst template that (more or less) replicates the [TUDelft letter](https://www.tudelft.nl/huisstijl/) (only available in Word).
-It also makes it more beautiful IMO, but hey I guess it's subjective...
+It also makes it more beautiful in my opinion, but hey I guess it's subjective...
 
 By default it's in English and the faculty name is my faculty... but you can modify it, see the example. 
 You can also put `lang: "nl"` so that the fields top-left are in Dutch.
@@ -19,9 +19,9 @@ Notice that you can also install the package manually to your local Typst, see i
 ## Example
 
 ```typst
-#import "@preview/tud-letter:0.1.0": *
+#import "@preview/almost-tud-letter:0.1.0": *
 
-#show: tud-letter.with(
+#show: almost-tud-letter.with(
   from: (
     name: "Jan Smit",
     phone: "+31 (0)15 27 12345",

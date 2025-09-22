@@ -1,7 +1,7 @@
 #import "@preview/almost-tud-letter:0.1.0": *
 // #import "../src/lib.typ": *
 
-#show: tud-letter.with(
+#show: almost-tud-letter.with(
   // lang: "nl",
   from: (
     name: "Jan Smit",

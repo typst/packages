@@ -1,4 +1,4 @@
-#let tud-letter(
+#let almost-tud-letter(
   from: "",
   to: "",
   date: datetime.today().display(),
