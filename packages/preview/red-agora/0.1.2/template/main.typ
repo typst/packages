@@ -1,4 +1,4 @@
-#import "@preview/red-agora:0.1.1": project
+#import "@preview/red-agora:0.1.2": project
 
 #show: project.with(
   title: "Injecting a backdoor in the xz library and taking over NASA and SpaceX spaceship tracking servers (for education purposes only)",
