@@ -1,10 +1,10 @@
 [package]
 entrypoint = "src/lib.typ"
-name = "tud-letter"
+name = "almost-tud-letter"
 version = "0.1.0"
 compiler = "0.13.0"
 authors = ["Hugo Ledoux <@hugoledoux>"]
-repository = "https://github.com/hugoledoux/tudletter"
+repository = "https://github.com/hugoledoux/almost-tud-letter"
 description = "A Typst template that (almost?) replicates the TUDelft letter"
 keywords = ["TU Delft", "letter"]
 license = "MIT"
