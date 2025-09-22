@@ -1,4 +1,4 @@
-# tud-letter
+# almost-tud-letter
 
 A Typst template that (more or less) replicates the [TUDelft letter](https://www.tudelft.nl/huisstijl/) (only available in Word).
 It also makes it more beautiful IMO, but hey I guess it's subjective...
