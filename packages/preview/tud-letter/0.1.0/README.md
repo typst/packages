@@ -19,7 +19,7 @@ Notice that you can also install the package manually to your local Typst, see i
 ## Example
 
 ```typst
-#import "../src/lib.typ": *
+#import "@preview/tud-letter:0.1.0": *
 
 #show: tud-letter.with(
   from: (
