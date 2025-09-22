@@ -34,21 +34,19 @@
   degree,
   english-master,
   // can be an actual image, or just a path to an image
+  logo,
   cover: false,
   lang: "en",
 ) = {
   // diferent scope so logo and font don't get copied over to all the other pages
   let background-logo
+  let logo = scale(200%, logo, reflow: true)
   if lang == "en" {
     background-logo = place(
       top + left,
       dy: 10mm,
       dx: 10mm,
-      image(
-        format: "svg",
-        width: 35%,
-        "../../assets/logokuleng.svg",
-      ),
+      box(width: 40%, logo),
     )
   } else if lang == "nl" {
     //TODO: add dutch logo
@@ -56,13 +54,8 @@
       top + left,
       dy: 10mm,
       dx: 10mm,
-      image(
-        format: "svg",
-        width: 30%,
-        "../../assets/logokul.svg",
-      ),
+      box(width: 30%, logo),
     )
-    // logo = image("../../assets/logokuleng.svg")
   } else {
     panic("language not supported")
   }

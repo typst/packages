@@ -34,6 +34,7 @@ This will then create a basic folder structure with some fields pre-filled.
 - `symbols`: The symbols used in your thesis go here.
 - `bibliography`: The bibliography of your thesis goes here.
 - `appendices`: The appendices of your thesis goes here.
+- `logo`: The logo of the university for the front page
 ```typ
 #import "@preview/modern-se-kul-thesis:0.1.0": template
 #show: template.with(
@@ -46,7 +47,7 @@ assessors: ("an assessor",),
 supervisors: ("a supervisor",),
 degree: (
     elective: "Software engineering",
-    master: "Computerwetenschappen",
+    master: "Computer Science",
     color: (0, 0, 1, 0),
 ),
 language: "en",
@@ -62,6 +63,7 @@ abbreviations: [WIP: Work in progress],
 symbols: [$Omega$:Ohm],
 bibliography: include bibliography.bib,
 appendices: [#lorem(100)],
+logo: [Temp]
 )
 // Put your thesis content here
 ```

@@ -72,6 +72,9 @@
   /// The appendiceses
   /// -> content
   appendices: none,
+  /// Logo to be added to the front page
+  /// -> content
+  logo: none,
   /// automatically inserted content of the thesis.
   /// -> content
   body,
@@ -104,6 +107,7 @@
       academic-year,
       degree,
       english-master,
+      logo,
       cover: true,
       lang: language,
     )
@@ -119,6 +123,7 @@
     academic-year,
     degree,
     english-master,
+    logo,
     cover: false,
     lang: language,
   )
