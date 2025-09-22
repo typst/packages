@@ -76,6 +76,8 @@
   show figure.caption.where(kind: "theorem"): it => []
   show figure.caption.where(kind: "proof"): it => []
   
+  show: booktabs-default-table-style
+  
   show figure.caption: cp => context {
     v(0.45em)
     cp
