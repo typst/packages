@@ -16,7 +16,7 @@ Open an issue or submit a pull request, contributions are welcome!
 Import the template in your project with:
 
 ```typ
-#import "@preview/para-lipics:0.1.2": *
+#import "@preview/para-lipics:0.1.3": *
 
 #show: para-lipics.with(...)
 
