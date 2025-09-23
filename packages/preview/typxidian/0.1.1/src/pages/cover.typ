@@ -63,6 +63,7 @@
     )
     grid(
       columns: (1fr, 1fr),
+      align: top,
       align(left, grid(
         columns: 1fr,
         row-gutter: 15pt,
