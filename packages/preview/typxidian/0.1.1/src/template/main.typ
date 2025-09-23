@@ -18,7 +18,6 @@
   ],
   bib: bibliography("bibliography.bib"),
   abbreviations: abbreviations,
-
 )
 
 = Introduction

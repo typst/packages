@@ -18,7 +18,8 @@
   is-thesis: true,
   keywords: (),
   paper-size: "a4",
-  font: "Times New Roman",
+  font: "New Computer Modern",
+  math-font: "New Computer Modern Math",
   lang: "en",
   cite-color: colors.purple,
   ref-color: colors.purple,
@@ -33,6 +34,7 @@
   doc,
 ) = {
   set text(lang: lang, font: font)
+  show math.equation: set text(font: math-font)
   set document(title: title, author: authors, description: description, keywords: keywords)
 
   set cite(style: citation-style)
