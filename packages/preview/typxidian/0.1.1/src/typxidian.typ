@@ -7,6 +7,7 @@
   authors: (),
   supervisors: (),
   abstract: none,
+  introduction: none,
   quote: none,
   university: none,
   degree: none,
@@ -128,6 +129,15 @@
     v(1.5em)
     abstract
   }
+  
+  if introduction != none {
+      blankpage()
+      set align(center)
+  
+      text(size: sizes.chapter, heading(level: 1, "Introduction", numbering: none))
+      v(1.5em)
+      introduction
+    }
 
   show heading: hd => context {
     if hd.level == 1 {
