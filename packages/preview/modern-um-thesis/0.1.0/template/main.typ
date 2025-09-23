@@ -1,7 +1,7 @@
 #import "@preview/modern-um-thesis:0.1.0": *
 
 // Optional third-party packages. Remove if unnecessary.
-#import "@preview/cetz:0.4.2": canvas, draw
+#import "@preview/cetz:0.4.1": canvas, draw
 #import "@preview/cetz-plot:0.1.2": plot
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.8": *
