@@ -1,0 +1,16 @@
+[package]
+name = "modern-hkust-thesis"
+version = "0.1.0"
+entrypoint = "lib/lib.typ"
+authors = ["JWangL5"]
+license = "MIT"
+description = "📄 Thesis Template for HKUST-GZ in typst"
+repository = "https://gitlab.hkust-gz.edu.cn/jlu625/typst-thesis-template"
+keywords = ["thesis", "HKUST-GZ"]
+categories = ["thesis"]
+exclude = ['thumbnail.png']
+
+[template]
+path = "lib"
+entrypoint = "sample.typ"
+thumbnail = "thumbnail.png"
