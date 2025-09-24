@@ -597,7 +597,7 @@
   // math.thin (1/6 em, thinspace in typography) is used to separate the
   // differential with the preceding function, so to keep visual cohesion, the
   // width of this joiner inside the differential shall be smaller.
-  let prod = kwargs.at("p", default: if compact { none } else { h(0.09em) })
+  let prod = kwargs.at("p", default: if compact { none } else { h(0.09em, weak: true) })
 
   let difference = var_num - orders.len()
   while difference > 0 {
@@ -615,9 +615,9 @@
     }
   }
   // Smart spacing, like Typst's built-in "dif" symbol. See TeXBook, Chapter 18.
-  // This behavior is reverted because of issue #63.
-  // $op(#arr.join(prod))$
-  $#arr.join(prod)$
+  // The width is math.thin (1/6 em, thinspace in typography).
+  // $#arr.join(prod)$
+  $#h(0.16em, weak: true)#arr.join(prod)$
 }
 #let dd = differential
 
