@@ -219,27 +219,8 @@
   counter(page).update(1)
   doc
 
-  show bibliography: bib => {
-    show grid: g => {
-      let rows = g
-        .children
-        .chunks(2) // each row = 2 cells (key + body)
-        .map(row => block(
-          width: 100%,
-          [
-            // key in a fixed-width box
-            #box(width: 4.5em, baseline: -14.5pt, align(left)[#row.at(0).body])
-            #h(0.75em)
-            // body stretches and wraps
-            #box(width: 1fr, align(left)[#row.at(1).body])
-            #v(0.5em)
-          ],
-        ))
-      rows.join()
-    }
-    bib
-  }
-
+  show bibliography: set par(spacing: 1.2em)
+  
   bib
 
   if after-content != none {
