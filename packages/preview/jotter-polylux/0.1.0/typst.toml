@@ -7,7 +7,7 @@ license = "MIT"
 description = "Handwritten notebook style template for Polylux"
 homepage = "https://github.com/polylux-typ/jotter"
 repository = "https://github.com/polylux-typ/jotter"
-keywords = ["handwritten", "polylux", "presentation", "slides", "slide", "talk", "lecture"]]
+keywords = ["handwritten", "polylux", "presentation", "slides", "slide", "talk", "lecture"]
 categories = ["presentation"]
 
 [template]
