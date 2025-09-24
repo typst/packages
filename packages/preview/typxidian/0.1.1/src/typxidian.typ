@@ -163,7 +163,16 @@
         #v(0.75em)
       ]))
     } else {
-      set text(size: if hd.level == 1 { sizes.section } else { sizes.subsection })
+      let text-size = if hd.level == 1 {
+        sizes.section
+      } else if hd.level == 2 {
+        sizes.subsection
+      } else if hd.level == 3 {
+        sizes.subsubsection
+      } else {
+        sizes.subsubsubsection
+      }
+      set text(size: text-size)
       block(inset: (top: 0.5em, bottom: 0.5em), {
         context counter(heading).display()
         h(0.75em)

@@ -2,8 +2,10 @@
 
 #let sizes = (
   chapter: 26pt,
-  section: 16pt,
-  subsection: 14pt,
+  section: 18pt,
+  subsection: 16pt,
+  subsubsection: 14pt,
+  subsubsubsection: 12pt,
   body: 10pt,
 )
 
