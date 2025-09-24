@@ -310,7 +310,7 @@
             [#strong(acr.at(0))],
             [],
           )
-          last_letter = acr
+          last_letter = acr.at(0)
         }
 
         // check if a label for a link should be created and if it is the first acronyms index, since it can not create multiple labels
