@@ -1,4 +1,5 @@
-#import "lib/lib.typ": thesis
+// #import "lib/lib.typ": thesis
+#import "@preview/modern-hkust-thesis:0.1.0": thesis
 #import "@preview/booktabs:0.0.4": *
 #import "@preview/abbr:0.2.3": load, a as acro
 
@@ -162,5 +163,6 @@ $ f(t) = A e^(t/tau) $
 #lorem(100) @2011.Cell.FirstChromothripsisReport
 
 == Point 2
+
 
 #lorem(100) @2025.Cell.OngoingChromothtipsis
