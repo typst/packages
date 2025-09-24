@@ -48,14 +48,15 @@
 #question[
   已知视风速是真风速和船风速的和向量，船风速与船行驶速度大小相等，方向相反.则真风速等级是 #paren[]
   #text-figure(
-    figure: image("6.png", width: 50%), // 替换自己的图片
+    figure: image("6.png", width: 1.5in), // 替换自己的图片
+    figure-x: -1in,
   )[#choices(
-      columns: 1,
-      [轻风 (1.6$~$3.3 m/s)],
-      [微风 (3.4$~$5.4 m/s)],
-      [和风 (5.5$~$7.8 m/s)],
-      [劲风 (8.0$~$10.7 m/s)],
-    )]
+    columns: 1,
+    [轻风 (1.6$~$3.3 m/s)],
+    [微风 (3.4$~$5.4 m/s)],
+    [和风 (5.5$~$7.8 m/s)],
+    [劲风 (8.0$~$10.7 m/s)],
+  )]
 ]
 
 #question[
@@ -115,12 +116,12 @@
   + 根据小概率值$alpha=0.001$的独立性检验，分析超声波检查结果是否与患该疾病有关.
 
   #text-figure(
-    figure-x: 1in,
     figure: table(
-    columns: 4,
-    [$P(chi^2 gt.eq.slant k)$], [0.005], [0.010], [0.001],
-    [$k$], [3.841], [6.635], [10.828],
-  ))[附：$chi^2 = n(a d - b c)^2 / ((a + b)(c + d)(a + c)(b + d))$.]
+      columns: 4,
+      [$P(chi^2 gt.eq.slant k)$], [0.005], [0.010], [0.001],
+      [$k$], [3.841], [6.635], [10.828],
+    ),
+  )[附：$chi^2 = n(a d - b c)^2 / ((a + b)(c + d)(a + c)(b + d))$.]
 ]
 
 #question(points: 15, bottom: 1in)[
@@ -168,4 +169,5 @@
 #solution[
   #answer[B]
   解:
+
 ]
