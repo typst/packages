@@ -11,6 +11,6 @@ categories = ["thesis"]
 exclude = ['thumbnail.png', "sample.pdf"]
 
 [template]
-path = ["content", "image"]
+path = "."
 entrypoint = "sample.typ"
 thumbnail = "thumbnail.png"
