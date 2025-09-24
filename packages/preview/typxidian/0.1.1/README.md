@@ -28,8 +28,6 @@ Mathematical writing is also supported, with environments for definitions, theor
 
 Finally, the template allows you to select fonts, paper sizes, and languages so that the document feels tailored to your academic context.  
 
----
-
 ## Usage
 
 To use TypXidian, start a new `.typ` document and import the template.  
@@ -66,7 +64,9 @@ Here is a minimal example showing how to set up the template with metadata for a
 Once the metadata is in place, you can start writing your chapters and sections immediately below.  
 The template will handle the layout of the title page, abstract, and other structural elements automatically.  
 
----
+### Working with Chapters
+
+You may have noticed that some files (acostiche.typ, dependencies.typ and lib.typ) are duplicated into the `src/template` folder. This is necessary if you plan to divide your document into standalone chapter files as currently Typst does not support textual inclusion and you may be required to import dependencies and utility functions in each of your chapter files.
 
 ## Requirements
 
@@ -78,8 +78,6 @@ To work with TypXidian you will need:
 - The template also makes use of Font Awesome icons via the [fontawesome](https://typst.app/universe/package/fontawesome) package.  
   For these to display correctly, you should install the [Font Awesome 7 Desktop](https://fontawesome.com/download) fonts on your computer,  
   or upload them to your project folder if you are working on the Typst web app.
-
----
 
 ## License
 
