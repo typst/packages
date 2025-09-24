@@ -16,7 +16,7 @@ Contributions are also welcome.
     git clone http://gitlab.hkust-gz.edu.cn/jlu625/typst-thesis-template.git
     ```
 
-  Or directly import this template using offical package. 
+  Or directly import this template from `@preview` package name domain. 
     ```typst
     #import "@preview/modern-hkust-thesis:0.1.0": thesis
     ```
@@ -26,4 +26,5 @@ Contributions are also welcome.
 + I have already written enough comments in sample file to make sure you could understand how to modify the text with your own info, feel free to modify the text and preview what you got (shortcut key `ctrl+k v`).
 
 + If you have problems in using `typst`, you can read [official documents here](https://typst.app/docs/).
+
 
