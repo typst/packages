@@ -8,7 +8,7 @@ description = "📄 Thesis Template for HKUST-GZ in typst"
 repository = "https://gitlab.hkust-gz.edu.cn/jlu625/typst-thesis-template"
 keywords = ["thesis", "HKUST-GZ"]
 categories = ["thesis"]
-exclude = ['thumbnail.png', "sample.pdf"]
+exclude = []
 
 [template]
 path = "."
