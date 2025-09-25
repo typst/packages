@@ -56,6 +56,7 @@
 + 优化 `notice` 方法；新增参数 `indent` 、`hanging-indent`
 
 ### 0 . 1 . 9
-+ 优化 `text-figure` 方法；实现图文环绕效果。考虑到文本内容较多，为了书写方便，将参数 `text` 修改为位置参数；新增参数 `figure` 、`style` 、`gap`
++ 优化 `text-figure` 方法；考虑到文本内容较多，为了书写方便，将参数 `text` 修改为位置参数；新增参数 `figure` 、`style` 、`gap`
 + 优化 `question` 方法；修复当一个文档中组多套试卷时，会报警告的问题
+
 
