@@ -53,3 +53,6 @@ The body of the paper comes after the `#show` statement in normal typst syntax.
 #bibliography("library.bib")
 
 ```
+
+# License
+"MIT No Attribution" (MIT-0) License
