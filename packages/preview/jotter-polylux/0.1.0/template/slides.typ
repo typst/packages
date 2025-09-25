@@ -1,5 +1,10 @@
 #import "@preview/polylux:0.4.0": *
-#import "@preview/jotter-polylux:0.1.0": setup, title-slide, fancy-block
+#import "@preview/jotter-polylux:0.1.0": (
+  setup,
+  title-slide,
+  framed-block,
+  post-it,
+)
 
 #set text(
   size: 25pt,
@@ -19,26 +24,35 @@
   The speaker
 
   Date, Place
+
+  #place(
+    horizon + right,
+    post-it[
+      #set align(horizon + left)
+      #set text(size: .6em)
+      Don't miss this talk!
+    ],
+  )
 ]
 
 #slide[
-  = Title of this slide
+  = Typography
 
-  The content of this slide.
+  #toolbox.side-by-side[
+    Style your content beautifully!
 
-  Some text is *bold*, some text is _emphasized_.
+    Some text is *bold*, some text is _emphasized_.
+  ][
+    - a bullet point
+    - another bullet point
 
-  #fancy-block(inset: 1em, sloppiness: .05)[
-    A very important formula:
-
-    $
-      hat(mu) = 1 / n sum_(i = 1)^n x_i
-    $
+    + first point
+    + second point
   ]
 ]
 
 #slide[
-  = Another slide
+  = Maths and Code
 
   #toolbox.side-by-side[
     Maxwell says:
@@ -46,19 +60,29 @@
       integral.surf_(partial Omega) bold(B) dot dif bold(S) = 0
     $
   ][
-
-    - a bullet point
-    - another bullet point
-
-    + first point
-    + second point
-
     Compute the answer:
     ```rust
     pub fn main() {
         dbg!(42);
     }
     ```
+  ]
+]
+
+#slide[
+  = Highlighting content
+
+  #toolbox.side-by-side[
+    #grid(
+      columns: 2,
+      gutter: 1em,
+      framed-block[a], framed-block[couple],
+      framed-block[of], framed-block[randomized],
+      framed-block[framed], framed-block[boxes],
+    )
+  ][
+    #box(post-it[a post-it])
+    #box(post-it[another post-it])
   ]
 ]
 

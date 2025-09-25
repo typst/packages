@@ -1,1 +1,1 @@
-#import "lib.typ": setup, title-slide, fancy-block
+#import "lib.typ": setup, title-slide, framed-block, post-it

@@ -1,4 +1,6 @@
 #import "@preview/polylux:0.4.0": *
+#import "@preview/suiji:0.4.0"
+#import "@preview/umbra:0.1.1"
 
 #let highlight-color-state = state("jotter-highlight-color", red)
 
@@ -118,28 +120,94 @@
       let hc = highlight-color-state.get()
       place(center, c(hc.transparentize(20%)))
       place(center, dx: .1em, dy: .1em, c(hc.transparentize(50%)))
-      v(1.5em)
     }
   }
+  par(hide[42])
 
   extra
 })
 
-#let fancy-block(body, sloppiness: .05, ..kwargs) = layout(sz => {
-  let blocked-body = block(..kwargs, stroke: none, body)
+#let len2int(l) = int.from-bytes(l.pt().to-bytes())
+#let hasher(acc, val) = acc.bit-xor(val)
+
+#let framed-block(
+  body,
+  sloppiness: .05,
+  inset: .5em,
+  width: auto,
+  height: auto,
+) = layout(sz => {
+  let blocked-body = block(
+    inset: inset,
+    width: width,
+    height: height,
+    fill: none,
+    stroke: none,
+    body,
+  )
   let (width: w, height: h) = measure(..sz, blocked-body)
   let deflect = sloppiness * (w + h) / 2
+
+  let pos = here().position()
+  let hash-components = (
+    pos.page,
+    len2int(pos.x),
+    len2int(pos.y),
+    len2int(w),
+    len2int(h),
+  )
+  let hash = hash-components.reduce(hasher)
+  let rng = suiji.gen-rng-f(hash)
+  let (rng, c1) = suiji.random-f(rng)
+  let (rng, c2) = suiji.random-f(rng)
+  let (rng, c3) = suiji.random-f(rng)
+  let (rng, c4) = suiji.random-f(rng)
+  let (rng, s1) = suiji.choice-f(rng, (-1, 1))
+  let (rng, s2) = suiji.choice-f(rng, (-1, 1))
+  let (rng, s3) = suiji.choice-f(rng, (-1, 1))
+  let (rng, s4) = suiji.choice-f(rng, (-1, 1))
+
   let c(p) = curve(
     stroke: stroke(thickness: .1em, cap: "round", paint: p),
     curve.move((0pt, 0pt)),
-    curve.quad((.8 * w, deflect), (w + deflect / 3, 0pt)),
+    curve.quad((c1 * w, s1 * deflect), (w + deflect / 3, 0pt)),
     curve.move((w - deflect / 3, -deflect / 3)),
-    curve.quad((w - deflect, .5 * h), (w - deflect / 3, h + deflect / 3)),
+    curve.quad((w + s2 * deflect, c2 * h), (w - deflect / 3, h + deflect / 3)),
     curve.move((w + deflect / 3, h - deflect / 3)),
-    curve.quad((.3 * w, h + deflect), (0pt, h)),
-    curve.quad((deflect, .4 * h), (0pt, 0pt)),
+    curve.quad((c3 * w, h + s3 * deflect), (0pt, h)),
+    curve.quad((s4 * deflect, c4 * h), (0pt, 0pt)),
   )
   place(dx: .2em, dy: .15em, c(text.fill.transparentize(50%)))
   place(c(text.fill.transparentize(20%)))
   blocked-body
 })
+
+#let post-it(body, fill: rgb("#FDE85F"), angle: -10deg) = rotate(
+  angle,
+  reflow: true,
+  {
+    place(
+      dx: .0em,
+      dy: .0em,
+      umbra.shadow-path(
+        (1cm, 1cm),
+        (1cm, 5cm),
+        (5cm, 5cm),
+        (5cm, 4.9cm),
+        (4cm, 1cm),
+        correction: 10deg,
+        closed: false,
+      ),
+    )
+    place(
+      curve(
+        fill: fill,
+        curve.line((5cm, 0cm)),
+        curve.quad((5cm, 2.5cm), (5.2cm, 5cm)),
+        curve.quad((2.5cm, 5.2cm), (.1cm, 5cm)),
+        curve.quad((0cm, 2.5cm), (0cm, 0cm)),
+      ),
+    )
+    box(inset: .5em, width: 5cm, height: 5cm, clip: true, body)
+  },
+)
