@@ -59,10 +59,18 @@
   }
 }
 
-#let highlight-words(str) = {
-  let words = str.split()
+#let highlight-words(acr, def) = {
+  let words = def.split()
+  // highlight only the letters that appear in the acronym
   for i in range(words.len()) {
-    [#strong(words.at(i).at(0))#words.at(i).slice(1)]
+    for word in words.at(i) {
+      let font-weight = "regular"
+      if acr.contains(word.at(0)) {
+        font-weight = "bold"
+      }
+
+      [#text(weight: font-weight, [#word.at(0)])#word.slice(1)] 
+    }
     if i + 1 < words.len() {
       [ ]
     }
@@ -81,7 +89,7 @@
       // The Definition is a string============
       if type(defs) == str {
         // If user defined only one version and forgot the trailing comma the type is string
-        if plural { highlight-words(defs + "s") } else { highlight-words(defs) } // All is good, we return the definition found as the singular version
+        if plural { highlight-words(acr, defs + "s") } else { highlight-words(acr, defs) } // All is good, we return the definition found as the singular version
       } // The Definition is an array ============
       else if type(defs) == array {
         if defs.len() == 0 {
@@ -93,10 +101,12 @@
           )
         } else if defs.len() == 1 {
           // User provided only one version, we make the plural by adding an "s" at the end.
-          if plural { highlight-words(defs.at(0) + "s") } else { highlight-words(defs.at(0)) }
+          if plural { highlight-words(acr, defs.at(0) + "s") } else {
+            highlight-words(acr, defs.at(0))
+          }
         } else {
           // User provided more than one version. We assume the first is singular and the second is plural. All other are useless.
-          if plural { highlight-words(defs.at(1)) } else { highlight-words(defs.at(0)) }
+          if plural { highlight-words(acr, defs.at(1)) } else { highlight-words(acr, defs.at(0)) }
         }
 
         // The Definition is a dictionary ============
