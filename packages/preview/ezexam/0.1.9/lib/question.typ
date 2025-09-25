@@ -35,11 +35,6 @@
       }
     }
 
-    let _counter = counter("placeholder")
-    if _counter.get().first() < num {
-      _counter.step()
-    }
-
     let arr = (num,)
     if with-heading-label {
       // 去除heading label数组中的0
@@ -63,6 +58,9 @@
     pad(top: padding-top, bottom: padding-bottom, body),
   )
   v(bottom)
+
+  // 更新占位符上的题号
+ context counter("placeholder").update(counter("question").get().first())
 }
 
 #let _get-answer(body, placeholder, with-number, update) = context {
@@ -213,6 +211,7 @@
 ]
 
 #let answer(body, color: maroon) = par(text(weight: 700, color)[答案: #body])
+
 
 
 
