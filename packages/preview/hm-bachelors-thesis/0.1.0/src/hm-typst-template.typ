@@ -27,6 +27,7 @@
   enable-header: true,
   draft: true,
   bib: none,
+  abbreviations-list: none,
   body,
 ) = {
   if gender != none and gender not in ("m", "w", "d") {
@@ -69,8 +70,6 @@
   )
   
   show: make-glossary
-  import "components/abbreviations.typ": abbreviations-list
-  register-glossary(abbreviations-list)
   
   import "components/titlepage.typ": titlepage
   

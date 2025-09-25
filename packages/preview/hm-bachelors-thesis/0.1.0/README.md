@@ -39,6 +39,7 @@ typst init @preview/hm-bachelors-thesis
 | `enable-header` | Show page headers (default: true) |
 | `draft` | Enable draft mode (default: true) |
 | `bib` | Bibliography file reference |
+| `abbreviations-list` | Abbreviations for the glossary |
 
 ### Draft mode
 

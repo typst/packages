@@ -1,5 +1,8 @@
 #import "@preview/hm-bachelors-thesis:0.1.0": *
 
+#import "abbreviations.typ": abbreviations-list
+#register-glossary(abbreviations-list)
+
 #show: thesis.with(
   title: lorem(15),
   title-translation: lorem(12),
@@ -17,6 +20,7 @@
   gender: "w",
   supervisor-gender: "m",
   bib: bibliography("references.bib", title: "Literaturverzeichnis"),
+  abbreviations-list: abbreviations-list,
   draft: true
 ) 
 
