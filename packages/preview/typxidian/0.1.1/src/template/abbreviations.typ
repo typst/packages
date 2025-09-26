@@ -1,4 +1,5 @@
 #let abbreviations = (  
   "AI": ("Artificial Intelligence"),
-  "ML": ("Machine Learning"),
+  "TE": ("Time to Echo ing"),
+  "MHA": ("Multi-Head Attention"),
 )

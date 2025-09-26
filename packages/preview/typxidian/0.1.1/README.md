@@ -66,7 +66,7 @@ The template will handle the layout of the title page, abstract, and other struc
 
 ### Working with Chapters
 
-You may have noticed that some files (acostiche.typ, dependencies.typ and lib.typ) are duplicated into the `src/template` folder. This is necessary if you plan to divide your document into standalone chapter files as currently Typst does not support textual inclusion and you may be required to import dependencies and utility functions in each of your chapter files.
+Typst does not currently support textual inclusion. If you plan to split your document into standalone chapter files, you can simply re-include the package in each file to access its functions
 
 ## Requirements
 

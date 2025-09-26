@@ -59,23 +59,43 @@
   }
 }
 
+
 #let highlight-words(acr, def) = {
   let words = def.split()
-  // highlight only the letters that appear in the acronym
+  let out = ()
+  let acr_idx = 0
+
   for i in range(words.len()) {
-    for word in words.at(i) {
-      let font-weight = "regular"
-      if acr.contains(word.at(0)) {
-        font-weight = "bold"
+    let word = words.at(i)
+
+    // Check if we still have acronym letters left
+    if acr_idx < acr.len() and word.at(0) == acr.at(acr_idx) {
+      // Special case: if the acronym has multiple letters that map
+      // to the same word prefix (like "ViT")
+      let prefix = ""
+      let j = 0
+      while acr_idx < acr.len() and j < word.len() and word.at(j) == acr.at(acr_idx) {
+        prefix = prefix + word.at(j)
+        acr_idx += 1
+        j += 1
       }
 
-      [#text(weight: font-weight, [#word.at(0)])#word.slice(1)] 
+      // Highlight the prefix that matched
+      out.push([#text(weight: "bold", prefix)#word.slice(prefix.len())])
+    } else {
+      // Word doesn’t correspond to the next acronym letter
+      out.push(word)
     }
+
     if i + 1 < words.len() {
-      [ ]
+      out.push(" ")
     }
   }
+
+  out.join()
 }
+
+
 
 #let display-def(acr, plural: false) = {
   // Display the definition of an acronym by fetching it in the "acronyms" state's value (should be a dictionary).
