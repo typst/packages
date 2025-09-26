@@ -20,6 +20,12 @@ By default, it uses the fonts
 [Fantastque Sans Mono](https://github.com/belluzj/fantasque-sans/releases).
 Either make sure you have them installed or specify other fonts in the template.
 
+This is an opinionated template on purpose.
+However, if you like the overall handwritten asthetic but prefer not to have the
+spiral binding to the left and/or the dots in the background, you can disable
+them by setting the `binding` and `dots` keyword arguments to `false` in the
+`setup` function.
+
 ![thumbnail](thumbnail.png)
 
 

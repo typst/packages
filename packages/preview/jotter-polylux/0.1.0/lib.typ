@@ -4,19 +4,27 @@
 
 #let highlight-color-state = state("jotter-highlight-color", red)
 
-#let setup(header: none, highlight-color: red, body) = {
+#let setup(
+  header: none,
+  highlight-color: red,
+  binding: true,
+  dots: true,
+  body,
+) = {
   highlight-color-state.update(highlight-color)
   set page(
     paper: "presentation-16-9",
     margin: (left: 3cm, top: 2cm, rest: 1cm),
-    fill: tiling(
-      spacing: (5mm, 5mm),
-      {
-        place(square(width: 6mm, stroke: none, fill: white))
-        circle(radius: 1pt, fill: white.darken(10%))
-      },
-    ),
-    background: {
+    fill: if dots {
+      tiling(
+        spacing: (5mm, 5mm),
+        {
+          place(square(width: 6mm, stroke: none, fill: white))
+          circle(radius: 1pt, fill: white.darken(10%))
+        },
+      )
+    },
+    background: if binding {
       set align(top + left)
       let gap = 1.5cm
       let color = rgb("8aa")
