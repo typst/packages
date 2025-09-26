@@ -1,4 +1,6 @@
 #import "@preview/cetz:0.4.2" // drawing inspired by tikz
+#import "@preview/cetz-plot:0.1.2"
+#import "@preview/plotsy-3d:0.2.0"
 #import "@preview/booktabs:0.0.4": * // booktabs-like tables
 #import "@preview/wrap-it:0.1.1": wrap-content, wrap-top-bottom // wrap figures around text
 #import "@preview/subpar:0.2.2" // create subfigures
