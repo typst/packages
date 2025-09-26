@@ -72,6 +72,11 @@
 #slide[
   = Highlighting content
 
+  // #framed-block and #post-it accept a sloppiness parameter that determine how
+  // randomized they are.
+  // #framed-block also accepts inset, width, and height like the standard
+  // #block.
+
   #toolbox.side-by-side[
     #grid(
       columns: 2,
