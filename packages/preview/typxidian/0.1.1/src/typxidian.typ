@@ -19,14 +19,14 @@
   is-thesis: true,
   keywords: (),
   paper-size: "a4",
-  font: "New Computer Modern",
-  math-font: "New Computer Modern Math",
+  font: "new computer modern",
+  math-font: "new computer modern math",
   lang: "en",
   cite-color: colors.purple,
   ref-color: colors.purple,
   link-color: blue,
-  image-supplement: [Figure],
-  table-supplement: [Table],
+  image-supplement: [figure],
+  table-supplement: [table],
   citation-style: "alphanumeric",
   bib: [],
   abbreviations: (),
@@ -61,6 +61,8 @@
   set heading(numbering: "1.1")
   set figure(numbering: dependent-numbering("1.1", levels: 1))
   set math.equation(numbering: dependent-numbering("(1.1)", levels: 1))
+  
+  // show heading: reset-counter(math.equation, levels: 1)
 
   show ref: it => {
     let el = it.element
@@ -125,7 +127,7 @@
     blankpage()
     set align(center)
 
-    text(size: sizes.chapter, heading(level: 1, "Abstract", numbering: none))
+    text(size: sizes.chapter, heading(level: 1, "abstract", numbering: none))
     v(1.5em)
     abstract
   }
@@ -134,7 +136,7 @@
       blankpage()
       set align(center)
   
-      text(size: sizes.chapter, heading(level: 1, "Introduction", numbering: none))
+      text(size: sizes.chapter, heading(level: 1, "introduction", numbering: none))
       v(1.5em)
       introduction
     }
@@ -142,8 +144,6 @@
   show heading: hd => context {
     if hd.level == 1 {
       blankpage()
-      counter(figure).update(0)
-      counter(math.equation).update(0)
       let hd-counter = counter(heading).get().first()
 
       align(left, text(size: sizes.chapter, [
@@ -226,6 +226,20 @@
     }
   })
   counter(page).update(1)
+
+  show heading: reset-counter(counter(figure.where(kind: image)), levels: 1)
+  show heading: reset-counter(counter(figure.where(kind: table)), levels: 1)
+  show heading: reset-counter(counter(figure.where(kind: "paragraph")), levels: 1)
+  show heading: reset-counter(counter(figure.where(kind: "callout")), levels: 1)
+  show heading: reset-counter(counter(figure.where(kind: "definition")), levels: 1)
+  show heading: reset-counter(counter(figure.where(kind: "theorem")), levels: 1)
+  show heading: reset-counter(counter(figure.where(kind: "proof")), levels: 1)
+  show heading: reset-counter(counter(figure.where(kind: "info")), levels: 1)
+  show heading: reset-counter(counter(figure.where(kind: "tip")), levels: 1)
+  show heading: reset-counter(counter(figure.where(kind: "success")), levels: 1)
+  show heading: reset-counter(counter(figure.where(kind: "danger")), levels: 1)
+  show heading: reset-counter(counter(figure.where(kind: "faq")), levels: 1)
+  show heading: reset-counter(counter(math.equation), levels: 1)
   doc
 
   show bibliography: set par(spacing: 1.2em)
