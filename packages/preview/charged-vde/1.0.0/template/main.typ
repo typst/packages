@@ -1,7 +1,7 @@
-#import "@preview/vde:1.0.0": vde
+#import "@preview/charged-vde:1.0.0": charged-vde
 //#import "../lib.typ": vde
 
-#show: vde.with(
+#show: charged-vde.with(
   title: [Test],
   authors: (
     (name: "Max Mustermann", affiliation: "1"),
