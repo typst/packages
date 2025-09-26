@@ -16,7 +16,7 @@
   position: center,
   top: 0pt,
   bottom: 18pt,
-) = {
+) = context {
   v(top)
   let _font = font
   if _font == auto { _font = text.font }
@@ -132,4 +132,5 @@
   title(name.split("").join(h(1em)), bottom: 0pt)
   _create-seal(dash: dash, supplement: supplement, info: student-info)
 }
+
 
