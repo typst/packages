@@ -48,12 +48,13 @@ locally on your system. Here, `{data-dir}` is
 - `~/Library/Application Support` on macOS
 - `%APPDATA%` on Windows
 
-Packages in the data directory have precedence over ones in the cache directory.
-While you can create arbitrary namespaces with folders, a good namespace for
-system-local packages is `local`:
+You can create an arbitrary `{namespace}`. A good namespace for system-local
+packages is `local`. Using this namespace:
 
-- Store a package in `~/.local/share/typst/packages/local/mypkg/1.0.0`
-- Import from it with `#import "@local/mypkg:1.0.0": *`
+- Store a package in `{data-dir}/typst/packages/local/mypkg/1.0.0`
+- Import from it with `#import "@local/mypkg:1.0.0": *`.
+
+Packages in the data directory have precedence over ones in the cache directory.
 
 Note that future iterations of Typst's package management may change/break this
 local setup.
