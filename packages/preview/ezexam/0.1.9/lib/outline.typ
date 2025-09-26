@@ -11,14 +11,16 @@
   body,
   size: 15pt,
   weight: "bold",
-  font: source-han,
+  font: auto,
   color: black,
   position: center,
   top: 0pt,
   bottom: 18pt,
 ) = {
   v(top)
-  align(position, text(font: font, size, weight: weight, color)[#body <title>])
+  let _font = font
+  if _font == auto { _font = text.font }
+  align(position, text(font: _font, size, weight: weight, color)[#body <title>])
   v(bottom)
   counter(heading).update(0)
   counter("question").update(0)
@@ -130,3 +132,4 @@
   title(name.split("").join(h(1em)), bottom: 0pt)
   _create-seal(dash: dash, supplement: supplement, info: student-info)
 }
+
