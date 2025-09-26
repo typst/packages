@@ -63,36 +63,47 @@
 #let highlight-words(acr, def) = {
   let words = def.split()
   let out = ()
+  let matches = ()
   let acr_idx = 0
 
-  for i in range(words.len()) {
-    let word = words.at(i)
+  for i in range(def.len()) {
+    let letter = def.at(i)
 
-    // Check if we still have acronym letters left
-    if acr_idx < acr.len() and word.at(0) == acr.at(acr_idx) {
-      // Special case: if the acronym has multiple letters that map
-      // to the same word prefix (like "ViT")
-      let prefix = ""
-      let j = 0
-      while acr_idx < acr.len() and j < word.len() and word.at(j) == acr.at(acr_idx) {
-        prefix = prefix + word.at(j)
-        acr_idx += 1
-        j += 1
-      }
-
-      // Highlight the prefix that matched
-      out.push([#text(weight: "bold", prefix)#word.slice(prefix.len())])
-    } else {
-      // Word doesn’t correspond to the next acronym letter
-      out.push(word)
-    }
-
-    if i + 1 < words.len() {
-      out.push(" ")
+    // Case sensitive match
+    if acr_idx < acr.len() and letter == acr.at(acr_idx) {
+      matches.push(i)
+      acr_idx += 1
     }
   }
 
-  out.join()
+
+  // Case-insensitive match
+  if acr_idx < acr.len() {
+    for i in range(def.len()) {
+      let letter = def.at(i)
+
+      // Case sensitive match
+      if acr_idx < acr.len() and upper(letter) == upper(acr.at(acr_idx)) {
+        matches.push(i)
+        acr_idx += 1
+      }
+    }
+  }
+
+  let content = []
+  let i = 0
+
+  while i < matches.len() {
+    if i > 0 {
+      content += [#def.slice(matches.at(i - 1) + 1, matches.at(i))]
+    }
+    content += [#text(weight: "bold", def.at(matches.at(i)))]
+    i += 1
+  }
+
+  content += [#def.slice(matches.at(i - 1) + 1)]
+
+  content
 }
 
 
