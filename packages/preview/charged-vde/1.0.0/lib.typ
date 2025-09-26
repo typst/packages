@@ -1,6 +1,6 @@
 #import "@preview/linguify:0.4.2": *
 
-#let vde(
+#let charged-vde(
   title: "Title",
   authors: "Authors",
   affiliations: "Affiliation",
