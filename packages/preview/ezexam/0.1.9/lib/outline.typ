@@ -70,16 +70,15 @@
 
 #let scoring-box(x: 0pt, y: 0pt) = place(dx: x, dy: y, right + top)[
   #table(
-    columns: (auto, 1.6cm),
+    columns: 2,
     inset: 8pt,
-  )[得分][][阅卷人]
+  )[得分][~~~~~~~~~][阅卷人]
 ]
 
 #let score-box(x: 0pt, y: 0pt) = place(dx: x, dy: y, right + top)[
   #table(
-    rows: (auto, 1.2cm),
     inset: 8pt,
-  )[得分][#h(3em)]
+  )[得分][~~~~~~~~~#v(10pt)]
 ]
 
 #let notice(format: "1.", indent: 2em, hanging-indent: auto, ..children) = context {
@@ -132,5 +131,6 @@
   title(name.split("").join(h(1em)), bottom: 0pt)
   _create-seal(dash: dash, supplement: supplement, info: student-info)
 }
+
 
 
