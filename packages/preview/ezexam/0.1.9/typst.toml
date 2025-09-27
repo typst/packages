@@ -9,9 +9,10 @@ description = "A exam and handouts template inspired by the LaTeX package exam-z
 repository = "https://github.com/gbchu/ezexam.git"
 keywords = ["test", "exam", "exam-zh", "handouts", "讲义", "考试", "试卷"]
 compiler = "0.13.1"
-categories = ["report","paper"]
+categories = ["paper","text","layout"]
 
 [template]
 path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumnail.png"
+
