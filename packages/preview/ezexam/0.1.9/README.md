@@ -57,7 +57,8 @@ This template is primarily designed to help Chinese primary, middle and high sch
 ### 0 . 1 . 9
 + 优化 `text-figure` 方法；考虑到文本内容较多，为了书写方便，将参数 `text` 修改为位置参数；新增参数 `figure` 、`style` 、`gap`
 + 优化 `question` 方法；修复当一个文档中组多套试卷时，会报警告的问题
-+ 优化 `title` 方法
++ 优化 `title` 、`score-box` 、`scoring-box` 方法
+
 
 
 
