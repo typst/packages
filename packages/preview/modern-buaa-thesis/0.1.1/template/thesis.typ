@@ -1,4 +1,4 @@
-#import "@preview/modern-buaa-thesis:0.1.0": abstract, abstract-en, thesis
+#import "@preview/modern-buaa-thesis:0.1.1": abstract, abstract-en, thesis
 
 #let abstract-zh-text = [
   #show: abstract.with(keyword: ("关键词 1", "关键词 2"))
