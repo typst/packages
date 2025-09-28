@@ -4,7 +4,7 @@
   pagebreak(weak: true)
   counter("chapter").step()
   set heading(numbering: _ => counter("chapter").display("一、"))
-  place(top, hide[= #body <chapter>])
+  place(hide[= #body <chapter>])
 }
 
 #let title(
@@ -131,6 +131,7 @@
   title(name.split("").join(h(1em)), bottom: 0pt)
   _create-seal(dash: dash, supplement: supplement, info: student-info)
 }
+
 
 
 
