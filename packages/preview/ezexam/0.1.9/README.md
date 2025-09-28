@@ -1,7 +1,7 @@
 # `ezexam`
 ![Typst Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgbchu%2Fezexam%2Frefs%2Fheads%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/gbchu/ezexam/blob/main/LICENSE)
-[![Online Documentation](https://img.shields.io/badge/online-Documentation-purple)](https://ezexam.pages.dev/)
+[![Online Documentation](https://img.shields.io/badge/online-Documentation-purple?logo=readthedocs)](https://ezexam.pages.dev/)
 
 ## Introduction
 This template is primarily designed to help Chinese primary, middle and high school teachers or students in creating exams or handouts.
@@ -60,6 +60,7 @@ This template is primarily designed to help Chinese primary, middle and high sch
 + 优化 `text-figure` 方法；考虑到文本内容较多，为了书写方便，将参数 `text` 修改为位置参数；新增参数 `figure` 、`style` 、`gap`
 + 优化 `question` 方法；修复当一个文档中组多套试卷时，会报警告的问题
 + 优化 `title` 、`score-box` 、`scoring-box` 方法
+
 
 
 
