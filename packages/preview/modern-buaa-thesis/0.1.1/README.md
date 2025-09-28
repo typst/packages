@@ -54,7 +54,7 @@ This package only provides one main API for writing your own graduate thesis, gr
 
 #### ✨ Features
 
-- add support fo sub figure
+- add support for sub figure
 
 #### 🐛 Bug Fixes
 
