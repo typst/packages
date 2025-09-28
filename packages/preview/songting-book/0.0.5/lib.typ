@@ -1,6 +1,6 @@
 #import "@preview/outrageous:0.4.0"
 #import "@preview/numbly:0.1.0": numbly
-#import "@preview/hydra:0.6.1": hydra
+#import "@preview/hydra:0.6.2": hydra
 #import "@preview/i-figured:0.2.4"
 #import "@preview/modern-nju-thesis:0.4.0": 字号
 
