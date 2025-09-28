@@ -151,7 +151,7 @@
       #if chapter-location.contains(current) {
         place(
           dx: -_width - 1em,
-          dy: -2em,
+          dy: -2.4em,
         )[
           #rotate(-90deg, origin: right + bottom)[
             #_create-seal(dash: line-type, info: student-info, supplement: supplement)
@@ -188,7 +188,7 @@
     ]
   }
   set page(
-    ..paper,
+    ..a4 + paper,
     header: _header(),
     footer: _footer(page-numbering),
     background: _background(),
@@ -253,3 +253,4 @@
 
   doc
 }
+
