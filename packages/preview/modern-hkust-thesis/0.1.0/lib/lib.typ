@@ -169,6 +169,7 @@
   keywords: (),
   acknowledgement: none,
   acronym: none,
+  acronym-col: 1,
   degree: none,
   draft: false,
   body
@@ -289,7 +290,7 @@
     abbr.config(style: style)
     show table: set table(inset: (left: 0pt, right: 20pt, y: 7pt))
     
-    abbr.list(title: [List of Abbreviations], col: 2)
+    abbr.list(title: [List of Abbreviations], col: acronym-col)
   }
 
   set page(numbering: "1")
@@ -346,3 +347,4 @@
     bib-ref 
   }
 }
+
