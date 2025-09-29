@@ -62,8 +62,8 @@
   /// For example one could write:
   /// #codesnippet[```typ
   /// #load-patterns(
-  ///   fr: (tex: read("patterns/hyph-fr.tex")),
-  ///   en: (bin: read("tries/en.bin", encoding: none)),
+  ///   fr: (tex: read("patterns/hyph-fr.tex"), bounds: (2, 3)),
+  ///   en: (bin: read("tries/en.bin", encoding: none), bounds: (2, 3)),
   /// )
   /// ```]
   /// -> dictionary
@@ -72,18 +72,24 @@
   _dyn-languages.update(langs => {
     for (iso, data) in args.named() {
       if "bin" in data and "tex" in data {
-        panic("language data must be passed as bin or tex, not both")
+        panic("language data for " + iso + "must be passed as bin or tex, not both")
       }
+      if "bounds" not in data {
+        panic("please provide bounds for " + iso + " (obtainable on hyphenation.org in the column '(left, right)-hyphenmin')")
+      }
+      let (lmin, rmin) = data.bounds
+      if not (0 <= lmin and lmin <= 255) { panic("lmin for " + iso + " out of range") }
+      if not (0 <= rmin and rmin <= 255) { panic("rmin for " + iso + " out of range") }
       if "bin" in data {
         if type(data.bin) != bytes {
-          panic("data passed as 'bin' should be raw bytes")
+          panic("data passed as 'bin' for " + iso + " should be raw bytes")
         }
         let trie = data.bin
-        langs.insert(iso, trie)
+        langs.insert(iso, bytes((lmin, rmin)) + trie)
       } else if "tex" in data {
         let pats = bytes(data.tex)
         let trie = hypher.build_trie(pats)
-        langs.insert(iso, trie)
+        langs.insert(iso, bytes((lmin, rmin)) + trie)
       }
     }
     langs
