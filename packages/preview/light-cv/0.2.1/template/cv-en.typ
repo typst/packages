@@ -1,5 +1,5 @@
 #import "@preview/light-cv:0.2.1": *
-#import "@preview/fontawesome:0.5.0": *
+#import "@preview/fontawesome:0.6.0": *
 #import "settings/styles.typ": *
 
 #show: cv.with(styles: styles)
