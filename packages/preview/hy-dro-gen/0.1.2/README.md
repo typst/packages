@@ -35,5 +35,6 @@ Full documentation [here](https://github.com/Vanille-N/hy-dro-gen/releases/downl
 
 `hy-dro-gen` also supports dynamically loaded patterns to hyphenate languages not
 natively supported by Typst.
+<!-- @scrybe(if publish; grep https; grep {{version}}) -->
 See the documentation [here](https://github.com/Vanille-N/hy-dro-gen/releases/download/0.1.2/docs.pdf) for more details.
 

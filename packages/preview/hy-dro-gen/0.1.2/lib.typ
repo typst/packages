@@ -1,6 +1,7 @@
 #import plugin("/assets/hypher.wasm") as hypher
 
-/// Check if a code corresponds to a language that has registered patterns.
+/// Check if a code corresponds to a language that has *builtin* patterns.
+/// It does not (yet) take into account dynamically loaded languages.
 ///
 /// See the list of officially supported languages at
 /// #link("https://github.com/typst/hypher/blob/main/src/lang.rs")[`github:typst/hypher`]
@@ -21,17 +22,17 @@
   exists.at(0) != 0
 }
 
-/// Dictionary of supported codes and languages, in the format:
-/// ```typ
+/// Dictionary of builtin codes and languages, in the format:
+/// ```typc
 /// (en: "English", fr: "French", ...)
 /// ```
 ///
 /// This dictionary is expected but not guaranteed to be in sync with
-/// `exists`, because they are fetched through different means.
-/// (`exists` queries the actual WASM module, while `languages` is generated
-/// automatically from the source code of `hypher`). If they are out of sync,
-/// `exists` is the authority for which languages are actually supported
-/// by `syllables`.
+/// @cmd:hy:exists, because they are fetched through different means.
+/// (@cmd:hy:exists queries the actual WASM module, while #var[languages] is
+/// generated from the source code of #github("typst/hypher").
+/// If they are out of sync, this is a bug and @cmd:hy:exists is the authority
+/// for which languages are actually supported by @cmd:hy:syllables.
 /// -> dictionary
 #let languages = {
   let langs = (:)
@@ -43,27 +44,87 @@
   langs
 }
 
+/// Fetch hyphenation patterns from a file.
+/// Depending on the arguments, can load either precompiled bytes,
+/// or to-be-compiled patterns.
+/// #property(since: version(0, 1, 2))
+/// Typically an invocation will look like one of:
+/// #codesnippet[```typ
+/// #let trie_fr = hy.trie(
+///   bin: read("tries/fr.bin", encoding: none),
+///   bounds: (2, 3),
+///  )
+/// #let trie_en = hy.trie(
+///   tex: read("patterns/hyph-en.tex"),
+///   bounds: (2, 3),
+/// )
+/// ```]
+/// -> trie
+#let trie(
+  /// Bytes read from a `.bin` precompiled trie.
+  ///
+  /// Exactly one of #arg[bin] or #arg[tex] must be specified.
+  /// -> bytes
+  bin: none,
+  /// String read from a `.tex` pattern file.
+  ///
+  /// Exactly one of #arg[bin] or #arg[tex] must be specified.
+  /// -> str
+  tex: none,
+  /// (left,right)-hyphenmin as specified by #link("www.hyphenation.org")[hyphenation.org]
+  /// -> (int, int)
+  bounds: none,
+  /// A heuristic panics if you give to #arg[tex] data that looks like a filename,
+  /// because it means you probably meant to #typ.read it first.
+  /// You can silence the warning in question by setting this to #typ.v.true.
+  /// -> bool
+  force: false,
+) = {
+  // Validate the bounds
+  if type(bounds) != array or bounds.len() != 2 {
+    panic("bounds should be an array of 2 integers. See www.hyphenation.org, column (left,right)--hyphenmin")
+  }
+  let (lmin, rmin) = bounds
+  if not (0 <= lmin and lmin <= 255) { panic("lmin for " + iso + " out of range") }
+  if not (0 <= rmin and rmin <= 255) { panic("rmin for " + iso + " out of range") }
+  // Validate the data
+  if (bin == none and tex == none) or (bin != none and tex != none) {
+    panic("must specify exactly one of 'bin' or 'tex'")
+  }
+  let data = if bin != none {
+    if type(bin) != bytes {
+        panic("data passed as 'bin' should be raw bytes")
+    }
+    bin
+  } else {
+    if type(tex) != str {
+      panic("data passed as 'tex' should be a string")
+    }
+    if (not force) and tex.len() < 100 {
+      panic("tex: '" + tex + "' seems too short to be a pattern file. Make sure you pass the contents of the file, not its name. Use force: true to silence this error.")
+    }
+    let trie = hypher.build_trie(bytes(tex))
+    trie
+  }
+  bytes(bounds) + data
+}
 
 #let _dyn-languages = state("dyn-languages", (:))
 
-/// Load new precompiled patterns.
-/// If your patterns are not compiled yet, see @install-hypher and @compile-pats.
+/// Load new patterns dynamically.
 /// #property(since: version(0, 1, 2))
 /// -> content
 #let load-patterns(
-  /// One or more pairs of language iso code and its patterns to load.
-  /// The patterns must be provided as a singleton dictionary, either
-  /// - (tex: "...") a pattern file
-  /// - (bin: bytes(..)) a precompiled trie
-  /// Typically they will be obtained by respectively
-  /// - (tex: read("patterns/hyph-{iso}.tex"))
-  /// - (bin: read("tries/{iso}.bin", encoding: none))
+  /// One or more pairs of language iso code and its trie.
+  /// This function expects objects of type @type:trie,
+  /// see @cmd:hy:trie for how to construct them.
   ///
-  /// For example one could write:
   /// #codesnippet[```typ
+  /// #let trie_fr = hy.trie(..)
+  /// #let trie_en = hy.trie(..)
   /// #load-patterns(
-  ///   fr: (tex: read("patterns/hyph-fr.tex"), bounds: (2, 3)),
-  ///   en: (bin: read("tries/en.bin", encoding: none), bounds: (2, 3)),
+  ///   fr: trie_fr,
+  ///   en: trie_en,
   /// )
   /// ```]
   /// -> dictionary
@@ -71,26 +132,7 @@
 ) = {
   _dyn-languages.update(langs => {
     for (iso, data) in args.named() {
-      if "bin" in data and "tex" in data {
-        panic("language data for " + iso + "must be passed as bin or tex, not both")
-      }
-      if "bounds" not in data {
-        panic("please provide bounds for " + iso + " (obtainable on hyphenation.org in the column '(left, right)-hyphenmin')")
-      }
-      let (lmin, rmin) = data.bounds
-      if not (0 <= lmin and lmin <= 255) { panic("lmin for " + iso + " out of range") }
-      if not (0 <= rmin and rmin <= 255) { panic("rmin for " + iso + " out of range") }
-      if "bin" in data {
-        if type(data.bin) != bytes {
-          panic("data passed as 'bin' for " + iso + " should be raw bytes")
-        }
-        let trie = data.bin
-        langs.insert(iso, bytes((lmin, rmin)) + trie)
-      } else if "tex" in data {
-        let pats = bytes(data.tex)
-        let trie = hypher.build_trie(pats)
-        langs.insert(iso, bytes((lmin, rmin)) + trie)
-      }
+      langs.insert(iso, data)
     }
     langs
   })
@@ -102,8 +144,8 @@
   /// Word to split.
   /// -> string
   word,
-  /// Either an @iso code, or bytes representing a trie.
-  /// -> iso | bytes
+  /// Either an @iso code, or a @type:trie built by @cmd:hy:trie.
+  /// -> iso | trie
   lang: "en",
   /// Determines the behavior in case `lang` is unsupported
   /// - #typ.v.none: panics with "Invalid language"
@@ -114,7 +156,7 @@
   /// Look also in the dynamically loaded languages,
   /// i.e. valid values for #arg[lang] now include not just the builtin ones
   /// but also those declared via @cmd:hy:load-patterns.
-  /// Setting this to true will also make the function contextual,
+  /// Setting this to true will also make the function contextual.
   /// #property(since: version(0, 1, 2))
   /// #property(requires-context: true)
   /// -> bool
