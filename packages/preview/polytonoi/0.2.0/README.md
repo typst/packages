@@ -6,7 +6,7 @@ A typst package for rendering text into polytonic Greek using a hopefully-intuit
 First, be sure you include the package at the top of your typst file:
 
 ```typ
-@import "preview/polytonoi@0.1.0: *
+@import "preview/polytonoi@0.2.0: *
 ```
 The package currently exposes one function, ``#ptgk(<string>)``, which will convert ``<string>`` into polytonic Greek text in the same location where the function appears in the typst document.  
 
