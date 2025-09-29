@@ -1,5 +1,5 @@
 [package]
-name = "hm-bachelors-thesis"
+name = "scribbling-hm"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["fine-seat"]
