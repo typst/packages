@@ -80,7 +80,7 @@
 ) = {
   v(styles.entry-style.margins.top)
   table(
-    columns: { if logo.len() > 0 { styles.entry-style.table.columns } else { auto } },
+    columns: { if logo.content.len() > 0 { styles.entry-style.table.columns } else { auto } },
     inset: 0pt,
     stroke: none,
     align: horizon,
