@@ -1,6 +1,6 @@
 // assigns a Roman character to a code point representing its Greek equivalent
 // anything not in this list (and not handled elsewhere) will be rendered literally
-#let letterDictionary = (
+#let letter-dictionary = (
   // lower-case letters
   a: 0x03B1,
   b: 0x03B2,
@@ -63,7 +63,7 @@
   "?": 0x037E,
 )
 
-#let vowelList = (
+#let vowel-list = (
   "a", "e", "h", "i", "o", "u", "w",
   "A", "E", "H", "I", "O", "U", "W"
 )
@@ -74,14 +74,14 @@
   while i < txt.len() {
     let ltr = txt.at(i)
     // rough breathing mark
-    if ltr == "(" and vowelList.contains(txt.at(i + 1)) { 
-      let code = letterDictionary.at(txt.at(i + 1))
+    if ltr == "(" and vowel-list.contains(txt.at(i + 1)) { 
+      let code = letter-dictionary.at(txt.at(i + 1))
       let brMark = 0x0314
       str.from-unicode(code)
       str.from-unicode(brMark)
       i = i + 2
     // apply smooth breathing mark if previous character is a space or this vowel is the first letter of the string, but not if next character is a vowel
-    } else if vowelList.contains(ltr) {
+    } else if vowel-list.contains(ltr) {
       let prev
       if (i == 0) {
         prev = " "
@@ -89,20 +89,20 @@
         prev = txt.at(i - 1)
       }
       let next = txt.at(i + 1, default: "")
-      if prev == " " and next not in vowelList and next != "(" and next != ")" {
-        let code = letterDictionary.at(ltr)
+      if prev == " " and next not in vowel-list and next != "(" and next != ")" {
+        let code = letter-dictionary.at(ltr)
         let brMark = 0x0313
         str.from-unicode(code)
         str.from-unicode(brMark)
         i = i + 1
       } else {
-        let code = letterDictionary.at(ltr)
+        let code = letter-dictionary.at(ltr)
         str.from-unicode(code)
         i = i + 1  
       }
     // allow manual addition of smooth breathing mark (e.g. for diphthongs)
-    } else if ltr == ")" and vowelList.contains(txt.at(i + 1)) {
-        let code = letterDictionary.at(txt.at(i + 1))
+    } else if ltr == ")" and vowel-list.contains(txt.at(i + 1)) {
+        let code = letter-dictionary.at(txt.at(i + 1))
         let brMark = 0x0313
         str.from-unicode(code)
         str.from-unicode(brMark)
@@ -114,7 +114,7 @@
           str.from-unicode(0x03BE)
           i = i + 2
         } else {
-          let code = letterDictionary.at(ltr)
+          let code = letter-dictionary.at(ltr)
           str.from-unicode(code)
           i = i + 1
         }
@@ -124,7 +124,7 @@
           str.from-unicode(0x039E)
           i = i + 2
         } else {
-          let code = letterDictionary.at(ltr)
+          let code = letter-dictionary.at(ltr)
           str.from-unicode(code)
           i = i + 1
         }
@@ -134,7 +134,7 @@
           str.from-unicode(0x03C8)
           i = i + 2
         } else {
-          let code = letterDictionary.at(ltr)
+          let code = letter-dictionary.at(ltr)
           str.from-unicode(code)
           i = i + 1
         }
@@ -144,7 +144,7 @@
         str.from-unicode(0x03A8)
         i = i + 2
       } else {
-        let code = letterDictionary.at(ltr)
+        let code = letter-dictionary.at(ltr)
         str.from-unicode(code)
         i = i + 1
       }
@@ -158,7 +158,7 @@
           i = i + 1
         }
     } else {
-      let code = letterDictionary.at(ltr, default: -2)
+      let code = letter-dictionary.at(ltr, default: -2)
       if (code != -2 ) {
         str.from-unicode(code)
       } else {
