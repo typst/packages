@@ -7,6 +7,7 @@ license = "MIT"
 description = "Minimalist & customizable for submitting UTBM's reports."
 repository = "https://github.com/langonne/utbm-report"
 keywords = ["UTBM","report"]
+categories = ["report"]
 
 [template]
 path = "template"
