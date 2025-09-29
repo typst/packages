@@ -1,4 +1,4 @@
-#import "@preview/hm-bachelors-thesis:0.1.0": *
+#import "@preview/scribbling-hm:0.1.0": *
 
 #import "abbreviations.typ": abbreviations-list
 #register-glossary(abbreviations-list)
