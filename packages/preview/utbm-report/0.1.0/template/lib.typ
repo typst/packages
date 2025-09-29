@@ -1,41 +1,41 @@
 #let report(
-  doc_title: [Title],
-  doc_author: ("Author1", "Author2"),
-  doc_date: auto,
-  page_paper: "a4",
-  page_numbering: "1",
-  text_size: 12pt,
-  text_lang: "fr",
-  text_font: "New Computer Modern",
-  par_justify: true,
-  heading_numbering: "11",
-  show_outline: true,
-  outline_title: "Sommaire",
-  course_name: "Course name",
+  doc-title: [Title],
+  doc-author: ("Author1", "Author2"),
+  doc-date: auto,
+  page-paper: "a4",
+  page-numbering: "1",
+  text-size: 12pt,
+  text-lang: "fr",
+  text-font: "New Computer Modern",
+  par-justify: true,
+  heading-numbering: "11",
+  show-outline: true,
+  outline-title: "Sommaire",
+  course-name: "Course name",
   doc,
 ) = {
   set document(
-    title: doc_title,
-    author: doc_author,
-    date: doc_date,
+    title: doc-title,
+    author: doc-author,
+    date: doc-date,
   )
   set page(
-    paper: page_paper,
+    paper: page-paper,
   )
   set text(
-    font: text_font,
-    lang: text_lang,
-    size: text_size,
+    font: text-font,
+    lang: text-lang,
+    size: text-size,
   )
   set par(
-    justify: par_justify,
+    justify: par-justify,
   )
   set heading(
-    numbering: heading_numbering,
+    numbering: heading-numbering,
   )
   let date = datetime.today()
-  if type(doc_date) == datetime {
-    date = doc_date
+  if type(doc-date) == datetime {
+    date = doc-date
   }
   let year = date.display("[year repr:last_two]")
   let month = date.display("[month]")
@@ -49,22 +49,22 @@
     #image("../assets/utbm_logo.jpg", width: 40%)
   ]
   align(center)[
-    #text(size: 20pt, weight: "bold")[#doc_title]
+    #text(size: 20pt, weight: "bold")[#doc-title]
     #linebreak()
-    #text(size: 20pt)[#course_name]
+    #text(size: 20pt)[#course-name]
     #linebreak()
     #text(
       size: 20pt,
     )[
-      #if type(doc_author) == str {
-        doc_author
+      #if type(doc-author) == str {
+        doc-author
       } else {
         box(
           width: 50%,
           par(
             justify: false,
           )[
-            #doc_author.join(" - ")
+            #doc-author.join(" - ")
           ],
         )
       }
@@ -74,7 +74,7 @@
   align(center)[
     #text(size: 16pt)[#semester#year]
   ]
-  if show_outline {
+  if show-outline {
     pagebreak()
     outline(
       indent: auto,
@@ -83,7 +83,7 @@
   }
   pagebreak()
   set page(
-    numbering: page_numbering,
+    numbering: page-numbering,
   )
   doc
 }

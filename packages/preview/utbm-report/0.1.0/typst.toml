@@ -11,3 +11,4 @@ keywords = ["UTBM","report"]
 [template]
 path = "template"
 entrypoint = "lib.typ"
+thumbnail = "thumbnail.png"
