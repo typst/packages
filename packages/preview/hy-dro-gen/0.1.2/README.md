@@ -12,7 +12,7 @@ Full documentation [here](https://github.com/Vanille-N/hy-dro-gen/releases/downl
 |----------------|--------------------------------|
 | 0.1.0          | [0.1.5](https://github.com/typst/hypher/releases/tag/v0.1.5) |
 | 0.1.1          | [0.1.6](https://github.com/typst/hypher/releases/tag/v0.1.6) |
-| 0.1.2 (latest) | [0.1.6](https://github.com/typst/hypher/releases/tag/v0.1.6) forked to [606d415](https://github.com/Vanille-N/hypher/commit/606d41596225effd0732a99db50f6eef8bf50077) |
+| 0.1.2 (latest) | [0.1.6](https://github.com/typst/hypher/releases/tag/v0.1.6) forked to [83aa0d2](https://github.com/Vanille-N/hypher/commit/83aa0d2d562e268caac7a7ad5b3e71530784dcbc) |
 
 ## Basic usage
 

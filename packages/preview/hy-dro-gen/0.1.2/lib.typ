@@ -51,23 +51,40 @@
 /// #property(since: version(0, 1, 2))
 /// -> content
 #let load-patterns(
-  /// One or more pairs in the format `{iso}: {bytes}`,
-  /// for example one could write:
+  /// One or more pairs of language iso code and its patterns to load.
+  /// The patterns must be provided as a singleton dictionary, either
+  /// - (tex: "...") a pattern file
+  /// - (bin: bytes(..)) a precompiled trie
+  /// Typically they will be obtained by respectively
+  /// - (tex: read("patterns/hyph-{iso}.tex"))
+  /// - (bin: read("tries/{iso}.bin", encoding: none))
+  ///
+  /// For example one could write:
   /// #codesnippet[```typ
   /// #load-patterns(
-  ///   en: read("tries/en.bin", encoding: none),
-  ///   fr: read("tries/fr.bin", encoding: none),
+  ///   fr: (tex: read("patterns/hyph-fr.tex")),
+  ///   en: (bin: read("tries/en.bin", encoding: none)),
   /// )
   /// ```]
   /// -> dictionary
   ..args
 ) = {
   _dyn-languages.update(langs => {
-    for (iso, trie) in args.named() {
-      if type(trie) != bytes {
-        panic("load-patterns expects bytes, received " + str(type(trie)))
+    for (iso, data) in args.named() {
+      if "bin" in data and "tex" in data {
+        panic("language data must be passed as bin or tex, not both")
       }
-      langs.insert(iso, trie)
+      if "bin" in data {
+        if type(data.bin) != bytes {
+          panic("data passed as 'bin' should be raw bytes")
+        }
+        let trie = data.bin
+        langs.insert(iso, trie)
+      } else if "tex" in data {
+        let pats = bytes(data.tex)
+        let trie = hypher.build_trie(pats)
+        langs.insert(iso, trie)
+      }
     }
     langs
   })
