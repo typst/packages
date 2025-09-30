@@ -3,7 +3,7 @@
   abstract: none,
   keywords: (),
   authors: (),
-  custom_authors: none,
+  custom-authors: none,
   date: none,
   body,
 ) = {
@@ -55,8 +55,8 @@
   line(length: 100%, stroke: 2pt)
 
   // Author information.
-  if custom_authors != none {
-    custom_authors
+  if custom-authors != none {
+    custom-authors
   } else {
     pad(
       top: 0.5em,

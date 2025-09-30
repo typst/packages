@@ -53,7 +53,7 @@ Author: {
   orcid: String
 }
 ```
-- `custom_authors: Content` - Custom authors content that overrides the default authors content.
+- `custom-authors: Content` - Custom authors content that overrides the default authors content.
 Note: The `authors` is still required to be passed in order to generate the metadata, however, only the `name` field is required.
 - `abstract: Content` - Abstract of the document.
 - `keywords: List<String>` - List of keywords.
