@@ -1,5 +1,4 @@
 #import "@preview/charged-vde:1.0.0": charged-vde
-//#import "../lib.typ": vde
 
 #show: charged-vde.with(
   title: [Test],

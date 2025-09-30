@@ -55,4 +55,5 @@ The body of the paper comes after the `#show` statement in normal typst syntax.
 ```
 
 # License
-"MIT No Attribution" (MIT-0) License
+The Typst package and the example template, including `image.jpg`, are licensed
+under the "MIT No Attribution" (MIT-0) License.
