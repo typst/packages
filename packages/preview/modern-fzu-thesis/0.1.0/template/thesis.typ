@@ -1,4 +1,6 @@
-#import "@local/modern-fzu-thesis:0.1.0": documentclass
+// INFO: use '@local' prefix if you use this template in local or install from repo.
+// #import "@local/modern-fzu-thesis:0.1.0": documentclass
+#import "@preview/modern-fzu-thesis:0.1.0": documentclass
 
 // 你首先应该安装 https://github.com/zenor0/modern-fzu-thesis/tree/main/fonts/ 里的所有字体，
 // 如果是 Web App 上编辑，你应该手动上传这些字体文件，否则不能正常使用「楷体」和「仿宋」，导致显示错误。
