@@ -29,12 +29,18 @@ Full documentation [here](https://github.com/Vanille-N/hy-dro-gen/releases/downl
 #assert.eq(hy.syllables("hydrogen"), ("hy", "dro", "gen"))
 #assert.eq(hy.syllables("hydrogène", lang: "fr"), ("hy", "dro", "gène"))
 #assert.eq(hy.syllables("υδρογόνο", lang: "el"), ("υ", "δρο", "γό", "νο"))
+
+// Use the following to add hyphenation to a language not natively supported
+#let trie_ro = hy.trie(
+  // Download patterns from github.com:hyphenation/tex-hyphen
+  // (look for files 'hyph-{iso}.tex')
+  tex: read("patterns/hyph-ro.tex"),
+  // (left,right)-hyphenmin on www.hyphenation.org
+  bounds: (2, 3),
+)
+#hy.load-patterns(
+  ro: trie_ro,
+)
+#show: hy.apply-patterns("ro")
 ```
-
-## More features
-
-`hy-dro-gen` also supports dynamically loaded patterns to hyphenate languages not
-natively supported by Typst.
-<!-- @scrybe(if publish; grep https; grep {{version}}) -->
-See the documentation [here](https://github.com/Vanille-N/hy-dro-gen/releases/download/0.1.2/docs.pdf) for more details.
 
