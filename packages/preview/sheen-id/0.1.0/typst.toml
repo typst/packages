@@ -6,6 +6,7 @@ authors = ["Sheen.id"]
 license = "MIT"
 description = "Typst template for sheen.id."
 categories = ["layout", "book"]
+exclude = ["./cover-colored.png"]
 
 [template]
 path = "template"
