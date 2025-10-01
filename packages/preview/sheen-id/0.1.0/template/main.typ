@@ -5,7 +5,7 @@
   doc
 )
 
-#set-chapter-image("./media1/image1.png")
+// #set-chapter-image("./media1/image1.png")
 
 // #set-cover("media/cover-colored.png")
 // #make-cover()
@@ -34,13 +34,13 @@
 
 #show: doc => make-paragraph(doc)
 
-#include "module/chapter1.typ"
-#include "module/chapter2.typ"
-#include "module/chapter3.typ"
-#include "module/chapter4.typ"
-#include "module/chapter5.typ"
-#include "module/chapter6.typ"
-#include "module/chapter7.typ"
-#include "module/chapter8.typ"
-#include "module/chapter9.typ"
-#include "module/dafpus.typ"
+// #include "module/chapter1.typ"
+// #include "module/chapter2.typ"
+// #include "module/chapter3.typ"
+// #include "module/chapter4.typ"
+// #include "module/chapter5.typ"
+// #include "module/chapter6.typ"
+// #include "module/chapter7.typ"
+// #include "module/chapter8.typ"
+// #include "module/chapter9.typ"
+// #include "module/dafpus.typ"
