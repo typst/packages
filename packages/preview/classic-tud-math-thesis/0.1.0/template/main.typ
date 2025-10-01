@@ -1,4 +1,4 @@
-#import "../src/classic-tud-math-thesis.typ": *
+#import "@preview/classic-tud-math-thesis:0.1.0": *
 
 #show: setup-equate.with()
 
