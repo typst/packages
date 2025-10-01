@@ -47,7 +47,7 @@ As default for the theorem-environments we use [great-theorems 0.1.2](https://ty
 at the beginning. 
 
 # Default Theorem environmet
-We use for the theorems [great-theorems 0.1.2](https://typst.app/universe/package/great-theorems/0.1.2/) and [rich-counter 0.2.1](https://typst.app/universe/package/rich-counters/0.2.1/) for the counters. You could give your theorems an addidtional title with the `title:[content]` parameter.
+We use for the theorems [great-theorems 0.1.2](https://typst.app/universe/package/great-theorems/0.1.2/) and [rich-counter 0.2.2](https://typst.app/universe/package/rich-counters/0.2.2/) for the counters. You could give your theorems an addidtional title with the `title:[content]` parameter.
 
 ## numbered theorems
 Our numbered theorems are numbered in the format 
