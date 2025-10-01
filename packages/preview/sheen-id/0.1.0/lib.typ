@@ -90,14 +90,8 @@ b#import "@preview/i-figured:0.2.4"
     inset: (right: 1.5em),
     align: (col, row) => if row > 0 { horizon+left } else { auto },
   )
-  show table.cell: it => {
-    set par(justify: false)
-    if it.y == 0 {
-      text(white, strong(it), size: 10pt)
-    } else {
-      text(it, size: 10pt)
-    }
-  }
+  show table.cell.where(y: 0): set text(fill: white, size: 10pt)
+  show table.cell.where(y: 0): set par(justify: false)
 
   doc
 }
