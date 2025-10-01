@@ -1,4 +1,4 @@
-#import "@preview/hydra:0.6.0": hydra
+#import "@preview/hydra:0.6.2": hydra
 
 
 #let titlepage(
