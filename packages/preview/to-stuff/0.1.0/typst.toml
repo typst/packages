@@ -1,0 +1,27 @@
+[package]
+name				= 'to-stuff'
+version				= '0.1.0'
+compiler			= '0.13.1'
+repository			= 'https://codeberg.org/boondoc/to-stuff'
+license				= 'BSD-3-Clause'
+entrypoint			= 'exports.typ'
+description			= 'Parse strings into typed lengths, alignments, colors, and more.'
+authors				= [
+	'Nik Mennega',
+]
+categories			= [
+	'scripting',
+	'utility',
+]
+keywords			= [
+	'string',
+	'parse',
+	'parsing',
+	'alignment',
+	'angle',
+	'color',
+	'length',
+	'ratio',
+	'stroke',
+]
+
