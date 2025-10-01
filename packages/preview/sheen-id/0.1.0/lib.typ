@@ -87,7 +87,7 @@ b#import "@preview/i-figured:0.2.4"
     gutter: 0.2em,
     row-gutter: 1em,
     fill: (x, y) => if y == 0 { gray },
-    inset: (right: 1.5em),
+    inset: (right: 0.5em, left: 0.5em),
     align: (col, row) => if row > 0 { horizon+left } else { auto },
   )
   show table.cell: set text(size: 10pt)
