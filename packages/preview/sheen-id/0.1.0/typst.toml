@@ -1,0 +1,11 @@
+[package]
+name = "sheen-id"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Sheen.id"]
+license = "MIT"
+description = "Typst template for sheen.id."
+
+[template]
+path = "template"
+entrypoint = "main.typ"
