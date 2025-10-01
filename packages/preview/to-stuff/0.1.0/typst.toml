@@ -20,8 +20,11 @@ keywords			= [
 	'alignment',
 	'angle',
 	'color',
+	'direction',
+	'fraction',
 	'length',
 	'ratio',
+	'relative',
 	'stroke',
 ]
 
