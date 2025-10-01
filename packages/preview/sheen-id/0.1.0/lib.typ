@@ -3,7 +3,7 @@ b#import "@preview/i-figured:0.2.4"
 #let vfont = "Times New Roman"
 #let vtitle = state("title", "Title")
 #let vcolor = state("color", blue)
-#let vchapter_image = state("chapter_image", "./chapter_image.png")
+#let vchapter-image = state("chapter_image", "./chapter_image.png")
 #let vfooter-image = state("footer_image", "./chapter_image.png")
 
 #let conf(
@@ -107,7 +107,7 @@ b#import "@preview/i-figured:0.2.4"
 }
 
 #let set-chapter-image(path) = {
-  vchapter_image.update(path)
+  vchapter-image.update(path)
 }
 
 #let make-cover() = context {
@@ -266,7 +266,7 @@ b#import "@preview/i-figured:0.2.4"
   #align(center)[
     = #title
     #v(2em)
-    #image(vchapter_image.get(), width: 2in)
+    #image(vchapter-image.get(), width: 2in)
     #v(3em)
   ]
 
