@@ -99,7 +99,7 @@
   datum: [tt. mm. jjjj],
   abschluss: "bsc",
   studiengang: [Mathematik oder Technomathematik oder Wirtschaftsmathematik],
-  use_default_math_env: true,
+  use-default-math-env: true,
   body,
 ) = {
   set page(
@@ -151,9 +151,8 @@
     }
   }
 
-  show: if (use_default_math_env) {
+  show: if (use-default-math-env) {
     import "@preview/great-theorems:0.1.2": great-theorems-init
-    great-theorems-init
   }
 
   titlepage(

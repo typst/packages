@@ -14,7 +14,7 @@
   datum: [tt. mm. jjjj],
   abschluss: "bsc",
   studiengang: [Mathematik oder Technomathematik oder Wirtschaftsmathematik],
-  use_default_math_env: true,
+  use-default-math-env: true,
 )
 
 #heading(numbering: none)[Einleitung]
