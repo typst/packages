@@ -1,0 +1,33 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "flower-book"
+version = "0.1.2"
+entrypoint = "src/lib.typ"
+authors = ["跨越晨昏 <@CrossDark>"]
+license = "MIT"
+description = ""
+homepage = ""
+repository = "https://github.com/CrossDark/FlowerBook/"
+keywords = []
+categories = []
+disciplines = []
+# compiler = ""
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"
