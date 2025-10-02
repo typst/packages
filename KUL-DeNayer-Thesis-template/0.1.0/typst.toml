@@ -1,8 +1,0 @@
-[package]
-name = "KULeuven DeNayer Thesis"
-version = "0.1.0"
-entrypoint = "main.typ"
-authors = ["Robin Schellemans"]
-license = "MIT"
-description = "A Master Thesis template for KULeuven campus De Nayer, industrial engineering"
-
