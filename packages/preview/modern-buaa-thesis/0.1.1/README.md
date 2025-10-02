@@ -23,7 +23,7 @@ Check out [thesis.typ](https://github.com/wangjq4214/buaa-thesis/blob/main/templ
 This package only provides one main API for writing your own graduate thesis, greatly simplifying the writing process:
 
 ```typ
-#import "@preview/modern-buaa-thesis:0.1.0": thesis
+#import "@preview/modern-buaa-thesis:0.1.1": thesis
 
 #show thesis.with()
 
