@@ -25,36 +25,6 @@
   box($cal(it)$),
 )
 
-#let span = math.op("span")
-#let Var = math.op("Var")
-#let Cov = math.op("Cov")
-#let Pr = math.op("Pr")
-#let ind = math.op("ind")
-#let rank = math.op("rank")
-#let tr = math.op("tr")
-#let diag = math.op("diag")
-#let null = math.op("null")
-#let eigen = math.op("eigen")
-#let dim = math.op("dim")
-#let char = math.op("char")
-#let Gal = math.op("Gal")
-#let Aut = math.op("Aut")
-#let Inv = math.op("Inv")
-#let End = math.op("End")
-#let oint = math.integral.cont
-#let oiint = math.integral.surf
-#let oiiint = math.integral.vol
-#let iint = math.integral.double
-#let iiint = math.integral.triple
-#let argmin = math.op("argmin", limits: true)
-#let argmax = math.op("argmax", limits: true)
-#let End = math.op("End")
-
-#let pmat = math.mat.with(delim: "(")
-#let bmat = math.mat.with(delim: "[")
-#let detm = math.mat.with(delim: "|")
-
-
 #let problem-counter = counter("problem")
 
 #let thmtitle(t, color: luma(0)) = {
