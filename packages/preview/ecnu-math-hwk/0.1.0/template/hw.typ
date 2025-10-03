@@ -1,7 +1,7 @@
 #import "@preview/ecnu-math-hwk:0.1.0": *
 #set text(lang: "zh")
 
-#show: hwk.with(author: "小花狮", course: [Typst 入门], hwk_id: 1, stu_id: 810975)
+#show: hwk.with(author: "小花狮", course: [Typst 入门], hwk-id: 1, stu-id: 810975)
 
 #let rank = math.op("rank")
 #let End = math.op("End")
