@@ -1,0 +1,8 @@
+*.pdf
+.DS_Store
+
+# demo assets
+demo-*.png
+!demo-1.png
+!demo-2.png
+!demo-3.png
