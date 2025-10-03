@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+[package]
+# See: <https://github.com/typst/packages/blob/main/docs/manifest.md>
+# Required by Compiler
+name = "testyfy"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+# Required for Submission to Typst Universe
+# See: https://github.com/typst/packages/blob/main/docs/README.md
+authors = ["Andreas Hartmann <hartan@7x.de>"]
+license = "GPL-3.0-or-later"
+description = "Assert specific conditions and requirements"
+# Optional
+repository = "https://gitlab.com/hartang/typst/testyfy"
+keywords = ["assert", "check", "verify"]
+categories = ["scripting", "utility"]
+exclude = [
+    "bin/",
+    "test/",
+]
