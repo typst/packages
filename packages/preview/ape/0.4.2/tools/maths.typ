@@ -1,5 +1,20 @@
 #let cpt = counter("maths")
 
+#let breakable-or-not(content) = context {
+  layout(size => {
+    let body = block(width: size.width, content)
+    let (height,) = measure(
+      body,
+    )
+
+    if (height < 100pt) {
+      block(width: size.width, breakable: false, content)
+    } else {
+      body
+    }
+  })
+}
+
 
 #let enclose(content) = context {
   block(
@@ -16,11 +31,11 @@
   let n = cpt.get().at(0) + 1
 
   if (title == []) {
-    [
+    breakable-or-not[
       *#type #n ---* #content
     ]
   } else {
-    [
+    breakable-or-not[
       *#type #n --- #title*
 
       #content
@@ -33,17 +48,17 @@
   let n = cpt.get().at(0) + 1
 
   if (title == []) {
-    enclose[
+    breakable-or-not(enclose[
       *#type #n*
 
       #content
-    ]
+    ])
   } else {
-    enclose[
+    breakable-or-not(enclose[
       *#type #n --- #title*
 
       #content
-    ]
+    ])
   }
 }
 
@@ -57,12 +72,14 @@
 #let exemple(title, content) = context maths_block_no_stroke("Exemple", title, content)
 
 #let demo(content) = context {
-  [*Démonstration*]
+  breakable-or-not[
+    *Démonstration*
 
-  block(
-    width: 100%,
-    stroke: (left: (paint: text.fill, thickness: 0.5pt), rest: 0pt),
-    inset: (top: 2pt, bottom: 2pt, left: 10pt),
-    content,
-  )
+    #block(
+      width: 100%,
+      stroke: (left: (paint: text.fill, thickness: 0.5pt), rest: 0pt),
+      inset: (top: 2pt, bottom: 2pt, left: 10pt),
+      content,
+    )
+  ]
 }
