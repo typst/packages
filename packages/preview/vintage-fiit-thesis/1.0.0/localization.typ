@@ -11,7 +11,18 @@
       ),
       values: (
         month: (
-          may: "May",
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
         ),
         thesis: (
           bp2: "Bachelor thesis",
@@ -67,7 +78,18 @@
       ),
       values: (
         month: (
-          may: "Máj",
+          "Január",
+          "Február",
+          "Marec",
+          "Apríl",
+          "Máj",
+          "Jún",
+          "Júl",
+          "August",
+          "September",
+          "Október",
+          "November",
+          "December",
         ),
         thesis: (
           bp2: "Bakalárska práca",

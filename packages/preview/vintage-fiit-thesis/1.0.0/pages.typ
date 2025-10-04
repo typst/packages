@@ -8,8 +8,7 @@
   author: (left: "Autor", right: "Jožko Mrkvička"),
   thesis: (left: "Záverečná práca", right: "Téma záverečnej práce"),
   supervisor: (
-    left: "Vedúci bakalárskeho projektu",
-    right: "prof. Jožko Mrkvička",
+    (left: "Vedúci bakalárskeho projektu", right: "prof. Jožko Mrkvička"),
   ),
   date: "Máj 2025",
   abstract,
@@ -31,8 +30,10 @@
   linebreak()
   text([#thesis.left: #thesis.right])
   linebreak()
-  text([#supervisor.left: #supervisor.right])
-  linebreak()
+  for pair in supervisor {
+    text([#pair.left: #pair.right])
+    linebreak()
+  }
   text(date)
   v(1.5em)
 
@@ -102,9 +103,19 @@
 
   // other data goes to the bottom
   v(1fr, weak: false)
-  for (left, right) in footer {
-    par(text(1.1em)[#left: #h(1fr) #right #linebreak()])
-  }
+  grid(
+    columns: (auto, 1fr),
+    row-gutter: 1.2em,
+    ..(
+      footer
+        .map(it => (
+          text(1.1em, [#it.left:]),
+          align(end + top, text(1.1em, it.right)),
+        ))
+        .flatten()
+    )
+  )
+
   text(1.1em, date)
   pagebreak()
 }

@@ -1,22 +1,30 @@
 
-# FIIT Thesis Template with Typst
+# Faculty of Informatics and Information Technologies (FIIT) Thesis Template
 
-Status: finished 🎉
+Status: publishing to Universe...
 
 ---
 
 This is a Typst template for writing bachelor's thesis and diploma at the
 Faculty of Informatics and Information Technologies (FIIT) in Slovak Technical
 University in Bratislava (STU). The template was crafted using the for the
-[official requirements and conditions, as of May 2025](https://www.fiit.stuba.sk/studium/bakalarsky-projekt/bp.html?page_id=1862)
-provided by the faculty, with [this LaTeX template](https://www.overleaf.com/latex/templates/stu-fiit-bachelor-thesis-template-slovak-university-of-technology/pppyykvvhqgq) being the basis for how the document looks.
+[official requirements and conditions, as of May 2025] provided by the faculty,
+with [this LaTeX template] being the basis for how the document looks.
+
+[official requirements and conditions, as of May 2025]: https://www.fiit.stuba.sk/studium/bakalarsky-projekt/bp.html?page_id=1862
+[this LaTeX template]: https://www.overleaf.com/latex/templates/stu-fiit-bachelor-thesis-template-slovak-university-of-technology/pppyykvvhqgq
+
+**This template also supports the new format of Bachelor's thesis!**
 
 The template is available in these languages: **Slovak** (sk), **English** (en)
 
 Theses that already use this template:
 
-- [Extending a RISC-V processor with bit instructions, Kirill Putiatin](https://opac.crzp.sk/?fn=detailBiblioForm&sid=BBB70232DB8D19E5F026BDDCF3EF)
-- [Development of an Adverse Media Screening System using Face Recognition via Existing APIs, Illia Chaban](https://opac.crzp.sk/?fn=detailBiblioForm&sid=BBB70232DB8D19E5F027B5DCF3EF)
+- [Extending a RISC-V processor with bit instructions, Kirill Putiatin]
+- [Development of an Adverse Media Screening System using Face Recognition via Existing APIs, Illia Chaban]
+
+[Extending a RISC-V processor with bit instructions, Kirill Putiatin]: https://opac.crzp.sk/?fn=detailBiblioForm&sid=BBB70232DB8D19E5F026BDDCF3EF
+[Development of an Adverse Media Screening System using Face Recognition via Existing APIs, Illia Chaban]: https://opac.crzp.sk/?fn=detailBiblioForm&sid=BBB70232DB8D19E5F027B5DCF3EF
 
 # Showcase
 
@@ -33,17 +41,19 @@ documents.
 
 You can use [Typst's online editor](https://typst.app/) to edit and display
 your thesis. [Sign up](https://typst.app/signup), sign in and click "Start from
-template". Search for "fiit-thesis" and start writing!
+template". Search for "vintage-fiit-thesis" and start writing!
 
 ## Building your thesis locally
 
-1. [Install Typst](https://github.com/typst/typst?tab=readme-ov-file#installation).
+1. [Install Typst][typst].
 If you're on Linux, it should be pretty easy.
+
+[typst]: https://github.com/typst/typst?tab=readme-ov-file#installation
 
 2. Next, initialize the template using:
 
 ```bash
-typst init @preview/fiit-thesis
+typst init @preview/vintage-fiit-thesis
 ```
 
 3. Start watching the changes of your thesis using:
@@ -54,7 +64,9 @@ typst watch main.typ --watch
 4. Begin writing your thesis!
 
 If you're new to Typst, we recommend to start reading the [Typst
-tutorial](https://typst.app/docs/tutorial/).
+tutorial][typst-tutorial].
+
+[typst-tutorial]: https://typst.app/docs/tutorial/
 
 Don't forget to intialize a Git repository and backup your work somewhere!
 
@@ -65,11 +77,13 @@ Don't forget to intialize a Git repository and backup your work somewhere!
 | title | `str` | `"Moja záverečná práca"` | thesis title | |
 | thesis | enum (`str`) | `"bp2"` | type of your thesis | `"bp1"`, `"bp2"`, `"dp1"`, `"dp2"`, `"dp3"` |
 | author | `str` | `"Jožko Mrkvička"` | your name | |
-| supervisor | `str` or `array` of `str` | `"prof. Jozef Mrkva, PhD."` | your supervisor | `str` if you have one supervisor, `array` if many |
+| supervisor | `str` or `dictionary` of `array` | `"prof. Jozef Mrkva, PhD."` | your supervisor | `str` if you have one supervisor, localized `dictionary` if many |
 | abstract | `dict` | `( sk: lorem(150), en: lorem(150) )` | abstract in two languages | keys are the language, with `str` as values |
 | id | `str` | `"FIIT-12345-123456"` | id from AIS | |
 | lang | enum(`str`) | `"en"` | language of your thesis | `"sk"`, `"en"` |
-| acknowledgment | `str` | `"Omitted"` | thanks at the start of the thesis | |
+| month | `int` | `5` | month of the hand-in | 1-12 |
+| current-date | `datetime` | `datetime.today()` | declaration date and year of the work | |
+| acknowledgment | `str` or `none` | `"Omitted"` | thanks at the start of the thesis | |
 | assignment | path | `none` | recommended to leave as default, see "How to insert the thesis assignment?" | |
 | tables-outline | `bool` | `false` | enable tables outline | |
 | figures-outline | `bool` | `false` | enable figures outline | |
@@ -87,11 +101,27 @@ an unsupported language, the template will generate a compile error.
 Next, you should insert general info for your thesis: `title`, `author`, `id`,
 `supervisor`. They are pretty straight-forward, so just write the correct data
 into them. `id` is your thesis ID number from the informational system.
+
 `supervisor` supports two options: either one supervisor's name as a string,
-or an array of pairs, where each pair contains position of the supervisor and
-their name. With the second option, you can add multiple supervisors, but
-please make sure that you write the positions in the language of the rest of
-the thesis.
+or multiple supervisors with localization. The latter option is achieved using
+a localized array of pairs. Example:
+
+```typst
+  // ...
+  supervisor: (
+    sk: (
+      ("Vedúci práce", "Ing. John Doe"),
+      ("Fakultný vedúci", "prof. Jozef Mrkva, PhD."),
+      // ...
+    ),
+    en: (
+      ("Supervisor", "Ing. John Doe"),
+      ("Faculty advisor", "prof. Jozef Mrkva, PhD."),
+      // ...
+    ),
+  ),
+  // ...
+```
 
 `thesis` selects the type of your work. The allowed values are: `bp1`, `bp2`,
 `dp1`, `dp2`, `dp3`. These values control what text is displayed on the title
@@ -107,6 +137,14 @@ in Typst.
 
 `acknowledgment` sets the acknowledgment text. You can write anything you want
 here.
+
+`month` lets you select which month you hand in the thesis. For most people
+it's May (5), but if you selected the new format with an article, you may need
+to choose a different month. Just pick a number and it will automatically
+insert the correct month for you.
+
+`current-date` is Typst's `datetime` that tells when the declaration will be
+signed, and which year the thesis is being written.
 
 `assignment` sets the assignment PDF file path. This isn't the ideal way to
 insert your assignment from AIS, see "How to insert the thesis assignment?"
@@ -226,5 +264,7 @@ me directly.
 
 # Contact
 
-If you have any questions, feel free to contact me: [Sasetz](https://github.com/sasetz/)
+If you have any questions, feel free to contact me: [Sasetz][sasetz]
+
+[sasetz]: https://github.com/sasetz/
 

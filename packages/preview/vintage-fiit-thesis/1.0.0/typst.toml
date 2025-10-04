@@ -1,10 +1,10 @@
 [package]
-name = "fiit-thesis"
+name = "vintage-fiit-thesis"
 version = "1.0.0"
 entrypoint = "lib.typ"
 authors = ["Sasetz <https://github.com/sasetz>"]
 license = "MIT-0"
-description = "Bachelor's or master's thesis at FIIT, Slovak University of Technology."
+description = "Bachelor's or master's thesis at Faculty of Informatics and Information Technologies (FIIT), STU"
 repository = "https://github.com/sasetz/fiit_template"
 keywords = ["fiit", "stu"]
 categories = ["thesis"]

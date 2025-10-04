@@ -26,10 +26,12 @@
   supervisor: "prof. Jozef Mrkva, PhD.",
   // supported values: "en", "sk"
   lang: "en",
+  // month of the hand-in
+  month: 5,
+  // current date for declaration and year of handing-in
+  current-date: datetime.today(),
   // acknowledgment text
-  acknowledgment: [I would like to thank my supervisor for all the help and
-    guidance I have received. I would also like to thank my friends and family
-    for supporting during this work.],
+  acknowledgment: none,
   // assignment from AIS file path. DO NOT USE THIS FOR FINAL HAND-IN
   assignment: none,
   // enable list of tables
@@ -129,6 +131,12 @@
   _lang.update(lang)
   _style.update(style)
 
+  assert(
+    type(month) == int and month >= 1 and month <= 12,
+    message: "Month should be an integer between 1 and 12",
+  )
+  month = month - 1 // convert to array index
+
   ////////////////////////////////
   // pagecount handling
   show pagebreak: it => if style == "pagecount" { none } else { it }
@@ -226,13 +234,26 @@
 
   ////////////////////////////////
   // process potential multiple supervisors
-  let supervisor-footer = ()
+  let supervisors-sk = ()
+  let supervisors-en = ()
   if type(supervisor) == str {
-    supervisor-footer = ((left: fields.supervisor, right: supervisor),)
-  } else if type(supervisor) == array {
-    for pair in supervisor {
-      supervisor-footer.push((left: pair.at(0), right: pair.at(1)))
+    supervisors-sk = (
+      (left: slovak.title-page.fields.supervisor, right: supervisor),
+    )
+    supervisors-en = (
+      (left: english.title-page.fields.supervisor, right: supervisor),
+    )
+  } else if type(supervisor) == dictionary {
+    for pair in supervisor.sk {
+      supervisors-sk.push((left: pair.at(0), right: pair.at(1)))
     }
+    for pair in supervisor.en {
+      supervisors-en.push((left: pair.at(0), right: pair.at(1)))
+    }
+  }
+  // localized supervisors
+  let supervisor-footer = if lang == "en" { supervisors-en } else {
+    supervisors-sk
   }
 
   ////////////////////////////////
@@ -248,7 +269,7 @@
         #locale.faculty
       ],
       footer: supervisor-footer,
-      date: [#values.month.may #datetime.today().display("[year]")],
+      date: [#values.month.at(month) #current-date.display("[year]")],
     )
     pagebreak(to: if use-binding { "odd" } else { none }, weak: true)
   }
@@ -270,7 +291,7 @@
         (left: fields.department, right: values.department.upai),
         ..supervisor-footer,
       ),
-      date: [#values.month.may #datetime.today().display("[year]")],
+      date: [#values.month.at(month) #current-date.display("[year]")],
     )
   }
 
@@ -304,21 +325,16 @@
 
   ////////////////////////////////
   // acknowledgment
-  if style != "pagecount" {
+  if style != "pagecount" and acknowledgment != none {
     v(1fr)
-    par(
-      text(1.5em)[
-        *#locale.acknowledgment*
-      ],
-    )
-
+    par(text(1.5em)[ *#locale.acknowledgment* ])
     text(1.1em)[
       #acknowledgment
       #v(1.5em)
     ]
+    pagebreak()
+    pagebreak() // intentional blank page
   }
-  pagebreak()
-  pagebreak() // intentional blank page
 
   ////////////////////////////////
   // cestne vyhlasenie
@@ -338,7 +354,7 @@
         grid.cell(
           rowspan: 2,
           align: start,
-          datetime.today().display("V Bratislave, [day].[month].[year]"),
+          current-date.display("V Bratislave, [day].[month].[year]"),
         ),
         repeat("."),
         author,
@@ -351,6 +367,9 @@
   ////////////////////////////////
   // even if the language is Slovak, the university requires students to provide
   // both versions of the abstract
+
+  ////////////////////////////////
+  // slovak abstract
   if style != "pagecount" {
     abstract-page(
       title: slovak.annotation.title,
@@ -362,12 +381,9 @@
       ),
       author: (left: slovak.annotation.author, right: author),
       thesis: (left: slovak.title-page.values.thesis.at(thesis), right: title),
-      supervisor: (
-        left: slovak.title-page.fields.supervisor,
-        right: supervisor,
-      ),
-      date: [#slovak.title-page.values.month.may #(
-          datetime.today().display("[year]")
+      supervisor: supervisors-sk,
+      date: [#slovak.title-page.values.month.at(month) #(
+          current-date.display("[year]")
         )],
       abstract.sk,
     )
@@ -387,12 +403,9 @@
       ),
       author: (left: english.annotation.author, right: author),
       thesis: (left: english.title-page.values.thesis.at(thesis), right: title),
-      supervisor: (
-        left: english.title-page.fields.supervisor,
-        right: supervisor,
-      ),
-      date: [#english.title-page.values.month.may #(
-          datetime.today().display("[year]")
+      supervisor: supervisors-en,
+      date: [#english.title-page.values.month.at(month) #(
+          current-date.display("[year]")
         )],
       abstract.en,
     )
@@ -512,14 +525,26 @@
   )
   if type(supervisor) != str {
     assert(
-      type(supervisor) == array,
-      message: "Please provide correct supervisor argument: either a string, or an array of pairs (\"position\", \"name\").",
+      type(supervisor) == dictionary,
+      message: "Please provide correct supervisor argument: either a string, or localized array of pairs (\"position\", \"name\").",
     )
-    for pair in supervisor {
+    assert(
+      supervisor.keys().len() == 2
+        and supervisor.keys().contains("sk")
+        and supervisor.keys().contains("en")
+        and type(supervisor.sk) == array
+        and type(supervisor.en) == array,
+      message: "Please provide correct localization dictionary. Example: `(sk: <array>, en: <array>)`",
+    )
+    assert(
+      supervisor.sk.len() == supervisor.en.len(),
+      message: "Supervisor localizations don't match! Number of supervisors differs in localizations.",
+    )
+    for pair in supervisor.sk + supervisor.en {
       assert(
         type(pair) == array,
         message: "Please provide correct supervisor argument: one or more pairs are not arrays.
-    Tip: if you have only one pair in the array, try to add a comma (,) after that element. Example: `supervisor: ((\"a\", \"b\"),)`",
+    Tip: if you have only one pair in the array, add a comma (,) after that element. Example: `supervisor: ((\"a\", \"b\"),)`",
       )
       assert(
         pair.len() == 2,
@@ -618,4 +643,3 @@
   }
   body
 }
-

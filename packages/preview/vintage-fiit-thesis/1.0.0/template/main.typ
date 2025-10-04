@@ -1,4 +1,4 @@
-#import "@preview/fiit-thesis:1.0.0": *
+#import "@preview/vintage-fiit-thesis:1.0.0": *
 
 #show: fiit-thesis.with(
   title: "Moja záverečná práca",
@@ -11,6 +11,7 @@
   ), // abstract
   id: "FIIT-12345-123456",
   lang: "sk", // this controls how the layout is presented, be careful!
+  // remove the argument or made the value none to hide
   acknowledgment: [I would like to thank my supervisor for all the help and
     guidance I have received. I would also like to thank my friends and family
     for supporting during this work.],
