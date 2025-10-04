@@ -9,14 +9,6 @@
 
 #show: bookly.with(
   author: "Author Name",
-  fonts: (
-    body: "Lato",
-    math: "Lete Sans Math"
-  ),
-  // theme: modern,
-  // theme: classic,
-  // theme: orly,
-  // tufte: true,
   lang: "en",
   // colors: config-colors,
   title-page: book-title-page(
@@ -51,5 +43,6 @@
 
 // #bibliography("bibliography/sample.yml")
 #bibliography("bibliography/sample.bib")
+
 
 #back-cover(resume: lorem(100), abstract: lorem(100), logo: (align(left)[#image("images/typst-logo.svg", width: 50%)], align(right)[#image("images/typst-logo.svg", width: 50%)]))
