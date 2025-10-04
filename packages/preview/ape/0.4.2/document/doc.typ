@@ -66,8 +66,6 @@ Style :
   // content
   set par(justify: true)
 
-  [= audhzifoduiygzbcjlxmwmwpadpozieuhgb]
-
   counter(heading).update(0)
 
 

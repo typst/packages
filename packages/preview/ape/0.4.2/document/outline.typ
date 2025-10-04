@@ -40,7 +40,7 @@
       align: (left, left, bottom),
 
       ..for e in query(heading) {
-        if content-to-string(e) != "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
+        if content-to-string(e) != "" {
           let dotFill(c, correctif) = context {
             layout(size => {
               let w = size.width + correctif

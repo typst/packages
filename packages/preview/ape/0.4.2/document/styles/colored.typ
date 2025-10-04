@@ -4,7 +4,7 @@
 
 
   show heading: it => {
-    if content-to-string(it) == "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
+    if content-to-string(it) == "" {
       return none
     }
 

@@ -3,7 +3,7 @@
   set text(10pt)
 
   show heading: it => {
-    if content-to-string(it.body) == "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
+    if content-to-string(it.body) == "" {
       return none
     }
 

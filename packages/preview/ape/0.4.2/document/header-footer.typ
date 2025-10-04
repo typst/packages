@@ -21,7 +21,6 @@
         if (
           (current-page > first-real-pages.at(0))
             and (first-real-pages.all(e => e != current-page))
-            and to-array(authors).len() > 0
         ) {
           [
             #set text(size: 9pt)
@@ -34,7 +33,7 @@
       footer: context {
         let current-page = counter(page).get().at(0)
         if (
-          (current-page >= first-real-pages.at(0)) and to-array(authors).len() > 0
+          (current-page >= first-real-pages.at(0)) 
         ) {
           [
             #place(dy: -0.25cm, line(length: 100%, stroke: 0.5pt + text.fill))

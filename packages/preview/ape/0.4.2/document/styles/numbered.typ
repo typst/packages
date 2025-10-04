@@ -1,23 +1,37 @@
 #import "../../tools/miscellaneous.typ": content-to-string
 #let numbered(content, style) = context {
+  let get-page-style = {
+    if style == "numbered-book" {
+      (
+        width: 16cm,
+        height: 24cm,
+      )
+    } else {
+      (
+        paper: "a4",
+      )
+    }
+  }
+
+  set page(..get-page-style)
 
 
-	set text(size: if style == "numbered-book" {
-		8pt
-	}else {
-		10pt
-	})
+  set text(size: if style == "numbered-book" {
+    8pt
+  } else {
+    10pt
+  })
 
   set heading(numbering: "I)1)a)i)")
 
   show heading: it => {
-    if content-to-string(it) == "audhzifoduiygzbcjlxmwmwpadpozieuhgb" or it.depth == 100 {
+    if content-to-string(it) == "" or it.depth == 100 {
       return none
     }
 
-		if it.depth == 99 {
-			return it.body;
-		}
+    if it.depth == 99 {
+      return it.body
+    }
 
 
     set par(spacing: 15pt)
@@ -28,27 +42,26 @@
       block(
         sticky: true,
         h(0.8cm * n)
-          + ([
-            #counter(heading).display(it.numbering).split(")").at(-2) -- #it.body
+          + (
+            [
+              #counter(heading).display(it.numbering).split(")").at(-2) -- #it.body
 
-          ]),
+            ]
+          ),
       )
     }
   }
 
   content
- 
 }
 
 
 #let get-small-title(title) = context {
-
-    return {
-      
+  return {
     v(2cm)
-   
-      
-      align(
+
+
+    align(
       center,
       box(
         width: 100%,
@@ -62,7 +75,7 @@
 
           #place(
             dy: -1.1cm,
-           
+
             [
               #rect(fill: white)[
                 #text(size: 1.5em, [*#title.at(0)*])
@@ -92,7 +105,7 @@
     )
 
     v(2cm)
-}
+  }
   /*
   return {
     line(length: 100%)

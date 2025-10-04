@@ -33,7 +33,7 @@
   )
 
   show heading: it => {
-    if content-to-string(it) != "audhzifoduiygzbcjlxmwmwpadpozieuhgb" {
+    if content-to-string(it) != "" {
       pagebreak(weak: true)
       place(dy: -25pt, box(radius: 15pt, fill: green.darken(10%), outset: (left: 100pt, right: 60pt, rest: 20pt), it))
       v(1cm)
