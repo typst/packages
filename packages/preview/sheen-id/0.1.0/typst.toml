@@ -1,0 +1,14 @@
+[package]
+name = "sheen-id"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Sheen.id"]
+license = "MIT"
+description = "Typst template for sheen.id."
+categories = ["layout", "book"]
+exclude = ["./cover-colored.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
