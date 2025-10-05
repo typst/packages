@@ -42,7 +42,7 @@
   subtitle: [Subtitle],
   name: [Your Name],
   // optional: change color to big box containing title, subtitle and name. Default is full black with 50% opacity.
-  // main_titlebox_fill: color.hsv(0deg, 0%, 0%, 50%)
+  // main-titlebox-fill: color.hsv(0deg, 0%, 0%, 50%)
 )
 
 /* Title page */
@@ -52,13 +52,13 @@
   title: [Title of Thesis],
   subtitle: [Subtitle],
   name: "Your Name",
-  defense_date: datetime.today().display("[weekday] [month repr:long] [day], [year]") + " at 10:00",
+  defense-date: datetime.today().display("[weekday] [month repr:long] [day], [year]") + " at 10:00",
   // These following arguments appear in a small table below the main title, subtitle, author
-  student_number: 1234567,
-  project_duration: [Starting month and year - Ending month and year],
-  daily_supervisor: [Your Daily supervisor],
+  student-number: 1234567,
+  project-duration: [Starting month and year - Ending month and year],
+  daily-supervisor: [Your Daily supervisor],
   // The thesis committee should be an array of contents, consisting of all the committee members and their affiliations
-  thesis_committee: (
+  thesis-committee: (
     [Supervisor 1],
     [TU Delft, Supervisor],
     [Committee member 2],
@@ -66,7 +66,7 @@
     [Committee member 3],
     [TU Delft.],
   ),
-  cover_description: [Photo by #link("https://unsplash.com/@thejoltjoker?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash", "Johannes Andersson") on #link("https://unsplash.com/photos/two-brown-deer-beside-trees-and-mountain-UCd78vfC8vU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash", "Unsplash").
+  cover-description: [Photo by #link("https://unsplash.com/@thejoltjoker?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash", "Johannes Andersson") on #link("https://unsplash.com/photos/two-brown-deer-beside-trees-and-mountain-UCd78vfC8vU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash", "Unsplash").
   ],
   // Some more options of a publicity statement:
   // publicity-statement: [An electronic version of thesis is available at #link("https://repository.tudelft.nl", [`https://repository.tudelft.nl`]).],

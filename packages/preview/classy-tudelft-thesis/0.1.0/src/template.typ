@@ -323,7 +323,7 @@
   title: none,
   subtitle: none,
   name: none,
-  main_titlebox_fill: color.hsv(
+  main-titlebox-fill: color.hsv(
     0deg,
     0%,
     0%,
@@ -340,7 +340,7 @@
     #text(fill: white, font: "Roboto Slab")[Delft University of Technology]])
 
 
-  place(dy: 2cm, rect(width: 100%, inset: 30pt, fill: main_titlebox_fill)[
+  place(dy: 2cm, rect(width: 100%, inset: 30pt, fill: main-titlebox-fill)[
     #text(fill: white, size: 45pt, font: "Roboto Slab", weight: "extralight", [#title])
     #linebreak()
     #linebreak()
@@ -376,12 +376,12 @@
   title: none,
   subtitle: none,
   name: none,
-  defense_date: datetime.today().display("[weekday] [month repr:long] [day], [year]") + " at 10:00",
-  student_number: none,
-  project_duration: none,
-  daily_supervisor: none,
-  thesis_committee: none,
-  cover_description: none,
+  defense-date: datetime.today().display("[weekday] [month repr:long] [day], [year]") + " at 10:00",
+  student-number: none,
+  project-duration: none,
+  daily-supervisor: none,
+  thesis-committee: none,
+  cover-description: none,
   publicity-statement: [An electronic version of this thesis is available at #link(" http://repository.tudelft.nl").],
 ) = {
   show par: set align(center)
@@ -406,7 +406,7 @@
   [at the Delft University of Technology,]
   //aan de Technische Universiteit Delft,
   parbreak()
-  [to be defended publicly on #defense_date]
+  [to be defended publicly on #defense-date]
   //in het openbaar de verdedigen op maandag 1 januari om 10:00 uur.
   v(40pt)
 
@@ -414,9 +414,9 @@
     columns: (auto, auto, auto),
     stroke: none,
     align: (right, left, left),
-    [Student number:], table.cell(colspan: 2)[#student_number],
-    [Project duration:], table.cell(colspan: 2)[#project_duration],
-    [Daily supervisor:], table.cell(colspan: 2)[#daily_supervisor],
+    [Student number:], table.cell(colspan: 2)[#student-number],
+    [Project duration:], table.cell(colspan: 2)[#project-duration],
+    [Daily supervisor:], table.cell(colspan: 2)[#daily-supervisor],
     [Thesis committee:],
     table.cell(rowspan: 3, colspan: 2)[#table(columns: (
         auto,
@@ -424,12 +424,12 @@
       ), stroke: none, align: (
         left,
         left,
-      ), inset: 0pt, row-gutter: 10pt, column-gutter: 10pt, ..thesis_committee)],
+      ), inset: 0pt, row-gutter: 10pt, column-gutter: 10pt, ..thesis-committee)],
   )]
 
   v(20pt)
 
-  [Cover: #cover_description]
+  [Cover: #cover-description]
 
   v(1fr)
   [#publicity-statement]

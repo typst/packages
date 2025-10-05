@@ -34,14 +34,14 @@ A small example of the template in action is given below. Please consult [this](
   title: [Title of Thesis],
   subtitle: [Subtitle],
   name: "Your Name",
-  defense_date: datetime.today().display("[weekday] [month repr:long] [day], [year]") + " at 10:00",
-  student_number: 1234567,
-  project_duration: [Starting month and year - Ending month and year],
-  daily_supervisor: [Your Daily supervisor],
+  defense-date: datetime.today().display("[weekday] [month repr:long] [day], [year]") + " at 10:00",
+  student-number: 1234567,
+  project-duration: [Starting month and year - Ending month and year],
+  daily-supervisor: [Your Daily supervisor],
   thesis_commitee: ([Supervisor 1], [TU Delft, Supervisor],
                     [Committee member 2], [TU Delft],
                     [Committee member 3], [TU Delft.])
-  cover_description: [Photo by ...],
+  cover-description: [Photo by ...],
   publicity-statement: none,
 )
 
