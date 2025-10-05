@@ -10,5 +10,4 @@ keywords = ["template", "university", "assignment", "homework", "lab"]
 categories = ["layout"]
 disciplines = ["computer-science", "engineering"]
 
-[package.exclude]
-"example.typ"
+exclude = ["example.typ"]
