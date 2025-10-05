@@ -1,0 +1,21 @@
+[package]
+name = "stellar-iac"
+version = "0.5.0"
+compiler = "0.13.1"
+entrypoint = "lib.typ"
+authors = [
+    "Shunichiro Nomura <@shunichironomura>",
+    "Riki Nakamura <@conjikidow>",
+]
+license = "MIT AND MIT-0"
+description = "Template for the International Astronautical Congress (IAC) manuscript"
+repository = "https://github.com/shunichironomura/iac-typst-template"
+keywords = ["IAC", "conference", "International Astronautical Congress"]
+categories = ["paper"]
+disciplines = ["engineering"]
+exclude = ["**.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
