@@ -36,7 +36,7 @@
       inset: 1em,
       stroke: none,
       breakable: false,
-      width: 15cm,
+      width: 80%,
     )[
       #it
     ]
