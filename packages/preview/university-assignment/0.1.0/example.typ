@@ -1,4 +1,4 @@
-#import "lib.typ": *
+#import "@preview/university-assignment:0.1.0": *
 
 #show: university-assignment.with(
   title: "Lab 3: GPIO Control and LED Blinking",
