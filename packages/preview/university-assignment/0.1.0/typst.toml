@@ -1,0 +1,12 @@
+[package]
+name = "university-assignment"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alessandro Mason <alessandro.mason@example.com>"]
+license = "MIT"
+description = "A flexible template for university assignments, labs, and homework with customizable details"
+homepage = "https://github.com/alessandromason/typst-university-assignment"
+repository = "https://github.com/alessandromason/typst-university-assignment"
+keywords = ["template", "university", "assignment", "homework", "lab"]
+categories = ["layout"]
+disciplines = ["computer-science", "engineering"]
