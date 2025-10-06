@@ -1,0 +1,12 @@
+[package]
+name = "etsii-tfc-template"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Daniel Ayala"]
+license = "MIT-0"
+description = "Template for TFCs at ETSII."
+categories = ["layout", "report", "thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
