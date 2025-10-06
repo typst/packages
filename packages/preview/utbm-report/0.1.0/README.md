@@ -34,9 +34,9 @@ Minimal usage:
 #import "@preview/utbm-report:0.1.0": report
 
 #show: doc => report(
-  doc_title: [My First UTBM Report],
-  doc_author: ("Alice Martin", "Bob Dupont"),
-  course_name: "IF2",
+  doc-title: [My First UTBM Report],
+  doc-author: ("Alice Martin", "Bob Dupont"),
+  course-name: "IF2",
   doc
 )
 
