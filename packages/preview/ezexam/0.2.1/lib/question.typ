@@ -191,7 +191,7 @@
 
     // 解析题号的格式化
     #counter("explain").step()
-    #let format(..item) = context () => {
+    #let format = context () => {
       numbering("1.", ..counter("explain").get())
     }
 
@@ -209,3 +209,4 @@
 ]
 
 #let answer(body, color: maroon) = par(text(weight: 700, color)[答案: #body])
+
