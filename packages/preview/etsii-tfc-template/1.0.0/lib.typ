@@ -64,7 +64,7 @@
 
 #[#set text(size: large)
 #if portadaIngles {"Presented by"} else {"Realizado por"} \ ]
-#[#set text(size: Large)
+#[#set text(size: very-large)
 *#alumno*]
 
 #v(2.5cm)
@@ -84,7 +84,7 @@
 #departamento]
 #v(0.6in)
 
-#[#set text(size: Large)
+#[#set text(size: very-large)
 *#convocatoria*]
 ]
 
@@ -114,7 +114,7 @@
 }
 
 #show heading.where(level: 2, outlined: true): it => { 
-    set text(size: Large)
+    set text(size: very-large)
     block(above: 1.2cm, below: 1cm)[
       #counter(heading).display(); 
       #h(0.5em)
