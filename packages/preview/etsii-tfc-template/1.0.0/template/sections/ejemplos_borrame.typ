@@ -1,4 +1,4 @@
-#import "@local/etsii-tfc-template:1.0.0": *
+#import "@preview/etsii-tfc-template:1.0.0": *
 
 = Ejemplos de uso de Typst
 <sec:ejemplos>
