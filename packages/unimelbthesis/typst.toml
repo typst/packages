@@ -1,5 +1,5 @@
 [package]
-name = "unimelb-thesis-template"
+name = "unimelbthesis"
 version = "0.2.1"
 entrypoint = "lib.typ"
 authors = ["Dylan A Mordaunt"]
