@@ -1,7 +1,7 @@
 [package]
 name = "utbm-report"
 version = "0.1.0"
-entrypoint = "template/lib.typ"
+entrypoint = "lib.typ"
 authors = ["langonne <https://github.com/langonne>"]
 license = "MIT"
 description = "Minimalist & customizable for submitting UTBM's reports."
@@ -10,5 +10,5 @@ keywords = ["UTBM","report"]
 
 [template]
 path = "template"
-entrypoint = "lib.typ"
+entrypoint = "example.typ"
 thumbnail = "thumbnail.png"
