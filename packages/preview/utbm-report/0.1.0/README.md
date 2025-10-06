@@ -47,23 +47,23 @@ Your content starts here.
 
 ## Parameters
 
-`report(`**doc_title**, **doc_author**, **doc_date**, **page_paper**, **page_numbering**, **text_size**, **text_lang**, **text_font**, **par_justify**, **heading_numbering**, **show_outline**, **outline_title**, **course_name**, **doc**`)`
+`report(`**doc-title**, **doc-author**, **doc-date**, **page-paper**, **page-numbering**, **text-size**, **text-lang**, **text-font**, **par-justify**, **heading-numbering**, **show-outline**, **outline-title**, **course-name**, **doc**`)`
 
 | Parameter           | Type / Example                       | Default                 | Notes                                    |
 | ------------------- | ------------------------------------ | ----------------------- | ---------------------------------------- |
-| `doc_title`         | content block: `[Title]`             | `[Title]`               | Shown on the title page.                 |
-| `doc_author`        | `string`|`array` : `("Alice","Bob")` | `("Author1","Author2")` | Authors on the title page.               |
-| `doc_date`          | `auto` or `datetime type`            | `auto`                  | Print date on cover; `auto` uses today.  |
-| `page_paper`        | string: `"a4"`                       | `"a4"`                  | Paper size.                              |
-| `page_numbering`    | string: `"1"`                        | `"1"`                   | Page number format (e.g., `"1"`).        |
-| `text_size`         | length: `12pt`                       | `12pt`                  | Base text size.                          |
-| `text_lang`         | language code: `"fr"`                | `"fr"`                  | Sets text language (hyphenation, etc.).  |
-| `text_font`         | font family: `"New Computer Modern"` | `"New Computer Modern"` | Base font family.                        |
-| `par_justify`       | bool                                 | `true`                  | Paragraph justification toggle.          |
-| `heading_numbering` | string: `"11"`                       | `"11"`                  | Heading numbering style (Typst pattern). |
-| `show_outline`      | bool                                 | `true`                  | Insert an outline (“Sommaire”) page.     |
-| `outline_title`     | string: `"Sommaire"`                 | `"Sommaire"`            | Title used for the outline page.         |
-| `course_name`       | string                               | `"Course name"`         | Appears on title area.                   |
+| `doc-title`         | content block: `[Title]`             | `[Title]`               | Shown on the title page.                 |
+| `doc-author`        | `string`|`array` : `("Alice","Bob")` | `("Author1","Author2")` | Authors on the title page.               |
+| `doc-date`          | `auto` or `datetime type`            | `auto`                  | Print date on cover; `auto` uses today.  |
+| `page-paper`        | string: `"a4"`                       | `"a4"`                  | Paper size.                              |
+| `page-numbering`    | string: `"1"`                        | `"1"`                   | Page number format (e.g., `"1"`).        |
+| `text-size`         | length: `12pt`                       | `12pt`                  | Base text size.                          |
+| `text-lang`         | language code: `"fr"`                | `"fr"`                  | Sets text language (hyphenation, etc.).  |
+| `text-font`         | font family: `"New Computer Modern"` | `"New Computer Modern"` | Base font family.                        |
+| `par-justify`       | bool                                 | `true`                  | Paragraph justification toggle.          |
+| `heading-numbering` | string: `"11"`                       | `"11"`                  | Heading numbering style (Typst pattern). |
+| `show-outline`      | bool                                 | `true`                  | Insert an outline (“Sommaire”) page.     |
+| `outline-title`     | string: `"Sommaire"`                 | `"Sommaire"`            | Title used for the outline page.         |
+| `course-name`       | string                               | `"Course name"`         | Appears on title area.                   |
 | `doc`               | document content                     | *(required)*            | Your report body.                        |
 
 ## Full Example
@@ -74,19 +74,19 @@ Paste this into a fresh `.typ` file:
 #import "@preview/utbm-report:0.1.0": report
 
 #show: doc => report(
-  doc_title: [Rapport TP n°1],
-  doc_author: ("Alice Martin", "Bob Dupont"),
-  doc_date: datetime(year: 2025, month: 9, day: 14),
-  page_paper: "a4",
-  page_numbering: "1",
-  text_size: 12pt,
-  text_lang: "fr",
-  text_font: "New Computer Modern",
-  par_justify: true,
-  heading_numbering: "11",
-  show_outline: true,
-  outline_title: "Sommaire",
-  course_name: "IF2",
+  doc-title: [Rapport TP n°1],
+  doc-author: ("Alice Martin", "Bob Dupont"),
+  doc-date: datetime(year: 2025, month: 9, day: 14),
+  page-paper: "a4",
+  page-numbering: "1",
+  text-size: 12pt,
+  text-lang: "fr",
+  text-font: "New Computer Modern",
+  par-justify: true,
+  heading-numbering: "11",
+  show-outline: true,
+  outline-title: "Sommaire",
+  course-name: "IF2",
   doc
 )
 
