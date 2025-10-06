@@ -46,7 +46,7 @@
   }
   v(15%)
   align(center)[
-    #image("../assets/utbm_logo.jpg", width: 40%)
+    #image("assets/utbm_logo.jpg", width: 40%)
   ]
   align(center)[
     #text(size: 20pt, weight: "bold")[#doc-title]
