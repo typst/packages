@@ -1,10 +1,6 @@
 
 # Faculty of Informatics and Information Technologies (FIIT) Thesis Template
 
-Status: publishing to Universe...
-
----
-
 This is a Typst template for writing bachelor's thesis and diploma at the
 Faculty of Informatics and Information Technologies (FIIT) in Slovak Technical
 University in Bratislava (STU). The template was crafted using the for the
