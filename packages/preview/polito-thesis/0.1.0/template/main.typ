@@ -1,4 +1,4 @@
-#import "../lib.typ" : polito_thesis
+#import "@preview/polito-thesis:0.1.0" : polito_thesis
 
 #show: polito_thesis.with(
   title: [Tesi di Laurea],
