@@ -87,6 +87,7 @@
         }
       }
     ])
+    let counter-docs-final = counter(heading.where(level: 99)).final()
 
 
     let depthsMap = (1,) * 20
