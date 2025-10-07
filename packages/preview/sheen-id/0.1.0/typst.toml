@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Sheen.id"]
 license = "MIT"
-description = "Typst template for sheen.id."
+description = "An internal template for sheen.id"
 categories = ["layout", "book"]
 exclude = ["./cover-colored.png"]
 
