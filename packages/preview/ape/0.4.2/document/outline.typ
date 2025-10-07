@@ -27,6 +27,7 @@
         }
       }
     ])
+    let counter-docs-final = counter(heading.where(level: 99)).final()
 
 
     let depthsMap = (1,) * 20
@@ -57,12 +58,13 @@
             ([], [], [])
             ([], [], [])
             ([], link(e.location(), text(size: 16pt, [*#e.body.child.text*])), [])
-          } else if e.depth == 99 {
-            depthsMap = (1,) * 20
-            ([], [], [])
-            ([], [], [])
-            ([], link(e.location(), text(size: 12pt, e.body)), [])
-
+          } else if (e.depth == 99) {
+            if (counter-docs-final.len() != 99 or counter-docs-final.at(98) >= 2) {
+              depthsMap = (1,) * 20
+              ([], [], [])
+              ([], [], [])
+              ([], link(e.location(), text(size: 12pt, e.body)), [])
+            }
 
             first-real-pages.push(e.location().page())
           } else if e.depth == 1 {

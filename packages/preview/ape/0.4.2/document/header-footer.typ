@@ -17,14 +17,23 @@
     set page(
       header: context {
         let current-page = counter(page).get().at(0)
+        let alignType = if (calc.even(current-page)) { left } else { right }
+
+
+        let header-text = if (calc.odd(current-page) and to-array(authors).len() >= 1) {
+          [ #to-array(authors).join([ --- ]) ]
+        } else if (type(title) != array) {
+          [ #title ]
+        } else { [#title.at(0) --- #sc(title.at(1))] }
+
 
         if (
-          (current-page > first-real-pages.at(0))
-            and (first-real-pages.all(e => e != current-page))
+          (current-page > first-real-pages.at(0)) and (first-real-pages.all(e => e != current-page))
         ) {
           [
             #set text(size: 9pt)
-            #title.at(0) --- #sc(title.at(1))
+            #set align(alignType)
+            #header-text
             #place(dy: 3.5pt, line(length: 100%, stroke: 0.5pt + text.fill))
           ]
         }
@@ -32,9 +41,7 @@
 
       footer: context {
         let current-page = counter(page).get().at(0)
-        if (
-          (current-page >= first-real-pages.at(0)) 
-        ) {
+        if (current-page >= first-real-pages.at(0)) {
           [
             #place(dy: -0.25cm, line(length: 100%, stroke: 0.5pt + text.fill))
 
@@ -52,6 +59,8 @@
     set page(
       header: context {
         let current-page = counter(page).get().at(0)
+
+
         if (
           (current-page > first-real-pages.at(0))
             and (first-real-pages.all(e => e != current-page))

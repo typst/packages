@@ -70,11 +70,11 @@
 #let corollaire(title, content) = context maths_block("Corollaire", title, content)
 #let lemme(title, content) = context maths_block("Lemme", title, content)
 #let exemple(title, content) = context maths_block_no_stroke("Exemple", title, content)
+#let rappel(title, content) = context maths_block_no_stroke("Rappel", title, content)
 
 #let demo(content) = context {
   breakable-or-not[
-    *Démonstration*
-
+    #block(sticky: true)[*Démonstration*]
     #block(
       width: 100%,
       stroke: (left: (paint: text.fill, thickness: 0.5pt), rest: 0pt),

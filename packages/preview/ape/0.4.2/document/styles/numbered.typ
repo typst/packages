@@ -59,7 +59,12 @@
 #let get-small-title(title) = context {
   return {
     v(2cm)
-
+    let title_array = ()
+    if (type(title) == array){
+      title_array = title
+    }else{
+      title_array = ("",title)
+    }
 
     align(
       center,
@@ -73,27 +78,29 @@
 
 
 
-          #place(
+          #if title_array.at(0).len() > 0 {
+            place(
             dy: -1.1cm,
 
             [
               #rect(fill: white)[
-                #text(size: 1.5em, [*#title.at(0)*])
+                #text(size: 1.5em, [*#title_array.at(0)*])
               ]
             ],
           )
+          }
 
 
 
 
           #{
-            if title.at(1).len() > 0 {
+            if title_array.at(1).len() > 0 {
               place(
                 dy: 0.3cm,
-                dx: 50% - measure(text(size: 2em, [*#title.at(1)*])).width / 2,
+                dx: 50% - measure(text(size: 2em, [*#title_array.at(1)*])).width / 2,
                 [
                   #rect(fill: white)[
-                    #text(size: 2em, heading(depth: 99)[*#title.at(1)*])
+                    #text(size: 2em, heading(depth: 99)[*#title_array.at(1)*])
                   ]
                 ],
               )
