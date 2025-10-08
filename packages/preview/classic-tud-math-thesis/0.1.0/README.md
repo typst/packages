@@ -35,7 +35,7 @@ The beginning Show-Rule to initialize your document is:
   datum: [tt. mm. jjjj],
   abschluss: "bsc",
   studiengang: [Mathematik oder Technomathematik oder Wirtschaftsmathematik],
-  use_default_math_env: true,
+  use-default-math-env: true,
 )
 ```
 The arguments of the `abschluss`-parameter could be `"bsc"` if you want to write a Bachelor thesis or `"msc"` if you want to write a Master thesis.
