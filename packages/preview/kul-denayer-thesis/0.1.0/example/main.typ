@@ -48,8 +48,8 @@ Effective grammer-aware fuzzer @Gramatron. A random equation @equation.
   [$a$: edge length]
 )
 ]
-#figure(caption: "Rustacean")[
- #image("media/rustacean.png") 
+#figure(caption: "KULeuven logo")[
+ #image("media/logo.png") 
 ]
   
 #bibliography("bib.bib")
