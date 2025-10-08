@@ -68,4 +68,7 @@ This template is primarily designed to help Chinese primary, middle and high sch
 + 添加 `underdot` 方法；在一些场景下，可以为文本添加着重号
 
 ### 0 . 2 . 1
-+ 修复试卷模式下，生成pdf后的书签会显示题目大标题的问题，确保只显示章节。
+
++ 修复试卷模式下，生成pdf后的书签会显示题目大标题的问题，确保只显示章节。\
++ 西文字体新增 Times New Roman 字体风格；前提是安装了 STIX 2 系列字体。如未安装则默认使用 New Computer Modern Math
++ 优化代码
