@@ -1,10 +1,11 @@
 [package]
 name = "kul-denayer-thesis"
 version = "0.1.0"
-entrypoint = "template/template.typ"
+entrypoint = "template/lib.typ"
 authors = [ "Robin Schellemans" ]
 license = "MIT"
 description = "Template for a master thesis at campus denayer, english or dutch."
+categories = ["thesis"]
 keywords = [ "master", "thesis", "KULeuven", "Belgium" ]
 
 [template]
