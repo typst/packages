@@ -1,20 +1,20 @@
 # Template for final degree projects
 
-This template has been developed to facilitate the creation of final degree projects (TFC) at the Escuela Técnica Superior de Ingenieros Industriales (ETSII) of the University of Seville. It provides a standardized and professional format for the presentation of these works.
+This template has been developed to facilitate the creation of final degree projects (TFC) at the Escuela Técnica Superior de Ingeniería Informática (ETSII) of the University of Seville. It provides a standardized and professional format for the presentation of these works.
 
 It is based on the original LaTeX template created by Agustín Borrego and Inmaculada Hernández.
 
 # Plantilla para trabajos de fin de carrera
 
-Esta plantilla ha sido desarrollada para facilitar la creación de trabajos de fin de carrera (TFC) en la Escuela Técnica Superior de Ingenieros Industriales (ETSII) de la Universidad de Sevilla. Proporciona un formato estandarizado y profesional para la presentación de estos trabajos.
+Esta plantilla ha sido desarrollada para facilitar la creación de trabajos de fin de carrera (TFC) en la Escuela Técnica Superior de Ingeniería Informática (ETSII) de la Universidad de Sevilla. Proporciona un formato estandarizado y profesional para la presentación de estos trabajos.
 
-Está basada en la plantilla original realizada en LaTeX por Agustín Borrego e Inmaculada Hernández
+Está basada en la plantilla original realizada en LaTeX por Agustín Borrego e Inmaculada Hernández.
 
 # Use example / Ejemplo de uso
 
 ```typ
 
-#import "@local/etsii-tfc-template:1.0.0": *
+#import "@local/deal-us-template:1.0.0": *
 
 #show: TFC.with(
   titulo: "Trabajo fin de grado",
@@ -32,7 +32,7 @@ Está basada en la plantilla original realizada en LaTeX por Agustín Borrego e 
   resumen: [
     Incluya aquí un resumen de los aspectos generales de su trabajo, en español
   ],
-  palabrasClave: (
+  palabras-clave: (
     "palabra clave 1", 
     "palabra clave 2", 
     "...", 
