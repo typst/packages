@@ -1,8 +1,13 @@
 [package]
-name = "KULeuven DeNayer Thesis"
+name = "kul-denayer-thesis"
 version = "0.1.0"
-entrypoint = "main.typ"
-authors = ["Robin Schellemans"]
+entrypoint = "template/template.typ"
+authors = [ "Robin Schellemans" ]
 license = "MIT"
-description = "A Master Thesis template for KULeuven campus De Nayer, industrial engineering"
+description = "Template for a master thesis at campus denayer, english or dutch."
+keywords = [ "master", "thesis", "KULeuven", "Belgium" ]
 
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
