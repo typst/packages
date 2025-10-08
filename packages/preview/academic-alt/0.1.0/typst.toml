@@ -13,4 +13,4 @@ disciplines = ["computer-science", "engineering"]
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "assets/thumbnail.png"
+thumbnail = "thumbnail.png"
