@@ -1,8 +1,8 @@
 # KULeuven template for master thesis at Campus De Nayer.
-For english and dutch speaking students. 
+For English and Dutch speaking students. 
 ## Usage
 ```typ
-#import "../template/template.typ" : template
+#import "@preview/kul-denayer-thesis:0.1.0" : template
 
 
 #template(
