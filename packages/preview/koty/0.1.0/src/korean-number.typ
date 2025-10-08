@@ -9,13 +9,13 @@
   }
   if fullKo == true {
     let res = ()
-    let strArr = str(intval).clusters().rev().zip(_smallDigits)
+    let strArr = str(intValue).clusters().rev().zip(_smallDigits)
     for (d, u) in strArr {
       if d != "0" { res.push(_koNumbers.at(int(d)) + u) }
     }
     return res.rev().join("")
   }
-  return str(intval)
+  return str(intValue)
 }
 
 #let _handleKoNumber(n, full-ko: false, join-str: " ") = {
