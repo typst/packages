@@ -16,10 +16,10 @@ Speficy the following fields:
 # Example
 
 ```typ
-#import "@preview/PoliTO-thesis:0.1.0": polito_thesis
+#import "@preview/polito-thesis:0.1.0": polito-thesis
 
 
-#show: polito_thesis.with(
+#show: polito-thesis.with(
   title: [Tesi di Laurea],
   subtitle: [With support for English and Italian],
   degree_name: "Typst Engineering",
@@ -51,3 +51,9 @@ Speficy the following fields:
 
 === #lorem(10)
 ```
+
+# Rights
+
+The file `polito.png` belongs to Politecnico di Torino, please refer to the following link to know more:
+
+https://www.polito.it/ateneo/chi-siamo/immagine-coordinata-e-marchio

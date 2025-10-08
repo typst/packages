@@ -15,13 +15,14 @@
   doc,
 ) = {
   // Set and show rules from before.
-  set text(lang: lang)
+  set text(lang: lang, font: "Century Gothic")
   
   set align(center)
-  v(6em)
-  image("polito.png", width: 60%)
-  v(2em)
-  text(25pt, "Politecnico di Torino", weight: "medium")
+  v(0mm)
+  image("polito.png", width: 75mm)
+  v(10mm)
+  text(20pt, "Politecnico di Torino", weight: "medium")
+  v(3mm)
   let academic-year-str = "A.a."
   if lang == "en" {
     academic-year-str = "A.y."
@@ -40,14 +41,14 @@
     #session-str: #graduation-session
   
   ]
-  v(4em)
+  v(40mm)
   
   // Title
   box(
     width: 90%,
-    text(title, size: 20pt, weight: "bold"),
+    text(title, size: 24pt, weight: "bold"),
   )
-  v(0.5em)
+  v(2mm)
   text(subtitle, size: 14pt, weight: "medium")
   
   
@@ -80,25 +81,34 @@
     student-str = "Candidate"
   }
   
-  v(3em)
+  v(68mm)
   // Section for candidate and supervisors (two columns)
   box(
-    columns(2, gutter: 10em, [
+    columns(2, gutter: 0em, [
       #set align(left)
-      #text(supervisor-str + ":", weight: "bold")
-      #set align(right)
-      #{
+      #move(
+        dx: -15mm,
+        text(supervisor-str + ":")
+      )
+      #move(
+        dx: 10mm,
+      {
         for sup in supervisors {
           [#sup \ ]
         }
       }
+      ) 
       
       
       #colbreak()
       #set align(left)
-      #text(student-str + ":", weight: "bold")
-      #set align(right)
-      #student-name
+      #move(dx: 15mm,
+        text(student-str + ":")
+      )
+      #move(
+        dx: 40mm,
+        student-name
+      )
       
     
     ]),
@@ -109,6 +119,8 @@
   pagebreak()
   set align(left)
   
+  
+  set text(font: "Libertinus Serif") 
   // Outline
   [
     #show heading: set text(size: 2em)
@@ -131,7 +143,6 @@
     }
     line(length: 100%)
   })
-  set heading(numbering: "1.1")
   set par(justify: true)
   
   // Main heading
@@ -141,7 +152,7 @@
     pagebreak(weak: true)
     [
       #set text(size: 28pt)
-      #it.supplement #it.numbering
+      #it.supplement #counter(heading).display("1")
     ]
     set text(size: 30pt)
     v(0em)
@@ -154,8 +165,7 @@
     it
   }
   
-  set text(size: 12pt)
-  
+  set text(size: 12pt, font: "Libertinus Serif")
   doc
 }
 

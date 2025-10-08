@@ -13,6 +13,11 @@
 
 = How to use this package
 
+Please refer to this page on how to use Politecnico's image propertly and the suggested fonts:
+
+#show link: set text(fill: blue)
+#link("https://www.polito.it/ateneo/chi-siamo/immagine-coordinata-e-marchio")
+
 Speficy the following fields:
 
 - `title`: The title of your thesis
@@ -31,3 +36,5 @@ Speficy the following fields:
 #lorem(40)
 
 === #lorem(10)
+
+= Another chapter
