@@ -109,11 +109,6 @@ Both implementations successfully controlled the LED with the following observat
 
 Timing measurements were conducted using a logic analyzer:
 
-| Implementation | Average Period | Standard Deviation |
-|----------------|----------------|-------------------|
-| Python         | 1000.2ms       | ±2.1ms            |
-| C              | 999.8ms        | ±0.8ms            |
-
 The C implementation demonstrated more consistent timing, likely due to reduced overhead compared to Python's interpreted execution.
 
 = Discussion
@@ -135,8 +130,4 @@ Future work could explore:
 - Multi-threaded applications
 - Real-time operating system integration
 
-= References
 
-1. Raspberry Pi Foundation. "GPIO Pins." *Raspberry Pi Documentation*, 2024.
-2. RPi.GPIO Documentation. "Python GPIO Library for Raspberry Pi." *SourceForge*, 2023.
-3. WiringPi. "GPIO Interface Library for the Raspberry Pi." *Gordon's Projects*, 2024.
