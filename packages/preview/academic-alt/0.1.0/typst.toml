@@ -9,7 +9,4 @@ repository = "https://github.com/alessandromason/typst-university-assignment"
 keywords = ["template", "university", "assignment", "homework", "lab"]
 categories = ["layout"]
 disciplines = ["computer-science", "engineering"]
-
-[template]
-path = "template"
-entrypoint = "main.typ"
+exclude = ["template"]
