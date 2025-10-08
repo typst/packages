@@ -8,17 +8,17 @@ For English and Dutch speaking students.
 #template(
   auteurs: ("First name LAST NAME",),
   promotor:  "Promotor",
-  Co-promotor : "Co-promotor",
+  co-promotor : "Co-promotor",
   evaluatoren : ("evaluator1","evaluator2"),
   begeleider : "accompanist",
-  startDatum : "2025",
-  eindeDatum : "2026",
+  start-datum : "2025",
+  einde-datum : "2026",
   title : "Title of master thesis",
   subtitle : "subtitle",
   cover : "cover_fiiw_denayer_eng.png",
-  dutchTitlePage: false,
-  dutchTitle: "Titel van masterproef",
-  dutchSubtitle: "ondertitel",
+  dutch-titlepage: false,
+  dutch-title: "Titel van masterproef",
+  dutch-subtitle: "ondertitel",
   contents: [
     // Put your content here
   ]
