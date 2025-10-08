@@ -1,5 +1,5 @@
 [package]
-name = "kul-denayer-thesis"
+name = "denayer-thesis"
 version = "0.1.0"
 entrypoint = "template/lib.typ"
 authors = [ "Robin Schellemans" ]

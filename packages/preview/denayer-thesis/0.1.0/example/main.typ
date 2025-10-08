@@ -1,4 +1,4 @@
-#import "@preview/kul-denayer-thesis:0.1.0" : template
+#import "@preview/denayer-thesis:0.1.0" : template
 
 
 
