@@ -1,4 +1,4 @@
-# KULeuven template for master thesis at Campus De Nayer.
+## KULeuven template for master thesis at Campus De Nayer.
 For English and Dutch speaking students. 
 ## Usage
 ```typ
