@@ -3,7 +3,7 @@
 #let titlepage(
   auteurs: ("First name LAST NAME",),
   promotor:  "Promotor",
-  Co-promotor : "Co-promotor",
+  co-promotor : "Co-promotor",
   evaluatoren : ("evaluator1","evaluator2"),
   begeleider : "accompanist",
   start : "2025",
@@ -81,7 +81,7 @@ text(font: "Libertinus Serif")[
   #promotor\
 
   _Co-promotor_\
-  #Co-promotor\
+  #co-promotor\
   
 ]
 
@@ -241,7 +241,7 @@ after examination.
   #titlepage(
     auteurs: auteurs,
     promotor: promotor ,
-    Co-promotor : co-promotor,
+    co-promotor : co-promotor,
     evaluatoren : evaluatoren,
     begeleider : begeleider ,
     start : start-datum , 
@@ -278,7 +278,7 @@ after examination.
   #titlepage(
     auteurs: auteurs,
     promotor: promotor ,
-    Co-promotor : co-promotor,
+    co-promotor : co-promotor,
     evaluatoren : evaluatoren,
     begeleider : begeleider ,
     start : start-datum , 
