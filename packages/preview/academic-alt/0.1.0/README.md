@@ -23,7 +23,7 @@ For users who want to edit the template source:
 2. Copy `lib.typ` to your project directory
 3. Import in your Typst file:
 ```typst
-#import "lib.typ": *
+#import "@local/academic-alt:0.1.0": *
 ```
 
 ## Usage
