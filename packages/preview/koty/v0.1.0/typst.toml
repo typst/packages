@@ -1,0 +1,11 @@
+[package]
+name = "koty"
+version = "0.1.0"
+entrypoint = "src/koty.typ"
+authors = ["shlewislee"]
+license = "MPLv2"
+description = "Choose correct josa(particle) for a Korean word & format numbers in Korean"
+repository = "https://github.com/shlewislee/koty"
+keywords = ["korean", "josa", "number", "formatting"]
+categories = ["languages"]
+exclude = ["examples/usage.pdf"]
