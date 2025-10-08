@@ -15,11 +15,11 @@
     También quiero agradecer a Y por...
   ],
   resumen: [Incluya aquí un resumen de los aspectos generales de su trabajo, en español],
-  palabrasClave: ("palabra clave 1", "palabra clave 2", "...", "palabra clave N"),
+  palabras-clave: ("palabra clave 1", "palabra clave 2", "...", "palabra clave N"),
   abstract: [This section should contain an English version of the Spanish abstract.],
   keywords: ("keyword 1", "keyword 2", "...", "keyword N"),
-  portadaIngles: false,
-  seccionesIngles: false,
+  portada-ingles: false,
+  secciones-ingles: false,
   font: "Palatino Linotype",
   doc
 ) = [
@@ -31,7 +31,7 @@
 #show: codly-init.with()
 #codly(zebra-fill:rgb(250,250,250), languages: codly-languages)
 
-#set text(lang: if seccionesIngles {"en"} else {"es"}, size: 12pt, font:font, hyphenate: false)
+#set text(lang: if secciones-ingles {"en"} else {"es"}, size: 12pt, font:font, hyphenate: false)
 #set list(indent: 0.75cm, spacing: 0.95em, marker: scale(140%)[#sym.square.filled.tiny])
 #set enum(indent: 0.45cm, spacing: 0.95em)
 
@@ -55,7 +55,7 @@
 #v(3cm)
 
 #[#set text(size: large)
-#if portadaIngles {"FINAL DEGREE PROJECT"} else {"TRABAJO FIN DE GRADO"}]
+#if portada-ingles {"FINAL DEGREE PROJECT"} else {"TRABAJO FIN DE GRADO"}]
 #v(-0.1in)
 
 #[#set text(size: huge)
@@ -63,23 +63,23 @@
 #v(0.0in)
 
 #[#set text(size: large)
-#if portadaIngles {"Presented by"} else {"Realizado por"} \ ]
+#if portada-ingles {"Presented by"} else {"Realizado por"} \ ]
 #[#set text(size: very-large)
 *#alumno*]
 
 #v(2.5cm)
 
-*#if portadaIngles {"For the degree of"} else {"Para la obtención del título de"}*\
+*#if portada-ingles {"For the degree of"} else {"Para la obtención del título de"}*\
 #[#set text(size: large)
 #titulacion]
 #v(0.2in)
 
-*#if portadaIngles {"Directed by"} else {"Dirigido por"}*\
+*#if portada-ingles {"Directed by"} else {"Dirigido por"}*\
 #[#set text(size: large)
 #director]
 #v(0.2in)
 
-*#if portadaIngles {"In the department of"} else {"En el departamento de"}*\
+*#if portada-ingles {"In the department of"} else {"En el departamento de"}*\
 #[#set text(size: large)
 #departamento]
 #v(0.6in)
@@ -209,7 +209,7 @@
 
 #set heading(outlined:false)
 
-= #if seccionesIngles {"Acknowledgements"} else {"Agradecimientos"}
+= #if secciones-ingles {"Acknowledgements"} else {"Agradecimientos"}
 
 #agradecimientos
 
@@ -218,7 +218,7 @@
 
 #v(.5cm)
 
-*Palabras clave:* #palabrasClave.join(", ")
+*Palabras clave:* #palabras-clave.join(", ")
  
 = Abstract
 #abstract
@@ -227,7 +227,7 @@
 
 *Keywords:* #keywords.join(", ")
 
-#outline(title: if seccionesIngles {"Table of contents"} else {"Índice general"})
+#outline(title: if secciones-ingles {"Table of contents"} else {"Índice general"})
 
 // Estilos para outlines secundarias
 
@@ -245,9 +245,9 @@
   ]
 }
 
-#outline(title: if seccionesIngles {"List of figures"} else {"Índice de figuras"}, target: figure.where(kind: image))
-#outline(title: if seccionesIngles {"List of tables"} else {"Índice de tablas"}, target: figure.where(kind: table))
-#outline(title: if seccionesIngles {"List of code extracts"} else {"Índice de extractos de código"}, target: figure.where(kind: raw))
+#outline(title: if secciones-ingles {"List of figures"} else {"Índice de figuras"}, target: figure.where(kind: image))
+#outline(title: if secciones-ingles {"List of tables"} else {"Índice de tablas"}, target: figure.where(kind: table))
+#outline(title: if secciones-ingles {"List of code extracts"} else {"Índice de extractos de código"}, target: figure.where(kind: raw))
 
 // Cambio ahora para que la bibliografía no sea azul
 

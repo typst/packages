@@ -1,4 +1,4 @@
-#import "@preview/etsii-tfc-template:1.0.0": *
+#import "@preview/deal-us-tfc-template:1.0.0": *
 
 = Ejemplos de uso de Typst
 <sec:ejemplos>
@@ -67,7 +67,7 @@ Tenga en cuenta que Typst intenta incluir las figuras en el mismo sitio donde se
 
 Existe una gran variedad de formas de crear tablas en Typst puro. Se pueden usar dos funciones similares: ```Typst #table``` y ```Typst #grid```. ```Typst #grid``` es la función básica, mientras que ```Typst #table``` añade básicamente presets para algunos atributos relacionados con el aspecto. Mediante ```Typst #set``` y ```Typst #show``` se pueden alterar estilos para una fila o columna concreta. A continuación se muestra un ejemplo simple de tabla nativa, en la @table:ejemplo.
 
-Colocando las reglas con la tabla en un bloque con ```Typst #[...]```, se hace que estas reglas no afecten fuera del bloque. Usando un ```Typst #grid``` se puede colocar manualmente dónde hay bordes con funciones indicadas en la documentación.
+Usando un ```Typst #grid``` se podría colocar manualmente dónde hay bordes con funciones indicadas en la documentación.
 
 #include "../tables/tabla_ejemplo.typ"
 

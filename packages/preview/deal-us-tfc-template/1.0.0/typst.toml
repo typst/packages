@@ -1,10 +1,10 @@
 [package]
-name = "etsii-tfc-template"
+name = "deal-us-tfc-template"
 version = "1.0.0"
 entrypoint = "lib.typ"
 authors = ["Daniel Ayala"]
 license = "MIT-0"
-description = "Template for TFCs at ETSII."
+description = "Template for TFCs at ETSII directed by the DEAL group."
 categories = ["layout", "report", "thesis"]
 
 [template]

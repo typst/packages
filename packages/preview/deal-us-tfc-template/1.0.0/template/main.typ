@@ -1,4 +1,4 @@
-#import "@preview/etsii-tfc-template:1.0.0": *
+#import "@preview/deal-us-tfc-template:1.0.0": *
 
 #show: TFC.with(
   titulo: "Trabajo fin de grado",
@@ -16,7 +16,7 @@
   resumen: [
     Incluya aquí un resumen de los aspectos generales de su trabajo, en español
   ],
-  palabrasClave: (
+  palabras-clave: (
     "palabra clave 1", 
     "palabra clave 2", 
     "...", 

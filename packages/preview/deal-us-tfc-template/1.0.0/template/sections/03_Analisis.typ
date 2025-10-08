@@ -1,4 +1,4 @@
-#import "@preview/etsii-tfc-template:1.0.0": *
+#import "@preview/deal-us-tfc-template:1.0.0": *
 
 = Análisis del problema
 <sec:análisis>

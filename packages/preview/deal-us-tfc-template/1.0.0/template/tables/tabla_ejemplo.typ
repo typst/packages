@@ -1,4 +1,3 @@
-#[
 #set table(fill: (_, y) => if y == 0 { yellow })
 #show table.cell.where(y: 0): set text(weight: "bold")
 
@@ -14,4 +13,3 @@
   ),
   caption: "Tabla Typst de ejemplo"
 )<table:ejemplo>
-]
