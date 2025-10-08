@@ -1,4 +1,4 @@
-#import "@preview/equate:0.3.1": equate
+#import "@preview/equate:0.3.2": equate
 #import "@preview/wrap-it:0.1.1": wrap-content as wrap_content_original
 
 #let small = 10pt

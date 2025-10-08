@@ -12,7 +12,7 @@ This chapter summarizes the extra features available in this template.
 When first importing this template (during ```typ #import "@preview/classy-tudelft-thesis:0.1.0": *```)
 at the top of `main.typ`, several imports occur. These are:
 - `wrap-it`, version `0.1.1`. The function here are used, and slightly modified for proper caption sizing.
-- `equate`, version `0.3.1`. Is imported to enable multi-line equation numbering out of the box, and sets the defaults ```typc  show: equate.with(breakable: false, sub-numbering: false)```. For more information, please visit the documentation of `equate`.
+- `equate`, version `0.3.2`. Is imported to enable multi-line equation numbering out of the box, and sets the defaults ```typc  show: equate.with(breakable: false, sub-numbering: false)```. For more information, please visit the documentation of `equate`.
 
 In addition to these "included" imports, at the top of `main.typ`, the following packages are also imported:
 ```typc
