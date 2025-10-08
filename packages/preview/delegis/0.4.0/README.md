@@ -19,7 +19,7 @@ While this `README.md` gives you a brief overview of the package's usage, we rec
 ### Importing the Package
 
 ```typst
-#import "@preview/delegis:0.3.0": *
+#import "@preview/delegis:0.4.0": *
 ```
 
 ### Initializing the template
