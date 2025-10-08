@@ -1,4 +1,4 @@
-// University Assignment Template
+// Academic Alt Template
 // Usage: #import "template.typ": *
 // Then call: #show: university-assignment.with(
 //   title: "Your Title",
