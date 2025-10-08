@@ -1,5 +1,5 @@
 [package]
-name = "university-assignment"
+name = "academic-alt"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Alessandro Mason <alessandro.mason@example.com>"]
@@ -10,4 +10,6 @@ keywords = ["template", "university", "assignment", "homework", "lab"]
 categories = ["layout"]
 disciplines = ["computer-science", "engineering"]
 
-exclude = ["example.typ"]
+[template]
+path = "template"
+entrypoint = "main.typ"

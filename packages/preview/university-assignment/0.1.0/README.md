@@ -12,12 +12,13 @@ A flexible Typst template for university assignments, lab reports, and homework 
 
 ## Installation
 
-### From Typst Package Registry (when published)
+### From Typst Package Registry
 ```typst
-#import "@preview/university-assignment:0.1.0": *
+#import "@preview/academic-alt:0.1.0": *
 ```
 
-### Local Usage (current)
+### Local Usage
+For users who want to edit the template source:
 1. Download or clone this repository
 2. Copy `lib.typ` to your project directory
 3. Import in your Typst file:
@@ -28,7 +29,7 @@ A flexible Typst template for university assignments, lab reports, and homework 
 ## Usage
 
 ```typst
-#import "@preview/university-assignment:0.1.0": *
+#import "@preview/academic-alt:0.1.0": *
 
 #show: university-assignment.with(
   title: "Lab 3: GPIO Control",
