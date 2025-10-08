@@ -14,7 +14,7 @@ typst init @preview/classy-tudelft-thesis:0.1.0
 ```
 A small example of the template in action is given below. Please consult [this](https://github.com/Vector04/tudelft-thesis-template/blob/master/docs/Manual.pdf) document for a larger example of the thesis template in action, with all options and details more thoroughly explained. In addition, the default project also contains sufficient comments/annotations to get you started.
 ```typst
-#import "@preview/tudelft-thesis:0.1.0": *
+#import "@preview/classy-tudelft-thesis:0.1.0": *
 
 // Main styling, containg the majority of typesetting including document layout, fonts, heading styling, figure styling, outline styling, etc. Some parts of the styling are customizable.
 #show: base.with(
