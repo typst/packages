@@ -4,7 +4,7 @@
 
 //// Initialize and validate acronyms
 
-#let __allowed-definitions = ("short", "short-pl", "long", "long-pl")
+#let __acrostiche_allowed_definitions = ("short", "short-pl", "long", "long-pl")
 
 #let __complete-acronym-entry-dict(key, definitions) = {
   if "long" not in definitions {
@@ -61,13 +61,13 @@
       )
     }
     for (key, def) in definitions {
-      if key in __allowed-definitions {
+      if key in __acrostiche_allowed_definitions {
         entry.insert(key, def)
       } else {
         // alternatively ignore additional keys?
         panic(
           "Illegal definition. Allowed definitions are: "
-            + __allowed-definitions.join(", "),
+            + __acrostiche_allowed_definitions.join(", "),
         )
       }
     }
