@@ -219,11 +219,11 @@ after examination.
   contents: [content],
   auteurs: ("First name LAST NAME",),
   promotor:  "Promotor",
-  Co-promotor : "Co-promotor",
+  co-promotor : "Co-promotor",
   evaluatoren : ("evaluator1","evaluator2"),
   begeleider : "accompanist",
-  startDatum : "2025",
-  eindeDatum : "2026",
+  start-datum : "2025",
+  einde-datum : "2026",
   title : "Title of master thesis",
   subtitle : "Subtitle",
   cover : "cover_fiiw_denayer_eng.png",
@@ -231,23 +231,23 @@ after examination.
   naam: [My name],
   samenvatting: [My Summary],
   afkortingen: [*CFG* Context Free Grammar],
-  dutchTitlePage: false,
-  dutchTitle: "Titel van masterproef",
-  dutchSubtitle: "Ondertitel",
-  bibFile: "bib.bib"
+  dutch-titlepage: false,
+  dutch-title: "Titel van masterproef",
+  dutch-subtitle: "Ondertitel",
+  bib-file: "bib.bib"
 ) = [
   // DUTCH TITLE PAGE 
-  #if dutchTitlePage [
+  #if dutch-titlepage [
   #titlepage(
     auteurs: auteurs,
     promotor: promotor ,
-    Co-promotor : Co-promotor,
+    Co-promotor : co-promotor,
     evaluatoren : evaluatoren,
     begeleider : begeleider ,
-    start : startDatum , 
-    einde : eindeDatum ,
-    title : dutchTitle ,
-    subtitle: dutchSubtitle,
+    start : start-datum , 
+    einde : einde-datum ,
+    title : dutch-title ,
+    subtitle: dutch-subtitle,
     cover: "cover_fiiw_denayer.png",
     coverText: ([
     Thesis voortgedragen tot het behalen\
@@ -278,12 +278,12 @@ after examination.
   #titlepage(
     auteurs: auteurs,
     promotor: promotor ,
-    Co-promotor : Co-promotor,
+    Co-promotor : co-promotor,
     evaluatoren : evaluatoren,
     begeleider : begeleider ,
-    start : startDatum , 
-    einde : eindeDatum ,
-    title : title ,
+    start : start-datum , 
+    einde : einde-datum ,
+    title : title,
     subtitle: subtitle,
   )
   #start(
