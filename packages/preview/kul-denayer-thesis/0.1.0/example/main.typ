@@ -1,5 +1,4 @@
-// #import "@preview/kul-denayer-thesis:0.1.0" : template
-#import "../template/lib.typ" : template
+#import "@preview/kul-denayer-thesis:0.1.0" : template
 
 
 
