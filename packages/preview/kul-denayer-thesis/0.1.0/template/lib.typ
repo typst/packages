@@ -1,4 +1,4 @@
-#import "@preview/hydra:0.6.1": hydra
+#import "@preview/hydra:0.6.2": hydra
 // Title Page ---------------------------
 #let titlepage(
   auteurs: ("First name LAST NAME",),
@@ -11,7 +11,7 @@
   title : "Title of master thesis",
   subtitle : "subtitle",
   cover : "cover_fiiw_denayer_eng.png",
-  coverText: ([
+  cover-text: ([
     Master’s Thesis submitted to obtain the\
     degree of Master of Science\
     in industrial sciences:\
@@ -75,7 +75,7 @@ text(font: "Libertinus Serif")[
   float: true,
   clearance: 20pt,
 )[
-  #coverText.at(0)
+  #cover-text.at(0)
 
   _Promotor_\
   #promotor\
@@ -89,7 +89,7 @@ text(font: "Libertinus Serif")[
   bottom + right,
   float: true
 )[
-   #coverText.at(1) #start - #einde
+   #cover-text.at(1) #start - #einde
 ]
 ]
 #pagebreak()
