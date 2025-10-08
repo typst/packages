@@ -4,7 +4,7 @@ This is a template to write a thesis in the TU Delft style. It is an unofficial 
 
 | Cover page               | Title page               | Main text                |
 |--------------------------|--------------------------|--------------------------|
-| ![Cover page](https://raw.githubusercontent.com/Vector04/tudelft-thesis-template/refs/heads/master/docs/example-p1.png) | ![Title Page](https://raw.githubusercontent.com/Vector04/tudelft-thesis-template/refs/heads/master/docs/example-p2.png) | ![Main Text Page](https://raw.githubusercontent.com/Vector04/tudelft-thesis-template/refs/heads/master/docs/example-p6.png) |
+| ![Cover page](https://raw.githubusercontent.com/Vector04/tudelft-thesis-template/f2c3010c365744696449cbefca27b03b425ad0f7/docs/example-p1.png) | ![Title Page](https://raw.githubusercontent.com/Vector04/tudelft-thesis-template/f2c3010c365744696449cbefca27b03b425ad0f7/docs/example-p2.png) | ![Main Text Page](https://raw.githubusercontent.com/Vector04/tudelft-thesis-template/f2c3010c365744696449cbefca27b03b425ad0f7/docs/example-p6.png) |
 
 ## How to use
 Initialize the template, either via the web app directly or using
