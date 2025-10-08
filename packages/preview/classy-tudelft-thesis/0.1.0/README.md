@@ -24,7 +24,7 @@ A small example of the template in action is given below. Please consult [this](
 )
 
 #makecoverpage(
-  img: image("img/cover-image.jpg"),
+  img: image("path/to/cover-image.jpg"),
   title: [Title of Thesis],
   subtitle: [Subtitle],
   name: [Your Name],
@@ -38,9 +38,9 @@ A small example of the template in action is given below. Please consult [this](
   student-number: 1234567,
   project-duration: [Starting month and year - Ending month and year],
   daily-supervisor: [Your Daily supervisor],
-  thesis_commitee: ([Supervisor 1], [TU Delft, Supervisor],
+  thesis-committee: ([Supervisor 1], [TU Delft, Supervisor],
                     [Committee member 2], [TU Delft],
-                    [Committee member 3], [TU Delft.])
+                    [Committee member 3], [TU Delft.]),
   cover-description: [Photo by ...],
   publicity-statement: none,
 )
@@ -55,7 +55,7 @@ A small example of the template in action is given below. Please consult [this](
 /* Your content here */
 
 #bibliography(
-  "references.bib",
+  "path/to/references.bib",
   title: [References],
   style: "american-physics-society",
 )
