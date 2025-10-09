@@ -75,15 +75,12 @@ _Left: `theme: "dark"`, Right: `theme: "light"`_
   theme: "dark",
   title: "My Document",
   course: "CS4999",
-  standalone: false
+  standalone: false // Disables page functions
 )
 ```
 
 4. Use `#make-title(show-outline: true)` to generate the title page.
 5. Write your document content below the title.
-
-> [!NOTE]
-> When using with the Typst for Obsidian plugin, set `standalone: false`, using the default layout functions for best results.
 
 ## Dependencies
 
