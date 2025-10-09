@@ -38,14 +38,19 @@ Example: Custom Notes
 ![Custom
 Notes](https://raw.githubusercontent.com/mdavis-xyz/staves-typst/refs/heads/0.1.0/docs/examples/custom-notes.png)
 
-Examples of scale books written with this package can be found at
-<https://github.com/mdavis-xyz/staves-typst/tree/0.1.0/examples/>.
-
-## Documentation
+## Documentation and Examples
 
 A PDF version of this documentation (with slightly better formatting) is
-available [on Github
-(`mdavis/typst-staves`)](https://raw.githubusercontent.com/mdavis-xyz/staves-typst/refs/heads/0.1.0/docs/docs.pdf)
+available [here](docs/docs.pdf).
+
+To see a showcase of what this package can do, see this example of a
+normal scale book: [PDF](examples/scale-book.pdf) and [Typst source
+code](examples/scale-book.typ).
+
+Another example is a scale book which is a random mix of all scales:
+[PDF](examples/random-scales.pdf) and [Typst source
+code](examples/random-scales.typ). The purpose of this second one is to
+provide variety during your scales practices.
 
 ## Stave
 
