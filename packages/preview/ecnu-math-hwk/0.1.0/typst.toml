@@ -1,0 +1,17 @@
+[package]
+name = "ecnu-math-hwk"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["syqwq-OMG"]
+license = "MIT"
+description = "ECNU 作业解答模板 推荐是 Problem-Solution/Proof 的形式"
+repository = "https://github.com/syqwq-OMG/ecnu-math-hwk"
+keywords = ["ECNU","homework" ,"East China Normal University"]
+categories = ["report"]
+exclude = ["pic"]
+compiler = "0.13.1"
+
+[template]
+path = "template"
+entrypoint = "hw.typ"
+thumbnail = "thumbnail.png"
