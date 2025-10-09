@@ -23,7 +23,7 @@ Pull requests are welcome. Any feature suggestions are also welcome. For major c
 
 Please note that koty uses `camelCase` for everything except exported functions and their arguments, which use `kebab-case`.
 
-Please make sure to provide thorough explanations in [examples/usage.typ](examples/usage.typ).
+Please make sure to provide thorough explanations in [examples/usage.pdf](examples/usage.pdf).
 
 ## License
 
