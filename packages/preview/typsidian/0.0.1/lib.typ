@@ -447,37 +447,29 @@
   let colors = _colors.get()
   let title = _title.get()
   let course = _course.get()
-
-  place(
-    top + center,
-    float: true,
-    scope: "parent",
-    clearance: 2em,
-  )[
-    #pad(
-      top: 4pt,
-      align(if centered { center } else { left })[
-        #block(text(
-          fill: colors.heading-colors.at("1", default: black),
-          size: 18pt,
-          weight: "semibold",
-          [#course -- #title],
-        ))
-        #if show-underline [
-          #line(
-            length: 100%,
-            stroke: 0.1em + colors.heading-colors.at("1", default: black),
-          )
-        ]
-        #v(1em)
-        #if show-outline [
-          #outline(title: none, depth: 2)
-        ]
-      ],
-    )
-  ]
+  
+  pad(
+    top: 4pt,
+    align(if centered { center } else { left })[
+      #block(text(
+        fill: colors.heading-colors.at("1", default: black),
+        size: 18pt,
+        weight: "semibold",
+        [#course -- #title],
+      ))
+      #if show-underline [
+        #line(
+          length: 100%,
+          stroke: 0.1em + colors.heading-colors.at("1", default: black),
+        )
+      ]
+      #v(1em)
+      #if show-outline [
+        #outline(title: none, depth: 2)
+      ]
+    ],
+  )
 }
-
 // Boxes
 #let bbox(title, body, show-title: true) = context {
   let colors = _colors.get()

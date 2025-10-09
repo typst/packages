@@ -6,7 +6,25 @@ Obsidian-inspired Typst template for note taking, outlines, and knowledge manage
 
 _Left: `theme: "dark"`, Right: `theme: "light"`_
 
-## Options
+## Usage
+
+```typst
+#import "@preview/typsidian:0.0.1": *
+#show: typsidian.with(
+  theme: "light",
+  title: "My Document",
+  course: "CS4999",
+  show-index: true,
+  index-entry-list: (
+    (
+      key: "example",
+      short: "An example index entry"
+    ),
+  )
+)
+```
+
+### Options
 
 - `title` - Document title
 - `author` - Document author
@@ -28,7 +46,7 @@ _Left: `theme: "dark"`, Right: `theme: "light"`_
 - `show-italic-color` - Whether to show italic text color (default: true)
 - `standalone` - True for standalone documents, false for use with my [Typst for Obsidian plugin](https://github.com/k0src/Typst-for-Obsidian)
 
-## Functions
+### Functions
 
 - `make-title(show-outline: true, show-underline: true, centered: true)`:
   - Generates the title page.
@@ -46,45 +64,26 @@ _Left: `theme: "dark"`, Right: `theme: "light"`_
   - `body` - Content of the box
   - `show-title` - Whether to show the title (default: true)
 
-## Usage
-
-### As Standalone Template
-
-1. Clone the repository to your project directory or to the `{data-dir}`.
-2. Create a new Typst file and import the template with desired options:
-
-```typst
-#import "template.typ": *
-#show: typsidian.with(theme: "dark", title: "My Document", course: "CS4999", show-index: true, index-entry-list: (
-    (key: "example", short: "An example index entry"),
-))
-```
-
-3. Use `#make-title(show-outline: true)` to generate the title page.
-4. Write your document content below the title.
-
 ### With Typst for Obsidian Plugin
 
 1. Install the [Typst for Obsidian plugin](https://github.com/k0src/Typst-for-Obsidian)
-2. Clone the repository to `{data-dir}/typst/packages/local/typsidian/0.0.1`
-
-- `{data-dir}` is:
-  - Windows: `%APPDATA%`
-  - macOS: `~/Library/Application Support`
-  - Linux: `$XDG_DATA_HOME` or `~/.local/share`
-
-3. Create a new Typst file in Obsidian and import the template with desired options:
+2. Create a new Typst file in Obsidian and import the template with desired options:
 
 ```typst
 #import "@local/typsidian:0.0.1": *
-#show: typsidian.with(theme: "dark", title: "My Document", course: "CS4999", standalone: false)
+#show: typsidian.with(
+  theme: "dark",
+  title: "My Document",
+  course: "CS4999",
+  standalone: false
+)
 ```
 
 4. Use `#make-title(show-outline: true)` to generate the title page.
 5. Write your document content below the title.
 
 > [!NOTE]
-> When using with the Typst for Obsidian plugin, set `standalone: false`, and remove the default layout function for best results.
+> When using with the Typst for Obsidian plugin, set `standalone: false`, using the default layout functions for best results.
 
 ## Dependencies
 
@@ -101,3 +100,7 @@ _Left: `theme: "dark"`, Right: `theme: "light"`_
 - [showybox](https://typst.app/universe/package/showybox)
 - [glossarium](https://typst.app/universe/package/glossarium/)
 - [fontawesome](https://typst.app/universe/package/fontawesome)
+
+## License
+
+[MIT License](./LICENSE)

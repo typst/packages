@@ -8,6 +8,7 @@ description = "Modern note-taking, outlining, and knowledge management."
 repository = "https://github.com/k0src/Typsidian"
 keywords = ["Obsidian", "notes", "study", "outline", "university"]
 categories = ["report", "components"]
+exclude = ["examples/"]
 
 [template]
 path = "template"

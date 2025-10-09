@@ -1,4 +1,4 @@
-#import "../template/template.typ": *
+#import "@preview/typsidian:0.0.1": *
 
 #show: typsidian.with(
   theme: "dark", 
