@@ -8,8 +8,13 @@ This template is primarily designed to help Chinese university, primary, middle 
 
 ## Usage
 ```typst
-#import "@preview/ezexam:0.2.1": *
-#show: setup.with(mode: EXAM, paper: a3, ...)
+#import "@preview/ezexam:0.2.2": *
+#show: setup.with(
+  mode: EXAM,
+  paper: a3,
+  font: ROMAN,
+  ......
+)
 #title[XX试卷]
 
 = 选择
@@ -110,3 +115,4 @@ more details see [`Online Documentation`](https://ezexam.pages.dev/)
 ### 0 . 1 . 0
 
 + 初版发布
+
