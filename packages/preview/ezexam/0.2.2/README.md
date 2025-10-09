@@ -43,7 +43,7 @@ more details see [`Online Documentation`](https://ezexam.pages.dev/)
 + 调整正文默认字体，由原来的 `Source Han Serif` 修改为 `Noto Serif SC` 、 `Noto Serif CJK SC` （二者效果一样，主要是后者压缩后更小，方便上传网盘进行安装）。黑体添加 `Noto Sans SC` 和 `Noto Sans CJK SC` ；修复在 typst app 中应用模板时，字体显示的问题
 + 添加常量 `ROMAN` ，方便修改字体为新罗马风格的字体，更加符合常见的试卷排版格式
 + 调整代码逻辑，使得在字体调整时，其它所有西文字体统一进行修改
-+ 精简 `setup` 方法的参数，删除 `font-math` ；使用 `font` 参数即可完成字体设置
++ 精简 `setup` 方法的参数，删除 `font-math` ；使用 `font` 参数即可完成正文字体和西文字体的设置
 + 修复 `paren` 换行的问题
 
 ### 0 . 2 . 1
@@ -108,4 +108,5 @@ more details see [`Online Documentation`](https://ezexam.pages.dev/)
 + 修复 `choices` 方法中，若选项为图片时，设置宽度为百分比时，图片宽度无效的问题
 
 ### 0 . 1 . 0
+
 + 初版发布
