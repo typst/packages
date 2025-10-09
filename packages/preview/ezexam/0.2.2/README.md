@@ -13,7 +13,6 @@ This template is primarily designed to help Chinese university, primary, middle 
   mode: EXAM,
   paper: a3,
   font: ROMAN,
-  ......
 )
 
 #title[XX试卷]
@@ -116,5 +115,6 @@ more details see [`Online Documentation`](https://ezexam.pages.dev/)
 ### 0 . 1 . 0
 
 + 初版发布
+
 
 
