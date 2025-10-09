@@ -1,0 +1,25 @@
+id: AS848
+place: Rio de Janeiro
+publisher: Tipografia Nacional
+isbn: 978-85-402-0716-5
+subjects: ["Literatura, Brasil"]
+access: ["Título", "Série"]
+udc: 869.0(81)
+before: |
+  #set align(center)
+  
+  *Edição:*\
+  Maycon F. Melo
+  
+  *Capa:*\
+  _Minimal Books_ (min-book)
+  
+  *Texto:*\
+  Projeto Gutenberg\
+  Archive.org
+  
+  _Esta obra encontra-se em domínio público._
+  
+  Em homenagem à\
+  José Maria Machado de Assis\
+  (1839-1908)
