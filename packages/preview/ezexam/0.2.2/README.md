@@ -15,6 +15,7 @@ This template is primarily designed to help Chinese university, primary, middle 
   font: ROMAN,
   ......
 )
+
 #title[XX试卷]
 
 = 选择
@@ -115,4 +116,5 @@ more details see [`Online Documentation`](https://ezexam.pages.dev/)
 ### 0 . 1 . 0
 
 + 初版发布
+
 
