@@ -24,7 +24,7 @@ Pubmatter was used to create these documents, for loading the authors in a stand
 The full documentation can be found in [docs.pdf](https://github.com/continuous-foundation/pubmatter/blob/main/docs.pdf). To use `pubmatter` import it:
 
 ```typst
-#import "@preview/pubmatter:0.2.1"
+#import "@preview/pubmatter:0.2.2"
 ```
 
 The docs also use `pubmatter`, in a simplified way, you can see the [docs.typ](https://github.com/continuous-foundation/pubmatter/blob/main/docs.typ) to see a simple example of using various components to create a new document. Here is a preview of the docs:
