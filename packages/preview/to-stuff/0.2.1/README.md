@@ -43,9 +43,9 @@ Attempts to convert a value to an `alignment`.
 
 ```typ
 #alignment(
-	str|alignment|dictionary,
-	quiet: bool,
-) -> none|alignment
+	value, // str | alignment | dictionary
+	quiet: false, // bool
+) -> none | alignment
 ```
 
 <details>
@@ -107,9 +107,9 @@ Attempts to convert a value to an `angle`.
 
 ```typ
 #angle(
-	str|angle,
-	quiet: bool,
-) -> none|angle
+	value, // str | angle
+	quiet: false, // bool
+) -> none | angle
 ```
 
 <details>
@@ -161,9 +161,9 @@ Attempts to convert a value to a `color`.
 
 ```typ
 #angle(
-	str|color,
-	quiet: bool,
-) -> none|color
+	value, // str | color
+	quiet: false, // bool
+) -> none | color
 ```
 
 <details>
@@ -228,9 +228,9 @@ Attempts to convert a value to a `direction`.
 
 ```typ
 #direction(
-	str|direction,
-	quiet: bool,
-) -> none|direction
+	value, // str | direction
+	quiet: false, // bool
+) -> none | direction
 ```
 
 <details>
@@ -282,9 +282,9 @@ Attempts to convert a value to a `fraction`.
 
 ```typ
 #fraction(
-	str|fraction,
-	quiet: bool,
-) -> none|fraction
+	value, // str | fraction
+	quiet: false, // bool
+) -> none | fraction
 ```
 
 <details>
@@ -336,9 +336,9 @@ Attempts to convert a value to a `length`.
 
 ```typ
 #length(
-	str|length,
-	quiet: bool,
-) -> none|length
+	value, // str | length
+	quiet: false, // bool
+) -> none | length
 ```
 
 <details>
@@ -390,9 +390,9 @@ Attempts to convert a value to a `ratio`.
 
 ```typ
 #ratio(
-	str|ratio,
-	quiet: bool,
-) -> none|ratio
+	value, // str | ratio
+	quiet: false, // bool
+) -> none | ratio
 ```
 
 <details>
@@ -444,9 +444,9 @@ Attempts to convert a value to a `relative`.
 
 ```typ
 #relative(
-	str|relative|ratio|length|dictionary,
-	quiet: bool,
-) -> none|relative
+	value, // str | relative | ratio | length | dictionary
+	quiet: false, // bool
+) -> none | relative
 ```
 
 <details>
@@ -509,9 +509,9 @@ Attempts to convert a value to a `stroke`.
 
 ```typ
 #stroke(
-	str|stroke|color|length|array|dictionary,
-	quiet: bool,
-) -> none|stroke
+	value, // str | stroke | color | length | array | dictionary
+	quiet: false, // bool
+) -> none | stroke
 ```
 
 <details>
