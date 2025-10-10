@@ -50,6 +50,8 @@ more details see [`Online Documentation`](https://ezexam.pages.dev/)
 + 调整代码逻辑，使得在字体调整时，其它所有西文字体统一进行修改
 + 精简 `setup` 方法的参数，删除 `font-math` ；使用 `font` 参数即可完成正文字体和西文字体的设置
 + 修复 `paren` 换行的问题
++ 修改平行符号为倾斜；
++ 更改 π 在罗马字体下显示的样式；默认的有点丑
 
 ### 0 . 2 . 1
 + 修复试卷模式下，生成 pdf 后的书签会显示题目大标题的问题，确保只显示章节
@@ -115,6 +117,7 @@ more details see [`Online Documentation`](https://ezexam.pages.dev/)
 ### 0 . 1 . 0
 
 + 初版发布
+
 
 
 
