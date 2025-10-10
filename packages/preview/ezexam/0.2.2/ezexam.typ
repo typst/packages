@@ -249,6 +249,10 @@
     space + math.display(it) + space
   }
 
+  //  π 在罗马字体下显示的样式；默认的有点丑
+  show math.pi: set text(font: font.slice(0, 2)) if font.contains("Times New Roman")
+  show math.parallel: "//"
+
   if show-answer {
     answer-state.update(true)
     answer-color-state.update(answer-color)
@@ -256,3 +260,4 @@
 
   doc
 }
+
