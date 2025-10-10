@@ -15,7 +15,7 @@ A typst plugin to evaluate javascript code.
 ## Example
 
 ```typst
-#import "@preview/ctxjs:0.3.0"
+#import "@preview/ctxjs:0.3.2"
 #import ctxjs.load
 #import ctxjs.ctx
 
