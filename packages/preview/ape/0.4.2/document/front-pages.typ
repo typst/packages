@@ -68,6 +68,6 @@
     if local-outline { 
       get-local-outline()
     }
-    v(15pt)
+    v(20pt)
   }
 }

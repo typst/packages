@@ -7,7 +7,7 @@
       body,
     )
 
-    if (height < 100pt) {
+    if (height < 120pt) {
       block(width: size.width, breakable: false, content)
     } else {
       body
@@ -49,13 +49,13 @@
 
   if (title == []) {
     breakable-or-not(enclose[
-      *#type #n*
+     #block(sticky: true)[*#type #n*]
 
       #content
     ])
   } else {
     breakable-or-not(enclose[
-      *#type #n --- #title*
+      #block(sticky: true)[*#type #n --- #title*]
 
       #content
     ])
