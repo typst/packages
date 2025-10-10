@@ -26,7 +26,7 @@
   )
 }
 
-#let maths_block_no_stroke(type, title, content) = context {
+#let maths-block-no-stroke(type, title, content) = context {
   cpt.step()
   let n = cpt.get().at(0) + 1
 
@@ -43,7 +43,7 @@
   }
 }
 
-#let maths_block(type, title, content) = context {
+#let maths-block(type, title, content) = context {
   cpt.step()
   let n = cpt.get().at(0) + 1
 
@@ -63,14 +63,14 @@
 }
 
 // French Shortcuts....
-#let def(title, content) = context maths_block("Définition", title, content)
-#let prop(title, content) = context maths_block("Proposition", title, content)
-#let remarque(title, content) = context maths_block_no_stroke("Remarque", title, content)
-#let theorem(title, content) = context maths_block("Théorème", title, content)
-#let corollaire(title, content) = context maths_block("Corollaire", title, content)
-#let lemme(title, content) = context maths_block("Lemme", title, content)
-#let exemple(title, content) = context maths_block_no_stroke("Exemple", title, content)
-#let rappel(title, content) = context maths_block_no_stroke("Rappel", title, content)
+#let def(title, content) = context maths-block("Définition", title, content)
+#let prop(title, content) = context maths-block("Proposition", title, content)
+#let remarque(title, content) = context maths-block-no-stroke("Remarque", title, content)
+#let theorem(title, content) = context maths-block("Théorème", title, content)
+#let corollaire(title, content) = context maths-block("Corollaire", title, content)
+#let lemme(title, content) = context maths-block("Lemme", title, content)
+#let exemple(title, content) = context maths-block-no-stroke("Exemple", title, content)
+#let rappel(title, content) = context maths-block-no-stroke("Rappel", title, content)
 
 #let demo(content) = context {
   breakable-or-not[

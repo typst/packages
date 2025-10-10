@@ -23,6 +23,7 @@ Style :
   style: "numbered",
   title-page: false,
   outline: false,
+  local-outline: false,
   outline-max-depth: 5,
   smallcaps: true,
   content,
@@ -42,7 +43,7 @@ Style :
 
   show: header-footer.with(style, smallcaps, first-real-pages, title, authors)
 
-  front-pages(style, smallcaps, title, title-page, authors, outline, custom-outline)
+  front-pages(style, smallcaps, title, title-page, authors, outline, local-outline, custom-outline)
 
   show: shows-shortcuts
   show: code-display

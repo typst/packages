@@ -1,6 +1,7 @@
 #import "apply-style.typ": get-small-title
+#import "outline.typ" : get-local-outline
 
-#let front-pages(style, small-caps, title, title-page, authors, outline, custom-outline) = {
+#let front-pages(style, small-caps, title, title-page, authors, outline, local-outline, custom-outline) = {
   let sc(c) = {
     if small-caps == true {
       return smallcaps(c)
@@ -53,6 +54,9 @@
       pagebreak()
     }
 
+    if local-outline { 
+      get-local-outline()
+    }
     get-small-title(style, title)
   } else {
     if outline {
@@ -61,7 +65,9 @@
     }
 
     get-small-title(style, title)
-
+    if local-outline { 
+      get-local-outline()
+    }
     v(15pt)
   }
 }
