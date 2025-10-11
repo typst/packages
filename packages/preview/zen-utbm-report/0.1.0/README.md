@@ -1,4 +1,4 @@
-# utbm-report
+# zen-utbm-report
 
 Minimal, customizable Typst template for UTBM report submissions.
 
@@ -10,7 +10,7 @@ Minimal, customizable Typst template for UTBM report submissions.
 
 ## Overview
 
-`utbm-report` provides a simple report wrapper with sensible defaults for UTBM coursework. It sets up the page, title area, optional outline.
+`zen-utbm-report` provides a simple report wrapper with sensible defaults for UTBM coursework. It sets up the page, title area, optional outline.
 
 ## Features
 
@@ -23,7 +23,7 @@ Minimal, customizable Typst template for UTBM report submissions.
 ## Install
 
 ```typst
-#import "@preview/utbm-report:0.1.0": report
+#import "@preview/zen-utbm-report:0.1.0": report
 ```
 
 ## Quick Start
@@ -31,7 +31,7 @@ Minimal, customizable Typst template for UTBM report submissions.
 Minimal usage:
 
 ```typst
-#import "@preview/utbm-report:0.1.0": report
+#import "@preview/zen-utbm-report:0.1.0": report
 
 #show: doc => report(
   doc-title: [My First UTBM Report],
@@ -71,7 +71,7 @@ Your content starts here.
 Paste this into a fresh `.typ` file:
 
 ```typst
-#import "@preview/utbm-report:0.1.0": report
+#import "@preview/zen-utbm-report:0.1.0": report
 
 #show: doc => report(
   doc-title: [Rapport TP n°1],

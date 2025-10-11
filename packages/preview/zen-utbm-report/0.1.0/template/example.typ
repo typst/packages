@@ -1,4 +1,4 @@
-#import "@preview/utbm-report:0.1.0": report
+#import "@preview/zen-utbm-report:0.1.0": report
 
 #show: doc => report(
   doc-title: [My First UTBM Report],
