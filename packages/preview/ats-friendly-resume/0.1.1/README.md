@@ -113,7 +113,7 @@ Use these to quickly build your resume
 ## Example
 
 ### No Color
-<img src="./example-no-color.png">
+<img src="./no-color.png">
 
 ### Colored
-<img src="./example-colored.png">
+<img src="./colored.png">
