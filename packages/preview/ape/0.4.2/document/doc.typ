@@ -9,6 +9,14 @@
 
 = Documents
 
+
+/*
+Labels : 
+- <title>
+- <section>
+
+*/
+
 /*
 Style :
 - Numbered

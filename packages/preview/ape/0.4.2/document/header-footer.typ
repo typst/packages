@@ -12,6 +12,7 @@
     }
   }
 
+  let sections-pages = query(<section>).map(t => t.location().position().page)
 
   if (style == "numbered-book") {
     set page(
@@ -28,7 +29,7 @@
 
 
         if (
-          (current-page > first-real-pages.at(0)) and (first-real-pages.all(e => e != current-page))
+          (current-page > first-real-pages.at(0)) and (first-real-pages.all(e => e != current-page)) and (counter-page not in sections-pages)
         ) {
           [
             #set text(size: 9pt)

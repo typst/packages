@@ -9,6 +9,8 @@
   let start = false
   let here-page = here().position().page
 
+  let titles-positions = query(<title>).map(t => t.location().position())
+
 
   block(
     width: 100%,
@@ -31,7 +33,7 @@
             })
           }
           if (e.location().page() >= here-page) {
-            if (e.depth == 99) {
+            if (e.location().position() in titles-positions) {
               if start == true {
                 break
               }
@@ -55,7 +57,7 @@
 }
 
 
-#let get-outline(lang, small-caps, outline-max-depth) = {
+#let get-outline(lang, small-caps, outline-max-depth) =   {
   let sc(c) = {
     if small-caps == true {
       return smallcaps(c)
@@ -65,6 +67,8 @@
   }
   let first-real-pages = array(bytes(""))
 
+  let titles-positions = query(<title>).map(t => t.location().position())
+  let sections-positions = query(<section>).map(t => t.location().position())
 
   let custom-outline = {
     set text(hyphenate: true)
@@ -83,7 +87,6 @@
         }
       }
     ])
-    let counter-docs-final = counter(heading.where(level: 99)).final()
 
 
     let depthsMap = (1,) * 20
@@ -107,15 +110,16 @@
               [#filled]
             })
           }
-          if e.depth == 100 {
+          let pos = e.location().position()
+          if  (pos in sections-positions){
             ([], [], [])
             ([], [], [])
             ([], [], [])
             ([], [], [])
             ([], [], [])
-            ([], link(e.location(), text(size: 16pt, [*#e.body.child.text*])), [])
-          } else if (e.depth == 99) {
-            if (counter-docs-final.len() != 99 or counter-docs-final.at(98) >= 2) {
+            ([], link(e.location(), text(size: 17pt, [*#e.body*])), [])
+          } else if (pos in titles-positions) {
+            if titles-positions.len() >= 2 {
               depthsMap = (1,) * 20
               ([], [], [])
               ([], [], [])

@@ -24,31 +24,42 @@
 
   set heading(numbering: "I)1)a)i)")
 
-  show heading: it => {
-    if content-to-string(it) == "" or it.depth == 100 {
-      return none
-    }
 
-    if it.depth == 99 {
-      return it.body
-    }
+  show heading: it => context {
+    let titles-positions = query(<title>).map(t => t.location().position())
 
+    let sections-positions = query(<section>).map(t => t.location().position())
 
-    set par(spacing: 15pt)
-    if it.numbering != none {
-      let n = it.level - 1
-      set text(size: 1.2em - 0.1em * n)
+    if it.location().position() in titles-positions {
+      it.body
 
-      block(
-        sticky: true,
-        h(0.8cm * n)
-          + (
-            [
-              #counter(heading).display(it.numbering).split(")").at(-2) -- #it.body
-
-            ]
-          ),
+ }else if it.location().position() in sections-positions {
+  pagebreak()
+      grid(
+        columns: 1fr,
+        rows: 1fr,
+        align: center + horizon,
+        text(size: 50pt, it.body)
       )
+      pagebreak()
+     
+    } else {
+      set par(spacing: 15pt)
+      if it.numbering != none {
+        let n = it.level - 1
+        set text(size: 1.2em - 0.1em * n)
+
+        block(
+          sticky: true,
+          h(0.8cm * n)
+            + (
+              [
+                #counter(heading).display(it.numbering).split(")").at(-2) -- #it.body
+
+              ]
+            ),
+        )
+      }
     }
   }
 
@@ -60,10 +71,10 @@
   return {
     v(2cm)
     let title_array = ()
-    if (type(title) == array){
+    if (type(title) == array) {
       title_array = title
-    }else{
-      title_array = ("",title)
+    } else {
+      title_array = ("", title)
     }
 
     align(
@@ -80,28 +91,28 @@
 
           #if title_array.at(0).len() > 0 {
             place(
-            dy: -1.1cm,
+              dy: -1.1cm,
 
-            [
-              #rect(fill: white)[
-                #text(size: 1.5em, [*#title_array.at(0)*])
-              ]
-            ],
-          )
+              [
+                #rect(fill: white)[
+                  #text(size: 1.5em, [*#title_array.at(0)*])
+                ]
+              ],
+            )
           }
 
 
 
 
           #{
+            let title-content = text(size: 1.6em)[#heading(depth: 1)[*#title_array.at(1)*] <title>]
+
             if title_array.at(1).len() > 0 {
               place(
                 dy: 0.3cm,
-                dx: 50% - measure(text(size: 2em, [*#title_array.at(1)*])).width / 2,
+                dx: 50% - measure(title-content).width / 2,
                 [
-                  #rect(fill: white)[
-                    #text(size: 2em, heading(depth: 99)[*#title_array.at(1)*])
-                  ]
+                  #rect(fill: white, title-content)
                 ],
               )
             }
@@ -110,6 +121,7 @@
         ],
       ),
     )
+
 
     v(1.35cm)
   }
