@@ -2,11 +2,10 @@
 
 Minimal, customizable Typst template for UTBM report submissions.
 
-> [!NOTE]
-> **Institution & logo attribution**
-> The template uses the **Université de Technologie de Belfort-Montbéliard (UTBM)** logo.
-> See [https://www.utbm.fr](https://www.utbm.fr) for the institution’s official website.
-> Use of this logo is subject to UTBM’s own policies, users should verify the authorization for their context.
+**Institution & logo attribution**
+The template uses the **Université de Technologie de Belfort-Montbéliard (UTBM)** logo.
+See [https://www.utbm.fr](https://www.utbm.fr) for the institution’s official website.
+Use of this logo is subject to UTBM’s own policies, users should verify the authorization for their context.
 
 ## Overview
 
