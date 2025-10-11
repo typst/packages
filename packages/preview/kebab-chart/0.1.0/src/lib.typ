@@ -2,15 +2,15 @@
 
 #let kebab-chart(
   ticks: 10,
-  date_format: "[day] [month repr:short]",
-  start_date: auto,
-  end_date: auto,
-  date_padding: duration(weeks: 1),
+  date-format: "[day] [month repr:short]",
+  start-date: auto,
+  end-date: auto,
+  date-padding: duration(weeks: 1),
   width: 10cm,
-  span_height: 0.3cm,
-  vertical_padding: 0.6,
+  span-height: 0.3cm,
+  vertical-padding: 0.6,
   bookmarks: (),
-  label_side: "both",
+  label-side: "both",
   weekdays: none,
   data,
 ) = context {
@@ -24,7 +24,7 @@
     /* -------------------------------------------------------------------------- */
     let VALID_LABEL_SIDE = (none, "both", "right", "left")
     assert(
-      VALID_LABEL_SIDE.contains(label_side),
+      VALID_LABEL_SIDE.contains(label-side),
       message: "'label_side' is expected to be one of " + repr(VALID_LABEL_SIDE),
     )
     /* -------------------------------------------------------------------------- */
@@ -38,8 +38,8 @@
     )
     /* -------------------------------------------------------------------------- */
 
-    let data_start_dt = start_date
-    let data_end_dt = end_date
+    let data_start_dt = start-date
+    let data_end_dt = end-date
 
     if data_start_dt == auto {
       let min_date = datetime(year: 5000, month: 12, day: 31)
@@ -70,8 +70,8 @@
     assert(type(data_start_dt) == datetime, message: "'start_date' is expected to be a datetime")
     assert(type(data_end_dt) == datetime, message: "'end_date' is expected to be a datetime")
 
-    let visible_start_dt = data_start_dt - date_padding
-    let visible_end_dt = data_end_dt + date_padding
+    let visible_start_dt = data_start_dt - date-padding
+    let visible_end_dt = data_end_dt + date-padding
 
     let DATES = (
       visible_start: visible_start_dt,
@@ -98,7 +98,7 @@
     /* -------------------------------------------------------------------------- */
 
     let labels_width = 0pt
-    if label_side != none {
+    if label-side != none {
       for e in data {
         if "label" in e {
           let (width,) = measure(e.label)
@@ -109,7 +109,7 @@
       }
     }
     labels_width += LABEL_PADDING
-    if label_side == "both" {
+    if label-side == "both" {
       labels_width *= 2
     }
 
@@ -124,7 +124,7 @@
     let bar(start, end, y, ..params) = {
       let a = dt_to_x(start)
       let b = dt_to_x(end, start: start)
-      rect((a, y), (rel: (b, span_height)), anchor: "north", ..params)
+      rect((a, y), (rel: (b, span-height)), anchor: "north", ..params)
     }
 
     let RIGHT = dt_to_x(visible_end_dt)
@@ -135,10 +135,10 @@
     // The y-axis is rendered from "0" toward negative values
     // so that "kebabs" are ordered top to bottom
     for (i, entry) in data.enumerate() {
-      let y = -i * vertical_padding
+      let y = -i * vertical-padding
 
       if "label" in entry {
-        if label_side == "both" or label_side == "left" {
+        if label-side == "both" or label-side == "left" {
           content(
             (0, y),
             anchor: "east",
@@ -146,7 +146,7 @@
             entry.label,
           )
         }
-        if label_side == "both" or label_side == "right" {
+        if label-side == "both" or label-side == "right" {
           content(
             (RIGHT, y),
             anchor: "west",
@@ -175,8 +175,8 @@
 
     // Reset the origin so that to bottomest "kebab" is near "0"
     let n = data.len()
-    let TOP = (n + 1) * vertical_padding
-    set-origin((0, -(n - 0.5) * vertical_padding - 0.5))
+    let TOP = (n + 1) * vertical-padding
+    set-origin((0, -(n - 0.5) * vertical-padding - 0.5))
 
     // Display the vertical and horizontals axes
     line((0, 0), (0, TOP))
@@ -192,7 +192,7 @@
 
       if type(tick) == datetime {
         dt = tick
-        content_ = dt.display(date_format)
+        content_ = dt.display(date-format)
         color = auto
       } else if type(tick) == dictionary {
         dt = tick.at("date")
