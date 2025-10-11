@@ -1,13 +1,13 @@
 #let cpt = counter("maths")
 
-#let breakable-or-not(content) = context {
+#let breakable-or-not(min-size: 120pt, content) = context {
   layout(size => {
     let body = block(width: size.width, content)
     let (height,) = measure(
       body,
     )
 
-    if (height < 120pt) {
+    if (height < min-size) {
       block(width: size.width, breakable: false, content)
     } else {
       body
@@ -73,7 +73,7 @@
 #let rappel(title, content) = context maths-block-no-stroke("Rappel", title, content)
 
 #let demo(content) = context {
-  breakable-or-not[
+  breakable-or-not(min-size: 60pt)[
     #block(sticky: true)[*Démonstration*]
     #block(
       width: 100%,

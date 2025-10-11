@@ -57,14 +57,14 @@
     if local-outline { 
       get-local-outline()
     }
-    get-small-title(style, title)
+    get-small-title(style, title, authors)
   } else {
     if outline {
       custom-outline
       pagebreak()
     }
 
-    get-small-title(style, title)
+    get-small-title(style, title, authors)
     if local-outline { 
       get-local-outline()
     }

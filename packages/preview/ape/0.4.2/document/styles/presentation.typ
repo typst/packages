@@ -44,6 +44,6 @@
   content
 }
 
-#let get-small-title(title) = context {
+#let get-small-title(title, authors) = context {
   return ""
 }

@@ -14,7 +14,7 @@
 }
 
 
-#let get-small-title(title) = context {
+#let get-small-title(title, authors) = context {
   return {
     line(length: 100%)
     text(

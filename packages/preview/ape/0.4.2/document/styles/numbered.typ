@@ -67,7 +67,7 @@
 }
 
 
-#let get-small-title(title) = context {
+#let get-small-title(title, authors) = context {
   return {
     v(2cm)
     let title_array = ()
