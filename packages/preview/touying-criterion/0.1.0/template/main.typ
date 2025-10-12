@@ -1,6 +1,6 @@
 #import "@preview/touying:0.6.1": *
 #import "@preview/cetz:0.3.4"
-#import "../lib.typ": *
+#import "@preview/touying-criterion:0.1.0": *
 
 #show raw: set text(size: 12pt)
 #show figure.caption: set text(size: 10pt)
