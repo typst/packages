@@ -6,7 +6,7 @@ Originally based on [hzkonor's bubble-template](https://github.com/hzkonor/bubbl
 
 ## Project Structure
 
-```
+```text
 ├── lib/               # Template library files
 │   ├── config.typ     # Main configuration and document setup
 │   ├── fonts.typ      # Centralized font configuration
