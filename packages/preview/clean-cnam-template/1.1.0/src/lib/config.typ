@@ -10,7 +10,7 @@
 // Import all modules
 #import "fonts.typ": set-fonts
 #import "components.typ": blockquote, my-block, code
-#import "layout.typ": apply-styling, add-decorations, create-title-page
+#import "layout.typ": apply-styling, add-decorations, create-title-page, page-margin
 #import "utils.typ": icon, ar
 
 // Re-export components for easy access
@@ -72,6 +72,9 @@
   // Document metadata
   set document(author: author, title: title)
   set text(lang: "fr")
+
+  // Apply page margins before decorations
+  set page(margin: page-margin)
 
   // Add decorative elements
   add-decorations(primary-color, secondary-color)

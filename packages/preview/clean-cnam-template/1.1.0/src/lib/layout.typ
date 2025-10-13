@@ -12,6 +12,12 @@
 
 // Global font size setting
 #let body-font-size = 12pt
+#let page-margin = (
+    top: 3cm,
+    right: 1.27cm,
+    bottom: 1.75cm,
+    left: 1.27cm
+);
 
 /**
  * Apply document styling and layout configuration.
@@ -39,12 +45,7 @@
   set page(
     header-ascent: 50%,
     footer-descent: 50%,
-    margin: (
-        top: 3cm,
-        right: 1cm,
-        bottom: 1.75cm,
-        left: 1cm
-    ),
+    margin: page-margin,
     numbering: "1 / 1",
     number-align: bottom + right,
   )
@@ -114,7 +115,10 @@
   show outline.entry: it => text(size: 12pt, weight: "regular", it)
 
   // Set header after initial pages
-  set page(header: get-header(author: author, show-secondary-header: show-secondary-header))
+  set page(
+      header: get-header(author: author,show-secondary-header: show-secondary-header),
+      margin: page-margin
+  )
 
   body
 }
