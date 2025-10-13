@@ -1,4 +1,4 @@
-#import "src/lib.typ": *
+#import "@preview/clean-cnam-template:1.1.0": *
 // #import "src/your-outline-code.typ": your-outline-code
 
 #show: clean-cnam-template.with(
