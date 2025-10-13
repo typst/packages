@@ -57,8 +57,8 @@ See here for **all** possible arguments (and their default values) and utility f
 
 // Use these to *enable* or *change* page numbering for your frontmatter and mainmatter respectively.
 // (By default, this template hides the page numbering!)
-#show: roman-numbering.with(reset: <true|false>, alternate: <true|false>)
-#show: arabic-numbering.with(reset: <true|false>, alternate: <true|false>)
+#show: roman-numbering.with(reset: true, alternate: true)
+#show: arabic-numbering.with(reset: true, alternate: true)
 ```
 
 ### Utility Functions
@@ -67,7 +67,7 @@ These could be useful while writing your thesis!
 
 ```typ
 // A TODO marker. (inline: false -> margin note, inline: true -> box).
-#let todo(inline: false, body)
+#let todo(inline: false, body) = {}
 
 // Like \section* in LaTeX. (unnumbered level 2 heading, not in ToC).
 #let section = heading.with(level: 2, outlined: false, numbering: none)
@@ -79,7 +79,7 @@ These could be useful while writing your thesis!
 #let empty-page = page([], footer: [])
 
 // Subfigures (see chapters/introduction for syntax).
-#let subfigure(..)
+#let subfigure() = {}
 
 // A ParCIO-like table with a design taken from the LaTeX template.
 #let parcio-table(max-rows, ..args)
