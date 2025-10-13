@@ -1,0 +1,15 @@
+[package]
+name = "ulb-report"
+description = "Unofficial template for reports at the Ecole Polytechnique de Bruxelles (ULB)"
+version = "0.1.0"
+entrypoint = "lib.typ"
+license = "MIT"
+authors = ["Nico Janke <@Pipcount>"]
+categories = ["report"]
+keywords = ["ULB", "report", "academic", "project"]
+repository = "https://github.com/Pipcount/template-polytech-ulb"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "template/thumbnail.png"
