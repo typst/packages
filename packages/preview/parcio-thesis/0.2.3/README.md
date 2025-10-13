@@ -67,7 +67,7 @@ These could be useful while writing your thesis!
 
 ```typ
 // A TODO marker. (inline: false -> margin note, inline: true -> box).
-#let todo(inline: false, body) = {}
+#let todo(inline: false, body) = { /* ... */ }
 
 // Like \section* in LaTeX. (unnumbered level 2 heading, not in ToC).
 #let section = heading.with(level: 2, outlined: false, numbering: none)
@@ -79,13 +79,13 @@ These could be useful while writing your thesis!
 #let empty-page = page([], footer: [])
 
 // Subfigures (see chapters/introduction for syntax).
-#let subfigure() = {}
+#let subfigure(..) = { /* ... */ }
 
 // A ParCIO-like table with a design taken from the LaTeX template.
-#let parcio-table(max-rows, ..args)
+#let parcio-table(max-rows, ..args) = { /* ... */ }
 
 // Nicer handling of (multiple) appendices. Specify `reset: true` with your first appendix to reset the heading counter!
-#let appendix(reset: false, label: none, body)
+#let appendix(reset: false, label: none, body) = { /* ... */ }
 ```
 
 ### Translations
