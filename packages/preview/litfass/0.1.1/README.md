@@ -18,7 +18,7 @@ Litfass contains 3 modules:
 Importing Liftass modules could look as follows:
 
 ```typ
-#import "@preview/litfass:0.1.0"
+#import "@preview/litfass:0.1.1"
 #import litfass.tiling: *
 
 #let poster = litfass.render.poster.with(theme: litfass.themes.basic)

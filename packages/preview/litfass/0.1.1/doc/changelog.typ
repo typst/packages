@@ -19,7 +19,7 @@
 
 - added support for rounded box corners
 - box corners now are rounded by default
-- now by defualt the box panel background colors are calculated based on the box title background color
+- now by default the box panel background colors are calculated based on the box title background color
 
 == bug fixes
 
