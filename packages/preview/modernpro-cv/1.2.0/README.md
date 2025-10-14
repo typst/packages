@@ -61,7 +61,7 @@ If you want to use the single column version, you create a new `.typ` file and c
 
 ```Typst
 #import "@preview/modernpro-cv:1.2.0": *
-#import "@preview/fontawesome:0.5.0": *
+#import "@preview/fontawesome:0.6.0": *
 
 #show: cv-single.with(
   font-type: "PT Serif",
@@ -86,7 +86,7 @@ The double column version is similar to the single column version. However, you 
 
 ```Typst
 #import "@preview/modernpro-cv:1.2.0": *
-#import "@preview/fontawesome:0.5.0": *
+#import "@preview/fontawesome:0.6.0": *
 
 #show: cv-double(
   font-type: "PT Sans",
