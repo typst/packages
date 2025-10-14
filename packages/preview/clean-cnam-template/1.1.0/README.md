@@ -191,12 +191,14 @@ To disable the outline completely:
 
 The template provides enhanced code blocks with multiple features including syntax highlighting, line numbers, and filename labels.
 
+Note: Examples below use text fences and Typst `raw(...)` to avoid nested backticks so automated package checks pass. In your own documents, you can use normal Markdown code fences and standard Typst code blocks.
+
 ### Basic Usage
 ```text
-#code(lang: "Python", ```python
-def hello_world():
-    print("Hello, World!")
-```)
+#code(
+  lang: "Python",
+  raw(block: true, lang: "python", "def hello_world():\n    print(\"Hello, World!\")")
+)
 ```
 
 ### With Filename
@@ -204,10 +206,8 @@ def hello_world():
 #code(
   filename: "main.py",
   lang: "Python",
-  ```python
-def hello_world():
-    print("Hello, World!")
-```)
+  raw(block: true, lang: "python", "def hello_world():\n    print(\"Hello, World!\")")
+)
 ```
 
 ### Advanced Options
@@ -236,11 +236,7 @@ Example with custom styling:
   stroke: 2pt + rgb("#e0e0e0"),
   radius: 5pt,
   lang: "Rust",
-  ```rust
-  fn main() {
-      println!("Hello, world!");
-  }
-  ```
+  raw(block: true, lang: "rust", "fn main() {\n    println!(\\\"Hello, world!\\\");\n}")
 )
 ```
 
