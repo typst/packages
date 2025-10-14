@@ -55,7 +55,7 @@ This template uses the following external packages:
    ```
 
    - Using this repository locally (from `src/`):
-   ```typst
+   ```text
    #import "src/lib.typ": *
    ```
 
@@ -192,7 +192,7 @@ To disable the outline completely:
 The template provides enhanced code blocks with multiple features including syntax highlighting, line numbers, and filename labels.
 
 ### Basic Usage
-```typst
+```text
 #code(lang: "Python", ```python
 def hello_world():
     print("Hello, World!")
@@ -200,7 +200,7 @@ def hello_world():
 ```
 
 ### With Filename
-```typst
+```text
 #code(
   filename: "main.py",
   lang: "Python",
@@ -229,7 +229,7 @@ The `code()` function supports many customization options:
 | `text-style` | dict | `(size: 8pt)` | Text styling options |
 
 Example with custom styling:
-```typst
+```text
 #code(
   numbering: false,
   fill: rgb("#f8f8f8"),
