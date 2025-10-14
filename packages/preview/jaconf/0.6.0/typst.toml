@@ -1,0 +1,21 @@
+[package]
+name = "jaconf"
+version = "0.6.0"
+compiler = "0.13.1"
+entrypoint = "lib.typ"
+repository = "https://github.com/kimushun1101/typst-jaconf"
+authors = [
+  "Shunsuke Kimura <https://github.com/kimushun1101>",
+  "ささくらり <https://github.com/m-tsuru>",
+  "Tomoya Oku <https://github.com/Tomoya-Oku>",
+]
+license = "MIT-0"
+description = "Template for Japanese academic conference papers. 日本語の学会論文テンプレート"
+keywords = ["Japanese", "academic", "conference", "proceedings"]
+disciplines = ["engineering", "computer-science", "mathematics"]
+categories = ["paper"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
