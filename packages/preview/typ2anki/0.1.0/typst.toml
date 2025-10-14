@@ -1,0 +1,11 @@
+[package]
+name = "typ2anki"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["sgomezsal <sgomezsalazar7@gmail.com>"]
+license = "MIT"
+description = "Convert Typst files into Anki cards automatically."
+repository = "https://github.com/sgomezsal/typ2anki"
+keywords = ["anki", "flashcards", "typst", "automation"]
+categories = ["integration", "utility"]
+compiler = "0.12.0"
