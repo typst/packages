@@ -2,7 +2,7 @@
 
 #let theme-color = state("theme-color", none)
 #let sections = state("sections", ())
-#let show-page-numbers = state("show-page-numbers", true)
+#let page-numbers = state("show-page-numbers", true)
 
 #let typslides(
   ratio: "16-9",
@@ -13,7 +13,7 @@
   body,
 ) = {
   
-  show-page-numbers.update(show-page-numbers)
+  page-numbers.update(show-page-numbers)
 
   if type(theme) == str {
     theme-color.update(_theme-colors.at(theme))
@@ -300,7 +300,7 @@
   body,
 ) = (
   context {
-    let page-num = if show-page-numbers.get() {
+    let page-num = if page-numbers.get() {
       context counter(page).display("1/1", both: true)
     } else {
       none
@@ -309,7 +309,7 @@
     set page(
       fill: back-color,
       header-ascent: if title != none { 65% } else { 66% },
-      header: if show-page-numbers.get() {
+      header: if page-numbers.get() {
         [
           #align(right)[
             #text(
@@ -344,14 +344,14 @@
 
 #let blank-slide(body) = (
   context {
-    let page-num = if show-page-numbers.get() {
+    let page-num = if page-numbers.get() {
       context counter(page).display("1/1", both: true)
     } else {
       none
     }
 
     set page(
-      header: if show-page-numbers.get() {
+      header: if page-numbers.get() {
         [
           #align(right)[
             #text(
@@ -388,3 +388,4 @@
     bib-call
   }
 )
+
