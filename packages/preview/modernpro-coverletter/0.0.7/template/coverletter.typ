@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.5.0": *
+#import "@preview/fontawesome:0.6.0": *
 #import "@preview/modernpro-coverletter:0.0.7": *
 
 #show: coverletter.with(
