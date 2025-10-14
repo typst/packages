@@ -1,4 +1,4 @@
-#import "@preview/ssrn-scribe:0.9.0": *
+#import "@preview/ssrn-scribe:0.9.1": *
 
 // if you do not want to use the integrated packages, you can comment out the following lines
 #import "extra.typ": *
@@ -12,13 +12,13 @@
   subtitle: "A work in progress",   // optional subtitle line
 
   // Cover-page–only spacing and typography (ignored when maketitle=false)
-  cover_text_width: 90%,            // width of the abstract/keywords block
-  cover_line_leading: 1.32em,       // line height for cover/front matter paragraphs
-  cover_paragraph_spacing: 0.7em,   // paragraph spacing on the cover/front matter
+  cover-text-width: 90%,            // width of the abstract/keywords block
+  cover-line-leading: 1.32em,       // line height for cover/front matter paragraphs
+  cover-paragraph-spacing: 0.7em,   // paragraph spacing on the cover/front matter
 
   // Author grid controls (shared across both modes)
-  author_columns: 2,                // override the auto-detected column count
-  author_alignment: center,         // column alignment for author details
+  author-columns: 2,                // override the auto-detected column count
+  author-alignment: center,         // column alignment for author details
   authors: (
     (
       name: "Theresa Tungsten",
@@ -40,12 +40,12 @@
     Bayesian,],                    // keyword list
   JEL: [G11, G12],                  // optional JEL codes
   acknowledgments: "This paper is a work in progress. Please do not cite without permission.", // footnote on title block
-  frontmatter_gap: 12pt,            // spacing between abstract/keywords/JEL entries
+  frontmatter-gap: 12pt,            // spacing between abstract/keywords/JEL entries
 
   // Body typography (applies to both modes)
-  body_line_leading: 1.32em,        // main-text line height
-  body_paragraph_spacing: 0.7em,    // spacing between main-text paragraphs
-  body_text_spacing: 106%,          // glyph tracking for the body text
+  body-line-leading: 1.32em,        // main-text line height
+  body-paragraph-spacing: 0.7em,    // spacing between main-text paragraphs
+  body-text-spacing: 106%,          // glyph tracking for the body text
 
   // bibliography: bibliography("bib.bib", title: "References", style: "apa"), // attach your references
 )

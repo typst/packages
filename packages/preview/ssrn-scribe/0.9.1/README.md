@@ -57,15 +57,15 @@ In the template, you can modify the following parameters:
 | `bibliography`    | none       | Yes      | The bibliography of the paper ``bibliography: bibliography("bib.bib", title: "References", style: "apa")`` |
 
 Additional layout controls (all optional):
-- `author_columns`, `author_alignment` *(both modes)*: enforce a fixed column count and per-column alignment for the author grid (defaults auto-detect reasonable settings).
-- `cover_title_size`, `cover_subtitle_size`, `cover_author_name_size` *(maketitle=true only)*: change the typography of the cover title block directly from the `paper.with` call.
-- `cover_spacing` *(maketitle=true only)*: main vertical spacing unit between stacked elements (title → subtitle → authors → meta).
-- `cover_author_gutter`, `cover_author_row_gap` *(maketitle=true only)*: adjust horizontal and vertical spacing between author blocks on the cover.
-- `cover_text_width`, `cover_line_leading`, `cover_paragraph_spacing` *(maketitle=true only)*: control the width, line height, and paragraph spacing of the abstract/keywords/JEL block.
-- `frontmatter_gap` *(both modes)*: extra spacing between abstract, keywords, and JEL sections.
-- `inline_title_size`, `inline_subtitle_size`, `inline_author_name_size` *(maketitle=false only)*: mirror the cover typography when the title stays on the first page.
-- `inline_author_gutter`, `inline_author_row_gap` *(maketitle=false only)*: tweak spacing for inline author lists.
-- `body_line_leading`, `body_paragraph_spacing`, `body_text_spacing` *(both modes)*: fine-tune the main text’s readability globally.
+- `author-columns`, `author-alignment` *(both modes)*: enforce a fixed column count and per-column alignment for the author grid (defaults auto-detect reasonable settings).
+- `cover-title-size`, `cover-subtitle-size`, `cover-author-name-size` *(maketitle=true only)*: change the typography of the cover title block directly from the `paper.with` call.
+- `cover-spacing` *(maketitle=true only)*: main vertical spacing unit between stacked elements (title → subtitle → authors → meta).
+- `cover-author-gutter`, `cover-author-row-gap` *(maketitle=true only)*: adjust horizontal and vertical spacing between author blocks on the cover.
+- `cover-text-width`, `cover-line-leading`, `cover-paragraph-spacing` *(maketitle=true only)*: control the width, line height, and paragraph spacing of the abstract/keywords/JEL block.
+- `frontmatter-gap` *(both modes)*: extra spacing between abstract, keywords, and JEL sections.
+- `inline-title-size`, `inline-subtitle-size`, `inline-author-name-size` *(maketitle=false only)*: mirror the cover typography when the title stays on the first page.
+- `inline-author-gutter`, `inline-author-row-gap` *(maketitle=false only)*: tweak spacing for inline author lists.
+- `body-line-leading`, `body-paragraph-spacing`, `body-text-spacing` *(both modes)*: fine-tune the main text’s readability globally.
 
 Author notes and acknowledgments on the cover are rendered as left-aligned footnotes with consistent marker spacing.
 
@@ -78,9 +78,9 @@ Full configuration example with inline comments:
   // Core typography (applies to body in both modes)
   font: "PT Serif",                 // main document font family
   fontsize: 11pt,                   // main document font size
-  body_text_spacing: 106%,          // character width spacing in main text
-  body_line_leading: 1.32em,        // line height in the main text
-  body_paragraph_spacing: 0.7em,    // space between paragraphs in main text
+  body-text-spacing: 106%,          // character width spacing in main text
+  body-line-leading: 1.32em,        // line height in the main text
+  body-paragraph-spacing: 0.7em,    // space between paragraphs in main text
 
   // Title-page switch
   maketitle: true,                  // true → dedicated cover page, false → inline title
@@ -92,27 +92,27 @@ Full configuration example with inline comments:
   acknowledgments: "Funding note.", // rendered as a footnote on the title
 
   // Cover-page only styling (ignored when maketitle=false)
-  cover_title_size: 20pt,           // cover title font size
-  cover_subtitle_size: 13pt,        // cover subtitle font size
-  cover_spacing: 24pt,              // vertical space between cover sections
-  cover_text_width: 90%,            // width of abstract/keywords block on the cover
-  cover_line_leading: 1.32em,       // line height for cover/front matter paragraphs
-  cover_paragraph_spacing: 0.7em,   // spacing between cover paragraphs
-  cover_author_name_size: 14pt,     // author name size on the cover
-  cover_author_name_size: 14pt,     // author name size on the cover
-  cover_author_gutter: 24pt,        // horizontal gap between cover author columns
-  cover_author_row_gap: 16pt,       // vertical gap between cover author rows
+  cover-title-size: 20pt,           // cover title font size
+  cover-subtitle-size: 13pt,        // cover subtitle font size
+  cover-spacing: 24pt,              // vertical space between cover sections
+  cover-text-width: 90%,            // width of abstract/keywords block on the cover
+  cover-line-leading: 1.32em,       // line height for cover/front matter paragraphs
+  cover-paragraph-spacing: 0.7em,   // spacing between cover paragraphs
+  cover-author-name-size: 14pt,     // author name size on the cover
+  cover-author-name-size: 14pt,     // author name size on the cover
+  cover-author-gutter: 24pt,        // horizontal gap between cover author columns
+  cover-author-row-gap: 16pt,       // vertical gap between cover author rows
 
   // Inline-title styling (used only when maketitle=false)
-  inline_title_size: 18pt,          // inline title size
-  inline_subtitle_size: 12pt,       // inline subtitle size
-  inline_author_name_size: 12pt,    // inline author name size
-  inline_author_gutter: 18pt,       // horizontal gap between inline author columns
-  inline_author_row_gap: 12pt,      // vertical gap between inline author rows
+  inline-title-size: 18pt,          // inline title size
+  inline-subtitle-size: 12pt,       // inline subtitle size
+  inline-author-name-size: 12pt,    // inline author name size
+  inline-author-gutter: 18pt,       // horizontal gap between inline author columns
+  inline-author-row-gap: 12pt,      // vertical gap between inline author rows
 
   // Author block layout (applies to both modes)
-  author_columns: 2,                // force two columns; omit to auto-detect
-  author_alignment: center,         // column alignment for author details
+  author-columns: 2,                // force two columns; omit to auto-detect
+  author-alignment: center,         // column alignment for author details
   authors: (
     (
       name: "Author One",
@@ -131,7 +131,7 @@ Full configuration example with inline comments:
   abstract: [Summarize your contribution here.], // optional abstract content
   keywords: [Keyword 1, Keyword 2, Keyword 3],   // keyword list
   JEL: [G11, G12],                               // optional JEL codes
-  frontmatter_gap: 12pt,                         // gap between abstract/keywords/JEL
+  frontmatter-gap: 12pt,                         // gap between abstract/keywords/JEL
 
   // bibliography: bibliography("bib.bib", title: "References", style: "apa"),
 )

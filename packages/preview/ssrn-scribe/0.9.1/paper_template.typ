@@ -4,7 +4,7 @@
 // Copyright (c) 2025
 // Author:  Jiaxin Peng
 // License: MIT
-// Version: 0.9.0
+// Version: 0.9.1
 // Date:    2025-10-14
 // Email:   jiaxin.peng@outlook.com
 ///////////////////////////////
@@ -128,26 +128,26 @@
   JEL: none,
   acknowledgments: none,
   bibliography: none,
-  author_columns: none,
-  author_alignment: center,
-  cover_title_size: 20pt,
-  cover_subtitle_size: 13pt,
-  cover_author_name_size: 14pt,
-  cover_spacing: 24pt,
-  cover_author_gutter: 24pt,
-  cover_author_row_gap: 16pt,
-  cover_text_width: 90%,
-  cover_line_leading: 1.32em,
-  cover_paragraph_spacing: 0.7em,
-  frontmatter_gap: 12pt,
-  inline_title_size: 18pt,
-  inline_subtitle_size: 12pt,
-  inline_author_name_size: 12pt,
-  inline_author_gutter: 18pt,
-  inline_author_row_gap: 12pt,
-  body_line_leading: 1.32em,
-  body_paragraph_spacing: 0.7em,
-  body_text_spacing: 106%,
+  author-columns: none,
+  author-alignment: center,
+  cover-title-size: 20pt,
+  cover-subtitle-size: 13pt,
+  cover-author-name-size: 14pt,
+  cover-spacing: 24pt,
+  cover-author-gutter: 24pt,
+  cover-author-row-gap: 16pt,
+  cover-text-width: 90%,
+  cover-line-leading: 1.32em,
+  cover-paragraph-spacing: 0.7em,
+  frontmatter-gap: 12pt,
+  inline-title-size: 18pt,
+  inline-subtitle-size: 12pt,
+  inline-author-name-size: 12pt,
+  inline-author-gutter: 18pt,
+  inline-author-row-gap: 12pt,
+  body-line-leading: 1.32em,
+  body-paragraph-spacing: 0.7em,
+  body-text-spacing: 106%,
   doc,
 ) = {
   set math.equation(numbering: "(1)", supplement: auto)
@@ -155,7 +155,7 @@
   set text(
     font: font,
     size: fontsize,
-    spacing: body_text_spacing,
+    spacing: body-text-spacing,
   )
 
   set page(numbering: "1")
@@ -172,39 +172,39 @@
   if maketitle == true {
     set footnote(numbering: "*")
     set par(
-      leading: cover_line_leading,
-      spacing: cover_paragraph_spacing,
+      leading: cover-line-leading,
+      spacing: cover-paragraph-spacing,
       first-line-indent: 0em,
       justify: false,
     )
     set align(center)
 
     if title != none {
-      text(cover_title_size, [
+      text(cover-title-size, [
         #strong(title)
         #if acknowledgments != none { footnote(acknowledgments) }
       ])
     }
 
     if subtitle != none {
-      v(cover_spacing, weak: true)
-      text(cover_subtitle_size, subtitle)
+      v(cover-spacing, weak: true)
+      text(cover-subtitle-size, subtitle)
     }
 
     if authors.len() > 0 {
-      v(cover_spacing, weak: true)
+      v(cover-spacing, weak: true)
       render-author-grid(
         authors,
-        columns: author_columns,
-        alignment: author_alignment,
-        name-size: cover_author_name_size,
-        gutter: cover_author_gutter,
-        row-gap: cover_author_row_gap,
+        columns: author-columns,
+        alignment: author-alignment,
+        name-size: cover-author-name-size,
+        gutter: cover-author-gutter,
+        row-gap: cover-author-row-gap,
       )
     }
 
     if date != none {
-      v(cover_spacing, weak: true)
+      v(cover-spacing, weak: true)
       text(12pt, [This Version: #date])
     }
 
@@ -212,13 +212,13 @@
       abstract,
       keywords,
       JEL,
-      text-width: cover_text_width,
-      section-gap: frontmatter_gap,
-      leading: cover_line_leading,
-      paragraph-spacing: cover_paragraph_spacing,
+      text-width: cover-text-width,
+      section-gap: frontmatter-gap,
+      leading: cover-line-leading,
+      paragraph-spacing: cover-paragraph-spacing,
     )
     if frontmatter != none {
-      v(cover_spacing, weak: true)
+      v(cover-spacing, weak: true)
       frontmatter
     }
 
@@ -227,15 +227,15 @@
   } else {
     set footnote(numbering: "*")
     set par(
-      leading: cover_line_leading,
-      spacing: cover_paragraph_spacing,
+      leading: cover-line-leading,
+      spacing: cover-paragraph-spacing,
       first-line-indent: 0em,
       justify: false,
     )
     set align(left)
 
     if title != none {
-      text(inline_title_size, align(center, [
+      text(inline-title-size, align(center, [
         #strong(title)
         #if acknowledgments != none { footnote(acknowledgments) }
       ]))
@@ -243,25 +243,25 @@
 
     if subtitle != none {
       v(6pt, weak: true)
-      text(inline_subtitle_size, align(center, { subtitle }))
+      text(inline-subtitle-size, align(center, { subtitle }))
     }
 
     if authors.len() > 0 {
-      v(cover_spacing, weak: true)
+      v(cover-spacing, weak: true)
       set align(center)
       render-author-grid(
         authors,
-        columns: author_columns,
-        alignment: author_alignment,
-        name-size: inline_author_name_size,
-        gutter: inline_author_gutter,
-        row-gap: inline_author_row_gap,
+        columns: author-columns,
+        alignment: author-alignment,
+        name-size: inline-author-name-size,
+        gutter: inline-author-gutter,
+        row-gap: inline-author-row-gap,
       )
       set align(left)
     }
 
     if date != none {
-      v(cover_spacing, weak: true)
+      v(cover-spacing, weak: true)
       align(center, [This Version: #date])
     }
 
@@ -269,13 +269,13 @@
       abstract,
       keywords,
       JEL,
-      text-width: cover_text_width,
-      section-gap: frontmatter_gap,
-      leading: cover_line_leading,
-      paragraph-spacing: cover_paragraph_spacing,
+      text-width: cover-text-width,
+      section-gap: frontmatter-gap,
+      leading: cover-line-leading,
+      paragraph-spacing: cover-paragraph-spacing,
     )
     if frontmatter != none {
-      v(cover_spacing, weak: true)
+      v(cover-spacing, weak: true)
       frontmatter
     }
   }
@@ -294,10 +294,10 @@
     #context it
     #v(10pt)
   ]
-  set text(spacing: body_text_spacing)
+  set text(spacing: body-text-spacing)
   set par(
-    leading: body_line_leading,
-    spacing: body_paragraph_spacing,
+    leading: body-line-leading,
+    spacing: body-paragraph-spacing,
     first-line-indent: 0em,
     justify: true,
   )
@@ -305,8 +305,8 @@
   columns(1, doc)
 
   set par(
-    leading: body_line_leading,
-    spacing: body_paragraph_spacing,
+    leading: body-line-leading,
+    spacing: body-paragraph-spacing,
     first-line-indent: 0em,
     justify: true,
   )
