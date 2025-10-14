@@ -57,6 +57,7 @@ In the template, you can modify the following parameters:
 | `bibliography`    | none       | Yes      | The bibliography of the paper ``bibliography: bibliography("bib.bib", title: "References", style: "apa")`` |
 
 Additional layout controls (all optional):
+
 - `author-columns`, `author-alignment` *(both modes)*: enforce a fixed column count and per-column alignment for the author grid (defaults auto-detect reasonable settings).
 - `cover-title-size`, `cover-subtitle-size`, `cover-author-name-size` *(maketitle=true only)*: change the typography of the cover title block directly from the `paper.with` call.
 - `cover-spacing` *(maketitle=true only)*: main vertical spacing unit between stacked elements (title → subtitle → authors → meta).
@@ -72,7 +73,7 @@ Author notes and acknowledgments on the cover are rendered as left-aligned footn
 Full configuration example with inline comments:
 
 ```typst
-#import "@preview/ssrn-scribe:0.9.0": *
+#import "@preview/ssrn-scribe:0.9.1": *
 
 #show: paper.with(
   // Core typography (applies to body in both modes)
@@ -98,7 +99,6 @@ Full configuration example with inline comments:
   cover-text-width: 90%,            // width of abstract/keywords block on the cover
   cover-line-leading: 1.32em,       // line height for cover/front matter paragraphs
   cover-paragraph-spacing: 0.7em,   // spacing between cover paragraphs
-  cover-author-name-size: 14pt,     // author name size on the cover
   cover-author-name-size: 14pt,     // author name size on the cover
   cover-author-gutter: 24pt,        // horizontal gap between cover author columns
   cover-author-row-gap: 16pt,       // vertical gap between cover author rows
@@ -164,7 +164,7 @@ When you attach `paper.with(...)` via `#show: paper.with(...)`, Typst passes the
 ```
 
 ```typst
-#import "@preview/ssrn-scribe:0.9.0": *
+#import "@preview/ssrn-scribe:0.9.1": *
 
 #show: paper.with(
   font: "PT Serif", // "Times New Roman"
