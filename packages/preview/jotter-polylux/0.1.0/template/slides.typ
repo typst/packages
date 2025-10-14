@@ -12,7 +12,10 @@
   fill: blue.darken(50%),
 )
 
-#show math.equation: set text(font: "Pennstander Math", weight: "light")
+#show math.equation: set text(
+  font: ("Pennstander Math", /* as a fallback: */ "New Computer Modern Math"),
+  weight: "light",
+)
 
 #show raw: set text(font: "Fantasque Sans Mono")
 
