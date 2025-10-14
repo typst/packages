@@ -31,8 +31,8 @@ This package provides one **cover letter** template and one **statement** templa
 ### Cover Letter
 
 ```typst
-#import "@preview/fontawesome:0.5.0": *
-#import "@preview/modernpro-coverletter:0.0.6": *
+#import "@preview/fontawesome:0.6.0": *
+#import "@preview/modernpro-coverletter:0.0.7": *
 
 #show: coverletter.with(
   font-type: "PT Serif",
@@ -82,8 +82,8 @@ This package provides one **cover letter** template and one **statement** templa
 ### Statement
 
 ```typst
-#import "@preview/fontawesome:0.5.0": *
-#import "@preview/modernpro-coverletter:0.0.6": *
+#import "@preview/fontawesome:0.6.0": *
+#import "@preview/modernpro-coverletter:0.0.7": *
 
 #show: statement.with(
   font-type: "PT Serif",
@@ -122,7 +122,7 @@ The new version also integrates the FontAwesome icons. You can use the `#fa-icon
 You just need to import the FontAwesome package at the beginning of the document.
 
 ```typst
-#import "@preview/fontawesome:0.5.0": *
+#import "@preview/fontawesome:0.6.0": *
 ```
 
 ## Preview
