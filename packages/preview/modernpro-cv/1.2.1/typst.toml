@@ -1,6 +1,6 @@
 [package]
 name = "modernpro-cv"
-version = "1.2.0"
+version = "1.2.1"
 entrypoint = "modernpro-cv.typ"
 authors = [ "jxpeng98",]
 repository = "https://github.com/jxpeng98/Typst-CV-Resume"
