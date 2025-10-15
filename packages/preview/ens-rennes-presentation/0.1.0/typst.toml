@@ -1,0 +1,16 @@
+[package]
+name = "ens-rennes-presentation"
+version = "0.1.0"
+compiler = "0.13.0"
+entrypoint = "theme.typ"
+authors = ["Zacharie <@zacharie-moughanim>", "Malo <@MDLC01>"]
+license = "MIT"
+description = "Slides theme respecting the ENS Rennes graphical chart."
+repository = "https://github.com/zacharie-moughanim/ens-rennes-presentation"
+categories = ["presentation"]
+keywords = ["École Normale Supérieure de Rennes", "ENS Rennes", "presentation", "slides"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
