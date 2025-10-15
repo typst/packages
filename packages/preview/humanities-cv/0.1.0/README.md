@@ -18,9 +18,9 @@ Typst will create a new directory with all the files needed to get you started.
 If you already have a typst file, you add the following to the top:
 
 ```typst
-#import "@preview/humanities-cv:0.1.0": humanities_cv, experience, paper
+#import "@preview/humanities-cv:0.1.0": humanities-cv, experience, paper
 
-#show: humanities_cv.with(
+#show: humanities-cv.with(
   name: "Bob Typesetterson",
   address: "5419 Hollywood Blvd Ste c731, Los Angeles, CA 90027",
   updated: "October 2025",
@@ -33,7 +33,7 @@ If you already have a typst file, you add the following to the top:
 ```
 
 
-Once you have specified that you want to show all typst content via the `humanities_cv` function via the code above, you can build out your CV using headers, the `experience` function, and the `paper` function.
+Once you have specified that you want to show all typst content via the `humanities-cv` function via the code above, you can build out your CV using headers, the `experience` function, and the `paper` function.
 Here's an example:
 
 ```typst
@@ -78,7 +78,7 @@ Refer to [the template](./template/main.typ) for a complete example.
 
 ## Configuration
 
-This template exports the `humanities_cv` function with the following named arguments:
+This template exports the `humanities-cv` function with the following named arguments:
 
 | Argument | Type | Description |
 | --- | --- | --- |

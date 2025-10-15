@@ -1,7 +1,6 @@
-#import "../lib.typ": humanities_cv, experience, paper 
-// #import "@preview/humanities-cv:0.1.0": humanities_cv, experience, paper 
-//
-#show: humanities_cv.with(
+#import "@preview/humanities-cv:0.1.0": humanities-cv, experience, paper 
+
+#show: humanities-cv.with(
   name: "Bob Typesetterson",
   address: "5419 Hollywood Blvd Ste c731, Los Angeles, CA 90027",
   updated: "October 2025",

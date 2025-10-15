@@ -12,7 +12,7 @@
 #let smallcaps(body) = std-smallcaps(text(tracking: trackingspacing, body))
 #let upper(body) = std-upper(text(tracking: trackingspacing, body))
 
-#let humanities_cv(
+#let humanities-cv(
   name: "",
   address: "",
   contacts: (),
