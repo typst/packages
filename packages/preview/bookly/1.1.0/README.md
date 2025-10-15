@@ -98,72 +98,10 @@ After importing `bookly`, you have to initialize the template by a show rule wit
 
 For more information, please refer to the [manual](https://github.com/maucejo/book_template/blob/main/docs/manual.pdf).
 
-## Roadmap
-
-The template is under development. Here is the list of features that are implemented or will be in a future version.
-
-*Themes*
-
-- [x] `fancy` (default)
-- [x] `modern`
-- [x] `classic`
-- [x] `orly` (O'Reilly style)
-
-*Layout*
-
-- [x] Standard layout
-- [x] Tufte layout
-
-*Cover pages*
-
-- [x] Title page
-- [x] Back cover
-
-*Environments*
-
-- [x] Creation of the `front-matter` environment
-- [x] Creation of the `main-matter` environment
-- [x] Creation of the `appendix` environment
-
-*Parts and chapters*
-- [x] Creation of a document `part`
-- [x] Creation of a document `chapter`
-- [x] Creation of an unnumbered `chapter`
-
-*Tables of contents*
-
-- [x] Creation of the table of contents
-- [x] Creation of the list of figures
-- [x] Creation of the list of tables
-- [x] Creation of a mini table of contents at the beginning of chapters using the `suboutline` package
-- [x] Customization of entries (appearance, hyperlink) by modifying the `outline.entry` element
-- [x] Localization of the different tables
-
-*Figures and tables*
-
-- [x] Customization of the appearance of figure and table captions depending on the context (chapter or appendix)
-- [x] Short titles for the lists of figures and tables
-- [x] Creation of the `subfigure` function for subfigures via the `subpar` package
-
-*Equations*
-
-- [x] Adaptation of equation numbering depending on the context (chapter or appendix)
-- [x] Creation of a function to highlight important equations
-- [x] Creation of a function to define equations without numbering
-- [x] Use of the `equate` package to number equations in a system like (1.1a)
-
-*Boxes*
-
-- [x] Creation of information boxes to highlight important content
-
-*Bibliography*
-
-- [x] Verification of the reference list via `bibtex`
-- [x] Same for `hayagriva`
-
 ## Licence
 
 MIT licensed
 
 Copyright © 2025 Mathieu AUCEJO (maucejo)
+
 
