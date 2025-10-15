@@ -22,7 +22,7 @@ Sometimes (particularly with diagrams) it is useful to be able to scale the enti
 
 The following code sets up your document to use this package:
 ```typst
-#import "../src/lib.typ": unscale, rescale, scale-rule
+#import "@preview/unscale:0.0.1": unscale, rescale, scale-rule
 
 #show scale: scale-rule
 ```
