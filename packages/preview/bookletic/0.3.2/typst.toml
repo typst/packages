@@ -1,7 +1,7 @@
 [package]
 name = "bookletic"
 version = "0.3.2"
-compiler = "0.13.0"
+compiler = "0.14.0"
 repository = "https://github.com/harrellbm/Bookletic.git"
 entrypoint = "src/lib.typ"
 authors = [
