@@ -21,14 +21,14 @@ If you already have a typst file, you add the following to the top:
 #import "@preview/humanities-cv:0.1.0": humanities_cv, experience, paper
 
 #show: humanities_cv.with(
-  name: "Trixie B. Argon",
+  name: "Bob Typesetterson",
   address: "5419 Hollywood Blvd Ste c731, Los Angeles, CA 90027",
   updated: "October 2025",
   contacts: (
     [(323) 555 1435],
-    [#link("mailto:trixieargon@gmail.com")],
+    [#link("mailto:hi@ohrg.org")],
   ),
-  footer-text: [Argon --- Page#sym.space]
+  footer-text: [Typesetterson --- Page#sym.space]
 )
 ```
 
