@@ -123,7 +123,7 @@
     #set list(body-indent: 0.85em)
     #grid(
       columns: (4em, auto),
-      // column-gutter: 0.3em,
+      column-gutter: 0.3em,
       gutter: linespacing,
       align: (left, left),
       time, [#strong(place) #{if title != none {[-- #emph(title)]}}],
@@ -138,10 +138,11 @@
   date: none
 ) = {
   block(breakable: false, above: linespacing, below: 0.2em)[
-    #set par(leading: 0.3em)
+    #set par(leading: linespacing)
     #grid(
       columns: (4em, auto),
       column-gutter: 0.3em,
+      gutter: 1em,
       align: (left + top, left + top),
       date, [#title -- #venue.]
     )
