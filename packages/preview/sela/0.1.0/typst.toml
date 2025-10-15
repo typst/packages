@@ -1,0 +1,11 @@
+[package]
+name = "sela"
+version = "0.1.0"
+license = "MIT"
+entrypoint = "src/lib.typ"
+authors = ["Y.D.X."]
+description = "Select elements whose fields have any of the given values, without repeating `selector.or`."
+repository = "https://github.com/YDX-2147483647/typst-sela"
+keywords = ["selector", "composition", "helper", "tool"]
+categories = ["scripting", "utility"]
+compiler = "0.13.1"
