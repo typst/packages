@@ -1,0 +1,10 @@
+[package]
+name = "upm-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Tikitikitikidesuka"]
+license = "MIT"
+description = "Universidad Politécnica de Madrid thesis/report template"
+repository = "https://github.com/Tikitikitikidesuka/typst-upm-report"
+keywords = ["thesis", "report", "upm"]
+categories = ["thesis", "report"]
