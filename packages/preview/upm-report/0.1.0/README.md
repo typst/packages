@@ -29,6 +29,12 @@ This is a Typst version of the template originally developed by Blazaid at [http
 | `bibliography-file` | Path to .bib file | "references.bib" |
 | `bibliography-style` | Citation style (ieee, apa, mla, etc.) | "ieee" |
 
+## Compiling the Template
+
+To compile this template, run:
+
+```typst compile --root . template/main.typ```
+
 ## License
 
 This template is distributed under an MIT License.

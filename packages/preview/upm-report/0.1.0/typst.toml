@@ -8,3 +8,9 @@ description = "Universidad Politécnica de Madrid thesis/report template"
 repository = "https://github.com/Tikitikitikidesuka/typst-upm-report"
 keywords = ["thesis", "report", "upm"]
 categories = ["thesis", "report"]
+exclude = ["examples/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

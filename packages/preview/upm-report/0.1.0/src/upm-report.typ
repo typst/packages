@@ -23,7 +23,7 @@
   school-logo: "assets/etsisi-logo.svg",
   school-watermark: "assets/upm-watermark.png",
   // Bibliography configuration
-  bibliography-file: "references.bib",
+  bibliography-file: none,
   bibliography-style: "ieee",
   body,
 ) = {

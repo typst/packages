@@ -1,4 +1,4 @@
-#import "../lib.typ": upm-report
+#import "@preview/upm-report:0.1.0": upm-report
 
 #show: upm-report.with(
   title: "This is an Example Thesis Title That You Should Replace",
@@ -17,7 +17,7 @@
   abstract-en: "This thesis explores the fascinating world of example topics. It provides insights and analysis on various aspects of the subject matter, aiming to contribute to the existing body of knowledge.",
   keywords-en: "example, thesis, typst, template",
 
-  bibliography-file: "examples/references.bib",
+  bibliography-file: "../template/references.bib",
   bibliography-style: "ieee",
 )
 
@@ -31,23 +31,25 @@ You can cite things like this @fakebook2024, and it will appear in your bibliogr
 
 You can have subsections too. Put your real content here instead of this placeholder text.
 
+Here go some images and tables to show in the lists:
+
 #figure(
-  image("../assets/upm-watermark.png", width: 80%),
+  image("assets/placehodler.png", width: 80%),
   caption: [This is my figure caption],
 )
 
 #figure(
-  image("../assets/upm-watermark.png", width: 80%),
+  image("assets/placehodler.png", width: 80%),
   caption: [This is my figure caption 2],
 )
 
 #figure(
-  image("../assets/upm-watermark.png", width: 80%),
+  image("assets/placehodler.png", width: 80%),
   caption: [This is my figure caption 3],
 )
 
 #figure(
-  image("../assets/upm-watermark.png", width: 80%),
+  image("assets/placehodler.png", width: 80%),
   caption: [This is my figure caption 4],
 )
 
