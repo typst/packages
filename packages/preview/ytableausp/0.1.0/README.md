@@ -3,7 +3,7 @@
 ## What is this package?
 This package enables you to make many variety of Young Tableaux like this. 
 
-![example1](images/example1.png)
+![The result of the various Young Tableaux.](images/example1.png)
 
 If you make a document of the representation theory in Typst, this package may be your friend. 
 
@@ -16,7 +16,7 @@ To import this package, you need only to write the following in your typst docum
 
 ## How to use.
 There are 3 steps to make your basic tableau. \
-Firrst, you have better to set your shape. 
+First, you have better to set your shape. 
 
 ```typst
 #let my-tableau-1 = (
@@ -40,14 +40,14 @@ Second, you need to use `ytableausp` funcion as follows.
 
 Finally, you can check your tableau displayed correctly. 
 
-![example2](images/example2.png)
+![The example tableau.](images/example2.png)
 
 Actually, it is not nessecary for you to set the command as first step. It can go well that you set nested list directly into `ytableausp` function correctly. However, the above step is easy to check what shape your tableau forms.
 
 ## More settings.
 You can set the cell or font size of your tableau freely. And you can insert your tableau into sentences. 
 
-![example3](images/example3.png)
+![You can insert tableaux into passages.](images/example3.png)
 
 And the element of the nested list which corresponding to each cell has three parameter, letter, border color, filled color. i.e. If you type this, 
 
@@ -63,7 +63,7 @@ This is colored tableau... #ytableausp(shape: my-colored-tableau, cellsize: 2em,
 
 then your tableau is the following. 
 
-![example4](images/example4.png)
+![You can color the tableau.](images/example4.png)
 
 If you type `none` in the second, the border of its cell vanishes. 
 
@@ -81,4 +81,4 @@ If you type `none` in the second, the border of its cell vanishes.
 )
 ```
 
-![example5](images/example5.png)
+![you can vanish some cells.](images/example5.png)
