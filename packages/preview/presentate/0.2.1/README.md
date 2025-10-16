@@ -130,7 +130,7 @@ One application is for showing contents in sync:
 Use can use the `render` function to create a workspace, and import the `animation` module of Presentate to create animation with other packages. 
 For example, Integration with [CeTZ](https://typst.app/universe/package/cetz) and [Fletcher](https://typst.app/universe/package/fletcher)  
 ```typst
-#import "@preview/cetz:0.4.1": canvas, draw
+#import "@preview/cetz:0.4.2": canvas, draw
 #import "@preview/fletcher:0.5.8": diagram, edge, node
 
 #slide[
