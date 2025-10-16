@@ -2,7 +2,11 @@
 Typst Packages for easy and extensible chemical formula formatting.
 This provide a `ch` function for writing chemical notations. 
 Chemformula uses Typst's [math mode](https://typst.app/docs/reference/math/) to [evaluate](https://typst.app/docs/reference/foundations/eval/) the input string (or raw) in the `ch` function and render them into the document. 
-
+# Usage 
+Import this pacakge by 
+```typ
+#import "@preview/chemformula:0.1.0:" ch
+```
 ## Examples 
 
 ### Chemical Formulae
