@@ -12,7 +12,7 @@ To use Alterlang in your Typst project, follow these steps:
 
 1. Import the desired language module from the Alterlang package:
 
-   ```typst
+   ```
    #import "@preview/alterlang:1.0.0": <lang>
    ```
 
@@ -20,13 +20,13 @@ To use Alterlang in your Typst project, follow these steps:
 
 2. Import the translated operators you want to use:
 
-   ```typst
+   ```
    #import <lang>: *
    ```
 
    Alternatively, you may import only specific operators by listing them explicitly:
 
-   ```typst
+   ```
    #import <lang>: sen, lim
    ```
 
@@ -34,7 +34,7 @@ To use Alterlang in your Typst project, follow these steps:
 
 To use the Spanish translations for `sin` and `lim`:
 
-```typst
+```
 #import "@preview/alterlang:1.0.0": es
 #import es: sen, lim
 ```
