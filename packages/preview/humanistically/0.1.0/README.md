@@ -1,16 +1,16 @@
-# Humanities CV 
+# Humanistically 
 
 A minimal template for an academic CV in the humanities. 
 
 ## Usage
 
 You can use this template in the Typst web app by clicking "Start from template" on the
-dashboard and searching for `humanities-cv`.
+dashboard and searching for `humanistically`.
 
 Alternatively, you can use the CLI to kick this project off using the command
 
 ```sh
-typst init @preview/humanities-cv
+typst init @preview/humanistically
 ```
 
 Typst will create a new directory with all the files needed to get you started.
@@ -18,9 +18,9 @@ Typst will create a new directory with all the files needed to get you started.
 If you already have a typst file, you add the following to the top:
 
 ```typst
-#import "@preview/humanities-cv:0.1.0": humanities-cv, experience, paper
+#import "@preview/humanistically:0.1.0": humanistically, experience, paper
 
-#show: humanities-cv.with(
+#show: humanistically.with(
   name: "Bob Typesetterson",
   address: "5419 Hollywood Blvd Ste c731, Los Angeles, CA 90027",
   updated: "October 2025",
@@ -33,7 +33,7 @@ If you already have a typst file, you add the following to the top:
 ```
 
 
-Once you have specified that you want to show all typst content via the `humanities-cv` function via the code above, you can build out your CV using headers, the `experience` function, and the `paper` function.
+Once you have specified that you want to show all typst content via the `humanistically` function via the code above, you can build out your CV using headers, the `experience` function, and the `paper` function.
 Here's an example:
 
 ```typst
@@ -78,7 +78,7 @@ Refer to [the template](./template/main.typ) for a complete example.
 
 ## Configuration
 
-This template exports the `humanities-cv` function with the following named arguments:
+This template exports the `humanistically` function with the following named arguments:
 
 | Argument | Type | Description |
 | --- | --- | --- |
