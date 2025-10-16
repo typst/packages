@@ -34,7 +34,7 @@ Example:
 ```
 ![example](https://raw.githubusercontent.com/pearcebasmanm/arborly/main/docs/example.png)
 
-For more details and examples, see `docs/manual.pdf` in the github repository.
+For more details and examples, see [docs/manual.pdf](docs/manual.pdf) in the github repository.
 
 ## Feedback
 
