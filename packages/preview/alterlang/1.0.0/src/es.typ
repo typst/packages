@@ -18,16 +18,16 @@
 #let csch = math.op("cosech")
 #let cosech = math.op("cosech")
 
-#let gcd = math.limits("mcd")
-#let mcd = math.limits("mcd")
-#let mcm = math.limits("mcm")
+#let gcd = math.limits(math.op("mcd"))
+#let mcd = math.limits(math.op("mcd"))
+#let mcm = math.limits(math.op("mcm"))
 
-#let max = math.limits("máx")
-#let min = math.limits("mín")
+#let max = math.limits(math.op("máx"))
+#let min = math.limits(math.op("mín"))
 
-#let lim = math.limits("lím")
-#let limsup = math.limits("lím sup")
-#let liminf = math.limits("lím inf")
+#let lim = math.limits(math.op("lím"))
+#let limsup = math.limits(math.op("lím sup"))
+#let liminf = math.limits(math.op("lím inf"))
 
-#let inf = math.limits("ínf")
+#let inf = math.limits(math.op("ínf"))
 
