@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="841.8898" height="473.563" viewBox="0 0 841.8898 473.563">
+<path d="M0 0H841.8898V473.563H0Z" fill="#ffffff"/>
+<text xml:space="preserve" transform="matrix(1 0 0 1 56.376546 209.7495)" font-size="42" font-family="FiraSans" font-weight="bold"><tspan y="29.064" x="0 20.958003 46.620004 58.716005 80.17801 90.42601 102.52201 123.98401 134.23201 155.904">This is a </tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 56.376546 209.7495)" font-size="42" font-family="FiraSans" font-weight="bold" font-style="italic"><tspan y="29.064" x="166.152 186.77399 198.78598 218.27399 237.594 257.50199 267.37199 288.456 307.776 319.788 344.274">Title slide</tspan></text>
+<path transform="matrix(1,0,0,1,56.376546,261.3135)" d="M0 0H243.04557V2.5H0Z" fill="#3059ab"/>
+<path transform="matrix(1,0,0,1,56.376546,261.3135)" d="M243.04557 0H729.1367V2.5H243.04557Z" fill="#acbddd"/>
+</svg>

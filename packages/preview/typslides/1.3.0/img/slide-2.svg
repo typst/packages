@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="841.8898" height="473.563" viewBox="0 0 841.8898 473.563">
+<path d="M0 0H841.8898V473.563H0Z" fill="#ffffff"/>
+<text xml:space="preserve" transform="matrix(1 0 0 1 0 0)" font-size="42" font-family="FiraSans" font-weight="bold"><tspan y="85.482547" x="56.376546 79.05655 104.92855 130.21256 150.24655 170.36455 195.64855 214.63254">Contents</tspan></text>
+<path transform="matrix(1,0,0,1,56.376546,110.370738)" d="M0 0H162.03037V2.5H0Z" fill="#3059ab"/>
+<path transform="matrix(1,0,0,1,56.376546,110.370738)" d="M162.03037 0H729.1367V2.5H162.03037Z" fill="#acbddd"/>
+<text xml:space="preserve" transform="matrix(1 0 0 1 0 0)" font-size="23" font-family="FiraSans" font-weight="bold"><tspan y="179.20973" x="56.376546 67.048549">1.</tspan></text>
+<text fill="#3059ab" xml:space="preserve" transform="matrix(1 0 0 1 84.06855 163.27074)" font-size="23" font-family="FiraSans"><tspan y="15.824" x="0 11.776001 25.231003 31.648003 42.366006 48.530008 54.947008 65.66501 71.82901 84.29501">This is a </tspan></text>
+<text fill="#3059ab" xml:space="preserve" transform="matrix(1 0 0 1 84.06855 163.27074)" font-size="23" font-family="FiraSans" font-style="italic"><tspan y="15.824" x="90.459 102.12 108.491008 116.334 122.82 134.688 140.737 151.34 157.941 164.312 177.767">Title slide</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 84.06855 163.27074)" font-size="23" font-family="FiraSans"><tspan y="46.598" x="0">&#x2022;</tspan></text>
+<text fill="#3059ab" xml:space="preserve" transform="matrix(1 0 0 1 102.81355 194.04474)" font-size="23" font-family="FiraSans"><tspan y="15.824" x="0 15.916 29.279002 37.237005 43.930006 50.347005 63.802007 76.29101 89.976009 96.14001 106.85801 113.55101 119.96801 133.65302">Outlined slide</tspan></text>
+</svg>

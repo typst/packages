@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="841.8898" height="473.563" viewBox="0 0 841.8898 473.563">
+<g>
+<path d="M0 0H841.8898V473.563H0Z" fill="#ffffff"/>
+<path d="M0 0H841.8898V45.354333H0Z" fill="#3059ab"/>
+<text fill="#ffffff" xml:space="preserve" transform="matrix(1 0 0 1 0 0)" font-size="24" font-family="FiraSans" font-weight="bold"><tspan y="30.981165" x="19.84252 36.42652 50.202524 59.082525 66.18652 72.95452 86.850528 100.074527 114.45052 120.306529 131.80252 138.90653 145.67453 160.05054">Outlined slide</tspan></text>
+<text fill="#ffffff" xml:space="preserve" transform="matrix(1 0 0 1 0 0)" font-size="12" font-family="FiraSans" font-weight="bold"><tspan y="26.829165" x="800.6179 806.1619 809.0899 815.3299 818.2579">7 / 9</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 45.354333 104.62643)" font-size="20" font-family="FiraSans"><tspan y="13.76" x="0">&#x2022;</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 45.354333 104.62643)" font-size="20" font-family="FiraSans"><tspan y="13.86" x="16.3 27.259999 38.96 49.82 59.34 69.46 74.82 86.44 98.060009 105.18001 110.54001 117.66001 129.36002 140.22002">Check out the </tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 45.354333 104.62643)" font-size="20" font-family="FiraSans" font-weight="bold"><tspan y="13.86" x="145.58 157.52 164.94 176.62001 187.64002 195.06002 206.1 215.62001 225.28002 230.02002 241.76003 252.72003">progress bar</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 45.354333 104.62643)" font-size="20" font-family="FiraSans"><tspan y="13.86" x="260.74 266.09999 276.93998 284.05998 289.41996 296.53996 308.23997 319.09999 324.45997 336.27998 347.89997 355.01997 361.85997 373.47996 390.59996 395.95994 407.57994 414.21995 419.57994 426.69993 438.39994 449.25996 454.61994 463.93995 469.75996 475.33995 487.23994 497.8999"> at the bottom of the slide.</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 45.354333 104.62643)" font-size="16" font-family="DejaVuSansMono"><tspan y="50.01625" x="44.646459 54.278459 63.910459 73.54246 83.17446 92.806468 102.43847 112.07047 121.70248 131.33448 140.96648 150.59848 160.23049 169.86249 179.49449 189.1265 198.7585 208.3905 218.0225">show-progress: true</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 45.354333 104.62643)" font-size="20" font-family="FiraSans"><tspan y="87.77625" x="0">&#x2022;</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 45.354333 104.62643)" font-size="20" font-family="FiraSans"><tspan y="87.77625" x="16.3 30.14 41.760004 48.68 54.5 60.08 71.78 82.64 88 97.32 103.14 108.72 120.62 131.48001 140.80002 146.16002 160.42002 166.00002 173.12001 184.82">Outline slides with </tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 45.354333 104.62643)" font-size="16" font-family="DejaVuSansMono"><tspan y="87.77625" x="190.18 199.812 209.444 219.076 228.70801 238.34001 247.97202 257.604 267.236 276.86799 286.49998 296.13197 305.76396 315.39595">outlined: true</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 45.354333 104.62643)" font-size="20" font-family="FiraSans"><tspan y="87.77625" x="325.03938">.</tspan></text>
+<path transform="matrix(1,0,0,1,167.41791,217.91449)" d="M0 5.6692917C0 2.5382283 2.5382283 0 5.6692917 0H501.38468C504.51573 0 507.05397 2.5382283 507.05397 5.6692917V56.19704C507.05397 59.328104 504.51573 61.86633 501.38468 61.86633H5.6692917C2.5382283 61.86633 0 59.328104 0 56.19704Z" fill="#f3f2f0"/>
+<text xml:space="preserve" transform="matrix(1 0 0 1 167.41791 217.91449)" font-size="24" font-family="FiraSans"><tspan y="39.189168" x="24.904366 37.192369 51.23237 57.928369 69.112369 75.544368 82.240367 93.42436 99.85636 112.864368">This is a </tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 167.41791 217.91449)" font-size="19.2" font-family="DejaVuSansMono"><tspan y="39.189168" x="119.296367 130.85477 142.41316 153.97156 165.52996 177.08835 188.64675">#grayed</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 167.41791 217.91449)" font-size="24" font-family="FiraSans"><tspan y="39.189168" x="200.21199 206.644 214.852 227.692 239.188 247.80402 253.37201 259.80403 275.52403 286.708 299.74003 307.708 321.652 328.63603 335.06803 342.79603 356.74003 365.932 372.364 385.39604 399.67604 413.62004 426.62803 435.17204 441.86805 455.81205 469.85206 481.03605"> text. Useful for equations.</tspan></text>
+<path transform="matrix(1,0,0,1,292.6696,305.29264)" d="M0 5.6692917C0 2.5382283 2.5382283 0 5.6692917 0H250.8813C254.01238 0 256.5506 2.5382283 256.5506 5.6692917V94.82504C256.5506 97.9561 254.01238 100.49433 250.8813 100.49433H5.6692917C2.5382283 100.49433 0 97.9561 0 94.82504Z" fill="#f3f2f0"/>
+<text xml:space="preserve" transform="matrix(1 0 0 1 315.34675 327.9698)" font-size="24" font-family="NewCMMath"><tspan y="32.232" x="0">&#x1d443;</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 315.34675 327.9698)" font-size="16.8" font-family="NewCMMath"><tspan y="38.16" x="13.008">&#x1d461;</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 315.34675 327.9698)" font-size="24" font-family="NewCMMath"><tspan y="32.232" x="28.276267">=</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 315.34675 327.9698)" font-size="24" font-family="NewCMMath"><tspan y="32.232" x="53.614934">&#x1d6fc;</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 315.34675 327.9698)" font-size="24" font-family="NewCMMath"><tspan y="32.232" x="74.308269">&#x2212;</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 315.34675 327.9698)" font-size="24" font-family="NewCMMath"><tspan y="15.984" x="148.75493">1</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 416.06034 357.65779)" font-size="24" font-family="NewCMMath"><tspan y="2.112" x="0">&#x221a;</tspan></text>
+<path transform="matrix(1,0,0,1,416.06034,357.65779)" stroke-width="1.152" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M19.992 1.728H33.72"/>
+<text xml:space="preserve" transform="matrix(1 0 0 1 416.06034 357.65779)" font-size="24" font-family="NewCMMath"><tspan y="19.5" x="19.992">&#x1d465;</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 416.06034 357.65779)" font-size="24" font-family="NewCMMath"><tspan y="19.5" x="39.053335">+</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 416.06034 357.65779)" font-size="24" font-family="NewCMMath"><tspan y="19.5" x="63.058668">&#x1d453;</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 416.06034 357.65779)" font-size="24" font-family="NewCMMath"><tspan y="19.5" x="76.97867">(</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 416.06034 357.65779)" font-size="24" font-family="NewCMMath"><tspan y="19.5" x="86.31467">&#x1d466;</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 0 1 416.06034 357.65779)" font-size="24" font-family="NewCMMath"><tspan y="19.5" x="98.746669">)</tspan></text>
+<path transform="matrix(1,0,0,1,315.34675,327.9698)" stroke-width="1.152" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M100.7136 26.232H208.79627"/>
+<path d="M0 470.563H841.8898V473.563H0Z" fill="#c8c8c8" fill-opacity=".2509804"/>
+<path d="M0 470.563H654.80319V473.563H0Z" fill="#3059ab"/>
+</g>
+</svg>

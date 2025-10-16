@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="841.8898" height="473.563" viewBox="0 0 841.8898 473.563">
+<g>
+<path d="M0 0H841.8898V473.563H0Z" fill="#3059ab"/>
+<text fill="#ffffff" xml:space="preserve" transform="matrix(1 0 0 1 56.376546 175.76149)" font-size="60" font-family="FiraSans" font-weight="bold"><tspan y="41.52" x="57.308336 89.348339 124.08833 141.00833 169.74834 184.38834 201.30834 230.04834 244.68834 277.50834 312.24833 326.88835 359.70835 394.14836 415.92835 450.96836 475.32838 497.3484 530.4084 559.1484 576.06838 602.82839 635.88839">This is an auto-resized</tspan></text>
+<text fill="#ffffff" xml:space="preserve" transform="matrix(1 0 0 1 56.376546 175.76149)" font-size="60" font-family="FiraSans" font-weight="bold" font-style="italic"><tspan y="122.04" x="219.36833 239.28833 273.78834 301.44834 335.40834 363.66835 377.76835 406.02836 423.30836 439.98835 475.14836">focus slide</tspan></text>
+<text fill="#ffffff" xml:space="preserve" transform="matrix(1 0 0 1 56.376546 175.76149)" font-size="60" font-family="FiraSans" font-weight="bold"><tspan y="122.04" x="506.88835">.</tspan></text>
+<path d="M0 470.563H841.8898V473.563H0Z" fill="#c8c8c8" fill-opacity=".2509804"/>
+<path d="M0 470.563H467.71653V473.563H0Z" fill="#ffffff"/>
+</g>
+</svg>
