@@ -1,4 +1,4 @@
-#import "../lib.typ" : *
+#import "@preview/tdtr:0.1.0" : *
 
 #set page(flipped: true)
 
