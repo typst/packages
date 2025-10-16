@@ -1,0 +1,25 @@
+Allen1997:
+  type: article
+  title: The theory of financial intermediation
+  author:
+  - Allen, F.
+  - Santomero, A.M.
+  date: 1997
+  page-range: 1461-1485
+  parent:
+    type: periodical
+    title: Journal of Banking & Finance
+    issue: 21(11-12)
+Bloomberg2018:
+  type: web
+  title: '``Wolf of Wall Street''''Jordan Belfort isn’t paying his debts, U.S. says.'
+  author: Bloomberg
+  date: 2018
+  url: https://www.bloomberg.com/news/articles/2018-05-16/-wolf-of-wall-street-belfort-isn-t-paying-his-debts-u-s-says
+  note: '(accessed: 04.01.2022)'
+Castells2010:
+  type: book
+  title: The rise of the network society (2nd ed.)
+  author: Castells, M.
+  date: 2010
+  publisher: Wiley-Blackwell
