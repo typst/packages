@@ -1,0 +1,17 @@
+[package]
+name = "ttuile"
+version = "0.2.0"
+compiler = "0.13.0"
+entrypoint = "ttuile.typ"
+authors = ["vitto <@vitto4>"]
+license = "MIT"
+categories = ["report"]
+repository = "https://github.com/vitto4/ttuile"
+keywords = ["insa", "engineering", "report", "tp", "cr", "compte-rendu"]
+disciplines = ["engineering"]
+description = "Students' lab reports at INSA Lyon, a french engineering school."
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
