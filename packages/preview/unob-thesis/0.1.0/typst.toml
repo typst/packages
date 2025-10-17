@@ -1,0 +1,21 @@
+[package]
+name = "unob-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [ "ShinoYumi <https://github.com/ShinoYumi>" ]
+license = "MIT"
+description = "Oficiální a plně vybavená šablona v sázecím systému Typst, určená pro tvorbu bakalářských, diplomových a disertačních prací na Univerzitě obrany. Byla navržena tak, aby maximálně zjednodušila formátování, automatizovala generování povinných částí a zajistila 100% soulad s oficiálními směrnicemi."
+repository = "https://github.com/ShinoYumi/unob-thesis"
+keywords = [ "Závěrečná práce", "UNOB", "Univerzita obrany" ]
+categories = [ "thesis" ]
+compiler = "0.14.0"
+exclude = [
+  ".github",
+  ".typstignore",
+]
+disciplines = [ ]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.svg"
