@@ -1,0 +1,11 @@
+[package]
+name = "fittingly"
+version = "0.0.1"
+entrypoint = "fittingly.typ"
+authors = ["Laurence Sebastian Bowes"]
+license = "MIT"
+description = "A fitting library for Typst."
+repository = "https://github.com/supertrianguloid/fittingly"
+compiler = "0.13.1"
+keywords = ["fitting", "regression"]
+categories = ["utility"]
