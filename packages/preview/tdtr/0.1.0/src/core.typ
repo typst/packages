@@ -430,7 +430,7 @@
 */
 #let tidy-tree-elements(tree, xs, draw-node, draw-edge) = {
   let elements = ()
-  let parents = ((none, none), ) * tree.at(0).len() // labels of parent nodes for current level
+  let parents = (((none, none), none), ) * tree.at(0).len() // labels of parent nodes for current level
   let label-count = 0
   let new-label(label-count) = {
     label("tree-label-" + str(label-count))
@@ -438,20 +438,21 @@
   // for every (i, j, k), means the i-th level, the j-th parent, the k-th child
   for (i, level) in tree.enumerate() {
     for (j, children) in level.enumerate() {
-      let (parent-label, parent-position) = parents.at(j)
+      let ((parent-label, parent), parent-position) = parents.at(j)
       for (k, child) in children.enumerate() {
-        let label = new-label(label-count); label-count += 1
-
+        let child-label = new-label(label-count); label-count += 1
         let x = xs.at(i).at(j).at(k)
+        let child-position = (i, j, k, x)
+
         elements.push(
-          draw-node((x, i), label, child, (i, j, k, x))
+          draw-node(child-label, child, child-position)
         )
         if (parent-label != none) {
           elements.push(
-            draw-edge(parent-label, label, (parent-position, (i, j, k, x)))
+            draw-edge((parent-label, parent, parent-position), (child-label, child, child-position))
           )
         }
-        parents.push((label, (i, j, k, x)))
+        parents.push(((child-label, child), (i, j, k, x)))
       }
     }
     parents = parents.slice(level.len())
@@ -463,11 +464,11 @@
 /// pre-defined drawing functions for tidy tree
 #let tidy-tree-draws = (
   /// default function for drawing a node
-  default-draw-node: (pos, name, label, (i, j, k, x)) => fletcher.node(pos, [#label], name: name),
+  default-draw-node: (name, label, (i, j, k, x)) => fletcher.node((x, i), [#label], name: name),
   /// default function for drawing an edge
-  default-draw-edge: (from-name, to-name, ((i1, j1, k1, x1), (i2, j2, k2, x2))) => fletcher.edge(from-name, to-name, "-|>"),
+  default-draw-edge: ((from-name, from-label, (i1, j1, k1, x1)), (to-name, to-label, (i2, j2, k2, x2))) => fletcher.edge(from-name, to-name, "-|>"),
   /// draw an edge with horizontal-vertical style
-  horizontal-vertical-draw-edge: (from-name, to-name, ((i1, j1, k1, x1), (i2, j2, k2, x2))) => {
+  horizontal-vertical-draw-edge: ((from-name, from-label, (i1, j1, k1, x1)), (to-name, to-label, (i2, j2, k2, x2))) => {
     let from-anchor = (name: from-name, anchor: "south")
     let to-anchor = (name: to-name, anchor: "north")
     let middle-anchor = (from-anchor, 50%, to-anchor)
