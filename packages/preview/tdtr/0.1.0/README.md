@@ -7,7 +7,7 @@ This package use [fletcher](https://typst.app/universe/package/fletcher) to rend
 ## Usage
 
 ```typ
-#import "@preview/tiny-tree:0.1.0" : tidy-tree-graph, tidy-tree-draws
+#import "@preview/tdtr:0.1.0" : tidy-tree-graph, tidy-tree-draws
 ```
 
 ### from list
