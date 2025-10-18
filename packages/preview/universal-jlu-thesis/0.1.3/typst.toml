@@ -1,0 +1,17 @@
+[package]
+name = "universal-jlu-thesis"
+version = "0.1.3"
+entrypoint = "lib.typ"
+authors = ["HakoChest <zoneherobrine@gmail.com>"]
+license = "MIT"
+description = "吉林大学毕业设计论文模板 | Universal Jilin University Thesis"
+repository = "https://github.com/islatri/universal-jlu-thesis"
+keywords = ["Jilin University", "thesis", "template"]
+categories = ["thesis"]
+exclude = []
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "jlu-bachelor-thesis.typ"
+thumbnail = "thumbnail.png"
