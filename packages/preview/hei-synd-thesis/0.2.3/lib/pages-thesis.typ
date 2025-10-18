@@ -136,11 +136,11 @@
     ]
     #if template == "thesis" [
       #i18n("submission-date", lang: lang)\
-      #fmt-date(date, locale: lang, length: "medium")
+      #icu-datetime.fmt(date, locale: lang, length: "medium")
       //#date.display("[day] [month repr:long] [year]")
     ] else if template == "midterm" [
       #i18n("submission-date", lang: lang)\
-      #fmt-date(date, locale: lang, length: "medium")
+      #icu-datetime.fmt(date, locale: lang, length: "medium")
       //#date.display("[day] [month repr:long] [year]")
     ]
     #v(1em)

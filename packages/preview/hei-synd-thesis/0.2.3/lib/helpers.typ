@@ -17,7 +17,7 @@
 // Wordometer for word and character count
 #import "@preview/wordometer:0.1.5": word-count
 // add datetime support for other languages
-#import "@preview/icu-datetime:0.1.2": fmt-datetime, fmt-date
+#import "@preview/icu-datetime:0.2.0"
 // List with Checkmarks
 #import "@preview/cheq:0.3.0": checklist
 // PDF integration
