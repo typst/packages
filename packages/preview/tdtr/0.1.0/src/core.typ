@@ -425,10 +425,12 @@
         - `((i1, j1, k1), (i2, j2, k2))`: indices of the parent node and child node in the tree structure
       - output:
         - `ret`: an edge element
+    - `compact`: whether to compact the tree horizontally, default to false
+      - if true, may cause overlapping nodes when some very long nodes are siblings in fractional positions
   - output:
     - `ret`: an array of elements for drawing a tidy tree
 */
-#let tidy-tree-elements(tree, xs, draw-node, draw-edge) = {
+#let tidy-tree-elements(tree, xs, draw-node, draw-edge, compact: false) = {
   let elements = ()
   let parents = (((none, none), none), ) * tree.at(0).len() // labels of parent nodes for current level
   let label-count = 0
@@ -443,6 +445,19 @@
         let child-label = new-label(label-count); label-count += 1
         let x = xs.at(i).at(j).at(k)
         let child-position = (i, j, k, x)
+
+        // prevent overlapping nodes by drawing hidden nodes at left and right positions
+        if not compact {
+          let child-position-left = (i, j, k, calc.floor(x))
+          let child-position-right = (i, j, k, calc.ceil(x))
+
+          elements.push(
+            fletcher.hide(draw-node(none, child, child-position-left))
+          )
+          elements.push(
+            fletcher.hide(draw-node(none, child, child-position-right))
+          )
+        }
 
         elements.push(
           draw-node(child-label, child, child-position)
@@ -506,6 +521,8 @@
         - `((i1, j1, k1, x1), (i2, j2, k2, x2))`: indices and horizontal position of the parent node and child node in the tree structure
       - output:
         - `ret`: an edge element
+    - `compact`: whether to compact the tree horizontally, default to false
+      - if true, may cause overlapping nodes when some very long nodes are siblings in fractional positions
     - `min-gap`: minimum gap between two nodes, default to 1
     - `text-size`: size of the text, default to 6pt
     - `node-stroke`: stroke of the node, default to 0.25pt
@@ -520,6 +537,7 @@
   body,
   draw-node: tidy-tree-draws.default-draw-node,
   draw-edge: tidy-tree-draws.default-draw-edge,
+  compact: false,
   min-gap: 1,
   text-size: 8pt,
   node-stroke: 0.25pt,
@@ -542,7 +560,7 @@
   // calculate the horizontal axis position of every node
   let (xs, _) = tidy-tree-xs(tree, min-gap: min-gap)
   // generate elements
-  let elements = tidy-tree-elements(tree, xs, draw-node, draw-edge)
+  let elements = tidy-tree-elements(tree, xs, draw-node, draw-edge, compact: compact)
 
   set text(size: text-size)
   fletcher.diagram(

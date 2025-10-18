@@ -15,7 +15,7 @@ This package use [fletcher](https://typst.app/universe/package/fletcher) to rend
 ![easy](docs/example-easy.svg)
 
 ```typ
-#tidy-tree-graph([
+#tidy-tree-graph(compact: true)[
   - $integral_0^infinity e^(-x) dif x = 1$
     - `int main() { return 0; }`
       - Hello
@@ -27,15 +27,15 @@ This package use [fletcher](https://typst.app/universe/package/fletcher) to rend
       - Like
     - *day*
       - tomorrow $1$
-])
+]
 ```
 
 ![hard](docs/example-hard.svg)
 
 ```typ
 #tidy-tree-graph(
-  draw-edge: tidy-tree-draws.horizontal-vertical-draw-edge,
-  [
+  draw-edge: tidy-tree-draws.horizontal-vertical-draw-edge
+)[
   - Hello
     - World
       - How
@@ -96,7 +96,7 @@ This package use [fletcher](https://typst.app/universe/package/fletcher) to rend
       - Fine
       - Day
     - Hello
-])
+]
 ```
 
 ### from file

@@ -2,7 +2,7 @@
 
 #set page(flipped: true)
 
-#tidy-tree-graph([
+#tidy-tree-graph(compact: true)[
   - $integral_0^infinity e^(-x) dif x = 1$
     - `int main() { return 0; }`
       - Hello
@@ -14,11 +14,11 @@
       - Like
     - *day*
       - tomorrow $1$
-])
+]
 
 #tidy-tree-graph(
-  draw-edge: tidy-tree-draws.horizontal-vertical-draw-edge,
-  [
+  draw-edge: tidy-tree-draws.horizontal-vertical-draw-edge
+)[
   - Hello
     - World
       - How
@@ -79,7 +79,7 @@
       - Fine
       - Day
     - Hello
-])
+]
 
 #tidy-tree-graph(json("test.json"))
 #tidy-tree-graph(yaml("test.yaml"))
