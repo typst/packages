@@ -19,12 +19,6 @@ To import the package manually in your Typst project, use:
 #import "@preview/tiefcars:0.1.0": default-layout, tiefcars
 ```
 
-Alternatively, you can download the lib.typ file and use:
-
-```typst
-#import "lib.typ": default-layout, tiefcars
-```
-
 The easiest way to get started is to use the following lines:
 
 ```typst
