@@ -1,0 +1,11 @@
+[package]
+name = "kebab-chart"
+version = "0.1.0"
+repository = "https://github.com/tguichaoua/kebab-chart"
+entrypoint = "src/lib.typ"
+authors = ["Tristan Guichaoua <https://github.com/tguichaoua>"]
+categories = ["visualization"]
+license = "MIT"
+description = "Chart for temporal span representation"
+keywords = ["chart", "time"]
+exclude = ["/gallery/*"]
