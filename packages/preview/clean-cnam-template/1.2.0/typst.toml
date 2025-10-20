@@ -17,8 +17,8 @@ exclude = [
   ".typstignore",
   "Justfile",
   "docs",
-  "main.pdf"
-  "main.typ"
+  "main.pdf",
+  "main.typ",
   "scripts",
   "tests",
   "thumbnail.png",
