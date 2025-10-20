@@ -319,7 +319,7 @@
  * @param inset - Inner padding around the code block (default: 5pt)
  * @param radius - Border radius for rounded corners (default: 3pt)
  * @param number-align - Alignment of line numbers: left, center, right (default: right)
- * @param number-style - Styling for line numbers: (size, fill, weight) (default: (size: 1.25em, fill: gray))
+ * @param number-style - Styling for line numbers: (size, fill, weight) (default: (size: 8pt, fill: gray))
  * @param stroke - Border stroke style and color (default: 1pt + luma(180))
  * @param fill - Background fill color (default: luma(250))
  * @param text-style - Text styling configuration: (size, font, fill) (default: (size: 8pt, font: "Zed Plex Mono"))
@@ -342,7 +342,7 @@
   inset: 5pt,
   radius: 3pt,
   number-align: right,
-  number-style: (size: 1.25em, fill: gray),
+  number-style: (size: 8pt, fill: gray),
   stroke: 1pt + luma(180),
   fill: luma(250),
   text-style: (size: 8pt, font: "Zed Plex Mono"),
@@ -379,7 +379,7 @@
 
   // Helper function to create styled line numbers
   let create-line-number(number, style) = text(
-    size: style.at("size", default: 1.25em),
+    size: style.at("size", default: 8pt),
     fill: style.at("fill", default: gray),
     weight: style.at("weight", default: "regular"),
     str(number)
