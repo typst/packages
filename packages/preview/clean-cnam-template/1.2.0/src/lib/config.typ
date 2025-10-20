@@ -67,7 +67,7 @@
 
   // Color configuration
   let primary-color = rgb(main-color)
-  let secondary-color = rgb("#E28A97")
+  let secondary-color = primary-color.lighten(30%)
 
   // Document metadata
   set document(author: author, title: title)
