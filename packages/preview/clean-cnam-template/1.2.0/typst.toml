@@ -14,15 +14,12 @@ keywords = ["template", "cnam", "academic", "document", "styling"]
 categories = ["utility", "model"]
 exclude = [
   ".github",
-  ".typstignore",
-  "Justfile",
   "docs",
-  "main.pdf",
-  "main.typ",
   "scripts",
   "tests",
+  ".typstignore",
+  "Justfile",
   "thumbnail.png",
-  "thumbnail.svg",
 ]
 
 [template]
