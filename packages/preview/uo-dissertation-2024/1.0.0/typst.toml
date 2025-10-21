@@ -1,0 +1,24 @@
+[package]
+name = "uo-dissertation"
+version = "1.0.0"
+entrypoint = "template/main.typ"
+authors = [ "Piyush Amitabh (github.com/pamitabh)" ]
+license = "MIT"
+description = "Unofficial University of Oregon dissertation template for Typst, following the 2023 UO Graduate School Style Manual requirements."
+homepage = "https://github.com/pamitabh/uo-dissertation-typst"
+repository = "https://github.com/pamitabh/uo-dissertation-typst"
+keywords = [
+  "dissertation",
+  "thesis",
+  "academic",
+  "university-of-oregon",
+  "template"
+]
+categories = [ "thesis" ]
+compiler = "0.12.0"
+disciplines = [ ]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
