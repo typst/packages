@@ -138,7 +138,7 @@
       stroke: (left: paint+2pt, rest: paint+0.5pt),
       radius: 3pt,
       clip: true,
-      inset: (left: 1.5pt, right: 0.25pt),
+      inset: (left: 1pt, right: 0.25pt),
       grid(rows: (1.5em,height),
         align: left+horizon,
         
