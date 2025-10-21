@@ -16,7 +16,7 @@ This is a Typst version of the template originally developed by Blazaid at [http
 | `abstract-en` | Abstract text (optional) | none |
 | `keywords-en` | Keywords for abstract (optional) | none |
 | `license-name` | License name | "Creative Commons Attribution..." |
-| `license-logo` | Path to license logo image | "assets/cc-by-nc-sa.svg" |
+| `license-logo` | Image content for license logo (optional) | CC BY-NC-SA logo image |
 | `license-link` | URL to license | CC BY-NC-SA 4.0 URL |
 | `university` | University name | "Universidad Politécnica de Madrid" |
 | `school-name` | Full school name | "E.T.S. de Ingeniería de Sistemas Informáticos" |
@@ -24,16 +24,36 @@ This is a Typst version of the template originally developed by Blazaid at [http
 | `school-abbr` | School abbreviation | "ETSISI" |
 | `report-type` | Type of document | "Bachelor's thesis" |
 | `degree-name` | Degree program name | "Grado en Ingeniería de Tecnologías..." |
-| `school-color` | Primary color for headers and accents | Blue: `rgb(0, 114, 206)` |
-| `school-watermark` | Path to school logo/watermark image | "assets/upm-watermark.png" |
+| `school-color` | Primary color for headers and accents | Blue: `rgb(32, 130, 192)` |
+| `school-logo` | Image content for school logo | ETSISI logo image |
+| `school-watermark` | Image content for school watermark (optional) | UPM watermark image |
 | `bibliography-file` | Path to .bib file | "references.bib" |
 | `bibliography-style` | Citation style (ieee, apa, mla, etc.) | "ieee" |
 
-## Compiling the Template
+## Using the Template
 
-To compile this template, run:
+To start a new document with this template:
 
-```typst compile --root . template/main.typ```
+```
+typst init @preview/bean-upm my-thesis
+cd my-thesis
+```
+
+Then edit `main.typ` and compile with:
+
+```
+typst compile main.typ
+```
+
+You can also use the [Typst web app](https://typst.app) and search for "bean-upm" in the template gallery.
+
+## Contributing to the Template
+
+If you're developing or modifying this template locally, compile from the repository root with:
+
+```
+typst compile --root . template/main.typ
+```
 
 ## License
 

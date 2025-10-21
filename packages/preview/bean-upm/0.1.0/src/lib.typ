@@ -10,7 +10,7 @@
   keywords-en: none,
   // License info
   license-name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
-  license-logo: "assets/cc-by-nc-sa.svg",
+  license-logo: image("assets/cc-by-nc-sa.svg", width: 80pt),
   license-link: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
   // School configuration
   university: "Universidad Politécnica de Madrid",
@@ -20,8 +20,8 @@
   report-type: "Bachelor's thesis",
   degree-name: "Grado en Ingeniería de Tecnologías de la Sociedad de la Información",
   school-color: rgb(32, 130, 192),
-  school-logo: "assets/etsisi-logo.svg",
-  school-watermark: "assets/upm-watermark.png",
+  school-logo: image("assets/etsisi-logo.svg", width: 50%),
+  school-watermark: image("assets/upm-watermark.png", width: 90%),
   // Bibliography configuration
   bibliography-file: none,
   bibliography-style: "ieee",
@@ -46,7 +46,7 @@
     #if school-watermark != none {
       place(
         right + bottom,
-        image(school-watermark, width: 90%),
+        school-watermark,
       )
     }
 
@@ -135,9 +135,9 @@
       ],
       if license-logo != none {
         if license-link != none {
-          link(license-link)[#image(license-logo, width: 80pt)]
+          link(license-link)[#license-logo]
         } else {
-          image(license-logo, width: 80pt)
+          license-logo
         }
       },
     )
@@ -478,7 +478,7 @@
     #place(
       center + horizon,
       dy: 25%,
-      image(school-logo, width: 50%),
+      school-logo,
     )
   ]
 }

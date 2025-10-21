@@ -1,4 +1,4 @@
-#import "@preview/upm-report:0.1.0": upm-report
+#import "@preview/bean-upm:0.1.0": upm-report
 
 #show: upm-report.with(
   title: "This is an Example Thesis Title That You Should Replace",
@@ -34,22 +34,22 @@ You can have subsections too. Put your real content here instead of this placeho
 Here go some images and tables to show in the lists:
 
 #figure(
-  image("assets/placehodler.png", width: 80%),
+  image("assets/placeholder.png", width: 80%),
   caption: [This is my figure caption],
 )
 
 #figure(
-  image("assets/placehodler.png", width: 80%),
+  image("assets/placeholder.png", width: 80%),
   caption: [This is my figure caption 2],
 )
 
 #figure(
-  image("assets/placehodler.png", width: 80%),
+  image("assets/placeholder.png", width: 80%),
   caption: [This is my figure caption 3],
 )
 
 #figure(
-  image("assets/placehodler.png", width: 80%),
+  image("assets/placeholder.png", width: 80%),
   caption: [This is my figure caption 4],
 )
 
