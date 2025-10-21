@@ -1,5 +1,5 @@
 [package]
-name = "uo-dissertation"
+name = "uo-dissertation-2024"
 version = "1.0.0"
 entrypoint = "template/main.typ"
 authors = [ "Piyush Amitabh <https://github.com/pamitabh>" ]
