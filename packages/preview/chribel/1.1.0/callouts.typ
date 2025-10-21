@@ -135,7 +135,7 @@
     block(
       width: width,
       height: height,
-      stroke: (left: paint+3pt, rest: paint+0.5pt),
+      stroke: (left: paint+2pt, rest: paint+0.5pt),
       radius: 3pt,
       clip: true,
       inset: (left: 1.5pt, right: 0.25pt),
