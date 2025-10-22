@@ -1,7 +1,7 @@
 [package]
 name = "uo-dissertation-2024"
 version = "1.0.0"
-entrypoint = "template/main.typ"
+entrypoint = "config.typ"
 authors = [ "Piyush Amitabh <https://github.com/pamitabh>" ]
 license = "MIT"
 description = "Unofficial University of Oregon Doctoral Dissertation template, following the 2023 UO Graduate School Style Manual requirements and 2024 UO official Word prefatory template."

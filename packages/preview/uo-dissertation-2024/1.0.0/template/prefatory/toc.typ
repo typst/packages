@@ -24,10 +24,11 @@
 
 // Manually add appendices and references if needed - update page numbers after finalizing
 // Uncomment and update these lines as needed:
-// APPENDIX: SUPPLEMENTAL FIGURES#box(width: 1fr, repeat[.#h(2pt)])00 //for a single appendix
-APPENDICES#box(width: 1fr, repeat[.#h(2pt)])85
+APPENDIX: SUPPLEMENTAL FIGURES#box(width: 1fr, repeat[.#h(2pt)])28 //for a single appendix
+// APPENDICES#box(width: 1fr, repeat[.#h(2pt)])00
 // #pad(left: 0.5in)[
 //   A. APPENDIX TITLE IN ALL CAPS#box(width: 1fr, repeat[.#h(2pt)])86 \
 //   B. APPENDIX TITLE IN ALL CAPS#box(width: 1fr, repeat[.#h(2pt)])90
 // ]
-// REFERENCES CITED#box(width: 1fr, repeat[.#h(2pt)])00
+
+REFERENCES CITED#box(width: 1fr, repeat[.#h(2pt)])33 //update the page number after finalizing

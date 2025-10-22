@@ -1,6 +1,6 @@
 // appendices/appendix.typ
 // Single appendix without letter designation
-#import "../config.typ": appendix
+#import "../../config.typ": appendix
 
 // Create appendix heading - empty string "" for no letter
 #appendix("", "Supplemental Figures")

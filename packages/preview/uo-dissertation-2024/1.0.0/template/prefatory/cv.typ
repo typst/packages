@@ -1,5 +1,5 @@
 #import "../metadata.typ": dissertation-title, author-name, degree-name, major-name, year
-#import "../config.typ": * 
+#import "../../config.typ": * 
 
 // #show: doc => apply-uo-style(doc)
 #pagebreak()

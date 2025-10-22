@@ -94,25 +94,30 @@ typst watch main.typ dissertation.pdf
 ## Directory Structure
 
 ```text
-template/
-├── main.typ              # Main file (compile this)
+├── LICENSE
+├── README.md             # This file
+├── thumbnail.png
+├── typst.toml
 ├── config.typ            # Formatting rules
-├── metadata.typ          # Your dissertation info
-├── prefatory/            # Title page, abstract, CV, etc.
-│   ├── abstract.typ
-│   ├── cv.typ
-│   ├── acknowledgments.typ
-│   ├── dedication.typ
-│   ├── list-of-figures.typ
-│   ├── list-of-tables.typ
-│   ├── list-of-schemes.typ
-│   └── cc-badges/        # Creative Commons badge images
-├── chapters/             # Your chapters
-│   ├── chapter-1.typ
-│   ├── chapter-2.typ
-│   └── ...
-├── appendices/           # Optional appendices
-└── figures/              # Store images here
+└── template/
+    ├── main.typ          # Main file (compile this)
+    ├── metadata.typ      # Your dissertation info
+    ├── references.bib    # Your bibliography
+    ├── prefatory/        # Title page, abstract, CV, etc.
+    │   ├── abstract.typ
+    │   ├── cv.typ
+    │   ├── acknowledgments.typ
+    │   ├── dedication.typ
+    │   ├── list-of-figures.typ
+    │   ├── list-of-tables.typ
+    │   ├── list-of-schemes.typ
+    │   └── cc-badges/    # Creative Commons badge images
+    ├── chapters/         # Your chapters
+    │   ├── chapter-1.typ
+    │   ├── chapter-2.typ
+    │   └── ...
+    ├── appendices/       # Optional appendices
+    └── figures/          # Store images here
 ```
 
 ## Customization

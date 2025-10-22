@@ -2,7 +2,7 @@
 // University of Oregon Dissertation Template
 
 // Import configuration and styling
-#import "config.typ": *
+#import "../config.typ": *
 #import "metadata.typ": *
 
 // Document setup
@@ -132,4 +132,12 @@
 // #include "appendices/appendix-b.typ"
 
 // ===== REFERENCES =====
-// #include "references.typ"
+// Format bibliography to match UO style
+#set par(first-line-indent: 0pt, leading: 1em)
+#pagebreak()
+#align(center)[
+  #text(size: 12pt)[REFERENCES CITED]
+]
+#v(0.5in)
+
+#bibliography("references.bib", title: none, style: "american-physics-society")

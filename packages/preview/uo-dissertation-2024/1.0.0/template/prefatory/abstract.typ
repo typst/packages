@@ -1,6 +1,6 @@
 // prefatory/abstract.typ  
 #import "../metadata.typ": dissertation-title, author-name, degree-name, major-name
-#import "../config.typ": *
+#import "../../config.typ": *
 
 
 #pagebreak()
