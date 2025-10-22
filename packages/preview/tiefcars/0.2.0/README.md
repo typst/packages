@@ -17,7 +17,7 @@ To use TiefCARS with the Typst web app, choose “Start from template” and sel
 To import the package manually in your Typst project, use:
 
 ```typst
-#import "@preview/tiefcars:0.1.0": *
+#import "@preview/tiefcars:0.2.0": *
 ```
 
 The easiest way to get started is to use first select a theme:

@@ -1,11 +1,11 @@
 
-#import "@preview/tiefcars:0.2.0": default-layout, tiefcars
+#import "@preview/tiefcars:0.2.0": single-page-layout, tiefcars
 
 /* === Set up lcars with your theme === */
 #show: tiefcars.with(theme: "tng")
 
 /* === Enable the default layout === */
-#show: default-layout.with(
+#show: single-page-layout.with(
   /* === The title of the document, fancyful and amazing */
   title: [TiefCARS],
   subtitle-text: [
@@ -29,4 +29,4 @@ Build your own magic stuff with TiefCARS, now for free at
 #link("https://github.com/Tiefseetauchner/TiefCARS")! Make your own documents
 now!
 
-(Version 0.1.0, very buggy still)
+(Version 0.2.0, less buggy but still)
