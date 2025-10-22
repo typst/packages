@@ -31,7 +31,7 @@ Background information specific to this study, leading to the research hypothesi
   caption: [Shiva as Lord of Dance (Nataraja), Chola period (880–1279), ca. 11th century, Tamil Nadu, India. Copper alloy; H. 26 7/8 in. (68.3 cm); Diam. 22 1/4 in. (56.5 cm). Gift of R. H. Ellsworth Ltd., in honor of Susan Dillon, 1987 (1987.80.1). Source: Metropolitan Museum of Art, New York City.],
 ) <fig:nataraja>
 
-Figure @fig:nataraja depicts the iconic bronze sculpture of Shiva in his manifestation as Nataraja, the cosmic dancer. The sculpture represents one of the finest examples of Chola dynasty metalwork and embodies key concepts in Hindu philosophy.
+@fig:nataraja depicts the iconic bronze sculpture of Shiva in his manifestation as Nataraja, the cosmic dancer. The sculpture represents one of the finest examples of Chola dynasty metalwork and embodies key concepts in Hindu philosophy.
 
 == Results
 

@@ -30,9 +30,9 @@
 // Format: Figure number. Short caption ........... page
 // Replace these with your actual figures:
 
-Figure 2.1 Nataraja#box(width: 1fr, repeat[.#h(2pt)])15
+Figure 2.1 Nataraja#box(width: 1fr, repeat[.#h(2pt)])16
 
-Figure 2.2 Dunning-Kruger Effect#box(width: 1fr, repeat[.#h(2pt)])16
+Figure 2.2 Dunning-Kruger Effect#box(width: 1fr, repeat[.#h(2pt)])17
 
 // Add more figures as needed following the same format:
 // Figure X.Y. Short caption text#box(width: 1fr, repeat[.#h(2pt)])PageNumber

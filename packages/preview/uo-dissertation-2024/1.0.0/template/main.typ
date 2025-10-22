@@ -107,29 +107,7 @@
 #include "prefatory/dedication.typ"  // Optional - comment out if not needed
 
 // ===== TABLE OF CONTENTS =====
-#pagebreak()
-#align(center)[
-  #text(size: 12pt)[TABLE OF CONTENTS]
-]
-#v(14pt)
-// Automatic table of contents showing chapters and sections (levels 1 and 2)
-#show outline.entry.where(level: 1): it => {
-  v(0.5em)
-  text(weight: "bold")[#it]
-}
-#outline(
-  title: none,
-  indent: auto,
-  depth: 2, // Shows chapters (level 1) and sections (level 2)
-)
-#v(0.25in)
-// Manually add appendices and references if needed - update page numbers
-// APPENDICES#box(width: 1fr, repeat[.#h(2pt)])85
-// #pad(left: 0.5in)[
-//   A. APPENDIX TITLE IN ALL CAPS#box(width: 1fr, repeat[.#h(2pt)])86 \
-//   B. APPENDIX TITLE IN ALL CAPS#box(width: 1fr, repeat[.#h(2pt)])90
-// ]
-// REFERENCES CITED#box(width: 1fr, repeat[.#h(2pt)])95
+#include "prefatory/toc.typ"
 
 // ===== LISTS OF FIGURES, TABLES, SCHEMES =====
 #include "prefatory/list-of-figures.typ"  // Comment out if no figures
@@ -149,6 +127,7 @@
 
 // ===== APPENDICES =====
 // Comment out if no appendices
+#include "appendices/appendix.typ"
 // #include "appendices/appendix-a.typ"
 // #include "appendices/appendix-b.typ"
 
