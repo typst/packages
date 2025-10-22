@@ -1,82 +1,85 @@
 # NENU-Thesis-Typst-Template
 
-东北师范大学毕业论文的 `Typst` 模板，可以在 [在线文档](https://virgiling.wiki/NENU-Thesis-Typst/) 中查看使用方法与生成的效果
+[English](./READMD.md)| [简体中文](./README_zh.md)
+
+A Typst template for theses at Northeast Normal University (NENU). Usage instructions and rendered examples are available in the [online documentation](https://virgiling.wiki/NENU-Thesis-Typst/).
 
 ![Editor](./images/editor.png)
 
 > [!IMPORTANT]
-> 此模板是民间模板，有不被学校认可的风险。
+> This template is an unofficial community template and may not be accepted by the university.
 >
-> 本模板虽已尽力尝试复原 Word 模板，但可能仍然存在诸多格式问题，详细请看[存在的问题](#存在的问题)
+> Although this template attempts to replicate the Word template, there may still be many formatting issues. See [Known Issues](#known-issues) for details.
 
 > [!NOTE]
-> 我们在 `other` 文件夹中放了其他的模板，例如：
+> Other templates are provided in the `other/` folder, for example:
 > 
-> 1. 实验报告模板(lab-report.typ)
-> 2. 研究生/博士生 开题报告模板(master-proposal.typ)
+> 1. Lab report template (lab-report.typ)
+> 2. Master/PhD proposal template (master-proposal.typ)
 > 
-> 这些模板暂时没有集成到 `thesis` 模板中，要使用的话只能将仓库克隆（或复制该文件到本地）
-> 需要注意的是，这些文件会使用 `other` 和 `asset` 中的一些资源文件，请一并下载
+> These templates are not integrated into the `thesis` template yet. To use them, clone the repository (or copy the file locally).
+> Note these files may reference resources in `other` and `asset`; please download those as well.
 
-## 使用方法
+## Usage
 
-首先你需要学会如何用 `Typst` 来书写（不需要书写函数），这十分简单，可以参考 [教程](https://typst-doc-cn.github.io/docs/tutorial/writing-in-typst/) 来简单学习。
+First, learn how to write with Typst (you don't need to write functions). It's simple — see the [tutorial](https://typst-doc-cn.github.io/docs/tutorial/writing-in-typst/) for a quick start.
 
-模板可以下载到本地使用，也可以通过导入包使用：
+The template can be used locally or imported as a package:
 
 ```typ
 #import "@preview/modern-nenu-thesis:0.1.1": thesis
 ```
 
 > [!IMPORTANT]
-> 需要下载[隶书字体](https://github.com/dolbydu/font/blob/master/unicode/Lisu.TTF)（如果使用 MacOS/Linux）
+> You need to download the Lisu font (隶书) from [here](https://github.com/dolbydu/font/blob/master/unicode/Lisu.TTF) (for macOS/Linux).
 
-### 本地使用
+### Local usage
 
-1. 安装一个文本编辑器，这里推荐使用 `VS Code`，并安装 [Tinymist Typst](https://github.com/Myriad-Dreamin/tinymist) 和 [Typst Preview](https://github.com/Enter-tainer/typst-preview) 插件
+1. Install a text editor — VS Code is recommended — and add the Tinymist Typst and Typst Preview extensions.
 
-- 克隆/下载本仓库到本地，并使用 `VS Code` 打开项目文件夹
+- Clone/download this repository and open the project folder in VS Code.
 
-- 打开 `template/thesis.typ` 文件，开始编写你的论文内容，可以按下 `<C-K> V` (Ctrl+K V) 快捷键在 `VS Code` 中打开预览窗口，实时查看你的论文效果
+- Open the `template/thesis.typ` file and start writing your thesis. In VS Code you can press <C-K> V (Ctrl+K V) to open the preview pane and see live rendering.
 
 ## TODO
 
-- [x] 学士学位论文模板
-    - [x] 封面
-    - [x] 扉页
-    - [x] 中文摘要
-    - [x] 英文摘要
-    - [x] 目录页
-    - [x] 正文
-    - [x] 致谢
-    - [x] 附录
+- [x] Bachelor's thesis template
+    - [x] Cover
+    - [x] Title page
+    - [x] Chinese abstract
+    - [x] English abstract
+    - [x] Table of contents
+    - [x] Main text
+    - [x] Acknowledgements
+    - [x] Appendix
 
-- [x] 硕士（博士）学位论文模板
-    - [x] 盲审模式
-    - [ ] 一些微调，主要是空行上的
+- [x] Master's (Doctoral) thesis template
+    - [x] Double-Blind review mode
+    - [ ] Minor adjustments, mainly regarding blank lines
 
-- [ ] 博士后研究报告
+- [ ] Postdoctoral research report
 
-- [x] 加入打印选项，用于生成装订版本的论文
+- [x] Added printing options for generating the bound version of the thesis
 
-- [ ] 更多其它模板
+- [ ] More templates
 
-- [ ] 完善使用文档
+- [ ] Improve documentation
+    - [x] Basic Usage
+    - [ ] Parameters document 
 
-## 存在的问题
+## Known Issues
 
-1. 使用 `subpar` 时，无法正确显示子图的编号，如下图所示：
+1. When using `subpar`, subfigure numbering cannot be displayed correctly, as shown below:
 ![subfigure-error](images/subfigure-error.png)
-因此暂时不支持使用子图
+Therefore subfigures are currently not supported.
 
 > [!IMPORTANT]
 > 
-> [Issue#12](https://github.com/RubixDev/typst-i-figured/issues/12) 这里有一个迂回的方法用以解决子图问题
+> There is a workaround discussed in [Issue #12](https://github.com/RubixDev/typst-i-figured/issues/12).
 
+2. Author signature cannot be directly inserted as an image/PDF on the title page.
 
-2. 扉页中作者签名无法直接插入图片/PDF
+## Acknowledgements
 
-## 致谢
-
-- 感谢 [modern-nju-thesis](https://github.com/nju-lug/modern-nju-thesis) 开发的 `Typst` 模板，架构清晰，文档注释详细，本项目在架构上参考良多。
-- 感谢 [SEU-Typst-Template](https://github.com/csimide/SEU-Typst-Template/) 开发的 `Typst` 模板
+- Thanks to the `modern-nju-thesis` Typst template (https://github.com/nju-lug/modern-nju-thesis) for its clear architecture and detailed comments — this project borrows heavily from its structure.
+- Thanks to the `SEU-Typst-Template` (https://github.com/csimide/SEU-Typst-Template/) for its template contributions.
