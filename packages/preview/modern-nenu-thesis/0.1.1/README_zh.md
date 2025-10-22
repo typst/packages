@@ -1,5 +1,7 @@
 # NENU-Thesis-Typst-Template
 
+[English](./READMD.md) | [简体中文](./README_zh.md)
+
 东北师范大学毕业论文的 `Typst` 模板，可以在 [在线文档](https://virgiling.wiki/NENU-Thesis-Typst/) 中查看使用方法与生成的效果
 
 ![Editor](./images/editor.png)

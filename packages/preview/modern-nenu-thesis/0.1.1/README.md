@@ -1,6 +1,6 @@
 # NENU-Thesis-Typst-Template
 
-[English](./READMD.md)| [简体中文](./README_zh.md)
+[English](./READMD.md) | [简体中文](./README_zh.md)
 
 A Typst template for theses at Northeast Normal University (NENU). Usage instructions and rendered examples are available in the [online documentation](https://virgiling.wiki/NENU-Thesis-Typst/).
 
