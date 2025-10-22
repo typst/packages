@@ -12,7 +12,7 @@ more examples see the [`examples` directory](./examples).
 ![Example: default style](./example-default.png)
 
 ```typ
-#import "@preview/outrageous:0.4.0"
+#import "@preview/outrageous:0.4.1"
 #show outline.entry: outrageous.show-entry
 ```
 
@@ -21,7 +21,7 @@ more examples see the [`examples` directory](./examples).
 ![Example: custom settings](./example-custom.png)
 
 ```typ
-#import "@preview/outrageous:0.4.0"
+#import "@preview/outrageous:0.4.1"
 #show outline.entry: outrageous.show-entry.with(
   // the typst preset retains the normal Typst appearance
   ..outrageous.presets.typst,
@@ -55,7 +55,7 @@ rule like `#show outline.entry: outrageous.show-entry`.
   body-transform: presets.outrageous-toc.body-transform,
   page-transform: presets.outrageous-toc.page-transform,
   state-key: "outline-page-number-max-width",
-) = { .. }
+) = { /* ... */ }
 ```
 
 **Arguments:**
@@ -135,7 +135,7 @@ your show rule with
 Utility function to repeat content to fill space with a fixed size gap.
 
 ```typ
-#let repeat(gap: none, justify: false, body) = { .. }
+#let repeat(gap: none, justify: false, body) = { /* ... */ }
 ```
 
 **Arguments:**
@@ -151,7 +151,7 @@ Utility function to repeat content to fill space with a fixed size gap.
 Utility function to help with aligning multiple items.
 
 ```typ
-#let align-helper(state-key, what-to-measure, display) = { .. }
+#let align-helper(state-key, what-to-measure, display) = { /* ... */ }
 ```
 
 **Arguments:**
