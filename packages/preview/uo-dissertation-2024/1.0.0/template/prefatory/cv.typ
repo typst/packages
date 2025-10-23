@@ -1,7 +1,7 @@
-#import "../metadata.typ": dissertation-title, author-name, degree-name, major-name, year
-#import "../../config.typ": * 
+// prefatory/cv.typ
 
-// #show: doc => apply-uo-style(doc)
+#import "../metadata.typ": dissertation-title, author-name, degree-name, major-name, year
+
 #pagebreak()
 #align(center)[
   CURRICULUM VITAE

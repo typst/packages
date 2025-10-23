@@ -14,7 +14,7 @@ This appendix contains supplemental figures that support the main findings prese
 
 Supplemental figures showing additional experimental results not included in the main chapters.
 
-// Figure S.1
+// Figure A.1
 #figure(
   rect(width: 70%, height: 2.5in, fill: gray.lighten(80%))[
     #align(center + horizon)[Supplemental Data Graph]
@@ -24,7 +24,7 @@ Supplemental figures showing additional experimental results not included in the
 
 As shown in @fig:supp-complete-data, the complete dataset reveals additional patterns not visible in the summary figures presented in Chapter 3.
 
-// Figure S.2
+// Figure A.2
 #figure(
   rect(width: 70%, height: 2.5in, fill: gray.lighten(80%))[
     #align(center + horizon)[Control Group Results]
@@ -36,7 +36,7 @@ As shown in @fig:supp-complete-data, the complete dataset reveals additional pat
 
 High-resolution versions of key figures from the main text, provided for detailed examination.
 
-// Figure S.3
+// Figure A.3
 #figure(
   rect(width: 85%, height: 3in, fill: gray.lighten(80%))[
     #align(center + horizon)[High-Resolution Microscopy Image]
@@ -50,7 +50,7 @@ Figure @fig:supp-hires-microscopy provides greater detail than the compressed ve
 
 Additional comparative analyses and alternative visualizations of the main results.
 
-// Figure S.4
+// Figure A.4
 #figure(
   rect(width: 70%, height: 2.5in, fill: gray.lighten(80%))[
     #align(center + horizon)[Alternative Visualization]
@@ -62,7 +62,7 @@ Additional comparative analyses and alternative visualizations of the main resul
 
 Detailed diagrams of experimental apparatus and procedural workflows.
 
-// Figure S.5
+// Figure A.5
 #figure(
   rect(width: 80%, height: 3in, fill: gray.lighten(80%))[
     #align(center + horizon)[Experimental Apparatus Schematic]
@@ -76,8 +76,8 @@ The complete apparatus diagram (@fig:supp-apparatus) provides technical specific
 
 Video files are available separately via cloud storage or accompanying media.
 
-*Video S.1.* Dynamic visualization of experimental process from initial setup through completion. Duration: 2 minutes 15 seconds. Shows real-time progression of reaction conditions and resulting changes in sample properties.
+*Video A.1.* Dynamic visualization of experimental process from initial setup through completion. Duration: 2 minutes 15 seconds. Shows real-time progression of reaction conditions and resulting changes in sample properties.
 
-*Video S.2.* Time-lapse recording of specimen development over 24-hour period. Duration: 45 seconds (actual time compressed 192×). Demonstrates temporal evolution of key morphological features discussed in Chapter 3.
+*Video A.2.* Time-lapse recording of specimen development over 24-hour period. Duration: 45 seconds (actual time compressed 192×). Demonstrates temporal evolution of key morphological features discussed in Chapter 3.
 
-*Video S.3.* Three-dimensional reconstruction and rotation of sample structure. Duration: 1 minute 30 seconds. Provides comprehensive view of spatial relationships not visible in two-dimensional projections.
+*Video A.3.* Three-dimensional reconstruction and rotation of sample structure. Duration: 1 minute 30 seconds. Provides comprehensive view of spatial relationships not visible in two-dimensional projections.

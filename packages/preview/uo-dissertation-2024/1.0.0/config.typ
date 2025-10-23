@@ -77,11 +77,11 @@
               let fig-num = counter(figure.where(kind: it.kind)).at(it.location()).first()
               
               if is-appendix {
-                // Appendix: S.A.1 (with letter) or S.1 (without)
+                // Appendix: A.1 or B.1 (with letter) or A.1 (without)
                 if letter != "" {
-                  [S.#letter.#fig-num]
+                  [#letter.#fig-num]
                 } else {
-                  [S.#fig-num]
+                  [A.#fig-num]
                 }
               } else {
                 // Chapter: 1.1, 1.2, 2.1, 2.2
@@ -220,40 +220,4 @@
     ]
   ]
   v(0.5in)
-}
-
-// Function for creating tables with UO formatting
-#let uo-table(caption-text, ..args) = {
-  figure(
-    table(..args),
-    caption: caption-text,
-    kind: table,
-    supplement: [Table],
-  )
-}
-
-// Function for creating figures with UO formatting
-#let uo-figure(content, caption-text) = {
-  figure(
-    content,
-    caption: caption-text,
-    supplement: [Figure],
-  )
-}
-
-// Function for creating schemes with UO formatting
-#let uo-scheme(content, caption-text) = {
-  figure(
-    content,
-    caption: caption-text,
-    supplement: [Scheme],
-    kind: "scheme",
-  )
-}
-
-// Function for formatting references (single-spaced with space between)
-#let reference(content) = {
-  set par(first-line-indent: 0pt, leading: 1em)
-  content
-  v(1em)
 }

@@ -2,7 +2,9 @@
 // University of Oregon Dissertation Template
 
 // Import configuration and styling
-#import "../config.typ": *
+// #import "../config.typ": * // for local config file
+// #import "@local/uo-dissertation:1.0.0/config.typ" // for local package
+#import "@preview/uo-dissertation-2024:1.0.0/config.typ": * // for preview package on typst universe
 #import "metadata.typ": *
 
 // Document setup
@@ -117,6 +119,8 @@
 // ===== MAIN BODY =====
 #pagebreak()
 // Include chapters
+// Set paragraph formatting for body text of chapters
+#set par(first-line-indent: 0.5in)
 #include "chapters/chapter-1.typ"
 #include "chapters/chapter-2.typ"
 #include "chapters/chapter-3.typ"

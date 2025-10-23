@@ -1,8 +1,4 @@
 // chapters/chapter-2.typ
-#import "../../config.typ": uo-figure, uo-table
-
-// Set paragraph formatting for body text
-#set par(first-line-indent: 0.5in, leading: 2em)
 
 // Create chapter heading
 = Title of Your Published/Submitted Paper

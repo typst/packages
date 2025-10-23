@@ -1,7 +1,6 @@
 // prefatory/abstract.typ  
-#import "../metadata.typ": dissertation-title, author-name, degree-name, major-name
-#import "../../config.typ": *
 
+#import "../metadata.typ": dissertation-title, author-name, degree-name, major-name
 
 #pagebreak()
 #set text(size: 12pt)
@@ -10,8 +9,6 @@
 ]
 
 #v(0.25in)
-
-// #set par(first-line-indent: 0pt, leading: 1em)
 
 #author-name \
 

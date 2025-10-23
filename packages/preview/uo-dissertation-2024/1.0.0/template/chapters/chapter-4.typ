@@ -1,9 +1,5 @@
 // chapters/chapter-4.typ
 // Final chapter containing conclusions, synthesis, and future directions
-#import "../../config.typ": uo-figure, uo-table
-
-// Set paragraph formatting for body text
-#set par(first-line-indent: 0.5in, leading: 2em)
 
 // ===== CHAPTER HEADING =====
 = Conclusions and Future Work
