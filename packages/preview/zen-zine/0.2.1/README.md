@@ -83,7 +83,7 @@ $ 8 $
 Using [just](https://just.systems/man/en/) and [showman](https://github.com/ntjess/showman/tree/main) to help aid development.
 
 After installing `just`, the additional initialization recipes are in the justfile.
-```
+```sh
 just init-showman # create a python3 venv and install showman for packaging
 just install # symlink local clone to local package area for testing
 ```
