@@ -45,7 +45,7 @@
   bibliography: bibliography("refs.bib")
 )
 
-# First Section
+= First Section
 
 My awesome paper ...
 ```
