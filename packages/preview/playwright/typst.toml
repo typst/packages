@@ -1,0 +1,15 @@
+[package]
+name = "playwright"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Aarav Navani <@rikashore>"]
+license = "MIT-0"
+description = "Dramatist's Guild guidelines oriented formatting for stageplays."
+disciplines = ["theater", "literature"]
+categories = ["layout"]
+keywords = ["play", "theatre", "theater", "playwright", "script"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
