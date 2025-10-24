@@ -9,7 +9,6 @@ repository = "https://github.com/rikashore/typst-playwright"
 disciplines = ["theater", "literature"]
 categories = ["layout"]
 keywords = ["play", "theatre", "theater", "playwright", "script"]
-exclude = ["template/*.pdf"]
 
 [template]
 path = "template"
