@@ -44,13 +44,13 @@ with typst.app due to a packaging issue.
 
 If [Typst Universe] is online, this template will be
 downloaded automatically to
-
-	$CACHEDIR/typst/packages/preview/scholarly-tauthesis/$VERSION/
-
+```text
+$CACHEDIR/typst/packages/preview/scholarly-tauthesis/$VERSION/
+````
 when one runs the command
-
-	typst init @preview/scholarly-tauthesis:$VERSION mythesis
-
+```sh
+typst init @preview/scholarly-tauthesis:$VERSION mythesis
+````
 Here `$VERSION` should be ≥ 0.9.0. The value
 `$CACHEDIR` for your OS can be discovered from
 <https://docs.rs/dirs/latest/dirs/fn.cache_dir.html>.
@@ -60,9 +60,9 @@ Here `$VERSION` should be ≥ 0.9.0. The value
 For a manual installation, download the contents of this
 repository via Git or as a ZIP file from the template
 [tags] page, and store them in the folder
-
-	$DATADIR/typst/packages/preview/scholarly-tauthesis/$VERSION/
-
+```text
+$DATADIR/typst/packages/preview/scholarly-tauthesis/$VERSION/
+```
 so that a local installation of `typst` can
 discover the `tauthesis.typ` file no matter
 where you are running it from. To find out the
@@ -75,9 +75,9 @@ template you wish to use.
 
 Once the package has been installed either automatically or
 manually, the command
-
-	typst init @preview/scholarly-tauthesis:$VERSION mythesis
-
+```sh
+typst init @preview/scholarly-tauthesis:$VERSION mythesis
+```
 creates a folder `mythesis` with the template files in
 place. Simply make the `mythesis` folder you current
 working directory and run
