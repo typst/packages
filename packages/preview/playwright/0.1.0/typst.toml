@@ -5,10 +5,11 @@ entrypoint = "lib.typ"
 authors = ["Aarav Navani <@rikashore>"]
 license = "MIT-0"
 description = "Dramatist's Guild guidelines oriented formatting for stageplays."
+repository = "https://github.com/rikashore/typst-playwright"
 disciplines = ["theater", "literature"]
 categories = ["layout"]
 keywords = ["play", "theatre", "theater", "playwright", "script"]
-exclude = ["*.pdf"]
+exclude = ["template/*.pdf"]
 
 [template]
 path = "template"
