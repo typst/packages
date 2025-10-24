@@ -602,8 +602,8 @@ The parameters for `default-enum-list` and `paragraph-enum-list` are similar.
   - `auto-base-level: bool = false`: To maintain compatibility with native behavior, the display of `numbering` and `marker` still uses absolute levels. This means even if you reconfigure `enum.numbering` and `list.marker` in sublists, the display of `numbering` and `marker` in sublists follows the absolute level rules. Default: `false`. 
     - If `auto-base-level` is set to `true`, then it treats the current level as 1.
     - ⚠️ *Breaking change*: When configuring enums and lists using `*-enum-list`, `*-enum`, or `*-list`, the current level is treated as 1.
-  - `checklist: array | bool = false`: Enables checklist. 
-  - `auto-resuming: auto | bool | none = none`: Relate to the feature `Resuming Enum`. Alternatively, You can also enable and configure checklist-related features using the method `config.checklist`.
+  - `checklist: array | bool = false`: Enables checklist. Alternatively, You can also enable and configure checklist-related features using the method `config.checklist`.
+  - `auto-resuming: auto | bool | none = none`: Relate to the feature `Resuming Enum`. 
     -  `none`: Disables this feature.
     - `auto`: Enables this feature. In this case, the following methods can be used.
       - Use the method `resume()` to continue using the enum numbers from the previous enum at the same level.
