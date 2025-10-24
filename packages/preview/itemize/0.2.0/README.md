@@ -494,38 +494,146 @@ Output:
 
 The parameters for `default-enum-list` and `paragraph-enum-list` are similar.
 
-```
-#let default-enum-list(
-  doc: any,
-  // horizontal spacing
-  indent: array | auto | function | length = auto,
-  body-indent: array | auto | function | length = auto,
-  label-indent: array | auto | function | length = auto,
-  is-full-width: bool = true,
-  enum-margin: array | auto | function | length = auto,
-  // vertical spacing
-  enum-spacing: array | auto | dictionary | length = auto,
-  item-spacing: array | auto | function | length = auto,
-  // body style
-  hanging-indent: array | auto | function | length = auto,
-  line-indent: array | auto | function | length = auto,
-  body-format: dictionary | none = none,
-  // label style
-  ..args: arguments,
-  label-align: array | alignment | auto | function = auto,
-  label-baseline: auto | dictionary | function | length | "center" | "top" | "bottom" = auto,
-  label-width: array | auto | dictionary | function | length = auto,
-  label-format: array | function | none = none,
+- Horizontal spacing
+  - `indent: array | auto | function | length = auto`: The indent of enum or list.
+    - If `indent` is `auto`, the item will be indented by the value of `indent` of `enum` or `list`.
+    - If `indent` is an `array`, whose elements are `length` or `auto` or `array`, each level of the item will be indented by the corresponding value of the array at position `level - 1`. The last value of the array will be used for residual levels.
+      - If the last element of the array is `LOOP`, the values in the array will be used cyclically.
+      - The elements in the array can also be an array, where each element applies to the corresponding item.
+    - If `indent` is a `function`, the return value will be used for each level and each item. The function should be declared as:
+    
+      `it => length | auto | array`
 
-  auto-base-level: bool = false,
-  checklist: array | bool = false,
-  auto-resuming: auto | bool | none = none,
-  auto-label-width: array | bool | "all" | "each" | "list" | "enum" | auto | none | = none,
-  // separate setting of enum and list
-  enum-config: dictionary = (:),
-  list-config: dictionary = (:),
-)
-```
+      - `it` is a dictionary that contains the following keys:
+        - `level`: The level of the item.
+        - `n`: The index of the item.
+        - `n-last`: The index of the last item.
+        -  `label-width`: The label max-width of the item. `label-width` captures the label width of items from level 1 to the current level (i.e., [1, `level`]). Use `(label-width.get)(some-level)` to get the label width at level `some-level` or `label-width.current` for the current level (equivalent to `(label-width.get)(level)`).
+        - `e`: captures the construction (`enum` or `list`) of items from level 1 to the current level. Use `(level-type.get)(some-level)` or `level-type.current`.
+        - If the return value is an `array`, it will be used for each item.
+  - `body-indent: array | auto | function | length = auto`: Body indentation value (default: auto), i.e., the space between the label and the body of each item.
+    - If `auto`, it uses the value of `body-indent` of `enum` or `list`.
+    - Similar to the `indent` parameter.
+  - `label-indent: array | auto | function | length = auto`: The indentation value for the first line of an item. (default: `0em` if `auto`). Similar to the `indent` parameter.
+  - `is-full-width: bool = true`: Whether to use full width (default: true). This may temporarily fix the bug where block-level equations in the item are not center-aligned in some cases (not an ideal solution).
+  - `enum-margin: array | auto | function | length = auto`: Margin of items for enums and lists (default: auto).
+    - To make `enum-margin` effective, set `is-full-width` to `false`.
+    - If `auto`, the item width is `auto`.
+    - Similar to `item-spacing`.
+
+- Vertical spacing
+  - `enum-spacing: array | auto | dictionary | length = auto`: Spacing between enums and lists (default: auto). If `auto`, it uses the current paragraph spacing or leading (`par.spacing` or `par.leading`), depending on the `tight` parameter of `enum` or `list`. Similar to `item-spacing`.
+  - `item-spacing: array | auto | function | length = auto`: Spacing between items (default: auto). If `auto`, it uses the value of `spacing` of `enum` or `list`. See `indent` for details.
+- Body style
+  - `hanging-indent: array | auto | function | length = auto`:  The indent for all but the first line of a paragraph (default: auto).
+    - If `auto`, it uses the hanging indent of the current paragraph (`par.hanging-indent`).
+    - Similar to `indent`.
+  - `line-indent: array | auto | function | length = auto`: The indent for the first line of a paragraph excluding the first paragraph (default: auto).
+    - If `auto`, it uses the first line indent of current paragraph  (`par.first-line-indent.amount`).
+    - Similar to `indent`.
+  - `body-format: dictionary | none = none`: Sets the *text style* and *border style* of the body (default: none). It is a dictionary containing the following keys:
+    - `none`: Does not take effect.
+    - `style`: A dictionary that can include any named arguments of `text` to format the text style of `body`.
+    - `whole`, `outer`, `inner`: Dictionaries used to set the borders of the item.
+      - `whole`: Wraps the entire `enum` or `list`
+      - `outer`: Wraps the item (including the label)
+      - `inner`: Wraps the item (excluding the label)
+    - If `whole`, `outer`, or `inner` is omitted, the default is to set the border for `outer`.
+    - Supported border properties (consistent with `block` borders): `stroke`, `radius`, `outset`, `fill`, `inset`, `clip`.
+      - ⚠️ In ver0.2.x, `inset` with `relative` length is temporarily _not supported_!!!
+      - Each value in `style`, `whole`, `outer`, `inner` is also supported `array` and `function` types.
+- Label style
+  - `..args: arguments`:  Used to format the text of the numbering. Accepts all named parameters of the `text` function (e.g., `fill: red`, `size: 4em`, `weight: "bold"`). Values can be `array`, `auto` or `function`
+    - If `auto`, it uses the current `text` value
+    - If `array`, each level uses the corresponding value of the array at position `level - 1`.
+      - If the last element of the array is `LOOP`, the values in the array will be used cyclically, else,
+      - The last value is used for residual levels.
+    - if `function`, the return value will be used for each level and each item. The function should be declared as:
+      
+      `it => some-value | auto | array`
+
+      - `it` is a dictionary that contains the following keys:
+        - `level`: The level of the item.
+        - `n`: The index of the item.
+        - `n-last`: The index of the last item.
+  - `label-align: array | alignment | auto | function = auto`: The `alignment` that enum numbers and list markers should have.
+    - Unless `auto` is used, it cannot be be changed via `#set enum(number-align: ...)`.
+    - For native `list`, it has no such property.
+  - `label-baseline: auto | dictionary | function | length | "center" | "top" | "bottom" = auto`: An amount to shift the label baseline by. 
+    - It can be taken: 
+      - `length`, `auto` or `"center"`, `"top"`, `"bottom"`,
+      - or a `dictionary` with the keys:
+        - `amount`: `length`, `auto` or `"center"`, `"top"`, `"bottom"`
+        - `same-line-style` : `"center"`, `"top"`, `"bottom"`
+        - `alone`: `bool`
+      - The first case is interpreted as `(amount: len, same-line-style: "bottom", alone: false)`
+      - When the label has a paragraph relationship with the first line of text in the current item, the label baseline will shift based on the value of `amount`.
+      - For `"center"`, `"top"`, and `"bottom"`, the label will be aligned to the center, top, or bottom respectively.
+      - If labels from different levels appear on the same line, their alignment is determined by `same-line-style`.
+      - If `alone` is `true`, it will not participate in the alignment of labels on the same line.
+  - `label-width: array | auto | dictionary | function | length = auto`: The width of the label.
+    1. `auto`: Uses the native behavior.
+    2. `length`: The width of the label.
+    3. `dictionary`, with keys:
+       -  `amount`: `length`, `auto`, or `"max"`.
+       -  `style`: `"default"`, `"constant"`, `"auto"`, or `"native"`.
+    - The first case is equivalent to `(amount: len, style: "default")`, where `len` is the specified width value; The second case is equivalent to `(amount: max-width, style: "native")`, where `max-width` is the maximum width of labels at the current level.
+    -  Here, `amount` also represents the hanging indent of the item's body (i.e., for the default style, the hanging indent length = `amount` + `body-indent`; for the paragraph style, the hanging indent length = `amount`).
+    -  When `amount` is `"max"`, the value of `amount` is the maximum actual width of labels at the current level.
+  - `label-format: array | function | none = none`: Customize labels in any way. It takes
+     - `none`: Does not take effect
+     - `function`
+       - The form is: `it => ...`, Access
+         - `it.body` to get the label content,
+         -  `it.level` for the current label's level
+         -  `it.n` for the current label's index, and
+         -  `it.n-last` for the index of the last label in the current level
+     -  `array`
+        -  The (`level-1`)-th element of the array applies to the label at the `level`-th level.
+        -  Each element in the array can be:
+           1.  A `function` with the form `body => ...`, which applies the label's content to this function.
+           2.  A `content`, which outputs this content directly.
+           3.  `auto` or `none`, which means no processing will be done.
+           4.  An `array`:
+              -  Its elements follow the meanings of 1, 2, and 3 above.
+              -  The (`n-1`)-th element of the array applies to the `n`-th item's label at the current level.
+    - This method can not only control the style of labels, but also control the content displayed by the current label. In the current version `0.2.x`, we recommend using `enum.numbering` (along with the `numbly` package) to control the output content of labels in `enum`, and `list.marker` to control the output content of labels in `list`.
+- Other features:
+  - `auto-base-level: bool = false`: To maintain compatibility with native behavior, the display of `numbering` and `marker` still uses absolute levels. This means even if you reconfigure `enum.numbering` and `list.marker` in sublists, the display of `numbering` and `marker` in sublists follows the absolute level rules. Default: `false`. 
+    - If `auto-base-level` is set to `true`, then it treats the current level as 1.
+    - ⚠️ *Breaking change*: When configuring enums and lists using `*-enum-list`, `*-enum`, or `*-list`, the current level is treated as 1.
+  - `checklist: array | bool = false`: Enables checklist. 
+  - `auto-resuming: auto | bool | none = none`: Relate to the feature `Resuming Enum`. Alternatively, You can also enable and configure checklist-related features using the method `config.checklist`.
+    -  `none`: Disables this feature.
+    - `auto`: Enables this feature. In this case, the following methods can be used.
+      - Use the method `resume()` to continue using the enum numbers from the previous enum at the same level.
+      - Use `resume[...]` to explicitly continue using the enum numbers from the previous level (especially in ambiguous cases) and treat the `[...]` as a new `enum`.
+      - Use the method `resume-label(<some-label>)` to label the enum you want to resume, and then use `resume-list(<some-label>)` in the desired enum to continue using the labelled enum numbers.
+      -  Or use the method `auto-resume-enum(auto-resuming: true)[...]`, where all enum numbers within `[...]` will continue from the previous ones.
+      -  The method `isolated-resume-enum[...]` allows the `[...]` to be treated as a new enum with independent numbering, without affecting other enums.
+      - `bool` | `array`: If `auto-resuming` is set to `true`, all enum numbers will continue from the previous ones. It can also be set as an array, e.g., `(false, true)` means the first level does not enable the resuming feature, while subsequent levels do.
+  - `auto-label-width: array | bool | "all" | "each" | "list" | "enum" | auto | none | = none`: To ensure consistent first-line indentation of the body across different enums and lists, you can now set `auto-label-width` to `auto` and use the method `auto-label-item` to align the sublists within.
+    - `none`: Disables this feature.
+    - `auto`: Enables this feature and uses the method `auto-label-item` to align the sublists within.
+    - "all", "each", "list", "enum" or an array: The values and meanings of `auto-label-width` are the same as those of the `form` parameter in the `auto-label-item` method.
+- Separate setting of `enum` and `list`
+  - `enum-config: dictionary = (:)`: Configure `enum`, currently allowed properties (keys) are:
+      - `indent`,
+      - `body-indent`,
+      - `label-indent`,
+      - `is-full-width`,
+      - `item-spacing`,
+      - `enum-spacing`,
+      - `enum-margin`,
+      - `hanging-indent`,
+      - `line-indent`,
+      - `label-width`,
+      - `label-align`,
+      - `label-baseline`,
+      - `label-format`,
+      - `body-format`,
+      - any named arguments of the function `text`
+  - `list-config: dictionary = (:)`: Configure `list`. Similar to `enum-config`
 
 This method allows customizing the *labels* and *bodies* of enums and lists by **level** and **item**.
 
