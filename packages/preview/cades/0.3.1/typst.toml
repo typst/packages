@@ -6,7 +6,6 @@ authors = ["Niklas Ausborn"]
 license = "MIT"
 description = "Generate QR codes in typst."
 
-homepage = "https://github.com/Midbin/cades"
 repository = "https://github.com/Midbin/cades"
 keywords = [
     "qr",
