@@ -8,6 +8,7 @@ description = "Dramatist's Guild guidelines oriented formatting for stageplays."
 disciplines = ["theater", "literature"]
 categories = ["layout"]
 keywords = ["play", "theatre", "theater", "playwright", "script"]
+exclude = ["*.pdf"]
 
 [template]
 path = "template"
