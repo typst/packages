@@ -3,8 +3,7 @@
 
 // Import configuration and styling
 // #import "../config.typ": * // for local config file
-// #import "@local/uo-dissertation:1.0.0/config.typ" // for local package
-#import "@preview/uo-dissertation-2024:1.0.0/config.typ": * // for preview package on typst universe
+#import "@preview/unofficial-uo-dissertation-2024:1.0.0": * // for preview package on typst universe
 #import "metadata.typ": *
 
 // Document setup

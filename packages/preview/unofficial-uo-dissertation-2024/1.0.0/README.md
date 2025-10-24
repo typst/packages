@@ -22,15 +22,15 @@ An unofficial dissertation template for the University of Oregon, following the 
 ### Using Typst CLI
 
 ```bash
-typst init @preview/uo-dissertation-2024
-cd uo-dissertation-2024
+typst init @preview/unofficial-uo-dissertation-2024
+cd unofficial-uo-dissertation-2024
 ```
 
 ### Manual Installation
 
 ```bash
-git clone https://github.com/pamitabh/uo-dissertation-2024
-cd uo-dissertation-2024/template
+git clone https://github.com/pamitabh/unofficial-uo-dissertation-2024
+cd unofficial-uo-dissertation-2024/template
 typst compile main.typ dissertation.pdf
 ```
 
@@ -67,9 +67,6 @@ Edit files in the `chapters/` folder:
 
 ```typ
 // chapters/chapter-1.typ
-#import "../config.typ": uo-figure, uo-table
-
-#set par(first-line-indent: 0.5in, leading: 2em)
 
 = Introduction
 
@@ -210,4 +207,4 @@ This template includes the following figures:
 
 ## Contributing
 
-Contributions welcome! Please open an issue or pull request on [GitHub](https://github.com/pamitabh/uo-dissertation-2024).
+Contributions welcome! Please open an issue or pull request on [GitHub](https://github.com/pamitabh/unofficial-uo-dissertation-2024).

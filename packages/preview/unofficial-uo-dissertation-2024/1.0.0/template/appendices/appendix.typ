@@ -1,6 +1,6 @@
 // appendices/appendix.typ
 // Single appendix without letter designation
-#import "../../config.typ": appendix
+#import "@preview/unofficial-uo-dissertation-2024:1.0.0": appendix
 
 // Create appendix heading - empty string "" for no letter
 #appendix("", "Supplemental Figures")
