@@ -494,7 +494,7 @@ Output:
 
 The parameters for `default-enum-list` and `paragraph-enum-list` are similar.
 
-```typst
+```
 #let default-enum-list(
   doc: any,
   // horizontal spacing
