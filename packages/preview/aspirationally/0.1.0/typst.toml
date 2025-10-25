@@ -1,7 +1,7 @@
 [package]
 name = "aspirationally"
 version = "0.1.0"
-compiler = "0.14.0"
+compiler = "0.13.1"
 entrypoint = "lib.typ"
 repository = "https://github.com/breezykermo/aspirationally"
 authors = ["Lachlan Kermode <@breezykermo>"]
