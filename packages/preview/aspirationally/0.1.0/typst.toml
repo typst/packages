@@ -1,0 +1,16 @@
+[package]
+name = "aspirationally"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/breezykermo/aspirationally"
+authors = ["Lachlan Kermode <@breezykermo>"]
+license = "MIT-0"
+description = "A clean and minimal template for academic cover letters, teaching statements, or research statements"
+keywords = ["clean", "minimal", "academic", "humanities"]
+categories = ["cv"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
