@@ -7,8 +7,8 @@ authors = ["Leedehai"]
 repository = "https://github.com/Leedehai/typst-physics"
 categories = ["components", "utility"]
 disciplines = [
-  "chemistry", "communication", "economics", "education", "engineering",
-  "geology", "mathematics", "physics",
+  "mathematics", "physics", "chemistry", "economics", "education",
+  "engineering"
 ]
 keywords = [
   "physics", "mathematics", "brace", "set", "product", "evaluate", "restrict",

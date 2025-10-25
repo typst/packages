@@ -908,6 +908,9 @@
   }
 }
 
+// Proud to document that Typst merged the author Leedehai's pull request
+// https://github.com/typst/typst/pull/825, a feature to make this function
+// appropriately, without a ton of acrobatics.
 #let isotope(element, /*atomic mass*/ a: none, /*atomic number*/ z: none) = {
   let a_content = if type(a) == int { [#a] } else { a }
   let z_content = if type(z) == int { [#z] } else { z }
@@ -1007,6 +1010,9 @@
   }
 }
 
+// NOTE this is in maintainence mode: no new feature accepted, but bug fixes
+// are still welcome. I believe a standalone package for signal sequence
+// diagrams is the best route going forward.
 #let signals(input, step: 1em, color: black) = {
   assert(type(input) == str, message: "input needs to be a string")
 
