@@ -36,7 +36,7 @@
             stack(
               spacing: 6pt,
               [*#name* --- #title],
-              text(size: subsidiarytextsize)[#current_department],
+              text(size: subsidiarytextsize)[#current-department],
               line(length: 100%, stroke: 0.5pt)
             )
           )
@@ -60,7 +60,7 @@
   #pagebreak()
   = Bibliography
   #link-bib-urls(link-fill: blue)[
-    #bibliography(bib_references, style: bib_style, title: none)
+    #bibliography(bib-references, style: bib-style, title: none)
   ]]
 }
 
