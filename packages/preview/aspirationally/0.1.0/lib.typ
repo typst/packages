@@ -56,7 +56,7 @@
 
   body
 
-  if has_references [
+  if has-references [
   #pagebreak()
   = Bibliography
   #link-bib-urls(link-fill: blue)[
