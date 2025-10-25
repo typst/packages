@@ -3,10 +3,10 @@
 #let aspirationally(
   name: [Laurenz Typsetterson],
   title: [Research Statement],
-  current_department: [Department of Literary Studies],
-  has_references: false,
-  bib_references: "./references.bib",
-  bib_style: "style.csl",
+  current-department: [Department of Literary Studies],
+  has-references: false,
+  bib-references: "./references.bib",
+  bib-style: "style.csl",
   logo: image("school-logo.png", height: 0.6in),
   leader: [],
   body

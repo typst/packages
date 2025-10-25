@@ -6,8 +6,8 @@
 #show: aspirationally(
   name: [Laurenz Typesetter],
   title: [Cover Letter],
-  current_department: [Department of Literary Studies],
-  has_references: false,
+  current-department: [Department of Literary Studies],
+  has-references: false,
 )[
   Dear Search Committee,
 

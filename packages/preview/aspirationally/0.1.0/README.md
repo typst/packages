@@ -22,8 +22,8 @@ If you already have a typst file, you can add the following to the top:
 #show: aspirationally.with(
   name: [Laurenz Typsetterson],
   title: [Research Statement],
-  current_department: [Department of Literary Studies],
-  has_references: false,
+  current-department: [Department of Literary Studies],
+  has-references: false,
   logo: image("school-logo.png", height: 0.6in),
 )
 ```
@@ -45,10 +45,10 @@ This template exports the `aspirationally` function with the following named arg
 | --- | --- | --- | --- |
 | `name` | `content` | Your name | `[Laurenz Typsetterson]` |
 | `title` | `content` | Document title (e.g., "Research Statement", "Teaching Statement") | `[Research Statement]` |
-| `current_department` | `content` | Your department or affiliation | `[Department of Literary Studies]` |
-| `has_references` | `boolean` | Whether to include a bibliography section | `false` |
-| `bib_references` | `string` | Path to your bibliography file | `"./references.bib"` |
-| `bib_style` | `string` | Path to CSL style file | `"style.csl"` |
+| `current-department` | `content` | Your department or affiliation | `[Department of Literary Studies]` |
+| `has-references` | `boolean` | Whether to include a bibliography section | `false` |
+| `bib-references` | `string` | Path to your bibliography file | `"./references.bib"` |
+| `bib-style` | `string` | Path to CSL style file | `"style.csl"` |
 | `logo` | `content` | Institution logo (use `image()` function) | `image("school-logo.png", height: 0.6in)` |
 | `leader` | `content` | Optional content to appear before the main body | `[]` |
 
