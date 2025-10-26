@@ -143,10 +143,9 @@
 
 // == Braces
 
-#let Set(..sink) = {
-  let args = sink.pos() // array
-  let expr = args.at(0, default: none)
-  let cond = args.at(1, default: none)
+#let Set(..args) = {
+  let expr = args.pos().at(0, default: none)
+  let cond = args.pos().at(1, default: none)
 
   if type(expr) == array {
     expr = $#expr.join($,$)$
@@ -162,17 +161,16 @@
   }
 }
 
-#let Order(content) = $cal(O)(content)$
-#let order(content) = $cal(o)(content)$
+#let Order(expr) = $cal(O)(expr)$
+#let order(expr) = $cal(o)(expr)$
 
-#let evaluated(content) = {
-  $lr(zwj#content|)$
+#let evaluated(expr) = {
+  $lr(zwj#expr|)$
 }
 
-#let expectationvalue(..sink) = {
-  let args = sink.pos() // array
-  let expr = args.at(0, default: none)
-  let func = args.at(1, default: none)
+#let expectationvalue(..args) = {
+  let expr = args.pos().at(0, default: none)
+  let func = args.pos().at(1, default: none)
 
   if func == none {
     $lr(chevron.l expr chevron.r)$
@@ -184,9 +182,7 @@
 
 // == Vector notations
 
-#let vecrow(..sink) = {
-  let (args, kwargs) = (sink.pos(), sink.named()) // array, dictionary
-  let delim = kwargs.at("delim", default: "(")
+#let vecrow(..args, delim: "(") = {
   let (ldelim, rdelim) = if delim == "(" {
     (math.paren.l, math.paren.r)
   } else if delim == "[" {
@@ -202,7 +198,7 @@
   }
   // not math.mat(), because the look would be off: the content
   // appear smaller than the sorrounding delimiter pair.
-  $lr(#ldelim #args.join([#math.comma]) #rdelim)$
+  $lr(#ldelim #args.pos().join([#math.comma]) #rdelim)$
 }
 
 // Prefer using super-T-as-transpose() found below.
@@ -212,8 +208,8 @@
 // the habitual "A^TT".
 #let TT = $sans(upright(T))$
 
-#let __vector(a, accent, be_bold) = {
-  let maybe_bold(e) = if be_bold {
+#let __vector(symbol, accent, bold) = {
+  let maybe_bold(e) = if bold {
     math.bold(math.italic(e))
   } else {
     math.italic(e)
@@ -223,31 +219,31 @@
   } else {
     maybe_bold(e)
   }
-  if type(a) == content and a.func() == math.attach {
+  if type(symbol) == content and symbol.func() == math.attach {
     math.attach(
-      maybe_accent(a.base),
-      t: if a.has("t") { maybe_bold(a.t) } else { none },
-      b: if a.has("b") { maybe_bold(a.b) } else { none },
-      tl: if a.has("tl") { maybe_bold(a.tl) } else { none },
-      bl: if a.has("bl") { maybe_bold(a.bl) } else { none },
-      tr: if a.has("tr") { maybe_bold(a.tr) } else { none },
-      br: if a.has("br") { maybe_bold(a.br) } else { none },
+      maybe_accent(symbol.base),
+      t: if symbol.has("t") { maybe_bold(symbol.t) } else { none },
+      b: if symbol.has("b") { maybe_bold(symbol.b) } else { none },
+      tl: if symbol.has("tl") { maybe_bold(symbol.tl) } else { none },
+      bl: if symbol.has("bl") { maybe_bold(symbol.bl) } else { none },
+      tr: if symbol.has("tr") { maybe_bold(symbol.tr) } else { none },
+      br: if symbol.has("br") { maybe_bold(symbol.br) } else { none },
     )
   } else {
-    maybe_accent(a)
+    maybe_accent(symbol)
   }
 }
 
-#let vectorbold(a) = __vector(a, none, true)
+#let vectorbold(symbol) = __vector(symbol, none, true)
 #let vb = vectorbold
 
-#let vectorunit(a) = __vector(a, math.hat, true)
+#let vectorunit(symbol) = __vector(symbol, math.hat, true)
 #let vu = vectorunit
 
 // According to "ISO 80000-2:2019 Quantities and units — Part 2: Mathematics"
 // the vector notation should be either bold italic or non-bold italic accented
 // by a right arrow
-#let vectorarrow(a) = __vector(a, math.arrow, false)
+#let vectorarrow(symbol) = __vector(symbol, math.arrow, false)
 #let va = vectorarrow
 
 #let grad = $bold(nabla)$
@@ -279,21 +275,17 @@
   }
 }
 
-#let matrixdet(..sink) = {
-  math.mat(..sink, delim: "|")
+#let matrixdet(..content) = {
+  math.mat(..content, delim: "|")
 }
 #let mdet = matrixdet
 
-#let diagonalmatrix(..sink) = {
-  let (args, kwargs) = (sink.pos(), sink.named()) // array, dictionary
-  let delim = kwargs.at("delim", default: "(")
-  let fill = kwargs.at("fill", default: none)
-
+#let diagonalmatrix(..args, delim: "(", fill: none) = {
   let arrays = () // array of arrays
-  let n = args.len()
+  let n = args.pos().len()
   for i in range(n) {
     let array = range(n).map(j => {
-      let e = if j == i { args.at(i) } else { fill }
+      let e = if j == i { args.pos().at(i) } else { fill }
       return e
     })
     arrays.push(array)
@@ -302,17 +294,13 @@
 }
 #let dmat = diagonalmatrix
 
-#let antidiagonalmatrix(..sink) = {
-  let (args, kwargs) = (sink.pos(), sink.named()) // array, dictionary
-  let delim = kwargs.at("delim", default: "(")
-  let fill = kwargs.at("fill", default: none)
-
+#let antidiagonalmatrix(..args, delim: "(", fill: none) = {
   let arrays = () // array of arrays
-  let n = args.len()
+  let n = args.pos().len()
   for i in range(n) {
     let array = range(n).map(j => {
       let complement = n - 1 - i
-      let e = if j == complement { args.at(i) } else { fill }
+      let e = if j == complement { args.pos().at(i) } else { fill }
       return e
     })
     arrays.push(array)
@@ -349,29 +337,29 @@
 }
 #let zmat = zeromatrix
 
-#let jacobianmatrix(fs, xs, delim: "(", big: false) = {
-  assert(type(fs) == array, message: "expecting an array of function names")
-  assert(type(xs) == array, message: "expecting an array of variable names")
+#let jacobianmatrix(funcs, args, delim: "(", big: false) = {
+  assert(type(funcs) == array, message: "expecting an array of function names")
+  assert(type(args) == array, message: "expecting an array of variable names")
   let arrays = () // array of arrays
-  for f in fs {
-    arrays.push(xs.map(x => __mate(math.frac($partial#f$, $partial#x$), big)))
+  for f in funcs {
+    arrays.push(args.map(x => __mate(math.frac($partial#f$, $partial#x$), big)))
   }
   math.mat(delim: delim, ..arrays)
 }
 #let jmat = jacobianmatrix
 
-#let hessianmatrix(fs, xs, delim: "(", big: false) = {
-  assert(type(fs) == array, message: "usage: hessianmatrix(f; x, y...)")
-  assert(fs.len() == 1, message: "usage: hessianmatrix(f; x, y...)")
-  let f = fs.at(0)
-  assert(type(xs) == array, message: "expecting an array of variable names")
+#let hessianmatrix(func, args, delim: "(", big: false) = {
+  assert(type(func) == array, message: "usage: hessianmatrix(f; x, y...)")
+  assert(func.len() == 1, message: "usage: hessianmatrix(f; x, y...)")
+  let f = func.at(0)
+  assert(type(args) == array, message: "expecting an array of variable names")
   let row_arrays = () // array of arrays
-  let order = xs.len()
+  let order = args.len()
   for r in range(order) {
     let row_array = () // array
-    let xr = xs.at(r)
+    let xr = args.at(r)
     for c in range(order) {
-      let xc = xs.at(c)
+      let xc = args.at(c)
       row_array.push(__mate(
         math.frac(
           $partial^2 #f$,
@@ -386,19 +374,19 @@
 }
 #let hmat = hessianmatrix
 
-#let xmatrix(m, n, func, delim: "(") = {
-  let rows = if type(m) == content and __content_holds_number(m) {
-    int(m.text)
-  } else if type(m) == int {
-    m
+#let xmatrix(row, col, func, delim: "(") = {
+  let row_count = if type(row) == content and __content_holds_number(row) {
+    int(row.text)
+  } else if type(row) == int {
+    row
   } else {
     panic("xmat/xmatrix: the first argument shall be an integer, e.g. 2")
   }
 
-  let cols = if type(n) == content and __content_holds_number(m) {
-    int(n.text)
-  } else if type(n) == int {
-    n
+  let col_count = if type(col) == content and __content_holds_number(col) {
+    int(col.text)
+  } else if type(col) == int {
+    col
   } else {
     panic("xmat/xmatrix: the second argument shall be an integer, e.g. 2")
   }
@@ -408,9 +396,9 @@
     message: "func shall be a function (did you forget to add a preceding '#' before the function name)?",
   )
   let row_arrays = () // array of arrays
-  for i in range(1, rows + 1) {
+  for i in range(1, row_count + 1) {
     let row_array = () // array
-    for j in range(1, cols + 1) {
+    for j in range(1, col_count + 1) {
       row_array.push(func(i, j))
     }
     row_arrays.push(row_array)
@@ -419,20 +407,20 @@
 }
 #let xmat = xmatrix
 
-#let rot2mat(theta, delim: "(") = {
-  let operand = if type(theta) == content and __is_add_sub_sequence(theta) {
-    $(theta)$
-  } else { theta }
+#let rot2mat(angle, delim: "(") = {
+  let operand = if type(angle) == content and __is_add_sub_sequence(angle) {
+    $(angle)$
+  } else { angle }
   $mat(
     cos operand, -sin operand;
     sin operand, cos operand; delim: delim
   )$
 }
 
-#let rot3xmat(theta, delim: "(") = {
-  let operand = if type(theta) == content and __is_add_sub_sequence(theta) {
-    $(theta)$
-  } else { theta }
+#let rot3xmat(angle, delim: "(") = {
+  let operand = if type(angle) == content and __is_add_sub_sequence(angle) {
+    $(angle)$
+  } else { angle }
   $mat(
     1, 0, 0;
     0, cos operand, -sin operand;
@@ -440,10 +428,10 @@
   )$
 }
 
-#let rot3ymat(theta, delim: "(") = {
-  let operand = if type(theta) == content and __is_add_sub_sequence(theta) {
-    $(theta)$
-  } else { theta }
+#let rot3ymat(angle, delim: "(") = {
+  let operand = if type(angle) == content and __is_add_sub_sequence(angle) {
+    $(angle)$
+  } else { angle }
   $mat(
     cos operand, 0, sin operand;
     0, 1, 0;
@@ -451,10 +439,10 @@
   )$
 }
 
-#let rot3zmat(theta, delim: "(") = {
-  let operand = if type(theta) == content and __is_add_sub_sequence(theta) {
-    $(theta)$
-  } else { theta }
+#let rot3zmat(angle, delim: "(") = {
+  let operand = if type(angle) == content and __is_add_sub_sequence(angle) {
+    $(angle)$
+  } else { angle }
   $mat(
     cos operand, -sin operand, 0;
     sin operand, cos operand, 0;
@@ -462,20 +450,16 @@
   )$
 }
 
-#let grammat(..sink) = {
-  let vs = sink.pos() // array
-  let delim = sink.named().at("delim", default: "(")
-  let asnorm = sink.named().at("norm", default: false)
-
+#let grammat(..args, delim: "(", norm: false) = {
   xmat(
-    vs.len(),
-    vs.len(),
+    args.pos().len(),
+    args.pos().len(),
     (i, j) => {
-      if (i == j and (not asnorm)) or i != j {
-        iprod(vs.at(i - 1), vs.at(j - 1))
+      if (i == j and (not norm)) or i != j {
+        iprod(args.pos().at(i - 1), args.pos().at(j - 1))
       } else {
-        let v = vs.at(i - 1)
-        $norm(#v)^2$
+        let v = args.pos().at(i - 1)
+        $#math.norm(v)^2$
       }
     },
     delim: delim,
@@ -484,29 +468,26 @@
 
 // == Dirac braket notations
 
-#let bra(f) = $lr(chevron.l #f|)$
-#let ket(f) = $lr(|#f chevron.r)$
+#let bra(content) = $lr(chevron.l #content|)$
+#let ket(content) = $lr(|#content chevron.r)$
 
-#let braket(..sink) = {
-  let args = sink.pos() // array
+#let braket(..args) = {
+  let bra = args.pos().at(0, default: none)
+  let ket = args.pos().at(-1, default: bra)
 
-  let bra = args.at(0, default: none)
-  let ket = args.at(-1, default: bra)
-
-  if args.len() <= 2 {
+  if args.pos().len() <= 2 {
     $ lr(chevron.l bra#h(0pt)mid(|)#h(0pt)ket chevron.r) $
   } else {
-    let middle = args.at(1)
+    let middle = args.pos().at(1)
     $ lr(chevron.l bra#h(0pt)mid(|)#h(0pt)middle#h(0pt)mid(|)#h(0pt)ket chevron.r) $
   }
 }
 
-#let ketbra(..sink) = {
-  let args = sink.pos() // array
-  assert(args.len() == 1 or args.len() == 2, message: "expecting 1 or 2 args")
+#let ketbra(..args) = {
+  assert(args.pos().len() == 1 or args.pos().len() == 2, message: "expecting 1 or 2 args")
 
-  let ket = args.at(0)
-  let bra = args.at(1, default: ket)
+  let ket = args.pos().at(0)
+  let bra = args.pos().at(1, default: ket)
 
   $ lr(|ket#h(0pt)mid(chevron.r#h(0pt)chevron.l)#h(0pt)bra|) $
 }
@@ -569,13 +550,11 @@
 
 // == Differentials
 
-#let differential(..sink) = {
-  let (args, kwargs) = (sink.pos(), sink.named()) // array, dictionary
-
+#let differential(..args, d: none, prod: none, compact: false) = {
   let orders = ()
-  let var_num = args.len()
+  let var_num = args.pos().len()
   let default_order = [1] // a Content holding "1"
-  let last = args.at(args.len() - 1)
+  let last = args.pos().at(args.pos().len() - 1)
   if type(last) == content {
     if last.func() == math.lr and last.at("body").at("children").at(0) == [\[] {
       var_num -= 1
@@ -591,13 +570,14 @@
     orders.push(default_order)
   }
 
-  let dsym = kwargs.at("d", default: $upright(d)$)
-  let compact = kwargs.at("compact", default: false)
+  let d = if d == none { $upright(d)$ } else { d }
   // Why a very thin space is the default joiner: see TeXBook, Chapter 18.
   // math.thin (1/6 em, thinspace in typography) is used to separate the
   // differential with the preceding function, so to keep visual cohesion, the
   // width of this joiner inside the differential shall be smaller.
-  let prod = kwargs.at("p", default: if compact { none } else { h(0.09em, weak: true) })
+  let prod = if prod == none {
+    if compact { none } else { h(0.09em, weak: true) }
+  } else { prod }
 
   let difference = var_num - orders.len()
   while difference > 0 {
@@ -607,16 +587,16 @@
 
   let arr = ()
   for i in range(var_num) {
-    let (var, order) = (args.at(i), orders.at(i))
+    let (var, order) = (args.pos().at(i), orders.at(i))
     if order != [1] {
-      arr.push($dsym^#order#var$)
+      arr.push($#d^#order#var$)
     } else {
-      arr.push($dsym#var$)
+      arr.push($#d#var$)
     }
   }
   // Smart spacing, like Typst's built-in "dif" symbol. See TeXBook, Chapter 18.
   // The width is math.thin (1/6 em, thinspace in typography).
-  // $#arr.join(prod)$
+  // $#arr.join(prodsym)$
   $#h(0.16em, weak: true)#arr.join(prod)$
 }
 #let dd = differential
@@ -666,21 +646,16 @@
   }
 }
 
-#let derivative(f, ..sink) = {
+// Ordinary derivative.
+#let derivative(f, ..args, d: none, style: none) = {
   if f == [] { f = none } // Convert empty content to none
-
-  let (args, kwargs) = (sink.pos(), sink.named()) // array, dictionary
-  assert(args.len() > 0, message: "variable name expected")
-
-  let d = kwargs.at("d", default: $upright(d)$)
-  let style = kwargs.at("style", default: kwargs.at("s", default: none))
-
+  assert(args.pos().len() >= 1, message: "expecting at least one argument")
+  let d = if d == none { $upright(d)$ } else { d }
   let var = args.at(0)
-  assert(args.len() >= 1, message: "expecting at least one argument")
 
-  if args.len() >= 2 {
+  if args.pos().len() >= 2 {
     // i.e. specified the order
-    let order = args.at(1) // Not necessarily representing a number
+    let order = args.pos().at(1) // Not necessarily representing a number
     let upper = $#d^#order$
     let varorder = __combine_var_order(var, order)
     __derivative_display(upper, f, $#d#varorder$, style)
@@ -692,13 +667,14 @@
 }
 #let dv = derivative
 
-#let partialderivative(..sink) = {
-  let (args, kwargs) = (sink.pos(), sink.named()) // array, dictionary
-  assert(args.len() >= 2, message: "expecting one function name and at least one variable name")
-
-  let f = args.at(0)
+// Partial derivative, with automatic order summation.
+#let partialderivative(f, ..args, total: none, d: none, style: none) = {
   if f == [] { f = none } // Convert empty content to none
-  let var_num = args.len() - 1
+  let args = args.pos()
+  assert(args.len() >= 1, message: "expecting at least one variable name")
+  let d = if d == none { sym.partial } else { d }
+
+  let var_num = args.len()
   let orders = ()
   let default_order = [1] // a Content holding "1"
 
@@ -725,20 +701,16 @@
     difference -= 1
   }
 
-  let total_order = none // any type, could be a number
-  // Do not use kwargs.at("total", default: ...), so as to avoid unnecessary
-  // premature evaluation of the default param.
-  total_order = if "total" in kwargs {
-    kwargs.at("total")
-  } else {
+  // The total order. It could be any type, could be a number
+  let total = if total == none {
     __bare_minimum_effort_symbolic_add(orders)
+  } else {
+    total
   }
-
-  let d = kwargs.at("d", default: $partial$)
 
   let lowers = ()
   for i in range(var_num) {
-    let var = args.at(1 + i) // 1st element is the function name, skip
+    let var = args.at(i)
     let order = orders.at(i)
     if order == [1] {
       lowers.push($#d#var$)
@@ -748,14 +720,13 @@
     }
   }
 
-  let upper = if total_order != 1 and total_order != [1] {
+  let upper = if total != 1 and total != [1] {
     // number or Content
-    $#d^#total_order$
+    $#d^#total$
   } else {
     $#d$
   }
 
-  let style = kwargs.at("style", default: kwargs.at("s", default: none))
   __derivative_display(upper, f, lowers.join(), style)
 }
 #let pdv = partialderivative
@@ -852,14 +823,12 @@
   document
 }
 
-#let tensor(T, ..sink) = {
-  let args = sink.pos()
-
+#let tensor(symbol, ..args) = {
   let (uppers, lowers) = ((), ()) // array, array
   let hphantom(s) = { hide($#s$) } // Like Latex's \hphantom
 
-  for i in range(args.len()) {
-    let arg = args.at(i)
+  for i in range(args.pos().len()) {
+    let arg = args.pos().at(i)
     let tuple = if type(arg) == content and arg.has("children") {
       if arg.children.at(0) in ([+], [#math.plus], [-], [#sym.minus]) {
         arg.children
@@ -872,14 +841,14 @@
     assert(type(tuple) == array, message: "shall be array")
 
     let pos = tuple.at(0)
-    let symbol = tuple.slice(1).join()
+    let index = tuple.slice(1).join()
 
     if pos == [#math.plus] {
-      let rendering = $#symbol$
+      let rendering = $#index$
       uppers.push(rendering)
       lowers.push(hphantom(rendering))
     } else {
-      let rendering = $#symbol$
+      let rendering = $#index$
       uppers.push(hphantom(rendering))
       lowers.push(rendering)
     }
@@ -890,21 +859,21 @@
   // Use a phantom with zwj (zero-width word joiner) to vertically align the
   // starting points of the upper and lower indices. Also, we put T inside
   // the first argument of attach(), so that the indices' vertical position
-  // auto-adjusts with T's height.
-  math.attach((T, hphantom(sym.zwj)).join(), t: uppers.join(), b: lowers.join())
+  // auto-adjusts with the tenosr symbol's height.
+  math.attach((symbol, hphantom(sym.zwj)).join(), t: uppers.join(), b: lowers.join())
 }
 
-#let taylorterm(fn, xv, x0, idx) = {
+#let taylorterm(func, x, x0, idx) = {
   let maybeparen(expr) = {
     if __is_add_sub_sequence(expr) { $(expr)$ } else { expr }
   }
 
   if idx == [0] or idx == 0 {
-    $fn (x0)$
+    $func (x0)$
   } else if idx == [1] or idx == 1 {
-    $fn^((1)) (x0)(xv - maybeparen(x0))$
+    $func^((1)) (x0)(#x - maybeparen(x0))$
   } else {
-    $frac(fn^((idx)) (x0), maybeparen(idx) !)(xv - maybeparen(x0))^idx$
+    $frac(func^((idx)) (x0), maybeparen(idx) !)(#x - maybeparen(x0))^idx$
   }
 }
 

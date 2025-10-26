@@ -78,7 +78,7 @@ The version requirement for the compiler is in [typst.toml](typst.toml)'s
 will throw an error. You may want to update your compiler with `typst update`,
 or choose an earlier version of the `physica` package.
 
-Developed with compiler version 0.14 (see `typst --version`).
+Developed with Typst 0.14.0 (see `typst --version`).
 
 ## Manual
 
