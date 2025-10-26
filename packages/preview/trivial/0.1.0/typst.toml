@@ -9,5 +9,5 @@ repository = "https://github.com/mkorje/typst-trivial"
 keywords = ["theorem", "proof", "environment"]
 categories = ["components", "model"]
 disciplines = ["mathematics", "physics", "computer-science", "philosophy"]
-compiler = "0.14"
+compiler = "0.14.0"
 exclude = ["example.svg", "manual.pdf", "manual.typ"]
