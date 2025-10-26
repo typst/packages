@@ -1,7 +1,7 @@
 #import "const-state.typ": HANDOUTS, mode-state
 #let question(
   body,
-  body-indent: .88em,
+  body-indent: .85em,
   indent: 0pt,
   label: auto,
   label-color: luma(0),
