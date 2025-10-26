@@ -8,7 +8,7 @@ Minimum version of Typst: 0.14.0.
 
 ### Install from Typst Universe (Recommended)
 
-Additional Requirements:
+Additional requirements:
 
 - None
 
@@ -20,12 +20,12 @@ Just add this line to your Typst document:
 
 ### Install from Source
 
-Additional Requirements:
+Additional requirements:
 
 - [Zig 0.15.2](https://ziglang.org/download/#release-0.15.2)
 - wasm-opt (in [Binaryen](https://github.com/WebAssembly/binaryen))
 
-Build and Install:
+Build and install:
 
 ```sh
 # `~/.local/share/typst` on Linux and *BSD
@@ -171,7 +171,7 @@ Date,A,B,C
 
 Work together with Typst math equations:
 
-````typst
+````typ
 #import "@preview/neoplot:0.0.4" as gp
 
 #figure({
