@@ -34,3 +34,7 @@ A Typst package for generating ORCID iD links in various formats. Inspired by La
 ## Documentation
 
 See the [manual](docs/manual.pdf) for complete documentation and examples.
+
+## License
+
+This package is licensed under the MIT License. See the repository for complete license information.
