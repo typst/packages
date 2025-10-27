@@ -143,6 +143,8 @@
 
 // == Braces
 
+// Use a semicolon to delimit the expression and condition,
+// e.g. Set(a_n), Set(a_i; forall i), Set(vec(1,n); forall n, n|2)
 #let Set(..args) = {
   let expr = args.pos().at(0, default: none)
   let cond = args.pos().at(1, default: none)
@@ -165,7 +167,7 @@
 #let order(expr) = $cal(o)(expr)$
 
 #let evaluated(expr) = {
-  $lr(zwj#expr|)$
+  $lr(zws#expr|)$
 }
 
 #let expectationvalue(..args) = {
@@ -856,11 +858,11 @@
 
   // Do not use "...^..._...", because the lower indices appear to be placed
   // slightly lower than a normal subscript.
-  // Use a phantom with zwj (zero-width word joiner) to vertically align the
+  // Use a phantom with zws (zero-width space) to vertically align the
   // starting points of the upper and lower indices. Also, we put T inside
   // the first argument of attach(), so that the indices' vertical position
   // auto-adjusts with the tenosr symbol's height.
-  math.attach((symbol, hphantom(sym.zwj)).join(), t: uppers.join(), b: lowers.join())
+  math.attach((symbol, hphantom(sym.zws)).join(), t: uppers.join(), b: lowers.join())
 }
 
 #let taylorterm(func, x, x0, idx) = {
