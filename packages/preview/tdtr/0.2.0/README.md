@@ -302,7 +302,7 @@ You might think the default edge drawing style is not suitable for your case, an
   draw-node: tidy-tree-draws.default-draw-node,
   draw-edge: tidy-tree-draws.default-draw-edge
 )[
-  ...
+  // ...
 ]
 ```
 
@@ -317,7 +317,7 @@ Default node and edge drawing functions are defined as follows:
   /// default function for drawing a node
   default-draw-node: (name, label, (i, j, k, x)) => 
     fletcher.node((x, i), [#label], name: name, shape: rect),
-  ...
+  // ...
   /// default function for drawing an edge
   default-draw-edge: ((from-name, from-label, (i1, j1, k1, x1)), (to-name, to-label, (i2, j2, k2, x2)), edge-label) => {
     if edge-label == none {
@@ -326,7 +326,7 @@ Default node and edge drawing functions are defined as follows:
       fletcher.edge(from-name, to-name, "-|>", box(fill: white, inset: 2pt)[#edge-label], label-sep: 0pt, label-anchor: "center")
     }
   },
-  ...
+  // ...
 )
 ```
 
@@ -345,7 +345,7 @@ You can also define your own drawing functions for nodes and edges.
 For `draw-node`, the function should have the following signature:
 
 ```typ
-(
+#draw-node(
   name: label, 
   label: any, 
   position: (
@@ -367,7 +367,7 @@ where
 For `draw-edge`, the function should have the following signature:
 
 ```typ
-(
+#draw-edge(
   from: (
     name: label, 
     label: any, 
@@ -403,7 +403,7 @@ where
 The main function provided by this package is `tidy-tree-graph`, which has the following signature:
 
 ```typ
-(
+#tidy-tree-graph(
   // main body of the diagram
   body: content | dictionary | array,
 
