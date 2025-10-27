@@ -302,7 +302,7 @@ You might think the default edge drawing style is not suitable for your case, an
   draw-node: tidy-tree-draws.default-draw-node,
   draw-edge: tidy-tree-draws.default-draw-edge
 )[
-  // ...
+  ...
 ]
 ```
 
@@ -345,7 +345,7 @@ You can also define your own drawing functions for nodes and edges.
 For `draw-node`, the function should have the following signature:
 
 ```typ
-#draw-node(
+(
   name: label, 
   label: any, 
   position: (
@@ -367,7 +367,7 @@ where
 For `draw-edge`, the function should have the following signature:
 
 ```typ
-#draw-edge(
+(
   from: (
     name: label, 
     label: any, 
@@ -403,7 +403,7 @@ where
 The main function provided by this package is `tidy-tree-graph`, which has the following signature:
 
 ```typ
-#tidy-tree-graph(
+(
   // main body of the diagram
   body: content | dictionary | array,
 
