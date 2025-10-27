@@ -4,7 +4,6 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen)](https://github.com/gbchu/ezexam/blob/main/LICENSE)
 [![Online Documentation](https://img.shields.io/badge/docs-online-007aff)](https://ezexam.pages.dev/)
 
-## Introduction
 This template is primarily designed to help Chinese university, primary, middle and high school teachers or students in creating exams or handouts.
 
 ## Example
