@@ -1,12 +1,13 @@
-# `ezexam`
+# ezexam
+
 ![Typst Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgbchu%2Fezexam%2Frefs%2Fheads%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/gbchu/ezexam/blob/main/LICENSE)
-
+[![Online Documentation](https://img.shields.io/badge/docs-online-007aff)](https://ezexam.pages.dev/)
 
 ## Introduction
 This template is primarily designed to help Chinese university, primary, middle and high school teachers or students in creating exams or handouts.
 
-## A brief usage
+## Example
 ```typst
 #import "@preview/ezexam:0.2.3": *
 #show: setup.with(
@@ -42,8 +43,6 @@ This template is primarily designed to help Chinese university, primary, middle 
 ......
 ```
 
-more details see [`Online Documentation`](https://ezexam.pages.dev/)
-
 ## Changelog
 ### 0 . 2 . 3
 + 为 `solution` 和 `question` 方法添加 `line-height` 参数；方便修改内容的行间距，特别是有较高的数学公式时。
@@ -51,7 +50,7 @@ more details see [`Online Documentation`](https://ezexam.pages.dev/)
 + 修改 `question` 方法在 `HANDOUTS` 模式下的题号样式
 + 修复 `solution` 在 Typst 的最新版 0.14.0 中题号显示的 bug
 + 优化 `paren` 方法，默认填写英文不再大写
-  
+
 ### 0 . 2 . 2
 + 调整正文默认字体，由原来的 `Source Han Serif` 修改为 `Noto Serif SC` 、 `Noto Serif CJK SC` （二者效果一样，主要是后者压缩后更小，方便上传网盘进行安装）。黑体添加 `Noto Sans SC` 和 `Noto Sans CJK SC` ；修复在 typst app 中应用模板时，字体显示的问题
 + 添加常量 `ROMAN` ，方便修改字体为新罗马风格的字体，更加符合常见的试卷排版格式
@@ -126,5 +125,4 @@ more details see [`Online Documentation`](https://ezexam.pages.dev/)
 + 修复 `choices` 方法中，若选项为图片时，设置宽度为百分比时，图片宽度无效的问题
 
 ### 0 . 1 . 0
-
 + 初版发布
