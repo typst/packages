@@ -9,4 +9,4 @@ compiler = "0.13.1"
 repository = "https://github.com/euwbah/intextual"
 keywords = ["intertext", "LaTeX", "llap", "rlap", "flush text", "flushed", "flush", "equation", "tag", "eqref"]
 categories = ["components", "model", "layout"]
-exclude = ["./example.pdf", "./example.typ", "./imgs"]
+exclude = ["./example.pdf", "./example.typ", "./imgs", "CHANGELOG.md"]

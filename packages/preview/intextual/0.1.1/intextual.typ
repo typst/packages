@@ -1,4 +1,3 @@
-
 #let current-left-bounds = state("current-left-bounds", 0pt)
 #let current-right-bounds = state("current-right-bounds", 0pt)
 
@@ -165,9 +164,9 @@
   if label-str == auto {
     label-str = label-prefix + "-" + {
       if body.at("text", default: none) != none {
-        body.text.replace(regex("[^0-9A-Za-z.-_]"), "").replace(regex("\\\\w+"), " ")
+        body.text.replace(regex("[^0-9A-Za-z.\-_]"), "").replace(regex("\\\\w+"), " ")
       } else {
-        repr(body).replace(regex("[^0-9A-Za-z.-_]"), "").replace(regex("\\\\w+"), " ")
+        repr(body).replace(regex("[^0-9A-Za-z.\-_]"), "").replace(regex("\\\\w+"), " ")
       }
     }
   }
@@ -182,7 +181,7 @@
 
 /// Similar to LaTeX's `\eqref`, creates a link to an equation created by `tag`.
 ///
-/// - label-str (str | label): The label (or label name string) to reference.
+/// - label-str (str | label | int): The label (or label name string) to reference. If the referenced equation has a label of the form `<eq-N>` for some integer N, e.g., if it was tagged with `#tag[(N)]` then just passing the integer N would also work.
 /// - args (content): Pass a `content` body to modify the displayed reference text.
 /// -> content
 #let eqref(
@@ -197,6 +196,8 @@
     label-str
   } else if type(label-str) == label {
     str(label-str)
+  } else if type(label-str) == int {
+    "eq-" + str(label-str)
   }
   let q = query(selector(label(label-str)).before(here()))
   assert(q.len() != 0, message: "Label does not exist: " + label-str)
