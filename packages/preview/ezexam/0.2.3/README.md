@@ -44,7 +44,7 @@ This template is primarily designed to help Chinese university, primary, middle 
 
 ## Changelog
 ### 0 . 2 . 3
-+ 为 `solution` 和 `question` 方法添加 `line-height` 参数；方便修改内容的行间距，特别是有较高的数学公式时。
++ 为 `solution` 和 `question` 方法添加 `line-height` 参数；方便修改内容的行间距
 + 优化 `fillin` 方法
 + 修改 `question` 方法在 `HANDOUTS` 模式下的题号样式
 + 修复 `solution` 在 Typst 的最新版 0.14.0 中题号显示的 bug
