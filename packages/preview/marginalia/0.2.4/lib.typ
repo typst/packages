@@ -609,13 +609,13 @@
   /// -> content
   body,
 ) = {
-  // let keep-order = if keep-order == auto { not numbered } else { keep-orders }
-  let shift = if shift == auto { if numbering != none { true } else { "avoid" } } else { shift }
-
   let numbering = if counter == none { none } else { numbering }
   if numbering != none { counter.step() }
   let flush-numbering = if flush-numbering == auto { anchor-numbering != auto } else { flush-numbering }
   let anchor-numbering = if anchor-numbering == auto { numbering } else { anchor-numbering }
+
+  // let keep-order = if keep-order == auto { not numbered } else { keep-orders }
+  let shift = if shift == auto { if numbering != none { true } else { "avoid" } } else { shift }
 
   let text-style = (size: 9.35pt, style: "normal", weight: "regular", ..text-style)
   let par-style = (spacing: 1.2em, leading: 0.5em, hanging-indent: 0pt, ..par-style)
