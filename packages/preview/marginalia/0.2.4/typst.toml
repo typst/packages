@@ -4,7 +4,7 @@ version = "0.2.4"
 entrypoint = "lib.typ"
 authors = ["nleanba <@nleanba>"]
 license = "Unlicense"
-description = "Configurable margin-notes and matching wide blocks."
+description = "Configurable margin-notes with smart positioning and matching wide-blocks."
 repository = "https://github.com/nleanba/typst-marginalia"
 keywords = [
   "margins",

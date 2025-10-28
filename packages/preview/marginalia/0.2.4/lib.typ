@@ -551,6 +551,9 @@
   /// - If ```typc auto```, will use the given @note.numbering.
   /// -> none | auto | function | string
   anchor-numbering: auto,
+  /// Whether to make have the anchor link to the note.
+  /// -> boolean
+  link-anchor: true,
   /// Counter to use for this note.
   /// Can be set to ```typc none``` do disable numbering this note.
   ///
@@ -658,10 +661,14 @@
       block-style
     }
 
+    let anchor = if anchor-numbering != none {
+      counter.display(anchor-numbering)
+    } else []
+
     let body = align(top, block(width: 100%, ..block-style, {
       set text(..text-style)
       set par(..par-style)
-      body
+      [#metadata((note: true, anchor: anchor))<_marginalia_note>#body]
     }))
 
     let dy-adjust = if alignment == "baseline" {
@@ -683,10 +690,64 @@
     h(0pt, weak: true)
     box({
       if anchor-numbering != none {
-        counter.display(anchor-numbering)
+        if link-anchor {
+          show link: it => {
+            show underline: i => i.body
+            it
+          }
+          let dest = query(selector(<_marginalia_note>).after(here()))
+          if dest.len() > 0 {
+            link(dest.first().location(), anchor)
+          } else {
+            anchor
+          }
+        } else {
+          anchor
+        }
       }
       place-note(side: side, dy: dy, keep-order: keep-order, shift: shift, body)
     })
+  }
+}
+
+/// Reference a nearby margin note. Will place the same anchor as that note had.
+///
+/// Be aware that notes without an anchor still count for the offset, but the rendered link is empty.
+///
+/// #example(scale-preview: 100%, ```typ
+///   This is a note: #note[Blah Blah]
+///
+///   This is a link to that note:
+///     #marginalia.ref(-1)
+///
+///   This is an unnumbered note:
+///     #note(counter: none)[Blah Blah]
+///
+///   This is a useless link to that note:
+///     #marginalia.ref(-1)
+///   ```)
+#let ref(
+  /// How many notes away the target note is.
+  /// - ```typc -1```: The previous note.
+  /// - ```typc 0```: Disallowed
+  /// - ```typc 1```: The next note.
+  /// -> integer
+  offset,
+) = context {
+  h(0pt, weak: true)
+  show link: it => {
+    show underline: i => i.body
+    it
+  }
+  assert(offset != 0, message: "marginalia.ref offset must not be 0.")
+  if offset > 0 {
+    let dest = query(selector(<_marginalia_note>).after(here()))
+    assert(dest.len() > offset, message: "Not enough notes after this to reference")
+    link(dest.at(offset - 1).location(), dest.at(offset - 1).value.anchor)
+  } else {
+    let dest = query(selector(<_marginalia_note>).before(here()))
+    assert(dest.len() > -offset, message: "Not enough notes after this to reference")
+    link(dest.at(offset).location(), dest.at(offset).value.anchor)
   }
 }
 
