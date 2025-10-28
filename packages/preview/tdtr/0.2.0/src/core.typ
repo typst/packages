@@ -259,12 +259,12 @@
 }
 
 /*
-  collect edge labels from a normalized tree when drawing as a tidy tree
+  construct an empty tree of edges with the same structure as a normalized tree
   - input:
     - `tree`: a normalized tree represented by a three-dimensional array
       - see `tidy-tree-normalize` for the format
   - output:
-    - `ret`: a simplified tree with each node replaced with the label of the edge pointing to it, specially, if the edge has no label, use `none`
+    - `ret`: a normalized tree of edges represented by a three-dimensional array
       - see `tidy-tree-edges-from-list` for the format
 */
 #let tidy-tree-edges-empty(tree) = {
@@ -293,7 +293,7 @@
               - today
         ```
   - output:
-    - `ret`: a simplified tree with each node replaced with the label of the edge pointing to it, specially, if the edge has no label, use `none`
+    - `ret`: a simplified tree of edges represented by a three-dimensional array, if no edge label, use `none`
       - e.g.
         ```txt
                       Hello
@@ -511,6 +511,8 @@
   - input:
     - `tree`: a normalized tree represented by a three-dimensional array
       - see `tidy-tree-normalize` for the format
+    - `tree-edges`: a normalized tree of edges represented by a three-dimensional array
+      - see `tidy-tree-edges-from-list` for the format
     - `xs`: the same structure as `tree`, but each node is replaced by its horizontal axis position
       - see `tidy-tree-xs` for the format
     - `draw-node`: function for drawing a node, default to a rectangle node
@@ -688,6 +690,8 @@
     // not supported yet for other types
     tidy-tree-edges-empty(tree)
   }
+  // cast a simplified tree of edges into a normalized tree of edges
+  let tree-edges = tidy-tree-normalize(tree-edges)
 
   // calculate the horizontal axis position of every node
   let (xs, _) = tidy-tree-xs(tree, min-gap: min-gap)
