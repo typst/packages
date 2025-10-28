@@ -25,7 +25,7 @@ documentation and decide which is more fitting for your use.
 index.typ:
 
 ```typst
-#import "@preview/gantty:0.5.0": gantt
+#import "@preview/gantty:0.5.1": gantt
 
 #gantt(yaml("gantt.yaml"))
 ```
