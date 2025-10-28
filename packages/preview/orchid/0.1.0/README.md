@@ -21,6 +21,7 @@ A Typst package for generating ORCID iD links in various formats. Inspired by La
 // Full format (shows the complete URL)
 #orchid.generate-link(my-id, format: "full")
 #orchid.generate-link(my-id, format: "full", name: my-name)
+
 ```
 
 ## Features
@@ -37,4 +38,4 @@ See the [manual](docs/manual.pdf) for complete documentation and examples.
 
 ## License
 
-This package is licensed under the MIT License. See the repository for complete license information.
+This package is licensed under the [MIT License](https://github.com/jassielof/typst-packages?tab=MIT-1-ov-file). See the repository for complete license information.
