@@ -1,4 +1,4 @@
-#import "@preview/tictactoe:1.0.0" as ttt
+#import "@preview/cross-circle:1.0.0" as cross-circle
 
 
 #set page(paper: "a5", margin: 5mm, flipped: true, background: {
@@ -19,13 +19,13 @@
 #show link: set text(blue)
 
 #grid(columns: (1fr,1fr), stroke: (bottom: orange), inset: (bottom: 0.5em), align: (left+top,bottom+right),[
-  = Tic Tac Toe #text(0.6em, weight: "regular")[v1.0.0]
+  = Cross'n'Circles #text(0.6em, weight: "regular")[v1.0.0]
   #text(0.7em)[A short guide on how to use this debate resolving toolbox]
 ],[
   #set text(0.9em)
   created by Joel\
-  #link("https://codeberg.org/joelvonrotz/typst-tictactoe")[Source Code],
-  #link("https://typst.app/universe/package/tictactoe")[Typst Universe]
+  #link("https://codeberg.org/joelvonrotz/typst-cross-circle")[Source Code],
+  #link("https://typst.app/universe/package/cross-circle")[Typst Universe]
 ])
 
 
@@ -38,7 +38,7 @@
 1. Import the package
 
 ```typ
-#import "@preview/tictactoe:1.0.0": tictactoe
+#import "@preview/cross-circle:1.0.0": cross-circle
 ```
 
 
@@ -47,7 +47,7 @@
 1. Start a game
 
 ```typst
-#let game = tictactoe[]
+#let game = cross-circle[]
 ```
 
 2. Draw the field (centering optional)
@@ -73,7 +73,7 @@
 4. Play the game -- each *valid* entry changes the current player to the other!
 
 ```typ
-#let game = tictactoe[124123]
+#let game = cross-circle[124123]
 ```
 
 #block(stroke: orange+0.5pt, inset: 0.3em, radius: 3pt )[
@@ -85,7 +85,7 @@
 The example (Steps 1-4) applied, results in:
 
 #block(width: 100%, above: 0.5em, below: 1.5em, inset: 0.4em, stroke: gray+0.5pt, radius: 0.24em)[
-  #let game = ttt.tictactoe[124123]
+  #let game = cross-circle.cross-circle[124123]
   #align(center,game.field)
   #if game.winner != none {
     [Player #game.winner won!]
@@ -97,7 +97,7 @@ The example (Steps 1-4) applied, results in:
 And in case of a winner `[12437]`:
 
 #block(width: 100%, above: 0.5em, below: 0.5em, inset: 0.4em, stroke: gray+0.5pt, radius: 0.24em)[
-  #let game = ttt.tictactoe[12437]
+  #let game = cross-circle.cross-circle[12437]
   #align(center,game.field)
   #if game.winner != none {
     [Player #game.winner won!]
@@ -118,13 +118,13 @@ And in case of a winner `[12437]`:
 / `height`: The height of the whole game field \ _default_: #raw(`3cm`.text,lang: "typc")
 
 ```typst
-#ttt.tictactoe(
+#cross-circle.cross-circle(
   width: 6cm,
   height: 2cm
 )[].field
 ```
 
-#ttt.tictactoe(width: 5cm, height: 2cm)[].field
+#cross-circle.cross-circle(width: 5cm, height: 2cm)[].field
 
 === Change Player Icons
 
@@ -138,13 +138,13 @@ _default_: #raw(`(
 #colbreak()
 
 ```typst
-#ttt.tictactoe(icons: (
+#cross-circle.cross-circle(icons: (
     emoji.cat, emoji.dog
   )
 )[..].field
 ```
 
-#ttt.tictactoe(icons: (
+#cross-circle.cross-circle(icons: (
     emoji.cat, emoji.dog
   )
 )[1234578].field
@@ -160,7 +160,7 @@ _default_: #raw(`(
 )`.text,lang: "typc")
 
 ```typst
-#ttt.tictactoe(
+#cross-circle.cross-circle(
   color: (
     player1: purple,
     player2: blue,
@@ -171,13 +171,13 @@ _default_: #raw(`(
 
 #columns(2)[
   
-  #ttt.tictactoe(color: (
+  #cross-circle.cross-circle(color: (
       player1: purple,
       player2: blue
     )
   )[12457].field
   #colbreak()
-  #ttt.tictactoe(color: (
+  #cross-circle.cross-circle(color: (
       player1: purple,
       player2: blue
     )
@@ -186,7 +186,7 @@ _default_: #raw(`(
 ]
 #align(center,[
   
-#ttt.tictactoe(color: (
+#cross-circle.cross-circle(color: (
     player1: purple,
     player2: blue,
     draw: aqua
@@ -199,30 +199,30 @@ _default_: #raw(`(
 / `helper`: draws field numbers into empty fields for easier play.#h(1fr)_default_: #raw(`true`.text,lang:"typc")
 
 ```typst
-#ttt.tictactoe(
+#cross-circle.cross-circle(
   helper: false
 )[..].field
 ```
 
 #columns(2)[
 `helper: true`
-#ttt.tictactoe(helper: true)[167829].field  
+#cross-circle.cross-circle(helper: true)[167829].field  
 
 #colbreak()
 
 `helper: false`
-#ttt.tictactoe(helper: false)[167829].field
+#cross-circle.cross-circle(helper: false)[167829].field
 ]
 
-== What `tictactoe()[]` returns
+== What `cross-circle()[]` returns
 
-The function #raw(lang: "typc","tictactoe[]()") returns three parameters all the time:
+The function #raw(lang: "typc","cross-circle[]()") returns three parameters all the time:
 
 / `field`: the current playing field in a #raw(`#box(..)`.text,lang:"typst") environment. Gets updated automatically to the current state. Only the steps up until a winner is determined are rendered. After that helper numbers are removed and the game is essentially locked.
 / `winner`: once the game is complete, the #underline[winner player's icon] is returned *or* #underline[in case of a draw #raw(`"draw"`.text, lang: "typc")] is returned. In other cases, #raw(`none`.text,lang: "typc") is returned.
 / `current`: the current player's turn. The respective icon is returned.
 
-This should be enough to for example build _Ultimate TicTacToe_.
+This should be enough to for example build _Ultimate cross-circle_.
 
 
 #v(1fr)
