@@ -258,10 +258,60 @@
   tree
 }
 
+/*
+  collect edge labels from a normalized tree when drawing as a tidy tree
+  - input:
+    - `tree`: a normalized tree represented by a three-dimensional array
+      - see `tidy-tree-normalize` for the format
+  - output:
+    - `ret`: a simplified tree with each node replaced with the label of the edge pointing to it, specially, if the edge has no label, use `none`
+      - see `tidy-tree-edges-from-list` for the format
+*/
 #let tidy-tree-edges-empty(tree) = {
   tree.map((level) => level.map((children) => children.map(_ => none)))
 }
 
+/*
+  collect edge labels from a list or enum
+  - input:
+    - `body`: a content with a list or enum
+      - e.g.
+        ```typ
+          - Hello
+            + a
+            - World
+              - How
+              - are
+              + d
+              - you
+            + b
+            - !
+            + c
+            - Like you
+              + e
+              - doing
+              - today
+        ```
+  - output:
+    - `ret`: a simplified tree with each node replaced with the label of the edge pointing to it, specially, if the edge has no label, use `none`
+      - e.g.
+        ```txt
+                      Hello
+                    /   |   \
+                    a   b    c
+                  /     |     \
+                World   !    Like you
+              /  |  \         /    \
+             /   |   d       e      \
+            /    |    \     /        \
+           How  are   you doing    today
+          let tree = (
+            ((none, ), ),
+            (("a", "b", "c"), ),
+            ((none, none, "d"), (), ("e", )),
+          )
+        ```
+*/
 #let tidy-tree-edges-from-list(body) = {
   // cast a list or enum to a tree structure
   let collect-tree-edges(body, title: none) = {
