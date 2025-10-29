@@ -1,4 +1,4 @@
-#import "@preview/ufsc-thesis:0.1.3": *
+#import "@preview/ufscholar:0.1.3": *
 
 = Desenvolvimento
 

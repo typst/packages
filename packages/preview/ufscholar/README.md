@@ -1,4 +1,4 @@
-# UFSC Thesis
+# UFSCholar
 
 <center>
   Write ABNT-compliant thesis and dissertations for works at UFSC
@@ -10,7 +10,7 @@
 Create the cover and few following pages, and configure the document, by writing
 
 ```typst
-#import "@preview/ufsc-thesis:0.1.3": *
+#import "@preview/ufscholar:0.1.3": *
 
 #show: thesis.with(
   title: [Title of the dissertation\ Can be broken into two lines],

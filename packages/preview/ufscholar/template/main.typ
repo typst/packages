@@ -1,4 +1,4 @@
-#import "@preview/ufsc-thesis:0.1.3": *
+#import "@preview/ufscholarthesis:0.1.3": *
 
 #let acronyms = (
   (
