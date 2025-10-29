@@ -1,4 +1,4 @@
-![left side is a tic tac toe field and on the right is the title "Tic Tac Toe" with the description "Solve any conflict with a game of competitive tic-tac-toe." and a minimal example on using the library.](docs/banner.png)
+![left side is a tic tac toe field and on the right is the title "Tic Tac Toe" with the description "Solve any conflict with a game of competitive tic-tac-toe." and a minimal example on using the library.](./docs/banner.png)
 
 # typst-tictactoe ❌🟢
 
@@ -32,8 +32,8 @@ By default field indexes are shown to help you see, which numbers are left. Just
 
 Basic filtering such as duplicate purging is done before hand. Only numbers are considered and each valid entry will be assigned to the respective player!
 
-For more information, just head to the [manual.pdf](/manual/manual.pdf), there customization and a complete working example with current player indicator and winner display is shown!
+For more information, just head to the [manual.pdf](./manual/manual.pdf), there customization and a complete working example with current player indicator and winner display is shown!
 
 ## Customization
 
-Head to the [manual.pdf](/manual/manual.pdf)
+Head to the [manual.pdf](./manual/manual.pdf)
