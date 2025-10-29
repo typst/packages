@@ -217,7 +217,7 @@ As an example, let us look at a simplified definition of the `bar` mark.
 
 #let bar(
   // mandatory, will be set by line(), path() and arc()
-  line: stroke() 
+  line: stroke(),
   // optional configuration parameters
   width: 2.4pt + 360%, 
   stroke: auto, 
