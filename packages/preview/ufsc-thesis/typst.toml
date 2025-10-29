@@ -1,0 +1,14 @@
+[package]
+name = "ufsc-thesis"
+version = "0.1.3"
+authors = [ "Marcelo Vogt" ]
+entrypoint = "lib.typ"
+categories = [ "thesis", "layout" ]
+disciplines = [ "engineering", "education" ]
+license = "MIT"
+description = "ABNT-compliant thesis and dissertations for works at UFSC"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,104 @@
+[conf]
+default-lang = "en"
+
+[lang.en]
+abstract = "Abstract"
+glossary-acronyms = "List of Abbreviations and Acronyms"
+glossary-symbols = "List of Symbols"
+annex = "Annex"
+appendix = "Appendix"
+acknowledgments = "Acknowledgments"
+source = "Source"
+figures = "List of Figures"
+tables = "List of Tables"
+board = "Examining Board"
+disclaimer = "Disclaimer"
+chapter = "Chapter"
+part = "Part"
+
+[lang.pt]
+abstract = "Resumo"
+glossary = "Lista de Abreviaturas e Siglas"
+annex = "Anexo"
+appendix = "Apêndice"
+acknowledgments = "Agradecimentos"
+source = "Fonte"
+
+board = "Banca Examinadora"
+disclaimer = "Isenção de Responsabilidade"
+chapter = "Capítulo"
+part = "Parte"
+
+# The following are AI translations, and may contain errors:
+
+[lang.es]
+abstract = "Resumen"
+glossary = "Glosario"
+annex = "Anexo"
+appendix = "Apéndice"
+acknowledgments = "Agradecimientos"
+source = "Fuente"
+
+[lang.fr]
+abstract = "Résumé"
+glossary = "Glossaire"
+annex = "Annexe"
+appendix = "Appendice"
+acknowledgments = "Remerciements"
+source = "Source"
+
+[lang.it]
+abstract = "Riassunto"
+glossary = "Glossario"
+annex = "Annesso"
+appendix = "Appendice"
+acknowledgments = "Ringraziamenti"
+source = "Fonte"
+
+[lang.de]
+abstract = "Zusammenfassung"
+glossary = "Glossar"
+annex = "Anhang"
+appendix = "Anhang"
+acknowledgments = "Danksagungen"
+source = "Quelle"
+
+[lang.id]
+abstract = "Abstrak"
+glossary = "Glosarium"
+annex = "Lampiran"
+appendix = "Lampiran"
+acknowledgments = "Ucapan Terima Kasih"
+source = "Sumber"
+
+[lang.tr]
+abstract = "Özet"
+glossary = "Sözlük"
+annex = "Ek"
+appendix = "Ek"
+acknowledgments = "Teşekkürler"
+source = "Kaynak"
+
+[lang.ro]
+abstract = "Rezumat"
+glossary = "Glosar"
+annex = "Anexă"
+appendix = "Apéndice"
+acknowledgments = "Mulțumiri"
+source = "Sursă"
+
+[lang.nl]
+abstract = "Samenvatting"
+glossary = "Glossarium"
+annex = "Bijlage"
+appendix = "Appendix"
+acknowledgments = "Dankbetuigingen"
+source = "Bron"
+
+[lang.pl]
+abstract = "Streszczenie"
+glossary = "Glosariusz"
+annex = "Aneks"
+appendix = "Dodatek"
+acknowledgments = "Podziękowania"
+source = "Źródło"
