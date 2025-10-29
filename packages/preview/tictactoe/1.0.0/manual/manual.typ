@@ -10,7 +10,7 @@
 #set enum(numbering: (x)=> strong[Step #x:])
 
 #show heading.where(level:2): it => [
-  #block(width: 100%, stroke: (bottom: (paint: orange.lighten(40%), dash: "dashed")),inset: (bottom: 0.4em), [#text(sym.diamond.filled.small, orange) #it.body])
+  #block(width: 100%, stroke: (bottom: (paint: orange.lighten(40%), dash: "dashed")),inset: (bottom: 0.4em), [#text(sym.diamond.filled, 0.7em, baseline: -1.5pt, orange) #it.body])
 ]
 
 
