@@ -1,1 +1,0 @@
-#import "lib.typ": tictactoe

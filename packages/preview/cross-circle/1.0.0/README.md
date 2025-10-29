@@ -1,12 +1,12 @@
-![left side is a tic tac toe field and on the right is the title "Tic Tac Toe" with the description "Solve any conflict with a game of competitive tic-tac-toe." and a minimal example on using the library.](./docs/banner.png)
+![left side is a tic tac toe field and on the right is the title "Cross'n'Circles" with the description "Solve any conflict with a game of competitive cross'n'circle (aka. tic tac toe))." and a minimal example on using the library.](./docs/banner.png)
 
-# typst-tictactoe ❌🟢
+# Cross Circle ❌🟢
 
 
 
 Ever had a heated debate on how to format the class summary? Or using letter format instead of A4 (may god have mercy with you).
 
-Fear not, a convoluted implementation of Tic-Tac-Toe is here!
+Fear not, a convoluted implementation of Cross'n'Circles (aka. Tic Tac Toe) is here!
 
 ## Set it up
 
@@ -22,7 +22,7 @@ or if you use it locally:
 
 ## Playing it
 
-Playing Tic-Tac-Toe is easily: you gotta win and your opponent has to lose! For the exact details and a history lesson, head over to the [Wikipedia article](https://en.wikipedia.org/wiki/Tic-tac-toe) on this fantastic game!
+Playing Cross'n'Circles is easily: you gotta win and your opponent has to lose! For the exact details and a history lesson, head over to the [Wikipedia article](https://en.wikipedia.org/wiki/Tic-tac-toe) on this fantastic game!
 
 By default field indexes are shown to help you see, which numbers are left. Just type the number of the field you wish to see your icon in and it should show up. So just call the function as following and write your coordinates in the `[..]`.
 

@@ -42,9 +42,9 @@
 )
 
 
-/// Play tictactoe. The function returns 0 if there are no winner so far, 1 for player 1, 2 for player 2 and 3 for tie
+/// Play tictactoe (or non-canonical cross-circle). The function returns 0 if there are no winner so far, 1 for player 1, 2 for player 2 and 3 for tie
 ///
-#let tictactoe(input, width: 3cm, height: 3cm, helper: true, icons: (
+#let cross-circle(input, width: 3cm, height: 3cm, helper: true, icons: (
   emoji.crossmark, emoji.circle.green
 ), color: (player1: rgb("#dd2e44"), player2: rgb("#78b159"), draw: orange)) = {
 
