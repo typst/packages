@@ -27,7 +27,7 @@ Playing Cross'n'Circles is easily: you gotta win and your opponent has to lose! 
 By default field indexes are shown to help you see, which numbers are left. Just type the number of the field you wish to see your icon in and it should show up. So just call the function as following and write your coordinates in the `[..]`.
 
 ```typst
-#tictactoe[123679].field
+#cross-circle[123679].field
 ```
 
 Basic filtering such as duplicate purging is done before hand. Only numbers are considered and each valid entry will be assigned to the respective player!
