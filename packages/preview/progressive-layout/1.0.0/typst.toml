@@ -1,0 +1,12 @@
+[package]
+name = "progressive-layout"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["David Hajage <dhajage@gmail.com>"]
+description = "A Typst function to display a dynamic table of contents, inspired by LaTeX's Beamer class."
+license = "MIT"
+keywords = ["outline", "table of contents", "presentation", "dynamic"]
+compiler = "0.11.0"
+
+[source]
+url = "https://github.com/eusebe/progressive-layout"
