@@ -1,6 +1,5 @@
 # `ucph-nielsine-touying`
 
-Slide template built on Touying for the University of Copenhagen.
 
 _This theme is **NOT** affiliated with the University of Copenhagen. The logo is the property of the University of Copenhagen._
 
