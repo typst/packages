@@ -47,8 +47,8 @@ This package also contains a simple template, `progressive-layout`, which shows 
 
 This package includes two files to demonstrate its usage:
 
--   [`example.typ`](./example.typ): This file shows how the `progressive-outline` function works with different options.
--   [`demo.typ`](./demo.typ): This file provides an example of how to use the `progressive-layout` template.
+-   [`example.typ`](https://github.com/eusebe/progressive-layout/blob/main/example.typ): This file shows how the `progressive-outline` function works with different options.
+-   [`demo.typ`](https://github.com/eusebe/progressive-layout/blob/main/demo.typ): This file provides an example of how to use the `progressive-layout` template.
 
 ## `progressive-outline` Parameters
 
