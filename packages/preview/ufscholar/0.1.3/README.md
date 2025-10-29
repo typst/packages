@@ -71,5 +71,4 @@ This project was based on [min-article](https://github.com/mayconfmelo/min-artic
 
 ## More Information
 
-- [Example PDF result](https://raw.githubusercontent.com/mayconfmelo/min-article/refs/tags/0.1.0/docs/pdf/example.pdf)
-- [Example Typst code](https://github.com/MarkV43/ufsc-thesis-typst/blob/main/template/main.typ)
+- [Example Typst code](https://github.com/MarkV43/ufscholar/blob/main/template/main.typ)

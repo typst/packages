@@ -1,4 +1,4 @@
-#import "@preview/ufscholarthesis:0.1.3": *
+#import "@preview/ufscholar:0.1.3": *
 
 // #part[Pesquisa]
 
