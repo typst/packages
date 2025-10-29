@@ -11,13 +11,13 @@ Fear not, a convoluted implementation of Cross'n'Circles (aka. Tic Tac Toe) is h
 ## Set it up
 
 ```typst
-#import "@preview/tictactoe:1.0.0": tictactoe
+#import "@preview/cross-circle:1.0.0": cross-circle
 ```
 
 or if you use it locally:
 
 ```typst
-#import "/path/to/tictactoe.typ": tictactoe
+#import "/path/to/cross-circle.typ": cross-circle
 ```
 
 ## Playing it

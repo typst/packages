@@ -4,7 +4,6 @@ version = "1.0.0"
 entrypoint = "cross-circle.typ"
 authors = [ "Joel von Rotz <https://joelvonrotz.ch/>"]
 categories = [ "fun", "utility", "visualization" ]
-disciplines = [ "communication" ]
 description = "A rather convoluted implementation of cross'n'circle (aka. tic tac toe). Customize it to your hearts content!"
 license = "EUPL-1.2"
 repository = "https://codeberg.org/joelvonrotz/typst-cross-circle"
