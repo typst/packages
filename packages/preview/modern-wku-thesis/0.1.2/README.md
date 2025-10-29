@@ -41,7 +41,7 @@ The function also accepts a single, positional argument for the body of the thes
 ## Example
 
 ```typ
-#import "@preview/modern-wku-thesis:0.1.0": graduate-thesis
+#import "@preview/modern-wku-thesis:0.1.2": graduate-thesis
 
 #show: graduate-thesis.with(
   title: [Automatic Visualization of Traceability Information],
