@@ -2,10 +2,10 @@
 name = "larrow"
 version = "1.0.0"
 entrypoint = "larrow.typ"
-authors = ["@Mambouna"]
+authors = ["Mambouna <@Mambouna> <https://github.com/Mambouna>"]
 license = "MPL-2.0"
 description = "Draw and style arrows between labels."
 repository = "https://github.com/Mambouna/larrow"
-keywords = ["arrow", "arrows", "label", "labels"]
+keywords = ["arrow", "arrows", "label", "labels", "connect", "connection"]
 categories = ["Components", "Visualization", "Utility"]
 exclude = ["example"]
