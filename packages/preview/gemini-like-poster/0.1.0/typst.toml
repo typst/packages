@@ -11,3 +11,4 @@ exclude = ["history/*"]
 
 [template]
 path = "main.typ"
+entrypoint = "main.typ"
