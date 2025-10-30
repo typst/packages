@@ -6,9 +6,9 @@ license = "MIT"
 description = "Gemini-like Poster Template for Typst."
 repository = "https://github.com/taka255/gemini-like-poster"
 keywords = ["poster", "template"]
-exclude = ["history/*"]
 
 [template]
 path = "main.typ"
 entrypoint = "main.typ"
 thumbnail = "gallery/steel-blue-en.png"
+exclude = ["history/*"]
