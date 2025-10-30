@@ -2,7 +2,7 @@
 name = "resumania"
 version = "1.0.0"
 entrypoint = "src/lib.typ"
-authors = ["Casey Walker <kcmw3e>"]
+authors = ["Casey Walker <@kcmw3e>"]
 license = "MIT"
 description = "Procedural resume building."
 repository = "https://github.com/kcmw3e/resumania"
