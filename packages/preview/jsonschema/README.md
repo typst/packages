@@ -7,7 +7,7 @@ and WebAssembly.
 
 This package provides JSON Schema validation capabilities in Typst documents. It
 uses a WASM-compiled Rust implementation based on the `jsonschema` crate to
-validate JSON data against JSON Schema specifications (draft 7 and later).
+validate JSON data against JSON Schema specifications.
 
 ## Installation
 
