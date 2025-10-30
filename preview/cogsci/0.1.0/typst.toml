@@ -24,11 +24,7 @@ keywords = [
 categories = ["paper"]
 disciplines = ["psychology", "computer-science", "linguistics"]
 compiler = "0.14.0"
-exclude = [
-    "README.md",
-    "thumbnail-anonymized.png",
-    "thumbnail.png",
-]
+exclude = []
 
 [template]
 path = "template"
