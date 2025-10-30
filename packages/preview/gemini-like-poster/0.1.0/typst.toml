@@ -1,14 +1,16 @@
 [package]
 name = "gemini-like-poster"
 version = "0.1.0"
+compiler = "0.13.1"
+entrypoint = "package.typ"
 authors = ["Kaito Takanami"]
 license = "MIT"
-description = "Gemini-like Poster Template for Typst."
+description = "A clean and minimal academic poster template inspired by Gemini."
+keywords = ["poster", "template", "academic"]
+categories = ["poster"]
 repository = "https://github.com/taka255/gemini-like-poster"
-keywords = ["poster", "template"]
 
 [template]
-path = "main.typ"
+path = "."
 entrypoint = "main.typ"
 thumbnail = "gallery/steel-blue-en.png"
-exclude = ["history/*"]

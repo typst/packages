@@ -1,6 +1,4 @@
-#import "style/boxes.typ": *
-#import "style/layouts.typ": *
-#import "style/themes.typ": *
+#import "@preview/gemini-like-poster:0.1.0": *
 
 // theme
 // use default theme
