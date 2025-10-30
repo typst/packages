@@ -25,7 +25,7 @@ To generate the PDF:
 typst compile main.typ main.pdf
 ```
 
-It's recommended that you use a PDF standard, e.g. `a-3u`:
+It's recommended that you use a [PDF standard](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types.html) to ensure that the PDF is searchable, e.g. `a-3u`:
 
 ```shell
 typst compile --pdf-standard a-3u main.typ main.pdf
@@ -47,13 +47,49 @@ If you're using Typst locally (rather than the web app), I highly recommend tryi
 
 ## Key Parameters
 
-- **`anonymize`**: Set to `true` for blind review submissions (hides author information), `false` for final camera-ready submissions.
+The `cogsci()` function accepts the following parameters:
 
-- **`authors`**: Accepts formatted text content. The template provides `format-authors()` to format author dictionaries with `name`, `email`, and `affiliation` fields, but you can also provide your own custom formatted content.
+### Document Metadata
 
-- **`bibliography`**: Accepts the formatted output of Typst's `bibliography()` function. Pass it a BibLaTeX file (`.bib`), not a BibTeX file. The template applies CogSci-specific formatting to the bibliography.
+- **`title`** (content): The paper title. Required for proper display.
 
-- **`hyphenate`**: Set to `false` to disable hyphenation throughout the document (useful for spell-checking). Default is `true`.
+- **`authors`** (content): Pre-formatted author information. The template exports a `format-authors()` helper function that accepts an array of author dictionaries with keys `name`, `email`, and `affiliation`. You can also provide your own custom formatted content if you need different styling.
+
+  ```typst
+  #let authors = (
+    (name: [Jane Doe], email: "jane@example.edu", affiliation: [University]),
+    (name: [John Smith], email: "john@example.edu", affiliation: [Institute]),
+  )
+  #show: cogsci.with(
+    authors: format-authors(authors),
+    // ... other parameters
+  )
+  ```
+
+- **`abstract`** (content): The paper abstract. Will be formatted according to CogSci style.
+
+- **`keywords`** (array): Array of keyword strings, e.g., `("cognitive science", "typst", "template")`.
+
+### Bibliography
+
+- **`references`** (content): Accepts the result of calling Typst's `bibliography()` function. Pass the `bibliography()` function call directly—do not pass a file path string. The template applies CogSci-specific formatting (APA style) to the bibliography.
+
+  ```typst
+  #show: cogsci.with(
+    references: bibliography("references.bib", style: "apa"),
+    // ... other parameters
+  )
+  ```
+
+  **Note**: Use BibLaTeX format (`.bib`), not BibTeX format.
+
+### Submission Control
+
+- **`anonymize`** (boolean): Set to `true` for double-blind review submissions (hides author information and uses "Anonymous CogSci submission" placeholder). Set to `false` for final camera-ready submissions with author details. Default is `false`.
+
+### Formatting Options
+
+- **`hyphenate`** (boolean): Set to `false` to disable hyphenation throughout the document (useful for spell-checking). Default is `true`.
 
 ## Preparing an anonymized submission
 

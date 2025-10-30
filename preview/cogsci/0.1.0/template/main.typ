@@ -6,13 +6,13 @@
 
 #let authors = (
   (
-    name: "Morton Ann Gernsbacher",
+    name: [Morton Ann Gernsbacher],
     email: "MAG@Macc.Wisc.Edu",
     affiliation: [Department of Psychology, 1202 W. Johnson Street\
       Madison, WI 53706 USA],
   ),
   (
-    name: "Sharon J. Derry",
+    name: [Sharon J. Derry],
     email: "SDJ@Macc.Wisc.Edu",
     affiliation: [Department of Educational Psychology, 1025 W. Johnson Street\
       Madison, WI 53706 USA],
@@ -20,15 +20,19 @@
 )
 
 #show: cogsci.with(
-  title: "How to Make a Proceedings Paper Submission",
+  title: [How to Make a Proceedings Paper Submission],
   authors: format-authors(authors),
   abstract: [
     Include no author information in the initial submission, to facilitate blind review. The abstract should be one paragraph, indented 1/8 inch on both sides, in 9 point font with single spacing. The heading "*Abstract*" should be 10 point, bold, centered, with one line of space below it. This one-paragraph abstract section is required only for standard six page proceedings papers. Following the abstract should be a blank line, followed by the header "*Keywords:*" and a list of descriptive keywords separated by semicolons, all in 9 point font, as shown below.
   ],
-  keywords: ("add your choice of indexing terms or keywords", "kindly use a semicolon", "between each term"),
+  keywords: (
+    "add your choice of indexing terms or keywords",
+    "kindly use a semicolon",
+    "between each term",
+  ),
   anonymize: anonymize,
   hyphenate: hyphenate,
-  bibliography: bibliography("references.bib"),
+  references: bibliography("references.bib", style: "apa"),
 )
 
 = General Formatting Instructions

@@ -1,60 +1,29 @@
 // CogSci Conference Template
 
-// Figure helper with proper formatting
-#let cogsci-figure(
-  content,
-  caption: none,
-  placement: auto,
-  width: auto,
-) = {
-  figure(
-    content,
-    caption: caption,
-    placement: placement,
-    kind: image,
-    supplement: "Figure",
-  )
-}
-
-// Table helper with proper formatting
-#let cogsci-table(
-  content,
-  caption: none,
-  placement: auto,
-) = {
-  figure(
-    content,
-    caption: caption,
-    placement: placement,
-    kind: table,
-    supplement: "Table",
-  )
-}
-
 // Format the title with proper styling
 // LaTeX: \LARGE\bf = 14pt font with 17pt leading (cogsci.sty line 243)
 // Typst renders tighter, so we use slightly larger leading for visual match
-#let format-title(title) = {
+#let format-title(content) = {
   align(center)[
     #set text(size: 14pt, weight: "bold")
     #set par(leading: 3pt)  // LaTeX 17pt total, Typst needs 3pt extra
-    #title
+    #content
   ]
 }
 
 // Format a list of authors with proper styling
 // LaTeX: \large\bf = 11pt font with 13pt leading (cogsci.sty line 241)
 // Typst needs empirically determined 5pt leading to match LaTeX visual spacing
-#let format-authors(authors) = {
-  if authors.len() > 0 {
+#let format-authors(authors-array) = {
+  if authors-array.len() > 0 {
     align(center)[
       #set par(leading: 5pt)  // Empirically matches LaTeX \large rendering
-      #for (i, author) in authors.enumerate() {
+      #for (i, author) in authors-array.enumerate() {
         [#text(size: 11pt, weight: "bold")[
             #author.name
             #if "email" in author [ (#author.email)]
           ]#if "affiliation" in author [ \ #text(size: 10pt, weight: "regular")[#author.affiliation]]]
-        if i < authors.len() - 1 {
+        if i < authors-array.len() - 1 {
           v(4.3pt) // Empirically measured to match LaTeX spacing (46.83pt in LaTeX)
         }
       }
@@ -74,22 +43,21 @@
 // LaTeX: \renewenvironment{abstract}{\centerline{\bf Abstract}\begin{quote}\small}
 // The quote environment adds \topsep = 4pt (cogsci.sty line 193)
 // Typst requires 3x correction: 4pt × 3 = 12pt
-#let format-abstract(abstract-content) = {
+#let format-abstract(content) = {
   block(width: 100%, above: 0pt, below: 0pt)[
     #align(center)[
       #text(size: 10pt, weight: "bold")[Abstract]
     ]
   ]
   v(12pt) // LaTeX \topsep (4pt) × 3 correction for Typst rendering
-
-  abstract-content
+  content
 }
 
 // Format keywords section
-#let format-keywords(keywords) = {
+#let format-keywords(keywords-array) = {
   text(size: 9pt)[
     #text(weight: "bold")[Keywords:]
-    #keywords.join("; ")
+    #keywords-array.join("; ")
   ]
 }
 
@@ -97,11 +65,11 @@
 #let cogsci(
   /* Document metadata */
   title: none,
-  authors: [],
+  authors: none,
   abstract: none,
   keywords: (),
   /* Bibliography (result of bibliography() function or none) */
-  bibliography: none,
+  references: none,
   /* Submission control */
   anonymize: false,
   /* Formatting options */
@@ -115,7 +83,7 @@
     author: if anonymize {
       ("Anonymous",)
     } else {
-      ("Anonymous",) // Authors parameter is formatted content, not extractable
+      ("The Authors",) // Authors parameter is formatted content, not extractable
     },
     keywords: keywords,
   )
@@ -150,13 +118,6 @@
     size: 10pt,
     lang: "en",
     hyphenate: hyphenate,
-  )
-
-  // Paragraph formatting - LaTeX uses \parindent 10pt and \baselineskip 12pt
-  set par(
-    justify: true,
-    leading: 2pt, // LaTeX baselineskip 12pt - font size 10pt = 2pt leading
-    first-line-indent: 10pt, // Exact LaTeX measurement
   )
 
   // List spacing configuration (matches LaTeX cogsci.sty)
@@ -232,10 +193,6 @@
   // footnotesep: 6.65pt (line 185)
   // footnotesize: 9pt (line 238)
   // footnoterule: 5pc wide horizontal rule (line 187)
-  //
-  // LIMITATION: Typst's page-level columns may cause both columns to reserve space
-  // for footnotes even when the footnote only appears in one column, leading to
-  // uneven column heights. This is a known Typst limitation as of 2024.
   set footnote(numbering: "1")
 
   // Custom footnote rule matching LaTeX (5pc = 60pt wide)
@@ -309,13 +266,11 @@
       format-title(title)
       v(-0.2em) // Counteract most of natural block spacing while leaving proper gap
     }
-
     if anonymize {
       anonymous-authors
     } else {
       authors
     }
-
     v(2em) // LaTeX \vskip 2em at end of titlebox (line 161)
   }
 
@@ -329,9 +284,7 @@
       scope: "parent",
       float: true,
       clearance: gap-needed,
-      block(width: 100%, breakable: false)[
-        #titlebox-content
-      ],
+      block(titlebox-content, width: 100%, breakable: false),
     )
   }
 
@@ -344,9 +297,10 @@
     #pad(left: 0.125in, right: 0.125in)[
       #set text(size: 9pt)  // LaTeX \small
       #set par(
-        first-line-indent: 0pt,
-        leading: 3pt, // Empirically matches LaTeX \small rendering
+        first-line-indent: 10pt,
         justify: true,
+        leading: 3pt, // Empirically matches LaTeX \small rendering
+        spacing: 3pt,
       )
 
       #if abstract != none {
@@ -354,7 +308,7 @@
       }
 
       #if keywords != none and keywords.len() > 0 {
-        v(-4pt) // Tight spacing between abstract and keywords
+        linebreak() // Tight spacing between abstract and keywords
         format-keywords(keywords)
       }
     ]
@@ -364,14 +318,15 @@
   // LaTeX \normalsize: 10pt font with 10pt leading (cogsci.sty line 236)
   // Typst needs empirically determined leading and spacing for visual match
   set par(
+    first-line-indent: 10pt, // Exact LaTeX measurement
+    justify: true,
     leading: 5.35pt, // Empirically tuned to match LaTeX body text
     spacing: 5.35pt, // Empirically tuned for paragraph spacing
   )
   body
 
   // Bibliography
-  show std.bibliography: set par(first-line-indent: 0pt, hanging-indent: 0.125in)
-  set std.bibliography(title: "References", style: "apa")
-
-  bibliography
+  show bibliography: set par(first-line-indent: 0pt, hanging-indent: 0.125in)
+  set bibliography(title: "References")
+  references
 }
