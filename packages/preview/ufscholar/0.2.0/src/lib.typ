@@ -6,11 +6,10 @@
 #import "@preview/unify:0.7.1" as unify
 #import "@preview/glossarium:0.5.9": make-glossary, register-glossary, print-glossary, gls, glspl
 
-#let article-abstract-state = state("article-abstract", (:))
-#let article-glossary-state = state("article-glossary", (:))
-#let article-appendices-state = state("article-appendices", ())
-#let article-annexes-state = state("article-annexes", ())
-#let article-acknowledgments-state = state("article-acknowledgments", none)
+#let author-state = state("author", none)
+#let full-title-state = state("full-title", none)
+#let address-state = state("address", none)
+#let date-state = state("date", none)
 #let lang-data-state = state("lang-data", (:))
 #let annex-start-state = state("annex-start", 0)
 #let summary-end-state = state("summary-end", false)
@@ -22,14 +21,7 @@
   title: none,
   subtitle: none,
   author: none,
-  contributors: none,
-  cont-in-board: none,
-  cont-in-description: none,
-  institution: none,
   address: none,
-  description: none,
-  logo: none,
-  evaluation: none,
   date: auto,
 
   // document-level
@@ -60,11 +52,12 @@
 
   // Required arguments
   assert(title != none, message: "Title is required")
-  assert(author != none, message: "Author name is required")
-  assert(institution != none, message: "Institution name is required")
+  assert(author != none and type(author) == str, message: "Author name is required, and must be a string")
   assert(address != none, message: "Address must be provided as (<city>, <state/province>, <country>)")
-  assert(description != none, message: "A description is required")
-  assert(evaluation != none, message: "An evaluation text is required")
+  assert(date == auto or type(date) == datetime)
+  if date == auto {
+    date = datetime.today()
+  }
 
   let font = if use-serif { fonts.serif } else { fonts.sans }
 
@@ -76,19 +69,17 @@
     }
   }
 
-  assert(description != none)
-
-  assert(date == auto or type(date) == "datetime")
-  if date == auto {
-    date = datetime.today()
-  }
-
   let full-title = if subtitle != none {
     upper(strong(title)) + ":\n" + subtitle
   }
   else {
     upper(strong(title))
   }
+
+  author-state.update(author)
+  full-title-state.update(full-title)
+  address-state.update(address)
+  date-state.update(date)
 
   set document(
     title: full-title,
@@ -174,92 +165,6 @@
     }
   }
 
-  {
-    show: align.with(center)
-
-    if logo != none {
-      align(center)[#logo]
-    }
-
-    upper(institution)
-    v(1fr)
-    author
-    v(2fr)
-    full-title
-    v(3fr)
-    address.at(0) + [, ] + address.at(1) + [ -- ] + address.at(2)
-    [\ #date.year()]
-  }
-
-  pagebreak()
-
-  {
-    set align(center)
-    show heading: it => block(width: 100%)[
-      #set text(weight: "regular")
-      #(it.body)
-    ]
-
-    author
-    v(3fr)
-    full-title
-    v(2fr)
-    align(right,
-      block(width: 50%)[
-        #set align(left)
-        #set par(justify: true)
-        #description
-        #for index in cont-in-description [
-          #let cont = contributors.at(index)
-          \
-          *#cont.at(1):* #cont.at(0)
-    ]])
-    v(2fr)
-    [#address.at(0) \ #date.year()]
-  }
-
-  pagebreak()
-
-  [
-    #set align(center)
-
-    #author
-    #v(1em)
-    #full-title
-    #v(2em)
-
-    #set par(justify: false)
-    #evaluation
-
-    #v(2em)
-
-    #address.at(0), #icu.fmt(date, locale: lang, length: "long").
-
-    #v(1em) \
-
-    #for i in range(contributors.len()) {
-      if i not in cont-in-board {
-        let n = contributors.at(i)
-        [
-          #n.at(0) \
-          #n.at(1) \
-          #v(1em)
-        ]
-      }
-    }
-
-    *#linguify("board", from: lang-data):*
-
-    #for b in cont-in-board [
-      #v(1em) \
-      #for a in contributors.at(b) {
-        if a != none [#a\ ]
-      }
-    ]
-  ]
-
-  pagebreak()
-
   set page(
     header: context {
       set par(first-line-indent: 0pt)
@@ -311,6 +216,96 @@
   body
 }
 
+#let cover-page(logo, institution) = context page(numbering: none, {
+  show: align.with(center)
+
+  if logo != none {
+    align(center)[#logo]
+  }
+
+  upper(institution)
+  v(1fr)
+  author-state.final()
+  v(2fr)
+  full-title-state.final()
+  v(3fr)
+
+  let address = address-state.final()
+  address.at(0) + [, ] + address.at(1) + [ -- ] + address.at(2)
+  [\ #date-state.final().year()]
+})
+
+#let index-card-page() = context page(numbering: none, {
+  show link: set text(fill: rgb("#00f"))
+  show link: underline
+  
+  let lang-data = lang-data-state.final()
+  
+  place(bottom + center)[
+    #linguify("catalog-card", from: lang-data)
+    #rect(width: 70%, stroke: 0.5pt,
+      pad(left: 1em, right: 1em, bottom: 3em, top: 1em)[
+        #linguify("catalog-card-guide", from: lang-data)
+        
+        http://portalbu.ufsc.br/ficha
+        #v(10em)
+      ]
+    )
+  ]
+})
+
+#let title-page(body) = context page(numbering: none, {
+  set align(center)
+  show heading: it => block(width: 100%)[
+    #set text(weight: "regular")
+    #(it.body)
+  ]
+
+  author-state.final()
+  v(3fr)
+  full-title-state.final()
+  v(2fr)
+  align(right,
+    block(width: 50%)[
+      #set align(left)
+      #set par(justify: true)
+      #body
+  ])
+  v(2fr)
+  [#address-state.final().at(0) \ #date-state.final().year()]
+})
+
+#let examining-board(coordinator: none, board: none, body) = context page(numbering: none)[
+    #set align(center)
+
+    #author-state.final()
+    #v(1em)
+    #full-title-state.final()
+    #v(2em)
+
+    #set par(justify: false)
+    #body
+
+    #v(2em)
+
+    #address-state.final().at(0), #icu.fmt(date-state.final(), locale: text.lang, length: "long").
+
+    #v(1em) \
+
+    #coordinator.at(0) \
+    #coordinator.at(1) \
+    #v(1em)
+
+    *#linguify("board", from: lang-data-state.final()):*
+
+    #for b in board [
+      #v(1em) \
+      #for a in b {
+        if a != none [#a\ ]
+      }
+    ]
+  ]
+}
 
 #let dedicatory(body) = {
   set align(bottom + right)
@@ -557,9 +552,7 @@
   summary-end-state.update(true)
 }
 
-#let part = (..it) => context {
-  pagebreak(weak: true)
-
+#let part = (..it) => context page(header: none, {
   import "@preview/numbly:0.1.0": numbly
 
   let p = lang-data-state.final().at("lang").at(text.lang).at("part")
@@ -574,9 +567,7 @@
     level: 1, 
     ..it
   ))
-  
-  pagebreak()
-}
+})
 
 // Captures appendices to feed `article-appendices` state.
 #let appendix(
@@ -633,8 +624,6 @@
     ),
     offset: 1,
   )
-  
-  let final-annexes-state = article-annexes-state.final()
 
   heading(
     level: 1,
@@ -677,4 +666,3 @@
     ]
   ]
 }
-

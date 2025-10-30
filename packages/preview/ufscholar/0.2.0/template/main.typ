@@ -1,22 +1,22 @@
-#import "@preview/ufscholar:0.1.3": *
+#import "imports.typ": *
 
 #let acronyms = (
   (
     key: "abnt",
     short: "ABNT",
-    long: "Associação Brasileira de Normas Técnicas",
+    long: "Brazilian Association of Technical Standards",
   ),
   (
     key: "tcc",
     short: "TCC",
-    long: "Trabalho de Conclusão de Curso",
+    long: "Undergraduate Thesis",
     plural: "TCCs",
-    longplural: "Trabalhos de Conclusão de Curso",
+    longplural: "Undergraduate Theses",
   ),
   (
     key: "pfc",
     short: "PFC",
-    long: "Projeto de Fim de Curso",
+    long: "Final Year Project",
   )
 )
 
@@ -24,53 +24,62 @@
   (
     key: "circum",
     short: $C$,
-    long: "Circumferência de um círculo",
+    long: "Circumference of a circle",
   ),
   (
     key: "pi",
     short: $pi$,
-    long: "Número pi",
+    long: "Pi number",
   ),
   (
     key: "radius",
     short: $r$,
-    long: "Raio de um círculo",
+    long: "Radius of a circle",
   ),
   (
     key: "area",
     short: $A$,
-    long: "Área de um círculo",
+    long: "Area of a circle",
   ),
 )
 
 #show: thesis.with(
   title: [Title of the dissertation\ Can be broken into two lines],
-  subtitle: "Complementary subtitle, not more than two lines long",
+  subtitle: [Complementary subtitle, not more than two lines long],
   author: "Author's complete name",
-
-  logo: image("assets/brasao_UFSC_vertical_sigla.svg", width: 5em),
-  institution: [
-   Federal University of Santa Catarina\
-   Technology Center\
-   Automation and Systems Engineering\
-   Undergraduate Course in Control and Automation engineering
-  ],
-  contributors: (
-   ("Prof. XXXXXX, Dr.", "Advisor", "UFSC/CTC/DAS"),
-   ("XXXXXX, Eng.", "Supervisor", "Company/University XXXX"),
-   ("Prof. XXXX, Dr.", "Evaluator", "Institution XXXX"),
-   ("Prof. XXXX, Dr.", "Board President", "UFSC/CTC/DAS"),
-   ("Prof. XXXX, Dr.", "Course Coordinator", none),
-  ),
-  cont-in-description: (0, 1),
-  cont-in-board: (0, 1, 2, 3),
-
-  address: ("Florianópolis", "Santa Catarina", "Brazil"),
-  description: [Final report of the subject DAS5511 (Course Final Project) as a Concluding Dissertation of the Undergraduate Course in Control and Automation Engineering of the Federal University of Santa Catarina.],
-  evaluation: [This dissertation was evaluated in the context of the subject DAS5511 (Course Final Project) and approved in its final form by the Undergraduate Course in Control and Automation Engineering],
-
-  lang: "pt",
+  address: ([\<City>], [\<State/Province>], [\<Country>]),
+  date: datetime.today(),
+  lang: "en",
 )
+
+#cover-page(
+  image("assets/brasao_UFSC_vertical_sigla.svg", width: 5em)
+)[
+  Federal University of Santa Catarina\
+  Technology Center\
+  Automation and Systems Engineering\
+  Undergraduate Course in Control and Automation engineering
+]
+
+#title-page[
+  Final report of the subject DAS5511 (Course Final Project) as a Concluding Dissertation of the Undergraduate Course in Control and Automation Engineering of the Federal University of Santa Catarina.\
+  *Supervisor*: Prof. XXXXXX, Dr.\
+  *Co-supervisor*: XXXXXX, Eng.
+]
+
+#index-card-page()
+
+#examining-board(
+  coordinator: ("Prof. XXXX, Dr.", "Course Coordinator", none),
+  board: (
+    ("Prof. XXXXXX, Dr.", "Advisor", "UFSC/CTC/DAS"),
+    ("XXXXXX, Eng.", "Supervisor", "Company/University XXXX"),
+    ("Prof. XXXX, Dr.", "Evaluator", "Institution XXXX"),
+    ("Prof. XXXX, Dr.", "Board President", "UFSC/CTC/DAS"),
+  ),
+)[
+  This dissertation was evaluated in the context of the subject DAS5511 (Course Final Project) and approved in its final form by the Undergraduate Course in Control and Automation Engineering
+]
 
 #dedicatory[
   This work is dedicated to my classmates and my dear parants.
@@ -92,9 +101,9 @@
 ]
 
 #disclaimer(
-  place: "<Cidade da assinatura>",
-  signer: "<Fulano de Tal>",
-  institution: "<Instituição de realização do PFC>",
+  place: "<City of signature>",
+  signer: "<Full Name>",
+  institution: "<Institution where the Final Year Project was carried out>",
   date: datetime.today(),
   lang: "en",
 )[
@@ -141,14 +150,13 @@
 #list-of-acronyms-and-symbols(acronyms, symbols)
 #summary()
 
-#part[Test]
 #include "chapters/chapter_1.typ"
 #include "chapters/chapter_2.typ"
 #include "chapters/chapter_3.typ"
 #include "chapters/chapter_4.typ"
 
-#appendix[Descrição 1][
-  Textos elaborados pelo autor, a fim de completar a sua argumentação. Deve ser precedido pela palavra APÊNDICE, identificada por letras maiúsculas consecutivas, travessão e pelo respectivo título. Utilizam-se letras maiúsculas dobradas quando esgotadas as letras do alfabeto.
+#appendix[Description 1][
+  Texts written by the author to complement their argumentation. It must be preceded by the word APPENDIX, identified by consecutive uppercase letters, a dash, and the corresponding title. Double uppercase letters are used when the alphabet letters are exhausted.
 
   = Test
 
@@ -167,8 +175,8 @@
   #lorem(80)
 ]
 
-#annex[Descrição 2][
-  São documentos não elaborados pelo autor que servem como fundamentação (mapas, leis, estatutos). Deve ser precedido da palavra ANEXO, identificada por letras maiúsculas consecutivas, travessão e pelo respectivo título. Utilizam-se letras maiúsculas dobradas quando esgotadas as letras do alfabeto.
+#annex[Description 2][
+  These are documents not prepared by the author that serve as supporting material (maps, laws, statutes). It must be preceded by the word ANNEX, identified by consecutive uppercase letters, a dash, and the corresponding title. Double uppercase letters are used when the alphabet letters are exhausted.
 
   = Test
 
