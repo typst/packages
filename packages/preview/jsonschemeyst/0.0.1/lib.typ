@@ -1,6 +1,6 @@
 
 #let validate = {
-  let plugin = plugin("jsonschema.wasm")
+  let plugin = plugin("jsonschemeyst.wasm")
 
   /// Validate a JSON schema against a JSON data
   ///

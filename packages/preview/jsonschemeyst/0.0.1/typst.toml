@@ -1,5 +1,5 @@
 [package]
-name = "jsonschema"
+name = "jsonschemeyst"
 version = "0.0.1"
 entrypoint = "lib.typ"
 authors = ["Raul Escobar"]
