@@ -1,0 +1,20 @@
+v1.0.0
+  Initial release.
+
+  * Added interfaces for creating a resume from modular sections. Here is a list
+    of sections added:
+      - projects
+      - education
+      - work
+      - skills
+      - contact information
+  * Added a styling system for customizing the look of certain parts of the
+    resume.
+  * Added a template
+  * Added `just` recipes to
+    - build the project
+    - install the project locally
+    - run tests
+    - clean build directory
+    - open test artifacts
+    - check built package for Typst packaging compliance
