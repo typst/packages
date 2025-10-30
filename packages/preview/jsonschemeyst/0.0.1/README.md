@@ -85,7 +85,7 @@ See the [examples](https://github.com/raulescobar-g/jsonschemeyst/tree/main/exam
 
 When validation fails, the function panics with detailed error information:
 
-```
+```bash
 Accepts:   <expected type/constraint>
 Got:       <actual value>
 Location:  <JSON path to error>
