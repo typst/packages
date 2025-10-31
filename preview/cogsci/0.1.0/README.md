@@ -1,6 +1,8 @@
-# CogSci Conference Proceedings Template
+# CogSci Template
 
-A [Typst](https://typst.app/) template for submissions to the _Annual Conference of the [Cognitive Science Society](https://cognitivesciencesociety.org/) (**CogSci**)_. This template aims to be a visual clone of the official LaTeX template.
+A [Typst](https://typst.app/) template for submissions to the _Annual Conference of the [Cognitive Science Society](https://cognitivesciencesociety.org/) (**CogSci**)_.
+
+This template aims to be a visual clone of the official LaTeX template.
 
 | Anonymized                                         | Final                                           |
 | -------------------------------------------------- | ----------------------------------------------- |
