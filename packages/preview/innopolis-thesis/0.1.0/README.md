@@ -37,7 +37,7 @@ Typst template for thesis at Innopolis University.
     ```typst
     #show: thesis.with(
         abstract: lorem(100),
-        font-family: "Liberation Serif"
+        font-family: "Liberation Serif",
         font-size: 14pt,
         chap-title-size: 30pt,
         h1-size: 35pt,
