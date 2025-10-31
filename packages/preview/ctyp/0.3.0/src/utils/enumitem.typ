@@ -16,8 +16,8 @@
   inset: (left: 0em)
 )
 
-#let ItemLabel = element.declare(
-  "ItemLabel",
+#let item-label = element.declare(
+  "item-label",
   prefix: "@preview/ctyp,v0.3.0",
   fields: (
     field("symbol", content, required: true),
@@ -34,8 +34,8 @@
   ),
 )
 
-#let EnumLabel = element.declare(
-  "EnumLabel",
+#let enum-label = element.declare(
+  "enum-label",
   prefix: "@preview/ctyp,v0.3.0",
   fields: (
     field("numbering", str, required: true),
@@ -54,17 +54,17 @@
 )
 
 #let convert-content-to-marker(it) = {
-  let casted = e.types.cast(it, ItemLabel)
+  let casted = e.types.cast(it, item-label)
   if casted.first() {
     it
   } else {
-    ItemLabel(it, width: 0.5em, sep: 0em, alignment: right)
+    item-label(it, width: 0.5em, sep: 0em, alignment: right)
   }
 }
 
 #let convert-str-to-numberer(it) = {
   if type(it) == str {
-    EnumLabel(it, width: 1.5em, sep: 0em, alignment: right)
+    enum-label(it, width: 1.5em, sep: 0em, alignment: right)
   } else {
     it
   }
@@ -248,7 +248,7 @@
       let cur-numberer-fields = e.fields(numberer.at(cur-numberer))
       let cur-numberer-template = cur-numberer-fields.remove("numbering")
       let label-number = numbering(cur-numberer-template, number)
-      let label = EnumLabel(cur-numberer-template, ..cur-numberer-fields, body: label-number)
+      let label = enum-label(cur-numberer-template, ..cur-numberer-fields, body: label-number)
       if "children" in elem.body.fields() and elem.body.children.any(is-elem-item) {
         queue.push((
           label: label,

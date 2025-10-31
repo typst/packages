@@ -37,18 +37,18 @@ CTyp 是一个用于提供 Typst 中文排版支持的包。
 
 ## 主要功能
 
-- [x] 中文字体设置
-- [x] 页面边距根据字符数控制
-- [x] 列表符号/编号基线位置修复
-- [x] 标题格式控制
+- 中文字体设置
+- 页面边距根据字符数控制
+- 列表符号/编号基线位置修复
+- 标题格式控制
 
 具体功能请参考[使用手册](doc/manual.pdf)或 Wiki。
 
 ## 开发路线
 
-- [ ] 使用 [Elembic](https://typst.app/universe/package/elembic) 包实现可配置的元素。
-- [ ] 接口修改为类似于 [Touying](https://typst.app/universe/package/touying) 中的 `config-*` 函数。
-- [ ] 根据 [Chinese layout gap analysis](https://typst-doc-cn.github.io/clreq/) 文档尽可能实现更多中文排版需求。
+- 使用 [Elembic](https://typst.app/universe/package/elembic) 包实现可配置的元素。
+- 接口修改为类似于 [Touying](https://typst.app/universe/package/touying) 中的 `config-*` 函数。
+- 根据 [Chinese layout gap analysis](https://typst-doc-cn.github.io/clreq/) 文档尽可能实现更多中文排版需求。
 
 ## 贡献
 

@@ -11,6 +11,6 @@
   page-grid
 )
 #import "utils/enumitem.typ": (
-  ItemLabel,
-  EnumLabel,
+  item-label,
+  enum-label,
 )

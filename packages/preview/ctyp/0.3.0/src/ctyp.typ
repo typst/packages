@@ -1,5 +1,5 @@
 #import "./fonts/index.typ": *
-#import "./utils/enumitem.typ": enumitem, ItemLabel, EnumLabel
+#import "./utils/enumitem.typ": enumitem, item-label, enum-label
 #import "./utils/page-grid.typ": page-grid
 #import "./utils/heading-numbering.typ": _config-heading-numbering
 
