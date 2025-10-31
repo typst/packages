@@ -1,4 +1,5 @@
-#import "confusion.typ": confy
+//#import "confusion.typ": confy
+#import "@preview/confy:0.1.0": confy
 
 #let labels = ("Covered", "ConditionUnmet", "NotCovered", "Uncertain")
 #let M = (
