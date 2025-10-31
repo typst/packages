@@ -1,13 +1,13 @@
 // CogSci Conference Template
 
-// Format the title with proper styling
-// LaTeX: \LARGE\bf = 14pt font with 17pt leading (cogsci.sty line 243)
-// Typst renders tighter, so we use slightly larger leading for visual match
-#let format-title(content) = {
+/// Displays the anonymous author placeholder for blind review submissions.
+///
+/// Returns: Content showing "Anonymous CogSci submission" in the required style.
+#let anonymous-authors = {
   align(center)[
-    #set text(size: 14pt, weight: "bold")
-    #set par(leading: 3pt)  // LaTeX 17pt total, Typst needs 3pt extra
-    #content
+    #text(size: 11pt, weight: "bold")[
+      Anonymous CogSci submission
+    ]
   ]
 }
 
@@ -15,6 +15,27 @@
 // LaTeX: \large\bf = 11pt font with 13pt leading (cogsci.sty line 241)
 // Typst needs empirically determined 5pt leading to match LaTeX visual spacing
 #let format-authors(authors-array) = {
+  // Runtime type validation
+  if authors-array == none {
+    authors-array = ()
+  }
+  assert(
+    type(authors-array) == array,
+    message: "format-authors: authors-array must be an array, got " + str(type(authors-array)),
+  )
+
+  // Validate each author is a dictionary with required 'name' key
+  for (i, author) in authors-array.enumerate() {
+    assert(
+      type(author) == dictionary,
+      message: "format-authors: author at index " + str(i) + " must be a dictionary, got " + str(type(author)),
+    )
+    assert(
+      "name" in author,
+      message: "format-authors: author at index " + str(i) + " must have a 'name' key",
+    )
+  }
+
   if authors-array.len() > 0 {
     align(center)[
       #set par(leading: 5pt)  // Empirically matches LaTeX \large rendering
@@ -28,40 +49,42 @@
         }
       }
     ]
+  } else {
+    anonymous-authors
   }
 }
 
-#let anonymous-authors = {
-  align(center)[
-    #text(size: 11pt, weight: "bold")[
-      Anonymous CogSci submission
-    ]
-  ]
-}
-
-// Format abstract section - within column layout like LaTeX
-// LaTeX: \renewenvironment{abstract}{\centerline{\bf Abstract}\begin{quote}\small}
-// The quote environment adds \topsep = 4pt (cogsci.sty line 193)
-// Typst requires 3x correction: 4pt × 3 = 12pt
-#let format-abstract(content) = {
-  block(width: 100%, above: 0pt, below: 0pt)[
-    #align(center)[
-      #text(size: 10pt, weight: "bold")[Abstract]
-    ]
-  ]
-  v(12pt) // LaTeX \topsep (4pt) × 3 correction for Typst rendering
-  content
-}
-
-// Format keywords section
-#let format-keywords(keywords-array) = {
-  text(size: 9pt)[
-    #text(weight: "bold")[Keywords:]
-    #keywords-array.join("; ")
-  ]
-}
-
-
+/// Main CogSci conference template function.
+///
+/// This function applies the complete CogSci conference paper formatting to your document,
+/// including page layout, typography, and structural elements. It matches the official
+/// LaTeX template's visual output.
+///
+/// Arguments:
+///   title (content or str): Paper title (displayed in 14pt bold, centered)
+///   authors (content): Pre-formatted author information from format-authors() function
+///   abstract (content or str): Paper abstract (displayed in 9pt with quote indentation)
+///   keywords (array): List of keyword strings (displayed after abstract)
+///   references (content): Bibliography content from bibliography() function call
+///   anonymize (bool): If true, shows "Anonymous CogSci submission" instead of authors
+///   hyphenate (bool): If true, enables hyphenation (set false for spell-checking)
+///   text-kwargs (dict): Additional arguments to pass to set text()
+///   page-kwargs (dict): Additional arguments to pass to set page()
+///   document-kwargs (dict): Additional arguments to pass to set document()
+///   body (content): The main document content
+///
+/// Returns: Formatted document content
+///
+/// Example:
+///   ```
+///   #show: cogsci.with(
+///     title: [My Paper Title],
+///     authors: format-authors((...)),
+///     abstract: [This is the abstract...],
+///     keywords: ("keyword1", "keyword2"),
+///     references: bibliography("refs.bib", style: "apa"),
+///   )
+///   ```
 #let cogsci(
   /* Document metadata */
   title: none,
@@ -75,18 +98,70 @@
   /* Formatting options */
   hyphenate: true, // Set to false to disable hyphenation (useful for spell-checking)
   /* Document body */
+  text-kwargs: (:),
+  page-kwargs: (:),
+  document-kwargs: (:),
   body,
 ) = {
-  // Set document metadata
-  set document(
-    title: title,
-    author: if anonymize {
-      ("Anonymous",)
-    } else {
-      ("The Authors",) // Authors parameter is formatted content, not extractable
-    },
-    keywords: keywords,
+  // Runtime type validation for parameters
+  assert(
+    type(anonymize) == bool,
+    message: "cogsci: anonymize must be a boolean (true or false), got " + str(type(anonymize)),
   )
+
+  assert(
+    type(hyphenate) == bool,
+    message: "cogsci: hyphenate must be a boolean (true or false), got " + str(type(hyphenate)),
+  )
+
+  assert(
+    type(keywords) == array,
+    message: "cogsci: keywords must be an array, got " + str(type(keywords)),
+  )
+
+  // Validate title is content or none
+  if title != none {
+    assert(
+      type(title) == content or type(title) == str,
+      message: "cogsci: title must be content or string, got " + str(type(title)),
+    )
+  }
+
+  // Validate abstract is content or none
+  if abstract != none {
+    assert(
+      type(abstract) == content or type(abstract) == str,
+      message: "cogsci: abstract must be content or string, got " + str(type(abstract)),
+    )
+  }
+
+  // Validate authors is content or none (it's pre-formatted by format-authors())
+  if authors != none {
+    assert(
+      type(authors) == content,
+      message: "cogsci: authors must be content (use format-authors() helper function), got " + str(type(authors)),
+    )
+  }
+
+  // Validate references is content or none (result of bibliography() call)
+  if references != none {
+    assert(
+      type(references) == content,
+      message: "cogsci: references must be content (result of bibliography() function), got " + str(type(references)),
+    )
+  }
+
+  // Set document metadata
+  let doc-specs = (
+    author: ("The Authors",),
+    title: title,
+    keywords: keywords,
+    ..document-kwargs, // Additional user-specified document settings
+  )
+  if anonymize {
+    doc-specs = doc-specs + (author: ("Anonymous",))
+  }
+  set document(..doc-specs)
 
   // Page setup matching LaTeX exactly
   // LaTeX measurements:
@@ -110,6 +185,7 @@
     footer: none,
     numbering: none,
     columns: 2, // Two-column layout for entire document
+    ..page-kwargs, // Additional user-specified page settings
   )
 
   // Font setup - Times Roman 10pt with 12pt leading
@@ -118,6 +194,7 @@
     size: 10pt,
     lang: "en",
     hyphenate: hyphenate,
+    ..text-kwargs, // Additional user-specified text settings
   )
 
   // List spacing configuration (matches LaTeX cogsci.sty)
@@ -239,6 +316,17 @@
   // LaTeX produces ~27pt gap between figure and caption
   show figure.where(kind: image): set figure(gap: 15pt)
 
+  // Internal helper: Format the title section
+  // LaTeX: \LARGE\bf = 14pt font with 17pt leading (cogsci.sty line 243)
+  // Typst renders tighter, so we use slightly larger leading for visual match
+  let format-title(content) = {
+    align(center)[
+      #set text(size: 14pt, weight: "bold")
+      #set par(leading: 3pt)  // LaTeX 17pt total, Typst needs 3pt extra
+      #content
+    ]
+  }
+
   // Title box - matches LaTeX \titlebox logic from cogsci.sty
   // LaTeX logic (lines 145-162):
   //   \vbox to \titlebox{         % Minimum 5cm box (line 119)
@@ -289,6 +377,34 @@
   }
 
   set align(top)
+
+  // Internal helper: Format abstract section - within column layout like LaTeX
+  // LaTeX: \renewenvironment{abstract}{\centerline{\bf Abstract}\begin{quote}\small}
+  // The quote environment adds \topsep = 4pt (cogsci.sty line 193)
+  // Typst requires 3x correction: 4pt × 3 = 12pt
+  let format-abstract(content) = {
+    block(width: 100%, above: 0pt, below: 0pt)[
+      #align(center)[
+        #text(size: 10pt, weight: "bold")[Abstract]
+      ]
+    ]
+    v(12pt) // LaTeX \topsep (4pt) × 3 correction for Typst rendering
+    content
+  }
+
+  // Internal helper: Format keywords section
+  let format-keywords(keywords-array) = {
+    // Runtime type validation
+    assert(
+      type(keywords-array) == array,
+      message: "format-keywords: keywords-array must be an array, got " + str(type(keywords-array)),
+    )
+
+    text(size: 9pt)[
+      #text(weight: "bold")[Keywords:]
+      #keywords-array.join("; ")
+    ]
+  }
 
   // Abstract and keywords at start of columns (like LaTeX)
   // LaTeX abstract uses quote environment (1/8" indent) with \small (9pt/9pt)

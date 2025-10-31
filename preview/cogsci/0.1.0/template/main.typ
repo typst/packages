@@ -1,8 +1,10 @@
+// CogSci Conference Paper Template
+
 #import "@preview/cogsci:0.1.0": cogsci, format-authors
 
 #let anonymize = true // Set to false for the final submission
 
-#let hyphenate = true // Set to false to disable hyphenation (useful for spell-checking)
+#let hyphenate = true // Set to false to disable hyphenation (useful for proofreading)
 
 #let authors = (
   (
@@ -32,7 +34,7 @@
   ),
   anonymize: anonymize,
   hyphenate: hyphenate,
-  references: bibliography("references.bib", style: "apa"),
+  references: bibliography("bibliography.bib", style: "apa"),
 )
 
 = General Formatting Instructions

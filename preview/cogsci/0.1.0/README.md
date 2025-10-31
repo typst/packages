@@ -4,15 +4,19 @@ A [Typst](https://typst.app/) template for submissions to the _Annual Conference
 
 This template aims to be a visual clone of the official LaTeX template.
 
-| Anonymized                                         | Final                                           |
-| -------------------------------------------------- | ----------------------------------------------- |
-| ![Anonymized submission](thumbnail-anonymized.png) | ![Final submission with authors](thumbnail.png) |
+| Anonymized                                                                                                           | Final                                           |
+| -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| ![Anonymized submission](https://raw.githubusercontent.com/daeh/cogsci-typst-template/main/thumbnail-anonymized.png) | ![Final submission with authors](thumbnail.png) |
 
 ## Usage
 
-You can use this template in the [Typst web app](https://typst.app/) by clicking "Start from template" on the dashboard and searching for `cogsci`.
+You will typically want to use this template by initializing a project with the CogSci boilerplate. The CogSci boilerplate (shown in the thumbnails) will give you the formatting requirements and examples of how to make citations, figures, tables, footnotes, and acknowledgments. You can generate the boilerplate in (1) the Typst web app or (2) locally. If you don't need the boilerplate, you can also just (3) import the functions in any Typst document.
 
-### Local usage
+### (1) Initialize the boilerplate in the Typst web app
+
+In the [Typst web app](https://typst.app/), click "Start from template" on the dashboard and search for `cogsci`.
+
+### (2) Initialize the boilerplate locally
 
 You can use the [Typst CLI](https://github.com/typst/typst) to initialize the template locally:
 
@@ -21,19 +25,44 @@ typst init @preview/cogsci
 cd cogsci
 ```
 
-To generate the PDF:
+### (3) Import the template functions
+
+This is described in the [Parameters](#parameters) section below.
+
+```typst
+#import "@preview/cogsci:0.1.0": cogsci, format-authors
+
+#show: cogsci.with(
+  title: [CogSci Typst Template],
+  authors: format-authors(
+    (
+      (name: [Author One], email: "a1@university.edu", affiliation: [Department Details]),
+      (name: [Author Two], email: "a2@university.edu", affiliation: [Department Details]),
+    )
+  ),
+  abstract: [The abstract.],
+  keywords: ("kw1", "kw2", "kw3",),
+  anonymize: true,
+  hyphenate: true,
+  references: bibliography("bibliography.bib", style: "apa"),
+)
+```
+
+### Local usage notes
+
+If you're using Typst locally (rather than the web app), I highly recommend trying the [Tinymist](https://myriad-dreamin.github.io/tinymist/) extension for [Visual Studio Code](https://code.visualstudio.com/): [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist). It makes for a superb writing experience.
+
+#### To generate the PDF:
 
 ```shell
 typst compile main.typ main.pdf
 ```
 
-It's recommended that you use a [PDF standard](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types.html) to ensure that the PDF is searchable, e.g. `a-3u`:
+#### It's recommended that you use a [PDF standard](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types.html) to ensure that the PDF is searchable, e.g. `a-3u`:
 
 ```shell
 typst compile --pdf-standard a-3u main.typ main.pdf
 ```
-
-If you're using Typst locally (rather than the web app), I highly recommend trying the [Tinymist](https://github.com/Myriad-Dreamin/tinymist) extension for [Visual Studio Code](https://code.visualstudio.com/). It makes for a superb writing experience.
 
 ## TWO IMPORTANT NOTES
 
@@ -41,15 +70,15 @@ If you're using Typst locally (rather than the web app), I highly recommend tryi
 
    - Starting in 2019, 6-page paper submissions are reviewed double-blind, so submissions must be anonymized.
 
-   - You can toggle the author details in your submission using the `anonymize` flag (the flag also prevents author info from being stored in the PDF metadata).
+   - You can toggle the author details in your submission using the [`anonymize`](#submission-control) flag (this also prevents author info from being stored in the PDF metadata).
 
 2. CC-BY LICENSING
 
    - An online proceedings will be published by the Cognitive Science Society. At the time of final (camera-ready) submission authors will be required to agree to release of their proceedings contribution under a CC-BY license. This means that authors allow free reuse of their work provided the original authors are attributed. Please see the submissions website for more details.
 
-## Key Parameters
+## Parameters
 
-The `cogsci()` function accepts the following parameters:
+The `cogsci()` template function accepts the following parameters:
 
 ### Document Metadata
 
@@ -57,33 +86,24 @@ The `cogsci()` function accepts the following parameters:
 
 - **`authors`** (content): Pre-formatted author information. The template exports a `format-authors()` helper function that accepts an array of author dictionaries with keys `name`, `email`, and `affiliation`. You can also provide your own custom formatted content if you need different styling.
 
-  ```typst
-  #let authors = (
-    (name: [Jane Doe], email: "jane@example.edu", affiliation: [University]),
-    (name: [John Smith], email: "john@example.edu", affiliation: [Institute]),
-  )
-  #show: cogsci.with(
-    authors: format-authors(authors),
-    // ... other parameters
-  )
-  ```
-
 - **`abstract`** (content): The paper abstract. Will be formatted according to CogSci style.
 
-- **`keywords`** (array): Array of keyword strings, e.g., `("cognitive science", "typst", "template")`.
+- **`keywords`** (array): Array of keyword strings, e.g., `("Bayesian model", "function learning", "emotion")`.
 
 ### Bibliography
 
-- **`references`** (content): Accepts the result of calling Typst's `bibliography()` function. Pass the `bibliography()` function call directly—do not pass a file path string. The template applies CogSci-specific formatting (APA style) to the bibliography.
+- **`references`** (content): Expects the output of Typst's `bibliography()` function.
 
   ```typst
   #show: cogsci.with(
-    references: bibliography("references.bib", style: "apa"),
+    references: bibliography("bibliography.bib", style: "apa"),
     // ... other parameters
   )
   ```
 
-  **Note**: Use BibLaTeX format (`.bib`), not BibTeX format.
+  Typst's `bibliography()` function accepts a Bib**_La_**TeX `.bib` file or a Hayagriva `.yaml`/`.yml` file.
+
+  **Note:** If passing a `.bib` file, use the Bib**_La_**TeX format, not BibTeX.
 
 ### Submission Control
 
@@ -91,13 +111,21 @@ The `cogsci()` function accepts the following parameters:
 
 ### Formatting Options
 
-- **`hyphenate`** (boolean): Set to `false` to disable hyphenation throughout the document (useful for spell-checking). Default is `true`.
+- **`hyphenate`** (boolean): Set to `false` to disable hyphenation throughout the document (useful for proofreading). Default is `true`.
+
+### Manual Overrides
+
+The template exposes manual overrides for `text()`, `page()`, and `document()`. It's advised that you not use these. But if you absolutely need to change the region, paper size, or document metadata, then you can override the defaults by supplying a dictionary.
+
+- **`text-kwargs`** (dictionary): expands into `set text(..text-kwargs)`
+- **`page-kwargs`** (dictionary): expands into `set page(..page-kwargs)`
+- **`document-kwargs`** (dictionary): expands into `set document(..document-kwargs)`
 
 ## Preparing an anonymized submission
 
 Set `#let anonymize = true`.
 
-Remember that you need to leave at least 2.75 inches between the top of the first page and the abstract & text of your paper. Since the top margin needs to be 1 inch on all pages, this means that there needs to be at least 1.75 inches of space on page 1 in which nothing but your paper title and **Anonymous CogSci submission** appears. Additionally, please remember not to include acknowledgments in the final version of your paper.
+Remember that you need to leave at least 2.75 inches between the top of the first page and the abstract and text of your paper. Since the top margin needs to be 1 inch on all pages, this means that there needs to be at least 1.75 inches of space on page 1 in which nothing but your paper title and **Anonymous CogSci submission** appears. Additionally, please remember not to include acknowledgments in the anonymized version of your paper.
 
 ## Preparing the de-anonymized final version of your accepted paper
 
