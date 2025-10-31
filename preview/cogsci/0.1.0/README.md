@@ -10,7 +10,7 @@ This template aims to be a visual clone of the official LaTeX template.
 
 ## Usage
 
-You will typically want to use this template by initializing a project with the CogSci boilerplate. The CogSci boilerplate (shown in the thumbnails) will give you the formatting requirements and examples of how to make citations, figures, tables, footnotes, and acknowledgments. You can generate the boilerplate in (1) the Typst web app or (2) locally. If you don't need the boilerplate, you can also just (3) import the functions in any Typst document.
+You will typically want to use this template by initializing a project with the CogSci boilerplate. The CogSci boilerplate (shown in the thumbnails) will give you the formatting specifications and examples of how to make citations, figures, tables, footnotes, and acknowledgments. You can generate the boilerplate (1) in the Typst web app or (2) locally. If you don't need the boilerplate, you can also just (3) import the template functions in any Typst document.
 
 ### (1) Initialize the boilerplate in the Typst web app
 
@@ -21,36 +21,37 @@ In the [Typst web app](https://typst.app/), click "Start from template" on the d
 You can use the [Typst CLI](https://github.com/typst/typst) to initialize the template locally:
 
 ```bash
-typst init @preview/cogsci
-cd cogsci
+typst init @preview/cogsci-conference
+cd cogsci-conference
 ```
 
 ### (3) Import the template functions
 
-This is described in the [Parameters](#parameters) section below.
+The API is described in the [Parameters](#parameters) section below.
 
 ```typst
-#import "@preview/cogsci:0.1.0": cogsci, format-authors
+#import "@preview/cogsci-conference:0.1.0": cogsci, format-authors
 
 #show: cogsci.with(
   title: [CogSci Typst Template],
   authors: format-authors(
-    (
-      (name: [Author One], email: "a1@university.edu", affiliation: [Department Details]),
-      (name: [Author Two], email: "a2@university.edu", affiliation: [Department Details]),
-    )
+    (name: [Author One], email: "a1@university.edu", affiliation: [Department Details]),
+    (name: [Author Two], email: "a2@university.edu", affiliation: [Department Details]),
   ),
   abstract: [The abstract.],
   keywords: ("kw1", "kw2", "kw3",),
   anonymize: true,
   hyphenate: true,
-  references: bibliography("bibliography.bib", style: "apa"),
 )
+
+// Document content goes here...
+
+#bibliography("bibliography.bib", style: "apa")
 ```
 
 ### Local usage notes
 
-If you're using Typst locally (rather than the web app), I highly recommend trying the [Tinymist](https://myriad-dreamin.github.io/tinymist/) extension for [Visual Studio Code](https://code.visualstudio.com/): [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist). It makes for a superb writing experience.
+If you're using Typst locally, I highly recommend trying the [Tinymist](https://myriad-dreamin.github.io/tinymist/) extension for [Visual Studio Code](https://code.visualstudio.com/): [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist). It makes for a superb writing experience.
 
 #### To generate the PDF:
 
@@ -58,7 +59,7 @@ If you're using Typst locally (rather than the web app), I highly recommend tryi
 typst compile main.typ main.pdf
 ```
 
-#### It's recommended that you use a [PDF standard](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types.html) to ensure that the PDF is searchable, e.g. `a-3u`:
+**It's recommended that you use a [PDF standard](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types.html) to ensure that the PDF is searchable, e.g. `a-3u`:**
 
 ```shell
 typst compile --pdf-standard a-3u main.typ main.pdf
@@ -92,18 +93,15 @@ The `cogsci()` template function accepts the following parameters:
 
 ### Bibliography
 
-- **`references`** (content): Expects the output of Typst's `bibliography()` function.
+Call `bibliography()` at the end of your document:
 
-  ```typst
-  #show: cogsci.with(
-    references: bibliography("bibliography.bib", style: "apa"),
-    // ... other parameters
-  )
-  ```
+```typst
+#bibliography("bibliography.bib", style: "apa")
+```
 
-  Typst's `bibliography()` function accepts a Bib**_La_**TeX `.bib` file or a Hayagriva `.yaml`/`.yml` file.
+Typst's `bibliography()` function accepts a BibLaTeX `.bib` file or a Hayagriva `.yaml`/`.yml` file.
 
-  **Note:** If passing a `.bib` file, use the Bib**_La_**TeX format, not BibTeX.
+**Note:** If passing a `.bib` file, use the Bib**_La_**TeX format, not BibTeX.
 
 ### Submission Control
 

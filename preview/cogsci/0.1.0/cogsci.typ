@@ -14,18 +14,28 @@
 // Format a list of authors with proper styling
 // LaTeX: \large\bf = 11pt font with 13pt leading (cogsci.sty line 241)
 // Typst needs empirically determined 5pt leading to match LaTeX visual spacing
-#let format-authors(authors-array) = {
-  // Runtime type validation
-  if authors-array == none {
-    authors-array = ()
+#let format-authors(..args) = {
+  // Pull the positional arguments out of the `arguments` object
+  let pos = args.pos()
+
+  // Normalize to an array of author dictionaries
+  let authors = if pos.len() == 0 {
+    ()
+  } else if pos.len() == 1 {
+    let one = pos.at(0)
+    if one == none { () } else if type(one) == array { one } else if type(one) == dictionary { (one,) } else {
+      assert(
+        false,
+        message: "format-authors: single argument must be array, dictionary, or none; got " + str(type(one)),
+      )
+      ()
+    }
+  } else {
+    pos
   }
-  assert(
-    type(authors-array) == array,
-    message: "format-authors: authors-array must be an array, got " + str(type(authors-array)),
-  )
 
   // Validate each author is a dictionary with required 'name' key
-  for (i, author) in authors-array.enumerate() {
+  for (i, author) in authors.enumerate() {
     assert(
       type(author) == dictionary,
       message: "format-authors: author at index " + str(i) + " must be a dictionary, got " + str(type(author)),
@@ -36,15 +46,15 @@
     )
   }
 
-  if authors-array.len() > 0 {
+  if authors.len() > 0 {
     align(center)[
       #set par(leading: 5pt)  // Empirically matches LaTeX \large rendering
-      #for (i, author) in authors-array.enumerate() {
+      #for (i, author) in authors.enumerate() {
         [#text(size: 11pt, weight: "bold")[
             #author.name
             #if "email" in author [ (#author.email)]
           ]#if "affiliation" in author [ \ #text(size: 10pt, weight: "regular")[#author.affiliation]]]
-        if i < authors-array.len() - 1 {
+        if i < authors.len() - 1 {
           v(4.3pt) // Empirically measured to match LaTeX spacing (46.83pt in LaTeX)
         }
       }
@@ -91,8 +101,6 @@
   authors: none,
   abstract: none,
   keywords: (),
-  /* Bibliography (result of bibliography() function or none) */
-  references: none,
   /* Submission control */
   anonymize: false,
   /* Formatting options */
@@ -140,14 +148,6 @@
     assert(
       type(authors) == content,
       message: "cogsci: authors must be content (use format-authors() helper function), got " + str(type(authors)),
-    )
-  }
-
-  // Validate references is content or none (result of bibliography() call)
-  if references != none {
-    assert(
-      type(references) == content,
-      message: "cogsci: references must be content (result of bibliography() function), got " + str(type(references)),
     )
   }
 
@@ -439,10 +439,10 @@
     leading: 5.35pt, // Empirically tuned to match LaTeX body text
     spacing: 5.35pt, // Empirically tuned for paragraph spacing
   )
-  body
 
   // Bibliography
   show bibliography: set par(first-line-indent: 0pt, hanging-indent: 0.125in)
   set bibliography(title: "References")
-  references
+
+  body
 }

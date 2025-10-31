@@ -1,5 +1,5 @@
 [package]
-name = "cogsci"
+name = "cogsci-conference"
 version = "0.1.0"
 entrypoint = "cogsci.typ"
 authors = ["Dae Houlihan <@daeh>"]
