@@ -465,7 +465,7 @@ Here is the source code of the pre-defined red-black tree graph drawing function
 ```typ
 #let red = metadata("red")
 #let nil = metadata("nil")
-#let red-black-tree-graph(..args) = tidy-tree-graph(
+#let red-black-tree-graph = tidy-tree-graph.with(
   // ...
   draw-node: (
     // ...
