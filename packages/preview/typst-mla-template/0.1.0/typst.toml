@@ -1,0 +1,14 @@
+[package]
+name = "typst-mla-template"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Dzming Li <i@dzmingli>"]
+license = "MIT"
+repository = "https://nest.pijul.com/DzmingLi/typst-mla-template"
+description = "Template for MLA formats" 
+keywords = ["template", "essay"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
