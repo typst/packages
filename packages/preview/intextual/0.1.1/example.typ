@@ -1,4 +1,4 @@
-#import "@preview/intextual:0.1.1": flushl, flushr, intertext, tag, eqref, intertext-rule
+#import "@preview/intextual:0.1.1": flushl, flushr, intertext, centertext, tag, eqref, intertext-rule
 
 // intertext-rule show-set rule is required to display properly.
 #show: intertext-rule

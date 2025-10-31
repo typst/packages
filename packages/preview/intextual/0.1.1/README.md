@@ -9,7 +9,7 @@ For use inside a block math equation only.
 Put this at the top of your Typst document:
 
 ```typst
-#import "@preview/intextual:0.1.1": flushl, flushr, intertext, tag, eqref, intertext-rule
+#import "@preview/intextual:0.1.1": *
 
 // intertext-rule show rule is required for elements to display properly.
 #show: intertext-rule
@@ -126,7 +126,7 @@ Similar to LaTeX's `\eqref`, creates a link to an equation created by `tag`.
 ## Example
 
 ```typst
-#import "@preview/intextual:0.1.1": flushl, flushr, intertext, tag, eqref, intertext-rule
+#import "@preview/intextual:0.1.1": flushl, flushr, intertext, centertext, tag, eqref, intertext-rule
 
 // intertext-rule show-set rule is required to display properly.
 #show: intertext-rule
