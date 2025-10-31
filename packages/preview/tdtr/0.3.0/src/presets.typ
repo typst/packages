@@ -8,7 +8,7 @@
 
 /// suitable for the trees whose nodes and edges have simple and short content, e.g., a binary tree
 /// use #metadata("nil") to mark nil nodes which only affect layout but do not be drawn
-#let binary-tree-graph(..args) = tidy-tree-graph(
+#let binary-tree-graph = tidy-tree-graph.with(
   node-inset: 4pt,
   node-width: 1.6em,
   spacing: (15pt, 15pt),
@@ -29,13 +29,12 @@
       )
     ),
     (marks: "-", stroke: .5pt),
-  ),
-  ..args
+  )
 )
 
 /// specialized for red-black trees, with color-coded nodes and hidden nil edges
 /// use #metadata("red") to mark red nodes whose fill color is red and #metadata("nil") to mark nil nodes which only affect layout but do not be drawn
-#let red-black-tree-graph(..args) = tidy-tree-graph(
+#let red-black-tree-graph = tidy-tree-graph.with(
   node-inset: 4pt,
   node-width: 1.6em,
   spacing: (15pt, 15pt),
@@ -58,13 +57,12 @@
       )
     ),
     (marks: "-", stroke: .6pt),
-  ),
-  ..args
+  )
 )
 
 /// suitable for the trees whose node are relatively not short, e.g., B-trees
 /// use #metadata("nil") to mark nil nodes which only affect layout but do not be drawn
-#let b-tree-graph(..args) = tidy-tree-graph(
+#let b-tree-graph = tidy-tree-graph.with(
   node-inset: 4pt,
   spacing: (15pt, 15pt),
   draw-node: (
@@ -97,6 +95,5 @@
       )
     ),
     (marks: "-", stroke: .5pt),
-  ),
-  ..args
+  )
 )
