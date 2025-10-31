@@ -1,8 +1,3 @@
-// Demo document for the confy Typst package.
-//
-// This demo imports the reusable function from confusion.typ and renders
-// the same example as in the original cm.typ, with a different colormap.
-
 #import "confusion.typ": confy
 
 #let labels = ("Covered", "ConditionUnmet", "NotCovered", "Uncertain")
@@ -41,3 +36,8 @@
   value-font-size: 8.5pt,
   colorbar-ticks: 14,
 )
+
+== Using a Custom Gradient
+
+#let g = gradient.linear(..color.map.cividis, angle: 270deg, relative: "self")
+#confy(labels, M, grad: g)

@@ -1,4 +1,4 @@
-# confy (Typst)
+# Confy (Typst)
 
 Reusable confusion matrix renderer for Typst, built on CeTZ.
 
@@ -34,17 +34,15 @@ Reusable confusion matrix renderer for Typst, built on CeTZ.
 ## API
 
 ```typst
-#let confy(
+#confy(
   labels,                    // array of n labels (text or content)
   M,                         // n×n array of non-negative numbers
-
   // Axis titles
   title-row: "Predicted",    // column-axis title
   title-col: "Ground Truth", // row-axis title
-
   // Colormap (typed)
   cmap: color.map.viridis,   // array of colors (e.g., color.map.viridis, magma, inferno, plasma, cividis)
-  gradient: none,            // alternatively pass a ready-made gradient
+  grad: none,            // alternatively pass a ready-made gradient
   // Layout
   cell-size: 1.3,            // canvas units
   show-colorbar: true,
@@ -67,7 +65,7 @@ Pass a palette:
 
 ```typst
 #let g = gradient.linear(..color.map.cividis, angle: 270deg, relative: "self")
-#confy(labels, M, gradient: g)
+#confy(labels, M, grad: g)
 ```
 
 Typst ships predefined color maps as arrays in `color.map` which can be used directly as gradient stops (spread with `..`).

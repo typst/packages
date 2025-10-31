@@ -1,5 +1,4 @@
 #import "@preview/cetz:0.4.2": canvas, draw
-#let Gradient = gradient
 
 // Confusion matrix rendering as a reusable Typst function.
 // Usage:
@@ -12,10 +11,10 @@
 // - title-row: column axis title
 // - title-col: row axis title
 // - cmap: a palette, e.g., color.map.viridis | magma | inferno | plasma | cividis
-// - gradient: a gradient value, e.g., gradient.linear(red, blue)
+// - grad: a gradient value, e.g., gradient.linear(red, blue)
 // - cell-size: cell size in canvas units
 // - show-colorbar: display colorbar on the right
-// - colorbar-ticks: 5
+// - colorbar-ticks: 7
 // - label-rotate: rotation for column labels
 // - value-font-size: value text size inside cells
 // - tick-scale: tick length factor relative to cell size
@@ -25,7 +24,7 @@
   title-row: "Predicted",
   title-col: "Ground Truth",
   cmap: color.map.viridis,
-  gradient: none,
+  grad: none,
   cell-size: 1.3,
   show-colorbar: true,
   colorbar-ticks: 7,
@@ -51,8 +50,8 @@
       }
     }
 
-    let colormap = if gradient != none { gradient } else {
-      Gradient.linear(..cmap, angle: 270deg, relative: "self")
+    let colormap = if grad != none { grad } else {
+      gradient.linear(..cmap, angle: 270deg, relative: "self")
     }
     let sample_map(v, max) = {
       if max == 0 { colormap.sample(0%) } else { colormap.sample((v / max) * 100%) }
