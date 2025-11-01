@@ -8,8 +8,9 @@
 #let multi = text(maroon)[（多选）]
 
 #let color-box(body, color: blue, dash: "dotted", radius: 3pt) = {
-  box(
-    outset: .35em,
+   box(
+    outset: (y: .35em),
+    inset: (x: .35em),
     radius: radius,
     stroke: (
       thickness: .5pt,
@@ -18,7 +19,7 @@
     ),
     text(font: kai-ti, color, body),
   )
-  h(.8em)
+  h(.6em, weak: true)
 }
 
 #let underdot(body) = {
@@ -38,3 +39,4 @@
     )
   }
 }
+
