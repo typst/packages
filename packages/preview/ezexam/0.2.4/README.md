@@ -47,6 +47,7 @@ This template is primarily designed to help Chinese university, primary, middle 
 ### 0 . 2 . 4
 + 优化 `choices` 方法；新增参数 `label-position` ； 该参数可在选项为图表时，修改标签的位置。默认在左侧；将参数 `body-indent` 名修改为 `sapcing` ；更加符合语境
 + 优化 `question` 方法
++ 修复 `color-box` 方法会产生多余空格的 bug
 
 
 ### 0 . 2 . 3
@@ -130,4 +131,5 @@ This template is primarily designed to help Chinese university, primary, middle 
 + 修复 `choices` 方法中，若选项为图片时，设置宽度为百分比时，图片宽度无效的问题
 
 ### 0 . 1 . 0
+
 + 初版发布
