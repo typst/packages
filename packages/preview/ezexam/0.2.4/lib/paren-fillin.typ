@@ -86,7 +86,7 @@
     evade: false,
     offset: offset,
     stroke: stroke,
-    [#result],
+    result,
   )
 }
 
@@ -105,3 +105,4 @@
 // 类似英文中的7选5题型专用语法糖
 #let parenn = paren.with(with-number: true, update: true)
 #let fillinn = fillin.with(with-number: true, update: true)
+
