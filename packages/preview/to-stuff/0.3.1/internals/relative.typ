@@ -1,5 +1,5 @@
 
-#import	"/internals/float.typ"		:   rx-signed-loose
+#import	"/internals/float.typ"		:   rx-signed
 #import	"/internals/units.typ"		:   length, ratio
 #import	"/internals/utils.typ"		:   message-unexpected-keys
 
@@ -49,7 +49,7 @@
 	}
 
 
-	let	rx				=  "^(" + rx-signed-loose + "(pt|mm|cm|in|em|%))"
+	let	rx				=  "^(" + rx-signed + "(pt|mm|cm|in|em|%))"
 
 	if type(value) == std.str and value.trim().contains(regex(rx + "+$")) {
 		let	value				=   value.trim()

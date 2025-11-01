@@ -1,7 +1,6 @@
 
 #let	rx-number			=  "\d*\.?\d+(e[+-]?\d+)?"
-#let	rx-signed-strict		=  "([-+]?" + rx-number + ")"
-#let	rx-signed-loose			=  "(([-+\s]*)(" + rx-number + "))"
+#let	rx-signed			=  "(([-+\s]*)(" + rx-number + "))"
 
 #let	float(
 	quiet				:   false,
@@ -12,10 +11,19 @@
 	}
 
 
-	let	rx				=   regex("^" + rx-signed-strict + "$")
+	let	rx				=   regex("^" + rx-signed + "$")
 
 	if type(value) == std.str and value.trim().contains(rx) {
-		return std.float(value.trim())
+		let	(_, signs, num, _)		=   value.trim().matches(rx).first().captures
+		let	negative			=   calc.odd(signs.split("").filter(x => x == "-").len())
+
+		return std.float(num) * {
+			if negative {
+				-1.0
+			} else {
+				 1.0
+			}
+		}
 	}
 
 	if quiet {

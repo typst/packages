@@ -1,5 +1,5 @@
 
-#import	"/internals/float.typ"		:   rx-signed-loose
+#import	"/internals/float.typ"		:   rx-signed
 
 #let	units(
 	units				: (:),
@@ -12,7 +12,7 @@
 	}
 
 
-	let	rx				=   regex("^" + rx-signed-loose + "(" + units.keys().join("|") + ")$")
+	let	rx				=   regex("^" + rx-signed + "(" + units.keys().join("|") + ")$")
 
 	if type(value) == std.str and value.trim().contains(rx) {
 		let	(_, signs, num, _, unit)	=   value.trim().matches(rx).first().captures
