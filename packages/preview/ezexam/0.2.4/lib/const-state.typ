@@ -14,13 +14,12 @@
 
 #let main-font = (
   "New Computer Modern Math",
-  "TeX Gyre Termes Math",
   "Noto Serif SC",
   "Noto Serif CJK SC",
 )
 #let hei-ti = ("SimHei", "Noto Sans SC", "Noto Sans CJK SC")
 #let kai-ti = ("STKaiti",)
-#let ROMAN = ("Times New Roman",) + main-font.slice(1)
+#let ROMAN = ("TeX Gyre Termes Math",) + main-font.slice(1)
 
 //"exam": 试卷模式; "handouts": 讲义模式(默认)；"solution"：解析模式
 #let EXAM = "exam"
@@ -31,3 +30,4 @@
 #let answer-state = state("answer", false)
 #let answer-color-state = state("answer-color", blue)
 #let subject-state = state("subject", "")
+
