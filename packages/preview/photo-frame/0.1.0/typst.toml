@@ -1,0 +1,10 @@
+[package]
+name = "photo-frame"
+version = "0.0.1"
+entrypoint = "src/export.typ"
+authors = ["npcray <@npcray>"]
+license = "Apache License 2.0"
+compiler = "0.13.0"
+repository = "https://github.com/NPCRay/photo-frame"
+description = "A Collection of Photo Frame Templates."
+categories = ["photo frame", "image"]
