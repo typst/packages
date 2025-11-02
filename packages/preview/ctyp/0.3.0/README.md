@@ -8,7 +8,8 @@ Considering this package is mainly for Chinese users, the remainder of this READ
 CTyp 是一个用于提供 Typst 中文排版支持的包。
 该包集成了一些常用的中文排版设置，用于提供快速的中文排版体验。
 
-> [!WARNING]
+> **注意**
+> 
 > 由于 Typst 的中文排版支持仍不完善，该包只能提供非语言级的排版支持。
 > 并不保证能够实现所有中文排版需求。
 
@@ -22,7 +23,8 @@ CTyp 是一个用于提供 Typst 中文排版支持的包。
 #show: ctypset
 ```
 
-> [!NOTE]
+> **注意**
+> 
 > 变量名 `ctypset` 和 `cjk` 可以自行设置，无需使用文档中的名字。
 
 如果在 Typst Web App 环境中，可以直接使用 Noto CJK 字体系列。
