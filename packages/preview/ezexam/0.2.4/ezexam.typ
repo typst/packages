@@ -65,6 +65,8 @@
   assert(type(font) == array and type(heading-font) == array, message: "font must be an array, got " + str(type(font)))
   mode-state.update(mode)
 
+  paper = a4 + paper
+
   let _footer(label) = context {
     assert(
       type(label) in (str, function, none) or label == auto,
@@ -193,7 +195,7 @@
     ))
   }
   set page(
-    ..a4 + paper,
+    ..paper,
     header: _header(),
     footer: _footer(page-numbering),
     background: _background(),
@@ -225,7 +227,7 @@
   set heading(numbering: heading-numbering, hanging-indent: heading-hanging-indent)
   show heading: it => {
     v(heading-top)
-    text(heading-color, font: font.slice(0, 2) + heading-font, it)
+    text(heading-color, font: font.slice(0, 1) + heading-font, it)
     v(heading-bottom)
   }
   show heading.where(level: 1): it => {
@@ -255,7 +257,13 @@
     space + math.display(it) + space
   }
   //  π 在罗马字体下显示的样式；默认的有点丑
-  show math.pi: set text(font: "Times New Roman") if font.contains("Times New Roman")
+  show math.pi: it => {
+    if font.contains("TeX Gyre Termes Math") {
+        text(font: "Times New Roman", "π")
+        return
+      }
+      it
+  }
   show math.parallel: "//"
 
   if show-answer {
@@ -265,3 +273,4 @@
 
   doc
 }
+
