@@ -1,4 +1,4 @@
-#let extend_bottom(size:(0, 0), img: image, bottom: [], ratio: fraction) = {
+#let extend-bottom(size:(0, 0), img: image, bottom: [], ratio: fraction) = {
   rect(width: size.at(0), height: size.at(1), inset: 0mm, outset: 0mm)[
     #grid(
       rows: (90fr, ratio),
@@ -10,7 +10,7 @@
   ]
 }
 
-#let extend_right(size:(0, 0), img: image, right: [], ratio: fraction) = {
+#let extend-right(size:(0, 0), img: image, right: [], ratio: fraction) = {
   rect(width: size.at(0), height: size.at(1), inset: 0mm, outset: 0mm)[
     #grid(
       columns: (90fr, ratio),

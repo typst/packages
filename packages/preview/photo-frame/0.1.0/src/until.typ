@@ -1,38 +1,38 @@
-#let crop = (img_bytes, start: (0.0%, 0.0%), resize: 100%) => context {
+#let crop = (img-bytes, start: (0.0%, 0.0%), resize: 100%) => context {
   assert(resize <= 100%)
-  let img = image(img_bytes)
+  let img = image(img-bytes)
   // Get dimensions of the source image
   let dims = measure(img)
   layout(size => {
     let (left, top) = start
 
-    let image_height_ratio = float(100% - top) * float(resize)
-    let image_width_ratio = float(100% - left) * float(resize)
+    let image-height-ratio = float(100% - top) * float(resize)
+    let image-width-ratio = float(100% - left) * float(resize)
 
     let layout-aspect-ratio = size.height / size.width
-    let image-aspect-ratio = (dims.height * image_height_ratio) / (dims.width * image_width_ratio)
-    let image_layout_ratio = if layout-aspect-ratio >= image-aspect-ratio {
-      dims.height * image_height_ratio / size.height
+    let image-aspect-ratio = (dims.height * image-height-ratio) / (dims.width * image-width-ratio)
+    let image-layout-ratio = if layout-aspect-ratio >= image-aspect-ratio {
+      dims.height * image-height-ratio / size.height
     } else {
-      dims.width * image_width_ratio / size.width
+      dims.width * image-width-ratio / size.width
     }
 
-    let top_clip = top * dims.height / image_layout_ratio
+    let top-clip = top * dims.height / image-layout-ratio
 
     box(
       clip: true,
       inset: (
-        top: -top * dims.height / image_layout_ratio,
-        bottom: -(1 - image_height_ratio - float(top)) * dims.height / image_layout_ratio,
-        left: -left * dims.width / image_layout_ratio,
-        right: -(1 - image_width_ratio - float(left)) * dims.width / image_layout_ratio,
+        top: -top * dims.height / image-layout-ratio,
+        bottom: -(1 - image-height-ratio - float(top)) * dims.height / image-layout-ratio,
+        left: -left * dims.width / image-layout-ratio,
+        right: -(1 - image-width-ratio - float(left)) * dims.width / image-layout-ratio,
       ),
-      image(img_bytes, height: dims.height / image_layout_ratio, width: dims.width / image_layout_ratio),
+      image(img-bytes, height: dims.height / image-layout-ratio, width: dims.width / image-layout-ratio),
     )
   })
 }
 
-#let page_size_dict = (
+#let page-size-dict = (
   "a0": (841mm, 1189mm),
   "a1": (594mm, 841mm),
   "a2": (420mm, 594mm),
@@ -47,9 +47,9 @@
   "a11": (18mm, 26mm),
 )
 
-#let get_size(size, flipped: bool) = {
+#let get-size(size, flipped: bool) = {
   let s = if type(size) == str {
-    page_size_dict.at(lower(size))
+    page-size-dict.at(lower(size))
   } else {
     size
   }
