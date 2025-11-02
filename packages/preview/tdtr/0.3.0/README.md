@@ -456,7 +456,7 @@ where `default-draw-node` draws every node as a rectangle, and `default-draw-edg
 
 #### Metadata Match node/edge drawing functions
 
-As you have seen in [Red Black Tree](#binaryb-red-black-tree) example, this package provides some drawing functions that can conveniently label some nodes/edges and customized these labeled nodes/edges using `#metadata`.
+As you have seen in [Red Black Tree](#binaryb-red-black-tree) example, this package provides some drawing functions that can conveniently label some nodes/edges and customize these labeled nodes/edges using `#metadata`.
 
 To make understanding easier, we continue to use the red-black tree example.
 
@@ -486,8 +486,7 @@ Here is the source code of the pre-defined red-black tree graph drawing function
       )
     ),
     // ...
-  ),
-  ..args
+  )
 )
 ```
 
