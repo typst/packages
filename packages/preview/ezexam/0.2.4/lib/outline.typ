@@ -16,7 +16,7 @@
   }
 
   if author != none {
-    text(font: "STKaiti", size: 15pt)[\ 作者：#author]
+    text(font: kai-ti, size: 15pt)[\ 作者：#author]
   }
 
   if date != none [
@@ -121,6 +121,7 @@
   } else { hanging-indent })
   for value in children.pos() [+ #par(value)]
 }
+
 
 
 
