@@ -1,7 +1,6 @@
 #import "until.typ": crop
 #import "themes/base.typ": *
 
-
 #let render(size, flipped: false, img: image, theme: str, ext_info: (:)) = {
   import "until.typ": get_size
   let size = get_size(size, flipped: flipped)
