@@ -166,6 +166,8 @@ Initial release.
   - Added `cmp` for `rational`
   - Allow `oo` and `∞` to be parsed as infinity value in `rational.from`.
   - Allow signed zeroes for `rational`
+  - Added `repr` for `rational`
+  - Fixed problems with the sign of zero when using `to-str` or `to-math` on `rational`
   - Renamed `rational.limit-den` to `rational.approx`
   - Fixed the problem that sign cannot be correctly handled when creating a `rational` by ratio.
   - Fixed the problem that `rational.reci` does not return result.

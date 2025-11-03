@@ -43,6 +43,7 @@
   signed-infinity: false,
   denom-one: false,
   sign-on-num: false,
+  fmt: none,
 ) = {
   let option-flags = build-option-flags(
     plus-sign,
@@ -53,6 +54,26 @@
   )
   let option-flags = bytes((option-flags,))
   let (sign, num, den) = cbor(math-utils-wasm.mpq_to_math(to-bytes(n), option-flags))
+
+  if type(fmt) == dictionary {
+    if "num" in fmt {
+      let fmt = fmt.num
+      assert.eq(type(fmt), function)
+      num = fmt(num)
+    }
+    if "den" in fmt {
+      let fmt = fmt.num
+      assert.eq(type(fmt), function)
+      den = fmt(num)
+    }
+  } else if type(fmt) == function {
+    num = fmt(num)
+    den = fmt(den)
+  } else if fmt != none {
+    panic("`number-formatter` should be one of: `none`, `function` or `dictionary`.")
+  }
+  // [TODO] formatting by string?
+
   if den == none { $#sign#num$ }
   else if sign-on-num { $#math.frac($#sign#num$, den)$ }
   else { $#sign#math.frac(num, den)$ }

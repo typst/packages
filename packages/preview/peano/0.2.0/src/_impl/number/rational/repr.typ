@@ -2,27 +2,52 @@
 
 #import "init.typ": from
 
-#let /*pub*/ to-str(
-    n,
-    plus-sign: false,
-    denom-one: false,
-    hyphen-minus: false,
-) = {
+#let minus-sign(hyphen-minus) = {
+  if hyphen-minus { "-" } else { "\u{2212}" }
+}
+
+#let /*pub*/ repr(n) = {
   let n = from(n)
   let (sign, num, den) = n
   if den == 0 {
     if num == 0 {
       "NaN"
     } else {
+      if sign { "inf" } else { "-inf" }
+    }
+  } else if den == 1 {
+    (if not sign { "-" }) + str(num)
+  } else {
+    (if not sign { "-" }) + str(num) + "/" + str(den)
+  }
+}
+
+#let /*pub*/ to-str(
+    n,
+    plus-sign: false,
+    signed-zero: false,
+    signed-infinity: false,
+    denom-one: false,
+    hyphen-minus: false,
+) = {
+  let n = from(n)
+  let (sign, num, den) = n
+
+  if den == 0 {
+    if num == 0 {
+      "NaN"
+    } else {
       let sgn-str = if not sign {
-        if hyphen-minus { "-" } else { "\u{2212}" }
-      } else if plus-sign { "+" }
+        minus-sign(hyphen-minus)
+      } else if plus-sign or signed-infinity { "+" }
       sgn-str + "\u{221E}"
     }
   } else {
     let sgn-str = if not sign {
-      if hyphen-minus { "-" } else { "\u{2212}" }
+      if num == 0 and not signed-zero { none }
+      else { minus-sign(hyphen-minus) }
     } else if plus-sign { "+" }
+
     if den == 1 and not denom-one {
       sgn-str + str(num)
     } else {
@@ -44,8 +69,11 @@
 #let /*pub*/ to-math(
   n,
   plus-sign: false,
+  signed-zero: false,
+  signed-infinity: false,
   denom-one: false,
   sign-on-num: false,
+  fmt: none,
 ) = {
   let n = from(n)
   let (sign, num, den) = n
@@ -59,6 +87,11 @@
     } else {
       $oo$
     }
+  } else if num == 0 {
+    if signed-zero {
+      if sign { $+0$ } else { $-0$ }
+    }
+    else { $0$ }
   } else if den == 1 and not denom-one {
     $#sign-math(sign, num, plus-sign: plus-sign) #num$
   } else if sign-on-num {

@@ -90,3 +90,8 @@
     z.re.to-bytes() + z.im.to-bytes()
   }).join()
 }
+
+#let /*pub*/ to-point(z) = {
+  let z = from(z)
+  (z.re, z.im)
+}
