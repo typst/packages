@@ -67,6 +67,7 @@ template, you can add a show rule like this at the top of your file:
         columns: (1fr, 1fr),
         [Column 1], [Column 2],
       ),
+    ),
   ),
 )
 
