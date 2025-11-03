@@ -12,4 +12,4 @@ repository = "https://github.com/deme3/acm-dtu-ux"
 [template]
 path = "assets"
 entrypoint = "main.typ"
-thumbnail = ""
+thumbnail = "preview.png"
