@@ -5,7 +5,6 @@ entrypoint = "cogsci.typ"
 authors = ["Dae Houlihan <@daeh>"]
 license = "MIT"
 description = "CogSci template for submissions to the Annual Conference of the Cognitive Science Society."
-homepage = "https://github.com/daeh/cogsci-typst-template"
 repository = "https://github.com/daeh/cogsci-typst-template"
 keywords = [
     "Cognitive Science Society",
