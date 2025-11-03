@@ -1,11 +1,13 @@
 [package]
 name = "acm-dtu-ux"
 version = "0.1.0"
+authors = [ "Demetrio Battaglia <https://deme3.me>" ]
 entrypoint = "template.typ"
 categories = [ "paper", "report" ]
 disciplines = [ "computer-science", "design" ]
 description = "The ACM-based template for UX Design Prototyping / UX Engineering assignments at Technical University of Denmark (DTU)."
 license = "MIT"
+repository = "https://github.com/deme3/acm-dtu-ux"
 
 [template]
 path = "assets"
