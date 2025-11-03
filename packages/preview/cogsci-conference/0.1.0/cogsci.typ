@@ -46,6 +46,7 @@
     )
   }
 
+  // Render authors block
   if authors.len() > 0 {
     align(center)[
       #set par(leading: 5pt)  // Empirically matches LaTeX \large rendering

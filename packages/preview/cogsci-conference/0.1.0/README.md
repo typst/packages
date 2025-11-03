@@ -4,9 +4,9 @@ A [Typst](https://typst.app/) template for submissions to the _Annual Conference
 
 This template aims to be a visual clone of the official LaTeX template.
 
-| Anonymized                                                                                                           | Final                                           |
-| -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| ![Anonymized submission](https://raw.githubusercontent.com/daeh/cogsci-typst-template/main/thumbnail-anonymized.png) | ![Final submission with authors](thumbnail.png) |
+|                     Anonymized                     |                      Final                      |
+| :------------------------------------------------: | :---------------------------------------------: |
+| ![Anonymized submission](thumbnail-anonymized.png) | ![Final submission with authors](thumbnail.png) |
 
 ## Usage
 
@@ -14,13 +14,13 @@ You will typically want to use this template by initializing a project with the 
 
 ### (1) Initialize the boilerplate in the Typst web app
 
-In the [Typst web app](https://typst.app/), click "Start from template" on the dashboard and search for `cogsci`.
+In the [Typst web app](https://typst.app/), click "Start from template" on the dashboard and search for `cogsci-conference`.
 
 ### (2) Initialize the boilerplate locally
 
 You can use the [Typst CLI](https://github.com/typst/typst) to initialize the template locally:
 
-```bash
+```shell
 typst init @preview/cogsci-conference
 cd cogsci-conference
 ```
@@ -83,11 +83,11 @@ The `cogsci()` template function accepts the following parameters:
 
 ### Document Metadata
 
-- **`title`** (content): The paper title. Required for proper display.
+- **`title`** (content): The paper title.
 
-- **`authors`** (content): Pre-formatted author information. The template exports a `format-authors()` helper function that accepts an array of author dictionaries with keys `name`, `email`, and `affiliation`. You can also provide your own custom formatted content if you need different styling.
+- **`authors`** (content): Pre-formatted author information. The template exports a `format-authors()` helper function that accepts an array of author dictionaries with keys `name`, `email`, and `affiliation`. You can pass your own custom formatted content to `authors` if you need different styling.
 
-- **`abstract`** (content): The paper abstract. Will be formatted according to CogSci style.
+- **`abstract`** (content): The paper abstract.
 
 - **`keywords`** (array): Array of keyword strings, e.g., `("Bayesian model", "function learning", "emotion")`.
 
@@ -145,4 +145,4 @@ This template is distributed under the MIT License.
 
 **Dae Houlihan**, based on the LaTeX template by Ashwin Ram, Johanna Moore, David Noelle, Pat Langley, Ramin Charles Nakisa, Tina Eliassi-Rad, Trisha Yannuzzi, Mary Ellen Foster, Ken Forbus, Eli M. Silk, Niels Taatgen and Roger Levy.
 
-[![Personal Website](https://img.shields.io/badge/personal%20website-daeh.info-orange?style=for-the-badge)](https://daeh.info) [![BlueSky](https://img.shields.io/badge/bsky-@dae.bsky.social-skyblue?style=for-the-badge&logo=bluesky)](https://bsky.app/profile/dae.bsky.social) [![GitHub](https://img.shields.io/badge/github-daeh-181717?style=for-the-badge&logo=github)](https://github.com/daeh)
+[![GitHub](https://img.shields.io/badge/github-daeh-181717?style=for-the-badge&logo=github)](https://github.com/daeh) [![Personal Website](https://img.shields.io/badge/personal%20website-daeh.info-orange?style=for-the-badge)](https://daeh.info) [![BlueSky](https://img.shields.io/badge/bsky-@dae.bsky.social-skyblue?style=for-the-badge&logo=bluesky)](https://bsky.app/profile/dae.bsky.social)
