@@ -1,0 +1,10 @@
+[package]
+name = "flautomat"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Tammes Burghard <https://kuchenmampfer.de/>"]
+license = "MIT"
+description = "Visualize abstract automata based on json input"
+repository = "https://codeberg.org/Kuchenmampfer/flautomat"
+keywords = ["flaci", "json", "automata", "turing machine", "diagram"]
+categories = ["visualization"]

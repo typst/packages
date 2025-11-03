@@ -1,0 +1,11 @@
+[package]
+name = "use-tabler-icons"
+version = "0.9.0"
+entrypoint = "src/lib.typ"
+authors = ["duskmoon (Campbell He) <kp.campbell.he@duskmoon314.com>", "MaxMixAlex <MaxMixAlex@protonmail.com>"]
+license = "MIT"
+description = "Tabler Icons for Typst using webfont."
+repository = "https://github.com/zyf722/typst-tabler-icons"
+keywords = ["icon", "tabler"]
+categories = ["text"]
+exclude = ["/assets/*"]

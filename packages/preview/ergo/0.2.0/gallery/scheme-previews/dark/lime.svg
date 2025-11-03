@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" width="1200" height="160" shape-rendering="crispEdges">
+  <title>Base16 Palette Stripes</title>
+  <rect x="0.0000" y="0" width="75.0000" height="160" fill="#1a1a2f">
+  </rect>
+  <rect x="75.0000" y="0" width="75.0000" height="160" fill="#202030">
+  </rect>
+  <rect x="150.0000" y="0" width="75.0000" height="160" fill="#2a2a3f">
+  </rect>
+  <rect x="225.0000" y="0" width="75.0000" height="160" fill="#313140">
+  </rect>
+  <rect x="300.0000" y="0" width="75.0000" height="160" fill="#515155">
+  </rect>
+  <rect x="375.0000" y="0" width="75.0000" height="160" fill="#818175">
+  </rect>
+  <rect x="450.0000" y="0" width="75.0000" height="160" fill="#fff2d1">
+  </rect>
+  <rect x="525.0000" y="0" width="75.0000" height="160" fill="#fff8e1">
+  </rect>
+  <rect x="600.0000" y="0" width="75.0000" height="160" fill="#ff662a">
+  </rect>
+  <rect x="675.0000" y="0" width="75.0000" height="160" fill="#ff773a">
+  </rect>
+  <rect x="750.0000" y="0" width="75.0000" height="160" fill="#ffd15e">
+  </rect>
+  <rect x="825.0000" y="0" width="75.0000" height="160" fill="#8cd97c">
+  </rect>
+  <rect x="900.0000" y="0" width="75.0000" height="160" fill="#4cad83">
+  </rect>
+  <rect x="975.0000" y="0" width="75.0000" height="160" fill="#2b926f">
+  </rect>
+  <rect x="1050.0000" y="0" width="75.0000" height="160" fill="#1b825f">
+  </rect>
+  <rect x="1125.0000" y="0" width="75.0000" height="160" fill="#b4d97c">
+  </rect>
+</svg>

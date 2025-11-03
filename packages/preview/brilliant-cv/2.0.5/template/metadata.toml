@@ -1,0 +1,99 @@
+#:schema https://raw.githubusercontent.com/yunanwg/brilliant-CV/main/metadata.toml.schema.json
+
+# Set the output language
+# INFO: value must matches folder suffix; i.e "zh" -> "./modules_zh"
+language = "en"
+
+[layout]
+    # Optional values: skyblue, red, nephritis, concrete, darknight
+    # You can also use a custom color by hex code i.e. "#1E90FF"
+    awesome_color = "skyblue"
+
+    # Skips are for controlling the spacing between sections and entries
+    before_section_skip = "1pt"
+    before_entry_skip = "1pt"
+    before_entry_description_skip = "1pt"
+
+    # Optional: sets paper size and margins. Possible values: a4 (default), us-letter
+    paper_size = "a4"
+
+    # Optional: sets the width of the right column of a cvEntry. If not set, values known to work well are used
+    #date_width = "3.6cm"
+
+    [layout.fonts]
+        regular_fonts = ["Source Sans Pro", "Source Sans 3"]
+        header_font = "Roboto"
+
+    [layout.header]
+        # Optional values: left, center, right
+        header_align = "left"
+
+        # Decide if you want to display profile photo or not
+        display_profile_photo = true
+        info_font_size = "10pt"
+
+    [layout.entry]
+        # Decide if you want to put your company in bold or your position in bold
+        display_entry_society_first = true
+
+        # Decide if you want to display organisation logo or not
+        display_logo = true
+
+[inject]
+    # Decide if you want to inject AI prompt or not
+    inject_ai_prompt = false
+
+    # Decide if you want to inject keywords or not
+    inject_keywords = true
+    injected_keywords_list = ["Data Analyst", "GCP", "Python", "SQL", "Tableau"]
+
+[personal]
+    first_name = "John"
+    last_name = "Doe"
+
+    # The order of this section will affect how the entries are displayed
+    # The custom value is for any additional information you want to add, name it as custom-1, custom-2, etc.
+    [personal.info]
+        github = "yunanwg"
+        phone = "+33 6 12 34 56 78"
+        email = "john.doe@me.org"
+        linkedin = "johndoe"
+        # gitlab = "yunanwg"
+        # homepage = "jd.me.org"
+        # orcid = "0000-0000-0000-0000"
+        # researchgate = "John-Doe"
+        # extraInfo = "I am a cool kid"
+        [personal.info.custom-1]
+            # image = "" # Example: image("./path/to/image.png")
+            awesomeIcon = "graduation-cap" # Example: "graduation-cap" see https://typst.app/universe/package/fontawesome/
+            text = "PhD"
+            link = "https://www.example.com"
+
+# add a new section if you want to include the language of your choice
+# i.e. [[lang.ru]]
+# each section must contains the following fields
+[lang.en]
+    header_quote = "Experienced Data Analyst looking for a full time job starting from now"
+    cv_footer = "Curriculum vitae"
+    letter_footer = "Cover letter"
+
+[lang.fr]
+    header_quote = "Analyste de données expérimenté à la recherche d'un emploi à temps plein disponible dès maintenant"
+    cv_footer = "Résumé"
+    letter_footer = "Lettre de motivation"
+
+[lang.zh]
+    header_quote = "具有丰富经验的数据分析师，随时可入职"
+    cv_footer = "简历"
+    letter_footer = "申请信"
+
+[lang.it]
+    header_quote = "Senior data analyst attualmente disponibile per una posizione di lavoro full-time"
+    cv_footer = "Curriculum vitae"
+    letter_footer = "Lettera di presentazione"
+
+ # For languages that are not written in Latin script
+ # Currently supported non-latin language codes: ("zh", "ja", "ko", "ru")
+[lang.non_latin]
+    name = "王道尔"
+    font = "Heiti SC"

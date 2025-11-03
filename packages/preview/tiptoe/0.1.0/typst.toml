@@ -1,0 +1,13 @@
+[package]
+name = "tiptoe"
+version = "0.1.0"
+entrypoint = "src/tiptoe.typ"
+authors = ["Mc-Zen <https://github.com/Mc-Zen>"]
+license = "MIT"
+description = "Arrows and other marks for lines and paths."
+compiler = "0.12.0"
+
+repository = "https://github.com/Mc-Zen/tiptoe"
+keywords = ["arrows", "marks", "primitives", "line", "path", "tip", "arc"]
+categories = ["visualization", "layout"]
+exclude = ["/docs/*", "/tests/*"]

@@ -1,0 +1,16 @@
+[package]
+name = "kiresume"
+version = "0.1.17"
+entrypoint = "src/lib.typ"
+authors = ["Angus Pointer <me@angus.buzz>"]
+license = "Unlicense"
+description = "A clean and customisable resume template."
+repository = "https://github.com/alpoi/kiresume"
+categories = ["cv"]
+keywords = ["resume", "cv", "template"]
+exclude = ["examples"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,16 @@
+[package]
+name = "js"
+version = "0.1.3"
+entrypoint = "js.typ"
+authors = ["Haruhiko Okumura <okumura@okumuralab.org>"]
+license = "MIT-0"
+description = "Typst template based on LaTeX jsarticle/jsbook document classes"
+repository = "https://github.com/okumuralab/typst-js"
+keywords = ["Japanese", "js", "book", "article"]
+categories = ["book", "paper"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "example.typ"
+thumbnail = "thumbnail.png"

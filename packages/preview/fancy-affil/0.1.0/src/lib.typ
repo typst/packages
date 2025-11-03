@@ -1,0 +1,1 @@
+#import "affiliation.typ": get-affiliations

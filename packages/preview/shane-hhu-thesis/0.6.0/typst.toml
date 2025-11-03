@@ -1,0 +1,16 @@
+[package]
+name = "shane-hhu-thesis"
+version = "0.6.0"
+entrypoint = "hhu-thesis/template.typ"
+authors = ["shane"]
+license = "MIT"
+description = "河海大学本科生毕业论文（设计）模板。Unofficial Hohai University Undergraduate Thesis (Design) Template."
+repository = "https://github.com/shaneworld/HHU-Thesis-Template"
+keywords = ["thesis", "HHU"]
+categories = ["thesis"]
+exclude = []
+
+[template]
+path = "init-files"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

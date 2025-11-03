@@ -1,0 +1,46 @@
+#let env = state(
+  "env",
+  (
+    qst-align-number: none,
+    ref-style: auto,
+    equ-spacing: .1em,
+    opt-columns-max: 4,
+  ),
+)
+#let env-check(key) = {
+  if not env.get().keys().contains(key) {
+    panic("No '" + key + "' in env.")
+  }
+}
+#let env-get(key, default: auto) = {
+  env-check(key)
+  return env.get().at(key, default: default)
+}
+#let env-copy(dict) = {
+  let _dict = (:)
+  for i in dict {
+    _dict.insert(i.at(0), env-get(i.at(0)))
+  }
+  return _dict
+}
+#let _env-upd(key, val) = {
+  env-check(key)
+  let newEnv = env.get()
+  newEnv.at(key) = val
+  env.update(newEnv)
+}
+#let env-upd(..dict) = {
+  let _dict = dict.named()
+  for i in _dict {
+    _env-upd(i.at(0), i.at(1))
+  }
+}
+#let with-env(..dict, body) = context {
+  let envOld = env-copy(dict.named())
+  env-upd(..dict)
+  body
+  env-upd(..envOld)
+}
+
+#let id-question = counter("question-id")
+#let counter-question-l2 = counter("counter-question-level2")

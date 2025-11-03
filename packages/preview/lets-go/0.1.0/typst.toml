@@ -1,0 +1,11 @@
+[package]
+name = "lets-go"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nicolas Mielec"]
+repository = "https://github.com/nmielec/lets-go"
+license = "MIT"
+description = "Draw go game boards easily, with some customization features."
+keywords = ["go", "goban", "game"]
+categories = []
+exclude = ["examples"]
