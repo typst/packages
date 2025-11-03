@@ -21,8 +21,3 @@ disciplines = [
     "education",
 ]
 exclude = ["build", "example"]
-
-[template]
-path = "example/cv.typ"
-entrypoint = "lib.typ"
-thumbnail = "thumbnail.png"
