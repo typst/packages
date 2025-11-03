@@ -17,31 +17,31 @@
   // Headings use Biolinum (sans-serif)
   show heading.where(level: 1): smallcaps
   show heading.where(level: 1): set text(
-    font: "Linux Biolinum",
+    font: "Libertinus Sans",
     size: 12pt,
     weight: "bold",
   )
-  
+
   show heading.where(level: 2): set text(
-    font: "Linux Biolinum", 
+    font: "Libertinus Sans",
     size: 11pt,
     weight: "bold"
   )
-  
+
   show heading.where(level: 3): set text(
-    font: "Linux Biolinum",
+    font: "Libertinus Sans",
     size: 10pt,
     weight: "bold"
   )
-  
+
   // Figure captions might use Biolinum too
   show figure.caption: set text(
-    font: "Linux Biolinum",
+    font: "Libertinus Sans",
     size: 9pt
   )
 
   show bibliography: set text(size: 8pt)
-  
+
   set heading(numbering: "1.1")
 
   // Title row.

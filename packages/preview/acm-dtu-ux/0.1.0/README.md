@@ -6,6 +6,23 @@ This is a student-made adaptation to Typst based on the original LaTeX template 
 
 ## Usage
 
+> [!NOTE]
+> When working locally, you might need to install additional fonts: **Inconsolata**,
+> **Libertinus Sans & Serif**.
+>
+> Libertinus is the newer and maintained version of Linux Libertine and Biolinum,
+> which you can find at https://github.com/alerque/libertinus, or via Homebrew Cask `font-libertinus`.
+>
+> Linux Libertine is the original choice of the ACM Journal for their LaTeX templates.
+>
+> Inconsolata is only used for raw blocks, if you don't like it, you can override it by calling:
+>
+> ```typst
+> #show raw: set text(font: "<your-mono-font>")
+> ```
+>
+> **after** the `project.with` instantiation.
+
 Either start a project from the Typst interface using this template or use it in your existing project:
 
 ```typst
@@ -25,6 +42,7 @@ Either start a project from the Typst interface using this template or use it in
 )
 
 // your content here
+// #show raw: set text(font: "Consolas")
 
 // any appendices? add the following:
 #appendix([
