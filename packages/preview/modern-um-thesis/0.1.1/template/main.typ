@@ -1,5 +1,4 @@
-// #import "@preview/modern-um-thesis:0.1.1": *
-#import "../src/lib.typ": *
+#import "@preview/modern-um-thesis:0.1.1": *
 
 // Optional third-party packages. Remove if unnecessary.
 #import "@preview/cetz:0.4.2": canvas, draw
