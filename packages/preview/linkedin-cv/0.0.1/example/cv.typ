@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/linkedin-cv:0.0.1": *
 
 #show: linkedin-cv.with(
   firstname: "Your",

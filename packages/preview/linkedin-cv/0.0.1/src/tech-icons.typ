@@ -3,9 +3,14 @@
 #let available-icons = icon-data.keys().sorted()
 
 #let icon-aliases = (
+  // Cloud platforms
   "gcp": "googlecloud",
   "google-cloud": "googlecloud",
+
+  // CSS frameworks & libraries
   "tailwind": "tailwindcss",
+
+  // JavaScript frameworks
   "next": "nextjs",
   "node": "nodejs",
   "d3": "d3js",
@@ -14,24 +19,34 @@
   "backbone": "backbonejs",
   "three": "threejs",
   "p5": "p5js",
+
+  // React ecosystem
   "react-bootstrap": "reactbootstrap",
   "material-ui": "materialui",
-  "ms-sql": "microsoftsqlserver",
-  "mssql": "microsoftsqlserver",
+
+  // Databases
   "sqlserver": "microsoftsqlserver",
   "postgres": "postgressql",
   "postgresql": "postgressql",
+
+  // Python tools
   "poetry": "pythonpoetry",
-  "terraform": "hashicorpterraform",
+
+  // Infrastructure
   "vagrant": "hashicorpvagrant",
   "vault": "hashicorpvault",
   "k8s": "kubernetes",
+
+  // Other
   "uml": "unifiedmodellinglanguage",
+
+  // Language shortcuts
   "ts": "typescript",
   "js": "javascript",
   "py": "python",
 )
 
+// Resolve icon name (handles aliases)
 #let resolve-icon-name(name) = {
   if name in icon-aliases {
     icon-aliases.at(name)
@@ -40,6 +55,21 @@
   }
 }
 
+// Render a tech stack icon as inline SVG
+//
+// All icons use standardized viewBox="0 0 128 128" for consistent sizing.
+// Only the unique SVG body content is stored per icon.
+//
+// Parameters:
+//   name: Icon name (must be one of the available-icons) or alias
+//   size: Height of the icon (default: 0.66em to match text)
+//   baseline: Baseline alignment (default: 20%)
+//
+// Example:
+//   #tech-icon("python")
+//   #tech-icon("typescript", size: 1em)
+//   #tech-icon("gcp")  // Uses alias → googlecloud
+//
 #let tech-icon(name, size: 0.66em, baseline: 20%) = {
   let resolved-name = resolve-icon-name(name)
 
@@ -52,6 +82,7 @@
 
   let svg-string = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\">" + svg-body + "</svg>"
 
+  // Render as inline image
   box(
     height: size,
     baseline: baseline,
@@ -60,6 +91,17 @@
   ]
 }
 
+// Render multiple tech icons horizontally
+//
+// Parameters:
+//   icons: Array of icon names (can use aliases)
+//   size: Height of each icon (default: 0.66em)
+//   spacing: Space between icons (default: 2pt)
+//
+// Example:
+//   #tech-icons(("python", "typescript", "react"))
+//   #tech-icons(("gcp", "docker", "k8s"), size: 0.8em)
+//
 #let tech-icons(icons, size: 0.66em, spacing: 2pt) = {
   box({
     for (i, icon-name) in icons.enumerate() {
