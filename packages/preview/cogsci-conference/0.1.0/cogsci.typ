@@ -5,33 +5,31 @@
 /// Returns: Content showing "Anonymous CogSci submission" in the required style.
 #let anonymous-authors = {
   align(center)[
-    #text(size: 11pt, weight: "bold")[
-      Anonymous CogSci submission
+    #block(above: 12pt, below: 0pt)[
+      #text(size: 11pt, weight: "bold")[
+        Anonymous CogSci submission
+      ]
     ]
   ]
 }
 
 // Format a list of authors with proper styling
 // LaTeX: \large\bf = 11pt font with 13pt leading (cogsci.sty line 241)
-// Typst needs empirically determined 5pt leading to match LaTeX visual spacing
-#let format-authors(..args) = {
-  // Pull the positional arguments out of the `arguments` object
-  let pos = args.pos()
-
+// Each author block should have 12pt spacing before it (consistent with title spacing)
+#let format-authors(authors) = {
   // Normalize to an array of author dictionaries
-  let authors = if pos.len() == 0 {
+  let authors = if authors == none {
     ()
-  } else if pos.len() == 1 {
-    let one = pos.at(0)
-    if one == none { () } else if type(one) == array { one } else if type(one) == dictionary { (one,) } else {
-      assert(
-        false,
-        message: "format-authors: single argument must be array, dictionary, or none; got " + str(type(one)),
-      )
-      ()
-    }
+  } else if type(authors) == array {
+    authors
+  } else if type(authors) == dictionary {
+    (authors,)
   } else {
-    pos
+    assert(
+      false,
+      message: "format-authors: argument must be array, dictionary, or none; got " + str(type(authors)),
+    )
+    ()
   }
 
   // Validate each author is a dictionary with required 'name' key
@@ -49,15 +47,15 @@
   // Render authors block
   if authors.len() > 0 {
     align(center)[
-      #set par(leading: 5pt)  // Empirically matches LaTeX \large rendering
       #for (i, author) in authors.enumerate() {
-        [#text(size: 11pt, weight: "bold")[
+        // Add spacing before each author (including first, which comes after title)
+        block(above: 14pt, below: 0pt)[  // Seems like it should be above: 12pt, but 14pt give better empirical match
+          #text(size: 11pt, weight: "bold")[
             #author.name
             #if "email" in author [ (#author.email)]
-          ]#if "affiliation" in author [ \ #text(size: 10pt, weight: "regular")[#author.affiliation]]]
-        if i < authors.len() - 1 {
-          v(4.3pt) // Empirically measured to match LaTeX spacing (46.83pt in LaTeX)
-        }
+          ]
+          #if "affiliation" in author [#text(size: 10pt, weight: "regular")[#linebreak()#author.affiliation]]
+        ]
       }
     ]
   } else {
@@ -191,11 +189,42 @@
 
   // Font setup - Times Roman 10pt with 12pt leading
   set text(
+    /* Global settings */
     font: "Times New Roman",
+    lang: "en", // ISO 639-1/2/3 language code
+    // region: "US", // ISO 3166-1 alpha-2 region code
+    /* Typography */
+    kerning: true,
+    ligatures: true,
+    discretionary-ligatures: false,
+    historical-ligatures: false,
+    number-type: "lining",
+    slashed-zero: false,
+    overhang: false, // Default: true; allows punctuation to hang in the margin for more pleasing edge alignment in justified text. This looks better, but we're disabling it to respect the specified margins exactly.
+    /* Body settings */
     size: 10pt,
-    lang: "en",
+    /* Draft settings */
     hyphenate: hyphenate,
+    /* User overrides */
     ..text-kwargs, // Additional user-specified text settings
+  )
+
+  // Document body
+  // LaTeX \normalsize: 10pt font with 10pt leading (cogsci.sty line 236)
+  // Typst needs empirically determined leading and spacing for visual match
+  set par(
+    /* Global settings */
+    justify: true,
+    /* Body settings */
+    first-line-indent: 10pt, // Exact LaTeX measurement
+    leading: 5.35pt, // Empirically tuned to match LaTeX body text
+    spacing: 5.35pt, // Empirically tuned for paragraph spacing
+    /* Microtypography */
+    linebreaks: "optimized",
+    // justification-limits: (
+    //   spacing: (min: 100% * 2 / 3, max: 150%), // The spacing entry defines how much the width of spaces between words may be adjusted.
+    //   tracking: (min: -0.01em, max: 0.01em), // The tracking entry defines how much the spacing between letters may be adjusted.
+    // ),
   )
 
   // List spacing configuration (matches LaTeX cogsci.sty)
@@ -259,8 +288,7 @@
   show heading.where(level: 3): it => {
     v(-2pt, weak: true) // Pull back from paragraph spacing context
     linebreak()
-    text(it.body, size: 10pt, weight: "bold")
-    h(0.5em, weak: false)
+    box[#text(it.body, size: 10pt, weight: "bold")#h(0.5em, weak: false)]
   }
 
   // Disable heading numbering
@@ -301,21 +329,33 @@
     it
   }
 
-  // Place table captions above the table (LaTeX default for tables)
-  show figure.where(kind: table): set figure(placement: none)
-  show figure.where(kind: table): it => {
-    set align(center)
-    block[
-      #it.caption
-      #v(0.12in) // LaTeX \vskip 0.12in between caption and table
-      #it.body
-    ]
-  }
-
-  // Figure captions appear below with spacing (LaTeX default for figures)
+  // Figure and table spacing per template instructions
   // "one line space above the caption and one line space below it"
-  // LaTeX produces ~27pt gap between figure and caption
-  show figure.where(kind: image): set figure(gap: 15pt)
+  // With 12pt baselineskip, one line space = 12pt
+  // NOTE: LaTeX \abovecaptionskip default is only 10pt, not 12pt, so the LaTeX
+  // template doesn't actually follow its own written instructions
+  show figure: set block(spacing: 12pt)
+  show figure: set figure(gap: 12pt)
+
+  // Table-specific: caption above table instead of below
+  show figure.where(kind: table): set figure.caption(position: top)
+
+  // Table styling to match LaTeX tabular
+  // LaTeX aligns text baseline so ascenders are near the top of cells
+  // Typst centers text vertically, so we use asymmetric inset to match LaTeX
+  set table.hline(stroke: 0.4pt)
+  set table.vline(stroke: 0.4pt)
+
+  show table: set table(
+    stroke: none,
+    gutter: 0em,
+    // align: left, // LaTeX default, but intentionally leaving out here
+    inset: (top: 2pt, bottom: 4pt, x: 8pt), // Less top padding, more bottom for descenders
+    /* Debugging */
+    // stroke: 1pt,
+    // gutter: 1em,
+    // inset: 1.1em,
+  )
 
   // Internal helper: Format the title section
   // LaTeX: \LARGE\bf = 14pt font with 17pt leading (cogsci.sty line 243)
@@ -323,7 +363,6 @@
   let format-title(content) = {
     align(center)[
       #set text(size: 14pt, weight: "bold")
-      #set par(leading: 3pt)  // LaTeX 17pt total, Typst needs 3pt extra
       #content
     ]
   }
@@ -353,14 +392,18 @@
   let titlebox-content = {
     if title != none {
       format-title(title)
-      v(-0.2em) // Counteract most of natural block spacing while leaving proper gap
+      // v(1em, weak: true)
+      v(14pt, weak: true) // Seems like it should be above: 12pt, but 14pt give better empirical match
+      // v(12pt, weak: true)
     }
-    if anonymize {
-      anonymous-authors
-    } else {
-      authors
-    }
-    v(2em) // LaTeX \vskip 2em at end of titlebox (line 161)
+    block(above: 12pt, below: 12pt)[
+      #if anonymize {
+        anonymous-authors
+      } else {
+        authors
+      }
+    ]
+    v(2em, weak: false) // LaTeX \vskip 2em at end of titlebox (line 161)
   }
 
   context {
@@ -431,19 +474,13 @@
     ]
   ])
 
-  // Document body
-  // LaTeX \normalsize: 10pt font with 10pt leading (cogsci.sty line 236)
-  // Typst needs empirically determined leading and spacing for visual match
-  set par(
-    first-line-indent: 10pt, // Exact LaTeX measurement
-    justify: true,
-    leading: 5.35pt, // Empirically tuned to match LaTeX body text
-    spacing: 5.35pt, // Empirically tuned for paragraph spacing
-  )
-
   // Bibliography
-  show bibliography: set par(first-line-indent: 0pt, hanging-indent: 0.125in)
+  show bibliography: set par(
+    first-line-indent: 0pt,
+    hanging-indent: 0.125in,
+  )
   set bibliography(title: "References")
 
   body
 }
+

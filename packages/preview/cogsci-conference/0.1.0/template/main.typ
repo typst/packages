@@ -72,16 +72,16 @@ Number tables consecutively. Place the table number and title (in 10 point font)
 
 #figure(
   table(
-    columns: 2,
-    stroke: (x, y) => if y == 0 or y == 5 { (top: 0.5pt, bottom: 0.5pt) } else if y == 1 { (bottom: 0.5pt) } else {
-      none
-    },
     align: left,
+    columns: 2,
+    table.hline(),
     [Error type], [Example],
+    table.hline(),
     [Take smaller], [63 - 44 = 21],
     [Always borrow], [96 - 42 = 34],
     [0 - N = N], [70 - 47 = 37],
     [0 - N = 0], [70 - 47 = 30],
+    table.hline(),
   ),
   caption: [Sample table title.],
   kind: table,
@@ -97,6 +97,8 @@ All artwork must be very dark for purposes of reproduction and should not be han
   kind: image,
 ) <sample-figure>
 
+#v(8pt, weak: false) // LaTeX uses flexible spacing to align the last line of a column with the bottom of the page, whereas Typst does not. For the sake of matching the appearance of LaTeX output, we add some vertical space here.
+
 = Acknowledgments
 
 In the *initial submission*, please *do not include acknowledgements*, to preserve anonymity. In the *final submission*, place acknowledgments (including funding information) in a section *at the end of the paper*.
@@ -109,13 +111,11 @@ Use a first level section heading, "References", as shown below. Use a hanging i
 
 // Include additional entries in bibliography without citing them in text
 // Equivalent to LaTeX \nocite{}
-#hide[
-  @Feigenbaum1963a
-  @Hill1983a
-  @OhlssonLangley1985a
-  @Matlock2001
-  @ShragerLangley1990a
-]
+#cite(<Feigenbaum1963a>, form: none)
+#cite(<Hill1983a>, form: none)
+#cite(<OhlssonLangley1985a>, form: none)
+#cite(<Matlock2001>, form: none)
+#cite(<ShragerLangley1990a>, form: none)
 
 // Bibliography (uses BibLaTeX .bib file and APA style)
 #bibliography("bibliography.bib", style: "apa")
