@@ -24,6 +24,7 @@ This package uses [fletcher](https://typst.app/universe/package/fletcher) to ren
       - [Metadata Match node/edge drawing functions](#metadata-match-nodeedge-drawing-functions)
       - [Other Pre-defined node/edge drawing functions](#other-pre-defined-nodeedge-drawing-functions)
     - [Custom node/edge drawing functions](#custom-nodeedge-drawing-functions)
+    - [Shortcut node/edge drawing functions](#shortcut-nodeedge-drawing-functions)
   - [API Reference](#api-reference)
 
 ## Getting Started
@@ -590,7 +591,7 @@ For `draw-edge`, the function should have the following signature:
   ), 
   edge-label: any,
   // other optional named arguments
-) -> fletcher.edge
+) -> arguments | dictionary | array
 ```
 
 where
@@ -598,6 +599,60 @@ where
 - `from-node`: a tuple representing the starting node of the edge, with the same structure as the parameters of `draw-node`
 - `to-node`: a tuple representing the ending node of the edge, with the same structure as the parameters of `draw-node`
 - `edge-label`: the label of the edge, if the edge has no label, it's `none`.
+
+### Shortcut node/edge drawing functions
+
+For convenience, if your node/edge drawing functions do not use any arguments provided, you can abbreviate your custom node/edge drawing functions to only the return value, e.g.,
+
+```typ
+#tidy-tree-graph(
+  // ...
+  draw-node: (
+    tidy-tree-draws.default-draw-node,
+    ((label, )) => (label: text(blue)[#label]),
+    tidy-tree-draws.metadata-match-draw-node.with(
+      matches: (
+        root: (..) => (shape: circle, fill: color.red)
+      )
+    )
+  ),
+  draw-edge: (
+    tidy-tree-draws.default-draw-edge,
+    (..) => (marks: "-o", stroke: color.red),
+    tidy-tree-draws.metadata-match-draw-edge.with(
+      to-matches: (
+        leaf: (..) => (marks: "->", stroke: color.green)
+      )
+    ),
+  )
+)
+```
+
+abbreviates to
+
+```typ
+#tidy-tree-graph(
+  // ...
+  draw-node: (
+    tidy-tree-draws.default-draw-node,
+    ((label, )) => (label: text(blue)[#label]),
+    tidy-tree-draws.metadata-match-draw-node.with(
+      matches: (
+        root: (shape: circle, fill: color.red)
+      )
+    )
+  ),
+  draw-edge: (
+    tidy-tree-draws.default-draw-edge,
+    (marks: "-o", stroke: color.red),
+    tidy-tree-draws.metadata-match-draw-edge.with(
+      to-matches: (
+        leaf: (marks: "->", stroke: color.green)
+      )
+    ),
+  )
+)
+```
 
 ## API Reference
 
