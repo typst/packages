@@ -5,6 +5,7 @@ entrypoint = "template.typ"
 categories = [ "paper", "report" ]
 disciplines = [ "computer-science", "design" ]
 description = "The ACM-based template for UX Design Prototyping / UX Engineering assignments at Technical University of Denmark (DTU)."
+license = "MIT"
 
 [template]
 path = "assets"
