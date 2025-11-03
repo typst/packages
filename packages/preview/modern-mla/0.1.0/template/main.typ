@@ -1,4 +1,4 @@
-#import "@preview/mla-template:0.1.0":*
+#import "@preview/modern-mla:0.1.0":*
 #show: mla.with(
   title: "",
   author: (

@@ -1,4 +1,4 @@
-# mla-template
+# modern-mla
 A typst template for use in MLA formats.
 
 ## Usage
@@ -8,13 +8,13 @@ A typst template for use in MLA formats.
 Initialize a new project using this template:
 
 ```bash
-typst init @preview/mla-template
+typst init @preview/modern-mla
 ```
 
 Or specify a custom directory name:
 
 ```bash
-typst init @preview/mla-template my-paper
+typst init @preview/modern-mla my-paper
 ```
 
 ### Method 2: Manual import
@@ -22,7 +22,7 @@ typst init @preview/mla-template my-paper
 Import the template in your Typst document:
 
 ```typst
-#import "@preview/mla-template:0.1.0": *
+#import "@preview/modern-mla:0.1.0": *
 
 #show: mla.with(
   title: "Your Paper Title",
