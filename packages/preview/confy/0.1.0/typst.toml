@@ -16,5 +16,4 @@ keywords = [
     "score",
     "cetz",
 ]
-compiler = "0.14.0"
 exclude = ["demo.typ", "demo.pdf"]
