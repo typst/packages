@@ -19,7 +19,6 @@ This template uses FontAwesome icons via the [fontawesome typst package](https:/
 In order to properly use it, you need to have fontawesome installed on your system or have typst configured (via `--font-path`) to use the fontawesome font files.
 You can download fontawesome [here](https://fontawesome.com/download).
 
-> [!TIP]
 > You can use typst in combination with [pixi](https://pixi.sh) to easily add fontawesome to your project and run it reproducibly anywhere.
 >
 > ```toml
