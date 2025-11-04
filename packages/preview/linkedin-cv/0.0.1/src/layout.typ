@@ -26,7 +26,7 @@
   )
 
   set text(
-    font: "Arial",
+    font: "Source Sans Pro",
     size: 9pt,
     fill: colors.text,
     fallback: false,

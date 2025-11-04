@@ -1,7 +1,16 @@
+// Tech Stack Icons - Auto-generated from icon-data.json
+// DO NOT EDIT MANUALLY - Regenerate using: python generate_tech_icons.py
+//
+// All icons have standardized viewBox="0 0 128 128" for consistent sizing
+// Icon data loaded from icon-data.json at compile time (no duplication!)
+
+// Load icon data from JSON file
 #let icon-data = json("icon-data.json")
 
+// List of all available icon names for type safety and autocomplete
 #let available-icons = icon-data.keys().sorted()
 
+// Common aliases for icon names (maps common names to actual icon names)
 #let icon-aliases = (
   // Cloud platforms
   "gcp": "googlecloud",
@@ -71,8 +80,10 @@
 //   #tech-icon("gcp")  // Uses alias → googlecloud
 //
 #let tech-icon(name, size: 0.66em, baseline: 20%) = {
+  // Resolve aliases
   let resolved-name = resolve-icon-name(name)
 
+  // Validate icon name
   assert(
     resolved-name in icon-data,
     message: "Unknown icon: '" + name + "' (resolved to: '" + resolved-name + "'). Available: " + available-icons.slice(0, 10).join(", ") + "... (and " + str(available-icons.len() - 10) + " more)"
@@ -80,6 +91,8 @@
 
   let svg-body = icon-data.at(resolved-name)
 
+  // Build complete SVG with standardized viewBox
+  // xmlns and viewBox are the same for all icons (no duplication in data)
   let svg-string = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\">" + svg-body + "</svg>"
 
   // Render as inline image
@@ -103,7 +116,27 @@
 //   #tech-icons(("gcp", "docker", "k8s"), size: 0.8em)
 //
 #let tech-icons(icons, size: 0.66em, spacing: 2pt) = {
+  let tech-list = icons.join(", ")
+  let tech-stack-text = "Tech stack: " + tech-list
+
   box({
+    context {
+      place(
+        right + top,
+        dx: 0pt,
+        dy: 0pt,
+        box(width: 0pt, height: 0pt, [
+          #box(width: 10000pt, [
+            #text(
+              size: 0.01pt,
+              fill: white,
+              tech-stack-text
+            )
+          ])
+        ])
+      )
+    }
+
     for (i, icon-name) in icons.enumerate() {
       tech-icon(icon-name, size: size)
       if i < icons.len() - 1 {

@@ -1,9 +1,8 @@
-#import "src/colors.typ": colors
-#import "src/typography.typ"
-#import "src/utils.typ": *
-#import "src/components.typ"
-#import "src/layout.typ": layout
-#import "src/frame.typ"
+#import "colors.typ": colors
+#import "typography.typ"
+#import "utils.typ": *
+#import "components.typ"
+#import "layout.typ": layout
 
 #let linkedin-cv(
   firstname: "First",

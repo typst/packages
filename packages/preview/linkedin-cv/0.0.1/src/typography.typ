@@ -1,25 +1,29 @@
 #import "colors.typ": colors
 
 #let name(content) = text(
-  size: 32pt,
+  font: "Roboto",
+  size: 24pt,
   weight: "bold",
   fill: colors.black,
   content
-)
+) + v(1em)
 
 #let position(content) = text(
+  font: "Roboto",
   size: 7.6pt,
   fill: colors.awesome,
   smallcaps(content)
 )
 
 #let social-entry(content) = text(
+  font: "Roboto",
   size: 6.8pt,
   fill: colors.text,
   content
 )
 
 #let summary(content) = text(
+  font: "Roboto",
   size: 8.8pt,
   fill: colors.awesome,
   content
