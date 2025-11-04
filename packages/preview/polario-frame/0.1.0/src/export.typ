@@ -10,6 +10,9 @@
   } else if theme == "theme2" {
     import "themes/theme.typ": theme2
     theme2(size: size, img: img, ext-info: ext-info)
+  } else if theme == "theme3" {
+    import "themes/theme.typ": theme3
+    theme3(size: size, img: img, ext-info: ext-info)
   } else {
     panic("Theme [" + theme + "] is not existed")
   }
