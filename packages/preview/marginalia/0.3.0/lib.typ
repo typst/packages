@@ -120,10 +120,14 @@
         let dest = query(selector(<_marginalia_note>).after(it.element.location()))
         assert(dest.len() > 0, message: "Could not find referenced note")
         link(dest.first().location(), dest.first().value.anchor)
-      } else if true or it.element.children.first().value == "_marginalia_notefigure" {
+      } else if it.element.children.first().value == "_marginalia_notefigure" {
         let dest = query(selector(<_marginalia_notefigure_meta>).after(it.element.location()))
         assert(dest.len() > 0, message: "Could not find referenced notefigure")
-        std.ref(dest.first().value.label, form: it.form, supplement: it.supplement)
+        if it.has("form") {
+          std.ref(dest.first().value.label, form: it.form, supplement: it.supplement)
+        } else {
+          std.ref(dest.first().value.label, supplement: it.supplement)
+        }
       } else {
         it
       }
