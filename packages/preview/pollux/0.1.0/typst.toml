@@ -6,7 +6,7 @@ entrypoint = "package.typ"
 authors = ["Kaito Takanami"]
 license = "MIT"
 description = "A clean and minimal academic poster template inspired by gemini."
-keywords = ["poster", "template", "academic"]
+keywords = ["poster", "template", "academic", "gemini"]
 categories = ["poster"]
 repository = "https://github.com/taka255/pollux"
 
