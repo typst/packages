@@ -13,6 +13,9 @@ keywords = [
   "comments",
   "marginnote",
   "sidenote",
+  "tufte",
+  "positioning",
+  "layout",
 ]
 categories = ["layout", "utility"]
 compiler = "0.12.0"
