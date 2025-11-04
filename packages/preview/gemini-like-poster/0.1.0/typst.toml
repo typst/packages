@@ -11,6 +11,6 @@ categories = ["poster"]
 repository = "https://github.com/taka255/gemini-like-poster"
 
 [template]
-path = "."
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "gallery/steel-blue-en.png"
