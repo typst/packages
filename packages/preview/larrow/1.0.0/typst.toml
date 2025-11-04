@@ -7,5 +7,5 @@ license = "MPL-2.0"
 description = "Draw and style arrows between labels."
 repository = "https://github.com/Mambouna/larrow"
 keywords = ["arrow", "arrows", "label", "labels", "connect", "connection"]
-categories = ["Components", "Visualization", "Utility"]
+categories = ["components", "visualization", "utility"]
 exclude = ["example"]
