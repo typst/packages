@@ -1,4 +1,4 @@
-#import "@preview/gemini-like-poster:0.1.0": *
+#import "@preview/pollux:0.1.0": *
 
 // theme
 // use default theme

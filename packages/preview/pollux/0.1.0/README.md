@@ -1,4 +1,4 @@
-# Gemini-like Poster Template for Typst
+# Pollux: A Gemini-like Poster Template for Typst
 
 A clean academic poster template for [Typst](https://typst.app), inspired by the LaTeX Gemini beamerposter theme. The template is based on [peace-of-posters](https://github.com/jonaspleyer/peace-of-posters) (MIT License) and styled after [Gemini](https://github.com/anishathalye/gemini) (MIT License).
 

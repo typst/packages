@@ -1,5 +1,5 @@
 [package]
-name = "gemini-like-poster"
+name = "pollux"
 version = "0.1.0"
 compiler = "0.13.1"
 entrypoint = "package.typ"
@@ -8,7 +8,7 @@ license = "MIT"
 description = "A clean and minimal academic poster template inspired by Gemini."
 keywords = ["poster", "template", "academic"]
 categories = ["poster"]
-repository = "https://github.com/taka255/gemini-like-poster"
+repository = "https://github.com/taka255/pollux"
 
 [template]
 path = "template"
