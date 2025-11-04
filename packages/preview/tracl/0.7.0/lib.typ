@@ -13,7 +13,7 @@
 // v0.3, adjusted some formatting to the ACL style rules
 // v0.2, adapted to Typst 0.12
 
-#import "@preview/oxifmt:0.2.1": strfmt
+#import "@preview/oxifmt:1.0.0": strfmt
 #import "@preview/pergamon:0.5.0": *
 #let dev = pergamon-dev
 
