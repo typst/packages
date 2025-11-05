@@ -1,5 +1,5 @@
 [package]
-name = "acm-dtu-ux"
+name = "ready-acm-dtu-ux"
 version = "0.1.0"
 authors = [ "Demetrio Battaglia <https://deme3.me>" ]
 entrypoint = "template.typ"
