@@ -1,4 +1,4 @@
-# acm-dtu-ux
+# ready-acm-dtu-ux
 
 An ACM-based Typst template for UX Design Prototyping (02810) / UX Engineering (02266) assignments at Technical University of Denmark (DTU).
 
