@@ -39,21 +39,17 @@ You can use Typst either via the web app or by installing it locally:
 
 For more details, see the `installation` section of the [official Typst Github Repo](https://github.com/typst/typst).
 
-### 2. Download This Template
+### 2. Setup & Use This Template
 
-Clone the repository or download it as a ZIP file:
++ Open the project folder in Typst (web or local editor).
++ Add the following code to your document:
 
-```sh
-git clone https://github.com/ShabbyGayBar/modern-um-thesis.git
-# or download and extract ZIP from GitHub
+```typst
+#import "@preview/modern-um-thesis:0.1.1": *
 ```
 
-### 3. Setup & Usage
-
-1. Open the project folder in Typst (web or local editor).
-2. Edit the main Typst file (e.g., `template/main.typ`) and fill in your thesis information.
-3. Select your thesis type (doctor/master) and language in the documentclass options.
-4. Compile to PDF using Typst.
++ Fill in your thesis information as in `template/main.typ` line 12-62.
++ Compile to PDF using Typst.
 
 ---
 
