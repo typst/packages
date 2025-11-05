@@ -7,7 +7,7 @@ categories = [ "paper", "report" ]
 disciplines = [ "computer-science", "design" ]
 description = "The ACM-based template for UX Design Prototyping / UX Engineering assignments at Technical University of Denmark (DTU)."
 license = "MIT"
-repository = "https://github.com/deme3/acm-dtu-ux"
+repository = "https://github.com/deme3/ready-acm-dtu-ux"
 
 [template]
 path = "assets"
