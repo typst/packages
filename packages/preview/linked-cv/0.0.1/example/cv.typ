@@ -1,6 +1,6 @@
-#import "@preview/linkedin-cv:0.0.1": *
+#import "@preview/linked-cv:0.0.1": *
 
-#show: linkedin-cv.with(
+#show: linked-cv.with(
   firstname: "Your",
   lastname: "Name",
   socials: (

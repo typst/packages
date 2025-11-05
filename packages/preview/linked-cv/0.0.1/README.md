@@ -1,21 +1,21 @@
-# linkedin-cv
+# linked-cv
 
 A beautiful CV template that emulates the LinkedIn UI.
 
 ## Installation
 
-Simply import the `linkedin-cv` package and install it using the Typst package manager.
+Simply import the `linked-cv` package and install it using the Typst package manager.
 
 ```typ
-#import "@preview/linkedin-cv:0.0.1": *
+#import "@preview/linked-cv:0.0.1": *
 ```
 
 ## Usage
 
-Generate started CV by using the `linkedin-cv` template.
+Generate started CV by using the `linked-cv` template.
 
 ```typ
-#show: linkedin-cv.with(
+#show: linked-cv.with(
   firstname: "Your",
   lastname: "Name",
   email: "hello@example.com",
