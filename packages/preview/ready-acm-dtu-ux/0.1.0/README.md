@@ -57,4 +57,4 @@ Either start a project from the Typst interface using this template or use it in
 
 ## Preview
 
-![Screenshot of acm-dtu-ux package in use](preview.png)
+![Screenshot of ready-acm-dtu-ux package in use](preview.png)
