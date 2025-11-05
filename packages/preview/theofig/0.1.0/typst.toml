@@ -9,4 +9,4 @@ description = "Simple theorem environments based on std.figure."
 repository = "https://github.com/Danila-Bain/typst-theorems"
 keywords = ["theorem"]
 categories = ["model"]
-exclude = ["readme-examples/", "docs/"]
+exclude = ["readme-examples/"]
