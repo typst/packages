@@ -1,4 +1,4 @@
-#import "@preview/acm-dtu-ux:0.1.0": *
+#import "@preview/ready-acm-dtu-ux:0.1.0": *
 
 #show: project.with(
   title: "One AR to rule them all",
