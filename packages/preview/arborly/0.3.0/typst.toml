@@ -1,0 +1,13 @@
+[package]
+name = "arborly"
+version = "0.3.0"
+repository = "https://github.com/pearcebasmanm/arborly"
+entrypoint = "src/lib.typ"
+authors = [
+  "Max Pearce Basman <https://github.com/pearcebasmanm>"
+]
+license = "MIT"
+description = "A library for producing beautiful syntax tree graphs."
+categories = [ "visualization" ]
+keywords = [ "syntax", "sentence", "tree" ]
+exclude = [ "manual.pdf", "manual.typ" ]
