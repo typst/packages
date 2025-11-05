@@ -48,6 +48,9 @@ For more details, see the `installation` section of the [official Typst Github R
 #import "@preview/modern-um-thesis:0.1.1": *
 ```
 
+or 
++ Click `start with template` if using Typst web app.
+
 + Fill in your thesis information as in `template/main.typ` line 12-62.
 + Compile to PDF using Typst.
 
