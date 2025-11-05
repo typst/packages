@@ -1,4 +1,4 @@
-#import "lib.typ": *
+#import "@preview/cvssc:0.2.0": *
 
 // ============================================================================
 // CVSS Calculator Library - Comprehensive Test Suite
