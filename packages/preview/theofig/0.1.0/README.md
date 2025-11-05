@@ -5,8 +5,13 @@ An implementation of theorem environments for
 
 Import as
 ```typ
-#import "@preview/theofigs:0.0.1": *
+#import "@preview/theofig:0.1.0": *
 ```
+
+## Documentation
+
+For detailed guide and documentation see 
+[manual](https://github.com/Danila-Bain/typst-theorems/blob/v0.1.0/docs/manual.pdf).
 
 ## Features
 
@@ -33,17 +38,12 @@ Import as
 - Environments can be customized using arguments in the corresponding functions.
 - Default environments are translated depending on `lang.text` to many languages.
 
-## Documentation
-
-For detailed guide and documentation see 
-[manual](https://github.com/Danila-Bain/typst-theorems/tree/main/docs/manual.pdf).
-
 ## Examples
 
 ### Basic usage
 
 ```typ
-#import "/theofig.typ": *
+#import "@preview/theofig:0.1.0": *
 #set page(paper: "a6", height: auto, margin: 6mm)
 
 #definition[#lorem(5)]<def-1>
@@ -60,12 +60,12 @@ For detailed guide and documentation see
   @th-2 follows immediately from @def-1 and @th-1, which is obvious.
 ]
 ```
-![example](readme-examples/1-basic-usage.svg)
+![Basic usage example. A definition and two theorems are defined. Then they are referenced in the proof.](readme-examples/1-basic-usage.svg)
 
 
 ### Custom environments
 ```typ
-#import "/theofig.typ": theofig, problem, solution
+#import "@preview/theofig:0.1.0": theofig, problem, solution
 #set page(paper: "a6", height: auto, margin: 6mm)
 
 #let hard-problem = theofig.with(
@@ -95,12 +95,12 @@ For detailed guide and documentation see
 
 #hint[ Verify all axioms of a field exaustively. ]
 ```
-![example](readme-examples/2-custom-environments.svg)
+![Custom environments example. Defines `hard-problem` that adds asterics to the numbering and `hint` that has regular (not strong) supplement and separator `:`.](readme-examples/2-custom-environments.svg)
 
 ### Language support
 
 ```typ
-#import "/theofig.typ": *
+#import "@preview/theofig:0.1.0": *
 #set page(paper: "a6", height: auto, margin: 6mm)
 
 #for lang in theofig-translations.keys() [
@@ -109,12 +109,12 @@ For detailed guide and documentation see
 ]
 ```
 
-![example](readme-examples/3-language-support.svg)
+![Language support example. Theorems in each supported language are displayed.](readme-examples/3-language-support.svg)
 
 ### Per-section numbering 
 
 ```typ
-#import "/theofig.typ": *
+#import "@preview/theofig:0.1.0": *
 #set page(paper: "a6", height: auto, margin: 6mm)
 
 #let thm-numbering(n) = numbering("1.1", counter(heading).get().first(), n)
@@ -147,12 +147,12 @@ Note that @th-add-2 about @eq-add-2 and
 @th-mul-2 about @eq-mul-2 are similar.
 ```
 
-![example](readme-examples/4-per-section-numbering.svg)
+![Custom numbering example. Section numbering is appended to theorem and equation numbering. Theorem and equation numbering is reset at the start of each section.](readme-examples/4-per-section-numbering.svg)
 
 ### Styling
 
 ```typ
-#import "/theofig.typ": *
+#import "@preview/theofig:0.1.0": *
 #set page(paper: "a6", height: auto, margin: 6mm)
 
 // show rule for all (optionally except some)
@@ -181,7 +181,7 @@ Note that @th-add-2 about @eq-add-2 and
 #proposition[#lorem(15)]
 ```
 
-![example](readme-examples/5-styling.svg)
+![Styling example. Definition, theorem, and remark, have regular caption and italic body. Text in remark is blue. Proposition has sparse and underlined caption and body written in small capitals. ](readme-examples/5-styling.svg)
 
 ## Why another one?
 
