@@ -42,7 +42,7 @@
   margin: (left: 30mm, right: 15mm, top: 20mm, bottom: 20mm),
   title-footer-align: center,
   pagination-align: center,
-  pagebreaks: true,
+  add-pagebreaks: true,
   city: none,
   year: auto,
   hide-title: false,
@@ -81,7 +81,7 @@
     margin,
     title-footer-align,
     pagination-align,
-    pagebreaks,
+    add-pagebreaks,
   )
 
   gost-common(

@@ -11,13 +11,13 @@
   margin,
   title-footer-align,
   pagination-align,
-  pagebreaks,
+  add-pagebreaks,
   body,
 ) = {
   if small-text-size == none { small-text-size = text-size - 4pt }
   [#metadata((
       small-text-size: small-text-size,
-      pagebreaks: pagebreaks,
+      add-pagebreaks: add-pagebreaks,
     )) <modern-g7-32-parameters>]
 
   set page(margin: margin)
@@ -89,6 +89,6 @@
     title: structural-heading-titles.references,
   )
 
-  show: headings(text-size, indent, pagebreaks)
+  show: headings(text-size, indent, add-pagebreaks)
   body
 }

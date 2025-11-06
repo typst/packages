@@ -37,7 +37,7 @@
     counter(figure.where(kind: raw)).update(0)
     counter(math.equation).update(0)
 
-    if query(<modern-g7-32-parameters>).first().value.pagebreaks {
+    if query(<modern-g7-32-parameters>).first().value.add-pagebreaks {
       pagebreak(weak: true)
     }
     it
