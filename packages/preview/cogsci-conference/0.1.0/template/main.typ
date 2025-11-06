@@ -87,27 +87,33 @@ Number tables consecutively. Place the table number and title (in 10 point font)
   kind: table,
 ) <sample-table>
 
+#v(20pt, weak: false) // LaTeX uses flexible spacing to align the last line of a column with the bottom of the page, whereas Typst does not. For the sake of matching the appearance of LaTeX output, we add some ad-hoc vertical space here.
+
 == Figures
 
 All artwork must be very dark for purposes of reproduction and should not be hand drawn. Number figures sequentially, placing the figure number and caption, in 10 point, after the figure with one line space above the caption and one line space below it, as in @sample-figure. If necessary, leave extra white space at the bottom of the page to avoid splitting the figure and figure caption. You may float figures to the top or bottom of a column, and you may set wide figures across both columns.
 
+#v(15pt, weak: false) // ad-hoc
+
 #figure(
-  rect(stroke: 0.5pt)[CoGNiTiVe ScIeNcE],
+  rect(stroke: 0.5pt, inset: 3pt)[CoGNiTiVe ScIeNcE],
   caption: [This is a figure.],
   kind: image,
 ) <sample-figure>
 
-#v(8pt, weak: false) // LaTeX uses flexible spacing to align the last line of a column with the bottom of the page, whereas Typst does not. For the sake of matching the appearance of LaTeX output, we add some vertical space here.
-
 = Acknowledgments
 
 In the *initial submission*, please *do not include acknowledgements*, to preserve anonymity. In the *final submission*, place acknowledgments (including funding information) in a section *at the end of the paper*.
+
+#v(29pt, weak: false) // ad-hoc
 
 = References Instructions
 
 Follow the APA Publication Manual for citation format, both within the text and in the reference list, with the following exceptions: (a) do not cite the page numbers of any book, including chapters in edited volumes; (b) use the same format for unpublished references as for published ones. Alphabetize references by the surnames of the authors, with single author entries preceding multiple author entries. Order references by the same authors by the year of publication, with the earliest first.
 
 Use a first level section heading, "References", as shown below. Use a hanging indent style, with the first line of the reference flush against the left margin and subsequent lines indented by 1/8 inch. Below are example references for a conference paper, book chapter, journal article, dissertation, book, technical report, and edited volume, respectively.
+
+#v(3pt, weak: false) // ad-hoc
 
 // Include additional entries in bibliography without citing them in text
 // Equivalent to LaTeX \nocite{}
@@ -118,4 +124,4 @@ Use a first level section heading, "References", as shown below. Use a hanging i
 #cite(<ShragerLangley1990a>, form: none)
 
 // Bibliography (uses BibLaTeX .bib file and APA style)
-#bibliography("bibliography.bib", style: "apa")
+#bibliography("bibliography.bib")

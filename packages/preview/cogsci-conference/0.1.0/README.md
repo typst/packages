@@ -10,13 +10,13 @@ This template aims to be a visual clone of the official LaTeX template.
 
 ## Usage
 
-You will typically want to use this template by initializing a project with the CogSci boilerplate. The CogSci boilerplate (shown in the thumbnails) will give you the formatting specifications and examples of how to make citations, figures, tables, footnotes, and acknowledgments. You can generate the boilerplate (1) in the Typst web app or (2) locally. If you don't need the boilerplate, you can also just (3) import the template functions in any Typst document.
+You will typically want to use this template by initializing a project with the CogSci boilerplate. The CogSci boilerplate (shown in the thumbnails) will give you the formatting specifications and examples of how to make citations, figures, tables, footnotes, and acknowledgments. You can generate the boilerplate (*a*) in the Typst web app or (*b*) locally. If you don't need the boilerplate, you can also just (*c*) import the template functions in any Typst document.
 
-### (1) Initialize the boilerplate in the Typst web app
+### (*a*) Initialize the boilerplate in the Typst web app
 
 In the [Typst web app](https://typst.app/), click "Start from template" on the dashboard and search for `cogsci-conference`.
 
-### (2) Initialize the boilerplate locally
+### (*b*) Initialize the boilerplate locally
 
 You can use the [Typst CLI](https://github.com/typst/typst) to initialize the template locally:
 
@@ -25,7 +25,7 @@ typst init @preview/cogsci-conference
 cd cogsci-conference
 ```
 
-### (3) Import the template functions
+### (*c*) Import the template functions
 
 The API is described in the [Parameters](#parameters) section below.
 
@@ -51,15 +51,19 @@ The API is described in the [Parameters](#parameters) section below.
 
 ### Local usage notes
 
-If you're using Typst locally, I highly recommend trying the [Tinymist](https://myriad-dreamin.github.io/tinymist/) extension for [Visual Studio Code](https://code.visualstudio.com/): [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist). It makes for a superb writing experience.
+#### Composition
 
-#### To generate the PDF:
+If you're using Typst locally, I highly recommend trying the [Tinymist](https://myriad-dreamin.github.io/tinymist/) extension for [Visual Studio Code](https://code.visualstudio.com/): [**Tinymist Typst VS Code Extension**](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist). It makes for a superb writing experience.
+
+#### Compilation
+
+To generate the PDF using the Typst CLI:
 
 ```shell
 typst compile main.typ main.pdf
 ```
 
-**It's recommended that you use a [PDF standard](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types.html) to ensure that the PDF is searchable, e.g. `a-3u`:**
+**NB: It's recommended that you use a [PDF standard](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types.html) to ensure that the PDF is searchable, e.g. `a-3u`:**
 
 ```shell
 typst compile --pdf-standard a-3u main.typ main.pdf
@@ -101,7 +105,7 @@ Call `bibliography()` at the end of your document:
 
 Typst's `bibliography()` function accepts a BibLaTeX `.bib` file or a Hayagriva `.yaml`/`.yml` file.
 
-**Note:** If passing a `.bib` file, use the Bib**_La_**TeX format, not BibTeX.
+**Note:** If passing a `.bib` file, use the Bib***La***TeX format, not BibTeX.
 
 ### Submission Control
 
@@ -135,7 +139,7 @@ Once again, make sure that you adhere to the general formatting instructions, in
 
 ## Requirements
 
-- Typst `v0.14.0` or later (use the [web app](https://typst.app/play/) or install locally, e.g. with `brew install typst`)
+- Typst `v0.14.0` or later (use the [web app](https://typst.app/play/) or [install locally](https://github.com/typst/typst?tab=readme-ov-file#installation), e.g. with `brew install typst`)
 
 ## License
 
