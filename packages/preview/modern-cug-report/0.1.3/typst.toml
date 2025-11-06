@@ -13,4 +13,4 @@ categories = ["layout", "report"]
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "../thumbnail.png"
+thumbnail = "thumbnail.png"
