@@ -9,7 +9,7 @@
 
 
 // 必须要定义为show function才能生效
-#let set_size(it, config) = {
+#let set-size(it, config) = {
   set text(size: config.text)
 
   show math.equation: set text(size: config.math.text)
@@ -31,7 +31,7 @@
   it
 }
 
-#let default_size(text: 13pt) = {
+#let default-size(text: 13pt) = {
   (
     text: text,
     math: (
@@ -53,8 +53,8 @@
   )
 }
 
-#let define_size(text, config) = {
-  let base_size = default_size(text: text)
+#let define-size(text, config) = {
+  let base_size = default-size(text: text)
   merge-dict(base_size, config)
 }
 

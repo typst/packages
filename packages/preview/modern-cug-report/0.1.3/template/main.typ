@@ -1,9 +1,11 @@
 // #import "@local/modern-cug-report:0.1.3": *
 #import "@preview/modern-cug-report:0.1.3":*
+// #import "../lib.typ": *
+
 #counter(heading).update(2)
 #let delta(x) = $Delta #x$
 
-#let size-config = define_size(
+#let size-config = define-size(
   12pt, // default base size
   (
     text: 12pt,

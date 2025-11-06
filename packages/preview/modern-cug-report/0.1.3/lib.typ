@@ -1,5 +1,5 @@
 #import "@preview/mitex:0.2.5": mi, mitex
-#import "@preview/physica:0.9.6": *
+#import "@preview/physica:0.9.7": *
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 
 #import "Base/size.typ": *
@@ -9,7 +9,7 @@
 #import "./boxes.typ": *
 
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.10": *
 
 #import "@preview/mannot:0.3.0": *
 #let boxed(it, x: 0.25em) = {
@@ -25,7 +25,7 @@
 // #let pi = markhl.with(color: yellow)
 // #let pj = markhl.with(color: red)
 
-#let Blue(it) = {
+#let bold-blue(it) = {
   text(fill: blue)[*#it*]
 }
 
@@ -101,8 +101,8 @@
 
 #let template(doc, size: 12.5pt, size-config: (:), pagenum: true, footer: "", header: "") = {
   // 设置全局字号
-  let size-config-all = define_size(size, size-config)
-  show: it => set_size(it, size-config-all)
+  let size-config-all = define-size(size, size-config)
+  show: it => set-size(it, size-config-all)
 
   set list(indent: 1em)
   show list: it => {
