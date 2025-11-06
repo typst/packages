@@ -1,0 +1,3 @@
+themes,background-color,text-color,stroke-color,fill-color,cover-image,preface-image,content-image
+abyss,#000000,#ffffff,#4b5358,#1f2833,../themes/abyss/cover.svg,../themes/abyss/preface.svg,../themes/abyss/content.svg
+light,,,,,,,
