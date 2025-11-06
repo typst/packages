@@ -21,7 +21,11 @@
         current-organization = performer
         continue
       } else {
-        if type(performer) == dictionary and performers.len() > 1 and performer.at("title", default: none) != none {
+        if (
+          type(performer) == dictionary
+            and performers.len() > 1
+            and performer.at("title", default: none) != none
+        ) {
           panic("Если исполнителей несколько, заголовок не требуется")
         }
       }
@@ -30,7 +34,7 @@
         performers-args,
         default: (
           co-performer: false,
-          title: "Исполнитель НИР,"
+          title: "Исполнитель НИР,",
         ),
         hint: "исполнителя №" + str(i + 1),
       )

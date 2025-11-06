@@ -102,10 +102,10 @@
   )
 
   if manager.name != none {
-    let title = if type(manager.title) == str and manager.title != "" { 
-      manager.title + linebreak() 
-    } else { 
-      none 
+    let title = if type(manager.title) == str and manager.title != "" {
+      manager.title + linebreak()
+    } else {
+      none
     }
     sign-field(manager.at("name"), [#title #manager.at("position")])
   }
