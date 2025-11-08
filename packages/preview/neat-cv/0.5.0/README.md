@@ -43,8 +43,7 @@ If you want to use it locally instead, you will need to install these fonts on y
 This template uses FontAwesome icons via the [fontawesome](https://typst.app/universe/package/fontawesome) package.
 To install the icons, you need to download the "FontAwesome Free For Desktop" package from the [FontAwesome website](https://fontawesome.com/download) and install the `.otf` files in your system's font directory.
 
-> [!NOTE]
-> If you are using the webapp (https://typst.app/), upload the entire `otf/` directory to your project and the fonts will be recognized automatically (possibly after a reload).
+If you are using the webapp (https://typst.app/), upload the entire `otf/` directory to your project and the fonts will be recognized automatically (possibly after a reload).
 
 ## Usage
 
@@ -53,7 +52,7 @@ To install the icons, you need to download the "FontAwesome Free For Desktop" pa
 Here is a basic usage example:
 
 ```typst
-#import "@preview/neat-cv:0.4.0": cv, side, entry, item-with-level, contact-info, social-links
+#import "@preview/neat-cv:0.5.0": cv, side, entry, item-with-level, contact-info, social-links
 
 #show: cv.with(
   author: (
