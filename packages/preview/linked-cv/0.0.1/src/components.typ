@@ -7,12 +7,10 @@
 #let header(
   firstname,
   lastname,
-  socials: (
-    email: none,
-    mobile: none,
-    github: none,
-    linkedin: none,
-  ),
+  email: none,
+  mobile: none,
+  github: none,
+  linkedin: none,
   position: none,
 ) = {
   set align(center)
@@ -30,17 +28,17 @@
   typography.social-entry({
     let items = ()
 
-    if socials.mobile != none {
-      items.push(link("tel:" + socials.mobile)[#socials.mobile])
+    if mobile != none {
+      items.push(link("tel:" + mobile)[#mobile])
     }
-    if socials.email != none {
-      items.push(link("mailto:" + socials.email)[#socials.email])
+    if email != none {
+      items.push(link("mailto:" + email)[#email])
     }
-    if socials.github != none {
-      items.push(link("https://github.com/" + socials.github)[#socials.github])
+    if github != none {
+      items.push(link("https://github.com/" + github)[#github])
     }
-    if socials.linkedin != none {
-      items.push(link("https://www.linkedin.com/in/" + socials.linkedin)[#socials.linkedin])
+    if linkedin != none {
+      items.push(link("https://www.linkedin.com/in/" + linkedin)[#linkedin])
     }
 
     items.join("   |   ")
@@ -69,9 +67,9 @@
 }
 
 #let employer-info(
-  logo: none,
   name: "",
   duration: "",
+  content,
 ) = {
   block({
     set align(horizon)
@@ -79,16 +77,18 @@
       dir: ltr,
       spacing: 0.5em,
       {
-        if logo != none {
-          let logo-path = if logo.starts-with("/") { logo } else { "../" + logo }
           box(
             width: 2.5em,
-            align(left + horizon)[
-              #image(logo-path, width: 100%)
-            ]
+            align(
+              left + horizon,
+              if content == none {
+                square(width: 2.5em, fill: colors.lightgray.lighten(80%), radius: 0.5em)
+              } else {
+                content
+              }
+            )
           )
           h(0.5em)
-        }
       },
       stack(
         dir: ttb,
@@ -98,22 +98,10 @@
           linebreak()
           typography.duration(time-in-company(..duration))
         }
-      )
+        )
     )
     v(1.5em)
   })
-}
-
-#let icon(path, size: 0.66em, baseline: 20%) = {
-  // Resolve relative paths (absolute paths start with "/")
-  let icon-path = if path.starts-with("/") { path } else { "../" + path }
-
-  box(
-    height: size,
-    baseline: baseline,
-  )[
-    #image(icon-path, height: 100%)
-  ]
 }
 
 #let workstream(title: "", tech-stack: ()) = {
@@ -122,31 +110,7 @@
     align: (left, right + horizon),
     typography.workstream(title),
     if tech-stack.len() > 0 {
-      let all-strings = true
-
-      for item in tech-stack {
-        if type(item) != str {
-          all-strings = false
-        }
-      }
-
-      if all-strings {
-        tech-icons(tech-stack, size: 0.66em, spacing: 2pt)
-      } else {
-        box({
-          for (i, item) in tech-stack.enumerate() {
-            if type(item) == str {
-              // It's a string, use tech-icon
-              tech-icon(item, size: 0.66em)
-            } else {
-              item
-            }
-            if i < tech-stack.len() - 1 {
-              h(2pt)
-            }
-          }
-        })
-      }
+      tech-icons(tech-stack, size: 0.66em, spacing: 2pt)
     }
   )
   v(0em)
