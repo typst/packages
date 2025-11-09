@@ -14,6 +14,6 @@ Read [manual](docs/manual.pdf) for documentation and examples.
 
 Demo code is available in [gallery/demo.typ](gallery/demo.typ).
 
-![demo](gallery/demo.svg)
+![demo](gallery/demo.png)
 
 Demo data source can be found in the [manual](docs/manual.pdf).
