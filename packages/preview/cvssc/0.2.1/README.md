@@ -117,7 +117,7 @@ Ensure you have the Typst CLI installed.
 Import the package in your Typst document:
 
 ```typ
-#import "@preview/cvssc:0.2.0": *
+#import "@preview/cvssc:0.2.1": *
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -129,7 +129,7 @@ Import the package in your Typst document:
 ### Quick Start
 
 ```typ
-#import "@preview/cvssc:0.2.0": *
+#import "@preview/cvssc:0.2.1": *
 
 // Auto-detect version and calculate
 #let result = calc("CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H")
