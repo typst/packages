@@ -1,0 +1,22 @@
+[package]
+name = "utfpr-tcc-unofficial"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Thales J. Santos"]
+license = "Unlicense"
+categories = [ "thesis", "paper", "report", "academic"]
+disciplines = ["computer-science", "engineering", "science"]
+keywords = ["utfpr", "tcc", "thesis", "report", "academic", "university", "paraná"]
+description = "This is an UNOFFICIAL TCC template for UTFPR (Universidade Tecnológica Federal do Paraná). Some UTFPR standards could have been updated over the years, use it at your own risk."
+repository = "https://github.com/Thales3006/utfpr-tcc-unofficial"
+compiler = "0.14.0"
+exclude = [
+  ".git/",
+  ".gitignore",
+  ".vscode/",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
