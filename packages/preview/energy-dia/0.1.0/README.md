@@ -140,7 +140,7 @@ Plot energy diagram with minimal syntax—ideal-perfect for band structures, whi
 #band(
   width: 5,
   height: 5,
-  name: "Si"
+  name: "Si",
   include_energy_labels: true,
   -5, -4, -3, 0, 1, 2
 )
