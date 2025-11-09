@@ -82,13 +82,13 @@ You can display the atomic name with the `name` parameter.
 
 === 1.7 Hiding Energy Values
 
-You can hide energy value labels with `exclude_energy: true`.
+You can hide energy value labels with `exclude-energy: true`.
 
 #ao(
   width: 8,
   height: 8,
   name: "N",
-  exclude_energy: true,
+  exclude-energy: true,
   (energy: -14, electrons: 2, caption: "1s"),
   (energy: -3, electrons: 2, caption: "2s"),
   (energy: -1, electrons: 3, degeneracy: 3, up: 3, caption: "2p"),
@@ -276,7 +276,7 @@ A molecule with a double bond that exhibits paramagnetism. This is the complete 
   width: 15,
   height: 12,
   names: ("O", $"O"_2$, "O"),
-  exclude_energy: false,
+  exclude-energy: false,
   atom1: (
     (energy: -14, electrons: 2, label: 1, caption: "2s"),
     (energy: -5, electrons: 4, degeneracy: 3, up: 3, label: 2, caption: "2p"),
@@ -337,12 +337,12 @@ Display manually entered energy levels.
 
 === 5.2 With Energy Labels
 
-Display energy values with `include_energy_labels: true`.
+Display energy values with `include-energy-labels: true`.
 
 #band(
   width: 8,
   height: 8,
-  include_energy_labels: true,
+  include-energy-labels: true,
   -5, -4, -3, 0, 1, 2
 )
 
@@ -354,7 +354,7 @@ Display material name with the `name` parameter.
   width: 8,
   height: 8,
   name: "Si",
-  include_energy_labels: true,
+  include-energy-labels: true,
   -5, -4, -3, 0, 1, 2
 )
 
@@ -368,7 +368,7 @@ Load energy levels from a CSV file and display them.
   width: 10,
   height: 8,
   name: "Sample",
-  include_energy_labels: false,
+  include-energy-labels: false,
   ..energies
 )
 
@@ -380,7 +380,7 @@ Band structures usually have many energy levels.
   width: 10,
   height: 10,
   name: "Semiconductor",
-  include_energy_labels: false,
+  include-energy-labels: false,
   -8, -7.8, -7.5, -7.2, -7, -6.8, -6.5, -6.2, -6,
   -5.5, -5.2, -5, -4.8, -4.5, -4.2, -4, -3.8, -3.5,
   2, 2.2, 2.5, 2.8, 3, 3.2, 3.5, 3.8, 4,

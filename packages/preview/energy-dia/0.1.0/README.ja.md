@@ -45,7 +45,7 @@
   width: 10,
   height: 10,
   name: "C",
-  exclude_energy: false,
+  exclude-energy: false,
   (energy: -10, electrons: 2, caption: "1s"),
   (energy: -3, electrons: 2, caption: "2s"),
   (energy: -1, electrons: 4, degeneracy: 3, up: 3, caption: "2p"),
@@ -58,7 +58,7 @@
 - `width` (length): 図の幅（デフォルト: 5）
 - `height` (length): 図の高さ（デフォルト: 5）
 - `name` (string): 表示する原子名（デフォルト: none）
-- `exclude_energy` (boolean): エネルギー値を非表示（デフォルト: false）
+- `exclude-energy` (boolean): エネルギー値を非表示（デフォルト: false）
 
 **軌道準位**（位置引数、各々を辞書として指定）:
 - `energy` (number): 軌道のエネルギー値
@@ -80,7 +80,7 @@
   width: 15,
   height: 10,
   names: ("O", $"O"_2$ , "O"),
-  exclude_energy: false,
+  exclude-energy: false,
   atom1: (
     (energy: -14, electrons: 2, label: 1, caption: "2s"),
     (energy: -5, electrons: 4, degeneracy: 3, up: 3, label: 2, caption: "2p"),
@@ -108,7 +108,7 @@
 - `width` (length): 図の幅（デフォルト: 5）
 - `height` (length): 図の高さ（デフォルト: 5）
 - `names` (array): 左側原子、分子、右側原子の名前（デフォルト: ()）
-- `exclude_energy` (boolean): エネルギーラベルを非表示（デフォルト: false）
+- `exclude-energy` (boolean): エネルギーラベルを非表示（デフォルト: false）
 
 **軌道データ:**
 - `atom1` (array): 左側原子の軌道
@@ -141,7 +141,7 @@
   width: 5,
   height: 5,
   name: "Si",
-  include_energy_labels: true,
+  include-energy-labels: true,
   -5, -4, -3, 0, 1, 2
 )
 ```
@@ -152,7 +152,7 @@
 #let data = csv("test.csv")
 #let energies = data.map(row => float(row.at(0))).flatten()
 #band(
-  include_energy_labels: false,
+  include-energy-labels: false,
   ..energies
 )
 ```
@@ -162,7 +162,7 @@
 - `width` (length): 図の幅（デフォルト: 5）
 - `height` (length): 図の高さ（デフォルト: 5）
 - `name` (string): 表示する物質名（デフォルト: none）
-- `include_energy_labels` (boolean): エネルギー値を表示（デフォルト: false）
+- `include-energy-labels` (boolean): エネルギー値を表示（デフォルト: false）
 - 位置引数: エネルギー準位の値
 
 ## 例

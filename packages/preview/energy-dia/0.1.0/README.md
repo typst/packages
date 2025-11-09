@@ -45,7 +45,7 @@ Create energy level diagrams for atomic orbitals with electron configurations.
   width: 10,
   height: 10,
   name: "C",
-  exclude_energy: false,
+  exclude-energy: false,
   (energy: -10, electrons: 2, caption: "1s"),
   (energy: -3, electrons: 2, caption: "2s"),
   (energy: -1, electrons: 4, degeneracy: 3, up: 3, caption: "2p"),
@@ -58,7 +58,7 @@ Create energy level diagrams for atomic orbitals with electron configurations.
 - `width` (length): Width of the diagram (default: 5)
 - `height` (length): Height of the diagram (default: 5)
 - `name` (string): Atom name to display (default: none)
-- `exclude_energy` (boolean): Hide energy values (default: false)
+- `exclude-energy` (boolean): Hide energy values (default: false)
 
 **Orbital levels** (positional arguments, each as a dictionary):
 - `energy` (number): Energy value of the orbital
@@ -80,7 +80,7 @@ Visualize molecular orbital formation from atomic orbitals with orbital mixing.
   width: 15,
   height: 10,
   names: ("O", $"O"_2$ , "O"),
-  exclude_energy: false,
+  exclude-energy: false,
   atom1: (
     (energy: -14, electrons: 2, label: 1, caption: "2s"),
     (energy: -5, electrons: 4, degeneracy: 3, up: 3, label: 2, caption: "2p"),
@@ -108,7 +108,7 @@ Visualize molecular orbital formation from atomic orbitals with orbital mixing.
 - `width` (length): Width of the diagram (default: 5)
 - `height` (length): Height of the diagram (default: 5)
 - `names` (array): Names for left atom, molecule, and right atom (default: ())
-- `exclude_energy` (boolean): Hide energy labels (default: false)
+- `exclude-energy` (boolean): Hide energy labels (default: false)
 
 **Orbital data:**
 - `atom1` (array): Orbitals for left atom
@@ -141,7 +141,7 @@ Plot energy diagram with minimal syntax—ideal-perfect for band structures, whi
   width: 5,
   height: 5,
   name: "Si",
-  include_energy_labels: true,
+  include-energy-labels: true,
   -5, -4, -3, 0, 1, 2
 )
 ```
@@ -152,7 +152,7 @@ Plot energy diagram with minimal syntax—ideal-perfect for band structures, whi
 #let data = csv("test.csv")
 #let energies = data.map(row => float(row.at(0))).flatten()
 #band(
-  include_energy_labels: false,
+  include-energy-labels: false,
   ..energies
 )
 ```
@@ -162,7 +162,7 @@ Plot energy diagram with minimal syntax—ideal-perfect for band structures, whi
 - `width` (length): Width of the diagram (default: 5)
 - `height` (length): Height of the diagram (default: 5)
 - `name` (string): Substance name to display (default: none)
-- `include_energy_labels` (boolean): Show energy values (default: false)
+- `include-energy-labels` (boolean): Show energy values (default: false)
 - Positional arguments: Energy level values
 
 ## Examples
