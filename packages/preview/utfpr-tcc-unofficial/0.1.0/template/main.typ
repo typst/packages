@@ -124,6 +124,7 @@ A seguir, um modelo de formatação de fotografia:
   source:[Autoria própria (2014)],
 )
 
+/*
 A seguir, um modelo de formatação de gráfico:
 
 #figure(
@@ -143,6 +144,7 @@ A seguir, um modelo de formatação de gráfico:
 caption: [Estatística de empréstimos em janeiro de 2019],
 source: [#cite(<utfpr2020>, form: "prose")],
 )
+*/
 
 A seguir, um modelo de formatação de quadros (prevalecem informações textuais).
 
