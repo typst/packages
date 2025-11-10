@@ -1,4 +1,4 @@
-#import "@preview/tidy:0.4.2"
+#import "@preview/tidy:0.4.3"
 #import "@preview/codly:1.3.0": *
 #import "/src/lib.typ": *
 #import "doc-template.typ": *
@@ -237,7 +237,7 @@ Within the CeTZ canvas code block,
 you can reference the position and dimensions of the marked content using an anchor with the same name as its tag.
 For elements marked with multiple tags, corresponding anchors will be available.
 #example(```typst
-#import "@preview/cetz:0.3.4"
+#import "@preview/cetz:0.4.2"
 
 $
   mark(x, tag: #<x>) + mark(y, tag: #<y>)

@@ -1,5 +1,5 @@
 #import "/src/lib.typ": *
-#import "@preview/cetz:0.3.4"
+#import "@preview/cetz:0.4.2"
 
 #set page(width: auto, height: auto, margin: (x: 4cm, top: 2cm, bottom: 1cm), fill: white)
 #set text(24pt)

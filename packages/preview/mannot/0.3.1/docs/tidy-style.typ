@@ -1,4 +1,4 @@
-#import "@preview/tidy:0.4.0"
+#import "@preview/tidy:0.4.3"
 #import tidy.utilities: *
 #import tidy.styles.default: *
 

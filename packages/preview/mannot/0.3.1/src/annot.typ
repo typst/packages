@@ -1,6 +1,6 @@
 #import "util.typ": copy-stroke, default-stroke
 
-#import "@preview/tiptoe:0.3.0"
+#import "@preview/tiptoe:0.3.2"
 
 
 #let _coerce-anchor(anchor) = {
@@ -439,7 +439,7 @@
 ///
 /// *Example*
 /// ```example
-/// #import "@preview/cetz:0.3.4"
+/// #import "@preview/cetz:0.4.2"
 ///
 /// $
 ///   mark(x, tag: #<0>) + mark(y, tag: #<1>)

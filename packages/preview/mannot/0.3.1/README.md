@@ -57,7 +57,7 @@ $
 <details> <summary> Source code </summary>
 
 ```typst
-#import "@preview/cetz:0.3.4"
+#import "@preview/cetz:0.4.2"
 
 #set page(width: auto, height: auto, margin: (y: 2cm, bottom: 1cm), fill: white)
 #set text(24pt)
@@ -95,7 +95,7 @@ $
 <details> <summary> Source code </summary>
 
 ```typst
-#import "@preview/cetz:0.3.4"
+#import "@preview/cetz:0.4.2"
 
 #set page(width: auto, height: auto, margin: (x: 4cm, top: 2cm, bottom: 1cm), fill: white)
 #set text(24pt)
@@ -145,7 +145,7 @@ $
 ## Usage
 Import the package `mannot` on the top of your document:
 ```typst
-#import "@preview/mannot:0.3.0": *
+#import "@preview/mannot:0.3.1": *
 ```
 
 ### Marking
@@ -273,7 +273,7 @@ Within the CeTZ canvas code block,
 you can reference the position and dimensions of the marked content using an anchor with the same name as its tag.
 For elements marked with multiple tags, corresponding anchors will be available.
 ```typst
-#import "@preview/cetz:0.3.4"
+#import "@preview/cetz:0.4.2"
 
 $
   mark(x, tag: #<x>) + mark(y, tag: #<y>)
