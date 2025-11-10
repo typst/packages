@@ -9,4 +9,3 @@ repository = "https://github.com/retroflexivity/typst-eggs"
 disciplines = ["linguistics"]
 categories = ["components"]
 keywords = ["linguistics", "examples", "leipzig", "gloss", "glossing"]
-compiler = "0.13.0"
