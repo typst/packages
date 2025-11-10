@@ -2,7 +2,7 @@
 
 Simple and easy-to-use template for problem sets/homeworks/assignments.
 
-![Example use of the template](./template/thumbnail.png)
+![Example use of the template](thumbnail.png)
 
 ## Usage
 Click "Start from template" in the Typst web app and search for `problemst`.
