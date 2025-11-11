@@ -1,5 +1,5 @@
 [package]
-name = "innopolis-thesis"
+name = "modern-innopolis-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Ahmed Nouralla <a.nouralla@innopolis.ru>"]

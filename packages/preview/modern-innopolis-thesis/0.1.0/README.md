@@ -1,13 +1,13 @@
-# innopolis-thesis
+# modern-innopolis-thesis
 
 Typst template for thesis at Innopolis University.
 
 ## Getting Started
 
-1. Import this template from [lib.typ](./lib.typ) (if working offline) or from Typst Universe (coming soon).
+1. Import this template from [lib.typ](./lib.typ) (if working offline) or from Typst Universe.
 
     ```typst
-    #import "@preview/innopolis-thesis:0.1.0": *
+    #import "@preview/modern-innopolis-thesis:0.1.0": *
     ```
 
 1. Start with a title page (optional)

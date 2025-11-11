@@ -58,12 +58,12 @@
       [#box(inset: (left: 1pt, right: 1pt))[#align(left)[Работу выполнил / Thesis is executed by]]],
       [
         #align(left)[
-          #box(stroke: 0.5pt + black, fill: silver, width: 100%, height: 20mm, inset: 6pt)[
+          #box(stroke: 0.5pt + black, fill: silver, width: 100%, height: 30mm, inset: 6pt)[
             *#author-ru / #author-en*
           ]
         ]],
 
-      [#box(stroke: 0.5pt + black, height: 20mm, fill: silver, inset: (bottom: 10pt, right: 20pt, left: 20pt))[
+      [#box(stroke: 0.5pt + black, height: 30mm, fill: silver, inset: (bottom: 10pt, right: 20pt, left: 20pt))[
           #align(bottom)[#text(size: 8pt, fill: black)[подпись / signature]]]
       ],
     )
@@ -75,12 +75,12 @@
       )[Руководитель выпускной квалификационной работы / Graduation Thesis Supervisor]]],
       [
         #align(left)[
-          #box(stroke: 0.5pt + black, fill: silver, width: 100%, height: 40mm, inset: 6pt)[
+          #box(stroke: 0.5pt + black, fill: silver, width: 100%, height: 35mm, inset: 6pt)[
             *#supervisor-ru / #supervisor-en*
           ]
         ]],
 
-      [#box(stroke: 0.5pt + black, height: 40mm, fill: silver, inset: (bottom: 10pt, right: 20pt, left: 20pt))[
+      [#box(stroke: 0.5pt + black, height: 35mm, fill: silver, inset: (bottom: 10pt, right: 20pt, left: 20pt))[
           #align(bottom)[#text(size: 8pt, fill: black)[подпись / signature]]]
       ],
     )
@@ -92,12 +92,12 @@
         [#box(inset: (left: 1pt, right: 100pt))[#align(left)[Консультанты / Consultants]]],
         [
           #align(left)[
-            #box(stroke: 0.5pt + black, fill: silver, width: 100%, height: 35mm, inset: 6pt)[
+            #box(stroke: 0.5pt + black, fill: silver, width: 100%, height: 30mm, inset: 6pt)[
               *#consultants*
             ]
-          ]
-        ],
-        [#box(stroke: 0.5pt + black, height: 35mm, fill: silver, inset: (bottom: 10pt, right: 20pt, left: 20pt))[
+          ]],
+
+        [#box(stroke: 0.5pt + black, height: 30mm, fill: silver, inset: (bottom: 10pt, right: 20pt, left: 20pt))[
             #align(bottom)[#text(size: 8pt, fill: black)[подпись / signature]]]
         ],
       )
@@ -280,19 +280,29 @@
   )
   pagebreak()
 
-  outline(
-    target: figure.where(kind: image),
-    indent: auto,
-    title: [\ \ #text(size: h1-size)[List of Figures] #linebreak() #linebreak()],
-  )
-  pagebreak()
+  context {
+    let figures = query(figure.where(kind: image))
+    if figures.len() > 0 {
+      outline(
+        target: figure.where(kind: image),
+        indent: auto,
+        title: [\ \ #text(size: h1-size)[List of Figures] #linebreak() #linebreak()],
+      )
+      pagebreak()
+    }
+  }
 
-  outline(
-    target: figure.where(kind: table),
-    indent: auto,
-    title: [\ \ #text(size: h1-size)[List of Tables] #linebreak() #linebreak()],
-  )
-  pagebreak()
+  context {
+    let tables = query(figure.where(kind: table))
+    if tables.len() > 0 {
+      outline(
+        target: figure.where(kind: table),
+        indent: auto,
+        title: [\ \ #text(size: h1-size)[List of Tables] #linebreak() #linebreak()],
+      )
+      pagebreak()
+    }
+  }
 
   // ----------------------<< abstract >>--------------------------------------
 
