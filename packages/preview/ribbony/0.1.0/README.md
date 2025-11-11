@@ -12,7 +12,7 @@ Read [manual](docs/manual.pdf) for documentation and examples.
 
 ## Demo
 
-Demo code is available in [gallery/demo.typ](gallery/demo.typ).
+Demo code is available in [gallery/demo.typ](https://github.com/solstice23/typst-ribbony/blob/main/gallery/demo.typ).
 
 ![demo](gallery/demo.png)
 
