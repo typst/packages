@@ -10,8 +10,6 @@
 
 TnTT 是 Tntt is Not a Tex Thesis Template for Tsinghua university 的递归缩写。一个基于 [Typst][Typst] 的**非官方**清华大学学位论文模板。
 
-> [!IMPORTANT]
->
 > **目前仅支持本科生的综合论文训练。请使用 Typst 最新版进行编辑。**
 
 ## 使用
@@ -109,8 +107,6 @@ typst compile template/thesis.typ --root . thesis.pdf --font-path fonts
 
 模板源代码采用 [MIT][LICENSE] 许可证分发，您可以自由使用、修改和分发，但不提供任何担保。
 
-> [!IMPORTANT]
->
 > 本项目中包含清华大学校徽与校名的图形文件，用于制作制作本科生综合论文训练封面。这些图形取自 [清华大学视觉形象系统][THU VI System]，项目维护者未进行任何修改。
 >
 > **请注意：相关图形与文字都是清华大学的注册商标，除此模板外，请勿用于任何其他用途。**
@@ -125,8 +121,6 @@ English | [简体中文](#tntt-typst--tsinghua-university-template)
 
 TnTT is a recursive acronym for "Tntt is Not a Tex Thesis Template for Tsinghua University". An unofficial Tsinghua University thesis template based on [Typst][Typst].
 
-> [!IMPORTANT]
->
 > **Currently, it only supports the Comprehensive Thesis Training for undergraduates. Please use the latest version of Typst for editing.**
 
 ## Usage
@@ -224,8 +218,6 @@ Thanks to [Myriad-Dreamin][Myriad-Dreamin] for developing the [Tinymist][Tinymis
 
 The template source code is distributed under the [MIT][LICENSE] license. You are free to use, modify, and distribute it without any warranty.
 
-> [!IMPORTANT]
->
 > This project contains the Tsinghua University emblem and name graphics for creating the Comprehensive Thesis Training cover for undergraduates. These graphics are obtained from the [Tsinghua University Visual Identity System][THU VI System] without any modification by the maintainers.
 >
 > **Please note: The related graphics and text are registered trademarks of Tsinghua University. Except for this template, they should not be used for any other purposes.**
