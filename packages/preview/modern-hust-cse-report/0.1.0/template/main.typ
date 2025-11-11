@@ -1,4 +1,4 @@
-#import "@preview/hust-cse-report:0.1.0": report, fig, tbl
+#import "@preview/modern-hust-cse-report:0.1.0": report, fig, tbl
 
 #show:report.with(
   name: "",
