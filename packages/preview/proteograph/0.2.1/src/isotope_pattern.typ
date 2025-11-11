@@ -1,4 +1,4 @@
-#import "@preview/lilaq:0.4.0" as lq
+#import "@preview/lilaq:0.5.0" as lq
 
 /// Generates a plot with measured isotopes intensities
 /// -> content
