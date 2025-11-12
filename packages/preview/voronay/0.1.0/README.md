@@ -14,7 +14,7 @@ The source of this example can be found [here](https://github.com/Lieunoir/typst
 #import "@preview/voronay:0.1.0": *
 
 // Generate points
-#let points = range(100).map(r2_sequence)
+#let points = range(100).map(r2-sequence)
 // Sorts the point along a Hilbert curve (significantly improves the performance of the triangulation)
 #let points = hilbert-point-sort(points)
 // Compute the Delaunay triangulation
