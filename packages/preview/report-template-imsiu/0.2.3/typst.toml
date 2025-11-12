@@ -1,0 +1,16 @@
+[package]
+name = "report-template-imsiu"
+description = "A Typst template to quickly scaffold a report for your projects and Assignments at imsiu"
+version = "0.2.3"
+entrypoint = "lib.typ"
+license = "MIT"
+authors = ["Abdulaziz Bin Askar"]
+categories = ["report"]
+keywords = ["imamU","imsiu", "report", "academic", "project"]
+exclude = ["example.pdf"]
+repository = "https://github.com/AFAskar/Imamu-CCIS-Report-Template"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "template/thumbnail.png"
