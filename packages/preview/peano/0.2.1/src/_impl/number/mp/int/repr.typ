@@ -11,10 +11,10 @@
   n,
   plus-sign: false,
   signed-zero: false,
-  signed-infinity: false,
+  signed-inf: false,
   hyphen-minus: false,
 ) = {
   let buffer = to-bytes(n)
-  let flags = build-option-flags(plus-sign, signed-zero, signed-infinity, hyphen-minus)
+  let flags = build-option-flags(plus-sign, signed-zero, signed-inf, hyphen-minus)
   str(math-utils-wasm.mpz_to_string(buffer, flags))
 }

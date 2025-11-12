@@ -4,4 +4,6 @@
   to-bytes,
   is_,
   from,
+  cmp,
+  to-float,
 )

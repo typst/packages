@@ -88,3 +88,27 @@
     panic("Too many positional arguments.")
   }
 }
+
+#let /*pub*/ cmp(m, n) = {
+  let m = from(m)
+  let n = from(n)
+  int.from-bytes(math-utils-wasm.fraction_cmp(to-bytes(m), to-bytes(n)))
+}
+
+#let /*pub*/ to-float(n) = {
+  let n = from(n)
+  let (sign, num, den) = n
+  if den == 0 {
+    if num == 0 {
+      float.nan
+    } else if sign {
+      float.inf
+    } else {
+      -float.inf
+    }
+  } else if n.sign {
+    num / den
+  } else {
+    (-num) / den
+  }
+}
