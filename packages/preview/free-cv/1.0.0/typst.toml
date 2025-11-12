@@ -8,7 +8,7 @@ description = "Spacious and colorful CV using YAML and fontawesome."
 repository = "https://github.com/Freezy727/freeCV"
 keywords = ["cv", "resume", "yaml", "fontawesome"]
 categories = ["cv"]
-exclude = ["example.png"]
+exclude = ["example.png", "template/example.pdf"]
 
 [template]
 path = "template"
