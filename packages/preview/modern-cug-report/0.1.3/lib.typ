@@ -11,7 +11,7 @@
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.10": *
 
-#import "@preview/mannot:0.3.0": *
+#import "@preview/mannot:0.3.1": *
 #let boxed(it, x: 0.25em) = {
   let xmar2 = x - 0.02em
   h(xmar2)
