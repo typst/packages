@@ -1,4 +1,4 @@
-#import "@preview/mitex:0.2.5": mi, mitex
+#import "@preview/mitex:0.2.6": mi, mitex
 #import "@preview/physica:0.9.7": *
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 
