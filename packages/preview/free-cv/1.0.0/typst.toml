@@ -1,0 +1,16 @@
+[package]
+name = "free-cv"
+version = "1.0.0"
+entrypoint = "freeCV.typ"
+authors = ["<@Freezy727>"]
+license = "AGPL-3.0-only"
+description = "Spacious and colorful CV using YAML and fontawesome."
+repository = "https://github.com/Freezy727/freeCV"
+keywords = ["cv", "resume", "yaml", "fontawesome"]
+categories = ["cv"]
+exclude = ["example.png"]
+
+[template]
+path = "template"
+entrypoint = "example.typ"
+thumbnail = "thumbnail.png"
