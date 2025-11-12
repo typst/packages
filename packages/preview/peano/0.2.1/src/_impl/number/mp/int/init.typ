@@ -33,12 +33,16 @@
   }
 }
 
-#let /*pub*/ from(..args) = {
-  mp-int(buffer: mp-int-buffer(..args))
-}
-
 #let /*pub*/ is_(obj) = {
   e.tid(obj) == e.tid(mp-int)
+}
+
+#let /*pub*/ from(arg0, ..args) = {
+  if is_(arg0) {
+    arg0
+  } else {
+    mp-int(buffer: mp-int-buffer(arg0, ..args))
+  }
 }
 
 #let /*pub*/ to-bytes(n) = {

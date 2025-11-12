@@ -68,7 +68,7 @@
 }
 
 #let /*pub*/ from(arg0, ..args) = {
-  if e.tid(arg0) == e.tid(mp-rational) {
+  if is_(arg0) {
     arg0
   } else {
     mp-rational(buffer: mp-rational-buffer(arg0, ..args))

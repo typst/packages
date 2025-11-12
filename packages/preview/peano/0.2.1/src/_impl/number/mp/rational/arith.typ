@@ -1,5 +1,5 @@
 #import "init.typ": mp-rational, to-bytes
-#import "../int/init.typ": to-bytes as mpz_to-bytes
+#import "../int/init.typ": mp-int, to-bytes as mpz_to-bytes
 #let math-utils-wasm = plugin("../../../math-utils.wasm")
 #let zero-byte = bytes((0,))
 
@@ -81,4 +81,12 @@
 
 #let /*pub*/ approx(n, max-den) = {
   mp-rational(buffer: math-utils-wasm.mpq_approx(to-bytes(n), mpz_to-bytes(max-den)))
+}
+
+#let /*pub*/ floor(n) = {
+  mp-int(buffer: math-utils-wasm.mpq_floor(to-bytes(n)))
+}
+
+#let /*pub*/ ceil(n) = {
+  mp-int(buffer: math-utils-wasm.mpq_ceil(to-bytes(n)))
 }

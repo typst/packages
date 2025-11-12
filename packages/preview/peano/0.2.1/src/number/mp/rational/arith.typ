@@ -15,4 +15,6 @@
   is-finite,
   is-infinite,
   approx,
+  floor,
+  ceil,
 )

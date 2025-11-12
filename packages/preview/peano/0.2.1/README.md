@@ -179,4 +179,6 @@ Initial release.
   - make zero value in `mp.integer` signed.
   - Support radix parsing for `mp.integer`.
   - Extended arithmetics in `mp.integer` to support infinity and NaN values. Now division by zero in `mp.integer` won't cause an error.
-  - Fixed the bug that `mpq.pow` for negative zero and negative infinity returns the wrong sign.
+  - Fixed the bug that `mp.rational.pow` for negative zero and negative infinity returns the wrong sign.
+  - Added `floor` and `ceil` for `mp.rational`
+  - Fixed the problem that negative values in `mp.integer` gets multiple minus signs.

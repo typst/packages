@@ -29,3 +29,4 @@ keywords = [
     "Gauss error function",
     "Riemann zeta function",
 ]
+exclude = ["demo"]
