@@ -1,0 +1,16 @@
+[package]
+name = "report-template-imsiu"
+description = "CCIS project & assignment reports at IMSIU."
+version = "0.2.6"
+entrypoint = "lib.typ"
+license = "MIT"
+authors = ["Abdulaziz Bin Askar <@AFAskar>"]
+categories = ["report"]
+keywords = ["imamU","imsiu", "report", "academic", "project", "Imam Mohammed ibn Saud Islamic University"]
+exclude = ["example.pdf"]
+repository = "https://github.com/AFAskar/Imamu-CCIS-Report-Template"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "template/thumbnail.png"
