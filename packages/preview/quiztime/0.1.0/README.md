@@ -3,7 +3,7 @@
 Typst package to create quizzes.
 
 ```typst
-#import "lib.typ": question, quiz
+#import "@preview/quiztime:0.1.0": question, quiz
 
 #let q1 = question(
   text: "What color is the sky?",
