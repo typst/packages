@@ -30,6 +30,6 @@ Typst package to create quizzes.
 #quiz(questions: (q1,q2,q3), pre-numbering: "Question ")
 ```
 
-Gives:
+Gives a list of quiz questions that are multiple-choice or text-based (i.e., space for writing freely). Solutions may be enabled per question.
 
 ![](./output.png)
