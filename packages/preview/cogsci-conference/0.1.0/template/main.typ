@@ -1,6 +1,6 @@
 // CogSci Conference Paper Template
 
-#import "@preview/cogsci-conference:0.1.0": cogsci, format-authors
+#import "@preview/cogsci-conference:0.1.0": ad-hoc-padding, cogsci, format-authors
 
 #let anonymize = true // Set to false for the final submission
 
