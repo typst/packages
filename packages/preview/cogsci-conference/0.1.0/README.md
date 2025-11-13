@@ -46,7 +46,7 @@ The API is described in the [Parameters](#parameters) section below.
 
 // Document content goes here...
 
-#bibliography("bibliography.bib", style: "apa")
+#bibliography("bibliography.bib")
 ```
 
 ### Local usage notes
@@ -100,7 +100,7 @@ The `cogsci()` template function accepts the following parameters:
 Call `bibliography()` at the end of your document:
 
 ```typst
-#bibliography("bibliography.bib", style: "apa")
+#bibliography("bibliography.bib")
 ```
 
 Typst's `bibliography()` function accepts a BibLaTeX `.bib` file or a Hayagriva `.yaml`/`.yml` file.
