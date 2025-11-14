@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: (C) 2025 Andreas Hartmann <hartan@7x.de>
+
+[package]
+# See: <https://github.com/typst/packages/blob/main/docs/manifest.md>
+# Required by Compiler
+name = "cloudy"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+# Required for Submission to Typst Universe
+# See: https://github.com/typst/packages/blob/main/docs/README.md
+authors = ["Andreas Hartmann <hartan@7x.de>"]
+license = "GPL-3.0-or-later"
+description = "Create clouds of words"
+# Optional
+repository = "https://gitlab.com/hartang/typst/cloudy"
+keywords = ["wordcloud", "cloud", "word"]
+categories = ["visualization", "fun"]
+exclude = [
+    # Hidden files
+    ".*",
+    # Build scaffolding
+    "bin/",
+    "LICENSES/",
+    # Other files
+    "docs/",
+    "examples/",
+    "test/",
+]
+
+[tool.tytanic]
+tests = "test"
+
+[tool.tytanic.default]
+dir = "ltr"
