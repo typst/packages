@@ -32,4 +32,4 @@ Typst package to create quizzes.
 
 Gives a list of quiz questions that are multiple-choice or text-based (i.e., space for writing freely). Solutions may be enabled per question.
 
-![](./output.png)
+![Three quiz questions. First a multiple-choice question, followed by a text question, and finally a multiple-choice question, where the solution is shown.](./output.png)
