@@ -1,0 +1,16 @@
+[package]
+entrypoint = "src/template.typ"
+name = "strath-mae-interimst"
+version = "0.1.0"
+compiler = "0.14.0"
+authors = ["Barnaby Seaman <@barnaby2002>"]
+repository = "https://github.com/barnaby2002/strathmaeinterimst"
+description = "A template that replicates the Strathclyde MAE Interim Report"
+keywords = ["Strathclyde", "MAE", "Interim"]
+license = "MIT"
+categories = ["office"]
+
+[template]
+path = "template"
+entrypoint = "template.typ"
+thumbnail = "thumbnail.png"
