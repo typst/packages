@@ -2,7 +2,9 @@
 
 [![Typst Universe](https://img.shields.io/badge/Typst-Universe-239DAD.svg)](https://typst.app/universe/package/zh-format) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-zh-format 是一个用于 Typst 的中文格式包,提供更适合中文排版的粗体、斜体和下划线处理方案。
+zh-format is a Chinese formatting package for Typst, providing better solutions for bold, italic, and underline styles tailored for Chinese typography.
+
+zh-format 是一个用于 Typst 的中文格式包，提供更适合中文排版的粗体、斜体和下划线处理方案。
 
 ## 用法
 
@@ -38,7 +40,7 @@ zh-format 是一个用于 Typst 的中文格式包,提供更适合中文排版�
 
 ### 完整示例
 
-查看 `example/example.typ` 获取详细使用示例。
+查看 [example.typ](example/example.typ) 获取详细使用示例。
 
 ## 更新日志
 
