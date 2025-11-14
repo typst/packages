@@ -26,6 +26,8 @@ exclude = [
     "docs/",
     "examples/",
     "test/",
+    # README images
+    "assets/",
 ]
 
 [tool.tytanic]
