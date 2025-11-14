@@ -53,3 +53,5 @@ caption: [The Caption pop out window from the References Tab in Microsoft Word @
 #show bibliography: set heading(numbering: "1.1.")
 #bibliography("bib.yml", title: [References], )
 ```
+
+Any image path can replace "MSWord.png".
