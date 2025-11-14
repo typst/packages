@@ -1,0 +1,15 @@
+{
+  "mentor": "Mentor",
+  "mentor_plural": "Mentors",
+  "jury": "Jury",
+  "author": "Author",
+  "author_plural": "Authors",
+  "academic_year": "Academic year",
+
+  "figures_table": "Table of figures",
+  "tables_table": "Table of tables",
+
+  "chapter": "Chapter",
+  "defended_on_pre_date": "Defended on",
+  "defended_on_post_date": "in front of the jury composed of"
+}
