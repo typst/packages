@@ -100,7 +100,7 @@ The parameters are as follows:
 	For example, to render math equation as a Typst math block,
 	one can use:
 	```typst
-	#import "@preview/mitex:0.2.4": mitex
+	#import "@preview/mitex:0.2.6": mitex
 	#cmarker.render(`$\int_1^2 x \mathrm{d} x$`, math: mitex)
 	```
 	<!--raw-typst
