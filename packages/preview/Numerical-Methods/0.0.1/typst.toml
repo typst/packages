@@ -1,0 +1,11 @@
+[package]
+name        = "Numerical-Methods"
+version     = "0.0.1"
+description = "Numerical methods for integration, differentiation and root finding"
+license     = "MIT-0"
+authors     = ["TGGrace"]
+entrypoint  = "NumMeth.typ"
+exclude     = [
+    ".git*",
+    "examples"
+]
