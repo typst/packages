@@ -1,5 +1,5 @@
 [package]
-name        = "Numerical-Methods"
+name        = "numerical-methods"
 version     = "0.0.1"
 description = "Numerical methods for integration, differentiation and root finding"
 license     = "MIT-0"
@@ -9,3 +9,4 @@ exclude     = [
     ".git*",
     "examples"
 ]
+
