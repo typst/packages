@@ -27,9 +27,9 @@ done to:
 [files_required]: #required-files
 [files_docs]: #documentation-files
 [files_other]: #other-files
-[b]: #package-development-version
-[c]: #published-package-version
-[d]: #imported-package-version
+[b]: #package-development-version-stage-1
+[c]: #published-package-version-stage-2
+[d]: #imported-package-version-stage-3
 
 
 ## Categories of files
