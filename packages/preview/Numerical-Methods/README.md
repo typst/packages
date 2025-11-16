@@ -3,7 +3,7 @@ A [Typst](https://typst.app/) package for finding roots, gradients and areas of 
 Graph plotting for integrals built on top of [CeTZ](https://github.com/johannes-wolf/cetz).
 
 ```typ
-PlotIntegral(f_x:x=>calc.pow(calc.e,x)+1/(x - 2),
+#PlotIntegral(f_x:x=>calc.pow(calc.e,x)+1/(x - 2),
              start-x:0.5,
              end-x:1.8, 
              size_x:3,
@@ -76,4 +76,5 @@ Useful for demonstrating different types of numerical integration methods. Uses 
 The number of strips is customizable, and the method should be chosen from:
 `integral,mid,left,right,trapezium`
 If `integral` is chosen, or any non-listed input is given for the `method` variable, the function defaults to simply highlighting the area to be found.
+
 *NOTE*: Labels aren't in mathematical format, simply New Computer Modern Math font.
