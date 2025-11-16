@@ -12,5 +12,5 @@ compiler = "0.14.0"
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "template/thumbnail.png"
 
