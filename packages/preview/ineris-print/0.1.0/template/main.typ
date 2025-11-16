@@ -1,4 +1,4 @@
-#import "@preview/ineris:0.1.0": *
+#import "@preview/ineris-print:0.1.0": *
 #show: external-report.with(
 	title: "Guide de surveillance de l’impact sur l’environnement des émissions atmosphériques des installations d’incinération et de co-incinération de déchets non dangereux et de déchets d’activités de soins à risques infectieux", 
 	subtitle: "Repères méthodologiques pour la surveillance environnementale",
