@@ -1,0 +1,4 @@
+主题名称,背景颜色,文本颜色,描边颜色,填充颜色,封面图片,前言图片,正文图片
+themes,background-color,text-color,stroke-color,fill-color,cover-image,preface-image,content-image
+abyss,#000000,#ffffff,#4b5358,#1f2833,../themes/abyss/cover.svg,../themes/abyss/preface.svg,../themes/abyss/content.svg
+light,#ffffff,#000000,,,,,
