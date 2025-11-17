@@ -13,25 +13,6 @@ done to:
 2. Reduce downloads (and disk usage) for end users
 
 
-## Table of contents
-
-1. [Categories of files][a]
-    1. [Required files][files_required]
-    1. [Documentation files][files_docs]
-    1. [Other files][files_other]
-1. [Package development version][b]
-1. [Published package version][c]
-1. [Imported package version][d]
-
-[a]: #categories-of-files
-[files_required]: #required-files
-[files_docs]: #documentation-files
-[files_other]: #other-files
-[b]: #package-development-version-stage-1
-[c]: #published-package-version-stage-2
-[d]: #imported-package-version-stage-3
-
-
 ## Categories of files
 
 The files possibly contained in your package are broadly grouped into the
@@ -204,5 +185,10 @@ my-package
 └── typst.toml
 ```
 
+<!-- External links -->
 [typst_universe]: https://typst.app/universe/
 [this_repo]: https://github.com/typst/packages
+<!-- Internal links -->
+[files_required]: #required-files
+[files_docs]: #documentation-files
+[files_other]: #other-files
