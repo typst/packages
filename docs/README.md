@@ -35,10 +35,9 @@ packages meet a certain quality standard and work properly for everyone.
 
 - **Size:** Packages should not contain large files or a large number of files.
   This will be judged on a case-by-case basis, but any exception should be
-  well-motivated. To keep the package small and fast to download, please
-  `exclude` images for the README or PDF files with documentation from the
-  bundle. For more detailed guidelines, please refer to [the "What to commit?
-  What to exclude?"][exclusion] section.
+  well-motivated. Please refer to the ["Contents of a package"][contents]
+  document for in-depth explanations of what should be reasonably included in
+  a package.
 
 - **Security and Safety:** Packages must not attempt to exploit the compiler or
   packaging implementation, in particular not to exfiltrate user data. Names and
@@ -89,7 +88,7 @@ that it is here to stay. If you discover a bug or issue, you can of course
 submit a new version of your package.
 
 [sparse-checkout]: tips.md#sparse-checkout-of-the-repository
-[exclusion]: tips.md#what-to-commit-what-to-exclude
+[contents]: contents.md
 [manifest]: manifest.md
 [typst]: typst.md
 [resources]: resources.md
