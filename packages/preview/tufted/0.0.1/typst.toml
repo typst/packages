@@ -1,0 +1,17 @@
+[package]
+name = "tufted"
+version = "0.0.1"
+entrypoint = "src/tufted.typ"
+authors = ["Vsevolod Shegolev <https://github.com/vsheg>"]
+license = "MIT"
+description = "Responsive web layout with wide margins, elegant sidenotes, and restrained typography."
+repository = "https://github.com/vsheg/tufted"
+compiler = "0.14.0"
+exclude = ["tests", "assets/devices.webp"]
+categories = ["layout", "utility"]
+keywords = ["website"]
+
+[template]
+path = "template"
+entrypoint = "content/index.typ"
+thumbnail = "assets/thumbnail.png"
