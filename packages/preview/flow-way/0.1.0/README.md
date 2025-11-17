@@ -29,7 +29,7 @@ Alternatively, you can create a new Typst file and import Flow-Way manually:
 )
 ```
 
-You can view a compiled pdf example of the template [here](https://github.com/fexh10/flow-way/blob/main/template/main.pdf).
+You can view a compiled pdf example of the template [here](https://github.com/fexh10/flow-way/blob/v0.1.0/template/main.pdf).
 
 ## Fonts
 
@@ -39,11 +39,11 @@ This template uses the following open-source fonts:
 - **Barlow** for headings.
 - **CMU Typewriter Text** for inline code and code blocks.
 
-You can download them from [here](https://github.com/fexh10/flow-way/tree/main/fonts).
+You can download them from [here](https://github.com/fexh10/flow-way/tree/v0.1.0/fonts).
 
 ## Documentation
 
-For detailed instructions on how to use and customize this template, please refer to the [official documentation](https://github.com/fexh10/flow-way/blob/main/docs/docs.pdf).
+For detailed instructions on how to use and customize this template, please refer to the [official documentation](https://github.com/fexh10/flow-way/blob/v0.1.0/docs/docs.pdf).
 
 ## Contributing
 
