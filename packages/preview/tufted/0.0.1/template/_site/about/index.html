@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tufted</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css">
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+  <body>
+    <header>
+      <nav><a href="/">Home</a><a href="/posts/">Posts</a><a href="/about/">About</a></nav>
+    </header>
+    <article>
+      <section>
+        <h2>About</h2>
+        <p>This is an experimental template to build static websites with <strong>pure</strong> Typst. Consider the API to be unstable.</p>
+        <p>Currently, it uses Typst’s experimental HTML export feature and modifies some definitions to produce more semantically correct and styled HTML output.</p>
+        <p>We use <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a> for styling; the CSS is not bundled but loaded from a CDN. The goal is to provide a Typst-native way to use it.</p>
+        <h3>API</h3>
+        <p>Currently, three functions are implemented:</p>
+        <ul>
+          <li><code>tufted-web</code> — A main template.</li>
+          <li><code>margin-note</code> — A function to place content in margin notes. This is limited as producing correct HTML requires introspection capabilities, which Typst currently lacks.</li>
+          <li><code>full-width</code> — A function to place content in full-width containers. This does not currently work as expected, again, due to introspection limitations.</li>
+        </ul>
+        <h3>Links</h3>
+        <ul>
+          <li>Repository: <a href="https://github.com/vsheg/tufted"><code>tufted</code> on GitHub</a></li>
+          <li>Typst Universe: <a href="https://typst.app/universe/package/tufted"><code>tufted</code></a></li>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>
