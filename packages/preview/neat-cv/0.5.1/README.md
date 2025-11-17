@@ -120,7 +120,6 @@ You can also create a matching cover letter:
     address: [123 Main St\ City, Country],
     phone: "(555) 123-4567",
     position: ("Data Scientist"),
-    github: "jsmith",
   ),
   profile-picture: image("my_profile.png"),
   accent-color: rgb("#4682b4"),
