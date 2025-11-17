@@ -1,5 +1,5 @@
 [package]
-name = "ulb-report"
+name = "unofficial-ulb-report"
 description = "Unofficial template for reports at the Ecole Polytechnique de Bruxelles (ULB)"
 version = "0.1.0"
 entrypoint = "lib.typ"
