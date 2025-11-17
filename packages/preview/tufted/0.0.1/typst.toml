@@ -13,5 +13,5 @@ keywords = ["website"]
 
 [template]
 path = "template"
-entrypoint = "content/index.typ"
+entrypoint = "config.typ"
 thumbnail = "assets/thumbnail.png"
