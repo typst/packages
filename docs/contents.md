@@ -79,7 +79,7 @@ Examples:
 - `tests/`
 
 
-## Package development version (Stage 1)
+## Stage 1: Package development
 
 This is the state of the package that you work on. Your package is most likely
 published to some git forge (GitHub, GitLab, ...) but it doesn't have to be.
@@ -124,7 +124,7 @@ my-package
 ```
 
 
-## Published package version (Stage 2)
+## Stage 2: Published package
 
 This is the state of the package that you commit to the [Typst `packages`
 repository][this_repo].
@@ -160,7 +160,7 @@ my-package
 ```
 
 
-## Imported package version (Stage 3)
+## Stage 3: Imported archive
 
 This is the state of the package that users get when they `#import` your code.
 
