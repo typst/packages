@@ -82,7 +82,7 @@ Examples:
 ## Stage 1: Package development
 
 This is the state of the package that you work on. Your package is most likely
-published to some git forge (GitHub, GitLab, ...) but it doesn't have to be.
+published to some git forge (GitHub, GitLab, …) but it doesn't have to be.
 
 At this stage, the package is entirely under your control and you decide what
 files you keep in your repository. Your repository may already contain various
@@ -162,7 +162,8 @@ my-package
 
 ## Stage 3: Imported archive
 
-This is the state of the package that users get when they `#import` your code.
+This is the final package content that will be downloaded and stored in a
+user's package cache when they `#import` your code.
 
 The transition from stage 2 to stage 3 is performed automatically, based on the
 value of `package.exclude` in your package manifest (`typst.toml`). This means
