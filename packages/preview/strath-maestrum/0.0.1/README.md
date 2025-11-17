@@ -1,4 +1,4 @@
-# Strath MAE Interimst
+# Strath-MAEstrum
 Unofficial Typst Template for MAE courseworks at Strathclyde
 
 # Usage
@@ -6,16 +6,18 @@ Unofficial Typst Template for MAE courseworks at Strathclyde
 This example should (almost) replicate the template seen on MyPlace:
 
 ```
-#import "@local/strath-mae-interimst:0.1.0": *
+#import "@preview/strath-maestrum:0.0.1": *
 
 #show: body => report(
   class: [ME420: Individual Project (Aerospace)],
   title: [Title of Interim Report],
   author: [Joe Bloggs],
   number: [202512345],
-  supervisor: [Dr. Jane Smith],
+  supervisor: "",
   date: [#datetime.today().display("[day]/[month]/[year]")],
   abstract: [#lorem(100)],
+  coverpage_image_path: none, // add the image on the cover page here
+  header_image_path: none, // add the image in the header here
   body
 )
 
@@ -52,6 +54,7 @@ caption: [The Caption pop out window from the References Tab in Microsoft Word @
 #pagebreak()
 #show bibliography: set heading(numbering: "1.1.")
 #bibliography("bib.yml", title: [References], )
+
 ```
 
 Any image path can replace "MSWord.png".

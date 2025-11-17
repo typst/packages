@@ -1,8 +1,7 @@
 [package]
 entrypoint = "src/template.typ"
-name = "strath-mae-interimst"
+name = "strath-maestrum"
 version = "0.0.1"
-compiler = "0.14.0"
 authors = ["Barnaby Seaman <@barnaby2002>"]
 repository = "https://github.com/barnaby2002/strath-mae-interimst"
 description = "A template that replicates the Strathclyde MAE Interim Report"
@@ -12,6 +11,6 @@ categories = ["office"]
 exclude = ["template"]
 
 [template]
-path = "src"
-entrypoint = "template.typ"
+path = "template"
+entrypoint = "example.typ"
 thumbnail = "thumbnail.png"

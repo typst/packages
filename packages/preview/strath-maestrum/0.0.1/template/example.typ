@@ -1,25 +1,27 @@
-#import "@local/strath-mae-interimst:0.1.0": *
+#import "@local/strath-maestrum:0.0.1": *
 
 /* 
 
-Welcome to typst! It should be fairly simple to contribute to this document here in the web app, as all the formatting has been done for you. 
+Welcome to typst!
 
-A tutorial can be found at https://typst.app/docs/tutorial/writing-in-typst/, or a cheat sheet is available in the cheatsheet folder:  click the closed eye next to cheatsheet.typ to show it in the main preview. To return to main.typ, click the closed eye next to it in the filetree.
+A tutorial can be found at https://typst.app/docs/tutorial/writing-in-typst/.
 
 To add text, just type anywhere! The preview will auto-scroll to where you are editing, and clicking text in the preview will bring you to the relevant place in the editor.
 
-To cite a source, add it to bib.yml - this is in the Hayagriva YAML format (if you have experience with bibtex you can use that instead. Read this (https://github.com/typst/hayagriva/blob/main/docs/file-format.md) to learn more about the Hayagriva format. When you @cite a source, it is automatically added to the #bibliography in order of appearance in the document.
+To cite a source, add it to bib.yml - this is in the Hayagriva YAML format (if you have experience with bibtex you can use that instead.) Read this (https://github.com/typst/hayagriva/blob/main/docs/file-format.md) to learn more about the Hayagriva format. When you @cite a source, it is automatically added to the #bibliography in order of appearance in the document.
 
 */
 
 #show: body => report(
-  class: [ME420: Individual Project (Aerospace)],
+  class: [ME123: Inmtroduction to Example Topic],
   title: [Title of Interim Report],
   author: [Joe Bloggs],
   number: [202512345],
   supervisor: "",
   date: [#datetime.today().display("[day]/[month]/[year]")],
   abstract: [#lorem(100)],
+  coverpage_image_path: "../assets/coverpage.png", // add the image on the cover page here
+  header_image_path: "../assets/header.png", // add the image in the header here
   body
 )
 
