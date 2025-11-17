@@ -21,7 +21,7 @@ following three categories.
 
 ### Required files
 
-Files that are necessary for the package to work. If any of these files are
+These files are necessary for the package to work. If any of these files are
 removed, the package would break for the end user.
 
 This includes the manifest file (`typst.toml`), main Typst file (mentioned
@@ -42,12 +42,12 @@ following files are also included:
 - `typst.toml`
 - `src/lib.typ` (see `package.entrypoint` in `typst.toml`)
 - `my-plugin.wasm` (for WASM plugins)
-- Images/icons/other assets if your package reproduces these in documents
+- Images, icons, and other assets if your package reproduces these in documents
 
 
 ### Documentation files
 
-Files that are necessary for the package to be displayed correctly on [Typst
+These files are necessary for the package to be displayed correctly on [Typst
 Universe][typst_universe].
 
 This includes any files that are linked from the README (manuals, examples,
