@@ -35,7 +35,7 @@ following files are also included:
   can provide minimal documentation in case the user is offline or can't access
   anything else than their local package cache for some other reason
 
-*Examples*:
+Examples:
 
 - `README.md`
 - `LICENSE`
@@ -56,7 +56,7 @@ README. If your README links to directories (such as `examples/`), include
 these directories as well. In the case of PDF manuals, for example, it suffices
 to include the built PDF without the source code.
 
-*Examples*:
+Examples:
 
 - `docs/user-manual.pdf` (but *not* the source code, if any)
 - `assets/screenshot.png` (if your README links to that)
@@ -71,7 +71,7 @@ that are not linked in the README.
 These files would be almost impossible to access for the final user, unless
 they browse [this GitHub repository][this_repo] or their local package cache.
 
-*Examples*:
+Examples:
 
 - `.github`
 - `CHANGELOG.md`
