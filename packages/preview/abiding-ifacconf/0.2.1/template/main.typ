@@ -5,7 +5,7 @@
 // Adapted from ifacconf.tex by Juan a. de la Puente
 //==============================================================================
 
-#import "@preview/abiding-ifacconf:0.2.0": *
+#import "@preview/abiding-ifacconf:0.2.1": *
 #show: ifacconf-rules
 #show: ifacconf.with(
   title: "Style for IFAC Conferences & Symposia: Use Title Case for Paper Title",
@@ -80,7 +80,7 @@ Some words might be appropriate describing equation @sample, if
 we had but time and space enough. 
 
 $
-(diff F) / (diff t) = D (diff^2 F) / (diff x^2)
+(partial F) / (partial t) = D (partial^2 F) / (partial x^2)
 $ <sample>
 
 See @Abl56 @AbTaRu54 @Keo58, and @Pow85.
