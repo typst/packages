@@ -186,6 +186,18 @@ my-package
 └── typst.toml
 ```
 
+And our manifest would look like this:
+
+```toml
+# For reference see <https://github.com/typst/packages/blob/main/docs/manifest.md>
+[package]
+exclude = [
+    "assets/",
+    "docs/",
+    "examples/",
+]
+```
+
 <!-- External links -->
 [typst_universe]: https://typst.app/universe/
 [this_repo]: https://github.com/typst/packages
