@@ -1,5 +1,4 @@
-#import "../lib.typ": *
-#import "../src/colours.typ": get-accent-colour
+#import "@preview/linked-cv:0.1.0": *
 
 #show: linked-cv.with(
   firstname: "Your",
