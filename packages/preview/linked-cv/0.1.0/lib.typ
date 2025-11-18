@@ -1,4 +1,4 @@
-#import "src/colours.typ": colours, set-accent-colour
+#import "src/colours.typ": colours, set-accent-colour, get-accent-colour
 #import "src/typography.typ": set-fonts
 #import "src/typography.typ"
 #import "src/utils.typ": *

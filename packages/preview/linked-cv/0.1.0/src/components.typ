@@ -252,12 +252,9 @@
   )
 }
 
-#let qualification(name, grade, date, institution) = {
-  let accent = get-accent-colour()
-  (
-    text(size: 8pt, fill: colours.graytext, name),
-    text(size: 8pt, style: "italic", fill: colours.graytext, grade),
-    text(size: 8pt, style: "italic", fill: colours.graytext, date),
-    text(size: 9pt, fill: accent, institution),
-  )
-}
+#let qualification(name, grade, date, institution) = (
+  text(size: 8pt, fill: colours.graytext, name),
+  text(size: 8pt, style: "italic", fill: colours.graytext, grade),
+  text(size: 8pt, style: "italic", fill: colours.graytext, date),
+  context text(size: 9pt, fill: get-accent-colour(), institution)
+)
