@@ -11,7 +11,7 @@
   coverpage-image-path: none, header-image-path: none,
   body
 ) = {
-  set page(margin: (left: 4cm, right: 2.5cm, top: 5cm, bottom: 2cm), header: block(width: calc.inf * 1pt, if coverpage_image_path != none {place(image(coverpage_image_path, height: 4.8cm), dx: -4cm, dy: -2.2cm)}))
+  set page(margin: (left: 4cm, right: 2.5cm, top: 5cm, bottom: 2cm), header: block(width: calc.inf * 1pt, if coverpage-image-path != none {place(image(coverpage-image-path, height: 4.8cm), dx: -4cm, dy: -2.2cm)}))
 
   set document(title: title)
 
@@ -49,7 +49,7 @@
   heading(outlined: false, [Abstract])
   abstract //#lorem(n) makes n words of "lorem ipsum"
 
-  set page(margin: (top: 2cm), header: block(width: calc.inf * 1pt, if header_image_path != none { place(image(header_image_path, height: 0.58cm), dx: -0.2cm, dy: -0.4cm)}), footer: text(fill: luma(0), [Student No.: #number #h(1fr) #context counter(page).display("1")]))
+  set page(margin: (top: 2cm), header: block(width: calc.inf * 1pt, if header-image-path != none { place(image(header-image-path, height: 0.58cm), dx: -0.2cm, dy: -0.4cm)}), footer: text(fill: luma(0), [Student No.: #number #h(1fr) #context counter(page).display("1")]))
   outline()
   pagebreak()
   set heading(numbering: "1.1.")
