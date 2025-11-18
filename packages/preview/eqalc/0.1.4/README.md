@@ -72,6 +72,9 @@ If the given math expression is an equation, the left hand side will be turned i
 
 Only one variable is allowed in the right hand side of the equation.
 
+## Documentation
+A generated PDF with the documentation can be found [here](docs/manual.pdf).
+
 ## Contributing
 
 Any contributions are welcome! Just fork the repository and make a pull request.
