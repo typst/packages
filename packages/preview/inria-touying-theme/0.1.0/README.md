@@ -95,7 +95,7 @@ The Inria theme provides a variety of custom slide functions:
 Consider using:
 
 ```typst
-#set text(lang: "en")`
+#set text(lang: "en")
 #show math.equation: set text(font: "Fira Math")
 #set strong(delta: 100)
 #set par(justify: true)
