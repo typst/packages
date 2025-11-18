@@ -193,12 +193,9 @@ Choose from predefined accent colours or define your own:
 
 ```typ
 #show: linked-cv.with(
-  // linked-cv provided
   accent-colour: colours.accent,
-  // typst defaults
-  accent-colour: blue,
-  // custom colour
-  accent-colour: rgb("#1a73e8").lighten(20%),
+  // accent-colour: blue,
+  // accent-colour: rgb("#1a73e8").lighten(20%),
 )
 ```
 
