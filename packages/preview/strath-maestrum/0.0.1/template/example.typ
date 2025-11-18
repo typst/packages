@@ -20,8 +20,8 @@ To cite a source, add it to bib.yml - this is in the Hayagriva YAML format (if y
   supervisor: "",
   date: [#datetime.today().display("[day]/[month]/[year]")],
   abstract: [#lorem(100)],
-  coverpage_image_path: "../assets/coverpage.png", // add the image on the cover page here
-  header_image_path: "../assets/header.png", // add the image in the header here
+  coverpage_image_path: none, // add the image on the cover page here
+  header_image_path: none,    // add the image in the header here
   body
 )
 
