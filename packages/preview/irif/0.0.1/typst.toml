@@ -1,10 +1,10 @@
 [package]
-name        = "numerical-methods"
+name        = "irif"
 version     = "0.0.1"
 description = "Numerical methods for integration, differentiation and root finding"
 license     = "MIT-0"
 authors     = ["TGGrace"]
-entrypoint  = "NumMeth.typ"
+entrypoint  = "irif.typ"
 exclude     = [
     ".git*",
     "examples"

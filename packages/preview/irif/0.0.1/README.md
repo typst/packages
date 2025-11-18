@@ -1,65 +1,69 @@
-# Numerical-Methods
-A [Typst](https://typst.app/) package for finding roots, gradients and areas of functions.
+# irif
+A [Typst](https://typst.app/) package for Numerical Methods to find roots, gradients and areas of functions.
 Graph plotting for integrals built on top of [CeTZ](https://github.com/johannes-wolf/cetz).
 
+Examples can be found [here as a .pdf](examples/examples.pdf) and [here as .typ](examples/examples.typ).
+
+
 ```typ
-#PlotIntegral(f_x:x=>calc.pow(calc.e,x)+1/(x - 2),
-             start-x:0.5,
-             end-x:1.8, 
-             size_x:3,
-             size_y:2,
-             labelA:"0.5",
-             labelB:"1.8",
+#plot-integral(f_x:x=>calc.pow(calc.e,x)+1/(x - 2),
+             x0:0.5,
+             x1:1.8, 
+             size-x:3,
+             size-y:2,
+             label-a:"0.5",
+             label-b:"1.8",
              n-strips:8)
 
-#NM-Table-Integrate(f_x:x=>calc.pow(calc.e,x)+1/(x - 2),
-                    start-x:0.5,
-                    end-x:1.8,
+#nm-table-integrate(f_x:x=>calc.pow(calc.e,x)+1/(x - 2),
+                    x0:0.5,
+                    x1:1.8,
                     show-diffs:false,
                     n-rows:10)
 
 ```
 
+Functions names are as follows: `nm-[operation type]-[method]`
 Creates the following functions:
 ```typ
-#NM-Differentiate-Forward()
-#NM-Differentiate-Central()
+#nm-differentiate-forward()
+#nm-differentiate-central()
 
-#NM-Integrate-Midpoint()
-#NM-Integrate-Trapezium()
-#NM-Integrate-Simpsons()
+#nm-integrate-midpoint()
+#nm-integrate-trapezium()
+#nm-integrate-simpsons()
 
-#NM-Iterate-FPI()
-#NM-Iterate-RelaxedFPI()
-#NM-Iterate-NRaphson()
-#NM-Iterate-Secant()
-#NM-Iterate-FalsePosition()
-#NM-Iterate-Bisection()
+#nm-Iterate-FPI()
+#nm-Iterate-relaxed-FPI()
+#nm-Iterate-newton-raphson()
+#nm-Iterate-secant()
+#nm-Iterate-false-position()
+#nm-Iterate-bisection()
 
-#NM-Table-Integrate()
-#NM-Table-Differentiate()
-#NM-Table-Iterate()
+#nm-table-integrate()
+#nm-table-differentiate()
+#nm-table-iterate()
 
-#PlotIntegral()
+#plot-integral()
 ```
 
-## NM-Differentiation
+## nm-differentiation
 Differentiation tools take the following inputs/defaults:
 ```typ
 f_x:x=>x*x, x0:1, h:1, accuracy:12
 ```
 The function will approximate $f'(x_0)$ using either the Forward Difference or Central Difference method.
 
-## NM-Integrate
+## nm-integrate
 Integration tools take the following inputs/defaults:
 ```typ
-f_x:x=>x*x, start-x:0, end-x:1, accuracy:12, n:1
+f_x:x=>x*x, x0:0, x1:1, accuracy:12, n:1
 ```
-These will approximate $\int_{start-x}^{end-x}(f_x(x))\text{d}x $
+These will approximate $\int_{x 0}^{x 1}(f_x(x))\text{d}x $
 
 Trapezium rule will return $T_n$, Midpoint rule will return $M_n$ and Simpsons rule will return $S_{2n}$
 
-## NM-Iterate
+## nm-iterate
 These functions provide the root-finding methods Bisection, False Position, Secant, Newton Raphson, Fixed Point Iteration (FPI) and Relaxed Fixed Point Iteration.
 
 All functions take the parameter `f_x`, except FPI and Relaxed FPI, which take the function `g_x`.
@@ -70,7 +74,7 @@ The parameter `return-all` can be made true to see every step of the iteration, 
 
 *NOTE*: The Newton-Raphson method utilises the Central Difference gradient with `h = 0.0000000001` calculated to 15 decimal places. Thus it is not a true Newton-Raphson approximation.
 
-## NM-Table
+## nm-table
 These tables are useful for seeing or demonstrating convergence. They have been designed with the A Level Further Maths OCR MEI B specification in mind.
 
 By default, they will include the changing variable ($n$ or $h$ typically), as well as the approximation they have reached.
@@ -81,7 +85,7 @@ If the differences are being shown, then the ratios between the differences can 
 
 *NOTE*: For exam purposes, differences and ratios are caluclated from the *table values*, which are rounded, rather than the greater precision stored values.
 
-## PlotIntegral
+## plot-integral
 Useful for demonstrating different types of numerical integration methods. Uses CeTZ to plot.
 
 The number of strips is customizable, and the method should be chosen from:
