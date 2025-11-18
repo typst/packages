@@ -8,7 +8,7 @@
   supervisor: [],
   date: [],
   abstract: [],
-  coverpage_image_path: none, header_image_path: none,
+  coverpage-image-path: none, header-image-path: none,
   body
 ) = {
   set page(margin: (left: 4cm, right: 2.5cm, top: 5cm, bottom: 2cm), header: block(width: calc.inf * 1pt, if coverpage_image_path != none {place(image(coverpage_image_path, height: 4.8cm), dx: -4cm, dy: -2.2cm)}))
@@ -58,4 +58,4 @@
 
 }
 
-#let eng_col = rgb("#0078ae")
+#let eng-col = rgb("#0078ae")
