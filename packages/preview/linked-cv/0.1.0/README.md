@@ -7,10 +7,10 @@ A beautiful, modern CV template for Typst that emulates the LinkedIn UI aestheti
 ## Features
 
 - **LinkedIn-inspired design** with clean, professional layout
-- **Timeline visualization** for multiple roles at the same company
+- **Timeline visualisation** for multiple roles at the same company
 - **Tech stack icons** with 100+ built-in technology logos
-- **Customizable colors and fonts** to match your personal brand
-- **Responsive layout** optimized for A4 paper
+- **Customisable colours and fonts** to match your personal brand
+- **Responsive layout** optimised for A4 paper
 - **Easy to use** with simple, intuitive component API
 
 ## Installation
@@ -42,12 +42,10 @@ Import the package using the Typst package manager:
   ),
 )
 
-// Add a summary
 #typography.summary[
   Experienced software engineer who values learning and growing with people, teams, and technologies...
 ]
 
-// Add sections and experience
 #components.section("Experience")
 
 #components.employer-info(
@@ -65,7 +63,7 @@ Import the package using the Typst package manager:
         title: "Project Name",
         tech-stack: ("python", "typescript", "react", "postgresql")
       )
-      - Achievement or responsibility
+      - Key achievement or responsibility
       - Another achievement
     ]
   ),
@@ -93,7 +91,7 @@ The `linked-cv` template automatically generates a header with your name and con
 
 ### Sections
 
-Create section headers for different parts of your CV:
+Create section headers:
 
 ```typ
 #components.section("Experience")
@@ -101,15 +99,15 @@ Create section headers for different parts of your CV:
 #components.section("Skills")
 ```
 
-### Employer Information
+### Company Experience
 
-Display company information with logo and duration:
+Display company information with optional logo, followed by timeline entries for roles:
 
 ```typ
 #components.employer-info(
-  name: "Company Name",
-  duration: ("01-2020", "12-2023"),
   image("path/to/logo.svg"),  // content placeholder available
+  name: "Company Name",
+  duration: ("01-2020", "current"),
 )
 ```
 
@@ -136,7 +134,7 @@ Create connected timeline entries for multiple roles at the same company:
     title: [Engineer],
     duration: ("01-2020", "12-2021"),
     body: [
-      - Earlier role achievements
+      - Earlier achievements
     ]
   ),
 )
@@ -172,9 +170,7 @@ You can also use tech icons standalone:
 #tech-icons(("python", "typescript", image("custom.svg")))
 ```
 
-### Qualifications
-
-Add education and certifications:
+### Education & Qualifications
 
 ```typ
 #components.qualification(
@@ -185,11 +181,11 @@ Add education and certifications:
 )
 ```
 
-## Customization
+## Customisation
 
 ### Colours
 
-Choose from predefined accent colours or define your own:
+Choose from predefined accent colours or create your own:
 
 ```typ
 #show: linked-cv.with(
@@ -199,9 +195,9 @@ Choose from predefined accent colours or define your own:
 )
 ```
 
-### Fonts
+### Fonts & Type
 
-Customise the fonts used throughout your CV:
+Customise fonts and text settings:
 
 ```typ
 #show: linked-cv.with(
@@ -211,8 +207,6 @@ Customise the fonts used throughout your CV:
   ),
 )
 ```
-
-### Text Formatting
 
 Override default text settings for fine-tuned control:
 
@@ -225,10 +219,10 @@ Override default text settings for fine-tuned control:
 
 See [example/cv.typ](example/cv.typ) for a complete working example with multiple companies, roles, and sections.
 
-## License
+## Licence
 
-This project is licensed under the MIT License - see the [LICENCE](LICENCE) file for details.
+MIT License - see [LICENCE](LICENCE) for details.
 
 ## Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests.
+Contributions are welcome! Please feel free to open issues or submit pull requests.
