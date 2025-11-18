@@ -249,6 +249,7 @@ x0:0,x1:1,accuracy:12,n:1) = {
   if not return-all {
     let (a,b) = (x0,x1)
     while n < n-max {
+      if (f_x(a) * f_x(b) >=0) {panic("Error, no change of sign.")}
       let next = (a * f_x(b) - b * f_x(a))/(f_x(b) - f_x(a))
       if f_x(a)*f_x(next) > 0 { //Same sign, so replace b
         b = next
@@ -263,6 +264,7 @@ x0:0,x1:1,accuracy:12,n:1) = {
   xn.push((x0,x1))
   while xn.len() < n-max {
     let (a,b) = xn.last()
+    if (f_x(a) * f_x(b) >=0) {panic("Error, no change of sign.")}
     let next = (a * f_x(b) - b * f_x(a))/(f_x(b) - f_x(a))
     if f_x(a)*f_x(next) > 0 { //Same sign, so replace b
         xn.push((a,next))
@@ -278,6 +280,7 @@ x0:0,x1:1,accuracy:12,n:1) = {
   if not return-all {
     let (a,b) = (x0,x1)
     while n < n-max {
+      if (f_x(a) * f_x(b) >=0) {panic("Error, no change of sign.")}
       let next = (a+b)/2
       if (f_x(next)==0) {
       xn.push((a,next))
@@ -296,6 +299,7 @@ x0:0,x1:1,accuracy:12,n:1) = {
   xn.push((x0,x1))
   while xn.len() < n-max {
     let (a,b) = xn.last()
+    if (f_x(a) * f_x(b) >=0) {panic("Error, no change of sign.")}
     let next = (a+b)/2
     if (f_x(next)==0) {
       xn.push((a,next))
