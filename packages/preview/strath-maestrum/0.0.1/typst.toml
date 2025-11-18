@@ -8,7 +8,6 @@ description = "A template that replicates the Strathclyde MAE Interim Report"
 keywords = ["Strathclyde", "MAE", "Interim"]
 license = "MIT"
 categories = ["office"]
-exclude = ["template"]
 
 [template]
 path = "template"

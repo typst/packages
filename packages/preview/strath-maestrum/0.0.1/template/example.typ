@@ -13,15 +13,15 @@ To cite a source, add it to bib.yml - this is in the Hayagriva YAML format (if y
 */
 
 #show: body => report(
-  class: [ME123: Inmtroduction to Example Topic],
+  class: [ME123: Introduction to Example Topic],
   title: [Title of Interim Report],
   author: [Joe Bloggs],
   number: [202512345],
-  supervisor: "",
+  supervisor: [Dr Jane Doe],
   date: [#datetime.today().display("[day]/[month]/[year]")],
   abstract: [#lorem(100)],
-  coverpage-image-path: none, // add the image on the cover page here
-  header-image-path: none,    // add the image in the header here
+  coverpage-image: none, // add the image on the cover page here as image(path)
+  header-image: none,    // add the image in the header here as image(path)
   body
 )
 
