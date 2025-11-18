@@ -1,6 +1,6 @@
 # `tufted`
 
-A simple website template built with pure Typst. No external dependencies required.
+A static website template built using Typst's experimental HTML export. Requires no external dependencies other than basic `make`.
 
 ![Tufted website](assets/devices.webp)
 
