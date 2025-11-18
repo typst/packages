@@ -17,7 +17,7 @@ This example should (almost) replicate the template seen on MyPlace:
   date: [#datetime.today().display("[day]/[month]/[year]")],
   abstract: [#lorem(100)],
   coverpage_image_path: none, // add the image on the cover page here
-  header_image_path: none, // add the image in the header here
+  header_image_path: none,    // add the image in the header here
   body
 )
 
@@ -58,3 +58,4 @@ caption: [The Caption pop out window from the References Tab in Microsoft Word @
 ```
 
 Any image path can replace "MSWord.png".
+Please download the coverpage and header images from MyPlace

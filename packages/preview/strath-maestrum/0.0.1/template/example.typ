@@ -1,4 +1,4 @@
-#import "@local/strath-maestrum:0.0.1": *
+#import "@preview/strath-maestrum:0.0.1": *
 
 /* 
 
