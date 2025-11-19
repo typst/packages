@@ -8,7 +8,7 @@ This theme draws inspiration from the default Metropolis theme for the [touying]
 It and has been adapted to comply roughly with Inria's graphic charter while remaining simple and elegant.
 Note that this is however an unofficial theme.
 
-<!-- [![Typst Universe](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Finria-touying-theme&query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&logo=typst&label=universe&color=%2339cccc)](https://typst.app/universe/package/inria-touying-theme) -->
+<!-- [![Typst Universe](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Fsimple-inria-touying-theme&query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&logo=typst&label=universe&color=%2339cccc)](https://typst.app/universe/package/inria-touying-theme) -->
 [![GitLab License](https://img.shields.io/gitlab/license/soliman%2Finria-touying-theme?gitlab_url=https%3A%2F%2Fgitlab.inria.fr%2F&color=green)](https://gitlab.inria.fr/soliman/inria-touying-theme/-/raw/main/LICENSE)
 
 It is recommended to have the [Inria Sans](https://font.download/font/inria-sans) font installed (the theme will fallback to Fira Sans or Noto Sans otherwise, since they are reasonably close).
@@ -20,7 +20,7 @@ You can initialize it using the following code:
 
 ```typst
 #import "@preview/touying:0.6.1": *
-#import "@preview/inria-touying-theme:0.1.0": *
+#import "@preview/simple-inria-touying-theme:0.1.0": *
 
 #show: inria-theme.with(
   aspect-ratio: "16-9",
@@ -176,7 +176,7 @@ Creates a new section with the given title.
 
 ```typst
 #import "@preview/touying:0.6.1": *
-#import "@preview/inria-touying-theme:0.1.0": *
+#import "@preview/simple-inria-touying-theme:0.1.0": *
 
 #import "@preview/numbly:0.1.0": numbly
 
