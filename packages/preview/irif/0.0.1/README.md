@@ -33,12 +33,12 @@ Creates the following functions:
 #nm-integrate-trapezium()
 #nm-integrate-simpsons()
 
-#nm-Iterate-FPI()
-#nm-Iterate-relaxed-FPI()
-#nm-Iterate-newton-raphson()
-#nm-Iterate-secant()
-#nm-Iterate-false-position()
-#nm-Iterate-bisection()
+#nm-iterate-FPI()
+#nm-iterate-relaxed-FPI()
+#nm-iterate-newton-raphson()
+#nm-iterate-secant()
+#nm-iterate-false-position()
+#nm-iterate-bisection()
 
 #nm-table-integrate()
 #nm-table-differentiate()
