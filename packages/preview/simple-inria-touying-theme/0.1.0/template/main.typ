@@ -1,5 +1,5 @@
 #import "@preview/touying:0.6.1": *
-#import "@preview/inria-touying-theme:0.1.0": *
+#import "@preview/simple-inria-touying-theme:0.1.0": *
 
 #show: inria-theme.with(
   aspect-ratio: "16-9",
