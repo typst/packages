@@ -1,7 +1,7 @@
 #let IMAGE_BOX_MAX_WIDTH = 120pt
 #let IMAGE_BOX_MAX_HEIGHT = 50pt
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.2": *
+#import "@preview/codly-languages:0.1.10": *
 #let supported-langs = ("en", "fr", "ar")
 #let project(
   title: "",
