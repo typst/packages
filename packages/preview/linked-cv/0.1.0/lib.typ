@@ -1,5 +1,4 @@
 #import "src/colours.typ": colours, set-accent-colour, get-accent-colour
-#import "src/typography.typ": set-fonts
 #import "src/typography.typ"
 #import "src/utils.typ": *
 #import "src/components.typ"
@@ -24,7 +23,7 @@
   body,
 ) = {
   set-accent-colour(accent-colour)
-  set-fonts(fonts)
+  typography.set-fonts(fonts)
 
   show: doc => layout(firstname, lastname, doc)
 

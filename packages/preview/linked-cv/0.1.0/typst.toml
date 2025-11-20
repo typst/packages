@@ -21,3 +21,8 @@ disciplines = [
     "education",
 ]
 exclude = ["build", "example"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

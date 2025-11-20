@@ -49,6 +49,7 @@ Import the package using the Typst package manager:
 #components.section("Experience")
 
 #components.employer-info(
+  image("path/to/logo.svg"),
   name: "Company Name",
   duration: ("01-2023", "current"),
 )
