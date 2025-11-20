@@ -24,7 +24,7 @@
 #components.section("Experience")
 
 #components.employer-info(
-  image("path/to/logo.svg"),
+  image("img/squircle.svg"),
   name: "OpenAI",
   duration: ("01-2023", "current"),
 )
