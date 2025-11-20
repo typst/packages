@@ -1,6 +1,6 @@
-# linkedin-cv
+# linked-cv
 
-A beautiful, modern CV template for Typst that emulates the LinkedIn UI aesthetic. Features timeline-based experience sections, tech stack icons, and customizable colors and fonts.
+A beautiful, timeline-based CV template for Typst that emulates the LinkedIn UI aesthetic.
 
 ![Preview](thumbnail.png)
 
