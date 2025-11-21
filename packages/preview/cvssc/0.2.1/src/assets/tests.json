@@ -1,0 +1,835 @@
+{
+  "v4.0": [
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "expected": 7.3
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "expected": 7.7
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:L/VA:L/SC:N/SI:N/SA:N",
+      "expected": 8.3
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:A/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "expected": 4.6
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N",
+      "expected": 5.1
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N",
+      "expected": 6.9
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:H/UI:N/VC:N/VI:N/VA:N/SC:H/SI:N/SA:N",
+      "expected": 5.9
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
+      "expected": 9.4
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:H/SI:H/SA:H",
+      "expected": 9.3
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "expected": 9.3
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "expected": 8.7
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:A/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:H/SI:N/SA:H",
+      "expected": 6.4
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:H/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "expected": 8.4
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:L/AT:P/PR:H/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "expected": 7.1
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:P/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "expected": 7.0
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "expected": 9.2
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "expected": 7.1
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "expected": 8.2
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:L",
+      "expected": 8.7
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N",
+      "expected": 5.1
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N",
+      "expected": 5.1
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:A/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N",
+      "expected": 8.5
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "expected": 5.1
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "expected": 7.7
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
+      "expected": 10.0
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "expected": 0.0
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:A/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
+      "expected": 9.4
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
+      "expected": 9.3
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:P/AC:H/AT:P/PR:H/UI:A/VC:N/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "expected": 0.0
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:L/UI:A/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
+      "expected": 8.8
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:A/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:L/SC:L/SI:L/SA:L",
+      "expected": 8.7
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:L/SC:L/SI:L/SA:L",
+      "expected": 8.6
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:A/AC:L/AT:N/PR:N/UI:P/VC:H/VI:H/VA:L/SC:L/SI:L/SA:L",
+      "expected": 8.6
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:H/UI:N/VC:H/VI:H/VA:L/SC:L/SI:L/SA:L",
+      "expected": 8.3
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:H/AT:P/PR:L/UI:P/VC:H/VI:H/VA:L/SC:L/SI:L/SA:L",
+      "expected": 7.5
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:L/VA:L/SC:L/SI:H/SA:L",
+      "expected": 7.2
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:L/SC:L/SI:L/SA:N",
+      "expected": 8.7
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:H/VI:L/VA:H/SC:L/SI:L/SA:L",
+      "expected": 7.2
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:A/AC:L/AT:N/PR:L/UI:P/VC:H/VI:H/VA:L/SC:L/SI:L/SA:L",
+      "expected": 6.9
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:L/UI:A/VC:L/VI:L/VA:L/SC:L/SI:L/SA:L",
+      "expected": 2.0
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:A/AC:H/AT:P/PR:H/UI:A/VC:H/VI:H/VA:L/SC:L/SI:L/SA:L",
+      "expected": 5.3
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:H/UI:A/VC:N/VI:N/VA:L/SC:H/SI:L/SA:L",
+      "expected": 4.4
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:P/AC:L/AT:N/PR:N/UI:N/VC:H/VI:L/VA:L/SC:N/SI:N/SA:N",
+      "expected": 5.2
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:H/AT:N/PR:L/UI:A/VC:N/VI:L/VA:L/SC:N/SI:N/SA:N",
+      "expected": 1.0
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:P/AC:H/AT:P/PR:H/UI:A/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "expected": 1.0
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:H/AT:P/PR:H/UI:A/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "expected": 1.0
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:P/AC:L/AT:N/PR:H/UI:A/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N",
+      "expected": 2.4
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:H/UI:A/VC:L/VI:H/VA:N/SC:L/SI:N/SA:N",
+      "expected": 5.2
+    },
+    {
+      "version": "v4.0",
+      "vector": "CVSS:4.0/AV:A/AC:H/AT:P/PR:H/UI:A/VC:L/VI:L/VA:L/SC:L/SI:N/SA:N",
+      "expected": 1.0
+    }
+  ],
+  "v3.1": [
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N",
+      "expected": 6.4
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N",
+      "expected": 3.1
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+      "expected": 9.9
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:L/A:L",
+      "expected": 4.2
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+      "expected": 7.2
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "expected": 7.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+      "expected": 7.5
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "expected": 9.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:N",
+      "expected": 6.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "expected": 6.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:N/A:N",
+      "expected": 5.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:L/A:N",
+      "expected": 5.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:H",
+      "expected": 9.3
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:H",
+      "expected": 9.0
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "expected": 8.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+      "expected": 4.6
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "expected": 8.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+      "expected": 7.4
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+      "expected": 9.6
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N",
+      "expected": 6.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "expected": 7.5
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "expected": 6.1
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L",
+      "expected": 8.6
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+      "expected": 8.2
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H",
+      "expected": 6.0
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+      "expected": 7.6
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "expected": 7.5
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+      "expected": 10.0
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N",
+      "expected": 0.0
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:L",
+      "expected": 9.1
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:L",
+      "expected": 9.9
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:H/A:H",
+      "expected": 10.0
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+      "expected": 9.6
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+      "expected": 8.6
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L",
+      "expected": 8.6
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+      "expected": 7.5
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N",
+      "expected": 7.2
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+      "expected": 9.1
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "expected": 8.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "expected": 7.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "expected": 8.1
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L",
+      "expected": 6.5
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+      "expected": 6.3
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N",
+      "expected": 7.1
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N",
+      "expected": 7.1
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+      "expected": 5.3
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L",
+      "expected": 6.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "expected": 7.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+      "expected": 7.1
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:L/I:L/A:N",
+      "expected": 3.3
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:P/AC:H/PR:L/UI:R/S:U/C:L/I:L/A:L",
+      "expected": 3.7
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:L/I:L/A:L",
+      "expected": 3.8
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:P/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+      "expected": 4.1
+    },
+    {
+      "version": "v3.1",
+      "vector": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:L/I:L/A:N",
+      "expected": 3.1
+    }
+  ],
+  "v3.0": [
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "expected": 6.1
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N",
+      "expected": 6.4
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N",
+      "expected": 3.1
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+      "expected": 9.9
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:L/A:L",
+      "expected": 4.2
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "expected": 8.8
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "expected": 7.8
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+      "expected": 7.5
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "expected": 9.8
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:N",
+      "expected": 6.8
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "expected": 6.8
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:N/A:N",
+      "expected": 5.8
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:L/A:N",
+      "expected": 5.8
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:H",
+      "expected": 9.3
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N",
+      "expected": 5.4
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "expected": 8.8
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:P/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+      "expected": 4.6
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "expected": 8.8
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+      "expected": 7.4
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+      "expected": 9.6
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N",
+      "expected": 6.8
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "expected": 7.5
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+      "expected": 10.0
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N",
+      "expected": 0.0
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+      "expected": 5.3
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+      "expected": 7.5
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L",
+      "expected": 6.5
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+      "expected": 8.6
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N",
+      "expected": 7.2
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+      "expected": 9.6
+    },
+    {
+      "version": "v3.0",
+      "vector": "CVSS:3.0/AV:L/AC:H/PR:L/UI:R/S:U/C:L/I:L/A:N",
+      "expected": 3.3
+    }
+  ],
+  "v2.0": [
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:N/I:N/A:C",
+      "expected": 7.8
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:C/I:C/A:C",
+      "expected": 10.0
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:H/Au:N/C:C/I:C/A:C",
+      "expected": 6.2
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:S/C:P/I:P/A:P",
+      "expected": 6.5
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:S/C:C/I:P/A:P",
+      "expected": 8.0
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:L/Au:M/C:N/I:N/A:N",
+      "expected": 0.0
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:H/Au:M/C:N/I:N/A:P",
+      "expected": 0.8
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:H/Au:M/C:N/I:N/A:C",
+      "expected": 3.7
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:H/Au:M/C:N/I:P/A:P",
+      "expected": 2.3
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:H/Au:M/C:N/I:P/A:C",
+      "expected": 4.4
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:H/Au:M/C:N/I:C/A:C",
+      "expected": 5.3
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:H/Au:M/C:P/I:C/A:C",
+      "expected": 5.6
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:H/Au:N/C:P/I:C/A:C",
+      "expected": 5.9
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:L/Au:N/C:P/I:C/A:C",
+      "expected": 6.8
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:P/I:C/A:C",
+      "expected": 9.7
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:M/Au:N/C:P/I:P/A:N",
+      "expected": 5.8
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:A/AC:L/Au:N/C:C/I:C/A:C",
+      "expected": 8.3
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:A/AC:M/Au:N/C:P/I:P/A:P",
+      "expected": 5.4
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:L/Au:S/C:C/I:C/A:C",
+      "expected": 6.8
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:A/AC:L/Au:S/C:C/I:C/A:C",
+      "expected": 7.7
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:H/Au:N/C:C/I:C/A:C",
+      "expected": 7.6
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:M/C:C/I:C/A:C",
+      "expected": 8.3
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:M/Au:S/C:C/I:C/A:C",
+      "expected": 8.5
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:L/AC:L/Au:N/C:C/I:C/A:C",
+      "expected": 7.2
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:A/AC:L/Au:N/C:C/I:N/A:N",
+      "expected": 6.1
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:N/I:N/A:P",
+      "expected": 5.0
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:P/I:N/A:N",
+      "expected": 5.0
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:N/I:P/A:N",
+      "expected": 5.0
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:C/I:N/A:N",
+      "expected": 7.8
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:N/I:C/A:N",
+      "expected": 7.8
+    },
+    {
+      "version": "v2.0",
+      "vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:N/I:N/A:C",
+      "expected": 7.8
+    }
+  ]
+}

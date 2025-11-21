@@ -1,0 +1,3 @@
+[submodule "packages/typst-marginalia"]
+	path = packages/typst-marginalia
+	url = https://github.com/uwni/typst-marginalia.git

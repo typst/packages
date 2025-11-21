@@ -1,0 +1,11 @@
+*
+
+!/.gitignore
+!/CHANGELOG.md
+!/LICENSE
+!/README.md
+
+!/typst.toml
+
+!/src/
+!/src/lib.typ

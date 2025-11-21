@@ -1,0 +1,245 @@
+"india - darjeeling":
+  type: duration
+  dtstart: 2025-02-04
+  dtend: 2025-02-19
+  location: darjeeling
+
+"assam":
+  type: duration
+  dtstart: 2025-02-20
+  dtend: 2025-02-20
+  location: assam
+
+"india - holiday":
+  type: duration
+  dtstart: 2025-02-21
+  dtend: 2025-02-28
+  location: india
+
+"china - yunnan":
+  type: duration
+  dtstart: 2025-03-01
+  dtend: 2025-03-22
+  location: yunnan
+
+"china - holiday":
+  type: duration
+  dtstart: 2025-03-23
+  dtend: 2025-04-05
+  location: china
+
+"uk - london":
+  type: duration
+  dtstart: 2025-04-06
+  dtend: 2025-05-09
+  location: london
+
+"uk - bath":
+  type: duration
+  dtstart: 2025-04-18
+  dtend: 2025-04-22
+  location: bath
+
+"uk - york":
+  type: duration
+  dtstart: 2025-05-10
+  dtend: 2025-05-22
+  location: york
+
+"uk - edinburgh":
+  type: duration
+  dtstart: 2025-05-23
+  dtend: 2025-05-25
+  location: edinburgh
+
+"japan - uji":
+  type: duration
+  dtstart: 2025-05-26
+  dtend: 2025-06-05
+  location: uji
+
+"uji - catchup":
+  type: duration
+  dtstart: 2025-05-29
+  dtend: 2025-05-31
+  location: uji
+
+"france - lyon":
+  type: duration
+  dtstart: 2025-06-06
+  dtend: 2025-06-19
+  location: lyon
+
+"sri lanka - nuwara eliya":
+  type: duration
+  dtstart: 2025-06-20
+  dtend: 2025-06-28
+  location: nuwara eliya
+
+"sri lanka - holiday":
+  type: duration
+  dtstart: 2025-06-29
+  dtend: 2025-07-03
+  location: sri lanka
+
+"france - rennes":
+  type: duration
+  dtstart: 2025-07-04
+  dtend: 2025-07-15
+  location: rennes
+
+"usa - san francisco":
+  type: duration
+  dtstart: 2025-07-16
+  dtend: 2025-08-09
+  location: san francisco
+
+"usa - seattle":
+  type: duration
+  dtstart: 2025-08-10
+  dtend: 2025-08-22
+  location: seattle
+
+"Departure Wellington":
+  type: travel
+  dtstart: 2025-02-01 10:45:00
+  dtend: 2025-02-01 11:50:00
+  transport: Flight
+  origin: Wellington
+  destination: Auckland
+
+"Departure Auckland":
+  type: travel
+  dtstart: 2025-02-04 10:45:00
+  dtend: 2025-02-04 16:55:00
+  transport: Flight
+  origin: Auckland
+  destination: Darjeeling
+
+"Visit Makaibari":
+  type: travel
+  dtstart: 2025-02-08 10:45:00
+  dtend: 2025-02-08 16:55:00
+  transport: Train
+  origin: Darjeeling
+  destination: Makaibari
+
+"Visit Happy Valley":
+  type: travel
+  dtstart: 2025-02-09 10:45:00
+  dtend: 2025-02-09 16:55:00
+  transport: Train
+  origin: Darjeeling
+  destination: Happy Valley
+
+"Visit Tiger Hill":
+  type: travel
+  dtstart: 2025-02-10 10:45:00
+  dtend: 2025-02-10 16:55:00
+  transport: Train
+  origin: Darjeeling
+  destination: Tiger Hill
+
+"Visit Mirik":
+  type: travel
+  dtstart: 2025-02-11 10:45:00
+  dtend: 2025-02-11 16:55:00
+  transport: Train
+  origin: Darjeeling
+  destination: Mirik
+
+"Visit Kurseong":
+  type: travel
+  dtstart: 2025-02-16 10:45:00
+  dtend: 2025-02-16 16:55:00
+  transport: Train
+  origin: Darjeeling
+  destination: Kurseong
+
+"Visit Ghum":
+  type: travel
+  dtstart: 2025-02-15 10:45:00
+  dtend: 2025-02-15 16:55:00
+  transport: Train
+  origin: Darjeeling
+  destination: Ghum
+
+"Visit Assam":
+  type: travel
+  dtstart: 2025-02-20 10:45:00
+  dtend: 2025-02-20 16:55:00
+  transport: Train
+  origin: Darjeeling
+  destination: Assam
+
+"Holiday Dibrugarh":
+  type: travel
+  dtstart: 2025-02-21 10:45:00
+  dtend: 2025-02-21 16:55:00
+  transport: Train
+  origin: Assam
+  destination: Dibrugarh
+
+"Visit Tinsukia":
+  type: travel
+  dtstart: 2025-02-23 10:45:00
+  dtend: 2025-02-23 16:55:00
+  transport: Train
+  origin: Dibrugarh
+  destination: Tinsukia
+
+"Return Jorhat":
+  type: travel
+  dtstart: 2025-02-25 10:45:00
+  dtend: 2025-02-25 16:55:00
+  transport: Train
+  origin: Assam
+  destination: Darjeeling/Kurseong
+
+"Departure Darjeeling":
+  type: travel
+  dtstart: 2025-03-01 12:30:00
+  dtend: 2025-03-01 14:20:00
+  transport: Flight
+  origin: Darjeeling
+  destination: Kunming > Yunnan
+
+"Holiday Pu'er":
+  type: travel
+  dtstart: 2025-03-08 12:30:00
+  dtend: 2025-03-08 14:20:00
+  transport: Train
+  origin: Yunnan
+  destination: Pu'er
+
+"Holiday Lincang":
+  type: travel
+  dtstart: 2025-03-09 12:30:00
+  dtend: 2025-03-09 14:20:00
+  transport: Train
+  origin: Yunnan
+  destination: Lincang
+
+"Holiday Dali":
+  type: travel
+  dtstart: 2025-03-15 12:30:00
+  dtend: 2025-03-15 14:20:00
+  transport: Train
+  origin: Yunnan
+  destination: Dali
+
+"Holiday Jingmai":
+  type: travel
+  dtstart: 2025-03-16 12:30:00
+  dtend: 2025-03-16 14:20:00
+  transport: Train
+  origin: Yunnan
+  destination: Jingmai
+
+"Holiday Hangzhou":
+  type: travel
+  dtstart: 2025-03-22 12:30:00
+  dtend: 2025-03-22 14:20:00
+  transport: Train
+  origin: Yunnan
+  destination: Hangzhou

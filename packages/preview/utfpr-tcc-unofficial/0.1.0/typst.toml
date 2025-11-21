@@ -1,0 +1,22 @@
+[package]
+name = "utfpr-tcc-unofficial"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Thales J. Santos"]
+license = "Unlicense"
+categories = ["thesis", "layout"]
+disciplines = ["computer-science", "engineering", "biology", "chemistry"]
+keywords = ["utfpr", "tcc", "thesis", "academic", "university", "paraná"]
+description = "Unofficial UTFPR undergraduate thesis (TCC) template following ABNT standards"
+repository = "https://github.com/Thales3006/utfpr-tcc-unofficial"
+compiler = "0.14.0"
+exclude = [
+  ".git/",
+  ".gitignore",
+  ".vscode/",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

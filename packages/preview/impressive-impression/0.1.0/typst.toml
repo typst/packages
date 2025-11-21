@@ -1,0 +1,43 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "impressive-impression"
+description = "A Typst template for a professional and readable curriculum vitae."
+
+version = "0.1.0"
+compiler = "0.13.1"
+
+authors = ["Jeppe Klitgaard <hi@jeppe.science>"]
+repository = "https://github.com/JeppeKlitgaard/impressive-impression"
+license = "MIT"
+
+entrypoint = "src/lib.typ"
+keywords = [
+  "cv",
+  "resume",
+  "curriculum vitae",
+  "template",
+  "1-column",
+  "2-column",
+  "1 page",
+  "2 page"
+]
+categories = ["cv"]
+
+disciplines = []
+exclude = [
+  ".github",
+  "fonts",
+  "scripts",
+  "tests",
+  ".gitignore",
+  ".gitattributes",
+  ".typstignore",
+  "CHANGELOG.md",
+  "Justfile",
+]
+
+[template]
+path = "template"
+entrypoint = "cv.typ"
+thumbnail = "thumbnail.png"
