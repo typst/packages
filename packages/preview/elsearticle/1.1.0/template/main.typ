@@ -1,4 +1,4 @@
-#import "@preview/elsearticle:1.0.0": *
+#import "@preview/elsearticle:1.1.0": *
 
 #let abstract = lorem(100)
 
@@ -151,5 +151,6 @@ $
 y = f(x) \
 y = g(x)
 $
+
 
 #bibliography("refs.bib")
