@@ -1,27 +1,3 @@
-// === Declarations & Configurations ===
-// source: https://en.wikipedia.org/wiki/List_of_chemical_elements
-// source: https://github.com/BlueObelisk/bodr/blob/master/bodr/elements/elements.xml
-#let elements = csv("resources/elements.csv", row-type: dictionary).map(x => (
-  kind: "element",
-  atomic-number: int(x.atomic-number),
-  symbol: x.symbol,
-  common-name: x.common-name,
-  group: int(x.group),
-  period: int(x.period),
-  block: x.block,
-  atomic-weight: float(x.atomic-weight),
-  covalent-radius: float(x.covalent-radius),
-  van-der-waal-radius: float(x.van-der-waal-radius),
-  outshell-electrons: int(x.outshell-electrons),
-  most-common-isotope: int(x.most-common-isotope),
-  density: float(x.density),
-  melting-point: float(x.melting-point),
-  boiling-point: float(x.boiling-point),
-  electronegativity: float(x.electronegativity),
-  phase: x.phase,
-  cas: x.cas,
-))
-
 #let hydrates = (
   "anhydrous",
   "monohydrate",
@@ -201,22 +177,6 @@
   arrow = arrow.trim()
   arrow-kinds.at(arrow, default: 1)
 }
-
-#let parser-config = (
-  arrow: (arrow_size: 120%, reversible_size: 120%),
-  conditions: (
-    bottom: (
-      symbols: (heating: ("Delta", "delta", "Δ", "δ", "fire", "heat", "hot", "heating")),
-      identifiers: (("T=", "t="), ("P=", "p=")),
-      units: ("°C", "K", "atm", "bar"),
-    ),
-  ),
-  match_order: (
-    basic: ("bracket", "element", "charge"),
-    full: ("bracket", "element", "plus", "arrow", "charge"),
-  ),
-)
-
 
 // Following utility methods are from:
 // https://github.com/touying-typ/touying/blob/6316aa90553f5d5d719150709aec1396e750da63/src/utils.typ#L157C1-L166C2
