@@ -1,0 +1,1 @@
+Die vorliegende Arbeit beinhaltet interne vertrauliche Informationen der Firma XY. Die Weitergabe oder Veröffentlichung des Inhaltes der Arbeit ob gesamt oder in Teilen ist untersagt. Es dürfen keinerlei Kopien oder Abschriften - auch in digitaler Form - gefertigt werden. Ausnahmen bedürfen der schriftlichen Genehmigung der Firma XY.

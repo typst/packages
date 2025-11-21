@@ -1,0 +1,16 @@
+[package]
+name = "simple-tubs-letter"
+version = "0.1.2"
+entrypoint = "template.typ"
+authors = ["Malte Kumlehn"]
+license = "GPL-3.0"
+description = "A letter template resembling the TUBS coorperate design"
+repository = "https://github.com/Cangarw/simple-tubs-letter"
+keywords = ["letter", "tubs", "TU Braunschweig", "Braunschweig"]
+categories = ["office", "utility"]
+
+
+[template]
+path = "template"
+entrypoint = "letter.typ"
+thumbnail = "thumbnail.webp"
