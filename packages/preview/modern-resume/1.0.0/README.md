@@ -40,7 +40,7 @@ typst watch main.typ
 The following code provides a minimum working example:
 
 ```typst
-#import "@preview/modern-resume": *
+#import "@preview/modern-resume:1.0.0": *
 
 #show: modern-resume.with(
   author: "John Doe",           // Optional parameter
@@ -90,9 +90,9 @@ See [main.typ](./main.typ) for a full example that showcases all available eleme
 
 Example outputs for different color palettes:
 
-| Default colors | Pink colors |
-|:----------------:|:-------------:|
-|![Default colors](./docs/images/demo-navy-dark.png) | ![Pink colors](./docs/images/demo-pink.png)|
+|                   Default colors                    |                 Pink colors                 |
+| :-------------------------------------------------: | :-----------------------------------------: |
+| ![Default colors](./docs/images/demo-navy-dark.png) | ![Pink colors](./docs/images/demo-pink.png) |
 
 
 ## Customization
