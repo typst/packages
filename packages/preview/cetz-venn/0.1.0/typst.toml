@@ -1,0 +1,12 @@
+[package]
+name = "cetz-venn"
+version = "0.1.0"
+repository = "https://github.com/johannes-wolf/cetz-venn"
+entrypoint = "src/lib.typ"
+authors = [
+  "Johannes Wolf <https://github.com/johannes-wolf>"
+]
+license = "Apache-2.0"
+description = "CeTZ library for drawing venn diagrams for two or three sets."
+keywords = [ "venn", "diagram", "cetz" ]
+exclude = [ "/gallery/*", "manual.pdf", "manual.typ" ]

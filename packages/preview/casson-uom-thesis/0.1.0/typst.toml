@@ -1,0 +1,15 @@
+[package]
+name = "casson-uom-thesis"
+version = "0.1.0"
+entrypoint = "casson-uom-thesis.typ"
+authors = ["Alex Casson <https://research.manchester.ac.uk/en/persons/alex.casson>"]
+license = "MIT-0"
+description = "Typst template based upon The University of Manchester Presentation of Theses Policy. Responsibility for ensuring compliance with the presentation policy remains with the candidate."
+repository = "https://github.com/ALEX-CASSON-LAB/uom_phd_thesis_typst_template"
+keywords = ["University of Manchester", "UK", "PhD", "thesis"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

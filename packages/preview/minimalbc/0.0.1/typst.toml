@@ -1,0 +1,17 @@
+[package]
+name = "minimalbc"
+version = "0.0.1"
+compiler = "0.11.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/sevehub/minimalbc"
+authors = ["S. Tessarin <@sevehub>"]
+license = "MIT"
+description = "Sleek, minimalist design for professional business cards. Emphasizing clarity and elegance."
+keywords = ["business", "card"]
+categories = ["office"]
+exclude = ["example.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

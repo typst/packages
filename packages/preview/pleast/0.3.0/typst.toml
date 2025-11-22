@@ -1,0 +1,9 @@
+[package]
+name = "pleast"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["HPCesia <me@hpcesia.com>"]
+license = "MIT"
+description = "Parse XML files in Property List format (abbreviated as plist, used for .tmTheme files)."
+repository = "https://github.com/HPCesia/plist-typ"
+exclude = ["test", "assets"]

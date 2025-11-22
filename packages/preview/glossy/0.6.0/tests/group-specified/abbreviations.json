@@ -1,0 +1,11 @@
+{
+  "zbuffer": {
+    "short": "z-bufer",
+    "long": "the depth buffer"
+  },
+  "pbr": {
+    "short": "PBR",
+    "long": "physically based rendering",
+    "group": "abbreviations"
+  }
+}

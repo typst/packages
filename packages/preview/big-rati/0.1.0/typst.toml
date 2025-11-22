@@ -1,0 +1,11 @@
+[package]
+name = "big-rati"
+version = "0.1.0"
+entrypoint = "rational.typ"
+authors = ["Danik Vitek"]
+license = "MIT"
+description = "Utilities to work with big rational numbers in Typst"
+repository = "https://github.com/DanikVitek/typst-plugin-bigrational"
+keywords = ["ratio", "rational", "big", "number", "decimal"]
+categories = ["scripting"]
+disciplines = ["mathematics"]

@@ -1,0 +1,57 @@
+language = "en" # INFO: value must matches folder suffix; i.e "zh" -> "./modules_zh"
+
+[layout]
+awesome_color = "skyblue" # Optional values: skyblue, red, nephritis, concrete, darknight
+# Skips are for controlling the spacing between sections and entries
+before_section_skip = "1pt"
+before_entry_skip = "1pt"
+before_entry_description_skip = "1pt"
+
+[layout.header]
+header_align = "left" # Optional values: left, center, right
+display_profile_photo = true # Decide if you want to display profile photo or not
+profile_photo_path = "template/src/avatar.png"
+
+[layout.entry]
+display_entry_society_first = true # Decide if you want to put your company in bold or your position in bold
+display_logo = true # Decide if you want to display organisation logo or not
+
+[inject]
+inject_ai_prompt = false # Decide if you want to inject AI prompt or not
+inject_keywords = true # Decide if you want to inject keywords or not
+injected_keywords_list = ["Data Analyst", "GCP", "Python", "SQL", "Tableau"]
+
+[personal]
+first_name = "John"
+last_name = "Doe"
+
+[personal.info]
+github = "mintyfrankie"
+phone = "+33 6 12 34 56 78"
+email = "john.doe@me.org"
+linkedin = "johndoe"
+# gitlab = "mintyfrankie"
+# homepage: "jd.me.org"
+# orcid = "0000-0000-0000-0000"
+# researchgate = "John-Doe"
+# extraInfo = "I am a cool kid"
+# custom-1 = (icon: "", text: "example", link: "https://example.com")
+
+[lang.en]
+header_quote = "Experienced Data Analyst looking for a full time job starting from now"
+cv_footer = "Curriculum vitae"
+letter_footer = "Cover letter"
+
+[lang.fr]
+header_quote = "Analyste de données expérimenté à la recherche d'un emploi à temps plein disponible dès maintenant"
+cv_footer = "Résumé"
+letter_footer = "Lettre de motivation"
+
+[lang.zh]
+header_quote = "具有丰富经验的数据分析师，随时可入职"
+cv_footer = "简历"
+letter_footer = "申请信"
+
+[lang.non_latin] # For languages that are not written in Latin script
+name = "王道尔"
+font = "Heiti SC"

@@ -1,0 +1,17 @@
+[package]
+name = "unequivocal-ams"
+version = "0.1.2"
+compiler = "0.12.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/typst/templates"
+authors = ["Typst GmbH <https://typst.app>"]
+license = "MIT-0"
+description = "An AMS-style paper template to publish at conferences and journals for mathematicians"
+keywords = ["math", "mathematics", "American Mathematical Society", "colloquium"]
+categories = ["paper"]
+disciplines = ["mathematics"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

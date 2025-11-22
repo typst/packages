@@ -1,0 +1,15 @@
+[package]
+name = "wordometer"
+version = "0.1.2"
+entrypoint = "src/lib.typ"
+authors = ["Joseph Wilson (Jollywatt)"]
+repository = "https://github.com/Jollywatt/typst-wordometer"
+license = "MIT"
+description = "Word counts and document statistics."
+exclude = ["README.md", "docs/", "test/"]
+keywords = [
+	"word",
+	"count",
+	"stats",
+	"statistics",
+]

@@ -1,0 +1,14 @@
+[package]
+name = "pillar"
+version = "0.1.0"
+entrypoint = "src/pillar.typ"
+authors = ["Mc-Zen <https://github.com/Mc-Zen>"]
+license = "MIT"
+description = "Quick and simple column specifications for tables."
+compiler = "0.11.0"
+
+homepage = "https://github.com/Mc-Zen/pillar"
+repository = "https://github.com/Mc-Zen/pillar"
+keywords = ["table", "columns", "latex"]
+categories = ["visualization", "layout"]
+exclude = ["/docs/*"]

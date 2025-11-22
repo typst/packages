@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+set -xeuo pipefail
+here=`dirname $0`
+source "$here/common"
+
+mkdir -p "$target"
+query="$here/flow-query"
+
+for source in "$@"; do
+	title=`"$here/flow-query" "$source" | jq -r .title`
+
+	"$here/flow" compile \
+		"$source" "$target/$title.pdf" \
+		2>/dev/null
+done

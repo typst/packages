@@ -1,0 +1,12 @@
+[package]
+name = "unichar"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["Malo <@MDLC01>"]
+license = "MIT AND Unicode-3.0"
+description = "A partial port of the Unicode Character Database."
+repository = "https://github.com/MDLC01/unichar"
+keywords = ["Unicode Character Database", "UCD", "Unicode", "UnicodeData.txt"]
+categories = ["scripting", "integration"]
+compiler = "0.11.0"
+exclude = ["examples/"]
