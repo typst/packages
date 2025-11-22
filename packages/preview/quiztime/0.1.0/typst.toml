@@ -1,0 +1,9 @@
+[package]
+name = "quiztime"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Robert Richter <https://github.com/judgeNotFound>"]
+license = "MIT"
+categories = ["utility"]
+description = "Create little quizzes."
+keywords = ["Quiz", "Teaching", "Grading"]
