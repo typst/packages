@@ -8,7 +8,7 @@ This can be achieved by using the Markdown syntax and [its extension from the Ob
 ## Example
 
 ```typst
-#import "luzid-checkbox.typ": luzid
+#import "@preview/luzid-checkbox:0.1.0": luzid
 
 #show: luzid
 
@@ -49,7 +49,7 @@ The color, icon and styling for each type of box can be overwritten.
 Only the boxes specified get overwritten, the rest stays at the default values:
 
 ```typst
-#import "../luzid-checkbox.typ": luzid
+#import "@preview/luzid-checkbox:0.1.0": luzid
 
 #show: luzid.with(
 	color-map: (
