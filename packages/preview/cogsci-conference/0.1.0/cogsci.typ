@@ -3,73 +3,66 @@
 #let _mimic-latex = true // Set to false to disable LaTeX visual mimicry features
 // #let _mimic-latex = false
 
-/// Adds ad hoc vertical padding to adjust page layout to better match the output of the LaTeX template.
+
+/// Adds _ad hoc_ vertical padding to adjust page layout to better match the LaTeX template output.
 ///
-/// LaTeX uses flexible spacing to align the last line of a column with the bottom of the page, whereas Typst does not. For the sake of matching the appearance of LaTeX output, we add some ad hoc vertical space.
+/// LaTeX uses flexible spacing to align the last line of a column with the bottom of the page, whereas Typst does not. For the sake of matching the appearance of LaTeX output, we add some _ad hoc_ vertical space.
 ///
-/// Arguments:
-///   amount (fraction, relative): How much spacing to insert.
+/// - amount (fraction, relative): How much spacing to insert.
 ///
-/// Returns: v(amount, weak: false)
+/// -> content, none
 #let ad-hoc-padding(amount) = if _mimic-latex { v(amount, weak: false) } else { none }
 
-/// Displays the anonymous author placeholder for blind review submissions.
-///
-/// Returns: Content showing "Anonymous CogSci submission" in the required style.
-#let _anonymous-authors = {
-  align(center)[
-    #block(above: 12pt, below: 0pt)[
-      #text(size: 11pt, weight: "bold")[
-        Anonymous CogSci submission
-      ]
-    ]
-  ]
-}
 
 /// Formats author information according to CogSci conference style.
 ///
-/// Each author's name appears on a separate line in 11pt bold, centered, with optional
-/// email address in parentheses. Affiliations appear below names in 10pt regular font.
+/// Each author's name appears on a separate line in 11pt bold, centered, with optional email address in parentheses. Affiliations appear below names in 10pt regular font.
 ///
-/// Arguments:
-///   authors (array, dictionary, or none): Author information. Can be:
-///     - An array of author dictionaries
-///     - A single author dictionary (will be converted to array)
-///     - none (returns anonymous placeholder)
+/// ```
+/// // Single author with email and affiliation
+/// #format-authors(
+///   (name: "Author One", email: "a1@ua.edu", affiliation: "Department Details")
+/// )
+/// ```
 ///
-/// Author Dictionary Format:
-///   Each author dictionary must contain:
-///   - name (content or str): Author's full name (required)
-///   - email (str, optional): Email address (shown in parentheses after name)
-///   - affiliation (content or str, optional): Institution and address
+/// ```
+/// // Multiple authors passed as separate arguments
+/// #format-authors(
+///   (name: "Author One", email: "a1@ua.edu", affiliation: "Department Details"),
+///   (name: "Author Two", email: "a2@ub.edu", affiliation: "Department Details"),
+/// )
+/// ```
 ///
-/// Returns: Formatted author content block
+/// ```
+/// // Multiple authors passed as array
+/// #let authors = (
+///   (name: "Author One", email: "a1@ua.edu", affiliation: "Department Details"),
+///   (name: "Author Two", email: "a2@ub.edu", affiliation: "Department Details"),
+/// )
+/// #format-authors(authors)
+/// ```
 ///
-/// Example:
-///   ```
-///   #let authors = format-authors(
-///     (name: [Author One], email: "a1@university.edu", affiliation: [Department Details]),
-///     (name: [Author Two], email: "a2@university.edu", affiliation: [Department Details]),
-///   )
-///   ```
-#let format-authors(authors) = {
-  // Normalize to an array of author dictionaries
-  let authors = if authors == none {
-    ()
-  } else if type(authors) == array {
-    authors
-  } else if type(authors) == dictionary {
-    (authors,)
-  } else {
-    assert(
-      false,
-      message: "format-authors: argument must be array, dictionary, or none; got " + str(type(authors)),
-    )
-    ()
+/// Each author dictionary must contain:
+/// - `name` (content, str): Author's full name (required)
+/// - `email` (str): Email address (optional)
+/// - `affiliation` (content, str): Institution and address (optional)
+///
+/// - authors (dictionary, array): Variable number of author dictionaries, or a single array containing author dictionaries.
+///
+/// -> content, none
+#let format-authors(..authors) = {
+  // Extract positional arguments as array of author dictionaries
+  let author-list = authors.pos()
+
+  // Support both calling patterns:
+  // - format-authors(author-dict-1, author-dict-2, ...)
+  // - format-authors((author-dict-1, author-dict-2, ...)) where authors-info is an array
+  if author-list.len() == 1 and type(author-list.at(0)) == array {
+    author-list = author-list.at(0)
   }
 
   // Validate each author is a dictionary with required 'name' key
-  for (i, author) in authors.enumerate() {
+  for (i, author) in author-list.enumerate() {
     assert(
       type(author) == dictionary,
       message: "format-authors: author at index " + str(i) + " must be a dictionary, got " + str(type(author)),
@@ -80,78 +73,114 @@
     )
   }
 
-
   /* AUTHORS
   __Explicit__
-  <<In the initial submission, the phrase "Anonymous CogSci submission" should appear below the title, centered, in 11 point bold font. In the final submission, each author's name should appear on a separate line, 11 point bold, and centered, with the author's email address in parentheses. Under each author's name list the author's affiliation and postal address in ordinary 10 point type.>>
+  «In the initial submission, the phrase "Anonymous CogSci submission" should appear below the title, centered, in 11 point bold font. In the final submission, each author's name should appear on a separate line, 11 point bold, and centered, with the author's email address in parentheses. Under each author's name list the author's affiliation and postal address in ordinary 10 point type.»
 
   __LaTeX__
   \large\bf = 11pt font with 13pt leading (cogsci.sty line 241)
   */
-  if authors.len() > 0 {
-    align(center)[
-      #for (i, author) in authors.enumerate() {
+  if author-list.len() > 0 {
+    return align(center)[
+      #for (i, author) in author-list.enumerate() {
         // Add spacing before each author (including first, which comes after title)
         block(above: if _mimic-latex { 16pt } else { 12pt }, below: 0pt)[
           #text(size: 11pt, weight: "bold")[
             #author.name
-            #if "email" in author [ (#author.email)]
+            #if "email" in author [(#author.email)]
           ]
           #if "affiliation" in author [#text(size: 10pt, weight: "regular")[#linebreak()#author.affiliation]]
         ]
       }
     ]
   } else {
-    _anonymous-authors
+    return none
   }
 }
 
+
 /// Main CogSci conference template function.
 ///
-/// This function applies the complete CogSci conference paper formatting to your document,
-/// including page layout, typography, and structural elements. It matches the official
-/// LaTeX template's visual output.
+/// This function applies the complete CogSci conference paper formatting to
+/// your document, including page layout, typography, and structural elements.
+/// It matches the official LaTeX template's visual output.
 ///
-/// Arguments:
-///   title (content or str): Paper title (displayed in 14pt bold, centered)
-///   authors (content): Pre-formatted author information from format-authors() function
-///   abstract (content or str): Paper abstract (displayed in 9pt)
-///   keywords (array): List of keyword strings
-///   anonymize (bool): If true, shows "Anonymous CogSci submission" instead of authors
-///   hyphenate (bool): If false, disables hyphenation
-///   text-kwargs (dict): Additional arguments to pass to set text()
-///   page-kwargs (dict): Additional arguments to pass to set page()
-///   document-kwargs (dict): Additional arguments to pass to set document()
-///   body (content): The main document content
+/// The template handles all standard conference requirements including title
+/// formatting (14pt bold, centered), author blocks, abstract (9pt), keywords,
+/// and proper page margins. Use with a show rule to apply the template to
+/// your entire document.
 ///
-/// Returns: Formatted document content
+/// ```
+/// #show: cogsci.with(
+///   title: [Paper Title],
+///   authors: format-authors(
+///     (name: "Author One", email: "a1@ua.edu", affiliation: "Department Details")
+///   ),
+///   abstract: [This is the abstract text...],
+///   keywords: ("keyword1", "keyword2"),
+/// )
 ///
-/// Example:
-///   ```
-///   #show: cogsci.with(
-///     title: [My Paper Title],
-///     authors: format-authors(...),
-///     abstract: [This is the abstract...],
-///     keywords: ("keyword1", "keyword2"),
-///   )
-///   ```
+/// = Introduction
+/// Paper content...
+/// ```
+///
+/// ```
+/// // Anonymous submission for review
+/// #show: cogsci.with(
+///   title: [Paper Title],
+///   abstract: [Abstract text...],
+///   keywords: ("cognitive science", "research"),
+///   anonymize: true,
+/// )
+/// ```
+///
+/// - title (content, str, none): Paper title, displayed in 14pt bold and centered.
+/// - authors (content, none): Pre-formatted author information from the `format-authors()` function. Ignored if `anonymize` is true.
+/// - abstract (content, str, none): Paper abstract, displayed in 9pt font.
+/// - keywords (array): Array of keyword strings to display after the abstract.
+/// - anonymize (bool): If true, displays "Anonymous CogSci submission" instead of author information for blind review submissions.
+/// - hyphenate (bool): If false, disables automatic hyphenation throughout the document.
+/// - text-kwargs (dictionary): Additional named arguments to pass to `set text()`.
+/// - page-kwargs (dictionary): Additional named arguments to pass to `set page()`.
+/// - document-kwargs (dictionary): Additional named arguments to pass to `set document()`.
+/// - body (content): The main document content.
+///
+/// -> content
 #let cogsci(
-  /* Document metadata */
-  title: none,
-  authors: none,
-  abstract: none,
+  title: [],
+  authors: [],
+  abstract: [],
   keywords: (),
-  /* Submission control */
   anonymize: false,
-  /* Formatting options */
   hyphenate: true,
-  /* Document body */
   text-kwargs: (:),
   page-kwargs: (:),
   document-kwargs: (:),
   body,
 ) = {
   // Runtime type validation for parameters
+
+  assert(
+    type(title) == content or type(title) == str or title == none,
+    message: "cogsci: title must be content or string, got " + str(type(title)),
+  )
+
+  assert(
+    type(authors) == content or authors == none,
+    message: "cogsci: authors must be content (e.g. the output of the format-authors() helper function), got "
+      + str(type(authors)),
+  )
+
+  assert(
+    type(abstract) == content or type(abstract) == str or abstract == none,
+    message: "cogsci: abstract must be content or string, got " + str(type(abstract)),
+  )
+
+  assert(
+    type(keywords) == array,
+    message: "cogsci: keywords must be an array, got " + str(type(keywords)),
+  )
+
   assert(
     type(anonymize) == bool,
     message: "cogsci: anonymize must be a boolean, got " + str(type(anonymize)),
@@ -162,41 +191,27 @@
     message: "cogsci: hyphenate must be a boolean, got " + str(type(hyphenate)),
   )
 
-  assert(
-    type(keywords) == array,
-    message: "cogsci: keywords must be an array, got " + str(type(keywords)),
-  )
-
-  if title != none {
-    assert(
-      type(title) == content or type(title) == str,
-      message: "cogsci: title must be content or string, got " + str(type(title)),
-    )
-  }
-
-  if abstract != none {
-    assert(
-      type(abstract) == content or type(abstract) == str,
-      message: "cogsci: abstract must be content or string, got " + str(type(abstract)),
-    )
-  }
-
-  if authors != none {
-    assert(
-      type(authors) == content,
-      message: "cogsci: authors must be content (use format-authors() helper function), got " + str(type(authors)),
-    )
+  /// The anonymous authors placeholder for blind review submissions.
+  /// -> content
+  let anonymous-authors = {
+    align(center)[
+      #block(above: 12pt, below: 0pt)[
+        #text(size: 11pt, weight: "bold")[
+          Anonymous CogSci submission
+        ]
+      ]
+    ]
   }
 
   // Set document metadata
   let doc-specs = (
-    author: ("The Authors",),
+    author: (),
     title: title,
     keywords: keywords,
     ..document-kwargs, // Additional user-specified document settings
   )
   if anonymize {
-    doc-specs = doc-specs + (author: ("Anonymous",))
+    doc-specs = doc-specs + (author: "Anonymous")
   }
   set document(..doc-specs)
 
@@ -214,18 +229,17 @@
 
   /// Calculate Typst leading parameter for desired baseline-to-baseline spacing.
   ///
-  /// Arguments:
-  ///   baseline (length): Desired baseline-to-baseline distance
-  ///   font-size (length): Font size
+  /// - baseline (length): Desired baseline-to-baseline distance.
+  /// - font-size (length): Font size.
   ///
-  /// Returns: The leading value to use in set par(leading: ...)
+  /// -> length
   let calc-leading(baseline, font-size) = {
     baseline - (cap-height-ratio * font-size)
   }
 
   /* INDENTATION
   __Explicit__
-  <<Indent the first line of each paragraph by 1/8 inch (except for the first paragraph of a new section). Do not add extra vertical space between paragraphs.>>
+  «Indent the first line of each paragraph by 1/8 inch (except for the first paragraph of a new section). Do not add extra vertical space between paragraphs.»
 
   __LaTeX__
   \parindent 10pt (cogsci.sty line 192)
@@ -234,7 +248,7 @@
 
   /* PAGE
   __Explicit__
-  <<The text of the paper should be formatted in two columns with an overall width of 7 inches (17.8 cm) and length of 9.25 inches (23.5 cm), with 0.25 inches between the columns. Leave two line spaces between the last author listed and the text of the paper; the text of the paper (starting with the abstract) should begin no less than 2.75 inches below the top of the page. The left margin should be 0.75 inches and the top margin should be 1 inch. *The right and bottom margins will depend on whether you use U.S. letter or A4 paper, so you must be sure to measure the width of the printed text.* Use 10 point Times Roman with 12 point vertical spacing, unless otherwise specified.>>
+  «The text of the paper should be formatted in two columns with an overall width of 7 inches (17.8 cm) and length of 9.25 inches (23.5 cm), with 0.25 inches between the columns. Leave two line spaces between the last author listed and the text of the paper; the text of the paper (starting with the abstract) should begin no less than 2.75 inches below the top of the page. The left margin should be 0.75 inches and the top margin should be 1 inch. *The right and bottom margins will depend on whether you use U.S. letter or A4 paper, so you must be sure to measure the width of the printed text.* Use 10 point Times Roman with 12 point vertical spacing, unless otherwise specified.»
   */
   let text-width = 7in // 17.8cm
   let text-height = 9.25in // 23.5cm
@@ -278,7 +292,7 @@
 
   /* BODY
   __Explicit__
-  <<Indent the first line of each paragraph by 1/8 inch (except for the first paragraph of a new section). Do not add extra vertical space between paragraphs.>>
+  «Indent the first line of each paragraph by 1/8 inch (except for the first paragraph of a new section). Do not add extra vertical space between paragraphs.»
 
   __LaTeX__
   \normalsize (cogsci.sty line 236)
@@ -352,7 +366,7 @@
 
   /* HEADINGS - Level 1
   __Explicit__
-  <<First level headings should be in 12 point, initial caps, bold and centered. Leave one line space above the heading and 1/4 line space below the heading.>>
+  «First level headings should be in 12 point, initial caps, bold and centered. Leave one line space above the heading and 1/4 line space below the heading.»
 
   __LaTeX__
   Section: -1.5ex before, 3pt after, \Large\bf\centering (line 175-176)
@@ -371,7 +385,7 @@
 
   /* HEADINGS - Level 2
   __Explicit__
-  <<Second level headings should be 11 point, initial caps, bold, and flush left. Leave one line space above the heading and 1/4 line space below the heading.>>
+  «Second level headings should be 11 point, initial caps, bold, and flush left. Leave one line space above the heading and 1/4 line space below the heading.»
 
   __LaTeX__
   Subsection: -1.5ex before, 3pt after, \large\bf\raggedright (line 177-178)
@@ -390,7 +404,7 @@
 
   /* HEADINGS - Level 3
   __Explicit__
-  <<Third level headings should be 10 point, initial caps, bold, and flush left. Leave one line space above the heading, but no space after the heading.>>
+  «Third level headings should be 10 point, initial caps, bold, and flush left. Leave one line space above the heading, but no space after the heading.»
 
   __LaTeX__
   Subsubsection: -6pt before, -1em after, \normalsize\bf (line 179-180)
@@ -407,7 +421,7 @@
 
   /* FOOTNOTES
   __Explicit__
-  <<Indicate footnotes with a number in the text. Place the footnotes in 9 point font at the bottom of the column on which they appear. Precede the footnote block with a horizontal rule.>>
+  «Indicate footnotes with a number in the text. Place the footnotes in 9 point font at the bottom of the column on which they appear. Precede the footnote block with a horizontal rule.»
 
   __LaTeX__ (cogsci.sty lines 185-187):
   \skip\footins: 9pt plus 4pt minus 2pt
@@ -438,7 +452,7 @@
 
   /* FIGURES
   __Explicit__
-  <<Number figures sequentially, placing the figure number and caption, in 10 point, after the figure with one line space above the caption and one line space below it>>
+  «Number figures sequentially, placing the figure number and caption, in 10 point, after the figure with one line space above the caption and one line space below it»
 
   __LaTeX__
   \abovecaptionskip default is only 10pt, not 12pt
@@ -453,7 +467,7 @@
 
   /* TABLES
   __Explicit__
-  <<Number tables consecutively. Place the table number and title (in 10 point font) above the table with one line space above the caption and one line space below it>>
+  «Number tables consecutively. Place the table number and title (in 10 point font) above the table with one line space above the caption and one line space below it»
   */
   show figure.where(kind: table): set figure.caption(position: top)
 
@@ -476,7 +490,7 @@
 
   /* TITLEBOX
   __Explicit__
-  <<Leave two line spaces between the last author listed and the text of the paper; the text of the paper (starting with the abstract) should begin no less than 2.75 inches below the top of the page.>>
+  «Leave two line spaces between the last author listed and the text of the paper; the text of the paper (starting with the abstract) should begin no less than 2.75 inches below the top of the page.»
 
   __LaTeX__ (lines 145-162):
   \vbox to \titlebox{         % Minimum 5cm box (line 119)
@@ -490,7 +504,7 @@
     if title != none {
       /* TITLE
       __Explicit__
-      <<The title should be in 14 point bold font, centered.>>
+      «The title should be in 14 point bold font, centered.»
 
       __LaTeX__
       \LARGE\bf = 14pt font with 17pt leading (cogsci.sty line 243)
@@ -502,7 +516,7 @@
     }
     block(above: 12pt, below: 12pt)[
       #if anonymize {
-        _anonymous-authors
+        anonymous-authors
       } else {
         authors
       }
@@ -543,7 +557,13 @@
 
   set align(top)
 
-  // Internal helper: Format keywords section
+  /// Formats the keywords section following CogSci style.
+  ///
+  /// Displays keywords in 9pt font with bold "Keywords:" label, separated by semicolons.
+  ///
+  /// - keywords-array (array): Array of keyword strings.
+  ///
+  /// -> content
   let format-keywords(keywords-array) = {
     // Runtime type validation
     assert(
@@ -560,7 +580,7 @@
 
   /* ABSTRACT
   __Explicit__
-  <<The abstract should be one paragraph, indented 1/8 inch on both sides, in 9 point font with single spacing.>>
+  «The abstract should be one paragraph, indented 1/8 inch on both sides, in 9 point font with single spacing.»
 
   __Word__
   9pt font with exact 10pt line spacing
@@ -580,8 +600,8 @@
 
       /*
       __Explicit__
-      <<The heading "*Abstract*" should be 10 point, bold, centered, with one line of space below it.>>
-      <<Following the abstract should be a blank line, followed by the header 'Keywords:' and a list of descriptive keywords separated by semicolons, all in 9 point font>>
+      «The heading "*Abstract*" should be 10 point, bold, centered, with one line of space below it.»
+      «Following the abstract should be a blank line, followed by the header 'Keywords:' and a list of descriptive keywords separated by semicolons, all in 9 point font»
 
       __Word__
       10pt bold centered heading "Abstract" with 6pt space below
@@ -609,7 +629,7 @@
 
   /* BIBLIOGRAPHY
   __Explicit__
-  Use a first level section heading, "References", as shown below. Use a hanging indent style, with the first line of the reference flush against the left margin and subsequent lines indented by 1/8 inch.>>
+  Use a first level section heading, "References", as shown below. Use a hanging indent style, with the first line of the reference flush against the left margin and subsequent lines indented by 1/8 inch.»
   */
   show bibliography: set par(
     first-line-indent: 0pt,
@@ -619,7 +639,7 @@
 
   /* APA MODIFICATIONS
   __Explicit__
-  <<Follow the APA Publication Manual for citation format, both within the text and in the reference list, with the following exceptions: (a) do not cite the page numbers of any book, including chapters in edited volumes; (b) use the same format for unpublished references as for published ones. Alphabetize references by the surnames of the authors, with single author entries preceding multiple author entries. Order references by the same authors by the year of publication, with the earliest first.>>
+  «Follow the APA Publication Manual for citation format, both within the text and in the reference list, with the following exceptions: (a) do not cite the page numbers of any book, including chapters in edited volumes; (b) use the same format for unpublished references as for published ones. Alphabetize references by the surnames of the authors, with single author entries preceding multiple author entries. Order references by the same authors by the year of publication, with the earliest first.»
   */
 
   body
