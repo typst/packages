@@ -4,8 +4,8 @@
 #show: report.with(
   title: "Business Report",
   publishdate: "November 2025",
-  mylogo: "assets/logo.png",
-  myfeatureimage: "assets/techimage.png",
+  mylogo: image("logo.png", width: 20%),
+  myfeatureimage: image("techimage.png", height: 6cm),
   myvalues: "VALUE1 | VALUE2 | VALUE3 | VALUE4"
 )
 
@@ -22,7 +22,7 @@
   )[*Welcome to this report.* 
 #text(fill: black, weight: "regular")[#lorem(50)]]]
 
-#authorwrap(authorimage: "assets/author.png", authorcaption: "The Author, CXO")[#lorem(75)] 
+#authorwrap(authorimage: "author.png", authorcaption: "The Author, CXO")[#lorem(75)] 
 
 #lorem(100)
 
@@ -73,7 +73,7 @@
 == Sub-heading with an image
 
 #figure(
-  image("assets/techimage.png", width:50%),
+  image("techimage.png", width:50%),
   caption: ["Technology Image"],
 )
 

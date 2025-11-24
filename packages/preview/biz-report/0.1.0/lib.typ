@@ -55,8 +55,8 @@
 #let report(
   title: "Title of the Work",
   publishdate: "Some Date",
-  mylogo: "assets/logo.png",
-  myfeatureimage: "assets/techimage.png",
+  mylogo: none,
+  myfeatureimage: none,
   myvalues: "VALUE1 | VALUE2 | VALUE3 | VALUE4",
   body,
 ) = {
@@ -127,7 +127,7 @@
         dx: -7.5cm, dy: -5cm,
           box(clip: true, stroke: 5pt + mycolor, radius: 3cm,
           width: 6cm, height: 6cm,
-          image(myfeatureimage, height: 6cm))
+          myfeatureimage)
       )
     )
 
@@ -136,7 +136,7 @@
       bottom + right,
       move(
         dx: -1cm, dy: -1cm,
-        image(mylogo, width: 20%)
+        mylogo
       )
     )
 
@@ -354,7 +354,7 @@
       rect(
         fill: white,
         radius: 0.5cm,
-        image(mylogo, width: 20%),
+        mylogo,
       )
     )
   ]
