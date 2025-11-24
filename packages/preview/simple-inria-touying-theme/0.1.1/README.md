@@ -2,7 +2,7 @@
 
 | Title Slide | Sample Slide | Section Slide |
 |:-----------:|:------------:|:-------------:|
-|![image](assets/thumbnail.png) | ![image](assets/page.png) | ![image](assets/section.png) |
+|![image](thumbnail.png) | ![image](assets/page.png) | ![image](assets/section.png) |
 
 This theme draws inspiration from the default Metropolis theme for the [touying](https://touying-typ.github.io/) presentation framework for [typst](https://typst.app/home/).
 It and has been adapted to comply roughly with Inria's graphic charter while remaining simple and elegant.
