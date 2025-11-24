@@ -3,7 +3,10 @@
 
 #show: report.with(
   title: "Business Report",
-  publishdate: "November 2025"
+  publishdate: "November 2025",
+  mylogo: "assets/logo.png",
+  myfeatureimage: "assets/techimage.png",
+  myvalues: "VALUE1 | VALUE2 | VALUE3 | VALUE4"
 )
 
 = Welcome
