@@ -47,4 +47,4 @@
  */
 #let ar = name => $accent(#name, harpoon)$
 
-#let thin_line = line(length: 100%, stroke: 0.6pt)
+#let thinLine = line(length: 100%, stroke: 0.6pt)

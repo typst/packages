@@ -9,7 +9,7 @@
 #import "@preview/great-theorems:0.1.2": *
 #import "@preview/hydra:0.6.2": hydra
 #import "headers.typ": get-header
-#import "utils.typ": date-format, thin_line
+#import "utils.typ": date-format, thinLine
 
 // Global font size setting
 #let body-font-size = 12pt
@@ -119,9 +119,9 @@
         ]
       }
 
-      #thin_line
+      #thinLine
       #text(size: 1.5em)[#it.body]
-      #thin_line
+      #thinLine
     ] else [
       #set text(size: 1.2em)
       #it

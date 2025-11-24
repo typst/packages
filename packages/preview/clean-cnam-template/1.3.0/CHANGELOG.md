@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Larger title text (1.5em)
 
 #### Utility Additions
-- **`thin_line` utility**: New decorative line element for consistent styling across the document
+- **`thinLine` utility**: New decorative line element for consistent styling across the document
 
 ### Changed
 - **Heading numbering system**: Refactored to only display relevant numbers per heading level
