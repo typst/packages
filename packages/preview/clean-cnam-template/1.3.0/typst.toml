@@ -21,7 +21,6 @@ exclude = [
   "main.typ",
   "scripts",
   "tests",
-  "thumbnail.png",
   "thumbnail.svg",
 ]
 
