@@ -7,9 +7,6 @@
 //
 #let mycolor = rgb(166, 0, 120);
 #let myfont = "Arial";
-#let mylogo = image("assets/logo.png", width: 20%);
-#let myfeatureimage = image("assets/techimage.png", height: 6cm);
-#let myvalues = "VALUE1 | VALUE2 | VALUE3 | VALUE4";
 
 //
 //  Template for a paragaph with an author picture in a circle bottom right
@@ -58,6 +55,9 @@
 #let report(
   title: "Title of the Work",
   publishdate: "Some Date",
+  mylogo: image("assets/logo.png", width: 20%),
+  myfeatureimage: image("assets/techimage.png", height: 6cm),
+  myvalues: "VALUE1 | VALUE2 | VALUE3 | VALUE4",
   body,
 ) = {
   // Set table to have alterate shaded rows
