@@ -1,4 +1,4 @@
-#import "lib.typ": authorwrap, infobox, mycolor, report  
+#import "@preview/biz-report:0.1.0": authorwrap, infobox, mycolor, report  
 #import "@preview/droplet:0.3.1": dropcap
 
 #show: report.with(
