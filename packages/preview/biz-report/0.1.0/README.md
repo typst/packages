@@ -21,9 +21,3 @@ Typst must of course be installed (https://typst.app/open-source#download).There
 
 - Font Awesome (free version): https://fontawesome.com/download
 - Arial (I assume you have this, and you can override it)
-
-## Supporting tools 
-
-- Producing final output is done on the command line typst compile main.typ
-- Live-edit.sh will give you live previewing providing you have zathura.
-- Spell-check.sh will run ispell with a custom dictionary (dictionary.txt) over all the chapters
