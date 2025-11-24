@@ -7,3 +7,5 @@ license = "Apache-2.0"
 description = "Multi-chapter business report with tables, infobox, author cutout."
 repository = "https://github.com/garethwebber/business-report"
 exclude = ["example.typ"]
+keywords = ["business", "report", "colorful"]
+categories = ["report"]
