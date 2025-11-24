@@ -12,7 +12,7 @@
 //  Template for a paragaph with an author picture in a circle bottom right
 // 
 #let authorwrap(
-  authorimage :none,
+  authorimage: none,
   authorcaption: none,
   body,
 ) = {
@@ -20,7 +20,7 @@
   box(width: 3cm, height:3.5cm,
   figure(
   box(clip: true, stroke: 5pt + mycolor, radius: 1.5cm, width: 2.5cm, height: 2.5cm,
-          image(authorimage, height: 3cm)),
+          authorimage),
   caption: authorcaption,
   numbering: none)),
   body,
