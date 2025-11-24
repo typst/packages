@@ -18,7 +18,6 @@ exclude = [
   "Justfile",
   "docs",
   "main.pdf",
-  "main.typ",
   "scripts",
   "tests",
   "thumbnail.svg",
