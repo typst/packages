@@ -6,7 +6,7 @@ This is a business report template in Typst
 
 ## Location
 
-The source for this guide is held in an Github repository. Clone it from: 
+If you want to obtain the source code of this package or contribute to its development, clone the following Git repository: 
 
 https://github.com/garethwebber/business-report
 
@@ -17,9 +17,10 @@ the git repository and if you install _Tintmist Typst_ as a module you will get 
 
 ## Dependencies
 
-Typst must of course be installed (https://github.com/typst/typst/releases/download/v0.14.0/typst-x86_64-pc-windows-msvc.zip). The template makes use of two fonts which must be installed on the local machine:
+Typst must of course be installed (https://typst.app/open-source#download).There is also a web app available to at the same website. The template makes use of two fonts which must be installed on the local machine:
 
 - Font Awesome (free version): https://fontawesome.com/download
+- Arial (I assume you have this, and you can override it)
 
 ## Supporting tools 
 
