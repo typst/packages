@@ -1,8 +1,9 @@
 [package]
-name = "business-report"
+name = "biz-report"
 version = "0.1.0"
-entrypoint = "example.typ"
+entrypoint = "lib.typ"
 authors = ["Gareth Webber <https://www.garethwebber.com>"]
 license = "Apache-2.0"
 description = "Multi-chapter business report with tables, infobox, author cutout."
 repository = "https://github.com/garethwebber/business-report"
+exclude = ["example.typ"]
