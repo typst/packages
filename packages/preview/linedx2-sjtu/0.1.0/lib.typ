@@ -54,7 +54,12 @@
     footer: footer(fill),
     footer-descent: footer-descent,
   )
-  #set text(top-edge: "baseline", bottom-edge: "baseline", size: 20pt)
+  #set text(
+    top-edge: "baseline",
+    bottom-edge: "baseline",
+    size: 20pt,
+    costs: (orphan: 0%, widow: 0%),
+  )
   #set par(leading: lh1 + lh2, spacing: lh1 + lh2)
 
   #doc
