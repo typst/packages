@@ -17,7 +17,7 @@
 
 > The template allows color changes and is suitable for handwritten fonts.
 ```typst
-#import "@preview/linedx2-sjtu:0.1.0": template
+#import "@preview/linedx2-sjtu:0.1.0": template, footer
 #import "@preview/kouhu:0.2.0": kouhu
 
 #show: template.with(
