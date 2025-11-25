@@ -1,4 +1,4 @@
-#import "@preview/aspirationally:0.1.0": aspirationally
+#import "@preview/aspirationally:0.1.1": aspirationally
 
 #let role = [Tenure Track Assistant Professor in Typographic Theory]
 #let department = [the Gutenberg School of Literary Arts]

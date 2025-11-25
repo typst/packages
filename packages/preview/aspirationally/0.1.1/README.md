@@ -17,7 +17,7 @@ Typst will create a new directory with all the files needed to get you started.
 If you already have a typst file, you can add the following to the top:
 
 ```typst
-#import "@preview/aspirationally:0.1.0": aspirationally
+#import "@preview/aspirationally:0.1.1": aspirationally
 
 #show: aspirationally.with(
   name: [Laurenz Typsetterson],
