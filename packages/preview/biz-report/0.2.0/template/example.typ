@@ -1,5 +1,4 @@
-//#import "@preview/biz-report:0.2.0": authorwrap, dropcappara, infobox, report  
-#import "lib.typ": authorwrap, dropcappara, infobox, report
+#import "@preview/biz-report:0.2.0": authorwrap, dropcappara, infobox, report  
 
 #show: report.with(
   title: "Business Report",
