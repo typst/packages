@@ -1,5 +1,5 @@
 #import "@preview/polylux:0.4.0": toolbox
-#import "@preview/unofficial-cambridge-polylux-theme": camDarkBlue, camLightBlue, logo, slide
+#import "@preview/unofficial-cambridge-polylux-theme:0.0.1": logo, slide
 #import "@preview/mannot:0.3.1": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
 
