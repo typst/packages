@@ -1,17 +1,17 @@
 // Copyright 2024 Felix Schladt https://github.com/FelixSchladt
 
-#import "colors.typ": *
+#import "../colors.typ": *
 
 #let styledtable(
-  stroke: hm_grey_dark,
-  background_odd: hm_red_very_light,
-  background_even: hm_white,
-  _table_) = {
+  stroke: hm-grey-dark,
+  background-odd: hm-red-very-light,
+  background-even: hm-white,
+  table) = {
   set table.hline(stroke: stroke)
   set block(breakable: true)
   set table(
    align: left,
-   fill: (_, y) => if calc.odd(y) {background_odd} else {background_even},
+   fill: (_, y) => if calc.odd(y) {background-odd} else {background-even},
    stroke: none,
   )
 
@@ -22,7 +22,7 @@
       clip: true,
       width: auto,
       breakable: true,
-      _table_
+      table
     )
   )
 }

@@ -2,23 +2,23 @@
 
 #import "@preview/linguify:0.4.2": *
 
-#import "colors.typ": *
-#import "lang.typ": *
+#import "../colors.typ": *
+#import "../lang.typ": *
 
-#import "libs/tablestyle.typ": *
-#import "libs/requirements.typ": *
-#import "libs/stringify.typ": *
+#import "tablestyle.typ": *
+#import "requirements.typ": *
+#import "stringify.typ": *
 
 #let risk(
   asset,
-  protection_requirements,
+  protection-requirements,
   threat,
   likelihood,
   impact,
-  risk_level,
+  risk-level,
   description,
   evaluation,
-  mitigation_measures,
+  mitigation-measures,
 ) = {
   show table.header: set text(size: 15pt)
   show figure: set block(breakable: true)
@@ -42,20 +42,20 @@
         align: left,
         fill: (x, y) => {
           if (y == 0) {
-            hm_grey_very_light
+            hm-grey-very-light
           }
         },
         table.header(
           [*#linguify("lib_risk_asset", from: lang-db)*], [*#asset*],
         ),
-        [#f("lib_risk_protection-requirements")], [#protection_requirements],
+        [#f("lib_risk_protection-requirements")], [#protection-requirements],
         [#f("lib_risk_threat")], [#threat],
         [#f("lib_risk_likelihood")], [#likelihood],
         [#f("lib_risk_impact")], [#impact],
-        [#f("lib_risk_risk_level")], [#risk_level],
+        [#f("lib_risk_risk-level")], [#risk-level],
         [#f("lib_risk_description")], [#description],
         [#f("lib_risk_evaluation")], [#evaluation],
-        [#f("lib_risk_mitigation_measures")], [#mitigation_measures],
+        [#f("lib_risk_mitigation-measures")], [#mitigation-measures],
       ),
     ),
   )

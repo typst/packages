@@ -8,7 +8,7 @@
 #let hm-template(
   title: none,
   subtitle: none,
-  doc_type: none,
+  doc-type: none,
   top-remark: none,
   show-table-of-contents: true,
   toc-depth: 2,
@@ -21,10 +21,10 @@
   version: "0.1",
   authors: "",
   date: datetime.today(),
-  project_logo: none,
-  project_logo_dimensions: (auto, auto),
-  titlepage_logo: none,
-  titlepage_logo_dimensions: (auto, auto),
+  project-logo: none,
+  project-logo-dimensions: (auto, auto),
+  titlepage-logo: none,
+  titlepage-logo-dimensions: (auto, auto),
   lastpage: none,
   text-size: 12pt, //textsize for non header & footer text
   body,
@@ -41,7 +41,7 @@
   }
   
   // Design  configurations
-  let accent_line = line(length: 100%, stroke: (paint: hm_black, thickness: 1pt));
+  let accent_line = line(length: 100%, stroke: (paint: hm-black, thickness: 1pt));
 
   // Fonts
   let body-font = font 
@@ -50,7 +50,7 @@
   let text-size-template = 10pt
   set text(font: body-font, lang: language, text-size-template) //template text size
   set par(justify: true)
-  show heading: set text(weight: "semibold", font: heading-font, fill: hm_grey_dark)
+  show heading: set text(weight: "semibold", font: heading-font, fill: hm-grey-dark)
 
   set page(
     margin: (
@@ -63,8 +63,8 @@
     title: title,
     subtitle: subtitle,
     authors: authors,
-    logo: titlepage_logo,
-    logo_dimensions: titlepage_logo_dimensions,
+    logo: titlepage-logo,
+    logo-dimensions: titlepage-logo-dimensions,
     toc-depth: toc-depth,
     text-size: text-size-template,
   )
@@ -75,7 +75,7 @@
         grid(
           columns: (40%, 20%, 40%),
           align(left)[
-            #doc_type
+            #doc-type
           ],
           align(center)[
             #set align(bottom)

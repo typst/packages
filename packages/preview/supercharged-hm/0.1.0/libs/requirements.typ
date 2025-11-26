@@ -1,27 +1,27 @@
 // Copyright 2024 Felix Schladt https://github.com/FelixSchladt
 
-#import "@preview/drafting:0.2.0": *
+#import "@preview/drafting:0.2.2": *
 #import "@preview/glossarium:0.5.9": *
 #import "@preview/linguify:0.4.2": *
 
-#import "libs/utils.typ": *
-#import "libs/stringify.typ": *
+#import "utils.typ": *
+#import "stringify.typ": *
 
-#import "lang.typ": *
+#import "../lang.typ": *
 
 // ----------------------------------------------------------------------------------
 // Label Registry
 // ----------------------------------------------------------------------------------
 
-#let label_registry = state("label_reg", ())
+#let label-registry = state("label-reg", ())
 
-#let add_req_label(title) = {
+#let _add_req_label(title) = {
   context {
     let name = "req_" + plain-text(title).replace(" ", "_")
   
     let dup = false
     
-      let labels = label_registry.get()
+      let labels = label-registry.get()
       while name in labels {
         if dup {
           name = name.trim("_" + name.last(), at: end, repeat: false) + "_" + str(int(name.last()) + 1)
@@ -31,26 +31,26 @@
         dup = true
     }
   
-    label_registry.update(
-      label_reg => {
-        label_reg.push(name.replace(" ", "_"))
-        label_reg
+    label-registry.update(
+      label-reg => {
+        label-reg.push(name.replace(" ", "_"))
+        label-reg
       } 
     )
   }
 }
 
-#let show_req_labels() = {
+#let _show_req_labels() = {
   context {
-    let labels = label_registry.get()
+    let labels = label-registry.get()
     for label in labels {
       label + " "
     }
   }
 }
 
-#let get_latest_req_label() = {
-  let labels = label_registry.get()
+#let _get_latest_req_label() = {
+  let labels = label-registry.get()
   str(labels.last())
 }
 
@@ -60,7 +60,7 @@
 // ----------------------------------------------------------------------------------
 
 #let requirements(
-  functional_chapter_description: str,
+  functional-chapter-description: str,
   functional:    (
     (
       title: str, 
@@ -70,7 +70,7 @@
       subrequirements: ()
     ),
   ), 
-  non_functional_chapter_description: str,
+  non-functional-chapter-description: str,
   nonfunctional: (
     (
       title: str, 
@@ -112,7 +112,7 @@
       let numbering = get_numbering(prenumbering, ctr, total_num)
 
       // Assign label
-      add_req_label(req.title)
+      _add_req_label(req.title)
 
       // Display requirement
       context [
@@ -121,7 +121,7 @@
         }
         #set par(justify: false)
         #heading(level:4, supplement: none, "[" + numbering + "] " + req.title)
-        #label(get_latest_req_label())
+        #label(_get_latest_req_label())
       ]
       
       // Show authors if provided
@@ -182,12 +182,12 @@
     (
       linguify("lib_req_func-req", from: lang-db), 
       <req_funcional>, 
-      functional_chapter_description, 
+      functional-chapter-description, 
       freqs
     ), (
       linguify("lib_req_nonfunc-req", from: lang-db), 
       <req_nonfunctional>, 
-      non_functional_chapter_description, 
+      non-functional-chapter-description, 
       nreqs
     )
   ){

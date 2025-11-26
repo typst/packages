@@ -3,7 +3,7 @@
 #import "@preview/codelst:2.0.2": *
 
 // Display a colored monospace text
-#let rgb_raw(msg, color) = {
+#let rgb-raw(msg, color) = {
   show raw: it => text(fill: color, it) 
   raw(msg)
 }

@@ -1,5 +1,5 @@
 #import "@preview/supercharged-hm:0.1.0": *
-#import "example-glossary.typ" : glossary
+#import "glossary.typ" : glossary
 
 #show: hm-template.with(
   title: "HM Template",
@@ -14,11 +14,11 @@
   // remove to disable
   glossary: glossary,
   // Leave empty for none
-  bibliography: bibliography("example-sources.bib"),
+  bibliography: bibliography("sources.bib"),
 )
-
-#include "template/template_usage.typ"
 
 = Introduction
 
-#lorem(170)
+You can use an #gls("api") to retrieve data@balzert_lehrbuch_2011
+
+#lorem(100)

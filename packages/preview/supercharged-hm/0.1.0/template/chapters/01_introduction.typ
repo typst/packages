@@ -1,4 +1,4 @@
-#import "/template/imports.typ": *
+#import "@preview/supercharged-hm:0.1.0": *
 
 = Introduction
 

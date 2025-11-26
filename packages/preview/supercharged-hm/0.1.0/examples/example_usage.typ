@@ -1,6 +1,6 @@
 // Copyright 2024 Felix Schladt https://github.com/FelixSchladt
 
-#import "lib.typ": *
+#import "@preview/supercharged-hm:0.1.0": *
 
 = Template Usage
 Small guide on the usage of the template and provided items.
@@ -34,8 +34,8 @@ For inline colored code, the \`\`\`py CODE \`\`\` syntax is used like ```py func
 
 === Displaying Inline Colored Monospace text
 
-If you want to display monospaced colored text, the `rgb_raw` function can be used.
-The following text is created with ```typ #rgb_raw("MACHINE_ADAPTER", rgb("#13A256"))``` and looks like #rgb_raw("MACHINE_ADAPTER", rgb("#13A256")).
+If you want to display monospaced colored text, the `rgb-raw` function can be used.
+The following text is created with ```typ #rgb-raw("MACHINE_ADAPTER", rgb("#13A256"))``` and looks like #rgb-raw("MACHINE_ADAPTER", rgb("#13A256")).
 
 == Notes
 
@@ -52,7 +52,7 @@ good-note("Good note"),
 
 == Tables
 
-For tables, a prestyled wrapper function is available, the `styledtable` function, taking a `table` function as an argument. The `stroke`, `background_odd`, and `background_even` parameters can be set to change the table's color appearance.
+For tables, a prestyled wrapper function is available, the `styledtable` function, taking a `table` function as an argument. The `stroke`, `background-odd`, and `background-even` parameters can be set to change the table's color appearance.
 
 #figure(caption: [Example Table])[
 #styledtable(
@@ -120,7 +120,7 @@ Requirements werden in funktional und nicht funktional gruppiert.
   #code(
 ```typ
 #requirements(
-  functional_chapter_description: [Functional requirements specify what functionality or behavior the resulting product under the specified conditions should have @balzert_lehrbuch_2011.],
+  functional-chapter-description: [Functional requirements specify what functionality or behavior the resulting product under the specified conditions should have @balzert_lehrbuch_2011.],
   functional: (
     (
       title: [Drone Connectivity], 
@@ -133,7 +133,7 @@ Requirements werden in funktional und nicht funktional gruppiert.
       ),
     ),
   ),
-  non_functional_chapter_description: [Nonfunctional or technical requirements describe aspects regarding one or more functional requirements. In short, they specify how the product should work @balzert_lehrbuch_2011.],
+  non-functional-chapter-description: [Nonfunctional or technical requirements describe aspects regarding one or more functional requirements. In short, they specify how the product should work @balzert_lehrbuch_2011.],
   nonfunctional: (
     (
       title: [Server Placement], 
@@ -148,7 +148,7 @@ Requirements werden in funktional und nicht funktional gruppiert.
 Below, the rendering of the above shown example is visible.
 
 #requirements(
-  functional_chapter_description: [Functional requirements specify what functionality or behavior the resulting product under the specified conditions should have @balzert_lehrbuch_2011.],
+  functional-chapter-description: [Functional requirements specify what functionality or behavior the resulting product under the specified conditions should have @balzert_lehrbuch_2011.],
   functional: (
     (
       title: [Drone Connectivity], 
@@ -161,7 +161,7 @@ Below, the rendering of the above shown example is visible.
       ),
     ),
   ),
-  non_functional_chapter_description: [Nonfunctional or technical requirements describe aspects regarding one or more functional requirements. In short, they specify how the product should work @balzert_lehrbuch_2011.],
+  non-functional-chapter-description: [Nonfunctional or technical requirements describe aspects regarding one or more functional requirements. In short, they specify how the product should work @balzert_lehrbuch_2011.],
   nonfunctional: (
     (
       title: [Server Placement], 

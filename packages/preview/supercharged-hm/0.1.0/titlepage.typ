@@ -7,7 +7,7 @@
   subtitle: "Subtitle",
   authors: "Authors",
   logo: none,
-  logo_dimensions: (auto, auto),
+  logo-dimensions: (auto, auto),
   toc-depth: none,
   text-size: 12pt
 ) = { 
@@ -22,7 +22,7 @@
   align(center)[
     #image("assets/HM_Logo_RGB.png", width: 30%)
     #v(40pt)
-    #text(title, size: 24pt, weight: "bold", fill: hm_black)
+    #text(title, size: 24pt, weight: "bold", fill: hm-black)
     #linebreak()
     #v(1pt)
     #text(subtitle, size: 15pt, weight: "semibold")
@@ -48,6 +48,4 @@
   if toc-depth != none {
     outline(indent: auto, depth: toc-depth)
   }
-
-  
 }

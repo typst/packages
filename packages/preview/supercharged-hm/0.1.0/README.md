@@ -2,12 +2,7 @@
 
 Unofficial [Typst](https://typst.app/) template for students of Hochschule München (HM).
 
-This repository contains a reusable layout for theses, reports and project documentation, together with a small set of helper functions for acronyms, notes, tables, requirements and code listings.
-
-You can find an example PDF of how the template looks in the `examples` directory of this repository.
-
 To see a minimal example of how you can use this template, check out the `main.typ` file.  
-More examples can be added under `examples/` as needed.
 
 ## Contributing
 
@@ -51,7 +46,7 @@ A minimal `main.typ` could look like this:
 #show: hm-template(
   title: [My Thesis Title],
   subtitle: [Optional Subtitle],
-  doc_type: [Masterarbeit],
+  doc-type: [Masterarbeit],
   authors: "Max Mustermann",
   language: "de",
   bibliography: bibliography("references.bib"),
@@ -63,59 +58,6 @@ A minimal `main.typ` could look like this:
   ],
 )
 ```
-
-> Adjust the import path to match your project structure.
-
-## Fonts
-
-By default the template uses:
-
-- [Roboto](https://fonts.google.com/specimen/Roboto) as the main text font.
-
-If you want to use Typst locally, download the font and install it on your system.  
-In the web app you can upload the font to your project and then keep the default `font: "Roboto"` configuration.
-
-For more information on how to add fonts to your project, see the [Typst documentation](https://typst.app/docs/reference/text/text/#parameters-font).
-
-If you prefer a different font family, override the `font` argument of `hm-template`:
-
-```typst
-#show: hm-template(
-  font: "Linux Libertine",
-  ...
-)
-```
-
-## Used Packages
-
-This template uses the following Typst packages:
-
-- [codelst](https://typst.app/universe/package/codelst): syntax highlighted code blocks
-
-Code snippets are inserted through a small wrapper function `code`, which forwards to `sourcecode` from `codelst` with template specific defaults.
-
-Example:
-
-```typst
-#figure(
-  caption: "Example code.",
-)[
-  #code(
-    ```py
-    def example_function(a: int, b: int) -> int:
-        print("Hello, World!")
-        return a + b
-    ```
-  )
-]
-```
-
-For inline colored code you can use the fenced syntax:
-
-```typst
-This calls ```py example_function(a, b)```.
-```
-
 ## Configuration
 
 This template exports the `hm-template` function with the following named arguments:
@@ -124,7 +66,7 @@ This template exports the `hm-template` function with the following named argume
 
 `subtitle (content)`: Optional subtitle printed below the title.
 
-`doc_type (content)`: Type of the document, for example `Bachelorarbeit`, `Masterarbeit` or `Projektarbeit`.
+`doc-type (content)`: Type of the document, for example `Bachelorarbeit`, `Masterarbeit` or `Projektarbeit`.
 
 `top-remark (content)`: Small remark printed at the top of the title page, for example a confidentiality note or internal document number.
 
@@ -150,13 +92,13 @@ This template exports the `hm-template` function with the following named argume
 
 `date (datetime)`: Date printed on the title page, default is `datetime.today()`.
 
-`project_logo (content)`: Logo used inside the main document, for example in headers. Typical usage: `image("img/project-logo.pdf")`.
+`project-logo (content)`: Logo used inside the main document, for example in headers. Typical usage: `image("img/project-logo.pdf")`.
 
-`project_logo_dimensions (array)`: Two element array `(width, height)` for the project logo, default is `(auto, auto)`.
+`project-logo-dimensions (array)`: Two element array `(width, height)` for the project logo, default is `(auto, auto)`.
 
-`titlepage_logo (content)`: Logo for the title page. Typical usage: `image("img/university-logo.pdf")`.
+`titlepage-logo (content)`: Logo for the title page. Typical usage: `image("img/university-logo.pdf")`.
 
-`titlepage_logo_dimensions (array)`: Two element array `(width, height)` for the title page logo, default is `(auto, auto)`.
+`titlepage-logo-dimensions (array)`: Two element array `(width, height)` for the title page logo, default is `(auto, auto)`.
 
 `lastpage (content)`: Optional custom last page, for example an imprint, declaration of authorship or additional legal text.
 
@@ -172,7 +114,7 @@ Arguments marked with `*` are required for a useful document.
 In most cases a thesis or report will at least provide:
 
 - `title`
-- `doc_type`
+- `doc-type`
 - `authors`
 - `language`
 - `bibliography`
@@ -225,7 +167,6 @@ Then pass the dictionary when calling the template:
 ```typst
 #show: hm-template(
   glossary: glossary,
-  ...
 )
 ```
 
@@ -259,13 +200,35 @@ The function ```py example_function(a, b)``` prints a greeting.
 
 ### Inline colored monospace text
 
-If you want monospaced text in a specific color, use `rgb_raw`:
+If you want monospaced text in a specific color, use `rgb-raw`:
 
 ```typst
-#rgb_raw("MACHINE_ADAPTER", rgb("#13A256"))
+#rgb-raw("MACHINE_ADAPTER", rgb("#13A256"))
 ```
 
 This renders the identifier `MACHINE_ADAPTER` in monospace with the given RGB color.
+
+## Code
+
+This template uses [codelst](https://typst.app/universe/package/codelst) to syntax highlighted code blocks.
+
+Code snippets are inserted through a small wrapper function `code`, which forwards to `sourcecode` from `codelst` with template specific defaults.
+
+Example:
+
+```typst
+#figure(
+  caption: "Example code.",
+)[
+  #code(
+    ```py
+    def example_function(a: int, b: int) -> int:
+        print("Hello, World!")
+        return a + b
+    ```
+  )
+]
+```
 
 ## Notes
 
@@ -336,8 +299,8 @@ You can use it like this:
 `styledtable` takes care of consistent strokes and alternating row backgrounds. You can override:
 
 - `stroke`
-- `background_odd`
-- `background_even`
+- `background-odd`
+- `background-even`
 
 to adjust the look for your document.
 
@@ -349,7 +312,7 @@ The `requirements` helper renders grouped functional and non functional requirem
 
 ```typst
 #requirements(
-  functional_chapter_description: [
+  functional-chapter-description: [
     Functional requirements specify what functionality or behavior
     the resulting product under the specified conditions should have.
   ],
@@ -366,7 +329,7 @@ The `requirements` helper renders grouped functional and non functional requirem
     ),
   ),
 
-  non_functional_chapter_description: [
+  non-functional-chapter-description: [
     Nonfunctional or technical requirements describe aspects regarding
     one or more functional requirements. In short, they specify how the
     product should work.

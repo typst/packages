@@ -3,8 +3,8 @@
 
 #import "@preview/drafting:0.2.2": *
 
-#let note_inset         = 1em
-#let note_border_radius = 0.5em
+#let note-inset         = 1em
+#let note-border-radius = 0.5em
 
 #let note(
   content,
@@ -17,8 +17,8 @@
     stroke: stroke,
     fill  : fill,
     rect  : rect.with(
-      inset : note_inset,
-      radius: note_border_radius,
+      inset : note-inset,
+      radius: note-border-radius,
       width : width
     )
   )

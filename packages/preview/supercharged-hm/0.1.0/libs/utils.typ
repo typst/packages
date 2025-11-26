@@ -2,8 +2,8 @@
 
 #import "@preview/linguify:0.4.2": *
 
-#import "colors.typ": *
-#import "lang.typ": *
+#import "../colors.typ": *
+#import "../lang.typ": *
 
 #let authors(..authors, styled: false) = {
 
@@ -16,7 +16,7 @@
   if styled {    
   align(left,
     emph(
-      text(fill: hm_red, [#by])
+      text(fill: hm-red, [#by])
     )
   )
   } else {
