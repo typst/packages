@@ -2,12 +2,126 @@
 #import "src/layout.typ"
 #import "src/blocks.typ"
 
-// Re-export public API variables
+/// A styled block for displaying definitions.
+/// 
+/// This function creates a gray-colored block suitable for highlighting
+/// definitions, theorems, or important concepts in your presentation.
+///
+/// # Example
+/// ```typ
+/// #definition[
+///   *Euclid's Algorithm*
+///   An efficient method for computing the GCD.
+/// ]
+/// ```
 #let definition = blocks.definition
+
+/// A styled block for displaying warnings.
+///
+/// This function creates a red-colored block suitable for highlighting
+/// warnings, cautions, or important notices in your presentation.
+///
+/// # Example
+/// ```typ
+/// #warning[
+///   *Warning – undefined case*
+///   `gcd(0, 0)` is mathematically undefined.
+/// ]
+/// ```
 #let warning = blocks.warning
+
+/// A styled block for displaying remarks.
+///
+/// This function creates an orange-colored block suitable for highlighting
+/// remarks, notes, or additional observations in your presentation.
+///
+/// # Example
+/// ```typ
+/// #remark[
+///   *Remark – symmetry property*
+///   `gcd(a, b)` should always equal `gcd(b, a)`.
+/// ]
+/// ```
 #let remark = blocks.remark
+
+/// A styled block for displaying hints.
+///
+/// This function creates a green-colored block suitable for highlighting
+/// hints, tips, or helpful suggestions in your presentation.
+///
+/// # Example
+/// ```typ
+/// #hint[
+///   *Hint – simplifying fractions*
+///   Once `gcd(a,b)` works, you can reduce fractions to lowest terms.
+/// ]
+/// ```
 #let hint = blocks.hint
 
+/// Sets up the presentation with customizable options.
+///
+/// This is the main function that configures the entire presentation layout,
+/// including page dimensions, theme colors, headers, footers, and slide structure.
+/// It should be called at the beginning of your document using `#show: setup_presentation.with(...)`.
+///
+/// # Parameters
+/// - `title-slide` (dictionary): Configuration for the title slide.
+///   - `enable` (boolean, default: `false`): Whether to show a title slide.
+///   - `title` (string or none, default: `none`): Full title displayed on title page.
+///   - `authors` (array of strings, default: `()`): Array of author names.
+///   - `institute` (string or none, default: `none`): Institute or organization name.
+///
+/// - `footer` (dictionary): Configuration for the footer on each slide.
+///   - `enable` (boolean, default: `false`): Whether to show footer on slides.
+///   - `title` (string or none, default: `none`): Short title displayed in center of footer.
+///   - `authors` (array of strings, default: `()`): Array of short author names (left side).
+///   - `institute` (string or none, default: `none`): Short institute name (left side).
+///   - `date` (string or content, default: current date): Date displayed (right side).
+///
+/// - `theme` (dictionary): Color scheme for the presentation.
+///   - `primary` (color, default: `rgb("#003365")`): Primary brand color for headers/footers/titles.
+///   - `secondary` (color, default: `rgb("#00649F")`): Secondary accent color.
+///   - `background` (color, default: `rgb("#FFFFFF")`): Slide background color.
+///   - `main-text` (color, default: `rgb("#000000")`): Body text color.
+///   - `sub-text` (color, default: `rgb("#FFFFFF")`): Text color on dark backgrounds.
+///   - `sub-text-dimmed` (color, default: `rgb("#FFFFFF")`): Dimmed text color.
+///
+/// - `height` (length, default: `12cm`): Slide height (aspect ratio fixed at 16:10).
+/// - `table-of-contents` (boolean, default: `false`): Whether to show an interactive table of contents.
+/// - `header` (boolean, default: `true`): Whether to show the navigation header with progress tracker.
+/// - `locale` (string, default: `"EN"`): Language locale, either `"EN"` or `"RU"`.
+/// - `content` (content): The content of your presentation.
+///
+/// # Slide Structure
+/// The presentation uses standard Typst headings to structure slides:
+/// - Level 1 headings (`= Section`): Creates a dedicated section title slide.
+/// - Level 2 headings (`== Slide Title`): Creates a new main slide with title.
+/// - Empty Level 2 headings (`== `): Creates a slide without a title (excluded from ToC).
+/// - Level 3 headings (`=== Subsection`): Creates a slide with title, excluded from ToC.
+///
+/// # Example
+/// ```typ
+/// #show: setup_presentation.with(
+///   title-slide: (
+///     enable: true,
+///     title: "My Presentation",
+///     authors: ("John Doe", "Jane Smith"),
+///     institute: "University of Example",
+///   ),
+///   footer: (
+///     enable: true,
+///     title: "Short Title",
+///     authors: ("J. Doe", "J. Smith"),
+///   ),
+///   table-of-contents: true,
+///   header: true,
+///   locale: "EN"
+/// )
+///
+/// = Introduction
+/// == First Slide
+/// Your content here...
+/// ```
 #let setup_presentation(
   title-slide: none,
   footer: none,

@@ -16,6 +16,20 @@
 
 ## Setup
 
+### Using the Published Package
+
+Simply import the package in your `.typ` file:
+
+```typst
+#import "@preview/pepentation:0.1.0": *
+```
+
+The package will be automatically downloaded on first use.
+
+### Local Installation (Development)
+
+If you want to install the package locally or modify it:
+
 1.  **Clone or Download** this repository.
 2.  **Place it** in your local Typst package directory:
     `{data-dir}/typst/packages/local/pepentation/0.1.0`
@@ -40,7 +54,7 @@ Check the **`template/`** folder in this repository. It contains a fully configu
 Initialize the template at the top of your file using the `setup_presentation` rule:
 
 ```typst
-#import "@local/pepentation:0.0.1": *
+#import "@preview/pepentation:0.1.0": *
 
 #show: setup_presentation.with(
   title-slide: (

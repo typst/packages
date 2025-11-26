@@ -1,4 +1,16 @@
-/// Estimates footer height to adjust page margins.
+/// Estimates the footer height to adjust page margins.
+///
+/// Calculates the required footer height based on the footer configuration,
+/// taking into account the number of authors and available width. This ensures
+/// that the page bottom margin is properly adjusted to accommodate the footer.
+///
+/// # Parameters
+/// - `footer` (dictionary): Footer configuration dictionary.
+/// - `theme` (dictionary): Theme configuration (unused but kept for consistency).
+/// - `page-height` (length): The height of the page.
+///
+/// # Returns
+/// The estimated footer height in points. Returns `0pt` if footer is disabled.
 #let estimate-footer-height(footer, theme, page-height) = {
   if not footer.enable { return 0pt }
   
@@ -15,7 +27,21 @@
   calc.max(lines * 1em, 1em)
 }
 
-/// Renders the presentation footer.
+/// Renders the presentation footer with a 3-column layout.
+///
+/// The footer displays:
+/// - Left column: Authors and institute name
+/// - Center column: Short presentation title
+/// - Right column: Date and page number
+///
+/// # Parameters
+/// - `footer` (dictionary): Footer configuration with `enable`, `title`, `authors`, `institute`, and `date`.
+/// - `theme` (dictionary): Theme configuration containing color settings.
+/// - `page-width` (length): The width of the page.
+/// - `fixed-height` (length): The fixed height allocated for the footer.
+///
+/// # Returns
+/// A content block containing the rendered footer, or empty content if footer is disabled.
 #let create-footer(footer, theme, page-width, fixed-height) = {
   set text(size: 12pt, weight: "regular", top-edge: "cap-height", bottom-edge: "baseline")
 
@@ -104,7 +130,23 @@
   lines
 }
 
-/// Renders the navigation header.
+/// Renders the navigation header with section titles and progress tracker.
+///
+/// The header displays:
+/// - Section titles (from level 1 headings)
+/// - Progress indicators (bullets) showing:
+///   - `•` for completed slides
+///   - `●` for the current slide
+///   - `◦` for upcoming slides
+///
+/// The header adapts to the number of sections and automatically splits
+/// circles across multiple lines if needed to fit within the available space.
+///
+/// # Parameters
+/// - `theme` (dictionary): Theme configuration containing color settings.
+///
+/// # Returns
+/// A content block containing the rendered header with navigation.
 #let create-header(theme) = {
   context {
     set text(size: 14pt, weight: "regular")

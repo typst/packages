@@ -1,4 +1,4 @@
-#import "@local/pepentation:0.1.0": *
+#import "@preview/pepentation:0.1.0": *
 
 #show: setup_presentation.with(
   title-slide: (
