@@ -1,0 +1,29 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "covered-cs-thesis"
+version = "0.1.5"
+entrypoint = "src/lib.typ"
+authors = ["Adam McKellar"]
+license = "Unlicense"
+description = "A template for writing a bachelor's or master's computer science thesis at the University Heidelberg."
+repository = "https://github.com/WyvernIXTL/computer-science-heidelberg-thesis-typst-template"
+keywords = ["template"]
+categories = ["paper", "report"]
+disciplines = ["computer-science"]
+# compiler = ""
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail.png",
+  "cSpell.json"
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
