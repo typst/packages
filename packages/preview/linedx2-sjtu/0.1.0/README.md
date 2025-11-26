@@ -9,7 +9,7 @@
 #set par(justify: true)
 
 #for i in range(15, 25) [
-#set text(size: i * 1pt)
+  #set text(size: i * 1pt)
   #emoji.heart #lorem(14)
 ]
 ```
@@ -34,5 +34,4 @@
 #align(center)[祝福]
 #kouhu(builtin-text: "zhufu")
 ```
-
 ![zhufu example](assets/zhufu.png)
