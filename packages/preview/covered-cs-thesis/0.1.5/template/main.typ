@@ -5,10 +5,14 @@
 // === Settings ===
 
 // Language of your thesis (either "de" or "en").
-#let language = "de"
+// This switches in what language your cover is displayed.
+#let language = "en"
+// #let language = "de"
 
 // Title of your thesis
 #let title = "What are ducks?"
+// #let title = "Was sind Enten?"
+
 
 // LaTeX like article style
 #show: article.with(
@@ -22,7 +26,7 @@
   page-paper: "a4",
 )
 
-// Cover of your thesis
+// Cover of your thesis (English)
 #cs-thesis-cover(
   // see above
   title: title,
@@ -33,9 +37,9 @@
   /// Your matriculation number (Matrikelnummer) [string]
   matriculation-number: "12345678",
   /// What your thesis is (bachelor/master) [string]
-  thesis-type: "Bachelor-Arbeit",
+  thesis-type: "Bachelor's Thesis",
   /// Your university [string]
-  university: "Universität Heidelberg",
+  university: "Heidelberg University",
   /// Your institute [string]
   institute: "Institut für Informatik",
   /// The working group that supervises your thesis [string]
@@ -45,6 +49,22 @@
   /// The date of your submission [anything]
   date-submission: [#datetime.today().display()],
 )
+
+// Cover of your thesis (German)
+//
+// #cs-thesis-cover(
+//   title: title,
+//   language: language,
+
+//   author: "Max Mustermann",
+//   matriculation-number: "12345678",
+//   thesis-type: "Bachelor-Arbeit",
+//   university: "Universität Heidelberg",
+//   institute: "Institut für Informatik",
+//   working-group: "Enten Labor",
+//   supervisor: "Professor Einstein",
+//   date-submission: [#datetime.today().display("[day].[month].[year]")],
+// )
 
 
 // === Abstracts in german and english ===
