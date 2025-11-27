@@ -51,12 +51,12 @@ Check the **`template/`** folder in this repository. It contains a fully configu
 
 ## Usage
 
-Initialize the template at the top of your file using the `setup_presentation` rule:
+Initialize the template at the top of your file using the `setup-presentation` rule:
 
 ```typst
 #import "@preview/pepentation:0.1.0": *
 
-#show: setup_presentation.with(
+#show: setup-presentation.with(
   title-slide: (
     enable: true,
     title: "Presentation Title",
@@ -117,7 +117,7 @@ The template provides colored blocks for highlighting specific content:
 
 ## Configuration Options
 
-These are the parameters available in the `setup_presentation` function:
+These are the parameters available in the `setup-presentation` function:
 
 | Keyword | Description | Default |
 | :--- | :--- | :--- |

@@ -1,6 +1,6 @@
 #import "@preview/pepentation:0.1.0": *
 
-#show: setup_presentation.with(
+#show: setup-presentation.with(
   title-slide: (
     enable: true,
     title: "Long version of the title",

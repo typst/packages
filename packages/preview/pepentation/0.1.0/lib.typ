@@ -62,7 +62,7 @@
 ///
 /// This is the main function that configures the entire presentation layout,
 /// including page dimensions, theme colors, headers, footers, and slide structure.
-/// It should be called at the beginning of your document using `#show: setup_presentation.with(...)`.
+/// It should be called at the beginning of your document using `#show: setup-presentation.with(...)`.
 ///
 /// # Parameters
 /// - `title-slide` (dictionary): Configuration for the title slide.
@@ -101,7 +101,7 @@
 ///
 /// # Example
 /// ```typ
-/// #show: setup_presentation.with(
+/// #show: setup-presentation.with(
 ///   title-slide: (
 ///     enable: true,
 ///     title: "My Presentation",
@@ -122,7 +122,7 @@
 /// == First Slide
 /// Your content here...
 /// ```
-#let setup_presentation(
+#let setup-presentation(
   title-slide: none,
   footer: none,
   theme: none,
