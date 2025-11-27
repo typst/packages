@@ -1,4 +1,4 @@
-#import "@preview/simple-ntnu-report:0.1.1": ntnu-report, un
+#import "@preview/simple-ntnu-report:0.1.2": ntnu-report, un
 #import "@preview/zero:0.5.0": num
 
 #show: ntnu-report.with(
