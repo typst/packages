@@ -10,6 +10,7 @@ description = "A template for TVCG journal papers."
 keywords = ["Institute of Electrical and Electronics Engineers", "IEEE", "Transactions on Visualization and Computer Graphics", "TVCG", "Computer Science", "Visualization"]
 categories = ["paper"]
 disciplines = ["computer-science"]
+exclude = ["link.sh", "link.ps1", "preview.pdf"]
 
 [template]
 path = "template"
