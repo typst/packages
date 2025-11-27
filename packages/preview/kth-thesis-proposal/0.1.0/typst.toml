@@ -12,3 +12,4 @@ repository = "https://github.com/cseas002/kth-thesis-proposal"
 [template]
 path = "template"
 entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
