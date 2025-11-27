@@ -88,10 +88,11 @@ Additionally, if you network does not fit the page width of your Typst document,
   (type: "conv", label: "E", name: "e", offset: 2),
 ), connections: (
   (from: "a", to: "c", type: "skip", mode: "depth", label: "depth mode", pos: 6),
-  (from: "b", to: "d", type: "skip", mode: "flat", label: "depth mode", pos: 5),
+  (from: "b", to: "d", type: "skip", mode: "flat", label: "flat mode", pos: 5),
   (from: "c", to: "e", type: "skip", mode: "air", label: "air mode (+touch layer instead of arrow)", pos: 5, touch-layer: true),
 ),
-show-relu: true // visualize relu using color on convolution layers
+palette: "cold", // There is a "warm" and a "cold" color palette.
+show-relu: true // visualize relu using darker color on convolution layers
 )
 ```
 <img src="https://github.com/edgaremy/neural-netz/blob/main/gallery/features/connexions.png?raw=true" width="300" align="center">
