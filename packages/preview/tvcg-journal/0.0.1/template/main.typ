@@ -34,8 +34,8 @@
     ),
   ),
   teaser: (
-    image: image("figs/CypressView.jpg", alt: "A view of a city with buildings peeking out of the clouds."),
-    caption: "In the Clouds: Vancouver from Cypress Mountain. Note that the teaser may not be wider than the abstract block."
+    image: image("figs/clouds.jpg", alt: "A view of clouds with orange sunrays shining through from behind."),
+    caption: "Dramatic evening clouds. Note that the teaser may not be wider than the abstract block."
   ),
   index-terms: ("Radiosity", "global illumination", "constant time"),
   bibliography: bibliography("refs.bib"),
@@ -62,17 +62,22 @@ Typst automatically detects the type of figure (i.e., table, image, or code) and
 
 For figures with images, the image format is usually detected automatically. For details, head over to the image documentation: https://typst.app/docs/reference/visualize/image/.
 
-#figure(
-  image("figs/CypressView.jpg", alt: "A view of a city with buildings peeking out of the clouds."),
-  caption: "Caption",
-)
-
 == Vector figures
 
-Vector graphics like svg, eps, pdf are best for charts and other figures with text or lines.
+#figure(
+  image("figs/chart.pdf", alt: "A bar chart showing the number of days per month broken down by weather type.", width: 80%),
+  caption: "Stacked bar chart of weather data.",
+)
+
+Vector graphics like svg, pdf are best for charts and other figures with text or lines.
 They will look much nicer and crisper and any text in them will be more selectable, searchable, and accessible.
 
 == Raster figures
+
+#figure(
+  image("figs/clouds.jpg", alt: "A view of clouds with orange sunrays shining through from behind."),
+  caption: "Dramatic evening clouds.",
+)
 
 Of the raster graphics formats, screenshots of user interfaces and text, as well as line art, are better shown with png.
 jpg is better for photographs.
@@ -95,9 +100,9 @@ Use the grid function to create subfigures.
 
 #figure(
   grid(columns: 2, row-gutter: 2mm, column-gutter: 1mm,
-  image("figs/CypressView.jpg", alt: "A view of a city with buildings peeking out of the clouds."),
-  align(horizon)[#image("figs/CypressView.jpg", alt: "A view of a city with buildings peeking out of the clouds.")]),
-  caption: "Caption"
+  image("figs/clouds.jpg", alt: "A view of clouds with orange sunrays shining through from behind."),
+  align(horizon)[#image("figs/clouds.jpg", alt: "A view of clouds with orange sunrays shining through from behind.")]),
+  caption: "Dramatic evening clouds."
 )
 
 == Code
