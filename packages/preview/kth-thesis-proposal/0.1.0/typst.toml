@@ -6,7 +6,7 @@ authors = ["Christoforos Seas <@cseas002>"]
 license = "MIT"
 description = "Simple, beautiful KTH degree project proposal template with official logo"
 keywords = ["kth", "proposal", "thesis", "typst"]
-categories = ["report", "formal"]
+categories = ["report", "thesis"]
 repository = "https://github.com/cseas002/kth-thesis-proposal"
 
 [template]
