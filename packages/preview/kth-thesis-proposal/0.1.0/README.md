@@ -136,7 +136,7 @@ typst compile example/main.typ
 
 ## File Structure
 
-```
+```text
 kth-thesis-proposal/
 ├── src/
 │   ├── lib.typ          # Main template file
