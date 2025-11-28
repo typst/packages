@@ -2,7 +2,7 @@
 name = "fancy-tiling"
 version = "1.0.0"
 entrypoint = "lib.typ"
-authors = ["Daniel Ayala]
+authors = ["Daniel Ayala"]
 license = "MIT-0"
 description = "Tiling patterns for fills: stripes, checkerboards, honeycombs, and more"
 categories = ["components", "visualization", "fun"]
