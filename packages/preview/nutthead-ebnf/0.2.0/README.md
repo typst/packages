@@ -13,7 +13,7 @@ A Typst package for rendering Extended Backus-Naur Form (EBNF) grammars with cus
 ## Usage
 
 ```typst
-#import "@preview/nutthead-ebnf:0.1.0": *
+#import "@preview/nutthead-ebnf:0.2.0": *
 
 #syntax(
   mono-font: "JetBrains Mono",
@@ -142,7 +142,7 @@ For inline comments within the RHS, use `comment[...]`.
 ### Rust Function Grammar
 
 ```typst
-#import "@preview/nutthead-ebnf:0.1.0": *
+#import "@preview/nutthead-ebnf:0.2.0": *
 
 #syntax(
   mono-font: "JetBrains Mono",
@@ -166,7 +166,7 @@ For inline comments within the RHS, use `comment[...]`.
 ### Java Class Grammar
 
 ```typst
-#import "@preview/nutthead-ebnf:0.1.0": *
+#import "@preview/nutthead-ebnf:0.2.0": *
 
 #syntax(
   mono-font: "Fira Mono",
