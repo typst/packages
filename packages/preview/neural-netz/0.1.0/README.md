@@ -105,25 +105,25 @@ show-relu: true // visualize relu using darker color on convolution layers
 </p>
 
 # Examples
-Here are a few network architectures implemented with neural-netz (more examples can be found [in the repo](examples/networks)).
+Here are a few network architectures implemented with neural-netz (more examples can be found [in the repo](https://github.com/edgaremy/neural-netz/tree/f632d92d77517309a2333ee8763ca8e987232db0/examples/networks)).
 
 <h3 style="text-align: center;">ResNet18</h3>
 <p align="center">
 <img src="gallery/networks/ResNet18.png" alt="ResNet18 visualization" width="500"/>
 </p>
-<p style="text-align: center;"><a href="examples/networks/ResNet18.typ">code for this image</a></p>
+<p style="text-align: center;"><a href="https://github.com/edgaremy/neural-netz/blob/f632d92d77517309a2333ee8763ca8e987232db0/examples/networks/ResNet18.typ">code for this image</a></p>
 
 <h3 style="text-align: center;">U-Net</h3>
 <p align="center">
 <img src="gallery/networks/U-Net.png" alt="U-Net visualization" width="500"/>
 </p>
-<p style="text-align: center;"><a href="examples/networks/U-Net.typ">code for this image</a></p>
+<p style="text-align: center;"><a href="https://github.com/edgaremy/neural-netz/blob/f632d92d77517309a2333ee8763ca8e987232db0/examples/networks/U-Net.typ">code for this image</a></p>
 
 <h3 style="text-align: center;">FCN-8</h3>
 <p align="center">
 <img src="gallery/networks/FCN-8.png" alt="FCN-8 visualization" width="500"/>
 </p>
-<p style="text-align: center;"><a href="examples/networks/FCN-8.typ">code for this image</a></p>
+<p style="text-align: center;"><a href="https://github.com/edgaremy/neural-netz/blob/f632d92d77517309a2333ee8763ca8e987232db0/examples/networks/FCN-8.typ">code for this image</a></p>
 
 
 # Acknowledgements
