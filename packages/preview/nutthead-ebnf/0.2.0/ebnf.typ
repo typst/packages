@@ -48,11 +48,13 @@
   text(fill: color, content)
 } else { content }
 
-#let _wrap-op(left, right, content) = context {
+#let _wrap-op(left, right, content, suffix: none) = context {
   let state = _ebnf-state.get()
   let c = state.colors.at("operator", default: none)
   set text(font: state.mono-font) if state.mono-font != none
-  [#_styled(c, left)#content#_styled(c, right)]
+  if suffix != none {
+    [#_styled(c, left)#content#_styled(c, right)#_styled(c, suffix)]
+  } else { [#_styled(c, left)#content#_styled(c, right)] }
 }
 
 #let _colorize(role, content) = context {
@@ -137,76 +139,76 @@
   rows
 }
 
-/// Optional: `[content]`
-#let opt(content) = _wrap-op("[", "]", content)
+/// Optional sequence: `[ definitions-list ]`
+#let optional-sequence(content) = _wrap-op("[", "]", content)
 
-/// Repetition (zero or more): `{content}`
-#let rep(content) = _wrap-op("{", "}", content)
+/// Repeated sequence: `{ definitions-list }`
+#let repeated-sequence(content) = _wrap-op("{", "}", content)
 
-/// Grouping: `(content)`
-#let grp(content) = _wrap-op("(", ")", content)
+/// Grouped sequence: `( definitions-list )`
+#let grouped-sequence(content) = _wrap-op("(", ")", content)
 
-/// Terminal symbol
-#let t(content) = context {
+/// Terminal string: quoted literal text
+#let terminal-string(content) = context {
   let state = _ebnf-state.get()
   set text(font: state.mono-font) if state.mono-font != none
   _styled(state.colors.at("terminal", default: none), content)
 }
 
-/// Non-terminal reference (italic)
-#let n(content) = context {
+/// Meta-identifier: non-terminal reference (italic)
+#let meta-identifier(content) = context {
   let state = _ebnf-state.get()
   set text(font: state.mono-font) if state.mono-font != none
   _styled(state.colors.at("nonterminal", default: none), emph(content))
 }
 
-/// Exception: `a - b` (a except b)
-#let exc(a, b) = context {
+/// Exception: `factor - exception` (excluding sequences)
+#let exception(a, b) = context {
   let state = _ebnf-state.get()
   set text(font: state.mono-font) if state.mono-font != none
   [#a #_styled(state.colors.at("operator", default: none), "−") #b]
 }
 
-/// Concatenation sequence: `a , b , c`
-#let seq(..items) = context {
+/// Single definition: `term , term , ...` (syntactic concatenation)
+#let single-definition(..items) = context {
   let state = _ebnf-state.get()
   set text(font: state.mono-font) if state.mono-font != none
   let sep = [#_styled(state.colors.at("operator", default: none), ",") ]
   items.pos().join(sep)
 }
 
-/// Repetition with count: `n * content`
-#let times(count, content) = context {
+/// Syntactic factor: `integer * primary` (repetition count)
+#let syntactic-factor(count, content) = context {
   let state = _ebnf-state.get()
   set text(font: state.mono-font) if state.mono-font != none
   [#_styled(state.colors.at("operator", default: none), str(count) + " ∗") #content]
 }
 
-/// Special sequence: `? text ?`
-#let special(content) = _wrap-op("?", "?", content)
+/// Special sequence: `? ... ?` (implementation-defined)
+#let special-sequence(content) = _wrap-op("?", "?", content)
 
-/// Comment: `(* text *)`
-#let ebnf-comment(content) = context {
+/// Comment: `(* ... *)` (inline documentation)
+#let comment(content) = context {
   let state = _ebnf-state.get()
   _styled(state.colors.at("comment", default: none), [(\* #content \*)])
 }
 
-/// Empty/epsilon: `ε`
-#let empty = context {
+/// Empty sequence (epsilon): represents an empty production
+#let empty-sequence = context {
   let state = _ebnf-state.get()
   set text(font: state.mono-font) if state.mono-font != none
-  _styled(state.colors.at("terminal", default: none), "ε")
+  _styled(state.colors.at("operator", default: none), "ε")
 }
 
-/// Alternative in a production with optional comment
-#let alt(var, comment) = (var, comment)
+/// Definitions list: alternative in a production with optional comment
+#let definitions-list(var, comment) = (var, comment)
 
-/// Production rule
-#let prod(lhs, delim: auto, ..rhs) = {
+/// Syntax rule: production rule
+#let syntax-rule(lhs, delim: auto, ..rhs) = {
   (lhs, delim, rhs.pos().flatten().chunks(2).map(c => (c.at(0), c.at(1, default: none))))
 }
 
-/// Renders an EBNF grammar as a formatted grid.
+/// Syntax: renders an EBNF grammar as a formatted grid.
 ///
 /// The grammar is displayed as a 4-column table with columns for:
 /// left-hand side (LHS), delimiter, right-hand side (RHS), and comments.
@@ -219,9 +221,9 @@
 /// - production-spacing (length): Extra vertical space between productions. Default: `0.5em`.
 /// - column-gap (length): Horizontal spacing between grid columns. Default: `0.75em`.
 /// - row-gap (length): Vertical spacing between grid rows. Default: `0.5em`.
-/// - body (prod): One or more production rules created with `prod()`.
+/// - body (syntax-rule): One or more production rules created with `syntax-rule()`.
 /// -> content
-#let ebnf(
+#let syntax(
   mono-font: none,
   colors: colors-colorful,
   production-spacing: _production-spacing,
