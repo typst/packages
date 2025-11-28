@@ -1,9 +1,10 @@
 # neural-netz
 Visualize Neural Network Architectures in high-quality diagrams in [Typst](https://typst.app), with style and API inspired by [PlotNeuralNet](https://github.com/HarisIqbal88/PlotNeuralNet).
 
-<img src="https://github.com/edgaremy/neural-netz/blob/main/gallery/features/FCN-8(cold).png?raw=true" align="center">
-<img src="https://github.com/edgaremy/neural-netz/blob/main/gallery/networks/FCN-8.png?raw=true" align="center">
-
+<p align="center">
+<img src="gallery/features/FCN-8(cold).png" alt="Example of Neural Net visualizaiton with cold color palette" width="750px"/>
+<img src="gallery/networks/FCN-8.png" alt="Example of Neural Net visualizaiton with warm color palette" width="750px"/>
+</p>
 
 Under the hood, this package only uses the native Typst package [CeTZ](https://typst.app/universe/package/cetz/) for building the diagrams.
 
@@ -42,7 +43,9 @@ Here are a few simple features for getting started.
     (type: "conv", widths: (1, 1), offset: 3) // you can offset layers
 ))
 ```
-<img src="https://github.com/edgaremy/neural-netz/blob/main/gallery/features/basic-layout.png?raw=true" width="300" align="center">
+<p align="center">
+<img src="gallery/features/basic-layout.png" alt="Basic layout example" width="350px"/>
+</p>
 
 ### Dimensions and labels
 
@@ -72,7 +75,9 @@ Here are a few simple features for getting started.
     )
 ))
 ```
-<img src="https://github.com/edgaremy/neural-netz/blob/main/gallery/features/dimensions-labels.png?raw=true" width="300" align="center">
+<p align="center">
+<img src="gallery/features/dimensions-labels.png" alt="Dimensions and labels example" width="350"/>
+</p>
 
 Additionally, if you network does not fit the page width of your Typst document, you can reduce the scale by giving `scale: 50%` as argument of `draw-network`
 
@@ -95,28 +100,30 @@ palette: "cold", // There is a "warm" and a "cold" color palette.
 show-relu: true // visualize relu using darker color on convolution layers
 )
 ```
-<img src="https://github.com/edgaremy/neural-netz/blob/main/gallery/features/connexions.png?raw=true" width="300" align="center">
-
+<p align="center">
+<img src="gallery/features/connexions.png" alt="Adding connexions example" width="350"/>
+</p>
 
 # Examples
-Here are a few network architectures implemented with neural-netz (more examples can be found [in the repo](https://github.com/edgaremy/neural-netz/blob/main/examples/networks)).
+Here are a few network architectures implemented with neural-netz (more examples can be found [in the repo](examples/networks)).
 
-### ResNet18
-<img src="https://github.com/edgaremy/neural-netz/blob/main/gallery/networks/ResNet18.png?raw=true" width="500" align="center">
+<h3 style="text-align: center;">ResNet18</h3>
+<p align="center">
+<img src="gallery/networks/ResNet18.png" alt="ResNet18 visualization" width="500"/>
+</p>
+<p style="text-align: center;"><a href="examples/networks/ResNet18.typ">code for this image</a></p>
 
-[code for this image](https://github.com/edgaremy/neural-netz/blob/main/examples/networks/ResNet18.typ)
+<h3 style="text-align: center;">U-Net</h3>
+<p align="center">
+<img src="gallery/networks/U-Net.png" alt="U-Net visualization" width="500"/>
+</p>
+<p style="text-align: center;"><a href="examples/networks/U-Net.typ">code for this image</a></p>
 
-### U-Net
-
-<img src="https://github.com/edgaremy/neural-netz/blob/main/gallery/networks/U-Net.png?raw=true" width="500" align="center">
-
-[code for this image](https://github.com/edgaremy/neural-netz/blob/main/examples/networks/U-Net.typ)
-
-### FCN-8
-
-<img src="https://github.com/edgaremy/neural-netz/blob/main/gallery/networks/FCN-8.png?raw=true" width="500" align="center">
-
-[code for this image](https://github.com/edgaremy/neural-netz/blob/main/examples/networks/FCN-8.typ)
+<h3 style="text-align: center;">FCN-8</h3>
+<p align="center">
+<img src="gallery/networks/FCN-8.png" alt="FCN-8 visualization" width="500"/>
+</p>
+<p style="text-align: center;"><a href="examples/networks/FCN-8.typ">code for this image</a></p>
 
 
 # Acknowledgements
