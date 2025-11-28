@@ -1,0 +1,13 @@
+[package]
+name = "nutthead-ebnf"
+description = "A simple package to render Extended Backus-Naur Form (EBNF) grammars with customizable fonts and color schemes."
+version = "0.1.0"
+entrypoint = "ebnf.typ"
+authors = ["Behrang Saeedzadeh <https://github.com/behrangsa>"]
+homepage = "https://github.com/nutthead/ebnf.typ"
+repository = "https://github.com/nutthead/ebnf.typ"
+keywords = ["bnf", "ebnf", "grammar"]
+categories = ["components", "visualization"]
+disciplines = ["computer-science"]
+exclude = ["/examples/*"]
+license = "MIT"
