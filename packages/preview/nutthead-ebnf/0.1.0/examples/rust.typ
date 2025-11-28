@@ -1,48 +1,47 @@
 #import "../ebnf.typ": *
 #set page(width: auto, height: auto, margin: .5cm, fill: white)
 
-// Rust grammar example with custom fonts (uses default colorful scheme)
+// Rust grammar example with custom font (uses default colorful scheme)
 #ebnf(
   mono-font: "JetBrains Mono",
-  body-font: "DejaVu Serif",
-  Prod(
-    N[Function],
+  prod(
+    n[Function],
     {
-      Or[#Opt[#T[pub]] #T[fn] #N[Ident] #Opt[#N[Generics]] #T[\(] #Opt[#N[Params]] #T[\)] #Opt[#N[ReturnType]] #N[Block]][function definition]
+      alt[#opt[#t[pub]] #t[fn] #n[Ident] #opt[#n[Generics]] #t[\(] #opt[#n[Params]] #t[\)] #opt[#n[ReturnType]] #n[Block]][function definition]
     },
   ),
-  Prod(
-    N[Generics],
+  prod(
+    n[Generics],
     {
-      Or[#T[\<] #N[GenericParam] #Rep[#T[,] #N[GenericParam]] #T[\>]][generic parameters]
+      alt[#t[\<] #n[GenericParam] #rep[#t[,] #n[GenericParam]] #t[\>]][generic parameters]
     },
   ),
-  Prod(N[GenericParam], {
-    Or[#N[Ident] #Opt[#T[:] #N[Bounds]]][type parameter]
-    Or[#N[Lifetime]][lifetime parameter]
+  prod(n[GenericParam], {
+    alt[#n[Ident] #opt[#t[:] #n[Bounds]]][type parameter]
+    alt[#n[Lifetime]][lifetime parameter]
   }),
-  Prod(N[Bounds], {
-    Or[#N[Bound] #Rep[#T[+] #N[Bound]]][trait bounds]
+  prod(n[Bounds], {
+    alt[#n[Bound] #rep[#t[+] #n[Bound]]][trait bounds]
   }),
-  Prod(N[ReturnType], {
-    Or[#T[\-\>] #N[Type]][return type]
+  prod(n[ReturnType], {
+    alt[#t[\-\>] #n[Type]][return type]
   }),
-  Prod(N[Type], {
-    Or[#N[Ident] #Opt[#N[Generics]]][named type]
-    Or[#T[&] #Opt[#N[Lifetime]] #Opt[#T[mut]] #N[Type]][reference type]
-    Or[#T[\[] #N[Type] #T[\]]][slice type]
-    Or[#Grp[#T[\(] #N[Type] #Rep[#T[,] #N[Type]] #T[\)]]][tuple type]
+  prod(n[Type], {
+    alt[#n[Ident] #opt[#n[Generics]]][named type]
+    alt[#t[&] #opt[#n[Lifetime]] #opt[#t[mut]] #n[Type]][reference type]
+    alt[#t[\[] #n[Type] #t[\]]][slice type]
+    alt[#grp[#t[\(] #n[Type] #rep[#t[,] #n[Type]] #t[\)]]][tuple type]
   }),
-  Prod(N[Lifetime], {
-    Or[#T[\'] #N[Ident]][lifetime]
+  prod(n[Lifetime], {
+    alt[#t[\'] #n[Ident]][lifetime]
   }),
-  Prod(
-    N[Struct],
+  prod(
+    n[Struct],
     {
-      Or[#Opt[#T[pub]] #T[struct] #N[Ident] #Opt[#N[Generics]] #T[\{] #Rep[#N[Field]] #T[\}]][struct definition]
+      alt[#opt[#t[pub]] #t[struct] #n[Ident] #opt[#n[Generics]] #t[\{] #rep[#n[Field]] #t[\}]][struct definition]
     },
   ),
-  Prod(N[Field], {
-    Or[#Opt[#T[pub]] #N[Ident] #T[:] #N[Type] #Opt[#T[,]]][field]
+  prod(n[Field], {
+    alt[#opt[#t[pub]] #n[Ident] #t[:] #n[Type] #opt[#t[,]]][field]
   }),
 )
