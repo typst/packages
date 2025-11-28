@@ -1,4 +1,5 @@
-#import "../ebnf.typ": *
+#import "@preview/nutthead-ebnf:0.1.0": *
+
 #set page(width: auto, height: auto, margin: .5cm, fill: white)
 
 // Java grammar example with custom font

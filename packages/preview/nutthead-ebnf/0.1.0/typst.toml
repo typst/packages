@@ -4,7 +4,6 @@ description = "A simple package to render Extended Backus-Naur Form (EBNF) gramm
 version = "0.1.0"
 entrypoint = "ebnf.typ"
 authors = ["Behrang Saeedzadeh <https://github.com/behrangsa>"]
-homepage = "https://github.com/nutthead/nutthead-ebnf.typ"
 repository = "https://github.com/nutthead/nutthead-ebnf.typ"
 keywords = ["bnf", "ebnf", "grammar"]
 categories = ["components", "visualization"]

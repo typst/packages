@@ -48,13 +48,11 @@
   text(fill: color, content)
 } else { content }
 
-#let _wrap-op(left, right, content, suffix: none) = context {
+#let _wrap-op(left, right, content) = context {
   let state = _ebnf-state.get()
   let c = state.colors.at("operator", default: none)
   set text(font: state.mono-font) if state.mono-font != none
-  if suffix != none {
-    [#_styled(c, left)#content#_styled(c, right)#_styled(c, suffix)]
-  } else { [#_styled(c, left)#content#_styled(c, right)] }
+  [#_styled(c, left)#content#_styled(c, right)]
 }
 
 #let _colorize(role, content) = context {
@@ -145,9 +143,6 @@
 /// Repetition (zero or more): `{content}`
 #let rep(content) = _wrap-op("{", "}", content)
 
-/// Repetition (one or more): `{content}+`
-#let rep-1(content) = _wrap-op("{", "}", content, suffix: "+")
-
 /// Grouping: `(content)`
 #let grp(content) = _wrap-op("(", ")", content)
 
@@ -163,13 +158,6 @@
   let state = _ebnf-state.get()
   set text(font: state.mono-font) if state.mono-font != none
   _styled(state.colors.at("nonterminal", default: none), emph(content))
-}
-
-/// Non-terminal in angle brackets: `⟨content⟩`
-#let nt(content) = context {
-  let state = _ebnf-state.get()
-  set text(font: state.mono-font) if state.mono-font != none
-  _styled(state.colors.at("nonterminal", default: none), [⟨#emph(content)⟩])
 }
 
 /// Exception: `a - b` (a except b)

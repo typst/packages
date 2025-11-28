@@ -2,7 +2,13 @@
 
 A Typst package for rendering Extended Backus-Naur Form (EBNF) grammars with customizable fonts and color schemes. Fully compliant with ISO 14977.
 
-![Rust grammar example](examples/rust.svg)
+## Java Grammar Example
+
+![Java grammar example](examples/java.svg)
+
+## ISO 14977 Grammar Example
+
+![ISO 14977 grammar example](examples/iso-14977.svg)
 
 ## Usage
 
@@ -14,13 +20,13 @@ A Typst package for rendering Extended Backus-Naur Form (EBNF) grammars with cus
   prod(
     n[Expression],
     {
-      alt[#n[Term] #rep[#t[+] #n[Term]]][arithmetic expression]
+      alt[#n[Term] #rep[#t[\+] #n[Term]]][arithmetic expression]
     },
   ),
   prod(
     n[Term],
     {
-      alt[#n[Factor] #rep[#t[*] #n[Factor]]][multiplication]
+      alt[#n[Factor] #rep[#t[\*] #n[Factor]]][multiplication]
     },
   ),
 )
@@ -66,26 +72,19 @@ alt[#t[another]][]  // Empty comment renders nothing
 
 ### Symbol Functions
 
-| Function     | Description                      | Example                  |
-| ------------ | -------------------------------- | ------------------------ |
-| `t[...]`     | Terminal symbol                  | `t[if]`                  |
-| `n[...]`     | Non-terminal reference (italic)  | `n[Expr]`                |
-| `nt[...]`    | Non-terminal with angle brackets | `nt[digit]` → ⟨_digit_⟩  |
-| `opt[...]`   | Optional: `[content]`            | `opt[#t[else]]`          |
-| `rep[...]`   | Zero or more: `{content}`        | `rep[#n[Stmt]]`          |
-| `rep-1[...]` | One or more: `{content}+`        | `rep-1[#t[a]]`           |
-| `grp[...]`   | Grouping: `(content)`            | `grp[#t[a] #t[b]]`       |
-
-### ISO 14977 Functions
-
-| Function              | Description                     | Example                          |
-| --------------------- | ------------------------------- | -------------------------------- |
-| `exc(a, b)`           | Exception: `a − b` (a except b) | `exc(n[letter], t[x])`           |
-| `seq(...)`            | Concatenation: `a , b , c`      | `seq(t[a], t[b], t[c])`          |
-| `times(n, x)`         | Repetition count: `n ∗ x`       | `times(3, t[a])`                 |
-| `special[...]`        | Special sequence: `? ... ?`     | `special[any character]`         |
-| `ebnf-comment[...]`   | Inline comment: `(* ... *)`     | `ebnf-comment[see 4.2]`          |
-| `empty`               | Empty/epsilon: `ε`              | `alt[#empty][empty production]`  |
+| Function            | Description                     | Example                         |
+| ------------------- | ------------------------------- | ------------------------------- |
+| `t[...]`            | Terminal symbol                 | `t[if]`                         |
+| `n[...]`            | Non-terminal reference (italic) | `n[Expr]`                       |
+| `opt[...]`          | Optional: `[content]`           | `opt[#t[else]]`                 |
+| `rep[...]`          | Repetition: `{content}`         | `rep[#n[Stmt]]`                 |
+| `grp[...]`          | Grouping: `(content)`           | `grp[#t[a] #t[b]]`              |
+| `exc(a, b)`         | Exception: `a − b`              | `exc(n[letter], t[x])`          |
+| `seq(...)`          | Concatenation: `a , b , c`      | `seq(t[a], t[b], t[c])`         |
+| `times(n, x)`       | Repetition count: `n ∗ x`       | `times(3, t[a])`                |
+| `special[...]`      | Special sequence: `? ... ?`     | `special[any character]`        |
+| `ebnf-comment[...]` | Inline comment: `(* ... *)`     | `ebnf-comment[see 4.2]`         |
+| `empty`             | Empty/epsilon: `ε`              | `alt[#empty][empty production]` |
 
 ## Color Schemes
 
@@ -118,7 +117,10 @@ No colors applied (all elements use default text color).
   comment: rgb("#808080"),
 )
 
-#ebnf(colors: my-colors, ...)
+#ebnf(
+  colors: my-colors,
+  prod(n[S], { alt[#t[a] #n[B]][example] }),
+)
 ```
 
 ## Comments
