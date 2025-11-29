@@ -3,15 +3,17 @@
 /// Parameters
 /// - `size` (length): Base dimension for the pattern tile width.
 /// - `angle` (angle): Angle of the stripes, must be between 0deg and 90deg (exclusive).
+/// - `mirror` (bool): If true, horizontally flips the stripe direction.
 /// - `thickness` (length): Absolute thickness of each stripe. Ignored if `thickness-ratio` is set.
 /// - `thickness-ratio` (ratio | none): Stripe thickness as a percentage of the stripe pair width.
 ///   Must be between 0% and 100% (exclusive). Overrides `thickness` if provided.
 /// - `stripe-color` (color): Fill color of the stripes.
 /// - `background-color` (color): Fill color of the background.
 /// - `stripe-stroke` (stroke | none): Optional stroke applied to stripe edges.
+/// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
-/// - `size: 5pt` · `angle: 45deg` · `thickness: 1pt`
+/// - `size: 5pt` · `angle: 45deg` · `mirror: false` · `thickness: 1pt`
 /// - `thickness-ratio: none` · `stripe-color: black` · `background-color: white`
 /// - `stripe-stroke: none`
 ///
@@ -31,14 +33,17 @@
 /// Notes
 /// - The pattern tiles seamlessly at the specified angle.
 /// - Use `thickness-ratio` for proportional stripe widths relative to spacing.
+/// - Set `mirror: true` to flip stripes from bottom-left to top-right direction.
 #let diagonal-stripes(
   size: 5pt,
   angle: 45deg,
+  mirror: false,
   thickness: 1pt,
   thickness-ratio: none,
   stripe-color: black,
   background-color: white,
   stripe-stroke: none,
+  ..tiling-arguments,
 ) = {
   assert(0deg < angle and angle < 90deg, message: "Angle must be between 0deg and 90deg.")
   let width = size
@@ -57,6 +62,15 @@
     ((-1, 0), (1, 2)),
     ((0, -1), (2, 1)),
   )
+  // Mirror the paths if needed (flip x-coordinates)
+  let stripe-paths = if mirror {
+    stripe-paths.map(path => {
+      let ((x1, y1), (x2, y2)) = path
+      ((1 - x1, y1), (1 - x2, y2))
+    })
+  } else {
+    stripe-paths
+  }
   let to-abs = pos => {
     let (px, py) = pos
     (px * width, py * height)
@@ -82,9 +96,10 @@
       (ex + offset-x, ey + offset-y),
     )
   }
+  
   // Create a tiling pattern with diagonal stripes
   // The pattern consists of lines at the specified angle, repeated across the tile
-  tiling(size: tile-size)[
+  tiling(size: tile-size, ..tiling-arguments)[
     #place(block(
       width: 100%,
       height: 100%,
@@ -106,6 +121,7 @@
 /// - `stripe-color` (color): Fill color of the stripes.
 /// - `background-color` (color): Fill color of the background.
 /// - `stripe-stroke` (stroke | none): Optional stroke applied to stripe edges.
+/// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
 /// - `size: 5pt` · `orientation: "vertical"` · `thickness-ratio: 50%`
@@ -131,6 +147,7 @@
   stripe-color: black,
   background-color: white,
   stripe-stroke: none,
+  ..tiling-arguments,
 ) = {
   assert(
     orientation == "vertical" or orientation == "horizontal",
@@ -159,7 +176,7 @@
     )
   }
   let line-positions = (0%, stripe-span, 100%)
-  tiling(size: tile-size)[
+  tiling(size: tile-size, ..tiling-arguments)[
     #place(block(
       width: 100%,
       height: 100%,
@@ -194,6 +211,7 @@
 /// - `cell-color` (color): Fill color of the diamond-shaped cells.
 /// - `background-color` (color): Fill color of the background.
 /// - `cell-stroke` (stroke | none): Optional stroke applied to cell edges.
+/// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
 /// - `width: 5pt` · `height: 5pt`
@@ -220,10 +238,11 @@
   cell-color: black,
   background-color: white,
   cell-stroke: none,
+  ..tiling-arguments,
 ) = {
   assert(width > 0pt and height > 0pt, message: "Dimensions must be positive.")
   let tile-size = (width, height)
-  tiling(size: tile-size)[
+  tiling(size: tile-size, ..tiling-arguments)[
     #place(block(
       width: 100%,
       height: 100%,
@@ -248,6 +267,7 @@
 /// - `cell-color` (color): Fill color of the alternating cells.
 /// - `background-color` (color): Fill color of the background cells.
 /// - `cell-stroke` (stroke | none): Optional stroke applied to cell edges.
+/// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
 /// - `width: 5pt` · `height: 5pt`
@@ -275,10 +295,11 @@
   cell-color: black,
   background-color: white,
   cell-stroke: none,
+  ..tiling-arguments,
 ) = {
   assert(width > 0pt and height > 0pt, message: "Dimensions must be positive.")
   let tile-size = (width, height)
-  tiling(size: tile-size)[
+  tiling(size: tile-size, ..tiling-arguments)[
     #place(block(
       width: 100%,
       height: 100%,
@@ -311,6 +332,7 @@
 /// - `orientation` (string): Hexagon orientation, either `"flat"` (flat top) or `"pointy"` (pointed top).
 /// - `background-color` (color): Fill color of the background.
 /// - `cell-stroke` (stroke): Stroke applied to hexagon edges.
+/// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
 /// - `radius: 5pt` · `orientation: "flat"`
@@ -336,6 +358,7 @@
   orientation: "flat",
   background-color: white,
   cell-stroke: 2pt + black,
+  ..tiling-arguments,
 ) = {
   assert(radius > 0pt, message: "Radius must be positive.")
   assert(orientation == "flat" or orientation == "pointy", message: "Orientation must be \"flat\" or \"pointy\".")
@@ -385,7 +408,7 @@
       )
     }
   }
-  tiling(size: tile-size)[
+  tiling(size: tile-size, ..tiling-arguments)[
     #place(block(
       width: 100%,
       height: 100%,
@@ -404,6 +427,7 @@
 /// - `orientation` (string): Hexagon orientation, either `"flat"` (flat top) or `"pointy"` (pointed top).
 /// - `background-color` (color): Fill color of the background.
 /// - `content` (content | none): Content to place at each hexagon center.
+/// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
 /// - `radius: 5pt` · `orientation: "flat"`
@@ -429,6 +453,7 @@
   orientation: "flat",
   background-color: white,
   content: none,
+  ..tiling-arguments,
 ) = {
   assert(radius > 0pt, message: "Radius must be positive.")
   assert(orientation == "flat" or orientation == "pointy", message: "Orientation must be \"flat\" or \"pointy\".")
@@ -456,7 +481,7 @@
       (half-w, height),
     )
   }
-  tiling(size: tile-size)[
+  tiling(size: tile-size, ..tiling-arguments)[
     #place(block(
       width: 100%,
       height: 100%,
@@ -479,6 +504,7 @@
 /// - `height` (length): Vertical dimension of each grid cell.
 /// - `background-color` (color): Fill color of each cell.
 /// - `content` (content | none): Content to place centered in each cell.
+/// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
 /// - `width: 5pt` · `height: 5pt`
@@ -504,10 +530,11 @@
   height: 5pt,
   background-color: white,
   content: none,
+  ..tiling-arguments,
 ) = {
   assert(width > 0pt and height > 0pt, message: "Dimensions must be positive.")
   let tile-size = (width, height)
-  tiling(size: tile-size)[
+  tiling(size: tile-size, ..tiling-arguments)[
     #set align(center + horizon)
     #block(
       width: 100%,
@@ -528,6 +555,7 @@
 /// - `color-a` (color): Fill color of odd-indexed triangles.
 /// - `color-b` (color): Fill color of even-indexed triangles.
 /// - `cell-stroke` (stroke | none): Optional stroke applied to triangle edges.
+/// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
 /// - `radius: 5pt` · `orientation: "flat"`
@@ -556,6 +584,7 @@
   color-a: black,
   color-b: gray,
   cell-stroke: none,
+  ..tiling-arguments,
 ) = {
   assert(radius > 0pt, message: "Radius must be positive.")
   assert(orientation == "flat" or orientation == "pointy", message: "Orientation must be \"flat\" or \"pointy\".")
@@ -624,7 +653,7 @@
     }
     triangles
   }
-  tiling(size: tile-size)[
+  tiling(size: tile-size, ..tiling-arguments)[
     #place(block(
       width: 100%,
       height: 100%,
@@ -648,6 +677,7 @@
 /// - `color-left` (color): Fill color of the left face of each cube.
 /// - `color-right` (color): Fill color of the right face of each cube.
 /// - `cell-stroke` (stroke | none): Optional stroke applied to rhombus edges.
+/// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
 /// - `radius: 5pt` · `orientation: "flat"`
@@ -679,6 +709,7 @@
   color-left: gray,
   color-right: black,
   cell-stroke: none,
+  ..tiling-arguments,
 ) = {
   assert(radius > 0pt, message: "Radius must be positive.")
   assert(orientation == "flat" or orientation == "pointy", message: "Orientation must be \"flat\" or \"pointy\".")
@@ -745,7 +776,7 @@
       )
     }
   }
-  tiling(size: tile-size)[
+  tiling(size: tile-size, ..tiling-arguments)[
     #place(block(
       width: 100%,
       height: 100%,
@@ -770,6 +801,7 @@
 /// - `stripe-color` (color): Fill color of the chevron stripes.
 /// - `background-color` (color): Fill color of the background.
 /// - `stripe-stroke` (stroke | none): Optional stroke applied to chevron edges.
+/// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
 /// - `width: 50pt` · `height: 30pt` · `thickness: 3pt` · `spacing: 10pt`
@@ -803,6 +835,7 @@
   stripe-color: black,
   background-color: white,
   stripe-stroke: none,
+  ..tiling-arguments,
 ) = {
   assert(width > 0pt, message: "Width must be positive.")
   assert(height > 0pt, message: "Height must be positive.")
@@ -876,7 +909,7 @@
     }
   }
   let tile-size = if orientation == "vertical" { (width, height) } else { (height, width) }
-  tiling(size: tile-size)[
+  tiling(size: tile-size, ..tiling-arguments)[
     #if orientation == "horizontal" {
       rotate(90deg, origin: center + bottom, reflow: false, inner-content)
     } else {

@@ -6,4 +6,4 @@ authors = ["Daniel Ayala"]
 license = "MIT-0"
 description = "Tiling patterns for fills: stripes, checkerboards, honeycombs, and more"
 categories = ["components", "visualization", "fun"]
-exclude = ["examples1.svg", "examples2.svg", "examples3.svg"]
+exclude = ["examples1.svg", "examples2.svg", "examples3.svg", "examples4.svg"]
