@@ -27,30 +27,11 @@ typst init @preview/gakusyun-doc:1.0.0
 
 模板已经预配置了常用的设置，您可以直接开始编写内容：
 
-```typst
-#import "@preview/gakusyun-doc:1.0.0": docu, en
-
-#show: docu.with(
-  title: "我的文档标题",
-  author: "作者姓名",
-)
-
-= 第一章
-
-这是正文内容...
-
-#en("This is English text.")
-
-= 第二章
-
-继续编写您的内容...
-```
-
 ### 自定义配置
 
 您可以修改以下参数来自定义模板：
 
-```typst
+```
 #show: docu.with(
   title: "文档标题",
   author: ("作者1", "作者2"),
@@ -103,7 +84,7 @@ typst init @preview/gakusyun-doc:1.0.0
 
 对于英文内容，建议使用 `#en()` 函数：
 
-```typst
+```
 #en("This is English text with proper formatting.")
 ```
 
@@ -113,7 +94,7 @@ typst init @preview/gakusyun-doc:1.0.0
 
 ### 超链接
 
-```typst
+```
 #link("https://example.com")[链接文本]
 ```
 
@@ -121,21 +102,18 @@ typst init @preview/gakusyun-doc:1.0.0
 
 ### 代码显示
 
-```typst
-// 行内代码
-这是一个 `inline code` 示例
+使用反引号显示 `inline code`，或者使用代码块：
 
-// 代码块
-```typst
-let example = "Hello, Typst!"
 ```
+// 这是一个代码块示例
+let example = "Hello, Typst"
 ```
 
 ### 多级标题
 
 模板支持多级标题：
 
-```typst
+```
 = 一级标题
 == 二级标题
 === 三级标题
@@ -176,9 +154,9 @@ let example = "Hello, Typst!"
 3. 提交更改
 4. 创建 Pull Request
 
-== 更新日志
+## 更新日志
 
-==# v1.0.0
+### v1.0.0
 - 初始版本发布
 - 支持中英文混排
 - 基本文档模板功能
