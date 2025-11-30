@@ -12,7 +12,6 @@ Access High quality [Simple Icons](https://simpleicons.org) SVGs from Typst.
 
 </div>
 
-> [!NOTE]
 > Since the compiled WASM module is relatively large (~5 MB), this package is only updated with new major releases of Simple Icons.
 
 ## Usage
