@@ -17,6 +17,10 @@
   bibliography: bibliography("sources.bib"),
 )
 
+
+// Remove after reading
+#include "example_usage.typ"
+
 = Introduction
 
 You can use an #gls("api") to retrieve data@balzert_lehrbuch_2011
