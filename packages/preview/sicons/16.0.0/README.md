@@ -34,7 +34,7 @@ Parameters:
 # Example
 
 ```typst
-#import "@preview/sicons:15.13.0": *
+#import "@preview/sicons:16.0.0": *
 
 = typst sicons package Example
 
