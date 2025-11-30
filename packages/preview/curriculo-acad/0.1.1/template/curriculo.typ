@@ -1,5 +1,5 @@
 // import of libraries
-#import "@local/curriculo-acad:0.1.1": *
+#import "@preview/curriculo-acad:0.1.1": *
 
 // criando banco de dados
 #let dados = toml("data/exemplo.toml")

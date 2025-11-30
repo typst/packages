@@ -40,7 +40,7 @@ A estrutura do arquivo principal é bastante simples. Você só precisa indicar 
   database: "data/lattes.toml",
   kind: "completo",
   me: "PESSOA",
-  date: datetime.today()
+  date: datetime.today(),
   last_page: true
 )     
 ```
@@ -268,7 +268,7 @@ The structure of the main file is quite simple. You only need to specify which v
   database: "data/lattes.toml",
   kind: "completo",
   me: "PESSOA",
-  date: datetime.today()
+  date: datetime.today(),
   last_page: true
 )     
 ```
