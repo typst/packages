@@ -49,7 +49,6 @@
   ]
 
   align(bottom + center)[
-    // #text(custom-date-format(date, pattern: "full", lang: "fr"))
     #smallcaps[#get-month-name(datetime.today().month(), lang: "pt", usage: "format") de #datetime.today().year()]
   ]
 
