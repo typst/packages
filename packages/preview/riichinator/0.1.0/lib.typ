@@ -1,108 +1,133 @@
-#let INLINE_TILE_HEIGHT = 2em
-#let TILE_RATIO = 29 / 40 // empirically calculated
+#let INLINE-TILE-HEIGHT = 2em
+#let TILE-RATIO = 29 / 40 // empirically calculated
+#let red = rgb("#B83D3C")
+#let TILE-BG = rgb("f5f0eb")
+#let TILE-COVER = rgb("C7AB90")
+#let TILE-OUTLINE = rgb("#efdecd")
 
 #let tile(
-  tile_name,
-  tile_height: INLINE_TILE_HEIGHT,
+  tile-name,
+  tile-height: INLINE-TILE-HEIGHT,
   rotation: 0deg,
 ) = {
   // spacing between tiles
-  if tile_name == "-" {
-    return box(height: tile_height, width: tile_height / 7)
+  if tile-name == "-" {
+    let tile-width = tile-height * TILE-RATIO
+    return box(height: tile-height, width: tile-width / 4)
   }
-  let base_tile = none
+  let base-tile = none
   // flipped tile
-  if tile_name == "0z" {
-    base_tile = box(
-      fill: rgb("C7AB90"),
-      stroke: 0.5pt + rgb("#efdecd"),
-      height: tile_height,
-      width: TILE_RATIO * tile_height,
+  if tile-name == "0z" {
+    base-tile = box(
+      fill: TILE-COVER,
+      stroke: 0.5pt + TILE-OUTLINE,
+      height: tile-height,
+      width: TILE-RATIO * tile-height,
       radius: 0.25em,
-      baseline: 2em / 2 - 0.5em, // box height / 2 - text height / 2,
-      inset: (x: 2.5 / 100 * tile_height, y: 5 / 100 * tile_height),
+      // baseline: tile-height / 2 - 0.5em, // box height / 2 - text height / 2,
+      inset: (x: 2.5 / 100 * tile-height, y: 5 / 100 * tile-height),
     )
   } else {
     // TODO: input validation
-    let file_name = ""
-    if "m" in tile_name {
-      file_name = "Man" + tile_name.first()
-    } else if "p" in tile_name {
-      file_name = "Pin" + tile_name.first()
-    } else if "s" in tile_name {
-      file_name = "Sou" + tile_name.first()
-    } else if "z" in tile_name {
-      if tile_name.first() == "1" { file_name = "Ton" } else if (
-        tile_name.first() == "2"
-      ) { file_name = "Nan" } else if tile_name.first() == "3" {
-        file_name = "Shaa"
-      } else if tile_name.first() == "4" { file_name = "Pei" } else if (
-        tile_name.first() == "5"
-      ) { file_name = "Haku" } else if tile_name.first() == "6" {
-        file_name = "Hatsu"
-      } else if tile_name.first() == "7" { file_name = "Chun" }
-    }
-    base_tile = box(
-      fill: rgb("f5f0eb"),
-      image("assets/" + file_name + ".svg", height: 9 / 10 * tile_height),
-      stroke: 0.5pt + rgb("#efdecd"),
+    base-tile = box(
+      fill: TILE-BG,
+      image("assets/" + tile-name + ".svg", height: 9 / 10 * tile-height),
+      stroke: 0.5pt + TILE-OUTLINE,
       radius: 0.25em,
-      inset: (x: 2.5 / 100 * tile_height, y: 5 / 100 * tile_height),
+      inset: (x: 2.5 / 100 * tile-height, y: 5 / 100 * tile-height),
     )
   }
   return box(
-    rotate(rotation, base_tile, reflow: true),
-    baseline: tile_height / 2 - 0.35em, // idk it just looks the most correct
+    rotate(rotation, base-tile, reflow: true),
+    // baseline: tile-height / 2 - 0.35em, // idk it just looks the most correct
     // TODO: adjust for parent element's font size
   )
 }
 
-#let parse_notation(notation, tile_height: INLINE_TILE_HEIGHT) = {
-  // TODO: add extended kan (w/ red five functionality)
+#let parse-notation(notation, tile-height: INLINE-TILE-HEIGHT) = {
+  // e.g. 13 = 13 blank tiles
+  if type(notation) == int {
+    notation = "0" * notation + "z"
+  }
   let tiles = ()
-  let current_numbers = ()
+  let current-numbers = ()
   let modifiers = ()
   for chr in notation {
     if chr >= "0" and chr <= "9" {
-      current_numbers.push(chr)
+      current-numbers.push(chr)
       modifiers.push("")
     } else if chr == "'" {
-      let previous_modifier = modifiers.pop()
-      modifiers.push(previous_modifier + "r")
+      let previous-modifier = modifiers.pop()
+      modifiers.push(previous-modifier + "r")
+    } else if chr == "\"" {
+      // added/extended kan handling
+      // combines the two rotated tiles into 1 object so "888\"8m" -> current-numbers = ("8", "88", "8"), modifiers = ("", "k", "")
+      assert(
+        current-numbers.len() >= 2,
+        message: "error when processing added/extended kan. The proper usage is 11\"11s, 888\"8m or 3333\"z",
+      )
+
+      let previous-number = current-numbers.pop()
+      let previous-previous-number = current-numbers.pop()
+      current-numbers.push(previous-previous-number + previous-number)
+
+      let previous-modifier = modifiers.pop()
+      let previous-previous-modifier = modifiers.pop()
+      modifiers.push(previous-modifier + "k")
     } else if chr == "m" or chr == "p" or chr == "s" or chr == "z" {
-      // this is where we take all of current_numbers and turn them into tiles
-      for (i, num) in current_numbers.enumerate() {
+      // this is where we take all of current-numbers and turn them into tiles
+      for (i, num) in current-numbers.enumerate() {
         let modifier = modifiers.at(i)
+        // added/extended kan handling
+        if "k" in modifier {
+          tiles.push(
+            box(
+              height: 2 * tile-height * TILE-RATIO,
+              rotate(
+                -90deg,
+                reflow: true,
+                (
+                  tile(num.at(0) + chr, tile-height: tile-height),
+                  tile(num.at(1) + chr, tile-height: tile-height),
+                ).join(),
+              ),
+            ),
+          )
+          continue
+        }
+
         let rotation = 0deg
         if "r" in modifier {
           rotation = -90deg
         }
         tiles.push(tile(
           num + chr,
-          tile_height: tile_height,
+          tile-height: tile-height,
           rotation: rotation,
         ))
       }
       // reset the accumulators
-      current_numbers = ()
+      current-numbers = ()
       modifiers = ()
     } else if chr == "-" {
       // empty space
       tiles.push(tile(
         "-",
-        tile_height: tile_height,
+        tile-height: tile-height,
       ))
     }
   }
   return tiles
 }
 
-#let hand(hand, tile_height: INLINE_TILE_HEIGHT) = {
-  return parse_notation(hand, tile_height: tile_height).join()
+#let hand(hand, tile-height: INLINE-TILE-HEIGHT) = {
+  return parse-notation(hand, tile-height: tile-height).join()
 }
 
-#let river(river, tile_height: INLINE_TILE_HEIGHT) = {
-  let tiles = parse_notation(river, tile_height: tile_height)
+#let river(river, tile-height: INLINE-TILE-HEIGHT) = {
+  let tiles = parse-notation(river, tile-height: tile-height)
+
+
   if tiles.len() > 12 {
     tiles.insert(12, "\n")
   }
@@ -116,7 +141,7 @@
   )
 }
 
-#let riichi_stick(width, height) = {
+#let riichi-stick(width, height) = {
   rect(
     height: height,
     width: width,
@@ -128,7 +153,7 @@
     ),
   )
 }
-#let honba_stick(width, height) = {
+#let honba-stick(width, height) = {
   rect(
     height: height,
     width: width,
@@ -149,151 +174,156 @@
 }
 
 #let board(
-  hands: (
-    "0000000000000z",
-    "0000000000000z",
-    "0000000000000z",
-    "0000000000000z",
-  ),
-  hero_wind: "E",
+  hands: (13, 13, 13, 13),
+  hero-wind: "E",
   discards: ("", "", "", ""),
-  current_round: none,
-  dora_indicators: none,
-  riichied_players: (false, false, false, false),
+  current-round: none,
+  dora-indicators: none,
+  riichied-players: (false, false, false, false),
   scores: none,
   pot: none,
-  use_cjk_wind: false,
-  wind_font: "Arial",
+  use-cjk-wind: false,
+  wind-font: "Arial",
 ) = layout(size => {
-  let MAIN_SIZE = size.width
-  let TILE_HEIGHT = MAIN_SIZE / 15
-  let TILE_WIDTH = TILE_HEIGHT * TILE_RATIO
-  let hands_to_display = hands
+  let MAIN-SIZE = size.width
+  let tile-height = MAIN-SIZE / 15
+  let TILE-WIDTH = tile-height * TILE-RATIO
+  let hands-to-display = hands
   if type(hands) == "string" {
-    hands_to_display = (
+    hands-to-display = (
       hands,
       "0000000000000z",
       "0000000000000z",
       "0000000000000z",
     )
   } else if type(hands) == "array" and hands.len() < 4 {
-    while hands_to_display.len() < 4 {
-      hands_to_display.push("0000000000000z") // hidden hand for the remaining unspecified hands, mainly for robustness
+    while hands-to-display.len() < 4 {
+      hands-to-display.push("0000000000000z") // hidden hand for the remaining unspecified hands, mainly for robustness
     }
   }
 
-  let wind_list = ("E", "S", "W", "N")
-  let hero_index = wind_list.position(wind => wind == hero_wind)
+  let wind-list = ("E", "S", "W", "N")
+  let hero-index = wind-list.position(wind => wind == hero-wind)
 
-  if use_cjk_wind { wind_list = ("東","南","西","北") }
-  // why are indexes so weird in typst
-  let hero_wind = wind_list.at(hero_index)
-  let right_wind = wind_list.at(calc.rem(hero_index + 1, 4))
-  let across_wind = wind_list.at(calc.rem(hero_index + 2, 4))
-  let left_wind = wind_list.at(calc.rem(hero_index + 3, 4))
+  if use-cjk-wind { wind-list = ("東", "南", "西", "北") }
+  let hero-wind = wind-list.at(hero-index)
+  let right-wind = wind-list.at(calc.rem(hero-index + 1, 4))
+  let across-wind = wind-list.at(calc.rem(hero-index + 2, 4))
+  let left-wind = wind-list.at(calc.rem(hero-index + 3, 4))
 
-  let scores_to_display = scores
-  if scores == none { scores_to_display = ("", "", "", "") }
+  let scores-to-display = scores
+  if scores == none { scores-to-display = ("", "", "", "") }
 
-  let CENTRAL_AREA_SIZE = TILE_WIDTH * 6
-  let central_area = grid(
+  let CENTRAL-AREA-SIZE = TILE-WIDTH * 6
+  let central-area = grid(
     columns: (
-      CENTRAL_AREA_SIZE / 8,
-      CENTRAL_AREA_SIZE * 3 / 4,
-      CENTRAL_AREA_SIZE / 8,
+      CENTRAL-AREA-SIZE / 8,
+      CENTRAL-AREA-SIZE * 3 / 4,
+      CENTRAL-AREA-SIZE / 8,
     ),
     rows: (
-      CENTRAL_AREA_SIZE / 8,
-      CENTRAL_AREA_SIZE * 3 / 4,
-      CENTRAL_AREA_SIZE / 8,
+      CENTRAL-AREA-SIZE / 8,
+      CENTRAL-AREA-SIZE * 3 / 4,
+      CENTRAL-AREA-SIZE / 8,
     ),
     box(
-      width: CENTRAL_AREA_SIZE / 8,
-      height: CENTRAL_AREA_SIZE / 8,
+      width: CENTRAL-AREA-SIZE / 8,
+      height: CENTRAL-AREA-SIZE / 8,
       stroke: 1pt,
       inset: 0.25em,
-      fill: if hero_index == 1 { rgb("#B83D3C") },
-      rotate(90deg, text(left_wind, font: "Arial")),
+      fill: if hero-index == 1 { red },
+      rotate(90deg, text(left-wind, font: wind-font)),
     ),
     box(
-      if riichied_players.at(2) {
-        riichi_stick(
-          CENTRAL_AREA_SIZE * 3 / 4 - 1em,
-          CENTRAL_AREA_SIZE / 8 * 2 / 3,
+      if riichied-players.at(2) {
+        riichi-stick(
+          CENTRAL-AREA-SIZE * 3 / 4 - 1em,
+          CENTRAL-AREA-SIZE / 8 * 2 / 3,
         )
       },
     ),
     box(
-      width: CENTRAL_AREA_SIZE / 8,
-      height: CENTRAL_AREA_SIZE / 8,
+      width: CENTRAL-AREA-SIZE / 8,
+      height: CENTRAL-AREA-SIZE / 8,
       stroke: 1pt,
       inset: 0.25em,
-      fill: if hero_index == 2 { rgb("#B83D3C") },
-      rotate(180deg, text(across_wind, font: "Arial")),
+      fill: if hero-index == 2 { red },
+      rotate(180deg, text(across-wind, font: wind-font)),
     ),
 
     box(
-      if riichied_players.at(3) {
-        rotate(90deg, riichi_stick(
-          CENTRAL_AREA_SIZE * 3 / 4 - 1em,
-          CENTRAL_AREA_SIZE / 8 * 2 / 3,
+      if riichied-players.at(3) {
+        rotate(90deg, riichi-stick(
+          CENTRAL-AREA-SIZE * 3 / 4 - 1em,
+          CENTRAL-AREA-SIZE / 8 * 2 / 3,
         ))
       },
     ),
     grid(
-      columns: (1em, CENTRAL_AREA_SIZE * 3 / 4 - 2em, 1em),
-      rows: (1em, CENTRAL_AREA_SIZE * 3 / 4 - 2em, 1em),
-      [], rotate(180deg, text(str(scores_to_display.at(2)))), [],
-      rotate(90deg, text(str(scores_to_display.at(3)))),
+      columns: (1em, CENTRAL-AREA-SIZE * 3 / 4 - 2em, 1em),
+      rows: (1em, CENTRAL-AREA-SIZE * 3 / 4 - 2em, 1em),
+      [], rotate(180deg, text(str(scores-to-display.at(2)))), [],
+      rotate(90deg, text(str(scores-to-display.at(3)))),
       stack(
         spacing: 0.5em,
-        current_round,
-        if dora_indicators != none { hand(dora_indicators, tile_height: 1.5em) },
+        current-round,
+        if dora-indicators != none {
+          hand(dora-indicators, tile-height: 1.5em)
+        },
         if pot != none [
-          #box(baseline: 0.3em, rotate(90deg, reflow: true, riichi_stick(1.5em, 0.5em))) #sym.times #pot.riichi#h(1em)#box(baseline: 0.3em, rotate(90deg, reflow: true, honba_stick(1.5em, 0.5em))) #sym.times #pot.honba
+          #box(baseline: 0.3em, rotate(90deg, reflow: true, riichi-stick(
+            1.5em,
+            0.5em,
+          ))) #sym.times #pot.riichi#h(1em)#box(baseline: 0.3em, rotate(
+            90deg,
+            reflow: true,
+            honba-stick(1.5em, 0.5em),
+          )) #sym.times #pot.honba
         ],
       ),
-      rotate(-90deg, text(str(scores_to_display.at(1)))),
-      [], text(str(scores_to_display.at(0))), [],
+      rotate(-90deg, text(str(scores-to-display.at(1)))),
+
+      [], text(str(scores-to-display.at(0))), [],
     ),
     box(
-      if riichied_players.at(1) {
-        rotate(90deg, riichi_stick(
-          CENTRAL_AREA_SIZE * 3 / 4 - 1em,
-          CENTRAL_AREA_SIZE / 8 * 2 / 3,
+      if riichied-players.at(1) {
+        rotate(90deg, riichi-stick(
+          CENTRAL-AREA-SIZE * 3 / 4 - 1em,
+          CENTRAL-AREA-SIZE / 8 * 2 / 3,
         ))
       },
     ),
+
     box(
-      width: CENTRAL_AREA_SIZE / 8,
-      height: CENTRAL_AREA_SIZE / 8,
+      width: CENTRAL-AREA-SIZE / 8,
+      height: CENTRAL-AREA-SIZE / 8,
       stroke: 1pt,
       inset: 0.25em,
-      fill: if hero_index == 0 { rgb("#B83D3C") },
-      text(hero_wind, font: "Arial"),
+      fill: if hero-index == 0 { red },
+      text(hero-wind, font: wind-font),
     ),
     box(
-      if riichied_players.at(0) {
-        riichi_stick(
-          CENTRAL_AREA_SIZE * 3 / 4 - 1em,
-          CENTRAL_AREA_SIZE / 8 * 2 / 3,
+      if riichied-players.at(0) {
+        riichi-stick(
+          CENTRAL-AREA-SIZE * 3 / 4 - 1em,
+          CENTRAL-AREA-SIZE / 8 * 2 / 3,
         )
       },
     ),
     box(
-      width: CENTRAL_AREA_SIZE / 8,
-      height: CENTRAL_AREA_SIZE / 8,
+      width: CENTRAL-AREA-SIZE / 8,
+      height: CENTRAL-AREA-SIZE / 8,
       stroke: 1pt,
       inset: 0.25em,
-      fill: if hero_index == 3 { rgb("#B83D3C") },
-      rotate(-90deg, text(right_wind, font: "Arial")),
+      fill: if hero-index == 3 { red },
+      rotate(-90deg, text(right-wind, font: wind-font)),
     ),
   )
 
-  let playing_field = grid(
-    columns: (TILE_HEIGHT * 3, CENTRAL_AREA_SIZE, TILE_HEIGHT * 3),
-    rows: (TILE_HEIGHT * 3, CENTRAL_AREA_SIZE, TILE_HEIGHT * 3),
-    gutter: TILE_HEIGHT / 10,
+  let playing-field = grid(
+    columns: (tile-height * 3, CENTRAL-AREA-SIZE, tile-height * 3),
+    rows: (tile-height * 3, CENTRAL-AREA-SIZE, tile-height * 3),
+    gutter: tile-height / 10,
     grid.cell(
       colspan: 2,
       align(
@@ -303,7 +333,7 @@
           reflow: true,
           align(
             left,
-            river(discards.at(2), tile_height: TILE_HEIGHT),
+            river(discards.at(2), tile-height: tile-height),
           ),
         ),
       ),
@@ -318,7 +348,7 @@
           block(
             align(
               left,
-              river(discards.at(1), tile_height: TILE_HEIGHT),
+              river(discards.at(1), tile-height: tile-height),
             ),
           ),
         ),
@@ -334,35 +364,35 @@
           block(
             align(
               left,
-              river(discards.at(3), tile_height: TILE_HEIGHT),
+              river(discards.at(3), tile-height: tile-height),
             ),
           ),
         ),
       ),
     ),
-    block(central_area, stroke: 0.1em),
+    block(central-area, stroke: 0.1em),
     grid.cell(
       colspan: 2,
       align(
         top + left,
-        river(discards.at(0), tile_height: TILE_HEIGHT),
+        river(discards.at(0), tile-height: tile-height),
       ),
     ),
   )
 
   return block(
-    width: MAIN_SIZE,
-    height: MAIN_SIZE,
+    width: MAIN-SIZE,
+    height: MAIN-SIZE,
     stroke: 1pt,
     grid(
-      columns: (MAIN_SIZE / 8, MAIN_SIZE * 3 / 4, MAIN_SIZE / 8),
-      rows: (MAIN_SIZE / 8, MAIN_SIZE * 3 / 4, MAIN_SIZE / 8),
+      columns: (MAIN-SIZE / 8, MAIN-SIZE * 3 / 4, MAIN-SIZE / 8),
+      rows: (MAIN-SIZE / 8, MAIN-SIZE * 3 / 4, MAIN-SIZE / 8),
       [],
       align(
         horizon + center,
         rotate(
           180deg,
-          hand(hands_to_display.at(2), tile_height: TILE_HEIGHT),
+          hand(hands-to-display.at(2), tile-height: tile-height),
           reflow: true,
         ),
       ),
@@ -372,19 +402,19 @@
         horizon + center,
         rotate(
           90deg,
-          hand(hands_to_display.at(3), tile_height: TILE_HEIGHT),
+          hand(hands-to-display.at(3), tile-height: tile-height),
           reflow: true,
         ),
       ),
       align(
         center + horizon,
-        playing_field,
+        playing-field,
       ),
       align(
         horizon + center,
         rotate(
           -90deg,
-          hand(hands_to_display.at(1), tile_height: TILE_HEIGHT),
+          hand(hands-to-display.at(1), tile-height: tile-height),
           reflow: true,
         ),
       ),
@@ -392,7 +422,7 @@
       [],
       align(
         horizon + center,
-        hand(hands_to_display.at(0), tile_height: TILE_HEIGHT),
+        hand(hands-to-display.at(0), tile-height: tile-height),
       ),
     ),
   )

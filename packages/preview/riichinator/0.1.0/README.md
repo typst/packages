@@ -44,7 +44,6 @@ This library also accepts `-` as a small spacer. This is useful for things like 
 ## Future features
 
 ### Tile modifier
-- Allow the display of extended kans
 - Allow for shading of tiles to indicate tsumogiri / tedashi or whatever other purposes
 ### Board state
 - Make the board state more robust to allow for hands with more than 15 tiles
