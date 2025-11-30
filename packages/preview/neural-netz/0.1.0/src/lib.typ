@@ -28,7 +28,7 @@ let colors-warm = (
   convres: rgb("#e681a8"),
   convres-relu: rgb("#ad507e"),
   convsoftmax: rgb("#6A0066"),
-  input: rgb("#FFFFFF"),
+  input: rgb("#f7f1ed"),
   output: rgb("#6A0066"),
   arrow: rgb("#0f4d52"),
   connection: rgb("#0f4d52"),
@@ -50,18 +50,25 @@ let colors-cold = (
   convres: rgb("#8edbd5"),
   convres-relu: rgb("#54adac"),
   convsoftmax: rgb("#4A148C"),
-  input: rgb("#F0F0F0"),
+  input: rgb("#ecebf5"),
   output: rgb("#4A148C"),
   arrow: rgb("#0f4d52"),
   connection: rgb("#0f4d52"),
 )
 
 let strokes = (
-  solid: (paint: black.lighten(20%), thickness: 0.5pt * stroke-thickness),
-  hidden: (paint: gray.darken(50%).transparentize(50%), thickness: 0.4pt * stroke-thickness, dash: (1pt, 0.8pt)),
+  solid: (paint: black.lighten(20%), thickness: 0.65pt * stroke-thickness),
+  hidden: (paint: gray.darken(50%).transparentize(50%), thickness: 0.45pt * stroke-thickness, dash: (1pt, 0.8pt)),
   arrow: (thickness: 0pt),
   connection: (thickness: 1pt * stroke-thickness),
 )
+
+let dynamic-color-strokes(fill) = {
+  (
+    solid: (paint: fill.darken(50%).saturate(80%), thickness: strokes.solid.thickness),
+    hidden: (paint: fill.darken(60%).saturate(80%).transparentize(60%), thickness: strokes.hidden.thickness, dash: strokes.hidden.dash),
+  )
+}
 
 let font-sizes = (
   label: 9pt,
@@ -91,11 +98,7 @@ let arrow-config = (
   axis-y: 2.5
 )
 
-// Calculate the visual angle of the isometric diagonal edge
-// For isometric projection with equal ox and oy offsets, the diagonal goes from (0,0) to (ox, oy)
-// The angle is atan2(oy, ox) = atan2(depth-multiplier, depth-multiplier) = 45° in parameter space
-// But we need the visual angle: atan(oy/ox) where ox and oy are screen coordinates
-let depth-angle-deg = 45deg//calc.atan(depth-multiplier) * 180 / calc.pi
+let depth-angle-deg = 45deg //calc.atan(depth-multiplier) * 180 / calc.pi
 
 let get-depth-offsets(d) = {
   (d * depth-multiplier, d * depth-multiplier)
@@ -153,35 +156,60 @@ let get-circle-boundary-point(from-pt, center-pt, radius) = {
 let colors = if palette == "cold" { colors-cold } else { colors-warm }
 let scale-factor = scale / 100%
 
+
 canvas(length: 1cm * scale-factor, {
   import draw: *
   
   let scaled-font = (size) => size * scale-factor
   
-  let box-3d(x, y, w, h, d, fill, opacity: 1, show-left: true, show-right: true, ylabel: none, zlabel: none, is-input: false) = {
+  let box-3d(x, y, w, h, d, fill, opacity: 1, show-left: true, show-right: true, ylabel: none, zlabel: none, is-input: false, image-file: none) = {
     let (ox, oy) = get-depth-offsets(d)
     let alpha = 100% - opacity * 100%
     
-    line((x, y), (x + ox, y + oy), stroke: strokes.hidden)
-    line((x + ox, y + oy), (x + w + ox, y + oy), stroke: strokes.hidden)
-    line((x + ox, y + oy), (x + ox, y + h + oy), stroke: strokes.hidden)
+    let dyn-strokes = dynamic-color-strokes(fill)
+
+    line((x, y), (x + ox, y + oy), stroke: dyn-strokes.hidden)
+    line((x + ox, y + oy), (x + w + ox, y + oy), stroke: dyn-strokes.hidden)
+    line((x + ox, y + oy), (x + ox, y + h + oy), stroke: dyn-strokes.hidden)
     
     rect((x, y), (x + w, y + h), fill: fill.transparentize(alpha), stroke: none)
     
     if show-left {
-      line((x, y), (x, y + h), stroke: strokes.solid)
+      line((x, y), (x, y + h), stroke: dyn-strokes.solid)
     }
     if show-right {
-      line((x + w, y), (x + w, y + h), stroke: strokes.solid)
+      line((x + w, y), (x + w, y + h), stroke: dyn-strokes.solid)
     }
-    line((x, y + h), (x + w, y + h), stroke: strokes.solid)
-    line((x, y), (x + w, y), stroke: strokes.solid)
+    line((x, y + h), (x + w, y + h), stroke: dyn-strokes.solid)
+    line((x, y), (x + w, y), stroke: dyn-strokes.solid)
     
     line((x, y + h), (x + ox, y + h + oy), (x + w + ox, y + h + oy), (x + w, y + h),
-      close: true, fill: fill.darken(darken-amounts.top).transparentize(alpha), stroke: strokes.solid)
+      close: true, fill: fill.darken(darken-amounts.top).transparentize(alpha), stroke: dyn-strokes.solid)
     
-    line((x + w, y), (x + w + ox, y + oy), (x + w + ox, y + h + oy), (x + w, y + h),
-      close: true, fill: fill.darken(darken-amounts.right).transparentize(alpha), stroke: strokes.solid)
+    if image-file != none {
+      let img-height = (h) * 28.25pt * scale-factor
+      let img-width = (d) * 28.25pt * scale-factor
+      // skew + scale must result in 45deg angle
+      let scale-value = depth-multiplier * 100%
+      let skew-angle = scale-value * 55.55deg
+
+      content((x+w+ox/2,y+h/2+oy/2),
+      // Image displayed with isometric perspective:
+      pad(x: -img-width * depth-multiplier)[ // remove extra left padding left by following scale call
+      #std.scale(x: scale-value)[
+      #std.rotate(90deg)[
+      #std.skew(ax: skew-angle)[
+      #std.rotate(-90deg)[
+      #image(image-file, height: img-height, width: img-width)]
+      ]]]])
+
+      line((x + w, y), (x + w + ox, y + oy), (x + w + ox, y + h + oy), (x + w, y + h),
+      close: true, fill: fill.transparentize(90%), stroke: dyn-strokes.solid)
+
+    } else {
+      line((x + w, y), (x + w + ox, y + oy), (x + w + ox, y + h + oy), (x + w, y + h),
+      close: true, fill: fill.darken(darken-amounts.right).transparentize(alpha), stroke: dyn-strokes.solid)
+    }
     
     if is-input {
       if ylabel != none {
@@ -242,23 +270,26 @@ canvas(length: 1cm * scale-factor, {
   }
   
   // Helper function: Draw band separator edges
-  let draw-band-separator-edges(band-x, y, h, ox, oy, band-width, is-first) = {
+  let draw-band-separator-edges(band-x, y, h, ox, oy, band-width, is-first, fill-color) = {
+
+    let dyn-strokes = dynamic-color-strokes(fill-color)
+
     if is-first {
       // First band: draw the three hidden back edges
-      line((band-x, y), (band-x + ox, y + oy), stroke: strokes.hidden)
-      line((band-x + ox, y + oy), (band-x + ox, y + h + oy), stroke: strokes.hidden)
-      line((band-x + ox, y + oy), (band-x + band-width + ox, y + oy), stroke: strokes.hidden)
+      line((band-x, y), (band-x + ox, y + oy), stroke: dyn-strokes.hidden)
+      line((band-x + ox, y + oy), (band-x + ox, y + h + oy), stroke: dyn-strokes.hidden)
+      line((band-x + ox, y + oy), (band-x + band-width + ox, y + oy), stroke: dyn-strokes.hidden)
     } else {
       // Front vertical separator (solid)
-      line((band-x, y), (band-x, y + h), stroke: strokes.solid)
+      line((band-x, y), (band-x, y + h), stroke: dyn-strokes.solid)
       // Diagonal connector from front top to back top (solid)
-      line((band-x, y + h), (band-x + ox, y + h + oy), stroke: strokes.solid)
+      line((band-x, y + h), (band-x + ox, y + h + oy), stroke: dyn-strokes.solid)
       // Diagonal connector from front bottom to back bottom (dashed)
-      line((band-x, y), (band-x + ox, y + oy), stroke: strokes.hidden)
+      line((band-x, y), (band-x + ox, y + oy), stroke: dyn-strokes.hidden)
       // Back vertical edge (dashed)
-      line((band-x + ox, y + oy), (band-x + ox, y + h + oy), stroke: strokes.hidden)
+      line((band-x + ox, y + oy), (band-x + ox, y + h + oy), stroke: dyn-strokes.hidden)
       // Back horizontal edge (dashed)
-      line((band-x + ox, y + oy), (band-x + band-width + ox, y + oy), stroke: strokes.hidden)
+      line((band-x + ox, y + oy), (band-x + band-width + ox, y + oy), stroke: dyn-strokes.hidden)
     }
   }
   
@@ -397,14 +428,14 @@ canvas(length: 1cm * scale-factor, {
           let pos = positions.at(i)
           let layer-spec = info.spec
           let layer-name = layer-spec.at("name", default: none)
-          
+
           let mid-x = pos.x
           let mid-y = pos.y
           let total-width = info.width
           let layer-h = info.height
           let lox = info.ox
           let loy = info.oy
-          
+
           let fill-color = layer-spec.at("fill", default: colors.conv)
           let bandfill-color = layer-spec.at("bandfill", default: colors.at("conv-relu"))
           let layer-opacity = layer-spec.at("opacity", default: 1.0)
@@ -412,60 +443,67 @@ canvas(length: 1cm * scale-factor, {
           let widths = layer-spec.at("widths", default: (0.5,))
           let channels = layer-spec.at("channels", default: none)
           let layer-show-relu = layer-spec.at("show-relu", default: show-relu)
-          
+
+          // Use dynamic color strokes for fill-color and bandfill-color
+          let dyn-strokes = dynamic-color-strokes(fill-color)
+          let dyn-band-strokes = dynamic-color-strokes(bandfill-color)
+
           // Determine if we have a diagonal label
           let has-diagonal-label = channels != none and channels.len() == widths.len() + 1
           let diagonal-label = if has-diagonal-label { channels.at(widths.len()) } else { none }
-          
+
           let cumulative-x = mid-x
           for (j, w) in widths.enumerate() {
             let band-width = w
             let band-x = cumulative-x
-            
+
             draw-band-front-face(band-x, mid-y, band-width, layer-h, fill-color, bandfill-color, alpha-front, layer-show-relu)
-            
+
             if channels != none and j < channels.len() {
               content((band-x + band-width / 2, mid-y - 0.15), 
-                [#text(size: scaled-font(font-sizes.channel-number), str(channels.at(j)))])
+          [#text(size: scaled-font(font-sizes.channel-number), str(channels.at(j)))])
             }
-            
+
             cumulative-x += band-width
           }
-          
-          line((mid-x, mid-y), (mid-x, mid-y + layer-h), stroke: strokes.solid)
-          line((mid-x + total-width, mid-y), (mid-x + total-width, mid-y + layer-h), stroke: strokes.solid)
-          line((mid-x, mid-y + layer-h), (mid-x + total-width, mid-y + layer-h), stroke: strokes.solid)
-          line((mid-x, mid-y), (mid-x + total-width, mid-y), stroke: strokes.solid)
-          
+
+          line((mid-x, mid-y), (mid-x, mid-y + layer-h), stroke: dyn-strokes.solid)
+          line((mid-x + total-width, mid-y), (mid-x + total-width, mid-y + layer-h), stroke: dyn-strokes.solid)
+          line((mid-x, mid-y + layer-h), (mid-x + total-width, mid-y + layer-h), stroke: dyn-strokes.solid)
+          line((mid-x, mid-y), (mid-x + total-width, mid-y), stroke: dyn-strokes.solid)
+
           cumulative-x = mid-x
           for (j, w) in widths.enumerate() {
             let band-width = w
             let band-x = cumulative-x
-            
+
             draw-band-top-face(band-x, mid-y, band-width, layer-h, lox, loy, fill-color, bandfill-color, layer-show-relu)
-            
+
             cumulative-x += band-width
           }
-          
+
           let right-face-color = if layer-show-relu { bandfill-color } else { fill-color }
+          let right-face-strokes = if layer-show-relu { dyn-band-strokes } else { dyn-strokes }
           line((mid-x + total-width, mid-y), (mid-x + total-width + lox, mid-y + loy),
             (mid-x + total-width + lox, mid-y + layer-h + loy), (mid-x + total-width, mid-y + layer-h),
             close: true, fill: right-face-color.darken(darken-amounts.right).transparentize(opacity-values.right-face),
-            stroke: strokes.solid)
-          
+            stroke: right-face-strokes.solid)
+
           cumulative-x = mid-x
           for (j, w) in widths.enumerate() {
             let band-width = w
             let band-x = cumulative-x
-            draw-band-separator-edges(band-x, mid-y, layer-h, lox, loy, band-width, j == 0)
+            // Use bandfill-color for band separator edges if relu, else fill-color
+            let edge-strokes = if layer-show-relu { dyn-band-strokes } else { dyn-strokes }
+            draw-band-separator-edges(band-x, mid-y, layer-h, lox, loy, band-width, j == 0, fill-color)
             cumulative-x += band-width
           }
-          
-          line((mid-x, mid-y + layer-h), (mid-x + lox, mid-y + layer-h + loy), stroke: strokes.solid)
-          line((mid-x + lox, mid-y + layer-h + loy), (mid-x + total-width + lox, mid-y + layer-h + loy), stroke: strokes.solid)
-          line((mid-x + total-width, mid-y + layer-h), (mid-x + total-width + lox, mid-y + layer-h + loy), stroke: strokes.solid)
-          line((mid-x + total-width + lox, mid-y + loy), (mid-x + total-width + lox, mid-y + layer-h + loy), stroke: strokes.solid)
-          line((mid-x + total-width, mid-y), (mid-x + total-width + lox, mid-y + loy), stroke: strokes.solid)
+
+          line((mid-x, mid-y + layer-h), (mid-x + lox, mid-y + layer-h + loy), stroke: dyn-strokes.solid)
+          line((mid-x + lox, mid-y + layer-h + loy), (mid-x + total-width + lox, mid-y + layer-h + loy), stroke: dyn-strokes.solid)
+          line((mid-x + total-width, mid-y + layer-h), (mid-x + total-width + lox, mid-y + layer-h + loy), stroke: dyn-strokes.solid)
+          line((mid-x + total-width + lox, mid-y + loy), (mid-x + total-width + lox, mid-y + layer-h + loy), stroke: dyn-strokes.solid)
+          line((mid-x + total-width, mid-y), (mid-x + total-width + lox, mid-y + loy), stroke: dyn-strokes.solid)
           
           let label = layer-spec.at("label", default: none)
           if label != none {
@@ -593,16 +631,21 @@ canvas(length: 1cm * scale-factor, {
     if l.type == "input" {
       let h = l.at("height", default: 5)
       let d = l.at("depth", default: 5)
-      let w = 0.05
+      let w = l.at("width", default: 0)
       let label = l.at("label", default: none)
       let name = l.at("name", default: none)
       let fill-color = l.at("fill", default: colors.input)
       let layer-opacity = l.at("opacity", default: 0.9)
       let channels = l.at("channels", default: none)
+      let image-file = l.at("image-file", default: none)
       let (ox, oy) = get-depth-offsets(d)
       let y-offset = get-y-offset-for-center-on-axis(h, d, arrow-axis-y)
       
-      box-3d(x, y-offset, w, h, d, fill-color, opacity: layer-opacity, show-left: true, show-right: true)
+      if image-file == "default" {
+        image-file = "bird.jpg"
+      }
+
+      box-3d(x, y-offset, w, h, d, fill-color, opacity: layer-opacity, show-left: true, show-right: true, image-file: image-file)
       
       // Display channels labels (below and optionally on diagonal)
       draw-channels-labels(channels, x + w/2, x + w, y-offset, ox, oy)
@@ -627,7 +670,7 @@ canvas(length: 1cm * scale-factor, {
       prev-pool-width = 0
     }
     
-    // CONVOLUTIONAL BLOCKs
+    // CONVOLUTIONAL BLOCK types
     else if l.type == "conv" or l.type == "convres"{
       let fill-color = if l.type == "conv" {
         l.at("fill", default: colors.conv)
@@ -651,6 +694,10 @@ canvas(length: 1cm * scale-factor, {
       let zlabel-val = l.at("zlabel", default: none)
       let layer-show-relu = l.at("show-relu", default: show-relu)
       
+      // Use dynamic color strokes for fill-color and bandfill-color
+      let dyn-strokes = dynamic-color-strokes(fill-color)
+      let dyn-band-strokes = dynamic-color-strokes(bandfill-color)
+
       // Determine if we have a diagonal label (channels has one extra element)
       let has-diagonal-label = channels != none and channels.len() == widths.len() + 1
       let diagonal-label = if has-diagonal-label { channels.at(widths.len()) } else { none }
@@ -684,10 +731,10 @@ canvas(length: 1cm * scale-factor, {
       }
       
       // Draw front face outer edges (only the perimeter)
-      line((start-x, y-offset), (start-x, y-offset + h), stroke: strokes.solid)
-      line((start-x + total-width, y-offset), (start-x + total-width, y-offset + h), stroke: strokes.solid)
-      line((start-x, y-offset + h), (start-x + total-width, y-offset + h), stroke: strokes.solid)
-      line((start-x, y-offset), (start-x + total-width, y-offset), stroke: strokes.solid)
+      line((start-x, y-offset), (start-x, y-offset + h), stroke: dyn-strokes.solid)
+      line((start-x + total-width, y-offset), (start-x + total-width, y-offset + h), stroke: dyn-strokes.solid)
+      line((start-x, y-offset + h), (start-x + total-width, y-offset + h), stroke: dyn-strokes.solid)
+      line((start-x, y-offset), (start-x + total-width, y-offset), stroke: dyn-strokes.solid)
       
       // Draw top face segmented by band
       cumulative-x = start-x
@@ -706,7 +753,7 @@ canvas(length: 1cm * scale-factor, {
         (start-x + total-width + ox, y-offset + h + oy), (start-x + total-width, y-offset + h),
         close: true,
         fill: right-face-color.darken(darken-amounts.right).transparentize(opacity-values.right-face),
-        stroke: strokes.solid)
+        stroke: dyn-strokes.solid)
 
       // Draw all edges for band divisions (once each)
       cumulative-x = start-x
@@ -714,17 +761,17 @@ canvas(length: 1cm * scale-factor, {
         let band-width = widths.at(j)
         let band-x = cumulative-x
         
-        draw-band-separator-edges(band-x, y-offset, h, ox, oy, band-width, j == 0)
+        draw-band-separator-edges(band-x, y-offset, h, ox, oy, band-width, j == 0, fill-color)
         
         cumulative-x += band-width
       }
       
       // Draw outer edges of the block (only edges not shared between bands)
-      line((start-x, y-offset + h), (start-x + ox, y-offset + h + oy), stroke: strokes.solid)
-      line((start-x + ox, y-offset + h + oy), (start-x + total-width + ox, y-offset + h + oy), stroke: strokes.solid)
-      line((start-x + total-width, y-offset + h), (start-x + total-width + ox, y-offset + h + oy), stroke: strokes.solid)
-      line((start-x + total-width + ox, y-offset + oy), (start-x + total-width + ox, y-offset + h + oy), stroke: strokes.solid)
-      line((start-x + total-width, y-offset), (start-x + total-width + ox, y-offset + oy), stroke: strokes.solid)
+      line((start-x, y-offset + h), (start-x + ox, y-offset + h + oy), stroke: dyn-strokes.solid)
+      line((start-x + ox, y-offset + h + oy), (start-x + total-width + ox, y-offset + h + oy), stroke: dyn-strokes.solid)
+      line((start-x + total-width, y-offset + h), (start-x + total-width + ox, y-offset + h + oy), stroke: dyn-strokes.solid)
+      line((start-x + total-width + ox, y-offset + oy), (start-x + total-width + ox, y-offset + h + oy), stroke: dyn-strokes.solid)
+      line((start-x + total-width, y-offset), (start-x + total-width + ox, y-offset + oy), stroke: dyn-strokes.solid)
       
       prev-x = start-x + total-width
       prev-depth-offset = ox
@@ -1014,7 +1061,10 @@ canvas(length: 1cm * scale-factor, {
       // Center x accounts for depth offset of previous arrow
       let center-x = x + radius + prev-depth-offset / 2
       let center-y = arrow-axis-y
-      
+
+      let dyn-stroke = dynamic-color-strokes(fill-color)
+      dyn-stroke.solid.paint = dyn-stroke.solid.paint.darken(20%) // slightly darker stroke than for other layers
+      dyn-stroke.solid.thickness = dyn-stroke.solid.thickness * 1.4
 
       circle((center-x, center-y), radius: radius,
         fill: gradient.radial(
@@ -1022,12 +1072,12 @@ canvas(length: 1cm * scale-factor, {
           center: (50%, 50%), radius: 50%,
           focal-center: (35%, 35%), focal-radius: 5%
         ),
-        stroke: strokes.solid)
-        
+        stroke: dyn-stroke.solid)
+      
       if label != none {
         let symbole-size = scaled-font(font-sizes.label * 2.2)
         content((center-x, center-y), 
-          [#v(-0.185 * symbole-size)#text(size: symbole-size, weight: "bold", label)])
+          [#v(-0.185 * symbole-size)#text(size: symbole-size, weight: "bold", fill: dyn-stroke.solid.paint, label)])
       }
       
       // Display channels labels (below and optionally on diagonal)

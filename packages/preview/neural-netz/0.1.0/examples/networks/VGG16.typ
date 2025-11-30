@@ -1,9 +1,9 @@
 #set page(width: auto, height: auto, margin: 5mm)
 
 #let layers = (
-  // Input
   (
     type: "input",
+    image-file: "default",
     height: 8,
     depth: 8,
     label: "input",
@@ -16,6 +16,7 @@
     depth: 8,
     label: "conv1",
     channels: (64, 64, 224),
+    offset: 1.9,
   ),
   (
     type: "pool",

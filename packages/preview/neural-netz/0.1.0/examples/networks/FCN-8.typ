@@ -1,8 +1,8 @@
 #set page(width: auto, height: auto, margin: 5mm)
 
 #draw-network((
-  (type: "input", height: 8, depth: 8, label: "Input", name: "img"),
-  (type: "conv", channels: ("64", "64", "I"), widths: (0.5, 0.5), height: 8, depth: 8, label: "Conv1", name: "c1"),
+  (type: "input", image-file: "default", height: 8, depth: 8, label: "Input", name: "img"),
+  (type: "conv", channels: ("64", "64", "I"), widths: (0.5, 0.5), height: 8, depth: 8, label: "Conv1", name: "c1", offset: 1.9),
   (type: "pool", height: 6.5, depth: 6.5, name: "p1"),
   (type: "conv", channels: ("128", "128", "I/2"), widths: (0.6, 0.6), height: 6.5, depth: 6.5, label: "Conv2", name: "c2"),
   (type: "pool", height: 5, depth: 5, name: "p2"),

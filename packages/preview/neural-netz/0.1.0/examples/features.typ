@@ -1,7 +1,8 @@
 #set page(width: auto, height: auto, margin: 5mm)
 
 #draw-network((
-    (type: "conv"), // Next layers are automatically connected with arrows
+    (type: "input", image-file: "default"), // You can also specify a custom image path
+    (type: "conv", offset: 2), // Next layers are automatically connected with arrows
     (type: "conv", offset: 2),
     (type: "pool"), // Pool layers are sticked to previous convolution block
     (type: "conv", widths: (1, 1), offset: 3) // you can offset layers

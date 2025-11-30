@@ -37,7 +37,8 @@ Here are a few simple features for getting started.
 
 ```typ
 #draw-network((
-    (type: "conv"), // Next layers are automatically connected with arrows
+    (type: "input", image-file: "default"), // You can also specify a custom image path
+    (type: "conv", offset: 2), // Next layers are automatically connected with arrows
     (type: "conv", offset: 2),
     (type: "pool"), // Pool layers are sticked to previous convolution block
     (type: "conv", widths: (1, 1), offset: 3) // you can offset layers
@@ -105,29 +106,31 @@ show-relu: true // visualize relu using darker color on convolution layers
 </p>
 
 # Examples
-Here are a few network architectures implemented with neural-netz (more examples can be found [in the repo](https://github.com/edgaremy/neural-netz/tree/f632d92d77517309a2333ee8763ca8e987232db0/examples/networks)).
+Here are a few network architectures implemented with neural-netz (more examples can be found [in the repo](https://github.com/edgaremy/neural-netz/tree/5c434055a5bcf83eee75ab88ad5a7ac77c430feb/examples/networks)).
 
 <h3 style="text-align: center;">ResNet18</h3>
 <p align="center">
 <img src="gallery/networks/ResNet18.png" alt="ResNet18 visualization" width="500"/>
 </p>
-<p style="text-align: center;"><a href="https://github.com/edgaremy/neural-netz/blob/f632d92d77517309a2333ee8763ca8e987232db0/examples/networks/ResNet18.typ">code for this image</a></p>
+<p style="text-align: center;"><a href="https://github.com/edgaremy/neural-netz/blob/5c434055a5bcf83eee75ab88ad5a7ac77c430feb/examples/networks/ResNet18.typ">code for this image</a></p>
 
 <h3 style="text-align: center;">U-Net</h3>
 <p align="center">
 <img src="gallery/networks/U-Net.png" alt="U-Net visualization" width="500"/>
 </p>
-<p style="text-align: center;"><a href="https://github.com/edgaremy/neural-netz/blob/f632d92d77517309a2333ee8763ca8e987232db0/examples/networks/U-Net.typ">code for this image</a></p>
+<p style="text-align: center;"><a href="https://github.com/edgaremy/neural-netz/blob/5c434055a5bcf83eee75ab88ad5a7ac77c430feb/examples/networks/U-Net.typ">code for this image</a></p>
 
 <h3 style="text-align: center;">FCN-8</h3>
 <p align="center">
 <img src="gallery/networks/FCN-8.png" alt="FCN-8 visualization" width="500"/>
 </p>
-<p style="text-align: center;"><a href="https://github.com/edgaremy/neural-netz/blob/f632d92d77517309a2333ee8763ca8e987232db0/examples/networks/FCN-8.typ">code for this image</a></p>
+<p style="text-align: center;"><a href="https://github.com/edgaremy/neural-netz/blob/5c434055a5bcf83eee75ab88ad5a7ac77c430feb/examples/networks/FCN-8.typ">code for this image</a></p>
 
 
 # Acknowledgements
 
 This package could not have existed without the great Python+LaTeX visualization package [PlotNeuralNet](https://github.com/HarisIqbal88/PlotNeuralNet) made by Haris Iqbal. It proposes an elegant way for viewing neural networks, and its visual style was obviously a strong inspiration for the implementation of neural-netz.
+
+Default input image was [taken from iNaturalist](https://www.inaturalist.org/observations/205901632) (colors are slightly edited).
 
 If you feel like contributing to this package (bug fixes, features, code refactoring), feel free to [make a PR to the neural-netz repo](https://github.com/edgaremy/neural-netz/pulls) :)
