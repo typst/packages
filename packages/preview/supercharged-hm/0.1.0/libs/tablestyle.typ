@@ -6,7 +6,7 @@
   stroke: hm-grey-dark,
   background-odd: hm-red-very-light,
   background-even: hm-white,
-  table) = {
+  this-table) = {
   set table.hline(stroke: stroke)
   set block(breakable: true)
   set table(
@@ -22,7 +22,7 @@
       clip: true,
       width: auto,
       breakable: true,
-      table
+      this-table
     )
   )
 }
