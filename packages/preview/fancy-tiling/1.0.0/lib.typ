@@ -427,11 +427,15 @@
 /// - `orientation` (string): Hexagon orientation, either `"flat"` (flat top) or `"pointy"` (pointed top).
 /// - `background-color` (color): Fill color of the background.
 /// - `content` (content | none): Content to place at each hexagon center.
+/// - `guarantee-tiling` (bool): If true, places content at the original hexagon centers and at centers 
+///   from surrounding tiles (displaced by one tile width/height in cardinal and diagonal directions).
+///   This guarantees seamless tiling across tile boundaries. If false, content is placed only at the
+///   centers within the current tile.
 /// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
 /// - `radius: 5pt` · `orientation: "flat"`
-/// - `background-color: white` · `content: none`
+/// - `background-color: white` · `content: none` · `guarantee-tiling: false`
 ///
 /// Example
 /// ```typst
@@ -441,6 +445,7 @@
 ///   fill: honeycomb-content(
 ///     radius: 15pt,
 ///     content: emoji.bee,
+///     guarantee-tiling: true,
 ///   ),
 /// )
 /// ```
@@ -448,11 +453,13 @@
 /// Notes
 /// - Content is centered at each hexagon position.
 /// - For stroked hexagon outlines, use `honeycomb` instead.
+/// - When `guarantee-tiling: true`, content is drawn multiple times per tile to ensure seamless boundaries.
 #let honeycomb-content(
   radius: 5pt,
   orientation: "flat",
   background-color: white,
   content: none,
+  guarantee-tiling: false,
   ..tiling-arguments,
 ) = {
   assert(radius > 0pt, message: "Radius must be positive.")
@@ -487,12 +494,37 @@
       height: 100%,
       fill: background-color,
     ))
-    #for (cx, cy) in centers {
-      place(
-        dx: cx,
-        dy: cy,
-        place(center + horizon, content),
+    #if guarantee-tiling {
+      // Place content at original centers and displaced centers from surrounding tiles
+      let offsets = (
+        (0pt, 0pt),          // center (no displacement)
+        (0pt, -height),      // N (up)
+        (0pt, height),       // S (down)
+        (-width, 0pt),       // W (left)
+        (width, 0pt),        // E (right)
+        (-width, -height),   // NW (up-left)
+        (width, -height),    // NE (up-right)
+        (-width, height),    // SW (down-left)
+        (width, height),     // SE (down-right)
       )
+      for (offset-x, offset-y) in offsets {
+        for (cx, cy) in centers {
+          place(
+            dx: cx + offset-x,
+            dy: cy + offset-y,
+            place(center + horizon, content),
+          )
+        }
+      }
+    } else {
+      // Place content only at original centers
+      for (cx, cy) in centers {
+        place(
+          dx: cx,
+          dy: cy,
+          place(center + horizon, content),
+        )
+      }
     }
   ]
 }
@@ -504,11 +536,14 @@
 /// - `height` (length): Vertical dimension of each grid cell.
 /// - `background-color` (color): Fill color of each cell.
 /// - `content` (content | none): Content to place centered in each cell.
+/// - `guarantee-tiling` (bool): If true, places content at the center and displaced one tile in each 
+///   cardinal and diagonal direction (N, S, E, W, NE, SE, SW, NW). This guarantees seamless tiling 
+///   across tile boundaries by drawing the content nine times per cell. If false, content is centered once per cell.
 /// - `..tiling-arguments`: Additional arguments passed to the `tiling` function.
 ///
 /// Defaults
 /// - `width: 5pt` · `height: 5pt`
-/// - `background-color: white` · `content: none`
+/// - `background-color: white` · `content: none` · `guarantee-tiling: false`
 ///
 /// Example
 /// ```typst
@@ -519,30 +554,62 @@
 ///     width: 20pt,
 ///     height: 20pt,
 ///     content: text(size: 8pt)[+],
+///     guarantee-tiling: true,
 ///   ),
 /// )
 /// ```
 ///
 /// Notes
-/// - Content is horizontally and vertically centered within each cell.
+/// - Content is horizontally and vertically centered within each cell when `guarantee-tiling: false`.
+/// - When `guarantee-tiling: true`, content is placed at center (50%, 50%) and at eight additional 
+///   positions displaced by one full tile width/height in each cardinal and diagonal direction.
 #let grid-content(
   width: 5pt,
   height: 5pt,
   background-color: white,
   content: none,
+  guarantee-tiling: false,
   ..tiling-arguments,
 ) = {
   assert(width > 0pt and height > 0pt, message: "Dimensions must be positive.")
   let tile-size = (width, height)
   tiling(size: tile-size, ..tiling-arguments)[
-    #set align(center + horizon)
-    #block(
+    #place(block(
       width: 100%,
       height: 100%,
       fill: background-color,
-    )[
-      #content
-    ]
+    ))
+    #if guarantee-tiling {
+      // Place content at the center and displaced one tile in all eight directions
+      let positions = (
+        (50%, 50%),                    // center
+        (50%, 50% - height),           // N (up)
+        (50%, 50% + height),           // S (down)
+        (50% - width, 50%),            // W (left)
+        (50% + width, 50%),            // E (right)
+        (50% - width, 50% - height),   // NW (up-left)
+        (50% + width, 50% - height),   // NE (up-right)
+        (50% - width, 50% + height),   // SW (down-left)
+        (50% + width, 50% + height),   // SE (down-right)
+      )
+      for (dx, dy) in positions {
+      place(dx: dx, dy: dy, 
+      [#set align(center + horizon)
+        #block(
+        width: 100%,
+        height: 100%,
+        content
+      )])
+      }
+    } else {
+      // Place content once at center
+      set align(center + horizon)
+      block(
+        width: 100%,
+        height: 100%,
+        content
+      )
+    }
   ]
 }
 
