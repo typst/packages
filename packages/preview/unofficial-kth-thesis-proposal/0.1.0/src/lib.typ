@@ -1,6 +1,6 @@
 /// KTH Degree Project Proposal Template
 /// Usage:
-///   #import "@preview/kth-thesis-proposal:0.1.0": proposal
+///   #import "@preview/unofficial-kth-thesis-proposal:0.1.0": proposal
 ///   #show: proposal
 
 #let kth-logo = image("assets/KTH_logo_RGB_bla.svg")
