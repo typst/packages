@@ -354,8 +354,8 @@ For different language users, default templates vary when they set the document'
 
 Supported languages:
 
-- [x] English (`en`)
-- [x] Chinese (`zh`)
+- English (`en`)
+- Chinese (`zh`)
 
 Users can still customise the templates.
 
