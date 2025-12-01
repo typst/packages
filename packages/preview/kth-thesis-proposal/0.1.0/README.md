@@ -156,6 +156,7 @@ This template is licensed under the [MIT License](LICENSE). You are free to use,
 
 - Inspired by KTH's official degree project proposal requirements
 - Built with [Typst](https://typst.app/)
+- KTH logo is a registered trademark of KTH Royal Institute of Technology. The logo is used in this template for academic purposes only and remains the property of KTH.
 
 ## Support
 

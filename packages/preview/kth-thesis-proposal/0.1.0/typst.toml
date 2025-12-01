@@ -1,10 +1,10 @@
 [package]
-name = "kth-thesis-proposal"
+name = "unofficial-kth-thesis-proposal"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Christoforos Seas <@cseas002>"]
 license = "MIT"
-description = "Simple, beautiful KTH degree project proposal template with official logo"
+description = "Simple unofficial KTH degree project proposal template"
 keywords = ["kth", "proposal", "thesis", "typst"]
 categories = ["report", "thesis"]
 repository = "https://github.com/cseas002/kth-thesis-proposal"

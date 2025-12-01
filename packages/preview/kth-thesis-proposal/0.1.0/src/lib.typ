@@ -5,6 +5,8 @@
 
 #let kth-logo = image("assets/KTH_logo_RGB_bla.svg")
 
+#show link: underline
+
 #let section(label, content) = {
   text(weight: "bold", size: 11pt, upper(label))
   linebreak()
