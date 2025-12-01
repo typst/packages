@@ -33,7 +33,7 @@
         nil: (post: x => none),
       )
     ),
-    tidy-tree-draws.label-match-draw-node.with(
+    tidy-tree-draws.label-match-draw-edge.with(
       to-matches: (
         nil: (post: x => none)
       )
