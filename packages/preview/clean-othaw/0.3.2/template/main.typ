@@ -1,7 +1,7 @@
-#import "@local/othaw-typst:0.3.1": *
+#import "@preview/clean-othaw:0.3.2": *
 #import "glossary.typ": glossary-entries
 
-#show: othaw-typst.with(
+#show: clean-othaw.with(
   title: "Ein Typst-Template für Abschlussarbeiten an der OTH Amberg-Weiden",
   date:(datetime(day: 01, month: 08, year: 2025),datetime(day: 01, month: 02, year: 2026)),
   authors: (
