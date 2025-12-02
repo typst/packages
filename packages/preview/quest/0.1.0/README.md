@@ -65,7 +65,7 @@ The contents of this file compiles to the following preview.
 
 ## Usage
 
-The simplest way to use this package is to adapt the [template/main.typ](template/main.typ) file. This template file walks describes frontmatter necessary to write a compact quiz or test. However, the simplest frontmatter only requires specifying the name and author of the document:
+The simplest way to use this package is to adapt the [template/main.typ](template/main.typ) file. This template file walks through the necessary frontmatter to write a compact quiz or test. However, the simplest frontmatter only requires specifying the name and author of the document:
 
 ```typst
 #import "@preview/quest:0.1.0": *
