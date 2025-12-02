@@ -1,4 +1,4 @@
-# othaw
+# Clean othaw
 
 A (modernized) [Typst](https://typst.app/) template for OTH-AW documents like Bachelor theses, "Studienarbeiten", project documentation etc. It is forked from clean-dhbw, see below.
 
