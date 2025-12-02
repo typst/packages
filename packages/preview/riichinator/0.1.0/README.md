@@ -72,6 +72,8 @@ If you wish to display a riichi or a honba stick on its own, this library also p
 ```
 ![A horizontal riichi stick and honba stick](./screenshots/stick_example.png)
 
+The full documentation is available [here](https://github.com/hemisemidemipresent/riichinator/blob/main/docs.pdf)
+
 ## Future features
 
 ### Tile modifier
@@ -85,3 +87,4 @@ If you wish to display a riichi or a honba stick on its own, this library also p
 - #link("https://typst.app/universe/package/handy-dora/")[handyd-dora] A package for rendering mahjong hands.
 ## Credits
 The tile assets are taken from https://github.com/FluffyStuff/riichi-mahjong-tiles/
+
