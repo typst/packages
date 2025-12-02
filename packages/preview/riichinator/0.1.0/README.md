@@ -5,7 +5,7 @@ Riichi Mahjong hand and board state renderer.
 ## Notation
 
 This library uses mpsz notation, where m = Manzu (Character suit), p = Pinzu (Circle suit), s = Souzu (Bamboo suit) and z = Honor tiles and others. Here is every available tile:
-![](./screenshots/tile_table.png)
+![so for example, for the 1 of character (1 man), it is shortened to "1m". Red fives are represented as 0. Honor tiles are 1-7 in wind order and dragon order](./screenshots/tile_table.png)
 
 ### Concatenation of tiles
 
@@ -19,18 +19,16 @@ Other examples includes `123p778s11m789p33z` and `19m19p19s1234567z`
 #hand("123p778s11m789p33z")\
 #hand("19m19p19s1234567z")
 ```
-![](./screenshots/tile_concat_example.png)
+![Three examples of a mahjong hand, showing that multiple tiles grouped together with the same suit only needs the suit to be specified at the end. Note that suits can be used more than once in a hand.](./screenshots/tile_concat_example.png)
 
-### Tile modifiers
-
-Currently, this library only supports rotation, like when the riichi declaration tile is rotated, or when *chi* or *pon* is called.
+### Rotation
 
 To rotate a tile, simply add `'` to the end of the number. For example, to show a rotated `3m`, use `3'm`.
 ```typ
 An example of a discard pool:
 #river("1s6p7m67s8p253'z")
 ```
-![](./screenshots/rotate_example.png)
+![A rotated tile can also be inside of a tile concatenation](./screenshots/rotate_example.png)
 
 ### Spaces
 
@@ -39,7 +37,40 @@ This library also accepts `-` as a small spacer. This is useful for things like 
 ```typ
 #hand("11m23p-4'30m-77;7z-0z11s0z")
 ```
-![](./screenshots/space_example.png)
+![A space is added between the closed part of the hand and each opened part of hand](./screenshots/space_example.png)
+
+### Added/Extended Kan
+For added/extended kans, use `"` to rotate and stack the previous 2 tiles:
+```typ
+#hand("11178p35566z-505\"5p")
+```
+![An example of an added kan. The `"` affects previous two tiles, so the 0m (red five) will be the original pon, and the additional 5m will be the extended tile.](./screenshots/extended_kan_example.png)
+
+## Features
+### Show board state
+You have already seen examples of how to use `hand()` and `river()` to show hands and discard pools respectively. This library builds off these components and allows you to render a full board state.
+
+```typ
+#board(
+    hands: "345m368p1233566s-7p",
+    discards: ("0000z", "00000z", "9p8s5z7s8'm", "00000z"),
+    current_round: "East Round",
+    hero_wind: "N",
+    riichied_players: (false, false, true, false),
+    dora_indicators: "4p0000z",
+    pot: (riichi: 0, honba: 0),
+    scores: (25000, 25000, 25000, 25000)
+)
+```
+![A board state with information of your hand, the discard pools, the current round, the dora indicators on the dead wall, the pot of any leftover riichi sticks or honba, each player's seat wind and score and whether they have declared riichi.](./screenshots/board_example.png)
+
+### Riichi and Honba sticks
+If you wish to display a riichi or a honba stick on its own, this library also provides these components:
+```typ
+#riichi_stick(10em, 1em)
+#honba_stick(10em, 1em)
+```
+![A horizontal riichi stick and honba stick](./screenshots/stick_example.png)
 
 ## Future features
 
@@ -50,11 +81,7 @@ This library also accepts `-` as a small spacer. This is useful for things like 
 ### Customization
 - Allow usage of other tilesets
 - Allow user to change the color of the back of the tile
-
 ## Similar libraries
 - #link("https://typst.app/universe/package/handy-dora/")[handyd-dora] A package for rendering mahjong hands.
-
 ## Credits
-
 The tile assets are taken from https://github.com/FluffyStuff/riichi-mahjong-tiles/
-
