@@ -1,0 +1,16 @@
+[package]
+name = "quest"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Kevin Lin <@kevinlin1>"]
+license = "MIT"
+description = "Write compact quizzes and tests."
+repository = "https://github.com/kevinlin1/quest"
+keywords = ["quiz", "test", "exam"]
+categories = ["components", "layout", "report"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
