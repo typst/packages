@@ -1,6 +1,6 @@
 [package]
 name = "clean-othaw"
-version = "0.3.1"
+version = "0.3.2"
 entrypoint = "lib.typ"
 authors = ["Christopher Bongert <@ruebe5w>"]
 license = "MIT"

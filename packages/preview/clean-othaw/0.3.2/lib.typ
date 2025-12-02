@@ -8,7 +8,7 @@
 // Workaround for the lack of an `std` scope.
 #let std-bibliography = bibliography
 
-#let othaw-typst(
+#let clean-othaw(
   title: none,
   authors: (:),
   language: none,
