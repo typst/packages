@@ -49,7 +49,7 @@
 
   set text(
     font: (
-      (name: (latin-font, "New Computer Modern", "Times New Roman"), covers: "latin-in-cjk"),
+      (name: latin-font, covers: "latin-in-cjk"),
       cjk-font,
       "Source Han Serif",
       "Noto Serif SC",
@@ -76,7 +76,7 @@
 
   show emph: set text(
     font: (
-      (name: (latin-font, "New Computer Modern", "Times New Roman"), covers: "latin-in-cjk"),
+      (name: latin-font, covers: "latin-in-cjk"),
       emph-cjk-font,
       "FandolKai",
       "KaiTi",
