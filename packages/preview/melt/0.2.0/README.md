@@ -365,13 +365,12 @@ For more details, see `scripts/main.nu`.
 
 ## TODOs
 
-- [ ] Completely move from `ttf-parser` to `skrifa`.
-- [x] Support `glyphs-shapes` function.
-- [ ] doc.rs
-- [ ] Typst documentation.
-- [ ] Complete mod `metrics`, support more entries
-- [ ] Bundle some fonts, especially fonts that are also bundled by Typst compiler.
-- [ ] Use ICU.
+- Completely move from `ttf-parser` to `skrifa`.
+- doc.rs
+- Typst documentation.
+- Complete mod `metrics`, support more entries
+- Bundle some fonts, especially fonts that are also bundled by Typst compiler.
+- Use ICU.
 
 ## License
 
