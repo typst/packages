@@ -29,8 +29,15 @@ Maintained by [tonguetoquill.com](https://www.tonguetoquill.com).
 
 1. Go to [the package page](https://typst.app/universe/package/tonguetoquill-usaf-memo) and click "Create project in app".
 
-2. Download the [*CopperplateCC-Heavy*](https://github.com/nibsbin/tonguetoquill-usaf-memo/raw/main/fonts/CopperplateCC/CopperplateCC-Heavy.otf) font and upload it to your project folder. This is an open-source clone of *Copperplate Gothic Bold*.
-    - **Note:** *Times New Roman* is a proprietary Microsoft font that I can't distribute legally. The package will automatically use the built-in *NimbusRomNo9L* font, an open-source clone of *Times New Roman*.
+2. Download the project fonts and upload them to your project folder. The template uses multiple open-source fonts — not just Copperplate. Recommended fonts from the `fonts/` directory are:
+
+- `CopperplateCC-Heavy.otf` — letterhead / heading style (open-source Copperplate clone)
+- `NimbusRomNo9L-Reg.otf`, `NimbusRomNo9L-RegIta.otf`, `NimbusRomNo9L-Med.otf`, `NimbusRomNo9L-MedIta.otf` — body / serif text (open-source Times clone)
+- `Cinzel-Regular.ttf` — optional monospace font
+
+You can either clone the repository to pull all fonts or download just the files you need. All font files are available from the `fonts/` directory in the repo: https://github.com/nibsbin/tonguetoquill-usaf-memo/tree/main/fonts
+
+  - **Note:** *Times New Roman* is a proprietary Microsoft font that I can't distribute legally. The package will automatically use the included *NimbusRomNo9L* files to approximate Times.
 
 3. Start with one of the template files:
    - `template/usaf-template.typ` for a standard Air Force memo
@@ -47,15 +54,21 @@ typst init @preview/tonguetoquill-usaf-memo:0.2.0 my-memo
 cd my-memo
 ```
 
-3. Download the required font:
+3. Download the required fonts:
 ```bash
-# Download CopperplateCC-Heavy font
+# Download the fonts used by the templates (example). Copy these into your project root or `fonts/` directory.
 curl -L -o CopperplateCC-Heavy.otf https://github.com/nibsbin/tonguetoquill-usaf-memo/raw/main/fonts/CopperplateCC/CopperplateCC-Heavy.otf
+curl -L -o Cinzel-Regular.ttf https://github.com/nibsbin/tonguetoquill-usaf-memo/raw/main/fonts/Cinzel/Cinzel-Regular.ttf
+curl -L -o NimbusRomNo9L-Reg.otf https://github.com/nibsbin/tonguetoquill-usaf-memo/raw/main/fonts/NimbusRomanNo9L/NimbusRomNo9L-Reg.otf
+curl -L -o NimbusRomNo9L-RegIta.otf https://github.com/nibsbin/tonguetoquill-usaf-memo/raw/main/fonts/NimbusRomanNo9L/NimbusRomNo9L-RegIta.otf
+curl -L -o NimbusRomNo9L-Med.otf https://github.com/nibsbin/tonguetoquill-usaf-memo/raw/main/fonts/NimbusRomanNo9L/NimbusRomNo9L-Med.otf
+curl -L -o NimbusRomNo9L-MedIta.otf https://github.com/nibsbin/tonguetoquill-usaf-memo/raw/main/fonts/NimbusRomanNo9L/NimbusRomNo9L-MedIta.otf
 ```
 
-4. Compile a template file:
+4. Compile a template file (include `--font-path` if fonts are in a `fonts/` subfolder):
 ```bash
-typst compile --font-path . template/usaf-template.typ my-memo.pdf
+# If your fonts are located in a local `fonts/` folder, specify it:
+typst compile --font-path fonts --font-path . template/usaf-template.typ my-memo.pdf
 ```
 
 ### Local Development
