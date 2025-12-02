@@ -45,12 +45,13 @@
 
   show: zebraw
 
-  show raw: set text(font: mono-font, "JetBrains Mono", "Monospace", "Courier New")
+  show raw: set text(font: (mono-font, "Maple Mono NF", "JetBrains Mono", "Monospace", "Courier New"))
 
   set text(
     font: (
-      (name: latin-font, covers: "latin-in-cjk"),
+      (name: (latin-font, "New Computer Modern", "Times New Roman"), covers: "latin-in-cjk"),
       cjk-font,
+      "Source Han Serif",
       "Noto Serif SC",
       "Noto Serif CJK SC",
       "FandolSong",
@@ -74,7 +75,12 @@
   )
 
   show emph: set text(
-    font: ((name: latin-font, covers: "latin-in-cjk"), emph-cjk-font, "KaiTi"),
+    font: (
+      (name: (latin-font, "New Computer Modern", "Times New Roman"), covers: "latin-in-cjk"),
+      emph-cjk-font,
+      "FandolKai",
+      "KaiTi",
+    ),
   )
 
   set document(author: author, title: title)
