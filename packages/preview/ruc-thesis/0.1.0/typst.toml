@@ -7,7 +7,7 @@ license = "MIT"
 description = "中国人民大学本科生毕业论文 Typst 模板"
 repository = "https://github.com/ruc-thesis/ruc-thesis-typst"
 keywords = ["thesis", "ruc", "template", "typst"]
-compiler = "0.13"
+compiler = "0.13.0"
 categories = ["report", "paper"]
 exclude = ["assets/*", "docs/*"]
 
