@@ -8,7 +8,7 @@
   } else if alt == none {
     pdf.artifact(image(bytes(data), ..args))
   } else {
-    assert.eq(type(alt), str, "`alt` must be either of `auto`, `str` or `none`")
+    assert.eq(type(alt), str, "`alt` must be either `auto`, `str`, or `none`")
     image(bytes(data), alt: alt, ..args)
   }
 }
