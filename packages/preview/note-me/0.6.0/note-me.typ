@@ -62,7 +62,7 @@
           )
           if (icon-path != none) {
             color-svg-path(icon-path, color, alt: icon-alt, width: 1em, height: 1em)
-          } 
+          }
           if (icon-string != none) {
             color-svg-string(icon-string, color, alt: icon-alt, width: 1em, height: 1em)
           }
