@@ -86,6 +86,7 @@
     }
   }
 
+  set bibliography(title: [参考文献], style: "gb-7714-2015-numeric")
   set footnote(numbering: "①")
   show footnote.entry: set text(font: songti, size: zh(5.5))
 
