@@ -30,7 +30,7 @@ Click "Start from template" in the Typst web app and search for hanzi-calligraph
 Alternatively, run the following command to create a directory initialized with all necessary files:
 
 ```
-typst init @preview/hanzi-calligraphy:0.1.0
+typst init @preview/hanzi-calligraphy:0.1.1
 ```
 
 ### Example Usage
