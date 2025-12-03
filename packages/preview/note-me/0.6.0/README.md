@@ -57,7 +57,7 @@ Import this package, and write
   color: color.fuchsia,
   title: "Customize",
 )[
-  The icon can be specified as a string of SVG. This is useful if the user want to use an SVG icon that is not available in this package.
+  The icon can be specified as a string of SVG. This is useful if the user wants to use an SVG icon that is not available in this package.
 ]
 
 #admonition(
