@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/hanzi-calligraphy:0.1.1": *
 
 
 #calligraphy-work(font: "FZSJ-DQYBKSJW", spacing-rate: 27%, y-rate: 9%)[
