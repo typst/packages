@@ -3,6 +3,8 @@
 
 #import "../themes/index.typ" : * // 导入主题设置模块 / Import theme settings module
 
+#import "book.typ" : *
+
 // 用于弥补缺少 `std` 作用域的工作区。
 // Workaround for missing `std` scope in workspace.
 #let std-bibliography = bibliography
@@ -637,3 +639,4 @@
   // 将所有其他 `#show` 规则置于其前 / put all your other `#show` rules before
 
 }
+
