@@ -74,7 +74,7 @@
       ),
       {
         if (foreground-color == auto) {
-          text(children) 
+          text(children)
         } else {
           text(fill: foreground-color, children) 
         }
