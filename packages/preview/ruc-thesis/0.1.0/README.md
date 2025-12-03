@@ -37,14 +37,6 @@ typst init @preview/ruc-thesis:0.1.0
 ```bash
 git clone https://github.com/ruc-thesis/ruc-thesis-typst.git
 ```
-**⚠️ 注意**：使用此方式时，你需要手动修改 `template/main.typ`，将包导入改为本地相对路径导入：
-```typst
-// 修改前
-#import "@preview/ruc-thesis:0.1.0": project
-
-// 修改后
-#import "../lib.typ": project
-```
 
 ### 3. 开始写作
 本模板的主要文件结构如下，请在对应文件中填写内容：
