@@ -31,25 +31,7 @@
 typst init @preview/ruc-thesis:0.1.0
 ```
 
-#### 方式二：安装为本地包
-如果你想使用开发版，可以将本仓库克隆到本地包目录（参考 [Typst 文档](https://github.com/typst/packages/blob/main/README.md)）：
-
-```bash
-# 请将 {data-dir} 替换为你的系统对应路径
-git clone https://github.com/ruc-thesis/ruc-thesis-typst.git "{data-dir}/typst/packages/local/ruc-thesis/0.1.0"
-```
-
-**`{data-dir}` 路径说明：**
-- **Linux**: `$XDG_DATA_HOME` 或 `~/.local/share`
-- **macOS**: `~/Library/Application Support`
-- **Windows**: `%APPDATA%` (即 `C:\Users\<用户名>\AppData\Roaming`)
-
-安装完成后，运行：
-```bash
-typst init @local/ruc-thesis:0.1.0
-```
-
-#### 方式三：直接克隆 (传统方式)
+#### 方式二：直接克隆 (传统方式)
 
 直接克隆本仓库或者下载 ZIP 压缩包解压到任意位置：
 ```bash
