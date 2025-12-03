@@ -76,7 +76,7 @@
         if (foreground-color == auto) {
           text(children)
         } else {
-          text(fill: foreground-color, children) 
+          text(fill: foreground-color, children)
         }
       },
       threshold: 3.175em,
