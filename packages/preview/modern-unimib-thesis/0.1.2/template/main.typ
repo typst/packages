@@ -1,15 +1,15 @@
-#import "@preview/modern-unimib-thesis:0.1.0": template
+#import "@preview/modern-unimib-thesis:0.1.2": template
 
 // Create bibliography object first
 #let refs = bibliography("refs.bib")
 
 #show: template.with(
-  title: "Higher Order Quantum Theory, the \"Double-Ket\" notation", 
-  candidate:(
+  title: "Higher Order Quantum Theory, the \"Double-Ket\" notation",
+  candidate: (
     name: "Michelino Banfi",
-    number: "123456"
+    number: "123456",
   ),
-  date: "2024/2025", 
+  date: "2024/2025",
   university: "Universitá degli studi Milano - Bicocca",
   school: "Scuola di Scienze",
   department: "Dipartimento di Fisica",
@@ -26,7 +26,7 @@
 == Subtitle
 #underline[Generalized POVM]
 $
-pi_i equiv sum_(j=0)^i K_j^dagger PP_i K_j
+  pi_i equiv sum_(j=0)^i K_j^dagger PP_i K_j
 $<POVM>
 
 @POVM are Great!
