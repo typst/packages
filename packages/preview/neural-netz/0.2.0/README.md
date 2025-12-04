@@ -171,7 +171,7 @@ show-legend: true
 
 
 ## Examples
-Here are a few network architectures implemented with neural-netz (more examples can be found [in the repo](https://github.com/edgaremy/neural-netz/tree/5c434055a5bcf83eee75ab88ad5a7ac77c430feb/examples/networks)).
+Here are a few network architectures implemented with neural-netz (more examples can be found [in the repo](https://github.com/edgaremy/neural-netz/tree/d003774deafd29a0d48c477365a2ba60dad33a59/examples/networks)).
 
 <h3 style="text-align: center;">ResNet18</h3>
 <p align="center">
