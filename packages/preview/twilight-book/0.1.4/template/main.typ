@@ -1,4 +1,4 @@
-#import "@preview/twilight-book:0.1.3" : *
+#import "@preview/twilight-book:0.1.4" : *
 
 #show: book.with(
   title: [晨昏之书],
