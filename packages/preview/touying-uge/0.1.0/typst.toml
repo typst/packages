@@ -3,9 +3,8 @@ name = "touying-uge"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Thibaud Toullier <thibaud.toullier@univ-eiffel.fr>"]
-license = "GPLv3"
+license = "GPL-3.0-or-later"
 description = "Université Gustave Eiffel style slides for touying."
-homepage = "https://gitlab.inria.fr/ttoullie/touying-uge"
 repository = "https://gitlab.inria.fr/ttoullie/touying-uge"
 keywords = ["touying", "slide", "theme", "uge", "eiffel"]
 categories = ["presentation"]
@@ -14,4 +13,3 @@ exclude = ["examples/"]
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail.webp"
