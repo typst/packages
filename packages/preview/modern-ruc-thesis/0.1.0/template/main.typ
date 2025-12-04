@@ -1,4 +1,4 @@
-#import "@preview/ruc-thesis:0.1.0": project
+#import "@preview/modern-ruc-thesis:0.1.0": project
 
 
 #show: project.with(
