@@ -17,7 +17,7 @@ To start writing, run:
 ```
 ## Examples
 
-![](thumbnail.webp)
+![screenshot of the template slide](thumbnail.webp)
 
 See [examples](examples) for more details.
 
