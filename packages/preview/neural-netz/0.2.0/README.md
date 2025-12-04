@@ -93,7 +93,7 @@ show-legend: true,
 
 Using `show-legend: true` you can add a smart legend to your visual !
 
-And if you network does not fit the page width of your Typst document, **you can reduce the scale by giving `scale: 50%` as argument of `draw-network`** (ajust to scale value to your need).
+And if you network does not fit the page width of your Typst document, **you can reduce the scale by giving `scale: 50%` as argument of `draw-network`** (ajust the scale value to your need).
 
 
 ### Adding other connexions
