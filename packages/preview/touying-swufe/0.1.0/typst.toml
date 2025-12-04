@@ -1,0 +1,18 @@
+[package]
+name = "touying-swufe" 
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["leichao <le.haibo@qq.com>"]
+description = "Touying slide theme for SWUFE (Southwestern University of Finance and Economics)"
+license = "MIT"
+keywords: ["touying", "slide", "presentation", "theme", "swufe"]
+repository = "https://github.com/leichaol/touying-swufe"
+homepage = "https://github.com/leichaol/touying-swufe"
+categories = ["presentation"]
+exclude = ["examples/"]
+
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.webp"
