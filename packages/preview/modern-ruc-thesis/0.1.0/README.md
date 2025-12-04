@@ -3,6 +3,8 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Typst](https://img.shields.io/badge/built%20with-Typst-239dad.svg)
 
+This is an unofficial undergraduate thesis Typst template for Renmin University of China (RUC). It aims to help students efficiently and elegantly complete their thesis typesetting using modern tools.
+
 这是一个非官方的中国人民大学（RUC）本科生毕业论文 Typst 模板。旨在帮助同学们用现代化的工具，高效、优雅地完成论文排版。
 
 ## ✨ 特性
@@ -28,14 +30,18 @@
 
 你需要先从官方 [Typst](https://github.com/typst/typst) 下载并安装 Typst CLI。如果你的 Typst 版本 >= 0.13.0，可以直接从官方包仓库初始化：
 ```bash
-typst init @preview/ruc-thesis:0.1.0
+typst init @preview/modern-ruc-thesis:0.1.0
 ```
 
 #### 方式二：直接克隆 (传统方式)
 
 直接克隆本仓库或者下载 ZIP 压缩包解压到任意位置：
 ```bash
-git clone https://github.com/ruc-thesis/ruc-thesis-typst.git
+git clone https://github.com/ruc-thesis/modern-ruc-thesis.git
+```
+也可以使用国内镜像仓库：
+```bash
+git clone https://gitee.com/ruc-thesis/modern-ruc-thesis.git
 ```
 
 ### 3. 开始写作
@@ -131,9 +137,9 @@ Typst 的语法简洁直观，以下是一些常用语法：
 
 ## ⭐ 效果预览
 
-![](./assets/output-01.png)
-![](./assets/output-06.png)
-![](./assets/output-07.png)
+![cover](./assets/output-01.png)
+![page1](./assets/output-06.png)
+![page2](./assets/output-07.png)
 
 ## 🛠️ 开发者
 

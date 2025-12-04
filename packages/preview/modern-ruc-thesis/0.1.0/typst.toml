@@ -1,11 +1,11 @@
 [package]
-name = "ruc-thesis"
+name = "modern-ruc-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["ruc-thesis"]
 license = "MIT"
 description = "中国人民大学本科生毕业论文 Typst 模板"
-repository = "https://github.com/ruc-thesis/ruc-thesis-typst"
+repository = "https://github.com/ruc-thesis/modern-ruc-thesis"
 keywords = ["thesis", "ruc", "template", "typst"]
 compiler = "0.13.0"
 categories = ["report", "paper"]
