@@ -4,7 +4,17 @@ A Typst version for [SWUFE Beamer template](https://www.overleaf.com/latex/templ
 
 Inspired by [Touying Slide Theme for Beihang University](https://github.com/Coekjan/touying-buaa).
 
+## Use as Typst Template Package
 
+Use `typst init @preview/touying-swufe` to create a new project with this theme.
+
+```console
+$ typst init @preview/touying-swufe
+Successfully created new project from @preview/touying-swufe:<latest>
+To start writing, run:
+> cd touying-swufe
+> typst watch main.typ
+```
 ## Examples
 
 ![](thumbnail.webp)
