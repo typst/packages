@@ -7,7 +7,6 @@ description = "Touying slide theme for SWUFE (Southwestern University of Finance
 license = "MIT"
 keywords = ["touying", "slide", "presentation", "theme", "swufe"]
 repository = "https://github.com/leichaol/touying-swufe"
-homepage = "https://github.com/leichaol/touying-swufe"
 categories = ["presentation"]
 exclude = ["examples/"]
 
