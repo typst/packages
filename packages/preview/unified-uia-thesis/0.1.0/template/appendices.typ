@@ -1,4 +1,4 @@
-#import "/src/lib.typ": append-typ
+#import "@preview/unified-uia-thesis:0.1.0": append-typ
 
 = First appendix <appendix-1>
 This is the first appendix, which can be referenced with `@appendix-1`.
