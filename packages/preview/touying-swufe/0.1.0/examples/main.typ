@@ -1,7 +1,8 @@
 #import "@preview/cetz:0.4.2"
 #import "@preview/fletcher:0.5.8" as fletcher: edge, node
 #import "@preview/touying:0.6.1": *
-#import "../lib.typ": *
+// #import "../lib.typ": *
+#import "@preview/touying-swufe:0.1.0": *
 
 
 // cetz and fletcher bindings for touying
