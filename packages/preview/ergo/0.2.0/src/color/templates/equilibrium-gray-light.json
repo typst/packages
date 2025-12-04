@@ -1,0 +1,89 @@
+{
+  "opts": {
+    "fill": "#f3f3f3",
+    "text1": "#303030",
+    "text2": "#1b1b1b",
+    "h1": "#1b1b1b",
+    "h2": "#474747",
+    "strong": "#81164b"
+  },
+  "bookmark": {
+    "bgcolor": "#f3f3f3",
+    "strokecolor": "#981417"
+  },
+  "theorem": {
+    "bgcolor1": "#c2c6de",
+    "bgcolor2": "#a0a8d0",
+    "strokecolor1": "#374985",
+    "strokecolor2": "#4e66b6"
+  },
+  "lemma": {
+    "bgcolor1": "#d5c8bc",
+    "bgcolor2": "#c1ac95",
+    "strokecolor1": "#725000",
+    "strokecolor2": "#9d6f00"
+  },
+  "corollary": {
+    "bgcolor1": "#c2c6de",
+    "bgcolor2": "#a0a8d0",
+    "strokecolor1": "#374985",
+    "strokecolor2": "#4e66b6"
+  },
+  "proposition": {
+    "bgcolor1": "#e9bdbd",
+    "bgcolor2": "#df9798",
+    "strokecolor1": "#981417",
+    "strokecolor2": "#d02023"
+  },
+  "note": {
+    "bgcolor": "#bcc9de",
+    "strokecolor": "#005384"
+  },
+  "definition": {
+    "bgcolor": "#bccbc9",
+    "strokecolor": "#005852"
+  },
+  "remark": {
+    "bgcolor": "#bcc9de",
+    "strokecolor": "#005384"
+  },
+  "notation": {
+    "bgcolor": "#bcc9de",
+    "strokecolor": "#005384"
+  },
+  "example": {
+    "bgcolor": "#c6c9bc",
+    "strokecolor": "#475200"
+  },
+  "concept": {
+    "bgcolor": "#bccbc9",
+    "strokecolor": "#005852"
+  },
+  "computational-problem": {
+    "bgcolor": "#bccbc9",
+    "strokecolor": "#005852"
+  },
+  "algorithm": {
+    "bgcolor": "#e9bdbd",
+    "strokecolor": "#981417"
+  },
+  "runtime": {
+    "bgcolor": "#bcc9de",
+    "strokecolor": "#005384"
+  },
+  "problem": {
+    "bgcolor1": "#c6c9bc",
+    "bgcolor2": "#a7ad95",
+    "strokecolor1": "#475200",
+    "strokecolor2": "#637200"
+  },
+  "exercise": {
+    "bgcolor1": "#e2c0bc",
+    "bgcolor2": "#d59c95",
+    "strokecolor1": "#8c2b02",
+    "strokecolor2": "#bf3e05"
+  },
+  "raw": {
+    "saturation": "0.25"
+  }
+}

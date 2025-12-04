@@ -1,0 +1,31 @@
+[package]
+name = "cogsci-conference"
+version = "0.1.0"
+entrypoint = "cogsci.typ"
+authors = ["Dae Houlihan <@daeh>"]
+license = "MIT"
+description = "CogSci template for submissions to the Annual Conference of the Cognitive Science Society."
+repository = "https://github.com/daeh/cogsci-typst-template"
+keywords = [
+    "Cognitive Science Society",
+    "CogSci",
+    "conference",
+    "proceedings",
+    "cognitive science",
+    "psychology",
+    "neuroscience",
+    "linguistics",
+    "artificial intelligence",
+    "machine learning",
+    "philosophy",
+    "AI",
+]
+categories = ["paper"]
+disciplines = ["psychology", "computer-science", "linguistics"]
+compiler = "0.14.0"
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
