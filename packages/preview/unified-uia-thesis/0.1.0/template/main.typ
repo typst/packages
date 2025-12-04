@@ -1,4 +1,4 @@
-#import "/src/lib.typ": define, report
+#import "@preview/unified-uia-thesis:0.1.0": define, report
 
 #show: report.with(
   meta: toml("meta.toml"),
