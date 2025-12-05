@@ -1,0 +1,17 @@
+[package]
+name = "ai-ethics-tuw"
+version = "1.0.0"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/typst/templates"
+authors = ["Michael <https://mikee.dev/>"]
+license = "MIT"
+description = "A Typst port of the LaTeX template for the AI Ethics course at TU Vienna"
+keywords = ["TU Vienna", "AI Ethics"]
+categories = ["paper"]
+disciplines = ["computer-science", "philosophy"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
