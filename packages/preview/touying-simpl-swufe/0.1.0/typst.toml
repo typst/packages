@@ -1,12 +1,12 @@
 [package]
-name = "touying-swufe" 
+name = "touying-simpl-swufe" 
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["leichao <le.haibo@qq.com>"]
 description = "Touying slide theme for SWUFE (Southwestern University of Finance and Economics)"
 license = "MIT"
 keywords = ["touying", "slide", "presentation", "theme", "swufe"]
-repository = "https://github.com/leichaol/touying-swufe"
+repository = "https://github.com/leichaol/touying-simpl-swufe"
 categories = ["presentation"]
 exclude = ["examples/"]
 

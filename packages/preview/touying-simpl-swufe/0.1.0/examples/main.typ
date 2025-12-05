@@ -2,7 +2,7 @@
 #import "@preview/fletcher:0.5.8" as fletcher: edge, node
 #import "@preview/touying:0.6.1": *
 // #import "../lib.typ": *
-#import "@preview/touying-swufe:0.1.0": *
+#import "@preview/touying-simpl-swufe:0.1.0": *
 
 
 // cetz and fletcher bindings for touying
@@ -49,9 +49,7 @@
 
 - Typst 是一门新的基于标记的排版系统，它强大且易于学习。你可以在 Typst 的#link("https://typst.app/docs")[文档]中找到更多信息。
 - *语法简洁：*上手难度跟 Markdown 相当，文本源码可阅读性高。
-- *编译速度快：*
-  - Typst 使用 Rust 语言编写，即 `typ(esetting+ru)st`。
-  - 增量编译时间一般维持在*数毫秒*到*数十毫秒*。
+- *编译速度快：*增量编译时间一般维持在*数毫秒*到*数十毫秒*。
 - *环境搭建简单：*安装快速简便，官方 Web App 和本地 VS Code 均能*开箱即用*。Typst 原生支持中日韩等非拉丁语言，拒绝Latex中的繁琐设置。
 - *现代脚本语言：*
   - 变量、函数、闭包与错误检查 + 函数式编程的纯函数理念。
@@ -404,7 +402,7 @@ $ <eq>
 
 #slide[
   - 本模板基于 Touying 包开发，感谢 Touying 团队的辛勤付出与贡献。
-  - 本模板仓库位于 #link("https://github.com/leichaoL/touying-swufe")，欢迎关注与贡献。
+  - 本模板仓库位于 #link("https://github.com/leichaoL/touying-simpl-swufe")，欢迎关注与贡献。
 ]
 
 ==

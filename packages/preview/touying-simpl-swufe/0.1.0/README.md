@@ -1,4 +1,5 @@
-# Touying Slide Theme for Beihang University
+# [English](README.md) | [中文说明](README.zh.md)
+# Touying Slide Theme for SWUFE
 
 A Typst version for [SWUFE Beamer template](https://www.overleaf.com/latex/templates/swufe-beamer-theme/hysqbvdbpnsm).
 
@@ -9,10 +10,10 @@ Inspired by [Touying Slide Theme for Beihang University](https://github.com/Coek
 The fastest way to get started is to use the Typst official package manager:
 
 ```console
-$ typst init @preview/touying-swufe
-Successfully created new project from @preview/touying-swufe:<latest>
+ $ typst init @preview/touying-simpl-swufe
+Successfully created new project from @preview/touying-simpl-swufe:<latest>
 To start writing, run:
-> cd touying-swufe
+> cd touying-simpl-swufe
 > typst watch main.typ
 ```
 
@@ -31,7 +32,7 @@ You can directly copy the [`lib.typ`](lib.typ) file to your project root directo
 Clone the repository and install it as a local package for use across different projects. Refer to the [Typst documentation](https://github.com/typst/packages/blob/main/README.md):
 
 ```bash
-git clone https://github.com/leichaol/packages.git {data-dir}/typst/packages/local/touying-swufe/0.1.0
+git clone https://github.com/leichaol/packages.git {data-dir}/typst/packages/local/touying-simpl-swufe/0.1.0
 ```
 
 Where `{data-dir}` is:
@@ -43,7 +44,7 @@ Where `{data-dir}` is:
 Then use:
 
 ```typst
-#import "@local/touying-swufe:0.1.0": *
+#import "@local/touying-simpl-swufe:0.1.0": *
 ```
 
 ## Examples
@@ -62,9 +63,15 @@ $ typst compile ./examples/main.typ --root .
 
 This will generate `./examples/main.pdf`.
 
-## Acknowledgments
+## Copyright Disclaimer
 
-The logo in this theme is sourced from [swufe-logo](https://github.com/ChenZhongPu/swufe-logo) by [ChenZhongPu](https://github.com/ChenZhongPu). We thank the author for providing the logo resource.
+The logo in this theme is sourced from [swufe-logo](https://github.com/ChenZhongPu/swufe-logo) by [ChenZhongPu](https://github.com/ChenZhongPu). Thank the author for providing the logo resource.
+
+These logos are the property of Southwestern University of Finance and Economics. Their inclusion here is for academic formatting purposes only and does not imply official endorsement by the university.
+
+The template author does not hold the copyright to these logos and does not claim any rights over them.
+
+For official use or redistribution of the logos, please contact Southwestern University of Finance and Economics directly.
 
 ## License
 

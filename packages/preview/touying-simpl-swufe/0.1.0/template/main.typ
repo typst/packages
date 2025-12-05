@@ -1,5 +1,5 @@
 #import "@preview/touying:0.6.1": *
-#import "@preview/touying-swufe:0.1.0": *
+#import "@preview/touying-simpl-swufe:0.1.0": *
 // #import "../lib.typ": *
 
 #show: swufe-theme.with(
