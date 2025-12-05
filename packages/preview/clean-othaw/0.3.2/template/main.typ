@@ -15,7 +15,7 @@
   type-of-thesis: "Masterarbeit",
   abstract-text: "Mit diesem Template kannst du ganz einfach eine Abschlussarbeit erstellen.",
   keywords: "Typst, OTH, Lernen",
-  logo-left: image("oth.svg"), // Please upload the OTH-AW logo to the project directory
+  //logo-left: image("oth.svg"), // Please upload the OTH-AW logo to the project directory
   at-university: false, // if true the company name on the title page and the confidentiality statement are hidden
   bibliography: bibliography("sources.bib"),
   glossary: glossary-entries, // displays the glossary terms defined in "glossary.typ"
