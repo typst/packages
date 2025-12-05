@@ -1,4 +1,4 @@
-## [0.4.2](https://github.com/Vertsineu/typst-tdtr/compare/v0.4.1...v0.4.2) (2025-12-04)
+# [0.4.2](https://github.com/Vertsineu/typst-tdtr/compare/v0.4.1...v0.4.2) (2025-12-04)
 
 
 ### Bug Fixes
@@ -80,7 +80,7 @@ better experience of customization
 
 
 
-# [0.2.0](https://github.com/Vertsineu/typst-tdtr/compare/2a14d129a2c8a2bcccf09a6974f0da21016987f1...v0.2.0) (2025-10-28)
+# [0.2.0](https://github.com/Vertsineu/typst-tdtr/compare/v0.1.0...v0.2.0) (2025-10-28)
 
 
 ### Bug Fixes
@@ -88,12 +88,7 @@ better experience of customization
 * add tidy-tree-normalize before using tree-edges ([78a213b](https://github.com/Vertsineu/typst-tdtr/commit/78a213b9682fd7744d602c136d3e9a23c263b8d7))
 * fix comments about yaml ([1dba373](https://github.com/Vertsineu/typst-tdtr/commit/1dba373f6c9c59eaaf0a86834b980eed3f0d9892))
 * force node to be a rectangle shape ([5f8518a](https://github.com/Vertsineu/typst-tdtr/commit/5f8518a32ed2411daa4f17b8c95caf63b057adcd))
-* import use the package specification, not a relative path ([459a9c0](https://github.com/Vertsineu/typst-tdtr/commit/459a9c0fd9c0a6aec96afab50b4b11eaf419838f))
-* overlapping between nodes when some very long nodes are siblings in fractional positions ([cc41cc9](https://github.com/Vertsineu/typst-tdtr/commit/cc41cc9a5aa152cfdea5e1be4b3d63eaf34ef949))
 * parameter does not pass to inner function ([996b4c5](https://github.com/Vertsineu/typst-tdtr/commit/996b4c5ef55121b3f14c9c6c2000bf023afa9543))
-* restrict dictionary can not exists in array ([2a14d12](https://github.com/Vertsineu/typst-tdtr/commit/2a14d129a2c8a2bcccf09a6974f0da21016987f1))
-* update package name in  README.md ([d97265b](https://github.com/Vertsineu/typst-tdtr/commit/d97265b12ef17521586ce674103a8840cae69cfb))
-* update reopsitory url ([1c00645](https://github.com/Vertsineu/typst-tdtr/commit/1c00645ac0058a72e079d7c4f09c200735e69367))
 
 
 ### Features
@@ -101,6 +96,19 @@ better experience of customization
 * add circle draw node ([4a6bb23](https://github.com/Vertsineu/typst-tdtr/commit/4a6bb230d7bfc884a86bada474cc2306fc8e7189))
 * add reversed draw edge ([c157f42](https://github.com/Vertsineu/typst-tdtr/commit/c157f42b06212424b260250a3009792c30b0c792))
 * support edge labels ([b5d6d73](https://github.com/Vertsineu/typst-tdtr/commit/b5d6d7303124b236a870e25c21d3081687be9f45))
+
+
+
+# [0.1.0](https://github.com/Vertsineu/typst-tdtr/compare/2a14d129a2c8a2bcccf09a6974f0da21016987f1...v0.1.0) (2025-10-18)
+
+
+### Bug Fixes
+
+* import use the package specification, not a relative path ([459a9c0](https://github.com/Vertsineu/typst-tdtr/commit/459a9c0fd9c0a6aec96afab50b4b11eaf419838f))
+* overlapping between nodes when some very long nodes are siblings in fractional positions ([cc41cc9](https://github.com/Vertsineu/typst-tdtr/commit/cc41cc9a5aa152cfdea5e1be4b3d63eaf34ef949))
+* restrict dictionary can not exists in array ([2a14d12](https://github.com/Vertsineu/typst-tdtr/commit/2a14d129a2c8a2bcccf09a6974f0da21016987f1))
+* update package name in  README.md ([d97265b](https://github.com/Vertsineu/typst-tdtr/commit/d97265b12ef17521586ce674103a8840cae69cfb))
+* update reopsitory url ([1c00645](https://github.com/Vertsineu/typst-tdtr/commit/1c00645ac0058a72e079d7c4f09c200735e69367))
 
 
 
