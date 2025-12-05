@@ -1,0 +1,30 @@
+einstein:
+  type: Article
+  title: Zur Elektrodynamik bewegter Körper. (German) [On the electrodynamics of moving bodies]
+  author: Einstein, Albert
+  date: 1905
+  page-range: 891-921
+  serial-number:
+    doi: 10.1002/andp.19053221004
+  parent:
+    type: Periodical
+    title: Annalen der Physik
+    volume: 322
+    issue: 10
+
+dirac:
+  type: Book
+  title: The Principles of Quantum Mechanics
+  author: Dirac, Paul Adrien Maurice
+  date: 1981
+  publisher: Clarendon Press
+  serial-number:
+    isbn: 9780198520115
+  volume: International series of monographs on physics
+
+knuthwebsite:
+  type: Web
+  title: "Knuth: Computers and Typesetting"
+  author: Knuth, Donald
+  url: http://www-cs-faculty.stanford.edu/~uno/abcde.html
+  date: 2016-09-01
