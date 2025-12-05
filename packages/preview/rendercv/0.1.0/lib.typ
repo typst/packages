@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.5.0": fa-icon
+#import "@preview/fontawesome:0.6.0": fa-icon
 
 // State to hold rendercv configuration for use by components
 #let rendercv-config = state("rendercv-config", (:))

@@ -5,13 +5,12 @@ entrypoint = "lib.typ"
 authors = ["Sina Atalay <dev@atalay.biz>"]
 license = "MIT"
 description = "Create professional resumes and CVs."
-homepage = "https://github.com/rendercv/rendercv-typst"
 repository = "https://github.com/rendercv/rendercv-typst"
 keywords = ["rendercv", "cv", "resume", "curriculum-vitae"]
 categories = ["cv"]
 disciplines = []
 compiler = "0.14.0"
-exclude = ["thumbnail.png", "examples/*.pdf"]
+exclude = ["examples/*.pdf"]
 
 [template]
 path = "template"
