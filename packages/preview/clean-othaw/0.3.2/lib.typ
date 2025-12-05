@@ -40,7 +40,7 @@
   glossary: none,
   bib-style: "ieee",
   math-numbering: "(1)",
-  logo-left: image("oth.svg"),
+  logo-left: none,
   logo-right: none,
   ignored-link-label-keys-for-highlighting: (),
   body,
