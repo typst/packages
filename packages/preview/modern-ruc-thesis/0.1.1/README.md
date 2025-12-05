@@ -30,7 +30,7 @@ This is an unofficial undergraduate thesis Typst template for Renmin University 
 
 你需要先从官方 [Typst](https://github.com/typst/typst) 下载并安装 Typst CLI。如果你的 Typst 版本 >= 0.13.0，可以直接从官方包仓库初始化：
 ```bash
-typst init @preview/modern-ruc-thesis:0.1.0
+typst init @preview/modern-ruc-thesis:0.1.1
 ```
 
 #### 方式二：直接克隆 (传统方式)
