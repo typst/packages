@@ -1,0 +1,24 @@
+#import "@preview/touying-uge:0.1.0": *
+
+#show: uge-theme.with(
+    aspect-ratio: "16-9",
+    footer: self => self.info.institution,
+    config-info(
+	title: [Title],
+	subtitle: [A UGE template #emoji.rocket],
+	authors: (
+	    (
+		name: "John Doe",
+		affiliations: (1,),
+		email: "john.doe@univ-eiffel.fr"
+	    ),
+	),
+	institutions: (
+	    "Université Gustave Eiffel, Your laboratory",
+	),
+	affiliation_type: "numbers",
+	date: datetime.today(),
+	logo: image("assets/logo_univ_gustave_eiffel_blanc_rvb.svg", height: 1em),
+	variant: true
+    ),
+)
