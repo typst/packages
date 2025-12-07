@@ -1,4 +1,4 @@
-#import "@preview/abbr:0.2.3"
+#import "@preview/abbr:0.3.0"
 
 #abbr.make(
   ("PDE", "Partial Differential Equation"),

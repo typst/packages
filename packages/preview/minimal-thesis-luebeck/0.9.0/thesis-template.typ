@@ -1,4 +1,4 @@
-#import "@preview/abbr:0.2.3":
+#import "@preview/abbr:0.3.0"
 #import "@preview/hydra:0.6.2": hydra
 #import "utils/todo.typ": TODO
 #import "utils/print-page-break.typ": print-page-break
@@ -122,6 +122,8 @@
   show figure: set text(size: 11pt)
   // Links
   show link: underline
+  // abbr 0.3.0 references using '@'
+  show: abbr.show-rule
   // #############################################
   // ############## End of Settings ##############
   // #############################################

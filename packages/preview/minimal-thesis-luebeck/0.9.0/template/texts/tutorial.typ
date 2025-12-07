@@ -1,4 +1,4 @@
-#import "@preview/abbr:0.2.3"
+#import "@preview/abbr:0.3.0"
 
 #set heading(numbering: "1.1")
 
@@ -58,7 +58,7 @@ In Typst, math symbols are written differently than in LaTeX. For instance, many
 - Functions: $sin$, $cos$, $tan$, $log$, $exp$
 
 == Abbreviations
-Typst supports abbreviations like this: #abbr.pla[PDE] are important in mathematics. To use the singular, use `abbr.a` (auto) and for plural `abbr.pla`.\
+Typst supports abbreviations like this: @PDE:pla are important in mathematics. To use the singular, use `@PDE:a` (auto) and for plural `@PDE:pla`.\
 Note that a list of all abbreviations shall be written in `texts/abbreviations.typ`.
 
 == Enumerations and bullet points
