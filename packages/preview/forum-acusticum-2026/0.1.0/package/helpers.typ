@@ -28,7 +28,7 @@
 #let show-affiliations(
   size: 10pt,
   style: "italic",
-  super_style: "normal",
+  super-style: "normal",
   separator: ", ",
   affiliations
   ) = {
@@ -39,7 +39,7 @@
 
   set par(leading: 5pt)
   affiliations.map(affiliation => {
-    set text(size, style: super_style)
+    set text(size, style: super-style)
     super(str(affiliation.index), size: .7*size)
     // text(size: 2.5pt, [~]) // Ensure this is not a linebreak
     set text(size, style: style)
