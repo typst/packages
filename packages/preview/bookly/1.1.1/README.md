@@ -107,67 +107,69 @@ The template is under development. Here is the list of features that are impleme
 
 *Themes*
 
-- [x] `fancy` (default)
-- [x] `modern`
-- [x] `classic`
-- [x] `orly` (O'Reilly style)
+- `fancy` (default)
+- `modern`
+- `classic`
+- `orly` (O'Reilly style)
+- `pretty`
 
 *Layout*
 
-- [x] Standard layout
-- [x] Tufte layout
+- Standard layout
+- Tufte layout
 
 *Cover pages*
 
-- [x] Title page
-- [x] Back cover
+- Title page
+- Back cover
 
 *Environments*
 
-- [x] Creation of the `front-matter` environment
-- [x] Creation of the `main-matter` environment
-- [x] Creation of the `appendix` environment
+- Creation of the `front-matter` environment
+- Creation of the `main-matter` environment
+- Creation of the `appendix` environment
 
 *Parts and chapters*
-- [x] Creation of a document `part`
-- [x] Creation of a document `chapter`
-- [x] Creation of an unnumbered `chapter`
+- Creation of a document `part`
+- Creation of a document `chapter`
+- Creation of an unnumbered `chapter`
 
 *Tables of contents*
 
-- [x] Creation of the table of contents
-- [x] Creation of the list of figures
-- [x] Creation of the list of tables
-- [x] Creation of a mini table of contents at the beginning of chapters using the `suboutline` package
-- [x] Customization of entries (appearance, hyperlink) by modifying the `outline.entry` element
-- [x] Localization of the different tables
+- Creation of the table of contents
+- Creation of the list of figures
+- Creation of the list of tables
+- Creation of a mini table of contents at the beginning of chapters using the `suboutline` package
+- Customization of entries (appearance, hyperlink) by modifying the `outline.entry` element
+- Localization of the different tables
 
 *Figures and tables*
 
-- [x] Customization of the appearance of figure and table captions depending on the context (chapter or appendix)
-- [x] Short titles for the lists of figures and tables
-- [x] Creation of the `subfigure` function for subfigures via the `subpar` package
+- Customization of the appearance of figure and table captions depending on the context (chapter or appendix)
+- Short titles for the lists of figures and tables
+- Creation of the `subfigure` function for subfigures via the `subpar` package
 
 *Equations*
 
-- [x] Adaptation of equation numbering depending on the context (chapter or appendix)
-- [x] Creation of a function to highlight important equations
-- [x] Creation of a function to define equations without numbering
-- [x] Use of the `equate` package to number equations in a system like (1.1a)
+- Adaptation of equation numbering depending on the context (chapter or appendix)
+- Creation of a function to highlight important equations
+- Creation of a function to define equations without numbering
+- Use of the `equate` package to number equations in a system like (1.1a)
 
 *Boxes*
 
-- [x] Creation of information boxes to highlight important content
+- Creation of information boxes to highlight important content
 
 *Bibliography*
 
-- [x] Verification of the reference list via `bibtex`
-- [x] Same for `hayagriva`
+- Verification of the reference list via `bibtex`
+- Same for `hayagriva`
 
 ## Licence
 
 MIT licensed
 
 Copyright © 2025 Mathieu AUCEJO (maucejo)
+
 
 
