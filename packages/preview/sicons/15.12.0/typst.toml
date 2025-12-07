@@ -1,0 +1,13 @@
+[package]
+name = "sicons"
+version = "15.12.0"
+entrypoint = "src/lib.typ"
+authors = ["Cason Kervis <cscnk52@outlook.com>"]
+license = "MIT"
+compiler = "0.13.1"
+repository = "https://github.com/cscnk52/typst-sicons"
+description = "Access High quality Simple Icons SVGs from Typst."
+categories = ["utility", "components"]
+disciplines = ["design"]
+keywords = ["icons"]
+exclude = ["/test/*"]
