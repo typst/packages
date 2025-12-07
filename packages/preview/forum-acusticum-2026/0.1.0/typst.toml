@@ -22,4 +22,4 @@ disciplines = ["computer-science", "engineering", "music"]
 [template]
 path = "template"
 entrypoint = "fa2026_template.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "template/thumbnail.png"
