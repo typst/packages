@@ -1,24 +1,24 @@
-#import "@preview/touying:0.6.1": *
 #import "@preview/touying-simpl-swufe:0.1.0": *
 // #import "../lib.typ": *
 
 #show: swufe-theme.with(
   // Lang and font configuration
   aspect-ratio: "16-9",
-  lang: "en",
-  font: ("Libertinus Serif",),
+  lang: "en", // ""en" for English, "zh" for Chinese
+  // Recommended KaiTi for Chinese slides
+  // font: ((name: "Libertinus Serif", covers: "latin-in-cjk"), "KaiTi", "Kaiti SC", "Kai", "楷体"),
 
 
   // Basic information
   config-info(
     title: [Typst Slide Theme for Southwest University of Finance and Economics Based on Touying],
     subtitle: [基于Touying的西南财经大学Typst幻灯片模板],
-    short-title: [Typst Slide Theme for Southwest University of Finance and Economics Based on Touying],
+    short-title: [Typst Slide Theme for SWUFE Based on Touying],
     authors: [雷超#super("1"), Lei Chao#super("1,2")],
     author: [Presenter: Lei Chao],
     date: datetime.today(),
     institution: ([#super("1")金融学院 西南财经大学], [#super("2")西南财经大学]),
-    banner: emoji.school,
+    // banner: #image("custom-image.png")
   ),
 
   config-colors(

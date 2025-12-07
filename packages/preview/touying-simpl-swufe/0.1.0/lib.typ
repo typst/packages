@@ -370,13 +370,13 @@
 ///
 /// - progress-bar (boolean): is whether to show the progress bar in the footer. The default is `true`.
 ///
-/// - footer-columns (array): is the columns of the footer. The default is `(25%, 25%, 1fr, 5em)`.
+/// - footer-columns (array): is the columns of the footer. The default is `(1fr, 2fr, 0.7fr, 0.3fr)`.
 ///
 /// - footer-a (content, function): is the left part of the footer. The default is `self => self.info.author`.
 ///
-/// - footer-b (content, function): is the second left part of the footer. The default is `self => utils.display-info-date(self)`.
+/// - footer-b (content, function): is the second right part of the footer. The default is `self => if self.info.short-title == auto { self.info.title } else { self.info.short-title }`.
 ///
-/// - footer-c (content, function): is the second right part of the footer. The default is `self => if self.info.short-title == auto { self.info.title } else { self.info.short-title }`.
+/// - footer-c (content, function): is the second left part of the footer. The default is `self => utils.display-info-date(self)`.
 ///
 /// - footer-d (content, function): is the right part of the footer. The default is `context utils.slide-counter.display() + " / " + utils.last-slide-number`.
 #let swufe-theme(
@@ -462,6 +462,7 @@
   }
 
   show: touying-slides.with(
+    config-info(banner: image("assets/swufebanner.svg", height: 3em)),
     config-page(
       paper: "presentation-" + aspect-ratio,
       header: header,

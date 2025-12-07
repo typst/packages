@@ -17,6 +17,17 @@ To start writing, run:
 > typst watch main.typ
 ```
 
+## 字体说明
+
+为了实现与示例同样的显示效果，本模板推荐使用 **楷体（KaiTi）** 作为中文字体。
+
+- **Windows 系统**：楷体为系统自带字体，可直接使用。
+- **macOS 系统**：直接使用系统自带的"楷体-简"（Kaiti SC）。
+- **Linux 系统**：需要手动安装楷体字体。
+
+**[Typst Web App](https://typst.app) 用户**：为了保证显示效果，需要先上传字体文件，因为 Web App 无法访问系统字体。
+```
+
 ## 安装与配置（GitHub 源）
 
 ### 方法一：直接复制文件
@@ -71,7 +82,7 @@ $ typst compile ./examples/main.typ --root .
 
 模板作者不拥有这些 Logo 的版权，也不主张任何相关权利。
 
-如需官方使用或再分发 Logo，请直接联系西南财经大学。
+如需官方使用或再分发 Logo，请直接联系[西南财经大学](https://www.swufe.edu.cn/)。
 
 ## 许可证
 

@@ -17,6 +17,17 @@ To start writing, run:
 > typst watch main.typ
 ```
 
+## Font Guidance
+
+This template recommends using **KaiTi (楷体)** as the Chinese font.
+
+- **Windows**: KaiTi is pre-installed on Windows systems and can be used directly.
+- **macOS**: "Kaiti SC" (楷体-简) can be used directly.
+- **Linux**: You need to install a KaiTi font manually. 
+
+**For [Typst Web App](https://typst.app) users**: You need to upload the font file first to ensure proper display, as web app doesn't have access to system fonts.
+
+
 ## Installation and Setup (From GitHub)
 
 ### Method 1: Direct File Copy
@@ -71,7 +82,7 @@ These logos are the property of Southwestern University of Finance and Economics
 
 The template author does not hold the copyright to these logos and does not claim any rights over them.
 
-For official use or redistribution of the logos, please contact Southwestern University of Finance and Economics directly.
+For official use or redistribution of the logos, please contact [Southwestern University of Finance and Economics](https://www.swufe.edu.cn/) directly.
 
 ## License
 
