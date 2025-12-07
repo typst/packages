@@ -247,7 +247,7 @@ Modify existing themes or create your own:
   text-secondary: rgb("#757575"),
 )
 
-#wechat.chat(theme: custom_theme, ...)
+#wechat.chat(theme: custom_theme, /* same as above */)
 ```
 
 ### Layout Control
@@ -262,7 +262,7 @@ Fine-tune spacing and dimensions:
     avatar-size: 32pt,
     bubble-padding: 12pt,
   ),
-  ...
+  /* same as above */
 )
 ```
 
