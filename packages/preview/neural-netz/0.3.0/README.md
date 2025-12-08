@@ -218,7 +218,7 @@ Remy, E. (2025). neural-netz, a Typst Package (Version 0.3.0) [Computer software
   NOTE = {},
   YEAR = {2025},
   MONTH = Dec,
-  SWHID = {swh:1:dir:55c4750c9bc10aa40046e5ca52c9ff547bc87d98;origin=https://github.com/edgaremy/neural-netz;visit=swh:1:snp:296f771f07e0fdaf0938b2ea4dafe8413059eded;anchor=swh:1:rev:c5fea37ca375ad4efa46fad758774b2ed92d8cd9},
+  SWHID = {swh:1:dir:c0d8294e6b01cdb5bc8703eeb51e546275244c0a;origin=https://github.com/edgaremy/neural-netz;visit=swh:1:snp:052f4efa29f793bf84901593b27254f2e0e15ffb;anchor=swh:1:rev:3669d7922f3581afc2da1f12b9e62c54e4242048},
   VERSION = {0.3.0},
   REPOSITORY = {https://github.com/edgaremy/neural-netz},
   LICENSE = {https://spdx.org/licenses/MIT-0},
