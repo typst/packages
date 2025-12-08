@@ -29,7 +29,7 @@ You can then call `draw-network` which has the following arguments:
   connections: (),
   palette: "warm",
   show-legend: false,
-  legend-title: "Layers Types",
+  legend-title: "Layers",
   scale: 100%,
   stroke-thickness: 1,
   depth-multiplier: 0.3,
