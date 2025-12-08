@@ -17,7 +17,8 @@ It leverages a Rust-based WASM plugin to tokenize text using [Lindera](https://g
 ### Basic Furigana
 
 To automatically add readings to Japanese text:
-```typst
+
+```typ
 #import "@preview/auto-jrubby:0.1.0": *
 #set text(font: "Hiragino Sans", lang: "ja")
 
@@ -30,7 +31,8 @@ To automatically add readings to Japanese text:
 ### Morphological Analysis Table
 
 To debug or display the linguistic structure of the text:
-```typst
+
+```typ
 #import "@preview/auto-jrubby:0.1.0": *
 #set text(font: "Hiragino Sans", lang: "ja")
 
@@ -44,7 +46,8 @@ To debug or display the linguistic structure of the text:
 ### `show-ruby`
 
 Renders the input text with automatic furigana.
-```typc
+
+```typ
 #let show-ruby(input-text, size: 0.5em, ruby-func: auto)
 ```
 
@@ -59,7 +62,8 @@ Renders the input text with automatic furigana.
 ### `show-analysis-table`
 
 Renders a table displaying the morphological breakdown of the text.
-```typc
+
+```typ
 #let show-analysis-table(input-text)
 ```
 
@@ -78,7 +82,8 @@ Renders a table displaying the morphological breakdown of the text.
 ### `tokenize`
 
 Low-level function that returns the raw JSON data from the WASM plugin. Useful if you want to process the analysis data manually.
-```typc
+
+```typ
 #let tokenize(input-text)
 ```
 
