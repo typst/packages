@@ -1,5 +1,7 @@
 # 上海大学本科生毕业论文 Typst 模板 - 上海大学开源社区版 (SHUOSC)
 
+Shanghai University Undergraduate Thesis Typst Template - Shanghai University Open Source Community Edition (SHUOSC)
+
 由上交的模板修改而来: [typst-sjtu-thesis-master](https://github.com/tzhTaylor/typst-sjtu-thesis-master)
 
 这是上海大学本科生学位论文的 Typst 模板，它能够简洁、快速、持续生成 PDF 格式的毕业论文，它基于本科生院官方提供的模板进行开发。基于本科生院提供的 [word 模板](https://cj.shu.edu.cn/DataInterface/上海大学本科毕业论文（设计）撰写格式模板.pdf) 进行开发。
