@@ -432,7 +432,7 @@ Fletcher是基于#link("https://typst.app/universe/package/cetz", underline([CeT
 == LaTex公式
 如果你不习惯Typst的公式，可以使用#link("https://typst.app/universe/package/mitex", underline([MiTex]))，点击横线处链接查看使用文档。
 
-#import "@preview/mitex:0.2.5": *
+#import "@preview/mitex:0.2.6": *
 
 行内公式如下：#mi("x") 或 #mi[y]。
 
