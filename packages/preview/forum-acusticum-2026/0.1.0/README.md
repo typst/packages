@@ -1,6 +1,6 @@
 # Forum Acusticum 2026 Official Typst Template
 
-**Rendered PDF:** [![pipeline status](https://img.shields.io/badge/Download-PDF-green)](https://git.iem.at/fa26-templates/fa26-typst-template/-/jobs/artifacts/main/file/template/FA2026_template.pdf?job=build)
+**Rendered PDF:** [![pipeline status](https://img.shields.io/badge/Download-PDF-green)](https://git.iem.at/fa26-templates/fa26-typst-template/-/jobs/artifacts/main/file/template/fa2026_template.pdf?job=build)
 
 This is the official Typst paper template for the [Forum Acusticum 2026 conference](https://forum-acusticum.org/fa2026) to be held in Graz, Austria, from September 6 to September 10, 2026.
 Note that at the conference there will be two submission formats
