@@ -15,24 +15,25 @@ Please look at the [manual](manual.pdf) for more details.
 ### Feynman Diagrams
 
 ```typst
-#import "@preview/inknertia:0.1.0": feynman, vertex, edge
+#import "@preview/inknertia:0.1.0": feynman
+#import feynman: *
+
 #set page(width: auto, height: auto, margin: 0.1cm)
 
 #feynman(
   (
     vertex("i1", label: $e^+$),
     vertex("i2", label: $e^-$),
-    vertex("f1", label: $mu^-$),
-    vertex("f2", label: $mu^+$),
     vertex("a"),
     vertex("b"),
+    vertex("f1", label: $mu^-$),
+    vertex("f2", label: $mu^+$),
     edge("i1", "a", type: "fermion"),
     edge("i2", "a", type: "fermion"),
     edge("a", "b", type: "photon", label: $gamma$, momentum: $k$),
+    edge("b", "f1", type: "fermion"), 
     edge("b", "f2", type: "fermion"),
   ),
-  incoming: ("i1", "i2"),
-  outgoing: ("f1", "f2"),
 )
 ```
 
@@ -41,7 +42,8 @@ Please look at the [manual](manual.pdf) for more details.
 ### Spacetime Diagrams
 
 ```typst
-#import "@preview/inknertia:0.1.0": spacetime, event, lightcone, frame, worldline, simultaneity
+#import "@preview/inknertia:0.1.0": spacetime
+#import spacetime: *
 
 #let x = 1.5
 #set page(width: auto, height: auto, margin: 0.1cm)
@@ -52,7 +54,7 @@ Please look at the [manual](manual.pdf) for more details.
   (
     frame(beta: 0.5, grid_stroke: (paint: blue.lighten(80%), thickness: 0.5pt), grid_spacing: 1),
     event("O", (0, 0), label: $O$, anchor: "north-west", padding: 0.1),
-    event("A", (3, 2), label: $A$, color: orange, anchor: "south", padding: 0.3),
+    event("A", (3, 2 * x), label: $A$, color: orange, anchor: "south", padding: 0.3),
     event("B", (x, 2 * x), label: $B$, color: orange, anchor: "south", padding: 0.3),
     simultaneity(2 * x, color: gray.lighten(30%)),
     lightcone((0, 0)),
@@ -65,8 +67,10 @@ Please look at the [manual](manual.pdf) for more details.
 ### Newtonian Mechanics
 
 ```typst
-#import "@preview/inknertia:0.1.0": *
 #import "@preview/cetz:0.4.2"
+#import "@preview/inknertia:0.1.0": newtonian
+#import newtonian: *
+
 #set page(width: auto, height: auto, margin: 0.1cm)
 
 #cetz.canvas(length: 1cm, {
