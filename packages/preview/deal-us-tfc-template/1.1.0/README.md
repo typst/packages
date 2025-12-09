@@ -14,7 +14,7 @@ Se basa en la plantilla original realizada en LaTeX por Agustín Borrego e Inmac
 
 ```typ
 
-#import "@preview/deal-us-template:1.1.0": *
+#import "@preview/deal-us-tfc-template:1.1.0": *
 
 #show: TFC.with(
   titulo: "Trabajo fin de grado",
