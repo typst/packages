@@ -1,11 +1,11 @@
 #import "@preview/cetz:0.4.2"
 
 // Vector math helpers
-#let vec_sub(a, b) = (a.at(0) - b.at(0), a.at(1) - b.at(1))
-#let vec_add(a, b) = (a.at(0) + b.at(0), a.at(1) + b.at(1))
-#let vec_scale(v, s) = (v.at(0) * s, v.at(1) * s)
-#let vec_norm(v) = calc.sqrt(calc.pow(v.at(0), 2) + calc.pow(v.at(1), 2))
-#let vec_rotate_90(v) = (-v.at(1), v.at(0)) // 90 degrees counter-clockwise
+#let vec-sub(a, b) = (a.at(0) - b.at(0), a.at(1) - b.at(1))
+#let vec-add(a, b) = (a.at(0) + b.at(0), a.at(1) + b.at(1))
+#let vec-scale(v, s) = (v.at(0) * s, v.at(1) * s)
+#let vec-norm(v) = calc.sqrt(calc.pow(v.at(0), 2) + calc.pow(v.at(1), 2))
+#let vec-rotate-90(v) = (-v.at(1), v.at(0)) // 90 degrees counter-clockwise
 
 // Removed deprecated modpattern import
 
@@ -68,18 +68,18 @@
 ) = {
   import cetz.draw: *
 
-  let diff = vec_sub(end, start)
-  let L = vec_norm(diff)
+  let diff = vec-sub(end, start)
+  let L = vec-norm(diff)
 
   // Calculate spring length based on hooks
-  let start_ratio = float(starthook)
-  let end_ratio = float(endhook)
-  let L_spring = L * (1 - start_ratio - end_ratio)
-  let start_hook_len = L * start_ratio
+  let start-ratio = float(starthook)
+  let end-ratio = float(endhook)
+  let L-spring = L * (1 - start-ratio - end-ratio)
+  let start-hook-len = L * start-ratio
 
   // Unit vectors
-  let u = vec_scale(diff, 1 / L) // Longitudinal unit vector
-  let n = vec_rotate_90(u) // Transverse unit vector
+  let u = vec-scale(diff, 1 / L) // Longitudinal unit vector
+  let n = vec-rotate-90(u) // Transverse unit vector
 
   let c = coils
 
@@ -91,17 +91,17 @@
   for i in range(samples + 1) {
     let t = i / samples
 
-    // Use L_spring instead of L for the spring part
-    let l_local = R + t * (L_spring - 2 * R) + R * calc.cos((2 * c - 1) * calc.pi * t - calc.pi)
-    let h_local = R * calc.sin((2 * c - 1) * calc.pi * t - calc.pi)
+    // Use L-spring instead of L for the spring part
+    let l-local = R + t * (L-spring - 2 * R) + R * calc.cos((2 * c - 1) * calc.pi * t - calc.pi)
+    let h-local = R * calc.sin((2 * c - 1) * calc.pi * t - calc.pi)
 
-    // Global position: P = start + (start_hook_len + l_local)*u + h_local*n
-    let P = vec_add(start, vec_add(vec_scale(u, start_hook_len + l_local), vec_scale(n, h_local)))
+    // Global position: P = start + (start-hook-len + l-local)*u + h-local*n
+    let P = vec-add(start, vec-add(vec-scale(u, start-hook-len + l-local), vec-scale(n, h-local)))
     pts.push(P)
   }
 
   // Add the straight line for the end hook if needed
-  if end_ratio > 0 {
+  if end-ratio > 0 {
     pts.push(end)
   }
 
@@ -115,63 +115,63 @@
 }
 
 // Function to draw a wall (filled polygon)
-#let wall(points, fill_paint: hatch(), stroke_style: none, sides: "all") = {
+#let wall(points, fill-paint: hatch(), stroke-style: none, sides: "all") = {
   import cetz.draw: *
   // Draw the filled polygon without stroke
-  line(..points, close: true, fill: fill_paint, stroke: none)
+  line(..points, close: true, fill: fill-paint, stroke: none)
 
   // Draw strokes if requested
-  if stroke_style != none {
+  if stroke-style != none {
     let n = points.len()
     let indices = if sides == "all" { range(n) } else { sides }
 
     for i in indices {
       let p1 = points.at(i)
       let p2 = points.at(calc.rem(i + 1, n))
-      line(p1, p2, stroke: stroke_style)
+      line(p1, p2, stroke: stroke-style)
     }
   }
 }
 
 // Helper to find tangent points from P to circle (C, R)
-#let tangent_points(C, R, P) = {
-  let d = vec_sub(P, C)
-  let dist = vec_norm(d)
+#let tangent-points(C, R, P) = {
+  let d = vec-sub(P, C)
+  let dist = vec-norm(d)
   if dist <= R { return (none, none) }
-  let base_angle = calc.atan2(d.at(0), d.at(1))
+  let base-angle = calc.atan2(d.at(0), d.at(1))
   let alpha = calc.acos(R / dist)
 
   let t1 = (
-    C.at(0) + R * calc.cos(base_angle + alpha),
-    C.at(1) + R * calc.sin(base_angle + alpha),
+    C.at(0) + R * calc.cos(base-angle + alpha),
+    C.at(1) + R * calc.sin(base-angle + alpha),
   )
   let t2 = (
-    C.at(0) + R * calc.cos(base_angle - alpha),
-    C.at(1) + R * calc.sin(base_angle - alpha),
+    C.at(0) + R * calc.cos(base-angle - alpha),
+    C.at(1) + R * calc.sin(base-angle - alpha),
   )
   (t1, t2)
 }
 
 // Function to draw a rope around a pulley
-#let rope(pulley, start, end, radius: 1, stroke_style: 3pt + rgb("964B00")) = {
+#let rope(pulley, start, end, radius: 1, stroke-style: 3pt + rgb("964B00")) = {
   import cetz.draw: *
 
-  let (ts1, ts2) = tangent_points(pulley, radius, start)
-  let (te1, te2) = tangent_points(pulley, radius, end)
+  let (ts1, ts2) = tangent-points(pulley, radius, start)
+  let (te1, te2) = tangent-points(pulley, radius, end)
 
   if ts1 == none or te1 == none {
-    line(start, end, stroke: stroke_style)
+    line(start, end, stroke: stroke-style)
     return
   }
 
   // Calculate angles
-  let ang_ts1 = calc.atan2(ts1.at(0) - pulley.at(0), ts1.at(1) - pulley.at(1))
-  let ang_ts2 = calc.atan2(ts2.at(0) - pulley.at(0), ts2.at(1) - pulley.at(1))
-  let ang_te1 = calc.atan2(te1.at(0) - pulley.at(0), te1.at(1) - pulley.at(1))
-  let ang_te2 = calc.atan2(te2.at(0) - pulley.at(0), te2.at(1) - pulley.at(1))
+  let ang-ts1 = calc.atan2(ts1.at(0) - pulley.at(0), ts1.at(1) - pulley.at(1))
+  let ang-ts2 = calc.atan2(ts2.at(0) - pulley.at(0), ts2.at(1) - pulley.at(1))
+  let ang-te1 = calc.atan2(te1.at(0) - pulley.at(0), te1.at(1) - pulley.at(1))
+  let ang-te2 = calc.atan2(te2.at(0) - pulley.at(0), te2.at(1) - pulley.at(1))
 
   // Helper to normalize angle to [0, 2pi)
-  let norm_ang(a) = {
+  let norm-ang(a) = {
     let v = a.rad()
     let r = calc.rem(v, 2 * calc.pi)
     let res = if r < 0 { r + 2 * calc.pi } else { r }
@@ -181,32 +181,32 @@
   // Path 1: CCW (ts1 -> te2)
   // ts1 (Left Entry) -> te2 (Left Exit)
   // Requires CCW arc
-  let dist_ccw = vec_norm(vec_sub(start, ts1)) + vec_norm(vec_sub(end, te2))
-  let delta_ccw = norm_ang(ang_te2 - ang_ts1)
-  let arc_len_ccw = delta_ccw.rad() * radius
-  let total_len_ccw = dist_ccw + arc_len_ccw
+  let dist-ccw = vec-norm(vec-sub(start, ts1)) + vec-norm(vec-sub(end, te2))
+  let delta-ccw = norm-ang(ang-te2 - ang-ts1)
+  let arc-len-ccw = delta-ccw.rad() * radius
+  let total-len-ccw = dist-ccw + arc-len-ccw
 
   // Path 2: CW (ts2 -> te1)
   // ts2 (Right Entry) -> te1 (Right Exit)
   // Requires CW arc
-  let dist_cw = vec_norm(vec_sub(start, ts2)) + vec_norm(vec_sub(end, te1))
-  let delta_cw = -norm_ang(ang_ts2 - ang_te1)
-  let arc_len_cw = calc.abs(delta_cw.rad()) * radius
-  let total_len_cw = dist_cw + arc_len_cw
+  let dist-cw = vec-norm(vec-sub(start, ts2)) + vec-norm(vec-sub(end, te1))
+  let delta-cw = -norm-ang(ang-ts2 - ang-te1)
+  let arc-len-cw = calc.abs(delta-cw.rad()) * radius
+  let total-len-cw = dist-cw + arc-len-cw
 
-  if total_len_ccw < total_len_cw {
+  if total-len-ccw < total-len-cw {
     // Draw CCW path
-    line(start, ts1, stroke: stroke_style)
-    line(end, te2, stroke: stroke_style)
-    if calc.abs(delta_ccw.rad()) > 0.001 {
-      arc(ts1, start: ang_ts1, delta: delta_ccw, radius: radius, stroke: stroke_style, mode: "OPEN")
+    line(start, ts1, stroke: stroke-style)
+    line(end, te2, stroke: stroke-style)
+    if calc.abs(delta-ccw.rad()) > 0.001 {
+      arc(ts1, start: ang-ts1, delta: delta-ccw, radius: radius, stroke: stroke-style, mode: "OPEN")
     }
   } else {
     // Draw CW path
-    line(start, ts2, stroke: stroke_style)
-    line(end, te1, stroke: stroke_style)
-    if calc.abs(delta_cw.rad()) > 0.001 {
-      arc(ts2, start: ang_ts2, delta: delta_cw, radius: radius, stroke: stroke_style, mode: "OPEN")
+    line(start, ts2, stroke: stroke-style)
+    line(end, te1, stroke: stroke-style)
+    if calc.abs(delta-cw.rad()) > 0.001 {
+      arc(ts2, start: ang-ts2, delta: delta-cw, radius: radius, stroke: stroke-style, mode: "OPEN")
     }
   }
 }
@@ -215,20 +215,20 @@
 #let pulley(
   pos,
   R: 1,
-  fill_paint: white,
-  stroke_style: 1pt + black,
-  rope_start: none,
-  rope_end: none,
-  rope_stroke: 3pt + rgb("964B00"),
+  fill-paint: white,
+  stroke-style: 1pt + black,
+  rope-start: none,
+  rope-end: none,
+  rope-stroke: 3pt + rgb("964B00"),
 ) = {
   import cetz.draw: *
 
   // Draw rope if requested
-  if rope_start != none and rope_end != none {
-    rope(pos, rope_start, rope_end, radius: R, stroke_style: rope_stroke)
+  if rope-start != none and rope-end != none {
+    rope(pos, rope-start, rope-end, radius: R, stroke-style: rope-stroke)
   }
 
-  circle(pos, radius: R, fill: fill_paint, stroke: stroke_style)
+  circle(pos, radius: R, fill: fill-paint, stroke: stroke-style)
   circle(pos, radius: R * 0.1, fill: black)
 }
 
@@ -241,23 +241,23 @@
   xlabel: "x",
   ylabel: "y",
   color: gray,
-  grid_stroke: none,
-  grid_step: 1,
+  grid-stroke: none,
+  grid-step: 1,
 ) = {
   import cetz.draw: *
 
-  if grid_stroke != none {
+  if grid-stroke != none {
     // Draw vertical grid lines (excluding outermost)
-    let x = xmin + grid_step
+    let x = xmin + grid-step
     while x < xmax {
-      line((x, ymin), (x, ymax), stroke: grid_stroke)
-      x = x + grid_step
+      line((x, ymin), (x, ymax), stroke: grid-stroke)
+      x = x + grid-step
     }
     // Draw horizontal grid lines (excluding outermost)
-    let y = ymin + grid_step
+    let y = ymin + grid-step
     while y < ymax {
-      line((xmin, y), (xmax, y), stroke: grid_stroke)
-      y = y + grid_step
+      line((xmin, y), (xmax, y), stroke: grid-stroke)
+      y = y + grid-step
     }
   }
 
@@ -276,24 +276,24 @@
   start,
   end,
   label: none,
-  stroke_style: 1pt + black,
-  fill_paint: black,
+  stroke-style: 1pt + black,
+  fill-paint: black,
   anchor: "auto",
   padding: 0.2em,
 ) = {
   let drawables = ()
 
   // Draw arrow
-  drawables.push(cetz.draw.line(start, end, stroke: stroke_style, mark: (end: "stealth", fill: fill_paint)))
+  drawables.push(cetz.draw.line(start, end, stroke: stroke-style, mark: (end: "stealth", fill: fill-paint)))
 
   // Draw label
   if label != none {
-    let anchor_val = if anchor == "auto" {
+    let anchor-val = if anchor == "auto" {
       "south"
     } else {
       anchor
     }
-    drawables.push(cetz.draw.content(end, text(fill: fill_paint, label), anchor: anchor_val, padding: padding))
+    drawables.push(cetz.draw.content(end, text(fill: fill-paint, label), anchor: anchor-val, padding: padding))
   }
   cetz.draw.group(name: "vector", {
     for d in drawables { d }
@@ -301,51 +301,50 @@
 }
 
 // Function to draw a curved arrow (arc with arrowhead)
-#let curved_arrow(
+#let curved-arrow(
   center,
   radius: 1,
-  start_angle: 0deg,
-  end_angle: 90deg,
+  start-angle: 0deg,
+  end-angle: 90deg,
   direction: "auto",
   color: black,
   thickness: 1pt,
   label: none,
-  label_radius: auto,
+  label-radius: auto,
 ) = {
   import cetz.draw: *
   import cetz.angle: angle
 
   // Determine direction
   let direc = if direction == "auto" {
-    if start_angle < end_angle { "ccw" } else { "cw" }
+    if start-angle < end-angle { "ccw" } else { "cw" }
   } else {
     direction
   }
 
   // Calculate start and end points on the circle
-  let p_start = (
-    center.at(0) + calc.cos(start_angle),
-    center.at(1) + calc.sin(start_angle),
+  let p-start = (
+    center.at(0) + calc.cos(start-angle),
+    center.at(1) + calc.sin(start-angle),
   )
-  let p_end = (
-    center.at(0) + calc.cos(end_angle),
-    center.at(1) + calc.sin(end_angle),
+  let p-end = (
+    center.at(0) + calc.cos(end-angle),
+    center.at(1) + calc.sin(end-angle),
   )
 
   // Label radius
-  let lbl_r = if label_radius == auto { radius * 1.3 } else { label_radius }
+  let lbl-r = if label-radius == auto { radius * 1.3 } else { label-radius }
 
   // Draw the arc with arrowhead
   angle(
     center,
-    p_start,
-    p_end,
+    p-start,
+    p-end,
     label: if label != none { text(color, label) } else { none },
     radius: radius,
-    label-radius: lbl_r,
+    label-radius: lbl-r,
     stroke: (paint: color, thickness: thickness),
     mark: (end: "stealth", fill: color, scale: .5, length: 1em, width: .5em),
     direction: direc,
   )
 }
-

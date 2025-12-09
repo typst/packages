@@ -49,10 +49,10 @@ Please look at the [manual](manual.pdf) for more details.
 #set page(width: auto, height: auto, margin: 0.1cm)
 
 #spacetime(
-  natural_units: false,
-  grid_step: 1,
+  natural-units: false,
+  grid-step: 1,
   (
-    frame(beta: 0.5, grid_stroke: (paint: blue.lighten(80%), thickness: 0.5pt), grid_spacing: 1),
+    frame(beta: 0.5, grid-stroke: (paint: blue.lighten(80%), thickness: 0.5pt), grid-spacing: 1),
     event("O", (0, 0), label: $O$, anchor: "north-west", padding: 0.1),
     event("A", (3, 2 * x), label: $A$, color: orange, anchor: "south", padding: 0.3),
     event("B", (x, 2 * x), label: $B$, color: orange, anchor: "south", padding: 0.3),
@@ -76,11 +76,11 @@ Please look at the [manual](manual.pdf) for more details.
 #cetz.canvas(length: 1cm, {
   import cetz.draw: *
 
-  wall(((-3, 0), (10, 0), (10, 2), (10.5, 2), (10.5, -0.5), (-3, -0.5)), stroke_style: 1pt + black, sides: (0, 1))
+  wall(((-3, 0), (10, 0), (10, 2), (10.5, 2), (10.5, -0.5), (-3, -0.5)), stroke-style: 1pt + black, sides: (0, 1))
   spring((5, 1), (10, 1), 0.5, 10, startcircle: true, endhook: 5%)
   circle((0, 1), radius: 1, fill: red.lighten(50%))
-  curved_arrow((0, 1), radius: 1.2, start_angle: 220deg, end_angle: 140deg, color: orange.darken(20%), label: $omega$)
-  vector((0, 1), (3, 1), label: $v = 30 thin "m/s"$, stroke_style: 2pt + red.darken(40%), fill_paint: red.darken(40%))
+  curved-arrow((0, 1), radius: 1.2, start-angle: 220deg, end-angle: 140deg, color: orange.darken(20%), label: $omega$)
+  vector((0, 1), (3, 1), label: $v = 30 thin "m/s"$, stroke-style: 2pt + red.darken(40%), fill-paint: red.darken(40%))
 })
 ```
 

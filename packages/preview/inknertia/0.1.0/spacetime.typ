@@ -15,10 +15,10 @@
 // ============================================================
 
 // Vector math helpers
-#let vec_sub(a, b) = (a.at(0) - b.at(0), a.at(1) - b.at(1))
-#let vec_add(a, b) = (a.at(0) + b.at(0), a.at(1) + b.at(1))
-#let vec_scale(v, s) = (v.at(0) * s, v.at(1) * s)
-#let vec_norm(v) = calc.sqrt(calc.pow(v.at(0), 2) + calc.pow(v.at(1), 2))
+#let vec-sub(a, b) = (a.at(0) - b.at(0), a.at(1) - b.at(1))
+#let vec-add(a, b) = (a.at(0) + b.at(0), a.at(1) + b.at(1))
+#let vec-scale(v, s) = (v.at(0) * s, v.at(1) * s)
+#let vec-norm(v) = calc.sqrt(calc.pow(v.at(0), 2) + calc.pow(v.at(1), 2))
 
 // ============================================================
 // Lorentz Transformation Helpers
@@ -34,18 +34,18 @@
 
 /// Transform coordinates (x, ct) to a frame moving with velocity beta
 /// Returns (x', ct') in the primed frame
-#let lorentz_transform(pos, beta) = {
+#let lorentz-transform(pos, beta) = {
   let x = pos.at(0)
   let ct = pos.at(1)
   let g = gamma(beta)
-  let x_prime = g * (x - beta * ct)
-  let ct_prime = g * (ct - beta * x)
-  (x_prime, ct_prime)
+  let x-prime = g * (x - beta * ct)
+  let ct-prime = g * (ct - beta * x)
+  (x-prime, ct-prime)
 }
 
 /// Inverse Lorentz transform: from primed frame back to rest frame
-#let lorentz_inverse(pos, beta) = {
-  lorentz_transform(pos, -beta)
+#let lorentz-inverse(pos, beta) = {
+  lorentz-transform(pos, -beta)
 }
 
 // ============================================================
@@ -66,11 +66,11 @@
   shape: "dot",
   color: black,
   size: 0.1,
-  label_anchor: "auto",
-  label_padding: 0.2,
+  label-anchor: "auto",
+  label-padding: 0.2,
   anchor: auto,
   padding: auto,
-  label_color: auto,
+  label-color: auto,
 ) = {
   (
     type: "event",
@@ -80,9 +80,9 @@
     shape: shape,
     color: color,
     size: size,
-    label_anchor: if anchor != auto { anchor } else { label_anchor },
-    label_padding: if padding != auto { padding } else { label_padding },
-    label_color: label_color,
+    label-anchor: if anchor != auto { anchor } else { label-anchor },
+    label-padding: if padding != auto { padding } else { label-padding },
+    label-color: label-color,
   )
 }
 
@@ -100,23 +100,23 @@
 #let worldline(
   ..points,
   style: "solid",
-  wl_type: "massive",
+  wl-type: "massive",
   color: black,
   label: none,
-  stroke_width: 1.5pt,
-  label_pos: 0.5,
-  label_anchor: "auto",
+  stroke-width: 1.5pt,
+  label-pos: 0.5,
+  label-anchor: "auto",
 ) = {
   (
     type: "worldline",
     points: points.pos(),
     style: style,
-    wl_type: wl_type,
+    wl-type: wl-type,
     color: color,
     label: label,
-    stroke_width: stroke_width,
-    label_pos: label_pos,
-    label_anchor: label_anchor,
+    stroke-width: stroke-width,
+    label-pos: label-pos,
+    label-anchor: label-anchor,
   )
 }
 
@@ -135,23 +135,23 @@
 #let lightcone(
   origin,
   extent: auto,
-  show_past: true,
-  show_future: true,
-  fill_future: none,
-  fill_past: none,
-  stroke_color: rgb("#E4D0B3"),
-  stroke_width: 1pt,
+  show-past: true,
+  show-future: true,
+  fill-future: none,
+  fill-past: none,
+  stroke-color: rgb("#E4D0B3"),
+  stroke-width: 1pt,
 ) = {
   (
     type: "lightcone",
     origin: origin,
     extent: extent,
-    show_past: show_past,
-    show_future: show_future,
-    fill_future: fill_future,
-    fill_past: fill_past,
-    stroke_color: stroke_color,
-    stroke_width: stroke_width,
+    show-past: show-past,
+    show-future: show-future,
+    fill-future: fill-future,
+    fill-past: fill-past,
+    stroke-color: stroke-color,
+    stroke-width: stroke-width,
   )
 }
 
@@ -173,9 +173,9 @@
   color: blue,
   xlabel: auto,
   ctlabel: auto,
-  stroke_width: 1pt,
-  grid_stroke: none,
-  grid_spacing: 1,
+  stroke-width: 1pt,
+  grid-stroke: none,
+  grid-spacing: 1,
 ) = {
   (
     type: "frame",
@@ -185,9 +185,9 @@
     color: color,
     xlabel: xlabel,
     ctlabel: ctlabel,
-    stroke_width: stroke_width,
-    grid_stroke: grid_stroke,
-    grid_spacing: grid_spacing,
+    stroke-width: stroke-width,
+    grid-stroke: grid-stroke,
+    grid-spacing: grid-spacing,
   )
 }
 
@@ -207,7 +207,7 @@
   extent: auto,
   color: gray,
   style: "dashed",
-  stroke_width: 0.5pt,
+  stroke-width: 0.5pt,
   label: none,
 ) = {
   (
@@ -217,7 +217,7 @@
     extent: extent,
     color: color,
     style: style,
-    stroke_width: stroke_width,
+    stroke-width: stroke-width,
     label: label,
   )
 }
@@ -231,21 +231,21 @@
 /// - branch: "future", "past", "right", "left", or "all"
 /// - color: Curve color
 #let hyperbola(
-  s_squared,
+  s-squared,
   origin: (0, 0),
   branch: "all",
   color: gray,
-  stroke_width: 0.5pt,
+  stroke-width: 0.5pt,
   style: "dotted",
   samples: 100,
 ) = {
   (
     type: "hyperbola",
-    s_squared: s_squared,
+    s-squared: s-squared,
     origin: origin,
     branch: branch,
     color: color,
-    stroke_width: stroke_width,
+    stroke-width: stroke-width,
     style: style,
     samples: samples,
   )
@@ -269,14 +269,14 @@
   xrange: (-5, 5),
   ctrange: (-5, 5),
   length: 0.5cm,
-  show_axes: true,
+  show-axes: true,
   xlabel: $x$,
   ctlabel: auto,
-  natural_units: true,
-  axes_color: black,
-  axes_stroke: 1pt,
+  natural-units: true,
+  axes-color: black,
+  axes-stroke: 1pt,
   grid: none,
-  grid_step: 1,
+  grid-step: 1,
 ) = {
   cetz.canvas(length: length, {
     import cetz.draw: circle, content, line, rect
@@ -287,9 +287,9 @@
     let ctmax = ctrange.at(1)
 
     // Resolve time label
-    let final_ctlabel = if ctlabel != auto {
+    let final-ctlabel = if ctlabel != auto {
       ctlabel
-    } else if natural_units {
+    } else if natural-units {
       $t$
     } else {
       $c t$
@@ -297,26 +297,26 @@
 
 
     // Helper to clip a line ax + by + c = 0 to the viewport
-    let get_clipped_segment = (a, b, c_val) => {
+    let get-clipped-segment = (a, b, c-val) => {
       let pts = ()
       // Left: x = xmin => y = -(c + a*xmin)/b
       if calc.abs(b) > 1e-6 {
-        let y = -(c_val + a * xmin) / b
+        let y = -(c-val + a * xmin) / b
         if y >= ctmin - 1e-6 and y <= ctmax + 1e-6 { pts.push((xmin, y)) }
       }
       // Right: x = xmax => y = -(c + a*xmax)/b
       if calc.abs(b) > 1e-6 {
-        let y = -(c_val + a * xmax) / b
+        let y = -(c-val + a * xmax) / b
         if y >= ctmin - 1e-6 and y <= ctmax + 1e-6 { pts.push((xmax, y)) }
       }
       // Bottom: y = ctmin => x = -(c + b*ctmin)/a
       if calc.abs(a) > 1e-6 {
-        let x = -(c_val + b * ctmin) / a
+        let x = -(c-val + b * ctmin) / a
         if x >= xmin - 1e-6 and x <= xmax + 1e-6 { pts.push((x, ctmin)) }
       }
-      // Top: y = ctmax => x = -(c_val + b*ctmax)/a
+      // Top: y = ctmax => x = -(c-val + b*ctmax)/a
       if calc.abs(a) > 1e-6 {
-        let x = -(c_val + b * ctmax) / a
+        let x = -(c-val + b * ctmax) / a
         if x >= xmin - 1e-6 and x <= xmax + 1e-6 { pts.push((x, ctmax)) }
       }
 
@@ -347,7 +347,7 @@
     }
 
     // Helper to resolve position (either direct coords or event ID)
-    let resolve_pos(p) = {
+    let resolve-pos(p) = {
       if type(p) == str {
         events.at(p, default: (0, 0))
       } else {
@@ -357,22 +357,22 @@
 
     // Draw grid if requested
     if grid != none {
-      let x = xmin + grid_step
+      let x = xmin + grid-step
       while x < xmax {
         line((x, ctmin), (x, ctmax), stroke: grid)
-        x = x + grid_step
+        x = x + grid-step
       }
-      let ct = ctmin + grid_step
+      let ct = ctmin + grid-step
       while ct < ctmax {
         line((xmin, ct), (xmax, ct), stroke: grid)
-        ct = ct + grid_step
+        ct = ct + grid-step
       }
     }
 
     // Draw light cones (first, so they're behind everything)
     for item in items {
       if item.type == "lightcone" {
-        let origin = resolve_pos(item.origin)
+        let origin = resolve-pos(item.origin)
         let ox = origin.at(0)
         let oct = origin.at(1)
         let ext = if item.extent == auto {
@@ -382,44 +382,44 @@
         }
 
         // Future light cone
-        if item.show_future {
-          if item.fill_future != none {
+        if item.show-future {
+          if item.fill-future != none {
             // Fill the future cone region
-            let top_ct = calc.min(oct + ext, ctmax)
-            let dx = top_ct - oct
+            let top-ct = calc.min(oct + ext, ctmax)
+            let dx = top-ct - oct
             line(
               origin,
-              (ox - dx, top_ct),
-              (ox + dx, top_ct),
+              (ox - dx, top-ct),
+              (ox + dx, top-ct),
               close: true,
-              fill: item.fill_future,
+              fill: item.fill-future,
               stroke: none,
             )
           }
           // Right edge (x = ox + (ct - oct))
-          let ct_end = calc.min(oct + ext, ctmax)
-          line(origin, (ox + (ct_end - oct), ct_end), stroke: (paint: item.stroke_color, thickness: item.stroke_width))
+          let ct-end = calc.min(oct + ext, ctmax)
+          line(origin, (ox + (ct-end - oct), ct-end), stroke: (paint: item.stroke-color, thickness: item.stroke-width))
           // Left edge (x = ox - (ct - oct))
-          line(origin, (ox - (ct_end - oct), ct_end), stroke: (paint: item.stroke_color, thickness: item.stroke_width))
+          line(origin, (ox - (ct-end - oct), ct-end), stroke: (paint: item.stroke-color, thickness: item.stroke-width))
         }
 
         // Past light cone
-        if item.show_past {
-          if item.fill_past != none {
-            let bot_ct = calc.max(oct - ext, ctmin)
-            let dx = oct - bot_ct
+        if item.show-past {
+          if item.fill-past != none {
+            let bot-ct = calc.max(oct - ext, ctmin)
+            let dx = oct - bot-ct
             line(
               origin,
-              (ox - dx, bot_ct),
-              (ox + dx, bot_ct),
+              (ox - dx, bot-ct),
+              (ox + dx, bot-ct),
               close: true,
-              fill: item.fill_past,
+              fill: item.fill-past,
               stroke: none,
             )
           }
-          let ct_end = calc.max(oct - ext, ctmin)
-          line(origin, (ox + (oct - ct_end), ct_end), stroke: (paint: item.stroke_color, thickness: item.stroke_width))
-          line(origin, (ox - (oct - ct_end), ct_end), stroke: (paint: item.stroke_color, thickness: item.stroke_width))
+          let ct-end = calc.max(oct - ext, ctmin)
+          line(origin, (ox + (oct - ct-end), ct-end), stroke: (paint: item.stroke-color, thickness: item.stroke-width))
+          line(origin, (ox - (oct - ct-end), ct-end), stroke: (paint: item.stroke-color, thickness: item.stroke-width))
         }
       }
     }
@@ -427,14 +427,14 @@
     // Draw hyperbolas
     for item in items {
       if item.type == "hyperbola" {
-        let s2 = item.s_squared
+        let s2 = item.s-squared
         let orig = item.origin
         let ox = orig.at(0)
         let oct = orig.at(1)
 
-        let stroke_style = (
+        let stroke-style = (
           paint: item.color,
-          thickness: item.stroke_width,
+          thickness: item.stroke-width,
           dash: if item.style == "dashed" { "dashed" } else if item.style == "dotted" { "dotted" } else { none },
         )
 
@@ -453,7 +453,7 @@
                 }
               }
             }
-            if pts.len() > 1 { line(..pts, stroke: stroke_style) }
+            if pts.len() > 1 { line(..pts, stroke: stroke-style) }
           }
           // Past branch
           if item.branch in ("past", "all") {
@@ -468,7 +468,7 @@
                 }
               }
             }
-            if pts.len() > 1 { line(..pts, stroke: stroke_style) }
+            if pts.len() > 1 { line(..pts, stroke: stroke-style) }
           }
         } else if s2 < 0 {
           // Spacelike: x² - ct² = |s²|, so x = ±sqrt(|s²| + ct²)
@@ -486,7 +486,7 @@
                 }
               }
             }
-            if pts.len() > 1 { line(..pts, stroke: stroke_style) }
+            if pts.len() > 1 { line(..pts, stroke: stroke-style) }
           }
           // Left branch
           if item.branch in ("left", "all") {
@@ -501,7 +501,7 @@
                 }
               }
             }
-            if pts.len() > 1 { line(..pts, stroke: stroke_style) }
+            if pts.len() > 1 { line(..pts, stroke: stroke-style) }
           }
         }
       }
@@ -510,10 +510,10 @@
     // Draw simultaneity lines
     for item in items {
       if item.type == "simultaneity" {
-        let ct_val = item.ct
+        let ct-val = item.ct
         let beta = item.beta
         // Determine x-range based on extent
-        let (x_start, x_end) = if item.extent == auto {
+        let (x-start, x-end) = if item.extent == auto {
           (xmin, xmax)
         } else {
           if type(item.extent) == array {
@@ -523,62 +523,62 @@
           }
         }
 
-        let stroke_style = (
+        let stroke-style = (
           paint: item.color,
-          thickness: item.stroke_width,
+          thickness: item.stroke-width,
           dash: if item.style == "dashed" { "dashed" } else if item.style == "dotted" { "dotted" } else { none },
         )
 
         if beta == 0 {
-          // Horizontal line at ct = ct_val
+          // Horizontal line at ct = ct-val
           // Clip to viewport x-range
-          let x0 = calc.max(xmin, x_start)
-          let x1 = calc.min(xmax, x_end)
+          let x0 = calc.max(xmin, x-start)
+          let x1 = calc.min(xmax, x-end)
 
           if x0 < x1 {
-            line((x0, ct_val), (x1, ct_val), stroke: stroke_style)
+            line((x0, ct-val), (x1, ct-val), stroke: stroke-style)
           }
         } else {
-          // Tilted line: ct = beta*x + ct_val/gamma
+          // Tilted line: ct = beta*x + ct-val/gamma
           let g = gamma(beta)
-          let ct_intercept = ct_val / g
+          let ct-intercept = ct-val / g
 
-          let p_start = (x_start, ct_intercept + beta * x_start)
-          let p_end = (x_end, ct_intercept + beta * x_end)
+          let p-start = (x-start, ct-intercept + beta * x-start)
+          let p-end = (x-end, ct-intercept + beta * x-end)
 
           // We need to clip this segment to the viewport
-          // Line eq: -beta*x + 1*y - ct_intercept = 0 => a=-beta, b=1, c=-ct_intercept
-          // But we also have segment limits p_start, p_end (defined by extent)
+          // Line eq: -beta*x + 1*y - ct-intercept = 0 => a=-beta, b=1, c=-ct-intercept
+          // But we also have segment limits p-start, p-end (defined by extent)
 
           // First, get the line clipped to the box
-          let seg = get_clipped_segment(-beta, 1.0, -ct_intercept)
+          let seg = get-clipped-segment(-beta, 1.0, -ct-intercept)
 
           if seg != none {
             // Intersect viewport segment with extent segment
             // Since it's a line, we can just sort points by x
             // Extent points:
-            let ex_x_min = calc.min(p_start.at(0), p_end.at(0))
-            let ex_x_max = calc.max(p_start.at(0), p_end.at(0))
+            let ex-x-min = calc.min(p-start.at(0), p-end.at(0))
+            let ex-x-max = calc.max(p-start.at(0), p-end.at(0))
 
             // Viewport points:
-            let vp_x_min = calc.min(seg.at(0).at(0), seg.at(1).at(0))
-            let vp_x_max = calc.max(seg.at(0).at(0), seg.at(1).at(0))
+            let vp-x-min = calc.min(seg.at(0).at(0), seg.at(1).at(0))
+            let vp-x-max = calc.max(seg.at(0).at(0), seg.at(1).at(0))
 
             // Intersection
-            let final_x_min = calc.max(ex_x_min, vp_x_min)
-            let final_x_max = calc.min(ex_x_max, vp_x_max)
+            let final-x-min = calc.max(ex-x-min, vp-x-min)
+            let final-x-max = calc.min(ex-x-max, vp-x-max)
 
-            if final_x_min < final_x_max {
+            if final-x-min < final-x-max {
               // Recompute y for these x's to be precise
-              let y1 = ct_intercept + beta * final_x_min
-              let y2 = ct_intercept + beta * final_x_max
-              line((final_x_min, y1), (final_x_max, y2), stroke: stroke_style)
+              let y1 = ct-intercept + beta * final-x-min
+              let y2 = ct-intercept + beta * final-x-max
+              line((final-x-min, y1), (final-x-max, y2), stroke: stroke-style)
             }
           }
         }
 
         if item.label != none {
-          content((xmax, ct_val), item.label, anchor: "west", padding: 0.2)
+          content((xmax, ct-val), item.label, anchor: "west", padding: 0.2)
         }
       }
     }
@@ -595,52 +595,52 @@
         let oct = orig.at(1)
 
         // --- DRAW GRID FIRST (so it is behind axes) ---
-        if item.grid_stroke != none {
+        if item.grid-stroke != none {
           let g = gamma(beta)
-          let step = item.grid_spacing
-          let g_stroke = item.grid_stroke
+          let step = item.grid-spacing
+          let g-stroke = item.grid-stroke
 
           // Compute global bounds in primed coordinates to determine range
           let corners = ((xmin, ctmin), (xmax, ctmin), (xmax, ctmax), (xmin, ctmax))
-          let corners_prime = corners.map(p => lorentz_transform(p, beta))
-          let xs_prime = corners_prime.map(p => p.at(0))
-          let cts_prime = corners_prime.map(p => p.at(1))
+          let corners-prime = corners.map(p => lorentz-transform(p, beta))
+          let xs-prime = corners-prime.map(p => p.at(0))
+          let cts-prime = corners-prime.map(p => p.at(1))
 
-          let xp_min = calc.min(..xs_prime)
-          let xp_max = calc.max(..xs_prime)
-          let ctp_min = calc.min(..cts_prime)
-          let ctp_max = calc.max(..cts_prime)
+          let xp-min = calc.min(..xs-prime)
+          let xp-max = calc.max(..xs-prime)
+          let ctp-min = calc.min(..cts-prime)
+          let ctp-max = calc.max(..cts-prime)
 
           // Floor/Ceil to nearest step
-          let i_start = calc.floor(xp_min / step) * step
-          let i_end = calc.ceil(xp_max / step) * step
+          let i-start = calc.floor(xp-min / step) * step
+          let i-end = calc.ceil(xp-max / step) * step
 
-          let i = i_start
-          while i <= i_end + 1e-6 {
+          let i = i-start
+          while i <= i-end + 1e-6 {
             // Line x' = i => x - beta*ct - i/gamma = 0
             // a=1, b=-beta, c=-i/gamma
             if calc.abs(i) > 1e-4 {
               // Skip main axis
-              let seg = get_clipped_segment(1.0, -beta, -i / g)
+              let seg = get-clipped-segment(1.0, -beta, -i / g)
               if seg != none {
-                line(seg.at(0), seg.at(1), stroke: g_stroke)
+                line(seg.at(0), seg.at(1), stroke: g-stroke)
               }
             }
             i += step
           }
 
-          let j_start = calc.floor(ctp_min / step) * step
-          let j_end = calc.ceil(ctp_max / step) * step
+          let j-start = calc.floor(ctp-min / step) * step
+          let j-end = calc.ceil(ctp-max / step) * step
 
-          let j = j_start
-          while j <= j_end + 1e-6 {
+          let j = j-start
+          while j <= j-end + 1e-6 {
             // Line ct' = j => ct - beta*x - j/gamma = 0
             // a=-beta, b=1, c=-j/gamma
             if calc.abs(j) > 1e-4 {
               // Skip main axis
-              let seg = get_clipped_segment(-beta, 1.0, -j / g)
+              let seg = get-clipped-segment(-beta, 1.0, -j / g)
               if seg != none {
-                line(seg.at(0), seg.at(1), stroke: g_stroke)
+                line(seg.at(0), seg.at(1), stroke: g-stroke)
               }
             }
             j += step
@@ -648,96 +648,96 @@
         }
 
         // --- DRAW PRIMED AXES ---
-        let stroke_style = (paint: item.color, thickness: item.stroke_width)
+        let stroke-style = (paint: item.color, thickness: item.stroke-width)
 
         // Equation for ct' axis: x' = 0 => x - beta*ct - (ox - beta*oct) = 0
-        let ct_axis_c = -(ox - beta * oct)
+        let ct-axis-c = -(ox - beta * oct)
 
         // Equation for x' axis: ct' = 0 => -beta*x + ct - (oct - beta*ox) = 0
-        let x_axis_c = -(oct - beta * ox)
+        let x-axis-c = -(oct - beta * ox)
 
         // Check extent
-        let ct_end_pt = none
-        let x_end_pt = none
+        let ct-end-pt = none
+        let x-end-pt = none
 
         if item.extent == auto {
           // Clip to viewport
-          let ct_seg = get_clipped_segment(1.0, -beta, ct_axis_c)
-          let x_seg = get_clipped_segment(-beta, 1.0, x_axis_c)
+          let ct-seg = get-clipped-segment(1.0, -beta, ct-axis-c)
+          let x-seg = get-clipped-segment(-beta, 1.0, x-axis-c)
 
-          if ct_seg != none {
+          if ct-seg != none {
             // Direction of ct' axis is (beta, 1)
             // Draw from p1 to p2. Check direction.
-            let p1 = ct_seg.at(0)
-            let p2 = ct_seg.at(1)
-            let v = vec_sub(p2, p1)
+            let p1 = ct-seg.at(0)
+            let p2 = ct-seg.at(1)
+            let v = vec-sub(p2, p1)
             // Dot with (beta, 1)
             let dot = v.at(0) * beta + v.at(1) * 1.0
             if dot < 0 {
-              line(p2, p1, stroke: stroke_style, mark: (end: "stealth", fill: item.color))
-              ct_end_pt = p1
+              line(p2, p1, stroke: stroke-style, mark: (end: "stealth", fill: item.color))
+              ct-end-pt = p1
             } else {
-              line(p1, p2, stroke: stroke_style, mark: (end: "stealth", fill: item.color))
-              ct_end_pt = p2
+              line(p1, p2, stroke: stroke-style, mark: (end: "stealth", fill: item.color))
+              ct-end-pt = p2
             }
           }
-          if x_seg != none {
+          if x-seg != none {
             // Direction of x' axis is (1, beta)
-            let p1 = x_seg.at(0)
-            let p2 = x_seg.at(1)
-            let v = vec_sub(p2, p1)
+            let p1 = x-seg.at(0)
+            let p2 = x-seg.at(1)
+            let v = vec-sub(p2, p1)
             // Dot with (1, beta)
             let dot = v.at(0) * 1.0 + v.at(1) * beta
             if dot < 0 {
-              line(p2, p1, stroke: stroke_style, mark: (end: "stealth", fill: item.color))
-              x_end_pt = p1
+              line(p2, p1, stroke: stroke-style, mark: (end: "stealth", fill: item.color))
+              x-end-pt = p1
             } else {
-              line(p1, p2, stroke: stroke_style, mark: (end: "stealth", fill: item.color))
-              x_end_pt = p2
+              line(p1, p2, stroke: stroke-style, mark: (end: "stealth", fill: item.color))
+              x-end-pt = p2
             }
           }
         } else {
           // Manual extent
-          let (min_ext, max_ext) = if type(item.extent) == array {
+          let (min-ext, max-ext) = if type(item.extent) == array {
             (item.extent.at(0), item.extent.at(1))
           } else {
             (-item.extent, item.extent)
           }
 
           // ct' axis direction vector (normalized geometric vector)
-          let norm_ct = calc.sqrt(1 + calc.pow(beta, 2))
+          let norm-ct = calc.sqrt(1 + calc.pow(beta, 2))
           // Unit vector for ct' direction (beta, 1) normalized
-          let u_ct = (beta / norm_ct, 1.0 / norm_ct)
+          let u-ct = (beta / norm-ct, 1.0 / norm-ct)
 
-          let p_start = (ox + u_ct.at(0) * min_ext, oct + u_ct.at(1) * min_ext)
-          let p_end = (ox + u_ct.at(0) * max_ext, oct + u_ct.at(1) * max_ext)
+          let p-start = (ox + u-ct.at(0) * min-ext, oct + u-ct.at(1) * min-ext)
+          let p-end = (ox + u-ct.at(0) * max-ext, oct + u-ct.at(1) * max-ext)
 
           // Draw ct' axis
-          line(p_start, p_end, stroke: stroke_style, mark: (end: "stealth", fill: item.color))
-          ct_end_pt = p_end
+          line(p-start, p-end, stroke: stroke-style, mark: (end: "stealth", fill: item.color))
+          ct-end-pt = p-end
 
           // x' axis direction (1, beta) normalized
-          let norm_x = calc.sqrt(1 + calc.pow(beta, 2))
-          let u_x = (1.0 / norm_x, beta / norm_x)
+          let norm-x = calc.sqrt(1 + calc.pow(beta, 2))
+          let u-x = (1.0 / norm-x, beta / norm-x)
 
-          let p_start_x = (ox + u_x.at(0) * min_ext, oct + u_x.at(1) * min_ext)
-          let p_end_x = (ox + u_x.at(0) * max_ext, oct + u_x.at(1) * max_ext)
+          let p-start-x = (ox + u-x.at(0) * min-ext, oct + u-x.at(1) * min-ext)
+          let p-end-x = (ox + u-x.at(0) * max-ext, oct + u-x.at(1) * max-ext)
 
           // Draw x' axis
-          line(p_start_x, p_end_x, stroke: stroke_style, mark: (end: "stealth", fill: item.color))
-          x_end_pt = p_end_x
+          line(p-start-x, p-end-x, stroke: stroke-style, mark: (end: "stealth", fill: item.color))
+          x-end-pt = p-end-x
         }
 
         // Labels
-        let def_ct_prime = if natural_units { $t'$ } else { $c t'$ }
-        let ct_label = if item.ctlabel == auto { def_ct_prime } else { item.ctlabel }
-        let x_label = if item.xlabel == auto { $x'$ } else { item.xlabel }
+        let def-ct-prime = if natural-units { $t'$ } else { $c t'$ }
+        let ct-label = if item.ctlabel == auto { def-ct-prime } else { item.ctlabel }
+        let x-label = if item.xlabel == auto { $x'$ } else { item.xlabel }
 
-        if ct_end_pt != none {
-          content(ct_end_pt, text(fill: item.color, ct_label), anchor: "south-west", padding: 0.15)
+        if ct-end-pt != none {
+          content(ct-end-pt, text(fill: item.color, ct-label), anchor: "south-west", padding: 0.15)
         }
-        if x_end_pt != none {
-          content(x_end_pt, text(fill: item.color, x_label), anchor: "south-west", padding: 0.15)
+        if x-end-pt != none {
+          content(x-end-pt, text(fill: item.color, x-label), anchor: "south-west", padding: 0.15)
         }
       }
     }
@@ -745,25 +745,25 @@
     // Draw worldlines
     for item in items {
       if item.type == "worldline" {
-        let pts = item.points.map(p => resolve_pos(p))
+        let pts = item.points.map(p => resolve-pos(p))
 
         let dash = if item.style == "dashed" { "dashed" } else if item.style == "dotted" { "dotted" } else { none }
-        let stroke_style = (paint: item.color, thickness: item.stroke_width, dash: dash)
+        let stroke-style = (paint: item.color, thickness: item.stroke-width, dash: dash)
 
         if pts.len() >= 2 {
-          if item.wl_type == "light" {
+          if item.wl-type == "light" {
             // Draw at 45° regardless of actual endpoints
             // This is for indicating a light ray direction
-            line(..pts, stroke: (paint: item.color, thickness: item.stroke_width, dash: "loosely-dashed"))
+            line(..pts, stroke: (paint: item.color, thickness: item.stroke-width, dash: "loosely-dashed"))
           } else {
-            line(..pts, stroke: stroke_style)
+            line(..pts, stroke: stroke-style)
           }
 
           // Draw label at midpoint
           if item.label != none {
-            let idx = int(item.label_pos * (pts.len() - 1))
+            let idx = int(item.label-pos * (pts.len() - 1))
             let p = pts.at(idx)
-            let anchor = if item.label_anchor == "auto" { "east" } else { item.label_anchor }
+            let anchor = if item.label-anchor == "auto" { "east" } else { item.label-anchor }
             content(p, text(fill: item.color, item.label), anchor: anchor, padding: 0.2)
           }
         }
@@ -771,16 +771,16 @@
     }
 
     // Draw main axes (if enabled)
-    if show_axes {
-      let stroke_style = (paint: axes_color, thickness: axes_stroke)
+    if show-axes {
+      let stroke-style = (paint: axes-color, thickness: axes-stroke)
 
       // x-axis
-      line((xmin, 0), (xmax, 0), stroke: stroke_style, mark: (end: "stealth", fill: axes_color))
+      line((xmin, 0), (xmax, 0), stroke: stroke-style, mark: (end: "stealth", fill: axes-color))
       content((xmax, 0), xlabel, anchor: "north-west", padding: 0.15)
 
       // ct-axis
-      line((0, ctmin), (0, ctmax), stroke: stroke_style, mark: (end: "stealth", fill: axes_color))
-      content((0, ctmax), final_ctlabel, anchor: "south-east", padding: 0.15)
+      line((0, ctmin), (0, ctmax), stroke: stroke-style, mark: (end: "stealth", fill: axes-color))
+      content((0, ctmax), final-ctlabel, anchor: "south-east", padding: 0.15)
     }
 
     // Draw events (on top of everything)
@@ -799,9 +799,9 @@
 
         // Draw label
         if item.label != none {
-          let anchor = if item.label_anchor == "auto" { "south-west" } else { item.label_anchor }
-          let fill_color = if item.label_color != auto { item.label_color } else { item.color }
-          content(pos, text(fill: fill_color, item.label), anchor: anchor, padding: item.label_padding)
+          let anchor = if item.label-anchor == "auto" { "south-west" } else { item.label-anchor }
+          let fill-color = if item.label-color != auto { item.label-color } else { item.color }
+          content(pos, text(fill: fill-color, item.label), anchor: anchor, padding: item.label-padding)
         }
       }
     }
