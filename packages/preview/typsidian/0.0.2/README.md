@@ -67,7 +67,7 @@ _Left: `theme: "dark"`, Right: `theme: "light"`_
 2. Create a new Typst file in Obsidian and import the template with desired options:
 
 ```typst
-#import "@local/typsidian:0.0.1": *
+#import "@local/typsidian:0.0.2": *
 #show: typsidian.with(
   theme: "dark",
   title: "My Document",
