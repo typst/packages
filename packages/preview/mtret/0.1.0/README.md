@@ -32,7 +32,7 @@ Modular Typst REport Template for ja students.
 )
 #name(
   id: "hinshiba", // 学籍番号など
-  author: "瀕死" // 氏名
+  "瀕死" // 氏名
 )
 #date_info(
   // 課題の出題日 (任意)
