@@ -1,4 +1,4 @@
-#import "@preview/cjk-unbreak:0.2.0": remove-cjk-break-space
+#import "@preview/cjk-unbreak:0.2.1": remove-cjk-break-space
 #import "fastfig.typ": *
 
 // --------------------------------
@@ -7,10 +7,10 @@
 #let serif = ("New Computer Modern", "Harano Aji Mincho")
 #let sans = ("New Computer Modern Sans", "Harano Aji Gothic")
 #let typewriter = ("DejaVu Sans Mono", "Morale")
-#let title_size = 1.6em
-#let subtitle_size = 1.2em
-#let title_subcontent_size = 1.1em
-#let date_format = "[year]年[month padding:zero]月[day padding:zero]日"
+#let title-size = 1.6em
+#let subtitle-size = 1.2em
+#let title-subcontent-size = 1.1em
+#let date-format = "[year]年[month padding:zero]月[day padding:zero]日"
 
 // 基本的なスタイルの設定
 #let style(doc) = {
@@ -41,7 +41,7 @@
 }
 
 // 全角コンマ等への変更
-#let repl_full-en_punctuation(doc) = {
+#let repl-full-en-punctuation(doc) = {
   show "、": "，"
   show "。": "．"
 
@@ -55,10 +55,10 @@
 
   // タイトル生成
   set align(center)
-  text(weight: "bold", size: title_size, font: sans)[#title]
+  text(weight: "bold", size: title-size, font: sans)[#title]
   linebreak()
   v(-1pt)
-  text(weight: "regular", size: subtitle_size, font: sans)[#subtitle]
+  text(weight: "regular", size: subtitle-size, font: sans)[#subtitle]
 }
 
 
@@ -67,7 +67,7 @@
   set document(author: author)
 
   // 名前生成
-  set text(size: title_subcontent_size)
+  set text(size: title-subcontent-size)
   set align(right)
   id
   h(1em)
@@ -75,7 +75,7 @@
 }
 
 // 日付の出力
-#let date_info(qdate: none) = {
+#let date-info(qdate: none) = {
   let today = datetime.today()
   set document(date: today)
 
@@ -83,11 +83,11 @@
   set align(right)
   set text()
   if qdate == none {
-    today.display(date_format)
+    today.display(date-format)
   } else {
-    [#qdate.display("出題日" + date_format)
+    [#qdate.display("出題日" + date-format)
       \
-      #today.display("提出日" + date_format)]
+      #today.display("提出日" + date-format)]
   }
 }
 

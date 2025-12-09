@@ -34,7 +34,7 @@ Modular Typst REport Template for ja students.
   id: "hinshiba", // 学籍番号など
   "瀕死" // 氏名
 )
-#date_info(
+#date-info(
   // 課題の出題日 (任意)
   qdate: datetime(year: 2025, month: 10, day: 2)
 )

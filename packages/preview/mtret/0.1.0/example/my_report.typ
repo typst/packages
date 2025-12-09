@@ -7,7 +7,7 @@
 
 #titles("カハンの加算アルゴリズムの実装と考察", subtitle: "数値計算法 第一回レポート")
 #name(id: "hinshiba", "瀕死")
-#date_info(qdate: datetime(year: 2025, month: 10, day: 2))
+#date-info(qdate: datetime(year: 2025, month: 10, day: 2))
 
 // #outline()
 
