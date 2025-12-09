@@ -8,15 +8,25 @@ only work in a few specific directories (the ones for your own packages). Git
 allows for "sparse checkouts", which reduce the time it takes to clone the
 repository and its size on your disk.
 
-Follow these steps to clone the repository:
+First, make sure you have forked the repository to your own GitHub account.
+Then, follow these steps to clone the repository:
 
 ```sh
-git clone --depth 1 --no-checkout --filter="tree:0" git@github.com:typst/packages
+git clone --depth 1 --no-checkout --filter="tree:0" git@github.com:{your-username}/packages
 cd packages
 git sparse-checkout init
 git sparse-checkout set packages/preview/{your-package-name}
+git remote add upstream git@github.com:typst/packages
+git config remote.upstream.partialclonefilter tree:0
 git checkout main
 ```
+
+The `packages` directory you are in still corresponds to the whole repository.
+Do not delete or edit the `README.md`, `LICENSE` or any other file at the root.
+Instead, create the directory `packages/preview/{your-package-name}/{version}`
+and copy your files here. Note that `packages/` is a directory in the
+`packages` repository: if you look at the full path, there should be two
+consecutive parts called `packages`.
 
 ## Don't use submodules
 

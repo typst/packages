@@ -1,0 +1,2363 @@
+<svg class="typst-doc" viewBox="0 0 301.2 76.2" width="301.2pt" height="76.2pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" d="M 0 0v 76.2 h 301.2 v -76.2 Z "/>
+    <g>
+        <g class="typst-group" transform="matrix(1 0 0 1 0.6 0.6)">
+            <g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(70.632% 0.15557 0.12305)" fill-rule="nonzero" stroke="oklab(70.632% 0.15557 0.12305)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 67.5 13.333333 l -22.5 26.666668 l 14.0625 -29.629631 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.352% 0.12992 0.13169)" fill-rule="nonzero" stroke="oklab(73.352% 0.12992 0.13169)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 70.3125 48.88889 l -25.3125 -8.888889 l 33.75 -8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.296% 0.08329 0.14739)" fill-rule="nonzero" stroke="oklab(78.296% 0.08329 0.14739)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 236.25 16.666666 l 11.25 26.666666 l -8.4375 -2.962963 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.879% 0.10609 0.13971)" fill-rule="nonzero" stroke="oklab(75.879% 0.10609 0.13971)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 56.25 66.666664 l -16.875 -4.4444427 l 22.5 -4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.407% 0.10111 0.14139)" fill-rule="nonzero" stroke="oklab(76.407% 0.10111 0.14139)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 56.25 66.666664 l 5.625 -8.8888855 l 19.6875 5.925926 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(69.658% 0.16476 0.11996)" fill-rule="nonzero" stroke="oklab(69.658% 0.16476 0.11996)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 126.5625 3.7037036 l -25.3125 2.9629629 l -50.625 -2.2222219 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(68.254% 0.17801 0.11550)" fill-rule="nonzero" stroke="oklab(68.254% 0.17801 0.11550)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 126.5625 3.7037036 l -75.9375 0.740741 l -50.625 -4.4444447 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.422% 0.11984 0.13509)" fill-rule="nonzero" stroke="oklab(74.422% 0.11984 0.13509)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 95.625 51.11111 l 8.4375 -20.74074 l 8.4375 2.9629612 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.998% 0.06724 0.15279)" fill-rule="nonzero" stroke="oklab(79.998% 0.06724 0.15279)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 106.875 77.77778 l 8.4375 -8.888893 l 8.4375 17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.464% 0.06285 0.15427)" fill-rule="nonzero" stroke="oklab(80.464% 0.06285 0.15427)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 98.4375 83.703705 l 8.4375 -5.925926 l 16.875 8.8888855 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.497% 0.12855 0.13215)" fill-rule="nonzero" stroke="oklab(73.497% 0.12855 0.13215)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 118.125 24.444445 l -5.625 8.888887 l -8.4375 -2.9629612 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.229% 0.11222 0.13765)" fill-rule="nonzero" stroke="oklab(75.229% 0.11222 0.13765)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 219.375 12.222222 l -14.0625 26.666668 l -2.8125 -35.555557 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.687% 0.07017 0.15181)" fill-rule="nonzero" stroke="oklab(79.687% 0.07017 0.15181)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 14.0625 88.888885 l 59.0625 -4.4444427 l 50.625 2.2222214 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(81.687% 0.05132 0.15815)" fill-rule="nonzero" stroke="oklab(81.687% 0.05132 0.15815)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 241.875 87.77778 l -227.8125 1.1111069 l 109.6875 -2.2222214 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(68.677% 0.17402 0.11685)" fill-rule="nonzero" stroke="oklab(68.677% 0.17402 0.11685)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 8.4375 23.703703 l -5.625 11.851854 l -2.8125 -35.555557 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(71.534% 0.14707 0.12592)" fill-rule="nonzero" stroke="oklab(71.534% 0.14707 0.12592)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 92.8125 15.555555 l 8.4375 -8.888889 l 2.8125 23.703705 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.033% 0.12350 0.13385)" fill-rule="nonzero" stroke="oklab(74.033% 0.12350 0.13385)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 36.5625 50.37037 l 8.4375 -10.370369 l 16.875 17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.702% 0.08889 0.14550)" fill-rule="nonzero" stroke="oklab(77.702% 0.08889 0.14550)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 56.25 66.666664 l 25.3125 -2.9629593 l -8.4375 20.740738 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.237% 0.10271 0.14085)" fill-rule="nonzero" stroke="oklab(76.237% 0.10271 0.14085)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 95.625 51.11111 l 16.875 -17.777779 l 2.8125 35.555553 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(82.960% 0.03931 0.16220)" fill-rule="nonzero" stroke="oklab(82.960% 0.03931 0.16220)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 216.5625 80.37037 l -8.4375 -5.925926 l 16.875 -4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.386% 0.06358 0.15402)" fill-rule="nonzero" stroke="oklab(80.386% 0.06358 0.15402)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 98.4375 83.703705 l 25.3125 2.9629593 l -50.625 -2.2222214 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.161% 0.09400 0.14379)" fill-rule="nonzero" stroke="oklab(77.161% 0.09400 0.14379)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 95.625 51.11111 l 19.6875 17.777775 l -25.3125 -8.8888855 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(72.203% 0.14077 0.12804)" fill-rule="nonzero" stroke="oklab(72.203% 0.14077 0.12804)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 118.125 24.444445 l -14.0625 5.925926 l -2.8125 -23.703705 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(71.278% 0.14948 0.12511)" fill-rule="nonzero" stroke="oklab(71.278% 0.14948 0.12511)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 118.125 24.444445 l -16.875 -17.777779 l 25.3125 -2.9629629 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(72.235% 0.14046 0.12814)" fill-rule="nonzero" stroke="oklab(72.235% 0.14046 0.12814)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 118.125 24.444445 l 8.4375 -20.740742 l 8.4375 16.296297 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(71.629% 0.14617 0.12622)" fill-rule="nonzero" stroke="oklab(71.629% 0.14617 0.12622)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 135 20 l -8.4375 -16.296297 l 25.3125 -1.4814813 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.043% 0.07625 0.14976)" fill-rule="nonzero" stroke="oklab(79.043% 0.07625 0.14976)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 272.8125 45.555557 l -25.3125 -2.2222252 l 14.0625 -29.629627 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(69.268% 0.16844 0.11872)" fill-rule="nonzero" stroke="oklab(69.268% 0.16844 0.11872)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 151.875 2.2222223 l -25.3125 1.4814813 l -126.5625 -3.7037036 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.795% 0.07859 0.14897)" fill-rule="nonzero" stroke="oklab(78.795% 0.07859 0.14897)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 205.3125 38.88889 l 25.3125 -4.4444466 l -16.875 22.222225 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(69.863% 0.16283 0.12061)" fill-rule="nonzero" stroke="oklab(69.863% 0.16283 0.12061)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 194.0625 0.37037036 l -42.1875 1.8518519 l -151.875 -2.2222223 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.589% 0.12769 0.13244)" fill-rule="nonzero" stroke="oklab(73.589% 0.12769 0.13244)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 253.125 7.7777777 l -50.625 -4.4444447 l -8.4375 -2.9629629 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.106% 0.13224 0.13091)" fill-rule="nonzero" stroke="oklab(73.106% 0.13224 0.13091)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 135 20 l 16.875 -17.777779 l 8.4375 26.666668 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.086% 0.13243 0.13085)" fill-rule="nonzero" stroke="oklab(73.086% 0.13243 0.13085)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 168.75 11.111111 l -8.4375 17.777779 l -8.4375 -26.666668 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.433% 0.12916 0.13195)" fill-rule="nonzero" stroke="oklab(73.433% 0.12916 0.13195)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 185.625 21.11111 l 8.4375 -20.74074 l 8.4375 2.9629629 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(72.204% 0.14075 0.12805)" fill-rule="nonzero" stroke="oklab(72.204% 0.14075 0.12805)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 168.75 11.111111 l -16.875 -8.888888 l 42.1875 -1.8518519 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.725% 0.10755 0.13922)" fill-rule="nonzero" stroke="oklab(75.725% 0.10755 0.13922)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 163.125 37.77778 l -2.8125 -8.888889 l 19.6875 1.1111107 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.120% 0.07552 0.15001)" fill-rule="nonzero" stroke="oklab(79.120% 0.07552 0.15001)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 272.8125 45.555557 l -11.25 -31.851852 l 19.6875 22.962963 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(85.103% 0.01909 0.16900)" fill-rule="nonzero" stroke="oklab(85.103% 0.01909 0.16900)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 309.375 72.22222 l -33.75 8.888893 l 16.875 -17.777782 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(86.300% 0.00781 0.17280)" fill-rule="nonzero" stroke="oklab(86.300% 0.00781 0.17280)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 275.625 81.111115 l 42.1875 4.4444427 l -75.9375 2.2222214 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.603% 0.11812 0.13566)" fill-rule="nonzero" stroke="oklab(74.603% 0.11812 0.13566)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 253.125 7.7777777 l -59.0625 -7.4074073 l 109.6875 0.7407408 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.461% 0.07231 0.15109)" fill-rule="nonzero" stroke="oklab(79.461% 0.07231 0.15109)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 320.625 14.444445 l 8.4375 5.925926 l -22.5 13.333334 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(87.247% -0.00112 0.17581)" fill-rule="nonzero" stroke="oklab(87.247% -0.00112 0.17581)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 351.5625 73.703705 l -33.75 11.851852 l 8.4375 -8.888893 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.025% 0.07642 0.14970)" fill-rule="nonzero" stroke="oklab(79.025% 0.07642 0.14970)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 320.625 14.444445 l -14.0625 19.25926 l -11.25 -14.8148155 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(86.744% 0.00362 0.17421)" fill-rule="nonzero" stroke="oklab(86.744% 0.00362 0.17421)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 351.5625 73.703705 l -25.3125 2.9629593 l 16.875 -8.8888855 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(81.512% 0.05296 0.15760)" fill-rule="nonzero" stroke="oklab(81.512% 0.05296 0.15760)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 315 50 l -8.4375 -16.296295 l 25.3125 -1.4814835 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(85.266% 0.01756 0.16952)" fill-rule="nonzero" stroke="oklab(85.266% 0.01756 0.16952)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 250.3125 78.888885 l 25.3125 2.222229 l -33.75 6.666664 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.240% 0.07439 0.15039)" fill-rule="nonzero" stroke="oklab(79.240% 0.07439 0.15039)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 295.3125 18.88889 l 11.25 14.8148155 l -19.6875 -5.925926 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(81.161% 0.05627 0.15649)" fill-rule="nonzero" stroke="oklab(81.161% 0.05627 0.15649)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 298.125 54.444443 l -16.875 -17.777775 l 25.3125 -2.962963 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(82.989% 0.03903 0.16229)" fill-rule="nonzero" stroke="oklab(82.989% 0.03903 0.16229)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 315 50 l 16.875 -17.777779 l 8.4375 26.666668 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(84.179% 0.02781 0.16607)" fill-rule="nonzero" stroke="oklab(84.179% 0.02781 0.16607)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 309.375 72.22222 l -16.875 -8.888889 l 5.625 -8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(82.118% 0.04725 0.15952)" fill-rule="nonzero" stroke="oklab(82.118% 0.04725 0.15952)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 298.125 54.444443 l 8.4375 -20.740738 l 8.4375 16.296295 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(81.417% 0.05386 0.15730)" fill-rule="nonzero" stroke="oklab(81.417% 0.05386 0.15730)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 272.8125 45.555557 l 8.4375 -8.888889 l 2.8125 23.703701 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.760% 0.08835 0.14569)" fill-rule="nonzero" stroke="oklab(77.760% 0.08835 0.14569)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 295.3125 18.88889 l -8.4375 8.888889 l -8.4375 -20.740742 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.823% 0.10662 0.13953)" fill-rule="nonzero" stroke="oklab(75.823% 0.10662 0.13953)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 253.125 7.7777777 l 50.625 -6.6666665 l -25.3125 5.9259257 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(82.969% 0.03922 0.16223)" fill-rule="nonzero" stroke="oklab(82.969% 0.03922 0.16223)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 348.75 41.11111 l -8.4375 17.777779 l -8.4375 -26.666668 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.452% 0.06296 0.15423)" fill-rule="nonzero" stroke="oklab(80.452% 0.06296 0.15423)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 337.5 23.333334 l 16.875 -17.777779 l -5.625 35.555557 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(86.117% 0.00953 0.17222)" fill-rule="nonzero" stroke="oklab(86.117% 0.00953 0.17222)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 351.5625 73.703705 l -8.4375 -5.925926 l -2.8125 -8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(85.008% 0.01999 0.16870)" fill-rule="nonzero" stroke="oklab(85.008% 0.01999 0.16870)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 351.5625 73.703705 l -11.25 -14.8148155 l 8.4375 -17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.731% 0.06033 0.15512)" fill-rule="nonzero" stroke="oklab(80.731% 0.06033 0.15512)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 239.0625 40.37037 l -14.0625 29.629631 l -11.25 -13.333332 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(84.222% 0.02741 0.16620)" fill-rule="nonzero" stroke="oklab(84.222% 0.02741 0.16620)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 250.3125 78.888885 l -8.4375 8.888893 l -16.875 -17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.842% 0.10644 0.13960)" fill-rule="nonzero" stroke="oklab(75.842% 0.10644 0.13960)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 253.125 7.7777777 l 25.3125 -0.7407408 l -8.4375 2.962963 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.867% 0.06848 0.15237)" fill-rule="nonzero" stroke="oklab(79.867% 0.06848 0.15237)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 286.875 27.777779 l 19.6875 5.925926 l -25.3125 2.962963 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.249% 0.11203 0.13771)" fill-rule="nonzero" stroke="oklab(75.249% 0.11203 0.13771)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 185.625 21.11111 l 16.875 -17.777777 l 2.8125 35.555557 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.615% 0.11801 0.13570)" fill-rule="nonzero" stroke="oklab(74.615% 0.11801 0.13570)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 168.75 11.111111 l 11.25 18.88889 l -19.6875 -1.1111107 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(83.916% 0.03029 0.16523)" fill-rule="nonzero" stroke="oklab(83.916% 0.03029 0.16523)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 216.5625 80.37037 l 8.4375 -10.370369 l 16.875 17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.173% 0.10332 0.14065)" fill-rule="nonzero" stroke="oklab(76.173% 0.10332 0.14065)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 185.625 21.11111 l 19.6875 17.777779 l -25.3125 -8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.950% 0.10542 0.13994)" fill-rule="nonzero" stroke="oklab(75.950% 0.10542 0.13994)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 253.125 7.7777777 l 16.875 2.2222223 l -8.4375 3.7037039 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.583% 0.09002 0.14512)" fill-rule="nonzero" stroke="oklab(77.583% 0.09002 0.14512)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 227.8125 25.555555 l 2.8125 8.888887 l -25.3125 4.4444466 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.231% 0.07448 0.15036)" fill-rule="nonzero" stroke="oklab(79.231% 0.07448 0.15036)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 239.0625 40.37037 l -25.3125 16.296299 l 16.875 -22.222225 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.721% 0.08872 0.14556)" fill-rule="nonzero" stroke="oklab(77.721% 0.08872 0.14556)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 236.25 16.666666 l 2.8125 23.703703 l -8.4375 -5.925926 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.528% 0.09054 0.14495)" fill-rule="nonzero" stroke="oklab(77.528% 0.09054 0.14495)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 270 10 l 11.25 26.666668 l -19.6875 -22.962963 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.483% 0.10039 0.14163)" fill-rule="nonzero" stroke="oklab(76.483% 0.10039 0.14163)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 227.8125 25.555555 l -22.5 13.333334 l 14.0625 -26.666668 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.344% 0.11114 0.13801)" fill-rule="nonzero" stroke="oklab(75.344% 0.11114 0.13801)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 236.25 16.666666 l -16.875 -4.4444437 l 33.75 -4.4444447 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.387% 0.12016 0.13498)" fill-rule="nonzero" stroke="oklab(74.387% 0.12016 0.13498)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 253.125 7.7777777 l -33.75 4.4444447 l -16.875 -8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(83.388% 0.03527 0.16356)" fill-rule="nonzero" stroke="oklab(83.388% 0.03527 0.16356)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 191.25 83.333336 l 50.625 4.4444427 l -118.125 -1.1111145 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.219% 0.06516 0.15349)" fill-rule="nonzero" stroke="oklab(80.219% 0.06516 0.15349)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 149.0625 70.37037 l -25.3125 16.296295 l 16.875 -22.222221 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.499% 0.10024 0.14168)" fill-rule="nonzero" stroke="oklab(76.499% 0.10024 0.14168)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 171.5625 43.703705 l -8.4375 -5.925926 l 16.875 -7.7777786 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.477% 0.09102 0.14479)" fill-rule="nonzero" stroke="oklab(77.477% 0.09102 0.14479)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 188.4375 53.703705 l -16.875 -10 l 8.4375 -13.703705 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.468% 0.09110 0.14476)" fill-rule="nonzero" stroke="oklab(77.468% 0.09110 0.14476)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 196.875 47.77778 l -16.875 -17.777779 l 25.3125 8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(81.593% 0.05220 0.15786)" fill-rule="nonzero" stroke="oklab(81.593% 0.05220 0.15786)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 174.375 82.22222 l -50.625 4.4444427 l 33.75 -13.333328 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.789% 0.10694 0.13943)" fill-rule="nonzero" stroke="oklab(75.789% 0.10694 0.13943)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 95.625 51.11111 l -5.625 8.888889 l -19.6875 -11.111111 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.187% 0.10318 0.14069)" fill-rule="nonzero" stroke="oklab(76.187% 0.10318 0.14069)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 70.3125 48.88889 l 19.6875 11.111111 l -8.4375 3.7037048 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(67.370% 0.18635 0.11270)" fill-rule="nonzero" stroke="oklab(67.370% 0.18635 0.11270)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 25.3125 8.888889 l -25.3125 -8.888889 l 50.625 4.4444447 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.852% 0.08748 0.14598)" fill-rule="nonzero" stroke="oklab(77.852% 0.08748 0.14598)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 47.8125 75.55556 l 8.4375 -8.888893 l 16.875 17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.365% 0.08264 0.14761)" fill-rule="nonzero" stroke="oklab(78.365% 0.08264 0.14761)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 47.8125 75.55556 l 25.3125 8.8888855 l -59.0625 4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.947% 0.11488 0.13675)" fill-rule="nonzero" stroke="oklab(74.947% 0.11488 0.13675)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 36.5625 50.37037 l 25.3125 7.4074097 l -22.5 4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.194% 0.13141 0.13119)" fill-rule="nonzero" stroke="oklab(73.194% 0.13141 0.13119)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 11.25 53.333332 l -5.625 17.777782 l -2.8125 -35.555557 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(69.132% 0.16972 0.11829)" fill-rule="nonzero" stroke="oklab(69.132% 0.16972 0.11829)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 67.5 13.333333 l -8.4375 -2.962963 l -8.4375 -5.9259253 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(69.433% 0.16689 0.11925)" fill-rule="nonzero" stroke="oklab(69.433% 0.16689 0.11925)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 67.5 13.333333 l -16.875 -8.888888 l 50.625 2.2222219 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(68.912% 0.17180 0.11759)" fill-rule="nonzero" stroke="oklab(68.912% 0.17180 0.11759)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 33.75 26.666666 l -8.4375 -17.777777 l 25.3125 -4.4444447 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(69.347% 0.16769 0.11897)" fill-rule="nonzero" stroke="oklab(69.347% 0.16769 0.11897)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 33.75 26.666666 l 16.875 -22.222221 l 8.4375 5.9259253 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.086% 0.10414 0.14037)" fill-rule="nonzero" stroke="oklab(76.086% 0.10414 0.14037)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 146.25 46.666668 l 14.0625 -17.777779 l 2.8125 8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.783% 0.06927 0.15211)" fill-rule="nonzero" stroke="oklab(79.783% 0.06927 0.15211)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 115.3125 68.888885 l 25.3125 -4.4444427 l -16.875 22.222221 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(72.032% 0.14237 0.12750)" fill-rule="nonzero" stroke="oklab(72.032% 0.14237 0.12750)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 84.375 22.222221 l 8.4375 -6.666666 l 11.25 14.8148155 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(71.760% 0.14494 0.12663)" fill-rule="nonzero" stroke="oklab(71.760% 0.14494 0.12663)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 67.5 13.333333 l 11.25 17.777779 l -33.75 8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(72.270% 0.14013 0.12826)" fill-rule="nonzero" stroke="oklab(72.270% 0.14013 0.12826)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 11.25 53.333332 l -8.4375 -17.777775 l 25.3125 8.8888855 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.291% 0.13049 0.13150)" fill-rule="nonzero" stroke="oklab(73.291% 0.13049 0.13150)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 11.25 53.333332 l 16.875 -8.888889 l 8.4375 5.925926 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(67.585% 0.18432 0.11338)" fill-rule="nonzero" stroke="oklab(67.585% 0.18432 0.11338)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 16.875 17.777779 l -16.875 -17.777779 l 25.3125 8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(70.847% 0.15355 0.12374)" fill-rule="nonzero" stroke="oklab(70.847% 0.15355 0.12374)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 33.75 26.666666 l 25.3125 -16.296295 l -14.0625 29.629631 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.571% 0.08070 0.14826)" fill-rule="nonzero" stroke="oklab(78.571% 0.08070 0.14826)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 137.8125 55.555557 l 2.8125 8.8888855 l -25.3125 4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.217% 0.10290 0.14079)" fill-rule="nonzero" stroke="oklab(76.217% 0.10290 0.14079)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 129.375 42.22222 l -14.0625 26.666664 l -2.8125 -35.555553 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(72.561% 0.13738 0.12918)" fill-rule="nonzero" stroke="oklab(72.561% 0.13738 0.12918)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 84.375 22.222221 l 19.6875 8.1481495 l -25.3125 0.7407398 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(70.384% 0.15791 0.12227)" fill-rule="nonzero" stroke="oklab(70.384% 0.15791 0.12227)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 92.8125 15.555555 l -25.3125 -2.2222223 l 33.75 -6.6666665 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.860% 0.09683 0.14283)" fill-rule="nonzero" stroke="oklab(76.860% 0.09683 0.14283)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 146.25 46.666668 l 16.875 -8.888889 l 8.4375 5.925926 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.010% 0.07656 0.14965)" fill-rule="nonzero" stroke="oklab(79.010% 0.07656 0.14965)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 196.875 47.77778 l 8.4375 -8.888889 l 8.4375 17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.795% 0.05973 0.15532)" fill-rule="nonzero" stroke="oklab(80.795% 0.05973 0.15532)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 157.5 73.333336 l -33.75 13.333328 l 25.3125 -16.296295 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.360% 0.08269 0.14759)" fill-rule="nonzero" stroke="oklab(78.360% 0.08269 0.14759)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 146.25 46.666668 l 25.3125 -2.962963 l -14.0625 29.629631 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(81.643% 0.05173 0.15801)" fill-rule="nonzero" stroke="oklab(81.643% 0.05173 0.15801)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 247.5 43.333332 l 11.25 17.777779 l -33.75 8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.516% 0.06236 0.15444)" fill-rule="nonzero" stroke="oklab(80.516% 0.06236 0.15444)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 247.5 43.333332 l -22.5 26.666668 l 14.0625 -29.629631 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.872% 0.10616 0.13969)" fill-rule="nonzero" stroke="oklab(75.872% 0.10616 0.13969)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 236.25 16.666666 l 16.875 -8.888888 l 8.4375 5.925926 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.372% 0.09201 0.14445)" fill-rule="nonzero" stroke="oklab(77.372% 0.09201 0.14445)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 236.25 16.666666 l 25.3125 -2.9629622 l -14.0625 29.629627 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(81.915% 0.04916 0.15888)" fill-rule="nonzero" stroke="oklab(81.915% 0.04916 0.15888)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 264.375 52.22222 l 8.4375 -6.666664 l 11.25 14.814812 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(82.444% 0.04417 0.16056)" fill-rule="nonzero" stroke="oklab(82.444% 0.04417 0.16056)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 264.375 52.22222 l 19.6875 8.148148 l -25.3125 0.7407417 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.285% 0.07397 0.15053)" fill-rule="nonzero" stroke="oklab(79.285% 0.07397 0.15053)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 146.25 46.666668 l 11.25 26.666668 l -8.4375 -2.962967 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.592% 0.07107 0.15150)" fill-rule="nonzero" stroke="oklab(79.592% 0.07107 0.15150)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 157.5 73.333336 l 14.0625 -29.629631 l 11.25 21.851852 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.709% 0.07940 0.14870)" fill-rule="nonzero" stroke="oklab(78.709% 0.07940 0.14870)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 146.25 46.666668 l 2.8125 23.703701 l -8.4375 -5.925926 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.471% 0.09107 0.14477)" fill-rule="nonzero" stroke="oklab(77.471% 0.09107 0.14477)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 137.8125 55.555557 l -22.5 13.333328 l 14.0625 -26.666664 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.933% 0.08671 0.14624)" fill-rule="nonzero" stroke="oklab(77.933% 0.08671 0.14624)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 188.4375 53.703705 l -8.4375 -23.703705 l 16.875 17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(81.888% 0.04942 0.15879)" fill-rule="nonzero" stroke="oklab(81.888% 0.04942 0.15879)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 208.125 74.44444 l 5.625 -17.777775 l 11.25 13.333332 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.475% 0.07217 0.15113)" fill-rule="nonzero" stroke="oklab(79.475% 0.07217 0.15113)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 188.4375 53.703705 l 8.4375 -5.925926 l 16.875 8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.770% 0.05996 0.15524)" fill-rule="nonzero" stroke="oklab(80.770% 0.05996 0.15524)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 188.4375 53.703705 l 25.3125 2.962963 l -5.625 17.777775 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.996% 0.11441 0.13691)" fill-rule="nonzero" stroke="oklab(74.996% 0.11441 0.13691)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 135 20 l 25.3125 8.888889 l -14.0625 17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.242% 0.11210 0.13769)" fill-rule="nonzero" stroke="oklab(75.242% 0.11210 0.13769)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 135 20 l 11.25 26.666668 l -16.875 -4.4444466 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.781% 0.10701 0.13940)" fill-rule="nonzero" stroke="oklab(75.781% 0.10701 0.13940)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 70.3125 48.88889 l 11.25 14.8148155 l -19.6875 -5.925926 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.338% 0.12062 0.13482)" fill-rule="nonzero" stroke="oklab(74.338% 0.12062 0.13482)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 70.3125 48.88889 l -8.4375 8.888889 l -16.875 -17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(72.004% 0.14263 0.12741)" fill-rule="nonzero" stroke="oklab(72.004% 0.14263 0.12741)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 33.75 26.666666 l 11.25 13.333334 l -16.875 4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(68.050% 0.17993 0.11486)" fill-rule="nonzero" stroke="oklab(68.050% 0.17993 0.11486)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 8.4375 23.703703 l -8.4375 -23.703703 l 16.875 17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.721% 0.09815 0.14239)" fill-rule="nonzero" stroke="oklab(76.721% 0.09815 0.14239)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 22.5 80 l 16.875 -17.777779 l 8.4375 13.333336 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.506% 0.10018 0.14170)" fill-rule="nonzero" stroke="oklab(76.506% 0.10018 0.14170)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 47.8125 75.55556 l -8.4375 -13.333336 l 16.875 4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.196% 0.12196 0.13437)" fill-rule="nonzero" stroke="oklab(74.196% 0.12196 0.13437)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 11.25 53.333332 l 25.3125 -2.962963 l 2.8125 11.851852 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.076% 0.13252 0.13082)" fill-rule="nonzero" stroke="oklab(73.076% 0.13252 0.13082)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 36.5625 50.37037 l -8.4375 -5.925926 l 16.875 -4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.914% 0.07747 0.14935)" fill-rule="nonzero" stroke="oklab(78.914% 0.07747 0.14935)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 98.4375 83.703705 l -25.3125 0.7407379 l 8.4375 -20.740738 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.456% 0.08178 0.14790)" fill-rule="nonzero" stroke="oklab(78.456% 0.08178 0.14790)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 106.875 77.77778 l -16.875 -17.777779 l 25.3125 8.8888855 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(71.411% 0.14823 0.12553)" fill-rule="nonzero" stroke="oklab(71.411% 0.14823 0.12553)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 84.375 22.222221 l -5.625 8.888889 l -11.25 -17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(70.882% 0.15322 0.12385)" fill-rule="nonzero" stroke="oklab(70.882% 0.15322 0.12385)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 84.375 22.222221 l -16.875 -8.888888 l 25.3125 2.2222223 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.396% 0.12008 0.13501)" fill-rule="nonzero" stroke="oklab(74.396% 0.12008 0.13501)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 95.625 51.11111 l -25.3125 -2.2222214 l 8.4375 -17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.953% 0.12425 0.13360)" fill-rule="nonzero" stroke="oklab(73.953% 0.12425 0.13360)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 95.625 51.11111 l -16.875 -20 l 25.3125 -0.7407398 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.957% 0.12421 0.13361)" fill-rule="nonzero" stroke="oklab(73.957% 0.12421 0.13361)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 118.125 24.444445 l 16.875 -4.4444447 l -5.625 22.222221 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.296% 0.12102 0.13469)" fill-rule="nonzero" stroke="oklab(74.296% 0.12102 0.13469)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 118.125 24.444445 l 11.25 17.777777 l -16.875 -8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.614% 0.08973 0.14522)" fill-rule="nonzero" stroke="oklab(77.614% 0.08973 0.14522)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 22.5 80 l 25.3125 -4.4444427 l -33.75 13.333328 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.956% 0.09594 0.14313)" fill-rule="nonzero" stroke="oklab(76.956% 0.09594 0.14313)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 22.5 80 l -8.4375 8.8888855 l -8.4375 -17.777771 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(70.887% 0.15317 0.12386)" fill-rule="nonzero" stroke="oklab(70.887% 0.15317 0.12386)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 33.75 26.666666 l -5.625 17.777777 l -19.6875 -20.74074 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(70.938% 0.15269 0.12402)" fill-rule="nonzero" stroke="oklab(70.938% 0.15269 0.12402)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 8.4375 23.703703 l 19.6875 20.74074 l -25.3125 -8.8888855 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.343% 0.11115 0.13801)" fill-rule="nonzero" stroke="oklab(75.343% 0.11115 0.13801)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 11.25 53.333332 l 28.125 8.888889 l -16.875 17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.363% 0.11096 0.13807)" fill-rule="nonzero" stroke="oklab(75.363% 0.11096 0.13807)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 11.25 53.333332 l 11.25 26.666668 l -16.875 -8.8888855 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(69.592% 0.16539 0.11975)" fill-rule="nonzero" stroke="oklab(69.592% 0.16539 0.11975)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 33.75 26.666666 l -25.3125 -2.962963 l 8.4375 -5.9259243 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(69.127% 0.16978 0.11827)" fill-rule="nonzero" stroke="oklab(69.127% 0.16978 0.11827)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 33.75 26.666666 l -16.875 -8.888887 l 8.4375 -8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.835% 0.09707 0.14275)" fill-rule="nonzero" stroke="oklab(76.835% 0.09707 0.14275)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 137.8125 55.555557 l -8.4375 -13.333336 l 16.875 4.4444466 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.935% 0.08670 0.14624)" fill-rule="nonzero" stroke="oklab(77.935% 0.08670 0.14624)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 137.8125 55.555557 l 8.4375 -8.888889 l -5.625 17.777775 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.026% 0.08584 0.14653)" fill-rule="nonzero" stroke="oklab(78.026% 0.08584 0.14653)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 98.4375 83.703705 l -16.875 -20 l 8.4375 -3.7037048 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.922% 0.07739 0.14937)" fill-rule="nonzero" stroke="oklab(78.922% 0.07739 0.14937)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 98.4375 83.703705 l -8.4375 -23.703705 l 16.875 17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(81.315% 0.05483 0.15697)" fill-rule="nonzero" stroke="oklab(81.315% 0.05483 0.15697)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 174.375 82.22222 l -16.875 -8.8888855 l 25.3125 -7.7777786 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(82.403% 0.04456 0.16043)" fill-rule="nonzero" stroke="oklab(82.403% 0.04456 0.16043)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 191.25 83.333336 l -67.5 3.3333282 l 50.625 -4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.821% 0.05948 0.15541)" fill-rule="nonzero" stroke="oklab(80.821% 0.05948 0.15541)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 188.4375 53.703705 l 19.6875 20.740738 l -25.3125 -8.8888855 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.069% 0.07600 0.14984)" fill-rule="nonzero" stroke="oklab(79.069% 0.07600 0.14984)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 188.4375 53.703705 l -5.625 11.851852 l -11.25 -21.851852 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(82.124% 0.04719 0.15954)" fill-rule="nonzero" stroke="oklab(82.124% 0.04719 0.15954)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 191.25 83.333336 l -16.875 -1.1111145 l 8.4375 -16.666664 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(82.153% 0.04691 0.15964)" fill-rule="nonzero" stroke="oklab(82.153% 0.04691 0.15964)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 191.25 83.333336 l -8.4375 -17.777779 l 25.3125 8.8888855 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(83.837% 0.03104 0.16498)" fill-rule="nonzero" stroke="oklab(83.837% 0.03104 0.16498)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 275.625 81.111115 l -16.875 -20.000004 l 25.3125 -0.7407417 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(84.305% 0.02662 0.16647)" fill-rule="nonzero" stroke="oklab(84.305% 0.02662 0.16647)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 275.625 81.111115 l 8.4375 -20.740746 l 8.4375 2.962963 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(75.847% 0.10640 0.13961)" fill-rule="nonzero" stroke="oklab(75.847% 0.10640 0.13961)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 227.8125 25.555555 l -8.4375 -13.333333 l 16.875 4.4444437 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.946% 0.09602 0.14310)" fill-rule="nonzero" stroke="oklab(76.946% 0.09602 0.14310)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 227.8125 25.555555 l 8.4375 -8.888889 l -5.625 17.777777 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(81.294% 0.05502 0.15691)" fill-rule="nonzero" stroke="oklab(81.294% 0.05502 0.15691)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 264.375 52.22222 l -5.625 8.888889 l -11.25 -17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.765% 0.06000 0.15523)" fill-rule="nonzero" stroke="oklab(80.765% 0.06000 0.15523)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 264.375 52.22222 l -16.875 -8.888889 l 25.3125 2.2222252 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(84.131% 0.02826 0.16592)" fill-rule="nonzero" stroke="oklab(84.131% 0.02826 0.16592)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 216.5625 80.37037 l 25.3125 7.4074097 l -50.625 -4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(83.175% 0.03728 0.16288)" fill-rule="nonzero" stroke="oklab(83.175% 0.03728 0.16288)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 216.5625 80.37037 l -25.3125 2.962967 l 16.875 -8.888893 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(74.551% 0.11861 0.13550)" fill-rule="nonzero" stroke="oklab(74.551% 0.11861 0.13550)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 185.625 21.11111 l -5.625 8.888889 l -11.25 -18.88889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(73.404% 0.12943 0.13186)" fill-rule="nonzero" stroke="oklab(73.404% 0.12943 0.13186)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 185.625 21.11111 l -16.875 -10 l 25.3125 -10.740741 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(83.236% 0.03671 0.16307)" fill-rule="nonzero" stroke="oklab(83.236% 0.03671 0.16307)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 250.3125 78.888885 l -25.3125 -8.8888855 l 33.75 -8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(84.279% 0.02686 0.16639)" fill-rule="nonzero" stroke="oklab(84.279% 0.02686 0.16639)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 250.3125 78.888885 l 8.4375 -17.777775 l 16.875 20.000004 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(83.841% 0.03100 0.16499)" fill-rule="nonzero" stroke="oklab(83.841% 0.03100 0.16499)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 309.375 72.22222 l -11.25 -17.777779 l 16.875 -4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(85.126% 0.01888 0.16907)" fill-rule="nonzero" stroke="oklab(85.126% 0.01888 0.16907)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 309.375 72.22222 l 5.625 -22.222221 l 11.25 26.666664 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(81.377% 0.05424 0.15717)" fill-rule="nonzero" stroke="oklab(81.377% 0.05424 0.15717)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 337.5 23.333334 l 11.25 17.777777 l -16.875 -8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(79.325% 0.07359 0.15066)" fill-rule="nonzero" stroke="oklab(79.325% 0.07359 0.15066)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 329.0625 20.37037 l 25.3125 -14.8148155 l -16.875 17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(83.381% 0.03534 0.16353)" fill-rule="nonzero" stroke="oklab(83.381% 0.03534 0.16353)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 298.125 54.444443 l -5.625 8.888889 l -8.4375 -2.962963 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(82.086% 0.04755 0.15942)" fill-rule="nonzero" stroke="oklab(82.086% 0.04755 0.15942)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 298.125 54.444443 l -14.0625 5.925926 l -2.8125 -23.703701 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.424% 0.08209 0.14779)" fill-rule="nonzero" stroke="oklab(78.424% 0.08209 0.14779)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 286.875 27.777779 l -5.625 8.888889 l -11.25 -26.666668 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.092% 0.09465 0.14356)" fill-rule="nonzero" stroke="oklab(77.092% 0.09465 0.14356)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 286.875 27.777779 l -16.875 -17.777779 l 8.4375 -2.962963 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(84.880% 0.02120 0.16829)" fill-rule="nonzero" stroke="oklab(84.880% 0.02120 0.16829)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 326.25 76.666664 l -11.25 -26.666664 l 25.3125 8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(85.969% 0.01092 0.17175)" fill-rule="nonzero" stroke="oklab(85.969% 0.01092 0.17175)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 326.25 76.666664 l 14.0625 -17.777775 l 2.8125 8.888889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.249% 0.06487 0.15359)" fill-rule="nonzero" stroke="oklab(80.249% 0.06487 0.15359)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 329.0625 20.37037 l 8.4375 2.962963 l -5.625 8.888887 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(80.365% 0.06378 0.15396)" fill-rule="nonzero" stroke="oklab(80.365% 0.06378 0.15396)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 329.0625 20.37037 l 2.8125 11.8518505 l -25.3125 1.4814835 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(76.774% 0.09765 0.14256)" fill-rule="nonzero" stroke="oklab(76.774% 0.09765 0.14256)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 295.3125 18.88889 l -16.875 -11.851852 l 25.3125 -5.9259257 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.563% 0.09021 0.14506)" fill-rule="nonzero" stroke="oklab(77.563% 0.09021 0.14506)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 320.625 14.444445 l -25.3125 4.4444447 l 8.4375 -17.777779 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(82.819% 0.04063 0.16175)" fill-rule="nonzero" stroke="oklab(82.819% 0.04063 0.16175)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 351.5625 73.703705 l -2.8125 -32.592594 l 5.625 -35.555557 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(86.718% 0.00386 0.17413)" fill-rule="nonzero" stroke="oklab(86.718% 0.00386 0.17413)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 309.375 72.22222 l 16.875 4.4444427 l -8.4375 8.888893 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(86.358% 0.00726 0.17298)" fill-rule="nonzero" stroke="oklab(86.358% 0.00726 0.17298)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 309.375 72.22222 l 8.4375 13.333336 l -42.1875 -4.4444427 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(77.625% 0.08962 0.14526)" fill-rule="nonzero" stroke="oklab(77.625% 0.08962 0.14526)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 320.625 14.444445 l -16.875 -13.333334 l 50.625 4.444444 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="oklab(78.749% 0.07902 0.14883)" fill-rule="nonzero" stroke="oklab(78.749% 0.07902 0.14883)" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 320.625 14.444445 l 33.75 -8.888889 l -25.3125 14.8148155 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 82.24937 -646.3243 l -52.97824 603.45526 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 82.24937 -646.3243 l 6.322708 -216.05872 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 88.572075 -862.383 l 11.621208 -794.2369 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 29.271128 -42.869015 l -16.84661 47.97335 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 12.424519 5.1043363 l -6.450129 6.122584 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m -16.382082 19.184862 l 22.356472 -7.957942 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000025" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 49.92131 56.43756 l -0.5618477 -2.8443336 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000027" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 69.319176 68.712776 l 2.883728 -9.580521 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000027" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 49.92131 56.43756 l 19.397865 12.275215 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000022" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 49.697147 52.4393 l 7.727371 -7.3349648 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000023" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 72.2029 59.132256 l -14.778385 -14.02792 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000024" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 49.697147 52.4393 l -0.33768463 1.1539268 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 78.2011 546.566 l 12.668655 -288.6079 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 78.2011 546.566 l -32.04255 -425.81546 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 69.57689 70.91445 l 16.009857 6.5129395 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 69.57689 70.91445 l -8.876408 8.425659 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000042" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 60.70048 79.34011 l -14.541927 41.410408 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000022" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 90.86976 257.95807 l -5.2830124 -180.53067 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 78.2011 546.566 l 68.49122 3380.6833 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 146.69232 3927.2493 l 32.087738 -3411.3281 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000025" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 136.70938 78.98936 l -7.5888214 -5.7627563 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000026" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 117.027725 78.96597 l 12.092834 -5.7393723 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000029" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 136.70938 78.98936 l 9.1011505 14.136528 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002f" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 150.97154 106.189705 l -5.1610107 -13.06382 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 117.027725 78.96597 l -6.693405 12.707016 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000020" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 110.33432 91.67299 l -19.464561 166.28508 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 150.97154 106.189705 l 17.313965 197.2168 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 178.78006 515.9212 l -10.494553 -212.51471 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 91.47051 32.936577 l 0.1302414 4.4508476 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 61.40474 33.770035 l -0.9325905 -3.5409298 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000019" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 60.47215 30.229105 l 13.359943 -8.454338 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 61.40474 33.770035 l 22.069305 10.4743 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 91.47051 32.936577 l -17.63842 -11.16181 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 83.474045 44.244335 l 8.126709 -6.8569107 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 104.592865 18.288734 l 2.5317001 -0.30039215 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000019" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 104.49527 42.63302 l 5.915703 -16.845879 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000016" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 104.592865 18.288734 l -10.295822 7.818386 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 94.29704 26.10712 l -2.8265305 6.8294563 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 104.49527 42.63302 l -12.894516 -5.245594 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000015" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 110.41097 25.78714 l -3.2864075 -7.7987976 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 86.304436 -230.61624 l -8.992462 204.85965 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 86.304436 -230.61624 l -4.055069 -415.70804 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 29.271128 -42.869015 l 9.849436 56.095615 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000012" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 74.840225 -21.064137 l -28.130848 40.053493 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 74.840225 -21.064137 l 2.4717484 -4.6924534 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 39.120564 13.2266 l 7.588814 5.7627573 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000039" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 46.158554 120.75052 l -6.222641 -15.7510605 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000040" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 39.935913 104.99946 l -27.588638 -26.187653 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000028" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 49.92131 56.43756 l -2.6697235 10.136604 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 34.595337 74.5832 l 12.65625 -8.009033 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000027" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 49.359463 53.593227 l -24.56696 5.829853 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 34.595337 74.5832 l -11.226292 -10.656208 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 24.792503 59.42308 l -1.4234581 4.50391 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 86.304436 -230.61624 l 28.272453 241.5307 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 77.31197 -25.75659 l 4.412483 22.338203 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000012" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 104.592865 18.288734 l -22.868408 -21.70712 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000013" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 107.124565 17.988342 l 7.452324 -7.073889 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000025" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 81.491325 52.07886 l 9.226517 21.019161 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000023" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 103.42041 62.268375 l -0.9958954 2.8359642 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000020" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 83.02478 49.361767 l -1.5334549 2.7170944 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000026" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 102.424515 65.10434 l -6.4501266 6.1225815 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000021" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 103.42041 62.268375 l -20.39563 -12.906609 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000028" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 90.71784 73.09802 l 5.256546 -1.8711014 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 113.4638 51.14611 l 0.45072937 -0.03565216 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 113.91453 51.11046 l 9.12838 -17.32967 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 104.49527 42.63302 l 8.968529 8.513092 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000017" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 110.41097 25.78714 l 12.631935 7.9936485 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 139.47554 7.3503375 l -50.903465 -869.73334 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 124.665215 15.018464 l 14.810326 -7.6681266 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000012" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 114.57689 10.9144535 l 10.0883255 4.1040106 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 219.12056 43.2266 l 7.5888214 5.7627563 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000012" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 219.12056 43.2266 l -1.6686554 -9.503498 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000011" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 226.70938 48.989357 l 14.689178 -20.914873 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 241.39856 28.074484 l -3.0471191 -0.9641247 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000f" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 217.4519 33.723103 l 20.899536 -6.6127434 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000016" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 271.47052 62.936577 l 0.13024902 4.4508514 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000017" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 240.47215 60.229103 l 0.93258667 3.5409317 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000015" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 240.47215 60.229103 l 13.35994 -8.454338 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 271.60077 67.38743 l -8.126709 6.8569107 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 271.47052 62.936577 l -17.638428 -11.161812 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 241.40474 63.770035 l 22.06932 10.474304 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 237.42451 75.10434 l -7.727371 7.334961 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 178.78006 515.9212 l 32.54413 -370.69806 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000040" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 283.43588 209.41675 l -22.03534 -111.55392 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 229.69714 82.4393 l -18.372955 62.78383 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 261.40054 97.86283 l -23.976028 -22.758492 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000012" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 170.0862 30.685823 l 0.4424286 -7.8394127 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 170.52863 22.84641 l 4.122635 -2.455391 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000012" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 193.42041 32.268375 l -0.9958954 2.8359604 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000013" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 170.0862 30.685823 l 1.7114716 3.7133007 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000015" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 171.79767 34.399124 l 12.220352 7.5241814 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 192.42451 35.104336 l -6.450119 6.1225853 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000015" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 184.01802 41.923306 l 1.9563751 -0.69638443 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000011" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 193.42041 32.268375 l -18.76915 -11.877356 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 238.08978 -111.50918 l -43.594513 124.1422 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 203.91452 21.110456 l -0.45072937 0.035654068 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000007" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 203.91452 21.110456 l 27.038864 -51.331596 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 238.08978 -111.50918 l -7.1363983 81.28804 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 194.49527 12.633018 l 8.968521 8.513093 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 150.11322 17.447832 l 5.4243774 -1.7163057 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 100.19328 -1656.6199 l 72.019516 1640.6946 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 155.5376 15.731526 l 16.675201 -31.656826 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 139.47554 7.3503375 l 10.63768 10.097494 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 155.5376 15.731526 l 14.991028 7.1148844 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 170.0862 30.685823 l -18.407562 5.8242626 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000015" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 151.67863 36.510086 l -6.4638977 -5.1130466 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000013" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 150.11322 17.447832 l -4.8984833 13.949207 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000009" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 172.2128 -15.9253 l 9.9973755 23.560642 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 238.08978 -111.50918 l 12.233231 -97.54081 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 194.49527 12.633018 l -12.285095 -4.9976754 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 230.11177 54.27418 l -14.953354 12.616894 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 219.12056 43.2266 l -12.092834 5.7393723 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000015" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 230.11177 54.27418 l -3.4023895 -5.2848244 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 215.15842 66.891075 l -14.883652 -4.709278 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 207.02773 48.965973 l -6.693405 12.707016 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 200.33432 61.67299 l -0.059555054 0.50880814 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 262.0537 -119.970055 l 29.546082 126.20571 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 250.32301 -209.04999 l 11.730698 89.07993 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000006" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 291.5998 6.2356596 l 15.859039 7.526843 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000002" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 307.45883 13.762503 l 23.274078 -29.456268 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000038" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 283.43588 209.41675 l 12.579163 -119.40385 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 341.796 99.87218 l -24.544403 -23.298012 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 317.2516 76.574165 l -21.236542 13.438736 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 330.11322 47.44783 l 5.4243774 -1.7163048 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 335.5376 45.731525 l 23.065277 10.946999 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 355.63977 58.928635 l -23.96112 7.5814514 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000f" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 330.11322 47.44783 l -4.8984985 13.949207 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000011" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 325.21472 61.397038 l 6.463928 5.1130486 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 355.63977 58.928635 l 2.9631042 -2.2501106 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000004" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 356.0498 24.04324 l 134.38107 21.259502 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000004" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 356.0498 24.04324 l -17.653564 -16.757107 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000002" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 338.39624 7.286134 l -2.9290771 -5.004619 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 330.7329 -15.693767 l 4.734253 17.97528 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 319.47552 37.350338 l -0.4875183 -8.329611 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 335.5376 45.731525 l 6.88031 -13.061848 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 319.47552 37.350338 l 10.637695 10.097492 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000008" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 342.4179 32.669678 l -10.583588 -6.6974354 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000008" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 331.83432 25.972242 l -12.846313 3.0484848 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 284.49527 72.63302 l 5.9157104 -16.845879 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 284.59286 48.288734 l 2.5317078 -0.30039215 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000011" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 284.59286 48.288734 l -10.295807 7.818386 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000017" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 271.60077 67.38743 l 12.894501 5.24559 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 274.29706 56.10712 l -2.826538 6.8294563 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000011" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 290.41098 55.78714 l -3.2864075 -7.7987976 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 294.5769 40.914455 l -0.25772095 -2.201683 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 319.47552 37.350338 l -14.810303 7.668125 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 294.5769 40.914455 l 10.088318 4.1040077 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 297.2029 29.132256 l -2.883728 9.580517 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000009" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 317.93518 27.24404 l 1.0528259 1.7766876 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000009" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 308.63342 20.452202 l -11.430511 8.680054 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000008" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 317.93518 27.24404 l -9.301758 -6.7918377 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 293.75177 81.41945 l -9.2565 -8.78643 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000012" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 303.0429 63.78079 l -12.6319275 -7.9936485 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000016" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 293.75177 81.41945 l 9.291138 -17.63866 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 265.54623 30.20932 l 6.0255127 -5.1660156 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 271.57175 25.043304 l 0.68777466 -0.29015732 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 265.54623 30.20932 l 19.04663 18.079414 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 294.5769 40.914455 l -7.4523315 7.073887 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 294.31918 38.712772 l -22.059662 -13.959625 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000005" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 265.04968 -17.591852 l 12.955048 36.891537 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000000" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 262.0537 -119.970055 l 2.9959717 102.378204 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000008" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 284.19244 16.782475 l -6.1877136 2.51721 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000007" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 284.19244 16.782475 l 7.4073486 -10.546815 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000007" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 356.0498 24.04324 l -13.631897 8.626438 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000008" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 358.60287 56.678524 l 131.828 -11.375782 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 339.66568 81.67299 l -7.98703 -15.162903 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000012" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 339.66568 81.67299 l 15.974091 -22.744354 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000016" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 230.11177 54.27418 l 7.549011 3.5828323 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000016" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 240.47215 60.229103 l -2.8113708 -2.3720894 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 216.40514 71.6247 l -1.2467194 -4.7336273 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 216.40514 71.6247 l 13.292007 10.814598 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000019" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 237.42451 75.10434 l 3.9802246 -11.334305 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000008" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 262.2359 3.7751374 l 9.335846 21.268167 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000009" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 262.2359 3.7751374 l -12.570221 17.897852 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 261.2735 31.718447 l -11.045578 -5.2423325 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 249.66568 21.672989 l 0.5622406 4.8031254 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 261.2735 31.718447 l 4.2727356 -1.5091267 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 174.65126 20.39102 l 7.558914 -12.755678 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 203.91452 21.110456 l 8.819244 4.6507683 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 192.42451 35.104336 l 14.60321 13.861637 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 217.4519 33.723103 l -4.7181396 -7.961878 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 203.46379 21.14611 l -10.043381 11.122265 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000003" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 233.82768 -8.394459 l -2.874298 -21.82668 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000008" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 233.82768 -8.394459 l -6.5760956 24.968624 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 212.73376 25.761225 l 14.517822 -9.187059 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000011" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 248.4116 27.24237 l -10.750824 30.614643 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 248.4116 27.24237 l -7.0130463 0.83211327 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000004" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 265.04968 -17.591852 l -2.8137817 21.36699 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 272.25952 24.753147 l 5.7452087 -5.4534626 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000008" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 233.82768 -8.394459 l 15.837997 30.067448 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000023" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 129.12056 73.2266 l -1.6686478 -9.503498 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000021" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 136.70938 78.98936 l 14.689178 -20.914871 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 151.39856 58.074486 l -3.0471191 -0.9641266 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001f" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 127.45191 63.723103 l 20.899529 -6.6127434 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000017" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 171.79767 34.399124 l -12.131989 17.273865 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 151.67863 36.510086 l 7.9870453 15.162903 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 167.18622 59.77859 l 8.995178 -4.6309853 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 167.18622 59.77859 l 3.0329742 9.870678 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 197.18398 65.11563 l -1.9006042 5.412285 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000020" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 170.2192 69.64927 l 13.023621 6.5932083 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 197.18398 65.11563 l -21.002579 -9.968025 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001f" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 183.24281 76.24248 l 12.040558 -5.7145615 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 69.319176 68.712776 l 0.25771332 2.2016754 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000023" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 81.491325 52.07886 l -9.288422 7.0533943 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 85.58675 77.42739 l 5.131096 -4.3293686 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000022" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 15.283364 40.527912 l 1.9006109 -5.412285 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001f" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m -16.382082 19.184862 l 33.566055 15.930765 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000027" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m -14.880873 54.844143 l 30.164238 -14.316231 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 60.70048 79.34011 l -13.4488945 -12.765945 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000019" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 12.424519 5.1043363 l 14.603207 13.861639 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000019" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 39.120564 13.2266 l -12.092838 5.739375 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 57.66078 27.857014 l -7.549011 -3.5828304 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000013" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 57.66078 27.857014 l 17.179443 -48.92115 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000019" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 46.709377 18.989357 l 3.4023933 5.2848263 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 57.66078 27.857014 l 2.811367 2.3720913 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000020" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 35.158413 36.89108 l 1.2467155 4.7336235 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 61.40474 33.770035 l -3.9802208 11.334301 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000023" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 49.697147 52.4393 l -13.292019 -10.814598 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 50.11177 24.274183 l -14.953358 12.616896 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 113.91453 51.11046 l 8.819237 4.6507683 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000026" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 117.027725 78.96597 l -14.60321 -13.861633 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000020" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 113.4638 51.14611 l -10.043388 11.122265 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000020" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 127.45191 63.723103 l -4.7181473 -7.961876 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000011" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 81.72446 -3.418386 l -1.0756226 12.251991 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000015" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 73.83209 21.774767 l 6.816742 -12.941162 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000032" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 12.347275 78.811806 l 6.9316425 -13.159294 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m -14.880873 54.844143 l 34.15979 10.808369 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000025" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 24.665682 58.339657 l 11.739447 -16.714954 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000020" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 20.27476 32.181797 l -3.090784 2.9338303 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000026" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 15.283364 40.527912 l 9.382318 17.811745 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001f" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 35.158413 36.89108 l -14.883654 -4.709282 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 140.75311 33.27928 l -3.5015259 13.294884 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000016" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 140.75311 33.27928 l -12.084076 -3.0587807 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000017" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 128.66904 30.2205 l -5.626129 3.5602875 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 122.733765 55.761227 l 14.517822 -9.187061 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000015" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 94.29704 26.10712 l -13.648209 -17.273516 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000023" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 145.81053 93.125885 l 12.601074 -35.883514 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 158.4116 57.24237 l -7.0130463 0.8321152 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 160.22792 56.476116 l 6.9582977 3.302475 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 159.66568 51.67299 l 0.5622406 4.8031273 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000017" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 184.01802 41.923306 l -7.836624 13.2243 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 248.4116 27.24237 l 1.8163147 -0.76625633 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000e" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 261.2735 31.718447 l -0.6246643 7.115156 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000011" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 253.83209 51.774765 l 6.816742 -12.941162 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000000c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 227.25159 16.574165 l 11.0998535 10.536194 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000011" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 274.29706 56.10712 l -13.648224 -17.273518 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 160.22792 56.476116 l -1.8163147 0.7662544 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000027" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 150.97154 106.189705 l 19.24765 -36.540436 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000015" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 145.21474 31.39704 l -4.461624 1.8822422 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 137.25159 46.574165 l 11.0998535 10.536194 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 200.27477 62.181797 l -3.0907898 2.933834 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000020" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 195.28337 70.527916 l 9.382309 17.811737 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001f" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 216.40514 71.6247 l -11.739456 16.71495 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000017" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 185.9744 41.22692 l 14.359924 20.446068 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 124.665215 15.018464 l 4.0038223 15.202037 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001f" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 83.02478 49.361767 l 0.44926453 -5.1174316 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001c" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 5.9743896 11.22692 l 14.359928 20.446068 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 20.334318 31.672989 l 6.693407 -12.707014 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000003b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 34.595337 74.5832 l 5.340576 30.41626 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 24.665682 58.339657 l 0.12682152 1.0834236 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002b" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 110.33432 91.67299 l -14.359932 -20.446068 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000002d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 23.369045 63.92699 l -4.090128 1.7255211 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001f" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 20.27476 32.181797 l 0.05955887 -0.50880814 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000022" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 168.2855 303.4065 l 14.957306 -227.16402 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000030" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 211.32419 145.22313 l -6.6585083 -56.883476 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001d" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 261.40054 97.86283 l 2.0735168 -23.618492 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#0000001a" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 293.75177 81.41945 l 2.2632751 8.593452 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000010" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 304.66522 45.018463 l 4.0038147 15.202038 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000011" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 320.7531 63.27928 l 4.461609 -1.8822441 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000012" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 308.66904 60.2205 l 12.084076 3.0587807 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000005" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 338.39624 7.286134 l -6.56192 18.686108 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000012" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 303.0429 63.78079 l 5.626129 -3.5602875 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000009" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 297.2029 29.132256 l -13.010468 -12.349781 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000018" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 341.796 99.87218 l -2.13031 -18.199188 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000014" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 320.7531 63.27928 l -3.5015259 13.294884 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000005" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 317.93518 27.24404 l 17.531982 -24.962524 Z "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 -24 -6)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#00000007" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 308.63342 20.452202 l -1.1745911 -6.689699 Z "/>
+                    </g>
+                </g>
+                <g class="typst-text" transform="matrix(1 0 0 -1 42.80199999999998 57.898)">
+                    <use xlink:href="#gEA276F50B88530FCCAD3C3778031B804" x="0" y="0" fill="#80211b" fill-rule="nonzero"/>
+                    <use xlink:href="#gA98BC66DBC5CE092A9463BC0D57D3EA4" x="35.464" y="0" fill="#80211b" fill-rule="nonzero"/>
+                    <use xlink:href="#gB1EDE7F6793AFBA3298C1746FC5B9C49" x="66.712" y="0" fill="#80211b" fill-rule="nonzero"/>
+                    <use xlink:href="#gA98BC66DBC5CE092A9463BC0D57D3EA4" x="89.28" y="0" fill="#80211b" fill-rule="nonzero"/>
+                    <use xlink:href="#gFDA1BC9B44D109BE39D04A149B06DACB" x="120.528" y="0" fill="#80211b" fill-rule="nonzero"/>
+                    <use xlink:href="#gF358233D11E85E03B20B0E5503217517" x="154.132" y="0" fill="#80211b" fill-rule="nonzero"/>
+                    <use xlink:href="#gA7971BA79D21DDB04CEFD28DF409947A" x="182.466" y="0" fill="#80211b" fill-rule="nonzero"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs id="glyph">
+        <symbol id="gEA276F50B88530FCCAD3C3778031B804" overflow="visible">
+            <path d="M 0 0m 27.776 38.068 c 4.5879993 -0.31000137 4.5879993 -1.9840012 3.2860012 -5.3320007 l -9.796001 -24.862 h -0.24799919 l -9.92 25.233997 c -1.4259996 3.7200012 -1.0539999 4.526001 3.1620007 4.960003 c 0.37199974 0.37199783 0.37199974 1.6739998 0 2.0459976 c -2.4800005 -0.062000275 -5.2700005 -0.12400055 -7.5020003 -0.12400055 c -2.2319999 0 -4.402 0.062000275 -6.448 0.12400055 c -0.372 -0.37199783 -0.31 -1.6739998 0.061999977 -2.0459976 c 3.4099998 -0.31000137 3.906 -1.3640022 5.58 -5.642002 l 12.214001 -31.744 c 0.37199974 -0.992 0.80599976 -1.4259999 1.4259987 -1.4259999 c 0.6820011 0 1.1160011 0.55799997 1.4880009 1.4259999 l 12.833998 31.619999 c 1.1780014 2.9140015 2.170002 5.3320007 6.076 5.7660027 c 0.37200165 0.37199783 0.37200165 1.6739998 0 2.0459976 c -1.8599968 -0.062000275 -4.029999 -0.12400055 -5.4559975 -0.12400055 c -1.4260025 0 -4.2160015 0.062000275 -6.7580013 0.12400055 c -0.37199974 -0.37199783 -0.37199974 -1.6739998 0 -2.0459976 Z "/>
+        </symbol>
+        <symbol id="gA98BC66DBC5CE092A9463BC0D57D3EA4" overflow="visible">
+            <path d="M 0 0m 2.542 12.71 c 0 -6.3240004 4.2159996 -13.33 13.0199995 -13.33 c 3.9679995 0 7.0059996 1.426 9.113999 3.4720001 c 2.790001 2.728 4.0300007 6.634 4.0300007 10.415999 c 0 6.448 -3.5340004 13.950001 -13.0199995 13.950001 c -4.092 0 -7.4399996 -1.6740017 -9.734 -4.34 c -2.2319996 -2.6660004 -3.4099996 -6.262001 -3.4099996 -10.168 Z m 12.214 12.338 c 5.332 0 8.618001 -4.8360004 8.618001 -13.764001 c 0 -7.8119993 -4.0300007 -9.733999 -6.9440002 -9.733999 c -6.448001 0 -8.556 7.8119993 -8.556 12.5859995 c 0 5.393999 1.3019996 10.912001 6.8819995 10.912001 Z "/>
+        </symbol>
+        <symbol id="gB1EDE7F6793AFBA3298C1746FC5B9C49" overflow="visible">
+            <path d="M 0 0m 10.912 22.196 c -0.123999596 2.4799995 -0.18599987 4.092001 -0.4960003 4.712 c -0.123999596 0.31000137 -0.24799919 0.4960003 -0.7439995 0.4960003 c -1.7360001 -0.6819992 -3.348 -1.2399998 -7.626 -1.7980003 c -0.12400007 -0.37199974 0 -1.3640003 0.12400007 -1.7360001 c 3.348 -0.30999947 4.0299997 -0.61999893 4.0299997 -4.2159996 v -12.09 c 0 -5.146 -0.74399996 -5.3939996 -4.588 -5.6419997 c -0.37199998 -0.37199998 -0.37199998 -1.6739999 0 -2.046 c 2.1699998 0.062 4.588 0.124 7.0680003 0.124 c 2.4799995 0 5.332 -0.062 7.501999 -0.124 c 0.37199974 0.37199998 0.37199974 1.6739999 0 2.046 c -4.339999 0.30999994 -5.0839996 0.49600005 -5.0839996 5.6419997 v 8.618 c 0 1.6120014 0.74400043 3.038 1.4879999 4.154001 c 0.68200016 0.9919987 2.1079998 3.038 2.8520002 3.038 c 0.5579996 0 1.1159992 -0.12400055 1.6119995 -0.80600166 c 0.43400002 -0.61999893 1.1780014 -1.4259987 2.2320004 -1.4259987 c 1.4880009 0 2.9139996 1.5499992 2.9139996 3.0999985 c 0 1.1780014 -1.1159992 2.9760017 -3.7199993 2.9760017 c -2.9140005 0 -5.4560003 -2.7280006 -6.882 -5.146 c -0.37199974 -0.6820011 -0.68200016 -0.18600082 -0.68200016 0.12399864 Z "/>
+        </symbol>
+        <symbol id="gFDA1BC9B44D109BE39D04A149B06DACB" overflow="visible">
+            <path d="M 0 0m 11.408 22.196 c -0.37199974 -0.43400002 -0.74400043 -0.55799866 -0.74400043 0 c -0.06199932 1.6739998 -0.18599987 4.092001 -0.49599934 4.712 c -0.12400055 0.31000137 -0.24800014 0.4960003 -0.74400043 0.4960003 c -1.7360001 -0.6819992 -3.348 -1.2399998 -7.626 -1.7980003 c -0.12399995 -0.37199974 0 -1.3640003 0.12399995 -1.7360001 c 3.348 -0.30999947 4.0299997 -0.61999893 4.0299997 -4.2159996 v -12.09 c 0 -5.0839996 -0.6199999 -5.332 -4.3399997 -5.6419997 c -0.37199998 -0.37199998 -0.37199998 -1.6739999 0 -2.046 c 1.8599999 0.062 4.3399997 0.124 6.82 0.124 c 2.4799995 0 4.339999 -0.062 6.2 -0.124 c 0.37199974 0.37199998 0.37199974 1.6739999 0 2.046 c -3.1619997 0.30999994 -3.7820005 0.5580001 -3.7820005 5.6419997 v 10.168001 c 0 1.302 0.55800056 2.0459995 1.0539999 2.604 c 2.356001 2.2939987 5.146 3.657999 7.564001 3.657999 c 1.2399998 0 2.5419998 -0.80599976 3.2859993 -2.2320004 c 0.62000084 -1.2399998 0.7439995 -2.9139996 0.7439995 -4.774 v -9.424 c 0 -5.0839996 -0.61999893 -5.332 -3.8439999 -5.6419997 c -0.30999947 -0.37199998 -0.30999947 -1.6739999 0 -2.046 c 1.8600006 0.062 3.8439999 0.124 6.3239994 0.124 c 2.4800014 0 4.712 -0.062 6.5720005 -0.124 c 0.31000137 0.37199998 0.31000137 1.6739999 0 2.046 c -3.4720001 0.30999994 -4.1539993 0.5580001 -4.1539993 5.6419997 v 9.238001 c 0 3.4099998 -0.2480011 6.3859997 -1.6739998 8.307999 c -1.0540009 1.3640003 -2.9759998 2.1080017 -5.146 2.1080017 c -3.038 0 -6.51 -0.80600166 -10.168 -5.0220013 Z "/>
+        </symbol>
+        <symbol id="gF358233D11E85E03B20B0E5503217517" overflow="visible">
+            <path d="M 0 0m 18.166 2.9759998 c 0.37199974 -1.9219998 1.053999 -3.5959997 4.1539993 -3.5959997 c 2.355999 0 4.5879993 1.054 5.8899994 2.2940001 c -0.12399864 0.74399996 -0.37199974 1.3019998 -1.053999 1.674 c -0.43400002 -0.37200022 -1.4880009 -0.9920001 -2.2940006 -0.9920001 c -1.7980003 0 -1.8600006 2.4179997 -1.8600006 5.27 v 9.114 c 0 8.803999 -4.8359985 10.478001 -9.3619995 10.478001 c -5.0839996 0 -10.23 -3.3480015 -10.23 -6.882 c 0 -1.4880009 0.74399996 -2.2320004 2.17 -2.2320004 c 1.7979999 0 2.9139996 1.302 2.9139996 2.1079998 c 0 0.43400002 -0.06199932 0.86800003 -0.18599987 1.1159992 c -0.06199932 0.18600082 -0.123999596 0.55800056 -0.123999596 1.2399998 c 0 1.9220009 2.604 2.604 4.96 2.604 c 2.1079998 0 5.0220003 -1.053999 5.0220003 -8.059999 c 0 -0.43400002 -0.18600082 -0.6819992 -0.37199974 -0.7439995 l -5.3320007 -1.302 c -5.952 -1.4879999 -10.23 -4.774 -10.23 -8.99 c 0 -5.0839996 3.4720001 -6.6959996 7.812 -6.6959996 c 2.17 0 4.0299997 0.496 6.7580004 2.604 l 1.2399998 0.99199986 Z m 0 11.47 v -8.184 c 0 -0.80600023 -0.37199974 -1.2400002 -0.86800003 -1.612 c -1.6120005 -1.302 -3.7200003 -2.7280002 -5.4560003 -2.7280002 c -3.1000004 0 -4.464 2.48 -4.464 4.402 c 0 2.7900004 1.3020005 5.6419997 5.89 6.82 Z "/>
+        </symbol>
+        <symbol id="gA7971BA79D21DDB04CEFD28DF409947A" overflow="visible">
+            <path d="M 0 0m 12.648 -9.92 c 0.9919996 1.7360001 1.7980003 3.4720001 2.5419998 5.3320003 c 4.96 11.966 7.750001 18.352 10.974 25.296 c 1.2399998 2.604 2.1079998 3.5959988 5.0219994 3.9679985 c 0.37199974 0.37200165 0.37199974 1.6740017 0 2.0460014 c -1.2399998 -0.062000275 -2.6659985 -0.12400055 -4.4019985 -0.12400055 c -1.8600006 0 -3.7820015 0.062000275 -5.642 0.12400055 c -0.37199974 -0.37199974 -0.37199974 -1.6739998 0 -2.0460014 c 1.9839993 -0.18599892 3.9679985 -0.55799866 2.9759998 -2.789999 l -6.1380005 -14.198 c -0.43400002 -0.9919996 -0.9920006 -1.178 -1.487999 0.062000275 l -5.5180006 12.896 c -1.1160002 2.604 -1.4260006 3.7819996 2.0459995 4.029999 c 0.3720007 0.37200165 0.3720007 1.6740017 0 2.0460014 c -2.2939997 -0.062000275 -4.773999 -0.12400055 -7.0059996 -0.12400055 c -2.108 0 -3.782 0.062000275 -5.022 0.12400055 c -0.37199998 -0.37199974 -0.37199998 -1.6739998 0 -2.0460014 c 2.48 -0.30999947 3.2859998 -0.86800003 4.898 -4.6499996 l 7.006 -16.306 c 0.5579996 -1.24 1.4879999 -4.092 0.86800003 -5.828 c -0.74400043 -2.0459998 -1.4879999 -3.7819998 -2.4180002 -5.7039995 c -0.68200016 -1.2400002 -1.5500002 -1.7979999 -3.0999994 -1.7979999 c -0.8680005 0 -1.1160002 0.18599987 -1.7980003 0.18599987 c -1.7979999 0 -2.728 -1.8599997 -2.728 -2.6660004 c 0 -1.302 1.24 -2.2939997 2.9139998 -2.2939997 c 1.302 0 3.7819996 0.4960003 6.014 4.4639997 Z "/>
+        </symbol>
+    </defs>
+</svg>

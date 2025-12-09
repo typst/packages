@@ -1,0 +1,16 @@
+[package]
+name = "linedx2-sjtu"
+version = "0.1.0"
+authors = ["HellOwhatAs <https://github.com/HellOwhatAs>"]
+license = "MIT"
+description = "上海交通大学双线纸的非官方复刻。Unofficial reproduction of Shanghai Jiao Tong University's double-lined paper."
+categories = ["paper", "text", "layout"]
+keywords = ["上海交通大学", "SJTU", "双线纸", "double-lined paper"]
+repository = "https://github.com/HellOwhatAs/linedx2-sjtu"
+entrypoint = "lib.typ"
+exclude = [ "/assets/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

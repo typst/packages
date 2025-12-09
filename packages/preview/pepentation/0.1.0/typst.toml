@@ -1,0 +1,18 @@
+[package]
+name = "pepentation"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Pepengu (https://github.com/pepengu)"]
+license = "MIT"
+description = "Convenient slides for your university's presentations"
+repository = "https://github.com/pepengu/pepentation"
+keywords = ["slides", "presentation", "beamer"]
+categories = ["presentation"]
+compiler = "0.12.0"
+exclude = ["/screenshots/", "*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "screenshots/Thumbnail.png"
+
