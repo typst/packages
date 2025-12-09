@@ -21,7 +21,7 @@ typst init @preview/forum-acusticum-2026
 
 It imports the `fa2026` function from the `lib.typ` file located in the `package` folder.
 
-**Important:** The required fonts (Latin Modern Roman 10pt) are not bundled with this package. You can download the required subset from the [Forum Acusticum 2026 website]() and upload them to the Typst web app or place them in you project folder. Submissions without the correct fonts will be rejected.
+**Important:** The required fonts (Latin Modern Roman 10pt) are not bundled with this package/template. You can download the required subset from the [Forum Acusticum 2026 website](https://forum-acusticum.org/fa2026/wp-content/uploads/2025/12/lmr-fonts-fa26.zip) and upload them to the Typst web app or place them in your project folder. Submissions without the correct fonts will be rejected.
 
 ## Configuration
 
