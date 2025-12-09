@@ -9,7 +9,7 @@ _Left: `theme: "dark"`, Right: `theme: "light"`_
 ## Usage
 
 ```typst
-#import "@preview/typsidian:0.0.1": *
+#import "@preview/typsidian:0.0.2": *
 #show: typsidian.with(
   theme: "light",
   title: "My Document",
@@ -78,9 +78,6 @@ _Left: `theme: "dark"`, Right: `theme: "light"`_
 
 4. Use `#make-title(show-outline: true)` to generate the title page.
 5. Write your document content below the title.
-
-> [!NOTE]
-> When using with the Typst for Obsidian plugin, set `standalone: false`, using the default layout functions for best results.
 
 ## Dependencies
 
