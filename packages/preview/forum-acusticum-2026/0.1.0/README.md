@@ -1,9 +1,6 @@
-# FA26 Official Typst Template
+# Forum Acusticum 2026 Official Typst Template
 
-**Latest build:** [![pipeline status](https://img.shields.io/badge/Download-PDF-green)](https://git.iem.at/fa26-templates/fa26-typst-template/-/jobs/artifacts/main/file/template/FA2026_template.pdf?job=build)
-
-[**zipped template**](https://git.iem.at/fa26-templates/fa26-typst-template/-/jobs/artifacts/main/file/fa2026_template_Typst.zip?job=zip_repo)
-
+**Rendered PDF:** [![pipeline status](https://img.shields.io/badge/Download-PDF-green)](https://git.iem.at/fa26-templates/fa26-typst-template/-/jobs/artifacts/main/file/template/FA2026_template.pdf?job=build)
 
 This is the official Typst paper template for the [Forum Acusticum 2026 conference](https://forum-acusticum.org/fa2026) to be held in Graz, Austria, from September 6 to September 10, 2026.
 Note that at the conference there will be two submission formats
@@ -23,6 +20,8 @@ typst init @preview/forum-acusticum-2026
 ```
 
 It imports the `fa2026` function from the `lib.typ` file located in the `package` folder.
+
+**Important:** The required fonts (Latin Modern Roman 10pt) are not bundled with this package. You can download the required subset from the [Forum Acusticum 2026 website]() and upload them to the Typst web app or place them in you project folder. Submissions without the correct fonts will be rejected.
 
 ## Configuration
 

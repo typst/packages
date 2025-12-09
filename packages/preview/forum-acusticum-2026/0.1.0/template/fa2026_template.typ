@@ -1,6 +1,16 @@
 #import "@preview/forum-acusticum-2026:0.1.0": fa2026
 #import "@preview/unify:0.7.1": *
 
+// IMPORTANT NOTICE - FONTS
+// ------------------------
+// The required fonts (Latin Modern Roman 10pt) are not bundled with this package/template. 
+// You can download the required subset from the Forum Acusticum 2026 website: 
+// https://forum-acusticum.org/fa2026/wp-content/uploads/2025/12/lmr-fonts-fa26.zip
+// 
+//  You can upload the fonts to the Typst web app or place them in your project folder. 
+// Submissions without the correct fonts will be rejected.
+// ------------------------
+
 #show: fa2026.with(
   title: [Title],
   authors: (
