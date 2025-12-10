@@ -49,7 +49,7 @@ To debug or display the linguistic structure of the text:
 
 Renders the input text with automatic furigana.
 
-```typc
+```typst
 #let show-ruby(
   input-text,
   size: 0.5em,
@@ -80,7 +80,7 @@ Renders the input text with automatic furigana.
 
 Renders a table displaying the morphological breakdown of the text.
 
-```typc
+```typst
 #let show-analysis-table(
   input-text,
   user-dict: none,
@@ -106,7 +106,7 @@ Renders a table displaying the morphological breakdown of the text.
 
 Low-level function that returns the raw JSON data from the WASM plugin. Useful if you want to process the analysis data manually.
 
-```typc
+```typst
 #let tokenize(
   input-text,
   user-dict: none,
@@ -132,7 +132,7 @@ Low-level function that returns the raw JSON data from the WASM plugin. Useful i
 
 The user dictionary allows you to define custom word segmentation and readings. It uses a simple CSV format with three columns:
 
-```csv
+```
 <surface>,<part_of_speech>,<reading>
 ```
 
@@ -154,7 +154,7 @@ The user dictionary allows you to define custom word segmentation and readings. 
 
 **Method 2: Array of arrays**
 
-```typc
+```typst
 #let user-dict-array = (
   ("東京スカイツリー", "カスタム名詞", "トウキョウスカイツリー"),
   ("東武スカイツリーライン", "カスタム名詞", "トウブスカイツリーライン"),
@@ -165,6 +165,13 @@ The user dictionary allows you to define custom word segmentation and readings. 
 ```
 
 **Method 3: Load from CSV file**
+
+```bash
+$ cat user_dict.csv
+東京スカイツリー,カスタム名詞,トウキョウスカイツリー
+東武スカイツリーライン,カスタム名詞,トウブスカイツリーライン
+とうきょうスカイツリー駅,カスタム名詞,トウキョウスカイツリーエキ
+```
 
 ```typst
 #let user-dict-from-file = csv("user_dict.csv")
