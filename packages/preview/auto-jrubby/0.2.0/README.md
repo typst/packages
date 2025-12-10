@@ -132,7 +132,7 @@ Low-level function that returns the raw JSON data from the WASM plugin. Useful i
 
 The user dictionary allows you to define custom word segmentation and readings. It uses a simple CSV format with three columns:
 
-```
+```csv
 <surface>,<part_of_speech>,<reading>
 ```
 
@@ -166,13 +166,6 @@ The user dictionary allows you to define custom word segmentation and readings. 
 
 **Method 3: Load from CSV file**
 
-```bash
-$ cat user_dict.csv
-東京スカイツリー,カスタム名詞,トウキョウスカイツリー
-東武スカイツリーライン,カスタム名詞,トウブスカイツリーライン
-とうきょうスカイツリー駅,カスタム名詞,トウキョウスカイツリーエキ
-```
-
 ```typst
 #let user-dict-from-file = csv("user_dict.csv")
 
@@ -188,10 +181,12 @@ This package uses **Lindera** (a Rust port of Kuromoji) with two available dicti
 
 The processing workflow:
 
+```text
 1. The text is passed from Typst to the Rust WASM plugin.
 2. Lindera tokenizes the text using the specified dictionary and retrieves readings.
 3. A custom algorithm aligns the readings with the surface form to separate okurigana (kana endings of verbs/adjectives) from the kanji stems.
 4. The structured data is returned to Typst and rendered using the `rubby` package for furigana display.
+```
 
 ## License
 
