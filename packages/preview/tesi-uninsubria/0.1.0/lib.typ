@@ -1,6 +1,6 @@
 #import "@preview/codelst:2.0.2": *
-#import "@preview/hydra:0.6.1": hydra
-#import "@preview/glossarium:0.5.6": gls, glspl, make-glossary, print-glossary, register-glossary
+#import "@preview/hydra:0.6.2": hydra
+#import "@preview/glossarium:0.5.9": gls, glspl, make-glossary, print-glossary, register-glossary
 #import "locale.typ": APPENDIX, REFERENCES, TABLE_OF_CONTENTS
 #import "titlepage.typ": *
 
@@ -14,10 +14,10 @@
   relatore: none,
   tutor: none,
   azienda: none,
-  anno_accademico: none,
+  anno-accademico: none,
   dipartimento: none,
   corso: none,
-  codice_corso: none,
+  codice-corso: none,
   title: none,
   autore: none,
   bibliography: none,
@@ -77,10 +77,10 @@
     relatore,
     tutor,
     azienda,
-    anno_accademico,
+    anno-accademico,
     dipartimento,
     corso,
-    codice_corso,
+    codice-corso,
     autore,
   )
 

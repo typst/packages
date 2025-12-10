@@ -7,11 +7,11 @@
   autore: "Mattia Rossi",
   matricola: "747053",
   bibliography: bibliography("sources.bib"),
-  codice_corso: "F004",
+  codice-corso: "F004",
   relatore: "Carlo Rossi",
   tutor: "Edoardo Neri",
   azienda: "NASA spa",
-  anno_accademico: "2025/2026",
+  anno-accademico: "2025/2026",
   corso: "CORSO DI STUDIO TRIENNALE IN INFORMATICA",
   dipartimento: "DIPARTIMENTO DI SCIENZE TEORICHE E APPLICATE",
 

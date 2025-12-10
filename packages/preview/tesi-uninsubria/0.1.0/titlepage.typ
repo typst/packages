@@ -7,10 +7,10 @@
   relatore,
   tutor,
   azienda,
-  anno_accademico,
+  anno-accademico,
   dipartimento,
   corso,
-  codice_corso,
+  codice-corso,
   autore,
 
 ) = {
@@ -50,7 +50,7 @@
   place(
     center,
     dy: -2.5 * page-grid,
-    corso + " - " + codice_corso,
+    corso + " - " + codice-corso,
   )
 
   v(15 * page-grid)
@@ -98,6 +98,6 @@
     center,
     dy: 8 * page-grid,
     text("Anno Accademico:", weight: "bold") +
-    text("\n" + anno_accademico),
+    text("\n" + anno-accademico),
   )
 }
