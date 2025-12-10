@@ -49,7 +49,7 @@ To debug or display the linguistic structure of the text:
 
 Renders the input text with automatic furigana.
 
-```typst
+```typc
 #let show-ruby(
   input-text,
   size: 0.5em,
@@ -80,7 +80,7 @@ Renders the input text with automatic furigana.
 
 Renders a table displaying the morphological breakdown of the text.
 
-```typst
+```typc
 #let show-analysis-table(
   input-text,
   user-dict: none,
@@ -106,7 +106,7 @@ Renders a table displaying the morphological breakdown of the text.
 
 Low-level function that returns the raw JSON data from the WASM plugin. Useful if you want to process the analysis data manually.
 
-```typst
+```typc
 #let tokenize(
   input-text,
   user-dict: none,
@@ -154,7 +154,7 @@ The user dictionary allows you to define custom word segmentation and readings. 
 
 **Method 2: Array of arrays**
 
-```typst
+```typc
 #let user-dict-array = (
   ("東京スカイツリー", "カスタム名詞", "トウキョウスカイツリー"),
   ("東武スカイツリーライン", "カスタム名詞", "トウブスカイツリーライン"),
@@ -181,12 +181,10 @@ This package uses **Lindera** (a Rust port of Kuromoji) with two available dicti
 
 The processing workflow:
 
-```text
 1. The text is passed from Typst to the Rust WASM plugin.
 2. Lindera tokenizes the text using the specified dictionary and retrieves readings.
 3. A custom algorithm aligns the readings with the surface form to separate okurigana (kana endings of verbs/adjectives) from the kanji stems.
 4. The structured data is returned to Typst and rendered using the `rubby` package for furigana display.
-```
 
 ## License
 
