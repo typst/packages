@@ -7,7 +7,6 @@ license = "MIT"
 description = "Write academic reports for ENSAM Rabat." 
 repository = "https://github.com/ahmed-bahlaoui/clean-ensam"
 categories = ["report"]
-exclude = ["images/*"]
 
 [template]               
 path = "template"
