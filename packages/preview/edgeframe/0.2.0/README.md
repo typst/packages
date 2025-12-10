@@ -5,7 +5,7 @@ Custom margins and other components for page setup or layout.
 ## Usage
 
 ```typ
-#include "@preview/edgeframe:0.2.0": *
+#import "@preview/edgeframe:0.2.0": *
 ```
 
 ```typ
