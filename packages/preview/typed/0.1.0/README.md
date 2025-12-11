@@ -60,28 +60,28 @@ fn custom_fn(arg: &[u8]) -> Result<Vec<u8>, String> {
 
 ## Supported types
 
- - [x] int
- - [x] float
- - [x] bytes
- - [x] str
- - [x] bool
- - [x] content
- - [x] none
- - [x] array
- - [x] dictionary
- - [x] angle
- - [x] length
- - [x] ratio
- - [x] color
- - [x] gradient
- - [x] datetime
- - [x] duration
- - [x] version
- - [x] type
- - [ ] fraction
- - [ ] direction
- - [ ] relative
- - [ ] decimal
+ - ✅ int
+ - ✅ float
+ - ✅ bytes
+ - ✅ str
+ - ✅ bool
+ - ✅ content
+ - ✅ none
+ - ✅ array
+ - ✅ dictionary
+ - ✅ angle
+ - ✅ length
+ - ✅ ratio
+ - ✅ color
+ - ✅ gradient
+ - ✅ datetime
+ - ✅ duration
+ - ✅ version
+ - ✅ type
+ - ❌ fraction
+ - ❌ direction
+ - ❌ relative
+ - ❌ decimal
 
 ## Missing features
 
