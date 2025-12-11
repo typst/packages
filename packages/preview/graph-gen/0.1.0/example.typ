@@ -1,9 +1,9 @@
-#import "lib.typ": *
+#import "@preview/graph-gen:0.1.0": *
 #import "@preview/lemmify:0.1.8": default-theorems, new-theorems, thm-numbering-linear
 #import "@preview/showybox:2.0.4": *
 
-// Using lemmify which wraps theorem-type content in a figure with
-// kind: "thm-group".
+// Using lemmify which wraps theorem-type content in a figure with kind: "thm-group" as specified by
+// the first param of default-theorems.
 
 #let (
   theorem, lemma, corollary,
@@ -26,7 +26,8 @@
     // To name question nodes with its title, use the <question-title> label (or whatever
     // qn-title-label is set to in graph-gen-rules below).
     //
-    // Context should wrap the entire title including label, otherwise
+    // Context should wrap the entire title including label, otherwise question numbers will not
+    // appear on node names.
     showybox(title: context [
       #[Question #counter(figure.where(kind: "qn")).display("1")]<question-title>
     ], body)
@@ -34,10 +35,10 @@
 }
 
 #show: graph-gen-rules.with(
-  // Figures of these kinds will register as theorems/definitions/etc...
+  // figure.where(kind: "thm-group") or (kind: "note") will register as theorems/definitions/etc...
   thm-kinds: ("thm-group", "note"),
 
-  // Figures of this kind will register as questions
+  // figure.where(kind: "qn") will register as questions
   qn-kind: "qn",
 
   // This typst label should be used on the title of the question which determines the question
