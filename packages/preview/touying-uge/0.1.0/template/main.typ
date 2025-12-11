@@ -18,7 +18,7 @@
 	),
 	affiliation_type: "numbers",
 	date: datetime.today(),
-	logo: image("assets/logo_univ_gustave_eiffel_blanc_rvb.svg", height: 1em),
+	logo: image("logo_univ_gustave_eiffel_blanc_rvb.svg", height: 1em),
 	variant: true
     ),
 )
