@@ -1,5 +1,5 @@
 
-#import "@local/bananote:0.1.1": *
+#import "@preview/bananote:0.1.1": *
 #import "@preview/pergamon:0.6.0": *
 
 
