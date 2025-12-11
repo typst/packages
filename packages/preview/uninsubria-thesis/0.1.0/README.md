@@ -4,7 +4,7 @@ DISCLAIMER: the template was forked from https://github.com/roland-KA/clean-dhbw
 
 A (modernized) [Typst](https://typst.app/) template for documents like Bachelor theses, project documentation etc. 
 
-You can see an example of how the template looks in this [PDF file](https://github.com/sbOogway/tesi-uninsubria/blob/main/template/main.pdf).
+You can see an example of how the template looks in this [PDF file](https://github.com/sbOogway/uninsubria-thesis/blob/main/template/main.pdf).
 
 ## Introduction and Motivation
 
@@ -16,10 +16,6 @@ Of course such a concept is always a bit biased in some way. Therefore I explain
 
 There exists already a Typst template for these sorts of documents: It's the ["supercharged-dhbw"-template](https://github.com/DannySeidel/typst-dhbw-template) by Danny Seidel. It is a great piece of work with a lot of functionality covering a broad variety of use cases. But with respect to structure and layout, it implements exactly the above criticized state (which is without doubt what many people want or maybe have to use). I discussed with Danny on how to realize further development. We agreed to keep `supercharged-dhbw` more or less as-is in order to reflect current state and needs and in consequence to build this new template as a fork of his work. This gave me also  more freedom to go new ways.
 
-For those interested, further and more detailed explanations about the design of the "* Template*" can be found here:
-- [Assumptions](https://github.com/sbOogway/tesi-uninsubria/blob/main/docs/assumptions.md) made for the development
-- [Usability issues](https://github.com/sbOogway/tesi-uninsubria/blob/main/docs/usability-issues.md) mentioned above in detail
-- [Explanation of the new document structure and layout](https://github.com/sbOogway/tesi-uninsubria/blob/main/docs/design-explained.md)
 
 ## Usage
 
@@ -28,14 +24,14 @@ You can use this template in the Typst web app by clicking "Start from template"
 Alternatively (if you use Typst on your local computer), you can use the CLI to kick this project off using the command
 
 ```shell
-typst init @preview/tesi-uninsubria MyFancyThesis
+typst init @preview/uninsubria-thesis MyFancyThesis
 ```
 
 Typst will create a new directory (`MyFancyThesis` in this example) with all the files needed to get you started.
 
 ## Support
 
-If you have questions, find bugs or have proposals for new features regarding the template or if you want to contribute, please create an issue in the [GitHub-repo](https://github.com/sbOogway/tesi-uninsubria?tab=readme-ov-file).
+If you have questions, find bugs or have proposals for new features regarding the template or if you want to contribute, please create an issue in the [GitHub-repo](https://github.com/sbOogway/uninsubria-thesis?tab=readme-ov-file).
 
 For more general questions with respect to Typst, please consult the [Typst documentation](https://typst.app/docs/), the [Typst book](https://sitandr.github.io/typst-examples-book/book/about.html) or use the [Typst forum](https://forum.typst.app/), where you find a helpful and responsive community.
 
@@ -63,139 +59,4 @@ This template uses the following packages:
 - [glossarium](https://github.com/typst-community/glossarium): For the glossary of the document.
 
 
-## Configuration
-
-This template exports the `tesi-uninsubria` function with the following named arguments:
-
-`title (str*)`: Title of the document
-
-`authors (dictionary*)`: List of authors with the following named arguments (max. 6 authors when in the company or 8 authors when at DHBW):
-
-- name (str*): Name of the author
-- student-id (str*): Student ID of the author
-- course (str*): Course of the author
-- course-of-studies (str*): Course of studies of the author
-- signature (image): Optional image of the authors signature (used for the declaration of authorship)
-- company (dictionary): Company of the author (only needed when `at-university` is `false`) with the following named arguments:
-  - name (str*): Name of the company
-  - post-code (str): Post code of the company
-  - city (str*): City of the company
-  - country (str): Country of the company
-
-CAVEAT: The template hasn't been adapted nor tested for more than two authors. 
-
-`abstract (content)`: Content of the abstract, it is recommended that you pass a variable containing the content or a function that returns the content
-
-`appendix (content)`: User-defined content of the appendix. It is recommended that you pass a variable containing the content or a function that returns the content
-
-`at-university (bool*)`: Whether the document is written at university or not, default is `false`
-
-`bibliography (content)`: Path to the bibliography file
-
-`bib-style (str)`: Style of the bibliography, default is `ieee`
-
-`city (str)`: City of the author (only needed when `at-university` is `true`)
-
-`confidentiality-marker: (dictionary)`: Configure the confidentially marker (red or green circle) on the title page (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
-
-- display (bool*): Whether the confidentiality marker should be shown, default is `false`
-- offset-x (length): Horizontal offset of the confidentiality marker, default is `0pt`
-- offset-y (length): Vertical offset of the confidentiality marker, default is `0pt`
-- size (length): Size of the confidentiality marker, default is `7em`
-- title-spacing (length): Adds space below the title to make room for the confidentiality marker, default is `2em`
-
-`confidentiality-statement-content (content)`: Provide a custom confidentiality statement
-
-`date (datetime* | array*)`: Provide a datetime object to display one date (e.g. submission date) or a array containing two datetime objects to display a date range (e.g. start and end date of the project), default is `datetime.today()`
-
-`date-format (str)`: Format of the displayed dates, default is `"[day].[month].[year]"` (for more information on possible formats check the [Typst documentation](https://typst.app/docs/reference/foundations/datetime/#format))
-
-`declaration-of-authorship-content (content)`: Provide a custom declaration of authorship
-
-`glossary (array of arrays)`: Pass an array of arrays (see below or the [glossary docs](https://typst.app/universe/package/glossarium/))
-
-`language (str*)`: Language of the document which is either `en` or `de`, default is `en`
-
-`logo-left (content)`: Path to the logo on the left side of the title page (usage: image("path/to/image.png")), default is the `DHBW logo`. If it is the only logo given, then it will be displayed centered.
-
-`logo-right (content)`: Path to the logo on the right side of the title page (usage: image("path/to/image.png")), default is `no logo`
-
-`math-numbering (str)`: Numbering style of the math equations, set to `none` to turn off equation numbering, default is `"(1)"` (for more information on possible numbering formats check the [Typst documentation](https://typst.app/docs/reference/model/numbering))
-
-`show-abstract (bool)`: Whether the abstract should be shown, default is `true`
-
-`show-confidentiality-statement (bool)`: Whether the confidentiality statement should be shown, default is `true`
-
-`show-declaration-of-authorship (bool)`: Whether the declaration of authorship should be shown, default is `true`
-
-`show-table-of-contents (bool)`: Whether the table of contents should be shown, default is `true`
-
-`supervisor (dictionary*)`: Name of the supervisor at the university and/or company (e.g. supervisor: (company: "John Doe", university: "Jane Doe"))
-
-- company (str): Name of the supervisor at the company (note while the argument is optional at least one of the two arguments must be provided)
-- university (str): Name of the supervisor at the university (note while the argument is optional at least one of the two arguments must be provided)
-
-`titlepage-content (content)`: Provide a custom title page
-
-`type-of-thesis (str)`: Type of the thesis, default is `none` (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at DHBW)
-
-`university (str*)`: Name of the university
-
-`university-location (str*)`: Campus or city of the university
-
-`university-short (str*)`: Short name of the university (e.g. DHBW), displayed for the university supervisor
-
-For each argument the expected type of the value is given in parentheses. All arguments marked with `*` are required.
-
-Have a look at the example file [`main.typ`](https://github.com/sbOogway/tesi-uninsubria/blob/main/template/main.typ) whithin the [`template`](https://github.com/sbOogway/tesi-uninsubria/tree/main/template) directory on how to use the `tesi-uninsubria`-function with a typical subset of these parameters.
-
-
-## Glossary
-
-In order to create a glossary, the [`glossarium`-package](https://typst.app/universe/package/glossarium/) is used. That package defines the glossary being an array of arrays like:
-
-```typst  
-(
-  (
-    key: "Vulnerability",
-    description: "A Vulnerability is a flaw in a computer system that weakens the overall security of the system.",
-    group: "Glossar",
-  ),
-  (
-    key: "Patch",
-    description: "A patch is data that is intended to be used to modify an existing software resource such as a program or a file, often to fix bugs and security vulnerabilities.",
-  ),
-)
-
-``` 
-
-You may pass such a structure directly to the `glossary` parameter. But a glossary typically contains a lot more entries. So it should be better placed in a separate file. If you do so and the name of that file is e.g. "myglossary.typ", its content should have the following structure:
-
-```typst 
-#let glossary-entries = (
-  (
-    key: "Vulnerability",
-    description: "A Vulnerability is a flaw in a computer system that weakens the overall security of the system.",
-    group: "Glossar",
-  ),
-  (
-    key: "Patch",
-    description: "A patch is data that is intended to be used to modify an existing software resource such as a program or a file, often to fix bugs and security vulnerabilities.",
-  ),
-)
-``` 
-
-Then you can import this file into your "main.typ" as follows:
-
-```typst
-#import "pathToMyFile/myglossary.typ": glossary-entries
-
-// and when calling the template, you can pass `glossary-entries´ 
-// as an argument to `glossary`:
-
-glossary: glossary-entries
-```
-
-Please consult the `glossarium` docs to see the many variations it offers for forming a glossary entry. 
-
-If you want to separate terms with longer glossary descriptions from simple acronyms within the glossary, you can use the `group` selector of `glossarium` in order to divide your entries into these categories.
+The logo is property of Universita degli studi dell'Insubria. Use it only if you have consent. Typst is not responsible for any misuse.
