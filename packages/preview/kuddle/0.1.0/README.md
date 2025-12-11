@@ -32,7 +32,7 @@ Various functions do not parse KDL strings according to the specifications. Be a
 [Typpkg](https://github.com/ludwig-austermann/typpkg) is used to package the repo.
 
 ## Roadmap
-- [ ] validation via KDL Schema Language
-- [ ] querying via KDL Query Language
-- [ ] methods on result, to unify functions
-- [ ] more automatic specialized typst type conversion
+- validation via KDL Schema Language
+- querying via KDL Query Language
+- methods on result, to unify functions
+- more automatic specialized typst type conversion
