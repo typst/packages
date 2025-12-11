@@ -56,7 +56,7 @@ Here, $\alpha$ is a mixing angle that determines how the imaginary components ar
 ## Usage Example
 
 ```typ
-#import "@local/caletz:0.1.0": calabi-yau
+#import "@preview/caletz:0.1.0": calabi-yau
 
 #set page(width: auto, height: auto, margin: 1cm)
 
