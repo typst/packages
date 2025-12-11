@@ -1,8 +1,7 @@
-#import "@preview/cetz:0.4.1"
+#import "@preview/cetz:0.4.2"
 
 #let plugin = plugin("calabi_yau.wasm")
 
-// --- Colormaps (変更なし) ---
 #let cmap-jet(x, y, z, x-lo, x-hi, y-lo, y-hi, z-lo, z-hi) = {
   let t = if calc.abs(z-hi - z-lo) > 1e-10 { 
     (z - z-lo) / (z-hi - z-lo) 
@@ -55,22 +54,16 @@
   else { cmap-jet }
 }
 
-// --- 3D Rotation Helper ---
-// 座標 (x,y,z) を回転させ、(x', y') を返す
 #let project-point(x, y, z, cos-rx, sin-rx, cos-ry, sin-ry, cos-rz, sin-rz, scale) = {
-  // X軸回転
   let y1 = y * cos-rx - z * sin-rx
   let z1 = y * sin-rx + z * cos-rx
   
-  // Y軸回転
   let x2 = x * cos-ry + z1 * sin-ry
   let z2 = -x * sin-ry + z1 * cos-ry
   
-  // Z軸回転
   let x3 = x2 * cos-rz - y1 * sin-rz
   let y3 = x2 * sin-rz + y1 * cos-rz
 
-  // スケーリングして2次元座標として返す
   (x3 * scale, y3 * scale)
 }
 
@@ -80,7 +73,6 @@
   let rows = mesh.len()
   let cols = mesh.at(0).len()
   
-  // 三角関数を事前に計算（ループ内での計算コスト削減）
   let (rx, ry, rz) = rotation
   let crx = calc.cos(rx)
   let srx = calc.sin(rx)
@@ -99,13 +91,11 @@
       let z-avg = (p00.z + p01.z + p10.z + p11.z) / 4
       let color = color-func(0, 0, z-avg, 0, 1, 0, 1, z-lo, z-hi)
       
-      // ここで回転と投影を適用
       let v00 = project-point(p00.x, p00.y, p00.z, crx, srx, cry, sry, crz, srz, scale-factor)
       let v01 = project-point(p01.x, p01.y, p01.z, crx, srx, cry, sry, crz, srz, scale-factor)
       let v10 = project-point(p10.x, p10.y, p10.z, crx, srx, cry, sry, crz, srz, scale-factor)
       let v11 = project-point(p11.x, p11.y, p11.z, crx, srx, cry, sry, crz, srz, scale-factor)
 
-      // 投影された2次元座標を使って描画
       line(v00, v01, v10, close: true, fill: color, stroke: none)
       line(v01, v11, v10, close: true, fill: color, stroke: none)
     }
@@ -167,7 +157,6 @@
     import cetz.draw: *
     
     for mesh in meshes {
-      // rotationを引数として渡すように変更
       render-mesh(mesh, color-func, z-min, z-max, scale-factor, rotation)
     }
   }, length: width)
