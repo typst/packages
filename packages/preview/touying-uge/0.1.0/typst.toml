@@ -13,3 +13,4 @@ exclude = ["examples/"]
 [template]
 path = "template"
 entrypoint = "main.typ"
+thumbnail = "thumbnail.webp"
