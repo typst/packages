@@ -21,7 +21,7 @@ To automatically add readings to Japanese text:
 #import "@preview/auto-jrubby:0.3.0": *
 #set text(font: "Hiragino Sans", lang: "ja")
 
-#let sample = "ルビ(英語: ruby)は、文章内の任意の文字に対しふりがなや説明、異なる読み方といった役割の本文の横に付属される文字。"
+#let sample = "東京スカイツリーの最寄り駅はとうきょうスカイツリー駅です"
 #show-ruby(sample)
 ```
 
@@ -34,7 +34,8 @@ To debug or display the linguistic structure of the text:
 #import "@preview/auto-jrubby:0.3.0": *
 #set text(font: "Hiragino Sans", lang: "ja")
 
-#show-analysis-table("すももも桃も桃のうち")
+#let sample = "東京スカイツリーの最寄り駅はとうきょうスカイツリー駅です"
+#show-analysis-table(sample)
 ```
 
 ![table](./images/table.png)
