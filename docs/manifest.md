@@ -70,7 +70,11 @@ Optional:
   files will still be available on typst universe to link to from the README.\
   To be used for large support files like images or PDF documentation that would
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
-  the LICENSE, see [what to exclude].
+  the LICENSE, see [what to exclude]. Globs provided here have the same semantics
+  as lines in a [gitignore file](https://git-scm.com/docs/gitignore). That is,
+  `example-*` matches any file or directory whose name begins with `example-` in
+  any directory, while `/assets*/` matches any directory whose name begins with
+  `assets` in the top-level directory (not in its subdirectories).
 
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
