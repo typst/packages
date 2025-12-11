@@ -22,11 +22,11 @@ The following functions are again sorted by completeness.
 - `kuddle.parse-kdl-typst-collapsed : str -> kdl`: Children nodes are mapped via a dictionary.
 - `kuddle.parse-kdl-typst-minimal : str -> kdl`: Arguments, properties and children are together mapped via the typst argument type.
 
-> [!WARNING]
-> Various functions do not parse KDL strings according to the specifications. Be aware of this and choose the right function for your usecase. The typed and typeless function are correct, though. A list of simplifications:
-> - the `(typst-)short` variants discards the order and multiplicity for properties and the order between properties and arguments
-> - the `typst-collapse` variant relies on the previous functionality and inherits in incorrectness
-> - the `typst-minimal` variant furthermore removes the distinction between nodes and properties and merges them into one dictionary, making it impossible to have multiple same named properties / nodes.
+#### ⚠ WARNING ⚠
+Various functions do not parse KDL strings according to the specifications. Be aware of this and choose the right function for your usecase. The typed and typeless function are correct, though. A list of simplifications:
+- the `(typst-)short` variants discards the order and multiplicity for properties and the order between properties and arguments
+- the `typst-collapse` variant relies on the previous functionality and inherits in incorrectness
+- the `typst-minimal` variant furthermore removes the distinction between nodes and properties and merges them into one dictionary, making it impossible to have multiple same named properties / nodes.
 
 ## Packaging
 [Typpkg](https://github.com/ludwig-austermann/typpkg) is used to package the repo.
