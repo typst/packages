@@ -1,0 +1,16 @@
+[package]
+name = "sdu-common-lab-report-template"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Arshtyi"]
+license = "MIT"
+description = "A report template for SDU (Shandong University) common lab."
+keywords = ["lab", "report", "experience", "sdu"]
+categories = ["report"]
+repository = "https://github.com/Arshtyi/SDU-Common-Lab-Report-Template"
+compiler = "0.14.1"
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "example/main.png"
