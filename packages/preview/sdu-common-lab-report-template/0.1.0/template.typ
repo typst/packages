@@ -27,8 +27,8 @@
 )
 
 #let report(
-    logo-path: "sdu.png",
-    logo-width: 2cm,
+    logo: none,
+    // logo-width: 2cm,
     partner: "BHX",
     student-name: "Arshtyi",
     grade: "大一",
@@ -134,11 +134,10 @@
         #grid(
             columns: (1fr, 4fr, 2fr),
             align: center + horizon,
-            figure(image(logo-path, width: logo-width)),
+            box(height: 10%, logo),
             underline(text("山东大学实验报告", size: 20pt)),
             underline(text(date.display("[year]年[month]月[day]日"), size: 12pt)),
         )
-        #body
     ]
 
     show heading: set block(spacing: 1.5em)
