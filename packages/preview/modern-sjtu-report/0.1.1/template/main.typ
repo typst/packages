@@ -16,7 +16,7 @@
 #let article-fonts = ("Times New Roman", "Noto Serif SC")
 #let code-fonts = ("Consolas", "Ubuntu Mono", "Menlo", "Courier New", "Noto Serif SC")
 
-#make_cover(
+#make-cover(
   course-name: "某交大金课",
   course-name-en: "Some random course",
   info-items: info-items,
