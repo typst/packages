@@ -11,25 +11,24 @@ A phonology toolkit for Typst, providing IPA transcription with tipa-style input
 - **Combining diacritics**: Nasalized (`\\~`), devoiced (`\\r`), syllabic (`\\v`); the tie (`\\t`) is also available
 - **Suprasegmentals**: Primary stress (`'`), secondary stress (`,`), length (`:`)
 - **Automatic character splitting**: Type `SE` instead of `S E` for efficiency (spacing is necessary around characters using backslashes)
-- **Charis SIL font**: Proper rendering of all IPA symbols
+- **Charis SIL font** needed for all transcriptions
 
 ### Prosody Module
 
 - **Prosodic structure visualization**: Draw syllable structures with onset, nucleus, and coda
-- **Flexible foot structure**: Use parentheses to mark explicit foot boundaries
-- **Stress marking**: Mark stressed syllables with apostrophe
+- **Flexible foot structure**: Use parentheses to mark explicit foot boundaries and stress mark to identify headedness (iambs, trochées)
+- **Stress marking**: Mark stressed syllables with apostrophe `'`
 - **Flexible alignment**: Left or right alignment for prosodic word heads
-- **Beautiful diagrams**: Clean `CeTZ`-based visualizations
 
 ### IPA Charts Module
 
 - **Vowel charts**: Plot vowels on the IPA vowel trapezoid with accurate positioning
 - **Consonant tables**: Display consonants in the pulmonic IPA consonant table
-- **Language inventories**: Pre-defined inventories for major languages (English, Spanish, French, German, Italian, Portuguese, Japanese, Russian, Arabic, Mandarin)
+- **Language inventories**: Pre-defined inventories for some languages (English, Spanish, French, German, Italian, Portuguese, Japanese, Russian, Arabic, Mandarin)
 - **Custom symbol sets**: Plot any combination of IPA symbols
 - **Automatic positioning**: Symbols positioned according to phonetic properties (place, manner, voicing, frontness, height, roundedness)
 - **Proper IPA formatting**: Voiceless/voiced pairs, grayed-out impossible articulations, minimal pair bullets for vowels
-- **Scalable charts**: Adjust size to fit your document layout
+- **Scalable charts**: Adjust size to fit your document layout (scaling includes text as expected)
 - **Charis SIL font**: Professional IPA symbol rendering
 
 ## Installation
@@ -37,6 +36,12 @@ A phonology toolkit for Typst, providing IPA transcription with tipa-style input
 ### Package Repository
 
 - `http://github.com/guilhermegarcia/phonotypst`
+
+### Package website
+
+For the most up-to-date information, vignettes and demos, visit the website below.
+
+- `http://gdgarcia.ca/phonotypst`
 
 ## Usage
 
@@ -77,7 +82,7 @@ A phonology toolkit for Typst, providing IPA transcription with tipa-style input
 - `\\ae` → æ
 - See [tipa chart](http://www.tug.org/tugboat/tb17-2/tb51rei.pdf) for complete list
 
-**Combining diacritics** (need space before target):
+**Combining diacritics** (a space is required before each diacritic):
 
 - `\\~` → ̃ (nasalization)
 - `\\r` → ̥ (devoicing/voiceless)
@@ -135,7 +140,7 @@ Phonotypst provides functions for visualizing IPA vowel and consonant inventorie
 
 ### Prosodic Structures
 
-Phonotypst provides three functions for visualizing different levels of prosodic structure. The functions `syllable()`, `foot()` and `word()` below also have a `scale` argument (float) for adjusting the size of the resulting prosodic tree. Crucially, the scaling includes the tree, the text and the thickness of the lines in the tree.
+Phonotypst provides three functions for visualizing different levels of prosodic structure. The functions `syllable()`, `foot()` and `word()` below also have a `scale` argument (float) for adjusting the size of the resulting prosodic tree. Crucially, the scaling includes the tree, the text and the thickness of the lines in the tree. Furthermore, the length of each line dynamically adapts to the complexity of the representation, which results in a visually balanced figure.
 
 #### Syllable Level
 
