@@ -11,4 +11,6 @@
     lab-title: lorem(5),
     date: datetime.today(),
     tool-group: lorem(1),
+    logo-path: "sdu.png",
+    logo-width: 2cm,
 )
