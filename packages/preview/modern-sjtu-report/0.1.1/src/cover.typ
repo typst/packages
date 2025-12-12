@@ -8,7 +8,7 @@
   page(margin: (top: 2cm, bottom: 2cm, left: 2.5cm, right: 2.5cm), header: none, footer: none)[
 
     #set align(center)
-    #set text(font: cover_fonts)
+    #set text(font: cover-fonts)
 
     #v(1cm)
 
@@ -24,11 +24,11 @@
 
     #v(0.5cm)
 
-    #text(size: 18pt, weight: "bold")[#course_name]
+    #text(size: 18pt, weight: "bold")[#course-name]
 
     #v(0.2cm)
 
-    #text(size: 12pt, weight: "bold")[#upper(course_name_en)]
+    #text(size: 12pt, weight: "bold")[#upper(course-name-en)]
 
     #v(1cm)
 
