@@ -24,7 +24,7 @@
 
   grid(
     columns: (auto, 1fr),
-    if header_logo {
+    if headerlogo {
       if ident_color == "blue" {
         image("./assets/SJTU_header_blue.png", height: 0.5cm)
       } else if ident_color == "red" {
@@ -51,9 +51,9 @@
     margin: (top: 2.54cm, bottom: 2.54cm, left: 3.18cm, right: 3.18cm),
     header: context {
       if calc.odd(counter(page).get().first()) {
-        header_left(ident_color: ident_color, header_logo: header_logo, experiment_name: experiment_name)
+        header_left(ident_color: ident-color, header_logo: header-logo, experiment_name: experiment-name)
       } else {
-        header_right(ident_color: ident_color, header_logo: header_logo)
+        header_right(ident_color: ident-color, header_logo: header-logo)
       }
       v(-0.25cm)
       line(length: 100%, stroke: 0.5pt + black)
@@ -63,7 +63,7 @@
     ],
   )
 
-  set text(font: article_fonts)
+  set text(font: article-fonts)
 
   set heading(numbering: "1.1")
 
@@ -115,7 +115,7 @@
   }
 
   show raw: it => {
-    text(font: code_fonts)[#it]
+    text(font: code-fonts)[#it]
   }
   show raw.where(block: true): it => {
     align(right)[#text(size: 8pt)[#it.lang]]
