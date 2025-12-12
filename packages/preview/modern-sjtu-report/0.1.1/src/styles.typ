@@ -1,4 +1,4 @@
-#let make_title(name: str) = align(center)[
+#let make-title(name: str) = align(center)[
   #text(size: 20pt, weight: "bold")[#name]
   #v(1em)
 ]
@@ -37,12 +37,12 @@
   )
 }
 
-#let general_layout(
-  ident_color: str,
-  header_logo: bool,
-  experiment_name: str,
-  article_fonts: array,
-  code_fonts: array,
+#let general-layout(
+  ident-color: str,
+  header-logo: bool,
+  experiment-name: str,
+  article-fonts: array,
+  code-fonts: array,
   content,
 ) = {
   counter(page).update(1)
