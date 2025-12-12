@@ -1,8 +1,8 @@
 #import "@preview/modern-sjtu-report:0.1.1": *
 
-#let experiment_name = "实验名称"
+#let experiment-name = "实验名称"
 // 更改校徽，logo，header等的颜色
-#let ident_color = "blue"
+#let ident-color = "blue"
 #let info-items = (
   ([专#h(2em)业], [某专业]),
   ([学生姓名], [某学生]),
@@ -12,27 +12,27 @@
 )
 
 // 如果出现了字体不显示等问题可以尝试修改此处的字体
-#let cover_fonts = ("Times New Roman", "KaiTi", "Noto Serif SC")
-#let article_fonts = ("Times New Roman", "Noto Serif SC")
-#let code_fonts = ("Consolas", "Ubuntu Mono", "Menlo", "Courier New", "Noto Serif SC")
+#let cover-fonts = ("Times New Roman", "KaiTi", "Noto Serif SC")
+#let article-fonts = ("Times New Roman", "Noto Serif SC")
+#let code-fonts = ("Consolas", "Ubuntu Mono", "Menlo", "Courier New", "Noto Serif SC")
 
 #make_cover(
-  course_name: "某交大金课",
-  course_name_en: "Some random course",
+  course-name: "某交大金课",
+  course-name-en: "Some random course",
   info-items: info-items,
-  ident_color: ident_color,
-  cover_fonts: cover_fonts,
+  ident-color: ident-color,
+  cover-fonts: cover-fonts,
 )
 
-#show: general_layout.with(
-  ident_color: ident_color,
-  header_logo: true,
-  experiment_name: experiment_name,
-  article_fonts: article_fonts,
-  code_fonts: code_fonts,
+#show: general-layout.with(
+  ident-color: ident-color,
+  header-logo: true,
+  experiment-name: experiment_name,
+  article-fonts: article-fonts,
+  code-fonts: code-fonts,
 )
 
-#make_title(name: experiment_name)
+#make-title(name: experiment-name)
 
 = 中文示例
 
