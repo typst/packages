@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Generated PDFs
+*.pdf
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Typst build artifacts
+*.log
