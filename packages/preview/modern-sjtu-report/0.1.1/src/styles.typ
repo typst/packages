@@ -24,7 +24,7 @@
 
   grid(
     columns: (auto, 1fr),
-    if headerlogo {
+    if header_logo {
       if ident_color == "blue" {
         image("./assets/SJTU_header_blue.png", height: 0.5cm)
       } else if ident_color == "red" {
