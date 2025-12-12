@@ -1,6 +1,8 @@
 # 上海交大实验报告模板 `modern-sjtu-report`
 
-![banner](thumbnail_github.png)
+![banner](https://raw.githubusercontent.com/StellarLane/modern-sjtu-report/main/thumbnail_github.png)
+
+[开发仓库](https://github.com/StellarLane/modern-sjtu-report)
 
 上海交通大学课程实验报告的Typst模板（非官方）。
 
