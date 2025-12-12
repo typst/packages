@@ -27,7 +27,7 @@
 #show: general-layout.with(
   ident-color: ident-color,
   header-logo: true,
-  experiment-name: experiment_name,
+  experiment-name: experiment-name,
   article-fonts: article-fonts,
   code-fonts: code-fonts,
 )
