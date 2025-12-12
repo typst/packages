@@ -1,9 +1,9 @@
-#let make_cover(
-  course_name: str,
-  course_name_en: str,
+#let make-cover(
+  course-name: str,
+  course-name-en: str,
   info-items: array,
-  ident_color: str,
-  cover_fonts: list,
+  ident-color: str,
+  cover-fonts: list,
 ) = {
   page(margin: (top: 2cm, bottom: 2cm, left: 2.5cm, right: 2.5cm), header: none, footer: none)[
 
