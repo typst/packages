@@ -1,13 +1,13 @@
 # Phonotypst
 
-A phonology toolkit for Typst, providing IPA transcription with `tipa`-style input, prosodic structure visualization, and IPA charts for vowels and consonants.
+A phonology toolkit for Typst, providing IPA transcription with tipa-style input, prosodic structure visualization, and IPA charts for vowels and consonants.
 
 ## Features
 
 ### IPA Module
 
-- **`tipa`-style input**: Use familiar LaTeX `tipa` notation instead of hunting for Unicode symbols
-- **Comprehensive symbol support**: All IPA consonants, vowels, and other symbols from the `tipa` chart
+- **tipa-style input**: Use familiar LaTeX tipa notation instead of hunting for Unicode symbols
+- **Comprehensive symbol support**: All IPA consonants, vowels, and other symbols from the tipa chart
 - **Combining diacritics**: Nasalized (`\\~`), devoiced (`\\r`), syllabic (`\\v`); the tie (`\\t`) is also available
 - **Suprasegmentals**: Primary stress (`'`), secondary stress (`,`), length (`:`)
 - **Automatic character splitting**: Type `SE` instead of `S E` for efficiency (spacing is necessary around characters using backslashes)
@@ -49,7 +49,7 @@ For the most up-to-date information, vignettes and demos, visit the website belo
 
 ```typst
 // Basic transcription
-#ipa("'sIRi")  // → ˈsɪti
+#ipa("'sIRi")  // → ˈsɪɾi
 
 // With nasalization
 #ipa("\\~ E")  // → ɛ̃
@@ -80,7 +80,7 @@ For the most up-to-date information, vignettes and demos, visit the website belo
 
 - `\\textltailn` → ɲ
 - `\\ae` → æ
-- See [`tipa` chart](http://www.tug.org/tugboat/tb17-2/tb51rei.pdf) for complete list
+- See [tipa chart](http://www.tug.org/tugboat/tb17-2/tb51rei.pdf) for complete list
 
 **Combining diacritics** (a space is required before each diacritic):
 
@@ -214,3 +214,9 @@ This package includes **Charis SIL**, a Unicode-based font family designed for b
 - **Website**: <https://software.sil.org/charis/>
 
 The inclusion of Charis SIL ensures consistent and accurate rendering of IPA symbols across all systems without requiring users to install additional fonts.
+
+## Acknowledgments
+
+This package was developed to make phonological notation and visualization easier for linguists using Typst.
+
+Special thanks to SIL International for developing and maintaining Charis SIL, an essential resource for linguistic typography.
