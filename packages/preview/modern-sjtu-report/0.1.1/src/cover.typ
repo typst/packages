@@ -12,9 +12,9 @@
 
     #v(1cm)
 
-    #if ident_color == "blue" {
+    #if ident-color == "blue" {
       image("./assets/SJTU_blue.png", width: 8.31cm)
-    } else if ident_color == "red" {
+    } else if ident-color == "red" {
       image("./assets/SJTU_red.png", width: 8.31cm)
     }
 
@@ -40,9 +40,9 @@
 
     #v(1cm)
 
-    #if ident_color == "blue" {
+    #if ident-color == "blue" {
       image("./assets/SJTU_logo_blue.png", width: 3.2cm)
-    } else if ident_color == "red" {
+    } else if ident-color == "red" {
       image("./assets/SJTU_logo_red.png", width: 3.2cm)
     }
 
