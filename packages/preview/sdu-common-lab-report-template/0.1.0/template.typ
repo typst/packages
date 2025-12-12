@@ -132,7 +132,7 @@
         #grid(
             columns: (1fr, 4fr, 2fr),
             align: center + horizon,
-            figure(image("figure/main.png")),
+            figure(image("example/main.png")),
             underline(text("山东大学实验报告", size: 20pt)),
             underline(text(date.display("[year]年[month]月[day]日"), size: 12pt)),
         )
@@ -227,13 +227,11 @@
 
 #let code(path, lang) = {
     raw(read(path), lang: lang, block: true)
-}// Read code from file
+} // Read code from file
 
 #let appendix(body) = {
-    exp-block([
-        #align(center)[
-            #heading(numbering: none, depth: 1)[#text(size: 15pt)[附录]]
-        ]
-        #body
-    ])
+    align(center)[
+        #heading(numbering: none, depth: 1)[#text(size: 15pt)[附录]]
+    ]
+    body
 }

@@ -4,7 +4,7 @@ A report template for SDU (Shandong University) common lab.
 
 ## License
 
-Pls read [MIT License](https://github.com/Arshtyi/SDU-Common-Lab-Report-Template/blob/main/license)
+Please read [MIT License](https://github.com/Arshtyi/SDU-Common-Lab-Report-Template/blob/main/license)
 
 ## Ref & Thx
 

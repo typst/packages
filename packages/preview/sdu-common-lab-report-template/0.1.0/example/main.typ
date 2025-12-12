@@ -1,5 +1,6 @@
-#import "dependency.typ": *
-#import "template.typ": *
+#import "../dependency.typ": *
+#import "../template.typ": *
+// #import "@preview/sdu-common-lab-report-template:0.1.0": *
 
 #show: report.with(
     partner: lorem(2),
