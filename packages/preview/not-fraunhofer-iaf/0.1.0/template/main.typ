@@ -9,7 +9,6 @@
   // Optional Styling (for more and explanation of options take a look at the typst universe)
   ratio: 16/9,
   layout: "medium",
-  title-color: blue.darken(60%),
   toc: true,
 )
 
