@@ -5,7 +5,7 @@
 A library for performing mathematical operations on n-dimensional matrices, vectors/arrays, and numbers in Typst, with support for broadcasting and handling NaN values. Numty’s broadcasting rules and API are inspired by NumPy.
 
 ```typ
-#import "numty.typ" as nt
+#import "@preview/numty:0.1.0" as nt
 
 // Define vectors and matrices
 #let a = (1, 2, 3)
@@ -63,8 +63,8 @@ For matrix specific operations we use 2d arrays / nested arrays, that are also t
 For convenience you can create column or row vectors with the #nt.c and #nt.r functions.
 
 ```typ
-#import "numty.typ" as nt
-#import "numty.typ": c, r
+#import "@preview/numty:0.1.0" as nt
+#import "@preview/numty:0.1.0": c, r
 
 #let a = (1,2,3)
 #let b = (3,2,1)
