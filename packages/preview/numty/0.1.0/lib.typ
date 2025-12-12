@@ -168,6 +168,8 @@
   a.map(a_row => bt.map(b_col => dot(a_row,b_col)))
 }
 
+
+/// Matrix determinant
 #let det(m) = {
   let n = m.len()
   if n == 0 {
@@ -181,35 +183,29 @@
   /// using https://en.wikipedia.org/wiki/Bareiss_algorithm
 
   let sign = 1
+  let prev = 1
 
-  for k in range(n - 1) {
-    if m.at(k).at(k) == 0 {
-      let swapped = false
-      for i in range(k + 1, n) {
-        if m.at(i, k) != 0 {
-          let tmp = m.row(k)
-          m.set_row(k, m.row(i))
-          m.set_row(i, tmp)
+  for i in range(n - 1) {
+    if m.at(i).at(i) == 0 { // swap with another row having nonzero i's elem
+      let swap-found = false
+      for j in range(i + 1, n) {
+        if m.at(j).at(i) != 0 {
+          (m.at(i), m.at(j)) = (m.at(j), m.at(i))
           sign = -sign
-          swapped = true
+          swap-found = true
           break
         }
       }
-      if not swapped {
-        return 0
+      if not swap-found {
+        return 0 // entire column is zero, det must be zero
       }
     }
-
-    let pivot = m.at(k).at(k)
-    let prev = if k > 0 { m.at(k - 1).at(k - 1) } else { 1 }
-
-    for i in range(k + 1, n) {
-      for j in range(k + 1, n) {
-        let num = m.at(i).at(j) * pivot - m.at(i).at(k) * m.at(k).at(j)
-        m.at(i).at(j) = num / prev
+    for j in range(i + 1, n) {
+      for k in range(i + 1, n) {
+        m.at(j).at(k) = (m.at(i).at(i) * m.at(j).at(k) - m.at(j).at(i) * m.at(i).at(k)) / prev
       }
-      m.at(i).at(k) = 0
     }
+    prev = m.at(i).at(i)
   }
 
   sign * m.at(n - 1).at(n - 1)
