@@ -565,6 +565,10 @@
         }
       }
       pwd-x = start-x + syllable-positions.at(head-idx)
+    } else if syllables.len() > 0 {
+      // No feet: align PWd with first or last syllable (depending on foot parameter)
+      let target-idx = if foot == "L" { 0 } else { syllables.len() - 1 }
+      pwd-x = start-x + syllable-positions.at(target-idx)
     }
 
     content((pwd-x, pwd-height), text(size: 12 * diagram-scale * 1pt)[*PWd*])
