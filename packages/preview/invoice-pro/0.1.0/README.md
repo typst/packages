@@ -138,18 +138,6 @@ Here is a minimal example of how to create an invoice:
 ```
 ![Line Items B2B relation](images/items-3.png)
 
-## 🗺️ Roadmap
-
-I am actively working on improving this template. Here is what's planned for future releases:
-
-* [ ] **Refactored API:** Moving away from global states to a more robust, scoped API (inspired by CeTZ) for better stability and flexibility.
-* [ ] **Internationalization (i18n):** Built-in support for English and other languages (currently creates German invoices by default).
-* [ ] **Theming Engine:** Allow easy customization of accent colors and fonts to match corporate identities.
-* [ ] **Data Loading:** Helper functions to load invoice items directly from JSON, CSV, or YAML files.
-* [ ] **ZUGFeRD Support:** (Long-term goal) Embedding XML data for fully compliant e-invoicing.
-
-Have an idea? Feel free to open an issue or pull request!
-
 ## Dependencies
 
 This template relies on these amazing packages:
