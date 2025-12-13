@@ -549,8 +549,7 @@
     let total-width = last-right - first-left
     let start-x = -total-width / 2 - first-left
 
-    // Calculate PWd position (aligned with leftmost or rightmost foot)
-    let pwd-height = 0.5 + (syllables.len() * 0.1)
+    // Step 1: Determine PWd x-position
     let pwd-x = 0  // default center
 
     if feet.len() > 0 {
@@ -570,6 +569,48 @@
       let target-idx = if foot == "L" { 0 } else { syllables.len() - 1 }
       pwd-x = start-x + syllable-positions.at(target-idx)
     }
+
+    // Step 2: Calculate minimum PWd height to avoid crossings (geometric precision)
+    // For each footless syllable, the line from PWd must clear all intermediate feet
+    let base-height = 0.5
+    let syllable-factor = 0.1
+    let clearance-margin = 0.5  // Extra visual clearance above foot connections
+    let min-pwd-height = base-height + (syllables.len() * syllable-factor)
+
+    for (i, syll) in syllables.enumerate() {
+      if i not in in-foot-set {
+        let syll-x = start-x + syllable-positions.at(i)
+
+        // Check all feet to find those between PWd and this footless syllable
+        for ft in feet {
+          // Find foot's head position
+          let head-idx = ft.at(0)
+          for syll-idx in ft {
+            if syllables.at(syll-idx).stressed {
+              head-idx = syll-idx
+            }
+          }
+          let foot-x = start-x + syllable-positions.at(head-idx)
+
+          // Check if foot is between PWd and footless syllable
+          let is-between = (pwd-x < foot-x and foot-x < syll-x) or (syll-x < foot-x and foot-x < pwd-x)
+
+          if is-between and calc.abs(syll-x - pwd-x) > 0.01 {  // Avoid division by zero
+            // Geometric constraint: line from (pwd-x, h-0.3) to (syll-x, -1.65)
+            // must pass above foot connection at (foot-x, -0.65)
+            // At foot-x: y = (h - 0.3) - (h + 1.35) * (foot-x - pwd-x) / (syll-x - pwd-x)
+            // We need: y > -0.65 + clearance-margin
+            // Solving for h: h > (1.35*t - 0.35 + clearance-margin) / (1 - t)
+            // where t = (foot-x - pwd-x) / (syll-x - pwd-x)
+            let t = (foot-x - pwd-x) / (syll-x - pwd-x)
+            let required-height = (1.35 * t - 0.35 + clearance-margin) / (1 - t)
+            min-pwd-height = calc.max(min-pwd-height, required-height)
+          }
+        }
+      }
+    }
+
+    let pwd-height = min-pwd-height
 
     content((pwd-x, pwd-height), text(size: 12 * diagram-scale * 1pt)[*PWd*])
 
