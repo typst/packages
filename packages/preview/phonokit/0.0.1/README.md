@@ -84,7 +84,7 @@ For the most up-to-date information about the package, vignettes and demos, visi
 - Length: `:` (place after segment)
 - Liaison: `\\t` (place before segment)
 - Devoicing: `\\r` (place before segment)
-- Sillabicity: `\\v` (place before segment)
+- Syllabicity: `\\v` (place before segment)
 - Aspiration: `\\h` (place after segment)
 - Nasal: `\\~` (place before segment)
 - C cedilla: `\\c{c}` (of course, simply typing `ç` is easier depending on your keyboard layout)
