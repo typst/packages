@@ -8,8 +8,8 @@ A phonology toolkit for Typst, providing IPA transcription with tipa-style input
 
 ### IPA Module
 
-- **tipa-style input**: Use familiar LaTeX tipa notation instead of hunting for Unicode symbols
-- **Comprehensive symbol support**: All IPA consonants, vowels, and other symbols from the tipa chart
+- **tipa-style input**: Use familiar LaTeX `tipa` notation instead of hunting for Unicode symbols
+- **Comprehensive symbol support**: All IPA consonants, vowels, and other symbols from the `tipa` chart
 - **Combining diacritics**: Nasalized (`\\~`), devoiced (`\\r`), syllabic (`\\v`); the tie (`\\t`) is also available
 - **Suprasegmentals**: Primary stress (`'`), secondary stress (`,`), length (`:`)
 - **Automatic character splitting**: Type `SE` instead of `S E` for efficiency (spacing is necessary around characters using backslashes)
@@ -17,7 +17,7 @@ A phonology toolkit for Typst, providing IPA transcription with tipa-style input
 ### Prosody Module
 
 - **Prosodic structure visualization**: Draw syllable structures with onset, nucleus, and coda
-- **Flexible foot structure**: Use parentheses to mark explicit foot boundaries and stress mark to identify headedness (iambs, trochées)
+- **Flexible foot structure**: Use parentheses to mark explicit foot boundaries and stress mark to identify headedness (iambs, trochees)
 - **Stress marking**: Mark stressed syllables with apostrophe `'`
 - **Flexible alignment**: Left or right alignment for prosodic word heads
 
@@ -71,14 +71,28 @@ For the most up-to-date information about the package, vignettes and demos, visi
 
 - Common vowels: `i I e E a A o O u U @`
 - Common consonants: `p b t d k g f v s z S Z m n N l r`
-- Stress: `'` (primary), `,` (secondary)
-- Length: `:` (place after vowel)
 
-**Multi-character codes** (with backslash, need spaces around them):
+**Multi-character codes**
 
 - `\\textltailn` → ɲ
 - `\\ae` → æ
-- See [tipa chart](http://www.tug.org/tugboat/tb17-2/tb51rei.pdf) for complete list
+- See [`tipa` chart](https://gdgarcia.ca/typst/tipachart.pdf) for complete list
+
+**Diacritics currently supported**:
+
+- Stress: `'` (primary), `,` (secondary)
+- Length: `:` (place after segment)
+- Liaison: `\\t` (place before segment)
+- Devoicing: `\\r` (place before segment)
+- Sillabicity: `\\v` (place before segment)
+- Aspiration: `\\h` (place after segment)
+- Nasal: `\\~` (place before segment)
+- C cedilla: `\\c{c}` (of course, simply typing `ç` is easier depending on your keyboard layout)
+- Unreleased: `\\*` (place after segment)
+
+**Spacing**:
+
+- Empty space: `\\s` (important if you want to transcribe sentences)
 
 ### IPA Charts
 
@@ -174,12 +188,8 @@ Phonokit provides three functions for visualizing different levels of prosodic s
 - `'` before a syllable marks it as stressed (e.g., `'va`)
 - `()` marks foot boundaries (used in `#word()`)
 - Characters within syllables are automatically parsed into onset, nucleus, and coda
-- Geminates are automatically detected for `#foot()` and `#word`
+- Geminates are automatically detected for `#foot()` and `#word()`
 - For long vowels, use `vv` instead of using the length diacritic `:`
-
-## Dependencies
-
-- [CeTZ](https://github.com/cetz-package/cetz) 0.3.2 - For drawing prosodic structures and IPA charts
 
 ## License
 
@@ -193,9 +203,3 @@ Email: <guilherme.garcia@lli.ulaval.ca>
 ## Contributing
 
 Contributions are welcome! Please feel free to submit issues or pull requests.
-
-## Acknowledgments
-
-This package was developed to make phonological notation and visualization easier for linguists using Typst.
-
-Special thanks to SIL International for developing and maintaining Charis SIL, an essential resource for linguistic typography.
