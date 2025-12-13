@@ -2,7 +2,7 @@
 
 Graph view for your typst notes
 
-![alt text](imgs/graph-example.png)
+![Part of a large graph. Each vertex is a heading, question, or a theorem or definition-like content figure, color-coded by content type, for example "Finals", "RSA", "Signature schemes", "Key generation". Color-coded edges connect vertices that reference each other.](imgs/graph-example.png)
 
 ## Quick start
 
