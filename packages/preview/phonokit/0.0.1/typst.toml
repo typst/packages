@@ -1,6 +1,6 @@
 [package]
-categories = [utility, text, visualization]
-disciplines = [linguistics]
+categories = ["utility", "text", "visualization"]
+disciplines = ["linguistics"]
 name = "phonokit"
 version = "0.0.1"
 entrypoint = "lib.typ"
