@@ -1,7 +1,7 @@
 [package]
 name = "jabiz"
 version = "0.1.3"
-compiler = "0.14.2"
+compiler = "0.13.1"
 entrypoint = "lib.typ"
 repository = "https://github.com/kimushun1101/typst-jabiz"
 authors = [
