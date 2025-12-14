@@ -1,5 +1,3 @@
-// #import "../dependency.typ": *
-// #import "../template.typ": *
 #import "@preview/sdu-lab-report:0.1.0": *
 
 #show: report.with(

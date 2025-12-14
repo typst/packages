@@ -8,7 +8,7 @@ description = "A SDU lab report."
 keywords = ["lab", "report", "sdu"]
 categories = ["report"]
 repository = "https://github.com/Arshtyi/SDU-Lab-Report"
-compiler = "0.14.2"
+compiler = "0.14.1"
 exclude = ["sdu.png"]
 
 [template]
