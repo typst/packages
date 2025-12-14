@@ -1,9 +1,11 @@
-#import "@preview/touying-quick:0.3.0": *
+#import "@preview/touying-quick:0.4.0": *
 
 #show: touying-quick.with(
   title: "",
   subtitle: "",
-  bgimg: none,
+  heading-idx: true,
+  bgimg: bgsky,
+  theme: "blue",
   info: default-info,
   styles: default-styles,
   names: default-names,
