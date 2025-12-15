@@ -13,4 +13,4 @@ exclude = ["assets"]
 [template]
 path = "template"    # 指定模板文件夹的路径
 entrypoint = "main.typ" # 指定模板的入口文件
-thumbnail = "assets/thumbnail.png"
+thumbnail = "assets/thumbnail.webp"
