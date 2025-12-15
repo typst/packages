@@ -27,6 +27,7 @@ use self::timestamp::determine_timestamps;
 
 const DIST: &str = "dist";
 const THUMBS_DIR: &str = "thumbnails";
+const READMES_DIR: &str = "readmes";
 
 struct Config {
     out_dir: PathBuf,
@@ -84,6 +85,8 @@ fn main() -> anyhow::Result<()> {
         let mut package_errors = vec![];
         fs::create_dir_all(namespace_dir.join(THUMBS_DIR))
             .context("could not create output directory")?;
+        fs::create_dir_all(namespace_dir.join(READMES_DIR))
+            .context("could not create directory for READMEs")?;
 
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
             let entry = entry.with_context(|| {
@@ -142,15 +145,41 @@ fn main() -> anyhow::Result<()> {
         index.sort_by_key(|info| (info.package.name.clone(), info.package.version));
 
         println!("Writing index.");
+
+        // This index is allowed to be used by third parties: Both the Typst CLI
+        // and the web app download this index. However, we give no stability
+        // guarantees.
         fs::write(
             namespace_dir.join("index.json"),
             serde_json::to_vec(&index.iter().map(IndexPackageInfo::from).collect::<Vec<_>>())
                 .context("serialization of compact package index failed")?,
         )?;
+
+        // The index.extra.json is an implementation detail of typst.app. This
+        // file should not be used by third parties: They should instead use
+        // index.json.
         fs::write(
-            namespace_dir.join("index.full.json"),
-            serde_json::to_vec(&index).context("serialization of full package index failed")?,
+            namespace_dir.join("index.extra.json"),
+            serde_json::to_vec(
+                &index
+                    .iter()
+                    .map(ExtraIndexPackageInfo::from)
+                    .collect::<Vec<_>>(),
+            )
+            .context("serialization of extra package index failed")?,
         )?;
+
+        println!("Writing READMEs.");
+
+        let readme_dir = namespace_dir.join(READMES_DIR);
+
+        // The README files are an implementation detail of typst.app. They
+        // should not be used by third parties.
+        for item in &index {
+            let path =
+                readme_dir.join(format!("{}-{}.md", item.package.name, item.package.version));
+            fs::write(path, &item.readme)?;
+        }
 
         if !package_errors.is_empty() {
             namespace_errors.push((namespace.to_string(), package_errors));
