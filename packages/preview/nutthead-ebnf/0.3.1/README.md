@@ -85,7 +85,25 @@ Container function that configures the EBNF rendering context.
 ```typ
 #context [
   #ebnf[
-    #syntax-rule(...)
+    #syntax-rule(
+      meta-id: [FunctionQualifiers],
+      rule-example: [```rust const```],
+      definition-list: (
+        (indent: 1),
+        [
+          #terminal(qualifier: "opt")[const]
+          #terminal(qualifier: "opt")[async]
+          #single-definition(qualifier: "opt")[ItemSafety]
+          #grouped-sequence(
+            qualifier: "opt",
+            [
+              #terminal[extern]
+              #single-definition(qualifier: "opt")[Abi]
+            ],
+          )
+        ],
+      ),
+    )
   ]
 ]
 ```
