@@ -25,7 +25,7 @@ This package only provides one main API for writing your own graduate thesis, gr
 ```typ
 #import "@preview/modern-buaa-thesis:0.1.2": thesis
 
-#show thesis.with()
+#show: thesis.with()
 
 = Introduction
 
