@@ -5,9 +5,9 @@
 这是一个基于Stargazer Theme(https://touying-typ.github.io/zh/docs/themes/stargazer)二次开发的，参考了thubeamer(https://github.com/YangLaTeX/thubeamer)样式的touying模板。
 
 ## 效果预览
-![标题页](asset/thumbnail.webp)
-![目录页](asset/docs/目录页.webp)
-![正文页](asset/docs/正文页.webp)
+![标题页](assets/thumbnail.webp)
+![目录页](assets/docs/目录页.webp)
+![正文页](assets/docs/正文页.webp)
 
 ## 使用方法
 
