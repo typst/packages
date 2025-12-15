@@ -52,7 +52,7 @@ This template uses the following external packages:
 
    - Using the published package (as in `main.typ`):
    ```typst
-   #import "@preview/clean-cnam-template:1.3.0": *
+   #import "@preview/clean-cnam-template:1.4.0": *
    ```
 
    - Using this repository locally (from `src/`):

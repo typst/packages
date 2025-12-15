@@ -1,5 +1,4 @@
-
-#import "@preview/clean-cnam-template:1.1.0": *
+#import "@preview/clean-cnam-template:1.4.0": *
 
 #show: clean-cnam-template.with(
   title: "Main Title",
