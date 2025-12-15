@@ -1,5 +1,5 @@
 [package]
-name = "unoficcial-uninsubria-thesis"
+name = "unofficcial-uninsubria-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Mattia Papaccioli <mpapaccioli@studenti.uninsubria.it>"]
