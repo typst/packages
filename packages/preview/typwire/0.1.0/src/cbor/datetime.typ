@@ -7,7 +7,7 @@
   assert(type(second) == std.int or second == none, message: "datetime.new: second must be type of int or none")
 
   (
-    "typed-type": "datetime",
+    "typwire-type": "datetime",
     "year": year,
     "month": month,
     "day": day,

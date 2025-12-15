@@ -6,7 +6,7 @@
   assert(type(angle) == std.angle, message: "angle.encode: angle must be of type angle")
 
   (
-    "typed-type": "angle",
+    "typwire-type": "angle",
     "radians": angle.rad(),
   )
 }

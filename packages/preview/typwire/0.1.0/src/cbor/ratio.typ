@@ -8,7 +8,7 @@
   assert(type(ratio) == std.ratio, message: "ratio.encode: ratio must be of type ratio")
   
   (
-    "typed-type": "ratio",
+    "typwire-type": "ratio",
     "ratio": utils.ratio-to-float(ratio)
   )
 }

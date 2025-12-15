@@ -8,7 +8,7 @@
   assert(type(version) == std.version, message: "version.encode: version must be of type version")
 
   (
-    "typed-type": "version",
+    "typwire-type": "version",
     "major": version.at(0),
     "minor": version.at(1),
     "patch": version.at(2),

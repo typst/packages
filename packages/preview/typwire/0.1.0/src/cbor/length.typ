@@ -6,7 +6,7 @@
   assert(type(length) == std.length, message: "length.encode: length must be of type length")
   
   (
-    "typed-type": "length",
+    "typwire-type": "length",
     "points": length.pt(),
   )
 }

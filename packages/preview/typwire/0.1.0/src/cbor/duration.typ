@@ -2,7 +2,7 @@
   assert(type(seconds) == std.float, message: "duration.new: seconds must be of type float")
   
   (
-    "typed-type": "duration",
+    "typwire-type": "duration",
     "seconds": seconds,
   )
 }

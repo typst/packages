@@ -1,11 +1,11 @@
 [package]
-name = "typed"
+name = "typwire"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Tim Voßhenrich <@T1mVo>"]
 license = "MIT OR Apache-2.0"
 description = "Extended CBOR encoder for the Typst plugin system."
-repository = "https://github.com/T1mVo/typed"
+repository = "https://github.com/T1mVo/typwire"
 keywords = ["typing", "wasm", "plugin"]
 categories = ["utility", "integration"]
 compiler = "0.14.0"

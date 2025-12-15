@@ -1,4 +1,4 @@
-# typed
+# typwire
 
 An extended CBOR encoder for the [Typst](https://typst.app/) plugin system.
 
@@ -10,15 +10,15 @@ This library provides a CBOR encoder with extended [support](#supported-types) f
 
 **Rust:**
 
-Add `typed` to your Rust project like this:
+Add `typwire` to your Rust project like this:
 
 ```sh
-cargo add typed --git https://github.com/T1mVo/typed.git --tag v0.1.0
+cargo add typwire
 ```
 
 ```rs
 use serde::Deserialize;
-use typed::{Angle, Color, DateTime, FromBytes as _};
+use typwire::{Angle, Color, DateTime, FromBytes as _};
 use wasm_minimal_protocol::*;
 
 initiate_protocol!();
@@ -43,7 +43,7 @@ fn custom_fn(arg: &[u8]) -> Result<Vec<u8>, String> {
 **Typst:**
 
 ```typ
-#import "@preview/typed:0.1.0"
+#import "@preview/typwire:0.1.0"
 
 #let custom-plugin = plugin("custom_plugin.wasm")
 
@@ -53,7 +53,7 @@ fn custom_fn(arg: &[u8]) -> Result<Vec<u8>, String> {
     "datetime": datetime.today(),
 )
 
-#let encoded = typed.cbor.encode(custom)
+#let encoded = typwire.cbor.encode(custom)
 
 #custom-plugin.custom_fn(encoded)
 ```

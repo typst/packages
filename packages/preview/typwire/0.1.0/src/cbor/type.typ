@@ -6,7 +6,7 @@
   assert(std.type(type) == std.type, message: "type.encode: type must be of type type")
 
   (
-    "typed-type": "type",
+    "typwire-type": "type",
     "ty": str(type),
   )
 }

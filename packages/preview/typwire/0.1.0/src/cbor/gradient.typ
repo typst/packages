@@ -7,7 +7,7 @@
   assert(type(space) == std.str, message: "gradient.linear: space must be of type str")
 
    (
-     "typed-type": "gradient-linear",
+     "typwire-type": "gradient-linear",
      "stops": stops,
      "angle": angle,
      "space": space
@@ -23,7 +23,7 @@
   assert(type(space) == std.str, message: "gradient.radial: space must be of type str")
 
   (
-    "typed-type": "gradient-radial",
+    "typwire-type": "gradient-radial",
     "stops": stops,
     "center": center,
     "radius": radius,
@@ -40,7 +40,7 @@
   assert(type(space) == std.str, message: "gradient.conic: space must be of type str")
 
   (
-    "typed-type": "gradient-conic",
+    "typwire-type": "gradient-conic",
     "stops": stops,
     "angle": angle,
     "center": center,
