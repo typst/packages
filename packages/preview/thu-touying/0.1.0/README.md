@@ -16,7 +16,7 @@
 ```typst
 #import "@preview/thu-touying:0.1.0": *
 
-#show: THUTouying-theme.with(
+#show: thu-touying-theme.with(
   config-info(
     title: [汇报标题],
     subtitle: [副标题],
@@ -47,14 +47,3 @@
 typst init @preview/thu-touying:0.1.0 my-slide
 ```
 
-### 方式三：本地手动安装
-
-下载本仓库，将 lib.typ 放在同级目录下：
-
-然后在你的文档中输入：
-
-```
-#import "lib.typ": *
-
-// 后续使用代码同上...
-```

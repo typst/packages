@@ -512,7 +512,7 @@
 /// Example:
 ///
 /// ```typst
-/// #show: THUTouying-theme.with(aspect-ratio: "16-9", config-colors(primary: blue))`
+/// #show: thu-touying-theme.with(aspect-ratio: "16-9", config-colors(primary: blue))`
 /// ```
 ///
 /// Consider using:
@@ -559,7 +559,7 @@
 /// - footer-c (content, function): is the second right part of the footer. The default is `self => if self.info.short-title == auto { self.info.title } else { self.info.short-title }`.
 ///
 /// - footer-d (content, function): is the right part of the footer. The default is `context utils.slide-counter.display() + " / " + utils.last-slide-number`.
-#let THUTouying-theme(
+#let thu-touying-theme(
   aspect-ratio: "16-9",
   align: horizon,
   alpha: 20%, // 目录透明度
