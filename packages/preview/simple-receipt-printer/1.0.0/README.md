@@ -22,7 +22,7 @@ To write a regular document
 Funny how it goes, isn't it?
 ```
 
-![](examples/receipt.png)
+![Sample receipt](examples/receipt.png)
 
 
 Or print a recipe, like so:
@@ -51,4 +51,4 @@ Or print a recipe, like so:
 
 ```
 
-![](examples/recipe.png)
+![Sample recipe for omelette](examples/recipe.png)
