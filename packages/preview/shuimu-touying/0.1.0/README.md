@@ -1,4 +1,4 @@
-# THUTouying
+# Shuimu-Touying
 
 ## 基本介绍
 
@@ -14,9 +14,9 @@
 ### 方式一：使用 Typst Universe (推荐)
 
 ```typst
-#import "@preview/thu-touying:0.1.0": *
+#import "@preview/shuimu-touying:0.1.0": *
 
-#show: thu-touying-theme.with(
+#show: shuimu-touying-theme.with(
   config-info(
     title: [汇报标题],
     subtitle: [副标题],
@@ -44,6 +44,6 @@
 在你的工作目录下新建终端，并运行以下命令：
 
 ```
-typst init @preview/thu-touying:0.1.0 my-slide
+typst init @preview/shuimu-touying:0.1.0 my-slide
 ```
 

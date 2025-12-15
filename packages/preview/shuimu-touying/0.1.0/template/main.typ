@@ -1,7 +1,7 @@
-#import "@preview/thu-touying:0.1.0": *
+#import "@preview/shuimu-touying:0.1.0": *
 //#import "../lib.typ": *
 
-#show: thu-touying-theme.with(
+#show: shuimu-touying-theme.with(
   config-info(
     title: [Rust 机器学习与工业视觉],
     subtitle: [基于 YOLO 和线阵相机的缺陷检测系统],
