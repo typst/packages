@@ -10,7 +10,7 @@
 #import "@preview/hydra:0.6.2": hydra
 #import "@preview/linguify:0.4.2": linguify
 #import "headers.typ": get-header
-#import "utils.typ": date-format, thinLine
+#import "utils.typ": date-format, thin-line
 
 // Translations database for linguify
 #let translations-database = (
@@ -137,9 +137,9 @@
         ]
       }
 
-      #thinLine(primary-color)
+      #thin-line(primary-color)
       #text(size: 1.5em)[#it.body]
-      #thinLine(primary-color)
+      #thin-line(primary-color)
     ] else [
       #set text(size: 1.2em)
       #it
