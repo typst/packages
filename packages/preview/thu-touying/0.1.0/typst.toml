@@ -8,7 +8,7 @@ description = "A clean, Beamer-style presentation template for Tsinghua Universi
 repository = "https://github.com/JSB-Unscarred/thu-touying"
 keywords = ["slides", "presentation", "beamer", "Tsinghua University"]
 categories = ["presentation"]
-exclude = ["assets"]
+exclude = ["assets/docs"]
 
 [template]
 path = "template"    # 指定模板文件夹的路径

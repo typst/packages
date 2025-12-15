@@ -6,8 +6,8 @@
 
 ## 效果预览
 ![标题页](asset/thumbnail.webp)
-![目录页](asset/目录页.webp)
-![正文页](asset/正文页.webp)
+![目录页](asset/docs/目录页.webp)
+![正文页](asset/docs/正文页.webp)
 
 ## 使用方法
 
