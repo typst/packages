@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2025-12-15
+
+### Added
+
+#### Multi-language Support
+- **Language parameter**: New `language` parameter in `clean-cnam-template()` to set document language
+  - Defaults to "fr" (French)
+  - Supports "en" (English)
+  - Automatically configures text language throughout the document
+- **Linguify integration**: Integrated `@preview/linguify:0.4.2` for internationalization
+  - Translation database for multi-language support
+  - Automatic translation of chapter headings based on language setting
+  - Re-exported linguify in main library for user access
+- **Translation system**: Added centralized translations database in `lib/layout.typ`
+
+### Changed
+
+- **thinLine utility enhancement**: Now accepts a color parameter for dynamic line styling
+  - Updated from fixed stroke to configurable color
+  - Applied to chapter heading decorative lines
+  - Improved visual consistency with theme colors
+
+### Fixed
+
+- **Subtitle display**: Fixed subtitle rendering to only display when subtitle is provided and not empty
+  - Prevents extra vertical spacing when no subtitle is set
+  - Improves title page layout for documents without subtitles
+
 ## [1.3.0] - 2025-11-24
 
 ### Added
