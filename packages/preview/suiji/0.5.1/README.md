@@ -24,7 +24,7 @@ The example below uses `suiji` and `cetz` packages to create a trajectory of a r
 <summary>Show code</summary>
 
 ```typ
-#import "@preview/suiji:0.5.0": *
+#import "@preview/suiji:0.5.1": *
 #import "@preview/cetz:0.4.2"
 
 #set page(width: auto, height: auto, margin: 0.5cm)
@@ -59,7 +59,7 @@ Another example is drawing the the famous **Matrix** rain effect of falling gree
 <summary>Show code</summary>
 
 ```typ
-#import "@preview/suiji:0.5.0": *
+#import "@preview/suiji:0.5.1": *
 #import "@preview/cetz:0.4.2"
 
 #set page(width: auto, height: auto, margin: 0pt)
@@ -106,7 +106,7 @@ Another example is drawing the the famous **Matrix** rain effect of falling gree
 Import `suiji` module first before use any random functions from it.
 
 ```typ
-#import "@preview/suiji:0.5.0": *
+#import "@preview/suiji:0.5.1": *
 ```
 
 For functions that generate various random numbers or randomly shuffle, a random number generator object (**rng**) is required as both input and output arguments. And the original **rng** should be created by function `gen-rng`, with an integer as the argument of seed. For function `discrete`, the given probalilities of the discrete events should be preprocessed by function `discrete-preproc`, whose output serves as an input argument of `discrete`.
