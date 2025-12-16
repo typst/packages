@@ -99,15 +99,14 @@ This template should work well for freelancers and small companies in the german
 
 ## Features
 
-- [x] multiple invoice items
-- [x] configurable VAT
-- [x] configurable § 19 UStG (Kleinunternehmerregelung) note
-- [x] reverse-charge for EU B2B customers (§13b UStG)
-- [x] configurable signature from PNG file
-- [x] employs both lining and old-style number types, depending on the application
-- [x] [EPC QR Code](https://en.wikipedia.org/wiki/EPC_QR_code) for easier banking transactions
-- [x] currency exchange (USD, GBP, etc. with EUR equivalent for German accounting)
-- [ ] recipient address is guaranteed to fit in a windowed envelope (DIN 5008)
+- Multiple invoice items
+- Configurable VAT
+- Configurable § 19 UStG (Kleinunternehmerregelung) note
+- Reverse-charge for EU B2B customers (§13b UStG)
+- Configurable signature from PNG file
+- Employs both lining and old-style number types, depending on the application
+- [EPC QR Code](https://en.wikipedia.org/wiki/EPC_QR_code) for easier banking
+- Currency exchange (USD, GBP, etc. with EUR equivalent for German accounting)
 
 ## Disclaimer
 
