@@ -59,7 +59,7 @@ No installation needed: open [typst.app](https://typst.app), create a new projec
 )
 ```
 
-![](./template/example.png)
+![example invoice in EUR](./template/example.png)
 
 ### Foreign Currency Example (USD)
 
@@ -90,7 +90,7 @@ The template will:
 - Show EUR equivalent amount based on ECB exchange rate
 - Generate EPC QR code with EUR amount (SEPA standard requires EUR)
 
-![](thumbnail.png)
+![example invoice in USD with FX conversion](thumbnail.png)
 
 
 ## Scope
