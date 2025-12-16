@@ -1,4 +1,4 @@
-// Phonotypst - Phonology toolkit for Typst
+// Phonokit - Phonology toolkit for Typst
 // Author: Guilherme D. Garcia
 //
 // A comprehensive toolkit for phonological and phonetic notation in Typst.
