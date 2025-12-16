@@ -16,7 +16,6 @@ exclude = [
   "tests",
   ".typstignore",
   "Justfile",
-  "thumbnail.png",
   "thumbnail-dark.svg",
   "thumbnail-light.svg",
 ]
