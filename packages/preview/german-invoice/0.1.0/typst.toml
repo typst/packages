@@ -1,5 +1,5 @@
 [package]
-name = "german-invoice"
+name = "german-fx-invoice"
 version = "0.1.0"
 compiler = "0.10.0"
 entrypoint = "lib.typ"

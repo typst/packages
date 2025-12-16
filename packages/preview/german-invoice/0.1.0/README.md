@@ -90,7 +90,7 @@ The template will:
 - Show EUR equivalent amount based on ECB exchange rate
 - Generate EPC QR code with EUR amount (SEPA standard requires EUR)
 
-![](./template/example-usd.png)
+![](thumbnail.png)
 
 
 ## Scope
