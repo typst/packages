@@ -1,4 +1,6 @@
-#import "@preview/tiefletter:0.2.0": invoice
+#import "@preview/tiefletter:0.2.0": invoice, languages, select-language
+
+#select-language(languages.deutsch-at)
 
 #invoice(
   invoice-number: "2025-001",
@@ -29,5 +31,4 @@
   ),
   payment-due-date: "21.04.2025",
   after-table-text: none,
-  lang: "de",
 )
