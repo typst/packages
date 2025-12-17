@@ -1,42 +1,61 @@
 #import "utils.typ": format-currency
 
 #let languages = (
-  english: "en",
   english-at: "en-at",
   english-de: "en-de",
   english-us: "en-us",
-  deutsch: "de",
   deutsch-at: "de-at",
   deutsch-de: "de-de",
 )
 
-#let lang = state("language-state", languages.english)
+#let selected-language = state("language-state", languages.english-us)
+
+#let normalize-lang(language) = {
+  if language in ("en", "en-at") {
+    "en-at"
+  } else if language in "en-de" {
+    "en-de"
+  } else if language in "en-us" {
+    "en-us"
+  } else if language in ("de", "de-at") {
+    "de-at"
+  } else if language in "de-de" {
+    "de-de"
+  } else {
+    language
+  }
+}
 
 /// Selects a language to use in the document. Select from `languages`.
 #let select-language(language) = {
-  lang.update(language)
+  selected-language.update(normalize-lang(language))
 }
 
-#let normalize-lang(language: none) = {
-  let candidate = if language == none { lang.get() } else { language }
+#let currency-format-at = (
+  currency-thousands-separator: ",",
+  currency-comma-separator: ".",
+  currency-symbol: "€",
+)
 
-  if candidate in ("en", "en-us", "en-at") {
-    "en-at"
-  } else if candidate in "en-de" {
-    "en-de"
-  } else if candidate in ("de", "de-at") {
-    "de-at"
-  } else if candidate in "de-de" {
-    "de-de"
-  } else {
-    candidate
-  }
-}
+#let currency-format-de = (
+  currency-thousands-separator: ",",
+  currency-comma-separator: ".",
+  currency-symbol: "€",
+)
+
+#let currency-format-us = (
+  currency-thousands-separator: ".",
+  currency-comma-separator: ",",
+  currency-symbol: "$",
+)
 
 #let letter-base-en = (
   salutation-f: [Dear Ms.],
   salutation-m: [Dear Mr.],
   salutation-o: [Dear],
+)
+
+#let table-base-en = (
   table-label: (
     item-number: [*No.*],
     description: [*Description*],
@@ -55,8 +74,10 @@
   invoice: [Invoice],
   invoice-date: [Invoice Date],
   pre-table: number => [We hereby submit to you our invoice with No. #number\. Please find the invoiced items below:],
-  request-payment: (total-with-vat, payment-due-date, number) => {
-    [Please pay the amount of #format-currency(total-with-vat) until #payment-due-date at the latest to the following account with reference #number:]
+  request-payment: (total-with-vat, payment-due-date, number, format-currency) => {
+    [Please pay the amount of *#format-currency(total-with-vat)* until *#payment-due-date* at the latest to the following account with reference *#number*.
+
+    ]
   },
   payment: (
     recipient: [Recipient:],
@@ -67,8 +88,14 @@
     pay-via-qr: [Payment by QR code],
   ),
   delivery-date: delivery-date => if delivery-date == none {
-    [The delivery date is, unless otherwise specified, equivalent to the invoice date.]
-  } else { [The delivery date is, unless otherwise specified, on or in #delivery-date.] },
+    [The delivery date is, unless otherwise specified, equivalent to the invoice date.
+
+    ]
+  } else {
+    [The delivery date is, unless otherwise specified, on or in #delivery-date.
+
+    ]
+  },
   closing: [Thank you for your business and with kind regards,],
 )
 
@@ -77,18 +104,33 @@
   offer-date: [Offer Date],
   pre-offer: number => [We hereby submit to you our offer with No. #number\.],
   pre-table: [Please find the offered items below, individually orderable:],
-  post-table: (total, pre-payment-amount, proforma-invoice, offer-valid-until) => {
+  post-table: (total, pre-payment-amount, proforma-invoice, offer-valid-until, format-currency) => {
     [
       #if pre-payment-amount == none or pre-payment-amount == 0 {
-        if proforma-invoice { [Upon acceptance of this offer, we will send you a proforma invoice.] } else { [] }
+        if proforma-invoice {
+          [Upon acceptance of this offer, we will send you a proforma invoice.
+
+          ]
+        } else {
+          [
+
+
+          ]
+        }
       } else {
-        [Upon acceptance of this offer, we will send you #if proforma-invoice { [both] } an invoice for a prepayment of #pre-payment-amount % of the total amount (€ #format-currency(total * (pre-payment-amount / 100))) #if proforma-invoice { [and a proforma invoice] }. The prepayment is to be made before the start of the project. The remaining amount is to be paid 14 days after delivery.]
+        [Upon acceptance of this offer, we will send you #if proforma-invoice { [both] } an invoice for a prepayment of #pre-payment-amount % of the total amount (#format-currency(total * (pre-payment-amount / 100))) #if proforma-invoice { [and a proforma invoice] }. The prepayment is to be made before the start of the project. The remaining amount is to be paid 14 days after delivery.
+
+        ]
       }
 
       #if offer-valid-until == none {
-        [The offer is valid for 30 days from the date of issue.]
+        [The offer is valid for 30 days from the date of issue.
+
+        ]
       } else {
-        [The offer is valid until #offer-valid-until.]
+        [The offer is valid until #offer-valid-until.
+
+        ]
       }
 
     ]
@@ -104,44 +146,38 @@
 
 #let i18n-en-at = (
   letter: letter-base-en,
-  invoice: (
-    ..invoice-base-en,
-    kleinunternehmer-regelung: kleinunternehmer-regelung-en-at,
-  ),
-  offer: (
-    ..offer-base-en,
-    kleinunternehmer-regelung: kleinunternehmer-regelung-en-at,
-  ),
+  table-base: table-base-en,
+  invoice: invoice-base-en,
+  offer: offer-base-en,
+  kleinunternehmer-regelung: kleinunternehmer-regelung-en-at,
+  currency: currency-format-at,
 )
 
 #let i18n-en-de = (
   letter: letter-base-en,
-  invoice: (
-    ..invoice-base-en,
-    kleinunternehmer-regelung: kleinunternehmer-regelung-en-de,
-  ),
-  offer: (
-    ..offer-base-en,
-    kleinunternehmer-regelung: kleinunternehmer-regelung-en-de,
-  ),
+  table-base: table-base-en,
+  invoice: invoice-base-en,
+  offer: offer-base-en,
+  kleinunternehmer-regelung: kleinunternehmer-regelung-en-de,
+  currency: currency-format-de,
 )
 
 #let i18n-en-us = (
   letter: letter-base-en,
-  invoice: (
-    ..invoice-base-en,
-    kleinunternehmer-regelung: kleinunternehmer-regelung-en-us,
-  ),
-  offer: (
-    ..offer-base-en,
-    kleinunternehmer-regelung: kleinunternehmer-regelung-en-us,
-  ),
+  table-base: table-base-en,
+  invoice: invoice-base-en,
+  offer: offer-base-en,
+  kleinunternehmer-regelung: kleinunternehmer-regelung-en-us,
+  currency: currency-format-us,
 )
 
 #let letter-base-de = (
   salutation-f: [Sehr geehrte Frau],
   salutation-m: [Sehr geehrter Herr],
   salutation-o: [Guten Tag],
+)
+
+#let table-base-de = (
   table-label: (
     item-number: [*Pos.*],
     description: [*Bezeichnung*],
@@ -160,8 +196,8 @@
   invoice: [Rechnung],
   invoice-date: [Rechnungsdatum],
   pre-table: number => [Hiermit übermitteln wir Ihnen Ihre Rechnung Nr. #number\. Zudem nachfolgend die verrechneten Positionen:],
-  request-payment: (total-with-vat, payment-due-date, number) => {
-    [Es wird um Leistung der Zahlung von #format-currency(total-with-vat) bis spätestens #payment-due-date auf unser Bankkonto unter Angabe der Rechnungsnummer '#number' gebeten.]
+  request-payment: (total-with-vat, payment-due-date, number, format-currency) => {
+    [Es wird um Leistung der Zahlung von *#format-currency(total-with-vat)* bis spätestens *#payment-due-date* auf unser Bankkonto unter Angabe der Rechnungsnummer *#number* gebeten.]
   },
   payment: (
     recipient: [Empfänger:],
@@ -182,14 +218,14 @@
   offer-date: [Angebotsdatum],
   pre-offer: number => [Hiermit übermitteln wir Ihnen unser Angebot Nr. #number\.],
   pre-table: [Zudem nachfolgend die angebotenen Positionen, einzeln beauftragbar:],
-  post-table: (total, pre-payment-amount, proforma-invoice, offer-valid-until) => {
+  post-table: (total, pre-payment-amount, proforma-invoice, offer-valid-until, format-currency) => {
     [
       #if pre-payment-amount == none or pre-payment-amount == 0 {
         if proforma-invoice {
           [Mit Annahme dieses Angebots werden wir Ihnen eine Proformarechnung übermitteln.]
         } else { [] }
       } else {
-        [Mit Annahme dieses Angebots werden wir Ihnen #if proforma-invoice { [sowohl] } eine Rechnung zur Vorauszahlung über #pre-payment-amount % des Gesamtbetrages (€ #format-currency(total * (pre-payment-amount / 100))) #if proforma-invoice { [als auch eine Proformarechnung ] }übermitteln. Die Vorauszahlung ist vor Beginn des Projektes zu leisten. Die Restzahlung ist binnen 14 Tagen nach Lieferung zu leisten.]
+        [Mit Annahme dieses Angebots werden wir Ihnen #if proforma-invoice { [sowohl] } eine Rechnung zur Vorauszahlung über #pre-payment-amount % des Gesamtbetrages (#format-currency(total * (pre-payment-amount / 100))) #if proforma-invoice { [als auch eine Proformarechnung ] }übermitteln. Die Vorauszahlung ist vor Beginn des Projektes zu leisten. Die Restzahlung ist binnen 14 Tagen nach Lieferung zu leisten.]
       }
 
       #if offer-valid-until == none {
@@ -210,26 +246,20 @@
 
 #let i18n-de-at = (
   letter: letter-base-de,
-  invoice: (
-    ..invoice-base-de,
-    kleinunternehmer-regelung: kleinunternehmer-regelung-de-at,
-  ),
-  offer: (
-    ..offer-base-de,
-    kleinunternehmer-regelung: kleinunternehmer-regelung-de-at,
-  ),
+  table-base: table-base-de,
+  invoice: invoice-base-de,
+  offer: offer-base-de,
+  kleinunternehmer-regelung: kleinunternehmer-regelung-de-at,
+  currency: currency-format-at,
 )
 
 #let i18n-de-de = (
   letter: letter-base-de,
-  invoice: (
-    ..invoice-base-de,
-    kleinunternehmer-regelung: kleinunternehmer-regelung-de-de,
-  ),
-  offer: (
-    ..offer-base-de,
-    kleinunternehmer-regelung: kleinunternehmer-regelung-de-de,
-  ),
+  table-base: table-base-de,
+  invoice: invoice-base-de,
+  offer: offer-base-de,
+  kleinunternehmer-regelung: kleinunternehmer-regelung-de-de,
+  currency: currency-format-de,
 )
 
 #let i18n-table = (
@@ -240,52 +270,12 @@
   "de-de": i18n-de-de,
 )
 
-#let i18n(language: none) = {
-  let resolved = normalize-lang(language: language)
-  let entry = i18n-table.at(resolved, default: none)
+#let i18n() = {
+  let entry = i18n-table.at(selected-language.get(), default: none)
 
   if entry == none {
     assert(false, message: "Selected language '" + resolved + "' is not available yet.")
   }
 
   entry
-}
-
-#let letter-translations(language: none) = {
-  i18n(language: language).letter
-}
-
-#let invoice-translations(language: none, invoice-number: none, delivery-date: none, payment-due-date: none) = {
-  let base = i18n(language: language).invoice
-
-  (
-    invoice: base.invoice,
-    invoice-date: base.at("invoice-date"),
-    pre-table: base.at("pre-table")(invoice-number),
-    request-payment: total-with-vat => base.at("request-payment")(total-with-vat, payment-due-date, invoice-number),
-    payment: base.payment,
-    kleinunternehmer-regelung: base.at("kleinunternehmer-regelung"),
-    delivery-date: base.at("delivery-date")(delivery-date),
-    closing: base.closing,
-  )
-}
-
-#let offer-translations(
-  language: none,
-  offer-number: none,
-  offer-valid-until: none,
-  pre-payment-amount: none,
-  proforma-invoice: none,
-) = {
-  let base = i18n(language: language).offer
-
-  (
-    offer: base.offer,
-    offer-date: base.at("offer-date"),
-    pre-offer: base.at("pre-offer")(offer-number),
-    pre-table: base.at("pre-table"),
-    post-table: total => base.at("post-table")(total, pre-payment-amount, proforma-invoice, offer-valid-until),
-    kleinunternehmer-regelung: base.at("kleinunternehmer-regelung"),
-    closing: base.closing,
-  )
 }
