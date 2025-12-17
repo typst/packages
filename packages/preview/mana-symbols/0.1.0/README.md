@@ -24,7 +24,7 @@ then you write `#mana[X]`, where `X` is the sequence of mana symbols.
 # Options
 `mana` has a number of options:
 - `sort`: for consecutive mana symbols, should they become sorted. (default: true)
-- `normalize_hybrid`: for hybrid mana symbols, should they be normalized, i.e. should the halves be sorted. (default: true)
+- `normalize-hybrid`: for hybrid mana symbols, should they be normalized, i.e. should the halves be sorted. (default: true)
 - `shadow`: whether to draw drop-shadows (default: true)
 - `size`: size of the mana symbols. (default: 1em)
 
