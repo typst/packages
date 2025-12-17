@@ -18,7 +18,7 @@
 
 The example below uses `suiji` and `cetz` packages to create a trajectory of a random walk.
 
-<img src="./examples/random-walk.png" width="600px">
+<img src="./examples/random-walk.png" alt="A trajectory of a random walk" width="600px">
 
 <details>
 <summary>Show code</summary>
@@ -53,7 +53,7 @@ The example below uses `suiji` and `cetz` packages to create a trajectory of a r
 
 Another example is drawing the the famous **Matrix** rain effect of falling green characters in a terminal.
 
-<img src="./examples/matrix-rain.png" width="600px">
+<img src="./examples/matrix-rain.png" alt="Matrix rain in a terminal" width="600px">
 
 <details>
 <summary>Show code</summary>
@@ -128,7 +128,7 @@ The code below generates several random permutations of 0 to 9. Each time after 
 }
 ```
 
-![random-permutation](./examples/random-permutation.png)
+<img src="./examples/random-permutation.png" alt="Several random permutations of 0 to 9">
 
 For more information, see the [manual](https://github.com/liuguangxi/suiji/blob/main/doc/manual.pdf).
 
