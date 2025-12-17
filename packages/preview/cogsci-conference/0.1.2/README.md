@@ -118,7 +118,7 @@ keyword arguments with arrays of dictionaries:
       (super: [2], affil: [Department of Example Studies, University of Demonstrations]),
     ),
   ),
-  ...
+  // ...
 )
 ```
 
@@ -133,7 +133,7 @@ positional arguments without superscripts:
     ),
     [Shared Affiliation Details],
   ),
-  ...
+  // ...
 )
 ```
 
@@ -146,7 +146,7 @@ You can also bypass `format-authors()` and pass formatted content directly:
     #super[1~]Department of Hypothetical Sciences, University of Illustrations \
     #super[2~]Department of Example Studies, University of Demonstrations
   ],
-  ...
+  // ...
 )
 ```
 
