@@ -8,7 +8,7 @@ A [Typst](https://typst.app/) template for submissions to the _Annual Conference
 
 ## Usage
 
-You will typically want to use this template by initializing a project with the 6-page full paper example. The example document (previewed in the thumbnails) provides formatting specifications and examples of citations, figures, tables, footnotes, and acknowledgments. You can generate the example (*a*) in the Typst web app or (*b*) locally. If you don't need the example, you can also just (*c*) import the template functions in any Typst document.
+You will typically want to use this template by initializing a project with the 6-page full paper example. The example document (previewed in the thumbnails) provides formatting specifications and examples of citations, figures, tables, footnotes, and acknowledgments. You can generate the example document (*a*) in the Typst web app or (*b*) locally. If you don't need the example document, you can also just (*c*) import the template functions in any Typst file.
 
 ### (*a*) Initialize the template in the Typst web app
 
@@ -25,7 +25,7 @@ typst init @preview/cogsci-conference
 cd cogsci-conference
 ```
 
-See [Local Usage](#local-usage) notes below.
+See [Local Usage Notes](#local-usage-notes) below.
 
 ### (*c*) Import the template functions
 
@@ -57,11 +57,11 @@ The API is described in the [Parameters](#parameters) section below.
 #bibliography("bibliography.bib")
 ```
 
-### Local Usage
+### Local Usage Notes
 
 #### Word processing with [Tinymist](https://myriad-dreamin.github.io/tinymist/)
 
-If you're using Typst locally, I recommend the [Tinymist Typst VS Code Extension](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) for [Visual Studio Code](https://code.visualstudio.com/), which provides live preview, syntax highlighting, and error diagnostics.
+If you're using Typst locally, I recommend the [Tinymist Typst VS Code Extension](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) for [Visual Studio Code](https://code.visualstudio.com/), which provides an integrated language server with live preview, semantic highlighting, hover documentation, and linting.
 
 #### Fonts
 
@@ -80,7 +80,7 @@ To compile a PDF using the Typst CLI:
 typst compile --font-path <path-to-fonts-dir> --pdf-standard a-3u main.typ output.pdf
 ```
 
-If the fonts are installed system-wide, you can omit `--font-path`. Otherwise, use `--font-path <path-to-fonts-dir>` to specify a directory containing the OTF files. With the [Tinymist Typst VS Code Extension](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist), specify the font directory with the `tinymist.fontPaths` setting (see the Tinymist [documentation](https://myriad-dreamin.github.io/tinymist/config/vscode.html) for details).
+If the required fonts are installed system-wide, you can omit `--font-path`. Otherwise, use `--font-path <path-to-fonts-dir>` to specify a directory containing the OTF files. With the [Tinymist Typst VS Code Extension](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist), specify the font directory with the `tinymist.fontPaths` setting (see the Tinymist [documentation](https://myriad-dreamin.github.io/tinymist/config/vscode.html) for details).
 
 Specifying a [PDF standard](https://typst.app/docs/reference/pdf/#pdf-standards) like `--pdf-standard a-3u` is optional but ensures that the PDF text is searchable and accessible.
 
