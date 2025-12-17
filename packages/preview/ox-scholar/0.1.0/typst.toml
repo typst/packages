@@ -1,12 +1,11 @@
 [package]
-name = "oxford-scholar"
+name = "ox-scholar"
 version = "0.1.0"
-compiler = "0.14.1"
 entrypoint = "src/lib.typ"
 authors = ["Federico Celli <@fcelli>"]
 license = "MIT"
 description = "Unofficial Oxford DPhil thesis template"
-repository = "https://github.com/fcelli/oxford-scholar"
+repository = "https://github.com/fcelli/ox-scholar"
 keywords = ["Oxford", "thesis", "DPhil", "PhD"]
 categories = ["thesis"]
 exclude = [
