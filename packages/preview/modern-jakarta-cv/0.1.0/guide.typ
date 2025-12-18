@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "@preview/modern-jakarta-cv:0.1.0": *
 #show: project
 
 #align(center)[
