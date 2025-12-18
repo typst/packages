@@ -36,7 +36,7 @@ Place this directory next to your Typst document and import it directly:
 
 ### Basic Example
 
-```typst
+````typst
 #import "@local/kip:0.1.0": kip
 
 #kip(```
@@ -44,7 +44,7 @@ box "Start"
 arrow
 circle "End" fit
 ```)
-```
+````
 
 ### With String Input
 
@@ -54,7 +54,7 @@ circle "End" fit
 
 ### With Sizing
 
-```typst
+````typst
 #kip(
   ```
   arrow right 200%
@@ -63,13 +63,13 @@ circle "End" fit
   ```,
   width: 400pt
 )
-```
+````
 
 ## Examples
 
 ### Simple Flow
 
-```typst
+````typst
 #kip(```
 box "Start"
 arrow
@@ -77,11 +77,11 @@ box "Process"
 arrow
 circle "End" fit
 ```)
-```
+````
 
 ### State Machine
 
-```typst
+````typst
 #kip(```
 circle "Idle" fit
 arrow right 150% "start" above
@@ -89,21 +89,21 @@ circle "Active" fit
 arrow right 150% "finish" above
 circle "Done" fit
 ```)
-```
+````
 
 ### Arrow Diagram
 
-```typst
+````typst
 #kip(```
 arrow right 200% "Input"
 box rad 10px "Processor" fit
 arrow right 200% "Output"
 ```)
-```
+````
 
 ### Architecture Diagram
 
-```typst
+````typst
 #kip(```
 box "Frontend" width 3cm fit
 arrow down 50%
@@ -111,7 +111,7 @@ box "API Layer" width 3cm fit
 arrow down 50%
 box "Database" width 3cm fill lightblue fit
 ```)
-```
+````
 
 ## API Reference
 
@@ -134,13 +134,13 @@ For backwards compatibility and convenience:
 - `render()` - alias for `kip()`
 
 All three functions work identically:
-```typst
+````typst
 #import "@local/kip:0.1.0": kip, pikchr, render
 
 #kip("box \"A\"")      // Primary function
 #pikchr("box \"B\"")   // Alias
 #render("box \"C\"")   // Alias
-```
+````
 
 ## Pikchr Language Reference
 
