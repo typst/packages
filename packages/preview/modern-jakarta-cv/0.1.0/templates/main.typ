@@ -1,10 +1,7 @@
-#import "../template.typ": *
-
-// Apply the global layout settings defined in template.typ
+#import "@preview/modern-jakarta-cv:0.1.0": *
 #show: project
 
 // --- HEADER SECTION ---
-// Centered name with clickable professional links.
 #align(center)[
   #text(18pt, weight: "bold")[Callista Putmanda] \
   #v(0.1em)
@@ -26,7 +23,7 @@ Strategic and creative Marketing graduate from Universitas Indonesia with a stro
 #section("Education")
 #entry(
   title: "Bachelor of Economics (Marketing Major)",
-  sub_title: "Universitas Indonesia",
+  sub-title: "Universitas Indonesia", // Diperbaiki: kebab-case
   date: "Sept 2021 — July 2025",
   description: [
     - *GPA: 3.92 / 4.00* — Specialized in Digital Marketing and Consumer Insights.
@@ -39,7 +36,7 @@ Strategic and creative Marketing graduate from Universitas Indonesia with a stro
 #section("Work Experience")
 #entry(
   title: "Growth Marketing Specialist",
-  sub_title: "Lumina Consumer Goods",
+  sub-title: "Lumina Consumer Goods", // Diperbaiki: kebab-case
   date: "Aug 2025 — Present",
   location: "Jakarta, Indonesia",
   description: [
@@ -50,7 +47,7 @@ Strategic and creative Marketing graduate from Universitas Indonesia with a stro
 
 #entry(
   title: "Brand Management Intern",
-  sub_title: "Global Brands Co.",
+  sub-title: "Global Brands Co.", // Diperbaiki: kebab-case
   date: "Jan 2024 — July 2024",
   location: "Jakarta, Indonesia",
   description: [
@@ -63,7 +60,7 @@ Strategic and creative Marketing graduate from Universitas Indonesia with a stro
 #section("Organizational Experience")
 #entry(
   title: "Head of Public Relations",
-  sub_title: "Economics Student Board (BEM FEB UI)",
+  sub-title: "Economics Student Board (BEM FEB UI)", // Diperbaiki: kebab-case
   date: "Jan 2023 — Jan 2024",
   location: "Depok, Indonesia",
   description: [
@@ -74,7 +71,7 @@ Strategic and creative Marketing graduate from Universitas Indonesia with a stro
 
 // --- PROJECTS ---
 #section("Projects")
-#project_entry(
+#project-entry( // Diperbaiki: kebab-case
   title: "Market Analysis: Gen Z Skincare Trends",
   category: "Academic Research Project (SPSS, Google Trends)",
   description: [
@@ -83,12 +80,12 @@ Strategic and creative Marketing graduate from Universitas Indonesia with a stro
   ]
 )
 
-#project_entry(
+#project-entry( // Diperbaiki: kebab-case
   title: "EcoPrint: Sustainable Fashion Startup Campaign",
   category: "Strategy Competition (Canva, Meta Business Suite)",
   description: [
     - Designed a 3-month digital marketing roadmap for a hypothetical eco-friendly fashion brand.
-    - Won \"Best Strategy Presentation\" for innovative use of short-form video content.
+    - Won "Best Strategy Presentation" for innovative use of short-form video content.
   ]
 )
 
