@@ -84,6 +84,6 @@
 #let lemme(title, content) = context maths-block("Lemme", title, content)
 #let exemple(title, content) = context maths-block-no-stroke("Exemple", title, content)
 #let rappel(title, content) = context maths-block-no-stroke("Rappel", title, content)
-#let exercice(title, content) = context maths-block("Définition", title, content)
+#let exercice(title, content) = context maths-block("Exercice", title, content)
 #let correction(content) = context maths-block-line("Correction", content)
 #let demo(content) = context maths-block-line("Démonstration", content)

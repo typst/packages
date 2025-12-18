@@ -15,7 +15,7 @@
 Labels :
 - <title>
 - <section>
-
+- <subsection>
 */
 
 /*
@@ -59,7 +59,6 @@ Style :
   show: quote-display
 
   // Pre-set
-
   set table(inset: 10pt, stroke: 0.4pt + text.fill.lighten(20%), align: center + horizon, fill: (x, y) => if (x == 0)
     or (y == 0) { text.fill.lighten(90%) })
 

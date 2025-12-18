@@ -27,8 +27,8 @@
 
   show heading: it => context {
     let titles-positions = query(<title>).map(t => t.location().position())
-
     let sections-positions = query(<section>).map(t => t.location().position())
+    let subsections-positions = query(<subsection>).map(t => t.location().position())
 
     if it.location().position() in titles-positions {
       it.body
@@ -41,6 +41,12 @@
         text(size: 50pt, it.body)
       )
       pagebreak()
+    } else if it.location().position() in subsections-positions {
+      pagebreak()
+
+      align(center, text(size: 22pt, it.body))
+
+      v(0.75cm)
     } else {
       set par(spacing: 15pt)
       if it.numbering != none {
@@ -99,26 +105,21 @@
           stroke: 1pt,
           [
 
-            #v(h/2)
+            #v(h / 2)
 
             #if title_array.at(0).len() > 0 {
               place(
-                dy: -1.1cm - h/2,
+                dy: -1.1cm - h / 2,
 
                 box-1,
               )
             }
 
 
-
-
-
-
-
             #{
               if title_array.at(1).len() > 0 {
                 place(
-                  dy:  0.7cm - h/2,
+                  dy: 0.7cm - h / 2,
                   dx: 50% - w / 2,
                   box-2,
                 )
