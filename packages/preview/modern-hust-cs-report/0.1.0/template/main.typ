@@ -1,15 +1,15 @@
 #import "@preview/modern-hust-cs-report:0.1.0": *
 
 
-#show: experimental_report.with(
+#show: experimental-report.with(
   title: "基于高级语言源程序格式处理工具",
-  course_name: "程序设计综合课程设计",
+  course-name: "程序设计综合课程设计",
   author: "蓝鹦鹉",
   school: "计算机科学与技术学院",
-  class_num: "计算机科学与技术2407",
-  stu_num: "U2024",
+  class-num: "计算机科学与技术2407",
+  stu-num: "U2024",
   instructor: "张三",
-  report_date: "2025年11月4日",
+  report-date: "2025年11月4日",
 )
 
 = 引言
@@ -52,7 +52,7 @@
 
 // #pagebreak()
 
-#show: appendix_section // 插入附录
+#show: appendix-section // 插入附录
 
 = test
 Here is the appendix content.

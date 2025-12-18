@@ -35,14 +35,14 @@
   )
 }
 
-#let _hust_footer(footline_length: 6.7cm) = {
+#let _hust_footer(footline-length: 6.7cm) = {
   grid(
     columns: (1fr, auto, 1fr),
     align: (left, center, right),
     inset: (top: 0pt),
-    align(left, rect(width: footline_length, height: 0.4pt, fill: black)),
+    align(left, rect(width: footline-length, height: 0.4pt, fill: black)),
     align(center, text(font: _font-cjk, size: zihao.z5)[#context counter(page).display("1")]),
-    align(right, rect(width: footline_length, height: 0.4pt, fill: black)),
+    align(right, rect(width: footline-length, height: 0.4pt, fill: black)),
   )
 }
 
@@ -58,14 +58,14 @@
 
 #let _cover(
   title: "",
-  course_name: "",
+  course-name: "",
   author: "",
   school: "",
-  class_num: "",
-  stu_num: "",
+  class-num: "",
+  stu-num: "",
   instructor: "",
-  report_date: "",
-  logo_path: none,
+  report-date: "",
+  logo-path: none,
   line_width: 12em,
 ) = {
   set page(header: none, footer: none)
@@ -74,7 +74,7 @@
     stack(
       spacing: 0pt,
       v(5em),
-      (if logo_path != none { image(logo_path, height: 1.61cm) } else { none }),
+      (if logo-path != none { image(logo-path, height: 1.61cm) } else { none }),
       v(3em),
       text(font: _font-cjk, size: 40pt, spacing: 0.1em)[*课 程 设 计 报 告*],
       v(8em),
@@ -93,19 +93,19 @@
             dir: ltr,
             spacing: 1em,
             box(width: 6em)[*课程名称*],
-            _underline_field(course_name, width: line_width),
+            _underline_field(course-name, width: line_width),
           ),
           stack(
             dir: ltr,
             spacing: 1em,
             box(width: 6em)[*专业班级*],
-            _underline_field(class_num, width: line_width),
+            _underline_field(class-num, width: line_width),
           ),
           stack(
             dir: ltr,
             spacing: 1em,
             box(width: 6em)[*学　　号*],
-            _underline_field(stu_num, width: line_width),
+            _underline_field(stu-num, width: line_width),
           ),
           stack(
             dir: ltr,
@@ -123,7 +123,7 @@
             dir: ltr,
             spacing: 1em,
             box(width: 6em)[*报告日期*],
-            _underline_field(report_date, width: line_width),
+            _underline_field(report-date, width: line_width),
           ),
         )
       },
@@ -141,17 +141,17 @@
   set outline(indent: auto)
   
   show outline.entry: it => {
-    let page_num = counter(page).at(it.element.location()).first()
-    let heading_num = if it.element.numbering != none {
+    let page-num = counter(page).at(it.element.location()).first()
+    let heading-num = if it.element.numbering != none {
       numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
     } else {
       none
     }
     
-    let content = if heading_num != none and heading_num.contains(regex("[A-Z]")) {
-      [附录#heading_num #it.element.body]
+    let content = if heading-num != none and heading-num.contains(regex("[A-Z]")) {
+      [附录#heading-num #it.element.body]
     } else {
-      [#heading_num #it.element.body]
+      [#heading-num #it.element.body]
     }
     
     if it.level == 1 {
@@ -161,7 +161,7 @@
           #content
           #box(width: 1fr, repeat[.])
           #h(0.3em)
-          #page_num
+          #page-num
         ]
       ]
       v(0.5em)
@@ -169,11 +169,11 @@
       link(it.element.location())[
         #text(font: _font-cjk, size: zihao.zm4)[
           #h(3em)
-          #if heading_num != none [#heading_num#h(1em)]
+          #if heading-num != none [#heading-num#h(1em)]
           #it.element.body
           #box(width: 1fr, repeat[.])
           #h(0.3em)
-          #page_num
+          #page-num
         ]
       ]
       v(0.7em, weak: true)
@@ -192,52 +192,52 @@
 
 
 
-#let experimental_report(
+#let experimental-report(
   body,
   title: "",
-  course_name: "",
+  course-name: "",
   author: "",
   school: "",
-  class_num: "",
-  stu_num: "",
+  class-num: "",
+  stu-num: "",
   instructor: "",
-  report_date: "",
-  logo_path: none,
-  footline_length: 6.7cm,
-  toc_depth: 2,
+  report-date: "",
+  logo-path: none,
+  footline-length: 6.7cm,
+  toc-depth: 2,
 ) = {
   show: show-cn-fakebold.with(stroke: 0.04em)
   
-  if logo_path == none {
-    logo_path = "./HUSTBlack.png"
+  if logo-path == none {
+    logo-path = "./HUSTBlack.png"
   }
   
   _cover(
     title: title,
-    course_name: course_name,
+    course-name: course-name,
     author: author,
     school: school,
-    class_num: class_num,
-    stu_num: stu_num,
+    class-num: class-num,
+    stu-num: stu-num,
     instructor: instructor,
-    report_date: report_date,
-    logo_path: logo_path,
+    report-date: report-date,
+    logo-path: logo-path,
   )
   
   set page(
     numbering: "I",
     header: _hust_header(),
-    footer: _hust_footer(footline_length: footline_length),
+    footer: _hust_footer(footline-length: footline-length),
     margin: (top: 1.2in),
   )
   counter(page).update(1)
-  _set_outline_style(depth: toc_depth)
+  _set_outline_style(depth: toc-depth)
   pagebreak()
   
   set page(
     numbering: "1",
     header: _hust_header(),
-    footer: _hust_footer(footline_length: footline_length),
+    footer: _hust_footer(footline-length: footline-length),
     margin: (top: 1.2in),
   )
   counter(page).update(1)
@@ -330,16 +330,16 @@
   )
 }
 
-#let citation(bib_path) = {
+#let citation(bib-path) = {
   show heading.where(level: 1): it => {
     align(center, text(font: _font-cjk-sans, size: zihao.zm2, weight: "bold")[#it.body])
   }
   heading(level: 1, numbering: none)[参考文献]
   
-  bibliography(bib_path, title: none, full: true)
+  bibliography(bib-path, title: none, full: true)
 }
 
-#let appendix_section(body) = {
+#let appendix-section(body) = {
   set heading(numbering: "A")
   counter(heading).update(0)
   show heading.where(level: 1): it => {
