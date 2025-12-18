@@ -10,5 +10,6 @@ keywords = ["cv", "resume", "marketing", "professional"]
 categories = ["office"]
 
 [template]
-path = "templates/main.typ"
+path = "templates"
+entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
