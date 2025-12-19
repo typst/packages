@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/boxproof:0.1.0": *
 
 = Tutorial
 
