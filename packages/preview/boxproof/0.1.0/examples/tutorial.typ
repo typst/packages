@@ -115,7 +115,7 @@ Initialization function (wraps the whole proof)
               ($C$, impe(1, 6)),
               ($L -> F$, impe(3, 7)),
               ($not not (L -> F)$, dni(8)),
-              ($not not D$, mt),
+              ($not not D$, mt(2, 9)),
               ($D$, dne(10)),
             ),
             ($B -> D$, impi(5, 11)),
@@ -139,7 +139,7 @@ Initialization function (wraps the whole proof)
               ($C$, impe(1, 6)),
               ($L -> F$, impe(3, 7)),
               ($not not (L -> F)$, dni(8)),
-              ($not not D$, mt),
+              ($not not D$, mt(2, 9)),
               ($D$, dne(10)),
             ),
             ($B -> D$, impi(5, 11)),
@@ -178,7 +178,7 @@ Also see #text(blue, link("https://xiaoshihou514.github.io/ndpc/rules.html")[htt
 #dne(l)              // Double Negation Elimination
 #fe(l)               // Falsity Elimination
 #iffe(l1, l2)        // Equivalence Elimination
-#exe(l1, l2, l3, l4) // Existence Elimination
+#exe(l1, l2, l3)     // Existence Elimination
 #fae(l)              // Forall Elimination
 #faie(l1, l2)        // Forall-Implication Elimination
 ```
@@ -186,8 +186,8 @@ Also see #text(blue, link("https://xiaoshihou514.github.io/ndpc/rules.html")[htt
 === Special Rules
 ```typst
 #lem             // Law of Excluded Middle
-#mt              // Modus Tollens
-#pc              // Proof by Contradiction
+#mt(l1, l2)      // Modus Tollens
+#pc(l1, l2)      // Proof by Contradiction
 #refl            // Reflexivity
 #eqsub(l1, l2)   // Equality Substitution
 #symm(l)         // Rule of Symmetry
