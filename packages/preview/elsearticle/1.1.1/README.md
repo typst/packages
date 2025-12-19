@@ -66,34 +66,7 @@ The `elsearticle` template provides the `#nonumeq()` function to create unnmbere
 ]
 ```
 
-## Roadmap
-
-*Article format*
-
-- [x] Preprint
-- [x] Review
-- [x] 1p
-- [x] 3p
-- [x] 5p
-
-*Environment*
-
-- [x] Implementation of the `appendix` environment
-
-*Figures and tables*
-
-- [x] Implementation of the `subfigure` environment
-
-*Equations*
-
-- [x] Proper referencing of equations w.r.t. the context
-- [x] Use of the `equate` package to number each equation of a system as "(1a)"
-
-*Other features*
-
-- [x] Line numbering - Line numbering - Use the built-in `par.line` function available from Typst v0.12
-
-## License
+# License
 MIT licensed
 
 Copyright (C) 2025 Mathieu AUCEJO (maucejo)
