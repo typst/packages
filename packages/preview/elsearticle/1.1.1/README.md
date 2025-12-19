@@ -13,7 +13,7 @@ This section provides the minimal amount of information to get started with the 
 To use the `elsearticle` template, you need to include the following line at the beginning of your `typ` file:
 
 ```typ
-#import "@preview/elsearticle:1.1.0": *
+#import "@preview/elsearticle:1.1.1": *
 ```
 
 ### Initializing the template
