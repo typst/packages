@@ -1,6 +1,6 @@
 # Presentate
 **Presentate** is a package for creating presentation in Typst. It provides a framework for creating dynamic animation that is compatible with other packages. 
-For usage, please refer to [demo.pdf](./assets/docs/demo.pdf)
+For usage, please refer to [demo.pdf](https://github.com/pacaunt/typst-presentate/blob/main/assets/docs/demo.pdf)
 
 
 ## Simple Usage 
@@ -58,7 +58,7 @@ You can style the slides as you would do with normal Typst document. For example
 ]
 ```
 
-<img alt="example2" src="./assets/examples/example2.png" />
+<img alt="example2" src="https://github.com/pacaunt/typst-presentate/blob/main/assets/examples/example2.png" />
 
 ### Relative Index Specification 
 You can use `none` and `auto`, or even `(rel: int)` to specify the index as *with previous animation*, *after previous animation*, or `int` subslides away from the current number of pauses.
@@ -89,7 +89,7 @@ You can use `none` and `auto`, or even `(rel: int)` to specify the index as *wit
 ]
 ```
 
-<img alt="image" src="./assets/examples/exampleAuto.png" />
+<img alt="image" src="https://github.com/pacaunt/typst-presentate/blob/main/assets/examples/exampleAuto.png" />
 
 ### Varying Timeline
 You can specify the `update-pause` argument of dynamic functions to tell if that function will update the current number of pause or not. If set to `true`, the number of pauses will set to that value. 
@@ -161,7 +161,7 @@ You can have a precise control on what should be shown on each subslide relative
   )
 ]
 ```
-<img alt="Motion Function Demonstration" src="./assets/examples/exampleMotion.png">
+<img alt="Motion Function Demonstration" src="https://github.com/pacaunt/typst-presentate/blob/main/assets/examples/exampleMotion.png">
 
 In this example, featured with CeTZ package, each element is drawn normally, while its animation is shown differently. The precise animation control is done by specifying the tagged names in `controls` argument of `#motion` function. Note that the way of showing and hiding stuff can be modified using `hider` argument of each function.
 
