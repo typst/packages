@@ -16,7 +16,7 @@
   context {
     let theme = __st-theme.final()
     set text(fill: theme.themecolor, weight: "semibold")
-    dropcap(height: 3, gap: 4pt,)[#firstline.first()][#firstline.slice(2) 
+    dropcap(height: 3, gap: 4pt,)[#firstline.first()][#firstline.slice(1) 
     #set text(fill: black, weight: "regular") 
     #body
     ]
