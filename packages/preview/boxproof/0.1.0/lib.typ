@@ -82,13 +82,13 @@
 #let dne(l) = $not not E(#l)$
 #let fe(l) = $bot E(#l)$
 #let iffe(l1, l2) = $<->#h(0em)E(#l1, #l2)$
-#let exe(l1, l2, l3, l4) = $exists E(#l1, #l2, #l3, #l4)$
+#let exe(l1, l2, l3) = $exists E(#l1, #l2, #l3)$
 #let fae(l) = $forall E(#l)$
 #let faie(l1, l2) = $forall #h(0em) -> #h(0em) E(#l1, #l2)$
 
 #let lem = [*LEM*]
-#let mt = [*MT*]
-#let pc = [*PC*]
+#let mt(l1, l2) = $M T(#l1, #l2)$
+#let pc(l1, l2) = $P C(#l1, #l2)$
 #let refl = [*refl*]
 #let eqsub(l1, l2) = [*=sub*(#l1, #l2)]
 #let symm(l) = [*sym*(#l)]
