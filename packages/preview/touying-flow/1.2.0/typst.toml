@@ -1,0 +1,18 @@
+[package]
+name = "touying-flow"
+version = "1.2.0"
+entrypoint = "theme.typ"
+authors = ["Quaternijkon<https://github.com/Quaternijkon>"]
+license = "MIT"
+description = "Enhancing the audience's immersion and foster a deeper state of flow."
+repository = "https://github.com/Quaternijkon/touying-flow"
+keywords = ["presentation", "slides", "lecture", "touying", "university"]
+categories = ["presentation"]
+disciplines = []
+compiler = "0.13.0"
+exclude = ["src"]
+
+[template]
+path = "content/example"
+entrypoint = "main.typ"
+thumbnail = "image.png"

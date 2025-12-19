@@ -1,0 +1,17 @@
+[package]
+name = "simple-xd-resume"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Hinny Tsang <https://github.com/HinnyTsang>"]
+license = "MIT"
+description = "A simple resume"
+keywords = ["Cover Letter", "Curriculum Vitae", "CV", "Resume"]
+exclude = [".gitignore", ".editorconfig", "makefile", ".devcontainer/**"]
+disciplines = []
+categories = ["cv"]
+repository = "https://github.com/HinnyTsang/simple-xd-resume"
+
+[template]
+path = "template"
+entrypoint = "resume-example.typ"
+thumbnail = "assets/thumbnail-resume.png"

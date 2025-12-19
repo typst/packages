@@ -1,0 +1,11 @@
+[package]
+name = "luzid-checkbox"
+version = "0.1.0"
+entrypoint = "luzid-checkbox.typ"
+authors = ["z1glr"]
+license = "GPL-3.0-or-later"
+description = "Write checklists in a markdown syntax and use icons like many Obsidian themes."
+repository = "https://github.com/z1glr/luzid-checkbox"
+keywords = ["list", "icon", "checkbox"]
+categories = ["components", "visualization", "text"]
+exclude = ["/example/*", "/test/*"]

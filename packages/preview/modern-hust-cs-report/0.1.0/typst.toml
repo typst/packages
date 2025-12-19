@@ -1,0 +1,15 @@
+[package]
+name = "modern-hust-cs-report"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Paul Liu <https://github.com/Paulkm2006>"]
+license = "GPL-3.0-or-later"
+categories = ["report"]
+repository = "https://github.com/Paulkm2006/modern-hust-cs-report"
+description = "An unofficial curriculum and lab report template for the School of Computer Science at HUST." 
+keywords = ["华中科技大学","华科","HUST", "计算机科学与技术学院", "计算机", "CS","report","实验报告", "课程报告"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
