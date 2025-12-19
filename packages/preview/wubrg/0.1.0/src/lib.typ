@@ -1,4 +1,4 @@
-#import plugin("../mana.wasm"): mana_svg
+#import plugin("../wubrg.wasm"): mana_svg
 
 /// Render mana symbols
 #let mana(s, size: 1em, shadow: true, sort: true, normalize-hybrid: true) = {

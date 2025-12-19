@@ -1,10 +1,10 @@
-# Mana Symbols
+# `wubrg`
 This package allows you to display [Magic the Gathering][wp:mtg] [mana symbols][mw:ms] in Typst documents.
 
 # Usage
 This library exports a single function, `mana`, which allows you to display mana symbols. First you import it:
 ```typ
-#import "@preview/mana-symbols:0.1.0": mana
+#import "@preview/wubrg:0.1.0": mana
 ```
 
 then you write `#mana[X]`, where `X` is the sequence of mana symbols.

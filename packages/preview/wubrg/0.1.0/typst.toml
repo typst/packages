@@ -1,5 +1,5 @@
 [package]
-name = "mana-symbols"
+name = "wubrg"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Pazzaz <pazzaz.sundqvist@gmail.com>"]
@@ -8,6 +8,7 @@ description = "Display mana symbols from Magic the Gathering."
 repository = "https://github.com/Pazzaz/mana-symbols-typst"
 keywords = [
     "mtg",
+    "mana",
 ]
 categories = ["visualization"]
 compiler = "0.14.0"
