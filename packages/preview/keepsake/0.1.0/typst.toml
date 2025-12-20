@@ -1,0 +1,11 @@
+[package]
+name = "keepsake"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Will Dean"]
+license = "MIT"
+description = "Create printable, folding greeting cards."
+repository = "https://github.com/williambdean/keepsake"
+categories = ["office", "layout", "fun"]
+disciplines = ["design"]
+keywords = ["greeting-cards", "birthday", "holiday", "stationery"]
