@@ -1,0 +1,12 @@
+[package]
+name = "better-numbering"
+version = "0.0.1"
+entrypoint = "lib/main.typ"
+authors = ["AnZreww <an112358132134@gmail.com>"]
+license = "MIT"
+description = "Better-numbering is a typst package for improved figure/table/equation/math.equation/custom-kind numbering."
+repository = "https://github.com/An-314/better-numbering"
+categories = ["scripting"]
+keywords = ["numbering", "counter"]
+compiler = "0.14.0"
+exclude = ["demo.typ", "makefile"]
