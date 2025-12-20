@@ -74,6 +74,47 @@
   body
 }
 
+#let fix-numbered-outline(body) = {
+  let _paint(content, color) = if color == none { content } else { text(content, fill: color) }
+  let _paintc(content, color) = if color == none { content } else { text(fill: color)[#content] }
+  show outline.entry: it => context {
+    let el = it.element
+    if el == none {
+      // fallback: keep default behavior
+      return link(it.element.location(), it.indented(it.prefix(), it.inner()))
+    }
+    let loc = el.location()
+    // If the element explicitly disabled numbering, keep default prefix.
+    if el.has("numbering") and el.numbering == none {
+      return link(loc, it.indented(it.prefix(), it.inner()))
+    }
+    // Fetch the config at the TARGET location (not at the outline page).
+    let cfg = _bn-cfg.at(loc)
+    // Fix equations inside outlines (equation list).
+    if el.func() == math.equation {
+      let n = _last-int(counter(math.equation).at(loc))
+      let inner = generate-counter(cfg.eq-depth, n, outline: cfg.eq-outline, loc: loc)
+      let prefix = _paint("(" + inner + ")", cfg.eq-color)
+      return link(loc, it.indented(prefix, it.inner()))
+    }
+    // Fix figures inside outlines (list of figures / tables).
+    if el.func() == figure {
+      let n = _last-int(counter(figure.where(kind: el.kind)).at(loc))
+      let num = generate-counter(cfg.fig-depth, n, outline: cfg.fig-outline, loc: loc)
+      // Mimic outline.entry.prefix(): add supplement for figures.
+      let sup = [#el.supplement]
+      let prefix = if sup == [] { _paint(num, cfg.fig-color) } else {
+        _paintc([#sup #h(0.15em) #num], cfg.fig-color)
+      }
+      return link(loc, it.indented(prefix, it.inner()))
+    }
+    // Headings / others: keep default.
+    link(loc, it.indented(it.prefix(), it.inner()))
+  }
+  body
+}
+
+
 // One-stop wrapper (use as a show rule).
 #let better-numbering(
   // Heading backbone
@@ -98,28 +139,18 @@
   hide(context {
     _bn-guard.update(session)
     _bn-cfg.update((
-      fig_depth: fig-depth,
-      fig_outline: fig-outline,
-      fig_color: fig-color,
-      eq_depth: eq-depth,
-      eq_outline: eq-outline,
-      eq_color: eq-color,
+      fig-depth: fig-depth,
+      fig-outline: fig-outline,
+      fig-color: fig-color,
+      eq-depth: eq-depth,
+      eq-outline: eq-outline,
+      eq-color: eq-color,
     ))
     ""
   })
 
   // Only the newest session at the current location should act.
   let active = () => _bn-guard.get() == session
-
-  // Update config timeline from this point onward.
-  _bn-cfg.update((
-    fig-depth: fig-depth,
-    fig-outline: fig-outline,
-    fig-color: fig-color,
-    eq-depth: eq-depth,
-    eq-outline: eq-outline,
-    eq-color: eq-color,
-  ))
 
   show: heading-counters.with(
     counter-depth: fig-depth,
@@ -142,6 +173,7 @@
   )
 
   show: fix-numbered-refs
+  show: fix-numbered-outline
 
   body
 }
