@@ -16,7 +16,19 @@ Pikchr (pronounced like "picture") is a PIC-like markup language for diagrams in
 
 ## Installation
 
-### Option 1: Local Installation
+The recommended way to use this package is through the official Typst package registry:
+
+```typst
+#import "@preview/kip:0.1.0": kip
+```
+
+Typst will automatically download and cache the package when you compile your document.
+
+### Alternative Installation Methods
+
+For development or offline use, you can also install locally:
+
+**Local Installation:**
 
 1. Download or clone this package
 2. Place it in your Typst local packages directory:
@@ -24,7 +36,7 @@ Pikchr (pronounced like "picture") is a PIC-like markup language for diagrams in
    - **macOS**: `~/Library/Application Support/typst/packages/local/kip/0.1.0/`
    - **Linux**: `~/.local/share/typst/packages/local/kip/0.1.0/`
 
-### Option 2: Direct Import
+**Direct Import:**
 
 Place this directory next to your Typst document and import it directly:
 
@@ -37,7 +49,7 @@ Place this directory next to your Typst document and import it directly:
 ### Basic Example
 
 ````typst
-#import "@local/kip:0.1.0": kip
+#import "@preview/kip:0.1.0": kip
 
 #kip(```
 box "Start"
@@ -135,7 +147,7 @@ For backwards compatibility and convenience:
 
 All three functions work identically:
 ````typst
-#import "@local/kip:0.1.0": kip, pikchr, render
+#import "@preview/kip:0.1.0": kip, pikchr, render
 
 #kip("box \"A\"")      // Primary function
 #pikchr("box \"B\"")   // Alias
@@ -151,14 +163,15 @@ For complete Pikchr syntax and examples, visit:
 
 ## Building from Source
 
-If you need to rebuild the WASM module (e.g., for updates or modifications), see the [build-scripts/BUILD.md](build-scripts/BUILD.md) file.
+**Note:** This section is only relevant for contributors and developers who have cloned the [kip repository](https://github.com/yourusername/kip). Regular users should install the package from the official registry as described in the [Installation](#installation) section.
+
+If you've cloned the repository and need to rebuild the WASM module (e.g., for updates or modifications), see the [build-scripts/BUILD.md](build-scripts/BUILD.md) file.
 
 ## Known Limitations
 
 - The plugin is pure (stateless) - each diagram is rendered independently
 - Some very complex Pikchr features might have rendering differences
 - Currently only supports light mode rendering
-- `image.decode` deprecation warning (will be updated for Typst 0.15.0)
 
 ## License
 

@@ -31,7 +31,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Known Issues
 - Font warning may appear if "Linux Libertine" font is not installed
-- `image.decode` deprecation warning (to be updated for Typst 0.15.0)
 - Some complex nested diagrams may have edge cases
 
 ## [Unreleased]

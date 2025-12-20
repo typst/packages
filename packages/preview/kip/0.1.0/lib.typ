@@ -47,18 +47,15 @@
   // The plugin returns SVG as bytes
   let svg-bytes = pikchr-plugin.typst_pikchr(input)
 
-  // Decode SVG bytes as image
-  let svg-image = image.decode(svg-bytes, format: "svg")
-
-  // Apply sizing and fit parameters
+  // Create image from SVG bytes and apply sizing and fit parameters
   if width != auto or height != auto {
     box(
       width: width,
       height: height,
-      image(svg-image, fit: fit)
+      image(svg-bytes, format: "svg", fit: fit)
     )
   } else {
-    svg-image
+    image(svg-bytes, format: "svg")
   }
 }
 
