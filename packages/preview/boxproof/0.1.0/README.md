@@ -49,7 +49,7 @@ In particular, it allows you to easily write boxed-style natural deduction proof
 )
 ```
 
-![](https://github.com/user-attachments/assets/ccb26bc4-746f-4026-9f21-b66259770544)
+![preview](https://github.com/user-attachments/assets/ccb26bc4-746f-4026-9f21-b66259770544)
 
 Credits:
 
@@ -57,7 +57,3 @@ Credits:
 
 - https://github.com/YunkaiZhang233/boxproof
 - https://github.com/0rphee/derive-it
-
-```
-
-```
