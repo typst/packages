@@ -36,9 +36,9 @@
   examiner: "Prof. Dr. Albert Einstein",
   supervisors: ("Claude Elwood Shannon", "Kurt Gödel",), // A list of your supervisors. If you have just one, keep it as ("Name",) The template will automatically make it singular
   author: "Max Mustermann",
-  titleEn: "This is the Title of the Thesis",
-  titleDe: "Das ist der Titel der Arbeit",
-  abstractText: [
+  title-en: "This is the Title of the Thesis",
+  title-de: "Das ist der Titel der Arbeit",
+  abstract-text: [
     #lorem(60)
   ],
   acknowledgements: [
@@ -46,8 +46,8 @@
     
     Alternatively, you can list people, institutions or other entities that contributed to the successful completion of this thesis.
   ],
-  submissionDate: datetime.today().display("[day].[month].[year]"),
-  showTitleInHeader: true,
+  submission-date: datetime.today().display("[day].[month].[year]"),
+  show-title-in-header: true,
   draft: draft, // Do not change this here, rather change it in utils.typ
 )
 

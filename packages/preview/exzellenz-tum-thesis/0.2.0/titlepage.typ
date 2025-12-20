@@ -2,14 +2,14 @@
 
 #let titlepage(
   title: "",
-  titleDe: "",
+  title-de: "",
   degree: "",
   program: "",
   school: "",
   examiner: "",
   supervisors: (),
   author: "",
-  submissionDate: none,
+  submission-date: none,
 ) = {
   
   covertitel(degree: degree, program: program, school: school)
@@ -17,7 +17,7 @@
   align(center, text(2em, weight: 700, title))
   
 
-  align(center, text(2em, weight: 500, titleDe))
+  align(center, text(2em, weight: 500, title-de))
 
   v(1fr)
   
@@ -30,7 +30,7 @@
       strong("Author: "), author,
       strong("Examiner: "), examiner,
       strong(if supervisors.len() == 1 { "Supervisor: " } else { "Supervisors: " }), supervisors.join(", \n"),
-      strong("Submission Date: "), submissionDate,
+      strong("Submission Date: "), submission-date,
     )
   )
 

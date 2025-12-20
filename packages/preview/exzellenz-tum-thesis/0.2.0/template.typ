@@ -12,12 +12,12 @@
   examiner: "Your Supervisor",
   supervisors: ("The first supervisor", "The second supervisor"),
   author: "The Author",
-  titleEn: "English Title",
-  titleDe: "German Title",
-  abstractText: none,
+  title-en: "English Title",
+  title-de: "German Title",
+  abstract-text: none,
   acknowledgements: none,
-  submissionDate: "(Handover Date)",
-  showTitleInHeader: true,
+  submission-date: "(Handover Date)",
+  show-title-in-header: true,
   draft: true,
   body,
 ) = {
@@ -27,7 +27,7 @@
     draft_string = "DRAFT - "
   }
 
-  set document(author: author, title: draft_string + titleEn)
+  set document(author: author, title: draft_string + title-en)
   set page(
     numbering: "1",
     number-align: center,
@@ -44,7 +44,7 @@
   set page(numbering: none)
 
   cover(
-    title: draft_string + titleEn,
+    title: draft_string + title-en,
     degree: degree,
     program: program,
     author: author,
@@ -52,34 +52,34 @@
   )
 
   titlepage(
-    title: draft_string + titleEn,
-    titleDe: titleDe,
+    title: draft_string + title-en,
+    title-de: title-de,
     degree: degree,
     program: program,
     school: school,
     examiner: examiner,
     supervisors: supervisors,
     author: author,
-    submissionDate: draft_string + submissionDate
+    submission-date: draft_string + submission-date
   )
 
   disclaimer(
-    title: titleEn,
+    title: title-en,
     degree: degree,
     author: author,
-    submissionDate: submissionDate
+    submission-date: submission-date
   )
   if acknowledgements != none {
     acknowledgement(acknowledgements)
   }
 
-  abstract(abstractText)
+  abstract(abstract-text)
 
   set page(
     header: {
       set text(8pt)
-      if showTitleInHeader [
-        #author - #titleEn
+      if show-title-in-header [
+        #author - #title-en
       ]
       h(1fr)
       if draft [

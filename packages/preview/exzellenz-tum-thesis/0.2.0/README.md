@@ -21,12 +21,12 @@ This template exports the `exzellenz-tum-thesis` function with the following nam
 - `examiner`: String - Your TUM professor
 - `supervisors`: Array of Strings - The official advisors and supervisors
 - `author`: String
-- `titleEn`: String
-- `titleDe`: String
-- `abstractText`: Content block
+- `title-en`: String
+- `title-de`: String
+- `abstract-text`: Content block
 - `acknowledgements`: Content block - optional, if you have thanks to give
-- `submissionDate`: String
-- `showTitleInHeader`: Boolean - Should author and title appear in the header of each content page?
+- `submission-date`: String
+- `show-title-in-header`: Boolean - Should author and title appear in the header of each content page?
 - `draft`: Boolean - Set to false when finalizing the thesis
 
 The template will initialize your package with a sample call to the `exzellenz-tum-thesis` function.

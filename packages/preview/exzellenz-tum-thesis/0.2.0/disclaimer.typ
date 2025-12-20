@@ -2,7 +2,7 @@
   title: "",
   degree: "",
   author: "",
-  submissionDate: "",
+  submission-date: "",
 ) = {
 
   // --- Disclaimer ---
@@ -17,7 +17,7 @@
   grid(
       columns: 2,
       gutter: 1fr,
-      overline[#sym.wj #sym.space #sym.space #sym.space #sym.space Munich, #submissionDate #sym.space #sym.space #sym.space #sym.space #sym.wj],
+      overline[#sym.wj #sym.space #sym.space #sym.space #sym.space Munich, #submission-date #sym.space #sym.space #sym.space #sym.space #sym.wj],
       overline[#sym.wj #sym.space #sym.space #sym.space #sym.space #sym.space #author #sym.space #sym.space #sym.space #sym.space #sym.space #sym.wj]
     )
 
