@@ -5,5 +5,5 @@
 #import "@preview/wrap-it:0.1.1": wrap-content, wrap-top-bottom // wrap figures around text
 #import "@preview/subpar:0.2.2" // create subfigures
 #import "@preview/fontawesome:0.6.0": fa-icon
-#import "@preview/decasify:0.10.1": sentencecase
+#import "@preview/decasify:0.11.2": sentencecase
 #import "./acrostiche.typ": *

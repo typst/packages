@@ -66,13 +66,10 @@ Here is a minimal example showing how to set up the template with metadata for a
 Once the metadata is in place, you can start writing your chapters and sections immediately below.  
 The template will handle the layout of the title page, abstract, and other structural elements automatically.  
 
-> [!WARNING]
-> **Working with Chapters**
-> 
-> Typst does not currently support _textual inclusion_, meaning that you can use only dependencies
-    directly imported in the current file. For this reason, if you plan to split your document into
-    standalone chapters, you must include the package in each file to access its functions.],
->
+## Working with Chapters
+ 
+Typst does not currently support _textual inclusion_, meaning that you can use only dependencies directly imported in the current file. For this reason, if you plan to split your document into standalone chapters, you must include the package in each file to access its functions.
+
 
 ## Requirements
 
