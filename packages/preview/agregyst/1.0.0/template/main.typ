@@ -18,14 +18,14 @@
 
 #item("Theorème")[Lemme de l'étoile.][
   Soit $u$ un mot...
-]
+] <th:étoile>
 
-// Sous-partie sans référence particulière.
+// Sous-partie sans référence bibliographique particulière.
 == Deuxième sous-partie @NAN
 
 #dev[
   #item("Exemple")[Le langage de Dyck][
-    est...
+    est... Référence au @th:étoile.
   ]
 ]
 
