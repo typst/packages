@@ -250,7 +250,7 @@
     if chapter-style == "wonderland" {
       content = block(width: 100%, content)
     } else {
-      content = block(width: 80%, content)
+      content = block(width: 90%, content)
     }
 
     align(chapter-alignment, content)
