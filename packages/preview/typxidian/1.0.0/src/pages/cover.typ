@@ -44,9 +44,9 @@
     #if subtitle != none {
       linebreak()
       v(1em)
-      subtitle
+      text(size: sizes.subsection)[#subtitle]
     }
-    #v(5em)
+    #v(6em)
 
     #if supervisors.len() == 0 and authors.len() > 0 {
       let ncols = calc.min(authors.len(), 3)
