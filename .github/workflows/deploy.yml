@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [neverever]
 
 # Don't deploy two commits in parallel
 concurrency:
