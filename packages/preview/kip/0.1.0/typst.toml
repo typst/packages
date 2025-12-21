@@ -8,7 +8,7 @@ description = "Kip: Pikchr diagram language integration for Typst - render PIC-l
 homepage = "https://github.com/yourusername/kip"
 repository = "https://github.com/yourusername/kip"
 keywords = ["diagram", "visualization", "graphics", "pikchr", "svg", "drawing"]
-categories = ["visualization", "graphics"]
+categories = ["visualization"]
 disciplines = ["computer-science", "engineering"]
 compiler = "0.12.0"
 
