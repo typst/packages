@@ -51,16 +51,16 @@ An example configuration is located in [`example/`](./example/main.typ).
 
 **Optional parameters**
 
-| Parameter | Type | Usage |
-|-----------|------|-------|
-| `additional-logos` | image array | Further logos on the proposal; Logos listed as images in an array; styling should be evicted |
-| `hpi-logo-index` | int | Index at which the HPI logo should be displayed. 0 means the HPI logo is the first logo. (Default 0) |
-| `enable-hpi-logo` | boolean | Whether to include the HPI logo in the proposal |
-| `enable-up-logo` | boolean | Whether to include the University of Potsdam logo in the proposal |
-| `abstract` | content | The abstract of the work. |
-| `abstract-formatting` | dictionary | Special formatting for the abstract. Will be applied to a [text function](https://typst.app/docs/reference/text/text/). |
-| `enable-toc` | boolean | Whether to include a Table of Contents (ToC) in the work |
-| `double-column` | boolean | Turns the document into double or single-column format. |
+| Parameter | Type | Usage | Default |
+|-----------|------|-------|---------|
+| `additional-logos` | image array | Further logos on the proposal. Logos listed as images in an array. styling should be evicted. | `()` |
+| `hpi-logo-index` | int | Index at which the HPI logo should be displayed. 0 means the HPI logo is the first logo. | `0` |
+| `enable-hpi-logo` | boolean | Whether to include the HPI logo in the proposal. | true |
+| `enable-up-logo` | boolean | Whether to include the University of Potsdam logo in the proposal. Be reminded that externally published work needs to include HPI and UP logo. | `false` |
+| `abstract` | content | The abstract of the work. | `[]` |
+| `abstract-formatting` | dictionary | Special formatting for the abstract. Will be applied to a [text function](https://typst.app/docs/reference/text/text/). | ```(fill: rgb("2e2e2e"), style: "italic")``` |
+| `enable-toc` | boolean | Whether to include a table of contents in the work. | `true` |
+| `double-column` | boolean | Turns the document into double or single-column format. | `false` |
 
 ## Copyright Notes
 
