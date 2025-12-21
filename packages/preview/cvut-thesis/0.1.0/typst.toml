@@ -8,7 +8,7 @@ license = "MIT"
 description = "A thesis template for ČVUT (CTU in Prague) students."
 entrypoint = "lib.typ"
 categories = ["report", "thesis", "paper"]
-keywords = ["cvut", "ctu", "prague", "thesis", "education", "engineering"]
+keywords = ["cvut", "ctu", "czech-technical-university", "prague", "thesis", "education", "engineering"]
 
 [template]
 path = "template"
