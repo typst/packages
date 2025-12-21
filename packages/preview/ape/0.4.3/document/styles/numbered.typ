@@ -59,7 +59,7 @@
             + (
               [
                 #counter(heading).display(it.numbering).split(")").at(-2) -- #it.body
-
+              
               ]
             ),
         )
@@ -87,7 +87,7 @@
 
       let box-1 = [
         #rect(fill: white)[
-          #text(size: 1.5em, [*#title_array.at(0)*])
+          #text(size: 1.2em)[#heading(depth: 1)[*#title_array.at(0)*] <title>]
         ]
       ]
       let box-2 = box(width: w, align(center, rect(fill: white, title-content)))

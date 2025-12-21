@@ -73,5 +73,3 @@
 
 #let RTSG = "Référentiel terrestre supposé galiléen"
 #let TEC = "Théorème de l'énergie cinétique"
-
-
