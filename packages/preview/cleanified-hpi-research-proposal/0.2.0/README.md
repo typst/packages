@@ -1,7 +1,6 @@
 # Cleanified HPI Research Proposal
 
 A clean-aesthetic template for writing a research proposal.
-There are no official guidelines on how to write a research proposal.
 
 ## Getting Started
 
