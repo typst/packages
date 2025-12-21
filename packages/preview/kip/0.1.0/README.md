@@ -105,13 +105,9 @@ circle "End" fit
 
 ### With Sizing
 
-```typst
+```typ
 #kip(
-  ```
-  arrow right 200%
-  box "Process" fit
-  arrow right 200%
-  ```,
+  "arrow right 200% \n box \"Process\" fit \n arrow right 200%",
   width: 400pt
 )
 ```
