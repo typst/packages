@@ -4,10 +4,11 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Kip Plugin Contributors"]
 license = "MIT"
-description = "Render Pikchr diagrams as SVG using PIC-like markup."
-repository = "https://github.com/ragtux/kip"
+description = "Kip: Pikchr diagram language integration for Typst - render PIC-like diagrams as SVG"
+homepage = "https://github.com/yourusername/kip"
+repository = "https://github.com/yourusername/kip"
 keywords = ["diagram", "visualization", "graphics", "pikchr", "svg", "drawing"]
-categories = ["visualization"]
+categories = ["visualization", "graphics"]
 disciplines = ["computer-science", "engineering"]
 compiler = "0.12.0"
 
@@ -18,5 +19,6 @@ exclude = [
   "build-scripts/*.wasm",
   "build-scripts/*.o",
   "test_*",
-  "example*.pdf"
+  "example*.pdf",
+  "/gallery/*"
 ]

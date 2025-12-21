@@ -14,21 +14,60 @@ Pikchr (pronounced like "picture") is a PIC-like markup language for diagrams in
 - ✅ Works in Typst CLI (tested with Typst 0.12+)
 - ✅ Simple, intuitive API
 
+## Examples
+
+<table>
+<tr>
+  <td>
+    <a href="gallery/build-pikchr.typ">
+      <img src="gallery/build-pikchr.png" width="250px">
+    </a>
+  </td>
+  <td>
+    <a href="gallery/sqlite-arch.typ">
+      <img src="gallery/sqlite-arch.png" width="250px">
+    </a>
+  </td>
+  <td>
+    <a href="gallery/swimlanes.typ">
+      <img src="gallery/swimlanes.png" width="250px">
+    </a>
+  </td>
+</tr>
+<tr>
+  <td>Build Process Flowchart</td>
+  <td>SQLite Architecture</td>
+  <td>Swimlanes Timeline</td>
+</tr>
+<tr>
+  <td>
+    <a href="gallery/syntax-diagram.typ">
+      <img src="gallery/syntax-diagram.png" width="250px">
+    </a>
+  </td>
+  <td>
+    <a href="gallery/version-control.typ">
+      <img src="gallery/version-control.png" width="250px">
+    </a>
+  </td>
+  <td>
+    <a href="gallery/trident.typ">
+      <img src="gallery/trident.png" width="250px">
+    </a>
+  </td>
+</tr>
+<tr>
+  <td>Syntax Railroad Diagram</td>
+  <td>Version Control Graph</td>
+  <td>Impossible Trident</td>
+</tr>
+</table>
+
+*Click on an example image to see the code. Examples from [pikchr.org](https://pikchr.org).*
+
 ## Installation
 
-The recommended way to use this package is through the official Typst package registry:
-
-```typst
-#import "@preview/kip:0.1.0": kip
-```
-
-Typst will automatically download and cache the package when you compile your document.
-
-### Alternative Installation Methods
-
-For development or offline use, you can also install locally:
-
-**Local Installation:**
+### Option 1: Local Installation
 
 1. Download or clone this package
 2. Place it in your Typst local packages directory:
@@ -36,7 +75,7 @@ For development or offline use, you can also install locally:
    - **macOS**: `~/Library/Application Support/typst/packages/local/kip/0.1.0/`
    - **Linux**: `~/.local/share/typst/packages/local/kip/0.1.0/`
 
-**Direct Import:**
+### Option 2: Direct Import
 
 Place this directory next to your Typst document and import it directly:
 
@@ -48,15 +87,15 @@ Place this directory next to your Typst document and import it directly:
 
 ### Basic Example
 
-````typst
-#import "@preview/kip:0.1.0": kip
+```typst
+#import "@local/kip:0.1.0": kip
 
 #kip(```
 box "Start"
 arrow
 circle "End" fit
 ```)
-````
+```
 
 ### With String Input
 
@@ -66,7 +105,7 @@ circle "End" fit
 
 ### With Sizing
 
-````typst
+```typst
 #kip(
   ```
   arrow right 200%
@@ -75,13 +114,13 @@ circle "End" fit
   ```,
   width: 400pt
 )
-````
+```
 
 ## Examples
 
 ### Simple Flow
 
-````typst
+```typst
 #kip(```
 box "Start"
 arrow
@@ -89,11 +128,11 @@ box "Process"
 arrow
 circle "End" fit
 ```)
-````
+```
 
 ### State Machine
 
-````typst
+```typst
 #kip(```
 circle "Idle" fit
 arrow right 150% "start" above
@@ -101,21 +140,21 @@ circle "Active" fit
 arrow right 150% "finish" above
 circle "Done" fit
 ```)
-````
+```
 
 ### Arrow Diagram
 
-````typst
+```typst
 #kip(```
 arrow right 200% "Input"
 box rad 10px "Processor" fit
 arrow right 200% "Output"
 ```)
-````
+```
 
 ### Architecture Diagram
 
-````typst
+```typst
 #kip(```
 box "Frontend" width 3cm fit
 arrow down 50%
@@ -123,7 +162,7 @@ box "API Layer" width 3cm fit
 arrow down 50%
 box "Database" width 3cm fill lightblue fit
 ```)
-````
+```
 
 ## API Reference
 
@@ -146,13 +185,13 @@ For backwards compatibility and convenience:
 - `render()` - alias for `kip()`
 
 All three functions work identically:
-````typst
-#import "@preview/kip:0.1.0": kip, pikchr, render
+```typst
+#import "@local/kip:0.1.0": kip, pikchr, render
 
 #kip("box \"A\"")      // Primary function
 #pikchr("box \"B\"")   // Alias
 #render("box \"C\"")   // Alias
-````
+```
 
 ## Pikchr Language Reference
 
@@ -163,9 +202,7 @@ For complete Pikchr syntax and examples, visit:
 
 ## Building from Source
 
-**Note:** This section is only relevant for contributors and developers who have cloned the [kip repository](https://github.com/yourusername/kip). Regular users should install the package from the official registry as described in the [Installation](#installation) section.
-
-If you've cloned the repository and need to rebuild the WASM module (e.g., for updates or modifications), see the [build-scripts/BUILD.md](build-scripts/BUILD.md) file.
+If you need to rebuild the WASM module (e.g., for updates or modifications), see the [build-scripts/BUILD.md](build-scripts/BUILD.md) file.
 
 ## Known Limitations
 
