@@ -66,10 +66,11 @@ Optional:
 - `compiler`: The minimum Typst compiler version required for this package to
   work.
 - `exclude`: An array of globs specifying files that should not be part of the
-  published bundle that the compiler downloads when importing the package. To be
-  used for large support files like images or PDF documentation that would
+  published bundle that the compiler downloads when importing the package. These
+  files will still be available on typst universe to link to from the README.\
+  To be used for large support files like images or PDF documentation that would
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
-  the LICENSE.
+  the LICENSE, see [what to exclude].
 
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
@@ -174,10 +175,10 @@ Required for submissions to this repository:
 - `thumbnail`: A path relative to the package's root that points to a PNG or
   lossless WebP thumbnail for the template. The thumbnail must depict one of the
   pages of the template **as initialized.** The longer edge of the image must be
-  at least 1080px in length. Its file size must not exceed 3MB. Exporting a PNG
-  at 250 DPI resolution is usually a good way to generate a thumbnail. You can
-  use the following command for that: `typst compile -f png --pages 1 --ppi 250
-  main.typ thumbnail.png`. You are encouraged to use [oxipng] to reduce the
+  at least 1080 px in length. Its file size must not exceed 3 MiB. Exporting a
+  PNG at 250 PPI resolution is usually a good way to generate a thumbnail. You
+  can use the following command for that: `typst compile -f png --pages 1 --ppi
+  250 main.typ thumbnail.png`. You are encouraged to use [oxipng] to reduce the
   thumbnail's file size. The thumbnail will automatically be excluded from the
   package files and must not be referenced anywhere in the package.
 
@@ -220,3 +221,4 @@ foo = "bar"
 [oxipng]: https://github.com/shssoichiro/oxipng
 [license]: licensing.md
 [description]: #writing-a-good-description
+[what to exclude]: tips.md#what-to-commit-what-to-exclude

@@ -1,0 +1,25 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "libra"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [
+  "Luiz Georg <https://github.com/mentonin>",
+]
+license = "GPL-3.0-or-later"
+description = "Balance your lines."
+repository = "https://github.com/mentonin/libra"
+keywords = ["balanced"]
+categories = ["layout"]
+
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+]
