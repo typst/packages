@@ -19,7 +19,7 @@ Compares two strings and highlights the differences.
 
 The output will look like this:
 
-<img src="./figure/diff-string.png">
+<img src="./example/diff-string.png">
 
 ### diff-content
 
@@ -34,7 +34,7 @@ Compares two Typst contents and highlights the differences, preserving styles.
 )
 ```
 
-<img src="./figure/diff-content.png">
+<img src="./example/diff-content.png">
 
 ## Functions
 
