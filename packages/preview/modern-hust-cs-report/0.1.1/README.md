@@ -123,7 +123,7 @@ Here is the appendix content.
 - `caption`: 表格标题（必填）
 - 表格编号格式为 `表x-y-z`，其中 x 是一级标题编号，y 是二级标题编号，z 是该节内的表格序号
 - 每个二级标题下的表格编号会自动重置
-- 表注使用 Times New Roman 和黑体混合字体，14pt，居中显示在表格上方
+- 表注使用 Times New Roman 和黑体混合字体，12pt，居中显示在表格上方
 
 ### 引用插入
 
