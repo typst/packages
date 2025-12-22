@@ -23,3 +23,4 @@ The template is divided into two distinct files:
 To make your Github, LinkedIn, or Portfolio clickable, use the following syntax in *main.typ*:
 ```typst
 #link("URL_HERE")[TEXT_TO_DISPLAY]
+```
