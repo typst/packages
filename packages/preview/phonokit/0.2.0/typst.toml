@@ -4,6 +4,7 @@ disciplines = ["linguistics"]
 name = "phonokit"
 version = "0.2.0"
 entrypoint = "lib.typ"
+exclude = ["gallery/"]
 authors = ["Guilherme D. Garcia <guilherme.garcia@lli.ulaval.ca>"]
 license = "MIT"
 description = "Create phonological representations"
