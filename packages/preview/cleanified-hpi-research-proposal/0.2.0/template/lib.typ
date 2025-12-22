@@ -132,6 +132,7 @@
   }
 
   if enable-hpi-logo {
+    hpi-logo-index = calc.min(hpi-logo-index, _logos.len())
     _logos.insert(hpi-logo-index, image("hpi_logo.svg", height: 50pt))
   }
 
