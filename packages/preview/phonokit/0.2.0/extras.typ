@@ -1,6 +1,6 @@
 
 // NOTE: -- A collection of arrows
-#let a-R = text(font: "New Computer Modern", size: 1.5em)[#h(1em)#sym.arrow.r#h(1em)]
+#let a-r-large = text(font: "New Computer Modern", size: 1.5em)[#h(1em)#sym.arrow.r#h(1em)]
 #let a-r = text(font: "New Computer Modern", size: 1em)[#sym.arrow.r]
 #let a-l = text(font: "New Computer Modern")[#sym.arrow.l]
 #let a-u = text(font: "New Computer Modern")[#sym.arrow.t]
