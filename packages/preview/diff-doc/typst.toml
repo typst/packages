@@ -1,0 +1,9 @@
+[package]
+name = "diff-doc"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Takeru Hashimoto"]
+license = "MIT"
+description = "A package that shows the differences between two documents."
+repository = "https://github.com/tkrhsmt/diff-doc"
+exclude = ["example/"]
