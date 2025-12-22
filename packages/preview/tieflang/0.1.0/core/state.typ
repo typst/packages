@@ -1,5 +1,4 @@
 #let stored-translations = state("stored-translations", (default: ()))
-#let fallback-lang = state("fallback-lang", (default: "en-US"))
 #let default-lang = state("default-lang", (default: "en-US"))
 #let is-strict-mode-enabled = state("is-strict-mode-enabled", false)
 #let available-langs = state("available-langs", (default: ()))

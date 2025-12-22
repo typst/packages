@@ -1,6 +1,4 @@
-#import "state.typ": (
-  available-langs, current-lang-stack, default-lang, fallback-lang, is-strict-mode-enabled, stored-translations,
-)
+#import "state.typ": available-langs, current-lang-stack, default-lang, is-strict-mode-enabled, stored-translations
 
 // CORE FUNCTIONS
 
@@ -9,11 +7,9 @@
   namespace: "default",
   strict: false,
   default: none,
-  fallback: none,
 ) => {
   stored-translations.update(t => (..t, (namespace): translations))
   default-lang.update(d => (..d, (namespace): default))
-  fallback-lang.update(f => (..f, (namespace): fallback))
   is-strict-mode-enabled.update(s => if strict == none or type(strict) != bool { return s } else { return strict })
   available-langs.update(l => (..l, (namespace): translations.keys()))
   current-lang-stack.update(c => {
