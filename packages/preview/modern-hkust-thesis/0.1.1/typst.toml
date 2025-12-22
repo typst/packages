@@ -1,6 +1,6 @@
 [package]
 name = "modern-hkust-thesis"
-version = "0.1.0"
+version = "0.1.1"
 entrypoint = "lib/lib.typ"
 authors = ["JWangL5 <https://jwangl5.github.io/>"]
 license = "MIT"
