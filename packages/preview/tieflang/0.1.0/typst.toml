@@ -1,0 +1,11 @@
+[package]
+name = "tieflang"
+version = "0.1.0"
+compiler = "0.14.2"
+authors = ["Lena Tauchner"]
+entrypoint = "lib.typ"
+license = "MIT"
+description = "Translation Library for Tief* Templates"
+keywords = ["i18n", "translations"]
+categories = ["languages", "utility"]
+disciplines = []
