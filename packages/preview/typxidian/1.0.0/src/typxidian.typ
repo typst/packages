@@ -205,7 +205,19 @@
   }
 
   show heading.where(level: 1): it => context {
-    counter(figure).update(0)
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: "par")).update(0)
+    counter(figure.where(kind: "callout")).update(0)
+    counter(figure.where(kind: "callout")).update(0)
+    counter(figure.where(kind: "info")).update(0)
+    counter(figure.where(kind: "faq")).update(0)
+    counter(figure.where(kind: "danger")).update(0)
+    counter(figure.where(kind: "tip")).update(0)
+    counter(figure.where(kind: "success")).update(0)
+    counter(figure.where(kind: "definition")).update(0)
+    counter(figure.where(kind: "theorem")).update(0)
+    counter(figure.where(kind: "proof")).update(0)
     counter(math.equation).update(0)
 
     blankpage(single: false)
