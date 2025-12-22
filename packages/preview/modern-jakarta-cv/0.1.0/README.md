@@ -22,3 +22,4 @@ To use this template officially via the Typst Universe, include the following sn
 ```typst
 #import "@preview/modern-jakarta-cv:0.1.0": *
 #show: project
+```
