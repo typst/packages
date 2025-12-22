@@ -44,12 +44,6 @@
 
 // ALIASES
 
-#let set-lang = push-lang
-#let select-lang = push-lang
-#let push-language = push-lang
-#let set-language = push-lang
 #let select-language = push-lang
 
-#let restore-lang = pop-lang
-#let pop-language = pop-lang
 #let restore-language = pop-lang

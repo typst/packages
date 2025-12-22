@@ -1,8 +1,15 @@
 #import "state.typ": current-lang-stack, default-lang, is-strict-mode-enabled, stored-translations
 
-#let get-translations = namespace => (
-  stored-translations.get().at(namespace).at(current-lang-stack.get().first(default: default-lang.get().at(namespace)))
-)
+#let get-translations = namespace => {
+  let translations-in-namespace = stored-translations.get().at(namespace)
+  let lang = current-lang-stack.get().first(default: default-lang.get().at(namespace))
+
+  assert(
+    translations-in-namespace.keys().contains(lang),
+    message: "Language definition for '" + lang + "' does not exist.",
+  )
+  translations-in-namespace.at(lang)
+}
 
 #let resolve-key = key => key.split(".")
 
