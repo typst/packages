@@ -102,7 +102,7 @@ Here is the appendix content.
 - `caption`: 图片标题（必填）
 - 图片编号格式为 `图x-y-z`，其中 x 是一级标题编号，y 是二级标题编号，z 是该节内的图片序号
 - 每个二级标题下的图片编号会自动重置
-- 图注使用 Times New Roman 和黑体混合字体，14pt，居中显示在图片下方
+- 图注使用 Times New Roman 和黑体混合字体，12pt，居中显示在图片下方
 
 ### 表格插入
 
