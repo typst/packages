@@ -55,7 +55,7 @@
 
   let font-size-reduction = 0pt
   if double-column {
-    font-size-reduction = 2pt
+    font-size-reduction = 1pt
   }
   set text(font: "Libertinus Serif", size: 9pt - font-size-reduction, lang: "en")
   show math.equation: set text(weight: 400)
