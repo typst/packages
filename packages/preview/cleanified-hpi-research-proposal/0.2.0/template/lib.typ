@@ -104,9 +104,16 @@
       h(7pt, weak: true)
     }
 
-    v(1%)
+    if not double-column {
+      v(1%)
+    }
     text(size: 13pt - font-size-reduction, weight: "bold", block([#number #it.body]))
-    v(0.5em)
+
+    if double-column {
+      v(0.2em)
+    } else {
+      v(0.5em)
+    }
   }
 
   // Configure chapter headings.
@@ -235,7 +242,11 @@
   if enable-toc {
     v(1em)
     line(length: 100%)
-    v(-1.6em)
+    if double-column {
+      v(-0.8em)
+    } else {
+      v(-1.6em)
+    }
     outline(depth: 2)
     if double-column {
       v(1em)
