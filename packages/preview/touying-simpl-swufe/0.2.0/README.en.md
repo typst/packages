@@ -28,7 +28,7 @@ The Web App does not have the fonts installed on local Windows or macOS systems,
 1. Install the [Tinymist Typst plugin](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) in VSCode.
 2. Press `Ctrl+Shift+P` or `F1` to open the command palette, type `Typst: Show available Typst templates (gallery) for picking up a template`, search for `touying-simpl-swufe` in the popup window, click the ❤ button to favorite it, and click the + button to use the template.
 3. VSCode will automatically create and open a new project. Open the `main.typ` file and press `Ctrl+K V` for live editing and preview.
-4. (Optional) Install and use the [Typst-figure-pasteTools](https://marketplace.visualstudio.com/items?itemName=yuzhong.typst-figure-pastetools) plugin and [Typst-table-paste](https://github.com/leichaoL/typst-table-paste) plugin, which allow you to directly copy and paste images and tables like in Word or PPT, greatly improving the Typst experience.
+4. (Optional) Install and use the [Typst-figure-pasteTools](https://marketplace.visualstudio.com/items?itemName=yuzhong.typst-figure-pastetools) plugin and [Typst-table-paste](https://marketplace.visualstudio.com/items?itemName=leichaoL.typst-table-paste) plugin, which allow you to directly copy and paste images and tables like in Word or PPT, greatly improving the Typst experience.
 
 ![Tinymist Typst template gallery](imgs/gallery.webp)
 

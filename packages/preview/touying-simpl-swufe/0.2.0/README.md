@@ -28,7 +28,7 @@ Web App 并没有安装本地 Windows 或 MacOS 所拥有的字体，字体上�
 1. 在 VSCode 中安装 [Tinymist Typst 插件](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist)。
 2. 按`Ctrl Shift P`或者`F1`打开命令面板，输入 `Typst: 显示可用的 Typst 模板（画廊），以选择一个模板进行初始化`（`Typst: Show available Typst templates (gallery) for picking up a template`），在弹出的窗口中搜索找到 `touying-simpl-swufe`，点击 ❤ 按钮进行收藏，点击 + 号使用模板。
 3. VSCode 会自动创建并打开一个新项目，打开`main.typ`文件，按下`Ctrl + K V`进行实时编辑和预览。
-4. （可选）安装并使用[Typst-figure-pasteTools](https://marketplace.visualstudio.com/items?itemName=yuzhong.typst-figure-pastetools) 插件和[Typst-table-paste](https://github.com/leichaoL/typst-table-paste) 插件，可以像Word、PPT一样直接复制粘贴图片和表格，极大提升 Typst 的使用体验。
+4. （可选）安装并使用[Typst-figure-pasteTools](https://marketplace.visualstudio.com/items?itemName=yuzhong.typst-figure-pastetools) 插件和[Typst-table-paste](https://marketplace.visualstudio.com/items?itemName=leichaoL.typst-table-paste) 插件，可以像Word、PPT一样直接复制粘贴图片和表格，极大提升 Typst 的使用体验。
 
 ![Tinymist Typst 模板画廊](imgs/gallery.webp)
 

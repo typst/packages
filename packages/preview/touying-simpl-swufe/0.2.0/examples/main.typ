@@ -224,7 +224,7 @@ $ <eq>
 )
 
 == 表格
-- 推荐使用 VSCode 中 #link("https://github.com/leichaoL/typst-table-paste")[Typst-table-paste] 插件（暂未上架插件商店），将 Word、Excel 或者其他表格软件中的表格复制粘贴到 Typst 中即可自动生成 `#figure(table())` 代码块。
+- 推荐使用 VSCode中我制作的 #link("https://marketplace.visualstudio.com/items?itemName=leichaoL.typst-table-paste")[Typst-table-paste] 插件，将 Word、Excel 或者其他表格软件中的表格复制粘贴到 Typst 中即可自动生成 `#figure(table())` 代码块。
 
 #figure(
   table(
