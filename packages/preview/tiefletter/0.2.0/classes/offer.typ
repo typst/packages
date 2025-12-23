@@ -1,7 +1,17 @@
 #import "letter_preset.typ": letter-preset
-#import "../core/utils.typ": format-currency, resolve-currency
-#import "../core/i18n.typ": i18n
+#import "../core/utils.typ": format-currency
+#import "../core/i18n.typ": offer-translations
 
+/// Offer template: letter layout with free-text offer body, item table,
+/// optional pre-payment and proforma-invoice wording, and locale-aware clauses.
+/// Parameters:
+/// - offer-number/offer-date/offer-valid-until
+/// - seller/client: contact dictionaries; seller.is-kleinunternehmer toggles VAT columns
+/// - items: sequence of rows with description, quantity, unit-price, optional vat-rate
+/// - offer-text/after-table-text: optional text blocks around the table
+/// - pre-payment-amount (percent) and proforma-invoice (bool)
+/// - footer-middle/footer-right/banner-image: optional visuals
+/// - lang: locale code (en-at, en-de, en-us, de-at, de-de)
 #let offer(
   offer-number: none,
   offer-date: none,
@@ -30,184 +40,140 @@
   after-table-text: none,
   pre-payment-amount: 20,
   proforma-invoice: true,
-  currency: (
-    currency-comma-separator: none,
-    currency-symbol: none,
-    currency-thousands-separator: none,
-  ),
+  lang: none,
 ) = {
   context {
-    let currency-resolved = resolve-currency(currency, i18n())
+    let t = offer-translations(
+      language: lang,
+      offer-number: offer-number,
+      offer-valid-until: offer-valid-until,
+      pre-payment-amount: pre-payment-amount,
+      proforma-invoice: proforma-invoice,
+    )
 
-    show: letter-preset.with(
-      sender: seller,
-      footer-left: box(width: 1fr, align(center, seller.name + "\n" + seller.tel + "\n" + seller.email)),
+    letter-preset(
+      t,
+      lang: lang,
+      seller: seller,
       footer-middle: footer-middle,
       footer-right: footer-right,
       banner-image: banner-image,
-      addressee: client,
-      header-left: [#i18n().offer.offer #offer-number],
-      header-right: [#i18n().offer.offer-date: #offer-date],
-    )
+      client: client,
+      header-left: [#t.offer #offer-number],
+      header-right: [#t.offer-date: #offer-date],
+      content: t => {
+        [
+          #t.pre-offer
 
-    [
-      #(i18n().offer.pre-offer)(offer-number)
+          #offer-text
 
-      #offer-text
+          #t.pre-table
 
-      #i18n().offer.pre-table
+          #set table(stroke: none)
 
-      #set table(stroke: none)
+          #let is-kleinunternehmer = seller.at("is-kleinunternehmer", default: false)
+          #let default-vat-rate = if is-kleinunternehmer { 0 } else { 20 }
 
-      #let is-kleinunternehmer = seller.at("is-kleinunternehmer", default: false)
-      #let default-vat-rate = if is-kleinunternehmer { 0 } else { 20 }
-
-      #table(
-        columns: if is-kleinunternehmer {
-          (auto, 1fr, auto, auto, auto)
-        } else {
-          (auto, 1fr, auto, auto, auto, auto, auto)
-        },
-        align: (col, row) => if row == 0 {
-          (right, left, center, center, center, center, center).at(col)
-        } else {
-          (right, left, right, right, right, right, right).at(col)
-        },
-        inset: 6pt,
-        if is-kleinunternehmer {
-          table.header(
-            table.hline(stroke: 0.5pt),
-            i18n().table-base.table-label.item-number,
-            i18n().table-base.table-label.description,
-            i18n().table-base.table-label.quantity,
-            i18n().table-base.table-label.single-price,
-            i18n().table-base.table-label.total-price,
-            table.hline(stroke: 0.5pt),
-          )
-        } else {
-          table.header(
-            table.hline(stroke: 0.5pt),
-            i18n().table-base.table-label.item-number,
-            i18n().table-base.table-label.description,
-            i18n().table-base.table-label.quantity,
-            i18n().table-base.table-label.single-price,
-            i18n().table-base.table-label.vat-rate,
-            i18n().table-base.table-label.vat-price,
-            i18n().table-base.table-label.total-price,
-            table.hline(stroke: 0.5pt),
-          )
-        },
-        ..items
-          .enumerate()
-          .map(((index, row)) => {
-            let item-vat-rate = row.at("vat-rate", default: default-vat-rate)
-
+          #table(
+            columns: if is-kleinunternehmer {
+              (auto, 1fr, auto, auto, auto)
+            } else {
+              (auto, 1fr, auto, auto, auto, auto, auto)
+            },
+            align: (col, row) => if row == 0 {
+              (right, left, center, center, center, center, center).at(col)
+            } else {
+              (right, left, right, right, right, right, right).at(col)
+            },
+            inset: 6pt,
             if is-kleinunternehmer {
-              (
-                index + 1,
-                row.description,
-                str(row.at("quantity", default: "1")),
-                format-currency(
-                  row.unit-price,
-                  currency-resolved.currency-thousands-separator,
-                  currency-resolved.currency-comma-separator,
-                  currency-resolved.currency-symbol,
-                ),
-                format-currency(
-                  (row.unit-price + (item-vat-rate / 100) * row.unit-price) * row.quantity,
-                  currency-resolved.currency-thousands-separator,
-                  currency-resolved.currency-comma-separator,
-                  currency-resolved.currency-symbol,
-                ),
+              table.header(
+                table.hline(stroke: 0.5pt),
+                t.table-label.item-number,
+                t.table-label.description,
+                t.table-label.quantity,
+                t.table-label.single-price,
+                t.table-label.total-price,
+                table.hline(stroke: 0.5pt),
               )
             } else {
-              (
-                index + 1,
-                row.description,
-                str(row.at("quantity", default: "1")),
-                format-currency(row.unit-price),
-                str(item-vat-rate) + "%",
-                format-currency(
-                  row.at("quantity", default: 1) * (item-vat-rate / 100) * row.unit-price,
-                  currency-resolved.currency-thousands-separator,
-                  currency-resolved.currency-comma-separator,
-                  currency-resolved.currency-symbol,
-                ),
-                format-currency(
-                  (row.unit-price + (item-vat-rate / 100) * row.unit-price) * row.quantity,
-                  currency-resolved.currency-thousands-separator,
-                  currency-resolved.currency-comma-separator,
-                  currency-resolved.currency-symbol,
-                ),
+              table.header(
+                table.hline(stroke: 0.5pt),
+                t.table-label.item-number,
+                t.table-label.description,
+                t.table-label.quantity,
+                t.table-label.single-price,
+                t.table-label.vat-rate,
+                t.table-label.vat-price,
+                t.table-label.total-price,
+                table.hline(stroke: 0.5pt),
               )
-            }
-          })
-          .flatten()
-          .map(str),
-        table.hline(stroke: 0.5pt),
-      )
+            },
+            ..items
+              .enumerate()
+              .map(((index, row)) => {
+                let item-vat-rate = row.at("vat-rate", default: default-vat-rate)
 
-      #let total-no-vat = items.map(row => row.unit-price * row.at("quantity", default: 1)).sum()
-      #let total-vat = (
-        items
-          .map(row => (
-            row.unit-price * row.at("quantity", default: 1) * row.at("vat-rate", default: default-vat-rate) / 100
-          ))
-          .sum()
-      )
-      #let total-with-vat = total-no-vat + total-vat
-
-      #align(right, table(
-        columns: 2,
-        i18n().table-base.total-no-vat,
-        format-currency(
-          total-no-vat,
-          currency-resolved.currency-thousands-separator,
-          currency-resolved.currency-comma-separator,
-          currency-resolved.currency-symbol,
-        ),
-        ..if not is-kleinunternehmer {
-          (
-            i18n().table-base.total-vat,
-            format-currency(
-              total-vat,
-              currency-resolved.currency-thousands-separator,
-              currency-resolved.currency-comma-separator,
-              currency-resolved.currency-symbol,
-            ),
+                if is-kleinunternehmer {
+                  (
+                    index + 1,
+                    row.description,
+                    str(row.at("quantity", default: "1")),
+                    format-currency(row.unit-price),
+                    format-currency((row.unit-price + (item-vat-rate / 100) * row.unit-price) * row.quantity),
+                  )
+                } else {
+                  (
+                    index + 1,
+                    row.description,
+                    str(row.at("quantity", default: "1")),
+                    format-currency(row.unit-price),
+                    str(item-vat-rate) + "%",
+                    format-currency(row.at("quantity", default: 1) * (item-vat-rate / 100) * row.unit-price),
+                    format-currency((row.unit-price + (item-vat-rate / 100) * row.unit-price) * row.quantity),
+                  )
+                }
+              })
+              .flatten()
+              .map(str),
             table.hline(stroke: 0.5pt),
-            i18n().table-base.total-with-vat,
-            format-currency(
-              total-with-vat,
-              currency-resolved.currency-thousands-separator,
-              currency-resolved.currency-comma-separator,
-              currency-resolved.currency-symbol,
-            ),
           )
-        },
-      ))
 
-      #after-table-text
+          #let total-no-vat = items.map(row => row.unit-price * row.at("quantity", default: 1)).sum()
+          #let total-vat = (
+            items
+              .map(row => (
+                row.unit-price * row.at("quantity", default: 1) * row.at("vat-rate", default: default-vat-rate) / 100
+              ))
+              .sum()
+          )
+          #let total-with-vat = total-no-vat + total-vat
 
-      #set text(number-type: "lining")
+          #align(right, table(
+            columns: 2,
+            t.total-no-vat, format-currency(total-no-vat),
+            ..if not is-kleinunternehmer {
+              (
+                t.total-vat,
+                format-currency(total-vat),
+                table.hline(stroke: 0.5pt),
+                t.total-with-vat,
+                format-currency(total-with-vat),
+              )
+            },
+          ))
 
-      #if is-kleinunternehmer {
-        i18n().kleinunternehmer-regelung
-      }
+          #after-table-text
 
-      #(i18n().offer.post-table)(
-        total-with-vat,
-        pre-payment-amount,
-        proforma-invoice,
-        offer-valid-until,
-        n => format-currency(
-          n,
-          currency-resolved.currency-thousands-separator,
-          currency-resolved.currency-comma-separator,
-          currency-resolved.currency-symbol,
-        ),
-      )
-    ]
+          #set text(number-type: "lining")
+
+          #if is-kleinunternehmer {
+            t.kleinunternehmer-regelung
+          }
+
+          #t.at("post-table")(total-with-vat)
+        ]
+      },
+    )
   }
 }
-
