@@ -107,9 +107,9 @@
 
   show ref: it => {
     let el = it.element
-
+    // https://forum.typst.app/t/how-to-counter-display-at-location-or-get-remote-context/5096/2
     if el != none and el.func() == math.equation {
-      [#el.supplement #counter(heading.where(level: 1)).display().#counter(math.equation).display("1.1")]
+      [#el.supplement #counter(heading.where(level: 1)).display().#counter(el.func()).at(el.location()).first()]
     } else {
       it
     }
