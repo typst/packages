@@ -146,12 +146,12 @@
   let _logos = additional-logos
 
   if enable-up-logo {
-    _logos.push(image("up-logo.png", height: 50pt))
+    _logos.push(image("up-logo.svg", height: 50pt))
   }
 
   if enable-hpi-logo {
     hpi-logo-index = calc.min(hpi-logo-index, _logos.len())
-    _logos.insert(hpi-logo-index, image("hpi_logo.svg", height: 50pt))
+    _logos.insert(hpi-logo-index, image("hpi-logo.svg", height: 50pt))
   }
 
   if _logos.len() > 6 {
