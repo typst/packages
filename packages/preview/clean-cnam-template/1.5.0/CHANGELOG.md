@@ -40,7 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **thinLine utility enhancement**: Now accepts a color parameter for dynamic line styling
+- **thin-line utility enhancement**: Now accepts a color parameter for dynamic line styling
   - Updated from fixed stroke to configurable color
   - Applied to chapter heading decorative lines
   - Improved visual consistency with theme colors
@@ -69,7 +69,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Larger title text (1.5em)
 
 #### Utility Additions
-- **`thinLine` utility**: New decorative line element for consistent styling across the document
+- **`thin-line` utility**: New decorative line element for consistent styling across the document
 
 ### Changed
 - **Heading numbering system**: Refactored to only display relevant numbers per heading level

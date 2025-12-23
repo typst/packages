@@ -52,7 +52,7 @@ This template uses the following external packages:
 
    - Using the published package (as in `main.typ`):
    ```typst
-   #import "@preview/clean-cnam-template:1.3.0": *
+   #import "@preview/clean-cnam-template:1.5.0": *
    ```
 
    - Using this repository locally (from `src/`):
@@ -362,7 +362,7 @@ Formats a datetime object to French format (DD/MM/YYYY).
 - **New header system**: Integrated hydra for intelligent section-aware page headers
 - **Enhanced chapter styling**: Redesigned level 1 headings with centered layout, "Chapter N" prefix, and decorative lines
 - **Fixed heading numbering**: Sub-headings now only display their relevant numbers (e.g., "I -" instead of "III I -")
-- **New utility**: Added `thinLine` for consistent decorative elements
+- **New utility**: Added `thin-line` for consistent decorative elements
 
 ### v1.2.0 - Component Customization
 - **Blockquote enhancements**: Border side selection, attribution support, alignment options
