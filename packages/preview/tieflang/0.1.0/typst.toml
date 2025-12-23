@@ -9,3 +9,5 @@ description = "Translation Library for Tief* Templates"
 keywords = ["i18n", "translations"]
 categories = ["languages", "utility"]
 disciplines = []
+repository = "https://github.com/Tiefseetauchner/TiefLang"
+homepage = "https://www.lukechriswalker.at"

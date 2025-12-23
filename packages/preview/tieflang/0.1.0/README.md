@@ -4,6 +4,16 @@ TiefLang is a namespaced, stack-based language resolver with dictionary-backed k
 
 ## Setup
 
+Import the library:
+
+```typst
+#import "@preview/tieflang:0.1.0": (
+  configure-translations, tr, // These you'll always need
+  pop-lang, push-lang, trk, // These are optional
+  select-language, // You should only import this if you plan to expose select-language. See the common pitfalls section.
+)
+```
+
 First, create a dictionary with your translations like so:
 
 ```typst
@@ -165,6 +175,15 @@ If you try to use a language that doesn't exist in the current namespace, TiefLa
 ## Common pitfalls
 
 There's pitfalls I have to document because otherwise, someone is going to make an issue. Excuse the sass, you try figuring out what all can break on your 5th coffee.
+
+### "How did I do the language setting???" ~ Some user
+
+You don't *have* to set languages in your template. Sometimes, not always, it's better if you don't. But then, you need to do one of the following:
+
+- Import and expose `select-language` from your template and tell the user to use it. This is the preferred way if you're building a standalone template, as it's easier on the user.
+- Let the user `#import "@preview/tieflang:0.1.0": select-language`. This is preferred if you are building a package that isn't a standalone template, as it does not contaminate the exports.
+
+For more information, you may contact me for typst best practices.
 
 ### pop-lang is pulling from a stack
 
