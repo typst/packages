@@ -506,7 +506,7 @@
             fill: fill,
             stroke: stroke,
             text(
-                font: fonts.code,
+                font: fonts.code.name,
                 size: .75em,
                 {
               if filename != none {
