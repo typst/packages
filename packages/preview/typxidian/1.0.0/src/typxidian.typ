@@ -84,10 +84,10 @@
   )
 
   set list(indent: 2.5em, spacing: 1.2em, marker: ([•], [--]))
-  show list: set block(inset: (top: 0.25em, bottom: 1em))
+  show list: set block(inset: (top: 1em, bottom: 1em))
 
   set enum(indent: 2.5em, spacing: 1.2em)
-  show enum: set block(inset: (top: 0.25em, bottom: 1em))
+  show enum: set block(inset: (top: 1em, bottom: 1em))
 
   // numbering for figures and equations depending on 1st level heading
   set heading(numbering: "1.1")
