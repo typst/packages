@@ -52,8 +52,19 @@
     number-align: end,
     columns: column-num,
   )
-  set text(font: "Libertinus Serif", size: 10pt, lang: "en")
+
+  let font-size-reduction = 0pt
+  if double-column {
+    font-size-reduction = 2pt
+  }
+  set text(font: "Libertinus Serif", size: 9pt - font-size-reduction, lang: "en")
   show math.equation: set text(weight: 400)
+
+  // Shows paragraph breaks by only indending the following paragraph.
+  set par(
+    first-line-indent: 1.5em,  // Indent the first line of paragraphs
+    spacing: 0.65em,         // Remove extra space between paragraphs (or use your baseline)
+  )
 
   // Configure page properties.
   set page(
@@ -94,7 +105,7 @@
     }
 
     v(1%)
-    text(size: 13pt, weight: "bold", block([#number #it.body]))
+    text(size: 13pt - font-size-reduction, weight: "bold", block([#number #it.body]))
     v(0.5em)
   }
 
@@ -107,7 +118,7 @@
     }
 
     v(0.7%)
-    text(size: 12pt, fill: rgb("#404040"), weight: "bold", block([#number #it.body]))
+    text(size: 12pt - font-size-reduction, fill: rgb("#404040"), weight: "bold", block([#number #it.body]))
     v(0.3em)
   }
 
@@ -120,7 +131,7 @@
     }
 
     v(0.7%)
-    text(size: 11pt, fill: rgb("#404040"), weight: "bold", block([#number #it.body]))
+    text(size: 11pt - font-size-reduction, fill: rgb("#404040"), weight: "bold", block([#number #it.body]))
   }
 
   set heading(numbering: "1.1.1.1.1 ·")
@@ -154,7 +165,7 @@
     grid(
       columns: column_widths,
       grid.cell(block[
-        #text(title, size: 18pt, weight: "bold") \ \
+        #text(title, size: 18pt, weight: "bold") \ \ // Excluded from font size reduction
         #text(author, style: "italic") --
         #text(date, style: "italic") \
         Chair of #text(chair)
@@ -226,6 +237,11 @@
     line(length: 100%)
     v(-1.6em)
     outline(depth: 2)
+    if double-column {
+      v(1em)
+    } else {
+      v(0.5em)
+    }
   }
 
   line(length: 100%)
