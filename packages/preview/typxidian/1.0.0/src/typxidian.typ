@@ -103,7 +103,7 @@
   })
 
   show figure: set block(above: 1.5em, below: 1.5em)
-  show math.equation: set block(above: 1.5em, below: 0.75em)
+  show math.equation: set block(above: 1.5em, below: 1.5em)
 
   show ref: it => {
     let el = it.element
