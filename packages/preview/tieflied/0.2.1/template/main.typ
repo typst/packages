@@ -1,4 +1,4 @@
-#import "@preview/tieflied:0.2.0": annotation, author, bridge, chorus, song, songbook, verse
+#import "@preview/tieflied:0.2.1": annotation, author, bridge, chorus, song, songbook, verse
 
 #let john-newton = author("John Newton", color: luma(95%))
 
