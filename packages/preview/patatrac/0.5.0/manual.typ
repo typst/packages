@@ -1,4 +1,4 @@
-#import "src/lib.typ" as patatrac
+#import "@preview/patatrac:0.5.0"
 
 #let primary = rgb("#f63b3b")
 
