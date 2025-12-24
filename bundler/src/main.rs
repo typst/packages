@@ -16,7 +16,7 @@ use image::codecs::webp::{WebPEncoder, WebPQuality};
 use image::imageops::FilterType;
 use semver::Version;
 use spdx::LicenseId;
-use typst_syntax::package::{PackageInfo, PackageManifest, TemplateInfo, UnknownFields};
+use typst_syntax::package::{PackageInfo, PackageManifest, UnknownFields};
 use unicode_ident::{is_xid_continue, is_xid_start};
 
 use self::author::validate_author;
@@ -55,6 +55,7 @@ fn main() -> anyhow::Result<()> {
     };
 
     let mut namespace_errors = vec![];
+    let (thumb_sender, thumb_receiver) = std::sync::mpsc::channel();
 
     for entry in walkdir::WalkDir::new("packages")
         .min_depth(1)
@@ -126,7 +127,7 @@ fn main() -> anyhow::Result<()> {
                 );
             }
 
-            match process_package(&config, &path, &namespace_dir, namespace)
+            match process_package(&config, &thumb_sender, &path, &namespace_dir, namespace)
                 .with_context(|| format!("failed to process package at {}", path.display()))
             {
                 Ok(info) => {
@@ -186,6 +187,19 @@ fn main() -> anyhow::Result<()> {
         }
     }
 
+    // Send the finished message.
+    thumb_sender.send(Ok(true)).unwrap();
+
+    // Wait for thumbnail processing to complete.
+    let mut thumbnail_errors = Vec::new();
+    while let Ok(res) = thumb_receiver.recv() {
+        match res {
+            Ok(true) => break,
+            Ok(false) => (), // Ok
+            Err(e) => thumbnail_errors.push(e),
+        }
+    }
+
     println!("Done.");
 
     if !namespace_errors.is_empty() {
@@ -201,12 +215,20 @@ fn main() -> anyhow::Result<()> {
         std::process::exit(1);
     }
 
+    if !thumbnail_errors.is_empty() {
+        eprintln!("Failed to process some thumbnails:");
+        for error in thumbnail_errors {
+            eprintln!("    {:#}", error);
+        }
+    }
+
     Ok(())
 }
 
 /// Create an archive for a package.
 fn process_package(
     config: &Config,
+    thumb_sender: &std::sync::mpsc::Sender<anyhow::Result<bool>>,
     path: &Path,
     namespace_dir: &Path,
     namespace: &str,
@@ -222,8 +244,19 @@ fn process_package(
     write_archive(&manifest.package, &buf, namespace_dir).context("failed to write archive")?;
 
     if let Some(template) = &manifest.template {
-        process_thumbnail(path, &manifest, template, namespace_dir)
-            .context("failed to process thumbnail")?;
+        let original_path = path.join(template.thumbnail.as_str());
+        let thumb_dir = namespace_dir.join(THUMBS_DIR);
+        let filename = format!("{}-{}", manifest.package.name, manifest.package.version);
+        let thumb_sender = thumb_sender.clone();
+
+        // Offload thumbnail processing to the rayon thread pool, since it takes
+        // the majority of CPU time.
+        rayon::spawn(move || {
+            let res = process_thumbnail(&original_path, &thumb_dir, filename).with_context(|| {
+                format!("failed to process thumbnail at {}", original_path.display())
+            });
+            thumb_sender.send(res.map(|_| false)).unwrap();
+        });
     }
 
     Ok(FullIndexPackageInfo {
@@ -411,14 +444,10 @@ fn write_archive(info: &PackageInfo, buf: &[u8], namespace_dir: &Path) -> anyhow
 /// Process the thumbnail image for a package and write it to the `dist`
 /// directory in large and small version.
 fn process_thumbnail(
-    path: &Path,
-    manifest: &PackageManifest,
-    template: &TemplateInfo,
-    namespace_dir: &Path,
+    original_path: &Path,
+    thumb_dir: &Path,
+    filename: String,
 ) -> anyhow::Result<()> {
-    let original_path = path.join(template.thumbnail.as_str());
-    let thumb_dir = namespace_dir.join(THUMBS_DIR);
-    let filename = format!("{}-{}", manifest.package.name, manifest.package.version);
     let hopefully_max_encoded_size = 1024 * 1024;
 
     let extension = original_path
@@ -431,12 +460,12 @@ fn process_thumbnail(
     }
 
     // Get file size.
-    let file_size = fs::metadata(&original_path)?.len() as usize;
+    let file_size = fs::metadata(original_path)?.len() as usize;
     if file_size > 3 * 1024 * 1024 {
         bail!("thumbnail must be smaller than 3 MiB");
     }
 
-    let mut image = image::open(&original_path)?;
+    let mut image = image::open(original_path)?;
 
     // Ensure that the image has at least a certain minimum size.
     let longest_edge = image.width().max(image.height());
@@ -455,7 +484,7 @@ fn process_thumbnail(
 
     // Thumbnails that are WebP already and in the budget should be copied as-is.
     if extension == "webp" && file_size < hopefully_max_encoded_size {
-        fs::copy(&original_path, thumbnail_path)?;
+        fs::copy(original_path, thumbnail_path)?;
         return Ok(());
     }
 
