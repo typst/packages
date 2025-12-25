@@ -9,9 +9,9 @@ keywords = [ "research", "showcase" ]
 repository = "https://github.com/aneziac/post-it"
 description = "Simple research poster."
 license = "MIT-0"
-exclude = [ "examples", ".gitignore", "**/*.pdf", "thumbnail.svg" ]
+exclude = [ "examples", ".gitignore", "**/*.pdf", "thumbnail.svg", "thumbnail.png" ]
 
 [template]
 path = "template"
 entrypoint = "poster.typ"
-thumbnail = "thumbnail.svg"
+thumbnail = "thumbnail.png"
