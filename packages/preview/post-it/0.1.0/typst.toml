@@ -14,4 +14,4 @@ exclude = [ "examples", ".gitignore", "**/*.pdf", "thumbnail.svg" ]
 [template]
 path = "template"
 entrypoint = "poster.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "thumbnail.svg"
