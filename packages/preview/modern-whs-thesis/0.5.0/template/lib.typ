@@ -89,7 +89,7 @@
     let elems = ()
     if (
       it.numbering != none
-        and it.body != [#getText("tableOfContents", language)]
+        and it.body != [#getText("table-of-contents", language)]
     ) {
       elems.push(counter(heading).display())
     }
@@ -126,7 +126,7 @@
   // --------- outline and bibliography -------
 
   // add outlines to table of contents, except for itself
-  show outline.where(title: [#getText("tableOfContents", language)]): it => {
+  show outline.where(title: [#getText("table-of-contents", language)]): it => {
     set heading(outlined: false)
     it
   }
@@ -205,7 +205,7 @@
 
   set par(leading: 1em)
   heading(outlined: false, numbering: none)[#getText(
-      "tableOfContents",
+      "table-of-contents",
       language,
     )]
   show outline.entry: it => link(
@@ -255,19 +255,19 @@
   )
   set outline.entry(fill: repeat[.])
 
-  [= #getText("listOfFigures", language)]
+  [= #getText("list-of-figures", language)]
   outline(
     title: none,
     target: figure.where(kind: image),
   )
 
-  [= #getText("listOfTables", language)]
+  [= #getText("list-of-tables", language)]
   outline(
     title: none,
     target: figure.where(kind: table),
   )
 
-  [= #getText("listOfCode", language)]
+  [= #getText("list-of-code", language)]
   outline(
     title: none,
     target: figure.where(kind: "code"),

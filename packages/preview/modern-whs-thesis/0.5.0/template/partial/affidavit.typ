@@ -20,19 +20,19 @@
     spacing: 2mm,
     [#last-name, #first-name],
     line(length: 100%, stroke: 0.5pt),
-    [#text(8pt)[#getText("nameFirstName", language)]],
+    [#text(8pt)[#getText("name-first-name", language)]],
   )
   v(0.3cm)
 
   set text(11pt)
 
-  [#getText("affidavitText", language)]
+  [#getText("affidavit-text", language)]
 
   v(-10pt)
   text(title-size, hyphenate: true)[*#title*]
   v(-10pt)
 
-  [#getText("affidavitDeclaration", language)]
+  [#getText("affidavit-declaration", language)]
 
   v(0.7cm)
   stack(
@@ -47,6 +47,6 @@
           signature,
         )]
     },
-    [#text(8pt)[#getText("placeDateSignature", language)]],
+    [#text(8pt)[#getText("place-date-signature", language)]],
   )
 }
