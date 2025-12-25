@@ -2,10 +2,10 @@
   register-glossary,
   print-glossary,
 )
-#import "../languages.typ": getText
+#import "../languages.typ": get-text
 
 #let glossar(acronyms, language: "de") = {
-  heading(outlined: false, numbering: none)[#getText("abbreviations", language)]
+  heading(outlined: false, numbering: none)[#get-text("abbreviations", language)]
 
 
   let default-print-title(entry) = {

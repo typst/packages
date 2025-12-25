@@ -1,4 +1,4 @@
-#import "../languages.typ": getText
+#import "../languages.typ": get-text
 
 #let affidavit(
   background,
@@ -13,26 +13,26 @@
 ) = {
   set page(margin: (top: 10cm), background: background)
 
-  heading(outlined: false, numbering: none)[#getText("affidavit", language)]
+  heading(outlined: false, numbering: none)[#get-text("affidavit", language)]
 
   v(0.3cm)
   stack(
     spacing: 2mm,
     [#last-name, #first-name],
     line(length: 100%, stroke: 0.5pt),
-    [#text(8pt)[#getText("name-first-name", language)]],
+    [#text(8pt)[#get-text("name-first-name", language)]],
   )
   v(0.3cm)
 
   set text(11pt)
 
-  [#getText("affidavit-text", language)]
+  [#get-text("affidavit-text", language)]
 
   v(-10pt)
   text(title-size, hyphenate: true)[*#title*]
   v(-10pt)
 
-  [#getText("affidavit-declaration", language)]
+  [#get-text("affidavit-declaration", language)]
 
   v(0.7cm)
   stack(
@@ -47,6 +47,6 @@
           signature,
         )]
     },
-    [#text(8pt)[#getText("place-date-signature", language)]],
+    [#text(8pt)[#get-text("place-date-signature", language)]],
   )
 }

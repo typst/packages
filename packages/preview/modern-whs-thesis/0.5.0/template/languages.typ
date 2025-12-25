@@ -44,7 +44,7 @@
   place-date-signature: "Place, Date, Signature",
 )
 
-#let getText(key, lang) = {
+#let get-text(key, lang) = {
   if (lang == "en") {
     en.at(key)
   } else {
