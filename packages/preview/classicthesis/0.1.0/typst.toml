@@ -8,7 +8,6 @@ description = "A Typst template inspired by André Miede's ClassicThesis LaTeX s
 repository = "https://github.com/adwiteeymauriya/classicthesis-typst"
 categories = ["book", "thesis", "report"]
 keywords = ["classic", "thesis", "book", "elegant", "typography", "bringhurst", "palatino"]
-minimum-typst-version = "0.12.0"
 
 [template]
 path = "template"
