@@ -1,6 +1,6 @@
 #import "meta.typ" as meta
 #import "acronyms.typ" as acronyms
-#import "@preview/modern-whs-assignment:0.2.1": *
+#import "@preview/modern-whs-assignment:0.3.0": *
 
 #show: whs-assignment.with(
   meta.title,
