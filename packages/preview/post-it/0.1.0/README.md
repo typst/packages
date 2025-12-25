@@ -4,7 +4,7 @@
 To get started, run
 
 ```sh
-typst init @local/post-it:0.1.0
+typst init @preview/post-it:0.1.0
 ```
 
 ![Lorem Ipsum example](./thumbnail.svg)
