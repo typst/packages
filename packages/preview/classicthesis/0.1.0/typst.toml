@@ -1,0 +1,16 @@
+[package]
+name = "classicthesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Adwiteey Mauriya <adwiteeymauriya@gmail.com>"]
+license = "MIT"
+description = "A Typst template inspired by André Miede's ClassicThesis LaTeX style, an homage to Robert Bringhurst's Elements of Typographic Style. Features elegant spaced small caps headings, Palatino-style typography, and classic book design."
+repository = "https://github.com/adwiteeymauriya/classicthesis-typst"
+categories = ["book", "thesis", "report"]
+keywords = ["classic", "thesis", "book", "elegant", "typography", "bringhurst", "palatino"]
+minimum-typst-version = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
