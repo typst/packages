@@ -51,9 +51,7 @@
   show: codly-init.with()
   codly(languages: codly-languages, zebra-fill: none)
 
-  if (acronyms != none) {
-    show: make-glossary
-  }
+  show: make-glossary
 
   // ------ Cover ------
 
