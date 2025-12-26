@@ -80,7 +80,7 @@ Don't forget to intialize a Git repository and backup your work somewhere!
 | month | `int` | `5` | month of the hand-in | 1-12 |
 | current-date | `datetime` | `datetime.today()` | declaration date and year of the work | |
 | acknowledgment | `str` or `none` | `"Omitted"` | thanks at the start of the thesis | |
-| assignment | path | `none` | see "How to insert the thesis assignment?" | |
+| assignment | `content` | `none` | see "How to insert the thesis assignment?" | |
 | tables-outline | `bool` | `false` | enable tables outline | |
 | figures-outline | `bool` | `false` | enable figures outline | |
 | abbreviations-outline | `array` | `( ("SSL", "Secure socket layer"), ... )` | list of abbreviations, if you need one | |
@@ -142,7 +142,7 @@ insert the correct month for you.
 `current-date` is Typst's `datetime` that tells when the declaration will be
 signed, and which year the thesis is being written.
 
-`assignment` sets the assignment PDF file path. This is the recommended way to
+`assignment` sets the assignment content. This is the recommended way to
 insert your AIS assignment, see "How to insert the thesis assignment?"
 
 `table-outline` is a boolean, set it to true to enable list of tables.
@@ -234,12 +234,14 @@ thesis into multiple parts. We can recommend `pdfarrange` (GUI) and `pdftk`
 ### How to insert the thesis assignment?
 
 You might notice the warning page in the thesis right after you load the
-template. This page can be removed by specifying an assignment file. Typst
+template. This page can be removed by specifying your thesis assignment. Typst
 supports importing PDFs as images as of version `0.14.0`, including the
-embedded text. Since version `1.1.0`, you can use this option to specify your
-assignment from AIS. You can download it from the thesis' page, choose the
-print option. Assignment should be passed like this: `assignment: image("topic.pdf")`.
-Ensure it is exactly one page!
+embedded text. Since version `1.1.0` of this template, you can use `assignment`
+option to specify your assignment from AIS. You can download it from the
+thesis' page, choose the print option. Assignment should be passed like this:
+`assignment: image("topic.pdf")`. Ensure it is exactly one page! If you are
+using an older Typst version, you'll have to use external tools to insert the
+assignment.
 
 # Developing
 

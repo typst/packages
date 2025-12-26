@@ -334,9 +334,11 @@
       #set text(30pt)
       #set par(justify: true)
       Don't forget to replace this page with your AIS assignment PDF by
-      specifying assignment's file path using the `assignment` argument.
+      specifying `image("assignment.pdf")` into `assignment` argument of the
+      template! Be careful, the assignment should be in PDF format, not just
+      an image.
 
-      Typst supports inserting PDFs with embedded text!
+      Typst 0.14 supports inserting PDFs with embedded text!
     ]
   } else if style != "pagecount" {
     set page(margin: 0em)
