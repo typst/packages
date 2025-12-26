@@ -10,36 +10,36 @@ Philosophy:
 - **flexible:** global or local, all or part of
 - **universal:** different env, the same PDF
 
-Features:
+Features(_not yet_):
 [CommonMark](https://commonmark.org):
-- [x] All links/anchors are underlined and blue
-- [x] Every block/inline code is inside a gray rectangle
-- [x] Every block quote is indented and a gray bar at the left
+- All links/anchors are underlined and blue
+- Every block/inline code is inside a gray rectangle
+- Every block quote is indented and a gray bar at the left
 
 [GitHub Markup](https://docs.github.com/en/get-started/writing-on-github):
-- [x] All features of CommonMark
-- [x] Every heading is underlined with a 100% width gray line
-- [x] All headings have Auto Anchors
-- [x] Alert: Note, Tip, Important, Warning, Caution
-- [x] Color Dot
-- [x] Task List
-- [x] Table:
-  - [x] header is bold and mid
-  - [x] half table rows are gray
-  - [x] all strokes are gray
+- All features of CommonMark
+- Every heading is underlined with a 100% width gray line
+- All headings have Auto Anchors
+- Alert: Note, Tip, Important, Warning, Caution
+- Color Dot
+- Task List
+- Table:
+  - header is bold and mid
+  - half table rows are gray
+  - all strokes are gray
 
-[Jupyter Book MyST](https://mystmd.org/guide/quickstart-myst-markdown):
-- [ ] Callout & Admonition
-- [ ] Executable Code Block with line highlight
-- [ ] Cross-Ref Preview
+[_Jupyter Book MyST_](https://mystmd.org/guide/quickstart-myst-markdown):
+- Callout & Admonition
+- Executable Code Block with line highlight
+- Cross-Ref Preview
 
-[Bootstrap](https://getbootstrap.com/docs/5.3/components/accordion):
-- [ ] Accordion, Button Group, Navs & Tabs, Pagination, Progress
-- [ ] Alert
-- [ ] Card
-- [ ] Dialog, Toast
-- [ ] Offcanvas
-- [ ] Validation
+[_Bootstrap_](https://getbootstrap.com/docs/5.3/components/accordion):
+- Accordion, Button Group, Navs & Tabs, Pagination, Progress
+- Alert
+- Card
+- Dialog, Toast
+- Offcanvas
+- Validation
 
 ## Usage
 1. Download the [Typst](https://typst.app) PDF compiler
@@ -48,7 +48,6 @@ Features:
 
 ```typ
 #import "@preview/pdf-decoration:0.1.0": *
-//#import "lib.typ"  //for local dev
 
 #set page(paper:"a5", columns:2)
 #set heading(numbering:"I.1")
