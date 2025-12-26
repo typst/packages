@@ -220,8 +220,6 @@
     counter(figure.where(kind: "proof")).update(0)
     counter(math.equation).update(0)
 
-    blankpage(single: false)
-
     let content = [#text(size: font-sizes.chapter)[#it]]
 
     if it.numbering != none {
@@ -262,6 +260,17 @@
       content = block(width: 100%, content)
     } else {
       content = block(width: 90%, content)
+    }
+
+    let currpage = counter(page).get().first()
+
+    if currpage > 1 or it.supplement == [toc] {
+      pagebreak()
+      {
+        set page(numbering: none, header: none)
+        let currpage = counter(page).get().first()
+        pagebreak(to: "odd")
+      }
     }
 
     align(chapter-alignment, content)
@@ -339,6 +348,8 @@
   )
   set text(size: font-sizes.body)
   counter(page).update(0)
+
+  blankpage(single: true)
 
   doc
 
