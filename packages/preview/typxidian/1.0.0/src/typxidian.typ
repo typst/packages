@@ -359,7 +359,7 @@
 
   if type(bib) == content {
     bib
-  } else {
+  } else if bib != none {
     bibliography(bib, title: bib-title)
   }
 
