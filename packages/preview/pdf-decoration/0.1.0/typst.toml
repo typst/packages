@@ -1,0 +1,10 @@
+[package]
+name = "pdf-decoration"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["HackYardo <https://github.com/hackyardo>"]
+license = "Apache-2.0"
+description = "Make your pdf more attractive like a html lady."
+repository = "https://github.com/hackyardo/pdf-decoration"
+keywords = ["beautify", "clarify"]
+categories = ["components", "book", "report"]
