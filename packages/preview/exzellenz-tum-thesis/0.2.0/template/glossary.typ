@@ -5,13 +5,11 @@
     key: "tum",
     short: "TUM",
     long: "Technical University Munich",
-    group: "Universities"
   ),
   (
     key: "lmu",
     short: "LMU",
     long: "Ludwig-Maximilians-Universität München",
-    group: "Universities"
   ),
   (
     key: "ieee",
