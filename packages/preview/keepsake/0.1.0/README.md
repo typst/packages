@@ -80,7 +80,7 @@ Best for a standard large card. This layout uses two pages: one for the outside
 ```typst
 #show: bifold.with(
   front: [= Happy Birthday],
-  primary: [Wishing you an incredible year ahead!]
+  primary: [Wishing you an incredible year ahead!],
   back: [
     #set align(center + bottom)
     #set text(8pt, gray)

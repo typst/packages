@@ -9,3 +9,4 @@ repository = "https://github.com/williambdean/keepsake"
 categories = ["office", "layout", "fun"]
 disciplines = ["design"]
 keywords = ["greeting-cards", "birthday", "holiday", "stationery"]
+exclude = ["example-card.png"]
