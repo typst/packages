@@ -11,7 +11,6 @@
 // - Optimality Theory (OT) tableaux with violation marking and shading
 // - Maximum Entropy (MaxEnt) grammar tableaux with probability calculations
 // - SPE-style feature matrices for phonological representations
-// - Interlinear glossed text (IGT) following Leipzig Glossing Rules
 
 // Import modules
 #import "ipa.typ": *
