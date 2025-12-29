@@ -231,8 +231,7 @@
 
     let abstract-width = 100%
     box([
-      #text([*Abstract*], ..abstract-formatting)
-
+      #text([*Abstract*], ..abstract-formatting).
       #text([#abstract], ..abstract-formatting)
     ], width: abstract-width)
   }
