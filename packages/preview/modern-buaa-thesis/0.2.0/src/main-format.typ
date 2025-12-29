@@ -2,7 +2,7 @@
 #import "@preview/subpar:0.2.2"
 
 #import "constant.typ": font-size, font-type
-#import "utils.typ": heading-numbering
+#import "utils.typ": heading-numbering, show-heading-number
 
 #let sub-fig = subpar.grid.with(
   supplement: "图",
@@ -30,27 +30,51 @@
     set align(center)
     set par(leading: 1em, spacing: 1em)
 
-    v(0.5em)
-    numbering(it.numbering, ..counter(heading).at(it.location())) + "  " + it.body
-    v(0.5em)
+    context {
+      let has-number = show-heading-number.at(it.location())
+
+      v(0.5em)
+      if has-number {
+        numbering(it.numbering, ..counter(heading).at(it.location())) + "  " + it.body
+      } else {
+        it.body
+      }
+      v(0.5em)
+    }
   }
 
   show heading.where(level: 2): it => {
     set text(size: font-size.four, font: font-type.hei, weight: "regular", lang: "cn")
     set par(leading: 1em, spacing: 1em, first-line-indent: 0em)
 
-    v(0.5em)
-    numbering(it.numbering, ..counter(heading).at(it.location())) + "  " + it.body
-    v(0.5em)
+    context {
+      let has-number = show-heading-number.at(it.location())
+
+      v(0.5em)
+      if has-number {
+        numbering(it.numbering, ..counter(heading).at(it.location())) + "  " + it.body
+      } else {
+        it.body
+      }
+      v(0.5em)
+    }
   }
 
   show heading.where(level: 3): it => {
     set text(size: font-size.small-four, font: font-type.hei, weight: "regular", lang: "cn")
     set par(leading: 1em, spacing: 1em, first-line-indent: 0em)
 
-    v(0.5em)
-    numbering(it.numbering, ..counter(heading).at(it.location())) + "  " + it.body
-    v(0.5em)
+    context {
+      let has-number = show-heading-number.at(it.location())
+
+      v(0.5em)
+      if has-number {
+        numbering(it.numbering, ..counter(heading).at(it.location())) + "  " + it.body
+      } else {
+        it.body
+      }
+      v(0.5em)
+    }
   }
 
   body

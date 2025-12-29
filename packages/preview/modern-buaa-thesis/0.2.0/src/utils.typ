@@ -43,10 +43,6 @@
 }
 
 #let heading-numbering(..num) = context {
-  if not show-heading-number.get() {
-    return ""
-  }
-
   if num.pos().len() == 1 {
     return "第" + numbering("一", ..num) + "章"
   }

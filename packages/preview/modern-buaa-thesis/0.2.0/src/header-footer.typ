@@ -1,5 +1,5 @@
 #import "constant.typ": font-size, font-type
-#import "utils.typ": degree-text, heading-numbering
+#import "utils.typ": degree-text, heading-numbering, show-heading-number
 
 #let leading-footer() = {
   set align(center)
@@ -21,11 +21,12 @@
 
 #let heading-header(show-numbering: true) = context {
   let page-number = here().page()
-
   let number = counter(heading.where(level: 1)).get()
 
   let after-ele = query(heading.where(level: 1).after(here()))
   if after-ele.len() != 0 and after-ele.first().location().page() == page-number {
+    let show-numbering = show-heading-number.at(after-ele.first().location()) and show-numbering
+
     return [
       #show: show-header
 
@@ -38,6 +39,7 @@
   }
 
   let before-ele = query(heading.where(level: 1).before(here())).last()
+  let show-numbering = show-heading-number.at(before-ele.location()) and show-numbering
   [
     #show: show-header
 
