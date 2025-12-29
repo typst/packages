@@ -134,6 +134,25 @@
   #it
 ]
 
+#let appendix-page(it) = [
+  #pagebreak()
+  #hide(heading(level: 1)[Appendix])
+  #v(-1.2em)
+
+  #align(center)[
+    #text(size: 16pt)[*#upper("Appendix")*]
+  ]
+  #set heading(outlined: false, numbering: 
+  numbly("", "{2:A}.", "{2:A}{3}."))
+  #show heading: it => {
+    it
+    v(0.8em)
+  }
+  #counter(heading).update(1)
+  #v(1em)
+  #it
+]
+
 #let program-catalog = (
   AMAT: "Advanced Materials",
   MICS: "Microelectronics",
@@ -163,6 +182,7 @@
   date: (int, int, int),
   bib-ref: none,
   abstract: none,
+  appendix: none,
   keywords: (),
   acknowledgement: none,
   acronym: none,
@@ -344,6 +364,11 @@
     set bibliography(title: none)
     bib-ref 
   }
+
+  if appendix != none {
+    appendix-page(appendix)
+  }
 }
 
 #let legend(it) = block(inset: (x: 2em), it)
+
