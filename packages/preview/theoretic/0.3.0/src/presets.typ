@@ -1,5 +1,6 @@
 #import "styles/basic.typ"
+#import "styles/corners.typ"
 #import "styles/fancy.typ"
 #import "styles/bar.typ"
-#import "styles/corners.typ"
 #import "styles/columns.typ"
+#import "styles/colorbox.typ"

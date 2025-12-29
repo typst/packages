@@ -1,8 +1,5 @@
 /** base package functionality */
 
-/// -> state(boolean)
-#let _needs_qed = state("_thm_needs_qed", false)
-
 #let _qeds = state("_thm_qed_stack", ())
 
 /// Place the QED mark last pushed to `state("_thm_qed_stack")` here.
@@ -93,11 +90,14 @@
 ) = {
   let _body = body
   if fmt-suffix != none {
-    if body.has("children") {
-      if body.children.last() == [ ] {
-        _body = body.children.slice(0, -1).join()
-      }
+    if _body.has("children") {
       let candidate = _body.children.last()
+      if candidate == [ ] {
+        _body = body.children.slice(0, -1).join()
+        if _body.has("children") {
+          candidate = _body.children.last()
+        } // TODO: else ?
+      }
       if candidate.func() == math.equation and candidate.block and math.equation.numbering == none {
         _body = {
           _body.children.slice(0, -1).join()
@@ -225,7 +225,7 @@
 }
 
 /// Default "show" function for theorems. Note that in your versions of this, you cannot use `it` to generate the default options, but you can fall back to `theoretic.show.theorem(it)`.
-/// 
+///
 /// For your own style, make sure to always handle the "link" option, which will be set by @restate and @solutions and contains a link target for the supplement (to link to the original location).
 #let show-theorem(
   /// A dictionary with keys:
@@ -505,7 +505,10 @@
         number = thmnr
       } else {
         let h = counter(heading).get().first()
-        let h_fmt = numbering(heading.numbering, h).trim(".", at: end)
+        let h_fmt = numbering(heading.numbering, h)
+        if type(h_fmt) == str {
+          h_fmt = h_fmt.trim(".", at: end)
+        }
         number = {
           h_fmt
           "."
@@ -524,8 +527,6 @@
         number: number,
         title: title,
       ))#label]
-
-    _needs_qed.update(true)
 
     show-theorem((
       supplement: supplement,
