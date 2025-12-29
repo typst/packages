@@ -14,6 +14,7 @@
   head: "Name C",
   abstract: include "content/ab.typ", // modify this file to write your own abstract
   acknowledgement: include "content/ac.typ",
+  appendix: include "content/ap.typ", // you can delete this file and this line if you don't need appendix
   keywords: ("keyword 1", "keyword 2", "Keyword 3"),
   bib-ref: bibliography("content/ref.bib"), // you can export this file from zotero better bibtex plugin automatically
   acronym: load("content/acro.csv"), // this csv file contains abbreviations table
@@ -172,5 +173,6 @@ $ f(t) = A e^(t/tau) $
 #lorem(100) @2011.Cell.FirstChromothripsisReport
 
 == Point 2
+
 
 #lorem(100) @2025.Cell.OngoingChromothtipsis
