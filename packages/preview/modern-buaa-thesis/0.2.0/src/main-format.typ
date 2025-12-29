@@ -31,25 +31,25 @@
     set par(leading: 1em, spacing: 1em)
 
     v(0.5em)
-    it
+    numbering(it.numbering, ..counter(heading).at(it.location())) + "  " + it.body
     v(0.5em)
   }
 
   show heading.where(level: 2): it => {
     set text(size: font-size.four, font: font-type.hei, weight: "regular", lang: "cn")
-    set par(leading: 1em, spacing: 1em)
+    set par(leading: 1em, spacing: 1em, first-line-indent: 0em)
 
     v(0.5em)
-    it
+    numbering(it.numbering, ..counter(heading).at(it.location())) + "  " + it.body
     v(0.5em)
   }
 
   show heading.where(level: 3): it => {
     set text(size: font-size.small-four, font: font-type.hei, weight: "regular", lang: "cn")
-    set par(leading: 1em, spacing: 1em)
+    set par(leading: 1em, spacing: 1em, first-line-indent: 0em)
 
     v(0.5em)
-    it
+    numbering(it.numbering, ..counter(heading).at(it.location())) + "  " + it.body
     v(0.5em)
   }
 
@@ -133,7 +133,8 @@
   show ref: it => {
     let el = it.element
     if el != none and el.func() == heading {
-      link(el.location(), [#el.supplement #numbering(el.numbering, ..counter(heading).at(el.location())).trim()])
+      let num = numbering(el.numbering, ..counter(heading).at(el.location()))
+      link(el.location(), num)
     } else {
       it
     }

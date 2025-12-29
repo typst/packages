@@ -48,15 +48,15 @@
   }
 
   if num.pos().len() == 1 {
-    return "第" + numbering("一", ..num) + "章  "
+    return "第" + numbering("一", ..num) + "章"
   }
 
   if num.pos().len() == 2 {
-    return numbering("1.1", ..num) + "  "
+    return numbering("1.1", ..num)
   }
 
   if num.pos().len() == 3 {
-    return numbering("1.1.1", ..num) + "  "
+    return numbering("1.1.1", ..num)
   }
 }
 
