@@ -134,7 +134,7 @@
     let el = it.element
     if el != none and el.func() == heading {
       let num = numbering(el.numbering, ..counter(heading).at(el.location()))
-      link(el.location(), num)
+      link(el.location(), [#el.supplement #num])
     } else {
       it
     }
