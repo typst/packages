@@ -18,7 +18,7 @@ Or, on the [Typst Universe `cogsci-conference` project page](https://typst.app/u
 
 Or, on the [Typst web app](https://typst.app/) dashboard, click "Start from template" and search for `cogsci-conference`. 
 
-**Note**: You need to create and/or log into a typst.app account.
+**Note**: You need to log into a typst.app account.
 
 ### (*b*) Initialize the template locally
 

@@ -1,9 +1,9 @@
 %%% BibLaTeX %%%
 
-% Conference paper with URL
+% Conference paper with URL %
 @inproceedings{August2007,
   author    = {August, Bingwen C. and Benally, Camila D. and Cadena, Daisuke E.},
-  title     = {Example conference paper},
+  title     = {An example conference paper},
   booktitle = {Proceedings of the Annual Meeting of the Cognitive Science Society},
   volume    = {29},
   date      = {2007},
@@ -11,7 +11,7 @@
   url       = {https://escholarship.org/uc/item/k0e1y2}
 }
 
-% Journal article with DOI
+% Journal article with DOI %
 @article{DaphneEcho2022,
   author       = {Daphne, Ellie F. and Echo, Fernando G.},
   title        = {Example journal article},
@@ -20,56 +20,58 @@
   volume       = {10},
   number       = {3},
   pages        = {200--215},
-  doi          = {10.1234/example.article}
+  doi          = {10.1234/eg.article}
 }
 
-% Technical report
-% Hayagriva (v0.9.1), Typst's bibliography backend, ignores the 'institution' field; use 'publisher' instead
+% Technical report %
+% Hayagriva (v0.9.1), Typst's bibliography backend, ignores the 'institution' field; use 'publisher' field instead
 @report{FitzgeraldGalli1985,
   author      = {Fitzgerald, Guadalupe H. and Galli, Hind I.},
-  title       = {Example technical report},
-  publisher   = {Example University, Department of Example Studies},
+  title       = {An example technical report},
+  publisher   = {Some University, Department of Hypothetical Studies},
   date        = {1985},
   number      = {EX-TR-85-1},
   type        = {Report}
 }
 
-% Doctoral dissertation
-% Hayagriva (v0.9.1) ignores the 'institution' field; use 'publisher' instead
-% Hayagriva (v0.9.1) limitation: institution appears after brackets, not inside
-@thesis{Hakuole2001,
-  author     = {Hakuole, Indra J.},
-  title      = {Example thesis title},
-  type       = {Doctoral dissertation},
-  publisher  = {Example University},
-  date       = {2001}
+% Doctoral dissertation %
+% Hayagriva (v0.9.1) ignores the 'institution' field; use 'publisher' field instead
+% NB This Hayagriva limitation prevents listing a publisher
+@phdthesis{Hakuole2001,
+  author      = {Hakuole, Indra J.},
+  title       = {An example thesis title},
+  publisher   = {Some University},
+  url         = {https://hdl.handle.net/20.1000/5555},
+  date        = {2001}
 }
 
-% Chapter in edited book
+% Chapter in edited book %
+% The BibLaTeX norm is to use @incollection, but a Hayagriva (v0.9.1) bug maps this to the wrong CSL type, so use @inbook as a workaround
 @inbook{Issa1963,
   author    = {Issa, Jin K.},
-  title     = {Example book chapter in an edited volume},
+  title     = {An Example book chapter in an edited volume},
   booktitle = {Example edited volume title},
   editor    = {Juliet, Kaya L. and Kapoor, Liwei M.},
-  publisher = {Example Academic Press},
+  publisher = {Some Academic Press},
   date      = {1963},
   pages     = {300--315}
 }
 
-% Edited volume
+% Edited volume %
+% The BibLaTeX norm is to use @collection, but a Hayagriva (v0.9.1) bug maps this to the wrong CSL type, so use @book as a workaround
 @book{Lobsang2023,
   editor    = {Lobsang, Mingyur N.},
   title     = {Example edited volume title},
   date      = {2023},
   edition   = {2},
-  publisher = {Example University Press},
-  doi       = {10.4321/example.volume}
+  publisher = {Some University Press},
+  doi       = {10.4321/eg.vol2}
 }
 
-% Authored book
+% Authored book %
 @book{MitanniNovember1972,
   author    = {Mitanni, Nayeli O. and November, Olumide P.},
   title     = {Example book title},
-  publisher = {Example Publisher},
+  publisher = {Some Publisher},
   date      = {1972}
 }

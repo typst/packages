@@ -692,7 +692,12 @@
   show heading.where(level: 3): it => {
     v(line-height, weak: true)
     (
-      block(above: 0pt, below: 0pt) + text(it.body + h(0.5em, weak: false), size: 10pt, weight: "bold")
+      block(above: 0pt, below: 0pt)
+        + text(
+          size: 10pt,
+          weight: "bold",
+          it.body + h(0.5em, weak: false),
+        )
     )
   }
 
