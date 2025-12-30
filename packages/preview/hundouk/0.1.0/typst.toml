@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["mkpoli"]
 license = "MIT"
-description = "漢文訓点レンダリング"
+description = "Render kanbun kundoku (漢文訓読) with kunten (訓点) and optional vertical writing-mode"
 repository = "https://github.com/mkpoli/hundouk"
 keywords = [
   "kanbun",
