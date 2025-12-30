@@ -7,7 +7,6 @@ license = "MIT"
 authors = ["Mica Macé <@MicMac>"]
 categories = ["report"]
 keywords = ["ecl", "report", "internship", "academic", "project", "rapport"]
-repository = "https://github.com/MicmacM/ECL-template-typst"
 
 [template]
 path = "template"
