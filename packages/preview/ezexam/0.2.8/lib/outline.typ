@@ -42,9 +42,8 @@
   color: luma(0),
   position: center,
   top: 0pt,
-  bottom: 18pt,
+  bottom: 0pt,
 ) = context {
-  v(top)
   let _font = font
   if _font == auto { _font = text.font }
   let _size = size
@@ -55,13 +54,14 @@
       _size = 15pt
     }
   }
+  v(top)
   align(position, text(font: _font, size: _size, weight: weight, color)[#body <title>])
   v(bottom)
   counter(heading).update(0)
   counter("question").update(0)
 }
 
-#let subject(body, size: 21.5pt, spacing: 1em, font: heiti, top: -20pt, bottom: 0pt) = {
+#let subject(body, size: 21.5pt, spacing: 1em, font: heiti, top: 0pt, bottom: 0pt) = {
   v(top)
   align(center, text(
     font: font,
