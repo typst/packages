@@ -1,0 +1,18 @@
+[package]
+name = "hundouk"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["mkpoli"]
+license = "MIT"
+description = "漢文訓点レンダリング"
+repository = "https://github.com/mkpoli/hundouk"
+keywords = [
+  "kanbun",
+  "classical chinese",
+  "classical japanese",
+  "japannese",
+  "linguistics",
+  "sinology",
+  "literature",
+]
+exclude = ["docs/*"]
