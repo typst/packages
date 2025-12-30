@@ -1,0 +1,14 @@
+[package]
+name = "lion-ecl"
+description = "A Typst template for ECL report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+license = "MIT"
+authors = ["Mica Macé <@MicMac>"]
+categories = ["report"]
+keywords = ["ecl", "report", "internship", "academic", "project", "rapport"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
