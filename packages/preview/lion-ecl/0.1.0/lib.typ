@@ -1,6 +1,5 @@
 // Template fait à partir de celui de l'ENSIAS, merci a eux
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
 
 #let IMAGE_BOX_MAX_WIDTH = 120pt
 #let IMAGE_BOX_MAX_HEIGHT = 50pt
