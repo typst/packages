@@ -12,4 +12,4 @@ repository = "https://github.com/MicmacM/ECL-template-typst"
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "template/thumbnail.png"
+thumbnail = "thumbnail.png"
