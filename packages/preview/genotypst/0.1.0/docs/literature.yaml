@@ -1,0 +1,21 @@
+schneider_sequence_1990:
+  type: article
+  title:
+    value: "Sequence logos: a new way to display consensus sequences"
+    short: Sequence logos
+  author:
+    - Schneider, Thomas D.
+    - Stephens, R.Michael
+  date: 1990
+  page-range: 6097-6100
+  url:
+    value: https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/18.20.6097
+    date: 2025-12-24
+  serial-number:
+    doi: 10.1093/nar/18.20.6097
+    issn: 0305-1048, 1362-4962
+  parent:
+    type: periodical
+    title: Nucleic Acids Research
+    issue: 20
+    volume: 18
