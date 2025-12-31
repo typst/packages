@@ -160,6 +160,7 @@
   let n = info.subslide
 
   info.tag-hider = hider
+  if info.handout { info.tag-hider = it => it }
   // Change the array of controlled tags into dictionary of state.
   let tags = controls
     .flatten()
