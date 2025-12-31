@@ -1,4 +1,4 @@
-#import "../src/lib.typ": aa-palette, dna-palette, rna-palette
+#import "@preview/genotypst:0.1.0": aa-palette, dna-palette, rna-palette
 
 #let project(
   title: "",

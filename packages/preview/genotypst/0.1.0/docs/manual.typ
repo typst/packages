@@ -1,4 +1,4 @@
-#import "../src/lib.typ": *
+#import "@preview/genotypst:0.1.0": *
 #import "template.typ": aa-groups, dna-rna-groups, project, render-palette-group
 
 #show: project.with(

@@ -1,4 +1,4 @@
-#import "../src/lib.typ": *
+#import "@preview/genotypst:0.1.0": *
 
 #set page(
   fill: none,
