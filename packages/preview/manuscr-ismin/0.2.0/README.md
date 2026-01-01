@@ -64,13 +64,15 @@ Following, a description of this template's parameters:
 	```
 	#show manuscr-ismin.with(
 		authors: (
-      name: "Jean d'Oe",
-      affiliation: "ISMIN",
-      year: "2A",
-      class: "G2",
-      email: "jean.doe@emse.fr"
+			(
+	      name: "Jean d'Oe",
+	      affiliation: "ISMIN",
+	      year: "2A",
+	      class: "G2",
+	      email: "jean.doe@emse.fr"
+      ),
     ),
-    // The rest
+    // The rest of the parameters
 	),
 	```
 - `date` : the date,
