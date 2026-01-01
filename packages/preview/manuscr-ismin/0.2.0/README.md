@@ -1,35 +1,33 @@
-# _Template_ rapport ISMIN
+# manuscr-ismin
 
-Ce _template_ est celui que j'utilise pour écrire mes rapports à l'EMSE.
-Il utilise le langage Typst et est grandement inspiré de [celui de Timothé Dupuch](https://github.com/thimotedupuch/Template_Rapport_ISMIN_Typst),
-du [_template_ Bubble](https://github.com/hzkonor/bubble-template),
-du [_template_ ilm](https://github.com/talal/ilm),
-et enfin du [_template_ Diatypst](https://github.com/skriptum/Diatypst).
-Beaucoup des règles de typographie ont été tirées du [_Butterick's Practical Typography_](https://practicaltypography.com/).
-Je conseille également la lecture de l'ouvrage _Règles françaises de typographie mathématique_ par Alexandre André [ici](http://sgalex.free.fr/typo-maths_fr.pdf).
+This template is the one I use when writing my reports at Mines Saint-Étienne.
+It uses the Typst language and is inspired by [Timothé Dupuch's](https://github.com/thimotedupuch/Template_Rapport_ISMIN_Typst),
+the [Bubble template](https://github.com/hzkonor/bubble-template),
+the [ilm template](https://github.com/talal/ilm),
+the [Diatypst template ](https://github.com/skriptum/Diatypst),
+and a lot of code bits were given by the very nice Typst community on Discord and the Forum, so I deeply thank all of them.
+Most of the typography rules used by this template are from [_Butterick's Practical Typography_](https://practicaltypography.com/).
+I also recommend reading (for my fellow Frenches) the book _Règles françaises de typographie mathématique_ by Alexandre André [here](http://sgalex.free.fr/typo-maths_fr.pdf).
 
-Le fichier `template_report_ISMIN.pdf` est un apercu en PDF du résultat de la compilation.
-J'ai essayé de montrer toutes les possibilités qu'offrait Typst et la fonction manuscr-ismin, le contenu étant évidemment à ajuster à votre guise.
+In the default `main.typ`, I tried to showcase everything that this report could do and most of Typst's capabilities.
+Feel free to check the very extensive documentation for more information.
 
-Pour en savoir plus sur les fonctions l'utilisation de Typst, vous pouvez utiliser [la documentation](https://typst.app/docs), elle est très complète.
-Le Ctrl+Clic (ou Cmd+Clic) marche aussi sur les fonctions (dans l'éditeur de l'application web).
+## Usage
 
-## Utilisation
-
-Je conseille d'utiliser [l'application Web Typst](https://typst.app/), mais il est possible de l'installer le compilateur en CLI sur sa machine.
-- Le fichier `template.typ` contient toutes les règles et fonctions d'affichage,
-- le fichier `main.typ` lui contient le contenu que vous souhaitez inclure dans le rapport,
-- le fichier `bibs.yaml` contient les références bibliographiques (au format Hayagriva, mais Typst prend aussi en charge le format BibLaTeX, changer le fichier à votre guise),
-- le fichier `conf.yaml` sert à régler les différentes polices utilisées dans le document (par défaut il s'agit de la famille New Computer Modern) et la couleur principale (par défaut, le violet EMSE),
-- le répértoire `assets` contient les ressources graphiques pour le thème du _template_,
-- le répértoire `images` contient les images inclues dans le document.
+I advise for using the Typst Web App, but it is possible to install the CLI compiler locally on your machine.
+As for files:
+- the file `main.typ` is where you are going to write,
+- the file `bibs.yaml` is supposed to contain the bibliographical references in the Hayagriva format (leave empty if not used),
+- the file `conf.yaml` is where you are going to set the fonts used by the document and the main color,
+- the folder `assets` contains the graphical ressources used by the template,
+- the folder `images` contains... the images for your document (comes with a nice picture of two famous cats) -- please segment your files into folders when working.
 
 ### `conf.yaml`
 
-#### Polices
+#### Fonts
 
-Attention au fichier YAML, les noms des polices doivent être corrects.
-Par exemple, si on veut un look Typst par défaut :
+Make sure to correctly input your fonts in the YAML file.
+By default, it is set with the New Computer Modern font family, but if you want to go for Typst's default look:
 
 ```yml
 fonts:
@@ -37,52 +35,63 @@ fonts:
   code-font: "Cascadia Mono"
   math-font: "New Computer Modern Math"
   mono-font: "Libertinus Mono"
+  sans-font: "Libertinus Sans"
 ```
 
-#### Couleur
+#### Colour
 
-La couleur est définie par une chaîne de caractères au format hexadécimal ; par exemple, si on veut du rouge tomate :
+The colour is defined by a string and is in the hexadecimal format. 
+By default, the colour is the _violet EMSE_, but if you want to change it to -- for instance -- the colour of a tomato:
+
 ```yml
 main-color: "#FF6347"
 ```
 
-### `manuscr-imsin`
+### Function `manuscr-imsin`
 
-Ci-suit une description des paramètres de la fonction `manuscr-ismin` :
-- `title` : le titre du document (obligatoire),
-- `uptitle` : le surtitre du document, pour par exemple l'UE,
-- `subtitle` : le sous-titre,
-- `authors` : champ des auteurs sous forme de dictionnaire ; pour n'utiliser qu'un auteur, ne pas oublier de laisser quand même une virgule à la fin ;
-	- `name` : le nom de l'auteur,
-	- `affiliation` : la filière de l'auteur,
-	- `year` : l'année dans laquelle est l'auteur dans son cursus,
-	- `class` : la classe de l'auteur,
-	- `email` : son adresse mail ;
-- `date` : la date,
-- `logo` : le logo que vous voulez utiliser ; par défaut, c'est celui de l'EMSE,
-- `main-color` : la couleur de thème du document ; par défaut, il s'agit du "violet EMSE",
-- `header-title` : le texte à gauche dans l'en-tête,
-- `header-middle` : le texte centré et gras dans l'en-tête,
-- `header-subtitle` : le text à droite et en italique de l'en-tête,
-- `number-style` : le style des nombres ; par défaut en `"old-style"` (donc elzéviriens), possible de le changer pour `"lining"` (chiffres classiques).
+Following, a description of this template's parametres: 
 
-### Les fonctions
+- `title` : the title of the document (mandatory), in bold,
+- `uptitle` : an "uptitle" above the document in small capitals and old-style figures (for instance, the course's name),
+- `subtitle` : the subtitle below the title,
+- `authors` : field containing the authors in a dictionnary, if you only use one author, remember to add a comma at the end ;
+	- `name` : the author's name,
+	- `affiliation` : the author's affiliation,
+	- `year` : the author's year,
+	- `class` : the author's class,
+	- `email` : the author's email address ;
+	For instance:
+	```
+	#show manuscr-ismin.with(
+		authors: (
+      name: "Jean d'Oe",
+      affiliation: "ISMIN",
+      year: "2A",
+      class: "G2",
+      email: "jean.doe@emse.fr"
+    ),
+    // The rest
+	),
+	```
+- `date` : the date,
+- `logo` : path the logo you want to use -- by the default, it is Mines Saint-Étienne's,
+- `header-title` : the text in the left in the header,
+- `header-middle` : the text in the centre of the header (in bold),
+- `header-subtitle` : the text at the right in the header (in italic),
+- `number-style` : the style of numbers; can be either `"old-style"` or `"lining"`.
 
-- `violet-emse` : la couleur violette de l'EMSE,
-- `gray-emse` : la couleur grise de l'EMSE,
+### Other functions
 
-- `lining` : pour avoir des nombres en style classique localement si vous avez pris `"old-style"` ; les chiffres elzéviriens s'intégrent bien au texte minuscule, mais mal à celui en majusucule.
-	Par exemple, `#lining[STM32L436RG]` est bien plus élégant que `STM32L476RG`,
-- `arcosh` : la fonction arc cosinus hyperbolique pour le mode mathématique (j'en avais besoin),
-- `mono` : à utiliser pour retourner rapidement du texte en monospace sans la mise en forme de `raw` ;
-	À utiliser pour par exemple indiquer des noms de fichier : `#mono[toto_tigre.png]`,
-- `sans` : à utiliser pour retourner rapidement du texte en sans-serif (par exemple `#sans[adder]`),
-
-- `body-font` : la police pour le corps du texte,
-- `code-font` : la police utilisée par la fonction `raw`,
-- `math-font` : la police utilisée pour les équations mathématique,
-- `mono-font` : la police utilisée pour la fonction `mono`,
-- `sans-font` : la police utilisée pour la fonction `sans`,
-
-- `primary-color` : la couleur par défaut du document,
-- `block color`, `body-color`, `header-color`, `fill-color` : couleurs "éclaircies" dérivées de `primary-color`
+- `violet-emse` : Mines Saint-Étienne's purple,
+- `gray-emse` : Mines Saint-Étienne's gray,
+- `lining` : to locally get lining numbers,
+- `arcosh` : the hyperbolic arc cosine function for math mode (I needed it at some point),
+- `mono` : function that formats text with the `mono-font`, useful for when you want to have monospaced text that is not code, like paths or binary numbers,
+- `sans` : formats text with the `sans-font`,
+- `body-font` : font used for the text,
+- `code-font` : font used for the `raw` function,
+- `math-font` : font used for math mode,
+- `mono-font` : font used by the `mono` function,
+- `sans-font` : font used by the `sans` function,
+- `primary-color` : the document's default colour,
+- `block color`, `body-color`, `header-color`, `fill-color` : lightened colours derived from `primary-color`.
