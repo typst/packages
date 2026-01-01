@@ -14,13 +14,13 @@ Feel free to check the very extensive documentation for more information.
 
 ## Usage
 
-I advise for using the Typst Web App, but it is possible to install the CLI compiler locally on your machine.
+I advise using the Typst Web App, but it is possible to install the CLI compiler locally on your machine.
 As for files:
 - the file `main.typ` is where you are going to write,
 - the file `bibs.yaml` is supposed to contain the bibliographical references in the Hayagriva format (leave empty if not used),
 - the file `conf.yaml` is where you are going to set the fonts used by the document and the main color,
 - the folder `assets` contains the graphical ressources used by the template,
-- the folder `images` contains... the images for your document (comes with a nice picture of two famous cats) -- please segment your files into folders when working.
+- the folder `images` contains... the images for your document (comes with a nice picture of two famous cats) - please segment your files into folders when working.
 
 ### `conf.yaml`
 
@@ -41,7 +41,7 @@ fonts:
 #### Colour
 
 The colour is defined by a string and is in the hexadecimal format. 
-By default, the colour is the _violet EMSE_, but if you want to change it to -- for instance -- the colour of a tomato:
+By default, the colour is _violet EMSE_, but if you want to change it to - for instance - the colour of a tomato:
 
 ```yml
 main-color: "#FF6347"
@@ -49,7 +49,7 @@ main-color: "#FF6347"
 
 ### Function `manuscr-imsin`
 
-Following, a description of this template's parametres: 
+Following, a description of this template's parameters: 
 
 - `title` : the title of the document (mandatory), in bold,
 - `uptitle` : an "uptitle" above the document in small capitals and old-style figures (for instance, the course's name),
@@ -74,7 +74,7 @@ Following, a description of this template's parametres:
 	),
 	```
 - `date` : the date,
-- `logo` : path the logo you want to use -- by the default, it is Mines Saint-Étienne's,
+- `logo` : path the logo you want to use - by the default, it is Mines Saint-Étienne's,
 - `header-title` : the text in the left in the header,
 - `header-middle` : the text in the centre of the header (in bold),
 - `header-subtitle` : the text at the right in the header (in italic),
