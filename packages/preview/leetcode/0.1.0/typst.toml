@@ -15,3 +15,8 @@ keywords = [
 ]
 categories = ["utility", "scripting"]
 compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "images/thumbnail.png"
