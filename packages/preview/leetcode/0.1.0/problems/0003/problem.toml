@@ -1,0 +1,3 @@
+title = "Longest Substring Without Repeating Characters"
+difficulty = "medium"
+labels = ["string", "hash-table", "sliding-window"]

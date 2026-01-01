@@ -1,0 +1,3 @@
+title = "Maximum Depth of Binary Tree"
+difficulty = "easy"
+labels = ["tree", "depth-first-search", "recursion"]

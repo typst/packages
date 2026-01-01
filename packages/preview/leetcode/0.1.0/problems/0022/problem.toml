@@ -1,0 +1,4 @@
+title = "Generate Parentheses"
+difficulty = "medium"
+labels = ["string", "dynamic-programming", "backtracking"]
+validator = "unordered-compare"

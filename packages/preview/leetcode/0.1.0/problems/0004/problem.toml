@@ -1,0 +1,3 @@
+title = "Median of Two Sorted Arrays"
+difficulty = "hard"
+labels = ["array", "binary-search", "divide-and-conquer"]

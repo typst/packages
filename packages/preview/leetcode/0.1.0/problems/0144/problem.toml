@@ -1,0 +1,3 @@
+title = "Binary Tree Preorder Traversal"
+difficulty = "easy"
+labels = ["tree", "stack", "binary-tree", "depth-first-search"]

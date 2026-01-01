@@ -1,0 +1,3 @@
+title = "Minimum Size Subarray Sum"
+difficulty = "medium"
+labels = ["array", "sliding-window", "binary-search", "prefix-sum"]

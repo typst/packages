@@ -1,0 +1,3 @@
+title = "Remove Nth Node From End of List"
+difficulty = "medium"
+labels = ["linked-list", "two-pointers"]

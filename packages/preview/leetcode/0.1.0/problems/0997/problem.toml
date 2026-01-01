@@ -1,0 +1,4 @@
+title = "Find the Town Judge"
+difficulty = "easy"
+labels = ["graph", "hash-table"]
+custom-display = true

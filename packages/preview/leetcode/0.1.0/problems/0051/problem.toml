@@ -1,0 +1,6 @@
+title = "N-Queens"
+difficulty = "hard"
+labels = ["array", "backtracking"]
+validator = "unordered-compare"
+custom-display = true
+custom-output-display = true

@@ -1,0 +1,4 @@
+title = "Number of Provinces"
+difficulty = "medium"
+labels = ["depth-first-search", "breadth-first-search", "union-find", "graph"]
+custom-display = true

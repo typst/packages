@@ -1,0 +1,3 @@
+title = "Populating Next Right Pointers in Each Node"
+difficulty = "medium"
+labels = ["tree", "depth-first-search", "breadth-first-search", "binary-tree"]

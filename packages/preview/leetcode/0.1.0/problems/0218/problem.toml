@@ -1,0 +1,13 @@
+title = "The Skyline Problem"
+difficulty = "hard"
+labels = [
+  "array",
+  "divide-and-conquer",
+  "binary-indexed-tree",
+  "segment-tree",
+  "line-sweep",
+  "sorting",
+  "heap",
+  "ordered-set",
+]
+custom-display = true

@@ -1,0 +1,3 @@
+title = "Jump Game"
+difficulty = "medium"
+labels = ["array", "greedy", "dynamic-programming"]
