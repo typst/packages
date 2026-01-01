@@ -1,3 +1,4 @@
+slug = "string-to-integer-atoi"
 title = "String to Integer (atoi)"
 difficulty = "medium"
 labels = ["string"]

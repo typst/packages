@@ -1,3 +1,4 @@
+slug = "subsets"
 title = "Subsets"
 difficulty = "medium"
 labels = ["array", "backtracking", "bit-manipulation"]

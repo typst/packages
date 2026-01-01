@@ -1,3 +1,4 @@
+slug = "symmetric-tree"
 title = "Symmetric Tree"
 difficulty = "easy"
 labels = ["tree", "depth-first-search", "breadth-first-search", "binary-tree"]

@@ -1,3 +1,4 @@
+slug = "two-sum"
 title = "Two Sum"
 difficulty = "easy"
 labels = ["array", "hash-table"]

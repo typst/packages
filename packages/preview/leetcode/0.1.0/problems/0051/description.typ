@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/n-queens/
+
 = 0051. N-Queens
 
 The *n-queens* puzzle is the problem of placing $n$ queens on an $n times n$ chessboard such that no two queens attack each other.

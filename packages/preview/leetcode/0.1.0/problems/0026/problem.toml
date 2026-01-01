@@ -1,3 +1,4 @@
+slug = "remove-duplicates-from-sorted-array"
 title = "Remove Duplicates from Sorted Array"
 difficulty = "easy"
 labels = ["array", "two-pointers"]

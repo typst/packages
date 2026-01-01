@@ -1,3 +1,4 @@
+slug = "climbing-stairs"
 title = "Climbing Stairs"
 difficulty = "easy"
 labels = ["math", "dynamic-programming", "memoization"]

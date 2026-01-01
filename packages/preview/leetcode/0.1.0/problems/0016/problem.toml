@@ -1,3 +1,4 @@
+slug = "3sum-closest"
 title = "3Sum Closest"
 difficulty = "medium"
 labels = ["array", "two-pointers", "sorting"]

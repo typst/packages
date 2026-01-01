@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/course-schedule/
+
 = 0207. Course Schedule
 
 There are a total of `numCourses` courses you have to take, labeled from $0$ to `numCourses - 1`. You are given an array `prerequisites` where `prerequisites[i] = [a, b]` indicates that you *must* take course `b` first if you want to take course `a`.

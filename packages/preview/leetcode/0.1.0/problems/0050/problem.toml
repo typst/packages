@@ -1,3 +1,4 @@
+slug = "powx-n"
 title = "Pow(x, n)"
 difficulty = "medium"
 labels = ["math", "recursion"]

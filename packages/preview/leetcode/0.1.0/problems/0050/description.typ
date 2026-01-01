@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/powx-n/
+
 = 0050. Pow(x, n)
 
 Implement #link("https://en.wikipedia.org/wiki/Exponentiation_by_squaring", "pow(x, n)"), which calculates $x$ raised to the power $n$ (i.e., $x^n$).

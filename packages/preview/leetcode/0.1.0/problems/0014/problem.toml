@@ -1,3 +1,4 @@
+slug = "longest-common-prefix"
 title = "Longest Common Prefix"
 difficulty = "easy"
 labels = ["string", "trie"]

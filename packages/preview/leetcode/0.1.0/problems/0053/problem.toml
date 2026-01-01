@@ -1,3 +1,4 @@
+slug = "maximum-subarray"
 title = "Maximum Subarray"
 difficulty = "medium"
 labels = ["array", "divide-and-conquer", "dynamic-programming"]

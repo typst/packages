@@ -1,3 +1,4 @@
+slug = "longest-substring-without-repeating-characters"
 title = "Longest Substring Without Repeating Characters"
 difficulty = "medium"
 labels = ["string", "hash-table", "sliding-window"]

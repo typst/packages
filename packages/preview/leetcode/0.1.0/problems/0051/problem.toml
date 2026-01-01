@@ -1,3 +1,4 @@
+slug = "n-queens"
 title = "N-Queens"
 difficulty = "hard"
 labels = ["array", "backtracking"]

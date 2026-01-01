@@ -1,3 +1,4 @@
+slug = "min-stack"
 title = "Min Stack"
 difficulty = "medium"
 labels = ["stack", "design"]

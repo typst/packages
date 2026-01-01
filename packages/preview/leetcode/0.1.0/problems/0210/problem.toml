@@ -1,3 +1,4 @@
+slug = "course-schedule-ii"
 title = "Course Schedule II"
 difficulty = "medium"
 labels = ["graph", "topological-sort", "depth-first-search"]

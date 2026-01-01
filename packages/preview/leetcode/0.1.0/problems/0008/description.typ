@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/string-to-integer-atoi/
+
 = 0008. String to Integer (atoi)
 
 Implement the `myAtoi(string s)` function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function).

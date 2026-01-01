@@ -400,4 +400,6 @@ python3 scripts/create.py <problem-id>
 
 MIT License - see LICENSE file for details.
 
-LeetCode problems are the property of © LeetCode.
+## Disclaimer
+
+LeetCode problem descriptions are the property of © LeetCode. This package is for personal learning and educational purposes only. For official problem statements, please visit [leetcode.com](https://leetcode.com/).

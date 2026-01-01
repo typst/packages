@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+
 = 0026. Remove Duplicates from Sorted Array (Adapted)
 
 - This problem is different from the original version since functions in Typst cannot modify the input array in place.

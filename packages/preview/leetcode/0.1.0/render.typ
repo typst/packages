@@ -12,18 +12,26 @@
   // First include the description
   {
     show heading.where(level: 1): it => {
-      it
-      if show-badge and "difficulty" in info {
-        difficulty-badge(info.difficulty)
-        h(0.3em)
-      }
-      if show-labels and "labels" in info {
-        for label in info.labels {
-          label-badge(label)
-          h(0.3em)
+      let linked-body = link(
+        "https://leetcode.com/problems/" + info.slug + "/",
+      )[#it.body]
+      pagebreak(weak: true)
+
+      // Build badges inline
+      let badges = {
+        if show-badge and "difficulty" in info {
+          h(0.5em)
+          difficulty-badge(info.difficulty)
         }
-        linebreak()
+        if show-labels and "labels" in info {
+          h(0.5em)
+          for label in info.labels {
+            label-badge(label)
+            h(0.3em)
+          }
+        }
       }
+      block[#linked-body #badges]
     }
     include ("problems/" + id-str + "/description.typ")
   }

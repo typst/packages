@@ -1,3 +1,4 @@
+slug = "regular-expression-matching"
 title = "Regular Expression Matching"
 difficulty = "hard"
 labels = ["string", "dynamic-programming", "recursion"]

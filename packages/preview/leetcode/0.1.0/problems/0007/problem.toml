@@ -1,3 +1,4 @@
+slug = "reverse-integer"
 title = "Reverse Integer"
 difficulty = "medium"
 labels = ["math"]

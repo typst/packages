@@ -1,3 +1,4 @@
+slug = "valid-parentheses"
 title = "Valid Parentheses"
 difficulty = "easy"
 labels = ["string", "stack"]

@@ -1,3 +1,4 @@
+slug = "path-sum-ii"
 title = "Path Sum II"
 difficulty = "medium"
 labels = ["tree", "binary-tree", "depth-first-search", "backtracking"]

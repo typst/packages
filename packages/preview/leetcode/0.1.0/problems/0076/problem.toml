@@ -1,3 +1,4 @@
+slug = "minimum-window-substring"
 title = "Minimum Window Substring"
 difficulty = "hard"
 labels = ["hash-table", "string", "sliding-window"]

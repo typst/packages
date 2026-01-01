@@ -1,3 +1,4 @@
+slug = "letter-combinations-of-a-phone-number"
 title = "Letter Combinations of a Phone Number"
 difficulty = "medium"
 labels = ["hash-table", "string", "backtracking"]

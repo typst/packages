@@ -1,3 +1,4 @@
+slug = "binary-tree-inorder-traversal"
 title = "Binary Tree Inorder Traversal"
 difficulty = "easy"
 labels = ["tree", "stack", "binary-tree", "depth-first-search"]

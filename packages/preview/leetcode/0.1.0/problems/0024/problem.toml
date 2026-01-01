@@ -1,3 +1,4 @@
+slug = "swap-nodes-in-pairs"
 title = "Swap Nodes in Pairs"
 difficulty = "medium"
 labels = ["linked-list", "recursion"]

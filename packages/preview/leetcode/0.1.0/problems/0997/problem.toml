@@ -1,3 +1,4 @@
+slug = "find-the-town-judge"
 title = "Find the Town Judge"
 difficulty = "easy"
 labels = ["graph", "hash-table"]

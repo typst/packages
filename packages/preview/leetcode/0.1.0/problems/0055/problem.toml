@@ -1,3 +1,4 @@
+slug = "jump-game"
 title = "Jump Game"
 difficulty = "medium"
 labels = ["array", "greedy", "dynamic-programming"]
