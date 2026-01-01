@@ -1,0 +1,39 @@
+{
+    "Name": "Basic Biplane",
+    "Price": 11,
+    "Used": 5,
+    "Upkeep": 0,
+    "Stats": [
+        {
+            "Name": "Full Fuel",
+            "Boost": 2,
+            "Handling": 100,
+            "Climb": 5,
+            "Stall": 6,
+            "Speed": 14
+        },
+        {
+            "Name": "Half Fuel",
+            "Boost": 2,
+            "Handling": 100,
+            "Climb": 5,
+            "Stall": 5,
+            "Speed": 14
+        },
+        {
+            "Name": "Empty",
+            "Boost": "-",
+            "Handling": 101,
+            "Climb": "-",
+            "Stall": 5,
+            "Speed": 0
+        }
+    ],
+    "Vital Parts": "Controls, Seat, Fuel Tanks, Engine, Oil Tank, Guns, Landing Gear",
+    "Crew": "Pilot",
+    "Propulsion": "Dropoff 8, Reliability -1, Overspeed 18, Ideal Alt. 0-29, Fuel 12",
+    "Aerodynamics": "Visibility -1, Stability -1, Energy Loss 3, Turn Bleed 1",
+    "Survivability": "Toughness 8, Max Strain 34, Escape 2, Crash Safety -1, Flight Stress 2",
+    "Armament": "Seat #1: 1x Fixed MG ✣ fires [Forward] for 2 damage with 4/3/2/1 hits with 10 ammunition. [Jam 2/3, Rapid Fire, AP 1, Fully Accessible]\nRotary:  +1 to Dogfight! when turning right.\n",
+    "Link": "http://localhost:8080/PlaneBuilder/index.html?json=AAEAjATAdA7MCwAhAhgZwJYGMAEj0AcAbZAOwFNgBAK4WgMFsfqcZBfZoHQAlACwHsSybAFl+AF34AnAEbIArtgBaYMNgAcABl75gAJGABcYACBa1GkzYAIVhw4B-h8FsAoex8-ngPAUNES0nKKKmpaOsAAwADq0QCSPnyCwmKSsgrKqhraurRmlACCUABmxQACAAmMAJBUAPwAAbSNzU32bEwWTp5mHL1RXvb9PZ2mjLa2HhPskXaj3p6zNZaDy6ssAKCe1BZsFuszTJMHSxwA4CdMpwf21JHUdPuMO-uvHk83B0A"
+}

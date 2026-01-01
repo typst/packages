@@ -1,3 +1,13 @@
+# Prooftrees [DEPRECATED]
+
+Deprecated in favour of [curryst](https://github.com/pauladam94/curryst). 
+This package is no longer maintained and lacks many of the features of `curryst`.
+
+
+# Old Description
+
+---
+
 # Prooftrees
 
 This package is for constructing proof trees in the style of natural deduction or the sequent calculus, for `typst` `0.7.0`. Please do open issues for bugs etc :)

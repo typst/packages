@@ -8,6 +8,7 @@ use std::env::args;
 use std::fs;
 use std::io;
 use std::path::Path;
+use std::path::PathBuf;
 use std::sync::LazyLock;
 
 use anyhow::{bail, Context};
@@ -26,23 +27,33 @@ use self::timestamp::determine_timestamps;
 
 const DIST: &str = "dist";
 const THUMBS_DIR: &str = "thumbnails";
+const READMES_DIR: &str = "readmes";
+
+struct Config {
+    out_dir: PathBuf,
+    skip_license_validation: bool,
+}
 
 fn main() -> anyhow::Result<()> {
     println!("Starting bundling.");
 
     let mut next_is_out = false;
-    let out_dir = args()
-        .skip(1)
-        .find(|arg| {
-            if next_is_out {
-                return true;
-            }
-            next_is_out = arg == "--out-dir" || arg == "-o";
-            false
-        })
-        .unwrap_or_else(|| DIST.to_string());
 
-    let out_dir = Path::new(&out_dir);
+    let config = Config {
+        out_dir: args()
+            .skip(1)
+            .find(|arg| {
+                if next_is_out {
+                    return true;
+                }
+                next_is_out = arg == "--out-dir" || arg == "-o";
+                false
+            })
+            .unwrap_or_else(|| DIST.to_string())
+            .into(),
+        skip_license_validation: args().skip(1).any(|arg| arg == "--skip-license-validation"),
+    };
+
     let mut namespace_errors = vec![];
 
     for entry in walkdir::WalkDir::new("packages")
@@ -67,13 +78,15 @@ fn main() -> anyhow::Result<()> {
             .context("invalid namespace")?;
 
         println!("Processing namespace: {}", namespace);
-        let namespace_dir = Path::new(&out_dir).join(namespace);
+        let namespace_dir = config.out_dir.join(namespace);
 
         let mut paths = vec![];
         let mut index = vec![];
         let mut package_errors = vec![];
         fs::create_dir_all(namespace_dir.join(THUMBS_DIR))
             .context("could not create output directory")?;
+        fs::create_dir_all(namespace_dir.join(READMES_DIR))
+            .context("could not create directory for READMEs")?;
 
         for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
             let entry = entry.with_context(|| {
@@ -113,7 +126,7 @@ fn main() -> anyhow::Result<()> {
                 );
             }
 
-            match process_package(&path, &namespace_dir, namespace)
+            match process_package(&config, &path, &namespace_dir, namespace)
                 .with_context(|| format!("failed to process package at {}", path.display()))
             {
                 Ok(info) => {
@@ -132,15 +145,41 @@ fn main() -> anyhow::Result<()> {
         index.sort_by_key(|info| (info.package.name.clone(), info.package.version));
 
         println!("Writing index.");
+
+        // This index is allowed to be used by third parties: Both the Typst CLI
+        // and the web app download this index. However, we give no stability
+        // guarantees.
         fs::write(
             namespace_dir.join("index.json"),
             serde_json::to_vec(&index.iter().map(IndexPackageInfo::from).collect::<Vec<_>>())
                 .context("serialization of compact package index failed")?,
         )?;
+
+        // The index.extra.json is an implementation detail of typst.app. This
+        // file should not be used by third parties: They should instead use
+        // index.json.
         fs::write(
-            namespace_dir.join("index.full.json"),
-            serde_json::to_vec(&index).context("serialization of full package index failed")?,
+            namespace_dir.join("index.extra.json"),
+            serde_json::to_vec(
+                &index
+                    .iter()
+                    .map(ExtraIndexPackageInfo::from)
+                    .collect::<Vec<_>>(),
+            )
+            .context("serialization of extra package index failed")?,
         )?;
+
+        println!("Writing READMEs.");
+
+        let readme_dir = namespace_dir.join(READMES_DIR);
+
+        // The README files are an implementation detail of typst.app. They
+        // should not be used by third parties.
+        for item in &index {
+            let path =
+                readme_dir.join(format!("{}-{}.md", item.package.name, item.package.version));
+            fs::write(path, &item.readme)?;
+        }
 
         if !package_errors.is_empty() {
             namespace_errors.push((namespace.to_string(), package_errors));
@@ -167,13 +206,15 @@ fn main() -> anyhow::Result<()> {
 
 /// Create an archive for a package.
 fn process_package(
+    config: &Config,
     path: &Path,
     namespace_dir: &Path,
     namespace: &str,
 ) -> anyhow::Result<FullIndexPackageInfo> {
     println!("Bundling {}.", path.display());
 
-    let manifest = parse_manifest(path, namespace).context("failed to parse package manifest")?;
+    let manifest =
+        parse_manifest(config, path, namespace).context("failed to parse package manifest")?;
     let buf = build_archive(path, &manifest).context("failed to build archive")?;
     let readme = read_readme(path)?;
 
@@ -217,7 +258,11 @@ fn validate_no_unknown_fields(
 }
 
 /// Read and validate the package's manifest.
-fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifest> {
+fn parse_manifest(
+    config: &Config,
+    path: &Path,
+    namespace: &str,
+) -> anyhow::Result<PackageManifest> {
     let src = fs::read_to_string(path.join("typst.toml"))?;
 
     let manifest: PackageManifest = toml::from_str(&src)?;
@@ -257,25 +302,27 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
         validate_discipline(discipline)?;
     }
 
-    let Some(license) = &manifest.package.license else {
-        bail!("package license is missing");
-    };
+    if !config.skip_license_validation {
+        let Some(license) = &manifest.package.license else {
+            bail!("package license is missing");
+        };
 
-    let license =
-        spdx::Expression::parse(license).context("failed to parse SPDX license expression")?;
+        let license =
+            spdx::Expression::parse(license).context("failed to parse SPDX license expression")?;
 
-    for requirement in license.requirements() {
-        let id = requirement
-            .req
-            .license
-            .id()
-            .context("license must not contain a referencer")?;
+        for requirement in license.requirements() {
+            let id = requirement
+                .req
+                .license
+                .id()
+                .context("license must not contain a referencer")?;
 
-        if !id.is_osi_approved() && !is_allowed_cc(id) {
-            bail!(
-                "license is neither OSI approved nor an allowed CC license: {}",
-                id.full_name
-            );
+            if !id.is_osi_approved() && !is_allowed_cc(id) {
+                bail!(
+                    "license is neither OSI approved nor an allowed CC license: {}",
+                    id.full_name
+                );
+            }
         }
     }
 
@@ -308,6 +355,7 @@ fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<
     let mut buf = vec![];
     let compressed = flate2::write::GzEncoder::new(&mut buf, flate2::Compression::default());
     let mut builder = tar::Builder::new(compressed);
+    builder.mode(tar::HeaderMode::Deterministic);
 
     let mut overrides = ignore::overrides::OverrideBuilder::new(dir_path);
     for exclusion in &manifest.package.exclude {
@@ -385,7 +433,7 @@ fn process_thumbnail(
     // Get file size.
     let file_size = fs::metadata(&original_path)?.len() as usize;
     if file_size > 3 * 1024 * 1024 {
-        bail!("thumbnail must be smaller than 3MB");
+        bail!("thumbnail must be smaller than 3 MiB");
     }
 
     let mut image = image::open(&original_path)?;
@@ -393,7 +441,7 @@ fn process_thumbnail(
     // Ensure that the image has at least a certain minimum size.
     let longest_edge = image.width().max(image.height());
     if longest_edge < 1080 {
-        bail!("each thumbnail's longest edge must be at least 1080px long");
+        bail!("each thumbnail's longest edge must be at least 1080 px long");
     }
 
     // We produce a full-size and a miniature thumbnail.
@@ -456,7 +504,7 @@ fn validate_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
         bail!("{name} is missing");
     }
 
-    if path.extension().map_or(true, |ext| ext != "typ") {
+    if path.extension().is_none_or(|ext| ext != "typ") {
         bail!("{name} must have a .typ extension");
     }
 

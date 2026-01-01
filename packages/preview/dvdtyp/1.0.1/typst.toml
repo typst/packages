@@ -1,0 +1,17 @@
+[package]
+name = "dvdtyp"
+version = "1.0.1"
+entrypoint = "dvd.typ"
+authors = ["DVDTSB"]
+license = "MIT-0"
+description = "a colorful template for writting handouts or notes"
+categories = ["fun", "layout", "text"]
+repository = "https://github.com/DVDTSB/dvdtyp"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+[tool.packager]
+paths = ["template/", "dvd.typ", "thumbnail.png", "README.md", "LICENSE"]

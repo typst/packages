@@ -1,0 +1,10 @@
+typst:
+  type: Web
+  title: Typst
+  author:
+    - Mädje
+    - Laurenz
+    - Haug
+    - Martin
+    - Typst Projekta Izstrādātāji
+  url: {value: "https://typst.app/", date: 2025-01-01}

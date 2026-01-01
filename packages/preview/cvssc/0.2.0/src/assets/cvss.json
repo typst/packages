@@ -1,0 +1,2128 @@
+{
+  "cvss": {
+    "schema_version": "2.0",
+    "description": "Comprehensive machine-usable CVSS dataset for v2.0, v3.0, v3.1, and v4.0. All metrics include official numeric values, ranges, descriptions, and formulas from FIRST.org specifications. Supports customization through weight/formula overrides.",
+    "metadata": {
+      "last_updated": "2025-11-05",
+      "sources": [
+        "https://www.first.org/cvss/v2/guide",
+        "https://www.first.org/cvss/v3-0/specification-document",
+        "https://www.first.org/cvss/v3-1/specification-document",
+        "https://www.first.org/cvss/v4-0/specification-document"
+      ]
+    },
+    "global": {
+      "precision": 1,
+      "score_range": { "min": 0.0, "max": 10.0 },
+      "customization": {
+        "allow_weight_override": true,
+        "allow_custom_metric_injection": true,
+        "allow_formula_override": true,
+        "rounding_mode": "round_up_to_precision"
+      }
+    },
+    "versions": [
+      {
+        "version": "2.0",
+        "release_date": "2007-06-01",
+        "status": "legacy",
+        "notes": "Original CVSS version with Base/Temporal/Environmental groups. Formula-based scoring. All values from FIRST CVSS v2 Complete Documentation.",
+        "metric_groups": {
+          "base": {
+            "description": "Intrinsic characteristics of a vulnerability that are constant over time and across user environments.",
+            "metrics": {
+              "AV": {
+                "code": "AV",
+                "name": "Access Vector",
+                "description": "Reflects how the vulnerability is exploited; measures the remoteness of the attack.",
+                "type": "categorical",
+                "values": [
+                  {
+                    "code": "L",
+                    "label": "Local",
+                    "description": "Vulnerability requires local access or execution. Attacker must have physical or logical access to the vulnerable system.",
+                    "default_score": 0.395,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "A",
+                    "label": "Adjacent Network",
+                    "description": "Vulnerability requires access to local network segment. Examples include Bluetooth, local Ethernet, or shared subnet.",
+                    "default_score": 0.646,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "N",
+                    "label": "Network",
+                    "description": "Vulnerability is remotely exploitable from across network boundaries. Typical example is remote exploitation over the Internet.",
+                    "default_score": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "AC": {
+                "code": "AC",
+                "name": "Access Complexity",
+                "description": "Measures the complexity of the attack required to exploit the vulnerability once an attacker has gained access to the target system.",
+                "type": "categorical",
+                "values": [
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Specialized access conditions exist. Attack requires considerable preparation or specialized circumstances that may not occur frequently.",
+                    "default_score": 0.35,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "M",
+                    "label": "Medium",
+                    "description": "Some specialized access conditions or extenuating circumstances exist. Exploitation requires some preparation.",
+                    "default_score": 0.61,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "No special access conditions or extenuating circumstances exist. Attacker can expect repeatable exploit success.",
+                    "default_score": 0.71,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "Au": {
+                "code": "Au",
+                "name": "Authentication",
+                "description": "Measures the number of times an attacker must authenticate to a target in order to exploit the vulnerability.",
+                "type": "categorical",
+                "values": [
+                  {
+                    "code": "M",
+                    "label": "Multiple",
+                    "description": "Exploiting the vulnerability requires that the attacker authenticate two or more times, even if the same credentials are used each time.",
+                    "default_score": 0.45,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "S",
+                    "label": "Single",
+                    "description": "Vulnerability requires an attacker to be logged into the system (such as at a command line or via a desktop session or web interface).",
+                    "default_score": 0.56,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "Authentication is not required to exploit the vulnerability.",
+                    "default_score": 0.704,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "C": {
+                "code": "C",
+                "name": "Confidentiality Impact",
+                "description": "Measures the impact on confidentiality of a successfully exploited vulnerability. Confidentiality refers to limiting information access and disclosure to only authorized users.",
+                "type": "impact",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "There is no impact to the confidentiality of the system.",
+                    "default_score": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "P",
+                    "label": "Partial",
+                    "description": "There is considerable informational disclosure. Access to some system files is possible, but the attacker does not have control over what is obtained.",
+                    "default_score": 0.275,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "C",
+                    "label": "Complete",
+                    "description": "There is total information disclosure, resulting in all system files being revealed. The attacker is able to read all of the system's data.",
+                    "default_score": 0.660,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "I": {
+                "code": "I",
+                "name": "Integrity Impact",
+                "description": "Measures the impact to integrity of a successfully exploited vulnerability. Integrity refers to the trustworthiness and guaranteed veracity of information.",
+                "type": "impact",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "There is no impact to the integrity of the system.",
+                    "default_score": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "P",
+                    "label": "Partial",
+                    "description": "Modification of some system files or information is possible, but the attacker does not have control over what can be modified.",
+                    "default_score": 0.275,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "C",
+                    "label": "Complete",
+                    "description": "There is total compromise of system integrity. The attacker is able to modify any files on the target system.",
+                    "default_score": 0.660,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "A": {
+                "code": "A",
+                "name": "Availability Impact",
+                "description": "Measures the impact to availability of a successfully exploited vulnerability. Availability refers to the accessibility of information resources.",
+                "type": "impact",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "There is no impact to the availability of the system.",
+                    "default_score": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "P",
+                    "label": "Partial",
+                    "description": "There is reduced performance or interruptions in resource availability. Examples include network flooding attacks.",
+                    "default_score": 0.275,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "C",
+                    "label": "Complete",
+                    "description": "There is total shutdown of the affected resource. The attacker can render the resource completely unavailable.",
+                    "default_score": 0.660,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              }
+            }
+          },
+          "temporal": {
+            "description": "Characteristics that change over time but not across user environments. These metrics measure the current state of exploit techniques or code availability.",
+            "metrics": {
+              "E": {
+                "code": "E",
+                "name": "Exploitability",
+                "description": "Measures the current state of exploit techniques or code availability. The more easily a vulnerability can be exploited, the higher the vulnerability score.",
+                "type": "temporal_multiplier",
+                "values": [
+                  {
+                    "code": "U",
+                    "label": "Unproven",
+                    "description": "No exploit code is available, or an exploit is entirely theoretical.",
+                    "multiplier": 0.85,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "POC",
+                    "label": "Proof-of-Concept",
+                    "description": "Proof-of-concept exploit code or an attack demonstration that is not practical for most systems is available.",
+                    "multiplier": 0.9,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "F",
+                    "label": "Functional",
+                    "description": "Functional exploit code is available. The code works in most situations where the vulnerability exists.",
+                    "multiplier": 0.95,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Either the vulnerability is exploitable by functional mobile autonomous code, or no exploit is required (manual trigger) and details are widely available.",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "ND",
+                    "label": "Not Defined",
+                    "description": "Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "RL": {
+                "code": "RL",
+                "name": "Remediation Level",
+                "description": "The remediation level of a vulnerability is an important factor for prioritization. The more officially a fix is available, the lower the vulnerability score.",
+                "type": "temporal_multiplier",
+                "values": [
+                  {
+                    "code": "OF",
+                    "label": "Official Fix",
+                    "description": "A complete vendor solution is available. Either the vendor has issued an official patch or an upgrade is available.",
+                    "multiplier": 0.87,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "TF",
+                    "label": "Temporary Fix",
+                    "description": "There is an official but temporary fix available. This includes instances where the vendor issues a temporary hotfix, tool, or workaround.",
+                    "multiplier": 0.90,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "W",
+                    "label": "Workaround",
+                    "description": "There is an unofficial, non-vendor solution available. In some cases, users may have created their own workaround.",
+                    "multiplier": 0.95,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "U",
+                    "label": "Unavailable",
+                    "description": "There is either no solution available or it is impossible to apply a fix.",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "ND",
+                    "label": "Not Defined",
+                    "description": "Assigning this value to the metric will not influence the score.",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "RC": {
+                "code": "RC",
+                "name": "Report Confidence",
+                "description": "Measures the degree of confidence in the existence of the vulnerability and the credibility of the known technical details.",
+                "type": "temporal_multiplier",
+                "values": [
+                  {
+                    "code": "UC",
+                    "label": "Unconfirmed",
+                    "description": "There is a single unconfirmed source or possibly multiple conflicting reports. There is little confidence in the validity of the reports.",
+                    "multiplier": 0.90,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "UR",
+                    "label": "Uncorroborated",
+                    "description": "There are multiple non-official sources, possibly including independent security companies or research organizations. At this point there may be conflicting technical details.",
+                    "multiplier": 0.95,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "C",
+                    "label": "Confirmed",
+                    "description": "The vulnerability has been acknowledged by the vendor or author of the affected technology. The vulnerability may also be 'Confirmed' when its existence is confirmed from an external event.",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "ND",
+                    "label": "Not Defined",
+                    "description": "Assigning this value to the metric will not influence the score.",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              }
+            }
+          },
+          "environmental": {
+            "description": "Represents the characteristics of a vulnerability that are relevant and unique to a particular user's environment.",
+            "metrics": {
+              "CDP": {
+                "code": "CDP",
+                "name": "Collateral Damage Potential",
+                "description": "Measures the potential for loss of life or physical assets through damage or theft of property or equipment. The metric may also measure economic loss of productivity or revenue.",
+                "type": "environmental_factor",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "There is no potential for loss of life, physical assets, productivity or revenue.",
+                    "value": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "A successful exploit of this vulnerability may result in slight physical or property damage. Or there may be a slight loss of revenue or productivity to the organization.",
+                    "value": 0.1,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "LM",
+                    "label": "Low-Medium",
+                    "description": "A successful exploit of this vulnerability may result in moderate physical or property damage. Or there may be a moderate loss of revenue or productivity to the organization.",
+                    "value": 0.3,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "MH",
+                    "label": "Medium-High",
+                    "description": "A successful exploit of this vulnerability may result in significant physical or property damage or loss. Or there may be a significant loss of revenue or productivity.",
+                    "value": 0.4,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "A successful exploit of this vulnerability may result in catastrophic physical or property damage and loss. Or there may be a catastrophic loss of revenue or productivity.",
+                    "value": 0.5,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "ND",
+                    "label": "Not Defined",
+                    "description": "Assigning this value to the metric will not influence the score.",
+                    "value": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "TD": {
+                "code": "TD",
+                "name": "Target Distribution",
+                "description": "Measures the proportion of vulnerable systems within the user's environment. The greater the proportion of vulnerable systems, the higher the score.",
+                "type": "environmental_factor",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "No target systems exist, or targets are so highly specialized that they only exist in a laboratory setting.",
+                    "value": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Targets exist inside the environment, but on a small scale. Between 1% - 25% of the total environment is at risk.",
+                    "value": 0.25,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "M",
+                    "label": "Medium",
+                    "description": "Targets exist inside the environment, but on a medium scale. Between 26% - 75% of the total environment is at risk.",
+                    "value": 0.75,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Targets exist inside the environment on a considerable scale. Between 76% - 100% of the total environment is considered at risk.",
+                    "value": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "ND",
+                    "label": "Not Defined",
+                    "description": "Assigning this value to the metric will not influence the score. The default assumes a widespread target distribution.",
+                    "value": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "CR": {
+                "code": "CR",
+                "name": "Confidentiality Requirement",
+                "description": "Measures the importance of the confidentiality of the system to the user's organization. Enables the analyst to customize the CVSS score depending on the importance of the affected IT asset.",
+                "type": "security_requirement",
+                "values": [
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Loss of confidentiality is likely to have only a limited adverse effect on the organization or individuals associated with the organization.",
+                    "weight": 0.5,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "M",
+                    "label": "Medium",
+                    "description": "Loss of confidentiality is likely to have a serious adverse effect on the organization or individuals.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Loss of confidentiality is likely to have a catastrophic adverse effect on the organization or individuals.",
+                    "weight": 1.51,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "ND",
+                    "label": "Not Defined",
+                    "description": "Assigning this value to the metric will not influence the score. The default is Medium.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  }
+                ]
+              },
+              "IR": {
+                "code": "IR",
+                "name": "Integrity Requirement",
+                "description": "Measures the importance of the integrity of the system to the user's organization.",
+                "type": "security_requirement",
+                "values": [
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Loss of integrity is likely to have only a limited adverse effect on the organization or individuals.",
+                    "weight": 0.5,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "M",
+                    "label": "Medium",
+                    "description": "Loss of integrity is likely to have a serious adverse effect on the organization or individuals.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Loss of integrity is likely to have a catastrophic adverse effect on the organization or individuals.",
+                    "weight": 1.51,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "ND",
+                    "label": "Not Defined",
+                    "description": "Assigning this value to the metric will not influence the score. The default is Medium.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  }
+                ]
+              },
+              "AR": {
+                "code": "AR",
+                "name": "Availability Requirement",
+                "description": "Measures the importance of the availability of the system to the user's organization.",
+                "type": "security_requirement",
+                "values": [
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Loss of availability is likely to have only a limited adverse effect on the organization or individuals.",
+                    "weight": 0.5,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "M",
+                    "label": "Medium",
+                    "description": "Loss of availability is likely to have a serious adverse effect on the organization or individuals.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Loss of availability is likely to have a catastrophic adverse effect on the organization or individuals.",
+                    "weight": 1.51,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "ND",
+                    "label": "Not Defined",
+                    "description": "Assigning this value to the metric will not influence the score. The default is Medium.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "scoring": {
+          "method": "formula",
+          "formulas": {
+            "impact": "Impact = 10.41 × (1 − (1 − C) × (1 − I) × (1 − A))",
+            "exploitability": "Exploitability = 20 × AV × AC × Au",
+            "f_impact": "f(Impact) = 0 if Impact = 0, else 1.176",
+            "base_score": "BaseScore = round_up(((0.6 × Impact) + (0.4 × Exploitability) − 1.5) × f(Impact))",
+            "temporal_score": "TemporalScore = round_up(BaseScore × E × RL × RC)",
+            "adjusted_impact": "AdjustedImpact = min(10, 10.41 × (1 − (1 − C × CR) × (1 − I × IR) × (1 − A × AR)))",
+            "adjusted_base": "AdjustedBase = ((0.6 × AdjustedImpact) + (0.4 × Exploitability) − 1.5) × f(AdjustedImpact)",
+            "adjusted_temporal": "AdjustedTemporal = AdjustedBase × E × RL × RC",
+            "environmental_score": "EnvironmentalScore = round_up((AdjustedTemporal + (10 − AdjustedTemporal) × CDP) × TD)"
+          },
+          "range": { "min": 0.0, "max": 10.0 },
+          "precision": 1,
+          "rounding_function": "round_up_to_1_decimal",
+          "override_hooks": {
+            "allow_formula_override": true,
+            "allow_per_metric_custom_range": true
+          }
+        },
+        "severity_scale": [
+          {
+            "label": "Low",
+            "min": 0.0,
+            "max": 3.9,
+            "default_color": "#00B050",
+            "description": "Vulnerabilities with low severity typically have limited impact."
+          },
+          {
+            "label": "Medium",
+            "min": 4.0,
+            "max": 6.9,
+            "default_color": "#FFC000",
+            "description": "Vulnerabilities with medium severity should be addressed but are not critical."
+          },
+          {
+            "label": "High",
+            "min": 7.0,
+            "max": 10.0,
+            "default_color": "#C00000",
+            "description": "Vulnerabilities with high severity should be prioritized for remediation."
+          }
+        ],
+        "vector_format": {
+          "syntax": "AV:[L|A|N]/AC:[H|M|L]/Au:[M|S|N]/C:[N|P|C]/I:[N|P|C]/A:[N|P|C]",
+          "example": "AV:N/AC:L/Au:N/C:P/I:P/A:C",
+          "temporal_syntax": "Base + /E:[U|POC|F|H|ND]/RL:[OF|TF|W|U|ND]/RC:[UC|UR|C|ND]",
+          "environmental_syntax": "Base + Temporal + /CDP:[N|L|LM|MH|H|ND]/TD:[N|L|M|H|ND]/CR:[L|M|H|ND]/IR:[L|M|H|ND]/AR:[L|M|H|ND]"
+        }
+      },
+
+      {
+        "version": "3.0",
+        "release_date": "2015-06-01",
+        "status": "superseded",
+        "notes": "Major revision introducing Scope metric and refined metric names. Formula-based scoring with scope multiplier (1.08). Superseded by v3.1.",
+        "metric_groups": {
+          "base": {
+            "description": "Intrinsic characteristics that are constant over time and across user environments.",
+            "exploitability_metrics": {
+              "AV": {
+                "code": "AV",
+                "name": "Attack Vector",
+                "description": "Reflects the context by which vulnerability exploitation is possible.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "Network",
+                    "description": "Vulnerable component is bound to the network stack; attacker can exploit remotely.",
+                    "default_score": 0.85,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "A",
+                    "label": "Adjacent",
+                    "description": "Attack is limited to the same shared physical or logical network.",
+                    "default_score": 0.62,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Local",
+                    "description": "Attacker must have local access or user-level permissions.",
+                    "default_score": 0.55,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "P",
+                    "label": "Physical",
+                    "description": "Attack requires physical access to the vulnerable component.",
+                    "default_score": 0.2,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "AC": {
+                "code": "AC",
+                "name": "Attack Complexity",
+                "description": "Conditions beyond the attacker's control that must exist to exploit the vulnerability.",
+                "values": [
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "No specialized conditions exist; attacker can expect repeatable success.",
+                    "default_score": 0.77,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Successful attack depends on conditions beyond attacker's control.",
+                    "default_score": 0.44,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "PR": {
+                "code": "PR",
+                "name": "Privileges Required",
+                "description": "Level of privileges an attacker must possess before exploiting the vulnerability.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "Attacker is unauthorized prior to attack; no access required.",
+                    "default_score": 0.85,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Attacker requires basic user capabilities.",
+                    "default_score": 0.62,
+                    "scope_changed_score": 0.68,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Attacker requires significant control over the component.",
+                    "default_score": 0.27,
+                    "scope_changed_score": 0.50,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "UI": {
+                "code": "UI",
+                "name": "User Interaction",
+                "description": "Whether successful exploitation requires a user to take some action.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "Vulnerable system can be exploited without user interaction.",
+                    "default_score": 0.85,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "R",
+                    "label": "Required",
+                    "description": "Successful exploitation requires user to take action (e.g., open malicious file).",
+                    "default_score": 0.62,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              }
+            },
+            "impact_metrics": {
+              "S": {
+                "code": "S",
+                "name": "Scope",
+                "description": "Whether a vulnerability in one component impacts resources beyond its security scope.",
+                "values": [
+                  {
+                    "code": "U",
+                    "label": "Unchanged",
+                    "description": "Exploited vulnerability can only affect resources managed by the same authority."
+                  },
+                  {
+                    "code": "C",
+                    "label": "Changed",
+                    "description": "Exploited vulnerability can affect resources beyond the security scope."
+                  }
+                ]
+              },
+              "C": {
+                "code": "C",
+                "name": "Confidentiality",
+                "description": "Impact to confidentiality of information resources.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "No loss of confidentiality.",
+                    "default_score": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Some loss of confidentiality; limited information disclosure.",
+                    "default_score": 0.22,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Total loss of confidentiality; all resources divulged.",
+                    "default_score": 0.56,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "I": {
+                "code": "I",
+                "name": "Integrity",
+                "description": "Impact to integrity of a successfully exploited vulnerability.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "No loss of integrity.",
+                    "default_score": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Modification of data possible but attacker lacks control.",
+                    "default_score": 0.22,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Total loss of integrity; attacker can modify any/all files.",
+                    "default_score": 0.56,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "A": {
+                "code": "A",
+                "name": "Availability",
+                "description": "Impact to availability of the impacted component.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "No impact to availability.",
+                    "default_score": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Performance reduced or interruptions in resource availability.",
+                    "default_score": 0.22,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Total loss of availability; attacker can deny access to resources.",
+                    "default_score": 0.56,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              }
+            }
+          },
+          "temporal": {
+            "description": "Characteristics that change over time but not across user environments.",
+            "metrics": {
+              "E": {
+                "code": "E",
+                "name": "Exploit Code Maturity",
+                "description": "Measures the likelihood of vulnerability being attacked based on current exploit techniques/code availability.",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Assigning this value has no impact on the score.", "multiplier": 1.0 },
+                  { "code": "H", "label": "High", "description": "Functional autonomous code exists or no exploit required.", "multiplier": 1.0 },
+                  { "code": "F", "label": "Functional", "description": "Functional exploit code is available.", "multiplier": 0.97 },
+                  { "code": "P", "label": "Proof-of-Concept", "description": "Proof-of-concept exploit code is available.", "multiplier": 0.94 },
+                  { "code": "U", "label": "Unproven", "description": "No exploit code is available or theoretical.", "multiplier": 0.91 }
+                ]
+              },
+              "RL": {
+                "code": "RL",
+                "name": "Remediation Level",
+                "description": "Availability of a fix for the vulnerability.",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Assigning this value has no impact on the score.", "multiplier": 1.0 },
+                  { "code": "U", "label": "Unavailable", "description": "No solution available or impossible to apply.", "multiplier": 1.0 },
+                  { "code": "W", "label": "Workaround", "description": "Unofficial, non-vendor solution available.", "multiplier": 0.97 },
+                  { "code": "T", "label": "Temporary Fix", "description": "Official but temporary fix available.", "multiplier": 0.96 },
+                  { "code": "O", "label": "Official Fix", "description": "Complete vendor solution is available.", "multiplier": 0.95 }
+                ]
+              },
+              "RC": {
+                "code": "RC",
+                "name": "Report Confidence",
+                "description": "Confidence in the existence of the vulnerability and credibility of technical details.",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Assigning this value has no impact on the score.", "multiplier": 1.0 },
+                  { "code": "C", "label": "Confirmed", "description": "Detailed reports exist or functional reproduction possible.", "multiplier": 1.0 },
+                  { "code": "R", "label": "Reasonable", "description": "Significant details published but may lack full confidence.", "multiplier": 0.96 },
+                  { "code": "U", "label": "Unknown", "description": "Reports exist but details unconfirmed.", "multiplier": 0.92 }
+                ]
+              }
+            }
+          },
+          "environmental": {
+            "description": "Characteristics relevant and unique to a user's environment.",
+            "notes": "Modified Base metrics (MAV, MAC, MPR, MUI, MS, MC, MI, MA) and Security Requirements (CR, IR, AR) allow customization.",
+            "security_requirements": {
+              "CR": {
+                "code": "CR",
+                "name": "Confidentiality Requirement",
+                "description": "Importance of confidentiality to the organization.",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Default; no impact on score.", "weight": 1.0 },
+                  { "code": "H", "label": "High", "description": "Loss has catastrophic adverse effect.", "weight": 1.5 },
+                  { "code": "M", "label": "Medium", "description": "Loss has serious adverse effect.", "weight": 1.0 },
+                  { "code": "L", "label": "Low", "description": "Loss has limited adverse effect.", "weight": 0.5 }
+                ]
+              },
+              "IR": {
+                "code": "IR",
+                "name": "Integrity Requirement",
+                "description": "Importance of integrity to the organization.",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Default; no impact on score.", "weight": 1.0 },
+                  { "code": "H", "label": "High", "description": "Loss has catastrophic adverse effect.", "weight": 1.5 },
+                  { "code": "M", "label": "Medium", "description": "Loss has serious adverse effect.", "weight": 1.0 },
+                  { "code": "L", "label": "Low", "description": "Loss has limited adverse effect.", "weight": 0.5 }
+                ]
+              },
+              "AR": {
+                "code": "AR",
+                "name": "Availability Requirement",
+                "description": "Importance of availability to the organization.",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Default; no impact on score.", "weight": 1.0 },
+                  { "code": "H", "label": "High", "description": "Loss has catastrophic adverse effect.", "weight": 1.5 },
+                  { "code": "M", "label": "Medium", "description": "Loss has serious adverse effect.", "weight": 1.0 },
+                  { "code": "L", "label": "Low", "description": "Loss has limited adverse effect.", "weight": 0.5 }
+                ]
+              }
+            },
+            "modified_base_metrics_note": "All Base metrics can be modified with 'M' prefix (MAV, MAC, MPR, MUI, MS, MC, MI, MA). Modified metrics use same values as Base metrics plus 'X' (Not Defined) to use original Base value."
+          }
+        },
+        "scoring": {
+          "method": "formula",
+          "formulas": {
+            "ISS": "ISS = 1 − ((1 − C) × (1 − I) × (1 − A))",
+            "impact_unchanged": "Impact = 6.42 × ISS",
+            "impact_changed": "Impact = 7.52 × (ISS − 0.029) − 3.25 × (ISS − 0.02)^15",
+            "exploitability": "Exploitability = 8.22 × AV × AC × PR × UI",
+            "base_score_unchanged": "BaseScore = Roundup(Minimum[(Impact + Exploitability), 10])",
+            "base_score_changed": "BaseScore = Roundup(Minimum[1.08 × (Impact + Exploitability), 10])",
+            "base_score_zero_impact": "If Impact ≤ 0, BaseScore = 0",
+            "temporal_score": "TemporalScore = Roundup(BaseScore × E × RL × RC)",
+            "environmental_note": "Environmental score uses Modified Base metrics to calculate Modified Impact and Modified Exploitability, then applies Temporal multipliers and Security Requirements."
+          },
+          "metric_constants_source": "FIRST v3.0 specification tables",
+          "precision": 1,
+          "rounding_function": "round_up_to_1_decimal",
+          "override_hooks": {
+            "allow_scope_dependent_weights": true,
+            "allow_formula_override": true
+          }
+        },
+        "severity_scale": [
+          { "label": "None", "min": 0.0, "max": 0.0, "default_color": "#53AA33", "description": "No vulnerability or impact." },
+          { "label": "Low", "min": 0.1, "max": 3.9, "default_color": "#FFCB0D", "description": "Low severity; limited impact." },
+          { "label": "Medium", "min": 4.0, "max": 6.9, "default_color": "#F9A009", "description": "Medium severity; moderate impact." },
+          { "label": "High", "min": 7.0, "max": 8.9, "default_color": "#DF3D03", "description": "High severity; significant impact." },
+          { "label": "Critical", "min": 9.0, "max": 10.0, "default_color": "#CC0500", "description": "Critical severity; severe or catastrophic impact." }
+        ],
+        "vector_format": {
+          "prefix": "CVSS:3.0",
+          "syntax": "CVSS:3.0/AV:[N|A|L|P]/AC:[L|H]/PR:[N|L|H]/UI:[N|R]/S:[U|C]/C:[N|L|H]/I:[N|L|H]/A:[N|L|H]",
+          "example": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "temporal_extension": "/E:[X|H|F|P|U]/RL:[X|U|W|T|O]/RC:[X|C|R|U]",
+          "environmental_extension": "/CR:[X|H|M|L]/IR:[X|H|M|L]/AR:[X|H|M|L]/MAV:[X|N|A|L|P]/MAC:[X|L|H]/MPR:[X|N|L|H]/MUI:[X|N|R]/MS:[X|U|C]/MC:[X|N|L|H]/MI:[X|N|L|H]/MA:[X|N|L|H]"
+        }
+      },
+
+      {
+        "version": "3.1",
+        "release_date": "2019-06-17",
+        "status": "current",
+        "notes": "Minor refinement of v3.0 with clarifications and formula adjustment (exponent changed from 15 to 13 for environmental impact). Numeric values from FIRST v3.1 Table 16. No new metrics or values introduced.",
+        "metric_groups": {
+          "base": {
+            "description": "Intrinsic characteristics of a vulnerability that are constant over time and across user environments.",
+            "exploitability_metrics": {
+              "AV": {
+                "code": "AV",
+                "name": "Attack Vector",
+                "description": "Reflects the context by which vulnerability exploitation is possible. Measures the remoteness of the attacker relative to the vulnerable component.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "Network",
+                    "description": "Vulnerable component is bound to the network stack and the set of possible attackers extends beyond the other options, up to and including the entire Internet. Exploitation remotely across network boundaries.",
+                    "default_score": 0.85,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "A",
+                    "label": "Adjacent",
+                    "description": "Vulnerable component is bound to the network stack, but attack is limited at protocol level to logically adjacent topology. Examples: Bluetooth, IEEE 802.11, local IP subnet.",
+                    "default_score": 0.62,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Local",
+                    "description": "Vulnerable component is not bound to the network stack; attacker's path is via read/write/execute capabilities. Local access required (shell access, SSH) or requires user execution.",
+                    "default_score": 0.55,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "P",
+                    "label": "Physical",
+                    "description": "Attack requires physical access or manipulation of the vulnerable component. Physical interaction required (e.g., cold boot attacks, peripheral attacks).",
+                    "default_score": 0.2,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "AC": {
+                "code": "AC",
+                "name": "Attack Complexity",
+                "description": "Conditions beyond the attacker's control that must exist in order to exploit the vulnerability. Measures the ease or difficulty of exploiting the vulnerability.",
+                "values": [
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Specialized access conditions or extenuating circumstances do not exist. Attacker can expect repeatable exploit success against the vulnerable component.",
+                    "default_score": 0.77,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Successful attack depends on conditions beyond attacker's control. Requires considerable preparation or execution against specific target. Examples: race condition, social engineering.",
+                    "default_score": 0.44,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "PR": {
+                "code": "PR",
+                "name": "Privileges Required",
+                "description": "Level of privileges an attacker must possess before successfully exploiting the vulnerability. Measures authentication requirements.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "Attacker is unauthorized prior to attack and requires no access to settings or files to carry out an attack.",
+                    "default_score": 0.85,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Attacker requires privileges that provide basic user capabilities that could normally affect only settings and files owned by a single user. Non-privileged user account.",
+                    "default_score": 0.62,
+                    "scope_changed_score": 0.68,
+                    "range": { "min": 0.0, "max": 1.0 },
+                    "note": "Score depends on Scope: 0.62 if Unchanged, 0.68 if Changed"
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Attacker requires privileges that provide significant (e.g., administrative) control over the vulnerable component allowing access to component-wide settings and files.",
+                    "default_score": 0.27,
+                    "scope_changed_score": 0.5,
+                    "range": { "min": 0.0, "max": 1.0 },
+                    "note": "Score depends on Scope: 0.27 if Unchanged, 0.5 if Changed"
+                  }
+                ]
+              },
+              "UI": {
+                "code": "UI",
+                "name": "User Interaction",
+                "description": "Captures the requirement for a human user, other than the attacker, to participate in the successful compromise of the vulnerable component.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "Vulnerable system can be exploited without interaction from any user. Attack can proceed at will.",
+                    "default_score": 0.85,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "R",
+                    "label": "Required",
+                    "description": "Successful exploitation requires a user to take some action before vulnerability can be exploited. Examples: opening email attachment, visiting malicious webpage, performing specific action.",
+                    "default_score": 0.62,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              }
+            },
+            "impact_metrics": {
+              "S": {
+                "code": "S",
+                "name": "Scope",
+                "description": "Whether a vulnerability in one vulnerable component impacts resources in components beyond its security scope. Represents authorization boundaries crossed.",
+                "values": [
+                  {
+                    "code": "U",
+                    "label": "Unchanged",
+                    "description": "Exploited vulnerability can only affect resources managed by the same security authority. Impact confined to the vulnerable component."
+                  },
+                  {
+                    "code": "C",
+                    "label": "Changed",
+                    "description": "Exploited vulnerability can affect resources beyond the security scope managed by the security authority of the vulnerable component. Impacts resources beyond the vulnerable component."
+                  }
+                ]
+              },
+              "C": {
+                "code": "C",
+                "name": "Confidentiality",
+                "description": "Impact to the confidentiality of the information resources managed by a software component. Measures information disclosure.",
+                "values": [
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Total loss of confidentiality; all resources within the impacted component are divulged to the attacker. Attacker can read all system data.",
+                    "default_score": 0.56,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Some loss of confidentiality. Access to some restricted information is obtained, but attacker does not have control over what information is obtained. Partial disclosure.",
+                    "default_score": 0.22,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "No loss of confidentiality within the impacted component.",
+                    "default_score": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "I": {
+                "code": "I",
+                "name": "Integrity",
+                "description": "Impact to integrity of a successfully exploited vulnerability. Integrity refers to trustworthiness and veracity of information.",
+                "values": [
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Total loss of integrity or complete loss of protection. Attacker is able to modify any or all files protected by the impacted component.",
+                    "default_score": 0.56,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Modification of data is possible, but attacker does not have control over the consequence of a modification or amount of modification is limited.",
+                    "default_score": 0.22,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "No loss of integrity within the impacted component.",
+                    "default_score": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "A": {
+                "code": "A",
+                "name": "Availability",
+                "description": "Impact to the availability of the impacted component resulting from successfully exploited vulnerability. Availability refers to accessibility of information resources.",
+                "values": [
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Total loss of availability resulting in attacker being able to fully deny access to resources in the impacted component. This loss is sustained or persistent.",
+                    "default_score": 0.56,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Performance is reduced or there are interruptions in resource availability. Attacker does not have ability to completely deny service.",
+                    "default_score": 0.22,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "No impact to availability within the impacted component.",
+                    "default_score": 0.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              }
+            }
+          },
+          "temporal": {
+            "description": "Characteristics that measure the current state of exploit techniques, code availability, and the existence of patches or workarounds.",
+            "metrics": {
+              "E": {
+                "code": "E",
+                "name": "Exploit Code Maturity",
+                "description": "Measures the likelihood of the vulnerability being attacked and is typically based on the current state of exploit techniques, exploit code availability, or active exploitation.",
+                "values": [
+                  {
+                    "code": "X",
+                    "label": "Not Defined",
+                    "description": "Assigning this value indicates there is insufficient information to choose one of the other values and has no impact on overall score. Defaults to worst case (High).",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Functional autonomous code exists or no exploit is required (manual trigger) and details are widely available. Includes mobile or autonomous code such as viruses or worms.",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "F",
+                    "label": "Functional",
+                    "description": "Functional exploit code is available. The code works in most situations where the vulnerability exists.",
+                    "multiplier": 0.97,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "P",
+                    "label": "Proof-of-Concept",
+                    "description": "Proof-of-concept exploit code is available or an attack demonstration is not practical for most systems. Code or technique is not functional in all situations.",
+                    "multiplier": 0.94,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "U",
+                    "label": "Unproven",
+                    "description": "No exploit code is available or an exploit is theoretical.",
+                    "multiplier": 0.91,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "RL": {
+                "code": "RL",
+                "name": "Remediation Level",
+                "description": "Remediation Level of a vulnerability is an important factor for prioritization. The typical vulnerability is unpatched when initially published.",
+                "values": [
+                  {
+                    "code": "X",
+                    "label": "Not Defined",
+                    "description": "Assigning this value has no impact on the score. Defaults to worst case (Unavailable).",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "U",
+                    "label": "Unavailable",
+                    "description": "There is either no solution available or it is impossible to apply a fix.",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "W",
+                    "label": "Workaround",
+                    "description": "There is an unofficial, non-vendor solution available. In some cases, users of the affected technology will create a patch themselves or provide steps to work around or otherwise mitigate the vulnerability.",
+                    "multiplier": 0.97,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "T",
+                    "label": "Temporary Fix",
+                    "description": "There is an official but temporary fix available. This includes instances where the vendor issues a temporary hotfix, tool, or workaround.",
+                    "multiplier": 0.96,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "O",
+                    "label": "Official Fix",
+                    "description": "A complete vendor solution is available. Either the vendor has issued an official patch or an upgrade is available.",
+                    "multiplier": 0.95,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              },
+              "RC": {
+                "code": "RC",
+                "name": "Report Confidence",
+                "description": "Measures the degree of confidence in the existence of the vulnerability and the credibility of the known technical details.",
+                "values": [
+                  {
+                    "code": "X",
+                    "label": "Not Defined",
+                    "description": "Assigning this value has no impact on the score. Defaults to worst case (Confirmed).",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "C",
+                    "label": "Confirmed",
+                    "description": "Detailed reports exist or functional reproduction is possible (functional exploits may provide this). Source code is available to independently verify assertions or author/vendor has confirmed the vulnerability.",
+                    "multiplier": 1.0,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "R",
+                    "label": "Reasonable",
+                    "description": "Significant details are published but researchers either do not have full confidence in root cause or do not have access to source code to fully confirm all interactions.",
+                    "multiplier": 0.96,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  },
+                  {
+                    "code": "U",
+                    "label": "Unknown",
+                    "description": "Reports exist indicating vulnerability is present but details are insufficient to conclude with confidence.",
+                    "multiplier": 0.92,
+                    "range": { "min": 0.0, "max": 1.0 }
+                  }
+                ]
+              }
+            }
+          },
+          "environmental": {
+            "description": "Represents the characteristics of a vulnerability that are relevant and unique to a particular user's environment. Allows customization of CVSS score based on importance of affected IT asset and modified base metrics.",
+            "security_requirements": {
+              "CR": {
+                "code": "CR",
+                "name": "Confidentiality Requirement",
+                "description": "Enables the analyst to customize the CVSS score depending on the importance of the affected IT asset to a user's organization measured in terms of confidentiality.",
+                "values": [
+                  {
+                    "code": "X",
+                    "label": "Not Defined",
+                    "description": "Assigning this value has no impact on the score. Assumes Medium importance.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Loss of confidentiality is likely to have a catastrophic adverse effect on the organization or individuals associated with the organization.",
+                    "weight": 1.5,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "M",
+                    "label": "Medium",
+                    "description": "Loss of confidentiality is likely to have a serious adverse effect on the organization or individuals.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Loss of confidentiality is likely to have only a limited adverse effect on the organization or individuals.",
+                    "weight": 0.5,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  }
+                ]
+              },
+              "IR": {
+                "code": "IR",
+                "name": "Integrity Requirement",
+                "description": "Enables the analyst to customize the CVSS score depending on the importance of the affected IT asset to a user's organization measured in terms of integrity.",
+                "values": [
+                  {
+                    "code": "X",
+                    "label": "Not Defined",
+                    "description": "Assigning this value has no impact on the score. Assumes Medium importance.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Loss of integrity is likely to have a catastrophic adverse effect on the organization or individuals.",
+                    "weight": 1.5,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "M",
+                    "label": "Medium",
+                    "description": "Loss of integrity is likely to have a serious adverse effect on the organization or individuals.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Loss of integrity is likely to have only a limited adverse effect on the organization or individuals.",
+                    "weight": 0.5,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  }
+                ]
+              },
+              "AR": {
+                "code": "AR",
+                "name": "Availability Requirement",
+                "description": "Enables the analyst to customize the CVSS score depending on the importance of the affected IT asset to a user's organization measured in terms of availability.",
+                "values": [
+                  {
+                    "code": "X",
+                    "label": "Not Defined",
+                    "description": "Assigning this value has no impact on the score. Assumes Medium importance.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Loss of availability is likely to have a catastrophic adverse effect on the organization or individuals.",
+                    "weight": 1.5,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "M",
+                    "label": "Medium",
+                    "description": "Loss of availability is likely to have a serious adverse effect on the organization or individuals.",
+                    "weight": 1.0,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Loss of availability is likely to have only a limited adverse effect on the organization or individuals.",
+                    "weight": 0.5,
+                    "range": { "min": 0.0, "max": 2.0 }
+                  }
+                ]
+              }
+            },
+            "modified_base_metrics": {
+              "description": "These metrics enable the analyst to override individual Base metrics based on specific characteristics of a user's environment. Modified Base metrics use the same values as their corresponding Base metrics with the addition of 'X' (Not Defined) which uses the corresponding Base metric value.",
+              "metrics": [
+                {
+                  "code": "MAV",
+                  "name": "Modified Attack Vector",
+                  "description": "Override for Attack Vector in user's environment",
+                  "values_reference": "Same as AV plus X (Not Defined)"
+                },
+                {
+                  "code": "MAC",
+                  "name": "Modified Attack Complexity",
+                  "description": "Override for Attack Complexity in user's environment",
+                  "values_reference": "Same as AC plus X (Not Defined)"
+                },
+                {
+                  "code": "MPR",
+                  "name": "Modified Privileges Required",
+                  "description": "Override for Privileges Required in user's environment",
+                  "values_reference": "Same as PR plus X (Not Defined)"
+                },
+                {
+                  "code": "MUI",
+                  "name": "Modified User Interaction",
+                  "description": "Override for User Interaction in user's environment",
+                  "values_reference": "Same as UI plus X (Not Defined)"
+                },
+                {
+                  "code": "MS",
+                  "name": "Modified Scope",
+                  "description": "Override for Scope in user's environment",
+                  "values_reference": "Same as S plus X (Not Defined)"
+                },
+                {
+                  "code": "MC",
+                  "name": "Modified Confidentiality",
+                  "description": "Override for Confidentiality impact in user's environment",
+                  "values_reference": "Same as C plus X (Not Defined)"
+                },
+                {
+                  "code": "MI",
+                  "name": "Modified Integrity",
+                  "description": "Override for Integrity impact in user's environment",
+                  "values_reference": "Same as I plus X (Not Defined)"
+                },
+                {
+                  "code": "MA",
+                  "name": "Modified Availability",
+                  "description": "Override for Availability impact in user's environment",
+                  "values_reference": "Same as A plus X (Not Defined)"
+                }
+              ]
+            }
+          }
+        },
+        "scoring": {
+          "method": "formula",
+          "description": "CVSS v3.1 uses formula-based scoring with impact and exploitability sub-scores. Scope determines which formula variant to use.",
+          "formulas": {
+            "ISS": "ISS = 1 − ((1 − ConfidentialityImpact) × (1 − IntegrityImpact) × (1 − AvailabilityImpact))",
+            "impact_scope_unchanged": "Impact = 6.42 × ISS",
+            "impact_scope_changed": "Impact = 7.52 × (ISS − 0.029) − 3.25 × (ISS − 0.02)^13",
+            "exploitability": "Exploitability = 8.22 × AttackVector × AttackComplexity × PrivilegesRequired × UserInteraction",
+            "base_score_if_impact_zero": "If Impact ≤ 0, then BaseScore = 0",
+            "base_score_scope_unchanged": "If Scope = Unchanged: BaseScore = Roundup(Minimum[(Impact + Exploitability), 10])",
+            "base_score_scope_changed": "If Scope = Changed: BaseScore = Roundup(Minimum[1.08 × (Impact + Exploitability), 10])",
+            "temporal_score": "TemporalScore = Roundup(BaseScore × ExploitCodeMaturity × RemediationLevel × ReportConfidence)",
+            "environmental_MISS": "ModifiedImpactSubScore = Minimum(1 − [(1 − MC × CR) × (1 − MI × IR) × (1 − MA × AR)], 0.915)",
+            "environmental_impact_unchanged": "If ModifiedScope = Unchanged: ModifiedImpact = 6.42 × ModifiedImpactSubScore",
+            "environmental_impact_changed": "If ModifiedScope = Changed: ModifiedImpact = 7.52 × (ModifiedImpactSubScore − 0.029) − 3.25 × (ModifiedImpactSubScore × 0.9731 − 0.02)^13",
+            "environmental_exploitability": "ModifiedExploitability = 8.22 × MAV × MAC × MPR × MUI",
+            "environmental_score_if_zero": "If ModifiedImpact ≤ 0, then EnvironmentalScore = 0",
+            "environmental_score_unchanged": "If ModifiedScope = Unchanged: EnvironmentalScore = Roundup(Roundup(Minimum[(ModifiedImpact + ModifiedExploitability), 10]) × ExploitCodeMaturity × RemediationLevel × ReportConfidence)",
+            "environmental_score_changed": "If ModifiedScope = Changed: EnvironmentalScore = Roundup(Roundup(Minimum[1.08 × (ModifiedImpact + ModifiedExploitability), 10]) × ExploitCodeMaturity × RemediationLevel × ReportConfidence)"
+          },
+          "notes": [
+            "Roundup function rounds up to 1 decimal place (ceiling function)",
+            "Minimum function ensures score does not exceed 10.0",
+            "Modified Base metrics default to their Base values when set to X (Not Defined)",
+            "The exponent 13 in the Scope Changed formula is specific to v3.1 (v3.0 used 15)",
+            "The 0.915 cap in ModifiedImpactSubScore prevents environmental scores from exceeding 10.0"
+          ],
+          "precision": 1,
+          "rounding_function": "round_up_to_1_decimal",
+          "range": { "min": 0.0, "max": 10.0 },
+          "override_hooks": {
+            "allow_exponent_override": true,
+            "allow_formula_override": true,
+            "allow_per_metric_custom_range": true
+          }
+        },
+        "severity_scale": [
+          {
+            "label": "None",
+            "min": 0.0,
+            "max": 0.0,
+            "default_color": "#53AA33",
+            "description": "No vulnerability or no impact. Score exactly 0.0."
+          },
+          {
+            "label": "Low",
+            "min": 0.1,
+            "max": 3.9,
+            "default_color": "#FFCB0D",
+            "description": "Low severity vulnerabilities typically have limited impact and may be lower priority for remediation."
+          },
+          {
+            "label": "Medium",
+            "min": 4.0,
+            "max": 6.9,
+            "default_color": "#F9A009",
+            "description": "Medium severity vulnerabilities represent a moderate risk and should be addressed in a reasonable timeframe."
+          },
+          {
+            "label": "High",
+            "min": 7.0,
+            "max": 8.9,
+            "default_color": "#DF3D03",
+            "description": "High severity vulnerabilities represent significant risk and should be prioritized for remediation."
+          },
+          {
+            "label": "Critical",
+            "min": 9.0,
+            "max": 10.0,
+            "default_color": "#DF3D03",
+            "description": "Critical severity vulnerabilities represent severe or catastrophic risk and should be remediated immediately."
+          }
+        ],
+        "vector_format": {
+          "prefix": "CVSS:3.1",
+          "syntax": "CVSS:3.1/AV:[N|A|L|P]/AC:[L|H]/PR:[N|L|H]/UI:[N|R]/S:[U|C]/C:[N|L|H]/I:[N|L|H]/A:[N|L|H]",
+          "description": "All 8 Base metrics are mandatory in vector string. Temporal and Environmental metrics are optional.",
+          "example_base": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "example_temporal": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:F/RL:O/RC:C",
+          "example_environmental": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/CR:H/IR:H/AR:H/MAV:N/MAC:L/MPR:N/MUI:N/MS:C/MC:H/MI:H/MA:H",
+          "temporal_metrics_order": "E/RL/RC",
+          "environmental_metrics_order": "CR/IR/AR/MAV/MAC/MPR/MUI/MS/MC/MI/MA",
+          "ordering_note": "Metrics must appear in specified order. Optional metrics may be omitted but cannot be reordered."
+        }
+      },
+
+      {
+        "version": "4.0",
+        "release_date": "2023-11-01",
+        "status": "current",
+        "notes": "Major revision with MacroVector-based scoring replacing formula-based approach. Introduces Attack Requirements (AT), expanded User Interaction (adds Passive), separate impacts for Vulnerable and Subsequent Systems, and formal Supplemental metric group. Nomenclature (CVSS-B, CVSS-BT, CVSS-BE, CVSS-BTE) indicates metric groups used.",
+        "metric_groups": {
+          "base": {
+            "description": "Intrinsic characteristics that produce the CVSS-B (Base) score. Mandatory for all vulnerability assessments.",
+            "exploitability_metrics": {
+              "AV": {
+                "code": "AV",
+                "name": "Attack Vector",
+                "description": "Context by which vulnerability can be exploited; captures remoteness of attacker from vulnerable component.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "Network",
+                    "description": "Attacker is remotely exploitable across networks (Internet, WAN); vulnerable component attached to network stack. Largest attack surface."
+                  },
+                  {
+                    "code": "A",
+                    "label": "Adjacent",
+                    "description": "Attack limited to shared physical (Bluetooth) or logical (local IP subnet, VPN) network. Includes attacks requiring local network position."
+                  },
+                  {
+                    "code": "L",
+                    "label": "Local",
+                    "description": "Attacker requires local access/execution (shell, SSH, terminal) or relies on user execution. Not remotely exploitable."
+                  },
+                  {
+                    "code": "P",
+                    "label": "Physical",
+                    "description": "Requires physical touch or manipulation of vulnerable device. Smallest attack surface."
+                  }
+                ]
+              },
+              "AC": {
+                "code": "AC",
+                "name": "Attack Complexity",
+                "description": "Measures evasion or circumvention of existing built-in security-enhancing defenses to execute attack.",
+                "values": [
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "No target-specific circumvention technique needed. Attacker can expect repeatable success. No specialized preparation required."
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Requires evasion of exploit mitigation techniques (ASLR, DEP) or obtaining target-specific secrets. Success may vary across attempts."
+                  }
+                ]
+              },
+              "AT": {
+                "code": "AT",
+                "name": "Attack Requirements",
+                "description": "Prerequisite deployment and execution conditions or variables of the vulnerable system that enable the attack. NEW in v4.0.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "Successful attack is not contingent on any deployment/execution conditions. Attack succeeds independently."
+                  },
+                  {
+                    "code": "P",
+                    "label": "Present",
+                    "description": "Requires specific deployment/execution conditions. Examples: race condition requiring multiple attempts, network injection requiring specific timing."
+                  }
+                ]
+              },
+              "PR": {
+                "code": "PR",
+                "name": "Privileges Required",
+                "description": "Level of privileges attacker must possess before successfully exploiting the vulnerability.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "Unauthenticated; attacker requires no prior access to settings or files. Fully unprivileged."
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Basic capabilities that affect only non-sensitive resources. Examples: standard user account, limited permissions."
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Significant (e.g., administrative) control over component allowing access to component-wide settings/files."
+                  }
+                ]
+              },
+              "UI": {
+                "code": "UI",
+                "name": "User Interaction",
+                "description": "Requirement for user (other than attacker) to participate in successful compromise. EXPANDED in v4.0 with Passive option.",
+                "values": [
+                  {
+                    "code": "N",
+                    "label": "None",
+                    "description": "Attacker can exploit without any user interaction. Attack proceeds at will."
+                  },
+                  {
+                    "code": "P",
+                    "label": "Passive",
+                    "description": "Requires limited unconscious/involuntary interaction. Examples: browsing to website, viewing document in default settings. NEW in v4.0."
+                  },
+                  {
+                    "code": "A",
+                    "label": "Active",
+                    "description": "Requires user to perform specific conscious action. Examples: accepting prompt, reconfiguring settings, clicking beyond alerts."
+                  }
+                ]
+              }
+            },
+            "impact_metrics": {
+              "vulnerable_system": {
+                "description": "Impact on the vulnerable system component that contains the exploited vulnerability.",
+                "VC": {
+                  "code": "VC",
+                  "name": "Confidentiality (Vulnerable System)",
+                  "description": "Impact to confidentiality of information managed by the vulnerable system component.",
+                  "values": [
+                    {
+                      "code": "H",
+                      "label": "High",
+                      "description": "Total information disclosure; attacker can read all system information. Or disclosure of serious restricted information (e.g., passwords, keys)."
+                    },
+                    {
+                      "code": "L",
+                      "label": "Low",
+                      "description": "Some loss of confidentiality. Limited information disclosed without attacker control over what is obtained."
+                    },
+                    {
+                      "code": "N",
+                      "label": "None",
+                      "description": "No impact to confidentiality of the vulnerable system."
+                    }
+                  ]
+                },
+                "VI": {
+                  "code": "VI",
+                  "name": "Integrity (Vulnerable System)",
+                  "description": "Impact to integrity of the vulnerable system component.",
+                  "values": [
+                    {
+                      "code": "H",
+                      "label": "High",
+                      "description": "Total integrity loss; attacker can modify any/all files. Or modification of critical/serious information (security files, configuration, code)."
+                    },
+                    {
+                      "code": "L",
+                      "label": "Low",
+                      "description": "Limited integrity modification possible without attacker control over consequence. Non-serious information modified."
+                    },
+                    {
+                      "code": "N",
+                      "label": "None",
+                      "description": "No impact to integrity of the vulnerable system."
+                    }
+                  ]
+                },
+                "VA": {
+                  "code": "VA",
+                  "name": "Availability (Vulnerable System)",
+                  "description": "Impact to availability of the vulnerable system component.",
+                  "values": [
+                    {
+                      "code": "H",
+                      "label": "High",
+                      "description": "Total loss of availability; attacker can fully deny access. Sustained or persistent DoS."
+                    },
+                    {
+                      "code": "L",
+                      "label": "Low",
+                      "description": "Reduced performance or intermittent/temporary loss of availability. Partial DoS."
+                    },
+                    {
+                      "code": "N",
+                      "label": "None",
+                      "description": "No impact to availability of the vulnerable system."
+                    }
+                  ]
+                }
+              },
+              "subsequent_system": {
+                "description": "Impact on systems or components beyond the vulnerable component itself. Captures scope-change impact more precisely than v3.x Scope metric.",
+                "SC": {
+                  "code": "SC",
+                  "name": "Confidentiality (Subsequent System)",
+                  "description": "Impact to confidentiality of subsequent systems beyond the vulnerable component.",
+                  "values": [
+                    {
+                      "code": "H",
+                      "label": "High",
+                      "description": "Total information disclosure on subsequent system(s). Or disclosure of serious information from subsequent systems."
+                    },
+                    {
+                      "code": "L",
+                      "label": "Low",
+                      "description": "Some loss of confidentiality on subsequent system(s). Limited subsequent system information disclosed."
+                    },
+                    {
+                      "code": "N",
+                      "label": "None",
+                      "description": "No impact to confidentiality beyond the vulnerable system. Impacts contained to vulnerable component only."
+                    }
+                  ]
+                },
+                "SI": {
+                  "code": "SI",
+                  "name": "Integrity (Subsequent System)",
+                  "description": "Impact to integrity of subsequent systems beyond the vulnerable component.",
+                  "values": [
+                    {
+                      "code": "H",
+                      "label": "High",
+                      "description": "Total integrity loss on subsequent system(s). Or modification of critical/serious subsequent system data."
+                    },
+                    {
+                      "code": "L",
+                      "label": "Low",
+                      "description": "Limited integrity modification on subsequent system(s) without attacker control. Non-serious subsequent information modified."
+                    },
+                    {
+                      "code": "N",
+                      "label": "None",
+                      "description": "No impact to integrity beyond the vulnerable system. Impacts contained to vulnerable component only."
+                    }
+                  ]
+                },
+                "SA": {
+                  "code": "SA",
+                  "name": "Availability (Subsequent System)",
+                  "description": "Impact to availability of subsequent systems beyond the vulnerable component.",
+                  "values": [
+                    {
+                      "code": "H",
+                      "label": "High",
+                      "description": "Total loss of availability on subsequent system(s). Attacker can fully deny access to subsequent systems."
+                    },
+                    {
+                      "code": "L",
+                      "label": "Low",
+                      "description": "Reduced performance or intermittent loss on subsequent system(s). Partial subsequent system DoS."
+                    },
+                    {
+                      "code": "N",
+                      "label": "None",
+                      "description": "No impact to availability beyond the vulnerable system. Impacts contained to vulnerable component only."
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "threat": {
+            "description": "Measures current state of exploitation. Produces CVSS-BT (Base+Threat) score when combined with Base.",
+            "metrics": {
+              "E": {
+                "code": "E",
+                "name": "Exploit Maturity",
+                "description": "Current technical state of exploitation. Readiness and availability of attack tools/code.",
+                "values": [
+                  {
+                    "code": "X",
+                    "label": "Not Defined",
+                    "description": "Metric not evaluated due to insufficient information. Assumes worst case (Attacked)."
+                  },
+                  {
+                    "code": "A",
+                    "label": "Attacked",
+                    "description": "Documented real-world attacks or attacker-controlled exploit toolkits/frameworks available. Actively being exploited."
+                  },
+                  {
+                    "code": "P",
+                    "label": "Proof-of-Concept",
+                    "description": "Public PoC code/detailed technical article available but no known attacks or simplified exploitation tools."
+                  },
+                  {
+                    "code": "U",
+                    "label": "Unreported",
+                    "description": "No public PoC, no known exploitation activity, and no attack tools available. Exploitation unreported."
+                  }
+                ]
+              }
+            }
+          },
+          "environmental": {
+            "description": "Customization for user's specific environment. Produces CVSS-BE (Base+Environmental) or CVSS-BTE (Base+Threat+Environmental) scores.",
+            "security_requirements": {
+              "description": "Importance of confidentiality, integrity, and availability to the user's organization.",
+              "CR": {
+                "code": "CR",
+                "name": "Confidentiality Requirement",
+                "description": "Organizational consequences of confidentiality loss.",
+                "values": [
+                  {
+                    "code": "X",
+                    "label": "Not Defined",
+                    "description": "Metric not evaluated. Assumes High (worst case) for scoring.",
+                    "weight": 1.5
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Loss causes catastrophic organizational/individual adverse effect (per IEC 61508 marginal+ injury severity).",
+                    "weight": 1.5
+                  },
+                  {
+                    "code": "M",
+                    "label": "Medium",
+                    "description": "Loss causes serious adverse effect.",
+                    "weight": 1.0
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Loss causes limited adverse effect.",
+                    "weight": 0.5
+                  }
+                ]
+              },
+              "IR": {
+                "code": "IR",
+                "name": "Integrity Requirement",
+                "description": "Organizational consequences of integrity loss.",
+                "values": [
+                  {
+                    "code": "X",
+                    "label": "Not Defined",
+                    "description": "Metric not evaluated. Assumes High (worst case) for scoring.",
+                    "weight": 1.5
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Loss causes catastrophic organizational/individual adverse effect.",
+                    "weight": 1.5
+                  },
+                  {
+                    "code": "M",
+                    "label": "Medium",
+                    "description": "Loss causes serious adverse effect.",
+                    "weight": 1.0
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Loss causes limited adverse effect.",
+                    "weight": 0.5
+                  }
+                ]
+              },
+              "AR": {
+                "code": "AR",
+                "name": "Availability Requirement",
+                "description": "Organizational consequences of availability loss.",
+                "values": [
+                  {
+                    "code": "X",
+                    "label": "Not Defined",
+                    "description": "Metric not evaluated. Assumes High (worst case) for scoring.",
+                    "weight": 1.5
+                  },
+                  {
+                    "code": "H",
+                    "label": "High",
+                    "description": "Loss causes catastrophic organizational/individual adverse effect.",
+                    "weight": 1.5
+                  },
+                  {
+                    "code": "M",
+                    "label": "Medium",
+                    "description": "Loss causes serious adverse effect.",
+                    "weight": 1.0
+                  },
+                  {
+                    "code": "L",
+                    "label": "Low",
+                    "description": "Loss causes limited adverse effect.",
+                    "weight": 0.5
+                  }
+                ]
+              }
+            },
+            "modified_base_metrics": {
+              "description": "Override Base metrics to reflect characteristics of user's deployed environment. All modified metrics accept same values as Base equivalents plus X (Not Defined) to use Base value.",
+              "metrics": [
+                { "code": "MAV", "name": "Modified Attack Vector", "values_reference": "Same as AV plus X" },
+                { "code": "MAC", "name": "Modified Attack Complexity", "values_reference": "Same as AC plus X" },
+                { "code": "MAT", "name": "Modified Attack Requirements", "values_reference": "Same as AT plus X" },
+                { "code": "MPR", "name": "Modified Privileges Required", "values_reference": "Same as PR plus X" },
+                { "code": "MUI", "name": "Modified User Interaction", "values_reference": "Same as UI plus X" },
+                { "code": "MVC", "name": "Modified Confidentiality (Vulnerable System)", "values_reference": "Same as VC plus X" },
+                { "code": "MVI", "name": "Modified Integrity (Vulnerable System)", "values_reference": "Same as VI plus X" },
+                { "code": "MVA", "name": "Modified Availability (Vulnerable System)", "values_reference": "Same as VA plus X" },
+                { "code": "MSC", "name": "Modified Confidentiality (Subsequent System)", "values_reference": "Same as SC plus X and S" },
+                { "code": "MSI", "name": "Modified Integrity (Subsequent System)", "values_reference": "Same as SI plus X and S" },
+                { "code": "MSA", "name": "Modified Availability (Subsequent System)", "values_reference": "Same as SA plus X and S" }
+              ],
+              "special_value_note": "MSI and MSA accept special value 'S' (Safety) to indicate IEC 61508 marginal/critical/catastrophic injury risk."
+            }
+          },
+          "supplemental": {
+            "description": "Provide additional context for vulnerability consumers but DO NOT affect numerical score. Informational only. NEW in v4.0.",
+            "metrics": {
+              "S": {
+                "code": "S",
+                "name": "Safety",
+                "description": "Predictability of physical harm or human safety impact if exploited.",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Not evaluated or unknown safety impact." },
+                  { "code": "P", "label": "Present", "description": "Consequences match IEC 61508 marginal, critical, or catastrophic injury severity levels." },
+                  { "code": "N", "label": "Negligible", "description": "Consequences match only IEC 61508 negligible injury severity." }
+                ]
+              },
+              "AU": {
+                "code": "AU",
+                "name": "Automatable",
+                "description": "Can attacker reliably automate all steps of kill chain (reconnaissance through exploitation) across multiple targets?",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Not evaluated or unknown." },
+                  { "code": "Y", "label": "Yes", "description": "Attacker can automate all attack steps. 'Wormable' vulnerability." },
+                  { "code": "N", "label": "No", "description": "Attacker cannot reliably automate exploitation across targets. Requires per-target customization." }
+                ]
+              },
+              "R": {
+                "code": "R",
+                "name": "Recovery",
+                "description": "Resilience of vulnerable system to recover functionality and availability post-attack.",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Not evaluated or unknown." },
+                  { "code": "A", "label": "Automatic", "description": "Component automatically recovers services without administrator intervention." },
+                  { "code": "U", "label": "User", "description": "Administrator must manually intervene to restore services." },
+                  { "code": "I", "label": "Irrecoverable", "description": "Services permanently lost to user; not recoverable (e.g., non-recoverable corruption)." }
+                ]
+              },
+              "V": {
+                "code": "V",
+                "name": "Value Density",
+                "description": "Resources attacker gains per successful exploitation event.",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Not evaluated or unknown." },
+                  { "code": "D", "label": "Diffuse", "description": "Limited resources gained per exploitation. Single-user system impact (e.g., email client, individual workstation)." },
+                  { "code": "C", "label": "Concentrated", "description": "Rich resources per exploitation. System operator responsibility (e.g., database server, central repository)." }
+                ]
+              },
+              "RE": {
+                "code": "RE",
+                "name": "Vulnerability Response Effort",
+                "description": "Effort level required by vulnerability consumer to respond (patch, mitigate, investigate).",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Not evaluated or unknown." },
+                  { "code": "L", "label": "Low", "description": "Trivial response; documentation/workaround only or no immediate action needed." },
+                  { "code": "M", "label": "Moderate", "description": "Some effort; simple update/configuration with minimal service impact." },
+                  { "code": "H", "label": "High", "description": "Significant effort; complex deployment, extended service impact, or physical replacement required." }
+                ]
+              },
+              "U": {
+                "code": "U",
+                "name": "Provider Urgency",
+                "description": "Urgency assessment by vulnerability provider/vendor. Provider's recommended priority level.",
+                "values": [
+                  { "code": "X", "label": "Not Defined", "description": "Not evaluated or provider has not assigned urgency." },
+                  { "code": "Clear", "label": "Clear", "description": "No urgency; informational only." },
+                  { "code": "Green", "label": "Green", "description": "Reduced urgency; lower priority." },
+                  { "code": "Amber", "label": "Amber", "description": "Moderate urgency; medium priority." },
+                  { "code": "Red", "label": "Red", "description": "Highest urgency; immediate action recommended." }
+                ]
+              }
+            }
+          }
+        },
+        "scoring": {
+          "method": "macrovector_lookup_and_interpolation",
+          "description": "CVSS v4.0 uses MacroVector equivalence classes instead of formulas. Vectors are grouped by similar qualitative severity; scoring uses lookup tables and interpolation.",
+          "macrovector_explanation": {
+            "equivalence_groups": "Six Equivalence Groups (EQ1-EQ6) cluster metrics by severity. Each EQ has values 0 (most severe) to 2 (least severe).",
+            "highest_severity_vector": "Defined maximum-severity vector for each MacroVector combination per official lookup tables.",
+            "lowest_severity_vector": "Defined minimum-severity vector for each MacroVector combination per official lookup tables.",
+            "depth": "Maximum severity distance between highest and lowest vectors in equivalence class.",
+            "lookup_table_location": "Complete MacroVector scores in cvss_lookup.js from FIRST CVSS v4.0 calculator repository (GitHub: first-org/cvss-v4-calculator)."
+          },
+          "scoring_steps": [
+            "1. Map Base + Threat + Environmental metrics to MacroVector equivalence class (EQ1-EQ6 values)",
+            "2. Lookup base severity score for MacroVector from official lookup table",
+            "3. Calculate distance from next lower MacroVector severity level",
+            "4. Interpolate score proportional to distance (averaged across EQ groups)",
+            "5. Apply Security Requirements (CR/IR/AR) adjustments if Environmental metrics present",
+            "6. Round to precision (1 decimal place)"
+          ],
+          "nomenclature": {
+            "CVSS-B": "Base metrics only (Base score)",
+            "CVSS-BT": "Base + Threat metrics",
+            "CVSS-BE": "Base + Environmental metrics",
+            "CVSS-BTE": "Base + Threat + Environmental metrics"
+          },
+          "precision": 1,
+          "range": { "min": 0.0, "max": 10.0 },
+          "override_hooks": {
+            "allow_macrovector_lookup_override": true,
+            "allow_manual_base_score_assignment": true,
+            "allow_supplemental_influence_policy": true
+          },
+          "notes": [
+            "MacroVector approach ensures metric changes produce commensurate score changes within expert judgment uncertainty",
+            "Supplemental metrics DO NOT affect numerical score; used for policy/prioritization decisions",
+            "Environmental score incorporates modified Base metrics and Security Requirements",
+            "Threat score reflects current exploitation maturity state"
+          ]
+        },
+        "severity_scale": [
+          {
+            "label": "None",
+            "min": 0.0,
+            "max": 0.0,
+            "default_color": "#53AA33",
+            "description": "No vulnerability or no impact. Score exactly 0.0."
+          },
+          {
+            "label": "Low",
+            "min": 0.1,
+            "max": 3.9,
+            "default_color": "#FFCB0D",
+            "description": "Low severity; limited impact or low exploitability."
+          },
+          {
+            "label": "Medium",
+            "min": 4.0,
+            "max": 6.9,
+            "default_color": "#F9A009",
+            "description": "Medium severity; moderate risk requiring attention in reasonable timeframe."
+          },
+          {
+            "label": "High",
+            "min": 7.0,
+            "max": 8.9,
+            "default_color": "#DF3D03",
+            "description": "High severity; significant risk requiring prioritized remediation."
+          },
+          {
+            "label": "Critical",
+            "min": 9.0,
+            "max": 10.0,
+            "default_color": "#CC0500",
+            "description": "Critical severity; severe or catastrophic risk requiring immediate remediation."
+          }
+        ],
+        "vector_format": {
+          "prefix": "CVSS:4.0",
+          "mandatory_base_metrics": "AV/AC/AT/PR/UI/VC/VI/VA/SC/SI/SA (in order)",
+          "optional_threat_metrics": "E",
+          "optional_environmental_metrics": "CR/IR/AR/MAV/MAC/MAT/MPR/MUI/MVC/MVI/MVA/MSC/MSI/MSA",
+          "optional_supplemental_metrics": "S/AU/R/V/RE/U",
+          "syntax": "CVSS:4.0/AV:[N|A|L|P]/AC:[L|H]/AT:[N|P]/PR:[N|L|H]/UI:[N|P|A]/VC:[H|L|N]/VI:[H|L|N]/VA:[H|L|N]/SC:[H|L|N]/SI:[H|L|N]/SA:[H|L|N]",
+          "example_base": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+          "example_with_threat": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:A",
+          "example_with_environmental": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/CR:H/IR:H/AR:H",
+          "example_with_supplemental": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/S:N/AU:Y/R:A/V:D/RE:L/U:Red",
+          "ordering_rules": "Metrics must appear in specified order. Optional metrics may be omitted but cannot be reordered. Base metrics are mandatory.",
+          "not_defined_handling": "Optional metrics default to 'X' (Not Defined) when omitted from vector string."
+        }
+      }
+    ],
+    "usage_examples": {
+      "override_example": {
+        "purpose": "Demonstrates how to customize a metric weight for organizational needs",
+        "version": "3.1",
+        "scenario": "Organization wants to increase weight of Privileges Required for Low privilege level",
+        "metric_override": {
+          "PR": {
+            "L": {
+              "default_score": 0.62,
+              "override_score": 0.75,
+              "justification": "Organization policy: Low-privilege accounts have greater access than typical environments"
+            }
+          }
+        }
+      },
+      "formula_override_example": {
+        "purpose": "Demonstrates experimental formula modification",
+        "version": "3.1",
+        "scenario": "Research team testing alternative environmental impact exponent",
+        "formula_override": "Use exponent 12 instead of 13 for Modified Impact calculation",
+        "warning": "Formula overrides should only be used for research or specialized environments with documented justification"
+      }
+    },
+    "implementation_notes": {
+      "rounding": "All CVSS scores use 'Roundup' function (ceiling to 1 decimal place) except where explicitly noted",
+      "vector_parsing": "Parsers must enforce metric ordering and reject out-of-order metrics",
+      "not_defined_semantics": "X (Not Defined) or omitted optional metrics assume worst-case values for scoring",
+      "backward_compatibility": "v3.1 vectors are not compatible with v3.0 calculators due to formula differences (exponent 13 vs 15)",
+      "version_identification": "Always check vector prefix (CVSS:2.0, CVSS:3.0, CVSS:3.1, CVSS:4.0) to apply correct specification"
+    }
+  }
+}
