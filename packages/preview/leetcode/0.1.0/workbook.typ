@@ -175,8 +175,8 @@
 // - labels: array of labels (matches problems with ANY of these labels)
 // - practice: if true, don't auto-render problems (user controls via solve())
 // - show-answer: if true, show reference solution code after each problem
-// - show-title: if true, show the title page
-// - show-outline: if true, show table of contents
+// - show-title: auto (default: true for normal mode, false for practice mode)
+// - show-outline: auto (default: true for normal mode, false for practice mode)
 #let conf(
   ids: none,
   id-range: none,
@@ -184,10 +184,16 @@
   labels: none,
   practice: false,
   show-answer: false,
-  show-title: true,
-  show-outline: true,
+  show-title: auto,
+  show-outline: auto,
   body,
 ) = {
+  // Resolve auto values based on practice mode
+  let show-title = if show-title == auto { not practice } else { show-title }
+  let show-outline = if show-outline == auto { not practice } else {
+    show-outline
+  }
+
   // Update global config state (for solve() to read)
   leetcode-config.update(cfg => (
     show-answer: show-answer,
