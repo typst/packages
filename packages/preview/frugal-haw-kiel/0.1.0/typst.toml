@@ -1,0 +1,14 @@
+[package]
+name = "frugal-haw-kiel"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.14.0"
+description = "Bachelorarbeit an der HAW-Kiel. Bachelor's thesis at the University of Applied Sciences Kiel."
+authors = ["Arne Berner"]
+repository = "https://github.com/arne-berner/haw-kiel-template"
+license = "MIT OR Apache-2.0"
+
+keywords = ["HAW", "Kiel", "Hochschule für Angewandte Wissenschaften", "University of Applied Sciences", "Hochschule", "University", "Bachelorarbeit", "Bachelor"]
+categories = ["thesis"]
+disciplines = ["computer-science", "engineering"]
+exclude = ["/example/"]
