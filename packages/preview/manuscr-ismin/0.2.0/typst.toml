@@ -1,0 +1,17 @@
+[package]
+name = "manuscr-ismin"
+version = "0.2.0"
+entrypoint = "template.typ"
+authors = ["Bilel Betka"]
+license = "MIT"
+description = "Unofficial template used for writing reports and/or various documents at the École des Mines de Saint-Étienne."
+repository = "https://github.com/senaalem/manuscr-ismin"
+keywords = ["ISMIN", "EMSE", "Mines", "École des Mines de Saint-Étienne", "report"]
+categories = ["layout", "report"]
+exclude = ["manuscr-ismin.pdf"]
+compiler = "0.14.2"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "cover.png"
