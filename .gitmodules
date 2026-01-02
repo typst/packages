@@ -1,0 +1,3 @@
+[submodule "packages/preview/fabulous-spie-proceedings/0.1.0"]
+	path = packages/preview/fabulous-spie-proceedings/0.1.0
+	url = https://github.com/Ilyes-Azni/spie-proceedings-typst.git
