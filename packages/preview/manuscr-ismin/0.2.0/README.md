@@ -70,6 +70,8 @@ Following, a description of this template's parameters:
 Here is an example of how to call the function:
 
 ```
+#import "@preview/manuscr-ismin:0.2.0": *
+
 #show: manuscr-ismin.with(
 	uptitle: [Processor Architecture 2],
 	title: [Project Report],
@@ -86,6 +88,7 @@ Here is an example of how to call the function:
 	header-title: "N a p s",
 	header-subtitle: "Project Report",
 	header-middle: [Proc. Arch. 2],
+	logo: "assets/logo_emse_white.svg", // Try not to play too much with that
 	date: "09/12/2023"
 	)
 ```
