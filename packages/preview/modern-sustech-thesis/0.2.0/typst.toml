@@ -9,7 +9,7 @@ categories = ["thesis"]
 keywords = ["Southern University of Science and Technology", "SUSTech", "thesis", "南方科技大学", "学位论文", "论文"]
 
 version = "0.2.0"
-compiler = "0.14"
+compiler = "0.14.0"
 entrypoint = "export.typ"
 exclude = ["src/tests"]
 
