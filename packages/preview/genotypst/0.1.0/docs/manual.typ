@@ -182,6 +182,7 @@ To render the tree, use the `render-tree` function. By default, it produces a ho
     caption: [Tree with vertical orientation],
     supplement: none,
   ),
+
   align: center + bottom,
 )
 
@@ -247,7 +248,7 @@ Sequence logos and trees are rendered using the default document font, rather th
 ```
 
 #grid(
-  columns: (1fr, 1fr),
+  rows: (auto, auto),
   figure(
     render-sequence-logo(dna_msa),
     caption: [Default document font],
