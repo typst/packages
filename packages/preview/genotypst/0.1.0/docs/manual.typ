@@ -6,23 +6,27 @@
   author: "Antonio Camargo",
 )
 
-`genotypst` is a bioinformatics Typst package for biological sequence analysis and visualization. It provides functionality for reading FASTA files and generating common visualizations, such as multiple sequence alignments and sequence logos, for use in publications and presentations.
+`genotypst` is a bioinformatics package for Typst that enables analysis and visualization of biological data. It provides functionality for parsing FASTA and Newick files and generating publication-ready visualizations, including multiple sequence alignments, sequence logos, and phylogenetic trees.
 
-= Loading sequence data
+#outline()
 
-The `parse-fasta-file` function reads FASTA files and returns a dictionary where sequence identifiers are mapped to their corresponding sequences.
-
-```typ
-#let sequences = parse-fasta-file("/docs/data/dna.fna")
-```
-
-#let sequences = parse-fasta-file("/docs/data/dna.fna")
-
-#raw(repr(sequences), block: true)
+#pagebreak()
 
 = Working with sequence data
 
-`genotypst` provides a multiple functions to produce different visualizations of sequence data.
+`genotypst` provides functions to parse sequence data and produce different visualizations.
+
+== Loading data
+
+The `parse-fasta-file` function reads FASTA files and returns a dictionary mapping sequence identifiers to their corresponding sequences.
+
+```typ
+#let sequences = parse-fasta(read("/docs/data/dna.fna"))
+```
+
+#let sequences = parse-fasta(read("/docs/data/dna.fna"))
+
+#raw(repr(sequences), block: true)
 
 == FASTA rendering
 
@@ -47,7 +51,7 @@ In the example below:
 - `start: 100` and `end: 160` limit the display to a specific region of interest (residues 100 to 160).
 
 ```typ
-#let protein_msa = parse-fasta-file("/docs/data/msa.afa")
+#let protein_msa = parse-fasta(read("/docs/data/msa.afa"))
 
 #render-msa(
   protein_msa,
@@ -58,7 +62,7 @@ In the example below:
 )
 ```
 
-#let protein_msa = parse-fasta-file("/docs/data/msa.afa")
+#let protein_msa = parse-fasta(read("/docs/data/msa.afa"))
 
 #figure(
   render-msa(
@@ -122,6 +126,65 @@ The DNA and RNA palettes assign a distinct color to each nucleotide.
   ..dna-rna-groups.map(render-palette-group)
 ))
 
+= Working with phylogenetic trees
+
+`genotypst` includes functions to parse and render phylogenetic trees. Trees can be created by parsing Newick-formatted strings with `parse-newick` or by manually constructing nested dictionary structures.
+
+```typst
+#let parsed_newick_tree = parse-newick(
+  "(('Leaf A':0.2,'Leaf B':0.1)'Internal node':0.3,'Leaf C':0.6)Root;"
+)
+
+#let manual_tree = (
+  rooted: true,
+  name: "Root",
+  length: none,
+  children: (
+    (
+      name: "Internal node",
+      length: 0.3,
+      children: (
+        (name: "Leaf A", length: 0.2, children: none),
+        (name: "Leaf B", length: 0.1, children: none),
+      ),
+    ),
+    (name: "Leaf C", length: 0.6, children: none),
+  ),
+)
+```
+
+== Visualizing trees
+
+`genotypst` can produce visualizations of phylogenetic trees. To illustrate this, we will read and render a Newick file containing a phylogeny of the _Hominoidea_ superfamily, which was extracted from the Ensembl Compara species tree @herrero_ensembl_2016.
+
+```typst
+#let hominoidea_tree = parse-newick(read("/docs/data/hominoidea.nwk"))
+```
+
+#let hominoidea_tree = parse-newick(read("/docs/data/hominoidea.nwk"))
+
+To render the tree, use the `render-tree` function. By default, it produces a horizontal rectangular dendrogram, but a vertical layout can be specified using the `orientation: "vertical"` option.
+
+```typst
+#render-tree(hominoidea_tree, tip-label-italics: true, orientation: "horizontal")
+#render-tree(hominoidea_tree, tip-label-italics: true, orientation: "vertical")
+```
+
+#grid(
+  columns: (1fr, 1fr),
+  figure(
+    render-tree(hominoidea_tree, tip-label-italics: true, width: 1fr, height: 21em),
+    caption: [Tree with horizontal orientation],
+    supplement: none,
+  ),
+  figure(
+    render-tree(hominoidea_tree, tip-label-italics: true, width: 1fr, height: 21em, orientation: "vertical"),
+    caption: [Tree with vertical orientation],
+    supplement: none,
+  ),
+  align: center + bottom,
+)
+
 = Customizing visualizations
 
 == Font selection
@@ -157,7 +220,6 @@ By default, `render-fasta` and `render-msa` inherit the monospaced font used for
 
 #grid(
   columns: (1fr, 1fr),
-  column-gutter: 1em,
   figure(
     render-msa(dna_msa, breakable: false),
     caption: [Default document font for raw text],
@@ -175,21 +237,20 @@ By default, `render-fasta` and `render-msa` inherit the monospaced font used for
   align: center + bottom,
 )
 
-Sequence logos are rendered using the default document font, rather than the monospaced font for raw text. To specify a custom font for sequence logos, use a `show text` rule instead.
+Sequence logos and trees are rendered using the default document font, rather than the monospaced font for raw text. To specify a custom font sequence logos and trees, use a `show text` rule instead.
 
 ```typ
 #context {
-  show text: set text(font: "Maple Mono")
+  show text: set text(font: "New Computer Modern")
   render-sequence-logo(dna_msa)
 }
 ```
 
 #grid(
-  rows: (auto, auto),
-  row-gutter: 1em,
+  columns: (1fr, 1fr),
   figure(
     render-sequence-logo(dna_msa),
-    caption: text(weight: "bold")[Default document font],
+    caption: [Default document font],
     supplement: none,
   ),
   figure(
@@ -197,7 +258,36 @@ Sequence logos are rendered using the default document font, rather than the mon
       show text: set text(font: "New Computer Modern")
       render-sequence-logo(dna_msa)
     },
-    caption: text(weight: "bold")[Custom font (New Computer Modern)],
+    caption: [Custom font (New Computer Modern)],
+    supplement: none,
+  ),
+
+  align: center + bottom,
+)
+
+```typ
+#let hominoidea_tree = parse-newick(read("/docs/data/hominoidea.nwk"))
+#context {
+  show text: set text(font: "New Computer Modern", size: 0.9em)
+  #render-tree(hominoidea_tree, tip-label-italics: true)
+}
+```
+
+#let hominoidea_tree = parse-newick(read("/docs/data/hominoidea.nwk"))
+
+#grid(
+  columns: (1fr, 1fr),
+  figure(
+    render-tree(hominoidea_tree, tip-label-italics: true, width: 1fr, orientation: "horizontal"),
+    caption: [Default document font],
+    supplement: none,
+  ),
+  figure(
+    context {
+      show text: set text(font: "New Computer Modern", size: 0.9em)
+      render-tree(hominoidea_tree, tip-label-italics: true, width: 1fr, orientation: "horizontal")
+    },
+    caption: [Custom font (New Computer Modern)],
     supplement: none,
   ),
 

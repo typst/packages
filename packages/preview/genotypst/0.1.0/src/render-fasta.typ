@@ -17,7 +17,7 @@
 /// Each character is rendered in a fixed-width box to prevent line wrapping.
 /// The function uses monospaced font styling from code blocks in document.
 ///
-/// - sequences (dictionary<str, str>): A dictionary mapping sequence identifiers to sequences.
+/// - sequences (dictionary): A dictionary mapping sequence identifiers to sequences.
 /// - max-width (int): Maximum characters per line (default: 60).
 /// - bold-header (bool): Render sequence headers in bold (default: false).
 /// - entry-spacing (length): Vertical spacing between entries; defaults to line spacing if none (default: none).

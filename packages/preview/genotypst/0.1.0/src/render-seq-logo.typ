@@ -7,24 +7,24 @@
 /// Stack height represents information content, character height represents
 /// relative frequency.
 ///
-/// - msa-dict (dictionary<str, str>): A dictionary mapping sequence identifiers to sequences.
-/// - start (int): Starting position (0-indexed, inclusive) (default: 0).
-/// - end (int): Ending position (0-indexed, exclusive) (default: none).
-/// - logo-height (length): Total height of the logo (default: 4cm).
-/// - sampling-correction (bool): Apply small sample correction (default: true).
-/// - alphabet-size (int): Size of the alphabet (default: 20).
-/// - alphabet-chars (array<str>): Array of valid alphabet characters (default: ()).
-/// -> array<array<dictionary>>: Array of columns, each column is an array of dictionaries with keys:
+/// - msa-dict (dictionary): A dictionary mapping sequence identifiers to sequences.
+/// - start (int, none): Starting position (0-indexed, inclusive).
+/// - end (int, none): Ending position (0-indexed, exclusive).
+/// - logo-height (length): Total height of the logo.
+/// - sampling-correction (bool): Apply small sample correction.
+/// - alphabet-size (int): Size of the alphabet.
+/// - alphabet-chars (array): Array of valid alphabet characters.
+/// -> array: Array of columns, each column is an array of dictionaries with keys:
 ///   - char: str, the character
 ///   - height: length, the height of that character in the stack
 #let _get-logo-heights(
   msa-dict,
-  start: 0,
-  end: none,
-  logo-height: 4cm,
-  sampling-correction: true,
-  alphabet-size: 20,
-  alphabet-chars: (),
+  start,
+  end,
+  logo-height,
+  sampling-correction,
+  alphabet-size,
+  alphabet-chars,
 ) = {
   let sequences = msa-dict.values()
   if sequences.len() == 0 { return }
@@ -52,8 +52,8 @@
       stats.counts,
       stats.total-non-gap,
       n-seqs,
-      sampling-correction: sampling-correction,
-      alphabet-size: alphabet-size,
+      sampling-correction,
+      alphabet-size,
     )
     max-observed-r = calc.max(max-observed-r, r)
     column-data.push((r: r, stats: stats))
@@ -85,7 +85,7 @@
 ///
 /// - letter (dictionary): Dictionary with keys `char` (str) and `height` (length).
 /// - col-width (length): Width of the column.
-/// - palette (dictionary<str, color>): Color palette for characters.
+/// - palette (dictionary): Color palette for residues.
 /// -> content
 #let _render-logo-letter(letter, col-width, palette) = {
   context {
@@ -99,7 +99,7 @@
     let m = measure(letter-text)
     let sx = (col-width / m.width) * 100%
     let sy = (letter.height / m.height) * 100%
-    let color = palette.at(letter.char, default: rgb("#CED2DA"))
+    let color = palette.at(letter.char, default: rgb("#B2B6BE"))
 
     box(width: col-width, height: letter.height)[
       #set align(center + bottom)
@@ -109,17 +109,17 @@
   }
 }
 
-/// Produces a sequence logo from protein sequence data.
+/// Produces a sequence logo from biological sequence data.
 ///
 /// Renders a sequence logo where each column represents a position in the
 /// alignment, stack height indicates information content (conservation),
 /// and character height within a stack indicates relative frequency.
 ///
-/// - msa-dict (dictionary<str, str>): A dictionary mapping sequence identifiers to sequences.
-/// - start (int): Starting position (0-indexed, inclusive) (default: 0).
-/// - end (int): Ending position (0-indexed, exclusive) (default: none).
+/// - msa-dict (dictionary): A dictionary mapping sequence identifiers to sequences.
+/// - start (int, none): Starting position (0-indexed, inclusive) (default: 0).
+/// - end (int, none): Ending position (0-indexed, exclusive) (default: none).
 /// - width (length): Total width of the logo (default: 100%).
-/// - height (length): Total height of the logo (default: 2.5cm).
+/// - height (length): Total height of the logo (default: 60pt).
 /// - sampling-correction (bool): Apply small sample correction (default: true).
 /// - alphabet (str): Sequence type: "auto", "aa", "dna", or "rna" (default: "auto").
 /// -> content
@@ -128,7 +128,7 @@
   start: 0,
   end: none,
   width: 100%,
-  height: 2.5cm,
+  height: 60pt,
   sampling-correction: true,
   alphabet: "auto",
 ) = {
@@ -138,12 +138,12 @@
 
   let logo-data = _get-logo-heights(
     msa-dict,
-    start: start,
-    end: end,
-    logo-height: height,
-    sampling-correction: sampling-correction,
-    alphabet-size: config.size,
-    alphabet-chars: config.chars,
+    start,
+    end,
+    height,
+    sampling-correction,
+    config.size,
+    config.chars,
   )
 
   block(width: width)[

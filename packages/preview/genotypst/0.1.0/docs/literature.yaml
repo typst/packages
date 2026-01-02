@@ -1,3 +1,34 @@
+herrero_ensembl_2016:
+  type: article
+  title: Ensembl comparative genomics resources
+  author:
+    - Herrero, Javier
+    - Muffato, Matthieu
+    - Beal, Kathryn
+    - Fitzgerald, Stephen
+    - Gordon, Leo
+    - Pignatelli, Miguel
+    - Vilella, Albert J.
+    - Searle, Stephen M. J.
+    - Amode, Ridwan
+    - Brent, Simon
+    - Spooner, William
+    - Kulesha, Eugene
+    - Yates, Andrew
+    - Flicek, Paul
+  date: 2016
+  page-range: bav96
+  url:
+    value: https://academic.oup.com/database/article-lookup/doi/10.1093/database/bav096
+    date: 2026-01-02
+  serial-number:
+    doi: 10.1093/database/bav096
+    issn: 1758-0463
+  parent:
+    type: periodical
+    title: Database
+    volume: 2016
+
 schneider_sequence_1990:
   type: article
   title:

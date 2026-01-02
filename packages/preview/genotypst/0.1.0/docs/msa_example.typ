@@ -11,7 +11,7 @@
 #set text(font: "Source Sans 3")
 #show raw: set text(font: "Source Code Pro", size: 9pt)
 
-#let protein_msa = parse-fasta-file("/docs/data/msa.afa")
+#let protein_msa = parse-fasta(read("/docs/data/msa.afa"))
 
 #render-msa(
   protein_msa,

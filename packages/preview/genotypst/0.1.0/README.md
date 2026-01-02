@@ -1,6 +1,6 @@
 # genotypst
 
-`genotypst` is a bioinformatics Typst package for biological sequence analysis and visualization. It provides functionality for reading FASTA files and generating common visualizations, such as multiple sequence alignments and sequence logos, for use in publications and presentations.
+`genotypst` is a bioinformatics package for Typst that enables analysis and visualization of biological data. It provides functionality for parsing FASTA and Newick files and generating publication-ready visualizations, including multiple sequence alignments, sequence logos, and phylogenetic trees.
 
 ## Documentation
 
@@ -16,7 +16,7 @@ In a Typst document, import the package and read the alignment data:
 #import "@preview/genotypst:0.1.0": *
 
 // Load sequences
-#let sequences = parse-fasta-file("msa.afa")
+#let sequences = parse-fasta(read("msa.afa"))
 
 // Display the `sequences` variable
 #repr(sequences)
@@ -49,3 +49,16 @@ The same region of the alignment can also be visualized as a sequence logo using
 ```
 
 ![](./docs/logo_example.svg)
+
+You can also use `genotypst` to parse Newick data and visualize phylogenetic trees:
+
+```typst
+// Parse Newick data
+#let tree = parse-newick(
+  "(('Leaf A':0.2,'Leaf B':0.1)'Internal node':0.3,'Leaf C':0.6)Root;"
+)
+// Render the phylogenetic tree
+#render-tree(tree)
+```
+
+![](./docs/tree_example.svg)

@@ -53,7 +53,7 @@
   )
 
   show raw.where(block: false): box.with(
-    fill: oklch(96%, 0.005, 269deg),
+    fill: oklch(96.5%, 0.005, 269deg),
     inset: (x: 3pt, y: 0pt),
     outset: (y: 3pt),
     radius: 2pt,

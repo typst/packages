@@ -43,18 +43,18 @@
 /// of a multiple sequence alignment, using Shannon entropy with optional small
 /// sample correction and occupancy scaling.
 ///
-/// - counts (dictionary<str, int>): Dictionary mapping characters to their counts in the column.
+/// - counts (dictionary): Dictionary mapping characters to their counts in the column.
 /// - total-non-gap (int): Total number of non-gap characters in the column.
 /// - num-sequences (int): Total number of sequences in the alignment.
-/// - sampling-correction (bool): Apply small sample correction (default: true).
-/// - alphabet-size (int): Size of the alphabet (default: 20 for amino acids).
+/// - sampling-correction (bool): Apply small sample correction.
+/// - alphabet-size (int): Size of the alphabet.
 /// -> float
 #let _compute-sequence-conservation(
   counts,
   total-non-gap,
   num-sequences,
-  sampling-correction: true,
-  alphabet-size: 20,
+  sampling-correction,
+  alphabet-size,
 ) = {
   if total-non-gap == 0 { return 0.0 }
 
@@ -88,9 +88,9 @@
 ///
 /// - sequences (array): Array of sequence strings.
 /// - pos (int): The column position to analyze (0-indexed).
-/// - alphabet-characters (array<str>): Array of valid alphabet characters.
+/// - alphabet-characters (array): Array of valid alphabet characters.
 /// -> dictionary with keys:
-///   - counts: dictionary<str, int> mapping characters to their counts
+///   - counts: dictionary mapping characters to their counts
 ///   - total-non-gap: int, total count of valid characters
 #let _get-column-stats(sequences, pos, alphabet-characters) = {
   let counts = (:)
@@ -117,8 +117,8 @@
 /// - sequences (array): Array of sequence strings for auto-detection.
 /// -> dictionary with keys:
 ///   - size: int, size of the alphabet (20 for amino acids, 4 for DNA/RNA)
-///   - chars: array<str>, array of valid characters
-///   - palette: dictionary<str, color>, color mapping for characters
+///   - chars: array, array of valid characters
+///   - palette: dictionary, color mapping for characters
 #let _resolve-alphabet-config(alphabet, sequences) = {
   assert(
     alphabet in ("auto", "aa", "dna", "rna"),
@@ -163,7 +163,7 @@
 /// Ensures that all sequences in a multiple sequence alignment have identical
 /// lengths. Throws an error if sequences have different lengths.
 ///
-/// - msa-dict (dictionary<str, str>): Dictionary mapping sequence identifiers to sequences.
+/// - msa-dict (dictionary): Dictionary mapping sequence identifiers to sequences.
 /// -> none
 #let _validate-msa(msa-dict) = {
   let sequences = msa-dict.values()

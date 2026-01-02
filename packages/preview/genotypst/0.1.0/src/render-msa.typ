@@ -7,7 +7,7 @@
 ///
 /// - char (str): The character to render.
 /// - colors (bool): Whether to apply coloring.
-/// - palette (dictionary<str, color>): Color palette for residues.
+/// - palette (dictionary): Color palette for residues.
 /// - char-width (length): Width of the character box.
 /// - outset-y (length): Vertical outset for the box.
 /// -> content
@@ -18,7 +18,7 @@
     let fg-color = base-color.darken(22.5%)
     box(fill: bg-color, outset: (y: outset-y), width: char-width, align(center, text(fill: fg-color, char)))
   } else {
-    let content = if colors { text(fill: rgb("#CED2DA"), char) } else { char }
+    let content = if colors { text(fill: rgb("#B2B6BE"), char) } else { char }
     box(outset: (y: outset-y), width: char-width, align(center, content))
   }
 }
@@ -28,17 +28,17 @@
 /// Creates a horizontal row of bars where each bar represents information
 /// content (conservation) of a single column in alignment.
 ///
-/// - sequences (array<str>): Array of sequence strings.
+/// - sequences (array): Array of sequence strings.
 /// - block-start (int): Starting position of the block (0-indexed).
 /// - block-end (int): Ending position of the block (0-indexed, exclusive).
 /// - n-seqs (int): Total number of sequences.
 /// - sampling-correction (bool): Whether to apply small sample correction.
 /// - alphabet-size (int): Size of the alphabet.
-/// - alphabet-chars (array<str>): Array of valid alphabet characters.
+/// - alphabet-chars (array): Array of valid alphabet characters.
 /// - max-bits (float): Maximum possible information content (log2 of alphabet size).
 /// - char-width (length): Width of each character box.
 /// -> array with:
-///   - An empty array (for grid alignment)
+///   - An empty content block (for grid alignment)
 ///   - A stack of conservation bars (content)
 #let _render-msa-conservation-row(
   sequences,
@@ -60,14 +60,14 @@
       stats.counts,
       stats.total-non-gap,
       n-seqs,
-      sampling-correction: sampling-correction,
-      alphabet-size: alphabet-size,
+      sampling-correction,
+      alphabet-size,
     )
     let h = (r / max-bits) * bar-height
     bars.push(box(
       width: char-width,
       height: bar-height,
-      align(bottom, rect(width: 100%, height: h, fill: rgb("#CED2DA"))),
+      align(bottom, rect(width: 100%, height: h, fill: rgb("#B2B6BE"))),
     ))
   }
 
@@ -85,7 +85,7 @@
 /// - block-end (int): Ending position of the block (0-indexed, exclusive).
 /// - max-acc-width (int): Maximum width for accession display.
 /// - colors (bool): Whether to color residues.
-/// - palette (dictionary<str, color>): Color palette for residues.
+/// - palette (dictionary): Color palette for residues.
 /// - char-width (length): Width of each character box.
 /// - outset-y (length): Vertical outset for boxes.
 /// -> array with:
@@ -125,14 +125,14 @@
 /// Formats a multiple sequence alignment into blocks.
 ///
 /// Renders a multiple sequence alignment with optional residue coloring and
-/// conservation bars. Sequences are displayed in blocks to fit within
-/// specified width.
+/// conservation bars. Sequences are displayed in blocks of `max-seq-width`
+/// characters to fit within the document.
 ///
-/// - msa-dict (dictionary<str, str>): A dictionary mapping sequence identifiers to sequences.
+/// - msa-dict (dictionary): A dictionary mapping sequence identifiers to sequences.
 /// - max-acc-width (int): Maximum width for accession display (default: 20).
 /// - max-seq-width (int): Maximum characters per line in a block (default: 60).
-/// - start (int): Starting position (0-indexed, inclusive) (default: none).
-/// - end (int): Ending position (0-indexed, exclusive) (default: none).
+/// - start (int, none): Starting position (0-indexed, inclusive) (default: none).
+/// - end (int, none): Ending position (0-indexed, exclusive) (default: none).
 /// - colors (bool): Color residues by chemical properties (default: false).
 /// - conservation (bool): Show conservation bars (default: false).
 /// - sampling-correction (bool): Apply small sample correction (default: true).
