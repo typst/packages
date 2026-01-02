@@ -31,11 +31,11 @@ By default, it is set with the New Computer Modern font family, but if you want 
 
 ```yml
 fonts:
-  body-font: "Libertinus Serif"
-  code-font: "Cascadia Mono"
-  math-font: "New Computer Modern Math"
-  mono-font: "Libertinus Mono"
-  sans-font: "Libertinus Sans"
+	body-font: "Libertinus Serif"
+	code-font: "Cascadia Mono"
+	math-font: "New Computer Modern Math"
+	mono-font: "Libertinus Mono"
+	sans-font: "Libertinus Sans"
 ```
 
 #### Colour
@@ -55,32 +55,40 @@ Following, a description of this template's parameters:
 - `uptitle` : an "uptitle" above the document in small capitals and old-style figures (for instance, the course's name),
 - `subtitle` : the subtitle below the title,
 - `authors` : field containing the authors in a dictionnary, if you only use one author, remember to add a comma at the end ;
-	- `name` : the author's name,
-	- `affiliation` : the author's affiliation,
-	- `year` : the author's year,
-	- `class` : the author's class,
-	- `email` : the author's email address ;
-	For instance:
-	```
-	#show manuscr-ismin.with(
-		authors: (
-			(
-	      name: "Jean d'Oe",
-	      affiliation: "ISMIN",
-	      year: "2A",
-	      class: "G2",
-	      email: "jean.doe@emse.fr"
-      ),
-    ),
-    // The rest of the parameters
-	),
-	```
+- `name` : the author's name,
+- `affiliation` : the author's affiliation,
+- `year` : the author's year,
+- `class` : the author's class,
+- `email` : the author's email address ;
 - `date` : the date,
 - `logo` : path the logo you want to use - by the default, it is Mines Saint-Étienne's,
 - `header-title` : the text in the left in the header,
 - `header-middle` : the text in the centre of the header (in bold),
 - `header-subtitle` : the text at the right in the header (in italic),
 - `number-style` : the style of numbers; can be either `"old-style"` or `"lining"`.
+
+Here is an example of how to call the function:
+
+```
+#show: manuscr-ismin.with(
+	uptitle: [Processor Architecture 2],
+	title: [Project Report],
+	subtitle: [An implementation of Ascon-128],
+	authors: (
+		(
+			name: "Naps la Napsance",
+			affiliation: "ISMIN",
+			year: "2A",
+			class: "G3",
+			email: "naps@emse.fr"
+		),
+	),
+	header-title: "N a p s",
+	header-subtitle: "Project Report",
+	header-middle: [Proc. Arch. 2],
+	date: "09/12/2023"
+	)
+```
 
 ### Other functions
 
