@@ -166,6 +166,7 @@
 
   show: itemize.default-enum-list.with(
     indent: (first-line-indent, 0.5em),
+    label-baseline: "center", // 让 itemize 处理 marker 与文本的对齐
     list-config: (
       label-format: it => [#(
         sym-bullet(6pt),
