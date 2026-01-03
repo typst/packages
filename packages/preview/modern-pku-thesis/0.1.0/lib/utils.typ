@@ -3,9 +3,6 @@
 
 #import "config.typ": appendixcounter, 字号
 
-// 长度向上取整到指定单位
-#let lengthceil(len, unit: 字号.小四) = calc.ceil(len / unit) * unit
-
 // 阿拉伯数字转中文数字
 #let chinesenumber(num, standalone: false) = if num < 11 {
   ("零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十").at(num)

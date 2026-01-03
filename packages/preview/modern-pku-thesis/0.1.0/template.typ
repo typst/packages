@@ -32,9 +32,12 @@
 #import "@preview/codly-languages:0.1.10": *
 
 // 导入并重导出所有公共符号
-#import "lib/config.typ": appendix, 字体, 字号
+#import "lib/config.typ": appendix, 字体, 字号, 引用记号
 #import "lib/utils.typ": chinesenumbering
 #import "lib/components.typ": booktab, chineseoutline, codeblock, listoffigures
+#import "lib/styles.typ": (
+  sym-bullet, sym-square-filled, sym-square-filled-rotated,
+)
 
 // 高级用户 API：导出内部计数器和状态，用于自定义章节编号等场景
 // 注意：这些是内部实现细节，未来版本可能会有变化
@@ -91,6 +94,9 @@
   preview: true,
   // 代码块的额外参数
   codly-args: (:),
+  // 引用记号自定义（图、表、代码、公式、节）
+  // 示例：supplements: (图: "Figure", 表: "Table")
+  supplements: (:),
   doc,
 ) = {
   // 命令行参数覆盖配置文件中的值
@@ -99,6 +105,13 @@
   let alwaysstartodd = if _cli-alwaysstartodd != none {
     _cli-alwaysstartodd
   } else { alwaysstartodd }
+
+  // 合并用户自定义引用记号与默认值
+  let merged-supplements = 引用记号
+  for (key, value) in supplements {
+    merged-supplements.insert(key, value)
+  }
+
   // 智能分页函数
   let smartpagebreak = () => {
     if alwaysstartodd {
@@ -121,7 +134,7 @@
   )
 
   // ========== 全局样式 ==========
-  set text(字号.小四, font: 字体.宋体, lang: "zh")
+  set text(字号.正文, font: 字体.宋体, lang: "zh")
   set align(center + horizon)
   set heading(numbering: chinesenumbering)
   set figure(
@@ -143,8 +156,6 @@
       }
     },
   )
-  set list(indent: 2em)
-  set enum(indent: 2em)
   set footnote(numbering: "①")
   show footnote.entry: it => {
     let loc = it.note.location()
@@ -153,7 +164,16 @@
     it.note.body
   }
 
-  show: itemize.default-enum-list
+  show: itemize.default-enum-list.with(
+    indent: (first-line-indent, 0.5em),
+    list-config: (
+      label-format: it => [#(
+        sym-bullet(6pt),
+        sym-square-filled(6pt),
+        sym-square-filled-rotated(6pt),
+      ).at(calc.rem(it.level - 1, 3))],
+    ),
+  )
   show strong: it => text(font: 字体.黑体, weight: "bold", it.body)
   show emph: it => text(font: 字体.楷体, style: "italic", it.body)
   show raw: set text(font: 字体.代码, size: 字号.五号, top-edge: "ascender")
@@ -165,8 +185,12 @@
 
   // 应用 show 规则
   show heading: it => styles.heading-show-rule(it, smartpagebreak)
-  show figure: styles.figure-show-rule
-  show ref: styles.ref-show-rule
+  show figure: set block(breakable: true)
+  show figure: it => styles.figure-show-rule(
+    it,
+    supplements: merged-supplements,
+  )
+  show ref: it => styles.ref-show-rule(it, supplements: merged-supplements)
   show bibliography: it => styles.bibliography-show-rule(it)
 
   // ========== 封面页 ==========
@@ -230,15 +254,26 @@
   )
 
   if listofimage {
-    listoffigures()
+    listoffigures(
+      title: merged-supplements.插图列表,
+      supplements: merged-supplements,
+    )
   }
 
   if listoftable {
-    listoffigures(title: "表格", kind: table)
+    listoffigures(
+      title: merged-supplements.表格列表,
+      kind: table,
+      supplements: merged-supplements,
+    )
   }
 
   if listofcode {
-    listoffigures(title: "代码", kind: "code")
+    listoffigures(
+      title: merged-supplements.代码列表,
+      kind: "code",
+      supplements: merged-supplements,
+    )
   }
 
   // ========== 正文 ==========

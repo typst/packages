@@ -4,6 +4,7 @@
 #import "@preview/cuti:0.4.0": show-cn-fakebold
 #import "config.typ": back-heading, front-heading, 字体, 字号
 #import "utils.typ": chinesenumber, chineseyear, split-text-by-width
+#import "styles.typ": sym-box-checked, sym-box-unchecked
 
 // 构建带自动换行的字段 grid
 #let build-field-grid(fields, name-width, value-width, row-height) = context {
@@ -36,9 +37,6 @@
   )
 }
 
-#let box-unchecked = box(width: 12pt, align(center, square(size: 12pt)))
-#let box-checked = box(width: 12pt, align(center, square(size: 12pt)[✓]))
-
 // 学位类型选择框
 // degree-type: "academic" | "professional"，其他值会触发 panic
 #let degree-type-checkbox(degree-type) = {
@@ -47,11 +45,15 @@
     message: "degree-type 必须是 \"academic\" 或 \"professional\"，当前值: "
       + repr(degree-type),
   )
-  let academic-box = if degree-type == "academic" { box-checked } else {
-    box-unchecked
+  let academic-box = if degree-type == "academic" {
+    sym-box-checked(12pt)
+  } else {
+    sym-box-unchecked(12pt)
   }
-  let professional-box = if degree-type == "professional" { box-checked } else {
-    box-unchecked
+  let professional-box = if degree-type == "professional" {
+    sym-box-checked(12pt)
+  } else {
+    sym-box-unchecked(12pt)
   }
   set align(center + horizon)
   [#academic-box#h(0.5em)学术学位#h(4 * 0.5em)#professional-box#h(0.5em)专业学位]
@@ -165,11 +167,10 @@
     1.5em,
   )
 
-  set text(字号.小四)
   v(2fr)
-  text(字号.三号, font: 字体.仿宋)[#degree-type-checkbox(degree-type)]
+  text(font: 字体.仿宋)[#degree-type-checkbox(degree-type)]
   v(1fr)
-  text(字号.三号, font: 字体.宋体)[
+  text(font: 字体.宋体)[
     #chineseyear(date.year) *年* #chinesenumber(date.month) *月*
   ]
 }
@@ -263,7 +264,7 @@
   // Word 模板中英文摘要的首行缩进固定为 0.74cm
   set par(first-line-indent: 0.74cm, justify: true)
   v(8pt)
-  align(center)[#text(字号.小四, font: "Arial", weight: "bold")[ABSTRACT]]
+  align(center)[#text(font: "Arial", weight: "bold")[ABSTRACT]]
   v(6pt)
   eabstract
   v(1fr)

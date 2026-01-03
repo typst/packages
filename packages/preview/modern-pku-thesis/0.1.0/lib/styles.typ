@@ -4,11 +4,34 @@
 #import "config.typ": (
   appendixcounter, chaptercounter, equationcounter, footnotecounter,
   imagecounter, partcounter, rawcounter, skippedstate, tablecounter, 字体, 字号,
+  引用记号,
 )
 #import "utils.typ": chinesenumbering
 
 #let default-heading-spacing-before = (17pt, 24pt, 12pt, 6pt)
 #let default-heading-spacing-after = (16.5pt, 6pt, 6pt, 6pt)
+#let sym-box-unchecked(size) = box(width: size, align(
+  center + horizon,
+  square(size: size),
+))
+#let sym-box-checked(size) = box(width: size, align(center + horizon, square(
+  size: size,
+)[✓]))
+#let sym-square-filled(size) = box(width: 1em)[
+  #set align(center + horizon)
+  #square(size: size, fill: black)
+  #v(1pt)
+]
+#let sym-square-filled-rotated(size) = box(width: 1em)[
+  #set align(center + horizon)
+  #rotate(square(size: size, fill: black), 45deg)
+  #v(1pt)
+]
+#let sym-bullet(size) = box(width: 1em)[
+  #set align(center + horizon)
+  #circle(radius: size / 2, fill: black)
+  #v(1pt)
+]
 
 // 从 heading 提取元数据（从 supplement 中的 metadata 获取）
 #let get-heading-meta(it) = {
@@ -142,7 +165,7 @@
       and query(selector(<__clean_declaration__>)).len() > 0
   ) { return }
 
-  set text(字号.五号)
+  set text(字号.页码)
   set align(center)
 
   let page-num = counter(page).at(here()).first()
@@ -156,7 +179,6 @@
     }
     // 对应 Word 模板中页脚下边距
     #v(1.75cm)
-    #label("__footer__")
   ]
 }
 
@@ -265,7 +287,7 @@
 }
 
 // figure 样式规则
-#let figure-show-rule(it) = [
+#let figure-show-rule(it, supplements: 引用记号) = [
   #set align(center)
   #if not it.has("kind") {
     it
@@ -284,7 +306,7 @@
   } else if it.kind == "code" {
     [
       #set text(字号.五号)
-      #context { [代码] + it.counter.display(it.numbering) + "   " }
+      #context { supplements.代码 + it.counter.display(it.numbering) + "   " }
       #it.caption.body
     ]
     it.body
@@ -295,7 +317,7 @@
 ]
 
 // ref 样式规则
-#let ref-show-rule(it) = {
+#let ref-show-rule(it, supplements: 引用记号) = {
   if it.element == none {
     // 参考文献引用保持原样
     it
@@ -308,7 +330,7 @@
     if el.func() == math.equation {
       // 公式引用
       link(el_loc, [
-        式
+        #supplements.公式
         #chinesenumbering(
           chaptercounter.at(el_loc).first(),
           equationcounter.at(el_loc).first(),
@@ -321,7 +343,7 @@
       // 图表引用
       if el.kind == image {
         link(el_loc, [
-          图
+          #supplements.图
           #chinesenumbering(
             chaptercounter.at(el_loc).first(),
             imagecounter.at(el_loc).first(),
@@ -330,7 +352,7 @@
         ])
       } else if el.kind == table {
         link(el_loc, [
-          表
+          #supplements.表
           #chinesenumbering(
             chaptercounter.at(el_loc).first(),
             tablecounter.at(el_loc).first(),
@@ -339,7 +361,7 @@
         ])
       } else if el.kind == "code" {
         link(el_loc, [
-          代码
+          #supplements.代码
           #chinesenumbering(
             chaptercounter.at(el_loc).first(),
             rawcounter.at(el_loc).first(),
@@ -349,7 +371,7 @@
       } else {
         // 未知类型的 figure，使用 kind 名称或默认使用原始引用
         link(el_loc, [
-          #if type(el.kind) == str { el.kind } else { "图表" }
+          #if type(el.kind) == str { el.kind } else { supplements.图表 }
           #counter(figure.where(kind: el.kind)).display(el.numbering)
         ])
       }
@@ -362,7 +384,7 @@
         ))
       } else {
         link(el_loc, [
-          节
+          #supplements.节
           #chinesenumbering(..counter(heading).at(el_loc), location: el_loc)
         ])
       }
