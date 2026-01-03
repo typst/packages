@@ -17,21 +17,21 @@
 #let sym-box-checked(size) = box(width: size, align(center + horizon, square(
   size: size,
 )[✓]))
-#let sym-square-filled(size) = box(width: 1em)[
-  #set align(center + horizon)
-  #square(size: size, fill: black)
-  #v(1pt)
-]
-#let sym-square-filled-rotated(size) = box(width: 1em)[
-  #set align(center + horizon)
-  #rotate(square(size: size, fill: black), 45deg)
-  #v(1pt)
-]
-#let sym-bullet(size) = box(width: 1em)[
-  #set align(center + horizon)
-  #circle(radius: size / 2, fill: black)
-  #v(1pt)
-]
+
+// 列表 marker：使用 itemize 的 label-baseline: "center" 对齐
+// 高度设为字号大小以避免撑开行距
+#let sym-square-filled(size) = box(
+  width: 1em,
+  align(center + horizon, square(size: size, fill: black)),
+)
+#let sym-square-filled-rotated(size) = box(
+  width: 1em,
+  align(center + horizon, rotate(square(size: size, fill: black), 45deg)),
+)
+#let sym-bullet(size) = box(
+  width: 1em,
+  align(center + horizon, circle(radius: size / 2, fill: black)),
+)
 
 // 从 heading 提取元数据（从 supplement 中的 metadata 获取）
 #let get-heading-meta(it) = {
