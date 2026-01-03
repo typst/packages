@@ -97,9 +97,11 @@ The code still documents itself in English.
 本项目采用 MIT 证书，详见[`LICENSE.txt`](LICENSE.txt)。
 
 ## 致谢
-感谢 [Fragecity](<https://github.com/Fragecity>) 赞助开发。
+感谢原作者 [Duolei Wang](<https://github.com/Duolei-Wang>) 提供的初始代码。
 
-感谢本项目所依赖的各程序和代码库。
+
+## 支持
+在使用模板的过程中有什么困难的，可以联系QQ 1524632440 寻求支持。
 
 
 <!-- Links -->
