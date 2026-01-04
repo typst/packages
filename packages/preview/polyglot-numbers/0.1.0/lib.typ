@@ -1,6 +1,6 @@
 #import "languages/en.typ"
-#import "languages/id.typ"
 #import "languages/fr.typ"
+#import "languages/id.typ"
 #import "languages/my.typ"
 #import "languages/ru.typ"
 
