@@ -151,19 +151,15 @@
     }
   )
   if style == "compact" {
+    let inset = 0.3em
     box(
-        outset: (0.15em),
-        inset: (right: 0.1em),
-        radius: 0.3em,
-        baseline: 0.15em,
-        fill: paint.lighten(85%),
-        grid(
-          align: horizon,
-          columns: 2,
-          column-gutter: 0.2em,
-          ti-icon(icon, fill:paint),
-          text(strong(title), rgb("#343a40"))
-        )
-    ) + h(0.4em) + content
+      outset: (inset),
+      inset: (right: 0.0em),
+      radius: 0.3em,
+      fill: paint.lighten(85%),
+      (place(horizon+left, dx: -inset/2, ti-icon(icon, fill:paint))) + h(1em) +
+      text(strong(title), rgb("#343a40"),)
+      
+    ) + h(2 * inset) + content
   }
 }
