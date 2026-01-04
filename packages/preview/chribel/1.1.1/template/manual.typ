@@ -276,7 +276,7 @@ The provided callouts adapt their default titles based on the document language.
   ```
 
   #for typ in callout-types.slice(0, 5) {
-    callout(type: typ)[]
+    callout(type: typ)[] + v(-0.25em)
   }
 
   #colbreak()
@@ -287,7 +287,7 @@ The provided callouts adapt their default titles based on the document language.
   #set text(lang: "de")
 
   #for typ in callout-types.slice(0, 5) {
-    callout(type: typ)[]
+    callout(type: typ)[] + v(-0.25em)
   }
 ]
 
@@ -468,3 +468,4 @@ And then you can add the configuration function anywhere in the function (but se
 == 1.0.0
 
 - initial release -- added functions `#callout`\ `#chribel`, `#chribel-add-callout-template`
+
