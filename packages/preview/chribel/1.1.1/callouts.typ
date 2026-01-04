@@ -151,14 +151,11 @@
     }
   )
   if style == "compact" {
-    grid(
-      align : horizon,
-      columns: 2,
-      column-gutter: 0.4em,
-      box(
-        outset: (y:0.15em),
-        inset: (left: 0.15em, right: 0.25em),
+    box(
+        outset: (0.15em),
+        inset: (right: 0.1em),
         radius: 0.3em,
+        baseline: 0.15em,
         fill: paint.lighten(85%),
         grid(
           align: horizon,
@@ -166,8 +163,7 @@
           column-gutter: 0.2em,
           ti-icon(icon, fill:paint),
           text(strong(title), rgb("#343a40"))
-      )),
-      content
-    )
+        )
+    ) + h(0.4em) + content
   }
 }
