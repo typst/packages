@@ -16,7 +16,7 @@ Follow this link to open `cogsci-conference` in the template selector of the Typ
 
 Or, on the [Typst Universe `cogsci-conference` project page](https://typst.app/universe/package/cogsci-conference), click the "Create project in app" button.
 
-Or, on the [Typst web app](https://typst.app/) dashboard, click "Start from template" and search for `cogsci-conference`. 
+Or, on the [Typst web app](https://typst.app/) dashboard, click "Start from template" and search for `cogsci-conference`.
 
 **Note**: You need to log into a typst.app account.
 
@@ -98,7 +98,7 @@ The `cogsci()` template function accepts the following parameters:
 
 - **`title`** (content): The paper title.
 
-- **`author-info`** (content): Formatted author information (ignored when `anonymize` is `true`). The template exports the [`format-authors()`](#author-formatting) helper function, which formats author information automatically. If you wish to format the author information manually, pass content directly to `author-info`. 
+- **`author-info`** (content): Formatted author information (ignored when `anonymize` is `true`). The template exports the [`format-authors()`](#author-formatting) helper function, which formats author information automatically. If you wish to format the author information manually, pass content directly to `author-info`.
 
 - **`abstract`** (content): The paper abstract.
 
@@ -181,7 +181,6 @@ The template exposes manual overrides for `text()`, `page()`, and `document()`. 
 - **`text-kwargs`** (dictionary): expands into `set text(..text-kwargs)`
 - **`page-kwargs`** (dictionary): expands into `set page(..page-kwargs)`
 - **`document-kwargs`** (dictionary): expands into `set document(..document-kwargs)`
-
 
 ## Requirements
 
