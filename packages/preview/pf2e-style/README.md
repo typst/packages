@@ -2,7 +2,7 @@
 
 Have full control over your Pathfinder 2nd Edition (PF2e) content with this easy-to-use [Typst](https://typst.app/docs) template. With print-friendly design, customizable themes, and Pathfinder specific elements like the Three Action Economy icons, this kit provides almost everything you need to get your adventure documents looking perfect for next session.
 
-Check out the example [document]() and the resulting [PDF file]().
+Check out the example [document](https://gitlab.com/Jed_Hed/pf2e-typst/-/blob/main/docs/examples/pf2e.typ?ref_type=heads) and the resulting [PDF file](https://gitlab.com/Jed_Hed/pf2e-typst/-/blob/main/docs/examples/pf2e.pdf?ref_type=heads).
 
 This was made to really capture the look and feel of PF2e Remastered. While sites like [scribe](https://scribe.pf2.tools/) offers incredible markdown formatting for PF2e materials, it's color set is still based on the prior version of PF2e. This project provides that updated color scheme as well as takes advantage of Typst's superior markup language. 
 
