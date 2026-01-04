@@ -2,10 +2,9 @@
 name = "pf2e-style"
 version = "0.1.0"
 entrypoint = "lib.typ"
-license = "MIT"
+license = "MIT-0"
 description = "Pathfinder 2.1 Edition Toolkit."
 authors = ["Jed_Hed <jed_hed@proton.me>"]
-license = "MIT-0"
 repository = "https://gitlab.com/Jed_Hed/pf2e-typst"
 categories = ["components", "layout", "book"]
 keywords = ["dnd", "pathfinder", "rpg", "ttrpg", "tabletop", "game"]
