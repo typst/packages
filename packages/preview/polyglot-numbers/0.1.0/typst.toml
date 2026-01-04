@@ -4,5 +4,5 @@ version = "0.1.0"
 authors = ["RubixDev (Original Creator!)", "IrregularPersona"]
 entrypoint = "lib.typ"
 license = "GPL-3.0-only"
-repository = "https://github.com/IrregularPersona/name-all-the-numbers"
+repository = "https://github.com/IrregularPersona/polyglot-numbers"
 description = "Get the names of integers in Typst in any language! (Fork of RubixDev's name-it package)"

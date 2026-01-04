@@ -10,7 +10,7 @@ Get the names of integers in any language!
 ### In English!
 ![Example](./examples/example-en.png)
 ```typ
-#import "@preview/name-all-the-numbers:0.1.0": name-it
+#import "@preview/polyglot-numbers:0.1.0": name-it
 #set page(width: auto, height: auto, margin: 1cm)
 
 === English
@@ -35,7 +35,7 @@ Get the names of integers in any language!
 ### In Indonesian!
 ![Indonesian](./examples/example-id.png)
 ```typ
-#import "@preview/name-all-the-numbers:0.1.0": name-it
+#import "@preview/polyglot-numbers:0.1.0": name-it
 #set page(width: auto, height: auto, margin: 1cm)
 
 === Indonesian
@@ -65,7 +65,7 @@ Convert the given number into its word representation in your specified language
 
 **Arguments:**
 - `num`: [`int`] or [`str`] The number to name. Strings are accepted to support very large numbers that exceed integer limits.
-- `lang`: [`str`] The language code for conversion. Currently supported: `"en"` (English), `"id"` (Indonesian). Default: `"en"`.
+- `lang`: [`str`] The language code for conversion. [Check this section for supported languages](#supported-languages)
 - `..options`: Additional language-specific options:
   - `show-and`: [`bool`] (English only) Whether "and" should be used in certain places. For example, "one hundred ten" vs "one hundred and ten". Default: `true`.
 
@@ -73,7 +73,9 @@ Convert the given number into its word representation in your specified language
 
 ## Supported Languages
 - **English** (`"en"`)
+- **French** (`"fr"`)
 - **Indonesian** (`"id"`)
+- **Malaysian** (`"my"`)
 
 ## Contributing New Languages
 Want to add support for a new language? Great! Here's how:

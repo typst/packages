@@ -1,9 +1,16 @@
-#import "languages/en.typ" 
-#import "languages/id.typ" 
+#import "languages/en.typ"
+#import "languages/id.typ"
+#import "languages/fr.typ"
+#import "languages/my.typ"
+#import "languages/ru.typ"
+
 
 #let languages = (
   "en": en.lang-config,
+  "fr": fr.lang-config,
   "id": id.lang-config,
+  "my": my.lang-config,
+  "ru": ru.lang-config,
 )
 
 #let name-it(num, lang: "en", ..options) = {
@@ -62,6 +69,7 @@
       parts.push((
         text: group-text,
         scale: scale-idx,
+        digits: group-digits,
       ))
     }
   }
