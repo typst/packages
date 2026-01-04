@@ -37,7 +37,7 @@
   text(0.8em)[default: #cont]
 }
 
-#let version = toml("../typst.toml").package.version
+#let version = "1.1.1"
 
 #show: chribel.with(
   title: [Chribel Template],
