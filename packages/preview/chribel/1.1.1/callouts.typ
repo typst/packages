@@ -145,7 +145,7 @@
           align: (center+horizon, left+horizon),
           ti-icon(icon, fill:paint),
           grid.cell(text(strong(title), rgb("#343a40"))),
-          grid.cell(colspan: 2, align: left, block(width: 100%, content, inset: (0.5em)))
+          grid.cell(colspan: 2, align: left+top, block(width: 100%, content, inset: (0.5em)))
         )
       )
     }
