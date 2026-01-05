@@ -1,13 +1,13 @@
-#import "@preview/better-numbering:0.0.1": *
-#show: better-numbering.with(
+#import "@preview/ratchet:0.0.1": *
+#show: ratchet.with(
   fig-outline: "1.1",
 )
 
 #align(center)[#text(size: 18pt)[Better Numbering Demo]]
 
-本 demo 演示 `better-numbering` 的核心能力：基于章节/小节前缀的图表/公式编号、跨章节引用一致性、以及“同一篇文档中分段重新配置编号样式”。
+本 demo 演示 `ratchet` 的核心能力：基于章节/小节前缀的图表/公式编号、跨章节引用一致性、以及“同一篇文档中分段重新配置编号样式”。
 
-This demo showcases the core capabilities of `better-numbering`: section/subsection-based figure/equation numbering, consistent cross-section references, and the ability to reconfigure numbering styles in different parts of the same document.
+This demo showcases the core capabilities of `ratchet`: section/subsection-based figure/equation numbering, consistent cross-section references, and the ability to reconfigure numbering styles in different parts of the same document.
 
 该包主要更改了图表和公式的编号方式，使其能够根据章节自动更新编号，并在进入新章节时重置计数器。此外，它还允许用户自定义编号的层级深度和格式。支持`image`、`table`、`raw`、`math.equation`以及自定义的`figure(kind: ...)`等元素类型。
 
@@ -17,14 +17,14 @@ This package primarily modifies the numbering of figures and equations to automa
 
 Import this package and enable better numbering with:
 ```typ
-#import "@preview/better-numbering:0.0.1": *
-#show: better-numbering
+#import "@preview/ratchet:0.0.1": *
+#show: ratchet
 ```
 默认的配置如下：
 
 the default settings are:
 ```typ
-#show: better-numbering.with(
+#show: ratchet.with(
   offset: 0,
   reset-figure-kinds: (image, table, raw),
   fig-depth: 2,
@@ -200,7 +200,7 @@ The `label` and `ref` functionalities also work correctly, allowing you to refer
 你可以直接重新引用以改变编号样式，例如创建一个*附录*：
 
 You can directly re-apply to change the numbering style, for example, to create an *appendix*:
-#show: better-numbering.with(
+#show: ratchet.with(
   offset: 0,
   reset-figure-kinds: (image, table, raw, "custom-kind"),
   fig-depth: 3,
@@ -211,7 +211,7 @@ You can directly re-apply to change the numbering style, for example, to create 
   eq-color: red,
 )
 ```typ
-#show: better-numbering.with(
+#show: ratchet.with(
   offset: 0,
   reset-figure-kinds: (image, table, raw, "custom-kind"),
   fig-depth: 3,

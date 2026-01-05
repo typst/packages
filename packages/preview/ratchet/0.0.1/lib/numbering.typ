@@ -23,11 +23,11 @@
   body
 }
 
-#let _bn-epoch = state("better-numbering-epoch", 0)
+#let _bn-epoch = state("ratchet-epoch", 0)
 
-#let _bn-guard = state("better-numbering-guard", 0)
+#let _bn-guard = state("ratchet-guard", 0)
 
-#let _bn-cfg = state("better-numbering-config", (
+#let _bn-cfg = state("ratchet-config", (
   fig-depth: 2,
   fig-outline: "1.1",
   fig-color: none,
@@ -116,7 +116,7 @@
 
 
 // One-stop wrapper (use as a show rule).
-#let better-numbering(
+#let ratchet(
   // Heading backbone
   offset: 0,
   reset-figure-kinds: (image, table, raw),

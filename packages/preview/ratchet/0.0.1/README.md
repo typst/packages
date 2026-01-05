@@ -1,6 +1,6 @@
-# better-numbering
+# ratchet
 
-`better-numbering` is a typst package for improved figure/table/equation/math.equation/custom-kind numbering.
+`ratchet` is a typst package for improved figure/table/equation/math.equation/custom-kind numbering.
 
 This package primarily modifies the numbering of figures and equations to automatically update based on sections and reset counters when entering new sections. Additionally, it allows users to customize the depth and format of numbering. It supports element types such as `image`, `table`, `raw`, `math.equation`, and custom `figure(kind: ...)`.
 
@@ -14,9 +14,9 @@ This package provides consistent figure/table/raw + equation + custom figure.kin
 ## Quick start
 
 ```typst
-#import "@preview/better-numbering:0.0.1": *
+#import "@preview/ratchet:0.0.1": *
 
-#show: better-numbering.with(
+#show: ratchet.with(
   fig-depth: 2,
   eq-depth: 2,
   fig-outline: "1.1",
@@ -57,7 +57,7 @@ Use Typst numbering patterns such as:
 Example:
 
 ```typst
-#show: better-numbering.with(
+#show: ratchet.with(
   fig-depth: 3,
   fig-outline: "I.a.1",
 )
@@ -82,7 +82,7 @@ Typst’s `outline` lists *outlined* elements.
 
 ## Public API
 
-* `better-numbering(...)`
+* `ratchet(...)`
 
-(Other helper functions live in the internal modules; the intended entrypoint is `better-numbering`.)
+(Other helper functions live in the internal modules; the intended entrypoint is `ratchet`.)
 
