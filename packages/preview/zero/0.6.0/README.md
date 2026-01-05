@@ -407,7 +407,7 @@ The appearance of units can be configured via `set-unit`:
   unit-separator:  content = sym.space.thin,
   fraction:        str = "power",
   breakable:       bool = false,
-  prefix           auto | none = auto
+  prefix:          auto | none = auto
 )
 ```
 - `unit-separator: content` : Configures the separator between consecutive unit parts in a composite unit. 
@@ -416,7 +416,7 @@ The appearance of units can be configured via `set-unit`:
   - `"fraction"` : When units with negative exponents are present, a fraction is created and the concerned units are put in the denominator. 
   - `"inline"` : An inline fraction is created. 
 - `breakable: bool` : Whether units and quantities can be broken across paragraph lines. 
-- `prefix: auto` : When set to `auto` and `num.exponent` is set to `"eng"`, a metric prefix is displayed along with the unit, replacing the exponent, e.g. `zi.m[2e4]` will render as 20km. 
+- `prefix: auto | none` : When set to `auto` and `num.exponent` is set to `"eng"`, a metric prefix is displayed along with the unit, replacing the exponent, e.g. `zi.m[2e4]` will render as 20km. 
 
 These options are also available when instancing a quantity, e.g., `#zi.m(fraction: "inline")[2.5]`. 
 
