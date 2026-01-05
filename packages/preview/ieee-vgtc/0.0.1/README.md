@@ -22,13 +22,6 @@ The template will be imported like this:
 #import "@preview/ieee-vgtc:0.0.1": journal, conference
 ```
 
-## Templates
-
-The package provides two templates:
-
-- **Journal template** (`template/journal.typ`): For papers published in TVCG journal or as special issues (e.g., IEEE VIS, IEEE VR, ISMAR)
-- **Conference template** (`template/conference.typ`): For VGTC-sponsored conference papers that are NOT published in a special issue of TVCG
-
 ## Configuration
 
 The template exports two functions: `journal` for TVCG journal papers and `conference` for conference papers that are not published in a special issue of TVCG.
@@ -71,7 +64,7 @@ The `conference` function has the following named arguments:
 
 ## Previews
 
-<p align="center"><img src="thumbnail.png" width="500"/></p>
+<p align="center"><img src="thumbnail.png" alt="The first page of the template showing the title, teaser figure, the abstract, and a few text paragraphs." width="500"/></p>
 
 Live [preview of the PDF template](preview.pdf).
 
