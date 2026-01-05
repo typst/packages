@@ -222,7 +222,7 @@ Rounding can be configured with the `set-round()` function.
   - `"towards-zero"`: Round towards zero, e.g., 2.8 → 2 and −2.8 → −2. 
   - `"away-from-zero"`: Round away from zero, e.g., 2.3 → 3 and −2.3 → −3. 
 - `ties: str = "away-from-zero"` : How to round ties, i.e., when the digit at the rounding position is 5. 
-  - `"away-from-zero"`: Always round ties away from zero. This is also the behaviour of `calc.round`. 
+  - `"away-from-zero"`: Always round ties away from zero. This is also the behavior of `calc.round`. 
   - `"towards-zero"`: The opposite of `"away-from-zero"`, always round ties towards zero. 
   - `"towards-infinity"`: Always round ties up, towards infinity, e.g., 12.5 → 13 and −12.5 → −12. 
   - `"towards-negative-infinity"`: Always round ties down, towards negative infinity, e.g., 12.5 → 12 and −12.5 → −13. 
@@ -392,7 +392,7 @@ You can create a new unit through the `zi.declare` function. We recommend the fo
   </picture>
 </p>
 
-For most units, it will suffice to use the string unit syntax shown above because mostly latin letters are used. For the µ symbol, you can write "mu", as in `zi.declare("mus")` for microseconds. 
+For most units, it will suffice to use the string unit syntax shown above because mostly Latin letters are used. For the µ symbol, you can write "mu", as in `zi.declare("mus")` for microseconds. 
 
 If you need to build more complex units, consisting of symbols, math, or other content, you can use the alternative construction method. Here, each base unit is passed as a positional argument to `zi.declare`: either just the content if (the exponent is 1) or a pair of content and exponent. 
 ```typ
@@ -416,7 +416,7 @@ The appearance of units can be configured via `set-unit`:
   - `"fraction"` : When units with negative exponents are present, a fraction is created and the concerned units are put in the denominator. 
   - `"inline"` : An inline fraction is created. 
 - `breakable: bool` : Whether units and quantities can be broken across paragraph lines. 
-- `prefix: auto | none` : When set to `auto` and `num.exponent` is set to `"eng"`, a metric prefix is displayed along with the unit, replacing the exponent, e.g. `zi.m[2e4]` will render as 20km. 
+- `prefix: auto | none` : When set to `auto` and `num.exponent` is set to `"eng"`, a metric prefix is displayed along with the unit, replacing the exponent, e.g., `zi.m[2e4]` will render as 20km. 
 
 These options are also available when instancing a quantity, e.g., `#zi.m(fraction: "inline")[2.5]`. 
 
@@ -449,7 +449,7 @@ This way, parsing the number can be avoided which makes especially sense for pac
 
 Furthermore, `num()` also allows `array` arguments for `number` which allows for more efficient batch-processing of numbers with the same setup. In this case, the caller of the function needs to provide `context`. 
 
-Lastly, the function `align-columns` can be used to format and align an array of numerals into a single column. The returned array of items can be used to fill a column of a `table` or `stack`. Also here, the caller of the function needs to provide `context`. 
+Lastly, the function `align-columns` can be used to format and align an array of numerals into a single column. The returned array of items can be used to fill a column of a `table` or `stack`. Also, here the caller of the function needs to provide `context`. 
 
 
 ## Changelog
@@ -521,7 +521,7 @@ _Support for non-numerical content in number cells_
 ### Version 0.2.0 
 _Performance and math-less mode_
 - Adds support for using non-math fonts for `num` via the option `math`. This can be activated by calling `#set-num(math: false)`. 
-- Performance improvements for both `num()` and `ztable(9)`
+- Performance improvements for both `num()` and `ztable(9)`.
 
 ### Version 0.1.0
 _Initial release_
