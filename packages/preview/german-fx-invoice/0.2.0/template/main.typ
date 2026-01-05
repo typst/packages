@@ -1,4 +1,4 @@
-#import "../lib.typ": invoice
+#import "@preview/german-fx-invoice:0.2.0": invoice
 
 #show: invoice(
   // Invoice number
