@@ -1,5 +1,5 @@
 #import "@preview/js:0.1.3": *
-#import "@preview/diff-doc:0.1.0": *
+#import "@preview/palimset:0.1.0": *
 
 #show: js
 

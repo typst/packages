@@ -1,6 +1,7 @@
-# diff-doc
+# palimset
 
 This is a library for displaying document differences in Typst.
+“Palimset” is a coined word combining the terms ‘palimpsest’ and ‘set’.
 
 ## Usage
 
@@ -9,7 +10,7 @@ This is a library for displaying document differences in Typst.
 Compares two strings and highlights the differences.
 
 ```typst
-#import "@preview/diff-doc:0.1.0": *
+#import "@preview/palimset:0.1.0": *
 
 #let a = "hello, workd. こんばんは"
 #let b = "hello, world. こんにちは"
@@ -26,7 +27,7 @@ The output will look like this:
 Compares two Typst contents and highlights the differences, preserving styles.
 
 ```typst
-#import "@preview/diff-doc:0.1.0": *
+#import "@preview/palimset:0.1.0": *
 
 #diff-content(
   include "diff-a.typ",
