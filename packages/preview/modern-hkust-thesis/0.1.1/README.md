@@ -11,15 +11,16 @@ Contributions are also welcome.
 
 + Just click the `Creat project in app` on right concer ↗️, and start your writing!
 
-+ Or If you want to run locally, you can use `vscode` and its plugins `Tinymist` to setup environment easily. Just download, then ready to use.
++ Or If you want to run locally, you can use `vscode` and its plugins `Tinymist` to setup environment easily. Just download `typst` and run the command to acquire this template.
+    ```bash
+    typst init @preview/modern-hkust-thesis:0.1.0            
+    ```
 
-+ Clone this repo to your local directory, or just download all files in this repo
++ If you need modify any styles, you can also clone this repo to your local directory, or just download all files from this repo. Open the folder with vscode, then you could modify the `sample.typ` file to finish your thesis.
     ```git
     git clone http://gitlab.hkust-gz.edu.cn/jlu625/typst-thesis-template.git
     ```
 
-+ Open the folder with vscode, then you could modify the `sample.typ` file to finish your thesis.
+I have already written enough comments in sample file to make sure you could understand how to modify the text with your own info ☺️, feel free to modify the text and preview what you got (shortcut key `ctrl+k v`).
 
-+ I have already written enough comments in sample file to make sure you could understand how to modify the text with your own info, feel free to modify the text and preview what you got (shortcut key `ctrl+k v`).
-
-+ If you have problems in using `typst`, you can read [official documents here](https://typst.app/docs/).
+If you have problems in using `typst`, you can read [official documents here](https://typst.app/docs/).
