@@ -38,7 +38,7 @@ To use reveal.js exports, an installation of reveal.js is also required.
 Create a file `quick_start.typ` with the following content:
 
 ```typ
-#import "@preview:kino:0.1.0": *
+#import "@preview/kino:0.1.0": *
 #set page(width: auto, height: auto)
 
 // main show rule
