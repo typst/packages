@@ -8,3 +8,4 @@ description = "Serialization and deserialization of most types. Markdown, math, 
 repository = "https://github.com/Uhrendoktor/sertyp"
 keywords = ["wasm", "serialization", "deserialization"]
 categories = ["scripting", "integration", "utility"]
+exclude = ["test.typ"]
