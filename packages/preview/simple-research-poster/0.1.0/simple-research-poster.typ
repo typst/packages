@@ -126,7 +126,7 @@
   doc,
 ) = {
   // validation
-  assert(base-colors != none, message: "Must provide base-colors to post-it")
+  assert(base-colors != none, message: "Must provide base-colors to simple-research-poster")
   base-colors = z.parse(base-colors, base-colors-schema)
 
   set page(
