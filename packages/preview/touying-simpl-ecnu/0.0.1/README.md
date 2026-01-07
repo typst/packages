@@ -20,7 +20,7 @@ Modified from the [Touying slide theme for China Agricultural University](https:
 
 ```typst
 #import "@preview/touying:0.6.1": *
-#import "@preview/touying-simpl-ecnu:0.2.0": *
+#import "@preview/touying-simpl-ecnu:0.0.1": *
 
 #show: ecnu-theme.with(
     config-info(
