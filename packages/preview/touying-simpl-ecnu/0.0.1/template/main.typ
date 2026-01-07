@@ -6,7 +6,7 @@
   // lang: "zh",
   // font: ("Linux Libertine", "Source Han Sans SC", "Source Han Sans"),
   config-info(
-    title: [Touying for CAU: Customize Your Slide Title Here],
+    title: [Touying for ECNU: Customize Your Slide Title Here],
     subtitle: [Customize Your Slide Subtitle Here],
     author: [Authors],
     date: datetime.today(),
