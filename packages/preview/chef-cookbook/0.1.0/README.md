@@ -1,6 +1,7 @@
 # Chef Cookbook
 
->A clear and minimal Typst template for creating recipe collections and cookbooks.
+>A clear and minimal Typst template for creating recipe collections and cookbooks ([example pdf](example.pdf)).
+
 
 ![Thumbnail](thumbnail.png)
 
