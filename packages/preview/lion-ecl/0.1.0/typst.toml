@@ -1,6 +1,6 @@
 [package]
 name = "lion-ecl"
-description = "A Typst template for ECL report"
+description = "A template for Ecole Centrale de Lyon student report"
 version = "0.1.0"
 entrypoint = "lib.typ"
 license = "MIT"
