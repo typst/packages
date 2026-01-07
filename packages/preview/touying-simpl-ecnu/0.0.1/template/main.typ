@@ -1,5 +1,5 @@
 #import "@preview/touying:0.6.1": *
-#import "@preview/touying-simpl-ecnu:0.2.0": *
+#import "@preview/touying-simpl-ecnu:0.0.1": *
 
 // Specify `lang` and `font` for the theme if needed.
 #show: ecnu-theme.with(
