@@ -24,7 +24,7 @@ Modified from the [Touying slide theme for China Agricultural University](https:
 
 #show: ecnu-theme.with(
     config-info(
-        title: [Touying for CAU: Customize Your Slide Title Here],
+        title: [Touying for ECNU: Customize Your Slide Title Here],
         subtitle: [Customize Your Slide Subtitle Here],
         author: [Authors],
         date: datetime.today(),
