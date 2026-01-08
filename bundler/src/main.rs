@@ -1,8 +1,8 @@
-mod author;
-mod categories;
-mod disciplines;
-mod model;
-mod timestamp;
+pub(crate) mod author;
+pub(crate) mod categories;
+pub(crate) mod disciplines;
+pub(crate) mod model;
+pub(crate) mod timestamp;
 
 use std::env::args;
 use std::fs;
@@ -26,18 +26,14 @@ use self::disciplines::validate_discipline;
 use self::model::*;
 use self::timestamp::determine_timestamps;
 
-
-
 const DIST: &str = "dist";
 const THUMBS_DIR: &str = "thumbnails";
 const READMES_DIR: &str = "readmes";
 
-struct Config {
-    out_dir: PathBuf,
-    skip_license_validation: bool,
+pub(crate) struct Config {
+    pub out_dir: PathBuf,
+    pub skip_license_validation: bool,
 }
-
-
 
 fn main() -> anyhow::Result<()> {
     println!("Starting bundling.");
@@ -210,7 +206,7 @@ fn main() -> anyhow::Result<()> {
 }
 
 /// Create an archive for a package.
-fn process_package(
+pub(crate) fn process_package(
     config: &Config,
     path: &Path,
     namespace_dir: &Path,
@@ -242,7 +238,7 @@ fn process_package(
     })
 }
 
-fn validate_no_unknown_fields(
+pub(crate) fn validate_no_unknown_fields(
     unknown_fields: &UnknownFields,
     key: Option<&str>,
 ) -> anyhow::Result<()> {
@@ -263,7 +259,7 @@ fn validate_no_unknown_fields(
 }
 
 /// Read and validate the package's manifest.
-fn parse_manifest(
+pub(crate) fn parse_manifest(
     config: &Config,
     path: &Path,
     namespace: &str,
@@ -351,14 +347,12 @@ fn parse_manifest(
 }
 
 /// Return the README file as a string.
-fn read_readme(dir_path: &Path) -> anyhow::Result<String> {
+pub(crate) fn read_readme(dir_path: &Path) -> anyhow::Result<String> {
     fs::read_to_string(dir_path.join("README.md")).context("failed to read README.md")
 }
 
-
-
 /// Normalizes exclusion glob pattern.
-fn normalize_exclusion_glob(pattern: &str) -> String {
+pub(crate) fn normalize_exclusion_glob(pattern: &str) -> String {
     let pattern = pattern.trim();
     
     if pattern.is_empty() {
@@ -394,7 +388,7 @@ fn normalize_exclusion_glob(pattern: &str) -> String {
 }
     
 /// Build a compressed archive for a directory.
-fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<Vec<u8>> {
+pub(crate) fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<Vec<u8>> {
     let mut buf = vec![];
     let compressed = flate2::write::GzEncoder::new(&mut buf, flate2::Compression::default());
     let mut builder = tar::Builder::new(compressed);
@@ -406,7 +400,7 @@ fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<
             bail!("globs with '!' are not supported");
         }
         
-        let pattern = normalize_exclusion_glob(exclusion)    
+        let pattern = normalize_exclusion_glob(exclusion);    
         overrides.add(&format!("!{pattern}"))?;
     }
 
@@ -436,7 +430,7 @@ fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<
 }
 
 /// Ensures that the archive can be decompressed and read.
-fn validate_archive(buf: &[u8]) -> anyhow::Result<()> {
+pub(crate) fn validate_archive(buf: &[u8]) -> anyhow::Result<()> {
     let decompressed = flate2::read::GzDecoder::new(io::Cursor::new(&buf));
     let mut tar = tar::Archive::new(decompressed);
     for entry in tar.entries()? {
@@ -446,7 +440,7 @@ fn validate_archive(buf: &[u8]) -> anyhow::Result<()> {
 }
 
 /// Write a compressed archive to the output directory.
-fn write_archive(info: &PackageInfo, buf: &[u8], namespace_dir: &Path) -> anyhow::Result<()> {
+pub(crate) fn write_archive(info: &PackageInfo, buf: &[u8], namespace_dir: &Path) -> anyhow::Result<()> {
     let path = namespace_dir.join(format!("{}-{}.tar.gz", info.name, info.version));
     fs::write(path, buf)?;
     Ok(())
@@ -454,7 +448,7 @@ fn write_archive(info: &PackageInfo, buf: &[u8], namespace_dir: &Path) -> anyhow
 
 /// Process the thumbnail image for a package and write it to the `dist`
 /// directory in large and small version.
-fn process_thumbnail(
+pub(crate) fn process_thumbnail(
     path: &Path,
     manifest: &PackageManifest,
     template: &TemplateInfo,
@@ -526,7 +520,7 @@ fn process_thumbnail(
 }
 
 /// Encodes a lossy WebP.
-fn encode_webp(image: &image::DynamicImage, quality: u8) -> anyhow::Result<Vec<u8>> {
+pub(crate) fn encode_webp(image: &image::DynamicImage, quality: u8) -> anyhow::Result<Vec<u8>> {
     // A big fight is going on in the Image crate's GitHub: They want to
     // remove the C dependency for WebP encoding but the Rust alternative
     // does not support lossy encoding. Many people are unhappy about this.
@@ -543,7 +537,7 @@ fn encode_webp(image: &image::DynamicImage, quality: u8) -> anyhow::Result<Vec<u
 
 /// Check that a Typst file exists, its name ends in `.typ`, and that it is valid
 /// UTF-8.
-fn validate_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
+pub(crate) fn validate_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
     if !path.exists() {
         bail!("{name} is missing");
     }
@@ -557,7 +551,7 @@ fn validate_typst_file(path: &Path, name: &str) -> anyhow::Result<()> {
 }
 
 /// Whether a string is a valid Typst identifier.
-fn is_ident(string: &str) -> bool {
+pub(crate) fn is_ident(string: &str) -> bool {
     let mut chars = string.chars();
     chars
         .next()
@@ -565,23 +559,23 @@ fn is_ident(string: &str) -> bool {
 }
 
 /// Whether a character can start an identifier.
-fn is_id_start(c: char) -> bool {
+pub(crate) fn is_id_start(c: char) -> bool {
     is_xid_start(c) || c == '_'
 }
 
 /// Whether a character can continue an identifier.
-fn is_id_continue(c: char) -> bool {
+pub(crate) fn is_id_continue(c: char) -> bool {
     is_xid_continue(c) || c == '_' || c == '-'
 }
 
 // Check that a license is any version of CC-BY, CC-BY-SA, or CC0.
-fn is_allowed_cc(license: LicenseId) -> bool {
+pub(crate) fn is_allowed_cc(license: LicenseId) -> bool {
     static RE: LazyLock<regex::Regex> =
         LazyLock::new(|| regex::Regex::new(r"^CC(-BY|-BY-SA|0)-[0-9]\.[0-9](-[A-Z]+)?$").unwrap());
 
     RE.is_match(license.name)
 }
 
-// Includes tests module for simple running.       
+// Includes tests module for simple running.        
 #[cfg(test)]
 mod tests;
