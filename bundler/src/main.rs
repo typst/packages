@@ -37,6 +37,8 @@ struct Config {
     skip_license_validation: bool,
 }
 
+
+
 fn main() -> anyhow::Result<()> {
     println!("Starting bundling.");
 
@@ -579,3 +581,7 @@ fn is_allowed_cc(license: LicenseId) -> bool {
 
     RE.is_match(license.name)
 }
+
+// Includes tests module for simple running.       
+#[cfg(test)]
+mod tests;
