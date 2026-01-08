@@ -37,18 +37,24 @@ Both commands use the same arguments:
 
 - **baseline** (`length`): Baseline of the icon.
 
+## Overview of all available icons
+
+All icons can be browsed and searched on <https://heroicons.com/>.
+
+![Overview of all bundled icons](assets/icons.png)
+
 ## Development
 
 ### Bundling Heroicons
 
 To update the icon files to a new version, run the `bundle.py` script from the `scripts` folder:
 ```sh
-python3 scripts/bundle.py <release_version>
+python3 scripts/bundle.py <heroicons_release_version>
 ```
 
 ## Changelog
 
-- Vesion 0.1.1 (2025-12-23)
+- Version 0.1.1 (2025-12-23)
 	- Updated Heroicons to 2.2.0.
 	- Improved `scripts/bundler.py` script to download and bundle new Heroicon versions.
 	- Added auto-generated `src/icon-index.txt` instead of fixed list of icon names.
