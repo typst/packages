@@ -10,6 +10,7 @@ use std::io;
 use std::path::Path;
 use std::path::PathBuf;
 use std::sync::LazyLock;
+use std::borrow::Cow;
 
 use anyhow::{bail, Context};
 use image::codecs::webp::{WebPEncoder, WebPQuality};
@@ -24,6 +25,8 @@ use self::categories::validate_category;
 use self::disciplines::validate_discipline;
 use self::model::*;
 use self::timestamp::determine_timestamps;
+
+
 
 const DIST: &str = "dist";
 const THUMBS_DIR: &str = "thumbnails";
@@ -350,6 +353,44 @@ fn read_readme(dir_path: &Path) -> anyhow::Result<String> {
     fs::read_to_string(dir_path.join("README.md")).context("failed to read README.md")
 }
 
+
+
+/// Normalizes exclusion glob pattern.
+fn normalize_exclusion_glob(pattern: &str) -> String {
+    let pattern = pattern.trim();
+    
+    if pattern.is_empty() {
+        return String::new();
+    }
+
+    // Normalize separators 
+    // uses Cow to avoid allocation if no backslashes exist.
+    let pattern = if pattern.contains('\\') {
+        Cow::Owned(pattern.replace('\\', "/"))
+    } else {
+        Cow::Borrowed(pattern)
+    };
+
+    // Handle Explicit Anchors
+    if pattern.starts_with('/') {
+        return pattern.into_owned();
+    }
+
+    // Handle Explicit Relative Paths (`./`)
+    if let Some(rest) = pattern.strip_prefix("./") {
+        return format!("/{rest}");
+    }
+
+    // Glob Detection
+    let is_glob = pattern.contains(['*', '?', '[', '{']);
+    
+    if is_glob {
+        pattern.into_owned()
+    } else {
+        format!("/{pattern}")
+    }
+}
+    
 /// Build a compressed archive for a directory.
 fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<Vec<u8>> {
     let mut buf = vec![];
@@ -362,8 +403,9 @@ fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<
         if exclusion.starts_with('!') {
             bail!("globs with '!' are not supported");
         }
-        let exclusion = exclusion.trim_start_matches("./");
-        overrides.add(&format!("!{exclusion}"))?;
+        
+        let pattern = normalize_exclusion_glob(exclusion)    
+        overrides.add(&format!("!{pattern}"))?;
     }
 
     // Always ignore the thumbnail.
