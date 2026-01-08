@@ -1,8 +1,11 @@
 [package]
 name = "bundler"
 version = "0.1.0"
-edition = "2021"
+edition = "2026"
 publish = false
+
+[dev-dependencies]
+tempfile = "3.8"
 
 [dependencies]
 typst-syntax = { git = "https://github.com/typst/typst", rev = "3c22902" }
