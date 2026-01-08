@@ -1,7 +1,7 @@
 [package]
 name = "bundler"
 version = "0.1.0"
-edition = "2026"
+edition = "2021"
 publish = false
 
 [dev-dependencies]
