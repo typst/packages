@@ -5,10 +5,14 @@
   "question",
 ).display(num => {
   let _label = label
-  if label == auto { _label = "1." }
+  if label == auto {
+    _label = "1."
+    if mode-state.get() == HANDOUTS and with-heading-label {
+      _label = "1.1.1.1.1.1."
+    }
+  }
   let arr = (num,)
   if with-heading-label {
-    _label = "1.1.1.1.1.1."
     // 去除heading label数组中的0
     arr = counter(heading).get().filter(item => item != 0) + arr
   }
