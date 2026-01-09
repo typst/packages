@@ -12,7 +12,7 @@ A slide theme for East China Normal University based on the [Touying](https://gi
 Modified from the [Touying slide theme for China Agricultural University](https://github.com/maxchang3/touying-simpl-cau/); [originally created for Beihang University](https://github.com/Coekjan/touying-buaa).
 
 
-<!-- [Preview Online](https://ccyoung3.github.io/touying-simpl-ecnu/) -->
+[Preview Online](https://ccyoung3.github.io/touying-simpl-ecnu/)
 
 ## Usage
 
