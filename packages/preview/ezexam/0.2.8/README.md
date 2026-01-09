@@ -53,6 +53,7 @@ This template is primarily designed to help Chinese university, primary, middle 
 + 修复 `fillin` 方法有时不显示占位符的 bug
 + 将默认字体修改为 `roman` ，并添加 `TeX Gyre Termes` 字体，修复在线使用 `roman` 字体时，缺少 `Times New Roman` 字体造成的标题西文字体未正确设置的问题
 + 修改 `title` 方法的 `bottom` 参数和`subject` 方法的 `top` 参数的默认值为 0pt
++ `setup` 方法新增参数 `resume`
 + 废弃 `answer` 方法和 `multi` 常量
 
 ### 0 . 2 . 7
