@@ -4,7 +4,7 @@
 #import generic: serializer, deserializer;
 
 /// Reduces most values into a intermediate representation which may for example be used for communication over the WASM boundary using additional CBOR serialization.
-/// See `serialize_cbor` and `deserialize_cbor`.
+/// See `serialize-cbor` and `deserialize-cbor`.
 /// 
 /// Contrary to the string produced by `repr` or `cbor(cbor.encode(..))` this representation stores more type information an is less ambiguous.
 /// Moreover the deserialization produces the actual **displayable** value instead of a representation of it.
@@ -63,10 +63,10 @@
 /// #let plugin = plugin("...");
 /// 
 /// #let I = $mat(1,0;0,1)$
-/// #let It = deserialize_cbor(plugin.transpose(serialize_cbor(I)));
+/// #let It = deserialize-cbor(plugin.transpose(serialize-cbor(I)));
 /// #assert(repr(It) == repr($mat(0,1;1,0)$));
 /// ```
-#let serialize_cbor(v) = {
+#let serialize-cbor(v) = {
   return cbor.encode(serialize(v));
 };
 
@@ -85,13 +85,13 @@
 };
 
 /// Deserializes a value from its CBOR serialized representation.
-/// See `deserialize` and `serialize_cbor`.
+/// See `deserialize` and `serialize-cbor`.
 /// 
 /// Args:
 /// v (bytes): The CBOR serialized representation of the value.
 /// 
 /// Returns:
 /// (any): The deserialized value.
-#let deserialize_cbor(v) = {
+#let deserialize-cbor(v) = {
   return deserialize(cbor(v));
 };
