@@ -16,7 +16,13 @@
 #let ecnu-theme(
   aspect-ratio: "16-9",
   lang: "en",
-  font: ("Libertinus Serif", "Source Han Sans SC", "Noto Sans SC", "SimHei", "Heiti SC", "STHeiti"),
+  font: (
+    (
+      name: "Libertinus Serif",
+      covers: "latin-in-cjk",
+    ),
+    "Source Han Sans SC", "Source Han Sans",
+  ),
   use-background: true,
   ..args,
   body,
