@@ -219,7 +219,7 @@
 
   if heading-numbering == auto {
     if mode in (EXAM, SOLUTION) {
-      heading-numbering = item => numbering("一、", item) + h(-0.3em)
+      heading-numbering = (..item) => numbering("一、", ..item) + h(-0.3em)
       heading-hanging-indent = 2em
     } else { heading-numbering = "1.1.1.1.1 " }
   }
