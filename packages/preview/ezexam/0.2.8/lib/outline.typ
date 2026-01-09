@@ -48,11 +48,8 @@
   if _font == auto { _font = text.font }
   let _size = size
   if size == auto {
-    if mode-state.get() == HANDOUTS {
-      _size = 20pt
-    } else {
-      _size = 15pt
-    }
+    _size = 15pt
+    if mode-state.get() == HANDOUTS { _size = 20pt }
   }
   v(top)
   align(position, text(font: _font, size: _size, weight: weight, color)[#body <title>])
