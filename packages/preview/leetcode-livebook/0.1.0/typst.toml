@@ -1,5 +1,5 @@
 [package]
-name = "leetcode"
+name = "leetcode-livebook"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Gabriel Wu <@lucifer1004>"]

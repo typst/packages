@@ -1,5 +1,5 @@
 // lib.typ - LeetCode Package API
-// Public entrypoint for @preview/leetcode package
+// Public entrypoint for @preview/leetcode-livebook package
 //
 // This file re-exports all public functions from submodules.
 //

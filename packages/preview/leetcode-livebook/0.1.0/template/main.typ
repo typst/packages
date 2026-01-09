@@ -1,7 +1,7 @@
 // LeetCode Practice Workbook
 // Start solving problems and test your solutions!
 
-#import "@preview/leetcode:0.1.0": conf, solve
+#import "@preview/leetcode-livebook:0.1.0": conf, solve
 
 #show: conf.with(
   practice: true,
@@ -16,7 +16,7 @@
 let solution(nums, target) = {
   // Your solution here
   // Hint: Use a dictionary to store seen values
-  
+
   let seen = (:)
   for (i, num) in nums.enumerate() {
     let complement = target - num

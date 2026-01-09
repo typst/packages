@@ -1,20 +1,20 @@
-A Typst package for solving LeetCode problems with beautiful PDF output and automatic test case visualization. Import the package and start coding – built-in test cases included!
+A Typst package for solving LeetCode problems with **live feedback** – write your solution and instantly see test results as you type. Built-in test cases included!
 
 ![Logo](images/logo.png)
 
 ## Features
 
+- **Live Feedback**: Write, compile, instantly see pass/fail – like a coding notebook
 - **Zero Setup**: Import and start solving – built-in test cases for all problems
 - **Beautiful Output**: Automatic formatting with professional PDF rendering
 - **Test Visualization**: Side-by-side comparison of your output vs. expected results
-- **Auto-Validation**: Instant pass/fail indicators
 - **69 Problems**: Curated collection of classic LeetCode problems
 - **Extensible**: Custom comparators, chessboard rendering, and more
 
 ## Installation
 
 ```typst
-#import "@preview/leetcode:0.1.0": problem, test
+#import "@preview/leetcode-livebook:0.1.0": problem, test
 ```
 
 ## Quick Start
@@ -22,7 +22,7 @@ A Typst package for solving LeetCode problems with beautiful PDF output and auto
 Create a new `.typ` file:
 
 ```typst
-#import "@preview/leetcode:0.1.0": problem, test
+#import "@preview/leetcode-livebook:0.1.0": problem, test
 
 // Display the problem
 #problem(1)
@@ -46,7 +46,7 @@ Create a new `.typ` file:
 If you want to display your solution, you can try
 
 ````typst
-#import "@preview/leetcode:0.1.0": solve
+#import "@preview/leetcode-livebook:0.1.0": solve
 
 #solve(1, ```typc
 let solution(nums, target) = {
@@ -156,7 +156,7 @@ typst watch my-solution.typ
 Solve multiple problems by reusing the `solution` name:
 
 ```typst
-#import "@preview/leetcode:0.1.0": problem, test
+#import "@preview/leetcode-livebook:0.1.0": problem, test
 
 // Problem 1
 #problem(1)
@@ -177,7 +177,7 @@ Solve multiple problems by reusing the `solution` name:
 Add your own test cases on top of built-in ones:
 
 ```typst
-#import "@preview/leetcode:0.1.0": problem, test
+#import "@preview/leetcode-livebook:0.1.0": problem, test
 
 #problem(1)
 #let solution(nums, target) = { /* ... */ }
@@ -206,7 +206,7 @@ Override built-in cases completely:
 For problems with "return answer in any order":
 
 ```typst
-#import "@preview/leetcode:0.1.0": problem, test
+#import "@preview/leetcode-livebook:0.1.0": problem, test
 
 #problem(15)  // 3Sum
 #let solution(nums) = { /* ... */ }
@@ -220,7 +220,7 @@ For problems with "return answer in any order":
 For problems like N-Queens:
 
 ```typst
-#import "@preview/leetcode:0.1.0": problem, test
+#import "@preview/leetcode-livebook:0.1.0": problem, test
 
 #problem(51)
 #let solution(n) = { /* ... */ }
@@ -234,7 +234,7 @@ For problems like N-Queens:
 Stuck on a problem? View the reference solution code:
 
 ```typst
-#import "@preview/leetcode:0.1.0": problem, answer
+#import "@preview/leetcode-livebook:0.1.0": problem, answer
 
 #problem(1)
 // ... tried but couldn't solve it ...
@@ -248,7 +248,7 @@ Stuck on a problem? View the reference solution code:
 For advanced control:
 
 ```typst
-#import "@preview/leetcode:0.1.0": problem, get-test-cases, get-problem-path
+#import "@preview/leetcode-livebook:0.1.0": problem, get-test-cases, get-problem-path
 
 // Get built-in test cases
 #let cases = get-test-cases(1)
@@ -295,10 +295,7 @@ For advanced control:
 
 ## Examples
 
-Check out [templates/](templates/) for examples:
-
-- `single-problem.typ` - Single problem workflow
-- `multiple-problems.typ` - Multiple problems in one file
+Check out [template/main.typ](template/main.typ) for a starter template that demonstrates the practice workbook mode with the `solve()` API.
 
 ## Architecture
 
@@ -347,7 +344,7 @@ This design ensures:
 ### Linked Lists
 
 ```typst
-#import "@preview/leetcode:0.1.0": linkedlist, ll-values
+#import "@preview/leetcode-livebook:0.1.0": linkedlist, ll-values
 
 #let list = linkedlist((1, 2, 3))
 #let values = ll-values(list)  // (1, 2, 3)
@@ -356,7 +353,7 @@ This design ensures:
 ### Binary Trees
 
 ```typst
-#import "@preview/leetcode:0.1.0": binarytree
+#import "@preview/leetcode-livebook:0.1.0": binarytree
 
 // Level-order array: [1, 2, 3, null, 4]
 #let tree = binarytree((1, 2, 3, none, 4))
