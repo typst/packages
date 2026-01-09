@@ -2,6 +2,19 @@
 
 A simple, pgfplots-like function plotting library for Typst. Create beautiful mathematical plots with minimal code.
 
+> **Note:** This package is built on top of [CeTZ](https://github.com/cetz-package/cetz) v0.4.2.
+
+## Gallery
+
+Click on an image to see the source code.
+
+| | | |
+|:---:|:---:|:---:|
+| [![Parabola](gallery/parabola.png)](gallery/parabola.typ) | [![Trigonometric Functions](gallery/trig-functions.png)](gallery/trig-functions.typ) | [![Scatter Plot](gallery/scatter.png)](gallery/scatter.typ) |
+| Parabola | Trigonometric Functions | Scatter Plot |
+| [![Exponential](gallery/exponential.png)](gallery/exponential.typ) | [![Data Fit](gallery/data-fit.png)](gallery/data-fit.typ) | [![Markers](gallery/markers.png)](gallery/markers.typ) |
+| Exponential & Logarithmic | Data with Model Fit | Marker Types |
+
 ## Features
 
 - **Simple API** - Plot functions with just a few lines of code
