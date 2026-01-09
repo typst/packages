@@ -30,6 +30,7 @@
   enum-numbering: "（1.i.a）",
   enum-spacing: 2em,
   enum-indent: 0pt,
+  resume: true,
   watermark: none,
   watermark-color: rgb("#f666"),
   watermark-font: roman,
@@ -228,6 +229,7 @@
     v(heading-top)
     text(heading-color, font: font.slice(0, -1) + heading-font, it)
     v(heading-bottom)
+    if not resume { counter("question").update(0) }
   }
   show heading.where(level: 1): it => {
     let size = h1-size
