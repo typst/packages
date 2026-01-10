@@ -23,17 +23,17 @@
 #let SERIES_KOU = 3
 #let SERIES_TEN = 4
 
-/// Normalize Kaeriten characters to standard form (e.g., Unicode Kanbun Block/Katakana -> Standard CJK)
-#let normalize-kaeriten(k) = {
+/// Map _kaeritens_ from Unicode Kanbun Block characters to CJK Unified Ideographs. e.g. ㆑ -> レ, ㆒ -> 一, etc.
+/// - k (str): Input string with Unicode Kanbun Block characters
+/// -> str: normalized string with normalized Unified CJK Ideographs
+#let unicode-kaeriten-to-normalized(k) = {
   if k == none { return none }
   let s = k
-  // Kanbun Block --> Standard
   s = s.replace("㆑", "レ")
   s = s.replace("㆒", "一")
   s = s.replace("㆓", "二")
   s = s.replace("㆔", "三")
   s = s.replace("㆕", "四")
-  // U+319x for Five?
 
   s = s.replace("㆖", "上")
   s = s.replace("㆗", "中")
@@ -47,13 +47,24 @@
   s = s.replace("㆝", "天")
   s = s.replace("㆞", "地")
   s = s.replace("㆟", "人")
+  s
+}
+
+/// Normalize Kaeriten characters to standard form (e.g., Unicode Kanbun Block/Katakana -> Standard CJK)
+/// - k (str): Input string with Kaeriten characters
+/// -> str: normalized string with normalized Unified CJK Ideographs
+#let normalize-kaeriten(k) = {
+  if k == none { return none }
+  let s = k
+  // Kanbun Block --> Standard
+  s = unicode-kaeriten-to-normalized(s)
 
   // Katakana brackets
   s = s.replace("[レ]", "レ")
   s = s.replace("[一]", "一")
   s = s.replace("[二]", "二")
-  s = s.replace("[ニ]", "二") // Katakana Ni
-  s = s.replace("ニ", "二") // Bare Katakana Ni (post-parsing)
+  s = s.replace("[ニ]", "二") // Katakana Ni for robustness
+  s = s.replace("ニ", "二") // Bare Katakana Ni (post-parsing) for robustness
   s = s.replace("[三]", "三")
   s = s.replace("[四]", "四")
   s = s.replace("[五]", "五")

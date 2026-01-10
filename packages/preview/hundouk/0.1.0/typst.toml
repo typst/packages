@@ -10,9 +10,9 @@ keywords = [
   "kanbun",
   "classical chinese",
   "classical japanese",
-  "japannese",
+  "japanese",
   "linguistics",
   "sinology",
   "literature",
 ]
-exclude = ["docs/*"]
+exclude = ["docs/*", "examples/*", "slides/*", "article/*", "fonts/*"]

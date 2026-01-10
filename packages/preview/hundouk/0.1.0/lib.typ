@@ -1,5 +1,5 @@
-#import "utils/parsing.typ": parse-kanbun, parse-wenyan
-#import "utils/kanbun.typ": hakubun, yomikudasi
+#import "utils/parsing.typ": parse-aozora, parse-kanbun, parse-wenyan, serialize-kanbun
+#import "utils/kanbun.typ": hakubun, unicode-kaeriten-to-normalized, yomikudasi
 #import "utils/rendering.typ": group-nodes
 
 /// 漢文の疑似縦書き訓点等付きレンダリング
@@ -17,6 +17,11 @@
 /// - hang-kaeriten-on-connector (bool): 接続符（ハイフン）に返り点をぶら下げるかどうか
 /// - line-spacing (length): 行間
 /// - debug (bool): trueの場合はデバッグ用の色を表示
+/// - use-unicode-kanbun (bool): trueの場合はUnicode漢文記号を使用、falseの場合はフォント互換性のため標準的な文字を使用
+/// - ruby-vertical-offset (length): 読みがな（ルビー）の縦方向の位置調整 (縦書き時のフォントパディング補正用)
+/// - kaeriten-offset (length): 返り点の水平方向の位置調整 (デフォルトは0pt, 0.25em~0.5em推奨)
+/// - okurigana-x-offset (length): 送り仮名の水平方向の位置調整 (デフォルトは0pt, 0.25em推奨)
+/// - okurigana-y-offset (length): 送り仮名の垂直方向の位置調整 (デフォルトは0pt, 0.25em推奨)
 /// - nodes (list): 漢文のノードリスト
 /// ->
 #let render-kanbun(
@@ -29,6 +34,10 @@
   ruby-gutter: 0em,
   annotation-gutter: 0em,
   ruby-okurigana-gutter: 0.05em,
+  ruby-vertical-offset: 0.05em,
+  kaeriten-offset: 0pt,
+  okurigana-x-offset: 0pt,
+  okurigana-y-offset: 0pt,
   hang-kaeriten-on-connector: true,
   max-chars-for-kaeriten-hanging-on-hyphen: none,
   height: auto,
@@ -106,6 +115,20 @@
     line-spacing
   }
 
+  let nodes = if not use-unicode-kanbun {
+    nodes.map(node => {
+      if node.type == "character" and node.at("kaeriten", default: none) != none {
+        let k = node.kaeriten
+        let new-k = unicode-kaeriten-to-normalized(k)
+        node + (kaeriten: new-k)
+      } else {
+        node
+      }
+    })
+  } else {
+    nodes
+  }
+
   let nodes = group-nodes(nodes)
 
   set text(features: if writing-direction == ttb { ("vert",) } else { () })
@@ -177,6 +200,7 @@
         merged-reading = last-char-reading
       }
 
+      let merged-okurigana = none
       // TTB: Merge Okurigana into the Merged Reading string
       if merged-reading != none and writing-direction == ttb {
         let okuri-parts = ()
@@ -188,12 +212,7 @@
         }
         let full-okuri = okuri-parts.join("")
         if full-okuri != "" {
-          if type(merged-reading) == str {
-            merged-reading += full-okuri
-          } else {
-            // Fallback for content
-            merged-reading = [#merged-reading#full-okuri]
-          }
+          merged-okurigana = full-okuri
         }
       }
 
@@ -252,16 +271,26 @@
 
           // Generate Content
           let reading-content = if reading != none {
-            format-annotation(reading, ruby-size, ruby-tracking)
+            let content = format-annotation(reading, ruby-size, ruby-tracking)
+            if writing-direction == ttb {
+              v(ruby-vertical-offset)
+              content
+            } else {
+              content
+            }
           } else { none }
           let okurigana-content = if okurigana != none {
-            format-annotation(okurigana, okurigana-size, okurigana-tracking)
+            move(
+              dx: okurigana-x-offset,
+              dy: okurigana-y-offset,
+              format-annotation(okurigana, okurigana-size, okurigana-tracking),
+            )
           } else { none }
           let left-okurigana-content = if left-okurigana != none {
             format-annotation(left-okurigana, okurigana-size, okurigana-tracking)
           } else { none }
           let kaeriten-content = if kaeriten-for-this != none {
-            text(size: 0.5em)[#format-kaeriten(kaeriten-for-this)]
+            move(dx: kaeriten-offset, text(size: 0.5em)[#format-kaeriten(kaeriten-for-this)])
           } else { none }
           let left-ruby-content = if left-ruby != none {
             format-annotation(left-ruby, ruby-size, ruby-tracking)
@@ -521,7 +550,7 @@
 
           let extra-content = if extra-content-list.len() > 0 {
             let merged-k = extra-content-list.join("")
-            text(size: 0.5em)[#format-kaeriten(merged-k)]
+            move(dx: kaeriten-offset, text(size: 0.5em)[#format-kaeriten(merged-k)])
           } else { none }
 
           let h = if tight { 0.5em } else { 1em }
@@ -616,8 +645,32 @@
 
 
       // Merged Readings and Left Ruby
-      if merged-reading != none {
-        let rc = format-annotation(merged-reading, ruby-size, ruby-tracking)
+      if merged-reading != none or merged-okurigana != none {
+        let rc = if merged-reading != none {
+          let content = format-annotation(merged-reading, ruby-size, ruby-tracking)
+          if writing-direction == ttb {
+            v(ruby-vertical-offset)
+            content
+          } else {
+            content
+          }
+        } else { none }
+        let oc = if merged-okurigana != none {
+          move(
+            dx: okurigana-x-offset,
+            dy: okurigana-y-offset,
+            format-annotation(merged-okurigana, okurigana-size, okurigana-tracking),
+          )
+        } else { none }
+
+        let merged-content = stack(
+          dir: writing-direction,
+          spacing: okurigana-tracking,
+          ..(rc, oc).filter(x => x != none),
+        )
+        // Note: For connected-group, layout is simple expansion.
+        // We use the stack to hold ruby + okurigana.
+
         if writing-direction == ttb {
           grid-cells.push(
             grid.cell(
@@ -626,7 +679,7 @@
               rowspan: current-track-idx,
               align: left + horizon,
               fill: if debug { rgb("#ff8aed47") } else { none },
-              rc,
+              merged-content,
             ),
           )
         } else {
@@ -637,7 +690,7 @@
               colspan: current-track-idx - extra-ltr-tracks,
               align: center + bottom,
               fill: if debug { rgb("#ff8aed47") } else { none },
-              rc,
+              merged-content,
             ),
           )
         }
@@ -703,6 +756,28 @@
       )
     }
 
+    if node.type == "quotation" {
+      return grid(
+        columns: if writing-direction == ttb { (0.5em, 1em, 0.5em) } else { (1em,) },
+        rows: if writing-direction == ttb { (1em,) } else { (2em,) },
+        align: center + horizon,
+        grid.cell(
+          x: if writing-direction == ttb { 1 } else { 0 },
+          align: if writing-direction == ttb {
+            if node.surface == "「" or node.surface == "『" {
+              right + top
+            } else {
+              left + top
+            }
+          } else {
+            center + horizon
+          },
+          node.surface,
+          fill: if debug { rgb(128, 128, 45, 50%) } else { none },
+        ),
+      )
+    }
+
     let surface = node.surface
     let reading = node.at("reading", default: none)
     let okurigana = node.at("okurigana", default: none)
@@ -715,7 +790,11 @@
     } else { none }
 
     let okurigana-content = if okurigana != none {
-      format-annotation(okurigana, okurigana-size, okurigana-tracking)
+      move(
+        dx: okurigana-x-offset,
+        dy: okurigana-y-offset,
+        format-annotation(okurigana, okurigana-size, okurigana-tracking),
+      )
     } else { none }
 
     let left-okurigana-content = if left-okurigana != none {
@@ -723,7 +802,7 @@
     } else { none }
 
     let kaeriten-content = if kaeriten != none {
-      text(size: 0.5em)[#format-kaeriten(kaeriten)]
+      move(dx: kaeriten-offset, text(size: 0.5em)[#format-kaeriten(kaeriten)])
     } else { none }
 
     let left-ruby-content = if left-ruby != none {
@@ -753,11 +832,15 @@
       (x: 0, y: 1, colspan: 2, rowspan: 2)
     }
 
-    let should-merge-right = (writing-direction == ttb and not tight and reading != none and okurigana != none)
+    let should-merge-right = (writing-direction == ttb and reading != none and (okurigana != none or tight))
 
     let ruby-cell = if writing-direction == ttb {
       if should-merge-right {
-        (x: 3, y: 0, rowspan: 4, align: left + bottom)
+        if tight {
+          (x: 3, y: 1, rowspan: 3, align: left + top)
+        } else {
+          (x: 3, y: 0, rowspan: 4, align: left + bottom)
+        }
       } else if not tight and reading != none and okurigana == none {
         (x: 3, y: 1, rowspan: 2, align: left + horizon) // Ruby Only (Non-Tight)
       } else {
@@ -851,21 +934,29 @@
           rgb("#ff8aed47")
         },
         if should-merge-right {
-          set text(size: ruby-size)
-          let children = ()
-          if reading != none {
-            children += reading.clusters()
-          }
-          if okurigana != none {
-            children += okurigana.clusters()
-          }
+          // Use component specific formatting
+          let reading-content = if reading != none {
+            if writing-direction == ttb {
+              v(ruby-vertical-offset)
+            }
+            format-annotation(reading, ruby-size, ruby-tracking)
+          } else { none }
+          let okurigana-content = if okurigana != none {
+            format-annotation(okurigana, okurigana-size, okurigana-tracking)
+          } else { none }
+
           stack(
             dir: writing-direction,
-            spacing: ruby-tracking,
-            ..children,
+            spacing: okurigana-tracking, // Transition spacing
+            ..(reading-content, okurigana-content).filter(x => x != none),
           )
         } else {
-          reading-content
+          if reading != none {
+            if writing-direction == ttb {
+              v(ruby-vertical-offset)
+            }
+            format-annotation(reading, ruby-size, ruby-tracking)
+          } else { none }
         },
       ),
 
@@ -1004,10 +1095,14 @@
 /// - okurigana-size (length): 送り仮名の大きさ（フォントサイズ）
 /// - ruby-gutter (length): 読みがな（ルビー）と親文字の間隔
 /// - annotation-gutter (length): 注釈（送り仮名、返り点）と親文字の間隔
-/// - annotation-gutter (length): 注釈（送り仮名、返り点）と親文字の間隔
 /// - hang-kaeriten-on-connector (bool): 接続符（ハイフン）に返り点をぶら下げるかどうか
 /// - max-chars-for-kaeriten-hanging-on-hyphen (int): 接続符（ハイフン）に返り点をぶら下げる際の文字数制限（指定した文字数より多い場合はぶら下げない）
 /// - line-spacing (length): 行間
-/// - nodes (list): 漢文のノードリスト
+/// - use-unicode-kanbun (bool): trueの場合はUnicode漢文記号を使用、falseの場合はフォント互換性のため標準的な文字を使用
+/// - kaeriten-offset (length): 返り点の水平方向の位置調整 (デフォルトは0pt, 推奨は-0.5em)
+/// - okurigana-x-offset (length): 送り仮名の水平方向の位置調整 (デフォルトは0pt, 0.25em推奨)
+/// - okurigana-y-offset (length): 送り仮名の垂直方向の位置調整 (デフォルトは0pt, 0.25em推奨)
+/// - ruby-vertical-offset (length): 読みがな（ルビー）の縦方向の位置調整 (縦書き時のフォントパディング補正用)
+/// - body (string, content): 漢文の文字列またはコンテンツノードリスト
 /// ->
 #let kanbun(..args) = render-kanbun(parse-kanbun(..args.pos()), ..args.named())

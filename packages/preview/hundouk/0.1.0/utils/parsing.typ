@@ -163,6 +163,169 @@
   nodes
 }
 
+/// 青空文庫形式テキスト形式の漢文表記をノードツリーに解析
+///
+/// - sentence (string): 漢文
+/// ->
+#let parse-aozora(sentence) = {
+  if sentence == none {
+    return none
+  }
+  let nodes = ()
+  let i = 0
+  let clusters = str(sentence).clusters()
+
+  while i < clusters.len() {
+    let c = clusters.at(i)
+
+    if c == "\n" {
+      nodes.push((type: "newline"))
+      i += 1
+      continue
+    }
+
+    // Punctuation
+    if c == "，" or c == "。" or c == "、" or c == "〻" {
+      nodes.push((type: "punctuation", surface: c))
+      i += 1
+      continue
+    }
+    if c == " " or c == "\u{3000}" {
+      i += 1
+      continue
+    }
+
+    // Connector (竪点)
+    if c == "‐" {
+      let node = (type: "connector")
+      i += 1
+
+      // Check for attached kaeriten [＃...] (without parenthesis)
+      // e.g. ‐［＃二］
+      if (
+        i + 2 < clusters.len() and clusters.at(i) == "［" and clusters.at(i + 1) == "＃"
+      ) {
+        // Look ahead to check if it's kaeriten (not okurigana with parens)
+        // User spec says Kaeriten is ［＃...］, Okurigana is ［＃（...）］
+        if i + 2 < clusters.len() and clusters.at(i + 2) != "（" {
+          i += 2 // skip ［＃
+          let buf = ""
+          while i < clusters.len() and clusters.at(i) != "］" {
+            buf += clusters.at(i)
+            i += 1
+          }
+          node.insert("kaeriten", normalize-kaeriten(buf))
+          if i < clusters.len() { i += 1 } // consume ］
+        }
+      }
+
+      nodes.push(node)
+      continue
+    }
+
+    let surface = c
+    let reading = none
+    let okurigana = none
+    let kaeriten = none
+    let left-ruby = none
+    i += 1
+
+    let continue_parsing_attachments = true
+    while continue_parsing_attachments and i < clusters.len() {
+      let next = clusters.at(i)
+
+      if next == "《" {
+        // Ruby
+        i += 1
+        let buf = ""
+        while i < clusters.len() and clusters.at(i) != "》" {
+          buf += clusters.at(i)
+          i += 1
+        }
+        reading = buf
+        if i < clusters.len() { i += 1 }
+      } else if next == "〈" {
+        // Left Ruby / Re-reading (or Okiji if empty)
+        i += 1
+        let buf = ""
+        while i < clusters.len() and clusters.at(i) != "〉" {
+          buf += clusters.at(i)
+          i += 1
+        }
+        // If left-ruby already exists, append? Or overwrite? Usually one per char.
+        if left-ruby == none { left-ruby = buf } else { left-ruby += buf }
+        if i < clusters.len() { i += 1 }
+      } else if is-hiragana(next) or is-katakana(next) or next == "ー" {
+        // Direct Okurigana (Kana)
+        let buf = ""
+        while (
+          i < clusters.len()
+            and (
+              is-hiragana(clusters.at(i))
+                or is-katakana(clusters.at(i))
+                or clusters.at(
+                  i,
+                )
+                  == "ー"
+            )
+        ) {
+          buf += clusters.at(i)
+          i += 1
+        }
+        if okurigana == none { okurigana = buf } else { okurigana += buf }
+      } else if next == "［" {
+        // Potential Kaeriten or Okurigana ［＃...］
+        if i + 1 < clusters.len() and clusters.at(i + 1) == "＃" {
+          // It is an Aozora tag
+          if i + 2 < clusters.len() and clusters.at(i + 2) == "（" {
+            // ［＃（...）］ -> Okurigana
+            i += 3 // skip ［＃（
+            let buf = ""
+            while i < clusters.len() and clusters.at(i) != "）" {
+              buf += clusters.at(i)
+              i += 1
+            }
+            if okurigana == none { okurigana = buf } else { okurigana += buf }
+            if i < clusters.len() { i += 1 } // skip ）
+            if i < clusters.len() and clusters.at(i) == "］" { i += 1 } // skip ］
+          } else {
+            // ［＃...］ -> Kaeriten
+            i += 2 // skip ［＃
+            let buf = ""
+            while i < clusters.len() and clusters.at(i) != "］" {
+              buf += clusters.at(i)
+              i += 1
+            }
+            kaeriten = buf
+            if i < clusters.len() { i += 1 } // skip ］
+          }
+        } else {
+          // Just a regular bracket? Or malformed?
+          // Treat as separate char or break?
+          // For now, assume it's next char.
+          continue_parsing_attachments = false
+        }
+      } else {
+        continue_parsing_attachments = false
+      }
+    }
+
+    let node = (type: "character", surface: surface)
+    if reading != none { node.insert("reading", reading) }
+    if okurigana != none { node.insert("okurigana", okurigana) }
+    if kaeriten != none {
+      node.insert("kaeriten", normalize-kaeriten(kaeriten))
+    }
+    if left-ruby != none {
+      node.insert("left-ruby", left-ruby)
+    }
+
+    nodes.push(node)
+  }
+  nodes
+}
+
+
 /// UntPhesoca体（`kanbunHTML`）テキスト形式の漢文表記をノードツリーに解析
 /// cf. https://github.com/untunt/kanbunHTML
 /// cf. https://github.com/yuanhao-chen-nyoeghau/kanbun
@@ -184,6 +347,12 @@
 
     // Ignore single quotes
     if c == "‘" or c == "’" {
+      i += 1
+      continue
+    }
+
+    if c == "「" or c == "」" or c == "『" or c == "』" {
+      nodes.push((type: "quotation", surface: c))
       i += 1
       continue
     }
@@ -328,3 +497,40 @@
   }
   nodes
 }
+
+/// ノードツリーを漢文テキスト形式にシリアライズ
+///
+/// - nodes (array): 漢文ノードリスト
+/// -> string
+#let serialize-kanbun(nodes) = {
+  if nodes == none { return "" }
+  let res = ""
+  for node in nodes {
+    if node.type == "newline" {
+      res += "\n"
+    } else if node.type == "punctuation" or node.type == "quotation" {
+      res += node.surface
+    } else if node.type == "connector" {
+      res += "="
+    } else if node.type == "character" {
+      res += node.surface
+      if node.at("reading", default: none) != none {
+        res += "（" + node.reading + "）"
+      }
+      if node.at("left-ruby", default: none) != none {
+        res += "‹" + node.left-ruby + "›"
+      }
+      if node.at("okurigana", default: none) != none {
+        res += node.okurigana
+      }
+      if node.at("left-okurigana", default: none) != none {
+        res += "«" + node.left-okurigana + "»"
+      }
+      if node.at("kaeriten", default: none) != none {
+        res += "[" + node.kaeriten + "]"
+      }
+    }
+  }
+  res
+}
+
