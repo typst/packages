@@ -7,3 +7,4 @@ license = "MIT"
 description = "A Typst package for Traffic Light Protocol (TLP) markings (v2.0)."
 repository = "https://github.com/teismar/typst-tlp"
 compiler = "0.14.2"
+exclude = ["doc-amber.typ", "showcase.typ", "doc-amber.pdf", "showcase.pdf", ".github", ".gitignore"] 

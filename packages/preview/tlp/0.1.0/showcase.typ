@@ -1,9 +1,5 @@
 #import "lib.typ": *
 
-// You can uncomment this to test page-wide settings:
-// #show: tlp-setup.with("green") 
-// (We keep it commented out to show individual boxes clearly first, or we can use it for the whole doc)
-
 #set page(paper: "a4", margin: (x: 2cm, y: 2cm))
 #set text(font: "Libertinus Serif", size: 11pt)
 
