@@ -4,7 +4,7 @@
 #import "styles/presentation.typ": *
 #import "styles/book.typ": *
 
-#let apply-style(style, content) = {
+#let apply-style(style, title, authors, content) = {
   set heading(numbering: "I)1)a)i)")
 
   if style == "numbered" or style == "numbered-book" {
@@ -16,7 +16,7 @@
   } else if style == "plain" {
     return plain(content)
   } else if style == "presentation" {
-    return presentation(content)
+    return presentation(content, title, authors)
   } else {
     return numbered(content)
   }
