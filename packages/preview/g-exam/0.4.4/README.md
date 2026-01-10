@@ -27,7 +27,7 @@ To use this package, simply add the following code to your document:
 #### Source:
 
 ```typ
-#import "@preview/g-exam:0.4.3": *
+#import "@preview/g-exam:0.4.4": *
 
 #show: exam.with(
   school: (
@@ -35,7 +35,7 @@ To use this package, simply add the following code to your document:
     logo: read("./logo.png", encoding: none),
   ),
   exam-info: (
-    academic-period: "Academic year 2023/2024",
+    academic-period: "Academic year 2025/2026",
     academic-level: "1st Secondary Education",
     academic-subject: "Mathematics",
     number: "2nd Assessment 1st Exam",
