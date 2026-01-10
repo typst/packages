@@ -59,6 +59,11 @@ To use this package, simply add the following code to your document:
 
 ## Changelog
 
+### v0.4.4
+- New result for marck the result.
+- Show solution.
+- Pagination.
+
 ### v0.4.3
 - Use Typst 0.13.1
 - Include cat language.

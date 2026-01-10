@@ -429,7 +429,7 @@
     ),
     question-points-position: left,
   ) => {
-    let dx = if question-points-position == left { 58pt } else { 72pt }
+    let dx = if question-points-position == left or question-points-position == none { 58pt } else { 72pt }
     place(
       top + right,
       float: true,

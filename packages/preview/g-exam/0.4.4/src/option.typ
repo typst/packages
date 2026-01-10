@@ -4,7 +4,7 @@
 /// 
 /// *Example:*
 /// ``` 
-/// #g-subquestion(points:2)[This is a sub-question]
+/// #subquestion(points:2)[This is a sub-question]
 /// ```
 ///
 /// - body (string, content): Body of option label.
