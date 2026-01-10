@@ -1,0 +1,9 @@
+[package]
+name = "tlp"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["teismar"]
+license = "MIT"
+description = "A Typst package for Traffic Light Protocol (TLP) markings (v2.0)."
+repository = "https://github.com/teismar/typst-tlp"
+compiler = "0.14.2"
