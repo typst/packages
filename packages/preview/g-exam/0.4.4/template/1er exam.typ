@@ -6,7 +6,7 @@
     logo: image("./logo.png")
   ),
   exam-info: (
-    academic-period: "Academic year 2023/2024",
+    academic-period: "Academic year 2025/2026",
     academic-level: "1st Secondary Education",
     academic-subject: "Mathematics",
     number: "2nd Assessment 1st Exam",
