@@ -1,0 +1,14 @@
+[package]
+name = "combo"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [
+	"Michele Dusi <@micheledusi>",
+]
+license = "GPL-3.0-or-later"
+description = "An importable library for common combinatorial operations"
+repository = "https://github.com/micheledusi/Combo"
+keywords = ["combinatorics", "combinations", "permutations", "binomial", "factorial", "math", "mathematics"]
+categories = ["scripting", "utility"]
+disciplines = ["computer-science", "mathematics"]
+exclude = ["/examples/*", "/tests/*", "/docs/*", ".git", ".gitignore"]

@@ -59,4 +59,4 @@ utility package that may apply to most publication kinds.
 - **`office`:** Staples for the day-to-day in an office, such as a letter or an
   invoice.
 
-[disciplines]: https://github.com/typst/packages/blob/main/DISCIPLINES.md
+[disciplines]: https://github.com/typst/packages/blob/main/docs/DISCIPLINES.md
