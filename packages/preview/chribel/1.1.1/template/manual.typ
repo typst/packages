@@ -1,4 +1,4 @@
-#import "../chribel-template.typ": callout, chribel, chribel-add-callout-template
+#import "@preview/chribel:1.1.1": callout, chribel, chribel-add-callout-template
 
 #import "@preview/tableau-icons:0.334.1": ti-icon
 
