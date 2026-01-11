@@ -1,4 +1,4 @@
-#import "@preview/pergamon:0.6.0": *
+#import "@preview/pergamon:0.7.0": *
 // #import "@local/pergamon:0.7.1": *
 #let dev = pergamon-dev
 
