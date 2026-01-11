@@ -12,4 +12,4 @@ repository = "https://codeberg.org/joelvonrotz/typst-chribel-template"
 [template]
 path = "template"
 entrypoint = "manual.typ"
-thumbnail = "docs/chribel-template.png"
+thumbnail = "docs/chribel.png"

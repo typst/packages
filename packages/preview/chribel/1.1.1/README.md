@@ -2,7 +2,7 @@
 
 "Chribel" is a Swiss German word for a rough sketch (like crayon drawings drawn by babies).
 
-![](docs/chribel-template.png)
+![](docs/chribel.png)
 
 This template can be used for summaries or, I don't know, technical documentation? It's a rather informal template.
 
