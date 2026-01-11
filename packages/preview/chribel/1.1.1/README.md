@@ -18,6 +18,7 @@ This template can be used for summaries or, I don't know, technical documentatio
 
 - Reimplemented the `"compact"` styling to work inside other callouts.
 - Added current version number to this manual
+- Replaced `func` with extended `style` parameter &rarr; allows now selecting custom functions or predefined styles.
 
 ### 1.1.0
 

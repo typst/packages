@@ -1,4 +1,4 @@
-#import "@preview/chribel:1.1.1": callout, chribel, chribel-add-callout-template
+#import "../chribel-template.typ": callout, chribel, chribel-add-callout-template
 
 #import "@preview/tableau-icons:0.334.1": ti-icon
 
@@ -233,16 +233,16 @@ The template includes some simple, minimal callouts to put emphasis on some cont
 
 ```typ
 #callout(
-  type: "info",  title:  none,
-  width:  100%,  height: auto,
-  icon:   auto,  paint:  none,
-  func: none,
+  style: "minimal", type: "info",
+  title:  none,     width:  100%,
+  height: auto,     icon:   auto,
+  paint:  none,
   content
 )
 ```
 
 #argument[
-  / style: #tytyp.string or #tytyp.function#h(1fr)#default-red["minimal"]\
+  / style: #tytyp.string | #tytyp.function#h(1fr)#default-red["minimal"]\
     Determines how the callout is rendered. Valid values are #(`"minimal"`, `"quarto"`, `"compact"`).map(x => raw(x.text, lang: "typc")).join([, ]). If a function in the shape of
     #raw("(title,icon,content,paint,height,width)=>{}", lang: "typc")\
     is given, this function is instead called!
@@ -257,14 +257,11 @@ The template includes some simple, minimal callouts to put emphasis on some cont
   / icon: #tytyp.string#h(1fr)#default-red[auto]\
     The icon, which gets displayed next to the callout title. The name can be taken from #link("https://tabler.io/icons")[tabler.io/icons].\ `auto` uses the assigned icon of the given `type`.\ `none` disables the icon.
   / paint: #tytyp.color#h(1fr)#default-red[none]\
-    Overwrite the defaulted color of the callout box and title color.\ `none` uses assigned colors of the given `type`.
-  
-  / func: #tytyp.function#h(1fr)#default-red[none]\
-    Renders the callout using the custom function given. See #link(<sec:customcallouts>)[Custom Callouts] for the required parameters.
+    Overwrite the defaulted color of the callout box and title color.\ `none` uses assigned colors of the given `type`.  
 ]
 
 
-
+#colbreak()
 
 === Language Context
 
@@ -306,53 +303,61 @@ By default, the style #raw(lang: "typc", `"minimal"`.text) is used. There is two
   ..for typ in callout-types {
     (callout(type: typ, style: "quarto", lorem(4)),)
   },
-)
+) 
 
 - Using style #raw(`"compact"`.text, lang: "typc")
 
-#for typ in callout-types {
-  (callout(type: typ, style: "compact", lorem(4)))
-}
+#stack( spacing: 1em,
+  ..for typ in callout-types {
+  (callout(type: typ, style: "compact", lorem(4)),)
+})
 
 === Custom Callouts <sec:customcallouts>
 
-If you don't like the provided styles, you can create your own ones. Define a function (#raw(lang: "typst",`#let func(..)`.text)) or inline function (#raw(lang: "typc", `(..) => {}`.text)) similar to the example below. Then pass the function to the `func`-parameter of the #raw(`#callout(..)`.text, lang: "typ") function.
+If you don't like the provided styles, you can create your own ones. Define a function (#raw(lang: "typst",`#let func(..)`.text)) or inline function (#raw(lang: "typc", `(..) => {}`.text)) similar to the example below. Then pass a function in the shape of...
+
+#align(center, raw(lang: "typc", `(title, icon, content, paint, height, width) => {}`.text))
+
+...to the `style`-parameter of the #raw(`#callout(..)`.text, lang: "typ") function.
 
 #callout(style: "compact", type: "caution")[The parameter `icon` returns the converted icon (not the label, but the actual icon)]
 
-Assigning the function to the `func` parameter can for example look like following:
 
 ```example
-#let custom-callout(
-  title,
-  icon,
-  content,
-  paint,
-  height,
-  width) = {
-  block(
-    stroke: paint, inset: 0.5em,
-    width: 100%, fill: white,
-    stack(
-      dir: ttb, spacing: 0.5em,
-      strong[#icon #title #icon],
-      content
-    )
-  )
-}
+#let custom-callout(title,icon,content,paint,
+    height,width) = { box(stroke: paint, inset: 0.25em, fill: white, radius: 0.5em,[#strong[#icon#title] #content])
+  }
 
-#callout(func: custom-callout)[Hello World]
+#callout(style: custom-callout)[Hello World]
 ```
+
+#callout(title: [Set default styling], type: "tip")[
+  If you want to replace the default styling (#raw(lang: "typc", `"minimal"`.text)) with your own one, overwrite the #raw(lang: "typst", `#callout(..)`.text) function:
+
+  ```example
+  #callout[Hello]
+
+  #let custom-callout(title,icon,content,paint,
+    height,width) = { box(stroke: paint, inset: 0.25em, fill: white, radius: 0.5em,[#strong[#icon#title] #content])
+  }
+
+  #let callout = callout.with(style: custom-callout)
+
+  #callout[Hello]
+  ```
+]
 
 == Invalid Callout Type
 
-As mentioned in before, passing a callout type not in the type list generates an _"invalid" callout_. It's just a grayed out callout and a respective title is set. The title is also language specific!
+As mentioned before, passing a callout type not in the type list generates an _"invalid" callout_. It's just a grayed out callout and a respective title is set. The title is also language specific!
 
 #callout(type: "blabla")[
   ```typ
   #callout(type:"blabla")[]
   ```
 ]
+
+#colbreak()
 
 == Adding Callout Types
 
@@ -375,7 +380,6 @@ And then you can add the configuration function anywhere in the function (but se
 )
 ```
 
-
 #argument[
   / name: #tytyp.string\
     The name of the new callout type. This will be used in the `callout` function to access the type.
@@ -391,6 +395,7 @@ And then you can add the configuration function anywhere in the function (but se
   ])
 ]
 
+Following page shows an example:
 
 
 
@@ -406,10 +411,10 @@ And then you can add the configuration function anywhere in the function (but se
 ]
 ```
 
-
-#colbreak()
-
+#set heading(outlined: false)
 == Additional used snippets
+
+Some snippets used for this manual!
 
 === Highlight Links
 
@@ -451,13 +456,15 @@ And then you can add the configuration function anywhere in the function (but se
 }
 ```
 
-
+#set heading(outlined: true)
+#colbreak()
 = Changelog
 
 == 1.1.1
 
 - Reimplemented the #raw(lang: "typc",`"compact"`.text) styling to work inside other callouts.
 - Added current version number to this manual
+- Replaced `func` with extended `style` parameter $->$ allows now selecting custom function or predefined styles.
 
 == 1.1.0
 
@@ -469,4 +476,3 @@ And then you can add the configuration function anywhere in the function (but se
 == 1.0.0
 
 - initial release -- added functions `#callout`\ `#chribel`, `#chribel-add-callout-template`
-
