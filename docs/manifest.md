@@ -19,7 +19,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["The Typst Project Developers"]
 license = "MIT"
-description = "Calculate elementary arithemtics with functions."
+description = "Calculate elementary arithmetics with functions."
 ```
 
 The following fields are required by the compiler:
