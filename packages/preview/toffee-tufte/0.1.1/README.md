@@ -8,7 +8,7 @@ By keeping the large right margin for sidenotes, but changing the design languag
 Refer to the [usage guide](https://codeberg.org/jianweicheong/toffee-tufte/src/branch/main/template/main.pdf) for more information.
 
 ```typst
-#import "@preview/toffee-tufte:0.1.0": *
+#import "@preview/toffee-tufte:0.1.1": *
 
 #show: template.with(
   title: [This is a title],
