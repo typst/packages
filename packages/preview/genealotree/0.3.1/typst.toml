@@ -1,6 +1,6 @@
 [package]
 name = "genealotree"
-version = "0.3.0"
+version = "0.3.1"
 entrypoint = "genealotree.typ"
 authors = ["DrLoiseau"]
 license = "GPL-3.0-only"
@@ -9,5 +9,5 @@ repository = "https://codeberg.org/drloiseau/genealogy"
 keywords = ["draw", "cetz", "genealogical", "genealogy", "tree"]
 categories = ["visualization"]
 disciplines = ["anthropology", "biology", "history", "medicine"]
-compiler = "0.13.1"
+compiler = "0.14.0"
 exclude = ["examples", "tests"]
