@@ -253,6 +253,7 @@
 /// - violations (array): 2D array of violation strings (use "*" for violations, "!" for fatal)
 /// - winner (int): Index of the winning candidate (0-indexed)
 /// - dashed-lines (array): Indices of constraints to show with dashed borders (optional)
+/// - shade (bool): Whether cells should be shaded after fatal violations
 ///
 /// Returns: Table showing OT tableau with winner marked by ☞
 ///
@@ -546,5 +547,6 @@
 /// Note: Index numbering is 0-based. Use empty strings "" in segments or features
 /// arrays to create timing slots without content or features without associations.
 #let autoseg = autoseg
+
 
 

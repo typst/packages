@@ -1,4 +1,3 @@
-
 #import "ipa.typ": *
 
 #let finger = text(size: 14pt)[☞]
@@ -43,6 +42,7 @@
   winner: 0,
   dashed-lines: (),
   scale: none,
+  shade: true,
 ) = {
   // 1. Validation and Truncation
   assert(constraints.len() <= 10, message: "Maximum 10 constraints allowed in tableau")
@@ -63,17 +63,19 @@
   let font-size = scale-factor * 1em
   let scaled-finger = text(size: 14pt * scale-factor)[☞]
 
-  // 2. Shading Logic
+  // 2. Shading Logic (only if enabled)
   let fatal-map = ()
-  for (r, row-viols) in violations.enumerate() {
-    let fatal-col = 999
-    for (c, cell) in row-viols.enumerate() {
-      if cell.contains("!") {
-        fatal-col = c
-        break
+  if shade {
+    for (r, row-viols) in violations.enumerate() {
+      let fatal-col = 999
+      for (c, cell) in row-viols.enumerate() {
+        if cell.contains("!") {
+          fatal-col = c
+          break
+        }
       }
+      fatal-map.push(fatal-col)
     }
-    fatal-map.push(fatal-col)
   }
 
   // 3. Prepare Input Content
@@ -105,7 +107,7 @@
     },
 
     fill: (col, row) => {
-      if row < 2 or col < 2 { return none }
+      if not shade or row < 2 or col < 2 { return none }
       let cand-idx = row - 2
       let cons-idx = col - 2
       if cand-idx < fatal-map.len() {
@@ -775,6 +777,7 @@
       .flatten()
   )]
 }
+
 
 
 
