@@ -9,7 +9,7 @@
 Detailed usage and documentation can be seen in the released PDF manual in the [Release page](https://github.com/mkpoli/hundouk/releases).
 
 ```typst
-#import "@local/hundouk:0.1.0": kanbun
+#import "@preview/hundouk:0.1.0": kanbun
 
 #kanbun(
   "蓋(けだ)シ時ニ有リ[二]古=今[一]，地ニ有リ[二]南=北[一]；字ニ有リ[二]更(かう)=革（かく)[一]，音ニ有リ[二]轉=移[一]，亦タ勢(いきほ)ヒノ所ナリ[二]必ズ至ル[一]。",
