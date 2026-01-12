@@ -1,6 +1,6 @@
 [package]
 name = "juti"
-version = "0.0.2"
+version = "0.0.3"
 entrypoint = "juti.typ"
 authors = [
   "Moch. Nafkhan Alzamzami <nafkhan@its.ac.id>",
