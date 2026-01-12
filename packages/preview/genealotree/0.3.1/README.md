@@ -32,8 +32,8 @@ The steps to produce a tree are :
 
 - Import the package and CeTZ
 ```typ
-#import "@preview/genealotree:0.3.0": *
-#import "@preview/cetz:0.4.0": canvas
+#import "@preview/genealotree:0.3.1": *
+#import "@preview/cetz:0.4.1": canvas
 ```
 
 - Create a genealogy object
