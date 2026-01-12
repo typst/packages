@@ -159,6 +159,11 @@ See package homepage or GitHub repository for a comprehensive demo (`vignette.pd
 - **Visual probability bars**: Optional graphical representation of candidate probabilities
 - **IPA support**: Input and candidate forms can use tipa-style IPA notation
 
+### Harmonic Grammar Module
+
+- **HG tableaux**: Generate HG tableaux with automatic calculation of harmony given constraint weights and violations
+- **Noisy HG**: Generate NHG tableaux with automatic calculation of harmony and probabilities derived from simulated noise and multiple evaluations
+
 ## Installation
 
 ### Package Repository
@@ -219,7 +224,7 @@ Phonokit provides functions for visualizing IPA vowel and consonant inventories 
 
 **Note:** The `vowels()` function now accepts tipa-style IPA input. Diacritics and non-vowel symbols will be automatically ignored during plotting.
 
-**Available vowel language inventories:** `all`, `english`, `spanish`, `french`, `german`, `italian`, `japanese`, `portuguese`, `russian`, `arabic`, `mandarin`
+**Available vowel language inventories:** `all`, `english`, `spanish`, `french`, `german`, `italian`, `japanese`, `portuguese`, `russian`, `arabic`
 
 #### Consonant Tables
 
@@ -236,9 +241,6 @@ Phonokit provides functions for visualizing IPA vowel and consonant inventories 
 // Include affricates row with language-specific affricates
 #consonants("english", affricates: true)  // Shows t͡ʃ, d͡ʒ
 
-// Include aspirated consonants (phonemic aspiration)
-#consonants("mandarin", affricates: true, aspirated: true)  
-
 // Plot Spanish consonants with custom scale
 #consonants("spanish", scale: 0.6)
 ```
@@ -251,7 +253,7 @@ Phonokit provides functions for visualizing IPA vowel and consonant inventories 
 - /w/ (labiovelar approximant) appears in both bilabial and velar columns when /ɰ/ (velar approximant) is not present; otherwise only under bilabial
 - Diacritics and non-consonant symbols are automatically ignored during plotting
 
-**Available consonant language inventories:** `all`, `english`, `spanish`, `french`, `german`, `italian`, `japanese`, `mandarin`, `portuguese`, `russian`, `arabic`
+**Available consonant language inventories:** `all`, `english`, `spanish`, `french`, `german`, `italian`, `japanese`, `portuguese`, `russian`, `arabic`
 
 ### Prosodic Structures
 
@@ -482,6 +484,40 @@ Create MaxEnt tableaux with probability calculations:
   )
 ```
 
+### Harmonic Grammar
+
+Create HG and noisy HG tableaux with probability calculations:
+
+```typst
+// Harmonic Grammar tableau
+#hg(
+  input: "kraTa",
+  candidates: ("[kra.Ta]", "[ka.Ta]", "[ka.ra.Tu]"),
+  constraints: ("Max", "Dep", "*Complex"),
+  weights: (2.5, 1.8, 1),
+  violations: (
+    (0, 0, -1),
+    (-1, 0, 0),
+    (0, -1, 0),
+  ),
+)
+```
+
+```typst
+// Noisy Harmonic Grammar tableau
+#nhg(
+  input: "kraTa",
+  candidates: ("[kra.Ta]", "[ka.Ta]", "[ka.ra.Tu]"),
+  constraints: ("Max", "Dep", "*Complex"),
+  weights: (2.5, 1.8, 1),
+  violations: (
+    (0, 0, -1),
+    (-1, 0, 0),
+    (0, -1, 0),
+  ),
+)
+```
+
 ## License
 
 MIT
@@ -493,7 +529,7 @@ Email: <guilherme.garcia@lli.ulaval.ca>
 
 ## Citation
 
-If you use this software in your research, please cite it using the metadata from the `CITATION.cff` file or click the "Cite this repository" button in the GitHub sidebar.
+If you use this package in your research, please visit its GitHub repository and cite it using the metadata from the `CITATION.cff` file or click the "Cite this repository" button in the GitHub sidebar.
 
 ## Contributing
 

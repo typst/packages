@@ -42,10 +42,10 @@
   let h = vowel-info.height
 
   // Calculate y coordinate
-  let y = -height/2 + (h * height)
+  let y = -height / 2 + (h * height)
 
   // Interpolate x based on trapezoid shape at this height
-  let t = 1 - h  // interpolation factor (0 at top, 1 at bottom)
+  let t = 1 - h // interpolation factor (0 at top, 1 at bottom)
   let left-x = trapezoid.at(0).at(0) * (1 - t) + trapezoid.at(3).at(0) * t
   let right-x = trapezoid.at(1).at(0) * (1 - t) + trapezoid.at(2).at(0) * t
 
@@ -62,14 +62,12 @@
         // Front unrounded: outside (left of left edge)
         x = left-x - offset
       }
-    }
-    // Near-front (0.15-0.4): lax vowels like ɪ, ɛ
+    } // Near-front (0.15-0.4): lax vowels like ɪ, ɛ
     // Always positioned inside the trapezoid
     else {
       x = left-x + (front * (right-x - left-x))
     }
-  }
-  // Back vowels (frontness > 0.6)
+  } // Back vowels (frontness > 0.6)
   else if front > 0.6 {
     // Extreme back (> 0.85): tense vowels like u, o
     if front > 0.85 {
@@ -80,23 +78,21 @@
         // Back unrounded: inside (left of right edge)
         x = right-x - offset
       }
-    }
-    // Near-back (0.6-0.85): lax vowels like ʊ
+    } // Near-back (0.6-0.85): lax vowels like ʊ
     // Always positioned inside the trapezoid
     else {
       x = left-x + (front * (right-x - left-x))
     }
-  }
-  // Central vowels
+  } // Central vowels
   else {
     // Calculate base central position
     let center-x = left-x + (front * (right-x - left-x))
 
     // Apply full offset for rounded/unrounded pairs (same as front/back)
     if vowel-info.rounded {
-      x = center-x + offset  // Rounded to the right
+      x = center-x + offset // Rounded to the right
     } else {
-      x = center-x - offset  // Unrounded to the left
+      x = center-x - offset // Unrounded to the left
     }
   }
 
@@ -109,25 +105,24 @@
   "portuguese": "iɔeaouɛ",
   "italian": "iɔeaouɛ",
   "english": "iɪaeɛæɑɔoʊuʌə",
-  "french": "iœɑɔøeaouɛy",
+  "french": "iœɑɔøeaouɛyə",
   "german": "iyʊuɪʏeøoɔɐaɛœ",
   "japanese": "ieaou",
-  "mandarin": "iəɤauy",
   "russian": "iɨueoa",
   "arabic": "aiu",
-  "all": "iyɨʉɯuɪʏʊeøɘɵɤoəɛœɜɞʌɔæɐaɶɑɒ"
+  "all": "iyɨʉɯuɪʏʊeøɘɵɤoəɛœɜɞʌɔæɐaɶɑɒ",
   // Add more languages here or adjust existing inventories
 )
 
 // Main vowels function
 #let vowels(
-  vowel-string,  // Positional parameter (no default to allow positional args)
+  vowel-string, // Positional parameter (no default to allow positional args)
   lang: none,
   width: 8,
   height: 6,
-  rows: 3,  // Only 2 internal horizontal lines
-  cols: 2,  // Only 1 vertical line inside trapezoid
-  scale: 0.7,  // Scale factor for entire chart
+  rows: 3, // Only 2 internal horizontal lines
+  cols: 2, // Only 1 vertical line inside trapezoid
+  scale: 0.7, // Scale factor for entire chart
 ) = {
   // Determine which vowels to plot
   let vowels-to-plot = ""
@@ -174,10 +169,10 @@
 
     // Define the trapezoidal quadrilateral using scaled dimensions
     let trapezoid = (
-      (-scaled-width/2, scaled-height/2.),
-      (scaled-width/2., scaled-height/2),
-      (scaled-width/2., -scaled-height/2),
-      (-scaled-width/10, -scaled-height/2),
+      (-scaled-width / 2, scaled-height / 2.),
+      (scaled-width / 2., scaled-height / 2),
+      (scaled-width / 2., -scaled-height / 2),
+      (-scaled-width / 10, -scaled-height / 2),
     )
 
     // Draw horizontal grid lines
@@ -185,7 +180,7 @@
       let t = i / rows
       let left-x = trapezoid.at(0).at(0) * (1 - t) + trapezoid.at(3).at(0) * t
       let right-x = trapezoid.at(1).at(0) * (1 - t) + trapezoid.at(2).at(0) * t
-      let y = scaled-height/2 - (scaled-height * t)
+      let y = scaled-height / 2 - (scaled-height * t)
 
       line((left-x, y), (right-x, y), stroke: (paint: gray.lighten(30%), thickness: scaled-line-thickness * 1pt))
     }
@@ -196,7 +191,10 @@
       let top-x = trapezoid.at(0).at(0) * (1 - t) + trapezoid.at(1).at(0) * t
       let bottom-x = trapezoid.at(3).at(0) * (1 - t) + trapezoid.at(2).at(0) * t
 
-      line((top-x, scaled-height/2), (bottom-x, -scaled-height/2), stroke: (paint: gray.lighten(30%), thickness: scaled-line-thickness * 1pt))
+      line((top-x, scaled-height / 2), (bottom-x, -scaled-height / 2), stroke: (
+        paint: gray.lighten(30%),
+        thickness: scaled-line-thickness * 1pt,
+      ))
     }
 
     // Draw the outline

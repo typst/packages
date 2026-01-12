@@ -1,7 +1,5 @@
-// Phonokit - Phonology toolkit for Typst
+// phonokit - a toolkit to create phonological representations
 // Author: Guilherme D. Garcia
-//
-// A comprehensive toolkit for phonological and phonetic notation in Typst.
 //
 // This package provides:
 // - IPA transcription with tipa-style input syntax
@@ -10,6 +8,8 @@
 // - IPA vowel charts (trapezoid) with language inventories
 // - IPA consonant tables (pulmonic) with language inventories
 // - Optimality Theory (OT) tableaux with violation marking and shading
+// - Harmonic Grammar (HG) tableaux with weighted harmony calculations
+// - Noisy Harmonic Grammar (NHG) tableaux with stochastic simulations
 // - Maximum Entropy (MaxEnt) grammar tableaux with probability calculations
 // - SPE-style feature matrices for phonological representations
 
@@ -305,6 +305,111 @@
 /// ```
 #let maxent = maxent
 
+/// Create a Harmonic Grammar (HG) tableau
+///
+/// Generates an HG tableau showing harmony scores calculated from
+/// weighted constraint violations. HG is deterministic: the candidate
+/// with the highest harmony wins.
+///
+/// Arguments:
+/// - input (string or content): The input form
+/// - candidates (array): Array of candidate forms
+/// - constraints (array): Array of constraint names
+/// - weights (array): Array of constraint weights (numbers)
+/// - violations (array): 2D array of violation counts (negative numbers)
+/// - scale (number): Optional scale factor (default: auto-scales for >6 constraints)
+///
+/// Returns: Table showing HG tableau with constraint weights and h(y) harmony column
+///
+/// Example:
+/// ```
+/// #hg(
+///  input: "kraTa",
+///  candidates: ("[kra.Ta]", "[ka.Ta]", "[ka.ra.Tu]"),
+///  constraints: ("Max", "Dep", "*Complex"),
+///  weights: (2.5, 1.8, 1),
+///  violations: (
+///    (0, 0, -1),
+///    (-1, 0, 0),
+///    (0, -1, 0),
+///  ),
+/// )
+/// ```
+///
+/// Note: h(y) = Σ(weight × violation). Candidate with highest (least negative) harmony wins.
+#let hg = hg
+
+/// Create a Noisy Harmonic Grammar (NHG) tableau with symbolic noise
+///
+/// Pedagogical version showing noise as symbolic formulas (e.g., "-n₁").
+/// Useful for teaching how noise affects harmony calculations.
+///
+/// Arguments:
+/// - input (string or content): The input form
+/// - candidates (array): Array of candidate forms
+/// - constraints (array): Array of constraint names
+/// - weights (array): Array of constraint weights
+/// - violations (array): 2D array of violation counts (negative numbers)
+/// - probabilities (array): Optional array of probability values to display
+/// - scale (number): Scale factor (default: auto-scales for >6 constraints)
+///
+/// Returns: Table with h(y), ε(y) (symbolic), and optional P(y) columns
+///
+/// Example:
+/// ```
+/// #nhg-demo(
+///  input: "kraTa",
+///  candidates: ("[kra.Ta]", "[ka.Ta]", "[ka.ra.Tu]"),
+///  constraints: ("Max", "Dep", "*Complex"),
+///  weights: (2.5, 1.8, 1),
+///  violations: (
+///    (0, 0, -1),
+///    (-1, 0, 0),
+///    (0, -1, 0),
+///  ),
+///  probabilities: (0.673, 0.08, 0.247),
+///)
+/// ```
+#let nhg-demo = nhg-demo
+
+/// Create a Noisy Harmonic Grammar (NHG) tableau with Monte Carlo simulation
+///
+/// Samples noise from N(0,1), calculates probabilities via simulation.
+/// Noise is added to constraint weights, and the candidate with highest
+/// noisy harmony wins each trial.
+///
+/// Arguments:
+/// - input (string or content): The input form
+/// - candidates (array): Array of candidate forms
+/// - constraints (array): Array of constraint names
+/// - weights (array): Array of constraint weights
+/// - violations (array): 2D array of violation counts (negative numbers)
+/// - num-simulations (int): Number of Monte Carlo trials (default: 1000)
+/// - seed (int): Random seed for reproducibility (default: 12345)
+/// - show-epsilon (bool): Whether to show epsilon column (default: true)
+/// - scale (number): Scale factor (default: auto-scales for >6 constraints)
+///
+/// Returns: Table with h(y), optional ε(y) (one sample), and P(y) (from simulation)
+///
+/// Example:
+/// ```
+/// #nhg(
+///   input: "kraTa",
+///   candidates: ("[kra.Ta]", "[ka.Ta]", "[ka.ra.Tu]"),
+///   constraints: ("Max", "Dep", "*Complex"),
+///   weights: (2.5, 1.8, 1),
+///   violations: (
+///     (0, 0, -1),
+///     (-1, 0, 0),
+///     (0, -1, 0),
+///   ),
+/// )
+/// ```
+///
+/// Note: Probabilities are estimated empirically. More simulations = more accurate
+/// but slower compilation. Default 1000 is usually sufficient.
+#let nhg = nhg
+
 /// Create a Hasse diagram for Optimality Theory constraint rankings
 ///
 /// Generates a visual representation of the partial order of constraint rankings.
@@ -441,4 +546,5 @@
 /// Note: Index numbering is 0-based. Use empty strings "" in segments or features
 /// arrays to create timing slots without content or features without associations.
 #let autoseg = autoseg
+
 

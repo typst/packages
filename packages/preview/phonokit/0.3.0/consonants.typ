@@ -1,3 +1,4 @@
+
 #import "@preview/cetz:0.4.2": canvas, draw
 #import "ipa.typ": ipa-to-unicode
 
@@ -18,11 +19,10 @@
   "ɟ": (place: 6, manner: 0, voicing: true),
   "k": (place: 7, manner: 0, voicing: false),
   "ɡ": (place: 7, manner: 0, voicing: true),
-  "g": (place: 7, manner: 0, voicing: true), 
+  "g": (place: 7, manner: 0, voicing: true),
   "q": (place: 8, manner: 0, voicing: false),
   "ɢ": (place: 8, manner: 0, voicing: true),
   "ʔ": (place: 10, manner: 0, voicing: false),
-
   // Nasals (row 1)
   "m": (place: 0, manner: 1, voicing: true),
   "ɱ": (place: 1, manner: 1, voicing: true),
@@ -31,17 +31,14 @@
   "ɲ": (place: 6, manner: 1, voicing: true),
   "ŋ": (place: 7, manner: 1, voicing: true),
   "ɴ": (place: 8, manner: 1, voicing: true),
-
   // Trills (row 2)
   "ʙ": (place: 0, manner: 2, voicing: true),
   "r": (place: 3, manner: 2, voicing: true),
   "ʀ": (place: 8, manner: 2, voicing: true),
-
   // Tap or Flap (row 3)
   "ⱱ": (place: 1, manner: 3, voicing: true),
   "ɾ": (place: 3, manner: 3, voicing: true),
   "ɽ": (place: 5, manner: 3, voicing: true),
-
   // Fricatives (row 4)
   "ɸ": (place: 0, manner: 4, voicing: false),
   "β": (place: 0, manner: 4, voicing: true),
@@ -65,19 +62,16 @@
   "ʕ": (place: 9, manner: 4, voicing: true),
   "h": (place: 10, manner: 4, voicing: false),
   "ɦ": (place: 10, manner: 4, voicing: true),
-
   // Lateral fricatives (row 5)
   "ɬ": (place: 3, manner: 5, voicing: false),
   "ɮ": (place: 3, manner: 5, voicing: true),
-
   // Approximants (row 6)
-  "w": (place: 0, manner: 6, voicing: true),  // labiovelar, shown under bilabial
+  "w": (place: 0, manner: 6, voicing: true), // labiovelar, shown under bilabial
   "ʋ": (place: 1, manner: 6, voicing: true),
   "ɹ": (place: 3, manner: 6, voicing: true),
   "ɻ": (place: 5, manner: 6, voicing: true),
   "j": (place: 6, manner: 6, voicing: true),
   "ɰ": (place: 7, manner: 6, voicing: true),
-
   // Lateral approximants (row 7)
   "l": (place: 3, manner: 7, voicing: true),
   "ɭ": (place: 5, manner: 7, voicing: true),
@@ -103,21 +97,17 @@
   // Labiodental affricates
   "pf": (place: 1, voicing: false),
   "bv": (place: 1, voicing: true),
-
   // Alveolar affricates
   "ts": (place: 3, voicing: false),
   "dz": (place: 3, voicing: true),
-
   // Postalveolar affricates
   "tʃ": (place: 4, voicing: false),
   "dʒ": (place: 4, voicing: true),
-
   // Retroflex affricates
   "ʈʂ": (place: 5, voicing: false),
   "ɖʐ": (place: 5, voicing: true),
-
   // Alveolo-palatal affricates
-  "tɕ": (place: 4, voicing: false),  // Use postalveolar column
+  "tɕ": (place: 4, voicing: false), // Use postalveolar column
   "dʑ": (place: 4, voicing: true),
 )
 
@@ -127,7 +117,7 @@
   "tsʰ": (place: 3, voicing: false),
   "tʃʰ": (place: 4, voicing: false),
   "ʈʂʰ": (place: 5, voicing: false),
-  "tɕʰ": (place: 4, voicing: false),  // Alveolo-palatal
+  "tɕʰ": (place: 4, voicing: false), // Alveolo-palatal
 )
 
 // Column labels (places of articulation)
@@ -166,7 +156,6 @@
   "german": "pbmntdkɡfvszʃʒçxhʁlj",
   "italian": "pbmnɲtdkɡfvszʃʎlrj",
   "japanese": "pbmnɲtdkɡçɸsʃzʒhɾj",
-  "mandarin": "mnŋptkfsʂɕxhlɻ",  // Note: aspirated variants not shown
   "portuguese": "pbmnɲtdkɡfvszʃʒʎxlɾjw",
   "russian": "pbmntdkɡfvszʃʒxlrj",
   "arabic": "btdkqʔmnfvðszʃxɣħʕhlrj",
@@ -176,24 +165,22 @@
 // Note: No tie bars needed - the "Affricate" row label makes it clear
 // Note: Only one affricate pair per place - "all" uses more common variants
 #let language-affricates = (
-  "all": "pfbvtsdztʃdʒʈʂɖʐ",  // tʃ/dʒ chosen over tɕ/dʑ (more common)
+  "all": "pfbvtsdztʃdʒʈʂɖʐ", // tʃ/dʒ chosen over tɕ/dʑ (more common)
   "english": "tʃdʒ",
   "spanish": "tʃ",
-  "french": "",  // No native affricates
+  "french": "", // No native affricates
   "german": "pfts",
   "italian": "tsdztʃdʒ",
-  "japanese": "tstɕdʑ",  // Japanese uses alveolo-palatal
-  "mandarin": "tsʈʂtɕ",
+  "japanese": "", // Do not include allophones
   "portuguese": "tʃdʒ",
   "russian": "tstʃ",
-  "arabic": "",  // No native affricates
+  "arabic": "", // No native affricates
 )
 
 // Language aspirated plosive inventories (used when aspirated: true)
 #let language-aspirated-plosives = (
   "all": "pʰtʰʈʰcʰkʰqʰ",
-  "mandarin": "pʰtʰkʰ",
-  "english": "",  // English aspiration is allophonic, not phonemic
+  "english": "", // English aspiration is allophonic, not phonemic
   "spanish": "",
   "french": "",
   "german": "",
@@ -207,7 +194,6 @@
 // Language aspirated affricate inventories (used when both affricates: true AND aspirated: true)
 #let language-aspirated-affricates = (
   "all": "tsʰtʃʰʈʂʰtɕʰ",
-  "mandarin": "tsʰʈʂʰtɕʰ",
   "english": "",
   "spanish": "",
   "french": "",
@@ -307,11 +293,17 @@
     // Insert "Affricate" after "Fricative"
     // Index is 4 if no aspirated row, 5 if aspirated row was added
     let affricate-insert-index = if aspirated { 6 } else { 5 }
-    display-manners = display-manners.slice(0, affricate-insert-index) + ("Affricate",) + display-manners.slice(affricate-insert-index)
+    display-manners = (
+      display-manners.slice(0, affricate-insert-index) + ("Affricate",) + display-manners.slice(affricate-insert-index)
+    )
 
     // If both affricates and aspirated, add "Affricate (aspirated)" too
     if aspirated {
-      display-manners = display-manners.slice(0, affricate-insert-index + 1) + ("Affricate (aspirated)",) + display-manners.slice(affricate-insert-index + 1)
+      display-manners = (
+        display-manners.slice(0, affricate-insert-index + 1)
+          + ("Affricate (aspirated)",)
+          + display-manners.slice(affricate-insert-index + 1)
+      )
     }
   }
 
@@ -351,13 +343,33 @@
       content((x, y), text(size: scaled-label-font-size * 1pt, manner), anchor: "east")
     }
 
+    // Calculate row positions accounting for optional row insertions (needed for grid drawing)
+    let fricative-row = if aspirated { 5 } else { 4 }
+    let affricate-row = if affricates { (if aspirated { 6 } else { 5 }) } else { -1 }
+    let aspirated-affricate-row = if (affricates and aspirated) { 7 } else { -1 }
+
     // Draw grid lines
     // Vertical lines
     for i in range(num-cols + 1) {
       let x = scaled-label-width + (i * scaled-cell-width)
       let y1 = total-height / 2 - scaled-label-height
       let y2 = -total-height / 2
-      line((x, y1), (x, y2), stroke: (paint: gray.lighten(20%), thickness: scaled-line-thickness * 1pt))
+
+      // Special handling: Remove lines between dental-alveolar (i=3) and alveolar-postalveolar (i=4)
+      // EXCEPT in the fricative and affricate rows
+      if i == 3 or i == 4 {
+        // Draw line segments for each row, but only draw for fricative and affricate rows
+        for row in range(num-rows) {
+          if row == fricative-row or row == affricate-row or row == aspirated-affricate-row {
+            let row-y1 = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
+            let row-y2 = row-y1 - scaled-cell-height
+            line((x, row-y1), (x, row-y2), stroke: (paint: gray.lighten(20%), thickness: scaled-line-thickness * 1pt))
+          }
+        }
+      } else {
+        // Draw normal full-height vertical line for other columns
+        line((x, y1), (x, y2), stroke: (paint: gray.lighten(20%), thickness: scaled-line-thickness * 1pt))
+      }
     }
 
     // Horizontal lines
@@ -392,26 +404,39 @@
 
     let impossible-cells = (
       // Lateral fricative
-      (lat-fric-row, 0, "full"), (lat-fric-row, 1, "full"), (lat-fric-row, 9, "full"), (lat-fric-row, 10, "full"),
+      (lat-fric-row, 0, "full"),
+      (lat-fric-row, 1, "full"),
+      (lat-fric-row, 9, "full"),
+      (lat-fric-row, 10, "full"),
       // Lateral approximant
-      (lat-approx-row, 0, "full"), (lat-approx-row, 1, "full"), (lat-approx-row, 9, "full"), (lat-approx-row, 10, "full"),
+      (lat-approx-row, 0, "full"),
+      (lat-approx-row, 1, "full"),
+      (lat-approx-row, 9, "full"),
+      (lat-approx-row, 10, "full"),
       // Trill
-      (trill-row, 7, "full"), (trill-row, 10, "full"),
+      (trill-row, 7, "full"),
+      (trill-row, 10, "full"),
       // Tap or flap
-      (tap-row, 7, "full"), (tap-row, 10, "full"),
+      (tap-row, 7, "full"),
+      (tap-row, 10, "full"),
       // Approximant
       (approx-row, 10, "full"),
       // Plosive - voiced side only
-      (plosive-row, 9, "voiced"), (plosive-row, 10, "voiced"),
+      (plosive-row, 9, "voiced"),
+      (plosive-row, 10, "voiced"),
       // Nasal
-      (nasal-row, 9, "full"), (nasal-row, 10, "full"),
+      (nasal-row, 9, "full"),
+      (nasal-row, 10, "full"),
     )
 
     // Add aspirated plosive impossible cells if that row exists
     if aspirated {
-      impossible-cells = impossible-cells + (
-        (1, 9, "full"),  // Pharyngeal aspirated plosive - physiologically impossible
-        (1, 10, "full"), // Glottal aspirated plosive - physiologically impossible
+      impossible-cells = (
+        impossible-cells
+          + (
+            (1, 9, "full"), // Pharyngeal aspirated plosive - physiologically impossible
+            (1, 10, "full"), // Glottal aspirated plosive - physiologically impossible
+          )
       )
     }
 
@@ -425,7 +450,7 @@
           (cell-x, cell-y),
           (cell-x + scaled-cell-width, cell-y - scaled-cell-height),
           fill: gray.lighten(70%),
-          stroke: (paint: gray.lighten(20%), thickness: scaled-line-thickness * 1pt)
+          stroke: (paint: gray.lighten(20%), thickness: scaled-line-thickness * 1pt),
         )
       } else if half == "voiced" {
         // Fill right half of cell (voiced side)
@@ -434,7 +459,7 @@
           (mid-x, cell-y),
           (cell-x + scaled-cell-width, cell-y - scaled-cell-height),
           fill: gray.lighten(70%),
-          stroke: (paint: gray.lighten(20%), thickness: scaled-line-thickness * 1pt)
+          stroke: (paint: gray.lighten(20%), thickness: scaled-line-thickness * 1pt),
         )
       } else if half == "voiceless" {
         // Fill left half of cell (voiceless side)
@@ -443,7 +468,7 @@
           (cell-x, cell-y),
           (mid-x, cell-y - scaled-cell-height),
           fill: gray.lighten(70%),
-          stroke: (paint: gray.lighten(20%), thickness: scaled-line-thickness * 1pt)
+          stroke: (paint: gray.lighten(20%), thickness: scaled-line-thickness * 1pt),
         )
       }
     }
@@ -470,7 +495,7 @@
     // Special handling for /w/ (labiovelar approximant)
     // If /w/ is present but /ɰ/ (velar approximant) is not, show /w/ in both bilabial and velar columns
     if consonants-to-plot.contains("w") and not consonants-to-plot.contains("ɰ") {
-      let velar-approx-key = "7-6"  // place 7 (velar), manner 6 (approximant)
+      let velar-approx-key = "7-6" // place 7 (velar), manner 6 (approximant)
       if velar-approx-key not in cell-consonants {
         cell-consonants.insert(velar-approx-key, (voiceless: none, voiced: none))
       }
@@ -541,19 +566,19 @@
     for (key, pair) in cell-consonants {
       let parts = key.split("-")
       let col = int(parts.at(0))
-      let manner = int(parts.at(1))  // Original manner of articulation
-      let row = manner  // Display row (will be adjusted)
+      let manner = int(parts.at(1)) // Original manner of articulation
+      let row = manner // Display row (will be adjusted)
 
       // Adjust row based on inserted optional rows
       if aspirated and row >= 1 {
-        row = row + 1  // Plosive (aspirated) row inserted at 1
+        row = row + 1 // Plosive (aspirated) row inserted at 1
       }
       if affricates and row >= 5 {
         let affricate-offset = if aspirated { 6 } else { 5 }
         if row >= affricate-offset {
-          row = row + 1  // Affricate row inserted
+          row = row + 1 // Affricate row inserted
           if aspirated {
-            row = row + 1  // Affricate (aspirated) row also inserted
+            row = row + 1 // Affricate (aspirated) row also inserted
           }
         }
       }
@@ -572,13 +597,13 @@
         if pair.voiced != none {
           let pos = (cell-center-x, cell-center-y)
           circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiced))
+          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiced), anchor: "center")
         }
         // In rare cases where voiceless sonorants exist, also center them
         if pair.voiceless != none {
           let pos = (cell-center-x, cell-center-y)
           circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiceless))
+          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiceless), anchor: "center")
         }
       } else {
         // Obstruents: use left/right positioning for voicing contrast
@@ -587,13 +612,13 @@
         if pair.voiceless != none {
           let pos = (cell-center-x - offset, cell-center-y)
           circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiceless))
+          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiceless), anchor: "center")
         }
 
         if pair.voiced != none {
           let pos = (cell-center-x + offset, cell-center-y)
           circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiced))
+          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiced), anchor: "center")
         }
       }
     }
@@ -602,7 +627,7 @@
     if aspirated {
       for (key, pair) in cell-aspirated-plosives {
         let col = int(key)
-        let row = 1  // Plosive (aspirated) row
+        let row = 1 // Plosive (aspirated) row
 
         let cell-x = scaled-label-width + (col * scaled-cell-width)
         let cell-y = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
@@ -615,7 +640,7 @@
         if pair.voiceless != none {
           let pos = (cell-center-x - offset, cell-center-y)
           circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiceless))
+          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiceless), anchor: "center")
         }
       }
     }
@@ -638,20 +663,20 @@
         if pair.voiceless != none {
           let pos = (cell-center-x - offset, cell-center-y)
           circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiceless))
+          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiceless), anchor: "center")
         }
 
         if pair.voiced != none {
           let pos = (cell-center-x + offset, cell-center-y)
           circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiced))
+          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiced), anchor: "center")
         }
       }
     }
 
     // Draw aspirated affricates (after regular affricates)
     if aspirated and affricates {
-      let asp-affricate-row = if aspirated { 7 } else { 6 }  // After affricate row
+      let asp-affricate-row = if aspirated { 7 } else { 6 } // After affricate row
       for (key, pair) in cell-aspirated-affricates {
         let col = int(key)
         let row = asp-affricate-row
@@ -667,9 +692,10 @@
         if pair.voiceless != none {
           let pos = (cell-center-x - offset, cell-center-y)
           circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiceless))
+          content(pos, text(size: scaled-font-size * 1pt, font: "Charis SIL", pair.voiceless), anchor: "center")
         }
       }
     }
   })
 }
+
