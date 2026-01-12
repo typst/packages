@@ -1,4 +1,4 @@
-#import "@preview/genealotree:0.3.0": *
+#import "@preview/genealotree:0.3.1": *
 
 #set page(width: auto, height: auto, margin: 1cm)
 
