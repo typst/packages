@@ -126,12 +126,11 @@
 #let init-authors(authors) = {
   for (i, author) in authors.enumerate() {
     if author.at("short", default: none) == none {
-      authors.at(i).short = author
-        .name
-        .split(" ")
+      let splitted = author.name.split(" ")
+      authors.at(i).short = splitted
         .enumerate()
         .map(((j, v)) => {
-          if j == authors.len() - 1 {
+          if j == splitted.len() - 1 {
             v
           } else {
             v.slice(0, 1) + "."
@@ -273,6 +272,7 @@
   show figure.where(kind: image): set text(size: .8em)
 
   //? Table
+  show figure.where(kind: table): set block(breakable: true)
   show figure.where(kind: table): set figure(placement: top, supplement: [Table])
   set table(align: left)
   // TODO: Still not fixed

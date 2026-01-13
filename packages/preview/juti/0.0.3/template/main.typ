@@ -2,6 +2,24 @@
 #import "../juti.typ"
 #import "setup.typ": *
 
+/**
+ * Contribution References
+ * 0. Conceptualization
+ * 1. Methodology
+ * 2. Software
+ * 3. Validation
+ * 4. Formal analysis
+ * 5. Investigation
+ * 6. Resources
+ * 7. Data Curation
+ * 8. Writing -- Original Draft
+ * 9. Writing -- Review & Editing
+ * 10. Visualization
+ * 11. Supervision
+ * 12. Project Administration
+ * 13. Funding Acquisition
+ **/
+
 #let authors = juti.init-authors((
   (
     name: "First Alpha Author",
