@@ -33,9 +33,7 @@
 )
 
 #show: juti.template.with(
-  title: [
-    Preparation of Papers for JUTI (JURNAL ILMIAH TEKNOLOGI INFORMASI)
-  ],
+  title: "Preparation of Papers for JUTI (JURNAL ILMIAH TEKNOLOGI INFORMASI)",
   authors: authors,
   corresponding-ref: 0,
   institutions: institutions,

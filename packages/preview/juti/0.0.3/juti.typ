@@ -1,3 +1,33 @@
+#let warn(body) = {
+  show: highlight.with(fill: red.lighten(75%))
+  body
+}
+#let empty-warn(body) = {
+  if body == "" or body == [] or body == none {
+    show: warn
+    lorem(6)
+  } else {
+    body
+  }
+}
+#let link-b(url, body) = {
+  show: underline
+  show: text.with(fill: rgb(0, 0, 238))
+
+  if url != none {
+    link(url, if body == [] {
+      url
+    } else {
+      body
+    })
+  } else {
+    body
+  }
+}
+#let parse-date(date-str) = {
+  let (year, month, day) = date-str.split("-")
+  return datetime(year: int(year), month: int(month), day: int(day))
+}
 #let phantom(body) = place(top, scale(x: 0%, y: 0%, hide(body)))
 #let inline-enum(
   join-sym: [,],
@@ -115,7 +145,7 @@
 }
 
 #let template(
-  title: [Preparation of Papers for JUTI (JURNAL ILMIAH TEKNOLOGI INFORMASI)],
+  title: "Preparation of Papers for JUTI (JURNAL ILMIAH TEKNOLOGI INFORMASI)",
   authors: (
     (
       name: "First Alpha Author",
@@ -157,8 +187,10 @@
     received: [will be set by the editor],
     revised: [will be set by the editor],
     accepted: [will be set by the editor],
+    online: [will be set by the editor],
     doi: [will be set by the editor],
   ),
+  start-page: 1,
   body,
   bib: none,
 ) = context {
@@ -170,27 +202,30 @@
   counter(math.equation).update(0)
   counter(figure.where(kind: math.equation)).update(0)
   counter(figure.where(kind: raw)).update(0)
+  if start-page != none {
+    counter(page).update(start-page)
+  }
   set page(
     paper: "a4",
     header: context {
       show: pad.with(bottom: 1em)
       let paper-page-range = (
-        query(label(paper-id + ":start")).last().location().page(),
-        query(label(paper-id + ":end")).last().location().page(),
+        counter(page).at(query(label(paper-id + ":start")).last().location()).at(0),
+        counter(page).at(query(label(paper-id + ":end")).last().location()).at(0),
       )
-      let pagei = here().page()
+      let pagei = counter(page).get().at(0)
       let aligned-pagei = pagei + paper-page-range.at(0) + 1
       set text(size: 9pt)
       set align(get-align-by-page(aligned-pagei))
       if calc.rem-euclid(aligned-pagei, 2) == 0 {
         if authors.len() > 2 {
-          [#authors.at(0).short et al.]
+          [#empty-warn(authors.at(0).short) et al.]
         } else {
-          let names = authors.enumerate().map(((i, v)) => [#v.short])
+          let names = authors.enumerate().map(((i, v)) => [#empty-warn(v.short)])
           inline-enum(prefix-fn: none, ..names)
         }
         [ -- ]
-        text(style: "italic", title)
+        text(style: "italic", empty-warn(title.replace("\n", " ")))
       } else {
         let month-year = datetime(
           year: book.year,
@@ -210,17 +245,17 @@
       }
     },
     footer: context {
-      let pagei = here().page()
+      let pagei = counter(page).get().at(0)
       set text(size: 10pt)
       set align(get-align-by-page(pagei))
-      here().page()
+      pagei
     },
     margin: (
       x: 0.65in,
       y: 1in,
     ),
   )
-  set text(font: "Liberation Serif", fallback: false)
+  set text(font: ("Liberation Serif", "Segoe UI Symbol"), fallback: false)
   // set text(font: "Times New Roman", fallback: false)
   set bibliography(
     style: "ieee",
@@ -238,6 +273,8 @@
   //? Table
   show figure.where(kind: table): set figure(placement: top, supplement: [Table])
   set table(align: left)
+  // set enum(indent: 2em)
+  // set list(indent: 2em)
   show table: set enum(indent: 0pt)
   show table: set list(indent: 0pt)
   show table: set par(justify: false)
@@ -255,13 +292,7 @@
     let el = it.element
     if el != none and el.func() == eq {
       // Override equation references.
-      link(
-        el.location(),
-        numbering(
-          el.numbering,
-          ..counter(eq).at(el.location()),
-        ),
-      )
+      link(el.location(), numbering(el.numbering, ..counter(eq).at(el.location())))
     } else {
       // Other references as usual.
       it
@@ -276,7 +307,7 @@
     set align(center)
     set text(size: 16pt, weight: "bold")
     // show: upper
-    title
+    empty-warn(title)
     phantom(heading(title, bookmarked: true))
   }
 
@@ -284,7 +315,9 @@
   {
     set align(center)
     set text(size: 12pt, weight: "bold")
-    let names = authors.enumerate().map(((i, v)) => [#v.name #super[#{ i + 1 }#if corresponding-ref == i [,\*])]])
+    let names = authors
+      .enumerate()
+      .map(((i, v)) => box[#empty-warn(v.name) #super[#{ i + 1 }#if corresponding-ref == i [,\*])]])
 
     inline-enum(prefix-fn: none, ..names)
   }
@@ -301,11 +334,17 @@
           ..v,
           _index: i,
         ))
-        .filter(v => v.institution-ref == i-institution)
+        .filter(v => if type(v.institution-ref) == array {
+          v.institution-ref.contains(i-institution)
+        } else {
+          v.institution-ref == i-institution
+        })
         .map(v => v._index + 1)
 
       [
-        #super[#inline-enum(last-join: none, prefix-fn: none, ..author-indices.map(v => [#v])))] #institution.name \
+        #super[#inline-enum(last-join: none, prefix-fn: none, ..author-indices.map(v => [#v])))] #empty-warn(
+          institution.name,
+        ) \
         #institution.address
 
       ]
@@ -316,7 +355,16 @@
   {
     set align(center)
     set text(size: 10pt)
-    let emails = authors.enumerate().map(((i, v)) => [#v.email#super[#{ i + 1 })]])
+    let emails = authors
+      .enumerate()
+      .map(
+        //
+        ((i, v)) => box(if type(v.email) == array {
+          v.email.map(v => [#empty-warn(v)#super[#{ i + 1 })]]).join([, ])
+        } else [
+          #empty-warn(v.email)#super[#{ i + 1 })]
+        ]),
+      )
 
     [E-mail: ]
     inline-enum(prefix-fn: none, ..emails)
@@ -339,11 +387,8 @@
       // weight: "regular",
       // style: "italic",
     )
-    set par(
-      justify: true,
-      first-line-indent: (amount: 2em, all: true),
-    )
-    abstract
+    set par(justify: true, first-line-indent: (amount: 2em, all: true))
+    empty-warn(abstract)
   }
 
   //? Keywords
@@ -355,35 +400,28 @@
     )
     set par(justify: true)
     [*Keywords:* ]
-    inline-enum(
-      prefix-fn: none,
-      last-join: none,
-      ..keywords,
-    )
+    inline-enum(prefix-fn: none, last-join: none, ..keywords.map(v => empty-warn(v)))
   }
 
   line(length: 100%)
   v(.5em)
 
   //? Numberings
-  set heading(
-    outlined: false,
-    numbering: (num1, ..nums) => {
-      let l = nums.pos().len()
-      // numbering("1.1.1.", num1, ..nums)
-      if l == 0 {
-        numbering("1.", num1)
-        // h(10pt)
-      } else if l == 1 {
-        numbering("1.1.", num1, ..nums)
-        // h(7pt)
-      } else if l == 2 {
-        numbering("A.", ..nums.pos().slice(1), ..nums.named())
-      } else {
-        panic("Unhandled heading 4 or more.")
-      }
-    },
-  )
+  set heading(outlined: false, numbering: (num1, ..nums) => {
+    let l = nums.pos().len()
+    // numbering("1.1.1.", num1, ..nums)
+    if l == 0 {
+      numbering("1.", num1)
+      // h(10pt)
+    } else if l == 1 {
+      numbering("1.1.", num1, ..nums)
+      // h(7pt)
+    } else if l == 2 {
+      numbering("A.", ..nums.pos().slice(1), ..nums.named())
+    } else {
+      panic("Unhandled heading 4 or more.")
+    }
+  })
   // set enum(numbering: "1)")
   //? Heading 1
   show heading.where(level: 1): it => {
@@ -416,7 +454,7 @@
     if (
       type(d) == datetime
     ) [
-      #meta.received.display("[month repr:long]") #nths(meta.received.day()), #meta.received.display("[year]")] else [
+      #d.display("[month repr:long]") #nths(d.day()), #d.display("[year]")] else [
       #d]
   }
   //? Metadata Footnote
@@ -432,18 +470,15 @@
 
       #pad(y: -.65em, line(length: 100%))
 
-      DOI: #meta.doi \
-      © #datetime.today().display("[year]") JUTI: JURNAL ILMIAH TEKNOLOGI INFORMASI. All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+      Available online: #format-date(meta.online). \
+      © #datetime.today().display("[year]") The Authors. This is an open access article under the CC BY-SA license (#link-b("https://creativecommons.org/licenses/by-sa/4.0/")[])\ DOI: #meta.doi
     ],
     placement: bottom,
     supplement: none,
     kind: "footnote-metadata",
   )
 
-  set par(
-    justify: true,
-    first-line-indent: (amount: 2em, all: true),
-  )
+  set par(justify: true, first-line-indent: (amount: 2em, all: true))
   set text(size: 11pt, weight: "regular")
 
   body
@@ -453,6 +488,7 @@
     heading(numbering: none, outlined: false)[References]
 
     set text(size: 8pt)
+    set par(spacing: .65em)
     bib
   }
   //? END OF CONTENT
