@@ -4,10 +4,10 @@ A template for minimalistic invoice for freelancers based in Germany. Fork of [t
 
 ## Quick Start
 
-No installation needed: open [typst.app](https://typst.app), create a new project, and add `#import "@preview/german-invoice:0.1.0": invoice` at the top of your document.
+No installation needed: open [typst.app](https://typst.app), create a new project, and add `#import "@preview/german-invoice:0.2.0": invoice` at the top of your document.
 
 ```typ
-#import "@preview/german-invoice:0.1.0": invoice
+#import "@preview/german-invoice:0.2.0": invoice
 
 #show: invoice(
   // Invoice number
@@ -59,8 +59,6 @@ No installation needed: open [typst.app](https://typst.app), create a new projec
 )
 ```
 
-![](./template/example.png)
-
 ## Local Compilation
 
 To compile the template locally, use the Typst CLI:
@@ -104,7 +102,7 @@ The template will:
 - Show EUR equivalent amount based on ECB exchange rate
 - Generate EPC QR code with EUR amount (SEPA standard requires EUR)
 
-![](thumbnail.png)
+![example invoice in USD with FX conversion](thumbnail.png)
 
 ## Scope
 
