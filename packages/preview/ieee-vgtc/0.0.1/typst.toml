@@ -10,6 +10,7 @@ description = "Templates for IEEE VGTC conferences and TVCG journal papers."
 keywords = ["Institute of Electrical and Electronics Engineers", "IEEE", "Transactions on Visualization and Computer Graphics", "TVCG", "Visualization and Graphics Technical Community", "VGTC", "Computer Science", "Visualization"]
 categories = ["paper"]
 disciplines = ["computer-science"]
+exclude = ["preview.pdf"]
 
 [template]
 path = "template"
