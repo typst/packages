@@ -298,7 +298,7 @@
   // }
   show table: set enum(indent: 0em)
   show table: set list(indent: 0em)
-  show table: set par(justify: false)
+  show table: set par(justify: false, first-line-indent: 0em)
   show table.header: set text(weight: "bold")
   set table(stroke: none)
   show figure.where(kind: table): set text(size: .8em)
