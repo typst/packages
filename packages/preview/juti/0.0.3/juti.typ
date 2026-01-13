@@ -147,6 +147,7 @@
 
 #let template(
   title: "Preparation of Papers for JUTI (JURNAL ILMIAH TEKNOLOGI INFORMASI)",
+  title-content: [],
   authors: (
     (
       name: "First Alpha Author",
@@ -205,6 +206,11 @@
   counter(figure.where(kind: raw)).update(0)
   if start-page != none {
     counter(page).update(start-page)
+  }
+  let title-content = if title-content == none or title-content == [] {
+    [#title]
+  } else {
+    title-content
   }
   set page(
     paper: "a4",
@@ -328,8 +334,8 @@
     set align(center)
     set text(size: 16pt, weight: "bold")
     // show: upper
-    empty-warn(title)
-    phantom(heading(title, bookmarked: true))
+    empty-warn(title-content)
+    phantom(heading(title-content, bookmarked: true))
   }
 
   //? Author names
@@ -421,7 +427,9 @@
     )
     set par(justify: true)
     [*Keywords:* ]
-    inline-enum(prefix-fn: none, last-join: none, ..keywords.map(v => empty-warn(v)))
+    [
+      #inline-enum(prefix-fn: none, last-join: none, ..keywords.map(v => empty-warn(v))).
+    ]
   }
 
   line(length: 100%)
@@ -438,9 +446,11 @@
       numbering("1.1.", num1, ..nums)
       // h(7pt)
     } else if l == 2 {
-      numbering("A.", ..nums.pos().slice(1), ..nums.named())
+      numbering("1.1.1.", num1, ..nums)
+    } else if l == 3 {
+      numbering("A.", ..nums.pos().slice(2), ..nums.named())
     } else {
-      panic("Unhandled heading 4 or more.")
+      panic("Unhandled heading 5 or more.")
     }
   })
   // set enum(numbering: "1)")
@@ -463,6 +473,15 @@
   }
   //? Heading 3
   show heading.where(level: 3): it => {
+    set text(
+      size: 11pt,
+      weight: "regular",
+      style: "italic",
+    )
+    it
+  }
+  //? Heading 4
+  show heading.where(level: 4): it => {
     set text(
       size: 11pt,
       weight: "regular",
