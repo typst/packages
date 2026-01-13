@@ -61,14 +61,14 @@
   seal-line-supplement: "弥封线内不得答题",
   doc,
 ) = {
-  assert(mode in (HANDOUTS, EXAM, SOLUTION), message: "mode must be HANDOUTS or EXAM or SOLUTION")
-  assert(type(font) == array and type(heading-font) == array, message: "font must be an array, got " + str(type(font)))
+  assert(mode in (HANDOUTS, EXAM, SOLUTION), message: "mode expected HANDOUTS 、 EXAM 、 SOLUTION")
+  assert(type(font) == array and type(heading-font) == array, message: "font must be an array")
   mode-state.update(mode)
   paper = a4 + paper
   let _footer(label) = context {
     assert(
       type(label) in (str, function, none) or label == auto,
-      message: "expected str, function, none, auto, found " + str(type(label)),
+      message: "page-numbering expected str, function, none, auto, found " + str(type(label)),
     )
     if label == none { return }
     let _label = label
