@@ -234,6 +234,7 @@
 /// - /w/ (labiovelar) appears in both bilabial and velar columns when /ɰ/ is not present; otherwise only bilabial
 /// - Affricates appear in a separate row when affricates: true (displayed without tie bars)
 /// - Aspirated consonants appear in separate rows when aspirated: true (e.g., "Plosive (aspirated)")
+/// - Both aspirated consonants and affricates must be wrapped with curly brackets: {p \\h} will produce an aspirated p, and {ts} will produce a voiceless alveolar affricate
 /// - Diacritics and non-consonant symbols are ignored during plotting
 ///
 /// Available languages: all, english, spanish, french, german, italian,
