@@ -17,7 +17,7 @@
   box(image("style/action-icons/free.svg", height: 1em))
 )
 
-#let boxTop(info) = [
+#let box-top(info) = [
   #text(size: 1.3em, weight: "extrabold")[#align(center)[#info\ ]]
 ]
 
@@ -39,8 +39,7 @@
   #v(1em)
 ]]
 
-#let chapHeader(chapNum, title, desc) = [
-  #v(1em)
+#let chap-header(chapNum, title, desc) = [
   #set text(fill: colors.pfgreen)
   #place(
     top + center,
@@ -83,14 +82,13 @@
   ]
 ]
 
-#let readAloud(content) = [
+#let aloud(content) = [
   #v(1em)
   #line(stroke: 1pt + colors.pfbrown, length: 100%)
   #text(fill: colors.pfbrown)[#content]
   #line(stroke: 1pt + colors.pfbrown, length: 100%)]
 
-#let statbox(stats) = [
-  #v(1em)
+#let statblock(stats) = [
     #set par(spacing: .6em, first-line-indent: 0em) // hanging-indent: 1em)
     #let creature_header(body) = {
       box(
@@ -126,11 +124,14 @@
       )[#text(weight: "semibold", size: .8em, fill: white)[#upper[#trait]]]
     ]
     
-    _ #stats.description _
+    #if stats.description != "" [
+      _ #stats.description _
+    ]
 
-    #for (word, detail) in stats.details {
-      par(hanging-indent: 1em)[#text(weight: "extrabold")[#word] #detail\ ]
+    #if stats.details != [] {
+      for (detail) in stats.details [#detail \ ]
     }
+
     #box[
     #for (stat, value) in stats.stats {
       let sign = if value > -1 {
@@ -141,14 +142,14 @@
       text[*#stat* #sign#value, ]
     }]
 
-    #if stats.other != [] {
-    for (name, value) in stats.other {
-      text[*#name* #value \ ]}
+    #if stats.abilitiesTop != [] {
+      for (name) in stats.abilitiesTop {par(hanging-indent: 1em)[#name \ ]}
     }
-    #if stats.extra != none {
-    for (thing, description) in stats.extra {
-      par(hanging-indent: 1em)[#text(weight: "extrabold")[#thing] #description\ ]}
+
+    #if stats.abilitiesMid != [] {
+      for (description) in stats.abilitiesMid {par(hanging-indent: 1em)[#description \ ]}
     }
+
     #line(stroke: 1pt, length: 100%)
     #box[
     #for (stat, value) in stats.defense {
@@ -167,13 +168,13 @@
     #par(hanging-indent: 1em)[#text(weight: "extrabold")[HP] #stats.hp\ ]
     #for trait in stats.traits {
     par(hanging-indent: 1em)[
-       _*#trait.at(0)*_ #trait.at(1) \ ]
+    #trait \ ]
     }
 
     #line(stroke: 1pt, length: 100%)
     #for action in stats.actions {
     par(hanging-indent: 1em)[
-       _*#action.at(0)*_ #action.at(1) \ ]
+    #action \ ]
     }
 ]
 
@@ -296,4 +297,46 @@
     #comp.trigger
     #line(stroke: 1pt, length: 100%)
     #comp.effect
+]
+
+#let location(loc) = [
+  #v(1em)
+    #set par(spacing: .6em, first-line-indent: 0em) // hanging-indent: 1em)
+    #set text(size: 10pt) 
+    #let creature_header(body) = {
+      box(
+        text(weight: "extrabold", size: 1.4em, stretch: 50%)[#upper(loc.name)]
+      )
+      h(1fr)
+      sym.wj
+      box(text(weight: "extrabold",size: 1.4em, stretch: 50%)[#body])
+    }
+    #creature_header[#loc.type]
+    #line(stroke: 1pt, length: 100%)
+    #for trait in (loc.trait) [
+    #let style = if trait == "tiny" or trait == "small" or trait == "medium" or trait == "large" {
+        rgb("#3a7a58") // Size Green
+      } else if trait == "uncommon" {
+          orange
+      } else if trait == "rare" {
+          navy
+      } else if trait == "unique" {
+          rgb("#871F78") // Dark Purple
+      } else {
+      colors.pfmaroon
+    }
+    #box(
+        fill: style,
+      stroke: (
+        left: colors.pfyellow + 2pt,
+        right: colors.pfyellow + 2pt,
+        top: colors.pfyellow + 1pt,
+        bottom: colors.pfyellow + 1pt,
+      ),
+        inset: 4pt
+      )[#text(weight: "semibold", size: .8em, fill: white)[#upper[#trait]]]
+    ]
+  #for detail in loc.details {
+    par(hanging-indent: 1em)[#detail\ ]
+  }
 ]
