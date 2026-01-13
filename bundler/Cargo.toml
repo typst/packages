@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2021"
 publish = false
 
+[dev-dependencies]
+tempfile = "3.8"
+
 [dependencies]
 typst-syntax = { git = "https://github.com/typst/typst", rev = "3c22902" }
 anyhow = "1"
