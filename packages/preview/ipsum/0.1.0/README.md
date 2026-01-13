@@ -1,6 +1,6 @@
 # Ipsum
 
-Ipsum is a package which provides blind text generation through different modes such as natural writing, dialogue patterns, geometric structures and mathematical sequences in multiple paragraphs rather than a single block.
+Ipsum is a package which extends blind text generation through different modes such as natural writing, dialogue patterns, geometric structures and mathematical sequences in multiple paragraphs rather than a single block.
 
 ## Usage
 
@@ -8,10 +8,10 @@ Ipsum is a package which provides blind text generation through different modes 
 #import "@preview/ipsum:0.1.0": *
 
 // Standard "human" patterns (default with 5 paragraphs)
-#ipsum(/*args*/)
+#ipsum()
 ```
 
-View examples and minidoc [here](https://github.com/neuralpain/ipsum/tree/main/examples).
+View examples and minidoc [here](https://github.com/neuralpain/ipsum/tree/v0.1.0/examples).
 
 ## Ipsum Parameters
 
@@ -50,8 +50,6 @@ Text generation is available in the following modes
 
 The default mode. Simulates the flow of human writing. It randomly alternates between standard, long, and short paragraphs.
 
-<!-- Best for: Articles, blog posts, essays. -->
-
 | Parameter | Default | Description                                    |
 | --------- | :-----: | ---------------------------------------------- |
 | `average` |  `60`   | The baseline word count per paragraph.         |
@@ -70,8 +68,6 @@ The default mode. Simulates the flow of human writing. It randomly alternates be
 #### Dialogue Scene (`mode: "dialogue"`)
 
 Generates a mix of narrative prose and spoken dialogue enclosed in quotation marks. Can be used for testing how book pages, interviews or conversations may look.
-
-<!-- Best for: Typesetting fiction, testing distinct paragraph styles. -->
 
 | Parameter  | Default | Description                                       |
 | ---------- | :-----: | ------------------------------------------------- |
@@ -92,8 +88,6 @@ Generates a mix of narrative prose and spoken dialogue enclosed in quotation mar
 
 Generates paragraphs that decay in length geometrically. Starts with a big paragraph and gets smaller and smaller. Great for testing visual flow.
 
-<!-- Best for: Introductions, newsletter openers, marketing copy. -->
-
 | Parameter | Default | Description                                 |
 | --------- | :-----: | ------------------------------------------- |
 | `start`   |  `100`  | The word count of the *first* paragraph.    |
@@ -102,17 +96,15 @@ Generates paragraphs that decay in length geometrically. Starts with a big parag
 **Example:**
 
 ```typ
-// I want to start with a long 80-word block and have each
-// of the 4 paragraphs shrink by 40% (ratio: 0.6) compared
-// to the one before it.
+// I want to start with an 80-word paragraph and have the
+// the other 3 paragraphs shrink by 40% (ratio: 0.6) in
+// relation to the one before it.
 #ipsum(mode: "fade", start: 80, pars: 4, ratio: 0.6)
 ```
 
 #### Logarithmic Growth (`mode: "grow"`)
 
 The opposite of a fade. Starts with a short sentence and slowly builds up into longer, denser blocks of text.
-
-<!-- Best for: Technical documentation, dramatic build-ups. -->
 
 | Parameter | Default | Description                        |
 | --------- | :-----: | ---------------------------------- |
@@ -130,8 +122,6 @@ The opposite of a fade. Starts with a short sentence and slowly builds up into l
 #### Geometric Fit (`mode: "fit"`)
 
 Copywriting. Specify exactly how many words you need in total (e.g., 200 words), and it will be divided up across your paragraphs. Useful for areas with a hard word limit or limited space and want to see how text looks broken up.
-
-<!-- Best for: Magazine layouts, fixed-height sidebars. -->
 
 | Parameter | Default | Description                                                       |
 | --------- | :-----: | ----------------------------------------------------------------- |
@@ -167,8 +157,8 @@ Generates paragraph lengths corresponding to the Fibonacci sequence (`1, 1, 2, 3
 
 The following guardrails are implemented to keep the Typst compiler working responsively:
 
-* Word Threshold: Warns you if you try to generate more than 100,000 words.
-* Paragraph Threshold: Warns you if you exceed 50 paragraphs.
+* Word Threshold: Issues a warning you if you attempt to generate more than 100,000 words.
+* Paragraph Threshold: Issues a warning if you attempt to generate more than 50 paragraphs.
 * Fibonacci Limits: Prevents generating more than 25 steps (as Fibonacci numbers grow exponentially and put stress on the system).
 
 Use `ignore-warnings: true` and `ignore-limits: true` to disable guardrails [accordingly](#global-parameters).
