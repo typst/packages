@@ -144,6 +144,8 @@
   authors
 }
 
+#let enumlist-level = state("enumlist-level", 1)
+
 #let template(
   title: "Preparation of Papers for JUTI (JURNAL ILMIAH TEKNOLOGI INFORMASI)",
   authors: (
@@ -273,10 +275,29 @@
   //? Table
   show figure.where(kind: table): set figure(placement: top, supplement: [Table])
   set table(align: left)
-  // set enum(indent: 2em)
-  // set list(indent: 2em)
-  show table: set enum(indent: 0pt)
-  show table: set list(indent: 0pt)
+  // TODO: Still not fixed
+  // show enum.item: it => {
+  //   enumlist-level.update(l => l + 1)
+  //   it
+  //   enumlist-level.update(l => l - 1)
+  // }
+  set enum(indent: 1em)
+  // show enum: it => context {
+  //   set enum(indent: 0em) if enumlist-level.get() > 0
+  //   it
+  // }
+  // show list.item: it => {
+  //   enumlist-level.update(l => l + 1)
+  //   it
+  //   enumlist-level.update(l => l - 1)
+  // }
+  set list(indent: 1em)
+  // show list: it => context {
+  //   set list(indent: 0em) if enumlist-level.get() > 0
+  //   it
+  // }
+  show table: set enum(indent: 0em)
+  show table: set list(indent: 0em)
   show table: set par(justify: false)
   show table.header: set text(weight: "bold")
   set table(stroke: none)
