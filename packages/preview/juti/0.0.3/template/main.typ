@@ -1,4 +1,6 @@
-#import "@preview/juti:0.0.3"
+// #import "@preview/juti:0.0.3"
+#import "../juti.typ"
+#import "setup.typ": *
 
 #let authors = juti.init-authors((
   (
@@ -47,6 +49,7 @@
     [keyword4],
   ),
   bib: bibliography("references.bib"),
+  ..setup,
 )
 
 = Introduction
