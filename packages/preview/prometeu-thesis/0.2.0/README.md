@@ -26,7 +26,7 @@ Create a new project by selecting "Start from template" and searching for this p
 
 To work locally, first [install Typst](https://typst.app/open-source/), then initialize your project with:
 ```
-typst init @preview/prometeu-thesis:0.1.0
+typst init @preview/prometeu-thesis:0.2.0
 ```
 
 Make the required fonts available by either installing them system-wide (use `typst fonts` to verify detection) or by placing them in a folder of your choice (e.g., `./fonts`) and referencing it via your Typst LSP settings or use the CLI option `--font-path <folder>`.
@@ -54,3 +54,4 @@ By default, the template includes only the required School of Engineering logos 
 This template is provided under the [MIT License](./LICENSE).
 
 The official logos located in [template/logos/uminho](./template/logos/uminho) are the property of Universidade do Minho. They are not covered by the [LICENSE](./LICENSE) included with this template and remain under the copyright of the university.
+
