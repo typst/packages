@@ -61,7 +61,7 @@
   seal-line-supplement: "弥封线内不得答题",
   doc,
 ) = {
-  assert(mode in (HANDOUTS, EXAM, SOLUTION), message: "mode expected HANDOUTS 、 EXAM 、 SOLUTION")
+  assert(mode in (HANDOUTS, EXAM, SOLUTION), message: "mode expected HANDOUTS, EXAM, SOLUTION")
   assert(type(font) == array and type(heading-font) == array, message: "font must be an array")
   mode-state.update(mode)
   paper = a4 + paper
