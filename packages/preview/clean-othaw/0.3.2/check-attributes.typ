@@ -156,7 +156,7 @@
       if ("company" in author) {
         panic("Company of '" + author.name + "' is not allowed. Remove the 'company' object from the author.")
       }
-
+      city = university-location
       if (type(city) != str or city == "") {
         panic("City is invalid. Specify a string containing a city in the 'city' attribute.")
       }
