@@ -39,7 +39,7 @@
   #v(1em)
 ]]
 
-#let chap-header(chapNum, title, desc) = [
+#let chap-header(num, title, desc) = [
   #set text(fill: colors.pfgreen)
   #place(
     top + center,
@@ -53,7 +53,7 @@
         rest: none,
       ),
       outset: (x: 100%, y: 13pt),
-      text(weight: "extrabold")[#text(1.4em)[#upper(chapNum)] \ #text(1.6em)[#upper(title)] \ #text(1.2em, style: "italic")[#desc]])
+      text(weight: "extrabold")[#text(1.4em)[#upper(num)] \ #text(1.6em)[#upper(title)] \ #text(1.2em, style: "italic")[#desc]])
     #v(1em)
   ]
 ]
