@@ -37,8 +37,8 @@ Customize the global document settings.
     y: 1.5cm,
   ),
   font: "Calibri",
-  font_size: 11pt,
-  link_style: (
+  font-size: 11pt,
+  link-style: (
     underline: true,
     color: black,
   )
@@ -55,7 +55,7 @@ Add your name and contact details in the header.
    ("mailto:" + email, email),
    (github, "github.com/wallflower24"),
    (linkedin, "linkedin.com/in/charlie-kelmeckis"),
-   (personal_site, "wallflower.me"),
+   (personal-site, "wallflower.me"),
   )
 )
 ```
@@ -98,8 +98,8 @@ Add project entries with the technologies used, demo or code links, and detailed
 #project(
   name: "CodeCollab",
   technologies: ("React", "Node.js", "WebSocket", "MongoDB"),
-  liveUrl: "https://codecollab-demo.com",
-  repoUrl: "https://github.com/wallflower24/codecollab",
+  live-url: "https://codecollab-demo.com",
+  repo-url: "https://github.com/wallflower24/codecollab",
   details: [
     - Real-time collaborative code editor with syntax highlighting and live cursor tracking
     - Supports 10+ programming languages with integrated code execution sandbox
