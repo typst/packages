@@ -1,5 +1,5 @@
 // Exemple d'utilisation du Position Helper
-#import "src/lib.typ": ph
+#import "@preview/coordy:0.1.0": ph
 
 // Syntaxe simplifiée !
 #show: ph("ddddddddddzzzzzzzzzz")
