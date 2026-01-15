@@ -76,4 +76,4 @@ Over design may cause inconvenience rather than the opposite.
 
 ## Examples
 
-**2.6.** For more examples, check this [GitHub Repo](https://github.com/itpyi/typst-ega-numbering/tree/main/examples)
+**2.6.** For more examples, check this [GitHub Repo](https://github.com/itpyi/typst-ega-numbering/tree/main/examples).
