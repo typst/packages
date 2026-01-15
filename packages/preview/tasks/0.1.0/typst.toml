@@ -1,0 +1,13 @@
+[package]
+name = "tasks"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nathan"]
+license = "MIT"
+description = "Horizontal columned lists for exercises and tasks, similar to LaTeX's tasks package"
+repository = "https://github.com/nathan-ed/tasks"
+keywords = ["tasks", "exercises", "list", "columns", "horizontal", "layout", "education"]
+categories = ["layout", "utility"]
+disciplines = ["mathematics", "education"]
+compiler = "0.11.0"
+exclude = ["gallery/*", "*.pdf"]
