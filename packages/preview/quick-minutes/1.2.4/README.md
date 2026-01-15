@@ -69,10 +69,10 @@ With Quick Minutes you can record any meeting event by just typing it out. No fu
 || hole-mark | Draws a mark for the alignment of a hole punch | `true` | `bool`
 || separator-lines | Draws lines next to the titles | `true` | `bool`
 || margin | Sets the margin of the document | `(left: 4cm, right: 2cm, top: 3cm, bottom: 6cm)` | `dictionary`
-|| font_size | The font size of the body text | `10pt` | `length`,
-|| font_size_title | The font size of the titles. Based on the body text font size ( x 1.2) | `auto` | `length`,
-|| font_size_time | The font size of the timestamps. Based on the body text font size ( x 1) | `auto` | `length`,
-|| font_size_line_number | The font size of the line numbers. Based on the body text font size ( x 0.8) | `auto` | `length`,
+|| font-size | The font size of the body text | `10pt` | `length`,
+|| font-size-title | The font size of the titles. Based on the body text font size ( x 1.2) | `auto` | `length`,
+|| font-size-time | The font size of the timestamps. Based on the body text font size ( x 1) | `auto` | `length`,
+|| font-size-line-number | The font size of the line numbers. Based on the body text font size ( x 0.8) | `auto` | `length`,
 || signing | Do people have to sign this document? | `true` | `bool`
 || title-page | Should the actual protocol start after a `pagebreak`? | `false` | `bool`
 || number-present | Should the number of people present be shown? | `false` | `bool`
