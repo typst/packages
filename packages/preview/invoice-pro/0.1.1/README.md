@@ -215,54 +215,6 @@ Renders a block containing the bank details and an optional EPC-QR-Code (GiroCod
 )
 ```
 
-## 🛠️ Development
-
-This project uses **Nix** to provide a reproducible, sandboxed development environment. You do not need to install Typst, linters, or formatters globally—the flake provides everything.
-
-### Quick Start
-
-1. **Enter the environment:**
-
-```bash
-nix develop
-# or if you use direnv:
-direnv allow
-```
-
-This activates a shell containing `typst`, `typstyle`, `markdownlint`, and `prettier`.
-
-2. **Automatic Package Linking:**
-   The environment automatically links the current directory to a sandboxed local package registry (inside `.typst-data`). You can import the package in your test files immediately without manual installation:
-
-```typst
-// Use the @local namespace for development
-#import "@preview/invoice-pro:0.1.1": *
-```
-
-3. **Quality Control (Pre-commit):**
-   Git hooks are automatically configured to run before every commit. They ensure:
-
-- **Formatting:** `.typ` files are formatted with `typstyle`, and `.md` files with `prettier`.
-- **Linting:** Structure is checked with `markdownlint`.
-- **Hygiene:** Trailing whitespace and Nix formatting are enforced.
-  To run these checks manually:
-
-```bash
-pre-commit run --all-files
-```
-
-## 🗺️ Roadmap
-
-I am actively working on improving this template. Here is what's planned for future releases:
-
-- [ ] **Refactored API:** Moving away from global states to a more robust, scoped API (inspired by CeTZ) for better stability and flexibility.
-- [ ] **Internationalization (i18n):** Built-in support for English and other languages (currently creates German invoices by default).
-- [ ] **Theming Engine:** Allow easy customization of accent colors and fonts to match corporate identities.
-- [ ] **Data Loading:** Helper functions to load invoice items directly from JSON, CSV, or YAML files.
-- [ ] **ZUGFeRD Support:** (Long-term goal) Embedding XML data for fully compliant e-invoicing.
-
-Have an idea? Feel free to open an issue or pull request!
-
 ## Dependencies
 
 This template relies on these amazing packages:
