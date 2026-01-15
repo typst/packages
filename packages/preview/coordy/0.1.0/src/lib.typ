@@ -1,4 +1,4 @@
-// Position Helper - Package Typst pour faciliter le positionnement d'éléments
+// Coordy - Package Typst pour faciliter le positionnement d'éléments
 // Auteur: E-Paroxysme
 // Licence: MIT
 
