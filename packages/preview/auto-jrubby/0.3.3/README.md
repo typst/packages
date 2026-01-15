@@ -18,7 +18,7 @@ It leverages a Rust-based WASM plugin to tokenize text using [Lindera](https://g
 
 To automatically add readings to Japanese text:
 ```typst
-#import "@preview/auto-jrubby:0.3.2": *
+#import "@preview/auto-jrubby:0.3.3": *
 #set text(font: "Hiragino Sans", lang: "ja")
 
 #let sample = "東京スカイツリーの最寄り駅はとうきょうスカイツリー駅です"
@@ -31,7 +31,7 @@ To automatically add readings to Japanese text:
 
 To debug or display the linguistic structure of the text:
 ```typst
-#import "@preview/auto-jrubby:0.3.2": *
+#import "@preview/auto-jrubby:0.3.3": *
 #set text(font: "Hiragino Sans", lang: "ja")
 
 #let sample = "東京スカイツリーの最寄り駅はとうきょうスカイツリー駅です"
