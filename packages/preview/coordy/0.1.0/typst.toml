@@ -1,0 +1,12 @@
+[package]
+name = "coordy"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["E-Paroxysme"]
+license = "MIT"
+description = "Un outil interactif pour faciliter le positionnement d'éléments dans Typst"
+repository = "https://github.com/E-Paroxysme/Typst_Visual"
+keywords = ["positioning", "helper", "interactive", "annotation", "place", "coordinates"]
+categories = ["utility"]
+compiler = "0.11.0"
+exclude = ["example.typ", "README.md", "LICENSE"]
