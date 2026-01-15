@@ -9,4 +9,4 @@ repository = "https://github.com/E-Paroxysme/Typst_Visual"
 keywords = ["positioning", "helper", "interactive", "annotation", "place", "coordinates"]
 categories = ["utility"]
 compiler = "0.11.0"
-exclude = ["example.typ", "README.md", "LICENSE"]
+exclude = ["example.typ"]
