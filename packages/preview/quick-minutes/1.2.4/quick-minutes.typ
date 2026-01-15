@@ -255,7 +255,7 @@
           column-gutter: timestamp-margin,
           align(right)[
             #v(0.05em)
-            #text(if (font_size_time == auto) { font_size } else { font_size_time }, weight: "regular")[
+            #text(if (font-size-time == auto) { font-size } else { font-size-time }, weight: "regular")[
               #if (type(time) == content) [
                 #time
               ] else [
@@ -882,7 +882,7 @@
   )
 
   set text(
-    font_size,
+    font-size,
     lang: locale,
   )
 
@@ -897,7 +897,7 @@
     },
   )
   show heading: set text(
-    if (font_size_title == auto) { font_size * 1.3 } else { font_size_title },
+    if (font-size-title == auto) { font-size * 1.3 } else { font-size-title },
   )
   show heading: it => {
     let text = if (it.body.has("children")) {
@@ -1188,7 +1188,7 @@
         line-numbering != none and calc.rem(x, line-numbering) == 0
       ) {
         text(
-          if (font_size_line_number == auto) { font_size * 0.8 } else { font_size_line_number },
+          if (font-size-line-number == auto) { font-size * 0.8 } else { font-size-line-number },
         )[#x]
       }
     },
