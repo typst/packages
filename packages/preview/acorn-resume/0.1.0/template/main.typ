@@ -1,4 +1,4 @@
-#import "@preview/acorn-resume:0.1.0":*
+#import "@preview/acorn-resume:0.1.0": *
 
 #let name = "Charlie Kelmeckis"
 #let email = "wallflower24@example.com"
