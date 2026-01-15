@@ -28,9 +28,9 @@ Last commit date: #(git-format-date(info.date))
 
 ## API
 
-- `git-branch(git_dir: ".git") -> str | none`
-- `git-head-hash(git_dir: ".git") -> str | none`
-- `git-last-commit(git_dir: ".git") -> (branch, hash, message, date)`
+- `git-branch(git-dir: ".git") -> str | none`
+- `git-head-hash(git-dir: ".git") -> str | none`
+- `git-last-commit(git-dir: ".git") -> (branch, hash, message, date)`
 - `git-format-date(date) -> str | none`
 
 ## Notes

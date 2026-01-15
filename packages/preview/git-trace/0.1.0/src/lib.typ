@@ -28,25 +28,25 @@
   }
 }
 
-#let _git-head(git_dir: ".git") = read(git_dir + "/HEAD").trim()
+#let _git-head(git-dir: ".git") = read(git-dir + "/HEAD").trim()
 
-#let _git-reflog-last(git_dir: ".git") = {
-  let lines = read(git_dir + "/logs/HEAD").split("\n")
+#let _git-reflog-last(git-dir: ".git") = {
+  let lines = read(git-dir + "/logs/HEAD").split("\n")
   lines.filter(line => line.trim() != "").last(default: none)
 }
 
-#let git-head-ref(git_dir: ".git") = {
-  let head = _git-head(git_dir: git_dir)
+#let git-head-ref(git-dir: ".git") = {
+  let head = _git-head(git-dir: git-dir)
   if head.starts-with("ref: ") { head.replace("ref: ", "") } else { none }
 }
 
-#let git-branch(git_dir: ".git") = {
-  let ref = git-head-ref(git_dir: git_dir)
+#let git-branch(git-dir: ".git") = {
+  let ref = git-head-ref(git-dir: git-dir)
   if ref == none { none } else { ref.split("/").last(default: none) }
 }
 
-#let git-head-hash(git_dir: ".git") = {
-  let line = _git-reflog-last(git_dir: git_dir)
+#let git-head-hash(git-dir: ".git") = {
+  let line = _git-reflog-last(git-dir: git-dir)
   if line == none { none } else {
     let left = _at(line.split("\t"), 0, default: "")
     let parts = left.split(" ")
@@ -54,10 +54,10 @@
   }
 }
 
-#let git-last-commit(git_dir: ".git") = {
-  let line = _git-reflog-last(git_dir: git_dir)
+#let git-last-commit(git-dir: ".git") = {
+  let line = _git-reflog-last(git-dir: git-dir)
   if line == none { (branch: none, hash: none, message: none, date: none) } else {
-    let branch = git-branch(git_dir: git_dir)
+    let branch = git-branch(git-dir: git-dir)
     let chunks = line.split("\t")
     let left = _at(chunks, 0, default: "")
     let message = _clean-reflog-message(_at(chunks, 1, default: none))
