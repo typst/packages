@@ -70,3 +70,4 @@ typst compile --root . tests/custom_theme.typ
 ## License
 
 MIT
+

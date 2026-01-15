@@ -13,7 +13,7 @@ A Typst package to easily add Traffic Light Protocol (TLP) markings to your docu
 Import the package:
 
 ```typst
-#import "@preview/tlp:0.1.2"
+#import "@preview/ampelmark:0.1.2"
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ Import the package:
 To mark the header and footer of every page (as required by standard for TLP documents):
 
 ```typst
-#import "@preview/tlp:0.1.2"
+#import "@preview/ampelmark:0.1.2"
 
 // Set the whole document to TLP:AMBER
 #show: tlp-setup.with("amber")
