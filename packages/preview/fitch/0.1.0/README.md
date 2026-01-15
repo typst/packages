@@ -7,7 +7,7 @@
 Import the package in your Typst document:
 
 ```typst
-#import "@preview/fitch:0.1.0: *"
+#import "@preview/fitch:0.1.0": *
 ```
 
 Then, you can create proofs using the `proof` environment:
