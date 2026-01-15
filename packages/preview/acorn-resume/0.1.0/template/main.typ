@@ -4,7 +4,7 @@
 #let email = "wallflower24@example.com"
 #let github = "https://github.com/wallflower24"
 #let linkedin = "https://www.linkedin.com/in/charlie-kelmeckis"
-#let personal_site = "https://wallflower.me"
+#let personal-site = "https://wallflower.me"
 
 #show: resume.with(
   author: name,
@@ -13,8 +13,8 @@
     y: 1.5cm,
   ),
   font: "Calibri",
-  font_size: 11pt,
-  link_style: (
+  font-size: 11pt,
+  link-style: (
     underline: true,
     color: black,
   )
@@ -26,7 +26,7 @@
    ("mailto:" + email, email),
    (github, "github.com/wallflower24"),
    (linkedin, "linkedin.com/in/charlie-kelmeckis"),
-   (personal_site, "wallflower.me"),
+   (personal-site, "wallflower.me"),
   )
 )
 
@@ -93,8 +93,8 @@
 #project(
   name: "CodeCollab",
   technologies: ("React", "Node.js", "WebSocket", "MongoDB"),
-  liveUrl: "https://codecollab-demo.com",
-  repoUrl: "https://github.com/wallflower24/codecollab",
+  live-url: "https://codecollab-demo.com",
+  repo-url: "https://github.com/wallflower24/codecollab",
   details: [
     - Real-time collaborative code editor with syntax highlighting and live cursor tracking
     - Supports 10+ programming languages with integrated code execution sandbox
@@ -105,7 +105,7 @@
 #project(
   name: "ML Pipeline Optimizer",
   technologies: ("Python", "TensorFlow", "Docker", "Kubernetes"),
-  repoUrl: "https://github.com/wallflower24/ml-optimizer",
+  repo-url: "https://github.com/wallflower24/ml-optimizer",
   details: [
     - Automated hyperparameter tuning framework reducing model training time by 45%
     - Containerized deployment pipeline supporting distributed training across GPU clusters

@@ -1,8 +1,8 @@
 #let resume(
   author: none,
   font: "Calibri",
-  font_size: 11pt,
-  link_style: (
+  font-size: 11pt,
+  link-style: (
     color: black,
     underline: true
   ),
@@ -20,7 +20,7 @@
 
   set text(
     font: font,
-    size: font_size,
+    size: font-size,
     hyphenate: false,
     ligatures: false
   )
@@ -31,10 +31,10 @@
 
   show link: it => {
     set text(
-      fill: link_style.color
+      fill: link-style.color
     )
 
-    if link_style.underline {
+    if link-style.underline {
       underline(it, offset: 3pt)
     } else {
       it
@@ -67,7 +67,7 @@
   ]
 )
 
-#let section_header(title, date, subtitle, location: none) = grid(
+#let section-header(title, date, subtitle, location: none) = grid(
   columns: (1fr, auto),
   gutter: 8pt, [*#title*],
   align(right, date),
@@ -75,12 +75,12 @@
   align(right, location)
 )
 
-#let padding_top = 0.15em
+#let padding-top = 0.15em
 
 #let exp(role: none, date: none, organization: none, location: none, details: none) = {
   pad(
-    top: padding_top,
-    section_header(role, date, organization, location: location),
+    top: padding-top,
+    section-header(role, date, organization, location: location),
   )
   details
 }
@@ -93,22 +93,22 @@
   ]
 
   pad(
-    top: padding_top,
-    section_header(degree, date, subtitle, location: location)
+    top: padding-top,
+    section-header(degree, date, subtitle, location: location)
   )
 }
 
-#let project(name: none, technologies: none, liveUrl: none, repoUrl: none, details: none) = {
+#let project(name: none, technologies: none, live-url: none, repo-url: none, details: none) = {
   let links = ()
-  if liveUrl != none {
-    links.push(link(liveUrl)[*Live*])
+  if live-url != none {
+    links.push(link(live-url)[*Live*])
   }
-  if repoUrl != none {
-    links.push(link(repoUrl)[*GitHub*])
+  if repo-url != none {
+    links.push(link(repo-url)[*GitHub*])
   }
 
   pad(
-    top: padding_top,
+    top: padding-top,
     grid(columns: (1fr, auto),
     [
       *#name* | #technologies.map(it => emph(it)).join(", ")
