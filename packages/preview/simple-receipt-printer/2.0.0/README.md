@@ -22,7 +22,7 @@ To write a regular document
 Funny how it goes, isn't it?
 ```
 
-![](examples/receipt.png)
+![Sample receipt](examples/receipt.png)
 
 
 Or print a recipe, like so:
@@ -45,10 +45,10 @@ Or print a recipe, like so:
 = Steps
 
 1. Beat the eggs, season them with salt and pepper.
-2. Heat oil and butter in a pan over medium heat.
+2. Heat the oil in a pan over medium heat.
 3. Pour the eggs into a pan, let cook until slightly solid.
 
 
 ```
 
-![](examples/recipe.png)
+![Sample recipe for omelette](examples/recipe.png)
