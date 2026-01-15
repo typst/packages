@@ -2,6 +2,9 @@
 // Similar to LaTeX's tasks package
 // Items flow horizontally (left-to-right) across columns
 
+// Import itemize package for enhanced enum/list features
+#import "@preview/itemize:0.2.0" as el
+
 // =============================================================================
 // Configuration State
 // =============================================================================
@@ -13,11 +16,15 @@
   row-gutter: 0.6em,
   label-width: auto,            // auto or fixed width
   label-align: right,
+  label-baseline: "center",     // "center", "top", "bottom", or length/auto
   indent-after-label: 0.4em,
   indent: 0pt,                  // left indentation of entire block
   above: 0.5em,                 // space before block
   below: 0.5em,                 // space after block
   flow: "horizontal",           // "horizontal" (a b | c d) or "vertical" (a c | b d)
+  // Itemize integration options
+  use-itemize-styling: false,   // Enable itemize styling features
+  itemize-config: none,         // Pass-through config for itemize
 ))
 
 // Global counter for resuming
@@ -34,11 +41,14 @@
   row-gutter: none,
   label-width: none,
   label-align: none,
+  label-baseline: none,
   indent-after-label: none,
   indent: none,
   above: none,
   below: none,
   flow: none,
+  use-itemize-styling: none,
+  itemize-config: none,
 ) = {
   tasks-config.update(cfg => {
     let new = cfg
@@ -48,14 +58,24 @@
     if row-gutter != none { new.row-gutter = row-gutter }
     if label-width != none { new.label-width = label-width }
     if label-align != none { new.label-align = label-align }
+    if label-baseline != none { new.label-baseline = label-baseline }
     if indent-after-label != none { new.indent-after-label = indent-after-label }
     if indent != none { new.indent = indent }
     if above != none { new.above = above }
     if below != none { new.below = below }
     if flow != none { new.flow = flow }
+    if use-itemize-styling != none { new.use-itemize-styling = use-itemize-styling }
+    if itemize-config != none { new.itemize-config = itemize-config }
     new
   })
 }
+
+// =============================================================================
+// Itemize Integration
+// =============================================================================
+
+// Re-export itemize module for direct access to itemize features
+#let itemize = el
 
 // =============================================================================
 // Label Formatting
@@ -116,6 +136,7 @@
   row-gut,
   lbl-width,
   lbl-align,
+  lbl-baseline,
   indent-after,
   indent,
   above-spacing,
@@ -163,13 +184,41 @@
       if item-idx < num-items {
         let num = start-num + item-idx
         let label = format-label(num, fmt)
+        let item-content = task-items.at(item-idx)
 
-        grid-content.push(
-          align(lbl-align + top)[#text(weight: "regular")[#label]]
-        )
-        grid-content.push(
-          align(left + top)[#task-items.at(item-idx)]
-        )
+        // Calculate baseline offset like itemize does
+        // Measure label height and sample text height
+        let label-height = measure(text(weight: "regular")[#label]).height
+        let text-height = measure[A].height  // Sample character for first line height
+
+        let baseline-offset = if lbl-baseline == "center" {
+          // Center label relative to first line of text
+          (label-height - text-height) * 0.5
+        } else if lbl-baseline == "top" {
+          // Align to top
+          0pt
+        } else if lbl-baseline == "bottom" {
+          // Align label bottom with text baseline
+          label-height - text-height
+        } else if type(lbl-baseline) in (length, relative) {
+          // Custom offset
+          lbl-baseline
+        } else {
+          // Default: no offset
+          0pt
+        }
+
+        // Apply baseline adjustment with top alignment (works for multiline)
+        let label-cell = align(lbl-align + top)[#v(baseline-offset)#text(weight: "regular")[#label]]
+
+        // Apply vector baseline adjustment to content
+        let content-cell = align(left + top)[
+          #show math.vec: it => box(baseline: 30%, it)
+          #item-content
+        ]
+
+        grid-content.push(label-cell)
+        grid-content.push(content-cell)
       } else {
         grid-content.push([])
         grid-content.push([])
@@ -226,11 +275,15 @@
   row-gutter: auto,
   label-width: auto,
   label-align: auto,
+  label-baseline: auto,
   indent-after-label: auto,
   indent: auto,
   above: auto,
   below: auto,
   flow: auto,
+  // Itemize integration parameters
+  use-itemize-styling: auto,
+  itemize-config: auto,
   body,
 ) = context {
   let cfg = tasks-config.get()
@@ -242,11 +295,14 @@
   let row-gut = if row-gutter == auto { cfg.row-gutter } else { row-gutter }
   let lbl-width = if label-width == auto { cfg.label-width } else { label-width }
   let lbl-align = if label-align == auto { cfg.label-align } else { label-align }
+  let lbl-baseline = if label-baseline == auto { cfg.label-baseline } else { label-baseline }
   let indent-after = if indent-after-label == auto { cfg.indent-after-label } else { indent-after-label }
   let blk-indent = if indent == auto { cfg.indent } else { indent }
   let above-spacing = if above == auto { cfg.above } else { above }
   let below-spacing = if below == auto { cfg.below } else { below }
   let flow-dir = if flow == auto { cfg.flow } else { flow }
+  let use-itemize = if use-itemize-styling == auto { cfg.use-itemize-styling } else { use-itemize-styling }
+  let itemize-cfg = if itemize-config == auto { cfg.itemize-config } else { itemize-config }
 
   // Extract items from the body content
   let task-items = ()
@@ -292,7 +348,7 @@
   if task-items.len() > 0 {
     render-tasks-grid(
       task-items, cols, fmt, col-gut, row-gut,
-      lbl-width, lbl-align, indent-after,
+      lbl-width, lbl-align, lbl-baseline, indent-after,
       blk-indent, above-spacing, below-spacing,
       flow-dir, start-num,
     )

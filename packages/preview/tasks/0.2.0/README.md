@@ -26,7 +26,7 @@ Click on an image to see the source code.
 ## Quick Start
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks
+#import "@preview/tasks:0.2.0": tasks
 
 #tasks[
   + First item
@@ -41,7 +41,7 @@ Click on an image to see the source code.
 ### Simple Two-Column Layout
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks
+#import "@preview/tasks:0.2.0": tasks
 
 #tasks[
   + $2 + 3 = ?$
@@ -54,7 +54,7 @@ Click on an image to see the source code.
 ### Three-Column Layout
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks
+#import "@preview/tasks:0.2.0": tasks
 
 #tasks(columns: 3)[
   + Option A
@@ -69,7 +69,7 @@ Click on an image to see the source code.
 ### Shorthand Functions
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks2, tasks3, tasks4
+#import "@preview/tasks:0.2.0": tasks2, tasks3, tasks4
 
 // Two columns
 #tasks2[
@@ -98,7 +98,7 @@ Click on an image to see the source code.
 ### Built-in Formats
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks
+#import "@preview/tasks:0.2.0": tasks
 
 // Lowercase letters with parenthesis (default)
 #tasks(label: "a)")[+ One  + Two  + Three]
@@ -131,7 +131,7 @@ Click on an image to see the source code.
 ### Custom Label Function
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks
+#import "@preview/tasks:0.2.0": tasks
 
 // Custom emoji labels
 #tasks(label: n => "Q" + str(n) + ":")[
@@ -148,7 +148,7 @@ Click on an image to see the source code.
 Items fill rows first: `a b | c d | e f`
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks
+#import "@preview/tasks:0.2.0": tasks
 
 #tasks(columns: 2, flow: "horizontal")[
   + a
@@ -169,7 +169,7 @@ Items fill rows first: `a b | c d | e f`
 Items fill columns first: `a c e | b d f`
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks
+#import "@preview/tasks:0.2.0": tasks
 
 #tasks(columns: 2, flow: "vertical")[
   + a
@@ -188,7 +188,7 @@ Items fill columns first: `a c e | b d f`
 ## Resuming Numbering
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks, tasks-reset
+#import "@preview/tasks:0.2.0": tasks, tasks-reset
 
 #tasks[
   + First
@@ -217,7 +217,7 @@ Some text between task blocks...
 ## Starting from a Specific Number
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks
+#import "@preview/tasks:0.2.0": tasks
 
 #tasks(start: 5)[
   + This is item 5
@@ -231,7 +231,7 @@ Some text between task blocks...
 Set defaults for all tasks in your document:
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks, tasks-setup
+#import "@preview/tasks:0.2.0": tasks, tasks-setup
 
 // Configure global defaults
 #tasks-setup(
@@ -255,6 +255,54 @@ Set defaults for all tasks in your document:
 ]
 ```
 
+## Advanced Features
+
+### Label Baseline Alignment
+
+Control the vertical alignment of labels relative to content:
+
+```typst
+#import "@preview/tasks:0.2.0": tasks
+
+// Center alignment (default)
+#tasks(label-baseline: "center")[
+  + Short item
+  + Multi-line item\
+    with more text
+]
+
+// Top alignment
+#tasks(label-baseline: "top")[
+  + Item aligned at top
+  + Another item
+]
+
+// Bottom alignment
+#tasks(label-baseline: "bottom")[
+  + Item aligned at bottom
+  + Another item
+]
+```
+
+### Itemize Integration
+
+The tasks package now integrates with the [itemize](https://typst.app/universe/package/itemize) package for enhanced styling capabilities:
+
+```typst
+#import "@preview/tasks:0.2.0": tasks
+
+// Enable itemize styling features
+#tasks(use-itemize-styling: true)[
+  + Item with enhanced styling
+  + Another styled item
+]
+
+// Access itemize module directly
+#import "@preview/tasks:0.2.0": itemize
+
+// Use itemize features alongside tasks
+```
+
 ## Parameters Reference
 
 ### `tasks` Function
@@ -275,6 +323,9 @@ Set defaults for all tasks in your document:
 | `above` | length | 0.5em | Space before block |
 | `below` | length | 0.5em | Space after block |
 | `flow` | string | `"horizontal"` | Flow direction: `"horizontal"` or `"vertical"` |
+| `label-baseline` | string/length | `"center"` | Label vertical alignment: `"center"`, `"top"`, `"bottom"`, or length |
+| `use-itemize-styling` | bool | false | Enable itemize package styling features |
+| `itemize-config` | dict | none | Pass-through configuration for itemize package |
 
 ### Label Format Options
 
@@ -300,7 +351,7 @@ Set defaults for all tasks in your document:
 ### Math Exercise Sheet
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks
+#import "@preview/tasks:0.2.0": tasks
 
 = Algebra Practice
 
@@ -326,7 +377,7 @@ Solve for $x$:
 ### Multiple Choice Questions
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks
+#import "@preview/tasks:0.2.0": tasks
 
 *Question 1:* What is the capital of France?
 
@@ -350,7 +401,7 @@ Solve for $x$:
 ### Vocabulary List
 
 ```typst
-#import "@preview/tasks:0.1.0": tasks
+#import "@preview/tasks:0.2.0": tasks
 
 = French Vocabulary
 
@@ -364,6 +415,70 @@ Solve for $x$:
 ]
 ```
 
+## Comparison with Other List Packages
+
+### When to use tasks
+
+**tasks** is specifically designed for **horizontal columned layouts** where items flow left-to-right across multiple columns, perfect for exercises, multiple-choice questions, and compact lists. Choose tasks when you need:
+
+- **Horizontal flow layout** - Items arranged in rows across columns (a b | c d | e f)
+- **Compact exercise sheets** - Mathematical exercises, vocabulary lists, multiple-choice questions
+- **Flexible column control** - Easy 2, 3, 4+ column layouts with shorthand functions
+- **Resume numbering** - Continue numbering across multiple task blocks
+- **LaTeX tasks compatibility** - Familiar syntax for users migrating from LaTeX's tasks package
+
+### Comparison with itemize
+
+**[itemize](https://typst.app/universe/package/itemize)** is an excellent, feature-rich package for **vertical list styling** with advanced customization capabilities. Use itemize when you need:
+
+- **Vertical lists** with advanced styling (colors, custom markers, spacing)
+- **Nested lists** with sophisticated formatting
+- **Rich marker customization** (emojis, custom content, per-item markers)
+- **Advanced typography** control over list appearance
+- **Complex list hierarchies** with fine-grained control
+
+**Integration:** The tasks package integrates with itemize to combine the best of both worlds - use tasks for horizontal columned layouts while leveraging itemize's powerful styling features through the `use-itemize-styling` parameter.
+
+**In summary**: Use tasks for horizontal multi-column layouts (exercises, quizzes, compact lists), and use itemize for feature-rich vertical lists with advanced styling. Or combine them for horizontally arranged items with enhanced styling!
+
+## Dependencies
+
+- [itemize](https://typst.app/universe/package/itemize) (v0.2.0+) - Required for enhanced styling features
+
 ## License
 
 MIT License - see LICENSE file for details.
+
+## Changelog
+
+All notable changes to tasks are documented here.
+
+### [0.2.0] - 2026-01-15
+
+#### Added
+- `label-baseline` parameter for controlling vertical alignment of labels (`"center"`, `"top"`, `"bottom"`, or custom length)
+- Integration with [itemize](https://typst.app/universe/package/itemize) package for enhanced styling capabilities
+- `use-itemize-styling` parameter to enable itemize styling features
+- `itemize-config` parameter for pass-through configuration to itemize
+- Re-exported `itemize` module for direct access to itemize features
+- Advanced Features section in documentation with examples
+
+#### Changed
+- Repository URL updated to GitLab: `https://gitlab.com/nathan-ed/typst-package-tasks`
+- Description enhanced to mention "Horizontal and vertical" flow directions
+
+#### Dependencies
+- Added dependency on [itemize](https://typst.app/universe/package/itemize) v0.2.0 for enhanced styling features
+
+### [0.1.0] - 2026-01-14
+
+#### Added
+- Initial release with horizontal columned list layout
+- Flexible column counts (2, 3, 4, or custom)
+- Multiple label formats (alphabetic, numeric, roman, bullets, custom)
+- Resume numbering across multiple task blocks
+- Two flow directions: horizontal (a b | c d) and vertical (a c | b d)
+- Global configuration system with `tasks-setup()`
+- Shorthand functions `tasks2`, `tasks3`, `tasks4`
+- Comprehensive parameter customization
+- Full documentation with examples and parameter reference
