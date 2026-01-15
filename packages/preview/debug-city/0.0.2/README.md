@@ -1,4 +1,4 @@
-# typst-debug-cite
+# typst-debug-city
 
 When adding an atypical bibliography entry, it can be challenging to predict what its type and properties end up in the citation style (CSL).
 
@@ -7,7 +7,7 @@ To help you with it, this package provides a `debug-cite` function to show what 
 ## Usage
 
 ```typst
-#import "@preview/debug-cite:0.0.2": debug-cite
+#import "@preview/debug-city:0.0.2": debug-cite
 
 #debug-cite(<key>)
 
@@ -20,7 +20,7 @@ To help you with it, this package provides a `debug-cite` function to show what 
 ````typst
 #set page(height: auto, width: 300pt, margin: 15pt)
 
-#import "@preview/debug-cite:0.0.2": debug-cite
+#import "@preview/debug-city:0.0.2": debug-cite
 
 #debug-cite(<key>)
 
@@ -154,7 +154,7 @@ csl[CSL style] --> output
 
 `(@_@)`
 
-> The above behaviour was tested in 2025-10. The code can be found at [`uncertain.typ`](https://github.com/YDX-2147483647/typst-debug-cite/blob/main/tests/uncertain.typ).
+> The above behaviour was tested in 2025-10. The code can be found at [`uncertain.typ`](https://github.com/YDX-2147483647/typst-debug-city/blob/main/tests/uncertain.typ).
 
 ## Links
 

@@ -63,7 +63,7 @@
   <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0">
     <info>
       <title>debug-cite</title>
-      <id>https://typst.app/universe/package/debug-cite</id>
+      <id>https://typst.app/universe/package/debug-city</id>
     </info>
     <macro name="debug">
       <group prefix="{ " suffix=" }">
