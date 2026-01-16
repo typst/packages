@@ -50,15 +50,7 @@
   ),
 )
 
-// Get translation for a key
-#let get-translation(key, lang: "es") = {
-  if key in language-translations.at(lang, default: (:)) {
-    language-translations.at(lang).at(key)
-  } else {
-    key
-  }
-}
-
+// Translation map available for consumers; internal helpers must use it directly.
 // Generic color-box for mathematical environments
 #let color-box(title: "", color: black, body) = {
   block(
