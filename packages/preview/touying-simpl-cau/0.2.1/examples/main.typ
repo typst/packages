@@ -1,7 +1,7 @@
 #import "@preview/cetz:0.4.2"
 #import "@preview/fletcher:0.5.8" as fletcher: node, edge
 #import "@preview/touying:0.6.1": *
-#import "../lib.typ": * // i.e. "@preview/touying-simpl-cau:<latest>"
+#import "@preview/touying-simpl-cau:0.2.1"
 
 // cetz and fletcher bindings for touying
 #let cetz-canvas = touying-reducer.with(reduce: cetz.canvas, cover: cetz.draw.hide.with(bounds: true))
