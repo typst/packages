@@ -10,13 +10,13 @@ _Scientia vincere tenebras_
 
 ## LUMEN: ULB PhD Thesis Front Cover
 
-This is an unofficial standard front cover for a doctoral thesis submitted at the Université libre de Bruxelles.
+This is an unofficial template of the official standard front cover for a doctoral thesis submitted at the Université libre de Bruxelles.
 You can use this template to create a personalized cover that you can insert anywhere in your document.
 
 ## Usage
 
 + It appears that the official template uses the Times New Roman font. The IBM Plex Serif/Sans and Libertinus Serif/Sans fonts are elegant, free alternatives.
-+ Replace the images by uploading your faculty and fund logos, then modify the paths for the `logo` and `fund-logo` parameters of the `#show` function.
++ Replace the images by uploading your faculty and funding logos, then modify the paths for the `logo` and `fund-logo` parameters of the `#cover` function.
 + The following parameters can be disabled by replacing the parameter value with `none`: `subtitle`, `co-supervisor`, `lab`, `jury1` (removes all jury fields) and `fund-logo`.
 
 <table>
@@ -106,7 +106,7 @@ You can use this template to create a personalized cover that you can insert any
 
 ## Configuration
 
-This template exports the `cover` function with the following named arguments:
+This template exports the `#cover` function with the following named arguments:
 
 | Argument | Description |
 | --- | --- |
@@ -149,5 +149,5 @@ This template exports the `cover` function with the following named arguments:
 
 [<img src="./img/codeberg-link.png" title="codeberg-link" width="200">](https://codeberg.org/mononym/typst-ulb-phd-cover)
 
-+ Feel free to improve the template by providing feedback or making a direct contribution to this repository.
++ Feel free to improve the template by providing feedback or by making a direct contribution to this repository.
 + We also welcome help in the form of uploaded logos to adapt this template for other faculties.
