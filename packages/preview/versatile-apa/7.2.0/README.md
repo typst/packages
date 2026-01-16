@@ -58,7 +58,7 @@ If the user wants to contribute support for more languages, they can contribute 
 In the cases where the language is not supported in the template, you can either make a PR or file an issue in the repository, so it can be added and updated in the next template version. Otherwise you can use the `custom-terms` parameter, which expects a dictionary mapping English terms to their translations. For example for Japanese, the expected format is:
 
 ```typ
-#let custom-terms: (
+#let custom-terms = (
   "and": "と",
   "Author Note": "著者注",
   "Abstract": "要旨",
