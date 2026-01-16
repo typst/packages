@@ -11,7 +11,10 @@
 
   heading(level: 1, get-terms(text.lang, text.script).Abstract, outlined: false)
 
-  par(first-line-indent: 0in, body)
+  {
+    set par(first-line-indent: 0in)
+    body
+  }
 
   if keywords == none and document.keywords == () {
     pagebreak(weak: true)
