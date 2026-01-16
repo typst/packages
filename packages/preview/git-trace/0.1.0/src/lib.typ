@@ -28,25 +28,33 @@
   }
 }
 
-#let _git-head(git-dir: ".git") = read(git-dir + "/HEAD").trim()
+#let _git-head(git-dir: ".git", read) = read(git-dir + "/HEAD").trim()
 
-#let _git-reflog-last(git-dir: ".git") = {
+#let _git-reflog-last(git-dir: ".git", read) = {
   let lines = read(git-dir + "/logs/HEAD").split("\n")
   lines.filter(line => line.trim() != "").last(default: none)
 }
 
-#let git-head-ref(git-dir: ".git") = {
-  let head = _git-head(git-dir: git-dir)
+#let _require-read(read) = {
+  assert(read != none, message: "read is required; pass read: path => read(path)")
+  read
+}
+
+#let git-head-ref(git-dir: ".git", read: none) = {
+  let read = _require-read(read)
+  let head = _git-head(git-dir: git-dir, read: read)
   if head.starts-with("ref: ") { head.replace("ref: ", "") } else { none }
 }
 
-#let git-branch(git-dir: ".git") = {
-  let ref = git-head-ref(git-dir: git-dir)
+#let git-branch(git-dir: ".git", read: none) = {
+  let read = _require-read(read)
+  let ref = git-head-ref(git-dir: git-dir, read: read)
   if ref == none { none } else { ref.split("/").last(default: none) }
 }
 
-#let git-head-hash(git-dir: ".git") = {
-  let line = _git-reflog-last(git-dir: git-dir)
+#let git-head-hash(git-dir: ".git", read: none) = {
+  let read = _require-read(read)
+  let line = _git-reflog-last(git-dir: git-dir, read: read)
   if line == none { none } else {
     let left = _at(line.split("\t"), 0, default: "")
     let parts = left.split(" ")
@@ -54,10 +62,11 @@
   }
 }
 
-#let git-last-commit(git-dir: ".git") = {
-  let line = _git-reflog-last(git-dir: git-dir)
+#let git-last-commit(git-dir: ".git", read: none) = {
+  let read = _require-read(read)
+  let line = _git-reflog-last(git-dir: git-dir, read: read)
   if line == none { (branch: none, hash: none, message: none, date: none) } else {
-    let branch = git-branch(git-dir: git-dir)
+    let branch = git-branch(git-dir: git-dir, read: read)
     let chunks = line.split("\t")
     let left = _at(chunks, 0, default: "")
     let message = _clean-reflog-message(_at(chunks, 1, default: none))
