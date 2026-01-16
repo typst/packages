@@ -71,7 +71,7 @@ In the cases where the language is not supported in the template, you can either
 This is also useful for overriding specific terms in supported languages. Such as:
 
 ```typ
-#let custom-terms: (
+#let custom-terms = (
   "and": "&",
   "Appendix": "Anexo",
 )
