@@ -90,11 +90,11 @@ Initialize Loom once with a unique project key and export the specific tools you
 #let recipe(name, body) = motif(
   measure: (ctx, children-data) => {
     let total = children-data.map(c => c.signal.price).sum()
-    ( (price: total), (price: total) )
+    ( none, (price: total) )
   },
   draw: (ctx, public, view, body) => {
     block(stroke: 1pt + black, inset: 1em)[
-      *#name* (Total: $#view.price)
+      *#name* (Total: \$#view.price)
       #body
     ]
   },
