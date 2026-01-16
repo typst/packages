@@ -72,8 +72,8 @@ Optional:
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
   the LICENSE, see [what to exclude]. Globs provided here have the same semantics
   as lines in a [gitignore file](https://git-scm.com/docs/gitignore). They are
-  applied _recursively_ throughout the entire project directory. Prepend a
-  forward slash (e.g., `/assets*/`) to avoid recursivity.
+  applied _recursively_ throughout the project directory. Prepend a forward
+  slash (e.g., `/assets*/`) to avoid recursive matching.
 
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
