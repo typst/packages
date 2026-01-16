@@ -29,7 +29,7 @@ If you want, you can make it large as well or use different color specifications
 Find the source of this project at #bsicon("github") #link("https://github.com/davzim/bootstrapicons")
 ```
 
-Which will generate this [PDF](https://github.com/davzim/bootstrapicons/examples/mwe.pdf).
+Which will generate this [PDF](https://github.com/DavZim/bootstrapicons/blob/740fc8923f809a4e4edf8c7836abf6bf568b832a/examples/mwe.pdf).
 
 ![Screenshot of the PDF with icons](examples/mwe_screenshot.png)
 
