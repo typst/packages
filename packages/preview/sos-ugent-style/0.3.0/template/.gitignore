@@ -1,0 +1,6 @@
+# This is to kickstart version control on you document. Even if you know how
+# use git, you should look into using Jujutsu. And even if your not familiar
+# with version control, I encourage you to try it:
+# https://jj-for-everyone.github.io/
+
+*.pdf
