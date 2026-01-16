@@ -35,7 +35,7 @@
 // 样式配置
 // ================================
 
-#let config = (
+#let default-config = (
   // 字号设置
   text-size: font-size.n5,
   author-size: font-size.n5,
@@ -71,6 +71,8 @@
   table-header-stroke: 0.05em,
 )
 
+#let config-state = state("easy-paper-config", default-config)
+
 // ================================
 // 全局状态
 // ================================
@@ -93,8 +95,11 @@
 #let custom-block(
   title: none,
   color: rgb(245, 245, 245),
+  config: auto,
   it,
-) = {
+) = context {
+  let config = if config == auto { config-state.get() } else { config }
+
   set text(font: config.emph-font)
   set par(first-line-indent: (amount: config.indent, all: false))
   let body = if title != none {
@@ -114,16 +119,22 @@
 
 // 题目框
 #let problem-counter = counter("problem")
-#let problem = custom-block.with(
-  title: [
-    #problem-counter.step()
-    题目 #context problem-counter.display().
-  ],
-  color: config.problem-color,
-)
+#let problem(it) = context {
+  let config = config-state.get()
+  custom-block(
+    title: [
+      #problem-counter.step()
+      题目 #context problem-counter.display().
+    ],
+    color: config.problem-color,
+    config: config,
+    it,
+  )
+}
 
 // 解答框
-#let solution(it) = {
+#let solution(it) = context {
+  let config = config-state.get()
   set enum(numbering: "(1)")
   set par(first-line-indent: (amount: config.indent, all: false))
   let body = [*解答.*] + h(config.block-space) + it
@@ -136,13 +147,20 @@
 }
 
 // 总结框
-#let summary = custom-block.with(
-  title: [总结.],
-  color: config.summary-color,
-)
+#let summary(it) = context {
+  let config = config-state.get()
+  custom-block(
+    title: [总结.],
+    color: config.summary-color,
+    config: config,
+    it,
+  )
+}
 
 // 三线表格
-#let three-line-table(it) = {
+#let three-line-table(it, config: auto) = context {
+  let config = if config == auto { config-state.get() } else { config }
+
   if it.children.any(c => c.func() == table.hline) {
     return it
   }
@@ -170,7 +188,7 @@
   )
 }
 
-#let header-style(heading) = {
+#let header-style(heading, config) = {
   set text(font: config.header-font)
   let title = title-state.get()
   block(
@@ -185,16 +203,18 @@
 }
 
 #let prev-header = context {
+  let config = config-state.get()
   let headings = query(heading.where(level: 1).before(here()))
   if headings.len() == 0 {
     return
   }
   let level = counter(heading.where(level: 1)).display("一")
   let heading = level + h(config.small-space) + headings.last().body
-  header-style(heading)
+  header-style(heading, config)
 }
 
 #let next-header = context {
+  let config = config-state.get()
   let headings = query(heading.where(level: 1).after(here()))
   if headings.len() == 0 {
     return
@@ -202,7 +222,7 @@
   let count = counter(heading.where(level: 1)).get().first() + 1
   let level = numbering("一", count)
   let heading = level + h(config.small-space) + headings.first().body
-  header-style(heading)
+  header-style(heading, config)
 }
 
 // 标题
@@ -212,6 +232,7 @@
   date: none,
   abstract: none,
   keywords: (),
+  config: (:),
 ) = {
   set par(spacing: 1.2em, leading: 1.2em)
   // 主标题
@@ -264,10 +285,13 @@
   date: none,
   abstract: none,
   keywords: (),
+  config: (:),
   body,
 ) = {
+  let config = default-config + config
+  config-state.update(config)
   title-state.update(title)
-  show table: three-line-table
+  show table: three-line-table.with(config: config)
 
   // 文档设置
   set document(author: author, title: title, date: date, keywords: keywords)
@@ -395,6 +419,7 @@
     date: date,
     abstract: abstract,
     keywords: keywords,
+    config: config,
   )
 
   // 正文内容

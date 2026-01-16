@@ -13,8 +13,6 @@ A ready-to-use Typst template for Chinese papers.
 
 ## 快速开始
 
-### 从官方包导入
-
 ```typst
 #import "@preview/easy-paper:0.2.0": *
 
@@ -32,27 +30,6 @@ A ready-to-use Typst template for Chinese papers.
 或者直接使用 Typst-CLI 初始化：
 ```bash
 typst init @preview/easy-paper
-```
-
-### 本地导入
-
-
-得益于单文件设计，你可以直接下载 lib.typ 文件并将其放置在项目根目录。这种方式特别适合以下场景：
-
-- **更新即时**：无需等待官方包库 (Package Registry) 同步，直接使用仓库最新代码。
-- **深度 DIY**：你可以直接修改本地的 lib.typ 源码，进行深度的自定义配置，满足更换字体等特定的排版需求。
-
-```bash
-# Linux / macOS
-curl -O https://raw.githubusercontent.com/Dawnfz-Lenfeng/easy-paper/refs/heads/master/lib.typ
-
-# Windows (CMD 或 PowerShell)
-curl.exe -O https://raw.githubusercontent.com/Dawnfz-Lenfeng/easy-paper/refs/heads/master/lib.typ
-```
-
-然后在你的 Typst 文件顶部导入模板：
-```typst
-#import "lib.typ": *
 ```
 
 ### 学术组件
@@ -125,24 +102,65 @@ $ frac(partial f, partial x) = pardiff(f, x) $
 
 Windows 大部分字体已内置，macOS/Linux 可能需要额外安装中文字体。
 
-如需使用其他字体，请修改模板中的字体配置。
+如需使用其他字体，请使用自定义配置覆盖默认字体设置。
 
 ### 自定义设置
 
-模板中提供了一些自定义设置，如字体、字号、段间距等。可根据需求自行修改 `lib.typ` 中 `config` 配置。
+模板支持通过 `project` 函数的 `config` 参数进行自定义配置，覆盖默认设置：
 
-| 配置项      | 默认值        | 说明         |
-| ----------- | ------------- | ------------ |
-| text-size   | 10.5pt (五号) | 正文字号     |
-| author-size | 10.5pt (五号) | 作者字号     |
-| title-size  | 18pt (二号)   | 标题字号     |
-| title1-size | 15pt (小三)   | 一级标题字号 |
-| title2-size | 14pt (四号)   | 二级标题字号 |
-| title3-size | 12pt (小四)   | 三级标题字号 |
-| spacing     | 1.5em         | 段间距       |
-| leading     | 1.0em         | 行间距       |
-| indent      | 2em           | 缩进         |
-| small-space | 0.75em        | 小间距       |
+```typst
+#show: project.with(
+  title: "我的文档",
+  author: "作者",
+  abstract: [摘要...],
+  keywords: ("关键词",),
+  // 在这里自定义配置，覆盖默认值
+  config: (
+    text-size: 12pt,
+    title-size: 20pt,
+    indent: 0em,
+    heading-font: ("My Font", "SimHei"),
+    // ...
+  ),
+)
+```
+
+可配置项如下表所示：
+
+| 配置项              | 默认值                   | 说明           |
+| :------------------ | :----------------------- | :------------- |
+| **字号设置**        |                          |                |
+| text-size           | 10.5pt (五号)            | 正文字号       |
+| author-size         | 10.5pt (五号)            | 作者字号       |
+| title-size          | 18pt (二号)              | 标题字号       |
+| title1-size         | 15pt (小三)              | 一级标题字号   |
+| title2-size         | 14pt (四号)              | 二级标题字号   |
+| title3-size         | 12pt (小四)              | 三级标题字号   |
+| **字体设置**        |                          |                |
+| title-font          | (Serif, Hei)             | 文档标题字体   |
+| author-font         | (Sans, Song)             | 作者列表字体   |
+| body-font           | (Serif, Song)            | 正文字体       |
+| heading-font        | (Serif, Zhongsong)       | 各级标题字体   |
+| caption-font        | (Serif, Kai)             | 图表标题字体   |
+| header-font         | (Serif, Kai)             | 页眉字体       |
+| strong-font         | (Serif, Hei)             | 加粗字体       |
+| emph-font           | (Serif, Kai)             | 强调字体       |
+| raw-font            | (Consolas, Hei)          | 代码字体       |
+| **间距设置**        |                          |                |
+| spacing             | 1.02em                   | 段间距         |
+| leading             | 1.02em                   | 行间距         |
+| indent              | 2em                      | 首行缩进       |
+| small-space         | 1em                      | 标题序号间距   |
+| block-space         | 0.75em                   | 块元素内部间距 |
+| **颜色设置**        |                          |                |
+| raw-color           | rgb("#f0f0f0")           | 代码块背景色   |
+| problem-color       | rgb(241, 241, 255)       | 题目框背景色   |
+| summary-color       | rgb(240, 248, 255)       | 总结框背景色   |
+| **其他设置**        |                          |                |
+| list-marker         | ([•], [◦], [▶])          | 无序列表标记   |
+| enum-numbering      | ("1.", "(1)", "①", "a.") | 有序列表编号   |
+| table-stroke        | 0.08em                   | 表格边框粗细   |
+| table-header-stroke | 0.05em                   | 表头边框粗细   |
 
 ## 效果展示
 
