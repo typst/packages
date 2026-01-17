@@ -2,13 +2,13 @@
 #import "@preview/showybox:2.0.4": showybox
 
 // Counters
-#let problemCounter = counter("problem")
-#let theoremCounter = counter("theorem")
-#let definitionCounter = counter("definition")
-#let lemmaCounter = counter("lemma")
-#let corollaryCounter = counter("corollary")
-#let exampleCounter = counter("example")
-#let algorithmCounter = counter("algorithm")
+#let problem-counter = counter("problem")
+#let theorem-counter = counter("theorem")
+#let definition-counter = counter("definition")
+#let lemma-counter = counter("lemma")
+#let corollary-counter = counter("corollary")
+#let example-counter = counter("example")
+#let algorithm-counter = counter("algorithm")
 
 // Global state for solution visibility
 #let show-solutions-state = state("show-solutions", true)
@@ -67,7 +67,7 @@
 
 // Base theorem-like box
 #let theorem-base(
-  counter,
+  ctr,
   prefix,
   title: none,
   numbered: true,
@@ -75,7 +75,7 @@
   fill: blue.lighten(95%),
   body
 ) = {
-  let number = if numbered { counter.step(); context(counter.display()) }
+  let number = if numbered { ctr.step(); context(ctr.display()) }
 
   block(
     width: 100%,
@@ -99,7 +99,7 @@
   ..body
 ) = {
   theorem-base(
-    theoremCounter,
+    theorem-counter,
     "Theorem",
     title: title,
     numbered: numbered,
@@ -117,7 +117,7 @@
   ..body
 ) = {
   theorem-base(
-    lemmaCounter,
+    lemma-counter,
     "Lemma",
     title: title,
     numbered: numbered,
@@ -135,7 +135,7 @@
   ..body
 ) = {
   theorem-base(
-    definitionCounter,
+    definition-counter,
     "Definition",
     title: title,
     numbered: numbered,
@@ -153,7 +153,7 @@
   ..body
 ) = {
   theorem-base(
-    corollaryCounter,
+    corollary-counter,
     "Corollary",
     title: title,
     numbered: numbered,
@@ -171,7 +171,7 @@
   ..body
 ) = {
   theorem-base(
-    exampleCounter,
+    example-counter,
     "Example",
     title: title,
     numbered: numbered,
@@ -208,7 +208,7 @@
   ..body
 ) = {
   if numbered {
-    [== Problem #problemCounter.step() #context {problemCounter.display()}]
+    [== Problem #problem-counter.step() #context {problem-counter.display()}]
   }
 
   showybox(

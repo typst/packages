@@ -4,13 +4,13 @@
 // Re-export common components
 #import "common.typ": (
   // Counters
-  problemCounter,
-  theoremCounter,
-  definitionCounter,
-  lemmaCounter,
-  corollaryCounter,
-  exampleCounter,
-  algorithmCounter,
+  problem-counter,
+  theorem-counter,
+  definition-counter,
+  lemma-counter,
+  corollary-counter,
+  example-counter,
+  algorithm-counter,
   // State
   show-solutions-state,
   // Layout
