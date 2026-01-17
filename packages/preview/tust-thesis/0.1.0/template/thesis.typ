@@ -542,7 +542,7 @@ def fibonacci(n: int) -> int:
   label-name: "lilaq-line-example",
 )
 
-#import "@preview/suiji:0.4.0"
+#import "@preview/suiji:0.5.1"
 #let rng = suiji.gen-rng(33)
 #let (rng, x) = suiji.uniform(rng, size: 20)
 #let (rng, y) = suiji.uniform(rng, size: 20)
