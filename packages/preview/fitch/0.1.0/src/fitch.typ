@@ -125,6 +125,8 @@
   start: 1,
   style: fitch-style-default,
 ) = {
+  style = fitch-style-default + style
+
   let premises = ()
   let body = ()
   for item in nodes.pos() {

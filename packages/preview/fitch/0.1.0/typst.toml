@@ -11,4 +11,4 @@ compiler = "0.14.0"
 keywords = ["fitch", "proof", "natural deduction"]
 categories = ["visualization", "utility"]
 disciplines = ["computer-science", "mathematics"]
-exclude = [".github", "docs", "tests", ".typstignore", "Justfile"]
+exclude = [".github", "docs", "scripts", "tests", ".typstignore", "Justfile"]
