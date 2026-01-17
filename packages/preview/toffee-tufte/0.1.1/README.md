@@ -5,7 +5,7 @@ By keeping the large right margin for sidenotes, but changing the design languag
 
 # Usage
 
-Refer to the [usage guide](https://codeberg.org/jianweicheong/toffee-tufte/src/branch/main/template/main.pdf) for more information.
+Refer to the [usage guide](https://codeberg.org/jianweicheong/toffee-tufte/src/tag/v0.1.1/template/main.pdf) for more information.
 
 ```typst
 #import "@preview/toffee-tufte:0.1.1": *
@@ -28,7 +28,7 @@ These are the 11 options and their default values:
 + `footer: bool | true`,
 + `header-content: none = none`,
 + `footer-content: none = none`,
-+ `bibfile: [bib] | array | none = none`,
++ `bib: [bib content] | none = none`,
 
 ## Full width mode
 

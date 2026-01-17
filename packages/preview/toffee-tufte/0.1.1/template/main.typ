@@ -32,7 +32,7 @@ This template aims to provide the practical advantages of the Tufte-inspired lay
 To use this template, simply import it and set the options with a `show` rule:
 
 ```typst
-#import "@preview/toffee-tufte:0.1.0": *
+#import "@preview/toffee-tufte:0.1.1": *
 #show: template.with(
   title: [This is a title],
   authors: "John Doe",
