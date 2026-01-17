@@ -1,9 +1,9 @@
 #import "@preview/simple-hust-report:0.1.0": pseudocode-list, report
 #show: report.with(
-  logo: none, //可选,校徽/校名图片路径,不填或none则默认为华科校名
+  logo: none, //可选,校徽/校名图片,用image包裹后传入,不填或none则默认为华科校名
   //image("/images/HUSTGreen.svg",width:55%)
   type: "课程实验报告", //校名下方的标题
-  course-name: ("课程名称", "人工智能导论"), //课程名称,必须以示例方式传参,可选,默认为none
+  course-name: ("课程名称", "人工智能导论"), //可选,课程名称,必须以("label","content")方式传参,默认为none,则为不显示该行
   title: ("实验题目", "基于CNN的动物识别系统"), //实验题目,同上
   class-name: "CS2410", //专业班级
   student-id: "U202488888", //学号

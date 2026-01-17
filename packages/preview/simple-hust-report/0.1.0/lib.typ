@@ -130,9 +130,9 @@
   )
 
   //页眉页脚定义
-  let my_header = context {
+  let my-header = context {
     set align(center)
-    text(size: 16pt, font: "KaiTi", fill: rgb(180, 0, 0), tracking: 0.5em)[#header_text]
+    text(size: 16pt, font: "KaiTi", fill: rgb(180, 0, 0), tracking: 0.5em)[#header-text]
     v(-0.65em)
     stack(
       spacing: 0.13em,
@@ -141,15 +141,15 @@
     )
   }
 
-  let my_footer = context {
-    let page_num = counter(page).display()
+  let my-footer = context {
+    let page-num = counter(page).display()
     set align(center)
     set text(size: 10.5pt)
     grid(
       columns: (1fr, auto, 1fr),
       gutter: 1em,
       align: horizon,
-      line(length: 100%, stroke: 0.5pt + black), page_num, line(length: 100%, stroke: 0.5pt + black),
+      line(length: 100%, stroke: 0.5pt + black), page-num, line(length: 100%, stroke: 0.5pt + black),
     )
   }
 
@@ -163,7 +163,7 @@
     footer: none,
   )
 
-  let info_line(key, value, size) = {
+  let info-line(key, value, size) = {
     set text(size: size)
     set align(center)
     block(width: 70%)[
@@ -182,7 +182,7 @@
     ]
   }
 
-  let info_line_title(key, value, size) = {
+  let info-line-title(key, value, size) = {
     set text(size: size)
     set align(center)
     block(width: 100%)[
@@ -216,21 +216,21 @@
 
   v(3fr)
   align(center)[
-    #if course_name != none {
-      info_line_title(course_name.at(0), course_name.at(1), 22pt)
+    #if course-name != none {
+      info-line-title(course-name.at(0), course-name.at(1), 22pt)
     }
     #if title != none {
-      info_line_title(title.at(0), title.at(1), 22pt)
+      info-line-title(title.at(0), title.at(1), 22pt)
     }
   ]
 
   v(5fr)
   align(center)[
-    #info_line([专业班级], class_name, 17pt)
-    #info_line([学#h(2em)号], student_id, 17pt)
-    #info_line([姓#h(2em)名], name, 17pt)
-    #info_line([指导教师], instructor, 17pt)
-    #info_line([日#h(2em)期], date, 17pt)
+    #info-line([专业班级], class-name, 17pt)
+    #info-line([学#h(2em)号], student-id, 17pt)
+    #info-line([姓#h(2em)名], name, 17pt)
+    #info-line([指导教师], instructor, 17pt)
+    #info-line([日#h(2em)期], date, 17pt)
   ]
   v(2fr)
   align(center)[#text(size: 17pt, font: "Fangsong", stroke: black + 0.05em)[#school]]
@@ -239,7 +239,7 @@
   pagebreak()
 
   //目录
-  set page(numbering: "I", header: my_header, footer: my_footer)
+  set page(numbering: "I", header: my-header, footer: my-footer)
   counter(page).update(1)
 
   show outline.entry: it => {
