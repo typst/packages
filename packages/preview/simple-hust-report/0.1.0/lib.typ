@@ -4,15 +4,15 @@
 #let report(
   logo: image("assets/HUSTGreen.svg", width: 55%),
   type: "课程实验报告",
-  course_name: "人工智能",
+  course-name: "人工智能",
   title: none,
-  class_name: "CS2410",
-  student_id: "U2024XXXXX",
+  class-name: "CS2410",
+  student-id: "U2024XXXXX",
   name: "张三",
   instructor: "李四",
   date: datetime.today().display("[year]年[month]月[day]日"),
   school: "计算机科学与技术学院",
-  header_text: "华中科技大学课程实验报告",
+  header-text: "华中科技大学课程实验报告",
   bibliography-file: none, //不需要则传none
   appendix: none, //不需要则传none
   doc,

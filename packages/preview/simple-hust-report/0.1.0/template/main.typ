@@ -3,15 +3,15 @@
   logo: none, //可选,校徽/校名图片路径,不填或none则默认为华科校名
   //image("/images/HUSTGreen.svg",width:55%)
   type: "课程实验报告", //校名下方的标题
-  course_name: ("课程名称", "人工智能导论"), //课程名称,必须以示例方式传参,可选,默认为none
+  course-name: ("课程名称", "人工智能导论"), //课程名称,必须以示例方式传参,可选,默认为none
   title: ("实验题目", "基于CNN的动物识别系统"), //实验题目,同上
-  class_name: "CS2410", //专业班级
-  student_id: "U202488888", //学号
+  class-name: "CS2410", //专业班级
+  student-id: "U202488888", //学号
   name: "张三", //学生姓名
   instructor: "李四", //指导教师
   date: datetime.today().display("[year]年[month]月[day]日"), //自动获取当前日期，可手动修改
   school: "计算机科学与技术学院", //学院
-  header_text: "华中科技大学课程实验报告", //页眉文字
+  header-text: "华中科技大学课程实验报告", //页眉文字
   appendix: //可选，在[]中填写附录内容,默认为none,附录很长时建议新建appendix.typ文件并利用include导入
   [
     = 原始代码

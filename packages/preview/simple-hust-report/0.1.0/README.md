@@ -179,7 +179,7 @@ helloWolrd()
 
 使用模板初始化后的推荐目录结构如下：
 
-```
+```text
 my-report/
 ├── main.typ          # 主文件 (在此处编写你的报告)
 ├── refs.bib          # (可选) 参考文献库
