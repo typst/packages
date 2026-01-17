@@ -1,0 +1,16 @@
+[package]
+name = "tust-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["martin-cao"]
+license = "MIT"
+description = "天津科技大学本科毕业设计（论文）Typst 模板。Tianjin University of Science and Technology Undergraduate Design (Thesis) Typst Template."
+repository = "https://github.com/martin-cao/tust-thesis"
+keywords = ["Tianjin University of Science and Technology", "thesis"]
+categories = ["thesis"]
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
