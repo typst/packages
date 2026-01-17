@@ -207,7 +207,7 @@
     #if logo == none {
       image("assets/HUSTGreen.svg", width: 55%)
     } else {
-      log
+      logo
     }
 
     #v(1.8em, weak: true)
