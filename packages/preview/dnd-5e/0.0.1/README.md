@@ -11,7 +11,7 @@ This package has been heavily inspired by the awesome work done by the *rpgTex* 
 Before you begin, make sure you have installed the Typst environment. If not, you can use the [Web App](https://typst.app/) or the [Tinymist LSP extension](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) for VSCode.
 
 ```typst
-#import "@preview/dnd-5e:0.0.1-alpha": *
+#import "@preview/dnd-5e:0.0.1": *
 #show: dnd-template.with()
 ```
 
