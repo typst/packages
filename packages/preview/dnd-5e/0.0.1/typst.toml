@@ -1,0 +1,17 @@
+[package]
+name = "dnd-5e"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["sa1g"]
+license = "MIT"
+description = "Unofficial template for typsetting documents in the style of the fifth edition of Dungeon&Dragons"
+repository = "https://github.com/sa1g/dnd-typst-template"
+keywords = ["dungeon and dragons", "d&d", "dnd", "rpg"]
+categories = ["book"]
+exclude = ["fonts", "examples"]
+compiler = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "TheDarkTypst.typ"
+thumbnail = "thumbnail.png"
