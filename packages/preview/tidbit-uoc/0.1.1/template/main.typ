@@ -1,4 +1,4 @@
-#import "@preview/tidbit-uoc:0.1.0": template
+#import "@preview/tidbit-uoc:0.1.1": template
 
 #show: template.with(
     subject: "Herramientas HTML y CSS I",

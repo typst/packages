@@ -13,13 +13,13 @@ This template provides a clean and modern layout following UOC's visual identity
 Using the Typst Universe package/template:
 
 ```bash
-typst init @preview/tidbit-uoc:0.1.0
+typst init @preview/tidbit-uoc:0.1.1
 ```
 
 ### Basic Example
 
 ```typst
-#import "@preview/tidbit-uoc:0.1.0": template
+#import "@preview/tidbit-uoc:0.1.1": template
 
 #show: template.with(
   subject: "Programación II",
@@ -100,7 +100,7 @@ Make sure to include the UOC logo in your project:
 
 ## File Structure
 
-```
+```bash
 your-project/
 ├── main.typ          # Your main document
 └── assets/
