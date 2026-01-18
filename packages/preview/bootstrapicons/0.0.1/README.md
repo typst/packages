@@ -20,16 +20,22 @@ This typst package uses version `v1.13.1` of the Bootstrap icons.
 
 Weather Conditions: #bsicon("cloud-fog2-fill") with some #bsicon("sun-fill", color: color.hsl(51deg, 100%, 50%))
 
-Christmas Present: #bsicon("airplane", color: red)
+Mode of Transport: #bsicon("airplane", color: red)
 
-If you want, you can make it large as well or use different color specifications:
+A very large checkbox:
 
 #bsicon("check2-square", height: 3em, color: rgb("#ff0000"))
 
-Find the source of this project at #bsicon("github") #link("https://github.com/davzim/bootstrapicons")
+
+// define a function that adds the Github icon before the URL
+#let gh_link(src) = {
+  link(src)[#bsicon("github") #src]
+}
+Find the source of this project at #gh_link("https://github.com/DavZim/bootstrapicons")
+
 ```
 
-Which will generate this [PDF](https://github.com/davzim/bootstrapicons/examples/mwe.pdf).
+Which will generate this [PDF](https://github.com/DavZim/bootstrapicons/blob/28a1c100603968a098f8e42ec6550b0a8a3fae43/examples/mwe.pdf).
 
 ![Screenshot of the PDF with icons](examples/mwe_screenshot.png)
 
