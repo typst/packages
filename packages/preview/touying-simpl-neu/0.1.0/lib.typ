@@ -312,7 +312,7 @@
   touying-slide(self: self, body)
 })
 
-#let title-slide-red(
+#let title-slide-blue(
   config: (:),
   extra: none,
   ..args,
@@ -614,7 +614,7 @@
 })
 
 
-#let end-slide-red(config: (:), body) = touying-slide-wrapper(self => {
+#let end-slide-blue(config: (:), body) = touying-slide-wrapper(self => {
   self = utils.merge-dicts(self, config-common(freeze-slide-counter: true), config-page(
     fill: self.colors.primary,
     margin: 2em,
