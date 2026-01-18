@@ -1,6 +1,6 @@
 [package]
 name = "tidbit-uoc"
-version = "0.1.0"
+version = "0.1.1"
 entrypoint = "template.typ"
 authors = ["Daniel Ramos Acosta <https://github.com/DanielRamosAcosta>"]
 license = "MIT"
