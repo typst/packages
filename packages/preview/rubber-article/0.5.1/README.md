@@ -65,7 +65,6 @@ For now here are a few of the most important parameters of the main function.
   page-margins: 1.75in,
   page-numbering: "1",
   page-paper: "us-letter",
-  ...,
 )
 ```
 Some features are not from the original LaTeX article class, but have been added, as they have been deemed useful or nice to have. An example would be the built-in header, which displays the Documents title and the current chapter name.
