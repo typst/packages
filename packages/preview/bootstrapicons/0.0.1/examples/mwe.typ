@@ -11,7 +11,7 @@ A very large checkbox:
 
 
 // define a function that adds the Github icon before the URL
-#let gh_link(src) = {
+#let gh-link(src) = {
   link(src)[#bsicon("github") #src]
 }
-Find the source of this project at #gh_link("https://github.com/DavZim/bootstrapicons")
+Find the source of this project at #gh-link("https://github.com/DavZim/bootstrapicons")

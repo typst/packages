@@ -1,4 +1,4 @@
-#import "bs_icons.typ": svg_map
+#import "bs-icons.typ": svg_map
 
 /// Function to create a Bootstrap icon
 /// 
