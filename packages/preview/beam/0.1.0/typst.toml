@@ -1,0 +1,13 @@
+[package]
+name = "beam"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "src/lib.typ"
+authors = ["Bendix <https://github.com/bendix4620>"]
+license = "LGPL-3.0-or-later"
+description = "A package to draw optical setups with CeTZ"
+repository = "https://github.com/bendix4620/beam,"
+categories = ["visualization", "components"]
+disciplines = ["physics"]
+keywords = ["beam", "optics", "laser", "cetz", "circuitikz", "draw", "schema"]
+exclude = [".github", "docs", "examples", "tests"]
