@@ -1,4 +1,4 @@
-#import "@preview/tasks:0.2.0": tasks, tasks-setup
+#import "@preview/taskize:0.2.0": tasks, tasks-setup
 
 #set page(width: 12cm, height: auto, margin: 1cm)
 

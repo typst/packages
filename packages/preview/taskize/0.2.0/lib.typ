@@ -1,4 +1,4 @@
-// tasks - Horizontal columned lists for Typst
+// taskize - Horizontal columned lists for Typst
 // Similar to LaTeX's tasks package
 // Items flow horizontally (left-to-right) across columns
 

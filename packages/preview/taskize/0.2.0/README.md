@@ -1,4 +1,4 @@
-# tasks
+# taskize
 
 A Typst package for creating horizontal columned lists, similar to LaTeX's `tasks` package. Perfect for exercises, multiple-choice questions, and any content that benefits from a compact columned layout.
 
@@ -28,7 +28,7 @@ Click on an image to see the source code.
 ## Quick Start
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 #tasks[
   + First item
@@ -43,7 +43,7 @@ Click on an image to see the source code.
 ### Simple Two-Column Layout
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 #tasks[
   + $2 + 3 = ?$
@@ -56,7 +56,7 @@ Click on an image to see the source code.
 ### Three-Column Layout
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 #tasks(columns: 3)[
   + Option A
@@ -71,7 +71,7 @@ Click on an image to see the source code.
 ### Shorthand Functions
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks2, tasks3, tasks4
+#import "@preview/taskize:0.2.0": tasks2, tasks3, tasks4
 
 // Two columns
 #tasks2[
@@ -100,7 +100,7 @@ Click on an image to see the source code.
 ### Built-in Formats
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 // Lowercase letters with parenthesis (default)
 #tasks(label: "a)")[+ One  + Two  + Three]
@@ -133,7 +133,7 @@ Click on an image to see the source code.
 ### Custom Label Function
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 // Custom emoji labels
 #tasks(label: n => "Q" + str(n) + ":")[
@@ -150,7 +150,7 @@ Click on an image to see the source code.
 Items fill rows first: `a b | c d | e f`
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 #tasks(columns: 2, flow: "horizontal")[
   + a
@@ -171,7 +171,7 @@ Items fill rows first: `a b | c d | e f`
 Items fill columns first: `a c e | b d f`
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 #tasks(columns: 2, flow: "vertical")[
   + a
@@ -190,7 +190,7 @@ Items fill columns first: `a c e | b d f`
 ## Resuming Numbering
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks, tasks-reset
+#import "@preview/taskize:0.2.0": tasks, tasks-reset
 
 #tasks[
   + First
@@ -219,7 +219,7 @@ Some text between task blocks...
 ## Starting from a Specific Number
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 #tasks(start: 5)[
   + This is item 5
@@ -233,7 +233,7 @@ Some text between task blocks...
 Set defaults for all tasks in your document:
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks, tasks-setup
+#import "@preview/taskize:0.2.0": tasks, tasks-setup
 
 // Configure global defaults
 #tasks-setup(
@@ -264,7 +264,7 @@ Set defaults for all tasks in your document:
 Control the vertical alignment of labels relative to content:
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 // Center alignment (default)
 #tasks(label-baseline: "center")[
@@ -291,7 +291,7 @@ Control the vertical alignment of labels relative to content:
 Make labels stand out by using bold weight:
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 // Bold labels for emphasis
 #tasks(label-weight: "bold")[
@@ -312,7 +312,7 @@ Make labels stand out by using bold weight:
 Items can span multiple columns using the `+()` or `+(N)` syntax (no space after `+`). This is similar to LaTeX's `\task*` command:
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 #tasks(columns: 3)[
   + Short
@@ -394,7 +394,7 @@ Items can span multiple columns using the `+()` or `+(N)` syntax (no space after
 ### Math Exercise Sheet
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 = Algebra Practice
 
@@ -420,7 +420,7 @@ Solve for $x$:
 ### Multiple Choice Questions
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 *Question 1:* What is the capital of France?
 
@@ -444,7 +444,7 @@ Solve for $x$:
 ### Vocabulary List
 
 ```typst
-#import "@preview/tasks:0.2.0": tasks
+#import "@preview/taskize:0.2.0": tasks
 
 = French Vocabulary
 
@@ -458,9 +458,9 @@ Solve for $x$:
 ]
 ```
 
-## When to Use Tasks
+## When to Use taskize
 
-**tasks** is specifically designed for **horizontal columned layouts** where items flow left-to-right across multiple columns, perfect for exercises, multiple-choice questions, and compact lists. Choose tasks when you need:
+**taskize** is specifically designed for **horizontal columned layouts** where items flow left-to-right across multiple columns, perfect for exercises, multiple-choice questions, and compact lists. Choose taskize when you need:
 
 - **Horizontal flow layout** - Items arranged in rows across columns (a b | c d | e f)
 - **Compact exercise sheets** - Mathematical exercises, vocabulary lists, multiple-choice questions
@@ -478,7 +478,7 @@ Solve for $x$:
 - **Advanced typography** control over list appearance
 - **Complex list hierarchies** with fine-grained control
 
-**In summary**: Use tasks for horizontal multi-column layouts (exercises, quizzes, compact lists), and use itemize for feature-rich vertical lists with advanced styling. They complement each other well for different layout needs.
+**In summary**: Use taskize for horizontal multi-column layouts (exercises, quizzes, compact lists), and use itemize for feature-rich vertical lists with advanced styling. They complement each other well for different layout needs.
 
 ## License
 
@@ -486,7 +486,7 @@ MIT License - see LICENSE file for details.
 
 ## Changelog
 
-All notable changes to tasks are documented here.
+All notable changes to taskize are documented here.
 
 ### [0.2.0] - 2026-01-15
 
@@ -498,7 +498,7 @@ All notable changes to tasks are documented here.
 - Gallery examples for column spanning and bold labels
 
 #### Changed
-- Repository URL updated to GitLab: `https://gitlab.com/nathan-ed/typst-package-tasks`
+- Repository URL updated to GitLab: `https://gitlab.com/nathan-ed/typst-package-taskize`
 - Description enhanced to mention "Horizontal and vertical" flow directions
 
 ### [0.1.0] - 2026-01-14
