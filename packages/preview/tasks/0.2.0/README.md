@@ -10,14 +10,16 @@ Click on an image to see the source code.
 |:---:|:---:|:---:|
 | [![Basic Tasks](gallery/basic.png)](gallery/basic.typ) | [![Math Exercises](gallery/math.png)](gallery/math.typ) | [![Custom Labels](gallery/labels.png)](gallery/labels.typ) |
 | Basic Tasks | Math Exercises | Custom Labels |
-| [![Vertical Flow](gallery/vertical.png)](gallery/vertical.typ) | [![Resume Numbering](gallery/resume.png)](gallery/resume.typ) | [![Styled](gallery/styled.png)](gallery/styled.typ) |
-| Vertical Flow | Resume Numbering | Styled Tasks |
+| [![Vertical Flow](gallery/vertical.png)](gallery/vertical.typ) | [![Column Spanning](gallery/span.typ)](gallery/span.typ) | [![Bold Labels](gallery/bold.typ)](gallery/bold.typ) |
+| Vertical Flow | Column Spanning | Bold Labels |
 
 ## Features
 
 - **Horizontal flow layout** - Items flow left-to-right across columns (like LaTeX's tasks)
 - **Flexible column counts** - 2, 3, 4 or any number of columns
+- **Column spanning** - Items can span multiple columns using `(N)` syntax
 - **Multiple label formats** - Alphabetic (`a)`, `A)`), numeric (`1)`, `(1)`), roman (`i)`, `I)`), bullets, or custom
+- **Bold labels** - Make labels stand out with bold weight
 - **Resume numbering** - Continue numbering across multiple task blocks
 - **Two flow directions** - Horizontal (a b | c d) or vertical (a c | b d)
 - **Global configuration** - Set defaults for all tasks in your document
@@ -284,24 +286,66 @@ Control the vertical alignment of labels relative to content:
 ]
 ```
 
-### Itemize Integration
+### Bold Labels
 
-The tasks package now integrates with the [itemize](https://typst.app/universe/package/itemize) package for enhanced styling capabilities:
+Make labels stand out by using bold weight:
 
 ```typst
 #import "@preview/tasks:0.2.0": tasks
 
-// Enable itemize styling features
-#tasks(use-itemize-styling: true)[
-  + Item with enhanced styling
-  + Another styled item
+// Bold labels for emphasis
+#tasks(label-weight: "bold")[
+  + Important task
+  + Critical item
+  + Key point
 ]
 
-// Access itemize module directly
-#import "@preview/tasks:0.2.0": itemize
-
-// Use itemize features alongside tasks
+// Regular labels (default)
+#tasks(label-weight: "regular")[
+  + Normal item
+  + Standard task
+]
 ```
+
+### Column Spanning
+
+Items can span multiple columns using the `+()` or `+(N)` syntax (no space after `+`). This is similar to LaTeX's `\task*` command:
+
+```typst
+#import "@preview/tasks:0.2.0": tasks
+
+#tasks(columns: 3)[
+  + Short
+  + Short
+  + Short
+  +(2) This item spans 2 columns
+  + Short
+  +() This item spans all columns (full width)
+  + Normal
+  + Normal
+]
+
+// Practical example: Multiple choice with explanation
+#tasks(columns: 2, label: "A)")[
+  + Paris
+  + London
+  + Berlin
+  + Madrid
+  +() The capital of France is Paris, known for the Eiffel Tower.
+]
+```
+
+**Syntax:**
+- `+ Content` - Normal item (spans 1 column)
+- `+(2) Content` - Spans 2 columns (no space after +)
+- `+(3) Content` - Spans 3 columns
+- `+() Content` - Spans all columns (full width)
+
+**Notes:**
+- **Important:** No space between `+` and `()` or `(N)`
+- If an item with span doesn't fit in the current row, it wraps to the next row
+- Column spans are clamped to the total number of columns
+- Great for adding explanations, headings, or long content within lists
 
 ## Parameters Reference
 
@@ -318,14 +362,13 @@ The tasks package now integrates with the [itemize](https://typst.app/universe/p
 | `row-gutter` | length | 0.6em | Space between rows |
 | `label-width` | auto/length | auto | Width reserved for labels |
 | `label-align` | alignment | right | Label alignment |
+| `label-baseline` | string/length | `"center"` | Label vertical alignment: `"center"`, `"top"`, `"bottom"`, or length |
+| `label-weight` | string | `"regular"` | Label font weight: `"regular"` or `"bold"` |
 | `indent-after-label` | length | 0.4em | Space between label and content |
 | `indent` | length | 0pt | Left indentation of entire block |
 | `above` | length | 0.5em | Space before block |
 | `below` | length | 0.5em | Space after block |
 | `flow` | string | `"horizontal"` | Flow direction: `"horizontal"` or `"vertical"` |
-| `label-baseline` | string/length | `"center"` | Label vertical alignment: `"center"`, `"top"`, `"bottom"`, or length |
-| `use-itemize-styling` | bool | false | Enable itemize package styling features |
-| `itemize-config` | dict | none | Pass-through configuration for itemize package |
 
 ### Label Format Options
 
@@ -415,9 +458,7 @@ Solve for $x$:
 ]
 ```
 
-## Comparison with Other List Packages
-
-### When to use tasks
+## When to Use Tasks
 
 **tasks** is specifically designed for **horizontal columned layouts** where items flow left-to-right across multiple columns, perfect for exercises, multiple-choice questions, and compact lists. Choose tasks when you need:
 
@@ -437,13 +478,7 @@ Solve for $x$:
 - **Advanced typography** control over list appearance
 - **Complex list hierarchies** with fine-grained control
 
-**Integration:** The tasks package integrates with itemize to combine the best of both worlds - use tasks for horizontal columned layouts while leveraging itemize's powerful styling features through the `use-itemize-styling` parameter.
-
-**In summary**: Use tasks for horizontal multi-column layouts (exercises, quizzes, compact lists), and use itemize for feature-rich vertical lists with advanced styling. Or combine them for horizontally arranged items with enhanced styling!
-
-## Dependencies
-
-- [itemize](https://typst.app/universe/package/itemize) (v0.2.0+) - Required for enhanced styling features
+**In summary**: Use tasks for horizontal multi-column layouts (exercises, quizzes, compact lists), and use itemize for feature-rich vertical lists with advanced styling. They complement each other well for different layout needs.
 
 ## License
 
@@ -456,19 +491,15 @@ All notable changes to tasks are documented here.
 ### [0.2.0] - 2026-01-15
 
 #### Added
+- **Column spanning** - Items can span multiple columns using `(N)` syntax (e.g., `+ (2) Content` or `+ () Full width`)
 - `label-baseline` parameter for controlling vertical alignment of labels (`"center"`, `"top"`, `"bottom"`, or custom length)
-- Integration with [itemize](https://typst.app/universe/package/itemize) package for enhanced styling capabilities
-- `use-itemize-styling` parameter to enable itemize styling features
-- `itemize-config` parameter for pass-through configuration to itemize
-- Re-exported `itemize` module for direct access to itemize features
+- `label-weight` parameter for bold labels (`"regular"` or `"bold"`)
 - Advanced Features section in documentation with examples
+- Gallery examples for column spanning and bold labels
 
 #### Changed
 - Repository URL updated to GitLab: `https://gitlab.com/nathan-ed/typst-package-tasks`
 - Description enhanced to mention "Horizontal and vertical" flow directions
-
-#### Dependencies
-- Added dependency on [itemize](https://typst.app/universe/package/itemize) v0.2.0 for enhanced styling features
 
 ### [0.1.0] - 2026-01-14
 
