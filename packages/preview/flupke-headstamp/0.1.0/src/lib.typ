@@ -28,9 +28,9 @@
   }
 }
 
-#let _git-head(git-dir: ".git", read) = read(git-dir + "/HEAD").trim()
+#let _git-head(git-dir: ".git", read: none) = read(git-dir + "/HEAD").trim()
 
-#let _git-reflog-last(git-dir: ".git", read) = {
+#let _git-reflog-last(git-dir: ".git", read: none) = {
   let lines = read(git-dir + "/logs/HEAD").split("\n")
   lines.filter(line => line.trim() != "").last(default: none)
 }
