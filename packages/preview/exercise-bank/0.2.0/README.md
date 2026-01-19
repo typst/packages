@@ -16,6 +16,7 @@ Click on an image to see the source code.
 ## Features
 
 - **Exercises with solutions** - Create exercises with inline or deferred solutions
+- **Teacher corrections** - Add detailed corrections for teachers with optional fallback when solutions are missing
 - **Multiple solution modes** - Show solutions inline, at end of section/chapter, or hide them
 - **Metadata support** - Tag exercises with topic, level, author, and custom fields
 - **Exercise banks** - Define exercises once, display them anywhere
@@ -160,6 +161,73 @@ Show only the solutions (useful for answer keys):
 #exo-setup(solution-mode: "only")
 
 #exo(exercise: [This exercise text is hidden], solution: [This will be shown])
+```
+
+## Corrections (Teacher Version)
+
+Corrections are detailed solutions intended for teachers. They can include pedagogical notes, common mistakes, and teaching tips.
+
+### Exercise with Correction
+
+```typst
+#import "@preview/exercise-bank:0.2.0": exo
+
+#exo(
+  exercise: [Solve $x^2 = 9$.],
+  correction: [
+    *Teacher's correction:*
+    $x = plus.minus 3$
+
+    Common mistake: Students often forget the negative root.
+  ],
+)
+```
+
+### Fallback to Correction
+
+When `fallback-to-correction` is enabled, corrections are shown when solutions are missing:
+
+```typst
+#import "@preview/exercise-bank:0.2.0": exo, exo-setup
+
+#exo-setup(
+  solution-mode: "inline",
+  fallback-to-correction: true,  // Show corrections when solutions are missing
+)
+
+// This exercise has only a correction - it will be displayed
+#exo(
+  exercise: [Simplify $2x + 3x$.],
+  correction: [
+    $2x + 3x = 5x$
+    Teaching tip: Combine like terms.
+  ],
+)
+
+// This exercise has a solution - solution takes priority
+#exo(
+  exercise: [Calculate $5 times 6$.],
+  solution: [30],
+  correction: [Detailed explanation for teachers...],
+)
+```
+
+### Corrections Only (Teacher Answer Key)
+
+Create teacher answer keys showing only corrections:
+
+```typst
+#import "@preview/exercise-bank:0.2.0": exo, exo-setup
+
+#exo-setup(
+  solution-mode: "only",
+  fallback-to-correction: true,
+)
+
+#exo(
+  exercise: [Exercise 1 (hidden in output)],
+  correction: [Detailed correction for teachers],
+)
 ```
 
 ## Metadata and Filtering
@@ -321,13 +389,15 @@ Tag exercises with competencies and display them visually:
 #import "@preview/exercise-bank:0.2.0": exo-setup
 
 #exo-setup(
-  solution-mode: "inline",      // "inline", "end-section", "end-chapter", "none", "only"
-  solution-label: "Solution",   // Label for solutions
-  exercise-label: "Exercise",   // Label for exercises
-  counter-reset: "section",     // "section", "chapter", "global"
-  show-metadata: false,         // Show metadata in output
-  show-id: false,               // Show exercise ID
-  show-competencies: false,     // Show competency tags
+  solution-mode: "inline",        // "inline", "end-section", "end-chapter", "none", "only"
+  solution-label: "Solution",     // Label for solutions
+  correction-label: "Correction", // Label for corrections (teacher version)
+  fallback-to-correction: false,  // Show correction when solution is missing
+  exercise-label: "Exercise",     // Label for exercises
+  counter-reset: "section",       // "section", "chapter", "global"
+  show-metadata: false,           // Show metadata in output
+  show-id: false,                 // Show exercise ID
+  show-competencies: false,       // Show competency tags
 )
 ```
 
@@ -430,6 +500,7 @@ Level 1M exercises: #exo-count(level: "1M")
 |-----------|------|---------|-------------|
 | `exercise` | content | none | Exercise content (named parameter) |
 | `solution` | content | none | Solution content |
+| `correction` | content | none | Correction content (teacher version) |
 | `id` | string/auto | auto | Unique exercise ID |
 | `topic` | string | none | Topic metadata |
 | `level` | string | none | Difficulty level |
@@ -442,6 +513,7 @@ Level 1M exercises: #exo-count(level: "1M")
 |-----------|------|---------|-------------|
 | `exercise` | content | none | Exercise content (named parameter) |
 | `solution` | content | none | Solution content |
+| `correction` | content | none | Correction content (teacher version) |
 | `id` | string/auto | auto | Unique exercise ID |
 | `competencies` | array | () | List of competency tags |
 | `topic` | string | none | Topic metadata |
@@ -471,6 +543,8 @@ Level 1M exercises: #exo-count(level: "1M")
 |-----------|------|---------|-------------|
 | `solution-mode` | string | "inline" | "inline", "end-section", "end-chapter", "none", "only" |
 | `solution-label` | string | "Solution" | Label for solutions |
+| `correction-label` | string | "Correction" | Label for corrections |
+| `fallback-to-correction` | bool | false | Show correction when solution is missing |
 | `exercise-label` | string | "Exercise" | Label for exercises |
 | `counter-reset` | string | "section" | "section", "chapter", "global" |
 | `show-metadata` | bool | false | Display metadata |

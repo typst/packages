@@ -7,7 +7,7 @@
 // =============================================================================
 
 // Import g-exam for exam mode display
-#import "@preview/g-exam:0.4.4": exam as g-exam-template, question as g-exam-question, subquestion as g-exam-subquestion
+#import "@preview/g-exam:0.4.3": exam as g-exam-template, question as g-exam-question, subquestion as g-exam-subquestion
 
 // =============================================================================
 // State and Counters
@@ -20,6 +20,8 @@
 #let exo-config = state("exo-config", (
   solution-mode: "inline",     // "inline", "end-section", "end-chapter", "none", "only"
   solution-label: "Solution",
+  correction-label: "Correction",  // Label for corrections (teacher version)
+  fallback-to-correction: false,   // Show correction when solution is missing
   exercise-label: "Exercise",
   counter-reset: "section",    // "section", "chapter", "global"
   show-metadata: false,
@@ -82,6 +84,8 @@
 #let exo-setup(
   solution-mode: none,
   solution-label: none,
+  correction-label: none,
+  fallback-to-correction: none,
   exercise-label: none,
   counter-reset: none,
   show-metadata: none,
@@ -97,6 +101,8 @@
     let new = cfg
     if solution-mode != none { new.solution-mode = solution-mode }
     if solution-label != none { new.solution-label = solution-label }
+    if correction-label != none { new.correction-label = correction-label }
+    if fallback-to-correction != none { new.fallback-to-correction = fallback-to-correction }
     if exercise-label != none { new.exercise-label = exercise-label }
     if counter-reset != none { new.counter-reset = counter-reset }
     if show-metadata != none { new.show-metadata = show-metadata }
@@ -270,6 +276,18 @@
   )
 }
 
+#let exo-correction-box(number: 1, body, exercise-id: none, show-id: false) = context {
+  let cfg = exo-config.get()
+  exo-box(
+    label: cfg.correction-label,
+    number: number,
+    body,
+    is-solution: true,
+    exercise-id: exercise-id,
+    show-id: show-id,
+  )
+}
+
 // =============================================================================
 // Main Exercise Function
 // =============================================================================
@@ -277,6 +295,7 @@
 #let exo(
   exercise: none,
   solution: none,
+  correction: none,
   id: auto,
   margin-content: none,  // Optional content below the badge (e.g., QR code, remarks)
   // Metadata fields
@@ -319,6 +338,7 @@
     metadata: metadata,
     exercise: exercise,
     solution: solution,
+    correction: correction,
     margin-content: margin-content,
   )
 
@@ -330,9 +350,11 @@
 
   // Display based on mode
   if cfg.solution-mode == "only" {
-    // Only show solution
+    // Only show solution (or correction as fallback)
     if solution != none {
       exo-solution-box(number: num, solution, exercise-id: exercise-id, show-id: cfg.show-id)
+    } else if cfg.fallback-to-correction and correction != none {
+      exo-correction-box(number: num, correction, exercise-id: exercise-id, show-id: cfg.show-id)
     }
   } else {
     // Show exercise
@@ -345,18 +367,30 @@
       margin-content: margin-content,
     )
 
-    // Handle solution display
-    if solution != none {
+    // Handle solution display (with correction fallback)
+    let content-to-show = if solution != none {
+      (type: "solution", content: solution)
+    } else if cfg.fallback-to-correction and correction != none {
+      (type: "correction", content: correction)
+    } else {
+      none
+    }
+
+    if content-to-show != none {
       if cfg.solution-mode == "inline" {
-        exo-solution-box(number: num, solution, exercise-id: exercise-id, show-id: cfg.show-id)
+        if content-to-show.type == "solution" {
+          exo-solution-box(number: num, content-to-show.content, exercise-id: exercise-id, show-id: cfg.show-id)
+        } else {
+          exo-correction-box(number: num, content-to-show.content, exercise-id: exercise-id, show-id: cfg.show-id)
+        }
       } else if cfg.solution-mode == "end-section" or cfg.solution-mode == "end-chapter" {
-        // Store for later (include ID for later display)
+        // Store for later (include ID and type for later display)
         exo-pending-solutions.update(pending => {
-          pending.push((number: num, solution: solution, id: exercise-id))
+          pending.push((number: num, content: content-to-show.content, type: content-to-show.type, id: exercise-id))
           pending
         })
       }
-      // "none" mode: don't display solution
+      // "none" mode: don't display solution or correction
     }
   }
   }  // close context
@@ -382,12 +416,25 @@
     v(0.5em)
 
     for item in pending {
-      exo-solution-box(
-        number: item.number,
-        item.solution,
-        exercise-id: item.at("id", default: none),
-        show-id: cfg.show-id,
-      )
+      // Handle both old format (solution field) and new format (content + type fields)
+      let content = item.at("content", default: item.at("solution", default: none))
+      let item-type = item.at("type", default: "solution")
+
+      if item-type == "solution" {
+        exo-solution-box(
+          number: item.number,
+          content,
+          exercise-id: item.at("id", default: none),
+          show-id: cfg.show-id,
+        )
+      } else {
+        exo-correction-box(
+          number: item.number,
+          content,
+          exercise-id: item.at("id", default: none),
+          show-id: cfg.show-id,
+        )
+      }
     }
   }
 
@@ -446,13 +493,26 @@
         show-id: cfg.show-id,
       )
 
-      if show-solutions and exercise.solution != none {
-        exo-solution-box(
-          number: exercise.number,
-          exercise.solution,
-          exercise-id: exercise.id,
-          show-id: cfg.show-id,
-        )
+      // Handle solution/correction display with fallback
+      if show-solutions {
+        let sol = exercise.at("solution", default: none)
+        let corr = exercise.at("correction", default: none)
+
+        if sol != none {
+          exo-solution-box(
+            number: exercise.number,
+            sol,
+            exercise-id: exercise.id,
+            show-id: cfg.show-id,
+          )
+        } else if cfg.fallback-to-correction and corr != none {
+          exo-correction-box(
+            number: exercise.number,
+            corr,
+            exercise-id: exercise.id,
+            show-id: cfg.show-id,
+          )
+        }
       }
     }
   }
@@ -466,6 +526,7 @@
 #let exo-define(
   exercise: none,
   solution: none,
+  correction: none,
   id: auto,
   competencies: (),  // List of competency tags
   points: none,      // Points for exam mode
@@ -506,6 +567,7 @@
       metadata: metadata,
       exercise: exercise,
       solution: solution,
+      correction: correction,
       competencies: competencies,
       points: points,
     )
@@ -556,6 +618,10 @@
       let comps = found.at("competencies", default: ())
       let pts = found.at("points", default: none)
 
+      // Get solution and correction (with fallback logic)
+      let sol = found.at("solution", default: none)
+      let corr = found.at("correction", default: none)
+
       // Check display mode
       if cfg.display-mode == "exam" {
         // EXAM MODE: Use exo-box with points
@@ -573,9 +639,13 @@
           points: pts,
         )
 
-        // Show solution if configured
-        if exam-cfg.show-solutions and found.solution != none {
-          exam-solution-box(found.solution)
+        // Show solution if configured (with correction fallback)
+        if exam-cfg.show-solutions {
+          if sol != none {
+            exam-solution-box(sol)
+          } else if cfg.fallback-to-correction and corr != none {
+            exam-solution-box(corr)  // In exam mode, show correction as solution
+          }
         }
       } else {
         // EXERCISE MODE: Use default exo-box format (no points)
@@ -592,15 +662,32 @@
           )
         }
 
-        // Handle solution
-        if found.solution != none {
+        // Determine what content to show (solution or correction fallback)
+        let content-to-show = if sol != none {
+          (type: "solution", content: sol)
+        } else if cfg.fallback-to-correction and corr != none {
+          (type: "correction", content: corr)
+        } else {
+          none
+        }
+
+        // Handle solution/correction display
+        if content-to-show != none {
           if cfg.solution-mode == "only" {
-            exo-solution-box(number: num, found.solution, exercise-id: found.id, show-id: cfg.show-id)
+            if content-to-show.type == "solution" {
+              exo-solution-box(number: num, content-to-show.content, exercise-id: found.id, show-id: cfg.show-id)
+            } else {
+              exo-correction-box(number: num, content-to-show.content, exercise-id: found.id, show-id: cfg.show-id)
+            }
           } else if cfg.solution-mode == "inline" or do-show-solution {
-            exo-solution-box(number: num, found.solution, exercise-id: found.id, show-id: cfg.show-id)
+            if content-to-show.type == "solution" {
+              exo-solution-box(number: num, content-to-show.content, exercise-id: found.id, show-id: cfg.show-id)
+            } else {
+              exo-correction-box(number: num, content-to-show.content, exercise-id: found.id, show-id: cfg.show-id)
+            }
           } else if cfg.solution-mode == "end-section" or cfg.solution-mode == "end-chapter" {
             exo-pending-solutions.update(pending => {
-              pending.push((number: num, solution: found.solution, id: found.id))
+              pending.push((number: num, content: content-to-show.content, type: content-to-show.type, id: found.id))
               pending
             })
           }
@@ -721,6 +808,8 @@
     let num = if renumber { display-num } else { exercise.number }
     let ex-comps = exercise.at("competencies", default: ())
     let pts = exercise.at("points", default: none)
+    let sol = exercise.at("solution", default: none)
+    let corr = exercise.at("correction", default: none)
 
     // Apply page break before if configured
     if cfg.page-break == "before" or cfg.page-break == "around" {
@@ -744,9 +833,13 @@
         points: pts,
       )
 
-      // Show solution if configured
-      if exam-cfg.show-solutions and exercise.solution != none {
-        exam-solution-box(exercise.solution)
+      // Show solution if configured (with correction fallback)
+      if exam-cfg.show-solutions {
+        if sol != none {
+          exam-solution-box(sol)
+        } else if cfg.fallback-to-correction and corr != none {
+          exam-solution-box(corr)  // In exam mode, show correction as solution
+        }
       }
     } else {
       // EXERCISE MODE: Use default exo-box format (no points)
@@ -762,14 +855,32 @@
         )
       }
 
-      if exercise.solution != none {
+      // Determine what content to show (solution or correction fallback)
+      let content-to-show = if sol != none {
+        (type: "solution", content: sol)
+      } else if cfg.fallback-to-correction and corr != none {
+        (type: "correction", content: corr)
+      } else {
+        none
+      }
+
+      if content-to-show != none {
         if cfg.solution-mode == "only" or do-show-solutions {
-          exo-solution-box(
-            number: num,
-            exercise.solution,
-            exercise-id: exercise.id,
-            show-id: cfg.show-id,
-          )
+          if content-to-show.type == "solution" {
+            exo-solution-box(
+              number: num,
+              content-to-show.content,
+              exercise-id: exercise.id,
+              show-id: cfg.show-id,
+            )
+          } else {
+            exo-correction-box(
+              number: num,
+              content-to-show.content,
+              exercise-id: exercise.id,
+              show-id: cfg.show-id,
+            )
+          }
         }
       }
     }
