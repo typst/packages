@@ -8,7 +8,7 @@ We believe this style is very suitable for keeping notes and sorting out the log
 
 **0.2.** Although we use EGA to name this numbering style, the appearance of this package resembles Max Karoubi's [K-Theory (An Introduction)](https://link.springer.com/book/10.1007/978-3-540-79890-3) published by Springer. This readme file shows an example of its effect for demonstration, although implemented by hand since it is written in markdown.
 
-## Quick start
+## 1. Quick start
 
 **1.1.** To use this package, import and set show rules as follows. 
 
@@ -24,7 +24,7 @@ We believe this style is very suitable for keeping notes and sorting out the log
 
 This will set the numbering level to 1. See below for details.
 
-## Details in behaviour
+## 2. Details in behaviour
 
 ### Setting numbering levels quickly
 
@@ -42,16 +42,22 @@ You can set this numbering level by the `level` argument in the `ega-rules`.
 #show: ega-rules.with(level: 1)
 ```
 
-The default value is 0
+The default value is 0.
+
+**2.2.** Note that for levels >= 1 to work normally, the numbers of headings should be displayed. Which, for example, can be set with
+```typst
+#set heading(numbering: "1.")
+```
+
 
 ### Weak vertical space 
 
-**2.2.** Different numbered elements are vertically separated. One can adjust the separation by the parameters `upper` and `lower`, whose default values are both 2em.
+**2.3.** Different numbered elements are vertically separated. One can adjust the separation by the parameters `upper` and `lower`, whose default values are both 2em.
 
 Note that the separation is weak. That is, they are not counted repeatedly. 
 For example, vertical separations between two consecutive elements are 2em by default.
 
-**2.3. Example.** Here is an example changing the separation in `ega-rules`.
+**2.4. Example.** Here is an example changing the separation in `ega-rules`.
 
 ```typst
 #show: ega-rules.with(
@@ -62,7 +68,7 @@ For example, vertical separations between two consecutive elements are 2em by de
 
 ### Names of a numbered element
 
-**2.4.** One can specify the name of a numbered element as follows.
+**2.5.** One can specify the name of a numbered element as follows.
 ```typ
 #num-par([Example])[
     This is the example...
@@ -70,10 +76,11 @@ For example, vertical separations between two consecutive elements are 2em by de
 ```
 This will yield something like 2.3.
 
-**2.5.** Although it is possible to give an element a name like "Theorem" or "Example", when referring to the element, `@label` always yields only the number. 
+**2.6.** Although it is possible to give an element a name like "Theorem" or "Example", when referring to the element, `@label` always yields only the number. 
 This is because the user may want to add other prefix or parenthesis to this number. 
 Over design may cause inconvenience rather than the opposite.
 
-## Examples
+
+## 3. Examples
 
 **3.1.** For more examples, check this [GitHub Repo](https://github.com/itpyi/typst-ega-numbering/tree/main/examples).
