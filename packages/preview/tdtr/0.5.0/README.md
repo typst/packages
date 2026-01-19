@@ -600,6 +600,7 @@ For `draw-node`, the function should have the following signature:
       j: int, 
       k: int, 
       x: int | float
+      y: int | float
     ),
   )
   // other optional named arguments
@@ -610,7 +611,7 @@ where
 
 - `name`: the unique label of the node, used for drawing edge, should not be changed, and should be used only by `fletcher.node(..., name: name, ...)`
 - `label`: the content of the node, if the tree is from list, it's `content` type; if the tree is from file, it's `str` type, default used by `fletcher.node(..., label: [#label], ...)`
-- `pos`: a tuple representing the position of the node in the tree, where `i` is the depth of the node, `j` is the index of the parent node in `i - 1` level, `k` is the index of the node among its siblings, and `x` is the x-coordinate of the node after horizontal compression, used for positioning the node, default used by `fletcher.node(..., pos: (x, i), ...)`. Specially, the `(i, j, k)` of the root node is `(0, 0, 0)`.
+- `pos`: a tuple representing the position of the node in the tree, where `i` is the depth of the node, `j` is the index of the parent node in `i - 1` level, `k` is the index of the node among its siblings, and `x` and `y` are the calculated horizontal and vertical positions of the node respectively.
 
 For `draw-edge`, the function should have the following signature:
 
@@ -624,7 +625,8 @@ For `draw-edge`, the function should have the following signature:
       i: int, 
       j: int, 
       k: int, 
-      x: int | float
+      x: int | float,
+      y: int | float
     )
   ), 
   to-node: (
@@ -634,7 +636,8 @@ For `draw-edge`, the function should have the following signature:
       i: int, 
       j: int, 
       k: int, 
-      x: int | float
+      x: int | float,
+      y: int | float
     )
   ), 
   edge-label: any,
@@ -712,7 +715,7 @@ Default node and edge drawing functions are defined as follows:
 /// default function for drawing a node
 #let default-draw-node = ((name, label, pos)) => {
   (
-    pos: (pos.x, pos.i), 
+    pos: (pos.x, pos.y), 
     label: [#label], 
     name: name, 
     shape: rect
