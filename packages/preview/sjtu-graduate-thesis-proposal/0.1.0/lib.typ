@@ -1,4 +1,5 @@
 #import "@preview/cuti:0.2.1": show-cn-fakebold
+#let today-date = datetime.today().display("[year]-[month]-[day]")
 
 // --- 全局辅助函数与变量 ---
 
@@ -30,8 +31,53 @@
   major: "",
   date: "",
   venue: "",
+  proposed-title: "",
+  source-of-research-project: "",
+  other-project-name: "",
+  signature-image: none,
+  signature-text: none,
+  signature-date: "",
   body,
 ) = {
+
+  // --- 自动化映射与错误处理逻辑 ---
+  let d-map = (
+    "ad": "学术型博士生 Academic Doctoral Student",
+    "pd": "专业型博士生 Professional Doctoral Student",
+    "am": "学术型硕士生 Academic Master Student",
+    "pm": "专业型硕士生 Professional Master Student"
+  )
+  let s-map = (
+    "f": "全日制 Full-time",
+    "p": "非全日制 Part-time",
+    "e": "同等学力学生"
+  )
+
+  // 处理学生类别
+  let display-degree = if degree-program in d-map {
+    d-map.at(degree-program)
+  } else if degree-program in d-map.values() {
+    degree-program // 如果已经是完整全称则保持
+  } else {
+    text(fill: red, weight: "bold")[无效类别(请填ad/pd/am/pm)]
+  }
+
+  // 处理学习形式
+  let display-study = if study-mode in s-map {
+    s-map.at(study-mode)
+  } else if study-mode in s-map.values() {
+    study-mode // 如果已经是完整全称则保持
+  } else {
+    text(fill: red, weight: "bold")[无效形式(请填f/p/e)]
+  }
+
+  // 处理论文题目
+  let display-title = if proposed-title == "" or proposed-title == title {
+    title
+  } else {
+    proposed-title
+  }
+
   // 1. 基础页面设置
   set page(
     paper: "a4",
@@ -73,23 +119,22 @@
   set page(numbering: none)
   
   align(center)[
-    // 建议预先将 PDF 转为 SVG 避免图层警告，若无则继续使用 PDF
     #image("./figures/sjtu-logo.pdf", width: 8.5cm)
-    #v(0.5cm) // 对应 LaTeX \vspace{-1.0cm} 的微调效果
+    #v(0.5cm)
     #text(font: ("Times New Roman", "SimSun"), weight: "bold", size: 26pt)[研究生学位论文开题报告]\
     #v(0.4cm)
     #text(size: 15pt, weight: "bold")[Graduate Thesis/Dissertation Proposal]
     #v(1cm)
   ]
 
-  // 封面表格：对称透明下划线对齐方案
+  // 封面表格
   let field(label-zh, label-en, content) = (
     [
       #set align(left + horizon)
       #block(
         width: 100%,
         stroke: (bottom: white + 0.5pt), 
-        inset: (top: 10pt, bottom: 10pt), // 还原 LaTeX arraystretch{1.7} 的高度
+        inset: (top: 10pt, bottom: 10pt),
       )[
         #set text(font: ("Times New Roman", "KaiTi"), weight: "bold")
         #text(size: 14pt)[#label-zh]#h(0.5em)#text(size: 12pt)[#label-en]
@@ -109,21 +154,23 @@
     ]
   )
 
-  grid(
-    columns: (5.55cm, 9.45cm), // 左栏自适应标签宽度，右栏填满
-    column-gutter: 0.6em,
-    row-gutter: 0pt, 
-    ..field("学号", "Student ID", student-id),
-    ..field("姓名", "Name", name),
-    ..field("学生类别", "Degree Program", degree-program),
-    ..field("学习形式", "Study Mode", study-mode),
-    ..field("导师", "Supervisor(s)", supervisor),
-    ..field("论文题目", "Thesis Title", title),
-    ..field("学院", "School", school),
-    ..field("专业", "Major", major),
-    ..field("开题日期", "Date", date),
-    ..field("开题地点", "Venue", venue),
-  )
+  align(center)[
+    #grid(
+      columns: (5.55cm, 9.45cm),
+      column-gutter: 0.6em,
+      row-gutter: 0pt,
+      ..field("学号", "Student ID", student-id),
+      ..field("姓名", "Name", name),
+      ..field("学生类别", "Degree Program", display-degree),
+      ..field("学习形式", "Study Mode", display-study),
+      ..field("导师", "Supervisor(s)", supervisor),
+      ..field("论文题目", "Thesis Title", title),
+      ..field("学院", "School", school),
+      ..field("专业", "Major", major),
+      ..field("开题日期", "Date", date),
+      ..field("开题地点", "Venue", venue),
+    )
+  ]
 
   pagebreak()
 
@@ -179,9 +226,9 @@
   set text(font: ("Times New Roman", "KaiTi"))
   // 3. 段落设置：正文首行空两格
   set par(
-    justify: true, 
-    leading: 1em,      
-    spacing: 1.5em,       
+    justify: true,
+    leading: 1em,
+    spacing: 1.5em,
     first-line-indent: (amount: 2em, all: true), // 首行缩进两个字符
   )
   set page(numbering: "1")
@@ -193,6 +240,9 @@
   // 有序列表左缩进 2 字符
   set enum(indent: 2em)
 
+  // 术语列表左缩进 2 字符
+  set terms(indent: 2em)
+
   // 定义全局斜体（emph）的显示规则
   show emph: it => {
   // 针对每一个字符进行处理，确保中文也能被 skew 倾斜
@@ -201,6 +251,131 @@
     }
     it
   }
-  
+
+  // --- 课题来源多选处理逻辑 ---
+  // 确保输入是数组，并将元素转为整数
+  let raw-sources = if type(source-of-research-project) == array {
+    source-of-research-project.map(it => int(it))
+  } else if source-of-research-project != "" and source-of-research-project != none {
+    (int(source-of-research-project),)
+  } else {
+    ()
+  }
+
+  // 排除掉 1-7 以外的无效数字
+  let selected-sources = raw-sources.filter(it => it >= 1 and it <= 7)
+
+  // 判断是否至少选择了一项
+  let has-selection = selected-sources.len() > 0
+
+  // 统一定义提示文字，仅改变颜色
+  let instruction-color = if has-selection { black } else { red }
+  let instruction-text = text(fill: instruction-color, weight: if has-selection { "regular" } else { "bold" })[
+    请在合适选项前画 #mychecked #h(0.5em) Please select proper options by "#mychecked".
+  ]
+
+  // 处理"其它"选项的内容
+  let other-content = if selected-sources.contains(7) {
+    // 选中了"其它"
+    if other-project-name != "" and other-project-name != none {
+      // 有传入名称，正常显示
+      box(
+        width: 7cm,
+        stroke: (bottom: 0.5pt),
+        inset: (bottom: 3pt),
+        baseline: 3pt
+      )[#other-project-name]
+    } else {
+      // 选中但没传入名称，显示红色提示
+      box(
+        width: 7cm,
+        stroke: (bottom: 0.5pt),
+        inset: (bottom: 3pt),
+        baseline: 3pt
+      )[#text(fill: red, weight: "bold")[在此处填写内容]]
+    }
+  } else {
+    // 未选中"其它"，显示空白横线
+    box(
+      width: 7cm,
+      stroke: (bottom: 0.5pt),
+      inset: (bottom: 3pt),
+      baseline: 3pt
+    )[ ]
+  }
+
+  // 课题基本信息表
+  table(
+    columns: (3.75cm, 11.5cm),
+    stroke: 0.5pt,
+    inset: 7pt,
+    align: horizon,
+    text(font: ("Times New Roman", "FangSong"))[论文题目 \ Proposed Title],
+    text(font: ("Times New Roman", "FangSong"))[#display-title],
+
+    text(font: ("Times New Roman", "FangSong"))[研究课题来源 \ Source of Research \ Project],
+    [
+      #set text(font: ("Times New Roman", "FangSong"), size: 12pt)
+      #set par(first-line-indent: 0pt, leading: 0.8em)
+      #instruction-text \
+      #v(-0.5em)
+      #grid(
+        columns: (1.5em, 1fr),
+        row-gutter: 1em,
+        align(center)[#(if selected-sources.contains(1) {mychecked} else {myunchecked})], [国家自然科学基金课题 NSFC Research Grants],
+        align(center)[#(if selected-sources.contains(2) {mychecked} else {myunchecked})], [国家社会科学基金 National Social Science Fund of China],
+        align(center)[#(if selected-sources.contains(3) {mychecked} else {myunchecked})], [国家重大科研专项 National Key Research Projects],
+        align(center)[#(if selected-sources.contains(4) {mychecked} else {myunchecked})], [其它纵向科研课题 Other Governmental Research Grants],
+        align(center)[#(if selected-sources.contains(5) {mychecked} else {myunchecked})], [企业横向课题 R&D Projects from Industry],
+        align(center)[#(if selected-sources.contains(6) {mychecked} else {myunchecked})], [自拟课题 Self-proposed Project],
+        align(center)[#(if selected-sources.contains(7) {mychecked} else {myunchecked})], [
+          其它 Other #h(0.2em) #other-content
+        ]
+      )
+    ]
+  )
+
+  // 表格标题放在顶部
+  show figure.where(
+    kind: table
+  ): set figure.caption(position: top)
+
   body
+
+  v(2em)
+  // 局部重置所有缩进设置
+  set par(first-line-indent: 0pt)
+  // 局部屏蔽我们在 template 里写的强制间距补丁
+  show par: it => it 
+  set text(font: ("Times New Roman", "FangSong"), weight: "bold")
+
+  [本人承诺：开题报告中的内容真实无误，若有不实，愿承担相应的责任和后果。I hereby declare and confirm that the details provided in this Form are valid and accurate. If anything untruthful found, I will bear the corresponding liabilities and consequences.]
+
+  v(1em)
+
+  grid(
+    columns: (10cm, 1fr),
+    align: horizon,
+    [
+      学生签字/Signature:
+      #{
+        // 逻辑判断
+        if signature-image != none and signature-image != "" {
+          // 如果是图片，保留 box 以控制 baseline 避免图片"悬浮"
+          h(0.2em)
+          box(baseline: 20%, image("./template/"+signature-image, height: 1.2em))
+        } else if signature-text != none and signature-text != "" {
+          // 如果是文本，直接输出，不使用 box
+          text(font: ("Times New Roman", "KaiTi"), weight: "regular")[#signature-text]
+        } else {
+          // 报错提示
+          text(fill: red, size: 1em)[请设置签名图片或你的名字]
+        }
+      }
+    ],
+    [
+      #h(1fr) 日期/Date: #signature-date
+    ]
+  )
+
 }
