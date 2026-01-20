@@ -66,17 +66,6 @@ A minimal CeTZ example (3 figures) is in [mini.typ](https://github.com/itpyi/typ
 
 ![mini square](https://raw.githubusercontent.com/itpyi/typst-plot/main/readme-assets/mini-square.svg)
 
-## Install
-
-```typst
-#import "@preview/fig-plucker:0.1.0": *
-```
-
-Or use a local copy:
-
-```typst
-#import "fig-plucker.typ": *
-```
 
 ## How to Use
 
