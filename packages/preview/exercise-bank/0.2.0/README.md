@@ -25,6 +25,7 @@ Click on an image to see the source code.
 - **Automatic numbering** - Counter resets per section, chapter, or globally
 - **Customizable labels** - Change "Exercise" and "Solution" labels (localization support)
 - **Exercise IDs** - Unique identifiers for referencing and bank management
+- **g-exam integration** - Optional integration with g-exam for exam-style formatting and features
 
 ## Quick Start
 
@@ -600,9 +601,120 @@ Level 1M exercises: #exo-count(level: "1M")
 #exo-print-solutions(title: "Answers")
 ```
 
+## Integration with g-exam
+
+The exercise-bank package includes **optional** integration with the [g-exam](https://typst.app/universe/package/g-exam) package for creating exams. The core exercise functionality works completely standalone, but if you want to create exam-style documents, the integration provides additional features.
+
+### What the Integration Provides
+
+When using the g-exam integration, you get:
+
+- **Exam display mode** - Display exercises as exam questions with the g-exam formatting
+- **Points display** - Show point values for each exercise/question
+- **Exam templates** - Access to g-exam's exam template system
+- **Score tables** - Automatically generate score/grading tables
+- **Unified workflow** - Define exercises once in your bank, then use them in both worksheets and exams
+
+### Using Exam Mode
+
+Set the display mode to "exam" to use g-exam formatting:
+
+```typst
+#import "@preview/exercise-bank:0.2.0": *
+
+// Define exercises with points
+#exo-define(
+  id: "exam-q1",
+  exercise: [Solve $2x + 5 = 13$.],
+  points: 3,
+  solution: [$x = 4$],
+)
+
+#exo-define(
+  id: "exam-q2",
+  exercise: [Calculate the area of a circle with radius 5.],
+  points: 5,
+  solution: [$A = 25pi$],
+)
+
+// Configure for exam display
+#exo-setup(display-mode: "exam")
+#exam-setup(show-solutions: false)  // Hide solutions for student version
+
+// Display as exam questions
+#exo-show("exam-q1")
+#exo-show("exam-q2")
+
+// Or use filtering
+#exo-select(level: "1M")
+```
+
+### Exam Functions
+
+The package provides exam-specific functions when g-exam integration is active:
+
+```typst
+// Configure exam display
+#exam-setup(
+  show-solutions: false,     // Show/hide solutions in exam
+  solution-label: "Answer",  // Label for solution boxes
+)
+
+// Display exercises as g-exam questions
+#exam-question("exam-q1")
+#exam-question-many("q1", "q2", "q3")
+
+// Select and display as exam questions
+#exam-select(topic: "algebra", max: 5)
+
+// Generate score table
+#exam-score-table("q1", "q2", "q3")
+
+// Access g-exam template directly
+#exam-template(
+  // g-exam template options
+)
+```
+
+### Creating Student and Teacher Versions
+
+Use the same exercise bank for both versions:
+
+```typst
+#import "@preview/exercise-bank:0.2.0": *
+
+// Define exercises once
+#exo-define(id: "q1", exercise: [...], solution: [...], points: 4)
+#exo-define(id: "q2", exercise: [...], solution: [...], points: 6)
+
+// Student version: no solutions
+#exo-setup(display-mode: "exam")
+#exam-setup(show-solutions: false)
+#exo-show-many("q1", "q2")
+
+// Teacher version: with solutions
+#exo-setup(display-mode: "exam")
+#exam-setup(show-solutions: true)
+#exo-show-many("q1", "q2")
+```
+
+### Standalone vs. Exam Mode
+
+**Standalone mode** (default `display-mode: "exercise"`):
+- Uses the exercise-bank's built-in exercise box styling
+- No dependency on g-exam features
+- Perfect for worksheets, textbooks, and practice materials
+
+**Exam mode** (`display-mode: "exam"`):
+- Integrates with g-exam for standardized exam formatting
+- Displays points in a consistent exam-style format
+- Access to exam-specific features (score tables, etc.)
+
+Both modes share the same exercise bank, filtering, and metadata system - only the visual presentation changes.
+
 ## Dependencies
 
-- [g-exam](https://typst.app/universe/package/g-exam) (v0.4.3+) - Used for exercise and question templates
+- [g-exam](https://typst.app/universe/package/g-exam) (v0.4.3+) - Optional, only needed if using exam mode integration features
 
 ## License
 
