@@ -6,10 +6,10 @@ A professional Typst package for digital forensics, incident response, and malwa
 
 | Module | Description |
 |--------|-------------|
-| **[Hex Dump](docs/hexdump.md)** | Canonical hex dumps with highlighting, annotations, themes |
-| **[MACB Timeline](docs/macb-timeline.md)** | File tree with MACB timestamps for forensic analysis |
-| **[IOC Table](docs/ioc-table.md)** | Auto-defanging indicators of compromise |
-| **[TTP References](docs/ttp.md)** | Inline MITRE ATT&CK technique cards |
+| **[Hex Dump](https://github.com/teismar/typst-forensix/blob/216289ed8d031518045083f90c5c0d21013e47d8/docs/hexdump.md)** | Canonical hex dumps with highlighting, annotations, themes |
+| **[MACB Timeline](https://github.com/teismar/typst-forensix/blob/216289ed8d031518045083f90c5c0d21013e47d8/docs/macb-timeline.md)** | File tree with MACB timestamps for forensic analysis |
+| **[IOC Table](https://github.com/teismar/typst-forensix/blob/216289ed8d031518045083f90c5c0d21013e47d8/docs/ioc-table.md)** | Auto-defanging indicators of compromise |
+| **[TTP References](https://github.com/teismar/typst-forensix/blob/216289ed8d031518045083f90c5c0d21013e47d8/docs/ttp.md)** | Inline MITRE ATT&CK technique cards |
 
 ![Examples](readme-quickstart.png)
 
@@ -52,16 +52,7 @@ The attacker used #ttp("T1059.001") for execution.
 
 ## Documentation
 
-### Online
 The full documentation is available online at [teismar.github.io/typst-forensix/](https://teismar.github.io/typst-forensix/).
-
-### Local
-See the [docs/](docs/) folder for detailed configuration options:
-
-- [Hex Dump](docs/hexdump.md) - Themes, highlighting, annotations, byte grouping
-- [MACB Timeline](docs/macb-timeline.md) - File trees, timestamps, anomaly detection
-- [IOC Table](docs/ioc-table.md) - Auto-defanging, type detection, custom types
-- [TTP References](docs/ttp.md) - MITRE ATT&CK integration
 
 ## License
 
