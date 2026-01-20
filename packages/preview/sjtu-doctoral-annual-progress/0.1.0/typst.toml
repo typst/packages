@@ -1,0 +1,15 @@
+[package]
+name = "sjtu-doctoral-annual-progress"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["zh1-z"]
+license = "MIT"
+description = "上海交通大学博士研究生学位论文年度进展报告模板 SJTU Doctoral Annual Progress Report template"
+repository = "https://github.com/zh1-z/SJTU-Doctoral-Annual-Progress-Typst-Template"
+keywords = ["doctoral", "phd", "annual-progress", "sjtu", "chinese", "上海交通大学", "年度进展", "博士"]
+categories = ["office", "report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
