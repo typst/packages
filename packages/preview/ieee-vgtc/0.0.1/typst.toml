@@ -1,0 +1,18 @@
+[package]
+name = "ieee-vgtc"
+version = "0.0.1"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/ieeevgtc/ieee-vgtc-typst"
+authors = ["Matěj Lang <https://www.linkedin.com/in/matej-lang/>", "Dominik Moritz <https://www.domoritz.de>", "Josh Pollock <https://joshmpollock.com>"]
+license = "MIT-0"
+description = "Templates for IEEE VGTC conferences and TVCG journal papers."
+keywords = ["Institute of Electrical and Electronics Engineers", "IEEE", "Transactions on Visualization and Computer Graphics", "TVCG", "Visualization and Graphics Technical Community", "VGTC", "Computer Science", "Visualization"]
+categories = ["paper"]
+disciplines = ["computer-science"]
+exclude = ["preview.pdf"]
+
+[template]
+path = "template"
+entrypoint = "journal.typ"
+thumbnail = "thumbnail.png"
