@@ -1,0 +1,14 @@
+[package]
+name = "helios-polylux"
+version = "0.1.0"
+entrypoint = "src/helios.typ"
+authors = ["Daniel Schoenig <daniel.schoenig@protonmail.com"]
+license = "AGPL-3.0-or-later"
+description = "Helios, a minimal theme for academic presentations with Polylux"
+keywords = ["presentation", "academic", "minimal", "polylux"]
+categories = ["presentation"]
+
+[template]
+path = "template"
+entrypoint = "presentation.typ"
+thumbnail = "thumbnail.png"
