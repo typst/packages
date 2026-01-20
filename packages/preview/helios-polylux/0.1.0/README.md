@@ -4,35 +4,28 @@ Helios is a minimal theme for creating academic presentations with
 [Typst](https://typst.app) and
 [Polylux](https://typst.app/universe/package/polylux).
 
-The package is an early stage and future version may make adjustments
-that break functionality without warning.
-
 The Helios theme is inspired by the [`metropolis-polylux`
 theme](https://github.com/polylux-typ/metropolis) and the [Metropolis
 theme for Beamer](https://github.com/matze/mtheme). Code for the
 `outline` and `focus` functions was taken from the `metropolis-polylux`
 theme.
 
-## Installation
 
-The package is not (yet) available in the Typst package repository.
+## Create a new presentation
 
-Via the Typst documentation, the template can be installed by
-downloading or cloning this repository into
-`{data-dir}/typst/packages/local/helios-polylux/0.0.1`, where the
-`{data-dir}` depends on the operating system: 
+Use the `typst init` functionality to create a new presentation based on
+the Helios template:
 
-- `$XDG_DATA_HOME` or `~/.local/share` on Linux
-- `~/Library/Application Support` on macOS
-- `%APPDATA%` on Windows
+```
+typst init @preview/helios-polylux new-presentation
+```
 
-For example, on Linux, you could clone the repository directly into the
-local Typst package folder:
+This will create a folder called `new-presentation` containing a
+`presentation.typ` file that can be used a starting point for your
+presentation.
 
-`git clone https://codeberg.org/dschoenig/helios-polylux.git ~/.local/share/typst/packages/local/helios-polylux/0.1.0/`
 
-For more information, see the Typst documentation on [local
-packages](https://github.com/typst/packages/blob/main/README.md#local-packages).
+## Fonts
 
 By default, the package uses IBM Plex fonts (Sans, Sans Condensed, Mono and Math),
 which you can download here:
@@ -49,19 +42,6 @@ leads to subpar results (or requiring additional adjustments) for
 alternative typefaces. For example, slides are by default set in a
 condensed font (if available).
 
-
-## Create a new presentation
-
-Use the `typst init` functionality to create a new presentation based on
-the Helios template:
-
-```
-typst init @preview/metropolis-polylux new-presentation
-```
-
-This will create a folder called `new-presentation` containing a
-`presentation.typ` file that can be used a starting point for your
-presentation.
 
 ## Setup
 
