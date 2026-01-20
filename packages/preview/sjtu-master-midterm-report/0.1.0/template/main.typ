@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/sjtu-master-midterm-report:0.1.0": *
 
 // ======================================================
 //                 填写说明 (Instructions)
@@ -252,4 +252,5 @@ $ A = mat(1, 2; 3, 4), quad sum_(i=1)^n i = (n(n+1)) / 2 $
 #set enum(indent: 2em)
 + 成果1
 + 成果2
+
 
