@@ -12,8 +12,10 @@ Click on an image to see the source code.
 | Basic Exercises | With Solutions | Exercise Bank |
 | [![Filtering](gallery/filtering.png)](gallery/filtering.typ) | [![Competencies](gallery/competencies.png)](gallery/competencies.typ) | [![End of Section](gallery/end-section.png)](gallery/end-section.typ) |
 | Filtering by Topic | Competency Tags | Solutions at End |
-| [![Append Solution](gallery/append-solution.png)](gallery/append-solution.typ) | [![Corrections](gallery/corrections.png)](gallery/corrections.typ) | [![Draft Mode](gallery/draft-mode-1.png)](gallery/draft-mode.typ) |
-| Append Solution | Teacher Corrections | Draft Mode |
+| [![Append Solution](gallery/append-solution.png)](gallery/append-solution.typ) | [![Corrections](gallery/corrections.png)](gallery/corrections.typ) | [![Draft Mode OFF](gallery/draft-mode-1.png)](gallery/draft-mode.typ) |
+| Append Solution | Teacher Corrections | Draft Mode OFF |
+| [![Draft Mode ON](gallery/draft-mode-2.png)](gallery/draft-mode.typ) | [![Draft with Append](gallery/draft-mode-3.png)](gallery/draft-mode.typ) | |
+| Draft Mode ON | Draft with Append | |
 
 ## Features
 
