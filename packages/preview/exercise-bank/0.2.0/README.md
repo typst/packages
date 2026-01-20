@@ -714,7 +714,7 @@ Both modes share the same exercise bank, filtering, and metadata system - only t
 
 ## Dependencies
 
-- [g-exam](https://typst.app/universe/package/g-exam) (v0.4.3+) - Optional, only needed if using exam mode integration features
+- [g-exam](https://typst.app/universe/package/g-exam) (v0.4.4+) - Optional, only needed if using exam mode integration features
 
 ## License
 

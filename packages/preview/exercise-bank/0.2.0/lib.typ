@@ -7,7 +7,7 @@
 // =============================================================================
 
 // Import g-exam for exam mode display
-#import "@preview/g-exam:0.4.3": exam as g-exam-template, question as g-exam-question, subquestion as g-exam-subquestion
+#import "@preview/g-exam:0.4.4": exam as g-exam-template, question as g-exam-question, subquestion as g-exam-subquestion
 
 // =============================================================================
 // State and Counters
