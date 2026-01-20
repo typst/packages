@@ -1,4 +1,4 @@
-#import "@preview/clean-othaw:0.3.3": *
+#import "@preview/clean-othaw:0.3.4": *
 #import "glossary.typ": glossary-entries
 
 #show: clean-othaw.with(
