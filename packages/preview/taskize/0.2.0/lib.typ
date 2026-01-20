@@ -71,41 +71,65 @@
 // Returns (span, content) tuple
 // Syntax: () for all columns, (N) for N columns, otherwise 1 column
 #let parse-span(item-content, max-cols) = {
-  // Try to extract text representation
+  // Try to extract text representation from content
   let text-str = none
 
+  // Handle different content types
   if type(item-content) == str {
     text-str = item-content
-  } else if type(item-content) == content and item-content.has("text") {
-    text-str = item-content.text
+  } else if type(item-content) == content {
+    // Try to get the text representation
+    if item-content.has("text") {
+      text-str = item-content.text
+    } else if item-content.has("body") and type(item-content.body) == str {
+      text-str = item-content.body
+    } else if item-content.has("children") {
+      // Extract text from first child if it's text
+      let children = item-content.children
+      if children.len() > 0 {
+        let first = children.at(0)
+        if type(first) == str {
+          text-str = first
+        } else if type(first) == content and first.has("text") {
+          text-str = first.text
+        }
+      }
+    }
   }
 
   // If we got text, check for span patterns
   if text-str != none and type(text-str) == str {
+    // Remove leading + if present (from +(N) syntax)
+    let clean-text = if text-str.starts-with("+") {
+      text-str.slice(1)
+    } else {
+      text-str
+    }
+
     // Check for () pattern - span all columns
-    if text-str.starts-with("()") {
-      let remaining = text-str.slice(2)
+    if clean-text.starts-with("()") {
+      let remaining = clean-text.slice(2)
       // Remove leading space if present
       if remaining.len() > 0 and remaining.starts-with(" ") {
         remaining = remaining.slice(1)
       }
-      return (max-cols, [#remaining])
+      return (max-cols, remaining)
     }
 
     // Check for (N) pattern - span N columns
-    if text-str.starts-with("(") {
-      let close-paren = text-str.position(")")
+    if clean-text.starts-with("(") {
+      let close-paren = clean-text.position(")")
       if close-paren != none and close-paren > 1 {
-        let num-str = text-str.slice(1, close-paren)
+        let num-str = clean-text.slice(1, close-paren)
         // Check if num-str contains only digits
         if num-str.len() > 0 and num-str.match(regex("^\d+$")) != none {
           let parsed = int(num-str)
-          let remaining = text-str.slice(close-paren + 1)
+          let remaining = clean-text.slice(close-paren + 1)
           // Remove leading space if present
           if remaining.len() > 0 and remaining.starts-with(" ") {
             remaining = remaining.slice(1)
           }
-          return (calc.min(calc.max(parsed, 1), max-cols), [#remaining])
+          return (calc.min(calc.max(parsed, 1), max-cols), remaining)
         }
       }
     }
@@ -233,50 +257,215 @@
 
   // Build grid content with column spans
   let grid-content = ()
-  let current-col = 0
-  let current-row = 0
 
-  for i in range(num-items) {
-    let item-data = task-items.at(i)
-    let item-content = item-data.at(0)
-    let span = item-data.at(1)
+  if flow-dir == "vertical" {
+    // VERTICAL FLOW: Fill columns first (like v0.1.0), with column spanning support
+    // For vertical flow without column spans, we use the classic formula:
+    // For item i: col = i / num_rows, row = i % num_rows
+    // With column spans, items are placed sequentially in available positions
 
-    // If current position would exceed columns, move to next row
-    if current-col + span > cols {
-      // Fill remaining columns in current row with empty cells
-      while current-col < cols {
-        grid-content.push([])
-        grid-content.push([])
-        current-col += 1
+    // First pass: check if any items have spans
+    let has-spans = false
+    for item-data in task-items {
+      if item-data.at(1) > 1 {
+        has-spans = true
+        break
       }
-      current-col = 0
-      current-row += 1
     }
 
-    let num = start-num + i
-    let label = format-label(num, fmt)
+    if not has-spans {
+      // Simple case: no column spans, use the classic v0.1.0 algorithm
+      let num-rows = calc.ceil(num-items / cols)
 
-    // Add label cell
-    if span == 1 {
-      // Single column: normal label + content
-      grid-content.push(make-label-cell(label))
-      grid-content.push(make-content-cell(item-content))
+      for row in range(num-rows) {
+        for col in range(cols) {
+          // Calculate item index using vertical flow formula
+          let item-idx = col * num-rows + row
+
+          if item-idx < num-items {
+            let item-data = task-items.at(item-idx)
+            let item-content = item-data.at(0)
+            let num = start-num + item-idx
+            let label = format-label(num, fmt)
+
+            grid-content.push(make-label-cell(label))
+            grid-content.push(make-content-cell(item-content))
+          } else {
+            // No more items, fill with empty cells
+            grid-content.push([])
+            grid-content.push([])
+          }
+        }
+      }
     } else {
-      // Multi-column span: label + content spanning multiple columns
-      // Calculate colspan: each column is 2 grid cells (label + content)
-      let total-colspan = span * 2
-      grid-content.push(make-label-cell(label))
-      grid-content.push(grid.cell(colspan: total-colspan - 1, make-content-cell(item-content)))
+      // Complex case: has column spans
+      // Build a 2D grid to track occupied positions
+      // Estimate initial number of rows (may grow)
+      let num-rows = calc.ceil(num-items / cols)
+      let grid-map = ()  // Array of arrays: grid-map.at(row).at(col) = item-idx or none or "occupied"
+
+      // Initialize grid map
+      for r in range(num-rows + 10) {  // Add extra rows in case spans push items down
+        let row-arr = ()
+        for c in range(cols) {
+          row-arr.push(none)
+        }
+        grid-map.push(row-arr)
+      }
+
+      // Place items in column-major order, respecting spans
+      // Track the current height (row) of each column
+      let col-heights = ()
+      for _ in range(cols) {
+        col-heights.push(0)
+      }
+
+      for item-idx in range(num-items) {
+        let item-data = task-items.at(item-idx)
+        let span = item-data.at(1)
+
+        // Find the column with minimum height that can accommodate this span
+        let placed = false
+        let best-col = 0
+        let best-row = 0
+
+        // Try each starting column position
+        for start-col in range(cols) {
+          if start-col + span > cols {
+            // Span doesn't fit starting from this column
+            continue
+          }
+
+          // Check the maximum height among spanned columns
+          let max-height = 0
+          for s in range(span) {
+            if col-heights.at(start-col + s) > max-height {
+              max-height = col-heights.at(start-col + s)
+            }
+          }
+
+          // This is a valid position
+          if not placed or max-height < best-row {
+            best-col = start-col
+            best-row = max-height
+            placed = true
+          }
+        }
+
+        if placed {
+          // Place item at (best-row, best-col)
+          grid-map.at(best-row).at(best-col) = item-idx
+          // Mark spanned positions as occupied
+          for s in range(1, span) {
+            grid-map.at(best-row).at(best-col + s) = "occupied"
+          }
+          // Update column heights for all spanned columns
+          for s in range(span) {
+            col-heights.at(best-col + s) = best-row + 1
+          }
+        }
+      }
+
+      // Find actual number of rows used
+      let actual-rows = 0
+      for r in range(grid-map.len()) {
+        let row-has-content = false
+        for c in range(cols) {
+          if grid-map.at(r).at(c) != none {
+            row-has-content = true
+            break
+          }
+        }
+        if row-has-content {
+          actual-rows = r + 1
+        }
+      }
+
+      // Convert grid-map to grid-content
+      for row in range(actual-rows) {
+        let col = 0
+        while col < cols {
+          let cell-value = grid-map.at(row).at(col)
+          if cell-value == none {
+            // Empty cell
+            grid-content.push([])
+            grid-content.push([])
+            col += 1
+          } else if cell-value == "occupied" {
+            // Skip - this is part of a span from a previous column
+            // Don't add any cells, the colspan handles it
+            col += 1
+          } else {
+            // Item cell
+            let item-idx = cell-value
+            let item-data = task-items.at(item-idx)
+            let item-content = item-data.at(0)
+            let span = item-data.at(1)
+            let num = start-num + item-idx
+            let label = format-label(num, fmt)
+
+            if span == 1 {
+              grid-content.push(make-label-cell(label))
+              grid-content.push(make-content-cell(item-content))
+              col += 1
+            } else {
+              // Multi-column span
+              let total-colspan = span * 2
+              grid-content.push(make-label-cell(label))
+              grid-content.push(grid.cell(colspan: total-colspan - 1, make-content-cell(item-content)))
+              col += span  // Skip the spanned columns
+            }
+          }
+        }
+      }
+    }
+  } else {
+    // HORIZONTAL FLOW: Original logic (fill rows first)
+    let current-col = 0
+    let current-row = 0
+
+    for i in range(num-items) {
+      let item-data = task-items.at(i)
+      let item-content = item-data.at(0)
+      let span = item-data.at(1)
+
+      // If current position would exceed columns, move to next row
+      if current-col + span > cols {
+        // Fill remaining columns in current row with empty cells
+        while current-col < cols {
+          grid-content.push([])
+          grid-content.push([])
+          current-col += 1
+        }
+        current-col = 0
+        current-row += 1
+      }
+
+      let num = start-num + i
+      let label = format-label(num, fmt)
+
+      // Add label cell
+      if span == 1 {
+        // Single column: normal label + content
+        grid-content.push(make-label-cell(label))
+        grid-content.push(make-content-cell(item-content))
+      } else {
+        // Multi-column span: label + content spanning multiple columns
+        // Calculate colspan: each column is 2 grid cells (label + content)
+        let total-colspan = span * 2
+        grid-content.push(make-label-cell(label))
+        grid-content.push(grid.cell(colspan: total-colspan - 1, make-content-cell(item-content)))
+      }
+
+      current-col += span
     }
 
-    current-col += span
-  }
-
-  // Fill remaining cells in last row
-  while current-col < cols {
-    grid-content.push([])
-    grid-content.push([])
-    current-col += 1
+    // Fill remaining cells in last row
+    while current-col < cols {
+      grid-content.push([])
+      grid-content.push([])
+      current-col += 1
+    }
   }
 
   // Update counter
@@ -396,35 +585,16 @@
       }
 
       // Parse span from the first text element (which has the () marker)
-      let (span, _) = parse-span(text-start, cols)
-      // Reconstruct content without the span marker
+      let (span, cleaned-content) = parse-span(text-start, cols)
+
+      // Build final content array
       let remaining-content = ()
-      if span == cols {
-        // Remove "() " or "()" from text-start
-        let cleaned = if text-start.starts-with("() ") {
-          text-start.slice(3)
-        } else if text-start.starts-with("()") {
-          text-start.slice(2)
-        } else {
-          text-start
-        }
-        if cleaned.len() > 0 {
-          remaining-content.push(cleaned)
-        }
-      } else if span > 1 {
-        // Remove "(N) " or "(N)" pattern
-        let close-pos = text-start.position(")")
-        if close-pos != none {
-          let after = text-start.slice(close-pos + 1)
-          if after.starts-with(" ") {
-            after = after.slice(1)
-          }
-          if after.len() > 0 {
-            remaining-content.push(after)
-          }
-        }
-      } else {
-        remaining-content.push(text-start)
+
+      // Add cleaned content (parse-span already removed the span markers)
+      if type(cleaned-content) == str and cleaned-content.len() > 0 {
+        remaining-content.push(cleaned-content)
+      } else if type(cleaned-content) != str {
+        remaining-content.push(cleaned-content)
       }
 
       // Add the rest of the collected children

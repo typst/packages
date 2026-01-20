@@ -2,7 +2,7 @@
 name = "taskize"
 version = "0.2.0"
 entrypoint = "lib.typ"
-authors = ["Nathan Scheinmann"]
+authors = ["Nathan"]
 license = "MIT"
 description = "Horizontal and vertical columned lists for exercises and tasks, similar to LaTeX's tasks package"
 repository = "https://gitlab.com/nathan-ed/typst-package-taskize"
