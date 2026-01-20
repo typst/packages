@@ -32,6 +32,16 @@
   margin-position: 2cm,        // Fixed position of content margin from left (like env line-position)
   label-extra: 1cm,            // Extra space for labels to extend into left margin
   page-break: "none",          // "none", "before", "after", "around" - page break behavior
+  append-solution-to-correction: false,  // Append solution to correction content
+  solution-in-correction-style: (        // Text styling when solution is appended
+    weight: "bold",
+    fill: rgb("#1565c0"),  // Blue to differentiate from correction
+    style: "normal",       // "normal" or "italic"
+    size: none,           // none = inherit size
+  ),
+  draft-mode: false,                            // Show placeholders for empty corrections/solutions
+  correction-placeholder: [_To be completed_],  // Placeholder when correction is empty (draft mode)
+  solution-placeholder: [_To be completed_],    // Placeholder when solution is empty (draft mode)
 ))
 
 // Registry of all exercises (for filtering)
@@ -96,6 +106,11 @@
   margin-position: none,
   label-extra: none,
   page-break: none,    // "none", "before", "after", "around"
+  append-solution-to-correction: none,
+  solution-in-correction-style: none,
+  draft-mode: none,
+  correction-placeholder: none,
+  solution-placeholder: none,
 ) = {
   exo-config.update(cfg => {
     let new = cfg
@@ -113,6 +128,11 @@
     if margin-position != none { new.margin-position = margin-position }
     if label-extra != none { new.label-extra = label-extra }
     if page-break != none { new.page-break = page-break }
+    if append-solution-to-correction != none { new.append-solution-to-correction = append-solution-to-correction }
+    if solution-in-correction-style != none { new.solution-in-correction-style = solution-in-correction-style }
+    if draft-mode != none { new.draft-mode = draft-mode }
+    if correction-placeholder != none { new.correction-placeholder = correction-placeholder }
+    if solution-placeholder != none { new.solution-placeholder = solution-placeholder }
     new
   })
 }
@@ -289,6 +309,111 @@
 }
 
 // =============================================================================
+// Helper Functions for Combining Corrections and Solutions
+// =============================================================================
+
+// Check if content is empty (none or empty content block)
+#let is-empty-content(content) = {
+  content == none or repr(content) == "[]"
+}
+
+// Apply placeholder if content is empty (only in draft mode)
+#let apply-placeholder(content, placeholder, draft-mode) = {
+  if is-empty-content(content) {
+    if draft-mode {
+      placeholder
+    } else {
+      [ ]  // Empty space to maintain box/counter
+    }
+  } else {
+    content
+  }
+}
+
+// Combine correction and solution content with custom formatting
+#let combine-correction-and-solution(correction, solution, style-dict, corr-placeholder, sol-placeholder, draft-mode) = {
+  let corr-is-empty = is-empty-content(correction)
+  let sol-is-empty = is-empty-content(solution)
+
+  // If both are empty, show only one placeholder (in draft mode) or empty space
+  if corr-is-empty and sol-is-empty {
+    if draft-mode {
+      corr-placeholder
+    } else {
+      [ ]  // Empty space to maintain box
+    }
+  } else {
+    // Show correction (or placeholder if empty and draft mode)
+    let corr-content = if corr-is-empty {
+      if draft-mode { corr-placeholder } else { [ ] }
+    } else {
+      correction
+    }
+    corr-content
+
+    // Add solution in new paragraph
+    parbreak()
+
+    let sol-content = if sol-is-empty {
+      if draft-mode { sol-placeholder } else { [ ] }
+    } else {
+      solution
+    }
+
+    // Build text styling parameters conditionally
+    let weight = style-dict.at("weight", default: "normal")
+    let fill = style-dict.at("fill", default: black)
+    let style = style-dict.at("style", default: "normal")
+    let size = style-dict.at("size", default: none)
+
+    // Apply styling based on whether size is specified
+    if size != none {
+      text(weight: weight, fill: fill, style: style, size: size)[#sol-content]
+    } else {
+      text(weight: weight, fill: fill, style: style)[#sol-content]
+    }
+  }
+}
+
+// Determine what content to show (solution, correction, or combined)
+#let determine-content-to-show(solution, correction, cfg) = {
+  if solution != none and correction == none {
+    // Solution only - apply placeholder if empty (in draft mode)
+    let sol-content = apply-placeholder(solution, cfg.solution-placeholder, cfg.draft-mode)
+    (type: "solution", content: sol-content)
+  } else if solution == none and correction != none {
+    // Correction only (with fallback check) - apply placeholder if empty (in draft mode)
+    if cfg.fallback-to-correction {
+      let corr-content = apply-placeholder(correction, cfg.correction-placeholder, cfg.draft-mode)
+      (type: "correction", content: corr-content)
+    } else {
+      none
+    }
+  } else if solution != none and correction != none {
+    // Both exist - decide based on append setting
+    if cfg.append-solution-to-correction {
+      // Combine correction and solution (handles empty content internally)
+      let combined = combine-correction-and-solution(
+        correction,
+        solution,
+        cfg.solution-in-correction-style,
+        cfg.correction-placeholder,
+        cfg.solution-placeholder,
+        cfg.draft-mode
+      )
+      (type: "correction", content: combined)
+    } else {
+      // Default: show solution only (solutions have priority) - apply placeholder if empty (in draft mode)
+      let sol-content = apply-placeholder(solution, cfg.solution-placeholder, cfg.draft-mode)
+      (type: "solution", content: sol-content)
+    }
+  } else {
+    // Neither exists
+    none
+  }
+}
+
+// =============================================================================
 // Main Exercise Function
 // =============================================================================
 
@@ -350,11 +475,14 @@
 
   // Display based on mode
   if cfg.solution-mode == "only" {
-    // Only show solution (or correction as fallback)
-    if solution != none {
-      exo-solution-box(number: num, solution, exercise-id: exercise-id, show-id: cfg.show-id)
-    } else if cfg.fallback-to-correction and correction != none {
-      exo-correction-box(number: num, correction, exercise-id: exercise-id, show-id: cfg.show-id)
+    // Only show solution (or correction with appended solution)
+    let content-to-show = determine-content-to-show(solution, correction, cfg)
+    if content-to-show != none {
+      if content-to-show.type == "solution" {
+        exo-solution-box(number: num, content-to-show.content, exercise-id: exercise-id, show-id: cfg.show-id)
+      } else {
+        exo-correction-box(number: num, content-to-show.content, exercise-id: exercise-id, show-id: cfg.show-id)
+      }
     }
   } else {
     // Show exercise
@@ -367,14 +495,8 @@
       margin-content: margin-content,
     )
 
-    // Handle solution display (with correction fallback)
-    let content-to-show = if solution != none {
-      (type: "solution", content: solution)
-    } else if cfg.fallback-to-correction and correction != none {
-      (type: "correction", content: correction)
-    } else {
-      none
-    }
+    // Handle solution display (with correction fallback or appending)
+    let content-to-show = determine-content-to-show(solution, correction, cfg)
 
     if content-to-show != none {
       if cfg.solution-mode == "inline" {
@@ -639,12 +761,11 @@
           points: pts,
         )
 
-        // Show solution if configured (with correction fallback)
+        // Show solution if configured (with correction fallback or appending)
         if exam-cfg.show-solutions {
-          if sol != none {
-            exam-solution-box(sol)
-          } else if cfg.fallback-to-correction and corr != none {
-            exam-solution-box(corr)  // In exam mode, show correction as solution
+          let content-to-show = determine-content-to-show(sol, corr, cfg)
+          if content-to-show != none {
+            exam-solution-box(content-to-show.content)
           }
         }
       } else {
@@ -662,14 +783,8 @@
           )
         }
 
-        // Determine what content to show (solution or correction fallback)
-        let content-to-show = if sol != none {
-          (type: "solution", content: sol)
-        } else if cfg.fallback-to-correction and corr != none {
-          (type: "correction", content: corr)
-        } else {
-          none
-        }
+        // Determine what content to show (solution, correction, or combined)
+        let content-to-show = determine-content-to-show(sol, corr, cfg)
 
         // Handle solution/correction display
         if content-to-show != none {
@@ -833,12 +948,11 @@
         points: pts,
       )
 
-      // Show solution if configured (with correction fallback)
+      // Show solution if configured (with correction fallback or appending)
       if exam-cfg.show-solutions {
-        if sol != none {
-          exam-solution-box(sol)
-        } else if cfg.fallback-to-correction and corr != none {
-          exam-solution-box(corr)  // In exam mode, show correction as solution
+        let content-to-show = determine-content-to-show(sol, corr, cfg)
+        if content-to-show != none {
+          exam-solution-box(content-to-show.content)
         }
       }
     } else {
@@ -855,14 +969,8 @@
         )
       }
 
-      // Determine what content to show (solution or correction fallback)
-      let content-to-show = if sol != none {
-        (type: "solution", content: sol)
-      } else if cfg.fallback-to-correction and corr != none {
-        (type: "correction", content: corr)
-      } else {
-        none
-      }
+      // Determine what content to show (solution, correction, or combined)
+      let content-to-show = determine-content-to-show(sol, corr, cfg)
 
       if content-to-show != none {
         if cfg.solution-mode == "only" or do-show-solutions {

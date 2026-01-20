@@ -12,11 +12,15 @@ Click on an image to see the source code.
 | Basic Exercises | With Solutions | Exercise Bank |
 | [![Filtering](gallery/filtering.png)](gallery/filtering.typ) | [![Competencies](gallery/competencies.png)](gallery/competencies.typ) | [![End of Section](gallery/end-section.png)](gallery/end-section.typ) |
 | Filtering by Topic | Competency Tags | Solutions at End |
+| [![Append Solution](gallery/append-solution.png)](gallery/append-solution.typ) | [![Corrections](gallery/corrections.png)](gallery/corrections.typ) | [![Draft Mode](gallery/draft-mode-1.png)](gallery/draft-mode.typ) |
+| Append Solution | Teacher Corrections | Draft Mode |
 
 ## Features
 
 - **Exercises with solutions** - Create exercises with inline or deferred solutions
 - **Teacher corrections** - Add detailed corrections for teachers with optional fallback when solutions are missing
+- **Append solutions to corrections** - Combine corrections and solutions with custom formatting to avoid duplication
+- **Draft mode** - Show placeholders for empty corrections/solutions, or hide them for clean student output
 - **Multiple solution modes** - Show solutions inline, at end of section/chapter, or hide them
 - **Metadata support** - Tag exercises with topic, level, author, and custom fields
 - **Exercise banks** - Define exercises once, display them anywhere
@@ -231,6 +235,101 @@ Create teacher answer keys showing only corrections:
 )
 ```
 
+### Appending Solutions to Corrections
+
+When both correction and solution exist, you can append the solution to the correction content with custom formatting. This avoids duplication - write detailed pedagogical notes in the correction, then add the final answer in the solution.
+
+```typst
+#import "@preview/exercise-bank:0.2.0": exo, exo-setup
+
+#exo-setup(
+  append-solution-to-correction: true,  // Enable appending
+  solution-in-correction-style: (        // Customize formatting
+    weight: "bold",
+    fill: rgb("#1565c0"),  // Blue color
+    style: "normal",       // or "italic"
+    size: none,           // or specific size like 11pt
+  ),
+)
+
+#exo(
+  exercise: [Solve $x^2 = 9$.],
+  correction: [
+    This is a basic quadratic equation. The equation $x^2 = 9$ means we're
+    looking for values where x squared equals 9.
+
+    Students often forget the negative root when solving this type of equation.
+  ],
+  solution: [
+    The solutions are $x = 3$ and $x = -3$.
+  ],
+)
+```
+
+**How it works:**
+- When `append-solution-to-correction: false` (default): Shows solution in its own box (backward compatible)
+- When `append-solution-to-correction: true`: Shows correction box with solution appended as a new paragraph
+- The appended solution has no "Solution:" label - just the formatted content
+- Works with all solution modes (inline, end-section, end-chapter, only)
+- Works with exercise banks and filtering
+
+**Default styling:**
+- **Weight**: Bold
+- **Color**: Blue (`rgb("#1565c0")`)
+- **Style**: Normal
+- **Size**: Inherited from parent
+
+### Draft Mode and Placeholders
+
+When creating exercise documents, you may have incomplete corrections or solutions. Draft mode allows you to:
+- Show placeholder text for empty corrections/solutions (useful for teacher drafts)
+- Maintain exercise counters even with empty content
+- Hide placeholders in student versions
+
+```typst
+#import "@preview/exercise-bank:0.2.0": exo, exo-setup
+
+// Teacher draft version - shows placeholders
+#exo-setup(
+  draft-mode: true,
+  correction-placeholder: [_[To be completed]_],
+  solution-placeholder: [_[Answer to be written]_],
+)
+
+#exo(
+  exercise: [Solve $x + 5 = 12$],
+  solution: [],  // Empty - shows placeholder in draft mode
+)
+
+#exo(
+  exercise: [Calculate $3 times 4$],
+  solution: [$3 times 4 = 12$],  // Normal solution
+)
+```
+
+**Student version (draft mode OFF):**
+```typst
+#exo-setup(
+  draft-mode: false,  // Default - no placeholders
+)
+
+#exo(
+  exercise: [Solve $x + 5 = 12$],
+  solution: [],  // Empty - shows minimal space, no placeholder
+)
+```
+
+**How it works:**
+- `draft-mode: false` (default): Empty corrections/solutions display minimal space to maintain counter, no placeholder text
+- `draft-mode: true`: Empty corrections/solutions show customizable placeholder text
+- When both correction and solution are empty with `append-solution-to-correction: true`, only one placeholder is shown (not duplicated)
+- Placeholders are customizable via `correction-placeholder` and `solution-placeholder` parameters
+
+**Use cases:**
+- **Teacher drafts**: Enable draft mode to see which exercises need corrections/solutions
+- **Student worksheets**: Disable draft mode for clean output without placeholders
+- **Incremental writing**: Add exercises with empty solutions, fill them in later
+
 ## Metadata and Filtering
 
 ### Adding Metadata
@@ -399,6 +498,16 @@ Tag exercises with competencies and display them visually:
   show-metadata: false,           // Show metadata in output
   show-id: false,                 // Show exercise ID
   show-competencies: false,       // Show competency tags
+  append-solution-to-correction: false,  // Append solution to correction content
+  solution-in-correction-style: (        // Formatting for appended solutions
+    weight: "bold",
+    fill: rgb("#1565c0"),
+    style: "normal",
+    size: none,
+  ),
+  draft-mode: false,                     // Show placeholders for empty corrections/solutions
+  correction-placeholder: [_To be completed_],  // Placeholder text (draft mode)
+  solution-placeholder: [_To be completed_],    // Placeholder text (draft mode)
 )
 ```
 
@@ -551,6 +660,21 @@ Level 1M exercises: #exo-count(level: "1M")
 | `show-metadata` | bool | false | Display metadata |
 | `show-id` | bool | false | Display exercise ID |
 | `show-competencies` | bool | false | Display competency tags |
+| `append-solution-to-correction` | bool | false | Append solution to correction content |
+| `solution-in-correction-style` | dict | See below | Text styling for appended solutions |
+| `draft-mode` | bool | false | Show placeholders for empty corrections/solutions |
+| `correction-placeholder` | content | `[_To be completed_]` | Placeholder for empty corrections (draft mode) |
+| `solution-placeholder` | content | `[_To be completed_]` | Placeholder for empty solutions (draft mode) |
+
+**Default `solution-in-correction-style`:**
+```typst
+(
+  weight: "bold",
+  fill: rgb("#1565c0"),  // Blue
+  style: "normal",
+  size: none,
+)
+```
 
 ## Complete Example
 
@@ -714,7 +838,7 @@ Both modes share the same exercise bank, filtering, and metadata system - only t
 
 ## Dependencies
 
-- [g-exam](https://typst.app/universe/package/g-exam) (v0.4.4+) - Optional, only needed if using exam mode integration features
+- [g-exam](https://typst.app/universe/package/g-exam) (v0.4.3+) - Optional, only needed if using exam mode integration features
 
 ## License
 
