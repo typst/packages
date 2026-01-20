@@ -1,0 +1,15 @@
+[package]
+name = "sjtu-master-midterm-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["zh1-z"]
+license = "MIT"
+description = "上海交通大学硕士研究生学位论文中期检查报告模板 SJTU Master Midterm Examination Report template"
+repository = "https://github.com/zh1-z/SJTU-Master-Midterm-Typst-Template"
+keywords = ["thesis", "master", "midterm", "sjtu", "chinese", "上海交通大学", "上海交大", "硕士", "中期检查"]
+categories = ["office", "report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
