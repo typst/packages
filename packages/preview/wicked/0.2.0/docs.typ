@@ -1,4 +1,4 @@
-#import "src/lib.typ": wick
+#import "@preview/wicked:0.2.0": wick
 
 #set document(
   title: "Typst 'wicked' package docs",
@@ -70,7 +70,7 @@ reasons."
 In the examples which follow we must suppose that the following preamble has been used.
 
 ```
-#import "@preview/wicked:0.1.1": wick
+#import "@preview/wicked:0.2.0": wick
 
 // Only used to make the examples shorter
 #set box(width: 20pt, height: 20pt, radius: 2pt)

@@ -7,7 +7,7 @@ This small [Typst](https://typst.app/) package handles the typesetting of [Wick 
 </p>
 
 ```typ
-#import "@preview/wicked:0.1.1": wick
+#import "@preview/wicked:0.2.0": wick
 
 $ :
 wick(id: #1, overline(Psi))_alpha (x)
