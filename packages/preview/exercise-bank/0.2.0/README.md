@@ -670,7 +670,7 @@ Level 1M exercises: #exo-count(level: "1M")
 
 **Default `solution-in-correction-style`:**
 ```typst
-(
+#let default-style = (
   weight: "bold",
   fill: rgb("#1565c0"),  // Blue
   style: "normal",
