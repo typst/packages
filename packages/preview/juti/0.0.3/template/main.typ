@@ -1,5 +1,5 @@
-// #import "@preview/juti:0.0.3"
-#import "../juti.typ"
+#import "@preview/juti:0.0.3"
+// #import "../juti.typ"
 #import "setup.typ": *
 
 /**
