@@ -1,6 +1,6 @@
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.10": *
-#import "@preview/glossarium:0.5.9": make-glossary
+#import "@preview/glossarium:0.5.10": make-glossary
 
 #import "util.typ": *
 #import "partial/title.typ" as title-page

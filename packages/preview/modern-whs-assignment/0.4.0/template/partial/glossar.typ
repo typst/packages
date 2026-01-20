@@ -1,4 +1,4 @@
-#import "@preview/glossarium:0.5.9": (
+#import "@preview/glossarium:0.5.10": (
   register-glossary,
   print-glossary,
 )
