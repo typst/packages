@@ -2,7 +2,7 @@
 name = "simple-plot"
 version = "0.2.0"
 entrypoint = "lib.typ"
-authors = ["Nathan"]
+authors = ["Nathan Scheinmann"]
 license = "MIT"
 description = "Simple, pgfplots-like function plotting for Typst"
 repository = "https://gitlab.com/nathan-ed/typst-package-simple-plot"
