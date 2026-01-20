@@ -201,7 +201,7 @@
     revised: [will be set by the editor],
     accepted: [will be set by the editor],
     online: [will be set by the editor],
-    doi: [will be set by the editor],
+    doi: "will be set by the editor",
   ),
   start-page: 1,
   body,
