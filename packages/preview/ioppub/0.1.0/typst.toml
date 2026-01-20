@@ -1,0 +1,14 @@
+[package]
+name = "ioppub"
+version = "0.1.0"
+authors = ["Koyo Munechika"]
+license = "MIT"
+description = "IOP Publishing article template for Typst"
+entrypoint = "src/ioppub.typ"
+categories = ["paper", "model", "report"]
+keywords = ["iop", "article", "template"]
+repository = "https://github.com/munechika-koyo/ioppub"
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/main.png"
