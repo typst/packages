@@ -10,7 +10,7 @@ Click on an image to see the source code.
 |:---:|:---:|:---:|
 | [![Basic Tasks](gallery/basic.png)](gallery/basic.typ) | [![Math Exercises](gallery/math.png)](gallery/math.typ) | [![Custom Labels](gallery/labels.png)](gallery/labels.typ) |
 | Basic Tasks | Math Exercises | Custom Labels |
-| [![Vertical Flow](gallery/vertical.png)](gallery/vertical.typ) | [![Column Spanning](gallery/span.typ)](gallery/span.typ) | [![Bold Labels](gallery/bold.typ)](gallery/bold.typ) |
+| [![Vertical Flow](gallery/vertical.png)](gallery/vertical.typ) | [![Column Spanning](gallery/span.png)](gallery/span.typ) | [![Bold Labels](gallery/bold.png)](gallery/bold.typ) |
 | Vertical Flow | Column Spanning | Bold Labels |
 
 ## Features
