@@ -1,3 +1,5 @@
+*A flexible experiment report template ，allowing you to focus on the content*
+
 *这是一份用于实验报告的Typst模板*
 
 ---
