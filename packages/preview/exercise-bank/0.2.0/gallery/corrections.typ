@@ -49,28 +49,3 @@
     $x^2 - 4 = (x + 2)(x - 2)$
   ],
 )
-
-#pagebreak()
-
-= Without Fallback
-#exo-setup(fallback-to-correction: false)
-
-== Exercise with correction only (fallback disabled)
-#exo(
-  exercise: [
-    Simplify $2x + 3x$.
-  ],
-  correction: [
-    This correction won't be shown because fallback is disabled.
-  ],
-)
-
-== Exercise with solution
-#exo(
-  exercise: [
-    Calculate $5 times 6$.
-  ],
-  solution: [
-    $5 times 6 = 30$
-  ],
-)

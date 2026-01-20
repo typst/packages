@@ -867,6 +867,21 @@ All notable changes to exercise-bank are documented here.
 - Array `authors` supports multiple contributors per exercise
 - More explicit and maintainable API
 
+#### Added
+- **Append solutions to corrections**: Combine correction and solution content with custom formatting
+  - New parameter: `append-solution-to-correction` (default: `false`)
+  - New parameter: `solution-in-correction-style` (customizable text styling)
+  - Avoids duplication when writing detailed corrections with final answers
+- **Draft mode**: Show placeholders for empty corrections/solutions or hide them
+  - New parameter: `draft-mode` (default: `false`)
+  - New parameter: `correction-placeholder` (default: `[_To be completed_]`)
+  - New parameter: `solution-placeholder` (default: `[_To be completed_]`)
+  - Useful for teacher drafts to track incomplete exercises
+  - Student versions show minimal space without placeholder text
+- **Smart empty content handling**
+  - Empty corrections/solutions maintain exercise counter
+  - No duplicate placeholders when both are empty with append mode enabled
+
 #### Dependencies
 - Requires [g-exam](https://typst.app/universe/package/g-exam) v0.4.3 or higher
 

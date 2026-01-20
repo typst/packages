@@ -1,5 +1,7 @@
 #import "@preview/exercise-bank:0.2.0": exo, exo-setup
 
+#set page(width: 14cm, height: auto, margin: 1cm)
+
 #exo-setup(
   append-solution-to-correction: true,
   solution-in-correction-style: (
