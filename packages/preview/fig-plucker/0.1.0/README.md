@@ -23,7 +23,7 @@ A minimal CeTZ example (3 figures) is in [mini.typ](https://github.com/itpyi/typ
 - **Output mode:** set `output-label: "square"` and `debug: false` to export a single figure.
 
 ```typst
-#import "fig-plucker.typ": fig-plucker, fig
+#import "@preview/fig-plucker:0.1.0": fig-plucker, fig
 #import "@preview/cetz:0.4.2": canvas, draw
 
 #show: fig-plucker.with(
@@ -83,7 +83,7 @@ Or use a local copy:
 Use the `#show` rule to toggle between modes and select a figure by label or index:
 
 ```typst
-#import "fig-plucker.typ": *
+#import "@preview/fig-plucker:0.1.0": *
 
 #show: fig-plucker.with(
   debug: true,            // Set to false for final export
