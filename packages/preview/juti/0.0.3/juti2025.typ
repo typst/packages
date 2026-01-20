@@ -1,5 +1,3 @@
-#import "juti2025.typ"
-
 #let warn(body) = {
   show: highlight.with(fill: red.lighten(75%))
   body
@@ -87,15 +85,6 @@
   nth(ordinal, sup: true)
 }
 
-#let i(body) = {
-  set cite(form: "prose")
-  body
-}
-
-#let debug-outline() = {
-  block(fill: red.lighten(80%), inset: 1em, outline())
-}
-
 #let JOURNAL-NAME = [JUTI: Jurnal Ilmiah Teknologi Informasi]
 #let get-align-by-page(pagei) = if calc.rem-euclid(pagei, 2) == 0 {
   left
@@ -104,15 +93,12 @@
 }
 
 #let paper-idx = state("paper-idx", "single")
-#let book-state = state(
-  "book-state",
-  (
-    volume: [-],
-    number: [-],
-    month: 2,
-    year: 2025,
-  ),
-)
+#let book-state = state("book-state", (
+  volume: [-],
+  number: [-],
+  month: 2,
+  year: 2025,
+))
 
 #let contributions = (
   /* 0  */ [Conceptualization],
@@ -131,53 +117,29 @@
   /* 13 */ [Funding Acquisition],
 )
 #let get-contributions(author) = author.contribution-refs.map(i => contributions.at(i)).join([, ])
-
-#let credits(authors) = authors.map(author => [*#author.short:* #get-contributions(author).]).join([ ])
-
-#let init-authors(authors) = {
-  for (i, author) in authors.enumerate() {
-    if author.at("short", default: none) == none {
-      let splitted = author.name.split(" ")
-      authors.at(i).short = splitted
-        .enumerate()
-        .map(((j, v)) => {
-          if j == splitted.len() - 1 {
-            v
-          } else {
-            v.slice(0, 1) + "."
-          }
-        })
-        .join(" ")
-    }
-  }
-
-  authors
-}
-
-#let enumlist-level = state("enumlist-level", 1)
+#let get-credits(authors) = authors.map(author => [*#empty-warn(author.short):* #get-contributions(author).]).join([ ])
 
 #let template(
   title: "Preparation of Papers for JUTI (JURNAL ILMIAH TEKNOLOGI INFORMASI)",
-  title-content: [],
   authors: (
     (
-      name: "First Alpha Author",
+      name: [First A. Author],
       institution-ref: 0,
-      email: "first.author@email.com",
+      email: [first.author\@email.com],
       contribution: [],
       contribution-refs: range(0, 10),
     ),
     (
-      name: "Second Beta Author",
+      name: [Second B. Author],
       institution-ref: 0,
-      email: "second.author@email.com",
+      email: [second.author\@email.com],
       contribution: [],
       contribution-refs: range(7, 13),
     ),
     (
-      name: "Third Charlie Author",
+      name: [Third C. Author],
       institution-ref: 1,
-      email: "third.author@email.com",
+      email: [third.author\@email.com],
       contribution: [],
       contribution-refs: range(7, 13),
     ),
@@ -185,12 +147,12 @@
   corresponding-ref: 0,
   institutions: (
     (
-      name: "Department and institution name of authors",
-      address: "Address of institution",
+      name: [Department and institution name of authors],
+      address: [Address of institution],
     ),
     (
-      name: "Department and institution name of authors",
-      address: "Address of institution",
+      name: [Department and institution name of authors],
+      address: [Address of institution],
     ),
   ),
   abstract: [],
@@ -200,13 +162,16 @@
     received: [will be set by the editor],
     revised: [will be set by the editor],
     accepted: [will be set by the editor],
-    online: [will be set by the editor],
+    online: [online],
     doi: [will be set by the editor],
   ),
   start-page: 1,
   body,
   bib: none,
 ) = context {
+  if type(title) != str {
+    panic("title must be a string.")
+  }
   let paper-id = paper-idx.get()
   let book = book-state.get()
   counter(heading).update(0)
@@ -217,11 +182,6 @@
   counter(figure.where(kind: raw)).update(0)
   if start-page != none {
     counter(page).update(start-page)
-  }
-  let title-content = if title-content == none or title-content == [] {
-    [#title]
-  } else {
-    title-content
   }
   set page(
     paper: "a4",
@@ -289,33 +249,13 @@
   show figure.where(kind: image): set text(size: .8em)
 
   //? Table
-  show figure.where(kind: table): set block(breakable: true)
   show figure.where(kind: table): set figure(placement: top, supplement: [Table])
   set table(align: left)
-  // TODO: Still not fixed
-  // show enum.item: it => {
-  //   enumlist-level.update(l => l + 1)
-  //   it
-  //   enumlist-level.update(l => l - 1)
-  // }
-  set enum(indent: 1em)
-  // show enum: it => context {
-  //   set enum(indent: 0em) if enumlist-level.get() > 0
-  //   it
-  // }
-  // show list.item: it => {
-  //   enumlist-level.update(l => l + 1)
-  //   it
-  //   enumlist-level.update(l => l - 1)
-  // }
-  set list(indent: 1em)
-  // show list: it => context {
-  //   set list(indent: 0em) if enumlist-level.get() > 0
-  //   it
-  // }
-  show table: set enum(indent: 0em)
-  show table: set list(indent: 0em)
-  show table: set par(justify: false, first-line-indent: 0em)
+  // set enum(indent: 2em)
+  // set list(indent: 2em)
+  show table: set enum(indent: 0pt)
+  show table: set list(indent: 0pt)
+  show table: set par(justify: false)
   show table.header: set text(weight: "bold")
   set table(stroke: none)
   show figure.where(kind: table): set text(size: .8em)
@@ -345,8 +285,8 @@
     set align(center)
     set text(size: 16pt, weight: "bold")
     // show: upper
-    empty-warn(title-content)
-    phantom(heading(title-content, bookmarked: true))
+    empty-warn(title)
+    phantom(heading(title, bookmarked: true))
   }
 
   //? Author names
@@ -438,16 +378,14 @@
     )
     set par(justify: true)
     [*Keywords:* ]
-    [
-      #inline-enum(prefix-fn: none, last-join: none, ..keywords.map(v => empty-warn(v))).
-    ]
+    inline-enum(prefix-fn: none, last-join: none, ..keywords.map(v => empty-warn(v)))
   }
 
   line(length: 100%)
   v(.5em)
 
   //? Numberings
-  set heading(numbering: (num1, ..nums) => {
+  set heading(outlined: false, numbering: (num1, ..nums) => {
     let l = nums.pos().len()
     // numbering("1.1.1.", num1, ..nums)
     if l == 0 {
@@ -457,11 +395,9 @@
       numbering("1.1.", num1, ..nums)
       // h(7pt)
     } else if l == 2 {
-      numbering("1.1.1.", num1, ..nums)
-    } else if l == 3 {
-      numbering("A.", ..nums.pos().slice(2), ..nums.named())
+      numbering("A.", ..nums.pos().slice(1), ..nums.named())
     } else {
-      panic("Unhandled heading 5 or more.")
+      panic("Unhandled heading 4 or more.")
     }
   })
   // set enum(numbering: "1)")
@@ -491,15 +427,6 @@
     )
     it
   }
-  //? Heading 4
-  show heading.where(level: 4): it => {
-    set text(
-      size: 11pt,
-      weight: "regular",
-      style: "italic",
-    )
-    it
-  }
 
   let format-date(d) = {
     if (
@@ -522,7 +449,7 @@
       #pad(y: -.65em, line(length: 100%))
 
       Available online: #format-date(meta.online). \
-      © #context { book-state.get().year } The Authors. This is an open access article under the CC BY-SA license (#link-b("https://creativecommons.org/licenses/by-sa/4.0/")[])\ DOI: #link-b(meta.doi)[]
+      © #context { book-state.get().year } The Authors. This is an open access article under the CC BY-SA license (#link-b("https://creativecommons.org/licenses/by-sa/4.0/")[])\ DOI: #meta.doi
     ],
     placement: bottom,
     supplement: none,
