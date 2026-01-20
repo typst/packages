@@ -386,7 +386,7 @@
     let values = collect-metadata(node)
     let attr = values
       .filter(meta => type(meta) == dictionary)
-      .find(meta => meta.class == "node-attr")
+      .find(meta => meta.at("class", default: "") == "node-attr")
     if attr == none {
       // if not specified, use default node attributes
       default-node-attr.value
