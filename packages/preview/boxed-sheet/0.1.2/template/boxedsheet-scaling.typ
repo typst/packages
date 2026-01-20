@@ -233,7 +233,7 @@
   !(a == b)           // logical not
   a != b              // not equal
   typeof a            // type (number, object, function...)
-  x << 2  x >> 3      // minary shifting
+  x << 2  x >> 3      // binary shifting
   a = b               // assignment
   a == b              // equals
   a != b              // unequal
@@ -286,7 +286,7 @@
   var esc = 'I don\'t \n know';   // \n new line
   var len = abc.length;           // string length
   abc.indexOf("lmno");            // find substring, -1 if doesn't contain 
-  abc.lastIndexOf("lmno");        // last occurance
+  abc.lastIndexOf("lmno");        // last occurrence
   abc.slice(3, 6);                // cuts out "def", negative values count from behind
   abc.replace("abc","123"); // find and replace, takes regular expressions
   abc.toUpperCase();              // convert to upper case
@@ -308,7 +308,7 @@
   ```js
   Wed Jun 11 2025 18:31:19 GMT+0800 (中国标准时间)
   var d = new Date();
-  1749637879070 miliseconds passed since 1970
+  1749637879070 milliseconds passed since 1970
   Number(d) 
   Date("2017-06-23");                 // date declaration
   Date("2017");                       // is set to Jan 01
