@@ -5,7 +5,7 @@ entrypoint = "lib.typ"
 authors = ["Dregen_Yor"]
 license = "GPL-3.0-or-later"
 description = "An templete based on touying, "
-keywords = ["presentation", "slides", "lecture", "sdu"  ]
+keywords = ["presentation", "slides", "lecture", "sdu" ]
 categories = ["presentation"]
 repository = "https://github.com/Dregen-Yor/sdu-touying-simpl"
 compiler = "0.14.2"
@@ -13,4 +13,4 @@ compiler = "0.14.2"
 [template]
 path = "example"
 entrypoint = "main.typ"
-thumbnail = "example/figures/main.png"
+thumbnail = "main.png"
