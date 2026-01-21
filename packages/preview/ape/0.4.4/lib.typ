@@ -1,9 +1,8 @@
 #import "document/doc.typ" : *
 
-
 #import "tools/formatting.typ" : *
 #import "tools/shortcuts.typ" : *
-#import "tools/maths.typ" : *
+#import "maths/maths-style.typ" : *
 
 
 #import "figure/drawing.typ" : *

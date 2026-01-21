@@ -7,6 +7,7 @@
 #import "quote-display.typ": *
 #import "../tools/formatting.typ": *
 #import "../tools/date.typ": *
+#import "../maths/maths-style.typ": maths-style-state, maths-num-state
 
 = Documents
 
@@ -25,11 +26,28 @@ Style :
 - Plain
 */
 
+/*
+Maths style : 
+- normal
+- colored
+- boxed
+*/
+
+/*
+Maths numbering :
+- normal
+- separate
+- none
+*/
+
+
 #let doc(
   lang: "fr",
   title: "Titre",
   authors: (),
   style: "numbered",
+  maths-style: "normal",
+  maths-num: "normal",
   title-page: false,
   outline: false,
   local-outline: false,
@@ -39,7 +57,9 @@ Style :
 ) = context {
   set page(margin: 1.5cm)
   set text(lang: lang, font: "New Computer Modern")
-
+  maths-style-state.update(maths-style)
+  maths-num-state.update(maths-num)
+  
   show: apply-style.with(style, title, authors)
 
   let (first-real-pages, custom-outline) = get-outline(lang, smallcaps, outline-max-depth)
@@ -49,17 +69,7 @@ Style :
     first-real-pages.push(0)
   }
 
-  if (style != "presentation") {
-    show: header-footer.with(style, smallcaps, first-real-pages, title, authors)
-
-    front-pages(style, smallcaps, title, title-page, authors, outline, local-outline, custom-outline)
-
-    set table(inset: 10pt, stroke: 0.4pt + text.fill.lighten(20%), align: center + horizon, fill: (x, y) => if (x == 0)
-      or (y == 0) { text.fill.lighten(90%) })
-
-    set grid(column-gutter: 10pt, align: horizon)
-  }
-
+  
   show: shows-shortcuts
   show: code-display
   show: quote-display
@@ -74,10 +84,25 @@ Style :
 
   // content
   set par(justify: true)
+   
+  if (style != "presentation") {
+    show: header-footer.with(style, smallcaps, first-real-pages, title, authors)
+    
+    front-pages(style, smallcaps, title, title-page, authors, outline, local-outline, custom-outline)
+     
 
-  counter(heading).update(0)
+    set table(inset: 10pt, stroke: 0.4pt + text.fill.lighten(20%), align: center + horizon, fill: (x, y) => if (x == 0)
+      or (y == 0) { text.fill.lighten(90%) })
 
+    set grid(column-gutter: 10pt, align: horizon)
 
-  content
+    
+    counter(heading).update(0)
+    content
+  }else{
+    title-slide()
+    counter(heading).update(0)
+    content
+  }
 }
 
