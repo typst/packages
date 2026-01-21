@@ -1,12 +1,11 @@
-#import "@preview/dnd-5e:0.0.1": *
+#import "@preview/mythographer-5e:0.0.1": *
 
 #show: dnd-template.with()
 
 #title-page(
   title: [The Dark Typst],
   authors: (
-    (name: [Sa1g],
-    organization: [#link("github.com/sa1g/dnd-typst-template")]),
+    (name: [Sa1g], organization: [#link("github.com/sa1g/dnd-typst-template")]),
   ),
   date: datetime.today().display(),
 )
@@ -128,7 +127,7 @@
   The dnd-monster environment is used to format monster and NPC stat blocks. The module provides a variety of helper functions to simplify populating these stat blocks.
 
   While creating monster stat blocks is one of the more complex aspects of this template, we have strived to make the process as straightforward as possible.
-  
+
   Monster sheets can be configured as either single-column or multi-column layouts, depending on your preference.
 
   The layout generally works well up to three columns, though occasional overshoot in the final column may occur.

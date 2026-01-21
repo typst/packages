@@ -167,10 +167,12 @@
             weight: self.font.headers.level-1.weight,
             fill: self.fill.headers.level-1,
           )[
-            #if self.page.show-part { 
-              [#external.transl("part") #counter(heading).at(it.location()).last() #linebreak() #it.body]           
+            #if self.page.show-part {
+              [#external.transl("part") #counter(heading).at(it.location()).last() #linebreak() #it.body]
             } else {
-              it.body
+              utils.maybe-apply-style(self.font.headers.level-1.style, { it.body() })
+
+              // it.body
             }
           ]
         ]
@@ -198,7 +200,7 @@
           // counter(heading).at(it.element.location())
           [#smallcaps[#external.transl("chapter") #counter(heading).at(it.location()).last(): #it.body]]
         } else {
-          it.body
+          utils.maybe-apply-style(self.font.headers.level-2.style, { it.body })
         }
       ]
     ]
@@ -211,7 +213,7 @@
       weight: self.font.headers.level-3.weight,
       fill: self.fill.headers.level-3,
     )[
-      #smallcaps(it.body)
+      #utils.maybe-apply-style(self.font.headers.level-3.style, { it.body })
       #linebreak()
     ]
   }
@@ -226,7 +228,7 @@
         weight: self.font.headers.level-4.weight,
         fill: self.fill.headers.level-4,
       )[
-        #smallcaps(it.body)
+        #utils.maybe-apply-style(self.font.headers.level-4.style, { it.body })
       ],
       line(
         stroke: (
@@ -246,7 +248,7 @@
       weight: self.font.headers.level-5.weight,
       fill: self.fill.headers.level-5,
     )[
-      #smallcaps[#it.body]
+      #utils.maybe-apply-style(self.font.headers.level-5.style, { it.body })
       #linebreak()
     ]
   }
@@ -257,8 +259,7 @@
       font: self.font.headers.level-6.font,
       size: self.font.headers.level-6.size,
     )
-
-    (self.font.headers.level-6.style)(it.body + ". ")
+    utils.maybe-apply-style(self.font.headers.level-6.style, { it.body + "." + h(1em, weak: true) })
   }
 
   show heading.where(level: 7): it => {
@@ -268,7 +269,7 @@
       font: self.font.headers.level-7.font,
       size: self.font.headers.level-7.size,
     )
-    (self.font.headers.level-7.style)(it.body)
+    utils.maybe-apply-style(self.font.headers.level-7.style, { it.body })
   }
 
   ////////////////////////////////////////////
@@ -293,6 +294,16 @@
         h(indent.at(str(level)))
       }
     }
+  }
+
+  let show-lower-outlines(it, outline-text) = {
+    (
+      indent-outline(it.level)
+        + outline-text
+        + box(width: 1fr, repeat([#self.style.outline.repeated-symbol], gap: 0.15em, justify: true))
+        + it.page()
+        + linebreak()
+    )
   }
 
   show outline.entry: it => {
@@ -333,6 +344,7 @@
 
           utils.maybe-apply-style(self.font.outline.level-2.style, {
             text(
+              font: self.font.outline.level-2.font,
               fill: self.fill.outline.level-2,
               size: self.font.outline.level-2.size,
               weight: self.font.outline.level-2.weight,
@@ -346,6 +358,21 @@
               #linebreak()
             ]
           })
+        } else if it.level == 3 {
+          set text(
+            font: self.font.outline.level-3.font,
+            size: self.font.outline.level-3.size,
+            weight: self.font.outline.level-3.weight,
+            fill: self.fill.outline.level-3,
+          )
+          let outline-text = utils.maybe-apply-style(self.font.outline.level-3.style, { it.body() })
+          show-lower-outlines(it, outline-text)
+        } else if it.level == 4 {
+          let outline-text = utils.maybe-apply-style(self.font.outline.level-4.style, { it.body() })
+          show-lower-outlines(it, outline-text)
+        } else if it.level == 5 {
+          let outline-text = utils.maybe-apply-style(self.font.outline.level-5.style, { it.body() })
+          show-lower-outlines(it, outline-text)
         } else {
           (
             indent-outline(it.level)
@@ -418,9 +445,9 @@
     self = utils.merge-dicts(self, config)
   }
 
-  set image(height: 100%, width: 100%, fit:"cover")
+  set image(height: 100%, width: 100%, fit: "cover")
   set page(background: img, footer: none)
-  
+
   [a]
   // Maybe reset to standard
 })
@@ -430,8 +457,8 @@
     self = utils.merge-dicts(self, config)
   }
 
-  
-  set image(height: 100%, width: 100%, fit:"cover")
+
+  set image(height: 100%, width: 100%, fit: "cover")
   set page(background: img, footer: none)
 
   heading(depth: 1)[

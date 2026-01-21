@@ -1,5 +1,5 @@
 [package]
-name = "dnd-5e"
+name = "mythographer-5e"
 version = "0.0.1"
 entrypoint = "lib.typ"
 authors = ["sa1g"]
