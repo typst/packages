@@ -137,35 +137,121 @@
   (118, "Og", "Oganesson", "(294)", "noble"),
 )
 
-// Category colors (darker for white text contrast)
-#let category-color(cat) = {
-  if cat == "alkali" { rgb("#c92a2a") }  // Dark red
-  else if cat == "alkaline" { rgb("#d9480f") }  // Dark orange
-  else if cat == "transition" { rgb("#e67700") }  // Dark gold
-  else if cat == "post-transition" { rgb("#2f9e44") }  // Dark green
-  else if cat == "metalloid" { rgb("#0ca678") }  // Dark teal
-  else if cat == "nonmetal" { rgb("#1971c2") }  // Dark blue
-  else if cat == "halogen" { rgb("#6741d9") }  // Dark purple
-  else if cat == "noble" { rgb("#ae3ec9") }  // Dark magenta
-  else if cat == "lanthanoid" { rgb("#d6336c") }  // Dark pink
-  else if cat == "actinoid" { rgb("#7950f2") }  // Dark lavender
-  else { white }
+// Color themes for periodic table
+#let themes = (
+  // Bright theme - light colors with black text (good for printing)
+  bright: (
+    text-color: black,
+    colors: (
+      alkali: rgb("#ff6b6b"),
+      alkaline: rgb("#ffa94d"),
+      transition: rgb("#ffd43b"),
+      post-transition: rgb("#69db7c"),
+      metalloid: rgb("#38d9a9"),
+      nonmetal: rgb("#4dabf7"),
+      halogen: rgb("#9775fa"),
+      noble: rgb("#da77f2"),
+      lanthanoid: rgb("#ff99cc"),
+      actinoid: rgb("#c9b3ff"),
+    ),
+  ),
+  // Dark theme - dark colors with white text (professional look)
+  dark: (
+    text-color: white,
+    colors: (
+      alkali: rgb("#c92a2a"),
+      alkaline: rgb("#d9480f"),
+      transition: rgb("#e67700"),
+      post-transition: rgb("#2f9e44"),
+      metalloid: rgb("#0ca678"),
+      nonmetal: rgb("#1971c2"),
+      halogen: rgb("#6741d9"),
+      noble: rgb("#ae3ec9"),
+      lanthanoid: rgb("#d6336c"),
+      actinoid: rgb("#7950f2"),
+    ),
+  ),
+  // Pastel theme - soft muted colors
+  pastel: (
+    text-color: rgb("#333333"),
+    colors: (
+      alkali: rgb("#ffccd5"),
+      alkaline: rgb("#ffe5d9"),
+      transition: rgb("#fff3bf"),
+      post-transition: rgb("#d8f5a2"),
+      metalloid: rgb("#c3fae8"),
+      nonmetal: rgb("#d0ebff"),
+      halogen: rgb("#e5dbff"),
+      noble: rgb("#fcc2d7"),
+      lanthanoid: rgb("#ffdeeb"),
+      actinoid: rgb("#eebefa"),
+    ),
+  ),
+  // Grayscale bright theme - light grays with black text
+  grayscale: (
+    text-color: black,
+    colors: (
+      alkali: luma(85%),
+      alkaline: luma(80%),
+      transition: luma(75%),
+      post-transition: luma(70%),
+      metalloid: luma(65%),
+      nonmetal: luma(90%),
+      halogen: luma(60%),
+      noble: luma(95%),
+      lanthanoid: luma(55%),
+      actinoid: luma(50%),
+    ),
+  ),
+  // Grayscale dark theme - dark grays with white text
+  grayscale-dark: (
+    text-color: white,
+    colors: (
+      alkali: luma(25%),
+      alkaline: luma(30%),
+      transition: luma(35%),
+      post-transition: luma(40%),
+      metalloid: luma(45%),
+      nonmetal: luma(20%),
+      halogen: luma(50%),
+      noble: luma(15%),
+      lanthanoid: luma(55%),
+      actinoid: luma(60%),
+    ),
+  ),
+  // Neon theme - vibrant colors on dark background
+  neon: (
+    text-color: white,
+    colors: (
+      alkali: rgb("#ff0055"),
+      alkaline: rgb("#ff6600"),
+      transition: rgb("#ffcc00"),
+      post-transition: rgb("#00ff66"),
+      metalloid: rgb("#00ffcc"),
+      nonmetal: rgb("#0099ff"),
+      halogen: rgb("#9933ff"),
+      noble: rgb("#ff00ff"),
+      lanthanoid: rgb("#ff3399"),
+      actinoid: rgb("#cc66ff"),
+    ),
+  ),
+)
+
+// Get color for a category from a theme
+#let get-category-color(cat, theme-name) = {
+  let theme = themes.at(theme-name, default: themes.bright)
+  theme.colors.at(cat, default: white)
 }
 
-// Category colors (lighter for black text contrast - simple version)
-#let category-color-light(cat) = {
-  if cat == "alkali" { rgb("#ff6b6b") }  // Light red
-  else if cat == "alkaline" { rgb("#ffa94d") }  // Light orange
-  else if cat == "transition" { rgb("#ffd43b") }  // Light gold
-  else if cat == "post-transition" { rgb("#69db7c") }  // Light green
-  else if cat == "metalloid" { rgb("#38d9a9") }  // Light teal
-  else if cat == "nonmetal" { rgb("#4dabf7") }  // Light blue
-  else if cat == "halogen" { rgb("#9775fa") }  // Light purple
-  else if cat == "noble" { rgb("#da77f2") }  // Light magenta
-  else if cat == "lanthanoid" { rgb("#ff99cc") }  // Light pink
-  else if cat == "actinoid" { rgb("#c9b3ff") }  // Light lavender
-  else { white }
+// Get text color from a theme
+#let get-text-color(theme-name) = {
+  let theme = themes.at(theme-name, default: themes.bright)
+  theme.text-color
 }
+
+// Legacy functions for backward compatibility
+#let category-color(cat) = get-category-color(cat, "dark")
+#let category-color-light(cat) = get-category-color(cat, "bright")
 
 // Position mapping for standard periodic table layout
 #let element-position(z) = {
@@ -201,15 +287,15 @@
 }
 
 // Element box function for periodic table (compact version)
-#let pt-element(x, y, number, symbol, mass, fill-color: white, size: 1.0, gap: 0.1, highlighted: false, highlight-stroke: luma(20%) + 3pt) = {
+#let pt-element(x, y, number, symbol, mass, fill-color: white, text-color: black, size: 1.0, gap: 0.1, highlighted: false, highlight-stroke: luma(20%) + 3pt) = {
   import draw: *
   let s = size
   group({
     translate((x * (size + gap), -y * (size + gap)))
     rect((0, 0), (s, s), fill: fill-color, stroke: black + 0.3pt)
-    content((0.1 * s, 0.85 * s), text(5pt)[#number], anchor: "west")
-    content((0.5 * s, 0.5 * s), text(10pt, weight: "bold")[#symbol])
-    content((0.5 * s, 0.15 * s), text(5.5pt)[#mass])
+    content((0.1 * s, 0.85 * s), text(5pt, fill: text-color)[#number], anchor: "west")
+    content((0.5 * s, 0.5 * s), text(10pt, weight: "bold", fill: text-color)[#symbol])
+    content((0.5 * s, 0.15 * s), text(5.5pt, fill: text-color)[#mass])
     // Draw highlight border on top
     if highlighted {
       rect((0, 0), (s, s), fill: none, stroke: highlight-stroke)
@@ -218,20 +304,20 @@
 }
 
 // Professional element box with all details (ACS style)
-#let pt-element-detailed(x, y, number, symbol, name, mass, fill-color: white, size: 1.8, gap: 0.15, highlighted: false, highlight-stroke: luma(20%) + 3pt) = {
+#let pt-element-detailed(x, y, number, symbol, name, mass, fill-color: white, text-color: white, size: 1.8, gap: 0.15, highlighted: false, highlight-stroke: luma(20%) + 3pt) = {
   import draw: *
   let s = size
   group({
     translate((x * (size + gap), -y * (size + gap)))
     rect((0, 0), (s, s), fill: fill-color, stroke: black + 0.5pt)
     // Atomic number (top left)
-    content((0.12 * s, 0.88 * s), text(7pt, fill: white, weight: "bold")[#number], anchor: "west")
+    content((0.12 * s, 0.88 * s), text(7pt, fill: text-color, weight: "bold")[#number], anchor: "west")
     // Symbol (center, large)
-    content((0.5 * s, 0.55 * s), text(16pt, weight: "bold", fill: white)[#symbol])
+    content((0.5 * s, 0.55 * s), text(16pt, weight: "bold", fill: text-color)[#symbol])
     // Name (below symbol)
-    content((0.5 * s, 0.32 * s), text(6pt, fill: white)[#name])
+    content((0.5 * s, 0.32 * s), text(6pt, fill: text-color)[#name])
     // Atomic mass (bottom)
-    content((0.5 * s, 0.12 * s), text(7pt, fill: white)[#mass])
+    content((0.5 * s, 0.12 * s), text(7pt, fill: text-color)[#mass])
     // Draw highlight border on top
     if highlighted {
       rect((0, 0), (s, s), fill: none, stroke: highlight-stroke)
@@ -244,15 +330,17 @@
 /// - length (length): The base length unit for the canvas (default: 0.8cm)
 /// - size (float): The size of each element box (default: 1.0)
 /// - gap (float): The gap between element boxes (default: 0.1)
+/// - theme (string): Color theme - "bright", "dark", "pastel", "grayscale", "neon" (default: "bright")
 /// - show-title (bool): Whether to show the title (default: true)
 /// - show-legend (bool): Whether to show the category legend (default: true)
 /// - highlighted (array): Array of atomic numbers to highlight (default: ())
-/// - highlight-stroke (stroke): Stroke style for highlighted elements (default: red + 2pt)
+/// - highlight-stroke (stroke): Stroke style for highlighted elements (default: luma(20%) + 3pt)
 /// -> content
 #let periodic-table(
   length: 0.8cm,
   size: 1.0,
   gap: 0.1,
+  theme: "bright",
   show-title: true,
   show-legend: true,
   highlighted: (),
@@ -260,13 +348,15 @@
 ) = canvas(length: length, {
   import draw: *
 
+  let text-color = get-text-color(theme)
+
   // Draw all elements
   for elem in elements {
     let (z, sym, name, mass, cat) = elem
     let (col, row) = element-position(z)
-    let color = category-color-light(cat)
+    let color = get-category-color(cat, theme)
     let is-highlighted = z in highlighted
-    pt-element(col, row, z, sym, mass, fill-color: color, size: size, gap: gap, highlighted: is-highlighted, highlight-stroke: highlight-stroke)
+    pt-element(col, row, z, sym, mass, fill-color: color, text-color: text-color, size: size, gap: gap, highlighted: is-highlighted, highlight-stroke: highlight-stroke)
   }
 
   // Title
@@ -292,7 +382,7 @@
     for (i, (label, cat)) in legend-items.enumerate() {
       let lx = calc.rem(i, 2) * 5 + 3  // 2 columns
       let ly = legend-y - calc.floor(i / 2) * 0.6
-      rect((lx, ly), (lx + 0.5, ly - 0.5), fill: category-color-light(cat), stroke: black + 0.3pt)
+      rect((lx, ly), (lx + 0.5, ly - 0.5), fill: get-category-color(cat, theme), stroke: black + 0.3pt)
       content((lx + 0.7, ly - 0.25), text(8pt)[#label], anchor: "west")
     }
   }
@@ -303,16 +393,18 @@
 /// - length (length): The base length unit for the canvas (default: 0.8cm)
 /// - size (float): The size of each element box (default: 1.8)
 /// - gap (float): The gap between element boxes (default: 0.15)
-/// - show-title (bool): Whether to show the title (default: false)
+/// - theme (string): Color theme - "bright", "dark", "pastel", "grayscale", "neon" (default: "dark")
+/// - show-title (bool): Whether to show the title (default: true)
 /// - show-labels (bool): Whether to show group/period labels (default: true)
 /// - show-legend (bool): Whether to show the category legend (default: true)
 /// - highlighted (array): Array of atomic numbers to highlight (default: ())
-/// - highlight-stroke (stroke): Stroke style for highlighted elements (default: red + 2pt)
+/// - highlight-stroke (stroke): Stroke style for highlighted elements (default: luma(20%) + 3pt)
 /// -> content
 #let periodic-table-detailed(
   length: 0.8cm,
   size: 1.8,
   gap: 0.15,
+  theme: "dark",
   show-title: true,
   show-labels: true,
   show-legend: true,
@@ -321,13 +413,15 @@
 ) = canvas(length: length, {
   import draw: *
 
+  let text-color = get-text-color(theme)
+
   // Draw all elements with detailed boxes
   for elem in elements {
     let (z, sym, name, mass, cat) = elem
     let (col, row) = element-position(z)
-    let color = category-color(cat)
+    let color = get-category-color(cat, theme)
     let is-highlighted = z in highlighted
-    pt-element-detailed(col, row, z, sym, name, mass, fill-color: color, size: size, gap: gap, highlighted: is-highlighted, highlight-stroke: highlight-stroke)
+    pt-element-detailed(col, row, z, sym, name, mass, fill-color: color, text-color: text-color, size: size, gap: gap, highlighted: is-highlighted, highlight-stroke: highlight-stroke)
   }
 
   // Title
@@ -366,16 +460,17 @@
     let legend-x = 16
     let legend-y = 0.3
     let legend-size = size * 1.2
+    let legend-color = get-category-color("transition", theme)
     rect((legend-x, legend-y), (legend-x + legend-size, legend-y - legend-size),
-         fill: rgb("#e67700"), stroke: black + 0.5pt)
+         fill: legend-color, stroke: black + 0.5pt)
     content((legend-x + 0.12 * legend-size, legend-y - 0.12 * legend-size),
-            text(7pt, weight: "bold", fill: white)[78], anchor: "west")
+            text(7pt, weight: "bold", fill: text-color)[78], anchor: "west")
     content((legend-x + legend-size/2, legend-y - 0.45 * legend-size),
-            text(16pt, weight: "bold", fill: white)[Pt])
+            text(16pt, weight: "bold", fill: text-color)[Pt])
     content((legend-x + legend-size/2, legend-y - 0.68 * legend-size),
-            text(6pt, fill: white)[Platinum])
+            text(6pt, fill: text-color)[Platinum])
     content((legend-x + legend-size/2, legend-y - 0.88 * legend-size),
-            text(7pt, fill: white)[195.1])
+            text(7pt, fill: text-color)[195.1])
 
     // Legend labels - moved to top right
     let label-x = legend-x + legend-size + 0.3
@@ -402,7 +497,7 @@
     for (i, (label, cat)) in legend-items.enumerate() {
       let lx = calc.rem(i, 2) * 5.5 + 5  // 2 columns
       let ly = cat-legend-y - calc.floor(i / 2) * 0.7
-      rect((lx, ly), (lx + 0.6, ly - 0.6), fill: category-color(cat), stroke: black + 0.4pt)
+      rect((lx, ly), (lx + 0.6, ly - 0.6), fill: get-category-color(cat, theme), stroke: black + 0.4pt)
       content((lx + 0.8, ly - 0.3), text(8pt)[#label], anchor: "west")
     }
   }

@@ -1,5 +1,5 @@
 [package]
-name = "periodic-table"
+name = "ptable-amat"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["GiggleLiu"]
