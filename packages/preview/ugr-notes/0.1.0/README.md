@@ -1,7 +1,7 @@
 # ugr-notes
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
-[![Repo](https://img.shields.io/badge/GitHub-repo-blue)](https://github.com/miguevr/typst-template-ugr)
+[![Repo](https://img.shields.io/badge/GitHub-repo-blue)](https://github.com/Miguevrgo/Typst-ugr-notes)
 
 A clean and professional [Typst](https://typst.app/) template for note-taking and academic writing, designed for University of Granada (UGR) students and Spanish-speaking writers.
 
