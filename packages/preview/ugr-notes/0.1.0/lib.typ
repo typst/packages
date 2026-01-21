@@ -2,8 +2,8 @@
 // ║           UGR Notes - Professional Template for Academic Writing     ║
 // ║       Designed for University of Granada Students & Researchers      ║
 // ║                                                                      ║
-// ║  Repository: https://github.com/typst/typst-packages                ║
-// ║  License: MIT                                                        ║
+// ║   Repository: https://github.com/typst/typst-packages                ║
+// ║   License: MIT                                                       ║
 // ╚══════════════════════════════════════════════════════════════════════╝
 
 #import "@preview/fontawesome:0.5.0": *
@@ -16,12 +16,12 @@
 /// - code-bg: Code block background (Light gray)
 /// - proof-bg: Proof environment background (Light blue)
 #let colors = (
-  primary: rgb("#E67E22"),      // Orange
-  secondary: rgb("#3498DB"),    // Blue
-  accent: rgb("#2ECC71"),       // Green
-  text: rgb("#2C3E50"),         // Dark gray
-  code-bg: rgb("#F4F6F6"),      // Light gray
-  proof-bg: rgb("#EBF5FB"),     // Light blue
+  primary: rgb("#E67E22"), // Orange
+  secondary: rgb("#3498DB"), // Blue
+  accent: rgb("#2ECC71"), // Green
+  text: rgb("#2C3E50"), // Dark gray
+  code-bg: rgb("#F4F6F6"), // Light gray
+  proof-bg: rgb("#EBF5FB"), // Light blue
 )
 
 // Language support for common terms
@@ -78,73 +78,73 @@
 #let definicion(title, body) = color-box(
   title: "Definición: " + title,
   color: colors.primary,
-  body
+  body,
 )
 
 #let definition(title, body) = color-box(
   title: "Definition: " + title,
   color: colors.primary,
-  body
+  body,
 )
 
 #let teorema(title, body) = color-box(
   title: "Teorema: " + title,
   color: colors.secondary,
-  body
+  body,
 )
 
 #let theorem(title, body) = color-box(
   title: "Theorem: " + title,
   color: colors.secondary,
-  body
+  body,
 )
 
 #let proposicion(title, body) = color-box(
   title: "Proposición: " + title,
   color: colors.secondary,
-  body
+  body,
 )
 
 #let proposition(title, body) = color-box(
   title: "Proposition: " + title,
   color: colors.secondary,
-  body
+  body,
 )
 
 #let corolario(title, body) = color-box(
   title: "Corolario: " + title,
   color: colors.secondary,
-  body
+  body,
 )
 
 #let corollary(title, body) = color-box(
   title: "Corollary: " + title,
   color: colors.secondary,
-  body
+  body,
 )
 
 #let lema(title, body) = color-box(
   title: "Lema: " + title,
   color: colors.secondary,
-  body
+  body,
 )
 
 #let lemma(title, body) = color-box(
   title: "Lemma: " + title,
   color: colors.secondary,
-  body
+  body,
 )
 
 #let ejemplo(title, body) = color-box(
   title: "Ejemplo: " + title,
   color: colors.accent,
-  body
+  body,
 )
 
 #let example(title, body) = color-box(
   title: "Example: " + title,
   color: colors.accent,
-  body
+  body,
 )
 
 // Proof environment with QED symbol
@@ -181,7 +181,7 @@
   academic-year: "Curso 2025-2026",
   orcid: none,
   github: none,
-  logo: "",
+  logo: "UGR-Logo.png",
   lang: "es",
   heading-color: colors.primary,
   body,
@@ -196,8 +196,7 @@
       if counter(page).get().first() > 1 {
         grid(
           columns: (1fr, 1fr),
-          align(left)[#smallcaps(title)],
-          align(right)[#counter(page).display()],
+          align(left)[#smallcaps(title)], align(right)[#counter(page).display()],
         )
         line(length: 100%, stroke: 0.5pt + gray)
       }
