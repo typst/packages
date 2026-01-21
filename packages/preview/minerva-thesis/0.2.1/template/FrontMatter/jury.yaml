@@ -1,0 +1,40 @@
+chair:
+  given-name: Aaaa
+  surname: Bbbbbbbb
+  prefix: Prof.
+  suffix: Ph.D.
+  affiliation: Ghent University
+  
+members:
+  - 
+    given-name: Ccccc
+    surname: Ddddddddddd
+    prefix: Prof.
+    suffix: Ph.D.
+    affiliation: Ghent University
+  - 
+    given-name: Eeeee
+    surname: Fffffffffff
+    prefix: Prof.
+    suffix: Ph.D.
+    affiliation: Some Other University
+  - 
+    given-name: Gggggg
+    surname: Hhhhhhhhhh
+    prefix: null
+    suffix: Ph.D.
+    affiliation: Ghent University
+    
+supervisors:
+  - 
+    given-name: Aa 
+    surname: Supervisor A
+    prefix: Prof.
+    suffix: Ph.D.
+    affiliation: Ghent University
+  - 
+    given-name: Bb 
+    surname: Supervisor B
+    prefix: Prof.
+    suffix: Ph.D.
+    affiliation: Ghent University
