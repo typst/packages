@@ -1,6 +1,6 @@
 # Periodic Table for Typst
 
-[![Test](https://github.com/GiggleLiu/periodic-table/actions/workflows/test.yml/badge.svg)](https://github.com/GiggleLiu/periodic-table/actions/workflows/test.yml)
+[![Test](https://github.com/GiggleLiu/ptable-amat/actions/workflows/test.yml/badge.svg)](https://github.com/GiggleLiu/ptable-amat/actions/workflows/test.yml)
 
 A Typst package for rendering periodic tables of elements with two style options:
 
