@@ -47,7 +47,7 @@
 ### 方法一：通过 Typst Universe 安装
 
 ```bash
-typst init @preview/sdu-touying-simpl:1.0.0
+typst init @preview/sdu-touying-simpl:1.0.1
 ```
 
 ### 方法二：通过 [Typst.app](https://typst.app/universe/package/sdu-touying-simpl) 在线使用
@@ -57,7 +57,7 @@ typst init @preview/sdu-touying-simpl:1.0.0
 创建一个新的 Typst 文件（例如 `main.typ`），并添加以下内容：
 
 ```typst
-#import "@preview/sdu-touying-simpl:1.0.0": *
+#import "@preview/sdu-touying-simpl:1.0.1": *
 
 #show: sdu-theme.with(
   title: "演示文稿标题",
