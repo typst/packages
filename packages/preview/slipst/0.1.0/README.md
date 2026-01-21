@@ -34,10 +34,10 @@ Refer to the [tutorial](https://slipst.wybxc.cc/tutorial.html) for a more compre
 
 ## Roadmap
 
-- [x] Basic slip functionality with up/down navigation.
-- [x] Persistent state across sessions.
-- [ ] Slips replacement animations, as well as Cetz and Flether animations.
-- [ ] Visual structure for subslips.
-- [ ] Whiteboard mode for live drawing.
-- [ ] Advanced navigation.
-- [ ] PDF handout export.
+- Basic slip functionality with up/down navigation.
+- Persistent state across sessions.
+- (TODO) Slips replacement animations, as well as Cetz and Flether animations.
+- (TODO) Visual structure for subslips.
+- (TODO) Whiteboard mode for live drawing.
+- (TODO) Advanced navigation.
+- (TODO) PDF handout export.
