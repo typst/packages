@@ -1,0 +1,12 @@
+[package]
+name = "embiggen"
+version = "0.0.1"
+authors = ["Ananth Venkatesh <dev.quantum9innovation@gmail.com>"]
+license = "GPL-3.0-or-later"
+description = "LaTeX-like delimeter sizing in Typst"
+
+keywords = ["latex", "delimeter", "sizing"]
+categories = ["text", "report", "paper"]
+
+entrypoint = "src/lib.typ"
+exclude = ["demo.pdf"]

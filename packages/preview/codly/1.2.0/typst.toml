@@ -1,0 +1,13 @@
+[package]
+name = "codly"
+version = "1.2.0"
+entrypoint = "codly.typ"
+authors = [
+    "Dherse <https://github.com/Dherse>"
+]
+license = "MIT"
+description = "Codly is a beautiful code presentation template with many features like smart indentation, line numbering, highlighting, etc."
+repository = "https://github.com/Dherse/codly"
+exclude = [ "assets/*", "docs.pdf" ]
+compiler = "0.12.0"
+keywords = [ "code", "pretty", "template", "raw" ]

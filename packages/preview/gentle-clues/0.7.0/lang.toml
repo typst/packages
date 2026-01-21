@@ -1,0 +1,61 @@
+default-lang = "en"
+
+[en]
+abstract = "Abstract"
+info = "Info"
+question = "Question"
+memo = "Memorize"
+task = "Task"
+conclusion = "Conclusion"
+tip = "Tip"
+success = "Success"
+warning = "Warning"
+error = "Error"
+example = "Example"
+quote = "Quote"
+
+[de]
+abstract = "Einführung"
+info = "Info"
+question = "Frage"
+memo = "Merke"
+task = "Aufgabe"
+conclusion = "Zusammenfassung"
+tip = "Tipp"
+success = "Erleditgt"
+warning = "Achtung"
+error = "Fehler"
+example = "Beispiel"
+quote = "Zitat"
+
+[es]
+abstract = "Resumen"
+info = "Info"
+question = "Pregunta"
+memo = "Recordatorio"
+task = "Tarea"
+conclusion = "Conclusión"
+tip = "Consejo"
+success = "Éxito"
+warning = "Advertencia"
+error = "Error"
+example = "Ejemplo"
+quote = "Cita"
+
+[fr]
+abstract = "Résumé"
+info = "Info"
+question = "Question"
+memo = "À retenir"
+task = "Tâche"
+conclusion = "Conclusion"
+tip = "Conseil"
+success = "Succès"
+warning = "Avertissement"
+error = "Erreur"
+example = "Exemple"
+quote = "Citation"
+
+
+
+

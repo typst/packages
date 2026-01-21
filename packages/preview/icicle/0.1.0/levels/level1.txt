@@ -1,0 +1,26 @@
+// f - floor
+// x - wall
+// w - water
+// g - goal
+// b - snow ball
+// _ - nothing
+
+// The starting position
+0, 0
+
+// The back layer
+f f f x f f x
+f f f f f f x
+x f x f f f x
+x f x f f f x
+f f w f f w g
+f f x f x x x
+
+// The front layer.
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+_ _ _ b _ _ _
+_ b _ _ _ _ _
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+_ x _ _ _ _ _

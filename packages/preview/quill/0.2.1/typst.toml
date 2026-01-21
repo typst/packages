@@ -1,0 +1,10 @@
+[package]
+name = "quill"
+version = "0.2.1"
+entrypoint = "src/quill.typ"
+authors = ["Mc-Zen"]
+license = "MIT"
+description = "Effortlessly create quantum circuit diagrams."
+homepage = "https://github.com/Mc-Zen/quill"
+exclude = ["/docs/*"]
+keywords = ["quantum circuit diagram", "quantikz", "qcircuit"]

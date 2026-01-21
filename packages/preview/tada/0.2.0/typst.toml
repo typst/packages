@@ -1,0 +1,30 @@
+[package]
+name = "tada"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Nathan Jessurun"]
+license = "Unlicense"
+description = "Easy, composable tabular data manipulation"
+repository = "https://github.com/ntjess/typst-tada"
+keywords = [
+    "record",
+    "dataframe",
+    "table",
+    "tabular",
+    "agg",
+    "aggregate",
+    "filter",
+    "pandas",
+    "polars",
+]
+exclude = ["manual.pdf"]
+
+
+[tool.packager]
+paths = [
+    "src",
+    "lib.typ",
+    "LICENSE",
+    "README.md",
+    { from = "docs/manual.pdf", to = "manual.pdf" },
+]

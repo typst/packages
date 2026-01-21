@@ -1,0 +1,17 @@
+[package]
+name = "slydst"
+version = "0.1.2"
+compiler = "0.12.0"
+entrypoint = "lib.typ"
+authors = ["Gaspard Lambrechts <https://github.com/glambrechts>"]
+license = "MIT"
+description = "Create simple static slides using standard headings"
+repository = "https://github.com/glambrechts/slydst"
+keywords = ["slides", "diapositives", "presentation"]
+categories = ["presentation", "layout", "components"]
+exclude = ["svg", "example.typ"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "template/thumbnail.png"

@@ -1,0 +1,9 @@
+[package]
+name = "scienceicons"
+version = "0.0.6"
+entrypoint = "index.typ"
+authors = ["rowanc1"]
+license = "MIT"
+description = "SVG icons for open-science articles"
+repository = "https://github.com/curvenote/scienceicons"
+keywords = ["icons"]

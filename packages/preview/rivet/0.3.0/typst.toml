@@ -1,0 +1,14 @@
+[package]
+name = "rivet"
+version = "0.3.0"
+compiler = "0.13.1"
+repository = "https://git.kb28.ch/HEL/rivet-typst"
+entrypoint = "src/lib.typ"
+authors = [
+    "Louis Heredero <https://git.kb28.ch/HEL>"
+]
+categories = [ "visualization" ]
+license = "Apache-2.0"
+description = "Register / Instruction Visualizer & Explainer Tool with Typst, using CeTZ"
+keywords = [ "assembly", "instruction", "binary" ]
+exclude = [ "gallery", "justfile", "docs" ]

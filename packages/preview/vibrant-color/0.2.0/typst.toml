@@ -1,0 +1,17 @@
+[package]
+name = "vibrant-color"
+version = "0.2.0"
+entrypoint = "vibrant-color.typ"
+authors = ["SHA_foin", "RedPrismey"]
+license = "MIT"
+description = "A modern template designed for reports with a variety of colors available."
+repository = "https://github.com/SHAfoin/shafoin-typst-template"
+keywords = ["engineering", "report", "color", "modern"]
+disciplines = ["engineering", "computer-science", "education", "design"]
+categories = ["report"]
+exclude = ["thumbnail-custom_blocks.png", "thumbnail-colors.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

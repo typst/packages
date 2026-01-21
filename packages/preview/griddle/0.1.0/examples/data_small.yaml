@@ -1,0 +1,8 @@
+across:
+  - {number: 3, row: 1, col: 3, word: oak, definition: 'A strong tree with hard wood'}
+  - {number: 5, row: 3, col: 0, word: griddle, definition: 'A Typst package for crossword puzzles', solved: true}
+  - {number: 6, row: 5, col: 0, word: wave, definition: 'A moving swell of water or a hand gesture'}
+down:
+  - {number: 1, row: 0, col: 3, word: noodles, definition: 'Long, thin pieces of cooked dough'}
+  - {number: 2, row: 0, col: 5, word: ukulele, definition: 'A small four-string instrument'}
+  - {number: 4, row: 2, col: 1, word: bread, definition: 'Baked food made from flour and water'}

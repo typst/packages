@@ -1,0 +1,11 @@
+[package]
+authors = ["Lypsilonx <@Lypsilonx>"]
+categories = ["visualization", "layout"]
+description = "A modular, and easy to use, package for creating cardboard cutouts in Typst."
+disciplines = ["design"]
+entrypoint = "boxr.typ"
+keywords = ["boxr", "cardboard", "cutouts", "cutout", "modular", "box"]
+license = "MIT"
+name = "boxr"
+repository = "https://github.com/Lypsilonx/boxr"
+version = "0.1.0"

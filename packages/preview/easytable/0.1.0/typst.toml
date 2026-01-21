@@ -1,0 +1,10 @@
+[package]
+name = "easytable"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["monaqa"]
+license = "MIT"
+description = "Simple Table Package"
+repository = "https://github.com/monaqa/typst-easytable"
+keywords = ["table"]
+exclude = ["manual.typ", "manual.pdf"]

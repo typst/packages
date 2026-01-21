@@ -1,0 +1,26 @@
+[en]
+1 = "monday"
+2 = "tuesday"
+3 = "wednesday"
+4 = "thursday"
+5 = "friday"
+6 = "saturday"
+7 = "sunday"
+
+[fr]
+1 = "lundi"
+2 = "mardi"
+3 = "mercredi"
+4 = "jeudi"
+5 = "vendredi"
+6 = "samedi"
+7 = "dimanche"
+
+[de]
+1 = "montag"
+2 = "dienstag"
+3 = "mittwoch"
+4 = "donnerstag"
+5 = "freitag"
+6 = "samstag"
+7 = "sonntag"

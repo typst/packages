@@ -1,0 +1,16 @@
+[package]
+name = "modern-unito-thesis"
+version = "0.1.0"
+compiler = "0.11.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/eduardz1/unito-typst-template"
+authors = ["Eduard Antonovic Occhipinti"]
+license = "MIT"
+description = "A thesis template of the University of Turin"
+keywords = ["thesis", "university", "UniTO", "Turin", "Torino", "Università degli Studi di Torino"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

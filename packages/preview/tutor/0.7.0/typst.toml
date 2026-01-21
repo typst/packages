@@ -1,0 +1,14 @@
+[package]
+name = "tutor"
+version = "0.7.0"
+entrypoint = "lib.typ"
+authors = ["Jonas Amstutz"]
+license = "MIT"
+description = "Utilities to create exams."
+
+
+repository = "https://github.com/rangerjo/tutor"
+keywords = ["exam", "test", "quiz", "teacher"]
+categories = ["components"]
+disciplines = ["education"]
+compiler = "0.11.0"

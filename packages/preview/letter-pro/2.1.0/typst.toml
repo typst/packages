@@ -1,0 +1,15 @@
+[package]
+name = "letter-pro"
+version = "2.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Sematre"]
+license = "MIT"
+description = "DIN 5008 letter template for Typst."
+repository = "https://github.com/Sematre/typst-letter-pro"
+keywords = ["letter", "din5008"]
+categories = ["office"]
+
+[template]
+path = "template/src"
+entrypoint = "main.typ"
+thumbnail = "template/thumbnail.png"

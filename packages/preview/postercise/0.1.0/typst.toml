@@ -1,0 +1,11 @@
+[package]
+name = "postercise"
+version = "0.1.0"
+entrypoint = "postercise.typ"
+authors = ["Daniel King"]
+license = "MIT"
+description = "Postercise allows users to easily create academic research posters with different themes using Typst."
+repository = "https://github.com/dangh3014/postercise/"
+exclude = ["examples/*"]
+keywords = ["academic", "poster", "presentation", "template"]
+categories = ["poster"]

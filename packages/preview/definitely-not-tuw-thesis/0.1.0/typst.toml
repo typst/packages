@@ -1,0 +1,23 @@
+[package]
+name = "definitely-not-tuw-thesis"
+version = "0.1.0"
+entrypoint = "src/thesis.typ"
+authors = ["Othmar Lechner @Otto-AA"]
+license = "MIT-0"
+description = "An unofficial template for a thesis at the TU Wien informatics institute."
+repository = "https://github.com/Otto-AA/definitely-not-tuw-thesis"
+keywords = ["tuw", "tu wien"]
+categories = ["thesis"]
+exclude = [
+	".github",
+	"docs",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

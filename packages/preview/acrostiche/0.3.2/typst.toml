@@ -1,0 +1,8 @@
+[package]
+name = "acrostiche"
+version = "0.3.2"
+entrypoint = "acrostiche.typ"
+repository = "https://github.com/Grisely/packages"
+authors = ["Grizzly", "Aurel Weinhold"]
+license = "MIT"
+description = "Manage acronyms and their definitions in Typst."
