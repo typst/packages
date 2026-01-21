@@ -36,7 +36,7 @@ Refer to the [tutorial](https://slipst.wybxc.cc/tutorial.html) for a more compre
 
 - Basic slip functionality with up/down navigation.
 - Persistent state across sessions.
-- (TODO) Slips replacement animations, as well as Cetz and Flether animations.
+- (TODO) Slips replacement animations, as well as Cetz and Fletcher animations.
 - (TODO) Visual structure for subslips.
 - (TODO) Whiteboard mode for live drawing.
 - (TODO) Advanced navigation.
