@@ -3,12 +3,12 @@ name = "sdu-touying-simpl"
 version = "1.0.1"
 entrypoint = "lib.typ"
 authors = ["Dregen_Yor"]
-license = "GPL-3.0"
+license = "GPL-3.0-or-later"
 description = "An templete based on touying, "
 keywords = ["presentation", "slides", "lecture", "sdu"  ]
 categories = ["presentation"]
 repository = "https://github.com/Dregen-Yor/sdu-touying-simpl"
-compiler = "0.13.0"
+compiler = "0.14.2"
 
 [template]
 path = "example"
