@@ -1,0 +1,18 @@
+# Compiled Typst output files
+*.pdf
+*.typ.d
+
+# Typst cache directory
+.typst/
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*~
+*.swp
+*.bak
+
+# Temporary assets
+fonts

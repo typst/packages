@@ -1,0 +1,30 @@
+
+[light]
+color-scheme = "light"
+main-color = "#282828"
+dash-color = "#20609f"
+code-theme = ""
+
+[rust]
+color-scheme = "light"
+main-color = "#282828"
+dash-color = "#20609f"
+code-theme = ""
+
+[coal]
+color-scheme = "dark"
+main-color = "#c5c5c5"
+dash-color = "#0096cf"
+code-theme = "tokyo-night.tmTheme"
+
+[navy]
+color-scheme = "dark"
+main-color = "#c5c5c5"
+dash-color = "#0096cf"
+code-theme = "tokyo-night.tmTheme"
+
+[ayu]
+color-scheme = "dark"
+main-color = "#c5c5c5"
+dash-color = "#0096cf"
+code-theme = "tokyo-night.tmTheme"
