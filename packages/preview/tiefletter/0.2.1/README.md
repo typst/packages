@@ -25,7 +25,7 @@ To import the package manually in your Typst project, use:
 
 Setting up a project is relatively straightforward: import and select a language.
 
-TiefLetter uses a language selection system lovingly dubbed "TiefLang" (though that is not a seperate library (yet)), which allows a user to set a language once and have it reused, or change it later. Available languages in TiefLetter are currently listed in the exported `languages` dictionary, and are:
+TiefLetter uses a translation layer called `tieflang`, which allows a user to set a language once and have it reused, or change it later. Available languages in TiefLetter are currently listed in the exported `languages` dictionary, and are:
 
 - english-at -- English documents with Austrian formatting and laws applied. Language code "en-at"
 - english-de -- English documents with German formatting and laws applied. Language code "en-de"
@@ -33,7 +33,16 @@ TiefLetter uses a language selection system lovingly dubbed "TiefLang" (though t
 - deutsch-at -- German documents with Austrian formatting and laws applied. Language code "de-at"
 - deutsch-de -- German documents with German formatting and laws applied. Language code "de-de"
 
-To set a language, call the `select-language` method with either a language code or an element of the `languages` dictionary.
+To set a language, call the `select-language` method from tieflang with either a language code or an element of the `languages` dictionary. To do so, you must import `tieflang:0.1.0` yourself:
+
+```typst
+#import "@preview/tieflang:0.1.0": select-language
+#import "@preview/tiefletter:0.2.1": languages
+
+// ...
+
+#select-language(languages.english-de)
+```
 
 This also selects which laws and currency format will be used for your document.
 
