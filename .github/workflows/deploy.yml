@@ -13,14 +13,16 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     environment: Deploy
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
         with:
           # Download the whole history for the package timestamps
           fetch-depth: 0
 
-      - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@v2
+      - uses: dtolnay/rust-toolchain@4be9e76fd7c4901c61fb841f559994984270fce7 # stable channel
+      - uses: Swatinem/rust-cache@779680da715d629ac1d338a641029a2f4372abb5 # v.2.8.2
         with:
           workspaces: bundler
 
@@ -30,9 +32,9 @@ jobs:
       - name: Package
         run: bundler/target/release/bundler
 
-      - uses: kheiakiyama/install-azcopy-action@v1
+      - uses: kheiakiyama/install-azcopy-action@13e9f2135934ba6d9dcec703be926f2b2e616471 # v1.0.8
         with:
-          version: 'v10'
+          version: "v10"
           creds: ${{ secrets.AZURE_PACKAGE_CREDENTIALS }}
 
       - name: Sync files
@@ -45,4 +47,4 @@ jobs:
 
           azcopy_v10 cp --recursive ./dist/* "https://$ACCOUNT_NAME.blob.core.windows.net/\$web" \
             --overwrite true --include-pattern '*.json' --exclude-pattern '*index.full.json' \
-            --cache-control 'must-revalidate' --put-md5
+            --cache-control 'must-revalidate, max-age=600' --put-md5
