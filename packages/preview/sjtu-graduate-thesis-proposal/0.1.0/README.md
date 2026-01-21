@@ -9,7 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Typst Package](https://img.shields.io/badge/Typst-Package-239DAD)](https://typst.app/universe/package/sjtu-graduate-thesis-proposal)
 
-本模板严格依据上海交通大学研究生院官方 [Word 模板](https://www.gs.sjtu.edu.cn/xzzx/pygl) 制作
+本模板严格依据上海交通大学研究生院官方 [Word 模板](https://www.gs.sjtu.edu.cn/xzzx/pygl) 制作  
 相比传统 LaTeX，Typst 提供 **毫秒级编译速度** 与 **零配置环境**
 
 📖 [查看完整文档](#-使用指南) | 🎯 [快速开始](#-快速开始) | 💬 [问题反馈](https://github.com/zh1-z/SJTU-Graduate-Thesis-Proposal-Typst-Template/issues)
@@ -514,3 +514,4 @@ A: 本模板专为上海交通大学设计，其他学校格式要求可能不�
 **让我们一起让学术写作更加高效！**
 
 </div>
+
