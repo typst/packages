@@ -1,0 +1,10 @@
+[package]
+name = "periodic-table"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["GiggleLiu"]
+license = "MIT"
+description = "A periodic table of elements for Typst with compact and detailed (ACS-style) versions"
+repository = "https://github.com/GiggleLiu/periodic-table"
+keywords = ["chemistry", "periodic-table", "elements", "science", "visualization"]
+categories = ["visualization", "components"]
