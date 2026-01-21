@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0] - 2026-01-21
 
+### Added
+
+- `mark` field support for manual type declaration (S, N, G, etc.)
+- Analytic entries (`@inbook`, `@incollection`) now include `//` separator
+- `@collection` type support for compilations (`[G]`)
+- `@periodical` type support for serials
+- Automatic `@standard` detection via `number` field prefix (GB, ISO, IEEE, etc.)
+
 ### Changed
 
 - **Breaking**: `init-gb7714` now accepts file content (bytes) instead of file path

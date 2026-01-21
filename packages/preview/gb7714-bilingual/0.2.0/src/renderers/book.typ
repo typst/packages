@@ -7,6 +7,7 @@
 
 /// 书籍渲染
 /// 格式：作者. 书名：卷号[M]. 版本. 出版地：出版者，年：页码.
+/// 析出文献格式：作者. 章节标题//主书名[M]. 出版地：出版者，年：页码.
 #let render-book(
   entry,
   lang,
@@ -17,9 +18,11 @@
 ) = {
   let f = entry.fields
   let terms = get-terms(version, lang)
+  let entry-type = lower(entry.entry_type)
 
   let authors = format-authors(entry.parsed_names, lang, version: version)
   let title = f.at("title", default: "")
+  let booktitle = f.at("booktitle", default: "") // 析出文献的主书名
   let edition = f.at("edition", default: "")
   let volume = f.at("volume", default: "")
   let publisher = f.at("publisher", default: "")
@@ -28,11 +31,22 @@
   let pages = f.at("pages", default: "").replace("--", "-")
   let url = f.at("url", default: "")
 
-  let type-id = render-type-id("book", has-url: url != "", version: version)
+  // 使用实际条目类型（collection → [G]，其他 → [M]）
+  let type-id = render-type-id(entry-type, has-url: url != "", version: version)
   let punct = get-punctuation(version, lang)
 
-  // 构建标题+卷号
-  let title-part = title
+  // 判断是否为析出文献（inbook, incollection, chapter）
+  let is-analytic = (
+    entry-type in ("inbook", "incollection", "chapter") and booktitle != ""
+  )
+
+  // 构建标题部分
+  let title-part = if is-analytic {
+    // 析出文献：章节标题//主书名
+    title + "//" + booktitle
+  } else {
+    title
+  }
   if volume != "" {
     let vol-str = str(volume)
     // 检测是否为数值（纯数字或数字+字母如 2a）

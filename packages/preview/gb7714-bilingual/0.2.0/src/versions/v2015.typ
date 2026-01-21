@@ -31,6 +31,7 @@
     "inbook": "M",
     "incollection": "M",
     "chapter": "M",
+    "collection": "G", // 汇编
     "inproceedings": "C",
     "conference": "C",
     "proceedings": "C",

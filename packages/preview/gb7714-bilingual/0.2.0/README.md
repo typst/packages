@@ -16,7 +16,8 @@ GB/T 7714 双语参考文献系统，支持中英文术语自动切换。
 - ✅ 支持引用形式切换（上标/非上标/仅作者/仅年份）
 - ✅ 支持带页码引用（supplement 参数）
 - ✅ 支持点击引用跳转到参考文献列表
-- ✅ 完整的文献类型标识
+- ✅ 完整的文献类型标识（支持 `mark` 字段手动声明）
+- ✅ 支持析出文献（`//` 符号）
 - ✅ 支持多个 BibTeX 文件
 
 ## 安装
@@ -259,6 +260,86 @@ GB/T 7714 双语参考文献系统，支持中英文术语自动切换。
 | misc                       | [Z]       | [Z]       | 其他            |
 
 带 URL 或 DOI 的条目会自动添加 `/OL` 载体标识，如 `[J/OL]`。
+
+### 特殊类型处理
+
+由于底层库 citegeist 不支持 `@standard` 和 `@newspaper` 等非标准 BibTeX 类型，本库提供以下解决方案：
+
+**方法 1：使用 `mark` 字段手动声明类型标识**
+
+```bibtex
+% 报纸文章
+@misc{news2024,
+  mark     = {N},
+  title    = {重要新闻标题},
+  author   = {记者},
+  journal  = {人民日报},
+  date     = {2024-01-15},
+  pages    = {1},
+  year     = {2024}
+}
+
+% 标准文献
+@misc{gb7714,
+  mark     = {S},
+  number   = {GB/T 7714—2015},
+  title    = {信息与文献参考文献著录规则},
+  publisher = {中国标准出版社},
+  year     = {2015}
+}
+
+% 汇编（论文集）
+@misc{collection2020,
+  mark     = {G},
+  title    = {论文集标题},
+  editor   = {编者},
+  year     = {2020}
+}
+```
+
+**方法 2：标准文献自动检测**
+
+如果 `number` 字段以标准前缀开头（GB, ISO, IEC, IEEE, ANSI, DIN, JIS, BS），会自动识别为标准文献 `[S]`：
+
+```bibtex
+@standard{iso9001,
+  number   = {ISO 9001:2015},
+  title    = {Quality management systems},
+  year     = {2015}
+}
+```
+
+**支持的 mark 值**：
+
+| mark | 类型标识 | 说明     |
+| ---- | -------- | -------- |
+| S    | [S]      | 标准     |
+| N    | [N]      | 报纸     |
+| J    | [J]      | 期刊     |
+| M    | [M]      | 图书     |
+| C    | [C]      | 会议     |
+| D    | [D]      | 学位论文 |
+| R    | [R]      | 报告     |
+| P    | [P]      | 专利     |
+| G    | [G]      | 汇编     |
+| EB   | [EB/OL]  | 网页     |
+
+### 析出文献（书中章节）
+
+使用 `@inbook` 或 `@incollection` 时，会自动添加 `//` 析出符号：
+
+```bibtex
+@inbook{chapter2019,
+  title     = {章节标题},
+  author    = {作者},
+  booktitle = {主书名},
+  publisher = {出版社},
+  year      = {2019},
+  pages     = {45--78}
+}
+```
+
+输出：`作者. 章节标题//主书名[M]. 出版社，2019：45–78.`
 
 ## 项目结构
 

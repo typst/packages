@@ -5,8 +5,9 @@
 #import "../versions/mod.typ": get-punctuation
 #import "../core/utils.typ": build-journal-info, render-base
 
-/// 期刊文章渲染
+/// 期刊文章渲染（也用于报纸、连续出版物）
 /// 格式：作者. 题名[J]. 刊名，年，卷（期）：页码.
+/// 报纸格式：作者. 题名[N]. 报纸名，年：页码.
 #let render-article(
   entry,
   lang,
@@ -16,6 +17,7 @@
   config: (show-url: true, show-doi: true, show-accessed: true),
 ) = {
   let f = entry.fields
+  let entry-type = lower(entry.entry_type)
 
   let authors = format-authors(entry.parsed_names, lang, version: version)
   let title = f.at("title", default: "")
@@ -27,8 +29,9 @@
   let doi = f.at("doi", default: "")
   let url = f.at("url", default: "")
 
+  // 使用实际条目类型（newspaper → [N]，periodical → [J]，article → [J]）
   let type-id = render-type-id(
-    "article",
+    entry-type,
     has-url: url != "" or doi != "",
     version: version,
   )
