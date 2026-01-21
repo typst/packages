@@ -13,12 +13,6 @@ A Typst package for rendering periodic tables of elements with two style options
 #import "@preview/periodic-table:0.1.0": periodic-table, periodic-table-detailed
 ```
 
-Or for local use:
-
-```typst
-#import "lib.typ": periodic-table, periodic-table-detailed
-```
-
 ## Usage
 
 ### Compact Version
