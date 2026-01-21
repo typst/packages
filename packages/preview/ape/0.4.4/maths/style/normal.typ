@@ -1,19 +1,5 @@
-#let cpt = counter("maths")
-
-#let breakable-or-not(min-size: 120pt, content) = context {
-  layout(size => {
-    let body = block(width: size.width, content)
-    let (height,) = measure(
-      body,
-    )
-
-    if (height < min-size) {
-      block(width: size.width, breakable: false, content)
-    } else {
-      body
-    }
-  })
-}
+#import "../maths.typ" : *
+#let maths-num-state = state("maths-num")
 
 
 #let enclose(content) = context {
@@ -27,16 +13,13 @@
 }
 
 #let maths-block-no-stroke(type, title, content) = context {
-  cpt.step()
-  let n = cpt.get().at(0) + 1
-
   if (title == []) {
     breakable-or-not[
-      *#type #n ---* #content
+      *#type #get-maths-count(type) ---* #content
     ]
   } else {
     breakable-or-not[
-      *#type #n --- #title*
+      *#type #get-maths-count(type) --- #title*
 
       #content
     ]
@@ -56,18 +39,15 @@
 }
 
 #let maths-block(type, title, content) = context {
-  cpt.step()
-  let n = cpt.get().at(0) + 1
-
   if (title == []) {
     breakable-or-not(enclose[
-      #block(sticky: true)[*#type #n*]
+      #block(sticky: true)[*#type #get-maths-count(type)*]
 
       #content
     ])
   } else {
     breakable-or-not(enclose[
-      #block(sticky: true)[*#type #n --- #title*]
+      #block(sticky: true)[*#type #get-maths-count(type) --- #title*]
 
       #content
     ])

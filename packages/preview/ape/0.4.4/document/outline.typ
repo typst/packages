@@ -4,7 +4,7 @@
   let depthsMap = (1,) * 20
 
   set par(justify: true, spacing: 5pt)
-  set text(size: 10pt)
+  set text(size: 1.4em)
 
   let start = false
   let here-page = here().position().page
@@ -81,27 +81,27 @@
 
   let custom-outline = {
     set text(hyphenate: true)
-
+    v(0.5cm)
     align(center, [
-
       #{
         if lang == "fr" {
-          text(size: 2.5em, sc[
+          text(size: 3em, sc[
             *Table des matières*
           ])
+          
         } else {
-          text(size: 2.5em, sc[
+          text(size: 3em, sc[
             *Table of content*
           ])
         }
       }
     ])
 
-
+ v(0.5cm)
+    
     let depthsMap = (1,) * 20
-
+    set text(size: 1.2em)
     set par(justify: true, spacing: 5pt)
-
 
     grid(
       columns: (auto, 20fr, 1fr),
@@ -129,31 +129,26 @@
             ([], [], [])
             ([], [], [])
             ([], [], [])
-            ([], link(e.location(), text(size: 17pt, [*#e.body*])), [])
+            ([], link(e.location(), text(size: 2em, [*#e.body*])), [])
          } else if (pos in subsections-positions) {
             // Empty for now
           } else if (pos in titles-positions ) {
             if titles-positions.len() >= 2 {
               depthsMap = (1,) * 20
+
               ([], [], [])
               ([], [], [])
-              ([], link(e.location(), text(size: 12pt, e.body)), [])
+              ([], link(e.location(), text(size: 1.4em, e.body)), [])
             }
             first-real-pages.push(e.location().page())
           } else if e.depth == 1 {
-            if outline-max-depth <= 1 {
-              (
-                numbering("I", depthsMap.at(0)),
-                link(e.location(), dotFill(e.body, 0pt)),
-                [#link(e.location(), str(e.location().page()))],
-              )
-            } else {
+            
               (
                 [*#numbering("I", depthsMap.at(0))*],
                 link(e.location(), dotFill([*#e.body*], 0pt)),
                 [#link(e.location(), str(e.location().page()))],
               )
-            }
+            
 
 
             depthsMap.at(0) += 1

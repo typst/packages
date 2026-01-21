@@ -155,9 +155,9 @@
         width: 100%,
         stack(
           dir: ttb,
-          spacing: 0.5em,
-          text(fill: black.lighten(60%), utils.call-or-display(self, self.store.header-right)),
-          text(fill: self.colors.primary.lighten(75%), weight: "bold", size: 1.2em, utils.call-or-display(
+          spacing: 0.6em,
+          text(fill: black.lighten(72%), size: 1em, utils.call-or-display(self, self.store.header-right)),
+          text(fill: self.colors.primary.lighten(80%), weight: "bold", size: 1.3em, utils.call-or-display(
             self,
             self.store.header,
           )),
@@ -167,7 +167,7 @@
   }
   let footer(self) = {
     set align(center + bottom)
-    set text(size: .4em)
+    set text(size: .75em)
     {
       let cell(..args, it) = components.cell(
         ..args,
@@ -387,6 +387,8 @@
 }
 
 
+#import "../../tools/date.typ" : display-date
+
 #let presentation(content, title, authors) = {
   let title_array = if (type(title) == array) {
     title
@@ -407,7 +409,7 @@
       title: [#title_array.at(1)],
       subtitle: [],
       author: [#authors.join(" --- ")],
-      date: datetime.today(),
+      //date: display-date(),
       institution: [#title_array.at(0)],
     ),
   )

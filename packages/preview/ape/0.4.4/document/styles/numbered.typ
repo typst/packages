@@ -59,14 +59,14 @@
             + (
               [
                 #counter(heading).display(it.numbering).split(")").at(-2) -- #it.body
-              
+
               ]
             ),
         )
       }
     }
   }
-
+ 
   content
 }
 
@@ -79,16 +79,16 @@
       title_array = title
     } else {
       title_array = ("", title)
-    } 
+    }
 
     layout(layout-size => {
-      let title-content = align(center, text(size: 1.55em)[#heading(depth: 1)[*#title_array.at(1)*] <title>])
+      let title-content = align(center, text(size: 1.5em)[#heading(depth: 1)[*#title_array.at(1)*] <title>])
 
       let w = calc.min(measure(title-content).width, layout-size.width * 0.75) + 10pt
 
       let box-1 = [
         #rect(fill: white)[
-          #text(size: 1.2em)[*#title_array.at(0)*]
+          #text(size: 1.5em)[*#title_array.at(0)*]
         ]
       ]
       let box-2 = box(width: w, align(center, rect(fill: white, title-content)))
@@ -135,6 +135,8 @@
 
     v(1.35cm)
   }
+
+  
   /*
   return {
     line(length: 100%)
