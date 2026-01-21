@@ -59,11 +59,11 @@
   }
 
   show heading.where(level: 4): it => {
-    set text(font: heading-font, weight: "bold", size: zihao.sihao)
-    set par(first-line-indent: 0em, leading: 16pt)
-    v(1pt)
-    counter(heading).display() + h(1em) + it.body
-    v(2pt)
+    set text(font: ziti.songti, weight: "regular", size: zihao.xiaosi)
+    set par(first-line-indent: 0em, leading: 20pt)
+    v(6pt)
+    numbering("(1)", counter(heading).get().last()) + h(1em) + it.body
+    v(6pt)
   }
 
   // 列表格式设置

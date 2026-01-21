@@ -185,9 +185,9 @@
       size: zihao.xiaosi,
     )
     set par(
-      // 无缩进，行距16磅
+      // 无缩进，行距20磅
       first-line-indent: 0em,
-      leading: 16pt,
+      leading: 20pt,
     )
 
     if enable-avoid-orphan-headings {
@@ -198,7 +198,7 @@
 
     //前后间距分别为6磅和6磅
     v(6pt)
-    counter(heading).display() + h(1em) + it.body
+    numbering("(1)", counter(heading).get().last()) + h(1em) + it.body
     v(6pt)
   }
 
