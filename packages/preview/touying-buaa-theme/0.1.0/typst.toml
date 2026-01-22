@@ -1,5 +1,5 @@
 [package]
-name = "buaa-slide"
+name = "touying-buaa-theme"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Lyrics"]
@@ -8,7 +8,8 @@ description = "A Typst template for BUAA slides based on Touying."
 repository = "https://github.com/Lyrics2196/BUAA-Slide"
 keywords = ["slides", "BUAA", "touying", "presentation", "lecture"]
 categories = ["presentation"]
-compiler = "0.14.2"
+compiler = "0.14.0"
+exclude = ["examples/example.pdf"]
 
 [template]
 path = "example"

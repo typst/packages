@@ -1,14 +1,20 @@
 # BUAA-slide-typst
+
+[中文文档](./README_zh.md)
+
+[English Document](./README.md)
+
+---
 一个基于[touying](https://github.com/touying-typ/touying)开发的BUAA[typst](https://github.com/typst/typst)模板.
 
 ![Example-Title](https://github.com/user-attachments/assets/677171e2-439d-4065-9c4c-b14aa1def913)
 
 | 目录                                                                                                     | 章节                                                                                                            |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| :------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------: |
 | ![Example-Outline](https://github.com/user-attachments/assets/ae07e1a7-162e-455c-a091-433d953dd23a)      | ![Example-Section](https://github.com/user-attachments/assets/02c3759d-5c76-424b-b3ff-80d74be366cc)          |
 
 | 内容                                                                                                     | 结束                                                                                                         |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| :------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: |
 | ![Example-Slide](https://github.com/user-attachments/assets/3f7ef484-cf92-4244-892d-7e0304e82f0d)        | ![Example-End](https://github.com/user-attachments/assets/84bdfe48-40b7-4c9c-ae72-d53ed45c51f2)              |
 
 ## 简介
@@ -33,9 +39,9 @@
 ```
 
 ## 快速开始
-创建一个typst文件, 在文件开头使用`#import "@preview/BUAA-Slide:0.1.0": *`导入该模板. 使用`#show: buaa-theme.with()`设置基本信息与初始化幻灯片.
+创建一个typst文件, 在文件开头使用`#import "@preview/touying-buaa-theme:0.1.0": *`导入该模板. 使用`#show: buaa-theme.with()`设置基本信息与初始化幻灯片.
 ```typst
-#import "@preview/BUAA-Slide:0.1.0": *
+#import "@preview/touying-buaa-theme:0.1.0": *
 
 #show: buaa-theme.with(
   config-info(
@@ -143,6 +149,9 @@
 ```
 
 ![Horz-Block](https://github.com/user-attachments/assets/aed200e7-5f9b-4708-8014-514b20d445e8)
+
+## 许可证
+本项目采用 GPL-3.0 许可证。详见 [LICENSE](./LICENSE) 文件。
 
 ## 致谢
 - 本模板基于 [typst](https://github.com/typst/typst) 和 [touying](https://github.com/touying-typ/touying) 实现.
