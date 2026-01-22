@@ -1,31 +1,14 @@
 
 #let apply(fn, x, def) = if x == none { def } else { fn(x) }
-#let apply_empty(fn, x, def) = if x == () { def } else { fn(x) }
+#let apply-empty(fn, x, def) = if x == () { def } else { fn(x) }
 #let id(x) = x
 #let count(s, x) = s.matches(x).len()
 #let prefill(x, n, v) = (..range(n).map(i => v), x).flatten().slice(-n)
 #let postfill(x, n, v) = (x, (..range(n).map(i => v),)).flatten().slice(0, n)
 
-#let all_parts(phrase, pattern) = {
-  let parts = ()
-  let last = 0
-  for match in phrase.matches(pattern) {
-    if last < match.start {
-      parts.push(("m": none, "u": phrase.slice(last, match.start)))
-    }
-    parts.push(("m": match, "u": none))
-    last = match.end
-  }
-  if last < phrase.len() {
-    parts.push(("m": none, "u": phrase.slice(last)))
-  }
-  parts
-}
 
-
-
-#let low_octave = box(baseline: -0.7em, circle(radius: 0.8pt, fill: black))
-#let up_octave = move(dy: 0.75em, circle(radius: 0.8pt, fill: black))
+#let low-octave = box(baseline: -0.7em, circle(radius: 0.8pt, fill: black))
+#let up-octave = move(dy: 0.75em, circle(radius: 0.8pt, fill: black))
 
 #let ubar = box(baseline: -7pt, fill: red, width: 1em, height: 0.5pt);
 #let tbar = move(dy: 0.6em, line(start: (0% + 0em, 0% + 0em), length: 0.5em, angle: 90deg, stroke: 0.5pt));
@@ -66,7 +49,7 @@
 //#let KN = math.underline(math.upright("N"))
 #let KN = komal(math.upright("N"))
 
-#let notes_map = (
+#let notes-map = (
   "S": SA,
   "R": RE,
   "G": GA,
@@ -82,7 +65,7 @@
   "-": "-",
 )
 
-#let maxSwar = (up(KM), RE).join()
+#let max-swar = (up(KM), RE).join()
 #let meend(x) = math.overparen(x)
 #let krintan(x) = math.overbracket(x)
 #let beat(x, count) = if count > 1 { math.underparen(x) } else { math.attach(math.limits(x), b: hide(sym.dash.wave)) }
@@ -149,24 +132,16 @@
   ),
 )
 
-#let beats_count(t) = t.map(b => b.len() - 1).sum()
-#let bibhag_count(taal) = taal.len()
-#let bibhag_positions(taal, repeat: 1) = {
+#let beats-count(t) = t.map(b => b.len() - 1).sum()
+#let bibhag-count(taal) = taal.len()
+#let bibhag-positions(taal, repeat: 1) = {
   let single = range(taal.len() + 1).map(i => taal.slice(0, i).map(s => s.len() - 1).sum(default: 0))
-  let b_count = beats_count(taal)
-  range(repeat).map(r => single.slice(0, -1).map(p => r * b_count + p)).flatten() + (repeat * b_count,)
+  let b-count = beats-count(taal)
+  range(repeat).map(r => single.slice(0, -1).map(p => r * b-count + p)).flatten() + (repeat * b-count,)
 }
-#let all_beats(cycles) = {
-  let beats = ()
-  for cycle in cycles {
-    for bibhag in cycle {
-      beats += bibhag
-    }
-  }
-  beats
-}
+#let all-beats(cycles) = cycles.flatten()
 
-#let extract_opts(s) = {
+#let extract-opts(s) = {
   let m = s.match(regex("\[(.*?)\]"))
   if m == none { return (s, (:)) }
   let opts = (:)
@@ -178,127 +153,91 @@
 }
 
 
-#let note_patterns = regex("(\\{[^}]+\\})?(S|R|r|G|g|m|M|P|d|D|N|n|-)(\\.{0,2})(\\'{0,2})");
-#let section_patterns = regex("\\[(.*?)\\]|\\{(.*?)\\}|\\((.*?)\\)|([^\\[\\{\\(\\]\\}\\)]+)");
-#let render_note(note) = {
-  if note.text != none {
-    note.text
+#let parse-pitch(s) = {
+  let m = s.match(regex("(S|R|r|G|g|m|M|P|d|D|N|n|-)(\\.{0,2})(\\'{0,2})"))
+  if m == none { return none }
+  (base: m.captures.at(0), octave: count(m.captures.at(1), ".") * -1 + count(m.captures.at(2), "'"))
+}
+
+#let parse-note(s) = {
+  let kan-m = s.match(regex("\\{([^}]*)\\}"))
+  let base-s = s.replace(regex("\\{([^}]*)\\}"), "")
+  (
+    pitch: parse-pitch(base-s),
+    kan: if kan-m != none {
+      kan-m
+        .captures
+        .at(0)
+        .matches(regex("(S|R|r|G|g|m|M|P|d|D|N|n|-)(\\.{0,2})(\\'{0,2})"))
+        .map(m => parse-pitch(m.text))
+    } else { () },
+  )
+}
+
+#let note-re = regex("(\\{[^}]+\\})?(S|R|r|G|g|m|M|P|d|D|N|n|-)(\\.{0,2})(\\'{0,2})")
+
+#let parse-line(text, taal: none) = {
+  let notes = text.matches(note-re).map(m => parse-note(m.text))
+  let meends = text
+    .matches(regex("\((.*?)\)"))
+    .map(m => (
+      text.slice(0, m.start).matches(note-re).len(),
+      text.slice(0, m.end).matches(note-re).len() - 1,
+    ))
+
+  let bibhag-tokens = text.split("|").map(b => b.trim().split(regex("\s+")).filter(v => v != ""))
+  let beat-counts = bibhag-tokens.flatten().map(b => b.matches(note-re).len())
+  let beats = beat-counts.fold((0,), (acc, c) => acc + (acc.at(-1) + c,))
+  let bibhag-counts = bibhag-tokens.map(b => b.len())
+  let bibhags = bibhag-counts.fold((0,), (acc, c) => acc + (acc.at(-1) + c,))
+
+  (line: notes, beats: beats, bibhags: bibhags, meends: meends)
+}
+
+
+#let render-note(note) = {
+  let render-p(p) = {
+    let n = notes-map.at(p.base, default: math.upright(p.base))
+    if p.octave > 0 { up(n) } else if p.octave < 0 { low(n) } else { middle(n) }
+  }
+  let base = render-p(note.pitch)
+  if note.kan.len() > 0 {
+    kan(note.kan.map(p => render-p(p)).join()) + base
   } else {
-    let render_swara(base, octave) = {
-      let n = notes_map.at(base, default: math.upright(base))
-      if octave > 0 { up(n) } else if octave < 0 { low(n) } else { middle(n) }
-    }
-
-    let base_rendered = render_swara(note.base, note.octave)
-
-    if note.at("kan", default: none) != none {
-      kan(render_swara(note.kan.base, note.kan.octave)) + base_rendered
-    } else {
-      base_rendered
-    }
-  }
-}
-#let note_count(b) = b.filter(n => n.text == none).len()
-
-#let render_notes(notes) = notes.map(n => render_note(n)).join()
-#let render_section(sec) = (
-  apply_empty(render_notes, sec.base, ""),
-  apply_empty(x => kan(render_notes(x)), sec.kan, ""),
-  apply_empty(x => meend(render_notes(x)), sec.meend, ""),
-  apply_empty(x => krintan(render_notes(x)), sec.krintan, ""),
-).join("")
-#let empty_beat = ("kan": (), "meend": (), "krintan": (), "base": ())
-
-#let parse_kan_note(kan_str) = {
-  if kan_str == none { return none }
-  let inner = kan_str.slice(1, -1)
-  let m = inner.match(note_patterns)
-  if m != none {
-    (
-      "base": m.captures.at(1),
-      "octave": count(m.captures.at(2), ".") * -1 + count(m.captures.at(3), "'") * 1,
-    )
-  } else {
-    none
+    base
   }
 }
 
+#let render-beat(ast, bi, ubar, is-lyrics) = {
+  let (start, end) = (ast.beats.at(bi), ast.beats.at(bi + 1))
+  if is-lyrics { return ast.line.slice(start, end).map(n => n.pitch.base).join() }
 
-#let render_beat(b, ubar, is_lyrics: false) = {
-  if is_lyrics {
-    return b.map(sec => sec.base.map(n => n.text).join()).join()
-  }
-  let total_count = b.map(sec => note_count(sec.base) + note_count(sec.meend) + note_count(sec.krintan)).sum(default: 0)
-  let s = b.map(sec => render_section(sec)).join()
-  if ubar { beat(s, total_count) } else { s }
-}
-
-
-
-
-#let make_note(note) = (
-  "text": none,
-  "kan": parse_kan_note(note.captures.at(0)),
-  "base": note.captures.at(1),
-  "octave": count(note.captures.at(2), ".") * -1 + count(note.captures.at(3), "'") * +1,
-)
-#let make_text(note) = ("text": note, "base": none, "octave": 0)
-
-#let parse_notes(notes) = all_parts(notes, note_patterns).map(p => if p.m != none { make_note(p.m) } else {
-  make_text(p.u)
-})
-
-#let parse_section(section) = (
-  "krintan": apply(parse_notes, section.captures.at(0), ()),
-  "kan": apply(parse_notes, section.captures.at(1), ()),
-  "meend": apply(parse_notes, section.captures.at(2), ()),
-  "base": apply(parse_notes, section.captures.at(3), ()),
-)
-
-#let parse_beats(beats) = beats.matches(section_patterns).map(m => parse_section(m))
-#let parse_bibhag(bibhag, bits_count, is_lyrics: false) = {
-  let parts = bibhag.matches(regex("([^\\[\\{\\(\\s]+|\\[[^\\]]*\\]|\\{[^\\}]*\\}|\\([^\\)]*\\))+")).map(m => m.text)
-  if bits_count > 0 {
-    if parts.len() > 0 and parts.at(0) == ">" {
-      parts = prefill(parts.slice(1), bits_count, "")
-    } else {
-      parts = postfill(parts, bits_count, "")
-    }
-  }
-  if is_lyrics {
-    return parts.map(group => {
-      let section = (
-        "base": (("text": group, "base": none, "octave": 0),),
-        "kan": (),
-        "meend": (),
-        "krintan": (),
-      )
-      (section,)
+  let notes-indices = range(start, end)
+  let content = notes-indices
+    .fold((out: (), skip: -1), (acc, ni) => {
+      if ni < acc.skip { return acc }
+      let m = ast.meends.find(m => m.at(0) == ni and m.at(1) < end)
+      if m != none {
+        let segment = ast.line.slice(ni, m.at(1) + 1).map(render-note).join()
+        (out: acc.out + (meend(segment),), skip: m.at(1) + 1)
+      } else {
+        (out: acc.out + (render-note(ast.line.at(ni)),), skip: -1)
+      }
     })
-  }
-  parts.map(group => parse_beats(group))
+    .out
+    .join()
+
+  let total-count = ast.line.slice(start, end).filter(n => n.pitch.base != "-").len()
+  if ubar { beat(content, total-count) } else { content }
 }
-#let parse_cycle(line, taal, ubar, is_lyrics: false) = (
-  line
-    .split("|")
-    .enumerate()
-    .map(iv => {
-      let (i, v) = iv
-      parse_bibhag(
-        v.trim(),
-        if taal == none { 0 } else { taal.at(calc.rem(i, taal.len())).len() - 1 },
-        is_lyrics: is_lyrics,
-      )
-    })
-)
 
 
 #let hcell(val, visible) = if visible { (grid.cell(align: left + bottom, val),) } else { () }
 
-#let render_taal_header(taal, has_any_prefix, b_count, repeat: 1) = {
-  let h_row = hcell("", has_any_prefix)
+#let render-taal-header(taal, has-any-prefix, b-count, repeat: 1) = {
+  let h-row = hcell("", has-any-prefix)
   let symbols = (
-    h_row
+    h-row
       + range(repeat)
         .map(_ => taal.map(bibhag => {
           (grid.cell(align: center + bottom, [#bibhag.at(0)]),) + range(bibhag.len() - 2).map(_ => grid.cell(""))
@@ -307,137 +246,140 @@
         .flatten()
   )
   let counts = (
-    h_row
-      + range(1, repeat * b_count + 1).map(i => {
-        let val = calc.rem(i - 1, b_count) + 1
+    h-row
+      + range(1, repeat * b-count + 1).map(i => {
+        let val = calc.rem(i - 1, b-count) + 1
         grid.cell(align: center + bottom, text(size: 0.8em, str(val)))
       })
   )
   symbols + counts
 }
 
-#let parse_itemized_lines(code, taal, ubar) = {
-  let lines = code.split("\n")
-  while lines.len() > 0 and lines.at(0).trim() == "" { lines = lines.slice(1) }
-  while lines.len() > 0 and lines.at(-1).trim() == "" { lines = lines.slice(0, -1) }
-
-  let processed_lines = ()
-  let plus_count = 0
-  let has_any_prefix = false
-
-  for line in lines {
-    let prefix = ""
-    let content = line.trim()
-    let is_lyrics = false
-    let is_separator = content.starts-with("---")
-    let is_empty = content.len() == 0
-
-    if not is_separator and not is_empty {
-      if line.starts-with("+") {
-        plus_count += 1
-        prefix = [#plus_count.]
-        content = line.slice(1).trim()
-        has_any_prefix = true
-      } else if line.starts-with("-") {
-        prefix = [•]
-        content = line.slice(1).trim()
-        has_any_prefix = true
-      } else if line.starts-with("#L") {
-        content = line.slice(2).trim()
-        is_lyrics = true
+#let parse-itemized-lines(code, taal, ubar) = {
+  code
+    .split("\n")
+    .filter(l => l.trim() != "")
+    .fold((has-prefix: false, plus-count: 0, pl: ()), (acc, line) => {
+      let content = line.trim()
+      let is-separator = content.starts-with("---")
+      let is-empty = content.len() == 0
+      let (prefix, is-lyrics, plus) = (none, false, acc.plus-count)
+      if not (is-separator or is-empty) {
+        if line.starts-with("+") {
+          plus += 1
+          (prefix, content) = ([#plus.], line.slice(1).trim())
+        } else if line.starts-with("-") {
+          (prefix, content) = ([•], line.slice(1).trim())
+        } else if line.starts-with("#L") {
+          (prefix, is-lyrics, content) = (none, true, line.slice(2).trim())
+        }
       }
-    }
-
-    processed_lines.push((
-      "prefix": prefix,
-      "is_lyrics": is_lyrics,
-      "is_separator": is_separator,
-      "is_empty": is_empty,
-      "cycle": if is_separator or is_empty { () } else { parse_cycle(content, taal, ubar, is_lyrics: is_lyrics) },
-    ))
-  }
-  (processed_lines, has_any_prefix)
+      (
+        has-prefix: acc.has-prefix or prefix != none,
+        plus-count: plus,
+        pl: acc.pl
+          + (
+            (
+              "prefix": prefix,
+              "is-lyrics": is-lyrics,
+              "is-separator": is-separator,
+              "is-empty": is-empty,
+              "ast": if is-separator or is-empty { none } else { parse-line(content) },
+            ),
+          ),
+      )
+    })
 }
 
-#let render_composition(code, lang) = {
-  let (code_str, o1) = extract_opts(str(code))
-  let (lang_str, o2) = extract_opts(str(lang))
+#let render-composition(code, lang) = {
+  let (code-str, o1) = extract-opts(str(code))
+  let (lang-str, o2) = extract-opts(str(lang))
   let opts = (taal: "", matra: "true", wrapped: "true") + o1 + o2
-  let ubar = opts.matra == "true"
+  let (ubar, wrapped) = (opts.matra == "true", opts.wrapped == "true")
   let taal = taals.at(opts.taal, default: none)
-  let wrapped = opts.wrapped == "true"
-
-  let (processed_lines, has_any_prefix) = parse_itemized_lines(code_str, taal, ubar)
+  let res = parse-itemized-lines(code-str, taal, ubar)
+  let (processed-lines, has-any-prefix) = (res.pl, res.has-prefix)
 
   if taal == none {
-    for pl in processed_lines {
-      if pl.is_empty or pl.is_separator {
-        [#linebreak()]
-        continue
-      }
-      let pref = if pl.prefix != "" { [#pl.prefix ] } else { [] }
-      let content = pl
-        .cycle
-        .map(bibhag => {
-          bibhag.map(beat => render_beat(beat, ubar, is_lyrics: pl.is_lyrics)).join(" ")
-        })
-        .join(" | ")
-      [#pref #content #linebreak()]
-    }
-  } else {
-    let b_count = beats_count(taal)
-    let beats_per_line = processed_lines.map(pl => if pl.is_separator or pl.is_empty { 0 } else {
-      all_beats((pl.cycle,)).len()
-    })
-    let max_beats = beats_per_line.fold(0, calc.max)
-    let max_cycles = int(calc.ceil(max_beats / b_count))
-    let repeat = if wrapped { 1 } else { calc.max(1, max_cycles) }
-    let total_beats = repeat * b_count
-
-    let cols = if has_any_prefix { (auto,) + (1fr,) * total_beats } else { (1fr,) * total_beats }
-    let header_rows = render_taal_header(taal, has_any_prefix, b_count, repeat: repeat)
-
-    let row_counts = processed_lines.map(pl => {
-      if pl.is_separator { return 0 }
-      let beats = all_beats((pl.cycle,))
-      if wrapped { return int(calc.max(1, calc.ceil(beats.len() / b_count))) }
-      return 1
-    })
-
-    let hlines = processed_lines
-      .enumerate()
-      .filter(iv => iv.at(1).is_separator)
-      .map(iv => {
-        let y_pos = 2 + row_counts.slice(0, iv.at(0)).fold(0, (a, b) => a + b)
-        if y_pos > 2 { grid.hline(y: y_pos) } else { () }
+    processed_lines
+      .map(pl => {
+        if pl.is-empty or pl.is-separator { return linebreak() }
+        let ast = pl.ast
+        let cells = range(ast.beats.len() - 1)
+          .fold((out: (), skip: -1), (acc, bi) => {
+            if bi < acc.skip { return acc }
+            let (s, e) = (ast.beats.at(bi), ast.beats.at(bi + 1) - 1)
+            let m = ast.meends.find(m => m.at(0) >= s and m.at(0) <= e and m.at(1) > e)
+            if m != none {
+              let span = range(bi + 1, ast.beats.len()).find(next => ast.beats.at(next) > m.at(1)) - bi
+              let content = meend(range(span).map(i => render-beat(ast, bi + i, ubar, pl.is-lyrics)).join(" "))
+              return (out: acc.out + (content,), skip: bi + span)
+            }
+            (out: acc.out + (render-beat(ast, bi, ubar, pl.is-lyrics),), skip: -1)
+          })
+          .out
+          .join(" ")
+        (if pl.prefix != none { pl.prefix + " " } else { [] }) + cells + linebreak()
       })
-      .flatten()
+      .join()
+  } else {
+    let b-count = beats-count(taal)
+    let total-beats = if wrapped { b-count } else {
+      processed-lines.fold(0, (m, pl) => if pl.ast == none { m } else { calc.max(m, pl.ast.beats.len() - 1) })
+    }
+    let row-counts = processed-lines.map(pl => if pl.is-separator { 0 } else if pl.is-empty { 1 } else {
+      let count = pl.ast.beats.len() - 1
+      if wrapped { int(calc.max(1, calc.ceil(count / b-count))) } else { 1 }
+    })
 
     grid(
-      columns: cols, gutter: 2pt, fill: (x, y) => white, inset: (x, y) => (
-        x: 5pt,
-        y: if y < 2 { 5pt } else { 7pt },
-      ), align: center + bottom,
-      ..bibhag_positions(taal, repeat: repeat).map(p => grid.vline(x: int(has_any_prefix) + p)),
-      ..header_rows,
+      columns: if has-any-prefix { (auto,) + (1fr,) * total-beats } else { (1fr,) * total-beats },
+      align: center + bottom, gutter: 2pt, inset: 5pt,
+      ..bibhag-positions(taal, repeat: if wrapped { 1 } else { int(calc.ceil(total-beats / b-count)) }).map(
+        p => grid.vline(x: int(has-any-prefix) + p),
+      ),
+      ..render-taal-header(taal, has-any-prefix, b-count, repeat: if wrapped { 1 } else {
+        int(calc.ceil(total-beats / b-count))
+      }),
       grid.hline(),
-      ..hlines,
-      ..processed_lines
-        .filter(pl => not pl.is_separator)
-        .map(pl => {
-          if pl.is_empty { return hcell("", has_any_prefix) + range(total_beats).map(_ => grid.cell("")) }
-          let beats = all_beats((pl.cycle,))
-          let step = if wrapped { b_count } else { beats.len() }
-          range(0, beats.len(), step: step)
+      ..processed-lines
+        .enumerate()
+        .map(iv => {
+          let (i, pl) = iv
+          if pl.is-separator { return (grid.hline(y: 2 + row-counts.slice(0, i).sum(default: 0)),) }
+          if pl.is-empty { return (hcell("", has-any-prefix) + range(total-beats).map(_ => grid.cell(""))).flatten() }
+          let ast = pl.ast
+          let step = if wrapped { b-count } else { ast.beats.len() - 1 }
+          range(0, ast.beats.len() - 1, step: step)
             .enumerate()
-            .map(ij => {
-              let (i, j) = ij
-              let row_beats = beats.slice(j, calc.min(j + step, beats.len()))
-              let cells = row_beats.map(b => grid.cell(render_beat(b, ubar, is_lyrics: pl.is_lyrics)))
+            .map(rij => {
+              let (ri, j) = rij
+              let row-indices = range(j, calc.min(j + step, ast.beats.len() - 1))
+              let cells = row-indices
+                .fold((out: (), skip: -1), (acc, bi) => {
+                  if bi < acc.skip { return acc }
+                  let (s, e) = (ast.beats.at(bi), ast.beats.at(bi + 1) - 1)
+                  let m = ast.meends.find(m => m.at(0) >= s and m.at(0) <= e and m.at(1) > e)
+                  if m != none {
+                    let span = range(bi + 1, ast.beats.len()).find(next => ast.beats.at(next) > m.at(1)) - bi
+                    let actual-span = calc.min(span, row-indices.len() - (bi - j))
+                    let sub = range(actual-span).map(k => render-beat(ast, bi + k, ubar, pl.is-lyrics))
+                    return (
+                      out: acc.out
+                        + (
+                          grid.cell(colspan: actual-span, meend(grid(columns: (1fr,)
+                              * actual-span, inset: 0pt, gutter: 2pt, ..sub))),
+                        ),
+                      skip: bi + actual-span,
+                    )
+                  }
+                  (out: acc.out + (grid.cell(render-beat(ast, bi, ubar, pl.is-lyrics)),), skip: -1)
+                })
+                .out
               (
-                hcell(if i == 0 { pl.prefix } else { "" }, has_any_prefix)
+                hcell(if ri == 0 { pl.prefix } else { none }, has-any-prefix)
                   + cells
-                  + range(total_beats - cells.len()).map(_ => grid.cell(""))
+                  + range(total-beats - cells.len()).map(_ => grid.cell(""))
               )
             })
             .flatten()

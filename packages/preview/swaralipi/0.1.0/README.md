@@ -16,7 +16,7 @@ A Typst package for typesetting Indian Classical and Semi-Classical music notati
 Import the package into your Typst file:
 
 ```typst
-#import "swaralipi.typ": *
+#import "@preview/swaralipi:0.1.0"
 ```
 
 ## Notation System

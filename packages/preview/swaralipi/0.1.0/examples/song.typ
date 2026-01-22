@@ -1,7 +1,7 @@
 
-#import "../swaralipi.typ": render_composition
+#import "@preview/swaralipi:0.1.0": render-composition
 
-#show raw: it => if "note" in it.lang { render_composition(it.text, it.lang) } else { it }
+#show raw: it => if "note" in it.lang { render-composition(it.text, it.lang) } else { it }
 
 ```note[taal: kaharba,wrapped : false,matra : false]
                       |                |           | -  - P - 
