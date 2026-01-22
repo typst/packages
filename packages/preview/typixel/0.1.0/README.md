@@ -15,7 +15,7 @@ A Typst package for creating pixel art directly in your documents. Convert image
   gutter: 10pt,
   image("gahag.jpg", width: 5cm),
   pixel-image(
-    "gahag.jpg",
+    read("gahag.jpg", encoding: none),
     rows: 32,
     shape: square-shape,
     width: 5cm,
@@ -50,10 +50,10 @@ A Typst package for creating pixel art directly in your documents. Convert image
 
 ### `pixel-image()`
 
-Convert an image file to pixel art.
+Convert raw image data to pixel art.
 
 **Parameters:**
-- `path` (string): Path to image file (PNG, JPEG, etc.)
+- `image-data` (bytes): Raw image data (e.g. from `read("path", encoding: none)`)
 - `columns` (int, default: auto): Number of pixel columns
 - `rows` (int, default: auto): Number of pixel rows
 - `scale` (float, default: auto): Scale factor for image
@@ -67,7 +67,7 @@ Convert an image file to pixel art.
 **Example:**
 ```typ
 #pixel-image(
-  "logo.png",
+  read("logo.png", encoding: none),
   columns: 48,
   colors: 32,
   pixel-size: 6pt,
