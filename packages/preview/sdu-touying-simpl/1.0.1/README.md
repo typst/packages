@@ -2,6 +2,8 @@
 
 一个为山东大学设计的、基于 [Touying](https://github.com/touying-typst/touying) 的 Typst 演示文稿模板。
 
+A  [Touying](https://github.com/touying-typst/touying)-based Typst presentation template designed for Shandong University (SDU).
+
 ![演示效果](./example/figures/main.png)
 
 ## 目录
@@ -94,6 +96,30 @@ typst init @preview/sdu-touying-simpl:1.0.1
 ## 许可证
 
 本项目采用 GPL-3.0 许可证。详见 [LICENSE](LICENSE) 文件。
+
+本仓库为模板渲染可能包含山东大学相关标识（如“山东大学/SDU/山大”等文字、校徽，以及可能的校庆/院系标识等）。
+
+根据学校公开制度文件，校名校誉（含校徽等）属于学校无形资产，学校对依法注册的相关文字与校徽等图标享有注册商标专用权等权益，并对使用进行管理。 因此：
+
+- 许可范围： 本仓库的开源许可证仅覆盖模板代码与仓库原创内容，不包含对山东大学名称/校徽/相关标识的任何授权。
+
+- 禁止擅改： 标识应完整、准确、规范使用，不得擅自改动，不得以任何方式损害学校形象、声誉与利益。
+
+- 可能需要授权： 不得用于与山东大学无关事项；未经授权不得用于商业或潜在商业目的；校外单位及个人未经许可不得使用。
+
+- 非官方声明： 本项目与山东大学无隶属关系，不代表学校官方立场或背书。
+
+This repository may include Shandong University (SDU) visual identifiers (e.g., “Shandong University / SDU / 山大” text marks, the SDU crest, and possibly anniversary/college marks) for template rendering.
+
+SDU treats its name, crest, and related identifiers as intangible assets and (where registered) trademarks, and manages their use accordingly. Therefore:
+
+- License scope: The repository’s open-source license applies to the template code and original content only. It does not grant any rights to SDU’s names, crests, or other SDU identifiers.
+
+- No modification: Use SDU identifiers completely, accurately, and consistently; do not alter them or use them in ways that may harm SDU’s image/reputation.
+
+- Authorization may be required: Do not use SDU identifiers for unrelated activities; do not use them for commercial (or potentially commercial) purposes without authorization; external entities/individuals should not use SDU identifiers without permission.
+
+- No endorsement: This project is not affiliated with, endorsed by, or sponsored by SDU.
 
 ## 致谢
 
