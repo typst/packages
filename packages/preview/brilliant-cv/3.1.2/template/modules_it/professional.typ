@@ -1,5 +1,5 @@
 // Imports
-#import "@preview/brilliant-cv:3.1.1": cv-section, cv-entry, cv-entry-start, cv-entry-continued
+#import "@preview/brilliant-cv:3.1.2": cv-section, cv-entry, cv-entry-start, cv-entry-continued
 
 
 #cv-section("Esperienze di lavoro")

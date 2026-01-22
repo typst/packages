@@ -1,5 +1,5 @@
 // Imports
-#import "@preview/brilliant-cv:3.1.1": letter
+#import "@preview/brilliant-cv:3.1.2": letter
 #let metadata = toml("./metadata.toml")
 #let letter-language = sys.inputs.at("language", default: none)
 #let metadata = if letter-language != none {

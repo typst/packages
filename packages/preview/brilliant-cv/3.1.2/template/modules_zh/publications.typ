@@ -1,5 +1,5 @@
 // Imports
-#import "@preview/brilliant-cv:3.1.1": cv-section, cv-publication
+#import "@preview/brilliant-cv:3.1.2": cv-section, cv-publication
 
 
 #cv-section("学术著作")
