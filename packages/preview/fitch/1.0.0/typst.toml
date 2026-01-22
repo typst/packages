@@ -1,0 +1,10 @@
+[package]
+name = "fitch"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Yonatan Kremer"]
+description = "Fitch-style proof diagrams"
+repository = "https://github.com/ykrem/fitch"
+categories = ["visualization"]
+disciplines = ["mathematics", "philosophy", "computer-science"]
+exclude = ["docs/*", "roadmap.md"]
