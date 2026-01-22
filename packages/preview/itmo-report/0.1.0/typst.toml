@@ -1,0 +1,9 @@
+[package]
+name = "itmo-report"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Juan P. Sierra Useche short_elegant_email@niuitmo.ru"]
+license = "MIT"
+description = "Report template for ITMO University dissertation"
+repository = "https://github.com/cbr4l0k/itmo-report"
+keywords = ["report", "university", "itmo", "thesis"]
