@@ -15,12 +15,28 @@ The template is very easy to use, and will transform your whole project into a s
 ```typst
 #import "@preview/manifesto:0.1.0"
 
-#show: it => template(it, title: "Zap", toml: "/typst.toml")
+#show: it => template(it, title: "MyAwesomePackage", toml: "PATH_TO/typst.toml")
 
 = Introduction
 
 Lorem ipsum
 ```
+
+## Options
+
+The `template` function accepts a few parameters to customize the data displayed on the website.
+
+| Option | Default value | Description |
+| --- | --- | --- |
+| `title` (required) |  | The title of your package |
+| `toml` | `none` | The path to the `typst.toml` file |
+| `version` | `none` | Your package version |
+| `description` | `none` | Your package description |
+| `repository` | `none` | Your package repository URL (e.g. GitHub) |
+| `universe` | `none` | Your package name on Typst universe name |
+| `license` | `none` | Your package license |
+
+Note that giving the `toml` file is aready enough, and will fill in the other options.
 
 ## Contributing
 
