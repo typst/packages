@@ -13,5 +13,6 @@ authors = ["Louis Grange <https://github.com/l0uisgrange>"]
 license = "MIT"
 
 [template]
+path = ""
 thumbnail = "thumbnail.png"
 entrypoint = "template.typ"
