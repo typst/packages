@@ -1,6 +1,6 @@
 # Typixel
 
-A Typst library for creating pixel art directly in your documents. Convert images to pixel art or design custom pixel graphics using simple text maps.
+A Typst package for creating pixel art directly in your documents. Convert images to pixel art or design custom pixel graphics using simple text maps.
 
 ## Usage
 
