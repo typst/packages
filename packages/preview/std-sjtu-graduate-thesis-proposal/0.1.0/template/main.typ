@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/std-sjtu-graduate-thesis-proposal:0.1.0": *
 
 // ======================================================
 //                 填写说明 (Instructions)
@@ -280,3 +280,4 @@ $ A = mat(1, 2; 3, 4), quad sum_(i=1)^n i = (n(n+1)) / 2 $
 = 与本课题有关的工作积累、已有的研究工作成绩。Prior experience and accomplished achievements related to the proposed topic.
 
 目前已经积累了很多很多工作了，也取得了非常非常好的工作成绩。
+
