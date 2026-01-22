@@ -1,6 +1,6 @@
 # FSB Thesis Template - Community Edition
 
-A Typst template for Master's theses at FSB (FPT School of Business and
+A community-made template for Master's theses at FSB (FPT School of Business and
 Technology).
 
 > [!NOTE]
