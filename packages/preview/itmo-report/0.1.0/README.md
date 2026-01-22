@@ -34,7 +34,7 @@ Your content here...
 | `supervisor` | string | `none` | Thesis supervisor |
 | `responsible` | string | `none` | Person responsible for research |
 | `show-toc` | bool | `true` | Show table of contents |
-| `bib-file` | string | `"references.bib"` | Bibliography file path (set to `none` to disable) |
+| `bib-file` | string | `none` | Bibliography file path  |
 
 ## Features
 
