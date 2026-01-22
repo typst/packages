@@ -1,16 +1,16 @@
 # ctz-euclide
 
-A comprehensive Euclidean geometry package for Typst, inspired by the LaTeX **ctz-euclide** package.
+A comprehensive Euclidean geometry package for Typst, inspired by the LaTeX **tkz-euclide** package.
 
-> **Note:** This package is a port of the LaTeX [ctz-euclide](https://ctan.org/pkg/ctz-euclide) package. We are deeply grateful to Alain Matthes for creating the original ctz-euclide package, without which this Typst port would have been impossible.
+> **Note:** This package is a port of the LaTeX [tkz-euclide](https://ctan.org/pkg/tkz-euclide) package. We are deeply grateful to Alain Matthes for creating the original **tkz-euclide** package, without which this Typst port would have been impossible. We will be glad if this package comes close to reaching one day the quality of the figures which the original package can render.
 
-> **Development Note:** This package was coded entirely by [Claude Code Opus 4.5](https://www.anthropic.com/claude).
+> **Development Note:** This package was coded entirely by [Claude Code Opus 4.5](https://www.anthropic.com/claude). Nevertheless, I have spent lots of time and energy in the following feedback look : prompting, reviewing, testing and designing. Any mistakes or bugs are my own.
 
 ## ⚠️ Early Development Status
 
 This package is currently in early development and is **by no means definitive**. Many improvements and features are planned and will be implemented over time. The API may change as the package evolves.
 
-**This is lots of work**, and the package is being actively developed. Expect:
+ This package is being developed. Expect:
 - Bug fixes and improvements
 - New features and triangle centers
 - API refinements
@@ -86,8 +86,6 @@ Contributions, bug reports, feature requests, and feedback are warmly welcomed! 
 - Submit pull requests
 - Share examples and use cases
 - Report bugs or suggest improvements
-
-This is a community project and your input helps make it better for everyone.
 
 ## Quick Start
 
@@ -210,12 +208,7 @@ See the draft documentation for complete details on all features.
 
 ## Acknowledgments
 
-This package is a port of the LaTeX [ctz-euclide](https://ctan.org/pkg/ctz-euclide) package created by **Alain Matthes**. The original ctz-euclide package has been an invaluable resource for geometric constructions in LaTeX, and this port aims to bring similar functionality to the Typst ecosystem.
-
-**Special thanks:**
-- **Alain Matthes** for creating the original ctz-euclide package
-- **Claude Code Opus 4.5** (Anthropic) for implementing this entire package
-- The **CeTZ** development team for providing the drawing backend
+This package is a port of the LaTeX [tkz-euclide](https://ctan.org/pkg/tkz-euclide) package created by **Alain Matthes**. The original tkz-euclide package has been an invaluable resource for geometric constructions in LaTeX, and this port aims to bring similar functionality to the Typst ecosystem.
 
 ## License
 

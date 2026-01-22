@@ -6,7 +6,7 @@
 /// Line-line intersection using Cramer's rule
 /// Returns none if lines are parallel, otherwise the intersection point
 ///
-/// Algorithm (from ctz-euclide):
+/// Algorithm:
 /// det = Δx₁·Δy₂ - Δy₁·Δx₂
 /// x = (c₁·Δx₂ - Δx₁·c₂) / det
 /// y = (c₁·Δy₂ - Δy₁·c₂) / det

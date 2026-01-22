@@ -1,7 +1,7 @@
 // ctz-euclide/src/lib.typ
 // Main entry point for ctz-euclide Typst package
 //
-// A port of the LaTeX ctz-euclide package for Euclidean geometry
+// A port of the LaTeX tkz-euclide package for Euclidean geometry
 // Uses cetz as the drawing backend
 
 #import "util.typ"
