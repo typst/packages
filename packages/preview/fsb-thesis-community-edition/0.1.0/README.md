@@ -3,8 +3,7 @@
 A community-made template for Master's theses at FSB (FPT School of Business and
 Technology).
 
-> [!NOTE]
-> This is an unofficial template, created by a student of the institute. This is not endorsed by the FPT School of Business and
+**Note**: This is an unofficial template, created by a student of the institute. This is not endorsed by the FPT School of Business and
 Technology.
 
 ## Usage
