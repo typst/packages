@@ -110,7 +110,7 @@
             #html.elem("div", attrs: (class: "border-t antialised"))[
                 #html.elem("div", attrs: (class: "p-5"))[
                     #if copyright [
-                        #html.elem("span", attrs: (class: "text-zinc-500 text-sm"))[Made with #link("https:/github.com/l0uisgrange/manifesto")[Manifesto] from Typst Universe]
+                        #html.elem("span", attrs: (class: "text-zinc-500 text-sm"))[Made with #link("https://github.com/l0uisgrange/manifesto")[Manifesto] from Typst Universe]
                     ]
                 ]
             ]
