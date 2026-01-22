@@ -10,7 +10,7 @@
   show-toc: true,
   supervisor: none,
   responsible: none,
-  bib-file: "references.bib",
+  bib-file: none,
   body,
 ) = {
     set page(
