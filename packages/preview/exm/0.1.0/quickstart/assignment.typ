@@ -1,4 +1,4 @@
-#import "../../lib/assignment.typ": *
+#import "@preview/exm:0.1.0": *
 
 #show: doc => assignment(doc,
   courseid: "CourseID",

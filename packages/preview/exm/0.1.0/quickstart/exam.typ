@@ -1,4 +1,4 @@
-#import "../../lib/exam.typ": *
+#import "@preview/exm:0.1.0": *
 
 #show: doc => exam(doc,
   courseid: "CourseID",
@@ -6,9 +6,9 @@
   school: "School",
   semester: "Semester",
   instructor: "",
-  examtitle: "",
-  date: "",
-  length: "",
+  examtitle: "Final",
+  date: "8:00–11:00am  Monday, December 15th 2025",
+  length: "180 Minutes",
   instructions: "",
   blanks: ("Your Name", "Your Student ID", "Your Exam Room", "the Name of Person to your Left", "the Name of Person to your Right", "Your GSI's Name (Write N/A if in Self-Service)"),
   extra: "",

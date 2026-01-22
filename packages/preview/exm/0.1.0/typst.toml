@@ -9,4 +9,9 @@ description = "Worksheet and exam template used by Data 8 at UC Berkeley."
 keywords = ["exam", "worksheet", "assignment", "quiz", "homework", "note", "discussion"]
 disciplines = ["computer-science", "education", "mathematics"]
 categories = ["layout", "model", "utility"]
-exclude = ["**/*.pdf", "quickstart/"]
+exclude = ["**/*.pdf"]
+
+[template]
+path = "quickstart"
+entrypoint = "exam.typ"
+thumbnail = "thumbnail.png"
