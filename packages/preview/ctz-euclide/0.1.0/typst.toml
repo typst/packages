@@ -10,4 +10,4 @@ keywords = ["geometry", "euclidean", "mathematics", "drawing", "cetz", "euclide"
 categories = ["visualization", "utility"]
 disciplines = ["mathematics", "education"]
 compiler = "0.11.0"
-exclude = ["tests/*", "docs/*", "latex/*", "*.pdf", "*.md"]
+exclude = ["tests/*", "docs/*", "latex/*", "*.pdf"]
