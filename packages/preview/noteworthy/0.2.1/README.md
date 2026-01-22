@@ -20,7 +20,7 @@ and searching for noteworthy.
 Alternatively, you can use the CLI to kick this project off using the command:
 
 ```bash
-typst init @preview/noteworthy:0.2.0
+typst init @preview/noteworthy:0.2.1
 ```
 
 ## Usage
