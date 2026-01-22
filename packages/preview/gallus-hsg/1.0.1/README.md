@@ -16,7 +16,7 @@ You can use this template in the Typst web app by clicking "Start from template"
 Locally, you can use the following command to start with this templates:
 
 ```
-typst init @preview/gallus-hsg:1.0.0
+typst init @preview/gallus-hsg:1.0.1
 ```
 
 ### Set thesis metadata 
