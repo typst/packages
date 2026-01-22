@@ -1,6 +1,6 @@
 # KTH Thesis Proposal Template
 
-[![Typst Package](https://img.shields.io/badge/typst-package-239dad)](https://typst.app/universe/package/kth-thesis-proposal)
+[![Typst Package](https://img.shields.io/badge/typst-package-239dad)](https://typst.app/universe/package/unofficial-kth-thesis-proposal)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 A clean, professional Typst template for KTH degree project proposals with the official KTH logo and all required sections.
@@ -25,7 +25,7 @@ The template generates a professional proposal with:
 
 ```bash
 # Initialize a new project with this template
-typst init @preview/kth-thesis-proposal my-proposal
+typst init @preview/unofficial-kth-thesis-proposal my-proposal
 cd my-proposal
 
 # Compile your proposal
@@ -34,7 +34,7 @@ typst compile main.typ
 
 ### Using Typst Web App
 
-1. Go to [Typst Universe](https://typst.app/universe/package/kth-thesis-proposal)
+1. Go to [Typst Universe](https://typst.app/universe/package/unofficial-kth-thesis-proposal)
 2. Click "Create project in app"
 3. Start editing!
 
@@ -43,7 +43,7 @@ typst compile main.typ
 Create a new `.typ` file:
 
 ```typst
-#import "@preview/kth-thesis-proposal:0.1.0": proposal, section
+#import "@preview/unofficial-kth-thesis-proposal:0.2.0": proposal
 
 #show: proposal
 
@@ -85,7 +85,7 @@ The template includes all 13 official KTH degree project proposal sections:
 ## Usage Example
 
 ```typst
-#import "@preview/kth-thesis-proposal:0.1.0": proposal, section
+#import "@preview/unofficial-kth-thesis-proposal:0.2.0": proposal
 
 #show: proposal
 
@@ -115,6 +115,18 @@ Can machine learning models accurately predict and optimize energy consumption
 patterns in commercial buildings to reduce overall energy usage by at least 20%?
 
 // ... continue with remaining sections
+```
+
+### Customizing the Title
+
+You can customize the cover page title using the `.with()` method:
+
+```typst
+#import "@preview/unofficial-kth-thesis-proposal:0.2.0": proposal
+
+#show: proposal.with(
+  title: "DEGREE PROJECT PROPOSAL", // default value
+)
 ```
 
 ## Development
@@ -162,6 +174,6 @@ This template is licensed under the [MIT License](LICENSE). You are free to use,
 
 - **Issues**: [GitHub Issues](https://github.com/cseas002/kth-thesis-proposal/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/cseas002/kth-thesis-proposal/discussions)
-- **Typst Universe**: [Package Page](https://typst.app/universe/package/kth-thesis-proposal)
+- **Typst Universe**: [Package Page](https://typst.app/universe/package/unofficial-kth-thesis-proposal)
 
 ---
