@@ -95,8 +95,12 @@ The community created some tools that can help when developing your package:
 - [tytanic], to test your packages.
 - [typship], to easily install your package locally or submit it to Typst Universe.
 
+A more comprehensive list can be found in [Package development — Best of Typst (TCDM)][tcdm-pkg]
+maintained by the community.
+
 [cetz]: https://typst.app/universe/package/cetz/0.3.4
 [typst-package-check]: https://github.com/typst/package-check
 [tytanic]: https://typst-community.github.io/tytanic/
 [typship]: https://github.com/sjfhsjfh/typship
+[tcdm-pkg]: https://ydx-2147483647.github.io/best-of-typst/#pkg
 [manifest]: manifest.md
