@@ -27,4 +27,4 @@ close,
 
 ![example image](docs/images/non-contradiction.png)
 
-See the [examples](examples.pdf) file for more.
+See the [examples](docs/examples.pdf) file for more.
