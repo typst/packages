@@ -1,0 +1,11 @@
+[package]
+name = "typixel"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "MIT"
+description = "Render pixel art from images or text grids with custom shapes."
+compiler = "0.13.1"
+repository = "https://github.com/rice8y/typixel"
+keywords = ["pixel", "art", "image", "bitmap", "grid", "shape", "rendering"]
+exclude = ["./images"]
