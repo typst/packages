@@ -1,5 +1,5 @@
 [package]
-name = "fsb-thesis"
+name = "fsb-thesis-community-edition"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["HSGamer"]
