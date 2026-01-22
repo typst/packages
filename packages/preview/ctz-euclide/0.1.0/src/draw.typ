@@ -195,8 +195,8 @@
   offsets.at(anchor, default: (0, distance))
 }
 
-/// Convert tkz position to cetz anchor
-#let tkz-pos-to-anchor(pos) = {
+/// Convert ctz position to cetz anchor
+#let ctz-pos-to-anchor(pos) = {
   let mapping = (
     "above": "south",
     "below": "north",

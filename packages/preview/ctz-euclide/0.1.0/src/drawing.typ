@@ -118,7 +118,7 @@
 /// Label a point with automatic positioning
 /// pos can be: "above", "below", "left", "right", "above left", etc.
 #let label-point(cetz-draw, coord, label, pos: "above", dist: 0.2) = {
-  let anchor = draw.tkz-pos-to-anchor(pos)
+  let anchor = draw.ctz-pos-to-anchor(pos)
   cetz-draw.content(coord, label, anchor: anchor, padding: dist)
 }
 
@@ -284,7 +284,7 @@
 }
 
 /// Global style configuration key
-#let _global-style-key = "tkz-global-style"
+#let _global-style-key = "ctz-global-style"
 
 /// Default global style
 #let default-global-style = (
@@ -383,7 +383,7 @@
         (default-pos, (0, 0))
       }
 
-      let anchor = draw.tkz-pos-to-anchor(pos)
+      let anchor = draw.ctz-pos-to-anchor(pos)
       let label-padding = if pos in ("above", "below", "left", "right") {
         style.label.single-padding
       } else {
@@ -1289,7 +1289,7 @@
 // =============================================================================
 
 /// Global clip region state key
-#let _clip-region-key = "tkz-clip-region"
+#let _clip-region-key = "ctz-clip-region"
 
 /// Set global clip region
 /// Usage: set-clip-region(cetz-draw, xmin, ymin, xmax, ymax)

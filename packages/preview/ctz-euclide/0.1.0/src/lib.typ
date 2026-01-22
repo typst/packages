@@ -22,7 +22,7 @@
 #let _canvas = cetz.canvas
 
 /// Internal key for storing points in shared-state
-#let _points-key = "tkz-points"
+#let _points-key = "ctz-points"
 /// Internal key for storing named lines in shared-state
 #let _lines-key = "ctz-lines"
 /// Internal key for storing named circles in shared-state
@@ -124,7 +124,7 @@
 /// Resolve a point reference to coordinates (internal helper)
 #let _resolve-point(ctx, p) = {
   if type(p) == str {
-    // Check if it's a tkz point name
+    // Check if it's a ctz point name
     let points = _get-points(ctx)
     if p in points {
       return points.at(p)
@@ -868,7 +868,7 @@
 }
 
 /// Global point style state key
-#let _point-style-key = "tkz-point-style"
+#let _point-style-key = "ctz-point-style"
 
 /// Set up default point style
 #let _set-up-point(style-spec) = {
@@ -1323,7 +1323,7 @@
         c.center.at(1) + base.at(1) + offset.at(1),
         c.center.at(2, default: 0),
       )
-      let anchor = draw.tkz-pos-to-anchor(pos)
+      let anchor = draw.ctz-pos-to-anchor(pos)
       cetz.draw.content(label-pos, label, anchor: anchor)
     } else {
       panic("Circle '" + name + "' not found")
@@ -1347,7 +1347,7 @@
       let center = (sum.at(0) / pts.len(), sum.at(1) / pts.len(), sum.at(2) / pts.len())
 
       let base = if pos == "center" or pos == "centroid" { (0, 0) } else { draw.anchor-offset(pos, dist) }
-      let anchor = if pos == "center" or pos == "centroid" { "center" } else { draw.tkz-pos-to-anchor(pos) }
+      let anchor = if pos == "center" or pos == "centroid" { "center" } else { draw.ctz-pos-to-anchor(pos) }
       let label-pos = (
         center.at(0) + base.at(0) + offset.at(0),
         center.at(1) + base.at(1) + offset.at(1),
@@ -1423,7 +1423,7 @@
 #let _show-clip(stroke: gray + 0.5pt) = drawing.draw-global-clip-boundary(cetz.draw, stroke: stroke)
 
 /// Draw line with global clip
-#let _tkz-line(a, b, add: (10, 10), stroke: black) = drawing.draw-line-global-clip(cetz.draw, _pt, a, b, add: add, stroke: stroke)
+#let _ctz-line(a, b, add: (10, 10), stroke: black) = drawing.draw-line-global-clip(cetz.draw, _pt, a, b, add: add, stroke: stroke)
 
 /// Draw segment with global clip
 #let _seg(a, b, stroke: black) = drawing.draw-segment-global-clip(cetz.draw, _pt, a, b, stroke: stroke)
@@ -1641,7 +1641,7 @@
 #let ctz-set-clip(xmin, ymin, xmax, ymax) = _set-clip(xmin, ymin, xmax, ymax)
 #let ctz-clear-clip() = _clear-clip()
 #let ctz-show-clip(stroke: gray + 0.5pt) = _show-clip(stroke: stroke)
-#let ctz-draw-line-global-clip(a, b, add: (10, 10), stroke: black) = _tkz-line(a, b, add: add, stroke: stroke)
+#let ctz-draw-line-global-clip(a, b, add: (10, 10), stroke: black) = _ctz-line(a, b, add: add, stroke: stroke)
 #let ctz-draw-seg-global-clip(a, b, stroke: black) = _seg(a, b, stroke: stroke)
 #let ctz-draw-clipped-line(p1, p2, xmin, ymin, xmax, ymax, stroke: black) = _clipped-line(p1, p2, xmin, ymin, xmax, ymax, stroke: stroke)
 #let ctz-draw-clipped-line-add(a, b, xmin, ymin, xmax, ymax, add: (10, 10), stroke: black) = _clipped-line-add(a, b, xmin, ymin, xmax, ymax, add: add, stroke: stroke)
