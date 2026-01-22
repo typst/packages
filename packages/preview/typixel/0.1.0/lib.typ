@@ -144,7 +144,7 @@
 // ==============================================
 
 #let pixel-image(
-  path,
+  image-data,
   columns: auto,
   rows: auto,
   scale: auto,
@@ -162,9 +162,8 @@
     scale: if scale == auto { none } else { scale },
     colors: colors
   )
-  
-  let data = read(path, encoding: none)
-  let json-bytes = p.rgba_to_grid(data, bytes(json.encode(config)))
+
+  let json-bytes = p.rgba_to_grid(image-data, bytes(json.encode(config)))
   let result = json(json-bytes)
 
   if "error" in result {
