@@ -1,5 +1,4 @@
-# BUAA-slide-typst
-
+# touying-buaa-theme
 [中文文档](./README_zh.md)
 
 [English Document](./README.md)
