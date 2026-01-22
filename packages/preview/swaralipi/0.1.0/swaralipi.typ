@@ -28,9 +28,9 @@
   b: hide(ubar),
   t: hide(tbar),
 );
-#let low(x) = math.attach(math.limits(x), b: low_octave, t: hide(up_octave))
-#let up(x) = math.attach(math.limits(x), b: hide(low_octave), t: up_octave)
-#let middle(x) = math.attach(math.limits(x), b: hide(low_octave), t: hide(up_octave))
+#let low(x) = math.attach(math.limits(x), b: low-octave, t: hide(up-octave))
+#let up(x) = math.attach(math.limits(x), b: hide(low-octave), t: up-octave)
+#let middle(x) = math.attach(math.limits(x), b: hide(low-octave), t: hide(up-octave))
 #let kan(x) = math.script(math.attach(math.limits(""), t: x))
 
 #let SA = suddha(math.upright("S"))
@@ -280,11 +280,11 @@
         pl: acc.pl
           + (
             (
-              "prefix": prefix,
-              "is-lyrics": is-lyrics,
-              "is-separator": is-separator,
-              "is-empty": is-empty,
-              "ast": if is-separator or is-empty { none } else { parse-line(content) },
+              prefix: prefix,
+              is-lyrics: is-lyrics,
+              is-separator: is-separator,
+              is-empty: is-empty,
+              ast: if is-separator or is-empty { none } else { parse-line(content) },
             ),
           ),
       )
@@ -301,7 +301,7 @@
   let (processed-lines, has-any-prefix) = (res.pl, res.has-prefix)
 
   if taal == none {
-    processed_lines
+    processed-lines
       .map(pl => {
         if pl.is-empty or pl.is-separator { return linebreak() }
         let ast = pl.ast
