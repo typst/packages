@@ -25,7 +25,7 @@
 #import "features.typ": *
 #import "sonority.typ": *
 #import "autosegmental.typ": *
-#import "example.typ": *
+#import "ex.typ": *
 
 /// Convert tipa-style notation to IPA symbols
 ///
