@@ -13,7 +13,7 @@ A minimal example illustrating the use of `genotypst` is shown below. To reprodu
 In a Typst document, import the package and read the alignment data:
 
 ```typst
-#import "@preview/genotypst:0.1.0": *
+#import "@preview/genotypst:0.2.0": *
 
 // Load sequences
 #let sequences = parse-fasta(read("msa.afa"))
