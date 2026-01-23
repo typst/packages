@@ -2,6 +2,8 @@
 
 `zhaw-thesis` is an unofficial template for ZHAW academic works, adaped from the official branding, and followoing all official guidelines and requirements.
 
+[Here's a showcase](https://github.com/stanlrt/typst-zhaw-thesis/blob/main/showcase.pdf) of how it looks like.
+
 ## Setup
 
 ### Web-app (easiest)
