@@ -18,7 +18,7 @@
         let possessive = if supervisor-count > 1 { "ihre" } else { "seine/ihre" }
         let was = if supervisor-count > 1 { "waren" } else { "war" }
 
-        [#title-case(p) #verb #supervisors herzlich für #possessive Expertise und kontinuierliche Beratung. #upper(possessive) Führung und Unterstützung #was von unschätzbarem Wert für den erfolgreichen Abschluss dieses Projekts.]
+        [#title-case(p) #verb #supervisors herzlich für #possessive Expertise und kontinuierliche Beratung. #title-case(possessive) Führung und Unterstützung #was von unschätzbarem Wert für den erfolgreichen Abschluss dieses Projekts.]
       },
     ),
     "and": [und],
@@ -75,7 +75,7 @@
         let possessive = if supervisor-count > 1 { "their" } else { "his/her" }
         let was = if supervisor-count > 1 { "were" } else { "was" }
 
-        [#title-case(p) sincerely thank #supervisors for #possessive expertise and continuous advice. #upper(possessive) guidance and support #was invaluable to the successful completion of this project.]
+        [#title-case(p) sincerely thank #supervisors for #possessive expertise and continuous advice. #title-case(possessive) guidance and support #was invaluable to the successful completion of this project.]
       },
     ),
     "and": [and],
