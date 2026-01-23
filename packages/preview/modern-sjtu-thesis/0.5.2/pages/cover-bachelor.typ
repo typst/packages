@@ -14,7 +14,7 @@
   align(
     center,
     image(
-      "../assets/sjtu-logo.png",
+      "../assets/sjtu-logo.pdf",
       width: 2.79cm,
     ),
   )

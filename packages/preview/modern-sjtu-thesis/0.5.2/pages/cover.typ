@@ -13,7 +13,7 @@
   align(
     center,
     image(
-      "../assets/sjtu-logo.png",
+      "../assets/sjtu-logo.pdf",
       width: 3cm,
     ),
   )

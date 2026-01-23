@@ -167,7 +167,8 @@ Typst 提供了官方的 Web App，支持像 Overleaf 一样在线编辑。
 
 This project is licensed under the MIT License.
 
-It also includes third-party components licensed under other open source licenses,
-including the Apache License 2.0 and MIT License.
+It also includes third-party components licensed under other open source licenses, including the Apache License 2.0 and MIT License.
+
+The school emblem image (`assets/sjtu-logo.pdf`) is copyrighted by Shanghai Jiao Tong University and may be used solely for academic purposes by current students and faculty.
 
 See the `third_party/` directory for details on third-party components and their licenses.
