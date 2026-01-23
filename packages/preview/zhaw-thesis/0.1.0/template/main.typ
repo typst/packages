@@ -5,7 +5,7 @@
   language: languages.en,
   cover: (
     school: "Engineering",
-    institute: "Computer Science",
+    institute: "Institute of Computer Science",
     work-type: "Bachelor thesis",
     title: "ZHAW Thesis Template",
     authors: ("Alice Müller", "Bob Schmidt"),
