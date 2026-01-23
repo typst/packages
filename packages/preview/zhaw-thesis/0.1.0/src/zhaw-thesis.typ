@@ -95,7 +95,7 @@
   set enum(numbering: "1.i.1.i.")
 
   show: setup-language.with(language)
-  show: init-glossary.with(glossary-entries, term-links: false)
+  show: init-glossary.with(glossary-entries, term-links: true)
 
 
   show outline.entry.where(
