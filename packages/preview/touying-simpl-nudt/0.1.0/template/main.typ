@@ -1,6 +1,5 @@
 #import "@preview/touying:0.6.1": *
-// #import "@preview/touying-simpl-nudt:0.1.0": *
-#import "../lib.typ": *
+#import "@preview/touying-simpl-nudt:0.1.0": *
 
 #show: nudt-theme.with(config-info(
   title: [Touying for NUDT: Customize Your Slide Title Here],
