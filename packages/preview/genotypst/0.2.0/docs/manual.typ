@@ -126,7 +126,7 @@ The DNA and RNA palettes assign a distinct color to each nucleotide.
   ..dna-rna-groups.map(render-palette-group)
 ))
 
-= Visualizing genomic regions
+= Visualizing genomic loci with genome maps
 
 Genome maps enable visualization of the genes and other genomic elements within a locus, highlighting their order, orientation, and length. `genotypst` provides a `render-genome-map` function that produces a genome map from an array of dictionaries, each representing a genomic feature that will be plotted:
 
@@ -307,7 +307,7 @@ Sequence logos, genome maps, and trees are rendered using the default document f
   ),
   figure(
     context {
-      show text: set text(font: "New Computer Modern")
+      show text: set text(font: "Libertinus Serif")
       render-sequence-logo(dna_msa)
     },
     caption: [Custom font (Libertinus Serif)],

@@ -53,7 +53,7 @@ The same region of the alignment can also be visualized as a sequence logo using
 To render a genomic locus, you can pass an array of genomic features to the `render-genome-map` function:
 
 ```typst
-// Render a genome map with gene annotations
+// Render a genome map containing five features
 #let locus = (
   (start: 400, end: 1260, strand: 1, label: [A], color: rgb("#56B4E9")),
   (start: 1300, end: 2200, strand: 1, label: [B]),
