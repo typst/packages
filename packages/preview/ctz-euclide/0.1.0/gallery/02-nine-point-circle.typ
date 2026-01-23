@@ -14,7 +14,7 @@
   ))
 
   ctz-def-points(A: (0, 0), B: (7, 0), C: (2, 5))
-  ctz-draw-line("A", "B", "C", "A", stroke: black + 1.5pt)
+  ctz-draw(line: ("A", "B", "C", "A"), stroke: black + 1.5pt)
 
   // Midpoints of sides
   ctz-def-midpoint("Ma", "B", "C")
@@ -34,14 +34,14 @@
 
   // Nine-point circle
   ctz-def-euler("N", "A", "B", "C")
-  ctz-draw-circle-through("N", "Ma", stroke: purple.darken(10%) + 1.2pt)
+  ctz-draw(circle-through: ("N", "Ma"), stroke: purple.darken(10%) + 1.2pt)
 
   // Draw altitudes
-  ctz-draw-line("A", "Ha", stroke: blue.lighten(30%) + 0.7pt)
-  ctz-draw-line("B", "Hb", stroke: blue.lighten(30%) + 0.7pt)
-  ctz-draw-line("C", "Hc", stroke: blue.lighten(30%) + 0.7pt)
+  ctz-draw(segment: ("A", "Ha"), stroke: blue.lighten(30%) + 0.7pt)
+  ctz-draw(segment: ("B", "Hb"), stroke: blue.lighten(30%) + 0.7pt)
+  ctz-draw(segment: ("C", "Hc"), stroke: blue.lighten(30%) + 0.7pt)
 
-  ctz-draw-points(
+  ctz-draw(points: (
     "A",
     "B",
     "C",
@@ -56,15 +56,10 @@
     "MHb",
     "MHc",
     "H",
-  )
-  ctz-draw-labels(
-    "A",
-    "B",
-    "C",
-    "N",
+  ), labels: (
     A: "below left",
     B: "below right",
     C: "above",
     N: (pos: "below", offset: (0, -0.15)),
-  )
+  ))
 })

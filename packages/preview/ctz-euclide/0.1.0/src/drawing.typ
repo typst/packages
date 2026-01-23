@@ -453,15 +453,23 @@
 
 /// Draw a segment with optional arrows and dimension label
 /// Usage: draw-segment(cetz-draw, pt, "A", "B", arrows: "->", dim: $5$, stroke: black)
-#let draw-segment(cetz-draw, pt-func, p1-name, p2-name, arrows: none, dim: none, dim-pos: "above", dim-dist: 0.3, stroke: black) = {
+#let draw-segment(cetz-draw, pt-func, p1-name, p2-name, arrows: none, dim: none, dim-pos: "above", dim-dist: 0.3, stroke: black, mark: none) = {
   cetz-draw.get-ctx(ctx => {
     let (_, c1) = cetz.coordinate.resolve(ctx, pt-func(p1-name))
     let (_, c2) = cetz.coordinate.resolve(ctx, pt-func(p2-name))
 
-    // Determine mark style based on arrows parameter
+    // Determine mark style - prefer explicit mark parameter over arrows
     let mark-start = none
     let mark-end = none
-    if arrows != none {
+
+    if mark != none {
+      // Use explicit mark parameter if provided
+      if type(mark) == dictionary {
+        mark-start = mark.at("start", default: none)
+        mark-end = mark.at("end", default: none)
+      }
+    } else if arrows != none {
+      // Fall back to arrows parameter
       if arrows == "->" { mark-end = ">" }
       else if arrows == "<-" { mark-start = ">" }
       else if arrows == "<->" { mark-start = ">"; mark-end = ">" }
@@ -806,8 +814,9 @@
     let radius = util.dist(c1, c2) / 2
 
     // Calculate start angle from p1
-    let angle = calc.atan2(c1.at(1) - center.at(1), c1.at(0) - center.at(0))
-    let start-deg = if type(angle) == angle { angle } else { angle * 1deg }
+    let angle-rad = calc.atan2(c1.at(1) - center.at(1), c1.at(0) - center.at(0))
+    // calc.atan2() returns an angle type, convert to degrees
+    let start-deg = angle-rad / 1rad * 180deg / calc.pi
 
     if above {
       cetz-draw.arc(center, start: start-deg, stop: start-deg + 180deg, radius: radius, stroke: stroke, fill: fill)

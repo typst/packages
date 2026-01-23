@@ -17,25 +17,22 @@
   ctz-def-point-on-circle("C", "O", 3, 110)
 
   // Draw circle
-  ctz-draw-circle("C1", stroke: gray + 0.8pt)
+  ctz-draw("C1", stroke: gray + 0.8pt)
 
   // Draw diameter
-  ctz-draw-line("L1", stroke: blue + 1.2pt)
+  ctz-draw("L1", stroke: blue + 1.2pt)
 
   // Draw triangle (angle at C is right angle by Thales' theorem)
-  ctz-draw-line("A", "C", "B", "A", stroke: black + 1.2pt)
+  ctz-draw(line: ("A", "C", "B", "A"), stroke: black + 1.2pt)
 
   // Mark the right angle at C
   ctz-draw-mark-right-angle("A", "C", "B", size: 0.4)
 
   // Draw altitude from C to AB
   ctz-def-project("H", "C", "A", "B")
-  ctz-draw-line("C", "H", stroke: (paint: green, thickness: 0.8pt, dash: "dashed"))
+  ctz-draw(segment: ("C", "H"), stroke: (paint: green, thickness: 0.8pt, dash: "dashed"))
 
-  // Mark points
-  ctz-draw-points("A", "B", "C", "O", "H")
-
-  // Labels
-  ctz-draw-labels("A", "B", "C", "O", "H",
-    A: "left", B: "right", C: "above", O: "below", H: "below")
+  // Mark points and labels
+  ctz-draw(points: ("A", "B", "C", "O", "H"), labels: (
+    A: "left", B: "right", C: "above", O: "below", H: "below"))
 })

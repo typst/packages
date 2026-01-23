@@ -74,6 +74,33 @@
   ctx
 }
 
+/// Get the object type for a given name
+/// Returns "point", "line", "circle", "polygon", or none
+#let _get-object-type(ctx, name) = {
+  let found-types = ()
+
+  if name in _get-points(ctx) {
+    found-types.push("point")
+  }
+  if name in _get-lines(ctx) {
+    found-types.push("line")
+  }
+  if name in _get-circles(ctx) {
+    found-types.push("circle")
+  }
+  if name in _get-polygons(ctx) {
+    found-types.push("polygon")
+  }
+
+  if found-types.len() == 0 {
+    return none
+  } else if found-types.len() > 1 {
+    panic("Ambiguous object '" + name + "' exists as both " + found-types.at(0) + " and " + found-types.at(1) + ". Use unique names.")
+  } else {
+    return found-types.at(0)
+  }
+}
+
 /// Custom coordinate resolver - accepts both "A" and "ctz:A" syntax
 #let _ctz-coordinate-resolver(ctx, c) = {
   if type(c) == str {
@@ -152,8 +179,15 @@
   panic("Cannot resolve point: " + repr(p))
 }
 
-/// Helper to convert point name to ctz: coordinate
-#let _pt(name) = "ctz:" + name
+/// Helper to convert point name to ctz: coordinate (or pass through raw coordinates)
+#let _pt(name) = {
+  if type(name) == str {
+    "ctz:" + name
+  } else {
+    // Raw coordinate tuple - pass through
+    name
+  }
+}
 
 /// Define multiple points at once
 #let _pts(..points) = {
@@ -628,6 +662,43 @@
   },)
 }
 
+/// Define Thales triangle (right triangle inscribed in circle)
+/// Creates three points where the right angle is at name-c
+#let _thales-triangle(name-a, name-b, name-c, center, radius, base-angle: 0, orientation: "left") = {
+  (ctx => {
+    // Resolve center
+    let c = _resolve-point(ctx, center)
+    let r = if type(radius) == length {
+      radius / 1cm
+    } else {
+      radius
+    }
+
+    // Calculate angles for three vertices
+    let angle-a = base-angle
+    let angle-b = base-angle + 180
+    let angle-c = if orientation == "left" {
+      base-angle + 90
+    } else {
+      base-angle - 90
+    }
+
+    // Calculate point positions using point-on-circle from transform.typ
+    let pa = transform.point-on-circle-raw(c, r, angle-a)
+    let pb = transform.point-on-circle-raw(c, r, angle-b)
+    let pc = transform.point-on-circle-raw(c, r, angle-c)
+
+    // Store all three points
+    let points = _get-points(ctx)
+    points.insert(name-a, pa)
+    points.insert(name-b, pb)
+    points.insert(name-c, pc)
+    ctx = _set-points(ctx, points)
+
+    (ctx: ctx)
+  },)
+}
+
 /// Define barycentric point
 #let _barycentric(name, a, b, c, wa, wb, wc) = {
   (ctx => {
@@ -723,16 +794,98 @@
   },)
 }
 
-/// Define circle inversion point
+/// Define inversion of point/object through a circle (polymorphic)
 #let _inversion(name, source, center, radius) = {
   (ctx => {
-    let p = _resolve-point(ctx, source)
     let c = _resolve-point(ctx, center)
     let r = if type(radius) == length { radius / 1cm } else { radius }
-    let result = util.circle-inversion(p, c, r)
-    let points = _get-points(ctx)
-    points.insert(name, result)
-    ctx = _set-points(ctx, points)
+
+    // Detect source object type
+    let obj-type = _get-object-type(ctx, source)
+
+    if obj-type == none {
+      // Treat as a point
+      let p = _resolve-point(ctx, source)
+      let result = util.circle-inversion(p, c, r)
+      let points = _get-points(ctx)
+      points.insert(name, result)
+      ctx = _set-points(ctx, points)
+    } else if obj-type == "point" {
+      let p = _resolve-point(ctx, source)
+      let result = util.circle-inversion(p, c, r)
+      let points = _get-points(ctx)
+      points.insert(name, result)
+      ctx = _set-points(ctx, points)
+    } else if obj-type == "line" {
+      let lines = _get-lines(ctx)
+      let (p1, p2) = lines.at(source)
+      let foot = util.project-point-on-line(c, p1, p2)
+      let dist-to-line = util.dist(c, foot)
+
+      if util.approx-zero(dist-to-line) {
+        // Line through inversion center -> invariant
+        lines.insert(name, (p1, p2))
+        ctx = _set-lines(ctx, lines)
+      } else {
+        // Inversion of a line not through center is a circle through center
+        let foot-inv = util.circle-inversion(foot, c, r)
+        let mid = util.midpoint(c, foot-inv)
+        let rad = util.dist(c, foot-inv) / 2
+        let circles = _get-circles(ctx)
+        circles.insert(name, (center: mid, radius: rad))
+        ctx = _set-circles(ctx, circles)
+      }
+    } else if obj-type == "circle" {
+      let circles = _get-circles(ctx)
+      let circ = circles.at(source)
+      let d = util.dist(c, circ.center)
+
+      if util.approx-eq(d, circ.radius, epsilon: util.eps) {
+        // Circle through inversion center -> line
+        let dx = circ.center.at(0) - c.at(0)
+        let dy = circ.center.at(1) - c.at(1)
+        let far = (
+          c.at(0) + 2 * dx,
+          c.at(1) + 2 * dy,
+          circ.center.at(2, default: 0),
+        )
+        let p0 = util.circle-inversion(far, c, r)
+        let p1 = (p0.at(0) - dy, p0.at(1) + dx, p0.at(2, default: 0))
+        let p2 = (p0.at(0) + dy, p0.at(1) - dx, p0.at(2, default: 0))
+        let lines = _get-lines(ctx)
+        lines.insert(name, (p1, p2))
+        ctx = _set-lines(ctx, lines)
+      } else {
+        // Circle not through center -> circle
+        let denom = d * d - circ.radius * circ.radius
+        let factor = (r * r) / denom
+        let new-center = (
+          c.at(0) + factor * (circ.center.at(0) - c.at(0)),
+          c.at(1) + factor * (circ.center.at(1) - c.at(1)),
+          circ.center.at(2, default: 0),
+        )
+        let new-radius = calc.abs(factor) * circ.radius
+        circles.insert(name, (center: new-center, radius: new-radius))
+        ctx = _set-circles(ctx, circles)
+      }
+    } else if obj-type == "polygon" {
+      let polygons = _get-polygons(ctx)
+      let vertex-names = polygons.at(source)
+      let points = _get-points(ctx)
+
+      for vname in vertex-names {
+        if vname not in points {
+          panic("Cannot invert polygon '" + source + "': vertex point '" + vname + "' not found. All vertex points must be explicitly defined.")
+        }
+        let pt = points.at(vname)
+        let inv-pt = util.circle-inversion(pt, c, r)
+        points.insert(vname, inv-pt)
+      }
+      ctx = _set-points(ctx, points)
+      polygons.insert(name, vertex-names)
+      ctx = _set-polygons(ctx, polygons)
+    }
+
     (ctx: ctx)
   },)
 }
@@ -789,16 +942,65 @@
   },)
 }
 
-/// Define point by rotation around a center
+/// Define point/object by rotation around a center (polymorphic)
 #let _rotation(name, source, center, angle-deg) = {
   (ctx => {
-    let src = _resolve-point(ctx, source)
-    let ctr = _resolve-point(ctx, center)
-    let result = transform.rotation-raw(src, ctr, angle-deg)
+    let center-pt = _resolve-point(ctx, center)
 
-    let points = _get-points(ctx)
-    points.insert(name, result)
-    ctx = _set-points(ctx, points)
+    // Detect source object type
+    let obj-type = _get-object-type(ctx, source)
+
+    if obj-type == none {
+      // Try to resolve as a point reference (not in storage)
+      let src = _resolve-point(ctx, source)
+      let result = transform.rotation-raw(src, center-pt, angle-deg)
+      let points = _get-points(ctx)
+      points.insert(name, result)
+      ctx = _set-points(ctx, points)
+    } else if obj-type == "point" {
+      // Rotate point
+      let src = _resolve-point(ctx, source)
+      let result = transform.rotation-raw(src, center-pt, angle-deg)
+      let points = _get-points(ctx)
+      points.insert(name, result)
+      ctx = _set-points(ctx, points)
+    } else if obj-type == "line" {
+      // Rotate line (rotate both endpoints)
+      let lines = _get-lines(ctx)
+      let (p1, p2) = lines.at(source)
+      let new-p1 = transform.rotation-raw(p1, center-pt, angle-deg)
+      let new-p2 = transform.rotation-raw(p2, center-pt, angle-deg)
+      lines.insert(name, (new-p1, new-p2))
+      ctx = _set-lines(ctx, lines)
+    } else if obj-type == "circle" {
+      // Rotate circle (rotate center, keep radius)
+      let circles = _get-circles(ctx)
+      let c = circles.at(source)
+      let new-center = transform.rotation-raw(c.center, center-pt, angle-deg)
+      circles.insert(name, (center: new-center, radius: c.radius))
+      ctx = _set-circles(ctx, circles)
+    } else if obj-type == "polygon" {
+      // Rotate polygon by rotating all vertex points
+      let polygons = _get-polygons(ctx)
+      let vertex-names = polygons.at(source)
+      let points = _get-points(ctx)
+
+      // Rotate each vertex point in place
+      for vname in vertex-names {
+        if vname not in points {
+          panic("Cannot rotate polygon '" + source + "': vertex point '" + vname + "' not found. All vertex points must be explicitly defined.")
+        }
+        let pt = points.at(vname)
+        let rotated-pt = transform.rotation-raw(pt, center-pt, angle-deg)
+        points.insert(vname, rotated-pt)
+      }
+      ctx = _set-points(ctx, points)
+
+      // Store rotated polygon with same vertex names
+      polygons.insert(name, vertex-names)
+      ctx = _set-polygons(ctx, polygons)
+    }
+
     (ctx: ctx)
   },)
 }
@@ -863,6 +1065,62 @@
     let points = _get-points(ctx)
     points.insert(name, result)
     ctx = _set-points(ctx, points)
+    (ctx: ctx)
+  },)
+}
+
+/// Duplicate any geometric object
+#let _duplicate(target-name, source-name, points: auto) = {
+  (ctx => {
+    let obj-type = _get-object-type(ctx, source-name)
+
+    if obj-type == none {
+      panic("Object '" + source-name + "' not found. Cannot duplicate.")
+    } else if obj-type == "point" {
+      // Duplicate point
+      let pt = _resolve-point(ctx, source-name)
+      let point-dict = _get-points(ctx)
+      point-dict.insert(target-name, pt)
+      ctx = _set-points(ctx, point-dict)
+    } else if obj-type == "line" {
+      // Duplicate line
+      let lines = _get-lines(ctx)
+      let (p1, p2) = lines.at(source-name)
+      lines.insert(target-name, (p1, p2))
+      ctx = _set-lines(ctx, lines)
+    } else if obj-type == "circle" {
+      // Duplicate circle
+      let circles = _get-circles(ctx)
+      let c = circles.at(source-name)
+      circles.insert(target-name, (center: c.center, radius: c.radius))
+      ctx = _set-circles(ctx, circles)
+    } else if obj-type == "polygon" {
+      // Duplicate polygon - requires explicit point names
+      let polygons = _get-polygons(ctx)
+      let source-points = polygons.at(source-name)
+
+      if points == auto {
+        panic("For polygon duplication, must provide explicit point names: points: (\"A2\", \"B2\", ...)")
+      }
+
+      if points.len() != source-points.len() {
+        panic("Point count mismatch: source polygon has " + str(source-points.len()) + " vertices, but " + str(points.len()) + " names provided.")
+      }
+
+      // Copy each vertex with new name
+      let point-dict = _get-points(ctx)
+      for (i, old-name) in source-points.enumerate() {
+        let pt = _resolve-point(ctx, old-name)
+        let new-name = points.at(i)
+        point-dict.insert(new-name, pt)
+      }
+      ctx = _set-points(ctx, point-dict)
+
+      // Store new polygon with new point names
+      polygons.insert(target-name, points)
+      ctx = _set-polygons(ctx, polygons)
+    }
+
     (ctx: ctx)
   },)
 }
@@ -1293,6 +1551,215 @@
 /// Draw semicircle
 #let _semicircle(a, b, ..opts) = drawing.draw-semicircle(cetz.draw, _pt, a, b, ..opts)
 
+/// Fully polymorphic draw function - draws named objects or unnamed constructs
+///
+/// Named objects:
+///   ctz-draw("C1", stroke: blue)
+///
+/// Unnamed constructs via named parameters:
+///   ctz-draw(path: "A--B--C", stroke: black)
+///   ctz-draw(line: ("A", "B", "C"), stroke: red)
+///   ctz-draw(points: ("A", "B", "C"))                              // Draw multiple points
+///   ctz-draw(points: ("A", "B", "C"), labels: true)               // Draw points with labels
+///   ctz-draw(points: ("A", "B", "C"), labels: (A: "top"))        // Custom label positions
+///   ctz-draw(circle-through: ("O", "A"), stroke: blue)
+///   ctz-draw(circle-r: ((0, 0), 2), stroke: green)
+///   ctz-draw(circle-diameter: ("A", "B"), stroke: purple)
+///   ctz-draw(circumcircle: ("A", "B", "C"), stroke: blue)
+///   ctz-draw(incircle: ("A", "B", "C"), stroke: red)
+///   ctz-draw(arc: (center: "O", start: "A", end: "B"), stroke: black)
+///   ctz-draw(arc-r: ((0, 0), 2, 0, 90), stroke: black)
+///   ctz-draw(semicircle: ("A", "B"), stroke: blue)
+///   ctz-draw(segment: ("A", "B"), stroke: black)
+#let _polymorphic-draw(..args) = {
+  let pos = args.pos()
+  let named = args.named()
+
+  // Case 1: Named object (first positional arg is string)
+  if pos.len() > 0 and type(pos.at(0)) == str {
+    let name = pos.at(0)
+    cetz.draw.get-ctx(ctx => {
+      let obj-type = _get-object-type(ctx, name)
+
+      if obj-type == none {
+        panic("Object '" + name + "' not found. No point, line, circle, or polygon with this name exists.")
+      } else if obj-type == "circle" {
+        _draw-circle(name, ..named)
+      } else if obj-type == "line" {
+        _draw-line(name, ..named)
+      } else if obj-type == "polygon" {
+        _polygon(name, ..named)
+      } else if obj-type == "point" {
+        _points(name, ..named)
+      }
+    })
+  }
+  // Case 2: Unnamed construct via named parameter
+  else if "path" in named {
+    let path-spec = named.path
+    let other-opts = (:)
+    for (k, v) in named {
+      if k != "path" {
+        other-opts.insert(k, v)
+      }
+    }
+    _path(path-spec, ..other-opts)
+  }
+  else if "line" in named {
+    let line-points = named.line
+    let other-opts = (:)
+    for (k, v) in named {
+      if k != "line" {
+        other-opts.insert(k, v)
+      }
+    }
+    // Use draw-polygon with close: false for polylines through named points
+    other-opts.insert("close", false)
+    drawing.draw-polygon(cetz.draw, _pt, ..line-points, ..other-opts)
+  }
+  else if "points" in named {
+    let point-names = named.points
+    let labels-spec = named.at("labels", default: false)
+
+    // Ensure point-names is an array
+    if type(point-names) != array {
+      point-names = (point-names,)
+    }
+
+    // Draw the points
+    _points(..point-names)
+
+    // Draw labels if requested
+    if labels-spec != false {
+      if labels-spec == true {
+        // Draw all labels with default positioning
+        _labels(..point-names)
+      } else if type(labels-spec) == dictionary {
+        // Draw labels with custom positioning
+        _labels(..point-names, ..labels-spec)
+      }
+    }
+  }
+  else if "labels" in named {
+    // Standalone labels (without points parameter)
+    let labels-spec = named.labels
+
+    if type(labels-spec) == array {
+      // Array with point names and options
+      _labels(..labels-spec)
+    } else if type(labels-spec) == dictionary {
+      // Dictionary with only options (assumes points were drawn separately)
+      // Extract point names from dictionary keys
+      let point-names = ()
+      let options = (:)
+      for (k, v) in labels-spec {
+        if type(k) == str and k.len() <= 5 {  // Likely a point name
+          options.insert(k, v)
+          if k not in point-names {
+            point-names.push(k)
+          }
+        }
+      }
+      if point-names.len() > 0 {
+        _labels(..point-names, ..options)
+      }
+    }
+  }
+  else if "circle-through" in named {
+    let pts = named.at("circle-through")
+    let other-opts = (:)
+    for (k, v) in named {
+      if k != "circle-through" {
+        other-opts.insert(k, v)
+      }
+    }
+    _circle-through(pts.at(0), pts.at(1), ..other-opts)
+  }
+  else if "circle-r" in named {
+    let spec = named.at("circle-r")
+    let other-opts = (:)
+    for (k, v) in named {
+      if k != "circle-r" {
+        other-opts.insert(k, v)
+      }
+    }
+    _circle-r(spec.at(0), spec.at(1), ..other-opts)
+  }
+  else if "circle-diameter" in named {
+    let pts = named.at("circle-diameter")
+    let other-opts = (:)
+    for (k, v) in named {
+      if k != "circle-diameter" {
+        other-opts.insert(k, v)
+      }
+    }
+    _circle-diameter(pts.at(0), pts.at(1), ..other-opts)
+  }
+  else if "circumcircle" in named {
+    let pts = named.circumcircle
+    let other-opts = (:)
+    for (k, v) in named {
+      if k != "circumcircle" {
+        other-opts.insert(k, v)
+      }
+    }
+    _circumcircle(pts.at(0), pts.at(1), pts.at(2), ..other-opts)
+  }
+  else if "incircle" in named {
+    let pts = named.incircle
+    let other-opts = (:)
+    for (k, v) in named {
+      if k != "incircle" {
+        other-opts.insert(k, v)
+      }
+    }
+    _incircle(pts.at(0), pts.at(1), pts.at(2), ..other-opts)
+  }
+  else if "arc" in named {
+    let spec = named.arc
+    let other-opts = (:)
+    for (k, v) in named {
+      if k != "arc" {
+        other-opts.insert(k, v)
+      }
+    }
+    _arc(spec.center, spec.start, spec.end, ..other-opts)
+  }
+  else if "arc-r" in named {
+    let spec = named.at("arc-r")
+    let other-opts = (:)
+    for (k, v) in named {
+      if k != "arc-r" {
+        other-opts.insert(k, v)
+      }
+    }
+    _arc-r(spec.at(0), spec.at(1), spec.at(2), spec.at(3), ..other-opts)
+  }
+  else if "semicircle" in named {
+    let pts = named.semicircle
+    let other-opts = (:)
+    for (k, v) in named {
+      if k != "semicircle" {
+        other-opts.insert(k, v)
+      }
+    }
+    _semicircle(pts.at(0), pts.at(1), ..other-opts)
+  }
+  else if "segment" in named {
+    let pts = named.segment
+    let other-opts = (:)
+    for (k, v) in named {
+      if k != "segment" {
+        other-opts.insert(k, v)
+      }
+    }
+    _segment(pts.at(0), pts.at(1), ..other-opts)
+  }
+  else {
+    panic("ctz-draw() requires either a named object (string) or a type parameter (path:, line:, circle-through:, etc.)")
+  }
+}
+
 /// Draw sector
 #let _sector(center, start, end, ..opts) = drawing.draw-sector(cetz.draw, _pt, center, start, end, ..opts)
 
@@ -1559,6 +2026,7 @@
 #let ctz-def-medial-triangle(name-a, name-b, name-c, a, b, c) = _medial(name-a, name-b, name-c, a, b, c)
 #let ctz-def-orthic-triangle(name-a, name-b, name-c, a, b, c) = _orthic(name-a, name-b, name-c, a, b, c)
 #let ctz-def-intouch-triangle(name-a, name-b, name-c, a, b, c) = _intouch(name-a, name-b, name-c, a, b, c)
+#let ctz-def-thales-triangle(name-a, name-b, name-c, center, radius, base-angle: 0, orientation: "left") = _thales-triangle(name-a, name-b, name-c, center, radius, base-angle: base-angle, orientation: orientation)
 
 // Point constructions
 #let ctz-def-midpoint(name, a, b) = _midpoint(name, a, b)
@@ -1581,6 +2049,7 @@
 #let ctz-def-translate(name, source, vector) = _translate(name, source, vector)
 #let ctz-def-homothety(name, source, center, k) = _homothety(name, source, center, k)
 #let ctz-def-project(name, source, p1, p2) = _project(name, source, p1, p2)
+#let ctz-duplicate(target-name, source-name, points: auto) = _duplicate(target-name, source-name, points: points)
 
 // Line construction helpers
 #let ctz-def-perp(name1, name2, line, through) = _perp(name1, name2, line, through)
@@ -1590,6 +2059,7 @@
 
 // Drawing functions
 #let ctz-style(..style-args) = _style(..style-args)
+#let ctz-draw(..args) = _polymorphic-draw(..args)
 #let ctz-draw-line(..args) = _draw-line(..args)
 #let ctz-draw-points(..names) = _points(..names)
 #let ctz-points(..names) = ctz-draw-points(..names)

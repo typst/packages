@@ -9,7 +9,7 @@
   ctz-def-points(A: (0, 0), B: (8, 0), C: (2.5, 5.5))
   ctz-set-clip(-1.5, -1.5, 9.5, 7)
   // Triangle
-  ctz-draw-line("A", "B", "C", "A", stroke: black + 1.5pt)
+  ctz-draw(line: ("A", "B", "C", "A"), stroke: black + 1.5pt)
   // Extended altitudes (automatically clipped)
   ctz-def-perp("Ha1", "Ha2", ("B", "C"), "A")
   ctz-def-perp("Hb1", "Hb2", ("A", "C"), "B")
@@ -31,15 +31,11 @@
   ctz-draw-mark-right-angle("A", "Ha", "B", size: 0.3)
   ctz-draw-mark-right-angle("B", "Hb", "C", size: 0.3)
   ctz-draw-mark-right-angle("C", "Hc", "A", size: 0.3)
-  ctz-draw-points("A", "B", "C", "H", "Ha", "Hb", "Hc")
-  ctz-draw-labels(
-    "A",
-    "B",
-    "C",
-    "H",
+  ctz-draw(points: ("A", "B", "C", "H", "Ha", "Hb", "Hc"), labels: (
+    
     A: "left",
     B: "below",
     C: "above right",
     H: "right",
-  )
+  ))
 })

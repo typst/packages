@@ -67,6 +67,20 @@ Click on an image to see the source code.
       Thales' Theorem
     </td>
   </tr>
+  <tr>
+    <td align="center">
+      <a href="gallery/07-inversion.typ"><img src="gallery/07-inversion.png" alt="Inversion" width="220"></a><br>
+      Inversion
+    </td>
+    <td align="center">
+      <a href="gallery/08-inversion-packing.typ"><img src="gallery/08-inversion-packing.png" alt="Inversion Packing" width="220"></a><br>
+      Inversion Packing
+    </td>
+    <td align="center">
+      <a href="gallery/09-inversion-ladder.typ"><img src="gallery/09-inversion-ladder.png" alt="Inversion Ladder" width="220"></a><br>
+      Inversion Ladder
+    </td>
+  </tr>
 </table>
 
 ## Documentation
@@ -125,8 +139,10 @@ Naming notes:
 - **Transformations**: Rotation, reflection, translation, scaling, projection
 - **Intersections**: Line-line, line-circle, circle-circle
 - **Triangle Centers**: Centroid, circumcenter, incenter, orthocenter, and many more
-- **Special Triangles**: Medial, orthic, intouch triangles
+- **Special Triangles**: Medial, orthic, intouch triangles, Thales' triangle
 - **Drawing**: Points, lines, angles, circles, arcs
+- **Unified Drawing**: `ctz-draw()` works with any object type (points, lines, circles, polygons)
+- **Object Duplication**: `ctz-duplicate()` duplicates any geometric object
 - **Angle Marking**: With customizable labels and positioning
 - **Point Styles**: Multiple marker types (cross, dot, circle, plus, etc.)
 
@@ -218,9 +234,11 @@ ctz-draw-measure-segment("A", "B", label: $5$, offset: 0.3, side: "left")
 The package includes many advanced features:
 - Extended triangle centers (Euler, Lemoine, Nagel, Gergonne, Spieker, Feuerbach, etc.)
 - Special triangle constructions (medial, orthic, intouch, excentral, tangential)
+- **Thales' Triangle**: `ctz-def-thales-triangle()` creates right triangles inscribed in circles
 - Circle operations (tangents, radical axis, Apollonius circles)
 - Point constructions (midpoint, golden ratio, barycentric coordinates)
 - Geometric transformations (symmetry, inversion)
+- **Polymorphic Transformations**: `ctz-def-rotation()` works on all object types (points, lines, circles, polygons)
 - Drawing utilities (polygons, segments, arcs, sectors)
 - Marking utilities (segment marks, right angles, angle fills)
 
