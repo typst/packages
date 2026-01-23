@@ -48,6 +48,7 @@
   ),
   appendix: none,
   page-border: true,
+  hide-frontmatter: false,
   doc,
 ) = {
   // Apply deep-merge to nested structures with defaults
@@ -87,7 +88,7 @@
   let declaration-of-originality = deep-merge(declaration-defaults, declaration-of-originality)
 
   let biblio-defaults = (
-    file-path: none,
+    file: none,
     style: "ieee",
   )
   let biblio = deep-merge(biblio-defaults, biblio)
@@ -116,61 +117,63 @@
 
   // context is neeeded for the tr() calls inside the page functions
   context {
-    if (cover.override == none) {
-      title-page(
-        school: cover.school,
-        institute: cover.institute,
-        work_type: cover.work-type,
-        title: cover.title,
-        authors: cover.authors,
-        supervisors: cover.supervisors,
-        co-supervisors: cover.co-supervisors,
-      )
-    } else {
-      cover.override
-    }
-
-    set page(numbering: "i")
-    counter(page).update(1)
-
-    if (abstract.override == none) {
-      if (abstract.de == none) {
-        panic("ZHAW requires a German abstract even for English works.")
+    if (not hide-frontmatter) {
+      if (cover.override == none) {
+        title-page(
+          school: cover.school,
+          institute: cover.institute,
+          work_type: cover.work-type,
+          title: cover.title,
+          authors: cover.authors,
+          supervisors: cover.supervisors,
+          co-supervisors: cover.co-supervisors,
+        )
+      } else {
+        cover.override
       }
 
-      abstract-page(
-        en: abstract.en,
-        de: abstract.de,
-        keywords: abstract.keywords,
-        authors: cover.authors,
-        title: cover.title,
-      )
-    } else {
-      abstract.override
-    }
+      set page(numbering: "i")
+      counter(page).update(1)
 
-    if (acknowledgements.override == none) {
-      acknowledgements-page(
-        acknowledgements: acknowledgements.text,
-        supervisors: cover.supervisors,
-        co-supervisors: cover.co-supervisors,
-        authors: cover.authors,
-      )
-    } else {
-      acknowledgements.override
-    }
+      if (abstract.override == none) {
+        if (abstract.de == none) {
+          panic("ZHAW requires a German abstract even for English works.")
+        }
 
-    if (declaration-of-originality.override == none) {
-      declaration-of-originality-page(
-        declaration_of_originality: declaration-of-originality.text,
-        location: declaration-of-originality.location,
-        authors: cover.authors,
-      )
-    } else {
-      declaration-of-originality.override
-    }
+        abstract-page(
+          en: abstract.en,
+          de: abstract.de,
+          keywords: abstract.keywords,
+          authors: cover.authors,
+          title: cover.title,
+        )
+      } else {
+        abstract.override
+      }
 
-    outline(title: "Table of Contents", depth: 3)
+      if (acknowledgements.override == none) {
+        acknowledgements-page(
+          acknowledgements: acknowledgements.text,
+          supervisors: cover.supervisors,
+          co-supervisors: cover.co-supervisors,
+          authors: cover.authors,
+        )
+      } else {
+        acknowledgements.override
+      }
+
+      if (declaration-of-originality.override == none) {
+        declaration-of-originality-page(
+          declaration_of_originality: declaration-of-originality.text,
+          location: declaration-of-originality.location,
+          authors: cover.authors,
+        )
+      } else {
+        declaration-of-originality.override
+      }
+
+      outline(title: "Table of Contents", depth: 3)
+    }
 
     set page(numbering: "1")
     counter(page).update(1)
