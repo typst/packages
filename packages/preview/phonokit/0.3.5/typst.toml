@@ -1,6 +1,6 @@
 [package]
 categories = ["utility", "text", "visualization"]
-disciplines = ["linguistics", "phonology"]
+disciplines = ["linguistics"]
 name = "phonokit"
 version = "0.3.5"
 exclude = ["gallery/"]
