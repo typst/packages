@@ -1,6 +1,6 @@
 # `zhaw-thesis` template
 
-`zhaw-thesis` is an unofficial template for ZHAW academic works, adaped from the official branding, and followoing all official guidelines and requirements.
+`zhaw-thesis` is an unofficial template for ZHAW academic works, adapted from the official branding and following official requirements. It supports both English and German.
 
 [Here's a showcase](https://github.com/stanlrt/typst-zhaw-thesis/blob/main/showcase.pdf) of how it looks like.
 
