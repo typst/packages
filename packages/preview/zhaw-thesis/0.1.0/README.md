@@ -24,8 +24,7 @@
 Below is the complete list of configuration options, inclueing default values and explanations. Most are optional.
 
 ```typ
-#import "@preview/zhaw-thesis:0.1.0": *
-#import "glossary.typ": myGlossary
+#import "@preview/zhaw-thesis:0.1.0": zhaw-thesis
 
 #show: zhaw-thesis.with(
   language: languages.de,         // Document language 
@@ -54,7 +53,7 @@ Below is the complete list of configuration options, inclueing default values an
     text: none,                   // Custom declaration text
     override: none,               // Override declaration page with your own file, e.g. [#include: "my-declaration.typ"]
   ),
-  glossary-entries: none,         // Variable containing glossary entries, e.g., myGlossary
+  glossary-entries: none,         // Variable containing glossary entries, e.g., myGlossary (see template)
   biblio: (
     file: none,                   // Stream to your .bib file, e.g., read("references.bib", encoding: none)
     style: "ieee",                // Bibliography style, e.g., "ieee", "apa", etc.
