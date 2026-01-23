@@ -22,7 +22,7 @@
   ),
   glossary-entries: myGlossary,
   biblio: (
-    file-path: "/template/biblio.bib",
+    file: read("biblio.bib", encoding: none),
     style: "ieee",
   ),
   appendix: [#include "appendix.typ"],
