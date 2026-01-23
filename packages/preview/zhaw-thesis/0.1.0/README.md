@@ -1,23 +1,23 @@
-# The `zhaw-thesis` Package
-<div align="center">Version 0.1.0</div>
+# `zhaw-thesis` template
 
-An unofficial template for ZHAW academic works, adaped from the official branding.
+`zhaw-thesis` is an unofficial template for ZHAW academic works, adaped from the official branding, and followoing all official guidelines and requirements.
 
 ## Setup
 
 ### Web-app (easiest)
 
 1. Create a project from https://typst.app/universe/package/zhaw-thesis
-2. Download the font files in the repo's font directory.
-3. Drag and drop the files into the webapp's file panel on the left (you can create a font folder)
+3. In the left sidebar, under "Files", create a folder called "fonts" 
+2. Download the font files in the [repo's font directory](https://github.com/stanlrt/typst-zhaw-thesis/tree/main/fonts)
+4. Drag and drop the files into the "font" directory in your web-app project
 
 ### Local
 
 1. Install Typst from https://typst.app/open-source/
-3. Download the font files ftom this repo's font directory and make them accessible to the compiler (https://typst.app/docs/reference/text/text/#parameters-font)
-4. Run `typst init @preview/zhaw-thesis:0.1.0` in your project directory
+2. Download the font files ftom this repo's font directory and make them accessible to the compiler (https://typst.app/docs/reference/text/text/#parameters-font)
+3. Run `typst init @preview/zhaw-thesis:0.1.0` in your project directory
 
-## Configuration
+## Configuration options
 
 Below is the complete list of configuration options, inclueing default values and explanations. Most are optional.
 
@@ -61,3 +61,42 @@ Below is the complete list of configuration options, inclueing default values an
   page-border: true,              // Enable/disable page border
 )
 ```
+
+## Exported symbols
+
+The package exports the following symbols for you to use if needed:
+
+```typ
+#import "@preview/zhaw-thesis:0.1.0": (
+  zhaw-thesis,   // Main template function, see docu above
+  callout,       // Coloured callout box to highlight important text
+
+  centered,      // Vertically centred layout
+  today,         // Current date in local format
+  languages,     // Available languages
+  push-lang,     // Set new language (see docu below)
+  pop-lang,      // Switch back to previous language (see docu below)
+)
+```
+
+You can refer to the [demo document](https://github.com/stanlrt/typst-zhaw-thesis/blob/main/template/main.typ) for usage examples.
+
+## Configuration of dependencies
+
+### Glossary
+
+The template uses the [Glossy package](https://typst.app/universe/package/glossy/) to power the glossary feature under the hood. 
+You can find instructions about how to use all its options directly on the [package page](https://typst.app/universe/package/glossy/).
+
+### Code blocks
+
+The template uses the [Codly package](https://typst.app/universe/package/codly/) to style code snippets.
+You can find instructions about how to use all its options in [its PDF manual](https://raw.githubusercontent.com/Dherse/codly/main/docs.pdf).
+
+### Multi-linguism
+
+Should you need use different languages for different pages of your work, you can refer to [Tieflang's documentation](https://typst.app/universe/package/tieflang/).
+
+## Feature requests & problems
+
+Feel free to request features or report probems [here](https://github.com/stanlrt/typst-zhaw-thesis/issues)
