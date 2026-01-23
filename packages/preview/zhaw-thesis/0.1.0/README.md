@@ -56,7 +56,7 @@ Below is the complete list of configuration options, inclueing default values an
   ),
   glossary-entries: none,         // Variable containing glossary entries, e.g., myGlossary
   biblio: (
-    file-path: none,              // Path to your .bib file, e.g., "references.bib"
+    file: none,                   // Stream to your .bib file, e.g., read("references.bib", encoding: none)
     style: "ieee",                // Bibliography style, e.g., "ieee", "apa", etc.
   ),
   appendix: none,                 // Content for the appendix, e.g., [#include: "appendix.typ"]
