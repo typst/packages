@@ -72,7 +72,7 @@
       title: [Acknowledgements],
       text: (plural, supervisor-count, supervisors) => context {
         let p = (tr().pronoun)(plural)
-        let possessive = if supervisor-count > 1 { "their" } else { "his/her" }
+        let possessive = "their"
         let was = if supervisor-count > 1 { "were" } else { "was" }
 
         [#title-case(p) sincerely thank #supervisors for #possessive expertise and continuous advice. #title-case(possessive) guidance and support #was invaluable to the successful completion of this project.]
@@ -88,7 +88,7 @@
       text: plural => {
         let student = if plural { "students" } else { "student" }
         let confirm = if plural { "confirm" } else { "confirms" }
-        let their = if plural { "their" } else { "his/her" }
+        let their = "their"
         let declare = if plural { "declare" } else { "declares" }
 
         [
