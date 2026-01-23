@@ -66,7 +66,7 @@
       }
     }
   }
- 
+
   content
 }
 
@@ -100,7 +100,7 @@
         box(
           width: 100%,
 
-          inset: 0.75cm,
+          inset: 0.6cm,
 
           radius: 0.2cm,
           stroke: 1pt,
@@ -110,7 +110,7 @@
 
             #if title_array.at(0).len() > 0 {
               place(
-                dy: -1.1cm - h / 2,
+                dy: -0.95cm - h / 2,
 
                 box-1,
               )
@@ -120,7 +120,7 @@
             #{
               if title_array.at(1).len() > 0 {
                 place(
-                  dy: 0.7cm - h / 2,
+                  dy: 0.55cm - h / 2,
                   dx: 50% - w / 2,
                   box-2,
                 )
@@ -136,7 +136,7 @@
     v(1.35cm)
   }
 
-  
+
   /*
   return {
     line(length: 100%)
