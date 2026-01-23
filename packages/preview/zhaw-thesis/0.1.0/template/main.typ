@@ -28,6 +28,10 @@
   appendix: [#include "appendix.typ"],
 )
 
+// ----------------------------------
+// Do not forget to IMPORT THE FONTS! Otherwise your document will LOOK WRONG. See: https://typst.app/universe/package/zhaw-thesis
+// ----------------------------------
+
 // Below you can write your thesis. It's recommended to create separate files for each chapter and include them here using #include "path/to/chapter.typ".
 
 = Introduction <intro>
