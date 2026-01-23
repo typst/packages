@@ -68,8 +68,3 @@
 #let dot3 = math.dot.triple
 
 #let grad = ar("grad")
-
-#let cste = $"Cste"$
-
-#let RTSG = "Référentiel terrestre supposé galiléen"
-#let TEC = "Théorème de l'énergie cinétique"

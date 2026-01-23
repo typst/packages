@@ -13,7 +13,7 @@
       [],
       block(stroke: (left: black.lighten(70%) + 1.5pt), inset: (left: 10pt, top: 3pt, bottom: 3pt), align(
         left,
-        it + att,
+        ["#it.body" + #att],
       )),
     )
   }
