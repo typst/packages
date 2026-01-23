@@ -24,7 +24,7 @@
     image("../assets/zhaw_logo.png"),
     pad(right: 30%, top: 18pt, text(
       size: 18pt,
-      tr().school_of + " " + school + linebreak() + tr().insitute_of + " " + institute,
+      tr().school_of + " " + school + linebreak() + institute,
     )),
   )
 
