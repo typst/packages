@@ -43,7 +43,7 @@
   ),
   glossary-entries: none,
   biblio: (
-    file-path: none,
+    file: none,
     style: "ieee",
   ),
   appendix: none,
@@ -179,9 +179,9 @@
 
     styled-glossary
 
-    if biblio.file-path != none {
+    if biblio.file != none {
       bibliography(
-        biblio.file-path,
+        biblio.file,
         style: biblio.style,
       )
     }
