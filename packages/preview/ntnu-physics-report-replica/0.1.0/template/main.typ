@@ -1,9 +1,9 @@
 // NTNU Physics Lab Report Template
-// Initialize with: typst init @preview/ntnu-physics-report
+// Initialize with: typst init @preview/ntnu-physics-report-replica
 
-#import "@preview/ntnu-physics-report:0.1.0": *
+#import "@preview/ntnu-physics-report-replica:0.1.0": *
 
-#show: ntnu-rapport.with(
+#show: ntnu-report.with(
   title: "Tittel på rapporten",
   authors: (
     (name: "Ditt Navn", affiliations: (1,)),

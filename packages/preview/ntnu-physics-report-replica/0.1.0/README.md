@@ -1,18 +1,18 @@
-# ntnu-physics-report
+# ntnu-physics-report-replica
 A Typst template for physics lab reports at NTNU (Norwegian University of Science and Technology). Based on the LaTeX elsarticle template traditionally used at NTNU's Department of Physics.
 
 ## Usage
-You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `ntnu-physics-report`.
+You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `ntnu-physics-report-replica`.
 
 Alternatively, you can use the CLI to kick this project off using the command
 ```
-typst init @preview/ntnu-physics-report
+typst init @preview/ntnu-physics-report-replica
 ```
 
 Typst will create a new directory with all the files needed to get you started.
 
 ## Configuration
-This template exports the `ntnu-rapport` function with the following named arguments:
+This template exports the `ntnu-report` function with the following named arguments:
 
 - `title`: The report's title as content.
 - `authors`: An array of author dictionaries. Each author dictionary must have a `name` key and an `affiliations` key (array of affiliation indices, 1-indexed).
@@ -29,9 +29,9 @@ The template also provides table helper functions:
 
 ### Example
 ```typ
-#import "@preview/ntnu-physics-report:0.1.0": *
+#import "@preview/ntnu-physics-report-replica:0.1.0": *
 
-#show: ntnu-rapport.with(
+#show: ntnu-report.with(
   title: "Tittel på rapporten",
   authors: (
     (name: "Ditt Navn", affiliations: (1,)),

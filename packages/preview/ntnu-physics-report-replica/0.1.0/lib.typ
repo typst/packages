@@ -1,7 +1,7 @@
 // NTNU Physics Lab Report Template for Typst
 // Based on the LaTeX elsarticle template
 
-#let ntnu-rapport(
+#let ntnu-report(
   title: none,
   authors: (),
   affiliations: (),
