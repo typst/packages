@@ -61,6 +61,7 @@ Below is the complete list of configuration options, inclueing default values an
   ),
   appendix: none,                 // Content for the appendix, e.g., [#include: "appendix.typ"]
   page-border: true,              // Enable/disable page border
+  hide-frontmatter: false,        // Hide all content before the first chapter (useful to focus on writing)
 )
 ```
 
