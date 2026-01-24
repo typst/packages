@@ -15,7 +15,7 @@ typst init @preview/ambivalent-amcis
 ```
 
 ## Fonts
-Typst does not allow the embedding of fonts within a template. The AMCIS template requires the use of the Georgia font, which can be downloaded from [font.download](https://font.download/font/georgia-2) for free. Once you have downloaded it, create a folder inside your project called `fonts` and upload the 4 font files (including the bold and bold-italic versions).
+Typst does not allow the embedding of fonts within a template. The AMCIS template requires the use of the Georgia font, which you need to upload to use the Typst web app. Georgia can be downloaded from [font.download](https://font.download/font/georgia-2) for free. Once you have downloaded it, create a folder inside your project called `fonts` and upload the 4 font files (including the bold and bold-italic versions).
 
 ## Configuration
 The preamble or header of your document should be written in the following way, with your own input variables. Importantly, you can set `camera-ready` to false for the initial submission, which hides the authors, abstract, keywords, and acknowledgements sections. Setting `camera-ready` to true will put each of those in the right place.
