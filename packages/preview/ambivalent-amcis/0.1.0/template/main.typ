@@ -1,4 +1,4 @@
-#import "@preview/ambivalent-amcis:0.1.1": amcis
+#import "@preview/ambivalent-amcis:0.1.0": amcis
 
 #let authors_list = (
   // Authors as ([Author Name], [Affiliation], "email@address.com"),
