@@ -1,0 +1,11 @@
+[package]
+name = "citeproc"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["lucifer1004"]
+license = "MIT"
+description = "Format citations and bibliographies with standard CSL styles."
+repository = "https://github.com/pku-typst/citeproc-typst"
+keywords = ["bibliography", "citation", "csl", "reference"]
+categories = ["utility"]
+compiler = "0.14.0"
