@@ -181,88 +181,6 @@
   )
 }
 
-/// Find all macro calls within a node tree
-#let find-macro-calls(node) = {
-  if type(node) != dictionary { return () }
-
-  let tag = node.at("tag", default: "")
-  let attrs = node.at("attrs", default: (:))
-  let children = node.at("children", default: ())
-
-  let result = ()
-
-  // Check if this is a macro call
-  if tag == "text" and "macro" in attrs {
-    result.push(attrs.macro)
-  }
-
-  // Recursively check children
-  for child in children {
-    let child-calls = find-macro-calls(child)
-    for c in child-calls {
-      result.push(c)
-    }
-  }
-
-  result
-}
-
-/// Build macro dependency graph
-/// Returns: (deps: macro -> [called macros], order: [topological order])
-#let build-macro-graph(macros) = {
-  // Build dependency map: macro -> set of macros it calls
-  let deps = (:)
-  for (name, macro-def) in macros.pairs() {
-    let calls = ()
-    for child in macro-def.children {
-      let child-calls = find-macro-calls(child)
-      for c in child-calls {
-        if c not in calls {
-          calls.push(c)
-        }
-      }
-    }
-    deps.insert(name, calls)
-  }
-
-  // Topological sort: compute macros with no dependencies first
-  let computed = ()
-  let order = ()
-  let remaining = deps.keys()
-
-  // Iterate until all macros are sorted
-  let max-iterations = remaining.len() + 1
-  let iteration = 0
-  while remaining.len() > 0 and iteration < max-iterations {
-    iteration += 1
-    let progress = false
-
-    for name in remaining {
-      let macro-deps = deps.at(name, default: ())
-      // Check if all dependencies are computed (or not in our macro set)
-      let ready = macro-deps.all(d => d in computed or d not in deps)
-      if ready {
-        order.push(name)
-        computed.push(name)
-        progress = true
-      }
-    }
-
-    // Update remaining
-    remaining = remaining.filter(n => n not in computed)
-
-    if not progress and remaining.len() > 0 {
-      // Cycle detected or missing dependency, add remaining in any order
-      for n in remaining {
-        order.push(n)
-      }
-      break
-    }
-  }
-
-  (deps: deps, order: order)
-}
-
 /// Parse citation element
 #let parse-citation(citation-node) = {
   if citation-node == none { return none }
@@ -506,9 +424,6 @@
     macros.insert(parsed.name, parsed)
   }
 
-  // Build macro dependency graph and topological order
-  let macro-graph = build-macro-graph(macros)
-
   // Parse citation and bibliography
   let citation = parse-citation(find-child(root, "citation"))
   let bibliography = parse-bibliography(find-child(root, "bibliography"))
@@ -536,7 +451,6 @@
     locale: merged-locale,
     locales: locales, // CSL-M: language-specific locales for layout switching
     macros: macros,
-    macro-order: macro-graph.order, // Topological order for precomputation
     citation: citation,
     bibliography: bibliography,
   )
