@@ -80,7 +80,7 @@
   counter(page).update(1)
 
   set text(
-    font: "Tex Gyre Heros",
+    font: "TeX Gyre Heros",
     size: 10pt,
     top-edge: 1em,
     bottom-edge: 0em,
