@@ -16,5 +16,7 @@
     to-str(it.body)
   } else if it == [ ] {
     " "
+  } else {
+    str(it)
   }
 }
