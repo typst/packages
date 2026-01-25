@@ -6,7 +6,7 @@ This template provides a clean and modern layout following UOC's visual identity
 
 ## Preview
 
-<img src="./thumbnail.png" alt="" width="300">
+<img src="./thumbnail.png" alt="Cover page of an academic document with a blue layout, showing the course name, assignment title, author name, date, and the Universitat Oberta de Catalunya" width="300">
 
 ## Usage
 
@@ -90,22 +90,6 @@ The template automatically creates:
 1. **Cover Page**: Subject, title, subtitle, author, and date with UOC branding
 2. **Content Pages**: Clean layout with headers, footers, and page numbering
 3. **Proper Margins**: Academic-appropriate spacing for binding and readability
-
-### Assets
-
-Make sure to include the UOC logo in your project:
-
-- Place `logo.svg` in an `assets/` directory
-- The logo will be automatically included in the cover page and headers
-
-## File Structure
-
-```bash
-your-project/
-├── main.typ          # Your main document
-└── assets/
-    └── logo.svg     # UOC logo (required)
-```
 
 ## Tips
 
