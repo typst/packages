@@ -1,5 +1,4 @@
-// #import "@preview/hitec:0.1.0": *
-#import "../src/lib.typ": *
+#import "@preview/hitec:0.1.0": *
 
 #let (
   // Metadata
