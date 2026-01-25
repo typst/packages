@@ -49,7 +49,7 @@
       grid(
         columns: (1fr, auto, 1fr),
         align: (left, center, right),
-        author, confidential, company,
+        to-str(author), confidential, company,
       )
       v(0.17em)
       line(length: 100%)
