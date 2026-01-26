@@ -1,6 +1,6 @@
 # Bootstrap Icons for Typst
 
-The `bootstrapicons` package is a bundle of Bootstrap icons.
+The `booticons` package is a bundle of Bootstrap icons.
 Bootstrap icons is a collection of icons provided by the [Bootstrap project](https://getbootstrap.com/) with over 2000 icons.
 
 A full list of icons is provided at [https://icons.getbootstrap.com/](https://icons.getbootstrap.com/).
@@ -9,13 +9,13 @@ This typst package uses version `v1.13.1` of the Bootstrap icons.
 ## Usage
 
 ```typst
-#import "@preview/bootstrapicons:0.0.1": bsicons
+#import "@preview/booticons:0.0.1": bsicons
 ```
 
 # Minimal Working Example
 
 ```typst
-#import "@preview/bootstrapicons:0.0.1": bsicons
+#import "@preview/booticons:0.0.1": bsicons
 #show link: underline
 
 Weather Conditions: #bsicon("cloud-fog2-fill") with some #bsicon("sun-fill", color: color.hsl(51deg, 100%, 50%))
@@ -31,11 +31,11 @@ A very large checkbox:
 #let gh-link(src) = {
   link(src)[#bsicon("github") #src]
 }
-Find the source of this project at #gh-link("https://github.com/DavZim/bootstrapicons")
+Find the source of this project at #gh-link("https://github.com/DavZim/booticons")
 
 ```
 
-Which will generate this [PDF](https://github.com/DavZim/bootstrapicons/blob/28a1c100603968a098f8e42ec6550b0a8a3fae43/examples/mwe.pdf).
+Which will generate this [PDF](https://github.com/DavZim/booticons/blob/28a1c100603968a098f8e42ec6550b0a8a3fae43/examples/mwe.pdf).
 
 ![Screenshot of the PDF with icons](examples/mwe_screenshot.png)
 

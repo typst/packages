@@ -1,4 +1,4 @@
-#import "@preview/bootstrapicons:0.0.1": bsicons
+#import "@preview/booticons:0.0.1": bsicons
 #show link: underline
 
 Weather Conditions: #bsicon("cloud-fog2-fill") with some #bsicon("sun-fill", color: color.hsl(51deg, 100%, 50%))
@@ -14,4 +14,4 @@ A very large checkbox:
 #let gh-link(src) = {
   link(src)[#bsicon("github") #src]
 }
-Find the source of this project at #gh-link("https://github.com/DavZim/bootstrapicons")
+Find the source of this project at #gh-link("https://github.com/DavZim/booticons")
