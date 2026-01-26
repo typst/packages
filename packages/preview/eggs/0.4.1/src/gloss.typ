@@ -50,7 +50,7 @@
   if type(line) == content {
     return split(line)
   } else {
-    assert(type(line) == array, message: "lines must be either arrays or contents.")
+    assert(type(line) == array, message: "lines must be either arrays or contents, but " + repr(line) + " is " + str(type(line)))
     return line
   }
 }
@@ -69,7 +69,7 @@
 
   let lines-split = lines.map(split-if)
 
-  _ = lines-split.map(line => assert(line.len() == lines-split.at(0).len(), message: "gloss lines have different lengths."))
+  _ = lines-split.map(line => assert(line.len() == lines-split.at(0).len(), message: "gloss lines have different lengths: " + repr(line.map(it => it.children.at(0))) + " and " + repr(lines-split.at(0).map(it => it.children.at(0)))))
 
   // fill missing styles with defaults
   let styles = config.styles
