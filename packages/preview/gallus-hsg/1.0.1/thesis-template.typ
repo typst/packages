@@ -213,7 +213,7 @@
     let bibliographyTitle = (en: "References", de: "Literaturverzeichnis")
     bibliography(bibliography-as-bytes, style: bibliography-style, title: bibliographyTitle.at(language))
   }
-
+ 
 
   print-pagebreak(print: is-print)
 

@@ -8,8 +8,8 @@ This is a biblography cite: #cite(<bruegge2004object>)
 
 This is an image.
 #figure(
-  image("../figures/unisg_logo.png"),
-  caption: "The HSG Logo",
+  image("../figures/sample_image.jpg"),
+  caption: "An matcha latte",
 ) <Figure1>
 
 Can be referenced: @Figure1

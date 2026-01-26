@@ -7,7 +7,7 @@ disciplines = [ ]
 description = "Thesis at the University of St. Gallen (HSG)"
 license = "MIT"
 repository = "https://github.com/joshuabeny1999/unisg-thesis-template-typst"
-authors = ["Joshua Hürzeler <https://joshuah.ch>"]
+authors = [ "Joshua Hürzeler <https://joshuah.ch>" ]
 
 [template]
 path = "template"

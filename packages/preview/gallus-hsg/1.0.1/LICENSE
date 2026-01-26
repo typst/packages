@@ -30,3 +30,21 @@ This version of the template has been modified for use with the University of St
 - Removed not needed proposal and registration_certificate templates
 - Adjusted the title page, meta data files, etc to fit the HSG guidelines
 - Adjusted the readme file to reflect the changes made
+
+---
+
+### Third-Party Assets & Licensing Definitions
+
+While the template code is licensed under the MIT License above, this repository contains assets subject to different license terms:
+
+**1. Sample Photography**
+The sample image(s) included in this template (e.g., in the `template/figures` directory) were sourced from **Pexels** and are provided under the **Pexels License** (CC0/Public Domain equivalent).
+- They are free to use for personal and commercial projects.
+- Attribution is not required but appreciated.
+- You are free to replace these images with your own.
+
+**2. University of St. Gallen (HSG) Logo**
+The University of St. Gallen logo included in this template is a **Registered Trademark** of the University of St. Gallen.
+- **Exclusion from MIT License:** This logo is **NOT** covered by the MIT License. You are not granted rights to modify, sell, or redistribute the logo as a standalone asset.
+- **Usage Rights:** It is included in this package solely for the convenience of students writing theses or papers for the University of St. Gallen.
+- **Trademark Compliance:** Users must ensure their use of the logo complies with the University of St. Gallen's Corporate Design guidelines.
