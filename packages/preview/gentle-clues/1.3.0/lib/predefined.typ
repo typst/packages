@@ -1,4 +1,4 @@
-#import "@preview/linguify:0.4.2": *
+#import "@preview/linguify:0.5.0": *
 #import "clues.typ": clue, if-auto-then
 #import "theme.typ": catppuccin as theme
 
