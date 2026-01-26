@@ -28,15 +28,6 @@
 // Maths
 #let scal(x,y) = $angle.l #x, #y angle.r$
 
-#let recurrence(p: "Propriété", d: $n in NN$, ini: "", hd: "", cl: "") = {
-  [
-    Montrons par récurrence que la propriété $P(n) : $ "#p" est vraie pour tout #d
-
-    - #underline[Initialisation :] #ini
-    - #underline[Hérédité :] #hd
-    - #underline[Conclusion :] #cl
-  ]
-}
 
 #let congru = $eq.triple$
 
