@@ -1,0 +1,8 @@
+fonts:
+  body-font: "New Computer Modern"
+  code-font: "New Computer Modern Mono"
+  math-font: "New Computer Modern Math"
+  mono-font: "New Computer Modern Mono"
+  sans-font: "New Computer Moder Sans"
+
+main-color: "#572A86"

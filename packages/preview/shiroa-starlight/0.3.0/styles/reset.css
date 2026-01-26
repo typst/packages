@@ -1,0 +1,53 @@
+@layer starlight.reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  html {
+    color-scheme: dark;
+    accent-color: var(--sl-color-accent);
+  }
+
+  html[data-theme='light'] {
+    color-scheme: light;
+  }
+
+  body {
+    font-family: var(--__sl-font);
+    line-height: var(--sl-line-height);
+    -webkit-font-smoothing: antialiased;
+    color: var(--sl-color-text);
+    background-color: var(--sl-color-bg);
+  }
+
+  h1, h2, h3, h4, h5 {
+    margin-block-start: 1em;
+    margin-block-end: 0.5em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+
+  h1 {
+    margin-block-start: 1rem;
+    margin-block-end: 0em;
+    line-height: 1;
+  }
+  h2 {
+    line-height: 1.3333333;
+  }
+  h3 {
+    line-height: 1.45;
+  }
+  h4 {
+    line-height: 1.6;
+  }
+  h5 {
+    line-height: 1.5;
+  }
+}

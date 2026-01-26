@@ -15,11 +15,11 @@ You can use this template in the Typst web app by clicking "Start from template"
 Locally, you can use the following command to start with this templates:
 
 ```
-typst init @preview/gallus-hsg:1.0.0
+typst init @preview/gallus-hsg:1.0.1
 ```
 
 ### Set thesis metadata 
-Fill in your thesis details in the [`metadata.typ`](/metadata.typ) file: 
+Fill in your thesis details in the `metadata.typ` file: 
 * The language of the document (en or de)
 * Title
 * Subtitle
@@ -30,9 +30,8 @@ Fill in your thesis details in the [`metadata.typ`](/metadata.typ) file:
 * The submission date
 
 ### Write your thesis
-For the actual content of your thesis, there is a dedicated folder named [`/content`](/content) which includes all the chapters and sections of your thesis.
-You can add or remove chapters as needed (adapt the [`thesis.typ`](/thesis.typ) with the `#include(...)` accordingly).
-If you need to customize the layout of the template, you can do so by modifying the corresponding file in the [`layout`](/layout) directory.
+For the actual content of your thesis, there is a dedicated folder named `/content` which includes all the chapters and sections of your thesis.
+You can add or remove chapters as needed (adapt the `thesis.typ` with the `#include(...)` accordingly).
 
 ---
 ## Further Resources
