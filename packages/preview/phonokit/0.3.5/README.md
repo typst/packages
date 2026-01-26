@@ -8,6 +8,7 @@
 
 <div align="center">
 
+ [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17971031.svg)](https://doi.org/10.5281/zenodo.17971031)
 [![DOI](zenodo-badge.svg)](https://doi.org/10.5281/zenodo.17971031)
 [![Typst Package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fguilhermegarcia%2Fphonokit%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://typst.app/universe/package/phonokit)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/guilhermegarcia/phonokit/blob/main/LICENSE)
