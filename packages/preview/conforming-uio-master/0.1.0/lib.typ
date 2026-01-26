@@ -1,16 +1,16 @@
-#let uio_thesis(
+#let uio-thesis(
   title: [],
   subtitle: [],
   author: [],
   supervisor: [],
-  study_programme: [],
+  study-programme: [],
   department: [],
   faculty: [],
   abstract: [],
   preface: [],
   semester: [Spring],
   print: false,
-  short_thesis: false,
+  short-thesis: false,
   body
 ) = {
 
@@ -42,8 +42,8 @@
 
         v(1em)
         [
-          #study_programme\
-          #if short_thesis [30 ] else [60 ]
+          #study-programme\
+          #if short-thesis [30 ] else [60 ]
           ECTS study points
         ]
 

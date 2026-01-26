@@ -1,4 +1,4 @@
-#import "@preview/conforming-uio-master:0.1.0": uio_thesis
+#import "@preview/conforming-uio-master:0.1.0": uio-thesis
 
 #let abstract = [
   = Abstract
@@ -9,18 +9,18 @@
 ]
 #let preface = lorem(150)
 
-#show: uio_thesis.with(
+#show: uio-thesis.with(
   title: "Your Title",
   subtitle: "Your Slightly longer subtitle",
   author: "Your Name",
   supervisor: "Your Supervisor",
-  study_programme: "Your study programme",
+  study-programme: "Your study programme",
   department: "Your department",
   faculty: "Your faculty",
   abstract: abstract,
   preface: preface,
   print: false,
-  short_thesis: false
+  short-thesis: false
 ) 
 
 
