@@ -77,6 +77,7 @@
 /// 4. If d ≈ r: tangent (one point)
 /// 5. Otherwise: half_chord = sqrt(r² - d²), two points at H ± half_chord * unit_dir
 #let line-circle-raw(la, lb, center, radius, epsilon: util.eps) = {
+  util.assert-positive(radius, name: "radius")
   let ax = la.at(0)
   let ay = la.at(1)
   let bx = lb.at(0)

@@ -20,6 +20,16 @@ This package is **by no means definitive**. Improvements and features are planne
 
 - [CeTZ](https://typst.app/universe/package/cetz) v0.4.2
 
+## Changelog
+
+### 0.1.0
+
+- Initial public release
+- Core Euclidean constructions, transformations, intersections
+- Drawing utilities with unified `ctz-draw`
+- Conics, parabola helpers, and inversion features
+- Manual PDF and gallery examples
+
 ## Gallery
 
 Click on an image to see the source code.
@@ -93,6 +103,30 @@ The manual includes:
 - Gallery of advanced geometric constructions
 - Complete feature overview
 
+## Deploy Checklist
+
+1) Switch docs to local imports and compile:
+
+```bash
+./scripts/use-local-docs.sh
+typst compile docs/manual.typ docs/manual.pdf
+```
+
+2) Rebuild gallery images locally:
+
+```bash
+for f in gallery/*.typ; do
+  typst compile "$f" "${f%.typ}.png"
+done
+```
+
+3) Switch docs/tests back to preview imports for publishing:
+
+```bash
+./scripts/use-preview-package.sh
+find gallery -name "*.typ" -type f -exec sed -i 's|@local/ctz-euclide:0.1.0|@preview/ctz-euclide:0.1.0|g' {} \;
+```
+
 ## Contributions Welcome
 
 Contributions, bug reports, feature requests, and feedback are warmly welcomed! Please feel free to:
@@ -141,6 +175,10 @@ Naming notes:
 - **Triangle Centers**: Centroid, circumcenter, incenter, orthocenter, and many more
 - **Special Triangles**: Medial, orthic, intouch triangles, Thales' triangle
 - **Drawing**: Points, lines, angles, circles, arcs
+- **Inversion**: Invert points and objects about a circle
+- **Conics**: Ellipses and parabolas, including focus/directrix and focus/parameter forms
+- **Parabolas**: Directrix helpers, tangents, and projectile trajectories
+- **Projections**: Point projections and descriptive-geometry helpers
 - **Unified Drawing**: `ctz-draw()` works with any object type (points, lines, circles, polygons)
 - **Object Duplication**: `ctz-duplicate()` duplicates any geometric object
 - **Angle Marking**: With customizable labels and positioning

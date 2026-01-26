@@ -15,6 +15,7 @@
 
 /// Calculate the circumcenter of triangle ABC
 #let circumcenter-raw(a, b, c) = {
+  util.assert-not-collinear(a, b, c)
   let (pb1-p1, pb1-p2, _) = util.perpendicular-bisector(a, b)
   let (pb2-p1, pb2-p2, _) = util.perpendicular-bisector(a, c)
 
@@ -27,6 +28,7 @@
 
 /// Calculate the incenter of triangle ABC
 #let incenter-raw(a, b, c) = {
+  util.assert-not-collinear(a, b, c)
   let la = util.dist(b, c)
   let lb = util.dist(a, c)
   let lc = util.dist(a, b)

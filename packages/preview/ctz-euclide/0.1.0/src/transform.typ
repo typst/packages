@@ -3,20 +3,10 @@
 
 #import "util.typ"
 
-/// Rotate a point around a center by a given angle (in degrees)
+/// Rotate a point around a center by a given angle (in degrees or angle type)
 #let rotation-raw(point, center, angle-deg) = {
-  let px = point.at(0) - center.at(0)
-  let py = point.at(1) - center.at(1)
-
-  let angle-rad = angle-deg * calc.pi / 180
-  let cos-a = calc.cos(angle-rad)
-  let sin-a = calc.sin(angle-rad)
-
-  (
-    center.at(0) + px * cos-a - py * sin-a,
-    center.at(1) + px * sin-a + py * cos-a,
-    point.at(2, default: 0),
-  )
+  let ang = util.to-angle(angle-deg)
+  util.rotate-point(point, center, ang)
 }
 
 /// Reflect a point across a line defined by two points
@@ -55,12 +45,7 @@
   util.project-point-on-line(point, line-a, line-b)
 }
 
-/// Get point on circle at given angle (in degrees)
+/// Get point on circle at given angle (in degrees or angle type)
 #let point-on-circle-raw(center, radius, angle-deg) = {
-  let angle-rad = angle-deg * calc.pi / 180
-  (
-    center.at(0) + radius * calc.cos(angle-rad),
-    center.at(1) + radius * calc.sin(angle-rad),
-    center.at(2, default: 0),
-  )
+  util.point-on-circle(center, radius, util.to-degrees(angle-deg))
 }

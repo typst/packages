@@ -1,8 +1,45 @@
 // ctz-euclide/src/util.typ
 // Utility functions for geometric calculations
 
-/// Small epsilon for floating point comparisons
+// =============================================================================
+// EPSILON CONSTANTS
+// =============================================================================
+
+/// Small epsilon for exact equality checks (floating point comparisons)
 #let eps = 1e-9
+
+/// Epsilon for geometric comparisons (intersections, tangents)
+#let eps-geometric = 1e-6
+
+/// Epsilon for visual/rendering comparisons
+#let eps-visual = 1e-3
+
+// =============================================================================
+// ANGLE CONVERSION HELPERS
+// =============================================================================
+
+/// Convert a value to an angle type
+/// - val: number (degrees) or angle
+/// Returns: angle
+#let to-angle(val) = {
+  if type(val) == angle { val } else { val * 1deg }
+}
+
+/// Convert an angle to degrees (number)
+/// - val: angle or number
+/// Returns: float (degrees)
+#let to-degrees(val) = {
+  if type(val) == angle { val / 1deg } else { val }
+}
+
+// =============================================================================
+// VECTOR HELPERS
+// =============================================================================
+
+/// Return perpendicular vector (90° counter-clockwise rotation)
+/// - v: 2D vector as (x, y)
+/// Returns: (-y, x)
+#let perpendicular(v) = (-v.at(1), v.at(0))
 
 /// Check if two floats are approximately equal
 #let approx-eq(a, b, epsilon: eps) = {
@@ -344,4 +381,24 @@
 
   if approx-zero(ac) { return 0 }
   ab / ac
+}
+
+// =============================================================================
+// VALIDATION HELPERS
+// =============================================================================
+
+/// Assert that a value is positive, panic otherwise
+#let assert-positive(val, name: "value") = {
+  assert(val > 0, message: name + " must be positive, got " + str(val))
+}
+
+/// Assert that two points are distinct
+#let assert-distinct(p1, p2, name1: "p1", name2: "p2") = {
+  assert(dist(p1, p2) > eps, message: name1 + " and " + name2 + " must be distinct")
+}
+
+/// Assert that three points are not collinear
+#let assert-not-collinear(a, b, c) = {
+  let cross = (b.at(0) - a.at(0)) * (c.at(1) - a.at(1)) - (b.at(1) - a.at(1)) * (c.at(0) - a.at(0))
+  assert(calc.abs(cross) > eps, message: "Points must not be collinear")
 }

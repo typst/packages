@@ -12,6 +12,7 @@
 /// Define a circle through a point (center + through point)
 /// Returns (center, radius)
 #let circle-through-raw(center, through) = {
+  util.assert-distinct(center, through, name1: "center", name2: "through")
   let radius = util.dist(center, through)
   (center, radius)
 }
@@ -73,6 +74,7 @@
 /// Calculate tangent points from external point P to circle (center O, radius r)
 /// Returns array of tangent points (0, 1, or 2 points)
 #let tangent-from-point-raw(external-point, center, radius) = {
+  util.assert-positive(radius, name: "radius")
   let d = util.dist(external-point, center)
 
   // Point inside or on circle - no tangent
@@ -98,8 +100,8 @@
   let angle-offset = calc.asin(radius / d)
 
   // Convert to proper angle type
-  let angle-deg = if type(angle-to-p) == angle { angle-to-p } else { angle-to-p * 1deg }
-  let offset-deg = if type(angle-offset) == angle { angle-offset } else { angle-offset * 1deg }
+  let angle-deg = util.to-angle(util.to-degrees(angle-to-p))
+  let offset-deg = util.to-angle(util.to-degrees(angle-offset))
 
   // Two tangent points
   let t1 = (
