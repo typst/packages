@@ -1,4 +1,4 @@
-#import "@preview/touying-buaa-theme:0.1.0": *
+#import "@preview/buaa-unofficial-gradient:0.1.0": *
 
 
 #set text(font: ("Arial", "Source Han Sans"))
