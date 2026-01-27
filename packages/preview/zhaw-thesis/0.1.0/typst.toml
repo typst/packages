@@ -1,7 +1,7 @@
 # for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
 
 [package]
-name = "zhaw-thesis"
+name = "modern-zhaw-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Stanislas Laurent <https://github.com/stanlrt>"]

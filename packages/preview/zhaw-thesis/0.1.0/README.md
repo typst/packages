@@ -1,6 +1,6 @@
-# `zhaw-thesis` template
+# `modern-zhaw-thesis` template
 
-`zhaw-thesis` is an unofficial template for ZHAW academic works, adapted from the official branding and following official requirements. It supports both English and German.
+`modern-zhaw-thesis` is an unofficial template for ZHAW academic works, adapted from the official branding and following official requirements. It supports both English and German.
 
 [Here's a showcase](./showcase.pdf) of how it looks like.
 
@@ -8,7 +8,7 @@
 
 ### Web-app (easiest)
 
-1. Create a project from https://typst.app/universe/package/zhaw-thesis
+1. Create a project from https://typst.app/universe/package/modern-zhaw-thesis
 3. In the left sidebar, under "Files", create a folder called "fonts" 
 2. Download the font files in the [repo's font directory](https://github.com/stanlrt/typst-zhaw-thesis/tree/28927077165d31305c4438657eb0cdefa32bbcbd/fonts)
 4. Drag and drop the files into the "font" directory in your web-app project
@@ -17,14 +17,14 @@
 
 1. Install Typst from https://typst.app/open-source/
 2. Download the font files ftom this repo's font directory and make them accessible to the compiler (https://typst.app/docs/reference/text/text/#parameters-font)
-3. Run `typst init @preview/zhaw-thesis:0.1.0` in your project directory
+3. Run `typst init @preview/modern-zhaw-thesis:0.1.0` in your project directory
 
 ## Configuration options
 
 Below is the complete list of configuration options, inclueing default values and explanations. Most are optional.
 
 ```typ
-#import "@preview/zhaw-thesis:0.1.0": zhaw-thesis, languages
+#import "@preview/modern-zhaw-thesis:0.1.0": zhaw-thesis, languages
 
 #show: zhaw-thesis.with(
   language: languages.de,         // Document language 
@@ -69,7 +69,7 @@ Below is the complete list of configuration options, inclueing default values an
 The package exports the following symbols for you to use if needed:
 
 ```typ
-#import "@preview/zhaw-thesis:0.1.0": (
+#import "@preview/modern-zhaw-thesis:0.1.0": (
   zhaw-thesis,   // Main template function, see docu above
   callout,       // Coloured callout box to highlight important text
 
