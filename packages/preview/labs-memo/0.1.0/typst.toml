@@ -4,9 +4,8 @@ version = "0.1.0"
 entrypoint = "template/main.typ"
 authors = ["Plastic Labs"]
 license = "MIT"
-description = "Internal memo template for Plastic Labs"
-repository = "https://github.com/plastic-labs/typst-template"
-keywords = ["memo", "template", "business"]
+description = "Professional memo template with elevated styling, navigation, and extensive utility components"
+keywords = ["memo", "template", "business", "professional"]
 categories = ["office"]
 
 [template]
