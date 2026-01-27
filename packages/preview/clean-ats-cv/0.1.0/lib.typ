@@ -9,25 +9,25 @@
 // Linux:   sudo apt install fonts-crosextra-carlito fonts-dejavu
 // Windows: Download from the URLs above
 
-// Default colors
-#let default_primary_color = rgb("#022359")
-#let default_secondary_color = rgb("#757575")
-#let default_link_color = rgb("#14A4E6")
+// Default colors (private)
+#let _default-primary-color = rgb("#022359")
+#let _default-secondary-color = rgb("#757575")
+#let _default-link-color = rgb("#14A4E6")
 
-// Default fonts (bundled with package)
-#let default_font = "Carlito"
-#let default_math_font = "DejaVu Sans"
+// Default fonts (private)
+#let _default-font = "Carlito"
+#let _default-math-font = "DejaVu Sans"
 
-// Default separator
-#let default_separator = text(
+// Default separator (private)
+#let _default-separator = text(
   font: "Carlito",
   " \u{007c} ",
 )
 
-// Icons bundled with the package
-#let linkedin_icon = image("icons/linkedin.svg", height: 0.8em)
-#let github_icon = image("icons/github.svg", height: 0.8em)
-#let x_icon = image("icons/x.svg", height: 0.8em)
+// Icons bundled with the package (private)
+#let _linkedin-icon = image("icons/linkedin.svg", height: 0.8em)
+#let _github-icon = image("icons/github.svg", height: 0.8em)
+#let _x-icon = image("icons/x.svg", height: 0.8em)
 
 /// Format a dated entry with company name and date
 /// - company: The company or organization name
@@ -37,7 +37,7 @@
     #text(weight: "bold", [-])
     #text(size: 10pt, weight: "bold", company)
     #h(1fr)
-    #text(weight: "regular", size: 10pt, fill: default_secondary_color, date)
+    #text(weight: "regular", size: 10pt, fill: _default-secondary-color, date)
   ]
 }
 
@@ -45,14 +45,14 @@
 /// - company: The company or organization name
 /// - date: The date or date range
 /// - location: The location (city, country, etc.)
-#let dateLocation(company, date, location) = {
+#let date-location(company, date, location) = {
   [
     #text(weight: "bold", [-])
     #text(size: 10pt, weight: "bold", company)
     #h(1fr)
-    #text(weight: "regular", size: 9pt, fill: default_secondary_color, location)
+    #text(weight: "regular", size: 9pt, fill: _default-secondary-color, location)
     #h(0.1em)
-    #text(weight: "regular", size: 11pt, fill: default_secondary_color, date)
+    #text(weight: "regular", size: 11pt, fill: _default-secondary-color, date)
   ]
 }
 
@@ -64,29 +64,20 @@
   par(h(indent) + body)
 }
 
-/// Display contact details header
-/// - alignment: Text alignment (default: center + horizon)
-/// - icons: Whether to show icons (default: none, meaning auto)
-/// - separator: Separator between items
-/// - color: Link color
-/// - details: Dictionary with contact details
-#let show_details_text(
+/// Display contact details header (private)
+#let _show-details-text(
   alignment: center + horizon,
   icons: none,
   separator: none,
   color: none,
   details,
 ) = {
-  let show_line_from_dict(dict, key) = {
-    if dict.at(key, default: none) != none [#dict.at(key) \ ]
-  }
-
   if separator == none {
-    separator = default_separator
+    separator = _default-separator
   }
 
   if color == none {
-    color = default_link_color
+    color = _default-link-color
   }
 
   grid(
@@ -109,19 +100,19 @@
         }
         linebreak()
         if details.at("linkedin", default: none) != none {
-          box(baseline: 0.1em, linkedin_icon)
+          box(baseline: 0.1em, _linkedin-icon)
           [ ]
           link("https://" + details.at("linkedin"))[#details.at("linkedin_label", default: "/in/profile")]
         }
         if details.at("github", default: none) != none {
           if details.at("linkedin", default: none) != none { [ | ] }
-          box(baseline: 0.1em, github_icon)
+          box(baseline: 0.1em, _github-icon)
           [ ]
           link("https://" + details.at("github"))[#details.at("github_label", default: "/username")]
         }
         if details.at("twitter", default: none) != none {
           if details.at("github", default: none) != none or details.at("linkedin", default: none) != none { [ | ] }
-          box(baseline: 0.1em, x_icon)
+          box(baseline: 0.1em, _x-icon)
           [ ]
           link("https://" + details.at("twitter"))[#details.at("twitter_label", default: "/username")]
         }
@@ -133,67 +124,46 @@
 /// Main CV configuration function
 /// Apply this with a show rule: #show: doc => conf(details, doc)
 ///
-/// - primary_color: Primary color for headings and accents
-/// - secondary_color: Secondary color for dates and locations
-/// - link_color: Color for links
+/// - primary-color: Primary color for headings and accents
+/// - secondary-color: Secondary color for dates and locations
+/// - link-color: Color for links
 /// - font: Main font family
-/// - math_font: Font for math equations
+/// - math-font: Font for math equations
 /// - separator: Separator character between items
-/// - list_point: List bullet point character
+/// - list-marker: List bullet point character
 /// - details: Dictionary with contact details (name, email, phonenumber, address, linkedin, github, twitter)
 /// - doc: The document content
 #let conf(
-  primary_color: none,
-  secondary_color: none,
-  link_color: none,
+  primary-color: none,
+  secondary-color: none,
+  link-color: none,
   font: none,
-  math_font: none,
+  math-font: none,
   separator: none,
-  list_point: none,
+  list-marker: none,
   details,
   doc,
 ) = {
-  if primary_color == none {
-    primary_color = default_primary_color
-  }
-
-  if secondary_color == none {
-    secondary_color = default_secondary_color
-  }
-
-  if link_color == none {
-    link_color = default_link_color
-  }
-
-  if font == none {
-    font = default_font
-  }
-
-  if math_font == none {
-    math_font = default_math_font
-  }
-
-  if separator == none {
-    separator = text(
-      fill: primary_color,
-      text(font: "Carlito", " \u{007c} "),
-    )
-  }
-
-  if list_point == none {
-    list_point = sym.bullet
-  }
+  let primary-color = if primary-color == none { _default-primary-color } else { primary-color }
+  let secondary-color = if secondary-color == none { _default-secondary-color } else { secondary-color }
+  let link-color = if link-color == none { _default-link-color } else { link-color }
+  let font = if font == none { _default-font } else { font }
+  let math-font = if math-font == none { _default-math-font } else { math-font }
+  let separator = if separator == none {
+    text(fill: primary-color, text(font: "Carlito", " \u{007c} "))
+  } else { separator }
+  let list-marker = if list-marker == none { sym.bullet } else { list-marker }
 
   // Custom show rules
-  show math.equation: set text(font: math_font)
+  show math.equation: set text(font: math-font)
   show heading.where(level: 1): title => grid(
     columns: 2,
     gutter: 1%,
-    text(size: 13pt, fill: primary_color, [#title <sectionn>]),
+    text(size: 13pt, fill: primary-color, [#title <sectionn>]),
     line(
       start: (0pt, 0.4em),
       length: 100%,
-      stroke: (paint: secondary_color, thickness: 0.05em),
+      stroke: (paint: secondary-color, thickness: 0.05em),
     ),
   )
   show heading.where(level: 2): set text(size: 11pt)
@@ -201,7 +171,7 @@
   show heading.where(level: 2): set block(spacing: 0.7em)
   show heading.where(level: 3): set block(spacing: 0.7em)
 
-  show link: set text(fill: primary_color)
+  show link: set text(fill: primary-color)
   show list: set text(size: 10pt)
 
   // Custom set rules
@@ -214,9 +184,9 @@
     header-ascent: 0%,
   )
 
-  set list(indent: 5pt, marker: text(fill: primary_color, list_point))
+  set list(indent: 5pt, marker: text(fill: primary-color, list-marker))
 
-  show_details_text(details)
+  _show-details-text(details)
 
   doc
 }
