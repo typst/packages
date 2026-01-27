@@ -6,7 +6,7 @@
 
 ## Setup
 
-1. Download the font files in the repo's font directory. 
+1. Download the font files from the repo's font directory. 
 
     [GitHub](https://github.com/stanlrt/typst-zhaw-thesis/tree/28927077165d31305c4438657eb0cdefa32bbcbd/fonts) 
 
