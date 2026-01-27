@@ -1,6 +1,6 @@
 [package]
 name = "taskize"
-version = "0.2.6"
+version = "0.2.5"
 entrypoint = "lib.typ"
 authors = ["Nathan Scheinmann"]
 license = "MIT"

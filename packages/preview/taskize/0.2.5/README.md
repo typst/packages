@@ -29,12 +29,12 @@ Click on an image to see the source code.
 
 ## Manual
 
-A full manual is available in `docs/manual.pdf`, with a Typst source version in `docs/manual.typ`.
+A full manual is available in [docs/manual.pdf](docs/manual.pdf), with a Typst source version in [docs/manual.typ](docs/manual.typ).
 
 ## Quick Start
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 #tasks[
   + First item
@@ -49,7 +49,7 @@ A full manual is available in `docs/manual.pdf`, with a Typst source version in 
 ### Simple Two-Column Layout
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 #tasks[
   + $2 + 3 = ?$
@@ -62,7 +62,7 @@ A full manual is available in `docs/manual.pdf`, with a Typst source version in 
 ### Three-Column Layout
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 #tasks(columns: 3)[
   + Option A
@@ -77,7 +77,7 @@ A full manual is available in `docs/manual.pdf`, with a Typst source version in 
 ### Shorthand Functions
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks2, tasks3, tasks4
+#import "@preview/taskize:0.2.5": tasks2, tasks3, tasks4
 
 // Two columns
 #tasks2[
@@ -106,7 +106,7 @@ A full manual is available in `docs/manual.pdf`, with a Typst source version in 
 ### Built-in Formats
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 // Lowercase letters with parenthesis (default)
 #tasks(label: "a)")[+ One  + Two  + Three]
@@ -139,7 +139,7 @@ A full manual is available in `docs/manual.pdf`, with a Typst source version in 
 ### Custom Label Function
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 // Custom emoji labels
 #tasks(label: n => "Q" + str(n) + ":")[
@@ -156,7 +156,7 @@ A full manual is available in `docs/manual.pdf`, with a Typst source version in 
 Items fill rows first: `a b | c d | e f`
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 #tasks(columns: 2, flow: "horizontal")[
   + a
@@ -177,7 +177,7 @@ Items fill rows first: `a b | c d | e f`
 Items fill columns first: `a c e | b d f`
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 #tasks(columns: 2, flow: "vertical")[
   + a
@@ -196,7 +196,7 @@ Items fill columns first: `a c e | b d f`
 ## Resuming Numbering
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks, tasks-reset
+#import "@preview/taskize:0.2.5": tasks, tasks-reset
 
 #tasks[
   + First
@@ -225,7 +225,7 @@ Some text between task blocks...
 ## Starting from a Specific Number
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 #tasks(start: 5)[
   + This is item 5
@@ -239,7 +239,7 @@ Some text between task blocks...
 Set defaults for all tasks in your document:
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks, tasks-setup
+#import "@preview/taskize:0.2.5": tasks, tasks-setup
 
 // Configure global defaults
 #tasks-setup(
@@ -270,7 +270,7 @@ Set defaults for all tasks in your document:
 Control the vertical alignment of labels relative to content:
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 // Center alignment (default)
 #tasks(label-baseline: "center")[
@@ -297,7 +297,7 @@ Control the vertical alignment of labels relative to content:
 Make labels stand out by using bold weight:
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 // Bold labels for emphasis
 #tasks(label-weight: "bold")[
@@ -318,7 +318,7 @@ Make labels stand out by using bold weight:
 Items can span multiple columns using the `+()` or `+(N)` syntax (no space after `+`). This is similar to LaTeX's `\task*` command:
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 #tasks(columns: 3)[
   + Short
@@ -400,7 +400,7 @@ Items can span multiple columns using the `+()` or `+(N)` syntax (no space after
 ### Math Exercise Sheet
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 = Algebra Practice
 
@@ -426,7 +426,7 @@ Solve for $x$:
 ### Multiple Choice Questions
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 *Question 1:* What is the capital of France?
 
@@ -450,7 +450,7 @@ Solve for $x$:
 ### Vocabulary List
 
 ```typst
-#import "@preview/taskize:0.2.6": tasks
+#import "@preview/taskize:0.2.5": tasks
 
 = French Vocabulary
 
@@ -494,17 +494,28 @@ MIT License - see LICENSE file for details.
 
 All notable changes to taskize are documented here.
 
-### [0.2.6] - 2026-01-23
+### [0.2.5] - 2026-01-27
 
 #### Added
 - Full manual (`docs/manual.typ` + `docs/manual.pdf`) with structured examples
 - Expanded gallery with styled configuration and resume numbering examples
 
+#### Fixed
+- **Indentation-independent parsing** - Tasks now render identically regardless of source code indentation
+  - All `+` items at any indentation level in the same `tasks[]` block are automatically flattened to the same level
+  - Inconsistent indentation no longer creates nested enums with different numbering
+  - Moving one character in the source no longer breaks the layout
+- **Column spanning support** - Fixed `+(2)` and `+()` syntax to work correctly with the new parser
+  - Handles both `enum.item` nodes and text nodes starting with "+"
+- Multiline tasks now capture unindented continuation lines as part of the previous item
+
 #### Changed
+- Internal parser completely rewritten to recursively extract and flatten all enum items
+- Parent items with nested enums (from indentation) have enum nodes stripped from their content
 - README gallery layout refreshed and feature list expanded
 - Documentation updated for the new manual and examples
 
-### [0.2.5] - 2026-01-20
+### [0.2.0] - 2026-01-15
 
 #### Fixed
 - **Indentation-independent parsing** - Tasks now render identically regardless of source code indentation
@@ -517,8 +528,6 @@ All notable changes to taskize are documented here.
 #### Changed
 - Internal parser completely rewritten to recursively extract and flatten all enum items
 - Parent items with nested enums (from indentation) have enum nodes stripped from their content
-
-### [0.2.0] - 2026-01-15
 
 #### Added
 - **Column spanning** - Items can span multiple columns using `(N)` syntax (e.g., `+ (2) Content` or `+ () Full width`)

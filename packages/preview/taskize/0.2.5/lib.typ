@@ -549,6 +549,23 @@
   // Each item is stored as (content, span) tuple
   let task-items = ()
 
+  // Merge extra content into the previous item (used for multiline tasks)
+  let merge-item-content(base, extra) = {
+    if extra == none { return base }
+    let base-content = if type(base) == content { base } else { [#base] }
+    let extra-content = if type(extra) == content { extra } else { [#extra] }
+    base-content + extra-content
+  }
+
+  let append-to-last-item(items, extra) = {
+    if extra == none or items.len() == 0 { return items }
+    let last = items.at(items.len() - 1)
+    let merged = merge-item-content(last.at(0), extra)
+    let new-items = items.slice(0, items.len() - 1)
+    new-items.push((merged, last.at(1)))
+    new-items
+  }
+
   // Helper to remove ALL enum and enum.item nodes from content (they'll be extracted separately)
   let strip-enums(node) = {
     if type(node) != content {
@@ -644,9 +661,15 @@
       let (span, content) = parse-span(text-content, cols)
       items.push((content, span))
     } else if node.has("children") {
-      // Other content - check children for enums and text nodes
+      // Other content - check children for enums and text nodes, and
+      // treat non-item content between items as continuation lines.
       for child in node.children {
-        items = items + flatten-all-enum-items(child)
+        let child-items = flatten-all-enum-items(child)
+        if child-items.len() > 0 {
+          items = items + child-items
+        } else {
+          items = append-to-last-item(items, child)
+        }
       }
     }
 
