@@ -6,18 +6,23 @@
 
 ## Setup
 
+1. Download the font files in the repo's font directory. 
+
+    [GitHub](https://github.com/stanlrt/typst-zhaw-thesis/tree/28927077165d31305c4438657eb0cdefa32bbcbd/fonts) 
+
+    [Direct download](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fstanlrt%2Ftypst-zhaw-thesis%2Ftree%2F28927077165d31305c4438657eb0cdefa32bbcbd%2Ffonts)
+
 ### Web-app (easiest)
 
-1. Create a project from https://typst.app/universe/package/modern-zhaw-thesis
+2. Create a project from https://typst.app/universe/package/modern-zhaw-thesis
 3. In the left sidebar, under "Files", create a folder called "fonts" 
-2. Download the font files in the [repo's font directory](https://github.com/stanlrt/typst-zhaw-thesis/tree/28927077165d31305c4438657eb0cdefa32bbcbd/fonts)
 4. Drag and drop the files into the "font" directory in your web-app project
 
 ### Local
 
-1. Install Typst from https://typst.app/open-source/
-2. Download the font files ftom this repo's font directory and make them accessible to the compiler (https://typst.app/docs/reference/text/text/#parameters-font)
-3. Run `typst init @preview/modern-zhaw-thesis:0.1.0` in your project directory
+2. Install Typst from https://typst.app/open-source/
+3. Make the downloaded fonts accessible to the compiler (https://typst.app/docs/reference/text/text/#parameters-font)
+4. Run `typst init @preview/modern-zhaw-thesis:0.1.0` in your project directory
 
 ## Configuration options
 
