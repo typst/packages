@@ -1,5 +1,5 @@
 [package]
-name = "plastic-labs-memo"
+name = "labs-memo"
 version = "0.1.0"
 entrypoint = "template/main.typ"
 authors = ["Plastic Labs"]

@@ -5,7 +5,7 @@ A professional Typst template for technical memos with elevated visual styling, 
 ## Quick Start
 
 ```typst
-#import "@preview/plastic-labs-memo:0.1.0": memo, key-insight, metric, check, cross, highlight-text, callout, pull-quote, dotted-line
+#import "@preview/labs-memo:0.1.0": memo, key-insight, metric, check, cross, highlight-text, callout, pull-quote, dotted-line
 
 #show: memo.with(
   title: "Your Memo Title",
