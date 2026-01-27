@@ -5,7 +5,7 @@ entrypoint = "template/main.typ"
 authors = ["Plastic Labs"]
 license = "MIT"
 description = "Internal memo template for Plastic Labs"
-repository = "https://github.com/plastic-labs/plastic-typst-template"
+repository = "https://github.com/plastic-labs/typst-template"
 keywords = ["memo", "template", "business"]
 categories = ["office"]
 
