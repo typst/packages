@@ -1,5 +1,7 @@
 # 上海交通大学学位论文 modern-sjtu-thesis
 
+This is the Typst template for degree theses at Shanghai Jiao Tong University. It supports the writing of undergraduate, master's, and doctoral theses, all developed with reference to the official Word templates provided.
+
 这是上海交通大学学位论文的 [Typst 模板](https://typst.app/universe/package/modern-sjtu-thesis)，它能够简洁、快速、持续生成 PDF 格式的毕业论文，现已支持本科、硕士和博士的毕业论文撰写，均参考官方提供的 Word 模板进行开发。
 
 ## 使用
