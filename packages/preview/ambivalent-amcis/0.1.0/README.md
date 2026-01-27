@@ -21,7 +21,7 @@ Typst does not allow the embedding of fonts within a template. The AMCIS templat
 The preamble or header of your document should be written in the following way, with your own input variables. Importantly, you can set `camera-ready` to false for the initial submission, which hides the authors, abstract, keywords, and acknowledgements sections. Setting `camera-ready` to true will put each of those in the right place.
 
 ```
-#import "@preview/ambivalent-amcis:0.1": *
+#import "@preview/ambivalent-amcis:0.1.0": *
 
 #let authors_list = (
   // Authors as ([Author Name], [Affiliation], "email@address.com"),
