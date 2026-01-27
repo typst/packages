@@ -1,4 +1,4 @@
-#import "@preview/ipsy-thesis:0.1.0": appendix, begin-appendix, annotation-table
+#import "@preview/modern-ipsy-thesis:0.1.0": appendix, begin-appendix, annotation-table
 
 #begin-appendix
 
