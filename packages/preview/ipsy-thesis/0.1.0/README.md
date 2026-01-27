@@ -2,14 +2,14 @@
 
 [🇬🇧 See here for an English version of the README.](README-en.md)
 
-[![Die Titelseite der FNW-Vorlage.](thumbnails/1.png)](guide/guide-de.pdf)
+[![Die Titelseite der FNW-Vorlage.](thumbnails/1.png)](https://github.com/xkevio/ipsy-thesis/blob/09dbbb04875bf3a6363b64c4e75b3f326cbe0406/guide/guide-de.pdf)
 
 ## Erste Schritte
 
 Um diese Vorlage zu benutzen, importiere diese wie folgt und benutze den `#show`-Befehl mit den gewünschten Parametern. Danach kannst du mit dem gewohnten Typst-Syntax anfangen zu schreiben!
 
 ```typ
-#import "@preview/ipsy-thesis:0.1.0": *
+#import "@preview/modern-ipsy-thesis:0.1.0": *
 
 #show: ipsy.with(
   title: [Meine Bachelorarbeit],
@@ -20,7 +20,7 @@ Um diese Vorlage zu benutzen, importiere diese wie folgt und benutze den `#show`
 
 ## Benutzung
 
-Eine Auflistung _aller_ Parameter befindet sich im folgendem Abschnitt oder im [Beispieldokument](guide/guide-de.pdf):
+Eine Auflistung _aller_ Parameter befindet sich im folgendem Abschnitt oder im [Beispieldokument](https://github.com/xkevio/ipsy-thesis/blob/09dbbb04875bf3a6363b64c4e75b3f326cbe0406/guide/guide-de.pdf):
 
 ```typ
 #show: ipsy.with(
@@ -87,4 +87,4 @@ Du brauchst die folgenden (frei erhältlichen) Schriftarten:
 - [`TeX Gyre Heros`](https://ctan.org/pkg/tex-gyre-heros)
 - [`Fira Mono`](https://fonts.google.com/specimen/Fira+Mono)
 
-Das deutsche FNW-Logo ist bereits vorhanden. Falls du dieses anpassen möchtest, kannst du die anderen Logos hier finden: https://www.cd.ovgu.de/Fakult%C3%A4ten.html
+Das deutsche FNW-Logo ist bereits vorhanden (die 0-BSD Lizenz gilt nicht für dieses Logo). Falls du dieses anpassen möchtest, kannst du die anderen Logos hier finden: https://www.cd.ovgu.de/Fakult%C3%A4ten.html

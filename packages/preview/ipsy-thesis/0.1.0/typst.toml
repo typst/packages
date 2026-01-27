@@ -1,10 +1,10 @@
 [package]
-name = "ipsy-thesis"
+name = "modern-ipsy-thesis"
 version = "0.1.0"
 entrypoint = "src/ipsy.typ"
 authors = ["Kevin Kulot <@xkevio>"]
 license = "0BSD"
-description = "A simple thesis template based on the IPSY institute at OvGU Magdeburg."
+description = "A modern and unofficial thesis template based on the IPSY institute at OvGU Magdeburg."
 repository = "https://github.com/xkevio/ipsy-thesis/"
 categories = ["thesis", "report"]
 keywords = ["ipsy", "thesis", "master", "bachelor", "university", "OvGU", "Magdeburg", "Otto von Guericke Universität"]

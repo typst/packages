@@ -2,7 +2,7 @@
 
 [🇩🇪 Klick hier für die deutsche Version der README.](README.md)
 
-[![The title page of the FNW thesis template.](thumbnails/2.png)](guide/guide-en.pdf)
+[![The title page of the FNW thesis template.](thumbnails/2.png)](https://github.com/xkevio/ipsy-thesis/blob/09dbbb04875bf3a6363b64c4e75b3f326cbe0406/guide/guide-en.pdf)
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ To start using this template, simply import it as shown below and use a `#show`-
 Afterwards, you can start writing with the usual Typst syntax!
 
 ```typ
-#import "@preview/ipsy-thesis:0.1.0": *
+#import "@preview/modern-ipsy-thesis:0.1.0": *
 
 #show: ipsy.with(
   title: [My Thesis Title],
@@ -21,7 +21,7 @@ Afterwards, you can start writing with the usual Typst syntax!
 
 ## Usage
 
-A list of _all_ parameters is given in the following section or in the [example guide](guide/guide-en.pdf):
+A list of _all_ parameters is given in the following section or in the [example guide](https://github.com/xkevio/ipsy-thesis/blob/09dbbb04875bf3a6363b64c4e75b3f326cbe0406/guide/guide-en.pdf):
 
 ```typ
 #show: ipsy.with(
@@ -89,4 +89,4 @@ You will need the following (free and open source) fonts:
 - [`Tex Gyre Heros`](https://ctan.org/pkg/tex-gyre-heros)
 - [`Fira Mono`](https://fonts.google.com/specimen/Fira+Mono)
 
-The German FNW logo is already included. If you wish to change it, you can find the other logos here: https://www.cd.ovgu.de/Fakult%C3%A4ten.html.
+The German FNW logo is already included (the 0-BSD license does not apply to this file). If you wish to change it, you can find the other logos here: https://www.cd.ovgu.de/Fakult%C3%A4ten.html.

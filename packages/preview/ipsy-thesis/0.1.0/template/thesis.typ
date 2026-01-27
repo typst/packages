@@ -1,4 +1,4 @@
-#import "@preview/ipsy-thesis:0.1.0": *
+#import "@preview/modern-ipsy-thesis:0.1.0": *
 
 #set raw(lang: "typ")
 #show: ipsy.with(
