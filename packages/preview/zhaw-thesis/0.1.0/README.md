@@ -102,3 +102,26 @@ Should you need use different languages for different pages of your work, you ca
 ## Feature requests & problems
 
 Feel free to request features or report probems [here](https://github.com/stanlrt/typst-zhaw-thesis/issues)
+
+## License and Trademark Notice
+
+### Software License
+
+The Typst code and template structure in this package are licensed under the **MIT-0 License** (MIT No Attribution). See the [LICENSE](LICENSE) file for details.
+
+### ZHAW Logo and Trademark
+
+**Important:** The ZHAW logo and trademark included in this package are **NOT** covered by the MIT-0 license.
+
+- **Trademark Owner:** The ZHAW logo and brand are the exclusive property of Zürcher Hochschule für Angewandte Wissenschaften (ZHAW).
+- **Rights:** Users of this package do **not** receive any rights to sublicense, sell, or redistribute the ZHAW logo under the MIT-0 license terms.
+- **Usage:** The logo is included for the specific purpose of creating ZHAW-compliant academic documents. Any other use requires permission from ZHAW.
+
+As specified in section 2.b.2 of Creative Commons and similar public licenses: **"The trademark ZHAW is not affected by the license. Patent and trademark rights are not licensed under this Public License."**
+
+For information about ZHAW's branding guidelines, refer to the official [ZHAW trademark guidelines for open educational resources](https://gpmpublic.zhaw.ch/GPMDocProdDPublic/Vorgabedokumente_ZHAW/Z_MB_Merkblatt_CC_Lizenzen_von_OER.pdf).
+
+### Unofficial Template Notice
+
+This is an **unofficial** template created by a student. It is not endorsed, maintained, or supported by ZHAW. The template attempts to follow official ZHAW branding guidelines and academic requirements, but users should verify compliance with current university standards.
+
