@@ -11,17 +11,22 @@
   authors: none,
   supervisors: none,
   co-supervisors: none,
+  print-mode: false,
 ) = {
-  set page(fill: tokens.colour.main, margin: 1cm, background: none)
+  set page(fill: if (not print-mode) { tokens.colour.main } else { none }, margin: 1cm, background: none)
   set par(leading: 0.8em)
-  set text(fill: white, weight: "bold", font: tokens.font-families.headers)
+  set text(
+    fill: if (not print-mode) { white } else { tokens.colour.main },
+    weight: "bold",
+    font: tokens.font-families.headers,
+  )
 
   let authors = ensure-array(authors)
   let supervisors = ensure-array(supervisors)
   let co-supervisors = ensure-array(co-supervisors)
 
   let logo = (
-    image("../assets/zhaw_logo.png"),
+    image(if (print-mode) { "../assets/zhaw_sw_pos.jpg" } else { "../assets/zhaw_logo.png" }),
     pad(right: 30%, top: 18pt, text(
       size: 18pt,
       tr().school_of + " " + school + linebreak() + institute,

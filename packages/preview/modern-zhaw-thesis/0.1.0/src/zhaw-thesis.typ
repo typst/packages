@@ -49,6 +49,7 @@
   appendix: none,
   page-border: true,
   hide-frontmatter: false,
+  print-mode: false,
   doc,
 ) = {
   // Apply deep-merge to nested structures with defaults
@@ -127,6 +128,7 @@
           authors: cover.authors,
           supervisors: cover.supervisors,
           co-supervisors: cover.co-supervisors,
+          print-mode: print-mode,
         )
       } else {
         cover.override
