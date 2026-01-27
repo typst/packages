@@ -37,12 +37,10 @@ Import the package into your Typst file:
 
 ## Usage
 
-You can use the `render_composition` function or set up a show rule for raw blocks to use the `note` language tag.
+You can use the `apply-swaralipi` function or set up a show rule for raw blocks to use the `note` language tag.
 
 ```typst
-#show raw: it => if it.lang == "note" {
-  render_composition(it.text, it.lang)
-} else { it }
+#show raw: apply-swaralipi
 ```
 
 ## Examples

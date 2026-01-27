@@ -1,6 +1,6 @@
-#import "@preview/swaralipi:0.1.0": render-composition
+#import "@preview/swaralipi:0.1.0": apply-swaralipi
 
-#show raw: it => if "note" in it.lang { render-composition(it.text, it.lang) } else { it }
+#show: apply-swaralipi
 
 = Yaman
  Yaman is a popular raga in Hindustani classical music, typically performed in the evening. It belongs to the Kalyan thaat and is characterized by its serene and romantic mood. The raga uses all seven notes in both ascending and descending scales, with a distinctive use of the tivra (sharp) Ma note.

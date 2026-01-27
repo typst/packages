@@ -388,3 +388,8 @@
     )
   }
 }
+
+#let apply-swaralipi(doc) = {
+  show raw: it => if "note" in it.lang { render-composition(it.text, it.lang) } else { it }
+  doc
+}
