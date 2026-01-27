@@ -30,7 +30,8 @@ This project aims to provide BUAAers with an easy-to-use and beautiful slide tem
 - Incorporates BUAA university logo elements into the page layout.
 - The color scheme of this template comes from [BUAA Color Specifications](https://xcb.buaa.edu.cn/info/1091/2057.htm), specific colors are as follows:
 ```typst
-#let buaa-blue = rgb(0, 61, 166)
+#let buaa-blue = rgb(0, 91, 172)
+#let star-blue = rgb(0, 61, 166)
 #let sky-blue = rgb(0, 155, 222)
 #let chinese-red = rgb(195, 13, 35)
 #let quality-grey = rgb(135, 135, 135)

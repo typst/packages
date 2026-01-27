@@ -29,7 +29,8 @@
 - 将北航校徽元素融入页面排版中.
 - 本模板配色来自[北航色彩规范](https://xcb.buaa.edu.cn/info/1091/2057.htm), 具体颜色如下:
 ```typst
-#let buaa-blue = rgb(0, 61, 166)
+#let buaa-blue = rgb(0, 91, 172)
+#let star-blue = rgb(0, 61, 166)
 #let sky-blue = rgb(0, 155, 222)
 #let chinese-red = rgb(195, 13, 35)
 #let quality-grey = rgb(135, 135, 135)

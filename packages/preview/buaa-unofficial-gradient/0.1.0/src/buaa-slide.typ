@@ -1,7 +1,8 @@
 #import "./dependency.typ": *
 
 // Color definition from: https://xcb.buaa.edu.cn/info/1091/2057.htm
-#let buaa-blue = rgb(0, 61, 166)
+#let buaa-blue = rgb(0, 91, 172)
+#let star-blue = rgb(0, 61, 166)
 #let sky-blue = rgb(0, 155, 222)
 #let chinese-red = rgb(195, 13, 35)
 #let quality-grey = rgb(135, 135, 135)
@@ -414,8 +415,9 @@
       primary-light: buaa-blue.lighten(20%),
       primary-lighter: buaa-blue.lighten(50%),
       primary-lightest: buaa-blue.lighten(80%),
-      secondary: sky-blue,
-      tertiary: chinese-red,
+      secondary: star-blue,
+      tertiary: sky-blue,
+      chinese-red: chinese-red,
       quality-grey: quality-grey,
       pro-gold: pro-gold,
       pro-silver: pro-silver,
