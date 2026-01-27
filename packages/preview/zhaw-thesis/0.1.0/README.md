@@ -24,7 +24,7 @@
 Below is the complete list of configuration options, inclueing default values and explanations. Most are optional.
 
 ```typ
-#import "@preview/zhaw-thesis:0.1.0": zhaw-thesis
+#import "@preview/zhaw-thesis:0.1.0": zhaw-thesis, languages
 
 #show: zhaw-thesis.with(
   language: languages.de,         // Document language 
