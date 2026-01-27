@@ -333,10 +333,98 @@
     let terminal-y = -3.5
     let x-offset = 0
 
+    // Standalone syllable spacing: Nu/Co positioned lower (halfway between Rh and segments)
+    let line-offset = 0.70
+    let text-offset = 0.40
+
+    let has-onset = syll.onset != ""
+    let has-coda = syll.coda != ""
+
+    // Calculate segment counts for adaptive spacing
+    let onset-segments = if has-onset { smart-clusters(syll.onset) } else { () }
+    let num-onset = if has-onset { onset-segments.len() } else { 0 }
+
+    let nucleus-segments = smart-clusters(syll.nucleus)
+    let num-nucleus = nucleus-segments.len()
+
+    let coda-segments = if has-coda { smart-clusters(syll.coda) } else { () }
+    let num-coda = if has-coda { coda-segments.len() } else { 0 }
+
+    let segment-spacing = 0.35
+    let min-gap = 0.75
+
+    // Headedness: Rhyme is head of syllable, Nucleus is head of Rhyme
+    let rhyme-x = x-offset
+    let nucleus-x = rhyme-x
+
+    // Adaptive positioning for onset
+    let onset-x = if has-onset {
+      let min-offset = (num-onset - 1) * segment-spacing / 2 + (num-nucleus - 1) * segment-spacing / 2 + min-gap
+      let default-offset = 0.7
+      if min-offset > default-offset { x-offset - min-offset } else { x-offset - default-offset }
+    } else {
+      x-offset
+    }
+
+    // Adaptive positioning for coda
+    let coda-x = if has-coda {
+      let min-offset = (num-nucleus + num-coda - 2) * segment-spacing / 2 + min-gap
+      let default-offset = 0.7
+      if min-offset > default-offset { rhyme-x + min-offset } else { rhyme-x + default-offset }
+    } else {
+      rhyme-x
+    }
+
     // Syllable node (σ)
     content((x-offset, sigma-y + 0.54), text(size: 12 * diagram-scale * 1pt)[*σ*])
 
-    draw-syllable-structure(x-offset, sigma-y, syll, terminal-y, diagram-scale: diagram-scale, compact: true)
+    // Onset branches (if exists)
+    if has-onset {
+      line((x-offset, sigma-y + 0.25), (onset-x, sigma-y - 0.45))
+      content((onset-x, sigma-y - 0.75), text(size: 10 * diagram-scale * 1pt)[On])
+
+      let onset-total-width = (num-onset - 1) * segment-spacing
+      let onset-start-x = onset-x - onset-total-width / 2
+
+      for (i, segment) in onset-segments.enumerate() {
+        let seg-x = onset-start-x + i * segment-spacing
+        line((onset-x, sigma-y - 1.1), (seg-x, terminal-y + line-offset))
+        content((seg-x, terminal-y + text-offset), text(size: 11 * diagram-scale * 1pt)[#segment], anchor: "north")
+      }
+    }
+
+    // Rhyme branch
+    line((x-offset, sigma-y + 0.25), (rhyme-x, sigma-y - 0.45))
+    content((rhyme-x, sigma-y - 0.75), text(size: 10 * diagram-scale * 1pt)[Rh])
+
+    // Nucleus - positioned lower for standalone view (roughly halfway between Rh and segments)
+    line((rhyme-x, sigma-y - 1.1), (nucleus-x, sigma-y - 1.65))
+    content((nucleus-x, sigma-y - 2.0), text(size: 10 * diagram-scale * 1pt)[Nu])
+
+    // Branch to each nucleus segment
+    let nucleus-total-width = (num-nucleus - 1) * segment-spacing
+    let nucleus-start-x = nucleus-x - nucleus-total-width / 2
+
+    for (i, segment) in nucleus-segments.enumerate() {
+      let seg-x = nucleus-start-x + i * segment-spacing
+      line((nucleus-x, sigma-y - 2.25), (seg-x, terminal-y + line-offset))
+      content((seg-x, terminal-y + text-offset), text(size: 11 * diagram-scale * 1pt)[#segment], anchor: "north")
+    }
+
+    // Coda (if exists) - also positioned lower
+    if has-coda {
+      line((rhyme-x, sigma-y - 1.1), (coda-x, sigma-y - 1.65))
+      content((coda-x, sigma-y - 2.0), text(size: 10 * diagram-scale * 1pt)[Co])
+
+      let coda-total-width = (num-coda - 1) * segment-spacing
+      let coda-start-x = coda-x - coda-total-width / 2
+
+      for (i, segment) in coda-segments.enumerate() {
+        let seg-x = coda-start-x + i * segment-spacing
+        line((coda-x, sigma-y - 2.25), (seg-x, terminal-y + line-offset))
+        content((seg-x, terminal-y + text-offset), text(size: 11 * diagram-scale * 1pt)[#segment], anchor: "north")
+      }
+    }
   }))
 }
 
