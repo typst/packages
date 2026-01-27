@@ -10,13 +10,13 @@
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 #import "@preview/cetz:0.4.2"
 #import "@preview/tablex:0.0.9": tablex, rowspanx, colspanx
-#import "@preview/lilaq:0.3.0" as lq
-#import "@preview/meander:0.1.0": *
+#import "@preview/lilaq:0.5.0" as lq
+#import "@preview/meander:0.4.0" as meander
 #import "@preview/pavemat:0.2.0": pavemat
 #import "@preview/umbra:0.1.1": *
 #import "@preview/biceps:0.0.1": *
-#import "@preview/colorful-boxes:1.4.1": *
-#import "@preview/fractusist:0.3.1": *
+#import "@preview/colorful-boxes:1.4.3": *
+#import "@preview/fractusist:0.3.2": *
 #import "@preview/libra:0.1.0": *
 
 // ============================================
