@@ -2,7 +2,7 @@
 
 `zhaw-thesis` is an unofficial template for ZHAW academic works, adapted from the official branding and following official requirements. It supports both English and German.
 
-[Here's a showcase](https://github.com/stanlrt/typst-zhaw-thesis/blob/main/showcase.pdf) of how it looks like.
+[Here's a showcase](./showcase.pdf) of how it looks like.
 
 ## Setup
 
@@ -10,7 +10,7 @@
 
 1. Create a project from https://typst.app/universe/package/zhaw-thesis
 3. In the left sidebar, under "Files", create a folder called "fonts" 
-2. Download the font files in the [repo's font directory](https://github.com/stanlrt/typst-zhaw-thesis/tree/main/fonts)
+2. Download the font files in the [repo's font directory](https://github.com/stanlrt/typst-zhaw-thesis/tree/28927077165d31305c4438657eb0cdefa32bbcbd/fonts)
 4. Drag and drop the files into the "font" directory in your web-app project
 
 ### Local
@@ -81,7 +81,7 @@ The package exports the following symbols for you to use if needed:
 )
 ```
 
-You can refer to the [demo document](https://github.com/stanlrt/typst-zhaw-thesis/blob/main/template/main.typ) for usage examples.
+You can refer to the [demo document](./template/main.typ) for usage examples.
 
 ## Configuration of dependencies
 
