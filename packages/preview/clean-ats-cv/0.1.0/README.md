@@ -6,14 +6,36 @@ A clean, ATS-friendly CV layout for [Typst](https://typst.app) with customizable
 
 - Clean, professional layout optimized for ATS (Applicant Tracking Systems)
 - Customizable colors (primary, secondary, link colors)
-- Bundled fonts (Carlito, DejaVu Sans) - no system fonts required
 - Social icons included (LinkedIn, GitHub, X/Twitter)
 - Flexible header with contact details
 - Styled section headings with horizontal rules
 
+## Required Fonts
+
+This package uses the following fonts which must be installed on your system:
+
+- **[Carlito](https://fonts.google.com/specimen/Carlito)** - Main text font (free, Google Fonts)
+- **[DejaVu Sans](https://dejavu-fonts.github.io/)** - Math font (free, open source)
+
+### Installing fonts
+
+**macOS:**
+```bash
+# Using Homebrew
+brew install --cask font-carlito font-dejavu
+```
+
+**Linux (Debian/Ubuntu):**
+```bash
+sudo apt install fonts-crosextra-carlito fonts-dejavu
+```
+
+**Windows:**
+Download and install from the links above.
+
 ## Installation
 
-### From Typst Universe (after publishing)
+### From Typst Universe
 
 ```typ
 #import "@preview/clean-ats-cv:0.1.0": *
@@ -121,17 +143,3 @@ Override default colors:
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
-
-Bundled fonts are licensed under their respective licenses:
-- Carlito: SIL Open Font License
-- DejaVu Sans: Bitstream Vera License
-
-## Publishing to Typst Universe
-
-To submit this package to Typst Universe:
-
-1. Fork [typst/packages](https://github.com/typst/packages)
-2. Copy this package to `packages/preview/clean-ats-cv/0.1.0/`
-3. Open a Pull Request
-
-See the [Typst package submission guidelines](https://github.com/typst/packages/blob/main/docs/README.md) for details.

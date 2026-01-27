@@ -1,5 +1,13 @@
 // clean-ats-cv: A clean, ATS-friendly CV layout for Typst
-// https://github.com/NicolaiSchmid/typst-cv
+// https://github.com/NicolaiSchmid/clean-ats-cv
+//
+// REQUIRED FONTS (install manually):
+// - Carlito: https://fonts.google.com/specimen/Carlito
+// - DejaVu Sans: https://dejavu-fonts.github.io/
+//
+// macOS:   brew install --cask font-carlito font-dejavu
+// Linux:   sudo apt install fonts-crosextra-carlito fonts-dejavu
+// Windows: Download from the URLs above
 
 // Default colors
 #let default_primary_color = rgb("#022359")
