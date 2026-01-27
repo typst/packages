@@ -1,3 +1,4 @@
+
 // Convert tipa-style notation to IPA Unicode (without font styling)
 // This is exported separately so other modules can use the conversion logic
 #let ipa-to-unicode(input) = {
@@ -81,6 +82,7 @@
     // OTHER CONSONANTS - Clicks
     "\\!o": "ʘ",
     "\\textdoublebarpipe": "ǂ",
+    "\\doublebarpipe": "ǂ",
     "||": "ǁ",
     // OTHER CONSONANTS - Other
     "\\textbarglotstop": "ʡ",
@@ -97,8 +99,10 @@
     "\\;H": "ʜ",
     "\\textctz": "ʦ",
     "\\textbarrevglotstop": "ʢ",
+    "\\barrevglotstop": "ʢ",
     // OTHER CONSONANTS - Approximant/Flap
     "\\textturnlonglegr": "ɺ",
+    "\\turnlonglegr": "ɺ",
     // VOWELS - Close
     "i": "i",
     "I": "ɪ",
@@ -123,6 +127,7 @@
     "\\oe": "œ",
     "3": "ɜ",
     "\\textcloseepsilon": "ɞ",
+    "\\closeepsilon": "ɞ",
     "2": "ʌ",
     "O": "ɔ",
     // VOWELS - Near-open/Open
@@ -243,3 +248,4 @@
 #let ipa(input) = {
   text(font: "Charis SIL", ipa-to-unicode(input))
 }
+
