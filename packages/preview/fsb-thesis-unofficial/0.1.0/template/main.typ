@@ -1,4 +1,4 @@
-#import "@preview/fsb-thesis-community-edition:0.1.0": *
+#import "@preview/fsb-thesis-unofficial0.1.0": *
 
 #show: project.with(
   title: "Developing an Object Detection System for Drones",

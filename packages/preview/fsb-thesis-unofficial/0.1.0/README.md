@@ -1,6 +1,6 @@
-# FSB Thesis Template - Community Edition
+# FSB Thesis Template - Unofficial
 
-A community-made template for Master's theses at FSB (FPT School of Business and
+An **Unofficial** template for Master's theses at FSB (FPT School of Business and
 Technology).
 
 **Note**: This is an unofficial template, created by a student of the institute. This is not endorsed by the FPT School of Business and
@@ -8,11 +8,11 @@ Technology.
 
 ## Usage
 
-You can use this template in the Typst web app by searching for `fsb-thesis` or
+You can use this template in the Typst web app by searching for `fsb-thesis-unofficial` or
 using the CLI:
 
 ```bash
-typst init @preview/fsb-thesis-community-edition:0.1.0 my-thesis
+typst init @preview/fsb-thesis-unofficial:0.1.0 my-thesis
 ```
 
 ## Configuration
@@ -35,5 +35,5 @@ The `project` function takes the following arguments:
 2. Edit `lib.typ` to make changes to the template style.
 3. Test with `typst compile template/main.typ`.
    - Note: usage in `template/main.typ` uses the package import format
-     `@preview/fsb-thesis-community-edition:0.1.0`. To test locally, you may need to point it to
+     `@preview/fsb-thesis-unofficial:0.1.0`. To test locally, you may need to point it to
      `../lib.typ` or use `--root`.
