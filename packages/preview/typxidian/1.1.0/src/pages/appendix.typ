@@ -1,6 +1,6 @@
 #import "../lib.typ": *
 
-#let appendix(chapter_numbering: str, title: str, doc) = {
+#let appendix(chapter-numbering: str, title: str, doc) = {
   set page(
     header-ascent: 35%,
     header: context {
@@ -48,10 +48,10 @@
     outlined: true,
     supplement: "Appendix",
   )[#title]
-  set heading(numbering: chapter_numbering + ".1", outlined: true)
+  set heading(numbering: chapter-numbering + ".1", outlined: true)
 
   // setup the figure numbering for the appendix
-  set figure(numbering: n => [#chapter_numbering.#n])
+  set figure(numbering: n => [#chapter-numbering.#n])
   counter(figure.where(kind: image)).update(0)
   counter(figure.where(kind: table)).update(0)
 

@@ -329,7 +329,7 @@ while the proof box replaces the `title` parameter with the `of` parameter to re
 )
 
 #show: appendix.with(
-  chapter_numbering: "A",
+  chapter-numbering: "A",
   title: "Appendix A: Example",
 )
 
