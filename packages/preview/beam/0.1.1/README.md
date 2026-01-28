@@ -4,7 +4,7 @@
 
 Spin up the canvas just like when using [CeTZ](https://typst.app/universe/package/cetz/) or [zap](https://typst.app/universe/package/zap):
 ```typst
-#import "@preview/beam:0.1.0"
+#import "@preview/beam:0.1.1"
 
 #beam.setup({
     import beam: *
