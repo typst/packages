@@ -22,16 +22,14 @@ Other than the features already offered by neat-cv, this template introduces the
 
 ### CV
 
-<a href="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/cv_p0.png"><img src="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/cv_p0.png" width="49%"></a>
-<a href="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/cv_p1.png"><img src="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/cv_p1.png" width="49%"></a>
+<a href="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/cv_p0.png"><img src="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/cv_p0.png" width="49%" alt="CV template preview - page 1"></a>
+<a href="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/cv_p1.png"><img src="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/cv_p1.png" width="49%" alt="CV template preview - page 2"></a>
 
 ### Cover Letter
 
-<a href="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/letter.png"><img src="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/letter.png" width="49%"></a>
+<a href="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/letter.png"><img src="https://raw.githubusercontent.com/MrBogomips/mrbogo-cv/main/assets/letter.png" width="49%" alt="Cover letter template preview"></a>
 
-## Using as Typst Package
-
-After published to [Typst Universe](https://typst.app/universe/):
+## Usage
 
 ### Initialize a new project
 
@@ -45,7 +43,7 @@ This creates a ready-to-use CV project with placeholder content you can customiz
 ### Or import in existing project
 
 ```typst
-#import "@preview/mrbogo-cv": cv, entry, side, contact-info, social-links
+#import "@preview/mrbogo-cv:1.0.5": cv, entry, side, contact-info, social-links
 ```
 
 ### Build your CV
@@ -56,80 +54,6 @@ typst compile --input lang=en main.typ cv.pdf
 
 # Build cover letter
 typst compile --input lang=en --input letter=example letter.typ letter.pdf
-```
-
----
-
-## Quick Start (Development)
-
-For developing or customizing the template itself:
-
-### Prerequisites
-
-Install [Typst](https://typst.app/docs/reference/installation/) (v0.11 or later):
-
-```bash
-# macOS
-brew install typst
-
-# Other platforms: https://typst.app/docs/reference/installation/
-```
-
-### Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/MrBogomips/mrbogo-cv.git
-cd mrbogo-cv
-
-# Download FontAwesome fonts (required for icons)
-./setup.sh
-```
-
-### Build Commands
-
-Use the Makefile for easy builds:
-
-```bash
-make                 # Build CV in all languages (en, it)
-make cv              # Same as above
-make cv CV_LANG=en   # Build CV only in English
-
-make letter LETTER=mr-burns              # Build letter in all languages
-make letter LETTER=mr-burns CV_LANG=en   # Build letter only in English
-
-make clean           # Remove output directory
-make help            # Show all available targets
-```
-
-Output files are generated in `output/`:
-- CVs: `output/cv-<lang>.pdf`
-- Letters: `output/letter-<lang>-<name>.pdf`
-
-#### Manual Commands
-
-For more control, use Typst directly with `--input` flags:
-
-```bash
-# Build English CV
-typst compile --font-path ./fonts --input lang=en cv.typ output/cv-en.pdf
-
-# Build specific cover letter
-typst compile --font-path ./fonts --input lang=en --input letter=mr-burns letter.typ output/letter-mr-burns.pdf
-```
-
-**Flag reference:**
-| Flag | Purpose |
-|------|---------|
-| `--font-path ./fonts` | Include FontAwesome icons |
-| `--input lang=en` | Select content language |
-| `--input letter=NAME` | Select letter file (without `.typ`) |
-
-### Watch Mode (Auto-rebuild)
-
-```bash
-# Automatically rebuild on file changes
-typst watch --font-path ./fonts --input lang=en cv.typ output/cv-en.pdf
 ```
 
 ## Architecture & Modularity
@@ -325,6 +249,11 @@ cp -r content/en content/de
 
 # Build German CV
 typst compile --font-path ./fonts --input lang=de cv.typ output/cv-de.pdf
+
+# Or add to Makefile for automatic builds
+# Edit Makefile and add 'de' to LANGS:
+# LANGS := en it de
+# Then run: make cv
 ```
 
 ### 9. Create a Cover Letter
@@ -386,18 +315,18 @@ Fine-tune spacing and sizes in `lib/theme.typ`:
 
 ## About the Example Content
 
-The template ships with **Bart Simpson** as an example persona. This serves several purposes:
+The template ships with a sample persona to demonstrate all features. This serves several purposes:
 
 1. **Privacy** - No real personal data in the public template
-2. **Demonstration** - Shows all features with amusing but realistic-looking content
+2. **Demonstration** - Shows all features with realistic-looking content
 3. **Easy identification** - Makes it obvious what needs to be replaced
 
-The Bart Simpson content includes experience entries, skills, certifications, and even a cover letter to Mr. Burns - all demonstrating the template's capabilities.
+The example content includes experience entries, skills, certifications, and even a cover letter - all demonstrating the template's capabilities.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and build instructions.
 
 ## License
 
 MIT License - See [LICENSE](LICENSE) file.
-
----
-
-*"I didn't do it, nobody saw me do it, you can't prove anything."* - Bart Simpson
