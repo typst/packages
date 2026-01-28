@@ -514,6 +514,13 @@ Tag exercises with competencies and display them visually:
   draft-mode: false,                     // Show placeholders for empty corrections/solutions
   correction-placeholder: [_To be completed_],  // Placeholder text (draft mode)
   solution-placeholder: [_To be completed_],    // Placeholder text (draft mode)
+  // Spacing
+  exercise-above: 0.8em,    // Space above exercises
+  exercise-below: 0.8em,    // Space below exercises
+  solution-above: 0.8em,    // Space above solutions
+  solution-below: 0.8em,    // Space below solutions
+  correction-above: 0.8em,  // Space above corrections
+  correction-below: 0.8em,  // Space below corrections
 )
 ```
 
@@ -610,6 +617,36 @@ Display exercise IDs for reference:
 )
 ```
 
+### Spacing Control
+
+Control the vertical spacing before and after exercises, solutions, and corrections independently:
+
+```typst
+#import "@preview/exercise-bank:0.3.0": exo, exo-setup
+
+// Compact layout - reduce spacing
+#exo-setup(
+  exercise-above: 0.5em,
+  exercise-below: 0.5em,
+  solution-above: 0.3em,
+  solution-below: 0.3em,
+)
+
+// Exam layout - more space between exercises
+#exo-setup(
+  exercise-above: 1.5em,
+  exercise-below: 1em,
+)
+
+// Different spacing for corrections
+#exo-setup(
+  correction-above: 1em,
+  correction-below: 0.5em,
+)
+```
+
+The default spacing is `0.8em` for all box types. You can use any valid Typst length unit (em, pt, cm, etc.).
+
 ## Utility Functions
 
 ### Reset Counter
@@ -704,6 +741,12 @@ Level 1M exercises: #exo-count(level: "1M")
 | `badge-color` | color | black | Color for exercise badges |
 | `solution-color` | color | green | Color for solution badges |
 | `correction-color` | color | green | Color for correction badges |
+| `exercise-above` | length | 0.8em | Space above exercise boxes |
+| `exercise-below` | length | 0.8em | Space below exercise boxes |
+| `solution-above` | length | 0.8em | Space above solution boxes |
+| `solution-below` | length | 0.8em | Space below solution boxes |
+| `correction-above` | length | 0.8em | Space above correction boxes |
+| `correction-below` | length | 0.8em | Space below correction boxes |
 
 **Default `solution-in-correction-style`:**
 ```typst

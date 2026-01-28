@@ -800,6 +800,34 @@ Use hooks to trigger resets:
 #exo-chapter-start()  // Resets if counter-reset: "chapter"
 ```
 
+== Spacing Control
+
+Control vertical spacing before and after exercises, solutions, and corrections independently:
+
+```typst
+// Compact layout
+#exo-setup(
+  exercise-above: 0.5em,
+  exercise-below: 0.5em,
+  solution-above: 0.3em,
+  solution-below: 0.3em,
+)
+
+// More space between exercises (e.g., for exams)
+#exo-setup(
+  exercise-above: 1.5em,
+  exercise-below: 1em,
+)
+
+// Different spacing for corrections
+#exo-setup(
+  correction-above: 1em,
+  correction-below: 0.5em,
+)
+```
+
+The default spacing is `0.8em` for all box types.
+
 // =============================================================================
 // VISUAL STYLES
 // =============================================================================
@@ -1038,6 +1066,22 @@ Same as `exo`, plus:
   [`label-font-size`], [length], [12pt], [Font size for badge labels],
   [`margin-position`], [length/auto], [auto], [Width reserved for badge column (auto = computed from label)],
   [`label-extra`], [length], [1cm], [Extra space for labels to extend into left margin],
+)
+
+#v(0.5em)
+*Spacing:*
+
+#table(
+  columns: (1.6fr, 0.8fr, 1fr, 2fr),
+  stroke: (x: none, y: 0.3pt + luma(85%)),
+  inset: 6pt,
+  [*Parameter*], [*Type*], [*Default*], [*Description*],
+  [`exercise-above`], [length], [0.8em], [Space above exercise boxes],
+  [`exercise-below`], [length], [0.8em], [Space below exercise boxes],
+  [`solution-above`], [length], [0.8em], [Space above solution boxes],
+  [`solution-below`], [length], [0.8em], [Space below solution boxes],
+  [`correction-above`], [length], [0.8em], [Space above correction boxes],
+  [`correction-below`], [length], [0.8em], [Space below correction boxes],
 )
 
 #pagebreak()

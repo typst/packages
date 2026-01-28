@@ -46,6 +46,13 @@
   draft-mode: false,                            // Show placeholders for empty corrections/solutions
   correction-placeholder: [_To be completed_],  // Placeholder when correction is empty (draft mode)
   solution-placeholder: [_To be completed_],    // Placeholder when solution is empty (draft mode)
+  // Spacing parameters
+  exercise-above: 0.8em,    // Space above exercise boxes
+  exercise-below: 0.8em,    // Space below exercise boxes
+  solution-above: 0.8em,    // Space above solution boxes
+  solution-below: 0.8em,    // Space below solution boxes
+  correction-above: 0.8em,  // Space above correction boxes
+  correction-below: 0.8em,  // Space below correction boxes
 ))
 
 // Registry of all exercises (for filtering)
@@ -119,6 +126,13 @@
   draft-mode: none,
   correction-placeholder: none,
   solution-placeholder: none,
+  // Spacing parameters
+  exercise-above: none,
+  exercise-below: none,
+  solution-above: none,
+  solution-below: none,
+  correction-above: none,
+  correction-below: none,
 ) = {
   exo-config.update(cfg => {
     let new = cfg
@@ -145,6 +159,13 @@
     if draft-mode != none { new.draft-mode = draft-mode }
     if correction-placeholder != none { new.correction-placeholder = correction-placeholder }
     if solution-placeholder != none { new.solution-placeholder = solution-placeholder }
+    // Spacing parameters
+    if exercise-above != none { new.exercise-above = exercise-above }
+    if exercise-below != none { new.exercise-below = exercise-below }
+    if solution-above != none { new.solution-above = solution-above }
+    if solution-below != none { new.solution-below = solution-below }
+    if correction-above != none { new.correction-above = correction-above }
+    if correction-below != none { new.correction-below = correction-below }
     new
   })
 }
@@ -481,6 +502,15 @@
   // Is this a solution or correction (for styling purposes)?
   let is-solution = box-type == "solution" or box-type == "correction"
 
+  // Determine spacing based on box type
+  let (space-above, space-below) = if box-type == "solution" {
+    (cfg.solution-above, cfg.solution-below)
+  } else if box-type == "correction" {
+    (cfg.correction-above, cfg.correction-below)
+  } else {
+    (cfg.exercise-above, cfg.exercise-below)
+  }
+
   // Competencies display
   let comp-block = if show-competencies and competencies.len() > 0 {
     v(4pt)
@@ -510,8 +540,8 @@
   if is-fullwidth-style(cfg.badge-style) {
     // Use full-width layout (style wraps the content)
     block(
-      above: 0.8em,
-      below: 0.8em,
+      above: space-above,
+      below: space-below,
       width: 100%,
       breakable: true,
     )[
@@ -574,8 +604,8 @@
 
     // Use grid - shifted left so labels can extend into page margin
     block(
-      above: 0.8em,
-      below: 0.8em,
+      above: space-above,
+      below: space-below,
       width: 100% + label-extra,
       breakable: true,
       inset: (left: -label-extra, right: label-extra),  // Add right margin to compensate
