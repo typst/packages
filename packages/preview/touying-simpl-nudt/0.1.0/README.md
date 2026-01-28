@@ -1,5 +1,7 @@
 # 国防科技大学 Touying 幻灯片主题 (Touying Slide Theme for NUDT)
 
+A simple and professional Typst slide template tailored for the National University of Defense Technology (NUDT), built upon the [touying-sjtu](https://github.com/tzhtaylor/touying-sjtu) theme by tzhtaylor.
+
 本模板基于 tzhtaylor 的 Touying [touying-sjtu](https://github.com/tzhtaylor/touying-sjtu) 主题开发。
 
 ![Thumbnail of the project](https://github.com/yelpevade/touying-nudt/blob/main/thumbnail.png)
@@ -26,4 +28,5 @@ typst compile ./examples/main.typ --root .
 
 ## License
 
-This project is licensed under the MIT License.
+- The code in this project is licensed under the **MIT License**.
+- The logos and visual identity assets (e.g., in the `vi/` directory) are trademarks of the **National University of Defense Technology (NUDT)**. Their use is subject to the university's branding guidelines and is intended for internal/academic purposes.
