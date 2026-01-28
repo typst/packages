@@ -1,0 +1,11 @@
+[package]
+name = "forth"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alexander Brevig"]
+license = "MIT"
+description = "Syntax highlighting support for the Forth programming language."
+repository = "https://github.com/AlexanderBrevig/typst-forth"
+keywords = ["syntax-highlighting", "forth"]
+categories = ["text"]
+compiler = "0.13.0"
