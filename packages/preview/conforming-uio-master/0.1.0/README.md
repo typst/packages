@@ -10,24 +10,24 @@ typst init conforming-uio-master
 ```
 
 ## Configuration
-This package exports the `uio_thesis` function with the following named arguments:
+This package exports the `uio-thesis` function with the following named arguments:
   - `title: []`: The title of the thesis, content or string
   - `subtitle: []`: The subtitle of the thesis, content or string. Can be omitted.
   - `author: []`: The author(s) of the thesis. Multiple authors should have line breaks between.
   - `supervisor: []`: The supervisor(s) of the thesis. Multiple supervisors should have line breaks between.
-  - `study_programme: []`: The study programme the thesis is written for.
+  - `study-programme: []`: The study programme the thesis is written for.
   - `department: []`: The department the study programme belongs to.
   - `faculty: []`: The faculty the department belongs to.
   - `abstract: []`: The abstract. Should contain headings as level one heading.
   - `preface: []`: The preface.
   - `semester: [Spring]`: The semester the thesis is delivered.
   - `print: false`: Set to true for a version suited for printing.
-  - `short_thesis: false`: Set to true for a 30 ECTS thesis, keep as default for 60 ECTS.
+  - `short-thesis: false`: Set to true for a 30 ECTS thesis, keep as default for 60 ECTS.
 
 ## Minimal working example
 
 ```typst
-#import "@preview/conforming-uio-master:0.1.0": uio_thesis
+#import "@preview/conforming-uio-master:0.1.0": uio-thesis
 
 #let abstract = [
   = Abstract
@@ -38,17 +38,17 @@ This package exports the `uio_thesis` function with the following named argument
 ]
 #let preface = lorem(150)
 
-#show: uio_thesis.with(
+#show: uio-thesis.with(
   title: "Your Title",
   subtitle: "",
   author: "Your Name",
   supervisor: "Your Supervisor",
-  study_programme: "Your study programme",
+  study-programme: "Your study programme",
   department: "Your department",
   faculty: "Your faculty",
   abstract: abstract,
   preface: preface,
-) 
+)
 ```
 
 ## Dependencies
