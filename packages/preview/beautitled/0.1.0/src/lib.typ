@@ -252,7 +252,7 @@
 // Chapter Heading
 // ============================================================================
 
-#let chapter(title, numbered: auto, label: none, _from-init: false) = {
+#let chapter(title, numbered: auto, label: none, from-init: false) = {
   chapter-counter.step()
   section-counter.update(0)
   subsection-counter.update(0)
@@ -291,7 +291,7 @@
 // Section Heading
 // ============================================================================
 
-#let section(title, numbered: auto, label: none, _from-init: false) = {
+#let section(title, numbered: auto, label: none, from-init: false) = {
   section-counter.step()
   subsection-counter.update(0)
   subsubsection-counter.update(0)
@@ -326,7 +326,7 @@
 // Subsection Heading
 // ============================================================================
 
-#let subsection(title, numbered: auto, label: none, _from-init: false) = {
+#let subsection(title, numbered: auto, label: none, from-init: false) = {
   subsection-counter.step()
   subsubsection-counter.update(0)
 
@@ -357,7 +357,7 @@
 // Subsubsection Heading
 // ============================================================================
 
-#let subsubsection(title, numbered: auto, label: none, _from-init: false) = {
+#let subsubsection(title, numbered: auto, label: none, from-init: false) = {
   subsubsection-counter.step()
 
   context {
@@ -736,19 +736,19 @@
   // Skip headings that have the internal label (outline entries created by beautitled)
   show heading.where(level: 1): it => {
     if it.has("label") and str(it.label) == "_btl-internal" { it }
-    else { chapter(it.body, _from-init: true) }
+    else { chapter(it.body, from-init: true) }
   }
   show heading.where(level: 2): it => {
     if it.has("label") and str(it.label) == "_btl-internal" { it }
-    else { section(it.body, _from-init: true) }
+    else { section(it.body, from-init: true) }
   }
   show heading.where(level: 3): it => {
     if it.has("label") and str(it.label) == "_btl-internal" { it }
-    else { subsection(it.body, _from-init: true) }
+    else { subsection(it.body, from-init: true) }
   }
   show heading.where(level: 4): it => {
     if it.has("label") and str(it.label) == "_btl-internal" { it }
-    else { subsubsection(it.body, _from-init: true) }
+    else { subsubsection(it.body, from-init: true) }
   }
   // Suppress original headings from outline (beautitled creates its own entries)
   set heading(outlined: false, bookmarked: false)
