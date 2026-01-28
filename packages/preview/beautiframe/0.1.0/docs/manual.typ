@@ -1,4 +1,4 @@
-#import "../src/lib.typ": *
+#import "@preview/beautiframe:0.1.0": *
 
 #set document(title: "Beautiframe Manual", author: "Nathan Scheinmann")
 #set page(
