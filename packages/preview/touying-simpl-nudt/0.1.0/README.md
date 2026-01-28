@@ -28,5 +28,9 @@ typst compile ./examples/main.typ --root .
 
 ## License
 
-- The code in this project is licensed under the **MIT License**.
-- The logos and visual identity assets (e.g., in the `vi/` directory) are trademarks of the **National University of Defense Technology (NUDT)**. Their use is subject to the university's branding guidelines and is intended for internal/academic purposes.
+- **Code**: The source code of this template is licensed under the **MIT License**.
+- **Assets**: The visual identity assets (logos and photos) located in the `vi/` directory are the property of the **National University of Defense Technology (NUDT)**.
+    - `nudt-vi-logo(xxx).svg` and `nudt-vi-nudtphoto.png` are sourced from the [NUDT Official Website](https://www.nudt.edu.cn/).
+    - `nudt-vi-end.png` and `nudt-vi-nudtgate.png` are sourced from the official PPT template of NUDT.
+    - `nudt-vi-nudtbg.png` was created by **Nano Banana Pro**.
+    - These assets are intended for academic and internal use. Users should comply with the university's branding and intellectual property guidelines.
