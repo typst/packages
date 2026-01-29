@@ -15,7 +15,7 @@
 
   // 数学字体集：可选 "recommend", "windows", "macos", "web"
   // 使用 "recommend" 效果最佳，但需要自行安装额外字体
-  math-fontset: "web",
+  math-fontset: "recommend",
   // 也可以自定义配置：
   /*
   math-fontset: (
@@ -165,7 +165,7 @@ project/
 #import "@preview/tablem:0.3.0": three-line-table
 
 #figure(
-  caption: [culsc-report 模板中预设字体集的具体设置],
+  caption: [culsc-record 模板中预设字体集的具体设置],
   {
     set text(size: 10pt)
     three-line-table[
@@ -178,7 +178,7 @@ project/
   }
 )
 
-Web App 和 `recommend` 下的数学字体有回退机制，具体如下代码所示：
+Web App 和 `"recommend"` 下的数学字体有回退机制，具体如下代码所示：
 
 #grid(
   columns: (1fr, 1fr),
