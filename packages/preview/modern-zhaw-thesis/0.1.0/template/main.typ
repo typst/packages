@@ -9,7 +9,9 @@
     work-type: "Bachelor thesis",
     title: "ZHAW Thesis Template",
     authors: ("Alice Müller", "Bob Schmidt"),
-    supervisors: ("Prof. Dr. Charlie Meier",),
+    supervisors: (
+      main: ("Alice Müller", "Dr. Eve Johnson"),
+    ),
     study-program: "Computer Science B.Sc.",
   ),
   abstract: (

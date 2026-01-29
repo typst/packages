@@ -5,11 +5,13 @@
   de: (
     abstract: [Zusammenfassung],
     title: [Titel],
-    author: [Autor],
-    authors: [Autoren],
-    supervisor: [Betreuer],
-    supervisors: [Betreuer],
-    co_supervisors: [Mitbetreuer],
+    author: count => if count == 1 { [Autor] } else { [Autoren] },
+    supervisor: count => if count == 1 { [Betreuer] } else { [Betreuer] },
+    co_supervisor: count => if count == 1 { [Mitbetreuer] } else { [Mitbetreuer] },
+    main_supervisor: count => if count == 1 { [Hauptbetreuer] } else { [Hauptbetreuer] },
+    secondary_supervisor: count => if count == 1 { [Nebenbetreuer] } else { [Nebenbetreuer] },
+    external_supervisor: count => if count == 1 { [Externer Betreuer] } else { [Externe Betreuer] },
+    industry_partner: [Industriepartner],
     acknowledgements: (
       title: [Danksagung],
       text: (plural, supervisor-count, supervisors) => context {
@@ -63,11 +65,13 @@
   en: (
     abstract: [Abstract],
     title: [Title],
-    author: [Author],
-    authors: [Authors],
-    supervisor: [Supervisor],
-    supervisors: [Supervisors],
-    co_supervisors: [Co-Supervisors],
+    author: count => if count == 1 { [Author] } else { [Authors] },
+    supervisor: count => if count == 1 { [Supervisor] } else { [Supervisors] },
+    co_supervisor: count => if count == 1 { [Co-supervisor] } else { [Co-supervisors] },
+    main_supervisor: count => if count == 1 { [Main supervisor] } else { [Main supervisors] },
+    secondary_supervisor: count => if count == 1 { [Secondary supervisor] } else { [Secondary supervisors] },
+    external_supervisor: count => if count == 1 { [External supervisor] } else { [External supervisors] },
+    industry_partner: [Industry partner],
     acknowledgements: (
       title: [Acknowledgements],
       text: (plural, supervisor-count, supervisors) => context {

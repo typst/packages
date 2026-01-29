@@ -39,7 +39,10 @@ Below is the complete list of configuration options, inclueing default values an
     work-type: none,              // E.g., "Bachelor Thesis" REQUIRED
     title: none,                  // Work's title REQUIRED
     authors: none,                // Author name(s), e.g. ("Max Mustermann", "Erika Musterfrau") REQUIRED
-    supervisors: none,            // Supervisor name(s), e.g. ("Prof. Dr. John Doe", "Dr. Jane Doe")
+    supervisors: none,            // Supervisor name(s), two formats:
+                                  // 1. Simple: ("Prof. Dr. John Doe", "Dr. Jane Doe")
+                                  // 2. Categorized: (main: "Prof. Dr. John Doe", secondary: "Dr. Jane Doe", external: "Dr. External")
+    industry-partner: none,       // Industry partner name, e.g. "Company Name"
     study-program: none,          // E.g., "Computer Science BSc"
     override: none,               // Override cover page with your own file, e.g. [#include: "my-cover.typ"]
   ),

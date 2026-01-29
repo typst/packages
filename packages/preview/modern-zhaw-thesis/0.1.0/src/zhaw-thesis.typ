@@ -22,7 +22,7 @@
     title: none,
     authors: none,
     supervisors: none,
-    //    co-supervisors: none,
+    industry-partner: none,
     study-program: none,
     override: none,
   ),
@@ -61,6 +61,7 @@
     authors: none,
     supervisors: none,
     co-supervisors: none,
+    industry-partner: none,
     study-program: none,
     override: none,
   )
@@ -128,6 +129,7 @@
           authors: cover.authors,
           supervisors: cover.supervisors,
           co-supervisors: cover.co-supervisors,
+          industry-partner: cover.industry-partner,
           print-mode: print-mode,
         )
       } else {

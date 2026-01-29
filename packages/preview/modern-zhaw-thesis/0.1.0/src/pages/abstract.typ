@@ -16,7 +16,7 @@
     column-gutter: 0.4cm,
     row-gutter: 0.3cm,
     tr().title, title,
-    tr().authors, authors.join(", "),
+    (tr().author)(authors.len()), authors.join(", "),
     tr().date, today(),
     tr().institution, tr().institution_name,
   )
