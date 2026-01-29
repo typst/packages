@@ -102,19 +102,19 @@
         if details.at("linkedin", default: none) != none {
           box(baseline: 0.1em, _linkedin-icon)
           [ ]
-          link("https://" + details.at("linkedin"))[#details.at("linkedin_label", default: "/in/profile")]
+          link("https://" + details.at("linkedin"))[#details.at("linkedin-label", default: "/in/profile")]
         }
         if details.at("github", default: none) != none {
           if details.at("linkedin", default: none) != none { [ | ] }
           box(baseline: 0.1em, _github-icon)
           [ ]
-          link("https://" + details.at("github"))[#details.at("github_label", default: "/username")]
+          link("https://" + details.at("github"))[#details.at("github-label", default: "/username")]
         }
         if details.at("twitter", default: none) != none {
           if details.at("github", default: none) != none or details.at("linkedin", default: none) != none { [ | ] }
           box(baseline: 0.1em, _x-icon)
           [ ]
-          link("https://" + details.at("twitter"))[#details.at("twitter_label", default: "/username")]
+          link("https://" + details.at("twitter"))[#details.at("twitter-label", default: "/username")]
         }
       }),
     ),
