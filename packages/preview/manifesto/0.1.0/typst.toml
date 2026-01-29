@@ -1,0 +1,18 @@
+[package]
+name = "manifesto"
+version = "0.1.0"
+compiler = "0.14.2"
+description = "Create stunning documentation websites using native HTML export"
+repository = "https://github.com/l0uisgrange/manifesto"
+categories = ["layout", "visualization"]
+disciplines = ["design", "education"]
+keywords = ["documentation", "docs", "html", "website", "site", "static", "online"]
+exclude = [".github"]
+entrypoint = "template.typ"
+authors = ["Louis Grange <https://github.com/l0uisgrange>"]
+license = "MIT"
+
+[template]
+path = ""
+thumbnail = "thumbnail.png"
+entrypoint = "template.typ"
