@@ -1,0 +1,1 @@
+If you want to use this template, take a look at @docs and create a @pr if you happen to find any problems. You can read about bold&cursive text, citations, glossary, images and tables in the first chapter. 
