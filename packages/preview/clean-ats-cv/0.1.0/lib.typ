@@ -132,6 +132,8 @@
 /// - math-font: Font for math equations
 /// - separator: Separator character between items
 /// - list-marker: List bullet point character
+/// - heading-above: Space above headings (default: 0.8em)
+/// - heading-below: Space below headings (default: 0.5em)
 /// - doc: The document content
 #let conf(
   details: none,
@@ -142,6 +144,8 @@
   math-font: none,
   separator: none,
   list-marker: none,
+  heading-above: 0.8em,
+  heading-below: 0.5em,
   doc,
 ) = {
   assert(details != none, message: "details is required: provide at minimum (name: \"Your Name\")")
@@ -168,10 +172,11 @@
       stroke: (paint: secondary-color, thickness: 0.05em),
     ),
   )
+  show heading.where(level: 1): set block(above: heading-above, below: heading-below)
   show heading.where(level: 2): set text(size: 11pt)
+  show heading.where(level: 2): set block(above: heading-above, below: heading-below)
   show heading.where(level: 3): set text(weight: "regular")
-  show heading.where(level: 2): set block(spacing: 0.7em)
-  show heading.where(level: 3): set block(spacing: 0.7em)
+  show heading.where(level: 3): set block(above: heading-above, below: heading-below)
 
   show link: set text(fill: primary-color)
   show list: set text(size: 10pt)
