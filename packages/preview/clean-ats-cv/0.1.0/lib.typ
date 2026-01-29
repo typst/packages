@@ -122,8 +122,9 @@
 }
 
 /// Main CV configuration function
-/// Apply this with a show rule: #show: doc => conf(details, doc)
+/// Apply this with a show rule: #show: conf.with(details: (...))
 ///
+/// - details: Dictionary with contact details (name, email, phonenumber, address, linkedin, github, twitter)
 /// - primary-color: Primary color for headings and accents
 /// - secondary-color: Secondary color for dates and locations
 /// - link-color: Color for links
@@ -131,9 +132,9 @@
 /// - math-font: Font for math equations
 /// - separator: Separator character between items
 /// - list-marker: List bullet point character
-/// - details: Dictionary with contact details (name, email, phonenumber, address, linkedin, github, twitter)
 /// - doc: The document content
 #let conf(
+  details: none,
   primary-color: none,
   secondary-color: none,
   link-color: none,
@@ -141,9 +142,10 @@
   math-font: none,
   separator: none,
   list-marker: none,
-  details,
   doc,
 ) = {
+  assert(details != none, message: "details is required: provide at minimum (name: \"Your Name\")")
+  
   let primary-color = if primary-color == none { _default-primary-color } else { primary-color }
   let secondary-color = if secondary-color == none { _default-secondary-color } else { secondary-color }
   let link-color = if link-color == none { _default-link-color } else { link-color }
