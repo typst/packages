@@ -7,7 +7,7 @@
   "iot": (
     short: "IoT",
     long: "Internet of Things",
-    description: [A network of physical devices embedded with sensors, software, and connectivity that enables them to collect and exchange data. IoT systems often generate massive amounts of monitoring data that require automated analysis.],
+    description: [A network of physical devices embedded with sensors, software, and connectivity that enables them to collect and exchange data. IoT systems often generate massive amounts of monitoring data that require automated analysis. @breunig2000lof],
     group: "Acronyms",
   ),
   "ML": (
