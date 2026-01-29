@@ -132,7 +132,7 @@ done
 
 ```bash
 ./scripts/use-preview-package.sh
-find gallery -name "*.typ" -type f -exec sed -i 's|@local/ctz-euclide:0.1.0|@preview/ctz-euclide:0.1.0|g' {} \;
+find gallery -name "*.typ" -type f -exec sed -i 's|@local/ctz-euclide:0.1.0|@preview/ctz-euclide:0.1.5|g' {} \;
 ```
 
 ## Contributions Welcome
@@ -146,7 +146,7 @@ Contributions, bug reports, feature requests, and feedback are warmly welcomed! 
 ## Quick Start
 
 ```typst
-#import "@preview/ctz-euclide:0.1.0": *
+#import "@preview/ctz-euclide:0.1.5": *
 
 #ctz-canvas({
   import cetz.draw: *
