@@ -2,7 +2,7 @@
 #import "@preview/pinit:0.2.2": *
 #import "@preview/codly:1.3.0": *
 
-#import "@preview/touying-uge:0.1.0": *
+#import "@preview/touying-pres-uge:0.1.0": *
 #import "@preview/numbly:0.1.0": numbly
 
 #set text(font: "Inria Sans", weight: "regular", size: 20pt)

@@ -1,4 +1,4 @@
-#import "@preview/touying-uge:0.1.0": *
+#import "@preview/touying-pres-uge:0.1.0": *
 
 #show: uge-theme.with(
     aspect-ratio: "16-9",

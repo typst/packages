@@ -3,14 +3,14 @@ Touying Template for UGE!
 
 This project holds a [touying](https://touying-typ.github.io/) template to write presentations for the French Université Gustave Eiffel using [Typst](https://typst.app/docs/).
 
-Source and example can be found on this [gitlab repository](https://gitlab.inria.fr/ttoullie/touying-uge)
+Source and example can be found on this [gitlab repository](https://gitlab.inria.fr/ttoullie/touying-pres-uge)
 
 # How-to use
 
 Use the following command to create a new project with this theme.
 
 ```
-typst init @preview/touying-uge
+typst init @preview/touying-pres-uge
 ```
 
 ## Documentation
