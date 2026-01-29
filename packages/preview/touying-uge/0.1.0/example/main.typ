@@ -434,9 +434,3 @@ $
 Please pay attention to the current slide number.
 
 #thanks-slide[Thank you!]
-
-// Local Variables:
-// typst-ts-watch-options: "--root .."
-// typst-ts-compile-options: "--root .."
-// tp--master-file: "/home/toullier/Documents/Misc/git/touying-uge/lib.typ"
-// End:
