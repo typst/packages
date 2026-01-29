@@ -6,7 +6,7 @@
 
 ## Setup
 
-1. Download the font files from the repo's font directory:
+1. Download the font files from the repo's font directory. 
 
     [GitHub](https://github.com/stanlrt/typst-zhaw-thesis/tree/28927077165d31305c4438657eb0cdefa32bbcbd/fonts) 
 
@@ -14,70 +14,61 @@
 
 ### Web-app (easiest)
 
-2. [Create a project using the template](https://typst.app/app?template=modern-zhaw-thesis&version=0.1.1)
-3. In the left sidebar, under "Files", create a folder called `fonts` 
-4. Drag and drop the files into this `fonts` directory
+2. Create a project from https://typst.app/universe/package/modern-zhaw-thesis
+3. In the left sidebar, under "Files", create a folder called "fonts" 
+4. Drag and drop the files into the "font" directory in your web-app project
 
 ### Local
 
 2. Install Typst from https://typst.app/open-source/
 3. Make the downloaded fonts accessible to the compiler (https://typst.app/docs/reference/text/text/#parameters-font)
-4. Run `typst init @preview/modern-zhaw-thesis:0.1.1` in your project directory
+4. Run `typst init @preview/modern-zhaw-thesis:0.1.0` in your project directory
 
-## All configuration options
+## Configuration options
 
-Below is the complete list of configuration options, including default values and explanations. Most are optional.
+Below is the complete list of configuration options, inclueing default values and explanations. Most are optional.
 
 ```typ
-#import "@preview/modern-zhaw-thesis:0.1.1": zhaw-thesis, languages
-
-// Note: `override` options accept Typst files, e.g. `override: [#include: "my-override.typ"]`
+#import "@preview/modern-zhaw-thesis:0.1.0": zhaw-thesis, languages
 
 #show: zhaw-thesis.with(
-  language: languages.de,       // Document language 
-
+  language: languages.de,         // Document language 
   cover: (                       
-    school: none,               // E.g., "School of Engineering" REQUIRED
-    institute: none,            // E.g., "Computer Science" REQUIRED
-    work-type: none,            // E.g., "Bachelor Thesis" REQUIRED
-    title: none,                // Work's title REQUIRED
-    authors: none,              // Author name(s), e.g. ("Max Muster", "Erika Muster") REQUIRED
-    supervisors: none,          // Supervisor name(s), two formats:
-                                   // 1. Simple: `("Prof. Dr. John Doe", "Dr. Jane Doe")`
-                                   // 2. Categorised: `(main: "Prof. Dr. John Doe", 
-                                   //       secondary: "Dr. Jane Doe", external: "Dr. External")`
-    industry-partner: none,     // Industry partner name, e.g. "Schweizer AG"
-    study-program: none,        // E.g., "Computer Science BSc"
-    override: none,             // Override the cover page with your own file
+    school: none,                 // E.g., "School of Engineering" REQUIRED
+    institute: none,              // E.g., "Computer Science" REQUIRED
+    work-type: none,              // E.g., "Bachelor Thesis" REQUIRED
+    title: none,                  // Work's title REQUIRED
+    authors: none,                // Author name(s), e.g. ("Max Mustermann", "Erika Musterfrau") REQUIRED
+    supervisors: none,            // Supervisor name(s), two formats:
+                                  // 1. Simple: ("Prof. Dr. John Doe", "Dr. Jane Doe")
+                                  // 2. Categorized: (main: "Prof. Dr. John Doe", secondary: "Dr. Jane Doe", external: "Dr. External")
+    industry-partner: none,       // Industry partner name, e.g. "Company Name"
+    study-program: none,          // E.g., "Computer Science BSc"
+    override: none,               // Override cover page with your own file, e.g. [#include: "my-cover.typ"]
   ),
-
   abstract: (
-    keywords: none,             // List of keywords, e.g. `("machine learning")` REQUIRED
-    en: none,                   // English abstract text
-    de: none,                   // German abstract text. REQUIRED by ZHAW even when lang is English.
-    override: none,             // Override the abstract page with your own file
+    keywords: none,               // List of keywords, e.g. ("Typst", "ZHAW", "Thesis Template") REQUIRED
+    en: none,                     // English abstract text
+    de: none,                     // German abstract text. REQUIRED by ZHAW even when language is English.
+    override: none,               // Override abstract page with your own file, e.g. [#include: "my-abstract.typ"]
   ),
-
   acknowledgements: (
-    text: none,                 // Custom acknowledgements text
-    override: none,             // Override the acknowledgements page with your own file
+    text: none,                   // Custom acknowledgements text
+    override: none,               // Override acknowledgements page with your own file, e.g. [#include: "my-acknowledgements.typ"]
   ),
-
   declaration-of-originality: (
-    location: none,             // E.g., "Zurich" REQUIRED
-    text: none,                 // Custom declaration text
-    override: none,             // Override the declaration page with your own file
+    location: none,               // E.g., "Zurich" REQUIRED
+    text: none,                   // Custom declaration text
+    override: none,               // Override declaration page with your own file, e.g. [#include: "my-declaration.typ"]
   ),
-  
+  glossary-entries: none,         // Variable containing glossary entries, e.g., myGlossary (see template)
   biblio: (
-    file: none,                 // Stream to .bib file e.g. `read("references.bib", encoding: none)`
-    style: "ieee",              // Bibliography style, e.g. "ieee"
+    file: none,                   // Stream to your .bib file, e.g., read("references.bib", encoding: none)
+    style: "ieee",                // Bibliography style, e.g., "ieee", "apa", etc.
   ),
-
-  glossary-entries: none,       // Variable containing glossary entries (see template)
-  appendix: none,               // Appendix Typst file, e.g. [#include: "appendix.typ"]
-  page-border: true,            // Enable/disable page border
-  hide-frontmatter: false,      // Hide all content before the 1st chapter (to focus on writing)
+  appendix: none,                 // Content for the appendix, e.g., [#include: "appendix.typ"]
+  page-border: true,              // Enable/disable page border
+  hide-frontmatter: false,        // Hide all content before the first chapter (useful to focus on writing)
   print-mode: false,            // Gives a white background to the cover page to reduce ink usage  
 )
 ```
@@ -87,7 +78,7 @@ Below is the complete list of configuration options, including default values an
 The package exports the following symbols for you to use if needed:
 
 ```typ
-#import "@preview/modern-zhaw-thesis:0.1.1": (
+#import "@preview/modern-zhaw-thesis:0.1.0": (
   zhaw-thesis,   // Main template function, see docu above
   callout,       // Coloured callout box to highlight important text
 

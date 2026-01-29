@@ -2,11 +2,11 @@
 
 [package]
 name = "modern-zhaw-thesis"
-version = "0.1.1"
+version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Stanislas Laurent <https://github.com/stanlrt>"]
 license = "MIT-0"
-description = "An unofficial template for ZHAW academic works, adapted from the official branding and guidelines."
+description = "An unofficial template for ZHAW academic works, adaped from the official branding"
 repository = "https://github.com/stanlrt/typst-zhaw-thesis"
 keywords = ["thesis", "ZHAW", "Zürcher Hochschule für Angewandte Wissenschaften", "Zürich", "academic"]
 categories = ["thesis", "report", "paper"]
@@ -19,6 +19,7 @@ exclude = [
   ".typstignore",
   "Justfile",
   "showcase.pdf",
+  "fonts",
 ]
 
 [template]
