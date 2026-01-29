@@ -10,23 +10,6 @@ A comprehensive Euclidean geometry package for Typst, inspired by the LaTeX **tk
 
 - [CeTZ](https://typst.app/universe/package/cetz) v0.4.2
 
-## Changelog
-
-### 0.1.5
-
-- Main-levée (hand-drawn/sketchy) style, including `sketchy: true` on `ctz-draw`
-- Global style configuration variables for colors, point shapes, sizes, and mark widths
-- Canvas-level clipping via `ctz-canvas(clip-canvas: ...)` with line/segment clipping
-- Labels now render in math font by default
-- Expanded docs and gallery examples for styling, main-levée, and clipping
-
-### 0.1.0
-
-- Initial public release
-- Core Euclidean constructions, transformations, intersections
-- Drawing utilities with unified `ctz-draw`
-- Conics, parabola helpers, and inversion features
-- Manual PDF and gallery examples
 
 ## Gallery
 
@@ -307,16 +290,21 @@ MIT License - see LICENSE file for details.
 - Centralized, user-configurable defaults for colors, point sizes/shapes, and mark widths
 - Manual updates documenting global style configuration
 
-### [0.1.0] - 2026-01-21
+## Changelog
 
-#### Initial Release
-- Core geometric constructions (points, lines, circles)
-- Point transformations (rotation, reflection, translation, scaling)
-- Intersection algorithms (line-line, line-circle, circle-circle)
-- Basic triangle centers (centroid, circumcenter, incenter, orthocenter)
-- Extended triangle centers (Euler, Lemoine, Nagel, Gergonne, Spieker, etc.)
-- Special triangle constructions
-- Angle marking with customizable labels
-- Multiple point styles
-- Drawing utilities
-- Built on CeTZ v0.4.2
+### 0.1.5
+
+- Main-levée (hand-drawn/sketchy) style, including `sketchy: true` on `ctz-draw`
+- Global style configuration variables for colors, point shapes, sizes, and mark widths
+- Canvas-level clipping via `ctz-canvas(clip-canvas: ...)` with line/segment clipping
+- Labels now render in math font by default
+- Expanded docs and gallery examples for styling, main-levée, and clipping
+
+### 0.1.0
+
+- Initial public release
+- Core Euclidean constructions, transformations, intersections
+- Drawing utilities with unified `ctz-draw`
+- Conics, parabola helpers, and inversion features
+- Manual PDF and gallery examples
+
