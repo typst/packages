@@ -6,16 +6,6 @@ A comprehensive Euclidean geometry package for Typst, inspired by the LaTeX **tk
 
 > **Development Note:** This package was coded entirely by [Claude Code Opus 4.5](https://www.anthropic.com/claude) and [Codex](https://openai.com/codex/). Nevertheless, I have spent lots of time and energy in the following feedback look : prompting, reviewing, testing and designing. Any mistakes or bugs are my own.
 
-## ⚠️ Early Development Status
-
-This package is **by no means definitive**. Improvements and features are planned and will be implemented over time. The API may change as the package evolves.
-
- This package is being developed. Expect:
-- Bug fixes and improvements
-- New features and triangle centers
-- API refinements
-- Performance optimizations
-
 ## Dependencies
 
 - [CeTZ](https://typst.app/universe/package/cetz) v0.4.2
