@@ -1,6 +1,6 @@
 #import "@preview/typslides:1.3.2" as ts
 #import ts: *
-#import "../lib.typ" as navigator
+#import @preview/navigator:0.1.0 as navigator
 
 // --- CONFIGURATION ---
 #show: typslides.with(

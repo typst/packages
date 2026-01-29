@@ -1,4 +1,4 @@
-#import "../lib.typ": render-miniframes
+#import @preview/navigator:0.1.0: render-miniframes
 
 #set page(paper: "a4", margin: 1.5cm)
 #set text(font: "Lato", size: 10pt)
