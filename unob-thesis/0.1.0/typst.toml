@@ -1,0 +1,21 @@
+[package]
+name = "unob-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [ "ShinoYumi <https://github.com/ShinoYumi>" ]
+license = "MIT"
+description = "Official University of Defence thesis template."
+repository = "https://github.com/ShinoYumi/unob-thesis"
+keywords = [ "UNOB", "University of Defence", "Univerzita obrany" ]
+categories = [ "thesis" ]
+compiler = "0.14.0"
+exclude = [
+  ".github",
+  ".typstignore",
+]
+disciplines = [ ]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
