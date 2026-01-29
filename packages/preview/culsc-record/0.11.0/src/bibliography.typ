@@ -1111,6 +1111,23 @@
       }
     }
   }
+
+  set text(lang: "zh", hyphenate: false)
+
+  // 拉丁字母语言（英语、西班牙语、法语等）
+  show regex("\\b[\\p{Latin}]{6,}\\b"): it => {
+    text(lang: "en", hyphenate: true, it)
+  }
+  
+  // 西里尔字母语言（俄语等）
+  show regex("\\b[\\p{Cyrillic}]{6,}\\b"): it => {
+    text(lang: "ru", hyphenate: true, it)
+  }
+  
+  // 希腊字母
+  show regex("\\b[\\p{Greek}]{6,}\\b"): it => {
+    text(lang: "el", hyphenate: true, it)
+  }
   
   bibliography(title: none, full: full, style: style)
 }
