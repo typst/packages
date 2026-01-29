@@ -19,7 +19,7 @@
   assert(bibliography != none, message: "请传入带有 source 的 bibliography 函数。")
 
   // 添加一个显式的一级标题，确保页眉能够正确识别
-  heading(level: 1, numbering: none, bookmarked: true)[#title]
+  heading(level: 2, numbering: none, bookmarked: true)[参考文献]
   
   // Please fill in the remaining mapping table here
   mapping = (
@@ -1112,5 +1112,5 @@
     }
   }
   
-  bibliography(title: [#h(-1em)参考文献], full: full, style: style)
+  bibliography(title: none, full: full, style: style)
 }
