@@ -68,22 +68,24 @@ Then import with:
 ## Usage
 
 ```typ
-#import "@preview/clean-ats-cv:0.1.0": conf, date, dateLocation
+#import "@preview/clean-ats-cv:0.1.0": conf, date, date-location
 
-#show: doc => conf((
-  name: "Your Name",
-  phonenumber: "+1 234 567 890",
-  email: "your@email.com",
-  address: "City, Country",
-  linkedin: "linkedin.com/in/yourprofile",
-  linkedin_label: "/in/yourprofile",
-  github: "github.com/yourusername",
-  github_label: "/yourusername",
-), doc)
+#show: conf.with(
+  details: (
+    name: "Your Name",
+    phonenumber: "+1 234 567 890",
+    email: "your@email.com",
+    address: "City, Country",
+    linkedin: "linkedin.com/in/yourprofile",
+    linkedin-label: "/in/yourprofile",
+    github: "github.com/yourusername",
+    github-label: "/yourusername",
+  ),
+)
 
 = Professional Experience
 
-== Software Engineer #dateLocation([Company Name], [2020 -- present], [Berlin])
+== Software Engineer #date-location([Company Name], [2020 -- present], [Berlin])
 - Built scalable systems serving millions of users
 - Led a team of 5 engineers
 
@@ -104,18 +106,18 @@ Main configuration function. Apply with a show rule.
   - `phonenumber` - Phone number
   - `address` - Location/address
   - `linkedin` - LinkedIn URL (without https://)
-  - `linkedin_label` - Display text for LinkedIn link
+  - `linkedin-label` - Display text for LinkedIn link
   - `github` - GitHub URL (without https://)
-  - `github_label` - Display text for GitHub link
+  - `github-label` - Display text for GitHub link
   - `twitter` - X/Twitter URL (without https://)
-  - `twitter_label` - Display text for X link
-- `primary_color` - Color for headings (default: `#022359`)
-- `secondary_color` - Color for dates/locations (default: `#757575`)
-- `link_color` - Color for links (default: `#14A4E6`)
+  - `twitter-label` - Display text for X link
+- `primary-color` - Color for headings (default: `#022359`)
+- `secondary-color` - Color for dates/locations (default: `#757575`)
+- `link-color` - Color for links (default: `#14A4E6`)
 - `font` - Main font (default: `Carlito`)
-- `math_font` - Math font (default: `DejaVu Sans`)
+- `math-font` - Math font (default: `DejaVu Sans`)
 
-### `dateLocation(company, date, location)`
+### `date-location(company, date, location)`
 
 Format an entry with company, date, and location.
 
@@ -128,18 +130,21 @@ Format an entry with company and date only.
 Override default colors:
 
 ```typ
-#show: doc => conf(
-  primary_color: rgb("#1a1a2e"),
-  secondary_color: rgb("#4a4a4a"),
-  link_color: rgb("#0077b5"),
-  (
+#show: conf.with(
+  primary-color: rgb("#1a1a2e"),
+  secondary-color: rgb("#4a4a4a"),
+  link-color: rgb("#0077b5"),
+  details: (
     name: "Your Name",
     email: "you@example.com",
   ),
-  doc
 )
 ```
 
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
+
+### Icons
+
+The social media icons included in this package are original SVG files created for this project and are released under the same MIT license. These icons visually represent LinkedIn, GitHub, and X (Twitter) brands - please refer to each platform's brand guidelines for trademark usage requirements.
