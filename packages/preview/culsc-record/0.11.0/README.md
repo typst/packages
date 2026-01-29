@@ -20,6 +20,8 @@
 #import "@preview/culsc-record:0.11.0": *
 ```
 
+`0.11.x` 代表这是适用于第 11 届的版本
+
 或者本地使用:
 
 ```typst
@@ -151,6 +153,8 @@ Import the template at the beginning of your file:
 ```typst
 #import "@preview/culsc-record:0.11.0": *
 ```
+
+`0.11.x` indicates that this version is tailored for the 11th session
 
 Or for local use:
 
