@@ -9,3 +9,4 @@ repository = "https://github.com/GiggleLiu/ptable-amat"
 keywords = ["chemistry", "periodic-table", "elements", "science", "visualization"]
 categories = ["visualization", "components"]
 compiler = "0.13.1"
+exclude = ["images/*.png"]
