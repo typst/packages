@@ -17,3 +17,12 @@ typst init @preview/touying-uge
 
 Do not hesitate to have a look at the official documentation of [`Typst`](https://typst.app/docs/) and [`Touying`](https://touying-typ.github.io/docs/intro)! :book:
 
+# Université Gustave Eiffel logo
+
+**This logo is the graphic representation of a registered trademark subject to trademark law.**
+
+- In France, its use is authorized within the limits of the rights granted by Articles L711-1 et seq. of the Intellectual Property Code and is reproduced here under these rights.
+- In Canada, the use of this image is authorized within the limits of the rights granted by trademark law and is reproduced here under these rights.
+- In the United States of America, the use of this image is authorized under the legal framework defined by fair use for trademarks.
+
+However, such legal permission may not exist in all countries. It is therefore recommended not to use this image in any other context without its validity being established and not to reuse it without taking precautions.
