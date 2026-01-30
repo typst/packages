@@ -1,7 +1,7 @@
 /**
 = Components
 ```typ
-#import "@preview/toolbox: 0.1.0": comp
+#import "@preview/nexus-tools: 0.1.0": comp
 ```
 
 == Paper-friendly URLs

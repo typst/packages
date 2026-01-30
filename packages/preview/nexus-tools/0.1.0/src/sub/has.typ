@@ -1,7 +1,7 @@
 /**
 = Has
 ```typ
-#import "@preview/toolbox: 0.1.0": has
+#import "@preview/nexus-tools: 0.1.0": has
 ```
 
 == Field

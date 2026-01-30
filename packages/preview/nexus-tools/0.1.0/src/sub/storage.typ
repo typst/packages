@@ -1,9 +1,9 @@
-#let this = state("toolbox:general-data-storage", (:))
+#let this = state("nexus-tools:general-data-storage", (:))
 
 /**
 = Storage
 ```typ
-#import "preview/toolbox:0.1.0": storage
+#import "preview/nexus-tools:0.1.0": storage
 ```
 
 == Set Namespace

@@ -1,10 +1,10 @@
 [package]
-name = "toolbox"
+name = "nexus-tools"
 version = "0.1.0"
 description = "Easily implement and reuse tools and components across projects"
 authors = ["Maycon F. Melo <@mayconfmelo>"]
 license = "MIT-0"
-repository = "https://github.com/mayconfmelo/toolbox"
+repository = "https://github.com/mayconfmelo/nexus-tools"
 entrypoint = "src/lib.typ"
 categories = ["scripting", "utility", "components"]
 keywords = [

@@ -1,7 +1,7 @@
 /**
 = It's
 ```typ
-#import "@preview/toolbox: 0.1.0": its
+#import "@preview/nexus-tools: 0.1.0": its
 ```
 
 == None

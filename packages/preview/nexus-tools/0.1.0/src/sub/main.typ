@@ -1,7 +1,7 @@
 /**
 = Main
 ```typ
-#import "@preview/toolbox:0.1.0"
+#import "@preview/nexus-tools:0.1.0"
 ```
 
 == Custom Defaults
