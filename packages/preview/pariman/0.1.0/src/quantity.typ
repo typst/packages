@@ -1,4 +1,6 @@
 #import "utils.typ"
+/// The formatting functionality is provided by zero package.
+#import "@preview/zero:0.6.0" as zero: zi
 
 /// Parser for unit input
 /// The possible patterns:
@@ -64,9 +66,6 @@
       }
     })
 }
-
-/// The formatting functionality is provided by zero package.
-#import "@preview/zero:0.5.0" as zero: zi
 
 #let scientify(num, figures: 4, magnitude-limit: none) = {
   // num is given as a number
@@ -195,6 +194,7 @@
   if "value" in formatting {
     value = formatting.remove("value")
     q.display = auto
+    q.method = auto
   }
   quantity(value, ..unit, ..q, ..formatting)
 }
