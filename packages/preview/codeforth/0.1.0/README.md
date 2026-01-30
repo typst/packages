@@ -1,11 +1,11 @@
-# typst-forth
+# codeforth
 
 Forth syntax highlighting for [Typst](https://typst.app/).
 
 ## Installation
 
 ````typst
-#import "@preview/forth:0.1.0": forth-syntax
+#import "@preview/codeforth:0.1.0": forth-syntax
 #set raw(syntaxes: forth-syntax)
 
 ```forth
