@@ -4,7 +4,7 @@
 #let text-fontsets = (
   windows: (
     sans: "SimHei",                    // 黑体
-    serif: "SimSun",                   // 宋体
+    serif: "NSimSun",                   // 宋体
     en: "Times New Roman",             // 英文
   ),
   macos: (
@@ -30,7 +30,7 @@
     ),
     text: (
       "Times New Roman",
-      "SimSun"
+      "NSimSun"
     ),
     blackboard: (
       "TeX Gyre Termes Math",
@@ -84,7 +84,7 @@
     ),
     text: (
       "Times New Roman",
-      "SimSun"
+      "NSimSun"
     ),
     blackboard: (
       "Cambria Math",
