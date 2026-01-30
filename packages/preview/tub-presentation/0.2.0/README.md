@@ -329,7 +329,7 @@ Refer to the touying-exporter documentation for full options and requirements.
 
 ## File Structure
 
-```
+```txt
 tub-presentation/
 ├── lib.typ              # Theme library (Touying-based)
 ├── main.typ             # Example presentation
