@@ -180,5 +180,8 @@
   // 表题位置
   show figure.where(kind: table): set figure.caption(position: top)
 
+  // 设置 caption 字号为 5 号
+  show figure.caption: set text(size: zh(5))
+
   body
 }
