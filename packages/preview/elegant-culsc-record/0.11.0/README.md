@@ -1,4 +1,4 @@
-# A Typst CULSC Experiment Record Template | 基于 Typst 的全国大学生生命科学竞赛实验记录模板
+# An Elegant Typst CULSC Experiment Record Template | 基于 Typst 的全国大学生生命科学竞赛实验记录模板
 
 [中文](#中文) | [English](#english)
 
@@ -17,7 +17,7 @@
 在你的文件开头导入模板：
 
 ```typst
-#import "@preview/culsc-record:0.11.0": *
+#import "@preview/elegant-culsc-record:0.11.0": *
 ```
 
 `0.11.x` 代表这是适用于第 11 届的版本
@@ -151,7 +151,7 @@ This is a Typst template for experiment records of the China Undergraduate Life 
 Import the template at the beginning of your file:
 
 ```typst
-#import "@preview/culsc-record:0.11.0": *
+#import "@preview/elegant-culsc-record:0.11.0": *
 ```
 
 `0.11.x` indicates that this version is tailored for the 11th session

@@ -1,4 +1,4 @@
-#import "@preview/culsc-record:0.11.0": *
+#import "@preview/elegant-culsc-record:0.11.0": *
 //#import "/lib.typ": *
 
 #show: culsc-record.with(

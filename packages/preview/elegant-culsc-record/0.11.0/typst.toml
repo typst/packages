@@ -1,5 +1,5 @@
 [package]
-name = "culsc-record"
+name = "elegant-culsc-record"
 version = "0.11.0"
 entrypoint = "lib.typ"
 authors = [ "Schrödinger Blume <https://github.com/SchrodingerBlume>" ]
