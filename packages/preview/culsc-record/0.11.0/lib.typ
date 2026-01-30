@@ -85,7 +85,7 @@
       #v(0.5em + 0.2pt - 2pt)
       #line(length: 100%, stroke: 0.75pt)
     ],
-    //footer-descent: 0em,
+    footer-descent: 19.5pt,
     numbering: "- 1 -",
   )
 
