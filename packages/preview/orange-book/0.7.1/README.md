@@ -33,7 +33,7 @@ function in a show rule. If you, however, want to change an existing project to
 use this template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/orange-book:0.6.2": book
+#import "@preview/orange-book:0.7.1": book
 
 #show: book.with(
   title: "Exploring the Physical Manifestation of Humanity’s Subconscious Desires",
