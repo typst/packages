@@ -120,8 +120,8 @@
   }
   
   set par(
-    spacing: .9625em,
-    leading: .9625em,
+    spacing: .96076em,
+    leading: .96076em,
     first-line-indent:(
       all: true,
       amount: 2em
@@ -156,25 +156,25 @@
 
   // 不知道为什么用循环就不生效了，这里手动写到五级，应该不会更多了...
   show heading.where(level: 3): it => {
-    set par(leading: .9625em, spacing: .9625em)
+    set par(leading: .96076em, spacing: .96076em)
     set text(size: zh(-4))
-    v(.9625em, weak: true)//.75
+    v(.96076em, weak: true)//.75
     it
-    v(.9625em, weak: true)
+    v(.96076em, weak: true)
   }
   show heading.where(level: 4): it => {
-    set par(leading: .9625em, spacing: .9625em)
+    set par(leading: .96076em, spacing: .96076em)
     set text(size: zh(-4))
-    v(.9625em, weak: true)
+    v(.96076em, weak: true)
     it
-    v(.9625em, weak: true)
+    v(.96076em, weak: true)
   }
   show heading.where(level: 5): it => {
-    set par(leading: .9625em, spacing: .9625em)
+    set par(leading: .96076em, spacing: .96076em)
     set text(size: zh(-4))
-    v(.9625em, weak: true)
+    v(.96076em, weak: true)
     it
-    v(.9625em, weak: true)
+    v(.96076em, weak: true)
   }
 
   // 表题位置
