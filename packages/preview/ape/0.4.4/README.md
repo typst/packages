@@ -24,6 +24,10 @@ To use **Ape**, initialize your document using the `doc` function:
 Your content goes here...
 ```
 
+*Exemple :*
+![Exemple 1](exemples/Exemple1.png)
+
+
 ## Configuration
 
 The `doc` function accepts several parameters to customize your document:
