@@ -4,6 +4,12 @@ A [Typst](https://typst.app) plugin to render [Mermaid](https://mermaid.js.org)
 diagrams using
 [mermaid-rs-renderer](https://github.com/1jehuang/mermaid-rs-renderer).
 
+## Limitation
+
+This doesn't guarantee to support all features of [Mermaid JS](https://mermaid.js.org/), as [mermaid-rs-renderer](https://github.com/1jehuang/mermaid-rs-renderer) currently does not support all of the features. 
+
+Any problem with the render of the diagram must be reported to [mermaid-rs-renderer](https://github.com/1jehuang/mermaid-rs-renderer) instead of here. 
+
 ## Usage
 
 Import the package and use the `mermaid` function:
