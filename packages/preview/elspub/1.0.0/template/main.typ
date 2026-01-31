@@ -1,5 +1,5 @@
-// #import "@preview/elspub:1.0.0": *
-#import "../src/elspub.typ": *
+#import "@preview/elspub:1.0.0": *
+// #import "../src/elspub.typ": *
 
 #show: elspub.with(
   journal: mssp,
@@ -121,5 +121,6 @@ $ <eq:app-eq1>
   image("images/typst-logo.svg", width: 50%),
   caption : [Typst logo - Credit: \@fenjalien]
 ) <fig:logo-app>
+
 
 #bibliography("refs.bib")
