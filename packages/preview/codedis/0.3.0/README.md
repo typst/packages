@@ -12,7 +12,7 @@ Example usage:
 
 // READ IN CODE
 #let codeblock-1 = read("some_code.py")
-#let codeblock-2 = read("some_long_code.cpp")|
+#let codeblock-2 = read("some_long_code.cpp")
 
 #set page(numbering:"1")
 #v(80%)
@@ -25,6 +25,7 @@ Example usage:
 Renders to: 
 
 ![image](https://raw.githubusercontent.com/AugustinWinther/codedis/main/example.png)
+
 
 
 
