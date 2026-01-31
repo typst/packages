@@ -1,0 +1,77 @@
+# typst-mmdr
+
+A [Typst](https://typst.app) plugin to render [Mermaid](https://mermaid.js.org)
+diagrams using
+[mermaid-rs-renderer](https://github.com/1jehuang/mermaid-rs-renderer).
+
+## Usage
+
+Import the package and use the `mermaid` function:
+
+```typst
+#import "@preview/mmdr:0.1.0": mermaid
+
+#mermaid("graph TD; A-->B;")
+```
+
+More examples can be found
+[here](https://github.com/HSGamer/typst-mmdr/blob/master/test.typ)
+
+### Options
+
+You can customize the appearance using `base-theme`, `theme`, and `layout`
+parameters.
+
+- **`base-theme`**: Wraps the base styling. Can be `"modern"` (default) or
+  `"default"`.
+- **`theme`**: A dictionary of theme overrides.
+- **`layout`**: A dictionary of layout configuration overrides.
+
+```typst
+#mermaid(
+  "graph TD; A-->B;",
+  base-theme: "default",
+  theme: (
+    background: "#f4f4f4",
+    primaryColor: "#ff0000",
+  ),
+  layout: (
+    node_spacing: 50,
+  ),
+)
+```
+
+### Raw SVG
+
+If you need the raw SVG string instead of a Typst image, use `mermaid-svg`:
+
+```typst
+#import "@preview/mmdr:0.1.0": mermaid-svg
+
+#let svg-code = mermaid-svg("graph TD; A-->B;")
+```
+
+## Build from Source
+
+To build the plugin and prepare it for distribution:
+
+1. Install Rust and Cargo.
+2. Install the `wasm32-unknown-unknown` target:
+   ```sh
+   rustup target add wasm32-unknown-unknown
+   ```
+3. Run the build script:
+   ```sh
+   ./build.sh
+   ```
+
+The build artifacts will be available in `dist/`.
+
+## License
+
+MIT
+
+The distribution contains the WASM build of
+[mermaid-rs-renderer](https://github.com/1jehuang/mermaid-rs-renderer), which is
+licensed under the
+[MIT license](https://github.com/1jehuang/mermaid-rs-renderer/blob/master/LICENSE).
