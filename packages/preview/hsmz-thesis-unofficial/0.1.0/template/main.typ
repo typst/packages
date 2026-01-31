@@ -1,4 +1,4 @@
-#import "@preview/hsmz-thesis:0.1.0": *
+#import "@preview/hsmz-thesis-unofficial:0.1.0": *
 
 #let appendix-content = [
   = Anhang
@@ -7,7 +7,7 @@
 ]
 
 
-#show: hsmz-thesis.with(
+#show: hsmz-thesis-unofficial.with(
   thesis-type: "Master's Thesis",
   title: "Typst Template",
   faculty: "Wirtschaft",

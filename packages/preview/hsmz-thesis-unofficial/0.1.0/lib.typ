@@ -16,7 +16,7 @@
 #let std-bibliography = bibliography
 
 // main entrypoint for this template
-#let hsmz-thesis(
+#let hsmz-thesis-unofficial(
   // thesis data
   thesis-type: none,
   title: none,

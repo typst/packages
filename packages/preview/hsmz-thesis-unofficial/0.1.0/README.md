@@ -8,7 +8,7 @@ The template can be initialized via `typst init`.
 E.g.:
 
 ```bash
-typst init @preview/hsmz-thesis:0.1.0
+typst init @preview/hsmz-thesis-unofficial:0.1.0
 ```
 
 ## Features
