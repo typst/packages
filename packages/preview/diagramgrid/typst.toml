@@ -1,0 +1,11 @@
+[package]
+name = "diagramgrid"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Sojan James <sojan.james@gmail.com>"]
+license = "MIT"
+description = "Simple, recursive block diagrams with flex-like layouts using native grid. Perfect for architecture overviews."
+repository = "https://github.com/sjames/diagramgrid"
+keywords = ["diagram", "architecture", "grid", "layout", "blocks"]
+minimum-typst-version = "0.12.0"
+exclude = [ "manual.pdf", "manual.typ" ]
