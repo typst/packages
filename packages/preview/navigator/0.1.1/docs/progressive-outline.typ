@@ -1,4 +1,4 @@
-#import "../lib.typ": progressive-outline
+#import @preview/navigator:0.1.1: progressive-outline
 
 #set page(paper: "a4", margin: 1.5cm)
 #set text(font: "Lato", size: 10pt)

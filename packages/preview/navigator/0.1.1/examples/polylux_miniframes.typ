@@ -1,5 +1,5 @@
 #import "@preview/polylux:0.4.0": *
-#import "../lib.typ" as navigator
+#import @preview/navigator:0.1.1 as navigator
 #import navigator: get-structure, render-miniframes, get-current-logical-slide-number
 
 // --- CONFIGURATION ---
