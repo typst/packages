@@ -196,7 +196,7 @@
     q.display = auto
     q.method = auto
   }
-  quantity(value, ..unit, ..q, ..formatting)
+  quantity(value, ..unit, ..q, ..formatting, display: auto)
 }
 
 #let exact = quantity.with(figures: 99)
