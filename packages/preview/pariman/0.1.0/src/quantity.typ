@@ -180,6 +180,7 @@
     // the calculation
     method: method,
     source: source, // for formatting methods
+    round-mode: round-mode,
   )
 }
 
