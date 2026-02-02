@@ -150,7 +150,7 @@ The `spread` parameter controls how much the shadow expands or contracts:
 
 ```typ
 // Positive spread makes the shadow larger
-#shadow(blur: 4pt, spread: 4pt)[
+#shadow(blur: 4pt, spread: 2pt)[
   #block(width: 100pt, height: 100pt, fill: white)
 ]
 
@@ -167,16 +167,23 @@ The `spread` parameter controls how much the shadow expands or contracts:
 You can set individual corner radii using a dictionary:
 
 ```typ
+#let radius = (
+  top-left: 0pt,
+  top-right: 8pt,
+  bottom-right: 0pt,
+  bottom-left: 8pt,
+)
+
 #shadow(
   blur: 4pt,
-  radius: (
-    top-left: 0pt,
-    top-right: 8pt,
-    bottom-right: 0pt,
-    bottom-left: 8pt,
-  )
+  radius: radius,
 )[
-  #block(width: 100pt, height: 100pt, fill: white)
+  #block(
+    width: 100pt,
+    height: 100pt,
+    fill: white,
+    radius: radius,
+  )
 ]
 ```
 

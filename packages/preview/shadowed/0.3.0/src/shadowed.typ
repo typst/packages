@@ -357,7 +357,8 @@
   } else { "" }
   let fill = if type(fill) == color { fill.to-hex() } else { "url(#gradient)" }
   let spread-operator = if spread-radius >= 0 { "dilate" } else { "erode" }
-  let spread-radius = calc.abs(spread-radius)
+    // A radius of 0 causes rendering issues: https://github.com/typst/typst/issues/7794
+  let spread-radius = calc.max(calc.abs(spread-radius), 0.001)
 
   // begin templates/shadow.svg.template
   (
