@@ -78,7 +78,7 @@ Add the package to your Typst document:
   /// The content to place in front of the shadow.
   /// -> content
   body,
-) = { ... }
+) = { /* ... */ }
 ```
 
 ## Examples
