@@ -16,7 +16,7 @@ A Typst package for typesetting Indian Classical and Semi-Classical music notati
 Import the package into your Typst file:
 
 ```typst
-#import "@preview/swaralipi:0.1.0"
+#import "@preview/swaralipi:0.2.0"
 ```
 
 ## Notation System
@@ -43,7 +43,7 @@ Import the package into your Typst file:
 You can use the `apply-swaralipi` function to automatically render all `note` raw blocks.
 
 ```typst
-#import "@preview/swaralipi:0.1.0": apply-swaralipi
+#import "@preview/swaralipi:0.2.0": apply-swaralipi
 #show: apply-swaralipi
 ```
 
