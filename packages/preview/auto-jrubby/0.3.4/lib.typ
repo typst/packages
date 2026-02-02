@@ -4,10 +4,12 @@
   data.map(row => row.join(delimiter)).join("\n")
 }
 
-#let tokenize(input-text, user-dict: none, dict: "ipadic", kana: "hiragana") = {
+#let tokenize(input-text, user-dict: none, dict: "ipadic", ..args) = {
   if dict not in ("ipadic", "unidic") {
     panic("dict must be one of: ipadic, unidic")
   }
+
+  let kana = args.named().at("kana", default: "hiragana")
   if kana not in ("hiragana", "katakana") {
     panic("kana must be one of: hiragana, katakana")
   }
@@ -38,8 +40,8 @@
   json(result-bytes)
 }
 
-#let show-analysis-table(input-text, user-dict: none, dict: "ipadic", kana: "hiragana") = {
-  let tokens = tokenize(input-text, user-dict: user-dict, dict: dict, kana: kana)
+#let show-analysis-table(input-text, user-dict: none, dict: "ipadic") = {
+  let tokens = tokenize(input-text, user-dict: user-dict, dict: dict)
   let get-safe(arr, idx) = {
     if idx < arr.len() { arr.at(idx) } else { "*" }
   }
