@@ -54,11 +54,13 @@ Add the package to your Typst document:
   /// -> color | gradient | none
   fill: black,
   /// How much to round the shadow's corners.
-  /// 
+  ///
   /// Can be either:
-  /// - A relative length for a uniform corner radius.
-  /// 
-  /// - A dictionary: With a dictionary, the stroke for each side can be set individually.
+  /// - A relative length for a uniform corner radius,
+  ///   relative to the minimum of the width and height divided by two.
+  ///
+  /// - A dictionary: With a dictionary, the stroke for each side can be set
+  ///   individually.
   ///   The dictionary can contain the following keys in order of precedence:
   ///   - top-left: The top-left corner radius.
   ///   - top-right: The top-right corner radius.
@@ -68,9 +70,10 @@ Add the package to your Typst document:
   ///   - top: The top-left and top-right corner radii.
   ///   - right: The top-right and bottom-right corner radii.
   ///   - bottom: The bottom-left and bottom-right corner radii.
-  ///   - rest: The radii for all corners except those for which the dictionary explicitly sets a size.
-  /// 
-  /// -> length | dictionary
+  ///   - rest: The radii for all corners except those for which the dictionary
+  ///     explicitly sets a size.
+  ///
+  /// -> relative | dictionary
   radius: 0pt,
   /// The content to place in front of the shadow.
   /// -> content

@@ -21,15 +21,40 @@
   }
 }
 
+/// Convert a radius to a length.
+///
+/// - radius (length, ratio, relative): The radius to convert.
+/// - width (length): The objects width.
+/// - height (length): The objects height.
+/// -> length
+#let convert-radius(radius, width, height) = {
+  let radius = if type(radius) == length {
+    radius
+  } else if type(radius) == ratio {
+    calc.min(width, height) * radius
+  } else if type(radius) == relative {
+    calc.min(width, height) * radius.ratio + radius.length
+  }
+
+  // Prevent negative values
+  calc.max(radius, 0pt)
+}
+
 /// Normalize a radius.
 ///
 /// Returns a dictionary that contains the radius of each corner at
 /// "top-left", "top-right", "bottom-left", and "bottom-right".
 ///
 /// - radius (length, dictionary): The radius to normalize.
+/// - width (length): The length of the shadow.
+/// - height (length): The height of the shadow.
 /// -> dictionary
-#let normalize-radius(radius) = {
-  if type(radius) == length {
+#let normalize-radius(radius, width, height) = {
+  if (
+    type(radius) == length or type(radius) == ratio or type(radius) == relative
+  ) {
+    let radius = convert-radius(radius, width, height)
+
     (
       "top-left": radius,
       "top-right": radius,
@@ -63,14 +88,14 @@
     top-left = radius.at("top-left", default: top-left)
 
     (
-      "top-left": top-left,
-      "top-right": top-right,
-      "bottom-left": bottom-left,
-      "bottom-right": bottom-right,
+      "top-left": convert-radius(top-left, width, height),
+      "top-right": convert-radius(top-right, width, height),
+      "bottom-left": convert-radius(bottom-left, width, height),
+      "bottom-right": convert-radius(bottom-right, width, height),
     )
   } else {
     panic(
-      "normalize-radius: radius must be of type length or dictionary, got "
+      "normalize-radius: radius must be of type length, ratio, relative or dictionary, got "
         + str(type(radius)),
     )
   }
@@ -439,9 +464,11 @@
   /// How much to round the shadow's corners.
   ///
   /// Can be either:
-  /// - A relative length for a uniform corner radius.
+  /// - A relative length for a uniform corner radius,
+  ///   relative to the minimum of the width and height divided by two.
   ///
-  /// - A dictionary: With a dictionary, the stroke for each side can be set individually.
+  /// - A dictionary: With a dictionary, the stroke for each side can be set
+  ///   individually.
   ///   The dictionary can contain the following keys in order of precedence:
   ///   - top-left: The top-left corner radius.
   ///   - top-right: The top-right corner radius.
@@ -451,9 +478,10 @@
   ///   - top: The top-left and top-right corner radii.
   ///   - right: The top-right and bottom-right corner radii.
   ///   - bottom: The bottom-left and bottom-right corner radii.
-  ///   - rest: The radii for all corners except those for which the dictionary explicitly sets a size.
+  ///   - rest: The radii for all corners except those for which the dictionary
+  ///     explicitly sets a size.
   ///
-  /// -> length | dictionary
+  /// -> relative | dictionary
   radius: 0pt,
   /// The content to place in front of the shadow.
   /// -> content
@@ -473,34 +501,28 @@
       message: "shadow: fill must be of type color or gradient or none",
     )
     assert(
-      type(radius) == length or type(radius) == dictionary,
-      message: "shadow: radius must be of type length or dictionary",
+      type(radius) == length
+        or type(radius) == ratio
+        or type(radius) == relative
+        or type(radius) == dictionary,
+      message: "shadow: radius must be of type length, ratio, relative or dictionary",
     )
+
+    // Type-dependent type checks
+    if type(radius) == dictionary {
+      for r in radius.values() {
+        assert(
+          type(r) == length or type(r) == ratio or type(r) == relative,
+          message: "shadow: radius must be of type length, ratio or relative",
+        )
+      }
+    }
 
     // Value checks
     assert(
       blur >= 0pt,
       message: "shadow: blur must be greater or equal to zero",
     )
-
-    // Conditional checks based on radius type
-    if type(radius) == length {
-      assert(
-        radius >= 0pt,
-        message: "shadow: radius must be greater or equal to zero",
-      )
-    } else {
-      for r in radius.values() {
-        assert(
-          type(r) == length,
-          message: "shadow: radius values must be of type length",
-        )
-        assert(
-          r >= 0pt,
-          message: "shadow: radius values must be greater or equal to zero",
-        )
-      }
-    }
 
     // Return only the body if no fill is specified
     if (fill == none) {
@@ -518,7 +540,7 @@
 
     let outset = calc.max(blur + spread, 0pt)
 
-    let radius = normalize-radius(radius)
+    let radius = normalize-radius(radius, width, height)
 
     let svg-height = height + outset * 2
     let svg-width = width + outset * 2
@@ -549,7 +571,7 @@
 
     block(breakable: false)[
       #place(center + horizon, dx: dx, dy: dy)[
-        #svg
+        #svg <shadowed-shadow>
       ]
 
       #body
