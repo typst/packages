@@ -70,7 +70,7 @@ You can choose to output ruby in Hiragana (default) or Katakana:
 Renders the input text with automatic furigana.
 
 ```typst
-#let show-ruby(
+#show-ruby(
   input-text,
   size: 0.5em,
   leading: 1.5em,
@@ -105,7 +105,7 @@ Renders the input text with automatic furigana.
 Renders a table displaying the morphological breakdown of the text.
 
 ```typst
-#let show-analysis-table(
+#show-analysis-table(
   input-text,
   user-dict: none,
   dict: "ipadic"
@@ -161,7 +161,7 @@ The columns displayed depend on the selected `dict`.
 Low-level function that returns the raw JSON data from the WASM plugin. Useful if you want to process the analysis data manually.
 
 ```typst
-#let tokenize(
+#tokenize(
   input-text,
   user-dict: none,
   dict: "ipadic"
