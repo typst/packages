@@ -27,7 +27,6 @@ To automatically add readings to Japanese text:
 #show-ruby(sample)
 ```
 
-
 ![Basic Furigana](images/sample01.png)
 
 ### Morphological Analysis Table
@@ -246,49 +245,6 @@ The processing workflow:
 2. Lindera tokenizes the text using the specified dictionary and retrieves readings.
 3. A custom algorithm aligns the readings with the surface form to separate okurigana (kana endings of verbs/adjectives) from the kanji stems.
 4. The structured data is returned to Typst and rendered using the `rubby` package for furigana display.
-
-## Optional: Enabling IPADIC-NEologd
-
-> [!NOTE]
-> **IPADIC-NEologd Support** > IPADIC-NEologd (an extended dictionary with contemporary terms and named entities) has been removed from the default distribution due to its large file size. However, you can manually enable it if needed:
-> 1. Navigate to `./wasm-plugins/ipadic-neologd` and build the WASM module:
-> ```bash
-> cargo build --target wasm32-unknown-unknown --release
-> ```
-> 
-> 2. Copy the built WASM file to the package directory:
-> ```bash
-> cp ./target/wasm32-unknown-unknown/release/ipadic_neologd.wasm ../../package/ipadic_neologd.wasm
-> ```
-> 
-> 3. Navigate to `./package` and update `./package/lib.typ` to allow the `ipadic-neologd` option. Change:
-> ```typst
-> if dict not in ("ipadic", "unidic") {
->   panic("dict must be one of: ipadic, unidic")
-> }
-> ```
-> 
-> to:
-> ```typst
-> if dict not in ("ipadic", "ipadic-neologd", "unidic") {
->   panic("dict must be one of: ipadic, ipadic-neologd, unidic")
-> }
-> ```
-> 
-> 4. Install the package locally:
-> ```bash
-> just install
-> ```
-> 
-> 5. Import and use with `@local`:
-> ```typst
-> #import "@local/auto-jrubby:0.3.4": *
-> #set page(width: auto, height: auto, margin: 0.5cm)
-> #set text(font: "Hiragino Sans", lang: "ja")
-> 
-> #let sample = "東京スカイツリーの最寄り駅はとうきょうスカイツリー駅です"
-> #show-ruby(sample, dict: "ipadic-neologd")
-> ```
 
 ## License
 
