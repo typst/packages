@@ -1,6 +1,6 @@
 #import "utils.typ"
 /// The formatting functionality is provided by zero package.
-#import "@preview/zero:0.6.0" as zero: zi
+#import "@preview/zero:0.6.1" as zero: zi
 
 /// Parser for unit input
 /// The possible patterns:
@@ -77,7 +77,8 @@
   }
   let mantissa = calc.round(num / calc.pow(10, N), digits: figures)
   let formatted = str(mantissa) + if N != 0 { "e" + str(N) }
-  formatted.replace(sym.minus, "-")
+
+  return formatted.replace(sym.minus, "-")
 }
 
 #let info-num(value, figures: auto, places: auto) = {
