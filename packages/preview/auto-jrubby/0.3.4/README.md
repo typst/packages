@@ -18,7 +18,7 @@ It leverages a Rust-based WASM plugin to tokenize text using [Lindera](https://g
 ### Basic Furigana
 
 To automatically add readings to Japanese text:
-```typst
+```typstst
 #import "@preview/auto-jrubby:0.3.4": *
 #set page(width: auto, height: auto, margin: 0.5cm)
 #set text(font: "Hiragino Sans", lang: "ja")
@@ -34,7 +34,7 @@ To automatically add readings to Japanese text:
 
 To debug or display the linguistic structure of the text:
 
-```typ
+```typst
 #import "@preview/auto-jrubby:0.3.4": *
 #set page(width: auto, height: auto, margin: 0.5cm)
 #set text(font: "Hiragino Sans", lang: "ja")
@@ -49,7 +49,7 @@ To debug or display the linguistic structure of the text:
 
 You can choose to output ruby in Hiragana (default) or Katakana:
 
-```typ
+```typst
 #import "@preview/auto-jrubby:0.3.4": *
 #set page(width: auto, height: auto, margin: 0.5cm)
 
@@ -69,7 +69,7 @@ You can choose to output ruby in Hiragana (default) or Katakana:
 
 Renders the input text with automatic furigana.
 
-```typ
+```typst
 #let show-ruby(
   input-text,
   size: 0.5em,
@@ -104,7 +104,7 @@ Renders the input text with automatic furigana.
 
 Renders a table displaying the morphological breakdown of the text.
 
-```typ
+```typst
 #let show-analysis-table(
   input-text,
   user-dict: none,
@@ -160,7 +160,7 @@ The columns displayed depend on the selected `dict`.
 
 Low-level function that returns the raw JSON data from the WASM plugin. Useful if you want to process the analysis data manually.
 
-```typ
+```typst
 #let tokenize(
   input-text,
   user-dict: none,
@@ -196,7 +196,7 @@ The user dictionary allows you to define custom word segmentation and readings. 
 
 **Method 1: Inline string**
 
-```typ
+```typst
 #let sample = "東京タワーの最寄駅は赤羽橋駅です"
 #let user-dict-str = "赤羽橋駅,カスタム名詞,アカバネバシエキ"
 
@@ -206,7 +206,7 @@ The user dictionary allows you to define custom word segmentation and readings. 
 
 **Method 2: Array of arrays**
 
-```typ
+```typst
 #let sample = "東京タワーの最寄駅は赤羽橋駅です"
 #let user-dict-array = (
   ("赤羽橋駅", "カスタム名詞", "アカバネバシエキ")
@@ -223,7 +223,7 @@ $ cat user_dict.csv
 赤羽橋駅,カスタム名詞,アカバネバシエキ
 ```
 
-```typ
+```typst
 #let sample = "東京タワーの最寄駅は赤羽橋駅です"
 #let user-dict-from-file = csv("user_dict.csv")
 
@@ -262,14 +262,14 @@ The processing workflow:
 > ```
 > 
 > 3. Navigate to `./package` and update `./package/lib.typ` to allow the `ipadic-neologd` option. Change:
-> ```typ
+> ```typst
 > if dict not in ("ipadic", "unidic") {
 >   panic("dict must be one of: ipadic, unidic")
 > }
 > ```
 > 
 > to:
-> ```typ
+> ```typst
 > if dict not in ("ipadic", "ipadic-neologd", "unidic") {
 >   panic("dict must be one of: ipadic, ipadic-neologd, unidic")
 > }
@@ -281,7 +281,7 @@ The processing workflow:
 > ```
 > 
 > 5. Import and use with `@local`:
-> ```typ
+> ```typst
 > #import "@local/auto-jrubby:0.3.4": *
 > #set page(width: auto, height: auto, margin: 0.5cm)
 > #set text(font: "Hiragino Sans", lang: "ja")
