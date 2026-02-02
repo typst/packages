@@ -26,7 +26,7 @@ An **unofficial** Typst presentation template following TU Berlin's corporate de
 #show: tub-theme.with(
   aspect-ratio: "16-9",
   department: [Department of Computer Science],
-  logo: image("assets/logos/tub_logo.png"),
+  logo: image("assets/logos/tu_berlin.svg"),
   progress-bar: true,
   config-info(
     title: [My Presentation Title],
@@ -64,7 +64,7 @@ An **unofficial** Typst presentation template following TU Berlin's corporate de
 ### Option 2: Local Development
 
 ```bash
-git clone https://github.com/yourusername/tub-typst-presentation
+git clone https://github.com/EzraCerpac/tub-typst-presentation
 cd tub-typst-presentation
 typst watch main.typ
 ```
