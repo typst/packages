@@ -21,7 +21,7 @@ An **unofficial** Typst presentation template following TU Berlin's corporate de
 
 ```typst
 #import "@preview/touying:0.6.1": *
-#import "@preview/tub-presentation:0.2.0": *
+#import "@preview/clear-tub:0.2.0": *
 
 #show: tub-theme.with(
   aspect-ratio: "16-9",
@@ -58,7 +58,7 @@ An **unofficial** Typst presentation template following TU Berlin's corporate de
 
 ```typst
 #import "@preview/touying:0.6.1": *
-#import "@preview/tub-presentation:0.2.0": *
+#import "@preview/clear-tub:0.2.0": *
 ```
 
 ### Option 2: Local Development
@@ -330,7 +330,7 @@ Refer to the touying-exporter documentation for full options and requirements.
 ## File Structure
 
 ```txt
-tub-presentation/
+clear-tub/
 ├── lib.typ              # Theme library (Touying-based)
 ├── main.typ             # Example presentation
 ├── typst.toml           # Package metadata
@@ -348,6 +348,34 @@ Planned features for future releases:
 - **Hero slide** — full-bleed image background with overlaid text
 - **Navigation bar** — mini-slides or section dots in the header for at-a-glance navigation
 
+## ⚠️ Logo Usage & Licensing
+
+**IMPORTANT: This package contains TU Berlin's official logos which are:**
+- **© Technische Universität Berlin**
+- **NOT included under the MIT license**
+- **Subject to TU Berlin's usage policies**
+
+### Who Can Use the TU Berlin Logo?
+
+✅ **TU Berlin Students & Staff:**
+- Academic presentations and theses
+- University-related events
+- Scientific conferences (in academic context)
+
+❌ **External Users:**
+- Require explicit written permission from TU Berlin
+- Contact: pressestelle@tu-berlin.de
+
+### Template Code License
+
+The **template code** (lib.typ and related Typst files) is licensed under **MIT License**.
+
+The **TU Berlin logos and branding materials** are copyrighted by TU Berlin and subject to their institutional policies.
+
+**Before using this template, verify you have the right to use TU Berlin's branding.** See:
+- [TU Berlin Corporate Design Guidelines](https://www.tu.berlin/en/communication/services-for-tu-staff/corporate-design)
+- Contact: corporate.design@pressestelle.tu-berlin.de
+
 ## Disclaimer
 
 This is an **unofficial** template created by the community. It is not endorsed by or affiliated with TU Berlin. Verify compliance with your department's requirements before using for official presentations.
@@ -358,4 +386,8 @@ For official guidelines, contact:
 
 ## License
 
-MIT License
+**MIT License** (applies to template code only)
+
+The template code (Typst files, excluding logos and TU Berlin branding) is released under the MIT License. See the [LICENSE](LICENSE) file for full details.
+
+**TU Berlin Logo and Branding:** © Technische Universität Berlin. Use subject to TU Berlin's institutional policies. See the logo usage section above for details.
