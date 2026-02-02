@@ -18,7 +18,8 @@ It leverages a Rust-based WASM plugin to tokenize text using [Lindera](https://g
 ### Basic Furigana
 
 To automatically add readings to Japanese text:
-```typstst
+
+```typst
 #import "@preview/auto-jrubby:0.3.4": *
 #set page(width: auto, height: auto, margin: 0.5cm)
 #set text(font: "Hiragino Sans", lang: "ja")
