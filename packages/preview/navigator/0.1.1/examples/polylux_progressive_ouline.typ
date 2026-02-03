@@ -1,5 +1,5 @@
 #import "@preview/polylux:0.4.0": *
-#import @preview/navigator:0.1.1 as navigator
+#import "@preview/navigator:0.1.1" as navigator
 
 // --- CONFIGURATION ---
 #let base-size = 25pt

@@ -1,4 +1,4 @@
-#import @preview/navigator:0.1.1: progressive-outline
+#import "@preview/navigator:0.1.1": progressive-outline
 
 #set page(width: 16cm, height: 12cm, margin: 1cm)
 #set text(font: "Lato", size: 14pt)

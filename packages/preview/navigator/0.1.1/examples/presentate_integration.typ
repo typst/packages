@@ -1,5 +1,5 @@
 #import "@preview/presentate:0.2.3" as ps
-#import @preview/navigator:0.1.1 as navigator
+#import "@preview/navigator:0.1.1" as navigator
 
 // --- CONFIGURATION ---
 #set page(paper: "presentation-16-9", margin: (top: 2cm, bottom: 1cm, x: 2cm))
