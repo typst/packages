@@ -5,6 +5,6 @@ entrypoint = "lib.typ"
 authors = ["Sojan James <sojan.james@gmail.com>"]
 license = "MIT"
 description = "Simple, recursive block diagrams with flex-like layouts using native grid. Perfect for architecture overviews."
-repository = "https://github.com/sjames/facade"
+repository = "https://github.com/sjames/diagramgrid"
 keywords = ["diagram", "architecture", "grid", "layout", "blocks"]
 exclude = [ "manual.pdf", "manual.typ" ]
