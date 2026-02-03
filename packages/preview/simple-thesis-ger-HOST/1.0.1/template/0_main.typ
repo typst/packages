@@ -1,16 +1,15 @@
 //Imports
-  #import "@preview/glossarium:0.5.10": make-glossary, register-glossary, print-glossary, gls, glspl
-  #import "chapter/glossar.typ": entry-list
+  #import "../header.typ": thesis // import "header" everything what is defined globally, except glossarium because its not working than (print-glossary funktion is missing)
+  #import "@preview/glossarium:0.5.10":  make-glossary,  register-glossary,  print-glossary,  gls,  glspl
+  #import "./chapter/glossar.typ": entry-list
+// Glossary setup
   #register-glossary(entry-list)
   #show: make-glossary
-//Global settings
-  #set text(lang: "de")
-  #set page(paper: "a4")
-  #set par(justify: true)
+
 // ====================
 // Deckblatt
 // ====================
-  #include "chapter/TitlePage.typ"
+  #include "./chapter/TitlePage.typ"
 
   #set page(margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 2.5cm))
 
@@ -26,7 +25,7 @@
 //Start Real Numbering 
   #set page(numbering: "1")
   #counter(page).update(1)
-  #include "chapter/vorwort.typ"
+  #include "./chapter/vorwort.typ"
   = Chapter 1
   #lorem(20) @host #lorem(60) @hostWebsite #lorem(800)
   = Chapter 2

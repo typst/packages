@@ -5,7 +5,7 @@
   #v(1cm)  // Vertikal zentrieren (oben)
 
   // ---------- Logo ----------
-  #image("/dat/HOSTLogo.png", width: 8cm)
+  #image("../dat/HOSTLogo.png", width: 8cm)
   #v(0.5cm)
 
   // ---------- Hauptblock (zentriert, schmale Spalte) ----------
