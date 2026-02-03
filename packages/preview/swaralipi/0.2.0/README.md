@@ -50,14 +50,17 @@ You can use the `apply-swaralipi` function to automatically render all `note` ra
 ## Examples
 
 ### Yaman Vilambit (Tintal)
+````typst
 ```note[taal: tintal]
                       |                           |           >   GG  | R    SS    N.D.D.    NR
 G      G    G    RR   | G     MM    P      MM | G    R    S       |
                       |                           |           >   RR  | S    N.N.  G.        P.
 D.     N.   S    RR   | G     MM    P      M   | G    R    S       |
 ```
+````
 
 ### Yaman Taan
+````typst
 ```note[taal: tintal]
 D.N.SR  N.SRG   SRGM    RGMP   | GMPD   MPDN   PDNS'   DNS'R'| G'R'S'N  R'S'ND  S'NDP  NDPM | DPMG  RS,GG  R-,SS  N.-,R-
 ```
@@ -71,6 +74,7 @@ D.N.SR  N.SRG   SRGM    RGMP   | GMPD   MPDN   PDNS'   DNS'R'| G'R'S'N  R'S'ND  
 #L প  র তে |  গে  লে   - |  লা   গে   - | - এ   রে |  ছ   র   তে    | গে  লে  - |  বা  জে   -  | - -  -
 ---
 ```
+````
 
 ## Supported Taals
 
