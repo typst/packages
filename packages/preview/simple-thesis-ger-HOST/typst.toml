@@ -1,0 +1,11 @@
+[package]
+name = "simple-thesis-ger-HOST"
+version = "1.0c"
+entrypoint = "0_main.typ"
+authors = ["compera24"]
+license = "MIT"
+description = "simple clean Thesis Template, Language DE, with Bibliography, Glossar etc."
+repository = ""
+keywords = ["abschlussarbeit", "Thesis","deutsch","german","ger","Bachelor","Master"]
+categories = ["layout","thesis"]
+exclude = []
