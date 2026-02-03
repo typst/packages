@@ -64,8 +64,10 @@ D.     N.   S    RR   | G     MM    P      M   | G    R    S       |
 ```note[taal: tintal]
 D.N.SR  N.SRG   SRGM    RGMP   | GMPD   MPDN   PDNS'   DNS'R'| G'R'S'N  R'S'ND  S'NDP  NDPM | DPMG  RS,GG  R-,SS  N.-,R-
 ```
+````
 
 ### Song with Lyrics (Ektal)
+````typst
 ```note[taal: ektal3, wrapped: false]
    G  -  G  | G  Gm -R | GD   P -  | - M  P | {S}N. - - | -S -R -G | RSN. -S -  | - S  S
 #L এ  -  ম |  নি  হা  র |  আ  মা  - | য় না  হি  |  সা  - - | -  -  - |  জে   -   - | - এ  রে
