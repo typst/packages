@@ -2,13 +2,13 @@
 
 [![Generic badge](https://img.shields.io/badge/Version-1.1.0-cornflowerblue.svg)]()
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/elsearticle/blob/main/LICENSE)
-[![User Manual](https://img.shields.io/badge/doc-.pdf-mediumpurple)](https://github.com/maucejo/elspub/blob/main/docs/manual.pdf)
+[![User Manual](https://img.shields.io/badge/doc-.pdf-mediumpurple)](https://github.com/maucejo/elspub/blob/b094fd9fbe70ef6e969e88e9e167ee5e48101f65/docs/manual.pdf)
 
 The `elspub` package is designed to closely resemble the `LaTeX` class used by Elsevier for article formatting, which is not publicly available. It is not intended for submission, but rather to help authors prepare articles that resemble the final published version. It mainly serves as a proof of concept, demonstrating that Typst is a viable option for academic writing and scientific publishing.
 
 ## Basic usage
 
-This section provides the minimal amount of information to get started with the template. For more detailed information, see the [manual](https://github.com/maucejo/elspub/blob/main/docs/manual.pdf).
+This section provides the minimal amount of information to get started with the template. For more detailed information, see the [manual](https://github.com/maucejo/elspub/blob/b094fd9fbe70ef6e969e88e9e167ee5e48101f65/docs/manual.pdf).
 
 To use the `elspub` template, you need to include the following line at the beginning of your `typ` file:
 
