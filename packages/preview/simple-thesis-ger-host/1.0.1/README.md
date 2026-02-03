@@ -20,6 +20,7 @@ In the main file you can see every implementet file, and the main (global) layou
 Use the implementet file as example to implement your own chapters. 
 It is only dependent from glosasarium so you possibly have to install it first (if you use typst offline on your maschiene)
 
+change the bib file which your own (for example export from zotero)
 
 ## Newest Version:
 1.0.0         29.1.2026 uncensored version, not published

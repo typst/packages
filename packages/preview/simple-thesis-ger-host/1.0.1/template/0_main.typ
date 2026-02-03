@@ -1,5 +1,5 @@
 //Imports
-  #import "../header.typ": thesis // import "header" everything what is defined globally, except glossarium because its not working than (print-glossary funktion is missing)
+  #import "@preview/simple-thesis-ger-host:1.0.1": thesis // import "header" everything what is defined globally, except glossarium because its not working than (print-glossary funktion is missing)
   #import "@preview/glossarium:0.5.10":  make-glossary,  register-glossary,  print-glossary,  gls,  glspl
   #import "./chapter/glossar.typ": entry-list
 // Glossary setup
