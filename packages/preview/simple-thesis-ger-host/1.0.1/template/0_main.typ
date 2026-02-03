@@ -38,7 +38,7 @@
   #print-glossary(entry-list)
 //Quellen
   = Quellenverzeichniss
-  #bibliography("./Bib/Abschlussarbeit.bib", title: none)
+  #bibliography("./bib/Abschlussarbeit.bib", title: none)
 //Anhang
   = Anhang
 
