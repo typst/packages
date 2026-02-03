@@ -1,4 +1,4 @@
-// themes.typ — Simple theming helpers for diagramgrid
+// themes.typ — Simple theming helpers for facade
 // Provides dg-theme and preset themes
 
 #import "shapes.typ": dg-rect

@@ -1,4 +1,4 @@
-# diagramgrid
+# facade
 
 Sometimes you just want a quick block diagram to explain a concept without learning complex diagram syntax. This is a lightweight Typst package for exactly that.
 
@@ -13,16 +13,20 @@ Recursive block diagrams with CSS flexbox-like layouts, built on native Typst pr
 - **Decorators** — UML-style stereotypes and status indicators
 - **Theming** — Built-in themes and easy customization
 
+## Documentation
+
+For detailed documentation and examples, see the [manual](https://github.com/typst/packages/blob/main/packages/preview/facade/0.1.0/manual.pdf).
+
 ## Installation
 
 ```typst
-#import "@preview/diagramgrid:0.1.0": *
+#import "@preview/facade:0.1.0": *
 ```
 
 ## Quick Start
 
 ```typst
-#import "@preview/diagramgrid:0.1.0": *
+#import "@preview/facade:0.1.0": *
 
 // Simple vertical stack
 #dg-layers(
@@ -111,7 +115,7 @@ Recursive block diagrams with CSS flexbox-like layouts, built on native Typst pr
 ## Theming
 
 ```typst
-#import "@preview/diagramgrid:0.1.0": *
+#import "@preview/facade:0.1.0": *
 
 // Use a preset theme
 #themed-layers(theme-blueprint,

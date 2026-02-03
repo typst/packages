@@ -1,7 +1,7 @@
-// manual.typ — Documentation and examples for diagramgrid
+// manual.typ — Documentation and examples for facade
 #import "lib.typ": *
 
-#set document(title: "diagramgrid Manual", author: "diagramgrid")
+#set document(title: "facade Manual", author: "facade")
 #set page(margin: 1.5cm)
 #set text(size: 10pt)
 #show heading.where(level: 1): it => {
@@ -15,7 +15,7 @@
   v(0.3em)
 }
 
-= diagramgrid Manual
+= facade Manual
 
 A lightweight Typst package for creating clean block diagrams with CSS flexbox-like layouts.
 
@@ -245,7 +245,7 @@ A realistic microservices architecture diagram:
 
 == Example 7: Figure with Caption
 
-Using diagramgrid inside a figure:
+Using facade inside a figure:
 
 #figure(
   dg-layers(

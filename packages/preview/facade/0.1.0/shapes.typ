@@ -1,4 +1,4 @@
-// shapes.typ — Shape primitives for diagramgrid
+// shapes.typ — Shape primitives for facade
 // Provides dg-block (base), dg-rect, dg-circle, dg-ellipse
 
 #import "decorators.typ": dg-stereotype, dg-status, render-decorator

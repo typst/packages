@@ -1,4 +1,4 @@
-// decorators.typ — Decorator support for diagramgrid shapes
+// decorators.typ — Decorator support for facade shapes
 // Provides stereotype, status, and stroke presets for visual annotations
 
 /// Parse position string into placement parameters

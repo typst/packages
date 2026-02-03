@@ -1,4 +1,4 @@
-// lib.typ — Main entry point for diagramgrid package
+// lib.typ — Main entry point for facade package
 // Re-exports all public functions
 
 #import "shapes.typ": dg-block, dg-rect, dg-circle, dg-ellipse
