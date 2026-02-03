@@ -10,14 +10,16 @@ Refer to the [manual](./docs/manual.pdf) for a comprehensive guide containing ex
 
 A minimal example illustrating the use of `genotypst` is shown below. To reproduce it, download the example multiple sequence alignment file [`msa.afa`](./docs/data/msa.afa).
 
-In a Typst document, import the package and read the alignment data:
+In a Typst document, import the `genotypst` package:
 
 ```typst
 #import "@preview/genotypst:0.3.0": *
+```
 
 You can perform a simple pairwise alignments and visualize both the alignment and its dynamic programming matrix:
 
 ```typst
+// Perform a local alignment of two DNA sequences
 #let dna_alignment = align-seq-pair(
   "AAT",
   "AACTTG",
@@ -27,6 +29,7 @@ You can perform a simple pairwise alignments and visualize both the alignment an
   mode: "local",
 )
 
+// Render the alignment
 #render-pair-alignment(
   dna_alignment.seq-1,
   dna_alignment.seq-2,
@@ -37,6 +40,7 @@ You can perform a simple pairwise alignments and visualize both the alignment an
 ![](./docs/pair_alignment_example.svg)
 
 ```typst
+// Render the dynamic programming matrix
 #render-dp-matrix(
   dna_alignment.seq-1,
   dna_alignment.seq-2,
@@ -47,6 +51,8 @@ You can perform a simple pairwise alignments and visualize both the alignment an
 ```
 
 ![](./docs/dp_matrix_example.svg)
+
+Read a FASTA file containing a multiple sequence alignment:
 
 ```typst
 // Load sequences
