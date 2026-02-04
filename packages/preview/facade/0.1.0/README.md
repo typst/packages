@@ -15,7 +15,7 @@ Recursive block diagrams with CSS flexbox-like layouts, built on native Typst pr
 
 ## Documentation
 
-For detailed documentation and examples, see the [manual](https://github.com/typst/packages/blob/main/packages/preview/facade/0.1.0/manual.pdf).
+For detailed documentation and examples, see the [manual](manual.pdf).
 
 ## Installation
 
