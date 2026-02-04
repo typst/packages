@@ -45,6 +45,19 @@ TiefFiction currently has 5 main components:
 3. The Table of Content (ToC) `table-of-content`
 4. The Blurb `blurb-block`
 
+These components can be seperately inserted into your design, or automatically inserted using the [`book`](#book) function. `book` is a simple starting point, with opinionated defaults. See [examples/fiction](examples/fiction.pdf) for that.
+
+For manually building your layout, use the [`setup`](#setup) function. You can then start and end sections of the book ([preamble](#start-preamble), [before-main](#start-before-main), [main](#start-main), [after-main](#start-after-main)) and insert the components as you wish.
+
+A TiefFiction book is split into four parts:
+
+- The [preamble](#start-preamble) disables page counters and chapter counters.
+- The [before-main](#start-before-main) starts page and chapter counters with letters.
+- The [main](#start-main) displays the page and chapter counters normally.
+- The [after-main](#start-after-main) disables everything again.
+
+Use at your discretion.
+
 ## Reference
 
 ### `setup`
