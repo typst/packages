@@ -1,0 +1,17 @@
+[package]
+name = "unofficial-sdu-lab-report"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Arshtyi"]
+license = "MIT"
+description = "A unofficial SDU common lab report."
+keywords = ["lab", "report", "sdu"]
+categories = ["report"]
+repository = "https://github.com/Arshtyi/SDU-Lab-Report"
+compiler = "0.14.1"
+exclude = ["sdu.png"]
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
