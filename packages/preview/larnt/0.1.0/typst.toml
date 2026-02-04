@@ -8,4 +8,4 @@ description = "3D line art engine using rust rewrite of fogleman/ln."
 repository = "https://github.com/HellOwhatAs/larnt/tree/master/examples/larnt_typst"
 keywords = ["3d", "line-art", "rendering"]
 categories = ["visualization", "integration", "fun"]
-exclude = ["/docs/*", "/examples/*"]
+exclude = ["/examples/*"]
