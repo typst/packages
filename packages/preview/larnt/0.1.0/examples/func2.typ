@@ -1,5 +1,5 @@
 #set page(height: auto, margin: 0pt)
-#import "../lib.typ": *
+#import "@preview/larnt:0.1.0": *
 
 #{
   let (min, max) = ((-1., -1., -1.), (1., 1., 1.))

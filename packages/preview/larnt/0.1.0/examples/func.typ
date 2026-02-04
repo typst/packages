@@ -1,6 +1,6 @@
-// Takes about 30s to render.
+// Takes about 7s to render.
 #set page(height: auto, margin: 0pt)
-#import "../lib.typ": *
+#import "@preview/larnt:0.1.0": *
 
 #{
   let (min, max) = ((-3., -3., -4.), (3., 3., 2.))

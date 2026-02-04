@@ -1,5 +1,5 @@
 #set page(margin: 0pt, height: auto)
-#import "../lib.typ": *
+#import "@preview/larnt:0.1.0": *
 
 #render(
   eye: (2., 7., 5.),
