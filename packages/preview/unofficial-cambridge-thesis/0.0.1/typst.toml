@@ -7,7 +7,7 @@ license = "MIT"
 description = "University of Cambridge Thesis Template"
 categories = ["layout", "presentation"]
 disciplines = ["education"]
-exclude = ["fonts/*", ".devcontainer/*", "crest/*", "example/*"]
+exclude = ["fonts/*", ".devcontainer/*", "crest/*"]
 compiler = "0.14.0"
 
 [template]
