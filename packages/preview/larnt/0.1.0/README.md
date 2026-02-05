@@ -134,9 +134,9 @@ Add the following code to your document:
 ```typst
 #import "@preview/larnt:0.1.0" as la;
 
-#la.render(
+#image(la.render(
   // Some shapes to render
-)
+))
 ```
 
 
