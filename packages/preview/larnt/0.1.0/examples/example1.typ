@@ -18,5 +18,5 @@
       ))
     }
   }
-  render(step: 0.05, ..cubes)
+  image(render(step: 0.05, ..cubes), width: 100%)
 }

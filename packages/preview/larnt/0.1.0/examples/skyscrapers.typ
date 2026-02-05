@@ -26,9 +26,12 @@
       )
     }
   }
-  render(
-    eye: (1.75, 1.25, 6.0),
-    fovy: 100.0,
-    ..cubes,
+  image(
+    render(
+      eye: (1.75, 1.25, 6.0),
+      fovy: 100.0,
+      ..cubes,
+    ),
+    width: 100%,
   )
 }

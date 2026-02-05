@@ -57,12 +57,12 @@
     (13, 23),
   )
 
-  render(
+  image(render(
     eye: (6., 6., 6.),
     step: 0.01,
     ..nodes.map(x => outline(sphere(x, 0.333))),
     ..edges.map(
       x => outline(cylinder(0.1, nodes.at(x.at(0)), nodes.at(x.at(1)))),
     ),
-  )
+  ), width: 100%)
 }

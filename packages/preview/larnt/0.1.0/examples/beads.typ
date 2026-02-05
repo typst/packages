@@ -50,9 +50,12 @@
       position = position.zip(v).map(x => x.sum())
     }
   }
-  render(
-    eye: (8.0, 8.0, 8.0),
-    step: 1.0,
-    ..shapes,
+  image(
+    render(
+      eye: (8.0, 8.0, 8.0),
+      step: 1.0,
+      ..shapes,
+    ),
+    width: 100%,
   )
 }

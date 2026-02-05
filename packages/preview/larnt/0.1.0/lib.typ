@@ -4,13 +4,13 @@
 /// Can be warped with `outline()` to create outline cone.
 ///
 /// ```example
-/// #render(
+/// #image(render(
 ///   eye: (1.2, -3., 2.),
 ///   center: (1.2, 0., 0.2),
 ///   height: 512.,
 ///   cone(1., (0., 0., 0.), (0., 0., 1.)),
 ///   outline(cone(1., (2.4, 0., 0.), (2.4, 0., 1.))),
-/// )
+/// ))
 /// ```
 ///
 /// -> shape
@@ -41,14 +41,14 @@
 /// The cube shape.
 ///
 /// ```example
-/// #render(
+/// #image(render(
 ///   eye: (1.25, 2.5, 2.0),
 ///   center: (1.25, -1., -0.6),
 ///   step: 0.01,
-///   height: 512.,
+///   height: 460.,
 ///   cube((0., 0., 0.), (1., 1., 1.)),
 ///   cube((1.5, 0., 0.), (2.5, 1., 1.), texture: "Stripes", stripes: 24),
-/// )
+/// ))
 /// ```
 ///
 /// -> shape
@@ -84,13 +84,13 @@
 /// The cylinder shape. Can be warped with `outline()` to create outline cylinder.
 ///
 /// ```example
-/// #render(
+/// #image(render(
 ///   eye: (1.2, -3., 3.2),
 ///   center: (1.2, 0., .2),
-///   height: 512.,
+///   height: 600.,
 ///   cylinder(0.7, (0., 0., 0.), (0., 0., 1.)),
 ///   outline(cylinder(0.7, (2.4, 0., 0.), (2.4, 0., 1.))),
-/// )
+/// ))
 /// ```
 ///
 /// -> shape
@@ -121,7 +121,7 @@
 /// The sphere shape. Can be warped with `outline()` to create outline sphere.
 ///
 /// ```example
-/// #render(
+/// #image(render(
 ///   height: 512.,
 ///   fovy: 30.,
 ///   sphere((0., 0., 0.), 1.0),
@@ -129,7 +129,7 @@
 ///   sphere((2.2, 0., 0.), 1.0, texture: "RandomCircles", seed: 42),
 ///   sphere((0., 2.2, 0.), 1.0, texture: "RandomEquators", seed: 42),
 ///   sphere((-2.2, 0., 0.), 1.0, texture: "RandomEquators"),
-/// )
+/// ))
 /// ```
 /// -> shape
 #let sphere(
@@ -174,12 +174,12 @@
 /// _Note that the function is sampled over a grid defined by `min`, `max`, and `n` due to typst wasm plugin limitations. Then the sampled values are intepolated with bilinear interpolation for rendering._
 ///
 /// ```example
-/// #render(
+/// #image(render(
 ///   eye: (4., 3., 3.),
 ///   center: (0., 0., 1.5),
-///   height: 720.,
+///   width: 1024.,
 ///   func((x, y) => 0.3 * (x * x + y * y), (-2., -2., -2.), (2., 2., 4.)),
-/// )
+/// ))
 /// ```
 ///
 /// -> shape
@@ -200,11 +200,11 @@
   ///
   /// ```example
   /// #let (min, max) = ((-1., -1., -1.), (1., 1., 1.))
-  /// #render(
+  /// #image(render(
   ///   eye: (2.5, 0.4, 1.5),
   ///   func((x, y) => x * y, min, max, texture: "Spiral"),
   ///   func((x, y) => 0.0, min, max),
-  /// )
+  /// ))
   /// ```
   ///
   /// -> str
@@ -254,13 +254,13 @@
 /// The triangle shape.
 ///
 /// ```example
-/// #render(
+/// #image(render(
 ///   eye: (2., 2., 2.),
 ///   center: (0., 0., 0.),
 ///   height: 512.,
 ///   triangle((0., 1., 0.), (1., 0., 0.), (0., 0., 0.)),
 ///   triangle((0., 1., 0.), (1., 0., 0.), (1., 1., 0.)),
-/// )
+/// ))
 /// ```
 ///
 /// -> shape
@@ -303,11 +303,11 @@
 ///   (calc.cos(b) * r, calc.sin(b) * r, 0.),
 ///   )
 /// }))
-/// #render(
+/// #image(render(
 ///   step: 0.01,
 ///   fovy: 30.,
 ///   rotate(mesh(trs), (0., 1., 0.), 1.2),
-/// )
+/// ))
 /// ```
 ///
 /// -> shape
@@ -336,7 +336,7 @@
 ///   cylinder(.5, (0., 0., 0.), (0., 0., 1.)),
 ///   sphere((0., 0., 0.5), .5),
 /// )
-/// #render(
+/// #image(render(
 ///   center: (1., 2., 0.),
 ///   step: 0.01,
 ///   translate(co, (0., 0., 0.)),
@@ -345,7 +345,7 @@
 ///   translate(outline(co), (2., 0., 0.)),
 ///   translate(outline(cy), (2., 2., 0.)),
 ///   translate(outline(sp), (2., 4., 0.)),
-/// )
+/// ))
 /// ```
 ///
 /// -> shape
@@ -367,7 +367,7 @@
 /// Can be used to create complex shapes by subtracting multiple shapes from a base shape.
 ///
 /// ```example
-/// #render(
+/// #image(render(
 ///   eye: (3., 2., 2.),
 ///   center: (0., 0.1, 0.),
 ///   step: 0.05,
@@ -379,7 +379,7 @@
 ///     sphere((0., 0., 0.5), 0.5),
 ///     sphere((1., 0., 0.5), 0.5),
 ///   ),
-/// )
+/// ))
 /// ```
 ///
 /// -> shape
@@ -404,7 +404,7 @@
 /// Can be used to create complex shapes by intersecting multiple shapes.
 ///
 /// ```example
-/// #render(
+/// #image(render(
 ///   eye: (3., 2., 2.),
 ///   center: (0., 0., 0.5),
 ///   step: 0.05,
@@ -413,7 +413,7 @@
 ///     sphere((0., 0., 0.5), 0.6),
 ///     cube((-0.5, -0.5, 0.), (.5, 0.5, 1.0), texture: "Stripes", stripes: 32),
 ///   ),
-/// )
+/// ))
 /// ```
 ///
 /// -> shape
@@ -515,9 +515,10 @@
 }
 
 /// Renders a 3D scene defined by the given shapes from a specified camera viewpoint.
+/// Returns the rendered SVG as bytes.
 ///
 /// ```example
-/// #render(
+/// #image(render(
 ///  eye: (2., 7., 5.),
 ///  center: (1.5, 2., 0.),
 ///  step: 0.01,
@@ -531,10 +532,10 @@
 ///  translate(outline(cone(0.5, (0., 0., 0.), (0., 0., 1.))), (-1., 2.0, 0.)),
 ///  cylinder(0.5, (3.5, 0.5, 0.), (3.5, 0.5, 1.)),
 ///  translate(outline(cylinder(0.5, (0., 0., 0.), (0., 0., 1.))), (3.5, 2.0, 0.)),
-/// )
+/// ))
 /// ```
 ///
-/// -> content
+/// -> bytes
 #let render(
   /// The position of the camera in 3D space, given as an array of three floats representing the x, y, and z coordinates.
   /// -> array
@@ -547,10 +548,10 @@
   up: (0.0, 0.0, 1.0),
   /// The width of the output image.
   /// -> float
-  width: 1024.0,
+  width: 720.0,
   /// The height of the output image.
   /// -> float
-  height: 1024.0,
+  height: 720.0,
   /// Field of view of the camera.
   /// -> float
   fovy: 50.0,
@@ -567,7 +568,7 @@
   /// -> shape
   ..shapes,
 ) = {
-  image(larnt.render(
+  larnt.render(
     cbor.encode((
       eye: eye,
       center: center,
@@ -580,5 +581,5 @@
       step: step,
     )),
     cbor.encode(shapes.pos()),
-  ))
+  )
 }
