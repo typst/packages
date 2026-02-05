@@ -1,0 +1,16 @@
+[package]
+name = "unofficial-cambridge-thesis"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Matthew Ord"]
+license = "MIT"
+description = "University of Cambridge Thesis Template"
+categories = ["layout", "presentation"]
+disciplines = ["education"]
+exclude = ["fonts/*", ".devcontainer/*", "crest/*", "example/*"]
+compiler = "0.14.0"
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "main.png"
