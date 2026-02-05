@@ -1,16 +1,16 @@
-#import "../lib.typ": (
-  abstract, acknowledgements, cam-dark-blue, cam-slate-4, declaration, main-section, table-of-contents, title_page,
+#import "@preview/unofficial-cambridge-thesis:0.0.1": (
+  abstract, acknowledgements, cam-dark-blue, cam-slate-4, declaration, main-section, table-of-contents, title-page,
 )
 
-#title_page(
+#title-page(
   title: "University Of Cambridge Thesis Template",
   subtitle: "A Simple Template For Cambridge Theses",
   author: "Matthew Ord",
   crest: image("./assets/placeholder.svg", width: 100%),
-  college_crest: none,
+  college-crest: none,
   department: "Department of Physics",
   college: "Your College",
-  degree_title: "Doctor of Philosophy",
+  degree-title: "Doctor of Philosophy",
 )
 
 #declaration()

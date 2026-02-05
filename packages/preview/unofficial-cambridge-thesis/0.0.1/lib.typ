@@ -10,17 +10,17 @@
 #let _author-state = state("author", "")
 #let _date-state = state("date", "")
 
-#let title_page(
+#let title-page(
   title: "",
   subtitle: none,
   author: "",
   crest: none,
-  college_crest: none,
+  college-crest: none,
   department: "",
   university: "University of Cambridge",
   college: "",
-  submission_text: "This dissertation is submitted for the degree of",
-  degree_title: "Doctor of Philosophy",
+  submission-text: "This dissertation is submitted for the degree of",
+  degree-title: "Doctor of Philosophy",
   date: datetime.today().display("[month repr:long] [year]"),
 ) = {
   _author-state.update(author)
@@ -37,7 +37,7 @@
   set align(center)
 
   // 1. University Crest (if college crest exists, university crest goes at the top)
-  if college_crest != none and crest != none {
+  if college-crest != none and crest != none {
     box(width: 10cm, crest)
     v(2fr)
   }
@@ -54,8 +54,8 @@
   v(3fr)
 
   // 3. Crest Logic (if no college crest, university crest goes here)
-  if college_crest != none {
-    box(width: 5cm, college_crest)
+  if college-crest != none {
+    box(width: 5cm, college-crest)
   } else if crest != none {
     box(width: 5cm, crest)
   }
@@ -74,9 +74,9 @@
 
   // 7. Submission Text
   block(width: 80%, {
-    text(font: "Open Sans", submission_text)
+    text(font: "Open Sans", submission-text)
     parbreak()
-    text(font: "Open Sans", weight: "bold", fill: cam-dark-blue, degree_title)
+    text(font: "Open Sans", weight: "bold", fill: cam-dark-blue, degree-title)
   })
 
   v(1fr)
