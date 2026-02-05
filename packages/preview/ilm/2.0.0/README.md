@@ -48,7 +48,6 @@ can add a show rule like this at the top of your file:
 // Your content goes below.
 ```
 
-> [!NOTE]
 > This template uses the [Iosevka] font for raw text. In order to use Iosevka,
 > the font must be installed on your computer. In case Iosevka is not installed, as will be
 > the case for Typst Web App, then the template will fall back to the default "Fira Mono"
@@ -85,7 +84,6 @@ choose to customize the template. For a detailed explanation of these options, s
 
 The function also accepts a single, positional argument for the body.
 
-> [!NOTE]
 > The language setting for text (`lang` parameter of `text` function) should be
 > defined before the `ilm` function so that headings such as table of contents and
 > bibliography will be defined as per the text language.
