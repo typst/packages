@@ -33,7 +33,7 @@ typst init @preview/scarif:0.1.0
 Apply Scarifs basic show rules with `template()`:
 
 ```typ
-#show scarif.template
+#show: scarif.template
 ```
 
 To automaticly apply Scarifs show rules to `raw()` and `image()` enable them in the `template()` function:
