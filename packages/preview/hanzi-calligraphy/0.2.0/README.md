@@ -180,7 +180,7 @@ When using a custom font, the characters might not align perfectly within the gr
 
 Different fonts have different glyph positioning. If brackets or punctuation don't align well with your chosen font, adjust the positioning parameters:
 
-```typst
+```text
 #calligraphy-work(
   font: "Your-Font-Name",
   open-bracket-dy: 0.3em,   // Adjust as needed
