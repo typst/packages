@@ -1,0 +1,8 @@
+[package]
+name = "commute"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["giacomogallina <https://gitlab.com/giacomogallina>"]
+license = "MIT"
+description = "A proof of concept library for commutative diagrams."
+repository = "https://gitlab.com/giacomogallina/commute"

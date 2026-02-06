@@ -1,0 +1,10 @@
+<svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .signature {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 40px;
+      fill: #000000;
+    }
+  </style>
+  <text x="10" y="40" class="signature">李四</text>
+</svg>

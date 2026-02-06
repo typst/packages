@@ -1,0 +1,46 @@
+<svg width="350" height="300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .label { font: bold 14px sans-serif; fill: #333; }
+    .axis-label { font: 12px sans-serif; fill: #555; }
+    .axis { stroke: #000; stroke-width: 1; }
+    .grid { stroke: #ccc; stroke-width: 0.5; stroke-dasharray: 2,2; }
+    .bar-t0 { fill: lightblue; }
+    .bar-t1m { fill: darkblue; }
+    .bar-label { font: 12px sans-serif; fill: #fff; text-anchor: middle; }
+    .title { font: bold 16px sans-serif; text-anchor: middle; }
+    .gene-label { font: italic 13px sans-serif; text-anchor: middle; }
+  </style>
+
+  <rect x="1" y="1" width="348" height="298" fill="none" stroke="#ccc"/>
+
+  <text x="175" y="30" class="title">SRY 启动子甲基化水平变化</text>
+  <text x="175" y="50" class="gene-label">(PBMCs)</text>
+
+  <!-- Axes -->
+  <line class="axis" x1="50" y1="250" x2="330" y2="250"/> <!-- X axis (Time Points) -->
+  <line class="axis" x1="50" y1="50" x2="50" y2="250"/> <!-- Y axis (%) -->
+
+  <!-- Y Axis Labels & Grid -->
+  <text x="40" y="60" text-anchor="end" class="axis-label">100%</text>
+  <line class="grid" x1="50" y1="60" x2="330" y2="60"/>
+  <text x="40" y="108" text-anchor="end" class="axis-label">75%</text>
+  <line class="grid" x1="50" y1="108" x2="330" y2="108"/>
+  <text x="40" y="155" text-anchor="end" class="axis-label">50%</text>
+  <line class="grid" x1="50" y1="155" x2="330" y2="155"/>
+  <text x="40" y="203" text-anchor="end" class="axis-label">25%</text>
+  <line class="grid" x1="50" y1="203" x2="330" y2="203"/>
+  <text x="40" y="250" text-anchor="end" class="axis-label">0%</text>
+  <text x="25" y="150" text-anchor="middle" transform="rotate(-90, 25, 150)" class="axis-label">甲基化百分比 (%)</text>
+
+  <!-- X Axis Labels -->
+  <text x="125" y="265" text-anchor="middle" class="axis-label">T0 (给药前)</text>
+  <text x="255" y="265" text-anchor="middle" class="axis-label">T+1m</text>
+
+  <!-- Bars -->
+  <rect class="bar-t0" x="90" y="212" width="70" height="38"/> <!-- T0: Low methylation (~20%) -->
+  <text class="bar-label" x="125" y="230">~20%</text>
+
+  <rect class="bar-t1m" x="220" y="80" width="70" height="170"/> <!-- T+1m: High methylation (~85%) -->
+  <text class="bar-label" x="255" y="100">~85%</text>
+
+</svg>

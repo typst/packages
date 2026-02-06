@@ -1,0 +1,3 @@
+*.pdf
+!docs/manual.pdf
+.DS_Store

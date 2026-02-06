@@ -1,0 +1,15 @@
+[package]
+name = "clean-acmart"
+version = "0.0.1"
+entrypoint = "clean-acmart.typ"
+authors = ["Junliang Hu <jlhu@cse.cuhk.edu.hk>"]
+license = "MIT"
+description = "Simple and clean Typst paper template for ACM conferences following the original acmart style."
+repository = "https://github.com/vtta/clean-acmart"
+categories = ["paper"]
+disciplines = ["computer-science"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.webp"

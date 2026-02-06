@@ -1,0 +1,16 @@
+[package]
+name = "clean-hda"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Roland Schätzle <@roland-KA>", "Stefan Siber <@stefan-ctrl>"]
+license = "MIT"
+description = "Computer Science Thesis for Hochschule Darmstadt (h_da)"
+repository = "https://github.com/stefan-ctrl/clean-hda-typst-template"
+keywords = ["h_da", "Darmstadt", "thesis"]
+categories = ["paper", "thesis", "report"]
+exclude = ["template/main.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

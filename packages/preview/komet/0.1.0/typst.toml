@@ -1,0 +1,12 @@
+[package]
+name = "komet"
+version = "0.1.0"
+entrypoint = "src/komet.typ"
+authors = ["Mc-Zen <https://github.com/Mc-Zen>"]
+license = "MIT"
+description = "Selected high-performance computations for Typst."
+compiler = "0.11.0"
+
+repository = "https://github.com/Mc-Zen/komet"
+keywords = ["algorithm", "plugin", "fft", "histogram", "ifft", "fourier transform", "contour", "boxplot", "mathematic"]
+categories = ["scripting", "utility"]
