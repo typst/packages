@@ -1,0 +1,13 @@
+[package]
+name = "impaginato"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Mariano Mollo <marianomollo@protonmail.ch>"]
+license = "MIT"
+description = "A practical flyer to print and cut at home."
+categories = ["flyer"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

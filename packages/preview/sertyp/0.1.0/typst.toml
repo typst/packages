@@ -1,0 +1,11 @@
+[package]
+name = "sertyp"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Uhrendoktor <docclock85@gmail.com>"]
+license = "MIT"
+description = "Serialization and deserialization of most types. Markdown, math, etc."
+repository = "https://github.com/Uhrendoktor/sertyp"
+keywords = ["wasm", "serialization", "deserialization"]
+categories = ["scripting", "integration", "utility"]
+exclude = ["test.typ"]

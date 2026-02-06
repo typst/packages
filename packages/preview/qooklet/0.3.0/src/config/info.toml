@@ -1,0 +1,13 @@
+[global]
+    book = "Qooklet Book"
+    author = "ivaquero"
+    footer-cap = ""
+    header-cap = ""
+    lang = "en"
+
+[rf]
+    book = "Reinforcement Learning"
+    author = "ivaquero"
+    footer-cap = "Reinforcement Learning"
+    header-cap = ""
+    lang = "en"

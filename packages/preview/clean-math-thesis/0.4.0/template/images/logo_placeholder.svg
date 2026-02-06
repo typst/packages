@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="210mm"
+   viewBox="0 0 210 210"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   sodipodi:docname="logo_placeholder.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0868297"
+     inkscape:cx="341.35983"
+     inkscape:cy="396.56627"
+     inkscape:window-width="1920"
+     inkscape:window-height="1173"
+     inkscape:window-x="0"
+     inkscape:window-y="70"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:61.5337px;line-height:0;font-family:Arial;-inkscape-font-specification:Arial;fill:#fd0202;fill-opacity:0.05;stroke:#008002;stroke-width:3.069;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:2.1;paint-order:markers stroke fill;stroke-opacity:1"
+       x="-72.365112"
+       y="128.54655"
+       id="text1"
+       transform="rotate(-40.230422)"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="stroke-width:3.069;fill:#fd0202;fill-opacity:0.05;stroke:#008002;stroke-opacity:1"
+         x="-72.365112"
+         y="128.54655">LOGO</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:44.09px;line-height:0;font-family:Arial;-inkscape-font-specification:Arial;fill:#800080;fill-opacity:0;stroke:#800080;stroke-width:2.19898;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:2.1;paint-order:markers stroke fill;stroke-opacity:1"
+       x="-109.63117"
+       y="183.01425"
+       id="text3"
+       transform="rotate(-41.027708)"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         style="stroke-width:2.19898;fill:#800080;fill-opacity:0;stroke:#800080;stroke-opacity:1"
+         x="-109.63117"
+         y="183.01425">Placeholder</tspan></text>
+  </g>
+</svg>

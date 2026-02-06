@@ -1,0 +1,15 @@
+[package]
+name = "touying-simpl-nudt"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["yelpevade"]
+license = "MIT"
+description = "国防科技大学 Touying 幻灯片主题 (Touying Slide Theme for NUDT)"
+repository = "https://github.com/yelpevade/touying-nudt"
+keywords = ["touying", "slide", "nudt"]
+categories = ["presentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

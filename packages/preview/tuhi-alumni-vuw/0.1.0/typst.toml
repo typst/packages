@@ -1,0 +1,27 @@
+[package]
+name = "tuhi-alumni-vuw"
+version = "0.1.0"
+entrypoint = "tuhi-alumni-vuw.typ"
+authors = ["baptiste <https://github.com/baptiste>"]
+license = "MPL-2.0"
+description = "A template for VUW alumni profile flyers."
+categories = ["office"]
+repository = "https://github.com/vuw-scps/tuhi-alumni-vuw"
+exclude = [
+    "vuw-logo.svg",
+    "makefile",
+    "examples",
+    "package.sh",
+    "tests",
+    "docs",
+    ".github",
+    ".vscode",
+    ".git",
+    ".gitignore",
+    "**/*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

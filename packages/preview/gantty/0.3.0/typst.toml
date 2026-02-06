@@ -1,0 +1,11 @@
+[package]
+name = "gantty"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["John Toohey <john_t@mailo.com>"]
+license = "LGPL-3.0"
+description = "Create gantt charts using datetimes"
+repository = "https://gitlab.com/john_t/typst-gantty"
+keywords = ["gantt", "datetime"]
+categories = ["visualization"]
+exclude = ["example/*"]
