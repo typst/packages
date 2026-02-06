@@ -9,7 +9,7 @@
       eye: (3., 0., 3.),
       center: (1.1, 0., 0.),
       step: 0.01,
-      func((x, y) => -1 / (x * x + y * y), min, max, texture: "Swirl", n: 201),
+      func((x, y) => -1 / (x * x + y * y), min, max, texture: "Swirl", n: 201, step: 0.1),
     ),
     width: 100%,
   )

@@ -56,7 +56,7 @@ _3D line art engine using [rust rewrite](https://github.com/HellOwhatAs/larnt) o
     <tr>
         <td>example1</td>
         <td>func (about 2s)</td>
-        <td>func2</td>
+        <td>func2 (about 1s)</td>
     </tr>
     <tr>
         <td>
@@ -128,7 +128,7 @@ _3D line art engine using [rust rewrite](https://github.com/HellOwhatAs/larnt) o
 - Output SVG
 
 ## Usage
-For information, see the [manual.pdf](https://github.com/user-attachments/files/25088502/manual.pdf).
+For information, see the [manual.pdf](https://github.com/user-attachments/files/25118791/manual.pdf).
 
 Add the following code to your document:
 ```typst

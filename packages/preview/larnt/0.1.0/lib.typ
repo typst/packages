@@ -202,19 +202,35 @@
   /// #let (min, max) = ((-1., -1., -1.), (1., 1., 1.))
   /// #image(render(
   ///   eye: (2.5, 0.4, 1.5),
-  ///   func((x, y) => x * y, min, max, texture: "Spiral"),
-  ///   func((x, y) => 0.0, min, max),
+  ///   func((x, y) => x * y, min, max, texture: "Spiral", step: .01),
+  ///   func((x, y) => 0.0, min, max, step: .01),
   /// ))
   /// ```
   ///
   /// -> str
   texture: "Grid",
-  /// The number of samples along each axis if `func` is a function.
+  /// The number of samples along each axis if `func` is a function. Higher number of samples results in more accurate rendering but longer rendering time.
   /// -> int
   n: 50,
-  /// The step size for the intersect algorithm.
+  /// The step size for the intersect algorithm. Smaller step size results in more accurate occlusion rendering but longer rendering time.
+  ///
+  /// ```example
+  /// #let f(x, y) = 0.7 * calc.sin(calc.sqrt(20 * (x * x + y * y)))
+  /// #let (min, max) = ((-4., -4., -4.), (4., 4., 4.))
+  /// #image(
+  ///   render(
+  ///     eye: (14., 5., 14.),
+  ///     center: (0., 5., 0.),
+  ///     height: 640.,
+  ///     step: 0.01,
+  ///     func(f, min, max, step: .5),
+  ///     translate(func(f, min, max, step: 5.), (0., 10., 0.)),
+  ///   ),
+  /// )
+  /// ```
+  ///
   /// -> float
-  step: 0.1,
+  step: 0.05,
 ) = {
   assert(
     (type(func) == function or type(func) == array)
@@ -566,7 +582,7 @@
   /// The far clipping plane distance.
   /// -> float
   far: 100.0,
-  /// The step size for the algorithm.
+  /// The step size for the algorithm. Smaller step size results in more accurate rendering but longer rendering time.
   /// -> float
   step: 0.1,
   /// The 3D shapes to be rendered in the scene.
