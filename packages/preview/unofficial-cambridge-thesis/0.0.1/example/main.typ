@@ -1,4 +1,4 @@
-#import "../lib.typ": appendix, cam-dark-blue, cam-slate-4, cam-theisis, declaration, main-body, preamble
+#import "@preview/unofficial-cambridge-thesis:0.0.1": appendix, cam-dark-blue, cam-slate-4, cam-theisis, declaration, main-body, preamble
 
 #show: cam-theisis.with(
   title: "University Of Cambridge Thesis Template",
@@ -72,7 +72,7 @@ $ E = m C^2 $
 
 
 
-= Section 2
+= Sectionz
 #lorem(100)
 $ E = m C^2 $
 
