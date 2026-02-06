@@ -10,6 +10,85 @@
 #let _author-state = state("author", "")
 #let _date-state = state("date", "")
 
+#let cam-theisis-text(body) = {
+  set text(font: "Open Sans", size: 1em, fill: cam-slate-4)
+  set par(justify: true)
+  show heading: set text(font: "Feijoa Bold-Cambridge", fill: cam-dark-blue)
+
+
+  show heading.where(level: 1): it => {
+    pagebreak(weak: true)
+    if (it.numbering == none) {
+      align(center, text(font: "Feijoa Bold-Cambridge", size: 2em, fill: cam-dark-blue, it))
+      v(1em)
+      return
+    }
+
+    v(6em)
+    block(spacing: 4em, {
+      text(
+        font: "Feijoa Medium-Cambridge",
+        size: 1.5em,
+        fill: cam-slate-4,
+        it.supplement + [ ] + counter(heading).display(it.numbering),
+      )
+      linebreak()
+      linebreak()
+      text(font: "Feijoa Bold-Cambridge", size: 2em, fill: cam-dark-blue, it.body)
+    })
+  }
+  show heading.where(level: 2): set text(size: 1.5em)
+  show heading.where(level: 3): set text(size: 1.5em)
+
+  show heading.where(level: 2): it => {
+    v(0.5em)
+    it
+    v(0.2em)
+  }
+
+  set math.equation(numbering: n => {
+    let chapter = counter(heading).at(here()).at(0)
+    numbering("(1.1)", chapter, n)
+  })
+  show math.equation: set text(font: "Fira Math", fill: cam-dark-blue)
+
+  set page(
+    paper: "a4",
+    margin: (left: 3cm, right: 3cm, top: 3cm + 2em, bottom: 3cm),
+    numbering: none,
+    header-ascent: 2em,
+    header: context {
+      // Look for a heading on the current page
+      // If a heading exists on this page, return nothing (skip header)
+      let headings = query(heading.where(level: 1)).filter(h => h.location().page() == here().page())
+      if headings.len() > 0 {
+        return none
+      }
+
+      // Otherwise, find the "active" heading to display
+      let before = query(heading.where(level: 1).before(here()))
+      let current_title = if before.len() > 0 { before.last().body } else { "" }
+
+      grid(
+        columns: (1fr, 1fr),
+        align(left)[#text(weight: "bold", fill: cam-dark-blue, font: "Open Sans", counter(page).display())],
+        align(right)[#text(font: "Feijoa Bold-Cambridge", fill: cam-dark-blue, [#current_title])],
+      )
+      v(-8pt)
+      line(length: 100%, stroke: 1pt + cam-dark-blue)
+    },
+  )
+
+  show outline.entry.where(level: 1): it => {
+    v(1.5em, weak: true)
+    show: strong
+    set text(fill: cam-dark-blue)
+    it
+  }
+
+  body
+}
+
 #let title-page(
   title: "",
   subtitle: none,
@@ -89,102 +168,63 @@
   pagebreak(weak: true)
 }
 
-#let _common-section(body) = {
-  set text(font: "Open Sans", size: 1em, fill: cam-slate-4)
-  set par(justify: true)
-  show heading: set text(font: "Feijoa Bold-Cambridge", fill: cam-dark-blue)
+#let cam-theisis(
+  title: "",
+  subtitle: none,
+  author: "",
+  crest: none,
+  college-crest: none,
+  department: "",
+  university: "University of Cambridge",
+  college: "",
+  submission-text: "This dissertation is submitted for the degree of",
+  degree-title: "Doctor of Philosophy",
+  date: datetime.today().display("[month repr:long] [year]"),
+  body,
+) = {
+  _author-state.update(author)
+  _date-state.update(date)
 
-
-  show heading.where(level: 1): set text(size: 2em)
-  show heading.where(level: 2): set text(size: 1.5em)
-  show heading.where(level: 3): set text(size: 1.5em)
-
-  show heading.where(level: 2): it => {
-    v(0.5em)
-    it
-    v(0.2em)
-  }
-
+  title-page(
+    author: author,
+    crest: crest,
+    college: college,
+    college-crest: college-crest,
+    date: date,
+    degree-title: degree-title,
+    department: department,
+    university: university,
+    submission-text: submission-text,
+    subtitle: subtitle,
+    title: title,
+  )
+  show: cam-theisis-text
   body
 }
 
 
-#let preamble-section(body) = {
-  show: _common-section
-  set page(
-    paper: "a4",
-    margin: (left: 3cm, right: 3cm, top: 3cm, bottom: 3cm),
-    numbering: none,
-  )
+
+
+#let preamble(body) = {
   set heading(outlined: false)
-  show heading.where(level: 1): it => {
-    align(center, it)
-    v(1em)
-  }
   body
-  pagebreak()
 }
 
 
-#let main-section(body) = {
-  show: _common-section
+#let main-body(body) = {
+  set heading(numbering: "1.1.1", supplement: "Chapter")
+  counter(heading).update(0)
+  body
+}
 
-  set heading(numbering: "1.1.1")
-
-  show heading.where(level: 1): it => {
-    // Start chapters on a new page
-    pagebreak(weak: true)
-
-    v(3em)
-    block(spacing: 2em, {
-      // Undo the default header scaling
-      set text(size: 0.5em)
-      text(font: "Feijoa Medium-Cambridge", size: 1.3em, fill: cam-slate-4, "Chapter " + counter(heading).display())
-      linebreak()
-      linebreak()
-      text(font: "Feijoa Bold-Cambridge", size: 2em, fill: cam-dark-blue, it.body)
-    })
-  }
-
-  set page(
-    paper: "a4",
-    margin: (left: 3cm, right: 3cm, top: 3cm + 2em, bottom: 3cm),
-    numbering: none,
-    header-ascent: 2em,
-    header: context {
-      // Look for a heading on the current page
-      // If a heading exists on this page, return nothing (skip header)
-      let headings = query(heading.where(level: 1)).filter(h => h.location().page() == here().page())
-      if headings.len() > 0 {
-        return none
-      }
-
-      // Otherwise, find the "active" heading to display
-      let before = query(heading.where(level: 1).before(here()))
-      let current_title = if before.len() > 0 { before.last().body } else { "" }
-
-      grid(
-        columns: (1fr, 1fr),
-        align(left)[#text(weight: "bold", fill: cam-dark-blue, font: "Open Sans", counter(page).display())],
-        align(right)[#text(font: "Feijoa Bold-Cambridge", fill: cam-dark-blue, [#current_title])],
-      )
-      v(-8pt)
-      line(length: 100%, stroke: 1pt + cam-dark-blue)
-    },
-  )
-  set math.equation(numbering: n => {
-    let chapter = counter(heading).at(here()).at(0)
-    numbering("(1.1)", chapter, n)
-  })
-  show math.equation: set text(font: "Fira Math", fill: cam-dark-blue)
-
+#let appendix(body) = {
+  set heading(numbering: "A.1.1", supplement: "Appendix")
+  counter(heading).update(0)
   body
 }
 
 
 #let declaration() = {
-  show: preamble-section
-
   [
     = Declaration
     This thesis is the result of my own work and includes nothing which is the outcome of work done in collaboration except as declared in the preface and specified in the text. It is not substantially the same as any work that has already been submitted, or is being concurrently submitted, for any degree, diploma or other qualification at the University of Cambridge or any other University or similar institution except as declared in the preface and specified in the text. It does not exceed the prescribed word limit for the relevant Degree Committee.
@@ -196,38 +236,5 @@
   ]
 }
 
-#let acknowledgements(body) = {
-  show: preamble-section
 
-  [
-    = Acknowledgements
-    #body
-  ]
-}
 
-#let abstract(body) = {
-  show: preamble-section
-
-  [
-    = Abstract
-    #body
-  ]
-}
-
-#let table-of-contents() = {
-  show: preamble-section
-  show outline.entry.where(level: 1): it => {
-    v(1.5em, weak: true)
-    show: strong
-    set text(fill: cam-dark-blue)
-    it
-  }
-  [
-    = Table of Contents
-    #outline(
-      title: none,
-      indent: auto,
-      depth: 3,
-    )
-  ]
-}
