@@ -1,19 +1,11 @@
-//Imports
-  #import "@preview/simple-thesis-ger-host:1.0.1": thesis-layout, thesis-title-page // import "header" everything what is defined globally, except glossarium because its not working than (print-glossary funktion is missing)
-  #import "@preview/glossarium:0.5.10":  make-glossary,  register-glossary,  print-glossary,  gls,  glspl
-  #import "./chapter/glossar.typ": entry-list
-// Glossary setup
-  #register-glossary(entry-list)
-  #show: make-glossary
-  
-// apply global page layout (the margin is reset in the titlepage settings)
-#show: thesis-layout
+//Import the header.typ with the layout settings and definitions
+// you can make changes to the layout in the header.typ file
+#import "@preview/simple-thesis-ger-host:1.0.1": thesis, show-glossary 
 // ====================
-// Deckblatt
+// Deckblatt & Outline & layout
 // ====================
-// 
-// If you want to change something on the title page Layout pls do so in the header.typ file
- #show: thesis-title-page.with(
+// If you want to change something else on the title page Layout pls do so in the header.typ file
+ #show: thesis.with(
     degree: [Abschlussarbeit],
     subject: [Studiengang Elektrotechnik Bachelor],
     title: [Titel der Abschlussarbeit, der viel zu lang ist, sowie sich das für eine Ordentliche Abschlussarbeit, die was aufsich hält, gehört],
@@ -26,20 +18,10 @@
     company: [Beispiel GmbH],
 
   )
-  
 
-
-// Inhaltsverzeichnis
-  #pagebreak()
-  #set heading(numbering: "1.")
-  #set page(numbering: "I")
-  #outline(title: "Inhaltsverzeichnis ")
-   
-  #outline( title: "Abbildungsverzeichnis", target: figure.where(kind: image))
-
-//Start Real Numbering 
-  #set page(numbering: "1")
-  #counter(page).update(1)
+//==================
+//content
+//==================
   #include "./chapter/vorwort.typ"
   = Chapter 1
   #lorem(20) @host #lorem(60) @hostWebsite #lorem(800)
@@ -50,7 +32,10 @@
 //Glossar
   #pagebreak()
   = Glossar
-  #print-glossary(entry-list)
+  #show: show-glossary
+   // Originally here whould be #print-glossary(entry-list), but the glossary is implementet via. header.typ so it changed
+
+
 //Quellen
   = Quellenverzeichniss
   #bibliography("./bib/Abschlussarbeit.bib", title: none)

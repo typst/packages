@@ -1,29 +1,24 @@
 // ===== Imports (package responsibility)
-#import "@preview/glossarium:0.5.10":
-  make-glossary,
-  register-glossary,
-  print-glossary,
-  gls,
-  glspl
+#import "@preview/glossarium:0.5.10":  make-glossary,  register-glossary,  print-glossary,  gls,  glspl
+#import "template/chapter/glossar.typ":entry-list
 
-// ===== Public entry function
+// ===== Layout Config and glossary setup
+  // import "header" everything what is defined globally, except glossarium because its not working than (print-glossary funktion is missing)
 
-#let thesis-layout(body) = {
-  // Language & layout
-  set text(lang: "de")
-  set page(paper: "a4")
-  set par(justify: true)
-  // Title page change margins at the bottom for every other side
-
-  
+//======== Glossary printing in main dokument
+#let show-glossary(body) = {
+  print-glossary(entry-list)  
   body
 }
 
-// import "header" everything what is defined globally, except glossarium because its not working than (print-glossary funktion is missing)
-
-#let thesis-title-page(  title: [], subject: [],  author: [], street: [], city: [],  firstExaminer: [], secondExaminer: [], place: [], company: [], degree: [],faculty: [], body)= {
+//=========== Thesis Title Page setup
+#let thesis(  title: [], subject: [],  author: [], street: [], city: [],  firstExaminer: [], secondExaminer: [], place: [], company: [], degree: [],faculty: [], body)= {
+  set text(lang: "de")
+  set page(paper: "a4")
+  set par(justify: true)
   set page(  margin: (top: 0cm, bottom: 0cm, left: 0cm, right: 0cm ))
-
+  register-glossary(entry-list)
+  show: make-glossary
 
   align(center)[
     #v(1cm)  // Vertikal zentrieren (oben)
@@ -84,5 +79,12 @@
     #v(1fr)  // Vertikal zentrieren (unten)
   ]
   set page(margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 2.5cm))
+  pagebreak()
+  set heading(numbering: "1.")
+  set page(numbering: "I")
+  outline(title: "Inhaltsverzeichnis ")
+  outline( title: "Abbildungsverzeichnis", target: figure.where(kind: image))
+  set page(numbering: "1")
+  counter(page).update(1)
  body
 }
