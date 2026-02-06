@@ -1,17 +1,32 @@
 //Imports
-  #import "@preview/simple-thesis-ger-host:1.0.1": thesis // import "header" everything what is defined globally, except glossarium because its not working than (print-glossary funktion is missing)
+  #import "@preview/simple-thesis-ger-host:1.0.1": thesis-layout, thesis-title-page // import "header" everything what is defined globally, except glossarium because its not working than (print-glossary funktion is missing)
   #import "@preview/glossarium:0.5.10":  make-glossary,  register-glossary,  print-glossary,  gls,  glspl
   #import "./chapter/glossar.typ": entry-list
 // Glossary setup
   #register-glossary(entry-list)
   #show: make-glossary
-
+  
+// apply global page layout (the margin is reset in the titlepage settings)
+#show: thesis-layout
 // ====================
 // Deckblatt
 // ====================
-  #include "./chapter/TitlePage.typ"
+// 
+// If you want to change something on the title page Layout pls do so in the header.typ file
+ #show: thesis-title-page.with(
+    degree: [Abschlussarbeit],
+    subject: [Studiengang Elektrotechnik Bachelor],
+    title: [Titel der Abschlussarbeit, der viel zu lang ist, sowie sich das für eine Ordentliche Abschlussarbeit, die was aufsich hält, gehört],
+    author: [Vorname Nachname],
+    street: [Beispiel Straße 15],
+    city: [18435 Stralsund],
+    firstExaminer: [Prof. Dr. Ing. Beispielname],
+    secondExaminer: [Prof. Dr. Zweitprüfer],
+    faculty: [Fakultät Elektrotechnik und Informatik],
+    company: [Beispiel GmbH],
 
-  #set page(margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 2.5cm))
+  )
+  
 
 
 // Inhaltsverzeichnis
