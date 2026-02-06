@@ -8,12 +8,12 @@
  #show: thesis-layout.with(
     degree: [Abschlussarbeit],
     subject: [Studiengang Elektrotechnik Bachelor],
-    thesisTitle: [Titel der Abschlussarbeit, der viel zu lang ist, sowie sich das für eine Ordentliche Abschlussarbeit, die was aufsich hält, gehört],
+    thesis-title: [Titel der Abschlussarbeit, der viel zu lang ist, sowie sich das für eine Ordentliche Abschlussarbeit, die was aufsich hält, gehört],
     author: [Vorname Nachname],
     street: [Beispiel Straße 15],
     city: [18435 Stralsund],
-    firstExaminer: [Prof. Dr. Ing. Beispielname],
-    secondExaminer: [Prof. Dr. Zweitprüfer],
+    examiner-first: [Prof. Dr. Ing. Beispielname],
+    examiner-second: [Prof. Dr. Zweitprüfer],
     faculty: [Fakultät Elektrotechnik und Informatik],
     company: [Beispiel GmbH],
 

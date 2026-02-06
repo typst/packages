@@ -13,13 +13,13 @@
 
 //=========== Thesis Title Page setup
 #let thesis-layout(  
-  thesisTitle: [],
+  thesis-title: [],
   subject: [],
   author: [],
   street: [], 
   city: [],  
-  firstExaminer: [], 
-  secondExaminer: [], 
+  examiner-first: [], 
+  examiner-second: [], 
   company: [], 
   degree: [],
   faculty: [], 
@@ -53,7 +53,7 @@
 
         // ---------- Titel ----------
         #line(length: 100%)
-        #text(size: 24pt, weight: "bold")[#thesisTitle]
+        #text(size: 24pt, weight: "bold")[#thesis-title]
         #line(length: 100%)
         #v(0.2cm)
 
@@ -76,8 +76,8 @@
       columns: (auto, auto),
       stroke: none,
       align: (left),
-        [Erstprüfer:], [#firstExaminer],
-        [Zweitprüfer:], [#secondExaminer],
+        [Erstprüfer:], [#examiner-first],
+        [Zweitprüfer:], [#examiner-second],
         [durchgeführt in der:], [#faculty],
         [durchgeführt für:], [#company],
         [Verfasser:], [#author],
