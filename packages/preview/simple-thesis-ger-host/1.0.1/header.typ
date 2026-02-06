@@ -12,7 +12,7 @@
 }
 
 //=========== Thesis Title Page setup
-#let thesis(  title: [], subject: [],  author: [], street: [], city: [],  firstExaminer: [], secondExaminer: [], place: [], company: [], degree: [],faculty: [], body)= {
+#let thesis-layout(  title: [], subject: [],  author: [], street: [], city: [],  firstExaminer: [], secondExaminer: [], place: [], company: [], degree: [],faculty: [], body)= {
   set text(lang: "de")
   set page(paper: "a4")
   set par(justify: true)

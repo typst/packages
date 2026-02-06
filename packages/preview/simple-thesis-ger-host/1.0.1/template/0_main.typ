@@ -1,11 +1,11 @@
 //Import the header.typ with the layout settings and definitions
 // you can make changes to the layout in the header.typ file
-#import "@preview/simple-thesis-ger-host:1.0.1": thesis, show-glossary 
+#import "@preview/simple-thesis-ger-host:1.0.1": thesis-layout, show-glossary 
 // ====================
 // Deckblatt & Outline & layout
 // ====================
 // If you want to change something else on the title page Layout pls do so in the header.typ file
- #show: thesis.with(
+ #show: thesis-layout.with(
     degree: [Abschlussarbeit],
     subject: [Studiengang Elektrotechnik Bachelor],
     title: [Titel der Abschlussarbeit, der viel zu lang ist, sowie sich das für eine Ordentliche Abschlussarbeit, die was aufsich hält, gehört],
