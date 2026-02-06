@@ -8,7 +8,7 @@
  #show: thesis-layout.with(
     degree: [Abschlussarbeit],
     subject: [Studiengang Elektrotechnik Bachelor],
-    title: [Titel der Abschlussarbeit, der viel zu lang ist, sowie sich das für eine Ordentliche Abschlussarbeit, die was aufsich hält, gehört],
+    thesisTitle: [Titel der Abschlussarbeit, der viel zu lang ist, sowie sich das für eine Ordentliche Abschlussarbeit, die was aufsich hält, gehört],
     author: [Vorname Nachname],
     street: [Beispiel Straße 15],
     city: [18435 Stralsund],
