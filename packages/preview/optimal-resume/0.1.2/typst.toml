@@ -1,0 +1,30 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "optimal-resume"
+version = "0.1.2"
+entrypoint = "src/lib.typ"
+authors = ["Issam El Ouiazzani"]
+license = "Unlicense"
+description = "A programmatic, high-performance resume template designed to solve alignment frustrations. Optimal for academic and professional CVs, with ATS compatibility."
+homepage = "https://github.com/ELO-I/typst-optimal-resume-template"
+repository = "https://github.com/ELO-I/typst-optimal-resume-template"
+keywords = ["resume", "cv", "academic", "professional", "ATS"]
+categories = ["cv"]
+disciplines = ["computer-science"]
+compiler = "0.12.0"
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg"
+]
+
+[template]
+path = "templates"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
