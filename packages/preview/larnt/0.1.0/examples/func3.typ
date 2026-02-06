@@ -1,4 +1,4 @@
-// Takes about 7s to render.
+// Takes about 1s to render.
 #set page(height: auto, margin: 0pt)
 #import "@preview/larnt:0.1.0": *
 
@@ -9,7 +9,7 @@
     render(
       eye: (8., 8., 8.),
       step: 0.01,
-      func(f, min, max),
+      func(f, min, max, step: .1),
     ),
     width: 100%,
   )

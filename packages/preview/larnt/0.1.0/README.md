@@ -55,8 +55,8 @@ _3D line art engine using [rust rewrite](https://github.com/HellOwhatAs/larnt) o
     </tr>
     <tr>
         <td>example1</td>
-        <td>func (about 7s)</td>
-        <td>func2 (about 3s)</td>
+        <td>func (about 2s)</td>
+        <td>func2</td>
     </tr>
     <tr>
         <td>
@@ -78,7 +78,7 @@ _3D line art engine using [rust rewrite](https://github.com/HellOwhatAs/larnt) o
         </td>
     </tr>
     <tr>
-        <td>func3 (about 7s)</td>
+        <td>func3 (about 1s)</td>
         <td>graph</td>
         <td>skyscrapers (about 3s)</td>
     </tr>

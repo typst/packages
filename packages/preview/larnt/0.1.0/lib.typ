@@ -211,7 +211,10 @@
   texture: "Grid",
   /// The number of samples along each axis if `func` is a function.
   /// -> int
-  n: 100,
+  n: 50,
+  /// The step size for the intersect algorithm.
+  /// -> float
+  step: 0.1,
 ) = {
   assert(
     (type(func) == function or type(func) == array)
@@ -233,6 +236,7 @@
     texture in ("Grid", "Spiral", "Swirl"),
     message: "func(...) texture must be one of Grid, Spiral, or Swirl",
   )
+  assert(step > 0, message: "func(...) step must be a positive float")
   return (
     Function: (
       samples: if type(func) == function {
@@ -247,6 +251,7 @@
       bbox: (min, max),
       direction: direction,
       texture: texture,
+      step: step,
     ),
   )
 }

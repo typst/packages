@@ -1,4 +1,4 @@
-// Takes about 7s to render.
+// Takes about 2s to render.
 #set page(height: auto, margin: 0pt)
 #import "@preview/larnt:0.1.0": *
 
