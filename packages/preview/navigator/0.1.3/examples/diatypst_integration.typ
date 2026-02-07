@@ -1,5 +1,5 @@
 #import "@preview/diatypst:0.9.1": slides
-#import "../lib.typ" as navigator
+#import "@preview/navigator:0.1.3" as navigator
 
 // --- CONFIGURATION ---
 #let primary-color = rgb("#1a5fb4")
