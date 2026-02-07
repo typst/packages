@@ -1,0 +1,22 @@
+[package]
+name = "ambivalent-amcis"
+version = "0.1.1"
+entrypoint = "amcis.typ"
+authors = [ "Ryan Schuetzler <ryan.schuetzler@byu.edu>" ]
+license = "MIT"
+description = "A template for the 2026 Americas Conference for Information Systems (AMCIS 2026)"
+keywords = [
+  "AMCIS",
+  "conference",
+  "Americas Conference for Information Systems",
+  "2026",
+  "AIS"
+]
+categories = [ "paper" ]
+exclude = [ "template/main.pdf", "fonts/" ]
+disciplines = [ "computer-science" ]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

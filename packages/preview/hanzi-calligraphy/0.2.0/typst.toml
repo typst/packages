@@ -1,0 +1,17 @@
+[package]
+name = "hanzi-calligraphy"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["yuegeao", "EllenGYY"]
+license = "MIT"
+description = "用于书法练习的田字格模板，支持传统竖排文字。A calligraphy practice template with traditional vertical text support for Chinese and Japanese."
+repository = "https://github.com/yuegeao/hanzi-calligraphy"
+keywords = ["template", "calligraphy", "Chinese", "Japanese", "hanzi", "kanji", "vertical-text"]
+categories = ["fun"]
+compiler = "0.14.0"
+exclude = ["imgs"]
+
+[template]
+path = "template"
+entrypoint = "template.typ"
+thumbnail = "thumbnail.png"
