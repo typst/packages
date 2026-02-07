@@ -13,7 +13,7 @@ TiefFiction, however, tries to be annoying about it, and opinionates everything.
 It's simple. Import and use:
 
 ```typst
-#import "@preview/tieffiction:0.1.0": book
+#import "@preview/tieffiction:0.2.0": book
 
 #show: book.with(
   title: "Your Title",

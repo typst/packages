@@ -1,6 +1,6 @@
 -.
 02l
-#import "@preview/tieffiction:0.1.0": book, start-before-main, start-main
+#import "@preview/tieffiction:0.2.0": book, start-before-main, start-main
 
 =pl0}'
 #show: book.with(
