@@ -1,0 +1,1 @@
+Wenn ihr dieses Template nutzt, schaut doch mal in @docs rein und stellt einen @pr, falls ihr Verbesserungsvorschläge habt. Im ersten Kapitel könnt ihr nachsehen, wie text dick, kursiv geschrieben wird, sowie die zitierweisen. Die gls funktion ist sowohl für das Glossar, als auch Abkürzungen nutzbar.
