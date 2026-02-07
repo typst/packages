@@ -82,7 +82,7 @@
   if final-slide-func == none { panic("navigator: slide-func must be provided either in navigator-config or as an argument to render-transition") }
   
   let final-max-length = if max-length == auto { config.at("max-length", default: none) } else { max-length }
-  let final-use-short = if use-short-title == auto { config.at("use-short-title", default: true) } else { use-short-title }
+  let final-use-short = if use-short-title == auto { config.at("use-short-title", default: false) } else { use-short-title }
 
   // Double merge: user arg > config transitions > default-transitions
   let options = merge-dicts(config.at("transitions", default: (:)), base: default-transitions)
