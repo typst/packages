@@ -1,0 +1,13 @@
+[package]
+name = "neural-netz"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "src/lib.typ"
+repository = "https://github.com/edgaremy/neural-netz"
+authors = ["Edgar Remy <@edgaremy>"]
+license = "MIT-0"
+description = "Visualize Neural Network Architectures with high-quality diagrams."
+keywords = ["neural", "network", "deep learning", "computer vision", "machine learning"]
+categories = ["visualization", "components"]
+disciplines = ["computer-science", "engineering"]
+exclude = ["/examples/*", "/gallery/*"]
