@@ -13,6 +13,7 @@ a simple package to quickly add simple graphs into your document.
   - axis-style: [scientific, scientific-auto, school-book]
 - full example:
 ```
+#import "@preview/simpleplot:0.1.1": simpleplot, add
 #simpleplot(
   xsize: 5,
   ysize: 5,
