@@ -1,0 +1,10 @@
+[package]
+name = "paper-specs"
+version = "0.1.0"
+entrypoint = "paper-specs.typ"
+authors = ["Tobias Wölfel"]
+license = "MIT"
+description = "Collection of device specifications for page setup."
+repository = "https://github.com/towoe/paper-specs"
+keywords = ["devices", "paper", "remarkable", "epaper", "apple"]
+categories = ["layout", "office"]
