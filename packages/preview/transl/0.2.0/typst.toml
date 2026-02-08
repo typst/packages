@@ -1,0 +1,22 @@
+[package]
+name = "transl"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["Maycon F. Melo <@mayconfmelo>"]
+license = "MIT-0"
+description = "Easy and simple translations for words and expressions, with support for localization"
+categories =  ["languages", "utility"]
+keywords = ["translation", "translator", "localization", "i18n", "l10n", "fluent", "internationalization", "language"]
+repository = "https://github.com/mayconfmelo/transl"
+exclude = [
+  "dev/",
+  "tests/",
+  "docs/",
+  "scripts/",
+  "fluent-plugin/",
+  ".git",
+  ".github",
+  ".gitignore",
+  "justfile",
+  "manual.typ"
+]
