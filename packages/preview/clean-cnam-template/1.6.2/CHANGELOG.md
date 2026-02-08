@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.2] - 2026-02-08
+
+### Added
+
+- **`my-block` body styling**: New `body-style` parameter for body text customization
+  - Accepts a dict with `size`, `weight`, `fill`, `font` keys
+  - `auto` values mean "inherit from context" (no override applied)
+- **Font option in `title-style`**: Added `font` key to `title-style` dicts in `my-block` and `code` components
+- **Math component text styling**: New `title-style` and `body-style` parameters for `definition`, `example`, and `theorem`
+  - Each accepts `(size, weight, fill, font)` with `auto` defaults
+  - Title styling applied via custom `titlix` formatter
+  - Body styling applied via custom `bodyfmt` formatter
+
+### Changed
+
+- **Math components refactored**: `definition`, `example`, and `theorem` converted from `.with()` wrappers to proper functions
+  - Now accept explicit parameters: `title`, `fill`, `stroke`, `radius`, `inset`, `breakable`, `title-style`, `body-style`
+  - Internal helpers `_apply-style`, `_styled-titlix`, `_styled-bodyfmt` added to `math.typ`
+
 ## [1.5.0] - 2025-12-23
 
 ### Changed
