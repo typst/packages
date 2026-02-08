@@ -684,15 +684,16 @@
   }
 
   // 3. GRID DEFINITIONS
+  let bar-col-width = 3cm
   let col-defs = (auto, 2pt) + constraints.map(_ => auto) + (2pt, auto, auto, auto)
   if visualize {
-    col-defs.push(3cm) // The Floating Column
+    col-defs.push(bar-col-width) // The Floating Column
   }
 
   let row-defs = (auto, 1.75em, 2pt) + candidates.map(_ => 1.75em)
   let last-col-idx = col-defs.len() - 1
 
-  context text(size: font-size, font: phonokit-font.get())[#table(
+  let tbl = context text(size: font-size, font: phonokit-font.get())[#table(
     columns: col-defs,
     rows: row-defs,
     align: (col, row) => (if col == 0 { right } else { center }) + horizon,
@@ -777,6 +778,8 @@
       })
       .flatten()
   )]
+
+  if visualize { pad(right: -bar-col-width, tbl) } else { tbl }
 }
 
 
