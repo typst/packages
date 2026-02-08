@@ -3,6 +3,7 @@ name = "jyutcitzi"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Vincent Tam"]
+license = "MIT"
 description = "A system for displaying Jyutcitzi characters (粵切字)."
 repository = "https://github.com/VincentTam/jyutcitzi"
 exclude = ["tests/"]
