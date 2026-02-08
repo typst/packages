@@ -8,7 +8,7 @@
 #import "@preview/i-figured:0.2.4"
 #import "@preview/great-theorems:0.1.2": *
 #import "@preview/hydra:0.6.2": hydra
-#import "@preview/linguify:0.4.2": linguify
+#import "@preview/linguify:0.5.0": linguify
 #import "headers.typ": get-header
 #import "utils.typ": date-format, thin-line
 
