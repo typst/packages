@@ -276,14 +276,14 @@ Structured themes are located in the `themes` namespace. They are applied via a 
 
 ### Examples
 You can find full implementations of these themes in the `assets/examples/` directory:
-- [Sidebar demo](assets/examples/example-sidebar.typ)
-- [Miniframes demo](assets/examples/example-miniframes.typ)
-- [Split demo](assets/examples/example-split.typ)
-- [Progressive-outline demo](assets/examples/example-progressive-outline.typ)
-- [Minimal demo](assets/examples/example-minimal.typ)
-- [Custom transition hooks demo](assets/examples/example-minimal-custom-transition.typ)
+- [Sidebar demo](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-sidebar.typ)
+- [Miniframes demo](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-miniframes.typ)
+- [Split demo](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-split.typ)
+- [Progressive-outline demo](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-progressive-outline.typ)
+- [Minimal demo](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-minimal.typ)
+- [Custom transition hooks demo](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-minimal-custom-transition.typ)
 
-For detailed information on customization (colors, spacing, behavior), please refer to the [Structured Themes Guide](assets/docs/themes-guide.pdf).
+For detailed information on customization (colors, spacing, behavior), please refer to the [Structured Themes Guide](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/docs/themes-guide.pdf).
 
 ## Versions
 ### 0.2.4 
