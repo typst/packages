@@ -1,6 +1,6 @@
 # Presentate
 **Presentate** is a package for creating presentation in Typst. It provides a framework for creating dynamic animation that is compatible with other packages. 
-For usage, please refer to [demo.pdf](https://github.com/pacaunt/typst-presentate/blob/main/assets/docs/demo.pdf)
+For usage, please refer to [demo.pdf](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/docs/demo.pdf)
 
 
 ## Simple Usage 
@@ -26,7 +26,8 @@ The easiest is to type `#show: pause`. For example,
 ```
 
 which results in 
-<img alt="example1" src="https://github.com/user-attachments/assets/8bc0d428-cf3f-4e49-96b2-093cbbf10e2e" />
+
+![simple pause animation](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-simple-pause.png)
 
 You can style the slides as you would do with normal Typst document. For example, 
 
@@ -58,7 +59,7 @@ You can style the slides as you would do with normal Typst document. For example
 ]
 ```
 
-<img alt="example2" src="https://github.com/pacaunt/typst-presentate/blob/main/assets/examples/example2.png" />
+![example using Typst styling](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-styling.png)
 
 ### Relative Index Specification 
 You can use `none` and `auto`, or even `(rel: int)` to specify the index as *with previous animation*, *after previous animation*, or `int` subslides away from the current number of pauses.
@@ -89,7 +90,7 @@ You can use `none` and `auto`, or even `(rel: int)` to specify the index as *wit
 ]
 ```
 
-<img alt="image" src="https://github.com/pacaunt/typst-presentate/blob/main/assets/examples/exampleAuto.png" />
+![relative index specification example](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-relative-indices.png)
 
 ### Varying Timeline
 You can specify the `update-pause` argument of dynamic functions to tell if that function will update the current number of pause or not. If set to `true`, the number of pauses will set to that value. 
@@ -127,7 +128,7 @@ One application is for showing contents in sync:
 ]
 ```
 
-<img alt="image" src="https://github.com/user-attachments/assets/cfff30c3-eae0-4d8c-bcec-3d891368d662" />
+![Hack for in-sync content showing using update-pause](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-in-sync.png)
 
 
 ### Motion Control
@@ -161,7 +162,7 @@ You can have a precise control on what should be shown on each subslide relative
   )
 ]
 ```
-<img alt="Motion Function Demonstration" src="https://github.com/pacaunt/typst-presentate/blob/main/assets/examples/exampleMotion.png">
+![motion function demonstration](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-motion.png)
 
 In this example, featured with CeTZ package, each element is drawn normally, while its animation is shown differently. The precise animation control is done by specifying the tagged names in `controls` argument of `#motion` function. Note that the way of showing and hiding stuff can be modified using `hider` argument of each function.
 
@@ -204,7 +205,7 @@ For example, Integration with [CeTZ](https://typst.app/universe/package/cetz) an
 ```
 Results: 
 
-<img alt="image" src="https://github.com/user-attachments/assets/971a4739-1c13-45f6-9699-308760dc34d9" />
+![CeTZ and fletcher integration example](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-cetz.png)
 
 You can incrementally show the content from other package by wrap the functions in the `animate` function, with a modifiers that modifies the function's arguments to hide the content using `modifier`. 
 For example, this molecule animation is created compatible with [Alchemist](https://typst.app/universe/package/alchemist) package: 
@@ -238,7 +239,7 @@ For example, this molecule animation is created compatible with [Alchemist](http
 
 which results in 
 
-<img alt="image" src="https://github.com/user-attachments/assets/af9de234-aef8-4e01-a6c4-b6d28feef41f" />
+![incrementally show the molecule using alchemist package](https://github.com/pacaunt/typst-presentate/blob/4cabe6e207b5bc94a0902b5da6824b5e31664739/assets/examples/example-alchemist.png)
 
 
 
