@@ -639,6 +639,7 @@
   weights: (),
   violations: (),
   visualize: true,
+  sort: false,
   scale: none,
 ) = {
   // 1. Validation and Truncation
@@ -683,7 +684,19 @@
     candidates.map(_ => 0.0)
   }
 
-  // 3. GRID DEFINITIONS
+  // 3. SORT BY PROBABILITY (if enabled)
+  let order = if sort {
+    range(candidates.len()).sorted(key: i => -p-scores.at(i))
+  } else {
+    range(candidates.len())
+  }
+  let candidates = order.map(i => candidates.at(i))
+  let violations = order.map(i => violations.at(i))
+  let h-scores = order.map(i => h-scores.at(i))
+  let p-star-scores = order.map(i => p-star-scores.at(i))
+  let p-scores = order.map(i => p-scores.at(i))
+
+  // 4. GRID DEFINITIONS
   let bar-col-width = 3cm
   let col-defs = (auto, 2pt) + constraints.map(_ => auto) + (2pt, auto, auto, auto)
   if visualize {

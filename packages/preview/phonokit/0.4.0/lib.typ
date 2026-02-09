@@ -346,6 +346,7 @@
 /// - weights (array): Array of constraint weights (numbers)
 /// - violations (array): 2D array of violation counts (numbers)
 /// - visualize (bool): Whether to show probability bars (default: true)
+/// - sort (bool): Whether to sort candidates by probability, most to least (default: false)
 ///
 /// Returns: Table showing MaxEnt tableau with H(x), P*(x), and P(x) columns
 ///
