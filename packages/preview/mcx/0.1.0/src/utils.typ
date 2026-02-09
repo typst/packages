@@ -7,48 +7,48 @@
 // Default configuration per output type
 #let _defaults_by_output = (
   concept: (
-    show_per_version: false,
-    show_q_perm_table: true,
-    show_q_list: true,
-    show_correct: true,
-    show_points: true,
-    show_explanation: true,
-    show_a_perm_table: true,
-    show_notes: true,
-    show_key_table: false,
+    show-per-version: false,
+    show-q-perm-table: true,
+    show-q-list: true,
+    show-correct: true,
+    show-points: true,
+    show-explanation: true,
+    show-a-perm-table: true,
+    show-notes: true,
+    show-key-table: false,
   ),
   exam: (
-    show_per_version: true,
-    show_q_perm_table: false,
-    show_q_list: true,
-    show_correct: false,
-    show_points: false,
-    show_explanation: false,
-    show_a_perm_table: false,
-    show_notes: false,
-    show_key_table: false,
+    show-per-version: true,
+    show-q-perm-table: false,
+    show-q-list: true,
+    show-correct: false,
+    show-points: false,
+    show-explanation: false,
+    show-a-perm-table: false,
+    show-notes: false,
+    show-key-table: false,
   ),
   answers: (
-    show_per_version: true,
-    show_q_perm_table: false,
-    show_q_list: true,
-    show_correct: true,
-    show_points: true,
-    show_explanation: true,
-    show_a_perm_table: false,
-    show_notes: false,
-    show_key_table: false,
+    show-per-version: true,
+    show-q-perm-table: false,
+    show-q-list: true,
+    show-correct: true,
+    show-points: true,
+    show-explanation: true,
+    show-a-perm-table: false,
+    show-notes: false,
+    show-key-table: false,
   ),
   key: (
-    show_per_version: false,
-    show_q_perm_table: false,
-    show_q_list: false,
-    show_correct: false,
-    show_points: false,
-    show_explanation: false,
-    show_a_perm_table: false,
-    show_notes: false,
-    show_key_table: true,
+    show-per-version: false,
+    show-q-perm-table: false,
+    show-q-list: false,
+    show-correct: false,
+    show-points: false,
+    show-explanation: false,
+    show-a-perm-table: false,
+    show-notes: false,
+    show-key-table: true,
   ),
 )
 
@@ -454,7 +454,7 @@
   if not cfg.show_q_list { return none }
 
   // 1. Displayed order for this version
-  let q_order = if cfg.show_per_version { q_order_by_v.at(version - 1) } else { range(1, questions.len() + 1) }
+  let q_order = if cfg.show-per-version { q_order_by_v.at(version - 1) } else { range(1, questions.len() + 1) }
 
   // Build enum items and render a single question list.
   let items = q_order

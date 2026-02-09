@@ -71,15 +71,15 @@
 /// - `randomize-questions`: shuffle question blocks.
 /// - `randomize-answers`: shuffle answers according to `permute`.
 /// - `config` : boolean dictionary overriding defaults (any of the cfg keys)
-///   - `show_per_version`: Show per-version question numbering.
-///   - `show_q_perm_table`: Show question permutation table.
-///   - `show_q_list`: Show question list.
-///   - `show_correct`: Show correct answers.
-///   - `show_points`: Show points.
-///   - `show_explanation`: Show explanations.
-///   - `show_a_perm_table`: Show answer permutation table.
-///   - `show_notes`: Show internal notes.
-///   - `show_key_table`: Show answer key table.
+///   - `show-per-version`: Show per-version question numbering.
+///   - `show-q-perm-table`: Show question permutation table.
+///   - `show-q-list`: Show question list.
+///   - `show-correct`: Show correct answers.
+///   - `show-points`: Show points.
+///   - `show-explanation`: Show explanations.
+///   - `show-a-perm-table`: Show answer permutation table.
+///   - `show-notes`: Show internal notes.
+///   - `show-key-table`: Show answer key table.
 #let mc-questions(
   questions,
   output: "exam",
