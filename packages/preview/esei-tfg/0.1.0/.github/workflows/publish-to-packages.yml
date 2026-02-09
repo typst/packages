@@ -1,0 +1,100 @@
+name: Publish to packages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          path: source
+
+      - name: Read package metadata
+        id: pkg
+        working-directory: source
+        run: |
+          python - <<'PY'
+          import os
+          import tomllib
+
+          with open("typst.toml", "rb") as f:
+              data = tomllib.load(f)
+
+          name = data["package"]["name"]
+          version = data["package"]["version"]
+
+          output_path = os.environ["GITHUB_OUTPUT"]
+          with open(output_path, "a", encoding="utf-8") as f:
+              f.write(f"name={name}\n")
+              f.write(f"version={version}\n")
+          PY
+
+      - name: Checkout destination
+        uses: actions/checkout@v4
+        with:
+          repository: Kioraga/packages
+          token: ${{ secrets.PACKAGES_REPO_TOKEN }}
+          path: dest
+
+      - name: Sync package contents
+        env:
+          NAME: ${{ steps.pkg.outputs.name }}
+          VERSION: ${{ steps.pkg.outputs.version }}
+        run: |
+          target="dest/packages/preview/$NAME/$VERSION"
+          rm -rf "$target"
+          mkdir -p "$target"
+          rsync -a --exclude ".git" --exclude ".gitignore" "source/" "$target/"
+
+      - name: Update template import
+        env:
+          NAME: ${{ steps.pkg.outputs.name }}
+          VERSION: ${{ steps.pkg.outputs.version }}
+        run: |
+          python - <<'PY'
+          import os
+
+          name = os.environ["NAME"]
+          version = os.environ["VERSION"]
+          path = os.path.join("dest", "packages", "preview", name, version, "template", "tfg.typ")
+
+          with open(path, "r", encoding="utf-8") as f:
+              lines = f.read().splitlines()
+
+          new_lines = []
+          i = 0
+          while i < len(lines):
+              line = lines[i]
+              next_line = lines[i + 1] if i + 1 < len(lines) else ""
+              if line.startswith("//#import \"@local/esei-tfg:") and next_line.startswith("#import \"../esei-tfg.typ\": *"):
+                  new_lines.append(f"#import \"@preview/esei-tfg:{version}\": *")
+                  i += 2
+                  continue
+              new_lines.append(line)
+              i += 1
+
+          with open(path, "w", encoding="utf-8") as f:
+              f.write("\n".join(new_lines) + "\n")
+          PY
+
+      - name: Commit and push
+        env:
+          NAME: ${{ steps.pkg.outputs.name }}
+          VERSION: ${{ steps.pkg.outputs.version }}
+        run: |
+          cd dest
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "packages/preview/$NAME/$VERSION"
+          git commit -m "Publish $NAME $VERSION"
+          git push

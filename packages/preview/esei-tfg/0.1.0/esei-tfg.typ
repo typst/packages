@@ -1,4 +1,4 @@
-#import "@preview/unify:0.7.1": num, numrange, qty, qtyrange
+#import "@preview/unify:0.7.1": num, qty, numrange, qtyrange
 #import "@preview/physica:0.9.8": *
 #let longitud-abstract = 138
 #let esei-tfg(
@@ -24,18 +24,18 @@
   set text(size: 12.5pt, lang: "es")
   set par(linebreaks: "optimized", justify: true, spacing: 1.8em, leading: 1.2em)
   //let azulunir = rgb("#0098cd")
-  
+
   show link: it => {
     if not (it.body.text.contains(it.dest)) {
       text(fill: blue, underline(it))
     } else { text(fill: blue, font: "IBM Plex Mono", size: 10.2pt, underline(it)) }
   }
-  
+
   /*
     Longitur del abstract de ejemplo
   */
   let longitud_abstract = 130
-  
+
   /*
   Estilo de los títulos de cabecera de nivel 1 (sección )
   */
@@ -50,7 +50,7 @@
     text(black, weight: "bold", 20pt)[#item.body]
     v(0.1em)
   }
-  
+
   /*
   Estilo de los títulos de cabecera de nivel 2 (subsección)
   */
@@ -61,15 +61,15 @@
     text(black, weight: "bold", 15pt)[#item.body]
     v(0.1em)
   }
-  
+
   /*
   Definición de la portada
   */
-  
+
   align(center)[
     #v(25pt)
     #image("logo_uvigo.png", width: 45%)
-    
+
     #text(size: 17pt)[
       #strong[E]SCOLA #strong[S]UPERIOR #strong[D]E #strong[E]NXEÑARÍA #strong[I]NFORMÁTICA
     ]
@@ -81,7 +81,7 @@
     #text(size: 13pt)[para a obtención do Título de Graduado en Enxeñaría Informática]
     #v(10pt)
     #text(size: 15pt, weight: "bold")[#titulo]
-    
+
     #v(145pt)
     #align(center)[
       #grid(
@@ -104,8 +104,8 @@
       )
     ]
   ]
-  
-  
+
+
   if (agradecimientos != none) {
     if (
       agradecimientos.func() == quote and agradecimientos.has("attribution") and agradecimientos.attribution == [Plato]
@@ -114,27 +114,27 @@
       #align(center + horizon, text(size: 18pt, [#agradecimientos]))
     ]
   }
-  
+
   pagebreak()
-  
+
   align(top)[
     #text(fill: black, size: 18pt, weight: "regular")[Resumen]
-    
+
     #resumen
-    
+
     #text(weight: "bold")[Palabras clave:]
     #pclave
   ]
   align(bottom)[
     #text(fill: black, size: 18pt)[Abstract]
-    
+
     #abstract
-    
+
     #text(weight: "bold")[Keywords:]
     #kwords
   ]
-  
-  
+
+
   // text(font: "calibri", size: 18pt, fill: azulunir, weight: "light")[Índice de contenidos]
   outline(title: "Índice de contenidos")
   //pagebreak()
