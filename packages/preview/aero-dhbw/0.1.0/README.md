@@ -37,7 +37,7 @@ The intended directory structure is also already present and some usage hints fo
 In case you want to do the template setup yourself, here is the minimal configuration needed for the template:
 
 ```typ
-#import "@local/aero-dhbw:0.1.0": aero-dhbw
+#import "@preview/aero-dhbw:0.1.0": aero-dhbw
 
 #show: aero-dhbw.with(
   author: "",
