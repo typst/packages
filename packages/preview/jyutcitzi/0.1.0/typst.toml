@@ -1,5 +1,5 @@
 [package]
-name = "jyutcitzi"
+name = "se-jyutcitzi"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Vincent Tam"]
