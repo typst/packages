@@ -67,10 +67,12 @@
   stripes: 8,
 ) = {
   assert(
-    (min, max).all(x => type(x) == array and x.len() == 3 and x.all(i => type(i) == float)),
-    message: "cube(min, max) expects two array of 3 floats",
+    (min, max).all(x => type(x) == array and x.len() == 3 and x.all(i => type(i) == float))
+      and type(stripes) == int
+      and stripes > 0,
+    message: "cube(...) expects `min`, `max` be two arrays of 3 floats and and `stripes` be a positive int",
   )
-  assert(texture in ("Vanilla", "Stripes"), message: "cube(...) texture must be one of Vanilla, Stripes")
+  assert(texture in ("Vanilla", "Stripes"), message: "cube(...) `texture` must be one of Vanilla, Stripes")
   return (
     Cube: (
       min: min,
@@ -171,7 +173,7 @@
 
 /// The function-defined shape.
 ///
-/// _Note that the function is sampled over a grid defined by `min`, `max`, and `n` due to typst wasm plugin limitations. Then the sampled values are intepolated with bilinear interpolation for rendering._
+/// _Note that the function is sampled over a grid defined by `min`, `max`, and `n` due to typst wasm plugin limitations. Then the sampled values are interpolated with bilinear interpolation for rendering._
 ///
 /// ```example
 /// #image(render(
@@ -251,6 +253,10 @@
   assert(
     texture in ("Grid", "Spiral", "Swirl"),
     message: "func(...) texture must be one of Grid, Spiral, or Swirl",
+  )
+  assert(
+    type(n) == int and n > 0,
+    message: "func(...) expects `n` be a positive integer",
   )
   assert(step > 0, message: "func(...) step must be a positive float")
   return (
