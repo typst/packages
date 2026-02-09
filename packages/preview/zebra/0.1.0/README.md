@@ -5,7 +5,7 @@ It supports:
   - [Data Matrix](#data-matrix) (ECC 200 including DMRE)
   - [QR code](#qr-code) (Model 2 and Micro variants)
 
-![](examples/readme-header.svg)
+![Examples of Data Matrix and QR codes this package can generate.](examples/readme-header.svg)
 
 ```typ
 #import "@preview/zebra:0.1.0": datamatrix, qrcode
@@ -154,7 +154,7 @@ This does not affect the PDF export, but offers all color options in Typst (such
 
 Zebra always combines all horizontally or vertically adjacent modules (black squares) into one shape and further optimizes the path to decrease the number of draw instructions.
 
-![](examples/readme-optimized-path.svg)
+![Visualization comparing the naive approach to an optimized path that uses less than a quarter of the draw instructions.](examples/readme-optimized-path.svg)
 
 The algorithm used for all barcodes is [implemented in the `datamatrix` crate](https://github.com/jannschu/datamatrix-rs/blob/30ba51a838d93940779c62270e2d45586ef95082/src/placement/path.rs#L72).
 
