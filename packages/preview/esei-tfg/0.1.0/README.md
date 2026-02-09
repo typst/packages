@@ -14,7 +14,7 @@ In order to use it, just import it and apply a `show` rule:
   tutor: "Nome do meu titor",
   area: "Área de coñecemento",
   departamento: "Departamento",
-  tfg_num: "Número do TFG",
+  tfgnum: "Número do TFG",
   fecha: "Data de presentación"
 )
 ```
