@@ -1,11 +1,12 @@
+//#import "@local/tfgei:0.1.0": *
+#import "../tfgei.typ": *
 
-#import "@preview/esei-tfg:0.1.0": *
-#show: esei-tfg.with(
+#show: tfgei.with(
   titulo: "Título do Traballo de Fin de Grado",
   alumno: "D. Nome Alumna/o",
   agradecimientos: quote(attribution: "Yo", block: true)[_A mis padres_],
-  abstract: lorem(138),
   resumen: lorem(138),
+  idioma: "gl",
 )
 
 // Esto es para que la aplicación web reconozca el texto como en español y haga mejor detección de sintaxis.
