@@ -15,7 +15,7 @@ In order to use it, just import it and apply a `show` rule:
   area: "Área de coñecemento",
   departamento: "Departamento",
   tfgnum: "Número do TFG",
-  fecha: "Data de presentación"
+  fecha: "Data de presentación",
   idioma: "gl",
 )
 ```
