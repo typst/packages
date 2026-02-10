@@ -6,6 +6,6 @@ license = "MIT"
 entrypoint = "src/lib.typ"
 authors = ["gauravmm"]
 description = "ISO 7000 icons"
-categories = [ "icons" ]
+categories = [ "components" ]
 disciplines = [ "education", "engineering" ]
 keywords = ["ISO", "ISO 7000", "icons"]
