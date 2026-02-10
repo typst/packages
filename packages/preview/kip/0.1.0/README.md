@@ -20,17 +20,17 @@ Pikchr (pronounced like "picture") is a PIC-like markup language for diagrams in
 <tr>
   <td>
     <a href="gallery/build-pikchr.typ">
-      <img src="gallery/build-pikchr.png" width="250px">
+      <img src="gallery/build-pikchr.png" width="250px" alt="Build Process Flowchart">
     </a>
   </td>
   <td>
     <a href="gallery/sqlite-arch.typ">
-      <img src="gallery/sqlite-arch.png" width="250px">
+      <img src="gallery/sqlite-arch.png" width="250px" alt="SQLite Architecture">
     </a>
   </td>
   <td>
     <a href="gallery/swimlanes.typ">
-      <img src="gallery/swimlanes.png" width="250px">
+      <img src="gallery/swimlanes.png" width="250px" alt="Swimlanes Timeline">
     </a>
   </td>
 </tr>
@@ -42,17 +42,17 @@ Pikchr (pronounced like "picture") is a PIC-like markup language for diagrams in
 <tr>
   <td>
     <a href="gallery/syntax-diagram.typ">
-      <img src="gallery/syntax-diagram.png" width="250px">
+      <img src="gallery/syntax-diagram.png" width="250px" alt="Syntax Railroad Diagram">
     </a>
   </td>
   <td>
     <a href="gallery/version-control.typ">
-      <img src="gallery/version-control.png" width="250px">
+      <img src="gallery/version-control.png" width="250px" alt="Version Control Graph">
     </a>
   </td>
   <td>
     <a href="gallery/trident.typ">
-      <img src="gallery/trident.png" width="250px">
+      <img src="gallery/trident.png" width="250px" alt="Impossible Trident">
     </a>
   </td>
 </tr>
@@ -67,7 +67,13 @@ Pikchr (pronounced like "picture") is a PIC-like markup language for diagrams in
 
 ## Installation
 
-### Option 1: Local Installation
+Import the package from the official Typst package registry:
+
+```typst
+#import "@preview/kip:0.1.0": kip
+```
+
+### Alternative: Local Installation
 
 1. Download or clone this package
 2. Place it in your Typst local packages directory:
@@ -75,7 +81,7 @@ Pikchr (pronounced like "picture") is a PIC-like markup language for diagrams in
    - **macOS**: `~/Library/Application Support/typst/packages/local/kip/0.1.0/`
    - **Linux**: `~/.local/share/typst/packages/local/kip/0.1.0/`
 
-### Option 2: Direct Import
+### Alternative: Direct Import
 
 Place this directory next to your Typst document and import it directly:
 
@@ -88,7 +94,7 @@ Place this directory next to your Typst document and import it directly:
 ### Basic Example
 
 ```typst
-#import "@local/kip:0.1.0": kip
+#import "@preview/kip:0.1.0": kip
 
 #kip(```
 box "Start"
@@ -182,7 +188,7 @@ For backwards compatibility and convenience:
 
 All three functions work identically:
 ```typst
-#import "@local/kip:0.1.0": kip, pikchr, render
+#import "@preview/kip:0.1.0": kip, pikchr, render
 
 #kip("box \"A\"")      // Primary function
 #pikchr("box \"B\"")   // Alias
@@ -197,6 +203,8 @@ For complete Pikchr syntax and examples, visit:
 - [Pikchr Examples](https://pikchr.org/home/doc/trunk/doc/examples.md)
 
 ## Building from Source
+
+> **Note:** This section is only relevant for contributors who have cloned the repository. If you just want to use the package, see the [Installation](#installation) section above.
 
 If you need to rebuild the WASM module (e.g., for updates or modifications), see the [build-scripts/BUILD.md](build-scripts/BUILD.md) file.
 
