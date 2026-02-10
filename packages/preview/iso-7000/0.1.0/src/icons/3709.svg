@@ -1,0 +1,4 @@
+<svg width="10mm" height="10mm" version="1.1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="100" cy="100" rx="79.407" ry="48.253" fill="none" stroke="#000" stroke-dashoffset="1" stroke-width="5"/>
+<path d="m190 100a90 58.846 0 0 1-90 58.846 90 58.846 0 0 1-90-58.846 90 58.846 0 0 1 90-58.846 90 58.846 0 0 1 90 58.846z" fill="none" stroke="#000" stroke-dasharray="14.5, 8" stroke-dashoffset=".5" stroke-width="5"/>
+</svg>

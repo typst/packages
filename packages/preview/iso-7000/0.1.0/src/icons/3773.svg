@@ -1,0 +1,10 @@
+<svg width="10mm" height="10mm" version="1.1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<g fill="none">
+<g stroke="#000">
+<path d="m36.405 17.816h114.77v164.37h-114.77z" stroke-width="5"/>
+<path d="m151.18 155.4h30.286" stroke-width="20"/>
+<path d="m173.09 155.4v-115.04" stroke-width="7"/>
+</g>
+</g>
+<path d="m184.16 40.36a11.07 11.07 0 0 1-11.07 11.07 11.07 11.07 0 0 1-11.07-11.07 11.07 11.07 0 0 1 11.07-11.07 11.07 11.07 0 0 1 11.07 11.07z"/>
+</svg>

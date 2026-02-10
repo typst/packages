@@ -1,0 +1,20 @@
+<svg id="a" width="10mm" height="10mm" version="1.1" viewBox="0 0 53.71 53.71" xmlns="http://www.w3.org/2000/svg">
+<g id="b" transform="translate(-60.06 -94.456)">
+<g id="c" transform="matrix(.26458 0 0 .26458 57.219 101.21)">
+<g id="d">
+<circle id="e" cx="32.696" cy="108.61" r="4.5318"/>
+<circle id="f" cx="32.696" cy="108.61" r="15.318" fill="none" stroke="#000" stroke-width="5"/>
+<circle id="g" cx="122.62" cy="98.619" r="4.5318"/>
+</g>
+<g id="h" fill="none" stroke="#000">
+<circle id="i" cx="122.62" cy="98.619" r="22.809" stroke-width="10"/>
+<path id="j" d="m45.381 100.03 54.471 6.8e-4" stroke-width="5"/>
+<path id="k" d="m140.48 84.433-5.2859-56.418h-39.524l-3.9647 34.139-59.504 2.0513-6.4441 8.5392 2.0186 21.364" stroke-linejoin="round" stroke-width="5"/>
+</g>
+<g id="l" fill="none" stroke="#000" stroke-width="10.072">
+<path id="m" d="m161.92 53.659 37.699 22.026-37.699 22.026" style="paint-order:stroke fill markers"/>
+<path id="n" d="m200.1 75.685h-54.533" style="paint-order:stroke fill markers"/>
+</g>
+</g>
+</g>
+</svg>

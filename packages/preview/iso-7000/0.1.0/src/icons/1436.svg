@@ -1,0 +1,12 @@
+<svg id="a" width="10mm" height="10mm" version="1.1" viewBox="0 0 53.71 53.71" xmlns="http://www.w3.org/2000/svg">
+<g id="b" transform="translate(-26.194 -97.367)">
+<image id="c" x="26.591" y="97.764" width="52.917" height="52.917" preserveAspectRatio="none"/>
+<g id="d" transform="translate(-68.492 28.538)" fill="none" stroke="#000" stroke-width="2.665">
+<path id="e" d="m115.45 108.46 6.0934 10.636 6.0934-10.636" style="paint-order:stroke fill markers"/>
+<path id="f" d="m121.54 118.12v-16.211" style="paint-order:stroke fill markers"/>
+<path id="g" d="m115.45 82.911 6.0934-10.636 6.0934 10.636" style="paint-order:stroke fill markers"/>
+<path id="h" d="m121.54 73.253v16.211" style="paint-order:stroke fill markers"/>
+<circle id="i" cx="121.54" cy="95.634" r="2.793" style="paint-order:stroke fill markers"/>
+</g>
+</g>
+</svg>

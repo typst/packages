@@ -1,0 +1,7 @@
+<svg width="10mm" height="10mm" version="1.1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="m146.51 95.262a54.847 54.847 0 0 1 8.3342 29.065 54.847 54.847 0 0 1-54.847 54.847 54.847 54.847 0 0 1-54.847-54.847 54.847 54.847 0 0 1 8.342-29.077l46.505-74.427z" fill="none" stroke="#000" stroke-width="5"/>
+<circle cx="84.045" cy="110.34" r="9.8126"/>
+<circle cx="115.95" cy="110.34" r="9.8126"/>
+<circle transform="scale(-1)" cx="-84.045" cy="-142.25" r="9.8126"/>
+<circle transform="scale(-1)" cx="-115.95" cy="-142.25" r="9.8126"/>
+</svg>

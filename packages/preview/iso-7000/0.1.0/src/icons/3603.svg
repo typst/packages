@@ -1,0 +1,29 @@
+<svg width="10mm" height="10mm" version="1.1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<g fill="none">
+<g stroke="#000">
+<path d="m34 34h132v132h-132z" stroke-width="5"/>
+<g stroke-width="10.5">
+<path d="m47 18v16"/>
+<path d="m74 18v16"/>
+<path d="m100 18v16"/>
+<path d="m126 18v16"/>
+<path d="m153 18v16"/>
+<path d="m182 47h-16"/>
+<path d="m182 74h-16"/>
+<path d="m182 100h-16"/>
+<path d="m182 126h-16"/>
+<path d="m182 153h-16"/>
+<path d="m34 47h-16"/>
+<path d="m34 74h-16"/>
+<path d="m34 100h-16"/>
+<path d="m34 126h-16"/>
+<path d="m34 153h-16"/>
+<path d="m47 166v16"/>
+<path d="m74 166v16"/>
+<path d="m100 166v16"/>
+<path d="m126 166v16"/>
+<path d="m153 166v16"/>
+</g>
+</g>
+</g>
+</svg>
