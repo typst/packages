@@ -145,6 +145,10 @@ Several features have already been implemented in Chronos. Don't hesitate to che
 </tr>
 </table>
 
+## Manual
+
+The complete documentation describing all functions and their arguments can be found in the [manual](./manual.pdf).
+
 > [!NOTE]
 > 
 > Many examples were taken/adapted from the PlantUML [documentation](https://plantuml.com/sequence-diagram) on sequence diagrams
