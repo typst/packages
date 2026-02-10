@@ -10,5 +10,5 @@ categories = ["thesis"]
 
 [template]
 path = "template"
-entrypoint = "tfgei.typ"
+entrypoint = "main.typ"
 thumbnail = "portada.png"
