@@ -1,4 +1,4 @@
-#import "@preview/presentate:0.2.3" as ps
+#import "@preview/presentate:0.2.4" as ps
 #import "@preview/navigator:0.1.3" as navigator
 
 // --- CONFIGURATION ---
