@@ -518,11 +518,10 @@
       let y-ax-canvas = (x-axis-y - ymin) * y-scale
       let x-ax-canvas = (y-axis-x - xmin) * x-scale
 
-      // Scale box dimensions based on actual tick label size
-      // Base measurements at 10pt: char ~0.17 wide, ~0.25 tall, minus ~0.10 wide
-      let base-size = 10  // pt
-      let label-size-pt = s.ticks.label-size / 1pt
-      let scale-factor = label-size-pt / base-size
+      // Scale box dimensions for grid-label-break.
+      // Keep a stable 10pt baseline here; converting arbitrary lengths to scalars
+      // (e.g. 10pt -> 10) is not supported directly in Typst arithmetic.
+      let scale-factor = 1.0
 
       // Box padding around text - scales with font size
       let pad-x = 0.07 * scale-factor
@@ -627,6 +626,10 @@
       if unit-label-only and calc.abs(x - 1) > 0.0001 {
         show-this-label = false
       }
+      // Avoid duplicate "0" when explicit origin label is enabled.
+      if show-origin and calc.abs(x-axis-y) < 0.0001 and calc.abs(y-axis-x) < 0.0001 and calc.abs(x) < 0.0001 {
+        show-this-label = false
+      }
       if show-this-label and xtick-labels != none {
         let label = if xtick-labels == auto { format-number(x) }
                     else if i < xtick-labels.len() { xtick-labels.at(i) }
@@ -648,6 +651,10 @@
       let show-this-label = calc.abs(calc.rem(y, label-interval)) < 0.0001 or calc.abs(calc.rem(y, label-interval) - label-interval) < 0.0001
       // If unit-label-only, only show label for y = 1 (not -1 or other values)
       if unit-label-only and calc.abs(y - 1) > 0.0001 {
+        show-this-label = false
+      }
+      // Avoid duplicate "0" when explicit origin label is enabled.
+      if show-origin and calc.abs(x-axis-y) < 0.0001 and calc.abs(y-axis-x) < 0.0001 and calc.abs(y) < 0.0001 {
         show-this-label = false
       }
       if show-this-label and ytick-labels != none {
