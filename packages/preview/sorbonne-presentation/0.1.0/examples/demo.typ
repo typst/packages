@@ -1,5 +1,5 @@
 #import "@preview/sorbonne-presentation:0.1.0": *
-#import "@preview/physica:0.9.6": *
+#import "@preview/physica:0.9.8": *
 
 #show: template.with(
   title: [Sorbonne Template: Complete Guide],
