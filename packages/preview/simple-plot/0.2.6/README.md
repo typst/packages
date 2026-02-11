@@ -4,6 +4,10 @@ A simple, pgfplots-like function plotting library for Typst. Create beautiful ma
 
 > **Note:** This package is built on top of [CeTZ](https://github.com/cetz-package/cetz) v0.4.2.
 
+## Manual
+
+A full manual is available in [docs/manual.pdf](docs/manual.pdf), with a Typst source version in [docs/manual.typ](docs/manual.typ)
+
 ## Gallery
 
 Click on an image to see the source code.
