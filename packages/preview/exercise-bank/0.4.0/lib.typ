@@ -106,8 +106,8 @@
 #let exo-setup(
   // Display control
   display: none,           // "ex", "sol", "both"
-  corrDisplay: none,    // "solution", "correction", "mixed"
-  corrLoc: none,        // "after", "pagebreak", "end-section", "end-chapter"
+  corr-display: none,    // "solution", "correction", "mixed"
+  corr-loc: none,        // "after", "pagebreak", "end-section", "end-chapter"
   // Labels
   solution-label: none,
   correction-label: none,
@@ -144,8 +144,8 @@
   exo-config.update(cfg => {
     let new = cfg
     if display != none { new.display = display }
-    if corrDisplay != none { new.corrDisplay = corrDisplay }
-    if corrLoc != none { new.corrLoc = corrLoc }
+    if corr-display != none { new.corrDisplay = corr-display }
+    if corr-loc != none { new.corrLoc = corr-loc }
     if solution-label != none { new.solution-label = solution-label }
     if correction-label != none { new.correction-label = correction-label }
     if exercise-label != none { new.exercise-label = exercise-label }
@@ -762,8 +762,8 @@
   id: auto,
   margin-content: none,  // Optional content below the badge (e.g., QR code, remarks)
   // Exercise-level display flags
-  solInCorr: false,      // If true, correction already contains solution (use solution in "correction" mode)
-  showCorr: false,       // If true, show correction in "mixed" mode
+  sol-in-corr: false,      // If true, correction already contains solution (use solution in "correction" mode)
+  show-corr: false,       // If true, show correction in "mixed" mode
   // Metadata fields
   topic: none,
   level: none,
@@ -799,8 +799,8 @@
 
   // Build exercise flags
   let exercise-flags = (
-    solInCorr: solInCorr,
-    showCorr: showCorr,
+    solInCorr: sol-in-corr,
+    showCorr: show-corr,
   )
 
   // Create exercise record
@@ -812,8 +812,8 @@
     solution: solution,
     correction: correction,
     margin-content: margin-content,
-    solInCorr: solInCorr,
-    showCorr: showCorr,
+    solInCorr: sol-in-corr,
+    showCorr: show-corr,
   )
 
   // Register exercise
@@ -1036,8 +1036,8 @@
   competencies: (),  // List of competency tags
   points: none,      // Points for exam mode
   // Exercise-level display flags
-  solInCorr: false,      // If true, correction already contains solution
-  showCorr: false,       // If true, show correction in "mixed" mode
+  sol-in-corr: false,      // If true, correction already contains solution
+  show-corr: false,       // If true, show correction in "mixed" mode
   // Metadata fields
   topic: none,
   level: none,
@@ -1078,8 +1078,8 @@
       correction: correction,
       competencies: competencies,
       points: points,
-      solInCorr: solInCorr,
-      showCorr: showCorr,
+      solInCorr: sol-in-corr,
+      showCorr: show-corr,
     )
 
     // Register exercise without displaying

@@ -2,7 +2,7 @@
 
 #set page(width: 14cm, height: 8cm, margin: 1cm)
 
-#exo-setup(corrLoc: "pagebreak")  // Solutions on separate page
+#exo-setup(corr-loc: "pagebreak")  // Solutions on separate page
 
 = Page Break Demo
 

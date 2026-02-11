@@ -2,7 +2,7 @@
 
 #set page(width: 14cm, height: auto, margin: 1cm)
 
-// Default: display: "both", corrDisplay: "solution", corrLoc: "after"
+// Default: display: "both", corr-display: "solution", corr-loc: "after"
 
 = Exercises with Solutions
 

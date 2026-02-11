@@ -3,7 +3,7 @@
 #set page(width: 14cm, height: auto, margin: 1cm)
 
 #exo-setup(
-  corrDisplay: "correction",  // Show corrections instead of solutions
+  corr-display: "correction",  // Show corrections instead of solutions
 )
 
 = Correction Display Demo

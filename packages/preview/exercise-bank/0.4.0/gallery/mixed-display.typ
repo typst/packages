@@ -3,13 +3,13 @@
 #set page(width: 14cm, height: auto, margin: 1cm)
 
 #exo-setup(
-  corrDisplay: "mixed",  // Default to solution, but show correction for exercises with showCorr: true
+  corr-display: "mixed",  // Default to solution, but show correction for exercises with show-corr: true
 )
 
 = Mixed Display Mode
 
 In "mixed" mode, exercises default to showing their solution.
-When an exercise has `showCorr: true`, it shows the correction instead.
+When an exercise has `show-corr: true`, it shows the correction instead.
 
 == Default: Solution shown
 #exo(
@@ -25,7 +25,7 @@ When an exercise has `showCorr: true`, it shows the correction instead.
   ],
 )
 
-== With showCorr: Correction shown
+== With show-corr: Correction shown
 #exo(
   exercise: [
     Calculate the area of a circle with radius 5.
@@ -39,7 +39,7 @@ When an exercise has `showCorr: true`, it shows the correction instead.
     Substitute $r = 5$:
     $A = pi times 5^2 = 25pi approx 78.54$
   ],
-  showCorr: true,  // This exercise shows correction instead of solution
+  show-corr: true,  // This exercise shows correction instead of solution
 )
 
 == Another default: Solution shown

@@ -114,35 +114,35 @@ Controls what content is displayed:
 #exo-setup(display: "both")
 ```
 
-### `corrDisplay` - What Content to Show
+### `corr-display` - What Content to Show
 
 Controls whether to show solutions or corrections:
 
 - `"solution"` (default) - Show the solution content
 - `"correction"` - Show the correction content (for teachers)
-- `"mixed"` - Default to solution, but show correction for exercises with `showCorr: true`
+- `"mixed"` - Default to solution, but show correction for exercises with `show-corr: true`
 
 ```typst
 #import "@preview/exercise-bank:0.4.0": exo, exo-setup
 
 // Student version - show solutions
-#exo-setup(corrDisplay: "solution")
+#exo-setup(corr-display: "solution")
 
 // Teacher version - show corrections
-#exo-setup(corrDisplay: "correction")
+#exo-setup(corr-display: "correction")
 
 // Mixed mode
-#exo-setup(corrDisplay: "mixed")
+#exo-setup(corr-display: "mixed")
 
 #exo(
   exercise: [Solve $x^2 = 9$.],
   solution: [$x = plus.minus 3$],
   correction: [Detailed explanation with teaching notes...],
-  showCorr: true,  // In mixed mode, show correction for this exercise
+  show-corr: true,  // In mixed mode, show correction for this exercise
 )
 ```
 
-### `corrLoc` - Where to Display
+### `corr-loc` - Where to Display
 
 Controls where solutions/corrections appear:
 
@@ -155,7 +155,7 @@ Controls where solutions/corrections appear:
 #import "@preview/exercise-bank:0.4.0": exo, exo-setup, exo-print-solutions
 
 // Solutions at end of section
-#exo-setup(corrLoc: "end-section")
+#exo-setup(corr-loc: "end-section")
 
 #exo(exercise: [Exercise 1], solution: [Answer 1])
 #exo(exercise: [Exercise 2], solution: [Answer 2])
@@ -173,7 +173,7 @@ Corrections are detailed solutions for teachers, including pedagogical notes and
 ```typst
 #import "@preview/exercise-bank:0.4.0": exo, exo-setup
 
-#exo-setup(corrDisplay: "correction")
+#exo-setup(corr-display: "correction")
 
 #exo(
   exercise: [Solve $x^2 = 9$.],
@@ -195,7 +195,7 @@ Create teacher answer keys showing only corrections:
 
 #exo-setup(
   display: "sol",              // Only show solutions/corrections
-  corrDisplay: "correction", // Show corrections
+  corr-display: "correction", // Show corrections
 )
 
 #exo(
@@ -206,12 +206,12 @@ Create teacher answer keys showing only corrections:
 
 ### Mixed Display Mode
 
-Use `corrDisplay: "mixed"` to default to solutions while showing corrections for specific exercises:
+Use `corr-display: "mixed"` to default to solutions while showing corrections for specific exercises:
 
 ```typst
 #import "@preview/exercise-bank:0.4.0": exo, exo-setup
 
-#exo-setup(corrDisplay: "mixed")
+#exo-setup(corr-display: "mixed")
 
 // This shows solution (default)
 #exo(
@@ -220,19 +220,19 @@ Use `corrDisplay: "mixed"` to default to solutions while showing corrections for
   correction: [Detailed explanation],
 )
 
-// This shows correction (because showCorr: true)
+// This shows correction (because show-corr: true)
 #exo(
   exercise: [Complex problem needing explanation],
   solution: [Answer],
   correction: [Detailed step-by-step solution with notes],
-  showCorr: true,
+  show-corr: true,
 )
 ```
 
 ### Exercise-Level Flags
 
-- `showCorr: true` - In "mixed" mode, show correction instead of solution for this exercise
-- `solInCorr: true` - Indicates that the correction already includes the solution; in "correction" mode, only correction is shown (not both correction AND solution)
+- `show-corr: true` - In "mixed" mode, show correction instead of solution for this exercise
+- `sol-in-corr: true` - Indicates that the correction already includes the solution; in "correction" mode, only correction is shown (not both correction AND solution)
 
 ### Draft Mode and Placeholders
 
@@ -401,8 +401,8 @@ Tag exercises with competencies and display them visually:
 #exo-setup(
   // Display control
   display: "both",               // "ex", "sol", "both"
-  corrDisplay: "solution",    // "solution", "correction", "mixed"
-  corrLoc: "after",           // "after", "pagebreak", "end-section", "end-chapter"
+  corr-display: "solution",    // "solution", "correction", "mixed"
+  corr-loc: "after",           // "after", "pagebreak", "end-section", "end-chapter"
   // Labels
   exercise-label: "Exercise",
   solution-label: "Solution",
@@ -573,8 +573,8 @@ Level 1M exercises: #exo-count(level: "1M")
 | `solution` | content | none | Solution content |
 | `correction` | content | none | Correction content (teacher version) |
 | `id` | string/auto | auto | Unique exercise ID |
-| `solInCorr` | bool | false | If true, solution is in correction (show only correction, not both) |
-| `showCorr` | bool | false | If true, show correction in "mixed" mode |
+| `sol-in-corr` | bool | false | If true, solution is in correction (show only correction, not both) |
+| `show-corr` | bool | false | If true, show correction in "mixed" mode |
 | `topic` | string | none | Topic metadata |
 | `level` | string | none | Difficulty level |
 | `authors` | array | () | Array of author names |
@@ -589,8 +589,8 @@ Level 1M exercises: #exo-count(level: "1M")
 | `correction` | content | none | Correction content (teacher version) |
 | `id` | string/auto | auto | Unique exercise ID |
 | `competencies` | array | () | List of competency tags |
-| `solInCorr` | bool | false | If true, solution is in correction (show only correction) |
-| `showCorr` | bool | false | If true, show correction in "mixed" mode |
+| `sol-in-corr` | bool | false | If true, solution is in correction (show only correction) |
+| `show-corr` | bool | false | If true, show correction in "mixed" mode |
 | `topic` | string | none | Topic metadata |
 | `level` | string | none | Difficulty level |
 | `authors` | array | () | Array of author names |
@@ -617,8 +617,8 @@ Level 1M exercises: #exo-count(level: "1M")
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `display` | string | "both" | "ex", "sol", "both" |
-| `corrDisplay` | string | "solution" | "solution", "correction", "mixed" |
-| `corrLoc` | string | "after" | "after", "pagebreak", "end-section", "end-chapter" |
+| `corr-display` | string | "solution" | "solution", "correction", "mixed" |
+| `corr-loc` | string | "after" | "after", "pagebreak", "end-section", "end-chapter" |
 | `solution-label` | string | "Solution" | Label for solutions |
 | `correction-label` | string | "Correction" | Label for corrections |
 | `exercise-label` | string | "Exercise" | Label for exercises |
@@ -648,7 +648,7 @@ Level 1M exercises: #exo-count(level: "1M")
 
 // Setup
 #exo-setup(
-  corrLoc: "end-section",
+  corr-loc: "end-section",
   show-competencies: true,
 )
 
@@ -732,29 +732,29 @@ MIT License - see LICENSE file for details.
 #### Changed (Breaking)
 - **New display control system**: Replaced `solution-mode`, `fallback-to-correction`, and `append-solution-to-correction` with three clearer parameters:
   - `display`: Controls what to display - `"ex"` (exercises only), `"sol"` (solutions only), `"both"` (default)
-  - `corrDisplay`: Controls which content type to show - `"solution"` (default), `"correction"`, `"mixed"`
-  - `corrLoc`: Controls where solutions appear - `"after"` (default), `"pagebreak"`, `"end-section"`, `"end-chapter"`
+  - `corr-display`: Controls which content type to show - `"solution"` (default), `"correction"`, `"mixed"`
+  - `corr-loc`: Controls where solutions appear - `"after"` (default), `"pagebreak"`, `"end-section"`, `"end-chapter"`
 
 - **New exercise-level flags**:
-  - `solInCorr`: If true, correction already contains solution (show only correction, not both)
-  - `showCorr`: If true, show correction in "mixed" mode for this exercise
+  - `sol-in-corr`: If true, correction already contains solution (show only correction, not both)
+  - `show-corr`: If true, show correction in "mixed" mode for this exercise
 
 #### Removed
-- `solution-mode` parameter (replaced by `show` and `corrLoc`)
-- `fallback-to-correction` parameter (behavior controlled by `corrDisplay`)
-- `append-solution-to-correction` parameter (use `corrDisplay: "mixed"` instead)
+- `solution-mode` parameter (replaced by `show` and `corr-loc`)
+- `fallback-to-correction` parameter (behavior controlled by `corr-display`)
+- `append-solution-to-correction` parameter (use `corr-display: "mixed"` instead)
 - `solution-in-correction-style` parameter (no longer needed)
 
 #### Migration Guide
 | Old Parameter | New Equivalent |
 |--------------|----------------|
-| `solution-mode: "inline"` | `display: "both", corrLoc: "after"` (default) |
+| `solution-mode: "inline"` | `display: "both", corr-loc: "after"` (default) |
 | `solution-mode: "none"` | `display: "ex"` |
 | `solution-mode: "only"` | `display: "sol"` |
-| `solution-mode: "end-section"` | `corrLoc: "end-section"` |
-| `solution-mode: "end-chapter"` | `corrLoc: "end-chapter"` |
-| `fallback-to-correction: true` | `corrDisplay: "correction"` |
-| `append-solution-to-correction: true` | `corrDisplay: "mixed"` with `showCorr: true` on exercises |
+| `solution-mode: "end-section"` | `corr-loc: "end-section"` |
+| `solution-mode: "end-chapter"` | `corr-loc: "end-chapter"` |
+| `fallback-to-correction: true` | `corr-display: "correction"` |
+| `append-solution-to-correction: true` | `corr-display: "mixed"` with `show-corr: true` on exercises |
 
 ### [0.3.0] - 2026-01-27
 

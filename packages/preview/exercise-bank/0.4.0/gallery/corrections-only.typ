@@ -4,7 +4,7 @@
 
 #exo-setup(
   display: "sol",                // Only show solutions/corrections (hide exercises)
-  corrDisplay: "correction",  // Show corrections
+  corr-display: "correction",  // Show corrections
 )
 
 = Teacher's Answer Key

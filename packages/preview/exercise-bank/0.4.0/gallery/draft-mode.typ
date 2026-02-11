@@ -60,7 +60,7 @@ Empty corrections/solutions show placeholders for completion.
 
 #exo-setup(
   draft-mode: true,
-  corrDisplay: "correction",  // Show corrections
+  corr-display: "correction",  // Show corrections
   correction-placeholder: [_[Explanation to be written]_],
 )
 

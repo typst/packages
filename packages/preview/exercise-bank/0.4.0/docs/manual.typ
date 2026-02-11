@@ -220,7 +220,7 @@ Exercises are automatically numbered:
 
 The package uses three parameters to control display behavior.
 
-== `show` - What to Display
+== `display` - What to Display
 
 Controls what content is displayed:
 - `"both"` (default) - Show exercises and solutions/corrections
@@ -246,16 +246,16 @@ Controls what content is displayed:
   ]
 )
 
-== `corrDisplay` - Which Content to Show
+== `corr-display` - Which Content to Show
 
 Controls whether to show solutions or corrections:
 - `"solution"` (default) - Show solution content
 - `"correction"` - Show correction content
-- `"mixed"` - Default to solution, but use correction for exercises with `showCorr: true`
+- `"mixed"` - Default to solution, but use correction for exercises with `show-corr: true`
 
 #example-full(
   [```typst
-#exo-setup(corrDisplay: "correction")
+#exo-setup(corr-display: "correction")
 
 #exo(
   exercise: [Simplify $2x + 3x$.],
@@ -267,7 +267,7 @@ Controls whether to show solutions or corrections:
   ```],
   [
     #exo-reset-counter()
-    #exo-setup(display: "both", corrDisplay: "correction")
+    #exo-setup(display: "both", corr-display: "correction")
     #exo(
       exercise: [Simplify $2x + 3x$.],
       correction: [
@@ -278,7 +278,7 @@ Controls whether to show solutions or corrections:
   ]
 )
 
-== `corrLoc` - Where to Display
+== `corr-loc` - Where to Display
 
 Controls where solutions/corrections appear:
 - `"after"` (default) - Immediately after each exercise
@@ -288,7 +288,7 @@ Controls where solutions/corrections appear:
 
 #example-full(
   [```typst
-#exo-setup(corrLoc: "end-section")
+#exo-setup(corr-loc: "end-section")
 
 #exo(exercise: [Exercise 1], solution: [Answer 1])
 #exo(exercise: [Exercise 2], solution: [Answer 2])
@@ -297,7 +297,7 @@ Controls where solutions/corrections appear:
   ```],
   [
     #exo-reset-counter()
-    #exo-setup(display: "both", corrDisplay: "solution", corrLoc: "end-section")
+    #exo-setup(display: "both", corr-display: "solution", corr-loc: "end-section")
     #exo(exercise: [Exercise 1], solution: [Answer 1])
     #exo(exercise: [Exercise 2], solution: [Answer 2])
     #exo-print-solutions()
@@ -318,7 +318,7 @@ Corrections are detailed solutions for teachers, including pedagogical notes and
 
 #example-full(
   [```typst
-#exo-setup(corrDisplay: "correction")
+#exo-setup(corr-display: "correction")
 
 #exo(
   exercise: [Solve $x^2 = 9$.],
@@ -332,7 +332,7 @@ Corrections are detailed solutions for teachers, including pedagogical notes and
   ```],
   [
     #exo-reset-counter()
-    #exo-setup(display: "both", corrDisplay: "correction")
+    #exo-setup(display: "both", corr-display: "correction")
     #exo(
       exercise: [Solve $x^2 = 9$.],
       correction: [
@@ -360,7 +360,7 @@ Show only solutions for student answer keys:
   ```],
   [
     #exo-reset-counter()
-    #exo-setup(display: "sol", corrDisplay: "solution")
+    #exo-setup(display: "sol", corr-display: "solution")
     #exo(
       exercise: [This is hidden],
       solution: [Only this solution is shown],
@@ -368,22 +368,22 @@ Show only solutions for student answer keys:
   ]
 )
 
-== The `solInCorr` Flag
+== The `sol-in-corr` Flag
 
-When `corrDisplay: "correction"`, both correction AND solution are shown by default. Use `solInCorr: true` on an exercise to indicate the solution is already embedded in the correction (avoiding duplication):
+When `corr-display: "correction"`, both correction AND solution are shown by default. Use `sol-in-corr: true` on an exercise to indicate the solution is already embedded in the correction (avoiding duplication):
 
 #example-full(
   [```typst
-#exo-setup(corrDisplay: "correction")
+#exo-setup(corr-display: "correction")
 
-// Without solInCorr: both correction and solution shown
+// Without sol-in-corr: both correction and solution shown
 #exo(
   exercise: [Problem A],
   correction: [Teacher notes only],
   solution: [$x = 5$],
 )
 
-// With solInCorr: only correction shown
+// With sol-in-corr: only correction shown
 #exo(
   exercise: [Problem B],
   correction: [
@@ -392,12 +392,12 @@ When `corrDisplay: "correction"`, both correction AND solution are shown by defa
     _Teaching tip: Watch for sign errors._
   ],
   solution: [$x = 3$],
-  solInCorr: true,  // Solution already in correction
+  sol-in-corr: true,  // Solution already in correction
 )
   ```],
   [
     #exo-reset-counter()
-    #exo-setup(display: "both", corrDisplay: "correction")
+    #exo-setup(display: "both", corr-display: "correction")
     #exo(
       exercise: [Problem A],
       correction: [Teacher notes only],
@@ -411,18 +411,18 @@ When `corrDisplay: "correction"`, both correction AND solution are shown by defa
         _Teaching tip: Watch for sign errors._
       ],
       solution: [$x = 3$],
-      solInCorr: true,
+      sol-in-corr: true,
     )
   ]
 )
 
 == Mixed Display Mode
 
-Use `corrDisplay: "mixed"` to default to solutions while showing corrections for specific exercises:
+Use `corr-display: "mixed"` to default to solutions while showing corrections for specific exercises:
 
 #example-full(
   [```typst
-#exo-setup(corrDisplay: "mixed")
+#exo-setup(corr-display: "mixed")
 
 #exo(
   exercise: [Simple problem],
@@ -434,12 +434,12 @@ Use `corrDisplay: "mixed"` to default to solutions while showing corrections for
   exercise: [Complex problem],
   solution: [Answer],
   correction: [Step-by-step solution],
-  showCorr: true,  // Shows correction
+  show-corr: true,  // Shows correction
 )
   ```],
   [
     #exo-reset-counter()
-    #exo-setup(display: "both", corrDisplay: "mixed")
+    #exo-setup(display: "both", corr-display: "mixed")
     #exo(
       exercise: [Simple problem],
       solution: [Quick answer],
@@ -449,7 +449,7 @@ Use `corrDisplay: "mixed"` to default to solutions while showing corrections for
       exercise: [Complex problem],
       solution: [Answer],
       correction: [Step-by-step solution],
-      showCorr: true,
+      show-corr: true,
     )
   ]
 )
@@ -482,7 +482,7 @@ Show placeholders for incomplete exercises during document preparation.
     #exo-reset-counter()
     #exo-setup(
       display: "both",
-      corrDisplay: "solution",
+      corr-display: "solution",
       draft-mode: true,
       solution-placeholder: [_\[To be written\]_],
     )
@@ -508,7 +508,7 @@ Empty solutions show minimal space without placeholders:
   ```],
   [
     #exo-reset-counter()
-    #exo-setup(display: "both", corrDisplay: "solution", draft-mode: false)
+    #exo-setup(display: "both", corr-display: "solution", draft-mode: false)
     #exo(
       exercise: [Solve $x + 5 = 12$],
       solution: [],
@@ -559,7 +559,7 @@ Use `exo-show` to display a specific exercise:
   [
     #exo-reset-counter()
     #exo-clear-registry()
-    #exo-setup(display: "both", corrDisplay: "solution")
+    #exo-setup(display: "both", corr-display: "solution")
     #exo-define(
       id: "quad-1",
       exercise: [Solve $x^2 - 5x + 6 = 0$.],
@@ -649,7 +649,7 @@ Tag exercises with competencies and display them visually.
   [
     #exo-reset-counter()
     #exo-clear-registry()
-    #exo-setup(display: "both", corrDisplay: "solution", show-competencies: true)
+    #exo-setup(display: "both", corr-display: "solution", show-competencies: true)
     #exo-define(
       id: "comp-ex",
       exercise: [Solve and explain your reasoning.],
@@ -683,8 +683,8 @@ Use `exo-setup` to configure defaults:
 #exo-setup(
   // Display control
   display: "both",               // "ex", "sol", "both"
-  corrDisplay: "solution",    // "solution", "correction", "mixed"
-  corrLoc: "after",           // "after", "pagebreak", "end-section", "end-chapter"
+  corr-display: "solution",    // "solution", "correction", "mixed"
+  corr-loc: "after",           // "after", "pagebreak", "end-section", "end-chapter"
   // Labels
   exercise-label: "Exercise",
   solution-label: "Solution",
@@ -962,8 +962,8 @@ Set the badge style with `exo-setup(badge-style: "...")`.
   [`solution`], [content], [none], [Solution content],
   [`correction`], [content], [none], [Correction for teachers],
   [`id`], [string], [auto], [Unique exercise ID],
-  [`solInCorr`], [bool], [false], [If true, solution is already in correction (don't show both)],
-  [`showCorr`], [bool], [false], [If true, show correction in "mixed" mode],
+  [`sol-in-corr`], [bool], [false], [If true, solution is already in correction (don't show both)],
+  [`show-corr`], [bool], [false], [If true, show correction in "mixed" mode],
   [`topic`], [string], [none], [Topic metadata],
   [`level`], [string], [none], [Difficulty level],
   [`authors`], [array], [()], [Author names],
@@ -1010,9 +1010,9 @@ Same as `exo`, plus:
   stroke: (x: none, y: 0.3pt + luma(85%)),
   inset: 6pt,
   [*Parameter*], [*Type*], [*Default*], [*Description*],
-  [`show`], [string], ["both"], ["ex", "sol", "both"],
-  [`corrDisplay`], [string], ["solution"], ["solution", "correction", "mixed"],
-  [`corrLoc`], [string], ["after"], ["after", "pagebreak", "end-section", "end-chapter"],
+  [`display`], [string], ["both"], ["ex", "sol", "both"],
+  [`corr-display`], [string], ["solution"], ["solution", "correction", "mixed"],
+  [`corr-loc`], [string], ["after"], ["after", "pagebreak", "end-section", "end-chapter"],
   [`exercise-label`], [string], ["Exercise"], [Label for exercises],
   [`solution-label`], [string], ["Solution"], [Label for solutions],
   [`correction-label`], [string], ["Correction"], [Label for corrections],

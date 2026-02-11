@@ -2,7 +2,7 @@
 
 #set page(width: 14cm, height: auto, margin: 1cm)
 
-#exo-setup(corrLoc: "end-section")
+#exo-setup(corr-loc: "end-section")
 
 = Algebra Section
 
