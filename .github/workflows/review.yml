@@ -1,0 +1,18 @@
+on:
+  pull_request:
+    types: [review_requested]
+
+jobs:
+  mirror-reviewer-assignee:
+    name: "Assign the pull request to its reviewer"
+    runs-on: ubuntu-slim
+    strategy:
+      matrix:
+        login: ${{ github.event.pull_request.requested_reviewers.*.login }}
+    steps:
+      - run: gh pr edit ${{ github.event.number }} --add-assignee ${{ matrix.login }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.event.repository.full_name }}
+    permissions:
+      pull-requests: write
