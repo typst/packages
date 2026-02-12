@@ -1,85 +1,102 @@
 #import "@preview/ctheorems:1.1.3": *
+#import "@preview/cetz:0.4.1"
 
-#let default-style = (
-  page_margin: (x: 1.2in, y: 1.2in),
-  page_numbering: "1",
-  body_font: "New Computer Modern",
-  body_size: 11pt,
-  body_top_edge: 0.7em,
-  body_bottom_edge: -0.3em,
-  paragraph_leading: 1em,
-  paragraph_indent: 1.8em,
-  heading_numbering: "1.",
-  heading_size: 1em,
-  heading_weight: "bold",
-  heading_level1_size: 0.9em,
-  table_text_size: 0.8em,
-  table_leading: 0.65em,
-  table_top_edge: 0.35em,
-  table_bottom_edge: -0.3em,
-  block_above: 1.5em,
-  block_below: 1.5em,
-  footnote_numbering: "[1]",
-  accent_main: rgb(0, 0, 100),
-)
+// =============================================================================
+// BASIC SETTINGS (edit here)
+// =============================================================================
+#let page_margin = (x: 1.2in, y: 1.2in)
+#let page_numbering = "1"
 
+#let body_font = "New Computer Modern"
+#let body_size = 11pt
+#let body_top_edge = 0.7em
+#let body_bottom_edge = -0.3em
+
+#let par_leading = 1em
+#let par_first_indent = 1.8em
+
+#let heading_numbering = "1."
+#let heading_size = 1em
+#let heading_weight = "bold"
+#let heading_level1_size = 0.9em
+
+#let table_text_size = 0.8em
+#let table_leading = 0.65em
+#let table_top_edge = 0.35em
+#let table_bottom_edge = -0.3em
+
+#let block_above = 1.5em
+#let block_below = 1.5em
+
+#let footnote_numbering = "[1]"
+
+#let cmain = rgb(0,0,100)
+#let csub = rgb("#8b0000")
+
+// =============================================================================
+// UTILITIES
+// =============================================================================
 #let nneq(eq) = math.equation(block: true, numbering: none, eq)
-
-#let caption-note(body) = align(left)[
+#let caption_note(body) = align(left)[
   #pad(x: 2em, y: 0em)[
     #par(leading: 0.2em)[
       #text(size: 0.9em)[*Note:* #body]
     ]
   ]
 ]
-
-#let caption-with-note(title, note) = [#title #caption-note(note)]
-
-#let table-note(body) = align(left)[
+#let caption_with_note(title, note) = [#title #caption_note(note)]
+#let table_note(body) = align(left)[
   #text(size: 0.9em)[#emph(body)]
 ]
 
 #show: thmrules.with(qed-symbol: $square$)
 #let theorem = thmbox("theorem", "Theorem")
-#let proof = thmproof("proof", "Proof")
+#let proof = thmproof(
+  "proof", "Proof"
+)
 #let prop = thmbox(
-  "prop",
-  "Proposition",
-  inset: (x: 2em, y: .5em),
-  base_level: 0,
-  base: "prop",
-  titlefmt: smallcaps,
-  bodyfmt: body => [#body],
+ "prop",
+ "Proposition",
+ inset: (x:2em, y:.5em),
+ base_level: 0,
+ base: "prop",
+ titlefmt: smallcaps,
+ bodyfmt: body => [
+   #body
+ ]
 ).with(numbering: "1")
-
 #let lem = thmbox(
-  "lem",
-  "Lemma",
-  inset: (x: 2em, y: .5em),
-  base_level: 0,
-  base: "lem",
-  titlefmt: smallcaps,
-  bodyfmt: body => [#body],
+ "lem",
+ "Lemma",
+ inset: (x:2em, y:.5em),
+ base_level: 0,
+ base: "lem",
+ titlefmt: smallcaps,
+ bodyfmt: body => [
+   #body
+ ]
 ).with(numbering: "1")
-
 #let rem = thmbox(
-  "rem",
-  "Remark",
-  inset: (x: 2em, y: .5em),
-  base_level: 0,
-  base: "rem",
-  titlefmt: smallcaps,
-  bodyfmt: body => [#body],
+ "rem",
+ "Remark",
+ inset: (x:2em, y:.5em),
+ base_level: 0,
+ base: "rem",
+ titlefmt: smallcaps,
+ bodyfmt: body => [
+   #body
+ ]
 ).with(numbering: "1")
-
-#let asp = thmbox(
-  "asp",
-  "Assumption",
-  inset: (x: 2em, y: .5em),
-  base_level: 0,
-  base: "asp",
-  titlefmt: smallcaps,
-  bodyfmt: body => [#body],
+#let ass = thmbox(
+ "ass",
+ "Assumption",
+ inset: (x:2em, y:.5em),
+ base_level: 0,
+ base: "ass",
+ titlefmt: smallcaps,
+ bodyfmt: body => [
+   #body
+ ]
 ).with(numbering: "1")
 
 #let paper(
@@ -88,51 +105,58 @@
   authors: (),
   date: none,
   abstract: none,
-  style: none,
   doc,
 ) = {
-  let s = if style == none {
-    default-style
-  } else {
-    default-style + style
-  }
-
-  set page(margin: s.page_margin, numbering: s.page_numbering)
-  set par(
-    leading: s.paragraph_leading,
-    first-line-indent: s.paragraph_indent,
-    justify: true,
+  set page(
+    margin: page_margin,
+    numbering: page_numbering
   )
+  
+  set par(
+    leading: par_leading,
+    first-line-indent: par_first_indent,
+    justify: true
+  )
+  
   set text(
-    font: s.body_font,
-    size: s.body_size,
-    top-edge: s.body_top_edge,
-    bottom-edge: s.body_bottom_edge,
+    font: body_font,
+    size: body_size,
+    top-edge: body_top_edge,
+    bottom-edge: body_bottom_edge
   )
 
   set math.equation(numbering: "(1)")
   set table(align: (x, _) => if x == 0 { left } else { center })
-  set figure(numbering: "1", placement: auto)
-
+  set figure(numbering: "1")
   show ref: it => {
     let eq = math.equation
     let el = it.element
     if el != none and el.func() == eq {
-      numbering(el.numbering, ..counter(eq).at(el.location()))
+      // Override equation references.
+      numbering(
+        el.numbering,
+        ..counter(eq).at(el.location())
+      )
     } else {
+      // Other references as usual.
       it
     }
   }
+  
+  set bibliography(style: "american-political-science-association")
+  show bibliography: set par(first-line-indent: 0em)
 
   set quote(block: true)
 
-  set heading(numbering: s.heading_numbering)
+  set heading(numbering: heading_numbering)
   show heading: set block(above: 2em, below: 1em)
   show heading: set par(leading: 0.3em)
-  show heading: set text(size: s.heading_size, weight: s.heading_weight)
+  show heading: set text(size: heading_size, weight: heading_weight)
+  //show heading: set text(font: "PT Sans", weight: "bold")
+  // Center first level headings only
   show heading: it => {
     if it.level == 1 {
-      smallcaps(align(center, text(size: s.heading_level1_size, it)))
+      smallcaps(align(center, text(size: heading_level1_size, it)))
     } else {
       it
     }
@@ -141,54 +165,59 @@
   set enum(indent: 1.8em)
   show enum: set block(above: 1em, below: 1em)
 
-  show table: set text(size: s.table_text_size)
-  show table: set par(leading: s.table_leading)
-  show table: set text(top-edge: s.table_top_edge, bottom-edge: s.table_bottom_edge)
+  show table: set text(size: table_text_size)
+  show table: set par(leading: table_leading)
+  show table: set text(top-edge: table_top_edge, bottom-edge: table_bottom_edge)
   show figure: set block(below: 0em)
-  set block(above: s.block_above, below: s.block_below)
+  set block(above: block_above, below: block_below)
   show figure: set align(center)
+  // Set all tables to be centered
   show table: set align(center)
+  // Also center table captions
   show figure.where(kind: table): set align(center)
-  show figure.where(body: it => if it.func() == table { true } else { false }): set align(center)
+  // Center figures with tables inside them
+  show figure.where(body: it => {
+    if it.func() == table { true } else { false }
+  }): set align(center)
+  
+  //show figure.caption: set text(font: "PT Sans", weight: "regular")
+  set figure(placement: auto)
 
-  show link: set text(s.accent_main)
-  show ref: set text(s.accent_main)
-  show cite: set text(s.accent_main)
-  show footnote: set text(s.accent_main)
-  show footnote: set text(weight: "bold")
-  set footnote(numbering: s.footnote_numbering)
+  show link: set text(rgb(0,0,100))
+  show ref: set text(rgb(0,0,100))
+  show cite: set text(rgb(0,0,100))
+  show footnote: set text(rgb(0,0,100))
+  show footnote: set text(weight:"bold")
+  //show footnote.entry: set par(leading: 1em)
+  //set footnote.entry(gap: 1em)
+  set footnote(numbering: footnote_numbering)
 
   v(4em)
   set align(center)
-  par(leading: .5em)[
-    #text(1.2em)[#title]\\
-    #if subtitle != none { text(1em)[#subtitle] }
-  ]
+  par(leading: .5em)[#text(1.2em)[#title]\ #text(1em)[#subtitle]]
 
   let count = authors.len()
-  if count > 0 {
-    let ncols = calc.min(count, 3)
-    grid(
-      columns: (1fr,) * ncols,
-      row-gutter: 24pt,
-      ..authors.map(author => [#text(author.name)]),
-    )
-  }
+  let ncols = calc.min(count, 3)
+  grid(
+    columns: (1fr,) * ncols,
+    row-gutter: 24pt,
+    ..authors.map(author => [
+      #text(author.name) \
+      //#text(0.8em, author.affiliation) \
+      //#text(0.8em, link("mailto:" + author.email))
+    ]),
+  )
 
-  if date != none {
-    text(date)
-  }
+  text(date)
 
   set align(left)
   if abstract != none {
-    pad(
-      x: 3em,
-      par(
-        leading: 0.4em,
-        text(0.9em, [#smallcaps("Abstract.") #abstract]),
-      ),
-    )
+  pad(x: 3em,
+  par(leading: 0.4em, 
+  text(0.9em,
+    [#smallcaps("Abstract.") #abstract]
+  )))
   }
-
+    
   doc
 }
