@@ -1,4 +1,4 @@
-#import "/src/lib.typ" as chronos: *
+#import "@preview/chronos:0.3.0" as chronos: *
 
 #set page(width: auto, height: auto)
 #chronos.diagram({
