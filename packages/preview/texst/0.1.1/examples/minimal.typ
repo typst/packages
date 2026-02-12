@@ -1,4 +1,4 @@
-#import "../src/lib.typ": paper, theorem, proof, nneq, caption_with_note
+#import "@preview/texst:0.1.1": paper, theorem, proof, nneq, caption_with_note
 
 #show: doc => paper(
   title: [A Minimal Academic Paper],
