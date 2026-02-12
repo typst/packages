@@ -45,7 +45,7 @@ function in a show rule. If you want to change an existing project to use this
 template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/bamdone-ieeeconf:0.1.1": ieee
+#import "@preview/bamdone-ieeeconf:0.1.2": ieee
 
 #show: ieee.with(
   title: [Preparation of Papers for IEEE Sponsored Conferences & Symposia],
