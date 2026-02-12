@@ -1,4 +1,4 @@
-#import "@preview/texst:0.1.0": paper, nneq, caption_note, table_note, theorem, proof, prop, lem, rem, ass, cmain, csub, caption_with_note
+#import "@preview/texst:0.1.0": paper, nneq, caption-note, table-note, theorem, proof, prop, lem, rem, ass, cmain, csub, caption-with-note
 
 #show: doc => paper(
   title: [Title],
@@ -83,10 +83,10 @@ $)
       [$R^2$], [0.777], [0.888], [0.999], [0.555], [0.666], [0.444],
       [Within $R^2$], [0.111], [0.222], [0.333], [0.444], [0.555], [0.666],
       table.hline(stroke: 1.2pt),
-      table.cell(colspan: 7, table_note([Sample note for errors in round brackets.#linebreak()Signif. Codes: $.^(***)$: 0.001, $.^(**)$: 0.01, $.^(*)$: 0.05, $.^(+)$: 0.1.]))
+      table.cell(colspan: 7, table-note([Sample note for errors in round brackets.#linebreak()Signif. Codes: $.^(***)$: 0.001, $.^(**)$: 0.01, $.^(*)$: 0.05, $.^(+)$: 0.1.]))
     )
   ],
-  caption: caption_with_note([Sample Title], [This is a sample caption for the table, describing its structure and what the numbers represent. Replace as needed.]),
+  caption: caption-with-note([Sample Title], [This is a sample caption for the table, describing its structure and what the numbers represent. Replace as needed.]),
 )<tab:sample_table>
 
 #heading(outlined: false, numbering: none, level: 1)[References]

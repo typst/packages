@@ -1,34 +1,34 @@
 #import "@preview/ctheorems:1.1.3": *
-#import "@preview/cetz:0.4.1"
+#import "@preview/cetz:0.4.2"
 
 // =============================================================================
 // BASIC SETTINGS (edit here)
 // =============================================================================
-#let page_margin = (x: 1.2in, y: 1.2in)
-#let page_numbering = "1"
+#let page-margin = (x: 1.2in, y: 1.2in)
+#let page-numbering = "1"
 
-#let body_font = "New Computer Modern"
-#let body_size = 11pt
-#let body_top_edge = 0.7em
-#let body_bottom_edge = -0.3em
+#let body-font = "New Computer Modern"
+#let body-size = 11pt
+#let body-top-edge = 0.7em
+#let body-bottom-edge = -0.3em
 
-#let par_leading = 1em
-#let par_first_indent = 1.8em
+#let par-leading = 1em
+#let par-first-indent = 1.8em
 
-#let heading_numbering = "1."
-#let heading_size = 1em
-#let heading_weight = "bold"
-#let heading_level1_size = 0.9em
+#let heading-numbering = "1."
+#let heading-size = 1em
+#let heading-weight = "bold"
+#let heading-level1-size = 0.9em
 
-#let table_text_size = 0.8em
-#let table_leading = 0.65em
-#let table_top_edge = 0.35em
-#let table_bottom_edge = -0.3em
+#let table-text-size = 0.8em
+#let table-leading = 0.65em
+#let table-top-edge = 0.35em
+#let table-bottom-edge = -0.3em
 
-#let block_above = 1.5em
-#let block_below = 1.5em
+#let block-above = 1.5em
+#let block-below = 1.5em
 
-#let footnote_numbering = "[1]"
+#let footnote-numbering = "[1]"
 
 #let cmain = rgb(0,0,100)
 #let csub = rgb("#8b0000")
@@ -37,15 +37,15 @@
 // UTILITIES
 // =============================================================================
 #let nneq(eq) = math.equation(block: true, numbering: none, eq)
-#let caption_note(body) = align(left)[
+#let caption-note(body) = align(left)[
   #pad(x: 2em, y: 0em)[
     #par(leading: 0.2em)[
       #text(size: 0.9em)[*Note:* #body]
     ]
   ]
 ]
-#let caption_with_note(title, note) = [#title #caption_note(note)]
-#let table_note(body) = align(left)[
+#let caption-with-note(title, note) = [#title #caption-note(note)]
+#let table-note(body) = align(left)[
   #text(size: 0.9em)[#emph(body)]
 ]
 
@@ -108,21 +108,21 @@
   doc,
 ) = {
   set page(
-    margin: page_margin,
-    numbering: page_numbering
+    margin: page-margin,
+    numbering: page-numbering
   )
   
   set par(
-    leading: par_leading,
-    first-line-indent: par_first_indent,
+    leading: par-leading,
+    first-line-indent: par-first-indent,
     justify: true
   )
   
   set text(
-    font: body_font,
-    size: body_size,
-    top-edge: body_top_edge,
-    bottom-edge: body_bottom_edge
+    font: body-font,
+    size: body-size,
+    top-edge: body-top-edge,
+    bottom-edge: body-bottom-edge
   )
 
   set math.equation(numbering: "(1)")
@@ -148,15 +148,15 @@
 
   set quote(block: true)
 
-  set heading(numbering: heading_numbering)
+  set heading(numbering: heading-numbering)
   show heading: set block(above: 2em, below: 1em)
   show heading: set par(leading: 0.3em)
-  show heading: set text(size: heading_size, weight: heading_weight)
+  show heading: set text(size: heading-size, weight: heading-weight)
   //show heading: set text(font: "PT Sans", weight: "bold")
   // Center first level headings only
   show heading: it => {
     if it.level == 1 {
-      smallcaps(align(center, text(size: heading_level1_size, it)))
+      smallcaps(align(center, text(size: heading-level1-size, it)))
     } else {
       it
     }
@@ -165,11 +165,11 @@
   set enum(indent: 1.8em)
   show enum: set block(above: 1em, below: 1em)
 
-  show table: set text(size: table_text_size)
-  show table: set par(leading: table_leading)
-  show table: set text(top-edge: table_top_edge, bottom-edge: table_bottom_edge)
+  show table: set text(size: table-text-size)
+  show table: set par(leading: table-leading)
+  show table: set text(top-edge: table-top-edge, bottom-edge: table-bottom-edge)
   show figure: set block(below: 0em)
-  set block(above: block_above, below: block_below)
+  set block(above: block-above, below: block-below)
   show figure: set align(center)
   // Set all tables to be centered
   show table: set align(center)
@@ -190,7 +190,7 @@
   show footnote: set text(weight:"bold")
   //show footnote.entry: set par(leading: 1em)
   //set footnote.entry(gap: 1em)
-  set footnote(numbering: footnote_numbering)
+  set footnote(numbering: footnote-numbering)
 
   v(4em)
   set align(center)
