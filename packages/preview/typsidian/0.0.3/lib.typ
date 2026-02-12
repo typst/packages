@@ -1,6 +1,8 @@
 #import "@preview/zebraw:0.6.0": *
 #import "@preview/showybox:2.0.4": showybox
-#import "@preview/glossarium:0.5.9": gls, glspl, make-glossary, print-glossary, register-glossary
+#import "@preview/glossarium:0.5.10": (
+  gls, glspl, make-glossary, print-glossary, register-glossary,
+)
 #import "@preview/fontawesome:0.6.0": *
 
 // Typsidian Template
@@ -225,7 +227,11 @@
 
   let merged-text-args = _text-args
   for (key, value) in text-args {
-    if key in merged-text-args and type(merged-text-args.at(key)) == dictionary and type(value) == dictionary {
+    if (
+      key in merged-text-args
+        and type(merged-text-args.at(key)) == dictionary
+        and type(value) == dictionary
+    ) {
       merged-text-args.at(key) = merged-text-args.at(key) + value
     } else {
       merged-text-args.at(key) = value
@@ -379,7 +385,9 @@
     ),
   )
 
-  let theme-colors = if theme == "dark" { color-scheme.dark } else { color-scheme.light }
+  let theme-colors = if theme == "dark" { color-scheme.dark } else {
+    color-scheme.light
+  }
 
   let colors = (
     bg: theme-colors.typography.bg,
@@ -464,9 +472,15 @@
   show heading: it => {
     let level-str = str(it.level)
 
-    let weight = merged-text-args.headings.weights.at(level-str, default: "regular")
+    let weight = merged-text-args.headings.weights.at(
+      level-str,
+      default: "regular",
+    )
     let size = merged-text-args.headings.sizes.at(level-str, default: 10pt)
-    let alignment = merged-text-args.headings.aligns.at(level-str, default: left)
+    let alignment = merged-text-args.headings.aligns.at(
+      level-str,
+      default: left,
+    )
 
     set align(alignment)
 
@@ -566,7 +580,6 @@
     },
   ) if standalone
 
-
   // Glossary
   if show-index {
     show: make-glossary
@@ -621,7 +634,12 @@
 
 // Title
 #let date = datetime.today().display("[month repr:long] [day], [year]")
-#let make-title(show-outline: true, show-underline: true, show-author: false, justify: "center") = context {
+#let make-title(
+  show-outline: true,
+  show-underline: true,
+  show-author: false,
+  justify: "center",
+) = context {
   let colors = _colors.get()
   let title = _title.get()
   let course = _course.get()
@@ -693,7 +711,8 @@
         #if show-underline [
           #line(
             length: 100%,
-            stroke: 0.1em + colors.heading-colors.at("1", default: black).lighten(25%),
+            stroke: 0.1em
+              + colors.heading-colors.at("1", default: black).lighten(25%),
           )
         ]
         #v(1em)
@@ -706,7 +725,13 @@
 }
 
 // Section title
-#let section-title(title: "", subtitle: none, justify: "center", underline: false, icon: none) = context {
+#let section-title(
+  title: "",
+  subtitle: none,
+  justify: "center",
+  underline: false,
+  icon: none,
+) = context {
   let colors = _colors.get()
 
   if justify == "center" {
@@ -731,7 +756,8 @@
           #v(0.3em)
           #line(
             length: 60%,
-            stroke: 0.08em + colors.heading-colors.at("1", default: black).lighten(25%),
+            stroke: 0.08em
+              + colors.heading-colors.at("1", default: black).lighten(25%),
           )
         ]
       ],
@@ -759,7 +785,8 @@
           #v(0.2em)
           #line(
             length: 40%,
-            stroke: 0.08em + colors.heading-colors.at("1", default: black).lighten(25%),
+            stroke: 0.08em
+              + colors.heading-colors.at("1", default: black).lighten(25%),
           )
         ]
       ],
@@ -880,7 +907,9 @@
         border-color: colors.text-colors.muted,
         radius: box-radius,
         thickness: box-thickness,
-        inset: if title == none { (x: 1em, y: 1.5em) } else { (x: 1em, y: 0.65em) },
+        inset: if title == none { (x: 1em, y: 1.5em) } else {
+          (x: 1em, y: 0.65em)
+        },
       ),
       body-color: colors.text-colors.muted,
       title-icon: none,
@@ -906,7 +935,8 @@
   show: zebraw.with(
     background-color: theme-config.zebra-bg,
     highlight-color: theme-config.at("zebra-highlight", default: none),
-    numbering-font-args: if theme-config.at("zebra-numbers", default: none) != none {
+    numbering-font-args: if theme-config.at("zebra-numbers", default: none)
+      != none {
       (fill: theme-config.zebra-numbers)
     } else {
       (:)
@@ -989,7 +1019,10 @@
     [
       #text(weight: "bold", fill: colors.boxes.info.header, size: 1.1em)[#word]
       #if pronunciation != none [
-        #text(fill: colors.text-colors.muted, style: "italic")[ /#pronunciation/]
+        #text(
+          fill: colors.text-colors.muted,
+          style: "italic",
+        )[ /#pronunciation/]
       ]
       #v(0.2em)
       #text(fill: colors.text-colors.main)[#definition]
@@ -1023,10 +1056,18 @@
     stroke: 1pt + colors.boxes.example.header,
     radius: 0.3em,
     [
-      #text(weight: "bold", fill: colors.boxes.example.header, size: 1.05em)[Q:#h(0.2em)]
+      #text(
+        weight: "bold",
+        fill: colors.boxes.example.header,
+        size: 1.05em,
+      )[Q:#h(0.2em)]
       #text(fill: colors.boxes.example.text)[#question]
       #v(0.7em)
-      #text(weight: "bold", fill: colors.boxes.example.header, size: 1.05em)[A:#h(0.2em)]
+      #text(
+        weight: "bold",
+        fill: colors.boxes.example.header,
+        size: 1.05em,
+      )[A:#h(0.2em)]
       #text(fill: colors.boxes.example.text)[#answer]
     ],
   )
