@@ -4,7 +4,7 @@
 
 ## Start Here
 
-Use one of these two paths:
+Use one of these package imports:
 
 1. Published package (Typst Universe):
 
@@ -12,10 +12,10 @@ Use one of these two paths:
 #import "@preview/texst:0.1.0": paper
 ```
 
-2. Local repository checkout (before/without publication):
+2. Local package install:
 
 ```typst
-#import "./src/lib.typ": paper
+#import "@local/texst:0.1.0": paper
 ```
 
 ## Manual Install (No `@preview`)
@@ -89,9 +89,9 @@ Your document content is passed through `doc`.
 
 - `paper(title:, subtitle:, authors:, date:, abstract:, style:, doc)`
 - `nneq(eq)` (unnumbered display equation)
-- `caption_note(body)`
-- `caption_with_note(title, note)`
-- `table_note(body)`
+- `caption-note(body)`
+- `caption-with-note(title, note)`
+- `table-note(body)`
 - `theorem`, `proof`, `prop`, `lem`, `rem`, `asp`
 
 ## Style Overrides

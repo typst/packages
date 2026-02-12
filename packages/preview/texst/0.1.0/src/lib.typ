@@ -1,6 +1,6 @@
 #import "@preview/ctheorems:1.1.3": *
 
-#let default_style = (
+#let default-style = (
   page_margin: (x: 1.2in, y: 1.2in),
   page_numbering: "1",
   body_font: "New Computer Modern",
@@ -25,7 +25,7 @@
 
 #let nneq(eq) = math.equation(block: true, numbering: none, eq)
 
-#let caption_note(body) = align(left)[
+#let caption-note(body) = align(left)[
   #pad(x: 2em, y: 0em)[
     #par(leading: 0.2em)[
       #text(size: 0.9em)[*Note:* #body]
@@ -33,9 +33,9 @@
   ]
 ]
 
-#let caption_with_note(title, note) = [#title #caption_note(note)]
+#let caption-with-note(title, note) = [#title #caption-note(note)]
 
-#let table_note(body) = align(left)[
+#let table-note(body) = align(left)[
   #text(size: 0.9em)[#emph(body)]
 ]
 
@@ -92,9 +92,9 @@
   doc,
 ) = {
   let s = if style == none {
-    default_style
+    default-style
   } else {
-    default_style + style
+    default-style + style
   }
 
   set page(margin: s.page_margin, numbering: s.page_numbering)
