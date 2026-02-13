@@ -41,9 +41,9 @@
  }
 }
 #show: uastwthesissetup
-#show "LaTeX": LaTeX
-#show "BibTeX": BibTeX
-#show "Rust": Rust
+#show "latex": LaTeX
+#show "bibtex": BibTeX
+#show "rust": Rust
 
 #set page(numbering: none)
 #show: uastwthesistitlepagefunc.with(language: lan, 

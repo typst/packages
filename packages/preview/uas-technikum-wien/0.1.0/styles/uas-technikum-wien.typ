@@ -164,7 +164,7 @@ Weiters bestätige ich, dass ich die vorliegende Arbeit bis dato nicht veröffen
 	body
 }
 
-#let LaTeX = {
+#let latex = {
   set text(font: "New Computer Modern")
   let l = "L"
   let a = text(baseline: -0.35em, size: 0.66em, "A")
@@ -175,7 +175,7 @@ Weiters bestätige ich, dass ich die vorliegende Arbeit bis dato nicht veröffen
   box(l + h(-0.32em) + a + h(-0.13em) + t + h(-0.14em) + e + h(-0.14em) + x)
 }
 
-#let BibTeX = {
+#let bibtex = {
   set text(font: "New Computer Modern")
   let bib = "Bib"
   let t = "T"
@@ -185,7 +185,7 @@ Weiters bestätige ich, dass ich die vorliegende Arbeit bis dato nicht veröffen
   box(bib + h(-0.13em) + t + h(-0.14em) + e + h(-0.14em) + x)
 }
 
-#let Rust = { 
+#let rust = { 
 	box(image(
 		"rust.svg",
 		height: 14pt,
