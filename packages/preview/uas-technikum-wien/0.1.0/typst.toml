@@ -1,0 +1,27 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "uas-technikum-wien"
+version = "0.1.0"
+entrypoint = "styles/uastw_template.typ"
+authors = [
+  "Martin Horauer <https://github.com/mhorauer/>"
+]
+license = "GPL-3.0"
+description = "Typst template for bachelor and master thesis at UAS Technikum Wien"
+repository = "https://github.com/mhorauer/typst-templates"
+keywords = ["Technikum Wien", "thesis", "bachelor", "master"]
+categories = ["office"]
+disciplines = ["embedded systems", "education"]
+compiler = "0.14.2"
+exclude = [
+  ".github",
+  # "logo.svg",
+  # "rust.svg",
+]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
+
