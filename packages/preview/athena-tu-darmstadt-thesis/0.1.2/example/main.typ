@@ -1,5 +1,4 @@
-//#import "@preview/athena-tu-darmstadt-thesis:0.1.1": *
-#import "@local/athena-tu-darmstadt-thesis:0.1.2": *
+#import "@preview/athena-tu-darmstadt-thesis:0.1.2": *
 
 // setup the template
 #show: tudapub.with(
