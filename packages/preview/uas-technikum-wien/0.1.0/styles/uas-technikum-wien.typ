@@ -4,7 +4,7 @@
 #let twgray = rgb("#777777")
 #let lightgray = rgb("EEEEEE")
 
-#let uastw-thesis-setup(body) = {
+#let uastwthesissetup(body) = {
 	set page(
 	  paper: "a4",
 	  margin: (left: 2.5cm, top: 4.5cm, right: 2.5cm, bottom: 2cm),
@@ -41,10 +41,10 @@
 
 
 
-#let uastw-thesis-titlepage-func(language: "en", 
-	thesisType: "BACHELOR PAPER", degree: "Bachelor", 
-	study_program: "Electronics", thesisTitle: "title",
-	thesisSubTitle: "",	author: "Ing. Max Mustermann", 
+#let uastwthesistitlepagefunc(language: "en", 
+	thesis-type: "BACHELOR PAPER", degree: "Bachelor", 
+	study-program: "Electronics", thesis-title: "title",
+	thesis-subtitle: "",	author: "Ing. Max Mustermann", 
 	authorid: "123456789", advisor: "Dr. Knowitall", 
 	location: "Wien", body) = {
 	[
@@ -72,7 +72,7 @@
 		]	
 		#place(top + left, dx: 1.2cm, dy: 4.5cm)[
 			#text(font: "Open Sans", 22pt, weight: "bold")[
-				#thesisType
+				#thesis-type
 			]	
 		]
 		#place(top + left, dx: 1.2cm, dy: 5.8cm)[
@@ -82,22 +82,22 @@
 					Thesis submitted in fulfillment of the requirements for the \
 					degree of #degree of Science in Engineering at the University of\  
 					Applied Sciences Technikum Wien - Degree Program \
-					#study_program
+					#study-program
 				] else [
 					zur Erlangung des akademischen Grades \
 					„#degree of Science in Engineering“ im Studiengang \
-					#study_program
+					#study-program
 				]
 			]			
 		]
 		#place(top + left, dx: 1.2cm, dy: 10.8cm)[
 			#text(font: "Open Sans", 22pt, weight: "bold")[
-				#thesisTitle
+				#thesis-title
 			]	
 		]
 		#place(top + left, dx: 1.2cm, dy: 12.8cm)[
 			#text(font: "Open Sans", 16pt)[
-				#thesisSubTitle
+				#thesis-subtitle
 			]	
 		]
 		#place(top + left, dx: 1.2cm, dy: 14.8cm)[
@@ -117,9 +117,9 @@
 			]			
 		]
 		#set document(
-		  title: thesisTitle,
+		  title: thesis-title,
 		  author: (author),
-		  keywords: (thesisType),
+		  keywords: (thesis-type),
 		  date: auto,
 		)		
 	]

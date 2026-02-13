@@ -40,15 +40,15 @@
 	}
  }
 }
-#show: uastw-thesis-setup
+#show: uastwthesissetup
 #show "LaTeX": LaTeX
 #show "BibTeX": BibTeX
 #show "Rust": Rust
 
 #set page(numbering: none)
-#show: uastw-thesis-titlepage-func.with(language: lan, 
-    thesisType: thesisType, degree: deg, study_program: std, 
-    thesisTitle: title, thesisSubTitle: subTitle, 
+#show: uastwthesistitlepagefunc.with(language: lan, 
+    thesis-type: thesisType, degree: deg, study-program: std, 
+    thesis-title: title, thesis-subtitle: subTitle, 
     author: authorName, authorid: authorID, advisor: adv, 
     location: loc)
 
