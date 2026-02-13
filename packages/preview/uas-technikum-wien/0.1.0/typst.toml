@@ -12,7 +12,7 @@ description = "Typst template for bachelor and master thesis at UAS Technikum Wi
 repository = "https://github.com/mhorauer/typst-templates"
 keywords = ["Technikum Wien", "thesis", "bachelor", "master"]
 categories = ["office"]
-disciplines = ["embedded systems", "education"]
+disciplines = ["computer-science", "education"]
 compiler = "0.14.2"
 exclude = [
   ".github",
