@@ -39,7 +39,7 @@ h_da,Hochschule Darmstadt
 
 2. Load the abbreviations file in your main document **before** the `show: clean-hda.with(...)` statement:
 ```typst
-#import "@preview/clean-hda:0.2.0": *
+#import "@preview/clean-hda:0.3.0": *
 #import "@preview/abbr:0.3.0"
 
 // Load abbreviations BEFORE applying the template
