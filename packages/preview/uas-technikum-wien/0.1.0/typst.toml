@@ -7,7 +7,7 @@ entrypoint = "styles/uastw_template.typ"
 authors = [
   "Martin Horauer <https://github.com/mhorauer/>"
 ]
-license = "GPL-3.0"
+license = "GPL-3.0-or-later"
 description = "Typst template for bachelor and master thesis at UAS Technikum Wien"
 repository = "https://github.com/mhorauer/typst-templates"
 keywords = ["Technikum Wien", "thesis", "bachelor", "master"]
