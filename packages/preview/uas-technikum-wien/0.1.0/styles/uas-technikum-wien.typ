@@ -4,7 +4,7 @@
 #let twgray = rgb("#777777")
 #let lightgray = rgb("EEEEEE")
 
-#let uastw_thesis_setup(body) = {
+#let uastw-thesis-setup(body) = {
 	set page(
 	  paper: "a4",
 	  margin: (left: 2.5cm, top: 4.5cm, right: 2.5cm, bottom: 2cm),
@@ -41,7 +41,7 @@
 
 
 
-#let uastw_thesis_titlepage_func(language: "en", 
+#let uastw-thesis-titlepage-func(language: "en", 
 	thesisType: "BACHELOR PAPER", degree: "Bachelor", 
 	study_program: "Electronics", thesisTitle: "title",
 	thesisSubTitle: "",	author: "Ing. Max Mustermann", 
