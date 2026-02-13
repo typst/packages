@@ -1,5 +1,5 @@
 #import "acronyms.typ": *
-#import "@preview/aero-dhbw:0.1.0": aero-dhbw
+#import "@preview/aero-dhbw:0.1.1": aero-dhbw
 
 #let title = ""
 #let author = ""
