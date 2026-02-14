@@ -77,7 +77,7 @@ project/
   utils.rs
  assets/
   logo.png
-Cargo.toml
+ Cargo.toml
 ```
 )
 ````
