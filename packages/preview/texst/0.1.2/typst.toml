@@ -6,7 +6,6 @@ authors = ["Shusuke Ioku"]
 license = "MIT"
 description = "LaTeX-like academic paper styling and theorem helpers for Typst."
 repository = "https://github.com/shusuke-ioku/texst"
-homepage = "https://github.com/shusuke-ioku/texst"
 keywords = ["academic", "paper", "latex", "theorem"]
 categories = ["model", "layout"]
 

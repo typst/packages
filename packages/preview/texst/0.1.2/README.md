@@ -93,9 +93,9 @@ Your document content is passed through `doc`.
 
 - `paper(title:, subtitle:, authors:, date:, abstract:, style:, doc)`
 - `nneq(eq)` (unnumbered display equation)
-- `caption_note(body)`
-- `caption_with_note(title, note)`
-- `table_note(body)`
+- `caption-note(body)`
+- `caption-with-note(title, note)`
+- `table-note(body)`
 - `cmain(body, color:)`, `csub(body, color:)`
 - `theorem`, `proof`, `prop`, `lem`, `rem`, `asp`
 
