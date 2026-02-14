@@ -1,13 +1,13 @@
-# ISO 7000 Icons for Typst
+# Adequate ISO 7000 Icons for Typst
 
-This package provides access to 2197 of the most common ISO 7000 / IEC 60417 graphical symbols for use in Typst documents. All symbols are sourced from Wikimedia Commons and made available under their respective open licenses.
+This package provides access to 2197 of the most common ISO 7000 / IEC 60417 graphical symbols for use in Typst documents. All symbols are sourced from Wikimedia Commons and made available under their respective open licenses. The library is "adequate" because its good enough.
 
-For a complete list of supported icons see the [demo PDF](https://github.com/gauravmm/typst-iso-7000-generator/releases/tag/v0.1.0).
+For a complete list of supported icons see the [demo PDF](https://github.com/gauravmm/typst-iso-7000-generator/releases/tag/v0.1.1).
 
 ## Installation
 
 ```typst
-#import "@preview/iso-7000:0.1.0": iso-7000
+#import "@preview/adequate-iso-7000:0.1.1": iso-7000
 ```
 
 ## Usage

@@ -1,5 +1,5 @@
 [package]
-name = "iso-7000"
+name = "adequate-iso-7000"
 version = "0.1.0"
 repository = "https://github.com/gauravmm/typst-iso-7000"
 license = "MIT"
