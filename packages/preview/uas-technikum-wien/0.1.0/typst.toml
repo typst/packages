@@ -3,7 +3,7 @@
 [package]
 name = "uas-technikum-wien"
 version = "0.1.0"
-entrypoint = "styles/uas-technikum-wien.typ"
+entrypoint = "thesis.typ"
 authors = [
   "Martin Horauer <https://github.com/mhorauer/>"
 ]
@@ -21,7 +21,7 @@ exclude = [
 ]
 
 [template]
-path = "styles"
-entrypoint = "uas-technikum-wien.typ"
+path = ""
+entrypoint = "thesis.typ"
 thumbnail = "thumbnail.png"
 

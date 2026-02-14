@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // ---[ Template created by M. Horauer ]----------------------------------------
 //
-#import "@preview/uas-technikum-wien:0.1.0": *
+#import "styles/uas-technikum-wien.typ": *
 
 // ---[ ToDo ]------------------------------------------------------------------
 // Adjust the variables below ...
@@ -40,10 +40,11 @@
 	}
  }
 }
-#show: uastwthesissetup
-#show "latex": LaTeX
-#show "bibtex": BibTeX
-#show "rust": Rust
+
+#uastwthesissetup([])
+#show "LaTeX": latex 
+#show "BibTeX": bibtex 
+#show "Rust": rust
 
 #set page(numbering: none)
 #show: uastwthesistitlepagefunc.with(language: lan, 
