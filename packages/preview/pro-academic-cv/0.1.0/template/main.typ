@@ -18,7 +18,7 @@
 Seeking a challenging position in \[your field\] to leverage my expertise in \[your key skills\]. Aiming to contribute to innovative projects at the intersection of \[your interests\] and practical problem-solving in fields such as \[specific areas of interest\].
 
 == Experience
-#r2c2_entry_list(
+#r2c2-entry-list(
   (
     entry-header-args:(
       top-left: [#link("https://research.google.com")[Google Research]],
@@ -50,7 +50,7 @@ Seeking a challenging position in \[your field\] to leverage my expertise in \[y
 )
 
 == Education
-#r2c2_entry_list(
+#r2c2-entry-list(
   (
     entry-header-args: (
       top-left: [University Name],
@@ -87,7 +87,7 @@ Seeking a challenging position in \[your field\] to leverage my expertise in \[y
 )
 
 == Projects
-#r2c2_entry_list(
+#r2c2-entry-list(
   (
     entry-header-args: (
       top-left: [Project A: \[Brief Description\]],
@@ -119,7 +119,7 @@ Seeking a challenging position in \[your field\] to leverage my expertise in \[y
 )
 
 == Patents~&~Publications (note:C=Conference, J=Journal, P=Patent, S=In Submission, T=Thesis)
-#publication_entry_list(
+#publication-entry-list(
   (
     (category: "C", value: [Your Name, et al. (Year). #link("https://doi.org/XX.XXXX/XXXXXXX.XXXX.XXXXXXX")[*Title of Conference Paper*]. In _Name of Conference Proceedings_, pp. XX-XX. Publisher. Date, Location. DOI: XX.XXXX/XXXXXXX.XXXX.XXXXXXX]),
     (category: "C", value: [Your Name, et al. (Year). #link("https://doi.org/XX.XXXX/XXXXXXX.XXXX.XXXXXXX")[*Title of Conference Paper*]. In _Name of Conference Proceedings_, pp. XX-XX. Publisher. Date, Location. DOI: XX.XXXX/XXXXXXX.XXXX.XXXXXXX]),
@@ -131,27 +131,27 @@ Seeking a challenging position in \[your field\] to leverage my expertise in \[y
 )
 
 == Skills
-#multi_line_list(
-  single_line_entry("Programming Languages:", [Language 1, Language 2, Language 3, Language 4, Language 5], []),
-  single_line_entry("Web Technologies:", [Technology 1, Technology 2, Technology 3, Technology 4, Technology 5], []),
-  single_line_entry("Database Systems:", [Database 1, Database 2, Database 3], []),
-  single_line_entry("Data Science & Machine Learning:", [Tool 1, Tool 2, Tool 3, Tool 4, Tool 5, Tool 6], []),
-  single_line_entry("Cloud Technologies:", [Cloud Platform 1, Cloud Platform 2, Cloud Platform 3], []),
-  single_line_entry("DevOps & Version Control:", [Tool 1, Tool 2, Tool 3, Tool 4, Tool 5], []),
-  single_line_entry("Specialized Area:", [Skill 1, Skill 2, Skill 3, Skill 4], []),
-  single_line_entry("Mathematical & Statistical Tools:", [Tool 1, Tool 2, Tool 3, Tool 4, Tool 5], []),
-  single_line_entry("Other Tools & Technologies:", [Tool 1, Tool 2, Tool 3, Tool 4, Tool 5], []),
-  single_line_entry("Research Skills:", [Skill 1, Skill 2, Skill 3, Skill 4, Skill 5, Skill 6], []),
+#multi-line-list(
+  single-line-entry("Programming Languages:", [Language 1, Language 2, Language 3, Language 4, Language 5], []),
+  single-line-entry("Web Technologies:", [Technology 1, Technology 2, Technology 3, Technology 4, Technology 5], []),
+  single-line-entry("Database Systems:", [Database 1, Database 2, Database 3], []),
+  single-line-entry("Data Science & Machine Learning:", [Tool 1, Tool 2, Tool 3, Tool 4, Tool 5, Tool 6], []),
+  single-line-entry("Cloud Technologies:", [Cloud Platform 1, Cloud Platform 2, Cloud Platform 3], []),
+  single-line-entry("DevOps & Version Control:", [Tool 1, Tool 2, Tool 3, Tool 4, Tool 5], []),
+  single-line-entry("Specialized Area:", [Skill 1, Skill 2, Skill 3, Skill 4], []),
+  single-line-entry("Mathematical & Statistical Tools:", [Tool 1, Tool 2, Tool 3, Tool 4, Tool 5], []),
+  single-line-entry("Other Tools & Technologies:", [Tool 1, Tool 2, Tool 3, Tool 4, Tool 5], []),
+  single-line-entry("Research Skills:", [Skill 1, Skill 2, Skill 3, Skill 4, Skill 5, Skill 6], []),
 )
 
 == Honors~&~Awards
-- #r2c2_entry_header(
+- #r2c2-entry-header(
   top-left: [Award Name A],
   top-right: [Month Year],
   bottom-left: [Awarding Institution/Organization],
   bottom-right: [#link("https://award-link-a.com")[#link-icon()]],
 )
-#r2c2_entry_list(
+#r2c2-entry-list(
   (
     entry-header-args: (
       top-left: [Award Name B],
@@ -179,7 +179,7 @@ Seeking a challenging position in \[your field\] to leverage my expertise in \[y
 )
 
 == Leadership Experience
-#r2c2_entry_list(
+#r2c2-entry-list(
   (
     entry-header-args: (
       top-left: [Leadership Role A],
@@ -209,7 +209,7 @@ Seeking a challenging position in \[your field\] to leverage my expertise in \[y
 )
 
 == Volunteer Experience
-#r2c2_entry_list(
+#r2c2-entry-list(
   (
     entry-header-args: (
       top-left: [Volunteer Role A],
@@ -239,28 +239,28 @@ Seeking a challenging position in \[your field\] to leverage my expertise in \[y
 )
 
 == Professional Memberships
-#multi_line_list(
-  single_line_entry([Professional Organization A,], [Membership ID: XXXXXXXX], [Month Year - Present]),
-  single_line_entry([Professional Organization B,], [Membership ID: XXXXXXXX], [Month Year - Present]),
-  single_line_entry([Professional Organization C,], [Membership ID: XXXXXXXX], [Month Year - Present]),
+#multi-line-list(
+  single-line-entry([Professional Organization A,], [Membership ID: XXXXXXXX], [Month Year - Present]),
+  single-line-entry([Professional Organization B,], [Membership ID: XXXXXXXX], [Month Year - Present]),
+  single-line-entry([Professional Organization C,], [Membership ID: XXXXXXXX], [Month Year - Present]),
 )
 
 == Certifications
-#multi_line_list(
-  single_line_entry([Certification A], [], [Month Year]),
-  single_line_entry([Certifying Body:], [Certification B], [Month Year]),
-  single_line_entry([Certifying Body:], [Certification C], [Month Year]),
-  single_line_entry([Certification D], [], [Month Year]),
+#multi-line-list(
+  single-line-entry([Certification A], [], [Month Year]),
+  single-line-entry([Certifying Body:], [Certification B], [Month Year]),
+  single-line-entry([Certifying Body:], [Certification C], [Month Year]),
+  single-line-entry([Certification D], [], [Month Year]),
 )
 
 == Additional Information
-#multi_line_text(
-  single_line_entry([Languages:], [Language A (Proficiency level), Language B (Proficiency level), Language C (Proficiency level)], []),
-  single_line_entry([Interests:], [Interest 1, Interest 2, Interest 3, Interest 4], [])
+#multi-line-text(
+  single-line-entry([Languages:], [Language A (Proficiency level), Language B (Proficiency level), Language C (Proficiency level)], []),
+  single-line-entry([Interests:], [Interest 1, Interest 2, Interest 3, Interest 4], [])
 )
 
 == References
-#personal_info_list(
+#personal-info-list(
   (
     (name: [Reference Person 1], title: [Job Title, Department], org: [Organization/Institution Name], email: [email1\@example.com], phone: [+X-XXX-XXX-XXXX], note: [Relationship: e.g., Thesis Advisor, Manager, etc.]),
     (name: [Reference Person 2], title: [Job Title, Department], org: [Organization/Institution Name], email: [email2\@example.com], phone: [+X-XXX-XXX-XXXX], note: [Relationship: e.g., Project Supervisor, Colleague, etc.]),

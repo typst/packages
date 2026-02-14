@@ -23,7 +23,7 @@ A professional, highly configurable academic CV template built with [Typst](http
 
 - **Clean & professional design** — Organized layout suitable for various academic disciplines, with customizable sections for education, experience, publications, awards, and more
 - **Powered by Typst** — Faster compilation, simpler syntax, and easier setup than LaTeX; works locally or in the [Typst online editor](https://typst.app/) with no package installation
-- **Friendly, composable API** — Modular primitives and templates (`r2c2_entry_list`, `publication_entry_list`, etc.) that can be mixed and reused with minimal boilerplate
+- **Friendly, composable API** — Modular primitives and templates (`r2c2-entry-list`, `publication-entry-list`, etc.) that can be mixed and reused with minimal boilerplate
 - **Refined spacing & typography** — Fine-tuned vertical spacing (automatically adjusts based on font size) for headings, paragraphs, lists, and entries to maintain consistent visual rhythm across sections
 - **Elegant link styling** — Links use a subtle light-gray underline instead of colored text, keeping the focus on content while remaining identifiable; an optional lightweight SVG link icon is available for compact link indicators
 - **Fully configurable** — All settings (fonts, margins, heading styles, list spacing, link appearance) are exposed as named parameters with sensible defaults
@@ -138,13 +138,13 @@ A single row with left-aligned and right-aligned content.
 #row2col([Left content], [Right content])
 ```
 
-### `single_line_entry` — Single-Line Entry
+### `single-line-entry` — Single-Line Entry
 
 A labeled entry with a bold label, inline value, and right-aligned content. Use for memberships, certifications, and simple dated items.
 
 ```typst
-#single_line_entry("Programming Languages:", [Python, Rust, Go], [])
-#single_line_entry([Certification A], [], [Month Year])
+#single-line-entry("Programming Languages:", [Python, Rust, Go], [])
+#single-line-entry([Certification A], [], [Month Year])
 ```
 
 | Parameter | Type | Default | Description |
@@ -155,16 +155,16 @@ A labeled entry with a bold label, inline value, and right-aligned content. Use 
 | `label-args` | dictionary | `(weight: "bold")` | Override label text style |
 | `rc-args` | dictionary | `(size: 0.9em, style: "italic")` | Override right-content text style |
 
-### `multi_line_list` — Multi-Line List
+### `multi-line-list` — Multi-Line List
 
 Renders items as a bullet or numbered list.
 
 ```typst
-#multi_line_list(
+#multi-line-list(
   [Item 1],
   [Item 2],
 )
-#multi_line_list(list-type: "enum", [First], [Second])
+#multi-line-list(list-type: "enum", [First], [Second])
 ```
 
 | Parameter | Type | Default | Description |
@@ -173,23 +173,23 @@ Renders items as a bullet or numbered list.
 | `list-args` | dictionary | `(:)` | Extra arguments passed to `list()` |
 | `enum-args` | dictionary | `(:)` | Extra arguments passed to `enum()` |
 
-### `multi_line_text` — Multi-Line Text
+### `multi-line-text` — Multi-Line Text
 
 Renders content items separated by line breaks (no bullets).
 
 ```typst
-#multi_line_text(
+#multi-line-text(
   [Line 1],
   [Line 2],
 )
 ```
 
-### `r2c2_entry_header` — Two-by-Two Entry Header
+### `r2c2-entry-header` — Two-by-Two Entry Header
 
 A two-row, two-column header block. Top-left is bold, others are italic/smaller.
 
 ```typst
-#r2c2_entry_header(
+#r2c2-entry-header(
   top-left: [Company Name],
   top-right: [2020 - 2024],
   bottom-left: [Software Engineer],
@@ -205,12 +205,12 @@ A two-row, two-column header block. Top-left is bold, others are italic/smaller.
 | `bottom-right` | content | 0.9em | Location or link |
 | `*-args` | dictionary | — | Override text style for any quadrant |
 
-### `r2c2_entry` — Entry with List Items
+### `r2c2-entry` — Entry with List Items
 
-Combines an `r2c2_entry_header` with a bullet (or numbered) list of detail items underneath.
+Combines an `r2c2-entry-header` with a bullet (or numbered) list of detail items underneath.
 
 ```typst
-#r2c2_entry(
+#r2c2-entry(
   entry-header-args: (
     top-left: [Google Research],
     top-right: [2022 - Present],
@@ -226,18 +226,18 @@ Combines an `r2c2_entry_header` with a bullet (or numbered) list of detail items
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| `entry-header-args` | dictionary | — | Arguments forwarded to `r2c2_entry_header` |
+| `entry-header-args` | dictionary | — | Arguments forwarded to `r2c2-entry-header` |
 | `list-items` | array | `()` | Array of content items |
 | `list-type` | string | `"list"` | `"list"` for bullets, `"enum"` for numbered |
 | `list-args` | dictionary | `(spacing: 0.5em)` | Extra arguments for `list()` |
 | `enum-args` | dictionary | `(spacing: 0.5em)` | Extra arguments for `enum()` |
 
-### `personal_info` — Personal Info Block
+### `personal-info` — Personal Info Block
 
 A multi-line text block for a single person's contact information.
 
 ```typst
-#personal_info(
+#personal-info(
   [Prof. Jane Smith],   // name
   [Associate Professor], // title
   [MIT CSAIL],           // org
@@ -253,19 +253,19 @@ A multi-line text block for a single person's contact information.
 
 Higher-level components that compose primitives into repeatable section patterns.
 
-### `r2c2_entry_list` — Entry List
+### `r2c2-entry-list` — Entry List
 
-Renders a vertical stack of `r2c2_entry` items. Use for experience, education, projects, awards, leadership, and volunteer sections.
+Renders a vertical stack of `r2c2-entry` items. Use for experience, education, projects, awards, leadership, and volunteer sections.
 
 ```typst
-#r2c2_entry_list(
+#r2c2-entry-list(
   (
-    entry-header-args: ( ... ),
-    list-items: ( ... ),
+    entry-header-args: (:),
+    list-items: (:),
   ),
   (
-    entry-header-args: ( ... ),
-    list-items: ( ... ),
+    entry-header-args: (:),
+    list-items: (:),
   ),
 )
 ```
@@ -273,14 +273,14 @@ Renders a vertical stack of `r2c2_entry` items. Use for experience, education, p
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | `spacing` | length | `0.8em` | Vertical gap between entries |
-| `..entries` | variadic | — | Each entry is a dictionary forwarded to `r2c2_entry` |
+| `..entries` | variadic | — | Each entry is a dictionary forwarded to `r2c2-entry` |
 
-### `publication_entry_list` — Publication List
+### `publication-entry-list` — Publication List
 
 Auto-numbered publication list grouped by category prefix (e.g., C for Conference, J for Journal).
 
 ```typst
-#publication_entry_list(
+#publication-entry-list(
   (
     (category: "C", value: [Author et al. (2024). *Title*. In _Proc. ..._.]),
     (category: "C", value: [Author et al. (2023). *Title*. In _Proc. ..._.]),
@@ -298,12 +298,12 @@ Auto-numbered publication list grouped by category prefix (e.g., C for Conferenc
 | `row-gutter` | length | `0.9em` | Vertical gap between entries |
 | `label-width` | length/auto | `auto` | Width of the label column |
 
-### `personal_info_list` — Personal Info List
+### `personal-info-list` — Personal Info List
 
-Renders a list of `personal_info` blocks. Use for reference sections.
+Renders a list of `personal-info` blocks. Use for reference sections.
 
 ```typst
-#personal_info_list(
+#personal-info-list(
   (
     (name: [Prof. Jane Smith], title: [Associate Professor], org: [MIT], email: [jane\@mit.edu], phone: [+1-555-0100], note: [Thesis Advisor]),
     (name: [Dr. John Doe], title: [Senior Engineer], org: [Google], email: [john\@google.com], phone: [+1-555-0200], note: [Manager]),
@@ -328,16 +328,16 @@ Primitives                          Templates
 ──────────                          ─────────
 
 row2col ◄─────────┐
-                   ├── r2c2_entry_header ◄── r2c2_entry ◄── r2c2_entry_list
+                   ├── r2c2-entry-header ◄── r2c2-entry ◄── r2c2-entry-list
                    │
-single_line_entry ◄┘
-                        (used directly with multi_line_list)
+single-line-entry ◄┘
+                        (used directly with multi-line-list)
 
-multi_line_text ◄────── personal_info ◄──── personal_info_list
+multi-line-text ◄────── personal-info ◄──── personal-info-list
 
-multi_line_list          (used directly in sections)
+multi-line-list          (used directly in sections)
 
-publication_entry_list   (standalone template, uses grid internally)
+publication-entry-list   (standalone template, uses grid internally)
 
 link-icon                (standalone primitive, used inline)
 ```
@@ -346,12 +346,12 @@ Detailed composition:
 
 | Template | Depends on (Primitives) |
 |---|---|
-| `r2c2_entry_header` | `row2col` |
-| `r2c2_entry` | `r2c2_entry_header` |
-| `r2c2_entry_list` | `r2c2_entry` → `r2c2_entry_header` → `row2col` |
-| `personal_info` | `multi_line_text` |
-| `personal_info_list` | `personal_info` → `multi_line_text` |
-| `publication_entry_list` | _(self-contained, uses `grid`)_ |
+| `r2c2-entry-header` | `row2col` |
+| `r2c2-entry` | `r2c2-entry-header` |
+| `r2c2-entry-list` | `r2c2-entry` → `r2c2-entry-header` → `row2col` |
+| `personal-info` | `multi-line-text` |
+| `personal-info-list` | `personal-info` → `multi-line-text` |
+| `publication-entry-list` | _(self-contained, uses `grid`)_ |
 
 ---
 

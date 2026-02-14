@@ -1,6 +1,6 @@
 #import "@preview/cuti:0.4.0": fakesc
 
-#let cv_section_parse_heading(text) = {
+#let cv-section-parse-heading(text) = {
   let m = text.match(regex("^\\s*(.+?)\\s*\\(\\s*note\\s*:\\s*(.+?)\\s*\\)\\s*$"))
   if m == none {
     (title: text, note: none)
@@ -102,7 +102,7 @@
         else { "" }
       }
       #let heading_text = content_to_string(it.body)
-      #let parsed = cv_section_parse_heading(heading_text)
+      #let parsed = cv-section-parse-heading(heading_text)
       #let section_note = parsed.note
       #row2col(text(size: heading-settings.section-title-size, weight: heading-settings.section-title-weight)[#parsed.title], if section_note != none { text(size: heading-settings.section-note-size, weight: heading-settings.section-note-weight)[#section_note] } else { [] })
       #v(heading-settings.section-line-above-spacing)
@@ -127,7 +127,7 @@
 
 // Style: Single-Line Entry (label + inline text + right-aligned content) \
 // Use for: memberships, certifications, simple dated items
-#let single_line_entry(label, value, rcontent, label-args: (:), rc-args: (:)) = {
+#let single-line-entry(label, value, rcontent, label-args: (:), rc-args: (:)) = {
   let default-label-args = (weight: "bold")
   let default-rc-args = (size: 0.9em, style: "italic")
   let merged-label-args = default-label-args + label-args
@@ -136,7 +136,7 @@
 }
 
 // Style: Multi-Line List
-#let multi_line_list(list-type: "list", list-args: (:), enum-args: (:), ..lines) = {
+#let multi-line-list(list-type: "list", list-args: (:), enum-args: (:), ..lines) = {
   if list-type == "enum" {
     enum(..enum-args, ..lines)
   } else {
@@ -145,7 +145,7 @@
 }
 
 // Style: Multi-Line Text
-#let multi_line_text(..lines) = [
+#let multi-line-text(..lines) = [
   #for line in lines.pos() {
     line + linebreak()
   }
@@ -153,7 +153,7 @@
 
 // Style: Two-by-Two Entry Header (two-row header) \
 // Use for: education, experience, research, honors
-#let r2c2_entry_header(
+#let r2c2-entry-header(
   top-left: "",
   top-right: "",
   bottom-left: "",
@@ -177,7 +177,7 @@
 ]
 
 // Style: R2C2 Entry with list items (entry header + bullet list) \
-#let r2c2_entry(
+#let r2c2-entry(
   entry-header-args: (:),
   list-args: (:),
   enum-args: (:),
@@ -192,7 +192,7 @@
   let merged-list-args = default-list-args + list-args
   let merged-enum-args = default-enum-args + enum-args
 
-  let entry-header = r2c2_entry_header(..entry-header-args)
+  let entry-header = r2c2-entry-header(..entry-header-args)
 
   if list-type == "list" {
     list([
@@ -209,8 +209,8 @@
 
 // Style: Personal Info Content \
 // Use for: references, contact cards
-#let personal_info(name, title, org, email, phone, note) = [
-  #multi_line_text(
+#let personal-info(name, title, org, email, phone, note) = [
+  #multi-line-text(
     text(weight: "bold")[#name],
     if title != none {[#title]},
     if org != none {[#org]},
@@ -226,13 +226,13 @@
 
 // Style: R2C2 Entry List \
 // Use for: experience, projects, awards, leadership, volunteer
-#let r2c2_entry_list(
+#let r2c2-entry-list(
   spacing: 0.8em,
   ..entries,
 ) = {
   stack(
     spacing: spacing,
-    ..entries.pos().map(entry => r2c2_entry(..entry)),
+    ..entries.pos().map(entry => r2c2-entry(..entry)),
   )
 }
 
@@ -244,7 +244,7 @@
 // number-style: "descending" (default) — first entry (most recent) gets highest number \
 //               "ascending" — first entry gets number 1 \
 // label-width: width of the label column (auto = fit widest label) \
-#let publication_entry_list(
+#let publication-entry-list(
   entries,
   column-gutter: 1.3em,
   row-gutter: 0.9em,
@@ -287,12 +287,12 @@
 
 // Style: Personal Info List \
 // Use for: references, contact cards
-#let personal_info_list(items, spacing: 1em, list-type: "enum") = [
+#let personal-info-list(items, spacing: 1em, list-type: "enum") = [
   #if list-type == "enum" {
     set enum(spacing: spacing)
-    enum(..items.map(item => personal_info(item.name, item.title, item.org, item.email, item.phone, item.note)))
+    enum(..items.map(item => personal-info(item.name, item.title, item.org, item.email, item.phone, item.note)))
   } else {
     set list(spacing: spacing)
-    list(..items.map(item => personal_info(item.name, item.title, item.org, item.email, item.phone, item.note)))
+    list(..items.map(item => personal-info(item.name, item.title, item.org, item.email, item.phone, item.note)))
   }
 ]
