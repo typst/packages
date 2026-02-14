@@ -1,8 +1,13 @@
 // -----------------------------------------------------------------------------
-// ---[ Template created by M. Horauer ]----------------------------------------
-//
-#import "styles/uas-technikum-wien.typ": *
+// THESIS TEMPLATE FOR UAS TECHNIKUM WIEN
+// Author: M. Horauer
+// GITHUB: https://github.com/mhorauer/
+// LICENSE: GPL-3.0-or-later
+// -----------------------------------------------------------------------------
 
+#import "@preview/uas-technikum-wien:0.1.0": *
+
+// -----------------------------------------------------------------------------
 // ---[ ToDo ]------------------------------------------------------------------
 // Adjust the variables below ...
 
@@ -40,46 +45,72 @@
 	}
  }
 }
+// --- OUTPUT THE TITLEPAGE ----------------------------------------------------
+#set page(numbering: none)
+#show: uastw-thesis-titlepage.with(
+	language: lan, 
+    thesis-type: thesisType, 
+    degree: deg, 
+    study-program: std, 
+    thesis-title: title, 
+    thesis-subtitle: subTitle, 
+    author: authorName, 
+    authorid: authorID, 
+    advisor: adv, 
+    location: loc)
 
-#uastwthesissetup([])
+// --- SETUP THE PAGE STYLING & SOME VARIABLES ---------------------------------
+#show: uastw-thesis-page-setup
 #show "LaTeX": latex 
 #show "BibTeX": bibtex 
 #show "Rust": rust
 
-#set page(numbering: none)
-#show: uastwthesistitlepagefunc.with(language: lan, 
-    thesis-type: thesisType, degree: deg, study-program: std, 
-    thesis-title: title, thesis-subtitle: subTitle, 
-    author: authorName, authorid: authorID, advisor: adv, 
-    location: loc)
+// --- OUTPUT THE PAGE OF DECLARATION ------------------------------------------
+#show: declaration.with(
+	language: lan)
 
-#show: declaration.with(language: lan)
+// --- WE START WITH PAGE NUMBERING @KURZFASSUNG -------------------------------
 #set page(footer: context [
 	#set text(twgray, size: 10pt) 
 	#align(right, counter(page).display("1"))
-	]
-)
+	])
 #set page(numbering: "1")
+
+// --- INSERT KURZFASSUNG ------------------------------------------------------
 #include "sections/01_kurzfassung.typ"
+
+// --- INSERT ABSTRACT ---------------------------------------------------------
 #include "sections/02_abstract.typ"
+
+// --- INSERT ACHNOWLEDGMENT ---------------------------------------------------
 #include "sections/03_acknowledgement.typ"
+
+// --- INSERT TABLE OF CONTENTS ------------------------------------------------
 #outline(
 	title: if lan == "en" [Table of Contents] else [Inhaltsverzeichnis]
 )
+
+// Just in case - reset the counter for Headings ...
+//
 #counter(heading).update(0)
-// -----------------------------------------------------------------------------
+// =============================================================================
 // --[ ADJUST YOUR CONTENT FILES BY ADDING/MODIFYING SECTIONS ]-----------------
+//
 #include "sections/10_section1.typ"
 #include "sections/11_section2.typ"
+//
+// #include "sections//12_section3.typ"
+// ...
 
 // -----------------------------------------------------------------------------
-// ---[ DO NOT TOUCH BIBLIOGRAPHY ]---------------------------------------------
+// ---[ BIBLIOGRAPHY ]----------------------------------------------------------
 #bibliography(
 	title: if lan == "en" [Bibliography] else [Literaturverzeichnis],
 	"sections/90_works.bib"
 )
 // -----------------------------------------------------------------------------
-// --[ DO NOT TOUCH INDEX ]-----------------------------------------------------
+// --[ INDEX ]------------------------------------------------------------------
 #include "sections/99_index.typ" 
 
+// EOF
 
