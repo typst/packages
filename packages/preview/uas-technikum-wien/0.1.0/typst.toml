@@ -1,5 +1,3 @@
-# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
-
 [package]
 name = "uas-technikum-wien"
 version = "0.1.0"
@@ -16,12 +14,9 @@ disciplines = ["computer-science", "education"]
 compiler = "0.14.2"
 exclude = [
   ".github",
-  # "logo.svg",
-  # "rust.svg",
 ]
 
 [template]
 path = "template"
 entrypoint = "thesis.typ"
 thumbnail = "thumbnail.png"
-
