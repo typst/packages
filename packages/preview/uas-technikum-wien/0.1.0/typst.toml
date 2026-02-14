@@ -3,7 +3,7 @@
 [package]
 name = "uas-technikum-wien"
 version = "0.1.0"
-entrypoint = "thesis.typ"
+entrypoint = "template/thesis.typ"
 authors = [
   "Martin Horauer <https://github.com/mhorauer/>"
 ]
@@ -21,7 +21,7 @@ exclude = [
 ]
 
 [template]
-path = ""
-entrypoint = "thesis.typ"
+path = "template/"
+entrypoint = "template/thesis.typ"
 thumbnail = "thumbnail.png"
 
