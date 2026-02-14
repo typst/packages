@@ -1,7 +1,0 @@
-<svg width="10mm" height="10mm" version="1.1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-<circle cx="56.652" cy="125.84" r="32.9" fill="none" stroke="#000" stroke-dasharray="35, 7.5" stroke-dashoffset="30" stroke-width="5"/>
-<circle cx="123.14" cy="59.625" r="7.2"/>
-<circle cx="56.928" cy="125.84" r="7.2"/>
-<circle cx="123.14" cy="59.758" r="48.5" fill="none" stroke="#000" stroke-dasharray="37.5, 5" stroke-dashoffset="18.5" stroke-width="5"/>
-<path d="m158.68 116.21v55.463h-11.383v-41.006h-9.6816v41.006h-11.383v-31.143h-9.6816v31.143h-11.383v-21.123h-9.6836v26.08h72.877v-60.42z"/>
-</svg>

@@ -1,9 +1,0 @@
-<svg width="10mm" height="10mm" version="1.1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-<g fill="none">
-<g stroke="#000" stroke-width="5">
-<circle cx="100" cy="100" r="32.209"/>
-<path d="m72.106 83.895-53.829-31.078v94.366l53.829-31.078"/>
-<path d="m127.89 116.1 53.829 31.078v-94.366l-53.829 31.078"/>
-</g>
-</g>
-</svg>
