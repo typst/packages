@@ -1,0 +1,16 @@
+[package]
+name = "clearly-hm"
+version = "0.1.0"
+entrypoint = "clearly-hm.typ"
+authors = ["Tobias Wölfel <@towoe>"]
+license = "MIT"
+description = "Unofficial Polylux theme for HM Hochschule München University of Applied Sciences."
+repository = "https://github.com/towoe/clearly-hm"
+keywords = ["polylux", "theme", "hm", "slides", "presentation", "München", "Munich", "Hochschule"]
+categories = ["presentation"]
+exclude = ["examples/"]
+
+[template]
+path = "template"
+entrypoint = "slides.typ"
+thumbnail = "thumbnail.png"
