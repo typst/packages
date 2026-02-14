@@ -8,7 +8,7 @@ description = "A professional template for academic CV"
 repository = "https://github.com/whliao5am/pro-academic-cv-typst-template"
 keywords = ["cv", "academic", "resume"]
 categories = ["cv"]
-exclude = ["template/main.pdf"]
+exclude = ["template/main.pdf", "examples/"]
 
 [template]
 path = "template"

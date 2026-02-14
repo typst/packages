@@ -21,6 +21,8 @@ A professional, highly configurable academic CV template built with [Typst](http
 </tr>
 </table>
 
+You can find the examples in [examples/main.pdf](./examples/main.pdf).
+
 - **Clean & professional design** — Organized layout suitable for various academic disciplines, with customizable sections for education, experience, publications, awards, and more
 - **Powered by Typst** — Faster compilation, simpler syntax, and easier setup than LaTeX; works locally or in the [Typst online editor](https://typst.app/) with no package installation
 - **Friendly, composable API** — Modular primitives and templates (`r2c2-entry-list`, `publication-entry-list`, etc.) that can be mixed and reused with minimal boilerplate
