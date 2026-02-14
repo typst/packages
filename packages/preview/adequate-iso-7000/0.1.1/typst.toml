@@ -1,6 +1,6 @@
 [package]
 name = "adequate-iso-7000"
-version = "0.1.0"
+version = "0.1.1"
 repository = "https://github.com/gauravmm/typst-iso-7000"
 license = "MIT"
 entrypoint = "src/lib.typ"
