@@ -119,15 +119,23 @@
     return false
   }
 
-  let v-line = place(line(start: (50%, 0%), end: (50%, 100%), stroke: final-stroke))
-  let h-line = place(line(start: (50%, 50%), end: (100%, 50%), stroke: final-stroke))
-  let half-v = place(line(start: (50%, 0%), end: (50%, 50%), stroke: final-stroke))
-
   let draw-conn(type) = {
     box(width: indent-width, height: row-height, {
-      if type == "pass" { v-line }
-      else if type == "fork" { v-line; h-line }
-      else if type == "end"  { half-v; h-line }
+      if type == "pass" {
+        place(line(start: (50%, 0%), end: (50%, 100%), stroke: final-stroke))
+      }
+      else if type == "fork" {
+        place(line(start: (50%, 0%), end: (50%, 100%), stroke: final-stroke))
+        place(line(start: (50%, 50%), end: (100%, 50%), stroke: final-stroke))
+      }
+      else if type == "end"  {
+        place(curve(
+          stroke: final-stroke,
+          curve.move((50%, 0%)),
+          curve.line((50%, 50%)),
+          curve.line((100%, 50%))
+        ))
+      }
     })
   }
 
