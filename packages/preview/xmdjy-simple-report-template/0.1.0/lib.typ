@@ -1,10 +1,10 @@
-#import "@preview/cuti:0.2.1": show-cn-fakebold
+#import "@preview/cuti:0.3.0": show-cn-fakebold
 
-#let school_title_pic = "./template/images/sdu-title-image.jpg"
-#let school_logo_pic = "./template/images/sdu-pic-image.jpg"
-#let school_title = "shandong university"
-#let main_show_pic = "./template/images/sdu-report-image.png"
-#let main_show_text = "实验报告展示"
+#let school-title-pic = "./template/images/sdu-title-image.jpg"
+#let school-logo-pic = "./template/images/sdu-pic-image.jpg"
+#let school-title = "shandong university"
+#let main-show-pic = "./template/images/sdu-report-image.png"
+#let main-show-text = "实验报告展示"
 
 #let field(label, content) = (
   [
@@ -46,11 +46,11 @@
   )
   show: show-cn-fakebold
   align(center)[
-    #image(school_title_pic,width: 10.8cm)
-    #text(font: "Times New Roman",size: 20pt,)[#upper(school_title)]
+    #image(school-title-pic,width: 10.8cm)
+    #text(font: "Times New Roman",size: 20pt,)[#upper(school-title)]
     #v(0.5cm)
     #text(size: 16pt)[#underline(course) 课程实验报告]
-    #image(school_logo_pic,width: 12cm)
+    #image(school-logo-pic,width: 12cm)
     #v(0.0cm)
     #grid(
       columns: (80pt, 180pt),
@@ -77,9 +77,9 @@
       #grid(
         columns: (1fr,1fr),
         align: bottom,
-        image(main_show_pic,width: 6.8cm),
+        image(main-show-pic,width: 6.8cm),
         [
-          #align(right)[#text(size: 16pt)[#main_show_text]]
+          #align(right)[#text(size: 16pt)[#main-show-text]]
           #v(0.45cm)
         ]
       )
