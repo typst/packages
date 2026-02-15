@@ -1,0 +1,3 @@
+[submodule "packages/preview/xmdjy-simple-report-template/0.1.0"]
+	path = packages/preview/xmdjy-simple-report-template/0.1.0
+	url = https://github.com/xmdjy/exp-report-template
