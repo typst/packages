@@ -1,0 +1,11 @@
+[package]
+name = "axiom"
+version = "0.1.0"
+entrypoint = "src/axiom.typ"
+authors = ["Simon Buré"]
+license = "MIT"
+description = "Minimal mathematical notations toolkit. Classical sets, linear algebra, probability laws and statistics operators... and much more !"
+repository = "https://github.com/SimonBure/axiom"
+keywords = ["math", "operators", "notation"]
+disciplines = ["mathematics"]
+compiler = "0.14.2"
