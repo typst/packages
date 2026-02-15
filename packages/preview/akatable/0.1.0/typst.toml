@@ -7,5 +7,5 @@ license = "MIT"
 description = "Clean academic tables with publisher format presets (APA, IEEE, Nature, etc.)."
 repository = "https://github.com/SimonBure/akatable"
 keywords = ["tables", "academic", "booktabs", "formatting"]
-categories = ["typesetting"]
+categories = ["paper", "report", "thesis", "visualization", "model"]
 compiler = "0.14.2"
