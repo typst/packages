@@ -11,14 +11,14 @@ Internally, Jiexi calls Happy to convert a grammar specification to tables for a
 The syntax of Jiexi's grammar files is similar to that of Happy's grammar files, which is in turn similar to that of Yacc. Thus, you should find some familiarity if you are familiar with either Happy or Yacc. 
 
 A Jiexi file is split by a separator `%%` into two sections, the directive section and the grammar section: 
-```
+```text
 <directives>
 %%
 <grammar>
 ```
 
 The directive section consists of a list of directives, one for each line. The possible directives are: 
-```
+```text
 %start <non-terminal>
 %token <token-name> <token-tag>
 %left <token-names>
@@ -58,7 +58,7 @@ The meaning of these directives are explained below:
       - ERROR if non-associative. 
 
 The grammar section consists of a list of productions. Each production is of the following form: 
-```
+```text
 <nonterminal>
   : <rule1> { code1 #}
   | <rule2> { code2 #}
@@ -84,7 +84,7 @@ The parser function takes two array arguments `(tag-stream, value-stream)`. Thes
 Consider a grammar evaluating arithmetic expressions with integer literals, `+`, `-`, `*` operators and a unary minus. 
 
 The Jiexi grammar file should then be: 
-```
+```text
 %start Expr
 
 %token int 0

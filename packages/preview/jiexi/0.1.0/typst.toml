@@ -6,7 +6,6 @@ authors = ["Void"]
 license = "MIT"
 description = "Parser generator for Typst."
 
-homepage = "https://github.com/Void-Skeleton/jiexi"
 repository = "https://github.com/Void-Skeleton/jiexi"
 categories = ["utility"]
 keywords = ["parser", "parser generator"]
