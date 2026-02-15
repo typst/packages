@@ -1,4 +1,4 @@
-#import "@preview/cuti:0.3.0": show-cn-fakebold
+#import "@preview/cuti:0.4.0": show-cn-fakebold
 
 #let school-title-pic = "./template/images/sdu-title-image.jpg"
 #let school-logo-pic = "./template/images/sdu-pic-image.jpg"
