@@ -330,15 +330,13 @@
   context {
     let config = rendercv-config.get()
     let entries-space-between-columns = config.at("entries-space-between-columns")
+    let entries-degree-width = config.at("entries-degree-width")
     let start-align = config.at("start-align")
-
-    // Fixed width for degree column (GPA, etc.)
-    let degree-column-width = 1cm
 
     regular-entry(
       if degree-column != none {
         grid(
-          columns: (degree-column-width, 1fr),
+          columns: (entries-degree-width, 1fr),
           column-gutter: entries-space-between-columns,
           align: (start-align, auto),
           [
@@ -357,7 +355,7 @@
           #block(
             main-column-second-row,
             inset: directional-inset(
-              start: if degree-column != none { degree-column-width + entries-space-between-columns } else { 0cm },
+              start: if degree-column != none { entries-degree-width + entries-space-between-columns } else { 0cm },
             ),
           )
         ]
@@ -439,6 +437,7 @@
   entries-space-between-columns: 0.1cm,
   entries-allow-page-break: false,
   entries-short-second-row: false,
+  entries-degree-width: 1cm,
   entries-summary-space-left: 0cm,
   entries-summary-space-above: 0.12cm,
   entries-highlights-bullet: "•",
@@ -539,6 +538,7 @@
     entries-highlights-space-above: entries-highlights-space-above,
     entries-highlights-space-between-items: entries-highlights-space-between-items,
     entries-highlights-space-between-bullet-and-text: entries-highlights-space-between-bullet-and-text,
+    entries-degree-width: entries-degree-width,
     // Internal computed values
     justify: justify,
   ))
