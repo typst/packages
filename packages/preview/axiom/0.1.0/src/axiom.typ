@@ -1,21 +1,3 @@
-// Classical sets
-#let nn = math.op($bb(N)$)
-#let nn-star = math.op($attach(nn, tr: *)$)
-#let rr = math.op($bb(R)$)
-#let rr-plus = math.op($attach(rr, br: +)$)
-#let rr-minus = math.op($attach(rr, br: -)$)
-#let rr-star = math.op($attach(rr, tr: *)$)
-#let rr-plus-star = math.op($attach(rr-plus, tr: *)$)
-#let rr-minus-star = math.op($attach(rr-minus, tr: *)$)
-#let zz = math.op($bb(Z)$)
-#let zz-star = math.op($attach(zz, tr: *)$)
-#let cc = math.op($bb(C)$)
-#let cc-star = math.op($attach(cc, tr: *)$)
-#let qq = math.op($bb(Q)$)
-#let qq-star = math.op($attach(qq, tr: *)$)
-#let kk = math.op($bb(K)$)
-#let kk-star = math.op($attach(kk, tr: *)$)
-
 // Operators
 #let argmax = math.op("argmax", limits: true)
 #let argmin = math.op("argmin", limits: true)
@@ -23,11 +5,8 @@
 
 // Linear algebra
 #let diag = math.op("diag")
-#let tr = math.op("tr")
-#let rank = math.op("rank")
+#let rank = math.op("rank") 
 #let span = math.op("Span")
-#let ker = math.op("Ker")
-#let im = math.op("Im")
 
 // Probability
 #let filt = math.op($cal(F)$)
@@ -35,7 +14,7 @@
 #let econd(var, cond) = $#math.op($bb(E)$)lr([#var|#cond])$
 #let proba = math.op($bb(P)$)
 #let pcond(var, cond) = $#math.op($bb(P)$)lr([#var|#cond])$
-#let variance = math.op("Var")  // named to avoid conflict with physica var operator
+#let variance = math.op("Var")  // named this way to avoid conflict with physica var operator
 #let cov = math.op("Cov")
 #let corr = math.op("Corr")
 #let bias = math.op("Bias")

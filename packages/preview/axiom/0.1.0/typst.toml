@@ -7,5 +7,5 @@ license = "MIT"
 description = "Minimal mathematical notations toolkit. Classical sets, linear algebra, probability laws and statistics operators... and much more !"
 repository = "https://github.com/SimonBure/axiom"
 keywords = ["math", "operators", "notation"]
-disciplines = ["mathematics"]
-compiler = "0.14.2"
+categories = ["utility", "paper", "thesis"]
+compiler = "0.2.0"

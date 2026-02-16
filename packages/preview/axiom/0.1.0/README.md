@@ -1,11 +1,11 @@
 # axiom
 
-Math utility library providing commonly used operators, sets, and notation shortcuts.
+A Typst Math utility library providing notation shortcuts for recurrent operators absent for typst vanilla. Covers operators from various fields like probability or analysis.
 
 ## Usage
 
 ```typst
-#import "axiom.typ": *
+#import "@preview/axiom:0.1.0": *
 
 $ expec[X] = mu quad variance(X) = sigma^2 $
 $ X tilde.op gauss(0, 1) $
@@ -13,21 +13,6 @@ $ argmax_(theta) f(theta) $
 ```
 
 ## Reference
-
-### Classical sets
-
-| Name | Renders | Variants |
-|------|---------|----------|
-| `NN` | N | `NN-star` |
-| `RR` | R | `RR-plus`, `RR-minus`, `RR-star`, `RR-plus-star`, `RR-minus-star` |
-| `ZZ` | Z | `ZZ-star` |
-| `CC` | C | `CC-star` |
-| `QQ` | Q | `QQ-star` |
-| `KK` | K | `KK-star` |
-
-```typst
-$ x in NN quad f: RR -> RR-plus $
-```
 
 ### Operators
 
@@ -42,11 +27,8 @@ $ x in NN quad f: RR -> RR-plus $
 | Name | Renders |
 |------|---------|
 | `diag` | diag |
-| `tr` | tr |
 | `rank` | rank |
-| `Span` | Span |
-| `ker` | Ker |
-| `im` | Im |
+| `span` | Span |
 
 ### Probability
 
@@ -91,4 +73,4 @@ $ x in NN quad f: RR -> RR-plus $
 
 ## Contributing
 
-Contributions are welcome!
+Contributions are welcome to complete the package with more commonly used operators and notations!
