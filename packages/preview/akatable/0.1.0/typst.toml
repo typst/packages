@@ -8,4 +8,4 @@ description = "Clean academic tables with publisher format presets (APA, IEEE, N
 repository = "https://github.com/SimonBure/akatable"
 keywords = ["tables", "academic", "booktabs", "formatting"]
 categories = ["paper", "report", "thesis"]
-compiler = "0.14.2"
+compiler = "0.14.0"
