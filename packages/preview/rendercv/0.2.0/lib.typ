@@ -24,6 +24,7 @@
     let colors-headline = config.at("colors-headline")
     let typography-small-caps-headline = config.at("typography-small-caps-headline")
     let header-alignment = config.at("header-alignment")
+    let header-space-below-headline = config.at("header-space-below-headline")
     set text(
       fill: colors-headline,
       font: typography-font-family-headline,
@@ -36,6 +37,7 @@
       width: 100%,
       height: auto,
     )
+    v(header-space-below-headline, weak: true)
   }
 }
 
@@ -50,7 +52,6 @@
     let page-left-margin = config.at("page-left-margin")
     let page-right-margin = config.at("page-right-margin")
     let header-space-below-connections = config.at("header-space-below-connections")
-    let header-space-below-name = config.at("header-space-below-name")
     let section-titles-space-above = config.at("section-titles-space-above")
     let colors-connections = config.at("colors-connections")
     let typography-font-family-connections = config.at("typography-font-family-connections")
@@ -75,7 +76,6 @@
     let separator-width = (
       measure(header-connections-separator).width + header-connections-space-between-connections
     )
-    v(header-space-below-name, weak: true)
     if connections.pos().len() > 0 {
       set align(header-alignment)
       box(
@@ -352,7 +352,7 @@
         main-column
       },
       date-and-location-column,
-      main-column-second-row: if main-column-second-row != none {
+      main-column-second-row: if main-column-second-row != none and repr(main-column-second-row) != "[ ]" {
         [
           #block(
             main-column-second-row,
