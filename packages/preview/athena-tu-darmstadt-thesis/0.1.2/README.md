@@ -110,18 +110,6 @@ typst compile main.typ --font-path assets/fonts/ --pdf-standard a-2b
 ```
 In case this should not yield a PDF which is accepted by TUbama, you can use a converter to convert from the Typst output to PDF/A, but check that there are no losses during the conversion. 
 
-## Development
-
-Create a symlink to more easily develop your package changes:
-```
-DEV_TEMPLATE=not-tudabeamer-2023
-DEV_VERSION=0.2.1
-
-mkdir -p ~/.cache/typst/packages/preview/$DEV_TEMPLATE
-rm -R ~/.cache/typst/packages/preview/$DEV_TEMPLATE/$DEV_VERSION
-cd templates/$DEV_TEMPLATE/
-ln -s $PWD ~/.cache/typst/packages/preview/$DEV_TEMPLATE/$DEV_VERSION
-```
 
 ## Todos
 - [todos of thesis template](https://github.com/JeyRunner/tuda-typst-templates/blob/main/templates/tudapub/TODO.md)
