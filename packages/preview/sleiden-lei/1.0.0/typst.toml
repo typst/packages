@@ -11,4 +11,4 @@ categories = ["presentation"]
 [template]
 path = "template"
 entrypoint = "slides.typ"
-thumbnail = "template/thumbnail.png"
+thumbnail = "thumbnail.png"
