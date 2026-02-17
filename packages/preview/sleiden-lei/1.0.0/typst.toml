@@ -1,0 +1,13 @@
+[package]
+name = "sleiden-lei"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["mm-tea"]
+license = "Unlicense"
+description = "An unofficial recreation of the Leiden University house style presentation template."
+exclude = ["docs"]
+
+[template]
+path = "template"
+entrypoint = "slides.typ"
+thumbnail = "thumbnail.png"
