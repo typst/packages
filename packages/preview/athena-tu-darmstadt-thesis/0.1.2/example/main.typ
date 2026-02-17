@@ -17,7 +17,7 @@
   ],
 
   // TODO: download actual log and convert according to README,
-  // then replace with image("logos/tuda_logo.svg")
+  // then replace with image("logos/tuda_logo.pdf")
   logo_tuda: image("logos/tuda_logo_replace.svg"),
   accentcolor: "9c",
  
