@@ -9,8 +9,3 @@ desktop.ini
 
 # Rust
 /bundler/target
-
-# Do not commit these parts of the packages
-
-# example code from README
-*example.typ
