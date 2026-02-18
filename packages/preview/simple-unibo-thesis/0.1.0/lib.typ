@@ -46,7 +46,7 @@
 ///                      "New Computer Modern". The Econ dept. recommends Times New Roman.
 ///   layout           - Cover layout variant: "no-logo" (Economics dept. style) or
 ///                      "logo" (official UniBo style with seal image).
-///   logo             - Path to logo image (e.g. `"unibo.png"`). Only used
+///   logo             - Logo content (e.g. `image("unibo.png")`). Only used
 ///                      when layout is "logo".
 ///   labels           - Named tuple of UI strings, allowing the cover to be
 ///                      localised without changing the layout logic. Fields:
@@ -201,7 +201,7 @@
       // Seal / logo
       #if logo != none {
         set image(height: 5cm)
-        image(logo)
+        logo
       }
 
       #v(0.3cm)
@@ -304,7 +304,7 @@
 ///                      defaults to "New Computer Modern".
 ///   cover-font       - Font used on the cover page (may differ from body font).
 ///   layout           - Cover layout variant: "no-logo" or "logo".
-///   logo             - Logo image (e.g. `"unibo.png"`); used with "logo" layout.
+///   logo             - Logo content (e.g. `image("unibo.png")`); used with "logo" layout.
 ///   toc              - Whether to render the table of contents. Default: true.
 ///   locale           - BCP-47 language code used both for Typst's text direction
 ///                      and to select built-in label translations. Currently

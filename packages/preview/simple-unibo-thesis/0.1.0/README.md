@@ -76,7 +76,7 @@ needed.
 | `font`                  | Body font                                                                       | `"New Computer Modern"`                          |
 | `cover-font`            | Cover page font (can differ from body)                                          | `"New Computer Modern"`                          |
 | `layout`                | Cover layout: `"logo"` (official UniBo style) or `"no-logo"` (Econ dept. style) | `"logo"`                                         |
-| `logo`                  | Path to logo image (e.g. `"unibo-logo.png"`); only used with `"logo"` layout    | `none`                                           |
+| `logo`                  | Logo content (e.g. `image("unibo-logo.png")`); only used with `"logo"` layout   | `none`                                           |
 | `locale`                | `"en"` or `"it"` (controls built-in label translations and lang option)         | `"en"`                                           |
 | `labels`                | Override the template's localised strings manually (see below)                  | `none`                                           |
 

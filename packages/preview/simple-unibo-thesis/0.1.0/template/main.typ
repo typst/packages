@@ -13,7 +13,7 @@
   topic: "PLAYTHINGS AND WHATNOT",
   department: "DEPARTMENT OF TYPST",
   locale: "en",
-  logo: "./unibo-logo.png",
+  logo: image("unibo-logo.png"),
 )
 
 = Introduction
