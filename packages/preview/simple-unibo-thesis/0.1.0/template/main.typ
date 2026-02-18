@@ -3,10 +3,10 @@
 #show: thesis.with(
   title: [THESIS TITLE],
   author: "John Doe",
-  student_number: "0000000000",
+  student-number: "0000000000",
   supervisor: "Jane Doe",
-  graduation_month: "Marchuary",
-  academic_year: "1970/1971",
+  graduation-month: "Marchuary",
+  academic-year: "1970/1971",
   abstract: [#lorem(250)],
   degree: "Zero-th cycle",
   program: "PLAYTHINGS AND WHATNOT",

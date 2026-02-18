@@ -1,7 +1,7 @@
 // Bologna University Economics Thesis Template (technically dept. agnostic)
 //
 // Provides two public functions:
-//   - `thesis_cover`: renders a standalone cover page
+//   - `thesis-cover`: renders a standalone cover page
 //   - `thesis`:       full document setup (cover + abstract + ToC + body)
 //
 // Typical usage:
@@ -11,13 +11,13 @@
 //   #show: thesis.with(
 //     title: "My Dissertation",
 //     author: "Jane Doe",
-//     student_number: "1234567",
+//     student-number: "1234567",
 //     supervisor: "Prof. John Smith",
 //     program: "Economics",
 //     degree: "Master's Degree",
 //     department: "Department of Economics",
-//     academic_year: "2024/2025",
-//     graduation_month: "March",
+//     academic-year: "2024/2025",
+//     graduation-month: "March",
 //     abstract: [Your abstract text here.],
 //   )
 //
@@ -32,41 +32,41 @@
 /// Parameters:
 ///   title            - Full dissertation title displayed prominently on the cover.
 ///   author           - Candidate's first and last name.
-///   student_number   - University matriculation / student ID number.
+///   student-number   - University matriculation / student ID number.
 ///   supervisor       - Supervisor's full name, including title (e.g. "Prof. Jane Doe").
-///   graduation_month - Month of the graduation session (e.g. "March").
-///   academic_year    - Academic year string (e.g. "2024/2025").
+///   graduation-month - Month of the graduation session (e.g. "March").
+///   academic-year    - Academic year string (e.g. "2024/2025").
 ///   department       - Full department name as it appears on official documents.
 ///   program          - Degree programme name (e.g. "Economics and Finance").
 ///   university       - University name; defaults to the official Italian long form.
 ///   degree           - Degree type (e.g. "Master's Degree", "Bachelor's Degree").
-///   cover_font       - Font family used on the cover page. Defaults to
+///   cover-font       - Font family used on the cover page. Defaults to
 ///                      "New Computer Modern". The Econ dept. recommends Times New Roman.
 ///   labels           - Named tuple of UI strings, allowing the cover to be
 ///                      localised without changing the layout logic. Fields:
-///                        defended_by       – label above the candidate name
+///                        defended-by       – label above the candidate name
 ///                        supervisor        – label above the supervisor name
-///                        in_word           – word between degree type and programme
-///                        graduation_session – prefix for the graduation month line
-///                        academic_year     – prefix for the academic year line
-#let thesis_cover(
+///                        in-word           – word between degree type and programme
+///                        graduation-session – prefix for the graduation month line
+///                        academic-year     – prefix for the academic year line
+#let thesis-cover(
   title: "Dissertation Title",
   author: "Your first and last name",
-  student_number: "Your student no.",
+  student-number: "Your student no.",
   supervisor: "Prof. [Supervisor's first and last name]",
-  graduation_month: "GRADUATION MONTH",
-  academic_year: "ACADEMIC YEAR",
+  graduation-month: "GRADUATION MONTH",
+  academic-year: "ACADEMIC YEAR",
   department: "NAME OF DEPARTMENT",
   program: "PROGRAM NAME",
   university: "ALMA MATER STUDIORUM - UNIVERSITA' DI BOLOGNA",
   degree: "DEGREE TYPE",
-  cover_font: "New Computer Modern",
+  cover-font: "New Computer Modern",
   labels: (
-    defended_by: "DEFENDED BY",
+    defended-by: "DEFENDED BY",
     supervisor: "SUPERVISOR",
-    in_word: "in",
-    graduation_session: "Graduation session of",
-    academic_year: "Academic year",
+    in-word: "in",
+    graduation-session: "Graduation session of",
+    academic-year: "Academic year",
   ),
 ) = {
   // Cover page, no page numbering
@@ -75,7 +75,7 @@
     numbering: none,
   )[
     #set align(center)
-    #set text(font: cover_font, size: 12pt)
+    #set text(font: cover-font, size: 12pt)
 
     #v(2cm)
 
@@ -100,7 +100,7 @@
 
     #v(0.3cm)
 
-    #text(size: 11pt)[#labels.in_word]
+    #text(size: 11pt)[#labels.in-word]
 
     #v(0.3cm)
 
@@ -124,7 +124,7 @@
       gutter: 2cm,
       [
         #set align(left)
-        #text(size: 11pt, weight: "bold")[#labels.defended_by]
+        #text(size: 11pt, weight: "bold")[#labels.defended-by]
 
         #v(0.5cm)
 
@@ -132,7 +132,7 @@
 
         #v(0.3cm)
 
-        #text(size: 11pt)[#student_number]
+        #text(size: 11pt)[#student-number]
       ],
       [
         #set align(left)
@@ -147,11 +147,11 @@
     #v(2cm)
 
     // Graduation session and academic year footer
-    #text(size: 11pt)[#labels.graduation_session #graduation_month]
+    #text(size: 11pt)[#labels.graduation-session #graduation-month]
 
     #v(0.5cm)
 
-    #text(size: 11pt)[#labels.academic_year #academic_year]
+    #text(size: 11pt)[#labels.academic-year #academic-year]
 
     #v(1cm)
   ]
@@ -163,7 +163,7 @@
 /// Handles in order:
 ///   1. Document metadata (title, author)
 ///   2. Global page, text, and paragraph styles
-///   3. Cover page (delegates to `thesis_cover`)
+///   3. Cover page (delegates to `thesis-cover`)
 ///   4. Optional abstract section
 ///   5. Optional table of contents
 ///   6. Main body with arabic page numbering starting at 1
@@ -175,17 +175,17 @@
 ///   degree           - Degree type (e.g. "Master's Degree").
 ///   program          - Degree programme name.
 ///   author           - Candidate's full name.
-///   student_number   - University matriculation number.
+///   student-number   - University matriculation number.
 ///   supervisor       - Supervisor's full name and title.
-///   academic_year    - Academic year string (e.g. "2024/2025").
+///   academic-year    - Academic year string (e.g. "2024/2025").
 ///   abstract         - Content block for the abstract. Pass `none` to omit.
-///   abstract_title   - Heading text for the abstract section. Defaults to the
+///   abstract-title   - Heading text for the abstract section. Defaults to the
 ///                      locale-appropriate string from `labels`.
 ///   department       - Full department name.
-///   graduation_month - Month of the graduation session.
+///   graduation-month - Month of the graduation session.
 ///   font             - Body text font. The Econ dept. recommends Times New Roman;
 ///                      defaults to "New Computer Modern".
-///   cover_font       - Font used on the cover page (may differ from body font).
+///   cover-font       - Font used on the cover page (may differ from body font).
 ///   toc              - Whether to render the table of contents. Default: true.
 ///   locale           - BCP-47 language code used both for Typst's text direction
 ///                      and to select built-in label translations. Currently
@@ -194,8 +194,8 @@
 ///                      provided, `locale` is still passed to Typst's `set text`
 ///                      but label selection is skipped. Useful for languages
 ///                      other than "en"/"it" or for custom terminology. Fields
-///                      mirror those of `thesis_cover.labels` plus
-///                      `abstract_title`.
+///                      mirror those of `thesis-cover.labels` plus
+///                      `abstract-title`.
 ///   body             - The document body content (injected automatically by
 ///                      `#show: thesis.with(...)`).
 #let thesis(
@@ -204,42 +204,42 @@
   degree: "DEGREE TYPE",
   program: "PROGRAM NAME",
   author: "Your Name",
-  student_number: "0000000",
+  student-number: "0000000",
   supervisor: "Prof. Supervisor Name",
-  academic_year: "2013/2014",
+  academic-year: "2013/2014",
   abstract: none,
-  abstract_title: none,
+  abstract-title: none,
   department: "NAME OF DEPARTMENT",
-  graduation_month: "GRADUATION MONTH",
+  graduation-month: "GRADUATION MONTH",
   font: "New Computer Modern",
-  cover_font: "New Computer Modern",
+  cover-font: "New Computer Modern",
   toc: true,
   locale: "en",
   labels: none,
-  separate_abstract_toc: false,
+  separate-abstract-toc: false,
   body,
 ) = {
   // Resolve localised UI strings. A caller-supplied `labels` dict takes
   // precedence over the built-in locale defaults.
-  let resolved_labels = if labels == none {
+  let resolved-labels = if labels == none {
     if locale == "it" {
       (
-        defended_by: "CANDIDATO",
+        defended-by: "CANDIDATO",
         supervisor: "RELATORE",
-        in_word: "in",
-        graduation_session: "Sessione di Laurea:",
-        academic_year: "Anno Accademico",
-        abstract_title: "Abstract",
+        in-word: "in",
+        graduation-session: "Sessione di Laurea:",
+        academic-year: "Anno Accademico",
+        abstract-title: "Abstract",
       )
     } else {
       // Default: English
       (
-        defended_by: "DEFENDED BY",
+        defended-by: "DEFENDED BY",
         supervisor: "SUPERVISOR",
-        in_word: "in",
-        graduation_session: "Graduation session of",
-        academic_year: "Academic year",
-        abstract_title: "Abstract",
+        in-word: "in",
+        graduation-session: "Graduation session of",
+        academic-year: "Academic year",
+        abstract-title: "Abstract",
       )
     }
   } else {
@@ -248,10 +248,10 @@
 
   // Allow the caller to override just the abstract heading without providing
   // a full labels dict.
-  let resolved_abstract_title = if abstract_title == none {
-    resolved_labels.abstract_title
+  let resolved-abstract-title = if abstract-title == none {
+    resolved-labels.abstract-title
   } else {
-    abstract_title
+    abstract-title
   }
 
   set document(
@@ -278,19 +278,19 @@
   set heading(numbering: "1.1")
 
   // --- Cover page ---
-  thesis_cover(
+  thesis-cover(
     title: title,
     author: author,
-    student_number: student_number,
+    student-number: student-number,
     supervisor: supervisor,
-    graduation_month: graduation_month,
-    academic_year: academic_year,
+    graduation-month: graduation-month,
+    academic-year: academic-year,
     degree: degree,
     program: program,
     university: university,
     department: department,
-    cover_font: cover_font,
-    labels: resolved_labels,
+    cover-font: cover-font,
+    labels: resolved-labels,
   )
 
   // Unnumbered and unoutlined so the abstract doesn't appear in the ToC.
@@ -299,11 +299,11 @@
       level: 1,
       numbering: none,
       outlined: false,
-    )[#resolved_abstract_title]
+    )[#resolved-abstract-title]
     abstract
     // Visual separator between the abstract and the ToC
     if toc {
-      if separate_abstract_toc {
+      if separate-abstract-toc {
         pagebreak(weak: true)
       } else {
         line(length: 90%, stroke: 0.3pt)
