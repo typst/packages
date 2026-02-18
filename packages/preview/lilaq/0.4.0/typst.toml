@@ -1,0 +1,14 @@
+[package]
+name = "lilaq"
+version = "0.4.0"
+entrypoint = "src/lilaq.typ"
+authors = ["Mc-Zen <https://github.com/Mc-Zen>"]
+license = "MIT"
+description = "Scientific data visualization."
+compiler = "0.13.0"
+
+repository = "https://github.com/lilaq-project/lilaq"
+homepage = "https://lilaq.org"
+keywords = ["plotting", "diagram", "axis", "matplotlib", "tikz", "pgfplots", "graph", "visualisation", "chart"]
+categories = ["visualization"]
+exclude = ["/docs/*", "/tests/*"]

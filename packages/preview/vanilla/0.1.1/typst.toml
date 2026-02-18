@@ -1,0 +1,16 @@
+[package]
+name = "vanilla"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+repository = "https://github.com/juristack/typst-vanilla"
+authors = ["David Conrad"]
+license = "MIT"
+description = "A vanilla Typst package. Aims for minimilist styling fimilar to class MS Word defaults."
+compiler = "0.13.0"
+categories = ["paper"]
+exclude = ["examples"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

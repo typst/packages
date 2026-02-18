@@ -1,0 +1,23 @@
+[package]
+name = "unofficial-uo-dissertation-2024"
+version = "1.0.0"
+entrypoint = "config.typ"
+authors = [ "Piyush Amitabh <https://github.com/pamitabh>" ]
+license = "MIT"
+description = "Unofficial University of Oregon Doctoral Dissertation template, following the 2023 UO Graduate School Style Manual requirements and 2024 UO official Word prefatory template."
+repository = "https://github.com/pamitabh/uo-dissertation-2024"
+keywords = [
+  "dissertation",
+  "thesis",
+  "academic",
+  "university-of-oregon",
+  "template"
+]
+categories = [ "thesis" ]
+compiler = "0.12.0"
+disciplines = [ ]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

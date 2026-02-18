@@ -1,0 +1,13 @@
+<svg
+  height="{{ svg_height }}"
+  width="{{ svg_width }}"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <filter id="dropShadow" filterUnits="userSpaceOnUse" >
+    <feGaussianBlur stdDeviation="{{ deviation }}" result="blur" />
+    <feFlood in="blur" flood-color="{{ color }}" />
+    <feComposite in2="blur" operator="in" result="shadow" />
+  </filter>
+
+  <rect height="{{ rect_height }}" width="{{ rect_width }}" x="{{ x_offset }}" y="{{ y_offset }}" rx="{{ radius }}" ry="{{ radius }}" filter="url(#dropShadow)" />
+</svg>

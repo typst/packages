@@ -1,0 +1,35 @@
+name: Lint
+on:
+  pull_request_target: {}
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    environment: Package Check
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      # The linter uses the local copy of the index as a source for
+      # dependencies, it never fetches anything from Typst Universe (to avoid
+      # unecessary and slow network calls). For this reason, we make sure that
+      # we run the lint on the latest state of the package index, otherwise some
+      # dependencies may be reported as outdated or missing.
+      - name: Rebase branch before linting
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          pr_head=$(/usr/bin/git log -1 --format=%H)
+          git fetch origin ${{ github.base_ref }}
+          git checkout ${{ github.base_ref }}
+          git checkout $pr_head
+          git rebase ${{ github.base_ref }} -X ours
+      - uses: typst/package-check@726248b5a6ce75af88c3c5c2ed0cf153bb007b88 # v0.4.4
+        with:
+          installation-id: ${{ secrets.GH_INSTALLATION_ID }}
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_PRIVATE_KEY }}

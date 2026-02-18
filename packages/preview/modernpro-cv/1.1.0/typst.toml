@@ -1,0 +1,15 @@
+[package]
+name = "modernpro-cv"
+version = "1.1.0"
+entrypoint = "modernpro-cv.typ"
+authors = [ "jxpeng98",]
+repository = "https://github.com/jxpeng98/Typst-CV-Resume"
+license = "MIT"
+description = "A CV template inspired by Deedy-Resume."
+keywords = [ "cv", "resume",]
+categories = [ "cv",]
+
+[template]
+path = "template"
+entrypoint = "cv-single.typ"
+thumbnail = "thumbnail.png"

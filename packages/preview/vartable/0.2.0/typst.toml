@@ -1,0 +1,11 @@
+[package]
+name = "vartable"
+version = "0.2.0"
+entrypoint = "tabvar.typ"
+authors = ["Le_Foucheur"]
+license = "MIT"
+description = "A simple package to make variation table"
+repository = "https://github.com/Le-foucheur/Typst-VarTable"
+categories = ["visualization"]
+keywords = ["variation table", "variation", "table", "variationtable"]
+exclude = ["./exemples", "documentation.pdf", "documentation.typ","tabvar.pdf"]

@@ -1,0 +1,8 @@
+[package]
+name = "cartao"
+version = "0.2.0"
+entrypoint = "cartao.typ"
+authors = ["Gavin Vales"]
+license = "MIT"
+description = "Dead simple, printable, flashcards with Typst."
+exclude = ["example.pdf"]

@@ -1,0 +1,15 @@
+[package]
+name = "modern-mla"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Dzming Li <i@dzmingli>"]
+license = "MIT"
+categories = ["paper", "report"]
+repository = "https://nest.pijul.com/DzmingLi/typst-mla-template"
+description = "Template for MLA formats" 
+keywords = ["MLA"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

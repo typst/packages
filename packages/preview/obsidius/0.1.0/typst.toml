@@ -1,0 +1,16 @@
+[package]
+name = "obsidius"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Lorenz Hoffmann <@l0drex>"]
+license = "MIT"
+description = "Modern template for study notes."
+repository = "https://github.com/l0drex/obsidius"
+keywords = ["Obsidian", "notes", "study", "university"]
+categories = ["report", "components"]
+exclude = ["sample/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "sample/sample.png"
