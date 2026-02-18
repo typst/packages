@@ -91,7 +91,3 @@ Setting `locale: "it"` switches the cover labels to Italian (`CANDIDATO`,
   ...
 )
 ```
-
-## License
-
-GPL-3.0-or-later
