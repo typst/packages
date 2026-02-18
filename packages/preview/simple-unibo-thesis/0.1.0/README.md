@@ -7,7 +7,7 @@ PR.
 
 Provides two public functions:
 
-- `thesis_cover`: renders a standalone cover page
+- `thesis-cover`: renders a standalone cover page
 - `thesis`: full document setup (cover + abstract + ToC + body)
 
 Typical usage:
@@ -18,13 +18,13 @@ Typical usage:
 #show: thesis.with(
     title: "My Dissertation",
     author: "Jane Doe",
-    student_number: "1234567",
+    student-number: "1234567",
     supervisor: "Prof. John Smith",
     program: "Economics",
     degree: "Master's Degree",
     department: "Department of Economics",
-    academic_year: "2024/2025",
-    graduation_month: "March",
+    academic-year: "2024/2025",
+    graduation-month: "March",
     abstract: [Your abstract text here.],
     locale: "en", // can also be "it"
 )
@@ -35,12 +35,12 @@ Typical usage:
 ```
 
 If you only need the cover page (e.g. to prepend to an existing document), you
-can use thesis_cover directly:
+can use thesis-cover directly:
 
 ```json
-#import "@preview/simple-unibo-thesis:0.1.0": thesis_cover
+#import "@preview/simple-unibo-thesis:0.1.0": thesis-cover
 
-#thesis_cover(
+#thesis-cover(
   title: "My Dissertation",
   author: "Jane Doe",
   ...
@@ -56,19 +56,19 @@ needed.
 | ------------------ | ------------------------------------------------------------------------ | ----------------------- |
 | `title`            | Dissertation title                                                       | `"Dissertation Title"`  |
 | `author`           | Candidate's full name                                                    | `"Your Name"`           |
-| `student_number`   | Matriculation number                                                     | `"0000000"`             |
+| `student-number`   | Matriculation number                                                     | `"0000000"`             |
 | `supervisor`       | Supervisor's name and title                                              | `"Prof. Supervisor Name"` |
 | `program`          | Degree programme name                                                    | `"PROGRAM NAME"`        |
 | `degree`           | Degree type (e.g. `"Master's Degree"`)                                   | `"DEGREE TYPE"`         |
 | `department`       | Full department name                                                     | `"NAME OF DEPARTMENT"`  |
-| `academic_year`    | Academic year (e.g. `"2024/2025"`)                                       | `"2013/2014"`           |
-| `graduation_month` | Month of the graduation session                                          | `"GRADUATION MONTH"`    |
+| `academic-year`    | Academic year (e.g. `"2024/2025"`)                                       | `"2013/2014"`           |
+| `graduation-month` | Month of the graduation session                                          | `"GRADUATION MONTH"`    |
 | `abstract`         | Abstract content block; omit to skip                                     | `none`                  |
-| `abstract_title`   | Override the abstract heading text                                       | locale default          |
+| `abstract-title`   | Override the abstract heading text                                       | locale default          |
 | `toc`              | Whether to render a table of contents                                    | `true`                  |
-| `separate_abstract_toc` | Insert a page break between abstract and ToC                         | `false`                 |
+| `separate-abstract-toc` | Insert a page break between abstract and ToC                         | `false`                 |
 | `font`             | Body font                                                                | `"New Computer Modern"` |
-| `cover_font`       | Cover page font (can differ from body)                                   | `"New Computer Modern"` |
+| `cover-font`       | Cover page font (can differ from body)                                   | `"New Computer Modern"` |
 | `locale`           | `"en"` or `"it"` (controls built-in label translations, and lang option) | `"en"`                  |
 | `labels`           | Override the template's localised strings manually (see below)           | `none`                  |
 
@@ -81,12 +81,12 @@ Setting `locale: "it"` switches the cover labels to Italian (`CANDIDATO`,
 #show: thesis.with(
   locale: "de",
   labels: (
-    defended_by: "VORGELEGT VON",
+    defended-by: "VORGELEGT VON",
     supervisor: "BETREUER",
-    in_word: "in",
-    graduation_session: "Abschlussprüfung",
-    academic_year: "Akademisches Jahr",
-    abstract_title: "Zusammenfassung",
+    in-word: "in",
+    graduation-session: "Abschlussprüfung",
+    academic-year: "Akademisches Jahr",
+    abstract-title: "Zusammenfassung",
   ),
   ...
 )

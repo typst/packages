@@ -58,7 +58,7 @@
   academic-year: "ACADEMIC YEAR",
   department: "NAME OF DEPARTMENT",
   program: "PROGRAM NAME",
-  university: "ALMA MATER STUDIORUM - UNIVERSITA' DI BOLOGNA",
+  university: "ALMA MATER STUDIORUM — UNIVERSITÀ DI BOLOGNA",
   degree: "DEGREE TYPE",
   cover-font: "New Computer Modern",
   labels: (
