@@ -1,0 +1,17 @@
+[package]
+name = "not-fraunhofer-iaf"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Karl W. (https://github.com/snaeker58)"]
+license = "MIT-0"
+description = "An unoffical Fraunhofer IAF presentation template"
+repository = "https://github.com/snaeker58/Not-IAF-Template"
+keywords = ["slides", "presentation", "beamer", "IAF", "Fraunhofer"]
+categories = ["presentation"]
+compiler = "0.14.0"
+exclude = ["images", "example"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "images/thumbnail.png"
