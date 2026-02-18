@@ -1,0 +1,10 @@
+[package]
+name = "typcas"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Benjamin Lee <sihooleebd@gmail.com>"]
+keywords = ["math", "cas", "algebra"]
+description = "A lightweight Computer Algebra System for Typst"
+license = "MIT"
+repository = "https://github.com/sihooleebd/typCAS"
+exclude = ["test.typ", "*.pdf", ".github", ".gitignore"]
