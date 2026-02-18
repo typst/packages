@@ -18,6 +18,7 @@ typcas provides a set of tools for symbolic mathematics directly within your Typ
 
 Import the library in your Typst document:
 
+```typst
 // Use the local path or the package name if installed/published
 #import "@preview/typcas:0.1.0": *
 ```
