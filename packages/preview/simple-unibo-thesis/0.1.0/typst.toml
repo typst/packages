@@ -6,7 +6,10 @@ authors = ["Francesco Prem Solidoro"]
 license = "MPL-2.0"
 description = "Unofficial Thesis cover and document template for the University of Bologna"
 repository = "https://github.com/soliprem/unibo-thesis-template"
-keywords = ["thesis", "university", "bologna", "academia"]
+keywords = ["thesis", "university", "bologna", "academia", "unibo", "dissertation"]
+categories = ["thesis", "paper"]
+disciplines = ["economics", "mathematics"]
+compiler = "0.14.2"
 
 [template]
 path = "template"
