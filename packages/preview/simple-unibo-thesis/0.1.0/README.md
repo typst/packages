@@ -12,7 +12,7 @@ Provides two public functions:
 
 Typical usage:
 
-```typst
+```
 #import "@preview/simple-unibo-thesis:0.1.0": thesis
 
 #show: thesis.with(
@@ -37,7 +37,7 @@ Typical usage:
 If you only need the cover page (e.g. to prepend to an existing document), you
 can use thesis_cover directly:
 
-```typst
+```
 #import "@preview/simple-unibo-thesis:0.1.0": thesis_cover
 
 #thesis_cover(
@@ -77,7 +77,7 @@ needed.
 Setting `locale: "it"` switches the cover labels to Italian (`CANDIDATO`,
 `RELATORE`, etc.). For any other language, pass a `labels` dict directly:
 
-```typst
+```
 #show: thesis.with(
   locale: "de",
   labels: (
