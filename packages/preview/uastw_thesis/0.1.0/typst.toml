@@ -1,0 +1,20 @@
+[package]
+name = "uastw-thesis"
+version = "0.1.0"
+entrypoint = "src/uastw-thesis-lib.typ"
+authors = [
+  "Martin Horauer <https://github.com/mhorauer/>"
+]
+license = "GPL-3.0-or-later"
+description = "Community maintained typst template for bachelor and master thesis at UAS Technikum Wien"
+repository = "https://github.com/mhorauer/typst-templates"
+keywords = ["Technikum Wien", "thesis", "bachelor", "master"]
+exclude = ["*.pdf", "src/fonts/", ".github"]
+categories = ["office"]
+disciplines = ["computer-science", "education"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
