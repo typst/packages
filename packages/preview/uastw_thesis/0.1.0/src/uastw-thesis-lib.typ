@@ -8,9 +8,9 @@
 // -----------------------------------------------------------------------------
 // COLOR defintions matching the UAS TECHNIKUM WIEN LOGO
 //
-#let twblue = rgb("#00689e")
-#let twgreen = rgb("#8bb111")
-#let twgray = rgb("#777777")
+#let twblue = rgb("#00649c")
+#let twgreen = rgb("#8BB31D")
+#let twgray = rgb("#72777A")
 
 #let DEBUG = ""
 
