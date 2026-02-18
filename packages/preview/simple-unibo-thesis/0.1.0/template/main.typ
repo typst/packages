@@ -4,14 +4,16 @@
   title: [THESIS TITLE],
   author: "John Doe",
   student-number: "0000000000",
-  supervisor: "Jane Doe",
+  supervisor: "Prof. Jane Doe",
   graduation-month: "Marchuary",
   academic-year: "1970/1971",
   abstract: [#lorem(250)],
   degree: "Zero-th cycle",
-  program: "PLAYTHINGS AND WHATNOT",
+  degree-name: "PLAYMAKING",
+  topic: "PLAYTHINGS AND WHATNOT",
   department: "DEPARTMENT OF TYPST",
   locale: "en",
+  logo: "./unibo-logo.png",
 )
 
 = Introduction

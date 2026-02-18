@@ -12,7 +12,7 @@ Provides two public functions:
 
 Typical usage:
 
-```json
+```text
 #import "@preview/simple-unibo-thesis:0.1.0": thesis
 
 #show: thesis.with(
@@ -20,10 +20,12 @@ Typical usage:
     author: "Jane Doe",
     student-number: "1234567",
     supervisor: "Prof. John Smith",
-    program: "Economics",
+    topic: "Economics",
     degree: "Master's Degree",
+    degree-name: "Economics and Econometrics",
     department: "Department of Economics",
     academic-year: "2024/2025",
+    graduation-session: "ZERO-TH",
     graduation-month: "March",
     abstract: [Your abstract text here.],
     locale: "en", // can also be "it"
@@ -35,9 +37,9 @@ Typical usage:
 ```
 
 If you only need the cover page (e.g. to prepend to an existing document), you
-can use thesis-cover directly:
+can use `thesis-cover` directly:
 
-```json
+```text
 #import "@preview/simple-unibo-thesis:0.1.0": thesis-cover
 
 #thesis-cover(
@@ -52,38 +54,46 @@ can use thesis-cover directly:
 All parameters have what I think are sensible defaults and can be omitted if not
 needed.
 
-| Parameter               | Description                                                              | Default                   |
-| ----------------------- | ------------------------------------------------------------------------ | ------------------------- |
-| `title`                 | Dissertation title                                                       | `"Dissertation Title"`    |
-| `author`                | Candidate's full name                                                    | `"Your Name"`             |
-| `student-number`        | Matriculation number                                                     | `"0000000"`               |
-| `supervisor`            | Supervisor's name and title                                              | `"Prof. Supervisor Name"` |
-| `program`               | Degree programme name                                                    | `"PROGRAM NAME"`          |
-| `degree`                | Degree type (e.g. `"Master's Degree"`)                                   | `"DEGREE TYPE"`           |
-| `department`            | Full department name                                                     | `"NAME OF DEPARTMENT"`    |
-| `academic-year`         | Academic year (e.g. `"2024/2025"`)                                       | `"2013/2014"`             |
-| `graduation-month`      | Month of the graduation session                                          | `"GRADUATION MONTH"`      |
-| `abstract`              | Abstract content block; omit to skip                                     | `none`                    |
-| `abstract-title`        | Override the abstract heading text                                       | locale default            |
-| `toc`                   | Whether to render a table of contents                                    | `true`                    |
-| `separate-abstract-toc` | Insert a page break between abstract and ToC                             | `false`                   |
-| `font`                  | Body font                                                                | `"New Computer Modern"`   |
-| `cover-font`            | Cover page font (can differ from body)                                   | `"New Computer Modern"`   |
-| `locale`                | `"en"` or `"it"` (controls built-in label translations, and lang option) | `"en"`                    |
-| `labels`                | Override the template's localised strings manually (see below)           | `none`                    |
+| Parameter               | Description                                                                     | Default                                          |
+| ----------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------ |
+| `title`                 | Dissertation title                                                              | `"Dissertation Title"`                           |
+| `author`                | Candidate's full name                                                           | `"Your Name"`                                    |
+| `student-number`        | Matriculation number                                                            | `"0000000"`                                      |
+| `supervisor`            | Supervisor's name and title                                                     | `"Prof. Supervisor Name"`                        |
+| `co-supervisor`         | Co-supervisor's name and title; omit to skip                                    | `none`                                           |
+| `topic`                 | Topic or subject area of the dissertation                                       | `"TOPIC"`                                        |
+| `university`            | Name of the University / Institution                                            | `"ALMA MATER STUDIORUM — UNIVERSITÀ DI BOLOGNA"` |
+| `degree`                | Degree type (e.g. `"Master's Degree"`)                                          | `"DEGREE TYPE"`                                  |
+| `degree-name`           | Full name of the degree programme (e.g. `"Economics and Econometrics"`)         | `"DEGREE NAME"`                                  |
+| `department`            | Full department name                                                            | `"NAME OF DEPARTMENT"`                           |
+| `academic-year`         | Academic year (e.g. `"2024/2025"`)                                              | `"ACADEMIC YEAR"`                                |
+| `graduation-session`    | Session identifier (e.g. `"ZERO-TH"`)                                           | `"GRADUATION SESSION"`                           |
+| `graduation-month`      | Month of the graduation session                                                 | `"GRADUATION MONTH"`                             |
+| `abstract`              | Abstract content block; omit to skip                                            | `none`                                           |
+| `abstract-title`        | Override the abstract heading text                                              | locale default                                   |
+| `toc`                   | Whether to render a table of contents                                           | `true`                                           |
+| `separate-abstract-toc` | Insert a page break between abstract and ToC                                    | `false`                                          |
+| `font`                  | Body font                                                                       | `"New Computer Modern"`                          |
+| `cover-font`            | Cover page font (can differ from body)                                          | `"New Computer Modern"`                          |
+| `layout`                | Cover layout: `"logo"` (official UniBo style) or `"no-logo"` (Econ dept. style) | `"logo"`                                         |
+| `logo`                  | Path to logo image (e.g. `"unibo-logo.png"`); only used with `"logo"` layout    | `none`                                           |
+| `locale`                | `"en"` or `"it"` (controls built-in label translations and lang option)         | `"en"`                                           |
+| `labels`                | Override the template's localised strings manually (see below)                  | `none`                                           |
 
 ### Localisation
 
 Setting `locale: "it"` switches the cover labels to Italian (`CANDIDATO`,
 `RELATORE`, etc.). For any other language, pass a `labels` dict directly:
 
-```json
+```text
 #show: thesis.with(
   locale: "de",
   labels: (
     defended-by: "VORGELEGT VON",
     supervisor: "BETREUER",
+    co-supervisor: "KORREFERENT",
     in-word: "in",
+    dissertation: "Dissertation",
     graduation-session: "Abschlussprüfung",
     academic-year: "Akademisches Jahr",
     abstract-title: "Zusammenfassung",
@@ -92,7 +102,7 @@ Setting `locale: "it"` switches the cover labels to Italian (`CANDIDATO`,
 )
 ```
 
-# Licensing
+## Licensing
 
 The library (`lib.typ`) is licensed under LGPL-3.0, ensuring that modifications
 to the library itself remain open source. The `template/` directory is licensed

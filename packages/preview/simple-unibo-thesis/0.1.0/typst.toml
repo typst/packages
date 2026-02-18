@@ -9,7 +9,7 @@ repository = "https://github.com/soliprem/unibo-thesis-template"
 keywords = ["thesis", "university", "bologna", "academia", "unibo", "dissertation"]
 categories = ["thesis", "paper"]
 disciplines = ["economics", "mathematics"]
-compiler = "0.14.2"
+compiler = "0.13.0"
 
 [template]
 path = "template"
