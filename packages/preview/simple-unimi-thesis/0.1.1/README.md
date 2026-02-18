@@ -1,6 +1,6 @@
 # simple-unimi-thesis 🎓
 
-This template is the conversion from one of the many templates used for UniMi thesis; in particular I looked up to the [LIM LaTeX template](https://www.overleaf.com/project/641879675262cde2a670826b), in Italian.
+A simple [Typst](https://typst.app) thesis template for Università Statale degli Studi di Milano. There are many templates available; this packaged has been built upon the [LIM LaTeX template](https://www.overleaf.com/project/641879675262cde2a670826b) (in Italian).
 
 ## Preview ✨
 
@@ -8,12 +8,11 @@ This template is the conversion from one of the many templates used for UniMi th
   <img alt="Frontispiece/First page" src="thumbnail.png" width="45%">
 </p>
 
-> [!TIP]
-> See the [instructions](docs/instructions.pdf) for more information about the template (in Italian).
+See the [instructions](docs/instructions.pdf) for more information about the template (in Italian).
 
 ## Usage 🚀
 
-Compile with con:
+Compile with:
 
 ```shell
 typst c main.typ --pdf-standard a-3b
@@ -55,5 +54,4 @@ The following excerpt is the canonical example of how the template can be struct
 
 ```
 
-> [!NOTE]
-> The default monospace font is [`JetBrainsMono NF`](https://fonts.google.com/specimen/JetBrains+Mono).
+The default monospace font is [`JetBrainsMono NF`](https://fonts.google.com/specimen/JetBrains+Mono).
