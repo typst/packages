@@ -52,25 +52,25 @@ can use thesis-cover directly:
 All parameters have what I think are sensible defaults and can be omitted if not
 needed.
 
-| Parameter          | Description                                                              | Default                 |
-| ------------------ | ------------------------------------------------------------------------ | ----------------------- |
-| `title`            | Dissertation title                                                       | `"Dissertation Title"`  |
-| `author`           | Candidate's full name                                                    | `"Your Name"`           |
-| `student-number`   | Matriculation number                                                     | `"0000000"`             |
-| `supervisor`       | Supervisor's name and title                                              | `"Prof. Supervisor Name"` |
-| `program`          | Degree programme name                                                    | `"PROGRAM NAME"`        |
-| `degree`           | Degree type (e.g. `"Master's Degree"`)                                   | `"DEGREE TYPE"`         |
-| `department`       | Full department name                                                     | `"NAME OF DEPARTMENT"`  |
-| `academic-year`    | Academic year (e.g. `"2024/2025"`)                                       | `"2013/2014"`           |
-| `graduation-month` | Month of the graduation session                                          | `"GRADUATION MONTH"`    |
-| `abstract`         | Abstract content block; omit to skip                                     | `none`                  |
-| `abstract-title`   | Override the abstract heading text                                       | locale default          |
-| `toc`              | Whether to render a table of contents                                    | `true`                  |
-| `separate-abstract-toc` | Insert a page break between abstract and ToC                         | `false`                 |
-| `font`             | Body font                                                                | `"New Computer Modern"` |
-| `cover-font`       | Cover page font (can differ from body)                                   | `"New Computer Modern"` |
-| `locale`           | `"en"` or `"it"` (controls built-in label translations, and lang option) | `"en"`                  |
-| `labels`           | Override the template's localised strings manually (see below)           | `none`                  |
+| Parameter               | Description                                                              | Default                   |
+| ----------------------- | ------------------------------------------------------------------------ | ------------------------- |
+| `title`                 | Dissertation title                                                       | `"Dissertation Title"`    |
+| `author`                | Candidate's full name                                                    | `"Your Name"`             |
+| `student-number`        | Matriculation number                                                     | `"0000000"`               |
+| `supervisor`            | Supervisor's name and title                                              | `"Prof. Supervisor Name"` |
+| `program`               | Degree programme name                                                    | `"PROGRAM NAME"`          |
+| `degree`                | Degree type (e.g. `"Master's Degree"`)                                   | `"DEGREE TYPE"`           |
+| `department`            | Full department name                                                     | `"NAME OF DEPARTMENT"`    |
+| `academic-year`         | Academic year (e.g. `"2024/2025"`)                                       | `"2013/2014"`             |
+| `graduation-month`      | Month of the graduation session                                          | `"GRADUATION MONTH"`      |
+| `abstract`              | Abstract content block; omit to skip                                     | `none`                    |
+| `abstract-title`        | Override the abstract heading text                                       | locale default            |
+| `toc`                   | Whether to render a table of contents                                    | `true`                    |
+| `separate-abstract-toc` | Insert a page break between abstract and ToC                             | `false`                   |
+| `font`                  | Body font                                                                | `"New Computer Modern"`   |
+| `cover-font`            | Cover page font (can differ from body)                                   | `"New Computer Modern"`   |
+| `locale`                | `"en"` or `"it"` (controls built-in label translations, and lang option) | `"en"`                    |
+| `labels`                | Override the template's localised strings manually (see below)           | `none`                    |
 
 ### Localisation
 
@@ -91,3 +91,10 @@ Setting `locale: "it"` switches the cover labels to Italian (`CANDIDATO`,
   ...
 )
 ```
+
+# Licensing
+
+The library (`lib.typ`) is licensed under LGPL-3.0, ensuring that modifications
+to the library itself remain open source. The `template/` directory is licensed
+under MIT-0, so that documents produced using this template are not encumbered
+by the library's copyleft.
