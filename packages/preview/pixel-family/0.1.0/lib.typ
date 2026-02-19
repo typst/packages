@@ -30,6 +30,12 @@
 #let pants-blue = rgb("#2c3e50")
 #let pants-gray = rgb("#7f8c8d")
 
+#let chassis-silver = rgb("#b0b0b0")
+#let chassis-white = rgb("#f0f0f0")
+#let chassis-orange = rgb("#e67e22")
+#let chassis-navy = rgb("#1a237e")
+#let chassis-gunmetal = rgb("#78909c")
+
 #let palette = (
   skin: skin-default,
   skin-light: skin-light,
@@ -49,6 +55,11 @@
   pants-black: pants-black,
   pants-blue: pants-blue,
   pants-gray: pants-gray,
+  chassis-silver: chassis-silver,
+  chassis-white: chassis-white,
+  chassis-orange: chassis-orange,
+  chassis-navy: chassis-navy,
+  chassis-gunmetal: chassis-gunmetal,
 )
 
 // === Pixel Grid Renderer ===
@@ -240,3 +251,62 @@
   shirt: shirt-pink,
   pants: pants-black,
 ) = _char-box(size, baseline, bella-data, bella-colors(skin, hair, shirt, pants))
+
+// === Character Definitions (Batch 4 — Robots, bust/portrait) ===
+
+#import "characters/batch-4-robots.typ": *
+
+/// Bolt: retro robot, boxy head, antenna prongs
+/// -> content (inline)
+#let bolt(
+  size: 1em,
+  baseline: auto,
+  skin: chassis-silver,
+  hair: rgb("#666666"),
+  shirt: shirt-blue,
+  pants: pants-black,
+) = _char-box(size, baseline, bolt-data, bolt-colors(skin, hair, shirt, pants))
+
+/// Pixel: helper drone, dome head, single LED eye
+/// -> content (inline)
+#let pixel-char(
+  size: 1em,
+  baseline: auto,
+  skin: chassis-white,
+  hair: rgb("#00bcd4"),
+  shirt: rgb("#e0e0e0"),
+  pants: rgb("#555555"),
+) = _char-box(size, baseline, pixel-char-data, pixel-char-colors(skin, hair, shirt, pants))
+
+/// Crank: industrial bot, flat-top, wide shoulders
+/// -> content (inline)
+#let crank(
+  size: 1em,
+  baseline: auto,
+  skin: chassis-orange,
+  hair: rgb("#444444"),
+  shirt: rgb("#d35400"),
+  pants: pants-black,
+) = _char-box(size, baseline, crank-data, crank-colors(skin, hair, shirt, pants))
+
+/// Nova: sleek AI, tapered head, V-shaped visor
+/// -> content (inline)
+#let nova(
+  size: 1em,
+  baseline: auto,
+  skin: chassis-navy,
+  hair: rgb("#283593"),
+  shirt: rgb("#1565c0"),
+  pants: pants-black,
+) = _char-box(size, baseline, nova-data, nova-colors(skin, hair, shirt, pants))
+
+/// Sentinel: guardian, helmet head, red visor slit
+/// -> content (inline)
+#let sentinel(
+  size: 1em,
+  baseline: auto,
+  skin: chassis-gunmetal,
+  hair: rgb("#37474f"),
+  shirt: rgb("#455a64"),
+  pants: pants-black,
+) = _char-box(size, baseline, sentinel-data, sentinel-colors(skin, hair, shirt, pants))
