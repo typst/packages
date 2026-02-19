@@ -204,12 +204,35 @@
     return (rat(-1, 1), expr.arg)
   }
   if is-type(expr, "mul") {
-    let l = expr.args.at(0)
-    let r = expr.args.at(1)
-    let rl = _as-rat(l)
-    if rl != none { return (rl, r) }
-    let rr = _as-rat(r)
-    if rr != none { return (rr, l) }
+    // Extract coefficient from arbitrarily nested products, not only
+    // immediate `num * base` shape.
+    let factors = _flatten-mul(expr)
+    let coeff = rat(1, 1)
+    let symbolic = ()
+    for f in factors {
+      let f = if is-type(f, "neg") {
+        coeff = rat-neg(coeff)
+        f.arg
+      } else {
+        f
+      }
+      let rf = _as-rat(f)
+      if rf != none {
+        coeff = rat-mul(coeff, rf)
+      } else {
+        symbolic.push(f)
+      }
+    }
+    if symbolic.len() == 0 {
+      return (coeff, num(1))
+    }
+    let base = symbolic.at(0)
+    let i = 1
+    while i < symbolic.len() {
+      base = mul(base, symbolic.at(i))
+      i += 1
+    }
+    return (coeff, base)
   }
   if is-type(expr, "div") {
     let rd = _as-rat(expr.den)
@@ -500,11 +523,21 @@
     let coeff = rat(1, 1)
     let symbolic = ()
     for f in factors {
-      let f = if is-type(f, "pow") and is-type(f.exp, "num") and f.exp.val == 1 {
+      let f0 = if is-type(f, "pow") and is-type(f.exp, "num") and f.exp.val == 1 {
         f.base
       } else {
         f
       }
+
+      // Pull explicit neg factors into the numeric coefficient so
+      // terms like 2*cos(x)*(-sin(x)) canonicalize to -2*cos(x)*sin(x).
+      let f = if is-type(f0, "neg") {
+        coeff = rat-neg(coeff)
+        f0.arg
+      } else {
+        f0
+      }
+
       let rf = _as-rat(f)
       if rf != none {
         coeff = rat-mul(coeff, rf)
