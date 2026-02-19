@@ -278,7 +278,9 @@
         let q = pos + 2
         // Expect '('
         let t1 = _pk(tokens, q)
-        if t1 == none or t1.type != "lparen" { return (num(0), q) } // Error (advance q)
+        if t1 == none or t1.type != "lparen" {
+          panic("cas-parse: malformed " + name + " lower bound, expected '(' after '_'")
+        }
         q += 1
 
         // var
@@ -291,13 +293,14 @@
         } else if is-type(var-expr, "const") {
           var-name = var-expr.name
         } else {
-          // Error but consume tokens to avoid loop
-          return (num(0), q2)
+          panic("cas-parse: malformed " + name + " index variable")
         }
         q = q2
 
         // =
-        if not _is-op(tokens, q, "=") { return (num(0), pos) } // Error
+        if not _is-op(tokens, q, "=") {
+          panic("cas-parse: malformed " + name + ", expected '=' in lower bound")
+        }
         q += 1
 
         // start
@@ -305,11 +308,16 @@
         q = q3
 
         // )
-        if _pk(tokens, q).type != "rparen" { return (num(0), pos) } // Error
+        let t2 = _pk(tokens, q)
+        if t2 == none or t2.type != "rparen" {
+          panic("cas-parse: malformed " + name + " lower bound, expected closing ')'")
+        }
         q += 1
 
         // ^
-        if not _is-op(tokens, q, "^") { return (num(0), pos) } // Error
+        if not _is-op(tokens, q, "^") {
+          panic("cas-parse: malformed " + name + ", expected '^' upper bound marker")
+        }
         q += 1
 
         // end (parse as unary to allow -1, or power?)
@@ -429,8 +437,7 @@
 
       let (args, q) = _parse-call-args(tokens, pos + 1, p)
       if args == none {
-        // Ensure forward progress for malformed function-call syntax.
-        return (num(0), calc.max(q, pos + 1))
+        panic("cas-parse: malformed function call for '" + name + "'")
       }
 
       let canonical = fn-canonical(name)
