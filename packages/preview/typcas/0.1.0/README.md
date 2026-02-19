@@ -9,7 +9,7 @@ A lightweight Computer Algebra System (CAS) written in pure Typst.
 Import the library:
 
 ```typst
-#import "lib.typ": *
+#import "@preview/typcas:0.1.0": *
 ```
 
 Parse and simplify:
