@@ -171,6 +171,7 @@ Compile the included suites:
 typst compile examples/test.typ examples/out/typcas-test.pdf --root .
 typst compile examples/test_new.typ examples/out/typcas-test-new.pdf --root .
 typst compile examples/cas_test_suite.typ examples/out/typcas-suite.pdf --root .
+typst compile examples/regression_check.typ examples/out/typcas-regression.pdf --root .
 ```
 
 ## License
