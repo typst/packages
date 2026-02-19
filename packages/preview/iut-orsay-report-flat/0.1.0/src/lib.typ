@@ -1,9 +1,9 @@
 #import "@preview/outrageous:0.4.1"
 #import "@preview/hydra:0.6.2": hydra
-#import "@preview/colorful-boxes:1.4.1": colorbox
-#import "@preview/datify:0.1.4": custom-date-format
+#import "@preview/colorful-boxes:1.4.3": colorbox
+#import "@preview/datify:1.0.1": custom-date-format
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.8": *
+#import "@preview/codly-languages:0.1.10": *
 // The main color of the Paris-Saclay University visual identity
 #let prune = rgb(99, 0, 60)
 
@@ -102,7 +102,7 @@
   // The line for the level
   level: [#missing-field() année],
   // The date of the report
-  report-date: custom-date-format(datetime.today(), "DD MMMM YYYY", "fr"),
+  report-date: custom-date-format(datetime.today(), pattern: "dd MMMM yyyy", lang: "fr"),
   // Report type
   report-type: [],
   // Training/Alternance
