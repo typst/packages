@@ -466,6 +466,11 @@
   if is-type(expr, "div") {
     let (u, v_expr) = (expr.num, expr.den)
 
+    // Constant quotient
+    if not _contains-var(u, var) and not _contains-var(v_expr, var) {
+      return (num(0), (_s-note("Constant rule", expr: num(0)),), used_vars)
+    }
+
     // Reciprocal rule
     if not _contains-var(u, var) and is-type(u, "num") and u.val == 1 {
       let (dv, steps-v, uv1) = _trace-diff(v_expr, var, depth + 1, used_vars)
@@ -586,12 +591,12 @@
       return (res, (_s-header(res, "Power rule"),), used_vars)
     }
 
-    // u^n (Chain rule)
-    if is-type(e, "num") {
-      let n = e.val
+    // u^c (Chain rule), where c is constant wrt differentiation variable.
+    if not _contains-var(e, var) {
+      let exp-minus-one = sub(e, num(1))
       let (db, steps-b, uv1) = _trace-diff(b, var, depth + 1, used_vars)
-      let outer_deriv = mul(num(n), pow(b, num(n - 1)))
-      let chain-head = mul(mul(num(n), pow(b, num(n - 1))), _v-diff(b, var))
+      let outer_deriv = mul(e, pow(b, exp-minus-one))
+      let chain-head = mul(outer_deriv, _v-diff(b, var))
       let raw_res = mul(outer_deriv, db)
       let res = simplify(raw_res)
 
@@ -602,13 +607,13 @@
       let is-trivial = _is-trivial-inner(b, var)
 
       if is-trivial {
-        steps.push(_s-header(chain-head, "Chain rule (Power): n u^(n-1) u'"))
+        steps.push(_s-header(chain-head, "Chain rule (Power): c u^(c-1) u'"))
         steps += _wrap-steps(steps-b, x => mul(outer_deriv, x))
       } else {
         let (u-n, next_uv) = _alloc-name(current_uv)
         current_uv = next_uv
 
-        let rule-desc = "Chain rule (Power): n " + u-n + "^(n-1) " + u-n + "'"
+        let rule-desc = "Chain rule (Power): c " + u-n + "^(c-1) " + u-n + "'"
         steps.push(_s-header(chain-head, rule-desc))
 
         steps.push(_s-define(u-n, b))
@@ -650,8 +655,23 @@
       return (res, steps, current_uv)
     }
 
-    let steps = (_s-note("Logarithmic differentiation required", expr: expr),)
-    return (expr, steps, used_vars)
+    // General case f(x)^g(x): use logarithmic differentiation via
+    // f^g = exp(g * ln(f)), then trace that derivative.
+    let rewritten = func("exp", mul(e, ln-of(b)))
+    let (drew, rewsteps, uv1) = _trace-diff(rewritten, var, depth + 1, used_vars)
+    let res = simplify(drew)
+
+    let steps = ()
+    steps.push(_s-header(_v-diff(expr, var), "Logarithmic differentiation"))
+    steps.push(_s-header(_v-diff(rewritten, var), "Rewrite u^v as exp(v·ln(u))"))
+    if rewsteps.len() > 0 {
+      let lhs = $d/(d #math.italic(var)) #cas-display(rewritten)$
+      steps.push(_s-apply(lhs, drew, "Differentiate rewritten form", sub-steps: rewsteps))
+    }
+    if _is-helpful-simplify(drew, res) {
+      steps.push(_s-note("Simplify", expr: res))
+    }
+    return (res, steps, uv1)
   }
 
   // Functions (Chain Rule) — table-driven
