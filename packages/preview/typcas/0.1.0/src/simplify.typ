@@ -244,6 +244,37 @@
       let (cn, bn) = _get-coeff-and-base(expr.num)
       return (rat-div(cn, rd), bn)
     }
+    // Pull rational coefficient out of multiplicative denominator:
+    //   x/(2*y) -> (1/2) * (x/y)
+    if is-type(expr.den, "mul") {
+      let den-factors = _flatten-mul(expr.den)
+      let den-coeff = rat(1, 1)
+      let den-symbolic = ()
+      for f in den-factors {
+        let f = if is-type(f, "neg") {
+          den-coeff = rat-neg(den-coeff)
+          f.arg
+        } else {
+          f
+        }
+        let rf = _as-rat(f)
+        if rf != none {
+          den-coeff = rat-mul(den-coeff, rf)
+        } else {
+          den-symbolic.push(f)
+        }
+      }
+      if den-symbolic.len() > 0 and not rat-is-zero(den-coeff) and not rat-eq(den-coeff, rat(1, 1)) {
+        let den-base = den-symbolic.at(0)
+        let i = 1
+        while i < den-symbolic.len() {
+          den-base = mul(den-base, den-symbolic.at(i))
+          i += 1
+        }
+        let (cn, bn) = _get-coeff-and-base(expr.num)
+        return (rat-div(cn, den-coeff), cdiv(bn, den-base))
+      }
+    }
   }
   (rat(1, 1), expr)
 }
@@ -484,8 +515,8 @@
     // x * -1 = neg(x)
     if _is-num(a) and a.val == -1 { return neg(b) }
     if _is-num(b) and b.val == -1 { return neg(a) }
-    // x * x = x^2 (but not when x is add — let distribution handle that)
-    if expr-eq(a, b) and not is-type(a, "add") { return pow(a, num(2)) }
+    // x * x = x^2 (including (u+v)*(u+v) for canonical square form)
+    if expr-eq(a, b) { return pow(a, num(2)) }
     // (u / v) * v = u and v * (u / v) = u
     if is-type(a, "div") and expr-eq(a.den, b) { return a.num }
     if is-type(b, "div") and expr-eq(b.den, a) { return b.num }
