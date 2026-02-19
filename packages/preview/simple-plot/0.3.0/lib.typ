@@ -815,7 +815,7 @@
         for i in range(samples + 1) {
           let x = domain-min + i * step
           let y = fn(x)
-          if y != none and not (y).is-nan() {
+          if y != none and not float(y).is-nan() {
             let (cx, cy) = to-canvas(x, y)
             all-points.push((cx, cy, i))
             // Check if point is inside clip area for markers
@@ -851,7 +851,7 @@
           let label-domain-max = if domain == none { x-clip-max } else { domain-max }
           let lx = label-domain-min + (label-domain-max - label-domain-min) * label-pos
           let ly = fn(lx)
-          if ly != none and not (ly).is-nan() and ly >= y-clip-min and ly <= y-clip-max {
+          if ly != none and not float(ly).is-nan() and ly >= y-clip-min and ly <= y-clip-max {
             let (cx, cy) = to-canvas(lx, ly)
             content((cx, cy), label, anchor: label-anchor)
           }
@@ -912,7 +912,7 @@
     for i in range(samples + 1) {
       let x = domain.at(0) + i * step
       let y = fn(x)
-      if y != none and not (y).is-nan() { ys.push(y) }
+      if y != none and not float(y).is-nan() { ys.push(y) }
     }
     let min-y = calc.min(..ys)
     let max-y = calc.max(..ys)
