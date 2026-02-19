@@ -678,6 +678,14 @@
     domain-sensitive: false,
   ),
   (
+    id: "abs-square-two",
+    priority: 104,
+    lhs: pow(func("abs", (type: "wild", name: "u")), num(2)),
+    rhs: pow((type: "wild", name: "u"), num(2)),
+    label: "|u|^2 = u^2",
+    domain-sensitive: false,
+  ),
+  (
     id: "abs-neg",
     priority: 105,
     lhs: func("abs", neg((type: "wild", name: "u"))),
@@ -715,6 +723,22 @@
     lhs: func("ln", func("exp", (type: "wild", name: "u"))),
     rhs: (type: "wild", name: "u"),
     label: "ln(exp(u)) = u",
+    domain-sensitive: false,
+  ),
+  (
+    id: "ln-recip-pair",
+    priority: 109,
+    lhs: add(func("ln", cdiv((type: "wild", name: "a"), (type: "wild", name: "b"))), func("ln", cdiv((type: "wild", name: "b"), (type: "wild", name: "a")))),
+    rhs: num(0),
+    label: "ln(a/b) + ln(b/a) = 0",
+    domain-sensitive: false,
+  ),
+  (
+    id: "ln-recip-unit",
+    priority: 109,
+    lhs: add(func("ln", (type: "wild", name: "a")), func("ln", cdiv(num(1), (type: "wild", name: "a")))),
+    rhs: num(0),
+    label: "ln(a) + ln(1/a) = 0",
     domain-sensitive: false,
   ),
   // Log structural rewrites (kept for compatibility; domain-sensitive metadata only).
