@@ -1,2 +1,0 @@
-= Conclusione
-#lorem(100)

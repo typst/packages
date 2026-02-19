@@ -1,8 +1,0 @@
-[package]
-name = "xarrow"
-version = "0.1.1"
-entrypoint = "lib.typ"
-authors = ["loutr"]
-license = "GPL-3.0-only"
-description = "Variable-length arrows in Typst."
-repository = "https://codeberg.org/loutr/typst-xarrow/"

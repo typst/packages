@@ -1,1 +1,0 @@
-images from the official LaTex template

@@ -1,8 +1,0 @@
-[package]
-    name = "consketcher"
-    version = "0.1.0"
-    entrypoint = "consketcher.typ"
-    authors = ["ivaquero"]
-    license = "MIT"
-    description = "Draws control blocks using fletcher and CeTZ"
-    repository = "https://github.com/ivaquero/typst-consketcher"

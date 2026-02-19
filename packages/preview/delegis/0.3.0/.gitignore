@@ -1,8 +1,0 @@
-*.pdf
-.DS_Store
-
-# demo assets
-demo-*.svg
-!demo-1.svg
-!demo-2.svg
-!demo-3.svg

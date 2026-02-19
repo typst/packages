@@ -1,8 +1,0 @@
-[package]
-name = "super-suboptimal"
-version = "0.1.0"
-entrypoint = "src/lib.typ"
-authors = ["Eric Biedert", "Lumi"]
-license = "MIT"
-description = "Unicode super- and subscripts in equations."
-exclude = ["assets/**"]

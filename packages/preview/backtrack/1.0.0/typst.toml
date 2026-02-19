@@ -1,9 +1,0 @@
-[package]
-name = "backtrack"
-version = "1.0.0"
-entrypoint = "src/lib.typ"
-authors = ["TheLukeGuy"]
-license = "Apache-2.0"
-description = "A version-agnostic library for checking the compiler version."
-repository = "https://github.com/TheLukeGuy/backtrack"
-keywords = ["version", "compiler", "backward", "compatibility", "old", "sys"]

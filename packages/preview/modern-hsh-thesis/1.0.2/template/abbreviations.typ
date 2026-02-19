@@ -1,1 +1,0 @@
-#let hsh = "Hochschule Hannover"

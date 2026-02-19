@@ -1,5 +1,0 @@
-= Summary
-
-English summary
-
-

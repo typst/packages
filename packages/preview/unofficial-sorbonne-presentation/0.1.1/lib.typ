@@ -1,2 +1,0 @@
-#import "sorbonne.typ": template, slide, focus-slide, figure-slide, figure-slide-split, acknowledgement-slide, equation-slide, ending-slide, cite-box, alert, muted, subtle, appendix, slide-break, two-col, three-col, grid-2x2, highlight-box, alert-box, example-box, algorithm-box, themed-block, sorbonne-red, sorbonne-blue, sorbonne-lightblue, sorbonne-yellow, sorbonne-text
-#import "@preview/presentate:0.2.4": pause, uncover, only, fragments, step-item

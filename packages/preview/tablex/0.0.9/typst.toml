@@ -1,9 +1,0 @@
-[package]
-name = "tablex"
-version = "0.0.9"
-authors = ["PgBiel <https://github.com/PgBiel>"]
-license = "MIT OR Apache-2.0"
-description = "More powerful and customizable tables in Typst."
-entrypoint = "tablex.typ"
-repository = "https://github.com/PgBiel/typst-tablex"
-keywords = ["formatting", "table", "tables", "customization"]

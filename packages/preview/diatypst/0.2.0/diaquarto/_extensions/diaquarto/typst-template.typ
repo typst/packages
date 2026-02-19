@@ -1,3 +1,0 @@
-#let horizontalrule = [
-  #pagebreak()
-]
