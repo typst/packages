@@ -662,6 +662,22 @@
     domain-sensitive: false,
   ),
   (
+    id: "sqrt-square-half-rational",
+    priority: 104,
+    lhs: pow(pow((type: "wild", name: "u"), num(2)), cdiv(num(1), num(2))),
+    rhs: func("abs", (type: "wild", name: "u")),
+    label: "sqrt(u^2) = |u|",
+    domain-sensitive: false,
+  ),
+  (
+    id: "sqrt-square-half-float",
+    priority: 104,
+    lhs: pow(pow((type: "wild", name: "u"), num(2)), num(0.5)),
+    rhs: func("abs", (type: "wild", name: "u")),
+    label: "sqrt(u^2) = |u|",
+    domain-sensitive: false,
+  ),
+  (
     id: "abs-neg",
     priority: 105,
     lhs: func("abs", neg((type: "wild", name: "u"))),
