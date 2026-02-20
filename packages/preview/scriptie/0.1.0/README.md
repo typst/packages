@@ -52,34 +52,3 @@ and [without the quick syntax](https://github.com/KauriP/scriptie/blob/main/demo
 The preferred font to use with this package is [Courier Prime](https://quoteunquoteapps.com/courierprime/) or Courier.
 For the web app, you should drop the `.ttf` files (unzipped from the linked download) into `Files`.
 
-# Roadmap
-- [x] Refactor all formatting into nice, non-hackish commands
-  - [x] Dialogue
-  - [x] Bring all configurable formatting into show command
-- [x] Stabilise hackish version and use the nice commands
-- [ ] Add options for styling
-  - [ ] Which elements should be bolded
-  - [ ] Which elements should be UPPER CASE
-  - [x] Which elements should be numbered
-  - [x] Customise margins & other geometry
-- [ ] Implement side-by-side dialog
-- [x] Implement
-  - ```
-    TEXT SIGNS
-    IN SCRIPT
-    ```
-- [x] Implement raw pages with just typewriter input
-- [x] Add translations
-  - places
-    - Contd
-    - == Part N: XXX ==
-    - titlepage by
-    - titlepage date?
-    - titlepage "Unnamed screenplay"
-    - titlepage keywords?
-  - [x] English
-  - [x] Finnish
-- [ ] Write documentation for all functionality
-- [x] Write examples you are allowed to share
-- [x] Write packaging TOML
-- [ ] Maybe distribute Courier Prime with the package
