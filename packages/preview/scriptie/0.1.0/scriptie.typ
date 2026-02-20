@@ -58,7 +58,6 @@ let head = context {
   _speaker(speaker, ..(if c.get().first() != 0 {(translations.at(text.lang, default: translations.default).contd,)} else {()})+extensions.pos())
 }
 show grid: set block(spacing: 1em)
-// show grid.cell: set block(spacing: 0pt, sticky: true)
 show grid.cell: set block(spacing: 0pt)
 set par(spacing: 0pt, first-line-indent: 1.2em)
 [#grid(

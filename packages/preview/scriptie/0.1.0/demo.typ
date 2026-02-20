@@ -1,4 +1,4 @@
-#import "scriptie.typ":*
+#import "@preview/scriptie:0.1.0":*
 #show: script
 
 #titlepage(
@@ -27,7 +27,7 @@ aliquam quaerat.
 #dialogue([Speaker 2])[#pa[Lorem ipsum dolor sit.] Lorem ipsum dolor sit amet,
             consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore
-            et dolore magnam aliquam quaerat. (Lorem.)
+            et dolore magnam aliquam quaerat. #pa[Lorem.]
             Lorem ipsum dolor sit amet.]
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
