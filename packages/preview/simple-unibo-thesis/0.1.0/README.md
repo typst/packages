@@ -49,6 +49,13 @@ can use `thesis-cover` directly:
 )
 ```
 
+
+## Procuring the Logo
+
+I can't technically bundle the logo by default. It can be found [in this page](https://www.unibo.it/en/university/statute-standards-strategies-and-reports/image-identity-brand), or downloaded directly from [this link (which I found simply in the previous link)](https://www.unibo.it/en/images/copy_of_logo.jpg).
+
+Just pass the logo image as the logo argument, and it'll all work
+
 ## Configuration
 
 All parameters have what I think are sensible defaults and can be omitted if not

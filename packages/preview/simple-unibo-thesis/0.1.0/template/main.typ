@@ -13,7 +13,10 @@
   topic: "PLAYTHINGS AND WHATNOT",
   department: "DEPARTMENT OF TYPST",
   locale: "en",
-  logo: image("unibo-logo.png"),
+  // just a placeholder logo so the file compiles. You can find the actual logo:
+  // https://www.unibo.it/en/images/copy_of_logo.jpg. In case this link doesn't work, check on the uni's website.
+  // I found it here originally https://www.unibo.it/en/university/statute-standards-strategies-and-reports/image-identity-brand
+  logo: image("logo.png"),
 )
 
 = Introduction
