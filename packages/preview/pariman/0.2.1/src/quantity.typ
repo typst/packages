@@ -1,15 +1,15 @@
 #import "utils.typ"
 /// The formatting functionality is provided by zero package.
-#import "@preview/zero:0.6.1" as zero: zi
+#import "@preview/zero:0.6.1" as zero
 
-/// Parser for unit input
-/// The possible patterns:
-/// - " " is used for separating units
-/// - "/" is used as a prefix for inverting unit exponent
-/// - "^" is used for unit exponent
-/// - "^-1" is possible
-/// - "1/s" is possible
-/// Output: a tuples of length two for which the first element is the unit and the second element is the exponent.
+// Parser for unit input
+// The possible patterns:
+// - " " is used for separating units
+// - "/" is used as a prefix for inverting unit exponent
+// - "^" is used for unit exponent
+// - "^-1" is possible
+// - "1/s" is possible
+// Output: a tuples of length two for which the first element is the unit and the second element is the exponent.
 #let _parse-a-unit(single-unit, is-denom: false) = {
   let splitted = single-unit.split("^")
 
@@ -64,6 +64,34 @@
       }
     })
 }
+
+#let _is-unit(unit) = (
+  unit.len() == 2 and type(unit.last()) in (int, float)
+)
+
+// Resolve the input unit.
+// If it is a string -> parse it -> array of units
+// If it is an array -> looking at its elements.
+// If it is otherwise -> make it an array.
+// -> array of units
+#let _resolve-units(units, sep: " ") = {
+  if type(units) == str {
+    return parse-unit(units, sep: sep)
+  }
+
+  if type(units) == array {
+    if units.len() == 0 { return () }
+    if _is-unit(units) { return (units,) }
+
+    for unit in units {
+      if type(unit) == str { parse-unit(unit, sep: sep) } else if type(unit) == array {
+        assert(_is-unit(unit), message: "Invalid Unit Format: Expected `(unit, exponent)`, got " + repr(unit))
+        (unit,)
+      } else { ((unit, 1),) }
+    }
+  } else { ((units, 1),) }
+}
+
 
 #let scientify(num, figures: 4, magnitude-limit: none) = {
   // num is given as a number
@@ -161,7 +189,7 @@
   figures: auto,
   places: auto,
   round-mode: auto,
-  precision: 1,
+  precision: 0,
 ) = {
   if round-mode == auto {
     if figures == auto and places == auto {
@@ -177,7 +205,7 @@
     if figures == auto { figures = 3 }
     return utils.figures-rounder(raw-number, digits: precision + figures)
   } else if round-mode == "places" {
-    if places == auto {
+    if places == auto or places == 0 {
       if figures == auto { figures = 3 }
       return utils.figures-rounder(raw-number, digits: precision + figures)
     } else {
@@ -186,6 +214,105 @@
   } else {
     panic("Unknown round-mode: " + rerp(round-mode))
   }
+}
+
+#let _resolve-round-mode(
+  value,
+  places: auto,
+  figures: auto,
+  round-mode: auto,
+) = {
+  if round-mode == auto {
+    if type(figures) == int and places == auto { return "figures" } else if type(places) == int and figures == auto {
+      return "places"
+    } else if places == auto and figures == auto {
+      if value.contains("e") { return "figures" } else { return "places" }
+    } else if value.contains("e") { return "figures" } else { return "figures" }
+  } else if value.contains("e") { "figures" } else { round-mode }
+}
+
+#let _make-quantity(
+  value: none,
+  unit: (),
+  unit-separator: " ",
+  places: auto,
+  figures: auto,
+  magnitude-limit: 4,
+  round-mode: auto,
+  method: auto,
+  display: auto,
+  precision: 15,
+  explicit-method: true,
+  source: none,
+  is-exact: false,
+  ..formatting,
+) = {
+  // the properties
+  let q = (
+    value: value,
+    display-value: value,
+    unit: unit,
+    places: places,
+    figures: figures,
+    "show": auto,
+    "text": auto,
+    display: display,
+    method: method,
+    source: source,
+    round-mode: round-mode,
+    is-exact: is-exact,
+  )
+  // resolve the value and change it into a text.
+  if type(value) != str {
+    // rounding the value
+    q.value = _prepare(
+      value,
+      round-mode: round-mode,
+      figures: figures,
+      places: places,
+      precision: precision,
+    )
+    // enable information extraction.
+    q.display-value = _prepare(
+      value,
+      round-mode: round-mode,
+      figures: figures,
+      places: places,
+    )
+    q.text = str(q.display-value)
+  } else {
+    // if it is already a string, by-pass the rounding process.
+    q.text = value
+    q.value = eval(value)
+    q.display-value = q.value
+  }
+  // Extract information about rounding
+  // the `figures` and `places` can by-pass the function if specified as integers.
+  let info = number-info(q.text, figures: figures, places: places)
+  q.figures = info.figures
+  q.places = info.places
+  // format the value if it is very big or very small.
+  q.text = scientify(q.display-value, figures: q.figures, magnitude-limit: magnitude-limit)
+  // choose a way to format the number.
+
+  q.round-mode = _resolve-round-mode(q.text, figures: q.figures, places: q.places, round-mode: q.round-mode)
+
+
+  let digits = if q.round-mode == "figures" { q.figures } else { q.places }
+  let default-format = (round: (mode: q.round-mode, precision: digits))
+
+  // Extract the unit and resolve the formatter.
+  q.unit = _resolve-units(q.unit, sep: unit-separator)
+  let formatter = if q.unit == () { zero.num } else { zero.zi.declare(..q.unit) }
+  formatter = formatter.with(..formatting)
+
+  q.show = zero.num(q.text, ..default-format, ..formatting)
+
+  if display == auto { q.display = formatter(q.text, ..default-format, ..formatting) }
+  if method == auto { q.method = if explicit-method { q.display } else { q.show } }
+  if type(method) == function { q.method = method(q) }
+
+  return q
 }
 
 /// Constructor for quantities.
@@ -243,119 +370,44 @@
   /// more precise calculation. This number will be added to `figures` or `places` when rounding the input value.
   ///
   /// -> int
-  precision: 3,
+  precision: 10,
   /// Whether to show the unit when accessing the `method` property. This will effect only when setting BEFORE the calculation.
   /// -> bool
   explicit-method: true,
   source: none,
   is-exact: false,
-) = {
-  // the main quantity
-  let q = (
-    value: raw-value,
-    unit: (),
-    // deciman places
-    places: places,
-    // significant figures
-    figures: figures,
-    // formatted value
-    "show": auto,
-    // verbatim value
-    "text": auto,
-    // display with unit
-    display: display,
-    // the calculation
-    method: method,
-    source: source, // for formatting methods
-    round-mode: round-mode,
-    is-exact: is-exact,
+) = _make-quantity(
+  value: raw-value,
+  unit: args.pos(),
+  unit-separator: unit-separator,
+  places: places,
+  figures: figures,
+  magnitude-limit: magnitude-limit,
+  round-mode: round-mode,
+  method: method,
+  display: display,
+  precision: precision,
+  explicit-method: explicit-method,
+  source: source,
+  is-exact: is-exact,
+  ..args.named(),
+)
+
+#let _make-exact(
+  ..kwargs,
+  display-figures: auto,
+  display-places: auto,
+  figures: 99,
+  places: 99,
+) = (
+  _make-quantity(
+    ..kwargs,
+    figures: display-figures,
+    places: display-places,
   )
+    + (figures: figures, places: places)
+)
 
-  let formatting = args.named()
-  let arr-units = args.pos()
-  // keep the numerical value separately.
-  if type(raw-value) != str {
-    q.value = _prepare(
-      raw-value,
-      round-mode: round-mode,
-      figures: figures,
-      places: places,
-      precision: precision,
-    )
-    // enable information extraction.
-    q.text = str(q.value)
-  } else {
-    // if it is already a string, by-pass the rounding process.
-    q.text = raw-value
-    q.value = eval(raw-value)
-  }
-
-  // Extract information about rounding
-  // the `figures` and `places` can by-pass the function if specified as integers.
-  let info = number-info(q.text, figures: figures, places: places)
-  q.figures = info.figures
-  q.places = info.places
-  // format the value if it is very big or very small.
-  q.text = scientify(q.value, figures: q.figures, magnitude-limit: magnitude-limit)
-  // choose a way to format the number.
-  if round-mode == auto {
-    if type(figures) == int and places == auto {
-      q.round-mode = "figures"
-    } else if type(places) == int and figures == auto {
-      q.round-mode = "places"
-    } else if places == auto and figures == auto {
-      if q.text.contains("e") {
-        q.round-mode = "figures"
-      } else {
-        q.round-mode = "places"
-      }
-    } else if value.contains("e") {
-      // if it was in scientific form, use `figures` rounding mode.
-      q.round-mode = "figures"
-    } else {
-      q.round-mode = "places"
-    }
-  }
-
-  let digits = if q.round-mode == "figures" { q.figures } else { q.places }
-
-  let formatter = zero.num
-  // parsing units
-  q.unit = ()
-  if arr-units.len() >= 1 {
-    // process the units
-    for unit in arr-units {
-      if type(unit) == str {
-        q.unit += parse-unit(unit, sep: unit-separator)
-      } else if type(unit) == array {
-        assert(
-          unit.len() == 2,
-          message: "The custom unit in an array must be in the form `(unit, exponent)`.",
-        )
-        q.unit.push(unit)
-      } else {
-        q.unit.push((unit, 1))
-      }
-    }
-    // if there is at least a unit, then switch to `zi`.
-    formatter = zi.declare(..q.unit)
-  }
-
-  let default-format = (
-    round: (mode: q.round-mode, precision: digits),
-  )
-  q.show = zero.num(q.text, ..default-format, ..formatting)
-
-  if display == auto { q.display = formatter(q.text, ..default-format, ..formatting) }
-  if method == auto { q.method = if explicit-method { q.display } else { q.show } }
-  if type(method) == function { q.method = method(q) }
-
-  return q
-}
-
-#let _get(prop, ..qnts) = {
-  qnts.pos().map(q => q.at(prop))
-}
 
 /// Exact value quantities
 #let exact(
@@ -378,18 +430,15 @@
   /// -> auto | int
   display-places: auto,
 ) = {
-  let formatting = args.named()
-  let units = args.pos()
-  (
-    quantity(
-      value,
-      ..units,
-      figures: display-figures,
-      places: display-places,
-      is-exact: true,
-      ..formatting,
-    )
-      + (figures: figures, places: places)
+  _make-exact(
+    value: value,
+    unit: args.pos(),
+    display-figures: display-figures,
+    display-places: display-places,
+    figures: 99,
+    places: 99,
+    is-exact: true,
+    ..args.named(),
   )
 }
 
@@ -408,31 +457,37 @@
   /// Format options. Same as `quantity`'s or `exact`'s.
   ..formatting,
 ) = {
-  let old-value = qty.remove("value")
-  let old-units = qty.remove("unit")
-  let is-new-format = false
-  // set-quantity can change the unit and the value.
   let formatting = formatting.named()
-  if value == auto { value = old-value } else { is-new-format = true }
-  if unit == auto { unit = old-units } else { is-new-format = true }
-  // whether to reset the displaying methods and display value.
-  if is-new-format {
-    qty.display = auto
+  if "explicit-method" in formatting.keys() {
+    formatting.method = auto
   }
-  // capture the unit
-  if unit != auto {
-    assert(
-      type(unit) in (array, str),
-      message: "The units must be specified as a string of units or an array of units.",
-    )
-    if (
-      type(unit) == str
-        or (
-          unit.len() == 2 and type(unit.last()) == int
+  if formatting
+    .keys()
+    .any(k => (
+      k
+        in (
+          "figures",
+          "places",
+          "display-figures",
+          "display-places",
         )
-    ) { unit = (unit,) }
+    )) {
+    formatting.display = auto
   }
-  // retain the original function
-  let func = if qty.is-exact { exact } else { quantity }
-  func(value, ..unit, ..qty, ..formatting, display: auto)
+  if unit != auto or value != auto {
+    formatting.display = auto
+    formatting.method = auto
+  }
+
+  if unit == auto { unit = qty.unit }
+  if value == auto { value = qty.value }
+  let constructor = if qty.is-exact { _make-exact } else { _make-quantity }
+
+  constructor(
+    ..qty,
+    unit: unit,
+    value: value,
+    ..formatting,
+  )
 }
+

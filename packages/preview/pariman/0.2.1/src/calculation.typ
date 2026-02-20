@@ -1,23 +1,23 @@
-#import "quantity.typ": _get, exact, quantity, set-quantity
-#import "converter.typ": invert-unit, multiply-unit, operate-unit, power-unit, root-unit
+#import "quantity.typ": _make-quantity, quantity, set-quantity
+#import "converter.typ" as conv: _get, invert-unit, multiply-unit, operate-unit, power-unit, root-unit
 #import "utils.typ"
 
 #let neg(
-  qnt,
-  method: qnt => {
-    $-$ + if qnt.source == "add" { $(#qnt.method)$ } else { qnt.method }
+  q,
+  method: q => {
+    $-$ + if q.source == "add" { $(#q.method)$ } else { q.method }
   },
   ..formatting,
 ) = {
-  let (value, unit, figures) = qnt
-  let q-result = quantity(
-    -value,
-    ..unit,
-    figures: figures,
+  let value = q.value
+
+  _make-quantity(
+    ..q,
+    value: -value,
     round-mode: "figures",
-    method: method(qnt),
+    method: method(q),
+    ..formatting,
   )
-  set-quantity(q-result, ..formatting.named())
 }
 
 #let add(
@@ -35,25 +35,22 @@
   let units = _get("unit", ..qnts)
   let values = _get("value", ..qnts)
   let places = _get("places", ..qnts)
-  let figures = _get("places", ..qnts)
 
   assert(
     units.all(i => i.sorted() == units.first().sorted()),
     message: "Adding quantities only allow for the same units.",
   )
-  let new-places = calc.min(..places)
-  let new-figures = calc.min(..figures)
+  let new-places = conv.add-signify(..qnts)
   let result = values.sum()
-  let q-result = quantity(
-    result,
-    ..units.at(0),
+
+  _make-quantity(
+    value: result,
+    unit: units.at(0),
     places: new-places,
-    figures: new-figures,
-    round-mode: "places",
     method: method(qnts),
     source: "add",
+    ..formatting,
   )
-  set-quantity(q-result, ..formatting)
 }
 
 #let sub(
@@ -72,22 +69,18 @@
     u1.sorted() == u2.sorted(),
     message: "Subtraction requires quantities in the same unit.",
   )
-  let places = _get("places", q1, q2)
-  let figures = _get("figures", q1, q2)
-  
-  let new-places = calc.min(..places)
-  let new-figures = calc.min(..figures)
-  let result =v1 - v2
-  let q-result = quantity(
-    result,
-    ..u1,
-    places: new-places,
-    figures: new-figures,
+
+  let result = v1 - v2
+
+  _make-quantity(
+    value: result,
+    unit: u1,
+    places: conv.add-signify(q1, q2),
     round-mode: "places",
     method: method(q1, q2),
     source: "sub",
+    ..formatting,
   )
-  set-quantity(q-result, ..formatting)
 }
 
 #let mul(
@@ -100,31 +93,31 @@
   let qnts = qnts.pos()
   let values = _get("value", ..qnts)
   let units = _get("unit", ..qnts).sum()
-  let figures = _get("figures", ..qnts)
-  let new-figures = calc.min(..figures)
   let new-units = multiply-unit(..units)
-  let q-result = quantity(
-    values.product(),
-    ..new-units,
-    figures: new-figures,
+
+  _make-quantity(
+    value: values.product(),
+    unit: new-units,
+    figures: conv.mul-signify(..qnts),
     round-mode: "figures",
     method: method(qnts),
     source: "mul",
+    ..formatting,
   )
-  set-quantity(q-result, ..formatting)
 }
 
-#let inv(qnt, method: qnt => $1/qnt.method$, ..formatting) = {
-  let (value, unit, figures) = qnt
+#let inv(q, method: q => $1/#q.method$, ..formatting) = {
+  let (value, unit, figures) = q
   let new-unit = invert-unit(..unit)
-  let q-result = quantity(
-    1 / value,
-    ..new-unit,
+
+  _make-quantity(
+    value: 1 / value,
+    unit: new-unit,
     figures: figures,
     round-mode: "figures",
-    method: method(qnt),
+    method: method(q),
+    ..formatting,
   )
-  set-quantity(q-result, ..formatting)
 }
 
 #let div(
@@ -138,16 +131,15 @@
   let (v1, v2) = _get("value", q1, q2)
   let (u1, u2) = _get("unit", q1, q2)
   let new-unit = multiply-unit(..u1, ..invert-unit(..u2))
-  let figures = _get("figures", q1, q2)
-  let new-figures = calc.min(..figures)
-  let q-result = quantity(
-    v1 / v2,
-    ..new-unit,
-    figures: new-figures,
+
+  _make-quantity(
+    value: v1 / v2,
+    unit: new-unit,
+    figures: conv.mul-signify(q1, q2),
     round-mode: "figures",
     method: method(q1, q2),
+    ..formatting,
   )
-  set-quantity(q-result, ..formatting)
 }
 
 #let pow(
@@ -171,42 +163,42 @@
     assert(u1 == (), message: "Fractional exponentiation is only allowed for dimensionless quantity.")
     new-value = calc.pow(v1, v2)
     new-unit = ()
-    new-figures = q2.places
+    new-figures = conv.exp-signify(q2)
   }
-  let q-result = quantity(
-    new-value,
-    ..new-unit,
+
+  _make-quantity(
+    value: new-value,
+    unit: new-unit,
     figures: new-figures,
     round-mode: "figures",
     method: method(q1, q2),
     ..formatting,
   )
-  set-quantity(q-result, ..formatting)
 }
 
 #let root(
-  qnt,
+  q,
   n,
   method: (q, n) => {
     $(#q.method)^(1/#n)$
   },
   ..formatting,
 ) = {
-  let new-unit = root-unit(..qnt.unit, n)
-  let q-result = quantity(
-    calc.root(qnt.value, n),
-    ..new-unit,
-    figures: qnt.figures,
+  let new-unit = root-unit(..q.unit, n)
+
+  _make-quantity(
+    value: calc.root(q.value, n),
+    unit: new-unit,
+    figures: q.figures,
     round-mode: "figures",
-    method: method(qnt, n),
+    method: method(q, n),
     ..formatting,
   )
-  set-quantity(q-result, ..formatting)
 }
 
 #let log(
   base: 10,
-  qnt,
+  q,
   method: (base, q) => {
     if base == 10 {
       $log (#q.method)$
@@ -218,26 +210,25 @@
   },
   ..formatting,
 ) = {
-  let value = qnt.value
-  let unit = qnt.unit
+  let value = q.value
+  let unit = q.unit
   assert(unit == (), message: "Logarithms only accept dimensionless quantity.")
 
-  let new-places = qnt.figures
+  let new-places = q.figures
   if type(base) in (int, float) {
     value = calc.log(base: base, value)
   } else {
     assert(base.unit == (), message: "Logarithm's base must be a dimensionless quantity.")
     value = calc.log(base: base.value, value)
   }
-  let q-result = quantity(
-    value,
+
+  _make-quantity(
+    value: value,
     places: new-places,
-    rounder: calc.round.with(digits: new-places),
     round-mode: "places",
-    method: method(base, qnt),
+    method: method(base, q),
     ..formatting,
   )
-  set-quantity(q-result, ..formatting)
 }
 
 #let ln(
@@ -248,32 +239,31 @@
   ..formatting,
 ) = {
   assert(qnt.unit == (), message: "Natural logarithm only accepts dimensionless quantity")
-  let q-result = quantity(
-    calc.ln(qnt.value),
+  _make-quantity(
+    value: calc.ln(qnt.value),
     places: qnt.figures,
     round-mode: "places",
     method: method(qnt),
     ..formatting,
   )
-  set-quantity(q-result, ..formatting)
 }
 
 #let exp(
-  qnt,
+  q,
   method: q => {
     $exp(#q.method)$
   },
   ..formatting,
 ) = {
-  assert(qnt.unit == (), message: "Exponentiation only accepts dimensionless quantity.")
-  let q-result = quantity(
-    calc.exp(qnt.value),
-    figures: qnt.places,
+  assert(q.unit == (), message: "Exponentiation only accepts dimensionless quantity.")
+
+  _make-quantity(
+    value: calc.exp(q.value),
+    figures: conv.exp-signify(q),
     round-mode: "figures",
-    method: method(qnt),
+    method: method(q),
     ..formatting,
   )
-  set-quantity(q-result, ..formatting)
 }
 
 #let solver(
@@ -288,13 +278,13 @@
     message: "Initial value of the target variable must be specified in terms of quantity",
   )
 
-  let make-quantity(x, origin: init) = {
-    set-quantity(init, value: x)
+  let reset(x, origin: init, ..formatting) = {
+    set-quantity(init, value: x, ..formatting)
   }
 
-  let new-func(x) = func(make-quantity(x, origin: init)).value
+  let new-func(x) = func(reset(x, origin: init)).value
 
-  let q-result = make-quantity(
+  reset(
     utils.newton-solver(
       init: init.value,
       tolerance: tolerance,
@@ -302,8 +292,8 @@
       new-func,
     ),
     origin: init,
+    ..formatting
   )
-  set-quantity(q-result, ..formatting)
 }
 
 #let new-factor(from, to, ..formatting) = {

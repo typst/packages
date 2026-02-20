@@ -1,5 +1,5 @@
-#import "quantity.typ" as q
-#import "calculation.typ": exact
+#import "quantity.typ" as q: exact
+#import "calculation.typ"
 
 #let _all-quantities = state("_pariman:0.2.1_local_quantities", (:))
 
