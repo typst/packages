@@ -102,7 +102,7 @@ Since autograph's diagram works as a drop-in replacement for fletcher's diagram,
 #import "@preview/autograph:0.1.0" as autograph: diagram
 #import "@preview/fletcher:0.5.8" as fletcher: shapes
 #diagram(
-  bezier: true,
+  engine: "neato",
   autograph.node(<foo>),
   autograph.node(<bar>),
   autograph.node(<baz>),
