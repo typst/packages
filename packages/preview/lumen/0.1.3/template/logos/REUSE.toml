@@ -1,0 +1,16 @@
+version = 1
+
+[[annotations]]
+path = "archi.png"
+SPDX-FileCopyrightText = "Université libre de Bruxelles"
+SPDX-License-Identifier = "Unknown"
+
+[[annotations]]
+path = "FNR.png"
+SPDX-FileCopyrightText = "Fund for Scientific Research - FNRS"
+SPDX-License-Identifier = "Unknown"
+
+[[annotations]]
+path = "FNRS*"
+SPDX-FileCopyrightText = "Fund for Scientific Research - FNRS"
+SPDX-License-Identifier = "Unknown"

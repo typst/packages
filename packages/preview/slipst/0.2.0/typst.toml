@@ -1,0 +1,12 @@
+[package]
+name = "slipst"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Wybxc <wybxc@qq.com>"]
+repository = "https://github.com/Wybxc/slipst"
+license = "Apache-2.0"
+description = "A new paradigm for presentations, inspired by slipshow."
+keywords = ["presentation", "slide", "slides", "slip", "slips", "slipshow"]
+categories = ["presentation"]
+exclude = ["examples"]
+compiler = "0.14.0"

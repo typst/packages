@@ -1,0 +1,31 @@
+[package]
+name = "linkify"
+version = "0.1.2"
+entrypoint = "src/lib.typ"
+authors = ["F.X.P. <https://github.com/vanleefxp>"]
+license = "MIT"
+repository = "https://github.com/vanleefxp/linkify_typ"
+description = "Generate URLs and nicely formatted links to web media contents."
+categories = ["text"]
+keywords = [
+    "URL",
+    "link",
+    "media",
+    "website",
+    "format",
+    "Wikipedia",
+    "Bilibili",
+    "Twitter",
+    "Youtube",
+    "Moegirl Wiki",
+    "Wechat",
+    "Zhihu",
+    "ISBN",
+    "哔哩哔哩",
+    "B站",
+    "维基百科",
+    "萌娘百科",
+    "微信",
+    "知乎",
+    "油管",
+]
