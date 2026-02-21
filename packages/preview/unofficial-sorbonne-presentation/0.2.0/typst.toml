@@ -13,4 +13,4 @@ exclude = ["tests", "*.pdf", "**/*.pdf", ".gitignore", ".DS_Store"]
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "assets/sorbonne/thumbnail.png"
+thumbnail = "thumbnail.png"
