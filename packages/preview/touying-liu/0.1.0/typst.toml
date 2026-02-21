@@ -1,0 +1,17 @@
+[package]
+name = "touying-liu"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Erik Frisk <erik.frisk@liu.se>"]
+license = "MIT"
+description = "A Simple Touying Theme for LiU (Linköping University, Sweden) branded slides."
+exclude = ["example"]
+repository = "https://gitlab.liu.se/erifr93/touying-liu"
+keywords = ["touying", "slide", "theme", "liu"]
+categories = ["presentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
