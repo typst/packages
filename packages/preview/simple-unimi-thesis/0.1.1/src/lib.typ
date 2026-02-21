@@ -19,7 +19,7 @@
   // Name of the university
   university: "Università degli Studi di Milano",
   // Path of the logo of the university
-  unilogo: "img/unimi.svg",
+  unilogo: image("img/unimi.svg", height: 30mm),
   // Faculty, departament and course in which you are enrolled
   faculty: [Facoltà di Scienze e Tecnologie],
   department: [Dipartimento di Informatica \ Giovanni degli Antoni],
@@ -159,14 +159,6 @@
   )
 
   // TITLE PAGE
-  // name of university, department, logo, course
-  let logo(imagepath, height: 30mm) = {
-    set align(center)
-    image(
-      height: height,
-      imagepath,
-    )
-  }
 
   align(
     center,
@@ -176,7 +168,7 @@
       v(0.0135 * paper.height)
       upper(department)
       v(0.02 * paper.height)
-      logo(unilogo)
+      unilogo
       v(0.0135 * paper.height)
       upper(cdl)
     },
