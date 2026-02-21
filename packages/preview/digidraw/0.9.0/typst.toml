@@ -1,0 +1,15 @@
+[package]
+name = "Digidraw"
+version = "0.9.0"
+entrypoint = "src/exports.typ"
+authors = ["Joel von Rotz"]
+license = "EUPLv1.2"
+description = "Drawing digital timing diagrams with style and (almost all of) the WaveDrom syntax."
+repository = "https://codeberg.org/joelvonrotz/typst-digidraw"
+keywords = ["digital timing","drawing","configurable","wavedrom","timing"]
+categories = ["visualization"]
+exclude = [
+    "examples/",
+    "docs/banner.typ",
+    "docs/manual.typ",
+]
