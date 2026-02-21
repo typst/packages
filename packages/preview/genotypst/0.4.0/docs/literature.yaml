@@ -1,0 +1,135 @@
+herrero_ensembl_2016:
+  type: article
+  title: Ensembl comparative genomics resources
+  author:
+    - Herrero, Javier
+    - Muffato, Matthieu
+    - Beal, Kathryn
+    - Fitzgerald, Stephen
+    - Gordon, Leo
+    - Pignatelli, Miguel
+    - Vilella, Albert J.
+    - Searle, Stephen M. J.
+    - Amode, Ridwan
+    - Brent, Simon
+    - Spooner, William
+    - Kulesha, Eugene
+    - Yates, Andrew
+    - Flicek, Paul
+  date: 2016
+  page-range: bav96
+  url: https://academic.oup.com/database/article/doi/10.1093/database/bav096/2630091
+  serial-number:
+    doi: 10.1093/database/bav096
+    issn: 1758-0463
+  parent:
+    type: periodical
+    title: Database
+    volume: 2016
+schneider_sequence_1990:
+  type: article
+  title:
+    value: "Sequence logos: a new way to display consensus sequences"
+    short: Sequence logos
+  author:
+    - Schneider, Thomas D.
+    - Stephens, R.Michael
+  date: 1990
+  page-range: 6097-6100
+  url: https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/18.20.6097
+  serial-number:
+    doi: 10.1093/nar/18.20.6097
+    issn: 0305-1048, 1362-4962
+  parent:
+    type: periodical
+    title: Nucleic Acids Research
+    issue: 20
+    volume: 18
+dayhoff_model_1979:
+  type: anthos
+  title: A model of evolutionary change in proteins
+  author:
+    - Dayhoff, M.O.
+    - Schwartz, R.M.
+    - Orcutt, B.C.
+  date: 1979
+  serial-number:
+    isbn: "9780912466071"
+  parent:
+    type: anthology
+    title: Atlas of protein sequence and structure
+    publisher:
+      name: National Biomedical Research Foundation
+      location: Washington, D.C
+henikoff_amino_1992:
+  type: article
+  title: Amino acid substitution matrices from protein blocks
+  author:
+    - Henikoff, S
+    - Henikoff, J G
+  date: 1992
+  page-range: 10915-10919
+  url: https://pnas.org/doi/full/10.1073/pnas.89.22.10915
+  serial-number:
+    doi: 10.1073/pnas.89.22.10915
+    issn: 0027-8424, 1091-6490
+  parent:
+    type: periodical
+    title: Proceedings of the National Academy of Sciences
+    issue: 22
+    volume: 89
+smith_identification_1981:
+  type: article
+  title: Identification of common molecular subsequences
+  author:
+    - Smith, T.F.
+    - Waterman, M.S.
+  date: 1981
+  page-range: 195-197
+  url: https://linkinghub.elsevier.com/retrieve/pii/0022283681900875
+  serial-number:
+    doi: 10.1016/0022-2836(81)90087-5
+    issn: 0022-2836
+  parent:
+    type: periodical
+    title: Journal of Molecular Biology
+    issue: 1
+    volume: 147
+needleman_general_1970:
+  type: article
+  title: A general method applicable to the search for similarities in the amino acid sequence of two proteins
+  author:
+    - Needleman, Saul B.
+    - Wunsch, Christian D.
+  date: 1970
+  page-range: 443-453
+  url: https://linkinghub.elsevier.com/retrieve/pii/0022283670900574
+  serial-number:
+    doi: 10.1016/0022-2836(70)90057-4
+    issn: 0022-2836
+  parent:
+    type: periodical
+    title: Journal of Molecular Biology
+    issue: 3
+    volume: 48
+takabatake_improved_2021:
+  type: article
+  title: Improved Large-Scale Homology Search by Two-Step Seed Search Using Multiple Reduced Amino Acid Alphabets
+  author:
+    - Takabatake, Kazuki
+    - Izawa, Kazuki
+    - Akikawa, Motohiro
+    - Yanagisawa, Keisuke
+    - Ohue, Masahito
+    - Akiyama, Yutaka
+  date: 2021-09
+  page-range: "1455"
+  url: https://www.mdpi.com/2073-4425/12/9/1455
+  serial-number:
+    doi: 10.3390/genes12091455
+    issn: 2073-4425
+  parent:
+    type: periodical
+    title: Genes
+    issue: 9
+    volume: 12
