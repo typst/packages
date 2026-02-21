@@ -59,21 +59,21 @@ Click on the image for the source.
 
 Still lots to implement to be on (almost) par with WaveDrom!
 
-- [ ] Write Manual
-- [ ] All symbol combinations
+- Write Manual
+- All symbol combinations
   - the most important ones are implemented
-- [ ] Improve Line rendering
+- Improve Line rendering
   - Instead of stitching everything together, a system where one long line is drawn using `cetz.draw.merge-path`. Exception would transition edges which would break up the line. Buses would consist of two parts: the upper and lower "lip".
   - Line Merging would separate the primary lines from secondary lines + some fancy layer working could be done:
     1. Layer `-1`: Background elements such as ticks and guide lines
     2. Layer `0`: Filled areas such as buses
     3. Layer `1`: Strokes and Labels
     4. Layer `2`: The fancy SS / aka. decorations
-- [ ] Get closer to WaveDrom syntax (see below)
+- Get closer to WaveDrom syntax (see below)
 
 ### WaveDrom based
 
-- [ ] `period` and `phase` parameter
-- [ ] `head` and `foot` with `tick`, `tock`, `every` and `text` parameter
-- [ ] Arrows & Sharp lines
-- [ ] Groups
+- `period` and `phase` parameter
+- `head` and `foot` with `tick`, `tock`, `every` and `text` parameter
+- Arrows & Sharp lines
+- Groups

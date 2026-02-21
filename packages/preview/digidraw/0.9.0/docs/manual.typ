@@ -1,14 +1,14 @@
-#import "@preview/tidy:0.4.1"
+#import "@preview/tidy:0.4.3"
 #import "@preview/cetz:0.4.2"
 #import "@preview/fletcher:0.5.8"
 #import "@preview/tableau-icons:0.336.0": ti-icon
 
-#import "../src/exports.typ" as wave
+#import "@preview/digidraw:0.9.0" as wave
 
 
 #show "->": $->$
 
-#import "@preview/chribel:1.1.1": callout
+#import "@preview/chribel:1.2.0": callout
 #let callout = callout.with(style: "quarto")
 
 #import "@preview/codly:1.3.0": *
