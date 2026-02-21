@@ -1,5 +1,5 @@
 [package]
-name = "Digidraw"
+name = "digidraw"
 version = "0.9.0"
 entrypoint = "src/exports.typ"
 authors = ["Joel von Rotz"]
