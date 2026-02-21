@@ -1,0 +1,18 @@
+[package]
+name = "clean-hwr"
+version = "0.2.0"
+compiler = "0.13.1"
+entrypoint = "lib.typ"
+repository = "https://github.com/testspieler09/clean-hwr"
+authors = ["Pépe Hanisch <https://github.com/Testspieler09>"]
+license = "MIT"
+description = "A simple and good looking template for the Berlin School for Economics and Law"
+categories = ["thesis"]
+keywords = ["thesis", "university", "clean", "bachelor"]
+disciplines = ["computer-science"]
+exclude = [".github"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
