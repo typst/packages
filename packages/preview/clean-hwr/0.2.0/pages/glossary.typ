@@ -1,5 +1,5 @@
 #import "@preview/linguify:0.5.0": linguify
-#import "@preview/glossarium:0.5.9": print-glossary
+#import "@preview/glossarium:0.5.10": print-glossary
 
 /// Renders the glossary section if entries are provided.
 ///
