@@ -1,0 +1,18 @@
+[package]
+name = "childrens-book"
+version = "0.1.0"
+compiler = "0.14.2"
+entrypoint = "lib.typ"
+repository = "https://github.com/stchris/typst-childrens-book"
+authors = ["Christian Stefanescu <@stchris>"]
+license = "MIT-0"
+description = "Children's book with illustrations. Legible and good for first time self-readers."
+keywords = ["children", "book"]
+categories = ["book"]
+disciplines = []
+exclude = ["example.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
