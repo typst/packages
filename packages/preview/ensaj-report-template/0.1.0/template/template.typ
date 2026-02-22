@@ -1,4 +1,4 @@
-#import "../lib.typ": cover-page, achraf-code-block
+#import "@preview/ensaj-report-template:0.1.0": cover-page, achraf-code-block
 
 
 // ────────────────────────────────────────────────────────────────
