@@ -93,7 +93,7 @@
     ]
 
     #if subject-image != none and subject-image != "" {
-      image("../"+subject-image, width: 7cm)
+      image("../template/"+subject-image, width: 7cm)
     }
   ]
 

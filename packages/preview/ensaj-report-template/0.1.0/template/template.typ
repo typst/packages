@@ -1,4 +1,4 @@
-#import "lib.typ": cover-page, achraf-code-block
+#import "../lib.typ": cover-page, achraf-code-block
 
 
 // ────────────────────────────────────────────────────────────────
