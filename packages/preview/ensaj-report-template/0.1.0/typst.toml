@@ -1,7 +1,7 @@
 [package]
 name = "ensaj-report-template"
 version = "0.1.0"
-entrypoint = "template.typ"
+entrypoint = "lib.typ"
 authors = ["SAADALI ACHRAF <achrafsaadalii@gmail.com>"]
 license = "MIT"
 description = "Professional Typst report template with custom cover page and code blocks for ENSA El Jadida."

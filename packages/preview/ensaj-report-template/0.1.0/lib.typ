@@ -1,2 +1,2 @@
-#import "src/cover.typ": cover-page  
-#import "src/components.typ":achraf-code-block
+#import "src/cover.typ": *
+#import "src/components.typ": *
