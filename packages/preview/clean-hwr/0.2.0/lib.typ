@@ -1,4 +1,3 @@
-// TODO: check dep versions
 #import "@preview/linguify:0.5.0": set-database, load-ftl-data, linguify
 #import "@preview/acrostiche:0.7.0": init-acronyms
 #import "@preview/glossarium:0.5.10": make-glossary, register-glossary
