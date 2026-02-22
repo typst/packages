@@ -72,7 +72,6 @@
 /// )
 /// ```
 #let _render-title-page(
-  language: "en",
   metadata: (
     paper-type: [],
     title: [PTB Template],
@@ -170,20 +169,22 @@
   )
 
   // Middle section
-  text(
-    1.1em,
-    [
-      #linguify("published-on")
-      #metadata.at(
-        "date-of-publication",
-        default: if language == "de" {
-          datetime.today().display("[day].[month].[year]")
-        } else {
-          datetime.today().display()
-        }
-      )
-    ]
-  )
+  context {
+    text(
+      1.1em,
+      [
+        #linguify("published-on")
+        #metadata.at(
+          "date-of-publication",
+          default: if text.lang == "de" {
+            datetime.today().display("[day].[month].[year]")
+          } else {
+            datetime.today().display()
+          }
+        )
+      ]
+    )
+  }
   v(0.6em, weak: true)
   $circle.filled.small$
   v(0.6em, weak: true)

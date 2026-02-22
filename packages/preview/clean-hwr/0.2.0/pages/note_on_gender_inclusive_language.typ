@@ -1,4 +1,5 @@
 #import "@preview/linguify:0.5.0": linguify
+#import "/helper/to_string.typ": _to-string
 
 /// Renders a note on gender-inclusive language for German documents.
 ///
@@ -39,15 +40,21 @@
     enabled: false,
     title: ""
   ),
-  language: "en"
 ) = {
- if note-gender-inclusive-language.enabled and language == "de" {
-    heading(
-      linguify("gender-note-title"),
-      numbering: none
-    )
-    linguify("gender-note-text")
-    pagebreak()
+  context {
+    let current-lang = text.lang
+    if note-gender-inclusive-language.enabled and current-lang == "de" {
+      let title = note-gender-inclusive-language.at(
+        "title",
+        default: linguify("gender-note-title")
+      )
+      heading(
+        title,
+        numbering: none
+      )
+      linguify("gender-note-text")
+      pagebreak()
+    }
   }
 }
 

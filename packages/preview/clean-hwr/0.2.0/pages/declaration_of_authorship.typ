@@ -137,6 +137,6 @@
       inset: 20pt,
       ..signature-sections
     )
-    pagebreak()
   }
+  pagebreak()
 }

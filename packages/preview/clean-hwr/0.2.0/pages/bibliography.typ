@@ -25,16 +25,16 @@
 /// Example:
 /// ```typst
 /// #_set-biblography(
-///   bibliography("references.bib"),
-///   "hwr_citation.csl",
+///   bibliography-object: bibliography("references.bib"),
+///   citation-style: "hwr_citation.csl",
 /// )
 /// ```
 #let _set-biblography(
   bibliography-object: none,
-  citation-style: "hwr_citation.csl"
+  citation-style: "/hwr_citation.csl"
 ) = {
   if bibliography-object != none {
-    set bibliography(style: "../" + citation-style)
+    set bibliography(style: citation-style)
     bibliography-object
   }
 }

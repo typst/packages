@@ -20,14 +20,14 @@
 /// Returns:
 /// - content:
 ///     A fully formatted abstract page including:
-///     * Roman page numbering
-///     * Centered, localized abstract heading
-///     * Justified abstract body text
-///     * A trailing page break
+///     - Roman page numbering
+///     - Centered, localized abstract heading
+///     - Justified abstract body text
+///     - A trailing page break
 ///
 /// Example:
 /// ```typst
-/// #_render-abstract([
+/// #_render-abstract(abstract: [
 ///   This thesis investigates the impact of ...
 /// ])
 /// ```

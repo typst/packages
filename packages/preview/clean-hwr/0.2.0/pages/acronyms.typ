@@ -33,7 +33,7 @@
 ///
 /// Example:
 /// ```typst
-/// #_render-acronyms((
+/// #_render-acronyms(acronyms: (
 ///   title: [List of Acronyms],
 ///   entries: (
 ///     API: "Application Programming Interface",

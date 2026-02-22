@@ -35,7 +35,7 @@
 ///
 /// Example:
 /// ```typst
-/// #_render-appendix((
+/// #_render-appendix(appendix: (
 ///   enabled: true,
 ///   title: [Appendix A],
 ///   content: [

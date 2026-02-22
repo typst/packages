@@ -143,7 +143,7 @@
 /// - bibliography-object (content or none, default: `none`):
 ///   Bibliography data source.
 ///
-/// - citation-style (str, default: `"hwr_citation.csl"`):
+/// - citation-style (str, default: `"/hwr_citation.csl"`):
 ///   CSL file used for citation formatting.
 ///
 /// - appendix (dictionary):
@@ -227,7 +227,7 @@
   glossary: (
     title: "",
     entries: (),
-    disable-back-references: none,
+    disable-back-references: false,
   ),
   acronyms: (
     title: "",
@@ -248,7 +248,7 @@
 
   // Bibliography settings
   bibliography-object: none,
-  citation-style: "hwr_citation.csl",
+  citation-style: "/hwr_citation.csl",
 
   // The content of the appendix
   appendix: (
@@ -277,7 +277,6 @@
   _render-confidentiality-notice-if-right-place(confidentiality-notice: confidentiality-notice)
 
   _render-title-page(
-    language: language,
     metadata: metadata,
     custom-entries: custom-entries,
     label-signature-left: label-signature-left,

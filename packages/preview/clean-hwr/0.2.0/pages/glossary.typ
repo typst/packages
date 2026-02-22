@@ -38,7 +38,7 @@
 ///
 /// Example:
 /// ```typst
-/// #_render-glossary((
+/// #_render-glossary(glossary: (
 ///   title: [Glossary of Terms],
 ///   entries: (
 ///     API: "Application Programming Interface",
@@ -50,7 +50,7 @@
 #let _render-glossary(glossary: (
   title: "",
   entries: (),
-  disable-back-references: none,
+  disable-back-references: false,
 )) = {
   if glossary.entries != () {
     heading(

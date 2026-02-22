@@ -17,7 +17,7 @@
 ///
 /// Example
 /// ```typst
-/// #render-confidentiality-notice((
+/// #render-confidentiality-notice(confidentiality-notice: (
 ///   title: [Confidentiality Notice],
 ///   content: [This thesis contains confidential information.]
 /// ))
