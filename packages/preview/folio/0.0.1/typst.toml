@@ -1,0 +1,13 @@
+[package]
+name = "folio"
+version = "0.0.1"
+compiler = "0.14.2"
+entrypoint = "src/lib.typ"
+authors = ["Fernando Bryan Reza Campos <https://github.com/Yrrrrrf>"]
+license = "MIT"
+description = "A universal project management document generator based on a single source of truth."
+repository = "https://github.com/Yrrrrrf/folio"
+# homepage = "https://github.com/Yrrrrrf/folio"
+keywords = ["project management", "generator", "document"]
+categories = ["utility"]
+exclude = ["docs/manual.typ", "example/*.typ"]
