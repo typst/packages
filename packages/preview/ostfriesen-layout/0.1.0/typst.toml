@@ -1,0 +1,18 @@
+[package]
+name = "ostfriesen-layout"
+version = "0.1.0"
+entrypoint = "lib/lib.typ"
+authors = ["Tobias Behrendt"]
+license = "MIT"
+description = "A clean, professional template for academic writing at University of Applied Sciences Emden/Leer."
+repository = "https://github.com/TobiBeh/HS-Emden-Leer-Typst-Template"
+keywords = ["academic", "thesis", "report", "research", "hochschule-emden-leer"]
+categories = ["report", "thesis"]
+compiler = "0.13.1"
+disciplines = ["computer-science", "engineering", "business", "economics"]
+exclude = ["**/*.pdf"]
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "example/snapshots/thumbnail.png"

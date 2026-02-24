@@ -1,0 +1,12 @@
+[package]
+name = "catppuccin"
+version = "1.0.1"
+compiler = "0.11.0"
+entrypoint = "src/lib.typ"
+repository = "https://github.com/catppuccin/typst"
+authors = ["Catppuccin Org <releases@catppuccin.com>"]
+license = "MIT"
+description = "🪶 Soothing pastel theme for Typst"
+keywords = ["catppuccin", "theme", "template", "styling", "pastel"]
+categories = ["fun", "components"]
+exclude = ["/previews/*", "/manual/*"]

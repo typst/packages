@@ -1,0 +1,11 @@
+[package]
+
+name = "ose-pic"
+version = "0.1.0"
+entrypoint = "ose-pic.typ"
+authors = ["@Neruthes"]
+license = "MIT"
+description = "LaTeX compatibility commands"
+repository = "https://github.com/neruthes/ose-pic-typst"
+keywords = ["Placement", "Coordinates"]
+categories = ["utility"]

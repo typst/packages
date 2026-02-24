@@ -1,0 +1,12 @@
+[package]
+entrypoint = "src/lib.typ"
+name = "hydra"
+version = "0.6.1"
+compiler = "0.12.0"
+authors = ["tinger <tinger@tinger.dev>"]
+repository = "https://github.com/tingerrr/hydra"
+description = "Query and display headings in your documents and templates."
+categories = ["components", "scripting"]
+keywords = ["context", "chapter", "section", "heading"]
+license = "MIT"
+exclude = ["assets", "docs", "tests", "CONTRIBUTING.md", "Justfile"]

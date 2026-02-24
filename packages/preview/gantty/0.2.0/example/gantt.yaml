@@ -1,0 +1,40 @@
+show_today: true
+viewport-snap: day
+headers:
+  - month
+  - week
+taskgroups:
+  - name: Research
+    tasks:
+      - name: Read Statements
+        start: 2024-11-27
+        end: 2024-12-04
+        done: 2024-11-29
+  - name: Drafting
+    tasks:
+      - name: α draft
+        start: 2024-12-12
+        end: 2024-12-31
+      - name: β draft
+        start: 2024-12-31
+        end: 2025-01-31
+      - name: First draft
+        start: 2025-01-31
+        end: 2025-02-14
+      - name: γ draft
+        start: 2025-02-14
+        end: 2025-03-07
+      - name: Final Draft
+        start: 2025-03-07
+        end: 2025-03-24
+  - name: Production Log
+    tasks:
+        - name: Record initial ideas
+          start: 2024-11-27
+          end: 2024-12-04
+          done: 2024-12-08
+milestones:
+  - name: 1st Draft Hand In
+    date: 2025-02-14
+  - name: Final Hand In
+    date: 2025-03-24

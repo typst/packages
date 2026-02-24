@@ -1,0 +1,19 @@
+[package]
+name = "confy"
+version = "0.1.0"
+entrypoint = "confusion.typ"
+authors = ["Olivier D'Ancona"]
+license = "MIT"
+description = "Reusable confusion matrix renderer built on CeTZ."
+repository = "https://github.com/ODAncona/confusion-matrix"
+keywords = [
+    "confusion matrix",
+    "heatmap",
+    "classification",
+    "machine learning",
+    "visualization",
+    "cm",
+    "score",
+    "cetz",
+]
+exclude = ["demo.typ", "demo.pdf"]

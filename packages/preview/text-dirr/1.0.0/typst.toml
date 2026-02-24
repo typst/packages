@@ -1,0 +1,9 @@
+[package]
+name = "text-dirr"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Andrew Voynov"]
+license = "AGPL-3.0-only"
+description = "Get resolved value for text.dir."
+repository = "https://codeberg.org/Andrew15-5/text-dirr"
+compiler = "0.11.0"

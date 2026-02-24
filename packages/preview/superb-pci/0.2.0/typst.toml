@@ -1,0 +1,17 @@
+[package]
+name = "superb-pci"
+version = "0.2.0"
+compiler = "0.13.1"
+entrypoint = "lib.typ"
+repository = "https://codeberg.org/alxsim/superb-pci"
+authors = ["Alexis Simon"]
+license = "MIT-0"
+description = "A Peer Community In (PCI) and Peer Community Journal (PCJ) template."
+keywords = ["Peer Community In", "Peer Community Journal", "preprint", "diamond open access", "Biology"]
+categories = ["paper"]
+disciplines = ["biology", "archaeology"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

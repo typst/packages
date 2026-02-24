@@ -1,0 +1,182 @@
+[ar]
+figure = "شكل"
+table = "جدول"
+raw = "قائمة"
+
+[bg]
+figure = "Фиг."
+table = "Таблица"
+raw = "Приложение"
+
+[ca]
+figure = "Figura"
+table = "Taula"
+raw = "Llistat"
+
+[cs]
+figure = "Obrázek"
+table = "Tabulka"
+raw = "Seznam"
+
+[da]
+figure = "Figur"
+table = "Tabel"
+raw = "Liste"
+
+[de]
+figure = "Abbildung"
+table = "Tabelle"
+raw = "Listing"
+
+[el]
+figure = "Σχήμα"
+table = "Πίνακας"
+raw = "Παράθεση"
+
+[en]
+figure = "Figure"
+table = "Table"
+raw = "Listing"
+
+[es]
+figure = "Figura"
+table = "Tabla"
+raw = "Listado"
+
+[et]
+figure = "Joonis"
+table = "Tabel"
+raw = "List"
+
+[eu]
+figure = "Irudia"
+table = "Taula"
+raw = "Kodea"
+
+[fi]
+figure = "Kuva"
+table = "Taulukko"
+raw = "Esimerkki"
+
+[fr]
+figure = "Fig."
+table = "Tableau"
+raw = "Liste"
+
+[gl]
+figure = "Figura"
+table = "Táboa"
+raw = "Listado"
+
+[he]
+figure = "איור"
+table = "טבלה"
+raw = "קטע מקור"
+
+[hu]
+figure = "Ábra"
+table = "Táblázat"
+
+[is]
+figure = "Mynd"
+table = "Tafla"
+raw = "Sýnishorn"
+
+[it]
+figure = "Figura"
+table = "Tabella"
+raw = "Codice"
+
+[ja]
+figure = "図"
+table = "表"
+raw = "リスト"
+
+[la]
+figure = "Descriptio"
+table = "Tabula"
+raw = "Exemplum"
+
+[nb]
+figure = "Figur"
+table = "Tabell"
+raw = "Utskrift"
+
+[nl]
+figure = "Figuur"
+table = "Tabel"
+raw = "Listing"
+
+[nn]
+figure = "Figur"
+table = "Tabell"
+raw = "Utskrift"
+
+[pl]
+figure = "Rysunek"
+table = "Tabela"
+raw = "Program"
+
+[pt]
+figure = "Figura"
+table = "Tabela"
+raw = "Listagem"
+
+[ro]
+figure = "Figura"
+table = "Tabelul"
+raw = "Listă"
+
+[ru]
+figure = "Рис."
+table = "Таблица"
+raw = "Листинг"
+
+[sl]
+figure = "Slika"
+table = "Tabela"
+raw = "Program"
+
+[sq]
+figure = "Figurë"
+table = "Tabel"
+raw = "List"
+
+[sr]
+figure = "Слика"
+table = "Табела"
+raw = "Програм"
+
+[sv]
+figure = "Figur"
+table = "Tabell"
+raw = "Listing"
+
+[tl]
+figure = "Pigura"
+table = "Talaan"
+raw = "Listahan"
+
+[tr]
+figure = "Şekil"
+table = "Tablo"
+raw = "Liste"
+
+[uk]
+figure = "Рисунок"
+table = "Таблиця"
+raw = "Лістинг"
+
+[vi]
+figure = "Hình"
+table = "Bảng"
+raw = "Chương trình"
+
+[zh]
+figure = "图"
+table = "表"
+raw = "代码"
+
+[zh.tw]
+figure = "圖"
+raw = "程式"

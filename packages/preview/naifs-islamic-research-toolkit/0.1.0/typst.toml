@@ -1,0 +1,25 @@
+[package]
+name = "naifs-islamic-research-toolkit"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Naif Alsultan <@NaifAlsultan>"]
+license = "MIT"
+description = "Render Quranic text using the Madinah Mushaf (King Fahd Complex) fonts."
+repository = "https://github.com/NaifAlsultan/typst-quran-package"
+keywords = ["quran", "mushaf", "madinah", "text"]
+categories = ["text"]
+compiler = "0.11.0"
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "fonts",
+  "flake.nix",
+  "flake.lock",
+  "GEMINI.md",
+  "reference",
+  ".gitignore",
+]

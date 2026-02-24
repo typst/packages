@@ -1,0 +1,29 @@
+[package]
+name = "min-resume"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Maycon F. Melo <@mayconfmelo>"]
+license = "MIT-0"
+description = "Simple and professional résumé for professional people"
+categories = [ "cv", "office" ]
+keywords = [
+  "resume", "résumé", "curriculum", "curriculo", "currículo brasileiro"
+]
+repository = "https://github.com/mayconfmelo/min-resume"
+exclude = [
+  "dev/",
+  "test/",
+  "docs/",
+  "scripts/",
+  ".git",
+  ".gitignore",
+  "justfile",
+  "CHANGELOG.md",
+  "SETUP.md"
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+  

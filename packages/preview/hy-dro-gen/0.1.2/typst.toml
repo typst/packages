@@ -1,0 +1,16 @@
+[package]
+name = "hy-dro-gen"
+# @scrybe(grep {{version}})
+version = "0.1.2"
+entrypoint = "lib.typ"
+
+authors = ["Neven Villani <neven@crans.org>"]
+description = "Word hyphenation via bindings to typst/hypher"
+license = "MIT"
+
+repository = "https://github.com/Vanille-N/hy-dro-gen"
+keywords = ["hyphenation", "syllables"]
+categories = ["text", "languages", "integration"]
+
+exclude = []
+

@@ -1,0 +1,17 @@
+[package]
+name = "gakusyun-doc"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["Gakusyun <gxj@gxj62.cn>"]
+license = "MIT"
+description = "A Typst document template designed specifically for Chinese typography, suitable for quick start recording and providing highly customizable parameter settings."
+repository = "https://github.com/gakusyun/gakusyun-doc"
+keywords = ["chinese", "document", "template"]
+categories = ["report"]
+disciplines = ["education", "computer-science"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

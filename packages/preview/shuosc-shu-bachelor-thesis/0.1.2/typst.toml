@@ -1,0 +1,16 @@
+[package]
+name = "shuosc-shu-bachelor-thesis"
+version = "0.1.2"
+entrypoint = "lib.typ"
+authors = ["shuosc"]
+license = "Apache-2.0"
+description = "上海大学本科生毕业论文 Typst 模板 - 上海大学开源社区版 (SHUOSC)"
+repository = "https://github.com/shuosc/SHU-Bachelor-Thesis-Typst"
+keywords = ["Shanghai University", "Bachelor", "Thesis"]
+categories = ["thesis"]
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

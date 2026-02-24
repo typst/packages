@@ -1,0 +1,11 @@
+[package]
+name = "rufish"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eliseev Pavel <forgenet@inbox.ru>"]
+license = "MIT"
+description = "Russian Lorem Ipsum text generator"
+repository = "https://github.com/f0rgenet/rufish"
+categories = ["utility"]
+keywords = ["lorem", "lorem ipsum", "lipsum", "dummy text", "blind text", "placeholder", "fish", "russian", "русский", "text generator", "типографика", "рыба", "текстовый заполнитель", "разработка", "дизайн", "контент", "заполнитель"]
+exclude = ["utils/*"]

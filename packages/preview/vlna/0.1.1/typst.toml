@@ -1,0 +1,9 @@
+[package]
+name = "vlna"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["ShinoYumi"]
+license = "MIT"
+description = "Typst reproduction of `luavlna` known from LuaLaTeX."
+repository = "https://github.com/ShinoYumi/typst-vlna/"
+exclude = ["./examples"]

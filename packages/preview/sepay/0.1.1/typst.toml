@@ -1,0 +1,22 @@
+[package]
+name = "sepay"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["Lucas Resch <@MLNW>"]
+license = "MIT"
+description = "Generate EPC QR codes for SEPA credit transfers."
+repository = "https://github.com/MLNW/typst-packages"
+compiler = "0.12.0"
+keywords = [
+  "epc",
+  "qr",
+  "sepa",
+  "payment",
+  "europe",
+  "eu",
+  "invoice",
+  "finance",
+]
+categories = ["components", "office"]
+disciplines = ["business"]
+exclude = ["gallery/*"]

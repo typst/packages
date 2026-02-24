@@ -1,0 +1,9 @@
+[package]
+name = "timeliney"
+version = "0.2.0"
+entrypoint = "timeliney.typ"
+authors = ["Pedro Alves"]
+license = "MIT"
+description = "Create Gantt charts in Typst."
+repository = "https://github.com/pta2002/typst-timeliney"
+exclude = ["manual.pdf", "sample.png"]

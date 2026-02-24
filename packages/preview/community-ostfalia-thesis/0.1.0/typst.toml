@@ -1,0 +1,29 @@
+[package]
+name = "community-ostfalia-thesis"
+version = "0.1.0"
+compiler = "0.13.1"
+authors = [
+  "Ostfalia Template Contributors <https://github.com/shonk-software/community-ostfalia-thesis>",
+  # Original HEI Template Authors:
+  "Silvan Zahno <https://github.com/tschinz>",
+  "Rémi Heredero <https://github.com/Klagarge>",
+  "HEI-Vs <https://synd.hevs.io>",
+]
+repository = "https://github.com/shonk-software/community-ostfalia-thesis"
+license = "MIT"
+description = "A thesis template for a bachelors thesis at the Ostfalia University of Applied Sciences, faculty informatics."
+entrypoint = "lib/template-thesis.typ"
+categories = ["thesis", "report", "paper"]
+disciplines = ["engineering", "computer-science", "education"]
+keywords = [
+  "Thesis",
+  "Report",
+  "Project",
+  "University",
+  "Ostfalia",
+]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

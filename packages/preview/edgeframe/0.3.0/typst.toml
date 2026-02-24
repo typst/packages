@@ -1,0 +1,14 @@
+[package]
+name = "edgeframe"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["neuralpain <https://github.com/neuralpain>"]
+license = "MIT"
+description = "For quick paper setups."
+repository = "https://github.com/neuralpain/edgeframe"
+keywords = [
+  "document", "scaffold", "framework", "config", "dynamic",
+  "margin", "header", "footer", "easy", "quick", "fast",
+  "layout", "paragraph", "alignment", "word"
+]
+categories = ["office", "layout"]

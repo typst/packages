@@ -1,0 +1,11 @@
+[package]
+entrypoint = "src/lib.typ"
+name = "subpar"
+version = "0.2.2"
+compiler = "0.12.0"
+authors = ["tinger <tinger@tinger.dev>"]
+repository = "https://github.com/tingerrr/subpar"
+description = "Create sub figures easily."
+categories = ["components", "model"]
+keywords = ["figures", "sub"]
+license = "MIT"

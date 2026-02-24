@@ -1,0 +1,37 @@
+[package]
+name = "bei-report"
+version = "0.1.1"
+compiler = "0.13.1"
+entrypoint = "src/lib.typ"
+authors = ["Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com>"]
+license = "GPL-3.0-or-later"
+description = "An unofficial Typst template for ENSIMAG internship report"
+repository = "https://github.com/beatussum/typst-bei-report-template"
+keywords = [
+  "ensimag",
+  "ieee",
+  "internship",
+  "internship-report",
+  "report",
+]
+categories = ["report"]
+disciplines = ["computer-science", "engineering", "mathematics"]
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "CODE_OF_CONDUCT.md",
+  "CONTRIBUTING.md",
+  "Justfile",
+  "SECURITY.md",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+  "thumbnail.png",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

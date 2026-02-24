@@ -1,0 +1,20 @@
+[package]
+version = "0.3.1"
+compiler = "0.12.0"
+
+name = "flow"
+entrypoint = "src/lib.typ"
+exclude = ["doc/*", "thumbnail/generate", "install.sh"]
+
+license = "MIT AND MIT-0"
+authors = ["MultisampledNight <@MultisampledNight>"]
+repository = "https://github.com/MultisampledNight/flow"
+
+description = "A few templates and too many scattered utils."
+categories = ["components", "report"]
+keywords = ["pkm", "notes", "checklist"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail/page-1.png"

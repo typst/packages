@@ -1,0 +1,9 @@
+[package]
+name = "cvssc"
+version = "0.1.1"
+entrypoint = "src/main.typ"
+exclude = ["src/tests.typ"]
+authors = ["Drake Axelrod <drakeaxelrod@gmail.com>"]
+license = "MIT"
+description = "Common Vulnerability Scoring System Calculator"
+compiler = "0.13.0"

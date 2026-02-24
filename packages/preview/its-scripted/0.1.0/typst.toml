@@ -1,0 +1,16 @@
+[package]
+name = "its-scripted"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Daniel F.H."]
+license = "LGPL-3.0-only"
+description = "A template for writing movie/tv/theater-scripts in screenplay format."
+repository = "https://github.com/danielFHcode/typst-screenplay"
+keywords = [
+  "screenplay",
+  "movie-script",
+  "movie",
+  "film",
+  "television",
+  "theater",
+]

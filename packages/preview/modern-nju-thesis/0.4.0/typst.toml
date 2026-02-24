@@ -1,0 +1,17 @@
+[package]
+name = "modern-nju-thesis"
+version = "0.4.0"
+entrypoint = "lib.typ"
+authors = ["OrangeX4"]
+license = "MIT"
+description = "南京大学学位论文模板。Modern Nanjing University Thesis."
+repository = "https://github.com/nju-lug/modern-nju-thesis"
+keywords = ["Nanjing University", "thesis"]
+categories = ["thesis"]
+exclude = ["imgs"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

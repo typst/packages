@@ -1,0 +1,123 @@
+[conf]
+default-lang = "en"
+
+[lang.en]
+years-old = "years old"
+hr-dept = "Human Resources Department"
+now = "now"
+year = "year"
+years = "years"
+month = "month"
+months = "months"
+and = "and"
+month-abbrev = { 1 = "jan", 2 = "feb", 3 = "mar", 4 = "apr", 5 = "may", 6 = "jun", 7 = "jul", 8 = "aug", 9 = "sep", 10 = "oct", 11 = "nov", 12 = "dec" }
+
+[lang.pt]
+years-old = "anos"
+hr-dept = "Departamento de Recursos Humanos"
+now = "atual"
+year = "ano"
+years = "anos"
+month = "mês"
+months = "meses"
+and = "e"
+month-abbrev = { 1 = "jan", 2 = "fev", 3 = "mar", 4 = "abr", 5 = "mai", 6 = "jun", 7 = "jul", 8 = "ago", 9 = "set", 10 = "out", 11 = "nov", 12 = "dez" }
+
+[lang.es]
+years-old = "años"
+hr-dept = "Departamento de Recursos Humanos"
+now = "ahora"
+year = "año"
+years = "años"
+month = "mes"
+months = "meses"
+and = "y"
+month-abbrev = { 1 = "ene", 2 = "feb", 3 = "mar", 4 = "abr", 5 = "may", 6 = "jun", 7 = "jul", 8 = "ago", 9 = "sep", 10 = "oct", 11 = "nov", 12 = "dic" }
+
+[lang.fr]
+years-old = "ans"
+hr-dept = "Département des Ressources Humaines"
+now = "maintenant"
+year = "an"
+years = "ans"
+month = "mois"
+months = "mois"
+and = "et"
+month-abbrev = { 1 = "janv", 2 = "févr", 3 = "mars", 4 = "avr", 5 = "mai", 6 = "juin", 7 = "juil", 8 = "août", 9 = "sept", 10 = "oct", 11 = "nov", 12 = "déc" }
+
+[lang.de]
+years-old = "Jahre alt"
+hr-dept = "Personalabteilung"
+now = "jetzt"
+year = "Jahr"
+years = "Jahre"
+month = "Monat"
+months = "Monate"
+and = "und"
+month-abbrev = { 1 = "Jan", 2 = "Feb", 3 = "Mär", 4 = "Apr", 5 = "Mai", 6 = "Jun", 7 = "Jul", 8 = "Aug", 9 = "Sep", 10 = "Okt", 11 = "Nov", 12 = "Dez" }
+
+[lang.it]
+years-old = "anni"
+hr-dept = "Dipartimento Risorse Umane"
+now = "ora"
+year = "anno"
+years = "anni"
+month = "mese"
+months = "mesi"
+and = "e"
+month-abbrev = { 1 = "gen", 2 = "feb", 3 = "mar", 4 = "apr", 5 = "mag", 6 = "giu", 7 = "lug", 8 = "ago", 9 = "set", 10 = "ott", 11 = "nov", 12 = "dic" }
+
+[lang.nl]
+years-old = "jaar oud"
+hr-dept = "Afdeling Personeelszaken"
+now = "nu"
+year = "jaar"
+years = "jaren"
+month = "maand"
+months = "maanden"
+and = "en"
+month-abbrev = { 1 = "jan", 2 = "feb", 3 = "mrt", 4 = "apr", 5 = "mei", 6 = "jun", 7 = "jul", 8 = "aug", 9 = "sep", 10 = "okt", 11 = "nov", 12 = "dec" }
+
+[lang.tr]
+years-old = "yaşında"
+hr-dept = "İnsan Kaynakları Departmanı"
+now = "şimdi"
+year = "yıl"
+years = "yıllar"
+month = "ay"
+months = "aylar"
+and = "ve"
+month-abbrev = { 1 = "Oca", 2 = "Şub", 3 = "Mar", 4 = "Nis", 5 = "May", 6 = "Haz", 7 = "Tem", 8 = "Ağu", 9 = "Eyl", 10 = "Eki", 11 = "Kas", 12 = "Ara" }
+
+[lang.pl]
+years-old = "lat"
+hr-dept = "Dział Zasobów Ludzkich"
+now = "teraz"
+year = "rok"
+years = "lata"
+month = "miesiąc"
+months = "miesiące"
+and = "i"
+month-abbrev = { 1 = "sty", 2 = "lut", 3 = "mar", 4 = "kwi", 5 = "maj", 6 = "cze", 7 = "lip", 8 = "sie", 9 = "wrz", 10 = "paź", 11 = "lis", 12 = "gru" }
+
+[lang.ro]
+years-old = "ani"
+hr-dept = "Departamentul de Resurse Umane"
+now = "acum"
+year = "an"
+years = "ani"
+month = "lună"
+months = "luni"
+and = "și"
+month-abbrev = { 1 = "ian", 2 = "feb", 3 = "mar", 4 = "apr", 5 = "mai", 6 = "iun", 7 = "iul", 8 = "aug", 9 = "sep", 10 = "oct", 11 = "nov", 12 = "dec" }
+
+[lang.ru]
+years-old = "лет"
+hr-dept = "Отдел кадров"
+now = "сейчас"
+year = "год"
+years = "лет"
+month = "месяц"
+months = "месяцы"
+and = "и"
+month-abbrev = { 1 = "янв", 2 = "фев", 3 = "мар", 4 = "апр", 5 = "май", 6 = "июн", 7 = "июл", 8 = "авг", 9 = "сен", 10 = "окт", 11 = "ноя", 12 = "дек" }

@@ -1,0 +1,13 @@
+[package]
+name = "fancy-units"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Janek Fleper <@janekfleper>"]
+license = "MIT"
+compiler = "0.11.0"
+repository = "https://github.com/janekfleper/typst-fancy-units"
+description = "Format numbers and units with styling."
+keywords = ["numbers", "units"]
+categories = ["visualization"]
+disciplines = ["chemistry", "engineering", "physics"]
+exclude = ["docs"]

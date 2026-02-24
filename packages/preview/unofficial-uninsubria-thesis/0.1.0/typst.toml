@@ -1,0 +1,16 @@
+[package]
+name = "unofficial-uninsubria-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Mattia Papaccioli <mpapaccioli@studenti.uninsubria.it>"]
+license = "MIT"
+description = "A Typst Template for Universita degli studi dell'Insubria"
+repository = "https://github.com/sboogway/uninsubria-thesis"
+keywords = ["uninsubria", "thesis", "insubria"]
+categories = ["paper", "thesis", "report"]
+exclude = ["template/main.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,17 @@
+[package]
+name = "classy-german-invoice"
+version = "0.3.1"
+compiler = "0.10.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/erictapen/typst-invoice"
+authors = ["Kerstin Humm <@erictapen>"]
+license = "MIT-0"
+description = "Minimalistic invoice for germany based freelancers"
+keywords = ["invoice", "german", "banking"]
+categories = ["layout", "office"]
+disciplines = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

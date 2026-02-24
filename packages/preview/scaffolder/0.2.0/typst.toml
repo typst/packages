@@ -1,0 +1,26 @@
+[package]
+name = "scaffolder"
+version = "0.2.0"
+compiler = "0.12.0"
+repository = "https://github.com/wisp3rwind/typst-scaffolder"
+entrypoint = "src/lib.typ"
+authors = [
+  "wisp3rwind <@wisp3rwind>"
+]
+categories = [ "utility", "layout" ]
+license = "MIT"
+description = "Show borders around the main text area, header and footer in Typst documents."
+keywords = [
+  "layout",
+  "showframe",
+  "margin",
+  "header",
+  "footer",
+]
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  "Justfile",
+]

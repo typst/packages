@@ -1,0 +1,184 @@
+[translations]
+# Country
+THE-REPUPLIC-OF-TURKIYE = "T.C."
+
+# Üniversite Adı [University Name]
+UNIVERSITY-NAME-TITLE-CASE = "Necmettin Erbakan Üniversitesi"
+UNIVERSITY-NAME-UPPER-CASE = "NECMETTİN ERBAKAN ÜNİVERSİTESİ"
+
+# Enstitü Adı [Institute Name]
+INSTITUTE-NAME-TITLE-CASE = "Eğitim Bilimleri Enstitüsü"
+INSTITUTE-NAME-UPPER-CASE = "EĞİTİM BİLİMLERİ ENSTİTÜSÜ"
+
+# Rapor Türleri [Report Types]
+MASTER-THESIS-PROPOSAL = "Yüksek Lisans Tez Önerisi"
+MASTER-THESIS = "Yüksek Lisans Tezi"
+DOCTORAL-THESIS-PROPOSAL = "Doktora Tez Önerisi"
+DOCTORAL-THESIS = "Doktora Tezi"
+TERM-PROJECT = "Tezsiz Yüksek Lisans Dönem Projesi"
+
+# Danışmanlar [Advisors]
+ADVISOR = "Danışman"
+SECOND-ADVISOR = "İkinci Danışman"
+
+# Öğretim Üyesi Ünvanları [Academic Member Titles]
+ACADEMIC-MEMBER-TITLE-PLACE-HOLDER = "Ünvan"
+ASSISTANT-PROFESSOR-DR = "Dr. Öğr. Üyesi"
+ASSOCIATE-PROFESSOR-DR = "Doç. Dr."
+PROFESSOR = "Prof."
+PROFESSOR-DR = "Prof. Dr."
+
+# Döküman Bölümleri [Document Sections]
+
+# Tezin Ön Kısmı [Front Section of Thesis]
+PREFACE = "ÖN SÖZ (TEŞEKKÜR)"
+TABLE-OF-CONTENTS = "İÇİNDEKİLER"
+LIST-OF-TABLES = "TABLOLAR LİSTESİ"
+LIST-OF-IMAGES = "ŞEKİLLER LİSTESİ"
+LIST-OF-EQUATIONS = "DENKLEMLER LİSTESİ"
+LIST-OF-CODES = "KODLAR LİSTESİ"
+THESIS-STUDY-ORIGINALITY-REPORT = "TEZ ÇALIŞMASI ORİJİNALLİK RAPORU"
+SCIENTIFIC-ETHIC-DECLARATION = "BİLİMSEL ETİK BEYANNAMESİ"
+SYMBOLS-AND-ABBREVIATIONS = "SİMGELER VE KISALTMALAR"
+SYMBOLS = "Simgeler"
+ABBREVIATIONS = "Kısaltmalar"
+ABSTRACT = "ÖZET"
+KEYWORDS = "Anahtar Kelimeler"
+
+# Tezin Ana Kısmı [Main Section of Thesis]
+CHAPTER = "BÖLÜM"
+# Giriş [Introduction]
+INTRODUCTION = "GİRİŞ"
+STATEMENT-OF-THE-PROBLEM = "Problem Durumu"
+THE-PURPOSE-OF-THE-STUDY = "Araştırmanın Amacı"
+THE-SIGNIFICANCE-OF-THE-STUDY = "Araştırmanın Önemi"
+ASSUMPTIONS = "Sayıltılar (Varsayımlar)"
+LIMITATIONS = "Sınırlılıklar"
+DEFINITIONS = "Tanımlar"
+# Alan Yazın (İlgi̇li̇ Araştırmalar) [Literature Review]
+LITERATURE-REVIEW = "ALAN YAZIN (İLGİLİ ARAŞTIRMALAR)"
+# Yöntem [Methodology]
+METHODOLOGY = "YÖNTEM"
+RESEARCH-DESIGN = "Araştırmanın Modeli"
+RESEARCH-POPULATION-AND-SAMPLE = "Araştırmanın Evreni ve Örneklemi (Araştırmanın Çalışma Grubu) (Katılımcılar)"
+DATA-COLLECTION-TOOLS = "Veri Toplama Araç ve/veya Teknikleri"
+DATA-COLLECTION-PROCESS = "Verilerin Toplanması"
+DATA-ANALYSIS = "Verilerin Çözümlenmesi (Verilerin Analizi)"
+# Bulgular [Findings]
+FINDINGS = "BULGULAR"
+# Tartışma, Sonuç ve Öneriler [Discussion, Conclusion and Suggestions]
+DISCUSSION-CONCLUSION-AND-SUGGESTIONS = "TARTIŞMA, SONUÇ VE ÖNERİLER"
+DISCUSSION = "Tartışma"
+CONCLUSION = "Sonuç"
+SUGGESTIONS = "Öneri̇ler"
+
+# Tezin Arka Kısmı [Back Section of Thesis]
+# Çalışma Takvimi [Work Schedule]
+WORK-SCHEDULE = "ÇALIŞMA TAKVİMİ"
+WORK-PACKAGE = "İş Paketi"
+SHORT-WORK-PACKAGE = "İP"
+MONTHS = "Aylar"
+# Genişletilmiş Türkçe Özet [Expanded Turkish Abstract]
+EXPANDED-TURKISH-ABSTRACT = "GENİŞLETİLMİŞ TÜRKÇE ÖZET"
+# Kaynaklar [References]
+BIBLIOGRAPHY = "KAYNAKLAR"
+# Ekler [Appendices]
+APPENDICES = "EKLER"
+APPENDIX-PREFIX = "EK "
+# Öz Geçmiş [Curriculum Vitae]
+CURRICULUM-VITAE = "ÖZ GEÇMİŞ"
+GENERAL-INFO = "Genel Bilgiler"
+FIRST-NAME-LAST-NAME = "Adı Soyadı"
+SIGNATURE = "İmza"
+BIRTHDAY = "Dogüm Yeri"
+BIRTHPLACE = "Doğum Günü"
+ADRESS = "Adres"
+MARITAL-STATUS = "Medeni Durumu"
+PHONE-NUMBER = "Telefon No"
+EMAIL = "E-Posta"
+EDUCATIONAL-BACKGROUND = "Öğrenim Hayatı"
+SCHOOL-TYPE = "Okul Türü"
+SCHOOL-NAME = "Okul Adı"
+PROGRAM = "Program"
+PLACE = "Yer"
+YEAR = "Yıl"
+HIGH-SCHOOL = "Lise"
+UNDERGRADUATE = "Lisans"
+MASTERS-DEGREE = "Yüksek Lisans"
+WORK-BACKGROUND = "Çalışma Hayatı"
+SKILLS = "Becerileri"
+WORK-EXPERIENCES = "İş Deneyimleri"
+GET-INFO-FROM-RECOMMENDED-PEOPLES = "Hakkımda Bilgi\nAlmak İçin\nÖnerebileceğim\nŞahıslar"
+
+# Referans Ekleri [Reference Supplements]
+CHAPTER-REFERENCE-SUPPLEMENT = "Bölüm"
+HEADING-REFERENCE-SUPPLEMENT = "Başlık"
+TABLE-FIGURE-REFERENCE-SUPPLEMENT = "Tablo"
+IMAGE-FIGURE-REFERENCE-SUPPLEMENT = "Şekil"
+MATH-EQUATION-REFERENCE-SUPPLEMENT = "Denklem"
+RAW-FIGURE-REFERENCE-SUPPLEMENT = "Kod"
+
+# Uzun Ay Adları [Long Month Names]
+JANUARY = "Ocak"
+FEBRUARY = "Şubat"
+MARCH = "Mart"
+APRIL = "Nisan"
+MAY = "Mayıs"
+JUNE = "Haziran"
+JULY = "Temmuz"
+AUGUST = "Ağustos"
+SEPTEMBER = "Eylül"
+OCTOBER = "Ekim"
+NOVEMBER = "Kasım"
+DECEMBER = "Aralık"
+
+# Ana Bilim Dalları [Departments]
+DEPARTMENT-PLACE-HOLDER = "Ana Bilim Dalı"
+DEPARTMENT-OF-PHYSICAL-EDUCATION-AND-SPORTS = "Beden Eğitimi ve Spor Anabilim Dalı"
+DEPARTMENT-OF-COMPUTER-EDUCATION-AND-INSTRUCTIONAL-TECHNOLOGY = "Bilgisayar ve Öğretim Teknolojileri Eğitimi Anabilim Dalı"
+DEPARTMENT-OF-EDUCATIONAL-SCIENCES = "Eğitim Bilimleri Anabilim Dalı"
+DEPARTMENT-OF-CURRICULUM-AND-INSTRUCTION = "Eğitim Programları ve Öğretim Anabilim Dalı"
+DEPARTMENT-OF-FINE-ARTS-EDUCATION = "Güzel Sanatlar Eğitimi Anabilim Dalı"
+DEPARTMENT-OF-ELEMENTARY-EDUCATION = "İlköğretim Anabilim Dalı"
+DEPARTMENT-OF-ELEMENTARY-RELIGIOUS-CULTURE-AND-ETHICS-EDUCATION = "İlköğretim Din Kültürü ve Ahlak Bilgisi Eğitimi Anabilim Dalı"
+DEPARTMENT-OF-MATHEMATICS-AND-SCIENCES-EDUCATION = "Matematik ve Fen Bilimleri Eğitimi Anabilim Dalı"
+DEPARTMENT-OF-SECONDARY-SCIENCE-AND-MATHEMATICS-EDUCATION = "Ortaöğretim Fen ve Matematik Alanları Eğitimi Anabilim Dalı"
+DEPARTMENT-OF-SECONDARY-SOCIAL-SCIENCES-EDUCATION = "Ortaöğretim Sosyal Alanlar Eğitimi Anabilim Dalı"
+DEPARTMENT-OF-SPECIAL-EDUCATION = "Özel Eğitim Anabilim Dalı"
+DEPARTMENT-OF-BASIC-EDUCATION = "Temel Eğitim Anabilim Dalı"
+DEPARTMENT-OF-TURKISH-EDUCATION = "Türkçe Eğitimi Anabilim Dalı"
+DEPARTMENT-OF-TURKISH-AND-SOCIAL-SCIENCES-EDUCATION = "Türkçe ve Sosyal Bilimler Eğitimi Anabilim Dalı"
+DEPARTMENT-OF-FOREIGN-LANGUAGE-EDUCATION = "Yabancı Diller Eğitimi Anabilim Dalı"
+
+# Bilim Dalları [Programs]
+PROGRAM-PLACE-HOLDER = "Bilim Dalı"
+GERMAN-LANGUAGE-EDUCATION-PROGRAM = "Alman Dili Eğitimi Bilim Dalı"
+PHYSICAL-EDUCATION-AND-SPORTS-PROGRAM = "Beden Eğitimi ve Spor Bilim Dalı"
+COMPUTER-EDUCATION-AND-INSTRUCTIONAL-TECHNOLOGY-PROGRAM = "Bilgisayar ve Öğretim Teknolojileri Eğitimi Bilim Dalı"
+BIOLOGY-EDUCATION-PROGRAM = "Biyoloji Eğitimi Bilim Dalı"
+GEOGRAPHY-EDUCATION-PROGRAM = "Coğrafya Eğitimi Bilim Dalı"
+CURRICULUM-AND-INSTRUCTION-PROGRAM = "Eğitim Programları ve Öğretim Bilim Dalı"
+EDUCATION-MANAGEMENT-PROGRAM = "Eğitim Yönetimi Bilim Dalı"
+EDUCATIONAL-ADMINISTRATION-SUPERVISION-PLANNING-AND-ECONOMICS-PROGRAM = "Eğitim Yönetimi, Denetimi, Planlaması ve Ekonomisi Bilim Dalı"
+PHILOSOPHY-EDUCATION-PROGRAM = "Felsefe Grubu Eğitimi Bilim Dalı"
+SCIENCE-EDUCATION-PROGRAM = "Fen Bilgisi Eğitimi Bilim Dalı"
+PHYSICS-EDUCATION-PROGRAM = "Fizik Eğitimi Bilim Dalı"
+ELEMENTARY-RELIGIOUS-CULTURE-AND-ETHICS-EDUCATION-PROGRAM = "İlköğretim Din Kültürü ve Ahlak Bilgisi Eğitimi Bilim Dalı"
+ELEMENTARY-MATHEMATICS-EDUCATION-PROGRAM = "İlköğretim Matematik Eğitimi Bilim Dalı"
+ENGLISH-LANGUAGE-EDUCATION-PROGRAM = "İngiliz Dili Eğitimi Bilim Dalı"
+CHEMISTRY-EDUCATION-PROGRAM = "Kimya Eğitimi Bilim Dalı"
+MATHEMATICS-EDUCATION-PROGRAM = "Matematik Eğitimi Bilim Dalı"
+MUSIC-EDUCATION-PROGRAM = "Müzik Eğitimi Bilim Dalı"
+PRESCHOOL-EDUCATION-PROGRAM = "Okul Öncesi Eğitimi Bilim Dalı"
+SPECIAL-EDUCATION-PROGRAM = "Özel Eğitim Bilim Dalı"
+LEADERSHIP-AND-MANAGEMENT-IN-SPECIAL-TEACHING-INSTITUTIONS-PROGRAM = "Özel Öğretim Kurumlarında Liderlik ve Yönetim Bilim Dalı"
+GUIDANCE-AND-PSYCHOLOGICAL-COUNSELING-PROGRAM = "Rehberlik ve Psikolojik Danışmanlık Bilim Dalı"
+ART-EDUCATION-PROGRAM = "Resim-İş Eğitimi Bilim Dalı"
+PRIMARY-EDUCATION-PROGRAM = "Sınıf Eğitimi Bilim Dalı"
+SOCIAL-STUDIES-EDUCATION-PROGRAM = "Sosyal Bilgiler Eğitimi Bilim Dalı"
+HISTORY-EDUCATION-PROGRAM = "Tarih Eğitimi Bilim Dalı"
+TURKISH-LANGUAGE-AND-LITERATURE-EDUCATION-PROGRAM = "Türk Dili ve Edebiyatı Eğitimi Bilim Dalı"
+TURKISH-EDUCATION-PROGRAM = "Türkçe Eğitimi Bilim Dalı"
+TEACHING-TURKISH-TO-FOREIGNERS-PROGRAM = "Yabancılara Türkçe Öğretimi Bilim Dalı"
+TURKISH-TEACHING-TO-TURKISH-CHILDREN-ABROAD-PROGRAM = "Yurt Dışındaki Türk Çocuklarına Türkçe Öğretimi Bilim Dalı"
+MENTALLY-DISABLED-EDUCATION-PROGRAM = "Zihin Engelliler Eğitimi Bilim Dalı"

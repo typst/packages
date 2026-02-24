@@ -1,0 +1,17 @@
+[package]
+name = "definitely-not-isec-thesis"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["Ernesto Martínez <https://ecomaikgolf.com>"]
+license = "MIT"
+description = "An unofficial ISEC TUGraz Master's Thesis template"
+repository = "https://github.com/ecomaikgolf/typst-isec-master-thesis-template/"
+categories = ["thesis"]
+disciplines = ["computer-science", "engineering"]
+keywords = ["ISEC", "Institute of Information Security", "IAIK", "TUGraz", "Graz University of Technology", "thesis", "template", "Master Thesis"]
+compiler = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

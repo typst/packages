@@ -1,0 +1,11 @@
+[package]
+name = "vonsim"
+version = "0.2.0"
+compiler = "0.13.0"
+repository = "https://github.com/vonsim/typst-package"
+entrypoint = "lib.typ"
+authors = ["Juan Martín Seery <https://github.com/JuanM04>"]
+categories = ["text"]
+license = "AGPL-3.0-only"
+description = "Syntax highlighting support for VonSim."
+keywords = ["syntax-highlighting", "assembly"]

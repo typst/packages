@@ -1,0 +1,12 @@
+[package]
+name = "shuxuejuan"
+version = "0.1.3"
+compiler = "0.13.1"
+entrypoint = "lib.typ"
+repository = "https://github.com/VWWVVW/shuxuejuan"
+authors = ["VWWVVW <https://github.com/VWWVVW>"]
+license = "MIT"
+description = "A simple template for math exam in Chinese."
+keywords = ["math", "exam", "Chinese"]
+categories = ["utility"]
+exclude = ["examples"]

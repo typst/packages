@@ -1,0 +1,12 @@
+<svg width="600" height="100" viewBox="0 0 600 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="none"/>
+  
+  <g transform="translate(10, 10) scale(0.8)">
+    <path d="M50 0 C20 0 0 20 0 50 L0 80 C0 100 20 120 50 120 C80 120 100 100 100 80 L100 50 C100 20 80 0 50 0 Z M50 10 C70 10 85 25 85 45 L85 70 C85 85 70 100 50 100 C30 100 15 85 15 70 L15 45 C15 25 30 10 50 10 Z M30 50 C30 40 40 30 50 30 C60 30 70 40 70 50 L70 65 C70 75 60 85 50 85 C40 85 30 75 30 65 L30 50 Z" fill="#333333"/>
+  </g>
+  
+  <g transform="translate(120, 50)">
+    <text x="0" y="0" font-family="Times New Roman, serif" font-size="40" fill="#333333" text-anchor="start">EXAMPLE</text>
+    <text x="0" y="40" font-family="Times New Roman, serif" font-size="40" fill="#333333" text-anchor="start">UNIVERSITY</text>
+  </g>
+</svg>

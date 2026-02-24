@@ -1,0 +1,16 @@
+[package]
+name = "typxidian"
+version = "0.1.3"
+compiler = "0.13.1"
+entrypoint = "src/typxidian.typ"
+authors = ["Angelo Nazzaro <https://github.com/angelonazzaro>"]
+keywords = ["thesis", "report"]
+categories = ["report", "thesis"]
+license = "MIT"
+description = "Modern note-taking, thesis and academic reports inspried by Obsidian."
+repository = "https://github.com/angelonazzaro/typxidian"
+
+[template]
+path = "src/template/"
+entrypoint = "main.typ"
+thumbnail = "src/figures/thumbnail.png"

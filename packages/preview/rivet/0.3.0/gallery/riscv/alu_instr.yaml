@@ -1,0 +1,60 @@
+structures:
+  main:
+    bits: 32
+    ranges:
+      31-20:
+        name: op2
+        depends-on: 5
+        values:
+          0:
+            description: second operand is an immediate value
+            structure: immediateOp
+          1:
+            description: second operand is a register
+            structure: registerOp
+      19-15:
+        name: rs1
+      14-12:
+        name: funct3
+        description: operation
+        values:
+          000: add / sub
+          100: xor
+          110: or
+          111: and
+          001: sl
+          101: sr
+      11-7:
+        name: rd
+      6:
+        name: 0
+      5:
+        name: I
+      4:
+        name: 1
+      3:
+        name: 0
+      2:
+        name: 0
+      1:
+        name: 1
+      0:
+        name: 1
+  immediateOp:
+    bits: 12
+    ranges:
+      11-0:
+        name: 12-bit immediate value
+        description: signed number
+  registerOp:
+    bits: 12
+    ranges:
+      11-5:
+        name: funct7
+        description: function modifier
+        values:
+          0000000: default (add, srl)
+          "0100000": sub, sra
+      4-0:
+        name: rs2
+        description: second register operand

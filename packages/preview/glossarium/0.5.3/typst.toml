@@ -1,0 +1,33 @@
+[package]
+name = "glossarium"
+version = "0.5.3"
+entrypoint = "glossarium.typ"
+authors = [
+    "Théophile Ross <@slashformotion>",
+    "Sébastien d'Herbais de Thun <@Dherse>",
+    "Pascal Quach <@quachpas>",
+]
+license = "MIT"
+description = "Glossarium is a simple, easily customizable typst glossary."
+repository = "https://github.com/typst-community/glossarium"
+keywords = ["glossary", "acronyms"]
+compiler = "0.13.0"
+exclude = [
+    "tbump.toml",
+    "makefile",
+    "flake.nix",
+    "flake.lock",
+    "justfile",
+    "examples",
+    "package.sh",
+    "tests",
+    "advanced-docs",
+    "docs",
+    ".github",
+    ".vscode",
+    ".gtm",
+    ".git",
+    ".gitignore",
+    ".mailmap",
+    "**/*.pdf",
+]

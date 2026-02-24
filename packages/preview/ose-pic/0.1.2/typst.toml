@@ -1,0 +1,11 @@
+[package]
+
+name = "ose-pic"
+version = "0.1.2"
+entrypoint = "ose-pic.typ"
+authors = ["@Neruthes"]
+license = "MIT"
+description = "Per-page backgrounds and foregrounds"
+repository = "https://github.com/neruthes/ose-pic-typst"
+keywords = ["Placement", "Coordinates", "Foreground", "Background"]
+categories = ["utility"]

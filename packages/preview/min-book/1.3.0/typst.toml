@@ -1,0 +1,27 @@
+[package]
+name = "min-book"
+version = "1.3.0"
+entrypoint = "src/lib.typ"
+authors = ["Maycon F. Melo <@mayconfmelo>"]
+license = "MIT-0"
+description = "Simple and complete books without introducing new syntax"
+categories = [ "layout", "book" ]
+keywords = [ "book", "document structuring" ]
+repository = "https://github.com/mayconfmelo/min-book"
+exclude = [
+  "dev/",
+  "tests/",
+  "docs/",
+  "scripts/",
+  ".git",
+  ".github",
+  ".gitignore",
+  "justfile",
+  "manual.typ"
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+  

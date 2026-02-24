@@ -1,0 +1,36 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "etykett"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = [
+  "Clemens Koza <https://github.com/SillyFreak/>"
+]
+license = "MIT"
+description = "a template for printing onto label sheets with rectangular grids of labels"
+# homepage = ""
+repository = "https://github.com/SillyFreak/typst-etykett"
+keywords = ["printing", "label"]
+categories = ["layout", "office"]
+disciplines = []
+compiler = "0.12.0"
+exclude = [
+  ".github",
+  "docs",
+  "gallery",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"

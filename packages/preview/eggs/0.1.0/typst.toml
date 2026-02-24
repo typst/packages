@@ -1,0 +1,12 @@
+[package]
+name = "eggs"
+version = "0.1.0"
+entrypoint = "eggs.typ"
+authors = ["Arkady Shaldov", "Other open-source contributors"]
+license = "MIT"
+description = "Linguistic examples with minimalist syntax"
+repository = "https://github.com/retroflexivity/typst-eggs"
+disciplines = ["linguistics"]
+categories = ["components"]
+keywords = ["linguistics", "examples", "leipzig", "gloss", "glossing"]
+compiler = "0.13.0"

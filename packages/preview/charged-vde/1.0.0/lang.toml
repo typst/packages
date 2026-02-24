@@ -1,0 +1,8 @@
+[conf]
+default-lang = "en"
+
+[lang.en]
+abstract = "Abstract"
+
+[lang.de]
+abstract = "Zusammenfassung"

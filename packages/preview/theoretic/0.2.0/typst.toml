@@ -1,0 +1,13 @@
+[package]
+name = "theoretic"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["nleanba <@nleanba>"]
+license = "Unlicense"
+description = "Opinionated tool to typeset theorems, lemmas and such"
+repository = "https://github.com/nleanba/typst-theoretic"
+keywords = ["theorem", "environment"]
+disciplines = ["computer-science", "engineering", "mathematics", "physics", "education"]
+categories = ["components"]
+compiler = "0.12.0"
+exclude = ["main.typ", "main.pdf", "preview.svg"]

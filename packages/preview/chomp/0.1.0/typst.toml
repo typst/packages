@@ -1,0 +1,27 @@
+[package]
+name = "chomp"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Jeppe Klitgaard <typst@jeppe.science>"]
+description = "Dynamically and efficiently truncate a string to make content fit constraints"
+repository = "https://github.com/JeppeKlitgaard/chomp"
+license = "MIT"
+keywords = [
+    "truncate",
+    "ellipsis",
+    "layout",
+    "shorten",
+    "string",
+]
+categories = [
+    "layout",
+    "text",
+    "utility",
+]
+compiler = "0.12.0"
+
+exclude = [
+    "DEV.md",
+    "demo.typ",
+    "justfile",
+]
