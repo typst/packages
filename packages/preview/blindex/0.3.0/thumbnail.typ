@@ -1,4 +1,4 @@
-#import "blindex.typ": *
+#import "@preview/blindex:0.3.0": *
 
 // Minimum bibliography data
 #let bib = ```
