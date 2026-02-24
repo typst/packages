@@ -181,7 +181,7 @@ Import the themes module and use a preset theme:
 You can easily customize any theme by merging it with your own values:
 
 ```typst
-#import "@local/pepentation:0.2.0": *
+#import "@preview/pepentation:0.2.0": *
 
 #show: setup-presentation.with(
   theme: (
