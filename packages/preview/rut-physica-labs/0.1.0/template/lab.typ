@@ -1,7 +1,7 @@
 /// Пример использования пакета miit-physica-labs
 /// Шаблон отчёта по лабораторной работе
 
-#import "../lib.typ": labreport, noindent, appendixes
+#import "@preview/rut-physica-labs:0.1.0": labreport, noindent, appendixes
 
 #set document(title: "Изучение законов механики")
 

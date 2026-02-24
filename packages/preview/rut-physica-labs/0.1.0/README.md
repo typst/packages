@@ -182,7 +182,7 @@ $
 
 // Нумерованная формула на отдельной строке
 #math.equation(
-  $a = g sin alpha,$
+  $a = g sin alpha ,$
   block: true,
   numbering: "(1)",
 ) <eq-accel>
