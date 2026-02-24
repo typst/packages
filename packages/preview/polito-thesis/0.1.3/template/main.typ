@@ -1,4 +1,4 @@
-#import "@preview/polito-thesis:0.1.3": polito-black, polito-blue, polito-orange, polito-thesis
+#import "@preview/polito-thesis:0.1.3": polito-black, polito-blue, polito-orange, polito-thesis, opinionated-polito-style
 
 #show: polito-thesis.with(
   title: [Tesi di Laurea],
