@@ -124,7 +124,7 @@ The template provides 9 styled blocks for highlighting specific content:
 - `#failure[content]` (Red) - Failure messages, errors, issues
 
 **Example:**
-```typst
+````typst
 #definition[
   *Euclid's Algorithm*
   An efficient method for computing the GCD.
@@ -147,7 +147,7 @@ The template provides 9 styled blocks for highlighting specific content:
   *Success – Implementation Complete*
   All test cases pass!
 ]
-```
+````
 
 ## Theming System
 
