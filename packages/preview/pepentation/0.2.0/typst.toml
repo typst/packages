@@ -2,7 +2,7 @@
 name = "pepentation"
 version = "0.2.0"
 entrypoint = "lib.typ"
-authors = ["Pepengu (https://github.com/pepengu)"]
+authors = ["Pepengu <https://github.com/pepengu>"]
 license = "MIT"
 description = "Convenient slides for your university's presentations"
 repository = "https://github.com/pepengu/pepentation"

@@ -33,7 +33,7 @@ If you want to install the package locally or modify it:
 
 1.  **Clone or Download** this repository.
 2.  **Place it** in your local Typst package directory:
-    `{data-dir}/typst/packages/local/pepentation/0.1.0`
+    `{data-dir}/typst/packages/local/pepentation/0.2.0`
 
     Where `{data-dir}` is:
     - **Linux:** `$XDG_DATA_HOME` or `~/.local/share`
@@ -41,7 +41,7 @@ If you want to install the package locally or modify it:
     - **Windows:** `%APPDATA%`
 3.  **Import it** in your `.typ` file:
     ```typst
-    #import "@local/pepentation:0.1.0": *
+    #import "@local/pepentation:0.2.0": *
     ```
     
 ## Quick Start
@@ -158,7 +158,7 @@ Pepentation features a comprehensive theming system that allows you to customize
 Import the themes module and use a preset theme:
 
 ```typst
-#import "@local/pepentation:0.2.0": *
+#import "@preview/pepentation:0.2.0": *
 
 #show: setup-presentation.with(
   theme: themes.theme-azure-breeze,
