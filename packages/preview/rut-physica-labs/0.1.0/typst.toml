@@ -1,0 +1,10 @@
+[package]
+name = "miit-physica-labs"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["unexpectedCoder"]
+license = "MIT"
+description = "Шаблон отчёта по лабораторной работе кафедры «Физика» РУТ (МИИТ). Template for physics lab reports at MIIT."
+repository = "https://github.com/unexpectedCoder/miit-phisica-labwork-typst"
+keywords = ["template", "report", "physics", "lab", "russian", "miit", "gost"]
+categories = ["template"]
