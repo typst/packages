@@ -68,7 +68,6 @@ For now here are a few of the most important parameters of the main function.
   page-margins: 1.75in,
   page-numbering: "1",
   page-paper: "us-letter",
-  ...,
 )
 ```
 
