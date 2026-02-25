@@ -10,7 +10,7 @@ description = "A simple and good looking template for the Berlin School for Econ
 categories = ["thesis"]
 keywords = ["thesis", "university", "clean", "bachelor"]
 disciplines = ["computer-science"]
-exclude = [".github", "tests"]
+exclude = [".github", "tests", ".typstignore"]
 
 [template]
 path = "template"
