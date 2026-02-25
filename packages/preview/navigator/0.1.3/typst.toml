@@ -1,0 +1,12 @@
+[package]
+name = "navigator"
+version = "0.1.3"
+entrypoint = "lib.typ"
+authors = ["David Hajage <dhajage@gmail.com>"]
+description = "Navigation tools for Typst presentations."
+license = "MIT"
+keywords = ["outline", "table of contents", "presentation", "dynamic"]
+compiler = "0.12.0"
+categories = ["presentation", "components"]
+repository = "https://github.com/eusebe/typst-navigator"
+exclude = ["tests", "*.pdf", "**/*.pdf", ".gitignore", ".DS_Store"]

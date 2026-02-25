@@ -1,0 +1,16 @@
+[package]
+name = "placard"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Anto Dovodja @ant1isbusy"]
+license = "MIT"
+description = "A versatile scientific poster package with modular grid layouts."
+repository = "https://github.com/ant1isbusy/typst-placard"
+keywords = ["poster", "plakat"]
+categories = ["poster", "layout"]
+exclude= ["docs/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "docs/template/thumbnail.png"

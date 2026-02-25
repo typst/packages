@@ -1,0 +1,11 @@
+[package]
+name = "tsinswreng-auto-heading"
+version = "0.1.0"
+entrypoint = "main.typ"
+authors = ["Tsinswreng"]
+license = "MIT"
+description = "Automatic heading level management for Typst - create nested headings without manually tracking levels"
+repository = "https://github.com/Tsinswreng/TypAutoHeading"
+keywords = ["heading", "auto", "nested", "section", "level"]
+categories = ["utility"]
+
