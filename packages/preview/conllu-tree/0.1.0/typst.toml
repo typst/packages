@@ -1,0 +1,11 @@
+[package]
+name = "conllu-tree"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "MIT"
+description = "Render beautiful, customizable Universal Dependencies (CoNLL-U) dependency trees powered by Rust/WASM."
+compiler = "0.13.1"
+repository = "https://github.com/rice8y/conllu-tree"
+keywords = ["conllu", "dependency", "tree", "nlp", "linguistics", "cetz", "syntax"]
+exclude = ["/images"]
