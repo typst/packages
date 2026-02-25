@@ -1,0 +1,9 @@
+[package]
+name = "swaralipi"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Abir Basak <https://github.com/abirbasak>"]
+license = "MIT"
+description = "Notation for Indian Classical Music"
+categories = ["visualization", "components"]
+keywords = ["music", "notation", "indian classical music", "swaralipi", "ragas", "taals"]

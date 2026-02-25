@@ -1,0 +1,16 @@
+[package]
+name = "autograph"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Ruben Felgenhauer"]
+license = "MIT"
+description = "Automatic graph layout for fletcher"
+repository = "https://github.com/felsenhower/typst-autograph.git"
+categories = ["visualization", "components"]
+keywords = ["graphviz", "graph", "diagram", "fletcher", "dot"]
+compiler = "0.13.0"
+exclude = [
+  "justfile",
+  "examples/",
+  "logo/"
+]

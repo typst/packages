@@ -1,0 +1,14 @@
+[package]
+name = "aero-dhbw"
+version = "0.1.0"
+entrypoint = "src/aero-dhbw.typ"
+authors = ["cocoveal <https://github.com/cocoveal>"]
+license = "MIT"
+description = "Template for TX000 papers at DHBW Ravensburg"
+keywords = ["template", "dhbw", "thesis"]
+categories = ["paper", "thesis", "report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

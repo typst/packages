@@ -1,0 +1,18 @@
+[conf]
+default-lang = "de"
+
+[lang.en]
+receive = "in fulfillment of the requirements for"
+submitted = "submitted by"
+reviewers = { first = "First Reviewer", second = "Second Reviewer" }
+study-course = "in"
+abstract = "Abstract"
+date-submitted = "on"
+
+[lang.de]
+receive = "zur Erlangung des akademischen Grades"
+submitted = "eingereicht von"
+reviewers = { first = "Erstgutacher*in", second = "Zweitgutachter*in" }
+study-course = "im Studiengang"
+abstract = "Zusammenfassung"
+date-submitted = "am"
