@@ -1,4 +1,4 @@
-#import "@preview/larrow:1.0.0": *
+#import "@preview/larrow:1.0.1": *
 
 #set page(width: 16cm, height: 5cm, margin: (left: 1cm))
 

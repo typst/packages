@@ -3,7 +3,7 @@ Draw and style arrows between labels.
 
 ## Example
 ```typst
-#import "@preview/larrow:1.0.0": *
+#import "@preview/larrow:1.0.1": *
 #set page(width: 16cm, height: 5cm, margin: (left: 1cm))
 
 #let lal = arrow-label.with(dx: -2mm, dy: -1.5mm)
@@ -29,7 +29,7 @@ Draw and style arrows between labels.
 ![Example output of larrow](./example/example.png)
 
 ## Quick overview
-- Import via `#import "@preview/larrow:1.0.0"`.
+- Import via `#import "@preview/larrow:1.0.1"`.
 - Use `label-arrow(<from-lbl>, <to-lbl>)` to draw an arrow between two labels.
 - Use the `bend` parameter to curve the arrow. Positive values make a
   right-handed curve, negative ones a left-handed one.
@@ -42,7 +42,7 @@ Draw and style arrows between labels.
 
 ## Usage
 ### Import
-`#import "@preview/larrow:1.0.0": *`
+`#import "@preview/larrow:1.0.1": *`
 
 ### Functionality
 The package makes available two key functions. `label-arrow()` draws arrows
@@ -139,7 +139,7 @@ To set default values or make custom variants with defaults, you can use `#let`
 instead to overwrite them with given parameter values:
 
 ```typst
-#import "@preview/larrow:1.0.0": *
+#import "@preview/larrow:1.0.1": *
 
 // Make the default tip for arrows a triangle.
 #let label-arrow = label-arrow.with(tip: ">")
@@ -173,7 +173,7 @@ If you want to use the package locally, you have two options:
    [official documentation](https://github.com/typst/packages?tab=readme-ov-file#local-packages)
    for where to find and create a namespace. Then simply import the package
    from that namespace. The following example assumes a namespace named `local`
-   to be used: `#import "@local/larrow:1.0.0": *`
+   to be used: `#import "@local/larrow:1.0.1": *`
 
    This makes the package available anywhere on your system via the namespace
    import.
