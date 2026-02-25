@@ -1,0 +1,11 @@
+[package]
+name = "auto-jrubby"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "AGPL-3.0-or-later"
+description = "Automatic Ruby Generation"
+compiler = "0.13.1"
+repository = "https://github.com/rice8y/auto-jrubby"
+keywords = ["ruby", "ルビ", "furigana", "振り仮名", "ふりがな", "Japanese"]
+exclude = ["./images"]

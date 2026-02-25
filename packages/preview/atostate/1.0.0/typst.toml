@@ -1,0 +1,29 @@
+[package]
+name = "atostate"
+authors = ["Sean Marshallsay <https://seamsay.xyz>"]
+version = "1.0.0"
+license = "MIT"
+
+repository = "https://gitlab.com/seamsay-xyz/AtoState/Typst.git"
+
+description = "Conveniently typeset atomic states."
+
+categories = ["text"]
+disciplines = ["chemistry", "physics"]
+keywords = [
+    "atom",
+    "atomic",
+    "atoms",
+    "chemistry",
+    "configuration",
+    "physics",
+    "quantum",
+    "symbol",
+    "term",
+]
+
+entrypoint = "src/atostate.typ"
+
+exclude = [
+    "/docs/",
+]

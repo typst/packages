@@ -1,0 +1,17 @@
+[package]
+name = "invoice-pro"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [ "Leonie Ziechmann" ]
+license = "MIT"
+description = "A professional, DIN 5008 compliant invoice template with automatic calculations and EPC-QR-Code (GiroCode) support."
+repository = "https://github.com/leonieziechmann/invoice-pro"
+keywords = [ "invoice", "rechnung", "din-5008", "business", "qr-code" ]
+categories = [ "layout", "office" ]
+compiler = "0.13.0"
+exclude = [ "/images/**" ]
+
+[template]
+path = "template"
+entrypoint = "invoice.typ"
+thumbnail = "thumbnail.png"

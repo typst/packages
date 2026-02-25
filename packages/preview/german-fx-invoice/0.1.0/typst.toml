@@ -1,0 +1,17 @@
+[package]
+name = "german-fx-invoice"
+version = "0.1.0"
+compiler = "0.10.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/2color/typst-german-fx-invoice"
+authors = ["Daniel Norman <@2color>"]
+license = "MIT-0"
+description = "Minimalistic invoice for freelancers based in Germany working with international customers with support for FX"
+keywords = ["invoice", "german", "banking", "accounting", "FX"]
+categories = ["layout", "office"]
+disciplines = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

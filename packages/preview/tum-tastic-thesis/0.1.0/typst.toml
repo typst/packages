@@ -1,0 +1,18 @@
+[package]
+name = "tum-tastic-thesis"
+version = "0.1.0"
+compiler = "0.14.0"
+repository = "https://github.com/santiagonar1/tum-tastic-thesis"
+entrypoint = "src/lib.typ"
+authors = ["Santiago Narváez Rivas <https://github.com/santiagonar1>"]
+categories = ["thesis"]
+disciplines = ["computer-science"]
+license = "MIT"
+description = "Thesis and Dissertation for the TU Munich."
+keywords = ["thesis", "dissertation", "tum"]
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

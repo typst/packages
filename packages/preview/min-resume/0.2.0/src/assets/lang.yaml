@@ -1,0 +1,131 @@
+en:
+  years-old: years old
+  hr-dept: Human Resources Department
+  year: year
+  years: years
+  month: month
+  months: months
+  and: and
+  since: since
+  to: to
+
+pt:
+  years-old: anos
+  hr-dept: Departamento de Recursos Humanos
+  year: ano
+  years: anos
+  month: mês
+  months: meses
+  and: e
+  since: desde
+  to: a
+
+# The following translations are AI generated, and may contain errors:
+
+es:
+  years-old: años
+  hr-dept: Departamento de Recursos Humanos
+  now: ahora
+  year: año
+  years: años
+  month: mes
+  months: meses
+  and: y
+  since: desde
+  to: a
+  
+fr:
+  years-old: ans
+  hr-dept: Département des Ressources Humaines
+  now: maintenant
+  year: an
+  years: ans
+  month: mois
+  months: mois
+  and: et
+  since: depuis
+  to: à
+
+de:
+  years-old: Jahre alt
+  hr-dept: Personalabteilung
+  now: jetzt
+  year: Jahr
+  years: Jahre
+  month: Monat
+  months: Monate
+  and: und
+  since: seit
+  to: bis
+  
+it:
+  years-old: anni
+  hr-dept: Dipartimento Risorse Umane
+  now: ora
+  year: anno
+  years: anni
+  month: mese
+  months: mesi
+  and: e
+  since: da
+  to: a
+
+nl:
+  years-old: jaar oud
+  hr-dept: Afdeling Personeelszaken
+  now: nu
+  year: jaar
+  years: jaren
+  month: maand
+  months: maanden
+  and: en
+  since: sinds
+  to: tot
+
+tr:
+  years-old: yaşında
+  hr-dept: İnsan Kaynakları Departmanı
+  now: şimdi
+  year: yıl
+  years: yıllar
+  month: ay
+  months: aylar
+  and: ve
+  since: beri
+  to: kadar
+
+pl:
+  years-old: lat
+  hr-dept: Dział Zasobów Ludzkich
+  now: teraz
+  year: rok
+  years: lata
+  month: miesiąc
+  months: miesiące
+  and: i
+  since: od
+  to: do
+
+ro:
+  years-old: ani
+  hr-dept: Departamentul de Resurse Umane
+  now: acum
+  year: an
+  years: ani
+  month: lună
+  months: luni
+  and: și
+  since: din
+  to: până la
+
+ru:
+  years-old: лет
+  hr-dept: Отдел кадров
+  now: сейчас
+  year: год
+  years: лет
+  month: месяц
+  months: месяцы
+  and: и
+  since: с
+  to: до

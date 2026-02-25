@@ -1,0 +1,16 @@
+[package]
+name = "briefs"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["Tobias Enderle"]
+license = "MIT"
+description = "A simple Typst template for letters"
+repository = "https://github.com/tndrle/briefs"
+keywords = ["template", "letter", "brief", "din5008"]
+categories = ["office"]
+exclude = ["/img"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

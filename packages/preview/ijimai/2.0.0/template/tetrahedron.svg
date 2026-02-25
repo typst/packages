@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800">
+<line stroke="#666666" stroke-width="10" x1="100" y1="60" x2="790" y2="600" stroke-linejoin="round" stroke-dasharray="30, 20" />
+<path stroke="black" stroke-width="10" d="M 10,790 L 400,10 L 790,600 Z" fill="none" stroke-linejoin="round" />
+<path stroke="black" stroke-width="10" d="M 10,790 L 100,60 L 400,10" fill="none" stroke-linejoin="round" />
+</svg>

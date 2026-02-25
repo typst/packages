@@ -1,0 +1,7 @@
+[package]
+name = "ega-numbering"
+version = "0.1.0"
+entrypoint = "ega.typ"
+authors = ["itpyi"]
+license = "MIT"
+description = "EGA style numbering"
