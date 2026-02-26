@@ -9,6 +9,8 @@
   arc-roundness: 0.18,
   endpoint-spacing: 0.0,
   endpoint-angle: 90,
+  tail-offset: 0.05,
+  head-offset: 0.0,
   show-text: false,
   show-upos: false,
   show-xpos: false,
@@ -109,9 +111,12 @@
         let adj-x-start = x-start + shift-amount
         let adj-x-end = x-end - shift-amount
         
-        let start-pt = (adj-x-start, base-y)
-        let end-pt = (adj-x-end, base-y)
-        
+        let start-y = if arc.is_head_left { base-y + tail-offset } else { base-y + head-offset }
+        let end-y   = if arc.is_head_left { base-y + head-offset } else { base-y + tail-offset }
+
+        let start-pt = (adj-x-start, start-y)
+        let end-pt = (adj-x-end, end-y)
+
         let ctrl-pt-start = (adj-x-start + offset, ctrl-y)
         let ctrl-pt-end = (adj-x-end - offset, ctrl-y)
         
