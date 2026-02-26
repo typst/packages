@@ -63,6 +63,8 @@ Renders one or more sentences from a CoNLL-U formatted string.
 - `arc-roundness` (Float): Controls the curvature of the bezier arcs. Lower values make arcs boxier; higher values make them more elliptical. Default: `0.18`.
 - `endpoint-spacing` (Float): Shifts arc endpoints horizontally to prevent multiple arrows pointing to the same token from perfectly overlapping. Default: `0.0`.
 - `endpoint-angle` (Angle/Float/None): The angle at which the arcs connect to the tokens. Accepts an angle (e.g., `90deg`), a number (e.g., `90`), or `none` to rely solely on `arc-roundness`. Default: `90`.
+- `tail-offset` (Float): Vertical offset for the tail (start point) of the dependency arc. Useful for preventing the tail from sticking out past the arrowhead when they connect closely. Default: `0.05`.
+- `head-offset` (Float): Vertical offset for the head (end point/arrowhead) of the dependency arc. Useful for fine-tuning the gap between the arrowhead and the token. Default: `0.0`.
 - `show-text` (Bool): If `true`, displays the sentence text (extracted from `# text = ...` metadata) above the parsed tree. Default: `false`.
 - `show-upos` (Bool): If `true`, displays the Universal POS tag (column 4) below the word. Default: `false`.
 - `show-xpos` (Bool): If `true`, displays the language-specific POS tag (column 5) below the word. Default: `false`.
