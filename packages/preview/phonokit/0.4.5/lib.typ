@@ -35,7 +35,7 @@
 /// Currently supports setting a custom font for all phonokit functions.
 ///
 /// Arguments:
-/// - font (string): Font name to use for IPA rendering (default: "Charis SIL")
+/// - font (string): Font name to use for IPA rendering (default: "Charis")
 ///
 /// Example:
 /// ```
@@ -57,7 +57,7 @@
 /// Arguments:
 /// - input (string): tipa-style notation
 ///
-/// Returns: IPA symbols in the configured font (default: Charis SIL)
+/// Returns: IPA symbols in the configured font (default: Charis)
 #let ipa = ipa
 
 /// Visualize sonority profiles based on Parker (2011)

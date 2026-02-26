@@ -15,7 +15,7 @@
 
 </div>
 
-**Charis SIL font is needed** for this package to work exactly as intended, but you can also use your own font with `#phonokit-init(font: "...")`. New Computer Modern is used for arrows.
+**Charis font is needed** for this package to work exactly as intended, but you can also use your own font with `#phonokit-init(font: "...")`. New Computer Modern is used for arrows.
 
 ## Some examples
 
@@ -86,7 +86,7 @@ Download [**manual**](https://doi.org/10.5281/zenodo.18260076) for a comprehensi
 
 ## Fonts
 
-As of version `0.3.7`, the package allows the user to choose a global font for all functions. By default, Charis SIL is used (Typst has a fallback font should you not have it installed). However, you can use whichever font you prefer with the following command:
+As of version `0.3.7`, the package allows the user to choose a global font for all functions. By default, Charis is used (Typst has a fallback font should you not have it installed). However, you can use whichever font you prefer with the following command:
 
 ```typst
 #import "@preview/phonokit:0.4.5": *
