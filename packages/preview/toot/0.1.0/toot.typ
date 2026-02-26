@@ -49,7 +49,10 @@
 
   let i-link(dest, body) = link(to-web-dest(dest), body)
 
-  let toot-page(body, head-extra: none) = context if target() == "html" {
+  let toot-page(body, head-extra: none) = context if (
+    // `target` itself only exists if the html feature is activated
+    "target" in std and target() == "html"
+  ) {
     html.html({
       html.head({
         html.meta(charset: "utf-8")
