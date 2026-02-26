@@ -7,5 +7,5 @@ license = "MIT"
 description = "A pure-Typst charting library with 38 chart types, 6 themes, and zero dependencies — built entirely with native primitives"
 keywords = ["chart", "plot", "visualization", "graph", "data", "dashboard"]
 repository = "https://github.com/phiat/chartypst"
-minimum-typst-version = "0.12.0"
+compiler = "0.12.0"
 exclude = ["screenshots/*", ".beads/*", "examples/*", "data/*", "tests/*", "justfile", "AGENTS.md"]
