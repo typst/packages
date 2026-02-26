@@ -12,4 +12,4 @@ license = "AGPL-3.0-or-later"
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
+thumbnail = ""
