@@ -8,7 +8,7 @@ description = "Typst Opinionated Online Tutorials."
 repository = "https://codeberg.org/a5s/toot"
 keywords = ["html", "online", "tutorial", "documentation", "docs"]
 categories = ["utility"]
-compiler = "0.14"
+compiler = "0.14.0"
 exclude = ["logo"]
 
 [template]
