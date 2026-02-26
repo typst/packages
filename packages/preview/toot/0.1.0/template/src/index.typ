@@ -1,4 +1,4 @@
-#import "/SETUP.typ": *
+#import "SETUP.typ": *
 #set document(title: [Welcome!])
 #show: toot-page
 
