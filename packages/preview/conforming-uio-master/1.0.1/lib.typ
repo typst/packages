@@ -207,7 +207,7 @@
   set heading(numbering: "I.1", outlined: true)
 
   show heading.where(level: 1): it => {
-    pagebreak(weak: true, to: if print {"odd"} else {auto})
+    pagebreak(weak: true, to: if print {"odd"} else {none})
     set align(center + horizon)
     text(size: 1.8em)[
       #if language == "en" [Part] else [Del] #counter(heading).display()
@@ -219,7 +219,7 @@
   }
 
   show heading.where(level: 2): it => {
-    pagebreak(weak: true, to: if print {"odd"} else {auto})
+    pagebreak(weak: true, to: if print {"odd"} else {none})
     v(5em)
     text(weight: "bold", size: 1.3em)[#if language == "en" [Chapter] else [Kapittel] #counter(heading).display()]
     v(0pt)
