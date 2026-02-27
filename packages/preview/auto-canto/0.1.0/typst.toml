@@ -5,7 +5,6 @@ entrypoint = "lib.typ"
 authors = ["Vincent Tam <https://github.com/VincentTam>"]
 license = "MIT"
 description = "Automatic conversion to Cantonese romanizations from Chinese characters."
-homepage = "https://github.com/VincentTam/auto-canto"
 repository = "https://github.com/VincentTam/auto-canto"
 keywords = [
     '"Cantonese"',
