@@ -7,15 +7,16 @@ authors = ["Víctor Ibáñez @ibnz36"]
 license = "MIT"
 description = "Draw Bloch spheres with ease."
 repository = "https://github.com/Peng-Rao/czbloch"
-keywords = ["quantum", "physics", "bloch-sphere", "qubit", "quantum-computing", "diagram", "visualization", "czbloch"]
-categories = ["science", "education", "visualization"]
-
-[template]
-# This package is not a template, so no template configuration is needed
-
-# Exclude large files from the published bundle
-exclude = [
-  "example.pdf",
-  "worker.pdf",
-  "*.png"
+keywords = [
+  "quantum",
+  "physics",
+  "bloch-sphere",
+  "qubit",
+  "quantum-computing",
+  "diagram",
+  "visualization",
+  "czbloch",
 ]
+categories = ["science", "education", "visualization"]
+# Exclude large files from the published bundle
+exclude = ["example.pdf", "worker.pdf", "*.png"]
