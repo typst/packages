@@ -1,0 +1,12 @@
+[package]
+name = "arabib"
+version = "0.1.0"
+entrypoint = "arabib.typ"
+authors = ["Mazen Amria <t.mazenamria@gmail.com>"]
+license = "MIT"
+description = "Create Arabic-aware bibliographies with CSL styles."
+repository = "https://github.com/MazenAmria/arabib"
+keywords = ["bibliography", "arabic", "csl", "citations", "rtl"]
+categories = ["languages"]
+compiler = "0.12.0"
+exclude = []
