@@ -213,53 +213,11 @@ The quantum state |ψ⟩ is given by:
 
 This package depends on:
 
-- `@preview/cetz:0.4.2` - for drawing capabilities
-
-## Development
-
-### Project Structure
-
-```
-czbloch/
-├── lib.typ              # Main library file
-├── worker.typ           # Core drawing logic
-├── components/          # Component modules
-│   ├── lib.typ          # Component exports
-│   ├── angles.typ       # Angle drawing
-│   ├── axis.typ         # Axis drawing
-│   ├── dashed.typ       # Dashed lines
-│   ├── ellipses.typ     # Sphere/ellipse drawing
-│   ├── helpers.typ      # Helper functions
-│   ├── poles.typ        # Pole labels
-│   └── state.typ        # State vector drawing
-├── example.typ          # Usage examples
-├── typst.toml           # Package manifest
-└── README.md            # This file
-```
-
-### Building Examples
-
-```bash
-# Generate example PDF
-typst compile example.typ example.pdf
-
-# Generate example PNG
-typst compile example.typ example.png --format png
-```
+- `@preview/cetz:0.3.4` - for drawing capabilities
 
 ## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## Acknowledgments
 
