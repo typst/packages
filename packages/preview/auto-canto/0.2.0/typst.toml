@@ -7,11 +7,11 @@ license = "MIT"
 description = "Automatic conversion to Cantonese romanizations from Chinese characters."
 repository = "https://github.com/VincentTam/auto-canto"
 keywords = [
-    '"Cantonese"',
-    '"jyutping"',
-    '"yale"',
-    '"Chinese"',
-    '"conversion"',
+    "Cantonese",
+    "jyutping",
+    "yale",
+    "Chinese",
+    "conversion",
 ]
 categories = [
     "text",
