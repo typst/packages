@@ -20,7 +20,7 @@ typst compile template/main.typ
 
 ## Project Structure
 
-```
+```text
 fubell/
 ├── lib.typ                  # Package entrypoint (exports `thesis`)
 ├── src/
