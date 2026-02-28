@@ -1,5 +1,5 @@
-#import "@preview/cetz:0.3.4"
-#import "helpers.typ": neg, arrowtip
+#import "@preview/cetz:0.4.2"
+#import "helpers.typ": arrowtip, neg
 
 #let neg-axis-color = luma(140)
 

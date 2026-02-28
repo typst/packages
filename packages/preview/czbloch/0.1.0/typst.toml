@@ -17,6 +17,6 @@ keywords = [
   "visualization",
   "czbloch",
 ]
-categories = ["science", "education", "visualization"]
+categories = ["visualization"]
 # Exclude large files from the published bundle
 exclude = ["example.pdf", "worker.pdf", "*.png"]

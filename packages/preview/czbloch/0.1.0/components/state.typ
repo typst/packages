@@ -1,10 +1,10 @@
-#import "@preview/cetz:0.3.4"
+#import "@preview/cetz:0.4.2"
 
 #import "helpers.typ": arrowtip, cartesian
 
 #let draw-state(r, phi, theta, state-color) = {
   import cetz.draw: *
-  import calc: sin, cos, min
+  import calc: cos, min, sin
 
   if theta == 0deg or theta == 180deg {
     line(

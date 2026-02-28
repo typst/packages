@@ -35,7 +35,7 @@ Add the package to your Typst project:
 // Draw |0⟩ state
 #czbloch.bloch(..czbloch.zero)
 
-// Draw |1⟩ state  
+// Draw |1⟩ state
 #czbloch.bloch(..czbloch.one)
 
 // Draw |+⟩ state
@@ -69,32 +69,33 @@ Draws a Bloch sphere with the specified parameters.
 
 **Parameters:**
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `length` | `length` | `2cm` | Overall size of the Bloch sphere drawing |
-| `radius` | `float` | `1` | Relative radius of the sphere |
-| `show-axis` | `bool` | `true` | Whether to show the X, Y, Z axes |
-| `phi` | `angle` | `0deg` | Azimuthal angle (0 to 360°) |
-| `theta` | `angle` | `0deg` | Polar angle (0 to 180°) |
-| `state-color` | `color` | `rgb("#ae3fee")` | Color of the quantum state vector |
-| `sphere-style` | `str` | `"circle"` | Style of sphere: `"circle"` or `"sphere"` |
-| `angle-labels` | `bool` | `true` | Whether to show angle labels (φ, θ) |
-| `polar-labels` | `bool` | `true` | Whether to show polar labels (|0⟩, |1⟩, |+⟩, |-⟩, etc.) |
-| `debug` | `bool` | `false` | Enable debug mode |
-| `padding` | `length` or `none` | `none` | Padding around the drawing |
+| Parameter      | Type               | Default          | Description                               |
+| -------------- | ------------------ | ---------------- | ----------------------------------------- | --- | --- | --- | --------- |
+| `length`       | `length`           | `2cm`            | Overall size of the Bloch sphere drawing  |
+| `radius`       | `float`            | `1`              | Relative radius of the sphere             |
+| `show-axis`    | `bool`             | `true`           | Whether to show the X, Y, Z axes          |
+| `phi`          | `angle`            | `0deg`           | Azimuthal angle (0 to 360°)               |
+| `theta`        | `angle`            | `0deg`           | Polar angle (0 to 180°)                   |
+| `state-color`  | `color`            | `rgb("#ae3fee")` | Color of the quantum state vector         |
+| `sphere-style` | `str`              | `"circle"`       | Style of sphere: `"circle"` or `"sphere"` |
+| `angle-labels` | `bool`             | `true`           | Whether to show angle labels (φ, θ)       |
+| `polar-labels` | `bool`             | `true`           | Whether to show polar labels (            | 0⟩, | 1⟩, | +⟩, | -⟩, etc.) |
+| `debug`        | `bool`             | `false`          | Enable debug mode                         |
+| `padding`      | `length` or `none` | `none`           | Padding around the drawing                |
 
 ### Predefined States
 
 The package provides convenient predefined quantum states:
 
-| Variable | Description | Angles |
-|----------|-------------|--------|
-| `zero` | |0⟩ state | `(phi: 0deg, theta: 0deg)` |
-| `one` | |1⟩ state | `(phi: 0deg, theta: 180deg)` |
-| `plus` | |+⟩ state | `(phi: 0deg, theta: 90deg)` |
-| `minus` | |-⟩ state | `(phi: 180deg, theta: 90deg)` |
+| Variable | Description | Angles   |
+| -------- | ----------- | -------- | ----------------------------- |
+| `zero`   |             | 0⟩ state | `(phi: 0deg, theta: 0deg)`    |
+| `one`    |             | 1⟩ state | `(phi: 0deg, theta: 180deg)`  |
+| `plus`   |             | +⟩ state | `(phi: 0deg, theta: 90deg)`   |
+| `minus`  |             | -⟩ state | `(phi: 180deg, theta: 90deg)` |
 
 Use them like this:
+
 ```typst
 #czbloch.bloch(..czbloch.plus, state-color: green)
 ```
@@ -173,11 +174,11 @@ Use them like this:
     (("X", 1), ("H", 1)),
     wire-style: (count: 1)
   )
-  
+
   #v(1em)
   #text(weight: "bold")[Quantum State Evolution]
   #v(0.5em)
-  
+
   #grid(
     columns: 3,
     gutter: 0.5cm,
@@ -201,7 +202,7 @@ The quantum state |ψ⟩ is given by:
 ## Common Quantum States on the Bloch Sphere
 
 - **North Pole (θ=0)**: |0⟩ state
-- **South Pole (θ=π)**: |1⟩ state  
+- **South Pole (θ=π)**: |1⟩ state
 - **Equator (θ=π/2)**:
   - φ=0: |+⟩ = (|0⟩ + |1⟩)/√2
   - φ=π: |-⟩ = (|0⟩ - |1⟩)/√2
@@ -211,7 +212,8 @@ The quantum state |ψ⟩ is given by:
 ## Dependencies
 
 This package depends on:
-- `@preview/cetz:0.3.4` - for drawing capabilities
+
+- `@preview/cetz:0.4.2` - for drawing capabilities
 
 ## Development
 

@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.3.4"
+#import "@preview/cetz:0.4.2"
 
 #import "helpers.typ": cartesian
 

@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.3.4"
+#import "@preview/cetz:0.4.2"
 
 #import "helpers.typ": cartesian
 
@@ -17,11 +17,15 @@
   )
 
   if theta != 0deg {
+    // Project onto a 2D plane for angle drawing (cetz 0.4.2 requirement)
+    let state-point = cartesian(r, phi, theta)
+    let projected-x = calc.sqrt(state-point.at(0) * state-point.at(0) + state-point.at(2) * state-point.at(2))
+
     angle.angle(
       name: "theta",
       (0, 0, 0),
       (0, 1, 0),
-      "state-line",
+      (projected-x, state-point.at(1), 0),
       direction: dir,
       radius: 0.2 * r,
     )
