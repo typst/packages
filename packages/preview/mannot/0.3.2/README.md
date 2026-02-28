@@ -188,7 +188,7 @@ $
 ```
 ![Usage3](examples/usage3.svg)
 
-> [!CAUTION]
+> **CAUTION**\
 > The `annot` function must be called within the same math block as the marked content.
 > Using it outside the math block triggers unnecessary layout updates,
 > which may result in a layout non-convergence error.
