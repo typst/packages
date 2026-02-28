@@ -1,4 +1,4 @@
-#import "lib.typ" as czbloch
+#import "@preview/czbloch:0.1.0" as czbloch
 
 #set page(margin: 0.1cm, height: auto, width: auto)
 
