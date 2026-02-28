@@ -1,0 +1,17 @@
+[package]
+name = "fubell"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.12.0"
+authors = ["Tyler Yeh"]
+license = "MIT-0"
+description = "Thesis template for National Taiwan University."
+repository = "https://github.com/tyleryeh/fubell"
+keywords = ["thesis", "NTU", "National Taiwan University", "CJK"]
+categories = ["thesis"]
+disciplines = ["computer-science", "engineering"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

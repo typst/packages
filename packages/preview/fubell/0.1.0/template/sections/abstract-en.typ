@@ -1,0 +1,1 @@
+This thesis presents a Typst-based template that conforms to the formatting requirements of National Taiwan University for master's and doctoral dissertations. The template covers essential structures including the cover page, oral defense certification, bilingual abstracts, acknowledgements, table of contents, and main body chapters.
