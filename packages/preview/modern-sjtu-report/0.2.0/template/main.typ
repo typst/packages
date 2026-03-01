@@ -1,5 +1,5 @@
 #import "@preview/modern-sjtu-report:0.2.0": *
-#import "@preview/cuti:0.3.0": fakeitalic, show-cn-fakebold
+#import "@preview/cuti:0.4.0": fakeitalic, show-cn-fakebold
 #import "@preview/lilaq:0.5.0" as lq
 
 #let course-name = "某交大金课"
