@@ -1,0 +1,20 @@
+[package]
+name = "touying-endfield"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Leo Li <@leostudiooo>"]
+license = "MIT"
+description = "Touying presentation theme inspired by Arknights: Endfield."
+repository = "https://github.com/leostudiooo/typst-touying-theme-endfield"
+keywords = ["touying", "presentation", "theme", "endfield", "arknights", "slides"]
+categories = ["presentation"]
+exclude = [
+  "examples/",
+  "template/main.pdf",
+  "img/",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

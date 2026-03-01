@@ -1,0 +1,12 @@
+[package]
+name = "shadowed"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["Tim Voßhenrich <@T1mVo>"]
+license = "MIT"
+description = "Box shadows for Typst"
+repository = "https://github.com/T1mVo/shadowed"
+keywords = ["shadow", "box-shadow"]
+categories = ["components"]
+compiler = "0.13.0"
+exclude = ["examples"]

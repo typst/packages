@@ -1,0 +1,2 @@
+# Mark all figures as binary.
+fig/*.typ binary

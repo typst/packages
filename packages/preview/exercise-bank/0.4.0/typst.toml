@@ -1,0 +1,13 @@
+[package]
+name = "exercise-bank"
+version = "0.4.0"
+entrypoint = "lib.typ"
+authors = ["Nathan Scheinmann"]
+license = "MIT"
+description = "Exercise management with solutions, metadata, filtering, and exercise banks for educational documents"
+repository = "https://github.com/nathan-ed/typst-package-exercise-bank"
+keywords = ["exercises", "solutions", "education", "bank", "teaching", "mathematics", "filtering"]
+categories = ["components", "utility"]
+disciplines = ["mathematics", "education"]
+compiler = "0.11.0"
+exclude = ["gallery/*", "*.pdf"]
