@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/auto-bidi:0.1.0": *
 #show: auto-dir.with(detect-by: "first")
 
 = detect-by: "first"
