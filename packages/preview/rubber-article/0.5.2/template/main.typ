@@ -21,9 +21,11 @@
 )
 
 // Frontmatter
-#maketitle(title: "The Title of the Paper", authors: ("Authors Name",), date: datetime
-  .today()
-  .display("[day]. [month repr:long] [year]"))
+#maketitle(
+  title: "The Title of the Paper",
+  authors: ("Authors Name",),
+  date: datetime.today().display("[day]. [month repr:long] [year]"),
+)
 
 // Actual Content starts here.
 // REMOVE BELOW THIS LINE TO START YOUR OWN CONTENT.
@@ -42,9 +44,10 @@ $
 == In this paper
 #lorem(70)
 
-#figure(rect(width: 4cm, height: 3cm), caption: shortcap([A short caption of the image], [#lorem(
-    30,
-  )]))
+#figure(rect(width: 4cm, height: 3cm), caption: shortcap(
+  [A short caption of the image],
+  [#lorem(30)],
+))
 
 #lorem(20)
 
@@ -62,10 +65,13 @@ $
 #lorem(50)
 
 // Example of a custom table
-#figure(ctable(cols: "l|cr", [A], [B], [C], ..range(1, 16).map(str)), caption: shortcap(
-  "Short caption",
-  "This is a custom table",
-))
+#figure(
+  ctable(cols: "l|cr", [A], [B], [C], ..range(1, 16).map(str)),
+  caption: shortcap(
+    "Short caption",
+    "This is a custom table",
+  ),
+)
 
 #colbreak()
 #show: appendix.with(title: "Appendix")
