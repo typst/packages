@@ -16,3 +16,4 @@ docs/*
 # !docs/*.pdf
 .gitignore
 .pre-commit-config.yaml
+CONTRIBUTING.md
