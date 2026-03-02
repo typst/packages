@@ -148,8 +148,10 @@
 
   // ---
 
+  import "formatting.typ": formatted-footer, formatted-header
   set page(
     numbering: "i",
+    footer: formatted-footer(print: print, numbering: "i"),
   )
   counter(page).update(1)
 
@@ -184,7 +186,6 @@
   )
   // -- abstract
 
-  import "formatting.typ": formatted-footer, formatted-header
   set page(
     numbering: "1",
     header: if (enable-header) { formatted-header(draft: draft, lang: lang, print: print) },
