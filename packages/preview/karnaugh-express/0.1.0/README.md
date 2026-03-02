@@ -15,7 +15,7 @@ import "@preview/karnaugh-express:0.1.0": *
   terms: ("!b, !a", "a, b")
 )
 ```
-<img src="examples/example-1.png" width="250">  
+<img src="examples/example-1.png" width="250" alt = "A 4x4 Karnaugh map for variables d, c, b, and a. It shows blue highlights on the four corners and a green highlight on the central 2x2 square.">  
     
 ## Placement of the Values
 
@@ -41,7 +41,7 @@ import "@preview/karnaugh-express:0.1.0": *
   arrangement-standard: 1
 )
 ```
-<img src="examples/example-3.png" width="250">
+<img src="examples/example-3.png" width="250" alt = "A 2x4 Karnaugh map for variables a, b, and c. Each cell contains its corresponding decimal index (0 through 7) to demonstrate how values from a truth table are mapped to the grid.">
 
 ## Arranging Variables on the Axis
 
@@ -60,7 +60,7 @@ import "@preview/karnaugh-express:0.1.0": *
   terms: ("!b, !a", "a, b")
 )
 ```
-<img src="examples/example-2.png" width="250">
+<img src="examples/example-2.png" width="250" alt = "A 4x4 Karnaugh map for variables a, b, c, and d using arrangement-standard: 1. The vertical bars are now named after the first two variables and the horizontal bars are named after the last two variables.">
     
 ### 2. Custom Arrangement
 You can also specify a completely custom arrangement. Just provide an `arrangement` parameter as an array of two arrays. The first array contains the row axis variables, and the second array contains the column axis variables:
@@ -75,7 +75,7 @@ import "@preview/karnaugh-express:0.1.0": *
   terms: ("!b, !a", "a, b")
 )
 ```
-<img src="examples/example-4.png" width="250">
+<img src="examples/example-4.png" width="250" alt = "A 2x8 Karnaugh map demonstrating a custom arrangement where variable a is on the vertical bar and b, d, c are on the horizontal bars.">
 
 ## Terms 
 
@@ -94,7 +94,7 @@ import "@preview/karnaugh-express:0.1.0": *
   var-disp: ($x_1$, $x_2$, $x_3$, $x_4$)
 )
 ```
-<img src="examples/example-5.png" width="250">
+<img src="examples/example-5.png" width="250" alt = "The grid is arranged in the same way as the first example. However, the bars are no longer labeled a, b, c, d but instead x_1, x_2, x_3 and x_4 in math-mode.">
     
 ## Other Parameters
 
