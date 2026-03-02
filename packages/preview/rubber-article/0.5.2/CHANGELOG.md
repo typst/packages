@@ -6,12 +6,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
-## [0.5.2](https://github.com/npikall/rubber-article/releases/tag/0.5.2) - 2026-02-25
+## [0.5.2](https://github.com/npikall/rubber-article/releases/tag/0.5.2) - 2026-03-02
 
 <small>[Compare with v0.5.1](https://github.com/npikall/rubber-article/compare/v0.5.1...0.5.2)</small>
 
+### Features
+
+- align authors automatically in the center ([4da315b](https://github.com/npikall/rubber-article/commit/4da315bd7e84189dbd4ff12247f6e2c7c3d370b3) by Nikolas Pikall).
+
 ### Reverts
 
+- remove 0.5.2 to prepare for re-release ([0acb645](https://github.com/npikall/rubber-article/commit/0acb645ed7f20eb2abc86d1b6c4893e39ae32b34) by npikall).
+- add setup shell script back in for ci workflow ([8df0ab0](https://github.com/npikall/rubber-article/commit/8df0ab06166935f5075b6ffd93d8e695311ce118) by npikall).
 - add env variable typst-root back into justfile ([7adb6ad](https://github.com/npikall/rubber-article/commit/7adb6ad7b4a25cbedd2389c85247248dac813f2c) by npikall).
 - strict placement of maketitle in the top from v0.4.2 ([1087a62](https://github.com/npikall/rubber-article/commit/1087a628e668521696d706415ca12babb60ce8de) by npikall).
 
