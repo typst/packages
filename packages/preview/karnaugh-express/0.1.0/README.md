@@ -116,5 +116,5 @@ import "@preview/karnaugh-express:0.1.0": *
 | `distance-bar-grid` | `0.3` | `length` | Distance from one bar to the other |
 | `distance-bar-letter` | `0.1` | `length` | Distance from the letters (variables) to the bars |
 | `small-bar-len` | `0.1` | `length` | The length of the small lines (or half of it) |
-| `label` | Calculated | `content` | The "title" of the map |
+| `label` | Calculated | `content` | The "title" of the map. Use `none` if you want no label. |
 | `label-position` | `(0.2, 0.2)` | `(length, length)` | The position of the label relative to the upper left corner of the grid |
