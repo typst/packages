@@ -6,6 +6,6 @@ authors = ["@Mambouna"]
 license = "MPL-2.0"
 description = "Easily draw and style seating charts."
 repository = "https://github.com/Mambouna/sitdown"
-keywords = ["seating", "seat", "sit", "chart", "charts", "diagram", "diagrams"]
+keywords = ["seating", "seat", "seats", "sit", "sitting", "chart", "charts", "diagram", "diagrams", "sitzplan", "sitzen"]
 categories = ["visualization", "utility"]
 exclude = ["example"]
