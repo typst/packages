@@ -1,8 +1,8 @@
 // ╔══════════════════════════════════════════════════════════════════════╗
-// ║           UGR Notes - Professional Template for Academic Writing     ║
+// ║      academi-notes-gr - Professional Template for Academic Writing  ║
 // ║       Designed for University of Granada Students & Researchers      ║
 // ║                                                                      ║
-// ║   Repository: https://github.com/Miguevrgo/Typst-ugr-notes           ║
+// ║   Repository: https://github.com/Miguevrgo/Typst-template-ugr       ║
 // ║   License: MIT                                                       ║
 // ╚══════════════════════════════════════════════════════════════════════╝
 

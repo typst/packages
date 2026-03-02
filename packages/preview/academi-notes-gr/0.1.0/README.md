@@ -1,4 +1,4 @@
-# cs-math-notes-ugr
+# academi-notes-gr
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
 [![Repo](https://img.shields.io/badge/GitHub-repo-blue)](https://github.com/Miguevrgo/Typst-template-ugr)
@@ -14,7 +14,7 @@ The template includes ready-to-use components for mathematical and technical con
 - Author metadata with ORCID and GitHub links
 - Academic year tracking
 
-A compiled example PDF is available in the [repository](https://github.com/Miguevrgo/Typst-template-ugr/blob/main/packages/preview/cs-math-notes-ugr/0.1.0/main.pdf).
+A compiled example PDF is available in the [repository](https://github.com/Miguevrgo/Typst-template-ugr/blob/main/packages/preview/academi-notes-gr/0.1.0/main.pdf). Note: The PDF is not included in the package to reduce its size.
 
 ## Set-Up
 
@@ -23,7 +23,7 @@ The template is pre-filled with sample content to demonstrate the available feat
 After [installing Typst](https://github.com/typst/typst?tab=readme-ov-file#installation), create a new project using:
 
 ```bash
-typst init @preview/cs-math-notes-ugr:0.1.0
+typst init @preview/academi-notes-gr:0.1.0
 ```
 
 Then edit the template parameters in `main.typ`:
@@ -122,7 +122,7 @@ The template uses a professional color scheme:
 ## Usage Example
 
 ```typst
-#import "@preview/cs-math-notes-ugr:0.1.0": *
+#import "@preview/academi-notes-gr:0.1.0": *
 
 #show: project.with(
   title: "Introduction to Probability Theory",
