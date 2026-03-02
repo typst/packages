@@ -46,17 +46,17 @@
   if metadata {
     set document(author: authors.at(0), title: title)
   }
-  // Authors information.
-
-  let authors-text = {
+  let authors-text = for i in range(calc.ceil(authors.len() / 3)) {
     set text(size: 1.1em)
+    let end = calc.min((i + 1) * 3, authors.len())
+    let is-last = authors.len() == end
+    let slice = authors.slice(i * 3, end)
     pad(top: 0.5em, bottom: 0.5em, x: 2em, grid(
-      columns: (1fr,) * calc.min(3, authors.len()),
+      columns: slice.len() * (1fr,),
       gutter: 1em,
-      ..authors.map(author => align(center, author)),
+      ..slice.map(author => align(center, author))
     ))
   }
-  // Frontmatter
   box(
     align(center)[
       #v(spacing.above)
