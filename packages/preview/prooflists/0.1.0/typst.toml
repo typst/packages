@@ -1,0 +1,13 @@
+[package]
+name = "prooflists"
+version = "0.1.0"
+entrypoint = "src/main.typ"
+authors = ["JJ <jj@toki.la>"]
+license = "0BSD"
+description = "Typeset proof trees with minimal syntax."
+repository = "https://codeberg.org/apropos/typst-prooflists"
+keywords = ["proof tree", "proof trees", "prooftree", "prooftrees", "proof list", "proof lists", "prooflist", "prooflists", "inference", "logic", "deduction", "natural deduction", "sequent calculus", "gentzen"]
+categories = ["components", "visualization", "integration"]
+disciplines = ["computer-science", "mathematics", "linguistics"]
+compiler = "0.14.0"
+exclude = ["/examples/*"]
