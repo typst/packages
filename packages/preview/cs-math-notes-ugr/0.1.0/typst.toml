@@ -1,5 +1,5 @@
 [package]
-name = "ugr-notes"
+name = "cs-math-notes-ugr"
 version = "0.1.0"
 compiler = "0.12.0"
 entrypoint = "lib.typ"

@@ -4,7 +4,7 @@
   title: "Notes on ...",
   author: "Your Name",
   academic-year: "Academic year 2025-2026",
-  logo: "UGR-Logo.png", // Your logo
+  logo: image("UGR-Logo.png", width: 40%), // Your logo
   orcid: "https://orcid.org/xxxx-xxxx-xxxx-xxxx", // Your number
   github: "https://github.com/Your_Username",
 )

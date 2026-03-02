@@ -186,7 +186,7 @@
   academic-year: "Curso 2025-2026",
   orcid: none,
   github: none,
-  logo: "UGR-Logo.png",
+  logo: image("UGR-Logo.png", width: 40%),
   lang: "es",
   heading-color: colors.primary,
   body,
@@ -262,8 +262,8 @@
     #v(3em)
 
     // Logo
-    #if logo != "" {
-      image(logo, width: 40%)
+    #if logo != none {
+      logo
     }
 
     #v(3em)
