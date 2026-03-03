@@ -18,7 +18,7 @@
   url: str,
   title: "",
   description: "",
-  previewImage: none,
+  preview-image: none,
 ) = link(url)[
   #box(
     width: 100%,
@@ -29,7 +29,7 @@
     // Two-column
     #let left-width = 68% 
     #let right-width = 32%
-    #if (previewImage == none) {
+    #if (preview-image == none) {
       left-width = 100%
       right-width = 0%
     }
@@ -69,10 +69,10 @@
       ],
       
       // Right column: Preview image
-      if previewImage != none and previewImage != "" {
+      if preview-image != none and preview-image != "" {
         box(radius: 3pt, clip: true)[
         #image(
-          previewImage,
+          preview-image,
           width: auto,
           height: auto,
           fit: "contain"
