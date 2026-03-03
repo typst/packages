@@ -10,6 +10,5 @@ keywords = ["digital timing","drawing","configurable","wavedrom","timing"]
 categories = ["visualization"]
 exclude = [
     "examples/",
-    "docs/banner.typ",
-    "docs/manual.typ",
+    "docs/",
 ]
