@@ -42,7 +42,7 @@ And here is an example of a bookmark:
 ```typ
 #bookmark(
   title: "This is a bookmark",
-  previewImage: "2257.jpg",
+  preview-image: "2257.jpg",
   description: "This is a long description which corresponds to the open graph meta tag `description`. All parameters in a callout are optional except the URL",
   url: "https://examplewebsite.com/"
 )
