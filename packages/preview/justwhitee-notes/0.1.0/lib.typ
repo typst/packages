@@ -170,7 +170,7 @@
   // --- TITLE PAGE ---
   page(align(center + horizon)[
     #v(18em)
-    #if logo-subject != none [ #image(logo-subject, width: 60pt) ] else[ #box() ]
+    #if logo-subject != none [ #box(width: 60pt)[#logo-subject] ] else[ #box() ]
     #v(3em)
     
     #text(fill: accent, font: font-mono, size: 0.9em, weight: "bold", tracking: 0.15em)[\/\/ #subject] \
@@ -187,7 +187,7 @@
     #text(size: 1.2em, fill: text-main, weight: "bold", "by " + author)
     #if logo-personal != none {
       v(0.5em)
-      image(logo-personal, width: 30pt) 
+      box(width: 30pt)[#logo-personal]
     }
     #v(1fr)
     #text(fill: text-muted, font: font-mono, "// " + year)
@@ -263,14 +263,14 @@
         grid(
           columns: (0.1fr, 1fr, 1fr),
           align(left + bottom)[
-            #if logo-subject != none [ #image(logo-subject, width: 14pt) ] else [ #box() ]
+            #if logo-subject != none [ #block(width: 14pt)[#logo-subject] ] else [ #box() ]
           ],
           align(left + horizon)[
             #set text(size: 9pt, fill: text-muted, font: font-mono)
             #title
           ],
           align(right + bottom)[
-             #if logo-personal != none {image(logo-personal, width: 14pt) }
+             #if logo-personal != none {block(width: 14pt)[#logo-personal] }
           ]
         )
         v(-5pt)
