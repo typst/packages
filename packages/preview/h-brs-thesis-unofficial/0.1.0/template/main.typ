@@ -1,4 +1,4 @@
-#import "@preview/h-brs-thesis:0.1.0": template
+#import "@preview/h-brs-thesis-unofficial:0.1.0": template
 
 #show: template.with(
   title: "Einsatz moderner Methoden in der angewandten Informatik",

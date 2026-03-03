@@ -1,4 +1,4 @@
-# Hochschule Bonn-Rhein-Sieg thesis template
+# Hochschule Bonn-Rhein-Sieg thesis template (unofficial)
 
 Thesis template for Hochschule Bonn-Rhein-Sieg, based on [Regeln für wissenschaftliche Arbeiten v9.2.1](https://www.h-brs.de/sites/default/files/related/regeln_fuer_wissenschaftliche_arbeiten_9.2.1.pdf).
 
@@ -6,7 +6,7 @@ Thesis template for Hochschule Bonn-Rhein-Sieg, based on [Regeln für wissenscha
 ## Minimal Example
 
 ```typst
-#import "@preview/h-brs-thesis:0.1.0": template
+#import "@preview/h-brs-thesis-unofficial:0.1.0": template
 
 #show: template.with(
   title: "Titel der Arbeit",
