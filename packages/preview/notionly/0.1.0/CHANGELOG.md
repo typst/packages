@@ -18,4 +18,4 @@ to the corresponding tag on GitHub, or the diff
 in comparison to the previous release
 -->
 
-[0.1.0]: https://github.com/Mapaor/notinoly/releases/tag/v0.1.0
+[0.1.0]: https://github.com/Mapaor/notionly/releases/tag/v0.1.0
