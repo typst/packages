@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/auto-bidi:0.1.0": *
 
 = Detection modes
 
