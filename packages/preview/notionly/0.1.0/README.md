@@ -54,4 +54,4 @@ See the [showcase](https://github.com/Mapaor/notionly/blob/6e7dea270df8c66286401
 No one has asked me any question yet. For inquiries, proposals or help using notionly contact me at [pardo.marti@gmail.com](mailto:pardo.marti@gmail.com)
 
 ## License
-[MIT](./LICENSE)
+[MIT](https://github.com/Mapaor/notionly/blob/6e7dea270df8c662864018627063e75ae1fbe666/LICENSE)
