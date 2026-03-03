@@ -9,9 +9,6 @@ Sets `text.dir` per block using the **first strong character** rule — the same
 ```typst
 // Published package import
 #import "@preview/rtl-auto:0.1.0": *
-
-// Or directly from the file
-#import "lib.typ": *
 ```
 
 ## Quick start

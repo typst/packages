@@ -1,4 +1,4 @@
-#import "lib.typ": *
+#import "@preview/rtl-auto:0.1.0": *
 #import "@preview/booktabs:0.0.4": *
 #show: rtl-auto
 #set par(justify: true)
