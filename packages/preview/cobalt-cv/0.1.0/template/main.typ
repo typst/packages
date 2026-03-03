@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.5.0": *
+#import "@preview/fontawesome:0.6.0": *
 
 // ─── Configuration ────────────────────────────────────────────────────────────
 // Edit these values to customize the look and feel of your resume.
