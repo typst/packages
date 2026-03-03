@@ -1,0 +1,11 @@
+[package]
+name = "rtl-auto"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = []
+license = "MIT"
+description = "Automatic RTL/LTR direction detection for mixed-direction documents (Hebrew, Arabic, Latin)"
+keywords = ["rtl", "bidi", "hebrew", "arabic", "direction"]
+categories = ["text", "utility"]
+compiler = "0.14.0"
+exclude = ["main.typ", "main.pdf", "debug.pdf", ".claude/"]
