@@ -22,7 +22,7 @@
   show: quotion
   show: tabletion
   show: linktion.with(
-    // linkDecorations: false,
+    // link-decorations: false,
   )
   show: checktion.with(
     // unchecked-stroke-color: blue,
