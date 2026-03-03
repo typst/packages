@@ -3,7 +3,7 @@
 #import "@preview/fletcher:0.5.8"
 #import "@preview/tableau-icons:0.336.0": ti-icon
 
-#import "../src/exports.typ" as wave
+#import "@preview/digidraw:0.9.1" as wave
 
 
 #show "->": $->$
