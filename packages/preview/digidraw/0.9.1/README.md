@@ -1,4 +1,4 @@
-# ![Digidraw v0.9.1](./docs/banner.svg)
+![Digidraw v0.9.1](./docs/banner.svg)
 
 A drawing package to draw digital timing diagrams using the [WaveDrom](https://wavedrom.com/) syntax. Some WaveDrom data are compatible with _Digidraw_ and some are not, but I plan or hope to implement those. Reasonable input/feedback is welcome!
 
