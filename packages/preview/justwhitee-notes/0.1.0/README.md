@@ -8,10 +8,13 @@ A clean, minimal Typst template designed for university lecture notes and course
 
 ### 1. Import the template
 
-Place `lib.typ` in your project directory and import it at the top of your main file:
-
 ```typst
 #import "@preview/justwhitee-notes:0.1.0": *
+```
+
+You can initialize a new project with this template using the Typst CLI:
+```bash
+typst init @preview/justwhitee-notes
 ```
 
 ### 2. Initialize the document
