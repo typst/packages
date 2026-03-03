@@ -22,31 +22,31 @@ Click on the image for the source.
 <tbody>
   <tr>
     <td>
-      <a href="examples/example1.typ">
-        <img src="examples/example1.svg">
+      <a href="./examples/example1.typ">
+        <img src="./examples/example1.svg">
       </a><br>
       Source: <a href="https://wavedrom.com/tutorial.html#spacers-and-gaps">https://wavedrom.com/tutorial.html#spacers-and-gaps</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="examples/example2.typ">
-        <img src="examples/example2.svg">
+      <a href="./examples/example2.typ">
+        <img src="./examples/example2.svg">
       </a><br>
       Source: <a href="https://wavedrom.com/tutorial.html#adding-clock">https://wavedrom.com/tutorial.html#adding-clock</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="examples/example3.typ">
-        <img src="examples/example3.svg">
+      <a href="./examples/example3.typ">
+        <img src="./examples/example3.svg">
       </a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="examples/example4.typ">
-        <img src="examples/example4.svg">
+      <a href="./examples/example4.typ">
+        <img src="./examples/example4.svg">
       </a>
     </td>
   </tr>
