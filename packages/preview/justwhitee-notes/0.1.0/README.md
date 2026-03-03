@@ -27,8 +27,8 @@ Wrap your content with the `project` function:
   subject: "CS301",
   professor: "Prof. John Smith",
   author: "Your Name",
-  logo-subject: "imgs/course-logo.png",       // optional
-  logo-personal: "imgs/my-logo.png",          // optional
+  logo-subject: image("imgs/course-logo.png"),       // optional
+  logo-personal: image("imgs/my-logo.png"),          // optional
   year: "2024/2025",                          // optional, auto-generated if omitted
   bento-url: "https://bento.me/yourprofile",  // a page/website you would like to add (like bento, linktree, ...)
   paypal-url: "https://paypal.me/yourname",
@@ -216,8 +216,8 @@ The template uses the following font stacks:
   subject: "Master of Computer Engineering",
   professor: "Prof. John Doe",
   author: "Matteo Fontolan",
-  logo-subject: "default/logo.svg",
-  logo-personal: "assets/course-logo.png",
+  logo-subject: image("default/logo.svg"),
+  logo-personal: image("assets/course-logo.png"),
   bento-url: "https://itsjustwhitee.github.io/bento/",
   paypal-url: "https://paypal.me/justwhitee",
   contact-url: "https://github.com/itsjustwhitee/packages/issues",
