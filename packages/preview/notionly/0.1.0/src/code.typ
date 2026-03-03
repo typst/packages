@@ -7,26 +7,26 @@
   show raw: set text(font: mono-font)
 
   // Block code
-  show raw.where(block: true): codeContent => block(
+  show raw.where(block: true): code-content => block(
     width: 100%,
     fill: bg-color,
     radius: 0.6em,
     inset: (x: 1.85em, top: 1.8em, bottom: 1.8em),
   )[
     #text(fill: text-color)[
-      #codeContent
+      #code-content
     ]
   ]
 
   // Inline code
-  show raw.where(block: false): codeInline => box(
+  show raw.where(block: false): code-inline => box(
     inset: (x: 0.4em, y: 0.1em),
     outset: (y: 0.4em),
     fill: bg-color,
     radius: 0.2em,
   )[
     #text(fill: text-color)[
-      #codeInline
+      #code-inline
     ]
   ]
 
