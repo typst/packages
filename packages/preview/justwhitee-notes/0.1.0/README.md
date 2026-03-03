@@ -206,12 +206,6 @@ The template uses the following font stacks:
 
 ---
 
-## 📁 Recommended Project Structure
-
-It is recommended to insert assets in `assets/` folder and your logo and eventually the course/subject logo on `default/`.
-
----
-
 ## 📝 Full Example
 
 ````typst
