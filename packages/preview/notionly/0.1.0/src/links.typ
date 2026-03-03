@@ -1,9 +1,9 @@
 // NORMAL LINKS
-#let linktion(doc, linkDecorations: true) = {
+#let linktion(doc, link-decorations: true) = {
   // INLINE LINKS (blue and underlined by default)
   show link: it => {
     // Note: show rules are scoped so we need the conditionals inside them (not the other way around)
-    if linkDecorations {
+    if link-decorations {
       set text(fill: blue)
       underline[#it] 
     } else {
