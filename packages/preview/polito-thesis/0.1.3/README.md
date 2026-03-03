@@ -54,8 +54,7 @@ You can import the default suggested colors from this same template as
 # Example
 
 ```typ
-// #import "@preview/polito-thesis:0.1.3": polito-black, polito-blue, polito-orange, polito-thesis
-#import "../package.typ": polito-black, polito-blue, polito-orange, polito-thesis, opinionated-polito-style
+#import "@preview/polito-thesis:0.1.3": polito-black, polito-blue, polito-orange, polito-thesis, opinionated-polito-style
 
 #show: polito-thesis.with(
   title: [Tesi di Laurea],
