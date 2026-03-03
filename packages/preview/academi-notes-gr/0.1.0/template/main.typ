@@ -1,10 +1,9 @@
-#import "lib.typ": *
+#import "@preview/academi-notes-gr:0.1.0": *
 
 #show: project.with(
   title: "Notes on ...",
   author: "Your Name",
   academic-year: "Academic year 2025-2026",
-  logo: image("UGR-Logo.png", width: 40%), // Your logo
   orcid: "https://orcid.org/xxxx-xxxx-xxxx-xxxx", // Your number
   github: "https://github.com/Your_Username",
 )

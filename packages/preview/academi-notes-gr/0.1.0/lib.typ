@@ -186,7 +186,7 @@
   academic-year: "Curso 2025-2026",
   orcid: none,
   github: none,
-  logo: image("UGR-Logo.png", width: 40%),
+  logo: image("template/UGR-Logo.png", width: 40%),
   lang: "es",
   heading-color: colors.primary,
   body,
