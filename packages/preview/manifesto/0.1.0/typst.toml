@@ -8,11 +8,11 @@ categories = ["layout", "visualization"]
 disciplines = ["design", "education"]
 keywords = ["documentation", "docs", "html", "website", "site", "static", "online"]
 exclude = [".github"]
-entrypoint = "/src/template.typ"
+entrypoint = "/src/lib.typ"
 authors = ["Louis Grange <https://github.com/l0uisgrange>"]
 license = "MIT"
 
 [template]
-path = "src"
+path = "template"
 thumbnail = "thumbnail.png"
-entrypoint = "template.typ"
+entrypoint = "docs.typ"
