@@ -24,7 +24,7 @@ Import the `render-mol` function from the package and pass the raw string data o
 
 Draws every single atom and bond explicitly exactly as defined in the source file, including all carbons and hydrogens.
 
-*Note: For complex molecules, text overlapping may occur. See [Known Limitations](#known-limitations) for workarounds.*
+*Note: For complex molecules, text overlapping may occur. See [Known Limitations](https://www.google.com/search?q=%23known-limitations) for workarounds.*
 
 ```typ
 #render-mol(mol-data)
@@ -54,7 +54,7 @@ A pure skeletal formula. All backbone carbons and their attached hydrogens are c
 
 ### Customizing Appearance
 
-Under the hood, `molchemist` passes styling arguments directly to `alchemist`'s `skeletize` function. You can customize the look of your molecules using the `config` dictionary.
+Under the hood, `molchemist` parses the graph and generates native `alchemist` elements. You can customize the look of your molecules by passing styling arguments via the `config` dictionary, which are passed directly to `alchemist`'s `skeletize` function.
 
 ```typ
 #render-mol(
@@ -62,6 +62,7 @@ Under the hood, `molchemist` passes styling arguments directly to `alchemist`'s 
   skeletal: true,
   config: (
     atom-sep: 2em,
+    fragment-margin: 2pt,
     fragment-color: blue,
     fragment-font: "New Computer Modern",
     single: (stroke: 1pt + black),
@@ -72,11 +73,22 @@ Under the hood, `molchemist` passes styling arguments directly to `alchemist`'s 
 
 ![Custom Appearance](images/ex04.png)
 
-**Important Note on Overridden Configs:**
+**Important Note on Configuration:**
 
-- **Routing:** Because `molchemist` relies on the exact 2D coordinates from the source `.sdf`/`.mol` file, `alchemist`'s automatic routing configs (`angle-increment`, `base-angle`) are strictly overridden and have no effect.
-- **Margins:** To prevent bonds from intersecting with atom texts, `molchemist` uses a hardcoded white background box with a `1.5pt` inset for all explicit atoms. Therefore, `alchemist`'s `fragment-margin` setting is ignored.
-- **Lewis Structures:** `molchemist` does not currently support rendering Lewis structures, so `lewis-*` configs are not applicable.
+- **Routing overrides:** Because `molchemist` maps the exact 2D absolute coordinates from the source `.sdf`/`.mol` file, `alchemist`'s automatic routing configs (like `angle-increment`, `base-angle`) are bypassed and have no effect.
+- **Lewis Structures:** `molchemist` does not automatically infer or generate Lewis structures from SDF files, so `lewis-*` configs are not applicable out of the box.
+
+### Advanced: Ejecting to Alchemist Code (Dump Mode)
+
+If you need to manually fine-tune a molecule, add a specific Lewis structure, or integrate the structure into a larger custom `alchemist` drawing, you can use the `dump` parameter.
+
+When `dump: true` is passed, `molchemist` will not render the molecule. Instead, it will output the generated native `alchemist` code block into your document. You can then copy, paste, and modify this code directly.
+
+```typ
+#render-mol(mol-data, dump: true)
+```
+
+![Dump Mode](images/ex05.png)
 
 ## Known Limitations
 
@@ -88,7 +100,7 @@ When rendering highly complex or dense molecules (e.g., polycyclic compounds, de
 2. **Increase Bond Length:** If you strictly require Full Mode, you can increase the distance between atoms to create more physical space for the text labels by adjusting the `atom-sep` property in the `config` argument:
     ```typ
     // The default atom-sep is 3em
-    #render-mol(mol-data, config: (atom-sep: 4.5em))    
+    #render-mol(mol-data, config: (atom-sep: 4.5em))
     ```
 
 ## API Reference
@@ -96,6 +108,7 @@ When rendering highly complex or dense molecules (e.g., polycyclic compounds, de
 - **`data`** (`str`): The raw string content of a `.mol` or `.sdf` file.
 - **`abbreviate`** (`bool`): If `true`, applies standard chemical abbreviations (e.g., folding H into heteroatoms, labeling terminal CH3). Default is `false`.
 - **`skeletal`** (`bool`): If `true`, renders a pure skeletal structure, overriding `abbreviate`. Hides all backbone C and H atoms. Default is `false`.
+- **`dump`** (`bool`): If `true`, outputs the generated `alchemist` source code as a formatted Typst code block instead of rendering the molecule graphic. Useful for manual tweaking. Default is `false`.
 - **`config`** (`dictionary`): A dictionary of visual styling options passed directly to the `alchemist` package.
 
 ## License
