@@ -13,7 +13,7 @@ First, create a new `.typ` file and import this package at the top:
 
 The entirety of the homework portion of your document will be contained in `hw()[]`, including the title page. Call it and pass the following (optional) parameters:
 
-- `title_text` -> Text to be used as title of document
+- `title-text` -> Text to be used as title of document
 
 - `number` -> Number of the homework, only used if `title_text` is omitted
 
@@ -21,14 +21,14 @@ The entirety of the homework portion of your document will be contained in `hw()
 
 - `class` -> Name of the class/course that the homework is for
 
-- `due_date` -> Date that the homework is due
+- `due-date` -> Date that the homework is due
 
 ```typst
 #hw(
   number: 5,
   author: "George P. Burdell",
   class: "CS 2050",
-  due_date: "January 1, 1970"
+  due-date: "January 1, 1970"
 )[
     Your content goes here.
 ]

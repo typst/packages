@@ -36,11 +36,11 @@
 
 
 #let hw(
-  title_text: none,
+  title-text: none,
   number: 1, 
   author: none, 
   class: none, 
-  due_date: none, 
+  due-date: none, 
   body,
 ) = {
 
@@ -76,17 +76,17 @@
 
 
   align(horizon + center, block[
-    #if title_text != none [
-      #title[#title_text]
+    #if title-text != none [
+      #title[#title-text]
     ] else [
       #title[Homework #number Submission]
     ]
 
-    #if class != none [#class]
+    #class
 
-    #if author != none [#author]
+    #author
 
-    #if due_date != none [#due_date]
+    #due-date
   ])
 
 
