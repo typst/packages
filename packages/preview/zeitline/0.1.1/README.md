@@ -13,19 +13,18 @@ A Typst package for plotting timelines.
 Copy this package to your Typst packages directory or use it locally:
 
 ```typst
-#import "@local/zeitline:0.1.0": timeline
+#import "@preview/zeitline:0.1.1": timeline
 ```
 
 Or import directly:
 
 ```typst
-#import "lib.typ": timeline
-```
+#import "@preview/zeitline:0.1.1": timeline```
 
 ## Usage
 
 ```typst
-#import "lib.typ": timeline
+#import "@preview/zeitline:0.1.1": timeline
 
 #let events = (
   (date: "Jan 1", desc: "First event description"),
