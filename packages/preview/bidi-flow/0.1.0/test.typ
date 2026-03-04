@@ -1,6 +1,6 @@
 #import "@preview/bidi-flow:0.1.0": *
 #import "@preview/booktabs:0.0.4": *
-#show: bidi-flow
+#show: bidi
 #set par(justify: true)
 #set page(margin: 1.25in)
 #show heading: it => [

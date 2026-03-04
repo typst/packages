@@ -15,7 +15,7 @@ Sets `text.dir` per block using the **first strong character** rule — the same
 
 ```typst
 #import "@preview/bidi-flow:0.1.0": *
-#show: bidi-flow
+#show: bidi
 
 = Hello        // → LTR heading
 = שלום         // → RTL heading automatically
@@ -35,12 +35,12 @@ For a longer real-world example, see [`test.typ`](test.typ).
 
 ## API
 
-### `bidi-flow`
+### `bidi` (alias: `bidi-flow`)
 
 Document-level show rule. Detects direction for `par`, `heading`, `list`, `enum`, and `table` automatically.
 
 ```typst
-#show: bidi-flow
+#show: bidi
 ```
 
 ### `detect-dir(body)`

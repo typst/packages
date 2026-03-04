@@ -73,12 +73,12 @@
 #let setlr = body => [#set text(dir: ltr); #body]
 ///
 /// Document-level show rule.  Apply once at the top of your entry file:
-///   #show: bidi-flow
+///   #show: bidi
 ///
 /// Automatically sets `text.dir` for every `par`, `heading`, `list`, `enum`,
 /// and `table` based on the first strong (Hebrew/Arabic vs Latin) character.
 /// RTL blocks get `dir: rtl`; everything else keeps Typst's default (`auto`).
-#let bidi-flow = body => {
+#let bidi = body => {
   show par: it => if detect-dir(it.body) == rtl [
     #set text(dir: rtl)
     #it
@@ -111,3 +111,6 @@
 
   body
 }
+
+// Alias that matches the package name.
+#let bidi-flow = bidi
