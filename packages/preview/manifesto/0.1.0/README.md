@@ -6,18 +6,18 @@
 
 You are free to check either [this example](https://bone.grangelouis.ch) from `bone` or [this one](https://zap.grangelouis.ch) from `zap`.
 
-<img width="1232" height="758" alt="Capture d’écran 2026-01-22 à 18 39 15" src="https://github.com/user-attachments/assets/076e3071-6feb-4453-8b44-e5de1a32ec53" />
+<img width="1232" height="758" alt="Manifesto documentation website example" src="https://github.com/user-attachments/assets/076e3071-6feb-4453-8b44-e5de1a32ec53" />
 
 ## Quick usage
 
 The template is very easy to use, and will transform your whole project into a stunning online documentation in just a second.
 
 ```typst
-#import "@preview/manifesto:0.1.0"
+#import "@preview/manifesto:0.1.0": template
 
-#show: it => template(it, title: "MyAwesomePackage", toml: "PATH_TO/typst.toml")
+#show: it => template(it, title: "MyPackage", toml: "PATH_TO/typst.toml")
 
-= Introduction
+= My first title
 
 Lorem ipsum
 ```
