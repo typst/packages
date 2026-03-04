@@ -8,7 +8,7 @@ A simple way to create network protocol headers, memory maps, register definitio
 
 ## Example
 
-![random colored bytefield example](docs/bytefield_example.png)
+![random colored bytefield example](https://github.com/jomaway/typst-bytefield/blob/a7c649a4d0e4ab634e4afa6d170e000b023e4313/docs/bytefield_example.png)
 
 ```typst
 #import "@preview/bytefield:0.0.8": *
@@ -74,8 +74,5 @@ Here is a unsorted list of features which is possible right now.
 - Change the bit order in the header with `msb:left` or `msb:right` (default)
 
 
-See [example.typ](example.typ) for more information.
+See [example.typ](https://github.com/jomaway/typst-bytefield/blob/a7c649a4d0e4ab634e4afa6d170e000b023e4313/examples/example.typ) for more information.
 
-# Changelog
-
-See [CHANGELOG.md](CHANGELOG.md)
