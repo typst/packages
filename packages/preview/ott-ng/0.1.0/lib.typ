@@ -117,7 +117,7 @@
 
     let code = str(_ott_wasm.parse_term(bytes(str(id)), bytes(chosen), bytes(term)))
     // Turn Typst math code into real math content.
-    eval("$" + code + "$")
+    eval(code, mode: "math")
   }
 }
 
