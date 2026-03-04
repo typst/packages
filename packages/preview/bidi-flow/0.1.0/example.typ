@@ -1,4 +1,4 @@
-#import "lib.typ": *
+#import "@preview/bidi-flow:0.1.0": *
 #show: bidi-flow
 #set par(justify: true)
 #set page(margin: 1.25in)
