@@ -1,8 +1,8 @@
 [package]
-name = "rtl-auto"
+name = "bidi-flow"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = []
+authors = ["Jeff"]
 license = "MIT"
 description = "Automatic RTL/LTR direction detection for mixed-direction documents (Hebrew, Arabic, Latin)"
 keywords = ["rtl", "bidi", "hebrew", "arabic", "direction"]

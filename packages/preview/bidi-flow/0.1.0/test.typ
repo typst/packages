@@ -1,6 +1,6 @@
-#import "@preview/rtl-auto:0.1.0": *
+#import "@preview/bidi-flow:0.1.0": *
 #import "@preview/booktabs:0.0.4": *
-#show: rtl-auto
+#show: bidi-flow
 #set par(justify: true)
 #set page(margin: 1.25in)
 #show heading: it => [
@@ -12,7 +12,7 @@
   #set align(center)
   #set text(size: 1.75em)
   #v(20pt)
-  #r Auto--RTL (כיוון אוטומטי)
+  #r Bidi--Flow (כיוון אוטומטי)
   #v(20pt)
 ]
 
