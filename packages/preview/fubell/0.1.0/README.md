@@ -18,6 +18,15 @@ Or clone this repository and compile the example directly:
 typst compile template/main.typ
 ```
 
+## Typst Web App Usage
+
+You can use Fubell directly on the Typst web app (no local CLI required):
+
+1. Create a new project at <https://typst.app>.
+2. In `main.typ`, import `@preview/fubell:0.1.0` and configure `#show: thesis.with(...)` (see the Usage snippet below).
+3. Add files for any `include` paths you use, or replace those `include` lines with inline content.
+4. Keep `watermark: none` (default), or upload your own `assets/watermark.png` and set that path.
+
 ## Project Structure
 
 ```text
@@ -74,10 +83,21 @@ fubell/
   acknowledgement-en: include "content/acknowledgement-en.typ", // optional
 
   bibliography-file: bibliography("refs.bib"),
+  watermark: none, // optional: e.g. "assets/watermark.png" (user-provided)
 )
 
 #include "content/chapters/introduction.typ"
 ```
+
+## Watermark (Optional)
+
+The template defaults to `watermark: none`, so no watermark file is required.
+
+If you want to add the NTU watermark:
+
+1. Download it from the official source: <https://www.lib.ntu.edu.tw/doc/CL/watermark.pdf>
+2. Convert it to PNG and place it in your project, for example `assets/watermark.png`
+3. Set `watermark: "assets/watermark.png"` in `#show: thesis.with(...)`
 
 ## Language
 
