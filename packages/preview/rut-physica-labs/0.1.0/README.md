@@ -1,4 +1,6 @@
-# Шаблон отчёта по лабораторной работе кафедры «Физика» РУТ (МИИТ)
+# Laboratory work report template for the Physics Department of the Russian University of Transport. Шаблон отчёта по лабораторной работе кафедры «Физика» РУТ (МИИТ)
+
+Professional template [Typst](https://typst.app/) for preparing reports on laboratory work in physics by students of [RUT (MIIT)](https://www.miit.ru/), corresponding to the requirements of GOST 7.32-2017.
 
 Профессиональный шаблон [Typst](https://typst.app/) для оформления отчётов по лабораторным работам по физике студентами [РУТ (МИИТ)](https://www.miit.ru/), соответствующий требованиям ГОСТ 7.32-2017.
 
