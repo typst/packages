@@ -19,7 +19,8 @@ Copy this package to your Typst packages directory or use it locally:
 Or import directly:
 
 ```typst
-#import "@preview/zeitline:0.1.1": timeline```
+#import "@preview/zeitline:0.1.1": timeline
+```
 
 ## Usage
 
