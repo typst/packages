@@ -1,5 +1,5 @@
 // Area charts: single + stacked, light + dark
-#import "../../src/lib.typ": *
+#import "@preview/primaviz:0.2.0": *
 #set page(margin: 0.5cm, paper: "a4")
 #set text(size: 8pt)
 

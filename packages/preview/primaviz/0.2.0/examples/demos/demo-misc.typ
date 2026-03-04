@@ -1,5 +1,5 @@
 // Miscellaneous: waffle, parliament, radial-bar, sunburst
-#import "../../src/lib.typ": *
+#import "@preview/primaviz:0.2.0": *
 #set page(margin: 0.5cm, paper: "a4")
 #set text(size: 8pt)
 
