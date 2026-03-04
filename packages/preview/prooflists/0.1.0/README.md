@@ -10,7 +10,7 @@ The use of lists as a domain-specific language allows for typesetting (proof) tr
 
 ## Usage
 
-![](examples/usage.svg)
+![The below proof tree.](examples/usage.svg)
 
 ```typst
 #import "@preview/prooflists:0.1.0": prooflist
@@ -43,7 +43,7 @@ The `label` field is technically optional -- if omitted, `/ : conclusion` behave
 
 ## Advanced Usage
 
-![](examples/natural-deduction.svg)
+![The below proof tree.](examples/natural-deduction.svg)
 
 ```typst
 #import "@preview/prooflists:0.1.0": prooflist
@@ -77,7 +77,7 @@ Finally, this package is built atop [`curryst`](https://typst.app/universe/packa
 Documentation may be found [in the function source](https://codeberg.org/apropos/typst-prooflists/src/branch/main/src/main.typ) (reproduced from `curryst`).
 The `#rule-set` function provided by `curryst` may be useful, also.
 
-![](examples/structural-rules.svg)
+![The below proof tree.](examples/structural-rules.svg)
 
 ```typst
 #import "@preview/prooflists:0.1.0": prooflist
@@ -123,4 +123,4 @@ The `#rule-set` function provided by `curryst` may be useful, also.
 ))
 ```
 
-See [`examples/`](https://codeberg.org/apropos/typst-prooflists/src/branch/main/examples) for further use cases.
+See [`examples/`](examples) for further use cases.
