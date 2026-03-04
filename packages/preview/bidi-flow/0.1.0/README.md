@@ -33,6 +33,12 @@ English paragraph here.
 
 For a longer real-world example, see [`test.typ`](test.typ).
 
+## Example
+
+See [`example.typ`](example.typ).
+
+![Example output](assets/image.png)
+
 ## API
 
 ### `bidi-flow`
