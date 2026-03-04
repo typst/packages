@@ -5,7 +5,7 @@
 // - `compile_spec(bytes) -> bytes` returning CBOR `{id, roots, default_root}`
 // - `parse_term(id_bytes, root_bytes, term_bytes) -> bytes` returning UTF-8 Typst math code (without `$...$`)
 
-#import "@preview/curryst:0.5.0": rule, prooftree
+#import "@preview/curryst:0.6.0": rule, prooftree
 
 #let _ott_wasm = plugin("plugins/ott.wasm")
 
@@ -16,7 +16,7 @@
 
 #let _rawline(s) = raw(s, block: false)
 
-#let render_grammar(nonterminal, alternatives, comment: none) = {
+#let _render-grammar(nonterminal, alternatives, comment: none) = {
   let alts = alternatives
   if alts.len() == 0 {
     return block[#_rawline(nonterminal + " ::= ")]
@@ -44,7 +44,7 @@
   }
 }
 
-#let render_rule(name, premises, conclusion, comment: none) = {
+#let _render-rule(name, premises, conclusion, comment: none) = {
   let prem = premises.map(p => _rawline(p))
   let concl = _rawline(conclusion)
 
@@ -66,9 +66,9 @@
     if it.kind == "section" {
       out += (heading(level: 3)[#it.title],)
     } else if it.kind == "grammar" {
-      out += (render_grammar(it.nonterminal, it.alternatives, comment: it.comment),)
+      out += (_render-grammar(it.nonterminal, it.alternatives, comment: it.comment),)
     } else if it.kind == "rule" {
-      out += (render_rule(it.name, it.premises, it.conclusion, comment: it.comment),)
+      out += (_render-rule(it.name, it.premises, it.conclusion, comment: it.comment),)
     } else {
       out += (raw("[ott] unknown render item kind: " + str(it.kind), block: true),)
     }
