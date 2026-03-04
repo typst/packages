@@ -1,6 +1,6 @@
 # typst-prooflists
 
-This is a [Typst](https://typst.app) package that provides for typesetting Gentzen-style proof trees in a maximally succinct notation. It builds atop [`curryst`](https://github.com/pauladam94/curryst).
+This is a [Typst](https://typst.app) package that provides for typesetting Gentzen-style proof trees in a maximally succinct notation. It builds atop [`curryst`](https://typst.app/universe/package/curryst).
 
 The canonical representation of a tree is a nested list. So, it only makes sense that when working with trees (proof trees or otherwise), you'd want to notate them down as a list (if not drawing them by hand). Yet existing typesetting packages don't do this!
 
@@ -72,7 +72,7 @@ A limitation of the `/ label: conclusion` syntax is that it only provides for pr
 If labels appearing on the left is desired, `label-dir: left` can be passed as an optional argument to `#prooflist`, which will affect all `/ label: conclusion` invocations.
 The `label-lhs` and `label-rhs` arguments can also be provided and will add custom labels to all inference rules on the left/right, respectively.
 
-Finally, this package is built atop [`curryst`](https://github.com/pauladam94/curryst) and specifically [`#prooftree`](https://github.com/pauladam94/curryst#advanced-usage).
+Finally, this package is built atop [`curryst`](https://typst.app/universe/package/curryst) and specifically [`#prooftree`](https://typst.app/universe/package/curryst#advanced-usage).
 `#prooftree` may take a number of optional arguments, which `#prooflist` plumbs through to additionally expose to the user.
 Documentation may be found [in the function source](https://codeberg.org/apropos/typst-prooflists/src/branch/main/src/main.typ) (reproduced from `curryst`).
 The `#rule-set` function provided by `curryst` may be useful, also.
