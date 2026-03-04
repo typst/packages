@@ -1,9 +1,9 @@
 
 #import "@preview/catppuccin:1.1.0": catppuccin, flavors, get-flavor
-#import "@preview/gentle-clues:1.3.0": *
+#import "@preview/gentle-clues:1.3.1": *
 #import "@preview/hydra:0.6.2": hydra
 #import "@preview/codly:1.3.0": codly, codly-disable, codly-enable, codly-init
-#import "@preview/codly-languages:0.1.8": codly-languages
+#import "@preview/codly-languages:0.1.10": codly-languages
 
 // Bar element for headers and footers
 #let bar(
