@@ -1,0 +1,149 @@
+{
+  "party_name": "The Wayward Companions",
+  "campaign": "Curse of the Forgotten Realms",
+  "characters": [
+    {
+      "name": "Thorin Ironforge",
+      "class": "Fighter",
+      "race": "Dwarf",
+      "level": 8,
+      "stats": {
+        "strength": 18,
+        "dexterity": 12,
+        "constitution": 16,
+        "intelligence": 10,
+        "wisdom": 13,
+        "charisma": 8
+      },
+      "hp": 76,
+      "ac": 18,
+      "gold": 450,
+      "kills": 47,
+      "deaths": 2,
+      "sessions_played": 24
+    },
+    {
+      "name": "Elara Moonwhisper",
+      "class": "Wizard",
+      "race": "Elf",
+      "level": 8,
+      "stats": {
+        "strength": 8,
+        "dexterity": 14,
+        "constitution": 12,
+        "intelligence": 18,
+        "wisdom": 15,
+        "charisma": 11
+      },
+      "hp": 42,
+      "ac": 13,
+      "gold": 820,
+      "kills": 31,
+      "deaths": 4,
+      "sessions_played": 22
+    },
+    {
+      "name": "Bramble Thornfoot",
+      "class": "Rogue",
+      "race": "Halfling",
+      "level": 8,
+      "stats": {
+        "strength": 10,
+        "dexterity": 18,
+        "constitution": 14,
+        "intelligence": 13,
+        "wisdom": 12,
+        "charisma": 14
+      },
+      "hp": 54,
+      "ac": 16,
+      "gold": 1250,
+      "kills": 38,
+      "deaths": 1,
+      "sessions_played": 24
+    },
+    {
+      "name": "Sister Adelina",
+      "class": "Cleric",
+      "race": "Human",
+      "level": 8,
+      "stats": {
+        "strength": 14,
+        "dexterity": 10,
+        "constitution": 15,
+        "intelligence": 12,
+        "wisdom": 18,
+        "charisma": 13
+      },
+      "hp": 62,
+      "ac": 18,
+      "gold": 340,
+      "kills": 22,
+      "deaths": 0,
+      "sessions_played": 20
+    },
+    {
+      "name": "Zephyr Stormborn",
+      "class": "Sorcerer",
+      "race": "Dragonborn",
+      "level": 7,
+      "stats": {
+        "strength": 12,
+        "dexterity": 13,
+        "constitution": 14,
+        "intelligence": 10,
+        "wisdom": 11,
+        "charisma": 18
+      },
+      "hp": 45,
+      "ac": 14,
+      "gold": 680,
+      "kills": 29,
+      "deaths": 3,
+      "sessions_played": 18
+    },
+    {
+      "name": "Grok the Mighty",
+      "class": "Barbarian",
+      "race": "Half-Orc",
+      "level": 8,
+      "stats": {
+        "strength": 20,
+        "dexterity": 14,
+        "constitution": 18,
+        "intelligence": 6,
+        "wisdom": 10,
+        "charisma": 8
+      },
+      "hp": 95,
+      "ac": 15,
+      "gold": 120,
+      "kills": 68,
+      "deaths": 5,
+      "sessions_played": 24
+    }
+  ],
+  "party_stats": {
+    "total_sessions": 24,
+    "total_gold_earned": 15420,
+    "total_gold_spent": 11760,
+    "quests_completed": 12,
+    "dungeons_cleared": 8,
+    "boss_kills": 5
+  },
+  "session_history": {
+    "sessions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "party_gold": [500, 1200, 800, 2100, 3500, 2800, 4200, 3900, 5100, 4800, 6200, 3660],
+    "combat_encounters": [2, 3, 1, 4, 2, 5, 3, 2, 4, 3, 2, 6],
+    "exp_gained": [300, 450, 200, 600, 350, 800, 500, 300, 700, 450, 350, 900]
+  },
+  "damage_by_session": {
+    "sessions": ["S1", "S2", "S3", "S4", "S5", "S6"],
+    "thorin": [45, 62, 38, 71, 55, 82],
+    "elara": [32, 48, 55, 40, 68, 75],
+    "bramble": [28, 35, 42, 58, 45, 52],
+    "adelina": [15, 22, 18, 25, 30, 28],
+    "zephyr": [38, 52, 45, 60, 55, 70],
+    "grok": [58, 75, 48, 88, 72, 95]
+  }
+}
