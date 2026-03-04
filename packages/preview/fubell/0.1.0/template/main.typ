@@ -37,7 +37,7 @@
   acknowledgement-en: include "sections/acknowledgement-en.typ",
 
   bibliography-file: bibliography("bibliography/refs.bib"),
-  watermark: "assets/watermark.png", // convert from https://www.lib.ntu.edu.tw/doc/CL/watermark.pdf
+  watermark: none, // optional: set to "assets/watermark.png" after adding it locally
   lang: "zh",
 )
 
