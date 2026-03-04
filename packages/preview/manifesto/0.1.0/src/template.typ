@@ -16,7 +16,20 @@
 /// - universe (str): link to package page on Typst Universe
 /// - license (str): package license
 /// -> content
-#let template(doc, title: none, toml: none, copyright: true, version: none, notices: (), links: (), description: none, repository: none, universe: none, license: none, ..params) = [
+#let template(
+    doc,
+    title: none,
+    toml: none,
+    copyright: true,
+    version: none,
+    notices: (),
+    links: (),
+    description: none,
+    repository: none,
+    universe: none,
+    license: none,
+    ..params,
+) = context [
     #let title = if toml != none { detoml(toml).package.name } else { title }
     #let version = if toml != none { detoml(toml).package.at("version", default: none) } else { version }
     #let universe = if toml != none { detoml(toml).package.at("name", default: none) } else { universe }
@@ -25,6 +38,7 @@
     #let description = if toml != none { detoml(toml).package.at("description", default: none) } else { description }
     #assert(description != none, message: "description must be set")
     #assert(repository != none, message: "repository URL must be set")
+    #if (target() == "paged") { [This template is not meant for PDF, please switch to #underline(link("https://typst.app/docs/reference/html/")[HTML export]).] }
     #html.html(lang: "en", class: "scroll-smooth")[
         #html.head[
             #html.meta(charset: "utf-8")
@@ -52,10 +66,11 @@
                 #html.div(class: "order-1 md:w-60 prose overflow-visible")[
                     #html.div(class: "sticky top-5")[
                         #html.div(
-                            class: "dark:prose-invert prose-zinc dark:text-white prose-li:first:mt-0 prose-ol:p-0 prose-a:underline-offset-2 prose-li:p-0 prose-ol:m-0"
+                            class: "dark:prose-invert prose-zinc dark:text-white prose-li:first:mt-0 prose-ol:p-0 prose-a:underline-offset-2 prose-li:p-0 prose-ol:m-0",
                         )[
-                            #html.h1(class: if version != none { "rounded-bl-none " } else { "" }
-                                        + "capitalize bg-zinc-800 mb-0 text-white max-w-max rounded-md px-2 py-0.5 text-3xl font-medium mb-0",
+                            #html.h1(
+                                class: if version != none { "rounded-bl-none " } else { "" }
+                                    + "capitalize bg-zinc-800 mb-0 text-white max-w-max rounded-md px-2 py-0.5 text-3xl font-medium mb-0",
                                 title,
                             )
                             #if version != none {
@@ -66,9 +81,9 @@
                             #table(
                                 columns: 2,
                                 if repository != none { [Repository] }, link(repository, provider),
-                                [Typst Universe], link("https://typst.app/universe/package/"+ universe, title),
+                                [Typst Universe], link("https://typst.app/universe/package/" + universe, title),
                                 [License], [#license],
-                                [Last update], [#datetime.today().display()]
+                                [Last update], [#datetime.today().display()],
                             )
                             #html.div(class: "grid grid-cols-2 lg:grid-cols-1 mt-8")[
                                 #if "qa" in notices [
@@ -93,12 +108,15 @@
                         ]
                     ]
                 ]
-                #html.article(class: "order-3 md:order-2 flex-auto !max-w-4xl prose dark:prose-invert overflow-hidden prose-zinc prose-a:underline-offset-2 prose-td:align-middle prose-headings:scroll-my-7 prose-headings:font-medium prose-strong:font-medium", doc)
+                #html.article(
+                    class: "order-3 md:order-2 flex-auto !max-w-4xl prose dark:prose-invert overflow-hidden prose-zinc prose-a:underline-offset-2 prose-td:align-middle prose-headings:scroll-my-7 prose-headings:font-medium prose-strong:font-medium",
+                    doc,
+                )
                 #html.div(class: "order-2 md:order-3 w-60 flex-none prose overflow-visible")[
                     #html.div(class: "sticky top-5")[
                         #html.div(class: "dark:prose-invert prose-zinc dark:text-white prose-li:first:mt-0 prose-ol:p-0 prose-a:underline-offset-2 prose-li:p-0 prose-ol:m-0")[
                             #html.div(
-                                    class: "prose-a:text-current *:*:*:mb-0.5 prose-a:font-normal prose-a:decoration-0 mb-12",
+                                class: "prose-a:text-current *:*:*:mb-0.5 prose-a:font-normal prose-a:decoration-0 mb-12",
                                 outline(depth: 1, title: none),
                             )
                         ]
@@ -189,11 +207,14 @@
 /// - drawing (content): CeTZ canvas or any content
 /// - code (content): raw content (e.g. code) to display below the schema
 /// -> content
-#let schema(drawing, code: none, lang: "typst") = html.div(class: "mb-7 rounded-md border dark:border-zinc-800 overflow-hidden flex-col flex *:m-0 *:block *:w-full *:even:rounded-t-none", {
-    html.div(class: "p-7 bg-white rounded-md dark:invert dark:hue-rotate-180" + if code != none { "rounded-b-none" } else { "" })[
-        #html.frame(drawing)
-    ]
-    if code != none {
-        html.div(class: "*:rounded-t-none *:border-none border-t dark:border-zinc-800 *:border-none overflow-x-scroll", code)
-    }
-})
+#let schema(drawing, code: none, lang: "typst") = html.div(
+    class: "mb-7 rounded-md border dark:border-zinc-800 overflow-hidden flex-col flex *:m-0 *:block *:w-full *:even:rounded-t-none",
+    {
+        html.div(class: "p-7 bg-white rounded-md dark:invert dark:hue-rotate-180" + if code != none { "rounded-b-none" } else { "" })[
+            #html.frame(drawing)
+        ]
+        if code != none {
+            html.div(class: "*:rounded-t-none *:border-none border-t dark:border-zinc-800 *:border-none overflow-x-scroll", code)
+        }
+    },
+)
