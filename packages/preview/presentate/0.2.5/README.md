@@ -289,6 +289,9 @@ For detailed information on customization (colors, spacing, behavior), please re
 ### 0.2.5 
 - refactor structured themes to use [navigator](https://typst.app/universe/package/navigator/) 0.1.3 simplified API
 - update themes guide with navigation improvements (short titles and title truncation)
+- added `reveal-item` function to display list/enum group by group. 
+- added new control rule syntax in `motion` function to be able to modify content on each animation step. 
+- added `classic` theme.
 ### 0.2.4 
 - Featured with [navigator](https://typst.app/universe/package/navigator/) package for structured themes.
 ### 0.2.3
