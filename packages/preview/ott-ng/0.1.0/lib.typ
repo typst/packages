@@ -1,9 +1,8 @@
 // Next-gen Ott integration for Typst.
 //
-// This file expects a WASM plugin at `typst/plugins/ott.wasm` that exports:
-// - `parse_rules(bytes) -> bytes` returning CBOR render items
-// - `compile_spec(bytes) -> bytes` returning CBOR `{id, roots, default_root}`
-// - `parse_term(id_bytes, root_bytes, term_bytes) -> bytes` returning UTF-8 Typst math code (without `$...$`)
+// This file expects a WASM plugin at `plugins/ott.wasm` that exports:
+// - `parse_rules(spec_bytes) -> bytes` returning CBOR render items
+// - `parse_term(spec_bytes, root_bytes, term_bytes) -> bytes` returning UTF-8 Typst math code (without `$...$`)
 
 #import "@preview/curryst:0.6.0": rule, prooftree
 
@@ -103,19 +102,18 @@
   }
 }
 
-/// Compile an Ott spec (string) into a term parser function.
+/// Compile an Ott spec (string or bytes) into a term parser function.
 ///
 /// The returned value is a function that can be called as `#ott[term]`.
 #let ott-spec(spec, root: auto) = {
-  let info = cbor(_ott_wasm.compile_spec(bytes(spec)))
-  let id = info.id
-  let chosen = if root == auto { info.default_root } else { root }
+  let spec-bytes = bytes(spec)
+  let chosen = if root == auto { "" } else { root }
 
   body => {
     let term = _body_text(body).trim()
     assert.ne(term, "", message: "ott[...] term is empty")
 
-    let code = str(_ott_wasm.parse_term(bytes(str(id)), bytes(chosen), bytes(term)))
+    let code = str(_ott_wasm.parse_term(spec-bytes, bytes(chosen), bytes(term)))
     // Turn Typst math code into real math content.
     eval(code, mode: "math")
   }
