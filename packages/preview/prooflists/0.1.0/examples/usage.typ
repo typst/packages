@@ -1,4 +1,4 @@
-#import "../src/main.typ": prooflist
+#import "@preview/prooflists:0.1.0": prooflist
 #set document(date: none)
 #set page(width: auto, height: auto, margin: 0.5cm, fill: white)
 

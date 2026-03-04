@@ -1,4 +1,4 @@
-#import "../src/main.typ": prooflist
+#import "@preview/prooflists:0.1.0": prooflist
 #import "@preview/curryst:0.6.0": rule-set
 #set document(date: none)
 #set page(width: 500pt, height: auto, margin: 0.5cm, fill: white)
