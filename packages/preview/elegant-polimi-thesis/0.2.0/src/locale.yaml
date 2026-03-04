@@ -1,0 +1,43 @@
+it:
+  advisor: Relatore
+  coadvisor: Correlatore
+  coadvisors: Correlatori
+  tutor: Tutor
+  toc: Indice
+  dissertation: Tesi di laurea di
+  academic-year: Anno Accademico
+  year: Anno
+  cycle: Ciclo
+  list-of-figures: Lista delle Figure
+  list-of-tables: Lista delle Tabelle
+  nomenclature: Nomenclatura
+  theorem: Teorema
+  proof: Dimostrazione
+  proposition: Proposizione
+  lemma: Lemma
+  remark: Osservazione
+  figure: Figura
+  studend-id: Matricola
+  author: Autore
+  chair: Il Presidente del Dottorato
+en:
+  advisor: Advisor
+  coadvisor: Co-advisor
+  coadvisors: Co-advisors
+  tutor: Tutor
+  dissertation: Doctoral Dissertation of
+  academic-year: Academic Year
+  year: Year
+  cycle: Cycle
+  toc: Contents
+  list-of-figures: List of Figures
+  list-of-tables: List of Tables
+  nomenclature: Nomenclature
+  theorem: Theorem
+  proof: Proof
+  proposition: Proposition
+  lemma: Lemma
+  figure: Figure
+  student-id: Student ID
+  author: Author
+  chair: The Chair of the Doctoral Program
