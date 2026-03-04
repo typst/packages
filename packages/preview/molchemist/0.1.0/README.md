@@ -24,7 +24,7 @@ Import the `render-mol` function from the package and pass the raw string data o
 
 Draws every single atom and bond explicitly exactly as defined in the source file, including all carbons and hydrogens.
 
-*Note: For complex molecules, text overlapping may occur. See [Known Limitations](https://www.google.com/search?q=%23known-limitations) for workarounds.*
+*Note: For complex molecules, text overlapping may occur. See [Known Limitations](#known-limitations) for workarounds.*
 
 ```typ
 #render-mol(mol-data)
