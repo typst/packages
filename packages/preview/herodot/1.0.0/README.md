@@ -17,14 +17,26 @@ For getting started quickly add the following to your document:
 
 ```
 
-See the visual examples below and some examples at the end for what
-fields and options the package has.
+See the visual examples below and some examples at the end of the readme
+for what fields and options the package offers. The source for the examples
+can be found at [examples/example.typ](./examples/example.typ).
 
-![image](examples/example-1.png)
-![image](examples/example-2.png)
-![image](examples/example-3.png)
-![image](examples/example-4.png)
-![image](examples/example-5.png)
+![An example of the timeline with the default settings, showing two
+event-spans and one event, the second example being of using the
+rotation fields to make a vertical timeline rather than the default
+of being horizontal.](examples/example-1.png)
+
+![Examples of setting the day and month field of an event, and
+the different options for the event-display field, of whether the
+additional shown information should be the day, the month, both or
+nothing.](examples/example-2.png)
+
+![Example of setting different colors for the event-spans.](examples/example-3.png)
+
+![Examples of setting alternative and alternating spanheights for
+the eventspans, and the length of the vertical marker for events.](examples/example-4.png)
+
+![One more example of different spanheights.](examples/example-5.png)
 
 ## Example
 
