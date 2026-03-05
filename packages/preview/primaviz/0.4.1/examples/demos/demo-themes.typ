@@ -1,5 +1,5 @@
 // Theme comparison: same charts across all 6 themes + with-theme demo
-#import "../../src/lib.typ": *
+#import "@preview/primaviz:0.4.1": *
 #import "../demo-data.typ": sales
 #set page(margin: 0.4cm, paper: "a4")
 #set text(size: 7pt)

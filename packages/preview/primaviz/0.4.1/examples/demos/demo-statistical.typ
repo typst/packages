@@ -1,5 +1,5 @@
 // Statistical: histogram, box-plot, violin, waterfall
-#import "../../src/lib.typ": *
+#import "@preview/primaviz:0.4.1": *
 #import "../demo-data.typ": league, sales
 #set page(margin: 0.5cm, paper: "a4")
 #set text(size: 8pt)

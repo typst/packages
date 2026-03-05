@@ -1,5 +1,5 @@
 // Compact showcase — All chart types using page-grid layout engine
-#import "../src/lib.typ": *
+#import "@preview/primaviz:0.4.1": *
 #import "demo-data.typ": sales, codebase, league, rpg, words
 
 #set page(margin: (x: 0.6cm, y: 0.6cm), paper: "a4", fill: rgb("#1a1a2e"))

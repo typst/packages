@@ -1,5 +1,5 @@
 // Dashboard: metric-row, word-cloud, sparklines-table, progress-bars
-#import "../../src/lib.typ": *
+#import "@preview/primaviz:0.4.1": *
 #import "../demo-data.typ": sales, words
 #set page(margin: 0.5cm, paper: "a4")
 #set text(size: 8pt)
