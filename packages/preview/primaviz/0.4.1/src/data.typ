@@ -1,7 +1,7 @@
 // data.typ — Helpers for loading and reshaping JSON into chart-ready formats
 //
 // Usage:
-//   #import "@preview/primaviz:0.4.0": *
+//   #import "@preview/primaviz:0.4.1": *
 //   #let raw = json("sales.json")
 //   #bar-chart(load-simple(raw))
 
