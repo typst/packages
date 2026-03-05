@@ -39,7 +39,7 @@ git clone https://github.com/golixp/typst-resume-zh-cn.git
 
 ```typst
 // 远程包导入
-#import "@preview/resume-zh-cn:0.1.0": *
+#import "@preview/golixp-resume-zh-cn:0.1.0": *
 ```
 
 ### 通过 Typst Local Packages
@@ -49,29 +49,29 @@ git clone https://github.com/golixp/typst-resume-zh-cn.git
 Linux:
 
 ```bash
-mkdir -p ~/.local/share/typst/packages/local/resume-zh-cn/
-git clone https://github.com/golixp/typst-resume-zh-cn.git ~/.local/share/typst/packages/local/resume-zh-cn/0.1.0
+mkdir -p ~/.local/share/typst/packages/local/golixp-resume-zh-cn/
+git clone https://github.com/golixp/typst-resume-zh-cn.git ~/.local/share/typst/packages/local/golixp-resume-zh-cn/0.1.0
 ```
 
 macOS:
 
 ```zsh
-mkdir -p "~/Library/Application Support/typst/packages/local/resume-zh-cn/"
-git clone https://github.com/golixp/typst-resume-zh-cn.git ~/Library/Application\ Support/typst/packages/local/resume-zh-cn/0.1.0
+mkdir -p "~/Library/Application Support/typst/packages/local/golixp-resume-zh-cn/"
+git clone https://github.com/golixp/typst-resume-zh-cn.git ~/Library/Application\ Support/typst/packages/local/golixp-resume-zh-cn/0.1.0
 ```
 
 Windows:
 
 ```powershell
-mkdir -Force "$env:APPDATA\typst\packages\local\resume-zh-cn\0.1.0"
-git clone https://github.com/golixp/typst-resume-zh-cn.git "$env:APPDATA\typst\packages\local\resume-zh-cn\0.1.0"
+mkdir -Force "$env:APPDATA\typst\packages\local\golixp-resume-zh-cn\0.1.0"
+git clone https://github.com/golixp/typst-resume-zh-cn.git "$env:APPDATA\typst\packages\local\golixp-resume-zh-cn\0.1.0"
 ```
 
 #### 导入包
 
 ```typst
 // 本地包导入
-#import "@local/resume-zh-cn:0.1.0": *
+#import "@local/golixp-resume-zh-cn:0.1.0": *
 ```
 
 ### 前置要求
@@ -155,10 +155,10 @@ git push origin v1.0.0
 
 ```typst
 // 远程包导入
-#import "@preview/resume-zh-cn:0.1.0": *
+#import "@preview/golixp-resume-zh-cn:0.1.0": *
 
 // 本地包导入
-// #import "@local/resume-zh-cn:0.1.0": *
+// #import "@local/golixp-resume-zh-cn:0.1.0": *
 
 // 本地文件导入
 // #import "lib.typ": *
@@ -375,7 +375,7 @@ git clone https://github.com/golixp/typst-resume-zh-cn.git
 
 ```typst
 // Remote package import
-#import "@preview/resume-zh-cn:0.1.0": *
+#import "@preview/golixp-resume-zh-cn:0.1.0": *
 ```
 
 ### Using Typst Local Packages
@@ -385,29 +385,29 @@ git clone https://github.com/golixp/typst-resume-zh-cn.git
 Linux:
 
 ```bash
-mkdir -p ~/.local/share/typst/packages/local/resume-zh-cn/
-git clone https://github.com/golixp/typst-resume-zh-cn.git ~/.local/share/typst/packages/local/resume-zh-cn/0.1.0
+mkdir -p ~/.local/share/typst/packages/local/golixp-resume-zh-cn/
+git clone https://github.com/golixp/typst-resume-zh-cn.git ~/.local/share/typst/packages/local/golixp-resume-zh-cn/0.1.0
 ```
 
 macOS:
 
 ```zsh
-mkdir -p "~/Library/Application Support/typst/packages/local/resume-zh-cn/"
-git clone https://github.com/golixp/typst-resume-zh-cn.git ~/Library/Application\ Support/typst/packages/local/resume-zh-cn/0.1.0
+mkdir -p "~/Library/Application Support/typst/packages/local/golixp-resume-zh-cn/"
+git clone https://github.com/golixp/typst-resume-zh-cn.git ~/Library/Application\ Support/typst/packages/local/golixp-resume-zh-cn/0.1.0
 ```
 
 Windows:
 
 ```powershell
-mkdir -Force "$env:APPDATA\typst\packages\local\resume-zh-cn\0.1.0"
-git clone https://github.com/golixp/typst-resume-zh-cn.git "$env:APPDATA\typst\packages\local\resume-zh-cn\0.1.0"
+mkdir -Force "$env:APPDATA\typst\packages\local\golixp-resume-zh-cn\0.1.0"
+git clone https://github.com/golixp/typst-resume-zh-cn.git "$env:APPDATA\typst\packages\local\golixp-resume-zh-cn\0.1.0"
 ```
 
 #### Import Local Package
 
 ```typst
 // Local package import
-#import "@local/resume-zh-cn:0.1.0": *
+#import "@local/golixp-resume-zh-cn:0.1.0": *
 ```
 
 ### Prerequisites
@@ -491,10 +491,10 @@ The workflow will automatically: install required fonts, compile the Typst docum
 
 ```typst
 // Typst Packages
-#import "@preview/resume-zh-cn:0.1.0": *
+#import "@preview/golixp-resume-zh-cn:0.1.0": *
 
 // Typst Local Packages
-// #import "@local/resume-zh-cn:0.1.0": *
+// #import "@local/golixp-resume-zh-cn:0.1.0": *
 
 // Local File
 // #import "lib.typ": *

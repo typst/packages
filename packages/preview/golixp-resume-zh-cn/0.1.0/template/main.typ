@@ -9,7 +9,7 @@
 // --------------------------------------------
 
 // 导入库入口 - 提供配置 API + 图标 + 组件
-#import "@preview/resume-zh-cn:0.1.0": *
+#import "@preview/golixp-resume-zh-cn:0.1.0": *
 
 // ============================================
 // 导入页面配置 (Import Page Configuration)
