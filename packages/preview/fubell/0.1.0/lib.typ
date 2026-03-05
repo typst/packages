@@ -30,9 +30,15 @@
   lang: "zh", // "zh" or "en" — controls outline titles and document language
   committee-count: 4,
   bibliography-file: none,
-  watermark: none, // path to watermark image (e.g. "watermark.png")
+  watermark: none, // optional watermark image, e.g. image("assets/watermark.png")
   body,
 ) = {
+  let watermark-content = if type(watermark) == str or type(watermark) == bytes {
+    image(watermark)
+  } else {
+    watermark
+  }
+
   // -- Document metadata --
   set document(
     title: title.en,
@@ -48,8 +54,11 @@
       left: config.margin-left,
       right: config.margin-right,
     ),
-    ..if watermark != none {
-      (background: place(top + right, dx: -2.5cm, dy: 2.5cm, image(watermark, width: 3.5cm)))
+    ..if watermark-content != none {
+      (background: place(top + right, dx: -2.5cm, dy: 2.5cm, {
+        set image(width: 3.5cm)
+        watermark-content
+      }))
     },
   )
 

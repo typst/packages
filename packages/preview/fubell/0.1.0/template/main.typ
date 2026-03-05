@@ -37,7 +37,7 @@
   acknowledgement-en: include "sections/acknowledgement-en.typ",
 
   bibliography-file: bibliography("bibliography/refs.bib"),
-  watermark: none, // optional: set to "assets/watermark.png" after adding it locally
+  watermark: none, // optional: set to image("assets/watermark.png") after adding it locally
   lang: "zh",
 )
 
