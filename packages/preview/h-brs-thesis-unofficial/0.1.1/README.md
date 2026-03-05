@@ -6,7 +6,7 @@ Thesis template for Hochschule Bonn-Rhein-Sieg, based on [Regeln für wissenscha
 ## Minimal Example
 
 ```typst
-#import "@preview/h-brs-thesis-unofficial:0.1.0": template
+#import "@preview/h-brs-thesis-unofficial:0.1.1": template
 
 #show: template.with(
   title: "Titel der Arbeit",
