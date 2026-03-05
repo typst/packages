@@ -137,7 +137,7 @@
   let ast = cbor(cbor-bytes)
   
   if dump {
-    let code = "#skeletize({\n" + _ast-to-alchemist-code(ast, indent: 1) + "})"
+    let code = "#let base-sep = " + repr(base-sep) + "\n#skeletize({\n" + _ast-to-alchemist-code(ast, indent: 1) + "})"
     return raw(code, block: true, lang: "typst")
   } else {
     skeletize(config: config, _render-ast(ast, base-sep, config: config))
