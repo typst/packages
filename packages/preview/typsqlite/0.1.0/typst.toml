@@ -1,0 +1,12 @@
+[package]
+name = "typsqlite"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Joe Rossi <@jrossi>"]
+license = "Apache-2.0"
+description = "Query SQLite databases at compile time."
+repository = "https://github.com/jrossi/typst-wasm-sqlite"
+keywords = ["sqlite", "database", "sql", "data", "query"]
+categories = ["utility"]
+compiler = "0.14.0"
+exclude = ["README.md"]
