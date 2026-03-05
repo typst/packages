@@ -1,0 +1,11 @@
+[package]
+name = "primaviz"
+version = "0.4.0"
+entrypoint = "src/lib.typ"
+authors = ["phiat"]
+license = "MIT"
+description = "A pure-Typst charting library with 50+ chart types, 6 themes, and zero dependencies — built entirely with native primitives"
+keywords = ["chart", "plot", "visualization", "graph", "data", "dashboard"]
+repository = "https://github.com/phiat/primaviz"
+compiler = "0.12.0"
+exclude = ["screenshots/*", ".beads/*", "examples/*", "data/*", "tests/*", "justfile", "AGENTS.md", "CLAUDE.md"]
