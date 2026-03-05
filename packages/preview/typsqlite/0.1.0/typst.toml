@@ -9,4 +9,3 @@ repository = "https://github.com/jrossi/typst-wasm-sqlite"
 keywords = ["sqlite", "database", "sql", "data", "query"]
 categories = ["utility"]
 compiler = "0.14.0"
-exclude = ["README.md"]
