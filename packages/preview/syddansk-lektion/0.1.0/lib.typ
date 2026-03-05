@@ -84,7 +84,7 @@
 
 #let outline-slide(title: "Contents") = [
   #show link: x => x
-  == #title
+  == #title <touying:hidden>
   #columns()[
   #colbreak()
   #components.adaptive-columns(outline(title: none))
