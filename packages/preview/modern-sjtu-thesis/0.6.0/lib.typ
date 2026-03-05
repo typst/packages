@@ -17,7 +17,7 @@
 #import "pages/acknowledgement.typ": acknowledgement-page
 #import "pages/achievement.typ": achievement-page
 #import "pages/summary-en.typ": summary-en-page
-#import "@preview/lovelace:0.3.0": *
+#import "@preview/lovelace:0.3.1": *
 
 #let documentclass(
   doctype: "master",
