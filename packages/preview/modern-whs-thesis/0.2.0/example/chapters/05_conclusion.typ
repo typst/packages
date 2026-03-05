@@ -1,3 +1,0 @@
-= Fazit
-
-Zusammenfassung und Ausblick.

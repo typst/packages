@@ -1,9 +1,0 @@
-[package]
-name = "polytonoi"
-version = "0.1.0"
-entrypoint = "polytonoi.typ"
-authors = ["Dei Layborer"]
-license = "GPL-3.0-only"
-description = "Renders Roman letters into polytonic Greek."
-repository = "https://github.com/dei-layborer/polytonoi"
-keywords = ["greek", "ancient greek", "koine", "polytonic"]

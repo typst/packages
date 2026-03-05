@@ -1,8 +1,0 @@
-[package]
-name = "numty"
-version = "0.0.2"
-entrypoint = "lib.typ"
-authors = ["Pablo Ruiz Cuevas"]
-license = "MIT"
-description = "Numeric Typst"
-exclude = ["test.typ"]

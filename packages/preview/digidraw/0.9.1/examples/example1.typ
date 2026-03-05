@@ -1,6 +1,0 @@
-#import "@preview/digidraw:0.9.1"
-
-#set page(width: 14cm, height: auto, margin: 2mm)
-#set align(center)
-
-#digidraw.wave(json("example1.json"))

@@ -1,8 +1,0 @@
-[package]
-name = "idwtet"
-version = "0.2.0"
-entrypoint = "idwtet.typ"
-authors = ["Ludwig Austermann"]
-license = "MIT"
-description = "Package for uniform, correct and simplified typst code demonstration."
-repository = "https://github.com/ludwig-austermann/typst-idwtet"

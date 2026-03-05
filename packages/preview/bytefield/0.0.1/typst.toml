@@ -1,7 +1,0 @@
-[package]
-name = "bytefield"
-version = "0.0.1"
-entrypoint = "bytefield.typ"
-authors = ["Jomaway <https://github.com/jomaway>"]
-license = "MIT"
-description = "A package to create network protocol headers"

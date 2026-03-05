@@ -1,9 +1,0 @@
-[package]
-name = "datify"
-version = "0.1.1"
-entrypoint = "datify.typ"
-authors = ["Jeomhps"]
-license = "MIT"
-description = "Datify is a simple date package that allows users to format dates in new ways and addresses the issue of lacking date formats in different languages."
-repository = "https://github.com/Jeomhps/datify"
-compiler = "0.11.1"

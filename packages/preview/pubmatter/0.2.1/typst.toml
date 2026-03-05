@@ -1,9 +1,0 @@
-[package]
-name = "pubmatter"
-version = "0.2.1"
-entrypoint = "pubmatter.typ"
-authors = ["rowanc1"]
-license = "MIT"
-description = "Parse, normalize and show publication frontmatter, including authors and affiliations"
-repository = "https://github.com/continuous-foundation/pubmatter"
-keywords = ["frontmatter", "authors", "affiliations", "abstract", "orcid"]

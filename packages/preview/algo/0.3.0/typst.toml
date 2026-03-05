@@ -1,8 +1,0 @@
-[package]
-name = "algo"
-version = "0.3.0"
-entrypoint = "algo.typ"
-authors = ["platformer <https://github.com/platformer>"]
-license = "MIT"
-description = "Beautifully typeset algorithms."
-repository = "https://github.com/platformer/typst-algorithms"
