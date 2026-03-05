@@ -91,7 +91,16 @@ typst compile example.typ
 
 ### 配置
 
-编辑 `.github/workflows/release.yml`，将 `TYPST_SOURCE` 环境变量设置为目标 Typst 源文件名称（不含 `.typ` 扩展名）：
+GitHub Actions 仅识别仓库根目录下 `.github/workflows/` 中的工作流文件，因此必须将工作流文件复制到正确位置。
+
+将本项目的 `.github/workflows/release.yml` 复制到你的仓库对应目录：
+
+```bash
+mkdir -p .github/workflows
+cp <仓库目录>/.github/workflows/release.yml .github/workflows/release.yml
+```
+
+然后根据简历源文件的实际位置调整 `TYPST_SOURCE`。编辑 `.github/workflows/release.yml`，将 `TYPST_SOURCE` 环境变量设置为目标 Typst 源文件名称（不含 `.typ` 扩展名）：
 
 ```yaml
 env:
@@ -104,32 +113,6 @@ env:
 env:
   TYPST_SOURCE: docs/resume  # 对应 docs/resume.typ
 ```
-
-### 在已有仓库中配置
-
-如果你通过文件复制或 Git Subtree 等方式将本模板集成到已有仓库，需要手动配置工作流。GitHub Actions 仅识别仓库根目录下 `.github/workflows/` 中的工作流文件，因此必须将工作流文件复制到正确位置。
-
-#### 直接复制文件集成
-
-将本项目的 `.github/workflows/release.yml` 复制到你的仓库对应目录：
-
-```bash
-mkdir -p .github/workflows
-cp <仓库目录>/.github/workflows/release.yml .github/workflows/release.yml
-```
-
-#### Git Subtree 集成
-
-通过 Git Subtree 引入的文件位于指定前缀目录下（如 `resume-zh-cn/`），其中包含的 `.github/` 目录不会被 GitHub Actions 识别。需将工作流文件手动复制到仓库根目录：
-
-```bash
-mkdir -p .github/workflows
-cp resume-zh-cn/.github/workflows/release.yml .github/workflows/release.yml
-```
-
-然后根据简历源文件的实际位置调整 `TYPST_SOURCE`。
-
-> **提示**：无论使用哪种集成方式，`TYPST_SOURCE` 的值始终为简历源文件相对于仓库根目录的路径，不含 `.typ` 扩展名。
 
 ### 触发发布
 
@@ -427,20 +410,6 @@ git clone https://github.com/golixp/typst-resume-zh-cn.git "$env:APPDATA\typst\p
 #import "@local/resume-zh-cn:0.1.0": *
 ```
 
-### Integrate via Git Subtree
-
-#### Initial Setup
-
-```bash
-git subtree add --prefix=resume-zh-cn https://github.com/golixp/typst-resume-zh-cn.git master --squash
-```
-
-#### Pull Updates
-
-```bash
-git subtree pull --prefix=resume-zh-cn https://github.com/golixp/typst-resume-zh-cn.git master --squash
-```
-
 ### Prerequisites
 
 - [Typst](https://typst.app/) >= 0.11.0
@@ -458,7 +427,16 @@ The project includes a GitHub Actions workflow (`.github/workflows/release.yml`)
 
 ### Configuration
 
-Edit `.github/workflows/release.yml` and set the `TYPST_SOURCE` environment variable to the target Typst source filename (without the `.typ` extension):
+GitHub Actions only recognizes workflow files in `.github/workflows/` at the repository root, so you must copy the workflow file to the correct location.
+
+Copy the `.github/workflows/release.yml` from this project to your repository:
+
+```bash
+mkdir -p .github/workflows
+cp <repository-directory>/.github/workflows/release.yml .github/workflows/release.yml
+```
+
+Then adjust `TYPST_SOURCE` according to the actual location of your resume source file. Edit `.github/workflows/release.yml` and set the `TYPST_SOURCE` environment variable to the target Typst source filename (without the `.typ` extension):
 
 ```yaml
 env:
@@ -471,32 +449,6 @@ If your resume source file is located in a subdirectory, set `TYPST_SOURCE` to t
 env:
   TYPST_SOURCE: docs/resume  # Corresponds to docs/resume.typ
 ```
-
-### Configuring in an Existing Repository
-
-If you integrate this template into an existing repository via file copying or Git Subtree, you need to manually configure the workflow. GitHub Actions only recognizes workflow files in `.github/workflows/` at the repository root, so you must copy the workflow file to the correct location.
-
-#### Direct File Copy Integration
-
-Copy the `.github/workflows/release.yml` from this project to your repository:
-
-```bash
-mkdir -p .github/workflows
-cp <repository-directory>/.github/workflows/release.yml .github/workflows/release.yml
-```
-
-#### Git Subtree Integration
-
-When files are introduced via Git Subtree under a specific prefix directory (e.g., `resume-zh-cn/`), the `.github/` directory within it will not be recognized by GitHub Actions. You need to manually copy the workflow file to the repository root:
-
-```bash
-mkdir -p .github/workflows
-cp resume-zh-cn/.github/workflows/release.yml .github/workflows/release.yml
-```
-
-Then adjust `TYPST_SOURCE` according to the actual location of your resume source file.
-
-> **Tip**: Regardless of the integration method used, the value of `TYPST_SOURCE` should always be the path to the resume source file relative to the repository root, without the `.typ` extension.
 
 ### Trigger a Release
 
