@@ -1,0 +1,17 @@
+[package]
+name = "axiomst"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["Reza Rezvan <reza@rezvan.xyz>"]
+license = "MIT"
+description = "Academic homework and presentation slides template."
+repository = "https://github.com/rezaarezvan/axiomst"
+keywords = ["homework", "problem set", "slides", "presentation", "academic"]
+categories = ["report", "presentation"]
+compiler = "0.13.0"
+exclude = ["examples/*", ".claude/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

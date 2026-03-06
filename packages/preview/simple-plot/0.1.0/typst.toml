@@ -1,0 +1,13 @@
+[package]
+name = "simple-plot"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nathan"]
+license = "MIT"
+description = "Simple, pgfplots-like function plotting for Typst"
+repository = "https://github.com/nathan-ed/simple-plot"
+keywords = ["plot", "graph", "function", "math", "visualization", "chart", "axis"]
+categories = ["visualization"]
+disciplines = ["mathematics", "physics", "engineering"]
+compiler = "0.11.0"
+exclude = ["examples/*", "gallery/*", "*.pdf"]
