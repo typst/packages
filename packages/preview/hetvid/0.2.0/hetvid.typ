@@ -3,7 +3,7 @@
 // Set theorem environments
 #import "dingli.typ": *
 #import "authors.typ": format-authors
-#import "@preview/zebraw:0.5.3": *
+#import "@preview/zebraw:0.6.1": *
 
 // Function not supposed to be used by users
 #let link-color = rgb("#3282B8")
