@@ -293,7 +293,7 @@
 
   make-attachments(attachment-title, attachments)
 
-  let title-text = if type(title) == content {
+  let title-text = if type(title) == content and "children" in title.fields() {
     title
       .fields()
       .children
