@@ -62,6 +62,7 @@ mindmap
 +++ Sequence Diagram
 ++ Structural Diagrams
 +++ Component Diagram
+```
 ````
 
 ## Documentation
