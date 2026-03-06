@@ -1,0 +1,11 @@
+[package]
+name        = "homework-template"
+version     = "0.1.0"
+entrypoint  = "lib.typ"
+description = "Minimal homework template with question, part, answer, proof, definition, and theorem boxes for math assignments."
+authors     = ["Deep Hayer"]
+license     = "MIT"
+keywords    = ["homework", "math", "template", "axler"]
+categories  = ["paper"]
+repository  = "https://github.com/YOUR_USERNAME/homework-template"
+compiler    = "0.11.0"
