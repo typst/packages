@@ -1,0 +1,20 @@
+[package]
+name = "liu-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Joachim Örtegren"]
+license = "MIT"
+description = "Thesis template for Linköping University (LiU), Sweden."
+repository = "https://github.com/cascading-jox/typst-liu-thesis"
+categories = ["thesis"]
+keywords = ["liu", "linköping", "thesis", "university", "sweden"]
+compiler = "0.14.0"
+exclude = [
+  "tests",
+  "output",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
