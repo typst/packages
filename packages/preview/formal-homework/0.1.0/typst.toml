@@ -1,0 +1,11 @@
+[package]
+name = "formal-homework"
+version = "0.1.0"
+entrypoint = "lib.typ"
+
+authors = ["<@daqnal>"]
+license = "GPL-3.0"
+description = "Submit homeworks with simplicity and formality."
+
+repository = "https://github.com/daqnal/formal-homework"
+categories = ["report"]
