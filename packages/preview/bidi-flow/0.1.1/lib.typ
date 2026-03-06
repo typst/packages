@@ -88,6 +88,10 @@
     #set text(dir: rtl)
     #it
   ] else { it }
+  show title: it => if detect-dir(it.body) == rtl [
+    #set text(dir: rtl)
+    #it
+  ] else { it }
 
   show heading: it => if detect-dir(it.body) == rtl [
     #set text(dir: rtl)
