@@ -9,7 +9,7 @@ repository = "https://github.com/senaalem/manuscr-ismin"
 keywords = ["ISMIN", "EMSE", "Mines", "École des Mines de Saint-Étienne", "École nationale supérieure des mines de Saint-Étienne", "report"]
 categories = ["layout", "report"]
 exclude = ["manuscr-ismin.pdf"]
-compiler = "0.14.2"
+compiler = "0.13.0"
 
 [template]
 path = "template"
