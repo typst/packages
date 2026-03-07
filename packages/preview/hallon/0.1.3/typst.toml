@@ -1,0 +1,9 @@
+[package]
+name = "hallon"
+version = "0.1.3"
+entrypoint = "src/lib.typ"
+authors = ["Robin Eklind"]
+license = "0BSD"
+description = "Utility functions for Typst."
+repository = "https://github.com/mewmew/hallon-typ"
+exclude = ["/example"]

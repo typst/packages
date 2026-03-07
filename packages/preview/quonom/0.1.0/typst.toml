@@ -1,0 +1,12 @@
+[package]
+name = "quonom"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+
+description = "Manually and automatically typeset synthetic division."
+categories = ["components", "visualization"]
+disciplines = ["education", "mathematics"]
+
+authors = ["Nile Jocson <atraphaxia@gmail.com>"]
+license = "0BSD"
+repository = "https://github.com/atraphaxia/quonom"

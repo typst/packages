@@ -1,0 +1,48 @@
+@ARTICLE{ARTICLE:1,
+    AUTHOR="John Doe",
+    TITLE="Title",
+    JOURNAL="Journal",
+    YEAR="2017",
+}
+
+@BOOK{BOOK:1,
+    AUTHOR="John Doe",
+    TITLE="The Book without Title",
+    PUBLISHER="Dummy Publisher",
+    YEAR="2100",
+}
+
+@INBOOK{BOOK:2,
+    AUTHOR="John Doe",
+    TITLE="The Book without Title",
+    PUBLISHER="Dummy Publisher",
+    YEAR="2100",
+    PAGES="100-200",
+}
+
+@online{WEBSITE:1,
+  author = {MultiMedia LLC},
+  title = {{MS Windows NT} Kernel Description},
+  year = 1999,
+  url = {http://web.archive.org/web/20080207010024/http://www.808multimedia.com/winnt/kernel.htm},
+  urldate = {2010-09-30}
+}
+
+@article{PAPER:1,
+author = {Bagnall, Alexander and Stewart, Gordon and Banerjee, Anindya},
+title = {Formally Verified Samplers from Probabilistic Programs with Loops and Conditioning},
+year = {2023},
+issue_date = {June 2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {7},
+number = {PLDI},
+url = {https://doi.org/10.1145/3591220},
+doi = {10.1145/3591220},
+abstract = {We present Zar: a formally verified compiler pipeline from discrete probabilistic programs with unbounded loops in the conditional probabilistic guarded command language (cpGCL) to proved-correct executable samplers in the random bit model. We exploit the key idea that all discrete probability distributions can be reduced to unbiased coin-flipping schemes. The compiler pipeline first translates cpGCL programs into choice-fix trees, an intermediate representation suitable for reduction of biased probabilistic choices. Choice-fix trees are then translated to coinductive interaction trees for execution within the random bit model. The correctness of the composed translations establishes the sampling equidistribution theorem: compiled samplers are correct wrt. the conditional weakest pre-expectation semantics of cpGCL source programs. Zar is implemented and fully verified in the Coq proof assistant. We extract verified samplers to OCaml and Python and empirically validate them on a number of illustrative examples.},
+journal = {Proc. ACM Program. Lang.},
+month = {jun},
+articleno = {106},
+numpages = {24},
+keywords = {Verified Compilers, Probabilistic Programming}
+}

@@ -1,0 +1,88 @@
+{
+  "title": "Project Analytics Dashboard",
+
+  "scatter_data": {
+    "description": "Character Level vs Kill Count",
+    "series": [
+      {
+        "name": "Melee",
+        "points": [[8, 47], [8, 68], [8, 22]]
+      },
+      {
+        "name": "Caster",
+        "points": [[8, 31], [7, 29]]
+      },
+      {
+        "name": "Stealth",
+        "points": [[8, 38]]
+      }
+    ]
+  },
+
+  "bubble_data": {
+    "description": "HP vs AC vs Gold",
+    "x": [76, 42, 54, 62, 45, 95],
+    "y": [18, 13, 16, 18, 14, 15],
+    "size": [450, 820, 1250, 340, 680, 120],
+    "labels": ["Thorin", "Elara", "Bramble", "Adelina", "Zephyr", "Grok"]
+  },
+
+  "kpi_gauges": {
+    "quest_completion": 75,
+    "party_health": 82,
+    "gold_target": 65,
+    "xp_progress": 88
+  },
+
+  "progress_data": {
+    "labels": ["Main Quest", "Side Quests", "Exploration", "Combat", "Roleplay"],
+    "values": [85, 62, 45, 92, 78]
+  },
+
+  "heatmap_data": {
+    "description": "Skill usage by character",
+    "rows": ["Thorin", "Elara", "Bramble", "Adelina", "Zephyr", "Grok"],
+    "cols": ["Attack", "Defense", "Magic", "Stealth", "Social"],
+    "values": [
+      [95, 85, 10, 15, 20],
+      [15, 30, 95, 20, 45],
+      [60, 40, 15, 95, 70],
+      [45, 70, 80, 10, 85],
+      [35, 25, 90, 15, 75],
+      [98, 60, 5, 10, 15]
+    ]
+  },
+
+  "correlation_data": {
+    "description": "Stat correlations",
+    "labels": ["STR", "DEX", "CON", "INT", "WIS", "CHA"],
+    "values": [
+      [1.00, -0.45, 0.72, -0.68, -0.23, -0.51],
+      [-0.45, 1.00, -0.12, 0.35, 0.18, 0.42],
+      [0.72, -0.12, 1.00, -0.55, 0.08, -0.38],
+      [-0.68, 0.35, -0.55, 1.00, 0.62, 0.25],
+      [-0.23, 0.18, 0.08, 0.62, 1.00, 0.45],
+      [-0.51, 0.42, -0.38, 0.25, 0.45, 1.00]
+    ]
+  },
+
+  "activity_data": {
+    "description": "Weekly activity (28 days)",
+    "dates": [
+      "2024-01-01", "2024-01-02", "2024-01-03", "2024-01-04", "2024-01-05", "2024-01-06", "2024-01-07",
+      "2024-01-08", "2024-01-09", "2024-01-10", "2024-01-11", "2024-01-12", "2024-01-13", "2024-01-14",
+      "2024-01-15", "2024-01-16", "2024-01-17", "2024-01-18", "2024-01-19", "2024-01-20", "2024-01-21",
+      "2024-01-22", "2024-01-23", "2024-01-24", "2024-01-25", "2024-01-26", "2024-01-27", "2024-01-28"
+    ],
+    "values": [3, 5, 0, 8, 2, 0, 0, 4, 7, 3, 0, 1, 0, 0, 6, 9, 4, 2, 5, 0, 0, 8, 3, 5, 1, 4, 0, 2]
+  },
+
+  "area_chart_data": {
+    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    "series": [
+      {"name": "Gold Earned", "values": [500, 800, 650, 900, 1100, 850]},
+      {"name": "Gold Spent", "values": [300, 450, 600, 400, 700, 500]},
+      {"name": "Savings", "values": [100, 150, 200, 250, 300, 350]}
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "xodec"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Malo <@MDLC01>"]
+license = "Apache-2.0"
+description = "Get Codex/Typst names of symbols."
+repository = "https://github.com/MDLC01/xodec"
+keywords = ["Codex", "Typst", "symbol", "sym", "emoji"]
+categories = ["scripting", "integration"]
+compiler = "0.14.0"
+exclude = ["examples/"]

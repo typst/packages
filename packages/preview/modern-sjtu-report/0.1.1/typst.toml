@@ -1,0 +1,26 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "modern-sjtu-report"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["StellarLane <https://stellarlane.github.io/>"]
+license = "Unlicense"
+description = "A lab report template for SJTU in Typst."
+repository = "https://github.com/StellarLane/modern-sjtu-report"
+keywords = ["SJTU", "lab report", "template"]
+categories = ["report"]
+disciplines = ["computer-science", "engineering", "physics", "chemistry", "biology"]
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

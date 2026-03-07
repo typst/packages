@@ -1,0 +1,9 @@
+# Documentation available here:
+# https://typst.app/universe/package/glossy
+# https://github.com/swaits/typst-collection/tree/main/glossy
+
+ENSEA:
+  short: "ENSEA"
+  long: "École Nationale Supérieure de l'Électronique et de ses Applications"
+  description: "Une grande école d’ingénieurs française, rattachée à l'Université CY Cergy Paris, spécialisée en électronique, informatique et télécommunications."
+  
