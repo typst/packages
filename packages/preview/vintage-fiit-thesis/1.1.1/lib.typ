@@ -298,8 +298,9 @@
   counter(page).update(1)
   ////////////////////////////////
   // title page
-  assert(type(department) == str and (department == "upai" or department == "iise"),
-    message: "Please provide one of the following departments: 'upai' or 'iise'"
+  assert(
+    type(department) == str and (department == "upai" or department == "iise"),
+    message: "Please provide one of the following departments: 'upai' or 'iise'",
   )
   if style != "pagecount" {
     title-page(
