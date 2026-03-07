@@ -3,7 +3,7 @@ name = "qilin-resume-studio"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["qiling <2473605320@qq.com>", "qiling <@DaYangtuo247>"]
-license = "CC-BY-NC-4.0"
+license = "MIT"
 description = "Data-driven resume and CV layouts with multiple themes."
 repository = "https://github.com/DaYangtuo247/Typst-Resume-Studio"
 keywords = ["resume", "cv", "job"]
@@ -16,6 +16,10 @@ exclude = [
   "/typst-app-pack",
   "/*.zip",
   "/*.pdf",
+  "/themes/**/*.pdf",
+  "/themes/**/*.png",
+  "/themes/**/example.typ",
+  "/themes/**/example.yml",
 ]
 
 [template]
