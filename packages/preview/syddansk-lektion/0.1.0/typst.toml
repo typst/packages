@@ -9,7 +9,6 @@ categories = ["presentation"]
 license = "GPL-3.0-or-later"
 description = "An unofficial Touying port of Southern Denmark University's slideshow template"
 keywords = ["university", "denmark"]
-exclude = ["thumbnail.png"]
 
 [template]
 path = "template"
