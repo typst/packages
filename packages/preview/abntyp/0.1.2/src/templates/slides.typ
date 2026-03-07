@@ -20,7 +20,7 @@
 // Baseado no pacote Touying para Typst
 // Documentacao: https://touying-typ.github.io/docs/intro/
 
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.6.2": *
 #import themes.simple: *
 #import themes.university: *
 
