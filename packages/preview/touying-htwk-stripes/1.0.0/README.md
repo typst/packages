@@ -1,6 +1,5 @@
 # touying-htwk-stripes
 
-> [!WARNING]
 > This theme is **NOT** an official theme of Leipzig University of Applied Sciences (HTWK Leipzig).
 
 **touying-htwk-stripes** is a [Touying](https://github.com/touying-typ/touying) theme for creating presentation slides in [Typst](https://github.com/typst/typst), inspired by the presentation template provided by [Leipzig University of Applied Sciences (HTWK Leipzig)](https://www.htwk-leipzig.de/). It is an **unofficial** theme and it is **NOT** affiliated with the HTWK.
