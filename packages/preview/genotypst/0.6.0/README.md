@@ -1,7 +1,8 @@
 # genotypst
 
-[![](https://img.shields.io/badge/Documentation-manual.pdf-blue)](./docs/manual.pdf)
-[![](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/apcamargo/genotypst)
+[![Typst package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fapcamargo%2Fgenotypst%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://typst.app/universe/package/genotypst)
+[![GitHub repository](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/apcamargo/genotypst)
+[![Manual](https://img.shields.io/badge/User_manual-blue)](./docs/manual.pdf)
 
 `genotypst` is a bioinformatics package for Typst that enables analysis and visualization of biological data. It provides functionality for parsing FASTA and Newick files and generating publication-ready visualizations, including multiple sequence alignments, sequence logos, genome maps, and phylogenetic trees.
 

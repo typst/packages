@@ -6,6 +6,36 @@
   _validate-optional-int-at-least,
 )
 
+/// Returns the inclusive span between two 1-indexed coordinates.
+///
+/// - start (int): Inclusive start coordinate.
+/// - end (int): Inclusive end coordinate.
+/// -> int
+#let _inclusive-span(start, end) = end - start + 1
+
+/// Maps an inclusive genomic coordinate to the left edge of its rendered span.
+///
+/// - coord (int): Inclusive genomic coordinate.
+/// - region-start (int): Inclusive region start coordinate.
+/// - x-scale (length): Rendered width per genomic position.
+/// -> length
+#let _coord-to-x(coord, region-start, x-scale) = (
+  (coord - region-start) * x-scale
+)
+
+/// Resolves rendered geometry for an inclusive genomic interval.
+///
+/// - start (int): Inclusive interval start coordinate.
+/// - end (int): Inclusive interval end coordinate.
+/// - region-start (int): Inclusive region start coordinate.
+/// - x-scale (length): Rendered width per genomic position.
+/// -> dictionary
+#let _interval-geometry(start, end, region-start, x-scale) = {
+  let start-x = _coord-to-x(start, region-start, x-scale)
+  let width = _inclusive-span(start, end) * x-scale
+  (start-x: start-x, width: width, center-x: start-x + width / 2)
+}
+
 /// Normalizes gene dictionaries and applies defaults.
 ///
 /// - genes (array): Array of gene dictionaries (strand may be 1, -1, "+", or "-").
@@ -104,8 +134,8 @@
 /// Computes label layout and level positions.
 ///
 /// - genes (array): Normalized gene dictionaries.
-/// - region-start (float): Region start coordinate.
-/// - region-length (float): Region length.
+/// - region-start (int): Inclusive region start coordinate.
+/// - x-scale (length): Rendered width per genomic position.
 /// - track-width (length): Width of the genome track.
 /// - label-size (length): Label font size.
 /// - label-color (color): Label text color.
@@ -115,7 +145,7 @@
 #let _layout-labels(
   genes,
   region-start,
-  region-length,
+  x-scale,
   track-width,
   label-size,
   label-color,
@@ -131,11 +161,14 @@
 
   for gene in genes {
     if gene.label != none {
-      let center-bp = (gene.start + gene.end) / 2
-      let gene-center = (
-        track-width * ((center-bp - region-start) / region-length)
+      let geometry = _interval-geometry(
+        gene.start,
+        gene.end,
+        region-start,
+        x-scale,
       )
-      let gene-width = track-width * ((gene.end - gene.start) / region-length)
+      let gene-center = geometry.center-x
+      let gene-width = geometry.width
       let label-text = text(size: label-size, fill: label-color)[#gene.label]
       let label-width = measure(label-text).width
       let raw-left = gene-center - label-width / 2
@@ -208,9 +241,8 @@
 /// Draws gene arrows and blocks.
 ///
 /// - genes (array): Normalized gene dictionaries.
-/// - region-start (float): Region start coordinate.
-/// - region-length (float): Region length.
-/// - track-width (length): Width of the genome track.
+/// - region-start (int): Inclusive region start coordinate.
+/// - x-scale (length): Rendered width per genomic position.
 /// - track-top (length): Top offset of the gene track.
 /// - gene-height (length): Height of gene arrows/blocks.
 /// - head-length (length, auto): Arrowhead length.
@@ -220,8 +252,7 @@
 #let _draw-genes(
   genes,
   region-start,
-  region-length,
-  track-width,
+  x-scale,
   track-top,
   gene-height,
   head-length,
@@ -229,9 +260,14 @@
   gene-stroke,
 ) = {
   for gene in genes {
-    let start-x = track-width * ((gene.start - region-start) / region-length)
-    let end-x = track-width * ((gene.end - region-start) / region-length)
-    let gene-width = end-x - start-x
+    let geometry = _interval-geometry(
+      gene.start,
+      gene.end,
+      region-start,
+      x-scale,
+    )
+    let start-x = geometry.start-x
+    let gene-width = geometry.width
     let base-head = if head-length == auto { gene-height * 0.35 } else {
       head-length
     }
@@ -283,16 +319,16 @@
 /// Renders a genome map from an array of gene dictionaries.
 ///
 /// Each gene dictionary in the input array can have the following fields:
-/// - start (int): Gene start coordinate (required, 1-indexed).
-/// - end (int): Gene end coordinate (required, 1-indexed).
+/// - start (int): Gene start coordinate (required, 1-indexed inclusive).
+/// - end (int): Gene end coordinate (required, 1-indexed inclusive).
 /// - strand (int, str, none): Direction (1 or -1, "+" or "-"); none draws a block.
 /// - label (content, none): Label text.
 /// - color (color, none): Fill color (none uses default-color).
 ///
 /// - genes (array): Gene dictionaries to render.
 /// - width (length, fraction): Total map width (default: 100%).
-/// - start (int, auto): 1-indexed region start coordinate (default: auto).
-/// - end (int, auto): 1-indexed region end coordinate (default: auto).
+/// - start (int, auto): 1-indexed inclusive region start coordinate (default: auto).
+/// - end (int, auto): 1-indexed inclusive region end coordinate (default: auto).
 /// - gene-height (length): Gene block height (default: 12pt).
 /// - head-length (length, auto): Arrowhead length (default: auto).
 /// - min-head-length (length): Minimum arrowhead length (default: 3.5pt).
@@ -368,8 +404,8 @@
       end
     }
 
-    let region-length = region-end - region-start
-    assert(region-length > 0, message: "region length must be positive")
+    let region-span = _inclusive-span(region-start, region-end)
+    assert(region-span >= 1, message: "region span must be at least 1 bp")
 
     let track-width = size.width
     // Resolve relative lengths to absolute values for layout comparisons.
@@ -386,11 +422,12 @@
     }
     let coordinate-axis-label-gap = 2.5pt
     let scale-label-gap = 1.5pt
+    let x-scale = track-width / region-span
 
     let label-layout = _layout-labels(
       normalized,
       region-start,
-      region-length,
+      x-scale,
       track-width,
       label-size,
       label-color,
@@ -411,14 +448,13 @@
 
     let track-bottom = track-top + gene-height
 
-    let x-scale = track-width / region-length
     let resolved-scale = if scale-bar {
       _resolve-scale-bar-length(
         scale-length,
-        region-length,
+        region-span,
         x-scale,
         track-width,
-        zero-length-message: "region length must be positive",
+        zero-length-message: "region span must be at least 1 bp",
       )
     } else {
       (length: 0, width: 0pt)
@@ -466,6 +502,8 @@
     } else {
       0pt
     }
+    let axis-left = x-scale / 2
+    let axis-width = track-width - x-scale
     let axis-gap = if coordinate-axis { coordinate-axis-track-gap } else { 0pt }
     let coordinate-axis-top = track-bottom + axis-gap
     let scale-top = if scale-bar {
@@ -508,8 +546,7 @@
       _draw-genes(
         normalized,
         region-start,
-        region-length,
-        track-width,
+        x-scale,
         track-top,
         gene-height,
         head-length,
@@ -585,8 +622,8 @@
         coordinate-axis,
         region-start,
         region-end,
-        region-length,
-        track-width,
+        region-end - region-start,
+        axis-width,
         coordinate-axis-top,
         tick-height,
         coordinate-axis-label-gap,
@@ -594,6 +631,7 @@
         unit,
         black,
         scale-stroke,
+        axis-left: axis-left,
       )
 
       // Scale bar
