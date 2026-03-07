@@ -1,0 +1,76 @@
+resume-info:
+  name: 林晓月
+  contacts:
+  - type: phone
+    label: 手机号
+    value: 150-1111-2222
+    url: "tel:+86 15011112222"
+  - type: email
+    label: 邮箱
+    value: "xiaoyue.lin@finance.com"
+    url: "mailto:xiaoyue.lin@finance.com"
+  - type: linkedin
+    label: LinkedIn
+    value: linkedin.com/in/xiaoyue-lin
+    url: "https://linkedin.com/in/xiaoyue-lin"
+education:
+  title: 教育经历
+  items:
+  - school: 清华大学
+    degree: 硕士
+    major: 金融学
+    start: '2018.09'
+    end: '2021.06'
+    details:
+    - "GPA: 3.8/4.0 (Top 5%)，连续三年获得国家奖学金及‘北京市优秀毕业生’称号。"
+    - 专业资格：CFA Level II Candidate / FRM Level I Passed / 具备中国证券及基金从业资格。
+    - 学术活动：担任清华大学经管学院投资协会副会长，主导策划多次模拟投资大赛，覆盖超过 500 名师生。
+  - school: 复旦大学
+    degree: 本科
+    major: 经济学
+    start: '2014.09'
+    end: '2018.06'
+    details:
+    - 辅修应用数学学位，具备扎实的数理统计与计量经济学基础。
+experience:
+  title: 工作经历
+  items:
+  - company: 中金公司 (CICC)
+    position: 投资银行部 高级经理 (IBD Senior Associate)
+    start: '2021.07'
+    end: 至今
+    details:
+    - IPO 保荐与承销：全面参与某头部新能源汽车企业 15 亿美元的香港联交所 IPO 项目。负责核心的业务尽职调查、招股书‘业务与技术’章节撰写、以及底稿收集归档；搭建全套估值模型，协助管理层顺利完成超过 20 场路演推介。
+    - 再融资项目：协助完成某国内半导体芯片制造公司 20 亿人民币的 A 股定向增发项目。牵头协调律师与会计师机构，撰写反馈意见回复，就核心技术壁垒与盈利预测等重点问题与监管机构进行高效沟通，确保项目按时过会。
+    - 跨境并购与重组：深度参与某 A 股上市公司收购欧洲先进制造企业的跨境并购案。独立搭建包含现金流折现 (DCF)、可比公司分析及杠杆收购 (LBO) 在内的复杂财务模型，为客户提供估值支撑和并购后的整合重组方案建议，获得客户董事会的全票通过。
+  - company: "麦肯锡 (McKinsey & Company)"
+    position: 商业分析师实习生 (Business Analyst Intern)
+    start: '2020.06'
+    end: '2020.09'
+    details:
+    - 战略规划：参与某国内领先新零售企业的数字化转型战略规划项目。通过分析超过 500 万条消费者线上线下购买记录，描绘精准的消费者画像，输出超过 50 页的战略洞察报告。
+    - 竞品分析与专家访谈：独立完成对 20+ 行业专家与竞品高管的深度访谈。建立多维度的竞品对标体系，识别出市场尚未满足的下沉市场需求，挖掘出潜在的营收增长空间，建议被客户 CEO 采纳。
+  - company: 红杉资本中国 (Sequoia Capital China)
+    position: PE/VC 投资实习生
+    start: '2019.09'
+    end: '2020.02'
+    details:
+    - "行业研究：主导撰写长达 80 页的《全球 SaaS 软件行业深度研究报告》。梳理了国内外 100 余家 SaaS 企业的商业模式、核心 SaaS 指标（LTV/CAC, NRR, Churn Rate），为团队发掘潜在的投资标的。"
+    - 项目跟进：跟进两家处于 B 轮的协同办公企业，撰写详尽的 Investment Memo，并在投委会 (IC) 上进行项目初筛汇报。
+projects:
+  title: 项目经历
+  items:
+  - name: 量化多因子选股挖掘与策略回测研究
+    role: 研究骨干 (清华大学量化实验室)
+    start: '2019.10'
+    end: '2020.03'
+    details:
+    - 数据处理：利用 Python (Pandas/NumPy) 处理 A 股市场超过 10 年的高频交易数据、财务报表及宏观经济数据，完成异常值清洗并构建了包含动量、价值、成长等 50 多个维度的量化特征因子库。
+    - 模型开发：开发并训练了基于 XGBoost 与随机森林的多因子非线性选股模型。结合 Barra 风险模型进行行业与市值中性化处理。
+    - "回测表现：在自主搭建的回测框架中，该策略在扣除双边交易摩擦成本后，实现了年化 15% 的超额收益 (Alpha)，最大回撤控制在 8% 以内。"
+skills:
+  title: 技能
+  items:
+  - "金融专业技能：精通各类估值建模与财务预测 (DCF, LBO, 相对估值, M&A 模型)，熟悉境内外资本市场 (A股, 港股, 美股) 的 IPO 发行及并购重组流程，具备扎实的三张表财务报表分析与重构能力。"
+  - "数据分析与编程：熟练使用 Python (Pandas, NumPy, Scikit-learn)、SQL、R 以及 Excel/VBA 进行复杂的大规模数据清洗、业务模型构建及可视化输出。"
+  - "语言及通用素质：英语可作为完全的工作语言 (雅思 8.0, 托福 112)，具备极强的跨团队沟通、多任务并行处理与高压抗压能力；熟练使用 Wind, Bloomberg, Capital IQ 等金融终端工具。"

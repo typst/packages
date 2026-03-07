@@ -1,0 +1,83 @@
+resume-info:
+  name: 陈云飞
+  contacts:
+  - type: phone
+    label: 手机号
+    value: 135-8888-9999
+    url: "tel:+86 13588889999"
+  - type: email
+    label: 邮箱
+    value: "yunfei.chen@techmail.com"
+    url: "mailto:yunfei.chen@techmail.com"
+  - type: github
+    label: GitHub
+    value: github.com/chen-yunfei
+    url: "https://github.com/chen-yunfei"
+  - type: blog
+    label: 博客
+    value: yunfei.dev
+    url: "https://yunfei.dev"
+education:
+  title: 教育经历
+  items:
+  - school: 浙江大学
+    degree: 硕士
+    major: 计算机系统结构
+    start: '2018.09'
+    end: '2021.03'
+    details:
+    - 研究方向：非易失性内存（NVM）与新型存储系统架构，重点关注基于 RDMA 的内存池化技术。
+    - 学术成果：在计算机系统领域顶级学术会议 (USENIX ATC / FAST) 合作发表第一/二作者论文 2 篇，获得国家重点实验室杰出研究成果奖。
+  - school: 电子科技大学
+    degree: 本科
+    major: 信息安全
+    start: '2014.09'
+    end: '2018.06'
+    details:
+    - 多次参加全国网络安全技能大赛 (CTF) 并获得二等奖，深入研究二进制漏洞挖掘与逆向分析技术。
+experience:
+  title: 工作经历
+  items:
+  - company: 阿里云 (Alibaba Cloud)
+    position: 高级系统研发专家 (P7)
+    start: '2021.04'
+    end: 至今
+    details:
+    - 核心职责：全面负责阿里云极速块存储（ESSD）底层存储引擎（基于 C++17 开发）的数据路径核心模块研发与极限性能突破。
+    - "单机性能极限优化：通过引入 Linux 5.x 核心的 io_uring 异步 I/O 框架，并结合无锁队列 (Lock-free Queues) 重构数据面读写通道。消除了传统 AIO 的上下文切换开销，将 4K 随机写 IOPS\
+      \ 从 100w 极致提升至 150w，同时将长尾延迟 (P99.9) 降低了 25%。"
+    - "下一代网络架构演进：主导并落地基于 RDMA 协议 (RoCEv2) 的新型存储网络解载（Offload）项目。利用硬件网卡旁路 CPU 处理海量存储网络包，使得单存储节点吞吐量提升 40%，有效降低了底层集群总体 TCO。"
+    - 故障排查与稳定性保障：具备极强的内核级线上问题排查能力，多次利用 eBPF (BCC/bpftrace) 和 ftrace 等观测工具，在不影响线上业务的前提下，快速定位由内核态网络丢包、并发死锁以及内存泄漏导致的 P0 级线上故障，并向上游
+      Linux 社区提交了 2 个 Bugfix Patch。
+  - company: 字节跳动
+    position: 基础架构研发实习生
+    start: '2020.06'
+    end: '2020.12'
+    details:
+    - 参与字节内部自研的高性能微服务 RPC 框架（基于 C++）的网络底层优化。
+    - "设计并实现了一种细粒度的连接池复用机制，配合内核级的 TCP 拥塞控制参数调优，使得跨机房 RPC 调用的平均耗时减少了 10%。"
+projects:
+  title: 项目经历
+  items:
+  - name: X-Cache：极速并发内存缓存库
+    role: "作者 & 核心维护者"
+    start: '2022.10'
+    end: '2023.05'
+    details:
+    - 使用 Rust 语言从零实现的一款高性能、线程安全的并发内存缓存库，借鉴并优化了 Caffeine (Java) 中的 Window-TinyLFU 缓存淘汰算法，在保持高命中率的同时实现了极低的内存占用。
+    - 高度利用 Rust 的所有权机制与原子操作（Atomics），引入 Hazard Pointers 和无锁并发数据结构（Lock-free Hash Map）设计，彻底避免了高并发访问下的全局锁竞争。
+    - 开源影响力：在 Github 获得 1.5k+ Star，在各类基准测试 (Benchmarks) 中性能超越了主流的 Moka 和 Ristretto 缓存库。目前已被多个中型 Web3 和金融量化的 Rust 生产项目作为核心组件采用。
+  - name: Mini-Kube：基于 eBPF 的轻量级容器网络
+    role: 个人探索项目
+    start: '2021.11'
+    end: '2022.02'
+    details:
+    - 从零编写一个简化版的容器网络接口 (CNI) 插件。使用 eBPF（TC/XDP 钩子）代替传统的 iptables 和 Netfilter，实现容器间网络的高效包转发与负载均衡。
+    - "通过绕过复杂的内核网络协议栈，测试显示端到端的网络延迟较原生 Flannel 降低了约 30%。"
+skills:
+  title: 技能
+  items:
+  - 系统级编程：深入理解 Linux 内核机制（内存管理、调度器、VFS）、操作系统原理，极度熟练使用 C/C++ 和 Rust 开发高性能底层应用。
+  - 网络与通信：精通网络编程与 TCP/IP 协议栈深度调优，拥有丰富的高并发网络框架开发经验，精通 Epoll、io_uring，熟悉 DPDK 及 RDMA 零拷贝技术。
+  - "存储架构：熟练掌握分布式存储系统（如 Ceph, GlusterFS）的架构设计，深入研究 LevelDB/RocksDB 底层存储引擎机制及基于 LSM-Tree 的写放大优化。"
+  - "云原生与观测：掌握现代云原生基础设施栈 (Kubernetes, Docker, eBPF)，具备强大的容器化网络（Cilium）和存储环境的极限性能调优与故障排查能力。"

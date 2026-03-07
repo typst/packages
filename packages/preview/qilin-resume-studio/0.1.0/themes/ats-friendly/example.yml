@@ -1,0 +1,97 @@
+resume-info:
+  name: 林建国
+  contacts:
+  - type: phone
+    label: 手机号
+    value: 135-2222-3333
+    url: ''
+  - type: email
+    label: 邮箱
+    value: "jianguo.lin@ats-cv.com"
+    url: "mailto:jianguo.lin@ats-cv.com"
+  - type: linkedin
+    label: LinkedIn
+    value: linkedin.com/in/jianguo-lin
+    url: "https://linkedin.com/in/jianguo-lin"
+  - type: website
+    label: 个人网站
+    value: github.com/jianguo-dev
+    url: "https://github.com/jianguo-dev"
+  - type: address
+    label: 地址
+    value: 北京市海淀区
+    url: ''
+education:
+  title: 教育经历
+  items:
+  - school: 北京邮电大学
+    degree: 工程硕士
+    major: 计算机技术
+    start: 2016-09
+    end: 2019-06
+    location: 北京
+  - school: 北京交通大学
+    degree: 工学学士
+    major: 通信工程
+    start: 2012-09
+    end: 2016-06
+    location: 北京
+experience:
+  title: 工作经历
+  items:
+  - company: 某头部互联网电子商务公司
+    position: 后端开发技术专家 (P7)
+    start: 2021-05
+    end: Present
+    location: 北京
+    tech-used: "Java, Spring Boot, Spring Cloud, MySQL, Redis, Kafka, ElasticSearch"
+    details:
+    - 微服务架构升级：领导 5 人研发团队完成核心电商交易链路从庞大单体到微服务架构的彻底拆分。通过合理的领域驱动设计 (DDD) 和接口限流降级，将系统整体吞吐量提升 3 倍，大促期间 P99 延迟稳定降低至 50ms 以内。
+    - "异构数据同步：设计并落地了一套基于 MySQL Binlog (Canal) 的高可用异构数据同步平台。支撑每日百亿级数据库变更消息的实时分发与消费，实现将订单数据亚秒级同步至 ElasticSearch 和数据仓库，达到 99.99%\
+      \ 的高可用性。"
+    - "研发效能提升：强力推动内部代码规范演进与敏捷开发流程。引入严苛的单元测试覆盖率门禁（要求覆盖率 > 80%）以及自动化压测卡点，使该业务线的生产环境 P0 级重大故障率年同比大幅下降 60%。"
+  - company: 某知名金融科技独角兽
+    position: 高级软件工程师
+    start: 2019-07
+    end: 2021-04
+    location: 上海
+    tech-used: "Go, gRPC, PostgreSQL, Redis, Docker, Kubernetes"
+    details:
+    - 核心账务系统：参与消费分期核心账务系统与清结算引擎的开发。深入处理复杂的金融计息逻辑，利用两阶段提交 (2PC) 与本地消息表解决分布式事务问题，支持日均百万级订单的高效结算，保障了核心账务数据的绝对强一致性与零差错。
+    - 高并发抢购调优：主导优化营销活动模块中高并发场景下的分布式锁实现。结合 Redis 集群与 Lua 脚本，设计防死锁和看门狗自动续期机制，有效防止了活动秒杀场景下的库存超卖与黄牛刷单问题。
+projects:
+  title: 项目经历
+  items:
+  - name: 高并发分布式秒杀架构系统 (开源实践)
+    role: ''
+    start: 2020-03
+    end: 2020-08
+    url: github.com/jianguo/seckill-arch
+    details:
+    - 系统设计：完整实现了一个能够支持千万级 QPS 流量洪峰的分布式秒杀架构。深入剖析限流原理，采用漏桶算法和令牌桶算法在 Nginx 网关层和业务网关层进行多级限流与熔断保护。
+    - 性能优化：通过深度利用 Redis 缓存预热、本地内存缓存拦截以及 RabbitMQ 消息队列进行异步下单和削峰填谷，大幅减轻数据库压力。在单机压测环境下轻松支撑了 5 万并发请求而不崩溃。
+skills:
+  title: 技能
+  items:
+  - category: Programming Languages
+    items:
+    - "Java (JVM Tuning, Concurrent Programming)"
+    - "Go (Goroutine, Channel)"
+    - Python
+    - Shell Scripting
+  - category: "Backend & Middleware"
+    items:
+    - Spring Framework Ecosystem
+    - gRPC / Dubbo
+    - "MySQL (Optimization & Internal)"
+    - Redis
+    - Kafka
+    - RabbitMQ
+    - ElasticSearch
+  - category: "Cloud & Infrastructure"
+    items:
+    - Docker
+    - Kubernetes (K8s)
+    - Nginx
+    - Linux System Administration
+    - Git CI/CD Pipeline
