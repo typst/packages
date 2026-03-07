@@ -1,0 +1,13 @@
+[package]
+name = "cvssc"
+version = "0.2.1"
+entrypoint = "lib.typ"
+exclude = ["src/tests.typ", "src/tests.pdf", "src/assets/tests.json"]
+authors = ["Drake Axelrod <drakeaxelrod@gmail.com>"]
+license = "MIT"
+description = "Common Vulnerability Scoring System (CVSS) calculator library for Typst. Supports CVSS 2.0, 3.0, 3.1, and 4.0."
+repository = "https://github.com/drakeaxelrod/cvssc"
+keywords = ["cvss", "security", "vulnerability", "scoring"]
+categories = ["utility"]
+disciplines = ["computer-science"]
+compiler = "0.14.0"

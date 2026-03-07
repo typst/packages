@@ -8,15 +8,25 @@ only work in a few specific directories (the ones for your own packages). Git
 allows for "sparse checkouts", which reduce the time it takes to clone the
 repository and its size on your disk.
 
-Follow these steps to clone the repository:
+First, make sure you have forked the repository to your own GitHub account.
+Then, follow these steps to clone the repository:
 
 ```sh
-git clone --depth 1 --no-checkout --filter="tree:0" git@github.com:typst/packages
+git clone --depth 1 --no-checkout --filter="tree:0" git@github.com:{your-username}/packages
 cd packages
 git sparse-checkout init
 git sparse-checkout set packages/preview/{your-package-name}
+git remote add upstream git@github.com:typst/packages
+git config remote.upstream.partialclonefilter tree:0
 git checkout main
 ```
+
+The `packages` directory you are in still corresponds to the whole repository.
+Do not delete or edit the `README.md`, `LICENSE` or any other file at the root.
+Instead, create the directory `packages/preview/{your-package-name}/{version}`
+and copy your files here. Note that `packages/` is a directory in the
+`packages` repository: if you look at the full path, there should be two
+consecutive parts called `packages`.
 
 ## Don't use submodules
 
@@ -41,19 +51,19 @@ committing the files to this repository in the first place.
 
 To know which strategy to apply to each file, we can split them in three groups:
 
-__1. Required files__\
+__1. Required files (commit & include)__\
 Files that are necessary for the package to work. If any of these files are
 removed, the package would break for the end user. This includes the manifest
 file, main Typst file and its dependencies, and in case of a template package,
 any file in the template directory.
 
-__2. Documentation files__\
+__2. Documentation files (commit & exclude)__\
 Files that are necessary for the package to be displayed correctly on Typst
 Universe. This includes the README, and any files that are linked from there
 (manuals, examples, illustrations, etc.). These files can easily be accessed
 by opening the package README.
 
-__3. Other files__\
+__3. Other files (don't commit)__\
 This generally includes test files, build scripts, but also examples or manuals
 that are not linked in the README. These files would be almost impossible to
 access for the final user, unless they browse this GitHub repository or their
@@ -84,11 +94,13 @@ The community created some tools that can help when developing your package:
 - [typst-package-check], to lint your package.
 - [tytanic], to test your packages.
 - [typship], to easily install your package locally or submit it to Typst Universe.
-- [showman], to help you document and publish your package.
+
+A more comprehensive list can be found in [Package development — Best of Typst (TCDM)][tcdm-pkg]
+maintained by the community.
 
 [cetz]: https://typst.app/universe/package/cetz/0.3.4
 [typst-package-check]: https://github.com/typst/package-check
 [tytanic]: https://typst-community.github.io/tytanic/
 [typship]: https://github.com/sjfhsjfh/typship
-[showman]: https://github.com/ntjess/showman
+[tcdm-pkg]: https://ydx-2147483647.github.io/best-of-typst/#pkg
 [manifest]: manifest.md

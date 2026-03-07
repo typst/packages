@@ -1,0 +1,16 @@
+[package]
+name = "shuimu-touying"     # 包名：必须小写，用连字符连接，不能有特殊符号
+version = "0.1.0"        # 版本号：遵循语义化版本 (主版本.次版本.修订号)
+entrypoint = "lib.typ"   # 入口文件：指向你的主代码文件
+authors = ["Mason Chen@https://github.com/JSB-Unscarred"]  # 名字
+license = "MIT"          # 协议
+description = "A clean, Beamer-style presentation template for Tsinghua University."
+repository = "https://github.com/JSB-Unscarred/shuimu-touying"
+keywords = ["slides", "presentation", "touying", "beamer", "THU", "Tsinghua University"]
+categories = ["presentation"]
+exclude = ["assets/docs"]
+
+[template]
+path = "template"    # 指定模板文件夹的路径
+entrypoint = "main.typ" # 指定模板的入口文件
+thumbnail = "assets/thumbnail.webp"

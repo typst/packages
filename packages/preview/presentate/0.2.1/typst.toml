@@ -1,0 +1,10 @@
+[package]
+name = "presentate"
+version = "0.2.1"
+entrypoint = "src/export.typ"
+authors = ["pacaunt <@pacaunt>"]
+license = "MIT"
+compiler = "0.13.0"
+repository = "https://github.com/pacaunt/typst-presentate"
+description = "A package to create slides with ease."
+categories = ["presentation"]

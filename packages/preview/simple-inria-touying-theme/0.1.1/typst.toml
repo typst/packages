@@ -1,0 +1,18 @@
+[package]
+name = "simple-inria-touying-theme"
+version = "0.1.1"
+compiler = "0.14.0"
+entrypoint = "theme.typ"
+authors = ["Sylvain Soliman <Sylvain.Soliman@inria.fr>"]
+license = "MIT"
+description = "Touying slides theme approximating Inria's graphical chart."
+repository = "https://gitlab.inria.fr/soliman/inria-touying-theme"
+categories = ["presentation"]
+keywords = ["Inria", "presentation", "slides"]
+exclude = ["assets/*.png"]
+disciplines = ["computer-science", "mathematics"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
