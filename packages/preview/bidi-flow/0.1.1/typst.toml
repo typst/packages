@@ -8,5 +8,5 @@ description = "Automatic RTL/LTR direction detection for mixed-direction documen
 keywords = ["rtl", "bidi", "hebrew", "arabic", "direction"]
 categories = ["text", "utility", "languages"]
 compiler = "0.14.0"
-exclude = ["main.typ", "main.pdf", "debug.pdf", ".claude/"]
+exclude = ["main.typ", "main.pdf", "debug.pdf", "scripts", "workflow"]
 repository = "https://github.com/manemajef/bidi-flow"

@@ -78,11 +78,40 @@
 /// Automatically sets `text.dir` for every `par`, `heading`, `list`, `enum`,
 /// and `table` based on the first strong (Hebrew/Arabic vs Latin) character.
 /// RTL blocks get `dir: rtl`; everything else keeps Typst's default (`auto`).
-#let bidi-flow = (latin-font: none, arab-font: none, hebrew-font: none, body) => {
+///
+/// Optional font controls:
+/// - `latin-font`: Overrides Latin codepoints only.
+/// - `arab-font`: Overrides Arabic codepoints only.
+/// - `hebrew-font`: Overrides Hebrew codepoints only.
+/// - `font`: Appended after the script-specific overrides as the generic
+///   fallback/base font. This covers scripts that were not explicitly
+///   overridden and fills missing glyphs inside overridden runs.
+///
+/// Font resolution order is:
+/// 1. Matching script-specific override (`latin-font`, `arab-font`,
+///    `hebrew-font`)
+/// 2. `font`, if provided
+/// 3. Built-in fallback `"Libertinus Serif"` when only script-specific
+///    overrides are configured
+///
+/// Passing only `font` applies it as the document's base font.
+#let bidi-flow = (latin-font: none, arab-font: none, hebrew-font: none, font: none, body) => {
   let rollback-font = "Libertinus Serif"
-  if latin-font != none { set text(font: (latin-font, rollback-font)) }
-  if arab-font != none { show regex("\p{Arabic}"): set text(font: (arab-font, rollback-font)) }
-  if hebrew-font != none { show regex("\p{Hebrew}"): set text(font: (hebrew-font, rollback-font)) }
+  let fonts = ()
+  if latin-font != none { fonts.push((name: latin-font, covers: regex("\p{Latin}"))) }
+  if arab-font != none { fonts.push((name: arab-font, covers: regex("\p{Arabic}"))) }
+  if hebrew-font != none { fonts.push((name: hebrew-font, covers: regex("\p{Hebrew}"))) }
+  if font != none { fonts.push(font) }
+  // Script-specific overrides match first. `font` acts as the general base
+  // font, and the built-in fallback is appended only when no explicit base
+  // font was provided.
+  if fonts.len() > 0 and font == none {
+    fonts.push(rollback-font)
+  }
+  let body = if fonts.len() > 0 {
+    set text(font: fonts)
+    body
+  } else { body }
 
   show par: it => if detect-dir(it.body) == rtl [
     #set text(dir: rtl)

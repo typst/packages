@@ -54,6 +54,28 @@ let d = detect-dir(heading.body)
 set text(dir: d)
 ```
 
+### Fonts
+
+Choosing fonts for multilingual documents can be tedious, so `bidi-flow`
+provides a small high-level API for script-aware font selection.
+
+```typst
+#show: bidi-flow.with(
+  latin-font: "New Computer Modern",
+  hebrew-font: "Noto Serif Hebrew",
+  font: "Libertinus Serif",
+)
+```
+
+In this example, Latin text uses _New Computer Modern_ and Hebrew text uses
+_Noto Serif Hebrew_. The `font` argument acts as the generic fallback or base
+font for scripts that were not explicitly overridden and for any missing glyphs.
+
+If you do not pass any font arguments, Typst's default font resolution is used.
+Passing only `font` applies it as the document's base font. When both `font`
+and script-specific overrides are present, the script-specific fonts win for
+their matching codepoints.
+
 ### Inline spans — `#rl[...]` / `#lr[...]`
 
 Force direction for a mixed-direction fragment:
@@ -61,14 +83,6 @@ Force direction for a mixed-direction fragment:
 ```typst
 The price is #rl[₪ 100] today.       // force RTL around the price
 בסוף המשפט יש מילה #lr[inline] כך.  // force LTR inside Hebrew
-```
-
-### Scope override — `#show: setrl` / `#show: setlr`
-
-Force direction for the rest of a scope:
-
-```typst
-#show: setrl   // everything below is RTL
 ```
 
 ### Directional seeds — `#r` / `#l`
@@ -99,6 +113,7 @@ Then import with `@local/bidi-flow:0.1.1`.
 ## Changes in 0.1.1 (Non-Breaking)
 
 - Added optional font overrides to `bidi-flow` (existing usage continues to work unchanged):
+  - `font`
   - `latin-font`
   - `arab-font`
   - `hebrew-font`
