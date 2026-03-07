@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="89.5" height="24" viewBox="0 0 89.5 24" preserveAspectRatio="none">
+
+  <!-- 主蓝色背景框 -->
+  <path d="M 0 0 V 18.4 L 5.6 23 V 18.4 H 78.2 L 66 0 Z" fill="#1a5599" />
+  
+  <!-- 左下角深蓝色 3D 折叠阴影 (视觉上包裹住垂直轴) -->
+  <path d="M 0 18.4 L 5.6 23 V 18.4 Z" fill="#123b6b" />
+  
+  <!-- 右侧装饰性切片 1 -->
+  <path d="M 67.4 0 H 70.2 L 82.4 18.4 H 79.6 Z" fill="#1a5599" />
+  
+  <!-- 右侧装饰性切片 2 -->
+  <path d="M 71.6 0 H 77.3 L 89.5 18.4 H 83.8 Z" fill="#1a5599" />
+</svg>

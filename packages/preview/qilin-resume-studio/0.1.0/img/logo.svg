@@ -1,0 +1,32 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Main document shape -->
+  <rect x="45" y="35" width="110" height="140" rx="8" fill="url(#grad1)" filter="url(#shadow)"/>
+  
+  <!-- Inner lighter area -->
+  <rect x="55" y="45" width="90" height="120" rx="6" fill="white" opacity="0.95"/>
+  
+  <!-- Typst styled text lines with varied opacity -->
+  <line x1="65" y1="62" x2="130" y2="62" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round" opacity="0.9"/>
+  <line x1="65" y1="78" x2="125" y2="78" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+  <line x1="65" y1="91" x2="128" y2="91" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="65" y1="104" x2="122" y2="104" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="65" y1="117" x2="118" y2="117" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+  <line x1="65" y1="130" x2="105" y2="130" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+  
+  <!-- Accent corner element -->
+  <circle cx="135" cy="50" r="12" fill="#f59e0b" opacity="0.85"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="145" cy="60" r="3" fill="#ec4899" opacity="0.7"/>
+  <circle cx="150" cy="48" r="2.5" fill="#8b5cf6" opacity="0.6"/>
+</svg>

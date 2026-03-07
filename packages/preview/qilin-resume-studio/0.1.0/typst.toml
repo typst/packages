@@ -1,0 +1,28 @@
+[package]
+name = "qilin-resume-studio"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["qiling <2473605320@qq.com>", "qiling <@DaYangtuo247>"]
+license = "MIT"
+description = "Data-driven resume and CV layouts with multiple themes."
+repository = "https://github.com/DaYangtuo247/Typst-Resume-Studio"
+keywords = ["resume", "cv", "job"]
+categories = ["cv"]
+compiler = "0.13.0"
+exclude = [
+  "/web",
+  "/previews",
+  "/node_modules",
+  "/typst-app-pack",
+  "/*.zip",
+  "/*.pdf",
+  "/themes/**/*.pdf",
+  "/themes/**/*.png",
+  "/themes/**/example.typ",
+  "/themes/**/example.yml",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

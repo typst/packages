@@ -1,0 +1,90 @@
+resume-info:
+  name: 张伟明
+  contacts:
+  - type: phone
+    label: 手机号
+    value: 186-1234-5678
+    url: "tel:+86 18612345678"
+  - type: email
+    label: 邮箱
+    value: "weiming.zhang@example.com"
+    url: "mailto:weiming.zhang@example.com"
+  - type: github
+    label: GitHub
+    value: weiming-z
+    url: "https://github.com/weiming-z"
+  - type: address
+    label: 地址
+    value: 上海市浦东新区
+    url: ''
+education:
+  title: 教育经历
+  items:
+  - school: 上海交通大学
+    degree: 硕士
+    major: 计算机科学与技术
+    start: '2020.09'
+    end: '2023.03'
+    details:
+    - 核心课程：高级算法设计（95/100），分布式系统（92/100），机器学习（90/100），编译原理。
+    - "获得一等学业奖学金（Top 5%），并担任计算机系统基础课程助教，辅导超过 100 名本科生。"
+  - school: 南京大学
+    degree: 本科
+    major: 软件工程
+    start: '2016.09'
+    end: '2020.06'
+    details:
+    - 连续三年获得校级优秀学生奖学金，全国大学生数学建模竞赛国家二等奖。
+experience:
+  title: 工作经历
+  items:
+  - company: 腾讯科技
+    position: 后台开发工程师
+    start: '2023.04'
+    end: 至今
+    details:
+    - 负责微信支付相关营销业务的微服务后台研发。基于 Go 语言和 tRPC 框架，承载日均千万级请求的流量冲击，确保营销活动在高并发下的极低延迟与数据强一致性。
+    - "设计并实现了一套通用的发券系统限流与防重刷组件。深入分析了恶意用户的刷券特征，通过结合 Redis 令牌桶算法、Lua 脚本以及本地内存缓存，保障了高并发场景下 99.99% 的高可用性，将服务器 CPU 负载峰值降低了 40%。"
+    - "主导老旧营销服务的容器化迁移改造项目。从传统虚拟机架构平滑迁移至 TKE（腾讯云 Kubernetes 引擎），通过重写 Dockerfile 优化镜像体积，引入分阶段构建，最终降低了集群资源总体消耗 15%，并将新业务的扩容时间从\
+      \ 30 分钟缩短至 2 分钟内。"
+    - "参与建立组内高标准的代码 Review 机制，并基于 Gitlab CI/CD 搭建自动化测试流水线，使服务上线的 P0/P1 级 Bug 率下降了 60%。"
+  - company: 美团
+    position: 后端开发实习生
+    start: '2022.06'
+    end: '2022.09'
+    details:
+    - 参与外卖配送调度系统的 C++ 服务端开发与维护，主要负责运单生命周期状态机的重构，修复了多个极端并发条件下的业务流转 Bug。
+    - "独立开发并上线了一套基于 Kafka 的死信队列（DLQ）重试与告警监控模块。能够自动捕获并分类处理下游服务超时导致的异常订单，有效提高了异常订单的自动召回率达到 95% 以上，大幅减轻了运营人员的手动排查压力。"
+  - company: 网易
+    position: Java 开发实习生
+    start: '2021.07'
+    end: '2021.11'
+    details:
+    - 参与某企业级网盘产品的后台功能研发，使用 Spring Boot 和 MyBatis，负责文件秒传、分片上传和断点续传核心接口的编写。
+    - 优化了基于 MySQL 的文件层级目录树查询效率，通过引入闭包表 (Closure Table) 模型，将深层目录查询的响应时间从 500ms 优化至 50ms 以内。
+projects:
+  title: 项目经历
+  items:
+  - name: 分布式键值存储系统 (TinyKV)
+    role: 个人开源项目
+    start: '2021.10'
+    end: '2022.02'
+    details:
+    - 基于 C++11 从零实现的一个轻量级分布式 KV 存储数据库，参考了 Raft 一致性协议，保证多节点下的强一致性与容错能力。
+    - 实现了核心的日志复制 (Log Replication)、领导者选举 (Leader Election) 和快照压缩 (Snapshot) 机制，解决了网络分区导致的脑裂问题。
+    - 底层存储采用基于 LSM-Tree 的 RocksDB，结合 gRPC 构建节点间的高效通信。在本地 3 节点集群压测下，实现 10k+ QPS 的读写性能。
+  - name: 高并发抢票系统
+    role: 核心开发者
+    start: '2020.12'
+    end: '2021.03'
+    details:
+    - 开发并优化了一个模拟 12306 架构的高并发抢票系统，前后端分离，后端采用 Spring Cloud Alibaba 微服务架构体系。
+    - "采用多级缓存策略：Nginx 本地缓存、Redis 分布式缓存拦截 90% 的无效请求；引入 RabbitMQ 进行异步下单削峰填谷。"
+    - 通过 Redis 结合 Lua 脚本实现分布式的库存扣减，彻底解决了超卖问题。最终系统在 Jmeter 压测中可支撑 20000 稳定 QPS。
+skills:
+  title: 技能
+  items:
+  - 编程语言：熟练使用 C/C++，Go 语言进行后端开发；熟悉 Java 体系及其生态；具备 Python 数据脚本编写能力。
+  - "后端组件：深入理解 MySQL 索引机制与事务隔离级别；熟练使用 Redis 进行缓存与分布式锁设计；熟练掌握 Kafka, RabbitMQ 等消息队列机制。"
+  - "架构设计：熟悉微服务架构（tRPC, Spring Cloud）、分布式系统一致性问题（Raft, Paxos），有高并发、高可用系统设计及线上性能调优经验。"
+  - 基础设施：熟练使用 Linux 操作系统及 Shell 脚本，掌握 Docker 容器化技术与 Kubernetes 集群的基本部署与运维。

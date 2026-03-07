@@ -1,0 +1,81 @@
+resume-info:
+  name: 陈大文
+  avatar: ../../img/avatar.jpg
+  contacts:
+  - type: phone
+    label: 手机号
+    value: 137-5555-6666
+    url: "tel:+86 13755556666"
+  - type: email
+    label: 邮箱
+    value: "dawen.chen@moderncv.com"
+    url: "mailto:dawen.chen@moderncv.com"
+  - type: github
+    label: GitHub
+    value: dawen-c
+    url: "https://github.com/dawen-c"
+  - type: location
+    label: 地址
+    value: 广东省深圳市
+    url: ''
+education:
+  title: 教育经历
+  items:
+  - school: 中山大学
+    degree: 硕士
+    major: 软件工程
+    start: '2017.09'
+    end: '2020.06'
+    details:
+    - 研究方向：Web 前端架构与全栈性能优化。
+    - 在读期间担任前端技术社团社长，主导开发了多款服务于全校师生的小程序。
+  - school: 华南理工大学
+    degree: 本科
+    major: 计算机科学与技术
+    start: '2013.09'
+    end: '2017.06'
+    details:
+    - 连续三年获得一等奖学金，优秀毕业生荣誉称号。
+experience:
+  title: 工作经历
+  items:
+  - company: 华为技术有限公司
+    position: 前端开发高级工程师
+    start: '2020.07'
+    end: 至今
+    details:
+    - "微前端架构演进：负责某云服务控制台的微前端架构设计与落地。主导将原有庞大且臃肿的单体应用拆分为超过 15 个独立子应用（基于 Qiankun 框架），有效降低了大型应用的构建时间，并将跨团队协作的部署冲突风险降低了 90%。"
+    - "前端工程化建设：主导团队的下一代前端工程化建设。全面引入 Vite 和 PNPM 替代传统 Webpack 构建链路，通过精细化配置依赖预构建和并行打包，将冷启动速度提升 80%，HMR 热更新时间缩短至毫秒级，极大地提升了开发体验。"
+    - 通用组件库研发：参与内部企业级中后台 UI 组件库（Vue 3 + TS）的研发与维护。输出超过 30 个高复用、强定制的复杂业务组件（如高级虚拟滚动表格、可视化规则配置器等），并建立完善的 Storybook 文档与单元测试，显著提升了全公司上百个业务线的交付效率。
+  - company: 金山软件
+    position: 前端开发实习生
+    start: '2019.06'
+    end: '2020.03'
+    details:
+    - 参与某在线办公协作文档产品的前端开发。使用 React 和 Redux 处理复杂状态流转，优化了文档的渲染逻辑与 DOM 节点复用。
+    - 通过引入 Web Worker 将密集型的数据解析计算转移至后台线程，解决了输入大型文档时的界面卡顿（UI 阻塞）问题。
+projects:
+  title: 项目经历
+  items:
+  - name: 可视化拖拽建站平台 (Low-Code Engine)
+    role: 核心开发者
+    start: '2022.03'
+    end: '2023.01'
+    details:
+    - 从零开发了一款基于 Vue 3 和 TypeScript 的企业级低代码页面搭建工具，支持组件自由拖拽、嵌套、属性可视化配置及事件绑定。
+    - 底层实现基于严谨的 JSON Schema 页面描述协议。配合定制的跨平台渲染引擎，使得运营和非技术人员能够分钟级发布营销活动页面，将此类需求的研发介入成本降低至 0。
+    - 引入 Monaco Editor 实现平台内的自定义代码注入沙箱，兼顾了易用性与业务逻辑的无限扩展能力。
+skills:
+  title: 技能
+  items:
+  - "语言基础：精通 HTML5 / CSS3 (Sass, Less) / JavaScript (ES6+)，极度熟练使用 TypeScript 进行严格类型化的大规模复杂应用开发。"
+  - "核心框架：深度掌握 Vue.js (2 & 3) 与 React 框架及其生态圈体系；深入理解底层响应式原理、虚拟 DOM 渲染机制及生命周期。"
+  - "工程化与部署：精通前端工程化和自动化构建工具（Vite, Webpack, Rollup），熟练配置 GitLab CI/CD 流水线，熟悉 Docker 基础部署。"
+  - "全栈能力：熟悉 Node.js 服务端开发 (Express, Koa)，具备一定的 Python 和 MySQL/Redis 数据库操作能力，能够独立完成全栈项目闭环。"
+certificates:
+  title: 资质证书
+  items:
+  - name: PMP 认证项目管理专业人士 (PMI)
+    date: '2022.11'
+  - name: AWS Certified Solutions Architect – Associate
+    date: '2021.05'

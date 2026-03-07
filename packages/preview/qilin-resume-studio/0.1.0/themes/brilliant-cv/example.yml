@@ -1,0 +1,81 @@
+resume-info:
+  name: 周卓越
+  avatar: ../../img/avatar.jpg
+  contacts:
+  - type: phone
+    label: 手机号
+    value: 139-1234-1234
+    url: "tel:+86 13912341234"
+  - type: email
+    label: 邮箱
+    value: "zhuoyue.zhou@brilliant.com"
+    url: "mailto:zhuoyue.zhou@brilliant.com"
+  - type: linkedin
+    label: LinkedIn
+    value: linkedin.com/in/zhuoyue
+    url: "https://linkedin.com/in/zhuoyue-zhou"
+education:
+  title: 教育经历
+  items:
+  - school: 复旦大学
+    degree: 博士
+    major: ''
+    start: '2019.09'
+    end: '2023.06'
+    details:
+    - 专业：微电子学与固体电子学
+    - 研究方向：先进集成电路设计与 EDA 算法、基于机器学习的芯片布线优化
+    - 学术成绩：在 DAC、ICCAD 等 EDA 领域顶级国际会议上发表论文 4 篇，获国家奖学金。
+  - school: 西安交通大学
+    degree: 本科
+    major: ''
+    start: '2015.09'
+    end: '2019.06'
+    details:
+    - 专业：电子科学与技术 (拔尖人才实验班)
+    - 荣誉：连续四年获一等奖学金，全国大学生电子设计竞赛国家一等奖。
+experience:
+  title: 工作经历
+  items:
+  - company: 某头部 EDA 软件公司
+    position: 高级算法研究员
+    start: '2023.07'
+    end: 至今
+    details:
+    - 核心职责：负责超大规模集成电路（VLSI）物理设计阶段的布线（Routing）核心算法研发与引擎迭代，直接汇报给技术副总裁。
+    - "机器学习赋能 EDA：提出并落地了一种基于图神经网络 (GNN) 和注意力机制的拥塞预测与时序预测模型。在先进 7nm/5nm 工艺节点的大型测试集（>10M 单元）中，模型将布线违例率 (DRC Violations) 显著降低了\
+      \ 12%，并帮助整体时序收敛速度提升了 20%。"
+    - "底层架构优化：深度重构与优化 C++ 核心引擎底层的数据结构（如高级 QuadTree、R-Tree 和内存池机制）。在保证查询精度的前提下，大幅降低了 30% 的内存峰值占用，并通过引入细粒度的多线程并行计算框架（OpenMP/TBB），将全局布线的计算效率提高了近一倍。"
+  - company: Synopsys (新思科技)
+    position: EDA 算法开发实习生
+    start: '2021.06'
+    end: '2022.02'
+    details:
+    - "参与 Design Compiler 综合工具内部逻辑优化模块的研发。针对特定算术电路结构（乘法器、加法器树），设计了一种启发式结构重写算法，成功缩小了综合后的芯片面积约 3%。"
+    - 编写大量 Python/Tcl 脚本以实现测试回归 (Regression Test) 的自动化，极大提升了研发组日常代码集成的质量和效率。
+projects:
+  title: 项目经历
+  items:
+  - name: 开源逻辑综合工具 OpenSyn
+    role: "核心贡献者 & Maintainer"
+    start: '2021.05'
+    end: '2022.12'
+    details:
+    - 背景：参与开发由多所高校联合发起的开源 RTL 逻辑综合框架项目，重点负责布尔逻辑优化（Boolean Optimization）核心模块的设计与 C++ 实现。
+    - "技术实现：实现了 AIG（And-Inverter Graph）和 XMG 等逻辑图的多种高级重写算法（Rewriting, Refactoring），通过深度优先搜索与动态规划寻找最优等效结构，使得逻辑深度 (Logic Depth)\
+      \ 平均减少了 5%。"
+    - 性能表现：在 ISCAS 官方测试集上，优化速度达到并部分超越了学术界知名的 ABC 工具，相关成果已被整理发表于 ICCAD。
+skills:
+  title: 技能
+  items:
+  - 编程与脚本语言：极度精通现代 C/C++ (C++11/14/17)，拥有极强的大型工程架构与面向对象设计能力；熟练使用 Python/Bash/Tcl 进行算法快速原型验证和自动化流片脚本编写；掌握 Makefile / CMake
+    构建系统。
+  - 算法与数据结构：拥有极其扎实的图论算法与离散数学基础（包括最短路径搜索、网络流、最大匹配、启发式搜索算法）；擅长在极致性能要求下进行复杂空间数据结构的设计、应用与底层调优。
+  - "专业领域知识：深度理解 VLSI 物理设计全流程、EDA 核心算法原理（包括 Placement, Routing, Static Timing Analysis, Boolean Satisfiability）。"
+certificates:
+  title: 资质证书
+  items:
+  - name: 集成电路 EDA 设计精英挑战赛全国特等奖
+    date: '2022'
+  - name: 全国大学生数学建模竞赛一等奖
+    date: '2018'

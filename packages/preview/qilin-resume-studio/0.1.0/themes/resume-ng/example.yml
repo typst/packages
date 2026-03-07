@@ -1,0 +1,126 @@
+resume-info:
+  name: 王晓明
+  contacts:
+  - type: phone
+    label: 手机号
+    value: 199-0000-1111
+    url: ''
+  - type: email
+    label: 邮箱
+    value: "xiaoming.wang@nextgen.dev"
+    url: "mailto:xiaoming.wang@nextgen.dev"
+  - type: github
+    label: GitHub
+    value: "https://github.com/xm-dev"
+    url: "https://github.com/xm-dev"
+  - type: website
+    label: 个人网站
+    value: "https://xiaoming.space"
+    url: "https://xiaoming.space"
+  summary: |-
+    热爱开源文化，热衷于探索前沿技术（特别是 Generative AI 与 Web3 基础设施），具备极强的自驱力和阅读英文原版文档的快速学习能力。
+    崇尚“Don't Repeat Yourself”原则，对代码整洁度有强烈的偏执，喜欢构建自动化脚本、CI/CD 管道和 CLI 工具来提升整个开发团队的工程效能。
+education:
+  title: 教育经历
+  items:
+  - school: 北京航空航天大学
+    degree: 硕士
+    major: 人工智能与软件工程
+    start: '2021.09'
+    end: '2024.06'
+    details:
+    - 研究方向：大规模图神经网络及其在推荐系统中的应用。
+    - "在读期间担任实验室开源项目负责人，主导了基于 PyTorch 的多模态推荐框架重构，将其训练效率提升了 40%。"
+  - school: 哈尔滨工业大学
+    degree: 本科
+    major: 软件工程
+    start: '2017.09'
+    end: '2021.06'
+    details:
+    - 核心课程 GPA 3.9/4.0，获得 ACM/ICPC 亚洲区域赛金奖。
+experience:
+  title: 工作经历
+  items:
+  - company: 百度
+    position: 全栈开发工程师
+    start: '2024.07'
+    end: 至今
+    details:
+    - 核心职责：负责百度某内部企业级协同效能工具的全栈研发。前端采用 Next.js (App Router) 构建现代化 UI，后端基于 Go 提供高性能微服务接口，整体支撑了全公司 2 万+ 员工的日常协作。
+    - 实时协同引擎：独立设计并落地了基于 WebSockets 的多人实时协同编辑模块（类似于 Google Docs 的体验）。使用 CRDT (Conflict-free Replicated Data Type) 算法，结合 Yjs
+      库，完美解决了高并发下的文本状态冲突问题，协同延迟降低至 50ms 内。
+    - AI 赋能探索：引入大语言模型（LLM）能力，开发了一套内部知识库的智能问答插件。基于 LangChain 搭建了完整的 RAG（检索增强生成）数据管道，利用 Milvus 向量数据库进行语义检索，大幅提升了内部技术文档的检索和问答准确率。
+  - company: PingCAP
+    position: 前端开发实习生
+    start: '2023.06'
+    end: '2023.12'
+    details:
+    - 参与 TiDB Cloud 平台的 Web 控制台开发，使用 React + TypeScript 维护核心集群管理界面，优化了包含数百个节点的拓扑图渲染性能。
+    - "封装了一套跨项目的通用图表组件库（基于 ECharts），统一了监控面板的视觉交互，减少了 20% 的重复造轮子工作。"
+projects:
+  title: 项目经历
+  items:
+  - name: "Awesome AI SaaS: 一站式智能文案平台"
+    role: 独立全栈开发者
+    start: '2023.12'
+    end: '2024.04'
+    details:
+    - 项目概述：从零到一设计、构建并上线的一款基于 GPT-4 和 Midjourney 的自动化文案生成与社交媒体配图 SaaS 平台。
+    - "技术架构：采用极客最爱的 T3 Stack (Next.js, tRPC, Prisma, TailwindCSS) 开发，数据库使用 PlanetScale 管理 MySQL。"
+    - 商业闭环：集成了 Clerk 进行安全的第三方多端登录，并完整实现了基于 Stripe 的订阅支付链路和 webhook 监听机制，保证多租户环境下的数据隔离。
+    - "运营成绩：上线首月通过 Twitter 和 Product Hunt 预热，即获得了 10,000+ 注册用户，并成功实现了数百美元的 MRR（月经常性收入）。"
+  - name: Rust-CLI-Toolkit
+    role: 开源作者
+    start: '2023.02'
+    end: '2023.05'
+    details:
+    - 使用 Rust 编写的一套开发者命令行工具箱，包含快速且美观的代码统计、端口检测与 HTTP 压测工具。
+    - 充分利用 Rust 的无畏并发特性，压测工具的性能在同等资源下媲美 wrk，Github 累计获得 500+ Star。
+skills:
+  title: 技能
+  items:
+  - category: 编程语言
+    items:
+    - TypeScript / JavaScript (ES6+)
+    - Python
+    - Go
+    - Rust (初阶)
+    - Java
+  - category: 前端开发
+    items:
+    - React
+    - Next.js
+    - Vue 3
+    - TailwindCSS
+    - Zustand
+    - Framer Motion
+    - Webpack/Vite
+  - category: 后端与云原生
+    items:
+    - Node.js (NestJS
+    - Express)
+    - FastAPI
+    - Django
+    - Go-Zero
+    - Docker
+    - Kubernetes
+    - AWS
+    - Vercel
+  - category: 数据与人工智能
+    items:
+    - PyTorch
+    - LangChain
+    - LlamaIndex
+    - PostgreSQL
+    - Redis
+    - MongoDB
+    - 熟悉 RAG 架构及 Prompt Engineering
+awards:
+  title: 荣誉奖项
+  items:
+  - title: Hackathon '23 最佳商业潜力创意大奖
+    date: '2023.11'
+  - title: 全国大学生算法设计与编程挑战赛一等奖
+    date: '2020.10'
+  - title: 国家级奖学金
+    date: '2019'

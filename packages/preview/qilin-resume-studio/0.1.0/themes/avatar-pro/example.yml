@@ -1,0 +1,91 @@
+resume-info:
+  name: 李若水
+  avatar: ../../img/avatar.jpg
+  contacts:
+  - type: phone
+    label: 手机号
+    value: 138-0013-8000
+    url: "tel:+86 13800138000"
+  - type: email
+    label: 邮箱
+    value: "li.ruoshui@example.com"
+    url: "mailto:li.ruoshui@example.com"
+  - type: website
+    label: 个人网站
+    value: dribbble.com/liruoshui
+    url: "https://dribbble.com/liruoshui"
+  - type: github
+    label: GitHub
+    value: github.com/ruoshui-ui
+    url: "https://github.com/ruoshui-ui"
+education:
+  title: 教育经历
+  items:
+  - school: 中央美术学院
+    degree: 硕士
+    major: 交互设计
+    start: '2019.09'
+    end: '2022.06'
+    details:
+    - 研究方向：沉浸式用户体验与数字产品设计
+    - 以专业第一的成绩毕业，并荣获国家级优秀设计毕业生称号
+    - 主导校级实验室‘未来体验实验室’的视觉资产设计与运维，带领5人团队完成多项前沿探索项目
+  - school: 同济大学
+    degree: 本科
+    major: 视觉传达设计
+    start: '2015.09'
+    end: '2019.06'
+    details:
+    - 连续三年获得校一等奖学金，担任设计与艺术学院学生会主席
+    - 本科毕业设计作品《声与形的交织》被上海市当代艺术博物馆收录并展出
+experience:
+  title: 工作经历
+  items:
+  - company: 字节跳动
+    position: 高级交互设计师 (Senior UI/UX Designer)
+    start: '2022.07'
+    end: 至今
+    details:
+    - "负责核心短视频类产品的内容消费链路体验设计，主导了三个大版本的界面重构。深入分析用户滑动、点赞、评论等交互路径，通过优化动画曲线与反馈机制，提升了日均用户留存率 12%。"
+    - "搭建并维护内部设计系统（Design System）。提炼出超过 100+ 标准化高复用设计组件，并与前端研发团队紧密合作（基于 React 和 Tailwind），提高设计与研发协同效率超过 30%，大幅缩短了新功能的上线周期。"
+    - "主导海外增长项目的本土化交互优化，带领小组成员前往东南亚及拉美市场进行深入的跨文化用户调研。基于输出的用户洞察报告，通过多轮 A/B 测试实现了转化率 8% 的显著增长，并在内部获得年度最佳出海设计团队奖。"
+  - company: 网易
+    position: UI/UX 设计实习生
+    start: '2021.05'
+    end: '2021.11'
+    details:
+    - 参与网易云音乐社交版块的交互设计，负责‘一起听’和‘音乐空间’等创新功能的界面推导与高保真原型输出。
+    - "通过大量用户可用性测试 (Usability Testing)，优化了好友匹配链路，将核心转化节点的流失率降低了 15%。"
+    - 配合用研团队产出 3 份深度的 Z 世代用户体验分析报告，为后续产品迭代提供了坚实的数据和洞察基础。
+projects:
+  title: 项目经历
+  items:
+  - name: VisionOS 空间计算概念应用
+    role: 独立设计师
+    start: '2023.10'
+    end: '2024.01'
+    details:
+    - 探索 Apple Vision Pro 平台的空间交互范式，设计并实现了一款 3D 沉浸式冥想应用《ZenSpace》的完整高保真原型。突破传统 2D 界面限制，利用手势追踪与眼动追踪进行 UI 布局。
+    - 使用 Figma 构建 UI 组件，使用 Spline 与 Blender 构建 3D 资产与空间动效，并在 Reality Composer Pro 中完成场景整合与交互预览。
+    - "作品发布在 Dribbble 与 Behance 后，在设计社区获得超过 5,000 次的点赞与收藏，并受邀在多个知名设计媒体上发表创作心得。"
+  - name: FlowUI 桌面端开源组件库
+    role: "发起人 & 主视觉设计师"
+    start: '2020.12'
+    end: '2021.08'
+    details:
+    - 从 0 到 1 设计了一套面向中后台系统的现代桌面端 UI 组件库。定义了完备的调色板、排版规范与无障碍 (a11y) 设计指南。
+    - 输出超过 50 个原子级组件的 Figma 库，并协助开源社区的前端开发者将其封装为 Vue 3 组件，目前 Github 拥有 2.5k Star。
+skills:
+  title: 技能
+  items:
+  - 设计与原型：精通 Figma (包含高级变量与组件变体)、Sketch、Principle、Propie 等 UI/UX 设计及动效原型工具。
+  - "3D与视觉：熟练掌握 Spline、Blender 和 C4D 进行 3D 资产制作；熟练使用 Adobe 全家桶 (Ps, Ai, Ae) 进行视觉表达。"
+  - "研发协作：熟悉前端基础技术（HTML5, CSS3, Vue, React），理解 CSS 盒模型与响应式布局，具备卓越的 Design to Code（D2C）交付和沟通能力。"
+  - "用户研究：擅长利用数据分析工具（如 Google Analytics, Mixpanel 等）进行体验诊断，结合深度的定性访谈与定量问卷，推进数据驱动的设计决策。"
+awards:
+  title: 荣誉奖项
+  items:
+  - title: 德国红点设计大奖 - 传达设计类优异奖
+    date: '2022'
+  - title: 站酷 (ZCOOL) 年度十大推荐交互设计师
+    date: '2023'
