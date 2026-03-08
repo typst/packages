@@ -46,11 +46,11 @@
 /// #maze(
 ///   10,
 ///   10,
-///   start_cont: [🚩],
-///   finish_cont: [🏁],
+///   start: [🚩],
+///   finish: [🏁],
 /// )
 /// ```
-#let maze(cols, rows, width: 100%, height: 100%, seed: 0, stroke: auto, start_cont: none, finish_cont: none) = layout(size => {
+#let maze(cols, rows, width: 100%, height: 100%, seed: 0, stroke: auto, start: none, finish: none) = layout(size => {
   let LL = calc.min(
     if type(width) == ratio {
       size.width * width
@@ -85,12 +85,12 @@
     return shuffle-f(rng, result)
   }
 
-  let (rng, start) = integers-f(gen-rng-f(seed), high: CR)
+  let (rng, start_cell) = integers-f(gen-rng-f(seed), high: CR)
   let nn
-  (rng, nn) = neighbors(rng, start)
-  let path = if CR == 1 { () } else { ((start, nn),) }
+  (rng, nn) = neighbors(rng, start_cell)
+  let path = if CR == 1 { () } else { ((start_cell, nn),) }
   let visited = range(CR).map(_ => false)
-  visited.at(start) = true
+  visited.at(start_cell) = true
   while path.len() != 0 {
     let (v, v_neighbors) = path.pop()
     let n = v_neighbors.pop()
@@ -115,8 +115,8 @@
   }
 
   block(
-    box(place(box(align(center + horizon, start_cont), width: LL, height: LL), dy: -rows*LL)) +
-    box(place(box(align(center + horizon, finish_cont), width: LL, height: LL), dx: (cols - 1)*LL, dy: -LL)) +
+    box(place(box(align(center + horizon, start), width: LL, height: LL), dy: -rows*LL)) +
+    box(place(box(align(center + horizon, finish), width: LL, height: LL), dx: (cols - 1)*LL, dy: -LL)) +
     box(curve(
     ..draw_line((0, 0), (cols, 0)),
     ..draw_line((0, rows), (cols, rows)),

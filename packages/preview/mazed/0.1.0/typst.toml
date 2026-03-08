@@ -6,9 +6,3 @@ authors = ["Piotr Beling"]
 license = "MIT"
 description = "Maze generator."
 repository = "https://github.com/beling/mazed"
-
-[dependencies]
-suiji = "0.5.1"
-
-[keywords]
-keywords = ["maze", "labyrinth", "typst", "graphics", "procedural", "random"]

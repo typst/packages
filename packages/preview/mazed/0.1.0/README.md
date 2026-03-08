@@ -25,7 +25,7 @@ any two cells).
 )
 ```
 
-### Red maze with start and finish markers
+### Red maze with given seed, as well as start and finish markers
 
 ```typst
 #maze(
@@ -33,8 +33,8 @@ any two cells).
   10,
   width: 10cm,
   seed: 123,
-  start_cont: [🚩],
-  finish_cont: [🏁],
+  start: [🚩],
+  finish: [🏁],
   stroke: red
 )
 ```
@@ -53,8 +53,8 @@ maze(
   height: 100%,
   seed: 0,
   stroke: auto,
-  start_cont: none,
-  finish_cont: none,
+  start: none,
+  finish: none,
 )
 ```
 
@@ -66,8 +66,8 @@ maze(
 - `height` - height of the rendered maze  
 - `seed` - random seed for deterministic generation 
 - `stroke` - how to stroke the maze 
-- `start_cont` - content placed in the start cell  
-- `finish_cont` - content placed in the finish cell  
+- `start` - content placed in the start cell  
+- `finish` - content placed in the finish cell  
 
 **Returns:** Content containing the rendered maze.
 
