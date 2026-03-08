@@ -1,4 +1,4 @@
-#import "@preview/datify:1.0.0": custom-date-format
+#import "@preview/datify:1.0.1": custom-date-format
 #import "@preview/fontawesome:0.6.0": fa-icon
 
 // Global state for theme and author information
