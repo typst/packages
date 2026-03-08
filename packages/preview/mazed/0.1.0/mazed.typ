@@ -22,8 +22,8 @@
 /// - seed: Seed for the pseudo-random generator. Using the same seed
 ///   produces the same maze. Defaults to `0`.
 /// - stroke: How to [stroke] the maze. Defaults to `auto` (for a stroke of 1pt black).
-/// - start_cont: Content placed in the start cell. Defaults to `none`.
-/// - finish_cont: Content placed in the finish cell. Defaults to `none`.
+/// - start: Content placed in the start cell. Defaults to `none`.
+/// - finish: Content placed in the finish cell. Defaults to `none`.
 ///
 /// Returns:
 /// Content containing the rendered maze.
