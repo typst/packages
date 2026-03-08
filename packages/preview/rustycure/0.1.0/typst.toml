@@ -1,0 +1,10 @@
+[package]
+name = "rustycure"
+version = "0.1.0"
+entrypoint = "rustycure.typ"
+authors = ["Alexander Sommer"]
+license = "EUPL-1.2"
+description = "Generate QR codes fast."
+
+repository = "https://codeberg.org/fussgaenger/rustycure"
+keywords = ["qr", "qr-code", "qrcode", "code", "generate", "generator"]

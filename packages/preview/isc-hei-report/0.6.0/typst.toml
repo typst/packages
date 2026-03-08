@@ -1,0 +1,17 @@
+[package]
+name = "isc-hei-report"
+version = "0.6.0"
+compiler = "0.13.1"
+entrypoint = "isc_templates.typ"
+repository = "https://github.com/ISC-HEI/isc-hei-student-templates"
+authors = ["Pierre-André Mudry"]
+license = "MIT"
+description = "Official report at the 'Informatique et systèmes de communication' (ISC) bachelor degree programme, School of Engineering (HEI) in Sion, Switzerland."
+keywords = ["report", "ISC", "thesis", "university", "Informatique et systèmes de communication", "HES-SO Valais", "Sion", "HEI", "School of engineering"]
+categories = ["report"]
+disciplines = ["computer-science", "engineering"]
+
+[template]
+path = "src"
+entrypoint = "report.typ"
+thumbnail = "report_thumb.png"

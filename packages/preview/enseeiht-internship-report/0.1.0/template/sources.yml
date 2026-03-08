@@ -1,0 +1,13 @@
+k8s:
+    type: Reference
+    title: Kubernetes documentation
+    author: Kubernetes Authors
+    url: https://kubernetes.io/fr/docs/home/
+
+virtualbox:
+  type: misc
+  title: "VirtualBox"
+  author: "Oracle Corporation"
+  url: "https://www.virtualbox.org/"
+  version: "7.1.12" # ou votre version utilisée
+  year: 2025 # année de la version

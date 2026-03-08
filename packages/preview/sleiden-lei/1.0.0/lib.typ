@@ -1,0 +1,2 @@
+#import "internal/main.typ": placeholder, colors, slides
+#import "internal/main.typ": title-presentation, index, only-text, text-dominant, text-and-image-equal, image-dominant, only-image, text-and-4-images, text-and-2-images, title-closure

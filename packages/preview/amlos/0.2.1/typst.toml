@@ -2,7 +2,7 @@
 name = "amlos"
 version = "0.2.1"
 entrypoint = "lib.typ"
-authors = ["uwni <https://github.com/uwni>"]
+authors = ["枚鴉 <@uwni>"]
 license = "MPL-2.0"
 description = "Amlos makes list of symbols."
 repository = "https://github.com/uwni/Amlos"

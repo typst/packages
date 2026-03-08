@@ -1,0 +1,11 @@
+slug = "trapping-rain-water"
+title = "Trapping Rain Water"
+difficulty = "hard"
+labels = [
+  "array",
+  "two-pointers",
+  "dynamic-programming",
+  "stack",
+  "monotonic-stack",
+]
+custom-display = true

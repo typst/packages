@@ -1,0 +1,15 @@
+[package]
+name = "elspub"
+version = "0.2.0"
+authors = ["Mathieu Aucejo", "James R Swift"]
+license = "MIT"
+description = "Elsevier article template for Typst"
+entrypoint = "src/elspub.typ"
+categories = ["paper", "model", "report"]
+keywords = ["elsevier", "article", "template"]
+repository = "https://github.com/maucejo/elspub"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/main.png"

@@ -1,0 +1,13 @@
+[package]
+name = "pillar"
+version = "0.3.3"
+entrypoint = "src/pillar.typ"
+authors = ["Mc-Zen <https://github.com/Mc-Zen>"]
+license = "MIT"
+description = "Faster column specifications for tables."
+compiler = "0.11.0"
+
+repository = "https://github.com/Mc-Zen/pillar"
+keywords = ["table", "tabular", "columns", "latex", "siunitx S column", "number alignment"]
+categories = ["visualization", "layout"]
+exclude = ["/docs/*"]
