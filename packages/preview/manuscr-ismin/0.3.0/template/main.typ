@@ -17,15 +17,11 @@
     (
       name: [Auteur #smallcaps[Premier]],
       affiliation: "Filière 1",
-      year: "Année 1",
-      class: "Classe 1",
       email: "auteur1@emse.fr",
     ),
     (
       name: [Auteur #smallcaps[le Second]],
       affiliation: "Filière 2",
-      year: "Année 2",
-      class: "Classe 2",
       email: "auteur2@emse.fr",
     ),
   ),
@@ -43,6 +39,7 @@
   header: [#h(1fr) #upper[_En-tête _]],
   logo: image("assets/MSE-IMT_Hor_RVB.svg", width: 7.3cm),
   date: "01/03/26",
+  latex-look: false,
 )
 
 /*
@@ -142,9 +139,9 @@ On a ceci :
     align: center + horizon,
     columns: 9,
     fill: (x, y) => if x == 0 {
-      body-colour
+      violet-emse.lighten(80%)
     } else if calc.even(y) {
-      block-colour
+      violet-emse.lighten(90%)
     } else {
       none
     },
