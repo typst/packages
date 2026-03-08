@@ -1,0 +1,10 @@
+[package]
+name = "percencode"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Sven Vogel"]
+license = "MIT"
+description = "Work with percent-encoding used by web browsers to encode URLs."
+repository = "https://github.com/Servostar/typst-percencode"
+keywords = ["url", "encode", "decode", "escape", "percent"]
+categories = ["scripting", "utility"]
