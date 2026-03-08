@@ -5,32 +5,6 @@
 #let lining(it) = text(number-type: "lining", it)
 #let arcosh = math.op(limits: false, "arcosh")
 
-#let conf-data = yaml("template/conf.yaml")
-
-#let body-font = conf-data.fonts.body.font
-#let body-options = conf-data.fonts.body.options
-#let code-font = conf-data.fonts.code.font
-#let code-options = conf-data.fonts.code.options
-#let math-font = conf-data.fonts.math.font
-#let math-options = conf-data.fonts.math.options
-#let mono-font = conf-data.fonts.mono.font
-#let mono-options = conf-data.fonts.mono.options
-#let sans-font = conf-data.fonts.sans.font
-#let sans-options = conf-data.fonts.sans.options
-
-#let mono(it) = text(font: mono-font, number-type: "lining", features: mono-options, it)
-#let sans(it) = text(font: sans-font, features: sans-options, it)
-
-#let main-colour = conf-data.main-colour
-#let other-colour = conf-data.other-colour
-
-#let primary-colour = rgb(main-colour)
-#let other-colour = rgb(other-colour)
-#let block-colour = primary-colour.lighten(90%)
-#let body-colour = primary-colour.lighten(80%)
-#let header-colour = primary-colour.lighten(65%)
-#let fill-colour = primary-colour.lighten(50%)
-
 // template
 #let manuscr-ismin(
   school: (),
@@ -46,8 +20,18 @@
   academic-year: "",
   header: "",
   show-imt-triangle: true,
+  latex-look: false,
+  main-colour: violet-emse,
+  other-colour: blue-imt,
   body,
 ) = {
+  let primary-colour = main-colour
+  let other-colour = other-colour
+  let block-colour = primary-colour.lighten(90%)
+  let body-colour = primary-colour.lighten(80%)
+  let header-colour = primary-colour.lighten(65%)
+  let fill-colour = primary-colour.lighten(50%)
+
   let count = authors.len()
   let ncols = calc.min(count, 3)
 
@@ -57,9 +41,29 @@
 
   set page(margin: 1.75in)
 
-  // police de texte
-  set text(font: body-font, features: body-options)
+  let mono(it) = text(
+    font: if latex-look {
+      "New Computer Modern Mono"
+    } else {
+      "IBM Plex Mono"
+    },
+    number-type: "lining",
+    it,
+  )
 
+  // police de texte
+  set text(
+    font: if latex-look {
+      "New Computer Modern"
+    } else {
+      "Libertinus Serif"
+    },
+    features: if latex-look {
+      ("",)
+    } else {
+      ("case", "cpsp", "dlig")
+    },
+  )
   // titres
   show heading: set text(fill: primary-colour)
   show heading: set block(above: 1.4em, below: 1em)
@@ -246,11 +250,17 @@
 
   // on règle l'affichage du code
   show raw: it => {
-    text(
-      font: code-font,
-      features: code-options,
-      it,
-    ) // police pour les blocs de texte brut
+    if latex-look {
+      text(
+        font: "New Computer Modern Mono",
+        it,
+      )
+    } else {
+      text(
+        font: "IBM Plex Mono",
+        it,
+      )
+    } // police pour les blocs de texte brut
   }
 
   // on règle l'affichage des blocs de code
@@ -271,7 +281,7 @@
   )
 
   // on règle l'affichage des équations en ligne
-  show math.equation: set text(font: math-font, features: math-options)
+  show math.equation: set text(font: "New Computer Modern Math", features: ("ss03",))
 
   // on règle l'affichage des blocs d'équation
   show math.equation: it => {
@@ -334,9 +344,6 @@
     weight: "bold",
   )
   show table: set text(number-type: "lining")
-
-  // on règle l'affichage des équations en ligne
-  show math.equation: set text(font: math-font)
 
   // réglages figures
   show figure: set block(breakable: true)
