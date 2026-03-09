@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 
 authors = ["<@daqnal>"]
-license = "GPL-3.0"
+license = "GPL-3.0-or-later"
 description = "Submit homeworks with simplicity and formality."
 
 repository = "https://github.com/daqnal/formal-homework"
