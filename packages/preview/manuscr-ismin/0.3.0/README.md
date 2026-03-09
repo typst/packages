@@ -8,7 +8,7 @@ and the [Diatypst _template_](https://github.com/skriptum/Diatypst).
 Many of the typographic rules were drawn from [_Butterick's Practical Typography_](https://practicaltypography.com/).
 I also recommend reading _Règles françaises de typographie mathématique_ by Alexandre André, available [here](http://sgalex.free.fr/typo-maths_fr.pdf).
 
-The file `template_report_ISMIN.pdf` is a PDF preview of the compiled output.
+The file [`manuscr-ismin.pdf`](https://github.com/senaalem/manuscr-ismin/blob/56a37c85d57dbdb37df4128097e57bcaf265cec9/manuscr-ismin.pdf) is a PDF preview of the compiled output.
 I have tried to showcase all the possibilities offered by Typst and the `manuscr-ismin` function; the content is obviously meant to be adjusted to your needs.
 
 To learn more about Typst and its functions, you can refer to [the documentation](https://typst.app/docs), which is very comprehensive.
