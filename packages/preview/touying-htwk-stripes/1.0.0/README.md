@@ -123,7 +123,7 @@ Displays a slide containing the outline which is not displayed in the navigation
 
 ### htwk-title-slide
 
-Displays the title slide containing information passed to the `htwk-stripes-theme` function. Uses: `logoInstitution`, `logoFaculty`, `title`, `subtitle`, `date`, `authors-title-slide` and `institution`.
+Displays the title slide containing information passed to the `htwk-stripes-theme` function. Uses: `logo-institution`, `logo-faculty`, `title`, `subtitle`, `date`, `authors-title-slide` and `institution`.
 
 Example call:
 
