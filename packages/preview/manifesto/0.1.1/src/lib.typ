@@ -1,4 +1,4 @@
-#import "icons.typ": bulb-icon, flame-icon, flare-icon, spider-icon
+#import "icons.typ": bulb-icon, messages-icon, flare-icon, spider-icon
 
 /// Documentation template generation function
 ///
@@ -109,7 +109,7 @@
                         #html.div(class: "grid grid-cols-2 *:flex *:items-start gap-x-3 gap-y-5 *:gap-2 [&_p]:m-0! text-mist-800 dark:text-mist-200 lg:grid-cols-1 mt-8")[
                             #if "qa" in notices [
                                 #html.div[
-                                    #flame-icon
+                                    #messages-icon
                                     #html.div(class: small-text-size)[
                                         Got a question? \
                                         Ask it on the #link(notices.qa)[community forum].
@@ -132,11 +132,48 @@
                     class: "order-3 md:order-2 " + text-size + " flex-auto overflow-hidden [&_table]:w-full [&_th]:text-left",
                     doc,
                 )
-                #html.div(class: "order-2 print:hidden " + text-size + "! md:order-3 md:w-64 flex-none overflow-visible")[
+                #html.div(class: "order-2 print:hidden " + text-size + "! md:order-3 md:w-64 flex-none")[
                     #html.div(
-                        class: "sticky top-5 dark:text-white mb-12 *:space-y-0 [&_ol]:p-0 [&_li]:m-0 [&_a]:font-normal! [&_a]:text-current! [&_a]:hover:text-black! [&_a]:dark:hover:text-white! [&_a]:no-underline!",
-                        outline(depth: 1, title: none),
-                    )
+                        class: "sticky top-5 max-h-[calc(100vh-2.5rem)] overflow-y-auto dark:text-white lg:mb-12 *:space-y-0 [&_a]:font-normal! [&_a]:text-current! [&_a]:hover:text-black! [&_a]:dark:hover:text-white! [&_a]:no-underline!",
+                    )[
+                        #context {
+                            let headings = query(heading.where(outlined: true))
+                            let sections = ()
+                            let current-section = none
+                            for h in headings {
+                                if h.depth == 1 {
+                                    if current-section != none {
+                                        sections.push(current-section)
+                                    }
+                                    current-section = (heading: h, children: ())
+                                } else if current-section != none {
+                                    current-section.children.push(h)
+                                }
+                            }
+                            if current-section != none {
+                                sections.push(current-section)
+                            }
+                            html.nav(class: "flex flex-col gap-2 [&_p]:m-0!", for (i, section) in sections.enumerate() {
+                                if section.children.len() == 0 {
+                                    link(section.heading.location(), section.heading.body)
+                                } else {
+                                    html.details(name: "outline-accordion", class: "group [&_a]:block", {
+                                        html.elem(
+                                            "summary",
+                                            attrs: (class: "cursor-pointer list-none flex items-center justify-between [&::-webkit-details-marker]:hidden"),
+                                            {
+                                                link(section.heading.location(), section.heading.body)
+                                                html.elem("svg", attrs: (class: "size-5 transition-transform group-open:rotate-90 shrink-0 opacity-50", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", stroke-width: "1.6", stroke-linecap: "round", stroke-linejoin: "round"))[#html.elem("path", attrs: (stroke: "none", fill: "none", d: "M0 0h24v24H0z")) #html.elem("path", attrs: (d: "M9 6l6 6l-6 6"))]
+                                            },
+                                        )
+                                        html.div(class: "pl-4 border-l border-mist-200 dark:border-mist-700 ml-1 mb-1", for child in section.children {
+                                            html.div(class: if child.depth >= 3 { "ps-4" } else { "" }, link(child.location(), child.body))
+                                        })
+                                    })
+                                }
+                            })
+                        }
+                    ]
                 ]
             ]
 
