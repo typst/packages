@@ -76,6 +76,7 @@ git checkout main
 git reset --hard upstream/main
 git push origin main --force
 ```
+
 ### Image quantization
 
 To reduce the size of images, which is nice for reducing the template size on the Universe.

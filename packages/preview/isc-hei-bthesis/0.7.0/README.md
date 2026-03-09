@@ -1,5 +1,5 @@
 <p align="right">
-    <img src="https://github.com/ISC-HEI/isc_logos/blob/4f8d335f7f4b99d3d83ee579ef334c201a15166a/ISC%20Logo%20inline%20v1.png?raw=true" align="right" alt="ISC Logo" height="50"/>
+    <img src="https://github.com/ISC-HEI/isc_logos/blob/ab8c41c12930c787f590183baa229a22709c81f9/black/ISC%20Logo%20inline%20black%20v3%20-%20large.webp?raw=true" align="right" alt="ISC Logo" height="50"/>
 </p>
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/ISC-HEI/isc-hei-report)

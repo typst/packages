@@ -1,22 +1,22 @@
 <p align="right">
-    <img src="https://github.com/ISC-HEI/isc_logos/blob/4f8d335f7f4b99d3d83ee579ef334c201a15166a/ISC%20Logo%20inline%20v1.png?raw=true" align="right" alt="ISC Logo" height="50"/>
+    <img src="https://github.com/ISC-HEI/isc_logos/blob/ab8c41c12930c787f590183baa229a22709c81f9/black/ISC%20Logo%20inline%20black%20v3%20-%20large.webp?raw=true" align="right" alt="ISC Logo" height="50"/>
 </p>
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/ISC-HEI/isc-hei-report)
 ![GitHub Release](https://img.shields.io/github/v/release/ISC-HEI/isc-hei-report?include_prereleases)
 ![License](https://img.shields.io/badge/license-MIT-brightgreen")
 
-# Project Report Template for ISC Students
+# Document template for ISC
 
-This is the official template for project reports for the [ISC degree programme](https://isc.hevs.ch/) at the School of Engineering in Sion. It is part of the official templates repository, which also include templates for bachelor thesis (`isc-hei-bthesis`) and executive summaries (`isc-hei-exec-summary`).
+This is the official template for small documents for the [ISC degree programme](https://isc.hevs.ch/) at the School of Engineering in Sion. It is part of the official templates repository, which also include templates for bachelor thesis (`isc-hei-bthesis`) and executive summaries (`isc-hei-exec-summary`).
 
 <p align="center">
-  <a href="https://github.com/ISC-HEI/isc-hei-student-templates/blob/ad7ebe178126b2910e3a0e2ba1b1929cf24e47f3/examples/report.pdf?raw=true"><img src="report_thumb.png" alt="Report" height="300"></a>
+  <a href="https://github.com/ISC-HEI/isc-hei-student-templates/blob/b9c87c26cf53548c2a6a7a1656751b3546ca3db7/examples/document.pdf?raw=true"><img src="document_thumb.png" alt="Document" height="300"></a>
 </p>
 
 ## Using the Template on the Web
 
-In the `Typst` web application, start a new project with the `isc-hei-report` template and voilà!
+In the `Typst` web application, start a new project with the `isc-document` template and voilà!
 
 ## Using the Template in Your Shell
 
@@ -39,13 +39,13 @@ from within the `fonts` directory.
 You can initialize the project with the command:
 
 ```bash
-typst init @preview/isc-hei-report
+typst init @preview/isc-hei-document
 ```
 
 If you need a specific template version, use:
 
 ```bash
-typst init @preview/isc-hei-report:0.5.0
+typst init @preview/isc-hei-document:0.7.0
 ```
 
 ## Including PDF Images
@@ -57,13 +57,13 @@ Unfortunately, `typst` does not support PDF file inclusion at the time of writin
 When used locally, creating a PDF is straightforward with the command:
 
 ```bash
-typst compile report.typ
+typst compile document.typ
 ```
 
 Even better, the following command compiles the report every time the file is modified:
 
 ```bash
-typst watch report.typ
+typst watch document.typ
 ```
 
 You can also use `VSCode` or `VSCodium` with the `Typst LSP` plugin, which enables direct compilation.
