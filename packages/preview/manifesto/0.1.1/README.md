@@ -6,7 +6,7 @@
 
 You are free to check either [this example](https://bone.grangelouis.ch) from `bone` or [this one](https://zap.grangelouis.ch) from `zap`.
 
-<img width="1452" height="922" alt="Capture d’écran 2026-03-09 à 22 24 10" src="https://github.com/user-attachments/assets/9e388dc2-267a-4131-a63b-79a052bf9b85" />
+<img width="1452" height="922" alt="Preview example" src="https://github.com/user-attachments/assets/9e388dc2-267a-4131-a63b-79a052bf9b85" />
 
 ## Quick usage
 
