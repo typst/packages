@@ -60,10 +60,11 @@
         #let small-text-size = if font == "sans" { "text-[0.88rem]" } else { "text-base" }
         #html.body(
             style: "font-family: '" + dfont + "', serif",
-            class: if font == "sans" { "[&_.schema-notes]:text-sm " } + "[&_*]:border-mist-200 [&_:is(h1,h2,h3,h4)]:font-semibold [&_:is(h1,h2,h3,h4)]:scroll-mt-5 [&_h2]:text-3xl [&_h3]:text-2xl [&_h3]:mt-6 [&_h2:nth-of-type(n+2)]:mt-10 [&_h2]:mb-4
-            [&_h3]:mb-3 [&_h4]:mb-3 [&_h4]:text-xl [&_p]:mb-3 [&_:is(ol,ul)]:ps-9 [&_ol_li::marker]:text-mist-500 [&_:is(ol,ul)]:space-y-3 [&_ol]:list-decimal [&_ul]:list-disc antialiased [&_a]:underline [&_a]:underline-offset-2 [&_a]:font-semibold text-mist-800
+            class: if font == "sans" { "[&_.schema-notes]:text-sm " } + "[&_*]:border-mist-200 [&_:is(h1,h2,h3,h4,h5,h6)]:font-semibold [&_:is(h1,h2,h3,h4,h5,h6)]:scroll-mt-5 [&_h2]:text-3xl [&_h3]:text-2xl [&_h4]:text-lg [&_h3]:mt-6 [&_h2:nth-of-type(n+2)]:mt-10 [&_h2]:mb-4
+            [&_:is(h3,h4)]:mb-3 [&_:is(h5,h6)]:mb-4 [&_h4]:text-xl [&_p]:mb-3 [&_:is(ol,ul)]:ps-9 [&_ol_li::marker]:text-mist-500 [&_:is(ol,ul)]:space-y-3 [&_ol]:list-decimal [&_ul]:list-disc antialiased [&_a]:underline [&_a]:underline-offset-2 [&_a]:font-semibold text-mist-800
             dark:text-mist-300 [&_strong]:text-black [&_strong]:font-semibold [&_:is(strong,a)]:dark:text-white! dark:text-white bg-mist-50 dark:bg-mist-950 [&_*]:dark:border-mist-800
-            [&_td]:py-1.5 [&_td]:border-b [&_td]:px-2 [&_td]:py-1 [&_td:first-child]:pl-0 [&_td:last-child]:pr-0 [&_tr:last-child_td]:border-none [&_tr:first-child_td]:pt-0 [&_tr:last-child_td]:pb-0"
+            [&_td]:py-1.5 [&_thead+tbody_tr:first-child_td]:pt-1.5 [&_th]:pb-2 [&_:is(td,th)]:border-b [&_:is(td,th)]:px-2 [&_td]:py-1 [&_:is(td,th):first-child]:pl-0 [&_td:last-child]:pr-0 [&_tr:last-child_td]:border-none [&_tr:first-child_td]:pt-0 [&_tr:last-child_td]:pb-0
+            [&_td:has(.typst-frame)]:py-3!"
                 + class,
         )[
             // Configuration
@@ -128,7 +129,7 @@
                     ]
                 ]
                 #html.article(
-                    class: "order-3 md:order-2 " + text-size + " flex-auto overflow-hidden",
+                    class: "order-3 md:order-2 " + text-size + " flex-auto overflow-hidden [&_table]:w-full [&_th]:text-left",
                     doc,
                 )
                 #html.div(class: "order-2 " + text-size + "! md:order-3 md:w-64 flex-none overflow-visible")[
