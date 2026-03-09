@@ -77,7 +77,7 @@ $ 8 $
 
 ```
 
-![Image of Template](template/preview.png)
+![Image of Template](preview.png)
 
 ## Development
 Using [just](https://just.systems/man/en/), [showman](https://github.com/ntjess/showman/tree/main), and [tytanic](https://typst-community.github.io/tytanic/index.html) to help aid development.
@@ -89,7 +89,7 @@ just install # symlink local clone to local package area for easier live develop
 ```
 
 See the tytanic documentation for how to write tests, for a short reference:
-```
+```sh
 # 1. create a new test (following my arbitrary naming convention)
 tt new sixteen/page-numbers/digital
 # 2. edit the test file
