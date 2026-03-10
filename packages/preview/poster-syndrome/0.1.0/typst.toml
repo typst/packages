@@ -1,0 +1,24 @@
+[package]
+name = "poster-syndrome"
+version = "0.1.0"
+entrypoint = "poster-syndrome.typ"
+authors = ["baptiste <https://github.com/baptiste>"]
+license = "MPL-2.0"
+description = "A poster template with custom frame placement."
+categories = ["office"]
+repository = "https://github.com/baptiste/poster-syndrome"
+exclude = [
+    "examples",
+    "tests",
+    "docs",
+    ".github",
+    ".vscode",
+    ".git",
+    ".gitignore",
+    "**/*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

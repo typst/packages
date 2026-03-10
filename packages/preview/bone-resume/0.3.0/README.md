@@ -27,14 +27,14 @@ This template exports the `resume-init` function with the following named argume
 The function also accepts a single, positional argument for the body of the
 paper.
 
-The template will initialize your package with a sample call to the `bone-resume`
+The template will initialize your package with a sample call to the `resume-init`
 function in a show rule. If you want to change an existing project to use this
 template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/bone-resume:0.1.0": bone-resume
+#import "@preview/bone-resume:0.3.0": resume-init
 
-#show: bone-resume.with(
+#show: resume-init.with(
   author: "六个骨头"
 )
 

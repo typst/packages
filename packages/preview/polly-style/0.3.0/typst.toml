@@ -1,0 +1,9 @@
+[package]
+name = "polly-style"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["Matthew Milunic"]
+license = "MIT"
+description = "Create align blocks for CMU 15150 SML proofs."
+
+[tool]

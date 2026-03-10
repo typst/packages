@@ -1,0 +1,16 @@
+[package]
+name = "minimal-note"
+version = "0.10.0"
+entrypoint = "lib.typ"
+authors = ["Michel Liao"]
+license = "MIT-0"
+description = "Notes with colorful minimalism."
+repository = "https://github.com/Michel-Liao/minimal-note"
+keywords = ["Computer Science", "Notes", "Science", "STEM"]
+categories = ["book", "report", "paper"]
+disciplines = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

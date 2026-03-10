@@ -1,0 +1,12 @@
+[package]
+name = "kantan"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Andrew Voynov"]
+license = "AGPL-3.0-only"
+description = "Easily create kanban boards with Typst."
+keywords = ["看板", "かんばん", "簡単", "かんたん"]
+categories = ["visualization"]
+repository = "https://codeberg.org/Andrew15-5/kantan"
+exclude = ["tests/*"]
+compiler = "0.12.0"

@@ -1,0 +1,17 @@
+Third-Party Notice
+===================
+
+This directory contains code from:
+
+Project: modern-ecnu-thesis
+Repository: https://github.com/jtchen2k/modern-ecnu-thesis
+License: MIT License
+
+Copyright (c) 2025 Juntong Chen
+
+The code from this project is used in:
+- /utils/word-counter.typ
+
+Modified: No 
+
+The full license text can be found in the LICENSE file in this directory.

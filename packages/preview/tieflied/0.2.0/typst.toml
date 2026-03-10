@@ -1,0 +1,16 @@
+[package]
+name = "tieflied"
+version = "0.2.0"
+compiler = "0.13.1"
+authors = ["Lena Tauchner"]
+entrypoint = "lib.typ"
+license = "MIT"
+description = "Song book template (Liederbuch)"
+keywords = ["music", "songs"]
+categories = ["layout", "fun"]
+disciplines = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

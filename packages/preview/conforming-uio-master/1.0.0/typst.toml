@@ -1,0 +1,14 @@
+[package]
+name = "conforming-uio-master"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Åsmund Olai Sand-Larsen"]
+license = "MIT-0"
+description = "Unofficcial Master's thesis at the University of Oslo."
+keywords = ["University of Oslo", "Master's thesis", "Template"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

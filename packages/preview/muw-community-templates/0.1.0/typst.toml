@@ -1,0 +1,16 @@
+[package]
+name = "muw-community-templates"
+version = "0.1.0"
+entrypoint = "src/presentation.typ"
+authors = ["Felix D"]
+repository = "https://github.com/felixbd/muw-templates"
+license = "MIT"
+keywords = ["muw", "MedUni", "Wien"]
+categories = ["presentation", "office"]
+description = "Library of templates in MedUni Wien CD."
+exclude = ["/examples/*"]
+
+[template]
+path = "src/template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
