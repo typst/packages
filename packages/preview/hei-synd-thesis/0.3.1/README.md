@@ -118,41 +118,41 @@ typst compile thesis.typ --input type="draft" --input lang="de"
 
 ## Features
 
-- [x] All metadata is optional
-- [x] Multilanguage support
-- [x] Multi author, professor, and expert support
-- [x] Support for inclusive gender language
-- [x] Customizable logos
-- [x] Draft and Final Typesetting via typst inputs
-- [x] Title page
-- [x] Optional thesis data page
-- [x] Optional report info page
-- [x] Summary page
-- [x] Table of contents
-- [x] Table of figures
-- [x] Table of tables
-- [x] Table of listings
-- [x] Table of equations
-- [x] Todo Boxes with Table of Todos in draft mode
-- [x] Custom Boxes
-- [x] Sourcecode with codelst and codly
-- [x] Glossary and Acronyms with glossarium
-- [x] Bibliography
-- [x] Content help
-  - [x] Acknowledgements
-  - [x] Abstract
-  - [x] Introduction
-  - [x] Specification
-  - [x] Design
-  - [x] Implementation
-  - [x] Validation
-  - [x] Conclusion
-- [x] Custom title page
+- All metadata is optional
+- Multilanguage support
+- Multi author, professor, and expert support
+- Support for inclusive gender language
+- Customizable logos
+- Draft and Final Typesetting via typst inputs
+- Title page
+- Optional thesis data page
+- Optional report info page
+- Summary page
+- Table of contents
+- Table of figures
+- Table of tables
+- Table of listings
+- Table of equations
+- Todo Boxes with Table of Todos in draft mode
+- Custom Boxes
+- Sourcecode with codelst and codly
+- Glossary and Acronyms with glossarium
+- Bibliography
+- Content help
+  - Acknowledgements
+  - Abstract
+  - Introduction
+  - Specification
+  - Design
+  - Implementation
+  - Validation
+  - Conclusion
+- Custom title page
 
 ## Planned Features
 
-- [ ] Wavedrom diagrams
-- [ ] PlantUML diagrams
+- Wavedrom diagrams
+- PlantUML diagrams
 
 ## Help
 

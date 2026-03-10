@@ -1,6 +1,5 @@
 //
 // Description: Import other modules so you only need to import the helpers
-// Use        : #import "/00-templates/helpers.typ": *
 // Author     : Silvan Zahno
 //
 #import "boxes.typ": *
