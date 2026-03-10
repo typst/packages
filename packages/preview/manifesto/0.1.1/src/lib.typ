@@ -1,4 +1,4 @@
-#import "icons.typ": bulb-icon, messages-icon, flare-icon, spider-icon
+#import "icons.typ": bulb-icon, flare-icon, messages-icon, spider-icon
 
 /// Documentation template generation function
 ///
@@ -60,7 +60,8 @@
         #let small-text-size = if font == "sans" { "text-[0.88rem]" } else { "text-base" }
         #html.body(
             style: "font-family: '" + dfont + "', serif",
-            class: if font == "sans" { "[&_.schema-notes]:text-sm " } + "print:[zoom:0.8] print:bg-white [&_*]:border-mist-200 [&_:is(h1,h2,h3,h4,h5,h6)]:font-semibold [&_:is(h1,h2,h3,h4,h5,h6)]:scroll-mt-5 [&_h2]:text-3xl [&_h3]:text-2xl [&_h4]:text-lg [&_h3]:mt-6 [&_h2:nth-of-type(n+2)]:mt-10 [&_h2]:mb-4
+            class: if font == "sans" { "[&_.schema-notes]:text-sm " }
+                + "print:[zoom:0.8] print:bg-white [&_*]:border-mist-200 [&_:is(h1,h2,h3,h4,h5,h6)]:font-semibold [&_:is(h1,h2,h3,h4,h5,h6)]:scroll-mt-5 [&_h2]:text-3xl [&_h3]:text-2xl [&_h4]:text-lg [&_h3]:mt-6 [&_h2:nth-of-type(n+2)]:mt-10 [&_h2]:mb-4
             [&_:is(h3,h4)]:mb-3 [&_:is(h5,h6)]:mb-4 [&_h4]:text-xl [&_p]:mb-3 [&_:is(ol,ul)]:ps-9 [&_ol_li::marker]:text-mist-500 [&_:is(ol,ul)]:space-y-3 [&_ol]:list-decimal [&_ul]:list-disc antialiased [&_a]:underline [&_a]:underline-offset-2 [&_a]:font-semibold text-mist-800
             dark:text-mist-300 [&_strong]:text-black [&_strong]:font-semibold [&_:is(strong,a)]:dark:text-white! dark:text-white bg-mist-50 dark:bg-mist-950 [&_*]:dark:border-mist-800
             [&_td]:py-1.5 [&_thead+tbody_tr:first-child_td]:pt-1.5 [&_th]:pb-2 [&_:is(td,th)]:border-b [&_:is(td,th)]:px-2 [&_td]:py-1 [&_:is(td,th):first-child]:pl-0 [&_td:last-child]:pr-0 [&_tr:last-child_td]:border-none [&_tr:first-child_td]:pt-0 [&_tr:last-child_td]:pb-0
@@ -163,7 +164,16 @@
                                             attrs: (class: "cursor-pointer list-none flex items-center justify-between [&::-webkit-details-marker]:hidden"),
                                             {
                                                 link(section.heading.location(), section.heading.body)
-                                                html.elem("svg", attrs: (class: "size-5 transition-transform group-open:rotate-90 shrink-0 opacity-50", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", stroke-width: "1.6", stroke-linecap: "round", stroke-linejoin: "round"))[#html.elem("path", attrs: (stroke: "none", fill: "none", d: "M0 0h24v24H0z")) #html.elem("path", attrs: (d: "M9 6l6 6l-6 6"))]
+                                                html.elem("svg", attrs: (
+                                                    class: "size-5 transition-transform group-open:rotate-90 shrink-0 opacity-50",
+                                                    xmlns: "http://www.w3.org/2000/svg",
+                                                    viewBox: "0 0 24 24",
+                                                    fill: "none",
+                                                    stroke: "currentColor",
+                                                    stroke-width: "1.6",
+                                                    stroke-linecap: "round",
+                                                    stroke-linejoin: "round",
+                                                ))[#html.elem("path", attrs: (stroke: "none", fill: "none", d: "M0 0h24v24H0z")) #html.elem("path", attrs: (d: "M9 6l6 6l-6 6"))]
                                             },
                                         )
                                         html.div(class: "pl-4 border-l border-mist-200 dark:border-mist-700 ml-1 mb-1", for child in section.children {
