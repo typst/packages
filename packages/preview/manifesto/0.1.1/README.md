@@ -15,7 +15,7 @@ The template is very easy to use, and will transform your whole project into a s
 ```typst
 #import "@preview/manifesto:0.1.1": template
 
-#show: it => template(it, title: "MyPackage", toml: toml("/typst.toml"))
+#show: it => template(it, toml: toml("/typst.toml"))
 
 = My first title
 
@@ -28,7 +28,7 @@ The `template` function accepts a few parameters to customize the data displayed
 
 | Option | Default value | Description |
 | --- | --- | --- |
-| `name` (required) |  | The name of your package |
+| `name` |  | The name of your package |
 | `toml` | `none` | The path to the `typst.toml` file |
 | `version` | `none` | Your package version |
 | `description` | `none` | Your package description |
