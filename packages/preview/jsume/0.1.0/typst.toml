@@ -6,20 +6,11 @@ compiler = "0.13.0"
 authors = ["Moozon Wei <muzhenweizh@gmail.com>"]
 license = "MIT"
 description = "A simple typst resume template for jsume. Just provide your jsume data in JSON format, and it will generate a beautiful resume PDF for you."
-homepage = "https://github.com/jsume/jsume-typst"
 repository = "https://github.com/jsume/jsume-typst"
 keywords = ["cv", "resume", "JSON resume"]
 categories = ["cv"]
 disciplines = ["business"]
-exclude = [
-  ".github",
-  "docs",
-  "scripts",
-  "tests",
-  ".typstignore",
-  "Justfile",
-  "thumbnail.png",
-]
+exclude = [".github", "docs", "scripts", "tests", ".typstignore", "Justfile"]
 
 [template]
 path = "template"
