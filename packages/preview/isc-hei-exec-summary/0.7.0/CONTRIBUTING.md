@@ -18,7 +18,7 @@ sudo apt install just imagemagick pngquant
 
 ## Development process
 
-For the sake of simplicity from a developer's perspective, there's a single repository on this side, containing a singe source folder for both the report and the bachelor thesis. When building, the repos is split and handled differently from Typst perspective. All the heavy-lifting for this is made using `just`.
+For the sake of simplicity from a developer's perspective, there's a single repository on this side, containing a singe source folder for all the document types. When building, the repos is split and handled differently from Typst perspective. All the heavy-lifting for this is made using `just`.
 
 ### Working on the template
 
@@ -27,7 +27,7 @@ For the sake of simplicity from a developer's perspective, there's a single repo
 To develop new features in the template, a symlink to the preview directory (of either the bachelor thesis or the report) can be created using:
 
 ```bash
-just install-symblink
+just install-symblinks
 ```
 
 Once done, you can work on any of the document and compile it with

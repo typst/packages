@@ -68,7 +68,9 @@
         let line-thickness = 2pt
         let square-size = 8pt
         let circle-r = 2.5pt
-        let line-length = 7cm
+        let line-length = 8cm
+
+        let n-bits = 16
 
         // move(dy:-5mm, line(start: (0pt, 0pt), length: solid-length, stroke: (thickness: line-thickness, dash: "solid", paint: black)))
 
@@ -79,31 +81,48 @@
         // hei-purple square at the far left
         place(dx: 0cm, dy: -square-size / 2, rect(width: square-size, height: square-size, fill: hei-purple, stroke: none))
         
-        // Pseudo-random bit pattern: 4 or 5 out of 11 bits set to 1 (based on thesis ID)
-        // This gives C(11,4) + C(11,5) = 330 + 462 = 792 unique patterns
+        // Pseudo-random bit pattern based on author name and thesis ID
+        // Guarantee at least n-bits/4 ones via bit-folding
         let bit-set(n, i) = calc.rem(int(n / calc.pow(2, i)), 2) == 1
-        let valid-patterns = range(2048).filter(n => {
-          let c = range(11).filter(i => bit-set(n, i)).len()
-          c == 4 or c == 5
+
+        // Polynomial rolling hash (base 31) on thesis ID + authors
+        let hash = (thesis-id + authors).clusters().fold(0, (acc, ch) => {
+          calc.rem(acc * 31 + str.to-unicode(ch), 2147483647)
         })
-        // Polynomial rolling hash (base 31) on thesis ID for good distribution
-        let hash = thesis-id.clusters().fold(0, (acc, ch) => {
-          calc.rem(acc * 31 + str.to-unicode(ch), 99991)
-        })
-        
-        let pattern = valid-patterns.at(calc.rem(hash, valid-patterns.len()))
+
+        // Take lower n-bits
+        let pattern = calc.rem(hash, calc.pow(2, n-bits))
+
+        // Ensure at least n-bits/4 bits are set: force-set bits at hashed positions
+        let min-ones = calc.quo(n-bits, 4)
+        let ones = range(n-bits).filter(i => bit-set(pattern, i)).len()
+        if ones < min-ones {
+          // Use upper bits of hash as seed to pick which bits to set
+          let seed = calc.quo(hash, calc.pow(2, n-bits))
+          let i = 0
+          while ones < min-ones {
+            let pos = calc.rem(seed + i * 7, n-bits)  // stride of 7 to spread out
+            if not bit-set(pattern, pos) {
+              pattern = pattern + calc.pow(2, pos)
+              ones = ones + 1
+            }
+            i = i + 1
+          }
+        }
 
         // hei-purple circles as bits: hei-purple = 0, white = 1
-        let n-bits = 11
-        let bit-spacing = line-length / (n-bits + 1)
+        // Equal visual gaps between square edges and circle edges
+        let usable = line-length - 2 * square-size  // space between square edges
+        let gap = (usable - n-bits * 2 * circle-r) / (n-bits + 1)
+        let stride = 2 * circle-r + gap  // center-to-center distance
         for i in range(n-bits) {
-          let dx-val = bit-spacing * (i+1)
+          let dx-val = square-size + gap + circle-r + i * stride
           let fill-color = if bit-set(pattern, i) { white } else { hei-purple }
           place(dx: dx-val, dy: -circle-r, circle(radius: circle-r, fill: fill-color, stroke: 0.5pt + hei-purple))
         }
 
          place(
-          dx: line-length,
+          dx: line-length - square-size,
           dy: -square-size / 2,
           rect(width: square-size, height: square-size, fill: hei-purple, stroke: hei-purple),
         )

@@ -341,7 +341,7 @@
 //////////////////////////
 // TB assignment sheet
 //////////////////////////
-#import "lib/pages/tb_assignment.typ": tb-assignment-page
+#import "lib/pages/cover_assignment.typ": tb-assignment-page, hes, industry, school, project-types
 
 //////////////////////////
 // Source code inclusion
@@ -376,6 +376,7 @@
   show-cover: true,
   show-toc: 2, // false = no TOC, true = TOC with depth 2, integer = TOC with given depth
   fancy-line: true, // Use decorative line with squares (false = simple line)
+  fancy-chapter-rule: true, // Use decorative ornaments on chapter rules (false = plain line)
 
   // Bachelor thesis specific
   thesis-supervisor: [Thesis supervisor],
@@ -535,7 +536,7 @@
         }
         // Decorative rule — only for numbered (chapter) headings
         if it.numbering != none {
-          context chapter-rule(chapter: counter(heading).get().first())
+          context chapter-rule(chapter: counter(heading).get().first(), enabled: fancy-chapter-rule)
         }
 
       })

@@ -1,24 +1,33 @@
-# [unreleased](https://github.com/<author>/<my-package>/releases/tag/<the-tag>)
-
-## Added
-
-## Removed
-
-## Changed
-
-## Migration Guide from v0.3.X
-- nothing special
+# Changelog
 
 ---
-# [v0.6.0](https://github.com/ISC-HEI/isc-hei-report/releases/tag/0.5.3)
+
+---
+
+# [v0.7.0]((https://github.com/ISC-HEI/isc-hei-report/releases/tag/0.7.0)), March 2026
+
+## Added
+- New **TB assignment sheet** template (`tb-assignment`) with full rendering logic, i18n support (FR/EN/DE), and addendum section
+- `project-types` dictionary exported from the template for type-safe project type selection (`exploratoire` / `implementation`)
+- Revision field in i18n and enhanced template styling
+- Additional document examples in README
+
+## Changed
+- Improved and unified date formatting logic across all templates
+- Nicer title display for bachelor thesis
+- Refactored TOC inclusion
+- Updated ISC logo across all README files
+- Code structure refactored for improved readability
+
+# [v0.6.0](https://github.com/ISC-HEI/isc-hei-report/releases/tag/0.6.0)
 - Changes after the first student handout
 - Document check script (for fonts & info)
-- Added template version in document template metadata 
+- Added template version in document template metadata
 - Panic message if no URL for repos
 - Panic message if no document ID
 - Typos fixed
-- Header modified for right and left pages 
-- Header modifier for executive summary, only space for 2 lines. 
+- Header modified for right and left pages
+- Header modifier for executive summary, only space for 2 lines
 - Subtitles for long titles
 - README.md corrected with correct refs, image of templates corrected as well for Typst universe
 
@@ -45,7 +54,6 @@
 - removed extra spaces
 - removed eval calls
 - updated `codelst` and `showybox`
-
 
 # [v0.1.5](https://github.com/ISC-HEI/isc-hei-report/releases/tag/0.1.5)
 - Cover image kind and supplement
