@@ -1,0 +1,16 @@
+[package]
+name = "typsidian"
+version = "0.0.3"
+entrypoint = "lib.typ"
+authors = ["@k0src"]
+license = "MIT"
+description = "A modern note-taking, outlining, and knowledge management template."
+repository = "https://github.com/k0src/Typsidian"
+keywords = ["Obsidian", "notes", "study", "outline", "university"]
+categories = ["report", "components"]
+exclude = ["examples/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "assets/thumbnail.png"
