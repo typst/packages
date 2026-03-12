@@ -1,4 +1,4 @@
-#import "/lib.typ": *
+#import "@preview/theorion:0.5.0": *
 // #import cosmos.simple: *
 #import cosmos.fancy: *
 // #import cosmos.rainbow: *
