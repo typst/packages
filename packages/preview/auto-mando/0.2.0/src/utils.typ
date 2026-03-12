@@ -103,8 +103,8 @@
 )
 
 /// Tone-number → bopomofo tone mark.
-/// Tone 1 = ˉ (U+02C9), 5 = neutral (no mark).
-#let _zy-tones = ("1":"ˉ", "2":"ˊ", "3":"ˇ", "4":"ˋ", "5":"")
+/// Tone 1 = ˉ (U+02C9), Tone 5 (neutral) = ˙ (U+02D9).
+#let _zy-tones = ("1":"ˉ", "2":"ˊ", "3":"ˇ", "4":"ˋ", "5":"˙")
 
 /// Convert a single pinyin syllable with trailing tone digit (e.g. "pin1")
 /// to a bopomofo string with tone mark (e.g. "ㄆㄧㄣˉ").
