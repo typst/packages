@@ -1,6 +1,6 @@
 [package]
 name = "ori"
-version = "0.2.3"
+version = "0.2.4"
 compiler = "0.13.0"
 entrypoint = "lib.typ"
 repository = "https://github.com/OrangeX4/typst-ori"
