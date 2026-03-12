@@ -1,6 +1,6 @@
 # mercator
 
-![logo](examples/data/logo.png)
+![logo](https://raw.githubusercontent.com/bernsteining/mercator/refs/heads/main/examples/data/logo.png)
 
 Mercator is a Typst plugin to render GeoJSON and TopoJSON as SVG maps.
 
@@ -23,7 +23,7 @@ Mercator is a Typst plugin to render GeoJSON and TopoJSON as SVG maps.
 
 ## documentation
 
-Check [examples/documentation.pdf](examples/documentation.pdf), it covers all the features with examples.
+Check the [documentation](https://github.com/bernsteining/mercator/raw/refs/heads/main/examples/documentation.pdf), it covers all the features with examples.
 
 ## config options
 
@@ -89,13 +89,3 @@ Check [examples/documentation.pdf](examples/documentation.pdf), it covers all th
 | `stroke` | string | `"red"` | Stroke color |
 | `stroke_width` | float | `0.5` | Stroke width |
 | `max_lat` | float | `60.0` | Maximum latitude for indicators |
-
-## build locally
-
-```sh
-cargo build --target wasm32-unknown-unknown --release
-wasm-opt -O4 --enable-bulk-memory --strip-debug \
-  target/wasm32-unknown-unknown/release/mercator.wasm -o mercator/mercator.wasm
-```
-
-NB: `wasm-opt` is part of [binaryen](https://github.com/WebAssembly/binaryen).
