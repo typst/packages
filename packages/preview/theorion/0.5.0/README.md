@@ -490,7 +490,7 @@ Theorion provides experimental support for HTML rendering, allowing you to embed
 
 ### 0.5.0
 
-- **BREAKING CHANGE: rename `xxx-box` to `xxx-block`** — `remark`, `note-box`, `important-box` are now named `remark-block`, `note-block`, `important-bblock` to avoid duplicate names.
+- **BREAKING CHANGE: rename `xxx-box` to `xxx-block`** — `remark`, `note-box`, `important-box` are now named `remark-block`, `note-block`, `important-block` to avoid duplicate names.
 - **feat: flexible references** — `@label[-]` shows number only, `@label[!!]` shows supplement + number + title, thank theoretic for the idea
 - **feat: border radius in fancy cosmos** `#set-fancy-radius(0em)` to remove the border radius for fancy cosmos
 - **feat: positional title syntax** — `#theorem[Title][Body]` as an alternative to `#theorem(title: [Title])[Body]`
