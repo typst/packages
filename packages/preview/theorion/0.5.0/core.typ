@@ -39,7 +39,7 @@
 /// - inherited-levels (int): Number of heading levels to inherit from. Default is 0, which will inherit from the inherited-from counter if it is a dictionary.
 /// - inherited-from (counter): Counter to inherit from. Default is heading.
 /// - zero-fill (bool): Whether to zero-fill the numbering. Default is false.
-/// - leading-zero (bool): Whether to remove the leading zero. Default is false.
+/// - leading-zero (bool): Whether to keep the leading zero. Default is false.
 #let richer-counter(
   identifier: none,
   inherited-levels: 0,
