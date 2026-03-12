@@ -9,7 +9,7 @@ A theme for [Universität Bremen](https://www.uni-bremen.de/) slides for use wit
 Add this template to your Typst project:
 
 ```
-typst init @preview/uni-hb-slides:0.1.0
+typst init @preview/moin-uni-slides:0.1.0
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ Create a new typst file and import the template:
 
 ```typst
 #import "@preview/polylux:0.4.0": *
-#import "@preview/uni-hb-slides:0.1.0": *
+#import "@preview/moin-uni-slides:0.1.0": *
 
 #show: theme.with(
   title: "Titel der Präsentation",

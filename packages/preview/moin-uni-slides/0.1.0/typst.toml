@@ -1,5 +1,5 @@
 [package]
-name = "uni-hb-slides"
+name = "moin-uni-slides"
 version = "0.1.0"
 entrypoint = "theme.typ"
 authors = ["SimonIT <@SimonIT>"]

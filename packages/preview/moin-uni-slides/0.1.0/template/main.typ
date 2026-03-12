@@ -1,5 +1,5 @@
 #import "@preview/polylux:0.4.0": *
-#import "@preview/uni-hb-slides:0.1.0": *
+#import "@preview/moin-uni-slides:0.1.0": *
 
 #show: theme.with(
   title: "Titel der Präsentation",
