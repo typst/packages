@@ -505,7 +505,7 @@ Theorion provides experimental support for HTML rendering, allowing you to embed
 - **fix: fix nested theorem numbering** — child counters (e.g. corollary inside theorem) now inherit the correct parent number
 - **fix: prevent theorem indentation when `first-line-indent` is set**
 
-### 0.5.0
+### 0.4.1
 
 - **URGENT FIX: fix display-number and support typst 0.14**
 - feat(i18n): add polish translation [#21](https://github.com/OrangeX4/typst-theorion/pull/21)
