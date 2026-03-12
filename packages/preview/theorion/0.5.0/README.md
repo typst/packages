@@ -493,7 +493,7 @@ Theorion provides experimental support for HTML rendering, allowing you to embed
 - **BREAKING CHANGE: rename `xxx-box` to `xxx-block`** — `remark`, `note-box`, `important-box` are now named `remark-block`, `note-block`, `important-bblock` to avoid duplicate names.
 - **feat: flexible references** — `@label[-]` shows number only, `@label[!!]` shows supplement + number + title, thank theoretic for the idea
 - **feat: border radius in fancy cosmos** `#set-fancy-radius(0em)` to remove the border radius for fancy cosmos
-- **feat: positional title syntax** — `#theorem[Title][Body]` as an alternative to `#theorem[Title][Body]`
+- **feat: positional title syntax** — `#theorem[Title][Body]` as an alternative to `#theorem(title: [Title])[Body]`
 - **feat: counter continuation** — pass an array as `number` (e.g. `number: (2, 3)`) to set the counter and continue numbering from there
 - **feat: `#set-indent-mode`** — configure paragraph indentation inside theorem environments (`auto`, `none`, a length, or a dictionary)
 - **feat: `#indent-repairer`** — automatically repairs first-paragraph indentation inside theorem bodies
