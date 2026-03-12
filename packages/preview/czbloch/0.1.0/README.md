@@ -2,20 +2,12 @@
 
 Draw Bloch spheres in Typst with configurable state vectors, axes, angle annotations, and sphere styles.
 
-![Examples](example.png)
-
-## Install
-
-Import the package from Typst Universe:
-
-```typst
-#import "@preview/czbloch:0.1.0"
-```
+![Examples](example.jpg)
 
 ## Quick Start
 
 ```typst
-#import "@preview/czbloch:0.1.0" as czbloch
+#import "@preview/czbloch:0.1.0"
 
 #set page(width: auto, height: auto, margin: 8pt)
 
