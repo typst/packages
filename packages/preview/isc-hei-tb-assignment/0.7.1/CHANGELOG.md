@@ -1,8 +1,18 @@
 # Changelog
 
----
+# [v0.7.1](https://github.com/ISC-HEI/isc-hei-report/releases/tag/0.7.1), March 2026
 
----
+## Added
+- New `fancy-chapter-rule` option in the bachelor thesis template
+- Dedicated assignment cover renderer in `lib/pages/cover_assignment.typ` for clearer TB assignment sheet composition
+- Template-local `typst.toml` package metadata across templates for version management
+
+## Changed
+- Updated templates and dependencies to version `0.7.1`
+- Refactored TB assignment translation handling and document title retrieval in cover rendering
+- Improved TB assignment variable naming and comments for better readability and consistency
+- Updated README and contributor-facing documentation links
+- Refreshed generated examples and preview thumbnails for the `0.7.1` submission
 
 # [v0.7.0]((https://github.com/ISC-HEI/isc-hei-report/releases/tag/0.7.0)), March 2026
 
