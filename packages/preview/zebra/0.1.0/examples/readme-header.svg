@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="410" height="125">
+  <path fill="#fff" d="M0 5a5 5 0 0 1 5-5h60a5 5 0 0 1 5 5v60a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5Z"/>
+  <path fill-rule="evenodd" d="M10 10h5v5h15v-5h5v5h10v-5h-5v10h5v5h15v5h-5V20h5v-5h-5v-5h-5v20H40v10h5v-5H15V20h10V10h-5v15h5v5h-5v25h5v-5H15v-5h15v10h5V45h15V35h10v5h-5v5h5v5h-5v5h5v5H10zm20 10h5v10h-5zm10 30h10v5H40z"/>
+  <path fill="#fff" d="M80 5a5 5 0 0 1 5-5h100a5 5 0 0 1 5 5v50a5 5 0 0 1-5 5H85a5 5 0 0 1-5-5Z"/>
+  <path fill-rule="evenodd" d="M90 10h5v5h5v-5h5v10H95v15h20V25h-5v20h-10V30h5v-5h-5V15h10v-5h5v5h10v-5h-5v10h5v5h10V10h-5v5h15v-5h-5v10h-10v20h5V30h10v-5h5v5h10v10h-20v5h5V35h5v10h5V35h10v5h15v-5h-10v10h10v5H90zm60 0h5v5h10v-5h-5v15h5v5h5V10h5v5h5v5h-30zm25 15h5v5h-5zm-55 10h5v10h-5z"/>
+  <path fill="#fff" d="M200 5a5 5 0 0 1 5-5h115a5 5 0 0 1 5 5v115a5 5 0 0 1-5 5H205a5 5 0 0 1-5-5Z"/>
+  <path fill-rule="evenodd" d="M210 10h35v35h-35zm45 0h15v5h-5v15h-5V20h-5v10h-5v25h20v5h-30v5h5V55h-5v-5h15V40h5v5h15v-5h-10v10h-5v15h5v5h5v-5h15v-5h20v-5h-5v-5h10v5h5v15h-10V60h5v5h-10v5h-5v5h-5v5h10v-5h5v5h5v10h5v15h-5V95h-25v10h-15v5h5v5h-10V95h-5v-5h5V75h-5v-5h-10v-5h5v10h-5v10h5v-5h5v5h25v5h5v-5h15v20h-5v-5h-5v5h-5v-5h-20v-5h10v-5h-10V75h15v-5h-5V50h15v15h-5V55h-15v-5h-5V25h-20V15h5zm25 0h35v35h-35zm-65 5h25v25h-25zm70 0h25v25h-25zm-65 5h15v15h-15zm70 0h15v15h-15zm-80 30h10v15h5V50h5v5h-15v15h-5zm20 10h5v5h-5zm-5 10h5v5h-5zm10 0h10v5h-10zm-25 10h35v35h-35zm5 5h25v25h-25zm5 5h15v15h-15zm30 5h5v15h5v5h-10v-10h10v-5h-10zm30 15h10v5h-10zm15 0h5v5h-5zm10 0h5v5h-5z"/>
+  <path fill="#fff" d="M335 5a5 5 0 0 1 5-5h65a5 5 0 0 1 5 5v65a5 5 0 0 1-5 5h-65a5 5 0 0 1-5-5Z"/>
+  <path fill-rule="evenodd" d="M345 10h35v35h-35zm40 0h5v5h-5zm10 0h5v15h-5v5h-5v-5h-5v-5h10zm-45 5h25v25h-25zm5 5h15v15h-15zm30 15h5v10h5V35h5v15h-20v5h10v5h10v-5h-5v10h-20v-5h-5v5h-5V55h15v5h5zm-40 15h10v5h-10zm0 10h15v5h-15z"/>
+</svg>

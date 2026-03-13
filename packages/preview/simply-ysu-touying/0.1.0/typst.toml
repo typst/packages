@@ -1,0 +1,23 @@
+[package]
+name = "simply-ysu-touying"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.14.0"
+authors = ["Geekyhang <@bahayonghang>"]
+license = "MIT AND MIT-0"
+description = "Yanshan University slides with Touying."
+repository = "https://github.com/bahayonghang/simply-ysu-touying"
+keywords = ["slides", "presentation", "touying", "beamer", "ysu", "yanshan-university"]
+categories = ["presentation"]
+exclude = [
+  "docs",
+  "examples",
+  "ASSETS.md",
+  "README.zh.md",
+  ".*",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
