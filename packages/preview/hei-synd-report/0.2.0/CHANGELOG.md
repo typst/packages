@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 
 - *(tianji)* Telemetry link ([8aade4d](https://github.com/hei-templates/hei-synd-report/commit/8aade4d0b350f7ef39f9060da49d2218143b974c) - zas)
 - *(links)* Some renaming was missing from thesis to report ([09e727a](https://github.com/hei-templates/hei-synd-report/commit/09e727a6adc4c1eda3c8a8db5d9d24248d132476) - zas)
+- *(imports)* Remove unnecessary imports, all combined in metadata ([e9cc03c](https://github.com/hei-templates/hei-synd-report/commit/e9cc03ca68ce9dc3b7ee4f355ddd51fa36ec63cb) - zas)
 
 ### 🚜 Refactoring
 
