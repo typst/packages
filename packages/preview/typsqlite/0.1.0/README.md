@@ -9,7 +9,7 @@ Built with Zig, compiled to WASM. Full SQL support including JOINs, CTEs, window
 ```typst
 #import "@preview/typsqlite:0.1.0": sqlite, sqlite-table
 
-#let db = sqlite("data.sqlite")
+#let db = sqlite(read("data.sqlite", encoding: none))
 
 // Query and render as a table
 #sqlite-table((db.query)("SELECT name, population FROM cities ORDER BY population DESC"))
@@ -21,9 +21,9 @@ Total cities: #result.rows.at(0).at(0)
 
 ## API
 
-### `sqlite(path)`
+### `sqlite(db-bytes)`
 
-Open a database file. Returns an object with:
+Open a database from bytes. Returns an object with:
 
 | Method | Returns | Description |
 |--------|---------|-------------|
