@@ -19,4 +19,4 @@ keywords = [
 ]
 categories = ["visualization"]
 # Exclude large files from the published bundle
-exclude = ["example.pdf", "*.png", "example.typ"]
+exclude = ["example.pdf", "*.png", "example.typ", "*.jpg"]
