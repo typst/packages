@@ -2,15 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.2.0] - 2026-03-11
+## [0.2.0] - 2026-03-13
 
 ### 🚀 Features
 
 - *(package)* Add hei-synd-thesis as package, bump packages versions ([e3b1cf3](https://github.com/hei-templates/hei-synd-report/commit/e3b1cf3970b9648f8f5290a4a8d2d641cb100052) - zas)
+- *(inputs)* Add sys inputs ([6ac3610](https://github.com/hei-templates/hei-synd-report/commit/6ac36104e72bca9c6453b197aebfdd3900794a3b) - zas)
 
 ### 🐛 Bug Fixes
 
 - *(tianji)* Telemetry link ([8aade4d](https://github.com/hei-templates/hei-synd-report/commit/8aade4d0b350f7ef39f9060da49d2218143b974c) - zas)
+- *(links)* Some renaming was missing from thesis to report ([09e727a](https://github.com/hei-templates/hei-synd-report/commit/09e727a6adc4c1eda3c8a8db5d9d24248d132476) - zas)
 
 ### 🚜 Refactoring
 
@@ -25,9 +27,6 @@ All notable changes to this project will be documented in this file.
 - *(cliff)* Unified git cliff config ([57a2f51](https://github.com/hei-templates/hei-synd-report/commit/57a2f51942cde3c4d8841b986884f2f395ad42bf) - zas)
 - *(image)* Add new sample and thumbnails and additional pdf’s ([22ad627](https://github.com/hei-templates/hei-synd-report/commit/22ad627965bc449ffefdfcc21b0b8eabfb3eadeb) - zas)
 - *(readme)* Add permalink for samples ([ec30f29](https://github.com/hei-templates/hei-synd-report/commit/ec30f296f657461de85ca4acbaa4e0fae86b8853) - zas)
-
-
-
 
 **Full Changelog**: [0.1.1...0.2.0](https://github.com/hei-templates/hei-synd-report/compare/0.1.1...0.2.0)
 
