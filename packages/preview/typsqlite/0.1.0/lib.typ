@@ -3,17 +3,15 @@
 
 #let _plugin = plugin("typst_sqlite_zig.wasm")
 
-/// Open a SQLite database from a file path
+/// Open a SQLite database from bytes
 /// Returns a database object with query methods
 ///
 /// Example:
 /// ```typst
-/// #let db = sqlite("data.sqlite")
-/// #let cities = db.query("SELECT * FROM cities")
+/// #let db = sqlite(read("data.sqlite", encoding: none))
+/// #let cities = (db.query)("SELECT * FROM cities")
 /// ```
-#let sqlite(path) = {
-  let db_bytes = read(path, encoding: none)
-
+#let sqlite(db_bytes) = {
   (
     /// Execute a SQL query and return results
     /// Returns a dictionary with `columns` and `rows` keys
@@ -43,8 +41,8 @@
 ///
 /// Example:
 /// ```typst
-/// #let db = sqlite("data.sqlite")
-/// #sqlite-table(db.query("SELECT name, population FROM cities"))
+/// #let db = sqlite(read("data.sqlite", encoding: none))
+/// #sqlite-table((db.query)("SELECT name, population FROM cities"))
 /// ```
 #let sqlite-table(result, ..args) = {
   table(
@@ -60,10 +58,10 @@
 ///
 /// Example:
 /// ```typst
-/// #let db = sqlite("data.sqlite")
+/// #let db = sqlite(read("data.sqlite", encoding: none))
 /// #table(
 ///   columns: 2,
-///   ..db.query-table("SELECT name, pop FROM cities")
+///   ..query-table(db, "SELECT name, pop FROM cities")
 /// )
 /// ```
 #let query-table(db, sql) = {
