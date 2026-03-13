@@ -146,6 +146,12 @@
   /// 基础设置。
   set document(title: title, author: if type(author) == str { author } else { () }, date: date)
 
+  /// 设置页面。
+  set page(
+    paper: "a4",
+    fill: bg-color,
+  )
+
   /// 标题页。
   if maketitle {
     // Title page
@@ -174,7 +180,6 @@
 
   /// 设置页面。
   set page(
-    paper: "a4",
     header: {
       set text(0.9em)
       stack(
@@ -191,7 +196,6 @@
       // reset footnote counter
       counter(footnote).update(0)
     },
-    fill: bg-color,
     numbering: "1",
     margin: page-margin,
   )
