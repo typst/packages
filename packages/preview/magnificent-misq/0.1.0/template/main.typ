@@ -4,7 +4,7 @@
 // Replace the title, abstract, keywords, and body text with your own manuscript.
 // See misq.typ for configuration options (e.g., paragraph-style).
 
-#import "../misq.typ": misq
+#import "@preview/magnificent-misq:0.1.0": misq
 
 #show: misq.with(
   title: [Digital Transformation and Organizational Resilience: A Longitudinal Study of Enterprise Information Systems Adoption],
