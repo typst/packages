@@ -4,7 +4,7 @@
 #import "bookly-themes.typ": *
 
 // Chapter
-#let chapter(title: none, abstract: none, toc: true, numbered: true, body) = context {
+#let chapter(title: none, abstract: none, toc: true, numbered: true, label: none, body) = context {
     // Is the chapter numbered?
     if not numbered {
       numbering-heading = none
@@ -35,7 +35,7 @@
     if toc {
       set page(header: none)
       set align(horizon)
-      heading(title)
+      [#heading(title)#label]
 
       if abstract != none {
         abstract
@@ -44,7 +44,7 @@
       minitoc
       pagebreak()
     } else {
-      heading(title)
+      [#heading(title)#label]
     }
 
     body
