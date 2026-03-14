@@ -1,3 +1,5 @@
+#let std-bibliography = bibliography
+
 #import "hpi-title-page.typ": hpi-title-page
 
 // Default label sets for English and German.
@@ -119,9 +121,9 @@
   // The student may want to add acknowledgements
   // If not given, the page for acknowledgements will not appear
   acknowledgements: "",
-  // Optional path to a bibliography file (e.g., "references.bib").
+  // Optional bibliography content (e.g., bibliography("references.bib")).
   // If provided, a bibliography section will be added at the end.
-  bibliography-file: none,
+  bibliography: none,
   // Document language (e.g., "en", "de"). Affects label defaults.
   lang: "en",
   // Typography settings (font, sizes, spacing). Merged with defaults.
@@ -335,9 +337,10 @@
   body
 
   // Bibliography.
-  if bibliography-file != none {
+  if bibliography != none {
     pagebreak()
-    bibliography(bibliography-file, title: l.at("bibliography"))
+    set std-bibliography(title: l.at("bibliography"))
+    bibliography
   }
 
   pagebreak()

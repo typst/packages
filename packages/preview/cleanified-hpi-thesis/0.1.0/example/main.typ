@@ -27,10 +27,7 @@
   abstract-de: abstract-de,
   acknowledgements: acknowledgements,
   type: "Master",
-  // Note: for local development with the "../template/lib.typ" import, the
-  // bibliography path resolves relative to template/lib.typ — use
-  // "../example/references.bib" instead.
-  bibliography-file: "references.bib",
+  bibliography: bibliography("references.bib"),
   // lang: "de",  // Switch all labels to German defaults
   // typography: (font: "STIX Two Text", body-text-size: 12pt),
   // layout: (for-print: true, toc-depth: 2),
