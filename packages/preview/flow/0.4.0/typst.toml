@@ -1,0 +1,27 @@
+[package]
+version = "0.4.0"
+compiler = "0.14.0"
+
+name = "flow"
+entrypoint = "src/lib.typ"
+exclude = [
+	"/doc",
+	"/maintain",
+	"/util",
+	"/website",
+	"/CHANGELOG.md",
+	"/THANKS.md",
+]
+
+license = "EUPL-1.2 AND MIT-0"
+authors = ["MultisampledNight"]
+repository = "https://codeberg.org/MultisampledNight/flow"
+
+description = "Consistent set of templates and utils to grow with."
+categories = ["components", "report"]
+keywords = ["pkm", "notes", "checklist"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail/page-1.png"
