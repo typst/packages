@@ -11,4 +11,6 @@ categories = ["book"]  # 可选，项目类型
 [template]               # 如果你有模板文件，可以配置该项，否则注释
 path = "template"        # 模板目录
 entrypoint = "main.typ"  # 模板入口
+thumbnail = "thumbnail.png"
+
 
