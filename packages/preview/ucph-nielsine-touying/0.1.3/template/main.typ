@@ -33,7 +33,6 @@ Wow, this is a slide.
 
 = Examples
 == Example with `theorion`: OLS estimator
-#pagebreak()
 #thc.definition()[
   The OLS estimator
   $

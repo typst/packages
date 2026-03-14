@@ -78,7 +78,7 @@
     fill: self.colors.neutral-lightest,
     header: header,
     footer: footer,
-  ))
+  ), config)
   let new-setting = body => {
     show: std.align.with(self.store.align)
     set text(fill: self.colors.neutral-darkest)
@@ -113,9 +113,9 @@
   extra: none,
   ..args,
 ) = ty.touying-slide-wrapper(self => {
-  self = ty.utils.merge-dicts(self, config, ty.config-common(freeze-slide-counter: true), ty.config-page(
+  self = ty.utils.merge-dicts(self, ty.config-common(freeze-slide-counter: true), ty.config-page(
     fill: self.colors.neutral-lightest,
-  ))
+  ), config)
   let info = self.info + args.named()
   let body = {
     set text(fill: self.colors.neutral-darkest)
@@ -184,7 +184,7 @@
     )
     text(self.colors.neutral-dark, body)
   }
-  self = ty.utils.merge-dicts(self, ty.config-page(fill: self.colors.neutral-lightest))
+  self = ty.utils.merge-dicts(self, ty.config-page(fill: self.colors.neutral-lightest), config)
   ty.touying-slide(self: self, config: config, slide-body)
 })
 
@@ -210,7 +210,7 @@
     } else if self.store.language == "dk" {
       place(right, image(uc-logos.logo-standard-dk-negative, width: 14%), dx: -15pt, dy: -8pt)
     },
-  ))
+  ), config)
   set text(fill: self.colors.neutral-lightest, size: 1.5em)
   ty.touying-slide(self: self, config: config, std.align(align, body))
 })
@@ -270,7 +270,7 @@
   }
     
   show: ty.touying-slides.with(
-    ty.config-page(paper: "presentation-" + aspect-ratio, header-ascent: 30%, footer-descent: 30%, margin: (
+    ty.config-page(..ty.utils.page-args-from-aspect-ratio(aspect-ratio), header-ascent: 30%, footer-descent: 30%, margin: (
       top: 3em,
       bottom: 1.5em,
       x: 2em,
