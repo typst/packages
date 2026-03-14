@@ -1,8 +1,0 @@
-[package]
-name = "showybox"
-version = "0.2.0"
-entrypoint = "showy.typ"
-authors = ["Pablo González Calderón"]
-license = "MIT"
-description = "Colorful and customizable boxes for typst"
-repository = "https://github.com/Pablo-Gonzalez-Calderon/showybox-package"

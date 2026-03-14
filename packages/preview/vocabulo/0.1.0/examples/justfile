@@ -1,5 +1,0 @@
-minimal:
-    typst compile minimal.typ
-
-full:
-    typst compile full.typ

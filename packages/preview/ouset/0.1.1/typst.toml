@@ -1,8 +1,0 @@
-[package]
-name = "ouset"
-version = "0.1.1"
-entrypoint = "ouset.typ"
-authors = ["Ludwig Austermann"]
-license = "MIT"
-description = "Package providing over- and underset functions for math mode."
-repository = "https://github.com/ludwig-austermann/typst-ouset"
