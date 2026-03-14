@@ -1,4 +1,4 @@
-# modern-ucas-thesis
+<h1 align="center">modern-ucas-thesis</h1>
 
 <p align="center">
   <a href="docs/README_EN.md">English</a> | <strong>中文</strong>

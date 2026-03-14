@@ -5,6 +5,7 @@
 TYPSTYLE = typstyle
 TYPST_FILES = $(shell find . -name "*.typ" -not -path "./node_modules/*" -not -path "./.git/*")
 MAIN_FILES = lib.typ template/thesis.typ
+PACKAGE_CHECK = package-check
 
 # 默认目标
 .PHONY: help
@@ -13,6 +14,8 @@ help:
 	@echo "  make format        - 格式化所有 .typ 文件"
 	@echo "  make format-main   - 仅格式化主要文件 (lib.typ, template/thesis.typ)"
 	@echo "  make format-check  - 检查代码格式但不修改文件"
+	@echo "  make lint          - 运行包检查 (需要安装 package-check)"
+	@echo "  make lint-install  - 安装 package-check 工具"
 	@echo "  make list-files    - 列出所有将被格式化的 .typ 文件"
 	@echo ""
 	@echo "详细使用说明请参考: docs/FORMAT.md"
@@ -101,3 +104,56 @@ stats:
 	@echo "  Typst 文件数量: $$(echo '$(TYPST_FILES)' | wc -w)"
 	@echo "  总行数: $$(cat $(TYPST_FILES) | wc -l)"
 	@echo "  主要文件: $(MAIN_FILES)"
+
+# ============ 包检查 (Lint) ============
+
+# 安装 package-check 工具
+.PHONY: lint-install
+lint-install:
+	@echo "正在安装 typst/package-check..."
+	@if command -v cargo >/dev/null 2>&1; then \
+		echo "使用 cargo 安装..."; \
+		cargo install --git https://github.com/typst/package-check.git; \
+	else \
+		echo "❌ 请先安装 Rust/Cargo: https://rustup.rs/"; \
+		exit 1; \
+	fi
+	@echo "✅ package-check 安装完成！"
+
+# 运行包检查（需要在本地有完整的 package index）
+.PHONY: lint
+lint:
+	@echo "运行 Typst 包检查..."
+	@if ! command -v $(PACKAGE_CHECK) >/dev/null 2>&1; then \
+		echo "❌ package-check 未安装"; \
+		echo "   请运行: make lint-install"; \
+		exit 1; \
+	fi
+	@echo "检查包结构和元数据..."
+	@$(PACKAGE_CHECK) . || (echo "❌ 包检查失败"; exit 1)
+	@echo "✅ 包检查通过！"
+
+# 快速检查（不依赖外部 index，仅检查基本结构）
+.PHONY: lint-quick
+lint-quick:
+	@echo "运行快速包检查..."
+	@echo "检查 typst.toml..."
+	@if [ ! -f "typst.toml" ]; then \
+		echo "❌ typst.toml 不存在"; \
+		exit 1; \
+	fi
+	@echo "✅ typst.toml 存在"
+	@echo "检查必要字段..."
+	@grep -q "^name = " typst.toml || (echo "❌ 缺少 name 字段"; exit 1)
+	@grep -q "^version = " typst.toml || (echo "❌ 缺少 version 字段"; exit 1)
+	@grep -q "^entrypoint = " typst.toml || (echo "❌ 缺少 entrypoint 字段"; exit 1)
+	@echo "✅ 基本字段完整"
+	@echo "检查入口文件..."
+	@entrypoint=$$(grep "^entrypoint = " typst.toml | sed 's/.*= "\(.*\)".*/\1/'); \
+	if [ ! -f "$$entrypoint" ]; then \
+		echo "❌ 入口文件 '$$entrypoint' 不存在"; \
+		exit 1; \
+	fi
+	@echo "✅ 入口文件存在"
+	@echo ""
+	@echo "✅ 快速检查通过！"

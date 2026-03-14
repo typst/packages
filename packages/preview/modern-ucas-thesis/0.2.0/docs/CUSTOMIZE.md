@@ -152,7 +152,7 @@
 
 | 参数名 | 类型 | 默认值 | 说明 |
 |-------|------|--------|------|
-| `stoke-width` | length | `0.5pt` | 信息区域下划线宽度 |
+| `stroke-width` | length | `0.5pt` | 信息区域下划线宽度 |
 | `min-title-lines` | int | `2` | 标题最小行数（自动填充） |
 | `min-supervisor-lines` | int | `2` | 导师区域最小行数 |
 | `min-reviewer-lines` | int | `5` | 评审人区域最小行数 |
@@ -266,7 +266,7 @@
 | `title-above` | length | `24pt` | 标题上方间距 |
 | `title-below` | length | `18pt` | 标题下方间距 |
 | `abstract-title-weight` | string | `"regular"` | 标题字重 |
-| `stoke-width` | length | `0.5pt` | 下划线宽度 |
+| `stroke-width` | length | `0.5pt` | 下划线宽度 |
 | `info-value-align` | alignment | `center` | 信息值对齐方式 |
 | `info-inset` | dictionary | `(x: 0pt, bottom: 0pt)` | 信息区域内边距 |
 | `info-key-width` | length | `74pt` | 信息标签宽度 |

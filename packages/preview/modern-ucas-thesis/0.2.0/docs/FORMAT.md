@@ -1,6 +1,6 @@
-# 代码格式化工具
+# 代码格式化与检查工具
 
-本项目提供了两种方式来格式化 Typst 代码：Makefile 和 Shell 脚本。
+本项目提供了三种方式来格式化 Typst 代码：Makefile、Shell 脚本和 Lint 检查。
 
 ## 前置要求
 
@@ -25,6 +25,7 @@ cargo install typstyle
 # 显示帮助信息
 make help
 
+# ========== 格式化命令 ==========
 # 格式化所有 .typ 文件
 make format
 
@@ -35,8 +36,19 @@ make format-main
 make format-check
 
 # 格式化指定文件
-make format-file FILE=lib.typ
+make format-file FILE=pages/abstract.typ
 
+# ========== Lint 检查命令 ==========
+# 快速包检查（推荐日常使用）
+make lint-quick
+
+# 完整包检查（需要安装 package-check）
+make lint
+
+# 安装 package-check 工具
+make lint-install
+
+# ========== 其他命令 ==========
 # 列出所有将被格式化的文件
 make list-files
 
@@ -47,23 +59,56 @@ make clean
 make stats
 ```
 
-### 使用示例
+## 方法2：Lint 检查
+
+除了代码格式化，还提供了包结构检查功能，用于验证 `typst.toml` 配置和包结构是否符合规范。
+
+### 快速检查（推荐）
+
+无需安装额外依赖，适合日常开发使用：
 
 ```bash
-# 格式化所有文件
-make format
-
-# 检查所有文件的格式
-make format-check
-
-# 仅格式化主要文件
-make format-main
-
-# 格式化特定文件
-make format-file FILE=pages/abstract.typ
+make lint-quick
 ```
 
-## 方法2：使用 Shell 脚本
+这会检查：
+
+- ✅ `typst.toml` 文件是否存在
+- ✅ 必要的字段（name, version, entrypoint）是否完整
+- ✅ 入口文件是否存在
+
+### 完整检查
+
+使用官方 `typst/package-check` 工具进行完整检查（包括依赖验证、兼容性检查等）：
+
+```bash
+# 首次安装检查工具
+make lint-install
+
+# 运行完整检查
+make lint
+```
+
+**注意**：完整检查需要本地有完整的 Typst Universe package index。
+
+### Lint 检查示例输出
+
+```bash
+$ make lint-quick
+运行快速包检查...
+检查 typst.toml...
+✅ typst.toml 存在
+检查必要字段...
+✅ 基本字段完整
+检查入口文件...
+✅ 入口文件存在
+
+✅ 快速检查通过！
+```
+
+## 方法3：使用 Shell 脚本（格式化）
+
+如果更喜欢使用 Shell 脚本，可以使用 `format-typst.sh`：
 
 ### 基本用法
 
@@ -129,65 +174,20 @@ make format-file FILE=pages/chapter1.typ
 ### 提交前
 
 ```bash
-# 检查所有文件的格式
+# 1. 检查代码格式
 make format-check
 # 或
 ./format-typst.sh -c -a
 
-# 如果有文件需要格式化，运行：
+# 2. 检查包结构（推荐在提交前运行）
+make lint-quick
+
+# 3. 如果有文件需要格式化，运行：
 make format
 # 或
 ./format-typst.sh -a
 ```
 
-### CI/CD 集成
-
-在 GitHub Actions 或其他 CI 系统中，你可以添加格式检查：
-
-```yaml
-- name: Check Typst format
-  run: |
-    brew install typstyle
-    make format-check
-```
-
 ## 编辑器配置
 
 项目包含 `.editorconfig` 文件，确保你的编辑器支持 EditorConfig 以获得一致的代码风格。
-
-## 注意事项
-
-1. **备份重要文件**：首次使用格式化工具时，建议先备份重要文件
-2. **渐进式格式化**：对于大型项目，可以先格式化主要文件，然后逐步格式化其他文件
-3. **版本控制**：格式化后记得提交更改到版本控制系统
-4. **团队协作**：确保团队成员都使用相同的格式化工具和配置
-
-## 故障排除
-
-### typstyle 未找到
-
-```bash
-# 检查 typstyle 是否在 PATH 中
-which typstyle
-
-# 使用 Homebrew 安装
-brew install typstyle
-
-# 或使用 Cargo 安装
-cargo install typstyle
-```
-
-### 权限问题
-
-```bash
-# 确保脚本有执行权限
-chmod +x format-typst.sh
-```
-
-### 格式化失败
-
-如果某个文件格式化失败，检查：
-
-1. 文件是否有语法错误
-2. 文件是否被其他程序锁定
-3. 是否有足够的磁盘空间
