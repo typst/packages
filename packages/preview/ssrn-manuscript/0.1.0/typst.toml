@@ -1,0 +1,18 @@
+[package]
+name = "ssrn-manuscript"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Ulrich Atz <ulrich.atz@unibocconi.it>"]
+license = "MIT"
+description = "Working-paper template for SSRN and social science manuscripts"
+repository = "https://github.com/statzhero/typst-ssrn-manuscript"
+keywords = ["paper", "working-paper", "ssrn", "economics", "finance", "accounting"]
+categories = ["paper"]
+disciplines = ["economics", "business", "sociology"]
+compiler = "0.14.0"
+exclude = ["thumbnail-*.png", "template/example.typ"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
