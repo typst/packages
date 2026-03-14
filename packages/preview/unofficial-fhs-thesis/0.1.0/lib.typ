@@ -14,7 +14,7 @@
 
 #let project(
   logo: "",
-  paper_type: "project",
+  paper-type: "project",
   title: "Title",
   subtitle: "Subtitle",
   studiengang: "Studiengang",
@@ -57,7 +57,7 @@
   v(1cm)
   align(
     center,
-    text(0.8cm, weight: 700, paper_type)
+    text(0.8cm, weight: 700, paper-type)
   )
 
   // Title and subtitle of the paper

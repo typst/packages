@@ -2,8 +2,8 @@
 
 #show: project.with(
   logo: image("images/FH_Salzburg_Logo_DE.svg", height: 2.8cm),
-  paper_type: "Protocol",
   title: "Title",
+  paper-type: "Protocol",
   subtitle: "Subtitle",
   studiengang: "Studiengang",
   authors: (
@@ -35,3 +35,4 @@
 
 #pagebreak()
 = Another heading
+#lorem(500)
