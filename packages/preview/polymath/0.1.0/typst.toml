@@ -1,0 +1,17 @@
+[package]
+name        = "polymath"
+version     = "0.1.0"
+entrypoint  = "lib.typ"
+description = "A Typst package for the Renaissance man — write like Montaigne, typeset math like Axler. Structured boxes for theorems, proofs, definitions, essays, and notes."
+authors     = ["Deep Hayer"]
+license     = "MIT"
+keywords    = ["homework", "math", "notes", "montaigne", "axler", "polymath"]
+categories  = ["report"]
+repository  = "https://github.com/dhayer200/polymath"
+compiler    = "0.11.0"
+exclude     = ["example.typ"]
+
+[template]
+path       = "template"
+entrypoint = "main.typ"
+thumbnail  = "thumbnail.png"
