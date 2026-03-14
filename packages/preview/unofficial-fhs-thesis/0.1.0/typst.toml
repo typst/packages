@@ -1,0 +1,15 @@
+[package]
+name = "unofficial-fhs-thesis"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["CYS, FH Salzburg <https://fh-salzburg.ac.at>"]
+license = "MIT"
+description = "Projects and BA/MA thesis FH Salzburg"
+categories = ["project"]
+keywords = ["project", "thesis", "fh salzburg", "fhs"]
+repository = "https://its-git.fh-salzburg.ac.at/fhs46581/fhs-its-thesis-typst"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
