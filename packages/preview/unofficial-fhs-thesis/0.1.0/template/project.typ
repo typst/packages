@@ -1,4 +1,4 @@
-#import "@preview/unofficial-fhs-thesis:0.2.0": *
+#import "@preview/unofficial-fhs-thesis:0.1.0": *
 
 #show: project.with(
   logo: image("images/FH_Salzburg_Logo_DE.svg", height: 2.8cm),
