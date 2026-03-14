@@ -10,7 +10,7 @@
   fonts: (:),
   info: (:),
   // 其他参数
-  stoke-width: 0.5pt,
+  stroke-width: 0.5pt,
   min-title-lines: 2,
   info-inset: (x: 0pt, bottom: 1pt),
   info-key-width: 72pt,
@@ -78,7 +78,7 @@
     rect(
       width: 100%,
       inset: info-inset,
-      stroke: (bottom: stoke-width + black),
+      stroke: (bottom: stroke-width + black),
       text(
         font: fonts.at(info-value-font, default: "宋体"),
         size: 字号.三号,

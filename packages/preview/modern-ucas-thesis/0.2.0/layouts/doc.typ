@@ -1,4 +1,4 @@
-#import "@preview/cuti:0.3.0": show-cn-fakebold
+#import "@preview/cuti:0.4.0": show-cn-fakebold
 #import "../utils/style.typ": get-fonts, 字号
 
 // 文稿设置，可以进行一些像页面边距这类的全局设置

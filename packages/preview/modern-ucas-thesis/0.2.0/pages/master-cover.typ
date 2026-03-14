@@ -14,7 +14,7 @@
   fonts: (:),
   info: (:),
   // 其他参数
-  stoke-width: 0.5pt, // 控制元素边框（如框架、分隔线等）的线宽度。
+  stroke-width: 0.5pt, // 控制元素边框（如框架、分隔线等）的线宽度。
   min-title-lines: 2, // 控制标题行数的最小值。
   min-supervisor-lines: 2, // 控制指导教师区域的最小行数。
   min-reviewer-lines: 5, // 控制评审人区域的最小行数。
@@ -55,6 +55,7 @@
       title-en: "Typst Thesis Template of UCAS",
       supervisors: ("李四 教授", "王五 研究员"),
       supervisors-en: ("Professor Si Li", "Professor Wu Wang"),
+      reviewer: (),
       grade: "20XX",
       student-id: "1234567890",
       author: "张三",
@@ -157,7 +158,7 @@
       stroke: if no-stroke {
         none
       } else {
-        (bottom: stoke-width + black)
+        (bottom: stroke-width + black)
       },
       text(
         font: if is-meta {

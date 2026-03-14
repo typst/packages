@@ -93,7 +93,12 @@
 
   // 2.  辅助函数
   let array-at(arr, pos) = {
-    arr.at(calc.min(pos, arr.len()) - 1)
+    // 如果值是数组，根据位置获取；如果是标量，直接使用该值
+    if type(arr) == array {
+      arr.at(calc.min(pos, arr.len()) - 1)
+    } else {
+      arr
+    }
   }
 
   // 3.  设置基本样式
@@ -302,8 +307,8 @@
   ))
   context {
     if calc.even(here().page()) {
-      set page(numbering: "I", header: none)
-      // counter(page).update(1)
+      // 双面打印时，如果当前页是偶数，插入空白页使正文从奇数页开始
+      set page(numbering: none, header: none)
       pagebreak() + " "
     }
   }
