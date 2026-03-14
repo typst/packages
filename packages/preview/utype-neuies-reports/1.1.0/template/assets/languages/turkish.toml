@@ -1,7 +1,0 @@
-[translations]
-# Başlıklardan sadece birini kullanmak için parantez içinde olmayan ya da parantez içindeki ifadelerden birini seçip diğerlerini siliniz.
-# Document Sections
-PREFACE = "ÖN SÖZ (TEŞEKKÜR)"
-ASSUMPTIONS = "Sayıltılar (Varsayımlar)"
-RESEARCH-POPULATION-AND-SAMPLE = "Araştırmanın Evreni ve Örneklemi (Araştırmanın Çalışma Grubu) (Katılımcılar)"
-DATA-ANALYSIS = "Verilerin Çözümlenmesi (Verilerin Analizi)"

@@ -1,6 +1,0 @@
-slug = "game-of-life"
-title = "Game of Life"
-difficulty = "medium"
-labels = ["array", "matrix", "simulation"]
-custom-display = true
-custom-output-display = true
