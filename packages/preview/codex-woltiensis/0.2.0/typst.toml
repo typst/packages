@@ -1,8 +1,0 @@
-[package]
-name = "codex-woltiensis"
-version = "0.2.0"
-entrypoint = "lib.typ"
-authors = ["Lövbacken"]
-license = "MIT"
-description = "Create student song books like the Codex Woltiensis. Full layout of classical songbook."
-categories = ["layout"]
