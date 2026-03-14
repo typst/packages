@@ -1,4 +1,4 @@
-#import "../../library/template.typ": *
+#import "@preview/inelegant-note:0.9.0": *
 
 = 文字演示
 

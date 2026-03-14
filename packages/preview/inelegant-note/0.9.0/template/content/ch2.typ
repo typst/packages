@@ -1,4 +1,4 @@
-#import "../../library/template.typ": *
+#import "@preview/inelegant-note:0.9.0": *
 
 #set-heading-image(none)
 = 其他演示
