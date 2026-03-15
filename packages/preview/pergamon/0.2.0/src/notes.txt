@@ -1,0 +1,13 @@
+
+OK - authoryear: use new extradate field in the right places
+OK - n.d.: unrequire date/year in other drivers
+
+
+TODO:
+- Within bibliography, extradate should only be printed in square brackets if "n.a.[a]" is within parentheses - otherwise it should be in round brackets. But this would be super annoying to implement right now.
+- "n.d.."
+- // TODO: allow negative numbers at some point
+- authoryear: "n.d." // TODO localize this through bibstring
+  // TODO: permit date ranges
+  // TODO: permit approximate dates
+  // TODO: permit negative years

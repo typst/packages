@@ -1,0 +1,5 @@
+slug = "longest-palindromic-substring"
+title = "Longest Palindromic Substring"
+difficulty = "medium"
+labels = ["string", "dynamic-programming"]
+validator = "custom"

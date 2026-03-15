@@ -1,0 +1,15 @@
+name: Terminal Prompt (Shell)
+file_extensions: [term, terminal]
+scope: source.terminal
+contexts:
+  main:
+    - match: '^([^\s]*)(\$|#|>)(.*)'
+      captures:
+        1: term.prompt.data
+        2: term.prompt.sign
+        3: term.prompt.cmd
+      scope: source.shell
+      escape: '\n'
+    
+    - match: '^.*$'
+      scope: term.output

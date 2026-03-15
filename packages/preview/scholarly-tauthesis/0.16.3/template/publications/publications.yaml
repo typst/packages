@@ -1,0 +1,87 @@
+#
+# publications.yaml
+#
+# Fill in your PhD thesis publication information here using the Hayagriva citation format, which is a subset of the YAML language. See
+#
+#   https://github.com/typst/hayagriva/blob/main/README.md
+#
+# for details. The order of the publications here determines the order in which they appear in you dissertation. The types of currently recognized publications are given as examples in this template file.
+#
+# In addition to the typical Hayagriva publication fields, do not forget to fill in the additional 3 top-level values for each publication:
+#
+# - path
+#
+#   A path pointing to the PDF file containing the related article. This needs to be in relation to the compilation root directory. Usually this is the folder that contains main.typ, unless the project folder has been set somewhere else with the Typst CLI flag --root.
+#
+#   Note: this is currently not used by tauthesis by default, and you need to manually uncomment the related lines in the template module to use MuchPDF in importing article pages as SVG images. This is because SVG images are not an accessible means of attaching articles to a PDF file.
+#
+# - license
+#
+#   Change this to something other than null for each publication that was published under an open-access scheme. Without it, it is assumed that all rights are reserved, and you have gained the permission of all copyright holders of the related work to republish it in conjunction with this thesis.
+#
+# - n-of-pages
+#
+#   This might be needed, if MuchPDF does not improve and allow the querying of the number of pages in a PDF file programmatically.
+#
+
+article1:
+  type: Article
+  title: On the splitting of real isometries
+  author: ["A. Lastname", "C. Hausdoff", "T. J. Thompson", "K. Pythagoras"]
+  date: 2019
+  serial-number:
+    doi: "10.1000/182"
+  parent:
+    type: Periodical
+    title: Journal of Humbug
+    volume: 1
+    issue: 1
+    pages: "1--9"
+  keywords: ["thisdissertation"]
+  path: null # template/publications/article-1.pdf
+  license: null
+  n-of-pages: 9
+  author-contribution: >
+    A short description of how you contributed to article 1.
+    This can extend on multiple lines.
+
+article2:
+  type: InCollection
+  title: Measurability in statistical mechanics
+  author: ["A. Lastname", "L. Siegel", "V. Desargues", "W. Cartan"]
+  editor: ["E. Editor"]
+  date: 2018
+  serial-number:
+    doi: "10.1000/182"
+  parent:
+    type: Proceedings
+    title: Humbug Proceedings
+    location: Humbugland
+    publisher: Association of Humbug
+    pages: "1--12"
+  keywords: ["thisdissertation"]
+  path: null #  template/publications/article-2.pdf
+  license: null
+  n-of-pages: 12
+  author-contribution: >
+    A short description of how you contributed to article 2.
+    This can extend on multiple lines.
+
+article3:
+  type: Article
+  title: Anti-Continuously Riemannian Degeneracy for Locally Ramanujan Subsets
+  author: ["A. Lastname", "L. Von Neumann", "D. Napier", "G. Atiyah"]
+  date: 2021
+  serial-number:
+    doi: "10.1000/182"
+  parent:
+    type: Periodical
+    title: Journal of Humbug
+    pubstate: inpress
+  keywords: ["thisdissertation"]
+  path: null # template/publications/article-3.pdf
+  license: CC-BY-SA 4.0
+  n-of-pages: 8
+  author-contribution: >
+    A short description of how you contributed to article 3.
+    This can extend on multiple lines.

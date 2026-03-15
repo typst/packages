@@ -1,0 +1,12 @@
+[package]
+name        = "irif"
+version     = "0.0.2"
+description = "Numerical methods for integration, differentiation and root finding"
+license     = "MIT-0"
+authors     = ["TGGrace"]
+entrypoint  = "irif.typ"
+exclude     = [
+    ".git*",
+    "examples"
+]
+

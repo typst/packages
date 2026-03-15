@@ -1,0 +1,25 @@
+[package]
+name = "algotel"
+version = "0.1.0"
+entrypoint = "algotel.typ"
+authors = ["Fabien Mathieu", "Quentin Bramas", "Jean-Romain Luttringer"]
+license = "MIT"
+description = "Template for AlgoTel/CoRes conference submissions."
+repository = "https://github.com/balouf/algotel"
+keywords = ["AlgoTel", "CoRes", "conference", "networking"]
+categories = ["paper"]
+disciplines = ["computer-science"]
+compiler = "0.12.0"
+exclude = [
+  "/.github",
+  "/CLAUDE.md",
+  "/.claude",
+  "/sample-algotel-fr.typ",
+  "/sample-algotel-en.typ",
+  "*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,11 @@
+[package]
+name = "realhats"
+version = "0.1.0"
+entrypoint = "realhats/realhats.typ"
+authors = ["Matthew Ward @mward19", "Matthew W. Scroggs", "Adam K. Townsend"]
+license = "MIT"
+description = "Put real hats on symbols instead of circumflexes."
+keywords = ["realhats", "hat"]
+categories = ["fun"]
+disciplines = ["mathematics", "physics"]
+exclude = ["example*"]

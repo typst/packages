@@ -1,0 +1,11 @@
+
+[package]
+name = "pergamon"
+version = "0.4.0"
+compiler = "0.13.0"
+entrypoint = "lib.typ"
+authors = ["Alexander Koller <akoller@gmail.com>"]
+license = "MIT"
+description = "Biblatex-style reference management for Typst."
+repository = "https://github.com/alexanderkoller/pergamon"
+keywords = [ "bibliography", "bibtex", "biblatex", "citations" ]

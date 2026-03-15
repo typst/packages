@@ -1,0 +1,11 @@
+[package]
+name = "debug-city"
+version = "0.0.2"
+entrypoint = 'src/lib.typ'
+authors = ["Y.D.X."]
+license = "MIT"
+description = "Debug bibliography entries by showing what CSL receives."
+repository = "https://github.com/YDX-2147483647/typst-debug-city"
+keywords = ["bibliography", "csl", "hayagriva", "biblatex", "debugging"]
+categories = ["model", "scripting", "utility"]
+compiler = "0.13.0"

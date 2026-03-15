@@ -6,15 +6,24 @@ Examples in the README should show how to use the package through a `@preview`
 import. Also consider running [`typos`][typos] through your package before
 release.
 
-More complete documentation (usually written in Markdown, or in a PDF
-generated from a Typst file) can be linked from this README.
+More complete documentation (usually written in Markdown, or in a PDF generated
+from a Typst file) can be linked from this README. In general there are two
+options for linking these resources:
+
+If the resources are committed to this repository, you should link them locally.
+For example like this: `[manual.pdf](docs/manual.pdf)`. Most of these files
+should be excluded in your [manifest], see [what to exclude].
+
+If the resources are stored elsewhere, you can link to their URL as usual. When
+linking to files from another git repository, consider linking to a specific tag
+or revision, instead of the `main` branch. This will ensure that the linked
+resources always match the version of the package. So for example, prefer linking
+to the first URL instead of the second one:
+1. `https://github.com/micheledusi/Deckz/blob/v0.3.0/docs/manual-deckz.pdf`
+2. `https://github.com/micheledusi/Deckz/blob/main/docs/manual-deckz.pdf`
 
 If your package has a dedicated documentation website, it can be linked in the
 README, but also via the `homepage` field of your [manifest].
-
-When linking to a manual, images, etc. from another git repository, consider
-linking to a specific tag or revision, instead of the `main` branch. This will
-ensure that the linked resources always match the version of the package.
 
 ## Differences from standard Markdown
 
@@ -44,5 +53,6 @@ using the following snippet:
 
 [typos]: https://github.com/crate-ci/typos
 [manifest]: manifest.md
+[what to exclude]: tips.md#what-to-commit-what-to-exclude
 [alert blocks]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
 [emoji shortcodes]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emojis

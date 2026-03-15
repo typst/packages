@@ -1,0 +1,8 @@
+[package]
+name = "wordc"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["MicDZ"]
+license = "MIT"
+description = "Create aesthetic vocabulary and synonym cards."
+repository = "https://github.com/MicDZ/typst-wordc"

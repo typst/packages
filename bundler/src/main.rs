@@ -8,6 +8,7 @@ use std::env::args;
 use std::fs;
 use std::io;
 use std::path::Path;
+use std::path::PathBuf;
 use std::sync::LazyLock;
 
 use anyhow::{bail, Context};
@@ -15,7 +16,7 @@ use image::codecs::webp::{WebPEncoder, WebPQuality};
 use image::imageops::FilterType;
 use semver::Version;
 use spdx::LicenseId;
-use typst_syntax::package::{PackageInfo, PackageManifest, TemplateInfo, UnknownFields};
+use typst_syntax::package::{PackageInfo, PackageManifest, UnknownFields};
 use unicode_ident::{is_xid_continue, is_xid_start};
 
 use self::author::validate_author;
@@ -26,23 +27,38 @@ use self::timestamp::determine_timestamps;
 
 const DIST: &str = "dist";
 const THUMBS_DIR: &str = "thumbnails";
+const READMES_DIR: &str = "readmes";
+
+struct Config {
+    out_dir: PathBuf,
+    skip_license_validation: bool,
+}
+
+enum Msg<T> {
+    Data(T),
+    Done,
+}
 
 fn main() -> anyhow::Result<()> {
     println!("Starting bundling.");
 
     let mut next_is_out = false;
-    let out_dir = args()
-        .skip(1)
-        .find(|arg| {
-            if next_is_out {
-                return true;
-            }
-            next_is_out = arg == "--out-dir" || arg == "-o";
-            false
-        })
-        .unwrap_or_else(|| DIST.to_string());
 
-    let out_dir = Path::new(&out_dir);
+    let config = Config {
+        out_dir: args()
+            .skip(1)
+            .find(|arg| {
+                if next_is_out {
+                    return true;
+                }
+                next_is_out = arg == "--out-dir" || arg == "-o";
+                false
+            })
+            .unwrap_or_else(|| DIST.to_string())
+            .into(),
+        skip_license_validation: args().skip(1).any(|arg| arg == "--skip-license-validation"),
+    };
+
     let mut namespace_errors = vec![];
 
     for entry in walkdir::WalkDir::new("packages")
@@ -67,60 +83,86 @@ fn main() -> anyhow::Result<()> {
             .context("invalid namespace")?;
 
         println!("Processing namespace: {}", namespace);
-        let namespace_dir = Path::new(&out_dir).join(namespace);
+        let namespace_dir = config.out_dir.join(namespace);
 
         let mut paths = vec![];
         let mut index = vec![];
         let mut package_errors = vec![];
         fs::create_dir_all(namespace_dir.join(THUMBS_DIR))
             .context("could not create output directory")?;
+        fs::create_dir_all(namespace_dir.join(READMES_DIR))
+            .context("could not create directory for READMEs")?;
 
-        for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
-            let entry = entry.with_context(|| {
-                format!(
-                    "could not read item in namespace directory \"packages/{}\"",
-                    namespace
-                )
-            })?;
-
-            if !entry
-                .metadata()
-                .with_context(|| {
+        let (thumb_sender, thumb_receiver) = std::sync::mpsc::channel();
+        // The scope blocks until all thumbnails have been processed.
+        rayon::scope(|scope| {
+            for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
+                let entry = entry.with_context(|| {
                     format!(
+                        "could not read item in namespace directory \"packages/{}\"",
+                        namespace
+                    )
+                })?;
+
+                if !entry
+                    .metadata()
+                    .with_context(|| {
+                        format!(
                         "could not read metadata for item in namespace directory \"packages/{}\"",
                         namespace
                     )
-                })?
-                .is_dir()
-            {
-                bail!(
-                    "{}: a package directory may only contain version sub-directories, not files.",
-                    entry.path().display()
-                );
-            }
-
-            let path = entry.into_path();
-
-            if path
-                .file_name()
-                .and_then(|name| name.to_str())
-                .and_then(|name| Version::parse(name).ok())
-                .is_none()
-            {
-                bail!(
-                    "{}: Directory is not a valid version number",
-                    path.display()
-                );
-            }
-
-            match process_package(&path, &namespace_dir, namespace)
-                .with_context(|| format!("failed to process package at {}", path.display()))
-            {
-                Ok(info) => {
-                    paths.push(path);
-                    index.push(info);
+                    })?
+                    .is_dir()
+                {
+                    bail!(
+                        "{}: a package directory may only contain version sub-directories, not files.",
+                        entry.path().display()
+                    );
                 }
-                Err(err) => package_errors.push(err),
+
+                let path = entry.into_path();
+
+                if path
+                    .file_name()
+                    .and_then(|name| name.to_str())
+                    .and_then(|name| Version::parse(name).ok())
+                    .is_none()
+                {
+                    bail!(
+                        "{}: Directory is not a valid version number",
+                        path.display()
+                    );
+                }
+
+                let res = process_package(
+                    &config,
+                    scope,
+                    &thumb_sender,
+                    &path,
+                    &namespace_dir,
+                    namespace,
+                );
+                match res {
+                    Ok(info) => {
+                        paths.push(path);
+                        index.push(info);
+                    }
+                    Err(err) => package_errors.push(
+                        err.context(format!("failed to process package at {}", path.display())),
+                    ),
+                }
+            }
+
+            Ok(())
+        })?;
+
+        // Send the done message and wait for thumbnail processing to complete.
+        thumb_sender.send(Msg::Done).unwrap();
+        while let Ok(msg) = thumb_receiver.recv() {
+            match msg {
+                Msg::Data(Ok(())) => (),
+                Msg::Data(Err(err)) => package_errors.push(err),
+                Msg::Done => break,
             }
         }
 
@@ -132,15 +174,41 @@ fn main() -> anyhow::Result<()> {
         index.sort_by_key(|info| (info.package.name.clone(), info.package.version));
 
         println!("Writing index.");
+
+        // This index is allowed to be used by third parties: Both the Typst CLI
+        // and the web app download this index. However, we give no stability
+        // guarantees.
         fs::write(
             namespace_dir.join("index.json"),
             serde_json::to_vec(&index.iter().map(IndexPackageInfo::from).collect::<Vec<_>>())
                 .context("serialization of compact package index failed")?,
         )?;
+
+        // The index.extra.json is an implementation detail of typst.app. This
+        // file should not be used by third parties: They should instead use
+        // index.json.
         fs::write(
-            namespace_dir.join("index.full.json"),
-            serde_json::to_vec(&index).context("serialization of full package index failed")?,
+            namespace_dir.join("index.extra.json"),
+            serde_json::to_vec(
+                &index
+                    .iter()
+                    .map(ExtraIndexPackageInfo::from)
+                    .collect::<Vec<_>>(),
+            )
+            .context("serialization of extra package index failed")?,
         )?;
+
+        println!("Writing READMEs.");
+
+        let readme_dir = namespace_dir.join(READMES_DIR);
+
+        // The README files are an implementation detail of typst.app. They
+        // should not be used by third parties.
+        for item in &index {
+            let path =
+                readme_dir.join(format!("{}-{}.md", item.package.name, item.package.version));
+            fs::write(path, &item.readme)?;
+        }
 
         if !package_errors.is_empty() {
             namespace_errors.push((namespace.to_string(), package_errors));
@@ -167,13 +235,17 @@ fn main() -> anyhow::Result<()> {
 
 /// Create an archive for a package.
 fn process_package(
+    config: &Config,
+    scope: &rayon::Scope,
+    thumb_sender: &std::sync::mpsc::Sender<Msg<anyhow::Result<()>>>,
     path: &Path,
     namespace_dir: &Path,
     namespace: &str,
 ) -> anyhow::Result<FullIndexPackageInfo> {
     println!("Bundling {}.", path.display());
 
-    let manifest = parse_manifest(path, namespace).context("failed to parse package manifest")?;
+    let manifest =
+        parse_manifest(config, path, namespace).context("failed to parse package manifest")?;
     let buf = build_archive(path, &manifest).context("failed to build archive")?;
     let readme = read_readme(path)?;
 
@@ -181,8 +253,19 @@ fn process_package(
     write_archive(&manifest.package, &buf, namespace_dir).context("failed to write archive")?;
 
     if let Some(template) = &manifest.template {
-        process_thumbnail(path, &manifest, template, namespace_dir)
-            .context("failed to process thumbnail")?;
+        let original_path = path.join(template.thumbnail.as_str());
+        let thumb_dir = namespace_dir.join(THUMBS_DIR);
+        let filename = format!("{}-{}", manifest.package.name, manifest.package.version);
+        let thumb_sender = thumb_sender.clone();
+
+        // Offload thumbnail processing to the rayon thread pool, since it takes
+        // the majority of CPU time.
+        scope.spawn(move |_| {
+            let res = process_thumbnail(&original_path, &thumb_dir, filename).with_context(|| {
+                format!("failed to process thumbnail at {}", original_path.display())
+            });
+            thumb_sender.send(Msg::Data(res)).unwrap();
+        });
     }
 
     Ok(FullIndexPackageInfo {
@@ -217,7 +300,11 @@ fn validate_no_unknown_fields(
 }
 
 /// Read and validate the package's manifest.
-fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifest> {
+fn parse_manifest(
+    config: &Config,
+    path: &Path,
+    namespace: &str,
+) -> anyhow::Result<PackageManifest> {
     let src = fs::read_to_string(path.join("typst.toml"))?;
 
     let manifest: PackageManifest = toml::from_str(&src)?;
@@ -257,25 +344,27 @@ fn parse_manifest(path: &Path, namespace: &str) -> anyhow::Result<PackageManifes
         validate_discipline(discipline)?;
     }
 
-    let Some(license) = &manifest.package.license else {
-        bail!("package license is missing");
-    };
+    if !config.skip_license_validation {
+        let Some(license) = &manifest.package.license else {
+            bail!("package license is missing");
+        };
 
-    let license =
-        spdx::Expression::parse(license).context("failed to parse SPDX license expression")?;
+        let license =
+            spdx::Expression::parse(license).context("failed to parse SPDX license expression")?;
 
-    for requirement in license.requirements() {
-        let id = requirement
-            .req
-            .license
-            .id()
-            .context("license must not contain a referencer")?;
+        for requirement in license.requirements() {
+            let id = requirement
+                .req
+                .license
+                .id()
+                .context("license must not contain a referencer")?;
 
-        if !id.is_osi_approved() && !is_allowed_cc(id) {
-            bail!(
-                "license is neither OSI approved nor an allowed CC license: {}",
-                id.full_name
-            );
+            if !id.is_osi_approved() && !is_allowed_cc(id) {
+                bail!(
+                    "license is neither OSI approved nor an allowed CC license: {}",
+                    id.full_name
+                );
+            }
         }
     }
 
@@ -364,14 +453,10 @@ fn write_archive(info: &PackageInfo, buf: &[u8], namespace_dir: &Path) -> anyhow
 /// Process the thumbnail image for a package and write it to the `dist`
 /// directory in large and small version.
 fn process_thumbnail(
-    path: &Path,
-    manifest: &PackageManifest,
-    template: &TemplateInfo,
-    namespace_dir: &Path,
+    original_path: &Path,
+    thumb_dir: &Path,
+    filename: String,
 ) -> anyhow::Result<()> {
-    let original_path = path.join(template.thumbnail.as_str());
-    let thumb_dir = namespace_dir.join(THUMBS_DIR);
-    let filename = format!("{}-{}", manifest.package.name, manifest.package.version);
     let hopefully_max_encoded_size = 1024 * 1024;
 
     let extension = original_path
@@ -384,17 +469,17 @@ fn process_thumbnail(
     }
 
     // Get file size.
-    let file_size = fs::metadata(&original_path)?.len() as usize;
+    let file_size = fs::metadata(original_path)?.len() as usize;
     if file_size > 3 * 1024 * 1024 {
-        bail!("thumbnail must be smaller than 3MB");
+        bail!("thumbnail must be smaller than 3 MiB");
     }
 
-    let mut image = image::open(&original_path)?;
+    let mut image = image::open(original_path)?;
 
     // Ensure that the image has at least a certain minimum size.
     let longest_edge = image.width().max(image.height());
     if longest_edge < 1080 {
-        bail!("each thumbnail's longest edge must be at least 1080px long");
+        bail!("each thumbnail's longest edge must be at least 1080 px long");
     }
 
     // We produce a full-size and a miniature thumbnail.
@@ -408,7 +493,7 @@ fn process_thumbnail(
 
     // Thumbnails that are WebP already and in the budget should be copied as-is.
     if extension == "webp" && file_size < hopefully_max_encoded_size {
-        fs::copy(&original_path, thumbnail_path)?;
+        fs::copy(original_path, thumbnail_path)?;
         return Ok(());
     }
 
