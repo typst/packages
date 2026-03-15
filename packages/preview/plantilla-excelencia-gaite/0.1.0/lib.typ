@@ -1,8 +1,6 @@
-#import "@preview/lilaq:0.3.0" as lq
-
 //// Funciones ////
 
-#let insertarImagen(
+#let insertar-imagen(
   anchura: auto,
   altura: auto,
   borde: none,
