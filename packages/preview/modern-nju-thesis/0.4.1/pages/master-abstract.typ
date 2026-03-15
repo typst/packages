@@ -3,7 +3,7 @@
 #import "../utils/double-underline.typ": double-underline
 #import "../utils/custom-tablex.typ": gridx, colspanx
 #import "../utils/invisible-heading.typ": invisible-heading
-#import "@preview/cuti:0.4.1": *
+#import "@preview/cuti:0.4.0": *
 // 研究生中文摘要页
 #let master-abstract(
   // documentclass 传入的参数
