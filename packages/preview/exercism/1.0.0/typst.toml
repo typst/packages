@@ -1,0 +1,12 @@
+[package]
+name = "exercism"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["mkorje <@mkorje>"]
+license = "MIT"
+description = "Organise exercises and defer their solutions."
+repository = "https://github.com/mkorje/typst-exercism"
+keywords = ["exercises", "solutions", "problems", "questions", "answers"]
+categories = ["model", "scripting", "book"]
+compiler = "0.13.1"
+exclude = ["example.svg", "manual.pdf", "manual.typ"]

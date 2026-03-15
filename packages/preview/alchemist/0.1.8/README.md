@@ -91,7 +91,7 @@ For more information, check the [manual](https://raw.githubusercontent.com/Robot
 
 ### 0.1.8
 
-- Fixed bus introduced in 0.1.7
+- Fixed bugs introduced in 0.1.7
 
 ### 0.1.7
 
