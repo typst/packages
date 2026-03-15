@@ -1,4 +1,4 @@
-#import "@local/plantilla-excelencia-gaite:0.1.0": *
+#import "@preview/plantilla-excelencia-gaite:0.1.0": *
 
 // Aquí configuras los datos de tu proyecto
 #show: proyecto.with(
