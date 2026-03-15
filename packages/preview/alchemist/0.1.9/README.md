@@ -78,7 +78,7 @@ Alchemist uses cetz to draw the molecules. This means that you can draw cetz sha
 To start using alchemist, just use the following code:
 
 ```typ
-#import "@preview/alchemist:0.1.8": *
+#import "@preview/alchemist:0.1.9": *
 
 #skeletize({
   // Your molecule here
