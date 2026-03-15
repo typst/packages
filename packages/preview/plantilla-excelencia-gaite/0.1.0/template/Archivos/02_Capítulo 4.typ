@@ -1,0 +1,15 @@
+#import "@local/plantilla-excelencia-gaite:0.1.0": *
+
+// Escribirmos a partir de aquí
+
+= Capítulo 4
+
+#lorem(200)
+
+
+
+== Apartado a
+
+#lorem(50)
+
+

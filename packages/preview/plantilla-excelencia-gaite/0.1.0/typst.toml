@@ -1,0 +1,11 @@
+[package]
+name = "plantilla-excelencia-gaite"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Tu Nombre <tu@correo.com>"]
+license = "MIT"
+description = "Plantilla para los proyectos del Bachillerato de Excelencia del IES Carmen Martín Gaite."
+
+[template]
+path = "template"
+entrypoint = "main.typ"
