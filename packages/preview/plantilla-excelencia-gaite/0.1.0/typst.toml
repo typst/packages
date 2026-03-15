@@ -1,0 +1,13 @@
+[package]
+name = "plantilla-excelencia-gaite"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jesús Manuel"]
+license = "MIT"
+description = "Plantilla para los proyectos del Bachillerato de Excelencia del IES Carmen Martín Gaite."
+categories = ["report", "thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
