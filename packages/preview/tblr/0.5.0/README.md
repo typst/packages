@@ -178,7 +178,7 @@ option. The following shows different ways to create the same table.
 
 ```typ
 #import "@preview/tblr:0.5.0": *
-#import "@preview/rowmantic:0.4.0": rowtable
+#import "@preview/rowmantic:0.5.0": rowtable
 
 #set page(height: auto, width: auto, margin: 0em)
 

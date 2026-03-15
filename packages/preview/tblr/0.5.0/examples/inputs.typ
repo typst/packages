@@ -1,5 +1,5 @@
 #import "../tblr.typ": *
-#import "@preview/rowmantic:0.4.0": rowtable
+#import "@preview/rowmantic:0.5.0": rowtable
 
 #set page(height: auto, width: auto, margin: 0em)
 
