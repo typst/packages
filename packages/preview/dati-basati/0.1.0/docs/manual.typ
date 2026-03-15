@@ -1,7 +1,7 @@
 #import "@preview/dati-basati:0.1.0"
-#import "@preview/zebraw:0.6.1": *
-#import "@preview/catppuccin:1.0.1": *
-#import "@preview/gentle-clues:1.3.0": *
+#import "@preview/zebraw:0.6.1":
+#import "@preview/catppuccin:1.1.0": *
+#import "@preview/gentle-clues:1.3.1": *
 
 #set page(
   footer: context {
