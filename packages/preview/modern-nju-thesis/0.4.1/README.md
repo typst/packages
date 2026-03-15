@@ -144,7 +144,7 @@ PS: 虽然与 Overleaf 看起来相似，但是它们底层原理并不相同。
 
 如果还是不能成功，你可以按照模板里的说明自行配置字体，例如
 
-```typst
+```typ
 #let (...) = documentclass(
   fonts: (楷体: ((name: "Times New Roman", covers: "latin-in-cjk"), "FZKai-Z03S")),
 )
@@ -161,7 +161,7 @@ PS: 虽然与 Overleaf 看起来相似，但是它们底层原理并不相同。
 
 你会发现 Typst 有许多关于字体的警告，这是因为 modern-nju-thesis 加入了很多不必要的 fallback 字体，你可以自定义字体消除警告，先英文字体后中文字体，应传入「宋体」、「黑体」、「楷体」、「仿宋」、「等宽」。
 
-```typst
+```typ
 #let (...) = documentclass(
   fonts: (楷体: ((name: "Times New Roman", covers: "latin-in-cjk"), "FZKai-Z03S")),
 )

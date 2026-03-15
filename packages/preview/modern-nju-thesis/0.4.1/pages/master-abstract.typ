@@ -3,7 +3,7 @@
 #import "../utils/double-underline.typ": double-underline
 #import "../utils/custom-tablex.typ": gridx, colspanx
 #import "../utils/invisible-heading.typ": invisible-heading
-#import "@preview/cuti:0.3.0": *
+#import "@preview/cuti:0.4.1": *
 // 研究生中文摘要页
 #let master-abstract(
   // documentclass 传入的参数
@@ -18,7 +18,7 @@
   outline-title: "中文摘要",
   outlined: true,
   abstract-title-weight: "regular",
-  stoke-width: 0.5pt,
+  stroke-width: 0.5pt,
   info-value-align: center,
   info-inset: (x: 0pt, bottom: 0pt),
   info-key-width: 74pt,
@@ -61,7 +61,7 @@
     rect(
       width: 100%,
       inset: info-inset,
-      stroke: (bottom: stoke-width + black),
+      stroke: (bottom: stroke-width + black),
       text(
         font: fonts.楷体,
         size: 字号.四号,
@@ -103,7 +103,7 @@
       info-key[#pin("title")毕业论文题目：], colspanx(5, info-value("", " ")),
       colspanx(6, info-value("", " ")),
       colspanx(2, info-value("major", info.major)), info-key[专业],
-      info-value("grade", info.grade), info-key(if type == "doctor" { [级硕士生姓名：] } else { [级博士生姓名：] } ), info-value("author", info.author),
+      info-value("grade", info.grade), info-key(if doctype == "doctor" { [级硕士生姓名：] } else { [级博士生姓名：] } ), info-value("author", info.author),
       colspanx(2, info-key[指导教师（姓名、职称）：]), colspanx(4, info-value("supervisor", info.supervisor.at(0) + " " + info.supervisor.at(1) + if info.supervisor-ii != () { h(1em) + info.supervisor-ii.at(0) + " " + info.supervisor-ii.at(1) })),
     )
 

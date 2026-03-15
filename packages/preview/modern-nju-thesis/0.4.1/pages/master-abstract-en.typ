@@ -18,7 +18,7 @@
   outline-title: "ABSTRACT",
   outlined: true,
   abstract-title-weight: "regular",
-  stoke-width: 0.5pt,
+  stroke-width: 0.5pt,
   info-value-align: center,
   info-inset: (x: 0pt, bottom: 0pt),
   info-key-width: 74pt,
@@ -60,7 +60,7 @@
     rect(
       width: 100%,
       inset: info-inset,
-      stroke: (bottom: stoke-width + black),
+      stroke: (bottom: stroke-width + black),
       text(
         font: fonts.楷体,
         size: 字号.四号,

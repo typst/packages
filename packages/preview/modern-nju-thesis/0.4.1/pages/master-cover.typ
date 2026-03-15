@@ -13,7 +13,7 @@
   fonts: (:),
   info: (:),
   // 其他参数
-  stoke-width: 0.5pt,
+  stroke-width: 0.5pt,
   min-title-lines: 2,
   min-reviewer-lines: 5,
   info-inset: (x: 0pt, bottom: 0.5pt),
@@ -97,7 +97,7 @@
     rect(
       width: 100%,
       inset: info-inset,
-      stroke: if no-stroke { none } else { (bottom: stoke-width + black) },
+      stroke: if no-stroke { none } else { (bottom: stroke-width + black) },
       text(
         font: if is-meta { fonts.宋体 } else { fonts.楷体 },
         size: if is-meta { 字号.小五 } else { 字号.三号 },
@@ -272,7 +272,7 @@
 
   v(6pt)
 
-  smallcaps(if doctype == "doctor" { "Doctor of phlosophy" } else { "Master" })
+  smallcaps(if doctype == "doctor" { "Doctor of philosophy" } else { "Master" })
 
   v(6pt)
 
