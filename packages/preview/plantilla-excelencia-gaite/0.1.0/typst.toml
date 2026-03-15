@@ -9,3 +9,4 @@ description = "Plantilla para los proyectos del Bachillerato de Excelencia del I
 [template]
 path = "template"
 entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
