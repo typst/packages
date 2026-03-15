@@ -14,8 +14,8 @@ disciplines = [
     "medicine",
     "business",
 ]
-description = "A clean Typst thesis template for Bachelor's and Master's theses at HPI, University of Potsdam."
-repository = "https://gitlab.hpi.de/robert.richter/typst-thesis-template/"
+description = "A clean thesis template for Bachelor's and Master's theses at HPI, University of Potsdam."
+repository = "https://github.com/felixhoffmnn/hpi-thesis-template"
 keywords = [
     "HPI",
     "Hasso-Plattner-Institut",
@@ -28,7 +28,7 @@ keywords = [
     "thesis",
 ]
 categories = ["thesis"]
-compiler = "0.12.0"
+compiler = "0.14.0"
 exclude = ["example/main.pdf"]
 
 [template]

@@ -33,7 +33,7 @@ An example configuration is located in [`example/`](./example/main.typ).
   abstract-de: "Der deutsche Abstract...",
   acknowledgements: "Thanks to ...",
   type: "Master",
-  bibliography-file: "references.bib",
+  bibliography: bibliography("references.bib"),
   // lang: "de",
   // typography: (font: "STIX Two Text", body-text-size: 12pt),
   // layout: (for-print: true, toc-depth: 2),
@@ -46,4 +46,4 @@ An example configuration is located in [`example/`](./example/main.typ).
 
 ## Logo Usage
 
-Please note that the logos are University of Potsdam ([UP Logo Usage Guidelines](https://www.uni-potsdam.de/fileadmin/projects/zim/files/MMP/PDF_Dateien_MMP/250509-Leitfaden_DigitalPrint-web.pdf)) and Hasso Plattner Institute ([HPI Logo Usage Guidelines](https://hpi.de/en/imprint/)).
+Please note the logo usage guidelines of University of Potsdam ([UP Logo Usage Guidelines](https://www.uni-potsdam.de/fileadmin/projects/zim/files/MMP/PDF_Dateien_MMP/250509-Leitfaden_DigitalPrint-web.pdf)) and Hasso Plattner Institute ([HPI Logo Usage Guidelines](https://hpi.de/en/imprint/)). The logos are subject to copyright of the respective institutions.
