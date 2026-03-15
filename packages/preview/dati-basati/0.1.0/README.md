@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-GPLv3-green)
 [![Manual](https://img.shields.io/badge/docs-manual.pdf-red?logo=readthedocs)](docs/manual.pdf?raw=true)
 
-_Dati basati_ ("_Based Data_" in Italian) is a [Typst](https://typst.app/) package, built on [CeTZ](https://github.com/cetz-package/cetz), to draw ER-diagrams as I did during university. I was never able to find a software that did it, so why not it do it myself?
+_Dati basati_ ("_Based Data_" in Italian) is a [Typst](https://typst.app/) package, built on [CeTZ](https://github.com/cetz-package/cetz), to draw ER-diagrams as I did during university. I was never able to find a software that did it, so why not do it myself?
 
 See the `/docs` directory for the [manual](/docs/manual.pdf) and the [documentation](/docs/docs.pdf).
 
