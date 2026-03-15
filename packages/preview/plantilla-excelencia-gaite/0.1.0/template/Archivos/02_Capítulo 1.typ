@@ -26,7 +26,7 @@
   )
 ]
 
-#import "@preview/lilaq:0.4.0" as lq
+#import "@preview/lilaq:0.6.0" as lq
 
 #figure(
   lq.diagram(
