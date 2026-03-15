@@ -36,22 +36,6 @@ $ 1 + 2 + 3 + 4 + ... + n = (n dot (n+1))/2 $ <n_primeros_numeros>
 
 Para demostrar @n_primeros_numeros
 
-
-#let xs = (0, 1, 2, 3, 4)
-
-
-#figure(
-  lq.diagram(
-    title: [Precious data],
-    xlabel: $x$, 
-    ylabel: $y$,
-  
-    lq.plot(xs, (5, 4, 2, 1, 2), mark: "s", label: [A]),
-    lq.plot(xs, (2, 5, 4, 2, 3), mark: "o", label: [B])
-  ),
-  caption: [Gráfica no se qué]
-)
-
 == Apartado b
 
 #lorem(200)
