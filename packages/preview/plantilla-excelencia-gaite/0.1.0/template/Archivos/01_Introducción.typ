@@ -22,7 +22,7 @@
   #lorem(100)
   #colbreak()
   #lorem(30)
-  #insertarImagen(
+  #insertar-imagen(
     ubicacion: image("Imágenes/reliquias.png", width: 90%),
     borde: 1pt,
     descripcion: "Las reliquias de la muerte. Es un logo muy bonito"
