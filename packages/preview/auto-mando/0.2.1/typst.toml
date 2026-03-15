@@ -1,6 +1,6 @@
 [package]
 name = "auto-mando"
-version = "0.2.0"
+version = "0.2.1"
 entrypoint = "src/lib.typ"
 authors = ["Vincent Tam <https://github.com/VincentTam>"]
 license = "MIT"

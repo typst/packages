@@ -27,32 +27,40 @@
 /// The zhuyin string (e.g. "ㄆㄧㄣˉ") is split into grapheme clusters and
 /// stacked top-to-bottom to form a vertical annotation column, matching the
 /// traditional right-side bopomofo display in Taiwanese textbooks.
+/// For neutral tone (e.g. "·ㄇㄚ") the dot is the first cluster and is
+/// rendered above the bopomofo body, also scaled up for legibility.
 #let _zhuyin-manual-pair(char, zhuyin-str, ruby-styles) = {
   set text(top-edge: "ascender", bottom-edge: "descender")
-  let glyphs  = zhuyin-str.clusters().slice(0,-1)
-  let tone    = zhuyin-str.clusters().slice(-1).at(0)
-  let rb-size = ruby-styles.size
+  let clusters = zhuyin-str.clusters()
+  let rb-size  = ruby-styles.size
+
+  // Detect neutral tone: dot is a prefix (first cluster is "·")
+  let is-neutral = clusters.first() == "·"
+
+  let (glyphs, tone) = if is-neutral {
+    (clusters.slice(1),   "·")   // body after dot; dot rendered first (top)
+  } else {
+    (clusters.slice(0,-1), clusters.last())  // body; suffix tone mark at bottom
+  }
+
+  let tone-box = scale(
+    text(size: rb-size, tone, top-edge: "bounds", bottom-edge: "bounds"),
+    200%,
+    reflow: true,
+  )
+  let body-text = text(size: rb-size, stack(dir: ttb, ..glyphs))
+
   let ann-col = box(
     width: rb-size * 2,
     align(center,
       box(
         align(bottom,
-          stack(
-            // Stack bopomofo alphabets from top to bottom
-            text(size: rb-size, stack(dir: ttb, ..glyphs)),
-            // Magnify tone mark for easier reading
-            scale(
-              text(
-                size: rb-size,
-                tone,
-                top-edge: "bounds",
-                bottom-edge: "bounds"
-              ),
-              200%,
-              origin: top+left
-            ),
-            dir: ltr
-          )
+          // Neutral: dot on top, then body. Tones 1–4: body, then mark below.
+          if is-neutral {
+            stack(tone-box, body-text, dir: ttb)
+          } else {
+            stack(body-text, tone-box, dir: ltr)
+          }
         ),
       )
     ),

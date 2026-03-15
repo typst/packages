@@ -24,7 +24,7 @@ apply ruby annotations in either **pīnyīn** or **zhùyīn** (bopomofo /
 ### Basic Pīnyīn Example
 
 ```typst
-#import "@preview/auto-mando:0.2.0": pinyin-ruby
+#import "@preview/auto-mando:0.2.1": pinyin-ruby
 
 #set text(font: ("Libertinus Serif", "Noto Serif CJK TC"), size: 18pt)
 #set par(leading: 1.5em)  // prevent annotation overlap between lines
@@ -37,7 +37,7 @@ apply ruby annotations in either **pīnyīn** or **zhùyīn** (bopomofo /
 ### Basic Zhuyin Example
 
 ```typst
-#import "@preview/auto-mando:0.2.0": zhuyin-ruby
+#import "@preview/auto-mando:0.2.1": zhuyin-ruby
 
 #set text(font: ("Libertinus Serif", "Noto Serif CJK TC"), size: 18pt)
 #set par(leading: 1.5em)
@@ -53,7 +53,7 @@ the layout used in Taiwanese elementary school textbooks.
 ### Customizing Word Separation
 
 ```typst
-#import "@preview/auto-mando:0.2.0": pinyin-ruby
+#import "@preview/auto-mando:0.2.1": pinyin-ruby
 #set text(24pt, font: ("Libertinus Serif", "AR PL KaitiM Big5"))
 #set par(leading: 1.5em)
 

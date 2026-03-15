@@ -102,43 +102,55 @@
   ("v","ㄩ"),      ("ü","ㄩ"),
 )
 
-/// Tone-number → bopomofo tone mark.
-/// Tone 1 = ˉ (U+02C9), Tone 5 (neutral) = ˙ (U+02D9).
-#let _zy-tones = ("1":"ˉ", "2":"ˊ", "3":"ˇ", "4":"ˋ", "5":"˙")
+/// Tone-number → bopomofo tone mark and whether it is a prefix.
+/// Tones 1–4 are suffix diacritics; tone 5 (neutral) is a · prefix.
+#let _zy-tones = ("1": (mark: "ˉ", pre: false),
+                  "2": (mark: "ˊ", pre: false),
+                  "3": (mark: "ˇ", pre: false),
+                  "4": (mark: "ˋ", pre: false),
+                  "5": (mark: "·", pre: true))
 
 /// Convert a single pinyin syllable with trailing tone digit (e.g. "pin1")
 /// to a bopomofo string with tone mark (e.g. "ㄆㄧㄣˉ").
+/// Neutral tone (5) prefixes the dot: "·ㄇㄚ" — matching printed textbooks.
 #let pinyin-to-zhuyin(syllable) = {
   let s = lower(syllable)
   // Strip tone digit
-  let tone = ""
+  let tone-mark = ""
+  let tone-pre  = false
   if s.len() > 0 and "12345".contains(s.last()) {
-    tone = _zy-tones.at(s.last(), default: "")
+    let t     = _zy-tones.at(s.last(), default: (mark: "", pre: false))
+    tone-mark = t.mark
+    tone-pre  = t.pre
     s = s.slice(0, s.len() - 1)
   }
   // Whole-syllable special?
-  if s in _zy-specials { return _zy-specials.at(s) + tone }
-  // Strip initial
-  let init-bopo  = ""
-  let init-latin = ""
-  for (lat, bopo) in _zy-initials {
-    if s.starts-with(lat) {
-      init-bopo  = bopo
-      init-latin = lat
-      s = s.slice(lat.len())
-      break
+  let body = if s in _zy-specials { _zy-specials.at(s) } else {
+    // Strip initial
+    let init-bopo  = ""
+    let init-latin = ""
+    for (lat, bopo) in _zy-initials {
+      if s.starts-with(lat) {
+        init-bopo  = bopo
+        init-latin = lat
+        s = s.slice(lat.len())
+        break
+      }
+    }
+    // j/q/x + u-based finals → ü
+    if init-latin in ("j","q","x") and s in _zy-jqx-finals {
+      init-bopo + _zy-jqx-finals.at(s)
+    } else {
+      // General final lookup
+      let fin-bopo = ""
+      for (lat, bopo) in _zy-finals {
+        if s == lat { fin-bopo = bopo; break }
+      }
+      init-bopo + fin-bopo
     }
   }
-  // j/q/x + u-based finals → ü
-  if init-latin in ("j","q","x") and s in _zy-jqx-finals {
-    return init-bopo + _zy-jqx-finals.at(s) + tone
-  }
-  // General final lookup
-  let fin-bopo = ""
-  for (lat, bopo) in _zy-finals {
-    if s == lat { fin-bopo = bopo; break }
-  }
-  init-bopo + fin-bopo + tone
+  // Neutral tone: dot precedes the bopomofo body
+  if tone-pre { tone-mark + body } else { body + tone-mark }
 }
 
 /// Convert an array of pinyin-numbers syllables to an array of zhuyin strings,
