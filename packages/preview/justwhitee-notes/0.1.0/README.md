@@ -29,10 +29,11 @@ Wrap your content with the `project` function:
   author: "Your Name",
   logo-subject: image("imgs/course-logo.png"),       // optional
   logo-personal: image("imgs/my-logo.png"),          // optional
-  year: "2024/2025",                          // optional, auto-generated if omitted
-  bento-url: "https://bento.me/yourprofile",  // a page/website you would like to add (like bento, linktree, ...)
-  paypal-url: "https://paypal.me/yourname",
-  contact-url: "https://t.me/username",       // or a whatsapp/any message app link
+  year: "2024/2025",                                 // optional, auto-generated if omitted
+  bento-url: "https://bento.me/yourprofile",         // optional: a page/website (bento, linktree, ...)
+  paypal-url: "https://paypal.me/yourname",          // optional: support link shown on disclaimer page
+  contact-url: "https://t.me/username",              // optional: link to report errors or contribute
+  show-disclaimer: true,                             // optional: set to false to hide the disclaimer page
   lang: "en",
 )
 
@@ -56,6 +57,7 @@ Wrap your content with the `project` function:
 | `paypal-url` | string | ❌ | PayPal link (shown on disclaimer page) |
 | `contact-url` | string | ❌ | Link to report errors or contribute |
 | `lang` | string | ❌ | The language of the document (default is English). |
+| `show-disclaimer` | bool | ❌ | Whether to show the disclaimer page (default: `true`). Set to `false` to omit it entirely. |
 
 ---
 
@@ -221,6 +223,7 @@ The template uses the following font stacks:
   bento-url: "https://itsjustwhitee.github.io/bento/",
   paypal-url: "https://paypal.me/justwhitee",
   contact-url: "https://github.com/itsjustwhitee/packages/issues",
+  show-disclaimer: true,
   lang: "en",
 )
 
