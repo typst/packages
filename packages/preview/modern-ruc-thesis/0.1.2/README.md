@@ -52,7 +52,6 @@ This is an unofficial undergraduate thesis Typst template for Renmin University 
 
 ![typst-app](./assets/typst-app.png)
 
-> [!IMPORTANT]
 > 为了在 Web 编辑器中正确显示字体，你需要找到电脑字体文件夹（Windows 下是 `C:\Windows\Fonts`，macOS 下是 `/Library/Fonts`），将模板所需要的字体文件**全部**上传到 Typst Web App 任意位置：
 > - 黑体
 > - 宋体
