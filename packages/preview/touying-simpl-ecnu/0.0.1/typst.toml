@@ -1,0 +1,16 @@
+[package]
+name = "touying-simpl-ecnu"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Yip Coekjan <cn_yzr@qq.com>", "Max Chang <maxcfoo@gmail.com>", "CCYoung <yangzonglin@stu.ecnu.edu.cn>"]
+license = "MIT"
+description = "Touying Slide Theme for East China Normal University"
+repository = "https://github.com/ccyoung3/touying-simpl-ecnu"
+keywords = ["touying", "slide", "theme", "ecnu", "East China Normal University"]
+categories = ["presentation"]
+exclude = [".github/", "examples/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

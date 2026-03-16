@@ -1,0 +1,12 @@
+[package]
+name = "heroic"
+version = "0.1.1"
+entrypoint = "src/heroic.typ"
+authors = ["J. Neugebauer"]
+license = "MIT"
+description = "Add Heroicons to your documents."
+repository = "https://github.com/jneug/typst-heroic"
+keywords = ["heroicons", "icons"]
+categories = ["visualization", "fun"]
+compiler = "0.13.0"
+exclude = [".github", "scripts", "tests", ".typstignore", "Justfile", "assets"]
