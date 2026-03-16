@@ -937,7 +937,7 @@
           let p = here().page()
           let target = footcite._footcite-label-prefix + str(it.target)
           if not footcite.footcite-once.get() {
-            target += "-" + str(page)
+            target += "-" + str(p)
           }
           target = label(target)
           if query(target).len() > 0 {
@@ -954,7 +954,7 @@
           let p = here().page()
           let target = footcite._footcite-label-prefix + str(it.key)
           if not footcite.footcite-once.get() {
-            target += "-" + str(page)
+            target += "-" + str(p)
           }
           target = label(target)
           if query(target).len() > 0 {
