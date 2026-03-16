@@ -1,19 +1,21 @@
 
 /* 版面属性（初始16开） */
+/* Layout Property  */
 #let page-all = (
-  width: 185mm, // 页面宽度
-  height: 260mm, // 页面高度
-  mar-t: 23mm, // 上页边距
-  mar-b: 17mm, // 下页边距
-  mar-x: 20mm, // 左右页边距
+  width: 185mm, // 页面宽度 // Weight of the page
+  height: 260mm, // 页面高度 // Height of the page
+  mar-t: 23mm, // 上页边距 // Top margin
+  mar-b: 17mm, // 下页边距 // Bottom margin
+  mar-x: 20mm, // 左右页边距 // Left and right margin
 )
 
-/* 前辅助页属性（初始16开） */
+/* 前辅助页属性 */
+/* Preface Property */
 #let page-pre = (
-  index: false, // 前辅助页序号显示
-  pagenum: true, //前辅助页页码显示
-  outline: true, // 前辅助页目录显示
-  header: false, // 前辅助页页眉显示
+  index: false, // 前辅助页标题序号显示 // Whether to display index in heading
+  pagenum: true, //前辅助页页码显示 // Whether to display page number
+  outline: true, // 前辅助页目录显示 // Whether to display preface in contents
+  header: false, // 前辅助页页眉显示 // Whether to display header
 )
 
 /* 语言设置 */
@@ -72,7 +74,6 @@
   downspace: paras.wspace + 0.6em, // 一级标题距离下边距
   image: true, // 一级标题页头图（推荐图片尺寸：页面宽度 x 页面高度*0.3）
   part: false, // 部分页是否影响章节计数
-  appendix: true, // 附录独立计数器
   index: false, // 正文公式图像表格统一计数
   text: (
     size: 18pt, // 一级标题字号

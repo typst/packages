@@ -81,25 +81,27 @@
       left: page-all.mar-x,
       right: page-all.mar-x,
     ),
-    header: context{
-      set text(..aux-text.header-text)
-      let page-num = here().page()
-      let chap-page = query(heading.where(level: 1))
-      if chap-page.any(it => it.location().page() == page-num) or part-judge.get() {
-        return
-      }
+    header: {
+      context {
+        set text(..aux-text.header-text)
+        let page-num = here().page()
+        let chap-page = query(heading.where(level: 1))
+        if chap-page.any(it => it.location().page() == page-num) or part-judge.get() {
+          return
+        }
 
-      if chapter-title.get() != none and section-title.get() != none {
-        set par(leading: 1em)
-        box(width: 100%, inset: (bottom: 0.5em), stroke: (bottom: 0.5pt))[
-          #grid(
-            columns: (1fr, 1fr),
-            h(1em) + box(chapter-title.get()),
-            h(1fr) + box(section-title.get()) + h(1em),
-          )
-        ]
+        if chapter-title.get() != none and section-title.get() != none {
+          set par(leading: 1em)
+          box(width: 100%, inset: (bottom: 0.5em), stroke: (bottom: 0.5pt))[
+            #grid(
+              columns: (1fr, 1fr),
+              h(1em) + box(chapter-title.get()),
+              h(1fr) + box(section-title.get()) + h(1em),
+            )
+          ]
+        }
       }
-
+      
       counter(footnote).update(0) // 每个页面页脚重新编号
     }
   )
@@ -192,103 +194,101 @@
     bookmarked: true,
     outlined: false
   )
+  show heading: set text(size: main-text.size)
+
   show heading.where(level: 1): set heading(supplement: lans.preface-prefix, outlined: page-pre.outline)
-  show heading: it => {
-
-    set text(size: main-text.size)
-
-    if it.level == 1 {
-      pagebreak()
-      set text(..heading1-sty.text)
-      set par(leading: 1em)
-      set align(center)
-      counter(image).update(0)
-      counter(table).update(0)
-      counter(raw).update(0)
-      counter(math.equation).update(0)
-      context{
-        let img = heading-image.get()
-        if heading1-sty.image and img != none {
-          set image(width: page-all.width, height: page-all.height * 0.3)
-          place(dx: -page-all.mar-x, dy: -page-all.mar-t, img)
-          place(
-            dx: -page-all.mar-x,
-            dy: -page-all.mar-t,
-            block(
-              width: page-all.width,
-              height: page-all.height * 0.3
-            )[
-              #align(center + bottom)[
-                #v(3fr)
-                #block(
-                  width: 65%,
-                  stroke: (0.7mm + colour.theme),
-                  radius: 3.5mm,
-                  inset: 0.7em,
-                  fill: rgb("#FFFFFFAA"),
-                  it
-                )
-                #v(1fr)
-              ]
-            ])
-          v(page-all.height * 0.3 - page-all.mar-t + 2em)
-        } else {
-          v(heading1-sty.upspace)
-          it
-          v(heading1-sty.downspace, weak: true)
-        }
-        if page-pre.header {
-          chapter-title.update(it)
-          section-title.update(none)
-        }
-        set-heading-image(none)
+  show heading.where(level: 1): it => {
+    pagebreak()
+    set text(..heading1-sty.text)
+    set par(leading: 1em)
+    set align(center)
+    counter(image).update(0)
+    counter(table).update(0)
+    counter(raw).update(0)
+    counter(math.equation).update(0)
+    context{
+      let img = heading-image.get()
+      if heading1-sty.image and img != none {
+        set image(width: page-all.width, height: page-all.height * 0.3)
+        place(dx: -page-all.mar-x, dy: -page-all.mar-t, img)
+        place(
+          dx: -page-all.mar-x,
+          dy: -page-all.mar-t,
+          block(
+            width: page-all.width,
+            height: page-all.height * 0.3
+          )[
+            #align(center + bottom)[
+              #v(3fr)
+              #block(
+                width: 65%,
+                stroke: (0.7mm + colour.theme),
+                radius: 3.5mm,
+                inset: 0.7em,
+                fill: rgb("#FFFFFFAA"),
+                it
+              )
+              #v(1fr)
+            ]
+          ])
+        v(page-all.height * 0.3 - page-all.mar-t + 2em)
+      } else {
+        v(heading1-sty.upspace)
+        it
+        v(heading1-sty.downspace, weak: true)
       }
-    } else if it.level == 2 or it.level == 3 or it.level == 4 {
-      if it.level == 2 {
-        if page-pre.header {section-title.update(it)}
-
-        set text(..heading2-sty.text)
-        v(heading2-sty.upspace, weak: true)
-        block[
-          #mark-display(
-            it.numbering,
-            heading2-sty.mark, 
-            heading2-sty.mark-gutter,
-            page-all.mar-x,
-          )
-          #it
-        ]
-        v(heading2-sty.downspace, weak: true)
-      } else if it.level == 3 {
-        set text(..heading3-sty.text)
-        v(heading3-sty.upspace, weak: true)
-        block[
-          #mark-display(
-            it.numbering,
-            heading3-sty.mark, 
-            heading3-sty.mark-gutter,
-            page-all.mar-x,
-          )
-          #it
-        ]
-        v(heading3-sty.downspace, weak: true)
-      } else if it.level == 4 {
-        set text(..heading4-sty.text)
-        v(heading4-sty.upspace, weak: true)
-        block[
-          #mark-display(
-            it.numbering,
-            heading4-sty.mark, 
-            heading4-sty.mark-gutter,
-            page-all.mar-x,
-          )
-          #it
-        ]
-        v(heading4-sty.downspace, weak: true)
-      }
-    } else {
-      it
     }
+    if page-pre.header {
+      chapter-title.update(it)
+      section-title.update(none)
+    }
+    set-heading-image(none)
+  }
+
+  show heading.where(level: 2): it => {
+    if page-pre.header {section-title.update(it)}
+    set text(..heading2-sty.text)
+    v(heading2-sty.upspace, weak: true)
+    block[
+      #mark-display(
+        it.numbering,
+        heading2-sty.mark, 
+        heading2-sty.mark-gutter,
+        page-all.mar-x,
+      )
+      #it
+    ]
+    v(heading2-sty.downspace, weak: true)
+  }
+
+  show heading.where(level: 3): it => {
+    set text(..heading3-sty.text)
+    v(heading3-sty.upspace, weak: true)
+    block[
+      #mark-display(
+        it.numbering,
+        heading3-sty.mark, 
+        heading3-sty.mark-gutter,
+        page-all.mar-x,
+      )
+      #it
+    ]
+    v(heading3-sty.downspace, weak: true)
+  }
+
+  show heading.where(level: 4): it => {
+    set text(..heading4-sty.text)
+    v(heading4-sty.upspace, weak: true)
+    block[
+      #mark-display(
+        it.numbering,
+        heading4-sty.mark, 
+        heading4-sty.mark-gutter,
+        page-all.mar-x,
+      )
+      #it
+    ]
+    v(heading4-sty.downspace, weak: true)
   }
 
   // --------------------------------------------
@@ -330,100 +330,100 @@
   // --------------------------------------------
   /* 标题 */
   set heading(numbering: "1.1", outlined: true)
-  show heading.where(level: 1): set heading(numbering: lans.chapter-sty, supplement: lans.chapter-prefix)
-  show heading: it => {
-    set text(size: main-text.size)
-    if it.level == 1 {
-      pagebreak()
-      set text(..heading1-sty.text)
-      set par(leading: 1em)
-      set align(center)
-      counter(image).update(0)
-      counter(table).update(0)
-      counter(raw).update(0)
-      counter(math.equation).update(0)
-      context{
-        let img = heading-image.get()
-        if heading1-sty.image and img != none {
-          set image(width: page-all.width, height: page-all.height * 0.3)
-          place(dx: -page-all.mar-x, dy: -page-all.mar-t, img)
-          place(
-            dx: -page-all.mar-x,
-            dy: -page-all.mar-t,
-            block(
-              width: page-all.width,
-              height: page-all.height * 0.3
-            )[
-              #align(center + bottom)[
-                #v(3fr)
-                #block(
-                  width: 65%,
-                  stroke: (0.7mm + colour.theme),
-                  radius: 3.5mm,
-                  inset: 0.7em,
-                  fill: rgb("#FFFFFFAA"),
-                  it
-                )
-                #v(1fr)
-              ]
-            ])
-          v(page-all.height * 0.3 - page-all.mar-t + 2em)
-        } else {
-          v(heading1-sty.upspace)
-          it
-          v(heading1-sty.downspace, weak: true)
-        }
-        chapter-title.update(it)
-        section-title.update(none)
-        part-judge.update(false)
-        set-heading-image(none)
-      }
-    } else if it.level == 2 or it.level == 3 or it.level == 4 {
-      if it.level == 2 {
-        section-title.update(it)
+  show heading: set text(size: main-text.size)
 
-        set text(..heading2-sty.text)
-        v(heading2-sty.upspace, weak: true)
-        block[
-          #mark-display(
-            it.numbering,
-            heading2-sty.mark, 
-            heading2-sty.mark-gutter,
-            page-all.mar-x,
-          )
-          #it
-        ]
-        v(heading2-sty.downspace, weak: true)
-      } else if it.level == 3 {
-        set text(..heading3-sty.text)
-        v(heading3-sty.upspace, weak: true)
-        block[
-          #mark-display(
-            it.numbering,
-            heading3-sty.mark, 
-            heading3-sty.mark-gutter,
-            page-all.mar-x,
-          )
-          #it
-        ]
-        v(heading3-sty.downspace, weak: true)
-      } else if it.level == 4 {
-        set text(..heading4-sty.text)
-        v(heading4-sty.upspace, weak: true)
-        block[
-          #mark-display(
-            it.numbering,
-            heading4-sty.mark, 
-            heading4-sty.mark-gutter,
-            page-all.mar-x,
-          )
-          #it
-        ]
-        v(heading4-sty.downspace, weak: true)
-      } 
-    } else {
-      it
+  show heading.where(level: 1): set heading(numbering: lans.chapter-sty, supplement: lans.chapter-prefix)
+  show heading.where(level: 1): it => {
+    pagebreak()
+    set text(..heading1-sty.text)
+    set par(leading: 1em)
+    set align(center)
+    counter(image).update(0)
+    counter(table).update(0)
+    counter(raw).update(0)
+    counter(math.equation).update(0)
+    context{
+      let img = heading-image.get()
+      if heading1-sty.image and img != none {
+        set image(width: page-all.width, height: page-all.height * 0.3)
+        place(dx: -page-all.mar-x, dy: -page-all.mar-t, img)
+        place(
+          dx: -page-all.mar-x,
+          dy: -page-all.mar-t,
+          block(
+            width: page-all.width,
+            height: page-all.height * 0.3
+          )[
+            #align(center + bottom)[
+              #v(3fr)
+              #block(
+                width: 65%,
+                stroke: (0.7mm + colour.theme),
+                radius: 3.5mm,
+                inset: 0.7em,
+                fill: rgb("#FFFFFFAA"),
+                it
+              )
+              #v(1fr)
+            ]
+          ])
+        v(page-all.height * 0.3 - page-all.mar-t + 2em)
+      } else {
+        v(heading1-sty.upspace)
+        it
+        v(heading1-sty.downspace, weak: true)
+      }
     }
+    chapter-title.update(it)
+    section-title.update(none)
+    part-judge.update(false)
+    set-heading-image(none)
+  }
+
+  show heading.where(level: 2): it => {
+    section-title.update(it)
+    set text(..heading2-sty.text)
+    v(heading2-sty.upspace, weak: true)
+    block[
+      #mark-display(
+        it.numbering,
+        heading2-sty.mark, 
+        heading2-sty.mark-gutter,
+        page-all.mar-x,
+      )
+      #it
+    ]
+    v(heading2-sty.downspace, weak: true)
+  }
+
+  show heading.where(level: 3): it => {
+    set text(..heading3-sty.text)
+    v(heading3-sty.upspace, weak: true)
+    block[
+      #mark-display(
+        it.numbering,
+        heading3-sty.mark, 
+        heading3-sty.mark-gutter,
+        page-all.mar-x,
+      )
+      #it
+    ]
+    v(heading3-sty.downspace, weak: true)
+  }
+
+  show heading.where(level: 4): it => {
+    set text(..heading4-sty.text)
+    v(heading4-sty.upspace, weak: true)
+    block[
+      #mark-display(
+        it.numbering,
+        heading4-sty.mark, 
+        heading4-sty.mark-gutter,
+        page-all.mar-x,
+      )
+      #it
+    ]
+    v(heading4-sty.downspace, weak: true)
   }
 
   // --------------------------------------------
@@ -548,7 +548,7 @@
 // ----------------------------------------------------------------------------------------
 /* 部分环境（注意，这里会导致增加部分标签） */
 /* chapter-reindex 表示引入部分页是否初始化章节的序号 */
-#let part-page(title, chapter-reindex: heading1-sty.part, img: none, body: none) = context{
+#let part-page(title, chapter-reindex: heading1-sty.part, img: none, body: none) = {
   pagebreak()
   if chapter-reindex {counter(heading).update(0)} // 是否初始化章节序号
   part-count.step()
@@ -564,7 +564,7 @@
       center,
       box(width: 80%, radius: 10pt, fill: rgb("#ffffffaa"), inset: 0.5em, stroke: 1pt)[
         #box(width: 99%, inset: 0.5em)[
-          #text(..heading1-sty.text, part-count.display("第一部分") + " " + title
+          #context text(..heading1-sty.text, part-count.display("第一部分") + " " + title
           )
         ]
       ]
@@ -576,7 +576,7 @@
 
 // ----------------------------------------------------------------------------------------
 /* 附录环境 */
-/* in-main 表示附录页是否在正文内部，在正文内部要回复正文标题序号； */
+/* in-main 表示附录页是否影响正文章节计数； */
 /* count 表示一个独立的附录计数器，统一不同环境附录的计数 */
 #let appendix(body, in-main: false, count: true) = context{
 
@@ -587,7 +587,9 @@
   show heading.where(level: 1): set heading(numbering: lans.appendix-sty, supplement: lans.appendix-prefix)
   show heading.where(level: 1): it => {
     it
-    counter("appendix-count").step()
+    if count {
+      counter("appendix-count").step()
+    }    
   }
 
   /* 附录标题序号单独计数环境 */
