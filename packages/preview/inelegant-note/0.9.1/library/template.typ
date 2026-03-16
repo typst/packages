@@ -81,25 +81,27 @@
       left: page-all.mar-x,
       right: page-all.mar-x,
     ),
-    header: context{
-      set text(..aux-text.header-text)
-      let page-num = here().page()
-      let chap-page = query(heading.where(level: 1))
-      if chap-page.any(it => it.location().page() == page-num) or part-judge.get() {
-        return
-      }
+    header: {
+      context {
+        set text(..aux-text.header-text)
+        let page-num = here().page()
+        let chap-page = query(heading.where(level: 1))
+        if chap-page.any(it => it.location().page() == page-num) or part-judge.get() {
+          return
+        }
 
-      if chapter-title.get() != none and section-title.get() != none {
-        set par(leading: 1em)
-        box(width: 100%, inset: (bottom: 0.5em), stroke: (bottom: 0.5pt))[
-          #grid(
-            columns: (1fr, 1fr),
-            h(1em) + box(chapter-title.get()),
-            h(1fr) + box(section-title.get()) + h(1em),
-          )
-        ]
+        if chapter-title.get() != none and section-title.get() != none {
+          set par(leading: 1em)
+          box(width: 100%, inset: (bottom: 0.5em), stroke: (bottom: 0.5pt))[
+            #grid(
+              columns: (1fr, 1fr),
+              h(1em) + box(chapter-title.get()),
+              h(1fr) + box(section-title.get()) + h(1em),
+            )
+          ]
+        }
       }
-
+      
       counter(footnote).update(0) // 每个页面页脚重新编号
     }
   )
@@ -235,12 +237,12 @@
         it
         v(heading1-sty.downspace, weak: true)
       }
-      if page-pre.header {
-        chapter-title.update(it)
-        section-title.update(none)
-      }
-      set-heading-image(none)
     }
+    if page-pre.header {
+      chapter-title.update(it)
+      section-title.update(none)
+    }
+    set-heading-image(none)
   }
 
   show heading.where(level: 2): it => {
@@ -371,11 +373,11 @@
         it
         v(heading1-sty.downspace, weak: true)
       }
-      chapter-title.update(it)
-      section-title.update(none)
-      part-judge.update(false)
-      set-heading-image(none)
     }
+    chapter-title.update(it)
+    section-title.update(none)
+    part-judge.update(false)
+    set-heading-image(none)
   }
 
   show heading.where(level: 2): it => {
@@ -546,7 +548,7 @@
 // ----------------------------------------------------------------------------------------
 /* 部分环境（注意，这里会导致增加部分标签） */
 /* chapter-reindex 表示引入部分页是否初始化章节的序号 */
-#let part-page(title, chapter-reindex: heading1-sty.part, img: none, body: none) = context{
+#let part-page(title, chapter-reindex: heading1-sty.part, img: none, body: none) = {
   pagebreak()
   if chapter-reindex {counter(heading).update(0)} // 是否初始化章节序号
   part-count.step()
@@ -562,7 +564,7 @@
       center,
       box(width: 80%, radius: 10pt, fill: rgb("#ffffffaa"), inset: 0.5em, stroke: 1pt)[
         #box(width: 99%, inset: 0.5em)[
-          #text(..heading1-sty.text, part-count.display("第一部分") + " " + title
+          #context text(..heading1-sty.text, part-count.display("第一部分") + " " + title
           )
         ]
       ]
