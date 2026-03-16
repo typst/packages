@@ -410,18 +410,18 @@
   }
 
   show heading.where(level: 4): it => {
-    set text(..heading3-sty.text)
-    v(heading3-sty.upspace, weak: true)
+    set text(..heading4-sty.text)
+    v(heading4-sty.upspace, weak: true)
     block[
       #mark-display(
         it.numbering,
-        heading3-sty.mark, 
-        heading3-sty.mark-gutter,
+        heading4-sty.mark, 
+        heading4-sty.mark-gutter,
         page-all.mar-x,
       )
       #it
     ]
-    v(heading3-sty.downspace, weak: true)
+    v(heading4-sty.downspace, weak: true)
   }
 
   // --------------------------------------------
