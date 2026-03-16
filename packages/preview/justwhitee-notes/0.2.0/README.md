@@ -9,7 +9,7 @@ A clean, minimal Typst template designed for university lecture notes and course
 ### 1. Import the template
 
 ```typst
-#import "@preview/justwhitee-notes:0.2.0": *
+#import "@preview/justwhitee-notes:0.1.0": *
 ```
 
 You can initialize a new project with this template using the Typst CLI:
@@ -63,17 +63,12 @@ Wrap your content with the `project` function:
 
 ### Callout Boxes
 
-Five pre-built callout styles for structuring your notes:
+Three pre-built callout styles for structuring your notes:
 
 ```typst
 // Definition box (teal accent)
 #def("Kernel")[
   The kernel is the core of an operating system...
-]
-
-// Property box (purple accent)
-#prop("Commutativity")[
-  Addition is commutative: a + b = b + a.
 ]
 
 // Important/Warning box (yellow accent)
@@ -84,11 +79,6 @@ Five pre-built callout styles for structuring your notes:
 // Example box (gray accent)
 #example("Scheduling Example")[
   Given processes P1, P2, P3...
-]
-
-// Proof box (red accent)
-#proof("Correctness")[
-  By induction on n...
 ]
 ```
 
@@ -104,31 +94,15 @@ You can also use the base `callout` function for full customization:
 
 ### Inline Annotations
 
-Quick inline markers for annotating your notes. These are now rendered as left-bordered side-note blocks for better visual separation:
+Quick inline markers for annotating your notes:
 
 ```typst
-#note[Pay attention to this detail.]        // 👉 Note: (yellow border)
-#tip[This is a useful shortcut.]            // ✅ Tip: (green border)
-#problem[This approach has a flaw.]         // ❗️ Problem: (red border)
-#why(title: "use threads")[Because...]      // 🤔 Why use threads? (purple border)
-#how(title: "it works")[Step by step...]    // 👨🏻‍🏫 How it works? (blue border)
-#extra[Side note or additional context.]    // Italic muted text, smaller size, for extra clarifications
-```
-
----
-
-### Side Note Block
-
-A left-bordered block for notes or asides. Accepts an optional `color` parameter (defaults to `accent`):
-
-```typst
-#side-note[
-  This is a side note or an important remark set apart from the body.
-]
-
-#side-note(color: warning)[
-  This side note uses a custom color.
-]
+#note[Pay attention to this detail.]        // 👉 Note: (yellow highlight)
+#tip[This is a useful shortcut.]            // ✅ Tip: (teal highlight)
+#problem[This approach has a flaw.]        // ❗️ Problem: (red highlight)
+#why(title: "use threads")[Because...]     // 🤔 Why use threads? (purple highlight)
+#how(title: "it works")[Step by step...]   // 👨🏻‍🏫 How it works? (blue highlight)
+#extra[Side note or additional context.]    // Italic muted text, smaller size, margin notes, or for extra clarifications
 ```
 
 ---
@@ -143,8 +117,6 @@ A left-bordered block for notes or asides. Accepts an optional `color` parameter
 #hl("warning text", color: warning)  // With custom color
 ```
 
-> `#hl` is context-aware: it renders as an inline box for short content, and as a full-width block for multiline content.
-
 ---
 
 ### Symbols
@@ -152,6 +124,18 @@ A left-bordered block for notes or asides. Accepts an optional `color` parameter
 ```typst
 #so       // => (implication arrow)
 #arrow    // -> (simple right arrow)
+```
+
+---
+
+### Side Note Block
+
+A left-bordered block for notes or asides:
+
+```typst
+#side-note[
+  This is a side note or an important remark set apart from the body.
+]
 ```
 
 ---
@@ -171,29 +155,6 @@ Inline code is also styled automatically:
 
 ```typst
 The `fork()` system call creates a new process.
-```
-
----
-
-### Math Equations
-
-Math equations are automatically rendered at a slightly larger size (`1.2em`) for improved readability:
-
-```typst
-$ sum_(i=0)^n i = (n(n+1)) / 2 $
-```
-
----
-
-### Figure Captions
-
-Figure captions are automatically styled in a compact italic format:
-
-```typst
-#figure(
-  image("diagram.png"),
-  caption: [A diagram of the process lifecycle.]
-)
 ```
 
 ---
@@ -224,12 +185,12 @@ The template automatically generates:
 
 | Variable | Color | Usage |
 |---|---|---|
-| `accent` | Teal `#008b8b` | Headings (h2), links, highlights, default callout, `#side-note` default |
+| `accent` | Teal `#008b8b` | Headings (h2), links, highlights, default callout |
 | `warning` | Amber `#e19b19` | Important callouts, `#note` |
-| `danger` | Red `#d32f2f` | Error callouts, `#problem`, `#proof`, disclaimer |
+| `danger` | Red `#d32f2f` | Error callouts, `#problem`, disclaimer |
 | `zdb-color` | Blue `#1976d2` | `#how` annotations |
-| `night-color` | Purple `#7b1fa2` | `#why` annotations, `#prop` callout |
-| `example-color` | Gray `#777777` | Example callouts, figure captions |
+| `night-color` | Purple `#7b1fa2` | `#why` annotations |
+| `example-color` | Gray `#777777` | Example callouts |
 
 ---
 
@@ -241,7 +202,7 @@ The template uses the following font stacks:
 - **Sans-serif** (headings, UI): `Syne`, `Montserrat`, `Segoe UI`
 
 > If using the Typst Web App, import them in `template/fonts/` folder.\
-> Must be installed for best results locally.
+> Must be installed for best results locally
 
 ---
 
@@ -269,10 +230,6 @@ The template uses the following font stacks:
   A #kw[process] is a program in execution, including its current state, memory, and resources.
 ]
 
-#prop("Single Ownership")[
-  Each process owns its own address space.
-]
-
 #note[A #hl[process is different from a program]: a program is static, a process is dynamic.]
 
 == Process States
@@ -281,10 +238,6 @@ Processes can be in one of these states: ready, running, or blocked.
 
 #example("State Transition")[
   A process moves from _ready_ to _running_ when the scheduler picks it.
-]
-
-#proof("Termination")[
-  By induction on the number of scheduling cycles...
 ]
 
 == System Calls
