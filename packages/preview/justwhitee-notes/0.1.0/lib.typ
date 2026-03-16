@@ -111,10 +111,16 @@
   logo-subject: none,
   logo-personal: none,
   year: { let y = datetime.today().year(); str(y - 1) + "/" + str(y) },
+<<<<<<< HEAD
   bento-url: none,
   paypal-url: none,
   contact-url: none,
   show-disclaimer: true,
+=======
+  bento-url: "",
+  paypal-url: "",
+  contact-url: "",
+>>>>>>> 06defa1277e11a45ecbd358be53f14f01ac5c48f
   lang: "en",
   body
 ) = {
@@ -196,8 +202,13 @@
 
   pagebreak(to: "even")
 
+<<<<<<< HEAD
   // --- DISCLAIMER / WARNING PAGE ---
   if show-disclaimer {
+=======
+  // --- DISCLAIMER / WARNING PAGE --- 
+  //rewrite with your context
+>>>>>>> 06defa1277e11a45ecbd358be53f14f01ac5c48f
   page(align(center + horizon)[
     #block(width: 80%, fill: card-bg.darken(5%), stroke: 1pt + card-border.darken(20%), radius: 12pt, inset: 24pt)[
       #text(font: font-sans, weight: 800, size: 1.6em, fill: danger)[#underline[Disclaimer & Info]]
@@ -213,6 +224,7 @@
       ]
       
       #v(1.5em)
+<<<<<<< HEAD
       #if contact-url != none [
         If you want to *add* useful material or *report* errors, please do so #link(contact-url)[#underline[here]].
       ]
@@ -238,6 +250,23 @@
                 #text(fill: accent.darken(10%), weight: "bold", font: font-sans)[Bento Profile]
               ]
             ]
+=======
+      If you want to *add* useful material or *report* errors, please do so #link(contact-url)[#underline[here]].
+      
+      #v(1.5em)
+      #line(length: 100%, stroke: 0.5pt + card-border)
+      #v(1.5em)
+      
+      #align(center)[
+        I hope this resource proves useful to you. Good study and good luck! 👾
+        
+        #v(1.5em)
+        If you'd like to support me with a chocolate 🍫, you can do so #link(paypal-url)[#underline[here]]. \
+        #v(1.5em)
+        #link(bento-url)[
+          #box(fill: accent.lighten(85%), stroke: 1pt + accent, radius: 8pt, inset: 10pt)[
+            #text(fill: accent.darken(10%), weight: "bold", font: font-sans)[Bento Profile]
+>>>>>>> 06defa1277e11a45ecbd358be53f14f01ac5c48f
           ]
         ]
       ]
@@ -245,7 +274,10 @@
   ])
 
   pagebreak(to: "odd")
+<<<<<<< HEAD
   } // end show-disclaimer
+=======
+>>>>>>> 06defa1277e11a45ecbd358be53f14f01ac5c48f
 
   // --- Table of Contents ---
   show outline.entry.where(level: 1): it => {

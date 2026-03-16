@@ -51,19 +51,19 @@ committing the files to this repository in the first place.
 
 To know which strategy to apply to each file, we can split them in three groups:
 
-__1. Required files__\
+__1. Required files (commit & include)__\
 Files that are necessary for the package to work. If any of these files are
 removed, the package would break for the end user. This includes the manifest
 file, main Typst file and its dependencies, and in case of a template package,
 any file in the template directory.
 
-__2. Documentation files__\
+__2. Documentation files (commit & exclude)__\
 Files that are necessary for the package to be displayed correctly on Typst
 Universe. This includes the README, and any files that are linked from there
 (manuals, examples, illustrations, etc.). These files can easily be accessed
 by opening the package README.
 
-__3. Other files__\
+__3. Other files (don't commit)__\
 This generally includes test files, build scripts, but also examples or manuals
 that are not linked in the README. These files would be almost impossible to
 access for the final user, unless they browse this GitHub repository or their

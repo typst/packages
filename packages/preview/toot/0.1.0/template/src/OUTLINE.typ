@@ -1,0 +1,1 @@
+#link("index.typ")[Welcome]
