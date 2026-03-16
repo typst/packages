@@ -4,7 +4,7 @@ This is a simple typst handout template for Chinese typesetting based on [TnTT](
 
 ## Example
 
-See the [`example`](example/README.md) folder for an example handout, which is made for the course 'Polymer Molding and Processing' at Tsinghua University.
+See the [`example`](https://github.com/chillcicada/simple-handout-template/tree/webapp/example)  folder for an example handout, which is made for the course 'Polymer Molding and Processing' at Tsinghua University.
 
 ## LICENSE
 
