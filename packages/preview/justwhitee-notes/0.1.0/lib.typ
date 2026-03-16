@@ -101,7 +101,6 @@
   text(fill: text-main)[#it]
 )
 
-
 // --- MAIN DOCUMENT FUNCTION ---
 #let project(
   title: "",
