@@ -139,9 +139,10 @@
   logo-subject: none,
   logo-personal: none,
   year: { let y = datetime.today().year(); str(y - 1) + "/" + str(y) },
-  bento-url: "",
-  paypal-url: "",
-  contact-url: "",
+  bento-url: none,
+  paypal-url: none,
+  contact-url: none,
+  show-disclaimer: true,
   lang: "en",
   body
 ) = {
@@ -231,8 +232,8 @@
 
   pagebreak(to: "even")
 
-  // --- DISCLAIMER / WARNING PAGE --- 
-  //rewrite with your context
+  // --- DISCLAIMER / WARNING PAGE ---
+  if show-disclaimer {
   page(align(center + horizon)[
     #block(width: 80%, fill: card-bg.darken(5%), stroke: 1pt + card-border.darken(20%), radius: 12pt, inset: 24pt)[
       #text(font: font-sans, weight: 800, size: 1.6em, fill: danger)[#underline[Disclaimer & Info]]
@@ -247,22 +248,32 @@
         The author assumes no responsibility for any errors, omissions, or inaccuracies. The material is provided "as is" for educational support purposes only.
       ]
       
-      #v(1.5em)
-      If you want to *add* useful material or *report* errors, please do so #link(contact-url)[#underline[here]].
-      
-      #v(1.5em)
-      #line(length: 100%, stroke: 0.5pt + card-border)
-      #v(1.5em)
-      
-      #align(center)[
-        I hope this resource proves useful to you.\ Good study and good luck! 👾
-        
+      #if contact-url != none [
         #v(1.5em)
-        If you'd like to support me with a chocolate 🍫, you can do so #link(paypal-url)[#underline[here]]. \
+        If you want to *add* useful material or *report* errors, please do so #link(contact-url)[#underline[here]].
+      ]
+
+      #let has-support = paypal-url != none or bento-url != none
+      #if has-support [
         #v(1.5em)
-        #link(bento-url)[
-          #box(fill: accent.lighten(85%), stroke: 1pt + accent, radius: 8pt, inset: 10pt)[
-            #text(fill: accent.darken(10%), weight: "bold", font: font-sans)[Bento Profile]
+        #line(length: 100%, stroke: 0.5pt + card-border)
+        #v(1.5em)
+
+        #align(center)[
+          I hope this resource proves useful to you.\ Good study and good luck! 👾
+
+          #if paypal-url != none [
+            #v(1.5em)
+            If you'd like to support me with a chocolate 🍫, you can do so #link(paypal-url)[#underline[here]]. \
+          ]
+
+          #if bento-url != none [
+            #v(1.5em)
+            #link(bento-url)[
+              #box(fill: accent.lighten(85%), stroke: 1pt + accent, radius: 8pt, inset: 10pt)[
+                #text(fill: accent.darken(10%), weight: "bold", font: font-sans)[Bento Profile]
+              ]
+            ]
           ]
         ]
       ]
@@ -270,6 +281,7 @@
   ])
 
   pagebreak(to: "odd")
+  } // end show-disclaimer
 
   // --- Table of Contents ---
   show outline.entry.where(level: 1): it => {

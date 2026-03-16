@@ -30,9 +30,10 @@ Wrap your content with the `project` function:
   logo-subject: image("imgs/course-logo.png"),       // optional
   logo-personal: image("imgs/my-logo.png"),          // optional
   year: "2024/2025",                          // optional, auto-generated if omitted
-  bento-url: "https://bento.me/yourprofile",  // a page/website you would like to add (like bento, linktree, ...)
-  paypal-url: "https://paypal.me/yourname",
-  contact-url: "https://t.me/username",       // or a whatsapp/any message app link
+  bento-url: "https://bento.me/yourprofile",  // optional
+  paypal-url: "https://paypal.me/yourname",   // optional
+  contact-url: "https://t.me/username",       // optional
+  show-disclaimer: true,                       // optional, default true
   lang: "en",
 )
 
@@ -52,10 +53,11 @@ Wrap your content with the `project` function:
 | `logo-subject` | path | ❌ | Path to course/university logo image |
 | `logo-personal` | path | ❌ | Path to your personal logo/avatar |
 | `year` | string | ❌ | Academic year (e.g. `"2024/2025"`). Auto-generated if omitted |
-| `bento-url` | string | ❌ | Your bento page URL |
-| `paypal-url` | string | ❌ | PayPal link (shown on disclaimer page) |
-| `contact-url` | string | ❌ | Link to report errors or contribute |
+| `bento-url` | string | ❌ | Your bento/linktree page URL. Omit (or leave unset) to hide the button. |
+| `paypal-url` | string | ❌ | PayPal/support link on the disclaimer page. Omit to hide. |
+| `contact-url` | string | ❌ | Link to report errors or contribute. Omit to hide. |
 | `lang` | string | ❌ | The language of the document (default is English). |
+| `show-disclaimer` | bool | ❌ | Show the disclaimer page (default: `true`). Set to `false` to omit it entirely. |
 
 ---
 
@@ -174,7 +176,7 @@ Utility to crop images by hiding edges (not all sides are mandatory):
 The template automatically generates:
 
 1. **Cover page** — title, subject, professor, author, logos, academic year
-2. **Disclaimer page** — a standard disclaimer with contact/support links
+2. **Disclaimer page** — a standard disclaimer with contact/support links (omit with `show-disclaimer: false`)
 3. **Table of Contents** — auto-generated up to heading depth 3
 4. **Header** — appears from page 3 onwards, shows title (course/subject) and logos (course/subject on left and personal on right)
 5. **Footer** — centered page number on all pages after the cover
@@ -198,12 +200,13 @@ The template automatically generates:
 
 The template uses the following font stacks:
 
-- **Monospace** (body text): `JetBrains Mono`, `Fira Code`, `Roboto Mono`, `Consolas`
-- **Sans-serif** (headings, UI): `Syne`, `Montserrat`, `Segoe UI`
+- **Monospace** (body text): [`JetBrains Mono`](https://fonts.google.com/specimen/JetBrains+Mono), `Fira Code`, `Roboto Mono`, `Consolas`
+- **Sans-serif** (headings, UI): [`Syne`](https://fonts.google.com/specimen/Syne), `Montserrat`, `Segoe UI`
 
 > If using the Typst Web App, import them in `template/fonts/` folder.\
 > Must be installed for best results locally
 
+I advise to use `JetBrains Mono` and `Syne`.
 ---
 
 ## 📝 Full Example
@@ -221,6 +224,7 @@ The template uses the following font stacks:
   bento-url: "https://itsjustwhitee.github.io/bento/",
   paypal-url: "https://paypal.me/justwhitee",
   contact-url: "https://github.com/itsjustwhitee/packages/issues",
+  show-disclaimer: true,
   lang: "en",
 )
 
