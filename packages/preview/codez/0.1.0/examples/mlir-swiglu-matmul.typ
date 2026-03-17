@@ -1,5 +1,5 @@
 #import "@preview/cetz:0.3.4"
-#import "../lib.typ": mark as codez-mark, parse as codez-parse, cetz-block as codez-cetz-block
+#import "@preview/codez:0.1.0": mark as codez-mark, parse as codez-parse, cetz-block as codez-cetz-block
 
 #set page(width: 29.7cm, height: 16.7cm, margin: 10pt)
 

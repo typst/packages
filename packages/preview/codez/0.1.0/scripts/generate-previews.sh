@@ -5,10 +5,16 @@ repo_root="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$repo_root"
 
 mkdir -p docs/previews
+package_root="/tmp/codez-local-packages"
+package_link="$package_root/preview/codez/0.1.0"
+
+rm -rf "$package_root"
+mkdir -p "$(dirname "$package_link")"
+ln -s "$repo_root" "$package_link"
 
 printf 'Compiling curated examples for previews...\n'
-typst compile --root . examples/mlir-swiglu-matmul.typ docs/previews/mlir-swiglu-matmul.pdf
-typst compile --root . examples/mlir-to-systemverilog-poster.typ docs/previews/mlir-to-systemverilog-poster.pdf
+typst compile --root . --package-path "$package_root" examples/mlir-swiglu-matmul.typ docs/previews/mlir-swiglu-matmul.pdf
+typst compile --root . --package-path "$package_root" examples/mlir-to-systemverilog-poster.typ docs/previews/mlir-to-systemverilog-poster.pdf
 
 # Main README preview images (first page of each curated PDF).
 pdftoppm -r 220 -f 1 -singlefile -png docs/previews/mlir-swiglu-matmul.pdf docs/previews/mlir-swiglu-matmul
