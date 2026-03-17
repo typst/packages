@@ -34,7 +34,7 @@ A modular set of CeTZ-powered computer network topology icons with Fletcher inte
 })
 ```
 
-![example 1](https://raw.githubusercontent.com/omega-800/cntopo-typ/refs/heads/main/examples/readme-ex-1.svg)
+![example 1](examples/readme-ex-1.svg)
 
 ```typst
 #import "@preview/cntopo:0.1.0": cetz, icons
@@ -68,7 +68,7 @@ A modular set of CeTZ-powered computer network topology icons with Fletcher inte
 })
 ```
 
-![example 2](https://raw.githubusercontent.com/omega-800/cntopo-typ/refs/heads/main/examples/readme-ex-2.svg)
+![example 2](examples/readme-ex-2.svg)
 
 
 ```typst
@@ -116,9 +116,9 @@ A modular set of CeTZ-powered computer network topology icons with Fletcher inte
 )
 ```
 
-![example 3](https://raw.githubusercontent.com/omega-800/cntopo-typ/refs/heads/main/examples/readme-ex-3.svg)
+![example 3](examples/readme-ex-3.svg)
 
 ## More examples
 
-- [Icons showcase](https://raw.githubusercontent.com/omega-800/cntopo-typ/refs/heads/main/examples/all-icons.pdf)
-- [Fletcher integration](https://raw.githubusercontent.com/omega-800/cntopo-typ/refs/heads/main/examples/fletcher.pdf)
+- [Icons showcase](examples/all-icons.pdf)
+- [Fletcher integration](examples/fletcher.pdf)
