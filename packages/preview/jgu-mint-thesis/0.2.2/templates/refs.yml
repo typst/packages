@@ -1,0 +1,53 @@
+mesa-web:
+  type: web
+  title: "MESA -- Mainz Energy-recovering Superconducting Accelerator"
+  author: MESA Collaboration
+  organization: Johannes Gutenberg University Mainz
+  date: 2024
+  url:
+    value: https://www.mesa.uni-mainz.de/eng/
+    date: 2026-03-16
+
+mesa-physics:
+  type: article
+  title: The MESA physics program
+  author:
+    - "Schlimme, Sören"
+    - "Aulenbacher, Kurt"
+    - "Baunack, Sebastian"
+    - "Berger, Niklaus"
+    - "Denig, Achim"
+    - "Doria, Luca"
+    - "Khoukaz, Alfons"
+    - "Maas, Frank"
+    - "Merkel, Harald"
+    - "Sfienti, Concettina"
+    - "Thiel, Michaela"
+  date: 2024
+  serial-number:
+    arxiv: 2402.01027
+  parent:
+    type: proceedings
+    title: "Proceedings of the 16th International Conference on Meson-Nucleon Physics and the Structure of the Nucleon (MENU 2023)"
+
+mesa-erl:
+  type: proceedings
+  title: "MESA -- an ERL Project for Particle Physics Experiments"
+  author:
+    - "Hug, F."
+    - "Aulenbacher, K."
+  date: 2016
+  url: https://proceedings.jacow.org/linac2016/papers/mop106012.pdf
+  parent:
+    type: proceedings
+    title: "Proceedings of the 28th Linear Accelerator Conference (LINAC 2016)"
+
+magix-web:
+  type: web
+  title: "MAGIX @ MESA"
+  author: MAGIX Collaboration
+  organization: Johannes Gutenberg University Mainz
+  date: 2024
+  url:
+    value: https://magix.uni-mainz.de/mesa.php
+    date: 2026-03-16

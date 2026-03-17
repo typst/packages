@@ -1,0 +1,15 @@
+[package]
+name = "jgu-mint-thesis"
+version = "0.2.2"
+entrypoint = "lib.typ"
+authors = ["Lukas Schröder <https://github.com/inverted-tree>", "Jerry Ling <https://github.com/Moelf>"]
+license = "MIT"
+description = "Create MINT-focused dissertations for the Johannes Gutenberg University Mainz."
+repository = "https://github.com/inverted-tree/jgu-thesis"
+keywords = ["JGU", "Mainz", "Johannes Gutenberg University", "MINT", "thesis"]
+categories = ["thesis"]
+
+[template]
+path = "templates"
+entrypoint = "main.typ"
+thumbnail = "img/thumbnail.png"
