@@ -9,12 +9,11 @@
 #let part-judge = state("part-judge", false) // 部分页判断
 #let part-title = state("part-title") // 部分标题存储
 #let part-count = counter("part-counter") // 部分计数器
-#let global-heading = counter("global-heading") // 总章节计数器
-#let chapter-count = counter("chapter-counter")
+#let chapter-count = counter("chapter-counter") // 章节计数器
 #let chapter-title = state("chapter-title", none) // 章节名称
 #let section-title = state("section-tilte", none) // 次章节名称
-#let appendix-judge = state("appendex-judge", false)
-#let appendix-count = counter("appendix-counter") // 附录环境判断
+#let appendix-judge = state("appendex-judge", false) // 附录环境判断
+#let appendix-count = counter("appendix-counter") // 附录章节计数器
 #let heading-image = state("heading-image", none) // 头图环境
 #let set-heading-image(image) = {heading-image.update(image)} // 更新头图
 
@@ -168,10 +167,6 @@
   // --------------------------------------------
   /* 标题样式 */
   set heading(hanging-indent: 0em)
-  show heading.where(level: 1): it => {
-    it
-    counter("global-heading").step()
-  } 
 
   // --------------------------------------------
   /* 定理样式 */
@@ -376,7 +371,7 @@
         v(heading1-sty.downspace, weak: true)
       }
     }
-    chapter-count.step()
+    chapter-count.step() // 章节计数器 +1
     chapter-title.update(it)
     section-title.update(none)
     part-judge.update(false)
@@ -446,24 +441,16 @@
   counter(heading).update(0)
   counter(page).update(1)
 
-  /* 全局公式图表序号表示 */
-  let heading-index
-  if not heading1-sty.index {
-    heading-index = heading
-  } else {
-    heading-index = "global-heading"
-  }
-
   // --------------------------------------------
   /* 公式计数样式 */
   set math.equation(
-    numbering: num => numbering("(1.1)", counter(heading-index).get().first(), num),
+    numbering: num => numbering("(1.1)", counter(heading).get().first(), num),
   )
 
   // --------------------------------------------
   /* 图像表格计数样式 */
   show figure.where(kind: image).or(figure.where(kind: table)): set figure(
-    numbering: num => numbering("1.1", counter(heading-index).get().first(), num),
+    numbering: num => numbering("1.1", counter(heading).get().first(), num),
   )
 
   // --------------------------------------------
