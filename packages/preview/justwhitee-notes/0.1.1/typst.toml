@@ -7,8 +7,6 @@ description = "Modern justwhitee-like template for notes."
 categories = [ "model", "text" ]
 disciplines = [ "computer-science", "engineering" ]
 license = "AGPL-3.0-or-later"
-
-[package.metadata]
 entrypoint = "lib.typ" 
 
 [template]
