@@ -10,8 +10,10 @@
 #let part-title = state("part-title") // 部分标题存储
 #let part-count = counter("part-counter") // 部分计数器
 #let global-heading = counter("global-heading") // 总章节计数器
+#let chapter-count = counter("chapter-counter")
 #let chapter-title = state("chapter-title", none) // 章节名称
 #let section-title = state("section-tilte", none) // 次章节名称
+#let appendix-judge = state("appendex-judge", false)
 #let appendix-count = counter("appendix-counter") // 附录环境判断
 #let heading-image = state("heading-image", none) // 头图环境
 #let set-heading-image(image) = {heading-image.update(image)} // 更新头图
@@ -374,6 +376,7 @@
         v(heading1-sty.downspace, weak: true)
       }
     }
+    chapter-count.step()
     chapter-title.update(it)
     section-title.update(none)
     part-judge.update(false)
@@ -550,7 +553,10 @@
 /* chapter-reindex 表示引入部分页是否初始化章节的序号 */
 #let part-page(title, chapter-reindex: heading1-sty.part, img: none, body: none) = {
   pagebreak()
-  if chapter-reindex {counter(heading).update(0)} // 是否初始化章节序号
+  if chapter-reindex {
+    counter(heading).update(0)
+    chapter-count.update(0)
+  } // 是否初始化章节序号
   part-count.step()
   part-judge.update(true)
   part-title.update(title)
@@ -576,25 +582,27 @@
 
 // ----------------------------------------------------------------------------------------
 /* 附录环境 */
-/* in-main 表示附录页是否影响正文章节计数； */
-/* count 表示一个独立的附录计数器，统一不同环境附录的计数 */
-#let appendix(body, in-main: false, count: true) = context{
-
-  let main-heading-index = counter(heading).get() // 获取正文的标题序号
+/* affect-main 表示附录页是否影响正文章节计数； */
+/* unify 表示一个独立的附录计数器，统一不同环境附录的计数 */
+#let appendix(body, affect-main: false, unify: true) = {
 
   /* 标题样式 */
+  appendix-judge.update(true)
   set heading(numbering: "A.1", outlined: true)
   show heading.where(level: 1): set heading(numbering: lans.appendix-sty, supplement: lans.appendix-prefix)
   show heading.where(level: 1): it => {
     it
-    if count {
-      counter("appendix-count").step()
-    }    
+    if unify {
+      appendix-count.step()
+    }
+    if not affect-main {
+      chapter-count.update(x => x - 1)
+    }
   }
 
   /* 附录标题序号单独计数环境 */
-  if count {
-    counter(heading).update(counter("appendix-count").get())
+  if unify {
+    context counter(heading).update(appendix-count.get())
   } else {
     counter(heading).update(0)
   }
@@ -615,8 +623,8 @@
   set-theorion-numbering("A.1")
 
   body
-
-  if in-main {counter(heading).update(main-heading-index)} // 恢复正文标题序号
+  appendix-judge.update(false)
+  if not affect-main {context counter(heading).update(chapter-count.get())} // 恢复正文标题序号
   set-theorion-numbering("1.1") // 恢复盒子正文计数样式
 }
 
