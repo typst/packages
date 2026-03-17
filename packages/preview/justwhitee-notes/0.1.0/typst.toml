@@ -1,6 +1,6 @@
 [package]
 name = "justwhitee-notes"
-version = "0.2.0"
+version = "0.1.0"
 entrypoint = "lib.typ"
 authors = [ "Matteo Fontolan - justwhitee" ]
 compiler = "0.12.0"
