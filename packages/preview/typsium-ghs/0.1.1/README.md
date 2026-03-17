@@ -9,7 +9,7 @@ A Typst package for quickly displaying and formatting Hazard and Precautionary s
 ## Usage
 Use the `#ghs` command to display a GHS pictogram, to get more information about each pictogram use `#ghs-info`
 ```typst
-#import "@preview/typsium-ghs:0.1.0": *
+#import "@preview/typsium-ghs:0.1.1": *
 #grid(
   columns: 9,
   ..range(1,10).map(x=> ghs(x))
