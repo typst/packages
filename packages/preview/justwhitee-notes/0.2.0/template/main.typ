@@ -1,4 +1,4 @@
-#import "@preview/justwhitee-notes:0.1.0": *
+#import "@preview/justwhitee-notes:0.2.0": *
 
 #show: project.with(
   title: "Course Title",

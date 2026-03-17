@@ -13,8 +13,3 @@ license = "AGPL-3.0-or-later"
 path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
-
-[versions]
-"0.1.0" = "0.1.0"
-"0.1.1" = "0.1.1"
-"0.2.0" = "0.2.0"
