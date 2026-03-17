@@ -9,7 +9,7 @@ A clean, minimal Typst template designed for university lecture notes and course
 ### 1. Import the template
 
 ```typst
-#import "@preview/justwhitee-notes:0.1.0": *
+#import "@preview/justwhitee-notes:0.1.1": *
 ```
 
 You can initialize a new project with this template using the Typst CLI:
@@ -211,7 +211,7 @@ The template uses the following font stacks:
 ## 📝 Full Example
 
 ````typst
-#import "@preview/justwhitee-notes:0.1.0": *
+#import "@preview/justwhitee-notes:0.1.1": *
 
 #show: project.with(
   title: "Operating Systems",

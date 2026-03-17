@@ -9,7 +9,7 @@ A clean, minimal Typst template designed for university lecture notes and course
 ### 1. Import the template
 
 ```typst
-#import "@preview/justwhitee-notes:0.1.0": *
+#import "@preview/justwhitee-notes:0.2.0": *
 ```
 
 You can initialize a new project with this template using the Typst CLI:
@@ -212,7 +212,7 @@ I advise to use `JetBrains Mono` and `Syne`.
 ## 📝 Full Example
 
 ````typst
-#import "@preview/justwhitee-notes:0.1.0": *
+#import "@preview/justwhitee-notes:0.2.0": *
 
 #show: project.with(
   title: "Operating Systems",
