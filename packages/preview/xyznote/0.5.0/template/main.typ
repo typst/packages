@@ -1,4 +1,4 @@
-#import "@preview/xyznote:0.4.0": *
+#import "@preview/xyznote:0.5.0": *
 
 #show: xyznote.with(
   title: "xyznote",
