@@ -21,11 +21,34 @@
 #let kw(it, color: accent) = strong(text(fill: color, font: font-mono, weight: "extrabold", it))
 
 // Hiighlight
-#let hl(it, color: accent) = highlight(
-  fill: color.lighten(80%),
-  top-edge: 1.1em,
-  bottom-edge: -0.3em
-)[#text(size: 0.9em, font: font-mono)[#it]]
+#let hl(it, color: accent) = {
+  let bg = color.lighten(80%)
+  
+  context {
+    let content = text(size: 0.9em)[#it]
+    let size = measure(content)
+    let h-standard = measure(text(size: 0.9em)[H]).height
+    
+    if size.height > h-standard * 1.5 {
+      block(
+        fill: bg,
+        inset: (y: 0.5em, x: 0.8em),
+        radius: 3pt,
+        width: 100%,
+        align(center, content)
+      )
+    } else {
+      box(
+        fill: bg,
+        inset: (x: 2pt, y: 1pt),
+        outset: (y: 2.5pt),
+        radius: 3pt,
+        baseline: 0pt,
+        content
+      )
+    }
+  }
+}
 
 
 // --- CALLOUT ---
@@ -62,44 +85,49 @@
   ]
 }
 
+#let so = text()[$=>$]
+#let arrow = text()[$->$]
+
+// --- custom callout ---
+#let def(title, body) = callout(title: title, icon: "📖", color: accent, body)
+#let prop(title, body) = callout(title: title, icon: "📌", color: night-color.lighten(45%), body)
+#let important(title, body) = callout(title: title, icon: text(font: "Twitter Color Emoji")[⚠️], color: warning, body)
+#let example(title, body) = callout(title: title, icon: "📝", color: example-color, body)
+#let proof(title, body) = callout(title: title, icon: text(font: "Twitter Color Emoji")[📏], color: danger, body)
+
+#let side-note(color: accent, it) = pad(left: 3.5pt)[
+    #block(
+    fill: color.transparentize(91%),
+    stroke: (left: 2.5pt + color),
+    inset: 8pt,
+    radius: (right: 6pt),
+    width: 100%,
+    text(fill: text-main)[#it]
+  )
+]
+
+
 // --- CUSTOM functions ---
 #let note(corpo) =[
-  #hl(color: warning)[#text(fill: warning.darken(15%), weight: "bold", "👉 Note")]: #text(fill: text-main)[#corpo] \
+  #side-note(color: warning)[#text(fill: warning.darken(15%), weight: "bold", "👉 Note"): #text(fill: text-main)[#corpo]]
 ]
 #let tip(corpo) =[
-  #hl(color: accent)[#text(fill: green.darken(15%), weight: "bold", "✅ Tip")]: #text(fill: text-main)[#corpo] \
+  #side-note(color: green.darken(20%))[#text(fill: green.darken(15%), weight: "bold", "✅ Tip") #text(fill: text-main)[#corpo]]
 ]
 #let problem(corpo) = [
-  #hl(color: danger)[#text(fill: danger.darken(15%), weight: "bold","❗️ Problem")]: #text(fill: danger.darken(10%))[#corpo] \
+  #side-note(color: danger)[#text(fill: danger.darken(15%), weight: "bold","❗️ Problem"): #text(fill: danger.darken(10%))[#corpo]]
 ]
 #let why(title: "", corpo) =[
-  #hl(color: night-color)[#text(fill: night-color.darken(15%), weight: "bold","🤔 Why") #title?]: #text(fill: text-main)[#corpo] \
+  #side-note(color: night-color)[#text(fill: night-color.darken(15%), weight: "bold","🤔 Why")#title?: #text(fill: text-main)[#corpo]]
 ]
 #let how(title: "", corpo) =[
-  #hl(color: zdb-color)[#text(fill: zdb-color.darken(15%), weight: "bold","👨🏻‍🏫 How") #title?]: #text(fill: text-main)[#corpo] \
+  #side-note(color: zdb-color)[#text(fill: zdb-color.darken(15%), weight: "bold","👨🏻‍🏫 How")#title?: #text(fill: text-main)[#corpo]]
 ]
 #let extra(corpo) =[
   #v(-6pt)
   #set par(leading: 4pt)
   #text(style: "italic", fill: text-muted, size: 0.75em)[#corpo]
 ]
-
-#let so = text()[$=>$]
-#let arrow = text()[$->$]
-
-// --- custom callout ---
-#let def(title, body) = callout(title: title, icon: "📖", color: accent, body)
-#let important(title, body) = callout(title: title, icon: "⚠️", color: warning, body)
-#let example(title, body) = callout(title: title, icon: "📝", color: example-color, body)
-
-#let side-note(it) = block(
-  fill: accent.lighten(90%),
-  stroke: (left: 3pt + accent),
-  inset: 10pt,
-  radius: (right: 8pt),
-  width: 100%,
-  text(fill: text-main)[#it]
-)
 
 
 // --- MAIN DOCUMENT FUNCTION ---
@@ -111,9 +139,10 @@
   logo-subject: none,
   logo-personal: none,
   year: { let y = datetime.today().year(); str(y - 1) + "/" + str(y) },
-  bento-url: "",
-  paypal-url: "",
-  contact-url: "",
+  bento-url: none,
+  paypal-url: none,
+  contact-url: none,
+  show-disclaimer: true,
   lang: "en",
   body
 ) = {
@@ -124,6 +153,8 @@
   set text(font: font-mono, fill: text-main, lang: lang, size: 9pt, tracking: -0.07em, hyphenate: true)
   set heading(numbering: "1.1.")
   set par(justify: true, leading: 0.8em, spacing: 1.5em)
+
+  set enum(indent: 1.4em, body-indent: 0.7em)
   
   // --- TITLES STYLES ---
   show heading: it => {
@@ -138,8 +169,14 @@
     }
     v(0.6em)
   }
-
+  
+  show figure.caption: it => [
+    #text(size: 0.8em, fill: example-color.darken(30%))[_*#it.supplement #it.counter.display()* -- #it.body _]
+  ]
+  
   show link: it => underline(text(fill: accent, it))
+
+  show math.equation: set text(size: 1.2em)
   
   // code block style
   show raw.where(block: true): it => {
@@ -170,7 +207,7 @@
   // --- TITLE PAGE ---
   page(align(center + horizon)[
     #v(18em)
-    #if logo-subject != none [ #box(width: 60pt)[#logo-subject] ] else[ #box() ]
+    #if logo-subject != none [ #block(width: 60pt)[#logo-subject] ] else[ #box() ]
     #v(3em)
     
     #text(fill: accent, font: font-mono, size: 0.9em, weight: "bold", tracking: 0.15em)[\/\/ #subject] \
@@ -187,7 +224,7 @@
     #text(size: 1.2em, fill: text-main, weight: "bold", "by " + author)
     #if logo-personal != none {
       v(0.5em)
-      box(width: 30pt)[#logo-personal]
+      block(width: 30pt)[#logo-personal] 
     }
     #v(1fr)
     #text(fill: text-muted, font: font-mono, "// " + year)
@@ -195,8 +232,8 @@
 
   pagebreak(to: "even")
 
-  // --- DISCLAIMER / WARNING PAGE --- 
-  //rewrite with your context
+  // --- DISCLAIMER / WARNING PAGE ---
+  if show-disclaimer {
   page(align(center + horizon)[
     #block(width: 80%, fill: card-bg.darken(5%), stroke: 1pt + card-border.darken(20%), radius: 12pt, inset: 24pt)[
       #text(font: font-sans, weight: 800, size: 1.6em, fill: danger)[#underline[Disclaimer & Info]]
@@ -211,22 +248,32 @@
         The author assumes no responsibility for any errors, omissions, or inaccuracies. The material is provided "as is" for educational support purposes only.
       ]
       
-      #v(1.5em)
-      If you want to *add* useful material or *report* errors, please do so #link(contact-url)[#underline[here]].
-      
-      #v(1.5em)
-      #line(length: 100%, stroke: 0.5pt + card-border)
-      #v(1.5em)
-      
-      #align(center)[
-        I hope this resource proves useful to you. Good study and good luck! 👾
-        
+      #if contact-url != none [
         #v(1.5em)
-        If you'd like to support me with a chocolate 🍫, you can do so #link(paypal-url)[#underline[here]]. \
+        If you want to *add* useful material or *report* errors, please do so #link(contact-url)[#underline[here]].
+      ]
+
+      #let has-support = paypal-url != none or bento-url != none
+      #if has-support [
         #v(1.5em)
-        #link(bento-url)[
-          #box(fill: accent.lighten(85%), stroke: 1pt + accent, radius: 8pt, inset: 10pt)[
-            #text(fill: accent.darken(10%), weight: "bold", font: font-sans)[Bento Profile]
+        #line(length: 100%, stroke: 0.5pt + card-border)
+        #v(1.5em)
+
+        #align(center)[
+          I hope this resource proves useful to you.\ Good study and good luck! 👾
+
+          #if paypal-url != none [
+            #v(1.5em)
+            If you'd like to support me with a chocolate 🍫, you can do so #link(paypal-url)[#underline[here]]. \
+          ]
+
+          #if bento-url != none [
+            #v(1.5em)
+            #link(bento-url)[
+              #box(fill: accent.lighten(85%), stroke: 1pt + accent, radius: 8pt, inset: 10pt)[
+                #text(fill: accent.darken(10%), weight: "bold", font: font-sans)[Bento Profile]
+              ]
+            ]
           ]
         ]
       ]
@@ -234,6 +281,7 @@
   ])
 
   pagebreak(to: "odd")
+  } // end show-disclaimer
 
   // --- Table of Contents ---
   show outline.entry.where(level: 1): it => {
