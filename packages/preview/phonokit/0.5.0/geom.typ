@@ -1533,14 +1533,15 @@
             let ry = root-entry.y
             let t-y = ry + _timing-y
             let n = timing.len()
+            let t-paint = if highlight.len() == 0 { _norm } else { _dim }
             for (i, t) in timing.enumerate() {
               let tx = if n == 1 { rx } else { rx + (i - (n - 1) / 2.0) * _t-spacing }
               line(
                 (rx, ry + _loff),
                 (tx, t-y - _loff),
-                stroke: (paint: _norm, thickness: 0.016),
+                stroke: (paint: t-paint, thickness: 0.016),
               )
-              content((tx, t-y), text(font: font, size: fsz, fill: _norm, t))
+              content((tx, t-y), text(font: font, size: fsz, fill: t-paint, t))
             }
           }
         }
@@ -1838,6 +1839,7 @@
         }
 
         // Timing tiers
+        let t-paint = if highlight.len() == 0 { _norm } else { _dim }
         for (rx, ts, tt) in timing-data {
           let ry = 0.0
           let t-y = ry + _timing-y * ts
@@ -1848,9 +1850,9 @@
             line(
               (rx, ry + loff),
               (tx, t-y - loff),
-              stroke: (paint: _norm, thickness: 0.016),
+              stroke: (paint: t-paint, thickness: 0.016),
             )
-            content((tx, t-y), text(font: font, size: fsz * ts, fill: _norm, t))
+            content((tx, t-y), text(font: font, size: fsz * ts, fill: t-paint, t))
           }
         }
 
