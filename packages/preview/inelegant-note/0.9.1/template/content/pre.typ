@@ -1,4 +1,4 @@
-#import "@preview/inelegant-note:0.9.0": *
+#import "@preview/inelegant-note:0.9.1": *
 
 = 这个是前言
 
