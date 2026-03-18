@@ -9,6 +9,3 @@ desktop.ini
 
 # Rust
 /bundler/target
-/packages/local
-
-*.pdf
