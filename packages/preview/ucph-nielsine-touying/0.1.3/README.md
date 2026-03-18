@@ -50,7 +50,7 @@ Configuration is done via `Touying`'s `config-xxx` options which is then passed 
 
 ```typ
 #import "@preview/ucph-nielsine-touying:0.1.3" as uc
-#import "@preview/theorion:0.4.1" as th
+#import "@preview/theorion:0.5.0" as th
 #import th.cosmos.clouds as thc
 #import "@preview/touying:0.6.3" as ty
 #import "@preview/pinit:0.2.2" as pi
@@ -97,7 +97,7 @@ The music experience has been #pi.pin(1)cancelled#pi.pin(2).
     hat(bold(beta)) = (bold(X)^T bold(X))^(-1) bold(X)^T bold(y)
   $
 ]
-#th.important-box(fill: uc.colors.ucph-dark.red)[
+#th.important-block(fill: uc.colors.ucph-dark.red)[
   - This is very important.
   - Remember this.
 ]

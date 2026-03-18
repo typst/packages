@@ -253,7 +253,7 @@
     setting: ty.utils.fit-to-width.with(grow: false, 100%),
     depth: self.slide-level,
   ),
-  header-block-size: 2.7em,
+  header-block-size: 3em,
   header-text-size: 25pt,
   header-right: self => align(right, image(uc-logos.logo-seal-path, height: self.store.header-block-size*0.55)),
   footer: self => uc-utils.section-links(self),
