@@ -96,8 +96,8 @@ The pictures are from museums in China, if there are some piracy problems, I wil
     + 参数 `img` 控制部分页的背景图（默认为 `none`）
     + 参数 `body` 控制部分页的内容（默认为 `none` 引入默认的部分页样式）
 + 可以使用 `appendix` 来创建附录环境，所有的附录页面需要被该环境包裹：
-    + 参数 `in-main` 控制附录页影响正文计数（默认为假）
-    + 参数 `count` 表示不同附录环境是否参与附录统一计数（默认为真）
+    + 参数 `affect-main` 控制附录页影响正文计数（默认为假）
+    + 参数 `unify` 表示不同附录环境是否参与附录统一计数（默认为真）
 + 可以使用 `my-bibliography` 来创建参考文献环境。
 
 ## 鸣谢
