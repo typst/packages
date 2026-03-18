@@ -1,0 +1,16 @@
+[package]
+name = "ineris-print"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "ineris.typ"
+authors = ["François Hissel"]
+license = "MIT-0"
+description = "A document template using the design guidelines of French national institute for industrial environment and risks"
+keywords = ["Ineris"]
+categories = ["office", "report"]
+repository = "https://github.com/frodonh/typst-packages"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

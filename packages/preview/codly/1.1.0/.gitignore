@@ -1,0 +1,4 @@
+# added by typst-test
+tests/*/out/**
+tests/*/diff/**
+test*.png

@@ -1,0 +1,11 @@
+[package]
+name = "owlbear"
+version = "0.0.1"
+compiler = "0.12.0"
+entrypoint = "lib.typ"
+authors = ["Doggo Bit <bark@doggobit.xyz>"]
+license = "AGPL-3.0"
+repository = "https://gitlab.com/doggobit/typst-owlbear"
+categories = ["model", "fun", "layout"]
+keywords = ["dnd", "dungeons", "dragons", "rpg", "ttrpg", "tabletop", "game"]
+description = "Create fancy-looking homebrewn Dungeons and Dragons 2024 edition"

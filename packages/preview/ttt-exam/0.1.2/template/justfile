@@ -1,0 +1,45 @@
+set quiet
+
+[private]
+default:
+	just --list
+
+build-teacher-version:
+	#!/usr/bin/env bash
+	set -euo pipefail
+	echo "Build teacher version with solutions ..."
+
+	class=$(awk -F ' *= *' '/^class/ {gsub(/"/, "", $2); print $2}' meta.toml)
+	subject=$(awk -F ' *= *' '/^subject/ {gsub(/"/, "", $2); print $2}' meta.toml)
+	outfile="build/LSG_exam_${subject}_${class}.pdf"
+	if [ ! -d "build" ]; then mkdir -p "build"; fi
+	typst compile exam.typ $outfile --input solution=true
+	echo "Solution saved in $outfile ."
+
+build-student-version:
+	#!/usr/bin/env bash
+	set -euo pipefail
+	echo "Build student version with solutions hidden ..."
+
+	class=$(awk -F ' *= *' '/^class/ {gsub(/"/, "", $2); print $2}' meta.toml)
+	subject=$(awk -F ' *= *' '/^subject/ {gsub(/"/, "", $2); print $2}' meta.toml)
+	outfile="build/exam_${subject}_${class}.pdf"
+	if [ ! -d "build" ]; then mkdir -p "build"; fi
+	typst compile exam.typ $outfile
+	echo "Exam saved in $outfile ."
+
+save-meta:
+	if [ ! -d "build" ]; then mkdir -p "build"; fi
+	typst query exam.typ "<ttt-question-label>" --field value > ./build/metadata.json
+
+build:
+	@just build-teacher-version
+	@just build-student-version
+
+eval:
+	if [ ! -d "build" ]; then mkdir -p "build"; fi
+	typst compile eval.typ build/grades.pdf
+	echo "List of grades saved at build/grades.pdf"
+
+clean:
+	rm -r build

@@ -1,0 +1,127 @@
+#:schema https://raw.githubusercontent.com/xrsl/nabcv/v0.1.0/schema/schema.json
+
+[cv]
+name     = "John Doe"
+headline = "Full-Stack Developer | Recovering Perfectionist"
+location = "Portland, Oregon, United States"
+keywords = ["software development", "cloud architecture", "rubber duck debugging", "agile survivor"]
+email    = "john.doe@example.com"
+phone    = "+1 503 555 0142"
+address  = ["14 Semicolon Lane", "Portland, OR 97201"]
+references = "Available upon request (they have been warned)"
+
+values  = ["Shipping before Friday", "Code that future-me won't hate", "Honest estimates (aspirational)", "Free coffee (non-negotiable)"]
+hobbies = ["Alphabetising bookmarks", "Reading documentation (occasionally)", "Competitive Tetris (regional finalist 2019, disputed)", "Blaming the compiler"]
+
+summary = "Full-stack developer with 9 years of experience turning vague requirements into software that mostly works. Specialised in distributed systems, cloud infrastructure, and writing TODO comments that future colleagues will find both helpful and deeply personal. Known for asking clarifying questions early and apologising for them later."
+
+[[cv.profiles]]
+network  = "LinkedIn"
+username = "johndoe"
+
+[[cv.profiles]]
+network  = "GitHub"
+username = "johndoe"
+
+[[cv.skills]]
+group = "Programming"
+items = "Python (pandas, FastAPI, pytest), TypeScript, Go, SQL (sufficient to be dangerous), Bash (sufficient to be a liability)"
+
+[[cv.skills]]
+group = "DevOps & Cloud"
+items = "AWS, Docker, Kubernetes (can spell it correctly), GitHub Actions, Terraform, on-call rotations (involuntary)"
+
+[[cv.skills]]
+group = "Soft Skills"
+items = ["Estimating (wildly optimistic, improving)", "Stand-up narration", "Nodding confidently in architecture meetings", "Writing postmortems that assign blame to 'the system'"]
+
+[[cv.skills]]
+group = "Languages"
+items = ["English (Native)", "Python (Fluent)", "French (Enough to order coffee and cause offence)"]
+
+[[cv.experience]]
+company    = "Infinite Loop Technologies"
+position   = "Senior Software Engineer"
+summary    = "Platform Engineering"
+location   = "Portland, OR"
+start_date = "2021-03"
+end_date   = "present"
+highlights = [
+  "Architected a *microservices migration* that reduced deployment time by 60% and increased the number of things that could go wrong by approximately 400%",
+  "Led a team of five engineers and one rubber duck; maintained a 4:1 signal-to-noise ratio in code reviews",
+  "Introduced *observability tooling* that finally answered the question 'is it down?' with something more nuanced than 'yes'",
+  "Reduced cloud spend by $180k/year by identifying 23 forgotten staging environments, one of which had been running since 2018",
+]
+
+[[cv.experience]]
+company    = "Venture Startup #4"
+position   = "Software Engineer"
+summary    = "Full-Stack (all of it)"
+location   = "San Francisco, CA"
+start_date = "2018-06"
+end_date   = "2021-02"
+highlights = [
+  "Was employee #12; remained employee #12 through two pivots, one acqui-hire attempt, and a rebrand to something with 'AI' in the name",
+  "Built the *core product API* from scratch, then rebuilt it twice as the definition of 'core product' evolved",
+  "Maintained 94% test coverage, of which roughly 60% tested the right things",
+  "Turned off the lights on the way out; sent a very professional farewell Slack message",
+]
+
+[[cv.experience]]
+company    = "MegaCorp Solutions"
+position   = "Junior Developer"
+summary    = "Enterprise Applications"
+location   = "Chicago, IL"
+start_date = "2015-07"
+end_date   = "2018-05"
+highlights = [
+  "Maintained a legacy Java codebase described in the handover notes as 'mostly fine'",
+  "Introduced automated testing to a team that had previously relied on *manual prayer*",
+  "Wrote internal tooling that saved the team approximately 3 hours per week; used those hours to write more tooling",
+]
+
+[[cv.education]]
+company    = "MSc in Computer Science"
+summary    = "University of Edinburgh"
+location   = "Edinburgh, Scotland"
+start_date = "2013-09"
+end_date   = "2015-06"
+highlights = [
+  "Thesis: _Optimistic Concurrency and the Illusion of Control_ — received commendation, possibly ironic",
+  "Graduated with distinction; celebrated responsibly",
+]
+
+[[cv.education]]
+company    = "BSc in Philosophy"
+summary    = "University of Bristol"
+location   = "Bristol, England"
+start_date = "2010-09"
+end_date   = "2013-06"
+highlights = [
+  "Pivoted to software engineering after realising epistemology had fewer job listings",
+  "Parents have mostly recovered",
+]
+
+[[cv.awards]]
+name    = "Employee of the Quarter"
+date    = "2023-01"
+summary = "Infinite Loop Technologies — awarded for fixing an outage at 2am without waking anyone else up"
+
+[[cv.awards]]
+name    = "Hackathon Runner-Up"
+date    = "2022-05"
+summary = "Built a working prototype in 24 hours; it became production code, which was not the intention"
+
+[[cv.courses]]
+name    = "AWS Solutions Architect — Associate"
+summary = "Amazon Web Services"
+date    = "2022-09"
+
+[[cv.courses]]
+name    = "Kubernetes for the Reluctant"
+summary = "Internal Training, Infinite Loop Technologies"
+date    = "2021-11"
+
+[[cv.publications]]
+title = "On the Thermodynamic Properties of Standups That Could Have Been Emails"
+doi   = "10.0000/fake.2024.doe"

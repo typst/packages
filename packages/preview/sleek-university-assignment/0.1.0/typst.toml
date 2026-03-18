@@ -1,0 +1,19 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "sleek-university-assignment"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Utkarsh Verma <utkarsh@bitbanged.com>"]
+license = "MIT"
+description = "A sleek template for university assignments."
+repository = "https://github.com/UtkarshVerma/sleek-university-assignment"
+keywords = ["university", "assignment"]
+categories = ["report"]
+disciplines = []
+exclude = [".github", "docs", "scripts", "tests", ".typstignore", "Justfile"]
+
+[template]
+path = "src/template"
+entrypoint = "main.typ"
+thumbnail = "assets/thumbnail.png"

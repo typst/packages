@@ -1,0 +1,12 @@
+# Typst
+
+debug*
+# *.pdf
+
+# Package
+
+manual.png
+
+# Mac OS
+
+.DS_Store

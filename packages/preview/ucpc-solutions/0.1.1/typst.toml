@@ -1,0 +1,19 @@
+[package]
+name = "ucpc-solutions"
+version = "0.1.1"
+entrypoint = "lib/lib.typ"
+authors = [
+  "Jonghyeon Park <https://github.com/ShapeLayer>",
+  "The Union of Collegiate Programming Contest Clubs <https://github.com/ucpcc>"
+]
+license = "MIT"
+description = "The port of UCPC solutions theme."
+repository = "https://github.com/ShapeLayer/ucpc-solutions__typst"
+keywords = ["slides", "presentation", "beamer"]
+categories = ["presentation"]
+exclude = [".github", "examples/*.pdf", "tests", "justfile"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
