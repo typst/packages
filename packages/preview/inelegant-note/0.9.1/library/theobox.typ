@@ -200,7 +200,7 @@
 // --------------------------------------------
 /* 各种盒子函数-showybox */
 // 公理
-#let (axiom-counter, axiombox-showy, axiom-showy, show-axiom-showy) = make-frame(
+#let (axiom-counter, axiombox-showy, axiom-showy, show-axiom) = make-frame(
   "axiom",
   axiom-sty.name,
   inherited-levels: 1,
@@ -212,7 +212,7 @@
   ),
 )
 // 定义
-#let (definition-counter, definitionbox-showy, definition-showy, show-definition-showy) = make-frame(
+#let (definition-counter, definitionbox-showy, definition-showy, show-definition) = make-frame(
   "definition",
   definition-sty.name,
   inherited-levels: 1,
@@ -224,7 +224,7 @@
   ),
 )
 // 定律
-#let (law-counter, lawbox-showy, law-showy, show-law-showy) = make-frame(
+#let (law-counter, lawbox-showy, law-showy, show-law) = make-frame(
   "law",
   law-sty.name,
   inherited-levels: 1,
@@ -236,7 +236,7 @@
   ),
 )
 // 定理
-#let (theorem-counter, theorembox-showy, theorem-showy, show-theorem-showy) = make-frame(
+#let (theorem-counter, theorembox-showy, theorem-showy, show-theorem) = make-frame(
   "theorem",
   theorem-sty.name,
   inherited-levels: 1,
@@ -248,7 +248,7 @@
   ),
 )
 // 引理
-#let (lemma-counter, lemmabox-showy, lemma-showy, show-lemma-showy) = make-frame(
+#let (lemma-counter, lemmabox-showy, lemma-showy, show-lemma) = make-frame(
   "lemma",
   lemma-sty.name,
   inherited-levels: 1,
@@ -260,7 +260,7 @@
   ),
 )
 // 假设
-#let (postulate-counter, postulatebox-showy, postulate-showy, show-postulate-showy) = make-frame(
+#let (postulate-counter, postulatebox-showy, postulate-showy, show-postulate) = make-frame(
   "postulate",
   postulate-sty.name,
   inherited-levels: 1,
@@ -272,7 +272,7 @@
   ),
 )
 // 推论
-#let (corollary-counter, corollarybox-showy, corollary-showy, show-corollary-showy) = make-frame(
+#let (corollary-counter, corollarybox-showy, corollary-showy, show-corollary) = make-frame(
   "corollary",
   corollary-sty.name,
   inherited-levels: 1,
@@ -284,7 +284,7 @@
   ),
 )
 // 命题
-#let (proposition-counter, propositionbox-showy, proposition-showy, show-proposition-showy) = make-frame(
+#let (proposition-counter, propositionbox-showy, proposition-showy, show-proposition) = make-frame(
   "proposition",
   proposition-sty.name,
   inherited-levels: 1,
@@ -296,7 +296,7 @@
   ),
 )
 // 例子
-#let (example-counter, examplebox-showy, example-showy, show-example-showy) = make-frame(
+#let (example-counter, examplebox-showy, example-showy, show-example) = make-frame(
   "example",
   example-sty.name,
   inherited-levels: 1,
@@ -308,7 +308,7 @@
   ),
 )
 // 练习
-#let (exercise-counter, exercisebox-showy, exercise-showy, show-exercise-showy) = make-frame(
+#let (exercise-counter, exercisebox-showy, exercise-showy, show-exercise) = make-frame(
   "exercise",
   exercise-sty.name,
   inherited-levels: 1,
@@ -324,7 +324,7 @@
 
 /* 各种盒子函数-rainbow */
 // 公理
-#let (axiom-counter, axiombox-rainbow, axiom-rainbow, show-axiom-rainbow) = make-frame(
+#let (axiom-counter, axiombox-rainbow, axiom-rainbow, show-axiom) = make-frame(
   "axiom",
   axiom-sty.name,
   inherited-levels: 1,
@@ -335,7 +335,7 @@
   ),
 )
 // 定义
-#let (definition-counter, definitionbox-rainbow, definition-rainbow, show-definition-rainbow) = make-frame(
+#let (definition-counter, definitionbox-rainbow, definition-rainbow, show-definition) = make-frame(
   "definition",
   definition-sty.name,
   inherited-levels: 1,
@@ -346,7 +346,7 @@
   ),
 )
 // 定律
-#let (law-counter, lawbox-rainbow, law-rainbow, show-law-rainbow) = make-frame(
+#let (law-counter, lawbox-rainbow, law-rainbow, show-law) = make-frame(
   "law",
   law-sty.name,
   inherited-levels: 1,
@@ -357,7 +357,7 @@
   ),
 )
 // 定理
-#let (theorem-counter, theorembox-rainbow, theorem-rainbow, show-theorem-rainbow) = make-frame(
+#let (theorem-counter, theorembox-rainbow, theorem-rainbow, show-theorem) = make-frame(
   "theorem",
   theorem-sty.name,
   inherited-levels: 1,
@@ -368,7 +368,7 @@
   ),
 )
 // 引理
-#let (lemma-counter, lemmabox-rainbow, lemma-rainbow, show-lemma-rainbow) = make-frame(
+#let (lemma-counter, lemmabox-rainbow, lemma-rainbow, show-lemma) = make-frame(
   "lemma",
   lemma-sty.name,
   inherited-levels: 1,
@@ -379,7 +379,7 @@
   ),
 )
 // 假设
-#let (postulate-counter, postulatebox-rainbow, postulate-rainbow, show-postulate-rainbow) = make-frame(
+#let (postulate-counter, postulatebox-rainbow, postulate-rainbow, show-postulate) = make-frame(
   "postulate",
   postulate-sty.name,
   inherited-levels: 1,
@@ -390,7 +390,7 @@
   ),
 )
 // 推论
-#let (corollary-counter, corollarybox-rainbow, corollary-rainbow, show-corollary-rainbow) = make-frame(
+#let (corollary-counter, corollarybox-rainbow, corollary-rainbow, show-corollary) = make-frame(
   "corollary",
   corollary-sty.name,
   inherited-levels: 1,
@@ -401,7 +401,7 @@
   ),
 )
 // 命题
-#let (proposition-counter, propositionbox-rainbow, proposition-rainbow, show-proposition-rainbow) = make-frame(
+#let (proposition-counter, propositionbox-rainbow, proposition-rainbow, show-proposition) = make-frame(
   "proposition",
   proposition-sty.name,
   inherited-levels: 1,
@@ -412,7 +412,7 @@
   ),
 )
 // 例子
-#let (example-counter, examplebox-rainbow, example-rainbow, show-example-rainbow) = make-frame(
+#let (example-counter, examplebox-rainbow, example-rainbow, show-example) = make-frame(
   "example",
   example-sty.name,
   inherited-levels: 1,
@@ -423,7 +423,7 @@
   ),
 )
 // 练习
-#let (exercise-counter, exercisebox-rainbow, exercise-rainbow, show-exercise-rainbow) = make-frame(
+#let (exercise-counter, exercisebox-rainbow, exercise-rainbow, show-exercise) = make-frame(
   "exercise",
   exercise-sty.name,
   inherited-levels: 1,
@@ -437,27 +437,16 @@
 
 // 引入所有盒子
 #let my-show-theorion(body) = {
-  show: show-axiom-showy
-  show: show-definition-showy
-  show: show-law-showy
-  show: show-theorem-showy
-  show: show-lemma-showy
-  show: show-postulate-showy
-  show: show-corollary-showy
-  show: show-proposition-showy
-  show: show-exercise-showy
-  show: show-example-showy
-
-  show: show-axiom-rainbow
-  show: show-definition-rainbow
-  show: show-law-rainbow
-  show: show-theorem-rainbow
-  show: show-lemma-rainbow
-  show: show-postulate-rainbow
-  show: show-corollary-rainbow
-  show: show-proposition-rainbow
-  show: show-exercise-rainbow
-  show: show-example-rainbow
+  show: show-axiom
+  show: show-definition
+  show: show-law
+  show: show-theorem
+  show: show-lemma
+  show: show-postulate
+  show: show-corollary
+  show: show-proposition
+  show: show-exercise
+  show: show-example
 
   show: show-theorion
   body
