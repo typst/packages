@@ -106,7 +106,7 @@ The toml file should look like this
 The booklet mode will be activated after calling `cover()`
 
 ```typst
-#import "@preview/qooklet:0.6.1": *
+#import "@preview/qooklet:0.6.2": *
 
 #let info = toml(your-info-file-path).key-you-like
 // for example: #let info = toml("config/info.toml").global
