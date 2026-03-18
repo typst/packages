@@ -80,7 +80,7 @@ The pictures are from museums in China, if there are some piracy problems, I wil
 
 `main.typ` 是模板的主文件。
 + 可以使用 `cover-environment` 来创建封面：
-    + 参数 `style` 控制封面的具体样式，类型为整型（默认为 1），0.9.0 版本暂时只有一种样式，未来会增加
+    + 参数 `style` 控制封面的具体样式，类型为整型（默认为 1），0.9. 版本暂时只有一种样式，未来会增加
     + 参数 `title` 控制文档的标题
     + 参数 `subtitle` 控制文档的副标题
     + 参数 `author` 控制文档的作者
