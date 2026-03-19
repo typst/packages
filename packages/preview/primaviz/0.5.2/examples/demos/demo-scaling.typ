@@ -1,5 +1,5 @@
 // Golden-ratio scaling demo: everything auto-sizes from two seed values
-#import "../../src/lib.typ": *
+#import "@preview/primaviz:0.5.2": *
 #import "../demo-data.typ": sales
 #set page(margin: 0.4cm, paper: "a4")
 #set text(size: 7pt)
