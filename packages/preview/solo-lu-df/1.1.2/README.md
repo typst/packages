@@ -85,12 +85,12 @@ template, you can add a show rule like this at the top of your file:
 
 Ready-to-edit examples for different thesis types are included:
 
-- **Qualification thesis**: [`examples/qualification-thesis/`](https://github.com/kristoferssolo/LU-DF-Typst-Template/tree/main/examples/qualification-thesis)
-- **Course work**: [`examples/course-work/`](https://github.com/kristoferssolo/LU-DF-Typst-Template/tree/main/examples/course-work)
-- **Bachelor thesis**: [`examples/bachelor-thesis/`](https://github.com/kristoferssolo/LU-DF-Typst-Template/tree/main/examples/bachelor-thesis)
-- **Master thesis**: [`examples/master-thesis/`](https://github.com/kristoferssolo/LU-DF-Typst-Template/tree/main/examples/master-thesis)
+- **Qualification thesis**: [`examples/qualification-thesis/`](https://github.com/kristoferssolo/LU-DF-Typst-Template/tree/v1.1.2/examples/qualification-thesis)
+- **Course work**: [`examples/course-work/`](https://github.com/kristoferssolo/LU-DF-Typst-Template/tree/v1.1.2/examples/course-work)
+- **Bachelor thesis**: [`examples/bachelor-thesis/`](https://github.com/kristoferssolo/LU-DF-Typst-Template/tree/v1.1.2/examples/bachelor-thesis)
+- **Master thesis**: [`examples/master-thesis/`](https://github.com/kristoferssolo/LU-DF-Typst-Template/tree/v1.1.2/examples/master-thesis)
 
-View the examples on GitHub: <https://github.com/kristoferssolo/LU-DF-Typst-Template/tree/main/examples>
+Browse all examples on GitHub: <https://github.com/kristoferssolo/LU-DF-Typst-Template/tree/v1.1.2/examples>
 
 The qualification thesis example contains `main.typ`, `bibliography.yml` and small helpers under
 `utils/`. Use it as a starting point or copy it into a new project.
