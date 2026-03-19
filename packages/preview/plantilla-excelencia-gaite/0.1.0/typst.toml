@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Jesús Manuel"]
 license = "MIT"
-description = "Plantilla para los proyectos del Bachillerato de Excelencia del IES Carmen Martín Gaite."
+description = "Unofficial template for Excellence Baccalaureate projects at IES Carmen Martín Gaite (Spain) // Plantilla para los proyectos del Bachillerato de Excelencia del IES Carmen Martín Gaite."
 categories = ["report", "thesis"]
 
 [template]
