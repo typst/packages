@@ -85,7 +85,7 @@ To start using alchemist, just use the following code:
 })
 ```
 
-For more information, check the [manual](https://github.com/Typsium/alchemist/blob/7fed688a06d1e98abfd8c9728dd68936058cd627/doc/manual.pdf).
+For more information, check the [manual](https://raw.githubusercontent.com/Typsium/alchemist/0.1.9/doc/manual.pdf).
 
 ## Tests
 
