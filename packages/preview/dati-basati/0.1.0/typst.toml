@@ -9,5 +9,5 @@ repository = "https://www.github.com/victuarvi/dati-basati"
 keywords = ["er-diagrams", "entity relations diagrams"]
 categories = ["visualization", "scripting"]
 disciplines = ["engineering", "computer-science"]
-exclude = ["/docs/*", "/examples/*", "*.pdf", "*.sh"]
+exclude = ["/docs/*", "/examples/*", "*.pdf", "*.sh", "/thumbnails/*"]
 compiler = "0.13.0"
