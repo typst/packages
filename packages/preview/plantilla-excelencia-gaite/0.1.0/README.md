@@ -1,5 +1,7 @@
 # Plantilla Excelencia Gaite
 
+An unofficial Typst template for Excellence Baccalaureate research projects at IES Carmen Martín Gaite (Spain).
+
 Plantilla no oficial para la redacción y formateo de los Proyectos del Bachillerato de Excelencia, diseñada específicamente para el IES Carmen Martín Gaite (Navalcarnero).
 
 ![Portada de la plantilla](https://github.com/typst/packages/raw/main/packages/preview/plantilla-excelencia-gaite/0.1.0/thumbnail.png)
