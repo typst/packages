@@ -1,9 +1,9 @@
 # Primaviz
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Typst](https://img.shields.io/badge/typst-%3E%3D0.12.0-239dad)](https://github.com/typst/typst)
-[![Charts](https://img.shields.io/badge/chart_types-50%2B-orange)](screenshots/)
-[![Pure Typst](https://img.shields.io/badge/dependencies-zero-brightgreen)]()
+[![Typst version 0.12.0 or higher](https://img.shields.io/badge/typst-%3E%3D0.12.0-239dad)](https://github.com/typst/typst)
+[![50+ chart types](https://img.shields.io/badge/chart_types-50%2B-orange)](screenshots/)
+[![Pure Typst](https://img.shields.io/badge/dependencies-zero-brightgreen)](https://github.com/phiat/primaviz)
 
 A charting library for [Typst](https://github.com/typst/typst) built entirely with native primitives (`rect`, `circle`, `line`, `polygon`, `place`). No external dependencies required.
 
