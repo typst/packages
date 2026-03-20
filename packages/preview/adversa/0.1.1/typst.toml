@@ -1,0 +1,21 @@
+[package]
+name = "adversa"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["maciejzujtu"]
+description = "Typst template for taking course notes, a mash up of many templates, mainly inspired by mousse-notes."
+homepage = "https://github.com/maciejzujtu/adversa/blob/main/README.md"
+repository = "https://github.com/maciejzujtu/adversa"
+keywords = [
+    "notes",
+    "layout",
+    "university",
+]
+compiler = "0.14.2"
+
+[template]
+path = "templates"
+entrypoint = "demo.typ"
+thumbnail = "preview.png"
+
+[tool]
