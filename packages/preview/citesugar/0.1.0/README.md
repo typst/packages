@@ -18,7 +18,7 @@ The syntax is `@label[form:supplement]`. The list of supported forms is as follo
   @frege[as:] // Frege's
 ```
 
-The supplement can be added after the semicolon:
+The supplement can be added after the colon:
 
 ```typst
   @frege[p. 20]   // (Frege 1982, p. 20)
