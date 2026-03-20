@@ -47,7 +47,7 @@ You can add your own forms or override the provided ones by passing a dictionary
   #show cite: citesugar.with(
     forms: (
       x: (key, suppl) => some-custom-thing(key, suppl),
-      b: (key, suppl) => cite(key, form: "normal" supplement: suppl) // Override `b`s to be normal citations
+      b: (key, suppl) => cite(key, form: "normal", supplement: suppl) // Override `b`s to be normal citations
     )
   )
 ```
