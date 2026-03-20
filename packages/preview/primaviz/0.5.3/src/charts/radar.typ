@@ -9,6 +9,7 @@
 ///
 /// - data (dictionary): Dict with `labels` (axis names) and `series` (each with `name` and `values`)
 /// - size (length): Diameter of the radar chart
+// - axis-max-value (none, number): The maximum value of the chart’s axes
 /// - title (none, content): Optional chart title
 /// - show-legend (bool): Show series legend
 /// - show-value-labels (bool): Display scale values and data point labels
@@ -18,6 +19,7 @@
 #let radar-chart(
   data,
   size: 200pt,
+  axis-max-value: none,
   title: none,
   show-legend: true,
   show-value-labels: true,
@@ -34,7 +36,7 @@
 
   // Find max value across all series
   let all-values = series.map(s => s.values).flatten()
-  let max-val = calc.max(..all-values)
+  let max-val = if axis-max-value == none { calc.max(..all-values) } else { axis-max-value }
 
   // Respect both show-legend param and theme legend-position
   let show-legend = show-legend and t.legend-position != "none"

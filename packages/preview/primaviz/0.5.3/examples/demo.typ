@@ -1,5 +1,5 @@
 // Chart Demo — Getting started walkthrough using shared datasets
-#import "@preview/primaviz:0.5.2": *
+#import "@preview/primaviz:0.5.3": *
 #import "demo-data.typ": sales, codebase, league, rpg, words
 
 #set page(margin: 1cm)

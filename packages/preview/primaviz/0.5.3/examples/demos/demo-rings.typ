@@ -1,5 +1,5 @@
 // Rings & treemap: ring-progress light + dark, treemap light + dark
-#import "@preview/primaviz:0.5.2": *
+#import "@preview/primaviz:0.5.3": *
 #import "../demo-data.typ": league, sales
 #set page(margin: 0.5cm, paper: "a4")
 #set text(size: 8pt)

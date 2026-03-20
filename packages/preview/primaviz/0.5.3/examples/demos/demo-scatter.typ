@@ -1,5 +1,5 @@
 // Scatter charts: scatter, dark scatter, multi-scatter, bubble
-#import "@preview/primaviz:0.5.2": *
+#import "@preview/primaviz:0.5.3": *
 #import "../demo-data.typ": league
 #set page(margin: 0.5cm, paper: "a4")
 #set text(size: 8pt)
