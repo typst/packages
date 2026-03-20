@@ -8,4 +8,4 @@ description = "A pure-Typst charting library with 50+ chart types, 6 themes, and
 keywords = ["chart", "plot", "visualization", "graph", "data", "dashboard"]
 repository = "https://github.com/phiat/primaviz"
 compiler = "0.12.0"
-exclude = [".beads/*", "tests/*", "justfile", "AGENTS.md", "CLAUDE.md"]
+exclude = [".beads/*", "tests/*", "justfile", "AGENTS.md", "CLAUDE.md", "examples/*", "screenshots/*", "data/*"]
