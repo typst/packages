@@ -22,7 +22,7 @@ Below is an example of how to typeset an example.
 ]
 ```
 
-<img src="https://github.com/retroflexivity/typst-eggs/blob/main/assets/example.svg" alt="an example with subexamples and glosses" width="450"/>
+<img src="assets/example.svg" alt="an example with subexamples and glosses" width="450"/>
 
 ### Basic
 
@@ -60,5 +60,5 @@ The `abbreviations` submodule provides `leipzig`-style abbreviation commands. Th
 
 Customization is done via the global show rule: `#show eggs.with()`.
 
-See [documentation.pdf](https://github.com/retroflexivity/typst-eggs/blob/main/documentation.pdf) for more info.
+See [documentation.pdf](documentation.pdf) for more info.
 
