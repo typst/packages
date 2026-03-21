@@ -19,7 +19,7 @@
   // Name of the university
   university: "Università degli Studi di Milano",
   // Path of the logo of the university
-  unilogo: image("img/unimi.svg", height: 30mm),
+  unilogo: rect(height: 30mm, align(center + horizon, "PLACEHOLDER")),
   // Faculty, departament and course in which you are enrolled
   faculty: [Facoltà di Scienze e Tecnologie],
   department: [Dipartimento di Informatica \ Giovanni degli Antoni],
@@ -437,18 +437,23 @@
   size: 25mm,
 )
 
-#let laboratories = yaml("utils/laboratories.yaml")
-
-#let closingpage(name, laboratories: laboratories) = context {
+#let closingpage(name, laboratories) = context {
   set page(footer: none)
   // pagebreak()
   v(1fr)
   set align(center)
-  image(
-    laboratories.at(name).logo,
-    height: labsizes.size,
-    width: labsizes.size,
-  )
+  set image(height: labsizes.size, width: labsizes.size)
+  let lab-logo = laboratories.at(name).at("logo", default: none)
+
+  if lab-logo == none {
+    rect(
+      height: labsizes.size,
+      width: labsizes.size,
+      align(center + horizon, "LAB\nLOGO"),
+    )
+  } else {
+    lab-logo
+  }
 
   localization.at(text.lang).lab_prefix + " "
   laboratories.at(name).name + linebreak()

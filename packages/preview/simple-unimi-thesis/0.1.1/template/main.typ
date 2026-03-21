@@ -41,7 +41,11 @@
 // bibliography
 
 // associated laboratory
-
-// if the laboratory you want to cite is missing:
-#let missinglab = yaml("myoverride.yml")
-#closingpage("mylab", laboratories: missinglab)
+#let missinglab = (
+  "mylab": (
+    name: "My Wonderful Laboratory",
+    url: "http://www.mylaboratorywebsite.com",
+    // logo: image("img/logo.png"),
+  ),
+)
+#closingpage("mylab", missinglab)
