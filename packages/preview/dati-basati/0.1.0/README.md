@@ -5,6 +5,9 @@
 ![License](https://img.shields.io/badge/license-GPLv3-green)
 [![Manual](https://img.shields.io/badge/docs-manual.pdf-red?logo=readthedocs)](docs/manual.pdf?raw=true)
 
+<!-- ![License](https://img.shields.io/badge/hotel%3F-trivago-orange?logo=trivago)
+![License](https://img.shields.io/badge/dio%3F-bono-red?logo=4chan) -->
+
 _Dati basati_ ("_Based Data_" in Italian) is a [Typst](https://typst.app/) package, built on [CeTZ](https://github.com/cetz-package/cetz), to draw ER-diagrams as I did during university. I was never able to find a software that did it, so why not do it myself?
 
 See the `/docs` directory for the [manual](/docs/manual.pdf) and the [documentation](/docs/docs.pdf).
@@ -18,7 +21,7 @@ See [this](/examples/example_quick.typ) for a quick start. You need to import th
 ```
 
 <p align="center">
-  <img src="thumbnails/example_0.png"/>
+  <img src="thumbnails/example_0.png" alt="basic dati-basati er diagram example with tiw theme"/>
 </p>
 <details>
   <summary>See the source code</summary>
@@ -176,31 +179,31 @@ If you click on the images you can check the source code.
 </table> -->
 
 <p align="center">
-  <a href="/examples/example_12.typ"><img alt="" src="thumbnails/example_12.png"></a>
+  <a href="/examples/example_12.typ"><img alt="dati basati er diagram example for C62-48 theme" src="thumbnails/example_12.png"></a>
   <!-- <div align="center"><em>C62-48</em></div> -->
 </p>
 
 <p align="center">
-  <a href="/examples/example_7.typ"><img alt="" src="thumbnails/example_7.png"></a>
+  <a href="/examples/example_7.typ"><img alt="dati basati er diagram example for tiramisu theme" src="thumbnails/example_7.png"></a>
   <!-- <div align="center"><em>Tiramisu</em></div> -->
 </p>
 
 <p align="center">
-  <a href="/examples/example_14.typ"><img alt="" src="thumbnails/example_14.png"></a>
+  <a href="/examples/example_14.typ"><img alt="dati basati er diagram example for ghibli theme" src="thumbnails/example_14.png"></a>
   <!-- <div align="center"><em>Ghibli</em></div> -->
 </p>
 
 <p align="center">
-  <a href="/examples/example_9.typ"><img alt="" src="thumbnails/example_9.png"></a>
+  <a href="/examples/example_9.typ"><img alt="dati basati er diagram example for C62-50 theme" src="thumbnails/example_9.png"></a>
   <!-- <div align="center"><em>C62-50</em></div> -->
 </p>
 <p align="center">
-  <a href="/examples/example_10.typ"><img alt="" src="thumbnails/example_10.png"></a>
+  <a href="/examples/example_10.typ"><img alt="dati basati er diagram example for polimi theme" src="thumbnails/example_10.png"></a>
   <!-- <div align="center"><em>Polimi</em></div> -->
 </p>
 
 <p align="center">
-  <a href="/examples/example_11.typ"><img alt="" src="thumbnails/example_11.png"></a>
+  <a href="/examples/example_11.typ"><img alt="dati basati er diagram example for futurama theme" src="thumbnails/example_11.png"></a>
   <!-- <div align="center"><em>Futurama</em></div> -->
 </p>
 
