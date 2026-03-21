@@ -14,7 +14,7 @@ A ready-to-use Typst template for Chinese papers.
 ## 快速开始
 
 ```typst
-#import "@preview/easy-paper:0.2.0": *
+#import "@preview/easy-paper:0.2.1": *
 
 #show: project.with(
   title: "文档标题",
