@@ -1,0 +1,16 @@
+[package]
+name = "gzqy-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["isirin1131"]
+license = "MIT"
+description = "贵州轻工职业技术学院毕业设计（论文）模板"
+repository = "https://github.com/isirin1131/gzqy-thesis"
+categories = ["thesis"]
+disciplines = ["computer-science"]
+keywords = ["thesis", "chinese", "guizhou"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
