@@ -62,6 +62,6 @@
 
 在此总结全文并展望未来工作。
 
-#thesis-bibliography("refs.bib")
+#thesis-bibliography(bibliography("refs.bib", title: none, style: "gb-7714-2015-numeric"))
 
 #thesis-acknowledgement[在此编写致谢内容。]

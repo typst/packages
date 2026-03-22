@@ -35,7 +35,7 @@ typst init @preview/gzqy-thesis:0.1.0
 == 研究背景
 ...
 
-#thesis-bibliography("refs.bib")
+#thesis-bibliography(bibliography("refs.bib", title: none, style: "gb-7714-2015-numeric"))
 #thesis-acknowledgement[致谢内容。]
 ```
 

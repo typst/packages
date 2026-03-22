@@ -16,12 +16,13 @@
 // -------------------- 辅助函数 --------------------
 
 /// 渲染参考文献标题 + bibliography
-#let thesis-bibliography(path) = {
+/// 用法：#thesis-bibliography(bibliography("refs.bib"))
+#let thesis-bibliography(bib) = {
   heading(level: 1, numbering: none)[参考文献]
   {
     set text(font: songti, size: fs.五号)
     set par(first-line-indent: 0pt)
-    bibliography(path, title: none, style: "gb-7714-2015-numeric")
+    bib
   }
 }
 
