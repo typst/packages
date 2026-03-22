@@ -1,4 +1,4 @@
-<img src="thumbnail.png" alt="thumbnail" width="800">
+<img src="thumbnail.png" alt="Preview thumbnail of the Symbolist Typst package showing the package name and mathematical symbols" width="800">
 
 # The symbolist Package
 
@@ -20,7 +20,7 @@ Import the package and start defining symbols throughout your document. At the e
 #print-symbols()
 ```
 
-<img src="example.svg" width="300">
+<img src="example.svg" alt="Example output of Symbolist showing a formatted table of mathematical symbols, descriptions, and units separated into Latin and Greek sections" width="300">
 
 ### Installation
 
