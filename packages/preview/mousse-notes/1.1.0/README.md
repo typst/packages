@@ -1,7 +1,7 @@
 **Mousse notes** is a [Typst](https://typst.app) template for taking course notes, inspired by old-ish math books.
 
 <picture>
-  <img src="thumbnail_pages.png">
+  <img src="thumbnail_pages.png" alt="A picture of the first page of a Mousse notes chapter.">
 </picture>
 
 ## Getting Started
