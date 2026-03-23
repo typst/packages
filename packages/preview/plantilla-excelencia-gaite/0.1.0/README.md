@@ -4,7 +4,7 @@ An unofficial Typst template for Excellence Baccalaureate research projects at I
 
 Plantilla no oficial para la redacción y formateo de los Proyectos del Bachillerato de Excelencia, diseñada específicamente para el IES Carmen Martín Gaite (Navalcarnero).
 
-![Portada de la plantilla](https://github.com/typst/packages/raw/main/packages/preview/plantilla-excelencia-gaite/0.1.0/thumbnail.png)
+![Portada de la plantilla](https://github.com/typst/packages/raw/main/packages/preview/visillos-excelencia/0.1.0/thumbnail.png)
 
 Esta plantilla automatiza la creación de la portada, los índices (general, de figuras y de tablas), el formato de página, los márgenes, la numeración de ecuaciones y la bibliografía, permitiendo a los alumnos centrarse exclusivamente en el contenido de su investigación.
 
@@ -13,7 +13,7 @@ Esta plantilla automatiza la creación de la portada, los índices (general, de 
 Para empezar un nuevo proyecto usando esta plantilla, simplemente abre tu terminal y ejecuta el siguiente comando:
 
 ```bash
-typst init @preview/plantilla-excelencia-gaite mi-proyecto
+typst init @preview/visillos-excelencia mi-proyecto
 ```
 
 Esto creará una nueva carpeta llamada mi-proyecto con la estructura de archivos necesaria y un archivo main.typ listo para ser editado.
