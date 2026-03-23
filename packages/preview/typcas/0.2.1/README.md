@@ -3,22 +3,22 @@
 Task-centric CAS for Typst with Builder-style orchestration and structured results.
 
 [`Repository`](https://github.com/sihooleebd/typCAS) ·
-[`Complete Guide`](https://github.com/sihooleebd/typCAS/blob/master/docs/COMPLETE_GUIDE.md) ·
-[`Function Reference`](https://github.com/sihooleebd/typCAS/blob/master/docs/functions.md) ·
-[`Contributing`](https://github.com/sihooleebd/typCAS/blob/master/CONTRIBUTING.md) ·
-[`Changelog`](https://github.com/sihooleebd/typCAS/blob/master/docs/CHANGELOG.md)
+[`Complete Guide`](https://github.com/sihooleebd/typCAS/blob/v0.2.1/docs/COMPLETE_GUIDE.md) ·
+[`Function Reference`](https://github.com/sihooleebd/typCAS/blob/v0.2.1/docs/functions.md) ·
+[`Contributing`](https://github.com/sihooleebd/typCAS/blob/v0.2.1/CONTRIBUTING.md) ·
+[`Changelog`](https://github.com/sihooleebd/typCAS/blob/v0.2.1/docs/CHANGELOG.md)
 
 ---
 
 ## Documentation
 
-- [Complete Guide](https://github.com/sihooleebd/typCAS/blob/master/docs/COMPLETE_GUIDE.md) for full API and internals documentation.
-- [Function Reference](https://github.com/sihooleebd/typCAS/blob/master/docs/functions.md) for signatures and usage examples of all public and parser-level functions.
-- [Changelog](https://github.com/sihooleebd/typCAS/blob/master/docs/CHANGELOG.md) for release history and full-refactor rationale.
+- [Complete Guide](https://github.com/sihooleebd/typCAS/blob/v0.2.1/docs/COMPLETE_GUIDE.md) for full API and internals documentation.
+- [Function Reference](https://github.com/sihooleebd/typCAS/blob/v0.2.1/docs/functions.md) for signatures and usage examples of all public and parser-level functions.
+- [Changelog](https://github.com/sihooleebd/typCAS/blob/v0.2.1/docs/CHANGELOG.md) for release history and full-refactor rationale.
 
 ## Contributing
 
-- [Contributing Guide](https://github.com/sihooleebd/typCAS/blob/master/CONTRIBUTING.md) is the binding contributor policy for philosophy, invariants, and merge gates.
+- [Contributing Guide](https://github.com/sihooleebd/typCAS/blob/v0.2.1/CONTRIBUTING.md) is the binding contributor policy for philosophy, invariants, and merge gates.
 
 ## Quick Start
 
@@ -269,7 +269,7 @@ $ #cas.display(cas.expr-of(i)) $ // ... + C (C kept at tail)
 - `src/`: active v2 implementation surface.
 - `archive/v1/`: archived pre-v2 codebase and examples, with standalone `archive/v1/typst.toml` + `archive/v1/lib.typ`.
 - `translators/translation.typ`: v1->v2 migration alias layer (migration-only).
-- [`docs/COMPLETE_GUIDE.md`](https://github.com/sihooleebd/typCAS/blob/master/docs/COMPLETE_GUIDE.md): comprehensive end-to-end guide (API + architecture).
+- [`docs/COMPLETE_GUIDE.md`](https://github.com/sihooleebd/typCAS/blob/v0.2.1/docs/COMPLETE_GUIDE.md): comprehensive end-to-end guide (API + architecture).
 
 ## Local Validation
 
