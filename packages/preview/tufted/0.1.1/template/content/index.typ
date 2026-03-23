@@ -1,5 +1,5 @@
 #import "../config.typ": template, tufted
-#import "@preview/cmarker:0.1.7"
+#import "@preview/cmarker:0.1.8"
 #show: template
 
 = Tufted

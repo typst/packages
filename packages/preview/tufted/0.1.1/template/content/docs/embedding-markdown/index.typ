@@ -1,5 +1,5 @@
 #import "../index.typ": template, tufted
-#import "@preview/cmarker:0.1.7"
+#import "@preview/cmarker:0.1.8"
 #import "@preview/mitex:0.2.6": mitex
 #show: template
 
@@ -9,7 +9,7 @@ You can embed Markdown content within your Typst documents using `cmarker`. This
 
 ```typst
 #import "../index.typ": template, tufted
-#import "@preview/cmarker:0.1.7"
+#import "@preview/cmarker:0.1.8"
 #import "@preview/mitex:0.2.6": mitex
 #show: template
 

@@ -1,6 +1,6 @@
 #import "../index.typ": template, tufted
 #show: template
-#import "@preview/citegeist:0.2.0": load-bibliography
+#import "@preview/citegeist:0.2.2": load-bibliography
 
 = Edward R. Tufte
 
