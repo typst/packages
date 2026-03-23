@@ -92,7 +92,7 @@ Typst 提供了官方的 Web App，支持像 Overleaf 一样在线编辑。
 | **songti** | Noto Serif CJK SC | Songti SC | SimSun | Noto Serif CJK SC | SimSun |
 | **heiti** | Noto Sans CJK SC | Heiti SC | SimHei | Noto Sans CJK SC | SimHei |
 | **kaiti** | *(未定义)* | Kaiti SC | KaiTi | *(未定义)* | Kaiti |
-| **fangsong** | *(未定义)* | FangSong SC | FangSong | *(未定义)* | FangSong |
+| **fangsong** | *(未定义)* | STFangSong | FangSong | *(未定义)* | FangSong |
 | **dengkuan** | Fira Mono | Menlo | Consolas | Liberation Mono | Fira Mono |
 | **math** | New Computer Modern Math | STIX Two Math | Cambria Math | Latin Modern Math | New Computer Modern Math |
 

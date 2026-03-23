@@ -65,7 +65,7 @@
         songti: ((name: "Times New Roman", covers: "latin-in-cjk"), "Songti SC"),
         heiti: ((name: "Times New Roman", covers: "latin-in-cjk"), "Heiti SC"),
         kaiti: ((name: "Times New Roman", covers: "latin-in-cjk"), "Kaiti SC"),
-        fangsong: ((name: "Times New Roman", covers: "latin-in-cjk"), "FangSong SC"),
+        fangsong: ((name: "Times New Roman", covers: "latin-in-cjk"), "STFangSong"),
         dengkuan: ("Menlo", (name: "Heiti SC", covers: regex("\p{script=Han}"))),
         math: ("STIX Two Math", (name: "Songti SC", covers: regex("\p{script=Han}"))),
       )
