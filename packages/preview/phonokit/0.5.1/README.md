@@ -2,15 +2,15 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://gdgarcia.ca/typst/logo_white.png">
     <source media="(prefers-color-scheme: light)" srcset="https://gdgarcia.ca/typst/logo.png">
-    <img src="https://gdgarcia.ca/typst/logo.png" width="300">
+    <img src="https://gdgarcia.ca/typst/logo.png" width="300" alt="phonokit logo">
   </picture>
 </div>
 
 <div align="center">
 
-[![DOI](https://zenodo.org/badge/1113733598.svg)](https://doi.org/10.5281/zenodo.17971031)
+[![DOI badge](https://zenodo.org/badge/1113733598.svg)](https://doi.org/10.5281/zenodo.17971031)
 [![Typst Package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fguilhermegarcia%2Fphonokit%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://typst.app/universe/package/phonokit)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/guilhermegarcia/phonokit/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![User Manual](https://img.shields.io/badge/manual-.pdf-purple)](https://doi.org/10.5281/zenodo.18260076)
 
 </div>
@@ -22,57 +22,57 @@
 <table>
 <tr>
   <td align="center" width="33%">
-    <a href="gallery/ipa_example.typ"><img src="gallery/ipa_example.png" width="100%"></a>
+    <a href="gallery/ipa_example.typ"><img src="gallery/ipa_example.png" width="100%" alt="IPA transcription example"></a>
     <br><sub>IPA transcription based on <code>tipa</code></sub>
   </td>
   <td align="center" width="33%">
-    <a href="gallery/consonants_example.typ"><img src="gallery/consonants_example.png" width="100%"></a>
+    <a href="gallery/consonants_example.typ"><img src="gallery/consonants_example.png" width="100%" alt="Consonant inventory table"></a>
     <br><sub>Consonant inventories (with pre-defined languages)</sub>
   </td>
   <td align="center" width="33%">
-    <a href="gallery/vowels_example.typ"><img src="gallery/vowels_example.png" width="100%"></a>
+    <a href="gallery/vowels_example.typ"><img src="gallery/vowels_example.png" width="100%" alt="Vowel trapezoid chart"></a>
     <br><sub>Vowel trapezoids (with pre-defined languages and arrows)</sub>
   </td>
 </tr>
 <tr>
   <td align="center">
-    <a href="gallery/multi-tier_example.typ"><img src="gallery/multi-tier_example.png" width="100%"></a>
+    <a href="gallery/multi-tier_example.typ"><img src="gallery/multi-tier_example.png" width="100%" alt="Multi-tier phonological representation"></a>
     <br><sub>Multi-tier representations</sub>
   </td>
   <td align="center">
-    <a href="gallery/syllable_example.typ"><img src="gallery/syllable_example.png" width="100%"></a>
+    <a href="gallery/syllable_example.typ"><img src="gallery/syllable_example.png" width="100%" alt="Syllable structure tree"></a>
     <br><sub>Syllable structure (onset-rhyme and moraic)</sub>
   </td>
   <td align="center">
-    <a href="gallery/word_example.typ"><img src="gallery/word_example.png" width="100%"></a>
+    <a href="gallery/word_example.typ"><img src="gallery/word_example.png" width="100%" alt="Prosodic word tree"></a>
     <br><sub>Prosodic word (with metrical parsing)</sub>
   </td>
 </tr>
 <tr>
   <td align="center">
-    <a href="gallery/grid_example.typ"><img src="gallery/grid_example.png" width="100%"></a>
+    <a href="gallery/grid_example.typ"><img src="gallery/grid_example.png" width="100%" alt="Metrical grid"></a>
     <br><sub>Metrical grids with IPA support</sub>
   </td>
   <td align="center">
-    <a href="gallery/autoseg_example_1.typ"><img src="gallery/autoseg_example_1.png" width="100%"></a>
+    <a href="gallery/autoseg_example_1.typ"><img src="gallery/autoseg_example_1.png" width="100%" alt="Autosegmental feature spreading"></a>
     <br><sub>Autosegmental phonology: features</sub>
   </td>
   <td align="center">
-    <a href="gallery/autoseg_example_3.typ"><img src="gallery/autoseg_example_3.png" width="100%"></a>
+    <a href="gallery/autoseg_example_3.typ"><img src="gallery/autoseg_example_3.png" width="100%" alt="Autosegmental tone representation"></a>
     <br><sub>Autosegmental phonology: tones</sub>
   </td>
 </tr>
 <tr>
   <td align="center">
-    <a href="gallery/feat_geom.typ"><img src="gallery/feat_geom.png" width="100%"></a>
+    <a href="gallery/feat_geom.typ"><img src="gallery/feat_geom.png" width="100%" alt="Feature geometry tree"></a>
     <br><sub>Feature geometry</sub>
   </td>
   <td align="center">
-    <a href="gallery/ot_example.typ"><img src="gallery/ot_example.png" width="100%"></a>
+    <a href="gallery/ot_example.typ"><img src="gallery/ot_example.png" width="100%" alt="OT tableau with shading"></a>
     <br><sub>OT tableaux with automatic shading</sub>
   </td>
   <td align="center">
-    <a href="gallery/maxent_example.typ"><img src="gallery/maxent_example.png" width="100%"></a>
+    <a href="gallery/maxent_example.typ"><img src="gallery/maxent_example.png" width="100%" alt="MaxEnt tableau with probability bars"></a>
     <br><sub>MaxEnt tableaux with automatic calculation</sub>
   </td>
 </tr>
