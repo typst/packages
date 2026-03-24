@@ -1,6 +1,8 @@
 # gzqy-thesis
 
-贵州轻工职业技术学院毕业设计（论文）Typst 模板，依据《毕业设计（论文）撰写要求与规范》编制。
+社区维护的贵州轻工职业技术学院毕业设计（论文）Typst 模板，依据《毕业设计（论文）撰写要求与规范》编制。
+
+Community-maintained Typst template for the Graduation Project (Thesis) of Guizhou Light Industry Technical College, prepared in accordance with the Requirements and Specifications for Graduation Project (Thesis) Writing.
 
 ## 使用方法
 
