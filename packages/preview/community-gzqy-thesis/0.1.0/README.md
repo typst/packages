@@ -1,4 +1,4 @@
-# gzqy-thesis
+# community-gzqy-thesis
 
 社区维护的贵州轻工职业技术学院毕业设计（论文）Typst 模板，依据《毕业设计（论文）撰写要求与规范》编制。
 
@@ -11,15 +11,15 @@ Community-maintained Typst template for the Graduation Project (Thesis) of Guizh
 在 Typst 编辑器中初始化模板：
 
 ```bash
-typst init @preview/gzqy-thesis:0.1.0
+typst init @preview/community-gzqy-thesis:0.1.0
 ```
 
 或在 `.typ` 文件中直接导入：
 
 ```typst
-#import "@preview/gzqy-thesis:0.1.0": *
+#import "@preview/community-gzqy-thesis:0.1.0": *
 
-#show: gzqy-thesis.with(
+#show: community-gzqy-thesis.with(
   title: "论文题目",
   major: "专业名称",
   advisor: "指导教师",
@@ -49,7 +49,7 @@ typst init @preview/gzqy-thesis:0.1.0
 
 | 名称 | 类型 | 说明 |
 |------|------|------|
-| `gzqy-thesis` | show rule 函数 | 主模板函数，自动渲染封面、摘要、目录、原创性声明 |
+| `community-gzqy-thesis` | show rule 函数 | 主模板函数，自动渲染封面、摘要、目录、原创性声明 |
 | `thesis-bibliography` | 函数 | 渲染参考文献标题 + bibliography |
 | `thesis-acknowledgement` | 函数 | 渲染致谢标题 + 内容 |
 | `heiti` | 字体列表 | 黑体字体 fallback 列表 |

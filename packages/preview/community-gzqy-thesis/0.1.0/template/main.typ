@@ -1,6 +1,6 @@
-#import "@preview/gzqy-thesis:0.1.0": *
+#import "@preview/community-gzqy-thesis:0.1.0": *
 
-#show: gzqy-thesis.with(
+#show: community-gzqy-thesis.with(
   title: "论文题目",
   major: "XXXXXXX",
   advisor: "XXX",
