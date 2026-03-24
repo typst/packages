@@ -17,7 +17,7 @@
 
 This is the official template for a students report or project or lab report for the [HEI-Vs Engineering School](https://synd.hevs.io) in Sion, Switzerland. More templates can the found in our [GitHub organization](https://github.com/hei-templates)
 
-![sample](https://github.com/hei-templates/hei-synd-report/blob/22ad627965bc449ffefdfcc21b0b8eabfb3eadeb/sample.png)
+![image of hei-synd-report document](https://github.com/hei-templates/hei-synd-report/blob/22ad627965bc449ffefdfcc21b0b8eabfb3eadeb/sample.png)
 
 ## Using the template
 
@@ -139,7 +139,7 @@ typst compile report.typ --input type="draft" --input lang="de"
 
 ## Help
 
-If you need help writting your document look at the [Typst documentation](https://typst.app/docs/) or if ou need more help with the template specifics look at the document [Guide-to-Thesis](https://github.com/hei-templates/hei-synd-thesis/blob/main/guide-to-thesis.pdf).
+If you need help writting your document look at the [Typst documentation](https://typst.app/docs/) or if ou need more help with the template specifics look at the document [[Guide-to-Typst](https://github.com/hei-templates/hei-synd-thesis/blob/c218181f4f6a12938f5c0d7ef939d7075fcc4fff/guide-to-typst.pdf).
 
 ## Contributing
 
