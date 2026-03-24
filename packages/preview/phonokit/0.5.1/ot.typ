@@ -163,7 +163,7 @@
       if col <= 1 { right + horizon }
       else { center + horizon }
     },
-    inset: (col, row) => if col == 0 { (left: 5pt, top: 5pt, bottom: 5pt, right: 0pt) } else if col == 1 { (left: 4pt, top: 5pt, bottom: 5pt, right: 10pt) } else { 5pt },
+    inset: (col, row) => if col == 0 { (left: 5pt, top: 5pt, bottom: 5pt, right: 0pt) } else if col == 1 { (left: 5pt, top: 5pt, bottom: 5pt, right: 10pt) } else { 5pt },
 
     stroke: (col, row) => {
       let s = 0.4pt + black
@@ -295,7 +295,7 @@
     columns: col-defs,
     rows: row-defs,
     align: (col, row) => (if col <= 1 { right } else { center }) + horizon,
-    inset: (col, row) => if col == 0 { (left: 5pt, top: 5pt, bottom: 5pt, right: 0pt) } else if col == 1 { (left: 4pt, top: 5pt, bottom: 5pt, right: 10pt) } else { 5pt },
+    inset: (col, row) => if col == 0 { (left: 5pt, top: 5pt, bottom: 5pt, right: 0pt) } else if col == 1 { (left: 5pt, top: 5pt, bottom: 5pt, right: 10pt) } else { 5pt },
 
     // --- STROKE LOGIC ---
     stroke: (col, row) => {
@@ -439,7 +439,7 @@
     columns: col-defs,
     rows: row-defs,
     align: (col, row) => (if col <= 1 { right } else { center }) + horizon,
-    inset: (col, row) => if col == 0 { (left: 5pt, top: 5pt, bottom: 5pt, right: 0pt) } else if col == 1 { (left: 4pt, top: 5pt, bottom: 5pt, right: 10pt) } else { 5pt },
+    inset: (col, row) => if col == 0 { (left: 5pt, top: 5pt, bottom: 5pt, right: 0pt) } else if col == 1 { (left: 5pt, top: 5pt, bottom: 5pt, right: 10pt) } else { 5pt },
 
     // --- STROKE LOGIC ---
     stroke: (col, row) => {
@@ -656,7 +656,7 @@
     columns: col-defs,
     rows: row-defs,
     align: (col, row) => (if col <= 1 { right } else { center }) + horizon,
-    inset: (col, row) => if col == 0 { (left: 5pt, top: 5pt, bottom: 5pt, right: 0pt) } else if col == 1 { (left: 4pt, top: 5pt, bottom: 5pt, right: 10pt) } else { 5pt },
+    inset: (col, row) => if col == 0 { (left: 5pt, top: 5pt, bottom: 5pt, right: 0pt) } else if col == 1 { (left: 5pt, top: 5pt, bottom: 5pt, right: 10pt) } else { 5pt },
 
     // --- STROKE LOGIC ---
     stroke: (col, row) => {
@@ -826,7 +826,7 @@
     columns: col-defs,
     rows: row-defs,
     align: (col, row) => (if col <= 1 { right } else { center }) + horizon,
-    inset: (col, row) => if col == 0 { (left: 5pt, top: 5pt, bottom: 5pt, right: 0pt) } else if col == 1 { (left: 4pt, top: 5pt, bottom: 5pt, right: 10pt) } else { 5pt },
+    inset: (col, row) => if col == 0 { (left: 5pt, top: 5pt, bottom: 5pt, right: 0pt) } else if col == 1 { (left: 5pt, top: 5pt, bottom: 5pt, right: 10pt) } else { 5pt },
 
     // --- STROKE LOGIC ---
     stroke: (col, row) => {
