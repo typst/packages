@@ -10,4 +10,4 @@ repository = "https://github.com/oicana/oicana"
 keywords = ["oicana", "templating", "tool"]
 categories = ["scripting", "utility", "integration"]
 compiler = "0.14.0"
-exclude = ["*/tests/**", "Development.md", "README.md"]
+exclude = ["*/tests/**", "Development.md"]

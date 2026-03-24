@@ -72,7 +72,7 @@
     panic(
       "The `manifest_version` "
         + str(oicana-manifest.manifest_version)
-        + " is not supported by this package. Please check if there is an update available!",
+        + " is not supported by this package version. Please check for updates at https://typst.app/universe/package/oicana",
     )
   }
   let input-definitions = if oicana-manifest.keys().contains("inputs") {
