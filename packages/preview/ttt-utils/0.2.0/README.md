@@ -45,6 +45,3 @@ or import the wanted functions:
 
 ```
 
-## Similar projects
-
-- [scrutinize](https://github.com/SillyFreak/typst-packages/tree/main/scrutinize) by [SillyFreak](https://github.com/SillyFreak): Package to create exams, very similar to the `assignment` module, but only questions without assignments, and a bit more low level. I adopted a few of his ideas.
