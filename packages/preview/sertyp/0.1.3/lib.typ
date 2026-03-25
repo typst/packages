@@ -124,7 +124,7 @@
 ///
 /// Returns:
 /// (any): The result returned by the function in sertyp intermediate representation.
-#let call_debug(func, arg) = {
+#let call-debug(func, arg) = {
   return cbor(func(serialize-cbor(arg)))
 };
 

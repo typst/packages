@@ -16,7 +16,7 @@ information, `sertyp`:
   serialized to cbor and passed over the WASM boundary.
 
 The
-[Rust backend](https://github.com/Uhrendoktor/sertyp/blob/main/rust/README.md)
+[Rust backend](https://github.com/Uhrendoktor/sertyp/blob/0.1.3/rust/README.md)
 provides deserialization logic and typed data structures so plugins can work
 with actual Typst types instead of manual parsing efforts.
 
@@ -164,5 +164,5 @@ sertyp.deserialize-cbor(function(sertyp.serialize-cbor(arg)))
 ## Plugin Development
 
 See the
-[Rust README](https://github.com/Uhrendoktor/sertyp/blob/main/rust/README.md)
+[Rust README](https://github.com/Uhrendoktor/sertyp/blob/0.1.3/rust/README.md)
 for details on building WASM plugins that work with sertyp.
