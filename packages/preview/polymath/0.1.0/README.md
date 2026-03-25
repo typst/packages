@@ -10,7 +10,8 @@ A Typst package for the Renaissance man. Write like Montaigne, typeset math like
 #show: template
 
 #header(
-  name: "Your Name",
+  name: "Kernel and Range",
+  author: "Your Name",
   course: "Math 110 — Linear Algebra",
   hw: "3",
   date: "March 4, 2026",
@@ -33,7 +34,7 @@ See [`example.typ`](example.typ) for a full working document.
 | Function | Description |
 |----------|-------------|
 | `template` | Apply page, text, and math styling. Use with `#show: template`. |
-| `header(name?, course?, hw?, date?, professor?, topic?)` | Page header with horizontal rule. |
+| `header(name?, note?, author?, course?, hw?, date?, professor?, ...)` | Page header with note title (`name` or `note`), author, and course metadata. |
 
 ### Problem layer
 

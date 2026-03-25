@@ -26,7 +26,7 @@
 #let template(doc) = {
   set text(
     font: "New Computer Modern",
-    size: 10.5pt,
+    size: 8.5pt,
     fallback: false,
   )
   set page(
@@ -63,6 +63,8 @@
 // ── Header ───────────────────────────────────────────────────────────────────
 #let header(
   name: none,
+  note: none,
+  author: none,
   course: none,
   hw: none,
   date: none,
@@ -70,24 +72,35 @@
   topic: none,
   related: none,
   material: none
-) = [
-  #grid(
-    columns: (1fr, 1fr),
-    column-gutter: 1em,
-    align: (left, right),
-    [
-      #if name      != none { [#name] } \
-      #if course    != none { [#course] } \
-      #if hw        != none { [Homework #hw] } \
-    ],
-    [
-      #if date      != none { [#date] } \
-      #if professor != none { [#professor] } \
-    ],
-  )
-  #line(length: 100%, stroke: 0.5pt + luma(160))
-  #v(0.6em)
-]
+) = {
+  let title = if note != none { note } else { name }
+
+  [
+    #if title != none [
+      #text(fill: _accent, weight: 700, size: 1.15em)[#title]
+      #v(0.2em)
+    ]
+    #grid(
+      columns: (1fr, 1fr),
+      column-gutter: 1em,
+      align: (left, right),
+      [
+        #if author   != none { [#author] } \
+        #if course   != none { [#course] } \
+        #if hw       != none { [Homework #hw] } \
+        #if topic    != none { [#topic] } \
+        #if material != none { [#material] } \
+      ],
+      [
+        #if date      != none { [#date] } \
+        #if professor != none { [#professor] } \
+        #if related   != none { [#related] } \
+      ],
+    )
+    #line(length: 100%, stroke: 0.5pt + luma(160))
+    #v(0.6em)
+  ]
+}
 
 // ── Question — #qs(title: [...])[body] ───────────────────────────────────────
 #let qs(title: none, body) = {

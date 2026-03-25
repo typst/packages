@@ -3,7 +3,8 @@
 #show: template
 
 #header(
-  name: "Your Name",
+  name: "Vectors and Subspaces",
+  author: "Your Name",
   course: "Course Name",
   hw: "1",
   date: "January 1, 2025",
