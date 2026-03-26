@@ -11,17 +11,17 @@ A clean and professional letter template for [Typst](https://typst.app/), design
 <tr>
   <td>
     <a href="examples/THU/THU.typ">
-      <img src="examples/THU/THU-thumbnail.png" width="250px">
+      <img src="examples/THU/THU-thumbnail.png" alt="THU letter template preview" width="250px">
     </a>
   </td>
   <td>
     <a href="examples/UESTC/UESTC.typ">
-      <img src="examples/UESTC/UESTC-thumbnail.png" width="250px">
+      <img src="examples/UESTC/UESTC-thumbnail.png" alt="UESTC letter template preview" width="250px">
     </a>
   </td>
   <td>
     <a href="examples/HITSZ/HITSZ.typ">
-      <img src="examples/HITSZ/HITSZ-thumbnail.png" width="250px">
+      <img src="examples/HITSZ/HITSZ-thumbnail.png" alt="HITSZ letter template preview" width="250px">
     </a>
   </td>
 </tr>
