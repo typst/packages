@@ -34,7 +34,7 @@ Or import directly:
 The ETH Zürich logo (`shared/figures/eth_logo_kurz_pos.svg`) is a trademark of
 ETH Zürich and is **not** covered by the Apache-2.0 license. It is reproduced as
 publicly available on [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ETH_Z%C3%BCrich_Logo_black.svg).
-Users must comply with [ETH Zürich's branding guidelines](https://ethz.ch/en/the-eth-zurich/communication/corporate-design.html).
+Users must comply with [ETH Zürich's branding guidelines](https://ethz.ch/staffnet/en/service/communication/corporate-design/eth-logo.html).
 
 ## License
 
