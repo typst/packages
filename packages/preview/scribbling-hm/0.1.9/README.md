@@ -26,6 +26,7 @@ After initialization, open ``main.typ``, fill in the properties below, and start
 |----------|-------------|
 | `title` | The title of your thesis |
 | `title-translation` | English translation of the title |
+| `language` | Document language (`"de"` or `"en"`, default: `"de"`) |
 | `study-name` | Abbreviation of your course of study (default: `study-name.IFB`) |
 | `author` | Your full name |
 | `gender` | Your gender (`"m"`, `"w"`, `"d"`, or `none`) |
@@ -34,11 +35,11 @@ After initialization, open ``main.typ``, fill in the properties below, and start
 | `study-group` | Your study group |
 | `semester` | Current semester |
 | `supervisors` | Array of supervisor names or single supervisor name |
-| `supervisor-gender` | Gender of supervisor (`"m"`, `"w"`, `"d"`, or `none`) |
+| `examiner-gender` | Gender of examiner (`"m"`, `"w"`, `"d"`, or `none`) |
 | `submission-date` | Date of thesis submission |
-| `abstract-two-langs` | Enable bilingual abstract (default: `true`) |
 | `abstract` | Your thesis abstract |
-| `abstract-translation` | English translation of abstract (if bilingual set to true) |
+| `abstract-translation` | Translation of abstract (shown based on `language` setting) |
+| `appendix` | Optional appendix content with separate numbering (A, A.1, ...) |
 | `blocking` | Enable blocking notice (default: `false`) |
 | `enable-header` | Show page headers (default: `true`) |
 | `draft` | Enable draft mode (default: `true`) |
