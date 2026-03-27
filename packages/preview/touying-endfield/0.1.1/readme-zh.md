@@ -8,14 +8,14 @@
 
 <table>
   <tr>
-    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/main/img/zh/page-1.png" alt="标题页"></td>
-    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/main/img/zh/page-2.png" alt="目录页"></td>
-    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/main/img/zh/page-3.png" alt="章节标题页"></td>
+    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/v0.1.1/img/zh/page-1.png?raw=true alt="标题页"></td>
+    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/v0.1.1/img/zh/page-2.png?raw=true alt="目录页"></td>
+    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/v0.1.1/img/zh/page-3.png?raw=true alt="章节标题页"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/main/img/zh/page-4.png" alt="含公式的内容页"></td>
-    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/main/img/zh/page-7.png" alt="含列表与编号的内容页"></td>
-    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/main/img/zh/page-8.png" alt="聚焦页"></td>
+    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/v0.1.1/img/zh/page-4.png?raw=true alt="含公式的内容页"></td>
+    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/v0.1.1/img/zh/page-7.png?raw=true alt="含列表与编号的内容页"></td>
+    <td><img src="https://github.com/leostudiooo/typst-touying-theme-endfield/blob/v0.1.1/img/zh/page-8.png?raw=true alt="聚焦页"></td>
     <td></td>
   </tr>
 </table>
