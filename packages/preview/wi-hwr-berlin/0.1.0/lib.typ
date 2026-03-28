@@ -296,5 +296,5 @@
 // Re-exports for use in chapter files
 // ---------------------------------------------------------------------------
 // Users import these from lib.typ in their kapitel/ files:
-//   #import "@preview/hwr-berlin:0.1.0": abk, gls, glspl
+//   #import "@preview/wi-hwr-berlin:0.1.0": abk, gls, glspl
 
