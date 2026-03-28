@@ -117,7 +117,7 @@ Das Script fragt dich der Reihe nach:
 
 Am Ende hast du einen fertigen Projektordner mit vorausgefüllter `main.typ`.
 
-> **Sicherheitshinweis (Methode 1):** Bevor du ein Script aus dem Internet ausführst, kannst du es dir vorher ansehen: [scripts/init.sh](https://github.com/lultoni/hwr-typst-template/blob/main/scripts/init.sh)
+> **Sicherheitshinweis (Methode 1):** Bevor du ein Script aus dem Internet ausführst, kannst du es dir vorher ansehen: [scripts/init.sh](https://github.com/lultoni/hwr-typst-template/blob/b896349435398df149f88e27f6cb3fd92a3883e2/scripts/init.sh)
 
 ---
 
