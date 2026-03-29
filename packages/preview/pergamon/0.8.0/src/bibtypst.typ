@@ -1,6 +1,6 @@
 #import "@preview/bullseye:0.1.0": *
 #import "@preview/oxifmt:1.0.0": strfmt
-#import "@preview/citegeist:0.2.1": load-bibliography
+#import "@preview/citegeist:0.2.2": load-bibliography
 #import "bib-util.typ": collect-deduplicate, fd
 #import "names.typ": parse-reference-names
 #import "dates.typ": parse-date, make-date-tuple
@@ -63,10 +63,20 @@
     /// refsection are not allowed and will cause an error message.
     /// 
     /// -> bool
-    local: false
+    local: false,
+
+    /// Controls whether #pergamon should convert the titles of all
+    /// references to #link("https://apastyle.apa.org/style-grammar-guidelines/capitalization/sentence-case")[sentence case].
+    /// 
+    /// If `true`, titles will be converted to sentence case.
+    /// If `false`, titles will be typeset with the verbatim capitalization
+    /// specified in the #bibtex entries.
+    /// 
+    /// -> bool
+    sentence-case-titles: false
   ) = {
     let update-bib-dict(old-bib) = {
-      for (key, value) in load-bibliography(bibtex-string).pairs() {
+      for (key, value) in load-bibliography(bibtex-string, sentence-case-titles: sentence-case-titles).pairs() {
         if key in old-bib {
           panic("Duplicate definition of bibliography key '" + key + "'.")
         }
