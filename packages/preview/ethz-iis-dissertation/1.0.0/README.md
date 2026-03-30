@@ -10,7 +10,7 @@ and the house style of the [Integrated Systems Laboratory (IIS)](https://iis.ee.
 Initialize a new dissertation project with:
 
 ```sh
-typst init @preview/ethz-iis-dissertation:1.0.0
+typst init @preview/ethz-iis-dissertation
 ```
 
 Or add it to an existing project:

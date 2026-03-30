@@ -10,7 +10,7 @@ Used for issuing student thesis and project assignments at the
 Initialize a new project with:
 
 ```sh
-typst init @preview/ethz-iis-assignment:1.0.0
+typst init @preview/ethz-iis-assignment
 ```
 
 Or import directly:

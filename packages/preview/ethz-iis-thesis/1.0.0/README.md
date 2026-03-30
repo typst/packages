@@ -10,7 +10,7 @@ at the [Integrated Systems Laboratory (IIS)](https://iis.ee.ethz.ch).
 Initialize a new project with:
 
 ```sh
-typst init @preview/ethz-iis-thesis:1.0.0
+typst init @preview/ethz-iis-thesis
 ```
 
 Or import directly:
