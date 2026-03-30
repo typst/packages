@@ -1,7 +1,7 @@
 /*
  * ==========================================================
  * Project: Typst Academic Thesis Template (KZN)
- * File: kzn-template.typ
+ * File: appendix.typ
  * Description:
  *   A comprehensive Typst template for academic theses and
  *   dissertations. Provides functions for title pages, headers,
@@ -35,7 +35,7 @@
  * SOFTWARE.
  */
  
-#import "@preview/ma-template:0.1.0": *
+#import "@preview/kzn-ma:0.1.0": *
 #import "@preview/unify:0.7.1": unit, qty, num
 #import "@preview/codly:1.3.0": codly, codly-init
 #import "@preview/codly-languages:0.1.10": *

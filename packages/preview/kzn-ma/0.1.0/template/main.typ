@@ -1,7 +1,7 @@
 /*
  * ==========================================================
  * Project: Typst Academic Thesis Template (KZN)
- * File: kzn-template.typ
+ * File: main.typ
  * Description:
  *   A comprehensive Typst template for academic theses and
  *   dissertations. Provides functions for title pages, headers,
@@ -35,7 +35,7 @@
  * SOFTWARE.
  */
 
-#import "@preview/ma-template:0.1.0": *
+#import "@preview/kzn-ma:0.1.0": *
 
 // ============================================================
 // Allgemeine Angaben
@@ -403,7 +403,7 @@ Todo el contenido generado por IA fue cuidadosamente revisado, verificado y adap
 )
 ```
   - Inhalt in ```typst main-matter.typ``` und ```typst appendix.typ``` löschen bis auf folgende Zeilen:
-    ```typst #import "@preview/ma-template:0.1.0": * // Diese Zeile ist immer nötig
+    ```typst #import "@​preview/kzn-ma:0.1.0": * // Diese Zeile ist immer nötig
 #import "@preview/unify:0.7.1": unit, qty, num // Diese Zeile nötig, wenn Formeln gesetzt werden
 #import "@preview/codly:1.3.0": codly, codly-init 
 #import "@preview/codly-languages:0.1.10": * // Diese beiden Zeilen sind nötig, wenn Codeblöcke gesetzt werden

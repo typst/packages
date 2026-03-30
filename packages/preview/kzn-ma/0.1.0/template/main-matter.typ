@@ -35,7 +35,7 @@
  * SOFTWARE.
  */
  
-#import "@preview/ma-template:0.1.0": *
+#import "@preview/kzn-ma:0.1.0": *
 #import "@preview/unify:0.7.1": unit, qty, num
 #import "@preview/codly:1.3.0": codly, codly-init
 #import "@preview/codly-languages:0.1.10": *
@@ -84,7 +84,7 @@ Folgende Punkte werden in diesem Dokument behandelt:
 + Auf welchen Grundkonzepten basiert Typst?
 + Wie funktioniert das Formatieren von Text?
 + Wie können Grafiken und Tabellen eingebunden werden?
-+ Welche Funktionen bietet das ma-template der Kantonsschule Zürich Nord sonst noch?
++ Welche Funktionen bietet das kzn-ma der Kantonsschule Zürich Nord sonst noch?
 
 
 // ============================================================
@@ -125,7 +125,7 @@ Der eigentliche Text wird in Typst als Markdown (vgl. #link("https://www.markdow
 
 == Funktionen für die Formatierung
 
-Komplexere Formatierungsanweisungen werden in Typst mit Hilfe von Funktionen umgesetzt. Solche Funktionen werden zum Teil vom System zur Verfügung gestellt, können aber auch selbst definiert werden, wie z.B. im hier verwendeten ma-template.
+Komplexere Formatierungsanweisungen werden in Typst mit Hilfe von Funktionen umgesetzt. Solche Funktionen werden zum Teil vom System zur Verfügung gestellt, können aber auch selbst definiert werden, wie z.B. im hier verwendeten kzn-ma.
 
 === Funktionsaufruf aus dem Text
 
@@ -346,9 +346,9 @@ Wie im Beispiel ersichtlich ist, können die Einheiten entweder mit dem jeweilig
 
 #pagebreak(to: "odd", weak: true)
 
-= Das ma-template.typ konkret
+= Das kzn-ma.typ konkret
 
-Das ma-template versucht, wo immer möglich, Standardlösungen zu verwenden. Es werden aber einige Einstellungen vorgenommen, um das Layout an die Anforderungen einer Abschlussarbeit der #KZN anzupassen. Weiter werden Hilfsfunktionen zur Verfügung gestellt, die die Layout-Gestaltung erleichtern sollen. Im folgenden Kapitel werden die Handhabung des Templates und die wichtigsten Funktionen kurz mit Beispielen vorgestellt.
+Das kzn-ma versucht, wo immer möglich, Standardlösungen zu verwenden. Es werden aber einige Einstellungen vorgenommen, um das Layout an die Anforderungen einer Abschlussarbeit der #KZN anzupassen. Weiter werden Hilfsfunktionen zur Verfügung gestellt, die die Layout-Gestaltung erleichtern sollen. Im folgenden Kapitel werden die Handhabung des Templates und die wichtigsten Funktionen kurz mit Beispielen vorgestellt.
 
 == Ein neues Projekt anlegen <kap:projekt>
 

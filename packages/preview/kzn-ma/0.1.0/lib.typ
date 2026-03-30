@@ -1,7 +1,7 @@
 /*
  * ==========================================================
  * Project: Typst Academic Thesis Template (KZN)
- * File: kzn-template.typ
+ * File: kzn-ma.typ
  * Description:
  *   A comprehensive Typst template for academic theses and
  *   dissertations. Provides functions for title pages, headers,
