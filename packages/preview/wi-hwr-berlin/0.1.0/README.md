@@ -1,5 +1,9 @@
 # HWR Berlin — Typst-Template
 
+**English:** A community-built Typst template for scientific papers at HWR Berlin (Berlin School of Economics and Law), primarily targeting students in the *Wirtschaftsinformatik* (Business Informatics) programme. It automates cover pages, tables of contents, abbreviation lists, the statutory declaration, and more — all conforming to the HWR formatting guidelines as of January 2025.
+
+---
+
 Automatische Formatierung für Praxistransferberichte, Haus-/Studien- und Bachelorarbeiten an der HWR Berlin.
 Konform mit den HWR-Richtlinien **Stand Januar 2025** — für alle Kohorten.
 
@@ -16,11 +20,15 @@ Du konzentrierst dich auf den Inhalt. Das Template erledigt den Rest:
 
 Typst ist ein Schreibwerkzeug — ähnlich wie Word, aber du schreibst in reinen Textdateien (`.typ`) statt in einem grafischen Editor. Das Template übernimmt dann automatisch alle Formatierungen. Die fertigen Dateien kompilierst du per Klick oder Befehl zu einer PDF-Datei.
 
-**Vorteil:** Keine manuelle Formatierungsarbeit, kein Verschieben von Seitenumbrüchen, keine Style-Kämpfe.
+**Vorteil:** Keine manuelle Formatierungsarbeit, kein Verschieben von Seitenumbrüchen, keine Style-Kämpfe — und das PDF ist in Millisekunden gerendert.
+
+**Typst-Referenz und Dokumentation** → [typst.app/docs](https://typst.app/docs)
 
 ---
 
 ## Schritt 1: Typst installieren
+
+Das Template benötigt **Typst 0.13.1 oder neuer**.
 
 ### macOS
 
@@ -89,17 +97,12 @@ typst watch main.typ   # Live-Vorschau, Beenden: Ctrl+C
 
 Das erstellt sofort einen fertigen Projektordner mit einer vorausgefüllten `main.typ`.
 
-### Weg B — interaktives Setup-Script (empfohlen für Einsteiger)
+> Funktioniert nicht? Fehlermeldung `package not found`? → Das Paket wartet noch auf Freigabe im Typst Universe. Nutze in der Zwischenzeit **Weg B**.
+
+### Weg B — interaktives Setup-Script (optional, für Einsteiger)
 
 Das Script stellt dir alle Fragen und erstellt eine vollständig ausgefüllte `main.typ` mit deinen Daten.
-
-**Methode 1 — direkt aus dem Web (macOS/Linux, kein Download nötig):**
-
-```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/lultoni/hwr-typst-template/main/scripts/init.sh)
-```
-
-**Methode 2 — nach ZIP-Download:**
+Du kannst es nach dem ZIP-Download lokal ausführen:
 
 Auf der GitHub-Seite: **Code → Download ZIP** → entpacken, dann:
 ```bash
@@ -117,7 +120,7 @@ Das Script fragt dich der Reihe nach:
 
 Am Ende hast du einen fertigen Projektordner mit vorausgefüllter `main.typ`.
 
-> **Sicherheitshinweis (Methode 1):** Bevor du ein Script aus dem Internet ausführst, kannst du es dir vorher ansehen: [scripts/init.sh](https://github.com/lultoni/hwr-typst-template/blob/b896349435398df149f88e27f6cb3fd92a3883e2/scripts/init.sh)
+> **Hinweis:** Lies das Script kurz durch, bevor du es ausführst: [scripts/init.sh](https://github.com/lultoni/hwr-typst-template/blob/b896349435398df149f88e27f6cb3fd92a3883e2/scripts/init.sh)
 
 ---
 
