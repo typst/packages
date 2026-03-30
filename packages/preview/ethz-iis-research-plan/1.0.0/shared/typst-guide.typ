@@ -10,11 +10,13 @@
 //
 //   #show: thesis.with(
 //     appendices: (
-//       (title: "My Appendix", body: include "/chapters/appendix.typ"),
+//       include "/chapters/appendix.typ",
 //     ),
 //   )
 
 #import "@preview/gentle-clues:1.3.1": code, info, tip
+
+= Typst Quick Guide
 
 Typst is a modern typesetting system designed as a faster, more ergonomic
 alternative to LaTeX. This guide covers the most common tasks for writing a
@@ -31,7 +33,7 @@ thesis, with LaTeX equivalents shown alongside every Typst example.
 A thesis file using this template starts with:
 
 #code[```typ
-#import "/templates/thesis.typ": *
+#import "@preview/ethz-iis-thesis:1.0.0": thesis, acr, acrpl
 #import "/acronyms.typ": acronyms
 
 #show: thesis.with(
@@ -246,25 +248,29 @@ Browse the full package registry at #link("https://typst.app/universe").
 == Appendices
 
 This guide is included as the default appendix. Once you add your own
-`appendices` parameter, the guide is replaced by your content:
+`appendices` parameter, the guide is replaced by your content. Each entry is a
+content block whose first line should be a level-1 heading:
 
 #code[```typ
 #show: thesis.with(
   appendices: (
-    (title: "Supplementary Data", body: [Your content here.]),
-    (title: "Source Code",        body: include "/chapters/appendix_code.typ"),
+    include "/chapters/appendix.typ",
   ),
 )
 ```]
 
-Each entry is a dict with a `title` string and a `body` content block.
-To include this guide alongside your own appendices, add it explicitly:
+To include this guide alongside your own appendices, import `typst-guide` from
+the package and add it to the array:
 
-#code[```typc
-appendices: (
-  (title: "My Appendix",       body: include "/chapters/appendix.typ"),
-  (title: "Typst Quick Guide", body: include "/templates/typst-guide.typ"),
-),
+#code[```typ
+#import "@preview/ethz-iis-thesis:1.0.0": thesis, acr, acrpl, typst-guide
+
+#show: thesis.with(
+  appendices: (
+    include "/chapters/appendix.typ",
+    typst-guide,
+  ),
+)
 ```]
 
 To omit all appendices, pass an empty array:

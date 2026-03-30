@@ -15,6 +15,9 @@
 )
 #import "@preview/gentle-clues:1.3.1": code, task
 
+/// The Typst Quick Guide appendix, ready to drop into the appendices array.
+#let typst-guide = include "shared/typst-guide.typ"
+
 /// The IIS Thesis template
 #let thesis(
   /// The title of the thesis
@@ -47,11 +50,11 @@
   assignment-description: none,
   /// Declaration of originality appendix content. Shows placeholder instructions if none.
   declaration-of-originality: none,
-  /// Additional appendices. Array of (title: "...", body: [...]) dicts, rendered
-  /// before the assignment description and declaration of originality.
+  /// Additional appendices. Array of content blocks, each starting with a level-1
+  /// heading. Rendered before the assignment description and declaration of originality.
   /// Defaults to the Typst Quick Guide; pass your own array to replace it.
   appendices: (
-    (title: "Typst Quick Guide", body: include "shared/typst-guide.typ"),
+    include "shared/typst-guide.typ",
   ),
   /// The bibliography, rendered in the backmatter. Pass a bibliography() object.
   bibliography: none,
@@ -313,8 +316,7 @@
   // User-provided appendices
   if appendices != none {
     for app in appendices {
-      [= #app.title]
-      app.body
+      app
       pagebreak()
     }
   }

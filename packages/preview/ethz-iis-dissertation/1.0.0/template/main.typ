@@ -7,8 +7,7 @@
 // PhD Thesis example — compile with:
 //   typst compile main.typ
 
-#import "@preview/ethz-iis-dissertation:1.0.0": dissertation
-#import "@preview/ethz-iis-dissertation:1.0.0": acr, acrfull, acrpl
+#import "@preview/ethz-iis-dissertation:1.0.0": dissertation, acr, acrfull, acrpl, typst-guide
 #import "acronyms.typ": acronyms
 
 #show: dissertation.with(
@@ -44,8 +43,8 @@
   // Back matter
   bibliography: bibliography("references.bib", style: "ieee"),
   appendices: (
-    include "appendices/appendix.typ",
     include "appendices/chip_gallery.typ",
+    typst-guide,
   ),
   cv: include "cv.typ",
   show-copyright-notice: true,

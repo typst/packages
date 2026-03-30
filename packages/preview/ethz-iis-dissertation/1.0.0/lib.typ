@@ -15,6 +15,9 @@
 
 #let placeholder = placeholder.with(template: "dissertation")
 
+/// The Typst Quick Guide appendix, ready to drop into the appendices array.
+#let typst-guide = include "shared/typst-guide.typ"
+
 /// State holding an optional short chapter title for the running header.
 /// Set via the exported `chapter` helper; reset automatically after each heading.
 #let chapter-short = state("dissertation-chapter-short", none)
@@ -62,7 +65,7 @@
   bibliography: none,
   /// Additional appendices: array of content blocks. Each file should start with its own
   /// `= Appendix Title` heading (numbered A, B, … automatically by the template).
-  appendices: none,
+  appendices: (),
   /// Curriculum vitae content. Pass content directly or via `include "cv.typ"`.
   cv: none,
   /// Show a copyright reminder page after the abstracts (default: true).
@@ -408,7 +411,7 @@
   // ───────────
   show-header.update(false)
 
-  if appendices != none {
+  if appendices != none and appendices.len() > 0 {
     pagebreak()
     set heading(numbering: "A.1")
     counter(heading).update(0)
