@@ -11,6 +11,8 @@
 
 ### Fixes
 
+- fix: fix cover-with-rect breaking long lines of text when partially hidden and fallback functions for color/alpha cover ([#328](https://github.com/touying-typ/touying/pull/328))
+- fix: using explicit numbering in display-current-heading when style=auto ([#329](https://github.com/touying-typ/touying/pull/329))
 - fix: fix ghost slides with show rules. Fix proper consistent handling of show rules and defer keyword ([#317](https://github.com/touying-typ/touying/pull/317))
 - fix: alert not delayed ([#316](https://github.com/touying-typ/touying/pull/316))
 - fix: remove redundant nested text call ([#324](https://github.com/touying-typ/touying/pull/324))

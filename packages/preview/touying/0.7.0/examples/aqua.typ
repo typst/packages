@@ -1,4 +1,4 @@
-#import "@preview/touying:0.7.0": *
+#import "/lib.typ": *
 #import themes.aqua: *
 
 #show: aqua-theme.with(
