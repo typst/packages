@@ -1,4 +1,4 @@
-#import "@local/tfgei:0.1.0": *
+#import "@local/tfgei:0.1.1": *
 
 #show: tfgei.with(
   titulo: "Título do Traballo de Fin de Grado",
