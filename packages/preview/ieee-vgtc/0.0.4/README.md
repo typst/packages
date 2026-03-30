@@ -19,7 +19,7 @@ Typst will create a new directory with all the files needed to get you started.
 The template will be imported like this:
 
 ```typst
-#import "@preview/ieee-vgtc:4": journal, conference
+#import "@preview/ieee-vgtc:0.0.4": journal, conference
 ```
 
 ## Configuration
