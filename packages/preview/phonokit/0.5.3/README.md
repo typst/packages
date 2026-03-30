@@ -82,7 +82,7 @@
 
 ## Manual 🔍
 
-Download [**manual**](https://doi.org/10.5281/zenodo.18260076) for a comprehensive demonstration of available functions and their usage. [**Here**](https://github.com/guilhermegarcia/phonokit/blob/main/intro-to-phonokit/intro-to-phonokit.pdf) you can also find a slide presentation done with Typst where most of the package's functions are illustrated.
+Download [**manual**](https://doi.org/10.5281/zenodo.18260076) for a comprehensive demonstration of available functions and their usage. [**Here**](https://github.com/guilhermegarcia/phonokit/blob/995bf61c514ec280e58f2a29756ea47901b69f26/intro-to-phonokit/intro-to-phonokit.pdf) you can also find a slide presentation done with Typst where most of the package's functions are illustrated.
 
 ## Fonts
 
