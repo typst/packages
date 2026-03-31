@@ -224,7 +224,7 @@ Sollte die Liste mit Akronymen oder das Glossar zu groß werden, kann auch auch 
 
   ```typst 
   #import "acronyms.typ": Acronyms
-  #show Thesis.with(
+  #show: Thesis.with(
     acronyms: Acronyms,
   )
   ```
