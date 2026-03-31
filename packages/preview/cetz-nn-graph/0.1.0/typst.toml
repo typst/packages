@@ -1,0 +1,9 @@
+[package]
+name = "cetz-nn-graph"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Michel Jean Joseph Donnet"]
+license = "MIT"
+description = "Draw neural network graphs with CeTZ."
+keywords = ["neural-network", "diagram", "graph", "cetz", "machine-learning"]
+exclude = ["docs/**", "examples/**", "scripts/**", "tests/**", "assets/**", ".github/**", "dist/**"]
