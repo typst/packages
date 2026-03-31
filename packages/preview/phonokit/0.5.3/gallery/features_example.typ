@@ -1,4 +1,4 @@
-#import "@preview/phonokit:0.5.3": *
+#import "phonokit/lib.typ": *
 #set page(height: auto, width: auto, margin: (bottom: 1em, top: 1em, x: 1em))
 
 #feat-matrix("p") #feat-matrix("\\ae") #feat-matrix("\\t tS") #feat-matrix("i")

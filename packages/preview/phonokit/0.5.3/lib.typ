@@ -76,6 +76,8 @@
 ///
 /// Arguments:
 /// - word (string): Phonemic string in tipa-style (use "." for syllable boundaries)
+/// - syl (none): Legacy parameter, kept for API compatibility
+/// - stressed (int, optional): Index of stressed syllable (default: none)
 /// - box-size (float): Size of individual phoneme boxes (default: 0.8)
 /// - scale (float): Overall scale factor for the diagram (default: 1.0)
 /// - y-range (array): Vertical axis range for plotting (default: (0, 8))
@@ -104,6 +106,7 @@
 /// - input (string): A single syllable (e.g., "ka" or "'va")
 /// - scale (float): Scale factor for the diagram (default: 1.0)
 /// - symbol (array): Domain labels top-down: (σ) (default: ("σ",))
+/// - distance (float, optional): Horizontal distance between segments (default: none)
 ///
 /// Returns: CeTZ drawing of syllable structure
 ///
@@ -120,6 +123,7 @@
 /// - coda (bool): Whether codas contribute to weight (default: false)
 /// - scale (float): Scale factor for the diagram (default: 1.0)
 /// - symbol (array): Domain labels top-down: (σ, μ) (default: ("σ", "μ"))
+/// - distance (float, optional): Horizontal distance between segments (default: none)
 ///
 /// Returns: CeTZ drawing of moraic structure
 ///
@@ -138,6 +142,7 @@
 /// - input (string): Syllables separated by dots (e.g., "ka.'va.lo")
 /// - scale (float): Scale factor for the diagram (default: 1.0)
 /// - symbol (array): Domain labels top-down: (Σ, σ) (default: ("Σ", "σ"))
+/// - distance (float, optional): Horizontal distance between segments (default: none)
 ///
 /// Returns: CeTZ drawing of foot structure
 ///
@@ -155,6 +160,7 @@
 /// - coda (bool): Whether codas contribute to weight (default: false)
 /// - scale (float): Scale factor for the diagram (default: 1.0)
 /// - symbol (array): Domain labels top-down: (Σ, σ, μ) (default: ("Σ", "σ", "μ"))
+/// - distance (float, optional): Horizontal distance between segments (default: none)
 ///
 /// Returns: CeTZ drawing of moraic foot structure
 ///
@@ -174,6 +180,7 @@
 /// - foot (string): "R" (right-aligned) or "L" (left-aligned) for PWd alignment (default: "R")
 /// - scale (float): Scale factor for the diagram (default: 1.0)
 /// - symbol (array): Domain labels top-down: (ω, Σ, σ) (default: ("ω", "Σ", "σ"))
+/// - distance (float, optional): Horizontal distance between segments (default: none)
 ///
 /// Returns: CeTZ drawing of prosodic structure
 ///
@@ -196,6 +203,7 @@
 /// - coda (bool): Whether codas contribute to weight (default: false)
 /// - scale (float): Scale factor for the diagram (default: 1.0)
 /// - symbol (array): Domain labels top-down: (ω, Σ, σ, μ) (default: ("ω", "Σ", "σ", "μ"))
+/// - distance (float, optional): Horizontal distance between segments (default: none)
 ///
 /// Returns: CeTZ drawing of moraic prosodic structure
 ///
@@ -256,6 +264,7 @@
 ///   tipa-style notation. Unknown vowels are silently skipped. (default: ())
 /// - arrow-color (color): Color for arrow lines and heads (default: black)
 /// - arrow-style (string): "solid" or "dashed" line style for arrows (default: "solid")
+/// - curved (bool): Curve arrows with a quadratic bezier arc (default: false)
 /// - shift (array): List of (vowel, x-offset, y-offset) tuples. Draws a copy of
 ///   the vowel symbol offset from its canonical trapezoid position by (x, y) in
 ///   CeTZ canvas units. If the vowel is already plotted, an additional copy is
@@ -263,6 +272,8 @@
 /// - shift-color (color): Color for shifted vowel symbols (default: gray)
 /// - shift-size (length, optional): Font size for shifted vowels; none uses the
 ///   same size as regular vowels (default: none)
+/// - highlight (array): List of tipa strings whose background circle is highlighted (default: ())
+/// - highlight-color (color): Circle color for highlighted vowels (default: luma(220))
 ///
 /// Returns: CeTZ drawing of IPA vowel chart with positioned vowels
 ///
@@ -291,8 +302,11 @@
 /// - affricates (bool): Show affricate row after fricatives (default: false)
 /// - aspirated (bool): Show aspirated plosive/affricate rows (default: false)
 /// - abbreviate (bool): Use abbreviated place/manner labels (default: false)
+/// - simplify (bool): Automatically drop empty rows and columns (default: false)
+/// - delete-cols (array): 0-indexed column indices to remove (0=Bilabial ... 10=Glottal)
+/// - delete-rows (array): 0-indexed row indices to remove (0=Plosive ... 7=Lateral approximant)
 /// - cell-width (float): Width of each cell (default: 1.8)
-/// - cell-height (float): Height of each cell (default: 1.2)
+/// - cell-height (float): Height of each cell (default: 0.9)
 /// - label-width (float): Width of row labels (default: 3.5)
 /// - label-height (float): Height of column labels (default: 1.2)
 /// - scale (float): Scale factor for entire table (default: 0.7)
@@ -330,7 +344,11 @@
 /// - violations (array): 2D array of violation strings (use "*" for violations, "!" for fatal)
 /// - winner (int): Index of the winning candidate (0-indexed)
 /// - dashed-lines (array): Indices of constraints to show with dashed borders (optional)
+/// - scale (number, optional): Scale factor for the tableau (default: none)
 /// - shade (bool): Whether cells should be shaded after fatal violations (default: true)
+/// - prosody-scale (float): Scale factor for prosodic structures in candidates (default: 0.5)
+/// - letters (bool): Use letter labels (a, b, c, ...) for candidates (default: false)
+/// - gloss (string, optional): Gloss text displayed below the input (default: none)
 ///
 /// Returns: Table showing OT tableau with winner marked by ☞
 ///
@@ -364,6 +382,8 @@
 /// - violations (array): 2D array of violation counts (numbers)
 /// - visualize (bool): Whether to show probability bars (default: true)
 /// - sort (bool): Whether to sort candidates by probability, most to least (default: false)
+/// - scale (number, optional): Scale factor for the tableau (default: none)
+/// - letters (bool): Use letter labels (a, b, c, ...) for candidates (default: false)
 ///
 /// Returns: Table showing MaxEnt tableau with H(x), P*(x), and P(x) columns
 ///
@@ -397,6 +417,7 @@
 /// - weights (array): Array of constraint weights (numbers)
 /// - violations (array): 2D array of violation counts (negative numbers)
 /// - scale (number): Optional scale factor (default: auto-scales for >6 constraints)
+/// - letters (bool): Use letter labels (a, b, c, ...) for candidates (default: false)
 ///
 /// Returns: Table showing HG tableau with constraint weights and h(y) harmony column
 ///
@@ -431,6 +452,7 @@
 /// - violations (array): 2D array of violation counts (negative numbers)
 /// - probabilities (array): Optional array of probability values to display
 /// - scale (number): Scale factor (default: auto-scales for >6 constraints)
+/// - letters (bool): Use letter labels (a, b, c, ...) for candidates (default: false)
 ///
 /// Returns: Table with h(y), ε(y) (symbolic), and optional P(y) columns
 ///
@@ -464,9 +486,10 @@
 /// - weights (array): Array of constraint weights
 /// - violations (array): 2D array of violation counts (negative numbers)
 /// - num-simulations (int): Number of Monte Carlo trials (default: 1000)
-/// - seed (int): Random seed for reproducibility (default: 12345)
+/// - seed (int, optional): Random seed for reproducibility (default: none)
 /// - show-epsilon (bool): Whether to show epsilon column (default: true)
 /// - scale (number): Scale factor (default: auto-scales for >6 constraints)
+/// - letters (bool): Use letter labels (a, b, c, ...) for candidates (default: false)
 ///
 /// Returns: Table with h(y), optional ε(y) (one sample), and P(y) (from simulation)
 ///
@@ -580,14 +603,15 @@
 /// - features (array): Feature/tone labels corresponding to segments (use "" for no association)
 /// - links (array): Tuples of (feature-index, segment-index) for association lines (default: ())
 /// - delinks (array): Tuples of (feature-index, segment-index) for delinking marks (default: ())
-/// - spacing (float): Horizontal spacing between segments (default: 0.8)
+/// - spacing (float): Horizontal spacing between segments (default: 1.5)
 /// - arrow (bool): Show arrow between representations (for process diagrams) (default: false)
 /// - tone (bool): Whether the representation shows tones vs features (default: false)
 /// - highlight (array): Indices of segments to highlight with background color (default: ())
 /// - float (array): Indices of floating (unassociated) features/tones (default: ())
 /// - multilinks (array): Tuples of (feature-index, (seg1, seg2, ...)) for one-to-many links (default: ())
-/// - baseline (string): Optional baseline text below segments (default: "")
+/// - baseline (ratio): Vertical alignment of the box (default: 40%)
 /// - gloss (string): Optional gloss text below baseline (default: "")
+/// - dash (string): Line style for dashed association lines (default: "dashed")
 ///
 /// Returns: Autosegmental representation
 ///
@@ -651,6 +675,7 @@
 /// - stroke-width (length): Line thickness (default: 0.05em)
 /// - baseline (string): Vertical alignment (default: 40%)
 /// - scale (float): Uniform scale factor (default: 1.0)
+/// - show-grid (bool): Show background grid for debugging layout (default: false)
 ///
 /// Returns: Multi-tier phonological representation
 ///
@@ -692,6 +717,9 @@
 /// - body (content): The example content (typically a table)
 /// - number-dy (length): Vertical offset for the number (optional; default: 0.4em)
 /// - caption (string): Caption for outline (hidden in document; optional)
+/// - title (string, optional): Title for the example (default: none)
+/// - labels (array): Array of labels for sub-examples (default: ())
+/// - columns (array): Column specification for the table layout (default: ())
 ///
 /// Returns: Numbered example that can be labeled and referenced
 ///
@@ -851,8 +879,10 @@
 /// Arguments:
 /// - label (string): ToBI label, e.g., "*L", "H%", "L+H*", "!H*"
 /// - line (boolean): draw a vertical stem connecting label to text (default: true)
-/// - height (length): stem length — controls how far above the text the label sits (default: 1.5em)
-/// - lift (length): gap between stem bottom and text baseline (default: 0.4em)
+/// - height (length): stem length — controls how far above the text the label sits (default: 2em)
+/// - lift (length): gap between stem bottom and text baseline (default: 0.8em)
+/// - gap (length): horizontal gap around the annotation (default: 0.22em)
+/// - en-dash (bool): render dashes as en-dashes instead of non-breaking hyphens (default: true)
 ///
 /// Example:
 /// ```
@@ -913,7 +943,11 @@
 ///   delink mark, e.g. `delinks: ("c-place",)`.
 /// - segment (content): Label shown above root. Defaults to the `ph` value
 ///   wrapped in slashes when `ph` is set.
+/// - prefix (string): Prefix text before the segment label (default: "")
+/// - suffix (string): Suffix text after the segment label (default: "")
 /// - highlight (array): Node names to highlight; all others are dimmed.
+/// - timing (auto, false, array, or string): Timing tier specification. `auto` infers
+///   from `ph` (e.g., long vowels get two timing slots), `false` hides the tier (default: auto)
 ///
 /// Returns: CeTZ drawing of the feature-geometry tree
 ///

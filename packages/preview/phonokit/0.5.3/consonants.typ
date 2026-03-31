@@ -293,6 +293,9 @@
   affricates: false,
   aspirated: false,
   abbreviate: false,
+  simplify: false,
+  delete-cols: (),
+  delete-rows: (),
   cell-width: 1.8,
   cell-height: 0.9,
   label-width: 3.5,
@@ -386,29 +389,120 @@
     }
   }
 
-  // Select label sets based on abbreviation setting
-  let display-places = if abbreviate { places-short } else { places }
-  let display-manners = if abbreviate { manners-short } else { manners }
+  // If simplify is true, auto-delete empty columns and rows
+  if simplify {
+    // Collect all used places and manners from the data to plot
+    let used-places = ()
+    let used-manners = ()
 
-  // Build manners array with optional rows
-  if aspirated {
-    let asp-plos-label = if abbreviate { "Plos (asp)" } else { "Plosive (aspirated)" }
-    display-manners = display-manners.slice(0, 1) + (asp-plos-label,) + display-manners.slice(1)
-  }
-  if affricates {
-    let affr-label = if abbreviate { "Affr" } else { "Affricate" }
-    let affricate-insert-index = if aspirated { 6 } else { 5 }
-    display-manners = (
-      display-manners.slice(0, affricate-insert-index) + (affr-label,) + display-manners.slice(affricate-insert-index)
-    )
+    // Scan main consonants
+    for consonant in consonants-to-plot.clusters() {
+      if consonant in consonant-data {
+        let info = consonant-data.at(consonant)
+        if info.place not in used-places { used-places.push(info.place) }
+        if info.manner not in used-manners { used-manners.push(info.manner) }
+      }
+    }
 
+    // Special /w/ handling: also occupies velar column if /ɰ/ is absent
+    if consonants-to-plot.contains("w") and not consonants-to-plot.contains("ɰ") {
+      if 7 not in used-places { used-places.push(7) }
+    }
+
+    // Scan aspirated plosives
     if aspirated {
-      let asp-affr-label = if abbreviate { "Affr (asp)" } else { "Affricate (aspirated)" }
-      display-manners = (
-        display-manners.slice(0, affricate-insert-index + 1)
-          + (asp-affr-label,)
-          + display-manners.slice(affricate-insert-index + 1)
-      )
+      for asp-plosive in aspirated-plosive-data.keys() {
+        if aspirated-plosives-to-plot.contains(asp-plosive) {
+          let info = aspirated-plosive-data.at(asp-plosive)
+          if info.place not in used-places { used-places.push(info.place) }
+          // Aspirated plosives share manner 0 (Plosive row)
+          if 0 not in used-manners { used-manners.push(0) }
+        }
+      }
+    }
+
+    // Scan affricates
+    if affricates {
+      let affricates-cleaned = affricates-to-plot.replace("͡", "")
+      for affricate in affricate-data.keys() {
+        if affricates-cleaned.contains(affricate) {
+          let info = affricate-data.at(affricate)
+          if info.place not in used-places { used-places.push(info.place) }
+          // Affricates have their own inserted row, no base manner to add
+        }
+      }
+    }
+
+    // Scan aspirated affricates
+    if aspirated and affricates {
+      for asp-affricate in aspirated-affricate-data.keys() {
+        if aspirated-affricates-to-plot.contains(asp-affricate) {
+          let info = aspirated-affricate-data.at(asp-affricate)
+          if info.place not in used-places { used-places.push(info.place) }
+        }
+      }
+    }
+
+    // Merge: add unused places/manners to delete lists
+    for i in range(places.len()) {
+      if i not in used-places and i not in delete-cols {
+        delete-cols.push(i)
+      }
+    }
+    for i in range(manners.len()) {
+      if i not in used-manners and i not in delete-rows {
+        delete-rows.push(i)
+      }
+    }
+  }
+
+  // Select label sets based on abbreviation setting
+  let place-labels = if abbreviate { places-short } else { places }
+  let manner-labels = if abbreviate { manners-short } else { manners }
+
+  // Filter deleted columns and build column remapping
+  let kept-cols = range(places.len()).filter(i => i not in delete-cols)
+  let display-places = kept-cols.map(i => place-labels.at(i))
+  let col-remap = (:)
+  for (new-i, orig-i) in kept-cols.enumerate() {
+    col-remap.insert(str(orig-i), new-i)
+  }
+
+  // Filter deleted rows and build display-manners with optional row insertions
+  let kept-base-rows = range(manners.len()).filter(i => i not in delete-rows)
+  let display-manners = ()
+  let manner-to-row = (:)
+  let aspirated-plosive-row = -1
+  let affricate-row = -1
+  let aspirated-affricate-row = -1
+  let current-row = 0
+
+  for base-row in kept-base-rows {
+    display-manners.push(manner-labels.at(base-row))
+    manner-to-row.insert(str(base-row), current-row)
+    current-row += 1
+
+    // Insert aspirated plosive row after Plosive (base 0)
+    if base-row == 0 and aspirated {
+      let asp-label = if abbreviate { "Plos (asp)" } else { "Plosive (aspirated)" }
+      display-manners.push(asp-label)
+      aspirated-plosive-row = current-row
+      current-row += 1
+    }
+
+    // Insert affricate rows after Fricative (base 4)
+    if base-row == 4 and affricates {
+      let affr-label = if abbreviate { "Affr" } else { "Affricate" }
+      display-manners.push(affr-label)
+      affricate-row = current-row
+      current-row += 1
+
+      if aspirated {
+        let asp-affr-label = if abbreviate { "Affr (asp)" } else { "Affricate (aspirated)" }
+        display-manners.push(asp-affr-label)
+        aspirated-affricate-row = current-row
+        current-row += 1
+      }
     }
   }
 
@@ -422,7 +516,7 @@
   let scaled-circle-radius = 0.3 * scale
   let scaled-line-thickness = 0.8 * scale
 
-  let num-cols = places.len()
+  let num-cols = display-places.len()
   let num-rows = display-manners.len()
 
   canvas({
@@ -448,10 +542,8 @@
       content((x, y), context text(size: scaled-label-font-size * 1pt, font: phonokit-font.get(), manner), anchor: "east")
     }
 
-    // Calculate row positions accounting for optional row insertions (needed for grid drawing)
-    let fricative-row = if aspirated { 5 } else { 4 }
-    let affricate-row = if affricates { (if aspirated { 6 } else { 5 }) } else { -1 }
-    let aspirated-affricate-row = if (affricates and aspirated) { 7 } else { -1 }
+    // Row indices for grid drawing (from the remapping built above)
+    let fricative-display-row = manner-to-row.at("4", default: -1)
 
     // Draw grid lines
     // Vertical lines
@@ -460,12 +552,20 @@
       let y1 = total-height / 2 - scaled-label-height
       let y2 = -total-height / 2
 
-      // Special handling: Remove lines between dental-alveolar (i=3) and alveolar-postalveolar (i=4)
-      // EXCEPT in the fricative and affricate rows
-      if i == 3 or i == 4 {
-        // Draw line segments for each row, but only draw for fricative and affricate rows
+      // Check if this vertical line is at a dental-alveolar or alveolar-postalveolar boundary
+      let is-special = false
+      if i > 0 and i < num-cols {
+        let left-orig = kept-cols.at(i - 1)
+        let right-orig = kept-cols.at(i)
+        if (left-orig == 2 and right-orig == 3) or (left-orig == 3 and right-orig == 4) {
+          is-special = true
+        }
+      }
+
+      if is-special {
+        // Draw line segments only for fricative and affricate rows
         for row in range(num-rows) {
-          if row == fricative-row or row == affricate-row or row == aspirated-affricate-row {
+          if row == fricative-display-row or row == affricate-row or row == aspirated-affricate-row {
             let row-y1 = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
             let row-y2 = row-y1 - scaled-cell-height
             line((x, row-y1), (x, row-y2), stroke: (paint: gray.lighten(20%), thickness: scaled-line-thickness * 1pt))
@@ -486,26 +586,15 @@
     }
 
     // Gray out impossible consonant cells
-    // Format: (row, col, half) where half can be "full", "voiced", "voiceless"
-    // Calculate row positions accounting for optional row insertions
-    let plosive-row = 0
-    let nasal-row = if aspirated { 2 } else { 1 }
-    let trill-row = if aspirated { 3 } else { 2 }
-    let tap-row = if aspirated { 4 } else { 3 }
-    let fricative-row = if aspirated { 5 } else { 4 }
-
-    // Rows after fricative need additional offset for affricate row(s)
-    let affricate-offset = 0
-    if affricates {
-      affricate-offset += 1
-      if aspirated {
-        affricate-offset += 1
-      }
-    }
-
-    let lat-fric-row = (if aspirated { 6 } else { 5 }) + affricate-offset
-    let approx-row = (if aspirated { 7 } else { 6 }) + affricate-offset
-    let lat-approx-row = (if aspirated { 8 } else { 7 }) + affricate-offset
+    // Format: (display-row, orig-col, half) where half can be "full", "voiced", "voiceless"
+    // Row positions come from manner-to-row mapping
+    let plosive-row = manner-to-row.at("0", default: -1)
+    let nasal-row = manner-to-row.at("1", default: -1)
+    let trill-row = manner-to-row.at("2", default: -1)
+    let tap-row = manner-to-row.at("3", default: -1)
+    let lat-fric-row = manner-to-row.at("5", default: -1)
+    let approx-row = manner-to-row.at("6", default: -1)
+    let lat-approx-row = manner-to-row.at("7", default: -1)
 
     let impossible-cells = (
       // Lateral fricative
@@ -535,17 +624,21 @@
     )
 
     // Add aspirated plosive impossible cells if that row exists
-    if aspirated {
+    if aspirated-plosive-row >= 0 {
       impossible-cells = (
         impossible-cells
           + (
-            (1, 9, "full"), // Pharyngeal aspirated plosive - physiologically impossible
-            (1, 10, "full"), // Glottal aspirated plosive - physiologically impossible
+            (aspirated-plosive-row, 9, "full"),
+            (aspirated-plosive-row, 10, "full"),
           )
       )
     }
 
-    for (row, col, half) in impossible-cells {
+    for (row, orig-col, half) in impossible-cells {
+      if row < 0 or str(orig-col) not in col-remap {
+        // Row or column was deleted, skip
+      } else {
+      let col = col-remap.at(str(orig-col))
       let cell-x = scaled-label-width + (col * scaled-cell-width)
       let cell-y = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
 
@@ -575,6 +668,7 @@
           fill: gray.lighten(70%),
           stroke: (paint: gray.lighten(20%), thickness: scaled-line-thickness * 1pt),
         )
+      }
       }
     }
 
@@ -670,134 +764,129 @@
     // Draw consonants in cells
     for (key, pair) in cell-consonants {
       let parts = key.split("-")
-      let col = int(parts.at(0))
-      let manner = int(parts.at(1)) // Original manner of articulation
-      let row = manner // Display row (will be adjusted)
+      let orig-col = int(parts.at(0))
+      let orig-manner = int(parts.at(1))
 
-      // Adjust row based on inserted optional rows
-      if aspirated and row >= 1 {
-        row = row + 1 // Plosive (aspirated) row inserted at 1
-      }
-      if affricates and row >= 5 {
-        let affricate-offset = if aspirated { 6 } else { 5 }
-        if row >= affricate-offset {
-          row = row + 1 // Affricate row inserted
-          if aspirated {
-            row = row + 1 // Affricate (aspirated) row also inserted
+      // Skip if column or row was deleted
+      if str(orig-col) in col-remap and str(orig-manner) in manner-to-row {
+        let col = col-remap.at(str(orig-col))
+        let row = manner-to-row.at(str(orig-manner))
+
+        let cell-x = scaled-label-width + (col * scaled-cell-width)
+        let cell-y = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
+        let cell-center-x = cell-x + (scaled-cell-width / 2)
+        let cell-center-y = cell-y - (scaled-cell-height / 2)
+
+        // Check if this is a sonorant manner (not contrastive for voicing, should be centered)
+        // Manners: 1=Nasal, 2=Trill, 3=Tap/Flap, 6=Approximant, 7=Lateral Approximant
+        let is-sonorant = orig-manner in (1, 2, 3, 6, 7)
+
+        if is-sonorant {
+          // Center the consonant (sonorants are always voiced in typical inventories)
+          if pair.voiced != none {
+            let pos = (cell-center-x, cell-center-y)
+            circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
+            content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiced), anchor: "center")
+          }
+          // In rare cases where voiceless sonorants exist, also center them
+          if pair.voiceless != none {
+            let pos = (cell-center-x, cell-center-y)
+            circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
+            content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiceless), anchor: "center")
+          }
+        } else {
+          // Obstruents: use left/right positioning for voicing contrast
+          let offset = scaled-cell-width * 0.25
+
+          if pair.voiceless != none {
+            let pos = (cell-center-x - offset, cell-center-y)
+            circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
+            content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiceless), anchor: "center")
+          }
+
+          if pair.voiced != none {
+            let pos = (cell-center-x + offset, cell-center-y)
+            circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
+            content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiced), anchor: "center")
           }
         }
       }
-
-      let cell-x = scaled-label-width + (col * scaled-cell-width)
-      let cell-y = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
-      let cell-center-x = cell-x + (scaled-cell-width / 2)
-      let cell-center-y = cell-y - (scaled-cell-height / 2)
-
-      // Check if this is a sonorant manner (not contrastive for voicing, should be centered)
-      // Manners: 1=Nasal, 2=Trill, 3=Tap/Flap, 6=Approximant, 7=Lateral Approximant
-      let is-sonorant = manner in (1, 2, 3, 6, 7)
-
-      if is-sonorant {
-        // Center the consonant (sonorants are always voiced in typical inventories)
-        if pair.voiced != none {
-          let pos = (cell-center-x, cell-center-y)
-          circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiced), anchor: "center")
-        }
-        // In rare cases where voiceless sonorants exist, also center them
-        if pair.voiceless != none {
-          let pos = (cell-center-x, cell-center-y)
-          circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiceless), anchor: "center")
-        }
-      } else {
-        // Obstruents: use left/right positioning for voicing contrast
-        let offset = scaled-cell-width * 0.25
-
-        if pair.voiceless != none {
-          let pos = (cell-center-x - offset, cell-center-y)
-          circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiceless), anchor: "center")
-        }
-
-        if pair.voiced != none {
-          let pos = (cell-center-x + offset, cell-center-y)
-          circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiced), anchor: "center")
-        }
-      }
     }
 
-    // Draw aspirated plosives in row 1 (after regular plosives)
-    if aspirated {
+    // Draw aspirated plosives
+    if aspirated and aspirated-plosive-row >= 0 {
       for (key, pair) in cell-aspirated-plosives {
-        let col = int(key)
-        let row = 1 // Plosive (aspirated) row
+        let orig-col = int(key)
+        if str(orig-col) in col-remap {
+          let col = col-remap.at(str(orig-col))
+          let row = aspirated-plosive-row
 
-        let cell-x = scaled-label-width + (col * scaled-cell-width)
-        let cell-y = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
-        let cell-center-x = cell-x + (scaled-cell-width / 2)
-        let cell-center-y = cell-y - (scaled-cell-height / 2)
+          let cell-x = scaled-label-width + (col * scaled-cell-width)
+          let cell-y = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
+          let cell-center-x = cell-x + (scaled-cell-width / 2)
+          let cell-center-y = cell-y - (scaled-cell-height / 2)
 
-        // Only left position (voiceless only for aspirated)
-        let offset = scaled-cell-width * 0.25
+          let offset = scaled-cell-width * 0.25
 
-        if pair.voiceless != none {
-          let pos = (cell-center-x - offset, cell-center-y)
-          circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiceless), anchor: "center")
+          if pair.voiceless != none {
+            let pos = (cell-center-x - offset, cell-center-y)
+            circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
+            content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiceless), anchor: "center")
+          }
         }
       }
     }
 
-    // Draw affricates (after fricatives)
-    if affricates {
-      let affricate-row = if aspirated { 6 } else { 5 }
+    // Draw affricates
+    if affricates and affricate-row >= 0 {
       for (key, pair) in cell-affricates {
-        let col = int(key)
-        let row = affricate-row
+        let orig-col = int(key)
+        if str(orig-col) in col-remap {
+          let col = col-remap.at(str(orig-col))
+          let row = affricate-row
 
-        let cell-x = scaled-label-width + (col * scaled-cell-width)
-        let cell-y = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
-        let cell-center-x = cell-x + (scaled-cell-width / 2)
-        let cell-center-y = cell-y - (scaled-cell-height / 2)
+          let cell-x = scaled-label-width + (col * scaled-cell-width)
+          let cell-y = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
+          let cell-center-x = cell-x + (scaled-cell-width / 2)
+          let cell-center-y = cell-y - (scaled-cell-height / 2)
 
-        // Offset for left/right positioning
-        let offset = scaled-cell-width * 0.25
+          let offset = scaled-cell-width * 0.25
 
-        if pair.voiceless != none {
-          let pos = (cell-center-x - offset, cell-center-y)
-          circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiceless), anchor: "center")
-        }
+          if pair.voiceless != none {
+            let pos = (cell-center-x - offset, cell-center-y)
+            circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
+            content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiceless), anchor: "center")
+          }
 
-        if pair.voiced != none {
-          let pos = (cell-center-x + offset, cell-center-y)
-          circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiced), anchor: "center")
+          if pair.voiced != none {
+            let pos = (cell-center-x + offset, cell-center-y)
+            circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
+            content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiced), anchor: "center")
+          }
         }
       }
     }
 
-    // Draw aspirated affricates (after regular affricates)
-    if aspirated and affricates {
-      let asp-affricate-row = if aspirated { 7 } else { 6 } // After affricate row
+    // Draw aspirated affricates
+    if aspirated and affricates and aspirated-affricate-row >= 0 {
       for (key, pair) in cell-aspirated-affricates {
-        let col = int(key)
-        let row = asp-affricate-row
+        let orig-col = int(key)
+        if str(orig-col) in col-remap {
+          let col = col-remap.at(str(orig-col))
+          let row = aspirated-affricate-row
 
-        let cell-x = scaled-label-width + (col * scaled-cell-width)
-        let cell-y = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
-        let cell-center-x = cell-x + (scaled-cell-width / 2)
-        let cell-center-y = cell-y - (scaled-cell-height / 2)
+          let cell-x = scaled-label-width + (col * scaled-cell-width)
+          let cell-y = total-height / 2 - scaled-label-height - (row * scaled-cell-height)
+          let cell-center-x = cell-x + (scaled-cell-width / 2)
+          let cell-center-y = cell-y - (scaled-cell-height / 2)
 
-        // Only left position (voiceless only for aspirated)
-        let offset = scaled-cell-width * 0.25
+          let offset = scaled-cell-width * 0.25
 
-        if pair.voiceless != none {
-          let pos = (cell-center-x - offset, cell-center-y)
-          circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
-          content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiceless), anchor: "center")
+          if pair.voiceless != none {
+            let pos = (cell-center-x - offset, cell-center-y)
+            circle(pos, radius: scaled-circle-radius, fill: white, stroke: none)
+            content(pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), pair.voiceless), anchor: "center")
+          }
         }
       }
     }
