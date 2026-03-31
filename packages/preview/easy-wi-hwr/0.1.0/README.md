@@ -90,7 +90,7 @@ Das Template verwendet **Times New Roman** (HWR-Vorschrift).
 ### Weg A — Typst Universe (ein Befehl)
 
 ```bash
-typst init @preview/wi-hwr-berlin:0.1.0 meine-arbeit
+typst init @preview/easy-wi-hwr:0.1.0 meine-arbeit
 cd meine-arbeit
 typst watch main.typ   # Live-Vorschau, Beenden: Ctrl+C
 ```
