@@ -4,7 +4,7 @@
 // Alle Formatierung erfolgt automatisch. Du arbeitest nur in dieser Datei
 // und in deinen Kapiteldateien unter kapitel/.
 
-#import "@preview/wi-hwr-berlin:0.1.0": hwr, abk, gls, glspl
+#import "@preview/easy-wi-hwr:0.1.0": hwr, abk, gls, glspl
 
 #show: hwr.with(
   // === PFLICHTFELDER ===
