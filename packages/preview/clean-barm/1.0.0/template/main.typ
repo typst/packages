@@ -15,30 +15,30 @@
 #show: Thesis.with(
   title: "Titel der Arbeit",
   author: "Max Mustermann",
-  studyGroup: "AI-WS23_III",
-  studentId: "123456",
-  contactDetails: (
+  study-group: "AI-WS23_III",
+  student-id: "123456",
+  contact-details: (
     "Musterstraße 1",
     "12345 Musterstadt",
     "max.mustermann@email.com",
   ),
   keywords: ("PDF", "Ausarbeitung"),
   description: "",
-  submissionDate: "01.01.2024",
-  academicReviewer: "Alice",
-  companyReviewer: "Bob",
-  headerLogo: prequery.image(
+  submission-date: "01.01.2024",
+  academic-reviewer: "Alice",
+  company-reviewer: "Bob",
+  header-logo: prequery.image(
     "https://github.com/GolemT/BA-Template/blob/main/Bachelorarbeit/images/BA_Header.png?raw=true",
     "BA_Header.png",
   ),
-  companyLogo: prequery.image(
+  company-logo: prequery.image(
     "https://raw.githubusercontent.com/GolemT/BA-Template/refs/heads/main/Bachelorarbeit/images/DB_Logo.png",
     "DB_Logo.png",
   ),
-  degreeProgram: [Angewandte Informatik],
-  showListOfFigures: true,
-  showListOfTables: true,
-  showListOfCode: true,
+  degree-program: [Angewandte Informatik],
+  show-list-of-figures: true,
+  show-list-of-tables: true,
+  show-list-of-code: true,
   acronyms: (
     API: "Application Programming Interface",
     HTML: "Hypertext Markup Language",

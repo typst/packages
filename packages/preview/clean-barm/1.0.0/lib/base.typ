@@ -7,32 +7,32 @@
 #let baseProject(
   _type: "",
   language: "de",
-  sansFont: "Noto Sans",
-  serifFont: "Times New Roman",
+  sans-font: "Noto Sans",
+  serif-font: "Times New Roman",
   title: "",
   authors: (),
   keywords: (),
   description: "",
-  studyGroup: "",
+  study-group: "",
   module: "",
-  contactDetails: "",
-  academicReviewer: "",
-  companyReviewer: "",
-  submissionDate: "",
-  headerLogo: none,
-  universityLogo: none,
-  companyLogo: none,
-  showListOfFigures: false,
-  showListOfTables: false,
-  showListOfCode: false,
+  contact-details: "",
+  academic-reviewer: "",
+  company-reviewer: "",
+  submission-date: "",
+  header-logo: none,
+  university-logo: none,
+  company-logo: none,
+  show-list-of-figures: false,
+  show-list-of-tables: false,
+  show-list-of-code: false,
   acronyms: (:),
   appendix: none,
   glossary: (:),
   bibliography: none,
-  restrictionNotice: none,
+  restriction-notice: none,
   foreword: none,
-  genderingNote: none,
-  titlePage,
+  gendering-note: none,
+  title-page,
   body,
 ) = {
   transl(data: yaml("/translations.yml"))
@@ -60,7 +60,7 @@
 
   set linebreak(justify: false)
   set text(
-    font: sansFont,
+    font: sans-font,
     lang: language,
     hyphenate: false,
   )
@@ -106,9 +106,9 @@
   init-glossary(glossary)
   set heading(numbering: "1.1")
 
-  titlePage
+  title-page
 
-  if restrictionNotice == true {
+  if restriction-notice == true {
     pagebreak()
     heading(outlined: false, numbering: none, text(smallcaps(
       transl("titleRestrictionNotice"),
@@ -117,7 +117,7 @@
     v(1.618fr)
   }
 
-  if genderingNote == true {
+  if gendering-note == true {
     pagebreak()
     heading(outlined: false, numbering: none, text(
       smallcaps(transl("titleGenderingNote")),
@@ -155,7 +155,7 @@
 
   let pagecounter = 0
 
-  if (showListOfFigures) {
+  if (show-list-of-figures) {
     show outline.entry: it => {
       let new_prefix = transl("FigAcr") + " " + it.prefix().children.at(2)
       it.indented(new_prefix, it.inner())
@@ -172,7 +172,7 @@
     outline(title: none, target: figure.where(kind: image))
   }
 
-  if (showListOfTables) {
+  if (show-list-of-tables) {
     pagebreak(weak: true)
     pagecounter += 1
     heading(
@@ -185,7 +185,7 @@
     outline(title: none, target: figure.where(kind: table))
   }
 
-  if (showListOfCode) {
+  if (show-list-of-code) {
     pagebreak(weak: true)
     pagecounter += 1
     heading(numbering: none, outlined: true, transl("ListOfCode"))

@@ -10,27 +10,27 @@
   author: "",
   keywords: "",
   description: "",
-  degreeProgram: "",
-  studyGroup: "",
-  studentId: "",
-  contactDetails: ("", "", ""),
-  academicReviewer: "",
-  companyReviewer: "",
-  submissionDate: "31.07.2025",
-  headerLogo: none,
-  companyLogo: none,
-  showListOfFigures: true,
-  showListOfTables: true,
-  showListOfCode: true,
+  degree-program: "",
+  study-group: "",
+  student-id: "",
+  contact-details: ("", "", ""),
+  academic-reviewer: "",
+  company-reviewer: "",
+  submission-date: "31.07.2025",
+  header-logo: none,
+  company-logo: none,
+  show-list-of-figures: true,
+  show-list-of-tables: true,
+  show-list-of-code: true,
   acronyms: (:),
   appendix: none,
   glossary: (:),
   bibliography: none,
-  restrictionNotice: transl("RestrictionNotice1")
+  restriction-notice: transl("RestrictionNotice1")
     + transl("Paper")
     + transl("RestrictionNotice2"),
   foreword: [],
-  genderingNote: transl("GenderingNote"),
+  gendering-note: transl("GenderingNote"),
   body,
 ) = {
   baseProject(
@@ -38,29 +38,29 @@
     language: language,
     title: title,
     authors: (
-      (name: author, studentId: studentId),
+      (name: author, student-id: studentId),
     ),
     keywords: keywords,
     description: description,
-    studyGroup: studyGroup,
-    contactDetails: contactDetails,
-    academicReviewer: academicReviewer,
-    companyReviewer: companyReviewer,
-    submissionDate: submissionDate,
-    companyLogo: companyLogo,
-    showListOfFigures: showListOfFigures,
-    showListOfCode: showListOfCode,
+    study-group: study-group,
+    contact-details: contact-details,
+    academic-reviewer: academic-reviewer,
+    company-reviewer: company-reviewer,
+    submission-date: submission-date,
+    company-logo: company-logo,
+    show-list-of-figures: show-list-of-figures,
+    show-list-of-code: show-list-of-code,
     acronyms: acronyms,
     appendix: appendix,
     glossary: glossary,
     bibliography: bibliography,
-    restrictionNotice: restrictionNotice,
+    restriction-notice: restriction-notice,
     foreword: foreword,
-    genderingNote: genderingNote,
+    gendering-note: gendering-note,
     {
       set page(
-        background: if headerLogo != none {
-          align(top, headerLogo)
+        background: if header-logo != none {
+          align(top, header-logo)
         } else { none },
         margin: (top: 45mm),
       )
@@ -74,15 +74,15 @@
         justify: false,
       ))
       v(2fr, weak: true)
-      if companyLogo != none {
-        align(center, companyLogo)
+      if company-logo != none {
+        align(center, company-logo)
       }
       v(1fr)
       align(center, [
         #transl("Thesis") \
         #transl("forDegree") \
         Bachelor of Science \ \
-        Im Studiengang #degreeProgram \
+        Im Studiengang #degree-program \
         an der Berufsakademie Rhein-Main
 
       ])
@@ -91,11 +91,11 @@
         columns: (2fr, 2fr),
         gutter: 1em,
         [#transl("SubmittedBy"):], [#author],
-        [#transl("StudyGroup"): ], [#studyGroup],
-        [#transl("StudentId"):], [#studentId],
-        [#transl("ContactDetails"):], [#contactDetails.at(0)],
-        [], [#contactDetails.at(1)],
-        [], [#contactDetails.at(2)],
+        [#transl("StudyGroup"): ], [#study-group],
+        [#transl("StudentId"):], [#student-id],
+        [#transl("ContactDetails"):], [#contact-details.at(0)],
+        [], [#contact-details.at(1)],
+        [], [#contact-details.at(2)],
         [], [],
         [#transl("Wordcount"):],
         [#word-count-of(body, exclude: (heading, figure)).words],
@@ -112,10 +112,10 @@
 
         [(exkl. wörtliche Zitate / Fußnoten)], [],
         [], [],
-        [#transl("AcademicReviewer"):], [#academicReviewer],
-        [#transl("CompanyReviewer"):], [#companyReviewer],
+        [#transl("AcademicReviewer"):], [#academic-reviewer],
+        [#transl("CompanyReviewer"):], [#company-reviewer],
         [], [],
-        [#transl("SubmissionDate"):], [#submissionDate],
+        [#transl("SubmissionDate"):], [#submission-date],
       ))
       pagebreak()
     },

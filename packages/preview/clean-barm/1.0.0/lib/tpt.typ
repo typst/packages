@@ -5,27 +5,27 @@
 #let TPT(
   //Settings der Template
   title: "",
-  preThesis: true,
+  pre-thesis: true,
   authors: (),
   keywords: (),
   description: "",
-  studyGroup: "",
+  study-group: "",
   date: "01.01.2024",
   logo: none,
   module: [Theorie-Praxis-Anwendung II],
-  showListOfFigures: true,
-  showListOfTables: true,
-  showListOfCode: true,
+  show-list-of-figures: true,
+  show-list-of-tables: true,
+  show-list-of-code: true,
   acronyms: (:),
   appendix: none,
   glossary: (:),
   bibliography: none,
   //Vorgeschriebene e
-  restrictionNotice: transl("RestrictionNotice1")
+  restriction-notice: transl("RestrictionNotice1")
     + transl("Paper")
     + transl("RestrictionNotice2"),
   foreword: [],
-  genderingNote: transl("GenderingNote"),
+  gendering-note: transl("GenderingNote"),
   body,
 ) = {
   baseProject(
@@ -34,20 +34,20 @@
     authors: authors,
     keywords: keywords,
     description: description,
-    studyGroup: studyGroup,
-    submissionDate: date,
-    universityLogo: logo,
+    study-group: study-group,
+    submission-date: date,
+    university-logo: logo,
     module: module,
-    showListOfFigures: showListOfFigures,
-    showListOfTables: showListOfTables,
-    showListOfCode: showListOfCode,
+    show-list-of-figures: show-list-of-figures,
+    show-list-of-tables: show-list-of-tables,
+    show-list-of-code: show-list-of-code,
     acronyms: acronyms,
     appendix: appendix,
     glossary: glossary,
     bibliography: bibliography,
-    restrictionNotice: restrictionNotice,
+    restriction-notice: restriction-notice,
     foreword: foreword,
-    genderingNote: genderingNote,
+    gendering-note: gendering-note,
     {
       set page(header: none)
       set text(font: "Noto Sans")
@@ -60,7 +60,7 @@
           weight: 700,
           fill: blue,
           (
-            if preThesis { transl("PracticalDocs") } else {
+            if pre-thesis { transl("PracticalDocs") } else {
               transl("PracticalDocs2")
             }
           )
@@ -90,7 +90,7 @@
           gutter: 1em,
           ..authors.map(author => align(center, text(
             weight: "bold",
-            [#author.name (#author.studentId)],
+            [#author.name (#author.student-id)],
           ))),
         ),
       )

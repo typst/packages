@@ -10,17 +10,17 @@
   date: "",
   logo: none,
   module: [Theorie-Praxis-Anwendung II],
-  showListOfFigures: true,
-  showListOfTables: true,
-  showListOfCode: true,
+  show-list-of-figures: true,
+  show-list-of-tables: true,
+  show-list-of-code: true,
   acronyms: (:),
   appendix: none,
   glossary: (:),
   bibliography: none,
   //Vorgeschriebene
-  restrictionNotice: [Die vorliegende Seminararbeit beinhaltet interne vertrauliche Informationen der DB Systel GmbH. Die Weitergabe des Inhaltes dieser Arbeit und eventuell beiliegender Zeichnungen und Daten im Gesamten oder in Teilen ist grundsätzlich untersagt. Es dürfen keinerlei Kopien oder Abschriften, auch nicht in digitaler Form, gefertigt werden. Ausnahmen bedürfen der schriftlichen Genehmigung durch die DB Systel GmbH.],
+  restriction-notice: [Die vorliegende Seminararbeit beinhaltet interne vertrauliche Informationen der DB Systel GmbH. Die Weitergabe des Inhaltes dieser Arbeit und eventuell beiliegender Zeichnungen und Daten im Gesamten oder in Teilen ist grundsätzlich untersagt. Es dürfen keinerlei Kopien oder Abschriften, auch nicht in digitaler Form, gefertigt werden. Ausnahmen bedürfen der schriftlichen Genehmigung durch die DB Systel GmbH.],
   foreword: [],
-  genderingNote: [Zur besseren Lesbarkeit wird in dieser Ausarbeitung auf die gleichzeitige Verwendung geschlechtsspezifischer Sprachformen verzichtet. Sämtliche personenbezogenen Bezeichnungen gelten daher im Sinne der Gleichbehandlung für alle Geschlechter. Diese Vereinfachung dient ausschließlich der sprachlichen Klarheit und ist in keiner Weise als Wertung zu verstehen.],
+  gendering-note: [Zur besseren Lesbarkeit wird in dieser Ausarbeitung auf die gleichzeitige Verwendung geschlechtsspezifischer Sprachformen verzichtet. Sämtliche personenbezogenen Bezeichnungen gelten daher im Sinne der Gleichbehandlung für alle Geschlechter. Diese Vereinfachung dient ausschließlich der sprachlichen Klarheit und ist in keiner Weise als Wertung zu verstehen.],
   body,
 ) = {
   baseProject(
@@ -29,19 +29,19 @@
     authors: authors,
     keywords: keywords,
     description: description,
-    submissionDate: date,
-    universityLogo: logo,
+    submission-date: date,
+    university-logo: logo,
     module: module,
-    showListOfFigures: showListOfFigures,
-    showListOfTables: showListOfTables,
-    showListOfCode: showListOfCode,
+    show-list-of-figures: show-list-of-figures,
+    show-list-of-tables: show-list-of-tables,
+    show-list-of-code: show-list-of-code,
     acronyms: acronyms,
     appendix: appendix,
     glossary: glossary,
     bibliography: bibliography,
-    restrictionNotice: restrictionNotice,
+    restriction-notice: restriction-notice,
     foreword: foreword,
-    genderingNote: genderingNote,
+    gendering-note: gendering-note,
     {
       // Title page.
       v(0.6fr)
@@ -61,7 +61,7 @@
           columns: (1fr,),
           gutter: 1em,
           ..authors.map(author => align(center)[
-            *#author.name* - #author.studentId
+            *#author.name* - #author.student-id
           ]),
         ),
       )

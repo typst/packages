@@ -9,57 +9,57 @@
   author: "",
   keywords: (),
   description: "",
-  studyGroup: "",
-  contactDetails: (
+  study-group: "",
+  contact-details: (
     "",
     "",
     "",
   ),
-  studentId: "",
-  academicReviewer: "",
-  companyReviewer: "",
-  dateOfColloquium: "",
-  submissionDate: "",
+  student-id: "",
+  academic-reviewer: "",
+  company-reviewer: "",
+  date-of-colloquium: "",
+  submission-date: "",
   logo: none,
-  showListOfFigures: true,
-  showListOfTables: true,
-  showListOfCode: true,
+  show-list-of-figures: true,
+  show-list-of-tables: true,
+  show-list-of-code: true,
   acronyms: (:),
   appendix: none,
   glossary: (:),
   bibliography: none,
   //Vorgeschriebene Texte
-  restrictionNotice: transl("RestrictionNotice1")
+  restriction-notice: transl("RestrictionNotice1")
     + transl("Paper")
     + transl("RestrictionNotice2"),
   foreword: none,
-  genderingNote: transl("genderingNote"),
+  gendering-note: transl("gendering-note"),
   body,
 ) = {
   baseProject(
     _type: "expose",
     title: title,
     authors: (
-      (name: author, studentId: studentId),
+      (name: author, student-id: studentId),
     ),
     keywords: keywords,
     description: description,
-    studyGroup: studyGroup,
-    contactDetails: contactDetails,
-    academicReviewer: academicReviewer,
-    companyReviewer: companyReviewer,
-    submissionDate: submissionDate,
-    universityLogo: logo,
-    showListOfFigures: showListOfFigures,
-    showListOfTables: showListOfTables,
-    showListOfCode: showListOfCode,
+    study-group: study-group,
+    contact-details: contact-details,
+    academic-reviewer: academic-reviewer,
+    company-reviewer: company-reviewer,
+    submission-date: submission-date,
+    university-logo: logo,
+    show-list-of-figures: show-list-of-figures,
+    show-list-of-tables: show-list-of-tables,
+    show-list-of-code: show-list-of-code,
     acronyms: acronyms,
     appendix: appendix,
     glossary: glossary,
     bibliography: bibliography,
-    restrictionNotice: restrictionNotice,
+    restriction-notice: restriction-notice,
     foreword: foreword,
-    genderingNote: genderingNote,
+    gendering-note: gendering-note,
     {
       // Title page.
       v(0.0fr)
@@ -87,7 +87,7 @@
         center,
         text(
           size: 12pt,
-          submissionDate,
+          submission-date,
         ),
       )
       v(1.5fr)
@@ -97,7 +97,7 @@
         grid(
           columns: (2fr, 2fr),
           gutter: 1em,
-          [#transl("StudyGroup"): ], [#studyGroup],
+          [#transl("StudyGroup"): ], [#study-group],
           [#transl("SubmittedBy"):], [#author],
           [#transl("Wordcount"):],
           [#word-count-of(body, exclude: (
@@ -117,9 +117,9 @@
           )).words],
 
           [#transl("wordcountExcludingCites")], [],
-          [#transl("AcademicReviewer"):], [#academicReviewer],
-          [#transl("CompanyReviewer"):], [#companyReviewer],
-          [#transl("SubmissionDate"):], [#submissionDate],
+          [#transl("AcademicReviewer"):], [#academic-reviewer],
+          [#transl("CompanyReviewer"):], [#company-reviewer],
+          [#transl("SubmissionDate"):], [#submission-date],
         ),
       )
       v(1.5fr)
