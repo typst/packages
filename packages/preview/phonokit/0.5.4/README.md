@@ -82,7 +82,7 @@
 
 ## Manual 🔍
 
-Download [**manual**](https://doi.org/10.5281/zenodo.18260076) for a comprehensive demonstration of available functions and their usage. [**Here**](https://github.com/guilhermegarcia/phonokit/blob/main/extras/slides.pdf) you can also find a slide presentation done with Typst where most of the package's functions are illustrated.
+Download [**manual**](https://doi.org/10.5281/zenodo.18260076) for a comprehensive demonstration of available functions and their usage.
 
 ## Fonts
 
