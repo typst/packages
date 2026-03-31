@@ -2,8 +2,6 @@
 
 Draw neural network graphs with CeTZ.
 
-Release workflow notes for maintainers are documented in [PUBLISHING.md](PUBLISHING.md).
-
 ## Install
 
 ```typ
@@ -58,7 +56,7 @@ only the diagram instead of an A4 canvas.
 
 ### Autoencoder
 
-![Autoencoder](docs/images/autoencoder.svg)
+![Autoencoder architecture diagram showing encoder, latent bottleneck, and reconstruction flow](docs/images/autoencoder.svg)
 
 ```typ
 #import "@preview/cetz-nn-graph:0.1.0": *
@@ -127,7 +125,7 @@ are automatically spread evenly along that side.
 
 ### Image nodes
 
-![Image nodes](docs/images/image-nodes.svg)
+![Image node and image dataset diagram connected to latent space](docs/images/image-nodes.svg)
 
 ```typ
 #import "@preview/cetz-nn-graph:0.1.0": *
@@ -176,7 +174,7 @@ are automatically spread evenly along that side.
 
 ### Classifier
 
-![Classifier](docs/images/classifier.svg)
+![Classifier pipeline diagram from images to logits](docs/images/classifier.svg)
 
 ```typ
 #import "@preview/cetz-nn-graph:0.1.0": *
@@ -214,7 +212,7 @@ are automatically spread evenly along that side.
 
 ### Segmentation
 
-![Segmentation](docs/images/segmentation.svg)
+![Segmentation model diagram from input image to mask output](docs/images/segmentation.svg)
 
 ```typ
 #import "@preview/cetz-nn-graph:0.1.0": *
@@ -244,7 +242,7 @@ are automatically spread evenly along that side.
 
 ### Siamese encoder
 
-![Siamese](docs/images/siamese.svg)
+![Siamese encoder diagram with shared embeddings and distance head](docs/images/siamese.svg)
 
 ```typ
 #import "@preview/cetz-nn-graph:0.1.0": *
@@ -285,7 +283,7 @@ are automatically spread evenly along that side.
 
 ### GAN
 
-![GAN](docs/images/gan.svg)
+![GAN diagram with generator and discriminator paths for real and fake samples](docs/images/gan.svg)
 
 ```typ
 #import "@preview/cetz-nn-graph:0.1.0": *
