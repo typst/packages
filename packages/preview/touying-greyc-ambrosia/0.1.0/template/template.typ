@@ -2,7 +2,7 @@
 #import "@preview/touying-greyc-ambrosia:0.1.0": *
 
 #show: greyc-theme.with(
-  // legacy | cambridge | darmstadt | dewdrop | stargazer
+  // legacy | simple | cambridge | darmstadt | dewdrop | stargazer
   flavor: "legacy",
   aspect-ratio: "16-9",
   config-info(

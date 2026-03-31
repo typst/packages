@@ -1,16 +1,15 @@
-#import "@preview/touying:0.6.2": utils, components, touying-fn-wrapper
+#import "@preview/touying:0.6.2": components, touying-fn-wrapper, utils
 #import "utils.typ" as greyc-utils
-#import "shadowed.typ": shadow, frame
+#import "shadowed.typ": frame, shadow
 
 #let _current-heading(level: auto, outlined: true) = {
   let here = here()
-  query(heading.where(outlined: outlined).before(inclusive: false, here))
-    .at(-1, default: none)
+  query(heading.where(outlined: outlined).before(inclusive: false, here)).at(-1, default: none)
 }
 
 #let _headings-context(target: heading.where(outlined: true)) = {
   let current-heading = _current-heading()
-  
+
   let headings = query(target)
   let path = ()
   let level = 0
@@ -33,26 +32,27 @@
 
     result.push((
       path: path,
-      heading: hd
+      heading: hd,
     ))
 
-    if current-heading != none and hd.location() == current-heading.location() { // matching on location, otherwise this will be `true` for an identical heading at another location
+    if current-heading != none and hd.location() == current-heading.location() {
+      // matching on location, otherwise this will be `true` for an identical heading at another location
       current-heading-idx = result.len() - 1
     }
-    
+
     level = hd.level
   }
 
   return (
     current-heading: current-heading,
     current-heading-idx: current-heading-idx,
-    headings: result
+    headings: result,
   )
 }
 
 /// Create an outline that allows you to filter entries and style them based on context.
 /// Modified from https://github.com/zeroeightysix/tt-lectures
-/// 
+///
 /// - filter (function): A boolean function that accepts a single argument `hd` which is a dict of:
 ///   - `here-path`: array = the unique 'path' for the most recently defined heading at the current location in the document.
 ///   - `here-level`: integer = `here-path.len()`, the depth of the aforementioned heading.
@@ -80,7 +80,7 @@
   target: heading.where(outlined: true),
   spacing: auto,
   label: none,
-  ..args
+  ..args,
 ) = context {
   let cx = _headings-context(target: target)
   let idx = cx.at("current-heading-idx", default: none)
@@ -88,37 +88,42 @@
     cx.headings.at(idx).path
   }
 
-  let headings = cx.headings.map(hd => {
-    let level = hd.path.len()
+  let headings = cx
+    .headings
+    .map(hd => {
+      let level = hd.path.len()
 
-    let relation = if scope-path != none {
-      let path-len = calc.min(level, scope-path.len())
-      let common-path = hd.path.slice(0, path-len) == scope-path.slice(0, path-len)
+      let relation = if scope-path != none {
+        let path-len = calc.min(level, scope-path.len())
+        let common-path = hd.path.slice(0, path-len) == scope-path.slice(0, path-len)
 
-      let same = hd.path == scope-path
-      let parent = not same and common-path and level < scope-path.len()
-      let child = not same and common-path and level > scope-path.len()
-      let sibling = not same and level == scope-path.len() and hd.path.slice(0, path-len - 1) == scope-path.slice(0, path-len - 1)
+        let same = hd.path == scope-path
+        let parent = not same and common-path and level < scope-path.len()
+        let child = not same and common-path and level > scope-path.len()
+        let sibling = (
+          not same and level == scope-path.len() and hd.path.slice(0, path-len - 1) == scope-path.slice(0, path-len - 1)
+        )
+
+        (
+          same: same,
+          parent: parent,
+          child: child,
+          sibling: sibling,
+          unrelated: not same and not parent and not child and not sibling,
+        )
+      }
 
       (
-        same: same,
-        parent: parent,
-        child: child,
-        sibling: sibling,
-        unrelated: not same and not parent and not child and not sibling,
+        here-path: scope-path,
+        here-level: if scope-path != none { scope-path.len() },
+        level: level,
+        path: hd.path,
+        relation: relation,
+        loc: hd.heading.location(),
+        heading: hd.heading,
       )
-    }
-    
-    (
-      here-path: scope-path,
-      here-level: if scope-path != none { scope-path.len() },
-      level: level,
-      path: hd.path,
-      relation: relation,
-      loc: hd.heading.location(),
-      heading: hd.heading,
-    )
-  }).filter(filter)
+    })
+    .filter(filter)
 
   if headings == () {
     let nonsense-target = selector(<P>).and(<NP>)
@@ -127,7 +132,8 @@
   }
 
   let find-heading(location) = {
-    for x in headings { // forgive me :(
+    for x in headings {
+      // forgive me :(
       if x.loc == location {
         return x
       }
@@ -135,7 +141,7 @@
   }
 
   let spacings = if spacing != auto {
-    if type(spacing) == array {spacing} else {(spacing,)}
+    if type(spacing) == array { spacing } else { (spacing,) }
   } else { none }
   show outline.entry: it => {
     let hd = find-heading(it.element.location())
@@ -310,29 +316,40 @@
       cols.push(align(left, col.sum()))
       col = ()
     }
-    if focus-index < 0 and (current-index < 0 or current-index >= cols.len() or sections.at(real-current-index) != visible-sections.at(current-index)) {
+    if (
+      focus-index < 0
+        and (
+          current-index < 0
+            or current-index >= cols.len()
+            or sections.at(real-current-index) != visible-sections.at(current-index)
+        )
+    ) {
       cols = cols.map(body => text(fill: secondary, body))
     } else {
-      cols = cols.enumerate().map(pair => {
-        let (idx, body) = pair
-        if (idx == current-index and focus-index < 0) or idx == focus-index {
-          text(fill: primary, body)
-        } else {
-          text(fill: secondary, body)
-        }
-      })
+      cols = cols
+        .enumerate()
+        .map(pair => {
+          let (idx, body) = pair
+          if (idx == current-index and focus-index < 0) or idx == focus-index {
+            text(fill: primary, body)
+          } else {
+            text(fill: secondary, body)
+          }
+        })
     }
     block(
       width: 100%,
       inset: (bottom: 0.2em),
       outset: 0pt,
-      fill: background, {
-      set align(top + center)
-      show: block.with(inset: (top: .5em, x: if inline { 1em } else { 2em }))
-      show linebreak: it => it + v(-1em)
-      set text(size: .7em)
-      grid(columns: cols.map(_ => auto).intersperse(1fr), ..cols.intersperse([]))
-    })
+      fill: background,
+      {
+        set align(top + center)
+        show: block.with(inset: (top: .5em, x: if inline { 1em } else { 2em }))
+        show linebreak: it => it + v(-1em)
+        set text(size: .7em)
+        grid(columns: cols.map(_ => auto).intersperse(1fr), ..cols.intersperse([]))
+      },
+    )
   }
 )
 
@@ -373,22 +390,23 @@
       let current-page = here().page()
       set text(size: 0.5em)
       for (section, next-section) in sections.zip(sections.slice(1) + (none,)) {
-        set text(fill: if section.location().page() <= current-page and (
-          next-section == none or current-page < next-section.location().page()
-        ) {
+        set text(fill: if section.location().page() <= current-page
+          and (
+            next-section == none or current-page < next-section.location().page()
+          ) {
           primary
         } else {
           secondary
         })
         if section in visible-sections {
           box(inset: 0.5em)[#link(
-              section.location(),
-              if short-heading {
-                utils.short-heading(self: self, section)
-              } else {
-                section.body
-              },
-            )<touying-link>]
+            section.location(),
+            if short-heading {
+              utils.short-heading(self: self, section)
+            } else {
+              section.body
+            },
+          )<touying-link>]
         }
       }
     }
@@ -480,7 +498,7 @@
 #let _tblock(self: none, title: none, fill: auto, background: auto, framed: true, shadowed: true, it) = layout(size => {
   let fill-color = if fill == auto { self.colors.primary-dark } else { fill }
   let background-color = if background == auto {
-    if fill == auto { self.colors.primary-lightest } else { fill-color.lighten(90%) }
+    if framed { fill-color.lighten(90%) } else { none }
   } else { background }
 
   show: apply-marker-style.with(color: fill-color)
@@ -529,8 +547,9 @@
         columns: 1,
         row-gutter: 0pt,
         block(
-          fill: none,
+          fill: background-color,
           width: 100%,
+          radius: (top: 6pt),
           inset: (top: 0.4em, bottom: 0.3em + 4pt, left: 0.5em, right: 0.5em),
           {
             show heading: set text(fill: fill-color)
@@ -542,8 +561,9 @@
           },
         ),
         block(
-          fill: none,
+          fill: background-color,
           width: 100%,
+          radius: (bottom: 6pt),
           inset: (top: 0.4em, bottom: 0.5em, left: 0.5em, right: 0.5em),
           it,
         ),
@@ -581,7 +601,7 @@
       fill: self.colors.neutral-dark.transparentize(50%),
       radius: 6pt,
     )
-  } else{
+  } else {
     frame(
       content,
       radius: 6pt,

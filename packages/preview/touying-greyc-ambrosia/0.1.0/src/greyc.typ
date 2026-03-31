@@ -42,13 +42,14 @@
     },
   )
   block(
-    breakable: false, {
+    breakable: false,
+    {
       footer
       place(center + bottom, dy: -1.5em, float: false, {
         set text(size: 2em)
         greyc-utils.call-or-display(self, self.store.footer-b)
       })
-    }
+    },
   )
 }
 
@@ -119,10 +120,10 @@
 #let _modern-title-slide(self: none, config: (:), ..args) = {
   self = utils.merge-dicts(
     self,
-    config,
     config-page(
       margin: (left: 2em, right: 2em, top: auto, bottom: 1em),
     ),
+    config,
   )
   self.store.title = none
   let info = self.info + args.named()
@@ -163,7 +164,7 @@
         radius: 0.5em,
         grid(
           columns: (auto,) * info.logos.len(),
-          rows: (2.8em,),
+          rows: (2.5em,),
           column-gutter: 1em,
           row-gutter: 1em,
           ..if type(info.logos) == dictionary { info.logos.values() } else { info.logos }.map(
@@ -197,7 +198,7 @@
     } else {
       block(
         width: 100%,
-        fill: self.colors.neutral-lightest,
+        fill: if self.store.flavor == "simple" { none } else { self.colors.neutral-lightest },
         inset: 1.5em,
         radius: 0.5em,
         breakable: false,
@@ -210,7 +211,7 @@
         },
       )
     }
-    let title-container = if self.store.flavor == "stargazer" {
+    let title-container = if self.store.flavor in ("simple", "stargazer") {
       it => it
     } else {
       greyc-components.shadow
@@ -255,12 +256,12 @@
 #let _legacy-title-slide(self: none, config: (:), ..args) = {
   self = utils.merge-dicts(
     self,
-    config,
     config-page(
       margin: (left: 2em, right: 30%, top: 1em, bottom: 15%),
       header: none,
       footer: none,
     ),
+    config,
   )
   self.store.title = none
   let info = self.info + args.named()
@@ -425,13 +426,13 @@
 #let title-slide(self: none, config: (:), ..args) = touying-slide-wrapper(self => {
   let mapping = (
     legacy: _legacy-title-slide,
+    simple: _modern-title-slide,
     stargazer: _modern-title-slide,
     dewdrop: _modern-title-slide,
     cambridge: _modern-title-slide,
     darmstadt: _modern-title-slide,
   )
-  assert(self.store.flavor in mapping,
-    message: "Flavor '" + self.store.flavor + "' is not supported.")
+  assert(self.store.flavor in mapping, message: "Flavor '" + self.store.flavor + "' is not supported.")
   let title-slide-impl = mapping.at(self.store.flavor)
   title-slide-impl(
     self: self,
@@ -484,23 +485,26 @@
           show heading: none
           std.heading(utils.call-or-display(self, title), level: 1, outlined: false, bookmarked: true)
         }
-        components.adaptive-columns(
-          greyc-components.custom-outline(
-            self: self,
-            title: none,
-            spacing: 1.2em,
-            filter: hd => true,
-            selector-filter: greyc-utils.before-appendix-filter,
-            depth: depth,
-            transform: (hd, it) => {
-              set text(fill: self.colors.primary, weight: "bold") if hd.level == 1
-              set text(fill: self.colors.primary) if hd.level > 1
+        (
+          components.adaptive-columns(
+            greyc-components.custom-outline(
+              self: self,
+              title: none,
+              spacing: 1.2em,
+              filter: hd => true,
+              selector-filter: greyc-utils.before-appendix-filter,
+              depth: depth,
+              transform: (hd, it) => {
+                set text(fill: self.colors.primary, weight: "bold") if hd.level == 1
+                set text(fill: self.colors.primary) if hd.level > 1
 
-              it
-            },
-            label: get-label,
-          ),
-        ) + args.pos().sum(default: none)
+                it
+              },
+              label: get-label,
+            ),
+          )
+            + args.pos().sum(default: none)
+        )
       },
     ),
   )
@@ -568,7 +572,9 @@
               hd.relation != none and hd.relation.child and hd.level == 2
             )
             set text(fill: self.colors.primary) if hd.relation != none and hd.relation.child and hd.level > 2
-            set text(fill: self.colors.primary.transparentize(60%), weight: "bold") if hd.relation != none and hd.relation.sibling
+            set text(fill: self.colors.primary.transparentize(60%), weight: "bold") if (
+              hd.relation != none and hd.relation.sibling
+            )
 
             it
           },
@@ -654,8 +660,7 @@
         std.heading(utils.call-or-display(self, title), level: 1, outlined: false, bookmarked: true)
       }
       #set text(size: 0.7em)
-      #bibliography(..args, title: none
-      )<touying-bibliography>
+      #bibliography(..args, title: none)<touying-bibliography>
     ],
   )
 })
@@ -723,6 +728,7 @@
         },
         fill: {
           let mapping = (
+            simple: none,
             cambridge: self.colors.neutral-lightest,
             darmstadt: self.colors.primary,
           )
@@ -735,14 +741,19 @@
         size: 1.5em,
         fill: {
           let mapping = (
+            simple: self.colors.primary,
             cambridge: self.colors.primary,
             darmstadt: self.colors.neutral-lightest,
           )
           mapping.at(self.store.flavor, default: self.colors.neutral-darkest)
-        }
+        },
       )
       let title-block = block(..block-args, text(..text-args, title))
-      let title-container = if self.store.flavor in ("cambridge", "darmstadt") {greyc-components.shadow} else {it => it}
+      let title-container = if self.store.flavor in ("cambridge", "darmstadt") {
+        greyc-components.shadow
+      } else {
+        it => it
+      }
       title-container(title-block)
     }
     body
@@ -838,8 +849,11 @@
   aspect-ratio: "16-9",
   align: top,
   alpha: 20%,
-  title: self => greyc-utils.display-current-heading(depth: self.slide-level, selector-filter: greyc-utils.appendix-filter),
-  subtitle: self => greyc-utils.stack-display-current-headings(
+  title: self => greyc-utils.display-current-heading(
+    depth: self.slide-level,
+    selector-filter: greyc-utils.appendix-filter,
+  ),
+  subtitle: self => greyc-utils.prose-display-current-headings(
     level: self.slide-level + 1,
     depth: self.slide-level + 1,
     selector-filter: greyc-utils.appendix-filter,
@@ -851,8 +865,17 @@
   logo-focus: self => self.info.logo,
   header-logo: self => self.info.logo,
   header-a-columns: (1fr, 1fr),
-  header-aa: self => greyc-utils.display-current-heading(depth: 1, level: 1, selector-filter: greyc-utils.appendix-filter),
-  header-ab: self => greyc-utils.display-current-heading(depth: 2, level: 2, selector-filter: greyc-utils.appendix-filter, style: current-heading => current-heading.body),
+  header-aa: self => greyc-utils.display-current-heading(
+    depth: 1,
+    level: 1,
+    selector-filter: greyc-utils.appendix-filter,
+  ),
+  header-ab: self => greyc-utils.display-current-heading(
+    depth: 2,
+    level: 2,
+    selector-filter: greyc-utils.appendix-filter,
+    style: current-heading => current-heading.body,
+  ),
   footer-a-columns: (20%, 1fr, 8em, 8em),
   footer-aa: self => self.info.author,
   footer-ab: self => if self.info.short-title == auto {
@@ -861,7 +884,9 @@
     self.info.short-title
   },
   footer-ac: self => utils.display-info-date(self),
-  footer-ad: self => context if utils.slide-counter.get().first() > utils.last-slide-counter.final().first() { numbering("i", utils.slide-counter.get().first() - utils.last-slide-counter.final().first()) } else { utils.slide-counter.display() + " / " + utils.last-slide-number },
+  footer-ad: self => context if utils.slide-counter.get().first() > utils.last-slide-counter.final().first() {
+    numbering("i", utils.slide-counter.get().first() - utils.last-slide-counter.final().first())
+  } else { utils.slide-counter.display() + " / " + utils.last-slide-number },
   progress-bar: true,
   footcite-once: true,
   ..args,
@@ -871,8 +896,9 @@
 
   let top-margin-mapping = (
     legacy: 2.4em,
+    simple: 2.4em,
     stargazer: 4.2em,
-    dewdrop: 3.6em,
+    dewdrop: 4.2em,
     cambridge: 3.1em,
     darmstadt: 4.2em,
   )
@@ -886,7 +912,7 @@
       margin: (top: top-margin-mapping.at(flavor, default: 3em), bottom: 1em, x: 2.5em),
     ),
     config-common(
-      slide-level: if flavor == "cambridge" {3} else {2},
+      slide-level: if flavor == "cambridge" { 3 } else { 2 },
       slide-fn: slide,
       new-section-slide-fn: new-section-slide,
       show-strong-with-alert: false,
@@ -1031,7 +1057,7 @@
             set text(size: .5em)
             grid(
               columns: self.store.header-a-columns,
-              rows: (1.5em),
+              rows: 1.5em,
               rect(
                 width: 100%,
                 height: 100%,
@@ -1039,7 +1065,10 @@
                 outset: 0mm,
                 fill: self.colors.primary,
                 stroke: none,
-                std.align(horizon + right, text(fill: self.colors.neutral-lightest, greyc-utils.call-or-display(self, self.store.header-aa))),
+                std.align(horizon + right, text(fill: self.colors.neutral-lightest, greyc-utils.call-or-display(
+                  self,
+                  self.store.header-aa,
+                ))),
               ),
               rect(
                 width: 100%,
@@ -1048,7 +1077,10 @@
                 outset: 0mm,
                 fill: self.colors.primary-light,
                 stroke: none,
-                std.align(horizon + left, text(fill: self.colors.neutral-darkest, greyc-utils.call-or-display(self, self.store.header-ab))),
+                std.align(horizon + left, text(fill: self.colors.neutral-darkest, greyc-utils.call-or-display(
+                  self,
+                  self.store.header-ab,
+                ))),
               ),
             )
           },
@@ -1062,7 +1094,7 @@
             linebreaks: false,
             short-heading: true,
             selector-filter: greyc-utils.reveal-after-appendix-filter,
-          )
+          ),
         )
         mapping.at(self.store.flavor, default: none)
       },
@@ -1096,8 +1128,22 @@
             mapping.at(self.store.flavor, default: none)
           },
         )
+        let title-block-args = (
+          inset: (
+            left: 1.5em,
+            right: {
+              let mapping = (
+                legacy: 0em,
+              )
+              mapping.at(self.store.flavor, default: 1.5em)
+            },
+            top: 1mm,
+            bottom: 1mm,
+          ),
+        )
         let title-color-mapping = (
           legacy: self.colors.primary,
+          simple: self.colors.primary,
           stargazer: self.colors.neutral-lightest,
           dewdrop: self.colors.primary,
           cambridge: self.colors.primary,
@@ -1105,6 +1151,7 @@
         )
         let subtitle-color-mapping = (
           legacy: self.colors.primary,
+          simple: self.colors.primary,
           stargazer: self.colors.neutral-light,
           dewdrop: self.colors.primary,
           cambridge: self.colors.primary,
@@ -1123,40 +1170,38 @@
           ),
         )
 
-        block(
-          ..block-args,
-          place(left + horizon, dx: 1.5em)[
-            #context {
-              let title-blocks = (
-                text(..text-args.title, greyc-utils.call-or-display(
-                  self,
-                  self.store.title,
-                )),
-              )
-              // We display the subtitle regardless of its content being empty or not.
-              title-blocks.push(text(..text-args.subtitle, greyc-utils.call-or-display(
-                self,
-                self.store.subtitle,
-              )))
-              // }
-
-              grid(
-                columns: (auto,) * title-blocks.len(),
-                align: bottom,
-                column-gutter: 1em,
-                ..title-blocks
-              )
-            }
-          ],
-        )
-        if self.store.flavor == "legacy" {
-          place(right + top, dx: -0.5em)[
-            #grid(
+        let header-logo = if self.store.flavor in ("simple", "legacy") {
+          block(
+            inset: (right: 0.5em),
+            grid(
               rows: block-args.height,
               greyc-utils.call-or-display(self, self.store.header-logo),
-            )
-          ]
-        }
+            ),
+          )
+        } else { none }
+        let title-block = block(
+          ..title-block-args,
+          greyc-utils.adaptive-prose-display-title-subtitle(
+            text(..text-args.title, greyc-utils.call-or-display(self, self.store.title)),
+            text(..text-args.subtitle, greyc-utils.call-or-display(self, self.store.subtitle)),
+          ),
+        )
+        block(
+          ..block-args,
+          std.align(horizon,
+            if header-logo == none {
+              title-block
+            } else {
+              grid(
+                columns: (1fr, auto),
+                gutter: 0.5em,
+                align: (left + horizon, right + top),
+                title-block,
+                header-logo,
+              )
+            }
+          ),
+        )
       },
       footer-a: self => {
         let cell(fill: none, text-fill: self.colors.neutral-lightest, it) = rect(
@@ -1197,7 +1242,7 @@
           darmstadt: logo-footer,
         )
         mapping.at(self.store.flavor, default: none)
-      }
+      },
     ),
     ..args,
   )
@@ -1242,6 +1287,7 @@
   let default-header-logo = self => context {
     let mapping = (
       legacy: assets.logo-greyc-with-traits(height: 100%),
+      simple: assets.logo-greyc-with-traits(height: 100%),
       stargazer: greyc-utils.call-or-display(self, default-logo-light),
       darmstadt: greyc-utils.call-or-display(self, default-logo),
     )
@@ -1272,7 +1318,10 @@
   let logos = (:)
   for key in default-logos-data.keys() {
     logos.insert(key, self => {
-      greyc-utils.call-or-display(self, default-logos-data.at(key).at(self.store.flavor, default: default-logos-data.at(key).at("modern")))
+      greyc-utils.call-or-display(
+        self,
+        default-logos-data.at(key).at(self.store.flavor, default: default-logos-data.at(key).at("modern")),
+      )
     })
   }
 

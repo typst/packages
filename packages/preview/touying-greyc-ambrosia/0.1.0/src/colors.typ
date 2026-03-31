@@ -13,5 +13,5 @@
   elec: rgb("#095879"),
   image: rgb("#02b3dc"),
   mad: rgb("#0f682f"),
-  safe: rgb("#e95d0c")
+  safe: rgb("#e95d0c"),
 )

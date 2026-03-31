@@ -98,8 +98,7 @@
     )
   } else {
     panic(
-      "normalize-radius: radius must be of type length, ratio, relative or dictionary, got "
-        + str(type(radius)),
+      "normalize-radius: radius must be of type length, ratio, relative or dictionary, got " + str(type(radius)),
     )
   }
 }
@@ -172,9 +171,7 @@
 /// - ratio (int, float): The ratio.
 /// -> angle
 #let correct-angle(angle, ratio) = {
-  let rad = calc
-    .atan(calc.tan(calc.rem-euclid(angle.rad(), calc.tau)) / ratio)
-    .rad()
+  let rad = calc.atan(calc.tan(calc.rem-euclid(angle.rad(), calc.tau)) / ratio).rad()
   let quadrant = angle-quadrant(angle)
 
   // rad stays the same in quadrant 1
@@ -360,7 +357,7 @@
   } else { "" }
   let fill = if type(fill) == color { fill.to-hex() } else { "url(#gradient)" }
   let spread-operator = if spread-radius >= 0 { "dilate" } else { "erode" }
-    // A radius of 0 causes rendering issues: https://github.com/typst/typst/issues/7794
+  // A radius of 0 causes rendering issues: https://github.com/typst/typst/issues/7794
   let spread-radius = calc.max(calc.abs(spread-radius), 0.001)
 
   // begin templates/shadow.svg.template
@@ -505,10 +502,7 @@
       message: "shadow: fill must be of type color or gradient or none",
     )
     assert(
-      type(radius) == length
-        or type(radius) == ratio
-        or type(radius) == relative
-        or type(radius) == dictionary,
+      type(radius) == length or type(radius) == ratio or type(radius) == relative or type(radius) == dictionary,
       message: "shadow: radius must be of type length, ratio, relative or dictionary",
     )
 

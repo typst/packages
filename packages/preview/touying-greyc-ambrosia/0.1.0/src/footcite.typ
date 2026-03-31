@@ -35,12 +35,11 @@
       old
     })
   }
-  let citation = cite(key, form: "normal", style: cite-style, supplement: supplement)
-  citation
+  cite(key, form: "normal", style: cite-style, supplement: supplement)
   if not is-cited {
     [#footnote(numbering: numbering)[
         #if bib-is-hidden.final() {
-          citation
+          cite(key, form: "normal", style: cite-style)
           h(0.5em)
         }
         #context cite(key, form: "full", style: foot-style, supplement: supplement)

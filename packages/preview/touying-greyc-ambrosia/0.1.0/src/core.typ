@@ -1,4 +1,4 @@
-#import "@preview/touying:0.6.2": touying-set-config, appendix
+#import "@preview/touying:0.6.2": appendix, touying-set-config
 #import "@preview/numbly:0.1.0": numbly
 
 
@@ -12,7 +12,8 @@
 /// -> content
 #let appendix(
   numbering: none,
-  body) = {
+  body,
+) = {
   [#metadata((kind: "touying-appendix"))<touying-metadata>]
   counter(heading).update(0)
   set heading(numbering: numbering)

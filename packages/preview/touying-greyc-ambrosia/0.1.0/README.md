@@ -15,11 +15,12 @@ You are free to use or modify it for your own academic presentations, regardless
 
 ### Flavors
 
-The `greyc-theme` offers five different flavors, inspired by existing touying and beamer themes.
+The `greyc-theme` offers six different flavors, inspired by existing touying and beamer themes.
 
 | flavor |  1  |  2  |  3  |
 |:------:|:---:|:---:|:---:|
 | **`legacy`** | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-legacy-1.webp" width="300"> | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-legacy-2.webp" width="300"> | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-legacy-3.webp" width="300"> |
+| `simple` | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-simple-1.webp" width="300"> | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-simple-2.webp" width="300"> | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-simple-3.webp" width="300"> |
 | `cambridge` | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-cambridge-1.webp" width="300"> | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-cambridge-2.webp" width="300"> | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-cambridge-3.webp" width="300"> |
 | `darmstadt` | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-darmstadt-1.webp" width="300"> | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-darmstadt-2.webp" width="300"> | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-darmstadt-3.webp" width="300"> |
 | `dewdrop` | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-dewdrop-1.webp" width="300"> | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-dewdrop-2.webp" width="300"> | <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/master/assets/samples/sample-dewdrop-3.webp" width="300"> |
@@ -91,7 +92,7 @@ To use it, simply add the following code to your document.
 
 > ℹ️ **Note**
 >
-> `touying-greyc-ambrosia` should always be imported after `touying` (which is not necessary and can be removed) in order for the functions and components it overrides to work correctly (e.g. `#alert`, `#show appendix`, ...).
+> `touying-greyc-ambrosia` should always be imported after `touying` (which is not necessary and can be removed) in order for the functions and components it overrides to work correctly (e.g. `#alert`, `#show: appendix`, ...).
 > ```typ
 > #import "@preview/touying:0.6.2": *
 > #import "@preview/touying-greyc-ambrosia:0.1.0": *
@@ -101,9 +102,10 @@ Otherwise, you can download it for local use:
 
 ```bash
 git clone https://github.com/inspiros/touying-greyc-ambrosia
-```
+python scripts/install.py
+ ```
 
-Then, store the package files in the right location following the instructions [here](https://github.com/typst/packages?tab=readme-ov-file#local-packages).
+This Python script stores the package files in the right location following the instructions [here](https://github.com/typst/packages?tab=readme-ov-file#local-packages).
 After that, you can import the package with:
 
 ```typ

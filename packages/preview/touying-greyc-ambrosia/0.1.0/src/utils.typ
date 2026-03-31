@@ -3,8 +3,11 @@
 
 /// Before appendix selection filter.
 #let before-appendix-filter = sel => {
-  let appendix-marker = query(<touying-metadata>).filter(it => (
-  utils.is-kind(it, "touying-appendix"))).first(default: none)
+  let appendix-marker = query(<touying-metadata>)
+    .filter(it => (
+      utils.is-kind(it, "touying-appendix")
+    ))
+    .first(default: none)
   let has-appendix = appendix-marker != none
   if has-appendix {
     sel.before(appendix-marker.location())
@@ -16,8 +19,11 @@
 
 /// Appendix selection filter.
 #let appendix-filter = sel => {
-  let appendix-marker = query(<touying-metadata>).filter(it => (
-  utils.is-kind(it, "touying-appendix"))).first(default: none)
+  let appendix-marker = query(<touying-metadata>)
+    .filter(it => (
+      utils.is-kind(it, "touying-appendix")
+    ))
+    .first(default: none)
   let has-appendix = appendix-marker != none
   if has-appendix {
     if here().page() < appendix-marker.location().page() {
@@ -33,8 +39,11 @@
 
 /// A selection filter.
 #let reveal-after-appendix-filter = sel => {
-  let appendix-marker = query(<touying-metadata>).filter(it => (
-  utils.is-kind(it, "touying-appendix"))).first(default: none)
+  let appendix-marker = query(<touying-metadata>)
+    .filter(it => (
+      utils.is-kind(it, "touying-appendix")
+    ))
+    .first(default: none)
   let has-appendix = appendix-marker != none
   if has-appendix and here().page() < appendix-marker.location().page() {
     sel.before(appendix-marker.location())
@@ -61,7 +70,9 @@
     ))
     return headings.at(-1, default: none)
   }
-  let headings = query(selector-filter(heading.where())).filter(h => h.location().page() <= current-page and h.level <= depth)
+  let headings = query(selector-filter(heading.where())).filter(h => (
+    h.location().page() <= current-page and h.level <= depth
+  ))
   if headings == () {
     return
   }
@@ -93,7 +104,7 @@
 /// - setting (function): The setting of the heading. Default is `body => body`.
 ///
 /// - style (function): The style of the heading. If `style` is a function, it will use the function to style the heading. For example, `style: current-heading => current-heading.body`.
-/// 
+///
 ///   If you set it to `style: auto`, it will could be controlled by `show heading` rule.
 ///
 /// -> content
@@ -118,24 +129,27 @@
   ..setting-args,
 ) = (
   context {
-    let current-heading = current-heading(level: level, hierachical: hierachical, depth: depth, selector-filter: selector-filter)
+    let current-heading = current-heading(
+      level: level,
+      hierachical: hierachical,
+      depth: depth,
+      selector-filter: selector-filter,
+    )
     if current-heading != none {
-      link(current-heading.location(),
-        if style == none {
-          current-heading
-        } else if style == auto {
-          let current-level = current-heading.level
-          if current-level == 1 {
-            text(.715em, current-heading)
-          } else if current-level == 2 {
-            text(.835em, current-heading)
-          } else {
-            current-heading
-          }
+      link(current-heading.location(), if style == none {
+        current-heading
+      } else if style == auto {
+        let current-level = current-heading.level
+        if current-level == 1 {
+          text(.715em, current-heading)
+        } else if current-level == 2 {
+          text(.835em, current-heading)
         } else {
-          style(..setting-args, current-heading)
+          current-heading
         }
-      )
+      } else {
+        style(..setting-args, current-heading)
+      })
     }
   }
 )
@@ -170,7 +184,9 @@
     }
   }
 
-  let headings = query(selector-filter(heading.where())).filter(h => h.location().page() == current-page and h.level <= depth)
+  let headings = query(selector-filter(heading.where())).filter(h => (
+    h.location().page() == current-page and h.level <= depth
+  ))
   if level == auto {
     return
   }
@@ -187,11 +203,13 @@
     }
   }
 
-  let headings = query(selector-filter(heading.where())).filter(h => h.location().page() <= current-page and h.level <= depth)
+  let headings = query(selector-filter(heading.where())).filter(h => (
+    h.location().page() <= current-page and h.level <= depth
+  ))
   if headings == () or level == auto {
     return
   }
-  
+
   let current-level = headings.last().level
   let current-heading = headings.pop()
   while headings.len() > 0 and level < current-level {
@@ -204,7 +222,7 @@
 }
 
 
-/// Display all current headings on the page using a stack.
+/// Display all current headings on the page.
 ///
 /// - level (int, auto): The level of the heading. If `level` is `auto`, it will return the last heading on or before the current page. If `level` is a number, it will return the last heading on or before the current page with the same level.
 ///
@@ -217,11 +235,11 @@
 /// - setting (function): The setting of the heading. Default is `body => body`.
 ///
 /// - style (function): The style of the heading. If `style` is a function, it will use the function to style the heading. For example, `style: current-heading => current-heading.body`.
-/// 
+///
 ///   If you set it to `style: auto`, it will could be controlled by `show heading` rule.
 ///
 /// -> content
-#let stack-display-current-headings(
+#let prose-display-current-headings(
   self: none,
   level: auto,
   hierachical: true,
@@ -244,7 +262,12 @@
   ..setting-args,
 ) = (
   context {
-    let current-headings = current-headings(level: level, hierachical: hierachical, depth: depth, selector-filter: selector-filter)
+    let current-headings = current-headings(
+      level: level,
+      hierachical: hierachical,
+      depth: depth,
+      selector-filter: selector-filter,
+    )
     if current-headings != none {
       let blocks = ()
       for i in range(current-headings.len()) {
@@ -268,7 +291,7 @@
 
         blocks.push(link(current-heading.location(), ctn))
       }
-      stack(..blocks, dir: dir, spacing: spacing)
+      blocks.join(h(spacing))
     }
   }
 )
@@ -294,6 +317,50 @@
   }
   return it
 }
+
+
+/// Display text with adaptive size to fit in its container
+#let adaptive-display(body, min-size: 4pt) = layout(bounds => context {
+  let low = min-size.pt()
+  let high = text.size.pt()
+  for _ in range(15) {
+    // binary search
+    let mid = (low + high) / 2
+    let current-size = mid * 1pt
+    let m = measure(block(width: bounds.width, text(size: current-size, body)))
+    if m.height <= bounds.height {
+      low = mid
+    } else {
+      high = mid
+    }
+  }
+  text(size: low * 1pt, body)
+})
+
+
+/// Prose display title and subtitle with adaptive size to fit in its container
+#let adaptive-prose-display-title-subtitle(
+  title,
+  subtitle,
+  spacing: 1em,
+  min-size: 4pt,
+) = layout(bounds => context {
+  let low = min-size.pt()
+  let high = text.size.pt()
+  let content = title + h(spacing) + subtitle
+  for _ in range(15) {
+    // binary search
+    let mid = (low + high) / 2
+    let current-size = mid * 1pt
+    let m = measure(block(width: bounds.width, text(size: current-size, content)))
+    if m.height <= bounds.height {
+      low = mid
+    } else {
+      high = mid
+    }
+  }
+  text(size: low * 1pt, content)
+})
 
 
 /// Alert content with a color.

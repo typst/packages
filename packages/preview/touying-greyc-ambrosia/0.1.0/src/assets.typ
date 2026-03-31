@@ -9,7 +9,6 @@
     small: "../assets/logo-greyc-small.svg",
     traits: "../assets/logo-greyc-traits.svg",
   ),
-  logo-criann: "../assets/logo-criann.svg",
   cover-image: "../assets/greyc-cover.webp",
   cover-traits: "../assets/traits.svg",
 )
@@ -18,14 +17,12 @@
 /// Helper function to convert any length to absolute value.
 #let _resolve-length(val, axis-size) = {
   let t = type(val)
-  if t == length { val }
-  else if t == ratio { val * axis-size }
-  else if t == rel { val.abs + (val.ratio * axis-size) }
-  else if t == fraction { 
+  if t == length { val } else if t == ratio { val * axis-size } else if t == rel {
+    val.abs + (val.ratio * axis-size)
+  } else if t == fraction {
     // Treat 1fr as 100% of the container in this context
-    (val / 1fr) * axis-size 
-  }
-  else { val }
+    (val / 1fr) * axis-size
+  } else { val }
 }
 
 
@@ -33,7 +30,7 @@
   ..args,
 ) = layout(size => context {
   let named = args.named()
-  let y-scale = 1.3  // const
+  let y-scale = 1.3 // const
 
   named.width = if "width" in named { _resolve-length(named.width, size.width) } else { auto }
   named.height = if "height" in named { _resolve-length(named.height, size.height) } else { auto }
@@ -41,7 +38,7 @@
     named.height /= y-scale
   }
 
-  let logo-path = if text.lang == "fr" {asset-paths.logo-greyc.fr} else {asset-paths.logo-greyc.en}
+  let logo-path = if text.lang == "fr" { asset-paths.logo-greyc.fr } else { asset-paths.logo-greyc.en }
   let main-logo = image(logo-path, ..named)
   let dimensions = measure(main-logo)
   let container = box(width: auto, height: dimensions.height * y-scale, clip: true)[
@@ -52,7 +49,7 @@
       #image(asset-paths.logo-greyc.traits, height: 50% * dimensions.height)
     ]
   ]
-  
+
   container
 })
 
@@ -61,8 +58,7 @@
 ///
 /// -> image
 #let load-image(self: none, it) = {
-  if type(it) == image {
-  } else if type(it) == function {
+  if type(it) == image {} else if type(it) == function {
     it = it(self)
   } else if type(it) == bytes {
     it = image(it)
@@ -109,14 +105,16 @@
   }
   let op-str = str(opacity)
   data = data.replace(
-    regex("fill-opacity=\"[^\"]*\""), 
-    "fill-opacity=\"" + op-str + "\""
+    regex("fill-opacity=\"[^\"]*\""),
+    "fill-opacity=\"" + op-str + "\"",
   )
   data = data.replace(
-    regex("stroke-opacity=\"[^\"]*\""), 
-    "stroke-opacity=\"" + op-str + "\""
+    regex("stroke-opacity=\"[^\"]*\""),
+    "stroke-opacity=\"" + op-str + "\"",
   )
-  let style-override = "<style> * { fill-opacity: " + op-str + " !important; stroke-opacity: " + op-str + " !important; } </style>"
+  let style-override = (
+    "<style> * { fill-opacity: " + op-str + " !important; stroke-opacity: " + op-str + " !important; } </style>"
+  )
   data = data.replace(regex("#[A-Fa-f0-9]{3,6}"), it => lower(it.text))
   data = data.replace("</svg>", style-override + "</svg>")
   return data
