@@ -114,7 +114,7 @@ After that, you can import the package with:
 
 ### Examples
 
-For more sophisticated use cases, please check [`examples/demo.typ`](https://github.com/inspiros/touying-greyc-ambrosia/blob/master/examples/demo.typ) and [`examples/demo.pdf`](https://github.com/inspiros/touying-greyc-ambrosia/blob/master/examples/demo.pdf).
+For more sophisticated use cases, please check [`examples/demo.typ`](https://github.com/inspiros/touying-greyc-ambrosia/blob/v0.1.0/examples/demo.typ) and [`examples/demo.pdf`](https://github.com/inspiros/touying-greyc-ambrosia/blob/v0.1.0/examples/demo.pdf).
 
 ## License
 
