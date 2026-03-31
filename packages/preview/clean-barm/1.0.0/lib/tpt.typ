@@ -22,14 +22,14 @@
   bibliography: none,
   //Vorgeschriebene e
   restriction-notice: transl("RestrictionNotice1")
-    + transl("Paper")
+    + transl("paper")
     + transl("RestrictionNotice2"),
   foreword: [],
   gendering-note: transl("GenderingNote"),
   body,
 ) = {
-  baseProject(
-    _type: "tpt",
+  base-project(
+    type: "tpt",
     title: title,
     authors: authors,
     keywords: keywords,
@@ -99,7 +99,7 @@
       //Beschreibung
       align(center, text(
         font: "Noto Sans",
-        transl("PracticalPaper"),
+        transl("Practicalpaper"),
       ))
       align(center, text(module, weight: "bold"))
       v(1.5fr)

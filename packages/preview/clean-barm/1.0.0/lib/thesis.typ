@@ -3,7 +3,7 @@
 #import "@preview/transl:0.2.0"
 #import "/lib/base.typ": *
 
-#let Thesis(
+#let thesis(
   //Settings der Template
   language: "de",
   title: "",
@@ -27,18 +27,18 @@
   glossary: (:),
   bibliography: none,
   restriction-notice: transl("RestrictionNotice1")
-    + transl("Paper")
+    + transl("paper")
     + transl("RestrictionNotice2"),
   foreword: [],
   gendering-note: transl("GenderingNote"),
   body,
 ) = {
-  baseProject(
-    _type: "thesis",
+  base-project(
+    type: "thesis",
     language: language,
     title: title,
     authors: (
-      (name: author, student-id: studentId),
+      (name: author, student-id: student-id),
     ),
     keywords: keywords,
     description: description,
@@ -79,7 +79,7 @@
       }
       v(1fr)
       align(center, [
-        #transl("Thesis") \
+        #transl("thesis") \
         #transl("forDegree") \
         Bachelor of Science \ \
         Im Studiengang #degree-program \

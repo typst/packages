@@ -4,8 +4,8 @@
 #import "@preview/decasify:0.11.3": *
 
 
-#let baseProject(
-  _type: "",
+#let base-project(
+  type: "",
   language: "de",
   sans-font: "Noto Sans",
   serif-font: "Times New Roman",
@@ -257,7 +257,7 @@
       transl("Affidavit"),
     )
     #transl("StatementUnderOath1")
-    #transl(_type.replace(_type.first(), upper(_type.first())))
+    #transl(type.replace(type.first(), upper(type.first())))
     #transl("statementUnderOath2")
   ]
 

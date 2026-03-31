@@ -3,7 +3,7 @@
 #import "/lib/common.typ": *
 #import "/lib/base.typ": *
 
-#let Expose(
+#let expose(
   //Settings der Template
   title: "",
   author: "",
@@ -30,14 +30,14 @@
   bibliography: none,
   //Vorgeschriebene Texte
   restriction-notice: transl("RestrictionNotice1")
-    + transl("Paper")
+    + transl("paper")
     + transl("RestrictionNotice2"),
   foreword: none,
   gendering-note: transl("gendering-note"),
   body,
 ) = {
-  baseProject(
-    _type: "expose",
+  base-project(
+    type: "expose",
     title: title,
     authors: (
       (name: author, student-id: studentId),

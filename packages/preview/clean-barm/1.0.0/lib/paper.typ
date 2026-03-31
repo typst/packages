@@ -1,7 +1,7 @@
 #import "/lib/import.typ": *
 #import "/lib/base.typ": *
 
-#let Paper(
+#let paper(
   //Settings der Template
   title: "",
   authors: (),
@@ -23,8 +23,8 @@
   gendering-note: [Zur besseren Lesbarkeit wird in dieser Ausarbeitung auf die gleichzeitige Verwendung geschlechtsspezifischer Sprachformen verzichtet. Sämtliche personenbezogenen Bezeichnungen gelten daher im Sinne der Gleichbehandlung für alle Geschlechter. Diese Vereinfachung dient ausschließlich der sprachlichen Klarheit und ist in keiner Weise als Wertung zu verstehen.],
   body,
 ) = {
-  baseProject(
-    _type: "paper",
+  base-project(
+    type: "paper",
     title: title,
     authors: authors,
     keywords: keywords,
@@ -70,7 +70,7 @@
       //Beschreibung
       align(
         center,
-        transl("PracticalPaper"),
+        transl("Practicalpaper"),
       )
       align(center, text(module, weight: "bold"))
       v(1.5fr)

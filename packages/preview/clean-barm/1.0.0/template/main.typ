@@ -9,10 +9,10 @@
 // heruntergeladen und mittels `image("bild.png")` eingesetzt werden.
 #prequery.fallback.update(true) // deaktivieren, um fallbacks zu deaktivieren und mit den eigentlichen assets fortzufahren
 
-// folgende Dokumententypen sind verfügbar: Paper, TPT3, Expose, Thesis
+// folgende Dokumententypen sind verfügbar: paper, TPT3, expose, thesis
 // ggf. auch Importe anpassen
 
-#show: Thesis.with(
+#show: thesis.with(
   title: "Titel der Arbeit",
   author: "Max Mustermann",
   study-group: "AI-WS23_III",
