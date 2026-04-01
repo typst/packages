@@ -577,7 +577,7 @@ To add more space to a section with text, for explanations for example, I create
 ]
 ```
 
-You can also change the language like for _recipe_:
+You can also change the palette like for _recipe_:
 
 ```typ
 #not-a-recipe(name: "Introduction", change-palette: palette.lagoon)[
