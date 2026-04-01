@@ -364,7 +364,7 @@
 ///     ("", "*!", ""),
 ///   ),
 ///   winner: 0, // <- Position of winning cand
-///   dashed-lines: (1,) // <- Note the comma
+///   dashed-lines: (0,) // <- Note the comma
 /// )
 /// ```
 #let tableau = tableau
