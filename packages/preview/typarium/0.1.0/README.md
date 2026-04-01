@@ -2,7 +2,7 @@
 
 **typarium** is a Typst package for building expressive font specimen cards from system fonts, local font files, and mixed metadata dictionaries.
 
-For the full guide and API reference, see [documentation.pdf](https://github.com/rice8y/typarium/blob/main/package/docs/documentation.pdf).
+For the full guide and API reference, see [documentation.pdf](https://github.com/rice8y/typarium/blob/0.1.0/package/docs/documentation.pdf).
 ## Usage
 
 ### Basic Local Font Specimen
@@ -64,7 +64,7 @@ To inspect parsed glyph metrics, codepoint samples, and table diagnostics with t
 
 ![Inspector renderer](images/sample07.png)
 
-See also [variation-request.typ](https://github.com/rice8y/typarium/blob/main/package/examples/variation-request.typ) for a standalone custom renderer that reads `variation-request` and `variation-support` directly.
+See also [variation-request.typ](https://github.com/rice8y/typarium/blob/0.1.0/package/examples/variation-request.typ) for a standalone custom renderer that reads `variation-request` and `variation-support` directly.
 
 ### Custom Theme and Renderer
 
