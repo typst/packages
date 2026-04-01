@@ -1,4 +1,4 @@
-#let stage_direction(blocked: true, body) = {
+#let stage-direction(blocked: true, body) = {
   if blocked {
     align(center, box(width: 70%)[
       #block(spacing: (0.0em))[
@@ -266,11 +266,11 @@
     if speaker-layout == "fancy" {
       align(center)[
         #block(sticky: true, below:0.65em)[
-          #stage_direction(blocked: false)[(#it)]
+          #stage-direction(blocked: false)[(#it)]
         ]
       ]
     } else if speaker-layout == "concise" {
-      stage_direction(blocked: false)[(#it)]
+      stage-direction(blocked: false)[(#it)]
     }
   }
 
@@ -285,7 +285,7 @@
   //if parentheses-mean-stage-directions {
   show regex("\\([^)]+\\)"): it => {
     if parentheses-mean-stage-directions {
-      stage_direction(blocked: false, it)
+      stage-direction(blocked: false, it)
     } else {it}
   }
 

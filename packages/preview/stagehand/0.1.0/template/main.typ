@@ -34,12 +34,12 @@ Indeed it is. It can go on for a while. #lorem(40)
 (Alice is growing annoyed at the nonsense) You are annoyed? Good thing you put that in parentheses, so I can more easily understand in-line stage directions.
 #speaker(p: "sceptic")[Alice]
 I'd rather wear my emotions on the sleeve, and put them right behind my name.
-#stage_direction[Bob gestures around. It is a highly complex gesture, that effectively demonstrates the method of creating blocked stage directions.]
+#stage-direction[Bob gestures around. It is a highly complex gesture, that effectively demonstrates the method of creating blocked stage directions.]
 #speaker[Bob]
-The command takes an optional parameter: 'blocked'. If 'blocked' is false, it looks like this: #stage_direction(blocked: false)[He gestures around in a surprising lack of parentheses.]
+The command takes an optional parameter: 'blocked'. If 'blocked' is false, it looks like this: #stage-direction(blocked: false)[He gestures around in a surprising lack of parentheses.]
 #speaker[Alice]
-Instead of having to write "\#speaker" and "\#stage_direction" all the time, we can import these names with dedicated aliases:
-#import "@preview/stagehand:0.1.0":stage_direction as d, speaker as s
+Instead of having to write "\#speaker" and "\#stage-direction" all the time, we can import these names with dedicated aliases:
+#import "@preview/stagehand:0.1.0":stage-direction as d, speaker as s
 #d[Alice uses some magic and imports the command with a new name.]
 #s[Bob]
 We can also define functions for our names, so we don't have to write them out all the time.
