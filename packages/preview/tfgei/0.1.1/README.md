@@ -7,7 +7,7 @@ Universidade de Vigo ([UVigo](https://www.uvigo.gal/)).
 In order to use it, just import it and apply a `show` rule: 
 
 ```typst
-#import "@local/tfgei:0.1.0": tfgei
+#import "@preview/tfgei:0.1.0": tfgei
 #show: tfgei.with(
   titulo: "Título do Traballo de Fin de Grado",
   alumno: "D. Nome Alumna/o",
