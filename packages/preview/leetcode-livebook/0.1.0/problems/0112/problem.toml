@@ -1,0 +1,5 @@
+slug = "path-sum"
+title = "Path Sum"
+difficulty = "easy"
+labels = ["tree", "binary-tree", "depth-first-search", "breadth-first-search"]
+custom-display = true

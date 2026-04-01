@@ -1,0 +1,15 @@
+[package]
+name = "modern-hust-cse-report"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Dzming Li <i@dzmingli>"]
+license = "GPL-3.0-or-later"
+categories = ["report"]
+repository = "https://github.com/DzmingLi/hust-cse-report"
+description = "An unofficial lab report template for the School of Cyber Science and Engineering at HUST." 
+keywords = ["华中科技大学网安学院","华科网安学院","HUST","CSE","report","实验报告"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

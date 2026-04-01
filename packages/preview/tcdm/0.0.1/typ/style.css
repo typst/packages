@@ -1,0 +1,211 @@
+/* General styles */
+
+:root {
+  --fg-color: black;
+  --bg-color: white;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg-color: white;
+    --bg-color: #282828;
+  }
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+
+  max-width: 40em;
+  margin: 0 auto;
+  padding-inline: 1em;
+
+  line-height: 1.6;
+  font-family: system-ui;
+}
+
+h1 {
+  margin-block: 2em;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+p {
+  line-height: 1.5;
+}
+
+li {
+  margin-block: 0.3em;
+}
+
+a {
+  color: #1464cc;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #681da8;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  a {
+    color: #9fc1f9;
+  }
+
+  a:visited {
+    color: #c58af9;
+  }
+}
+
+pre {
+  width: 100%;
+  overflow-x: auto;
+  padding-block: 0.5em;
+}
+
+/*
+ * Adapt the syntax highlighting palette to the dark theme
+ *
+ * In typst v0.14, `text.fill` in `raw` turn into inline `style="color: #rrggbb" attributes.
+ * We have to use `!important` to override them.
+ * https://forum.typst.app/t/how-to-support-syntax-highlighting-for-html-dark-theme-in-v0-14-0-rc-1/6380/2
+ */
+@media (prefers-color-scheme: dark) {
+  code span {
+    /**
+     * Check all possible colors by executing the following in the browser console:
+     *   [...new Set($$("span[style^='color:']").map((e) => e.outerHTML.match(/style="color: (#[0-9a-f]+?)"/)[1]))].sort()
+     * Then improve the contrast ratio:
+     *   https://webaim.org/resources/contrastchecker/?bcolor=212737
+     * (See also https://github.com/typst/typst/blob/v0.14.0-rc.1/crates/typst-library/src/text/raw.rs#L942-L972.)
+     */
+    &[style="color: #1d6c76"] {
+      color: #36bfce !important;
+    }
+
+    &[style="color: #198810"] {
+      color: #38be13 !important;
+    }
+
+    &[style="color: #4b69c6"] {
+      color: #92a5dd !important;
+    }
+
+    &[style="color: #6b6b6f"] {
+      color: #ababab !important;
+    }
+
+    &[style="color: #74747c"] {
+      color: #c497d8 !important;
+    }
+
+    &[style="color: #b60157"] {
+      color: #fe90c7 !important;
+    }
+
+    &[style="color: #d73a49"] {
+      color: #e5858d !important;
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+hr {
+  margin-block: 2em;
+  color: lightgray;
+}
+
+/* Project styles */
+
+main {
+  /* The first paragraph and the icons */
+  & > p:nth-child(2),
+  & > p:nth-child(3) {
+    text-align: center;
+  }
+}
+
+section.category {
+  /* Make headings sticky */
+  & > h2 {
+    position: sticky;
+    background-color: var(--bg-color);
+    top: 0;
+
+    margin-top: 1.25em;
+    margin-bottom: 0.25em;
+    padding-block: 0.75em;
+
+    & + * {
+      margin-top: 0;
+    }
+  }
+
+  /* Select shown and hidden projects */
+  & > ul, & > details > ul {
+    list-style: none;
+    padding: 0;
+
+    & > li {
+      padding: 1em;
+      border-top: 1px solid #ccc;
+      &:first-child {
+        border-top: none;
+      }
+
+      & > details.project {
+        & > summary > .description {
+          display: block;
+          margin-top: 0.5em;
+        }
+
+        & > ul {
+          /* Decrease the spacing */
+          padding-left: 2em;
+
+          margin-top: 0.5em;
+          padding-bottom: 0.5em;
+          border-bottom-left-radius: 1em;
+          border-left: 2px solid #1464cc;
+        }
+      }
+    }
+  }
+}
+@media (prefers-color-scheme: dark) {
+  & > ul, & > details > ul {
+    & > li {
+      border-color: #444;
+
+      & > details.project > ul {
+        border-color: #9fc1f9;
+      }
+    }
+  }
+}
+
+.tag {
+  display: inline-block;
+  &:hover {
+    background-color: #e6e6e6;
+    border-radius: 0.25em;
+    padding-inline: 0.25em;
+    margin-inline: -0.25em;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .tag:hover {
+    background-color: #4a4a4a;
+  }
+}
