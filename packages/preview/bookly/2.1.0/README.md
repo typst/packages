@@ -99,7 +99,7 @@ After importing `bookly`, you have to initialize the template by a show rule wit
 * `back-cover` for defining the back cover of a book
 
 
-For more information, please refer to the [manual](https://github.com/maucejo/book_template/blob/main/docs/manual.pdf).
+For more information, please refer to the [manual](https://github.com/maucejo/book_template/blob/0a2a2a0ef67059c82921a0d8bed8d13fee8385e6/docs/manual.pdf).
 
 ## Licence
 
