@@ -53,7 +53,7 @@ Minimal syntax to use it with an example:
 ```
 The first part, with the name, the description, servings, prep-time and cook-time is for the header part of the recipe that you can see here :
 
-![Recipe's header with the title, the subtitle, the serving, the preparation time and the cooking time](headerRecipe.png "Recipe's header")
+![Recipe's header with the title, the subtitle, the serving, the preparation time and the cooking time](https://github.com/Ajrarn/fancy-cookbook/blob/2.0.0/headerRecipe.png "Recipe's header")
 
 You can see the page header with the book's title on the left and chapter title on the right and a line to separate from the header of the recipe which is also closed by a line
 
@@ -62,7 +62,7 @@ The third mandatory part is **instructions** which is a content with a numbered 
 
 This two parts will be dispatch in two columns. And all the body part of the recipe will be in the left or the right column. Here it is:
 
-![Recipe's body, where we can see the two columns with ingredients to the left and instructions to the right](bodyRecipe.png "Recipe's body")
+![Recipe's body, where we can see the two columns with ingredients to the left and instructions to the right](https://github.com/Ajrarn/fancy-cookbook/blob/2.0.0/bodyRecipe.png "Recipe's body")
 
 That's it for the simplest recipe, but we have other options. First of all we can have groups of ingredients and groups of instructions.
 
@@ -116,7 +116,7 @@ For the instructions, the key *steps* will accept a content with a numbered list
 
 And the result is :
 
-![Ingredients and Instructions grouped in blocks](groupsBodyRecipe.png "Groups")
+![Ingredients and Instructions grouped in blocks](https://github.com/Ajrarn/fancy-cookbook/blob/2.0.0/groupsBodyRecipe.png "Groups")
 
 As you can see the numbering continue even if the lists are in different groups.
 
@@ -128,7 +128,7 @@ As you can see the numbering continue even if the lists are in different groups.
 #recipe(
   [Lychee whiskey],
   description: [Perfumed Whisky],
-  image-left: image("asset/whisky.png)  // image-right or both
+  image-left: image("asset/whisky.png")  // image-right or both
 )
 ```
 You can add images to the recipe, one is for the left column and the other for the right one. This option can let you adjust your recipe to fit in one page if you want.
@@ -309,8 +309,8 @@ Finally, the *book-author* is visible only in the back cover page. So, if you se
 * teal
 
 You can see them in action in two styles :
-* [palettes-flat.pdf](https://github.com/Ajrarn/fancy-cookbook/tree/main/palettes-flat.pdf)
-* [palettes-gradient.pdf](https://github.com/Ajrarn/fancy-cookbook/tree/main/palettes-gradient.pdf)
+* [palettes-flat.pdf](https://github.com/Ajrarn/fancy-cookbook/blob/2.0.0/palettes-flat.pdf)
+* [palettes-gradient.pdf](https://github.com/Ajrarn/fancy-cookbook/blob/2.0.0/palettes-gradient.pdf)
 
 A palette is something like this :
 
@@ -386,7 +386,7 @@ The 4 languages are :
 To set the current language in any part of the document you can use this instruction (which I recommend you to do every time, in all your document), example with french :
 
 ```typ
-#set text (lang:"fr")
+#set text(lang:"fr")
 ```
 
 Do it before calling the *cookbook* function. You can also switch between recipe your language with this instruction, but I don't know why you would do that.
@@ -577,7 +577,7 @@ To add more space to a section with text, for explanations for example, I create
 ]
 ```
 
-You can also change the palette like for _recipe_:
+You can also change the language like for _recipe_:
 
 ```typ
 #not-a-recipe(name: "Introduction", change-palette: palette.lagoon)[
@@ -644,4 +644,4 @@ Or if you want to see the metadata of the recipes (with tags):
 ```
 
 ## Examples
-Finally, you can find examples in the [Github Project](https://github.com/Ajrarn/fancy-cookbook/tree/main/examples)
+Finally, you can find examples in the [Github Project](https://github.com/Ajrarn/fancy-cookbook/blob/2.0.0/examples)
