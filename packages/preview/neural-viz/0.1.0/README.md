@@ -1,17 +1,17 @@
-# cetz-nn-graph
+# neural-viz
 
 Draw neural network graphs with CeTZ.
 
 ## Install
 
 ```typ
-#import "@preview/cetz-nn-graph:0.1.0": *
+#import "@preview/neural-viz:0.1.0": *
 ```
 
 ## Quick start
 
 ```typ
-#import "@preview/cetz-nn-graph:0.1.0": *
+#import "@preview/neural-viz:0.1.0": *
 
 #graph-canvas({
   let ds = make-dataset("Image\nDataset", pos: (1.0, 0.0))
@@ -59,7 +59,7 @@ only the diagram instead of an A4 canvas.
 ![Autoencoder architecture diagram showing encoder, latent bottleneck, and reconstruction flow](docs/images/autoencoder.svg)
 
 ```typ
-#import "@preview/cetz-nn-graph:0.1.0": *
+#import "@preview/neural-viz:0.1.0": *
 
 #graph-canvas({
   let input = make-image-dataset(
@@ -128,7 +128,7 @@ are automatically spread evenly along that side.
 ![Image node and image dataset diagram connected to latent space](docs/images/image-nodes.svg)
 
 ```typ
-#import "@preview/cetz-nn-graph:0.1.0": *
+#import "@preview/neural-viz:0.1.0": *
 
 #graph-canvas({
   let img = make-image-node(
@@ -177,7 +177,7 @@ are automatically spread evenly along that side.
 ![Classifier pipeline diagram from images to logits](docs/images/classifier.svg)
 
 ```typ
-#import "@preview/cetz-nn-graph:0.1.0": *
+#import "@preview/neural-viz:0.1.0": *
 
 #graph-canvas({
   let ds = make-dataset("Training\nImages", pos: (1.0, 0.0))
@@ -215,7 +215,7 @@ are automatically spread evenly along that side.
 ![Segmentation model diagram from input image to mask output](docs/images/segmentation.svg)
 
 ```typ
-#import "@preview/cetz-nn-graph:0.1.0": *
+#import "@preview/neural-viz:0.1.0": *
 
 #graph-canvas({
   let input = make-dataset("Input\nImage", pos: (1.0, 0.0), images: 1, image-size: (1.7, 2.1))
@@ -245,7 +245,7 @@ are automatically spread evenly along that side.
 ![Siamese encoder diagram with shared embeddings and distance head](docs/images/siamese.svg)
 
 ```typ
-#import "@preview/cetz-nn-graph:0.1.0": *
+#import "@preview/neural-viz:0.1.0": *
 
 #graph-canvas({
   let a = make-dataset("Input A", pos: (1.0, 1.4))
@@ -286,7 +286,7 @@ are automatically spread evenly along that side.
 ![GAN diagram with generator and discriminator paths for real and fake samples](docs/images/gan.svg)
 
 ```typ
-#import "@preview/cetz-nn-graph:0.1.0": *
+#import "@preview/neural-viz:0.1.0": *
 
 #graph-canvas({
   let real = make-dataset("Real\nImages", pos: (1.0, 1.6))
