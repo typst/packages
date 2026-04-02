@@ -1,57 +1,36 @@
 # clean-barm
 
-Dieses git Repository enthält das [Typst](https://typst.app/) Template für die Ausarbeitungen an der [Berufsakademie Rhein-Main](https://studenten.ba-rm.de/).
-Das ursprüngliche Template wurde von [GolemT](https://github.com/GolemT/ba-template) erstellt, dieses Repository enthält eine vereinheitlichte und überarbeitete Version davon und soll im Typst Universe veröffentlicht werden.
+This package contains inofficial templates for documents at the [Berufsakademie Rhein-Main](https://studenten.ba-rm.de/) university, Germany. 
 
-Das Repository enthält derzeit Templates für die folgenden Dokumente:
-- Paper (Wissenschaftliches Arbeiten)
-- TPT III
+Because of the specificity of this package it is currently only documented in German although translation 
+
+The original templates were created by [GolemT](https://github.com/GolemT/ba-template) while this package contains a unified and reworked versions of those.
+
+This repositor currently contains
+- Paper ("Wissenschaftliches Arbeiten")
+- TPT
 - Exposé
 - Bachelor Thesis
 
 ## Setup
 
-Allgemein ist das Template mittels `typst init @preview/clean-barm` nutzbar.
+The assets referenced in the main.typ of the template use [`prequery`](https://typst.app/universe/package/prequery/) to outsource them as their license is not compatible.
+You may install and use the CLI via `prequery main.typ` to pull the ressources automatically or download them manually and replace the `prequery.image(...)` with `image(...)` statements.
+*This setup means that the logos are missing because prequery will fall back on placeholder assets by default!*
+The template contains additional explanations for this.
 
-Für rein lokale Setups und zur Weiterentwicklung
-- Linux: `${XDG_DATA_HOME:-~/.local/share}/typst/packages/local/clean-barm/1.0.0`
-- MacOS: `~/Library/Application Support/typst/packages/local/clean-barm/1.0.0`
-- Windows: `%APPDATA%\typst\packages\local\clean-barm\1.0.0`
+## Usage
 
-geklont und mittels `typst init @local/clean-barm:1.0.0` initialisiert werden
+Each template uses a block to define core properties and control properties such as authors or whether a list of figures should be rendered.
 
-Alternativ dazu kann natürlich auch einfach das Repository an einen Wort der Wahl geklont oder von [als zip](https://git.thebread.dev/theBreadCompany/ba-template/archive/main.zip) heruntergeladen und extrahiert werden.
-
-Bei der lokalen Nutzung mittels `typst` erfolgt die Kompilierung weiterhin mittels `typst w main.typ`.
-
-Die in der main.typ hinterlegten Assets nutzen `prequery`, um die Assets nicht im Paket selbst hinterlegen zu müssen (was an der Lizenz scheitern würde). 
-Entweder kann das Tool installiert werden, um mittels `prequery main.typ` die benötigten Ressourcen automatisch zu pullen, oder manuell die Bilder heruntergeladen und abgelegt werden.
-*Infolge dieses Aufbaus kompiliert das erzeugte Template nicht automatisch!* Eine Fallback Option mit Erklärung ist deshalb ganz oben im Dokument hinterlegt.
-
-### Neues Projekt in Typst anlegen
-
-### Projektfiles auswählen
-
-Für alle normale Semianrarbeiten der BA reicht das Template "Paper". Für Bacherlorarbeiten, Expose oder TPT III sollten die anderen Templates genutzt werden.
-
-### Projektfiles hochladen
-
-Solange das Paket noch nicht veröffentlicht wurde müssen alle Dateien im Ordner des Templates hochgeladen werden. Dazu kann man im Typst Projekt über den "Hochladen" Knopf alle Dateien im Explorer auswählen.
-
-Sobald die Veröffentlichung abgeschlossen ist kann auch in der Web-App das Template instanziiert werden.
-
-## Schreiben in Typst
-
-### Setzen der Hauptattribute
-
-Jede main.typ fängt mit einem Definitionsblock des Templates an. In diesem können Titel, Authoren, Abgabedatum, Modul, Bild des Deckblatts definiert werden. Zudem kann hier durch einen Bool wert gesetzt werden, ob bestimmte Blöcke im PDF generiert werden sollen. So kann man z.B. das Codeverzeichnis ausblenden wenn man keinen Code in seiner Arbeit hat. Hier eine Übersicht der Attribute:
+This is a full list of available properties:
 
 <details>
   <summary>Thesis</summary>
    
   ```typst
   #show: Thesis.with(
-    //language: "de", // Standard
+    //language: "de", // default
     title: "Titel der Arbeit",
     author: "Max Mustermann",
     keywords: ("Thesis", "Bachelor", "..."),
@@ -67,8 +46,8 @@ Jede main.typ fängt mit einem Definitionsblock des Templates an. In diesem kön
     academic-reviewer: "Alice",
     company-reviewer: "Bob",
     submission-date: "10.06.2026",
-    university-logo: image("../images/BA_Logo.jpg", width: auto),
-    company-logo: image("../images/DB_Logo.png", height: 3fr),
+    university-logo: image("BA_Logo.jpg", width: auto),
+    company-logo: image("DB_Logo.png", height: 3fr),
     show-list-of-figures: true,
     show-list-of-tables: true,
     show-list-of-code: true,
@@ -76,9 +55,9 @@ Jede main.typ fängt mit einem Definitionsblock des Templates an. In diesem kön
     appendix: none,
     glossary: (:), // leeres Dictionary
     bibliography: none,
-    //restriction-notice: "" // hat internen Standardtext
+    //restriction-notice: "" // has internal default
     //foreword: "",
-    //gendering-note: "", // hat internen Standardtext
+    //gendering-note: "", // has internal default
   )
   ```
 </details>
@@ -120,9 +99,9 @@ Jede main.typ fängt mit einem Definitionsblock des Templates an. In diesem kön
       title: none,
       "refs.bib",
     ),
-    //restriction-notice: "" // hat internen Standardtext
+    //restriction-notice: "" // has internal default
     //foreword: "",
-    //gendering-note: "", // hat internen Standardtext
+    //gendering-note: "", // has internal default
   )
   ```
 </details>
@@ -159,9 +138,9 @@ Jede main.typ fängt mit einem Definitionsblock des Templates an. In diesem kön
       title: none,
       "refs.bib",
     ),
-    //restriction-notice: "" // hat internen Standardtext
+    //restriction-notice: "" // has internal default
     //foreword: "",
-    //gendering-note: "", // hat internen Standardtext
+    //gendering-note: "", // has internal default
   )
   ```
 </details>
@@ -198,15 +177,15 @@ Jede main.typ fängt mit einem Definitionsblock des Templates an. In diesem kön
       title: none,
       "refs.bib",
     ),
-    //restriction-notice: "" // hat internen Standardtext
+    //restriction-notice: "" // has internal default
     //foreword: "",
-    //gendering-note: "", // hat internen Standardtext
+    //gendering-note: "", // has internal default
   )
   ```
 
 </details>
 
-Sollte die Liste mit Akronymen oder das Glossar zu groß werden, kann auch auch im Stil des Anhangs ein separates Dokument angelegt und die entsprechenden Einträge ausgelagert werden:
+The acronyms and glossary may get their own source file in case the list gets too long:
 
 <details>
   <summary>main.typ + acronyms.typ</summary>
@@ -224,10 +203,8 @@ Sollte die Liste mit Akronymen oder das Glossar zu groß werden, kann auch auch 
 
   ```typst 
   #import "acronyms.typ": Acronyms
-  #show: Thesis.with(
+  #show: thesis.with(
     acronyms: Acronyms,
   )
   ```
 </details>
-
-Mehr Demo Code ist im Template sowie [in der Typst Dokumentation](https://typst.app/docs/tutorial/) zu finden.
