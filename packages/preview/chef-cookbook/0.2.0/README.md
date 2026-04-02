@@ -23,7 +23,7 @@ The template exports two main functions: `cookbook` and `recipe`.
 This is the main show rule that sets up the document structure, cover page, and table of contents.
 
 ```typ
-#import "@preview/chef-cookbook:0.1.0": *
+#import "@preview/chef-cookbook:0.2.0": *
 
 #show: cookbook.with(
   title: "My Recipes",
