@@ -9,7 +9,7 @@
     institute: [Institute],
     seminar: [Seminar],
     semester: [Semester],
-    docent: [Docent],
+    instructor: [Instructor],
     author: [Author],
     date: [1#super[st] January 1970],
 )

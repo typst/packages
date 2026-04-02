@@ -1,6 +1,6 @@
 #let (
     essay,
-    protocol,
+    minutes,
 ) = {
     import "colors.typ": get-colors
     import "exercise.typ" as exercise
@@ -13,7 +13,7 @@
         institute: [#todo[Institute]],
         seminar: [#todo[Seminar]],
         semester: [#todo[Semester]],
-        docent: [#todo[Docent]],
+        instructor: [#todo[Instructor]],
         author: [#todo[Author]],
         date: [#todo[Date]],
 
@@ -51,7 +51,7 @@
                 #ifnn(university)
                 #ifnn(institute)
                 #ifnn(seminar)
-                #docent
+                #instructor
             ][
                 #set align(right)
                 #ifnn(semester)
@@ -71,13 +71,13 @@
         body
     }
 
-    let protocol(
+    let minutes(
         title: [#todo[Title]],
         university: [#todo[University]],
         institute: [#todo[Institute]],
         seminar: [#todo[Seminar]],
         semester: [#todo[Semester]],
-        docent: [#todo[Docent]],
+        instructor: [#todo[Instructor]],
         author: [#todo[Author]],
         date: [#todo[Date]],
         ..args,
@@ -110,7 +110,7 @@
                 #ifnn(university)
                 #ifnn(institute)
                 #ifnn(seminar)
-                #docent
+                #instructor
             ][
                 #set align(right)
                 #ifnn(semester)
@@ -131,7 +131,7 @@
     }
 
     (
-        protocol,
+        minutes,
         essay,
     )
 }

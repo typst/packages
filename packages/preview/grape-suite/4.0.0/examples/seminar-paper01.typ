@@ -10,7 +10,7 @@
     university: [Example University],
     faculty: [Example Faculty],
     institute: [Institute for Philosophy],
-    docent: [Dr. phil. Berta Beispielprüferin],
+    instructor: [Dr. phil. Berta Beispielprüferin],
     seminar: [Example Seminar],
 
     date: [14#super[th] June 2023],

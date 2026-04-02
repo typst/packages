@@ -44,26 +44,25 @@
     })
 }
 
-#let make-matrix-row(
+#let make-rubric-row(
     show-comment-field: false,
     comment-field-value: none,
     no,
     title,
     extra,
     points,
-    solution-parts,
+    rubric,
     task-type,
     extra-task-type,
 ) = {
     let c = get-colors()
     assert(
-        solution-parts == none
-            or points == solution-parts.fold(0, (sum, s) => sum + s.at(0)),
-        message: "solution parts should have the same number of points as the whole task! (task no "
+        rubric == none or points == rubric.fold(0, (sum, s) => sum + s.at(0)),
+        message: "rubric should have the same number of points as the whole task! (task no "
             + str(no)
             + ")",
     )
-    let parts = if (solution-parts == none) { () } else { solution-parts }
+    let parts = if (rubric == none) { () } else { rubric }
     let e = (
         table.hline(stroke: c.primary),
 
@@ -98,11 +97,11 @@
     return e
 }
 
-#let make-solution-matrix(
+#let make-grading-rubric(
     show-comment-field: false,
     comment-field-value: none,
     loc,
-    matrix-task-header,
+    rubric-task-header,
     task-type,
     extra-task-type,
     achieved-points,
@@ -126,7 +125,7 @@
 
         table.cell(fill: c.primary, text(fill: white, align(
             horizon,
-            strong(matrix-task-header),
+            strong(rubric-task-header),
         ))),
 
         table.vline(stroke: c.primary),
@@ -138,14 +137,14 @@
 
         ..(
             non-extra-tasks
-                .map(task => make-matrix-row(
+                .map(task => make-rubric-row(
                     show-comment-field: show-comment-field,
                     comment-field-value: comment-field-value,
                     task.no,
                     task.title,
                     task.extra,
                     task.points,
-                    task.solution-parts,
+                    task.rubric,
                     task.task-type,
                     task.extra-task-type,
                 ))
@@ -156,14 +155,14 @@
 
         ..(
             extra-tasks
-                .map(task => make-matrix-row(
+                .map(task => make-rubric-row(
                     show-comment-field: show-comment-field,
                     comment-field-value: comment-field-value,
                     task.no,
                     task.title,
                     task.extra,
                     task.points,
-                    task.solution-parts,
+                    task.rubric,
                     task-type,
                     extra-task-type,
                 ))
@@ -400,11 +399,11 @@
     // is extra task?
     extra: false,
 
-    // iff true, ignore points in final sum and solution matrix
+    // iff true, ignore points in final sum and grading rubric
     ignore-points: false,
 
     // description of points awarded for the task: list of tuples of (point_number, description)
-    solution-parts: none,
+    rubric: none,
 
     // numbering of task
     numbering-format: none,
@@ -465,10 +464,10 @@
                     instruction-format(instruction)
                 },
                 body: body.at(0, default: none),
-                solution-parts: if body.pos().len() > 1
+                rubric: if body.pos().len() > 1
                     and _type(body.pos().at(1)) == array {
                     body.pos().at(1)
-                } else { solution-parts },
+                } else { rubric },
                 points: points,
                 extra: extra,
                 ignore-points: ignore-points,

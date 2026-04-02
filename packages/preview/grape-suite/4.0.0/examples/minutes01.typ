@@ -1,12 +1,12 @@
 #import "/src/library.typ": subtype
 
-#show: subtype.protocol.with(
+#show: subtype.minutes.with(
     title: "Some session's title",
     university: [University],
     institute: [Institute],
     seminar: [Seminar],
     semester: [Semester],
-    docent: [Docent],
+    instructor: [Instructor],
     author: [Author],
     date: [1#super[st] January 1970],
 )

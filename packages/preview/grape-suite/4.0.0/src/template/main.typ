@@ -7,7 +7,7 @@
     university: [Example University],
     faculty: [Example Faculty],
     institute: [Institute for Philosophy],
-    docent: [Dr. phil. Edgar Example-Examiner],
+    instructor: [Dr. phil. Edgar Example-Examiner],
     seminar: [Example Seminar],
 
     date: [14#super[th] June 2023],

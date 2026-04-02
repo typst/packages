@@ -13,7 +13,7 @@
     show-lines: true,
 
     show-solutions: true,
-    show-solution-matrix: true,
+    show-grading-rubric: true,
 
     university: [Example University],
     institute: [Institute for Philosophy],
@@ -28,7 +28,7 @@
         Explain what logic is concerned with. Also, list the two criteria for evaluating the quality of arguments.
     ],
     [],
-    solution-parts: (
+    rubric: (
         (1, [Definition of logic as the study of valid, formal reasoning.]),
         (2, [Identify the quality criteria of validity and soundness.]),
     ),

@@ -69,19 +69,19 @@
         show-point-distribution: false,
         show-points-table: false,
 
-        // show solution matrix; expects solution argument of the tasks is now a list of 2-tuples, where the first element is always a number of points and the second element is the description of what these points are awarded for
-        show-solution-matrix: false,
+        // show grading rubric; expects solution argument of the tasks is now a list of 2-tuples, where the first element is always a number of points and the second element is the description of what these points are awarded for
+        show-grading-rubric: false,
 
-        // show comment field in solution matrix
-        show-solution-matrix-comment-field: false,
-        solution-matrix-comment-field-value: [*Note:* #v(0.5cm)],
+        // show comment field in grading subric
+        show-grading-rubric-comment-field: false,
+        grading-rubric-comment-field-value: [*Note:* #v(0.5cm)],
 
         university: none,
         faculty: none,
         institute: none,
         seminar: none,
         semester: none,
-        docent: none,
+        instructor: none,
         author: none,
         date: datetime.today(),
 
@@ -121,8 +121,8 @@
         solution-type: [Suggested solution],
         solutions-title: [Suggested solutions],
 
-        solution-matrix-task-header: [Tasks],
-        solution-matrix-achieved-points-header: [Points achieved],
+        grading-rubric-task-header: [Tasks],
+        grading-rubric-achieved-points-header: [Points achieved],
 
         distribution-header-point-value: [Point],
         distribution-header-point-grade: [Grade],
@@ -180,7 +180,7 @@
                 (
                     show-point-distribution
                         or show-points-table
-                        or show-solution-matrix
+                        or show-grading-rubric
                 )
                     and not show-titlepage
             ) {
@@ -350,7 +350,7 @@
                     }
                     #ifnn-line(seminar)
                     #ifnn-line(semester)
-                    #ifnn-line(docent)
+                    #ifnn-line(instructor)
                     #context {
                         if (
                             state("grape-suite-namefields").at(here()) != 1
@@ -520,7 +520,7 @@
             point-tables()
         }
 
-        if show-solution-matrix {
+        if show-grading-rubric {
             set page(flipped: true, columns: 2, margin: (
                 x: 1cm,
                 top: 3cm,
@@ -528,19 +528,19 @@
             ))
             context {
                 let tasks = state("grape-suite-tasks", ()).at(here())
-                if tasks.any(e => e.solution-parts != none) {
+                if tasks.any(e => e.rubric != none) {
                     big-heading[#solutions-title #if (
                             type != none or no != none
                         ) [ -- ] #type #no]
                     set text(size: 0.75em)
-                    make-solution-matrix(
-                        show-comment-field: show-solution-matrix-comment-field,
-                        comment-field-value: solution-matrix-comment-field-value,
+                    make-grading-rubric(
+                        show-comment-field: show-grading-rubric-comment-field,
+                        comment-field-value: grading-rubric-comment-field-value,
                         here(),
-                        solution-matrix-task-header,
+                        grading-rubric-task-header,
                         task-type,
                         extra-task-type,
-                        solution-matrix-achieved-points-header,
+                        grading-rubric-achieved-points-header,
                     )
                 }
             }

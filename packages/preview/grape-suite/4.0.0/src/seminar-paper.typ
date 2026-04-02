@@ -28,7 +28,7 @@
         institute: "INSTITUTE",
         seminar: "SEMINAR",
         semester: "SEMESTER",
-        docent: "DOCENT",
+        instructor: "INSTRUCTOR",
 
         author: "AUTHOR",
         student-number: none,
@@ -159,7 +159,7 @@
                     ifnn-line(faculty)
                     ifnn-line(institute)
                     ifnn-line(seminar)
-                    ifnn-line(docent)
+                    ifnn-line(instructor)
                 } else {
                     title-page-part-submit-to
                 }

@@ -11,7 +11,7 @@
     show-hints: sys.inputs.at("hints", default: "false") == "true",
     show-solutions: sys.inputs.at("solutions", default: "false") == "true",
 
-    show-solution-matrix: true,
+    show-grading-rubric: true,
 
     university: [Universität Musterstadt],
     institute: [Historisches Institut],
@@ -21,7 +21,7 @@
 )
 
 #task(
-    solution-parts: ((1, lorem(20)), (3, lorem(23))),
+    rubric: ((1, lorem(20)), (3, lorem(23))),
     [Pegasus in mythology],
     none,
     [
@@ -55,7 +55,7 @@
     Compare the depiction of Pegasus in two ancient Greek sources (e.g., Hesiod’s Theogony and Pindar’s Odes). Discuss the differences and similarities in the symbolism and characterization of Pegasus.
 ]
 
-#task(points: 6, solution-parts: (
+#task(points: 6, rubric: (
     (1, lorem(20)),
     (3, lorem(23)),
     (2, lorem(30)),
