@@ -1,8 +1,11 @@
 # typarium
 
-**typarium** is a Typst package for building expressive font specimen cards from system fonts, local font files, and mixed metadata dictionaries.
+**typarium** is a Typst package for rendering font specimen cards for system fonts and local fonts.
+
+Fonts specified only by family name are renderable through Typst, but file-level metadata is only available when you provide a local font as raw bytes or supply metadata manually.
 
 For the full guide and API reference, see [documentation.pdf](https://github.com/rice8y/typarium/blob/0.1.0/package/docs/documentation.pdf).
+
 ## Usage
 
 ### Basic Local Font Specimen
