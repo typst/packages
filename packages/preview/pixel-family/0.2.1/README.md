@@ -4,7 +4,7 @@
 
 Inline pixel art characters for Typst, rendered as native vector graphics. Drop them into running text like emoji.
 
-**[Download the manual (PDF)](https://github.com/GiggleLiu/pixel-family/releases/latest/download/manual.pdf)**
+**[Download the manual (PDF)](https://github.com/GiggleLiu/pixel-family/releases/download/v0.2.1/manual.pdf)**
 
 ## Meet the Family
 
