@@ -28,11 +28,11 @@
   academic-reviewer: "Alice",
   company-reviewer: "Bob",
   header-logo: prequery.image(
-    "https://github.com/GolemT/BA-Template/blob/main/Bachelorarbeit/images/BA_Header.png?raw=true",
+    "https://raw.githubusercontent.com/GolemT/BA-Template/4af5df877426ca06ec087129b9684637c4cc49b1/Bachelorarbeit/images/BA_Header.png",
     "BA_Header.png",
   ),
   company-logo: prequery.image(
-    "https://raw.githubusercontent.com/GolemT/BA-Template/refs/heads/main/Bachelorarbeit/images/DB_Logo.png",
+    "https://raw.githubusercontent.com/GolemT/BA-Template/4af5df877426ca06ec087129b9684637c4cc49b1/Bachelorarbeit/images/DB_Logo.png",
     "DB_Logo.png",
   ),
   degree-program: [Angewandte Informatik],
@@ -70,7 +70,7 @@
 
 #figure(
   prequery.image(
-    "https://github.com/GolemT/BA-Template/blob/main/Wissenschaftliche%20Arbeiten/images/BA_Logo.jpg?raw=true",
+    "https://raw.githubusercontent.com/GolemT/BA-Template/4af5df877426ca06ec087129b9684637c4cc49b1/Wissenschaftliche_Arbeiten/images/BA_Logo.jpg",
     "BA_Logo.jpg",
   ),
   caption: "Logo der Berufsakademie Rhein-Main",
