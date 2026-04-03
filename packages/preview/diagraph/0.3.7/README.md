@@ -1,6 +1,6 @@
 
-[![TypstPackage](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FRobotechnic%2Fdiagraph%2Frefs%2Fheads%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://typst.app/universe/package/diagraph)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://raw.githubusercontent.com/Robotechnic/diagraph/refs/heads/main/LICENSE)
+[![Typst package link](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FRobotechnic%2Fdiagraph%2Frefs%2Fheads%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://typst.app/universe/package/diagraph)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://raw.githubusercontent.com/Robotechnic/diagraph/0.3.7/LICENSE)
 [![User Manual](https://img.shields.io/badge/manual-.pdf-purple)](https://raw.githubusercontent.com/Robotechnic/diagraph/0.3.7/doc/manual.pdf)
 
 # diagraph
@@ -33,7 +33,7 @@ Alternatively, you can use `raw-render` to pass a `raw` instead of a string:
   ```
 )
 ````
-![raw-render](https://raw.githubusercontent.com/Robotechnic/diagraph/main/tests/simplegraph/ref/1.png)
+![raw-render example](https://raw.githubusercontent.com/Robotechnic/diagraph/0.3.7/tests/simplegraph/ref/1.png)
 
 For more information about the Graphviz Dot language, you can check the [official documentation](https://graphviz.org/documentation/).
 
