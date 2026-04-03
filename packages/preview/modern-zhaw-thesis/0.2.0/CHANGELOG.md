@@ -2,7 +2,13 @@
 
 ## 0.2.0
 
-- Custom quotes style
+- Added custom quote styling
+- Fixed glossary issues when no entries are provided
+- Localised outline and appendix headings
+- Fixed Glossy init-glossary validation bug
+- Fixed empty optional supervisor fields
+- Fixed translation strings
+- Fixed README typos
 
 ## 0.1.1
 
