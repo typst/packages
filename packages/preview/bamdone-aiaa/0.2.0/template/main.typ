@@ -201,7 +201,7 @@ Be sure that the symbols in your equation are defined before the equation appear
 
 An example of using Equations can be used as follows: It can be referred to as @equation1. Note that this will work when it's an in-sentence equation. However, when a sentence begins with Equation, you will need to use the following to make it work:
 
-#bEquation([@equation1]) when it starts at the beginning of a sentence.
+#b-equation([@equation1]) when it starts at the beginning of a sentence.
 
 Define abbreviations and acronyms the first time they are used in the text, even after they have already been defined in the abstract. Very common abbreviations such as AIAA, SI, ac, and dc do not have to be defined. Abbreviations that incorporate periods should not have spaces: write “P.R.,” not “P. R.” Delete periods between initials if the abbreviation has three or more initials; e.g., U.N. but ESA. Do not use abbreviations in the title unless they are unavoidable (for instance, “AIAA” in the title of this article).
 

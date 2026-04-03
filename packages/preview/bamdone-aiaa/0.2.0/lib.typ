@@ -245,7 +245,7 @@
   // }
 }
 
-#let bEquation = it => { 
+#let b-equation = it => { 
     [#set math.equation(numbering: "(1)", supplement: "Equation")
       #show math.equation: set block(spacing: 0.65em)
       // Configure appearance of equation references
