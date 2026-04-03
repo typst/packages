@@ -607,7 +607,7 @@
     ))
     checked-entries.insert(checked-key, checked-entry)
   }
-  let checked-format-term = z.parse(show-term, z.function(), scope: (
+  let checked-format-term = z.parse(format-term, z.function(), scope: (
     "format-term",
   ))
   let checked-show-term = z.parse(show-term, z.function(), scope: (
@@ -653,8 +653,8 @@
       __gls(
         key,
         modes-modifiers: modifiers.map(lower),
-        format-term: format-term,
-        show-term: show-term,
+        format-term: checked-format-term,
+        show-term: checked-show-term,
         term-links: term-links,
         display-text: supplement,
       )
