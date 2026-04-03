@@ -118,7 +118,7 @@ Should you need use different languages for different pages of your work, you ca
 
 ## Feature requests & problems
 
-Feel free to request features or report probems [here](https://github.com/stanlrt/typst-zhaw-thesis/issues)
+Feel free to request features or report problems [here](https://github.com/stanlrt/typst-zhaw-thesis/issues)
 
 ## License and Trademark Notice
 
