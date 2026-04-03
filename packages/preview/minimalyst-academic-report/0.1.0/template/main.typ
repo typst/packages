@@ -1,4 +1,4 @@
-#import "@preview/minimalyts-academic-report:0.1.0": report
+#import "@preview/minimalyst-academic-report:0.1.0": report
 // #import "@local/minimalyst-academic-report:0.1.0": report
 
 #show: doc => report(
@@ -11,7 +11,15 @@
   ),
   table-of-contents: true,
   table-of-figures: true,
-  cover-image: image("../assets/feup.png", width: 40%),
+  cover-image: (rect(
+    fill: blue,
+    width: 30%,
+    height: 5em,
+    stroke: (dash: "dashed"))[
+      #set align(center + horizon)
+      REPLACE THIS WITH YOUR IMAGE
+    ]
+  ),
   date: "02 April 2026",
   doc,
 )
