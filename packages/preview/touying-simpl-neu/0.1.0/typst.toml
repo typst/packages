@@ -1,0 +1,15 @@
+[package]
+name = "touying-simpl-neu"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = [ "SchrodingerBlume" ]
+license = "MIT"
+description = "东北大学 Touying 幻灯片主题 (Touying Slide Theme for NEU)"
+repository = "https://github.com/SchrodingerBlume/touying-simpl-neu"
+keywords = [ "touying", "slide", "neu" ]
+categories = [ "presentation" ]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

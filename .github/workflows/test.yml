@@ -1,17 +1,50 @@
 name: Test
 
 on:
-  push:
-    branches: ['*', '!main']
+  pull_request: {}
 
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@v2
+      - name: Extract package names and versions from changed files
+        id: extract-package
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+        with:
+          script: |
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+            });
+
+            const packages = new Set();
+            files.forEach(file => {
+              const match = file.filename.match(/^packages\/preview\/([^\/]+)\/([^\/]+)\//);
+              if (match) {
+                packages.add({ namespace: "preview", name: match[1], version: match[2] });
+              }
+            });
+
+            let sparseCheckoutPaths;
+            if (packages.size === 0) {
+              sparseCheckoutPaths = "packages/";
+            } else {
+              sparseCheckoutPaths = Array.from(packages).map((pkg) => `packages/preview/${pkg.name}/${pkg.version}/`).join('\n');
+            }
+            core.setOutput('sparse-checkout-paths', sparseCheckoutPaths);
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          sparse-checkout: |
+            ${{ steps.extract-package.outputs.sparse-checkout-paths }}
+            bundler/
+      - uses: dtolnay/rust-toolchain@4be9e76fd7c4901c61fb841f559994984270fce7 # stable channel
+      - uses: Swatinem/rust-cache@779680da715d629ac1d338a641029a2f4372abb5 # v2.8.2
         with:
           workspaces: bundler
 
