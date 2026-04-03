@@ -14,7 +14,7 @@
 
   if (declaration_of_originality != none) [
 
-    #declaration_of_originality_title
+    #declaration_of_originality
   ] else [
     #let plural = authors.len() > 1
 
