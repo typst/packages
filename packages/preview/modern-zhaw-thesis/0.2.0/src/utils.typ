@@ -1,5 +1,5 @@
 #import "styling/tokens.typ": tokens
-#import "@preview/datify:1.0.0": *
+#import "@preview/datify:1.0.1": *
 
 // See https://github.com/typst/typst/issues/2953
 #let show_if_heading_within_distance(
