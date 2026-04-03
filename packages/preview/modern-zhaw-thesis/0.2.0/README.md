@@ -14,7 +14,7 @@
 
 ### Web-app (easiest)
 
-2. [Create a project using the template](https://typst.app/app?template=modern-zhaw-thesis&version=0.1.1)
+2. [Create a project using the template](https://typst.app/app?template=modern-zhaw-thesis&version=0.2.0)
 3. In the left sidebar, under "Files", create a folder called `fonts`
 4. Drag and drop the files into this `fonts` directory
 
@@ -22,14 +22,14 @@
 
 2. Install Typst from https://typst.app/open-source/
 3. Make the downloaded fonts accessible to the compiler (https://typst.app/docs/reference/text/text/#parameters-font)
-4. Run `typst init @preview/modern-zhaw-thesis:0.1.1` in your project directory
+4. Run `typst init @preview/modern-zhaw-thesis:0.2.0` in your project directory
 
 ## All configuration options
 
 Below is the complete list of configuration options, including default values and explanations. Most are optional.
 
 ```typ
-#import "@preview/modern-zhaw-thesis:0.1.1": zhaw-thesis, languages
+#import "@preview/modern-zhaw-thesis:0.2.0": zhaw-thesis, languages
 
 // Note: `override` options accept Typst files, e.g. `override: [#include: "my-override.typ"]`
 #show: zhaw-thesis.with(
@@ -86,7 +86,7 @@ Below is the complete list of configuration options, including default values an
 The package exports the following symbols for you to use if needed:
 
 ```typ
-#import "@preview/modern-zhaw-thesis:0.1.1": (
+#import "@preview/modern-zhaw-thesis:0.2.0": (
   zhaw-thesis,   // Main template function, see docu above
   callout,       // Coloured callout box to highlight important text
 
