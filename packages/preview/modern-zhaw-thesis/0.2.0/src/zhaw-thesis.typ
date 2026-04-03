@@ -202,10 +202,11 @@
     }
 
     if appendix != none {
-      set heading(numbering: none, supplement: [Appendix])
+      set heading(numbering: none, supplement: tr().appendix)
       counter(heading).update(1)
-
-      [= Appendix<appendix>]
+      [
+        #heading(level: 1)[#tr().appendix] <appendix>
+      ]
 
       set heading(numbering: "1.1.1")
 
