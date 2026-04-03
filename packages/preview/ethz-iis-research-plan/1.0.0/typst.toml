@@ -1,0 +1,22 @@
+# Copyright 2026 ETH Zurich.
+# Licensed under the Apache License, Version 2.0, see LICENSE for details.
+# SPDX-License-Identifier: Apache-2.0
+#
+# Author: Tim Fischer <fischeti@iis.ee.ethz.ch>
+
+[package]
+name = "ethz-iis-research-plan"
+version = "1.0.0"
+entrypoint = "lib.typ"
+compiler = "0.14.2"
+authors = ["Tim Fischer <fischeti@iis.ee.ethz.ch>"]
+license = "Apache-2.0"
+description = "ETH Zurich IIS PhD research plan template"
+repository = "https://github.com/pulp-platform/iis-typst"
+keywords = ["research plan", "ETH Zurich", "IIS", "PhD"]
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
