@@ -98,8 +98,12 @@
   set enum(numbering: "1.i.1.i.")
 
   show: setup-language.with(language)
-  show: init-glossary.with(glossary-entries, term-links: true)
-
+  show: doc => {
+    if glossary-entries != none {
+      show: init-glossary.with(glossary-entries, term-links: true)
+    }
+    doc
+  }
 
   show outline.entry.where(
     level: 1,
@@ -184,7 +188,9 @@
 
     doc
 
-    styled-glossary
+    if glossary-entries != none {
+      styled-glossary
+    }
 
     if biblio.file != none {
       bibliography(
