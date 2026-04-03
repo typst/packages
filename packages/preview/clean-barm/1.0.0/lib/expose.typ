@@ -5,6 +5,9 @@
 
 #let expose(
   //Settings der Template
+  language: "de",
+  sans-font: "Noto Sans",
+  serif-font: "Times New Roman",
   title: "",
   author: "",
   keywords: (),
@@ -38,6 +41,9 @@
 ) = {
   base-project(
     type: "expose",
+    language: language,
+    sans-font: sans-font,
+    serif-font: serif-font,
     title: title,
     authors: (
       (name: author, student-id: studentId),

@@ -6,6 +6,8 @@
 #let thesis(
   //Settings der Template
   language: "de",
+  sans-font: "Noto Sans",
+  serif-font: "Times New Roman",
   title: "",
   author: "",
   keywords: "",
@@ -37,6 +39,8 @@
   base-project(
     type: "thesis",
     language: language,
+    sans-font: sans-font,
+    serif-font: serif-font,
     title: title,
     authors: (
       (name: author, student-id: student-id),

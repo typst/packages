@@ -3,6 +3,9 @@
 
 #let paper(
   //Settings der Template
+  language: "de",
+  sans-font: "Noto Sans",
+  serif-font: "Times New Roman",
   title: "",
   authors: (),
   keywords: (),
@@ -25,6 +28,9 @@
 ) = {
   base-project(
     type: "paper",
+    language: language,
+    sans-font: sans-font,
+    serif-font: serif-font,
     title: title,
     authors: authors,
     keywords: keywords,

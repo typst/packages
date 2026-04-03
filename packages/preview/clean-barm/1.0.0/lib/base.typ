@@ -106,7 +106,20 @@
   init-glossary(glossary)
   set heading(numbering: "1.1")
 
+  set text(
+    font: sans-font,
+    lang: language,
+    hyphenate: false,
+  )
+
   title-page
+  
+  set text(
+    font: serif-font,
+    lang: language,
+    hyphenate: false,
+  )
+
 
   if restriction-notice == true {
     pagebreak()
