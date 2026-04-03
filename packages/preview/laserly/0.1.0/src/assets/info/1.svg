@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="6.3995523mm"
+   height="6.3995523mm"
+   viewBox="0 0 6.3995525 6.3995526"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   sodipodi:docname="1.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.1247254"
+     inkscape:cx="-21.441884"
+     inkscape:cy="53.444697"
+     inkscape:window-width="1920"
+     inkscape:window-height="1020"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-101.59999,-144.99163)">
+    <circle
+       style="display:inline;fill:none;stroke:#d26565;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+       id="path3"
+       cx="104.79977"
+       cy="148.19141"
+       r="2.9351926" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.5861px;line-height:1.25;font-family:'Advent Pro';-inkscape-font-specification:'Advent Pro';display:inline;stroke-width:0.264583;enable-background:new"
+       x="104.82776"
+       y="149.56746"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         x="104.82776"
+         y="149.56746"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:'Linux Biolinum';-inkscape-font-specification:'Linux Biolinum';text-align:center;text-anchor:middle;fill:#d26565;fill-opacity:1;stroke-width:0.264583">1</tspan></text>
+  </g>
+</svg>

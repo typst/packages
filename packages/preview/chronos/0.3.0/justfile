@@ -1,0 +1,25 @@
+# Local Variables:
+# mode: makefile
+# End:
+gallery_dir := "./gallery"
+set shell := ["bash", "-uc"]
+
+@version:
+  echo $'\e[1mTypst:\e[0m'
+  typst --version
+  echo
+  echo $'\e[1mTytanic:\e[0m'
+  tt util about
+
+manual:
+  typst c manual.typ manual.pdf
+
+gallery:
+  for f in "{{gallery_dir}}"/*.typ; do typst c --root . "$f" "${f%typ}pdf"; done
+  for f in "{{gallery_dir}}"/readme/*.typ; do typst c --root . "$f" "${f%typ}png"; done
+
+test *filter:
+  tt run {{filter}}
+
+update-test *filter:
+  tt update {{filter}}
