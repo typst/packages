@@ -12,6 +12,7 @@
 #import "styling/page-header.typ": page-header-styles
 #import "styling/page-border.typ": page-border-styles
 #import "translations.typ": languages, setup-language
+#import "@preview/tieflang:0.1.0": tr
 
 #let zhaw-thesis(
   language: languages.de,
@@ -100,9 +101,10 @@
   show: setup-language.with(language)
   show: doc => {
     if glossary-entries != none {
-      show: init-glossary.with(glossary-entries, term-links: true)
+      init-glossary(glossary-entries, term-links: true, doc)
+    } else {
+      doc
     }
-    doc
   }
 
   show outline.entry.where(
@@ -180,7 +182,7 @@
         declaration-of-originality.override
       }
 
-      outline(title: "Table of Contents", depth: 3)
+      outline(title: tr().table_of_contents, depth: 3)
     }
 
     set page(numbering: "1")
