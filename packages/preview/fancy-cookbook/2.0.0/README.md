@@ -229,6 +229,10 @@ I prefer to use dictionaries for my tags, it can help you avoid mistakes (differ
 
 And you will see how it can help you build custom indexes in the *cookbook* part.
 
+#### *sort-title*
+When you use tags, you will have indexes, and I try to sort the recipes by their name. But sometimes, you use functions in the title of your recipe, sometimes, you use accents, and the sorted index will not appear like you want.
+So you can set this property with a value that will be compared to others (title or sort-title).
+
 #### change-palette
 If you want to change the palette when you describe a recipe, this property will do this for you.
 
