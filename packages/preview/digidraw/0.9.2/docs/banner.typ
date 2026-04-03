@@ -1,4 +1,4 @@
-#import "@preview/tableau-icons:0.336.0": ti-icon
+#import "@preview/tableau-icons:0.340.0": ti-icon
 
 #let toml = toml("../typst.toml")
 

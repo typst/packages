@@ -25,7 +25,7 @@ Click on the image for the source.
       <a href="examples/example1.typ">
         <img src="examples/example1.svg">
       </a><br>
-      Source: <a href="https://wavedrom.com/tutorial.html#spacers-and-gaps">https://wavedrom.com/tutorial.html#spacers-and-gaps</a><br>
+      Source: <a href="https://wavedrom.com/tutorial.html#spacers-and-gaps" alt="a digital timing diagram generated with the package showing off various features of the package.">https://wavedrom.com/tutorial.html#spacers-and-gaps</a><br>
       example's JSON file: <a href="examples/example1.json">
         examples/example1.json
       </a>
@@ -36,7 +36,7 @@ Click on the image for the source.
       <a href="examples/example2.typ">
         <img src="examples/example2.svg">
       </a><br>
-      Source: <a href="https://wavedrom.com/tutorial.html#adding-clock">https://wavedrom.com/tutorial.html#adding-clock</a><br>
+      Source: <a href="https://wavedrom.com/tutorial.html#adding-clock" alt="a smaller digital timing diagram with a clock signal labeled 'clk' which has rising flanks highlighted arrowheads pointing up. Other signals such as a bus and a wire signal is shown below labeled respectively 'bus' and 'wire'">https://wavedrom.com/tutorial.html#adding-clock</a><br>
       example's JSON file: <a href="examples/example2.json">
         examples/example2.json
       </a>
@@ -45,21 +45,21 @@ Click on the image for the source.
   <tr>
     <td>
       <a href="examples/example3.typ">
-        <img src="examples/example3.svg">
+        <img src="examples/example3.svg" alt="another digital timing diagram with a various signals. The tick numbers above are written in roman numerals instead of numbers.">
       </a>
     </td>
   </tr>
   <tr>
     <td>
       <a href="examples/example4.typ">
-        <img src="examples/example4.svg">
+        <img src="examples/example4.svg" alt="a digital time diagram showing off coloured busses and the time skip symbol (represented by two vertically long letter 'S').">
       </a>
     </td>
   </tr>
   <tr>
     <td>
       <a href="examples/example5.typ">
-        <img src="examples/example5.svg">
+        <img src="examples/example5.svg" alt="a digital time diagram showing off various styled tick lines. Only some tick lines are shown">
       </a>
     </td>
   </tr>
@@ -73,4 +73,4 @@ See [CHANGELOG.md](./CHANGELOG.md)
 
 # ToDo
 
-See [TODO.md](https://codeberg.org/joelvonrotz/typst-digidraw/src/branch/main/TODO.md) in the Codeberg repository
+See [TODO.md](https://codeberg.org/joelvonrotz/typst-digidraw/src/tag/v0.9.2/TODO.md) in the Codeberg repository

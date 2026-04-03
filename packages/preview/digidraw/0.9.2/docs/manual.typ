@@ -1,7 +1,7 @@
 #import "@preview/tidy:0.4.3"
 #import "@preview/cetz:0.4.2"
 #import "@preview/fletcher:0.5.8"
-#import "@preview/tableau-icons:0.336.0": ti-icon
+#import "@preview/tableau-icons:0.340.0": ti-icon
 
 #import "../src/exports.typ" as wave
 
