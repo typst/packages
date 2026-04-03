@@ -12,11 +12,7 @@
   let supervisors = ensure-array(supervisors)
   let co-supervisors = ensure-array(co-supervisors)
 
-
-  let count = (
-    (if supervisors != none { supervisors.len() } else { 0 })
-      + (if co-supervisors != none { co-supervisors.len() } else { 0 })
-  )
+  let count = supervisors.len() + co-supervisors.len()
   let thanked = (supervisors + co-supervisors).join(", ", last: " " + tr().and + " ")
   show: doc => centered(tr().acknowledgements.title, doc)
 

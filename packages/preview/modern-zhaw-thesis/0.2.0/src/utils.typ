@@ -62,7 +62,9 @@
 }
 
 #let ensure-array(unsafe-input) = {
-  if unsafe-input != none and type(unsafe-input) != array {
+  if unsafe-input == none {
+    ()
+  } else if type(unsafe-input) != array {
     (unsafe-input,)
   } else {
     unsafe-input

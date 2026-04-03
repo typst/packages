@@ -109,7 +109,7 @@
       }
     }
 
-    if co-supervisors != none {
+    if co-supervisors.len() > 0 {
       info-items.push(
         align(start + top)[
           #(tr().co_supervisor)(co-supervisors.len()):\
