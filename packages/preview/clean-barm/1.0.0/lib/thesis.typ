@@ -11,6 +11,7 @@
   keywords: "",
   description: "",
   degree-program: "",
+  bachelor-type: "Science",
   study-group: "",
   student-id: "",
   contact-details: ("", "", ""),
@@ -79,9 +80,9 @@
       }
       v(1fr)
       align(center, [
-        #transl("thesis") \
+        #transl("Thesis") \
         #transl("forDegree") \
-        Bachelor of Science \ \
+        Bachelor of #bachelor-type \ \
         Im Studiengang #degree-program \
         an der Berufsakademie Rhein-Main
 

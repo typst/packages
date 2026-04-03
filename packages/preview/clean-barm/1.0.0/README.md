@@ -36,6 +36,7 @@ This is a full list of available properties:
     keywords: ("Thesis", "Bachelor", "..."),
     description: "Thesis über xyz",
     degree-program: "Angewandte Informatik",
+    bachelor-type: "Science",
     study-group: "AI-WS23_III",
     student-id: "1234567",
     contact-details: (
