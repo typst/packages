@@ -6,10 +6,10 @@ compiler = "0.13.0"
 authors = ["Joe02exe"]
 license = "MIT-0"
 description = "Comprehensive and highly-customizable presentations."
-repository = "https://github.com/Joe02exe/clari-slides"
+repository = "https://github.com/typst/packages"
 keywords = ["slides", "presentation", "template", "academic", "beamer"]
 categories = ["presentation", "layout", "components"]
-exclude = ["thumbnail.png", ".github", "example.png"]
+exclude = [".github", "example.png"]
 
 [template]
 path = "template"

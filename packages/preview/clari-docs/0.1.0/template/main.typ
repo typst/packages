@@ -151,9 +151,12 @@ print(greet("World"))
     Beware of bugs in the above code; I have only proved it correct, not tried it.
   ]
 
-  #definition(term: "Algorithm")[
-    A finite sequence of well-defined instructions for solving a class of problems.
-  ]
+  #definition(
+    term: "Algorithm",
+    body: [
+      A finite sequence of well-defined instructions for solving a class of problems.
+    ],
+  )
 ]
 
 #slide(title: "Math Concept Boxes")[
