@@ -152,10 +152,8 @@ print(greet("World"))
   ]
 
   #definition(
-    term: "Algorithm",
-    body: [
-      A finite sequence of well-defined instructions for solving a class of problems.
-    ],
+    "Algorithm",
+    [A finite sequence of well-defined instructions for solving a class of problems.],
   )
 ]
 
