@@ -210,14 +210,14 @@ print(greet("World"))
 
 #slide(title: "Data Tables")[
   #data-table(
-    caption: "Sample performance metrics",
-    headers: ("Model", "Accuracy", "F1 Score", "Latency"),
-    rows: (
+    ("Model", "Accuracy", "F1 Score", "Latency"),
+    (
       ("Baseline", "72.3%", "0.71", "12 ms"),
       ("ResNet-50", "89.1%", "0.88", "45 ms"),
       ("ViT-B/16", "91.5%", "0.91", "110 ms"),
       ("Ours", "93.8%", "0.93", "38 ms"),
     ),
+    caption: "Sample performance metrics",
   )
 ]
 
