@@ -50,7 +50,7 @@ value gets ignored
 
 ### Full documentation with guide
 
-A full documentation can be found here: [docs.pdf](https://raw.githubusercontent.com/lublak/typst-ctxjs-package/refs/heads/main/docs.pdf)
+A full documentation can be found here: [docs.pdf](https://raw.githubusercontent.com/lublak/typst-ctxjs-package/refs/tags/v0.4.0/docs.pdf)
 
 ## An actively used package
 
