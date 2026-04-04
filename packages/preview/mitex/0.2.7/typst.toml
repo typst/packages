@@ -2,7 +2,7 @@
 name = "mitex"
 version = "0.2.7"
 entrypoint = "lib.typ"
-authors = ["Myriad-Dreamin", "OrangeX4", "Enter-tainer"]
+authors = ["Myriad-Dreamin", "OrangeX4", "Enter-tainer", "Shichien"]
 license = "Apache-2.0"
 description = "LaTeX support for Typst, powered by Rust and WASM."
 
