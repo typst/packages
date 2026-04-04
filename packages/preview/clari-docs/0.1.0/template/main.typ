@@ -194,13 +194,13 @@ print(greet("World"))
   #comparison(
     left-title:  "Pros",
     right-title: "Cons",
-    left-body:   [
+    [
       - Fast compilation
       - Typst is type-safe
       - Clean, expressive syntax
       - Great math support
     ],
-    right-body:  [
+    [
       - Smaller ecosystem vs. LaTeX
       - Some packages still maturing
       - Limited IDE support (improving)
