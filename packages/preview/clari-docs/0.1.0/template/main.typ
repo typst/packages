@@ -280,14 +280,14 @@ print(greet("World"))
 
 #slide(title: "Chemical Equations")[
   #chem-eq(
-    reactants:  [2H#sub[2] + O#sub[2]],
-    products:   [2H#sub[2]O],
+    [2H#sub[2] + O#sub[2]],
+    [2H#sub[2]O],
     conditions: [Δ, catalyst],
   )
 
   #chem-eq(
-    reactants:  [N#sub[2] + 3H#sub[2]],
-    products:   [2NH#sub[3]],
+    [N#sub[2] + 3H#sub[2]],
+    [2NH#sub[3]],
     arrow-type: "equilibrium",
     conditions: [450°C, 200 atm, Fe],
   )
@@ -296,11 +296,11 @@ print(greet("World"))
 #slide(title: "SI Values & Constants")[
   Inline SI values with `#si-value`:
 
-  Speed of light: #si-value(value: "299 792 458", unit: "m·s⁻¹") \
-  Planck constant: #si-value(value: "6.626 × 10⁻³⁴", unit: "J·s", uncertainty: "±0.001 × 10⁻³⁴") \
-  Boltzmann constant: #si-value(value: "1.380 649 × 10⁻²³", unit: "J·K⁻¹")
+  Speed of light: #si-value("299 792 458", "m·s⁻¹") \
+  Planck constant: #si-value("6.626 × 10⁻³⁴", "J·s", uncertainty: "±0.001 × 10⁻³⁴") \
+  Boltzmann constant: #si-value("1.380 649 × 10⁻²³", "J·K⁻¹")
 
-  #constants-table(constants: (
+  #constants-table((
     (symbol: [$c$],     name: "Speed of light",      value: [$2.998 times 10^8$], unit: "m·s⁻¹"),
     (symbol: [$h$],     name: "Planck constant",     value: [$6.626 times 10^(-34)$], unit: "J·s"),
     (symbol: [$k_B$],   name: "Boltzmann constant",  value: [$1.381 times 10^(-23)$], unit: "J·K⁻¹"),
@@ -320,9 +320,9 @@ print(greet("World"))
 
 #slide(title: "Function Definitions")[
   #function-def(
-    name:      "f",
-    domain:    $RR^n$,
-    codomain:  $RR$,
+    "f",
+    $RR^n$,
+    $RR$,
   )[
     $ f(bold(x)) = bold(w)^T bold(x) + b $
     where $bold(w) in RR^n$ is the weight vector and $b in RR$ is the bias.
@@ -330,33 +330,33 @@ print(greet("World"))
 ]
 
 #slide(title: "Calculus Display")[
-  #derivative-display(func: $f$, var: $x$, order: 2,
+  #derivative-display($f$, $x$, order: 2,
     label: "Second derivative")
 
   #integral-display(
-    integrand: $f(x)$, var: $x$,
+    $f(x)$, var: $x$,
     lower: $a$, upper: $b$,
     label: "Definite integral",
   )
 
   #limit-display(
-    expr: $(sin x) / x$,
-    var:  $x$, to: $0$,
+    $(sin x) / x$,
+    $x$, $0$,
     label: "Fundamental limit",
   )
 ]
 
 #slide(title: "Bar Chart Example")[
   #bar-chart(
-    x-label: "Category",
-    y-label: "Score (%)",
-    data: (
+    (
       (label: "A", value: 85),
       (label: "B", value: 92),
       (label: "C", value: 71),
       (label: "D", value: 96),
       (label: "E", value: 78),
     ),
+    x-label: "Category",
+    y-label: "Score (%)",
   )
 ]
 
