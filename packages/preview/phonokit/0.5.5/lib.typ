@@ -31,6 +31,7 @@
 #import "ex.typ": *
 #import "intonational.typ": *
 #import "geom.typ": *
+#import "phonetics.typ": *
 
 /// Initialize phonokit settings
 ///
@@ -97,6 +98,49 @@
 /// Note: Input is automatically truncated to the first 10 phonemes to prevent
 /// visual overflow.
 #let sonority = sonority
+
+/// Create an illustrative F1/F2 vowel cloud for teaching.
+///
+/// Generates synthetic vowel tokens around built-in F1/F2 means and displays
+/// them on an inverted F1/F2 diagram.
+///
+/// Arguments:
+/// - vowels (string): Tipa-style/IPA vowel string or a built-in language name
+///   such as `"english"`
+/// - source (array, optional): Tabular data from `csv(...)` with required
+///   columns `vowel`, `f1`, and `f2`; a plain `csv("...")` table with a
+///   header row is accepted
+/// - sd (float): Spread of synthetic tokens in Hz
+/// - sd2 (float, optional): Optional separate F2 spread in Hz
+/// - n (int): Number of tokens per vowel (default: 10)
+/// - seed (int): Deterministic seed for token placement (default: 1)
+/// - labels (bool): Show vowel labels at the means (default: true)
+/// - points (bool): Show vowel tokens (default: true)
+/// - centers (bool): Show explicit `+` mean markers (default: false)
+/// - ellipse (bool): Show 1-SD ellipses centered on the means (default: false)
+/// - ellipse-stroke (stroke or auto): Stroke for SD ellipses
+///   (default: `0.8pt + luma(190)`)
+/// - ellipse-fill (fill): Fill for SD ellipses (default: none)
+/// - grid (bool): Show the background grid (default: true)
+/// - color-by-vowel (bool): Use a color cycle by vowel category (default: true)
+/// - point-size (int): Marker size for synthetic tokens (default: 50)
+/// - point-color (color or auto): Override token color (default: auto)
+/// - point-alpha (ratio): Token transparency (default: 20%)
+/// - vowel-color (color): Color of vowel labels (default: black)
+/// - vowel-size (length): Font size of vowel labels (default: 20pt)
+/// - axis-size (length): Font size of axis labels and tick labels (default: 10pt)
+/// - scale (float): Overall scale factor for the figure (default: 1.0)
+/// - x-label (content): X-axis label (default: `[F2 (Hz)]`)
+/// - y-label (content): Y-axis label (default: `[F1 (Hz)]`)
+/// - width (length): Diagram width (default: 10cm)
+/// - height (length): Diagram height (default: 7cm)
+///
+/// Example:
+/// ```
+/// #formants("aeiou")
+/// #formants(source: csv("extras/formants_sample.csv"))
+/// ```
+#let formants = formants
 
 /// Draw a single syllable's internal structure
 ///
@@ -259,6 +303,10 @@
 /// - rows (int): Number of horizontal grid lines (default: 3)
 /// - cols (int): Number of vertical grid lines (default: 2)
 /// - scale (float): Scale factor for entire chart (default: 0.7)
+/// - nasals (bool): Draw schematic nasalized copies near their oral
+///   counterparts. For preset languages, this currently adds only the French
+///   nasal vowels; for custom strings, only vowels explicitly nasalized in the
+///   input are shown in the nasal layer (default: false)
 /// - arrows (array): List of (from-vowel, to-vowel) tuples for drawing directed
 ///   arrows between vowel positions (e.g. diphthongs). Each vowel string accepts
 ///   tipa-style notation. Unknown vowels are silently skipped. (default: ())
@@ -280,11 +328,14 @@
 /// Examples:
 /// - `#vowels("english")` - Plot English vowel inventory
 /// - `#vowels("aeiou")` - Plot specific vowels
+/// - `#vowels("aãioõu", nasals: true)` - Add only the nasal vowels marked in the custom inventory
+/// - `#vowels("french", nasals: true)` - Add the French nasal vowels
 /// - `#vowels("french", scale: 0.5)` - Smaller French vowel chart
 /// - `#vowels("aU", arrows: (("a", "U"),))` - Diphthong /aʊ/ with arrow
 /// - `#vowels("english", arrows: (("e", "I"),), arrow-style: "dashed")` - Dashed arrow
 ///
-/// Note: Diacritics and non-vowel symbols are ignored during plotting
+/// Note: Diacritics and non-vowel symbols are ignored during plotting. Nasal
+/// overlays are illustrative only and are not language-specific placements.
 ///
 /// Available languages: english, spanish, portuguese, italian, french, german,
 /// japanese, russian, arabic

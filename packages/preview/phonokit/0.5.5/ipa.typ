@@ -404,7 +404,11 @@
 #import "_config.typ": phonokit-font
 
 #let ipa(input) = {
-  context {
-    text(font: phonokit-font.get(), ipa-to-unicode(input))
-  }
+  let rendered = ipa-to-unicode(input)
+  [
+    #metadata(rendered)
+    #context {
+      text(font: phonokit-font.get(), rendered)
+    }
+  ]
 }

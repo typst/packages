@@ -115,6 +115,33 @@
   // Add more languages here or adjust existing inventories
 )
 
+#let language-nasal-vowels = (
+  "french": ("ɛ", "œ", "ɔ", "ɑ"),
+)
+
+#let _strip-nasal(vowel) = vowel.normalize(form: "nfd").replace("̃", "")
+
+#let _collect-custom-vowels(input) = {
+  let converted = ipa-to-unicode(input)
+  let oral = ""
+  let nasals = ()
+
+  for cluster in converted.clusters() {
+    let decomposed = cluster.normalize(form: "nfd")
+    let base = _strip-nasal(decomposed)
+    if base in vowel-data {
+      if base not in oral {
+        oral += base
+      }
+      if "̃" in decomposed and base not in nasals {
+        nasals.push(base)
+      }
+    }
+  }
+
+  (oral: oral, nasals: nasals)
+}
+
 // Main vowels function
 #let vowels(
   vowel-string, // Positional parameter (no default to allow positional args)
@@ -124,6 +151,7 @@
   rows: 3, // Only 2 internal horizontal lines
   cols: 2, // Only 1 vertical line inside trapezoid
   scale: 0.7, // Scale factor for entire chart
+  nasals: false, // Draw nasalized copies of plotted vowels
   arrows: (), // List of (from-tipa-str, to-tipa-str) tuples
   arrow-color: black, // Color for arrow lines and heads
   arrow-style: "solid", // "solid" or "dashed"
@@ -136,6 +164,7 @@
 ) = {
   // Determine which vowels to plot
   let vowels-to-plot = ""
+  let nasal-target-vowels = ()
   let error-msg = none
 
   // Check if vowel-string is actually a language name
@@ -152,9 +181,11 @@
       error-msg = [*Error:* Language "#lang" not available. \ Available languages: #available]
     }
   } else if vowel-string != "" {
-    // Use as manual vowel specification - convert IPA notation to Unicode
-    // Note: Diacritics and non-vowel symbols will be ignored during plotting
-    vowels-to-plot = ipa-to-unicode(vowel-string)
+    // Use as manual vowel specification - keep oral bases for plotting and
+    // remember which vowels were explicitly nasalized in the input.
+    let parsed = _collect-custom-vowels(vowel-string)
+    vowels-to-plot = parsed.oral
+    nasal-target-vowels = parsed.nasals
   } else {
     // Nothing specified
     error-msg = [*Error:* Either provide vowel string or language name]
@@ -174,6 +205,9 @@
   let scaled-font-size = 22 * scale
   let scaled-line-thickness = 0.85 * scale
   let scaled-arrow-mark = 1.5 * scale
+  let scaled-nasal-dy = 0.44 * scale
+  let scaled-nasal-font-size = scaled-font-size * 0.9 * 1pt
+  let nasal-color = gray.darken(10%)
   let resolved-shift-size = if shift-size != none { shift-size * scale } else { scaled-font-size * 1pt }
   // Split highlight into regular-vowel highlights (strings) and shifted-vowel
   // highlights (arrays in the same (tipa-str, x, y) format as shift:)
@@ -253,7 +287,28 @@
         let base = get-vowel-position(vowel-data.at(sv), trapezoid, scaled-width, scaled-height, scaled-offset)
         (base.at(0) + s.at(1), base.at(1) + s.at(2))
       })
-    let all-obstacle-positions = vowel-positions.map(vp => vp.pos) + shifted-obs
+    let preset-name = if vowel-string in language-vowels {
+      vowel-string
+    } else {
+      lang
+    }
+    let nasal-bases = if preset-name != none and preset-name in language-nasal-vowels {
+      language-nasal-vowels.at(preset-name)
+    } else {
+      nasal-target-vowels
+    }
+    let nasal-positions = if nasals {
+      vowel-positions
+        .filter(vp => vp.vowel in nasal-bases)
+        .map(vp => (
+          vowel: vp.vowel,
+          pos: (vp.pos.at(0), vp.pos.at(1) + scaled-nasal-dy),
+          label: vp.vowel + "̃",
+        ))
+    } else {
+      ()
+    }
+    let all-obstacle-positions = vowel-positions.map(vp => vp.pos) + shifted-obs + nasal-positions.map(np => np.pos)
 
     // True if p is either at/near endpoint ep, or is its minimal-pair partner.
     // Minimal-pair partners share height (dy ≈ 0) and lie exactly 2×scaled-offset
@@ -457,6 +512,11 @@
       let circle-fill = if vp.vowel in highlight-set { highlight-color } else { white }
       circle(vp.pos, radius: scaled-circle-radius, fill: circle-fill, stroke: none)
       content(vp.pos, context text(size: scaled-font-size * 1pt, font: phonokit-font.get(), top-edge: "x-height", bottom-edge: "baseline", vp.vowel))
+    }
+
+    // Draw schematic nasalized copies slightly offset from the oral vowels.
+    for np in nasal-positions {
+      content(np.pos, context text(size: scaled-nasal-font-size, font: phonokit-font.get(), fill: nasal-color, top-edge: "x-height", bottom-edge: "baseline", np.label))
     }
 
     // Draw shifted vowels (on top of regular vowels)
