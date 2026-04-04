@@ -147,7 +147,10 @@
      
     
     // -------------- TOC --------------------
-    toc(palette) 
+    if (chapter-on-right) {
+      pagebreak(to: "odd", weak: true)
+    }
+    toc(palette)
   }
   
   
