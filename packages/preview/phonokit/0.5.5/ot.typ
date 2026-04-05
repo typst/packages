@@ -42,6 +42,11 @@
 // - \\{ and \\}: literal brace characters
 // - \\,: literal comma (since , maps to secondary stress)
 // - everything else: IPA-parsed as usual
+#let _ends-with-space(s) = {
+  let cls = s.clusters()
+  cls.len() > 0 and cls.at(cls.len() - 1) == " "
+}
+
 #let parse-ot-string(s) = {
   if type(s) != str { return s }
 
@@ -59,13 +64,21 @@
         and i + 1 < len
         and (clusters.at(i + 1) == "{" or clusters.at(i + 1) == "}" or clusters.at(i + 1) == ",")
     ) {
+      let literal = clusters.at(i + 1)
+      let tighten = buf != "" and not _ends-with-space(buf)
       if buf != "" {
         parts.push(ipa(buf))
         buf = ""
       }
-      parts.push(clusters.at(i + 1))
+      let tighten-after = literal == "{" and i + 2 < len and clusters.at(i + 2) != " "
+      let lit = context text(font: phonokit-font.get(), literal)
+      let before-kern = if literal == "}" { -0.3em } else { -0.25em }
+      let after-kern = if literal == "{" { -0.3em } else { -0.15em }
+      let lit = if tighten { [#h(before-kern)#lit] } else { lit }
+      parts.push(if tighten-after { [#lit#h(after-kern)] } else { lit })
       i += 2
     } else if (ch == "_" or ch == "^") and i + 1 < len {
+      let tighten = buf != "" and not _ends-with-space(buf)
       if buf != "" {
         parts.push(ipa(buf))
         buf = ""
@@ -80,13 +93,32 @@
           i += 1
         }
         if i < len { i += 1 }
-        if is-sub { parts.push(sub(group)) } else { parts.push(super(group)) }
+        let script = if is-sub {
+          sub(context text(font: phonokit-font.get(), group))
+        } else {
+          super(context text(font: phonokit-font.get(), group))
+        }
+        if is-sub {
+          parts.push(if tighten { [#h(-0.25em)#script] } else { script })
+        } else {
+          parts.push(if tighten { [#h(-0.25em)#script] } else { script })
+        }
       } else {
         let c = clusters.at(i)
         i += 1
-        if is-sub { parts.push(sub(c)) } else { parts.push(super(c)) }
+        let script = if is-sub {
+          sub(context text(font: phonokit-font.get(), c))
+        } else {
+          super(context text(font: phonokit-font.get(), c))
+        }
+        if is-sub {
+          parts.push(if tighten { [#h(-0.25em)#script] } else { script })
+        } else {
+          parts.push(if tighten { [#h(-0.25em)#script] } else { script })
+        }
       }
     } else if ch == "{" {
+      let tighten = buf != "" and not _ends-with-space(buf)
       if buf != "" {
         parts.push(ipa(buf))
         buf = ""
@@ -98,7 +130,8 @@
         i += 1
       }
       if i < len { i += 1 }
-      parts.push(raw)
+      let raw-text = context text(font: phonokit-font.get(), raw)
+      parts.push(if tighten { [#h(-0.25em)#raw-text] } else { raw-text })
     } else {
       buf += ch
       i += 1
@@ -107,7 +140,7 @@
 
   if buf != "" { parts.push(ipa(buf)) }
   if parts.len() == 0 { return [] }
-  parts.join()
+  parts.fold([], (acc, part) => [#acc#part])
 }
 
 // --- Helper: Dispatch prosody function by name ---
@@ -1228,6 +1261,3 @@
   }
 }
 }
-
-
-
