@@ -1,0 +1,10 @@
+[package]
+name = "color-table"
+version = "1.0.0"
+entrypoint = "color_table.typ"
+authors = ["Gabriel Lopes <g.a.d.lopes@gmail.com>"]
+license = "MIT"
+description = "Automatic heatmap coloring for numeric table cells."
+repository = "https://github.com/gabrielalexandrelopes/typst-color-table"
+keywords = ["table", "heatmap", "color", "visualization", "data"]
+categories = ["visualization"]
