@@ -144,8 +144,8 @@
 ///
 /// Example:
 /// ```
-/// #formants("aeiou")
-/// #formants(source: csv("extras/formants_sample.csv"))
+/// #formants("italian", scale: 0.6, ellipse: true, axis-size: 1.3em)
+/// #formants(source: csv("extras/formants_sample.csv"), scale: 0.8)
 /// ```
 #let formants = formants
 
@@ -161,7 +161,7 @@
 ///
 /// Returns: CeTZ drawing of syllable structure
 ///
-/// Example: `#syllable("man", scale: 0.8)`
+/// Example: `#syllable("\\t tS \\ae t", scale: 0.9)`
 #let syllable = syllable
 
 /// Draw a mora-based structure
@@ -179,9 +179,8 @@
 /// Returns: CeTZ drawing of moraic structure
 ///
 /// Examples:
-/// - `#mora("kan")` - CVN syllable with one mora (coda doesn't count)
-/// - `#mora("kan", coda: true)` - CVN syllable with two moras (coda counts)
-/// - `#mora("ka")` - CV syllable with one mora
+/// - `#mora("\\t tS \\ae t", coda: true)` - Moraic representation with coda weight
+/// - `#mora("tR \\~ a:m", coda: true)` - Long vowel represented with two moras
 #let mora = mora
 
 /// Draw a foot with syllables
@@ -197,7 +196,7 @@
 ///
 /// Returns: CeTZ drawing of foot structure
 ///
-/// Example: `#foot("man.'tal", scale: 1.2)`
+/// Example: `#foot("'p \\h \\ae.\\*r Is", scale: 0.9)`
 #let foot = foot
 
 /// Draw a foot with moraic structure
@@ -216,8 +215,8 @@
 /// Returns: CeTZ drawing of moraic foot structure
 ///
 /// Examples:
-/// - `#foot-mora("po.'Ral", coda: true)` - Disyllabic foot with moraic structure
-/// - `#foot-mora("'po.Ra.ma")` - Dactyl with moraic structure
+/// - `#foot-mora("po.'Ral", coda: true, scale: 0.9)` - Disyllabic foot with moraic structure
+/// - `#foot-mora("'po.Ra.ma", coda: true, scale: 0.9)` - Dactyl with moraic structure
 #let foot-mora = foot-mora
 
 /// Draw a prosodic word structure with explicit foot boundaries
@@ -236,9 +235,8 @@
 /// Returns: CeTZ drawing of prosodic structure
 ///
 /// Examples:
-/// - `#word("(ka.'va).lo")` - One iamb with two syllables, one footless syllable
-/// - `#word("('ka.va)", foot: "L")` - Trochee
-/// - `#word("ka.va", scale: 0.7)` - Two footless syllables, smaller
+/// - `#word("('po.Ra).ma", scale: 0.9)` - One foot plus one unfooted syllable
+/// - `#word("('po.Ra).('ma.pa)", foot: "R", scale: 0.9)` - Two feet, right-headed PWd
 #let word = word
 
 /// Draw a prosodic word structure with moraic representation
@@ -259,8 +257,8 @@
 /// Returns: CeTZ drawing of moraic prosodic structure
 ///
 /// Examples:
-/// - `#word-mora("('po.Ra).ma", coda: true)` - Trochee with unfooted syllable
-/// - `#word-mora("('po.Ra).('ma.pa)", foot: "L")` - Two feet, left-headed PWd
+/// - `#word-mora("('po.Ra).ma", coda: true, scale: 0.9)` - Trochee with unfooted syllable
+/// - `#word-mora("('po.Ra).('ma.pa)", foot: "L", coda: true, scale: 0.9)` - Two feet, left-headed PWd
 #let word-mora = word-mora
 
 /// Create a metrical grid representation for stress and rhythm analysis
@@ -285,7 +283,7 @@
 ///
 /// Examples:
 /// - `#met-grid("bu3.tter1.fly2")` - String format
-/// - `met-grid(
+/// - `#met-grid(
 ///          ("b2", 3),
 ///          ("R \\schwar", 1),
 ///          ("flaI", 2),
@@ -333,13 +331,11 @@
 /// Returns: CeTZ drawing of IPA vowel chart with positioned vowels
 ///
 /// Examples:
-/// - `#vowels("english")` - Plot English vowel inventory
-/// - `#vowels("aeiou")` - Plot specific vowels
+/// - `#vowels("english", scale: 0.6)` - Plot English vowel inventory
+/// - `#vowels("french", scale: 0.6)` - Plot French vowel inventory
 /// - `#vowels("aãioõu", nasals: true)` - Add only the nasal vowels marked in the custom inventory
 /// - `#vowels("french", nasals: true)` - Add the French nasal vowels
-/// - `#vowels("french", scale: 0.5)` - Smaller French vowel chart
-/// - `#vowels("aU", arrows: (("a", "U"),))` - Diphthong /aʊ/ with arrow
-/// - `#vowels("english", arrows: (("e", "I"),), arrow-style: "dashed")` - Dashed arrow
+/// - `#vowels("english", arrows: (("a", "U"), ("a", "I"), ("e", "I"), ("O", "I"), ("o", "U")), curved: true)` - Diphthong trajectories
 ///
 /// Note: Diacritics and non-vowel symbols are ignored during plotting. Nasal
 /// overlays are illustrative only and are not language-specific placements.
@@ -374,12 +370,10 @@
 /// Returns: CeTZ drawing of IPA consonant table with positioned consonants
 ///
 /// Examples:
-/// - `#consonants("all")` - Show complete pulmonic consonant chart
-/// - `#consonants("english")` - Plot English consonant inventory
-/// - `#consonants("ptk")` - Plot specific consonants
-/// - `#consonants("T D s z S Z")` - Plot consonants using tipa-style notation
-/// - `#consonants("t \\t s d \\t z", affricates: true)` - Show affricates row
-/// - `#consonants("spanish", scale: 0.5)` - Smaller Spanish consonant chart
+/// - `#consonants("italian", affricates: true, abbreviate: true)` - Italian inventory
+/// - `#consonants("ts{ts}psS \\*r g{tS} {k \\h}", affricates: true, aspirated: true)` - Custom inventory
+/// - `#consonants("english", affricates: true, simplify: true)` - Simplified English inventory
+/// - `#consonants("italian", affricates: true, simplify: true, ui-lang: "fr")` - Localized labels
 ///
 /// Notes:
 /// - /w/ (labiovelar) appears in both bilabial and velar columns when /ɰ/ is not present; otherwise only bilabial
@@ -459,7 +453,7 @@
 ///     (1, 0, 0),
 ///     (0, 1, 0),
 ///   ),
-///   visualize: true  // Show probability bars (default)
+///   visualize: true,
 /// )
 /// ```
 #let maxent = maxent
@@ -485,7 +479,7 @@
 /// ```
 /// #hg(
 ///  input: "kraTa",
-///  candidates: ("[kra.Ta]", "[ka.Ta]", "[ka.ra.Tu]"),
+///  candidates: ("[kra.Ta]", "[ka.Ta]", "[ka.ra.Ta]"),
 ///  constraints: ("Max", "Dep", "*Complex"),
 ///  weights: (2.5, 1.8, 1),
 ///  violations: (
@@ -520,7 +514,7 @@
 /// ```
 /// #nhg-demo(
 ///  input: "kraTa",
-///  candidates: ("[kra.Ta]", "[ka.Ta]", "[ka.ra.Tu]"),
+///  candidates: ("[kra.Ta]", "[ka.Ta]", "[ka.ra.Ta]"),
 ///  constraints: ("Max", "Dep", "*Complex"),
 ///  weights: (2.5, 1.8, 1),
 ///  violations: (
@@ -557,7 +551,7 @@
 /// ```
 /// #nhg(
 ///   input: "kraTa",
-///   candidates: ("[kra.Ta]", "[ka.Ta]", "[ka.ra.Tu]"),
+///   candidates: ("[kra.Ta]", "[ka.Ta]", "[ka.ra.Ta]"),
 ///   constraints: ("Max", "Dep", "*Complex"),
 ///   weights: (2.5, 1.8, 1),
 ///   violations: (
@@ -787,17 +781,17 @@
 ///
 /// Example:
 /// ```
-/// #ex(caption: "A phonology example")[
+/// #ex(caption: "A phonology example", labels: (<ex-anba>, <ex-anka>), columns: (5em, 2em, 5em))[
 ///   #table(
-///     columns: 3, // <- where we may specify widths
+///     columns: (auto, auto, auto),
 ///     stroke: none,
 ///     align: left,
-///     [#ipa("/anba/")], [#a-r], [#ipa("[amba]")],
-///     [#ipa("/anka/")], [#a-r], [#ipa("[aNka]")],
+///     [#subex-label()<ex-anba>], [#ipa("/anba/")], [#a-r #ipa("[amba]")],
+///     [#subex-label()<ex-anka>], [#ipa("/anka/")], [#a-r #ipa("[aNka]")],
 ///   )
 /// ] <ex-phon1>
 ///
-/// See @ex-phon1.
+/// See @ex-phon1, @ex-anba, and @ex-anka.
 /// ```
 #let ex = ex
 
@@ -824,10 +818,10 @@
 /// ```
 #let subex-label = subex-label
 
-/// Display the current example number inside an ex() body.
+/// Auxiliary helper for advanced `#ex()` table layouts.
 ///
-/// Use as the first-column cell of a 3-column table when no title is provided,
-/// so the number shares bottom alignment with sub-example labels and sentence text.
+/// Most users should rely on `#ex()` and `#subex-label()` directly.
+/// This helper is retained for compatibility with older or custom layouts.
 ///
 /// ```
 /// #ex(caption: "Example")[
@@ -948,7 +942,6 @@
 ///
 /// Example:
 /// ```
-/// #import "@preview/phonokit:0.5.5": *
 /// You're a we#int("*L")rewolf?#h(2em)#int("H%", line: false)
 /// ```
 #let int = int
