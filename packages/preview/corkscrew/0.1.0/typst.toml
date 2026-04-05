@@ -1,0 +1,12 @@
+[package]
+name = "corkscrew"
+version = "0.1.0"
+entrypoint = "src/corkscrew.typ"
+authors = ["Sam Dal Monte <@sdalmonte>"]
+license = "MIT"
+description = "Generate color scales based on Dave Green’s cubehelix color scheme."
+compiler = "0.14.2"
+exclude = [
+	".github",
+	"examples",
+]
