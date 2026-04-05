@@ -290,6 +290,7 @@
 /// - point-alpha (ratio): Token transparency (default: 20%).
 /// - vowel-color (color): Color used for vowel labels (default: black).
 /// - vowel-size (length): Font size used for vowel labels (default: 20pt).
+/// - vowel-weight (str): Font weight used for vowel labels (default: `"regular"`).
 /// - axis-size (length): Font size used for axis labels and tick labels
 ///   (default: 10pt).
 /// - scale (float): Overall scale factor for the figure (default: 1.0).
@@ -304,8 +305,9 @@
 /// - Otherwise, the input is parsed through `ipa-to-unicode` by default, so
 ///   tipa-style strings like `"a e E o O i u"` work directly.
 /// - In CSV mode, `source: csv("...")` assumes the first row is a header row.
-/// - The ellipses visualize the user-provided spread parameters (`sd`, `sd2`);
-///   they are not data-derived confidence ellipses.
+/// - In synthetic mode, ellipses visualize the user-provided spread parameters
+///   (`sd`, `sd2`); in CSV mode, they reflect sample standard deviations
+///   computed from the observed tokens.
 ///
 /// Example:
 /// ```
@@ -331,6 +333,7 @@
   point-alpha: 20%,
   vowel-color: black,
   vowel-size: formants-default-vowel-size,
+  vowel-weight: "regular",
   axis-size: 10pt,
   scale: 1.0,
   x-label: [F2 (Hz)],
@@ -373,10 +376,20 @@
 
   let f1-values = tokens.map(t => t.f1) + centroids.map(t => t.f1)
   let f2-values = tokens.map(t => t.f2) + centroids.map(t => t.f2)
-  let f1-min = calc.min(..f1-values) - calc.max(sd * 1.5, 60)
-  let f1-max = calc.max(..f1-values) + calc.max(sd * 1.5, 60)
-  let f2-min = calc.min(..f2-values) - calc.max(spread2 * 1.5, 80)
-  let f2-max = calc.max(..f2-values) + calc.max(spread2 * 1.5, 80)
+  let pad-f1 = if source != none {
+    calc.max(calc.max(..centroids.map(ct => ct.sd-f1)) * 1.5, 60)
+  } else {
+    calc.max(sd * 1.5, 60)
+  }
+  let pad-f2 = if source != none {
+    calc.max(calc.max(..centroids.map(ct => ct.sd-f2)) * 1.5, 80)
+  } else {
+    calc.max(spread2 * 1.5, 80)
+  }
+  let f1-min = calc.min(..f1-values) - pad-f1
+  let f1-max = calc.max(..f1-values) + pad-f1
+  let f2-min = calc.min(..f2-values) - pad-f2
+  let f2-max = calc.max(..f2-values) + pad-f2
   let x-step = _nice-tick-step(f2-max - f2-min)
   let y-step = _nice-tick-step(f1-max - f1-min)
   let x-ticks = _make-ticks(f2-min, f2-max, x-step)
@@ -416,11 +429,18 @@
       let scaled-vowel-size = vowel-size * scale
       let scaled-axis-size = axis-size * scale
       let axis-tick-color = gray.darken(35%)
+      let scaled-axis-stroke = 0.8pt * scale + axis-tick-color
+      let scaled-grid-stroke = 0.5pt * scale + luma(220)
+      let scaled-center-size = 48 * scale
+      let scaled-center-stroke = 1pt * scale
+      let tick-pad = scaled-axis-size * 0.35
       show lq.selector(lq.tick-label): it => []
       let x-tick-labels = x-ticks.map(value => text(font: doc-font, size: scaled-axis-size)[#str(value)])
       let y-tick-labels = y-ticks.map(value => text(font: doc-font, size: scaled-axis-size)[#str(value)])
       let max-x-tick-height = calc.max(..x-tick-labels.map(label => measure(label).height))
       let max-y-tick-width = calc.max(..y-tick-labels.map(label => measure(label).width))
+      let x-label-pad = max-x-tick-height + scaled-axis-size * 0.9
+      let y-label-pad = max-y-tick-width + scaled-axis-size * 1.05
       let axis-label-color = black
       let x-axis-label = text(font: doc-font, size: scaled-axis-size, fill: axis-label-color)[#x-label]
       let y-axis-label = rotate(
@@ -439,19 +459,19 @@
         yscale: "linear",
         xaxis: (
           position: top,
-          stroke: 0.8pt + axis-tick-color,
+          stroke: scaled-axis-stroke,
           mirror: false,
           exponent: none,
           tick-distance: x-step,
         ),
         yaxis: (
           position: right,
-          stroke: 0.8pt + axis-tick-color,
+          stroke: scaled-axis-stroke,
           mirror: false,
           exponent: none,
           tick-distance: y-step,
         ),
-        grid: if grid { 0.5pt + luma(220) } else { none },
+        grid: if grid { scaled-grid-stroke } else { none },
         fill: white,
         cycle: cycle,
         legend: none,
@@ -490,9 +510,9 @@
             (ct.f2,),
             (ct.f1,),
             mark: "+",
-            size: (48,),
+            size: (scaled-center-size,),
             color: black,
-            stroke: (paint: black, thickness: 1pt),
+            stroke: (paint: black, thickness: scaled-center-stroke),
           )
         } else {
           none
@@ -504,7 +524,7 @@
             align: center + horizon,
             context text(
               font: phonokit-font.get(),
-              weight: "bold",
+              weight: vowel-weight,
               size: scaled-vowel-size,
               fill: vowel-color,
             )[#ct.vowel],
@@ -516,25 +536,25 @@
           value,
           0%,
           align: bottom + center,
-          pad(bottom: 0.35em * scale, text(font: doc-font, size: scaled-axis-size, fill: axis-tick-color)[#str(value)]),
+          pad(bottom: tick-pad, text(font: doc-font, size: scaled-axis-size, fill: axis-tick-color)[#str(value)]),
         )),
         ..y-ticks.map(value => lq.place(
           100%,
           value,
           align: left + horizon,
-          pad(left: 0.35em * scale, text(font: doc-font, size: scaled-axis-size, fill: axis-tick-color)[#str(value)]),
+          pad(left: tick-pad, text(font: doc-font, size: scaled-axis-size, fill: axis-tick-color)[#str(value)]),
         )),
         lq.place(
           50%,
           0%,
           align: bottom + center,
-          pad(bottom: max-x-tick-height + 0.9em * scale, x-axis-label),
+          pad(bottom: x-label-pad, x-axis-label),
         ),
         lq.place(
           100%,
           50%,
           align: left + horizon,
-          pad(left: max-y-tick-width + 1.05em * scale, y-axis-label),
+          pad(left: y-label-pad, y-axis-label),
         ),
       )
     }
@@ -566,6 +586,7 @@
     point-alpha: named.at("point-alpha", default: 20%),
     vowel-color: named.at("vowel-color", default: black),
     vowel-size: named.at("vowel-size", default: formants-default-vowel-size),
+    vowel-weight: named.at("vowel-weight", default: "regular"),
     axis-size: named.at("axis-size", default: 10pt),
     scale: named.at("scale", default: 1.0),
     x-label: named.at("x-label", default: [F2 (Hz)]),

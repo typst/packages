@@ -128,12 +128,19 @@
 /// - point-alpha (ratio): Token transparency (default: 20%)
 /// - vowel-color (color): Color of vowel labels (default: black)
 /// - vowel-size (length): Font size of vowel labels (default: 20pt)
+/// - vowel-weight (str): Font weight of vowel labels (default: `"regular"`)
 /// - axis-size (length): Font size of axis labels and tick labels (default: 10pt)
 /// - scale (float): Overall scale factor for the figure (default: 1.0)
 /// - x-label (content): X-axis label (default: `[F2 (Hz)]`)
 /// - y-label (content): Y-axis label (default: `[F1 (Hz)]`)
 /// - width (length): Diagram width (default: 10cm)
 /// - height (length): Diagram height (default: 7cm)
+///
+/// Notes:
+/// - In synthetic mode, ellipses visualize the user-provided spread parameters
+///   (`sd`, `sd2`).
+/// - In CSV mode, vowel means and ellipse sizes are computed from the observed
+///   tokens in the input data.
 ///
 /// Example:
 /// ```
