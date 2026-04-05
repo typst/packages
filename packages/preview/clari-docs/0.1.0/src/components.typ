@@ -569,7 +569,7 @@
 ///   number — Number. Default: `none`.
 ///   body   — Corollary statement.
 #let corollary(title: none, number: none, body) = context {
-  let c = cs-primary.get().mix(cs-accent.get(), 50%)
+  let c = cs-primary.get().mix(cs-accent.get())
   _math-box("Corollary", c, title: title, number: number, body)
 }
 

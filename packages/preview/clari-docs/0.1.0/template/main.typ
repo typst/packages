@@ -275,7 +275,7 @@ print(greet("World"))
   #phys-eq(
     label: "Schrödinger Equation",
     derivation: true,
-  )[$ i hbar (partial Psi) / (partial t) = hat(H) Psi $]
+  )[$ i ℏ (partial Psi) / (partial t) = hat(H) Psi $]
 ]
 
 #slide(title: "Chemical Equations")[
@@ -309,9 +309,8 @@ print(greet("World"))
 ]
 
 #slide(title: "Annotated Equations")[
-  #pin-eq[
-    $ F = m dot a $
-  ](
+  #pin-eq(
+    [$ F = m dot a $],
     [$F$ — net force applied to the object],
     [$m$ — mass of the object],
     [$a$ — resulting acceleration],
