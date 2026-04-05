@@ -3,7 +3,7 @@
 #import "@preview/fletcher:0.5.8"
 #import "@preview/tableau-icons:0.340.0": ti-icon
 
-#import "@preview/digidraw:0.9.2" as wave
+#import "@preview/digidraw:0.9.2"
 
 
 #show "->": $->$
@@ -761,6 +761,18 @@ Any other symbol will result in the #boxraw("/") symbol. This indicates a defaul
 )
 
 #set page(columns: 1)
+
+= Symbol Matrix
+
+The symbol matrix shows all symbol combinations. This is also how the system is debugged (to some degree). If you find any wrong combinations, please report them at #link("https://codeberg.org/joelvonrotz/typst-digidraw")[https://codeberg.org/joelvonrotz/typst-digidraw]!
+
+Due to the sheer size of the table, it's rather small. So it's recommended to use a PDF viewer instead of a printed version. Or checkout the matrix as a standalone document over at #link("https://codeberg.org/joelvonrotz/typst-digidraw/src/tag/" + version + "/docs/symbol_matrix.pdf"),
+
+#v(3.5fr)
+#scale(110%, image("symbol_matrix.pdf"), origin: center + horizon)
+
+#v(1fr)
+#pagebreak()
 
 #import "@preview/cmarker:0.1.8"
 #set list(spacing: 1em)

@@ -6,7 +6,7 @@
                 <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" d="M 0 0v 21.66929 h 267.59055 v -21.66929 Z "/>
                 <g class="typst-group" transform="matrix(1 0 0 1 2.8346456692913384 2.3307086614173227)">
                     <g>
-                        <path class="typst-shape" fill="url(#p42148843367FF64ACB28E0C180DB161D)" fill-rule="nonzero" d="M 0 0m 18.708662 0 h -18.708662 v 17.007874 h 18.708662 h 2.057953 l 2.057953 -8.503937 l -2.057953 -8.503937 h -2.057953 "/>
+                        <path class="typst-shape" fill="url(#p9E14A8DA9C6A462100B657F79C0D97BA)" fill-rule="nonzero" d="M 0 0m 18.708662 0 h -18.708662 v 17.007874 h 18.708662 h 2.057953 l 2.057953 -8.503937 l -2.057953 -8.503937 h -2.057953 "/>
                         <path class="typst-shape" fill="none" stroke="#0074d9" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" d="M 0 0m 18.708662 0 h -18.708662 "/>
                         <path class="typst-shape" fill="none" stroke="#0074d9" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" transform="matrix(1 0 0 1 0 17.007874015748033)" d="M 0 0h 18.708662 "/>
                         <path class="typst-shape" fill="none" stroke="#0074d9" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" transform="matrix(1 0 0 1 18.708661417322833 0)" d="M 0 0m 0 17.007874 h 2.0579526 l 2.0579526 -8.503937 l -2.0579526 -8.503937 h -2.0579526 "/>
@@ -140,7 +140,7 @@
         </symbol>
     </defs>
     <defs id="tilings">
-        <pattern id="t34049AF0F2EF021AD69B44BAB80E8B6A" width="3.543307086614173" height="3.543307086614173" patternUnits="userSpaceOnUse" viewBox="0 0 3.543 3.543">
+        <pattern id="tF94D17E47FB956F2422D12018ADABDF4" width="3.543307086614173" height="3.543307086614173" patternUnits="userSpaceOnUse" viewBox="0 0 3.543 3.543">
             <g>
                 <g class="typst-group">
                     <g>
@@ -154,6 +154,6 @@
         </pattern>
     </defs>
     <defs id="tilings-refs">
-        <pattern patternTransform="matrix(1 0 0 1 0 0)" id="p42148843367FF64ACB28E0C180DB161D" href="#t34049AF0F2EF021AD69B44BAB80E8B6A" xlink:href="#t34049AF0F2EF021AD69B44BAB80E8B6A"/>
+        <pattern patternTransform="matrix(1 0 0 1 0 0)" id="p9E14A8DA9C6A462100B657F79C0D97BA" href="#tF94D17E47FB956F2422D12018ADABDF4" xlink:href="#tF94D17E47FB956F2422D12018ADABDF4"/>
     </defs>
 </svg>

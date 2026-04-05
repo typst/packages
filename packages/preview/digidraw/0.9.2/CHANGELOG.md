@@ -16,6 +16,8 @@
 
 - Inspired by ALVAROPING1's feature, the tick line system has been expanded to also allow function based visibilty and stroke style reseting for specific lines 
 
+- fixed some symbol transitions (transition from `z` symbol to `p`,`P`,`n`,`N`,`l`,`L`,`h`,`H`)
+
 - added one new example to show of the new features
 
 - updated manual to be on par with package version 0.9.2

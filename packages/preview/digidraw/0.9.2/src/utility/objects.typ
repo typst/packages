@@ -4,6 +4,18 @@
 #import "utility.typ"
 
 
+/* ---------------------------- How parsing works --------------------------- *
+ * Symbols are treated as functions, which contain the previous, current and next
+ * symbol plus the current configuration (which is currently not the best
+ * implementation). To call these functions, the current symbol is converted to
+ * lowercase (so P -> p) and then all the needed parameters are passed.
+ * 
+ * The information of the upper case are stored in the 'current' parameter.
+ * 
+ * Now the rest is just stitching the correct things together in the correct way,
+ * meaning checking sometimes the previous character or the next one.
+ */
+
 #let bus-entry(current, prev,  next, config, fill) = scope({
     let paths = utility.bus-build(prev, next, current, config)
     merge-path(stroke: none, fill: fill, paths)
@@ -15,7 +27,7 @@
   // [Clock] -----------------------------------------------------------
   "p": (current, prev,  next, config) => scope({
     for (i,c) in current.clusters().enumerate() {
-      if lower(prev.first()) in (lower(none),"p","l","1","0","u","d",..utility.lists.buses,) or c == "." {
+      if lower(prev.first()) in (lower(none),"p","l","1","0","u","d",..utility.lists.buses,"z") or c == "." {
         utility.vertical-line(config, mark: if current.first() == "P" {top})
       }
       line((0,1),(0.5,1),(0.5,0),(1,0))
@@ -25,7 +37,7 @@
 
   "n": (current, prev,  next, config) =>  scope({
     for (i,c) in current.clusters().enumerate() {
-      if lower(prev.first()) in (lower(none),"n","h","1","0","u","d",..utility.lists.buses,) or c == "." {
+      if lower(prev.first()) in (lower(none),"n","h","1","0","u","d",..utility.lists.buses,"z") or c == "." {
         utility.vertical-line(config, mark: if current.first() == "N" {bottom})
       }
       line((0,0),(0.5,0),(0.5,1),(1,1))
@@ -35,14 +47,14 @@
   
   // [Signals] ---------------------------------------------------------
   "h": (current, prev,  next, config) => {
-    if lower(prev.first()) in (..utility.lists.ends-low, ..utility.lists.buses) {
+    if lower(prev.first()) in (..utility.lists.ends-low, ..utility.lists.buses,"z") {
       utility.vertical-line(config, mark: if current.first() == "H" {top})
     }
     line((0,1),(current.len(),1))
   },
 
   "l": (current, prev,  next, config) => {
-    if lower(prev.first()) in (..utility.lists.ends-high, ..utility.lists.buses) {
+    if lower(prev.first()) in (..utility.lists.ends-high, ..utility.lists.buses,"z") {
       utility.vertical-line(config, mark: if current.first() == "L" {bottom})
     }
     line((0,0),(current.len(),0))
