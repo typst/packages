@@ -1,0 +1,13 @@
+[package]
+name = "ttt-utils"
+version = "0.1.4"
+compiler = "0.13.0"
+entrypoint = "lib/lib.typ"
+authors = ["Jomaway <https://github.com/jomaway>"]
+license = "MIT"
+description = "A collection of tools to make a teachers life easier."
+repository = "https://github.com/jomaway/typst-teacher-templates"
+keywords = ["teacher", "tools", "assignments", "notebooks", "grading"]
+categories = ["components", "utility"]
+disciplines = ["education"]
+exclude = ["docs/**", "*.pdf", "tests/**"]

@@ -1,0 +1,12 @@
+[package]
+name = "tinyset"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Sylvan Franklin"]
+license = "MIT"
+description = "Simple, consistent, and appealing math homework template"
+repository = "https://github.com/sylvanfranklin/tinyset"
+categories = ["layout"]
+keywords = ["Math", "HW", "pset", "Minimal"]
+exclude = ["*.pdf"]
+disciplines = ["mathematics"]

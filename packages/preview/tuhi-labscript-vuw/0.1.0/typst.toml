@@ -1,0 +1,13 @@
+[package]
+name = "tuhi-labscript-vuw"
+version = "0.1.0"
+entrypoint = "tuhi-labscript-vuw.typ"
+authors = ["baptiste <https://github.com/baptiste>"]
+license = "MPL-2.0"
+description = "A labscript template for VUW experimental courses."
+categories = ["office"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

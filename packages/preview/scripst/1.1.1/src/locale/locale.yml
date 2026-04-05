@@ -1,0 +1,264 @@
+am:
+    abstract: እስከ
+    keywords: ተግባ
+    keywords-separator: ","
+    number-format: I
+    preface: እስከ
+ar:
+    abstract: ملخص
+    keywords: كلمات مفتاحية
+    keywords-separator: ","
+    number-format: ١
+    preface: مقدمة
+bg:
+    abstract: Резюме
+    keywords: Ключови думи
+    keywords-separator: ","
+    number-format: I
+    preface: Въведение
+da:
+    abstract: Resumé
+    keywords: Nøgleord
+    keywords-separator: ","
+    number-format: I
+    preface: Forord
+de:
+    abstract: Zusammenfassung
+    keywords: Schlüsselwörter
+    keywords-separator: ","
+    number-format: I
+    preface: Vorwort
+en:
+    abstract: Abstract
+    keywords: Keywords
+    keywords-separator: ","
+    number-format: I
+    preface: Preface
+es:
+    abstract: Resumen
+    keywords: Palabras clave
+    keywords-separator: ","
+    number-format: I
+    preface: Prólogo
+et:
+    abstract: Tiitlus
+    keywords: Võtmesõnad
+    keywords-separator: ","
+    number-format: I
+    preface: Esimesed sõnad
+fa:
+    abstract: چکیده
+    keywords: کلمات کلیدی
+    keywords-separator: ","
+    number-format: ۱
+    preface: مقدمه
+fi:
+    abstract: Tiivistelmä
+    keywords: Avainsanat
+    keywords-separator: ","
+    number-format: I
+    preface: Esipuhe
+fr:
+    abstract: Résumé
+    keywords: Mots-clés
+    keywords-separator: ","
+    number-format: I
+    preface: Préface
+gr:
+    abstract: Επιγραφή
+    keywords: Λέξεις-κλειδιά
+    keywords-separator: ","
+    number-format: Α
+    preface: Εισαγωγή
+ha:
+    abstract: Abstrak
+    keywords: Kuwadi
+    keywords-separator: ","
+    number-format: I
+    preface: Kwala
+he:
+    abstract: תקציר
+    keywords: מילים מפתח
+    keywords-separator: ","
+    number-format: א
+    preface: מבוא
+hi:
+    abstract: सारांश
+    keywords: कुंजी शब्द
+    keywords-separator: ","
+    number-format: १
+    preface: प्रस्तावना
+hr:
+    abstract: Povzetek
+    keywords: Ključne besede
+    keywords-separator: ","
+    number-format: I
+    preface: Predgovor
+id:
+    abstract: Abstrak
+    keywords: Kata kunci
+    keywords-separator: ","
+    number-format: I
+    preface: Pendahuluan
+ig:
+    abstract: Abstrak
+    keywords: Igbo
+    keywords-separator: ","
+    number-format: I
+    preface: Igwe
+is:
+    abstract: Sameind
+    keywords: Nafnord
+    keywords-separator: ","
+    number-format: I
+    preface: Fyrirbæ
+it:
+    abstract: Riassunto
+    keywords: Parole chiave
+    keywords-separator: ","
+    number-format: I
+    preface: Prefazione
+ja:
+    abstract: 要約
+    keywords: キーワード
+    keywords-separator: 、
+    number-format: あ
+    preface: 序文
+ko:
+    abstract: 요약
+    keywords: 키워드
+    keywords-separator: ","
+    number-format: 가
+    preface: 서문
+ku:
+    abstract: Pîvan
+    keywords: Kelimeyên ana
+    keywords-separator: ","
+    number-format: I
+    preface: Pêşkû
+lt:
+    abstract: Santrauka
+    keywords: Raktiniai žodžiai
+    keywords-separator: ","
+    number-format: I
+    preface: Įvadas
+lv:
+    abstract: Kopsavilkums
+    keywords: Atslēgas vārdi
+    keywords-separator: ","
+    number-format: I
+    preface: Ievads
+ms:
+    abstract: Abstrak
+    keywords: Kata kunci
+    keywords-separator: ","
+    number-format: I
+    preface: Perkataan awal
+my:
+    abstract: အကျဉ်း
+    keywords: အိုးစားစကား
+    keywords-separator: ","
+    number-format: I
+    preface: စတင်ခေါ်
+nl:
+    abstract: Samenvatting
+    keywords: Sleutelwoorden
+    keywords-separator: ","
+    number-format: I
+    preface: Voorwoord
+"no":
+    abstract: Sammendrag
+    keywords: Nøkkelord
+    keywords-separator: ","
+    number-format: I
+    preface: Innledning
+ph:
+    abstract: Abstracto
+    keywords: Mga keyword
+    keywords-separator: ","
+    number-format: I
+    preface: Preludio
+pl:
+    abstract: Streszczenie
+    keywords: Słowa kluczowe
+    keywords-separator: ","
+    number-format: I
+    preface: Wstęp
+pt:
+    abstract: Resumo
+    keywords: Palavras-chave
+    keywords-separator: ","
+    number-format: I
+    preface: Prólogo
+ro:
+    abstract: Rezumat
+    keywords: Cuvinte cheie
+    keywords-separator: ","
+    number-format: I
+    preface: Introducere
+ru:
+    abstract: Аннотация
+    keywords: Ключевые слова
+    keywords-separator: ","
+    number-format: I
+    preface: Предисловие
+sk:
+    abstract: Abstrakt
+    keywords: Kľúčové slová
+    keywords-separator: ","
+    number-format: I
+    preface: Predmluva
+sv:
+    abstract: Sammanfattning
+    keywords: Nyckelord
+    keywords-separator: ","
+    number-format: I
+    preface: Förord
+sw:
+    abstract: Kusamulizi
+    keywords: Mifano ya chanzo
+    keywords-separator: ","
+    number-format: I
+    preface: Mfano
+th:
+    abstract: บทคัดย่อ
+    keywords: คำค้นหา
+    keywords-separator: ","
+    number-format: I
+    preface: คำนำ
+tr:
+    abstract: Özet
+    keywords: Anahtar Kelimeler
+    keywords-separator: ","
+    number-format: I
+    preface: Önsöz
+ur:
+    abstract: ملخص
+    keywords: کلید الفاظ
+    keywords-separator: ","
+    number-format: ۱
+    preface: مقدمہ
+vi:
+    abstract: Tóm tắt
+    keywords: Từ khóa
+    keywords-separator: ","
+    number-format: I
+    preface: Lờipreface
+yo:
+    abstract: Abstrak
+    keywords: Ipinle
+    keywords-separator: ","
+    number-format: I
+    preface: Ibiyip
+zh:
+    abstract: 摘要
+    keywords: 关键词
+    keywords-separator: ；
+    number-format: 一
+    preface: 前言
+zu:
+    abstract: Umbongo
+    keywords: Izinto
+    keywords-separator: ","
+    number-format: I
+    preface: Umgqo

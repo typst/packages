@@ -1,0 +1,7 @@
+#let www-white = box(image("www.svg", width: 1em), baseline: .2em)
+#let www = box(image("www-black.svg", width: 1em))
+#let email = box(image("email.svg", width: 1em))
+#let mastodon = box(image("mastodon.svg", width: 1em))
+#let down-arrow = box(image("down-arrow.svg", width: 1em))
+#let up-arrow = box(image("up-arrow.svg", width: 1em))
+#let right-arrow = box(image("right-arrow.svg", width: 1em), baseline: .2em)

@@ -1,0 +1,12 @@
+[package]
+name = "fruitify"
+description = "Replace letters in equations with fruit emoji"
+keywords = ["fruit", "emoji"]
+authors = ["T0mstone <realt0mstone@gmail.com>"]
+repository = "https://codeberg.org/T0mstone/typst-fruitify"
+license = "MIT-0"
+
+version = "0.1.1"
+compiler = "0.9.0"
+
+entrypoint = "fruitify.typ"

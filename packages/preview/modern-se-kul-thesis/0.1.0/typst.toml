@@ -1,0 +1,26 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "modern-se-kul-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Benjamin Eeckhout <https://github.com/benjamineeckh>"]
+license = "MIT"
+description = "Unofficial Master's thesis template for writing a thesis at the engineering science faculty at KU Leuven"
+repository = "https://github.com/benjamineeckh/kul-typst-template"
+keywords = ["thesis", "KU Leuven", "Katholieke Universiteit Leuven", "masterthesis"]
+categories = ["thesis"]
+compiler = "0.13.0"
+exclude = [
+	".github",
+	"docs",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+	"references"
+]
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

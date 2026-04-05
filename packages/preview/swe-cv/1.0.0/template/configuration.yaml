@@ -1,0 +1,78 @@
+header:
+  name: "John Smith"
+  website: "https://johnsmith.dev"
+  websiteDisplayName: "johnsmith.dev"
+  email: "mailto:johnsmith@example.com"
+  phone: "+1-555-555-5555"
+  github: "Github: johnsmithdev"
+  linkedin: "Linkedin: johnsmithdev"
+education:
+  - location: "New York, USA"
+    name: "New York University"
+    date: "2014-2018"
+    degree: "B.S. in Computer Science with a focus on Software Engineering and Systems Administration."
+employment:
+  - location: "Remote"
+    company: "TechOps Consulting"
+    date: "2022-2024"
+    responsibilities:
+      - "Supported organizations in optimizing their DevOps workflows by implementing CI/CD pipelines, container orchestration strategies, and infrastructure-as-code practices using industry-standard tools."
+      - "Collaborated with cross-functional teams to streamline deployment processes, enhance infrastructure scalability, and ensure reliable delivery of software to production environments."
+  - location: "San Francisco, California"
+    company: "CloudStream Solutions"
+    date: "2021-2022"
+    responsibilities:
+      - "Designed and implemented scalable cloud infrastructure using Terraform, enabling seamless application deployment across AWS, while ensuring cost optimization and high availability."
+      - "Automated monitoring and alerting systems to improve incident response times, reduce system downtime, and provide real-time insights into application performance."
+      - "Developed custom tools and scripts to efficiently manage Kubernetes clusters, providing enhanced support for deployment and scaling operations across multiple environments."
+  - location: "Austin, Texas"
+    company: "NextGen IT"
+    date: "2020-2021"
+    responsibilities:
+      - "Managed the migration of legacy systems to containerized environments using Docker and Kubernetes, enhancing scalability, portability, and operational efficiency."
+      - "Developed robust scripts and automation tools to reduce manual workflows, saving valuable time for system administrators and improving deployment consistency."
+      - "Improved system security by implementing access control policies, robust monitoring systems, and regular compliance checks to mitigate risks and vulnerabilities."
+projects:
+  - title: "Infrastructure automation tool"
+    website: "https://infratool.dev"
+    contributions:
+      - "Developed an open-source infrastructure automation tool designed to streamline the provisioning of cloud resources across AWS, Azure, and Google Cloud using Terraform and modern DevOps practices."
+      - "Implemented advanced features for managing resource lifecycles and optimizing infrastructure usage, enabling teams to efficiently scale their cloud environments up or down as needed."
+  - title: "Kubernetes monitoring system"
+    website: "https://kubemonitor.io"
+    contributions:
+      - "Built a comprehensive monitoring solution for Kubernetes clusters, integrating Prometheus and Grafana to provide real-time insights into cluster performance and system health."
+      - "Automated alerting for critical events and thresholds, significantly improving incident response times and enhancing the overall reliability of systems in production."
+  - title: "CI/CD pipeline"
+    website: "https://deployify.dev"
+    contributions:
+      - "Developed a robust CI/CD pipeline for a multi-service architecture, enabling seamless application deployments with zero downtime, incorporating testing and security scanning tools."
+skills:
+  languages:
+    - "JavaScript"
+    - "TypeScript"
+    - "HTML/CSS"
+    - "Python"
+    - "Ruby"
+    - "C#"
+    - "Swift"
+    - "Kotlin"
+  frameworks:
+    - "React"
+    - "Vue"
+    - "Angular"
+    - "Node.js"
+    - "Django"
+    - "Flask"
+    - "Ruby on Rails"
+    - "Spring Boot"
+  tools:
+    - "GraphQL"
+    - "PostgreSQL"
+    - "SQLite"
+    - "Redis"
+    - "Git"
+    - "Docker"
+    - "Kubernetes"
+    - "Firebase (Authentication, Firestore)"
+    - "AWS (Lambda, CloudFront)"

@@ -1,0 +1,11 @@
+# General
+.vscode
+.idea
+desktop.ini
+.DS_Store
+
+# Deployment
+/dist
+
+# Rust
+/bundler/target

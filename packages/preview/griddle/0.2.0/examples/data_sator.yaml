@@ -1,0 +1,10 @@
+- {number: 1, row: 0, col: 0, direction: horizontal, word: sator, definition: ""}
+- {number: 1, row: 0, col: 0, direction: vertical, word: sator, definition: ""}
+- {number: 2, row: 1, col: 0, direction: horizontal, word: arepo, definition: ""}
+- {number: 2, row: 0, col: 1, direction: vertical, word: arepo, definition: ""}
+- {number: 3, row: 2, col: 0, direction: horizontal, word: tenet, definition: ""}
+- {number: 3, row: 0, col: 2, direction: vertical, word: tenet, definition: ""}
+- {number: 4, row: 3, col: 0, direction: horizontal, word: opera, definition: ""}
+- {number: 4, row: 0, col: 3, direction: vertical, word: opera, definition: ""}
+- {number: 5, row: 4, col: 0, direction: horizontal, word: rotas, definition: ""}
+- {number: 5, row: 0, col: 4, direction: vertical, word: rotas, definition: ""}

@@ -1,0 +1,11 @@
+[package]
+name = "swank-tex"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Stephen Waits <steve@waits.net>"]
+license = "MIT"
+description = "Render those funky logos for TeX, LaTeX, and friends."
+categories = ["utility"]
+keywords = ["tex", "latex", "luatex", "xetex", "lualatex", "xelatex", "logo"]
+repository = "https://github.com/swaits/typst-collection"
+exclude = ["thumbnail.png", "tests"]

@@ -1,0 +1,12 @@
+[package]
+name = "gentle-clues"
+version = "1.0.0"
+entrypoint = "lib/lib.typ"
+authors = ["Jomaway <https://github.com/jomaway>"]
+license = "MIT"
+description = "A package to simply create and add some admonitions to your documents."
+repository = "https://github.com/jomaway/typst-gentle-clues"
+keywords = ["admonitions", "boxes", "gentle-clues"]
+categories = ["components", "visualization"]
+compiler = "0.11.0"
+exclude = ["docs.typ","docs.pdf","gc-overview.typ","justfile", "minify-icons.sh", "CHANGELOG.md",]

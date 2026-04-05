@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>Codez Light</string>
+  <key>settings</key>
+  <array>
+    <dict>
+      <key>settings</key>
+      <dict>
+        <key>background</key>
+        <string>#f7f7f2</string>
+        <key>foreground</key>
+        <string>#1f1f1f</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Keywords</string>
+      <key>scope</key>
+      <string>keyword.control.mlir, keyword.control, keyword.operator</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#2b6cb0</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Dialects</string>
+      <key>scope</key>
+      <string>keyword.dialect.mlir</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#6f42c1</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Types</string>
+      <key>scope</key>
+      <string>storage.type.mlir, storage.type</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#0b7285</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>SSA Variables</string>
+      <key>scope</key>
+      <string>variable.other.ssa.mlir, variable.other</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#a100a1</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Attributes</string>
+      <key>scope</key>
+      <string>constant.other.attribute.mlir</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#c2410c</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Functions</string>
+      <key>scope</key>
+      <string>entity.name.function.mlir, entity.name.function</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#1a7f37</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Labels</string>
+      <key>scope</key>
+      <string>label.block.mlir</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#0f766e</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Constants</string>
+      <key>scope</key>
+      <string>constant.numeric, constant.language.boolean</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#b45309</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Strings</string>
+      <key>scope</key>
+      <string>string.quoted.double, string.quoted.single</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#8b5e00</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Comments</string>
+      <key>scope</key>
+      <string>comment.line, comment.block</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#6b7280</string>
+        <key>fontStyle</key>
+        <string>italic</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Punctuation</string>
+      <key>scope</key>
+      <string>punctuation.separator, punctuation.definition</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#4b5563</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>

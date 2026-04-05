@@ -1,0 +1,11 @@
+[package]
+name = "whalogen"
+version = "0.3.0"
+repository = "https://github.com/schang412/typst-whalogen"
+entrypoint = "lib.typ"
+authors = [
+    "Spencer Chang <spencer@sycee.xyz>"
+]
+license = "Apache-2.0"
+description = "Typesetting chemical formulae, a port of mhchem"
+exclude = ["manual.pdf", "manual.typ", "gallery/*"]

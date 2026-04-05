@@ -1,0 +1,10 @@
+[package]
+name = "karnaugh-express"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Julius Grupp"]
+license = "MIT"
+description = "A package for creating highly customizable karnaugh maps."
+repository = "https://github.com/uzzlius/typst-karnaugh-express"
+keywords = ["karnaugh-map", "k-map", "kv-diagram", "boolean-algebra", "digital-logic", "diagrams"]
+exclude = ["examples"]

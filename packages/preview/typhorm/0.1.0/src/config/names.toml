@@ -1,0 +1,21 @@
+[sections.en]
+    objective = "Learning Objective"
+
+[blocks.en]
+    algorithm = "Algorithm"
+    table = "Table"
+    figure = "Figure"
+    equation = " Eq. "
+    rule = "Rule"
+    law = "Law"
+
+[sections.zh]
+    objective = "学习目标"
+
+[blocks.zh]
+    algorithm = "算法"
+    table = "表"
+    figure = "图"
+    equation = "式 "
+    rule = "法则"
+    law = "定律"

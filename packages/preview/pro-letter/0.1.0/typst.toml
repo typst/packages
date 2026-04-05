@@ -1,0 +1,16 @@
+[package]
+name = "pro-letter"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Stephen Waits <steve@waits.net>"]
+license = "MIT"
+description = "A formal business letter template."
+categories = ["office"]
+disciplines = ["business", "communication"]
+keywords = ["professional", "business", "letter", "correspondence"]
+repository = "https://github.com/swaits/typst-collection"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

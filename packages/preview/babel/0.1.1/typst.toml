@@ -1,0 +1,37 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "babel"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["Maja Abramski-Kronenberg <https://me.digitalwords.net>"]
+license = "MIT-0"
+description = "Redact text by replacing it with random characters"
+repository = "https://codeberg.org/afiaith/babel"
+keywords = [
+	"redact", "redaction",
+	"sanitise", "sanitize", "sanitisation", "sanitization",
+	"hide", "hiding",
+	"confidential", "confidentiality",
+	"share", "sharing",
+	"writing systems", "codes", "symbols"
+]
+categories = ["languages", "text", "fun"]
+disciplines = []
+compiler = "0.11.0"
+exclude = [
+	".typstignore",
+	"Justfile",
+	"assets",
+	"docs",
+	"scripts",
+	"tests",
+]
+
+# [template]
+# path = "template"
+# entrypoint = "main.typ"
+# thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"

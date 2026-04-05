@@ -1,0 +1,15 @@
+[package]
+name = "modern-unimib-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/michelebanfi/unimib-typst-template"
+authors = ["Michele Banfi"]
+license = "MIT"
+description = "A thesis template of the University of Milano-Bicocca heavily inspired by <https://github.com/eduardz1/UniTO-typst-template/tree/main>"
+keywords = ["thesis", "university", "UniMiB", "Milan", "Milano", "Università degli Studi di Milano", "Bicocca", "Tesi"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

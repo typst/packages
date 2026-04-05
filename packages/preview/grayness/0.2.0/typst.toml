@@ -1,0 +1,19 @@
+[package]
+name = "grayness"
+version = "0.2.0"
+compiler = "0.11.0"
+repository = "https://github.com/nineff/grayness"
+entrypoint = "lib.typ"
+authors = ["Nikolai Neff-Sarnow"]
+license = "Apache-2.0"
+description = "Simple image editing capabilities like converting to grayscale and cropping via a WASM plugin."
+categories = ["visualization", "integration", "utility"]
+keywords = ["grayscale", "image", "transparency", "blur", "wasm"]
+exclude = [
+	"manual.pdf",
+	"manual.typ",
+	"example.png",
+	"example.typ",
+	"Arturo_Nieto-Dorantes.webp",
+	"CHANGELOG.md",
+]
