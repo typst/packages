@@ -28,6 +28,7 @@
 #import "sonority.typ": *
 #import "autosegmental.typ": *
 #import "multi-tier.typ": *
+#import "sound-shift.typ": *
 #import "ex.typ": *
 #import "intonational.typ": *
 #import "geom.typ": *
@@ -763,6 +764,60 @@
 /// Note: Trailing digits in labels are automatically rendered as subscripts
 /// (e.g., "O1" becomes O₁). Standalone "x" is rendered as "×" (multiplication sign).
 #let multi-tier = multi-tier
+
+/// Create free-positioned sound-shift diagrams
+///
+/// Draws IPA labels at arbitrary 2D positions and connects them with arrows.
+/// This is useful for historical or schematic shift diagrams that are awkward
+/// to represent in an IPA trapezoid.
+///
+/// Arguments:
+/// - nodes (array): Array of dictionaries describing nodes. Each node needs
+///   `at: (x, y)` and `label:`. When `label` is a string, it also serves as
+///   the node identifier by default. Use `id:` only when labels are duplicated
+///   or when the visible label should differ from the reference key.
+/// - arrows (array): Array of arrow specs. Each arrow can be a `(from, to)`
+///   tuple or a dictionary with `from:` and `to:`. Endpoints can be node ids
+///   or raw coordinate pairs.
+/// - highlights (array): Node ids or coordinate pairs to highlight with a
+///   background circle (default: ())
+/// - node-size (length): Default IPA font size for nodes (default: 2.2em)
+/// - text-fill (color): Default node color (default: black)
+/// - highlight-fill (fill): Default node/highlight fill (default: `luma(230)`)
+/// - highlight-radius (float): Default circle radius in canvas units (default: 0.42)
+/// - arrow-color (color): Default arrow color (default: black)
+/// - arrow-style (str): Default arrow style: `"solid"`, `"dashed"`, or `"dotted"`
+/// - arrow-width (length): Default arrow stroke width (default: 0.8pt)
+/// - arrow-size (float): Default arrowhead scale (default: 1.0)
+/// - curved (bool): Curve arrows by default (default: false)
+/// - curve (float): Default curvature multiplier for curved arrows (default: 0.45)
+/// - scale (float): Uniform diagram scale factor (default: 1.0)
+///
+/// Returns: A CeTZ-based sound-shift diagram
+///
+/// Example:
+/// ```
+/// #sound-shift(
+///   nodes: (
+///     (label: "I", at: (-4.2, 2.8)),
+///     (label: "E", at: (-1.9, 1.0)),
+///     (label: "2", at: (0.9, 1.0)),
+///     (label: "O", at: (3.8, 1.0)),
+///     (label: "A", at: (2.4, -1.5)),
+///     (label: "\\ae", at: (-1.0, -1.5)),
+///   ),
+///   arrows: (
+///     ("E", "2"),
+///     ("2", "O"),
+///     ("O", "A"),
+///     ("A", "\\ae"),
+///     ("I", "E"),
+///     (from: "\\ae", to: "I", curved: true, curve: 0.28),
+///   ),
+///   scale: 0.7,
+/// )
+/// ```
+#let sound-shift = sound-shift
 
 /// Create a numbered linguistic example
 ///
