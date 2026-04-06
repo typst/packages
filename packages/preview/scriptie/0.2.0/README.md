@@ -41,11 +41,11 @@ The user writes the best screenplay the world has ever seen.
 #lorem(15)
 - THE END.
 ```
-<img src="demo1.svg"/>
-<img src="demo2.svg"/>
+<img src="demo1.svg" alt="Demo title page"/>
+<img src="demo2.svg" alt="Demo script page"/>
 
-There's a demo showcasing all the functionalities [with the quick syntax](https://github.com/KauriP/scriptie/blob/main/demo-quick.typ)
-and [without the quick syntax](https://github.com/KauriP/scriptie/blob/main/demo.typ).
+There's a demo showcasing all the functionalities [with the quick syntax](https://github.com/KauriP/scriptie/blob/a16bf15324099edc3df34ebfe5262ee2a6e0a3ae/demo-quick.typ)
+and [without the quick syntax](https://github.com/KauriP/scriptie/blob/a16bf15324099edc3df34ebfe5262ee2a6e0a3ae/demo.typ).
 
 # Possible issues
 
