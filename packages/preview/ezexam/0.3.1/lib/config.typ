@@ -25,4 +25,4 @@
   (name: "Noto Sans CJK SC", covers: _heiti-regex),
 )
 
-#let kaiti = "STKaiti"
+#let kaiti = ("STKaiti",)
