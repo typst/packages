@@ -1,0 +1,16 @@
+[package]
+name = "monografia-uepg"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Enzo Serenato"]
+license = "MIT"
+description = "Template para monografias da UEPG seguindo normas ABNT"
+keywords = ["monografia", "uepg", "abnt", "tcc", "academic"]
+compiler = "0.12.0"
+categories = ["thesis"]
+repository = "https://github.com/ekspy/monografia-uepg"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
