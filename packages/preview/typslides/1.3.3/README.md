@@ -1,12 +1,12 @@
 <p align="center">
-    <img src="img/logo.png" alt="logo" width="400"/>
+    <img src="img/logo.png" alt="Typslides logo" width="400"/>
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/license-GPLv3-blue" alt="License">
-    <img src="https://badgen.net/github/contributors/manjavacas/typslides" alt="Contributors">
-    <img src="https://badgen.net/github/release/manjavacas/typslides" alt="Release">
-    <img src="https://img.shields.io/github/stars/manjavacas/typslides" alt="GitHub Repo stars">
+    <img src="https://img.shields.io/badge/license-GPLv3-blue" alt="GPLv3 license">
+    <img src="https://badgen.net/github/contributors/manjavacas/typslides" alt="List of contributors">
+    <img src="https://badgen.net/github/release/manjavacas/typslides" alt="Current release">
+    <img src="https://img.shields.io/github/stars/manjavacas/typslides" alt="GitHub repo stars">
 </p>
 
 <p align="justify">
@@ -134,4 +134,4 @@ This is a simple usage example:
 
 # Sample slides
 
-<kbd><img src="img/slide-1.svg" width="300"></kbd> <kbd><img src="img/slide-2.svg" width="300"></kbd> <kbd><img src="img/slide-3.svg" width="300"></kbd> <kbd><img src="img/slide-4.svg" width="300"></kbd> <kbd><img src="img/slide-5.svg" width="300"></kbd> <kbd><img src="img/slide-6.svg" width="300"></kbd> <kbd><img src="img/slide-7.svg" width="300"></kbd> <kbd><img src="img/slide-8.svg" width="300"></kbd> <kbd><img src="img/slide-9.svg" width="300"></kbd>
+<kbd><img src="img/slide-1.svg" alt="Slide 1" width="300"></kbd> <kbd><img src="img/slide-2.svg" alt="Slide 2" width="300"></kbd> <kbd><img src="img/slide-3.svg" alt="Slide 3" width="300"></kbd> <kbd><img src="img/slide-4.svg" alt="Slide 4" width="300"></kbd> <kbd><img src="img/slide-5.svg" alt="Slide 5" width="300"></kbd> <kbd><img src="img/slide-6.svg" alt="Slide 6" width="300"></kbd> <kbd><img src="img/slide-7.svg" alt="Slide 7" width="300"></kbd> <kbd><img src="img/slide-8.svg" alt="Slide 8" width="300"></kbd> <kbd><img src="img/slide-9.svg" alt="Slide 9" width="300"></kbd>
