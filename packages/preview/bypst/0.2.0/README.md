@@ -226,7 +226,7 @@ After editing theme files, run `just install` before compiling.
 
 ### Project Structure
 
-```
+```txt
 bypst.typ        # package entrypoint
 theme.typ        # theme implementation
 bips-logo.png    # logo asset
