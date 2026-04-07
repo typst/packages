@@ -1,4 +1,4 @@
-#import "@local/answerly:0.1.0": *
+#import "@preview/answerly:0.1.0": *
 #import "@preview/itemize:0.2.0": default-enum-list
 
 #set enum(numbering: "1)a)i)")

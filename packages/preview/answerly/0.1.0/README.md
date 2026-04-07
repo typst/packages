@@ -41,7 +41,7 @@ Then call `#display-answers()` to display the complete list of answers:
 ### Simple Example
 
 ```typst
-#import "@local/answerly:0.1.0": *
+#import "@preview/answerly:0.1.0": *
 #import "@preview/itemize:0.2.0": default-enum-list
 
 #set enum(numbering: "1)a)i)")
@@ -71,7 +71,7 @@ Then call `#display-answers()` to display the complete list of answers:
 Apply `inline-answers` as a show rule to display answers as they appear, boxed inline:
 
 ```typst
-#import "@local/answerly:0.1.0": *
+#import "@preview/answerly:0.1.0": *
 #import "@preview/itemize:0.2.0": default-enum-list
 
 #show: default-enum-list
