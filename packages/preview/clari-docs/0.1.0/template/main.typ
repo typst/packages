@@ -1,17 +1,17 @@
 // ============================================================
-// clari-slides — Example Presentation
+// clari-docs — Example Presentation
 // ============================================================
 // This file showcases all four categories and the full
 // component library. Adjust parameters below to fit your needs.
 
-#import "@preview/clari-docs:0.1.0": *
+#import "@local/clari-docs:0.1.0": *
 
 // ── Presentation Setup ──────────────────────────────────────
 // category: "simple" | "math" | "professional" | "allrounder"
 // theme: "ocean" | "midnight" | "forest" | "teal" | "sunset"
 //        "amber" | "rose" | "lavender" | "slate" | "charcoal"
 //        or any rgb() color value
-#show: clari-slides.with(
+#show: clari-docs.with(
   category:          "allrounder",
   theme:             "ocean",
   font:              "Fira Sans",
@@ -23,7 +23,7 @@
 
 // ── Cover Slide ─────────────────────────────────────────────
 #title-slide(
-  title:       "clari-slides",
+  title:       "clari-docs",
   subtitle:    [A comprehensive Typst slide template],
   author:      "Your Name",
   date:        datetime.today(),
@@ -182,7 +182,7 @@ print(greet("World"))
 
 #slide(title: "Step Lists")[
   #step-list(
-    [Import the package and configure `#show: clari-slides.with(...)`],
+    [Import the package and configure `#show: clari-docs.with(...)`],
     [Add a `#title-slide(...)` as your cover],
     [Use `#section-slide[...]` to divide your content],
     [Fill slides with content and components],
@@ -227,7 +227,7 @@ print(greet("World"))
 #section-slide[Image Layouts]
 
 #slide(title: "Image Layout Options", outlined: true)[
-  clari-slides provides five image placement modes:
+  clari-docs provides five image placement modes:
 
   #step-list(
     [`#img-full(src)` — fills the entire slide],
@@ -365,7 +365,7 @@ print(greet("World"))
 #section-slide[Colour Themes]
 
 #slide(title: "Available Themes", outlined: true)[
-  Pass any theme name to `clari-slides.with(theme: ...)`:
+  Pass any theme name to `clari-docs.with(theme: ...)`:
 
   #cols[
     #step-list(

@@ -1,11 +1,11 @@
 // ============================================================
-// clari-slides — Summary Template
+// clari-docs — Summary Template
 // ============================================================
 // A compact, single-page-style A4 summary.
 // All components (callout, definition, theorem, …) work identically
 // to the slides document type — the same import, different #show rule.
 
-#import "@local/clari-slides:0.1.0": *
+#import "@local/clari-docs:0.1.0": *
 
 #show: clari-summary.with(
   category:    "math",

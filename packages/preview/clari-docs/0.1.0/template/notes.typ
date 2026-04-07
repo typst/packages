@@ -1,11 +1,11 @@
 // ============================================================
-// clari-slides — Lecture Notes Template
+// clari-docs — Lecture Notes Template
 // ============================================================
 // Detailed, flowing lecture notes on A4 with a full title page,
 // table of contents, and running header.
 // All components work identically to the slides document type.
 
-#import "@local/clari-slides:0.1.0": *
+#import "@local/clari-docs:0.1.0": *
 
 #show: clari-notes.with(
   category:       "professional",

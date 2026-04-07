@@ -1,14 +1,14 @@
 // ============================================================
-// clari-slides v0.1.0 — Main Entry Point
+// clari-docs v0.1.0 — Main Entry Point
 // ============================================================
 // Import this file in your document:
 //
-//   #import "@preview/clari-slides:0.1.0": *
+//   #import "@preview/clari-docs:0.1.0": *
 //
 // Then choose a document type:
 //
 //   Slides:
-//     #show: clari-slides.with(category: "professional", theme: "midnight", ...)
+//     #show: clari-docs.with(category: "professional", theme: "midnight", ...)
 //
 //   Summaries (compact A4):
 //     #show: clari-summary.with(theme: "ocean", title: "My Summary", ...)

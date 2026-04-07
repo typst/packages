@@ -1,4 +1,4 @@
-# clari-slides
+# clari-docs
 
 A comprehensive, highly-customisable Typst template for slides, summaries, and notes. It features four presentation categories, rich built-in components, and full scientific support.
 
@@ -7,17 +7,16 @@ A comprehensive, highly-customisable Typst template for slides, summaries, and n
 ## Quick start
 
 ```typst
-#import "@preview/clari-slides:0.1.0": *
+#import "@preview/clari-docs:0.1.0": *
 
-#show: clari-slides.with(
+#show: clari-docs.with(
   category: "professional",  // simple | math | professional | allrounder
   theme:    "midnight",      // named theme or rgb() color
-  title:    "My Presentation",
 )
 
 #title-slide(
   title:       "My Presentation",
-  subtitle:    "A clari-slides demo",
+  subtitle:    "A clari-docs demo",
   author:      "Your Name",
   institution: "Your University",
 )
@@ -27,7 +26,7 @@ A comprehensive, highly-customisable Typst template for slides, summaries, and n
 #section-slide[Introduction]
 
 #slide(title: "Hello World", outlined: true)[
-  - clari-slides makes beautiful slides easy.
+  - clari-docs makes beautiful slides easy.
 ]
 
 #end-slide()
@@ -35,7 +34,7 @@ A comprehensive, highly-customisable Typst template for slides, summaries, and n
 
 ## Parameters
 
-### `clari-slides`
+### `clari-docs`
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|

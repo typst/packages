@@ -109,6 +109,9 @@
   body
 }
 
+// Public alias matching the package name used by imports.
+#let clari-docs = clari-slides
+
 // ============================================================
 // 2. title-slide — Cover / front slide
 // ============================================================
