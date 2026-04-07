@@ -10,7 +10,7 @@ Feel free to open issues in the repository!
 
 | Cover                                 | Table of Contents                         | Table of Figures                         | Content                               |
 |---------------------------------------|-------------------------------------------|------------------------------------------|---------------------------------------|
-| ![CoverExample](assets/thumbnail.png) | ![TableOfContentsExample](assets/ToC.png) | ![TableOfFiguresExample](assets/ToF.png) | ![ContentExample](assets/content.png) |
+| ![An example of cover](assets/thumbnail.png) | ![An example of a Table Of Contents](assets/ToC.png) | ![An example of Table Of Figures](assets/ToF.png) | ![An example of a page with Content](assets/content.png) |
 
 ## Usage
 
