@@ -4,7 +4,7 @@
 // This file showcases all four categories and the full
 // component library. Adjust parameters below to fit your needs.
 
-#import "@local/clari-docs:0.1.0": *
+#import "@preview/clari-docs:0.1.0": *
 
 // ── Presentation Setup ──────────────────────────────────────
 // category: "simple" | "math" | "professional" | "allrounder"

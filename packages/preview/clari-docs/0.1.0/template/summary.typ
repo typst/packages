@@ -5,7 +5,7 @@
 // All components (callout, definition, theorem, …) work identically
 // to the slides document type — the same import, different #show rule.
 
-#import "@local/clari-docs:0.1.0": *
+#import "@preview/clari-docs:0.1.0": *
 
 #show: clari-summary.with(
   category:    "math",

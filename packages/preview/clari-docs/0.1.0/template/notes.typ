@@ -5,7 +5,7 @@
 // table of contents, and running header.
 // All components work identically to the slides document type.
 
-#import "@local/clari-docs:0.1.0": *
+#import "@preview/clari-docs:0.1.0": *
 
 #show: clari-notes.with(
   category:       "professional",

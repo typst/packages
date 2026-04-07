@@ -5,7 +5,7 @@
 // same color system and components as the slides document type.
 //
 // Usage:
-//   #import "@local/clari-slides:0.1.0": *
+//   #import "@local/clari-docs:0.1.0": *
 //   #show: clari-notes.with(
 //     theme:    "midnight",
 //     title:    "Introduction to Topology",
