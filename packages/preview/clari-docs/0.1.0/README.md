@@ -15,7 +15,7 @@ A comprehensive, highly-customisable Typst template for slides, summaries, and n
 )
 
 #title-slide(
-  title:       "My Presentation",
+  title:       "My Docs",
   subtitle:    "A clari-docs demo",
   author:      "Your Name",
   institution: "Your University",
