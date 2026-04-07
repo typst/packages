@@ -1,4 +1,4 @@
-#import "@preview/bookly:2.1.0": *
+#import "@preview/bookly:2.1.1": *
 
 // #show: chapter.with(title: "Acknowledgments", toc: false)
 #show: chapter-nonum
