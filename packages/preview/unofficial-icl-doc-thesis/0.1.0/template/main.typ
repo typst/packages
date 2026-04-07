@@ -1,5 +1,5 @@
-#import "@preview/imperial-thesis:0.1.0": project, back-matter
-#import "@preview/imperial-thesis:0.1.0": *
+#import "@preview/unofficial-icl-doc-thesis:0.1.0": project, back-matter
+#import "@preview/unofficial-icl-doc-thesis:0.1.0": *
 
 #show: project.with(
   title: "Your Project Title",
