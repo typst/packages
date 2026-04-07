@@ -1,9 +1,9 @@
 // Development entry point — for local testing, install the package locally:
-//   mkdir -p ~/Library/Application\ Support/typst/packages/local/imperial-thesis/0.1.0
-//   cp -r . ~/Library/Application\ Support/typst/packages/local/imperial-thesis/0.1.0/
+//   mkdir -p ~/Library/Application\ Support/typst/packages/local/unofficial-icl-doc-thesis/0.1.0
+//   cp -r . ~/Library/Application\ Support/typst/packages/local/unofficial-icl-doc-thesis/0.1.0/
 // Then compile with: typst compile main.typ output.pdf
-#import "@local/imperial-thesis:0.1.0": project, back-matter
-#import "@local/imperial-thesis:0.1.0": *
+#import "@local/unofficial-icl-doc-thesis:0.1.0": project, back-matter
+#import "@local/unofficial-icl-doc-thesis:0.1.0": *
 
 #show: project.with(
   title: "Your Project Title",
