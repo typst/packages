@@ -12,7 +12,7 @@
     [John Smith#inst(1)],
   ),
   institutes: (
-    bips_en,
+    bips-en,
     "University of Bremen",
   ),
   date: datetime.today().display(),

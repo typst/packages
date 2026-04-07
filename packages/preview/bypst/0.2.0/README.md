@@ -13,7 +13,7 @@ A 16:9 presentation template for [BIPS](https://www.leibniz-bips.de/) using [Typ
 #title-slide(
   title: "Your Presentation Title",
   author: "Your Name",
-  institute: bips_en, // or bips_de
+  institute: bips-en, // or bips-de
   date: datetime.today().display(),
 )
 
@@ -153,8 +153,8 @@ For lighter adjustments, `#set list(spacing: 0.4em)` works as a local override.
 ### Institutional names
 
 ```typst
-#bips_en  // Leibniz Institute for Prevention Research and Epidemiology — BIPS
-#bips_de  // Leibniz-Institut für Präventionsforschung und Epidemiologie — BIPS
+#bips-en  // Leibniz Institute for Prevention Research and Epidemiology — BIPS
+#bips-de  // Leibniz-Institut für Präventionsforschung und Epidemiologie — BIPS
 ```
 
 ## Animations

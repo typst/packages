@@ -29,6 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - GitHub Actions workflow to compile gallery demos and deploy previews to GitHub Pages
 
 ### Changed
+- Renamed built-in institute name variables to kebab case for consistency: `bips_en` -> `bips-en`, `bips_de` -> `bips-de`.
 - **Upgraded Touying from 0.6.1 to 0.7.0** with new API for aspect ratios, config parameters, and page setup
 - Page numbers use Touying's logical slide counter rendered in slide content via `place()`, fixing off-by-one errors on animated slides
 - Slides without page numbers (`title-slide`, `section-slide`, `thanks-slide`, `empty-slide`) freeze the slide counter so numbering is sequential without gaps

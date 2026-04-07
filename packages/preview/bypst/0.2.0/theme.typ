@@ -14,8 +14,8 @@
 // INSTITUTIONAL SHORTCUTS
 // ===================================================================
 
-#let bips_en = [Leibniz Institute for Prevention Research and Epidemiology --- BIPS]
-#let bips_de = [Leibniz-Institut für Präventionsforschung und Epidemiologie --- BIPS]
+#let bips-en = [Leibniz Institute for Prevention Research and Epidemiology --- BIPS]
+#let bips-de = [Leibniz-Institut für Präventionsforschung und Epidemiologie --- BIPS]
 
 // ===================================================================
 // COLOR DEFINITIONS
