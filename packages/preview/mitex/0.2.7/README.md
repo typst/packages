@@ -19,7 +19,7 @@ Thanks to [@Myriad-Dreamin](https://github.com/Myriad-Dreamin), he completed the
 
 PS: `#set math.equation(numbering: "(1)")` is also valid for MiTeX.
 
-Following is [a simple example](https://github.com/mitex-rs/mitex/blob/main/packages/mitex/examples/example.typ) of using MiTeX in Typst:
+Following is [a simple example](examples/example.typ) of using MiTeX in Typst:
 
 ```typst
 #import "@preview/mitex:0.2.7": *
