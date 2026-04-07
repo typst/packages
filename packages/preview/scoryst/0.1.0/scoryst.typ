@@ -1,4 +1,4 @@
-#let plugin = plugin("verovio.wasm")
+#let plugin = plugin("scoryst.wasm")
 
 /// Serialize a Typst dictionary to a JSON options string for Verovio.
 /// Merges with default options (adjustPageHeight crops SVG to content).

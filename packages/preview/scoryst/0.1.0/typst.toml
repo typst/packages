@@ -1,11 +1,11 @@
 [package]
-name = "verovio"
+name = "scoryst"
 version = "0.1.0"
-entrypoint = "verovio.typ"
+entrypoint = "scoryst.typ"
 authors = ["bernsteining"]
 license = "LGPL-3.0-only"
 description = "🎼 Music engraving for Typst via Verovio — render ABC, MusicXML, MEI, Humdrum, Volpiano, and CMME notation"
-repository = "https://github.com/bernsteining/verovio"
+repository = "https://github.com/bernsteining/scoryst"
 keywords = ["music", "notation", "score", "scoring", "partition", "tablature",  "engraving", "verovio", "abc", "musicxml", "mei", "humdrum"]
 categories = ["visualization"]
 compiler = "0.14.2"
