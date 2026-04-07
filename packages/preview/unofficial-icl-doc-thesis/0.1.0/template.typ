@@ -98,12 +98,12 @@
   // State: false until main body begins (after TOC)
   let body-started = state("body-started", false)
   // State: true when in back matter (no chapter numbers, no pagebreak)
-  let back-matter = state("back-matter", false)
+  let back-matter-state = state("back-matter", false)
 
   // Headings use heading font in primary colour
   show heading.where(level: 1): it => {
     context {
-      if body-started.get() and not back-matter.get() {
+      if body-started.get() and not back-matter-state.get() {
         // Main body chapter heading — with CHAPTER X label and pagebreak
         pagebreak(weak: true)
         chapter-counter.step()
@@ -121,7 +121,7 @@
         }
         text(font: t.heading-font, size: 22pt, weight: "bold", fill: t.primary, it.body)
         v(0.5cm)
-      } else if back-matter.get() {
+      } else if back-matter-state.get() {
         // Back matter heading — new page, but no CHAPTER X label
         pagebreak(weak: true)
         set text(font: t.heading-font, fill: t.primary)
