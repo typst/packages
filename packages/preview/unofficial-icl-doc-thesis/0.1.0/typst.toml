@@ -1,10 +1,10 @@
 [package]
-name = "imperial-thesis"
+name = "unofficial-icl-doc-thesis"
 version = "0.1.0"
 entrypoint = "template.typ"
 authors = ["bkmashiro <https://github.com/bkmashiro>"]
 license = "MIT"
-description = "Typst template for Imperial College London Individual Project / Thesis."
+description = "Unofficial Typst port of the Imperial College London Department of Computing Individual Project LaTeX template."
 repository = "https://github.com/bkmashiro/ic-individual-project-typst"
 keywords = ["thesis", "imperial", "university", "template"]
 categories = ["thesis"]

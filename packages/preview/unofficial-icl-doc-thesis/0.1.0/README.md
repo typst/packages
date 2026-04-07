@@ -1,8 +1,8 @@
-# Imperial College London — Individual Project Template (Typst)
+# IC DoC Individual Project — Typst Template (Unofficial)
 
-> **Typst Universe:** `#import "@preview/imperial-thesis:0.1.0": project, back-matter`
+> **Typst Universe:** `#import "@preview/unofficial-icl-doc-thesis:0.1.0": project, back-matter`
 
-A Typst port of the Imperial College London Individual Project / Thesis template, using official brand assets.
+(Unofficial) Typst port of the Department of Computing Individual Project LaTeX template at Imperial College London.
 
 **[View example PDF](https://github.com/bkmashiro/ic-individual-project-typst/blob/0fec70908141a8095d9f9c871bf5535984e6972e/example.pdf)**
 
@@ -10,10 +10,10 @@ A Typst port of the Imperial College London Individual Project / Thesis template
 
 ## Features
 
-- Official Imperial Sans typeface (Display + Text, all weights)
-- Official 2024 IC logo (SVG, blue variant)
+- Imperial Sans typeface (Display + Text, all weights) — from the DoC LaTeX template
+- IC logo placeholder (official logo requires Imperial SSO download)
 - Imperial Blue (`#003E74`) colour scheme with full brand palette
-- Title page matching the official LaTeX template layout
+- Title page matching the DoC LaTeX template layout
 - Roman-numeral front matter: Abstract, Acknowledgements, Table of Contents
 - Numbered chapters with `CHAPTER X` label, auto new-page
 - Twoside/left/right configurable page header
@@ -28,8 +28,8 @@ A Typst port of the Imperial College London Individual Project / Thesis template
 ### Option A — Typst Universe (recommended)
 
 ```bash
-typst init @preview/imperial-thesis
-cd imperial-thesis
+typst init @preview/unofficial-icl-doc-thesis
+cd unofficial-icl-doc-thesis
 typst compile main.typ output.pdf
 ```
 
@@ -92,8 +92,8 @@ GitHub Actions will automatically compile and upload the PDF on every push.
 ├── references.bib      # Bibliography entries
 ├── example.pdf         # Compiled example output
 ├── figures/
-│   ├── ICL_Logo_Blue_2024.svg   # Official IC logo (blue, 2024)
-│   └── IMPERIAL_I_*.svg         # Official Imperial I decorative assets
+│   ├── ICL_Logo_Blue_2024.svg   # IC logo (blue, 2024 — download from brand.imperial.ac.uk)
+│   └── IMPERIAL_I_*.svg         # Imperial I decorative assets
 ├── fonts/
 │   ├── ImperialSansDisplay-*.ttf
 │   └── ImperialSansText-*.ttf
@@ -209,7 +209,7 @@ Call `#back-matter()` before bibliography and `#abbr-list()` to disable chapter 
 
 This template does not bundle the Imperial College logo due to copyright. A placeholder is shown by default.
 
-To use the official IC logo:
+To use the IC logo:
 
 1. Go to **[Imperial Brand Hub — Logo downloads](https://brand.imperial.ac.uk/document/36)**
    - Requires Imperial SSO login (your `@imperial.ac.uk` account)
