@@ -79,7 +79,7 @@
 // ── Code blocks with filename label ───────────────────────────────────────────
 
 /// Styled raw block with an optional filename label.
-#let code-block(body, lang: "", filename: none, color: _ic-light-blue) = {
+#let code-block(body, lang: "", filename: none, color: _ic-light-blue, font: ("Courier New", "Courier", "monospace")) = {
   let label-content = if filename != none {
     block(
       fill: _ic-blue,
@@ -87,7 +87,7 @@
       radius: (top: 4pt),
       below: 0pt,
     )[
-      #text(fill: white, size: 8pt, font: "Fira Code", filename)
+      #text(fill: white, size: 8pt, font: font, filename)
     ]
   } else { none }
 
@@ -100,7 +100,7 @@
     above: if filename != none { 0pt } else { 0.8em },
     below: 0.8em,
   )[
-    #set text(font: "Fira Code", size: 0.9em)
+    #set text(font: font, size: 0.9em)
     #body
   ]
 }
