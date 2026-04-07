@@ -9,7 +9,7 @@ The icons are embedded directly as svgs in the package, removing any external de
 To use the callout package, simply import it at the beginning of your Typst document:
 
 ```typst
-#import "@preview/callout-0.1.0" : callout, note, tip, important, warning, caution
+#import "@preview/calloutly:0.1.0" : callout, note, tip, important, warning, caution
 ```
 
 Then you can create callouts like this:
