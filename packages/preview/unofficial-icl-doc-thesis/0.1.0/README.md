@@ -10,7 +10,7 @@
 
 ## Features
 
-- Imperial Sans typeface (Display + Text, all weights) — from the DoC LaTeX template
+- Supports Imperial Sans (user-provided via `--font-path`); falls back to Times New Roman / Linux Libertine
 - IC logo placeholder (official logo requires Imperial SSO download)
 - Imperial Blue (`#003E74`) colour scheme with full brand palette
 - Title page matching the DoC LaTeX template layout
@@ -49,10 +49,10 @@ typst compile main.typ output.pdf
 ```bash
 git clone https://github.com/bkmashiro/ic-individual-project-typst.git
 cd ic-individual-project-typst
-typst compile main.typ output.pdf --font-path fonts/
+typst compile main.typ output.pdf
 ```
 
-> `--font-path fonts/` is required to load the bundled Imperial Sans fonts.
+> To use Imperial Sans branding, download the fonts from [Imperial Brand Hub](https://brand.imperial.ac.uk) and compile with `--font-path /path/to/fonts/`. Without it, the template falls back to Times New Roman.
 
 ### 3. Edit `main.typ`
 
@@ -90,16 +90,13 @@ GitHub Actions will automatically compile and upload the PDF on every push.
 ├── template.typ        # Template engine — title page, styles, layout
 ├── utils.typ           # Helper components (boxes, tables, equations, abbr)
 ├── references.bib      # Bibliography entries
-├── example.pdf         # Compiled example output
 ├── figures/
-│   ├── ICL_Logo_Blue_2024.svg   # IC logo (blue, 2024 — download from brand.imperial.ac.uk)
-│   └── IMPERIAL_I_*.svg         # Imperial I decorative assets
-├── fonts/
-│   ├── ImperialSansDisplay-*.ttf
-│   └── ImperialSansText-*.ttf
-├── Makefile
-├── build.sh
-└── build.ps1
+│   └── placeholder-logo.svg   # Placeholder logo (replace with your institution logo)
+├── template/
+│   ├── main.typ        # Template init file (used by typst init)
+│   └── references.bib
+├── thumbnail.png
+└── typst.toml
 ```
 
 ---
