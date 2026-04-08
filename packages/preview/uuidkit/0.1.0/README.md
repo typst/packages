@@ -35,42 +35,12 @@ string.
 #let raw = "cfbff0d1-9375-5685-968c-48ce8b15ae17"
 #let parsed = describe(raw)
 
-#[
-  Valid: #is-uuid(raw)
-  \
-  Canonical: #canonical(raw)
-  \
-  Simple: #parsed.simple
-  \
-  URN: #parsed.urn
-  \
-  Version: #parsed.version
-  \
-  Variant: #parsed.variant
-  \
-  DNS v3: #v3(namespaces.dns, "example.com")
-  \
-  URL v5: #named("https://typst.app", namespace: namespaces.url, version: 5)
-]
-```
-
-## Local Example
-
-The repository includes a runnable example at `examples/basic.typ` that imports
-the package locally with `#import "../lib.typ": ...`.
-
-Compile it with:
-
-```sh
-typst compile --root . examples/basic.typ
-```
-
-Typst uses the input file's directory as the default project root, so `--root .`
-is required here to allow the example to import `../lib.typ`.
-
-## Build
-
-```sh
-rustup target add wasm32-unknown-unknown
-./build.sh
+Valid: #is-uuid(raw)                                                       \
+Canonical: #canonical(raw)                                                 \
+Simple: #parsed.simple                                                     \
+URN: #parsed.urn                                                           \
+Version: #parsed.version                                                   \
+Variant: #parsed.variant                                                   \
+DNS v3: #v3(namespaces.dns, "example.com")                                 \
+URL v5: #named("https://typst.app", namespace: namespaces.url, version: 5)
 ```
