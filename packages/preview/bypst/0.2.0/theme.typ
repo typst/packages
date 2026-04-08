@@ -410,6 +410,8 @@
         let sizes = _bips-sizes.get()
         let h-align = sizes.title-align
         box(height: slide-title-area-height, width: 100%)[
+          // Fix text size so block spacing doesn't scale with base-size
+          #set text(size: font-size-base)
           #if title != none and subtitle != none {
             // Both title and subtitle - bottom-aligned in the fixed area
             align(bottom + h-align)[
@@ -495,6 +497,8 @@
     config: config-common(freeze-slide-counter: true),
     setting: body => {
       set align(center)
+      // Fix text size so block spacing (1.2em) doesn't scale with base-size
+      set text(size: font-size-base)
 
       v(1fr)
 
