@@ -16,4 +16,4 @@ entrypoint = "main.typ"
 thumbnail = "preview.png"
 
 [tool.packager]
-paths = ["src", "template", "LICENSE", "README.md"]
+paths = ["src", "preview.png", "template", "LICENSE", "README.md"]
