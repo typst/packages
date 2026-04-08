@@ -45,7 +45,7 @@ This template can help Chinese university, primary, middle and high school teach
 ### 0 . 3 . 2
 + ⚠️ 破坏性更新，为了解决下面的2个问题，字体引入了 `XITS Math`
   + `roman` 重命名为 `roman-font`， 并调整 𝑗𝑓𝜋/∅ 的字体为 `XITS Math` ，修复𝑗𝑓加绝对值后，左侧绝对值的线被遮挡的问题
-  + 修复分数的分子和分母离分割线距离不相同的问题
+  + 修复分数的分母离分割线距离太近的问题
 + 新增字体常量 `ncm-font` ，方便修改为 New Computer Modern 系列样式字体
 
 
