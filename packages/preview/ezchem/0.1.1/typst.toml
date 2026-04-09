@@ -2,7 +2,7 @@
 name = "ezchem"
 version = "0.1.1"
 entrypoint = "lib.typ"
-homepage = "https://ezexam.pages.dev/chem"
+homepage = "https://ezexam.pages.dev/reference/chemistry/ezchem"
 authors = ["gbchu <https://github.com/gbchu>"]
 license = "MIT"
 description = "Draw atomic or ionic structures powered by ctez and single or double line bridge."
