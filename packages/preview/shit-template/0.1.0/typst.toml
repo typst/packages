@@ -1,5 +1,5 @@
 [package]
-name = "shit-typst-template" 
+name = "shit-template" 
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Axuan"]

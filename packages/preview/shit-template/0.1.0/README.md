@@ -1,6 +1,6 @@
 ## S.H.*.T Typst Template
 
-![SHIT_LOGO](./imgs/LOGO1.png)
+![The logo of S.H.*.T. journal](./imgs/LOGO1.png)
 
 > 为 [S.H.*.T](https://shitspace.xyz/) 期刊编写的typst模板，带来超越word与tex的体验，助你轻松编辑，简洁书写。
 > 如果这帮到了你，阁下不妨点击⭐️作为激励
@@ -18,7 +18,7 @@
 ## 编辑方式
 
 - [Visual Studio Code](https://visualstudio.microsoft.com/) + [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist)，推荐使用此种方式。
-- [Typst app](https://typst.app/universe/package/shit-typst-template) -> Start from a template，由Typst Template创建以体验此模板。
+- [Typst app](https://typst.app/universe/package/shit-template) -> Start from a template，由Typst Template创建以体验此模板。
 
 ## 使用方式
 
@@ -26,7 +26,7 @@
 如果您已在本地安装了 Typst，只需打开终端运行以下命令，即可一键拉取官方库的最新稳定版并创建论文文件夹：
 
 ```shell
-typst init @preview/shit-typst-template:0.1.0 my-paper
+typst init @preview/shit-template:0.1.0 my-paper
 cd my-paper
 ```
 初始化完成后，使用 VS Code 打开 my-paper 文件夹，编辑 main.typ 即可开始写作。
@@ -38,7 +38,7 @@ cd my-paper
 3. 复制以下代码
 
 ```typst
-#import "@preview/shit-typst-template:0.1.0": *
+#import "@preview/shit-template:0.1.0": *
 
 #show: ieee-paper.with(
   title: "这里是论文的中文标题，请替换为您的研究题目",
@@ -75,7 +75,7 @@ sudo bash ./local_install.sh
 .\local_install.sh
 ```
 
-完成本地安装后，您只需要在写论文时，将原来代码中的 `@preview/shit-typst-template:0.1.0`替换为 `@local/shit-typst-template:0.1.0`即可调用本地最新版。
+完成本地安装后，您只需要在写论文时，将原来代码中的 `@preview/shit-template:0.1.0`替换为 `@local/shit-template:0.1.0`即可调用本地最新版。
 
 ## 开源协议
 
