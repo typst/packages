@@ -9,6 +9,8 @@ description = "Write your articles for the SHIT journal."
 repository = "https://github.com/QzxTaqtaq/shit-typst-template"
 exclude = ["fonts/*", ".gitignore", ".gitattributes"]
 
+categories = ["paper"]
+
 [template]
 path = "template"
 entrypoint = "main.typ"
