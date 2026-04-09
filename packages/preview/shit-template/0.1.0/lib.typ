@@ -2,6 +2,7 @@
 #import "config/fonts.typ": fonts
 #import "config/headingstyle.typ": headingstyle
 #import "config/pagestyle.typ": pagestyle
+#import "config/tables.typ": tables
 
 #let ieee-paper(
   title: "",
