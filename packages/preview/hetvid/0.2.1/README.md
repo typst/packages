@@ -45,6 +45,7 @@ The `hetvid` function accepts the following arguments to customize your document
 | `header` | string/content | `[]` | Custom text to appear in the page header. |
 | `date-created` | string | `datetime.today().display()` | Original creation date. |
 | `date-modified` | string | `datetime.today().display()` | Last modification date. |
+| `version` | string | `""` | Version code. |
 | `abstract` | content | `[]` | The abstract content. |
 | `toc` | boolean | `true` | Whether to include a Table of Contents. |
 | `paper-size` | string | `"a4"` | The physical paper size (e.g., `"letter"`, `"a4"`). |
