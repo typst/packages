@@ -1,6 +1,7 @@
-#import "@preview/shit-template:0.1.0": *
+#import "@preview/shit-journal:0.1.0": *
+//#import "../lib.typ": *
 
-#show: ieee-paper.with(
+#show: paper.with(
   title: "这里是论文的中文标题，请替换为您的研究题目",
 
   authors: (
@@ -60,7 +61,7 @@ $ <equationname>
 
 未来工作将进一步探索该方法在更多场景中的应用。结论结论结论结论结论结论结论结论结论结论结论结论结论结论结论。
 
-#tables(
+#conftables(
   caption: [各方法在基准数据集上的性能比较。粗体表示最优结果。],
   [方法A], [85.2], [90.1],
   [方法B], [87.5], [91.3],

@@ -2,9 +2,11 @@
 #import "config/fonts.typ": fonts
 #import "config/headingstyle.typ": headingstyle
 #import "config/pagestyle.typ": pagestyle
-#import "config/tables.typ": tables
+#import "config/tables.typ"
 
-#let ieee-paper(
+#let conftables = tables.conftables
+
+#let paper(
   title: "",
   authors: (),
   affiliations: (),

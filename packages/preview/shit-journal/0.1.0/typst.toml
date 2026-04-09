@@ -1,5 +1,5 @@
 [package]
-name = "shit-template" 
+name = "shit-journal" 
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Axuan"]

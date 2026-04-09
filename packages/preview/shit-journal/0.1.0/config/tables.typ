@@ -1,4 +1,4 @@
-#let tables(caption: [], ..cells) = {
+#let conftables(caption: [], ..cells) = {
   figure(
     [
       #set text(size: 8pt) 
