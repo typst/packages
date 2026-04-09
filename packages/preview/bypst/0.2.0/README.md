@@ -2,12 +2,10 @@
 
 A 16:9 presentation template for [BIPS](https://www.leibniz-bips.de/) using [Typst](https://typst.app/) and [Touying](https://touying-typ.github.io/). Based on the institutional style from [bips-beamer](http://github.com/bips-hb/bips-beamer).
 
-**Version: 0.2.0**
-
 ## Quick Start
 
 ```typst
-#import "@local/bypst:0.2.0": *
+#import "@preview/bypst:0.2.0": *
 #show: bips-theme
 
 #title-slide(
@@ -36,7 +34,15 @@ A 16:9 presentation template for [BIPS](https://www.leibniz-bips.de/) using [Typ
 
 ## Installation
 
-Clone and install locally:
+Available from the [Typst package registry](https://typst.app/universe/package/bypst) — no installation needed:
+
+```typst
+#import "@preview/bypst:0.2.0": *
+```
+
+### Local development
+
+To work on the theme itself, clone and install locally:
 
 ```sh
 git clone https://github.com/bips-hb/bips-typst.git
@@ -44,7 +50,7 @@ cd bips-typst
 just install
 ```
 
-Then import in any `.typ` file:
+Then use the local import instead:
 
 ```typst
 #import "@local/bypst:0.2.0": *
@@ -172,6 +178,20 @@ The theme re-exports Touying's animation functions:
 
 ## Global Customization
 
+### Logo
+
+The theme ships with a placeholder logo. Replace it with your own:
+
+```typst
+#show: bips-theme.with(
+  logo: image("my-logo.png"),
+)
+```
+
+Set `logo: none` to hide the logo entirely.
+
+### Fonts and sizes
+
 ```typst
 #show: bips-theme.with(
   aspect-ratio: "16-9",       // default
@@ -229,7 +249,7 @@ After editing theme files, run `just install` before compiling.
 ```txt
 bypst.typ        # package entrypoint
 theme.typ        # theme implementation
-bips-logo.png    # logo asset
+logo.png         # placeholder logo (replace with your own)
 typst.toml       # package metadata
 template/        # Typst Universe templates
 gallery/         # example presentations
@@ -251,7 +271,7 @@ For the best results, install the Fira fonts. Override with the `font:`, `code-f
 ## Requirements
 
 - Typst >= 0.12.0
-- Dependencies: touying 0.7.0, codetastic 0.2.2 (resolved automatically)
+- Dependencies: touying 0.7.1, codetastic 0.2.2 (resolved automatically)
 
 ## License
 

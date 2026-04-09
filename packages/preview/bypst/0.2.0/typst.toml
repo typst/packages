@@ -24,6 +24,7 @@ exclude = [
   "justfile",
   "CLAUDE.md",
   ".github/",
+  "bips-logo.png",
 ]
 
 [tool.tyler]
@@ -45,6 +46,7 @@ ignore = [
   "CLAUDE.md",
   "CLAUDE.local.md",
   "TODO.md",
+  "bips-logo.png",
 ]
 
 [template]

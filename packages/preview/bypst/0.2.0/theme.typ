@@ -156,6 +156,10 @@
   title-align: left,
 ))
 
+/// State for the logo image, settable via bips-theme(logo: ...).
+/// Default is the bundled placeholder; users should replace with their own.
+#let _bips-logo = state("bips-logo", image("logo.png"))
+
 /// Render content at a smaller size (scales with base-size)
 #let small(body) = context text(size: _bips-sizes.get().small)[#body]
 
@@ -172,17 +176,22 @@
 // BACKGROUND UTILITY FUNCTIONS
 // ===================================================================
 
-/// Create background with BIPS logo
+/// Create background with logo in top-right corner.
 /// Page numbers are handled separately via Touying's header system
-/// to ensure correct numbering across #pause subslides
+/// to ensure correct numbering across #pause subslides.
 #let bips-background(show-logo: true) = {
   if show-logo {
-    place(
-      top + right,
-      dx: -1cm,
-      dy: 1cm,
-      image("bips-logo.png", width: 3cm),
-    )
+    context {
+      let logo = _bips-logo.get()
+      if logo != none {
+        place(
+          top + right,
+          dx: -1cm,
+          dy: 1cm,
+          box(width: 3cm, logo),
+        )
+      }
+    }
   }
 }
 
@@ -192,6 +201,10 @@
 
 #let bips-theme(
   aspect-ratio: "16-9",
+  /// Logo image displayed in the top-right corner of content slides and on
+  /// the thanks slide. Pass an `image()` call to override the default placeholder.
+  /// Set to `none` to hide the logo entirely.
+  logo: auto,
   // Title alignment inside the title area box (e.g. left, center, right)
   // Applies to the horizontal alignment of slide titles/subtitles.
   title-align: left,
@@ -263,7 +276,12 @@
     large: pick-first(large-size, font-size-large),
     huge: pick-first(huge-size, font-size-huge),
     title-align: title-align,
-  )) // Emphasis (_text_) in BIPS blue (color only, no italic)
+  ))
+  // Update logo state: auto = bundled placeholder, none = no logo, image() = custom
+  if logo != auto {
+    _bips-logo.update(logo)
+  }
+  // Emphasis (_text_) in BIPS blue (color only, no italic)
   show emph: it => text(
     fill: font-color-emphasis,
     style: "italic",
@@ -757,7 +775,10 @@
           ],
           [
             #align(left)[
-              #image("bips-logo.png", width: 5.5cm)
+              #context {
+                let logo = _bips-logo.get()
+                if logo != none { box(width: 5.5cm, logo) }
+              }
             ]
           ],
         )
