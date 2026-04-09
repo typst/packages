@@ -8,4 +8,4 @@ description = "🎼 Music engraving for Typst via Verovio — render ABC, MusicX
 repository = "https://github.com/bernsteining/scoryst"
 keywords = ["music", "notation", "score", "scoring", "partition", "tablature",  "engraving", "verovio", "abc", "musicxml", "mei", "humdrum"]
 categories = ["visualization"]
-compiler = "0.14.2"
+compiler = "0.14.0"
