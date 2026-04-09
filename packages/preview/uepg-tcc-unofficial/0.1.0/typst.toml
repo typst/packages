@@ -1,14 +1,14 @@
 [package]
-name = "abnt-monografia"
+name = "uepg-tcc-unofficial"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Enzo Serenato"]
 license = "MIT"
-description = "Template para monografias da UEPG seguindo normas ABNT"
+description = "Unofficial ABNT-compliant monograph template for UEPG undergraduate theses"
 keywords = ["monografia", "uepg", "abnt", "tcc", "academic"]
 compiler = "0.12.0"
 categories = ["thesis"]
-repository = "https://github.com/ekspy/abnt-monografia"
+repository = "https://github.com/ekspy/uepg-tcc-unofficial"
 
 [template]
 path = "template"

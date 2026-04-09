@@ -1,17 +1,19 @@
-# abnt-monografia
+# uepg-tcc-unofficial
+
+An unofficial [Typst](https://typst.app) template for monographs (undergraduate thesis) at Universidade Estadual de Ponta Grossa (UEPG), Brazil. It follows the ABNT (Brazilian Association of Technical Standards) formatting rules as specified in NBR 14724, including cover page, title page, abstract, table of contents, and all required pre-textual elements.
 
 Template [Typst](https://typst.app) para monografias da Universidade Estadual de Ponta Grossa (UEPG), seguindo as normas da ABNT (NBR 14724).
 
 ## Uso
 
 ```bash
-typst init @preview/abnt-monografia
+typst init @preview/uepg-tcc-unofficial
 ```
 
 Ou importe diretamente no seu documento:
 
 ```typst
-#import "@preview/abnt-monografia:0.1.0": monografia, citacao-longa
+#import "@preview/uepg-tcc-unofficial:0.1.0": monografia, citacao-longa
 
 #show: monografia.with(
   titulo: "TÍTULO DO TRABALHO",
