@@ -1,7 +1,7 @@
 # 🌌 Theorion
 
 [![Typst Universe](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Ftheorion&query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&logo=typst&label=universe&color=%2339cccc)](https://typst.app/universe/package/theorion)
-![GitHub](https://img.shields.io/github/license/OrangeX4/typst-theorion)
+![GitHub License](https://img.shields.io/github/license/OrangeX4/typst-theorion)
 ![GitHub Repo stars](https://img.shields.io/github/stars/OrangeX4/typst-theorion)
 ![Cosmos badge](https://img.shields.io/badge/cosmos-4-aqua)
 
@@ -143,7 +143,7 @@ A reference without the title: @thm:euclid[-]; or one with title and number: @th
 
 [Source code](examples/example.typ)
 
-![example](examples/example.png)
+![Theorion Full Example](examples/example.png)
 
 ```typst
 #import "@preview/theorion:0.6.0": *
@@ -495,7 +495,7 @@ Theorion provides experimental support for HTML rendering, allowing you to embed
 - **BREAKING CHANGE: natural unnumbered theorem prefix** — `frame-box` (i.e. `frame.with(numbering: none)`) now displays the supplement prefix (e.g. "Theorem", "Example") without numbering, instead of losing the prefix entirely. No need to manually type `#theorem-box[Theorem (Title)][...]` anymore — just use `#theorem-box[Title][...]`.
 - **feat: `full-title` parameter** — pass `full-title` to any frame to override the auto-generated full title (prefix + number + title). Works with both numbered and unnumbered theorems, and is respected by `theorion-restate`.
 - **feat: unnumbered theorem references** — `@label` on unnumbered theorems now shows "Supplement (Title)" instead of "Supplement " with a trailing space. `@label[-]` shows the title only, and `@label[!!]` shows supplement + title.
-- **fix: use stick for from indent-repairer to fix empty frame after page break**
+- **fix: use stick for indent-repairer to fix empty frame after page break**
 
 ### 0.5.0
 
