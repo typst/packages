@@ -2,7 +2,9 @@
 
 ![The logo of S.H.*.T. journal](./imgs/LOGO1.png)
 
-This is a Chinese-language community that places the power of the editorial board in the hands of everyone, enabling all members to engage in academic evaluation with complete freedom. Here, there are no academic titans, nor any entrenched power brokers. Every research topic and every argument undergoes a process akin to a brutal "natural selection." Sound ideas naturally rise to the surface, while flawed ones inevitably sink to the bottom. The word "shit" is a form of self-deprecation among young Chinese people.
+> This is a Chinese-language community that places the power of the editorial board in the hands of everyone, enabling all members to engage in academic evaluation with complete freedom. Here, there are no academic titans, nor any entrenched power brokers. Every research topic and every argument undergoes a process akin to a brutal "natural selection." Sound ideas naturally rise to the surface, while flawed ones inevitably sink to the bottom. The word "shit" is a form of self-deprecation among young Chinese people.
+
+> 这是一个将编辑部的权力交还给所有人，让所有人都能完全自由地参与学术评议的权力。在这里，没有学术大佬，没有权威学阀。每一项课题、每一篇论证都将经历一场近乎残酷的"进化论"。好的思想会自己浮上来，坏的自然沉底。值得一提的是，“shit”一词在当下的中国年轻人语境中，往往带有某种自我调侃的意味。
 
 > 为 [S.H.*.T](https://shitspace.xyz/) 期刊编写的typst模板，带来超越word与tex的体验，助你轻松编辑，简洁书写。
 > 如果这帮到了你，阁下不妨点击⭐️作为激励
