@@ -1,0 +1,16 @@
+[package]
+name = "shitspace-typst-template" 
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Axuan"]
+license = "MIT"
+
+description = "Write your articles for the SHIT journal." 
+repository = "https://github.com/QzxTaqtaq/shit-typst-template"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+exclude = ["fonts/*", ".gitignore", ".gitattributes"]
