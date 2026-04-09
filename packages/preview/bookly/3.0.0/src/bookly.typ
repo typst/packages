@@ -127,7 +127,6 @@
     default-title-page
   }
 
-  set-margin-note-defaults(stroke: none)
   show: show-if(tufte, it => {
     let marginalia-book = if book-options.alt-margins {true} else {false}
 
