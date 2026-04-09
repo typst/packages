@@ -1,4 +1,4 @@
-#import "@preview/touying:0.7.0": *
+#import "@preview/touying:0.7.1": *
 #import "@preview/codetastic:0.2.2": qrcode
 
 // ===================================================================
