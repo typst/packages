@@ -1,4 +1,4 @@
-#import "@preview/monografia-uepg:0.1.0": monografia, citacao-longa
+#import "@preview/abnt-monografia:0.1.0": monografia, citacao-longa
 
 #show: monografia.with(
   titulo: "TÍTULO DO TRABALHO DE CONCLUSÃO DE CURSO",
