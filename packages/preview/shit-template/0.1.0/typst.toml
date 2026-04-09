@@ -7,10 +7,9 @@ license = "MIT"
 
 description = "Write your articles for the SHIT journal." 
 repository = "https://github.com/QzxTaqtaq/shit-typst-template"
+exclude = ["fonts/*", ".gitignore", ".gitattributes"]
 
 [template]
 path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
-
-exclude = ["fonts/*", ".gitignore", ".gitattributes"]
