@@ -1,5 +1,4 @@
 #import "@preview/marginalia:0.3.1" as marginalia: note, notefigure, wideblock
-#import "@preview/drafting:0.2.2": *
 #import "bookly-defaults.typ": *
 #import "bookly-helper.typ": *
 
