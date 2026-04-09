@@ -65,7 +65,7 @@ where there must be only one root node (the top-level bullet list item), and eac
 
 Here is an example:
 
-![basic](docs/1-basic-tree.svg)
+![Example tidy tree from a bullet list](docs/1-basic-tree.svg)
 
 ```typ
 #tidy-tree-graph(compact: true)[
@@ -107,7 +107,7 @@ where each numbered list item represents an edge label, and it's optional if you
 
 Here is an example:
 
-![SLR](docs/2-SLR-analysis.svg)
+![SLR item-set tree with labeled edges](docs/2-SLR-analysis.svg)
 
 ```typ
 #tidy-tree-graph(
@@ -189,7 +189,7 @@ Here is an extreme example:
 
 (you might think it's too crowded, and thus ugly somehow, but it's just to show the capability of this package)
 
-![large](docs/3-large-tree.svg)
+![Large nested tree showing horizontal compression](docs/3-large-tree.svg)
 
 ```typ
 #tidy-tree-graph(
@@ -284,7 +284,7 @@ Here is an example of importing a tree from a JSON file:
 }
 ```
 
-![json](docs/4-json.svg)
+![Tree generated from nested JSON data](docs/4-json.svg)
 
 ```typ
 #tidy-tree-graph(json("test.json"))
@@ -308,7 +308,7 @@ app:
       secret: kdi90gs78a7fgasad123gf70aa7ds0
 ```
 
-![yaml](docs/5-yaml.svg)
+![Tree generated from nested YAML data](docs/5-yaml.svg)
 
 ```typ
 #tidy-tree-graph(yaml("test.yaml"))
@@ -363,7 +363,7 @@ This package provides some graph drawing functions for common tree types as the 
 
 Here is an example of drawing a binary tree:
 
-![binary](docs/9-binary-tree.svg)
+![Binary tree rendered with preset styling](docs/9-binary-tree.svg)
 
 ```typ
 #binary-tree-graph[
@@ -385,7 +385,7 @@ where nodes labeled with `<nil>` are hidden.
 
 Here is an example of drawing a red-black tree:
 
-![red-black](docs/6-red-black-tree.svg)
+![Red-black tree with red and hidden nil nodes](docs/6-red-black-tree.svg)
 
 ```typ
 #red-black-tree-graph[
@@ -413,7 +413,7 @@ This package is also able to draw a tree constructed from multiple subtrees, e.g
 
 Here is an example of drawing a Fibonacci heap:
 
-![fibonacci-heap](docs/8-fibonacci-heap.svg)
+![Fibonacci heap forest with marked nodes](docs/8-fibonacci-heap.svg)
 
 ```typ
 #fibonacci-heap-graph[
@@ -446,7 +446,7 @@ Sometimes, for the need of debugging, you may want to visualize the content tree
 
 Here is an example:
 
-![content-tree](docs/7-content-tree.svg)
+![Typst content tree with heading, code, and math nodes](docs/7-content-tree.svg)
 
 ```typ
 #content-tree-graph[
@@ -466,7 +466,7 @@ As the saying goes, it's impossible to please everyone. Therefore, we provide a 
 
 Here is an example of fine-tuning the binary tree graph drawing function to a huffman tree graph drawing function:
 
-![huffman-tree](docs/10-huffman-tree.svg)
+![Huffman tree with edge labels as bit positions](docs/10-huffman-tree.svg)
 
 ```typ
 #let huffman-tree-graph = tree-graph-wrapper(
@@ -497,7 +497,7 @@ You can also define your own graph drawing functions from scratch by specifying 
 
 A quite simple example:
 
-![custom-tree](docs/11-custom-tree.svg)
+![Custom tree with red node borders and blue edges](docs/11-custom-tree.svg)
 
 ```typ
 #let custom-tree-graph = tidy-tree-graph.with(
@@ -522,7 +522,7 @@ which draws all nodes with red border and all edges with blue solid lines with c
 
 A little complex example:
 
-![tidy-tree-graph](docs/12-custom-tree-complex.svg)
+![Custom tree with yellow circular nodes and labeled red edges](docs/12-custom-tree-complex.svg)
 
 ```typ
 #let custom-tree-graph = tidy-tree-graph.with(
@@ -984,7 +984,7 @@ Here are some examples of layout customization using `node-attr`:
 
 #### Parent Alignment
 
-![align-forest](docs/13-align-forest-tree.svg)
+![Parent alignment example with forest and align-to options](docs/13-align-forest-tree.svg)
 
 ```typ
 #tidy-tree-graph(
@@ -1013,7 +1013,7 @@ where `forest: true` prevents horizontal compression of the trees in the forest 
 
 #### Subtree Rotation
 
-![rotated-tree](docs/14-rotated-tree.svg)
+![Subtree rotation example around parent nodes](docs/14-rotated-tree.svg)
 
 ```typ
 #tidy-tree-graph(
@@ -1057,7 +1057,7 @@ where `rotate` specifies the rotation angle of the node, and the layout algorith
 
 #### Nodes Sinkage
 
-![sinkage](docs/15-sink-tree.svg)
+![Node sinkage example with deeper-level placement](docs/15-sink-tree.svg)
 
 ```typ
 #tidy-tree-graph[
@@ -1083,7 +1083,7 @@ where `sink` specifies how many levels the node will sink down, and the layout a
 
 Here is an example of syntax tree of sentence "The big dog barked at the mailman":
 
-![syntax-tree](docs/16-syntax-tree.svg)
+![Syntax tree for the sentence The big dog barked at the mailman](docs/16-syntax-tree.svg)
 
 ```typ
 #tidy-tree-graph(
