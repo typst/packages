@@ -18,7 +18,7 @@ Render sheet music directly inside Typst using SMuFL-aware glyph placement and C
 ### Via Typst Package Manager
 
 ```typ
-#import "@preview/scorify:0.1.1": score, melody
+#import "@preview/scorify:0.2.0": score, melody
 
 #melody(
   title: "Scale",
@@ -63,7 +63,7 @@ You can switch fonts with:
 - `music-font-metadata`: optional SMuFL metadata dictionary, usually loaded with `json(...)`
 
 ```typ
-#import "@preview/scorify:0.1.1": melody
+#import "@preview/scorify:0.2.0": melody
 
 #melody(
   music: "c4 d e f | g a b c'",
@@ -154,7 +154,7 @@ Single-staff convenience wrapper around `score()`.
 ## Full Example
 
 ```typ
-#import "@preview/scorify:0.1.1": score
+#import "@preview/scorify:0.2.0": score
 
 #set page(margin: 1.5cm)
 
