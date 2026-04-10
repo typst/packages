@@ -1,0 +1,17 @@
+[package]
+name = "bananote"
+version = "0.1.1"
+compiler = "0.12.0"
+entrypoint = "lib.typ"
+authors = ["Alexander Koller <https://www.coli.uni-saarland.de/~koller/>"]
+license = "MIT"
+description = "Nice template for research notes with splashes of yellow."
+repository = "https://github.com/coli-saar/bananote"
+categories = ["paper"]
+disciplines = ["computer-science", "linguistics"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+

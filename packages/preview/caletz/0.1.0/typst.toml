@@ -1,0 +1,11 @@
+[package]
+name = "caletz"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eito YONEYAMA"]
+license = "MIT"
+description = "Visualizes Calabi–Yau manifolds."
+compiler = "0.13.1"
+repository = "https://github.com/rice8y/caletz"
+keywords = ["calabi-yau", "math", "physics", "geometry", "3d", "visualization", "cetz"]
+exclude = ["./tests"]

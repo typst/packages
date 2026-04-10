@@ -1,0 +1,49 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .label { font: bold 14px sans-serif; fill: #333; }
+    .caption { font: 12px sans-serif; fill: #666; }
+    .body-outline { stroke: #aaa; stroke-width: 2; fill: none; }
+    .fat-area-before { fill: #eee; opacity: 0.7; }
+    .fat-area-after { fill: #fcc; opacity: 0.7; } /* Highlight color for added fat */
+    .arrow { stroke: #000; stroke-width: 1.5; marker-end: url(#arrowhead); }
+    .highlight-text { fill: #c00; font-weight: bold; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3.5 L0,7 z" fill="#000"/>
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="398" height="298" fill="none" stroke="#ccc"/>
+
+  <!-- T0 (Before) Body Shape -->
+  <g transform="translate(70, 30)">
+    <text x="50" y="0" text-anchor="middle" class="label">T0 (给药前)</text>
+    <!-- Simplified male torso outline -->
+    <path class="body-outline" d="M 50,20 Q 40,40 40,70 L 35,150 Q 50,160 65,150 L 60,70 Q 60,40 50,20 Z"/>
+    <!-- Waist area -->
+    <path class="fat-area-before" d="M 40,70 L 38,90 Q 50,95 62,90 L 60,70 Q 50,65 40,70 Z"/>
+    <!-- Hip/Thigh area -->
+    <path class="fat-area-before" d="M 35,120 Q 30,140 35,150 L 65,150 Q 70,140 65,120 L 35,120 Z"/>
+    <text x="50" y="200" text-anchor="middle" class="caption">腰围较宽</text>
+    <text x="50" y="215" text-anchor="middle" class="caption">臀部/大腿脂肪较少</text>
+  </g>
+
+  <!-- T+6m (After) Body Shape -->
+  <g transform="translate(270, 30)">
+    <text x="50" y="0" text-anchor="middle" class="label">T+6m (给药后)</text>
+    <!-- Simplified female torso outline -->
+    <path class="body-outline" d="M 50,20 Q 45,40 42,70 Q 35,100 35,120 L 30,160 Q 50,175 70,160 L 65,120 Q 65,100 58,70 Q 55,40 50,20 Z"/>
+    <!-- Waist area (narrower) -->
+    <path class="fat-area-after" d="M 42,70 L 40,90 Q 50,92 60,90 L 58,70 Q 50,68 42,70 Z"/>
+    <!-- Hip/Thigh area (wider) -->
+    <path class="fat-area-after" d="M 35,120 Q 25,150 30,160 L 70,160 Q 75,150 65,120 L 35,120 Z"/>
+    <text x="50" y="200" text-anchor="middle" class="caption highlight-text">腰围缩小</text>
+    <text x="50" y="215" text-anchor="middle" class="caption highlight-text">臀部/大腿脂肪增加</text>
+  </g>
+
+  <!-- Arrow -->
+  <line class="arrow" x1="180" y1="150" x2="260" y2="150"/>
+
+</svg>

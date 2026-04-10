@@ -1,0 +1,16 @@
+[package]
+name = "chribel"
+version = "1.0.0"
+entrypoint = "chribel-template.typ"
+authors = [ "Joel von Rotz <https://joelvonrotz.ch/>"]
+license = "EUPL-1.2"
+description = "A compact summary template with custom callouts"
+keywords = ["Summary", "Compact", "Callouts", "Custom Callouts"]
+categories = ["report"]
+repository = "https://codeberg.org/joelvonrotz/typst-chribel-template"
+
+
+[template]
+path = "template"
+entrypoint = "template.typ"
+thumbnail = "docs/chribel-template.png"

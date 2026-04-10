@@ -1,0 +1,12 @@
+[package]
+name = "epsilon"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Philipp Dobler <binksmrs@gmail.com>"]
+license = "MIT"
+description = "Numerical root-finding."
+
+repository = "https://gitlab.com/netzwerk2/epsilon"
+keywords = ["root", "roots", "root-finding", "math", "numerics", "numerical", "scripting"]
+categories = ["scripting", "utility"]
+exclude = ["/docs/*", "/tests/*"]

@@ -1,0 +1,33 @@
+[package]
+name = "htl3r-da"
+version = "2.0.0"
+entrypoint = "src/lib.typ"
+authors = [
+    "Julian Burger <https://github.com/cauvmou>",
+    "Viktor Kreuzer <https://github.com/kre9>",
+    "David Koch <https://github.com/Davideko212>",
+    "Bernd Reither <https://github.com/sidious38>",
+]
+license = "0BSD AND CC-BY-SA-4.0"
+description = "HTL-Rennweg diploma thesis template."
+repository = "https://github.com/HTL3R-Typst/htl3r-da"
+keywords = ["Diplomarbeit", "thesis", "diploma", "HTL Rennweg", "htl3r", "wien"]
+categories = ["thesis"]
+compiler = "0.13.0"
+exclude = [
+    ".git",
+    ".github",
+    "docs",
+    "scripts",
+    "tests",
+    ".typstignore",
+    "Justfile",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+[tool.typst-test]
+vcs = "git"

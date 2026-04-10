@@ -1,0 +1,8 @@
+CHANGELOG.md
+cliff.toml
+rustfmt.toml
+report.pdf
+/lib/scripts/
+justfile
+/img/
+guide-to-typst.pdf

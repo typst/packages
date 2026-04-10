@@ -1,0 +1,411 @@
+@layer components {
+  .expressive-code {
+    position: relative;
+    font-family: var(
+      --ec-uiFontFamily,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif
+    );
+    font-size: var(--ec-uiFontSize, 0.9rem);
+    font-weight: var(--ec-uiFontWeight, 400);
+    line-height: var(--ec-uiLineHeight, 1.65);
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+  }
+
+  .expressive-code *:not(:is(svg, svg *)) {
+    box-sizing: border-box;
+  }
+
+  .expressive-code::selection {
+    background: var(--ec-uiSelBg, var(--ec-codeBg, #0d1117));
+    color: var(--ec-uiSelFg, currentColor);
+  }
+
+  .expressive-code pre {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    border: var(--ec-borderWd, 1.5px) solid
+      var(--ec-borderCol, rgba(148, 163, 184, 0.25));
+    border-radius: calc(
+      var(--ec-borderRad, 0.3rem) + var(--ec-borderWd, 1.5px)
+    );
+    background: var(--ec-codeBg, #0d1117);
+    color: var(--ec-codeFg, #c9d1d9);
+    overflow-x: auto;
+    position: relative;
+    z-index: 1;
+    container-type: inline-size;
+  }
+
+  .expressive-code pre:focus-visible {
+    outline: 3px solid var(--ec-focusBorder, #3b82f6);
+    outline-offset: -3px;
+  }
+
+  .expressive-code pre > code {
+    all: unset;
+    display: block;
+    flex: 1 0 100%;
+    padding: var(--ec-codePadBlk, 0.5rem) 0;
+    color: var(--ec-codeFg, #c9d1d9);
+    font-family: var(
+      --ec-codeFontFamily,
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New",
+      monospace
+    );
+    font-size: var(--ec-codeFontSize, 0.85rem);
+    font-weight: var(--ec-codeFontWeight, 400);
+    line-height: var(--ec-codeLineHeight, 1.35);
+  }
+
+  .expressive-code pre > code::selection {
+    background: var(--ec-codeSelBg, rgba(56, 189, 248, 0.35));
+    color: inherit;
+  }
+
+  .expressive-code pre.wrap .ec-line .code {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    min-width: min(20ch, var(--ecMaxLine, 20ch));
+  }
+
+  /* When lines are allowed to wrap, the absolute overlay can overlap
+     wrapped text. Disable the overlay in wrap mode and rely on per-slot
+     borders for guides (these are handled by .indent-slot). */
+  .expressive-code pre.wrap .ec-line .code .indent-overlay {
+    display: none;
+  }
+
+  .expressive-code pre.wrap .ec-line .code::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* use the code line-height times the element font-size to match one line */
+    height: calc(var(--ec-codeLineHeight, 1.65) * 1em);
+    width: max(0px, calc(var(--ecIndent, 0) - 2px));
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc(var(--ec-indentStep, 4ch) - 1px),
+      var(--ec-indentGuideCol, rgba(148, 163, 184, 0.35))
+        calc(var(--ec-indentStep, 4ch) - 1px),
+      var(--ec-indentGuideCol, rgba(148, 163, 184, 0.35))
+        var(--ec-indentStep, 4ch)
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+    z-index: 0;
+  }
+
+  .expressive-code pre.wrap .ec-line .code span.indent {
+    white-space: pre;
+  }
+
+  .expressive-code .ec-line .code .indent {
+    display: inline-flex;
+    white-space: pre;
+  }
+
+  .expressive-code .ec-line .code .indent-slot {
+    display: inline-flex;
+    white-space: pre;
+    position: relative;
+  }
+
+  .expressive-code.has-indent-guides .ec-line .code .indent-slot {
+    border-inline-end: 1px solid
+      var(--ec-indentGuideCol, rgba(148, 163, 184, 0.35));
+  }
+
+  .expressive-code.has-indent-guides
+    .ec-line
+    .code
+    .indent-slot.indent-slot-partial {
+    border-inline-end: none;
+  }
+
+  .expressive-code pre::-webkit-scrollbar,
+  .expressive-code pre::-webkit-scrollbar-track {
+    background-color: inherit;
+    border-radius: calc(
+      var(--ec-borderRad, 0.3rem) + var(--ec-borderWd, 1.5px)
+    );
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .expressive-code pre::-webkit-scrollbar-thumb {
+    background-color: var(--ec-scrollbarThumbCol, rgba(148, 163, 184, 0.4));
+    border: 4px solid transparent;
+    background-clip: content-box;
+    border-radius: 10px;
+  }
+
+  .expressive-code pre::-webkit-scrollbar-thumb:hover {
+    background-color: var(
+      --ec-scrollbarThumbHoverCol,
+      rgba(148, 163, 184, 0.55)
+    );
+  }
+
+  .expressive-code .code-lang {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.6rem;
+    padding: 0;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    background: none;
+    color: var(--ec-langFg, var(--ec-codeFg, currentColor));
+    font-size: 0.68em;
+    pointer-events: none;
+    opacity: 0.6;
+    transition: opacity 160ms ease, color 160ms ease;
+    z-index: 2;
+  }
+
+  .expressive-code:focus-within .code-lang,
+  .expressive-code:hover .code-lang {
+    opacity: 1;
+    color: var(--ec-langFg, var(--ec-codeFg, currentColor));
+  }
+
+  .expressive-code .copy-button {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 0.45rem;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    background-color: var(--ec-copyBg, rgba(15, 23, 42, 0.04));
+    color: var(--ec-copyFg, rgba(15, 23, 42, 0.7));
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: auto;
+    transition: opacity 160ms ease, transform 160ms ease,
+      background-color 140ms ease, color 140ms ease;
+    transform: translateY(-0.3rem);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 24 24%27 fill%3D%27none%27 stroke%3D%27currentColor%27 stroke-width%3D%271.75%27 stroke-linecap%3D%27round%27 stroke-linejoin%3D%27round%27%3E%3Cpath d%3D%27M3 19a2 2 0 0 1-1-2V3a2 2 0 0 1 1-1h13a2 2 0 0 1 2 1%27/%3E%3Crect x%3D%276%27 y%3D%275%27 width%3D%2716%27 height%3D%2718%27 rx%3D%271.6%27 ry%3D%271.6%27/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    z-index: 3;
+  }
+
+  .expressive-code .copy-button:is(:hover, :focus-visible, :active) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .expressive-code .copy-button:focus-visible {
+    outline: 2px solid rgba(148, 163, 184, 0.55);
+    outline-offset: 2px;
+    background-color: var(--ec-copyBgFocus, rgba(15, 23, 42, 0.16));
+    color: var(--ec-copyFgFocus, rgba(15, 23, 42, 1));
+  }
+
+  .expressive-code .copy-button::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: transparent;
+    border: none;
+    pointer-events: none;
+  }
+
+  .expressive-code .copy-button::after {
+    content: none;
+    pointer-events: none;
+  }
+
+  .expressive-code .copy-button .copy-label,
+  .expressive-code .copy-button .copy-feedback {
+    display: none;
+  }
+
+  .expressive-code .copy-button:hover {
+    background-color: var(--ec-copyBgHover, rgba(15, 23, 42, 0.12));
+    color: var(--ec-copyFgHover, rgba(15, 23, 42, 0.9));
+  }
+
+  .expressive-code .copy-button span[aria-hidden="true"] {
+    font-family: var(--ec-uiFontFamily, inherit);
+  }
+
+  .expressive-code .ec-header,
+  .expressive-code .ec-footer {
+    display: block;
+    padding: 0.35rem var(--ec-codePadInl, 1.35rem);
+    color: var(--ec-uiFg, currentColor);
+  }
+
+  .expressive-code .ec-header.ec-ext,
+  .expressive-code .ec-footer.ec-ext {
+    padding: 0.25rem var(--ec-codePadInl, 1.35rem);
+  }
+
+  .expressive-code .ec-line {
+    direction: ltr;
+    unicode-bidi: isolate;
+    display: grid;
+    grid-template-areas: "gutter code";
+    grid-template-columns: auto 1fr;
+    column-gap: var(--ec-gutterGap, 0.25rem);
+    position: relative;
+    --lineBg: var(--ec-codeBg, #0d1117);
+    background: var(--lineBg);
+  }
+
+  .expressive-code:not(.has-gutter) .ec-line {
+    grid-template-columns: 1fr;
+  }
+
+  .expressive-code:not(.has-gutter) .ec-line .code {
+    padding-inline: var(--ec-codePadInl, 1.35rem);
+  }
+
+  .expressive-code .ec-line .gutter {
+    grid-area: gutter;
+    color: var(--ec-gtrFg, rgba(148, 163, 184, 0.8));
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: var(--lineBg, var(--ec-gutterBg, var(--ec-codeBg, #0d1117)));
+    box-shadow: 1px 0 0 var(--ec-gtrBrdCol, rgba(148, 163, 184, 0.2));
+  }
+
+  .expressive-code .ec-line .gutter > * {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .expressive-code .ec-line .gutter ~ .code {
+    --ecLineBrdCol: var(--ec-gtrBrdCol, rgba(148, 163, 184, 0.2));
+  }
+
+  .expressive-code .ec-line.highlight .gutter {
+    color: var(--ec-gtrHighlightFg, rgba(226, 232, 240, 0.95));
+  }
+
+  .expressive-code .ec-line .gutter .ln {
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    box-sizing: content-box;
+    min-width: var(--lnWidth, 2ch);
+    padding-inline-start: var(--ec-gutterPadLeft, 0.5rem);
+    padding-inline-end: var(--ec-codePadInl, 1.35rem);
+    font-size: var(--ec-codeFontSize, 0.85rem);
+    font-variant-numeric: tabular-nums;
+    color: inherit;
+  }
+
+  .expressive-code .ec-line .gutter .ln > span + span {
+    margin-inline-start: 0.25em;
+  }
+
+  .expressive-code .ec-line .code {
+    position: relative;
+    z-index: 1;
+  }
+
+  .expressive-code .ec-line .code .indent-overlay {
+    display: none;
+  }
+
+  .expressive-code.has-indent-guides .ec-line .code .indent-overlay {
+    position: absolute;
+    inset: 0 auto 0 0;
+    display: block;
+    /* Shrink overlay by 1px to avoid drawing a vertical guide at the very end of
+       the inline area (prevents an extra line appearing at each row end).
+       Use max(...) to avoid negative values when --ecIndent is small. */
+    width: max(0px, calc(var(--ecIndent, 0) - 2px));
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc(var(--ec-indentStep, 4ch) - 1px),
+      var(--ec-indentGuideCol, rgba(148, 163, 184, 0.35))
+        calc(var(--ec-indentStep, 4ch) - 1px),
+      var(--ec-indentGuideCol, rgba(148, 163, 184, 0.35))
+        var(--ec-indentStep, 4ch)
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+    z-index: 0;
+  }
+  .expressive-code .ec-comment {
+    grid-column: 1 / -1;
+    padding: 0.55rem calc(var(--ec-codePadInl, 1.35rem) + 0.25rem);
+    font-size: 0.85em;
+    background: var(--ec-commentBg, rgba(56, 189, 248, 0.18));
+    color: var(--ec-commentFg, currentColor);
+    box-shadow: inset 0 1px 0 rgba(15, 23, 42, 0.08),
+      inset 0 -1px 0 rgba(15, 23, 42, 0.06);
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    width: 100cqw;
+    box-sizing: border-box;
+  }
+
+  .expressive-code .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  code.expressive-code-inline {
+    display: inline-block;
+    padding: 0 var(--ec-inlinePadInl, 0.4rem);
+    border-radius: calc(var(--ec-borderRad, 0.3rem) / 1.2);
+    background: var(--ec-inlineBg, rgba(148, 163, 184, 0.2));
+    color: var(--ec-inlineFg, inherit);
+    font-family: var(
+      --ec-codeFontFamily,
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New",
+      monospace
+    );
+    font-size: 0.95em;
+    line-height: 1.2;
+    white-space: pre;
+  }
+}
