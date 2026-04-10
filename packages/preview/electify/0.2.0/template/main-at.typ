@@ -1,4 +1,4 @@
-#import "../lib.typ": ballot-paper-at
+#import "@preview/electify:0.2.0": ballot-paper-at
 
 #show: ballot-paper-at(
   type: "Nationalratswahl",
