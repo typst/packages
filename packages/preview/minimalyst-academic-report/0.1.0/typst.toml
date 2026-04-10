@@ -1,0 +1,16 @@
+[package]
+name = "minimalyst-academic-report"
+version = "0.1.0"
+compiler = "0.10.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/casemiromjm/report-template"
+authors = ["casemiromjm <https://casemiromjm.me>"]
+license = "MIT"
+description = "A minimalyst report template for Typst"
+keywords = ["feup", "academic", "report", "clean", "university"]
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "assets/thumbnail.png"
