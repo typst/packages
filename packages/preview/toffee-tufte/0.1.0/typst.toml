@@ -1,0 +1,15 @@
+[package]
+name = "toffee-tufte"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jian Wei Cheong <https://jianweicheong.codeberg.page>"]
+license = "MIT"
+description = "An opinionated Tufte-inspired template for scientific reports."
+categories = ["report", "paper"]
+keywords =["education", "science", "math", "physics", "tufte"]
+repository = "https://codeberg.org/jianweicheong/toffee-tufte"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

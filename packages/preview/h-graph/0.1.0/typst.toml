@@ -1,0 +1,25 @@
+[package]
+name = "h-graph"
+version = "0.1.0"
+entrypoint = "./src/lib.typ"
+authors = ["fogsong233"]
+license = "MIT"
+compiler = "0.13.0"
+description = "Draw image releted to graph theory with a very simple mark-up language"
+repository = "https://github.com/fogsong233/h-graph"
+categories = ["visualization", "components"]
+keywords = [
+  "commutative",
+  "commuting",
+  "commute",
+  "diagram",
+  "category",
+  "flowchart",
+  "DAG",
+  "graph",
+  "node",
+  "arrow",
+  "graph theory",
+  "mark-up",
+]
+exclude = ["test/"]

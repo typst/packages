@@ -1,0 +1,22 @@
+
+[package]
+name = "finite"
+version = "0.5.0"
+entrypoint = "src/finite.typ"
+authors = ["Jonas Neugebauer"]
+license = "MIT"
+description = "Typst-setting finite automata with CeTZ"
+repository = "https://github.com/jneug/typst-finite"
+keywords = []
+categories = []
+disciplines = []
+compiler = "0.13.0"
+exclude = [
+	".github",
+	"docs",
+	"scripts",
+	"tests",
+	"assets",
+	".typstignore",
+	"Justfile",
+]

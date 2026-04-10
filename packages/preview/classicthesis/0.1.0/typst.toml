@@ -1,0 +1,15 @@
+[package]
+name = "classicthesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Adwiteey Mauriya <adwiteeymauriya@gmail.com>"]
+license = "MIT"
+description = "Thesis inspired by André Miede's ClassicThesis style."
+repository = "https://github.com/adwiteeymauriya/classicthesis-typst"
+categories = ["book", "thesis", "report"]
+keywords = ["classic", "thesis", "book", "elegant", "typography", "bringhurst", "palatino"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

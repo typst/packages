@@ -1,0 +1,12 @@
+[package]
+name = "decasify"
+version = "0.9.0"
+entrypoint = "decasify.typ"
+authors = ["Caleb Maclennan <caleb@alerque.com>"]
+license = "LGPL-3.0-only"
+description = "Locale and style-guide aware text casing functions for natural language prose"
+repository = "https://github.com/alerque/decasify"
+categories = ["text", "languages", "utility"]
+keywords = ["titlecase", "uppercase", "lowercase", "scentencecase"]
+compiler = "0.12.0"
+exclude = ["example.*"]
