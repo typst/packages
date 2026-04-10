@@ -1,0 +1,8 @@
+# Thumbnail (generated from template, excluded from package bundle)
+thumbnail.png
+
+# README assets directory
+/assets/
+
+# Typst compilation artifacts
+*.pdf

@@ -1,9 +1,0 @@
-[package]
-name = "glossarium"
-version = "0.4.1"
-entrypoint = "glossarium.typ"
-authors = ["slashformotion", "Dherse"]
-license = "MIT"
-description = "Glossarium is a simple, easily customizable typst glossary."
-repository = "https://github.com/ENIB-Community/glossarium"
-exclude = ["tbump.toml", "examples/*", ".gitignore", "makefile", ".github/*"]

@@ -1,5 +1,0 @@
-blank_issues_enabled: true
-contact_links:
-  - name: Package-specific issue
-    url: https://typst.app/universe/search/
-    about: Please report issues with a specific package on that package's repository. You can find it by searching for the package on Typst Universe and looking for the "Repository" link in the package's "About" section.

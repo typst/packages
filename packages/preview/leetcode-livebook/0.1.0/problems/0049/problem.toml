@@ -1,5 +1,0 @@
-slug = "group-anagrams"
-title = "Group Anagrams"
-difficulty = "medium"
-labels = ["array", "hash-table", "string", "sorting"]
-validator = "custom"
