@@ -1,0 +1,16 @@
+[package]
+name = "uw-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Yuan-Ru Lin"]
+license = "Apache-2.0"
+description = "Doctoral dissertation and master's thesis template for the University of Washington, Seattle."
+repository = "https://github.com/Yuan-Ru-Lin/uw-thesis"
+keywords = ["thesis", "dissertation", "university", "washington"]
+categories = ["thesis"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
