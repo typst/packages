@@ -1,0 +1,153 @@
+#:schema https://raw.githubusercontent.com/yunanwg/brilliant-CV/main/metadata.toml.schema.json
+
+# Must match folder suffix: "en" → modules_en/, "fr" → modules_fr/, etc.
+language = "en"
+
+[layout]
+    # Accent color used for section titles, icons, and highlights in the rendered PDF
+    # Preset: skyblue, red, nephritis, concrete, darknight — or any hex like "#1E90FF"
+    awesome_color = "skyblue"
+
+    # Controls vertical spacing; increase to spread out sections/entries, decrease to compact
+    before_section_skip = "1pt"
+    # Vertical space before each entry within a section
+    before_entry_skip = "1pt"
+    # Vertical space before entry description text
+    before_entry_description_skip = "1pt"
+
+    # Page dimensions and margins applied to the PDF output. Possible values: a4 (default), us-letter
+    paper_size = "a4"
+
+    # Overrides the width of the right-side date column in entries; omit to use sensible defaults
+    #date_width = "3.6cm"
+
+    # Overrides base font size for body text; affects overall density of content
+    #font_size = "9pt"
+
+    [layout.fonts]
+        # Typeface used for body text, entry descriptions, and general content
+        regular_fonts = ["Source Sans 3"]
+        # Typeface used for the name and section headings in the header
+        header_font = "Roboto"
+
+    [layout.header]
+        # Aligns the entire header block (name, info, quote). Possible values: left, center, right
+        header_align = "left"
+
+        # false hides the photo and gives full width to name/info
+        display_profile_photo = true
+        # "50%" = circle, "0%" = square, "10%" = rounded corners
+        profile_photo_radius = "50%"
+        # Font size for the contact-info line (email, phone, links) in the header
+        info_font_size = "10pt"
+
+    [layout.entry]
+        # true = company name bold on top, role below; false = role bold on top
+        # Must be true to use cv-entry-start / cv-entry-continued pattern
+        display_entry_society_first = true
+
+        # false hides all company/organisation logos in entries
+        display_logo = true
+
+    [layout.footer]
+        # true shows "1/2" style page numbers in the footer
+        display_page_counter = false
+
+        # false removes the footer entirely (no page text, no counter)
+        display_footer = true
+
+
+[inject]
+    # Hidden text injected into the PDF for ATS keyword matching (invisible to readers)
+    # custom_ai_prompt_text = "Custom prompt text here..."  # Uncomment to add a custom ATS prompt string
+
+    # Hidden keywords injected into PDF metadata for ATS keyword matching (invisible to readers)
+    injected_keywords_list = ["Data Analyst", "GCP", "Python", "SQL", "Tableau"]
+
+[personal]
+    # Your first name, displayed in the header
+    first_name = "John"
+    # Your last name, displayed in the header
+    last_name = "Doe"
+    # Your mailing address, used as default sender-address in the cover letter
+    # address = "123 Main St, San Francisco, CA 94102"
+
+    # The order of entries below controls the display order of icons/links in the header
+    # The custom value is for any additional information you want to add, name it as custom-1, custom-2, etc.
+    [personal.info]
+        # Shown as clickable icon in header; auto-links to github.com/<value>
+        github = "yunanwg"
+        # Shown as phone icon in header; displayed as-is with a tel: link
+        phone = "+33 6 12 34 56 78"
+        # Shown as envelope icon in header; auto-links to mailto:<value>
+        email = "john.doe@me.org"
+        # Shown as clickable icon in header; auto-links to linkedin.com/in/<value>
+        linkedin = "johndoe"
+        # Shown as clickable icon in header; auto-links to gitlab.com/<value>
+        gitlab = "yunanwg"
+        # Shown as clickable globe icon in header; auto-links to https://<value>
+        homepage = "johndoe.dev"
+        # Shown as ORCID icon in header; auto-links to orcid.org/<value>
+        orcid = "0000-0000-0000-0000"
+        # researchgate = "John-Doe"  # Shown as a clickable ResearchGate icon in header
+        # Shown as map-marker icon in header; displayed as plain text (no link)
+        location = "San Francisco, CA"
+        # extraInfo = "Available for remote work"  # Shown as extra text with an info icon in header
+        # Insert a line break in the header info, splitting icons across two lines
+        #linebreak = ""
+
+        # Custom info with awesome icon
+        [personal.info.custom-1]
+            awesomeIcon = "graduation-cap" # See https://typst.app/universe/package/fontawesome/
+            # Display text shown next to the icon in the header
+            text = "PhD in Data Science"
+            # URL the icon/text links to; omit for non-clickable entries
+            link = "https://www.example.com"
+
+        # Custom info with image icon
+        # To use a custom image icon, pass it via custom-icons in cv.typ:
+        #   custom-icons: ("custom-2": image("assets/my-icon.png"))
+        [personal.info.custom-2]
+            awesomeIcon = "certificate"
+            text = "AWS Certified"
+            link = "https://aws.amazon.com/certification/"
+
+
+# Add a [lang.xx] section for each language you support
+# Each section must contain header_quote, cv_footer, and letter_footer
+[lang.de]
+    # Italic tagline displayed below your name and contact info
+    header_quote = "Erfahrener Datenanalyst sucht ab sofort eine Vollzeitstelle"
+    # Text shown in the left side of the footer on CV pages
+    cv_footer = "Lebenslauf"
+    # Text shown in the left side of the footer on cover letter pages
+    letter_footer = "Anschreiben"
+
+[lang.en]
+    # Italic tagline displayed below your name and contact info
+    header_quote = "Experienced Data Analyst looking for a full time job starting from now"
+    cv_footer = "Curriculum vitae"
+    letter_footer = "Cover letter"
+
+[lang.fr]
+    header_quote = "Analyste de données expérimenté à la recherche d'un emploi à temps plein disponible dès maintenant"
+    cv_footer = "Résumé"
+    letter_footer = "Lettre de motivation"
+
+[lang.zh]
+    header_quote = "具有丰富经验的数据分析师，随时可入职"
+    cv_footer = "简历"
+    letter_footer = "申请信"
+
+[lang.it]
+    header_quote = "Senior data analyst attualmente disponibile per una posizione di lavoro full-time"
+    cv_footer = "Curriculum vitae"
+    letter_footer = "Lettera di presentazione"
+
+# For languages that are not written in Latin script
+# Currently supported non-latin language codes: ("zh", "ja", "ko", "ru")
+[lang.non_latin]
+    # Your name in non-Latin script
+    name = "王道尔"
+    # Font to use for non-Latin text (e.g. "Heiti SC", "Noto Sans JP")
+    font = "Heiti SC"
