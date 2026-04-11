@@ -15,8 +15,6 @@ Render sheet music directly inside Typst using SMuFL-aware glyph placement and C
 
 ## Quick Start
 
-### Via Typst Package Manager
-
 ```typ
 #import "@preview/scorify:0.2.0": score, melody
 
@@ -34,28 +32,14 @@ Compile with Bravura available to Typst:
 typst compile your-file.typ --font-path /path/to/bravura/
 ```
 
-### Manual Installation
-
-Copy `lib.typ`, `src/`, and `data/` into your project, then import locally:
-
-```typ
-#import "lib.typ": score, melody
-```
-
-Compile with:
-
-```text
-typst compile your-file.typ --font-path /path/to/bravura/ --root .
-```
-
-## Font Setup
+### Font Setup
 
 Scorify defaults to [Bravura](https://github.com/steinbergmedia/bravura) plus bundled Bravura metadata.
 
 1. Download `Bravura.otf` from the [Bravura releases page](https://github.com/steinbergmedia/bravura/releases).
 2. Either install it system-wide, or keep it in a project folder and pass that folder with `--font-path`.
 
-### Alternate SMuFL Fonts
+#### Alternate SMuFL Fonts
 
 You can switch fonts with:
 
