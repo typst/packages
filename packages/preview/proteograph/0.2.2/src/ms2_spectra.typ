@@ -99,12 +99,12 @@
 }
 
 
-#let ms2spectra-ion-delta-plot(type, ion_arr) = {
+#let ms2spectra-ion-delta-plot(type, ion-arr) = {
   let one_million = 1000000
 
   let mz_arr = ()
   let mz_delta_arr = ()
-  for one_ion in ion_arr {
+  for one_ion in ion-arr {
     mz_arr.push(one_ion.mz)
     mz_delta_arr.push((one_ion.mz - one_ion.mzth) / (one_ion.mz / one_million))
   }
