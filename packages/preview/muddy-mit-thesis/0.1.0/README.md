@@ -8,7 +8,7 @@ Named after the [Muddy Charles](https://studentlife.mit.edu/muddy), the legendar
 
 ## Preview
 
-![Thumbnail](thumbnail.png)
+![Title page of a sample MIT thesis showing the thesis title, author name, department, degree, institution name, and certification block](thumbnail.png)
 
 ## Usage
 
