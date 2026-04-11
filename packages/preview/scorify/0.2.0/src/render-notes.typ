@@ -231,6 +231,56 @@
   sx + if stem-dir == "up" { -half-thin } else { half-thin }
 }
 
+/// Compute per-note horizontal offsets for seconds inside a chord.
+///
+/// Adjacent staff steps cannot share a notehead column. Starting at the
+/// stem-base note, alternate columns only while the notes remain adjacent.
+#let chord-notehead-x-offsets(chord-staff-positions, stem-dir, nh-w, lsp) = {
+  let offsets = range(chord-staff-positions.len()).map(_ => 0.0)
+  if chord-staff-positions.len() <= 1 { return offsets }
+
+  let order = ()
+  for i in range(chord-staff-positions.len()) {
+    let inserted = false
+    let next-order = ()
+    for existing in order {
+      let current-sp = chord-staff-positions.at(i)
+      let existing-sp = chord-staff-positions.at(existing)
+      let before-existing = if stem-dir == "down" {
+        current-sp < existing-sp
+      } else {
+        current-sp > existing-sp
+      }
+      if not inserted and before-existing {
+        next-order.push(i)
+        inserted = true
+      }
+      next-order.push(existing)
+    }
+    if not inserted {
+      next-order.push(i)
+    }
+    order = next-order
+  }
+
+  let alt-offset = if stem-dir == "down" { -nh-w * lsp } else { nh-w * lsp }
+  let side = 0
+  let prev-sp = none
+  for idx in order {
+    let current-sp = chord-staff-positions.at(idx)
+    if prev-sp != none and calc.abs(current-sp - prev-sp) == 1 {
+      side = 1 - side
+    } else {
+      side = 0
+    }
+    if side == 1 {
+      offsets.at(idx) = alt-offset
+    }
+    prev-sp = current-sp
+  }
+  offsets
+}
+
 /// Draw a chord event: multiple simultaneous noteheads with a single shared stem/flag.
 #let draw-chord-event(
   x,
@@ -252,17 +302,19 @@
   let smufl = notehead-smufl-name(duration)
   let nh-w = advance-width(smufl, config: music-font-config)
   let nh-anch = anchors(smufl, config: music-font-config)
+  let notehead-offsets = chord-notehead-x-offsets(chord-staff-positions, stem-dir, nh-w, lsp)
 
   for (ni, note) in event.notes.enumerate() {
     let ny = chord-ys-abs.at(ni)
     let nsp = chord-staff-positions.at(ni)
-    draw-ledger-lines(x, y-top, nsp, sp: sp, note-scale: note-scale, music-font-config: music-font-config)
+    let nx = x + notehead-offsets.at(ni)
+    draw-ledger-lines(nx, y-top, nsp, sp: sp, note-scale: note-scale, music-font-config: music-font-config)
     if note.accidental != none {
-      draw-accidental(x, ny, note.accidental, duration, sp: sp, note-scale: note-scale, music-font-config: music-font-config)
+      draw-accidental(nx, ny, note.accidental, duration, sp: sp, note-scale: note-scale, music-font-config: music-font-config)
     }
-    draw-notehead(x, ny, duration, sp: sp, note-scale: note-scale, music-font-config: music-font-config)
+    draw-notehead(nx, ny, duration, sp: sp, note-scale: note-scale, music-font-config: music-font-config)
     if event.dots > 0 {
-      draw-dots(x, ny, event.dots, duration, sp: sp, note-scale: note-scale, music-font-config: music-font-config)
+      draw-dots(nx, ny, event.dots, duration, sp: sp, note-scale: note-scale, music-font-config: music-font-config)
     }
   }
 
