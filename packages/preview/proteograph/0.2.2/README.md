@@ -18,19 +18,19 @@ It currently defines functions to display MS2 annotated fragmentation spectra an
 
 [MS2 annotated fragmentation spectra](examples/complete_psm_highlight_peaks.typ)
 
-![Example](examples/complete_psm_highlight_peaks.svg "MS2 annotated fragmentation spectra")
+![Complete example of an annotated spectra with matched peaks](examples/complete_psm_highlight_peaks.svg "MS2 annotated fragmentation spectra")
 
 [eXtracted Ion Current (XIC)](examples/xic_plot.typ)
 
-![Example](examples/xic_plot.svg "eXtracted Ion Current (XIC)")
+![Representation of an eXtracted Ion Current (XIC)](examples/xic_plot.svg "eXtracted Ion Current (XIC)")
 
 [Retention time alignment between 2 MS runs](examples/rt_align.typ)
 
-![Example](examples/rt_align.svg "Retention time alignment")
+![Retention time alignment delta between 2MS runs across the chromatography](examples/rt_align.svg "Retention time alignment")
 
 [Protein sequence diagram showing highlighted subsequences](examples/protein_diag.typ)
 
-![Example](examples/protein_diag.svg "Protein sequence diagram")
+![Representation of a protein sequence with highlighted segments](examples/protein_diag.svg "Protein sequence diagram")
 
 ## Documentation
 
