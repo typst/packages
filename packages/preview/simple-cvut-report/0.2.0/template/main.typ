@@ -1,4 +1,4 @@
-#import "../lib.typ": report
+#import "@preview/simple-cvut-report:0.2.0": report
 
 #set text(
   lang: "cs",
