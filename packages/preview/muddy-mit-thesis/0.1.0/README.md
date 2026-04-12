@@ -2,7 +2,7 @@
 
 A Typst port of the [MIT `mitthesis` LaTeX class](https://ctan.org/pkg/mitthesis) (v1.22), producing a thesis document that conforms to [MIT Libraries dissertation formatting requirements](https://libraries.mit.edu/distinctive-collections/thesis-specs/).
 
-Named after the [Muddy Charles](https://studentlife.mit.edu/muddy), the legendary MIT pub.
+Named after the [Muddy Charles](https://muddy.mit.edu/), the legendary MIT pub.
 
 > **Unofficial template.** This is an independent port and is not affiliated with or endorsed by MIT or the `mitthesis` LaTeX package authors.
 
