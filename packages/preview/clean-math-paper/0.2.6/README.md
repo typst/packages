@@ -1,7 +1,7 @@
 # clean-math-paper
 
 [![Build Typst Document](https://github.com/JoshuaLampert/clean-math-paper/actions/workflows/build.yml/badge.svg)](https://github.com/JoshuaLampert/clean-math-paper/actions/workflows/build.yml)
-[![Repo](https://img.shields.io/badge/GitHub-repo-blue)](https://github.com/JoshuaLampert/clean-math-paper)
+[![GitHub repository](https://img.shields.io/badge/GitHub-repo-blue)](https://github.com/JoshuaLampert/clean-math-paper)
 [![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
 
 [Typst](https://typst.app/home/) paper template for mathematical papers built for simple, efficient use and a clean look.
