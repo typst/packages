@@ -1,4 +1,5 @@
 #import "@preview/calligraphics:1.0.0": *
+#import "@preview/metalogo:1.2.0": LaTeX
 #resume(
   author: (
     firstname: "Jane",
