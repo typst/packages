@@ -1,6 +1,6 @@
 #import "@preview/voronay:0.1.0": *
 #import "@preview/fontawesome:0.6.0": *
-#import "@preview/linguify:0.4.2": *
+#import "@preview/linguify:0.5.0": *
 
 #fa-version("7")
 

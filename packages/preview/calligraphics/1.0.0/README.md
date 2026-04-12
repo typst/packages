@@ -4,7 +4,7 @@ A typst resume template fill with colorfull triangles.
 
 # Usage/Demo
 
-See the [resume](template/resume.typ) and [cover letter](template/coverletter.typ) templates for an example of what you can do and how to use the template. You can see the [resulting resume](template/resume.pdf) and the [resuting cover letter](template/coverletter.pdf).
+See the [resume](template/resume.typ) and [cover letter](template/coverletter.typ) templates for an example of what you can do and how to use the template. You can see the [resulting resume](resume.pdf) and the [resuting cover letter](coverletter.pdf).
 
 ### Fonts
 You will need two fonts to obtain the demosntrated results. Both are already installed in the webapp, but may need to be installed on your local machine :
