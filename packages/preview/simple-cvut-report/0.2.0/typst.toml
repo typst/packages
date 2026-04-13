@@ -1,7 +1,7 @@
 [package]
 name = "simple-cvut-report"
 version = "0.2.0"
-compiler = "0.14.2"
+compiler = "0.11.0"
 authors = ["Filip Růžička <https://firu.dev>"]
 repository = "https://github.com/firu11/cvut-report-template"
 license = "MIT"
