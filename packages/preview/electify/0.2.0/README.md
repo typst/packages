@@ -1,7 +1,7 @@
 # Electify
 
-![Thumbnail](thumbnail-de.png "Example of the Federal Election 2025 in Germany")
-![Thumbnail](thumbnail-at.png "Example of the Federal Election 2024 in Austria")
+![Ballot paper for the 2025 German federal election showing party lists and selection boxes](thumbnail-de.png "Example: German federal election 2025")
+![Ballot paper for the 2024 Austrian national election showing parties and selection boxes](thumbnail-at.png "Example: Austrian national election 2024")
 
 ## Code Example
 
