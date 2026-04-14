@@ -114,43 +114,47 @@
     heading(level: 1, numbering: none, title)
   }
 
-  // Render the real bibliography so cite keys resolve and formatting
-  // comes from the chosen CSL style. `bibliography()` accepts bytes
-  // since Typst 0.12.
+  // Declare the bibliography so `cite()` keys resolve and formatting
+  // comes from the chosen CSL style — but suppress its grouped
+  // rendering so we can interleave each entry with its annotation.
+  show bibliography: _ => none
   bibliography(bib-source, title: none, style: style, full: true)
-  
-  // Now append annotation blocks for entries that have them
+
+  // Render each entry manually using `cite(form: "full")`, followed
+  // by any abstract/annotation blocks.
   for entry in entries {
     let has-abs = entry.abstract != none and show-abstract
     let has-ann = entry.annotation != none and show-annotation
-    
-    if has-abs or has-ann {
-      v(block-spacing)
-      block(
-        inset: (left: indent, top: 0.3em, bottom: 0.3em),
-        stroke: (left: 1.5pt + luma(180)),
-        width: 100%,
-      )[
-        #text(weight: "bold", size: 9pt)[#entry.key]
-        
-        #if has-abs [
-          #v(0.2em)
-          #if show-labels [
-            #text(weight: "bold", size: 8.5pt)[#abstract-label:]
-            #h(0.3em)
+
+    block(breakable: false, width: 100%, below: entry-spacing)[
+      #cite(label(entry.key), form: "full")
+
+      #if has-abs or has-ann {
+        v(block-spacing)
+        block(
+          inset: (left: indent, top: 0.3em, bottom: 0.3em),
+          stroke: (left: 1.5pt + luma(180)),
+          width: 100%,
+        )[
+          #if has-abs [
+            #if show-labels [
+              #text(weight: "bold", size: 0.9em)[#abstract-label:]
+              #h(0.3em)
+            ]
+            #text(size: 0.9em, style: "italic")[#entry.abstract]
           ]
-          #text(size: 8.5pt, style: "italic")[#entry.abstract]
-        ]
-        
-        #if has-ann [
-          #v(0.2em)
-          #if show-labels [
-            #text(weight: "bold", size: 8.5pt)[#annotation-label:]
-            #h(0.3em)
+
+          #if has-abs and has-ann { v(0.3em) }
+
+          #if has-ann [
+            #if show-labels [
+              #text(weight: "bold", size: 0.9em)[#annotation-label:]
+              #h(0.3em)
+            ]
+            #text(size: 0.9em)[#entry.annotation]
           ]
-          #text(size: 8.5pt)[#entry.annotation]
         ]
-      ]
-    }
+      }
+    ]
   }
 }

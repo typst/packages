@@ -59,11 +59,17 @@ Both fields are optional per entry. Entries without either render as normal cita
 
 ## How it works
 
-Typst's `bibliography()` function renders as a monolithic block with no per-entry hooks. `ab-annotate` parses the `.bib` file itself, renders the native `bibliography()` with the chosen CSL style, and then appends styled abstract/annotation blocks for each entry that has them — keyed by citation key, with a colored left border for visual grouping.
+Typst's `bibliography()` function renders as a monolithic block with no per-entry hooks, so `ab-annotate`:
 
-### Limitation
+1. Parses the `.bib` file itself to collect `abstract` / `annotation` fields per key.
+2. Declares `bibliography()` to register citation keys, but suppresses its grouped output with `show bibliography: _ => none`.
+3. Walks the entries in `.bib` order and renders each one with `cite(key, form: "full")` — pulling the CSL-styled reference — followed immediately by its abstract/annotation block (with a colored left border for visual grouping).
 
-Because Typst's bibliography API doesn't yet allow per-entry injection, annotations appear as a grouped section *after* the bibliography rather than interleaved with each entry. When [typst/typst#942](https://github.com/typst/typst/issues/942) lands, `ab-annotate` will switch to true interleaved rendering.
+The result is a true annotated bibliography: each citation is followed by its own notes, rather than annotations appearing as a separate grouped section.
+
+### Caveat on entry order
+
+Because entries are emitted in the order they appear in the `.bib` file, ordering follows your source file rather than the CSL style's sort order. For author-year styles (APA, APSA, Chicago), sort your `.bib` alphabetically by first-author surname if order matters.
 
 ## Cross-format companion
 
