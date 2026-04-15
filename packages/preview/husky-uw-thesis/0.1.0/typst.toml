@@ -1,11 +1,11 @@
 [package]
-name = "uw-thesis"
+name = "husky-uw-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Yuan-Ru Lin"]
 license = "Apache-2.0"
 description = "Doctoral dissertation and master's thesis template for the University of Washington, Seattle."
-repository = "https://github.com/Yuan-Ru-Lin/uw-thesis"
+repository = "https://github.com/Yuan-Ru-Lin/husky-uw-thesis"
 keywords = ["thesis", "dissertation", "university", "washington"]
 categories = ["thesis"]
 compiler = "0.14.0"

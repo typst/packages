@@ -1,6 +1,6 @@
-#import "@preview/uw-thesis:0.1.0": uw-thesis
+#import "@preview/husky-uw-thesis:0.1.0": thesis
 
-#show: uw-thesis.with(
+#show: thesis.with(
   title: [Your Dissertation Title],
   author: "Your Name",
   degree: "Doctor of Philosophy",

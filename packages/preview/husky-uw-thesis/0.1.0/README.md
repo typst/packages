@@ -1,4 +1,4 @@
-# uw-thesis
+# husky-uw-thesis
 
 A [Typst](https://typst.app/) template for doctoral dissertations and master's theses at the **University of Washington**, Seattle.
 
@@ -9,21 +9,21 @@ This template generates the three required preliminary pages — title page, cop
 ### From the Typst CLI
 
 ```sh
-typst init @preview/uw-thesis:0.1.0 my-dissertation
+typst init @preview/husky-uw-thesis:0.1.0 my-dissertation
 cd my-dissertation
 typst compile main.typ
 ```
 
 ### From the web app
 
-Click **Start from template** and search for `uw-thesis`.
+Click **Start from template** and search for `husky-uw-thesis`.
 
 ### Manual import
 
 ```typst
-#import "@preview/uw-thesis:0.1.0": uw-thesis
+#import "@preview/husky-uw-thesis:0.1.0": thesis
 
-#show: uw-thesis.with(
+#show: thesis.with(
   title: [Your Dissertation Title],
   author: "Your Name",
   degree: "Doctor of Philosophy",

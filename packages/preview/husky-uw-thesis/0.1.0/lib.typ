@@ -1,5 +1,5 @@
 // ============================================================
-// uw-thesis — University of Washington thesis/dissertation template
+// husky-uw-thesis — University of Washington thesis/dissertation template
 // https://grad.uw.edu/current-students/enrollment-through-graduation/thesis-dissertation/
 // ============================================================
 
@@ -28,7 +28,7 @@
 /// - margin (dictionary): Page margins. Default: 1 in top/bottom/right, 1.5 in left.
 /// - body (content): The rest of your document.
 /// -> content
-#let uw-thesis(
+#let thesis(
   title: [Your Dissertation Title],
   author: "Your Name",
   degree: "Doctor of Philosophy",
