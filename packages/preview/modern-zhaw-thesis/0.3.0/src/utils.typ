@@ -71,6 +71,26 @@
   }
 }
 
+// Same supervisor shapes as on the title page: plain array, or dict with main / secondary / external (each string or array).
+#let flatten-supervisor-names(supervisors) = {
+  if supervisors == none {
+    ()
+  } else if type(supervisors) == dictionary {
+    let names = ()
+    for key in ("main", "secondary", "external") {
+      if key in supervisors {
+        let value = supervisors.at(key)
+        if value != none {
+          names = names + ensure-array(value)
+        }
+      }
+    }
+    names
+  } else {
+    ensure-array(supervisors)
+  }
+}
+
 #let centered(title, content) = {
   pagebreak()
   set align(center + horizon)
