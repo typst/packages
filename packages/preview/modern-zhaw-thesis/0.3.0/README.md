@@ -110,7 +110,7 @@ You can find instructions about how to use all its options directly on the [pack
 ### Code blocks
 
 The template uses the [Codly package](https://typst.app/universe/package/codly/) to style code snippets.
-You can find instructions about how to use all its options in [its PDF manual](https://raw.githubusercontent.com/Dherse/codly/main/docs.pdf).
+You can find instructions about how to use all its options in [its PDF manual](https://github.com/Dherse/codly/blob/ece8099b46cd899ea99a835ebd78c57ef2dd0b74/docs.pdf).
 
 ### Multi-linguism
 
