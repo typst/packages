@@ -1,9 +1,8 @@
-#import "utils.typ": deep-merge
+#import "utils.typ": deep-merge, deep-merge-or-default
+#import "frontmatter.typ": (
+  zhaw-abstract-section, zhaw-acknowledgements-section, zhaw-cover-page, zhaw-declaration-section,
+)
 #import "styling/tokens.typ": tokens
-#import "pages/title.typ": title-page
-#import "pages/abstract.typ": abstract-page
-#import "pages/acknowledgements.typ": acknowledgements-page
-#import "pages/originality.typ": declaration-of-originality-page
 #import "styling/math-and-code.typ": code-styles
 #import "styling/glossary.typ": init-glossary, styled-glossary
 #import "styling/text.typ": text-styles
@@ -43,10 +42,8 @@
     override: none,
   ),
   glossary-entries: none,
-  biblio: (
-    file: none,
-    style: "ieee",
-  ),
+  // Default `none` so callers may pass `biblio: none` (same as omitting: IEEE, no .bib file).
+  biblio: none,
   appendix: none,
   page-border: true,
   hide-frontmatter: false,
@@ -94,7 +91,24 @@
     file: none,
     style: "ieee",
   )
-  let biblio = deep-merge(biblio-defaults, biblio)
+  let biblio = deep-merge-or-default(biblio-defaults, biblio)
+
+  let appendix-removed-but-declaration-of-originality-references-it = (
+    appendix == none
+      and not hide-frontmatter
+      and declaration-of-originality != none
+      and declaration-of-originality.override == none
+      and declaration-of-originality.text == none
+      and declaration-of-originality.location == none
+  )
+  if (
+    appendix-removed-but-declaration-of-originality-references-it
+  ) {
+    panic(
+      "The default declaration of originality text references @appendix:ai (AI disclosure). "
+        + "With `appendix: none`, that label does not exist. Add an appendix or override the declaration of originality.",
+    )
+  }
 
   set enum(numbering: "1.i.1.i.")
 
@@ -126,61 +140,14 @@
   // context is neeeded for the tr() calls inside the page functions
   context {
     if (not hide-frontmatter) {
-      if (cover.override == none) {
-        title-page(
-          school: cover.school,
-          institute: cover.institute,
-          work_type: cover.work-type,
-          title: cover.title,
-          authors: cover.authors,
-          supervisors: cover.supervisors,
-          co-supervisors: cover.co-supervisors,
-          industry-partner: cover.industry-partner,
-          print-mode: print-mode,
-        )
-      } else {
-        cover.override
-      }
+      zhaw-cover-page(cover, print-mode: print-mode)
 
       set page(numbering: "i")
       counter(page).update(1)
 
-      if (abstract.override == none) {
-        if (abstract.de == none) {
-          panic("ZHAW requires a German abstract even for English works.")
-        }
-
-        abstract-page(
-          en: abstract.en,
-          de: abstract.de,
-          keywords: abstract.keywords,
-          authors: cover.authors,
-          title: cover.title,
-        )
-      } else {
-        abstract.override
-      }
-
-      if (acknowledgements.override == none) {
-        acknowledgements-page(
-          acknowledgements: acknowledgements.text,
-          supervisors: cover.supervisors,
-          co-supervisors: cover.co-supervisors,
-          authors: cover.authors,
-        )
-      } else {
-        acknowledgements.override
-      }
-
-      if (declaration-of-originality.override == none) {
-        declaration-of-originality-page(
-          declaration_of_originality: declaration-of-originality.text,
-          location: declaration-of-originality.location,
-          authors: cover.authors,
-        )
-      } else {
-        declaration-of-originality.override
-      }
+      zhaw-abstract-section(abstract, cover)
+      zhaw-acknowledgements-section(acknowledgements, cover)
+      zhaw-declaration-section(declaration-of-originality, cover)
 
       outline(title: tr().table_of_contents, depth: 3)
     }

@@ -42,7 +42,7 @@
 
           Der/die unterzeichnende Studierende #erklaert, dass alle zitierten Quellen (auch Internetseiten) im Text oder Anhang korrekt nachgewiesen sind, d.h. dass die Projektarbeit keine Plagiate enthält, also keine Teile, die teilweise oder vollständig aus einem fremden Text oder einer fremden Arbeit unter Vorgabe der eigenen Urheberschaft bzw. ohne Quellenangabe übernommen worden sind.
 
-          KI-Systeme wurden im Rahmen dieser Arbeit wie in @ai angegeben verwendet.
+          KI-Systeme wurden im Rahmen dieser Arbeit wie in @appendix:ai angegeben verwendet.
 
           Bei Verfehlungen aller Art treten die Paragraphen 39 und 40 (Unredlichkeit und Verfahren bei Unredlichkeit) der ZHAW Prüfungsordnung sowie die Bestimmungen der Disziplinarmassnahmen der Hochschulordnung in Kraft.
         ]
