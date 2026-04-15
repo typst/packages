@@ -82,7 +82,13 @@
 }
 
 
+// When `override` is `none`, the whole optional block is omitted (`none`), not replaced by defaults.
+// For settings where `none` should mean "fall back to defaults" (e.g. bibliography), use `deep-merge-or-default`.
 #let deep-merge(base, override) = {
+  if override == none {
+    return none
+  }
+
   let result = (:)
 
   // Copy all keys from base
@@ -105,6 +111,15 @@
   }
 
   result
+}
+
+#let deep-merge-or-default(base, override) = {
+  let merged = deep-merge(base, override)
+  if merged == none {
+    base
+  } else {
+    merged
+  }
 }
 
 #let title-case(string) = {
