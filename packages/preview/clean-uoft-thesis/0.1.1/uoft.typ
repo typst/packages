@@ -392,9 +392,11 @@
   set par(leading: 1.5em, spacing: 2em)
   show heading: set block(above: 2em, below: 2em)
   show raw.where(block: true): set par(leading: 1em)
-  show figure.caption: set align(left)
-  show figure: set block(breakable: true)
   show figure.where(kind: table): set figure.caption(position: top)
+  show figure.caption: set align(left)
+  show figure.caption: set text(style: "italic")
+  show figure: set block(breakable: true)
+  show figure: set align(center)
 
   doc
 }

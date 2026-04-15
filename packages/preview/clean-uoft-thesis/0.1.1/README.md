@@ -107,8 +107,9 @@ To display separate text in the caption of a figure, table, or plate from its ou
 - Addition of `multicaption` capability (display short captions for outlines and full captions for tables, figures, and plates)
 - Increased spacing between lines in main text and around headings
 - Enable breaking figures across pages
-- Left align figure captions by default
+- Left align figure captions
 - Place table captions on top of tables
+- Italicize captions
 
 ##  0.1.0
 - Initial release
