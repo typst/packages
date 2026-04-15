@@ -1,5 +1,5 @@
 #import "../styling/tokens.typ": tokens
-#import "../utils.typ": centered, ensure-array
+#import "../utils.typ": centered, ensure-array, flatten-supervisor-names
 #import "@preview/tieflang:0.1.0": tr
 
 #let acknowledgements-page(
@@ -9,7 +9,7 @@
   authors: none,
 ) = {
   let authors = ensure-array(authors)
-  let supervisors = ensure-array(supervisors)
+  let supervisors = flatten-supervisor-names(supervisors)
   let co-supervisors = ensure-array(co-supervisors)
 
   let count = supervisors.len() + co-supervisors.len()

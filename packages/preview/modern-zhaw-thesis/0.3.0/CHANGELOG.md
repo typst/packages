@@ -5,6 +5,7 @@
 - Allow setting overrideable options to `none`
 - Fixed edge cases when some options were set to `none` and caused errors
 - Fixed declaration of originality appendix ref
+- Fixed bug displaying supervisor names in acknowledgements page
 
 ## 0.2.0
 
