@@ -1,4 +1,4 @@
-#import "@preview/wordometer:0.1.4": word-count, total-words, word-count-of, string-word-count
+#import "@preview/wordometer:0.1.5": word-count, total-words, word-count-of, string-word-count
 #show: word-count
 
 // parse-page-dims() // {{{
