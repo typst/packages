@@ -16,10 +16,10 @@ Mathematical writing is also supported, with environments for definitions, theor
 <table align="center">
     <tr>
         <td>
-              <img src="https://github.com/user-attachments/assets/760fa379-bbae-4159-a181-63e9970224bf" width="350px">
+              <img src="https://github.com/user-attachments/assets/760fa379-bbae-4159-a181-63e9970224bf" width="350px" alt="A showcase of the callouts inspired by Obsidian">
         </td>
         <td>
-            <img src="https://github.com/user-attachments/assets/c0023792-3e94-4b3e-82cf-13332423bd79" width="500px">
+            <img src="https://github.com/user-attachments/assets/c0023792-3e94-4b3e-82cf-13332423bd79" width="500px" alt="A showcase of the mathematics environment">
         </td>
     </tr>
     <tr>
