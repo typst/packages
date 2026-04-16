@@ -115,9 +115,9 @@
 #let set-arrow(
   top: none,
   bottom: none,
-) = e.set_.with(arrow)(
-  top: (top,),
-  bottom: (bottom,),
+) = e.set_.with(reaction-arrow)(
+  top: top,
+  bottom: bottom,
 )
 
 /// Use this to modify the way reactions get drawn

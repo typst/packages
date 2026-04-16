@@ -5,13 +5,13 @@
 #let reaction-localised={
   context{
     if text.lang == "fr"{
-      [réaction]
+      [Réaction]
     } else if text.lang == "de"{
       [Reaktion]
     } else if text.lang == "it"{
-      [reazione]
+      [Reazione]
     }else {
-      [reaction]
+      [Reaction]
     }
   }
 }
@@ -27,18 +27,17 @@
 #let ce(
   /// The equation or molecule that should be drawn -> string|content
   formula,
-  block: false,
-  numbering:none,
-  number-align: end + horizon,
+  /// The supplement to use to reference this chemical equation.
+  /// defaults to "Reaction"
   supplement:auto,
-  alt: none
+  /// any other arguments that can be passed to the math.equation function.
+  /// set block to true to reference it in your text
+  /// use numbering to configure your numbering
+  /// use number-align to configure how numbers align
+  /// set alt to provide alt-text for accessibility
+  ..args
   ) = {
   math.equation(
-    block: block,
-    numbering:numbering,
-    number-align: number-align,
-    supplement: if supplement == auto {reaction-localised} else {supplement},
-    alt:alt,
     if type(formula) == str{
       show "*": sym.dot
       let result = string-to-reaction(formula)
@@ -55,6 +54,8 @@
       } else {
         reaction(result)
       }
-    }
+    },
+    supplement: if supplement == auto {reaction-localised} else {supplement},
+    ..args
   )
 }

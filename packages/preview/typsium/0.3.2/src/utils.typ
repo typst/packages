@@ -452,7 +452,7 @@
 
     if roman {
       roman-numerals.at(magnitude)
-      sign
+      // sign
     } else {
       if magnitude > 1 {
         str(magnitude)
