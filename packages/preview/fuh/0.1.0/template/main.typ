@@ -1,4 +1,4 @@
-#import "@local/fuh:0.0.1": *
+#import "@preview/fuh:0.1.0": *
 #import "glossary.typ": glossary-entries
 
 #show: fuh.with(
