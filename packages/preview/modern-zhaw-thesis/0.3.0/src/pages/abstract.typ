@@ -1,4 +1,3 @@
-#import "../styling/tokens.typ": tokens
 #import "../utils.typ": centered, ensure-array, today
 #import "@preview/tieflang:0.1.0": pop-lang, push-lang, tr
 
