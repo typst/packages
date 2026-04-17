@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // modiagram — Molecular Orbital Diagrams for Typst
-// Version: 0.1.0
+// Version: 0.1.1
 // License: MIT
 //
 // Inspired by the LaTeX modiagram package by Clemens Niederberger (v0.3a).
