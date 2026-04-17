@@ -1,5 +1,5 @@
 [![Typst Package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjonathandip%2Fmodiagram%2Fmaster%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://typst.app/universe/package/modiagram)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Typsium/modiagram/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Typsium/modiagram/blob/c5950e615c0db4ef26cad9ad7337eace971761cb/LICENSE)
 
 # modiagram
 Draw molecular orbital and energy pathway diagrams: a package inspired by the LaTeX [`modiagram`](https://ctan.org/pkg/modiagram) package by Clemens Niederberger plus additional features for plotting energy pathway diagrams.
@@ -24,7 +24,7 @@ Requires [`@preview/cetz:0.4.2`](https://typst.app/universe/package/cetz) and [`
   )
 })
 ```
-![quick-start-example](images/example-01.png)
+![quick-start](images/example-01.png)
 
 ---
 ## Import styles
@@ -120,7 +120,7 @@ Draws one orbital bar with optional electrons and label.
 
 This is an (exaggerated) example of how all these settings can be used to represent atomic orbitals.
 
-![exaggerated-example](/images/example-02.png)
+![exaggerated-render](/images/example-02.png)
 
 ---
 ### `connect(...)` — connection lines
@@ -179,7 +179,7 @@ Building on the previous example, it is possible to pair orbitals using their "n
 })
 ```
 
-![connect-example](/images/example-03.png)
+![connect-function](/images/example-03.png)
 
 ---
 
@@ -250,7 +250,7 @@ Example of use:
 })
 ```
 
-![energy-axis-example](/images/example-04.png)
+![energy-axis-usage](/images/example-04.png)
 
 ---
 
@@ -338,7 +338,7 @@ The `x-scale` and `energy-scale` functions are extremely useful: they allow you 
 })
 ```
 
-![config-usage-example](/images/example-05.png)
+![config-usage](/images/example-05.png)
 
 ---
 
@@ -398,7 +398,7 @@ This feature is extremely useful for computational chemists who wish to represen
   )
 })
 ```
-![en-pathway-example](/images/example-06.png)
+![en-pathway](/images/example-06.png)
 
 ---
 
@@ -565,7 +565,7 @@ A complex method for using CeTZ primitives within modiagram:
 })
 ```
 
-![cetz-drawing-example](/images/example-07.png)
+![cetz-drawing-primitives](/images/example-07.png)
 
 ---
 ## Position forms
@@ -708,7 +708,7 @@ per-element parameter
 })
 ```
 
-![final-complete-example](/images/example-10.png)
+![final-complete](/images/example-10.png)
 
 ---
 
