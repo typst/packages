@@ -10,7 +10,7 @@
   if-not: false,
 ) = {
   if it == none {
-    panic("Parameter \"it\" of \"show_if_neighbour_within_distance\" must be defined.")
+    panic("Parameter \"it\" of \"show_if_heading_within_distance\" must be defined.")
   }
 
   // 1. Find neighbouring headings
@@ -22,7 +22,7 @@
   } else if look == "after" {
     neighbours = query(sel.after(here(), inclusive: false))
   } else {
-    panic("Parameter \"look\" of \"show_if_neighbour_within_distance\" must have value \"before\" or \"after\".")
+    panic("Parameter \"look\" of \"show_if_heading_within_distance\" must have value \"before\" or \"after\".")
   }
 
   if neighbours.len() > 0 {
