@@ -1,4 +1,3 @@
-#import "../styling/tokens.typ": tokens
 #import "../utils.typ": centered, ensure-array, flatten-supervisor-names
 #import "@preview/tieflang:0.1.0": tr
 
