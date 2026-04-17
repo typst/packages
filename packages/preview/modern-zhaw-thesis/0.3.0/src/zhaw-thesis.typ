@@ -93,23 +93,6 @@
   )
   let biblio = deep-merge-or-default(biblio-defaults, biblio)
 
-  let appendix-removed-but-declaration-of-originality-references-it = (
-    appendix == none
-      and not hide-frontmatter
-      and declaration-of-originality != none
-      and declaration-of-originality.override == none
-      and declaration-of-originality.text == none
-      and declaration-of-originality.location == none
-  )
-  if (
-    appendix-removed-but-declaration-of-originality-references-it
-  ) {
-    panic(
-      "The default declaration of originality text references @appendix:ai (AI disclosure). "
-        + "With `appendix: none`, that label does not exist. Add an appendix or override the declaration of originality.",
-    )
-  }
-
   set enum(numbering: "1.i.1.i.")
 
   show: setup-language.with(language)

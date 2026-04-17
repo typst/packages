@@ -6,6 +6,7 @@
 - Fixed edge cases when some options were set to `none` and caused errors
 - Fixed declaration of originality appendix ref
 - Fixed bug displaying supervisor names in acknowledgements page
+- Fixed localisation of "Chapter" label in page header
 
 ## 0.2.0
 

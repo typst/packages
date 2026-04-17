@@ -1,4 +1,5 @@
 #import "tokens.typ": tokens
+#import "@preview/tieflang:0.1.0": tr
 
 #let page-header-styles(doc) = {
   set page(
@@ -29,7 +30,7 @@
 
         let chapter-title = current.body
         let chapter-number = counter(heading.where(level: 1)).display()
-        let chapter-number-text = [Chapter #chapter-number]
+        let chapter-number-text = [#tr().chapter #chapter-number]
 
         if current.numbering != none {
           let (left-text, right-text) = if calc.odd(page-number) {

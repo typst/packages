@@ -42,7 +42,9 @@
 
           Der/die unterzeichnende Studierende #erklaert, dass alle zitierten Quellen (auch Internetseiten) im Text oder Anhang korrekt nachgewiesen sind, d.h. dass die Projektarbeit keine Plagiate enthält, also keine Teile, die teilweise oder vollständig aus einem fremden Text oder einer fremden Arbeit unter Vorgabe der eigenen Urheberschaft bzw. ohne Quellenangabe übernommen worden sind.
 
-          KI-Systeme wurden im Rahmen dieser Arbeit wie in @appendix:ai angegeben verwendet.
+          #context if query(label("appendix:ai")).len() > 0 [
+            KI-Systeme wurden im Rahmen dieser Arbeit wie in @appendix:ai angegeben verwendet.
+          ]
 
           Bei Verfehlungen aller Art treten die Paragraphen 39 und 40 (Unredlichkeit und Verfahren bei Unredlichkeit) der ZHAW Prüfungsordnung sowie die Bestimmungen der Disziplinarmassnahmen der Hochschulordnung in Kraft.
         ]
@@ -100,7 +102,9 @@
 
           The #student #declare that all sources in the text (including Internet pages) and appendices have been correctly disclosed. This means that there has been no plagiarism, i.e. no sections of the project work have been partially or wholly taken from other texts and represented as the student's own work or included without being correctly referenced.
 
-          AI systems were used in the process of this work, as specified in @appendix:ai.
+          #context if query(label("appendix:ai")).len() > 0 [
+            AI systems were used in the process of this work, as specified in @appendix:ai.
+          ]
 
           Any misconduct will be dealt with according to paragraphs 39 and 40 of the General Academic Regulations for Bachelor's and Master's Degree courses at the Zurich University of Applied Sciences (Rahmenprüfungsordnung ZHAW (RPO)) and subject to the provisions for disciplinary action stipulated in the University regulations.
         ]
