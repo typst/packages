@@ -91,6 +91,6 @@ Use of these assets is subject to the terms provided by the copyright holder.
 - Supports articles, books, proceedings, web resources, and more
 
 ## Credits
-This template is built on the foundation provided by [onyx-itu-unofficial](https://github.com/zagoli/simple-typst-thesis/) by FrederikBertelsen.
+This template is built on the foundation provided by [onyx-itu-unofficial](https://github.com/FrederikBertelsen/onyx-itu-unofficial) by FrederikBertelsen.
 The original work has been expanded with modified and additional features, french language,
 and Enseirb-Matmeca styling.
