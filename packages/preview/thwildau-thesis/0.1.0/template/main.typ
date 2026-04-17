@@ -1,10 +1,10 @@
-#import "@preview/thwildau-thesis:0.1.0": (
+#import "@preview/thwildau-telematics:0.1.0": (
   abbreviation, conf, define-abbreviation, define-unit, infocard, tables, th-color, todo, unit,
 ) // TH-Wildau template
 
 // template configuration
 #show: conf.with(
-  title: "TH-Wildau Typst Template",
+  title: "TH-Wildau Telematics Typst Template",
   titlepage: "internship",
   student: (
     name: "Carl Heinrich Bellgardt",
@@ -27,18 +27,18 @@
   misc-pages: (
     bibliographic-description: (
       de: (
-        title-long: "TH-Wildau Typst Template für Thesis und Praktikumsbericht",
+        title-long: "TH-Wildau Telematics Typst Template für Thesis und Praktikumsbericht",
         metadata: " ",
-        keywords: "Typst, Thesis, Template, TH-Wildau",
-        goal: [Erstellung eines neue Typst Projektes mit dem TH-Wildau Template.],
-        abstract: [In dieser Arbeit wird erklärt, wie das darin verwendete Typst-Template konfiguriert und angewendet werden kann.],
+        keywords: "Typst, Thesis, Template, TH-Wildau, Telematik",
+        goal: [Erstellung eines neue Typst Projektes mit dem TH-Wildau Telematics Template.],
+        abstract: [In dieser Arbeit wird erklärt, wie das darin verwendete TH-Wildau Telematics Typst-Template konfiguriert und angewendet werden kann.],
       ),
       en: (
         title-long: "TH-Wildau Typst template for thesis and intership.",
         metadata: " ",
-        keywords: "Typst, Thesis, Template, TH-Wildau",
-        goal: [Creation of a new typst project with the TH-Wildau template.],
-        abstract: [This thesis aims to explain the process of installing, configuring and applying the TH-Wildau typst template.],
+        keywords: "Typst, Thesis, Template, TH-Wildau, Telematics",
+        goal: [Creation of a new typst project with the TH-Wildau Telematics template.],
+        abstract: [This thesis aims to explain the process of installing, configuring and applying the TH-Wildau Telematics typst template.],
       ),
     ),
     reading-guides: [Für diese Arbeit ist grundlegendes Wissen über die Sprache Typst von Vorteil.#linebreak() For this template it is advised to first understand the basic concepts of the typst language.],

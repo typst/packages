@@ -15,7 +15,7 @@
         + ": "
         + repr(example)
         + "\n"
-        + "Please add the missing definition to your configuration of the th-thesis template.",
+        + "Please add the missing definition to your configuration of the thwildau-telematics template.",
     ),
   )
 

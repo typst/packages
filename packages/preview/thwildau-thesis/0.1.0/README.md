@@ -2,7 +2,7 @@
 
 ## Overview
 
-A Typst template for creating academic theses and internship reports at TH Wildau. It provides structured layouts, consistent styling, and utilities for common academic elements.
+A Typst template for creating academic theses and internship reports in the course Telematics at TH Wildau. It provides structured layouts, consistent styling, and utilities for common academic elements.
 
 ---
 
@@ -135,11 +135,11 @@ Contributions and feature requests are welcome.
 
 ---
 
-# TH Wildau Typst-Vorlage für Abschlussarbeiten
+# TH Wildau Telematik Typst-Vorlage für Abschlussarbeiten
 
 ## Überblick
 
-Eine Typst-Vorlage zur Erstellung von Abschlussarbeiten und Praxisberichten an der TH Wildau. Sie bietet strukturierte Layouts, einheitliches Styling und Hilfsfunktionen für typische wissenschaftliche Inhalte.
+Eine Typst-Vorlage zur Erstellung von Abschlussarbeiten und Praxisberichten für den Studiengang Telematik an der TH Wildau. Sie bietet strukturierte Layouts, einheitliches Styling und Hilfsfunktionen für typische wissenschaftliche Inhalte.
 
 ---
 

@@ -1,5 +1,5 @@
 [package]
-name = "thwildau-thesis"
+name = "thwildau-telematics"
 version = "0.1.0"
 entrypoint = "conf.typ"
 authors = [
@@ -9,7 +9,7 @@ authors = [
   "@c4mperpr0",
 ]
 license = "MIT"
-description = "Thesis for students at the Technische Hochschule Wildau."
+description = "Thesis for telematics students at the Technische Hochschule Wildau."
 repository = "https://git.th-wildau.de/cabe7261/typst-thwildau-thesis"
 keywords = [
   "TH",
