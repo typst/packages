@@ -33,7 +33,7 @@
   } else {
     if cover == none {
       panic(
-        "`cover` metadata is required when the abstract section is included. Remove `abstract: none` or provide a `cover` dictionary.",
+        "`cover` metadata is required when the abstract section is included. Set `abstract: none` to omit the section, or provide a `cover` dictionary.",
       )
     }
     if abstract.de == none {
@@ -58,7 +58,7 @@
   } else {
     if cover == none {
       panic(
-        "`cover` metadata is required when the acknowledgements section is included. Remove `acknowledgements: none` or provide a `cover` dictionary.",
+        "`cover` metadata is required when the acknowledgements section is included. Set `acknowledgements: none` to omit the section, or provide a `cover` dictionary.",
       )
     }
     acknowledgements-page(
@@ -79,7 +79,7 @@
   } else {
     if cover == none {
       panic(
-        "`cover` metadata is required when the declaration of originality section is included. Remove `declaration-of-originality: none` or provide a `cover` dictionary.",
+        "`cover` metadata is required when the declaration of originality section is included. Set `declaration-of-originality: none` to omit the section, or provide a `cover` dictionary.",
       )
     }
     declaration-of-originality-page(
