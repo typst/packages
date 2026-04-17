@@ -2,7 +2,7 @@
 // Draws phrase structure trees from bracket notation input.
 // Usage: #tree("[CP [C' [C did] [TP [DP she] [T' [T e] [VP [V leave]]]]]]")
 
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.0"
 #import "_symbols.typ": apply-symbols as _apply-symbols, symbol-map as _symbol-map
 
 // ── Constants ────────────────────────────────────────────────────────────────
