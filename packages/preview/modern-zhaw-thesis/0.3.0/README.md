@@ -31,7 +31,7 @@ Below is the complete list of configuration options, including default values an
 ```typ
 #import "@preview/modern-zhaw-thesis:0.3.0": zhaw-thesis, languages
 
-// Note: `override` options accept Typst files, e.g. `override: [#include: "my-override.typ"]`, and `none`
+// Note: `override` options accept Typst files, e.g. `override: [#include "my-override.typ"]`, and `none`
 #show: zhaw-thesis.with(
   language: languages.de,       // Document language
 
@@ -74,7 +74,7 @@ Below is the complete list of configuration options, including default values an
   ),
 
   glossary-entries: none,       // Variable containing glossary entries (see template)
-  appendix: none,               // Appendix Typst file, e.g. [#include: "appendix.typ"]
+  appendix: none,               // Appendix Typst file, e.g. [#include "appendix.typ"]
   page-border: true,            // Enable/disable page border
   hide-frontmatter: false,      // Hide all content before the 1st chapter (to focus on writing)
   print-mode: false,            // Gives a white background to the cover page to reduce ink usage  
