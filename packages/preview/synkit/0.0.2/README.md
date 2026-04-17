@@ -10,7 +10,7 @@
 
 ![Typst Package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fguilhermegarcia%2Fsynkit%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)
 ![MIT license badge](https://img.shields.io/badge/license-MIT-blue)
-[![PDF manual badge](https://img.shields.io/badge/manual-.pdf-purple)](synkit.pdf)
+[![PDF manual badge](https://img.shields.io/badge/manual-.pdf-purple)](https://doi.org/10.5281/zenodo.19405774)
 
 </div>
 
@@ -88,7 +88,7 @@ Literal square brackets inside labels can be written as `\[` and `\]`, which is 
 
 ## Manual
 
-See the manual for a comprehensive description of each function available. Check `synkit.pdf` in the package's repository.
+Download the [**manual**](https://doi.org/10.5281/zenodo.19405774) for a comprehensive description of each function available.
 
 ## Repository
 
