@@ -1,7 +1,5 @@
-#import "../styling/tokens.typ": tokens
-#import "../utils.typ": centered, today
+#import "../utils.typ": centered, today, ensure-array
 #import "@preview/tieflang:0.1.0": tr
-#import "../utils.typ": ensure-array
 
 #let declaration-of-originality-page(
   declaration_of_originality: none,
