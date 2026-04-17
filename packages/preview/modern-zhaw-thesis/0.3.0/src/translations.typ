@@ -84,7 +84,7 @@
     ),
     "and": [and],
     pronoun: plural => if plural { "we" } else { "I" },
-    have: plural => if plural { "have" } else { "has" },
+    have: plural => if plural { "have" } else { "have" },
     be: plural => if plural { "are" } else { "am" },
     verb_suffix_first: plural => if plural { "" } else { "s" },
     declaration_of_originality: (
