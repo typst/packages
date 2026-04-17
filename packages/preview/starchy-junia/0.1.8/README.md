@@ -125,11 +125,11 @@ Affiche une ou plusieurs pages d'un PDF sous forme de figures.
 | [hydra](https://typst.app/universe/package/hydra) | 0.6.2 | Titre courant dans l'en-tête de page |
 | [drafting](https://typst.app/universe/package/drafting) | 0.2.2 | Notes de marge pour le mode brouillon |
 | [codly](https://typst.app/universe/package/codly) | 1.3.0 | Blocs de code stylisés |
-| [codly-languages](https://typst.app/universe/package/codly-languages) | 0.1.1 | Icônes de langages pour codly |
-| [cetz](https://typst.app/universe/package/cetz) | 0.4.2 | Dessin bas niveau (inspiré TikZ) |
+| [codly-languages](https://typst.app/universe/package/codly-languages) | 0.1.10 | Icônes de langages pour codly |
+| [cetz](https://typst.app/universe/package/cetz) | 0.5.0 | Dessin bas niveau (inspiré TikZ) |
 | [fletcher](https://typst.app/universe/package/fletcher) | 0.5.8 | Diagrammes (nœuds & arêtes) |
 | [zap](https://typst.app/universe/package/zap) | 0.5.0 | Schémas électriques |
-| [meander](https://typst.app/universe/package/meander) | 0.4.1 | Placement fin des figures |
+| [meander](https://typst.app/universe/package/meander) | 0.4.2 | Placement fin des figures |
 | [timeliney](https://typst.app/universe/package/timeliney) | 0.4.0 | Diagrammes de Gantt |
 | [lilaq](https://typst.app/universe/package/lilaq) | 0.6.0 | Visualisation de données |
 | [echarm](https://typst.app/universe/package/echarm) | 0.3.1 | Figures de type Echart |
@@ -259,11 +259,11 @@ Displays one or more pages of a PDF as figures.
 | [hydra](https://typst.app/universe/package/hydra) | 0.6.2 | Running header with current chapter title |
 | [drafting](https://typst.app/universe/package/drafting) | 0.2.2 | Margin notes for draft mode |
 | [codly](https://typst.app/universe/package/codly) | 1.3.0 | Styled code blocks |
-| [codly-languages](https://typst.app/universe/package/codly-languages) | 0.1.1 | Language icons for codly |
-| [cetz](https://typst.app/universe/package/cetz) | 0.4.2 | Low-level drawing (TikZ-like) |
+| [codly-languages](https://typst.app/universe/package/codly-languages) | 0.1.10 | Language icons for codly |
+| [cetz](https://typst.app/universe/package/cetz) | 0.5.0 | Low-level drawing (TikZ-like) |
 | [fletcher](https://typst.app/universe/package/fletcher) | 0.5.8 | Diagrams (nodes & edges) |
 | [zap](https://typst.app/universe/package/zap) | 0.5.0 | Electrical circuit diagrams |
-| [meander](https://typst.app/universe/package/meander) | 0.4.1 | Fine-grained figure placement |
+| [meander](https://typst.app/universe/package/meander) | 0.4.2 | Fine-grained figure placement |
 | [timeliney](https://typst.app/universe/package/timeliney) | 0.4.0 | Gantt charts |
 | [lilaq](https://typst.app/universe/package/lilaq) | 0.6.0 | Data visualisation |
 | [echarm](https://typst.app/universe/package/echarm) | 0.3.1 | Echart figures |
