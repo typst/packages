@@ -18,6 +18,17 @@ Définitions : Mots définis dans le contexte du rapport
     group: (""),
 */
 
-#let v_liste-glossaire = (
-
+#let v-liste-glossaire = (
+  // Entrée exemple — à remplacer par vos propres définitions
+  (
+    key: "ex",
+    short: "Ex.",
+    artshort: "l'",
+    long: "Exemple",
+    artlong: none,
+    plural: none,
+    longplural: none,
+    description: "Entrée exemple du glossaire — à remplacer par vos propres définitions.",
+    group: ("Définitions"),
+  ),
 )

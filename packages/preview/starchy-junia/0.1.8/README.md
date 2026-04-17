@@ -13,15 +13,15 @@ Modèle de rapport selon la charte de l'écrit V2 (2024) de JUNIA Grande École 
 ```typ
 #import "@preview/starchy-junia:0.1.8": *
 
-#show: modele_junia.with(
+#show: modele-junia.with(
   generate-cover: true,
-  titre_rapport: [Mon Rapport],
-  type_rapport: [Rapport de stage],
+  titre-rapport: [Mon Rapport],
+  type-rapport: [Rapport de stage],
   auteurs: ("NOM Prénom",),
   formation: [Ingénieur en Apprentissage],
   promotion: [HEI],
-  niveau_classe: [48],
-  lang_doc: "fr",
+  niveau-classe: [48],
+  lang-doc: "fr",
 )
 ```
 
@@ -35,17 +35,17 @@ Via `typst init`, la structure complète du modèle est copiée dans votre proje
 |-----------|------|--------|-------------|
 | `generate-cover` | `bool` | `true` | Génère la page de garde depuis les paramètres |
 | `cover-pdf-path` | `str` ou `none` | `none` | Chemin vers un PDF externe utilisé comme page de garde |
-| `type_rapport` | `content` | `[]` | Type de rapport ou de mémoire |
-| `titre_rapport` | `content` | `[]` | Titre du rapport (aussi utilisé dans les métadonnées PDF) |
+| `type-rapport` | `content` | `[]` | Type de rapport ou de mémoire |
+| `titre-rapport` | `content` | `[]` | Titre du rapport (aussi utilisé dans les métadonnées PDF) |
 | `confidentialite` | `content` | `[]` | Mention de confidentialité |
-| `type_diplome` | `content` | `[]` | Diplôme visé |
+| `type-diplome` | `content` | `[]` | Diplôme visé |
 | `professeur` | `content` | `[]` | Enseignant référent |
 | `encadrant` | `content` | `[]` | Encadrant en organisme d'accueil |
 | `auteurs` | `array` | `()` | Liste des auteurs (aussi utilisée dans les métadonnées PDF) |
 | `formation` | `content` | `[]` | Intitulé de la formation |
 | `promotion` | `content` | `[]` | Promotion / classe |
-| `niveau_classe` | `content` | `[]` | Numéro de classe ou de cohorte |
-| `mois_annee` | `auto` ou `str` | `auto` | Date affichée en page de garde — `auto` utilise le mois et l'année courants |
+| `niveau-classe` | `content` | `[]` | Numéro de classe ou de cohorte |
+| `mois-annee` | `auto` ou `str` | `auto` | Date affichée en page de garde — `auto` utilise le mois et l'année courants |
 
 #### Comportement du document
 
@@ -53,8 +53,8 @@ Via `typst init`, la structure complète du modèle est copiée dans votre proje
 |-----------|------|--------|-------------|
 | `ebauche` | `bool` | `false` | Mode brouillon — affiche les notes de marge et le filigrane « BROUILLON » |
 | `filigrane` | `bool` | `false` | Filigrane « CONFIDENTIEL » sur toutes les pages |
-| `math_num` | `bool` | `false` | Numérotation des équations mathématiques |
-| `lang_doc` | `str` | `"fr"` | Langue du document (`"fr"` ou `"en"`) — traduit automatiquement les titres des sections |
+| `math-num` | `bool` | `false` | Numérotation des équations mathématiques |
+| `lang-doc` | `str` | `"fr"` | Langue du document (`"fr"` ou `"en"`) — traduit automatiquement les titres des sections |
 
 ### Structure du modèle
 
@@ -104,15 +104,15 @@ Commentaire encadré dans le texte, visible uniquement en mode brouillon.
 #note-de-texte[Cette section est incomplète.]
 ```
 
-#### `f_afficher_pdf(chemin, legende, premiere_page, derniere_page, largeur, tag)` — affichage multi-pages d'un PDF
+#### `f-afficher-pdf(chemin, legende, premiere-page, derniere-page, largeur, tag)` — affichage multi-pages d'un PDF
 Affiche une ou plusieurs pages d'un PDF sous forme de figures.
 
 ```typ
-#f_afficher_pdf(
+#f-afficher-pdf(
   chemin: "../Images/schema.pdf",
   legende: [Architecture du système],
-  premiere_page: 0,
-  derniere_page: 2,
+  premiere-page: 0,
+  derniere-page: 2,
   tag: "fig-schema",
 )
 ```
@@ -147,15 +147,15 @@ Report template based on the JUNIA Grande École d'Ingénieur writing charter V2
 ```typ
 #import "@preview/starchy-junia:0.1.8": *
 
-#show: modele_junia.with(
+#show: modele-junia.with(
   generate-cover: true,
-  titre_rapport: [My Report],
-  type_rapport: [Internship Report],
+  titre-rapport: [My Report],
+  type-rapport: [Internship Report],
   auteurs: ("LAST First",),
   formation: [Engineering Apprenticeship],
   promotion: [HEI],
-  niveau_classe: [48],
-  lang_doc: "en",
+  niveau-classe: [48],
+  lang-doc: "en",
 )
 ```
 
@@ -169,17 +169,17 @@ Via `typst init`, the full template structure is copied into your project.
 |-----------|------|---------|-------------|
 | `generate-cover` | `bool` | `true` | Generate the cover page from parameters |
 | `cover-pdf-path` | `str` or `none` | `none` | Path to an external PDF cover (used when `generate-cover: false`) |
-| `type_rapport` | `content` | `[]` | Report / thesis type |
-| `titre_rapport` | `content` | `[]` | Report title (also used for PDF metadata) |
+| `type-rapport` | `content` | `[]` | Report / thesis type |
+| `titre-rapport` | `content` | `[]` | Report title (also used for PDF metadata) |
 | `confidentialite` | `content` | `[]` | Confidentiality notice |
-| `type_diplome` | `content` | `[]` | Target degree |
+| `type-diplome` | `content` | `[]` | Target degree |
 | `professeur` | `content` | `[]` | Academic supervisor |
 | `encadrant` | `content` | `[]` | Company supervisor |
 | `auteurs` | `array` | `()` | List of authors (also used for PDF metadata) |
 | `formation` | `content` | `[]` | Training programme name |
 | `promotion` | `content` | `[]` | Cohort / class name |
-| `niveau_classe` | `content` | `[]` | Class or cohort number |
-| `mois_annee` | `auto` or `str` | `auto` | Date shown on cover — `auto` uses current month/year |
+| `niveau-classe` | `content` | `[]` | Class or cohort number |
+| `mois-annee` | `auto` or `str` | `auto` | Date shown on cover — `auto` uses current month/year |
 
 #### Document behaviour
 
@@ -187,8 +187,8 @@ Via `typst init`, the full template structure is copied into your project.
 |-----------|------|---------|-------------|
 | `ebauche` | `bool` | `false` | Draft mode — shows margin notes and a "BROUILLON/DRAFT" watermark |
 | `filigrane` | `bool` | `false` | "CONFIDENTIEL/CONFIDENTIAL" watermark on every page |
-| `math_num` | `bool` | `false` | Number mathematical equations |
-| `lang_doc` | `str` | `"fr"` | Document language (`"fr"` or `"en"`) — auto-translates section titles |
+| `math-num` | `bool` | `false` | Number mathematical equations |
+| `lang-doc` | `str` | `"fr"` | Document language (`"fr"` or `"en"`) — auto-translates section titles |
 
 ### Template structure
 
@@ -238,15 +238,15 @@ Highlighted inline comment, visible only in draft mode.
 #note-de-texte[This section is incomplete.]
 ```
 
-#### `f_afficher_pdf(chemin, legende, premiere_page, derniere_page, largeur, tag)` — multi-page PDF display
+#### `f-afficher-pdf(chemin, legende, premiere-page, derniere-page, largeur, tag)` — multi-page PDF display
 Displays one or more pages of a PDF as figures.
 
 ```typ
-#f_afficher_pdf(
+#f-afficher-pdf(
   chemin: "../Images/schema.pdf",
   legende: [System architecture],
-  premiere_page: 0,
-  derniere_page: 2,
+  premiere-page: 0,
+  derniere-page: 2,
   tag: "fig-schema",
 )
 ```
