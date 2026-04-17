@@ -2,7 +2,7 @@
 
 #figure(caption: [Full main.typ])[
   ```typst
-#import "@preview/thwildau-thesis:0.1.0": (
+#import "@preview/thwildau-telematics:0.1.0": (
   abbreviation, conf, define_abbreviation, define_unit, infocard, tables, th-color, todo, unit,
 ) // TH-Wildau template
 
@@ -29,20 +29,20 @@
   bibliography: bibliography("bib.yaml", style: "institute-of-electrical-and-electronics-engineers"),
   language: "de",
   misc_pages: (
-    bibliographic_description: (
+    bibliographic-description: (
       de: (
-        title_long: "TH-Wildau Typst Tempalte für Thesis und Praktikumsbericht",
+        title-long: "TH-Wildau Telematics Typst Template für Thesis und Praktikumsbericht",
         metadata: " ",
-        keywords: "Typst, Thesis, Template, TH-Wildau",
-        goal: [Erstellung eines neue Typst Projektes mit dem TH-Wildau Template.],
-        abstract: [In dieser Arbeit wird erklärt, wie das darin verwendete Typst-Template konfiguriert und angewendet werden kann.],
+        keywords: "Typst, Thesis, Template, TH-Wildau, Telematik",
+        goal: [Erstellung eines neue Typst Projektes mit dem TH-Wildau Telematics Template.],
+        abstract: [In dieser Arbeit wird erklärt, wie das darin verwendete TH-Wildau Telematics Typst-Template konfiguriert und angewendet werden kann.],
       ),
       en: (
-        title_long: "TH-Wildau Typst template for thesis and intership.",
+        title-long: "TH-Wildau Typst template for thesis and intership.",
         metadata: " ",
-        keywords: "Typst, Thesis, Template, TH-Wildau",
-        goal: [Creation of a new typst project with the TH-Wildau template.],
-        abstract: [This thesis aims to explain the process of installing, configuring and applying the TH-Wildau typst template.],
+        keywords: "Typst, Thesis, Template, TH-Wildau, Telematics",
+        goal: [Creation of a new typst project with the TH-Wildau Telematics template.],
+        abstract: [This thesis aims to explain the process of installing, configuring and applying the TH-Wildau Telematics typst template.],
       ),
     ),
     reading_guides: todo()[Beispiele für Konfiguration aktualisieren],
@@ -68,7 +68,7 @@
 #figure(caption: [Vollständigemain.typ])[
   ```typst
 
-#import "@preview/thwildau-thesis:0.1.0": (
+#import "@preview/thwildau-telematics:0.1.0": (
   abbreviation, conf, define_abbreviation, define_unit, infocard, tables, th-color, todo, unit,
 ) // TH-Wildau template
 
@@ -95,20 +95,20 @@
   bibliography: bibliography("bib.yaml", style: "institute-of-electrical-and-electronics-engineers"),
   language: "de",
   misc_pages: (
-    bibliographic_description: (
+    bibliographic-description: (
       de: (
-        title_long: "TH-Wildau Typst Tempalte für Thesis und Praktikumsbericht",
+        title-long: "TH-Wildau Telematics Typst Template für Thesis und Praktikumsbericht",
         metadata: " ",
-        keywords: "Typst, Thesis, Template, TH-Wildau",
-        goal: [Erstellung eines neue Typst Projektes mit dem TH-Wildau Template.],
-        abstract: [In dieser Arbeit wird erklärt, wie das darin verwendete Typst-Template konfiguriert und angewendet werden kann.],
+        keywords: "Typst, Thesis, Template, TH-Wildau, Telematik",
+        goal: [Erstellung eines neue Typst Projektes mit dem TH-Wildau Telematics Template.],
+        abstract: [In dieser Arbeit wird erklärt, wie das darin verwendete TH-Wildau Telematics Typst-Template konfiguriert und angewendet werden kann.],
       ),
       en: (
-        title_long: "TH-Wildau Typst template for thesis and intership.",
+        title-long: "TH-Wildau Typst template for thesis and intership.",
         metadata: " ",
-        keywords: "Typst, Thesis, Template, TH-Wildau",
-        goal: [Creation of a new typst project with the TH-Wildau template.],
-        abstract: [This thesis aims to explain the process of installing, configuring and applying the TH-Wildau typst template.],
+        keywords: "Typst, Thesis, Template, TH-Wildau, Telematics",
+        goal: [Creation of a new typst project with the TH-Wildau Telematics template.],
+        abstract: [This thesis aims to explain the process of installing, configuring and applying the TH-Wildau Telematics typst template.],
       ),
     ),
     reading_guides: todo()[Beispiele für Konfiguration aktualisieren],
