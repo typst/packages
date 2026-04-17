@@ -137,7 +137,7 @@
   show link: set text(fill: tokens.colour.main)
   show: page-border-styles.with(page-border) // Keep after table styles!!
 
-  // context is neeeded for the tr() calls inside the page functions
+  // context is needed for the tr() calls inside the page functions
   context {
     if (not hide-frontmatter) {
       zhaw-cover-page(cover, print-mode: print-mode)
