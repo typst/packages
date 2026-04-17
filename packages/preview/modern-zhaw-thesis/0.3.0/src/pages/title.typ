@@ -5,7 +5,6 @@
 
 #let title-page(
   school: none,
-  institute-short: none,
   institute: none,
   work_type: none,
   title: none,
