@@ -21,7 +21,7 @@
 /// - fonte: fonte a usar ("Times New Roman" ou "Arial")
 /// - arquivo-bibliografia: caminho para arquivo .bib (opcional)
 /// - titulo-bibliografia: título da seção de referências (padrão: "REFERÊNCIAS")
-#let normasABNT(
+#let normas-abnt(
   fonte: "Times New Roman",
   arquivo-bibliografia: none,
   titulo-bibliografia: "REFERÊNCIAS",
@@ -40,6 +40,9 @@
     abnt-bibliography(arquivo-bibliografia, titulo: titulo-bibliografia)
   }
 }
+
+// Alias de retrocompatibilidade
+#let normasABNT = normas-abnt
 
 /// Marca início da parte pré-textual (sem numeração visível).
 /// Deve ser chamado após a capa, antes da folha de rosto.

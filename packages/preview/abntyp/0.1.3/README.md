@@ -138,7 +138,7 @@ O ABNTyp implementa as seguintes normas ABNT (versões atualizadas):
 )
 
 // Formatação ABNT (fonte, margens, headings, etc.)
-#show: normasABNT.with(
+#show: normas-abnt.with(
   fonte: "Times New Roman",
   // arquivo-bibliografia: "referencias.bib",
 )
