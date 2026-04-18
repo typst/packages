@@ -1,0 +1,15 @@
+[package]
+name = "ferrmat"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Esdras"]
+license = "MIT"
+description = "Boxes, math, code, Gantt charts, and heading themes with palettes in Portuguese."
+repository = "https://github.com/3sdras/ferrmat"
+keywords = ["tcolorbox", "theorem", "teorema", "box", "caixa", "math", "matemática", "code", "gantt", "theme", "heading"]
+categories = ["components", "visualization", "layout"]
+compiler = "0.14.0"
+exclude = ["docs/*", "tests/*", "test*.typ", "test*.pdf", "CREDITS.md", ".DS_Store", ".gitignore", ".claude/*"]
+
+[dependencies]
+cetz = "0.4.0"
