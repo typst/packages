@@ -41,8 +41,8 @@
   }
 }
 
-// Alias de retrocompatibilidade
-#let normasABNT = normas-abnt
+// Alias de retrocompatibilidade (0.1.2 usava abntcc)
+#let abntcc = normas-abnt
 
 /// Marca início da parte pré-textual (sem numeração visível).
 /// Deve ser chamado após a capa, antes da folha de rosto.
