@@ -1,0 +1,29 @@
+[package]
+name = "canyon"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Naaktgeboren, C.", ]
+license = "MIT"
+description = "A Book Template That Puts You in Full Control"
+repository = "https://github.com/cnaak/canyon.typ"
+keywords = [
+    "full control",
+    "versatile",
+    "customized",
+    "book",
+    "front-matter",
+    "body",
+    "back-matter",
+    "textbook",
+    "exhibit",
+    "problem",
+]
+categories = ["layout", "book"]
+disciplines = []
+compiler = "0.14.0"
+exclude = []
+
+[template]
+path = "stencil"
+entrypoint = "canyon.typ"
+thumbnail = "thumbnail.png"
