@@ -7,6 +7,7 @@
 - Fixed declaration of originality appendix ref
 - Fixed bug displaying supervisor names in acknowledgements page
 - Fixed localisation of "Chapter" label in page header
+- Fixed long H1s overlapping with next section
 
 ## 0.2.0
 

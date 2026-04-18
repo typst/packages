@@ -56,6 +56,32 @@
   return none
 }
 
+#let v-after-numbered-chapter-heading(it) = context {
+  if it == none {
+    panic("Parameter \"it\" of \"v-after-numbered-chapter-heading\" must be defined.")
+  }
+  let loc = it.location()
+  let heads-after = query(selector(heading).after(loc, inclusive: false))
+  let pars-after = query(selector(par).after(loc, inclusive: false))
+  let next-h = if heads-after.len() > 0 { heads-after.first() }
+  let next-p = if pars-after.len() > 0 { pars-after.first() }
+
+  if next-h == none {
+    v(1cm)
+  } else if next-p == none {
+    v(0.5cm)
+  } else {
+    let h-pos = next-h.location().position()
+    let p-pos = next-p.location().position()
+    let heading-first = h-pos.page < p-pos.page or (h-pos.page == p-pos.page and h-pos.y < p-pos.y)
+    if heading-first {
+      v(0.5cm)
+    } else {
+      v(1cm)
+    }
+  }
+}
+
 #let today() = context {
   let current-date = datetime.today()
   [#custom-date-format(current-date, pattern: "long", lang: text.lang)]

@@ -1,5 +1,5 @@
 #import "tokens.typ": tokens
-#import "../utils.typ": show_if_heading_within_distance
+#import "../utils.typ": show_if_heading_within_distance, v-after-numbered-chapter-heading
 
 #let text-styles(doc) = {
   set par(
@@ -61,18 +61,13 @@
 
       grid(
         columns: (3cm, 1fr),
-        rows: 3cm,
+        rows: auto,
         gutter: -0.8cm,
-        place(dx: -0.5em, text(fill: tokens.colour.main, size: 96pt, heading_number)),
+        align: top + start,
+        block(width: 100%, pad(left: -0.5em, text(fill: tokens.colour.main, size: 96pt, heading_number))),
         text(fill: tokens.colour.main, size: tokens.font-sizes.h1, it.body),
       )
-      show_if_heading_within_distance(
-        it: it,
-        distance: 10cm,
-        look: "after",
-        to-show: v(1cm),
-        if-not: true,
-      )
+      v-after-numbered-chapter-heading(it)
     }
   }
 
