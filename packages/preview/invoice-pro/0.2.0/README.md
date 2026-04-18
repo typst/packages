@@ -116,7 +116,7 @@ You can customize the underlying layout using the new theming engine:
     hole-mark: true,
     folding-marks: true
   ),
-  ...
+  // ...
 )
 ```
 
