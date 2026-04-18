@@ -14,4 +14,4 @@ exclude = [ "/images/**", "flake.nix", "flake.lock", ".envrc" ]
 [template]
 path = "template"
 entrypoint = "invoice.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "images/thumbnail.png"
