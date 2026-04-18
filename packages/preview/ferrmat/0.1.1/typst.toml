@@ -10,6 +10,3 @@ keywords = ["tcolorbox", "theorem", "teorema", "box", "caixa", "math", "matemát
 categories = ["components", "visualization", "layout"]
 compiler = "0.14.0"
 exclude = ["docs/*", "tests/*", "test*.typ", "test*.pdf", "CREDITS.md", ".DS_Store", ".gitignore", ".claude/*"]
-
-[dependencies]
-cetz = "0.4.0"
