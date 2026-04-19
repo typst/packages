@@ -1,0 +1,12 @@
+pre-push:
+  commands:
+    - echo "Running pre-push checks..."
+
+    - echo "Installing local package..."
+    - just install
+    - echo "Compiling template..."
+    - typst compile template/main.typ template/main.pdf
+    - echo "Generating thumbnail from first page..."
+    - typst compile --format png --pages 1 --ppi 300 template/main.typ template/thumbnail.png
+
+    - echo "Pre-push checks complete."

@@ -1,0 +1,13 @@
+[package]
+categories = ["utility", "text", "visualization"]
+disciplines = ["linguistics"]
+name = "synkit"
+version = "0.0.1"
+exclude = ["gallery/"]
+keywords = ["linguistics", "syntax", "semantics", "morphology"]
+entrypoint = "lib.typ"
+authors = ["Guilherme D. Garcia <guilherme.garcia@lli.ulaval.ca>"]
+license = "MIT"
+description = "A toolkit to create syntactic representations in Typst"
+repository = "https://github.com/guilhermegarcia/synkit"
+homepage = "https://gdgarcia.ca/synkit"
