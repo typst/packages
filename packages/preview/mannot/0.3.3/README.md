@@ -1,6 +1,6 @@
 # Mannot
 <a href="https://typst.app/universe/package/mannot">
-    <img src="https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Fmannot&query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&logo=typst&label=Universe&color=%23239DAE" />
+    <img alt="Typst Universe badge" src="https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Fmannot&query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&logo=typst&label=Universe&color=%23239DAE" />
 </a>
 
 A [Typst](https://typst.app/) package for marking and annotating elements within math blocks.
@@ -24,10 +24,11 @@ $
 $
 ```
 
-![Simple example image](examples/sample1.svg)
+![Simple example showing a highlighted math equation with an annotation.](examples/sample1.svg)
 
 ### More Complex Example
-![Example1](examples/showcase1.svg)
+![Complex example showing a equation where multiple parts are marked,
+highlighted, and connected to text annotations.](examples/showcase1.svg)
 
 <details> <summary> Source code </summary>
 
@@ -52,7 +53,8 @@ $
 </details>
 
 ### Annotations using CeTZ
-![Example3](examples/showcase3.svg)
+![Example showing a polynomial expansion with curved,
+colored arrows drawn between terms using CeTZ.](examples/showcase3.svg)
 
 <details> <summary> Source code </summary>
 
@@ -90,7 +92,8 @@ $
 
 
 ### Customized Markings and Annotations
-![Example2](examples/showcase2.svg)
+![Example showing a scientific notation number with customized annotations,
+including a highlighted box, modified leader lines, and a curly brace.](examples/showcase2.svg)
 
 <details> <summary> Source code </summary>
 
@@ -159,7 +162,8 @@ $
   mark(x, color: #red) + markhl(f(x)) + markrect(e^x) + markul(x + 1)
 $
 ```
-![Usage1](examples/usage1.svg)
+![Example showing an equation with four different marking styles:
+colored text, highlighting, a rectangle, and an underline.](examples/usage1.svg)
 
 You can customize the marking color and other styles:
 ```typst
@@ -170,7 +174,8 @@ $
   + markul(x + 1, color: #gray, stroke: #2pt)
 $
 ```
-![Usage2](examples/usage2.svg)
+![Example showing an equation with customized marking styles,
+including specific colors, strokes, and fills.](examples/usage2.svg)
 
 ### Annotations
 After marking content with a tag,
@@ -186,7 +191,7 @@ $
   #annot(<3>, pos: top)[Another annotation]
 $
 ```
-![Usage3](examples/usage3.svg)
+![Example showing an equation with various marking styles and text annotations attached to specific elements.](examples/usage3.svg)
 
 > **CAUTION**\
 > The `annot` function must be called within the same math block as the marked content.
@@ -206,7 +211,7 @@ $
 #v(2em)  // <- Spacing
 text text text text text.
 ```
-![Usage4](examples/usage4.svg)
+![Example showing manual vertical spacing added around an annotated equation to prevent overlap with surrounding text.](examples/usage4.svg)
 
 #### Annotation Positioning
 The `annot` function offers the following arguments to control annotation placement:
@@ -216,12 +221,12 @@ The `annot` function offers the following arguments to control annotation placem
   - A pair of alignments, where the first defines the anchor point on the marked content,
     and the second defines the anchor point on the annotation.
 
-  ![Usage of pos](examples/usage-pos.svg)
+  ![Example demonstrating various annotation positions around a marked equation using different `pos` values.](examples/usage-pos.svg)
 
 * `dx`, `dy`: The horizontal and vertical displacement of the annotation's anchor
   from the marked content's anchor.
 
-  ![Usage of dx, dy](examples/usage-dxdy.svg)
+  ![Example demonstrating how to adjust an annotation's position using horizontal (`dx`) and vertical (`dy`) offsets.](examples/usage-dxdy.svg)
 
 #### Annotation Leader Line
 When the annotation is far from the marked content, a leader line is drawn by default.
@@ -243,7 +248,7 @@ You can customize its appearance using the following `annot` arguments:
   $
   ```
 
-  ![Usage of leader-tiptoe](examples/usage-leader-tiptoe.svg)
+  ![Example demonstrating an annotation connected by a customized leader line with a circle at the start and an arrow at the tip.](examples/usage-leader-tiptoe.svg)
 
   For more options, see the [tiptoe page](https://typst.app/universe/package/tiptoe).
 
@@ -252,7 +257,7 @@ You can customize its appearance using the following `annot` arguments:
   - A pair of alignments defining the connection points on the marked content and the annotation.
   - "elbow" to create an elbow-shaped leader line.
 
-  ![Usage of leader-connect](examples/usage-leader-connect.svg)
+  ![Example demonstrating different leader line connection styles, including specific anchor points and an elbow shape.](examples/usage-leader-connect.svg)
 
 
 ### Annotating Multiple Elements
@@ -269,7 +274,7 @@ $
   #annot((<3>, <2>, <4>), pos: top, dy: -1em, leader-connect: "elbow")[Another annotation]
 $
 ```
-![Usage5](examples/usage5.svg)
+![Example showing single text annotations pointing to multiple marked elements simultaneously.](examples/usage5.svg)
 
 ### Annotations using CeTZ
 To create annotations using the CeTZ canvas, use the `annot-cetz` function.
@@ -291,7 +296,7 @@ $
   })
 $
 ```
-![Usage of annot-cetz](examples/usage-annot-cetz.svg)
+![Example showing marked elements in an equation connected to a text label using a custom CeTZ canvas.](examples/usage-annot-cetz.svg)
 
 
 ## Tips
