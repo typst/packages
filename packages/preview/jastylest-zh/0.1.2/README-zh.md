@@ -7,7 +7,7 @@ jastylest 是一个用于 Typst 日文排版的模板，而 jastylest-zh 基于�
 ## 使用方法
 在你的文件的最开头添加
 ```typ
-#import "@preview/jastylest-zh:0.1.0": *
+#import "@preview/jastylest-zh:0.1.2": *
 ```
 
 然后使用配置文件：

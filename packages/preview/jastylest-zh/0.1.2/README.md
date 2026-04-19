@@ -6,7 +6,7 @@ jastylest is a template for Japanese typesetting in Typst, and jastylest-zh is o
 ## Usage
 Add the following code at the very beginning of your file:
 ```typ
-#import "@preview/jastylest-zh:0.1.0": *
+#import "@preview/jastylest-zh:0.1.2": *
 ```
 
 Then use the configuration file:
