@@ -1,7 +1,7 @@
-#import "@preview/fuh:0.1.0": *
+#import "@preview/clean-fuh:0.1.0": *
 #import "glossary.typ": glossary-entries
 
-#show: fuh.with(
+#show: clean-fuh.with(
   title: "Evaluation von Typst zur Erstellung einer Abschlussarbeit",
   authors: (
     (name: "Max Mustermann", student-id: "1111", degree: "B.Sc.", course-of-studies: "Praktische Informatik", city: "Hagen"),

@@ -10,7 +10,7 @@
 // Workaround for the lack of an `std` scope.
 #let std-bibliography = bibliography
 
-#let fuh(
+#let clean-fuh(
   title: none,
   authors: (:),
   language: none,

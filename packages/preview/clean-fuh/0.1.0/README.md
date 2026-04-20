@@ -8,27 +8,27 @@ It is tailored to FernUni structure and wording, but can also be used for simila
 ### Typst web app
 
 
-You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `fuh`.
+You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `clean-fuh`.
 
 ### Typst CLI
 
 Alternatively (if you use Typst on your local computer), you can use the CLI to kick this project off using the command
 
 ```sh
-typst init @preview/fuh MyThesis
+typst init @preview/clean-fuh MyThesis
 ```
 
 If you work directly from this repository, start with `template/main.typ`.
 
 ## Minimal Usage
 
-The template exports `fuh` and is typically applied with `#show: fuh.with(...)`:
+The template exports `clean-fuh` and is typically applied with `#show: clean-fuh.with(...)`:
 
 ```typst
-#import "@preview/fuh:0.1.0": *
+#import "@preview/clean-fuh:0.1.0": *
 #import "glossary.typ": glossary-entries
 
-#show: fuh.with(
+#show: clean-fuh.with(
   title: "Evaluation of Typst for Thesis Writing",
   authors: (
     (
