@@ -8,4 +8,4 @@ description = "Annotated bibliographies that render abstracts and user annotatio
 repository = "https://github.com/cwimpy/ab-annotate"
 keywords = ["bibliography", "annotated-bibliography", "citation", "biblatex"]
 categories = ["scripting"]
-compiler = "0.11.0"
+compiler = "0.13.0"
