@@ -1,4 +1,4 @@
-#import "@preview/report-eirb:0.1.0": template
+#import "@preview/unofficial-eirb-report:0.1.0": template
 
 // ==========================================================================
 //        Template
@@ -18,15 +18,13 @@
   ),
   author-columns: 2,
 
-  advisers: (
-    (name: "Adelphe Félix", email: "adelphe.felix@enseirb.fr"),
-  ),
+  advisers: ((name: "Adelphe Félix", email: "adelphe.felix@enseirb.fr"),),
   adviser-columns: 1,
 
   date: "Mai 2025",
-  abstract: include "sections/0-abstract.typ",
+  abstract: include "sections/0-abstract.typ"
+  ,
 )
-
 
 // ==========================================================================
 //        Sections
@@ -39,15 +37,14 @@
 #include "sections/5-tests.typ"
 #include "sections/6-conclusion.typ"
 
-
 // ==========================================================================
 //        End of Document
 // ==========================================================================
 
-
 #set page(header: none)
 
 #pagebreak(weak: true)
+
 = Bibliographie
 #bibliography(
   "bib.yaml",
