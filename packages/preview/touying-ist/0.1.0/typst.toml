@@ -12,6 +12,7 @@ keywords = [
     "seminar",
     "Institute of Science Tokyo",
 ]
+categories = ["presentation"]
 
 [template]
 path = "template"
