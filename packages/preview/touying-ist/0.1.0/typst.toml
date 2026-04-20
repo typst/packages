@@ -1,0 +1,20 @@
+[package]
+name = "touying-ist"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["co-gy"]
+description = "Seminar slides at the Institute of Science Tokyo."
+keywords = [
+    "touying",
+    "presentation",
+    "slides",
+    "seminar",
+    "Institute of Science Tokyo",
+]
+
+[template]
+path = "template"
+entrypoint = "template/main.typ"
+thumbnail = "thumbnail.png"
+
+[tool]
