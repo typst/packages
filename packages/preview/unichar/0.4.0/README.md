@@ -15,7 +15,7 @@ This package defines a single function: `codepoint`. It lets you get the informa
 #codepoint("⧖").info.aliases
 ```
 
-![image](examples/example-1.svg)
+![Result of the code example: SQUARE ROOT // Latin-1 Supplement // Lu // relation // ("vertical bowtie", "white framus")](examples/example-1.svg)
 
 You can display a codepoint in the style of [Template:Unichar](https://en.wikipedia.org/wiki/Template:Unichar) using the `show` entry:
 
@@ -26,7 +26,7 @@ You can display a codepoint in the style of [Template:Unichar](https://en.wikipe
 #codepoint(0x100000).show
 ```
 
-![image](examples/example-2.svg)
+![Result of the code example: Each codepoint is displayed using the "U+" syntax followed by a representative glyph and the symbol name in small capitals, or relevant information inside chevrons if the codepoint does not have a name.](examples/example-2.svg)
 
 
 ## Changelog
