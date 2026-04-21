@@ -31,25 +31,12 @@
 你可以选择以下任一方式：
 
 - 下载 ZIP：直接下载本项目代码并解压。
-- 克隆仓库：
-```bash
-git clone https://github.com/strangelion/university-typst-template.git
-```
+- 克隆仓库： // git clone https://github.com/strangelion/university-typst-template.git
 
 3. 编译论文
 
-进入项目目录后，执行编译命令即可生成 PDF 文件：
-
-```bash
-cd university-typst-template
-typst compile main.typ paper.pdf
-```
-如果出现字体问题手动安装字体或用这个：
-
-```bash
-cd university-typst-template
-typst compile --font-path ./fonts main.typ paper.pdf
-```
+进入项目目录后，执行编译命令即可生成 PDF 文件：// typst compile main.typ paper.pdf
+如果出现字体问题手动安装字体或用这个：// typst compile --font-path ./fonts main.typ paper.pdf
 
 若你安装了 VSCode 插件，打开 main.typ 文件后，插件会自动启动预览服务。之后你可以在浏览器中实时查看论文排版效果。使用插件注意固定主文件以避免产生不需要的PDF文件（Ctrl + Shift + P打开命令面板）：
 - Typst:将主文件固定到当前打开的文档 Typst: Pin the Main File to the Currently Open Document 
@@ -57,7 +44,6 @@ typst compile --font-path ./fonts main.typ paper.pdf
 
 ## 项目结构
 
-```
 university-typst-template/
 ├── .devcontainer/            # Codespaces 配置目录
 ├── content/                  # 各章节内容文件
@@ -76,34 +62,10 @@ university-typst-template/
 ├── resource/                 # 静态资源
 │   └──  logo.png
 └── README.md
-```
 
 ## 配置说明
 
 你可以在 config.typ 文件中修改论文的基本信息：
-
-```typst
-#let conf = (
-  // 学校信息
-  school: "XX大学",
-  college: "社会科学与技术学院",
-  major: "宇宙社会学",
-  // 论文基本信息
-  head: "主标题",
-  title: "副标题",
-  title-en: "English Title",
-  // 作者信息
-  author: "张三",
-  student-id: "1145141314",
-  // 指导教师
-  supervisor: "罗教授",
-  // 日期（自动生成当前年份）
-  date: datetime.today().display("[year]年[month]月[day]日"),
-  // 其他可选字段
-  keywords: ("Typst", "论文模板", "排版"),
-  keywords-en: ("Typst", "Thesis Template", "Typesetting"),
-)
-```
 
 所有个人信息在这里只需修改一次，即可在封面和信息表格中全局生效。
 
