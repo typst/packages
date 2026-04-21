@@ -28,7 +28,7 @@ set text(lang: "zh", region: "cn")
   )
 
   // 2. 基础字体和段落设置
-  set text(font: ("Times New Roman", "simsun"), size: 12pt)
+  set text(font: ("Times New Roman", "simsun", "Source Han Serif", "Songti SC", "Noto Serif CJK SC"), size: 12pt)
   set par(leading: 1em, first-line-indent: 2em, justify: true)
 
   // 3. 封面生成
