@@ -1,6 +1,5 @@
 #import "template.typ": template
 #import "config.typ": conf
-#import "/modules/utils.typ"
 
 #show: doc => template(
   doc,
