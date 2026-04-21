@@ -286,18 +286,22 @@
     content("red-1.right", pad: 0.6, )[#align(center)[#text(size: 7pt)[Another\ way to\ include\ content]]],
     content("red-1.left", pad: 0.6)[#image("../images/Caffeine_structure.svg", width: 1.3cm)],
 
+    legend(pad: 3, box: true),
+
     en-pathway(
       -4, 4, -1, 2, -8,
       labels: ([SM], [TS$alpha$-1], [Key], [TS$beta$-1], [P]),
       show-energies: true,
       color: red,
-      name-prefix: "red"
+      name-prefix: "red",
+      legend: [Triplet state]
       ),
     en-pathway(
       -1, 2, -5, 5.15, -4,
       labels: ([SM], [$gamma$], [Int], [Ex], [`code`]),
       color: olive,
-      name-prefix: "olive"
+      name-prefix: "olive",
+      legend: [Singlet state]
     ),
 
     ao(x: 4.8, energy: 0, electrons: "pair"),

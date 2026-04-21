@@ -1167,6 +1167,7 @@
   energy-size:   auto,
   bar-stroke-w:  1.5pt,
   ao-width:      0.75,     // bar width (implicit cm)
+  legend:        none,   // content label for the upper-right legend; none = no legend
 )
 
 // Global mutable state for en-pathway defaults — mirrors the _cfg / _defaults
@@ -1202,7 +1203,8 @@
 //   All parameters must be fully resolved (no auto) before calling.
 #let _en-pathway-build(values, color, label-gap, label-size, x-step, electrons,
                        style, conn-style, connect-across-skip, labels, name-prefix, x-start,
-                       show-energies, energy-format, energy-size, bar-stroke-w, ao-width) = {
+                       show-energies, energy-format, energy-size, bar-stroke-w, ao-width,
+                       legend) = {
   // Normalise labels: accept a bare content value in addition to an array.
   // en-pathway(..., labels: $1s$)           → treated as ($1s$,)
   // en-pathway(..., labels: ($1s$, $2s$))   → used as-is
@@ -1283,6 +1285,16 @@
     }
   }
 
+  if legend != none {
+    result.push((
+      kind:         "ep-legend",
+      text:         legend,
+      color:        color,
+      size:         label-size,
+      bar-stroke-w: bar-stroke-w,
+    ))
+  }
+
   result
 }
 
@@ -1311,9 +1323,13 @@
 //   energy-size:    font size for energy labels  (auto → label-size)
 //   bar-stroke-w:   stroke width for bars and electrons
 //   ao-width:       bar width  (implicit cm)
+//   legend:         content label for the upper-right legend box; none = no legend
+//                   Display options (position, box, text color) are set on a separate
+//                   legend() element passed to modiagram() — see legend() below.
 //
 //   en-pathway(0, 0.5, 1.0, skip, 1.5, color: red)
 //   en-pathway(0, 0.3, 0.7, labels: ($A$, $B$, $C$), conn-style: "solid")
+//   en-pathway(0, 0.5, 1.0, color: blue, legend: [H atom])
 #let en-pathway(..args,
   color:                auto,
   label-gap:            auto,
@@ -1331,6 +1347,7 @@
   energy-size:          auto,
   bar-stroke-w:         auto,
   ao-width:             auto,
+  legend:               auto,
 ) = {
   // Early validation of arguments that don't need state resolution.
   if style != auto     { _assert-style(style, "en-pathway") }
@@ -1365,6 +1382,7 @@
    energy-size:          energy-size,
    bar-stroke-w:         bar-stroke-w,
    ao-width:             ao-width,
+   legend:               legend,
   )
 }
 
@@ -1436,6 +1454,41 @@
                    else            { text(fill: color, body) }
     draw.content((mid, y-ann), rendered, anchor: "north", padding: .5em)
   })
+}
+
+
+// legend — control how the legend is rendered in modiagram().
+//
+//   Pass this element to modiagram() alongside en-pathway() calls that carry
+//   a legend: parameter.  All arguments are optional; omitting legend() uses
+//   the defaults shown below.
+//
+//   pad:        right-side clearance between the rightmost orbital and the
+//               legend block (canvas units or length, default 0.35)
+//   dx:         additional x offset on top of pad  (default 0)
+//   dy:         additional y offset from the topmost orbital  (default 0)
+//   box:        if true, wrap all entries in a rounded box  (default false)
+//   black-text: if true, render every label in black; lines stay colored  (default false)
+//
+//   modiagram(
+//     en-pathway(0, 0.5, 1.0, color: red,  legend: [H atom]),
+//     en-pathway(0, 0.3, 0.8, color: blue, legend: [He atom], name-prefix: "ep2"),
+//     legend(pad: 0.5, dx: 1, dy: 3, box: true, black-text: true),
+//   )
+#let legend(
+  pad:        auto,
+  dx:         auto,
+  dy:         auto,
+  box:        false,
+  black-text: true,
+) = {
+  (kind:       "ep-legend-config",
+   pad:        pad,
+   dx:         dx,
+   dy:         dy,
+   box:        box,
+   black-text: black-text,
+  )
 }
 
 
@@ -1674,6 +1727,7 @@
         if item.energy-size != auto { item.energy-size } else { resolved-label-size },
         resolve(item.bar-stroke-w,         "bar-stroke-w"),
         resolve(item.ao-width,             "ao-width"),
+        resolve(item.legend,               "legend"),
       )
       all = all + expanded.flatten()
     } else {
@@ -1682,22 +1736,30 @@
   }
 
   // ── Single categorization pass — avoids 5 separate filter() calls ───────
-  let dicts   = ()
-  let fns     = ()
-  let aos     = ()
-  let eaxes   = ()
-  let xaxes   = ()
-  let has-raw = false
+  let dicts      = ()
+  let fns        = ()
+  let aos        = ()
+  let eaxes      = ()
+  let xaxes      = ()
+  let legends    = ()
+  let legend-cfg = none    // set by a legend() element, if present
+  let has-raw    = false
   for i in all {
     if type(i) == function {
       fns.push(i)
     } else if type(i) == type((:)) {
-      dicts.push(i)
       let k = i.kind
-      if      k == "ao"           { aos.push(i) }
-      else if k == "energy-axis"  { eaxes.push(i) }
-      else if k == "x-axis"       { xaxes.push(i) }
-      else if k == "raw"          { has-raw = true }
+      if k == "ep-legend" {
+        legends.push(i)
+      } else if k == "ep-legend-config" {
+        legend-cfg = i
+      } else {
+        dicts.push(i)
+        if      k == "ao"           { aos.push(i) }
+        else if k == "energy-axis"  { eaxes.push(i) }
+        else if k == "x-axis"       { xaxes.push(i) }
+        else if k == "raw"          { has-raw = true }
+      }
     }
   }
 
@@ -1976,6 +2038,61 @@
             )
           }
         }
+      }
+    }
+
+    // ── Legend (upper-right corner) ──────────────────────────────────────────
+    // Entries come from en-pathway(..., legend: [name]); display settings come
+    // from an optional legend() element passed to modiagram().
+    if legends.len() > 0 and anchors.len() > 0 {
+      let av     = anchors.values()
+      let xright = av.fold(av.first().right, (acc, a) => calc.max(acc, a.right))
+      let ytop   = av.fold(av.first().y,     (acc, a) => calc.max(acc, a.y))
+
+      // Resolve display settings — legend() overrides defaults.
+      let lc       = legend-cfg
+      let pad      = if lc != none and lc.pad        != auto { _cm(lc.pad)        } else { 0.35 }
+      let dx       = if lc != none and lc.dx         != auto { _cm(lc.dx)         } else { 0.0  }
+      let dy       = if lc != none and lc.dy         != auto { _cm(lc.dy)         } else { 0.0  }
+      let show-box = if lc != none { lc.box }        else { false }
+      let blk-txt  = if lc != none { lc.black-text } else { false }
+
+      let leg-x    = xright + pad + dx
+      let leg-y0   = ytop + dy
+      let row-h    = 0.35
+      let line-len = 0.45
+      let gap      = 0.1
+
+      // Rounded box — uses measure() to fit the widest label exactly.
+      if show-box {
+        let max-tw = legends.fold(0pt, (acc, leg) => {
+          let w = measure(_resize(leg.size, leg.text)).width
+          if w > acc { w } else { acc }
+        })
+        let tw-cu  = max-tw / cfg.scale
+        let n      = legends.len()
+        let box-pad = 0.20
+        draw.rect(
+          (leg-x - box-pad, leg-y0 + box-pad),
+          (leg-x + line-len + gap + tw-cu + box-pad, leg-y0 - (n - 1) * row-h - box-pad),
+          stroke: (paint: luma(80), thickness: 0.5pt),
+          fill:   white,
+          radius: 6 * _pt,
+        )
+      }
+
+      for (i, leg) in legends.enumerate() {
+        let ly        = leg-y0 - i * row-h
+        let txt-color = if blk-txt { black } else { leg.color }
+        draw.line(
+          (leg-x, ly), (leg-x + line-len, ly),
+          stroke: (paint: leg.color, thickness: leg.bar-stroke-w),
+        )
+        draw.content(
+          (leg-x + line-len + gap, ly),
+          _resize(leg.size, text(fill: txt-color, leg.text)),
+          anchor: "west",
+        )
       }
     }
 

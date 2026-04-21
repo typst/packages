@@ -63,7 +63,7 @@ Renders the complete diagram. All elements are passed as positional arguments.
 
 | Parameter | Type | Description                                                                              |
 | --------- | ---- | ---------------------------------------------------------------------------------------- |
-| `...`     | any  | `ao()`, `connect()`, `config()`, `energy-axis()`, `en-pathway()`, `raw()`, cetz wrappers |
+| `...`     | any  | `ao()`, `connect()`, `config()`, `energy-axis()`, `en-pathway()`, `legend()`, `raw()`, cetz wrappers |
 | `config`  | dict | Diagram-level overrides — same keys as `modiagram-setup()`                               |
 
 ---
@@ -369,6 +369,7 @@ Use `skip` as an energy value to advance `x` without drawing an orbital.
 | `energy-size`   | `auto`     | Font size for energy labels                                      |
 | `bar-stroke-w`  | `1.5pt`    | Stroke width for bars and electrons                              |
 | `ao-width`      | `0.75`     | Bar width (cm)                                                   |
+| `legend`        | `none`     | Content label shown in the diagram legend; display options are set via `legend()` |
 
 This feature is extremely useful for computational chemists who wish to represent energy pathways in a very straightforward manner. All you need to do is specify the energy values and labels. If you also specify the name, a unique identifier is assigned, allowing you to add content positioned relative to the energy bar.
 
@@ -461,6 +462,56 @@ Draws a double-headed span arrow with a centered label below the diagram, connec
     ep-annotation(1, 2, $Delta G$, color: red, size: 8pt),
   )
 })
+```
+
+---
+
+### `legend(...)` — legend box for `en-pathway` diagrams
+
+Controls how the legend is displayed when one or more `en-pathway()` calls carry a `legend:` label. Pass `legend()` as any element inside `modiagram()`. All parameters are optional.
+
+| Parameter    | Default | Description                                                                   |
+| ------------ | ------- | ----------------------------------------------------------------------------- |
+| `pad`        | `0.35`  | Right-side clearance between the rightmost orbital and the legend block (canvas units or length). Increase this to move the legend clear of `en-difference` barriers. |
+| `dx`         | `0`     | Additional x offset on top of `pad` (canvas units or length)                 |
+| `dy`         | `0`     | y offset from the topmost orbital (canvas units or length)                    |
+| `box`        | `false` | If `true`, wraps all entries in a white rounded box                           |
+| `black-text` | `false` | If `true`, renders every label in black; the colored sample lines are unaffected |
+
+```typst
+#figure({
+  import mo: *
+  modiagram(
+    config(energy-scale: 0.3),
+
+    en-pathway(
+      -4, 4, -1, 2, -8,
+      color: red,
+      labels: ([SM], [TS1], [Key], [TS2], [P]),
+      name-prefix: "red",
+      legend: [Pathway A],
+    ),
+    en-pathway(
+      -1, 2, -5, 5, -4,
+      color: olive,
+      labels: ([SM], [Int1], [Int2], [Int3], [P]),
+      name-prefix: "olive",
+      legend: [Pathway B],
+    ),
+
+    legend(pad: 0.5, box: true, black-text: true),
+    energy-axis(title: [E]),
+  )
+})
+```
+
+Each `en-pathway()` contributes one row to the legend (a short colored line followed by its label). The `legend()` element controls the position and appearance of the whole block. Omitting `legend()` uses the defaults.
+
+To push the legend past an `en-difference` barrier on the right, increase `pad` or use `dx`:
+
+```typst
+legend(pad: 1.5)          // larger right clearance
+legend(pad: 0.5, dx: 1)   // fine-tune with an extra offset
 ```
 
 ---
@@ -622,18 +673,22 @@ per-element parameter
     content("red-1.right", pad: 0.6, )[#align(center)[#text(size: 7pt)[Another\ way to\ include\ content]]],
     content("red-1.left", pad: 0.6)[#image("../images/Caffeine_structure.svg", width: 1.3cm)],
 
+    legend(pad: 3, box: true),
+
     en-pathway(
       -4, 4, -1, 2, -8,
       labels: ([SM], [TS$alpha$-1], [Key], [TS$beta$-1], [P]),
       show-energies: true,
       color: red,
-      name-prefix: "red"
+      name-prefix: "red",
+      legend: [Triplet state]
       ),
     en-pathway(
       -1, 2, -5, 5.15, -4,
       labels: ([SM], [$gamma$], [Int], [Ex], [`code`]),
       color: olive,
-      name-prefix: "olive"
+      name-prefix: "olive",
+      legend: [Singlet state]
     ),
 
     ao(x: 4.8, energy: 0, electrons: "pair"),
