@@ -16,7 +16,7 @@
 #set page(numbering: "I")
 #counter(page).update(1)
 
-#include "content\abstract.typ"
+#include "content/abstract.typ"
 
 #pagebreak()
 #outline(title: "目录", depth: 3)
@@ -27,12 +27,12 @@
 #counter(page).update(1)
 
 // 章节分文件，可根据需要增减
-#include "content\chapter1.typ"
-#include "content\chapter2.typ"
-#include "content\chapter3.typ"
-#include "content\chapter4.typ"
-#include "content\chapter5.typ"
-#include "content\chapter6.typ"
+#include "content/chapter1.typ"
+#include "content/chapter2.typ"
+#include "content/chapter3.typ"
+#include "content/chapter4.typ"
+#include "content/chapter5.typ"
+#include "content/chapter6.typ"
 
 // 引用文献，如果想快速全部引用可以启用参考文献部分的full: true并删除此部分
 #cite(label("ref1"), form: none)
