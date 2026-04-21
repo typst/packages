@@ -2,7 +2,7 @@
 
 == 中间业务产品方面
 #figure(
-  image("logo.png", width: 80%),
+  image("/resource/logo.png", width: 80%),
   caption: [这是照片的标题],
 ) <fig-demo> // 这里的标签用于引用
 
