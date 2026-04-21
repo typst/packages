@@ -1,0 +1,17 @@
+[package]
+name = "hebei-university-template"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["strangelion <@strangelion>"]
+license = "Apache-2.0 license"
+description = "一个为本科生毕业论文设计的 Typst 排版模板。"
+repository = "https://github.com/strangelion/hebei-university-template"
+keywords = ["thesis", "university", "chinese"]
+categories = ["thesis"]
+compiler = "0.13.0"
+exclude = [".devcontainer", "assets"]
+
+[template]
+path = "."
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
