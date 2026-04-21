@@ -42,27 +42,6 @@
 - Typst:将主文件固定到当前打开的文档 Typst: Pin the Main File to the Currently Open Document 
 - Typst:取消固定主文件 Typst: Unpin the main file
 
-## 项目结构
-
-university-typst-template/
-├── .devcontainer/            # Codespaces 配置目录
-├── content/                  # 各章节内容文件
-│   ├── abstract.typ
-│   ├── acknowledgments.typ
-│   ├── chapter1.typ
-│   └── ...
-├── modules/                  # 自定义模块与函数
-│   └── utils.typ
-├── fonts/                    # 自定义字体目录
-├── main.typ                  # 论文入口文件
-├── template.typ              # 核心样式模板
-├── config.typ                # 集中管理元数据
-├── references.bib            # 文献数据库
-├── typst.toml                # 项目配置文件
-├── resource/                 # 静态资源
-│   └──  logo.png
-└── README.md
-
 ## 配置说明
 
 你可以在 config.typ 文件中修改论文的基本信息：
