@@ -32,9 +32,9 @@
 
 - 下载 ZIP：直接下载本项目代码并解压。
 - 克隆仓库：
-  ```bash
-  git clone https://github.com/strangelion/university-typst-template.git
-  ```
+```bash
+git clone https://github.com/strangelion/university-typst-template.git
+```
 
 3. 编译论文
 
