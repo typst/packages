@@ -14,3 +14,4 @@ exclude = [".devcontainer", "assets"]
 [template]
 path = "."
 entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
