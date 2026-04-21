@@ -1,5 +1,9 @@
 # ABNTyp
 
+**ABNTyp** is a [Typst](https://typst.app) package for formatting Brazilian academic and technical documents in compliance with ABNT standards (Associação Brasileira de Normas Técnicas). It provides templates for theses, dissertations, articles, reports, books, and more — with author-date and numeric citation systems per NBR 10520:2023.
+
+---
+
 **ABNTyp — Base Normativa Typst** — Formatação de documentos técnicos e científicos brasileiros conforme normas ABNT para [Typst](https://typst.app).
 
 ---
@@ -43,22 +47,22 @@ A documentação do ABNTyp consiste nos seguintes arquivos:
 
 | Arquivo                | Descrição                           |
 | ---------------------- | ----------------------------------- |
-| `docs/manual.typ`      | Manual completo da classe e funções |
-| `docs/guia-rapido.typ` | Guia rápido para começar            |
+| [`docs/manual.typ`](https://github.com/3sdras/abntyp/blob/v0.1.3/docs/manual.typ) | Manual completo da classe e funções |
+| [`docs/guia-rapido.typ`](https://github.com/3sdras/abntyp/blob/v0.1.3/docs/guia-rapido.typ) | Guia rápido para começar |
 
 ### Modelos Canônicos (Exemplos)
 
 | Arquivo                                 | Tipo de Documento                           | Norma Principal |
 | --------------------------------------- | ------------------------------------------- | --------------- |
-| `examples/tcc-exemplo.typ`              | Trabalho acadêmico (tese, dissertação, TCC) | NBR 14724:2024  |
-| `examples/artigo-exemplo.typ`           | Artigo científico                           | NBR 6022:2018   |
-| `examples/relatorio-exemplo.typ`        | Relatório técnico                           | NBR 10719:2015  |
-| `examples/projeto-exemplo.typ`          | Projeto de pesquisa                         | NBR 15287:2025  |
-| `examples/livro-exemplo.typ`            | Livro                                       | NBR 6029:2023   |
-| `examples/periodico-exemplo.typ`        | Publicação periódica                        | NBR 6021:2015   |
-| `examples/poster-exemplo.typ`           | Pôster científico                           | NBR 15437:2006  |
-| `examples/slides-defesa-exemplo.typ`    | Apresentação de slides                      | Boas práticas\* |
-| `examples/citacao-numerica-exemplo.typ` | Sistema numérico de citações                | NBR 10520:2023  |
+| [`examples/tcc-exemplo.typ`](https://github.com/3sdras/abntyp/blob/v0.1.3/examples/tcc-exemplo.typ) | Trabalho acadêmico (tese, dissertação, TCC) | NBR 14724:2024 |
+| [`examples/artigo-exemplo.typ`](https://github.com/3sdras/abntyp/blob/v0.1.3/examples/artigo-exemplo.typ) | Artigo científico | NBR 6022:2018 |
+| [`examples/relatorio-exemplo.typ`](https://github.com/3sdras/abntyp/blob/v0.1.3/examples/relatorio-exemplo.typ) | Relatório técnico | NBR 10719:2015 |
+| [`examples/projeto-exemplo.typ`](https://github.com/3sdras/abntyp/blob/v0.1.3/examples/projeto-exemplo.typ) | Projeto de pesquisa | NBR 15287:2025 |
+| [`examples/livro-exemplo.typ`](https://github.com/3sdras/abntyp/blob/v0.1.3/examples/livro-exemplo.typ) | Livro | NBR 6029:2023 |
+| [`examples/periodico-exemplo.typ`](https://github.com/3sdras/abntyp/blob/v0.1.3/examples/periodico-exemplo.typ) | Publicação periódica | NBR 6021:2015 |
+| [`examples/poster-exemplo.typ`](https://github.com/3sdras/abntyp/blob/v0.1.3/examples/poster-exemplo.typ) | Pôster científico | NBR 15437:2006 |
+| [`examples/slides-defesa-exemplo.typ`](https://github.com/3sdras/abntyp/blob/v0.1.3/examples/slides-defesa-exemplo.typ) | Apresentação de slides | Boas práticas\* |
+| [`examples/citacao-numerica-exemplo.typ`](https://github.com/3sdras/abntyp/blob/v0.1.3/examples/citacao-numerica-exemplo.typ) | Sistema numérico de citações | NBR 10520:2023 |
 
 _\* A ABNT não possui norma específica para slides. O template segue boas práticas acadêmicas._
 
@@ -138,7 +142,7 @@ O ABNTyp implementa as seguintes normas ABNT (versões atualizadas):
 )
 
 // Formatação ABNT (fonte, margens, headings, etc.)
-#show: normas-abnt.with(
+#show: normasABNT.with(
   fonte: "Times New Roman",
   // arquivo-bibliografia: "referencias.bib",
 )
@@ -265,71 +269,6 @@ Todas as funções principais possuem aliases curtos. Ambas as formas são equiv
 
 ---
 
-## Estrutura de Arquivos
-
-```txt
-abntyp/
-├── lib.typ                 # Ponto de entrada principal
-├── README.md               # Este arquivo
-├── typst.toml              # Metadados do pacote
-├── LICENSE                 # Licença MIT
-├── CREDITS.md              # Créditos e agradecimentos
-│
-├── src/
-│   ├── core/               # Configurações fundamentais
-│   │   ├── page.typ        # Página (A4, margens)
-│   │   ├── fonts.typ       # Fontes (Times/Arial, 12pt)
-│   │   ├── spacing.typ     # Espaçamentos (1,5 linhas)
-│   │   ├── dates.typ       # Formatação de datas (NBR 5892)
-│   │   ├── identifiers.typ # ISBN/ISSN (NBR ISO 2108, NBR 10525)
-│   │   ├── sorting.typ     # Ordenação alfabética (NBR 6033)
-│   │   ├── proofreading.typ# Marcas de revisão (NBR 6025)
-│   │   └── metadata.typ    # Metadados compartilhados (dados())
-│   │
-│   ├── elements/           # Elementos estruturais
-│   │   ├── cover.typ       # Capa
-│   │   ├── title-page.typ  # Folha de rosto
-│   │   ├── abstract.typ    # Resumo/Abstract
-│   │   ├── toc.typ         # Sumário e listas
-│   │   ├── index.typ       # Índice remissivo (NBR 6034)
-│   │   └── spine.typ       # Lombada (NBR 12225)
-│   │
-│   ├── text/               # Elementos textuais
-│   │   ├── headings.typ    # Seções (NBR 6024)
-│   │   ├── quotes.typ      # Citações (NBR 10520)
-│   │   ├── figures.typ     # Figuras, quadros, gráficos
-│   │   └── tables.typ      # Tabelas (IBGE)
-│   │
-│   ├── references/         # Sistema de referências
-│   │   ├── citation.typ    # Sistema autor-data
-│   │   ├── numeric.typ     # Sistema numérico
-│   │   ├── bibliography.typ# Bibliografia
-│   │   ├── abbreviations.typ# Abreviação de títulos (NBR 6032)
-│   │   └── abnt.csl        # Estilo CSL
-│   │
-│   └── templates/          # Templates de documentos
-│       ├── thesis.typ      # Trabalho acadêmico (NBR 14724)
-│       ├── article.typ     # Artigo científico (NBR 6022)
-│       ├── book.typ        # Livro (NBR 6029)
-│       ├── technical-report.typ # Relatório técnico (NBR 10719)
-│       ├── research-project.typ # Projeto de pesquisa (NBR 15287)
-│       ├── periodical.typ  # Publicação periódica (NBR 6021)
-│       ├── poster.typ      # Pôster científico (NBR 15437)
-│       └── slides.typ      # Apresentação de slides
-│
-├── docs/                   # Documentação
-│   ├── manual.typ          # Manual completo
-│   └── guia-rapido.typ     # Guia rápido
-│
-└── examples/               # Exemplos canônicos
-    ├── tcc-exemplo.typ     # Trabalho acadêmico
-    ├── artigo-exemplo.typ  # Artigo científico
-    ├── slides-defesa-exemplo.typ # Slides para defesa
-    └── referencias.bib     # Referências de exemplo
-```
-
----
-
 ## Licença
 
 Este projeto é distribuído sob a licença **MIT**.
@@ -355,19 +294,6 @@ Agradecemos especialmente:
 - **Typst** - Sistema de tipografia moderno (https://typst.app)
 - **csl-abnt** - Estilo CSL para ABNT por @virgilinojuca e @AAguiarCAM
 - **Touying** - Pacote Typst para apresentações
-
----
-
-## Contribuindo
-
-Contribuições são bem-vindas! Por favor:
-
-1. Abra uma issue para discutir a mudança proposta
-2. Faça um fork do repositório
-3. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
-4. Commit suas mudanças (`git commit -am 'Adiciona nova funcionalidade'`)
-5. Push para a branch (`git push origin feature/nova-funcionalidade`)
-6. Abra um Pull Request
 
 ---
 
