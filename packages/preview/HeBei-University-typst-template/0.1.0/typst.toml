@@ -1,0 +1,18 @@
+[package]
+name = "university-typst-template"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["strangelion <@strangelion>"]
+license = "MIT"
+description = "一个为本科生毕业论文设计的 Typst 排版模板。"
+repository = "https://github.com/strangelion/university-typst-template"
+keywords = ["thesis", "university", "chinese"]
+categories = ["thesis"]
+compiler = "0.13.0"
+exclude = [".devcontainer", "assets"]
+font-paths = ["fonts"]
+
+[template]
+path = "."
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

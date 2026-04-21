@@ -1,0 +1,9 @@
+ref1:
+  type: article
+  author: 徐美田
+  title: 我国商业银行中间业务发展问题研究
+  date: 2021
+  parent:
+    title: 金融经济
+    issue: 10
+  pages: 51-52
