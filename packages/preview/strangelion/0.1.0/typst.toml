@@ -10,8 +10,3 @@ keywords = ["thesis", "university", "chinese"]
 categories = ["thesis"]
 compiler = "0.13.0"
 exclude = [".devcontainer", "assets"]
-
-[template]
-path = "."
-entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
