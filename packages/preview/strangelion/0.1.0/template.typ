@@ -34,7 +34,7 @@ set text(lang: "zh", region: "cn")
   // 3. 封面生成
   align(center)[
     #v(2cm)
-    #image("resource\logo.png", width: 80%)
+    #image("resource/logo.png", width: 80%)
     #v(1cm)
 
     #text(size: 26pt, weight: "bold")[#head] \
