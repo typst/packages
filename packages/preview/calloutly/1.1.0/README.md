@@ -65,7 +65,7 @@ To enable this globally, apply the `code-block-style` show rule at the beginning
 ```
 
 Parameters available for `code-block-style`:
-- `style` (string): The visual style applied to code callouts (e.g. `"simple"`, `"quarto"`, `"github"`). Defaults to `"quarto"`.
+- `style` (string): The visual style applied to code callouts (e.g. `"simple"`, `"quarto"`, `"github"`). Defaults to `"simple"`.
 - `line-numbers` (boolean): Set to `true` to display line numbers. Because they are rendered in a separate layout grid, you can select and copy the code text naturally without inadvertently selecting the line numbers alongside it.
 
 When enabled, standard code blocks will be seamlessly transformed with the corresponding syntax-highlighting icon, inner shading, and border outlines matching the active style.
