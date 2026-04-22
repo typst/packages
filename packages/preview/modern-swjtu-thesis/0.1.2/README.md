@@ -1,3 +1,7 @@
+# Modern SWJTU Thesis
+
+> **A modern Typst template for the thesis of Southwest Jiaotong University (SWJTU).** > *Note: The documentation and the template itself are primarily in Chinese.*
+
 # 西南交通大学学位论文 modern-swjtu-thesis
 
 西南交通大学（SWJTU）本科毕业设计（论文）的 Typst 模板，基于南京大学的 [modern-nju-thesis](https://github.com/nju-lug/modern-nju-thesis) 进行二次开发，能够简洁、快速、持续生成 PDF 格式的毕业设计和论文任务书等文件。
