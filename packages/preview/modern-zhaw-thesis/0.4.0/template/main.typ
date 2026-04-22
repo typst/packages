@@ -56,7 +56,7 @@ That's subjective, but:
 
 == Glossary, references and labels
 
-Here we have a glossary reference: @iot:long. We can also use the acronym form: @iot:short. See the #link("https://typst.app/universe/package/glossy/", "Glossy") documentation for more details.
+Here we have a glossary reference: @iot:long. We can also use the acronym form: @iot:short. See the #link("https://typst.app/universe/package/glossy/", "Glossy") documentation for more details. Here we refer to a term, not an acronym: @deployment.
 
 Here we refer to a source from our bibliography @garcia2021microservices. The template uses IEEE style by default, but you can change it with the `bibliography-style` option in `zhaw-thesis.with()`.
 

@@ -1,4 +1,4 @@
-#import "../patches/glossy/lib.typ": *
+#import "@preview/glossy:0.9.1": *
 
 #let glossary-theme = (
   section: (title, body) => {

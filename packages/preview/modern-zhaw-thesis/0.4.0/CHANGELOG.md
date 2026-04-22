@@ -2,7 +2,7 @@
 
 ## 0.4.0
 
-- Replaced custom glossy fork with official 0.9.1 release
+- Replaced custom Glossy patch with official 0.9.1 release. Should not be a breaking change.
 
 ## 0.3.0
 
