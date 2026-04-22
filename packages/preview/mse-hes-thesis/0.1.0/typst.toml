@@ -11,6 +11,7 @@ keywords = ["thesis", "master", "bachelor", "MSE", "university", "HES-SO"]
 compiler = "0.13.0"
 exclude = [
     "*.pdf",
+    "preview.png",
 ]
 
 [template]
