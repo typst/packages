@@ -450,22 +450,33 @@
     let accent-bar  = rgb("#8a929b")   // left accent bar: mid-grey, not too heavy
     let title-fg    = rgb("#3a4149")   // header text: dark slate, readable but calm
     let gutter-fg   = rgb("#9aa1a9")   // line numbers: muted
+    let line-wrap-chars = 80             // estimated visible chars before soft wrap in the code pane
     
     let ic = _get-code-icon(lang, accent-bar)
+    let raw-lines = it.text.split("\n")
     
     let code-content = if line-numbers {
-      grid(
-        columns: (auto, 1fr),
-        column-gutter: 1em,
-        align(right)[
-          #set text(fill: gutter-fg)
-          #for (i, line) in it.lines.enumerate() {
-            str(i + 1)
-            linebreak()
-          }
-        ],
-        align(start)[#it]
-      )
+      layout(size => {
+        // size.width is already the width inside the block's inset — no manual inset subtraction needed
+        
+        grid(
+          columns: (auto, 1fr),
+          column-gutter: 1em,
+          align(right)[
+            #set text(fill: gutter-fg)
+            #for (i, line) in raw-lines.enumerate() {
+              let expanded = line.replace("\t", "    ")
+              let wraps = calc.max(1, int(calc.ceil((expanded.len()) / line-wrap-chars)))
+              str(i + 1)
+              linebreak()
+              for _ in range(1, wraps) {
+                linebreak()
+              }
+            }
+          ],
+          align(start)[#it]
+        )
+      })
     } else {
       it
     }

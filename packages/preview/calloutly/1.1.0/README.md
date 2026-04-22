@@ -72,6 +72,7 @@ When enabled, standard code blocks will be seamlessly transformed with the corre
 
 ## Planned Features
 - Additional styles (e.g. "fancy", "minimal", "Edstem")
+- Stable line numbering with code blocks with excessively long lines.
 
 
 ## Submit an issue or pull request if you have any suggestions for improvements or new features!
