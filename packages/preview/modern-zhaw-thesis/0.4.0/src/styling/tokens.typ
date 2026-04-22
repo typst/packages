@@ -10,7 +10,7 @@
     headers: "Arial Rounded MT", //Nunito
   ),
   font-sizes: (
-    "h1": 32pt,
+    "h1": 30pt,
     "h3": 11pt,
     "h4": 11pt,
     "body": 11pt,

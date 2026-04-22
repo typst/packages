@@ -122,7 +122,7 @@
   set align(center + horizon)
   set par(first-line-indent: 0cm)
   align(start + horizon)[
-    #text(font: tokens.font-families.headers, fill: tokens.colour.main, weight: "bold", size: 24pt, title)
+    #text(font: tokens.font-families.headers, fill: tokens.colour.main, weight: "bold", size: tokens.font-sizes.h1, title)
     #content
   ]
 }
