@@ -1,4 +1,4 @@
-#import "@preview/touying-ist:0.1.0": *
+#import "@preview/bluenote-ist:0.1.0": *
 #import "ppt-config.typ": *
 
 #show: ist-theme.with(
