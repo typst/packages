@@ -64,7 +64,7 @@
         rows: auto,
         gutter: -0.8cm,
         align: top + start,
-        block(width: 100%, pad(left: -0.5em, text(fill: tokens.colour.main, size: 88pt, heading_number))),
+        block(width: 100%, pad(left: -0.5em, text(fill: tokens.colour.main, size: tokens.font-sizes.h1 + 58pt, heading_number))),
         pad(top:0.1cm, text(fill: tokens.colour.main, size: tokens.font-sizes.h1, it.body)),
       )
       v-after-numbered-chapter-heading(it)
