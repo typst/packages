@@ -1,6 +1,21 @@
 #import "/src/deps.typ": cetz
 #import cetz: canvas, draw
-#import "@preview/modpattern:0.1.0": modpattern
+
+#let modpattern(size, body, dx: 0pt, dy: 0pt, background: none) = tiling(
+  size: size,
+  {
+    if background != none {
+      place(box(width: 100%, height: 100%, fill: background))
+    }
+    move(dx: -size.at(0) + dx, dy: -size.at(1) + dy, grid(
+      columns: 3*(size.at(0),),
+      rows: 3*(size.at(1),),
+      body, body, body,
+      body, body, body,
+      body, body, body
+    ))
+  }
+)
 
 #let hatched = modpattern(
     (.25cm, .25cm),

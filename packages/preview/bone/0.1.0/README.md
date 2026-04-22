@@ -10,7 +10,7 @@ A very simple example of the package's capabilities.
 
 ### Beams with distributed force
 
-![Distributed force example](https://codeberg.org/grangelouis/bone/raw/branch/main/examples/example1.svg)
+![Distributed force example](https://codeberg.org/grangelouis/bone/raw/commit/f4b613ba38b203e0853398022d9074372ad21d0d/examples/example1.svg)
 
 ## Quick usage
 
