@@ -295,7 +295,7 @@ Expected JSON format: `palette` (array of hex strings), `text-color`, `text-colo
 
 ### Extracting themes from CSS
 
-Two optional helper scripts — a Python version ([`scripts/extract-theme.py`](https://github.com/phiat/primaviz/blob/main/scripts/extract-theme.py), `uv` + `coloraide`) and a TypeScript version ([`scripts/extract-theme.ts`](https://github.com/phiat/primaviz/blob/main/scripts/extract-theme.ts), Bun + `culori`) — live in the [project repository](https://github.com/phiat/primaviz/tree/main/scripts). They convert CSS design tokens (`--chart-1`..N, `--foreground`, `--background`, etc.) into primaviz theme files in `.typ` and/or `.json` format, handling oklch/hsl/rgb/hex color spaces with alpha blending.
+Two optional helper scripts — a Python version ([`scripts/extract-theme.py`](https://github.com/phiat/primaviz/blob/v0.6.0/scripts/extract-theme.py), `uv` + `coloraide`) and a TypeScript version ([`scripts/extract-theme.ts`](https://github.com/phiat/primaviz/blob/v0.6.0/scripts/extract-theme.ts), Bun + `culori`) — live in the [project repository](https://github.com/phiat/primaviz/tree/v0.6.0/scripts). They convert CSS design tokens (`--chart-1`..N, `--foreground`, `--background`, etc.) into primaviz theme files in `.typ` and/or `.json` format, handling oklch/hsl/rgb/hex color spaces with alpha blending.
 
 > ⚠️ **Security note:** These scripts are not part of the published package archive. Before running them on your machine, please read the source in the links above to understand what they do — don't blindly execute third-party scripts.
 
