@@ -3,6 +3,8 @@
 #import "@preview/touying:0.7.1": *
 #import "@preview/numbly:0.1.0": numbly
 
+#let background-image = image("imgs/bg.png", width: 100%, height: 100%, fit: "cover")
+
 #let fullscreen-bg(path) = place(
   top + left,
   box(

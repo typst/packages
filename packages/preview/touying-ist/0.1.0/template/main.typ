@@ -17,7 +17,7 @@
 #set heading(numbering: numbly("{1}.", default: "1.1"))
 
 #title-slide(
-  bg-img: image(ppt-config.bg_img, width: 100%, height: 100%, fit: "cover"),
+  bg-img: background-image
 )
 
 #outline-slide(title: none, level: 2, indent: 1em)

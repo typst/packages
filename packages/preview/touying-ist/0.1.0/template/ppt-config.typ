@@ -5,5 +5,4 @@
   date: datetime.today(),
   contact: "you@example.com",
   institution: [Institute of Science Tokyo],
-  bg_img: "imgs/bg.png",
 )
