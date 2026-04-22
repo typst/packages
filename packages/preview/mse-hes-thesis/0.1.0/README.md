@@ -10,14 +10,13 @@ A clean and customizable Typst template for Master of Science in Engineering HES
 
 ## Features
 
-*  HES-SO inspired layout
-*  Automatic cover page
-*  Table of contents
-*  Styled headers and footers
-*  Code and table formatting
-*  Bilingual support (French / English)
-*  Appendix support
-
+- HES-SO inspired layout
+- Automatic cover page
+- Table of contents
+- Styled headers and footers
+- Code and table formatting
+- Bilingual support (French / English)
+- Appendix support
 
 ## Quick Start
 
@@ -35,21 +34,11 @@ A clean and customizable Typst template for Master of Science in Engineering HES
 Hello world
 ```
 
-
-### Using locally
-
-```typst
-#import "mse-hes-thesis.typ": report-template
-```
-
-
 ## Configuration
 
 You can customize the template using the following parameters:
 
 ```typst
-#import "@preview/mse-hes-thesis:0.1.0": report-template
-
 #show: report-template.with(
   title: "Title",
   subtitle: "Master of Science HES SO in Engineering",
@@ -93,10 +82,9 @@ lang: "en" // or "fr"
 
 This automatically adapts:
 
-* Section titles
-* Labels
-* Static text
-
+- Section titles
+- Labels
+- Static text
 
 ## Appendix
 
@@ -107,16 +95,6 @@ This automatically adapts:
 Content...
 ```
 
-
 ## Examples
 
 Check the `examples/` folder for sample documents using the template.
-
-
-## Typst Package
-
-This template is available as a Typst package:
-
-```typst
-#import "@preview/mse-hes-thesis:0.1.0": report-template
-```

@@ -1,4 +1,4 @@
-#import "../mse-hes-thesis.typ": appendix, report-template
+#import "@preview/mse-hes-thesis:0.1.0": appendix, report-template
 
 #show: report-template.with(
   title: "Example Report",
