@@ -56,6 +56,33 @@
   return none
 }
 
+#let content-to-string(c) = {
+  if type(c) == str { c }
+  else if c == [ ] { " " }
+  else if c.has("text") { c.text }
+  else if c.has("children") { c.children.map(content-to-string).join("") }
+  else if c.has("body") { content-to-string(c.body) }
+  else { "" }
+}
+
+#let ellipsisise(max-width, text) = box(layout(size => context {
+  let width(t) = measure(t).width
+  let limit = if type(max-width) == ratio { max-width * size.width } else { max-width }
+  let s = content-to-string(text)
+  let s_orig = s
+  let ellipsis = "..."
+
+  while s.len() > 0 and width(s) + width(ellipsis) > limit {
+    s = s.slice(0, calc.max(0, s.len() - 1))
+  }
+
+  if s == s_orig {
+    s
+  } else {
+    s + ellipsis
+  }
+}))
+
 #let v-after-numbered-chapter-heading(it) = context {
   if it == none {
     panic("Parameter \"it\" of \"v-after-numbered-chapter-heading\" must be defined.")
@@ -122,7 +149,13 @@
   set align(center + horizon)
   set par(first-line-indent: 0cm)
   align(start + horizon)[
-    #text(font: tokens.font-families.headers, fill: tokens.colour.main, weight: "bold", size: tokens.font-sizes.h1, title)
+    #text(
+      font: tokens.font-families.headers,
+      fill: tokens.colour.main,
+      weight: "bold",
+      size: tokens.font-sizes.h1,
+      title,
+    )
     #content
   ]
 }

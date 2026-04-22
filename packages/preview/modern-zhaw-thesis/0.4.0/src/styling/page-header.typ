@@ -1,5 +1,6 @@
 #import "tokens.typ": tokens
 #import "@preview/tieflang:0.1.0": tr
+#import "../utils.typ": ellipsisise
 
 #let page-header-styles(doc) = {
   set page(
@@ -12,7 +13,7 @@
           ),
         )
 
-        [#left-text #h(1fr) #right-text]
+        [#left-text #h(1fr) #ellipsisise(80%, right-text)]
       }
 
       let page-number = here().page()
