@@ -2,7 +2,7 @@
 
 Render sheet music directly inside Typst with a WASM-backed SVG renderer.
 
-Full API and syntax documentation: [docs/reference.md](https://github.com/justinbornais/typst-sheet-music/blob/main/docs/reference.md)
+Full API and syntax documentation: [docs/reference.md](https://github.com/justinbornais/typst-sheet-music/blob/v0.3.0/docs/reference.md)
 
 ## Usage
 
@@ -16,20 +16,6 @@ Compile normally:
 
 ```text
 typst compile your-file.typ
-```
-
-### Manual Installation
-
-Copy `lib.typ` and `scorify_wasm.wasm` into your project, then import locally:
-
-```typ
-#import "lib.typ": score, melody
-```
-
-Compile with:
-
-```text
-typst compile your-file.typ --root .
 ```
 
 ## Font Setup
