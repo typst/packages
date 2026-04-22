@@ -141,7 +141,7 @@ Das erstellt sofort einen fertigen Projektordner mit einer vorausgefüllten `mai
 
 Das Script stellt dir alle Fragen und erstellt eine vollständig ausgefüllte `main.typ` mit deinen Daten.
 
-> **Hinweis:** Lies das Script kurz durch, bevor du es ausführst: [scripts/init.sh](https://github.com/lultoni/easy-wi-hwr/blob/main/scripts/init.sh)
+> **Hinweis:** Lies das Script kurz durch, bevor du es ausführst: [scripts/init.sh](https://github.com/lultoni/easy-wi-hwr/blob/3b53d9369c8a67afc6f45ff04b14c792b3d5356b/scripts/init.sh)
 
 **Lokal ausführen nach Download:**
 ```bash
@@ -356,7 +356,7 @@ Die HWR verlangt unter jeder Abbildung und Tabelle eine Quellenangabe. Das Templ
 
 // Mit Seitenangabe (ebenfalls klickbar):
 #figure(
-  table(...),
+  table(/* Tabelleninhalt */),
   caption: [Vergleich. #quelle(<mueller2023>, "S. 42")],
 )
 // → "Quelle: Müller (2023), S. 42"
