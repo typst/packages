@@ -21,4 +21,4 @@ exclude = [ "*.pdf", "slide-images/" ]
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "slide-images/thumbnail.png"
+thumbnail = "./thumbnail.png"
