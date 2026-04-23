@@ -199,7 +199,7 @@
   #set page(header: none, footer: none, numbering: none)
   #align(center)[
     #v(16mm)
-    #image("assets/uct.jpg", width: 43mm)
+    #image("assets/sample_logo.png", width: 43mm)
     #v(20mm)
     #spaced-caps(meta.title, size: 21pt)
     #v(8mm)

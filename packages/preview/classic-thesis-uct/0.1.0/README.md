@@ -16,6 +16,8 @@ Or in the [Typst web app](https://typst.app), click **Start from template** and 
 
 The generated project gives you a runnable `main.typ`, seven chapter stubs, an example bibliography, and the layout module ready for editing.
 
+**Note:** All images in the template were generated using Gemini 3.1 Flash Image and do not violate the rights of any idividual or entity. Replace with your own figures when creating your thesis.
+
 ## Using as a library
 
 If you would rather drive the layout yourself, import the module from your own document:

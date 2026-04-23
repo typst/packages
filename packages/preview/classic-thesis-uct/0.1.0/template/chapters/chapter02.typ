@@ -21,7 +21,7 @@ Summarise the most relevant literature thematically rather than paper-by-paper. 
       #align(center)[#text(size: 8.5pt)[(a) Example image panel A]]
     ],
     [
-      #image("../graphics/wave_glider.jpeg", width: 100%)
+      #image("../graphics/wave_glider.png", width: 100%)
       #v(2mm)
       #align(center)[#text(size: 8.5pt)[(b) Example image panel B]]
     ],
