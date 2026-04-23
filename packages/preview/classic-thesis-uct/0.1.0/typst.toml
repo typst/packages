@@ -1,0 +1,30 @@
+[package]
+name = "uct-classic-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["James <https://github.com/james-hepworth>"]
+license = "GPL-2.0-or-later"
+description = "PhD thesis at the University of Cape Town in the Classic Thesis tradition."
+repository = "https://github.com/james-hepworth/classic-thesis-uct"
+keywords = [
+  "thesis",
+  "dissertation",
+  "proposal",
+  "classic-thesis",
+  "uct",
+  "university-of-cape-town",
+]
+categories = ["thesis"]
+disciplines = []
+compiler = "0.11.0"
+exclude = [
+  "AGENTS.md",
+  "main-typst.pdf",
+  "fonts",
+  "tmp",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
