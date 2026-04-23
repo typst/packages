@@ -1,4 +1,4 @@
-#import "@preview/neat-tudublin:1.0.0": *
+#import "@preview/neat-tu-dublin:1.0.0": *
 #import "abbreviations.typ": abbreviations
 
 #show: template.with(

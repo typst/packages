@@ -35,13 +35,13 @@ Finally, the template allows you to select fonts, paper sizes, and languages so 
 To use Neat-TU-Dublin, start a new `.typ` document and import the template.
 To use the template locally, run the following command in your terminal:
 ```bash
-typst init @preview/neat-tudublin:1.0.0
+typst init @preview/neat-tu-dublin:1.0.0
 ```
 
 Here is a minimal example showing how to set up the template with metadata for a thesis:
 
 ```typst
-#import "@preview/neat-tudublin:1.0.0": *
+#import "@preview/neat-tu-dublin:1.0.0": *
 
 #show: template.with(
   title: [Neat-TU-Dublin],

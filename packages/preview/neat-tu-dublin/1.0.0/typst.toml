@@ -1,8 +1,8 @@
 [package]
-name = "neat-tudublin"
+name = "neat-tu-dublin"
 version = "1.0.0"
 compiler = "0.13.1"
-entrypoint = "src/neat-tudublin.typ"
+entrypoint = "src/neat-tu-dublin.typ"
 authors = ["Ruán Murgatroyd <https://github.com/rjmurg>"]
 keywords = ["thesis", "report", "tud", "tu dublin"]
 categories = ["report", "thesis"]
