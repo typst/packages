@@ -2,7 +2,7 @@
 name = "awesome-mff-cuni"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["Petr Velyčko <petrvelycko>"]
+authors = ["Petr Velyčko <@petrvelycko>"]
 categories = ["thesis"]
 repository = "https://git.brloh.is/petrvel/awesome-mff-cuni"
 license = "MIT"
