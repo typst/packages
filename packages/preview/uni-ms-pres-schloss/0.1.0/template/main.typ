@@ -93,7 +93,7 @@
   #align(center)[
     #block(
       stroke: 2.5pt + lapis,
-      fill: light_grey,
+      fill: light-grey,
       radius: 0.5em,
       inset: 0.5em,
     )[
@@ -109,7 +109,7 @@
   #align(center)[
     #block(
       stroke: 2.5pt + lapis,
-      fill: light_grey,
+      fill: light-grey,
       radius: 0.5em,
       inset: 0.5em,
     )[
@@ -125,7 +125,7 @@
   #align(center)[
     #block(
       stroke: 2.5pt + lapis,
-      fill: light_grey,
+      fill: light-grey,
       radius: 0.5em,
       inset: 0.5em,
     )[
@@ -146,7 +146,7 @@
   #align(center)[
     #block(
       stroke: 2.5pt + lapis,
-      fill: light_grey,
+      fill: light-grey,
       radius: 0.5em,
       inset: 0.5em,
     )[
@@ -161,7 +161,7 @@
   #align(center)[
     #block(
       stroke: 2.5pt + lapis,
-      fill: light_grey,
+      fill: light-grey,
       radius: 0.5em,
       inset: 0.5em,
     )[

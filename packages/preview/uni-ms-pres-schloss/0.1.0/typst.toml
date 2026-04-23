@@ -16,7 +16,7 @@ keywords = [
 ]
 categories = [ "presentation" ]
 disciplines = [ "education", "mathematics", "computer-science" ]
-exclude = [ "*.pdf", "*.png", "slide-images" ]
+exclude = [ "*.pdf", "slide-images/" ]
 
 [template]
 path = "template"

@@ -92,7 +92,7 @@ pres-theme(
 
 ### Title Slide
 
-![title-slide](./slide-images/thumbnail.png)
+![Presentation title slide for the University of Münster (Universität Münster). The background features a blue-tinted architectural photograph of the Prince Bishop's Palace in Münster. Text placeholders include "Presentation Title" in a large bold font, "Your Name," "23. April 2026," and "a possible subtitle." The university logo is in the top left corner, and the slogan "living.knowledge" is in the bottom left.](./thumbnail.png)
 
 ```typ
 #title-slide(
@@ -124,7 +124,7 @@ If `author`, `date`, or `title` stay `none`, values from `pres-theme` are used.
 
 ### Outline Slide
 
-![outline-slide](./slide-images/outline-slide.png)
+![Presentation outline slide for the University of Münster. The slide features a numbered list: 1. Header slide, 2. Some examples of content, 3. Useful features and hints, 4. Bibliography. The university logo is top-left, "Presentation Title" is top-right, and a footer includes "Your Name" and the slide number "1 / 14."](./slide-images/outline-slide.png)
 
 ```typ
 #outline-slide(
@@ -141,7 +141,7 @@ Otherwise, the text is scaled dynamically.
 
 ### Header Slide
 
-![header-slide](./slide-images/headder-slide.png)
+![Section header slide for the University of Münster. The background is a blue-tinted image of the Prince Bishop's Palace. Central text reads "Header slide" above a horizontal line and "Presentation Title." The university logo is top-left, with "Your Name" and "2/14" in the footer.](./slide-images/headder-slide.png)
 
 `#header-slide` registers the section for the outline automatically.
 If you want to create a new section without it, use:
@@ -153,7 +153,7 @@ If you want to create a new section without it, use:
 
 ### Basic Slide
 
-![basic-slide](./slide-images/bais-slide.png)
+![Basic content slide for the University of Münster. The slide is titled "Basic Slide" and contains a paragraph of placeholder Latin text (Lorem ipsum). The university logo is top-left, "Header slide" is top-right, and the footer shows "Your Name" with slide number "3 / 14."](./slide-images/bais-slide.png)
 
 ```typ
 #slide(heading: [Basic Slide])[
@@ -163,7 +163,7 @@ If you want to create a new section without it, use:
 
 ### Multi-Column Layout
 
-![multi-column-slide](./slide-images/multi-column-slide.png)
+![Multi-column content slide for the University of Münster titled "Multi-Column-slide." It features three columns of placeholder Latin text (Lorem ipsum). The university logo is top-left, the section title "Some examples of content" is top-right, and the footer contains "Your Name" and slide number "8 / 14."](./slide-images/multi-column-slide.png)
 
 ```typ
 #slide(heading: [Multi-column Slide])[
@@ -171,9 +171,13 @@ If you want to create a new section without it, use:
 ]
 ```
 
+### Code Slide
+![Presentation slide titled "Code" for the University of Münster. It displays a code block with syntax highlighting and line numbers containing a mix of Python and non-standard syntax. The slide includes the university logo, the section title "Some examples of content," and the footer "Your Name" with slide number "5 / 14."](./slide-images/code-slide.png )
+
+
 ### Equations
 
-![slide-math](./slide-images/math-slide.png)
+![Slide titled "How to use equations" for the University of Münster. It demonstrates inline math $a + b \neq c$ and a centered, numbered equation $a^2 + b^2 = c^2$ (1). The text mentions that "eq. (1) references Pythagoras' theorem" with a citation to "[1]". Standard university branding and footer "7 / 14" are included.](./slide-images/math-slide.png)
 
 ```typ
 #show: document => conf-equations(document)
@@ -188,7 +192,7 @@ If you want to create a new section without it, use:
 
 ### Image + Footnote
 
-![slide-image](./slide-images/image-slide.png)
+![Presentation slide for the University of Münster demonstrating how to combine images and footnotes. A central graphic shows a computer monitor icon with a line chart on the screen, captioned "Figure 1: Example image." A footnote at the bottom credits the image source. Standard university branding and footer "9 / 14" are present.](./slide-images/image-slide.png)
 
 ```typ
 #slide(block-height: 85%)[
@@ -202,7 +206,7 @@ If you want to create a new section without it, use:
 
 ### Bibliography Slide
 
-![bibliography-image](./slide-images/bibliography-slide.png)
+![Bibliography slide for the University of Münster titled "Bibliography." It lists one reference: "[1] M. Gerwig, Der Satz des Pythagoras in 365 Beweisen. Berlin: Springer Spektrum, 2021" with a linked DOI. The university logo is top-left, the section title "Bibliography" is top-right, and the footer shows "Your Name" and "14 / 14."](./slide-images/bibliography-slide.png)
 
 ```typ
 #header-slide()[Bibliography]

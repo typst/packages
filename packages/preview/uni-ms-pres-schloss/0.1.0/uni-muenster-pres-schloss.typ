@@ -1,6 +1,6 @@
 #import "@preview/polylux:0.4.0": *
 #import "@preview/polylux:0.4.0": slide as s
-#import "@preview/ez-today:0.3.0"
+#import "@preview/ez-today:2.1.0"
 #import "math-utils.typ": *
 
 // States for basic Data
@@ -11,13 +11,13 @@
 // Main colors
 #let lapis = rgb("#00578A")       // Dark Blue
 #let cyan = rgb("#009DD1")        // Light Blue
-#let dark_grey = rgb("#333F48")   // Dark jet soft Grey (Used for e.g. text)
+#let dark-grey = rgb("#333F48")   // Dark jet soft Grey (Used for e.g. text)
 
 // Additional official colors (Mostly unused)
 #let violet = rgb("#AF0078")
-#let grey_blue = rgb("#006E89")   // Not colorblind friendly with main colors
+#let grey-blue = rgb("#006E89")   // Not colorblind friendly with main colors
 #let turquoise = rgb("#008E96")   // Not colorblind friendly with main colors
-#let light_green = rgb("#B1C800") // Apple Green
+#let light-green = rgb("#B1C800") // Apple Green
 
 // These colors aren't part of the official theme
 // However they should play very nice with the main colors (including colorblind friendly contrasts)
@@ -25,11 +25,11 @@
 #let orange = rgb("#D28901")      // Medium Orange
 #let red = rgb("#D14200")         // A pastel red
 // Different steps of grey
-#let light_grey = rgb("#f2f2f2")  // Lighter grey
-#let medium_grey = rgb("#ccc")    // Somewhat light grey (Can collide with apple green)
+#let light-grey = rgb("#f2f2f2")  // Lighter grey
+#let medium-grey = rgb("#ccc")    // Somewhat light grey (Can collide with apple green)
 #let grey = rgb("#a6a6a6")        // Just grey
 
-#let x_margin = 1.2cm
+#let x-margin = 1.2cm
 
 
 // https://forum.typst.app/t/how-to-auto-size-text-and-images/1290/3
@@ -76,7 +76,7 @@
     font: (text-font, "Libertinus Serif"),
     lang: text-lang,
     size: text-size,
-    fill: dark_grey,
+    fill: dark-grey,
   )
   set par(
     justify: true,
@@ -94,7 +94,7 @@
   )
   
   // Global font and default text color for all code
-  show raw: set text(font: (code-font, "DejaVu Sans Mono"), fill: dark_grey)
+  show raw: set text(font: (code-font, "DejaVu Sans Mono"), fill: dark-grey)
   
   // Set Code theme
   set raw(theme: "assets/Code_Color.tmTheme")
@@ -113,12 +113,12 @@
     }
     
     block(
-      // Using 'light_grey' for the background and 'medium_grey' for the border
-      fill: light_grey,
+      // Using 'light-grey' for the background and 'medium-grey' for the border
+      fill: light-grey,
       inset: 12pt,
       radius: 20pt,
       width: 100%,
-      stroke: 1pt + medium_grey,
+      stroke: 1pt + medium-grey,
       it
     )
   }
@@ -156,7 +156,7 @@
   }
 
   set page(
-    margin: (top: 23%, bottom: 10%, left: x_margin, right: x_margin),
+    margin: (top: 23%, bottom: 10%, left: x-margin, right: x-margin),
     header-ascent: 23%,
     paper: "presentation-16-9",
     header: context {
@@ -172,18 +172,18 @@
         }
         
         // Left
-        place(top + left, dy: 0.4cm, dx: 0.6cm-x_margin, align(center, {
+        place(top + left, dy: 0.4cm, dx: 0.6cm-x-margin, align(center, {
           image("assets/Logo.svg", width: 22%)
         }))
         // Right
-        place(horizon + right, dx: x_margin - 0.6cm, align(center, {
+        place(horizon + right, dx: x-margin - 0.6cm, align(center, {
           text(size: 1em, fill: grey)[#current-chapter]
         }))
     },
     footer: context {
       set text(
         size: 0.8em,
-        fill: dark_grey
+        fill: dark-grey
       )
       let current-array = counter("logical-slide").get()
       let total-array = counter("logical-slide").final()
@@ -199,23 +199,23 @@
       // Progress Overlay (Cyan-Lapis)
       // Gradient from ratio to ratio + 1
       if progressbar {
-        place(top, dx: -x_margin,
-          line(stroke: 1pt + gradient.linear((lapis, 0%), (lapis, ratio * 100%), (grey, ratio_plus_1 * 100%), (grey, 100%)), length: (100% + 2*x_margin))
+        place(top, dx: -x-margin,
+          line(stroke: 1pt + gradient.linear((lapis, 0%), (lapis, ratio * 100%), (grey, ratio_plus_1 * 100%), (grey, 100%)), length: (100% + 2*x-margin))
         )
       } else {
-        place(top, dx: -x_margin,
-          line(stroke: 1pt + lapis, length: (100% + 2*x_margin))
+        place(top, dx: -x-margin,
+          line(stroke: 1pt + lapis, length: (100% + 2*x-margin))
         )
       }
       
       
       // Left (Author)
-      place(bottom + left, dy: -0.4cm, dx: 0.6cm-x_margin, align(center, {
+      place(bottom + left, dy: -0.4cm, dx: 0.6cm-x-margin, align(center, {
         text()[#author-state.get()]
       }))
       
       // Right (Slide Numbers)
-      place(bottom + right, dy: -0.4cm, dx: x_margin - 0.6cm, align(center, {
+      place(bottom + right, dy: -0.4cm, dx: x-margin - 0.6cm, align(center, {
         text()[#current / #total]
       }))
     }
@@ -353,8 +353,8 @@
     // Process the colors for internal links
     let colored-sections = sections.map(sec => {
       if sec.func() == link {          
-        let is-dark-grey = sec.body.func() == text and sec.body.fields().at("fill", default: none) == dark_grey
-        if is-dark-grey { sec } else { link(sec.dest, text(fill: dark_grey)[#sec.body]) }
+        let is-dark-grey = sec.body.func() == text and sec.body.fields().at("fill", default: none) == dark-grey
+        if is-dark-grey { sec } else { link(sec.dest, text(fill: dark-grey)[#sec.body]) }
       } else {
         sec 
       }
