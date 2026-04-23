@@ -1,0 +1,8 @@
+// Public entry point for the `uct-classic-thesis` package.
+//
+// Re-exports every symbol from the layout module so downstream documents only
+// need a single `#import "@preview/uct-classic-thesis:0.1.0": *` to access the
+// configure template, chapter helpers, figure / table / equation blocks, and
+// design-token constants. Keeping the public surface in this thin wrapper lets
+// us reorganise `classicthesis.typ` internally without affecting users.
+#import "classicthesis.typ": *
