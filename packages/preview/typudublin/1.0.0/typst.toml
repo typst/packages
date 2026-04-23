@@ -1,14 +1,14 @@
 [package]
-name = "typudublin"
+name = "neat-tudublin"
 version = "1.0.0"
 compiler = "0.13.1"
-entrypoint = "src/typudublin.typ"
+entrypoint = "src/neat-tudublin.typ"
 authors = ["Ruán Murgatroyd <https://github.com/rjmurg>"]
 keywords = ["thesis", "report", "tud", "tu dublin"]
 categories = ["report", "thesis"]
 license = "MIT"
 description = "Reports and theses for TU Dublin, derived from Angelo Nazzaro's amazing 'TypXidian' template."
-repository = "https://github.com/rjmurg/TypUDublin"
+repository = "https://github.com/rjmurg/Neat-TU-Dublin"
 
 [template]
 path = "src/template/"

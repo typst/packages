@@ -1,8 +1,8 @@
-#import "@preview/typudublin:1.0.0": *
+#import "@preview/neat-tudublin:1.0.0": *
 #import "abbreviations.typ": abbreviations
 
 #show: template.with(
-  title: [TypUDublin],
+  title: [Neat-TU-Dublin],
   subtitle: [A Typst template for TU Dublin reports],
   department: [School of Computer Science],
   course-code: [TU123],
@@ -38,22 +38,22 @@
 )
 
 
-= Welcome to TypUDublin!
+= Welcome to Neat-TU-Dublin!
 
-*TypUDublin* is a template for academic writing, designed for theses, dissertations, and reports at TU Dublin.
+*Neat-TU-Dublin* is a template for academic writing, designed for theses, dissertations, and reports at TU Dublin.
 
 #info(
   [
-    TypUDublin is built from Angelo Nazzaro's #link("https://github.com/angelonazzaro/typxidian")[Typxidian] template@typxidian.
+    Neat-TU-Dublin is built from Angelo Nazzaro's #link("https://github.com/angelonazzaro/typxidian")[Typxidian] template@typxidian.
     It draws its colour palette from TU Dublin's brand guidelines.
   ],
-  title: "About TypUDublin",
+  title: "About Neat-TU-Dublin",
 )
 
 The purpose of this document is to act both as a showcase and as documentation of the template.
 
 == Bundled Packages <sec:packages>
-TypUDublin comes with the following packages pre-included:
+Neat-TU-Dublin comes with the following packages pre-included:
 
 - `cetz:0.4.2`;
 - `cetz-plot:0.1.3`;
@@ -84,7 +84,7 @@ All functionalities can be accessed directly from the template.
 The template separates each chapter (first level heading) with one or two blank pages. Each new chapter starts
 on an odd page. You may customize the 'Chapter' supplement by overwriting the `chapter-supplement` parameter.
 
-TypUDublin offers two chapter heading styles: "basic" and "wonderland". You can set it by setting the `chapter-style` parameter. Below there is a comparison between the two styles:
+Neat-TU-Dublin offers two chapter heading styles: "basic" and "wonderland". You can set it by setting the `chapter-style` parameter. Below there is a comparison between the two styles:
 #subfigure(
   columns: (1fr, 1fr),
 
@@ -214,7 +214,7 @@ rendered only if there is at least one element.
 
 == SubFigures
 
-TypUDublin uses the `subpar` package (@sec:packages). To ensure consistent numbering of subfigures,
+Neat-TU-Dublin uses the `subpar` package (@sec:packages). To ensure consistent numbering of subfigures,
 you must use the `subfigure(...args)` function. Its use is the same as `subpar.grid()`. For instance,
 the following code:
 ```typ
@@ -267,7 +267,7 @@ Typst tables do not fill the width of the page by default. The `widetable()` met
     [Table of contents], [Renders TOC entries up to depth 3], [pages/toc.typ],
     [AI appendix], [Prints grouped AI prompt disclosures], [pages/appendixAi.typ],
   ),
-  caption: [Example wide table in TypUDublin.],
+  caption: [Example wide table in Neat-TU-Dublin.],
   kind: table,
   supplement: [Table],
 )
@@ -281,7 +281,7 @@ Typst tables do not fill the width of the page by default. The `widetable()` met
     [Table of contents], [Renders TOC entries up to depth 3], [pages/toc.typ],
     [AI appendix], [Prints grouped AI prompt disclosures], [pages/appendixAi.typ],
   ),
-  caption: [Example wide table in TypUDublin.],
+  caption: [Example wide table in Neat-TU-Dublin.],
   kind: table,
   supplement: [Table],
 )
@@ -291,14 +291,14 @@ Due to the inclusion of the `codly` packages, code blocks are improved from stan
 
 == Acronyms
 
-The custom version of Acrostiche developed for Typxidian and included in TypUDublin allows you to define acronyms and then consume them later, which hyperlink to the relevant abbreviation in the table of abbreviations.
+The custom version of Acrostiche developed for Typxidian and included in Neat-TU-Dublin allows you to define acronyms and then consume them later, which hyperlink to the relevant abbreviation in the table of abbreviations.
 
 The first time an acronym appears, i.e. #ac("UI"), it appears fully and provides the acronym. In future occurrences, #ac("UI"), it uses just the acronym with a link to the table. If you create an array in the abbreviations, you can add support for acronym plurals, i.e. #acp("UI").
 
 The bullet pointing only occurs if it can match the words to the abbreviation, for example, #ac("2FA") will not bold as the word `two` can not be connected to the number `2`, the remainder of Acrostiche's features are supported.
 
 == No Numbered Equations
-Sometimes you have the need to write block equations with no numbering. TypUDublin provides a built-in function
+Sometimes you have the need to write block equations with no numbering. Neat-TU-Dublin provides a built-in function
 so that you don't have to manually set the numbering to `none` when writing such equations. All you have
 to do is call the `equation(content, numbering: false)` function. For instance,
 `#equation($ sigma(x) = frac(1,1 + exp(-x)) $)` will display:
@@ -320,7 +320,7 @@ The `paragraph(body, title: "", kind: "par", supplement: "Paragraph")` function 
 
 == Text and Math Callouts
 
-As anticipated, TypUDublin's parent, Typxidian is inspired by Obsidian. The main Obsidian callouts are available in the template
+As anticipated, Neat-TU-Dublin's parent, Typxidian is inspired by Obsidian. The main Obsidian callouts are available in the template
 through the following functions: `info`, `danger`, `success`, `tip`, `faq`.
 
 All functions share the same signature, we will report only the `info` signature:
@@ -369,7 +369,7 @@ Below is a showcase of each callout:
   #lorem(10)
 ])
 
-TypUDublin also provides math callouts, mimicking "Alice in a Differentiable Wonderland" boxes. Specifically,
+Neat-TU-Dublin also provides math callouts, mimicking "Alice in a Differentiable Wonderland" boxes. Specifically,
 you can use: `definition`, `theorem` and `proof` callouts.
 The `definition` and `theorem` callouts share the same signature:
 ```typ
