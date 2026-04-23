@@ -1,4 +1,8 @@
-MIT License (with exceptions as follows)
+MIT License WITH EXCEPTIONS
+
+----------------------------------------------------------------------------
+
+MIT License
 
 Copyright (c) 2026 Wölkchen
 Based on original work: Copyright (c) 2025 Jonas Danker
@@ -23,6 +27,9 @@ SOFTWARE.
 
 ----------------------------------------------------------------------------
 EXCEPTIONS & ASSET LICENSING:
+
+Custom License: Uni-MS-AllRightsReserved
+SPDX-License-Identifier: LicenseRef-Uni-MS-AllRightsReserved
 
 1. THE CODE (MIT LICENSE)
 The permissive MIT license granted above applies to the underlying Typst 
