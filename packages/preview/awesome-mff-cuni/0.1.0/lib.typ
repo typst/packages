@@ -1,27 +1,27 @@
 #import "@preview/ctheorems:1.1.3": *
 
-#let mff_cuni_thesis(
+#let mff-cuni-thesis(
   doc,
   author: "Author's name",
-  thesis_type: "Master",
+  thesis-type: "Master",
   
-  thesis_title: "Thesis title",
+  thesis-title: "Thesis title",
   department: "Department",
   supervisor: "Supervisor",
-  study_program: "Study program",
+  study-program: "Study program",
   abstract: "Abstract",
   keywords: "Keywords",
   dedication: "Dedication..",
 
-  thesis_title_cs: "Název práce",
-  department_cs: "Katedra",
-  study_program_cs: "Studijní program",
-  abstract_cs: "Abstrakt",
-  keywords_cs: "Klíčová slova",
+  thesis-title-cs: "Název práce",
+  department-cs: "Katedra",
+  study-program-cs: "Studijní program",
+  abstract-cs: "Abstrakt",
+  keywords-cs: "Klíčová slova",
 ) = {
   show: thmrules
   set document(
-    title: thesis_title,
+    title: thesis-title,
     author: author,
     keywords: keywords,
     description: abstract,
@@ -37,7 +37,7 @@
 
     #v(1fr)
     
-    #upper(text(size: 20pt, weight: "bold")[#thesis_type thesis])
+    #upper(text(size: 20pt, weight: "bold")[#thesis-type thesis])
 
     #v(15mm)
 
@@ -45,7 +45,7 @@
     
     #v(1fr)
 
-    #text(size: 20pt, weight: "bold")[#smallcaps(thesis_title)]
+    #text(size: 20pt, weight: "bold")[#smallcaps(thesis-title)]
 
     #v(1fr)
 
@@ -55,7 +55,7 @@
 
     Supervisor: #supervisor
 
-    Study program: #study_program
+    Study program: #study-program
 
     #v(1fr)
 
@@ -65,7 +65,7 @@
   pagebreak()
 
   align(left + bottom)[
-    I declare that I carried out this #lower(thesis_type) thesis on my own, and only with the
+    I declare that I carried out this #lower(thesis-type) thesis on my own, and only with the
   cited sources, literature and other professional sources. I understand that my
   work relates to the rights and obligations under the Act No. 121/2000 Sb., the
   Copyright Act, as amended, in particular the fact that the Charles University has
@@ -91,7 +91,7 @@
   {
     set par(spacing: 2em)
     
-    [Title: #thesis_title
+    [Title: #thesis-title
 
     Author: #author
 
@@ -105,17 +105,17 @@
 
     #v(1fr)
 
-    Název práce: #thesis_title_cs
+    Název práce: #thesis-title-cs
 
     Autor: #author
 
-    Katedra: #department_cs
+    Katedra: #department-cs
 
-    Vedoucí práce: #supervisor, #department_cs
+    Vedoucí práce: #supervisor, #department-cs
 
-    Abstrakt: #abstract_cs
+    Abstrakt: #abstract-cs
 
-    Klíčová slova: #keywords_cs
+    Klíčová slova: #keywords-cs
     
     #v(1fr)]
   }

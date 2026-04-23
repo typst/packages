@@ -1,21 +1,21 @@
 #import "@preview/awesome-mff-cuni:0.1.0": *
-#show: doc => mff_cuni_thesis(
+#show: doc => mff-cuni-thesis(
   doc,
-  thesis_type: "Master", // Bachelor, Doctoral, Rigorosum
+  thesis-type: "Master", // Bachelor, Doctoral, Rigorosum
   author: "Awesome Author",
   
-  thesis_title: "Thesis Title",
+  thesis-title: "Thesis Title",
   department: "Department",
   supervisor: "prof. RNDr. Cool Supervisor",
-  study_program: "Study Program",
+  study-program: "Study Program",
   abstract: "Abstract... long long",
   keywords: "kew, words",
 
-  thesis_title_cs: "Název práce",
-  department_cs: "Katedra",
-  study_program_cs: "Studijní program",
-  abstract_cs: "Abstrakt, ale česky :)",
-  keywords_cs: "klíčová, slova",
+  thesis-title-cs: "Název práce",
+  department-cs: "Katedra",
+  study-program-cs: "Studijní program",
+  abstract-cs: "Abstrakt, ale česky :)",
+  keywords-cs: "klíčová, slova",
 )
 
 = Introduction
