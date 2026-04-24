@@ -20,7 +20,7 @@ The generated project contains:
 ### Import into an existing project
 
 ```typst
-#import "@preview/bluenote-ist:0.1.0": *
+#import "@preview/bluenote-ist:0.1.1": *
 
 #show: ist-theme.with(
   config-info(
