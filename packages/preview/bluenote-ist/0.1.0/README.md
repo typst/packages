@@ -7,7 +7,7 @@ A Touying-based seminar slide template for the Institute of Science Tokyo.
 ### Start a new project
 
 ```bash
-typst init @preview/touying-ist:0.1.0
+typst init @preview/bluenote-ist:0.1.0
 ```
 
 The generated project contains:
@@ -20,7 +20,7 @@ The generated project contains:
 ### Import into an existing project
 
 ```typst
-#import "@preview/touying-ist:0.1.0": *
+#import "@preview/bluenote-ist:0.1.0": *
 
 #show: ist-theme.with(
   config-info(
