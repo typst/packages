@@ -1,0 +1,17 @@
+[package]
+name = "soc-fyp-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Ian Tung <@tzyian>"]
+license = "MIT"
+description = "Unofficial template for Final Year Project reports at NUS Computing."
+repository = "https://github.com/tzyian/soc-fyp-report"
+keywords = ["template", "report", "NUS", "SoC", "FYP", "computing"]
+disciplines = ["computer-science", "engineering"]
+categories = ["thesis", "report"]
+exclude = ["/sample/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
