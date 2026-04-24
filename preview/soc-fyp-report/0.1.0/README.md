@@ -1,6 +1,8 @@
-# NUS-SoC FYP Report Template
+# SoC FYP Report
 
-An unofficial template for Final Year Project reports for School of Computing, National University of Singapore. For the latest report requirements, refer to the [NUS-SoC report info](https://www.comp.nus.edu.sg/programmes/ug/project/fyp/report/) and [report guidelines](https://www.comp.nus.edu.sg/programmes/ug/project/fyp/contact/).
+An unofficial template for Final Year Project reports for School of Computing (SoC), National University of Singapore (NUS).
+
+For the latest report requirements, refer to the [NUS-SoC report info](https://www.comp.nus.edu.sg/programmes/ug/project/fyp/report/) and [report guidelines](https://www.comp.nus.edu.sg/programmes/ug/project/fyp/contact/).
 
 ## Quickstart
 
@@ -13,5 +15,5 @@ typst watch main.typ
 ```
 
 ## Acknowledgements
-Initial format was adapted from [Dethada/NUS-SoC-Report](https://github.com/Dethada/NUS-SoC-Report).
+The formatting was informed by SoC's report guidelines and the initial layout was inspired by [Dethada/NUS-SoC-Report](https://github.com/Dethada/NUS-SoC-Report).
 

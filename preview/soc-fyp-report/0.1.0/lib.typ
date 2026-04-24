@@ -83,7 +83,7 @@
   #pagebreak()
   #counter(page).update(1)
   #set page(numbering: (..nums) => {
-    let n = nums.pos().first()
+    let n = nums.at(0)
     prefix + "-" + str(n)
   })
   #heading(level: 1, numbering: none)[Appendix #prefix - #title]
