@@ -22,7 +22,10 @@ Seu texto aqui...
 
 #citacao-longa[Citação com 4cm de recuo.]
 
-#referencias[ / Autor. Título. 2024. ]
+#referencias[ 
+  / Autor, Nome.: Título do Livro. Cidade: Editora, 2024. 
+]
+
 ```
 
 ## Funções Principais
