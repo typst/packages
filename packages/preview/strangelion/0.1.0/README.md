@@ -1,66 +1,70 @@
-# 大学论文 Typst 模板
+University Thesis Typst Template
 
-一个为本科生毕业论文设计的 Typst 排版模板。它基于中文学术规范，帮助使用者快速完成论文的封面、章节和参考文献排版，让使用者专注于写作本身。
+A professional Typst typesetting template specifically crafted for undergraduate dissertations. Designed around Chinese academic standards, this template handles the heavy lifting of covers, section formatting, and bibliography management so you can focus on what actually matters: your research.
+Key Features
 
-## 特点
+    Effortless Writing: Uses intuitive markup syntax—no more wrestling with complex LaTeX commands.
 
-- 简洁写作：全程使用标记式语法，告别复杂的 LaTeX 命令。
-- 符合学术规范：内置了中文论文标准格式（封面、各级标题、图表编号等）。
-- 快速渲染：基于 Typst 引擎，实时编译，所见即所得。
-- 完整的章节结构：预设了从“摘要”到“致谢”的完整文档框架。
-- 参考文献支持：集成 GB/T 7714 中文国标引用样式。
+    Academic Rigor: Built-in compliance with Chinese thesis standards, including covers, hierarchical headings, and figure/table numbering.
 
-## 使用方法
+    Blazing Fast: Powered by the Typst engine for real-time compilation and instant PDF previews.
 
-1. 环境准备
+    Ready-to-Go Structure: Comes with a complete document framework, from the Abstract to Acknowledgments.
 
-本项目需要安装 Typst。它提供本地编译与在线编辑两种使用方式：
+    Citation Ready: Integrated support for the GB/T 7714 (numeric) national standard for bibliographies.
 
-- 本地安装：
-  - Windows：从 GitHub Releases 下载 typst-x86_64-pc-windows-msvc.zip，解压后将路径添加到系统 PATH。
-  - macOS/Linux：可以使用包管理器（如 Homebrew、APT、Pacman）进行安装，也可以使用 Rust 的 Cargo 工具通过 cargo install typst-cli 命令安装。
-  - 安卓: 使用termux安装一个Linux环境再参照Linux教程使用
-  - 验证安装：在终端中输入 typst -V，若显示版本号则说明安装成功。
-  - VSCode 插件（推荐）：在 VSCode 扩展商店中搜索并安装 “Tinymit Typst”。它会在你保存代码时自动刷新 PDF 预览，带来类似 Typora 的写作体验。
-- 网页使用：
-  - 官方网站 https://typst.app/play/
-  - 创建GitHub代码空间https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=strangelion/university-typst-template
+Getting Started
+1. Environment Setup
 
-2. 获取模板
+You can use Typst locally or directly in your browser:
 
-你可以选择以下任一方式：
+Local Installation:
 
-- 下载 ZIP：直接下载本项目代码并解压。
-- 克隆仓库： // git clone https://github.com/strangelion/university-typst-template.git
+    Windows: Download typst-x86_64-pc-windows-msvc.zip from GitHub Releases and add the executable to your system PATH.
 
-3. 编译论文
+    macOS/Linux: Install via package managers (Homebrew, APT, Pacman) or use Rust's Cargo: cargo install typst-cli.
 
-进入项目目录后，执行编译命令即可生成 PDF 文件：// typst compile main.typ paper.pdf
-如果出现字体问题手动安装字体或用这个：// typst compile --font-path ./fonts main.typ paper.pdf
+    Android: Install a Linux environment via Termux and follow the Linux instructions.
 
-若你安装了 VSCode 插件，打开 main.typ 文件后，插件会自动启动预览服务。之后你可以在浏览器中实时查看论文排版效果。使用插件注意固定主文件以避免产生不需要的PDF文件（Ctrl + Shift + P打开命令面板）：
-- Typst:将主文件固定到当前打开的文档 Typst: Pin the Main File to the Currently Open Document 
-- Typst:取消固定主文件 Typst: Unpin the main file
+    Verification: Run typst -V in your terminal. If the version appears, you're good to go.
 
-## 配置说明
+    VSCode (Recommended): Install the "Tinymit Typst" extension. It provides a real-time "write-as-you-see" experience similar to Typora.
 
-你可以在 config.typ 文件中修改论文的基本信息：
+Web-based Usage:
 
-所有个人信息在这里只需修改一次，即可在封面和信息表格中全局生效。
+    Official Typst Web App: typst.app/play/
 
-## 参考文献
+    GitHub Codespaces: Create a Codespace here
 
-模板默认使用 GB/T 7714-2015 中文国标引用样式（numeric）。你只需要在references.bib(references.yml默认关闭) 文件中填入文献信息，并在正文中使用 #cite 引用即可。
+2. Obtain the Template
 
-## 贡献指南
+Choose your preferred method:
 
-欢迎提交 Pull Request 或 Issue 来完善这个模板！无论是修复 Bug、改进样式还是补充文档，都感激不尽。
+    Download ZIP: Download and extract the project source code.
 
-## 特殊方式
-- Github Action:
-  - 可以clone该项目，修改好内容后手动触发action获得包含PDF的压缩包。（何意为？）
-  - 不要pull本项目时使用action，会对本项目action产生影响。
+    Clone Repository: git clone https://github.com/strangelion/university-typst-template.git
 
-## 许可证
+3. Compiling Your Thesis
 
-该项目基于Apache-2.0 许可证开源。
+Navigate to the project directory and run:
+typst compile main.typ paper.pdf
+
+If you encounter font issues, use the local font path:
+typst compile --font-path ./fonts main.typ paper.pdf
+
+    Pro Tip for VSCode Users: Pin your main.typ file to avoid generating unnecessary PDF fragments (Ctrl + Shift + P -> Typst: Pin the Main File to the Currently Open Document).
+
+Configuration
+
+All personal and thesis metadata is centralized in config.typ.
+Modify your information once (title, name, student ID, etc.), and it will automatically propagate across the cover page and all relevant information tables.
+References
+
+The template defaults to the GB/T 7714-2015 (numeric) style. Simply populate your references.bib (or references.yml) and use the #cite command within your text.
+GitHub Actions
+
+You can clone this repository and manually trigger the built-in GitHub Action to generate a ZIP file containing your compiled PDF.
+Note: Avoid running actions directly on the upstream repository to prevent conflicts.
+License
+
+This project is licensed under the Apache-2.0 License.

@@ -1,4 +1,5 @@
-set text(lang: "zh", region: "cn")
+#set text(lang: "zh", region: "cn")
+
 // 定义一个辅助函数：将字符串拆分并插入 1fr 间距实现两端对齐
 #let justify-text(body) = {
   if type(body) != str { return body }
@@ -12,14 +13,22 @@ set text(lang: "zh", region: "cn")
 }
 
 #let template(
-  head: "",
-  title: "",
-  author: "",
-  student-id: "",
-  major: "",
-  advisor: "",
-  date: "",
   doc,
+  head: (value: none, visible: none, depth: none),
+  title: (value: none, visible: none, depth: none),
+  title_en: (value: none, visible: none, depth: none),
+  school_semester: (value: none, visible: none, depth: none),
+  school: (value: none, visible: none, depth: none),
+  course_id: (value: none, visible: none, depth: none),
+  course_name: (value: none, visible: none, depth: none),
+  college: (value: none, visible: none, depth: none),
+  author: (value: none, visible: none, depth: none),
+  student_id: (value: none, visible: none, depth: none),
+  class: (value: none, visible: none, depth: none),
+  major: (value: none, visible: none, depth: none),
+  supervisor: (value: none, visible: none, depth: none),
+  date: (value: datetime.today().display("[year]年[month]月[day]日"), visible: none, depth: none),
+  info_order: none,
 ) = {
   // 1. 页面设置
   set page(
@@ -33,23 +42,47 @@ set text(lang: "zh", region: "cn")
 
   // 3. 封面生成
   align(center)[
-    #v(2cm)
-    #image("resources/logo.png", width: 80%)
-    #v(1cm)
-
-    #text(size: 26pt, weight: "bold")[#head] \
-    #v(2cm)
-    #text(size: 22pt, weight: "bold")[#title]
-
+    #v(1.2cm)
+    #image("resource/logo.png", width: 80%)
+    #v(0.6cm)
+    #if head.visible {
+      text(size: 26pt, weight: "bold")[#head.value]
+      v(1cm)
+    }
+    #if title.visible {
+      text(size: 22pt, weight: "bold")[#title.value]
+      v(0.6cm)
+    }
+    #if title_en.visible {
+      text(size: 18pt)[#title_en.value]
+      v(0.6cm)
+    }
     #v(1fr)
 
-    // 1. 先测量所有信息的宽度，找出最大宽度
     #context {
-      let fields = (author, student-id, major, advisor)
-      let widths = fields.map(f => measure(text(size: 14pt)[#f]).width)
-      let max-width = calc.max(..widths) + 20pt // 动态计算最长宽度并加余量
+      // 1. 定义所有可能的字段映射，Key 为 depth 值 [cite: 1, 2]
+      let all-fields = (
+        "4": ("学期信息：", school_semester),
+        "5": ("学　　校：", school),
+        "6": ("　课程号：", course_id),
+        "7": ("课程名称：", course_name),
+        "8": ("学　　院：", college),
+        "9": ("学生姓名：", author),
+        "10": ("学　　号：", student_id),
+        "11": ("班　　级：", class),
+        "12": ("专　　业：", major),
+        "13": ("指导教师：", supervisor),
+      )
+      // 2. 筛选出当前可见的字段用于计算最大宽度 [cite: 8]
+      let visible-items = all-fields.values().filter(it => it.at(1).visible)
+      let max-width = if visible-items.len() > 0 {
+        let widths = visible-items.map(it => measure(block(width: auto, text(size: 14pt)[#it.at(1).value])).width)
+        calc.max(..widths) + 20pt
+      } else {
+        0pt
+      }
 
-      // 2. 重新定义 info-row
+      // 3. 定义行渲染函数 [cite: 9, 10]
       let info-row(label, value) = {
         grid(
           columns: (80pt, max-width),
@@ -62,19 +95,38 @@ set text(lang: "zh", region: "cn")
           ],
         )
       }
-      v(1fr)
-      info-row("学生姓名：", author)
-      v(1.5em)
-      info-row("学　　号：", student-id)
-      v(1.5em)
-      info-row("专　　业：", major)
-      v(1.5em)
-      info-row("指导教师：", advisor)
-      v(1fr)
+
+      // 4. 根据 info_order 的顺序循环渲染
+      for d in info_order {
+        let key = str(d)
+        if key in all-fields {
+          let (label, data) = all-fields.at(key)
+          if data.visible {
+            info-row(label, data.value)
+            v(1.2em)
+          } else {
+            if data.value != none {
+              // 如果字段不可见但有值，仍占位但不显示内容
+              grid(
+                columns: (80pt, max-width),
+                column-gutter: 0pt,
+                align: (right + horizon, center + horizon),
+                text(weight: "bold", size: 14pt)[#label],
+                block(width: 100%, stroke: (bottom: 1pt), inset: (bottom: 4pt))[
+                  #set text(size: 14pt)
+                  #v(1.2em) // 占位符，保持行高一致
+                ],
+              )
+            }
+          }
+        }
+      }
     }
 
     #v(1fr)
-    #text(size: 14pt)[#date]
+    #if date.visible {
+      text(size: 14pt)[#date.value]
+    }
 
   ]
 
@@ -132,6 +184,32 @@ set text(lang: "zh", region: "cn")
     #set text(size: 10.5pt, font: ("Times New Roman", "SimSun"))
     #it.supplement #context it.counter.display(it.numbering) ：#it.body
   ]
+
+  // --- 跨页续表处理方案 ---
+  // 1. 定义一个状态变量来记录表格开始的页码
+  let table-start-page = state("table-start-page", 0)
+
+  // 2. 拦截 table，记录它开始渲染时的页码
+  show table: it => {
+    context {
+      table-start-page.update(here().page())
+    }
+    it
+  }
+
+  // 3. 拦截 table.header，判断当前页码是否大于开始页码
+  show table.header: it => {
+    context {
+      let start = table-start-page.at(here())
+      if here().page() > start {
+        align(right)[
+          #set text(size: 10.5pt, weight: "regular")
+          续表
+        ]
+      }
+    }
+    it
+  }
 
   // 目录样式修正
   show outline.entry.where(level: 1): it => {
