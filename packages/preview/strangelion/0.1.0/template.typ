@@ -43,7 +43,7 @@
   // 3. 封面生成
   align(center)[
     #v(1.2cm)
-    #image("resource/logo.png", width: 80%)
+    #image("resources/logo.png", width: 80%)
     #v(0.6cm)
     #if head.visible {
       text(size: 26pt, weight: "bold")[#head.value]
@@ -181,7 +181,11 @@
 
   // 设置图表标题的间隔符，例如“图 1-1：标题”
   show figure.caption: it => [
-    #set text(size: 10.5pt, font: ("Times New Roman", "SimSun"))
+    #set text(
+      size: 10.5pt,
+      font: ("Times New Roman", "SimSun", "Source Han Serif", "Songti SC", "Noto Serif CJK SC"),
+      weight: "regular",
+    )
     #it.supplement #context it.counter.display(it.numbering) ：#it.body
   ]
 

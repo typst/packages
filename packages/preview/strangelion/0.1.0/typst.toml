@@ -1,7 +1,7 @@
 [package]
 name = "strangelion"
 version = "0.1.0"
-entrypoint = "template.typ"
+entrypoint = "template.typ" # 指向你的核心逻辑文件
 authors = ["strangelion <@strangelion>"]
 license = "MIT"
 description = "一个为本科生毕业论文设计的 Typst 排版模板。"
@@ -10,3 +10,8 @@ keywords = ["thesis", "university", "chinese", "Hebei University"]
 categories = ["thesis"]
 compiler = "0.13.0"
 exclude = [".devcontainer", "assets"]
+
+[template]
+path = "template"      # 存放模板文件的目录名
+entrypoint = "main.typ" # 用户运行 `typst init` 后默认打开的文件
+# thumbnail = "thumbnail.png" # 建议放一张封面预览图，官方会展示
