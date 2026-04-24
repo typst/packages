@@ -1,4 +1,4 @@
-#import "@preview/clean-barm:1.0.0": *
+#import "@preview/clean-barm:1.0.1": *
 #import "@preview/codelst:2.0.2": sourcecode
 #import "@preview/prequery:0.2.0"
 
