@@ -1,0 +1,11 @@
+[package]
+
+name = "vtzone"
+version = "0.1.0"
+entrypoint = "vtzone.typ"
+authors = ["@Neruthes"]
+license = "MIT"
+description = "Basic vertical layout environment for CJK text."
+repository = "https://github.com/neruthes/typstpkg-vtzone"
+keywords = ["Layout"]
+categories = ["utility"]

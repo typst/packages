@@ -12,6 +12,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    if: ${{ github.repository == 'typst/packages' }} # don't run in forked repos
     environment: Deploy
     permissions:
       contents: read

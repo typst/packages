@@ -1,0 +1,10 @@
+# Typst output
+*.pdf
+
+# Keep figures
+!figures/*.pdf
+
+# OS
+.DS_Store
+main.pdf
+fonts/
