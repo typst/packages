@@ -1,9 +1,5 @@
-// ============================================================
-// exemplos/paper.typ
-// ============================================================
 
-#import "../src/templates.typ": template-paper
-#import "../src/citation.typ": citacao-longa, idem, referencias
+#import "@preview/lab-academic-br:0.1.0": template-paper, citacao-longa, idem, referencias
 
 #show: template-paper.with(
   titulo: "RESSONÂNCIAS DA LEI Nº 13.245/2016 NA INVESTIGAÇÃO CRIMINAL O AUMENTO DO VALOR PROBATÓRIO DO INQUÉRITO POLICIAL COM A INCORPORAÇÃO DA LEI Nº 13.245/2016",

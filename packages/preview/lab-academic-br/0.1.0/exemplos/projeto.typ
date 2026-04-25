@@ -1,6 +1,5 @@
 
-#import "../src/templates.typ": template-projeto
-#import "../src/citation.typ": idem, referencias
+#import "@preview/lab-academic-br:0.1.0": template-projeto, idem, referencias
 
 #show: template-projeto.with(
   autor: "Maria José",

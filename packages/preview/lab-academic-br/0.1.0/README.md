@@ -8,7 +8,7 @@ Modelos acadêmicos para Typst seguindo as normas ABNT, inspirados no pacote `ab
 ## Exemplo de Uso
 
 ```typst
-#import "@preview/case-paper-projeto:0.1.0": template-paper, citacao-longa, referencias
+#import "@preview/lab-academic-br:0.1.0": template-paper, citacao-longa, referencias
 
 #show: template-paper.with(
   titulo: "Título do Trabalho",

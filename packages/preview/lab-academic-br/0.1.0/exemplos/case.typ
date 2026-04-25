@@ -1,6 +1,5 @@
 
-#import "../src/templates.typ": template-case
-#import "../src/citation.typ": referencias
+#import "@preview/lab-academic-br:0.1.0": template-case, referencias
 
 #show: template-case.with(
   tipo: "RELATÓRIO PARCIAL:",
