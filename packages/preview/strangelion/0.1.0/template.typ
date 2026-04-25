@@ -14,20 +14,20 @@
 
 #let template(
   doc,
-  head: (value: none, visible: none, depth: none),
-  title: (value: none, visible: none, depth: none),
-  title_en: (value: none, visible: none, depth: none),
-  school_semester: (value: none, visible: none, depth: none),
-  school: (value: none, visible: none, depth: none),
-  course_id: (value: none, visible: none, depth: none),
-  course_name: (value: none, visible: none, depth: none),
-  college: (value: none, visible: none, depth: none),
-  author: (value: none, visible: none, depth: none),
-  student_id: (value: none, visible: none, depth: none),
-  class: (value: none, visible: none, depth: none),
-  major: (value: none, visible: none, depth: none),
-  supervisor: (value: none, visible: none, depth: none),
-  date: (value: datetime.today().display("[year]年[month]月[day]日"), visible: none, depth: none),
+  head: (name: none, value: none, visible: none, depth: none),
+  title: (name: none, value: none, visible: none, depth: none),
+  title_en: (name: none, value: none, visible: none, depth: none),
+  school_semester: (name: none, value: none, visible: none, depth: none),
+  school: (name: none, value: none, visible: none, depth: none),
+  course_id: (name: none, value: none, visible: none, depth: none),
+  course_name: (name: none, value: none, visible: none, depth: none),
+  college: (name: none, value: none, visible: none, depth: none),
+  author: (name: none, value: none, visible: none, depth: none),
+  student_id: (name: none, value: none, visible: none, depth: none),
+  class: (name: none, value: none, visible: none, depth: none),
+  major: (name: none, value: none, visible: none, depth: none),
+  supervisor: (name: none, value: none, visible: none, depth: none),
+  date: (name: none, value: datetime.today().display("[year]年[month]月[day]日"), visible: none, depth: none),
   info_order: none,
 ) = {
   // 1. 页面设置
@@ -62,16 +62,16 @@
     #context {
       // 1. 定义所有可能的字段映射，Key 为 depth 值 [cite: 1, 2]
       let all-fields = (
-        "4": ("学期信息：", school_semester),
-        "5": ("学　　校：", school),
-        "6": ("　课程号：", course_id),
-        "7": ("课程名称：", course_name),
-        "8": ("学　　院：", college),
-        "9": ("学生姓名：", author),
-        "10": ("学　　号：", student_id),
-        "11": ("班　　级：", class),
-        "12": ("专　　业：", major),
-        "13": ("指导教师：", supervisor),
+        "4": (justify-text(school_semester.name) + "：", school_semester),
+        "5": (justify-text(school.name) + "：", school),
+        "6": (justify-text(course_id.name) + "：", course_id),
+        "7": (justify-text(course_name.name) + "：", course_name),
+        "8": (justify-text(college.name) + "：", college),
+        "9": (justify-text(author.name) + "：", author),
+        "10": (justify-text(student_id.name) + "：", student_id),
+        "11": (justify-text(class.name) + "：", class),
+        "12": (justify-text(major.name) + "：", major),
+        "13": (justify-text(supervisor.name) + "：", supervisor),
       )
       // 2. 筛选出当前可见的字段用于计算最大宽度 [cite: 8]
       let visible-items = all-fields.values().filter(it => it.at(1).visible)
