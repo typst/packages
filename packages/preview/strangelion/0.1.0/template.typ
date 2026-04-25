@@ -83,7 +83,7 @@
       }
 
       // 3. 定义行渲染函数 [cite: 9, 10]
-      let info_row(label, value) = {
+      let info-row(label, value) = {
         grid(
           columns: (80pt, max-width),
           column-gutter: 0pt,
@@ -97,12 +97,12 @@
       }
 
       // 4. 根据 info_order 的顺序循环渲染
-      for d in info_order {
+      for d in info-order {
         let key = str(d)
         if key in all-fields {
           let (label, data) = all-fields.at(key)
           if data.visible {
-            info_row(label, data.value)
+            info-row(label, data.value)
             v(1.2em)
           } else {
             if data.value != none {
