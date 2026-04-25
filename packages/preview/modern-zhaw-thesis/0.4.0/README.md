@@ -142,3 +142,37 @@ For information about ZHAW's branding guidelines, refer to the official [ZHAW tr
 
 This is an **unofficial** template created by a student. It is not endorsed, maintained, or supported by ZHAW. The template attempts to follow official ZHAW branding guidelines and academic requirements, but users should verify compliance with current university standards.
 
+## Changelog
+
+### 0.4.0
+
+- **BREAKING (layout shifts)**: Tweaked H1 font size and spacing based on feedback
+- Replaced custom Glossy patch with official 0.9.1 release. Should not be a breaking change.
+
+### 0.3.0
+
+- Allow setting overrideable options to `none`
+- Fixed edge cases when some options were set to `none` and caused errors
+- Fixed declaration of originality appendix ref
+- Fixed bug displaying supervisor names in acknowledgements page
+- Fixed localisation of "Chapter" label in page header
+- Fixed long H1s overlapping with next section
+
+### 0.2.0
+
+- Added custom quote styling
+- Fixed glossary issues when no entries are provided
+- Localised outline and appendix headings
+- Fixed Glossy init-glossary validation bug
+- Fixed empty optional supervisor fields
+- Fixed translation strings
+- Fixed custom declaration of originality body rendering
+- Fixed README typos
+
+### 0.1.1
+
+Improved README
+
+### 0.1.0
+
+Initial release
