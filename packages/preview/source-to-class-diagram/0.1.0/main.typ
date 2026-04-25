@@ -1,5 +1,4 @@
-//#import #import "@preview/source-to-class-diagram:0.1.0": setup-classuml
-#import "src/lib.typ": setup-classuml
+#import #import "@preview/source-to-class-diagram:0.1.0": setup-classuml
 
 #show: setup-classuml
 

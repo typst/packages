@@ -2,7 +2,7 @@
 // source-to-class-diagram — Manual
 // =============================================================================
 
-#import "../src/lib.typ": class-diagram, setup-classuml
+#import #import "@preview/source-to-class-diagram:0.1.0": class-diagram, setup-classuml
 
 #set page(paper: "a4", margin: (x: 2cm, y: 2.5cm))
 #set text(font: "Segoe UI", size: 11pt)
@@ -65,8 +65,6 @@ específica. O pacote:
 // ===========================================================================
 = Instalação
 
-Copie a pasta `src/` do pacote para o seu projeto e importe `lib.typ`:
-
 
 ```typst
 #import "@preview/source-to-class-diagram:0.1.0": setup-classuml, class-diagram
@@ -111,23 +109,6 @@ As linguagens suportadas são:
   [`class-diagram-csharp`], [Código-fonte C\#],
 )
 
-=== Nota sobre fences aninhados em documentos de documentação
-
-Em documentos como este manual, onde você quer *mostrar* exemplos de código
-sem renderizá-los, há dois cuidados:
-
-1. *Não aplique `\#show: setup-classuml` globalmente* — use `\#class-diagram()`
-  onde quiser renderizar.
-2. Para exibir um fence de 3 backticks *dentro* de um bloco de código, use
-  *4 backticks* no fence externo:
-
-`````typst
-````typst
-```class-diagram-java
-class Foo {}
-```
-````
-`````
 
 == Via função `class-diagram`
 

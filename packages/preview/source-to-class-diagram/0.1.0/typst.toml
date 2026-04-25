@@ -10,3 +10,8 @@ repository = "https://github.com/typst-things/source-to-class-diagram"
 categories = ["visualization", "components"]
 keywords = ["uml", "class-diagram", "cetz", "diagram"]
 exclude = ["tests/", "docs/", "gallery/"]
+
+[template]
+path = "exemplos"
+entrypoint = "test-java.typ"
+thumbnail = "thumbnail.png"
