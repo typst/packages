@@ -79,7 +79,7 @@ Você pode ler arquivos `.java` ou `.cs` diretamente com a função `read()` do 
 
 #### Exemplo com Import Simplificado
 
-![Diagrama Animal](gallery/example_import_1.png)
+![Diagrama Animal](gallery/diagrama_animal.png)
 
 ### Injetando Layout
 
