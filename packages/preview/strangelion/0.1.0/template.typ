@@ -83,7 +83,7 @@
       }
 
       // 3. 定义行渲染函数 [cite: 9, 10]
-      let info-row(label, value) = {
+      let info_row(label, value) = {
         grid(
           columns: (80pt, max-width),
           column-gutter: 0pt,
@@ -102,7 +102,7 @@
         if key in all-fields {
           let (label, data) = all-fields.at(key)
           if data.visible {
-            info-row(label, data.value)
+            info_row(label, data.value)
             v(1.2em)
           } else {
             if data.value != none {
