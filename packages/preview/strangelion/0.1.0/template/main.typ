@@ -1,23 +1,23 @@
-#import "@preview/strangelion:0.1.0/template.typ": template
+#import "@preview/strangelion:0.1.0": template
 #import "config.typ": conf
 
 #show: doc => template(
   doc,
   head: conf.head,
   title: conf.title,
-  title_en: conf.title_en,
-  school_semester: conf.school_semester,
+  title-en: conf.title_en,
+  school-semester: conf.school_semester,
   school: conf.school,
-  course_id: conf.course_id,
-  course_name: conf.course_name,
+  course-id: conf.course_id,
+  course-name: conf.course_name,
   college: conf.college,
   author: conf.author,
-  student_id: conf.student_id,
+  student-id: conf.student_id,
   class: conf.class,
   major: conf.major,
   supervisor: conf.supervisor,
   date: conf.date,
-  info_order: conf.info-order,
+  info-order: conf.info-order,
 )
 
 // 前言部分（罗马数字页码）
