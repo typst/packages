@@ -61,7 +61,7 @@ All parameters are passed to `#show: mitthesis.with(...)` in your main file:
 | `==== Subsection` | 1.1.1 |
 | `===== Subsubsection` | (unnumbered) |
 
-Parts are optional — if you omit `=` headings, chapters at level `==` number from 1 as before.
+Parts are optional — documents that omit `=` headings compile correctly with chapters at level `==` numbering from 1.
 
 ## Page layout
 
