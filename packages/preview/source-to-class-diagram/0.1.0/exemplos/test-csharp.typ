@@ -1,4 +1,4 @@
-#import "../src/lib.typ": setup-classuml
+#import "@preview/source-to-class-diagram:0.1.0": setup-classuml
 
 #set page(paper: "a4", flipped: true)
 //#set page(width: auto)
