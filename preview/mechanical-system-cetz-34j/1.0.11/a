@@ -1,0 +1,4 @@
+git clone "https://github.com/34j/packages" /tmp/packages
+mkdir -p "/tmp/packages/preview/mechanical-system-cetz-34j/1.0.11"
+cp -r ./* "/tmp/packages/preview/mechanical-system-cetz-34j/1.0.11/"
+cd /tmp/packages && git checkout -b "mechanical-system-cetz-34j-1.0.11" && git add . && git commit -m "mechanical-system-cetz-34j:1.0.11" && gh pr create --title "mechanical-system-cetz-34j:1.0.11" --repo "34j/packages --head "mechanical-system-cetz-34j/1.0.11"" --fill
