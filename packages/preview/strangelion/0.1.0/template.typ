@@ -53,8 +53,8 @@
       text(size: 22pt, weight: "bold")[#title.value]
       v(0.6cm)
     }
-    #if title_en.visible {
-      text(size: 18pt)[#title_en.value]
+    #if title-en.visible {
+      text(size: 18pt)[#title-en.value]
       v(0.6cm)
     }
     #v(1fr)
@@ -62,13 +62,13 @@
     #context {
       // 1. 定义所有可能的字段映射，Key 为 depth 值 [cite: 1, 2]
       let all-fields = (
-        "4": (justify-text(school_semester.name) + "：", school_semester),
+        "4": (justify-text(school-semester.name) + "：", school-semester),
         "5": (justify-text(school.name) + "：", school),
-        "6": (justify-text(course_id.name) + "：", course_id),
-        "7": (justify-text(course_name.name) + "：", course_name),
+        "6": (justify-text(course-id.name) + "：", course-id),
+        "7": (justify-text(course-name.name) + "：", course-name),
         "8": (justify-text(college.name) + "：", college),
         "9": (justify-text(author.name) + "：", author),
-        "10": (justify-text(student_id.name) + "：", student_id),
+        "10": (justify-text(student-id.name) + "：", student-id),
         "11": (justify-text(class.name) + "：", class),
         "12": (justify-text(major.name) + "：", major),
         "13": (justify-text(supervisor.name) + "：", supervisor),
