@@ -2,7 +2,7 @@
 // source-to-class-diagram — Manual
 // =============================================================================
 
-#import "src/lib.typ": class-diagram, setup-classuml
+#import "../src/lib.typ": class-diagram, setup-classuml
 
 #set page(paper: "a4", margin: (x: 2cm, y: 2.5cm))
 #set text(font: "Segoe UI", size: 11pt)
@@ -185,13 +185,13 @@ ou `.cs` diretamente com `read()`:
 #import "@preview/source-to-class-diagram:0.1.0": class-diagram
 
 #let src = (
-  read("src/model/Animal.java"),
-  read("src/model/Cachorro.java"),
-  read("src/model/Gato.java"),
-  read("src/model/Alimentavel.java"),
+  read("../tests/java/Alimentavel.java"),
+  read("../tests/java/Animal.java"),
+  read("../tests/java/Gato.java"),
+  read("../tests/java/Cachorro.java"),
 ).join("\n\n")
 
-#class-diagram(src, grammar: "java")
+#class-diagram(src, grammar: "java", max-height: 8cm)
 ```
 
 Você pode intercalar strings literais com `read()` para injetar anotações
@@ -199,16 +199,24 @@ Você pode intercalar strings literais com `read()` para injetar anotações
 
 ```typst
 #let src = (
-  "@Layout(level=0, order=0)",
-  read("src/model/Animal.java"),
   "@Layout(level=1, order=0)",
-  read("src/model/Cachorro.java"),
-  "@Layout(level=1, order=1)",
-  read("src/model/Gato.java"),
+  read("../tests/java/Alimentavel.java"),
+  read("../tests/java/Animal.java"),
+  read("../tests/java/Gato.java"),
+  read("../tests/java/Cachorro.java"),
 ).join("\n\n")
 
-#class-diagram(src, grammar: "java", max-height: 15cm)
+#class-diagram(src, grammar: "java", max-height: 8cm)
 ```
+#let src = (
+  "@Layout(level=1, order=0)",
+  read("../tests/java/Alimentavel.java"),
+  read("../tests/java/Animal.java"),
+  read("../tests/java/Gato.java"),
+  read("../tests/java/Cachorro.java"),
+).join("\n\n")
+
+#class-diagram(src, grammar: "java", max-height: 8cm)
 
 // ===========================================================================
 = Controle de Tamanho do Diagrama
@@ -341,6 +349,15 @@ class Nota {
 Os valores do enum são listados como atributos na caixa UML:
 
 ```java
+enum Porte {
+  PEQUENO,
+  MEDIO,
+  GRANDE
+}
+```
+#show: setup-classuml
+
+```class-diagram-java
 enum Porte {
   PEQUENO,
   MEDIO,

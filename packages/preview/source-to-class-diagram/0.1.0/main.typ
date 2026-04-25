@@ -1,3 +1,4 @@
+//#import #import "@preview/source-to-class-diagram:0.1.0": setup-classuml
 #import "src/lib.typ": setup-classuml
 
 #show: setup-classuml
@@ -10,6 +11,10 @@
 == Exemplo 1: Sintaxe Java
 
 ```class-diagram-java
+@Layout(level=3, order=1)
+class ExceptionType{
+
+}
 @Layout(level=2, order=0)
 interface Interface1{
  void method1();
@@ -18,7 +23,7 @@ interface Interface1{
 @Layout(level=2, order=1)
 class MiniTeste implements Interface1{
   public void method1(){
-
+    throw new ExceptionType()
   }
 
   private void method2(){
