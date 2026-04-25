@@ -2,7 +2,7 @@
 
 ## 0.4.0
 
-- Tweaked H1 font size and spacing based on feedback
+- **BREAKING (layout shifts)**: Tweaked H1 font size and spacing based on feedback
 - Replaced custom Glossy patch with official 0.9.1 release. Should not be a breaking change.
 
 ## 0.3.0
