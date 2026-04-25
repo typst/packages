@@ -1,4 +1,4 @@
-#import "../template.typ": template
+#import "@preview/strangelion:0.1.0/template.typ": template
 #import "config.typ": conf
 
 #show: doc => template(
