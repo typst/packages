@@ -1,0 +1,12 @@
+[package]
+name = "source-to-class-diagram"
+version = "0.1.0"
+compiler = "0.14.2"
+entrypoint = "src/lib.typ"
+authors = ["Leandro"]
+license = "MIT"
+description = "UML Class Diagrams for Typst, built on CeTZ. Supports Java and Csharp syntax with pluggable grammars."
+repository = ""
+categories = ["visualization", "components"]
+keywords = ["uml", "class-diagram", "cetz", "diagram"]
+exclude = ["tests/", "docs/"]
