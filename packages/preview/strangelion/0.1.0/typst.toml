@@ -12,6 +12,6 @@ compiler = "0.13.0"
 exclude = [".devcontainer", "assets"]
 
 [template]
-path = "template"      # 存放模板文件的目录名
-entrypoint = "main.typ" # 用户运行 `typst init` 后默认打开的文件
-# thumbnail = "thumbnail.png" # 建议放一张封面预览图，官方会展示
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
