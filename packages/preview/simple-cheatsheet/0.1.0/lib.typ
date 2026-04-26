@@ -1,1 +1,1 @@
-#import "core.typ": cheatsheet, container, get-color 
+#import "core.typ": cheatsheet, container, get-color
