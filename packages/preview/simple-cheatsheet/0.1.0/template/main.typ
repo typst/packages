@@ -1,4 +1,4 @@
-#import "../lib.typ": cheatsheet, container
+#import "@preview/simple-cheatsheet:0.1.0": cheatsheet, container
 
 #show: cheatsheet.with(
   info: (

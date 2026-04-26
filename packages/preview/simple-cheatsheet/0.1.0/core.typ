@@ -122,7 +122,7 @@
   
   set text(
     size: layout.font-size,
-    font: "Roboto",
+    font: ("Roboto", "Arial", "Helvetica", "Liberation Sans", "DejaVu Sans"),
     lang: "en",
     region: "gb"
   )
