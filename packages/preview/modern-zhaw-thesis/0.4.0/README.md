@@ -1,6 +1,6 @@
 # `modern-zhaw-thesis` template
 
-`modern-zhaw-thesis` is a comprehensive template for ZHAW academic works, adapted from the official branding and following official requirements. It supports both English and German.
+`modern-zhaw-thesis` is a comprehensive template for ZHAW academic works (theses, exercises, reports...), adapted from the official branding and following official requirements. It supports both English and German.
 
 [Here's a showcase](./showcase.pdf) of how it looks like.
 
