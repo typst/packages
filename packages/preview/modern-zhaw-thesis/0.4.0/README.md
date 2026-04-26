@@ -68,7 +68,7 @@ Below is the complete list of configuration options, including default values an
     override: none,             // Override the declaration page with your own file
   ),
 
-  bibliography: none,            // bibliography() object, e.g. `bibliography("refs.bib", style: "ieee")`
+  bibliography: none,            // bibliography() object, e.g. `bibliography("refs.bib", style: "ieee")` (refer to Typst's docs)
 
   glossary-entries: none,       // Variable containing glossary entries (see template)
   appendix: none,               // Appendix Typst file, e.g. [#include "appendix.typ"]
@@ -144,7 +144,7 @@ This is an **unofficial** template created by a student. It is not endorsed, mai
 ### 0.4.0
 
 - **BREAKING (layout shifts)**: Tweaked H1 font size and spacing based on feedback
-- **BREAKING**: `biblio: (file:, style:)` replaced by `bibliography:` — pass a `bibliography()` object directly
+- **BREAKING**: `biblio: (file:, style:)` replaced by `bibliography:` — pass a `bibliography()` object directly (refer to [Typst's docs](https://typst.app/docs/reference/model/bibliography/))
 - Replaced custom Glossy patch with official 0.9.1 release. Should not be a breaking change.
 
 ### 0.3.0
