@@ -100,7 +100,7 @@
           #text(datetime.today().display("[month repr:long] [day], [year]"), weight: "bold")
         ],
         [
-          #text(info.title + " Cheatsheet", weight: "bold")
+          #text(if info.title == "" { "Cheatsheet" } else { info.title + " Cheatsheet" }, weight: "bold")
         ],
         [
           #text(authors_array.join(", ", last: " & "), weight: "bold")

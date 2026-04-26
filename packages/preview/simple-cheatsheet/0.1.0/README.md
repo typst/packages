@@ -64,6 +64,16 @@ Wrap content in a coloured border box that matches the current section colour:
 ]
 ```
 
+### `get-color`
+
+Returns the colour assigned to the current section (cycles through a built-in palette based on the heading counter). Useful for custom styling that should stay consistent with section colours:
+
+```typ
+#import "@preview/simple-cheatsheet:0.1.0": get-color
+
+#context text(fill: get-color(location: here()))[Custom coloured text]
+```
+
 ## Feature requests & problems
 
 Feel free to [request features or report problems here](https://github.com/stanlrt/typst-simple-cheatsheet/issues).
