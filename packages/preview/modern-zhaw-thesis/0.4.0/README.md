@@ -1,6 +1,6 @@
 # `modern-zhaw-thesis` template
 
-`modern-zhaw-thesis` is an unofficial template for ZHAW academic works, adapted from the official branding and following official requirements. It supports both English and German.
+`modern-zhaw-thesis` is a comprehensive template for ZHAW academic works, adapted from the official branding and following official requirements. It supports both English and German.
 
 [Here's a showcase](./showcase.pdf) of how it looks like.
 
@@ -31,9 +31,13 @@ Below is the complete list of configuration options, including default values an
 ```typ
 #import "@preview/modern-zhaw-thesis:0.4.0": zhaw-thesis, languages
 
-// Note: `override` options accept Typst files, e.g. `override: [#include "my-override.typ"]`, and `none`
+// Note: `override` options accept Typst files (`override: [#include "my-override.typ"]`), and `none`
+
 #show: zhaw-thesis.with(
   language: languages.de,       // Document language
+  preset: "thesis",             // "thesis": show everything (default)
+                                // "draft": hide all frontmatter (to focus on writing)
+                                // "exercise": show cover+TOC (no abstract/acks./declaration)
 
   cover: (
     school: none,               // E.g., "School of Engineering" REQUIRED
@@ -68,12 +72,12 @@ Below is the complete list of configuration options, including default values an
     override: none,             // Override the declaration page with your own file
   ),
 
-  bibliography: none,            // bibliography() object, e.g. `bibliography("refs.bib", style: "ieee")` (refer to Typst's docs)
-
+  bibliography: none,           // bibliography() object
+                                // e.g. `bibliography("refs.bib", style: "ieee")` (see Typst's docs)
+  
   glossary-entries: none,       // Variable containing glossary entries (see template)
   appendix: none,               // Appendix Typst file, e.g. [#include "appendix.typ"]
-  page-border: true,            // Enable/disable page border
-  hide-frontmatter: false,      // Hide all content before the 1st chapter (to focus on writing)
+  page-border: true,            // Enable/disable page border  
   print-mode: false,            // Gives a white background to the cover page to reduce ink usage  
 )
 ```
@@ -145,6 +149,8 @@ This is an **unofficial** template created by a student. It is not endorsed, mai
 
 - **BREAKING (layout shifts)**: Tweaked H1 font size and spacing based on feedback
 - **BREAKING**: `biblio: (file:, style:)` replaced by `bibliography:` — pass a `bibliography()` object directly (refer to [Typst's docs](https://typst.app/docs/reference/model/bibliography/))
+- **BREAKING**: `hide-frontmatter` replaced by `preset` — use `preset: "draft"` for equivalent behaviour
+- Added `preset` parameter: `"thesis"` (default, show everything), `"draft"` (hide all frontmatter), `"exercise"` (show cover page + TOC, hide abstract/acknowledgements/declaration)
 - Replaced custom Glossy patch with official 0.9.1 release. Should not be a breaking change.
 
 ### 0.3.0

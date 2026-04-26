@@ -4,6 +4,8 @@
 
 - **BREAKING (layout shifts)**: Tweaked H1 font size and spacing based on feedback
 - **BREAKING**: `biblio: (file:, style:)` replaced by `bibliography:` — pass a `bibliography()` object directly
+- **BREAKING**: `hide-frontmatter` replaced by `preset` — use `preset: "draft"` for equivalent behaviour
+- Added `preset` parameter: `"thesis"` (default, show everything), `"draft"` (hide all frontmatter), `"exercise"` (show cover page + TOC, hide abstract/acknowledgements/declaration)
 - Replaced custom Glossy patch with official 0.9.1 release. Should not be a breaking change.
 
 ## 0.3.0

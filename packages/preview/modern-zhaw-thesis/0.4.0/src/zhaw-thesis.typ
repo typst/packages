@@ -46,7 +46,8 @@
   bibliography: none,
   appendix: none,
   page-border: true,
-  hide-frontmatter: false,
+  /// "thesis": show everything (default). "draft": hide all frontmatter. "exercise": show cover only.
+  preset: "thesis",
   print-mode: false,
   doc,
 ) = {
@@ -116,15 +117,19 @@
 
   // context is needed for the tr() calls inside the page functions
   context {
-    if (not hide-frontmatter) {
+    if preset == "thesis" or preset == "exercise" {
       zhaw-cover-page(cover, print-mode: print-mode)
+    }
 
+    if preset == "thesis" or preset == "exercise" {
       set page(numbering: "i")
       counter(page).update(1)
 
-      zhaw-abstract-section(abstract, cover)
-      zhaw-acknowledgements-section(acknowledgements, cover)
-      zhaw-declaration-section(declaration-of-originality, cover)
+      if preset == "thesis" {
+        zhaw-abstract-section(abstract, cover)
+        zhaw-acknowledgements-section(acknowledgements, cover)
+        zhaw-declaration-section(declaration-of-originality, cover)
+      }
 
       outline(title: tr().table_of_contents, depth: 3)
     }
