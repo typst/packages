@@ -1,14 +1,14 @@
+#let palette = (
+  rgb(156, 92, 58),
+  rgb(62, 107, 135),
+  rgb(143, 31, 36),
+  rgb(106, 76, 147),
+  rgb(196, 152, 27),
+  rgb(147, 76, 90),
+  rgb(24, 82, 33)
+)
+
 #let get-color(location: location) = {
-  let palette = (
-    rgb(156, 92, 58),
-    rgb(62, 107, 135),
-    rgb(143, 31, 36),
-    rgb(106, 76, 147),
-    rgb(196, 152, 27),
-    rgb(147, 76, 90),
-    rgb(24, 82, 33)
-  )
-  
   let index = counter(heading).at(location).first() - 1
   return palette.at(calc.rem(index, palette.len()))
 }
