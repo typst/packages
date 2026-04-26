@@ -13,6 +13,18 @@
 
 #let runtime-state = state("chalmers-cse-thesis-runtime", (oneside: false))
 
+#let heading-supplement(it) = if it.depth == 1 {
+  [Chapter]
+} else {
+  [Section]
+}
+
+#let appendix-heading-supplement(it) = if it.depth == 1 {
+  [Appendix]
+} else {
+  [Section]
+}
+
 #let footer(numbering: "1") = context {
   let oneside = runtime-state.get().oneside
   let page-number = counter(page).get().at(0)
@@ -198,7 +210,7 @@
   )
   counter(page).update(1)
   counter(heading).update(0)
-  set heading(numbering: "A.1", supplement: [Appendix])
+  set heading(numbering: "A.1", supplement: appendix-heading-supplement)
 
   content
 }
@@ -335,7 +347,7 @@
 
   show figure.where(kind: table): set figure.caption(position: top)
 
-  set heading(numbering: "1.1")
+  set heading(numbering: "1.1", supplement: heading-supplement)
   counter(heading).update(0)
 
   show heading.where(level: 1): it => {
