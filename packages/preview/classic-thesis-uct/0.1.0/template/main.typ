@@ -7,8 +7,13 @@
 #import "chapters/chapter06.typ": content as chapter06
 #import "chapters/chapter07.typ": content as chapter07
 
+#let custom-logo = none
+// Example override:
+// #let custom-logo = image("graphics/my-logo.png", width: 43mm)
+
 #let meta = (
   title: "UCT Classic Thesis Template",
+  logo: custom-logo,
   degree: "Doctor of Philosophy",
   name: "Candidate Name",
   supervisor: "Primary Supervisor",

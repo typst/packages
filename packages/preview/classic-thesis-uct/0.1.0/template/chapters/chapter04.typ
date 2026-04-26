@@ -11,7 +11,7 @@ Describe whether the project is theoretical, experimental, qualitative, quantita
 
 Explain what data, participants, case studies, instruments, simulations, or source materials will be used. If the project includes a hardware, software, or systems component, an architecture figure is often useful.
 
-#image-figure("4.1", [Example methodology figure. Replace this with a workflow, architecture, pipeline, sampling design, or study process diagram.])[
+#side-caption-figure([Example methodology figure. Replace this with a workflow, architecture, pipeline, sampling design, or study process diagram.])[
   #image("../graphics/esn_architecture.png", width: 100%)
 ]
 
@@ -19,12 +19,11 @@ Explain what data, participants, case studies, instruments, simulations, or sour
 
 Outline the analytical methods, modelling techniques, experiments, or evaluation procedures that will be applied. If your work uses mathematical modelling, this chapter is a natural place for equations such as:
 
-#numbered-equation("4.1", $ J(theta) = sum_(i = 1)^n w_i (y_i - hat(y)_i(theta))^2 $)
+#numbered-equation($ J(theta) = sum_(i = 1)^n w_i (y_i - hat(y)_i(theta))^2 $)
 
 Here, $J(theta)$ is a generic objective function, $w_i$ are optional weights, $y_i$ are observed values, and $hat(y)_i(theta)$ are model predictions. Replace this example with the notation appropriate to the project.
 
 #side-caption-table(
-  "4.2",
   [Example summary table for a methodology chapter.],
   (1.2fr, 2.35fr, 1.55fr),
   (

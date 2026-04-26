@@ -7,7 +7,7 @@ This document is a reusable proposal template built from a complete thesis-style
 
 Introduce the broad research area, the practical or scientific context, and the reason this topic deserves investigation. In a proposal, the introduction normally establishes the domain, motivates the topic, and narrows toward the specific gap addressed later in the document.
 
-#image-figure("1.1", [Example full-width figure. Replace this file and caption with a conceptual overview, system diagram, study area map, or workflow figure relevant to the proposed research.])[
+#side-caption-figure([Example full-width figure. Replace this file and caption with a conceptual overview, system diagram, study area map, or workflow figure relevant to the proposed research.])[
   #image("../graphics/antarctic_environments.png", width: 100%)
 ]
 

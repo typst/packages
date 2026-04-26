@@ -11,7 +11,7 @@ Define the core ideas, terminology, and frameworks needed to understand the proj
 
 Summarise the most relevant literature thematically rather than paper-by-paper. A short proposal usually benefits from grouping sources by method, theory, dataset, or application area. For example, an overview source can be cited directly [@example2026template], while supporting claims can be cited parenthetically elsewhere.
 
-#image-figure("2.1", [Example subfigure layout. Use this pattern when comparing prior systems, datasets, instruments, study sites, or design alternatives.])[
+#side-caption-figure([Example subfigure layout. Use this pattern when comparing prior systems, datasets, instruments, study sites, or design alternatives.])[
   #grid(
     columns: 2,
     column-gutter: 8mm,

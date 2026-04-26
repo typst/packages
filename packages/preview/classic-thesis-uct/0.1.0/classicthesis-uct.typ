@@ -21,6 +21,12 @@
 #let outer-margin = 50mm
 #let page-top-margin = 32mm
 #let page-bottom-margin = 27mm
+#let figure-space-above = 1.2em
+#let figure-space-below = 1.2em
+#let table-space-above = 1.2em
+#let table-space-below = 1.2em
+#let equation-space-above = 1.2em
+#let equation-space-below = 1.2em
 // Front matter (title page through acronyms) uses a single column the same
 // width as `major-column`, but page-centred rather than offset. A4 is 210mm
 // wide, so the side margins are (210mm − major-column) / 2 on each side.
@@ -151,6 +157,16 @@
     fill: black,
   )
   set par(justify: true, leading: 0.45em, spacing: 0.45em, first-line-indent: 1.5em)
+  set math.equation(numbering: n => context numbering(
+    "(1.1)",
+    counter(heading).get().first(),
+    n,
+  ))
+  set figure(numbering: n => context numbering(
+    "1.1",
+    counter(heading).get().first(),
+    n,
+  ))
   set page(
     paper: "a4",
     margin: (
@@ -164,6 +180,21 @@
     header-ascent: 14mm,
     footer-descent: 14mm,
   )
+  show math.equation.where(block: true): it => context {
+    let chapter-number = counter(heading).at(it.location()).first()
+    let equation-number = counter(math.equation).at(it.location()).first()
+    block(
+    above: equation-space-above,
+    below: equation-space-below,
+  )[
+    #major-column-block[
+      #box(width: 100%)[
+        #align(center)[#it.body]
+        #minor-middle[#text(size: 9.5pt, fill: label-color)[#numbering("(1.1)", chapter-number, equation-number)]]
+      ]
+    ]
+  ]
+  }
 
   body
 }
@@ -195,33 +226,38 @@
   #v(14mm)
 ]
 
-#let title-page(meta) = [
-  #set page(header: none, footer: none, numbering: none)
-  #align(center)[
-    #v(16mm)
-    #image("assets/sample_logo.png", width: 43mm)
-    #v(20mm)
-    #spaced-caps(meta.title, size: 21pt)
-    #v(8mm)
-    #spaced-smallcaps(meta.name, size: 10.5pt)
-    #v(30mm)
+#let title-page(meta) = {
+  let logo = if "logo" in meta { meta.logo } else { none }
+  [
+    #set page(header: none, footer: none, numbering: none)
     #align(center)[
-      #text(size: 13pt)[
-        #meta.degree \
-        #meta.department \
-        #meta.faculty \
-        #meta.university
+      #v(16mm)
+      #if logo == none {
+        image("assets/UCT_logo.png", width: 43mm)
+      } else {
+        logo
+      }
+      #v(20mm)
+      #spaced-caps(meta.title, size: 21pt)
+      #v(8mm)
+      #spaced-smallcaps(meta.name, size: 10.5pt)
+      #v(30mm)
+      #align(center)[
+        #text(size: 13pt)[
+          #meta.degree \
+          #meta.department \
+          #meta.faculty \
+          #meta.university
+        ]
       ]
+      #v(24mm)
+      #text(size: 12pt)[#meta.date]
+      #v(1fr)
+      #par(justify: false)[#emph[Supervised by:] #meta.supervisor & #meta.co-supervisor]
     ]
-    #v(24mm)
-    #text(size: 12pt)[#meta.date]
-    #v(1fr)
-    #par(justify: false)[#emph[Supervised by:] #meta.supervisor & #meta.co-supervisor]
-    #v(4mm)
-    #par(justify: false)[#emph[Funding:] #meta.funder]
+    #pagebreak()
   ]
-  #pagebreak()
-]
+}
 
 #let title-back(meta) = [
   #set page(header: none, footer: none, numbering: none)
@@ -354,6 +390,9 @@
 
 #let chapter(title, number, body) = [
   #hide(heading(level: 1)[#title])
+  #counter(math.equation).update(0)
+  #counter(figure.where(kind: image)).update(0)
+  #counter(figure.where(kind: table)).update(0)
   #v(24mm)
   #context {
     let number-text = text(
@@ -395,50 +434,73 @@
   ]
 }
 
-#let image-figure(number, caption, body) = context {
-  let caption-block = side-caption("Figure", number, caption)
+#let side-caption-figure(caption, body) = figure(
+  kind: image,
+  supplement: [Figure],
+  caption: none,
+)[
+  #context {
+    let chapter-number = counter(heading).get().first()
+    let figure-number = counter(figure.where(kind: image)).get().first()
+    let label = numbering("1.1", chapter-number, figure-number)
 
-  block(above: 1.65em, below: 1.1em)[
-    #major-column-block[
-      #box(width: 100%)[
-      #box(width: 100%)[
-        #align(left)[#body]
+    [
+      #v(figure-space-above)
+      #major-column-block[
+        #box(width: 100%)[
+          #box(width: 100%)[
+            #align(center)[#body]
+          ]
+          #minor-bottom[#side-caption("Figure", label, caption)]
+        ]
       ]
-      #minor-bottom[#caption-block]
-      ]
+      #metadata((
+        number: label,
+        caption: caption,
+      )) #figure-index-label
+      #v(figure-space-below)
     ]
-    #metadata((number: number, caption: caption)) #figure-index-label
-  ]
-}
-
-#let numbered-equation(number, body) = block(above: 0.9em, below: 1em)[
-  #major-column-block[
-    #box(width: 100%)[
-      #align(center)[#body]
-      #minor-middle[#text(size: 9.5pt, fill: label-color)[(#number)]]
-    ]
-  ]
+  }
 ]
 
-#let side-caption-table(number, caption, widths, rows) = {
-  let column-count = widths.len()
-  let header = rows.at(0)
-  let body = rows.slice(1)
-
-  block(above: 1.4em, below: 1.1em)[
-    #major-column-block[
-      #box(width: 100%)[
-      #table(
-        columns: widths,
-        inset: (x: 6pt, y: 5pt),
-        stroke: (x: none, y: 0.45pt + luma(75%)),
-        align: (x, y) => if x == column-count - 1 { right } else { left },
-        table.header(..header.map(cell => strong(spaced-smallcaps(cell, size: 8.2pt)))),
-        ..body.flatten(),
-      )
-      #minor-bottom[#side-caption("Table", number, caption)]
-      ]
-    ]
-    #metadata((number: number, caption: caption)) #table-index-label
-  ]
+#let numbered-equation(body) = {
+  let equation-body = if body.func() == math.equation { body.body } else { body }
+  math.equation(block: true, equation-body)
 }
+
+#let side-caption-table(caption, widths, rows) = figure(
+  kind: table,
+  supplement: [Table],
+  caption: none,
+)[
+  #context {
+    let chapter-number = counter(heading).get().first()
+    let table-number = counter(figure.where(kind: table)).get().first()
+    let label = numbering("1.1", chapter-number, table-number)
+    let column-count = widths.len()
+    let header = rows.at(0)
+    let body = rows.slice(1)
+
+    [
+      #v(table-space-above)
+      #major-column-block[
+        #box(width: 100%)[
+        #table(
+          columns: widths,
+          inset: (x: 6pt, y: 5pt),
+          stroke: (x: none, y: 0.45pt + luma(75%)),
+          align: (x, y) => if x == column-count - 1 { right } else { left },
+          table.header(..header.map(cell => strong(spaced-smallcaps(cell, size: 8.2pt)))),
+          ..body.flatten(),
+        )
+        #minor-bottom[#side-caption("Table", label, caption)]
+        ]
+      ]
+      #metadata((
+        number: label,
+        caption: caption,
+      )) #table-index-label
+      #v(table-space-below)
+    ]
+  }
+]

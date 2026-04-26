@@ -27,6 +27,7 @@ If you would rather drive the layout yourself, import the module from your own d
 
 #let meta = (
   title: "On the Categorical Imperatives of Penguins",
+  logo: image("graphics/uct-logo.png", width: 43mm),
   degree: "Doctor of Philosophy",
   name: "Jane Q. Doe",
   supervisor: "Prof. A. Supervisor",
@@ -38,6 +39,8 @@ If you would rather drive the layout yourself, import the module from your own d
   date: "23 April, 2026",
   funder: "National Research Foundation",
 )
+
+// Omit `logo` to use the package's default UCT mark.
 
 #show: configure.with(meta)
 #set heading(numbering: "1.1")
@@ -102,7 +105,7 @@ Exported from the package entry point:
 | Symbol | Purpose |
 | --- | --- |
 | `configure(meta, body)` | Show-rule template: applies metadata, fonts, paragraph and base page settings. Use as `#show: configure.with(meta)`. |
-| `title-page(meta)`, `title-back(meta)` | Title recto and verso (no header/footer, no folio). |
+| `title-page(meta)`, `title-back(meta)` | Title recto and verso (no header/footer, no folio). Set `meta.logo` to project-local image content to override the default package logo. |
 | `abstract-page(body)`, `contents-page()`, `list-of-figures-page()`, `list-of-tables-page()`, `acronym-page(items)` | Front-matter sections. |
 | `chapter(title, number, body)` | Chapter opener: large numeral, title, rule, then body. Emits a hidden level-1 heading for outline and running-head purposes. |
 | `image_figure(number, caption, body)` | Full-width figure with side caption in the outer margin. |
@@ -151,7 +154,7 @@ The package is distributed under a split SPDX expression — `GPL-2.0-or-later A
 
 | Path | Licence | File |
 | --- | --- | --- |
-| `lib.typ`, `classicthesis.typ`, `assets/`, `thumbnail.png`, `README.md` | GNU General Public License v2 or later | `LICENSE` |
+| `lib.typ`, `classicthesis-uct.typ`, `assets/`, `thumbnail.png`, `README.md` | GNU General Public License v2 or later | `LICENSE` |
 | Everything under `template/` (the project skeleton copied by `typst init`) | MIT No Attribution (MIT-0) | `template/LICENSE` |
 
 **In plain English:** if you modify or redistribute the layout module (the code that defines the classic-thesis visual style), GPL v2 applies and you must share your changes under the same licence. If you run `typst init @preview/classic-thesis-uct:0.1.0` to start a thesis and then write your own document on top of the scaffold, the resulting work is yours — MIT-0 imposes no attribution or licence-distribution requirement.
