@@ -1,0 +1,16 @@
+[package]
+name = "unofficial-sdu-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["gr00ve"]
+license = "MIT"
+description = "山东大学本科毕业论文（设计）模板"
+repository = "https://github.com/GrooveWJH/unofficial-sdu-thesis"
+keywords = ["Shandong University", "Thesis"]
+categories = ["thesis"]
+exclude = ["fonts"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

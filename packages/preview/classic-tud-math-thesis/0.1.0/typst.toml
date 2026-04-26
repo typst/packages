@@ -1,0 +1,29 @@
+[package]
+name = "classic-tud-math-thesis"
+version = "0.1.0"
+entrypoint = "src/classic-tud-math-thesis.typ"
+authors = ["Jonas Danker"]
+license = "MIT"
+description = "Unofficial template for writing a thesis at the Faculty of Mathematics at TUD."
+repository = "https://github.com/tibirius24/classic-tud-math-thesis"
+keywords = [
+    "thesis", 
+    "Faculty of Mathematics", 
+    "Dresden",
+    "university",  
+    "TUD", 
+    "Technische Universität Dresden"
+]
+categories = ["presentation"]
+disciplines = ["mathematics"]
+exclude = [
+    "*.pdf",
+    "*.png",
+    "images",
+    "thumbnail.png",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

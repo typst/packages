@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="346 185 676 507">
+	<path d="M 346 507 C 426 474,491 239,676 185" style="fill:none; stroke-width: 2; stroke: #ddd; transform-origin: bottom right; animation: 1s ease-in-out 0s infinite alternate both running vibratea" />
+	<path d="M 346 507 C 426 474,418 414,676 409" style="fill:none; stroke-width: 2; stroke: #ddd; transform-origin: bottom right; animation: 1.05s ease-in-out 0.1s infinite alternate both running vibratea" />
+	<path d="M 477 507 C 552 460, 591 404, 676 346" style="fill:none; stroke-width: 2; stroke: #ddd; transform-origin: bottom right; animation: 0.97s ease-in-out 0.03s infinite alternate both running vibratea" />
+</svg>

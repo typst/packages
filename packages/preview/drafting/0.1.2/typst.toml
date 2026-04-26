@@ -1,0 +1,12 @@
+[package]
+name = "drafting"
+version = "0.1.2"
+entrypoint = "drafting.typ"
+authors = ["Nathan Jessurun"]
+license = "Unlicense"
+description = "Helpful functions for content positioning and margin comments/notes"
+repository = "https://github.com/ntjess/typst-drafting"
+keywords = ["comments", "notes", "margins", "positioning", "layout", "ruler"]
+
+[tool.packager]
+paths = ["drafting.typ", "LICENSE", "README.md"]

@@ -1,0 +1,18 @@
+[package]
+name = "starchy-junia"
+version = "0.1.8"
+entrypoint = "Modele/main.typ"
+authors = [ "MathYeiv" ]
+license = "MIT"
+categories = [ "report" ]
+disciplines = [ "engineering" ]
+description = "Report template based on JUNIA engineering school's writing charter V2 (2024)."
+keywords = [ "junia", "report", "engineering", "french", "template" ]
+compiler = "0.14.2"
+repository = "https://codeberg.org/MathYeiv/starchy-junia"
+exclude = ["CHANGELOG.md"]
+
+[template]
+path = "Modele"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

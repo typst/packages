@@ -1,0 +1,16 @@
+[package]
+name = "fuzzy-cnoi-statement"
+version = "0.1.2"
+entrypoint = "fuzzy-cnoi-statement.typ"
+authors = ["Wallbreaker5th"]
+license = "MIT-0"
+description = "A template for CNOI(Olympiad in Informatics in China)-style statements for competitive programming"
+disciplines = ["computer-science", "education"]
+keywords = ["CNOI", "OI", "competitive programming"]
+categories = ["office"]
+repository = "https://github.com/Wallbreaker5th/fuzzy-cnoi-statement"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,25 @@
+// To compile this file : typst compile --root .. .\test_translations.typ
+
+#import "../src/translations.typ": day-name, month-name
+
+#assert(day-name(1, "fr") == "lundi")
+#assert(month-name(1, "fr") == "janvier")
+#assert(day-name(1, "en", true) == "Monday")
+#assert(month-name(1, "en", true) == "January")
+#assert(day-name(1, "es") == "lunes")
+#assert(month-name(1, "es") == "enero")
+#assert(day-name(1, "pt") == "segunda-feira")
+#assert(month-name(1, "pt") == "janeiro")
+#assert(day-name(7, "he") == "ראשון")
+#assert(month-name(1, "he") == "ינואר")
+#assert(day-name(1, "ca") == "dilluns")
+#assert(month-name(1, "ca") == "gener")
+#assert(day-name(1, "de-AT") == "montag")
+#assert(month-name(1, "de-AT") == "jänner")
+#assert(month-name(2, "de-AT") == "feber")
+#assert(day-name(1, "ru") == "понедельник")
+#assert(month-name(1, "ru") == "января")
+#assert(day-name(1, "nl") == "maandag")
+#assert(month-name(1, "nl") == "januari")
+#assert(day-name(1, "de") == "montag")
+#assert(month-name(1, "de") == "januar")

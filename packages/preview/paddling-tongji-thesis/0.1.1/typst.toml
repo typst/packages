@@ -1,0 +1,18 @@
+[package]
+name = "paddling-tongji-thesis"
+# 修改版本号、准备release时，一定不要忘了同步更新package_release.diff
+# Never forget to update package_release.diff when change the version and prepare to release
+version = "0.1.1"
+entrypoint = "paddling-tongji-thesis/tongjithesis.typ"
+authors = ["TJ-CSCCG <https://github.com/TJ-CSCCG>"]
+license = "MIT"
+description = "同济大学本科生毕业设计论文模板 | Tongji University Undergraduate Thesis Template"
+repository = "https://github.com/TJ-CSCCG/tongji-undergrad-thesis-typst.git"
+keywords = ["Tongji University", "thesis", "undergraduate"]
+categories = ["thesis"]
+exclude = []
+
+[template]
+path = "init-files"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.webp"

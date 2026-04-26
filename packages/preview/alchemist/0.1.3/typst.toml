@@ -1,0 +1,12 @@
+[package]
+name = "alchemist"
+version = "0.1.3"
+entrypoint = "lib.typ"
+authors = ["Robotechnic <@Robotechnic>"]
+license = "MIT"
+compiler = "0.11.0"
+repository = "https://github.com/Robotechnic/alchemist"
+description = "A package to render skeletal formulas using cetz"
+exclude = ["generate_images.sh", "generate_images.awk", ".gitignore","images"]
+categories = ["visualization"]
+disciplines = ["chemistry", "biology", ]
