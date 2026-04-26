@@ -1,0 +1,11 @@
+[package]
+name = "cheatsheet"
+version = "0.1.0"
+entrypoint = "lib.typ"
+categories = [ ]
+disciplines = [ ]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = ""
