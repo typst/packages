@@ -115,30 +115,31 @@ The harness compiles the starter template, the example deck, the generated
 The default visual language follows the Typst implementation from
 `quarto-monash/presentation`: a full-page title graphic, full-width Monash blue
 slide title bars, orange square list markers, a light footer baseline, orange
-footer progress, and a small grey slide number. The template vendors the
-background and logo PNG assets used by that design under
+footer progress, and a small grey slide number. The template vendors a
+logo-free background PNG derived from that design under
 `template/assets/monash-presentation/`.
 
 Code blocks use the locked Typst Universe package `@preview/zebraw:0.6.1` with
 a Monash light code block style, and continue to work through ordinary fenced
 raw blocks.
 
-The starter deck does not bundle a Monash logo. Users with appropriate rights
-can pass their own logo through `monash-theme.with(logo: ...)`. The
-`titlegraphic` defaults to `assets/monash-presentation/background/bg-02.png`
-for Quarto Monash visual alignment.
+The starter deck does not bundle Monash logos, crests, or wordmarks. Users with
+appropriate rights can pass their own logo through
+`monash-theme.with(logo: ...)`. The `titlegraphic` defaults to
+`assets/monash-presentation/background/bg-02.png`, a logo-free variant used for
+Quarto Monash visual alignment.
 
 ## Credits
 
 This project is an unofficial student package and is not affiliated with or
 endorsed by Monash University.
 
-The visual direction and bundled presentation background assets are based on
-the Quarto Monash presentation template:
+The visual direction and bundled logo-free presentation background asset are
+based on the Quarto Monash presentation template:
 <https://github.com/quarto-monash/presentation>. That project is distributed
-under the CC0 1.0 Universal public domain dedication. Monash names, logos, and
-marks remain associated with Monash University and should be used according to
-the relevant brand guidance.
+under the CC0 1.0 Universal public domain dedication. Monash names, logos,
+crests, wordmarks, and marks remain associated with Monash University and should
+be used according to the relevant brand guidance.
 
 ## Typst Universe Submission Notes
 

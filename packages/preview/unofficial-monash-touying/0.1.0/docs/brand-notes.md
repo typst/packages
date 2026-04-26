@@ -12,8 +12,8 @@ an official Monash University asset.
   reference.
 - Use the full-width blue title bar and Quarto-style footer progress treatment
   for content slides.
-- Do not redraw, stretch, recolour, crop, or otherwise modify Monash logo
-  assets.
+- Do not bundle Monash logo, crest, or wordmark assets in the default starter
+  deck.
 
 ## Current Package Interpretation
 
@@ -22,16 +22,19 @@ The template currently uses:
 - `#1969AA` as the primary blue, matching the Quarto Monash Typst template.
 - `#C14B14` as the Quarto Monash orange accent for progress and list markers.
 - neutral greys for body/footer contrast.
-- no bundled Monash logo in the starter deck; users can provide their own logo
-  asset through the theme configuration when they have appropriate rights.
-- vendored Quarto Monash PNG assets under `template/assets/monash-presentation/`.
-- a title slide using `background/bg-02.png`.
+- no bundled Monash logo, crest, or wordmark in the starter deck; users can
+  provide their own logo asset through the theme configuration when they have
+  appropriate rights.
+- a vendored logo-free Quarto Monash background PNG under
+  `template/assets/monash-presentation/`.
+- a title slide using the logo-free `background/bg-02.png`.
 - full-width Monash blue title bars on content slides.
 - a footer baseline, orange progress bar, and small grey slide number.
 
-The template vendors only the small set of Quarto Monash presentation assets
+The template vendors only the logo-free Quarto Monash presentation background
 needed by the starter deck. If future versions add more background variants,
-document the source repository and keep paths under `template/assets/`.
+document the source repository, remove embedded Monash marks unless explicit
+redistribution rights are available, and keep paths under `template/assets/`.
 
 ## Logo SVG Notes
 
@@ -40,8 +43,8 @@ direct automated download may be blocked. Wikimedia Commons mirrors a
 `Monash University logo.svg` file sourced from that official URL and marks it as
 simple geometry/public domain while also warning that it may be trademarked.
 
-The starter template does not vendor a Monash logo. Users who have appropriate
-rights can provide their own logo asset and pass:
+The starter template does not vendor a Monash logo, crest, or wordmark. Users
+who have appropriate rights can provide their own logo asset and pass:
 
 ```typst
 #show: monash-theme.with(
@@ -50,10 +53,12 @@ rights can provide their own logo asset and pass:
 )
 ```
 
-The Quarto Monash PNG assets are vendored from
+The Quarto Monash background PNG is derived from
 `quarto-monash/presentation/_extensions/presentation/_images/` for visual
-alignment with that template. The upstream Quarto Monash presentation template
-is distributed under the CC0 1.0 Universal public domain dedication.
+alignment with that template. The embedded Monash crest and wordmark have been
+removed from the bundled starter background. The upstream Quarto Monash
+presentation template is distributed under the CC0 1.0 Universal public domain
+dedication.
 
 ## References
 
