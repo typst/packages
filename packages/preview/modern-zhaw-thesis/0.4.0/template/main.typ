@@ -23,10 +23,7 @@
     location: "Zürich",
   ),
   glossary-entries: myGlossary,
-  biblio: (
-    file: read("biblio.bib", encoding: none),
-    style: "ieee",
-  ),
+  bibliography: bibliography("biblio.bib", style: "ieee"),
   appendix: [#include "appendix.typ"],
 )
 
@@ -58,7 +55,7 @@ That's subjective, but:
 
 Here we have a glossary reference: @iot:long. We can also use the acronym form: @iot:short. See the #link("https://typst.app/universe/package/glossy/", "Glossy") documentation for more details. Here we refer to a term, not an acronym: @deployment.
 
-Here we refer to a source from our bibliography @garcia2021microservices. The template uses IEEE style by default, but you can change it with the `bibliography-style` option in `zhaw-thesis.with()`.
+Here we refer to a source from our bibliography @garcia2021microservices. Pass a `bibliography()` object to the `bibliography:` parameter to control the file and style.
 
 We can also refer to equations, such as @eq:weights, and figures, such as @tab:results.
 

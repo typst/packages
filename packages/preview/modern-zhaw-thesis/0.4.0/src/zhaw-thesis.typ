@@ -1,4 +1,4 @@
-#import "utils.typ": deep-merge, deep-merge-or-default
+#import "utils.typ": deep-merge
 #import "frontmatter.typ": (
   zhaw-abstract-section, zhaw-acknowledgements-section, zhaw-cover-page, zhaw-declaration-section,
 )
@@ -42,8 +42,8 @@
     override: none,
   ),
   glossary-entries: none,
-  // Default `none` so callers may pass `biblio: none` (same as omitting: IEEE, no .bib file).
-  biblio: none,
+  /// Pass a bibliography() object directly, e.g. bibliography("refs.bib", style: "ieee").
+  bibliography: none,
   appendix: none,
   page-border: true,
   hide-frontmatter: false,
@@ -86,12 +86,6 @@
   )
 
   let declaration-of-originality = deep-merge(declaration-defaults, declaration-of-originality)
-
-  let biblio-defaults = (
-    file: none,
-    style: "ieee",
-  )
-  let biblio = deep-merge-or-default(biblio-defaults, biblio)
 
   set enum(numbering: "1.i.1.i.")
 
@@ -144,11 +138,8 @@
       styled-glossary
     }
 
-    if biblio.file != none {
-      bibliography(
-        biblio.file,
-        style: biblio.style,
-      )
+    if bibliography != none {
+      bibliography
     }
 
     if appendix != none {

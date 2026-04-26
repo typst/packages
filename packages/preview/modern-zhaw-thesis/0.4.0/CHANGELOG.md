@@ -3,6 +3,7 @@
 ## 0.4.0
 
 - **BREAKING (layout shifts)**: Tweaked H1 font size and spacing based on feedback
+- **BREAKING**: `biblio: (file:, style:)` replaced by `bibliography:` — pass a `bibliography()` object directly
 - Replaced custom Glossy patch with official 0.9.1 release. Should not be a breaking change.
 
 ## 0.3.0

@@ -6,9 +6,9 @@
 
 ## Setup
 
-1. Download the font files from the repo's font directory: 
+1. Download the font files from the repo's font directory:
 
-    [GitHub](https://github.com/stanlrt/typst-zhaw-thesis/tree/28927077165d31305c4438657eb0cdefa32bbcbd/fonts) 
+    [GitHub](https://github.com/stanlrt/typst-zhaw-thesis/tree/28927077165d31305c4438657eb0cdefa32bbcbd/fonts)
 
     [Direct download](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fstanlrt%2Ftypst-zhaw-thesis%2Ftree%2F28927077165d31305c4438657eb0cdefa32bbcbd%2Ffonts)
 
@@ -68,10 +68,7 @@ Below is the complete list of configuration options, including default values an
     override: none,             // Override the declaration page with your own file
   ),
 
-  biblio: (
-    file: none,                 // Stream to .bib file e.g. `read("references.bib", encoding: none)`
-    style: "ieee",              // Bibliography style, e.g. "ieee"
-  ),
+  bibliography: none,            // bibliography() object, e.g. `bibliography("refs.bib", style: "ieee")`
 
   glossary-entries: none,       // Variable containing glossary entries (see template)
   appendix: none,               // Appendix Typst file, e.g. [#include "appendix.typ"]
@@ -104,7 +101,7 @@ You can refer to the [demo document](./template/main.typ) for usage examples.
 
 ### Glossary
 
-The template uses the [Glossy package](https://typst.app/universe/package/glossy/) to power the glossary feature under the hood. 
+The template uses the [Glossy package](https://typst.app/universe/package/glossy/) to power the glossary feature under the hood.
 You can find instructions about how to use all its options directly on the [package page](https://typst.app/universe/package/glossy/).
 
 ### Code blocks
@@ -118,7 +115,7 @@ Should you need use different languages for different pages of your work, you ca
 
 ## Feature requests & problems
 
-Feel free to request features or report problems [here](https://github.com/stanlrt/typst-zhaw-thesis/issues)
+Feel free to [request features or report problems here](https://github.com/stanlrt/typst-zhaw-thesis/issues)
 
 ## License and Trademark Notice
 
@@ -147,6 +144,7 @@ This is an **unofficial** template created by a student. It is not endorsed, mai
 ### 0.4.0
 
 - **BREAKING (layout shifts)**: Tweaked H1 font size and spacing based on feedback
+- **BREAKING**: `biblio: (file:, style:)` replaced by `bibliography:` — pass a `bibliography()` object directly
 - Replaced custom Glossy patch with official 0.9.1 release. Should not be a breaking change.
 
 ### 0.3.0
