@@ -55,7 +55,7 @@ That's subjective, but:
 
 Here we have a glossary reference: @iot:long. We can also use the acronym form: @iot:short. See the #link("https://typst.app/universe/package/glossy/", "Glossy") documentation for more details. Here we refer to a term, not an acronym: @deployment.
 
-Here we refer to a source from our bibliography @garcia2021microservices. Pass a `bibliography()` object to the `bibliography:` parameter to control the file and style.
+Here we refer to a source from our bibliography @garcia2021microservices. Pass a #link("https://typst.app/docs/reference/model/bibliography/")[`bibliography()` object] to the `bibliography:` parameter to control the file and style.
 
 We can also refer to equations, such as @eq:weights, and figures, such as @tab:results.
 
