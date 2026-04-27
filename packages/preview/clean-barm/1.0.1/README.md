@@ -29,7 +29,7 @@ This is a full list of available properties:
   <summary>Thesis</summary>
    
   ```typst
-  #show: Thesis.with(
+  #show: thesis.with(
     //language: "de", // default
     title: "Titel der Arbeit",
     author: "Max Mustermann",
@@ -67,7 +67,7 @@ This is a full list of available properties:
   <summary>Exposé</summary>
 
   ```typst
-  #show: Expose.with(
+  #show: expose.with(
     title: "Titel der Arbeit",
     author: "Max Mustermann",
     study-group: "AI-WS23_III",
@@ -150,7 +150,7 @@ This is a full list of available properties:
   <summary>Paper</summary>
 
   ```typst
-  #show: Paper.with(
+  #show: paper.with(
     title: "Titel der Arbeit",
     authors: (
       (name: "Max Mustermann", student-id: "1234567"),
