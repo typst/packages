@@ -156,7 +156,7 @@
   }
 
   set page(
-    margin: (top: 23%, bottom: 10%, left: x-margin, right: x-margin),
+    margin: (top: 20%, bottom: 10%, left: x-margin, right: x-margin),
     header-ascent: 23%,
     paper: "presentation-16-9",
     header: context {
@@ -173,7 +173,7 @@
         
         // Left
         place(top + left, dy: 0.4cm, dx: 0.6cm-x-margin, align(center, {
-          image("assets/Logo.svg", width: 22%)
+          image("assets/Logo.svg", width: 6cm)
         }))
         // Right
         place(horizon + right, dx: x-margin - 0.6cm, align(center, {
@@ -248,7 +248,7 @@
     
     // University Logo (top left)
     place(top + left, dx: 0.6cm, dy: 0.4cm, 
-      image("assets/Logo.svg", width: 22%)
+      image("assets/Logo.svg", width: 6cm)
     )
 
     // Main Title and Author (Center Left)
@@ -435,7 +435,7 @@
     ))
 
     place(top + left, dx: 0.6cm, dy: 0.4cm, 
-      image("assets/Logo.svg", width: 22%)
+      image("assets/Logo.svg", width: 6cm)
     )
 
     // Make heading for chapter title usage
@@ -481,5 +481,3 @@
   // Pass the built content to your template's slide wrapper
   s(content)
 }
-
-

@@ -1,4 +1,4 @@
-#import "@preview/uni-ms-pres-schloss:0.1.0": *
+#import "@local/uni-ms-pres-schloss:0.1.0": *
 
 #show: pres-theme.with(
   author: [Your Name],
@@ -54,10 +54,14 @@
   - #lorem(5)  
   - #lorem(7)
   ]
-  you can also use one-by-one.
-  
+  you can also use one-by-one, only, alternatives and mote like this:
+
+  #only((beginning: 6))[
   + #lorem(7)
+  ]
+  #only((beginning: 7))[
   + #lorem(11)
+  ]
 ]
 
 #slide(
@@ -103,8 +107,6 @@
     ]
   ]
 
-  #show: later
-
   What else is possible with polylux?
   #align(center)[
     #block(
@@ -118,8 +120,6 @@
       #link("https://polylux.dev/book/getting-started/getting-started.html")
     ]
   ]
-
-  #show: later
 
   How can I generate a handout from my presentation? (Turn animations off.)
   #align(center)[

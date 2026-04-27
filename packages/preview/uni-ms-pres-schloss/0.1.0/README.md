@@ -141,7 +141,7 @@ Otherwise, the text is scaled dynamically.
 
 ### Header Slide
 
-![Section header slide for the University of Münster. The background is a blue-tinted image of the Prince Bishop's Palace. Central text reads "Header slide" above a horizontal line and "Presentation Title." The university logo is top-left, with "Your Name" and "2/14" in the footer.](./slide-images/headder-slide.png)
+![Section header slide for the University of Münster. The background is a blue-tinted image of the Prince Bishop's Palace. Central text reads "Header slide" above a horizontal line and "Presentation Title." The university logo is top-left, with "Your Name" and "2/14" in the footer.](./slide-images/header-slide.png)
 
 `#header-slide` registers the section for the outline automatically.
 If you want to create a new section without it, use:
@@ -153,7 +153,7 @@ If you want to create a new section without it, use:
 
 ### Basic Slide
 
-![Basic content slide for the University of Münster. The slide is titled "Basic Slide" and contains a paragraph of placeholder Latin text (Lorem ipsum). The university logo is top-left, "Header slide" is top-right, and the footer shows "Your Name" with slide number "3 / 14."](./slide-images/bais-slide.png)
+![Basic content slide for the University of Münster. The slide is titled "Basic Slide" and contains a paragraph of placeholder Latin text (Lorem ipsum). The university logo is top-left, "Header slide" is top-right, and the footer shows "Your Name" with slide number "3 / 14."](./slide-images/basic-slide.png)
 
 ```typ
 #slide(heading: [Basic Slide])[
@@ -172,12 +172,29 @@ If you want to create a new section without it, use:
 ```
 
 ### Code Slide
-![Presentation slide titled "Code" for the University of Münster. It displays a code block with syntax highlighting and line numbers containing a mix of Python and non-standard syntax. The slide includes the university logo, the section title "Some examples of content," and the footer "Your Name" with slide number "5 / 14."](./slide-images/code-slide.png )
+![Presentation slide titled "Code" for the University of Münster. It displays a code block with syntax highlighting and line numbers containing a mix of Python and non-standard syntax. The slide includes the university logo, the section title "Some examples of content," and the footer "Your Name" with slide number "5 / 14."](./slide-images/code-slide.png)
+
+````typ
+#slide(heading: [Code])[
+  ```py
+  import torch
+
+  if (torch.cuda.is_available()):
+  {
+    print("cuda is there wohoo!")
+  }
+  break; # Oh no Java! // lelolalu
+
+  variable = variable * 100.000 +- >< | && 
+
+  ```
+]
+````
 
 
 ### Equations
 
-![Slide titled "How to use equations" for the University of Münster. It demonstrates inline math $a + b \neq c$ and a centered, numbered equation $a^2 + b^2 = c^2$ (1). The text mentions that "eq. (1) references Pythagoras' theorem" with a citation to "[1]". Standard university branding and footer "7 / 14" are included.](./slide-images/math-slide.png)
+![Slide titled "How to use equations" for the University of Münster. It demonstrates inline math $a + b \neq c$ and a centered, numbered equation $a^2 + b^2 = c^2$ (1). The text mentions that "eq. (1) references Pythagoras' theorem" with a citation to "1". Standard university branding and footer "7 / 14" are included.](./slide-images/math-slide.png)
 
 ```typ
 #show: document => conf-equations(document)
@@ -206,7 +223,7 @@ If you want to create a new section without it, use:
 
 ### Bibliography Slide
 
-![Bibliography slide for the University of Münster titled "Bibliography." It lists one reference: "[1] M. Gerwig, Der Satz des Pythagoras in 365 Beweisen. Berlin: Springer Spektrum, 2021" with a linked DOI. The university logo is top-left, the section title "Bibliography" is top-right, and the footer shows "Your Name" and "14 / 14."](./slide-images/bibliography-slide.png)
+![Bibliography slide for the University of Münster titled "Bibliography." It lists one reference: "1: M. Gerwig, Der Satz des Pythagoras in 365 Beweisen. Berlin: Springer Spektrum, 2021" with a linked DOI. The university logo is top-left, the section title "Bibliography" is top-right, and the footer shows "Your Name" and "14 / 14."](./slide-images/bibliography-slide.png)
 
 ```typ
 #header-slide()[Bibliography]
