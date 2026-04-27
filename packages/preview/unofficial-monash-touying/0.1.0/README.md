@@ -1,10 +1,10 @@
 # Unofficial Monash Touying
 
-An unofficial Monash-style presentation package for Typst. It is intentionally
-thin: Touying remains the slide authoring system, while this package supplies a
-Monash theme aligned with the `quarto-monash/presentation` Typst template,
-theorem-like environments styled with `frame-it`, and Monash-styled code blocks
-powered by `zebraw`.
+An unofficial Monash-inspired presentation package for Typst. It is
+intentionally thin: Touying remains the slide authoring system, while this
+package supplies a theme aligned with the `quarto-monash/presentation` Typst
+template, theorem-like environments styled with `frame-it`, and
+Monash-inspired code blocks powered by `zebraw`.
 
 ## Preview
 
@@ -131,7 +131,7 @@ Quarto Monash visual alignment.
 
 ## Credits
 
-This project is an unofficial student package and is not affiliated with or
+This project is an unofficial community package and is not affiliated with or
 endorsed by Monash University.
 
 The visual direction and bundled logo-free presentation background asset are

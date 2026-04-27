@@ -71,7 +71,7 @@
   ]
 }
 
-/// Monash-styled Touying content slide.
+/// Monash-inspired Touying content slide.
 ///
 /// This is installed as the default slide function by `monash-theme`. Use it
 /// directly only when a deck needs manual Touying slide control.
@@ -125,7 +125,7 @@
   ]
 }
 
-/// Creates the title slide for a Monash student deck.
+/// Creates the title slide for a Monash-inspired Touying deck.
 ///
 /// The slide uses the configured `titlegraphic`, title metadata, author,
 /// institution, and date. Extra content can be placed below the metadata.
@@ -214,7 +214,7 @@
   v(.7em, weak: true)
 }
 
-/// Applies the Monash student slide theme to a Touying deck.
+/// Applies the Monash-inspired slide theme to a Touying deck.
 ///
 /// Use this as the main document show rule. It keeps Touying as the authoring
 /// model while applying Monash title bars, footer progress, text styles,

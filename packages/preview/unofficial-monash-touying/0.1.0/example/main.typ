@@ -14,8 +14,8 @@
 #show: monash-theme.with(
   titlegraphic: monash-titlegraphic,
   config-info(
-    title: [Monash Student Slides],
-    short-title: [Student Slides],
+    title: [Unofficial Monash Touying],
+    short-title: [Monash Touying],
     subtitle: [Example deck and feature guide],
     author: [Your Name],
     institution: [Monash University],

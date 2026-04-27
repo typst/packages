@@ -1,6 +1,6 @@
 # Monash-Inspired Design Notes
 
-This package is an unofficial student template. It should not present itself as
+This package is an unofficial community template. It should not present itself as
 an official Monash University asset.
 
 ## Visual Direction

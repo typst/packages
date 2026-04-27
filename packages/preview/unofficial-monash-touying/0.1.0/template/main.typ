@@ -14,9 +14,9 @@
 #show: monash-theme.with(
   titlegraphic: monash-titlegraphic,
   config-info(
-    title: [Monash Student Slides],
-    short-title: [Student Slides],
-    subtitle: [A Touying presentation template],
+    title: [Unofficial Monash Touying],
+    short-title: [Monash Touying],
+    subtitle: [Academic presentation starter],
     author: [Your Name],
     institution: [Monash University],
     date: datetime.today(),
@@ -31,8 +31,8 @@
 
 == First Slide
 
-This template keeps Touying as the authoring model while applying a Monash-style
-presentation theme.
+This starter keeps Touying as the authoring model while applying a
+Monash-inspired presentation theme.
 
 - Use headings to create sections and slides.
 - Use `#slide` when you want manual slide control.

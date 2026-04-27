@@ -1,12 +1,12 @@
 #import "@preview/tidy:0.4.3"
 #import "@preview/unofficial-monash-touying:0.1.0" as monash
 
-#set document(title: "Monash Student Slides Reference")
+#set document(title: "Unofficial Monash Touying Reference")
 #set page(paper: "a4", margin: 2cm)
 #set text(font: ("Arial", "New Computer Modern"), size: 10pt)
 #set par(justify: false, leading: .65em)
 
-= Monash Student Slides Reference
+= Unofficial Monash Touying Reference
 
 This reference is generated from the package's Typst doc comments with
 `tidy`. The runtime package does not depend on `tidy`; it is only used for this
