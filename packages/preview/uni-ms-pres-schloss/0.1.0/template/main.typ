@@ -1,4 +1,4 @@
-#import "@local/uni-ms-pres-schloss:0.1.0": *
+#import "@preview/uni-ms-pres-schloss:0.1.0": *
 
 #show: pres-theme.with(
   author: [Your Name],
