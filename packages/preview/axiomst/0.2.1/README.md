@@ -1,7 +1,7 @@
 # axiomst
 <div align="center">
     <figure>
-        <img src="https://raw.githubusercontent.com/rezaarezvan/axiomst/refs/heads/main/thumbnail.png" alt="Axiomst">
+        <img src="banner.png" alt="Two example pages rendered with axiomst, featuring a math problem set and a lecture slide with a well-spaced layout and colorful boxes for theorems, definitions, lemmas, and examples.">
     </figure>
 </div>
 
