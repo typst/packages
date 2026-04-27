@@ -1,4 +1,4 @@
-#import "@preview/soc-fyp-report:0.1.0": *
+#import "@preview/simple-soc-report:0.1.0": *
 #appendix-section("Code Listing")[
   #figure(
     ```py

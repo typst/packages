@@ -1,4 +1,4 @@
-#import "@preview/soc-fyp-report:0.1.0": *
+#import "@preview/simple-soc-report:0.1.0": *
 #show: report.with(
   project-type: "B.Comp. Dissertation",
   author-name: "Your Name",
