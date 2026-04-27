@@ -233,7 +233,7 @@
     #align(center)[
       #v(16mm)
       #if logo == none {
-        image("assets/UCT_logo.png", width: 43mm)
+        image("assets/sample_logo.png", width: 43mm)
       } else {
         logo
       }
