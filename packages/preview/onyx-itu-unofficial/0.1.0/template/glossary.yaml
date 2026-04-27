@@ -1,0 +1,71 @@
+# https://github.com/typst-community/glossarium/tree/master
+
+ai:
+  short: AI
+  long: Artificial Intelligence
+  plural: AIs
+  longplural: Artificial Intelligence systems
+  description: A field of computer science focused on creating systems capable of performing tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. Modern AI techniques include machine learning, deep learning, and neural networks.
+
+ml:
+  short: ML
+  long: Machine Learning
+  plural: ML methods
+  longplural: Machine Learning algorithms
+  description: A subset of artificial intelligence that enables computers to learn from data and improve their performance on specific tasks without being explicitly programmed. Common approaches include supervised learning, unsupervised learning, and reinforcement learning. #gls("ai")
+
+cnn:
+  short: CNN
+  long: Convolutional Neural Network
+  plural: CNNs
+  longplural: Convolutional Neural Networks
+  description: A specialized type of neural network designed primarily for image processing and computer vision tasks. CNNs use convolutional layers to automatically detect important features without human intervention and have revolutionized fields like facial recognition, medical imaging, and autonomous driving.
+
+nlp:
+  short: NLP
+  long: Natural Language Processing
+  plural: NLP approaches
+  longplural: Natural Language Processing techniques
+  description: An interdisciplinary field focused on enabling computers to understand, interpret, and generate human language. NLP combines computational linguistics, machine learning, and deep learning to develop applications such as machine translation, sentiment analysis, chatbots, and speech recognition.
+
+rl:
+  short: RL
+  long: Reinforcement Learning
+  plural: RL techniques
+  longplural: Reinforcement Learning methods
+  description: A machine learning approach where an agent learns to make decisions by performing actions in an environment to maximize cumulative rewards. Unlike supervised learning, reinforcement learning requires no labeled data, instead learning through trial and error interactions with the environment.
+
+itu:
+  short: ITU
+  long: IT University of Copenhagen
+  plural: universities
+  longplural: IT Universities
+  description: A specialized university in Copenhagen, Denmark, focused on information technology research and education. Founded in 1999, ITU offers programs in computer science, digital design, data science, and other technology-related fields, conducting cutting-edge research in areas like AI, cybersecurity, and human-computer interaction.
+
+gpu:
+  short: GPU
+  long: Graphics Processing Unit
+  plural: GPUs
+  longplural: Graphics Processing Units
+  description: A specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the creation of images for output to a display device. While initially developed for gaming and graphics rendering, GPUs have become essential for deep learning and AI applications due to their parallel processing capabilities.
+
+cpu:
+  short: CPU
+  long: Central Processing Unit
+  plural: CPUs
+  longplural: Central Processing Units
+  description: The primary component of a computer that performs most of the processing inside the system. Often called the "brain" of the computer, the CPU executes instructions from programs by performing basic arithmetic, logical, control, and input/output operations. Modern CPUs incorporate multiple processing cores to enhance performance.
+
+api:
+  short: API
+  long: Application Programming Interface
+  plural: APIs
+  longplural: Application Programming Interfaces
+  description: A set of rules and protocols that allows different software applications to communicate with each other. APIs define the methods and data formats that applications can use to request and exchange information, enabling developers to integrate existing services into their applications without needing to understand the underlying implementation.
+
+lod:
+  short: LOD
+  long: Level of Detail
+  plural: LODs
+  longplural: Levels of Detail
+  description: A technique used in computer graphics and 3D rendering to decrease the complexity of a 3D model as it moves away from the viewer or based on other metrics. This optimization helps maintain performance and frame rates by reducing the computational load for objects that contribute less to the final image quality.
