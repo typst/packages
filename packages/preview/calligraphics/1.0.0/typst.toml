@@ -1,0 +1,16 @@
+[package]
+name = "calligraphics"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Lieunoir <lieunoir@rezel.net>"]
+license = "MIT"
+description = "A typst resume template fill with colorfull triangles."
+repository = "https://github.com/Lieunoir/calligraphics"
+categories = ["cv"]
+keywords = ["CV", "Curriculum Vitae", "Resume", "Triangles"]
+exclude = ["*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "resume.typ"
+thumbnail = "thumbnail.png"
