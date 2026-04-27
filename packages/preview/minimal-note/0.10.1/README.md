@@ -17,7 +17,7 @@ This template exports the `minimal-note` function with the following named argum
 - `title`: The paper's title as content.
 - `author`: The paper's author as content.
 - `date`: The paper's date as datetime.
-- `show_outline`: Whether to have an outline or not.
+- `show-outline`: Whether to have an outline or not.
 
 The function also accepts a single, positional argument for the body of the paper.
 
@@ -30,7 +30,7 @@ The template will initialize your package with a sample call to the `minimal-not
   title: [Paper Title],
   author: [Your Name],
   date: datetime.today().display("[month repr:long], [year]"),
-  show_outline: true,
+  show-outline: true,
 )
 ```
 
@@ -38,8 +38,11 @@ The template will initialize your package with a sample call to the `minimal-not
 
 Have recommendations? Please submit an issue.
 
-- [x] Algorithms
-- [x] Code blocks
-- [x] Bibliography
-- [ ] showybox
-- [ ] Multiple authors
+Done:
+- Algorithms
+- Code blocks
+- Bibliography
+
+Planned:
+- showybox
+- Multiple authors

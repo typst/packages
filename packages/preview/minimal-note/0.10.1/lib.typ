@@ -1,10 +1,10 @@
 // === Algorithmic Logistics ===
-#import "@preview/algorithmic:1.0.0"
+#import "@preview/algorithmic:1.0.7"
 #import algorithmic: *
 
 // === Codly Logistics ===
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.10": *
 
 
 // === Template ===
@@ -12,7 +12,7 @@
   title: [Paper Title],
   author: [Albert Einstein],
   date: datetime.today().display("[month repr:long], [year]"),
-  show_outline: true,
+  show-outline: true,
   doc
 ) = {
   // Styling Configurations
@@ -44,7 +44,7 @@
   align(center)[#author \ #date]
 
   // Table of Contents
-  if show_outline {
+  if show-outline {
     outline()
   }
 
