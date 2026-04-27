@@ -23,10 +23,10 @@
 #let page-bottom-margin = 27mm
 #let figure-space-above = 1.2em
 #let figure-space-below = 1.2em
-#let table-space-above = 1.2em
-#let table-space-below = 1.2em
-#let equation-space-above = 1.2em
-#let equation-space-below = 1.2em
+#let table-space-above = 1.8em
+#let table-space-below = 1.8em
+#let equation-space-above = 1.8em
+#let equation-space-below = 1.9em
 // Front matter (title page through acronyms) uses a single column the same
 // width as `major-column`, but page-centred rather than offset. A4 is 210mm
 // wide, so the side margins are (210mm − major-column) / 2 on each side.
@@ -468,7 +468,7 @@
   math.equation(block: true, equation-body)
 }
 
-#let side-caption-table(caption, widths, rows) = figure(
+#let side-caption-table(caption, widths, aligns: none, rows) = figure(
   kind: table,
   supplement: [Table],
   caption: none,
@@ -481,6 +481,14 @@
     let header = rows.at(0)
     let body = rows.slice(1)
 
+    // Build alignment function: if `aligns` is provided use it, otherwise
+    // default to left everywhere except the last column which is right-aligned.
+    let align-fn = if aligns != none {
+      (x, y) => aligns.at(x)
+    } else {
+      (x, y) => if x == column-count - 1 { right } else { left }
+    }
+
     [
       #v(table-space-above)
       #major-column-block[
@@ -489,7 +497,7 @@
           columns: widths,
           inset: (x: 6pt, y: 5pt),
           stroke: (x: none, y: 0.45pt + luma(75%)),
-          align: (x, y) => if x == column-count - 1 { right } else { left },
+          align: align-fn,
           table.header(..header.map(cell => strong(spaced-smallcaps(cell, size: 8.2pt)))),
           ..body.flatten(),
         )

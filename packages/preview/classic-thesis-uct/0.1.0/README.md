@@ -1,6 +1,10 @@
-PhD thesis or research proposal at the University of Cape Town, in the Classic Thesis tradition.
+Unofficial PhD thesis or research proposal at the University of Cape Town, in the Classic Thesis tradition.
 
 A two-sided A4 document with mirrored margins, EB Garamond typography in spaced small caps, side-caption figures and tables, margin-set equation numbers, and a centred-column front matter (title page through acronyms) that gives way to the asymmetric major-column layout in the main matter.
+
+This project is inspired by the [Classic Thesis](https://bitbucket.org/amiede/workspace/projects/CT) project by André Miede and adapted for use at the University of Cape Town.
+
+The project is in no way affiliated with the University of Cape Town or André Miede.
 
 ## Quick start
 
