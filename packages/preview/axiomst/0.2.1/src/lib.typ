@@ -15,6 +15,9 @@
   show-solutions-state,
   // Layout
   columns,
+  // Math
+  num-counter,
+  num,
   // Academic elements
   theorem-base,
   theorem,

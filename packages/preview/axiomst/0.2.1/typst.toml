@@ -9,7 +9,7 @@ repository = "https://github.com/rezaarezvan/axiomst"
 keywords = ["homework", "problem set", "slides", "presentation", "academic"]
 categories = ["report", "presentation"]
 compiler = "0.13.0"
-exclude = ["examples/*", ".claude/*"]
+exclude = ["examples/*", "tests/*", ".claude/*"]
 
 [template]
 path = "template"

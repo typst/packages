@@ -65,6 +65,37 @@
   }
 }
 
+// Counter for #num(...) equations on slides
+#let num-counter = counter("axiomst-num-equation")
+
+// Explicitly numbered display equation. On slides the default is unnumbered
+// (`set math.equation(numbering: none)`), so wrap with `#num(...)` to opt in
+// to numbering. Overlay-aware: steps exactly once per logical reveal so the
+// number stays stable across pause overlays.
+#let num(body, format: "(1)") = context {
+  let math-body = if type(body) == content and body.func() == math.equation {
+    body.body
+  } else {
+    body
+  }
+  let handout = state("axiomst-handout", false).get()
+  let subslide = state("axiomst-subslide", 1).get()
+  let pause = counter("axiomst-pause").get().first()
+  let visible = handout or pause < subslide
+  let first-visible = handout or pause + 1 == subslide
+
+  if first-visible { num-counter.step() }
+
+  let rendered = grid(
+    columns: (1fr, auto),
+    column-gutter: 1em,
+    align: (center + horizon, right + horizon),
+    math.equation(block: true, numbering: none, math-body),
+    context num-counter.display(format),
+  )
+  if visible { rendered } else { hide(rendered) }
+}
+
 // Base theorem-like box
 #let theorem-base(
   ctr,
@@ -75,20 +106,33 @@
   fill: blue.lighten(95%),
   body
 ) = {
-  let number = if numbered { ctr.step(); context(ctr.display()) }
+  context {
+    let handout = state("axiomst-handout", false).get()
+    let subslide = state("axiomst-subslide", 1).get()
+    let pause = counter("axiomst-pause").get().first()
+    let visible = handout or pause < subslide
+    let first-visible = handout or pause + 1 == subslide
 
-  block(
-    width: 100%,
-    fill: fill,
-    radius: 4pt,
-    stroke: color.darken(10%),
-    inset: 0.6em,
-  )[
-    #text(weight: "bold")[#prefix #if numbered {number}]
-    #if title != none [#text(style: "italic")[#title].]
-    #v(0.5em)
-    #body
-  ]
+    if visible {
+      let number = if numbered {
+        if first-visible { ctr.step() }
+        context(ctr.display())
+      }
+
+      block(
+        width: 100%,
+        fill: fill,
+        radius: 4pt,
+        stroke: color.darken(10%),
+        inset: 0.6em,
+      )[
+        #text(weight: "bold")[#prefix #if numbered {number}]
+        #if title != none [#text(style: "italic")[#title].]
+        #v(0.5em)
+        #body
+      ]
+    }
+  }
 }
 
 // Theorem
