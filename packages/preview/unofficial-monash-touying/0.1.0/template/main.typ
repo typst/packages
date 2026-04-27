@@ -4,6 +4,8 @@
 
 #set text(font: ("Arial", "New Computer Modern"))
 
+// Replace this with your own approved title graphic, or remove `titlegraphic`
+// from `monash-theme.with(...)` to use a plain title slide.
 #let monash-titlegraphic = image(
   "assets/monash-presentation/background/bg-02.png",
   width: 100%,
@@ -23,22 +25,27 @@
   ),
 )
 
+// Install the academic frame environments:
+// `definition`, `theorem`, `lemma`, `corollary`, `note`, `warning`, `remark`,
+// and `proof`. Use `.with(numbering: false)` to hide frame numbers.
 #show: show-monash-frames
 
 #title-slide()
 
-= Introduction
+= Overview
 
-== First Slide
+== Why This Starter
 
-This starter keeps Touying as the authoring model while applying a
-Monash-inspired presentation theme.
+Touying remains the authoring model. Use headings for sections and slides, and
+use this package for the Monash-inspired theme and academic frame environments.
 
 - Use headings to create sections and slides.
 - Use `#slide` when you want manual slide control.
 - Use Touying features such as `#pause` directly.
 
-== Definition and Theorem
+= Academic Frames
+
+== Theorem-Like Content
 
 #definition[Loss Function][
   A loss function maps a prediction and target to a scalar penalty:
@@ -53,6 +60,8 @@ Monash-inspired presentation theme.
 #proof[Sketch][
   Apply the theorem assumptions and simplify.
 ]
+
+= Code
 
 == Code
 
