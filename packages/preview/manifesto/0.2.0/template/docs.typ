@@ -1,4 +1,4 @@
-#import "@preview/manifesto:0.1.1": info, schema, template, tip, warning
+#import "@preview/manifesto:0.2.0": info, schema, template, tip, warning
 #import "@preview/zap:0.5.0"
 
 #show: it => template(it, title: "MyPackage", version: "0.1.0", description: "My package is awesome", repository: "https://codeberg.org/username/mypackage")
