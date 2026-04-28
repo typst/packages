@@ -5,11 +5,10 @@ version = "0.1.0"
 entrypoint = "src/lib.typ"
 compiler = "0.14.0"
 repository = "https://github.com/mariovagomarzal/typst-num2words"
-homepage = "https://github.com/mariovagomarzal/typst-num2words"
 authors = [
     "Mario Vago Marzal <https://github.com/mariovagomarzal>"
 ]
-license = "LGPL-3.0"
+license = "LGPL-3.0-or-later"
 categories = ["utility", "languages"]
 keywords = ["number", "words", "conversion"]
 
