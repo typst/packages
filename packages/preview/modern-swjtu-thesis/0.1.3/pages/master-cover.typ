@@ -147,17 +147,17 @@
   // 居中对齐
   set align(center)
 
-  // 匿名化处理去掉封面标识
-  if anonymous {
-    v(70pt)
-  } else {
-    // 封面图标
-    v(6pt)
-    image("../assets/vi/nju-emblem.svg", width: 1.42cm)
-    // 调整一下左边的间距
-    pad(image("../assets/vi/nju-name.svg", width: 4cm))
-    v(34pt)
-  }
+//  // 匿名化处理去掉封面标识
+//  if anonymous {
+//    v(70pt)
+//  } else {
+//    // 封面图标
+//    v(6pt)
+//    image("../assets/vi/nju-emblem.svg", width: 1.42cm)
+//    // 调整一下左边的间距
+//    pad(image("../assets/vi/nju-name.svg", width: 4cm))
+//    v(34pt)
+//  }
 
   // 将中文之间的空格间隙从 0.25 em 调整到 0.5 em
   text(size: 28pt, font: fonts.宋体, spacing: 200%, weight: "bold",
@@ -284,9 +284,9 @@
   
   v(46pt)
 
-  if not anonymous {
-    image("../assets/vi/nju-emblem.svg", width: 2.14cm)
-  }
+//  if not anonymous {
+//    image("../assets/vi/nju-emblem.svg", width: 2.14cm)
+//  }
 
   v(28pt)
 
