@@ -1,66 +1,66 @@
 # 大学论文 Typst 模板
 
-一个为本科生毕业论文设计的 Typst 排版模板。它基于中文学术规范，帮助使用者快速完成论文的封面、章节和参考文献排版，让使用者专注于写作本身。
+[![GitHub 仓库](https://img.shields.io/badge/GitHub-仓库-blue?logo=github)](https://github.com/strangelion/university-typst-template)
+[English](README.md)
 
-## 特点
+一款专为本科生毕业论文设计的专业 Typst 排版模板。遵循中文学术规范，自动处理封面、章节格式与参考文献管理，让您把精力集中在真正重要的事情上：您的研究本身。
 
-- 简洁写作：全程使用标记式语法，告别复杂的 LaTeX 命令。
-- 符合学术规范：内置了中文论文标准格式（封面、各级标题、图表编号等）。
-- 快速渲染：基于 Typst 引擎，实时编译，所见即所得。
-- 完整的章节结构：预设了从“摘要”到“致谢”的完整文档框架。
-- 参考文献支持：集成 GB/T 7714 中文国标引用样式。
+## 主要特点
 
-## 使用方法
+- **轻松写作：** 使用直观的标记语法，再也不用与复杂的 LaTeX 指令纠缠。
+- **学术严谨：** 内建符合中文论文标准的封面、层级标题、图表编号等。
+- **极速编译：** 基于 Typst 引擎，实时编译、即时预览 PDF。
+- **即开即用：** 提供从摘要到致谢的完整文档框架。
+- **引用无忧：** 原生集成 GB/T 7714（顺序编码制）国家标准参考文献格式。
 
-1. 环境准备
+## 快速开始
 
-本项目需要安装 Typst。它提供本地编译与在线编辑两种使用方式：
+### 环境配置
+您可以在本地或浏览器中使用 Typst：
 
-- 本地安装：
-  - Windows：从 GitHub Releases 下载 typst-x86_64-pc-windows-msvc.zip，解压后将路径添加到系统 PATH。
-  - macOS/Linux：可以使用包管理器（如 Homebrew、APT、Pacman）进行安装，也可以使用 Rust 的 Cargo 工具通过 cargo install typst-cli 命令安装。
-  - 安卓: 使用termux安装一个Linux环境再参照Linux教程使用
-  - 验证安装：在终端中输入 typst -V，若显示版本号则说明安装成功。
-  - VSCode 插件（推荐）：在 VSCode 扩展商店中搜索并安装 “Tinymit Typst”。它会在你保存代码时自动刷新 PDF 预览，带来类似 Typora 的写作体验。
-- 网页使用：
-  - 官方网站 https://typst.app/play/
-  - 创建GitHub代码空间https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=strangelion/university-typst-template
+**本地安装：**
+- **Windows：** 从 GitHub Releases 下载 `typst-x86_64-pc-windows-msvc.zip`，并将可执行文件添加到系统 PATH。
+- **macOS/Linux：** 通过包管理器（Homebrew、APT、Pacman）安装，或使用 Rust 的 Cargo：`cargo install typst-cli`。
+- **Android：** 通过 Termux 安装 Linux 环境后，参照 Linux 说明操作。
+- **验证：** 在终端中运行 `typst -V`，若显示版本信息则说明安装成功。
 
-2. 获取模板
+**VSCode（推荐）：** 安装 “Tinymit Typst” 扩展，可获得类似 Typora 的“所见即所得”实时写作体验。
 
-你可以选择以下任一方式：
+**在线使用：**
+- Typst 官方网页应用：[typst.app/play/](https://typst.app/play/)
+- GitHub Codespaces：在此创建 Codespace
 
-- 下载 ZIP：直接下载本项目代码并解压。
-- 克隆仓库： // git clone https://github.com/strangelion/university-typst-template.git
+### 获取模板
+选择您喜欢的方式：
+- **下载 ZIP：** 下载并解压项目源代码。
+- **克隆仓库：** `git clone https://github.com/strangelion/university-typst-template.git`
 
-3. 编译论文
+### 编译您的论文
+进入项目目录后运行：
 
-进入项目目录后，执行编译命令即可生成 PDF 文件：// typst compile main.typ paper.pdf
-如果出现字体问题手动安装字体或用这个：// typst compile --font-path ./fonts main.typ paper.pdf
+```cmd
+typst compile main.typ paper.pdf
+'''
 
-若你安装了 VSCode 插件，打开 main.typ 文件后，插件会自动启动预览服务。之后你可以在浏览器中实时查看论文排版效果。使用插件注意固定主文件以避免产生不需要的PDF文件（Ctrl + Shift + P打开命令面板）：
-- Typst:将主文件固定到当前打开的文档 Typst: Pin the Main File to the Currently Open Document 
-- Typst:取消固定主文件 Typst: Unpin the main file
+如果遇到字体问题，请指定本地字体路径：
 
-## 配置说明
+'''cmd
+typst compile --font-path ./fonts main.typ paper.pdf
+'''
 
-你可以在 config.typ 文件中修改论文的基本信息：
+VSCode 用户小贴士： 固定 main.typ 文件可避免生成无关的 PDF 片段（Ctrl + Shift + P → Typst: Pin the Main File to the Currently Open Document）。
+配置
 
-所有个人信息在这里只需修改一次，即可在封面和信息表格中全局生效。
+所有个人信息与论文元数据集中存放在 config.typ 中。只需一次修改（标题、姓名、学号等），封面及相关信息表便会自动同步更新。
+参考文献
 
-## 参考文献
+模板默认采用 GB/T 7714-2015（顺序编码制）样式。只需填写您的 references.bib（或 references.yml），并在正文中使用 #cite 命令即可。
+GitHub Actions
 
-模板默认使用 GB/T 7714-2015 中文国标引用样式（numeric）。你只需要在references.bib(references.yml默认关闭) 文件中填入文献信息，并在正文中使用 #cite 引用即可。
+您可以克隆本仓库并手动触发内置的 GitHub Action，生成包含已编译 PDF 的 ZIP 文件。
 
-## 贡献指南
+    注意： 请勿直接在上游仓库运行 Action，以免引发冲突。
 
-欢迎提交 Pull Request 或 Issue 来完善这个模板！无论是修复 Bug、改进样式还是补充文档，都感激不尽。
+许可证
 
-## 特殊方式
-- Github Action:
-  - 可以clone该项目，修改好内容后手动触发action获得包含PDF的压缩包。（何意为？）
-  - 不要pull本项目时使用action，会对本项目action产生影响。
-
-## 许可证
-
-该项目基于Apache-2.0 许可证开源。
+本项目基于 Apache-2.0 许可证发行。
