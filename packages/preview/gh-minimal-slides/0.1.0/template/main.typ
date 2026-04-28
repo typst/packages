@@ -1,4 +1,4 @@
-#import "@preview/touying:0.5.3": *
+#import "@preview/touying:0.7.3": *
 #import "@preview/gh-minimal-slides:0.1.0" as gh
 
 #show: gh.register.with(

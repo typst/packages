@@ -8,7 +8,7 @@ description = "Style slides as a rendered GitHub README."
 repository = "https://github.com/xingjian-zhang/gh-minimal-slides"
 categories = ["presentation", "components"]
 keywords = ["touying", "slides", "github", "readme"]
-exclude = ["example.pdf"]
+exclude = ["example.pdf", "example.typ"]
 
 [template]
 path = "template"

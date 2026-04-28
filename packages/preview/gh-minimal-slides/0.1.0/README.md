@@ -5,14 +5,14 @@ library for slides that look like a rendered GitHub README. Light and
 dark themes, six accent colors, two density presets — all switched at
 register-time. Single-file, no extra dependencies beyond `@preview/touying`.
 
-![preview](example.pdf)
+![Sample slides showing cover, content, table, and code-block layouts in light mode with the blue accent.](example.pdf)
 
 ## Install
 
 From Typst Universe:
 
 ```typst
-#import "@preview/touying:0.5.3": *
+#import "@preview/touying:0.7.3": *
 #import "@preview/gh-minimal-slides:0.1.0" as gh
 ```
 
@@ -27,7 +27,7 @@ typst compile main.typ
 ## Quick start
 
 ```typst
-#import "@preview/touying:0.5.3": *
+#import "@preview/touying:0.7.3": *
 #import "@preview/gh-minimal-slides:0.1.0" as gh
 
 #show: gh.register.with(
