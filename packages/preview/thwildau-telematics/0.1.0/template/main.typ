@@ -1,6 +1,6 @@
 #import "@preview/thwildau-telematics:0.1.0": (
   abbreviation, conf, define-abbreviation, define-unit, infocard, tables, th-color, todo, unit,
-) // TH-Wildau template
+) // TH-Wildau telematics template
 
 // template configuration
 #show: conf.with(

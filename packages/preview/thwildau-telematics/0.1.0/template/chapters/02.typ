@@ -1,5 +1,5 @@
 #import "@preview/thwildau-telematics:0.1.0": (
-  abbreviation, conf, define-abbreviation, define-unit, infocard, tables, th-color, todo, unit,
+  abbreviation, conf, define-abbreviation, define-unit, define-glossary, infocard, tables, th-color, todo, unit, glossary
 )
 
 // ---------- german ----------
@@ -19,7 +19,7 @@ Um das thwildau-telematics Template zu konfigurieren, muss es zuerst importiert 
 )[
   ```typst
   #import "@preview/thwildau-telematics:0.1.0": (
-    abbreviation, conf, define-abbreviation, define-unit, infocard, tables, th-color, todo, unit,
+    abbreviation, conf, define-abbreviation, define-unit, define-glossary, infocard, tables, th-color, todo, unit, glossary
   ) // TH-Wildau Template
 
   // Template Konfiguration
@@ -191,6 +191,17 @@ Um zu bestätigen, dass du der Autor deiner Thesis bist, kann die im Template en
   )
   ```]
 
+=== Glossary
+Glossareinträge können direkt über die Konfiguration als verschachteltes array mit Term und Beschreibung übergeben werden, wie im Folgenden Beispiel gezeigt wird. Um jedoch auch auf den Eintrag verweisen zu können, bietet es sich an, die Einträge direkt im Fließtext zu definieren, wie in #ref(<define-glossary-de>) beschrieben.
+#figure(caption: [_Glossareinträge_ definieren])[
+  ```typst
+  misc-pages: (
+    glossary: (
+      ("Telematik", "Die Kombination aus Telekommunikation und Informatik"),
+    ),
+  )
+  ```]
+
 === Anhang
 Der Anhang ist ein Abschnitt am Ende der Arbeit für Texte oder Abbildungen, die nicht direkt im Fließtext sein sollen. Also weniger relevante Informationen, oder Abbildungen, von denen im Text nur ein Ausschnitt verwendet wird. Auch ganzer Code oder eine Erklärung von dessen Architektur passen gut in den Anhang.
 #figure(caption: [_Anhang_ anfügen])[
@@ -268,6 +279,10 @@ Die beiden Farben der Karte können einfach angepasst werden:
 
 === Einheiten
 Eine Einheit wie #define-unit("a", $"ms"^(-2)$, "Beschleunigung", "Vektorgröße") kann einfach definiert werden. Mit #unit("a") ist ein Verweis darauf möglich.
+
+=== Glossar <define-glossary-de>
+Mit #define-glossary("Telematik", "Die Kombination aus Telekommunikation und Informatik") kann ein Glossareintrag definiert und mit #glossary("Telematik") erneut referenziert werden.
+
 
 === Abkürzungen
 Ähnlich den Einheiten können auch Abkürzungen definiert werden. Die Abkürzung #define-abbreviation("TH", "Technische Hochschule") verweißt dabei auf den dazugehörigen Eintrag im Abkürzungsverzeichnis, der automatisch erstellt wird. Wie bei der Einheit kann überall im Text erneut auf #abbreviation("TH") verwiesen werden, wobei sich bei häufigem Nutzen von Verweisen ein automatisches Ersetzen im Text oder wenigstens das Importieren der Funktion unter einem Alias, um nicht jeden mal ```#abbreviation("TH")``` tippen zu müssen, anbietet.

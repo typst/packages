@@ -1,5 +1,5 @@
 #import "@preview/thwildau-telematics:0.1.0": (
-  abbreviation, conf, define-abbreviation, define-unit, infocard, tables, th-color, todo, unit,
+  abbreviation, conf, define-abbreviation, define-unit, define-glossary, infocard, tables, th-color, todo, unit, glossary
 )
 
 // ---------- english ----------
@@ -17,7 +17,7 @@ To configure the thwildau-telematics template, it first must be imported.
 )[
   ```typst
   #import "@preview/thwildau-telematics:0.1.0": (
-    abbreviation, conf, define-abbreviation, define-unit, infocard, tables, th-color, todo, unit,
+    abbreviation, conf, define-abbreviation, define-unit, define-glossary, infocard, tables, th-color, todo, unit, glossary
   ) // TH-Wildau template
 
   // template configuration
@@ -189,6 +189,17 @@ To declare that your authorship of a thesis you can use this page. But depending
   )
   ```]
 
+=== Glossary
+Glossary entries can be supplied directly by supplying an nested array with the term and a brief description like in the example below. If you however want to link to an entry from the text, the entry should be defined at some position it's linked, as shown in #ref(<define-glossary-en>).
+#figure(caption: [Add _glossary_ entry])[
+  ```typst
+  misc-pages: (
+    glossary: (
+      ("Telematics", "The combination of telecommunication and informatics"),
+    ),
+  )
+  ```]
+
 === Appendix
 To attach text or figures to the document, that should not be part of the document directly or are only used partly (e.g. part of an image) in the document and you want to attach the full version, then the appendix is the place to put it.
 #figure(caption: [Add _appendix_])[
@@ -260,7 +271,10 @@ The two colors can be easily exchanged.
 )
 
 === Units
-You can define a unit like #define-unit("v", $"ms"$, "Velocity", "Vector unit") and then easily link to it from anywhere in the text like #unit("v"). }
+You can define a unit like #define-unit("v", $"ms"$, "Velocity", "Vector unit") and then easily link to it from anywhere in the text like #unit("v").
+
+=== Glossary <define-glossary-en>
+A glossary entry can be defined with #define-glossary("Telematics", "The combination of telecommunication and informatics") and later linked to with #glossary("Telematics").
 
 === Abbreviations
 Abbreviations can be defined in a similar fashion to units. The abbreviation #define-abbreviation("M.A.", "Master of Arts") will link to the corresponding abbreviation's outline, which will be generated automatically. As with units, new links to #abbreviation("M.A.") can be created anywhere in the text. When making heavy use of this functionality, it is adviced to automatically replace all occurences in the text or at least to import the function with an alias, to not have to type out ```#abbreviation("TH")``` every single time.

@@ -7,7 +7,7 @@
 #import "sections/reading_guides.typ": make-reading-guides
 #import "sections/abbreviation_register.typ": make-abbreviation-register
 #import "sections/unit_register.typ": make-unit-register
-#import "sections/glossary.typ": make-glossary
+#import "sections/glossary_register.typ": make-glossary
 #import "sections/autorship_declaration.typ": make-autorship-declaration
 #import "sections/company_confirmation.typ": make-company-confirmation
 #import "sections/appendix.typ": make-appendix
@@ -16,6 +16,7 @@
 #import "components/tables.typ"
 #import "components/infocard.typ": infocard
 #import "components/todo.typ": todo
+#import "components/glossary.typ": define-glossary, glossary
 #import "components/unit.typ": define-unit, unit
 #import "components/abbreviation.typ": abbreviation, define-abbreviation
 
@@ -163,9 +164,7 @@
 
   make-unit-register()
 
-  if "glossary" in misc-pages {
-    make-glossary(glossary: misc-pages.at("glossary"))
-  }
+  make-glossary(glossary: misc-pages.at("glossary"))
 
   [#metadata("before-doc") <before-doc>]
 
