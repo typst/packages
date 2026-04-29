@@ -1,4 +1,4 @@
-#import "../src/lib.typ": draw-mesh
+#import "@preview/vmesh:0.1.0": draw-mesh
 #import "@preview/subpar:0.2.2"
 
 #set page(
