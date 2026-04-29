@@ -1,4 +1,3 @@
-//Merge "typst_background.png";
 lc = 20.0;
 //+
 Point(1) = {168.5, 334.9, 1, lc};
