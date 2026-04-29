@@ -1,0 +1,12 @@
+[package]
+name = "iitkgp-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Rajeev Kumar Verma"]
+license = "MIT"
+description = "An unofficial IIT Kharagpur thesis and project report template."
+repository = "https://github.com/rajeevvermaa/iitkgp-thesis"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
