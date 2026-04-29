@@ -6,6 +6,7 @@ authors = ["Rajeev Kumar Verma"]
 license = "MIT"
 description = "An unofficial IIT Kharagpur thesis and project report template."
 repository = "https://github.com/rajeevvermaa/iitkgp-thesis"
+categories = ["thesis", "report"]
 
 [template]
 path = "template"
