@@ -164,7 +164,7 @@
 
   make-unit-register()
 
-  make-glossary(glossary: misc-pages.at("glossary"))
+  make-glossary(glossary: misc-pages.at("glossary", default: ()))
 
   [#metadata("before-doc") <before-doc>]
 
