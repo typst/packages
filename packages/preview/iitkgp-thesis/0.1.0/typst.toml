@@ -10,3 +10,4 @@ repository = "https://github.com/rajeevvermaa/iitkgp-thesis"
 [template]
 path = "template"
 entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
