@@ -118,9 +118,9 @@ The `parize` package provides an experimental feature that allows any block-leve
 
 - **Native Typst Limitations**: Typst's native `set par(first-line-indent: (amount: 2em, all: true))` can be insufficient in certain scenarios. For instance, in theorem environments, lists, enums, and similar contexts, we often want the first line unindented while allowing indentation in subsequent paragraphs. `parize` provides a cleaner solution.
 
-```
+```typst
 #set par(first-line-indent: 2em)
-#show: par-indent.with(exclude-elem: (...)) // `exclude-elem` excludes specific block-level elements
+#show: par-indent.with(exclude-elem: (/*excludes specific block-level elements*/))
 ```
 
 This approach ensures that the first line of paragraphs within a container remains unindented, while subsequent paragraphs (containing `parbreak()`) are indented according to user expectations. It also accommodates different regional typesetting conventions. 
@@ -818,31 +818,31 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
     </details>
 
 - **Element Overrides**: If your document overrides native Typst element behavior, apply `parize` after those overrides:
-  ```
+  ```typst
   #show elem: override-elem-func
   ...
-  #show: par-indent.with(...)
+  #show: par-indent.with(/*config*/)
   ```
   - Compatibility with `itemize` (≥0.3.0):
-    ```
-    #import "@preview/itemize:0.3.0" as el
-    #show: el.default-enum-list
-    ...
-    #show: par-indent.with(...)
+    ```typst
+    // #import "@preview/itemize:0.3.0" as el
+    // #show: el.default-enum-list
+    // ...
+    // #show: par-indent.with(/*config*/)
     ```
   - Recommended approach: apply `parize` last in your template:
-    ```
+    ```typst
     #let template(doc) = {
-      show *** : ...
-      set ...
-      ...
-      show: par-indent.with(...)
+      // show *** : ...
+      // set ...
+      // ...
+      show: par-indent.with(/*config*/)
       doc
     }
     ```
     
     Example of an unhandled case:
-    ```
+    ```typst
     #show: par-indent.with(use-par-leading: (apply-elem: "all"))
     #show quote.where(block: true): set block(spacing: auto)
     #set quote(block: true)
@@ -851,15 +851,15 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
     #lorem(2)
     ```
     - Solutions:
-      ```
+      ```typst
       #quote(block: true, [...])
       ```
       - Or wrap in `parize-block` or `block`.
       - Or apply `set quote(block: true)` before `par-indent`:
-        ```
+        ```typst
         #set quote(block: true)
 
-        #show: par-indent.with(...)
+        #show: par-indent.with(/*config*/)
         ...
         #quote([...])
         ...
