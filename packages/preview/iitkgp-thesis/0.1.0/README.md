@@ -11,7 +11,7 @@ Running chapter headers are provided via the [`hydra`](https://typst.app/univers
 Import the template from the Typst Universe and apply it with `#show`:
 
 ```typ
-#import "@preview/iitkgp-thesis:0.1.0": iitkgp-thesis
+#import "@preview/unofficial-iitkgp-thesis:0.1.0": iitkgp-thesis
 
 #show: iitkgp-thesis.with(
   title: "Your Project Title Goes Here",

@@ -1,4 +1,4 @@
-#import "@preview/iitkgp-thesis:0.1.0": iitkgp-thesis
+#import "@preview/unofficial-iitkgp-thesis:0.1.0": iitkgp-thesis
 
 // ============================================
 // METADATA & FRONT MATTER

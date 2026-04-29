@@ -1,10 +1,10 @@
 [package]
-name = "iitkgp-thesis"
+name = "unofficial-iitkgp-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["Rajeev Kumar Verma"]
+authors = ["Rajeev Kumar Verma <@rajeevvermaa>"]
 license = "MIT"
-description = "An unofficial IIT Kharagpur thesis and project report template."
+description = "Unofficial thesis and project reports for the Indian Institute of Technology Kharagpur."
 repository = "https://github.com/rajeevvermaa/iitkgp-thesis"
 categories = ["thesis", "report"]
 
