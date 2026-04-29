@@ -1,0 +1,11 @@
+[package]
+name = "vmesh"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Chao Zhang <chaz@dtu.dk>"]
+license = "MIT"
+description = "Parse and visualize 2D and 3D Gmsh files."
+repository = "https://github.com/chaozg/vmesh"
+categories = ["visualization"]
+compiler = "0.14.0"
+exclude = ["assets/*", "examples/*", ".gitignore"]
