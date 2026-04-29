@@ -16,6 +16,19 @@ An unofficial presentation template for Universitas Gadjah Mada (UGM) built with
 #import "@preview/ugm-presentation-unofficial:0.1.0": conf, title, section, slide, quote
 ```
 
+## Theme Previews
+
+Each theme offers a distinct visual style for your presentation:
+
+| Theme | Style | Description |
+|-------|-------|-------------|
+| **1** | ![Theme 1](thumbnail.png) | Yellow/white text on colored background |
+| **2** | Title + Quote variants | Dark text with colored accents |
+| **3** | Clean minimal | White background, centered content |
+| **4** | Right-aligned | Colored background, right-aligned text |
+| **5** | Section style | Section divider with branded backgrounds |
+| **6** | Quote centered | Quote-focused layout with centered content |
+
 ## Usage
 
 ### Basic Setup
@@ -132,14 +145,13 @@ Creates a quote slide with centered content.
 ]
 ```
 
-## Theme Previews
-
-The template includes 6 themes with different background styles:
+## Theme Details
 
 - **Theme 1-2**: Yellow/white text on colored backgrounds
 - **Theme 3**: Clean minimal style
 - **Theme 4**: Right-aligned content with colored backgrounds
-- **Theme 5-6**: Right-aligned minimal style
+- **Theme 5**: Section divider with branded backgrounds
+- **Theme 6**: Quote-focused layout with centered content
 
 ## License
 
