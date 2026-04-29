@@ -2,7 +2,7 @@
 name = "folklore"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["<wade-cheng>"]
+authors = ["<@wade-cheng>"]
 license = "MIT"
 keywords = ["fiction", "novel"]
 categories = ["layout", "book"]
