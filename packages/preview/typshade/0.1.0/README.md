@@ -6,7 +6,7 @@ Typshade is a Typst package for visualizing multiple sequence alignments in bioi
 
 It provides a Typst-native interface centered on `shade(...)`, offering a readable and composable way to render alignments, add annotations, and incorporate logos, structure tracks, and graph tracks.
 
-Inspired by TeXshade, Typshade rethinks alignment visualization with a focus on clarity, composability, and a Typst-native user experience.
+Inspired by [TeXshade](https://ctan.org/pkg/texshade), Typshade rethinks alignment visualization with a focus on clarity, composability, and a Typst-native user experience.
 
 ## Why Typshade?
 
