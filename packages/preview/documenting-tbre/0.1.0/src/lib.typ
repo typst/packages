@@ -2,6 +2,20 @@
 #import "@preview/wordometer:0.1.5": word-count-of
 
 #let hl = highlight
+
+/// Define an abbreviation and optionally display it inline with the full form on first use.
+///
+/// - abbreviation (string): The abbreviation to define
+/// - full (string): The full form of the abbreviation
+/// - inline (boolean): Whether to display the abbreviation inline (default: true)
+/// -> content | none
+/// 
+/// Example usage:
+/// ```typst
+/// #abbrev("TBRe", "Team Bath Racing Electric") // Displays "TBRe (Team Bath Racing Electric)" and logs the abbreviation for the list of abbreviations
+/// #abbrev("CAD", "Computer-Aided Design", inline: false) // Only logs the abbreviation without displaying the full form in the text
+/// ```
+/// 
 #let abbrev(abbreviation, full, inline: true) = {
   [
     #metadata((abbrev: abbreviation, full: full)) <acronym>
@@ -9,7 +23,35 @@
   ]
 }
 
-// The main template function
+/// The main template function
+/// 
+/// - title (string | content): The document title, shown on the title page
+/// - doc-type (string | content): The type of document (e.g. "Design Report", "Technical Paper"), shown on the title page
+/// - author (string): The name of the author, shown on the title page
+/// - email (string): The email of the author, shown on the title page
+/// - reviewers (array): An array of reviewer names, shown on the title page
+/// - date (datetime): The date of document creation, shown on the title page (automatically set to today's date by default)
+/// - doc-id (string): A unique document identifier, shown on the title page (must be set manually or via an external script)
+/// - changelog (content): A changelog table, shown on the title page (optional, can be generated automatically using git-cliff and included as a .typ file)
+/// - references (content): A bibliography file, shown on the title page (optional, can be generated automatically using a .bib file and the bibliography function)
+/// - show-contents (boolean): Whether to show the table of contents (default: true)
+/// - show-abbreviations (boolean): Whether to show the list of abbreviations (default: true)
+/// - show-lists (boolean): Whether to show the list of figures and tables (default: true)
+/// - auto-pagebreak (boolean): Whether to automatically insert a page break after the title page and table of contents (default: true)
+/// -> content
+/// 
+/// ### Example usage:
+/// 
+/// ```typst
+/// #import "@preview/documenting-tbre:0.1.0": template
+/// 
+/// #show: template.with(
+///   title: "My Design Report",
+///   doc-type: "Design Report",
+///   author: "John Doe",
+///   email: "john.doe@emaildomain.com",
+/// )
+///
 #let template(
   title: "Document Title",
   doc-type: "Template",
