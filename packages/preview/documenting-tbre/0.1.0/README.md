@@ -1,15 +1,13 @@
 # Team Bath Racing Electric Documentation Template
 
-A highly customizable, locally deployed Typst template designed for the TBRe documents or documentation. 
+A highly customizable, locally deployed Typst template designed for the TBRe documents or documentation.
 
-This template features automatic list-of-abbreviations generation and an automated changelog powered by `git-cliff` [1].
+Features include:
+- Automatic list of abbreviations generation
+- Listing of all figures and tables
+- TBRe-specific styling and formatting
+- Support for automated changelog generation using `git-cliff`
 
-Use [git-cliff](https://git-cliff.org/) to generate changelog.typ from your git commit history following the Conventional Commits specification TYPE(CHAPTER): COMMIT MESSAGE
-
-## Prerequisites
-To compile this document locally, you will need:
-1. **Typst CLI**: For compiling the document into a PDF.
-2. **git-cliff**: A command-line tool that generates changelogs from your Git repository history using conventional commits [2, 3].
 
 ## Initialising the Template
 
@@ -48,19 +46,19 @@ mkdir -p ~/.local/share/typst/packages/local/documenting-tbre/0.1.0
 git clone <YOUR_REMOTE_REPO_URL> ~/.local/share/typst/packages/local/documenting-tbre/0.1.0
 typst init '@local/documenting-tbre:0.1.0' name-of-your-project
 ```
-## Project Structure
-Ensure your project directory looks like this:
-```text
-.
-├── LICENSE          # License file
-├── README.md        # Project documentation
-├── typst.toml       # The Typst package manifest
-├── src/
-│   └── lib.typ      # Template formatting, preamble, and helper functions
-└── template/
-	├── changelog.typ # (Auto-generated) Changelog table created by git-cliff
-	├── cliff.toml   # git-cliff configuration and Typst table template
-	├── images/      # Image assets used by the template
-	├── main.typ     # Main template/report content
-	└── refs.bib     # Bibliography entries
+
+## Using git-cliff for Changelog Generation
+
+This template features automatic list-of-abbreviations generation and an automated changelog powered by `git-cliff`.
+
+Use [git-cliff](https://git-cliff.org/) to generate changelog.typ from your git commit history following the Conventional Commits specification TYPE(CHAPTER): COMMIT MESSAGE
+
+Ensure to place a [`cliff.toml`](./cliff.toml) configuration file in your project root with the appropriate settings for your repository. Then, run the following command to generate the changelog:
+
+```bash
+git cliff --config cliff.toml --output changelog.typ
 ```
+
+## Distribution of University of Bath Branding Terms
+
+University of Bath branding terms are distributed as is and are not modified in any way. Please refer to the [University of Bath Brand Guidelines](https://www.bath.ac.uk/guides/who-should-use-the-university-brand/) and [Using the University Logo](https://www.bath.ac.uk/guides/using-the-university-of-bath-logo/) for more information on how to use these terms correctly in your documentation.
