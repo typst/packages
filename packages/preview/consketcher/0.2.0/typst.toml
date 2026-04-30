@@ -7,7 +7,7 @@ license = "MIT"
 description = "Draws control blocks using CeTZ"
 repository = "https://github.com/ivaquero/typst-consketcher"
 exclude = [
-  "examples/example1.png",
+  "examples/example.png",
   "examples/example2.png",
   "examples/example.typ"
 ]
