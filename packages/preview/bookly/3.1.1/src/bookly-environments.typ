@@ -7,7 +7,11 @@
   states.num-pattern.update(none)
   states.isfrontmatter.update(true)
 
-  counter(page).update(1)
+  if states.open-right.get() {
+    counter(page).update(0)
+  } else {
+    counter(page).update(1)
+  }
 
   body
 }
@@ -19,7 +23,7 @@
   let numbering = "1/1"
   set page(numbering: numbering)
 
-  states.isfrontmatter.update(false)
+  // states.isfrontmatter.update(false)
   states.page-numbering.update("1/1")
   states.num-heading.update("1")
   states.num-pattern.update("1.1.")
@@ -27,10 +31,15 @@
   states.num-pattern-subfig.update("1.1a")
   states.num-pattern-eq.update("(1.1a)")
 
-  if states.tufte.get() or not states.open-right.get() or not states.isfrontmatter.get() {
-    counter(page).update(1)
-  } else {
+  if states.open-right.get() {
     counter(page).update(0)
+  } else {
+    counter(page).update(1)
+  }
+
+  // To be checked
+  if states.isfrontmatter.get() and states.tufte.get() and states.open-right.get() {
+    counter(page).update(page => page + 1)
   }
 
   body
