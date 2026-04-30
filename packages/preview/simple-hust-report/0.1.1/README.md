@@ -203,15 +203,15 @@ my-report/
 
 #### 效果
 
-![preview1](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212628356.png)
+![A screenshot of the HUST report preview:1](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212628356.png)
 
 
 
-![preview2](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212731983.png)
+![A screenshot of the HUST report preview:2](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212731983.png)
 
-![preview3](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212816118.png)
+![A screenshot of the HUST report preview:3](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212816118.png)
 
-![preview4](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116213256720.png)
+![A screenshot of the HUST report preview:4](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116213256720.png)
 
 ---
 

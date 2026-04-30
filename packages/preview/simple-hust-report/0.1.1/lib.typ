@@ -1,4 +1,4 @@
-#import "@preview/lovelace:0.3.0"
+#import "@preview/lovelace:0.3.1"
 #let pseudocode = lovelace.pseudocode
 #let pseudocode-list = lovelace.pseudocode-list
 
