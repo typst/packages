@@ -37,7 +37,7 @@ typst init @preview/simple-hust-report:0.1.0 my-report
 如果你想在现有的文档中使用此模板，请在文件开头添加：
 
 ````typst
-#import "@preview/simple-hust-report:0.1.0": pseudocode-list, report
+#import "@preview/simple-hust-report:0.1.1": pseudocode-list, report
 #show: report.with(
   logo: none, //可选,校徽或者校名图片路径,不填或none则默认为华科校名
   //image("/images/HUSTGreen.svg",width:55%)
@@ -203,15 +203,15 @@ my-report/
 
 #### 效果
 
-![1](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212628356.png)
+![preview1](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212628356.png)
 
 
 
-![2](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212731983.png)
+![preview2](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212731983.png)
 
-![3](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212816118.png)
+![preview3](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116212816118.png)
 
-![3](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116213256720.png)
+![preview4](https://cdn.jsdelivr.net/gh/kkkkkkeng/pic-bed/img/20260116213256720.png)
 
 ---
 

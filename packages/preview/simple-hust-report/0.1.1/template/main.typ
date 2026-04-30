@@ -1,4 +1,4 @@
-#import "@preview/simple-hust-report:0.1.0": pseudocode-list, report
+#import "@preview/simple-hust-report:0.1.1": pseudocode-list, report
 #show: report.with(
   logo: none, //可选,校徽/校名图片,用image包裹后传入,不填或none则默认为华科校名
   //image("/images/HUSTGreen.svg",width:55%)
