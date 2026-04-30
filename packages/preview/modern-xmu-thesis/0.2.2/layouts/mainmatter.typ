@@ -1,6 +1,6 @@
 #import "@preview/i-figured:0.2.4"
 #import "@preview/numbly:0.1.0": numbly
-#import "@preview/hydra:0.6.1": hydra
+#import "@preview/hydra:0.6.2": hydra
 #import "../utils/style.typ": 字体, 字号
 #import "../utils/unpairs.typ": unpairs
 
@@ -126,9 +126,7 @@
       below: array-at(heading-below, it.level),
     )
     if (
-      it.level == 1
-        and it.numbering != none
-        and counter(heading).display(it.numbering) != none
+      it.level == 1 and it.numbering != none and counter(heading).display(it.numbering) != none
     ) {
       block({
         counter(heading).display(it.numbering)
