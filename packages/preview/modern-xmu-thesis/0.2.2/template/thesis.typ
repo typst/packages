@@ -149,7 +149,7 @@ VSCode + Tinymist 需要先在官网#footnote[https://code.visualstudio.com/down
 
 === 三级标题#metadata((en: "Subsection (English Ver.)"))
 
-#import "@preview/zebraw:0.6.1": zebraw // 导入代码块美化包
+#import "@preview/zebraw:0.6.3": zebraw // 导入代码块美化包
 
 使用@lst:创建各级标题 来创建带英文元数据的各级标题。
 
