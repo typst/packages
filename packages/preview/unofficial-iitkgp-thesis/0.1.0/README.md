@@ -90,4 +90,6 @@ Everything before the first `=` heading is automatically rendered as front matte
 
 ---
 
-> **Disclaimer:** This is an independent, community-made template and is not officially affiliated with, endorsed by, or maintained by the Indian Institute of Technology Kharagpur.
+> **Disclaimer:** This is an independent, community-made template and is not officially affiliated with, endorsed by, or maintained by the Indian Institute of Technology Kharagpur. 
+
+> **Logo Usage:** The template includes a generic placeholder logo. The official IIT Kharagpur logo is copyrighted by the institute and cannot be legally distributed here. Users should download the official logo independently and replace the `Images/logo.svg` file in their project.
