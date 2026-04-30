@@ -1,0 +1,15 @@
+[package]
+name = "postgraduate-admission-cv"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["chanke17 <@chanke17>"]
+license = "MIT-0"
+description = "Academic CV for postgraduate admission applications."
+keywords = ["cv", "resume", "postgraduate", "admission", "academic", "chinese"]
+categories = ["cv"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
