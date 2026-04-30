@@ -1,0 +1,10 @@
+[package]
+name = "typshade"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "GPL-2.0"
+description = "Visualize multiple-sequence alignments for bioinformatics."
+keywords = ["bioinformatics", "alignment", "sequence", "visualization"]
+categories = ["visualization", "components"]
+compiler = "0.13.0"
