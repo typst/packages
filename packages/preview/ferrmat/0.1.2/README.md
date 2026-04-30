@@ -1,5 +1,7 @@
 # FerrMat
 
+**FerrMat** is a Typst toolkit providing visual heading themes, colored boxes, mathematical environments, Gantt charts, exams, and more — fully in Brazilian Portuguese.
+
 **Ferramentas Visuais e Matemáticas** — Temas de headings com paletas de cores, caixas decorativas, ambientes matemáticos, cronogramas, provas e muito mais, tudo em português para [Typst](https://typst.app).
 
 ---
@@ -11,7 +13,7 @@ O **FerrMat** nasceu como um conjunto de ferramentas matemáticas para Typst —
 Hoje, o destaque do pacote é o sistema de **temas**: 10 paletas de cores × 7 estilos de layout = 70 combinações possíveis, com 34 temas curados prontos para uso imediato. Uma única linha transforma completamente a identidade visual do documento:
 
 ```typst
-#import "@preview/ferrmat:0.1.0": *
+#import "@preview/ferrmat:0.1.2": *
 #show: tema-revista-vinho
 ```
 
@@ -26,7 +28,7 @@ Este pacote é o companheiro do **[ABNTyp](https://github.com/3sdras/abntyp)**, 
 ### Via Typst Universe (recomendado)
 
 ```typst
-#import "@preview/ferrmat:0.1.0": *
+#import "@preview/ferrmat:0.1.2": *
 ```
 
 ### Via Clone Local
@@ -54,7 +56,7 @@ Sistema completo de headings visuais baseado na combinação livre de **paletas 
 
 ```typst
 // Tema pronto (forma mais simples)
-#import "@preview/ferrmat:0.1.0": *
+#import "@preview/ferrmat:0.1.2": *
 #show: tema-revista-vinho
 
 // Combinação livre de paleta + estilo
