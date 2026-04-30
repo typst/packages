@@ -1,5 +1,6 @@
-#import "core.typ": *
+#import "@preview/fletcher:0.5.8": edge
 
+// Edge primitives and routing helpers.
 #let edge-label(body, size: 0.6em, ..options) = if body == none {
   none
 } else {
@@ -15,23 +16,18 @@
   label-side: left,
   corner: none,
   corner-radius: 4pt,
-  stroke: auto,
-  name: none,
   ..options,
-) = draw.get-ctx(ctx => {
-  let _ = (corner-radius, options)
-  _edge-body(
-    ctx,
-    _path-points(n1, n2, corner: corner),
-    label,
-    label-pos,
-    label-side,
-    marks,
-    stroke,
-    false,
-    name,
-  )
-})
+) = edge(
+  n1,
+  n2,
+  marks: marks,
+  label: label,
+  label-pos: label-pos,
+  label-side: label-side,
+  corner: corner,
+  corner-radius: corner-radius,
+  ..options,
+)
 
 #let arrow(
   n1,
@@ -43,8 +39,6 @@
   dashed: false,
   corner: none,
   corner-radius: none,
-  stroke: auto,
-  name: none,
   ..options,
 ) = connector(
   n1,
@@ -55,8 +49,6 @@
   label-side: label-side,
   corner: corner,
   corner-radius: if corner-radius == none { 4pt } else { corner-radius },
-  stroke: stroke,
-  name: name,
   ..options,
 )
 
@@ -70,8 +62,6 @@
   dashed: false,
   corner: none,
   corner-radius: none,
-  stroke: auto,
-  name: none,
   ..options,
 ) = connector(
   n1,
@@ -82,79 +72,108 @@
   label-side: label-side,
   corner: corner,
   corner-radius: if corner-radius == none { 4pt } else { corner-radius },
-  stroke: stroke,
-  name: name,
   ..options,
 )
 
-#let _uturn(
+#let uturn(
   n1,
   n2,
   label,
-  label-pos,
-  label-side,
-  marks,
-  height,
-  offset: none,
-  vertical: false,
-  stroke: auto,
-  name: none,
+  label-pos: 0.15,
+  label-side: left,
+  marks: "-|>",
+  height: 1.25,
+  corner: right,
+  corner-radius: 4pt,
   ..options,
-) = draw.get-ctx(ctx => {
-  let _ = options
-  _edge-body(
-    ctx,
-    _uturn-points(n1, n2, height, offset: offset, vertical: vertical),
-    label,
-    label-pos,
-    label-side,
-    marks,
-    stroke,
-    false,
-    name,
-  )
-})
+) = edge(
+  n1,
+  (n1.at(0), n1.at(1) + height),
+  (n2.at(0), n2.at(1) + height),
+  n2,
+  marks: marks,
+  label: label,
+  label-pos: label-pos,
+  label-side: label-side,
+  corner: corner,
+  corner-radius: corner-radius,
+  ..options,
+)
 
-#let _uturn-maker(
-  vertical: false,
-  default-height: 1.25,
-  default-offset: none,
-) = {
-  let fn(
-    n1,
-    n2,
-    label,
-    label-pos: 0.15,
-    label-side: left,
-    marks: "-|>",
-    height: default-height,
-    corner: right,
-    corner-radius: 4pt,
-    offset: default-offset,
-    stroke: auto,
-    name: none,
-    ..options,
-  ) = {
-    let _ = (corner, corner-radius)
-    _uturn(
-      n1,
-      n2,
-      label,
-      label-pos,
-      label-side,
-      marks,
-      height,
-      offset: offset,
-      vertical: vertical,
-      stroke: stroke,
-      name: name,
-      ..options,
-    )
-  }
-  fn
-}
+#let uturn2(
+  n1,
+  n2,
+  label,
+  label-pos: 0.15,
+  label-side: left,
+  marks: "-|>",
+  height: 1.25,
+  corner: right,
+  corner-radius: 4pt,
+  offset: 1,
+  ..options,
+) = edge(
+  n1,
+  (n1.at(0), n1.at(1) + height),
+  (n2.at(0) - offset, n2.at(1) + height),
+  (n2.at(0) - offset, n2.at(1)),
+  n2,
+  marks: marks,
+  label: label,
+  label-pos: label-pos,
+  label-side: label-side,
+  corner: corner,
+  corner-radius: corner-radius,
+  ..options,
+)
 
-#let uturn = _uturn-maker()
-#let uturn2 = _uturn-maker(default-offset: 1)
-#let uturn-v = _uturn-maker(vertical: true, default-height: 2.5)
-#let uturn2-v = _uturn-maker(vertical: true, default-height: 2.5, default-offset: 1)
+#let uturn-v(
+  n1,
+  n2,
+  label,
+  label-pos: 0.15,
+  label-side: left,
+  marks: "-|>",
+  height: 2.5,
+  corner: right,
+  corner-radius: 4pt,
+  ..options,
+) = edge(
+  n1,
+  (n1.at(0) + height, n1.at(1)),
+  (n2.at(0) + height, n2.at(1)),
+  n2,
+  marks: marks,
+  label: label,
+  label-pos: label-pos,
+  label-side: label-side,
+  corner: corner,
+  corner-radius: corner-radius,
+  ..options,
+)
+
+#let uturn2-v(
+  n1,
+  n2,
+  label,
+  label-pos: 0.15,
+  label-side: left,
+  marks: "-|>",
+  height: 2.5,
+  corner: right,
+  corner-radius: 4pt,
+  offset: 1,
+  ..options,
+) = edge(
+  n1,
+  (n1.at(0) + height, n1.at(1) - offset),
+  (n2.at(0), n2.at(1) - offset),
+  n2,
+  marks: marks,
+  label: label,
+  label-pos: label-pos,
+  label-side: label-side,
+  corner: corner,
+  corner-radius: corner-radius,
+  ..options,
+)

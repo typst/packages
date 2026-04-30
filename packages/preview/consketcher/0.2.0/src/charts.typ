@@ -1,6 +1,20 @@
+#import "@preview/fletcher:0.5.8": diagram
 #import "edges.typ": *
 #import "nodes.typ": *
 #import "utils.typ": *
+
+// Shared diagram style and high-level control-system templates.
+#let control-diagram(
+  spacing: (1.5em, 1.5em),
+  node-stroke: 1pt,
+  mark-scale: 80%,
+  ..body,
+) = diagram(
+  spacing: spacing,
+  node-stroke: node-stroke,
+  mark-scale: mark-scale,
+  ..body,
+)
 
 #let _hpoint(start, line, offset) = (start + offset, line)
 
@@ -14,7 +28,7 @@
   transfer: none,
   input: none,
   output: none,
-  width: 5,
+  width: 2,
   height: 2em,
   line: -2,
   start: 1,
@@ -39,55 +53,56 @@
   output2: none,
   loss: none,
   reference: none,
-  line: 2,
-  start: 0,
-  reference-gap: 1,
-  input-gap: 2,
-  label-size: 0.5em,
+  line: 0.5,
+  start: 1,
+  reference-gap: auto,
+  input-gap: auto,
+  feedback-height: 1.25,
+  label-size: 0.6em,
   node-maker: rnode,
   ref-maker: reference,
   edge-maker: arrow,
   feedback-edge-maker: uturn-v,
-  feedback-height: 4,
-  feedback-label-pos: 0.45,
 ) = control-diagram(
-  let far = 3,
+  let dist-rl = if reference-gap == auto {
+    auto-gap(reference, scale: 0.8)
+  } else {
+    reference-gap
+  },
+  let dist-lc = if input-gap == auto {
+    auto-gap(input, scale: 1.4)
+  } else {
+    input-gap
+  },
   let (R, L, C) = (
     _hpoint(start, line, 0),
-    _hpoint(start, line, reference-gap),
-    _hpoint(start, line, input-gap),
+    _hpoint(start, line, dist-rl),
+    _hpoint(start, line, dist-lc),
   ),
-  let H = (start + input-gap, line + feedback-height),
+  let H = (start + dist-lc, line + feedback-height),
   ref-maker(
     L,
-    x-offset: -.35,
+    loss: loss,
+    loss-offset: (1.5 - dist-rl, -0.75),
+    x-offset: 1.1,
     y-offset: 0.35,
   ),
   node-maker(C, transfer),
   node-maker(H, transfer2),
-  edge-maker(
-    (R.at(0) - far, R.at(1)),
-    R,
-    edge-label(reference, size: label-size),
-  ),
-  edge-maker(
-    L,
+  edge-maker(R, L, edge-label(reference, size: label-size)),
+  edge-maker(L, C, edge-label(input, size: label-size)),
+  feedback-edge-maker(
     C,
-    edge-label(input, size: label-size),
+    H,
+    edge-label(output, size: label-size),
+    height: feedback-height,
   ),
   edge-maker(
     H,
     L,
     edge-label(output2, size: label-size),
-    label-pos: 0.35,
-    corner: left,
-  ),
-  feedback-edge-maker(
-    C,
-    H,
-    edge-label(output, size: label-size),
-    label-pos: feedback-label-pos,
-    height: feedback-height,
+    label-pos: 0.25,
+    corner: right,
   ),
 )
 
@@ -184,15 +199,12 @@
     (mid3 + far, 0),
   ),
   _std-reference(R),
-
   rnode(K, $K$, width: 4em, height: 3em),
   rnode(G, plant, width: 6em, height: 3em),
-
   arrow(I, R, $R(s)$),
   arrow(R, K, none),
   arrow(K, G, none),
   arrow(G, O, $X(s)$),
-
   uturn(X, R, none, height: lower),
 )
 
@@ -217,16 +229,13 @@
     (mid4 + far, 0),
   ),
   _std-reference(R),
-
   rnode(A, first, width: first-width, height: 3em),
   rnode(B, second, width: second-width, height: 3em),
   rnode(C, third, width: third-width, height: 3em),
-
   arrow(I, R, $R(s)$),
   arrow(R, A, none),
   arrow(A, B, none),
   arrow(B, C, none),
   arrow(C, O, $X(s)$),
-
   uturn(X, R, none, height: lower),
 )
