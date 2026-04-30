@@ -5,6 +5,7 @@ entrypoint = "lib.typ"
 authors = ["chanke17 <@chanke17>"]
 license = "MIT-0"
 description = "Academic CV for postgraduate admission applications."
+repository = "https://github.com/chanke17/postgraduate-admission-cv"
 keywords = ["cv", "resume", "postgraduate", "admission", "academic", "chinese"]
 categories = ["cv"]
 compiler = "0.13.0"

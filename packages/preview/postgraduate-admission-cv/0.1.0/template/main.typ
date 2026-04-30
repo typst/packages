@@ -5,14 +5,14 @@
   footer: [
     #link("https://example.com")[example.com]
     #h(3em)
-    applicant@example.com
+    applicant\@example.com
   ],
 )
 
 #cv-header(
   [Applicant Name],
   [University · Major #h(1em) Expected graduation: 2027.06],
-  [phone@example.com #h(1.5em) applicant@example.com #h(1.5em) portfolio.example.com],
+  [phone\@example.com #h(1.5em) applicant\@example.com #h(1.5em) portfolio.example.com],
 )
 
 #section("Education", "🎓")

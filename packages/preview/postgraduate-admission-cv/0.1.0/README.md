@@ -9,13 +9,13 @@ A compact academic CV template for postgraduate admission applications. It provi
 
 #show: cv.with(
   header-title: [*Postgraduate Admission CV*],
-  footer: [applicant@example.com],
+  footer: [applicant\@example.com],
 )
 
 #cv-header(
   [Applicant Name],
   [University · Major #h(1em) Expected graduation: 2027.06],
-  [phone@example.com #h(1.5em) applicant@example.com],
+  [phone\@example.com #h(1.5em) applicant\@example.com],
 )
 
 #section("Education", "🎓")
