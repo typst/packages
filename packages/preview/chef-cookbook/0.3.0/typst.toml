@@ -14,4 +14,4 @@ exclude = ["example.pdf", ".gitignore", "thumbnail.pdf"]
 [template]
 path = "docs/template"
 entrypoint = "main.typ"
-thumbnail = "docs/template/thumbnail.png"
+thumbnail = "docs/thumbnail.png"
