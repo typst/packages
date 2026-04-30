@@ -48,7 +48,7 @@
   node-maker: rnode,
   ref-maker: reference,
   edge-maker: arrow,
-  feedback-edge-maker: uturn_v,
+  feedback-edge-maker: uturn-v,
 ) = control-diagram(
   let dist-rl = if reference-gap == auto {
     auto-gap(reference, scale: 0.8)
