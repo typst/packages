@@ -2,62 +2,74 @@ The `parize` package provides an experimental feature that allows any block-leve
 
 - **Paragraph Indentation**: If a paragraph follows a block-level element without an empty line (i.e., no `parbreak()`) between them, the paragraph will not be indented. Otherwise, it will be indented according to the `par.first-line-indent` setting.
   
-  ![alt text](asserts/simple-indent.png)
+  ![Example of paragraph indentation: showing how text remains unindented when following a block-level element without an empty line](asserts/simple-indent.png)
   
   <details>
   <summary>Code:</summary>
 
   ```typst
     #import "@preview/parize:0.1.0": par-indent
-    #set page(width: 15cm, margin: 1cm, height: auto)
-    #show: par-indent.with(include-elem: (list, enum, terms, math.equation))
-    #let test-unindent = [
-      #lorem(2)
-      + #lorem(2)
-      + #lorem(2)
-      #lorem(2)
+  #set page(width: 12cm, margin: 1cm, height: auto)
+  #show: par-indent.with(include-elem: (list, enum, terms, math.equation))
+  #let test-unindent = [
+    #lorem(2)
+    + #lorem(2)
+    + #lorem(2)
+    #lorem(2) unindent
 
-      $
-        a^2 + b^2 = c^2
-      $
-      #lorem(2)
-    ]
-    #let test-indent = [
-      #lorem(2)
-      + #lorem(2)
-      + #lorem(2)
+    #lorem(2)
 
-      #lorem(2)
+    $
+      a^2 + b^2 = c^2
+    $
+    #lorem(2) unindent
 
-      $
-        a^2 + b^2 = c^2
-      $
+    #lorem(2)
+  ]
+  #let test-indent = [
+    #lorem(2)
+    + #lorem(2)
+    + #lorem(2)
 
-      #lorem(2)
-    ]
-    #table(
-      columns: (1fr, 1fr),
-      [
-        #set par(first-line-indent: (amount: 2em, all: false))
-        #test-unindent
+    #lorem(2) indent
 
-        #set par(first-line-indent: (amount: 2em, all: true))
-        #test-unindent
-      ],
-      [
-        #set par(first-line-indent: (amount: 2em, all: false))
-        #test-indent
+    #lorem(2)
 
-        #set par(first-line-indent: (amount: 2em, all: true))
-        #test-indent
-      ],
-    )
+    $
+      a^2 + b^2 = c^2
+    $
+
+    #lorem(2) indent
+
+    #lorem(2)
+  ]
+  #table(
+    columns: (1fr, 1fr),
+    [
+      #set par(first-line-indent: (amount: 2em, all: true))
+      #test-unindent
+
+      #line(length: 100% + 10pt, start: (-5pt, 0pt))
+
+      #set par(first-line-indent: (amount: 2em, all: false))
+      #test-unindent
+    ],
+    [
+      #set par(first-line-indent: (amount: 2em, all: true))
+      #test-indent
+
+      #line(length: 100% + 10pt, start: (-5pt, 0pt))
+
+      #set par(first-line-indent: (amount: 2em, all: false))
+      #test-indent
+    ],
+  )
   ```
   </details>
 
 - **Paragraph Spacing**: If there is no empty line between a paragraph (or block-level element) and a block-level element, `parize` allows using `par.leading` to control the spacing between them.
   
-  ![alt text](asserts/simple-leading.png)
+  ![Example of paragraph spacing: showing how par.leading controls spacing when no empty line exists between paragraph and block-level element](asserts/simple-leading.png)
   
   <details>
   <summary>Code:</summary>
@@ -160,7 +172,7 @@ Paragraph content // unindented
   #lorem(5)
 ])
 ```
-![alt text](asserts/par-indent.png)
+![Demonstration of paragraph indentation with headings and blocks, showing indented vs unindented paragraphs based on context](asserts/par-indent.png)
 
 <details>
 <summary>Example with Touying:</summary>
@@ -199,13 +211,13 @@ In `touying`, you can define a custom `par-indent-slide` method:
   ]
 ```
 
-![alt text](asserts/par-indent-slide.png)
+![Paragraph indentation in Touying slides: first slide paragraph unindented, subsequent slides indented](asserts/par-indent-slide.png)
 </details>
 
 <details>
 <summary>Theorem Example:</summary>
 
-![alt text](asserts/theorem-example.png)
+![Theorem environment example: first paragraph unindented within theorem block, following paragraphs indented](asserts/theorem-example.png)
 
 ```typst
 #import "@preview/parize:0.1.0": par-indent, parize-par-above-flag
@@ -290,7 +302,7 @@ While `context h(-par.first-line-indent.amount)` might seem like an alternative,
   #lorem(6) 
 ]
 ```
-![alt text](asserts/typst-par.png)
+![Limitation of native Typst paragraph handling: incorrect indentation when using context h(-par.first-line-indent.amount)](asserts/typst-par.png)
 </details>
 
 ## Usage
@@ -336,7 +348,8 @@ Supported block-level elements:
 - `math.equation`, `raw`, `quote`
 
 Example:
-![alt text](asserts/par-indent-example.png)
+
+![Paragraph indentation configuration example: showing effect of exclude-elem and include-elem parameters](asserts/par-indent-example.png)
 
 <details>
 <summary>Code:</summary>
@@ -437,7 +450,7 @@ The `use-par-leading` parameter configures whether `par.leading` controls spacin
 
 Example: When `use-par-leading` is `true`, elements `list`, `enum`, `terms` are processed. If a paragraph follows **tight** lists without an intervening empty line (`parbreak()`), the spacing between them becomes `par.leading`.
 
-![alt text](asserts/tight-spacing.png)
+![Tight list spacing: showing how par.leading controls spacing between tight lists and following paragraphs](asserts/tight-spacing.png)
 
 <details>
 <summary>Code:</summary>
@@ -507,7 +520,7 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
 <details>
 <summary>Example:</summary>
 
-![alt text](asserts/par-spacing-example.png)
+![Paragraph spacing configuration example: demonstrating different use-par-leading dictionary settings](asserts/par-spacing-example.png)
 
 ```typst
 #import "@preview/parize:0.1.0": par-indent
@@ -613,7 +626,7 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
   <details>
   <summary>Example:</summary>
   
-  ![alt text](asserts/parize-block.png)
+  ![Using parize-block wrapper: shows how basic elements like pad can be wrapped for paragraph spacing (par-leading) control](asserts/parize-block.png)
   
   ```typst
   #import "@preview/parize:0.1.0": par-indent, parize-block
@@ -684,7 +697,7 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
     <details>
     <summary>Example:</summary>
     
-    ![alt text](asserts/parize-blank.png)
+    ![Using parize-blank placeholder: shows correct handling of context elements at paragraph start](asserts/parize-blank.png)
     
     ```typst
     #import "@preview/parize:0.1.0": par-indent, parize-blank
@@ -718,7 +731,7 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
     <details>
     <summary>Illustration:</summary>
     
-    ![alt text](asserts/par-flag.png)
+    ![Illustration of parize-par-above-flag and parize-par-below-flag usage for handling context blocks with paragraph spacing](asserts/par-flag.png)
     
     ```typst
     #import "@preview/parize:0.1.0": par-indent, parize-par-above-flag, parize-par-below-flag
