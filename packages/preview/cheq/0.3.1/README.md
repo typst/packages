@@ -52,7 +52,7 @@ Cheq has 4 predefined symbols:[ ], [x], [/], [-]. If you put any other charachte
 - [d] down
 ```
 
-![Example](./examples/basic-example.png)
+![Basic checklist example with default symbols](./examples/basic-example.png)
 
 ## Custom Styles
 
@@ -122,7 +122,7 @@ Cheq has 4 predefined symbols:[ ], [x], [/], [-]. If you put any other charachte
 - [ ] Comet Haley
 ```
 
-![Example](./examples/custom-styles.png)
+![Checklist with custom fill, stroke, radius, and marker styles](./examples/custom-styles.png)
 
 ## Custom Highlight Of List Items
 
@@ -167,7 +167,7 @@ Cheq has 4 predefined symbols:[ ], [x], [/], [-]. If you put any other charachte
 - [N] Oort Cloud
 ```
 
-![Example](./examples/highlight-items.png)
+![Checklist with custom highlight functions applied to list items](./examples/highlight-items.png)
 
 
 ## `checklist` function
@@ -183,7 +183,7 @@ Cheq has 4 predefined symbols:[ ], [x], [/], [-]. If you put any other charachte
   highlight: true,
   extras: false, 
   body,
-) = { .. }
+) = { /* ... */ }
 ```
 
 **Arguments:**
@@ -238,7 +238,7 @@ The Extra map is:
 ## `unchecked-sym` function
 
 ```typ
-#let unchecked-sym(fill: white, stroke: rgb("#616161"), radius: .1em) = { .. }
+#let unchecked-sym(fill: white, stroke: rgb("#616161"), radius: .1em) = { /* ... */ }
 ```
 
 **Arguments:**
@@ -251,7 +251,7 @@ The Extra map is:
 ## `checked-sym` function
 
 ```typ
-#let checked-sym(fill: white, stroke: rgb("#616161"), radius: .1em, light: false) = { .. }
+#let checked-sym(fill: white, stroke: rgb("#616161"), radius: .1em, light: false) = { /* ... */ }
 ```
 
 **Arguments:**
@@ -264,7 +264,7 @@ The Extra map is:
 ## `incomplete-sym` function
 
 ```typ
-#let incomplete-sym(fill: white, stroke: rgb("#616161"), radius: .1em, light: false) = { .. }
+#let incomplete-sym(fill: white, stroke: rgb("#616161"), radius: .1em, light: false) = { /* ... */ }
 ```
 
 **Arguments:**
@@ -278,7 +278,7 @@ The Extra map is:
 ## `canceled-sym` function
 
 ```typ
-#let canceled-sym(fill: white, stroke: rgb("#616161"), radius: .1em, light: false) = { .. }
+#let canceled-sym(fill: white, stroke: rgb("#616161"), radius: .1em, light: false) = { /* ... */ }
 ```
 
 **Arguments:**
@@ -292,7 +292,7 @@ The Extra map is:
 ## `character-sym` function
 
 ```typ
-#let character-sym(symbol: " ", fill: white, stroke: rgb("#616161"), radius: .1em, light: false) = { .. }
+#let character-sym(symbol: " ", fill: white, stroke: rgb("#616161"), radius: .1em, light: false) = { /* ... */ }
 ```
 
 **Arguments:**
