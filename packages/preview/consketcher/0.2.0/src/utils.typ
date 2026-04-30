@@ -68,12 +68,3 @@
 } else {
   fallback
 }
-
-#let auto-gap(body, scale: 1, fallback: 1) = {
-  let measured = label-length(body, fallback: fallback) * scale
-  if measured < fallback {
-    fallback
-  } else {
-    measured
-  }
-}

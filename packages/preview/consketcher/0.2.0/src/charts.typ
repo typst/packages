@@ -14,7 +14,7 @@
   transfer: none,
   input: none,
   output: none,
-  width: 2,
+  width: 5,
   height: 2em,
   line: -2,
   start: 1,
@@ -39,56 +39,55 @@
   output2: none,
   loss: none,
   reference: none,
-  line: 0.5,
-  start: 1,
-  reference-gap: auto,
-  input-gap: auto,
-  feedback-height: 1.25,
-  label-size: 0.6em,
+  line: 2,
+  start: 0,
+  reference-gap: 1,
+  input-gap: 2,
+  label-size: 0.5em,
   node-maker: rnode,
   ref-maker: reference,
   edge-maker: arrow,
   feedback-edge-maker: uturn-v,
+  feedback-height: 4,
+  feedback-label-pos: 0.45,
 ) = control-diagram(
-  let dist-rl = if reference-gap == auto {
-    auto-gap(reference, scale: 0.8)
-  } else {
-    reference-gap
-  },
-  let dist-lc = if input-gap == auto {
-    auto-gap(input, scale: 1.4)
-  } else {
-    input-gap
-  },
+  let far = 3,
   let (R, L, C) = (
     _hpoint(start, line, 0),
-    _hpoint(start, line, dist-rl),
-    _hpoint(start, line, dist-lc),
+    _hpoint(start, line, reference-gap),
+    _hpoint(start, line, input-gap),
   ),
-  let H = (start + dist-lc, line + feedback-height),
+  let H = (start + input-gap, line + feedback-height),
   ref-maker(
     L,
-    loss: loss,
-    loss-offset: (1.5 - dist-rl, -0.75),
-    x-offset: 1.1,
+    x-offset: -.35,
     y-offset: 0.35,
   ),
   node-maker(C, transfer),
   node-maker(H, transfer2),
-  edge-maker(R, L, edge-label(reference, size: label-size)),
-  edge-maker(L, C, edge-label(input, size: label-size)),
-  feedback-edge-maker(
+  edge-maker(
+    (R.at(0) - far, R.at(1)),
+    R,
+    edge-label(reference, size: label-size),
+  ),
+  edge-maker(
+    L,
     C,
-    H,
-    edge-label(output, size: label-size),
-    height: feedback-height,
+    edge-label(input, size: label-size),
   ),
   edge-maker(
     H,
     L,
     edge-label(output2, size: label-size),
-    label-pos: 0.25,
-    corner: right,
+    label-pos: 0.35,
+    corner: left,
+  ),
+  feedback-edge-maker(
+    C,
+    H,
+    edge-label(output, size: label-size),
+    label-pos: feedback-label-pos,
+    height: feedback-height,
   ),
 )
 

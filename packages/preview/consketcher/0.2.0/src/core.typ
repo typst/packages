@@ -97,21 +97,17 @@
   }
 }
 
-#let _offset-point(point, offset) = _add(point, offset)
-
 #let _as-offset(x, y) = if type(y) == array {
   y
 } else {
   (x, y)
 }
 
-#let _sub(a, b) = (a.at(0) - b.at(0), a.at(1) - b.at(1))
-
 #let _add(a, b) = (a.at(0) + b.at(0), a.at(1) + b.at(1))
-
+#let _sub(a, b) = (a.at(0) - b.at(0), a.at(1) - b.at(1))
 #let _scale(v, factor) = (v.at(0) * factor, v.at(1) * factor)
-
 #let _cross(a, b) = a.at(0) * b.at(1) - a.at(1) * b.at(0)
+#let _offset-point(point, offset) = _add(point, offset)
 
 #let _segment-length(a, b) = calc.sqrt(
   calc.pow(b.at(0) - a.at(0), 2) + calc.pow(b.at(1) - a.at(1), 2),
