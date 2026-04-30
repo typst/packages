@@ -14,7 +14,7 @@ It provides:
 If you are using a published release, import it from `@preview`:
 
 ```typst
-#import "@preview/consketcher:0.1.0": *
+#import "@preview/consketcher:0.2.0": *
 ```
 
 For local development, import it from `@local`:
@@ -64,12 +64,12 @@ For local development, import it from `@local`:
 )
 ```
 
-![Open-loop example](https://raw.githubusercontent.com/ivaquero/typst-consketcher/refs/heads/main/examples/example.png)
+![Open-loop example](examples/example.png)
 
-![Closed-loop example](https://raw.githubusercontent.com/ivaquero/typst-consketcher/refs/heads/main/examples/example2.png)
+![Closed-loop example](examples/example2.png)
 
 For complete examples, see
-[examples/example.typ](https://github.com/ivaquero/typst-consketcher/blob/main/examples/example.typ).
+[examples/example.typ](examples/example.typ).
 
 ## API Overview
 

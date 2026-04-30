@@ -155,13 +155,6 @@
 }
 
 #let uturn = _uturn-maker()
-
 #let uturn2 = _uturn-maker(default-offset: 1)
-
 #let uturn-v = _uturn-maker(vertical: true, default-height: 2.5)
-
-#let uturn_v = uturn-v
-
 #let uturn2-v = _uturn-maker(vertical: true, default-height: 2.5, default-offset: 1)
-
-#let uturn2_v = uturn2-v
