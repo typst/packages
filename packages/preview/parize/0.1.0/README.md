@@ -8,7 +8,7 @@ The `parize` package provides an experimental feature that allows any block-leve
   <summary>Code:</summary>
 
   ```typst
-    #import "@preview/parize:0.1.0": par-indent
+  #import "@preview/parize:0.1.0": par-indent
   #set page(width: 12cm, margin: 1cm, height: auto)
   #show: par-indent.with(include-elem: (list, enum, terms, math.equation))
   #let test-unindent = [
