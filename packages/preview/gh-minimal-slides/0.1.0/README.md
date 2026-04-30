@@ -5,7 +5,18 @@ library for slides that look like a rendered GitHub README. Light and
 dark themes, six accent colors, two density presets — all switched at
 register-time. Single-file, no extra dependencies beyond `@preview/touying`.
 
-![Sample slides showing cover, content, table, and code-block layouts in light mode with the blue accent.](example.pdf)
+<table>
+  <tr>
+    <td width="50%"><img src="previews/cover.png" alt="Cover slide with large headline, badges (v1.0.0, MIT license, build: passing, docs), and breadcrumb '# README.md'."></td>
+    <td width="50%"><img src="previews/code.png" alt="Code-block slide showing a syntax-highlighted JavaScript snippet inside a terminal-style chrome with a 'javascript' tab."></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="previews/table.png" alt="Table slide titled 'Endpoints' with HTTP-method badges color-coded by verb (GET blue, POST green, PATCH yellow, DELETE red)."></td>
+    <td width="50%"><img src="previews/alerts.png" alt="Alert callouts slide with NOTE, TIP, WARNING, and CAUTION blocks rendered in GitHub's accent palette."></td>
+  </tr>
+</table>
+
+<sub>Light theme, blue accent, comfy density. The full 13-slide deck is in <a href="example.pdf"><code>example.pdf</code></a> (source: <a href="example.typ"><code>example.typ</code></a>).</sub>
 
 ## Install
 
@@ -52,7 +63,9 @@ typst compile main.typ
 ]
 ```
 
-See `example.typ` for a complete 13-slide deck showing the common components.
+See [`example.typ`](example.typ) for a complete 13-slide deck showing the
+common components. The compiled [`example.pdf`](example.pdf) shows the full
+preview.
 
 ## API
 
