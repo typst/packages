@@ -1,16 +1,18 @@
 # typst-prooflists
 
-This is a [Typst](https://typst.app) package that provides for typesetting Gentzen-style proof trees in a maximally succinct notation. It builds atop [`curryst`](https://typst.app/universe/package/curryst).
+This is a [Typst](https://typst.app) package that provides for typesetting Gentzen-style proof trees in a succinct list-based notation. It builds atop [`curryst`](https://typst.app/universe/package/curryst).
 
 The canonical representation of a tree is a nested list. So, it only makes sense that when working with trees (proof trees or otherwise), you'd want to notate them down as a list (if not drawing them by hand). Yet existing typesetting packages don't do this!
 
-This is mostly the fault of LaTeX. LaTeX is a intensely verbose (and intensely hostile) piece of software... the normal syntax for lists goes something like `\begin{itemize}` `\item ...` `\end{itemize}` -- terrible! For this reason, LaTeX packages that aim to improve the ergonomics of typesetting trees ([`bussproofs`](https://ctan.org/pkg/bussproofs) for proof trees, [`forest`](https://ctan.org/pkg/forest) for syntax trees) have not so much as considered lists as an option. On the other hand, however, Typst provides a special list syntax, that can be introspected on and assigned custom semantics: which is what we do here.
+This is mostly the fault of LaTeX. LaTeX is an intensely verbose (and hostile) piece of software... the normal syntax for lists goes something like `\begin{itemize}` `\item ...` `\end{itemize}` -- terrible! For this reason, LaTeX packages that aim to improve the ergonomics of typesetting trees ([`bussproofs`](https://ctan.org/pkg/bussproofs) for proof trees, [`forest`](https://ctan.org/pkg/forest) for syntax trees) have not so much as considered lists as an option.
 
-The use of lists as a domain-specific language allows for typesetting (proof) trees in a compact, coherent, and compositional fashion.
+On the other hand, however, Typst provides a special list syntax, that can be introspected on: and assigned custom semantics! Which is what we do here. These lists as a *domain-specific language* allows for typesetting such (proof) trees in a compact, coherent, and more readily compositional fashion.
 
 ## Usage
 
-![The below proof tree.](examples/usage.svg)
+<table>
+<tr>
+<td>
 
 ```typst
 #import "@preview/prooflists:0.1.0": prooflist
@@ -25,25 +27,35 @@ The use of lists as a domain-specific language allows for typesetting (proof) tr
 ]
 ```
 
-Typst has three types of list items: `-` (bullet lists), `+` (numbered lists), and `/` (term lists).
-All three have their own semantics within the context of a call to `#prooflist`.
+</td>
+<td>
 
-The `+ premise` node is a **terminal rule**.
-It returns its content directly as a (single) premise.
-Any sublists are interpreted as lists directly, not proof lists or premises.
+![The above proof tree.](examples/usage.svg)
 
-The `- conclusion` node is a **non-terminal rule**.
-Any sublists are interpreted as premises, as are any nested calls to `#prooflist`.
-If no premises are provided, a top bar will still be drawn (as in the case of axioms).
+</td>
+</tr>
+</table>
 
-The `/ label: conclusion` node is a **labelled non-terminal rule**.
-Any sublists are premises (as are any nested calls to `#prooflist`).
-If no premises are provided a top bar will still be drawn.
-The `label` field is technically optional -- if omitted, `/ : conclusion` behaves identically to `- conclusion`.
+Typst has three types of list items: `-` (bullet lists), `+` (numbered lists), and `/` (term lists). All three have their own semantics within the context of `#prooflist`.
+
+- The `+ premise` node is a **terminal rule**.
+  It returns its content directly as a (single) premise.
+  Any sublists are interpreted as lists directly, not proof lists or premises.
+
+- The `- conclusion` node is a **non-terminal rule**.
+  Any sublists are interpreted as premises, as are any nested calls to `#prooflist`.
+  If no premises are provided, a top bar will still be drawn (as in the case of axioms).
+
+- The `/ label: conclusion` node is a **labelled non-terminal rule**.
+  Any sublists are premises (as are any nested calls to `#prooflist`).
+  If no premises are provided a top bar will still be drawn.
+  The `label` field is technically optional -- if omitted, `/ : conclusion` behaves identically to `- conclusion`.
 
 ## Advanced Usage
 
-![The below proof tree.](examples/natural-deduction.svg)
+<table>
+<tr>
+<td>
 
 ```typst
 #import "@preview/prooflists:0.1.0": prooflist
@@ -65,6 +77,15 @@ The `label` field is technically optional -- if omitted, `/ : conclusion` behave
 ]
 ```
 
+</td>
+<td>
+
+![The above proof tree.](examples/natural-deduction.svg)
+
+</td>
+</tr>
+</table>
+
 Calls to `#prooflist` can be composed.
 `#prooflist` does not strip any content besides whitespace, and so calls to other functions may compose, too.
 
@@ -77,7 +98,9 @@ Finally, this package is built atop [`curryst`](https://typst.app/universe/packa
 Documentation may be found [in the function source](https://codeberg.org/apropos/typst-prooflists/src/branch/main/src/main.typ) (reproduced from `curryst`).
 The `#rule-set` function provided by `curryst` may be useful, also.
 
-![The below proof tree.](examples/structural-rules.svg)
+<table>
+<tr>
+<td>
 
 ```typst
 #import "@preview/prooflists:0.1.0": prooflist
@@ -122,5 +145,14 @@ The `#rule-set` function provided by `curryst` may be useful, also.
   exchange
 ))
 ```
+
+</td>
+<td>
+
+![The above proof tree.](examples/structural-rules.svg)
+
+</td>
+</tr>
+</table>
 
 See [`examples/`](examples) for further use cases.
