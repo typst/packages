@@ -1093,6 +1093,8 @@
 /// - annotation-leading (length or auto): Line spacing for multi-line annotations.
 ///   Use smaller values like `0.3em` to tighten line spacing.
 ///   (default: `auto`, which uses `0.45em`)
+/// - show-refs (bool): Show generated node references near labels for debugging.
+///   Triangle nodes also show their `-down` content reference. (default: `false`)
 ///
 /// Returns: CeTZ drawing of the syntax tree
 ///
@@ -1129,6 +1131,7 @@
   font: none,
   numbers: (),
   numbers-size: 0.85,
+  show-refs: false,
 ) = {
   let scale-factor = scale
   let is-horiz = direction == "right" or direction == "left"
@@ -1646,6 +1649,42 @@
         let sw = 0.05em * scale-factor * line-width
         let arrow-sw = 0.018
         let arrow-mark-scale = 0.5
+        let ref-color = luma(55%)
+        let ref-fsz = fsz * 0.55
+        let ref-items = ()
+
+        let draw-ref(pos, name, side) = {
+          if show-refs {
+            let (x, y) = pos
+            let off = 0.26
+            let (rx, ry, anch) = if side == "below" {
+              (x, y - off, "north")
+            } else if side == "above" {
+              (x, y + off, "south")
+            } else if side == "before" {
+              (x - off, y, "east")
+            } else {
+              (x + off, y, "west")
+            }
+            content(
+              (rx, ry),
+              box(
+                fill: white,
+                stroke: 0.25pt + red,
+                inset: (x: 0.22em, y: 0.10em),
+                text(size: ref-fsz, fill: ref-color, font: "Courier New", weight: "bold", name),
+              ),
+              anchor: anch,
+            )
+          }
+        }
+
+        let ref-side-node = if direction == "up" { "above" } else if direction == "right" {
+          "before"
+        } else if direction == "left" { "after" } else { "below" }
+        let ref-side-down = if direction == "up" { "below" } else if direction == "right" {
+          "after"
+        } else if direction == "left" { "before" } else { "above" }
 
         // ── Draw edges ──────────────────────────────────────────────────
         // Triangle nodes still get a line FROM their parent TO them;
@@ -1769,6 +1808,7 @@
           if e.at("is-triangle", default: false) {
             // Draw the node label (e.g. "DP")
             content((e.x, e.y), label-body, anchor: label-anchor)
+            if show-refs { ref-items.push((pos: (e.x, e.y), name: e.anchor, side: ref-side-node)) }
             // Draw combined triangle label using _display-label for formatting
             let tri-leaves = e.at("tri-leaves")
             let tri-leaf-boxed = highlight.any(h => h == e.anchor + "-down")
@@ -1807,7 +1847,9 @@
             ) { "north" } else if (
               direction == "right"
             ) { "west" } else { "east" }
-            content((tlx2 + gdx * tri-text-gap, tly2 + gdy * tri-text-gap), tri-body, anchor: tri-anchor)
+            let tri-label-pos = (tlx2 + gdx * tri-text-gap, tly2 + gdy * tri-text-gap)
+            content(tri-label-pos, tri-body, anchor: tri-anchor)
+            if show-refs { ref-items.push((pos: tri-label-pos, name: e.anchor + "-down", side: ref-side-down)) }
           } else {
             // In horizontal trees, pull terminal leaves closer to their parent
             let (lx, ly) = (e.x, e.y)
@@ -1834,6 +1876,7 @@
               ly = ly + (e.par.at(1) - ly) * pull
             }
             content((lx, ly), label-body, anchor: cur-anchor)
+            if show-refs { ref-items.push((pos: (lx, ly), name: e.anchor, side: ref-side-node)) }
           }
           // Draw circled number to the left of the node
           let num-display = numbers-map.at(e.anchor, default: none)
@@ -2154,6 +2197,11 @@
             let ctrl2 = (tx - dx * 0.30, ty + default-c2y + adj1)
             bezier((fx, fy), (tx, ty), ctrl1, ctrl2, stroke: dom-stroke)
           }
+        }
+
+        // ── Draw debug references last so they stay in the foreground ───
+        for ref-item in ref-items {
+          draw-ref(ref-item.pos, ref-item.name, ref-item.side)
         }
       })
     })

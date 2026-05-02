@@ -8,7 +8,8 @@
 
 /// Draw a syntax tree from bracket notation.
 /// Optional arguments include spacing, arrows, annotations, color,
-/// numbering, and font controls; see the package manual for the full list.
+/// numbering, font controls, and `show-refs`; see the package manual for the
+/// full list.
 ///
 /// ```typ
 /// #tree("[CP [C' [C did] [TP [DP she] [T' [T e] [VP [V leave]]]]]]")
