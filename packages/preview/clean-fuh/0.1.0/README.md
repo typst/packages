@@ -5,6 +5,8 @@ It is tailored to FernUni structure and wording, but can also be used for simila
 
 ## Quick Start
 
+As I do not have the approval to publish the logo of the FernUniversitaet in Hagen, I used an empty image as logo in the template. You can replace it with the actual logo by adding it to your project and passing it as `logo`-parameter to `clean-fuh.with(...)`.
+
 ### Typst web app
 
 

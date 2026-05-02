@@ -36,7 +36,7 @@
   glossary: none,
   bib-style: "ieee",
   math-numbering: "(1)",
-  logo: image("./logo-fernuni-hagen.svg"),
+  logo: image("./logo.svg"),
   ignored-link-label-keys-for-highlighting: (),
   body,
   show-gender-notice: true,
