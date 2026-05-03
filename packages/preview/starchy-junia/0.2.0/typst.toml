@@ -1,7 +1,7 @@
 [package]
 name = "starchy-junia"
 version = "0.2.0"
-entrypoint = "squelette.typ"
+entrypoint = "template/squelette.typ"
 authors = ["MathYeiv"]
 license = "MIT"
 categories = ["report"]
@@ -12,6 +12,6 @@ compiler = "0.14.2"
 repository = "https://codeberg.org/MathYeiv/starchy-junia"
 
 [template]
-path = "."
+path = "template"
 entrypoint = "squelette.typ"
 thumbnail = "thumbnail.png"

@@ -323,7 +323,7 @@ Ce paquet inclut deux modèles autonomes qui n'utilisent pas cette architecture 
 - **`junia-light`** — document court rédigé dans un seul fichier `.typ`, sans page de garde institutionnelle.
 - **`junia-expert`** — fonctionnalités complètes, architecture libre, transitions de zones manuelles.
 
-Voir la documentation détaillée dans [starchy-junia-0.2.0.pdf](./starchy-junia-0.2.0.pdf).
+Voir la documentation détaillée dans [starchy-junia-0.2.0.pdf](https://codeberg.org/MathYeiv/starchy-junia/raw/branch/main/starchy-junia-0.2.0.pdf).
 
 ---
 
