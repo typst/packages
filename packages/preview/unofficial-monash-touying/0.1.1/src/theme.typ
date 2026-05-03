@@ -1,5 +1,5 @@
 #import "@preview/touying:0.7.3": *
-#import "@preview/zebraw:0.6.1": zebraw
+#import "@preview/zebraw:0.6.3": zebraw
 #import "design.typ": *
 
 #let monash-blue-light = monash-blue-wash
