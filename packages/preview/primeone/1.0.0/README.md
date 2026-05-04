@@ -33,9 +33,10 @@ You can use the Typst template also in Quarto.
 ---
 title: "My Document"
 subtitle: "A subtitle"
-author:
+authors:
   - name: Jane Doe
-    affiliation: University of Example
+    affiliations:
+      - name: University of Example
     email: jane@example.com
 date: today
 format:
@@ -103,9 +104,9 @@ The main `article()` function accepts the following parameters:
 | `pagenumbering`      | `"1"`         | Typst page numbering pattern       |
 | `titlepage`          | `true`        | Show title page                    |
 | `toc`                | `false`       | Show table of contents             |
-| `toc_title`          | `none`        | TOC heading                        |
-| `toc_depth`          | `none`        | TOC depth                          |
-| `toc_indent`         | `1.5em`       | TOC indentation                    |
+| `toc-title`          | `none`        | TOC heading                        |
+| `toc-depth`          | `none`        | TOC depth                          |
+| `toc-indent`         | `1.5em`       | TOC indentation                    |
 
 ## Attribution
 The color palette, theme naming convention and layout of the components used in this template (e.g. `theme-lara-cyan`, severity colors) are inspired by the [PrimeReact](https://github.com/primefaces/primereact) Lara UI themes, which is developed by [PrimeTek](https://www.primetek.com.tr/) and distributed under the [MIT License](https://github.com/primefaces/primereact/blob/master/LICENSE.md).

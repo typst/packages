@@ -1,4 +1,4 @@
-#import "@preview/primeone:1.0.0": *
+#import "_extensions/primeone/typst-template.typ": *
 
 #show: article.with(
   title: "PrimeOne Template",
@@ -12,8 +12,8 @@
   abstract-title: "Abstract",
   titlepage: true,
   toc: true,
-  toc_title: "Table of Contents",
-  toc_depth: 2,
+  toc-title: "Table of Contents",
+  toc-depth: 2,
 )
 
 = Typography
@@ -163,6 +163,7 @@ Cards are versatile containers for structured content:
 #v(0.5em)
 #card(
   title: "Research Summary",
+  subtitle: "Preliminary Findings — Q1 2025",
   footer: "Last updated: May 2, 2026",
 )[
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.

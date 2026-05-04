@@ -1,6 +1,6 @@
 // =============================================================================
 // PrimeOne Typst Template
-// Copyright (c) 2026 — Simon Eller
+// Copyright (c) 2026 - Simon Eller
 // Licensed under the MIT License — see LICENSE in the repository root:
 // https://github.com/simon-eller/primeone-typst/blob/main/LICENSE
 //
@@ -60,7 +60,7 @@
 )
 
 // Set active theme
-#let _active-theme = theme-lara-pink
+#let _active-theme = theme-lara-cyan
 #let pr-primary       = _active-theme.primary
 #let pr-primary-dark  = _active-theme.primary-dark
 #let pr-primary-light = _active-theme.primary-light
@@ -412,11 +412,20 @@
   pagenumbering: "1",
   titlepage: false,
   toc: false,
-  toc_title: none,
-  toc_depth: none,
-  toc_indent: 1.5em,
+  toc-title: none,
+  toc-depth: none,
+  toc-indent: 1.5em,
   doc,
 ) = {
+  let meta-authors = ()
+  if authors != none {
+    meta-authors = authors.map(a => a.name)
+  }
+
+  set document(
+    title: title,
+    author: meta-authors
+  )
 
   set page(
     paper: paper,
@@ -450,7 +459,7 @@
   )
 
   set par(
-    justify: true,
+    justify: false,
     leading: 0.65em,
     spacing: 1em
   )
@@ -621,15 +630,23 @@
             fill: pr-text,
             size: 1.25em,
             weight: "semibold"
-          )[#a.name] \
-          #text(
-            fill: pr-text-secondary,
-            size: 1em
-          )[#a.affiliation] \
-          #text(
-            fill: pr-primary,
-            size: 1em
-          )[#a.email]
+          )[#a.name]
+
+          #if a.at("affiliation", default: none) != none and a.affiliation != [] and a.affiliation != "" [
+            #v(0.25em)
+            #text(
+              fill: pr-text-secondary,
+              size: 1em
+            )[#a.affiliation]
+          ]
+
+          #if a.at("email", default: none) != none and a.email != "" [
+            #v(0.25em)
+            #text(
+              fill: pr-primary,
+              size: 1em
+            )[#a.email]
+          ]
         ])
       )
       v(2em)
@@ -667,9 +684,9 @@
   if toc {
     block(above: 0em, below: 2em)[
       #outline(
-        title: toc_title,
-        depth: toc_depth,
-        indent: toc_indent
+        title: toc-title,
+        depth: toc-depth,
+        indent: toc-indent
       )
     ]
     pagebreak()
