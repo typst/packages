@@ -3,13 +3,14 @@ Prevents unlabeled objects like math.expression or figure from being automatical
 
 Usage:
 
-```
+```typst
 #import "@preview/non-unlabeled.typ": *
 
 // You need to do this to enable the package
 #show math.equation: dont_number_unlabeled(math.equation)
 #show figure: dont_number_unlabeled(figure)
 
+// You also need to define how you number your objects (you can do this also without using headcount)
 #import "@preview/headcount:0.1.0": *
 #set ref(supplement: [Eq.])
 #set math.equation(numbering: dependent-numbering("(1.1)", levels: 1))
