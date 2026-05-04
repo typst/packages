@@ -7,8 +7,8 @@ Usage:
 #import "@preview/non-unlabeled.typ": *
 
 // You need to do this to enable the package
-#show math.equation: dont_number_unlabeled(math.equation)
-#show figure: dont_number_unlabeled(figure)
+#show math.equation: dont-number-unlabeled(math.equation)
+#show figure: dont-number-unlabeled(figure)
 
 // You also need to define how you number your objects (you can do this also without using headcount)
 #import "@preview/headcount:0.1.0": *

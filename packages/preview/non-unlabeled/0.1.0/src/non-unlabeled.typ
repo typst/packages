@@ -1,4 +1,4 @@
-#let dont_number_unlabeled(object) = {
+#let dont-number-unlabeled(object) = {
   it => {
     if object == math.equation{
       if it.block and not it.has("label") [
