@@ -1,10 +1,8 @@
 # Loom
 
-[![Testing](https://github.com/leonieziechmann/loom/actions/workflows/tests.yaml/badge.svg)](https://github.com/leonieziechmann/loom/actions/workflows/tests.yaml)
-
 **Reactive Documents for Typst**
 
-Loom transforms Typst from a linear typesetting system into a **reactive engine**. It enables bidirectional data flow, allowing your document to "think" before it renders[cite: 1].
+Loom transforms Typst from a linear typesetting system into a **reactive engine**. It enables bidirectional data flow, allowing your document to "think" before it renders.
 
 📖 **[Read the Documentation](https://leonieziechmann.github.io/loom/)**
 
