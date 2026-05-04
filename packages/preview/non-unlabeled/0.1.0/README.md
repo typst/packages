@@ -30,7 +30,7 @@ $
 3 + 3 = 7
 $ <label>
 
-Therefore it will be numbered.
+Therefore it will be numbered. The following two equations instead won't.
 
 $
 3 + 3 = 42
