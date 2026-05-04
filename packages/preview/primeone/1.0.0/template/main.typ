@@ -1,4 +1,4 @@
-#import "_extensions/primeone/typst-template.typ": *
+#import "@preview/primeone:1.0.0": *
 
 #show: article.with(
   title: "PrimeOne Template",
