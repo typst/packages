@@ -44,3 +44,48 @@ $ <label2>
 ```
 
 ![alt text](img/image.png "Title")
+
+If you are working with something else than a `math.expression` or `figure` (like tables) it's highly suggested to wrap it into a `figure` first. Otherwise, since the source code of this package is very small, you can also modify it directly, you just need to copy the same pattern used for `math.expression` and `figure`:
+
+```typst
+#let dont-number-unlabeled(object) = {
+  it => {
+    if object == math.equation{
+      if it.block and not it.has("label") [
+        #counter(object).update(v => v - 1)
+        #object(
+          it.body, 
+          block: true, 
+          numbering: none)#label("no_label")
+      ] else {
+        it
+      }     
+    } else if object == figure{
+      if not it.has("label") [
+        #counter(object).update(v => v - 1)
+        #object(
+          it.body, 
+          caption:it.caption, 
+          numbering: none,
+          placement: it.placement,
+          scope:it.scope,
+          kind:it.kind,
+          supplement:it.supplement,
+          gap:it.gap,
+          outlined:it.outlined
+        )#label("no_label")
+      ] else {
+        it
+      }
+    // else if object == something-else-i-need ...
+    } else [
+      \=== Error ===
+      
+      unsupported object "#repr(object)"
+    ]
+
+  }
+}
+```
+
+Send a pull request to [my github repo](https://github.com/ravasioluca/packages) if you believe that could be useful for other users too.
