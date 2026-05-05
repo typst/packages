@@ -84,8 +84,6 @@ Add the package to your Typst project:
 #import "@preview/sanor:0.2.1": *
 ```
 
-*Note: Version 0.2.1 may not be published yet. Check the latest available version on [Typst Universe](https://typst.app/universe). For local development, import from the local path.*
-
 ## Quick Start
 
 ```typst
