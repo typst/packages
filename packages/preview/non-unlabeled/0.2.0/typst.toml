@@ -5,6 +5,6 @@ entrypoint = "src/non-unlabeled.typ"
 authors = ["Luca Ravasio"]
 license = "MIT"
 description = "Don't number unlabeled objects"
-repository = "github.com/ravasioluca/packages"
+repository = "https://github.com/ravasioluca/packages"
 exclude = ["img/image.png"]
 categories = ["utility", "layout"]
