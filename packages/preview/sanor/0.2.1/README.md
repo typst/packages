@@ -472,12 +472,28 @@ Generate a static version showing all steps:
 ], s))
 ```
 
+
 ## Inspiration and Possibilities
 
 The inspiration for the Sanor package came from an amazing animation library for creating mathematical animations in Python called [Manim](https://www.manim.community/).
 I always wanted to include such transformation of elements into Typst presentations. This is because Typst provides good defaults for laying out elements; I don't need to specify coordinates or calculate much where to put something on a slide, and Typst packages are awesome (don't you agree?). Moreover, animated PDF files can be opened *anywhere*. I just need a thumb drive and put it on any computer to present my slides. Therefore, based on the UI of Manim, I created this package.
 
 Then, when I started creating some slides with it, I thought of a way to integrate this package with [Tanim](https://github.com/OrangeX4/tanim), a program that lets you create animations from Typst documents. Since the frame-by-frame specification is already implemented, the only remaining (VERY complex) task is to interpolate those discrete animations over a period of time. Since Typst HTML export is starting to mature, I think it is possible to upgrade this package into a tool for animated HTML presentations like [Manim-Slides](https://github.com/jeertmans/manim-slides). 
+
+## Change Log
+- **0.1.0** First Release
+- **0.2.1** Refractored the whole animation control system.
+  - The `slide` function is now accepting a function that returns an array of content and slide context `s => ([body], s)` **breaking change**.
+  - The `slide` control is moved to a more favorable `#s.push(rule)` than the `controls` argument, thus `controls` argument is removed. **breaking change**.
+  - The `hider` is now named as `hidden`, representing the modifier when the element is hidden **breaking change**.
+  - Introduced `case` function that can accept more flexible modifiers.
+  - Integrated with `pause` function to incrementally show content without tags and control the flow of animation with `#s.push(int)`.
+  - Added `pdfpc` module from Polylux/Touying to support pdfpc integrations.
+  - Arguments of `slide` function are renamed as follows:
+    - `info` to `options` **breaking change**
+    - `defined-states` to `defined-cases` **breaking change**.
+  
+
 
 ## License
 
