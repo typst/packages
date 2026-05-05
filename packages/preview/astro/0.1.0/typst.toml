@@ -10,3 +10,4 @@ description = "Draw beautiful astronomical diagrams."
 categories = [ "visualization" ]
 disciplines = [ "education", "physics" ]
 keywords = ["astronomy", "planet", "solar system", "space", "cosmos"]
+exclude = ["examples"]
