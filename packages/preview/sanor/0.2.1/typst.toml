@@ -8,3 +8,4 @@ compiler = "0.13.1"
 repository = "https://github.com/pacaunt/sanor"
 description = "Fast, small, presentation animation utility"
 categories = ["utility", "presentation"]
+exclude = ["./gallery/*"]
