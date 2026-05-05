@@ -1,0 +1,9 @@
+nimTitle	concepts	concepts.html	module concepts		0
+nim	semConceptDeclaration	concepts.html#semConceptDeclaration,PContext,PNode	proc semConceptDeclaration(c: PContext; n: PNode): PNode		58
+nim	mfDontBind	concepts.html#mfDontBind	MatchFlags.mfDontBind		73
+nim	mfCheckGeneric	concepts.html#mfCheckGeneric	MatchFlags.mfCheckGeneric		73
+nim	MatchFlags	concepts.html#MatchFlags	enum MatchFlags		73
+nim	conceptBody	concepts.html#conceptBody,PType	proc conceptBody(n: PType): PNode		155
+nim	conceptMatch	concepts.html#conceptMatch,PContext,PType,PType,LayeredIdTableObj,PType,set[MatchFlags]	proc conceptMatch(c: PContext; concpt, arg: PType; bindings: var LayeredIdTable;\n             invocation: PType; flags: set[MatchFlags] = {}): bool		622
+heading	Code dealing with Concept declarations	concepts.html#code-dealing-with-concept-declarations	 Code dealing with Concept declarations		0
+heading	Concept matching	concepts.html#concept-matching	 Concept matching		0

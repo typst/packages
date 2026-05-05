@@ -1,0 +1,31 @@
+nimcache/
+nimblecache/
+workdir/
+htmldocs/
+
+# Ignore files without extensions
+*
+!*/
+!*.*
+
+# Ignore directories containing Git repositories
+*/**/.git
+
+# Ignore test stuff
+tests/ws_*/*/
+tests/ws_*/*.json
+
+# Ignore others
+bin/
+*.exe
+src/atlas.exe
+atlas-tests/
+*.zip
+atlas
+deps.png
+nim.cfg
+nimble.develop
+nimble.paths
+.nimcache/
+/deps/
+tests/ws_link_integration/deps/atlas.config

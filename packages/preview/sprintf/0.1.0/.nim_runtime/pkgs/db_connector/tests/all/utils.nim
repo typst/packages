@@ -1,0 +1,1 @@
+const buildDir* = "tests/build"

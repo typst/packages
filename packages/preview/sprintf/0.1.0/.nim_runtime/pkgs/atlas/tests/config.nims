@@ -1,0 +1,3 @@
+--noNimblePath
+--path:"../src"
+--path:"$nim"
