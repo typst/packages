@@ -1,5 +1,5 @@
 # NoN Unlabeled: No Numbering for Unlabeled objects
-**Non Unlabeled** prevents unlabeled objects (like math.expression or figure) from being automatically numbered.
+**Non Unlabeled** prevents unlabeled objects (like `math.expression` or `figure`) from being automatically numbered.
 
 Example:
 
