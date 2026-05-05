@@ -1,5 +1,5 @@
 [package]
-name = "arno-pro-optical-text"
+name = "arnoptical"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Adam Laszlo Rocska <@adam-rocska>"]

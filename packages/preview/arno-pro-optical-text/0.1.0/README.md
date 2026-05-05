@@ -1,4 +1,4 @@
-# arno-pro-optical-text
+# arnoptical
 
 Select the correct Arno Pro optical-size face from the current Typst text size.
 
@@ -13,7 +13,7 @@ through Adobe Fonts or another license you are entitled to use.
 ## Usage
 
 ```typst
-#import "@preview/arno-pro-optical-text:0.1.0": arno-pro-optical-text
+#import "@preview/arnoptical:0.1.0": arno-pro-optical-text
 
 #set text(font: "Arno Pro", size: 11pt)
 #show text: arno-pro-optical-text
@@ -42,7 +42,7 @@ pass through unchanged. If `text.font` is a fallback list, the Arno Pro entry is
 replaced in place and the remaining fallback families are preserved.
 
 ```typst
-#import "@preview/arno-pro-optical-text:0.1.0": arno-pro-optical-text
+#import "@preview/arnoptical:0.1.0": arno-pro-optical-text
 
 #set text(font: "Arno Pro")
 #show text: arno-pro-optical-text
@@ -53,7 +53,7 @@ Optically sized text.
 Fallback font lists work as expected:
 
 ```typst
-#import "@preview/arno-pro-optical-text:0.1.0": arno-pro-optical-text
+#import "@preview/arnoptical:0.1.0": arno-pro-optical-text
 
 #set text(font: ("Arno Pro", "New Computer Modern"), size: 8pt)
 #show text: arno-pro-optical-text
@@ -67,7 +67,7 @@ Return the Arno Pro family name for a size. This is useful when you want to set
 the font explicitly.
 
 ```typst
-#import "@preview/arno-pro-optical-text:0.1.0": arno-pro-optical-font
+#import "@preview/arnoptical:0.1.0": arno-pro-optical-font
 
 #set text(font: arno-pro-optical-font(21pt))
 ```
@@ -110,7 +110,7 @@ make strict-check
 ```
 
 The local suite validates the package metadata, compiles every `tests/*/test.typ`
-fixture, smoke-tests an `@preview/arno-pro-optical-text:0.1.0` import from a
+fixture, smoke-tests an `@preview/arnoptical:0.1.0` import from a
 temporary package path, compiles every Typst code block in this README, and
 audits rendered PDF font faces when Arno Pro and `pdffonts` are available.
 
@@ -133,11 +133,11 @@ See `PUBLISHING.md` for the final Typst Universe submission checklist.
 To test package-style imports before publication, place the repository at:
 
 ```text
-{package-path}/preview/arno-pro-optical-text/0.1.0
+{package-path}/preview/arnoptical/0.1.0
 ```
 
 Then import with:
 
 ```typst
-#import "@preview/arno-pro-optical-text:0.1.0": *
+#import "@preview/arnoptical:0.1.0": *
 ```
