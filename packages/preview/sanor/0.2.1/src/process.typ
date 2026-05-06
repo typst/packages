@@ -1,6 +1,6 @@
 #import "utils.typ"
 #import "object-case.typ": make-object, resolve-case
-#import "rules.typ": Applier
+#import "rules.typ": Applier, apply
 #import "class.typ": class, class-of
 
 /// Indices
@@ -13,7 +13,11 @@
 }
 
 /// A step consists of multiple rules, and each rules contains a definition.
-#let _process-a-rule(ctx, rule) = {
+#let _process-a-rule(ctx, rule-or-name) = {
+  let rule = rule-or-name
+  if class-of(rule-or-name) == str {
+    rule = apply(rule-or-name) // If a name is specified, `apply` rule is used.
+  }
   let case-steps = ctx.cases.at(rule.name, default: ctx.default-cases)
   case-steps.at(ctx.step - 1).push(rule.applier)
   ctx.cases.insert(rule.name, case-steps)
@@ -28,12 +32,14 @@
   for action in actions {
     if type(action) == int {
       ctx.step += action
-    } else if class-of(action) == "rule" {
+    } else if class-of(action) in ("rule", str) {
       ctx = _process-a-rule(ctx, action)
       ctx.step += 1
     } else if class-of(action) == array {
       ctx = action.fold(ctx, (ctx, rule) => _process-a-rule(ctx, rule))
       ctx.step += 1
+    } else {
+      panic("Unknown rule specification")
     }
   }
 

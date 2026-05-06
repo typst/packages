@@ -90,9 +90,13 @@ Add the package to your Typst project:
 #import "@preview/sanor:0.2.1": *
 
 #slide(s => ([
+  // A short hand to avoid repeating `s`.
   #let tag = tag.with(s)
+
   = Hello World
+  // Tag an element with a name.
   #tag("title")[This is a presentation slide]
+  // Apply it on your slide.
   #s.push(apply("title", text.with(fill: blue)))
 ], s))
 ```
@@ -175,6 +179,8 @@ Apply transformations from this step onward (persistent).
 - `inherit` (bool): Combine with previous active cases (default: true)
 
 **Behavior:** Transformations accumulate across steps. Future steps continue with these transformations unless `revert()` is called.
+
+**Note*:** You can use `s.push(name)` as a short hand for `s.push(apply(name))`.
 
 #### `once(name, ..cases, inherit: true)`
 
