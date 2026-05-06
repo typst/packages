@@ -23,7 +23,7 @@ A clean and customizable Typst template for Master of Science in Engineering HES
 ### Using the published package
 
 ```typst
-#import "@preview/mse-hes-master-thesis:0.1.0": report-template
+#import "@preview/structured-mse-thesis:0.1.0": report-template
 
 #show: report-template.with(
   title: "My Thesis Title",
@@ -51,7 +51,7 @@ You can customize the template using the following parameters:
   // Footer
   state: "To be finalized",
   font: "Arial", // Any system font or custom font
-  file-name: "mse-hes-thesis.typ", // For metadata
+  file-name: "structured-mse-thesis.typ", // For metadata
   project-type: "Master Thesis", // For metadata
 
   lang: "en", // "en" or "fr"
