@@ -70,12 +70,3 @@ You can also try running in debug mode to figure out what's wrong:
 ```typst
 #let eqrun = eqrun-builder(init, debug: true)
 ```
-
-# Changelog
-
-## v0.1.1
-
-These work now:
-```typst
-
-```
