@@ -7,7 +7,7 @@ authors = ["Philipp Knoch"]
 license = "MIT"
 description = "Ein Template zum erstellen einer schriftlichen Ausarbeitung zur 5.PK in Berlin."
 repository = "https://github.com/kn0kh/easy-abi-ausarbeitung-lmo"
-keyword = ["5PK", "Ausarbeitung", "5.Prüfungskomponente", "Schriftliche Ausarbeitung", "Abitur", "Berlin"]
+keywords = ["5PK", "Ausarbeitung", "5.Prüfungskomponente", "Schriftliche Ausarbeitung", "Abitur", "Berlin"]
 categories = ["report"]
 
 [template]
