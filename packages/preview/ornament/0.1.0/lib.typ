@@ -27,8 +27,8 @@
 
 
 // Reads a .pgf file and draw the symbol from the code
-#let symbol_from_pgf_file(
-  file_path,
+#let symbol-from-pgf-file(
+  file-path,
   width: auto,
   height: auto,
   symmetry: none,
@@ -36,7 +36,7 @@
   xscale: 100%,
   yscale: 100%,
 ) = {
-  let content = read(file_path)
+  let content = read(file-path)
   let lines = content.split("\n")
   let current_path = ();
   let max_x = 0pt;
@@ -158,7 +158,7 @@
     xscale = height / ref_height * 100%
     yscale = height / ref_height * 100%
   }
-  symbol_from_pgf_file(
+  symbol-from-pgf-file(
     "./ornaments/"+collection+"/"+collection+num_str+".pgf",
     width: ref_width, 
     height: ref_height,
