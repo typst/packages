@@ -1,6 +1,4 @@
-# Another Minimalistic Typst Resume Template
-
-**A minimalistic resume template based on [Typst](https://typst.app/). Easy to use. Effortless typesetting. Highly customizable. Fit your content perfectly on one page by tuning just one parameter.**
+# 极简中文简历模版
 
 基于 [Typst](https://typst.app/) 的中文简历模板。极简，易用，轻松排版，高度定制。能无痛排版让内容刚好填满一页。
 
@@ -9,6 +7,9 @@
 ---
 
 ## 快速开始
+
+> [!NOTE] 在 Typst Web App 使用该模板
+> 如果您在网页端使用该模板，请手动下载 [NerdFonts 图标](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/NerdFontsSymbolsOnly.zip) 并将字体文件上传至项目目录
 
 使用本模板，你将通过编写 Typst 源文件来制作简历，借助 IDE 插件可以实时预览。编写文件只需要用到基本的标记语法，不需要编程语言基础。
 
