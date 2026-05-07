@@ -108,7 +108,7 @@ Nucleotide alignment with DNA coloring:
 | `includeDSSP`, `includeSTRIDE`, `includeHMMTOP`, `includePHD*` | `structure-tracks`, `dssp-track`, `stride-track`, `hmmtop-track`, `phd-topology-track`, `phd-secondary-track` |
 | font and spacing macros | `text-family`, `text-weight`, `text-posture`, `text-size`, `block-gap`, `feature-slot-space` |
 
-See [documentation](../docs/documentation.pdf) for the full guide and a larger correspondence table.
+See [documentation](https://github.com/rice8y/typshade/blob/v0.1.1/docs/documentation.pdf) for the full guide and a larger correspondence table.
 
 ## Smart Recipes
 
