@@ -4,7 +4,6 @@ Typst template for the written report for the 5th examination component in Berli
 
 ## Quick Start
 
-If the package is installed locally, you can use it to create a new project:
 
 ```bash
 typst init @preview/easy-abi-ausarbeitung:0.1.0 my-report

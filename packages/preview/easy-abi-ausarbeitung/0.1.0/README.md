@@ -7,7 +7,6 @@ Though this template is only intended for German users, here is an English versi
 
 ## Schnellstart
 
-Wenn das Paket lokal installiert ist, kannst du damit ein neues Projekt erzeugen:
 
 ```bash
 typst init @preview/easy-abi-ausarbeitung:0.1.0 meine-ausarbeitung
