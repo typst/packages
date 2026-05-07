@@ -1,5 +1,5 @@
 # Enseirb-Matmeca Typst Template for Reports
-[![GitHub release](https://img.shields.io/github/v/release/floriandelage/report-eirb)](https://github.com/floriandelage/report-eirb/releases)
+[![GitHub release](https://img.shields.io/github/v/release/floriandelage/unofficial-eirb-report-0.1.1)](https://github.com/floriandelage/unofficial-eirb-report/releases)
 
 An unofficial [Typst](https://typst.app/) template for [Enseirb-Matmeca](https://enseirb-matmeca.bordeaux-inp.fr/fr)
 
