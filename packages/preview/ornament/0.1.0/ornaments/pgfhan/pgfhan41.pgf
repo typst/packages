@@ -1,0 +1,30 @@
+% han41.pgf
+% pgfornament-han v0.33 2019/08/10
+% Author: LIM LianTze
+
+\pgfsetrectcap
+
+\m 25 25
+\l 40 25
+\l 40 10
+\l 10 10
+\l 10 50
+\l 105 50
+\l 105 10
+\l 75 10
+\l 75 25
+\l 90 25
+\l 90 35
+\l 65 35
+\l 65 0
+\l 115 0
+\l 115 60
+\l 0 60
+\l 0 0
+\l 50 0
+\l 50 35
+\l 25 35
+\l 25 25
+
+\s
+\endinput

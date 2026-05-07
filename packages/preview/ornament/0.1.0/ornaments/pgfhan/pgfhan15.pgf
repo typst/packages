@@ -1,0 +1,16 @@
+% han15.pgf
+% pgfornament-han v0.33 2019/08/10
+% Author: LIM LianTze
+
+\pgfsetrectcap
+
+\m 0 0
+\l 0 200
+\l 200 200
+\l 200 190
+\l 10 190
+\l 10 0
+\l 0 0
+
+\s
+\endinput

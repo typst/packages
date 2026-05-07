@@ -1,0 +1,8 @@
+[package]
+name = "ornament"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["thuiop"]
+license = "LPPL-1.3c"
+description = "Draw vector ornaments."
+exclude = ["manual.typ","manual.pdf"]
