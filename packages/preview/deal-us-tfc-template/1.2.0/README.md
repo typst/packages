@@ -57,7 +57,7 @@ Se basa en la plantilla original realizada en LaTeX por Agustín Borrego e Inmac
 #bibliography("/bibliografia.bib")
 ```
 
-![](thumbnail.png)
+![[Template thumbnail]](thumbnail.png)
 
 # About fonts / Sobre las fuentes
 
