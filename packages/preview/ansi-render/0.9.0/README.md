@@ -9,13 +9,11 @@
 <a href="https://github.com/8LWXpg/typst-ansi-render/blob/master/LICENSE" style="text-decoration: none;">
   <img alt="GitHub" src="https://img.shields.io/github/license/8LWXpg/typst-ansi-render">
 </a>
-<a href="https://github.com/typst/packages/tree/main/packages/preview/ansi-render" style="text-decoration: none;">
+<a href="https://typst.app/universe/package/ansi-render" style="text-decoration: none;">
   <img alt="typst package" src="https://img.shields.io/badge/typst-package-239dad">
 </a>
 
 This script provides a simple way to render text with ANSI escape sequences. Package `ansi-render` provides a function `ansi-render`, and a dictionary of themes `terminal-themes`.
-
-contribution is welcomed!
 
 ## Usage
 
@@ -62,11 +60,11 @@ contribution is welcomed!
 
 ## Themes
 
-see [themes](https://github.com/8LWXpg/typst-ansi-render/blob/master/test/themes.pdf)
+see [themes](https://github.com/8LWXpg/typst-ansi-render/blob/v0.9.0/test/themes.pdf)
 
 ## Demo
 
-see [demo.typ](https://github.com/8LWXpg/typst-ansi-render/blob/master/test/demo.typ) [demo.pdf](https://github.com/8LWXpg/typst-ansi-render/blob/master/test/demo.pdf)
+see [demo.typ](https://github.com/8LWXpg/typst-ansi-render/blob/v0.9.0/test/demo.typ) [demo.pdf](https://github.com/8LWXpg/typst-ansi-render/blob/v0.9.0/test/demo.pdf)
 
 ```typst
 #ansi-render(
@@ -81,7 +79,7 @@ theme: terminal-themes.vscode
 )
 ```
 
-![1.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/1.png?raw=true)
+![RGB color with bold and underlined text](https://github.com/8LWXpg/typst-ansi-render/blob/v0.9.0/img/1.png?raw=true)
 
 ```typst
 #ansi-render(
@@ -97,7 +95,7 @@ theme: terminal-themes.vscode
 )
 ```
 
-![2.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/2.png?raw=true)
+![256 color](https://github.com/8LWXpg/typst-ansi-render/blob/v0.9.0/img/2.png?raw=true)
 
 ```typst
 #ansi-render(
@@ -110,16 +108,16 @@ theme: terminal-themes.vscode
 )
 ```
 
-![3.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/3.png?raw=true)
+![16 color with overline and underline and reverse](https://github.com/8LWXpg/typst-ansi-render/blob/v0.9.0/img/3.png?raw=true)
 
 ```typst
 // uses the font that supports ligatures
 #ansi-render(read("./test/test.txt"), inset: 5pt, radius: 3pt, font: "Cascadia Code", theme: terminal-themes.putty)
 ```
 
-![4.png](https://github.com/8LWXpg/typst-ansi-render/blob/master/img/4.png?raw=true)
+![render file output](https://github.com/8LWXpg/typst-ansi-render/blob/v0.9.0/img/4.png?raw=true)
 
-## Capturing ANSI output
+## Capturing ANSI Output
 
 ### Output to File
 

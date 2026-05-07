@@ -457,7 +457,7 @@
   // input: array of options in string inside escape sequence
   // return: a dict with text and background style
   let match-options(opt) = {
-    // parse 38;5 48;5
+    // parse 38;5 48;5 256-color
     let parse-8bit-color(num) = {
       num = int(num)
       let colors = (0, 95, 135, 175, 215, 255)
@@ -489,7 +489,11 @@
         color.at(count) = int(i)
         count += 1
         if count == 3 {
-          if last == "382" { opt-text += (fill: rgb(..color)) } else { opt-bg += (fill: rgb(..color)) }
+          if last == "382" {
+            opt-text += (fill: rgb(..color))
+          } else {
+            opt-bg += (fill: rgb(..color))
+          }
           count = 0
           last = none
         }
