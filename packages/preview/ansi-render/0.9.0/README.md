@@ -1,13 +1,13 @@
 # ANSI Escape Sequence Renderer
 
 <a href="https://github.com/8LWXpg/typst-ansi-render/tags" style="text-decoration: none;">
-  <img alt="GitHub manifest version (path)" src="https://img.shields.io/github/v/tag/8LWXpg/typst-ansi-render">
+  <img alt="Tagged version" src="https://img.shields.io/github/v/tag/8LWXpg/typst-ansi-render">
 </a>
 <a href="https://github.com/8LWXpg/typst-ansi-render" style="text-decoration: none;">
-  <img src="https://img.shields.io/github/stars/8LWXpg/typst-ansi-render?style=flat" alt="GitHub Repo stars">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/8LWXpg/typst-ansi-render?style=flat">
 </a>
-<a href="https://github.com/8LWXpg/typst-ansi-render/blob/master/LICENSE" style="text-decoration: none;">
-  <img alt="GitHub" src="https://img.shields.io/github/license/8LWXpg/typst-ansi-render">
+<a href="https://github.com/8LWXpg/typst-ansi-render/blob/v0.9.0/LICENSE" style="text-decoration: none;">
+  <img alt="License on GitHub" src="https://img.shields.io/github/license/8LWXpg/typst-ansi-render">
 </a>
 <a href="https://typst.app/universe/package/ansi-render" style="text-decoration: none;">
   <img alt="typst package" src="https://img.shields.io/badge/typst-package-239dad">
