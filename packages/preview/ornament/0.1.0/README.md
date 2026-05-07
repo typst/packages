@@ -6,4 +6,4 @@
 
 The main entry point of the package is the function `#ornament`. It takes as an argument the number id of the ornament to draw and its collection (by default "vectorian", other possibilities are "am" and "pgfhan").
 
-For more details, you can consult the [manual](doc/manual.pdf)
+For more details, you can consult the [manual](manual.pdf)
