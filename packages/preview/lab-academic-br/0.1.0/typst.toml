@@ -1,0 +1,15 @@
+[package]
+name = "lab-academic-br"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Sivaldo Davi Pereira <@sivas-lab>"]
+license = "MIT"
+description = "Formate trabalhos acadêmicos, papers e projetos seguindo as normas ABNT."
+repository = "https://github.com/sivas-lab/lab-academic-br"
+keywords = ["abnt", "academic", "paper", "brazil"]
+categories = ["report", "office"]
+
+[template]
+path = "exemplos"
+entrypoint = "paper.typ"
+thumbnail = "thumbnail.png"
