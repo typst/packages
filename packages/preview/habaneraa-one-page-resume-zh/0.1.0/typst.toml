@@ -8,7 +8,7 @@ description = "Fit your resume perfectly on one page by tuning one parameter."
 repository = "https://github.com/habaneraa/typst-resume-one-page"
 categories = ["cv"]
 keywords = ["resume", "cv", "chinese"]
-compiler = "0.14.2"
+compiler = "0.13.0"
 exclude = [
   "assets/*",
   "examples/*",

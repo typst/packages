@@ -1,4 +1,6 @@
-# 极简中文简历模版
+# A Minimalistic Resume Template
+
+A minimalist, highly customizable Typst resume template with Chinese typesetting in mind. Make resume writing simple, flexible, and visually clean. By tuning a single spacing parameter, you can adapt the layout to make the content fit exactly one page while keeping the typesetting polished and balanced.
 
 基于 [Typst](https://typst.app/) 的中文简历模板。极简，易用，轻松排版，高度定制。能无痛排版让内容刚好填满一页。
 
