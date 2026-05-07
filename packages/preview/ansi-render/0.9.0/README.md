@@ -1,17 +1,9 @@
 # ANSI Escape Sequence Renderer
 
-<a href="https://github.com/8LWXpg/typst-ansi-render/tags" style="text-decoration: none;">
-  <img alt="Tagged version" src="https://img.shields.io/github/v/tag/8LWXpg/typst-ansi-render">
-</a>
-<a href="https://github.com/8LWXpg/typst-ansi-render" style="text-decoration: none;">
-  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/8LWXpg/typst-ansi-render?style=flat">
-</a>
-<a href="https://github.com/8LWXpg/typst-ansi-render/blob/v0.9.0/LICENSE" style="text-decoration: none;">
-  <img alt="License on GitHub" src="https://img.shields.io/github/license/8LWXpg/typst-ansi-render">
-</a>
-<a href="https://typst.app/universe/package/ansi-render" style="text-decoration: none;">
-  <img alt="typst package" src="https://img.shields.io/badge/typst-package-239dad">
-</a>
+[![Tagged version](https://img.shields.io/github/v/tag/8LWXpg/typst-ansi-render)](https://github.com/8LWXpg/typst-ansi-render/tags)
+[![GitHub Repo stars](https://img.shields.io/github/stars/8LWXpg/typst-ansi-render?style=flat)](https://github.com/8LWXpg/typst-ansi-render)
+[![License on GitHub](https://img.shields.io/github/license/8LWXpg/typst-ansi-render)](https://github.com/8LWXpg/typst-ansi-render/blob/v0.9.0/LICENSE)
+[![typst package](https://img.shields.io/badge/typst-package-239dad)](https://typst.app/universe/package/ansi-render)
 
 This script provides a simple way to render text with ANSI escape sequences. Package `ansi-render` provides a function `ansi-render`, and a dictionary of themes `terminal-themes`.
 
