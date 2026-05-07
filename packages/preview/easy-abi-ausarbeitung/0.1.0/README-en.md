@@ -79,7 +79,7 @@ Add your sources to `references.bib` and use the usual Typst citations in the te
 ## Important Files
 
 - [lib.typ](lib.typ) contains the public function `ausarbeitung()`
-- [handout-5pk-lmo.csl](template/handout-5pk-lmo.csl) is a specific citation style asked for by the OSZ Lise-Meitner
+- [handout-5pk-lmo.csl](handout-5pk-lmo.csl) is a specific citation style asked for by the OSZ Lise-Meitner
 - [elemente/deckblatt.typ](elemente/deckblatt.typ) renders the cover page
 - [elemente/declaration.typ](elemente/declaration.typ) generates the declaration of originality
 - [helpers/datum.typ](helpers/datum.typ) provides date helpers

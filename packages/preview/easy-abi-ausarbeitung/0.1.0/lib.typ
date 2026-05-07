@@ -13,8 +13,8 @@
   referenzfach: "[Referenzfach]", // dein Referenzfach
   bezugsfach: "[Bezugsfach]", // dein Bezugsfach
   pruefer: ((name: "Frau Muster"), (name: "Herr Mann")), // deine Prüfenden
-  vorgelegt_am: datetime.today(), // Tag der Abgabe
-  abgabetermin_am: datetime.today(), // Datum der Frist 
+  vorgelegt-am: datetime.today(), // Tag der Abgabe
+  abgabetermin-am: datetime.today(), // Datum der Frist 
   body, // Hauptteil
   bibliography-style: "handout-5pk-lmo.csl", // "handout-5pk-lmo" or any other style available in typst
   gruppenarbeit: false, // true = Gruppenarbeit
@@ -60,8 +60,8 @@
     referenzfach: referenzfach,
     bezugsfach: bezugsfach,
     pruefer: pruefer, 
-    vorgelegt_am: vorgelegt_am,
-    abgabetermin_am: abgabetermin_am,
+    vorgelegt-am: vorgelegt-am,
+    abgabetermin-am: abgabetermin-am,
     stadt: stadt,
     schule: schule
   )

@@ -1,4 +1,4 @@
-#import "@local/easy-abi-ausarbeitung:0.1.0": ausarbeitung
+#import "@preview/easy-abi-ausarbeitung:0.1.0": ausarbeitung
 
 #show: ausarbeitung.with(
 	// HIER KONFIGURIEREN

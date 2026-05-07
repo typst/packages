@@ -7,12 +7,12 @@
   referenzfach: "[Geschichte]",
   bezugsfach: "[Politikwissenschaft]",
   pruefer: ((name: "Frau Muster"), (name: "Herr Mann")),
-  vorgelegt_am: datetime.today(),
-  abgabetermin_am: datetime.today(),
+  vorgelegt-am: datetime.today(),
+  abgabetermin-am: datetime.today(),
   stadt: "Berlin",
   schule: "OSZ-Lise-Meitner"
 ) = {
-  _validate-deckblatt-inputs(leitfrage, name, referenzfach, bezugsfach, pruefer, vorgelegt_am, abgabetermin_am, stadt)
+  _validate-deckblatt-inputs(leitfrage, name, referenzfach, bezugsfach, pruefer, vorgelegt-am, abgabetermin-am, stadt)
 
   let jahr = aktuelles_abi()
 
@@ -64,8 +64,8 @@
         align: (center, center),
         [],
         [
-          #text(weight: "bold", "Vorgelegt am: ") #vorgelegt_am.display("[day].[month].[year repr:last_two]") \
-          #text(weight: "bold", "Abgabetermin: ") #abgabetermin_am.display("[day].[month].[year repr:last_two]")
+          #text(weight: "bold", "Vorgelegt am: ") #vorgelegt-am.display("[day].[month].[year repr:last_two]") \
+          #text(weight: "bold", "Abgabetermin: ") #abgabetermin-am.display("[day].[month].[year repr:last_two]")
         ],
         [],
       )

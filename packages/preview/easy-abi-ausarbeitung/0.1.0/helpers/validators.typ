@@ -34,8 +34,8 @@
   referenzfach,
   bezugsfach,
   pruefer,
-  vorgelegt_am,
-  abgabetermin_am,
+  vorgelegt-am,
+  abgabetermin-am,
   stadt
   ) = {
     assert(type(leitfrage) == str, message:"Die Leitfrage soll ein string sein")
@@ -46,15 +46,15 @@
     assert(type(pruefer) == array and pruefer.all(p => type(p) == dictionary and "name" in p), message: "Prüfer muss dem Format ((name: \"name\"), ...) entsprechen")
     assert(type(stadt) == str, message: "Stadt muss ein string sein")
     assert(
-      type(vorgelegt_am) == datetime, 
-      message: "vorgelegt_am soll ein datetime-Objekt sein"
+      type(vorgelegt-am) == datetime, 
+      message: "vorgelegt-am soll ein datetime-Objekt sein"
     )
     assert(
-      type(abgabetermin_am) == datetime,
-      message: "abgabetermin_am soll ein datetime-Objekt sein"
+      type(abgabetermin-am) == datetime,
+      message: "abgabetermin-am soll ein datetime-Objekt sein"
     )
     assert(
-      vorgelegt_am <= abgabetermin_am,
-      message: "vorgelegt_am soll vor oder am selben Tag sein wie abgabetermin_am"
+      vorgelegt-am <= abgabetermin-am,
+      message: "vorgelegt-am soll vor oder am selben Tag sein wie abgabetermin-am"
     )
   }

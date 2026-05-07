@@ -82,7 +82,7 @@ Füge die Quellen in `references.bib` ein und verwende im Text die üblichen Typ
 ## Wichtige Dateien
 
 - [lib.typ](lib.typ) enthält die öffentliche Funktion `ausarbeitung()`
-- [handout-5pk-lmo.csl](template/handout-5pk-lmo.csl) ist ein spezifischer Zitierstil, der vom OSZ Lise-Meitner verlangt wird
+- [handout-5pk-lmo.csl](handout-5pk-lmo.csl) ist ein spezifischer Zitierstil, der vom OSZ Lise-Meitner verlangt wird
 - [elemente/deckblatt.typ](elemente/deckblatt.typ) rendert das Deckblatt
 - [elemente/declaration.typ](elemente/declaration.typ) erzeugt die Eigenständigkeitserklärung
 - [helpers/datum.typ](helpers/datum.typ) liefert Datumshilfen
