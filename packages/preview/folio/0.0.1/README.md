@@ -1,67 +1,63 @@
-<h1 align="center">
-  <img src="https://avatars.githubusercontent.com/u/67595261" alt="Folio Icon" width="128" height="128">
-  <div align="center">Folio</div>
-</h1>
+# folio
 
-<div align="center">
+**folio** is a Typst package that turns project data into publication-grade documents. You write the data; folio writes the document.
 
-[![Typst Universe](https://img.shields.io/badge/typst--universe-folio-239DAD?&logo=typst)](https://typst.app/universe/package/folio)
-[![GitHub](https://img.shields.io/badge/GitHub-Yrrrrrf%2Ffolio-blue)](https://github.com/Yrrrrrf/folio)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
+## Quickstart
 
-</div>
+```typst
+#import "@local/folio:0.0.1": project-doc
 
-**Folio** is a universal project management document generator for **Typst**.
-Define your entire project once in a single data file and generate a complete,
-professionally styled suite of PM documents — charter, Gantt chart, risk matrix,
-budget, stakeholder map, and more — all from one source of truth.
-
-See the [Overview](docs/overview.md) for a comprehensive guide, feature list,
-and data structure documentation, or check out the [Manual](docs/manual.typ) for
-full details.
-
-## Installation
-
-### Via [Typst Universe](https://typst.app/universe/package/folio)
-
-```typ
-#import "@preview/folio:0.0.1": *
-```
-
-## Quick Start
-
-Get a full project management document suite running in two files.
-
-**`dt.typ` — your project data (the single source of truth):**
-
-```typ
 #let project = (
-  name: "My Project",
-  version: "1.0.0",
-  status: "En Progreso",
-  // ... risks, budget, stakeholders, phases, milestones, etc.
+  project: (name: "My Project", description: "A folio demonstration"),
+  initiation: (pitch: "This project will change everything.")
+)
+
+#show: project-doc(
+  data: project,
+  config: (audit: true, toc: true),
+  brand: (palette: (primary: rgb("#003e7e"))),
 )
 ```
 
-**`main.typ` — pick the documents you need:**
+## What's in v0.0.1
 
-```typ
-#import "@preview/folio:0.0.1": *
-#import "dt.typ": project
+Folio v0.0.1 covers 14 PMBOK-aligned sections across 4 phases:
 
-#charter(project)
-#gantt(project)
+- **Phase 1: Initiation**: Business Case, Project Objectives, Project Pitch.
+- **Phase 2: Planning**: Project Boundaries, Budget, Gantt, Milestones, Team.
+- **Phase 3: Execution**: Change Log, Issue Log, Risk Matrix, Status Report.
+- **Phase 4: Closure**: Lessons Learned, Sign-off.
+
+Plus support for **Custom Sections** at any insertion point.
+
+## Features
+
+- **The Data is the Document**: All content lives in a single dictionary.
+- **Graceful Failure**: Missing fields show as red placeholders, not build errors.
+<!-- todo: Add the syling guide! :) -->
+<!-- - **Branding**: Multiple visual presets (`corporate`, `academic`) and deep token overrides. See [Styling Guide](docs/styling.md). -->
+- **Audit System**: Diagnostic dashboard for data completeness and orphan references.
+- **Extensible**: Inject custom sections at named insertion points.
+
+## Branding
+
+folio supports a multi-layered branding system. You can use built-in presets or create your own brand packs.
+
+```typst
+#show: project-doc(
+  data: project,
+  brand: (preset: "academic")
+)
 ```
 
-Then compile:
+<!-- See [docs/styling.md](docs/styling.md) for the full reference on presets and available tokens. -->
 
-```bash
-typst compile main.typ
-```
+## Audit System
 
-For the full list of available documents and project data structure, see
-[docs/overview.md](docs/overview.md).
+Folio includes a diagnostic audit system. To enable it, set `audit: true` in the config.
 
-## License
+Note: **Orphan Reference detection** requires a second compile pass for full accuracy, as it depends on Typst's layout query system.
 
-MIT License — See [LICENSE](LICENSE) for details.
+## Documentation
+
+See `docs/manual.typ` for full API reference and schema details.
