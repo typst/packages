@@ -1,9 +1,6 @@
 #import "@preview/ugm-presentation-unofficial:0.1.0": conf, quote, section, slide, title
 
-#show: doc => conf(
-  num: 5,
-  doc,
-)
+#show: conf.with(num: 5)
 
 #title[
   = Hiya Hiya Hiya

@@ -43,7 +43,7 @@
   doc,
 ) = [
   #vnum.update(num)
-  #set page(paper: "presentation-16-9")
+  #set page(paper: "presentation-16-9", margin: (bottom: 0pt))
   #show heading.where(level: 1): set text(size: 30pt, fill: blue.darken(50%))
   #show heading.where(level: 2): set text(size: 28pt, fill: blue.darken(50%))
   #show heading.where(level: 3): set text(size: 24pt, fill: blue.darken(50%))
