@@ -1,6 +1,6 @@
 // Test: format-date and format-money formatters
 // Verifies default behavior, edge-case handling, and config override.
-#import "../src/lib.typ": folio-init, format-date, format-money
+#import "@preview/folio:0.0.1": folio-init, format-date, format-money
 
 #show: body => folio-init(
   data: (:),

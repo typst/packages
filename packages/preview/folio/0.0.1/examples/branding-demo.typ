@@ -1,6 +1,4 @@
-#import "../src/lib.typ": (
-  badge, card, data-table, folio-init, metric, progress-bar,
-)
+#import "@preview/folio:0.0.1": badge, card, data-table, folio-init, metric, progress-bar
 
 #set page(height: auto, margin: 1cm)
 

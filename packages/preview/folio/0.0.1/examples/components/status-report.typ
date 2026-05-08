@@ -1,4 +1,4 @@
-#import "../../src/lib.typ": folio-init, status-report
+#import "@preview/folio:0.0.1": folio-init, status-report
 
 #show: body => folio-init(
   data: (

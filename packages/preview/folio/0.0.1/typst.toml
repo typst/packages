@@ -12,9 +12,6 @@ keywords = ["project management", "generator", "document"]
 categories = ["utility"]
 exclude = ["docs/**", "examples/**", "tests/**", "*.pdf"]
 
-[dependencies]
-gantty = "0.5.1"
-
 [tool.typst]
 exclude = [
     "examples/",

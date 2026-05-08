@@ -1,9 +1,8 @@
 // Test: compute layer functions (cost aggregation, orphan detection, audit)
 // Verifies compute.typ works correctly in isolation from the rendering pipeline.
-#import "../src/lib.typ": (
-  audit-missing, audit-summary, badge, calc-budget, calc-requirements, card,
-  compute-context, data-table, find-orphans, folio-init, line-subtotal, metric,
-  sum-costs,
+#import "@preview/folio:0.0.1": (
+  audit-missing, audit-summary, badge, calc-budget, calc-requirements, card, compute-context, data-table, find-orphans,
+  folio-init, line-subtotal, metric, sum-costs,
 )
 #import "fixtures/full-data-dict.typ": full-project-data
 

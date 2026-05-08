@@ -3,7 +3,7 @@
 // - All sections render without crash under every brand
 // - Brand tokens propagate to all primitives
 // - No hardcoded colors leak through
-#import "../src/lib.typ": project-doc
+#import "@preview/folio:0.0.1": project-doc
 #import "fixtures/full-data-dict.typ": full-project-data
 
 // ─── Minimal Preset ────────────────────────────────────────────────────────

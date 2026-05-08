@@ -1,4 +1,4 @@
-#import "../../src/lib.typ": folio-init, risk-matrix
+#import "@preview/folio:0.0.1": folio-init, risk-matrix
 
 #show: body => folio-init(
   data: (

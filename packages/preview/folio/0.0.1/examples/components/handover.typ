@@ -1,4 +1,4 @@
-#import "../../src/lib.typ": folio-init, handover
+#import "@preview/folio:0.0.1": folio-init, handover
 
 #show: body => folio-init(
   data: (

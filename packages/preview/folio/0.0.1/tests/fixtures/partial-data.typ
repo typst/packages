@@ -1,7 +1,7 @@
 // Fixture: partial-data.typ
 // Some sections populated, others missing. Audit should show gaps.
 // Tests graceful degradation: some phases render, others are omitted.
-#import "../../src/lib.typ": project-doc
+#import "@preview/folio:0.0.1": project-doc
 
 #show: project-doc(
   data: (

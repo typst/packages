@@ -1,4 +1,4 @@
-#import "../src/lib.typ": card, project-doc
+#import "@preview/folio:0.0.1": card, project-doc
 
 #let pricing-annex(data-path) = context {
   heading(level: 2)[Pricing Annex]

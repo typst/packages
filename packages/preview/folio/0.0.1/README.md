@@ -5,7 +5,7 @@
 ## Quickstart
 
 ```typst
-#import "@local/folio:0.0.1": project-doc
+#import "@preview/folio:0.0.1": project-doc
 
 #let project = (
   project: (name: "My Project", description: "A folio demonstration"),
