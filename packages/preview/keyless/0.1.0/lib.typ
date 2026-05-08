@@ -4,6 +4,14 @@
 
 #let _color-bytes(color) = bytes(color.to-hex())
 
+#let _image-from-bytes(data, ..args) = {
+  if sys.version >= version(0, 13, 0) {
+    image(data, ..args)
+  } else {
+    image.decode(data, format: "png", ..args)
+  }
+}
+
 #let key-out-bytes(
   source,
   color: white,
@@ -34,7 +42,7 @@
   format: auto,
   ..args,
 ) = {
-  image(
+  _image-from-bytes(
     key-out-bytes(
       source,
       color: color,
