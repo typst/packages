@@ -1,10 +1,9 @@
 [package]
-name = "rapport"
-display-name = "Rapport"
-version = "0.2.0"
+name = "monod"
+version = "0.1.0"
 compiler = "0.14.0"
 entrypoint = "lib.typ"
-repository = "https://codeberg.org/haydn/rapport"
+repository = "https://codeberg.org/haydn/monod"
 authors = ["Haydn Trowell"]
 license = "GPL-3.0"
 description = "Spacious report template for clean, professional documents"

@@ -1,5 +1,5 @@
-// Rapport template
-#let rapport(
+// Monod template
+#let monod(
   // Metadata
   title: "TITLE",
   author: "AUTHOR",

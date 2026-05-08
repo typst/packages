@@ -1,13 +1,13 @@
-Rapport is a Typst template designed for reports, papers, and technical documents. It provides consistent typography, refined spacing, styled code blocks, and a polished title and header layout.
+Monod is a Typst template designed for reports, papers, and technical documents. It provides consistent typography, refined spacing, styled code blocks, and a polished title and header layout.
 
 # Usage
 
-Import the package and wrap your document body with `rapport`:
+Import the package and wrap your document body with `monod`:
 
 ```typst
-#import "@preview/rapport:0.2.0": *
+#import "@preview/monod:0.1.0": *
 
-#show: rapport.with(
+#show: monod.with(
   title: "TITLE",
   author: "AUTHOR",
   header: "HEADER",
@@ -39,8 +39,8 @@ Import the package and wrap your document body with `rapport`:
 
 # Fonts
 
-By default, Rapport makes use of the fonts Source Serif 4 and Source Sans 3. This can be overridden with the `body-font` and `heading-font` parameters.
+By default, Monod makes use of the fonts Source Serif 4 and Source Sans 3. This can be overridden with the `body-font` and `heading-font` parameters.
 
 # License
 
-Rapport is licensed under the GNU General Public License v3.0 (GPL‑3.0).
+Monod is licensed under the GNU General Public License v3.0 (GPL‑3.0).

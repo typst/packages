@@ -1,6 +1,6 @@
-#import "@preview/rapport:0.2.0": *
+#import "@preview/monod:0.1.0": *
 
-#show: rapport.with(
+#show: monod.with(
   title: "TITLE",
   author: "AUTHOR",
   header: "HEADER",
