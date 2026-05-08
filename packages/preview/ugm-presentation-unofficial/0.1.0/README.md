@@ -11,15 +11,12 @@ An unofficial presentation template for Universitas Gadjah Mada (UGM) built with
 ## Usage
 
 ```typst
-#show: doc => conf(
-  num: 2,  // choose theme 1-6
-  doc
-)
+#show: conf.with(num: 5)  // choose theme 1-6
 ```
 
 ## Functions
 
-- `conf(num, doc)` - Configure document with theme
+- `conf.with(num)` - Configure document with theme
 - `title(content)` - Title slide
 - `section(content)` - Section divider
 - `slide(content)` - Content slide
