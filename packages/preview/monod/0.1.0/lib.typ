@@ -13,8 +13,8 @@
   paper-size: "a4",
 
   // Font faces
-  body-font: "Source Serif 4",
-  heading-font: "Source Sans 3",
+  body-font: ("Source Serif 4", "Source Serif Pro"),
+  heading-font: ("Source Sans 3", "Source Sans Pro"),
   raw-font: "Source Code Pro",
 
   // Font size
