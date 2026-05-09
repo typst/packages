@@ -82,6 +82,24 @@ Use of these assets is subject to the terms provided by the copyright holder.
 2. **Editor Integration**
    - [TinyMist Extension](https://github.com/Myriad-Dreamin/tinymist?tab=readme-ov-file#installation) for VSCode, NeoVim, etc.
 
+## For Internship reports
+
+You can add the company logo of your internship, which will be placed next to the school logo in the title page and the footer, like that:
+
+```typst
+#show: template.with(
+  sector: "Filière Informatique",
+  document-type: "Rapport de Projet",
+
+  company-logo: image("path_to_company_logo.png", width: 50%),
+
+  ...
+```
+
+You can also override the school logo if you want to by using `school-logo`.
+
+Finally, you can also disable the abstract by setting it to `none`.
+
 ## Working with References
 
 ### Subfigures
@@ -103,7 +121,6 @@ You can create subfigures and label them like this:
   label: <fig-full>,
 )
 ```
-
 
 ### Bibliography
 - Add references to `bib.yaml`
