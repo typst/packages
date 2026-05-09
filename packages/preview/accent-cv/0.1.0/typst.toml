@@ -1,0 +1,25 @@
+[package]
+name = "accent-cv"
+version = "0.1.0"
+authors = ["DamienBouffort"]
+license = "MIT"
+description = "A minimal, dark-themed single-page CV template with a fully customizable accent color."
+repository = "https://github.com/DamienBouffort/accent-template-typst"
+keywords = ["cv", "resume", "dark", "sidebar"]
+categories = ["cv"]
+compiler = "0.14.0"
+exclude = [
+  "cv-orange.typ",
+  "cv-light.typ",
+  "cv-template-preview.pdf",
+  "cv-orange.pdf",
+  "cv-light.pdf",
+  "preview-yellow.png",
+  "preview-orange.png",
+  "preview-light.png",
+]
+
+[template]
+path = "template"
+entrypoint = "cv.typ"
+thumbnail = "thumbnail.png"
