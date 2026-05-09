@@ -289,7 +289,9 @@
 
   show heading.where(level: 1): it => {
     if it.outlined {
-      counter(figure).update(0)
+      counter(figure.where(kind: image)).update(0)
+      counter(figure.where(kind: table)).update(0)
+      counter(figure.where(kind: raw)).update(0)
       counter(math.equation).update(0)
       if chapter-break { pagebreak(weak: true) }
       _current-chapter.update(it.body)
