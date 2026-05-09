@@ -7,6 +7,7 @@ description = "A minimal, dark-themed single-page CV template with a fully custo
 repository = "https://github.com/DamienBouffort/accent-template-typst"
 keywords = ["cv", "resume", "dark", "sidebar"]
 categories = ["cv"]
+entrypoint = "template/cv.typ"
 compiler = "0.14.0"
 exclude = [
   "cv-orange.typ",
