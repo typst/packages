@@ -57,9 +57,19 @@ Use compact claims, short evidence, and one visual emphasis point per slide.
     - Report the key result.
   ],
   [
-    #monash-accent-rule(vertical: true, width: 5em, height: .18em, paint: monash-orange)
-    #h(.5em)
-    #text(fill: monash-blue, weight: "bold")[Replace this panel with a figure, table, or quote.]
+    #block(
+      width: 100%,
+      height: 4.6em,
+      fill: monash-blue-wash,
+      stroke: (left: (paint: monash-orange, thickness: monash-frame-rule)),
+      inset: (x: .75em, y: .6em),
+    )[
+      #align(center + horizon)[
+        #text(fill: monash-blue, weight: "bold")[
+          Replace this panel with a figure, table, or quote.
+        ]
+      ]
+    ]
   ],
 )
 
