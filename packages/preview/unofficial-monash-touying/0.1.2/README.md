@@ -14,6 +14,10 @@ The package ships with both a starter template and a full example deck:
 - `example/main.typ` is a fuller feature showcase and usage guide.
 - `thumbnail.png` is the template preview image used by the package manifest.
 
+| Title slide | Content slide | Academic frames |
+| --- | --- | --- |
+| ![Title slide with a clean Monash-inspired cover layout and blue architectural graphic.](docs/preview/title-slide.png) | ![Content slide with a full-width blue title bar, orange square bullets, inline code styling, and footer progress.](docs/preview/content-slide.png) | ![Slide showing numbered definition and theorem frames plus a proof line.](docs/preview/academic-frames.png) |
+
 ## Usage
 
 Create a deck from the template:
