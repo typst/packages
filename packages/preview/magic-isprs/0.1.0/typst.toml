@@ -25,6 +25,7 @@ disciplines = [
 ]
 exclude = [
     "comparison",
+    "template/*.pdf",
 ]
 
 [template]
