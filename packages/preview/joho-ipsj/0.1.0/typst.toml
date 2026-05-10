@@ -1,0 +1,29 @@
+[package]
+name = "joho-ipsj"
+version = "0.1.0"
+compiler = "0.13.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/mkpoli/ipsj-typst-template"
+authors = ["mkpoli <mkpoli@mkpo.li>"]
+license = "MIT"
+description = "IPSJ Technial Report template"
+keywords = [
+  "Information Processing Society of Japan",
+  "IPSJ",
+  "japanese",
+  "Computer Science",
+  "Computer Engineering",
+  "Software",
+  "Digital Humanities",
+]
+categories = ["paper", "report"]
+exclude = ["compare/**", "docs/**", "*.ps1", ".gitignore"]
+
+[template]
+entrypoint = "main.typ"
+path = "template"
+thumbnail = "thumbnail.png"
+
+[tool.tyler]
+srcdir = "."
+outdir = "dist"
