@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > This is an unofficial template that tries to follow the guidelines of the official ISPRS templates in Word and LaTeX.
 > These official documents are available in the [appendix 5 of the Orange book](https://www.isprs.org/documents/orangebook/app5.aspx).
-> Local copies of these templates are also available in [`comparison`](./comparison) for reference.
+> Local copies of the official templates and output of this Typst template are also available in [`pdf`](./pdf) for comparison.
 
 ## Usage
 
