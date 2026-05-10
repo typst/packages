@@ -1,0 +1,38 @@
+LaTeX:
+  type: Article
+  language: ja
+  title: 情報処理学会研究報告の準備方法（2018年10月29日版）
+  date: '2018-10-29'
+  page-range: '1-6'
+  author: ['情報, 太郎', '処理, 花子', '学会, 次郎']
+  parent:
+    type: Periodical
+    title: 情報処理学会研究報告
+  url: https://www.ipsj.or.jp/journal/submit/style.html
+
+Word:
+  type: Article
+  language: ja
+  title: MS-Wordによる研究報告作成のガイド（第3.5版）
+  date: '2023-09-18'
+  author: ['寺田, 真敏', '西田, 豊明', '植村, 俊亮']
+  parent:
+    type: Periodical
+    title: 情報処理学会研究報告
+  url: https://www.ipsj.or.jp/journal/submit/style.html
+
+XeLaTeX:
+  type: Article
+  language: ja
+  title: ShareLatexを用いた情報処理学会研究報告の共同執筆
+  date: '2016-01-13'
+  author: ['情報, 太郎', '処理, 花子', '学会, 次郎']
+  url: https://github.com/ken1row/IPSJ-techrep-xelatex
+
+Unused:
+  type: Book
+  language: en
+  title: Unused Book
+  author: ['John Doe', 'Jane May']
+  publisher: The University
+  date: '2024'
