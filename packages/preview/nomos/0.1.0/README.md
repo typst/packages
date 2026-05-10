@@ -43,8 +43,8 @@ You can define a variable the very first time you need it using `#add-ncl()`.
     value: none,
     unit: none,
     domain: none,
-    sec: none
-    link: true,
+    sec: none,
+    clickable: true,
 )
 ```
 
@@ -56,21 +56,21 @@ This function registers a variable into the nomenclature and displays it in the 
 * `unit`: The unit of measurement for the symbol. Defaults to `none`.
 * `domain`: The domain of definition for the symbol (e.g., `"$RR^+$"`). Defaults to `none`.
 * `sec`: The section name used to categorize the variable in the printed nomenclature. For example, setting this to `"Latin"` will group the variable under a `"Latin"` heading. If set to `none` (default), the variable will be listed without a specific section header.
-* `link`: 
+* `clickable`: Creates a clickable link to the nomenclature index if `clickable` is set to `true`. Defaults to `true`.
 
 There is also `#add-ncl-silent`, which functions identically to `#add-ncl` but does not display the symbol in the document.
 
 ### Calling Functions
 
-| Function                  | Description                                                                                                                                         |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `#ncl(symb, link_: true)` | **Standard Reference**: Displays the symbol and creates a clickable link to the nomenclature index if `link_` is set to `true`. Defaults to `true`. |
-| `#ncl-d(symb)`            | Returns the **description** of the symbol.                                                                                                          |
-| `#ncl-dl(symb)`           | Returns the **description** of the symbol in lower case.                                                                                            |
-| `#ncl-v(symb)`            | Returns the **value** associated with the symbol.                                                                                                   |
-| `#ncl-u(symb)`            | Returns the **unit** of the symbol.                                                                                                                 |
-| `#ncl-vu(symb)`           | Returns the **value** and the **unit** associated with the symbol.                                                                                                   |
-| `#ncl-dm(symb)`           | Returns the **domain** of definition for the symbol.                                                                                                |
+| Function                      | Description                                                                                                                                             |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `#ncl(symb, clickable: true)` | **Standard Reference**: Displays the symbol and creates a clickable link to the nomenclature index if `clickable` is set to `true`. Defaults to `true`. |
+| `#ncl-d(symb)`                | Returns the **description** of the symbol.                                                                                                              |
+| `#ncl-dl(symb)`               | Returns the **description** of the symbol in lower case.                                                                                                |
+| `#ncl-v(symb)`                | Returns the **value** associated with the symbol.                                                                                                       |
+| `#ncl-u(symb)`                | Returns the **unit** of the symbol.                                                                                                                     |
+| `#ncl-vu(symb)`               | Returns the **value** and the **unit** associated with the symbol.                                                                                      |
+| `#ncl-dm(symb)`               | Returns the **domain** of definition for the symbol.                                                                                                    |
 
 
 ### Printing the Nomenclature

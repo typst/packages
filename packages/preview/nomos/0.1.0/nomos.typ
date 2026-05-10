@@ -1,5 +1,11 @@
-// Nomos - A nomenclature package for Typst
-// Author: Eiglss
+// -----------------------------------------------------------------------------
+// Nomos
+// A robust and customizable nomenclature package for Typst.
+//
+// Author:  Enzo Iglesis
+// Version: 0.1.0
+// Link:    https://github.com/eiglss/nomos
+// -----------------------------------------------------------------------------
 
 // State to track if a symbol has been displayed yet (for first-occurrence expansion)
 #let _nomos-usage = state("nomos-usage", (:))
@@ -31,6 +37,14 @@
 }
 
 /// Registers a variable and displays it.
+///
+/// - symb (str, content): The symbol used for the variable (e.g., `"v"` or `$a$`).
+/// - description (str, content): A brief explanation of what the variable represents.
+/// - value (none, str, content, int, float): The specific value of the symbol, if applicable. Defaults to `none`.
+/// - unit (none, str, content): The unit of measurement for the symbol. Defaults to `none`.
+/// - domain (none, str, content): The domain of definition for the symbol (e.g., `"$RR^+$"`). Defaults to `none`.
+/// - sec (none, str): The section name used to categorize the variable in the printed nomenclature. For example, setting this to `"Latin"` will group the variable under a `"Latin"` heading. If set to `none` (default), the variable will be listed without a specific section header.
+/// - clickable (bool): Creates a clickable link to the nomenclature index if `clickable` is set to `true`. Defaults to `true`.
 #let add-ncl(
     symb,
     description,
@@ -38,10 +52,10 @@
     unit: none,
     domain: none,
     sec: none,
-    link_: true,
+    clickable: true,
 ) = {
     box(_register(symb, description, value, unit, domain, sec)) // in box to avoid adding extra space in the function return
-    if link_ {
+    if clickable {
         link(label("nomos-" + repr(symb)), symb)
     } else {
         symb
@@ -49,6 +63,13 @@
 }
 
 /// Registers a variable without displaying anything in the text.
+///
+/// - symb (str, content): The symbol used for the variable (e.g., `"v"` or `$a$`).
+/// - description (str, content): A brief explanation of what the variable represents.
+/// - value (none, str, content, int, float): The specific value of the symbol, if applicable. Defaults to `none`.
+/// - unit (none, str, content): The unit of measurement for the symbol. Defaults to `none`.
+/// - domain (none, str, content): The domain of definition for the symbol (e.g., `"$RR^+$"`). Defaults to `none`.
+/// - sec (none, str): The section name used to categorize the variable in the printed nomenclature. For example, setting this to `"Latin"` will group the variable under a `"Latin"` heading. If set to `none` (default), the variable will be listed without a specific section header.
 #let add-ncl-silent(
     symb,
     description,
@@ -60,35 +81,62 @@
     box(_register(symb, description, value, unit, domain, sec)) // in box to avoid adding extra space in the function return
 }
 
-/// Standard Reference: Displays the symbol with a link to the nomenclature.
-#let ncl(symb, link_: true) = [
-    #if link_ {
+/// Standard Reference: Displays the symbol and creates a clickable link to the nomenclature index if `clickable` is set to `true`.
+///
+/// - symb (str, content): The registered symbol.
+/// - clickable (bool): Set to `true` (default) to make the symbol a hyperlink to the table.
+#let ncl(symb, clickable: true) = [
+    #if clickable {
         link(label("nomos-" + repr(symb)), symb)
     } else {
         symb
     }
 ]
 
-/// Returns the description of the symbol.
+/// Returns the **description** of the symbol.
+///
+/// - symb (str, content): The registered symbol.
 #let ncl-d(symb) = context { _get-data(symb).description }
 
-/// Returns the description of the symbol in lower case.
+/// Returns the **description** of the symbol in lower case.
+///
+/// - symb (str, content): The registered symbol.
 #let ncl-dl(symb) = context { lower(_get-data(symb).description) }
 
-
-/// Returns the value of the symbol.
+/// Returns the **value** associated with the symbol.
+///
+/// - symb (str, content): The registered symbol.
 #let ncl-v(symb) = context { _get-data(symb).value }
 
-/// Returns the unit of the symbol.
+/// Returns the **unit** of the symbol.
+///
+/// - symb (str, content): The registered symbol.
 #let ncl-u(symb) = context { _get-data(symb).unit }
 
-/// Returns the value with unit of the symbol.
+/// Returns the **value** and the **unit** associated with the symbol.
+///
+/// - symb (str, content): The registered symbol.
 #let ncl-vu(symb) = [#ncl-v(symb) #ncl-u(symb)]
 
-/// Returns the domain of the symbol.
+/// Returns the **domain** of definition for the symbol.
+///
+/// - symb (str, content): The registered symbol.
 #let ncl-dm(symb) = context { _get-data(symb).domain }
 
-/// Prints the Nomenclature table.
+
+/// Generates a table containing all the variables registered with `#add-ncl` or `#add-ncl-silent`.
+/// You can toggle specific columns on or off, or provide custom header names.
+///
+/// - symb (bool, str): Set to `true` (default) to display the symbol column, or `false` to hide it. Alternatively, provide a `str` to use as a custom column header (e.g., `"Symbols"`).
+/// - description (bool, str): Set to `true` (default) to display descriptions, or `false` to hide them. You can also provide a `str` for a custom header (e.g., `"Designation"`).
+/// - value (bool, str): Set to `true` (default) to display values, or `false` to hide them. You can also provide a `str` for a custom header (e.g., `"Typical Value"`).
+/// - unit (bool, str): Set to `true` (default) to display units, or `false` to hide them. You can also provide a `str` for a custom header (e.g., `"SI Units"`).
+/// - domain (bool, str): Set to `true` (default) to display the domain of definition, or `false` to hide it. You can also provide a `str` for a custom header (e.g., `"Range"`).
+/// - title (str, content): A `str` or content block that defines the title of the nomenclature section (default is "Nomenclature").
+/// - depth (int): An `int` specifying the relative nesting depth of the heading, starting from 1.
+/// - numbering (str, none): Defines the numbering style for the heading (e.g., `"1.1"`). Set to none (default) for an unnumbered heading.
+/// - outlined (bool): Set to `true` to include the nomenclature heading in the document's table of contents (outline), or `false` (default) to exclude it.
+/// - sections (array, none): An `array` of strings defining which sections to print and in what order (e.g., `("Latin", "Greek")`). You can include `none` in the array to specify exactly where un-sectioned variables should appear. If set to `none` (default), the package will automatically detect and print all unique sections found in the document.
 #let print-nomenclature(
     symb: true,
     description: true,
@@ -99,7 +147,7 @@
     depth: 1,
     numbering: none,
     outlined: false,
-    sections: none
+    sections: none,
 ) = {
     if title != "" {
         heading(depth: depth, numbering: numbering, outlined: outlined)[#title]
@@ -112,10 +160,9 @@
             sections
         }
         for section in active-sections {
-            if section not in entries.map(e => e.value.section).dedup(){
+            if section not in entries.map(e => e.value.section).dedup() {
                 panic(section + " not registered.")
             }
-
         }
 
         // Filter columns based on user preferences
