@@ -4,6 +4,10 @@ Keyless is a Typst package for keying colors out of raster images and converting
 
 It provides a simple interface for common tasks such as removing a white background, cutting out a green screen, or making a scanned image blend cleanly into the page. Keyless is designed for reproducible documents: every threshold, softness value, color space, and output option can be written directly in Typst source.
 
+![Keyless green-screen removal demo](docs/keyless-demo.png)
+
+The demo image is rendered from `tests/visual-chan.typ`, using the same local package entrypoint and fixtures as the visual test suite.
+
 ## Usage
 
 For the local Tyler install:
