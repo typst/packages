@@ -22,3 +22,4 @@ keywords = [
 ]
 categories = ["utility"]
 compiler = "0.8.0"
+exclude = ["docs/**"]
