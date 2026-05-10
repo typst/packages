@@ -86,14 +86,10 @@ Use of these assets is subject to the terms provided by the copyright holder.
 
 You can add the company logo of your internship, which will be placed next to the school logo in the title page and the footer, like that:
 
-```typst
+```typ
 #show: template.with(
-  sector: "Filière Informatique",
-  document-type: "Rapport de Projet",
-
   company-logo: image("path_to_company_logo.png", width: 50%),
-
-  ...
+)
 ```
 
 You can also override the school logo if you want to by using `school-logo`.
