@@ -48,7 +48,7 @@ The template exports the isprs function with the following arguments:
 > For now, if you split your paper into multiple files and include them in the main file, you need to add this configuration in each of the included files to make sure that the formatting is correct:
 >
 > ```typst
-> #import "@local/magic-isprs:0.1.0": isprs-heading
+> #import "@preview/magic-isprs:0.1.0": isprs-heading
 > #show: isprs-heading
 > ```
 >
