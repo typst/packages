@@ -1,5 +1,10 @@
 #import "@preview/epsi-thesis:0.1.0": project
 
+// NOTA: Este template requer a fonte 'NewsGotT' para o estilo oficial da UMinho.
+// Como as fontes não podem ser incluídas no package, deves descarregá-la em:
+// https://www.ics.uminho.pt/pt/Comunicacao/Documents/NewsGotT.zip
+// e fazer upload dos ficheiros .ttf para a pasta do teu projeto no Typst.
+
 // --- CONFIGURAÇÃO DA TESE ---
 #show: project((
   // IDENTIFICAÇÃO

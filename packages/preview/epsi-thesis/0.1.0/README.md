@@ -47,7 +47,15 @@ O ficheiro `main.typ` contém todas as opções com comentários explicativos. O
 
 ## Fonte
 
-O template usa a fonte **NewsGotT**, incluída em `assets/fonts/`. No Typst Web App é carregada automaticamente. Na CLI, usa `--font-path assets/fonts` ao compilar.
+Este template utiliza a fonte **NewsGotT**. Por motivos de licenciamento e regras do Typst Universe, os ficheiros da fonte não estão incluídos no package.
+
+**Para usar no Typst Web App:**
+1. Descarrega os ficheiros `.ttf` da fonte. ( https://www.ics.uminho.pt/pt/Comunicacao/Documents/NewsGotT.zip )
+2. Faz upload dos ficheiros diretamente para a pasta do teu projeto no Typst.
+3. O Typst irá detetar a fonte automaticamente.
+
+**Para usar na CLI:**
+Instala a fonte no teu sistema ou usa o parâmetro `--font-path` a apontar para a pasta onde guardaste os ficheiros.
 
 ## Licença
 
