@@ -21,50 +21,50 @@
   // Extrair valores com defaults
   let title = get(config, "title", "")
   let author = get(config, "author", "")
-  let degree_type = get(config, "degree_type", "msc")
-  let document_type = get(config, "document_type", "Dissertação de Mestrado")
-  let degree_name = get(config, "degree_name", "Mestrado em X")
-  let school_id = get(config, "school_id", "EP")
+  let degree_type = get(config, "degree-type", "msc")
+  let document_type = get(config, "document-type", "Dissertação de Mestrado")
+  let degree_name = get(config, "degree-name", "Mestrado em X")
+  let school_id = get(config, "school-id", "EP")
   let supervisors = get(config, "supervisors", ())
-  let supervisor_gender = get(config, "supervisor_gender", "M")
+  let supervisor_gender = get(config, "supervisor-gender", "M")
   let year = get(config, "year", 2026)
   let month = get(config, "month", "fevereiro")
   let language = get(config, "language", "PT")
-  let include_acknowledgements = get(config, "include_acknowledgements", false)
-  let include_funding = get(config, "include_funding", false)
-  let include_abstract_pt = get(config, "include_abstract_pt", false)
-  let include_acronyms = get(config, "include_acronyms", false)
-  let include_glossary = get(config, "include_glossary", false)
-  let include_bibliography = get(config, "include_bibliography", false)
-  let bibliography_style = get(config, "bibliography_style", "ieee")
-  let copyright_content = get(config, "copyright_content", [])
+  let include_acknowledgements = get(config, "include-acknowledgements", false)
+  let include_funding = get(config, "include-funding", false)
+  let include_abstract_pt = get(config, "include-abstract-pt", false)
+  let include_acronyms = get(config, "include-acronyms", false)
+  let include_glossary = get(config, "include-glossary", false)
+  let include_bibliography = get(config, "include-bibliography", false)
+  let bibliography_style = get(config, "bibliography-style", "ieee")
+  let copyright_content = get(config, "copyright-content", [])
   let acknowledgements = get(config, "acknowledgements", [])
   let funding = get(config, "funding", [])
-  let integrity_content = get(config, "integrity_content", [])
-  let ai_tools_content = get(config, "ai_tools_content", [])
-  let abstract_pt = get(config, "abstract_pt", [])
-  let keywords_pt = get(config, "keywords_pt", ())
-  let abstract_en = get(config, "abstract_en", [])
-  let keywords_en = get(config, "keywords_en", ())
+  let integrity_content = get(config, "integrity-content", [])
+  let ai_tools_content = get(config, "ai-tools-content", [])
+  let abstract_pt = get(config, "abstract-pt", [])
+  let keywords_pt = get(config, "keywords-pt", ())
+  let abstract_en = get(config, "abstract-en", [])
+  let keywords_en = get(config, "keywords-en", ())
   let body = get(config, "body", none)
   let appendix = get(config, "appendix", none)
-  let bibliography_path = get(config, "bibliography_path", none)
-  let acronyms_path = get(config, "acronyms_path", none)
-  let glossary_path = get(config, "glossary_path", none)
+  let bibliography_path = get(config, "bibliography-path", none)
+  let acronyms_path = get(config, "acronyms-path", none)
+  let glossary_path = get(config, "glossary-path", none)
   
   // Normalizar degree_type para o formato esperado
   let normalized_degree_type = if degree_type == "msc" { "mestrado" } else { "doutoramento" }
   
   // Criar capa
   cover(
-    thesis_title: title,
+    thesis-title: title,
     author: author,
-    degree_type: normalized_degree_type,
-    document_type: document_type,
-    degree_name: degree_name,
-    school_id: school_id,
+    degree-type: normalized_degree_type,
+    document-type: document_type,
+    degree-name: degree_name,
+    school-id: school_id,
     supervisors: supervisors,
-    supervisor_gender: supervisor_gender,
+    supervisor-gender: supervisor_gender,
     month: month,
     year
   )
@@ -72,23 +72,23 @@
   // Páginas frontais
   front-matter(
     language: language,
-    include_acknowledgements: include_acknowledgements,
-    include_funding: include_funding,
-    include_abstract_pt: include_abstract_pt,
-    include_acronyms: include_acronyms,
-    include_glossary: include_glossary,
-    copyright_content: copyright_content,
+    include-acknowledgements: include_acknowledgements,
+    include-funding: include_funding,
+    include-abstract-pt: include_abstract_pt,
+    include-acronyms: include_acronyms,
+    include-glossary: include_glossary,
+    copyright-content: copyright_content,
     acknowledgements: acknowledgements,
     funding: funding,
-    integrity_content: integrity_content,
-    ai_tools_content: ai_tools_content,
-    abstract_pt: abstract_pt,
-    keywords_pt: keywords_pt,
-    abstract_en: abstract_en,
-    keywords_en: keywords_en,
-    thesis_title: title,
-    acronyms_path: acronyms_path,
-    glossary_path: glossary_path,
+    integrity-content: integrity_content,
+    ai-tools-content: ai_tools_content,
+    abstract-pt: abstract_pt,
+    keywords-pt: keywords_pt,
+    abstract-en: abstract_en,
+    keywords-en: keywords_en,
+    thesis-title: title,
+    acronyms-path: acronyms_path,
+    glossary-path: glossary_path,
   )
   
   // Corpo do documento
@@ -103,8 +103,8 @@
   if include_bibliography and bibliography_path != none {
     bibliography-page(
       language: language,
-      bibliography_style: bibliography_style,
-      bibliography_path: bibliography_path
+      bibliography-style: bibliography_style,
+      bibliography-path: bibliography_path
     )
   }
   

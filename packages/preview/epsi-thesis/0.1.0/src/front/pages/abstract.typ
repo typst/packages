@@ -1,12 +1,12 @@
 #import "../../layout.typ": dict
 
-#let abstract-page(language: "PT", thesis_title: "", abstract_pt: [], keywords_pt: ()) = {
+#let abstract-page(language: "PT", thesis-title: "", abstract-pt: [], keywords-pt: ()) = {
   pagebreak()
 
   // Título da Tese
   align(center)[
     #text( weight: "bold")[
-      #thesis_title
+      #thesis-title
     ]
   ]
 
@@ -14,13 +14,13 @@
   [#heading(outlined: false)[#dict("abstract", lang: language)]]
   
   // Conteúdo do resumo
-  abstract_pt
+  abstract-pt
   
   v(2em)
   
   // Palavras-chave
   [
-    *#dict("keywords", lang: language):* #keywords_pt.join(", ")
+    *#dict("keywords", lang: language):* #keywords-pt.join(", ")
   ]
 }
 

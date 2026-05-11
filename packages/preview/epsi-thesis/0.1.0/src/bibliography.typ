@@ -1,7 +1,7 @@
 #import "layout.typ": apply-standard-layout, dict
 
-#let bibliography-page(language: "PT", bibliography_style: "ieee", bibliography_path: none) = {
-  if bibliography_path == none {
+#let bibliography-page(language: "PT", bibliography-style: "ieee", bibliography-path: none) = {
+  if bibliography-path == none {
     return
   }
   
@@ -10,10 +10,10 @@
   let bib_title = dict("bibliography", lang: language)
 
   // Caminho relativo ao template
-  let full_path = if bibliography_path.starts-with("../") { bibliography_path } else { "../template/" + bibliography_path }
+  let full_path = if bibliography-path.starts-with("../") { bibliography-path } else { "../template/" + bibliography-path }
 
   apply-standard-layout(lang: language)[
-    #bibliography(full_path, title: bib_title, style: bibliography_style)
+    #bibliography(full_path, title: bib_title, style: bibliography-style)
   ]
 }
 

@@ -11,60 +11,60 @@
 
 #let front-matter(
   language: "PT",
-  include_acknowledgements: false,
-  include_funding: false,
-  include_abstract_pt: false,
-  include_acronyms: false,
-  include_glossary: false,
-  copyright_content: [],
+  include-acknowledgements: false,
+  include-funding: false,
+  include-abstract-pt: false,
+  include-acronyms: false,
+  include-glossary: false,
+  copyright-content: [],
   acknowledgements: [],
   funding: [],
-  integrity_content: [],
-  ai_tools_content: [],
-  abstract_pt: [],
-  keywords_pt: (),
-  abstract_en: [],
-  keywords_en: (),
-  thesis_title: "",
-  acronyms_path: none,
-  glossary_path: none,
+  integrity-content: [],
+  ai-tools-content: [],
+  abstract-pt: [],
+  keywords-pt: (),
+  abstract-en: [],
+  keywords-en: (),
+  thesis-title: "",
+  acronyms-path: none,
+  glossary-path: none,
 ) = {
   counter(page).update(1)
 
   apply-standard-layout(lang: language)[
     
     // Direitos de Autor
-    #copyright-page(language: language, copyright_content: copyright_content)
+    #copyright-page(language: language, copyright-content: copyright-content)
 
     // Agradecimentos
-    #if include_acknowledgements {
+    #if include-acknowledgements {
       acknowledgements-page(language: language, acknowledgements: acknowledgements)
     }
 
     // Financiamento
-    #if include_funding {
+    #if include-funding {
       funding-page(language: language, funding: funding)
     }
 
     //Integridade
-    #integrity-page(language: language, integrity_content: integrity_content, ai_tools_content: ai_tools_content)
+    #integrity-page(language: language, integrity-content: integrity-content, ai-tools-content: ai-tools-content)
 
     // Resumo Português
-    #if include_abstract_pt {
+    #if include-abstract-pt {
       abstract-page(
         language: language,
-        thesis_title: thesis_title,
-        abstract_pt: abstract_pt,
-        keywords_pt: keywords_pt
+        thesis-title: thesis-title,
+        abstract-pt: abstract-pt,
+        keywords-pt: keywords-pt
       )
     }
     
     // Resumo Inglês
     #abstract-en-page(
       language: language,
-      thesis_title: thesis_title,
-      abstract_en: abstract_en,
-      keywords_en: keywords_en
+      thesis-title: thesis-title,
+      abstract-en: abstract-en,
+      keywords-en: keywords-en
     )
 
     //Índice Geral
@@ -77,13 +77,13 @@
     #list-of-tables(language: language)
 
     //Abreviaturas e Siglas
-    #if include_acronyms and acronyms_path != none {
-      abbreviations-page(language: language, acronyms_path: acronyms_path)
+    #if include-acronyms and acronyms-path != none {
+      abbreviations-page(language: language, acronyms-path: acronyms-path)
     }
 
     // Glossário
-    #if include_glossary and glossary_path != none {
-      glossary-page(language: language, glossary_path: glossary_path)
+    #if include-glossary and glossary-path != none {
+      glossary-page(language: language, glossary-path: glossary-path)
     }
   ]
 }

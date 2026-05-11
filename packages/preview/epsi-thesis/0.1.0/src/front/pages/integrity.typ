@@ -1,6 +1,6 @@
 #import "../../layout.typ": dict
 
-#let integrity-page(language: "PT", integrity_content: [], ai_tools_content: []) = {
+#let integrity-page(language: "PT", integrity-content: [], ai-tools-content: []) = {
   pagebreak()
   
   heading(outlined: false)[#dict("integrity", lang: language)]
@@ -9,7 +9,7 @@
   
   v(1em)
   
-  integrity_content
+  integrity-content
 
   v(2em)
 
@@ -19,6 +19,6 @@
   
   v(1em)
   
-  ai_tools_content
+  ai-tools-content
 }
 

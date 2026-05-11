@@ -12,14 +12,14 @@
   author: "Nome do Autor",
   
   // CURSO
-  degree_type: "msc", // ou "phd"
-  document_type: "Dissertação de Mestrado",
-  degree_name: "Mestrado em X",
-  school_id: "EP", // "EAAD", "EC", "ED", "EE", "EEG", "ELACH", "EM", "EP", "ESE", "I3Bs", "ICS", "IE"
+  degree-type: "msc", // ou "phd"
+  document-type: "Dissertação de Mestrado",
+  degree-name: "Mestrado em X",
+  school-id: "EP", // "EAAD", "EC", "ED", "EE", "EEG", "ELACH", "EM", "EP", "ESE", "I3Bs", "ICS", "IE"
   
   // ORIENTAÇÃO
   supervisors: ("Professor Doutor X", "Professora Doutora Y", "Professora Doutora Z","Professora Doutora W"),
-  supervisor_gender: "M", // ou "F" para o caso se ser apenas um orientador
+  supervisor-gender: "M", // ou "F" para o caso se ser apenas um orientador
   
   // OUTROS
   year: 2026,
@@ -27,24 +27,24 @@
   language: "PT", // ou "EN"
   
   // PÁGINAS OPCIONAIS 
-  include_acknowledgements: true,
-  include_funding: true,
-  include_abstract_pt: true, 
-  include_acronyms: true,
-  include_glossary: true,
+  include-acknowledgements: true,
+  include-funding: true,
+  include-abstract-pt: true, 
+  include-acronyms: true,
+  include-glossary: true,
 
   // REFERÊNCIAS
-  include_bibliography: true, 
-  bibliography_style: "ieee", // ou "apa", etc.
-  bibliography_path: "bibliography.bib",
+  include-bibliography: true, 
+  bibliography-style: "ieee", // ou "apa", etc.
+  bibliography-path: "bibliography.bib",
   
   // ARQUIVOS YAML (se necessário)
-  acronyms_path: "acronyms.yml",
-  glossary_path: "glossary.yml",
+  acronyms-path: "acronyms.yml",
+  glossary-path: "glossary.yml",
   
   // --- CONTEÚDOS DAS PÁGINAS ---
 
-  copyright_content: [
+  copyright-content: [
   #image("assets/copyright/CCBY.png")
 
   *CC BY*
@@ -105,26 +105,26 @@
     Este trabalho foi financiado por...
   ],
 
-  integrity_content: [
+  integrity-content: [
      // Assinatura
   ],
 
-  ai_tools_content: [
+  ai-tools-content: [
      // Assinatura
   ],
 
   // RESUMOS
-  abstract_pt: [
+  abstract-pt: [
     Este é o texto do resumo em português.
     Pode ter vários parágrafos.
   ],
-  keywords_pt: ("Portugal", "Mundo"),
+  keywords-pt: ("Portugal", "Mundo"),
 
-  abstract_en: [
+  abstract-en: [
     This is the abstract text in English.
     Multiple paragraphs allowed.
   ],
-  keywords_en: ("Portugal", "World"),
+  keywords-en: ("Portugal", "World"),
   
   // CORPO DA TESE
   body: [

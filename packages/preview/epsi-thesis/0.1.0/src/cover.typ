@@ -1,12 +1,12 @@
 #let cover(
-  thesis_title: "", 
+  thesis-title: "", 
   author: "", 
-  degree_type: "", 
-  document_type: "",
-  degree_name: "",  
-  school_id: "", 
+  degree-type: "", 
+  document-type: "",
+  degree-name: "",  
+  school-id: "", 
   supervisors: (),
-  supervisor_gender: "",
+  supervisor-gender: "",
   month: "",
   year
 ) = {
@@ -18,14 +18,14 @@
   let logo_university_base = "../assets/UMinho/UMinho-C.png"
   let logo_university_simple = "../assets/UMinho/UM.jpg"
 
-  let logo_school_base_path = "../assets/schools/" + school_id + "/"
-  let logo_school_black = logo_school_base_path + school_id + "-PB.png"
-  let logo_school_white = logo_school_base_path + school_id + "-B.png"
-  let logo_school_base = logo_school_base_path + school_id + "-C.png"
-  let logo_school_simple = logo_school_base_path + school_id + ".jpg"
+  let logo_school_base_path = "../assets/schools/" + school-id + "/"
+  let logo_school_black = logo_school_base_path + school-id + "-PB.png"
+  let logo_school_white = logo_school_base_path + school-id + "-B.png"
+  let logo_school_base = logo_school_base_path + school-id + "-C.png"
+  let logo_school_simple = logo_school_base_path + school-id + ".jpg"
   
   // Calcular o estilo baseado no grau
-  let degree-style = if degree_type == "mestrado" {
+  let degree-style = if degree-type == "mestrado" {
     (
       cover-color: rgb("#FFFFFF"), // White
       inner-color: rgb("#97999B"), // PANTONE Cool Gray 7 C
@@ -83,7 +83,7 @@
         align(horizon +left,
           {
             text(
-              thesis_title,
+              thesis-title,
               size: 12pt,
               weight: "bold",
               fill: degree-style.letter-color
@@ -183,7 +183,7 @@
       {
       
         text(
-          thesis_title,
+          thesis-title,
           size: 17pt,
           weight: "bold",
           fill: degree-style.letter-color
@@ -272,7 +272,7 @@
       width: 111mm,  // Largura disponível com margem direita
       {
         text(
-          thesis_title,
+          thesis-title,
           size: 17pt,
           weight: "bold",
           fill: second-cover-letter
@@ -292,13 +292,13 @@
       text(
         size: 14pt,
         fill: second-cover-letter,
-        document_type,
+        document-type,
       ),
       
       text(
         size: 14pt,
         fill: second-cover-letter,
-        degree_name
+        degree-name
       ),
       
       v(10mm),
@@ -310,7 +310,7 @@
         if supervisors.len() > 1 {
           "Trabalho efetuado sob a orientação de"
         } else {
-          if supervisor_gender == "M" { "Trabalho efetuado sob a orientação do" } 
+          if supervisor-gender == "M" { "Trabalho efetuado sob a orientação do" } 
           else { "Trabalho efetuado sob a orientação da" }
         }
       ),
