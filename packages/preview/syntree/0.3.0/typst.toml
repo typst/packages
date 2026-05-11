@@ -9,4 +9,3 @@ description = "Linguistics syntax/parse tree rendering"
 keywords = ["syntax", "trees", "linguistics"]
 categories = ["components", "visualization", "integration"]
 disciplines = ["linguistics"]
-exclude = ["/examples/*"]
