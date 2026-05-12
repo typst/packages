@@ -85,13 +85,13 @@
 ///
 /// - symb (str, content): The registered symbol.
 /// - clickable (bool): Set to `true` (default) to make the symbol a hyperlink to the table.
-#let ncl(symb, clickable: true) = [
+#let ncl(symb, clickable: true) = box([
     #if clickable {
         link(label("nomos-" + repr(symb)), symb)
     } else {
         symb
     }
-]
+])
 
 /// Returns the **description** of the symbol.
 ///
@@ -196,7 +196,6 @@
             #table(
                 columns: cols,
                 stroke: none,
-                row-gutter: 0.6em,
                 table.header(..headers),
                 table.hline(),
                 ..for entry in section-entries {
