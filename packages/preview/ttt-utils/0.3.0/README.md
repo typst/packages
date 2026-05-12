@@ -17,7 +17,7 @@ It contains several modules:
 ## Usage
 
 You can import the modules you need with the following command.
-Just replace `<VERSION>` with a valid version like `0.2.0`
+Just replace `<VERSION>` with a valid version.
 
 ```typst
 #import "@preview/ttt-utils:<VERSION>": components
