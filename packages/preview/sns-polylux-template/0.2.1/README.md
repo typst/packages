@@ -27,7 +27,7 @@ and put them into a folder;
 + `title-color` (default `rbg(#444444)`): title text color.
 + `size` (default `20pt`): text size.
 + `bkgnd-color` (default `white`): background color.
-+ `colormap` (default `sns-theme_sns-colormap`). Use something other than `sns-polylux-template_sns-colormap` and `sns-polylux-template_unipi-colormap` at your own risk. It wants an at least 6 elements array of colors.
++ `colormap` (default `sns-colormap`). Use something other than `sns-colormap` and `unipi-colormap` at your own risk. It wants an at least 6 elements array of colors.
 
 ## Supported functions
 + `title-slide(body: none, logo: none)`. It produces the title slide. That doesn't affect page counter. By default, if `logo` is `none`, `logo-1` is used.
