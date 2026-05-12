@@ -1,4 +1,4 @@
-#import "@preview/touying:0.6.2": *
+#import "@preview/touying:0.7.3": *
 
 /// Default slide function for the presentation.
 ///
@@ -54,7 +54,7 @@
     config-page(
       header: header,
       footer: footer,
-      fill: self.colors.at(background)
+      fill: self.colors.at(background),
     ),
     config-common(subslide-preamble: self.store.subslide-preamble),
   )
@@ -82,13 +82,28 @@
   body,
 )
 
-#let outline-slide(title: "Contents") = [
-  #show link: x => x
+#let outline-slide(title: "Contents", decoration: none) = [
   == #title <touying:hidden>
-  #columns()[
-  #colbreak()
-  #components.adaptive-columns(outline(title: none))
-  ]
+  #columns({
+    decoration
+    colbreak()
+    set outline(depth: 1)
+    show outline.entry: it => {
+      show underline: x => x.body
+      link(
+        it.element.location(),
+        text(fill: black, it.indented(it.prefix(), it.body())),
+      )
+    }
+    components.adaptive-columns(components.progressive-outline(
+      title: none,
+      transform: (cover: false, ..args, it) => if cover {
+        it
+      } else {
+        strong(it)
+      },
+    ))
+  })
 ]
 
 /// New section slide for the presentation. You can update it by updating the `new-section-slide-fn` argument for `config-common` function.
@@ -96,10 +111,10 @@
 /// - config (dictionary): The configuration of the slide. You can use `config-xxx` to set the configuration of the slide. For more several configurations, you can use `utils.merge-dicts` to merge them.
 #let new-section-slide(config: (:), body) = slide(
   background: "secondary-lightest",
-  [
-    #text(2.5em, weight: "bold", utils.display-current-heading(level: 1))
-    #body
-  ],
+  {
+    text(2.5em, weight: "bold", utils.display-current-heading(level: 1))
+    body
+  },
 )
 
 /// Touying Syyddansk Lektion theme
@@ -156,38 +171,39 @@
     primary-lightest: rgb("#aeb862"),
     secondary-lightest: rgb("#f2c75c"),
   ),
-  header: institution => {
+  header: self => {
     set text(size: 1.5em)
     set strong(delta: 600)
     stack(
       spacing: 0.75em,
-      [*#institution*],
+      strong(self.info.institution),
       line(
         stroke: 3pt,
         length: 50pt,
       ),
     )
   },
-  header-right: (website, hashtag) => {
+  header-right: self => {
     set text(size: 1.2em)
     set strong(delta: 600)
+    show text: strong
     move(
       rotate(90deg, origin: bottom + right, move(
-        stack(dir: ltr, spacing: 6em, [*#website*], [*#hashtag*]),
+        stack(dir: ltr, spacing: 6em, self.info.website, self.info.hashtag),
         dx: 100%,
       )),
       dx: 3em,
     )
   },
-  footer: logo => box(logo, height: 1.75em),
-  footer-right: date => move(
+  footer: self => box(self.info.logo, height: 1.75em),
+  footer-right: self => move(
     datetime.display(
-      date,
+      self.info.date,
       "[month repr:long] [year]",
     ),
     dx: 3em,
   ),
-  subslide-preamble: block(
+  subslide-preamble: _ => block(
     below: 1.5em,
     text(2em, weight: "bold", utils.display-current-heading(level: 2)),
   ),
@@ -195,6 +211,15 @@
   body,
 ) = {
   show: touying-slides.with(
+    config-info(
+      // Touying's "info" fields
+      institution: institution,
+      logo: logo,
+      date: date,
+      // SDU theme specific arguments
+      website: website,
+      hashtag: hashtag,
+    ),
     config-page(
       fill: colors.colors.neutral-lightest,
       paper: "presentation-" + aspect-ratio,
@@ -209,6 +234,7 @@
     ),
     config-methods(
       init: (self: none, body) => {
+        // https://github.com/typst/typst/issues/6010
         set text(size: 14pt, font: ("Liberation Sans", "Arial"))
         show footnote.entry: set text(size: .6em)
         show heading.where(level: 1): set text(4em)
@@ -218,19 +244,20 @@
       alert: utils.alert-with-primary-color,
     ),
     config-store(
-      header: header(institution),
-      header-right: header-right(website, hashtag),
-      footer: footer(logo),
-      footer-right: footer-right(date),
+      header: header,
+      header-right: header-right,
+      footer: footer,
+      footer-right: footer-right,
       subslide-preamble: subslide-preamble,
     ),
-  colors,
-  ..args,
+    colors,
+    ..args,
   )
   show link: x => {
     set text(fill: colors.colors.primary-darkest)
     underline(x, offset: 2.5pt)
   }
+  show figure: set text(6pt)
   set list(marker: move([*🡢*], dy: -.2em))
   body
 }

@@ -63,3 +63,13 @@ arguments:
   current slide title;
 - all positional arguments but the last are optional Touying configurations to
   be merged together.
+
+## Known issues
+
+When available, the template will use the Liberation Sans font family, a free
+alternative to Arial. The latter is only used if Liberation Sans is not
+available, or if a codepoint is not found for it. Hence, it is perfectly fine to
+only have one of the two font families on your system. However, Typst will
+still issue a warning (see [issue
+\#6010](https://github.com/typst/typst/issues/6010)), which you can safely
+ignore.
