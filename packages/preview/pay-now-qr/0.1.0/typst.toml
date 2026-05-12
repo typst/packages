@@ -1,0 +1,11 @@
+[package]
+name = "pay-now-qr"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["sithuaung <cosmos.stu@gmail.com>"]
+license = "MIT"
+description = "EMVCo-compliant PayNow QR payload generator. Pair with any QR renderer."
+repository = "https://github.com/sithuaung/pay-now-qr"
+keywords = ["paynow", "qr", "singapore", "emvco", "payment"]
+categories = ["utility"]
+exclude = ["_dev", "src", "Cargo.toml", "Cargo.lock", ".cargo", "target"]
