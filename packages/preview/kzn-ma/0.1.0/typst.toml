@@ -1,0 +1,15 @@
+[package]
+name = "kzn-ma"
+version = "0.1.0"
+authors = ["IT KZN"]
+license = "MIT"
+description = "Template for Matura Work at KZN"
+entrypoint = "lib.typ"
+categories = ["report"]
+keywords = ["Maturitätsarbeit", "Vorlage", "Wissenschaft", "Kantonsschule", "MA", "deutsch", "français", "english", "Zürich"]
+repository = "https://github.com/itkzn/ma-template"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
