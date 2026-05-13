@@ -389,11 +389,13 @@
   #show outline.entry.where(level: 1): it => {
     let level = counter(heading).at(it.element.location()).at(0)
     // Para que se muestre un prefijo más pequeño
-    show regex("Figur[ae]"): "Fig."
-    show regex("Tabl[ae]"): "Tab."
-    show regex("Código"): if(secciones-ingles) { "Code" } else { "Cód." }
     link(it.element.location())[
-      #it.indented([*#it.prefix()*], it.inner())
+      #it.indented([
+        #show regex("Figur[ae]"): "Fig."
+        #show regex("Tabl[ae]"): "Tab."
+        #show regex("Código"): "Cód."
+        *#it.prefix()*
+      ], it.inner())
     ]
   }
 
