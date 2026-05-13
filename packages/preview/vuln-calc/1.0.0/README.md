@@ -12,7 +12,7 @@ The `calculate-cvss-score` function can be given a CVSSv4 vector,
 and returns the CVSS score as a two-digit floating number. 
 
 ```typst
-#import "@preview/vuln-calc:0.1.0": *
+#import "@preview/vuln-calc:1.0.0": *
 
 // Returns 8.7
 #calculate-cvss-score(
