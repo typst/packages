@@ -4,7 +4,7 @@
 ) = {
   let content = body.pos().intersperse((none,) * 5 * 2).flatten()
 
-  // This 'set' calls defines a default value for all inset
+  // This 'set' call defines a default value for all inset
   // dimensions, so that callers can use `inset: (y: 1em,)` and have
   // the `x` dimension implicitly set at 0.28em as intended.
   set grid(inset: 0.28em)
