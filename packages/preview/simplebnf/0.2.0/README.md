@@ -61,7 +61,7 @@ Below are some examples using simplebnf.
 
 ![System F](./examples/system-f.svg)
 
-The example below uses a `(y: 0.6em,)` inset dictionary to specify larger vertical spacing between entries. This is useful if your rules user superscripts heavily.
+The example below uses a `(y: 0.6em,)` inset dictionary to specify larger vertical spacing between entries. This is useful if your rules use superscripts heavily.
 
 ```typst
 #let esc(e) = $\\ #h(0pt) #e$
