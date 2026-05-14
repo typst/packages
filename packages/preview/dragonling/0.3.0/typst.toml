@@ -1,0 +1,12 @@
+[package]
+name = "dragonling"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["Colin Jacobs"]
+license = "MIT"
+description = "For creating Dungeons & Dragons 5E content including adventures, stat blocks, spell cards."
+repository = "https://github.com/coljac/typst-dnd5e"
+keywords = ["roleplaying", "dnd", "dungeons-dragons", "rpg", "template", "gaming"]
+categories = ["layout", "report"]
+compiler = "0.13.0"
+exclude = ["example"]

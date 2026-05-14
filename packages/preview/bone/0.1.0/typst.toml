@@ -1,0 +1,14 @@
+[package]
+name = "bone"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "src/lib.typ"
+authors = ["Louis Grange <https://codeberg.org/grangelouis>"]
+license = "MPL-2.0"
+homepage = "https://bone.grangelouis.ch"
+description = "A package to draw structural analysis and kinematic diagrams"
+repository = "https://codeberg.org/grangelouis/bone"
+categories = ["visualization", "components"]
+disciplines = ["engineering", "physics", "drawing"]
+keywords = ["kinetic", "structural", "diagram", "robot", "analysis", "cetz", "stanli", "dynamic", "kinematics", "engineering"]
+exclude = [".forgejo", "docs", "examples", "tests"]
