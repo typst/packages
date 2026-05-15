@@ -49,7 +49,7 @@
 
 
     header: context smallcaps({
-      let heading-content = hydra(1, display: (_ctx, c) => c.body) // ignore chapter numbering if it exists
+      let heading-content = hydra(heading, display: (_ctx, c) => c.body) // ignore chapter numbering if it exists
       if heading-content == none {
         return
       }
@@ -268,6 +268,11 @@
 
       it
     })
+  }
+
+  {
+    set page(header: none)
+    pagebreak(weak: true, to: "odd")
   }
 
   set heading(numbering: "i")
