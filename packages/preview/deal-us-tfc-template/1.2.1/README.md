@@ -1,16 +1,18 @@
-# Template for final degree projects
+# DEAL US TFC template
+
+## Template for final degree projects
 
 This template has been developed to facilitate the creation of final degree projects (TFC) at the Escuela Técnica Superior de Ingeniería Informática (ETSII) of the University of Seville. It provides a standardized and professional format for the presentation of these works.
 
-# Plantilla para trabajos de fin de carrera
+## Plantilla para trabajos de fin de carrera
 
 Esta plantilla ha sido desarrollada para facilitar la creación de trabajos de fin de carrera (TFC) en la Escuela Técnica Superior de Ingeniería Informática (ETSII) de la Universidad de Sevilla. Proporciona un formato estandarizado y profesional para la presentación de estos trabajos.
 
-# Use example / Ejemplo de uso
+## Use example / Ejemplo de uso
 
 ```typ
 
-#import "@local/deal-us-template:1.1.0": *
+#import "@preview/deal-us-template:1.2.1": *
 
 #show: TFC.with(
   titulo: "Trabajo fin de grado",
@@ -55,7 +57,7 @@ Esta plantilla ha sido desarrollada para facilitar la creación de trabajos de f
 
 ![Template Thumbnail](thumbnail.png)
 
-# About fonts / Sobre las fuentes
+## About fonts / Sobre las fuentes
 
 This template uses the "Libertinus Sans" font by default, so make sure it is installed in your computer or available in the root folder. If you want to use a different font, you can change it by modifying the `font` parameter in the `#show: TFC.with(...)` command. Make sure that the font you choose is installed on your system and is compatible with Typst.
 
