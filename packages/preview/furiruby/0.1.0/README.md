@@ -1,6 +1,6 @@
 # FuriRuby
 
-![](./.static/isemonogatari.png)  
+![A figure showing the legacy Furigana (top) and modern pronunciation (bottom) of the classic text of Tales of Ise, episode 23.](./.static/isemonogatari.png)  
 _Using FuriRuby, a figure showing the legacy Furigana (top) and modern pronunciation (bottom) of the classic text of Tales of Ise, episode 23._
 
 FuriRuby allows to insert rubies into text. The rubies can be displayed simultaneously at the top and bottom of the body to correspond to the furigana display of classical Japanese text.
@@ -14,8 +14,6 @@ In languages like Japanese that use both logograms and phonograms, a single logo
 ## Usage
 
 ```typ
-#import "@preview/furiruby:0.1.0": ruby
-
 #ruby(
   t: [Top Ruby],
   b: [Bottom Ruby],
@@ -29,32 +27,26 @@ In languages like Japanese that use both logograms and phonograms, a single logo
 <br />
 
 ```typ
-#import "@preview/furiruby:0.1.0": (ruby, rt)
 #rt[Top Ruby][Body] is an alias of #ruby(t: [Top Ruby])[Body]
 ```
 
 ```typ
-#import "@preview/furiruby:0.1.0": (ruby, rb)
 #rb[Bottom Ruby][Body] is an alias of #ruby(b: [Bottom Ruby])[Body]
 ```
 
 ```typ
-#import "@preview/furiruby:0.1.0": (ruby, rrt)
 #rrt[Right Top Ruby][Body] is an alias of #ruby(rt: [Right Top Ruby])[Body]
 ```
 
 ```typ
-#import "@preview/furiruby:0.1.0": (ruby, rlt)
 #rlt[Left Top Ruby][Body] is an alias of #ruby(lt: [Left Top Ruby])[Body]
 ```
 
 ```typ
-#import "@preview/furiruby:0.1.0": (ruby, rrb)
 #rrb[Right Bottom Ruby][Body] is an alias of #ruby(rb: [Right Bottom Ruby])[Body]
 ```
 
 ```typ
-#import "@preview/furiruby:0.1.0": (ruby, rlb)
 #rlb[Left Bottom Ruby][Body] is an alias of #ruby(lb: [Left Bottom Ruby])[Body]
 ```
 
