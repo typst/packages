@@ -1,4 +1,4 @@
-#import "/src/lib.typ": *
+#import "@preview/lambdabe:0.1.0": *
 
 #show raw.where(block: true): set block(
   fill: luma(244),

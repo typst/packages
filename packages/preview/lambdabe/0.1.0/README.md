@@ -3,7 +3,7 @@ A package for working with lambda calculus, including parsing, reduction, visual
 ## Usage
 
 ```typ
-#import "@preview/lambda:0.1.0": *
+#import "@preview/lambdabe:0.1.0": *
 #diagram(random-color(const.fact))
 ```
 
