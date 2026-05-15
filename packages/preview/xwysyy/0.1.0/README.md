@@ -2,21 +2,21 @@
 
 <p align="center">
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="https://typst.app"><img src="https://img.shields.io/badge/Typst-%E2%89%A5%200.14-239dad.svg" alt="Typst"></a>
-  <a href="https://github.com/touying-typ/touying"><img src="https://img.shields.io/badge/touying-0.7.3-blueviolet.svg" alt="touying"></a>
-  <a href="#-主题配色"><img src="https://img.shields.io/badge/Themes-sky%20%7C%20sunset-ff69b4.svg" alt="Themes"></a>
-  <a href="docs/THEME-GENERATOR.md"><img src="https://img.shields.io/badge/AI-Theme%20Generator-orange.svg" alt="AI Theme Generator"></a>
+  <a href="https://typst.app"><img src="https://img.shields.io/badge/Typst-%E2%89%A5%200.14-239dad.svg" alt="Typst version: >= 0.14"></a>
+  <a href="https://github.com/touying-typ/touying"><img src="https://img.shields.io/badge/touying-0.7.3-blueviolet.svg" alt="touying version: 0.7.3"></a>
+  <a href="https://github.com/xwysyy/xwysyy-typst#-主题配色"><img src="https://img.shields.io/badge/Themes-sky%20%7C%20sunset-ff69b4.svg" alt="Built-in themes: sky and sunset"></a>
+  <a href="https://github.com/xwysyy/xwysyy-typst/blob/a0c4c07/docs/THEME-GENERATOR.md"><img src="https://img.shields.io/badge/AI-Theme%20Generator-orange.svg" alt="AI Theme Generator"></a>
 </p>
 
 <p align="center">
-  <b>中文</b> | <a href="README-EN.md">English</a>
+  <b>中文</b> | <a href="https://github.com/xwysyy/xwysyy-typst/blob/a0c4c07/README-EN.md">English</a>
 </p>
 
 > 基于 [touying](https://github.com/touying-typ/touying) 的学术演示文稿主题 + 学术笔记排版，适合课题汇报、论文答辩、学术分享和文献笔记。派生自 [Carlos-Mero/may](https://github.com/Carlos-Mero/may)（MIT）。
 
 ## ✨ 特性
 
-- 内置 **sky** / **sunset** 两套配色，`theme` 参数一键切换，支持 [AI 自定义配色](docs/THEME-GENERATOR.md)
+- 内置 **sky** / **sunset** 两套配色，`theme` 参数一键切换，支持 [AI 自定义配色](https://github.com/xwysyy/xwysyy-typst/blob/a0c4c07/docs/THEME-GENERATOR.md)
 - 7 种 slide 版式 + 学术笔记模式，覆盖封面、目录、章节过渡、焦点页等场景
 - `textbox` 多列文本框、`red` / `yellow` 标注宏、CJK 合成斜体等学术排版组件
 - `#pause` 逐步揭示动画，内置 `frozen-counters` 防止编号异常
@@ -37,23 +37,23 @@ typst compile examples/note.typ                  # 学术笔记
 
 | 封面 | 列表与强调 |
 |:---:|:---:|
-| ![](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/master/assets/preview-sky-p1-01.png) | ![](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/master/assets/preview-sky-p4-04.png) |
+| ![Sky theme cover slide](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/a0c4c07/assets/preview-sky-p1-01.png) | ![Sky theme lists and highlights](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/a0c4c07/assets/preview-sky-p4-04.png) |
 | **文本框组件** | **代码与公式** |
-| ![](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/master/assets/preview-sky-p5-05.png) | ![](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/master/assets/preview-sky-p8-08.png) |
+| ![Sky theme textbox components](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/a0c4c07/assets/preview-sky-p5-05.png) | ![Sky theme code and equations](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/a0c4c07/assets/preview-sky-p8-08.png) |
 
 ### 🌅 Sunset 主题
 
 | 封面 | 列表与强调 |
 |:---:|:---:|
-| ![](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/master/assets/preview-sunset-p1-01.png) | ![](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/master/assets/preview-sunset-p4-04.png) |
+| ![Sunset theme cover slide](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/a0c4c07/assets/preview-sunset-p1-01.png) | ![Sunset theme lists and highlights](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/a0c4c07/assets/preview-sunset-p4-04.png) |
 | **文本框组件** | **代码与公式** |
-| ![](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/master/assets/preview-sunset-p5-05.png) | ![](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/master/assets/preview-sunset-p8-08.png) |
+| ![Sunset theme textbox components](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/a0c4c07/assets/preview-sunset-p5-05.png) | ![Sunset theme code and equations](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/a0c4c07/assets/preview-sunset-p8-08.png) |
 
 ### 📝 笔记模式
 
 | 标题与目录 | 列表与代码 | 表格与引用 |
 |:---:|:---:|:---:|
-| ![](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/master/assets/preview-note-p1-1.png) | ![](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/master/assets/preview-note-p2-2.png) | ![](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/master/assets/preview-note-p3-3.png) |
+| ![Note mode title and TOC](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/a0c4c07/assets/preview-note-p1-1.png) | ![Note mode lists and code](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/a0c4c07/assets/preview-note-p2-2.png) | ![Note mode tables and quotes](https://raw.githubusercontent.com/xwysyy/xwysyy-typst/a0c4c07/assets/preview-note-p3-3.png) |
 
 ## 🚀 快速开始
 
@@ -96,7 +96,7 @@ typst compile examples/note.typ                  # 学术笔记
 
 ## 🎨 主题配色
 
-通过 `theme` 参数选择内置主题，或参考 [AI 配色生成器](docs/THEME-GENERATOR.md) 创建自定义配色。
+通过 `theme` 参数选择内置主题，或参考 [AI 配色生成器](https://github.com/xwysyy/xwysyy-typst/blob/a0c4c07/docs/THEME-GENERATOR.md) 创建自定义配色。
 
 | 字段 | 用途 | sky | sunset |
 |------|------|-----|--------|
@@ -127,7 +127,7 @@ typst compile examples/note.typ                  # 学术笔记
 | 笔记入口 | `xwysyy-note` | `#show: xwysyy-note.with(title: [...])` |
 | 可选扩展 | `xwysyy-extras` | cetz 绘图 + fletcher 流程图 + theorion 定理环境 |
 
-完整 API 参考见 [docs/USAGE.md](docs/USAGE.md)，自定义指南见 [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md)。
+完整 API 参考见 [USAGE.md](https://github.com/xwysyy/xwysyy-typst/blob/a0c4c07/docs/USAGE.md)，自定义指南见 [CUSTOMIZATION.md](https://github.com/xwysyy/xwysyy-typst/blob/a0c4c07/docs/CUSTOMIZATION.md)。
 
 ## ⚙️ 环境要求
 
@@ -140,9 +140,9 @@ typst compile examples/note.typ                  # 学术笔记
 
 | 文档 | 内容 |
 |------|------|
-| [USAGE.md](docs/USAGE.md) | 完整 API 参考：版式、组件、扩展包、非 slide 文档入口 |
-| [CUSTOMIZATION.md](docs/CUSTOMIZATION.md) | 自定义指南：改色、改字、加版式、touying 高级特性、扩展集成 |
-| [THEME-GENERATOR.md](docs/THEME-GENERATOR.md) | AI 配色生成器：用 AI 从截图/描述创建自定义主题 |
+| [USAGE.md](https://github.com/xwysyy/xwysyy-typst/blob/a0c4c07/docs/USAGE.md) | 完整 API 参考：版式、组件、扩展包、非 slide 文档入口 |
+| [CUSTOMIZATION.md](https://github.com/xwysyy/xwysyy-typst/blob/a0c4c07/docs/CUSTOMIZATION.md) | 自定义指南：改色、改字、加版式、touying 高级特性、扩展集成 |
+| [THEME-GENERATOR.md](https://github.com/xwysyy/xwysyy-typst/blob/a0c4c07/docs/THEME-GENERATOR.md) | AI 配色生成器：用 AI 从截图/描述创建自定义主题 |
 
 ## 🙏 致谢
 
