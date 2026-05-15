@@ -1,5 +1,3 @@
-# DEAL US TFC template
-
 ## Template for final degree projects
 
 This template has been developed to facilitate the creation of final degree projects (TFC) at the Escuela Técnica Superior de Ingeniería Informática (ETSII) of the University of Seville. It provides a standardized and professional format for the presentation of these works.
