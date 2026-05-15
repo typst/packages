@@ -1,4 +1,4 @@
-# ![Logo](images/logo.png)
+# ![glotter's logo](images/logo.png)
 
 **glotter** is a Typst package for detecting the language of text fragments and applying language-aware settings to content.
 
