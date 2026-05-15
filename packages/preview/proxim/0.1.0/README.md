@@ -1,8 +1,8 @@
-# typst-nodes
+# Proxim
 
 A [CeTZ](https://github.com/cetz-package/cetz)-based library for drawing labeled rectangular nodes and routed edges — the building blocks for block diagrams, flowcharts, and architecture drawings in [Typst](https://typst.app).
 
-Instead of placing boxes by hand with raw coordinates, `typst-nodes` lets you describe layout relationally: put this node *north of* that one, *inside* a container, or *between* two others. Edges between nodes support straight lines and several orthogonal routing strategies, with optional labels.
+Instead of placing boxes by hand with raw coordinates, `proxim` lets you describe layout relationally: put this node *north of* that one, *inside* a container, or *between* two others. Edges between nodes support straight lines and several orthogonal routing strategies, with optional labels.
 
 ## Examples
 

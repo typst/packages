@@ -1,8 +1,8 @@
 [package]
-name = "nodes"
+name = "proxim"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
-repository = "https://github.com/Nils-TUD/typst-nodes"
+repository = "https://github.com/Nils-TUD/typst-proxim"
 authors = ["Nils Asmussen"]
 license = "MIT"
 description = "Labeled rectangular nodes and routed edges for drawing block diagrams."
