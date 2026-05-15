@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.2"
 #import "util.typ" as util
 
 // Parse a label-pos value into (seg-num, pos-ratio, dist).

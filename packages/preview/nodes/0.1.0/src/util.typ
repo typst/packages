@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.2"
 
 /// Debug helper that materializes `body` as a label containing its `repr(...)`.
 ///

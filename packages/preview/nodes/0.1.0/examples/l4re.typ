@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.2"
 #import "/src/lib.typ": canvas, edge, node
 
 #set page(width: 16cm, height: 12cm)
