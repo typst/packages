@@ -9,4 +9,4 @@ compiler = "0.13.0"
 repository = "https://github.com/rice8y/glotter"
 keywords = ["language", "detection", "fasttext", "multilingual"]
 categories = ["languages", "text"]
-exclude = ["/examples", "/tests", "/images"]
+exclude = ["/images"]
