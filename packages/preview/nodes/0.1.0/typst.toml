@@ -1,0 +1,18 @@
+[package]
+name = "nodes"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+repository = "https://github.com/Nils-TUD/typst-nodes"
+authors = ["Nils Asmussen"]
+license = "MIT"
+description = "Labeled rectangular nodes and routed edges for drawing block diagrams."
+categories = ["visualization", "components"]
+keywords = [
+    "diagram",
+    "node",
+    "edge",
+    "arrow",
+    "block",
+    "architecture",
+    "flowchart",
+]
