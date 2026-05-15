@@ -35,7 +35,7 @@ This library is tested with the otf files of the Font Awesome Free set. TrueType
 
 You can install the library using the typst packages:
 
-`#import "@preview/fontawesome:0.6.0": *`
+`#import "@preview/fontawesome:0.6.1": *`
 
 #### Manually install
 
