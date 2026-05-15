@@ -1,0 +1,16 @@
+[package]
+name = "approximate-acmsmall"
+version = "0.1.0"
+entrypoint = "approximate-acmsmall.typ"
+authors = ["Gabriel Scherer"]
+license = "MIT"
+description = "An imitation of the 'acmart' LaTeX document class from ACM, with the 'acmsmall' option."
+
+repository = "https://codeberg.org/gasche/approximate-acmsmall-typst-template"
+categories = ["paper"]
+disciplines = ["computer-science"]
+
+[template]
+path = "template"
+entrypoint = "example.typ"
+thumbnail = "thumbnail.webp"
