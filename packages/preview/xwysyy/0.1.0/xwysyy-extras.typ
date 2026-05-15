@@ -34,7 +34,7 @@
 //   #example[...]
 
 #import "@preview/touying:0.7.3": touying-reducer
-#import "@preview/cetz:0.5.0"
+#import "@preview/cetz:0.5.2"
 #import "@preview/fletcher:0.5.8" as fletcher: node, edge
 // theorion star-import 会导出 cosmos 子模块；clouds 提供装饰性视觉元素
 #import "@preview/theorion:0.6.0": *

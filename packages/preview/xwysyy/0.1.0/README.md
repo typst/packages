@@ -60,7 +60,7 @@ typst compile examples/note.typ                  # 学术笔记
 将 `xwysyy.typ` 复制到你的项目目录，然后：
 
 ```typst
-#import "xwysyy.typ": *
+#import "@preview/xwysyy:0.1.0": *
 
 #show: xwysyy-pre.with(
   theme: "sunset",

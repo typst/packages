@@ -1,5 +1,5 @@
 // package dependancies and show rules
-#import "@preview/physica:0.9.5": *
+#import "@preview/physica:0.9.8": *
 #import "@preview/touying:0.7.3": *
 
 #show: super-T-as-transpose
