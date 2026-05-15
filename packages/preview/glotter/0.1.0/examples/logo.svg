@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="80.841515mm"
+   height="87.949867mm"
+   viewBox="0 0 80.841515 87.949867"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="glotter-logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:lockguides="false"
+     inkscape:zoom="1.0779713"
+     inkscape:cx="259.74718"
+     inkscape:cy="642.41043"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g17">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="80.841515"
+       height="87.949867"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient15"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#22b3c6;stop-opacity:1;"
+         offset="0"
+         id="stop16" />
+      <stop
+         style="stop-color:#15717e;stop-opacity:1;"
+         offset="1"
+         id="stop15" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient15"
+       id="linearGradient16"
+       x1="49.578022"
+       y1="61.045086"
+       x2="129.70447"
+       y2="150.03453"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="pad" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient15"
+       id="linearGradient17"
+       gradientUnits="userSpaceOnUse"
+       x1="49.578022"
+       y1="61.045086"
+       x2="129.70447"
+       y2="150.03453"
+       spreadMethod="pad" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath19">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:162.143px;font-family:'IBM Plex Sans JP';-inkscape-font-specification:'IBM Plex Sans JP';writing-mode:lr-tb;direction:ltr;fill:#ffffff;fill-opacity:1;stroke-width:0.405359"
+         x="29.75219"
+         y="154.38313"
+         id="text19"
+         transform="scale(0.96683731,1.0343002)"><tspan
+           sodipodi:role="line"
+           id="tspan19"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:162.143px;font-family:'IBM Plex Sans JP';-inkscape-font-specification:'IBM Plex Sans JP';fill:#ffffff;fill-opacity:1;stroke-width:0.405359"
+           x="29.75219"
+           y="154.38313">g</tspan></text>
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-60.418013,-104.94544)">
+    <g
+       id="g20">
+      <g
+         id="g1"
+         transform="matrix(0.67510186,0,0,0.63106793,40.321819,82.31755)"
+         style="fill:url(#linearGradient16);fill-opacity:1">
+        <rect
+           style="fill:url(#linearGradient17);fill-opacity:1;stroke-width:0.264583"
+           id="rect1"
+           width="119.74715"
+           height="139.36673"
+           x="29.767653"
+           y="35.856491"
+           ry="21.649202" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.7px;font-family:'IBM Plex Sans JP';-inkscape-font-specification:'IBM Plex Sans JP';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#69d8d8;fill-opacity:1;stroke-width:0.264583"
+         x="127.90636"
+         y="126.71375"
+         id="text5"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.7px;font-family:Optima;-inkscape-font-specification:Optima;fill:#ffffff;stroke-width:0.264583"
+           x="127.90636"
+           y="126.71375"
+           id="tspan6">あ</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.7px;font-family:Optima;-inkscape-font-specification:Optima;fill:#ffffff;stroke-width:0.264583"
+           x="127.90636"
+           y="143.95694"
+           id="tspan7">ض</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.7px;font-family:Optima;-inkscape-font-specification:Optima;fill:#ffffff;stroke-width:0.264583"
+           x="127.90636"
+           y="161.20012"
+           id="tspan8">é</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.7px;font-family:Optima;-inkscape-font-specification:Optima;fill:#ffffff;stroke-width:0.264583"
+           x="127.90636"
+           y="178.44331"
+           id="tspan16">ह</tspan></text>
+      <g
+         id="g1-2"
+         transform="matrix(0.67510186,0,0,0.63106792,40.293848,82.313487)"
+         style="fill:#ffffff;fill-opacity:1"
+         clip-path="url(#clipPath19)">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+           id="rect1-2"
+           width="119.74715"
+           height="139.36673"
+           x="29.767653"
+           y="35.856491"
+           ry="21.649202" />
+      </g>
+    </g>
+  </g>
+</svg>
