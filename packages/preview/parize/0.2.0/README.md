@@ -924,7 +924,9 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
 
 If you want a custom block-level container to have paragraph spacing and paragraph indentation properties (i.e., to be treated as part of a paragraph), you can mark it with `parize-par-above-flag` and `parize-par-below-flag` before and after the container. When users apply `parize` to `block`, such containers will be processed as part of a paragraph. Alternatively, you can mark block-level elements with `parize-prevention-label` so that `parize` does not process them.
 
-See [inlinable-block.pdf](examples/inlinable-block.pdf) ([source](examples/inlinable-block.typ)) for more details.
+See [inlinable-block.pdf](https://github.com/tianyi-smile/parize/blob/main/examples/inlinable-block.pdf) ([source](https://github.com/tianyi-smile/parize/blob/main/examples/inlinable-block.typ)) for more details.
+
+
 
 ## Show-Rule Order
 
