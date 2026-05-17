@@ -192,8 +192,8 @@ Example Two:
 
 </details>
 
-- See [ex-in-elems-test.typ](https://github.com/tianyi-smile/parize/blob/main/tests/ex-in-elems-test.typ) for details on using `par-indent` with the `rect` element when `Paragraph Indentation` or `Paragraph Spacing` is enabled.
-- See also [inlinable-block.pdf](https://github.com/tianyi-smile/parize/blob/main/examples/inlinable-block.pdf) ([source](https://github.com/tianyi-smile/parize/blob/main/examples/inlinable-block.typ)) for details on using `par-indent` with custom block-level containers that can be treated as part of a paragraph.
+- See [ex-in-elems-test.typ][ex-in-elems-test.typ] for details on using `par-indent` with the `rect` element when `Paragraph Indentation` or `Paragraph Spacing` is enabled.
+- See also [inlinable-block.pdf][inlinable-block.pdf] ([source][source]) for details on using `par-indent` with custom block-level containers that can be treated as part of a paragraph.
 
 ## Features
 
@@ -924,7 +924,7 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
 
 If you want a custom block-level container to have paragraph spacing and paragraph indentation properties (i.e., to be treated as part of a paragraph), you can mark it with `parize-par-above-flag` and `parize-par-below-flag` before and after the container. When users apply `parize` to `block`, such containers will be processed as part of a paragraph. Alternatively, you can mark block-level elements with `parize-prevention-label` so that `parize` does not process them.
 
-See [inlinable-block.pdf](https://github.com/tianyi-smile/parize/blob/main/examples/inlinable-block.pdf) ([source](https://github.com/tianyi-smile/parize/blob/main/examples/inlinable-block.typ)) for more details.
+See [inlinable-block.pdf][inlinable-block.pdf] ([source][source]) for more details.
 
 
 
@@ -1026,3 +1026,9 @@ Suppose an element is overridden by `show elem: ...`. If you want `par-indent` t
 
 - **Version Compatibility**: Supports Typst 0.13.0–0.14.2 only; may be incompatible with future versions (particularly [PR#7931](https://github.com/typst/typst/pull/7931)).
 - **Convergence Behavior**: Usually, `par-indent` needs at least 3 iterations to converge fully, but at most 4 iterations.
+
+<!-- External links -->
+
+[ex-in-elems-test.typ]: https://github.com/tianyi-smile/parize/tree/main/tests/ex-in-elems-test.typ
+[inlinable-block.pdf]: https://github.com/tianyi-smile/parize/tree/main/examples/inlinable-block.pdf
+[source]: https://github.com/tianyi-smile/parize/tree/main/examples/inlinable-block.typ
