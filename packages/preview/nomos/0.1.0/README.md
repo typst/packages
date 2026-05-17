@@ -105,7 +105,7 @@ This function generates a table containing all the variables registered with `#a
 * `sections`: An `array` of strings defining which sections to print and in what order (e.g., `("Latin", "Greek")`). You can include `none` in the array to specify exactly where un-sectioned variables should appear. If set to `none` (default), the package will automatically detect and print all unique sections found in the document.
 
 ## Comprehensive Walkthrough
-The following comprehensive example showcases almost all features and functions provided by this package in a single document. You can view the pre-compiled PDF version [here](https://raw.githubusercontent.com/eiglss/nomos/main/examples/example.pdf).
+The following comprehensive example showcases almost all features and functions provided by this package in a single document. You can view the pre-compiled PDF version [here](https://raw.githubusercontent.com/eiglss/nomos/daae6c6a445df2cfd38341d0c9b4a6959ecffe6d/examples/example.pdf).
 
 ```typst
 #import "@preview/nomos:0.1.0": *
