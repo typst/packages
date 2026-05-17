@@ -1,7 +1,4 @@
-
-
-#import "../lib.typ": *
-
+#import "@preview/parize:0.2.0": *
 
 #set block(stroke: red)
 #show : par-indent.with(use-par-leading: true)

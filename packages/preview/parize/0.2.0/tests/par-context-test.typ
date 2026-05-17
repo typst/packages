@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/parize:0.2.0": *
 #set page(width: 12cm, margin: 1cm, height: auto)
 #set par(first-line-indent: (amount: 2em, all: true), spacing: 1.5em)
 #set block(stroke: red)
@@ -49,10 +49,10 @@
   #table(
     columns: 2,
     [#lorem(2)], [#lorem(2)],
-  ) 
+  )
   // not indent
   #context [
-    #lorem(2) 
+    #lorem(2)
     $
       a^2 + b^2 = c^2
     $
@@ -70,7 +70,7 @@
     columns: 2,
     [#lorem(2)], [#lorem(2)],
   )
-  
+
   #context [
     #lorem(2) // indent
     $

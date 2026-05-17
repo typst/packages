@@ -1,5 +1,4 @@
-#import "../lib.typ": *
-
+#import "@preview/parize:0.2.0": *
 
 #import "@preview/layout-ltd:0.1.0": *
 #show: layout-limiter.with(max-iterations: 3)
