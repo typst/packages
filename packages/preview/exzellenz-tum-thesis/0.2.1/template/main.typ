@@ -2,7 +2,7 @@
 
 #import "utils.typ": inwriting, draft, todo
 #import "glossary.typ": glossary
-#import "@preview/glossarium:0.5.9": make-glossary, register-glossary, print-glossary, gls, glspl
+#import "@preview/glossarium:0.5.10": make-glossary, register-glossary, print-glossary, gls, glspl
 
 
 /** Introduction
