@@ -1,6 +1,6 @@
 [package]
 name = "exzellenz-tum-thesis"
-version = "0.2.0"
+version = "0.2.1"
 entrypoint = "template.typ"
 authors = ["Fabian Scherer <https://www.linkedin.com/in/fabian-scherer-de/>", "Sebastian Oßner <https://www.github.com/ossner>"]
 license = "MIT-0"
