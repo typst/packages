@@ -2,122 +2,121 @@ The `parize` package provides an experimental feature that allows any block-leve
 
 Example One:
 ![Example: showing how block-level elements are treated as part of a paragraph](asserts/demo.png)
-
-<details>
+  <details>
   <summary>Code:</summary>
 
-```typst
-#import "@preview/parize:0.2.0": *
-#set page(margin: 1cm, height: auto, width: 25cm)
-#set par(justify: true)
-#table(
-  columns: (1fr, 1fr),
-  [
-    #import "@preview/zebraw:0.6.3": *
-    #show: zebraw
-    ```typst
-    #import "@preview/parize:0.2.0": *
-    #set par(first-line-indent: (amount: 2em, all: true))
-    #show strong: set text(fill: red, size: 1.2em) // debug
-    #set block(stroke: red) // debug
-    #show: par-indent.with(
-      include-elem: (heading, math.equation, list, enum, terms, ), // Enable paragraph indentation control for heading, math.equation, list, enum and terms
-      use-par-leading: true, // Enable paragraph spacing control for list, enum and terms
-    )
-    #set heading(numbering: "1.")
-    = Heading
+  ```typst
+  #import "@preview/parize:0.2.0": *
+  #set page(margin: 1cm, height: auto, width: 25cm)
+  #set par(justify: true)
+  #table(
+    columns: (1fr, 1fr),
+    [
+      #import "@preview/zebraw:0.6.3": *
+      #show: zebraw
+      ```typst
+      #import "@preview/parize:0.2.0": *
+      #set par(first-line-indent: (amount: 2em, all: true))
+      #show strong: set text(fill: red, size: 1.2em) // debug
+      #set block(stroke: red) // debug
+      #show: par-indent.with(
+        include-elem: (heading, math.equation, list, enum, terms, ), // Enable paragraph indentation control for heading, math.equation, list, enum and terms
+        use-par-leading: true, // Enable paragraph spacing control for list, enum and terms
+      )
+      #set heading(numbering: "1.")
+      = Heading
 
-    *Indented* #lorem(10)
+      *Indented* #lorem(10)
 
-    _Equation Test_. #lorem(8)
-    $
-      a^2 + b^2 = c^2
-    $
-    *Unindented* #lorem(10)  // This paragraph remains unindented (no parbreak before equation)
+      _Equation Test_. #lorem(8)
+      $
+        a^2 + b^2 = c^2
+      $
+      *Unindented* #lorem(10)  // This paragraph remains unindented (no parbreak before equation)
 
-    #lorem(2)
+      #lorem(2)
 
-    $
-      a^2 + b^2 = c^2
-    $
+      $
+        a^2 + b^2 = c^2
+      $
 
-    *Indented* #lorem(10)
+      *Indented* #lorem(10)
 
-    _Tight Lists Test_. #lorem(10)
-    + #lorem(2)
-    + #lorem(2)
-    *Unindented and par-leading* #lorem(8)  // Unindented with paragraph-leading spacing
+      _Tight Lists Test_. #lorem(10)
+      + #lorem(2)
+      + #lorem(2)
+      *Unindented and par-leading* #lorem(8)  // Unindented with paragraph-leading spacing
 
-    = Heading
-    *Unindented* #lorem(10)
+      = Heading
+      *Unindented* #lorem(10)
 
-    + #lorem(2)
-    + #lorem(2)
+      + #lorem(2)
+      + #lorem(2)
 
-    *Indented* #lorem(10)
+      *Indented* #lorem(10)
 
-    _Non-tight Lists Test_. #lorem(2)
+      _Non-tight Lists Test_. #lorem(2)
 
-    - #lorem(2)
+      - #lorem(2)
 
-    - #lorem(2)
-    *Unindented* #lorem(2)  // Paragraph following lists without empty line
-    ```
-  ],
-  [
-    #show strong: set text(fill: red, size: 1.2em) // debug
-    #set block(stroke: red) // debug
-    #set par(first-line-indent: (amount: 2em, all: true))
-    #show: par-indent.with(
-      include-elem: (heading, math.equation, list, enum, terms), // Enable paragraph indentation control for heading, math.equation, list, enum and terms
-      use-par-leading: true, // Enable paragraph spacing control for list, enum and terms
-    )
+      - #lorem(2)
+      *Unindented* #lorem(2)  // Paragraph following lists without empty line
+      ```
+    ],
+    [
+      #show strong: set text(fill: red, size: 1.2em) // debug
+      #set block(stroke: red) // debug
+      #set par(first-line-indent: (amount: 2em, all: true))
+      #show: par-indent.with(
+        include-elem: (heading, math.equation, list, enum, terms), // Enable paragraph indentation control for heading, math.equation, list, enum and terms
+        use-par-leading: true, // Enable paragraph spacing control for list, enum and terms
+      )
 
 
-    #set heading(numbering: "1.")
+      #set heading(numbering: "1.")
 
-    = Heading
+      = Heading
 
-    *Indented* #lorem(10)
+      *Indented* #lorem(10)
 
-    _Equation Test_. #lorem(8)
-    $
-      a^2 + b^2 = c^2
-    $
-    *Unindented* #lorem(10)  // This paragraph remains unindented (no parbreak before equation)
+      _Equation Test_. #lorem(8)
+      $
+        a^2 + b^2 = c^2
+      $
+      *Unindented* #lorem(10)  // This paragraph remains unindented (no parbreak before equation)
 
-    #lorem(2)
+      #lorem(2)
 
-    $
-      a^2 + b^2 = c^2
-    $
+      $
+        a^2 + b^2 = c^2
+      $
 
-    *Indented* #lorem(10)
+      *Indented* #lorem(10)
 
-    _Tight Lists Test_. #lorem(10)
-    + #lorem(2)
-    + #lorem(2)
-    *Unindented and par-leading* #lorem(8)  // Unindented with paragraph-leading spacing
+      _Tight Lists Test_. #lorem(10)
+      + #lorem(2)
+      + #lorem(2)
+      *Unindented and par-leading* #lorem(8)  // Unindented with paragraph-leading spacing
 
-    = Heading
-    *Unindented* #lorem(10)
+      = Heading
+      *Unindented* #lorem(10)
 
-    + #lorem(2)
-    + #lorem(2)
+      + #lorem(2)
+      + #lorem(2)
 
-    *Indented* #lorem(10)
+      *Indented* #lorem(10)
 
-    _Non-tight Lists Test_. #lorem(2)
+      _Non-tight Lists Test_. #lorem(2)
 
-    - #lorem(2)
+      - #lorem(2)
 
-    - #lorem(2)
-    *Unindented* #lorem(2)  // Paragraph following lists without empty line
-  ],
-)
-```
+      - #lorem(2)
+      *Unindented* #lorem(2)  // Paragraph following lists without empty line
+    ],
+  )
+  ```
+  </details>
 
-</details>
 
 Example Two:
 
@@ -192,13 +191,16 @@ Example Two:
 
 </details>
 
-- See [ex-in-elems-test.typ][ex-in-elems-test.typ] for details on using `par-indent` with the `rect` element when `Paragraph Indentation` or `Paragraph Spacing` is enabled.
-- See also [inlinable-block.pdf][inlinable-block.pdf] ([source][source]) for details on using `par-indent` with custom block-level containers that can be treated as part of a paragraph.
+
+- See [ex-in-elems-test.typ](tests/ex-in-elems-test.typ) for details on using `par-indent` with the `rect` element when `Paragraph Indentation` or `Paragraph Spacing` is enabled.
+- See also [inlinable-block.pdf](examples/inlinable-block.pdf) ([source](examples/inlinable-block.typ)) for details on using `par-indent` with custom block-level containers that can be treated as part of a paragraph.
 
 ## Features
 
 - **Paragraph Indentation**: If a paragraph follows a block-level element without an empty line (i.e., no `parbreak()`) between them, the paragraph will not be indented. Otherwise, it will be indented according to the `par.first-line-indent` setting.
-
+  
+  
+  
   <details>
   <summary>Example:</summary>
 
@@ -262,10 +264,12 @@ Example Two:
     ],
   )
   ```
-
   </details>
-- **Paragraph Spacing**: If there is no empty line between a paragraph (or block-level element) and a block-level element, `parize` allows using `par.leading` to control the spacing between them.
 
+- **Paragraph Spacing**: If there is no empty line between a paragraph (or block-level element) and a block-level element, `parize` allows using `par.leading` to control the spacing between them.
+  
+  
+  
   <details>
   <summary>Example:</summary>
 
@@ -319,12 +323,12 @@ Example Two:
     ],
   )
   ```
-
   </details>
 
 ## Why This Package?
 
 - **Experimental Solution**: The `parize` package serves as an experimental implementation of the concept discussed in [issue #3206](https://github.com/typst/typst/issues/3206), offering more flexible control over block-level elements and exploring how this paragraph model affects Typst typesetting.
+
 - **Native Typst Limitations**: Typst's native `set par(first-line-indent: (amount: 2em, all: true))` can be insufficient in certain scenarios. For instance, in theorem environments, lists, enums, and similar contexts, we often want the first line unindented while allowing indentation in subsequent paragraphs. `parize` provides a cleaner solution.
 
 ```typst
@@ -332,7 +336,7 @@ Example Two:
 #show: par-indent.with(exclude-elem: (/*excludes specific block-level elements*/))
 ```
 
-This approach ensures that the first line of paragraphs within a container remains unindented, while subsequent paragraphs (containing `parbreak()`) are indented according to user expectations. It also accommodates different regional typesetting conventions.
+This approach ensures that the first line of paragraphs within a container remains unindented, while subsequent paragraphs (containing `parbreak()`) are indented according to user expectations. It also accommodates different regional typesetting conventions. 
 
 ```typst
 #import "@preview/parize:0.2.0": par-indent, parize-par-above-flag
@@ -369,7 +373,6 @@ Paragraph content // unindented
   #lorem(5)
 ])
 ```
-
 ![Demonstration of paragraph indentation with headings and blocks, showing indented vs unindented paragraphs based on context](asserts/par-indent.png)
 
 <details>
@@ -410,7 +413,6 @@ In `touying`, you can define a custom `par-indent-slide` method:
 ```
 
 ![Paragraph indentation in Touying slides: first slide paragraph unindented, subsequent slides indented](asserts/par-indent-slide.png)
-
 </details>
 
 <details>
@@ -536,9 +538,7 @@ While `context h(-par.first-line-indent.amount)` might seem like an alternative,
   #lorem(6)
 ]
 ```
-
 ![Limitation of native Typst paragraph handling: incorrect indentation when using context h(-par.first-line-indent.amount)](asserts/typst-par.png)
-
 </details>
 
 ## Usage
@@ -574,7 +574,6 @@ When `include-elem` is `()`, **all** block-level elements are processed (excludi
 Default values for `include-elem` and `exclude-elem` are `()` (processing all block-level elements).
 
 Supported block-level elements:
-
 - `block`, `pad`, `figure`, `layout`
 - `list`, `enum`, `terms`
 - `heading`, `title`, `outline`, `repeat`
@@ -659,17 +658,17 @@ Supported block-level elements:
     ],
     [
       = heading
-    
+      
       #lorem(2) indented
       + #lorem(2)
       + #lorem(2)
-    
+      
       #lorem(2) indented
       #table(
         columns: 2,
         [1], [2],
       )
-    
+      
       #lorem(2) indented
       #block()[#lorem(2)]
       #lorem(2) indented
@@ -677,7 +676,6 @@ Supported block-level elements:
   )
 ]
 ```
-
 </details>
 
 ### Paragraph Spacing
@@ -710,7 +708,7 @@ Example: When `use-par-leading` is `true`, elements `list`, `enum`, `terms` are 
     #lorem(2)
     + #lorem(2)
     + #lorem(2)
-  
+    
     #lorem(2)
   ],
   [
@@ -723,13 +721,12 @@ Example: When `use-par-leading` is `true`, elements `list`, `enum`, `terms` are 
   [
     #lorem(2)
     + #lorem(2)
-  
+    
     + #lorem(2)
     #lorem(2)
   ],
 )
 ```
-
 </details>
 
 The `use-par-leading` parameter accepts a dictionary with the following keys:
@@ -740,7 +737,6 @@ The `use-par-leading` parameter accepts a dictionary with the following keys:
 - `block-block-leading`: specifies which block-level elements to process when there's no empty line between them and **above** block-level elements (excluding `par`, `align`, `v`)
 
 Values for these keys can be:
-
 - `array` whose elements are the following block-level elements:
   - `figure`,
   - `list`, `enum`, `terms`
@@ -841,13 +837,11 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
   #test
 ]
 ```
-
 </details>
 
 ### Notes
 
 - **Native Typst Behavior**: For block-level elements, if `block.above` is `auto` and the preceding line is text or another block-level element with `block.below: auto`, Typst inserts `par.spacing`. `parize` allows using `par.leading` instead when no empty line exists. Otherwise, spacing follows the minimum of `block.above` and the previous element's `block.below` (`auto` treated as `0pt`), and `parize` does not intervene.
-
   - In particular, for `heading`, `title`, `quote`, since the default of `block.above` and `block.below` are not `auto`, so `parize` doesn't affect their spacing by default. To include them, use:
     ```typst
     #show quote.where(block: true): set block(spacing: auto)
@@ -862,12 +856,12 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
     ```
 - **Caution**: Avoid `use-par-leading: (apply-elem: "all")`, which may disrupt packages relying on Typst's existing paragraph model.
 - **Basic Elements**: `block`, `pad`, `grid`, `stack` and `layout` are not supported directly; if you want `par.leading` control for them, wrap them in `parize-block`.
-
+  
   <details>
   <summary>Example:</summary>
-
+  
   ![Using parize-block wrapper: shows how basic elements like pad can be wrapped for paragraph spacing (par-leading) control](asserts/parize-block.png)
-
+  
   ```typst
   #import "@preview/parize:0.2.0": par-indent, parize-block
   #set page(width: 12cm, margin: 1cm, height: auto)
@@ -886,7 +880,7 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
         #lorem(2)
 
         #lorem(2)
-
+        
         #parize-block(width: 100%, [#pad-wrapper])
         #lorem(2)
       ],
@@ -903,7 +897,7 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
         #lorem(2)
 
         #parize-block(width: 100%, [#pad-wrapper])
-
+        
         #parize-block(width: 100%, [#pad-wrapper])
 
         #lorem(2)
@@ -911,22 +905,20 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
     )
   ]
   ```
-
   </details>
-
+  
   - `parize-block` accepts the same arguments as `block`.
-- **List Elements**: When using `block-block-leading` for lists (e.g., `use-par-leading: (block-block-leading: (list, enum, terms, ))`), we ignore Typst's [PR#6242](https://github.com/typst/typst/pull/6242) to maintain consistent paragraph semantics (i.e., compatible with <0.14, not ≥0.14). This ensures the `spacing` parameter in lists controls only inter-item spacing, not spacing between the list and preceding text.
 
+- **List Elements**: When using `block-block-leading` for lists (e.g., `use-par-leading: (block-block-leading: (list, enum, terms, ))`), we ignore Typst's [PR#6242](https://github.com/typst/typst/pull/6242) to maintain consistent paragraph semantics (i.e., compatible with <0.14, not ≥0.14). This ensures the `spacing` parameter in lists controls only inter-item spacing, not spacing between the list and preceding text.
   - The native list model is limited, with only one `spacing` parameter for both top and bottom margins.
   - Consider using the `itemize` (≥0.3.0) package for enhanced list/enum functionality.
+
 
 ## Custom block-level container
 
 If you want a custom block-level container to have paragraph spacing and paragraph indentation properties (i.e., to be treated as part of a paragraph), you can mark it with `parize-par-above-flag` and `parize-par-below-flag` before and after the container. When users apply `parize` to `block`, such containers will be processed as part of a paragraph. Alternatively, you can mark block-level elements with `parize-prevention-label` so that `parize` does not process them.
 
-See [inlinable-block.pdf][inlinable-block.pdf] ([source][source]) for more details.
-
-
+See [inlinable-block.pdf](examples/inlinable-block.pdf) ([source](examples/inlinable-block.typ)) for more details.
 
 ## Show-Rule Order
 
@@ -1025,10 +1017,6 @@ Suppose an element is overridden by `show elem: ...`. If you want `par-indent` t
 ## Limitations
 
 - **Version Compatibility**: Supports Typst 0.13.0–0.14.2 only; may be incompatible with future versions (particularly [PR#7931](https://github.com/typst/typst/pull/7931)).
+
+
 - **Convergence Behavior**: Usually, `par-indent` needs at least 3 iterations to converge fully, but at most 4 iterations.
-
-<!-- External links -->
-
-[ex-in-elems-test.typ]: https://github.com/tianyi-smile/parize/tree/main/tests/ex-in-elems-test.typ
-[inlinable-block.pdf]: https://github.com/tianyi-smile/parize/tree/main/examples/inlinable-block.pdf
-[source]: https://github.com/tianyi-smile/parize/tree/main/examples/inlinable-block.typ
