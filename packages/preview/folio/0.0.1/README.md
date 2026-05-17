@@ -58,6 +58,20 @@ Folio includes a diagnostic audit system. To enable it, set `audit: true` in the
 
 Note: **Orphan Reference detection** requires a second compile pass for full accuracy, as it depends on Typst's layout query system.
 
+
 ## Documentation
 
-See `docs/manual.typ` for full API reference and schema details.
+See [`docs/manual.pdf`](docs/manual.pdf) for full API reference and schema details.
+
+## Examples
+
+Browse [`examples`](examples) for runnable templates that show folio end-to-end:
+
+- [`minimal`](examples/minimal.pdf) — smallest viable document, ideal starting point
+- [`full-standards`](examples/full-standards.pdf) — every PMBOK section populated
+- [`branding-demo`](examples/branding-demo.pdf) — brand presets and token overrides
+- [`thesis`](examples/thesis.pdf) — academic preset adaptation
+- [`rfp`](examples/rfp.pdf) — request-for-proposal format
+- [`hardware`](examples/hardware.pdf) — hardware-project variant
+
+> Each section also ships a standalone showcase in [`examples/components`](examples/components) — one minimal `.typ` per component, designed as drop-in snippets you can paste straight into your own document. Source-only by design: the top-level examples above already render these components in context.

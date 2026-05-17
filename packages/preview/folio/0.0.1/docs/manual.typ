@@ -48,10 +48,14 @@ Three brand presets are available out of the box:
   inset: 0.75em,
   fill: (col, row) => if row == 0 { luma(240) } else { none },
   [*Preset*], [*Character*], [*Best For*],
-  [`"minimal"`], [Serif, no rounded corners, grayscale], [Thesis, academic submissions],
+  [`"minimal"`],
+  [Serif, no rounded corners, grayscale],
+  [Thesis, academic submissions],
 
   [`"corporate"`], [Sans-serif, blue, rounded cards], [Project plans, RFPs],
-  [`"academic"`], [New Computer Modern, deep blue, formal spacing], [Academic project briefs],
+  [`"academic"`],
+  [New Computer Modern, deep blue, formal spacing],
+  [Academic project briefs],
 )
 
 = Sections
