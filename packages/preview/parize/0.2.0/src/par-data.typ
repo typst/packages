@@ -34,7 +34,7 @@
   return it
 }
 
-/// For `parbreak` and `v`
+/// For `parbreak`
 #let update-parbreak = it => {
   let par-type = it.data.par-type
 

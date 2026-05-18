@@ -417,7 +417,7 @@
 
   let none-par-type = (par-type: ParType.native)
 
-  show selector(parbreak).or(v): it => {
+  show parbreak: it => {
     it
     par-type-state.update(update-parbreak)
   }
