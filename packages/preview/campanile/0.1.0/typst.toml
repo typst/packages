@@ -7,7 +7,7 @@ license = "MIT-0"
 description = "Master's thesis and PhD dissertation at UC Berkeley (Unofficial)"
 keywords = ["ucbthesis", "Berkeley"]
 categories = ["thesis"]
-repository = "" # todo add
+repository = "https://github.com/buggy213/campanile"
 
 [template]
 path = "template"
