@@ -1,12 +1,10 @@
 # epsi-thesis
 
-Template de tese para a Universidade do Minho (UMinho).
+Thesis template for the University of Minho (UMinho), originally developed for Escola de Psicologia; suitable for Master's and PhD theses in Portuguese or English and supports all 12 schools of UMinho.
 
-Suporta teses de **Mestrado** e **Doutoramento**, em **Português** ou **Inglês**, para todas as 12 escolas da UMinho.
+## Quick Start
 
-## Início Rápido
-
-**Typst Web App** — clica em *Start from template* e procura `epsi-thesis`.
+**Typst Web App** — click *Start from template* and search for `epsi-thesis`.
 
 **CLI:**
 ```bash
@@ -15,22 +13,22 @@ cd my-thesis
 typst compile --font-path assets/fonts main.typ
 ```
 
-## Configuração
+## Configuration
 
-O ficheiro `main.typ` contém todas as opções com comentários explicativos. Os principais parâmetros são:
+The file `main.typ` contains all options with explanatory comments. The main parameters are:
 
-| Parâmetro | Descrição |
+| Parameter | Description |
 |---|---|
-| `title` | Título da tese |
-| `author` | Nome do autor |
-| `degree_type` | `"msc"` ou `"phd"` |
-| `school_id` | Identificador da escola (ver tabela abaixo) |
-| `supervisors` | Lista de orientadores |
-| `language` | `"PT"` ou `"EN"` |
+| `title` | Thesis title |
+| `author` | Author name |
+| `degree_type` | `"msc"` or `"phd"` |
+| `school_id` | School identifier (see table below) |
+| `supervisors` | List of supervisors |
+| `language` | `"PT"` or `"EN"` |
 
-## Escolas (`school_id`)
+## Schools (`school_id`)
 
-| ID | Escola |
+| ID | School |
 |---|---|
 | `EAAD` | Escola de Arquitetura, Arte e Design |
 | `EC` | Escola de Ciências |
@@ -45,18 +43,22 @@ O ficheiro `main.typ` contém todas as opções com comentários explicativos. O
 | `ICS` | Instituto de Ciências Sociais |
 | `IE` | Instituto de Educação |
 
-## Fonte
+## Font
 
-Este template utiliza a fonte **NewsGotT**. Por motivos de licenciamento e regras do Typst Universe, os ficheiros da fonte não estão incluídos no package.
+This template uses the **NewsGotT** font. Due to licensing and Typst Universe rules, the font files are not included in the package.
 
-**Para usar no Typst Web App:**
-1. Descarrega os ficheiros `.ttf` da fonte. ( https://www.ics.uminho.pt/pt/Comunicacao/Documents/NewsGotT.zip )
-2. Faz upload dos ficheiros diretamente para a pasta do teu projeto no Typst.
-3. O Typst irá detetar a fonte automaticamente.
+**For Typst Web App:**
+1. Download the `.ttf` font files (https://www.ics.uminho.pt/pt/Comunicacao/Documents/NewsGotT.zip).
+2. Create a `fonts` folder.
+3. Upload the files directly to your project's `fonts` folder in Typst.
+4. Typst will detect the font automatically.
 
-**Para usar na CLI:**
-Instala a fonte no teu sistema ou usa o parâmetro `--font-path` a apontar para a pasta onde guardaste os ficheiros.
+**For CLI:**
+Install the font on your system or use the `--font-path` parameter pointing to the folder where you saved the files.
 
-## Licença
+## License
 
 MIT — Luís Cunha
+
+The logos in `assets/UMinho` are the property of Universidade do Minho and are not covered by the MIT license. These logos are subject to the university copyright; consult Universidade do Minho for permissions.
+
