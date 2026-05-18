@@ -55,7 +55,7 @@ composition, and the direction of every diffusive process.
 == Thermodynamic potentials
 
 #marginalia({
-  import "@preview/lilaq:0.5.0" as lq
+  import "@preview/lilaq:0.6.0" as lq
   let a(x) = calc.pow(x - 0.6, 2)
   let xs = lq.linspace(0, 1, num: 100)
   let ys = xs.map(a)

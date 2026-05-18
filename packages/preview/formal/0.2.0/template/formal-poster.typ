@@ -1,5 +1,5 @@
 #import "@preview/formal:0.2.0": formal-poster
-#import "@preview/physica:0.9.6": *
+#import "@preview/physica:0.9.8": *
 
 #show: formal-poster.with(
   lang: "en",

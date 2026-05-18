@@ -1,4 +1,4 @@
-#import "@preview/lilaq:0.5.0" as lq
+#import "@preview/lilaq:0.6.0" as lq
 #import "@preview/colorful-boxes:1.4.3": colorbox, outline-colorbox
 
 #set lq.style(stroke: 4pt) // lines & marks pick this up
