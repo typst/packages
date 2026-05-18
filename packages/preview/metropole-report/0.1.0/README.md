@@ -5,7 +5,7 @@ A Swiss Modernist document template for Typst. The design draws on the Internati
 ## Usage
 
 ```typst
-#import "@preview/metropole:0.1.0": *
+#import "@preview/metropole-report:0.1.0": *
 
 #show: metropole.with(
   title: "My Document",
@@ -48,15 +48,15 @@ Metropole exports six accent colors that can be passed directly to `accent-color
 
 | Name | Value | Character |
 |---|---|---|
-| `transit-red` | `#c53a2f` | Bold and authoritative. The default. |
-| `metro-blue` | `#005f9e` | Institutional and measured. |
-| `deep-teal` | `#0f766e` | Contemporary and composed. |
-| `burnt-orange` | `#c96b2c` | Warm and editorial. |
-| `emerald` | `#1f7a4f` | Precise and considered. |
-| `deep-violet` | `#5a4fcf` | Distinctive and unhurried. |
+| `transit-red` | `rgb(#c53a2f)` | Bold and authoritative. The default. |
+| `metro-blue` | `rgb(#005f9e)` | Institutional and measured. |
+| `deep-teal` | `rgb(#0f766e)` | Contemporary and composed. |
+| `burnt-orange` | `rgb(#c96b2c)` | Warm and editorial. |
+| `emerald` | `rgb(#1f7a4f)` | Precise and considered. |
+| `deep-violet` | `rgb(#5a4fcf)` | Distinctive and unhurried. |
 
 ```typst
-#import "@preview/metropole:0.1.0": *
+#import "@preview/metropole-report:0.1.0": *
 
 #show: metropole.with(
   title: "My Document",
@@ -75,7 +75,7 @@ Be default, Metropole uses three typefaces, all available under the SIL Open Fon
 To use different fonts, pass them as parameters:
 
 ```typst
-#show: report.with(
+#show: metropole.with(
   title: "My Document",
   body-font: "Libertinus Serif",
   heading-font: "IBM Plex Sans",
