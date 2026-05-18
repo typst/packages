@@ -1,4 +1,4 @@
-#import "@preview/ornament:0.1.0": ornament, fit-to-dim
+#import "@preview/ornamentalyst:0.1.0": ornament, fit-to-dim
 
 #set grid.cell(breakable: false)
 
@@ -45,11 +45,11 @@
 #show heading.where(level: 1): set text(24pt) 
 #set text(12pt)
 
-#title("ornament")
+#title("ornamentalyst")
 
 = Introduction
 
-The `ornament` package is a reimplementation of the LaTeX package #link("https://ctan.org/pkg/pgfornament")[`pgfornament`] by Alain Matthes, which allows to render vector images of various ornaments.
+The `ornamentalyst` package is a reimplementation of the LaTeX package #link("https://ctan.org/pkg/pgfornament")[`pgfornament`] by Alain Matthes, which allows to render vector images of various ornaments.
 
 Its main entry point is the `ornament` function, which renders a specific ornament based on its number. The package currently features 3 collections:
 - `vectorian`, containing a collection of Victorian symbols, originally designed by Vincent Le Moign at #link("http://www.vectorian.net")[vectorian.net].
