@@ -1,6 +1,6 @@
-# ornament
+# ornamentalyst
 
-`ornament` is a Typst package designed for drawing a set of vector ornaments. It aims to reproduce the functionality from the LaTeX package [pgfornament](https://ctan.org/pkg/pgfornament).
+`ornamentalyst` is a Typst package designed for drawing a set of vector ornaments. It aims to reproduce the functionality from the LaTeX package [pgfornament](https://ctan.org/pkg/pgfornament).
 
 ## Usage
 
