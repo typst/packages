@@ -19,6 +19,8 @@ A Swiss Modernist document template for Typst. The design draws on the Internati
 Your content here.
 ```
 
+An example document is available as a [.typ file](example/example.typ) and a [compiled PDF](example/example.pdf).
+
 ## Parameters
 
 | Parameter | Default | Description |
