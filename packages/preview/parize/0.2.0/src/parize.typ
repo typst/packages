@@ -167,10 +167,7 @@
 )
 
 /// Selector for block-level elements (exclude `block`)
-#let block-level-sel = block-level-elem.map(e => if e in block-attributes-elem { e.where(block: true) } else if e
-  == figure {
-  e.where(placement: none)
-} else {
+#let block-level-sel = block-level-elem.map(e => if e in block-attributes-elem { e.where(block: true) } else {
   selector(e)
 })
 
@@ -483,45 +480,45 @@
 
     let e = it.func()
 
-    let is-list = e in (list, enum, terms)
-
-    let tight = if is-list {
-      if it.tight {
-        (tight: it.tight)
-      } else {
-        (tight: it.tight, count: it.children.len())
-      }
-    } else {
-      (:)
-    }
-
-    // paragraph spacing
-    context if block.above == auto and (if is-list { it.tight } else { true }) {
-      let is-text-block-leading = text-block-leading(e)
-      let is-block-block-leading = block-block-leading(e)
-      if is-text-block-leading or is-block-block-leading {
-        let (par-type, ..leading-args) = par-type-state.get().data
-        if is-text-block-leading {
-          if par-type == ParType.default {
-            v-block(above: par.leading)
-          }
-        }
-        if is-block-block-leading {
-          if is-par-type-block(par-type) {
-            let is-tight-list = leading-args.at("tight", default: none) in (none, true)
-            if leading-args.at("below", default: none) == auto and is-tight-list {
-              v-block(above: par.leading)
-            }
-          }
-        }
-      }
-    }
-
     if e == figure and it.placement != none {
       par-type-state.update(update-dic(backup: true))
       it
       par-type-state.update(update-dic(backup: auto))
     } else {
+      let is-list = e in (list, enum, terms)
+
+      let tight = if is-list {
+        if it.tight {
+          (tight: it.tight)
+        } else {
+          (tight: it.tight, count: it.children.len())
+        }
+      } else {
+        (:)
+      }
+
+      // paragraph spacing
+      context if block.above == auto and (if is-list { it.tight } else { true }) {
+        let is-text-block-leading = text-block-leading(e)
+        let is-block-block-leading = block-block-leading(e)
+        if is-text-block-leading or is-block-block-leading {
+          let (par-type, ..leading-args) = par-type-state.get().data
+          if is-text-block-leading {
+            if par-type == ParType.default {
+              v-block(above: par.leading)
+            }
+          }
+          if is-block-block-leading {
+            if is-par-type-block(par-type) {
+              let is-tight-list = leading-args.at("tight", default: none) in (none, true)
+              if leading-args.at("below", default: none) == auto and is-tight-list {
+                v-block(above: par.leading)
+              }
+            }
+          }
+        }
+      }
+
       par-type-state.update(update-dic(dic: none-par-type))
 
       it

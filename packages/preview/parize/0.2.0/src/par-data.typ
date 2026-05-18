@@ -38,7 +38,10 @@
 #let update-parbreak = it => {
   let par-type = it.data.par-type
 
-  if par-type == ParType.native {
+  if (
+    par-type
+      in (ParType.native, ParType.non-tight-list-parbreak, ParType.parbreak-indented, ParType.parbreak-non-indented)
+  ) {
     return it
   }
   let is-non-tight-list = it.data.at("tight", default: none) == false
