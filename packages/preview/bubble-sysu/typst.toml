@@ -1,0 +1,12 @@
+[package]
+name = "bubble-sysu"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Langxi Yuan <yuanlx27@mail2.sysu.edu.cn>"]
+license = "MIT"
+description = "Reports at Sun Yat-Sen University."
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
