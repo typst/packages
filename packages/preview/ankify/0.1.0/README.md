@@ -1,20 +1,3 @@
-<br>
-<div align="center">
-<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/nvlang/ankify/main/res/dark/logotype.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/nvlang/ankify/main/res/light/logotype.svg">
-    <img alt="Logotype" src="https://raw.githubusercontent.com/nvlang/ankify/main/res/light/logotype.svg" width="33%">
-</picture>
-<br>
-<br>
-<div>
-
-[<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/ankify-_?style=flat-square&logo=typst&logoColor=a3acb7&labelColor=21262d&color=21262d&logoSize=auto"><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/ankify-_?style=flat-square&logo=typst&logoColor=24292f&labelColor=eaeef2&color=eaeef2&logoSize=auto"><img alt="Typst package name" src="https://img.shields.io/badge/ankify-_?style=flat-square&logo=typst&logoColor=24292f&labelColor=eaeef2&color=eaeef2&logoSize=auto"></picture>](https://typst.app/universe/package/ankify)
-[<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/crates/ankify-_?style=flat-square&logo=rust&logoColor=a3acb7&labelColor=21262d&color=21262d&logoSize=auto"><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/crates/ankify-_?style=flat-square&logo=rust&logoColor=24292f&labelColor=eaeef2&color=eaeef2&logoSize=auto"><img alt="Rust crate name" src="https://img.shields.io/badge/crates/ankify-_?style=flat-square&logo=rust&logoColor=24292f&labelColor=eaeef2&color=eaeef2&logoSize=auto"></picture>](https://crates.io/crates/ankify)
-</div>
-</div>
-<br>
-
 > **Alpha** — `ankify` is alpha software under active development. Expect
 > bugs, rough edges, and breaking changes between releases.
 
@@ -113,7 +96,7 @@ add-on, and the incremental sync workflow are all described in the
 
 ## License
 
-MIT — see [LICENSE](https://github.com/nvlang/ankify/blob/main/LICENSE).
+MIT — see [LICENSE](https://github.com/nvlang/ankify/blob/502a2f90251e5fca87e6d0334ad23500d61346f3/LICENSE).
 
 ## Trademarks
 
