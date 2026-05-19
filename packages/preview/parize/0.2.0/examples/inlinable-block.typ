@@ -60,7 +60,7 @@ When users apply `parize` to `block`, such containers will be processed as part 
     #set par(first-line-indent: (amount: 2em, all: false), spacing: 1.5em)
     #show "Test figure": set text(fill: red) // debug
 
-    #import "../lib.typ": *
+    #import "@preview/parize:0.2.0": *
 
     #let test-figure(label-test: "fig:parize") = [
       #lorem(6)
@@ -125,7 +125,7 @@ When users apply `parize` to `block`, such containers will be processed as part 
   #set par(first-line-indent: (amount: 2em, all: false), spacing: 1.5em)
   #show "Test figure": set text(fill: red) // debug
 
-  #import "../lib.typ": *
+  #import "@preview/parize:0.2.0": *
 
   #let test-figure(label-test: "fig:parize") = [
     #lorem(8)
@@ -318,7 +318,7 @@ When users apply `parize` to `block`, such containers will be processed as part 
     #set par(first-line-indent: (amount: 2em, all: true), spacing: 1.5em)
 
 
-    #import "../lib.typ": *
+    #import "@preview/parize:0.2.0": *
     #show: par-indent.with(
       include-elem: (block, math.equation, enum, list, terms),
       use-par-leading: (
@@ -372,7 +372,7 @@ When users apply `parize` to `block`, such containers will be processed as part 
   #show link: set text(fill: orange)
   #set par(first-line-indent: (amount: 2em, all: true), spacing: 1.5em)
 
-  #import "../lib.typ": *
+  #import "@preview/parize:0.2.0": *
   #show: par-indent.with(
     include-elem: (block, math.equation, enum, list, terms),
     use-par-leading: (

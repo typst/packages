@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/parize:0.2.0": *
 #set page(width: 12cm, margin: 1cm, height: auto)
 #set block(stroke: red)
 
