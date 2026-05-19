@@ -9,4 +9,4 @@ repository = "https://github.com/benedict-armstrong/presio-typst-package"
 keywords = ["presentation", "slides", "speaker-notes", "video", "pdf"]
 categories = ["visualization"]
 compiler = "0.13.0"
-exclude = ["examples/**", "README.md"]
+exclude = ["examples/**"]
