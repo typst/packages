@@ -192,7 +192,7 @@ Example Two:
 </details>
 
 
-- See [ex-in-elems-test.typ](tests/ex-in-elems-test.typ) for details on using `par-indent` with the `rect` element when `Paragraph Indentation` or `Paragraph Spacing` is enabled.
+- See [rect-test](examples/rect-test.typ) for details on using `par-indent` with the `rect` element when `Paragraph Indentation` or `Paragraph Spacing` is enabled.
 - See also [inlinable-block.pdf](examples/inlinable-block.pdf) ([source](examples/inlinable-block.typ)) for details on using `par-indent` with custom block-level containers that can be treated as part of a paragraph.
 
 ## Features
