@@ -56,7 +56,7 @@ Write your notes as usual; each `definition(...)` both typesets the definition
 | `deck` | Target Anki deck. | `"Default"` |
 | `model` | Anki note type. | `"Basic"` |
 | `tags` | Array of tag strings. | `()` |
-| `format` | `"svg"`, `"png"`, or `"plain"` — how the fields render. | `"png"` |
+| `format` | `"svg"`, `"png"`, or `"plain"` — how the fields render. | `"svg"` |
 | `other` | Extra metadata passed through to AnkiConnect. | `none` |
 | `render` | Function transforming each field before it is rendered (advanced). | identity |
 

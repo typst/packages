@@ -127,7 +127,7 @@
 //
 // - format (str): Rendering format (`"png"`, `"svg"`, `"plain"`).
 //
-//   _Default:_ `"png"`
+//   _Default:_ `"svg"`
 //
 // - render (function): Function to render the note content. Its signature is
 //   `(note: dictionary, field: str, field-content: content | str) => content`,

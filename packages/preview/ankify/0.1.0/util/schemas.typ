@@ -7,7 +7,7 @@
   defaults: (
     model: "Basic",
     deck: "Default",
-    format: "png",
+    format: "svg",
     tags: (),
     other: none,
     render: (note: none, field: none, field-content: none) => { field-content },
