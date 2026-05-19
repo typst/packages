@@ -59,13 +59,6 @@
   primary-bg:       rgb("#fdf2f8"),
 )
 
-// Set active theme
-#let _active-theme = theme-lara-cyan
-#let pr-primary       = _active-theme.primary
-#let pr-primary-dark  = _active-theme.primary-dark
-#let pr-primary-light = _active-theme.primary-light
-#let pr-primary-bg    = _active-theme.primary-bg
-
 // Surface colors
 #let pr-surface-a   = rgb("#ffffff")
 #let pr-surface-b   = rgb("#f9fafb")
@@ -100,6 +93,15 @@
 #let pr-neutral-bg     = rgb("#f2f2f2")
 #let pr-neutral-text   = rgb("#8394ae")
 
+// Spacing scale
+#let pr-space-xs = 0.5em
+#let pr-space-sm = 0.75em
+#let pr-space-md = 1em
+#let pr-space-lg = 2em
+
+// Set theme state
+#let theme-state = state("primeone-typst:theme", theme-lara-cyan)
+
 // Icons
 #let gs(name) = text(font: "Material Symbols Rounded Filled", name)
 #let icon-info = gs("\u{e88e}")
@@ -117,11 +119,12 @@
 )
 
 // Badge component
-#let badge(label, severity: "info", size: 0.875em) = {
+#let badge(label, severity: "info", size: 1em) = {
   let colors = badge-colors.at(severity, default: badge-colors.info)
   box(
     fill: colors.bg,
-    inset: (x: 0.5em, y: 0.5em),
+    inset: (x: pr-space-xs),
+    outset: (y: 0.25em),
     radius: 7.5pt,
   )[
     #text(
@@ -149,13 +152,11 @@
     }
 
     #block(
-      inset: (x: 1em, y: 1em),
+      inset: pr-space-md,
       width: 100%
     )[
       #if title != none {
-        block(
-          below: 1em
-        )[
+        block(below: if subtitle != none { pr-space-xs } else { pr-space-md })[
           #text(
             fill: pr-surface-700,
             size: 1.5em,
@@ -164,16 +165,12 @@
         ]
       }
       #if subtitle != none {
-        block()[
+        block(below: pr-space-md)[
           #text(
             fill: pr-text-secondary,
             size: 1em
           )[#subtitle]
         ]
-      }
-
-      #if title != none or subtitle != none {
-        v(1em)
       }
 
       #block()[
@@ -188,7 +185,7 @@
       block(
         above: 0pt,
         fill: pr-surface-b,
-        inset: (x: 1em, y: 1em),
+        inset: pr-space-md,
         stroke: (top: 0.75pt + pr-border),
         width: width
       )[
@@ -211,7 +208,7 @@
       block(
         below: 0pt,
         fill: pr-surface-b,
-        inset: (x: 1em, y: 1em),
+        inset: pr-space-md,
         stroke: (bottom: 0.75pt + pr-border),
         width: 100%
       )[
@@ -224,7 +221,7 @@
     }
 
     #block(
-      inset: (x: 1em, y: 1em),
+      inset: pr-space-md,
       width: 100%
     )[#body]
   ]
@@ -258,7 +255,7 @@
   let (bg, col, icon) = _msg-style(severity)
   block(
     fill: bg,
-    inset: (x: 0.75em, y: 0.75em),
+    inset: pr-space-sm,
     radius: 7.5pt,
   )[
     #text(
@@ -268,7 +265,7 @@
     )[
       #grid(
         columns: (auto, 1fr),
-        column-gutter: 0.5em,
+        column-gutter: pr-space-xs,
         align: left + horizon,
         text(
           fill: col,
@@ -289,10 +286,10 @@
   let content = {
     if title != none {
       block(
-        below: 0.5em,
+        below: pr-space-sm,
         text(
           fill: col,
-          size: 1em,
+          size: 1.25em,
           weight: "semibold",
           title
         )
@@ -301,7 +298,7 @@
 
     text(
       fill: col,
-      size: 0.875em,
+      size: 1em,
       body
     )
   }
@@ -315,12 +312,12 @@
       left: 7.5pt,
       block(
         fill: bg,
-        inset: (x: 0.75em, y: 0.75em),
+        inset: pr-space-sm,
         radius: (right: 7.5pt),
         width: 100%,
         grid(
           columns: (auto, 1fr),
-          column-gutter: 0.5em,
+          column-gutter: pr-space-xs,
           align: top,
           text(
             font: "Material Symbols Rounded Filled",
@@ -336,26 +333,12 @@
   )
 }
 
-// Override codeblock layout used by Quarto
-#let Skylighting(lines) = block(
-  width: 100%,
-  fill: pr-surface-b,
-  stroke: 0.75pt + pr-border,
-  radius: 7.5pt,
-  clip: true,
-  inset: (x: 1em, y: 1em),
-)[
-  #set text(fill: pr-text, font: "Liberation Mono", size: 1em)
-  #for line in lines {
-    line
-    linebreak()
-  }
-]
-
-// Checkbox component
-#let checkbox(label: "", checked: false, disabled: false) = {
-  let box-fill   = if checked { pr-primary }    else { pr-surface-a }
-  let box-stroke = if checked { pr-primary }    else { pr-surface-300 }
+// Checkbox component.
+#let checkbox(label: "", checked: false, disabled: false, theme: none) = context {
+  let active = if theme == none { theme-state.get() } else { theme }
+  let primary    = active.primary
+  let box-fill   = if checked { primary }       else { pr-surface-a }
+  let box-stroke = if checked { primary }       else { pr-surface-300 }
   let text-col   = if disabled { pr-surface-400 } else { pr-text }
   grid(
     align: horizon,
@@ -415,12 +398,21 @@
   toc-title: none,
   toc-depth: none,
   toc-indent: 1.5em,
+  theme: theme-lara-cyan,
   doc,
 ) = {
   let meta-authors = ()
   if authors != none {
     meta-authors = authors.map(a => a.name)
   }
+
+  // Resolve theme-derived color used by this template (title-page
+  // separator and author email accent).
+  let primary = theme.primary
+
+  // Publish the active theme so themed components (e.g. checkbox) can
+  // read it via theme-state.get() without receiving it as an argument.
+  theme-state.update(theme)
 
   set document(
     title: title,
@@ -461,7 +453,7 @@
   set par(
     justify: false,
     leading: 0.65em,
-    spacing: 1em
+    spacing: pr-space-md,
   )
 
   set text(
@@ -473,7 +465,11 @@
   )
   set heading(numbering: sectionnumbering)
 
-  show heading.where(level: 1): it => block(above: 2em, below: 1em)[
+  show heading.where(level: 1): set block(above: pr-space-lg, below: pr-space-md)
+  show heading.where(level: 2): set block(above: pr-space-lg, below: pr-space-sm)
+  show heading.where(level: 3): set block(above: pr-space-md, below: pr-space-sm)
+
+  show heading.where(level: 1): it => block[
     #text(
       font:   (heading-family, "Liberation Sans"),
       weight: heading-weight,
@@ -482,7 +478,7 @@
     )[#it.body]
   ]
 
-  show heading.where(level: 2): it => block(above: 1.5em, below: 0.875em)[
+  show heading.where(level: 2): it => block[
     #text(
       font:   (heading-family, "Liberation Sans"),
       weight: heading-weight,
@@ -491,7 +487,7 @@
     )[#it.body]
   ]
 
-  show heading.where(level: 3): it => block(above: 1.25em, below: 0.75em)[
+  show heading.where(level: 3): it => block[
     #text(
       font:   (heading-family, "Liberation Sans"),
       weight: heading-weight,
@@ -503,73 +499,61 @@
   show line: _ => block(
     width: 100%,
     height: 0.75pt,
-    fill: pr-border
+    fill: pr-border,
+    above: pr-space-md,
+    below: pr-space-md,
   )
 
-  show table: it => {
-    show grid: set block(above: 0pt, below: 0pt)
-    let col-count = it.columns.len()
-    let cells = it.children.filter(c => c.func() == table.cell)
-    let header-cells = cells.slice(0, col-count)
-    let body-cells = cells.slice(col-count)
-    let col-fracs = (1fr,) * col-count
+  show table: set block(above: pr-space-md, below: pr-space-md)
+  show table: set table(
+    inset: (
+      x: pr-space-md,
+      y: pr-space-xs
+    ),
+    stroke: (_, y) => if y > 0 { (top: 0.75pt + pr-border) },
+    fill: (_, y) => {
+      if y == 0 { pr-surface-b }                       // Header row
+      else if calc.rem(y, 2) == 0 { pr-surface-b }     // Even body rows
+      else { pr-surface-a }                            // Odd body rows
+    },
+  )
 
-    let rows = ()
-    let i = 0
-    while i < body-cells.len() {
-      rows.push(body-cells.slice(i, calc.min(i + col-count, body-cells.len())))
-      i = i + col-count
-    }
+  // Header row
+  show table.cell.where(y: 0): set text(
+    fill: pr-surface-700,
+    weight: "medium",
+  )
+  show table.cell.where(y: 0): set table.cell(
+    inset: (x: pr-space-md, y: pr-space-md),
+  )
 
-    block(
-      width: 100%,
-      fill: pr-surface-a,
-      stroke: 0.75pt + pr-border,
-      radius: 7.5pt,
-      clip: true,
-    )[
-      // Header
-      #grid(
-        columns: col-fracs,
-        ..header-cells.map(c => block(
-          fill: pr-surface-b,
-          inset: (x: 1em, y: 1em),
-          stroke: (bottom: 0.75pt + pr-border),
-          width: 100%,
-        )[
-          #text(
-            fill: pr-surface-700,
-            size: 1em,
-            weight: "semibold"
-          )[#c.body]
-        ])
-      )
-      // Body
-      #for (i, row) in rows.enumerate() {
-        let row-bg = if calc.rem(i, 2) == 1 { pr-surface-b } else { pr-surface-a }
-        grid(
-          columns: col-fracs,
-          ..row.map(c => block(
-            fill: row-bg,
-            inset: (x: 1em, y: 0.5em),
-            stroke: (bottom: if i < rows.len() - 1 { 0.75pt + pr-border } else { none }),
-            width: 100%,
-          )[
-            #text(fill: pr-text, size: 1em)[#c.body]
-          ])
-        )
-      }
-    ]
-  }
+  // Outer rounded container around the table.
+  show table: it => block(
+    width: auto,
+    fill: pr-surface-a,
+    stroke: 0.75pt + pr-border,
+    radius: 7.5pt,
+    clip: true,
+    inset: 0pt,
+  )[#it]
 
   // Codeblock
+  // Quarto specific style changes
+  show raw.where(block: true): set block(
+    fill: none,
+    inset: 0pt,
+    radius: 0pt,
+  )
+
   show raw.where(block: true): it => block(
     width: 100%,
     fill: pr-surface-b,
     stroke: 0.75pt + pr-border,
     radius: 7.5pt,
     clip: true,
-    inset: (x: 1em, y: 1em),
+    inset: pr-space-md,
+    above: pr-space-md,
+    below: pr-space-md,
   )[
     #text(
       fill: pr-text,
@@ -578,7 +562,7 @@
     )[#it]
   ]
 
-  // Inline Codeblock
+  // Inline raw
   show raw.where(block: false): set text(font: "Liberation Mono")
 
   // Titlepage
@@ -612,11 +596,11 @@
 
       block(
         width:  100%,
-        stroke: (bottom: 3pt + pr-primary),
+        stroke: (bottom: 3pt + primary),
         inset:  (x: 0pt, y: 3em),
         title-content,
       )
-      v(2em)
+      v(pr-space-lg)
     }
 
     // Authors
@@ -643,13 +627,13 @@
           #if a.at("email", default: none) != none and a.email != "" [
             #v(0.25em)
             #text(
-              fill: pr-primary,
+              fill: primary,
               size: 1em
             )[#a.email]
           ]
         ])
       )
-      v(2em)
+      v(pr-space-lg)
     }
 
     // Date
@@ -669,7 +653,7 @@
           size: 1.25em,
           weight: "semibold"
         )[#abstract-title]
-        #v(0.5em)
+        #v(pr-space-xs)
         #text(
           fill: pr-text-secondary,
           size: 1em
@@ -682,7 +666,7 @@
 
   // Table of contents
   if toc {
-    block(above: 0em, below: 2em)[
+    block(above: 0em, below: pr-space-lg)[
       #outline(
         title: toc-title,
         depth: toc-depth,

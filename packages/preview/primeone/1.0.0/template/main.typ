@@ -14,6 +14,7 @@
   toc: true,
   toc-title: "Table of Contents",
   toc-depth: 2,
+  theme: theme-lara-green
 )
 
 = Typography
