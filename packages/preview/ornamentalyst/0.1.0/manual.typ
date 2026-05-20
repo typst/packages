@@ -1,4 +1,4 @@
-#import "lib.typ": ornament, fit-to-dim
+#import "@preview/ornamentalyst:0.1.0": ornament, fit-to-dim
 
 #set grid.cell(breakable: false)
 
