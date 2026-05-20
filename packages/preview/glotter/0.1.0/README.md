@@ -83,12 +83,12 @@ Hallo Welt.
 
 ![Example of auto-par function](images/example04.png)
 
-## Applications
+## Use Cases
 
-`glotter` is designed not only for direct use, but also as a building block for downstream Typst packages, templates, and document-processing workflows.
+`glotter` can be used directly, but it is also designed as a building block for downstream Typst packages, templates, and document-processing workflows.
 
 Typst already supports language-aware text through `text(lang: ...)`.
-`glotter` provides the missing step: detecting which language to apply to a given text fragment.
+`glotter` provides the missing step: detecting which language should be applied to a given text fragment.
 
 ### Multilingual templates
 
