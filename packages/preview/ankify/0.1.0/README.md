@@ -96,7 +96,7 @@ add-on, and the incremental sync workflow are all described in the
 
 ## License
 
-MIT — see [LICENSE](https://github.com/nvlang/ankify/blob/502a2f90251e5fca87e6d0334ad23500d61346f3/LICENSE).
+MIT — see [LICENSE](LICENSE).
 
 ## Trademarks
 
