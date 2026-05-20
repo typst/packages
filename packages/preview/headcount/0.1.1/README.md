@@ -12,7 +12,7 @@ In the following example, we demonstrate how you can inherit 1 level of the head
 
 ```typ
 #import "@preview/headcount:0.1.1": *
-#import "@preview/great-theorems:0.1.0": *
+#import "@preview/great-theorems:0.1.2": *
 
 #show: great-theorems-init
 
@@ -52,7 +52,7 @@ The theorems inherit 2 levels from the headings and the figures inherit 1 level 
 #figure([SOME FIGURE], caption: [some figure])
 #theorem[Some theorem.]
 ```
-![](example.png)
+![A rendering of the showcase example.](example.png)
 
 ## Usage
 

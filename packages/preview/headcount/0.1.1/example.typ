@@ -1,5 +1,5 @@
 #import "@preview/headcount:0.1.1": *
-#import "@preview/great-theorems:0.1.0": *
+#import "@preview/great-theorems:0.1.2": *
 
 #show: great-theorems-init
 
