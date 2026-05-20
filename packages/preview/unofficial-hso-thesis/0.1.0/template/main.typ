@@ -1,4 +1,4 @@
-#import "@preview/hso-thesis:0.1.0": company, faculty, styles, supervisor, thesis, thesis-info, thesis-type
+#import "@preview/unofficial-hso-thesis:0.1.0": company, faculty, styles, supervisor, thesis, thesis-info, thesis-type
 
 // TODO Die folgende Seite muss nach dem Lesen entfernt werden
 #include "chapters/README.typ"

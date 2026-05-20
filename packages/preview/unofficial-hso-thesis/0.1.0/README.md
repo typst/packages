@@ -1,4 +1,4 @@
-# hso-thesis
+# unofficial-hso-thesis
 
 Typst template for Bachelor's, Master's theses and seminar reports at Hochschule Offenburg (University of Applied Sciences Offenburg). Supports multiple faculties and follows the official academic writing guidelines.
 
@@ -15,7 +15,7 @@ Typst template for Bachelor's, Master's theses and seminar reports at Hochschule
 Initialize a new project:
 
 ```bash
-typst init @preview/hso-thesis:0.1.0
+typst init @preview/unofficial-hso-thesis:0.1.0
 ```
 
 This copies the template files into your project. Edit `main.typ` to fill in your metadata and start writing.
@@ -23,7 +23,7 @@ This copies the template files into your project. Edit `main.typ` to fill in you
 ## Usage
 
 ```typst
-#import "@preview/hso-thesis:0.1.0": company, faculty, styles, supervisor, thesis, thesis-info, thesis-type
+#import "@preview/unofficial-hso-thesis:0.1.0": company, faculty, styles, supervisor, thesis, thesis-info, thesis-type
 
 #let info = thesis-info(
   lang: "de",
@@ -118,17 +118,3 @@ Alternatively, compile with `--font-path /path/to/fonts` pointing to a directory
 - **`src/`** — [MIT License](LICENSE). Package source code.
 - **`template/`** — [MIT-0 (No Attribution)](LICENSE). You can freely publish your thesis without including any copyright notice.
 - **`assets/hso-logo.svg`** — property of Hochschule Offenburg, included with their permission. Not covered by the MIT/MIT-0 licenses.
-
-## Local Installation
-
-To test before publishing, copy the package into your local Typst packages directory:
-
-- **Windows:** `%LOCALAPPDATA%\typst\packages\preview\hso-thesis\0.1.0\`
-- **macOS:** `~/Library/Application Support/typst/packages/preview/hso-thesis/0.1.0/`
-- **Linux:** `~/.local/share/typst/packages/preview/hso-thesis/0.1.0/`
-
-Then initialize with:
-
-```bash
-typst init @preview/hso-thesis:0.1.0
-```
