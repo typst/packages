@@ -1,6 +1,6 @@
 [package]
 name = "chemformula"
-version = "0.1.2"
+version = "0.1.3"
 entrypoint = "export.typ"
 authors = ["pacaunt <@pacaunt>"]
 license = "MIT"

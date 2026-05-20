@@ -1,321 +1,237 @@
-# Presentate
-**Presentate** is a package for creating presentation in Typst. It provides a framework for creating dynamic animation that is compatible with other packages. 
-For usage, please refer to [manual.pdf](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/manual/manual.pdf)
-
-
-## Simple Usage 
-Import the package with 
-```typst
-#import "@preview/presentate:0.2.6": *
-```
-and then, the functions are automatically available. 
-
-### Creating slides 
-You can create a slide using `slide` function. For simple animation, you can use `pause` function to show show some content later.
-The easiest is to type `#show: pause`. For example,
-```typst
-#set page(paper: "presentation-16-9")
-#set text(size: 25pt)
-
-#slide[
-  Hello World!
-  #show: pause;
-
-  This is `presentate`.
-]
-```
-
-which results in 
-
-![simple pause animation](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/features/example-simple-pause.png)
-
-You can style the slides as you would do with normal Typst document. For example, 
-
-```typst
-#set page(paper: "presentation-16-9")
-#set text(size: 25pt, font: "JetBrainsMono NF")
-#set align(horizon)
-
-#slide[
-  = Welcome to Presentate! 
-  \
-  A lazy author \
-  #datetime.today().display()
-]
-
-#set align(top)
-
-#slide[
-  == Tips for Typst.
-
-  #set align(horizon)
-  Do you know that $pi != 3.141592$?
-
-  #show: pause 
-  Yeah. Certainly.
-
-  #show: pause 
-  Also $pi != 22/7$.
-]
-```
-
-![example using Typst styling](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/features/example-styling.png)
-
-### Relative Index Specification 
-You can use `none` and `auto`, or even `(rel: int)` to specify the index as *with previous animation*, *after previous animation*, or `int` subslides away from the current number of pauses.
+# chemformula
+Typst Packages for easy and extensible chemical formula formatting.
+This provide a `ch` function for writing chemical notations. 
+Chemformula uses Typst's [math mode](https://typst.app/docs/reference/math/) to [evaluate](https://typst.app/docs/reference/foundations/eval/) the input string (or raw) in the `ch` function and render them into the document. 
+# Usage 
+Import this pacakge by 
 ```typ
-// Set the cover functions to see the effect better.
-#let grayed = text.with(fill: gray.transparentize(50%))
-
-#let pause = pause.with(hider: grayed)
-#let uncover = uncover.with(hider: grayed)
-
-#slide[
-  = Relative `auto`, `none`, and `(rel: int)` Indices
-
-  This is present first
-
-  #show: pause
-
-  #only(auto)[This came later, but *not* preserve space.]
-  _This will shift. $->$_
-
-  #uncover(none)[This comes with current `pause`.]
-
-  #pause[This is the second `pause`.]
-
-  #pause[This is the third `pause`]
-
-  #uncover((rel: -1), [But This come before.])
-]
+#import "@preview/chemformula:0.1.3": ch
 ```
+## Examples 
 
-![relative index specification example](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/features/example-relative-indices.png)
+### Chemical Formulae
+The number preceding by other letters is subscripted by default.
+```typ
+#ch("H2O")
 
-### Varying Timeline
-You can specify the `update-pause` argument of dynamic functions to tell if that function will update the current number of pause or not. If set to `true`, the number of pauses will set to that value. 
-
-This is useful for modifying steps of the animation so that some contents appear with or after another. 
-One application is for showing contents in sync: 
-
-```typst
-#slide[
-  = Content in Sync
-  #table(columns: (1fr, 1fr), stroke: 1pt)[
-    First
-
-    #show: pause;
-    I am
-
-    #show: pause;
-
-    in sync.
-  ][
-    // `[]` is a dummy content.
-    #uncover(1, [], update-pause: true)
-    Second
-
-    #show: pause;
-    I am
-
-    #show: pause;
-
-    in sync.
-    
-    #show: pause 
-    Heheh
-  ]
-]
+#ch("Sb2O3")
 ```
+<img alt="simple molecule typesetting" src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example1.png" />
 
-![Hack for in-sync content showing using update-pause](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/features/example-in-sync.png)
+### Chemical Equations
+You can use `->` to draw arrow. The length will changes according to the content being above or below the arrow. The arrow is rendered using Typst's [stretch function](https://typst.app/docs/reference/math/stretch/).
+```typ
+#ch("CO2 + C -> 2 CO")
 
-
-### Motion Control
-
-You can have a precise control on what should be shown on each subslide relatively without worring about their order in definition code by using `#motion` function, and tag by a unique name for each contents in `#tag` function. For example, 
-
-```typst
-#import "@preview/cetz:0.5.2": canvas, draw
-
-#slide[
-  = Drawing A Fan
-  #set align(center + horizon)
-  #motion(
-    s => [
-      #canvas({
-        import draw: *
-        scale(3)
-        tag(s, "filled", hider: it => none, stroke(red + 5pt))
-        tag(s, "arc", arc((0, 0), start: 30deg, stop: 150deg, name: "R"))
-        tag(s, "line1", line("R.start", "R.origin"))
-        tag(s, "line2", line("R.end", "R.origin"))
-      })
-    ],
-    hider: draw.hide.with(bounds: true),
-    controls: (
-      "line2.start",
-      "line1.start",
-      "arc.start",
-      "filled.start"
-    ),
-  )
-]
+// Multilines are allowed!
+#ch("Hg^2+ ->[I^-] HgI2
+           ->[I^-] [Hg^II I4]^2- ")
 ```
-![motion function demonstration](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/features/example-motion.png)
+<img alt="writing reactions can be done by typing an arrow." src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example2.png" />
 
-In this example, featured with CeTZ package, each element is drawn normally, while its animation is shown differently. The precise animation control is done by specifying the tagged names in `controls` argument of `#motion` function. Note that the way of showing and hiding stuff can be modified using `hider` argument of each function.
+### Charges
+Plus and minus signs coming after the text are superscript positioned by default. However, you may use `^` operator to raise them upper. The `^` operator will superscript the content until a space or a semicolon (`;`) is typed.
+```typ
+#ch("H+")
 
+#ch("CrO4^2-") // or 
+#ch("CrO4 ^2-") // IUPAC recommended
 
-### Package Integration 
+#ch("[AgCl2]-")
 
-Use can use the `render` function to create a workspace, and import the `animation` module of Presentate to create animation with other packages. 
-For example, Integration with [CeTZ](https://typst.app/universe/package/cetz) and [Fletcher](https://typst.app/universe/package/fletcher)  
-```typst
-#import "@preview/cetz:0.5.2": canvas, draw
-#import "@preview/fletcher:0.5.8": diagram, edge, node
-
-#slide[
-  = CeTZ integration
-  #render(s => ({
-      import animation: *
-      let (pause,) = settings(hider: draw.hide.with(bounds: true))
-      canvas({
-        import draw: *
-        pause(s, circle((0, 0), fill: green))
-        s.push(auto) // update s
-        pause(s, circle((1, 0), fill: red))
-      })
-    },s)
-  )
-]
-
-#slide[
-  = Fletcher integration
-  #render(s => ({
-    import animation: *
-    diagram($
-        pause(#s, A edge(->)) #s.push(auto)
-          & pause(#s, B edge(->)) #s.push(auto)
-            pause(#s, edge(->, "d") & C) \
-          & pause(#s, D)
-    $,)
-  }, s,))
-]
+#ch("Y^99+") // or
+#ch("Y^(99+)") // Same
 ```
-Results: 
+<img alt="charges can be typed by plus, minus, or superscripted by a caret." src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example3.png" />
 
-![CeTZ and fletcher integration example](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/features/example-cetz.png)
-
-You can incrementally show the content from other package by wrap the functions in the `animate` function, with a modifiers that modifies the function's arguments to hide the content using `modifier`. 
-For example, this molecule animation is created compatible with [Alchemist](https://typst.app/universe/package/alchemist) package: 
-
-```typst
-#import "@preview/alchemist:0.1.9" as alc
-
-// set stroke to `gray`
-#let modifier(func, ..args) = func(stroke: gray + 1pt, ..args) 
-#let (single, double) = animation.animate(modifier: modifier, alc.single, alc.double)
-#let (fragment,) = animation.animate(
-  // set atom color to gray
-  modifier: (func, ..args) => func(colors: (gray,), ..args), 
-  alc.fragment
-)
-
-#slide[
-  = Alchemist Molecules
-  #render(s => ({
-      alc.skeletize({
-        fragment(s, "H_3C")
-        s.push(auto)
-        single(s, angle: 1)
-        fragment(s, "CH_2")
-        s.push(auto)
-        single(s, angle: -1, from: 0)
-        fragment(s, "CH_2")
-        s.push(auto)
-        single(s, from: 0, angle: 1)
-        fragment(s, "CH_3")
-      })
-    },s)
-  )
-]
+### Oxidation States 
+Typing `^^` gives the ability to put things above the elements. This operator captures content in parenthesis/or until black space is met.
+```typ
+#ch("Fe^^II Fe^^III_2 O4") // or 
+#ch("Fe^^(II)Fe^^(III)_(2)O4") // Same
 ```
+<img alt="above text can be written by using double carets" src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example4.png" />
 
-which results in 
+### Stoichiometric Numbers 
+Since the content is evaluated in math mode, the fractions are rendered by default. If one space is present between the compound and digits, then thin space is used. If more than one spaces are typed, then full one normal space will be used.
+```typ
+#ch("2H2O") // Tight 
 
-![incrementally show the molecule using alchemist package](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/features/example-alchemist.png)
+#ch("2 H2O") // Spaced 
+
+#ch("2  H2O") // Very Spaced 
+
+#ch("1/2 H2O") // Automatic Fractions 
+
+#ch("1\/2 H2O") // 
+```
+<img  alt="stoichiometry typing" src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example5.png" />
+
+### Nuclides, Isotopes 
+The syntax writing nuclides is *preceding* the `^` for mass number or `_` for atomic number with space/or begining of the string. Otherwise, the operator will attach to the preceding content.
+```typ
+#ch("^227_90 Th+")
+
+#ch("^227_(90)Th+")
+
+#ch("^0_-1 n-")
+
+#ch("_-1^0 n-")
+```
+<img  alt="how to type nuclides is trivial" src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example6.png" />
+
+### Parenthesis, Braces, Brackets
+In Typst, parentheses are automatically sized by default. If you finding this ugly, you can disrupt them by typing `\` before the parentheses group. To force a group of parenthesis between substances to big-size, wrap the whole reaction with [display](https://typst.app/docs/reference/introspection/counter/#definitions-display) function.
+```typ
+#ch("(NH4)2S") // Automatic sizing 
+
+#ch("[{(X2)3}2]^3+") 
+
+#ch("\[{(X2)3}2]^3+") // To disable this behavior, just type `\`
+
+$display(ch("CH4 + 2(O2 + 7/2N2)"))$ // Hack with math mode
+```
+<img  alt="escaping parenthesis not to be auto sized" src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example7.png" />
+
+### States of Aggregation 
+Normally, lower case letters are considered math variables, and multiple form of them will be symbol/variable call. This follows the Typst's naive math syntax. However, `(aq)` is preserved by the parser as math variable that evaluates to `"aq"`. 
+```example 
+#ch("H2(g)")
+
+#ch("CO3^2-_((aq))")
+
+#ch("NaOH(aq, $oo$)")
+
+#ch("NaHCO3(s)")
+```
+<img alt="states of matter can be typed directly." src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example8.png" />
+
+You can use `$..$` syntax for escaping the parser so that the content inside will be directly evaluated by math mode. 
 
 
+### Radical Dots 
+`*` or `.` in superscript and subscript mode will be used as radical notation. This uses `sym.bullet` to display.
+```typ
+#ch("OCO^*-")
 
-## Structured Themes
+#ch("NO^((2*)-)")
+```
+<img alt="radical can be typed by using an asterisk or a dot." src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example9.png" />
 
-Presentate now includes a suite of **structured themes** designed to automatically handle document hierarchy (up to 3 levels of nesting), navigation, and transitions. These themes use the [navigator](https://typst.app/universe/package/navigator/) package.
+### Escaped Modes
+Contents inside `$..$` will be escaped by the parser and evaluated in math mode directly bypassing other grammars.  So you can type greek letters or other variables in math in this mode, for example.
+```typ
+// Use Math Mode!
+#ch("NO_x") is the same as #ch("NO_$x$")
 
-### Available Themes
-- `sidebar`: A persistent navigation sidebar (left or right) that tracks your progress.
-- `miniframes`: A dot-based progress bar (beamer Berlin style).
-- `split`: A header divided into two contrasting areas for current section and subsection titles (beamer Copenhagen style).
-- `progressive-outline`: A clean, progression-focused design featuring dynamic breadcrumbs.
-- `minimal`: A "content-first" theme with no persistent UI, but with automatic roadmap transitions.
+#ch("Fe^n+") is the same as #ch("Fe^$n+$")
 
-### Usage
-Structured themes are located in the `themes` namespace. They are applied via a `show` rule:
+#ch("Fe(CN)_$6/2$") // Fractions!
+
+#ch("$#[*CO*]$_2^3") // bold text 
+
+// Or just type texts...
+#ch("mu\"-\"Cl") // Hyphen Escaped
+```
+<img alt="escaping the parser can be done by using double quotes or dollar signs" src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example10.png" />
+
+## Reaction Arrows 
+```typ
+#ch("A -> B")
+
+#ch("A <- B")
+
+#ch("A <-> B")
+
+#ch("A <=> B")
+```
+<img  alt="there are multiple supported reaction arrows" src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example11.png" />
+
+### Above/Below Arrow Text 
+```typ
+#ch("A ->[Delta] B")
+
+#ch("A <=>[Above][Below] B")
+
+#ch("CH3COOH <=>[+ OH-][+ H+] CH3COO-")
+```
+<img alt="above and below text on an arrow can be typed next to the arrow." src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example12.png" />
+
+### Precipitation and Gas 
+This feature has *very* dedicate syntax: the `^` or `v` must precede -and- folows by white space.
+```typ
+#ch("SO4^2- + Ba^2+ -> BaSO4 v")
+
+#ch("A v B v -> B ^ B ^")
+```
+<img  alt="precipitation and gas are also supported by typing a v or a caret character." src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example13.png" />
+
+### Alignments
+```typ
+$ ch("A &-> B") \
+  ch("B &-> C + D")
+$
+```
+<img  alt="Equation alignments are trivially supported" src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example14.png" />
+
+### Bonds 
+You can use a double dash `--`, to indicate single bond, double equal sign `==` for double bonds, and double tilde `~~` for triple bonds. 
 
 ```typ
-#import "@preview/presentate:0.2.6": *
-#show: themes.sidebar.template.with(
-  title: [My Presentation],
-  author: [pacaunt],
-  mapping: (section: 1, subsection: 2), // Defines which heading levels trigger the structure
-)
+#ch("CH3--CH2--O-Na+")
 
-= Introduction
-== Concept
-#slide[ ... ]
+#ch("CH3C==CH--CH3")
+
+#ch("HC~~CH")
 ```
+<img alt="Double bonds uses double equal signs, single bond uses double dashes, and triple bond uses double tilde." src=https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example15.png>
 
-### Key Features
-- **Transition**: Automatically generates "roadmap" slides during section changes. Highly configurable via the `transitions` argument.
-- **Auto-titling**: With `auto-title: true`, slide titles are automatically derived from the most recent structural heading.
+The styling of the bonds can be set by using the following keys:
+```typc
+  bond-length: 1em,
+  bond-sep: 0.3em,
+  bond-baseline: 0.15em,
+  bond-stroke: 1pt,
+  bond-styles: (:),
+  bond-inset: 0.1em,
+```
+in the argument of `ch` function. For example, 
 
-### Examples
-You can find full implementations of these themes in the `assets/examples/` directory:
-- [Sidebar demo](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/themes/example-sidebar.typ)
-- [Miniframes demo](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/themes/example-miniframes.typ)
-- [Split demo](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/themes/example-split.typ)
-- [Progressive-outline demo](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/themes/example-progressive-outline.typ)
-- [Minimal demo](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/themes/example-minimal.typ)
-- [Custom transition hooks demo](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/examples/themes/example-minimal-custom-transition.typ)
+```typ
+#ch("CH3--CH2", bond-stroke: 3pt + red)
 
-For detailed information on customization (colors, spacing, behavior), please refer to the [Structured Themes Guide](https://github.com/pacaunt/typst-presentate/blob/34584b0751538ef1e121b00290ff29d60511b288/assets/manual/themes-guide.pdf).
+#ch("O==C(CH3)3", bond-sep: 5pt,)
 
-## Versions
-### 0.2.6 
-- added `start` argument to `reveal-item` and `step-item` function.
-- added reference section to the manual.
-### 0.2.5 
-- refactor structured themes to use [navigator](https://typst.app/universe/package/navigator/) 0.1.3 simplified API
-- update themes guide with navigation improvements (short titles and title truncation)
-- added `reveal-item` function to display list/enum group by group. 
-- added new control rule syntax in `motion` function to be able to modify content on each animation step. 
-- added `classic` theme.
-### 0.2.4 
-- Featured with [navigator](https://typst.app/universe/package/navigator/) package for structured themes.
-### 0.2.3
-- Added `#motion` and `#tag` function for precise control of animation display order. 
-- Added relative index `(rel: int)` to animate elements earlier than the current number of pauses.  
-### 0.2.2 
-- Added `hider` argument to `#step-item` function ([#8](https://github.com/pacaunt/typst-presentate/issues/8)).
-### 0.2.1 
-- Added `step-item` function for revealing items step-by-step. 
-- Update the packages examples.
-### 0.2.0
-- Change the framework of animations, using one state for all cover functions.
-- Introduce `render` and `animation` for more flexible package integration.
-### 0.1.0 
-Initial Release
+#ch("O==C(CH3)3", bond-sep: 2pt,)
+```
+<img alt="Stying bonds by bond- as prefix" src=https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example16.png>
 
-## Acknowledgement 
-Thanks [Minideck package author](https://github.com/knuesel/typst-minideck) for the `minideck` package that inspires me the syntax and examples.
-[Touying package authors](https://github.com/touying-typ/touying) and [Polylux author](https://github.com/polylux-typ/polylux) for inspring me the syntax and parsing method. 
+### More Examples 
+Integration seamlessly with Typst's math mode.
+
+```typ
+$  
+  ch("Zn^2+ <=>[+ 2 OH-][+ 2 H+]")
+  limits(ch("Zn(OH)2 v"))_"amphoteres Hydroxid"
+  ch("<=>[+ 2 OH-][+ 2H+]")
+  limits(ch("[Zn(OH)4]^2-"))_"Hydroxozikat"
+$
+```
+<img alt="advanced example 1, typing reactions with multiple charges and names" src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example17.png" />
+
+You can use user-defined functions in `ch`. However, you must add the definition of this function into the `scope` parameter of `ch`.
+
+```typ
+#let tg = text.with(fill: olive)
+#let ch = ch.with(scope: (tg: tg, ch: ch))
+$ ch("Cu^^II Cl2 + K2CO3 -> tg(Cu^^II)CO3 v + 2 KCl") $
+
+$ ch("Hg^2+ ->[I-] HgI2
+            ->[I-] [Hg^II I4]^2-
+") $
+```
+<img alt="advance example 2, typing multiple reactions at once and coloring" src="https://github.com/pacaunt/chemformula/blob/1e15c716acc6c62f1fbebf73a6569dc0febdaf6c/docs/assets/example18.png" />
+
+
+# Acknowledgement 
+This packages' examples and syntax are highly inspired by [mhchem](https://ctan.org/pkg/mhchem?lang=en) package. Please feel free to give any suggestions for improving the feature of this package!
