@@ -3,7 +3,7 @@
 // Use Valkyrie for type validation
 #import "@preview/valkyrie:0.2.2" as z
 
-#import "util/schemas.typ": default-configuration, note-schema, configuration-schema
+#import "util/schemas.typ": configuration-schema, default-configuration, note-schema
 #import "util/merge.typ": merge
 
 // ⚠ Warning: For Ankify-internal use only! Not part of the public API. (It
@@ -56,26 +56,26 @@
 /// ```
 
 #let filter-content(data) = {
-    let data-without-content = (:)
-    for (k, v) in data {
-      if (type(v) == content) {
-        data-without-content.insert(k, "")
-      } else if (type(v) == dictionary) {
-        // Recursively filter content in nested dictionaries
-        let filtered-dict = (:)
-        for (nested-k, nested-v) in v {
-          if (type(nested-v) == content) {
-            filtered-dict.insert(nested-k, "")
-          } else {
-            filtered-dict.insert(nested-k, nested-v)
-          }
+  let data-without-content = (:)
+  for (k, v) in data {
+    if (type(v) == content) {
+      data-without-content.insert(k, "")
+    } else if (type(v) == dictionary) {
+      // Recursively filter content in nested dictionaries
+      let filtered-dict = (:)
+      for (nested-k, nested-v) in v {
+        if (type(nested-v) == content) {
+          filtered-dict.insert(nested-k, "")
+        } else {
+          filtered-dict.insert(nested-k, nested-v)
         }
-        data-without-content.insert(k, filtered-dict)
-      } else {
-        data-without-content.insert(k, v)
       }
+      data-without-content.insert(k, filtered-dict)
+    } else {
+      data-without-content.insert(k, v)
     }
-    return data-without-content
+  }
+  return data-without-content
 }
 
 // Create a note.
