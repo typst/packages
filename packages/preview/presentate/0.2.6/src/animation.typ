@@ -160,7 +160,7 @@
     }
     func = utils.pipe(..funcs.map(f => if f == auto { func } else { f }))
   }
-  
+
   if display-info.visible { func(body) } else { hider(body) }
 }
 
@@ -318,19 +318,23 @@
         if command.name == "clear" {
           element-status.at(command.target).history = ()
         }
+        // inherit the modifier
+        if command.inherited {
+          element-status.at(command.target).func = element-status.at(command.target).history + (command.func,)
+        }
+        // reset the appearance when calling `revert`
+        if command.name == "revert" {
+          element-status.at(command.target).func = auto
+        }
+        // send the animation to other steps
+        if command.leftover {
+          element-status.at(command.target).history += (command.func,)
+        }
         // process the current animation
         current-status = element-status
         // reset the visibility if there is nothing to show when `once` is called
         if command.name == "once" and element-status.at(command.target).history == () {
           element-status.at(command.target).visible = false
-        }
-        // inherit the modifier
-        if command.inherited {
-          current-status.at(command.target).func = current-status.at(command.target).history + (command.func,)
-        }
-        // send the animation to other steps
-        if command.leftover {
-          element-status.at(command.target).history += (command.func,)
         }
       }
 
