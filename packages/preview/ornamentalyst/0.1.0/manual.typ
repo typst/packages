@@ -1,4 +1,4 @@
-#import "@preview/ornamentalyst:0.1.0": ornament, fit-to-dim
+#import "lib.typ": ornament, fit-to-dim
 
 #set grid.cell(breakable: false)
 
@@ -56,7 +56,7 @@ Its main entry point is the `ornament` function, which renders a specific orname
 - `pgfhan`, containing a collection of Chinese traditional motifs compiled by LianTze Lim based on designs by Chenna Zhang.
 - `am`, containing two example symbols
 An ornament can be rendered with ```typst #ornament(<number id>,collection: <collection name>)```, e.g. ```typst #ornament(1,collection: "vectorian")``` gives:\ #ornament(1,collection: "vectorian")\
-It wraps the more general function `symbol_from_pgf_file`, which renders an arbitrary symbol defined in a .pgf file.
+It wraps the more general function `symbol-from-pgf-string`, which renders an arbitrary symbol defined in the .pgf file format (the string would typically be read from a file directly using `read`).
 
 The collection is `"vectorian"` by default, and could thus have been omitted in the example above. The rendered object is placed inline; one will often want to use `place` to render it in the desired position:
 ```typst

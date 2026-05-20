@@ -1,4 +1,5 @@
 #import "dimensions.typ": bp, dimensions
+#import "ornaments.typ": ornaments
 
 // Converts a string corresponding to a float to a length (in bp)
 #let _to_length(s) = {
@@ -27,8 +28,8 @@
 
 
 // Reads a .pgf file and draw the symbol from the code
-#let symbol-from-pgf-file(
-  file-path,
+#let symbol-from-pgf-string(
+  pgf-string,
   width: auto,
   height: auto,
   symmetry: none,
@@ -36,8 +37,7 @@
   xscale: 100%,
   yscale: 100%,
 ) = {
-  let content = read(file-path)
-  let lines = content.split("\n")
+  let lines = pgf-string.split("\n")
   let current_path = ();
   let max_x = 0pt;
   let max_y = 0pt;
@@ -158,8 +158,8 @@
     xscale = height / ref_height * 100%
     yscale = height / ref_height * 100%
   }
-  symbol-from-pgf-file(
-    "./ornaments/"+collection+"/"+collection+num_str+".pgf",
+  symbol-from-pgf-string(
+    ornaments.at(collection).at(num_str),
     width: ref_width, 
     height: ref_height,
     xscale: xscale,
