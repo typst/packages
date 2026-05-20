@@ -1,5 +1,5 @@
-> **Alpha** — `ankify` is alpha software under active development. Expect
-> bugs, rough edges, and breaking changes between releases.
+> **Warning**: `ankify` is in alpha and under active development. Expect bugs,
+> rough edges, and breaking changes between releases.
 
 `ankify` lets you mark up [Anki](https://apps.ankiweb.net) flashcards inline as
 you write Typst. Its companion **`ankify` command-line tool** then renders each
