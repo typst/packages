@@ -10,7 +10,34 @@
   (next - duration(days: 1)).day()
 }
 
-#let _default-cell(n) = text(8pt, weight: "bold")[#n]
+#let _dates-equal(a, b) = {
+  a.year() == b.year() and a.month() == b.month() and a.day() == b.day()
+}
+
+#let _events-for(date, events) = {
+  events
+    .filter(((d, _)) => _dates-equal(d, date))
+    .map(((_, content)) => content)
+}
+
+#let _default-render(date, today, events, today-fill) = {
+  let day-events = _events-for(date, events)
+  let is-today = today != none and _dates-equal(date, today)
+
+  let body = {
+    text(8pt, weight: "bold")[#date.day()]
+    if day-events.len() > 0 {
+      v(1pt)
+      stack(spacing: 1pt, ..day-events.map(e => text(6.5pt)[#e]))
+    }
+  }
+
+  if is-today {
+    table.cell(fill: today-fill)[#body]
+  } else {
+    body
+  }
+}
 
 #let month-grid(
   year,
@@ -20,10 +47,16 @@
   week-start: "mon",
   rotated: false,
   header-fill: luma(230),
+  today-fill: luma(220),
   stroke: 0.5pt,
   inset: 3pt,
-  cell-content: _default-cell,
+  weekday-names: none,
+  cell-content: none,
+  today: none,
+  events: (),
 ) = {
+  assert(type(month) == int and 1 <= month and month <= 12,
+    message: "month must be an integer between 1 and 12")
   assert(week-start == "mon" or week-start == "sun",
     message: "week-start must be \"mon\" or \"sun\"")
 
@@ -41,20 +74,33 @@
   let rows-needed = calc.ceil(total / 7)
   let trailing = rows-needed * 7 - total
 
-  let names = if week-start == "sun" {
+  let default-names = if week-start == "sun" {
     _weekday-names-sun
   } else {
     _weekday-names-mon
   }
+  let names = if weekday-names == none { default-names } else { weekday-names }
+  assert(names.len() == 7,
+    message: "weekday-names must have exactly 7 entries")
 
   let header-cells = names.map(d => table.cell(fill: header-fill)[
     #align(center, text(8pt, weight: "bold")[#d])
   ])
 
+  let render = if cell-content == none {
+    (date) => _default-render(date, today, events, today-fill)
+  } else {
+    cell-content
+  }
+
+  let day-cells = range(1, n-days + 1).map(d => {
+    render(datetime(year: year, month: month, day: d))
+  })
+
   let blank = []
   let body-cells = (
     ..((blank,) * leading),
-    ..range(1, n-days + 1).map(cell-content),
+    ..day-cells,
     ..((blank,) * trailing),
   )
 
@@ -73,4 +119,19 @@
   } else {
     tbl
   }
+}
+
+#let year-grid(year, columns: 3) = {
+  let month-name(m) = datetime(year: year, month: m, day: 1)
+    .display("[month repr:long]")
+  grid(
+    columns: (1fr,) * columns,
+    column-gutter: 0.4cm,
+    row-gutter: 0.5cm,
+    ..range(1, 13).map(m => [
+      #align(center, text(9pt, weight: "bold")[#month-name(m)])
+      #v(2pt)
+      #month-grid(year, m, cell-width: 1fr, cell-height: 0.55cm, inset: 1pt)
+    ])
+  )
 }

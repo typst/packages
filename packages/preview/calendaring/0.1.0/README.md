@@ -4,12 +4,14 @@ Lay out month calendar grids from a year and month.
 
 A small Typst utility that takes `(year, month)` and renders a 7-column grid
 with correct leading and trailing blank days, sized for handwritten notes.
-Designed for personal planners and training logs, not for displaying events.
+Designed for personal planners, training logs, and habit trackers — not for
+displaying scheduled events (see [`cineca`](https://typst.app/universe/package/cineca/)
+for that).
 
 ## Install
 
 ```typst
-#import "@preview/calendaring:0.1.0": month-grid
+#import "@preview/calendaring:0.1.0": month-grid, year-grid
 ```
 
 ## Basic usage
@@ -20,48 +22,61 @@ Designed for personal planners and training logs, not for displaying events.
 #month-grid(2026, 6)
 ```
 
-Renders a Monday-first grid for June 2026 (Mon 1 → Tue 30, two trailing blanks),
-with each cell ~3.5cm × 3.3cm and the day number in the top-left.
+Renders a Monday-first grid for June 2026, sized 3.5cm × 3.3cm per cell
+(tuned for a rotated A4 page). For unrotated portrait layouts, pass
+`cell-width: 1fr` so the grid fills the page width.
 
-## Parameters
+## Functions
 
-| Parameter      | Type      | Default          | Notes                                                  |
-|----------------|-----------|------------------|--------------------------------------------------------|
-| `year`         | int       | —                | Required.                                              |
-| `month`        | int       | —                | Required. 1..12.                                       |
-| `cell-height`  | length    | `3.3cm`          | Height of each day cell.                               |
-| `cell-width`   | length    | `3.5cm`          | Width of each day cell.                                |
-| `week-start`   | str       | `"mon"`          | `"mon"` or `"sun"`.                                    |
-| `rotated`      | bool      | `false`          | If `true`, rotates 90° (useful for portrait A4 pages). |
-| `header-fill`  | color     | `luma(230)`      | Background of the weekday header row.                  |
-| `stroke`       | stroke    | `0.5pt`          | Cell border.                                           |
-| `inset`        | length    | `3pt`            | Cell padding.                                          |
-| `cell-content` | function  | day-number       | `(day-number) => content`. Override to add labels.     |
+### `month-grid(year, month, ...)`
 
-## Rotated A4 example (training log)
+| Parameter        | Type                       | Default      | Notes                                                          |
+|------------------|----------------------------|--------------|----------------------------------------------------------------|
+| `year`           | int                        | —            | Required.                                                      |
+| `month`          | int                        | —            | Required. 1..12.                                               |
+| `cell-height`    | length                     | `3.3cm`      | Height of each day cell.                                       |
+| `cell-width`     | length / fraction          | `3.5cm`      | Width of each day cell. Use `1fr` to fit the page width.       |
+| `week-start`     | str                        | `"mon"`      | `"mon"` or `"sun"`.                                            |
+| `rotated`        | bool                       | `false`      | Rotate 90° (useful for portrait A4).                           |
+| `weekday-names`  | array of 7 strings         | `none`       | Override header labels for localization.                       |
+| `header-fill`    | color                      | `luma(230)`  | Background of the weekday header row.                          |
+| `today-fill`     | color                      | `luma(220)`  | Background of the cell matching `today`.                       |
+| `today`          | datetime or `none`         | `none`       | Highlight the matching day, if in this month.                  |
+| `events`         | `((datetime, content),)`   | `()`         | Each event renders below the day number in its matching cell.  |
+| `stroke`         | stroke                     | `0.5pt`      | Cell border.                                                   |
+| `inset`          | length                     | `3pt`        | Cell padding.                                                  |
+| `cell-content`   | `(datetime) -> content`    | built-in     | Override per-cell rendering. Receives a `datetime`.            |
 
-```typst
-#set page(paper: "a4", margin: (x: 1.5cm, y: 1.2cm))
-#import "@preview/calendaring:0.1.0": month-grid
+### `year-grid(year, columns: 3)`
 
-#align(center, text(16pt)[*June 2026 — Workout Log*])
-#v(0.3cm)
+Lay out all twelve months of `year` on one page, three columns by four rows
+by default. Composes twelve small `month-grid` calls.
 
-#month-grid(2026, 6, rotated: true)
-```
+## Inspirations
 
-## Custom cell content
+The API borrows patterns from established LaTeX calendar packages:
 
-Pass a function that takes the day number and returns content:
+- **`events`** parameter — TikZ calendar's `\if (equals: <date>) { ... }` conditional rendering.
+- **`today`** highlight — wallcalendar's `\today` macro.
+- **`weekday-names`** — wallcalendar's localization hooks.
+- **`year-grid`** — TikZ calendar's `month list` layout.
+- **`cell-content` receiving a `datetime`** — TikZ calendar's date conditions (`Monday`, `weekend`).
 
-```typst
-#let rotation = ("KB-S&C", "KB-cond", "Cardio", "Gym", "Hyrox", "rest", "rest")
+## Examples
 
-#month-grid(2026, 6, cell-content: day => [
-  #text(8pt, weight: "bold")[#day]
-  #v(2pt)
-  #text(7pt, fill: luma(120))[#rotation.at(calc.rem(day - 1, 7))]
-])
+| File                                                          | What it shows                                                       |
+|---------------------------------------------------------------|---------------------------------------------------------------------|
+| [`basic.typ`](examples/basic.typ)                             | Minimal usage, leap year, Sunday-first weeks, custom-cell rotation. |
+| [`workout-log.typ`](examples/workout-log.typ)                 | Rotated A4 monthly training log with large handwriting cells.       |
+| [`habit-tracker.typ`](examples/habit-tracker.typ)             | Daily habit checkboxes per cell.                                    |
+| [`weekend-shading.typ`](examples/weekend-shading.typ)         | Grey-shade Sat/Sun by inspecting `date.weekday()` in the callback.  |
+| [`training-calendar.typ`](examples/training-calendar.typ)     | `events` and `today` highlight — peak/deload/race periodization.    |
+| [`year-at-a-glance.typ`](examples/year-at-a-glance.typ)       | All twelve months on one A4 via `year-grid`.                        |
+
+Compile any of them locally:
+
+```bash
+typst compile --root . examples/training-calendar.typ
 ```
 
 ## License
