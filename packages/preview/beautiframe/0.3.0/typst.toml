@@ -10,4 +10,4 @@ repository = "https://github.com/nathan-ed/typst-package-beautiframe"
 categories = ["components", "layout"]
 disciplines = ["mathematics", "education"]
 compiler = "0.14.2"
-exclude = ["docs/*", "*.pdf"]
+exclude = ["docs/*", "gallery/*.typ", "*.pdf"]

@@ -2,7 +2,7 @@
 
 Beautiful theorem-like environments for Typst with 9 distinctive styles and a French math preset.
 
-📖 **[Full Manual](https://github.com/nathan-ed/typst-package-beautiframe/blob/main/docs/manual.pdf)** · 🎨 **[Gallery](#gallery)**
+📖 **[Full Manual](https://github.com/nathan-ed/typst-package-beautiframe/blob/5a593dd4042382ee962238947925a4e686732745/docs/manual.pdf)** · 🎨 **[Gallery](#gallery)**
 
 ## Gallery
 
@@ -255,7 +255,7 @@ Boxed style has 4 additional variants: `titled`, `centered`, `corner`, `corner2`
 
 ## Configuration Reference
 
-See the [full manual](https://github.com/nathan-ed/typst-package-beautiframe/blob/main/docs/manual.pdf) for complete API documentation.
+See the [full manual](https://github.com/nathan-ed/typst-package-beautiframe/blob/5a593dd4042382ee962238947925a4e686732745/docs/manual.pdf) for complete API documentation.
 
 ```typst
 #beautiframe-setup(
