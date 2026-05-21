@@ -1,6 +1,11 @@
 #let _weekday-names-mon = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
 #let _weekday-names-sun = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
 
+// Gregorian leap year: divisible by 4, except century years not divisible by 400.
+#let is-leap-year(year) = {
+  (calc.rem(year, 4) == 0 and calc.rem(year, 100) != 0) or calc.rem(year, 400) == 0
+}
+
 #let _days-in-month(year, month) = {
   let next = if month == 12 {
     datetime(year: year + 1, month: 1, day: 1)
@@ -67,6 +72,8 @@
   week-numbers: false,
   week-number-width: 0.8cm,
 ) = {
+  assert(type(year) == int,
+    message: "year must be an integer")
   assert(type(month) == int and 1 <= month and month <= 12,
     message: "month must be an integer between 1 and 12")
   assert(week-start == "mon" or week-start == "sun",
@@ -156,7 +163,17 @@
   }
 }
 
-#let year-grid(year, columns: 3) = {
+#let year-grid(
+  year,
+  columns: 3,
+  cell-height: 0.55cm,
+  inset: 1pt,
+  month-label-size: 9pt,
+) = {
+  assert(type(year) == int, message: "year must be an integer")
+  assert(type(columns) == int and 1 <= columns and columns <= 12,
+    message: "columns must be an integer between 1 and 12")
+
   let month-name(m) = datetime(year: year, month: m, day: 1)
     .display("[month repr:long]")
   grid(
@@ -164,9 +181,14 @@
     column-gutter: 0.4cm,
     row-gutter: 0.5cm,
     ..range(1, 13).map(m => [
-      #align(center, text(9pt, weight: "bold")[#month-name(m)])
+      #align(center, text(month-label-size, weight: "bold")[#month-name(m)])
       #v(2pt)
-      #month-grid(year, m, cell-width: 1fr, cell-height: 0.55cm, inset: 1pt)
+      #month-grid(
+        year, m,
+        cell-width: 1fr,
+        cell-height: cell-height,
+        inset: inset,
+      )
     ])
   )
 }

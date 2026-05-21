@@ -49,10 +49,23 @@ Renders a Monday-first grid for June 2026, sized 3.5cm × 3.3cm per cell
 | `inset`          | length                     | `3pt`        | Cell padding.                                                  |
 | `cell-content`   | `(datetime) -> content`    | built-in     | Override per-cell rendering. Receives a `datetime`.            |
 
-### `year-grid(year, columns: 3)`
+### `year-grid(year, columns: 3, cell-height: 0.55cm, inset: 1pt, month-label-size: 9pt)`
 
 Lay out all twelve months of `year` on one page, three columns by four rows
 by default. Composes twelve small `month-grid` calls.
+
+### `is-leap-year(year)`
+
+Returns `true` for Gregorian leap years (divisible by 4 but not by 100,
+unless also divisible by 400). Exposed for user code that needs the same
+predicate the grid uses internally.
+
+## Notes
+
+- `weekday-names`, when overridden, must be in the same order as `week-start`.
+  For `week-start: "sun"`, the array starts with the Sunday label.
+- ISO 8601 week numbers are always anchored to the row's Monday, even in
+  Sunday-first layouts.
 
 ## Inspirations
 
@@ -75,6 +88,7 @@ The API borrows patterns from established LaTeX calendar packages:
 | [`weekend-shading.typ`](examples/weekend-shading.typ)         | Grey-shade Sat/Sun by inspecting `date.weekday()` in the callback.  |
 | [`training-calendar.typ`](examples/training-calendar.typ)     | `events` and `today` highlight — peak/deload/race periodization.    |
 | [`wall-calendar.typ`](examples/wall-calendar.typ)             | ISO 8601 week-number column in a wall-calendar layout.              |
+| [`leap-year.typ`](examples/leap-year.typ)                     | Leap-year handling (Feb 2024 vs Feb 2025) and `is-leap-year`.       |
 | [`year-at-a-glance.typ`](examples/year-at-a-glance.typ)       | All twelve months on one A4 via `year-grid`.                        |
 
 Compile any of them locally:
