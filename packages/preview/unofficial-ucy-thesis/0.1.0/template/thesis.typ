@@ -60,7 +60,7 @@
     ),
   ),
   // logo-image: image("ucy-logo.svg"),  // supply your own UCY logo (see README)
-  doc-date: datetime(year: 2026, month: 5, day: 16),
+  // doc-date: datetime.today(),  // default in ucy-thesis
   acknowledgements: include "content/acknowledgements.typ",
   glossary: print-glossary(acronyms),
   // Typography (optional tuning; UCY margins unchanged)

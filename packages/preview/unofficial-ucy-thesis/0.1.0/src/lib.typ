@@ -108,6 +108,19 @@
     )
   }
 
+  let primary-info = localized-info.at(primary-lang)
+  for key in ("diploma-project", "title", "faculty", "department", "keywords") {
+    if key not in primary-info {
+      panic(
+        "localized-info[\""
+          + primary-lang
+          + "\"] is missing required field \""
+          + key
+          + "\"",
+      )
+    }
+  }
+
   let abstract-entries = localized-info
     .pairs()
     .filter(((_, info)) => info.at("show", default: true))
@@ -123,10 +136,10 @@
   let logo-content = resolve-logo(logo: logo, logo-image: logo-image)
 
   set document(
-    title: thesis-title(localized-info.at(primary-lang).at("title")),
+    title: thesis-title(primary-info.at("title")),
     author: names,
     date: doc-date,
-    keywords: localized-info.at(primary-lang).at("keywords"),
+    keywords: primary-info.at("keywords"),
   )
 
   ucy-page-setup(with-page-numbers: with-page-numbers, {

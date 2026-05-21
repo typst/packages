@@ -9,7 +9,7 @@ Unofficial [Typst](https://typst.app/) template for University of Cyprus diploma
 
 ## Getting started
 
-**Typst web app:** open [Typst Universe](https://typst.app/universe/package/unofficial-ucy-thesis) and use “Create project in app” (after publication).
+**Typst web app:** open [Typst Universe](https://typst.app/universe/package/unofficial-ucy-thesis) and use “Create project in app”.
 
 **CLI:**
 
@@ -30,7 +30,7 @@ typst compile thesis.typ
   authors: ( (first-name: "...", last-names: "..."), ),
   advisors: ( (first-name: "...", last-names: "..."), ),
   acknowledgements: [ ... ],
-  glossary: print-glossary(acronyms), // glossarium; see template
+  // glossary: see template/thesis.typ (glossarium setup)
 )
 
 #include "content/ch01-introduction.typ"
