@@ -2,7 +2,7 @@
 
 Beautiful theorem-like environments for Typst with 9 distinctive styles and a French math preset.
 
-📖 **[Full Manual](docs/manual.pdf)** · 🎨 **[Gallery](#gallery)**
+📖 **[Full Manual](https://github.com/nathan-ed/typst-package-beautiframe/blob/main/docs/manual.pdf)** · 🎨 **[Gallery](#gallery)**
 
 ## Gallery
 
@@ -154,10 +154,10 @@ One-call setup for French secondary math courses:
 
 Attach a QR code (or any content) in a right sidebar to any environment:
 
-```typst
+```typ
 // Configure once in your preamble (using tiaoma or any renderer):
 #beautiframe-setup(
-  qr-renderer: url => image.decode(tiaoma.qrcode(url, ...), format: "svg", width: 1.85cm),
+  qr-renderer: url => image(tiaoma.qrcode(url), format: "svg", width: 1.85cm),
   qr-width: 1.85cm,
 )
 
@@ -255,7 +255,7 @@ Boxed style has 4 additional variants: `titled`, `centered`, `corner`, `corner2`
 
 ## Configuration Reference
 
-See the [full manual](docs/manual.pdf) for complete API documentation.
+See the [full manual](https://github.com/nathan-ed/typst-package-beautiframe/blob/main/docs/manual.pdf) for complete API documentation.
 
 ```typst
 #beautiframe-setup(
