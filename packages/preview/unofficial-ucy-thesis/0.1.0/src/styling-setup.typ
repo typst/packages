@@ -1,6 +1,6 @@
 #import "./utils.typ": primary-t, tl, ucy-lang
 
-#import "@preview/headcount:0.1.0": dependent-numbering
+#import "@preview/headcount:0.1.1": dependent-numbering
 
 /// UCY ADE page geometry: 16 cm text block on A4.
 #let ucy-margins = (
