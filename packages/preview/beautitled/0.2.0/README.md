@@ -13,7 +13,7 @@ A Typst package for creating beautiful, print-friendly title styles for document
 - **Native Typst support** - Works with `= Heading` syntax
 - **Cross-references** - Full outline and bookmark support
 
-**[View the full manual (PDF)](https://github.com/nathan-ed/typst-package-beautitled/blob/main/docs/manual.pdf)**
+**[View the full manual (PDF)](https://github.com/nathan-ed/typst-package-beautitled/blob/a0af23f163d15326c7034c252c239400550a3bdf/docs/manual.pdf)**
 
 ## Quick Start
 
@@ -56,37 +56,37 @@ A Typst package for creating beautiful, print-friendly title styles for document
 
 <table>
   <tr>
-    <td align="center"><img src="gallery/styles/titled.png" width="220" alt="titled"><br><strong>titled</strong></td>
-    <td align="center"><img src="gallery/styles/classic.png" width="220" alt="classic"><br><strong>classic</strong></td>
-    <td align="center"><img src="gallery/styles/modern.png" width="220" alt="modern"><br><strong>modern</strong></td>
+    <td align="center"><img src="gallery/styles/titled.png" width="220" alt="titled style: chapter heading with boxed floating label"><br><strong>titled</strong></td>
+    <td align="center"><img src="gallery/styles/classic.png" width="220" alt="classic style: traditional heading with underline"><br><strong>classic</strong></td>
+    <td align="center"><img src="gallery/styles/modern.png" width="220" alt="modern style: clean geometric heading with accent bar"><br><strong>modern</strong></td>
   </tr>
   <tr>
-    <td align="center"><img src="gallery/styles/elegant.png" width="220" alt="elegant"><br><strong>elegant</strong></td>
-    <td align="center"><img src="gallery/styles/bold.png" width="220" alt="bold"><br><strong>bold</strong></td>
-    <td align="center"><img src="gallery/styles/creative.png" width="220" alt="creative"><br><strong>creative</strong></td>
+    <td align="center"><img src="gallery/styles/elegant.png" width="220" alt="elegant style: refined heading with ornamental rules"><br><strong>elegant</strong></td>
+    <td align="center"><img src="gallery/styles/bold.png" width="220" alt="bold style: strong left border heading"><br><strong>bold</strong></td>
+    <td align="center"><img src="gallery/styles/creative.png" width="220" alt="creative style: student portfolio heading"><br><strong>creative</strong></td>
   </tr>
   <tr>
-    <td align="center"><img src="gallery/styles/minimal.png" width="220" alt="minimal"><br><strong>minimal</strong></td>
-    <td align="center"><img src="gallery/styles/vintage.png" width="220" alt="vintage"><br><strong>vintage</strong></td>
-    <td align="center"><img src="gallery/styles/schoolbook.png" width="220" alt="schoolbook"><br><strong>schoolbook</strong></td>
+    <td align="center"><img src="gallery/styles/minimal.png" width="220" alt="minimal style: ultra-clean heading with no decoration"><br><strong>minimal</strong></td>
+    <td align="center"><img src="gallery/styles/vintage.png" width="220" alt="vintage style: classic book heading with ornaments"><br><strong>vintage</strong></td>
+    <td align="center"><img src="gallery/styles/schoolbook.png" width="220" alt="schoolbook style: textbook heading with number badge"><br><strong>schoolbook</strong></td>
   </tr>
   <tr>
-    <td align="center"><img src="gallery/styles/notes.png" width="220" alt="notes"><br><strong>notes</strong></td>
-    <td align="center"><img src="gallery/styles/clean.png" width="220" alt="clean"><br><strong>clean</strong></td>
-    <td align="center"><img src="gallery/styles/technical.png" width="220" alt="technical"><br><strong>technical</strong></td>
+    <td align="center"><img src="gallery/styles/notes.png" width="220" alt="notes style: course notes heading with tab marker"><br><strong>notes</strong></td>
+    <td align="center"><img src="gallery/styles/clean.png" width="220" alt="clean style: maximum simplicity heading"><br><strong>clean</strong></td>
+    <td align="center"><img src="gallery/styles/technical.png" width="220" alt="technical style: documentation heading with monospace number"><br><strong>technical</strong></td>
   </tr>
   <tr>
-    <td align="center"><img src="gallery/styles/academic.png" width="220" alt="academic"><br><strong>academic</strong></td>
-    <td align="center"><img src="gallery/styles/textbook.png" width="220" alt="textbook"><br><strong>textbook</strong></td>
-    <td align="center"><img src="gallery/styles/scholarly.png" width="220" alt="scholarly"><br><strong>scholarly</strong></td>
+    <td align="center"><img src="gallery/styles/academic.png" width="220" alt="academic style: professional academic heading with serif"><br><strong>academic</strong></td>
+    <td align="center"><img src="gallery/styles/textbook.png" width="220" alt="textbook style: bold numbered heading with clear hierarchy"><br><strong>textbook</strong></td>
+    <td align="center"><img src="gallery/styles/scholarly.png" width="220" alt="scholarly style: centered heading with thin rules"><br><strong>scholarly</strong></td>
   </tr>
   <tr>
-    <td align="center"><img src="gallery/styles/classical.png" width="220" alt="classical"><br><strong>classical</strong></td>
-    <td align="center"><img src="gallery/styles/educational.png" width="220" alt="educational"><br><strong>educational</strong></td>
-    <td align="center"><img src="gallery/styles/structured.png" width="220" alt="structured"><br><strong>structured</strong></td>
+    <td align="center"><img src="gallery/styles/classical.png" width="220" alt="classical style: small caps heading with minimal decoration"><br><strong>classical</strong></td>
+    <td align="center"><img src="gallery/styles/educational.png" width="220" alt="educational style: left border heading with large number"><br><strong>educational</strong></td>
+    <td align="center"><img src="gallery/styles/structured.png" width="220" alt="structured style: boxed number with indented heading"><br><strong>structured</strong></td>
   </tr>
   <tr>
-    <td align="center"><img src="gallery/styles/magazine.png" width="220" alt="magazine"><br><strong>magazine</strong></td>
+    <td align="center"><img src="gallery/styles/magazine.png" width="220" alt="magazine style: editorial heading with decorative rule"><br><strong>magazine</strong></td>
     <td></td>
     <td></td>
   </tr>
@@ -96,16 +96,16 @@ A Typst package for creating beautiful, print-friendly title styles for document
 
 <table>
   <tr>
-    <td align="center"><img src="gallery/toc/toc-titled.png" width="200" alt="titled"><br><strong>titled</strong></td>
-    <td align="center"><img src="gallery/toc/toc-classic.png" width="200" alt="classic"><br><strong>classic</strong></td>
-    <td align="center"><img src="gallery/toc/toc-modern.png" width="200" alt="modern"><br><strong>modern</strong></td>
-    <td align="center"><img src="gallery/toc/toc-elegant.png" width="200" alt="elegant"><br><strong>elegant</strong></td>
+    <td align="center"><img src="gallery/toc/toc-titled.png" width="200" alt="Table of contents in titled style with floating chapter labels"><br><strong>titled</strong></td>
+    <td align="center"><img src="gallery/toc/toc-classic.png" width="200" alt="Table of contents in classic style with dot leaders"><br><strong>classic</strong></td>
+    <td align="center"><img src="gallery/toc/toc-modern.png" width="200" alt="Table of contents in modern style with accent bar"><br><strong>modern</strong></td>
+    <td align="center"><img src="gallery/toc/toc-elegant.png" width="200" alt="Table of contents in elegant style with ornamental rules"><br><strong>elegant</strong></td>
   </tr>
   <tr>
-    <td align="center"><img src="gallery/toc/toc-bold.png" width="200" alt="bold"><br><strong>bold</strong></td>
-    <td align="center"><img src="gallery/toc/toc-minimal.png" width="200" alt="minimal"><br><strong>minimal</strong></td>
-    <td align="center"><img src="gallery/toc/toc-scholarly.png" width="200" alt="scholarly"><br><strong>scholarly</strong></td>
-    <td align="center"><img src="gallery/toc/toc-simple.png" width="200" alt="simple"><br><strong>simple</strong></td>
+    <td align="center"><img src="gallery/toc/toc-bold.png" width="200" alt="Table of contents in bold style with left border"><br><strong>bold</strong></td>
+    <td align="center"><img src="gallery/toc/toc-minimal.png" width="200" alt="Table of contents in minimal style with clean layout"><br><strong>minimal</strong></td>
+    <td align="center"><img src="gallery/toc/toc-scholarly.png" width="200" alt="Table of contents in scholarly style with centered titles"><br><strong>scholarly</strong></td>
+    <td align="center"><img src="gallery/toc/toc-simple.png" width="200" alt="Table of contents in simple style"><br><strong>simple</strong></td>
   </tr>
 </table>
 

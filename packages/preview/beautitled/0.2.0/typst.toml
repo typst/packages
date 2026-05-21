@@ -10,4 +10,4 @@ keywords = ["headings", "titles", "chapters", "sections", "styling", "themes", "
 categories = ["components", "layout"]
 disciplines = ["mathematics", "education"]
 compiler = "0.14.2"
-exclude = ["docs/*", "*.pdf"]
+exclude = ["docs/*", "gallery/examples*", "gallery/examples/*", "*.pdf"]
