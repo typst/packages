@@ -14,13 +14,13 @@ Click on an image to see the source code.
 
 | | | |
 |:---:|:---:|:---:|
-| [![Parabola](gallery/parabola.png)](gallery/parabola.typ) | [![Trigonometric Functions](gallery/trig-functions.png)](gallery/trig-functions.typ) | [![Scatter Plot](gallery/scatter.png)](gallery/scatter.typ) |
+| [![Parabola plot with labeled vertex and roots](gallery/parabola.png)](gallery/parabola.typ) | [![Trigonometric functions sin and cos with grid](gallery/trig-functions.png)](gallery/trig-functions.typ) | [![Scatter plot with data points](gallery/scatter.png)](gallery/scatter.typ) |
 | Parabola | Trigonometric Functions | Scatter Plot |
-| [![Exponential](gallery/exponential.png)](gallery/exponential.typ) | [![Data Fit](gallery/data-fit.png)](gallery/data-fit.typ) | [![Markers](gallery/markers.png)](gallery/markers.typ) |
+| [![Exponential and logarithmic function plots](gallery/exponential.png)](gallery/exponential.typ) | [![Data points with polynomial model fit curve](gallery/data-fit.png)](gallery/data-fit.typ) | [![Available marker types: circle, square, triangle, diamond](gallery/markers.png)](gallery/markers.typ) |
 | Exponential & Logarithmic | Data with Model Fit | Marker Types |
-| [![Extended Axes](gallery/extended-axes.png)](gallery/extended-axes.typ) | [![Area Features](gallery/area-features-1.png)](gallery/area-features.typ) | [![Volume of Revolution](gallery/revolution-1.png)](gallery/revolution.typ) |
+| [![Extended axes with custom tick labels and unit](gallery/extended-axes.png)](gallery/extended-axes.typ) | [![Area fills, hatching, and Riemann sum overlays](gallery/area-features-1.png)](gallery/area-features.typ) | [![3D-style volume of revolution with disk cross-sections](gallery/revolution-1.png)](gallery/revolution.typ) |
 | Extended Axes | Area Fills & Riemann Sums | Volume of Revolution |
-| [![Riemann Sum Features](gallery/riemann-features-1.png)](gallery/riemann-features.typ) | | |
+| [![All five Riemann sum methods with annotation features](gallery/riemann-features-1.png)](gallery/riemann-features.typ) | | |
 | Riemann Sum Features | | |
 
 ## Features

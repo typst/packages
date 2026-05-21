@@ -2,7 +2,7 @@
 // https://github.com/nathan/simple-plot
 // License: MIT
 
-#import "@preview/cetz:0.4.2" as cetz
+#import "@preview/cetz:0.5.0" as cetz
 
 // ============================================================================
 // GLOBAL DEFAULTS
