@@ -30,7 +30,7 @@ Here is an example of a *diatypst* presentation
 | ----------------------------------------------- | ----------------------------------------------------------- |
 | ![A content slide with the Normal Theme applied](screenshots/Example-Slide.png) | ![A content slide with the Full Theme applied](./screenshots/Full-Example-Slide.png) |
 
-These example slides and a usage guide are available in the `example` Folder on GitHub as a [.typ file](https://github.com/skriptum/diatypst/blob/main/example/example.typ) and a compiled PDF ([normal Theme](https://raw.githubusercontent.com/skriptum/diatypst/72d3e4ad352e26593da489804719537ea3362d50/example/example.pdf), [full Theme](https://raw.githubusercontent.com/skriptum/diatypst/72d3e4ad352e26593da489804719537ea3362d50/example/example_full.pdf)). 
+These example slides and a usage guide are available in the `example` Folder on GitHub as a [.typ file](https://github.com/skriptum/diatypst/blob/72d3e4ad352e26593da489804719537ea3362d50/example/example.typ) and a compiled PDF ([normal Theme](https://raw.githubusercontent.com/skriptum/diatypst/72d3e4ad352e26593da489804719537ea3362d50/example/example.pdf), [full Theme](https://raw.githubusercontent.com/skriptum/diatypst/72d3e4ad352e26593da489804719537ea3362d50/example/example_full.pdf)). 
 
 *The Full Theme more closely resembles a Beamer Theme, while the normal theme is a bit simpler (without being boring)*
 
