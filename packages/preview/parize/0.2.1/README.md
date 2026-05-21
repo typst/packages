@@ -6,7 +6,7 @@ Example One:
   <summary>Code:</summary>
 
   ```typst
-  #import "@preview/parize:0.2.0": *
+  #import "@preview/parize:0.2.1": *
   #set page(margin: 1cm, height: auto, width: 25cm)
   #set par(justify: true)
   #table(
@@ -15,7 +15,7 @@ Example One:
       #import "@preview/zebraw:0.6.3": *
       #show: zebraw
       ```typst
-      #import "@preview/parize:0.2.0": *
+      #import "@preview/parize:0.2.1": *
       #set par(first-line-indent: (amount: 2em, all: true))
       #show strong: set text(fill: red, size: 1.2em) // debug
       #set block(stroke: red) // debug
@@ -126,7 +126,7 @@ Example Two:
 <summary>Code:</summary>
 
 ```typst
-#import "@preview/parize:0.2.0": *
+#import "@preview/parize:0.2.1": *
 #set page(margin: 1cm, height: auto, width: 25cm)
 #table(
   columns: (1fr, 1fr),
@@ -134,7 +134,7 @@ Example Two:
     #import "@preview/zebraw:0.6.3": *
     #show: zebraw
     ```typst
-    #import "@preview/parize:0.2.0": *
+    #import "@preview/parize:0.2.1": *
     #set par(first-line-indent: (amount: 2em, all: true))
     #show strong: set text(fill: red, size: 1.2em) // debug
     #set block(stroke: red) // debug
@@ -207,7 +207,7 @@ Example Two:
   ![Example of paragraph indentation: showing how text remains unindented when following a block-level element without an empty line](asserts/simple-indent.png)
 
   ```typst
-  #import "@preview/parize:0.2.0": par-indent
+  #import "@preview/parize:0.2.1": par-indent
   #set page(width: 12cm, margin: 1cm, height: auto)
   #show: par-indent.with(include-elem: (list, enum, terms, math.equation))
   #let test-unindent = [
@@ -276,7 +276,7 @@ Example Two:
   ![Example of paragraph spacing: showing how par.leading controls spacing when no empty line exists between paragraph and block-level element](asserts/simple-leading.png)
 
   ```typst
-  #import "@preview/parize:0.2.0": par-indent
+  #import "@preview/parize:0.2.1": par-indent
   #set page(width: 15cm, margin: 1cm, height: auto)
   #show: par-indent.with(
     include-elem: (list, enum, terms, math.equation),
@@ -339,7 +339,7 @@ Example Two:
 This approach ensures that the first line of paragraphs within a container remains unindented, while subsequent paragraphs (containing `parbreak()`) are indented according to user expectations. It also accommodates different regional typesetting conventions. 
 
 ```typst
-#import "@preview/parize:0.2.0": par-indent, parize-par-above-flag
+#import "@preview/parize:0.2.1": par-indent, parize-par-above-flag
 #set par(first-line-indent: (amount: 2em, all: false))
 #show: par-indent
 #set page(width: 12cm, margin: 1cm, height: auto)
@@ -383,7 +383,7 @@ In `touying`, you can define a custom `par-indent-slide` method:
 ```typst
   #import "@preview/touying:0.7.3": *
   #import themes.university: *
-  #import "@preview/parize:0.2.0": par-indent, parize-par-above-flag
+  #import "@preview/parize:0.2.1": par-indent, parize-par-above-flag
   #show: university-theme.with(config-page(margin: 1cm, width: 15cm, height: auto))
   #set par(first-line-indent: (amount: 2em, all: false))
   #let par-indent-slide(body, ..args) = {
@@ -421,7 +421,7 @@ In `touying`, you can define a custom `par-indent-slide` method:
 ![Theorem environment example: first paragraph unindented within theorem block, following paragraphs indented](asserts/theorem-example.png)
 
 ```typst
-#import "@preview/parize:0.2.0": par-indent, parize-par-above-flag
+#import "@preview/parize:0.2.1": par-indent, parize-par-above-flag
 #set page(width: 12cm, margin: 1cm, height: auto)
 #set par(first-line-indent: (amount: 2em, all: true), spacing: 1.5em)
 #[
@@ -511,7 +511,7 @@ While `context h(-par.first-line-indent.amount)` might seem like an alternative,
 
 = use `par-indent`
 
-#import "@preview/parize:0.2.0": *
+#import "@preview/parize:0.2.1": *
 
 #show: par-indent
 
@@ -546,7 +546,7 @@ While `context h(-par.first-line-indent.amount)` might seem like an alternative,
 Import the `parize` package:
 
 ```typst
-#import "@preview/parize:0.2.0": *
+#import "@preview/parize:0.2.1": *
 ```
 
 Then apply the `par-indent` method like:
@@ -589,7 +589,7 @@ Supported block-level elements:
 ![Paragraph indentation configuration example: showing effect of exclude-elem and include-elem parameters](asserts/par-indent-example.png)
 
 ```typst
-#import "@preview/parize:0.2.0": par-indent
+#import "@preview/parize:0.2.1": par-indent
 #set page(width: 12cm, margin: 1cm, height: auto)
 #set par(first-line-indent: (amount: 2em, all: true))
 #set block(stroke: red) // debug
@@ -690,7 +690,7 @@ Example: When `use-par-leading` is `true`, elements `list`, `enum`, `terms` are 
 <summary>Code:</summary>
 
 ```typst
-#import "@preview/parize:0.2.0": par-indent
+#import "@preview/parize:0.2.1": par-indent
 #set page(width: 15.5cm, margin: 1cm, height: auto)
 #set par(first-line-indent: (amount: 2em, all: true), spacing: 1.5em)
 #show enum: set block(stroke: red) // debug
@@ -757,7 +757,7 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
 ![Paragraph spacing configuration example: demonstrating different use-par-leading dictionary settings](asserts/par-spacing-example.png)
 
 ```typst
-#import "@preview/parize:0.2.0": par-indent
+#import "@preview/parize:0.2.1": par-indent
 #set page(width: 15cm, margin: 1cm, height: auto)
 #set par(first-line-indent: (amount: 2em, all: true), spacing: 1.5em)
 
@@ -863,7 +863,7 @@ Default: `false` (feature disabled). Setting `use-par-leading: true` is equivale
   ![Using parize-block wrapper: shows how basic elements like pad can be wrapped for paragraph spacing (par-leading) control](asserts/parize-block.png)
   
   ```typst
-  #import "@preview/parize:0.2.0": par-indent, parize-block
+  #import "@preview/parize:0.2.1": par-indent, parize-block
   #set page(width: 12cm, margin: 1cm, height: auto)
   #set par(first-line-indent: (amount: 2em, all: true), spacing: 1.5em)
 
@@ -928,7 +928,7 @@ Suppose an element is overridden by `show elem: ...`. If you want `par-indent` t
 <summary>Example:</summary>
 
 ```typst
-#import "@preview/parize:0.2.0": par-indent
+#import "@preview/parize:0.2.1": par-indent
 #set page(width: 12cm, margin: 1cm, height: auto)
 
 #[
