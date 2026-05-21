@@ -14,7 +14,7 @@ exclude = [
   "latex_template",
   "scripts",
   ".vscode",
-  "/template/*.pdf",
+  "template/*.pdf",
 ]
 
 [template]
