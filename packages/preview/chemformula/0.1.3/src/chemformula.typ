@@ -121,7 +121,7 @@
         args.insert(pos, expr)
       }
       (
-        "\"\"#math.attach(math.limits($"
+        "#math.attach(math.limits($"
           + base
           + "$), "
           + {
@@ -155,7 +155,9 @@
       if args.len() == 0 {
         size = "2em"
       }
-      " stretch(" + arrow + ", size: #{" + size + "})^(" + above + ")_(" + below + ")"
+      " stretch(" + arrow + ", size: #{" + size + "})"
+      if above != none { "^(" + above + ")" }
+      if below != none { "_(" + below + ")" }
     } else if type == "Gaseous" {
       expr.replace("^", sym.arrow.t).replace(regex("\@|\;"), "")
     } else if type == "Precipitation" {
@@ -225,7 +227,7 @@
   }
 
   if alt != none {
-    math.equation(alt: alt, result)
+    math.equation(alt: alt, result.body)
   } else {
     result 
   }
