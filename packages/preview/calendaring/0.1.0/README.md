@@ -43,6 +43,8 @@ Renders a Monday-first grid for June 2026, sized 3.5cm × 3.3cm per cell
 | `today-fill`     | color                      | `luma(220)`  | Background of the cell matching `today`.                       |
 | `today`          | datetime or `none`         | `none`       | Highlight the matching day, if in this month.                  |
 | `events`         | `((datetime, content),)`   | `()`         | Each event renders below the day number in its matching cell.  |
+| `week-numbers`   | bool                       | `false`      | Prepend an ISO 8601 week-number column.                        |
+| `week-number-width` | length                  | `0.8cm`      | Width of the week-number column when shown.                    |
 | `stroke`         | stroke                     | `0.5pt`      | Cell border.                                                   |
 | `inset`          | length                     | `3pt`        | Cell padding.                                                  |
 | `cell-content`   | `(datetime) -> content`    | built-in     | Override per-cell rendering. Receives a `datetime`.            |
@@ -59,6 +61,7 @@ The API borrows patterns from established LaTeX calendar packages:
 - **`events`** parameter — TikZ calendar's `\if (equals: <date>) { ... }` conditional rendering.
 - **`today`** highlight — wallcalendar's `\today` macro.
 - **`weekday-names`** — wallcalendar's localization hooks.
+- **`week-numbers`** — wallcalendar's ISO 8601 week column.
 - **`year-grid`** — TikZ calendar's `month list` layout.
 - **`cell-content` receiving a `datetime`** — TikZ calendar's date conditions (`Monday`, `weekend`).
 
@@ -71,6 +74,7 @@ The API borrows patterns from established LaTeX calendar packages:
 | [`habit-tracker.typ`](examples/habit-tracker.typ)             | Daily habit checkboxes per cell.                                    |
 | [`weekend-shading.typ`](examples/weekend-shading.typ)         | Grey-shade Sat/Sun by inspecting `date.weekday()` in the callback.  |
 | [`training-calendar.typ`](examples/training-calendar.typ)     | `events` and `today` highlight — peak/deload/race periodization.    |
+| [`wall-calendar.typ`](examples/wall-calendar.typ)             | ISO 8601 week-number column in a wall-calendar layout.              |
 | [`year-at-a-glance.typ`](examples/year-at-a-glance.typ)       | All twelve months on one A4 via `year-grid`.                        |
 
 Compile any of them locally:

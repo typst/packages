@@ -14,6 +14,16 @@
   a.year() == b.year() and a.month() == b.month() and a.day() == b.day()
 }
 
+// ISO 8601 week number: the week of a date is the week of its Thursday;
+// week 1 is the week containing the first Thursday of the year.
+#let _iso-week(date) = {
+  let days-to-thursday = 4 - date.weekday()
+  let thursday = date + duration(days: days-to-thursday)
+  let year-start = datetime(year: thursday.year(), month: 1, day: 1)
+  let diff = (thursday - year-start) / duration(days: 1)
+  calc.floor(diff / 7) + 1
+}
+
 #let _events-for(date, events) = {
   events
     .filter(((d, _)) => _dates-equal(d, date))
@@ -54,6 +64,8 @@
   cell-content: none,
   today: none,
   events: (),
+  week-numbers: false,
+  week-number-width: 0.8cm,
 ) = {
   assert(type(month) == int and 1 <= month and month <= 12,
     message: "month must be an integer between 1 and 12")
@@ -72,7 +84,6 @@
   let n-days = _days-in-month(year, month)
   let total = leading + n-days
   let rows-needed = calc.ceil(total / 7)
-  let trailing = rows-needed * 7 - total
 
   let default-names = if week-start == "sun" {
     _weekday-names-sun
@@ -83,9 +94,17 @@
   assert(names.len() == 7,
     message: "weekday-names must have exactly 7 entries")
 
-  let header-cells = names.map(d => table.cell(fill: header-fill)[
+  let day-cell-styled = (d => table.cell(fill: header-fill)[
     #align(center, text(8pt, weight: "bold")[#d])
   ])
+  let header-cells = names.map(day-cell-styled)
+  let header-row = if week-numbers {
+    (table.cell(fill: header-fill)[
+      #align(center, text(7pt, weight: "bold", fill: luma(110))[Wk])
+    ],) + header-cells
+  } else {
+    header-cells
+  }
 
   let render = if cell-content == none {
     (date) => _default-render(date, today, events, today-fill)
@@ -93,24 +112,40 @@
     cell-content
   }
 
-  let day-cells = range(1, n-days + 1).map(d => {
-    render(datetime(year: year, month: month, day: d))
-  })
+  // Build row-by-row so a week-number cell can be prepended per row.
+  let mon-col-offset = if week-start == "mon" { 0 } else { 1 }
+  let body-cells = ()
+  for row in range(0, rows-needed) {
+    if week-numbers {
+      let row-monday = first + duration(days: row * 7 + mon-col-offset - leading)
+      body-cells.push(table.cell(align: center + horizon)[
+        #text(7pt, fill: luma(110))[#_iso-week(row-monday)]
+      ])
+    }
+    for col in range(0, 7) {
+      let pos = row * 7 + col
+      if pos < leading or pos >= leading + n-days {
+        body-cells.push([])
+      } else {
+        let d = pos - leading + 1
+        body-cells.push(render(datetime(year: year, month: month, day: d)))
+      }
+    }
+  }
 
-  let blank = []
-  let body-cells = (
-    ..((blank,) * leading),
-    ..day-cells,
-    ..((blank,) * trailing),
-  )
+  let columns = if week-numbers {
+    (week-number-width,) + (cell-width,) * 7
+  } else {
+    (cell-width,) * 7
+  }
 
   let tbl = table(
-    columns: (cell-width,) * 7,
+    columns: columns,
     rows: (auto,) + (cell-height,) * rows-needed,
     align: top + left,
     inset: inset,
     stroke: stroke,
-    ..header-cells,
+    ..header-row,
     ..body-cells,
   )
 
