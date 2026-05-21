@@ -4,7 +4,7 @@ Calculate CVSS v4.0 scores from Typst. Useful for automatically calculating CVSS
 in cyber security reports. 
 
 The code of this package is based on the 
-[FIRST CVSSv4 calculator](https://github.com/FIRSTdotorg/vuln-calc).
+[FIRST CVSSv4 calculator](https://github.com/FIRSTdotorg/cvss-v4-calculator/).
 
 ## Usage
 
