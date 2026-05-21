@@ -13,7 +13,7 @@ A Typst package for creating beautiful, print-friendly title styles for document
 - **Native Typst support** - Works with `= Heading` syntax
 - **Cross-references** - Full outline and bookmark support
 
-**[View the full manual (PDF)](docs/manual.pdf)**
+**[View the full manual (PDF)](https://github.com/nathan-ed/typst-package-beautitled/blob/main/docs/manual.pdf)**
 
 ## Quick Start
 
