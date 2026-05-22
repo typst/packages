@@ -1,5 +1,5 @@
 #import "@preview/cetz:0.5.2"
-#import "/src/lib.typ": canvas, edge, node
+#import "@preview/proxim:0.1.0": canvas, edge, node
 
 #set page(width: 10cm, height: 7cm)
 #set text(font: "Noto Sans", size: 1.5em)
