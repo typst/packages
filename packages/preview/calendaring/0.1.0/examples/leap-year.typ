@@ -1,8 +1,7 @@
 // February renders correctly in both leap and non-leap years.
 // The `is-leap-year` helper is exported for user code.
 
-// Published package: #import "@preview/calendaring:0.1.0": month-grid, is-leap-year
-#import "../lib.typ": month-grid, is-leap-year
+#import "@preview/calendaring:0.1.0": month-grid, is-leap-year
 
 #set page(paper: "a4", margin: 1.5cm)
 
