@@ -16,3 +16,4 @@ keywords = [
     "architecture",
     "flowchart",
 ]
+exclude = ["examples/"]
