@@ -159,7 +159,7 @@ The `config` parameter on `#tate()` accepts a nested dictionary. `merge-config` 
 ### Full default config
 
 ```typst
-(
+#(
   font: none,
   features: ("vert", "vrt2"),
 
