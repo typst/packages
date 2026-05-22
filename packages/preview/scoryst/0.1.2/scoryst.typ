@@ -1,13 +1,21 @@
 #let plugin = plugin("scoryst.wasm")
 
+/// Convert kebab-case to camelCase. Keys already in camelCase pass through unchanged.
+#let _to-camel(s) = {
+  let parts = s.split("-")
+  parts.at(0) + parts.slice(1).map(p => upper(p.at(0)) + p.slice(1)).join()
+}
+
 /// Serialize a Typst dictionary to a JSON options string for Verovio.
 /// Merges with default options (adjustPageHeight crops SVG to content).
+/// Accepts both kebab-case and camelCase option keys.
 #let _serialize-options(options) = {
-  let defaults = (adjustPageHeight: true, inputFrom: "auto")
+  let defaults = (adjust-page-height: true, input-from: "auto")
   let merged = if options != none { defaults + options } else { defaults }
   let pairs = merged.pairs().map(((k, v)) => {
+    let key = _to-camel(k)
     let val = if type(v) == str { "\"" + v + "\"" } else if v == true { "true" } else if v == false { "false" } else { str(v) }
-    "\"" + k + "\":" + val
+    "\"" + key + "\":" + val
   })
   "{" + pairs.join(",") + "}"
 }

@@ -1,4 +1,7 @@
-![logo](https://github.com/bernsteining/scoryst/blob/v0.1.1/test/logo.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/bernsteining/scoryst/blob/v0.1.2/test/logo.svg">
+  <img alt="logo" src="https://github.com/bernsteining/scoryst/blob/v0.1.1/test/logo.svg">
+</picture>
 
 # Scoryst - Music Engraving Plugin for Typst
 
@@ -7,14 +10,14 @@ A Typst plugin to render music notation from multiple formats using
 
 ## Features
 
-- **8 input formats**: ABC, MusicXML, MEI, Humdrum, EsAC, PAE, Volpiano, CMME
+- **8 input formats**: [ABC](https://en.wikipedia.org/wiki/ABC_notation), [MusicXML](https://en.wikipedia.org/wiki/MusicXML), [MEI](https://music-encoding.org/), [Humdrum](https://wiki.ccarh.org/images/6/6e/Humdrum-File-Format.pdf), [EsAC](https://wiki.ccarh.org/wiki/EsAC), [PAE](https://www.iaml.info/plaine-easie-code/), [Volpiano](https://cantusdatabase.org/static/documents/2.%20Volpiano%20Protocols.pdf), [CMME](https://www.cmme.org/)
 - **5 [SMuFL](https://www.smufl.org/)-compliant music fonts**: Leipzig (default), Bravura, Gootville, Leland, Petaluma
 - **Full Verovio options**: scale, font, page layout, and all
   [toolkit options](https://book.verovio.org/toolkit-reference/toolkit-options.html)
 - **Multi-page support**: render individual pages of long scores
 - **Binary font loading**: fonts pre-compiled to binary for instant init
 
-Check the [documentation](https://github.com/bernsteining/scoryst/blob/v0.1.2/test/documentation.pdf?raw=1) for a full demonstration with examples.
+Check the [documentation](https://github.com/bernsteining/scoryst/blob/master/test/documentation.pdf) for a full demonstration with examples.
 
 ## Usage
 
@@ -39,13 +42,13 @@ Some formats are too verbose to write inline here, so only compact formats are w
 #score(read("hildebrandslied.esac"))
 
 // PAE - Plaine & Easie Code (requires explicit format)
-#score("@clef:G-2\n@keysig:\n@timesig:4/4\n@data:''4CDEF/GABc", options: (inputFrom: "pae"))
+#score("@clef:G-2\n@keysig:\n@timesig:4/4\n@data:''4CDEF/GABc", options: (input-from: "pae"))
 
 // Volpiano (requires explicit format)
-#score("1---g--h-ij---hgf--g--hg---k--lk--k7", options: (inputFrom: "volpiano"))
+#score("1---g--h-ij---hgf--g--hg---k--lk--k7", options: (input-from: "volpiano"))
 
 // CMME (requires explicit format)
-#score(read("cmme.xml"), options: (inputFrom: "cmme"))
+#score(read("cmme.xml"), options: (input-from: "cmme"))
 
 // Change font
 #score(data, options: (font: "Petaluma"))
@@ -74,39 +77,40 @@ Returns the number of pages for the given music data.
 
 Options are passed as a Typst dictionary and map directly to
 [Verovio's toolkit options](https://book.verovio.org/toolkit-reference/toolkit-options.html).
+Both kebab-case and camelCase keys are accepted (e.g. `adjust-page-height` or `adjustPageHeight`).
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `adjustPageHeight` | `true` | Crop SVG height to content |
-| `adjustPageWidth` | `false` | Crop SVG width to content |
+| `adjust-page-height` | `true` | Crop SVG height to content |
+| `adjust-page-width` | `false` | Crop SVG width to content |
 | `scale` | `100` | Scale factor (percent) |
 | `font` | `"Leipzig"` | Music font: Leipzig, Bravura, Gootville, Leland, Petaluma |
-| `inputFrom` | `"auto"` | Format: auto, mei, musicxml, abc, humdrum, esac, pae, volpiano, cmme |
-| `pageWidth` | `2100` | Page width (MEI units) |
-| `pageHeight` | `2970` | Page height (MEI units) |
-| `pageMarginTop` | `50` | Top margin |
-| `pageMarginBottom` | `50` | Bottom margin |
-| `pageMarginLeft` | `50` | Left margin |
-| `pageMarginRight` | `50` | Right margin |
+| `input-from` | `"auto"` | Format: auto, mei, musicxml, abc, humdrum, esac, pae, volpiano, cmme |
+| `page-width` | `2100` | Page width (MEI units) |
+| `page-height` | `2970` | Page height (MEI units) |
+| `page-margin-top` | `50` | Top margin |
+| `page-margin-bottom` | `50` | Bottom margin |
+| `page-margin-left` | `50` | Left margin |
+| `page-margin-right` | `50` | Right margin |
 | `landscape` | `false` | Landscape orientation |
 | `breaks` | `"auto"` | Line breaks: auto, line, encoded, none |
 | `condense` | `"auto"` | Condense: auto, none, encoded |
 | `transpose` | `""` | Transpose (e.g. "M2" for major second up) |
 | `header` | `"auto"` | Header: auto, none, encoded |
 | `footer` | `"auto"` | Footer: auto, none, encoded |
-| `spacingStaff` | `12` | Spacing between staves |
-| `spacingSystem` | `12` | Spacing between systems |
-| `spacingLinear` | `0.25` | Linear spacing factor |
-| `spacingNonLinear` | `0.6` | Non-linear spacing factor |
+| `spacing-staff` | `12` | Spacing between staves |
+| `spacing-system` | `12` | Spacing between systems |
+| `spacing-linear` | `0.25` | Linear spacing factor |
+| `spacing-non-linear` | `0.6` | Non-linear spacing factor |
 | `unit` | `9` | Base unit size (half staff space) |
-| `stemWidth` | `0.2` | Stem width |
-| `barLineWidth` | `0.3` | Bar line width |
-| `staffLineWidth` | `0.15` | Staff line width |
-| `lyricSize` | `4.5` | Lyrics font size |
-| `hairpinSize` | `3.0` | Hairpin height |
-| `svgViewBox` | `false` | Use viewBox instead of width/height |
-| `svgRemoveXlink` | `false` | Use href instead of xlink:href |
-| `svgBoundingBoxes` | `false` | Add bounding box rects (debug) |
-| `removeIds` | `false` | Strip element IDs from SVG |
-| `smuflTextFont` | `"embedded"` | SMuFL text font: embedded, linked, none |
+| `stem-width` | `0.2` | Stem width |
+| `bar-line-width` | `0.3` | Bar line width |
+| `staff-line-width` | `0.15` | Staff line width |
+| `lyric-size` | `4.5` | Lyrics font size |
+| `hairpin-size` | `3.0` | Hairpin height |
+| `svg-view-box` | `false` | Use viewBox instead of width/height |
+| `svg-remove-xlink` | `false` | Use href instead of xlink:href |
+| `svg-bounding-boxes` | `false` | Add bounding box rects (debug) |
+| `remove-ids` | `false` | Strip element IDs from SVG |
+| `smufl-text-font` | `"embedded"` | SMuFL text font: embedded, linked, none |
 
