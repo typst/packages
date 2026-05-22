@@ -1,8 +1,9 @@
 #import "cover.typ": cover, declaration-page
 #import "code.typ": apply-code-styling
-#import "@preview/cuti:0.2.1": show-cn-fakebold
+#import "@preview/cuti:0.4.0": show-cn-fakebold
 
-/// WHU (Wuhan University) course design report template.
+/// Unofficial WHU (Wuhan University) lab report template.
+/// 武汉大学计算机学院课程设计报告模板（非官方社区版）。
 ///
 /// #show: whu-report.with(
 ///   course: "计算机学院",
@@ -17,25 +18,25 @@
 /// = Section
 /// Content...
 ///
-/// - course (str): College/department name
-/// - title (str): Report category title
-/// - subtitle (str): Specific report title
-/// - instructor (str): Instructor name
-/// - student-id (str): Student ID
-/// - student-name (str): Student name
-/// - major (str): Major name
-/// - course-name (str): Course name
-/// - date (str): Report date
-/// - font-size (length): Base text size
-/// - math-color (color): Math equation color
-/// - show-declaration (bool): Include declaration/originality page
-/// - declaration-text (content): Custom declaration text
-/// - show-toc (bool): Include table of contents
-/// - toc-title (str,content): TOC title
-/// - toc-depth (int): TOC depth
-/// - code-theme (str): Syntax highlighting theme file path
-/// - mono-font (str,array): Monospace font
-/// - body (content): Document body
+/// - course (str): College/department name / 学院名称
+/// - title (str): Report category title / 报告类别
+/// - subtitle (str): Specific report title / 报告标题
+/// - instructor (str): Instructor name / 指导教师
+/// - student-id (str): Student ID / 学号
+/// - student-name (str): Student name / 学生姓名
+/// - major (str): Major name / 专业名称
+/// - course-name (str): Course name / 课程名称
+/// - date (str): Report date / 报告日期
+/// - font-size (length): Base text size / 正文字号
+/// - math-color (color): Math equation color / 公式颜色
+/// - show-declaration (bool): Include declaration/originality page / 是否显示声明页
+/// - declaration-text (content): Custom declaration text / 自定义声明文本
+/// - show-toc (bool): Include table of contents / 是否显示目录
+/// - toc-title (str,content): TOC title / 目录标题
+/// - toc-depth (int): TOC depth / 目录深度
+/// - code-theme (str): Syntax highlighting theme file path / 代码高亮主题路径
+/// - mono-font (str,array): Monospace font / 等宽字体
+/// - body (content): Document body / 文档正文
 /// -> content
 #let whu-report(
   // Cover page
@@ -160,8 +161,8 @@ show raw.where(block: false): it => {
   body
 }
 
-/// Switch to appendix numbering (A.1, A.2, ...).
-/// Call after the main content and before the appendix.
+/// Switch to appendix numbering (A.1, A.2, ...). 切换附录编号格式。
+/// Call after the main content and before the appendix. 在正文之后、附录之前调用。
 ///
 /// #pagebreak()
 /// #show: appendix-style

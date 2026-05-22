@@ -1,4 +1,4 @@
-#import "@preview/whu-report:0.1.0": *
+#import "@preview/unofficial-whu-lab-report:0.1.0": *
 
 #show: whu-report.with(
   course: "武汉大学计算机学院",

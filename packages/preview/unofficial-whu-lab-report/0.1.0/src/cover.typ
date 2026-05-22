@@ -1,14 +1,14 @@
-/// Cover page for WHU course design report.
+/// Cover page for WHU course design report. 武汉大学课程设计报告封面页。
 ///
-/// - course (str): College/department name
-/// - title (str): Report category title
-/// - subtitle (str): Specific report title
-/// - instructor (str): Instructor name
-/// - student-id (str): Student ID
-/// - student-name (str): Student name
-/// - major (str): Major name
-/// - course-name (str): Course name
-/// - date (str): Report date (e.g., "二○二六年五月")
+/// - course (str): College/department name / 学院名称
+/// - title (str): Report category title / 报告类别
+/// - subtitle (str): Specific report title / 报告标题
+/// - instructor (str): Instructor name / 指导教师
+/// - student-id (str): Student ID / 学号
+/// - student-name (str): Student name / 学生姓名
+/// - major (str): Major name / 专业名称
+/// - course-name (str): Course name / 课程名称
+/// - date (str): Report date (e.g., "二○二六年五月") / 报告日期
 /// -> content
 #let cover(
   course: "武汉大学计算机学院",
@@ -61,11 +61,11 @@
   ]
 }
 
-/// Declaration of originality page.
+/// Declaration of originality page. 原创性声明页。
 ///
-/// - student-name (str): Student name
-/// - date (str): Signature date
-/// - decl-body (content): Custom declaration text
+/// - student-name (str): Student name / 学生姓名
+/// - date (str): Signature date / 签名日期
+/// - decl-body (content): Custom declaration text / 自定义声明文本
 /// -> content
 #let declaration-page(
   student-name: none,
