@@ -1,0 +1,11 @@
+[package]
+name = "basho"
+version = "0.1.0"
+authors = ["KoyaTofu"]
+description = "Render Vertical Japanese typesetting (tategaki)"
+entrypoint = "lib.typ"
+compiler = "0.14.0"
+repository = "https://github.com/KoyaTofu42/typst-basho"
+exclude = ["*.pdf", "/example", "/test"]
+keywords = ["vertical", "Japanese", "tategaki"]
+license = "MIT"
