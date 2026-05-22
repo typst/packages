@@ -1,3 +1,4 @@
+// Published package: #import "@preview/calendaring:0.1.0": month-grid
 #import "../lib.typ": month-grid
 
 #set page(paper: "a4", margin: (x: 1.5cm, y: 1.2cm))

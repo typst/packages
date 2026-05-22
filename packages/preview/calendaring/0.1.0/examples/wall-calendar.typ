@@ -1,5 +1,6 @@
 // Wall-calendar layout: ISO 8601 week numbers in a leading column.
 
+// Published package: #import "@preview/calendaring:0.1.0": month-grid
 #import "../lib.typ": month-grid
 
 #set page(paper: "a4", margin: 1.5cm)

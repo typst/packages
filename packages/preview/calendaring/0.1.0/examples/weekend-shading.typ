@@ -1,6 +1,7 @@
 // The cell-content callback receives a `datetime`, so the weekday
 // can be computed directly without closing over year/month.
 
+// Published package: #import "@preview/calendaring:0.1.0": month-grid
 #import "../lib.typ": month-grid
 
 #set page(paper: "a4", margin: 2cm)

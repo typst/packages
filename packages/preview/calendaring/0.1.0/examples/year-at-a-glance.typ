@@ -1,3 +1,4 @@
+// Published package: #import "@preview/calendaring:0.1.0": year-grid
 #import "../lib.typ": year-grid
 
 #set page(paper: "a4", margin: 1cm)
