@@ -1,0 +1,34 @@
+# Hayagriva: https://github.com/typst/hayagriva/blob/main/docs/file-format.md
+
+berners-lee-2010:
+  type: article
+  title: Long Live the Web
+  author: Tim Berners-Lee
+  date: 2010-11-01
+  parent:
+    type: periodical
+    title: Scientific American
+
+golumbic-1980:
+  type: book
+  title: Algorithmic Graph Theory and Perfect Graphs
+  author: Martin Charles Golumbic
+  date: 1980-01-01
+  publisher: Academic Press
+
+bevet-2018:
+  type: article
+  title: 'You can''t "nudge" nuggets: An investigation of college late-night dining with behavioral economics interventions'
+  author:
+    - Samuel Bevet
+    - Meredith T. Niles
+    - Lizzy Pope
+  date: 2018-05-31
+  serial-number:
+    doi: "10.1371/journal.pone.0198162"
+  parent:
+    type: periodical
+    title: PLoS ONE
+    volume: 13
+    issue: 5
+    publisher: Public Library of Science
