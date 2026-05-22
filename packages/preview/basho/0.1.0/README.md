@@ -22,7 +22,7 @@ Basho (芭蕉) is a vertical Japanese typesetting (tategaki / 縦書き) package
 
 ### Full example
 
-An extended example with various features is available [here](https://github.com/KoyaTofu42/typst-basho/blob/main/example/japanese-vertical.pdf). An example of Japanese novel typeset is available [here](https://github.com/KoyaTofu42/typst-basho/blob/main/example/Japanese_novel.pdf).
+An extended example with various features is available [here](https://github.com/KoyaTofu42/typst-basho/blob/aa1fb00d18bf0c509112f60a80f22f8b1143ceb1/example/japanese-vertical.pdf). An example of Japanese novel typeset is available [here](https://github.com/KoyaTofu42/typst-basho/blob/aa1fb00d18bf0c509112f60a80f22f8b1143ceb1/example/Japanese_novel.pdf).
 
 ### Inline macros
 
