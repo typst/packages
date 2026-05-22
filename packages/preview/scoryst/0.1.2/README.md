@@ -17,7 +17,7 @@ A Typst plugin to render music notation from multiple formats using
 - **Multi-page support**: render individual pages of long scores
 - **Binary font loading**: fonts pre-compiled to binary for instant init
 
-Check the [documentation](https://github.com/bernsteining/scoryst/blob/master/test/documentation.pdf) for a full demonstration with examples.
+Check the [documentation](https://github.com/bernsteining/scoryst/blob/v0.1.2/test/documentation.pdf?raw=1) for a full demonstration with examples.
 
 ## Usage
 
