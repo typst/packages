@@ -195,7 +195,14 @@
 
       let col-gap-abs = measure(v(config.layout.column-gap)).height
       let margin-height = (page.height - size.height) / 2
-      let available-height = size.height - (here().position().y - margin-height.to-absolute())
+      let y-in-body = here().position().y - margin-height.to-absolute()
+      let available-height = if y-in-body >= 0pt and y-in-body <= size.height {
+        size.height - y-in-body
+      } else {
+        // Clamp to container height when the margin assumption is invalid
+        // (e.g., inside box or table cells, not on a page body).
+        size.height
+      }
       let usable-height = (available-height - (config.layout.columns - 1) * col-gap-abs) / config.layout.columns
 
       let gap-abs = measure(h(config.layout.gap)).width
