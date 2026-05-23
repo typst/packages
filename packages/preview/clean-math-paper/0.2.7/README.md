@@ -89,6 +89,7 @@ For languages not included by default, or to override existing translations:
     "example": "Example",
     "question": "Question",
     "proof": "Proof",
+    "proof-of": "Proof of",
     "keywords": "Keywords",
     "ams": "AMS subject classification",
     "appendix": "Appendix",
