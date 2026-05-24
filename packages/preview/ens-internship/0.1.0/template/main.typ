@@ -1,4 +1,4 @@
-#import "../lib.typ": ens-internship
+#import "@preview/ens-internship:0.1.0": ens-internship
 
 #show: ens-internship.with(
   title: "A simple report template created with Typst",
