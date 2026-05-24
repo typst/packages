@@ -122,4 +122,4 @@ The example below uses a `(y: 0.6em,)` inset dictionary to specify larger vertic
 
 ## License
 
-simplebnf.typ is available under the MIT license. See the [LICENSE](https://github.com/Zeta611/simplebnf.typ/blob/master/LICENSE) file for more info.
+simplebnf.typ is available under the MIT license.
