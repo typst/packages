@@ -10,7 +10,7 @@
   place: "Place of the intership",
   date: "Beginning date",
   table-of-contents: true,
-  bibliography: bibliography("refs.yaml"),
+  bibliography: none,
 )
 
 = First chapter
