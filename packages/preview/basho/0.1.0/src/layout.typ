@@ -105,9 +105,7 @@
             let tok-start = is-forbidden-start(token, config.kinsoku.forbidden-start)
             let pop-start = popped.len() > 0 and is-forbidden-start(popped.first(), config.kinsoku.forbidden-start)
             let needs-more = tok-start and pop-start
-            if needs-more {
-              // Continue popping
-            } else {
+            if not needs-more {
               break
             }
           }
@@ -165,10 +163,8 @@
   ))
 }
 
-#let _pagination-state = state("basho-pagination", none)
-
 /// Main layout entry point. Two-pass approach:
-/// Pass 1: place() measures page dims + actual token heights, stores columns in state.
+/// Pass 1: layout() measures page dims + actual token heights, paginates into columns.
 /// Pass 2: context block reads pre-computed columns and renders with pagebreaks.
 ///
 /// - tokens (array): Array of token dictionaries.
@@ -203,61 +199,124 @@
         // (e.g., inside box or table cells, not on a page body).
         size.height
       }
-      let usable-height = (available-height - (config.layout.columns - 1) * col-gap-abs) / config.layout.columns
-
       let gap-abs = measure(h(config.layout.gap)).width
 
       let cfg = config
-      cfg.insert("usable-height", usable-height)
       // Resolve char-box to absolute for kinsoku compression calculations
       let char-box-abs = measure(box(width: config.sizing.char-box, height: config.sizing.char-box)).height
       cfg.insert("char-box-abs", char-box-abs)
 
-      let cols = paginate(tokens, heights, usable-height, cfg)
-      let col-widths = cols.map(col => measure(render-column(col, cfg)).width)
-
-      let result = []
-      let i = 0
       let num-segments = cfg.layout.columns
 
-      while i < cols.len() {
-        if i > 0 {
-          result += colbreak()
+      // First page columns divide remaining height after any preceding content
+      // (e.g. headings). Subsequent pages divide the full page body height.
+      let first-usable = (available-height - (num-segments - 1) * col-gap-abs) / num-segments
+      let full-usable = (size.height - (num-segments - 1) * col-gap-abs) / num-segments
+
+      let result = []
+
+      // Helper: render one page's segments from a column array
+      let render-page-from-cols(cols, col-widths, start-idx, height) = {
+        let ri = start-idx
+        let page-rows = ()
+        let seg = 0
+        while seg < num-segments {
+          if ri >= cols.len() { break }
+          let seg-cols = ()
+          let seg-w = 0pt
+          while ri < cols.len() {
+            let w = col-widths.at(ri)
+            let add = if seg-cols.len() == 0 { w } else { w + gap-abs }
+            if seg-w > 0pt and seg-w + add > size.width { break }
+            seg-cols.push(cols.at(ri))
+            seg-w += add
+            ri += 1
+          }
+          if seg-cols.len() > 0 {
+            page-rows.push(render-page(seg-cols, cfg.layout.gap, cfg))
+          }
+          seg += 1
+        }
+        (new-idx: ri, rows: page-rows)
+      }
+
+      if first-usable >= full-usable {
+        // Single phase — no heading offset (or negative), use full height.
+        cfg.insert("usable-height", full-usable)
+        let cols = paginate(tokens, heights, full-usable, cfg)
+        let col-widths = cols.map(col => measure(render-column(col, cfg)).width)
+
+        let i = 0
+        while i < cols.len() {
+          if i > 0 { result += colbreak() }
+          let page = render-page-from-cols(cols, col-widths, i, full-usable)
+          i = page.new-idx
+          if page.rows.len() > 0 {
+            result += stack(dir: ttb, spacing: cfg.layout.column-gap, ..page.rows)
+          }
+        }
+      } else {
+        // Two-phase: first page uses remaining height, rest use full page height.
+
+        // Phase 1 — paginate with first-page height
+        cfg.insert("usable-height", first-usable)
+        let cols = paginate(tokens, heights, first-usable, cfg)
+        let col-widths = cols.map(col => measure(render-column(col, cfg)).width)
+
+        // Count columns on the first page
+        let first-count = 0
+        let tmp = 0
+        for segment in range(num-segments) {
+          if tmp >= cols.len() { break }
+          let seg-w = 0pt
+          while tmp < cols.len() {
+            let w = col-widths.at(tmp)
+            let add = if seg-w == 0pt { w } else { w + gap-abs }
+            if seg-w > 0pt and seg-w + add > size.width { break }
+            seg-w += add
+            tmp += 1
+            first-count += 1
+          }
         }
 
-        let rows = ()
-        let segment = 0
-        while segment < num-segments {
-          if i >= cols.len() { break }
-
-          let segment-cols = ()
-          let current-w = 0pt
-
-          while i < cols.len() {
-            let w = col-widths.at(i)
-            let add-w = if segment-cols.len() == 0 { w } else { w + gap-abs }
-
-            if current-w > 0pt and current-w + add-w > size.width {
-              break
+        // Count tokens consumed on the first page.
+        // paginate() skips newline tokens (they are not put into columns),
+        // so we must advance past them to keep the slice aligned.
+        let consumed = 0
+        for col-idx in range(first-count) {
+          let remaining = cols.at(col-idx).len()
+          while remaining > 0 {
+            if tokens.at(consumed).type == "newline" {
+              consumed += 1
+            } else {
+              consumed += 1
+              remaining -= 1
             }
-
-            segment-cols.push(cols.at(i))
-            current-w += add-w
-            i += 1
           }
-
-          if segment-cols.len() > 0 {
-            rows.push(render-page(segment-cols, cfg.layout.gap, cfg))
-          }
-          segment += 1
         }
 
-        if rows.len() > 0 {
-          result += stack(
-            dir: ttb,
-            spacing: cfg.layout.column-gap,
-            ..rows,
-          )
+        // Render first page
+        let first-page = render-page-from-cols(cols, col-widths, 0, first-usable)
+        if first-page.rows.len() > 0 {
+          result += stack(dir: ttb, spacing: cfg.layout.column-gap, ..first-page.rows)
+        }
+
+        // Phase 2 — paginate remaining tokens with full page height
+        if consumed < tokens.len() {
+          result += colbreak()
+          cfg.insert("usable-height", full-usable)
+          let rest-cols = paginate(tokens.slice(consumed), heights.slice(consumed), full-usable, cfg)
+          let rest-col-widths = rest-cols.map(col => measure(render-column(col, cfg)).width)
+
+          let ri = 0
+          while ri < rest-cols.len() {
+            if ri > 0 { result += colbreak() }
+            let page = render-page-from-cols(rest-cols, rest-col-widths, ri, full-usable)
+            ri = page.new-idx
+            if page.rows.len() > 0 {
+              result += stack(dir: ttb, spacing: cfg.layout.column-gap, ..page.rows)
+            }
+          }
         }
       }
 
