@@ -24,7 +24,7 @@ For more information, check the [manual](doc/manual.pdf).
 To use this package, simply add the following code to your document:
 
 ```typ
-#import "@preview/trompet:0.1.0": *
+#import "@preview/trompet:0.1.1": *
 
 #tromp("\\f.\\n.f (f (f n))")
 ```

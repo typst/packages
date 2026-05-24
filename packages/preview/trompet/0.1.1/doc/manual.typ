@@ -1,5 +1,5 @@
 #import "@preview/tidy:0.4.3"
-#import "@preview/trompet:0.1.0" as trompet: *
+#import "@preview/trompet:0.1.1" as trompet: *
 #import "@preview/lambdabus:0.1.0" as lmd
 
 #show link: content => underline(content, stroke: blue)
@@ -17,7 +17,7 @@
 
   #link("https://github.com/CrowdingFaun624/trompet", `github.com/CrowdingFaun624/trompet`)
 
-  #strong[Version 0.1.0]
+  #strong[Version 0.1.1]
 ])
 
 #v(1in)
