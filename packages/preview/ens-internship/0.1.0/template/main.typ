@@ -13,15 +13,3 @@
   bibliography: none,
 )
 
-= First chapter
-== Section 1
-
-#lorem(200) @harry
-
-== Section 2
-
-#lorem(200) @electronic
-
-= Second chapter
-
-#lorem(800)
