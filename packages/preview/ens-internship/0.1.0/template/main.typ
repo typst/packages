@@ -6,7 +6,7 @@
   lang: "en",
   authors: ("Author 1", "Author 2"),
   mentors: ("Mentors 1", "Mentors 2"),
-  logo: "template/logo.png",
+  logo: "",
   place: "Place of the intership",
   date: "Beginning date",
   table-of-contents: true,
