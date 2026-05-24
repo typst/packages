@@ -1,0 +1,17 @@
+[package]
+name = "tressym-dnd"
+version = "0.2.3"
+entrypoint = "tressym.typ"
+authors = ["Bettina Esser <@b3sser>"]
+license = "MIT"
+description = "Render Character Sheets for DnD 5e, with auto-calculated stats. (Unofficial)"
+repository = "https://github.com/b3sser/typst-tressym"
+categories = ["layout", "fun"]
+keywords = ["roleplaying", "dnd", "dungeons-dragons", "rpg", "template", "gaming", "character-sheet", "d&d", "dungeons-and-dragons", "ttrpg", "tabletop", "dungeons", "dragons", "game"]
+exclude = ["example.png"]
+
+
+[template]
+path = "characters"
+entrypoint = "empty.typ"
+thumbnail = "thumbnail.png"
