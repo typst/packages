@@ -68,60 +68,64 @@
 #let render-char-token(token, config) = {
   let f-opt = if config.font != none { (font: config.font) } else { (:) }
 
+  let rendered = none
   for render-module in config.rendering {
     if "node-renderers" in render-module and token.type in render-module.node-renderers {
-      return (render-module.node-renderers.at(token.type))(token, config)
+      rendered = (render-module.node-renderers.at(token.type))(token, config)
+      break
     }
   }
 
-  let heading-level = token.at("heading", default: none)
-  let scales = config.sizing.heading-scales
-  let font-scale = if heading-level == 1 { scales.at(0) } else if heading-level == 2 { scales.at(1) } else if (
-    heading-level == 3
-  ) { scales.at(2) } else { 1.0 }
+  if rendered == none {
+    let heading-level = token.at("heading", default: none)
+    let scales = config.sizing.heading-scales
+    let font-scale = if heading-level == 1 { scales.at(0) } else if heading-level == 2 { scales.at(1) } else if (
+      heading-level == 3
+    ) { scales.at(2) } else { 1.0 }
 
-  // Determine kinsoku-aware alignment from config.kinsoku character sets
-  let check-opening(token) = is-forbidden-end(token, config.kinsoku.forbidden-end)
-  let check-closing(token) = is-forbidden-start(token, config.kinsoku.forbidden-start)
+    // Determine kinsoku-aware alignment from config.kinsoku character sets
+    let check-opening(token) = is-forbidden-end(token, config.kinsoku.forbidden-end)
+    let check-closing(token) = is-forbidden-start(token, config.kinsoku.forbidden-start)
 
-  let rendered = if token.type == "char" {
-    // Determine horizontal alignment based on bracket type
-    let h-align = if check-opening(token) { right } else if check-closing(token) { left } else { center }
-    let compression = token.at("compression", default: 0pt)
-    let cb = config.at("char-box-abs", default: config.sizing.char-box)
-    let box-height = cb - compression
-    if heading-level != none {
-      // Heading characters: scaled box
-      let sz = config.sizing.char-box * font-scale
+    rendered = if token.type == "char" {
+      // Determine horizontal alignment based on bracket type
+      let h-align = if check-opening(token) { right } else if check-closing(token) { left } else { center }
+      let compression = token.at("compression", default: 0pt)
+      let cb = config.at("char-box-abs", default: config.sizing.char-box)
+      let box-height = cb - compression
+      if heading-level != none {
+        // Heading characters: scaled box
+        let sz = config.sizing.char-box * font-scale
+        box(
+          width: sz,
+          height: sz,
+          align(h-align + horizon, text(
+            ..f-opt,
+            size: config.sizing.char-box * font-scale,
+            features: config.features,
+            weight: "bold",
+            token.text,
+          )),
+        )
+      } else {
+        char-box(token.text, config.font, config, h-align: h-align, height: box-height)
+      }
+    } else if token.type == "tcy" {
+      render-tcy(token, config)
+    } else if token.type == "hanging" {
+      render-hanging(token, config)
+    } else if token.type == "ruby" {
+      render-ruby(token, config)
+    } else if token.type == "heading-anchor" {
       box(
-        width: sz,
-        height: sz,
-        align(h-align + horizon, text(
-          ..f-opt,
-          size: config.sizing.char-box * font-scale,
-          features: config.features,
-          weight: "bold",
-          token.text,
-        )),
+        width: 0pt,
+        height: 0pt,
+        clip: true,
+        heading(level: token.level, outlined: true, bookmarked: true, token.body),
       )
     } else {
-      char-box(token.text, config.font, config, h-align: h-align, height: box-height)
+      none
     }
-  } else if token.type == "tcy" {
-    render-tcy(token, config)
-  } else if token.type == "hanging" {
-    render-hanging(token, config)
-  } else if token.type == "ruby" {
-    render-ruby(token, config)
-  } else if token.type == "heading-anchor" {
-    box(
-      width: 0pt,
-      height: 0pt,
-      clip: true,
-      heading(level: token.level, outlined: true, bookmarked: true, token.body),
-    )
-  } else {
-    none
   }
 
   if rendered != none and token.type != "turn" {
@@ -131,7 +135,7 @@
   }
 
   let space-after = token.at("space-after", default: 0pt)
-  if space-after > 0pt and rendered != none {
+  if space-after != 0pt and rendered != none {
     rendered = stack(dir: ttb, spacing: 0pt, rendered, box(width: config.sizing.char-box, height: space-after))
   }
 

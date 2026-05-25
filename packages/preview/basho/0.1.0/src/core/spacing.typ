@@ -5,12 +5,14 @@
 #import "../core/kinsoku.typ": is-forbidden-start, is-forbidden-end
 
 #let is-alphanumeric(t) = {
-  if t == none or t.type != "char" { return false }
-  t.text.match(regex("^[A-Za-z0-9]+$")) != none
+  if t == none or (t.type != "char" and t.type != "tcy" and t.type != "turn") { return false }
+  if type(t.text) != str { return false }
+  t.text.match(regex("^[A-Za-z0-9,.!?:;]+$")) != none
 }
 
 #let is-japanese(t) = {
   if t == none or t.type != "char" { return false }
+  if type(t.text) != str { return false }
   t.text.match(regex("^[^\x00-\x7F]+$")) != none
 }
 
@@ -54,9 +56,9 @@
         
         let space-after = 0pt
         if is-alphanumeric(t) and is-japanese(next-t) {
-          space-after = cjk-european-gap
-        } else if is-japanese(t) and is-alphanumeric(next-t) {
           space-after = european-cjk-gap
+        } else if is-japanese(t) and is-alphanumeric(next-t) {
+          space-after = cjk-european-gap
         } else if is-closing-bracket(t) and is-opening-bracket(next-t, config.kinsoku.forbidden-end) {
           space-after = bracket-gap
         }
