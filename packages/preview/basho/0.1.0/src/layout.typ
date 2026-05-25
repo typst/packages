@@ -190,9 +190,15 @@
       })
 
       let col-gap-abs = measure(v(config.layout.column-gap)).height
-      let margin-height = (page.height - size.height) / 2
-      let y-in-body = here().position().y - margin-height.to-absolute()
-      let available-height = if y-in-body >= 0pt and y-in-body <= size.height {
+      let top-margin = if type(page.margin) == dictionary { page.margin.top } else { page.margin }
+      let top-margin-abs = measure(box(height: top-margin)).height
+      let bottom-margin = if type(page.margin) == dictionary { page.margin.bottom } else { page.margin }
+      let bottom-margin-abs = measure(box(height: bottom-margin)).height
+      let page-height-abs = measure(box(height: page.height)).height
+      let page-body-height = page-height-abs - top-margin-abs - bottom-margin-abs
+      let y-in-body = here().position().y - top-margin-abs
+      let in-page-context = size.height >= page-body-height - 5pt and size.height <= page-body-height + 5pt
+      let available-height = if in-page-context and y-in-body >= 0pt and y-in-body <= size.height {
         size.height - y-in-body
       } else {
         // Clamp to container height when the margin assumption is invalid
