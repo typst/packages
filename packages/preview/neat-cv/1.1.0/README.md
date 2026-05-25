@@ -1,8 +1,8 @@
 # Neat CV
 [![Typst Package](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Fneat-cv&query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&logo=typst&label=Universe&color=%23239DAE&style=flat-square)](https://typst.app/universe/package/neat-cv)
-[![Tests](https://img.shields.io/github/actions/workflow/status/dialvarezs/neat-cv/ci.yml?style=flat-square)](https://github.com/dialvarezs/neat-cv/actions/workflows/ci.yml)
-![License](https://img.shields.io/github/license/dialvarezs/neat-cv?style=flat-square)
-[![Stars](https://img.shields.io/github/stars/dialvarezs/neat-cv?style=flat-square)](https://github.com/dialvarezs/neat-cv/stargazers)
+[![CI Status](https://img.shields.io/github/actions/workflow/status/dialvarezs/neat-cv/ci.yml?style=flat-square)](https://github.com/dialvarezs/neat-cv/actions/workflows/ci.yml)
+![Package License](https://img.shields.io/github/license/dialvarezs/neat-cv?style=flat-square)
+[![GitHub Stars](https://img.shields.io/github/stars/dialvarezs/neat-cv?style=flat-square)](https://github.com/dialvarezs/neat-cv/stargazers)
 
 A modern and elegant CV template for Typst, inspired by [Awesome CV](https://github.com/posquit0/Awesome-CV) and [simple-hipstercv](https://github.com/latex-ninja/simple-hipstercv).
 
