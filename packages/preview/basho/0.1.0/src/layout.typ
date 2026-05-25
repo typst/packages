@@ -23,7 +23,7 @@
   )
 }
 
-#import "core/kinsoku.typ": apply-spacing-compression, is-forbidden-start, is-valid-line-end
+#import "core/kinsoku.typ": apply-spacing-compression, is-forbidden-start, is-valid-line-end, justify-line
 
 /// Splits a flat token array into column groups based on a maximum height
 /// (absolute length). Uses pre-measured token heights for accuracy,
@@ -78,7 +78,7 @@
       }
 
       if decision.action == "oikomi" {
-        apply-spacing-compression(current-col, decision.compression-amount, config)
+        current-col = apply-spacing-compression(current-col, decision.compression-amount, config)
         current-col.push(token)
         columns.push(current-col)
         current-col = ()
@@ -112,6 +112,7 @@
         }
 
         let exhausted = current-col.len() == 0
+        current-col = justify-line(current-col, max-height - (current-height - popped-height))
         columns.push(current-col)
         if exhausted {
           // All tokens were popped but the violation persists.
@@ -127,6 +128,7 @@
       }
 
       // oidashi — break normally before the current token
+      current-col = justify-line(current-col, max-height - current-height)
       columns.push(current-col)
       current-col = (token,)
       current-height = h

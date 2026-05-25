@@ -7,7 +7,7 @@
 #let apply-transforms(tokens, config) = {
   for module in config.rendering {
     if "transform" in module {
-      tokens = (module.transform)(tokens)
+      tokens = (module.transform)(tokens, config)
     }
   }
   tokens

@@ -130,5 +130,10 @@
     if "dest" in token { rendered = link(token.dest, rendered) }
   }
 
+  let space-after = token.at("space-after", default: 0pt)
+  if space-after > 0pt and rendered != none {
+    rendered = stack(dir: ttb, spacing: 0pt, rendered, box(width: config.sizing.char-box, height: space-after))
+  }
+
   rendered
 }

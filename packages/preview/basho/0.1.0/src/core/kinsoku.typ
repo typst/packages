@@ -82,20 +82,62 @@
 
 /// Distributes compression across compressible punctuation tokens in the column.
 /// Each token gets at most compression-per-punct removed from its height.
-/// Sets `compression` field on the token dict (consumed by the renderer).
+/// Returns a new array of tokens with `compression` fields updated.
 #let apply-spacing-compression(col, amount, config) = {
   let k = config.kinsoku
   let cb = config.char-box-abs
   let max-per-punct = k.compression-per-punct * cb
   let remaining = amount
+  let result = ()
   for token in col {
-    if remaining <= 0pt { break }
-    if is-compressible-punctuation(token, k.compressible-punctuation) {
+    if remaining > 0pt and is-compressible-punctuation(token, k.compressible-punctuation) {
       let reduction = calc.min(max-per-punct, remaining)
       token.insert("compression", token.at("compression", default: 0pt) + reduction)
       remaining -= reduction
     }
+    result.push(token)
   }
+  result
+}
+
+/// Returns the compressible amount for a single token.
+#let get-compressible-amount(token, config) = {
+  if token == none { return 0pt }
+  let k = config.kinsoku
+  let cb = config.char-box-abs
+  if is-compressible-punctuation(token, k.compressible-punctuation) {
+    k.compression-per-punct * cb
+  } else {
+    0pt
+  }
+}
+
+/// Returns the number of justification points in the column.
+#let count-justification-points(col) = {
+  let count = 0
+  for token in col {
+    if token.at("justification-point", default: false) {
+      count += 1
+    }
+  }
+  count
+}
+
+/// Distributes available space across justification points.
+#let justify-line(col, available-space) = {
+  let count = count-justification-points(col)
+  if count > 0 and available-space > 0pt {
+    let add = available-space / count
+    let result = ()
+    for token in col {
+      if token.at("justification-point", default: false) {
+        token.insert("space-after", token.at("space-after", default: 0pt) + add)
+      }
+      result.push(token)
+    }
+    return result
+  }
+  col
 }
 
 /// Checks whether a token is valid at the end of a column.
