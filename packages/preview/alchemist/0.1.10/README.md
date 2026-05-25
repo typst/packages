@@ -1,5 +1,5 @@
 [![Typst Package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FTypsium%2Falchemist%2Fmaster%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://github.com/Typsium/alchemist)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Typsium/alchemist/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Typsium/alchemist/0.1.10/LICENSE)
 [![User Manual](https://img.shields.io/badge/manual-.pdf-purple)](https://raw.githubusercontent.com/Typsium/alchemist/0.1.10/doc/manual.pdf)
 
 # alchemist
@@ -45,7 +45,7 @@ Alchemist is a typst package to draw skeletal formulae. It is based on the [chem
   )
 })
 ````
-![links](https://raw.githubusercontent.com/Typsium/alchemist/master/tests/README-graphic1/ref/1.png)
+![links](https://raw.githubusercontent.com/Typsium/alchemist/0.1.10/tests/README-graphic1/ref/1.png)
 
 Alchemist uses cetz to draw the molecules. This means that you can draw cetz shapes in the same canvas as the molecules. Like this:
 
@@ -71,7 +71,7 @@ Alchemist uses cetz to draw the molecules. This means that you can draw cetz sha
   )
 })
 ````
-![cetz](https://raw.githubusercontent.com/Typsium/alchemist/master/tests/README-graphic2/ref/1.png)
+![cetz](https://raw.githubusercontent.com/Typsium/alchemist/0.1.10/tests/README-graphic2/ref/1.png)
 
 ## Usage
 
