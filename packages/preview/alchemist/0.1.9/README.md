@@ -1,6 +1,6 @@
 [![Typst Package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FTypsium%2Falchemist%2Fmaster%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://github.com/Typsium/alchemist)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Typsium/alchemist/blob/master/LICENSE)
-[![User Manual](https://img.shields.io/badge/manual-.pdf-purple)](https://raw.githubusercontent.com/Robotechnic/alchemist/master/doc/manual.pdf)
+[![User Manual](https://img.shields.io/badge/manual-.pdf-purple)](https://raw.githubusercontent.com/Typsium/alchemist/0.1.9/doc/manual.pdf)
 
 # alchemist
 
@@ -85,7 +85,7 @@ To start using alchemist, just use the following code:
 })
 ```
 
-For more information, check the [manual](https://raw.githubusercontent.com/Robotechnic/alchemist/master/doc/manual.pdf).
+For more information, check the [manual](https://raw.githubusercontent.com/Typsium/alchemist/0.1.9/doc/manual.pdf).
 
 ## Tests
 
