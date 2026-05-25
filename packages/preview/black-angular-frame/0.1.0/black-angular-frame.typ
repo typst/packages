@@ -8,42 +8,42 @@
 // ============================================================
 
 // ---- Internal state ----------------------------------------
-#let _fs-tc = state("_fs-tc", rgb("#1C1C1C"))
-#let _fs-sc = state("_fs-sc", rgb("#D9D9D9"))
-#let _fs-bg = state("_fs-bg", white)
-#let _fs-w = state("_fs-w", 254mm)
-#let _fs-h = state("_fs-h", 143mm)
-#let _fs-ft = state("_fs-ft", none)
-#let _fs-fst = state("_fs-fst", none)
-#let _fs-title = state("_fs-title", "")
-#let _fs-subt = state("_fs-subt", "")
-#let _fs-inst = state("_fs-inst", none)
-#let _fs-auth = state("_fs-auth", none)
-#let _fs-fc = state("_fs-fc", luma(20))
-#let _fs-hfc1 = state("_fs-hfc1", rgb("#999999"))
-#let _fs-hfc2 = state("_fs-hfc2", rgb("#1C1C1C"))
-#let _fs-hfc1h = state("_fs-hfc1h", white)
-#let _fs-final = state("_fs-final", "")
-#let _fs-cctr = state("_fs-cctr", 0.3)
-#let _fs-cupad = state("_fs-cupad", 0.05)
-#let _fs-clpad = state("_fs-clpad", 0.05)
-#let _fs-pages = state("_fs-pages", ())
-#let _fs-sec-targets = state("_fs-sec-targets", ())
+#let _baf-tc = state("_baf-tc", rgb("#1C1C1C"))
+#let _baf-sc = state("_baf-sc", rgb("#D9D9D9"))
+#let _baf-bg = state("_baf-bg", white)
+#let _baf-w = state("_baf-w", 254mm)
+#let _baf-h = state("_baf-h", 143mm)
+#let _baf-ft = state("_baf-ft", none)
+#let _baf-fst = state("_baf-fst", none)
+#let _baf-title = state("_baf-title", "")
+#let _baf-subt = state("_baf-subt", "")
+#let _baf-inst = state("_baf-inst", none)
+#let _baf-auth = state("_baf-auth", none)
+#let _baf-fc = state("_baf-fc", luma(20))
+#let _baf-hfc1 = state("_baf-hfc1", rgb("#999999"))
+#let _baf-hfc2 = state("_baf-hfc2", rgb("#1C1C1C"))
+#let _baf-hfc1h = state("_baf-hfc1h", white)
+#let _baf-final = state("_baf-final", "")
+#let _baf-cctr = state("_baf-cctr", 0.3)
+#let _baf-cupad = state("_baf-cupad", 0.05)
+#let _baf-clpad = state("_baf-clpad", 0.05)
+#let _baf-pages = state("_baf-pages", ())
+#let _baf-sec-targets = state("_baf-sec-targets", ())
 
-#let _sec-ctr = counter("_fs-sec")
-#let _fig-ctr = counter("_fs-fig")
-#let _cur-sec = state("_fs-cursec", "")
-#let _toc-data = state("_fs-toc", ())
+#let _sec-ctr = counter("_baf-sec")
+#let _fig-ctr = counter("_baf-fig")
+#let _cur-sec = state("_baf-cursec", "")
+#let _toc-data = state("_baf-toc", ())
 
 #let _thm-ctrs = (
-  theorem: counter("_fs-thm"),
-  lemma: counter("_fs-lem"),
-  corollary: counter("_fs-cor"),
-  proposition: counter("_fs-prp"),
-  definition: counter("_fs-def"),
-  example: counter("_fs-exa"),
-  exercise: counter("_fs-exr"),
-  remark: counter("_fs-rmk"),
+  theorem: counter("_baf-thm"),
+  lemma: counter("_baf-lem"),
+  corollary: counter("_baf-cor"),
+  proposition: counter("_baf-prp"),
+  definition: counter("_baf-def"),
+  example: counter("_baf-exa"),
+  exercise: counter("_baf-exr"),
+  remark: counter("_baf-rmk"),
 )
 
 // ---- Color helpers -----------------------------------------
@@ -145,12 +145,12 @@
 }
 
 #let _register-page(section: none, intro: false) = {
-  _fs-pages.update(p => p + ((section: section, intro: intro),))
+  _baf-pages.update(p => p + ((section: section, intro: intro),))
 }
 
 #let _register-section-target(title, loc) = {
   if title != none and title != "" {
-    _fs-sec-targets.update(t => {
+    _baf-sec-targets.update(t => {
       if t.find(entry => entry.title == title) == none {
         t + ((title: title, loc: loc),)
       } else {
@@ -173,8 +173,8 @@
   let hfc1 = if header-font-color-1 == auto { _muted-nav(primary) } else { header-font-color-1 }
   let hfc2 = if header-font-color-2 == auto { primary } else { header-font-color-2 }
   let titles = _toc-data.final().filter(e => e.kind == "section").map(e => e.title)
-  let sec-targets = _fs-sec-targets.final()
-  let pages = _fs-pages.final()
+  let sec-targets = _baf-sec-targets.final()
+  let pages = _baf-pages.final()
   let page-no = counter(page).get().first()
   let nav-margin = 22.4pt
   let nav-top = 3.425pt
@@ -434,13 +434,13 @@
           width: 100%,
           height: 100%,
           align(horizon, align(left, if _single-line(left-bottom) != none {
-            move(dy: -1pt, text(font: _sans, fill: hfc1, size: 7pt, _single-line(left-bottom)))
+            move(dy: 0pt, text(font: _sans, fill: hfc1, size: 7pt, _single-line(left-bottom)))
           } else { [] })),
         ),
         block(
           width: 100%,
           height: 100%,
-          align(horizon, align(right, move(dy: -1pt, text(
+          align(horizon, align(right, move(dy: 0.2pt, text(
             font: _sans,
             fill: hfc1,
             size: 6.8pt,
@@ -453,9 +453,9 @@
 }
 
 #let _slide-body-area(w, h, body) = context {
-  let center = _clamp01(_fs-cctr.get())
-  let upper = _clamp01(_fs-cupad.get())
-  let lower = _clamp01(_fs-clpad.get())
+  let center = _clamp01(_baf-cctr.get())
+  let upper = _clamp01(_baf-cupad.get())
+  let lower = _clamp01(_baf-clpad.get())
   let usable-ratio = calc.max(0, 1 - upper - lower)
 
   block(
@@ -505,7 +505,7 @@
 #let _table-after-caption-margin = _visual-y-margin
 
 /// Generic visual block without a caption.
-#let fs-visual(body) = block(
+#let baf-visual(body) = block(
   width: 100%,
   above: _visual-y-margin,
   below: _visual-y-margin,
@@ -513,7 +513,7 @@
 )
 
 /// Cell helper for grid-built tables. Uses the template's table font.
-#let fs-table-cell(body, fill: none, stroke: none, pos: left, inset: (x: 5pt, y: 4pt)) = block(
+#let baf-table-cell(body, fill: none, stroke: none, pos: left, inset: (x: 5pt, y: 4pt)) = block(
   width: 100%,
   fill: fill,
   stroke: stroke,
@@ -523,7 +523,7 @@
 
 /// Numbered figure with optional italic caption.
 /// Counters reset per section.
-#let fs-figure(body, caption: none, caption-gap: _caption-gap) = {
+#let baf-figure(body, caption: none, caption-gap: _caption-gap) = {
   _fig-ctr.step()
   block(above: _visual-y-margin, below: _visual-y-margin, spacing: 0pt, width: 100%, {
     align(center, body)
@@ -535,7 +535,7 @@
 }
 
 /// Diagram figure with template-level caption spacing.
-#let fs-diagram(body, caption: none) = fs-figure(
+#let baf-diagram(body, caption: none) = baf-figure(
   caption: caption,
   caption-gap: _diagram-caption-gap,
   body,
@@ -633,8 +633,8 @@
 #let remark(name: none, color: luma(90), width: 100%, body) = { _tbox("remark", name, color, body, width: width) }
 
 /// Generic custom box -- any kind label and color.
-/// #fs-box("warning", name: "Watch out", color: red)[...]
-#let fs-box(kind, name: none, color: blue.darken(50%), width: 100%, body) = {
+/// #baf-box("warning", name: "Watch out", color: red)[...]
+#let baf-box(kind, name: none, color: blue.darken(50%), width: 100%, body) = {
   _tbox(kind, name, color, body, width: width)
 }
 
@@ -654,7 +654,7 @@
 }
 
 /// Display equation with the same vertical rhythm as visual boxes.
-#let fs-equation(body) = block(
+#let baf-equation(body) = block(
   width: 100%,
   above: _visual-y-margin,
   below: _visual-y-margin,
@@ -747,17 +747,17 @@
 /// #slide(title: "My Slide")[Content]
 #let slide(title: none, section: auto, show-title-band: auto, body) = {
   context {
-    let tc = _fs-tc.get()
-    let sc = _fs-sc.get()
-    let bg = _fs-bg.get()
-    let w = _fs-w.get()
-    let h = _fs-h.get()
-    let ft = _fs-ft.get()
-    let auth = _fs-auth.get()
-    let inst = _fs-inst.get()
-    let hfc1 = _fs-hfc1.get()
-    let hfc2 = _fs-hfc2.get()
-    let hfc1h = _fs-hfc1h.get()
+    let tc = _baf-tc.get()
+    let sc = _baf-sc.get()
+    let bg = _baf-bg.get()
+    let w = _baf-w.get()
+    let h = _baf-h.get()
+    let ft = _baf-ft.get()
+    let auth = _baf-auth.get()
+    let inst = _baf-inst.get()
+    let hfc1 = _baf-hfc1.get()
+    let hfc2 = _baf-hfc2.get()
+    let hfc1h = _baf-hfc1h.get()
     let cur = _cur-sec.get()
     let sec = if section == auto { cur } else { section }
     let header-title = if show-title-band == auto {
@@ -827,17 +827,17 @@
 /// Section divider slide (typically called right after new-section).
 #let section-slide(sec-title) = {
   context {
-    let tc = _fs-tc.get()
-    let sc = _fs-sc.get()
-    let bg = _fs-bg.get()
-    let w = _fs-w.get()
-    let h = _fs-h.get()
-    let ft = _fs-ft.get()
-    let auth = _fs-auth.get()
-    let inst = _fs-inst.get()
-    let hfc1 = _fs-hfc1.get()
-    let hfc2 = _fs-hfc2.get()
-    let hfc1h = _fs-hfc1h.get()
+    let tc = _baf-tc.get()
+    let sc = _baf-sc.get()
+    let bg = _baf-bg.get()
+    let w = _baf-w.get()
+    let h = _baf-h.get()
+    let ft = _baf-ft.get()
+    let auth = _baf-auth.get()
+    let inst = _baf-inst.get()
+    let hfc1 = _baf-hfc1.get()
+    let hfc2 = _baf-hfc2.get()
+    let hfc1h = _baf-hfc1h.get()
     let nav-sec = {
       let cur = _cur-sec.get()
       if cur == none or cur == "" { sec-title } else { cur }
@@ -926,18 +926,18 @@
 
 /// Final message slide.
 #let final-slide = context {
-  let tc = _fs-tc.get()
-  let sc = _fs-sc.get()
-  let bg = _fs-bg.get()
-  let w = _fs-w.get()
-  let h = _fs-h.get()
-  let ft = _fs-ft.get()
-  let auth = _fs-auth.get()
-  let inst = _fs-inst.get()
-  let hfc1 = _fs-hfc1.get()
-  let hfc2 = _fs-hfc2.get()
-  let hfc1h = _fs-hfc1h.get()
-  let final-message = _fs-final.get()
+  let tc = _baf-tc.get()
+  let sc = _baf-sc.get()
+  let bg = _baf-bg.get()
+  let w = _baf-w.get()
+  let h = _baf-h.get()
+  let ft = _baf-ft.get()
+  let auth = _baf-auth.get()
+  let inst = _baf-inst.get()
+  let hfc1 = _baf-hfc1.get()
+  let hfc2 = _baf-hfc2.get()
+  let hfc1h = _baf-hfc1h.get()
+  let final-message = _baf-final.get()
   _register-page()
 
   page(
@@ -1106,25 +1106,25 @@
   let h = w / ratio
 
   // Push config into state so slide() can read it contextually
-  _fs-tc.update(cfg-primary)
-  _fs-sc.update(cfg-secondary)
-  _fs-bg.update(cfg-background)
-  _fs-w.update(w)
-  _fs-h.update(h)
-  _fs-ft.update(ft)
-  _fs-fst.update(fst)
-  _fs-title.update(cfg-title)
-  _fs-subt.update(cfg-subtitle)
-  _fs-inst.update(inst)
-  _fs-auth.update(auth)
-  _fs-fc.update(cfg-font-color)
-  _fs-hfc1.update(cfg-hfc1)
-  _fs-hfc2.update(cfg-hfc2)
-  _fs-hfc1h.update(cfg-hfc1h)
-  _fs-final.update(cfg-final-message)
-  _fs-cctr.update(cfg-content-center)
-  _fs-cupad.update(cfg-content-upper-padding)
-  _fs-clpad.update(cfg-content-lower-padding)
+  _baf-tc.update(cfg-primary)
+  _baf-sc.update(cfg-secondary)
+  _baf-bg.update(cfg-background)
+  _baf-w.update(w)
+  _baf-h.update(h)
+  _baf-ft.update(ft)
+  _baf-fst.update(fst)
+  _baf-title.update(cfg-title)
+  _baf-subt.update(cfg-subtitle)
+  _baf-inst.update(inst)
+  _baf-auth.update(auth)
+  _baf-fc.update(cfg-font-color)
+  _baf-hfc1.update(cfg-hfc1)
+  _baf-hfc2.update(cfg-hfc2)
+  _baf-hfc1h.update(cfg-hfc1h)
+  _baf-final.update(cfg-final-message)
+  _baf-cctr.update(cfg-content-center)
+  _baf-cupad.update(cfg-content-upper-padding)
+  _baf-clpad.update(cfg-content-lower-padding)
 
   // Global text defaults
   set text(font: _serif, size: 10.5pt, fill: cfg-font-color)
@@ -1234,7 +1234,7 @@
     slide(title: "Table of Contents", section: none, show-title-band: false, {
       context {
         let entries = _toc-data.final()
-        let sec-targets = _fs-sec-targets.final()
+        let sec-targets = _baf-sec-targets.final()
         let sec-n = 0
         text(font: _sans, size: 14pt, weight: "bold", fill: cfg-primary, [Table of Contents])
         v(8pt)

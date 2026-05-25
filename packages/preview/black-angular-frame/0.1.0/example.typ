@@ -3,7 +3,7 @@
 // This file demonstrates all features of the template.
 // ============================================================
 
-#import "@preview/black-angular-frame:0.1.0": *
+#import "black-angular-frame.typ": *
 
 #let presentation-config = (
   title: "Black Angular Frame",
@@ -105,7 +105,7 @@
   #v(3pt)
 
   #code-box(
-    "#import \"@preview/black-angular-frame:0.1.0\": *
+    "#import \"black-angular-frame.typ\": *
 
 #let presentation-config = (
   title: \"Black Angular Frame\",
@@ -147,7 +147,7 @@
 #new-section("Typography")
 
 #slide(title: "Default Fonts")[
-  The template uses three IBM Plex families when available, with standard fallback fonts if they are not installed:
+  The template ships with three IBM Plex families:
 
   #v(5pt)
   #grid(

@@ -1,8 +1,13 @@
 # black-angular-frame
 
+[![GitHub repository](https://img.shields.io/badge/GitHub-mntsx%2Fblack--angular--frame-181717?logo=github)](https://github.com/mntsx/black-angular-frame)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A Typst presentation template with a square, minimal, academic design language: a solid navigation bar on top, a two-level footer with page number, a tinted title strip for regular content slides, and compact box environments without wasted whitespace.
 
 ![black-angular-frame thumbnail](thumbnail.png)
+
+For a complete rendered demo, check the full example PDF: [example.pdf](https://github.com/mntsx/black-angular-frame/blob/master/example.pdf).
 
 ---
 
@@ -146,12 +151,12 @@ Splits the slide into two columns.
 
 ## Figures
 
-### `#fs-figure(caption: [...], body)`
+### `#baf-figure(caption: [...], body)`
 
 Numbered figure. The counter resets at each `#new-section`. Reference by number in surrounding text.
 
 ```typst
-#fs-figure(caption: [A diagram showing the architecture.])[
+#baf-figure(caption: [A diagram showing the architecture.])[
   #image("diagram.svg", width: 80%)
 ]
 ```
@@ -160,12 +165,12 @@ Numbered figure. The counter resets at each `#new-section`. Reference by number 
 
 ## Tables
 
-### `#fs-table-cell(body, fill: ..., stroke: ..., pos: ...)`
+### `#baf-table-cell(body, fill: ..., stroke: ..., pos: ...)`
 
 Cell helper for tables built with `grid`. It applies the template table font, IBM Plex Sans by default.
 
 ```typst
-#fs-table-cell(fill: luma(248), stroke: luma(200) + 0.6pt, pos: center)[88.9]
+#baf-table-cell(fill: luma(248), stroke: luma(200) + 0.6pt, pos: center)[88.9]
 ```
 
 ---
@@ -185,16 +190,16 @@ All boxes display a colored header with `Kind N.M` (section.number) and an optio
 | `#exercise(name: "...", body)` | `orange.darken(20%)` |
 | `#remark(name: "...", body)` | `luma(90)` |
 | `#proof(body)` | left-border style |
-| `#fs-box("kind", name: "...", color: ..., body)` | any color |
+| `#baf-box("kind", name: "...", color: ..., body)` | any color |
 
-The `color:` parameter can be overridden on any box. `#fs-box` accepts any string as the kind label.
+The `color:` parameter can be overridden on any box. `#baf-box` accepts any string as the kind label.
 
 ```typst
 #theorem(name: "Banach Fixed-Point Theorem")[
   Let $(M, d)$ be a complete metric space and $f$ a contraction. Then $f$ has a unique fixed point.
 ]
 
-#fs-box("warning", name: "Careful!", color: red.darken(20%))[
+#baf-box("warning", name: "Careful!", color: red.darken(20%))[
   Do not confuse contractions with nonexpansive maps.
 ]
 ```
@@ -267,13 +272,13 @@ The file `example.typ` is a complete demo presentation covering all template fea
 ### Section 9 — Theorem-style Boxes
 
 - `#definition`, `#theorem`, `#lemma`, `#corollary`, and `#proof` environments demonstrated with the Banach fixed-point theorem and Picard–Lindelöf corollary.
-- `#example`, `#exercise`, `#proposition`, and three `#fs-box` calls with custom kind labels ("note", "warning", "custom") and custom colors.
+- `#example`, `#exercise`, `#proposition`, and three `#baf-box` calls with custom kind labels ("note", "warning", "custom") and custom colors.
 
 ---
 
 ## Repository layout
 
-```text
+```
 black-angular-frame/
 ├── typst.toml                 # Package manifest
 ├── black-angular-frame.typ    # Package entrypoint
