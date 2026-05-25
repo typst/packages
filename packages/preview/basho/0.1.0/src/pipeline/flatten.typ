@@ -2,6 +2,7 @@
 // Content tree traversal for Typst native markup
 
 #import "../core/parser.typ": tokenize
+#import "../core/token.typ": token, merge-token
 
 /// Flattens a native Typst content tree into an array of Basho tokens.
 /// This enables support for inline macros (like `#ruby`) and native styling (like `*bold*`).
@@ -32,34 +33,34 @@
     } else if fname == "equation" {
       let is-block = c.at("block", default: false)
       if is-block {
-        tokens.push((type: "vblock", text: c))
+        tokens.push(token("vblock", fields: (text: c)))
       } else {
-        tokens.push((type: "turn", text: c))
+        tokens.push(token("turn", fields: (text: c)))
       }
     } else if fname == "space" {
-      tokens.push((type: "char", text: " "))
+      tokens.push(token("char", fields: (text: " ")))
     } else if fname == "parbreak" or fname == "linebreak" {
-      tokens.push((type: "newline", text: "\n"))
+      tokens.push(token("newline", fields: (text: "\n")))
     } else if fname == "heading" {
-      tokens.push((type: "newline", text: "\n"))
+      tokens.push(token("newline", fields: (text: "\n")))
       let level = c.at("depth", default: c.at("level", default: 1))
-      tokens.push((type: "heading-anchor", level: level, body: c.body))
+      tokens.push(token("heading-anchor", fields: (level: level, body: c.body)))
       let inner = flatten(c.body, config)
-      inner = inner.map(t => t + (heading: level))
+      inner = inner.map(t => merge-token(t, (heading: level)))
       tokens += inner
-      tokens.push((type: "newline", text: "\n"))
+      tokens.push(token("newline", fields: (text: "\n")))
     } else if fname == "link" {
       let dest = c.dest
       let inner = flatten(c.body, config)
-      inner = inner.map(t => t + (dest: dest))
+      inner = inner.map(t => merge-token(t, (dest: dest)))
       tokens += inner
     } else if fname in ("strong", "emph", "underline", "strike", "overline", "highlight") {
       // Inline formatting elements
       let inner = flatten(c.body, config)
       if fname == "strong" {
-        inner = inner.map(t => t + (bold: true))
+        inner = inner.map(t => merge-token(t, (bold: true)))
       } else if fname == "emph" {
-        inner = inner.map(t => t + (italic: true))
+        inner = inner.map(t => merge-token(t, (italic: true)))
       }
       tokens += inner
     } else if fname == "enum" {
@@ -89,11 +90,11 @@
       if items.len() > 0 {
         let start = c.at("start", default: 1)
         for i in range(items.len()) {
-          if i > 0 { tokens.push((type: "newline", text: "\n")) }
+          if i > 0 { tokens.push(token("newline", fields: (text: "\n"))) }
           let num = (config.list.numbered.format)(start + i)
-          tokens.push((type: "tcy", text: num, forced: true))
+          tokens.push(token("tcy", fields: (text: num, forced: true)))
           let gap = config.list.numbered.gap
-          if gap != 0pt { tokens.push((type: "spacing", width: gap)) }
+          if gap != 0pt { tokens.push(token("spacing", fields: (width: gap))) }
           tokens += flatten(items.at(i).body, config)
         }
       } else {
@@ -103,8 +104,8 @@
       let seen-item = false
       for child in c.children {
         if type(child) == content and repr(child.func()) == "item" {
-          if seen-item { tokens.push((type: "newline", text: "\n")) }
-          tokens.push((type: "bullet-list-marker"))
+          if seen-item { tokens.push(token("newline", fields: (text: "\n"))) }
+          tokens.push(token("bullet-list-marker"))
           tokens += flatten(child.body, config)
           seen-item = true
         } else if type(child) == content and repr(child.func()) == "space" {
@@ -130,7 +131,7 @@
       tokens += tokenize(c.text, config)
     } else {
       // Anything else (figures, images, shapes, unhandled blocks)
-      tokens.push((type: "hblock", text: c))
+      tokens.push(token("hblock", fields: (text: c)))
     }
   }
 

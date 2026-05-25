@@ -116,25 +116,29 @@ An extended example with various features is available [here](https://github.com
 
 ## Architecture
 
-Basho renders vertical text through a 4-layer pipeline built on a **Dependency Injection** architecture — every component (rendering transforms, TCY classification, kinsoku rules, list modules) is pluggable via a single `config` dictionary.
+Basho renders vertical text through a 5-stage pipeline built on a **Dependency Injection** architecture — every component (rendering transforms, TCY classification, kinsoku rules, list modules) is pluggable via a single `config` dictionary.
 
 ```mermaid
-flowchart TD
-    Input["Input content"] --> Layer1["Layer 1: Flatten<br/>flatten.typ → parser.typ"]
-    Layer1 -->|"token array"| Layer2["Layer 2: Rendering transforms<br/>config.rendering[].transform"]
-    Layer2 -->|"modified token array"| Layer3["Layer 3: TCY filtering<br/>config.tcy[].filter"]
-    Layer3 -->|"classified token array"| Layer4["Layer 4: Layout<br/>layout.typ → paginate → render"]
-    Layer4 --> Output["Output"]
+flowchart LR
+    Input["Input content"] --> Flatten["1. Flatten"]
+    Flatten --> Transform["2. Transform"]
+    Transform --> Classify["3. Classify"]
+    Classify --> Paginate["4. Paginate"]
+    Paginate --> Render["5. Render"]
+    Render --> Output["Output"]
 ```
 
 ## Learn more
 
 | Document | Topics |
 |---|---|
-| [docs/architecture.md](https://github.com/KoyaTofu42/typst-basho/blob/191e47a3dfc0c3da0d34efeb55eed71418543236/docs/architecture.md) | Full pipeline details, token types, node-renderer dispatch table, source map |
-| [docs/configuration.md](https://github.com/KoyaTofu42/typst-basho/blob/191e47a3dfc0c3da0d34efeb55eed71418543236/docs/configuration.md) | `config` deep-merge, full default-opts, factory function reference, override examples |
-| [docs/kinsoku.md](https://github.com/KoyaTofu42/typst-basho/blob/191e47a3dfc0c3da0d34efeb55eed71418543236/docs/kinsoku.md) | JIS X 4051 priority tiers, `default-resolver()` parameters, custom resolve functions |
-| [docs/layout-hooks.md](https://github.com/KoyaTofu42/typst-basho/blob/191e47a3dfc0c3da0d34efeb55eed71418543236/docs/layout-hooks.md) | Custom page layouts via hooks, bullet/numbered list module replacement |
+| [docs/architecture.md](https://github.com/KoyaTofu42/typst-basho/blob/5dc7dc3d0a01d16ae9726ef6b444231f677315f1/docs/architecture.md) | Full pipeline details, token types, node-renderer dispatch table, source map |
+| [docs/configuration.md](https://github.com/KoyaTofu42/typst-basho/blob/5dc7dc3d0a01d16ae9726ef6b444231f677315f1/docs/configuration.md) | `config` deep-merge, full default-opts, factory function reference, override examples |
+| [docs/kinsoku.md](https://github.com/KoyaTofu42/typst-basho/blob/5dc7dc3d0a01d16ae9726ef6b444231f677315f1/docs/kinsoku.md) | JIS X 4051 priority tiers, `default-resolver()` parameters, custom resolve functions |
+| [docs/layout-hooks.md](https://github.com/KoyaTofu42/typst-basho/blob/5dc7dc3d0a01d16ae9726ef6b444231f677315f1/docs/layout-hooks.md) | Custom page layouts via hooks, bullet/numbered list module replacement |
+| [docs/token-schema.md](https://github.com/KoyaTofu42/typst-basho/blob/5dc7dc3d0a01d16ae9726ef6b444231f677315f1/docs/token-schema.md) | All token types, fields, and helper functions |
+| [docs/modules.md](https://github.com/KoyaTofu42/typst-basho/blob/5dc7dc3d0a01d16ae9726ef6b444231f677315f1/docs/modules.md) | Module contracts for TCY, rendering, kinsoku, and list modules |
+| [docs/extending.md](https://github.com/KoyaTofu42/typst-basho/blob/5dc7dc3d0a01d16ae9726ef6b444231f677315f1/docs/extending.md) | Step-by-step guide to writing custom modules |
 
 ## License
 

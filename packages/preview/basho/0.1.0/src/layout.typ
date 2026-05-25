@@ -2,6 +2,7 @@
 // Vertical layout with auto-pagination, RTL multi-column, and kinsoku shori
 
 #import "renderer/renderer.typ": render-char-token
+#import "core/token.typ": merge-token, token
 
 /// Renders a single column of tokens as a top-to-bottom vertical stack.
 ///
@@ -67,8 +68,7 @@
       let decision = (config.kinsoku.resolve)(current-col, token, h, config, current-height, max-height)
 
       if decision.action == "burasagari" {
-        let hanging-token = token
-        hanging-token.type = "hanging"
+        let hanging-token = merge-token(token, (type: "hanging"))
         current-col.push(hanging-token)
         columns.push(current-col)
         current-col = ()

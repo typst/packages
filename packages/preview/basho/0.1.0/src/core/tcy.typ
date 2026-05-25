@@ -1,6 +1,8 @@
 // src/tcy.typ
 // Tate-chu-yoko (TCY / 縦中横) processing module
 
+#import "../core/token.typ": merge-token, token
+
 /// Default TCY module factory.
 /// Returns a self-contained TCY processing module with configurable pattern and sizes.
 ///
@@ -26,10 +28,10 @@
             if forced == "char" {
               if type(t.text) == str {
                 for ch in t.text.clusters() {
-                  new-tokens.push(t + (type: "char", text: ch))
+                  new-tokens.push(merge-token(t, (type: "char", text: ch)))
                 }
               } else {
-                new-tokens.push(t + (type: "char", text: t.text))
+                new-tokens.push(merge-token(t, (type: "char", text: t.text)))
               }
             } else {
               new-tokens.push(t)
@@ -39,14 +41,14 @@
             if cat == "horizontal" {
               new-tokens.push(t)
             } else if cat == "rotated" {
-              new-tokens.push(t + (type: "turn", text: t.text))
+              new-tokens.push(merge-token(t, (type: "turn", text: t.text)))
             } else {
               if type(t.text) == str {
                 for ch in t.text.clusters() {
-                  new-tokens.push(t + (type: "char", text: ch))
+                  new-tokens.push(merge-token(t, (type: "char", text: ch)))
                 }
               } else {
-                new-tokens.push(t + (type: "char", text: t.text))
+                new-tokens.push(merge-token(t, (type: "char", text: t.text)))
               }
             }
           } else {

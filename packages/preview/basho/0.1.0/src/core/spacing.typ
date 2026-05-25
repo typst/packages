@@ -1,6 +1,8 @@
 // src/spacing.typ
 // Automatic spacing module (Shikiri / Wou-Kan Kakaku)
 
+#import "../core/token.typ": token
+
 #let is-european(t) = t.type in ("tcy", "turn")
 #let is-cjk(t) = (
   t.type == "char"
@@ -27,9 +29,9 @@
       for t in tokens {
         if prev != none {
           if is-cjk(prev) and is-european(t) {
-            result.push((type: "spacing", width: cjk-european-gap))
+            result.push(token("spacing", fields: (width: cjk-european-gap)))
           } else if is-european(prev) and is-cjk(t) {
-            result.push((type: "spacing", width: european-cjk-gap))
+            result.push(token("spacing", fields: (width: european-cjk-gap)))
           }
         }
         result.push(t)

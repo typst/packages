@@ -1,6 +1,8 @@
 // src/list.typ
 // Self-contained list modules: each bundles data and flatten logic.
 
+#import "../core/token.typ": token
+
 /// Default bullet list module factory.
 ///
 /// - marker (str): The bullet character. Default: "・".
@@ -12,8 +14,8 @@
     flatten: (c, _flatten, config) => {
       let tokens = ()
       for i in range(c.children.len()) {
-        if i > 0 { tokens.push((type: "newline", text: "\n")) }
-        tokens.push((type: "bullet-list-marker"))
+        if i > 0 { tokens.push(token("newline", fields: (text: "\n"))) }
+        tokens.push(token("bullet-list-marker"))
         tokens += _flatten(c.children.at(i).body, config)
       }
       tokens
@@ -48,13 +50,14 @@
       let tokens = ()
       let start = c.at("start", default: 1)
       for i in range(c.children.len()) {
-        if i > 0 { tokens.push((type: "newline", text: "\n")) }
+        if i > 0 { tokens.push(token("newline", fields: (text: "\n"))) }
         let num = (config.list.numbered.format)(start + i)
-        tokens.push((type: "tcy", text: num, forced: true))
+        tokens.push(token("tcy", fields: (text: num, forced: true)))
         let gap = config.list.numbered.gap
-        if gap != 0pt { tokens.push((type: "spacing", width: gap)) }
+        if gap != 0pt { tokens.push(token("spacing", fields: (width: gap))) }
         tokens += _flatten(c.children.at(i).body, config)
       }
       tokens
-    })
+    },
+    node-renderers: (:))
 }

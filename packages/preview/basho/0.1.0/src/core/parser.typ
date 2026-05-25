@@ -1,10 +1,7 @@
 // src/parser.typ
 // String → token array conversion
-//
-// Token schema:
-//   (type: "char", text: <single character>)
-//   (type: "newline", text: "\n")
-//   (type: "tcy", text: <Latin/number run>)
+
+#import "../core/token.typ": token
 
 /// Tests whether a character cluster is an ASCII Latin letter, digit, or comma.
 ///
@@ -33,28 +30,24 @@
 
   for ch in input.clusters() {
     if ch == "\n" {
-      // Flush any pending TCY buffer
       if tcy-buf != "" {
-        tokens.push((type: "tcy", text: tcy-buf))
+        tokens.push(token("tcy", fields: (text: tcy-buf)))
         tcy-buf = ""
       }
-      tokens.push((type: "newline", text: "\n"))
+      tokens.push(token("newline", fields: (text: "\n")))
     } else if is-tcy-char(ch, config) {
-      // Accumulate Latin/digit run
       tcy-buf += ch
     } else {
-      // Flush any pending TCY buffer
       if tcy-buf != "" {
-        tokens.push((type: "tcy", text: tcy-buf))
+        tokens.push(token("tcy", fields: (text: tcy-buf)))
         tcy-buf = ""
       }
-      tokens.push((type: "char", text: ch))
+      tokens.push(token("char", fields: (text: ch)))
     }
   }
 
-  // Flush trailing TCY buffer
   if tcy-buf != "" {
-    tokens.push((type: "tcy", text: tcy-buf))
+    tokens.push(token("tcy", fields: (text: tcy-buf)))
   }
 
   tokens
