@@ -17,7 +17,7 @@
 #import "@preview/algo:0.3.6": algo, i, d, comment, code
 #import "@preview/wordometer:0.1.5": word-count-of
 #import "@preview/cuti:0.4.0": show-cn-fakebold
-#import "@preview/equate:0.3.2": equate
+#import "@preview/equate:0.3.3": equate
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.10": codly-languages
 
