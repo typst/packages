@@ -24,3 +24,7 @@ git lfs track "*.png" "*.jpg" "*.jpeg" "*.svg"
 git add .gitattributes
 git commit -m "Configure Git LFS to track image files"
 ```
+
+## University of Bath Branding
+
+University of Bath branding terms are distributed as is and are not modified in any way. Please refer to the [University of Bath Brand Guidelines](https://www.bath.ac.uk/guides/who-should-use-the-university-brand/) and [Using the University Logo](https://www.bath.ac.uk/guides/using-the-university-of-bath-logo/) for more information on how to use these terms correctly in your documentation.
