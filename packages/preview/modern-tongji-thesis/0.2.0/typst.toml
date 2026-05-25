@@ -8,7 +8,7 @@ description = "同济大学本科生毕业论文 Typst 模板 | Tongji Universit
 repository = "https://github.com/TJ-CSCCG/modern-tongji-thesis"
 keywords = ["Tongji University", "thesis", "undergraduate"]
 categories = ["thesis"]
-exclude = ["scripts", "fonts/download-fonts.sh", "template/figures/example-image.svg"]
+exclude = ["scripts", "fonts/download-fonts.sh"]
 compiler = "0.14.0"
 
 [template]
