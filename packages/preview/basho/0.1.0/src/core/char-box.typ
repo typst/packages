@@ -25,19 +25,23 @@
     return box(width: config.sizing.char-box, height: space-width)
   }
 
-  let inner = if body == "―" {
-    text(
-      ..f-opt,
-      size: render-module.dash-scale,
-      features: config.features,
-      body,
-    )
+  let inner = if type(body) == str {
+    if body == "―" {
+      text(
+        ..f-opt,
+        size: render-module.dash-scale,
+        features: config.features,
+        body,
+      )
+    } else {
+      text(
+        ..f-opt,
+        features: config.features,
+        body,
+      )
+    }
   } else {
-    text(
-      ..f-opt,
-      features: config.features,
-      body,
-    )
+    body
   }
 
   let box-height = if height != none { height } else { config.sizing.char-box }

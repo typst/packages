@@ -10,7 +10,7 @@
 
 /// Forces a sequence of characters to be rendered as Tate-chu-yoko (inline horizontal).
 ///
-/// - body (str): The text to render horizontally.
+/// - body (content): The text or content to render horizontally.
 /// -> content: Metadata tag instructing the engine to render as TCY.
 #let tcy(body) = metadata((type: "tcy", text: body, forced: true))
 
@@ -18,7 +18,7 @@
 /// Useful for short Latin abbreviations (e.g. "JIS") that should appear upright
 /// in vertical text rather than rotated.
 ///
-/// - body (str): The text to render upright.
+/// - body (content): The text or content to render upright.
 /// -> content: Metadata tag instructing the engine to render as upright chars.
 #let vert(body) = metadata((type: "tcy", text: body, forced: "char"))
 
@@ -40,10 +40,10 @@
 
 /// Attaches phonetic ruby (furigana) to base characters.
 ///
-/// - base (str): The base text (e.g. "漢字").
-/// - rt (str): The ruby text (e.g. "かんじ").
+/// - body (content): The body text or content (e.g. "漢字").
+/// - rt (content): The ruby text or content (e.g. "かんじ").
 /// -> content: Metadata tag instructing the engine to render with ruby.
-#let ruby(base, rt) = metadata((type: "ruby", text: base, ruby: rt))
+#let ruby(body, rt) = metadata((type: "ruby", text: body, ruby: rt))
 
 /// Renders native Typst content vertically (tategaki / 縦書き).
 ///

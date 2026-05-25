@@ -33,9 +33,9 @@ An extended example with various features is available [here](https://github.com
 
 | Macro | Description |
 |---|---|
-| `#tcy[str]` | Tate-chu-yoko — short horizontal text in a vertical column |
-| `#vert[str]` | Force upright (one char per box, no rotation) |
-| `#ruby(base, rt)` | Furigana annotation |
+| `#tcy[body]` | Tate-chu-yoko — short horizontal text or content in a vertical column |
+| `#vert[body]` | Force upright (one char or content per box, no rotation) |
+| `#ruby(body, rt)` | Furigana annotation (accepts any content) |
 | `#turn[body]` | Rotate content 90° clockwise |
 | `#vblock[body]` | Rotated block (unrestricted width) |
 | `#hblock[body]` | Horizontal block (no rotation) |

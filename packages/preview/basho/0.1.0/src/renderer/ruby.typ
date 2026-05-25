@@ -11,8 +11,9 @@
 /// - config (dictionary): The layout configuration.
 /// -> content: Rendered ruby box.
 #let render-ruby(token, config) = {
-  let base-chars = token.text.clusters()
-  let base-len = base-chars.len()
+  let base-is-str = type(token.text) == str
+  let base-chars = if base-is-str { token.text.clusters() } else { (token.text,) }
+  let base-len = if base-is-str { base-chars.len() } else { 1 }
   let base-height = base-len * config.sizing.char-box
 
   let base-stack = stack(
@@ -21,11 +22,12 @@
     ..base-chars.map(ch => char-box(ch, config.font, config)),
   )
 
-  if token.ruby == "" or token.ruby == none {
+  let ruby-is-str = type(token.ruby) == str
+  if (ruby-is-str and token.ruby == "") or token.ruby == none {
     return base-stack
   }
 
-  let ruby-chars = token.ruby.clusters()
+  let ruby-chars = if ruby-is-str { token.ruby.clusters() } else { (token.ruby,) }
   let ruby-len = ruby-chars.len()
   let ruby-height = ruby-len * config.sizing.ruby-size
 
@@ -34,15 +36,18 @@
     dir: ttb,
     spacing: 0pt,
     ..ruby-chars.map(ch => {
-      box(
-        width: config.sizing.ruby-size,
-        height: config.sizing.ruby-size,
-        align(center + horizon, text(
+      let ruby-char = if type(ch) == str {
+        text(
           size: config.sizing.ruby-size,
           ..(if config.font != none { (font: config.font) } else { (:) }),
           features: config.features,
           ch,
-        )),
+        )
+      } else { ch }
+      box(
+        width: config.sizing.ruby-size,
+        height: config.sizing.ruby-size,
+        align(center + horizon, ruby-char),
       )
     }),
   )
