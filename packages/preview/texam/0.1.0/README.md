@@ -192,7 +192,7 @@ texam pairs well with the [exercise-bank](https://typst.app/universe/package/exe
 
 ```typst
 #import "@preview/texam:0.1.0": texam, exam-question, exam-correction-box
-#import "@preview/exercise-bank:0.4.0": exo-define, exo-registry
+#import "@preview/exercise-bank:0.5.0": exo-define, exo-registry
 #import "@preview/taskize:0.2.5": tasks
 
 // Define exercises in a shared registry
