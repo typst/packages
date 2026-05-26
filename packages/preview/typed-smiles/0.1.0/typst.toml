@@ -7,3 +7,4 @@ license = "MIT"
 description = "Render SMILES strings as molecular diagrams."
 keywords = ["chemistry", "smiles", "molecules", "cheminformatics"]
 categories = ["visualization"]
+exclude = ["assets/readme/*.png"]
