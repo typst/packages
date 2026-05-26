@@ -3,7 +3,7 @@
 // This file demonstrates all features of the template.
 // ============================================================
 
-#import "black-angular-frame.typ": *
+#import "@preview/black-angular-frame:0.1.0": *
 
 #let presentation-config = (
   title: "Black Angular Frame",

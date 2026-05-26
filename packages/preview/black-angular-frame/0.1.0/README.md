@@ -7,7 +7,7 @@ A Typst presentation template with a square, minimal, academic design language: 
 
 ![black-angular-frame thumbnail](thumbnail.png)
 
-For a complete rendered demo, check the full example PDF: [example.pdf](https://github.com/mntsx/black-angular-frame/blob/master/example.pdf).
+For a complete rendered demo, check the full example PDF: [example.pdf](https://github.com/mntsx/black-angular-frame/blob/570c86b53110eb6c61930ebbf3ca3f6b77ed0f9e/example.pdf).
 
 ---
 
@@ -278,7 +278,7 @@ The file `example.typ` is a complete demo presentation covering all template fea
 
 ## Repository layout
 
-```
+```text
 black-angular-frame/
 ├── typst.toml                 # Package manifest
 ├── black-angular-frame.typ    # Package entrypoint
