@@ -24,7 +24,8 @@
     "2024 - 2026",
     "porco.rosso.etu@univ-lille.fr"
   ),
-  company-logo: none, // image("./company-logo.svg"),
+  // Optional: company logo support
+  // company-logo: image("./company-logo.svg"),
   supervisors: (
     (
       "Fio Piccolo",
@@ -49,7 +50,7 @@
     )
   ),
   // Optional: references support
-  references: bibliography("refs.bib"),
+  // references: bibliography("refs.bib"),
   // Optional: glossary support
   glossary: entry-list,
 )
