@@ -12,10 +12,17 @@
   if type(config.rendering) == array {
     for module in config.rendering {
       if "transform" in module {
-        assert(type(module.transform) == function, message: "basho: each config.rendering entry with 'transform' must have a function value, got " + repr(type(module.transform)))
+        assert(
+          type(module.transform) == function,
+          message: "basho: each config.rendering entry with 'transform' must have a function value, got "
+            + repr(type(module.transform)),
+        )
       }
       if "node-renderers" in module {
-        assert(type(module.node-renderers) == dictionary, message: "basho: each config.rendering entry with 'node-renderers' must have a dictionary value")
+        assert(
+          type(module.node-renderers) == dictionary,
+          message: "basho: each config.rendering entry with 'node-renderers' must have a dictionary value",
+        )
       }
     }
   } else {
@@ -45,12 +52,18 @@
     if "bullet" in config.list {
       assert(type(config.list.bullet) == dictionary, message: "basho: config.list.bullet must be a dictionary")
       assert("flatten" in config.list.bullet, message: "basho: config.list.bullet must have a 'flatten' function")
-      assert(type(config.list.bullet.flatten) == function, message: "basho: config.list.bullet.flatten must be a function")
+      assert(
+        type(config.list.bullet.flatten) == function,
+        message: "basho: config.list.bullet.flatten must be a function",
+      )
     }
     if "numbered" in config.list {
       assert(type(config.list.numbered) == dictionary, message: "basho: config.list.numbered must be a dictionary")
       assert("flatten" in config.list.numbered, message: "basho: config.list.numbered must have a 'flatten' function")
-      assert(type(config.list.numbered.flatten) == function, message: "basho: config.list.numbered.flatten must be a function")
+      assert(
+        type(config.list.numbered.flatten) == function,
+        message: "basho: config.list.numbered.flatten must be a function",
+      )
     }
   } else {
     assert(false, message: "basho: config.list must be a dictionary with 'bullet' and 'numbered' keys")
@@ -60,7 +73,10 @@
     assert(type(config.layout.columns) == int, message: "basho: config.layout.columns must be an integer >= 1")
     assert(config.layout.columns >= 1, message: "basho: config.layout.columns must be >= 1")
     assert(type(config.layout.gap) == length, message: "basho: config.layout.gap must be a length (e.g. 1em)")
-    assert(type(config.layout.column-gap) == length, message: "basho: config.layout.column-gap must be a length (e.g. 2em)")
+    assert(
+      type(config.layout.column-gap) == length,
+      message: "basho: config.layout.column-gap must be a length (e.g. 2em)",
+    )
   } else {
     assert(false, message: "basho: config.layout must be a dictionary with layout parameters")
   }
@@ -71,7 +87,10 @@
 
   if "categories" in config and type(config.categories) == dictionary {
     if "classify" in config.categories {
-      assert(type(config.categories.classify) == function, message: "basho: config.categories.classify must be a function returning \"horizontal\", \"rotated\", or \"char\"")
+      assert(
+        type(config.categories.classify) == function,
+        message: "basho: config.categories.classify must be a function returning \"horizontal\", \"rotated\", or \"char\"",
+      )
     }
   }
 }

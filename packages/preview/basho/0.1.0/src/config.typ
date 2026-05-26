@@ -19,7 +19,8 @@
   dash-scale: 1.25em,
   node-renderers: (:),
 ) = {
-  (dash-scale: dash-scale,
+  (
+    dash-scale: dash-scale,
     node-renderers: node-renderers,
     transform: (tokens, config) => {
       tokens.map(t => {
@@ -28,7 +29,8 @@
         }
         t
       })
-    })
+    },
+  )
 }
 
 // ---------------------------------------------------------------------------
@@ -48,10 +50,7 @@
   ruby-offset: 1em,
   heading-scales: (1.5, 1.3, 1.15),
 ) = {
-  (char-box: char-box,
-    ruby-size: ruby-size,
-    ruby-offset: ruby-offset,
-    heading-scales: heading-scales)
+  (char-box: char-box, ruby-size: ruby-size, ruby-offset: ruby-offset, heading-scales: heading-scales)
 }
 
 // ---------------------------------------------------------------------------
@@ -90,10 +89,7 @@
   column-gap: 2em,
   hooks: (),
 ) = {
-  (columns: columns,
-    gap: gap,
-    column-gap: column-gap,
-    hooks: hooks)
+  (columns: columns, gap: gap, column-gap: column-gap, hooks: hooks)
 }
 
 #import "core/turn.typ": default-turn

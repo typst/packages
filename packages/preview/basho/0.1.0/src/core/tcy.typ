@@ -13,7 +13,8 @@
   pattern: regex("^[A-Za-z0-9,.!?:;]+$"),
   sizes: (1em, 0.65em, 0.5em),
 ) = {
-  (pattern: pattern,
+  (
+    pattern: pattern,
     sizes: sizes,
     filter: (tokens, config) => {
       let new-tokens = ()
@@ -59,5 +60,6 @@
         }
       }
       new-tokens
-    })
+    },
+  )
 }

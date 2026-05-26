@@ -10,7 +10,8 @@
 #let default-bullet-list-params(
   marker: "・",
 ) = {
-  (marker: marker,
+  (
+    marker: marker,
     flatten: (c, _flatten, config) => {
       let tokens = ()
       for i in range(c.children.len()) {
@@ -30,7 +31,8 @@
           align(center + horizon, text(..f-opt, features: config.features, marker)),
         )
       },
-    ))
+    ),
+  )
 }
 
 /// Default numbered list module factory.
@@ -44,7 +46,8 @@
   format: n => str(n) + ".",
   gap: 0.25em,
 ) = {
-  (format: format,
+  (
+    format: format,
     gap: gap,
     flatten: (c, _flatten, config) => {
       let tokens = ()
@@ -59,5 +62,6 @@
       }
       tokens
     },
-    node-renderers: (:))
+    node-renderers: (:),
+  )
 }

@@ -1,8 +1,8 @@
 // src/core/spacing.typ
 // Automatic spacing module (Shikiri / Wou-Kan Kakaku)
 
-#import "../core/token.typ": token, merge-token
-#import "../core/kinsoku.typ": is-forbidden-start, is-forbidden-end
+#import "../core/token.typ": merge-token, token
+#import "../core/kinsoku.typ": is-forbidden-end, is-forbidden-start
 
 #let is-alphanumeric(t) = {
   if t == none or (t.type != "char" and t.type != "tcy" and t.type != "turn") { return false }
@@ -53,7 +53,7 @@
       for i in range(len) {
         let t = tokens.at(i)
         let next-t = if i + 1 < len { tokens.at(i + 1) } else { none }
-        
+
         let space-after = 0pt
         if is-alphanumeric(t) and is-japanese(next-t) {
           space-after = european-cjk-gap
@@ -64,11 +64,11 @@
         }
 
         let is-jp = is-justification-point(t, config.kinsoku.forbidden-start, config.kinsoku.forbidden-end)
-        
+
         t = merge-token(t, (space-after: space-after, justification-point: is-jp))
         result.push(t)
       }
       result
-    }
+    },
   )
 }
