@@ -9,7 +9,7 @@ repository = "https://github.com/gzordrai/ulille"
 keywords = ["Lille", "Internship", "Stage", "Report", "Rapport"]
 categories = ["report"]
 disciplines = ["computer-science", "education", "engineering"]
-exclude = ["REAMDE.md", "LICENSE"]
+exclude = []
 
 [template]
 path = "template"
