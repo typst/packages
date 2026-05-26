@@ -8,7 +8,7 @@ Click on an image to see the source code.
 
 | | | | | |
 |:---:|:---:|:---:|:---:|:---:|
-| [![Cover page with exam info table and evaluation grid auto-built from questions](gallery/cover.png)](https://github.com/nathan-ed/typst-package-texam/blob/main/gallery/cover.typ) | [![Exam questions page with header, point labels, and automatic numbering](gallery/questions.png)](https://github.com/nathan-ed/typst-package-texam/blob/main/gallery/questions.typ) | [![Questions page inside a full exam showing school header and page counter](gallery/full-exam.png)](https://github.com/nathan-ed/typst-package-texam/blob/main/gallery/full-exam.typ) | [![Correction document with auto-computed total and worked solutions](gallery/correction.png)](https://github.com/nathan-ed/typst-package-texam/blob/main/gallery/correction.typ) | [![Exam integrated with exercise-bank showing exercises pulled from a shared registry](gallery/exercise-bank.png)](https://github.com/nathan-ed/typst-package-texam/blob/main/gallery/exercise-bank.typ) |
+| [![Cover page with exam info table and evaluation grid auto-built from questions](gallery/cover.png)](https://github.com/nathan-ed/typst-package-texam/blob/ea9fa48263db55526d8a85733d1cbcff41c2482e/gallery/cover.typ) | [![Exam questions page with header, point labels, and automatic numbering](gallery/questions.png)](https://github.com/nathan-ed/typst-package-texam/blob/ea9fa48263db55526d8a85733d1cbcff41c2482e/gallery/questions.typ) | [![Questions page inside a full exam showing school header and page counter](gallery/full-exam.png)](https://github.com/nathan-ed/typst-package-texam/blob/ea9fa48263db55526d8a85733d1cbcff41c2482e/gallery/full-exam.typ) | [![Correction document with auto-computed total and worked solutions](gallery/correction.png)](https://github.com/nathan-ed/typst-package-texam/blob/ea9fa48263db55526d8a85733d1cbcff41c2482e/gallery/correction.typ) | [![Exam integrated with exercise-bank showing exercises pulled from a shared registry](gallery/exercise-bank.png)](https://github.com/nathan-ed/typst-package-texam/blob/ea9fa48263db55526d8a85733d1cbcff41c2482e/gallery/exercise-bank.typ) |
 | Cover Page | Questions | Full Exam | Correction | Exercise Bank |
 
 ## Features
@@ -192,7 +192,7 @@ texam pairs well with the [exercise-bank](https://typst.app/universe/package/exe
 
 ```typst
 #import "@preview/texam:0.1.0": texam, exam-question, exam-correction-box
-#import "@preview/exercise-bank:0.5.0": exo-define, exo-registry
+#import "@preview/exercise-bank:0.4.0": exo-define, exo-registry
 #import "@preview/taskize:0.2.5": tasks
 
 // Define exercises in a shared registry
@@ -236,7 +236,7 @@ texam pairs well with the [exercise-bank](https://typst.app/universe/package/exe
 #exam-correction-box(exo-corr("fact-1"))
 ```
 
-See the [exercise-bank gallery example](https://github.com/nathan-ed/typst-package-texam/blob/main/gallery/exercise-bank.typ) for a complete working file with three exercises.
+See the [exercise-bank gallery example](https://github.com/nathan-ed/typst-package-texam/blob/ea9fa48263db55526d8a85733d1cbcff41c2482e/gallery/exercise-bank.typ) for a complete working file with three exercises.
 
 ## License
 
