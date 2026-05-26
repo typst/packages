@@ -1,4 +1,4 @@
-#import "@preview/ulille:0.1.0": report
+#import "@preview/catiche:0.1.0": report
 // Optional: glossary support
 #import "@preview/glossarium:0.5.10": make-glossary, register-glossary, gls, glspl
 
