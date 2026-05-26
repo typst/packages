@@ -73,7 +73,11 @@
       total += per-punct
     }
 
-    if next-tok != none and is-compressible-punctuation(current, k.compressible-punctuation) and is-compressible-punctuation(next-tok, k.compressible-punctuation) {
+    if (
+      next-tok != none
+        and is-compressible-punctuation(current, k.compressible-punctuation)
+        and is-compressible-punctuation(next-tok, k.compressible-punctuation)
+    ) {
       total += consec
     }
   }
@@ -124,10 +128,14 @@
 }
 
 /// Distributes available space across justification points.
-#let justify-line(col, available-space) = {
+#let justify-line(col, available-space, config) = {
   let count = count-justification-points(col)
   if count > 0 and available-space > 0pt {
     let add = available-space / count
+    let max-stretch = config.kinsoku.at("max-stretch", default: none)
+    if max-stretch != none {
+      add = calc.min(add, max-stretch * config.at("char-box-abs", default: 1em))
+    }
     let result = ()
     for token in col {
       if token.at("justification-point", default: false) {
@@ -222,10 +230,12 @@
   mode: "burasagari",
   compression-per-punct: 0.5,
   consecutive-compression: 0.25,
+  max-stretch: 0.5,
   resolve-fn: none,
 ) = {
   let rfn = if resolve-fn != none { resolve-fn } else { _builtin-resolve }
-  (forbidden-start: forbidden-start,
+  (
+    forbidden-start: forbidden-start,
     forbidden-end: forbidden-end,
     hanging: hanging,
     unbreakable-chars: unbreakable-chars,
@@ -233,5 +243,7 @@
     mode: mode,
     compression-per-punct: compression-per-punct,
     consecutive-compression: consecutive-compression,
-    resolve: rfn)
+    max-stretch: max-stretch,
+    resolve: rfn,
+  )
 }

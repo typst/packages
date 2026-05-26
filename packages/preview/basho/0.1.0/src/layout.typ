@@ -112,7 +112,7 @@
         }
 
         let exhausted = current-col.len() == 0
-        current-col = justify-line(current-col, max-height - (current-height - popped-height))
+        current-col = justify-line(current-col, max-height - (current-height - popped-height), config)
         columns.push(current-col)
         if exhausted {
           // All tokens were popped but the violation persists.
@@ -128,7 +128,7 @@
       }
 
       // oidashi — break normally before the current token
-      current-col = justify-line(current-col, max-height - current-height)
+      current-col = justify-line(current-col, max-height - current-height, config)
       columns.push(current-col)
       current-col = (token,)
       current-height = h

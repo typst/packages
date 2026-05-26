@@ -1,6 +1,6 @@
 # Basho — Vertical Japanese Typesetting for Typst
 
-![Thumbnail of Basho](https://github.com/KoyaTofu42/typst-basho/blob/ea58d6efb40c6d66a95a5cc53f0e7265de7e84b2/example/thumbnail.png)
+![Thumbnail of Basho](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/example/thumbnail.png)
 
 Basho (芭蕉) is a vertical Japanese typesetting (tategaki / 縦書き) package for Typst. It handles character boxes, tate-chu-yoko (TCY), ruby (furigana), automatic pagination, multi-column RTL layout, and kinsoku shori (Japanese line-breaking rules).
 
@@ -23,11 +23,11 @@ Basho (芭蕉) is a vertical Japanese typesetting (tategaki / 縦書き) package
 　　蝉の声
 ```
 
-![Minimal example](https://github.com/KoyaTofu42/typst-basho/blob/191e47a3dfc0c3da0d34efeb55eed71418543236/example/minimal.svg)
+![Minimal example](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/example/minimal.svg)
 
 ### Full example
 
-An extended example with various features is available [here](https://github.com/KoyaTofu42/typst-basho/blob/90afbf9293cbe543642e4f6b293de4d1e3b4db86/example/japanese-vertical.pdf). An example of Japanese novel typeset is available [here](https://github.com/KoyaTofu42/typst-basho/blob/90afbf9293cbe543642e4f6b293de4d1e3b4db86/example/Japanese-novel.pdf).
+An extended example with various features is available [here](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/example/japanese-vertical.pdf). An example of Japanese novel typeset is available [here](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/example/Japanese-novel.pdf).
 
 ### Inline macros
 
@@ -46,7 +46,7 @@ An extended example with various features is available [here](https://github.com
 
 ### Feature peek
 
-![Vertical layout with ruby annotations and multi-column](https://github.com/KoyaTofu42/typst-basho/blob/b9eedc2492c084159419ce47848f0320d7cb43d4/example/features-peek-1.svg)
+![Vertical layout with ruby annotations and multi-column](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/example/features-peek-1.svg)
 
 <details>
 
@@ -68,7 +68,7 @@ An extended example with various features is available [here](https://github.com
 
 </details>
 
-![Math equations and tables](https://github.com/KoyaTofu42/typst-basho/blob/90afbf9293cbe543642e4f6b293de4d1e3b4db86/example/features-peek-2.svg)
+![Math equations and tables](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/example/features-peek-2.svg)
 
 <details>
 
@@ -132,13 +132,13 @@ flowchart LR
 
 | Document | Topics |
 |---|---|
-| [docs/architecture.md](https://github.com/KoyaTofu42/typst-basho/blob/b9eedc2492c084159419ce47848f0320d7cb43d4/docs/architecture.md) | Full pipeline details, token types, node-renderer dispatch table, source map |
-| [docs/configuration.md](https://github.com/KoyaTofu42/typst-basho/blob/b9eedc2492c084159419ce47848f0320d7cb43d4/docs/configuration.md) | `config` deep-merge, full default-opts, factory function reference, override examples |
-| [docs/kinsoku.md](https://github.com/KoyaTofu42/typst-basho/blob/b9eedc2492c084159419ce47848f0320d7cb43d4/docs/kinsoku.md) | JIS X 4051 priority tiers, `default-resolver()` parameters, custom resolve functions |
-| [docs/layout-hooks.md](https://github.com/KoyaTofu42/typst-basho/blob/b9eedc2492c084159419ce47848f0320d7cb43d4/docs/layout-hooks.md) | Custom page layouts via hooks, bullet/numbered list module replacement |
-| [docs/token-schema.md](https://github.com/KoyaTofu42/typst-basho/blob/b9eedc2492c084159419ce47848f0320d7cb43d4/docs/token-schema.md) | All token types, fields, and helper functions |
-| [docs/modules.md](https://github.com/KoyaTofu42/typst-basho/blob/b9eedc2492c084159419ce47848f0320d7cb43d4/docs/modules.md) | Module contracts for TCY, rendering, kinsoku, and list modules |
-| [docs/extending.md](https://github.com/KoyaTofu42/typst-basho/blob/b9eedc2492c084159419ce47848f0320d7cb43d4/docs/extending.md) | Step-by-step guide to writing custom modules |
+| [docs/architecture.md](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/docs/architecture.md) | Full pipeline details, token types, node-renderer dispatch table, source map |
+| [docs/configuration.md](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/docs/configuration.md) | `config` deep-merge, full default-opts, factory function reference, override examples |
+| [docs/kinsoku.md](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/docs/kinsoku.md) | JIS X 4051 priority tiers, `default-resolver()` parameters, custom resolve functions |
+| [docs/layout-hooks.md](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/docs/layout-hooks.md) | Custom page layouts via hooks, bullet/numbered list module replacement |
+| [docs/token-schema.md](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/docs/token-schema.md) | All token types, fields, and helper functions |
+| [docs/modules.md](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/docs/modules.md) | Module contracts for TCY, rendering, kinsoku, and list modules |
+| [docs/extending.md](https://github.com/KoyaTofu42/typst-basho/blob/7c81c54cfed34d58f80966171f75920a56773482/docs/extending.md) | Step-by-step guide to writing custom modules |
 
 ## License
 

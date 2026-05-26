@@ -90,6 +90,8 @@
     rendered = if token.type == "char" {
       // Determine horizontal alignment based on bracket type
       let h-align = if check-opening(token) { right } else if check-closing(token) { left } else { center }
+      // Determine vertical alignment based on bracket type to fix spacing when compressed
+      let v-align = if check-opening(token) { bottom } else { horizon }
       let compression = token.at("compression", default: 0pt)
       let cb = config.at("char-box-abs", default: config.sizing.char-box)
       let box-height = cb - compression
@@ -99,7 +101,7 @@
         box(
           width: sz,
           height: sz,
-          align(h-align + horizon, text(
+          align(h-align + v-align, text(
             ..f-opt,
             size: config.sizing.char-box * font-scale,
             features: config.features,
@@ -108,7 +110,7 @@
           )),
         )
       } else {
-        char-box(token.text, config.font, config, h-align: h-align, height: box-height)
+        char-box(token.text, config.font, config, h-align: h-align, v-align: v-align, height: box-height)
       }
     } else if token.type == "tcy" {
       render-tcy(token, config)
