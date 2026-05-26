@@ -59,7 +59,10 @@
     let h = heights.at(i)
 
     if token.type == "newline" {
-      columns.push(current-col)
+      let prev-type = if i > 0 { tokens.at(i - 1).type } else { none }
+      if current-col.len() > 0 or prev-type in ("newline", "parbreak") {
+        columns.push(current-col)
+      }
       current-col = ()
       current-height = 0pt
       i += 1
@@ -67,7 +70,10 @@
     }
 
     if token.type == "parbreak" {
-      columns.push(current-col)
+      let prev-type = if i > 0 { tokens.at(i - 1).type } else { none }
+      if current-col.len() > 0 or prev-type in ("newline", "parbreak") {
+        columns.push(current-col)
+      }
       current-col = ()
       current-height = 0pt
 
