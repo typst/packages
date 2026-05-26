@@ -8,5 +8,4 @@ description = "Typst functions for rendering nonogram puzzles in a customizable 
 repository = "https://github.com/dayala1/nonodraw"
 categories = ["fun"]
 exclude = [".git", ".gitignore", "examples"]
-compiler = "0.14.2"
 keywords = ["nonogram", "puzzle"]
