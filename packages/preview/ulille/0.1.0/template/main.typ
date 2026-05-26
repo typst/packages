@@ -24,7 +24,7 @@
     "2024 - 2026",
     "porco.rosso.etu@univ-lille.fr"
   ),
-  company-logo: image("./inria.svg"),
+  company-logo: none, // image("./company-logo.svg"),
   supervisors: (
     (
       "Fio Piccolo",
