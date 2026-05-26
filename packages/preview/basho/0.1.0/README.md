@@ -1,6 +1,6 @@
 # Basho — Vertical Japanese Typesetting for Typst
 
-![Thumbnail of Basho](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/example/banner.svg)
+![Banner of Basho](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/example/banner.svg)
 
 Basho (芭蕉) is a vertical Japanese typesetting (tategaki / 縦書き) package for Typst. It handles character boxes, tate-chu-yoko (TCY), ruby (furigana), automatic pagination, multi-column RTL layout, and kinsoku shori (Japanese line-breaking rules).
 
@@ -23,11 +23,11 @@ Basho (芭蕉) is a vertical Japanese typesetting (tategaki / 縦書き) package
 　　蝉の声
 ```
 
-![Minimal example](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/example/minimal.svg)
+![Minimal example](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/example/minimal.svg)
 
 ### Full example
 
-An extended example with various features is available [here](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/example/Japanese-vertical.pdf). An example of Japanese novel typeset is available [here](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/example/Japanese-novel.pdf).
+An extended example with various features is available [here](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/example/Japanese-vertical.pdf). An example of Japanese novel typeset is available [here](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/example/Japanese-novel.pdf).
 
 ### Inline macros
 
@@ -55,11 +55,11 @@ Basho accepts a `config` dictionary on `#tate()` to tweak layout and rendering:
 ))[...]
 ```
 
-See [docs/configuration.md](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/docs/configuration.md) for the full options reference and [docs/extending.md](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/docs/extending.md) for custom modules.
+See [docs/configuration.md](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/docs/configuration.md) for the full options reference and [docs/extending.md](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/docs/extending.md) for custom modules.
 
 ### Feature peek
 
-![Vertical layout with ruby annotations and multi-column](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/example/features-peek-1.svg)
+![Vertical layout with ruby annotations and multi-column](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/example/features-peek-1.svg)
 
 <details>
 
@@ -81,7 +81,7 @@ See [docs/configuration.md](https://github.com/KoyaTofu42/typst-basho/blob/c1552
 
 </details>
 
-![Math equations and tables](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/example/features-peek-2.svg)
+![Math equations and tables](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/example/features-peek-2.svg)
 
 <details>
 
@@ -145,13 +145,13 @@ flowchart LR
 
 | Document | Topics |
 |---|---|
-| [docs/architecture.md](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/docs/architecture.md) | Full pipeline details, token types, node-renderer dispatch table, source map |
-| [docs/configuration.md](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/docs/configuration.md) | `config` deep-merge, full default-opts, factory function reference, override examples |
-| [docs/kinsoku.md](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/docs/kinsoku.md) | JIS X 4051 priority tiers, `default-resolver()` parameters, custom resolve functions |
-| [docs/layout-hooks.md](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/docs/layout-hooks.md) | Custom page layouts via hooks, bullet/numbered list module replacement |
-| [docs/token-schema.md](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/docs/token-schema.md) | All token types, fields, and helper functions |
-| [docs/modules.md](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/docs/modules.md) | Module contracts for TCY, rendering, kinsoku, and list modules |
-| [docs/extending.md](https://github.com/KoyaTofu42/typst-basho/blob/c1552d11cfe8fb267ccec4646a58096de77018db/docs/extending.md) | Step-by-step guide to writing custom modules |
+| [docs/architecture.md](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/docs/architecture.md) | Full pipeline details, token types, node-renderer dispatch table, source map |
+| [docs/configuration.md](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/docs/configuration.md) | `config` deep-merge, full default-opts, factory function reference, override examples |
+| [docs/kinsoku.md](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/docs/kinsoku.md) | JIS X 4051 priority tiers, `default-resolver()` parameters, custom resolve functions |
+| [docs/layout-hooks.md](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/docs/layout-hooks.md) | Custom page layouts via hooks, bullet/numbered list module replacement |
+| [docs/token-schema.md](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/docs/token-schema.md) | All token types, fields, and helper functions |
+| [docs/modules.md](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/docs/modules.md) | Module contracts for TCY, rendering, kinsoku, and list modules |
+| [docs/extending.md](https://github.com/KoyaTofu42/typst-basho/blob/0f49f8bbd95b5b2cc62d4393a3bccc25127f7ea3/docs/extending.md) | Step-by-step guide to writing custom modules |
 
 ## License
 
