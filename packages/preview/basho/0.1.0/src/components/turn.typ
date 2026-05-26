@@ -11,16 +11,24 @@
 #let render-turn(token, config) = {
   let heading-level = token.at("heading", default: none)
   let scales = config.sizing.heading-scales
-  let font-scale = if heading-level == 1 { scales.at(0) } else if heading-level == 2 { scales.at(1) } else if (
+  let font-scale = if heading-level == 1 { scales.at(0) } else if (
+    heading-level == 2
+  ) { scales.at(1) } else if (
     heading-level == 3
   ) { scales.at(2) } else { 1.0 }
 
   let is-str = type(token.text) == str
   let heading-str = heading-level != none and is-str
   let f-opt = if config.font != none { (font: config.font) } else { (:) }
-  let size-opt = if heading-level != none { (size: config.sizing.char-box * font-scale) } else { (:) }
-  let weight-opt = if heading-level != none or token.at("bold", default: false) { (weight: "bold") } else { (:) }
-  let style-opt = if token.at("italic", default: false) { (style: "italic") } else { (:) }
+  let size-opt = if heading-level != none {
+    (size: config.sizing.char-box * font-scale)
+  } else { (:) }
+  let weight-opt = if (
+    heading-level != none or token.at("bold", default: false)
+  ) { (weight: "bold") } else { (:) }
+  let style-opt = if token.at("italic", default: false) {
+    (style: "italic")
+  } else { (:) }
 
   let base = if is-str {
     text(

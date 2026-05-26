@@ -1,7 +1,7 @@
 // src/parser.typ
 // String → token array conversion
 
-#import "../core/token.typ": token
+#import "../pipeline/token.typ": token
 
 /// Tests whether a character cluster is an ASCII Latin letter, digit, or comma.
 ///

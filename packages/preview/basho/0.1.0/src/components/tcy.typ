@@ -1,7 +1,7 @@
 // src/tcy.typ
 // Tate-chu-yoko (TCY / 縦中横) processing module
 
-#import "../core/token.typ": merge-token, token
+#import "../pipeline/token.typ": merge-token, token
 
 /// Default TCY module factory.
 /// Returns a self-contained TCY processing module with configurable pattern and sizes.

@@ -1,11 +1,15 @@
-// src/core/spacing.typ
+// src/kinsoku/spacing.typ
 // Automatic spacing module (Shikiri / Wou-Kan Kakaku)
 
-#import "../core/token.typ": merge-token, token
-#import "../core/kinsoku.typ": is-forbidden-end, is-forbidden-start
+#import "../pipeline/token.typ": merge-token, token
+#import "../kinsoku/kinsoku.typ": (
+  is-forbidden-end, is-forbidden-start, is-unbreakable-pair,
+)
 
 #let is-alphanumeric(t) = {
-  if t == none or (t.type != "char" and t.type != "tcy" and t.type != "turn") { return false }
+  if t == none or (t.type != "char" and t.type != "tcy" and t.type != "turn") {
+    return false
+  }
   if type(t.text) != str { return false }
   t.text.match(regex("^[A-Za-z0-9,.!?:;]+$")) != none
 }
@@ -28,7 +32,10 @@
 
 #let is-justification-point(t, forbidden-start, forbidden-end) = {
   if t == none or t.type != "char" { return false }
-  not is-opening-bracket(t, forbidden-end) and not is-forbidden-start(t, forbidden-start)
+  (
+    not is-opening-bracket(t, forbidden-end)
+      and not is-forbidden-start(t, forbidden-start)
+  )
 }
 
 /// Default spacing rendering module factory.
@@ -45,7 +52,10 @@
 ) = {
   (
     node-renderers: (
-      "spacing": (token, config) => box(width: config.sizing.char-box, height: token.width),
+      "spacing": (token, config) => box(
+        width: config.sizing.char-box,
+        height: token.width,
+      ),
     ),
     transform: (tokens, config) => {
       let result = ()
@@ -59,13 +69,50 @@
           space-after = european-cjk-gap
         } else if is-japanese(t) and is-alphanumeric(next-t) {
           space-after = cjk-european-gap
-        } else if is-closing-bracket(t) and is-opening-bracket(next-t, config.kinsoku.forbidden-end) {
+        } else if (
+          is-closing-bracket(t)
+            and is-opening-bracket(next-t, config.kinsoku.forbidden-end)
+        ) {
           space-after = bracket-gap
         }
 
-        let is-jp = is-justification-point(t, config.kinsoku.forbidden-start, config.kinsoku.forbidden-end)
+        let is-jp = is-justification-point(
+          t,
+          config.kinsoku.forbidden-start,
+          config.kinsoku.forbidden-end,
+        )
 
-        t = merge-token(t, (space-after: space-after, justification-point: is-jp))
+        if (
+          config.kinsoku.at("buntetsu-kinsoku", default: true)
+            and is-unbreakable-pair(t, next-t, config.kinsoku.unbreakable-chars)
+        ) {
+          space-after = 0pt
+          is-jp = false
+        }
+
+        let base-width = 1.0
+        let internal-aki = 0.0
+        if (
+          is-opening-bracket(t, config.kinsoku.forbidden-end)
+            or is-closing-bracket(t)
+        ) {
+          internal-aki = 0.5
+        } else if (
+          t != none
+            and t.type == "char"
+            and type(t.text) == str
+            and "、。，．".contains(t.text)
+        ) {
+          internal-aki = 0.5
+        }
+
+        t = merge-token(t, (
+          space-after: space-after,
+          justification-point: is-jp,
+          base-width: base-width,
+          internal-aki: internal-aki,
+          compression-applied: 0pt,
+        ))
         result.push(t)
       }
       result

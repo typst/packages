@@ -1,9 +1,9 @@
 // src/config.typ
 // Configuration state and merge engine for Basho DI architecture
 
-#import "core/kinsoku.typ": default-resolver
-#import "core/tcy.typ": default-tcy
-#import "core/spacing.typ": default-spacing
+#import "kinsoku/kinsoku.typ": default-resolver
+#import "components/tcy.typ": default-tcy
+#import "kinsoku/spacing.typ": default-spacing
 
 // ---------------------------------------------------------------------------
 // Default rendering module factory — self-contained
@@ -50,7 +50,12 @@
   ruby-offset: 1em,
   heading-scales: (1.5, 1.3, 1.15),
 ) = {
-  (char-box: char-box, ruby-size: ruby-size, ruby-offset: ruby-offset, heading-scales: heading-scales)
+  (
+    char-box: char-box,
+    ruby-size: ruby-size,
+    ruby-offset: ruby-offset,
+    heading-scales: heading-scales,
+  )
 }
 
 // ---------------------------------------------------------------------------
@@ -81,21 +86,34 @@
 /// - columns (int): Number of horizontal rows (段組み). Default: 1.
 /// - gap (length): Gap between columns within a row. Default: 1em.
 /// - column-gap (length): Gap between rows (vertical). Default: 2em.
+/// - paragraph-indent (length): First-line indent for each paragraph (字下げ). Default: 1em.
+/// - paragraph-spacing (length): Extra spacing inserted between paragraphs. Default: 0em.
 /// - hooks (array): Array of (cols, font, gap, config) => content; last wins. Default: ().
 /// -> dictionary: A layout config dict.
 #let default-layout-params(
   columns: 1,
   gap: 1em,
   column-gap: 2em,
+  paragraph-indent: 1em,
+  paragraph-spacing: 0em,
   hooks: (),
 ) = {
-  (columns: columns, gap: gap, column-gap: column-gap, hooks: hooks)
+  (
+    columns: columns,
+    gap: gap,
+    column-gap: column-gap,
+    paragraph-indent: paragraph-indent,
+    paragraph-spacing: paragraph-spacing,
+    hooks: hooks,
+  )
 }
 
-#import "core/turn.typ": default-turn
-#import "core/vblock.typ": default-vblock
-#import "core/hblock.typ": default-hblock
-#import "core/list.typ": default-bullet-list-params, default-numbered-list-params
+#import "components/turn.typ": default-turn
+#import "components/vblock.typ": default-vblock
+#import "components/hblock.typ": default-hblock
+#import "components/list.typ": (
+  default-bullet-list-params, default-numbered-list-params,
+)
 
 
 // ---------------------------------------------------------------------------
@@ -111,7 +129,13 @@
   layout: default-layout-params(),
   kinsoku: default-resolver(),
   tcy: (default-tcy(),),
-  rendering: (default-rendering-params(), default-spacing(), default-turn, default-vblock, default-hblock),
+  rendering: (
+    default-rendering-params(),
+    default-spacing(),
+    default-turn,
+    default-vblock,
+    default-hblock,
+  ),
   list: (
     bullet: default-bullet-list-params(),
     numbered: default-numbered-list-params(),
@@ -133,7 +157,11 @@
 #let merge-config(base, user) = {
   let result = base
   for (key, val) in user {
-    if key in result and type(result.at(key)) == dictionary and type(val) == dictionary {
+    if (
+      key in result
+        and type(result.at(key)) == dictionary
+        and type(val) == dictionary
+    ) {
       result.insert(key, merge-config(result.at(key), val))
     } else {
       result.insert(key, val)
