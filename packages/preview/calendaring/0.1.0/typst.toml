@@ -1,0 +1,11 @@
+[package]
+name = "calendaring"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Thomas Dickson <@TAJD>"]
+license = "MIT"
+description = "Lay out month calendar grids from a year and month."
+repository = "https://github.com/TAJD/calendaring"
+keywords = ["calendar", "month", "grid", "planner", "log"]
+categories = ["components", "layout"]
+compiler = "0.12.0"
