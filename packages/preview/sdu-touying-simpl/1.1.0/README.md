@@ -64,7 +64,7 @@ typst init @preview/sdu-touying-simpl:1.1.0
 
 中文字体需手动配置：
 
-1. 从 [GitHub](https://github.com/Dregen-Yor/sdu-touying-simpl/blob/main/fonts) 下载 `fonts` 目录中的字体文件
+1. 从 [GitHub](https://github.com/Dregen-Yor/sdu-touying-simpl/tree/v1.0.0/fonts) 下载 `fonts` 目录中的字体文件
 2. 放入项目目录
 3. 在文档中通过 `#set text(font: "字体名称")` 设置
 
