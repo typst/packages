@@ -1,0 +1,17 @@
+[package]
+name = "oh-my-gost"
+version = "0.1.0"
+compiler = "0.14.2"
+entrypoint = "lib.typ"
+authors = ["cbr4l0k <@cbr4l0k>"]
+license = "MIT"
+description = "GOST 7.32-2017 student research reports."
+repository = "https://github.com/cbr4l0k/oh_my_gost"
+keywords = ["gost", "report", "research", "russian", "student"]
+categories = ["report"]
+exclude = ["examples"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
