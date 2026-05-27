@@ -1,0 +1,23 @@
+[package]
+name = "unofficial-ucy-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Christoforos Seas <@cseas002>"]
+license = "MIT"
+description = "Diploma thesis at the University of Cyprus (ADE guidelines)."
+keywords = ["ucy", "cyprus", "thesis", "ade", "diploma", "university of cyprus"]
+categories = ["thesis", "report"]
+repository = "https://github.com/cseas002/unofficial-ucy-thesis"
+compiler = "0.13.0"
+exclude = [
+  "*.sh",
+  "latex_template",
+  "scripts",
+  ".vscode",
+  "template/*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
