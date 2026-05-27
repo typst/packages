@@ -10,7 +10,7 @@ categories = ["presentation"]
 repository = "https://github.com/Dregen-Yor/sdu-touying-simpl"
 compiler = "0.14.0"
 exclude = [
-    "main.png",
+    "docs",
 ]
 [template]
 path = "example"
