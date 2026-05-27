@@ -14,5 +14,5 @@ compiler = "0.13.0"
 [template]
 path = "examples/Linear Algebra"
 entrypoint = "Linear Algebra Lecture 5.typ"
-thumbnail = "tumbnail.png"
+thumbnail = "thumbnail.png"
 
