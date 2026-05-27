@@ -19,7 +19,7 @@ A [Touying](https://github.com/touying-typst/touying)-based [Typst](https://typs
 ## 安装
 
 ```bash
-typst init @preview/sdu-touying-simpl:1.0.1
+typst init @preview/sdu-touying-simpl:1.1.0
 ```
 
 也可在 [Typst App](https://typst.app/universe/package/sdu-touying-simpl) 在线使用。
@@ -27,7 +27,7 @@ typst init @preview/sdu-touying-simpl:1.0.1
 ## 快速开始
 
 ```typst
-#import "@preview/sdu-touying-simpl:1.0.1": *
+#import "@preview/sdu-touying-simpl:1.1.0": *
 
 #show: sdu-theme.with(
   config-info(

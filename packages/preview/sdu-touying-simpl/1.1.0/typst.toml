@@ -9,7 +9,9 @@ keywords = ["presentation", "slides", "lecture", "sdu" ]
 categories = ["presentation"]
 repository = "https://github.com/Dregen-Yor/sdu-touying-simpl"
 compiler = "0.14.0"
-
+exclude = [
+    "main.png",
+]
 [template]
 path = "example"
 entrypoint = "main.typ"
