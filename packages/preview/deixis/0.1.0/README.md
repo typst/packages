@@ -700,6 +700,26 @@ You can use `link-waypoints`, `link-ports`, and `link-marks` to configure the li
 Most of the parameters of a note function can be updated using `#deixis-set`.
 In fact, some parameters can only be updated this way.
 
+To update note-specific or component-specific parameters, pass a dictionary with the following keywords:
+- **Note/mark type-scope keywords:**
+  - `inline-mark`
+  - `phantom-mark`
+  - `region-mark`
+  - `inline-note`
+  - `footnote`
+  - `endnote`
+  - `margin-note`: _(applies to both `#deixis-margin-note` and `#deixis-sidenote`)_
+  - `inset-note`
+  - `rest`: applies to the rest
+- **Component-scope keywords:**
+  - `mark`
+  - `body`
+  - `link`
+  - `nodes`: applies to mark and body
+  - `rest`: applies to the rest
+
+It is possible to nest note-scope and component-scope keywords, but not to mix them in the same dictionary.
+
 <div align="center">
 <img src="https://raw.githubusercontent.com/inspiros/typst-deixis/v0.1.0/assets/gallery/update-params-1.svg" width="500px" alt="Update parameters example">
 </div>
