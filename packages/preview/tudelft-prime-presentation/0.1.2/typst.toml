@@ -8,7 +8,7 @@ description = "Create presentations for PRIME courses at TU Delft"
 repository = "https://gitlab.tudelft.nl/prime/primeslides/template"
 keywords = ["touying", "presentation", "pre", "slide", "slides", "lecture", "touying", "beamer", "talk"]
 categories = ["presentation"]
-exclude = ["Wiki"]
+exclude = ["examples", "Wiki"]
 compiler = "0.13.0"
 
 [template]
