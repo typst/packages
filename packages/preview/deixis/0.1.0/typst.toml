@@ -1,0 +1,14 @@
+[package]
+name = "deixis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [
+  "Hoang-Nhat Tran <hnhat.tran@gmail.com>"
+]
+license = "MIT"
+description = "Decoupled annotations for Typst"
+repository = "https://github.com/inspiros/typst-deixis"
+keywords = ["layout", "positioning", "mark", "inline-mark", "region-mark", "note", "inline-note", "footnote", "endnote", "margin-note", "sidenote", "inset-note", "pin", "arrow", "draw"]
+categories = ["layout", "utility"]
+compiler = "0.14.2"
+exclude = []
