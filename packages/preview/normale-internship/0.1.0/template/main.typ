@@ -10,18 +10,6 @@
   place: "Place of the intership",
   date: "Beginning date",
   table-of-contents: true,
-  bibliography: bibliography("refs.yaml"),
+  bibliography: none,
 )
 
-= First chapter
-== Section 1
-
-#lorem(200) @harry
-
-== Section 2
-
-#lorem(200) @electronic
-
-= Second chapter
-
-#lorem(800)
