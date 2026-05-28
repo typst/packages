@@ -1,0 +1,16 @@
+[package]
+name = "nankai-touying"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jimmyzztn@https://github.com/Jimmyzzt"]
+license = "MIT"
+description = "A clean, Beamer-style presentation template for Nankai University."
+repository = "https://github.com/Jimmyzzt/nankai-touying"
+keywords = ["slides", "presentation", "touying", "beamer", "NKU", "Nankai University"]
+categories = ["presentation"]
+exclude = ["assets"]
+
+[template]
+path = "template"    # 指定模板文件夹的路径
+entrypoint = "main.typ" # 指定模板的入口文件
+thumbnail = "assets/main-1.webp"
