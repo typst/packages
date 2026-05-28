@@ -1,6 +1,6 @@
-#import "@preview/ens-internship:0.1.0": ens-internship
+#import "../lib.typ": normale-internship
 
-#show: ens-internship.with(
+#show: normale-internship.with(
   title: "A simple report template created with Typst",
   subtitle: "Master's degree final-year internship",
   lang: "en",
@@ -10,6 +10,18 @@
   place: "Place of the intership",
   date: "Beginning date",
   table-of-contents: true,
-  bibliography: none,
+  bibliography: bibliography("refs.yaml"),
 )
 
+= First chapter
+== Section 1
+
+#lorem(200) @harry
+
+== Section 2
+
+#lorem(200) @electronic
+
+= Second chapter
+
+#lorem(800)

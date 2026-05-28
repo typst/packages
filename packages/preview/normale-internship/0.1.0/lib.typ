@@ -1,7 +1,7 @@
 #let blue-light-ens = rgb("#8cc8d2")
 #let blue-dark-ens = rgb("#00778b")
 
-#let ens-internship(
+#let normale-internship(
   title: "",
   subtitle: "",
   lang: "en",
@@ -52,7 +52,7 @@
           columns: (1fr, 1fr),
           align: (left, right),
           image("assets/Logo_ENS_PS.jpg", height: 50pt),
-          image(logo, height: 50pt)
+          logo
         )
       }
 
