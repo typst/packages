@@ -300,7 +300,7 @@ Expected JSON format: `palette` (array of hex strings), `text-color`, `text-colo
 
 ### Extracting themes from CSS
 
-A pair of helper scripts (Python and TypeScript) convert CSS design-token files (Tailwind, shadcn, etc.) into primaviz themes. They live in the repo but are not shipped with the package — see [CONTRIBUTING.md](https://github.com/phiat/primaviz/blob/main/CONTRIBUTING.md#extracting-themes-from-css) for usage.
+A pair of helper scripts (Python and TypeScript) convert CSS design-token files (Tailwind, shadcn, etc.) into primaviz themes. They live in the repo but are not shipped with the package — see [CONTRIBUTING.md](https://github.com/phiat/primaviz/blob/v0.7.0/CONTRIBUTING.md#extracting-themes-from-css) for usage.
 
 ### Custom theme keys
 
@@ -387,7 +387,7 @@ The default theme uses Tableau 10 colors. You can access colors from any theme v
 
 ## Contributing
 
-For local dev setup, project structure, and helper scripts, see [CONTRIBUTING.md](https://github.com/phiat/primaviz/blob/main/CONTRIBUTING.md).
+For local dev setup, project structure, and helper scripts, see [CONTRIBUTING.md](https://github.com/phiat/primaviz/blob/v0.7.0/CONTRIBUTING.md).
 
 ## License
 
