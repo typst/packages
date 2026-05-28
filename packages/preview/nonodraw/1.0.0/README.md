@@ -48,12 +48,20 @@ The following example was created by hiding the clues and simplifying the stroke
   <img src="./examples/Example%2010.svg" alt="Compact solution-only rendering" width="20%">
 </p>
 
+### Simple clue customization
+
+The following example uses argument `text-processor` to customize the clue text, making it more compact when the value is greater than 9:
+
+<p>
+  <img src="./examples/Example%2014.svg" alt="Compact solution-only rendering" width="50%"> </br>
+</p>
+
 ### Full clue customization
 
 The following example was created by customizing the clue content drawer to show the clue counts inside the clue cells as well as the solution. The result is a typical nonogram with triangles.
 
 <p>
-  <img src="./examples/Example%2014.svg" alt="Compact solution-only rendering" width="50%"> </br>
+  <img src="./examples/Example%2015.svg" alt="Compact solution-only rendering" width="50%"> </br>
   <small>Source: fragment from the cover of "Trianograms".</small>
 </p>
 
