@@ -1,4 +1,4 @@
-#import "../lib.typ": normale-internship
+ @preview/normale-internship:0.1.0: normale-internship
 
 #show: normale-internship.with(
   title: "A simple report template created with Typst",
