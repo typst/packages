@@ -72,6 +72,12 @@
       text(fill: text-main, size: 0.95em)[
         #v(0.3em)
         #body
+        #place(
+            bottom + right,
+            dx: 10pt,
+            dy: 10pt,
+            square(size: 5pt, radius: 3pt, fill: color.darken(10%)),
+        )
       ]
     )
   )
