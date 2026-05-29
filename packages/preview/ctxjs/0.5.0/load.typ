@@ -6,7 +6,7 @@
 /// ctxjs.load.eval("function fn() {}")
 /// ```
 /// -> bytes
-#let eval(js, strict: true) = {
+#let eval(js) = {
   let js = bytes(js)
   _internal.build-load-argument(
     _internal.load-eval,
@@ -20,7 +20,7 @@
 /// ctxjs.load.eval-format("function() {return value;}", value: 1)
 /// ```
 /// -> bytes
-#let eval-format(js, ..args, strict: true) = {
+#let eval-format(js, ..args) = {
   _internal.build-load-argument(_internal.load-eval-format, cbor.encode((js, args.named())))
 }
 
