@@ -59,9 +59,10 @@
 /// Evaluates the js code. It will returns a new context if transition is enabled, the current context if not and the value which returns from the js code. Additional to @eval it supports formatting of the eval code with typst values.
 ///
 /// ```examplec
-/// ctxjs.ctx.eval(
+/// ctxjs.ctx.eval-format(
 ///   current-context,
-///   "1+1"
+///   "1+{value}",
+///   value: 1
 /// )
 /// ```
 /// -> (<module>, any)

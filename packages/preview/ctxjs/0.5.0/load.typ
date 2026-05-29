@@ -15,9 +15,9 @@
 }
 
 /// Creates load bytes for @ctxjs.new-context or @ctx.load.
-/// Same function as @ctx.eval-format at loading.
+/// Same function as @ctx.eval at loading.
 /// ```examplec
-/// ctxjs.load.eval-format("function() {return value;}", value: 1)
+/// ctxjs.load.eval-format("function() {return {value};}", value: 1)
 /// ```
 /// -> bytes
 #let eval-format(js, ..args) = {
