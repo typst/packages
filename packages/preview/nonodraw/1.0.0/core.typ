@@ -82,6 +82,8 @@
 // Callbacks that render clue cells. They receive `(value, count, row, col)` and
 // an `additional-info` dictionary containing the board `width`, `height`, and
 // whether the clue is currently `marked`.
+// == `cell-size`
+// The size of each cell, used for layout and guide number placement.
 // == `display-mask`
 // An optional 2D mask used when `board-matrix` is present. Cells masked with
 // values other than `1` or `true` are passed to `cell-drawer` as `none` while
@@ -100,6 +102,8 @@
 // == `corner-cell-drawer`
 // A callback that renders the top-left corner cell. It receives the maximum
 // clue height and clue width and should return a spanning cell.
+// == `show-guide-numbers`, `guide-number-sides`, `guide-number-step`, and `guide-number-drawer`
+// Control the optional rendering of guide numbers along the sides of the board.
 #let draw-board(
   board-matrix,
   cell-drawer,

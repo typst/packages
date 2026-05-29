@@ -665,7 +665,7 @@
 
 // Render a puzzle using the classical square-grid style.
 // = Arguments:
-// For `board-matrix`, `corner-cell-drawer`, `column-clues`, `row-clues`, `marked-column-clues`, `marked-row-clues`, `hide-clues`, and `display-mask`, see `draw-board`.
+// For `board-matrix`, `cell-size`, `corner-cell-drawer`, `column-clues`, `row-clues`, `marked-column-clues`, `marked-row-clues`, `hide-clues`, `show-guide-numbers`, `guide-number-sides`, `guide-number-step`, and `guide-number-drawer`, see `draw-board`.
 //
 // For `cell-size`, `show-solution`, `color-map`, `content-map`, `cell-content-drawer`, `cell-colorizer`, `cell-default-background`, `weak-stroke`, and `strong-stroke`, see `classical-cell-drawer`.
 //
@@ -781,9 +781,9 @@
 
 // Render a puzzle using the modern rounded style.
 // = Arguments:
-// For `board-matrix`, `corner-cell-drawer`, `column-clues`, `row-clues`, `marked-column-clues`, `marked-row-clues`, and `hide-clues`, see `draw-board`.
+// For `board-matrix`, `cell-size`, `corner-cell-drawer`, `column-clues`, `row-clues`, `marked-column-clues`, `marked-row-clues`, `hide-clues`, `show-guide-numbers`, `guide-number-sides`, `guide-number-step`, and `guide-number-drawer`, see `draw-board`.
 //
-// For `cell-size`, `show-solution`, `cell-strong-stroke`, `cell-background-color`, `color-map`, `content-map`, `cell-content-drawer`, `cell-colorizer`, and `cell-default-background`, see `modern-cell-drawer`.
+// For, `show-solution`, `cell-strong-stroke`, `cell-background-color`, `color-map`, `content-map`, `cell-content-drawer`, `cell-colorizer`, and `cell-default-background`, see `modern-cell-drawer`.
 //
 // For `clue-text-processor`, `clue-content-drawer`, `clue-zebra-even`, `clue-zebra-odd`, `clue-coloring`, `clue-omit-default-background`, `clue-color-lightness-threshold`, and `font`, see `modern-column-cell-drawer` and `modern-row-cell-drawer`.
 // == `text-size`
