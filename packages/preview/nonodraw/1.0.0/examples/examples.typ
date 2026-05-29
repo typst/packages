@@ -1,5 +1,5 @@
 // EXAMPLES OF USE
-#import "../lib.typ": *
+#import "@preview/nonodraw:1.0.0": *
 #import "./examples-matrices.typ": *
 
 #set page(margin: 5mm, width: auto, height: auto)
