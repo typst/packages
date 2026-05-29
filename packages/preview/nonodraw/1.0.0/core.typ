@@ -105,6 +105,7 @@
   cell-drawer,
   column-cell-drawer,
   row-cell-drawer,
+  cell-size: 1em,
   display-mask: none,
   column-clues: none,
   row-clues: none,
@@ -112,6 +113,12 @@
   marked-row-clues: none,
   hide-clues: false,
   corner-cell-drawer: (height, width) => grid.cell(rowspan: height, colspan: width, ""),
+  show-guide-numbers: false,
+  guide-number-sides: ("right", "bottom"),
+  guide-number-step: 5,
+  guide-number-drawer: (value, is-row, side) => {
+    align(center + horizon, text(0.75em, str(value), fill: gray))
+  },
 ) = {
   let bm = board-matrix
   let has-board = bm != none
@@ -180,6 +187,7 @@
 
   // First cell: the corner one
   let cells = ()
+
   if not hide-clues {
     cells.push(corner-cell-drawer(col-max-height, row-max-width))
 
@@ -237,8 +245,50 @@
     cells = (..cells, ..row-cells)
   }
 
+  let num-columns = width + (if not hide-clues { row-max-width } else { 0 })
   // tadah
-  block(breakable: false, grid(columns: width + (if not hide-clues { row-max-width } else { 0 }), ..cells))
+  block(breakable: false, [
+    #grid(columns: num-columns, ..cells)
+    #if show-guide-numbers {
+      if "top" in guide-number-sides or "bottom" in guide-number-sides {
+        for i in range(guide-number-step, width + 1, step: guide-number-step) {
+          if "top" in guide-number-sides {
+            place(top + left, dx: (i - 1 + (row-max-width * if hide-clues { 0 } else { 1 })) * cell-size, dy: -cell-size, block(
+              width: cell-size,
+              height: cell-size,
+              guide-number-drawer(i, false, "top"),
+            ))
+          }
+          if "bottom" in guide-number-sides {
+            place(bottom + left, dx: (i - 1 + (row-max-width* if hide-clues { 0 } else { 1 })) * cell-size, dy: cell-size, block(
+              width: cell-size,
+              height: cell-size,
+              guide-number-drawer(i, false, "bottom"),
+            ))
+          }
+        }
+      }
+
+      if "left" in guide-number-sides or "right" in guide-number-sides {
+        for j in range(guide-number-step, height + 1, step: guide-number-step) {
+          if "left" in guide-number-sides {
+            place(left + top, dy: (j - 1 + (col-max-height * if hide-clues { 0 } else { 1 })) * cell-size, dx: -cell-size, block(inset: 0pt,
+              width: cell-size,
+              height: cell-size,
+              guide-number-drawer(j, true, "left"),
+            ))
+          }
+          if "right" in guide-number-sides {
+            place(right + top, dy: (j - 1 + (col-max-height * if hide-clues { 0 } else { 1 })) * cell-size, dx: cell-size, block(
+              width: cell-size,
+              height: cell-size,
+              guide-number-drawer(j, true, "right"),
+            ))
+          }
+        }
+      }
+    }
+  ])
 }
 
 // Utility to convert a multiline string representation of a board into a matrix.
@@ -261,8 +311,6 @@
       } else {
         row.push(char-to-value(char))
       }
-
-      
     }
     matrix.push(row)
   }

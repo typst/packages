@@ -214,7 +214,7 @@
 
 #pagebreak()
 
-// Example of using text-processor to make numbers with at least two digits more compact
+// Example of using text-processor to make numbers with at least two digits more compact. Also, with column and row guides shown.
 
 #classical-board(
   show-solution: false,
@@ -246,6 +246,7 @@
     1010001000000111111111111
   "
   ),font: "DejaVu Sans Mono",
+  show-guide-numbers: true,
   clue-draw-parallel-weak-strokes: true,
   clue-text-processor: t => {
     if int(t) > 9 {

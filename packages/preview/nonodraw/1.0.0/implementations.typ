@@ -698,6 +698,12 @@
   },
   cell-default-background: white,
   color-map: default-color-map,
+  show-guide-numbers: false,
+  guide-number-sides: ("right", "bottom"),
+  guide-number-step: 5,
+  guide-number-drawer: (value, is-row, side) => {
+    align(center + horizon, text(0.75em, str(value), fill: gray))
+  },
   clue-content-drawer: none,
   clue-text-processor: value => [#value],
   clue-coloring: "background",
@@ -710,7 +716,7 @@
   clue-draw-perpendicular-strokes: false,
   display-mask: none,
 ) => {
-  set text(text-size)
+  set text(text-size, font: font)
   draw-board(
     board-matrix,
     classical-cell-drawer.with(
@@ -765,6 +771,11 @@
     hide-clues: hide-clues,
     display-mask: display-mask,
     corner-cell-drawer: corner-cell-drawer,
+    cell-size: cell-size,
+    show-guide-numbers: show-guide-numbers,
+    guide-number-sides: guide-number-sides,
+    guide-number-step: guide-number-step,
+    guide-number-drawer: guide-number-drawer,
   )
 };
 
@@ -806,6 +817,12 @@
   },
   cell-default-background: white,
   color-map: default-color-map,
+  show-guide-numbers: false,
+  guide-number-sides: ("right", "bottom"),
+  guide-number-step: 5,
+  guide-number-drawer: (value, is-row, side) => {
+    align(center + horizon, text(0.75em, str(value), fill: gray))
+  },
   clue-content-drawer: none,
   clue-text-processor: value => text(0.7em, value),
   clue-zebra-even: luma(90%),
@@ -815,7 +832,7 @@
   clue-color-lightness-threshold: 50%,
   display-mask: none,
 ) => {
-  set text(text-size)
+  set text(text-size, font: font)
   draw-board(
     board-matrix,
     modern-cell-drawer.with(
@@ -860,5 +877,10 @@
     hide-clues: hide-clues,
     display-mask: display-mask,
     corner-cell-drawer: corner-cell-drawer,
+    cell-size: cell-size,
+    show-guide-numbers: show-guide-numbers,
+    guide-number-sides: guide-number-sides,
+    guide-number-step: guide-number-step,
+    guide-number-drawer: guide-number-drawer,
   )
 };

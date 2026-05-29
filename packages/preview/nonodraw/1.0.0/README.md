@@ -50,7 +50,9 @@ The following example was created by hiding the clues and simplifying the stroke
 
 ### Simple clue customization
 
-The following example uses argument `text-processor` to customize the clue text, making it more compact when the value is greater than 9:
+The following example uses argument `text-processor` to customize the clue text, making it more compact when the value is greater than 9.
+
+Also, the `show-guide-numbers` argument is set to `true` to show guide numbers every 5 rows and columns, which can be helpful for larger boards:
 
 <p>
   <img src="./examples/Example%2014.svg" alt="Compact solution-only rendering" width="50%"> </br>
