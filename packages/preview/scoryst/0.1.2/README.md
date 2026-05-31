@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/bernsteining/scoryst/blob/v0.1.2/test/logo.svg">
-  <img alt="logo" src="https://github.com/bernsteining/scoryst/blob/v0.1.1/test/logo.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bernsteining/scoryst/refs/tags/v0.1.2/test/logo.svg">
+  <img alt="logo" src="https://raw.githubusercontent.com/bernsteining/scoryst/refs/tags/v0.1.1/test/logo.svg">
 </picture>
 
 # Scoryst - Music Engraving Plugin for Typst
@@ -113,4 +113,12 @@ Both kebab-case and camelCase keys are accepted (e.g. `adjust-page-height` or `a
 | `svg-bounding-boxes` | `false` | Add bounding box rects (debug) |
 | `remove-ids` | `false` | Strip element IDs from SVG |
 | `smufl-text-font` | `"embedded"` | SMuFL text font: embedded, linked, none |
+| `pedal-style` | `"auto"` | Pedal marking style: auto, line, pedstar, altpedstar |
+| `font-fallback` | `"Leipzig"` | Music font fallback for missing glyphs: Leipzig, Bravura |
+| `lyric-elision` | `"regular"` | Lyric elision width: regular, narrow, wide, unicode |
+| `multi-rest-style` | `"auto"` | Multi-measure rest style: auto, default, block, symbols |
+| `system-divider` | `"none"` | System divider display: none, auto, left, left-right |
+| `duration-equivalence` | `"brevis"` | Mensural duration equivalence: brevis, semibrevis, minima |
+| `ligature-oblique` | `"auto"` | Ligature oblique shape: auto, straight, curved |
+| `mensural-responsive-view` | `"none"` | Mensural responsive view: none, auto, selection |
 
