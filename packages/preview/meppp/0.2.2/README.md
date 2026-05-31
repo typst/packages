@@ -8,7 +8,7 @@ The recommended report format of MPE course.
 Default arguments are shown as below:
 
 ```typ
-#import "@preview/meppp:0.2.1": *
+#import "@preview/meppp:0.2.2": *
 
 #let meppp-lab-report(
   title: "",
