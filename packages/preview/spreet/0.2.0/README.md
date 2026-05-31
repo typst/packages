@@ -18,9 +18,6 @@ For full parsing for all information use the "full" option.
 ```typst
 #import "@preview/spreet:0.2.0"
 
-#let excel_data = spreet.file-decode("excel.xlsx")
-#let opendocument_data = spreet.file-decode("opendocument.ods")
-
 #let excel_data_from_bytes = spreet.decode(read("excel.xlsx", encoding: none))
 #let opendocument_data_from_bytes = spreet.decode(read("opendocument.ods", encoding: none))
 
