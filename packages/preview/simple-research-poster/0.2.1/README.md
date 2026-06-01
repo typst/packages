@@ -9,8 +9,8 @@ typst init @preview/simple-research-poster:0.2.1
 
 and you should see this:
 
-<a href="https://github.com/aneziac/simple-research-poster/blob/main/template/poster.typ">
-    <img src="./thumbnail.svg" width="100%">
+<a href="https://github.com/aneziac/simple-research-poster/blob/35b774baf04649323d7952cbea16a355b9b724b7/thumbnail.svg">
+    <img src="./thumbnail.svg" width="100%" alt="A three column, blue Futurama-themed research poster, with lorem ipsum text.">
 </a>
 
 The default file tree is simple:
@@ -28,8 +28,8 @@ The template is designed to be as generic as possible, so that it supports arbit
 
 This template is a generalization of our code for the poster below:
 
-<a href="https://github.com/aneziac/simple-research-poster/blob/main/examples/coxeter-groups">
-    <img src="./examples/coxeter-groups/main.svg" width="100%">
+<a href="https://github.com/aneziac/simple-research-poster/blob/35b774baf04649323d7952cbea16a355b9b724b7/examples/coxeter-groups">
+    <img src="./examples/coxeter-groups/main.svg" width="100%" alt="A three column, green poster on Coxeter Groups and Buildings.">
 </a>
 
 Click the image above to see the code.
