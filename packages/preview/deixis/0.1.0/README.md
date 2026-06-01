@@ -8,7 +8,7 @@ Decoupled annotations for [Typst](https://typst.app/).
 <img src="https://raw.githubusercontent.com/inspiros/typst-deixis/v0.1.0/assets/logo.svg" width="200px" alt="Deixis logo">
 </div>
 
-`deixis` is a unified layout engine for footnotes, endnotes, margin notes, inset notes, inline highlights, and spatial annotations.
+`deixis` is a unified layout engine for inline notes, footnotes, endnotes, margin notes, inset notes, and inline spatial highlights with visual connectors.
 
 ## Main Features
 
