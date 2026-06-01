@@ -277,9 +277,6 @@
     let has-rest = false
 
     for k in current-val.keys() {
-      if k == "inline" {
-        panic("deixis: The 'inline' dictionary key has been renamed to 'mark'. Please update your styles!")
-      }
       if k not in deixis-scoping-keys {
         is-scoping = false
         break
