@@ -206,4 +206,5 @@ dining-table(move(w.c4, dx: 2, dy: 4), label: [Dining table], scale: 3,size: (2,
 bed(move(w.w3, dx: 6, dy: -3.1), scale: 2, rotation: 270deg, size: "king", )
 
 drafting-ruler(28,25, step: 1, )
-}) ```
+})
+```
