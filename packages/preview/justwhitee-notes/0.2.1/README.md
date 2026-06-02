@@ -221,7 +221,7 @@ The template uses the following font stacks:
 - **Sans-serif** (headings, UI): [`Syne`](https://fonts.google.com/specimen/Syne), `Montserrat`, `Segoe UI`
 
 > If using the Typst Web App, import them in `template/fonts/` folder (or anywhere).\
-> Must be installed for best results locally.
+> Must be installed (static version) for best results locally.
 
 I advise to use `JetBrains Mono` and `Syne`.
 
