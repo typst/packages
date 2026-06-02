@@ -1,0 +1,1699 @@
+<svg class="typst-doc" viewBox="0 0 108.34645669291339 108.34645669291339" width="108.34645669291339pt" height="108.34645669291339pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" d="M 0 0v 108.34646 h 108.34646 v -108.34646 Z "/>
+    <g>
+        <g class="typst-group" transform="matrix(1 0 0 1 14.173228346456693 14.173228346456693)">
+            <g>
+                <g class="typst-group">
+                    <g>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 0 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 0 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 0 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 0 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 0 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 0 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 0 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 0 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 0 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 0 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 0 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 0 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 0 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 0 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 0 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 0 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 0 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 0 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 0 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 4 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 4 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 4 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 4 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 4 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 4 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 4 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 8 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 8 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 8 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 8 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 8 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 12 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 12 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 12 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 16 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 16 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 16 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 20 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 20 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 24 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 24 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 24 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 28 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 28 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 28 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 28 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 28 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 28 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 28 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 28 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 32 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 32 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 32 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 32 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 32 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 32 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 36 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 36 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 36 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 36 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 40 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 40 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 40 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 44 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 44 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 44 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 44 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 44 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 44 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 48 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 48 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 48 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 48 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 48 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 52 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 52 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 52 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 52 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 52 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 52 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 56 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 56 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 56 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 60 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 60 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 60 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 64 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 64 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 64 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 68 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 68 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 68 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 68 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 68 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 72 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 72 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 72 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 72 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 72 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 72 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 72 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 76 0)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 76 4)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 76 8)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 76 12)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 76 16)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 76 20)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 76 24)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 76 28)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 76 32)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 76 36)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 76 40)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 76 44)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 76 48)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 76 52)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" transform="matrix(1 0 0 1 76 56)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 76 60)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 76 64)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 76 68)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 76 72)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="#000000" fill-rule="nonzero" transform="matrix(1 0 0 1 76 76)" d="M 0 0v 4 h 4 v -4 Z "/>
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 0 -0.5)" d="M 0 0v 81 "/>
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 20 -0.5)" d="M 0 0v 81 "/>
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 40 -0.5)" d="M 0 0v 81 "/>
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 60 -0.5)" d="M 0 0v 81 "/>
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 80 -0.5)" d="M 0 0v 81 "/>
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 -0.5 0)" d="M 0 0h 81 "/>
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 -0.5 20)" d="M 0 0h 81 "/>
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 -0.5 40)" d="M 0 0h 81 "/>
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 -0.5 60)" d="M 0 0h 81 "/>
+                        <path class="typst-shape" fill="none" stroke="#ff4136" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 -0.5 80)" d="M 0 0h 81 "/>
+                        <g class="typst-group">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 4 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 8 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 12 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 16 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 20 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 24 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 28 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 32 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 36 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 40 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 44 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 48 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 52 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 56 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 60 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 64 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 68 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 72 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group" transform="matrix(1 0 0 1 76 0)">
+                            <g/>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 4)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 4)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 8)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 8)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 12)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 12)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 16)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 16)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 20)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 20)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 24)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 24)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 28)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 28)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 32)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 32)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 36)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 36)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 40)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 40)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 44)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 44)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 48)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 48)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 52)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 52)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 56)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 56)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 60)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 60)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 64)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 64)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 68)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 68)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 72)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 72)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="typst-group">
+                            <g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 0 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 4 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 8 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 12 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 16 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 20 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 24 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 28 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 32 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 36 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 40 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 44 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 48 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 52 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 56 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 60 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 64 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 68 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 72 76)">
+                                    <g/>
+                                </g>
+                                <g class="typst-group" transform="matrix(1 0 0 1 76 76)">
+                                    <g/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
