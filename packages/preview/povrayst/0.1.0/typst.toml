@@ -1,0 +1,19 @@
+[package]
+name = "povrayst"
+version = "0.1.0"
+entrypoint = "povray.typ"
+authors = ["bernsteining"]
+license = "AGPL-3.0-or-later"
+description = "🪩 Declarative raytracing in Typst"
+repository = "https://github.com/bernsteining/povrayst"
+keywords = [
+  "povray", "povrayst", "raytracing", "raytracer",
+  "3d", "rendering", "graphics", "scene",
+  "csg", "isosurface", "radiosity", "photon",
+  "optics", "physics", "caustic",
+  "light", "mathematics", "topology",
+  "algebraic", "surface", "realistic",
+]
+categories = ["visualization", "integration", "scripting"]
+disciplines = ["mathematics", "physics", "computer-science", "chemistry"]
+compiler = "0.14.2"
