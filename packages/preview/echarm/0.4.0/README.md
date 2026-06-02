@@ -6,9 +6,9 @@ A typst plugin to run echarts in typst with the use of CtxJS.
 
 <table>
   <tr>
-    <td><a href="examples/mixed_charts.typ"><img src="examples/mixed_charts.png" width="100%"></a></td>
-    <td><a href="examples/radar.typ"><img src="examples/radar.png" width="100%"></a></td>
-    <td><a href="examples/pie.typ"><img src="examples/pie.png" width="100%"></a></td>
+    <td><a href="examples/mixed_charts.typ"><img src="examples/mixed_charts.png" width="100%" alt="mixed charts example"></a></td>
+    <td><a href="examples/radar.typ"><img src="examples/radar.png" width="100%"  alt="radar chart example"></a></td>
+    <td><a href="examples/pie.typ"><img src="examples/pie.png" width="100%" alt="pie chart example"></a></td>
   </tr>
   <tr>
     <td><a href="examples/mixed_charts.typ">Source Code</a></td>
@@ -16,9 +16,9 @@ A typst plugin to run echarts in typst with the use of CtxJS.
     <td><a href="examples/pie.typ">Source Code</a></td>
   </tr>
   <tr>
-    <td><a href="examples/scatter.typ"><img src="examples/scatter.png" width="100%"></a></td>
-    <td><a href="examples/gauge.typ"><img src="examples/gauge.png" width="100%"></a></td>
-    <td><a href="examples/candlestick.typ"><img src="examples/candlestick.png" width="100%"></a></td>
+    <td><a href="examples/scatter.typ"><img src="examples/scatter.png" width="100%" alt="scatter chart example"></a></td>
+    <td><a href="examples/gauge.typ"><img src="examples/gauge.png" width="100%" alt="gauge chart example"></a></td>
+    <td><a href="examples/candlestick.typ"><img src="examples/candlestick.png" width="100%" alt="candlestick chart example"></a></td>
   </tr>
   <tr>
     <td><a href="examples/scatter.typ">Source Code</a></td>
@@ -70,7 +70,7 @@ Instead of the themes id, you can specify the theme object as a parameter here.
 
 <table>
   <tr>
-    <td><a href="examples/themes.typ"><img src="examples/themes.png" width="100%"></a></td>
+    <td><a href="examples/themes.typ"><img src="examples/themes.png" width="100%" alt="all build-in themes charts example"></a></td>
   </tr>
   <tr>
     <td><a href="examples/themes.typ">Source Code</a></td>
