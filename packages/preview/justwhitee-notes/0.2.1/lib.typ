@@ -337,7 +337,7 @@
     header: context {
       if counter(page).get().first() > 2 {
         grid(
-          columns: (0.1fr, 1fr, 1fr),
+          columns: (0.5fr, 10fr, 1fr),
           align(left + bottom)[
             #if logo-subject != none [ #block(width: 14pt)[#logo-subject] ] else [ #box() ]
           ],
