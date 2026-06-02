@@ -151,7 +151,7 @@ Verse numbers can also be customzied and set to number only every $n$-th verse:
 Utilizing both the indentpattern and numbering verses (while also customizing the style of the poemtitle) one might arrive at this simple, yet elegant rendition of our poem shown in the image at the beginning:
 
 ```typst
-#import "@preview/verseatile:0.1.0": *
+#import "@preview/verseatile:0.1.1": *
 
 #show <poemtitle>: it => text(
   size: 14pt,
