@@ -6,24 +6,24 @@ A typst plugin to run echarts in typst with the use of CtxJS.
 
 <table>
   <tr>
-    <td><a href="typst-package/examples/mixed_charts.typ"><img src="examples/mixed_charts.png" width="100%"></a></td>
-    <td><a href="typst-package/examples/radar.typ"><img src="examples/radar.png" width="100%"></a></td>
-    <td><a href="typst-package/examples/pie.typ"><img src="examples/pie.png" width="100%"></a></td>
+    <td><a href="examples/mixed_charts.typ"><img src="examples/mixed_charts.png" width="100%"></a></td>
+    <td><a href="examples/radar.typ"><img src="examples/radar.png" width="100%"></a></td>
+    <td><a href="examples/pie.typ"><img src="examples/pie.png" width="100%"></a></td>
   </tr>
   <tr>
-    <td><a href="typst-package/examples/mixed_charts.typ">Source Code</a></td>
-    <td><a href="typst-package/examples/radar.typ">Source Code</a></td>
-    <td><a href="typst-package/examples/pie.typ">Source Code</a></td>
+    <td><a href="examples/mixed_charts.typ">Source Code</a></td>
+    <td><a href="examples/radar.typ">Source Code</a></td>
+    <td><a href="examples/pie.typ">Source Code</a></td>
   </tr>
   <tr>
-    <td><a href="typst-package/examples/scatter.typ"><img src="examples/scatter.png" width="100%"></a></td>
-    <td><a href="typst-package/examples/gauge.typ"><img src="examples/gauge.png" width="100%"></a></td>
-    <td><a href="typst-package/examples/candlestick.typ"><img src="examples/candlestick.png" width="100%"></a></td>
+    <td><a href="examples/scatter.typ"><img src="examples/scatter.png" width="100%"></a></td>
+    <td><a href="examples/gauge.typ"><img src="examples/gauge.png" width="100%"></a></td>
+    <td><a href="examples/candlestick.typ"><img src="examples/candlestick.png" width="100%"></a></td>
   </tr>
   <tr>
-    <td><a href="typst-package/examples/scatter.typ">Source Code</a></td>
-    <td><a href="typst-package/examples/gauge.typ">Source Code</a></td>
-    <td><a href="typst-package/examples/candlestick.typ">Source Code</a></td>
+    <td><a href="examples/scatter.typ">Source Code</a></td>
+    <td><a href="examples/gauge.typ">Source Code</a></td>
+    <td><a href="examples/candlestick.typ">Source Code</a></td>
   </tr>
 </table>
 
@@ -70,10 +70,10 @@ Instead of the themes id, you can specify the theme object as a parameter here.
 
 <table>
   <tr>
-    <td><a href="typst-package/examples/themes.typ"><img src="examples/themes.png" width="100%"></a></td>
+    <td><a href="examples/themes.typ"><img src="examples/themes.png" width="100%"></a></td>
   </tr>
   <tr>
-    <td><a href="typst-package/examples/themes.typ">Source Code</a></td>
+    <td><a href="examples/themes.typ">Source Code</a></td>
   </tr>
 </table>
 
