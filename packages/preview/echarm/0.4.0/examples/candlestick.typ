@@ -1,5 +1,5 @@
 #set page(width: 200mm, height: 150mm, margin: 0mm)
-#import "../lib.typ" as echarm
+#import "@preview/echarm:0.4.0"
 #echarm.render(width: 100%, height: 100%, options: (
   xAxis: (
     data: ("2017-10-24", "2017-10-25", "2017-10-26", "2017-10-27"),

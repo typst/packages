@@ -1,5 +1,5 @@
 #set page(width: 200mm, height: 150mm, margin: 0mm)
-#import "../lib.typ" as echarm
+#import "@preview/echarm:0.4.0"
 #let themes = dictionary(echarm.theme)
 #grid(
   columns: 6,
