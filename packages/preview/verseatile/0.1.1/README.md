@@ -1,7 +1,7 @@
 # verseatile
 
 [![Typst universe](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fswitchlex%2Fverseatile%2Frefs%2Fheads%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v.&logo=typst&label=Typst%20Universe&labelColor=white&color=grey)](https://typst.app/universe/package/verseatile)
-[![](https://img.shields.io/badge/Manual-pdf-grey?labelColor=white)](https://raw.githubusercontent.com/switchlex/verseatile/0.1.1/docs/manual.pdf)
+[![Manual](https://img.shields.io/badge/Manual-pdf-grey?labelColor=white)](https://raw.githubusercontent.com/switchlex/verseatile/0.1.1/docs/manual.pdf)
 [![License](https://img.shields.io/badge/License-MIT-grey?labelColor=white)](./LICENSE)
 
 verseatile is a small package for setting poetry with [Typst](https://github.com/typst/typst), capable of easily indenting and numbering verses while providing many options for customization.
