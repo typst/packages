@@ -6,12 +6,6 @@
 </p>
 
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-1.6.0-c0392b">
-  <img alt="Typst" src="https://img.shields.io/badge/typst-%E2%89%A50.14.0-239dad">
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
-</p>
-
-<p align="center">
   <img src="example/preview-1.png" alt="Title page preview" width="48%">
   <img src="example/preview-7.png" alt="Callout boxes preview" width="48%">
 </p>

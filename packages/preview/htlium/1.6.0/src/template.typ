@@ -5,7 +5,7 @@
 
 #import "@preview/icu-datetime:0.2.2"
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.10": *
 
 #import "lib/titlepage.typ": *
 #import "lib/boxes.typ": *
