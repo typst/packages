@@ -1,6 +1,6 @@
 #import "@preview/mantys:1.0.2": *
 
-#import "../src/keyle.typ"
+#import "@preview/keyle:0.3.0"
 
 #let doc-serif = ("Linux Libertine", "TeX Gyre Pagella")
 #let doc-sans = ("TeX Gyre Heros", "Helvetica Neue")
