@@ -9,7 +9,7 @@ A clean, minimal Typst template designed for university lecture notes and course
 ### 1. Import the template
 
 ```typst
-#import "@preview/justwhitee-notes:0.2.0": *
+#import "@preview/justwhitee-notes:0.2.1": *
 ```
 
 You can initialize a new project with this template using the Typst CLI:
@@ -27,14 +27,14 @@ Wrap your content with the `project` function:
   subject: "CS301",
   professor: "Prof. John Smith",
   author: "Your Name",
-  logo-subject: image("imgs/course-logo.png"),       // optional
-  logo-personal: image("imgs/my-logo.png"),          // optional
-  year: "2024/2025",                          // optional, auto-generated if omitted
-  bento-url: "https://bento.me/yourprofile",  // optional
-  paypal-url: "https://paypal.me/yourname",   // optional
-  contact-url: "https://t.me/username",       // optional
-  show-disclaimer: true,                       // optional, default true
-  lang: "en",
+  logo-subject: image("imgs/course-logo.png"),        // optional
+  logo-personal: image("imgs/my-logo.png"),           // optional
+  year: "2024/2025",                                  // optional, auto-generated if omitted
+  bento-url: "https://bento.me/yourprofile",          // optional
+  paypal-url: "https://paypal.me/yourname",           // optional
+  contact-url: "https://t.me/username",               // optional
+  show-disclaimer: true,                              // optional, default true
+  lang: "en",                                         // optional, default 'en'
 )
 
 // Your content goes here
@@ -65,7 +65,7 @@ Wrap your content with the `project` function:
 
 ### Callout Boxes
 
-Three pre-built callout styles for structuring your notes:
+Pre-built callout styles for structuring your notes:
 
 ```typst
 // Definition box (teal accent)
@@ -82,15 +82,27 @@ Three pre-built callout styles for structuring your notes:
 #example("Scheduling Example")[
   Given processes P1, P2, P3...
 ]
+
+// Property/Statement box (purple accent)
+#prop("Atomicity")[
+  An operation is atomic if it behaves as a single, indivisible unit of work. 
+]
+
+// Proof box (red accent)
+#proof("Proof: SJF")[
+  We want to prove that $"TWT"(sigma)$ is minimized if and only...
+]
 ```
 
 You can also use the base `callout` function for full customization:
 
 ```typst
-#callout(title: "Custom", icon: "🔥", color: rgb("#e74c3c"))[
+#callout(title: "Custom", icon: "🔥", color: rgb("#e74c3c"), endpoint: true)[
   Custom callout content.
 ]
 ```
+>[!INFO]
+> You can always customize your own callout, where you can have custom `title`, `icon` (on left-upper corner), `color` and right-bottom dot, `endpoint`, presence (useful for multi-page callouts, expecially for proofs).
 
 ---
 
@@ -99,25 +111,28 @@ You can also use the base `callout` function for full customization:
 Quick inline markers for annotating your notes:
 
 ```typst
-#note[Pay attention to this detail.]        // 👉 Note: (yellow highlight)
-#tip[This is a useful shortcut.]            // ✅ Tip: (teal highlight)
-#problem[This approach has a flaw.]        // ❗️ Problem: (red highlight)
-#why(title: "use threads")[Because...]     // 🤔 Why use threads? (purple highlight)
-#how(title: "it works")[Step by step...]   // 👨🏻‍🏫 How it works? (blue highlight)
-#extra[Side note or additional context.]    // Italic muted text, smaller size, margin notes, or for extra clarifications
+#note[Pay attention to this detail.]          // 👉 Note: (yellow highlight)
+#tip[This is a useful shortcut.]              // ✅ Tip: (teal highlight)
+#problem[This approach has a flaw.]           // ❗️ Problem: (red highlight)
+#why(title: "use threads")[Because...]        // 🤔 Why use threads? (purple highlight)
+#how(title: "it works")[Step by step...]      // 👨🏻‍🏫 How it works? (blue highlight)
+#extra[Side note or additional context.]      // Italic muted text, smaller size, "margin" notes, or for extra clarifications
 ```
+> These are useful for further details of your notes (like point outs, explanations, ...).
 
 ---
 
 ### Inline Text Styles
 
 ```typst
-#kw("keyword")              // Bold monospace keyword (accent color - teal by default)
-#kw("error", color: danger) // With custom color
+#kw("keyword")                        // Bold monospace keyword (accent color is teal by default)
+#kw("error", color: danger)           // With custom color
 
 #hl("highlighted text")              // Highlighted monospace span (accent color - teal)
 #hl("warning text", color: warning)  // With custom color
 ```
+> [!INFO]
+> `#hl` should be used on the same line, so if you want to highlight more lines you have to manually add more `#hl` wisely. Otherwise you can use typst's `#highlight`.
 
 ---
 
@@ -126,6 +141,7 @@ Quick inline markers for annotating your notes:
 ```typst
 #so       // => (implication arrow)
 #arrow    // -> (simple right arrow)
+#swarrow  // ~> (curvy right arrow)
 ```
 
 ---
@@ -139,12 +155,13 @@ A left-bordered block for notes or asides:
   This is a side note or an important remark set apart from the body.
 ]
 ```
+Like callouts, `side-note`s are customizable with `color`.
 
 ---
 
 ### Code Blocks
 
-Code blocks are automatically styled — just use standard Typst raw blocks:
+Code blocks are automatically styled, just use standard Typst raw blocks:
 
 ````typst
 ```python
@@ -175,11 +192,11 @@ Utility to crop images by hiding edges (not all sides are mandatory):
 
 The template automatically generates:
 
-1. **Cover page** — title, subject, professor, author, logos, academic year
-2. **Disclaimer page** — a standard disclaimer with contact/support links (omit with `show-disclaimer: false`)
-3. **Table of Contents** — auto-generated up to heading depth 3
-4. **Header** — appears from page 3 onwards, shows title (course/subject) and logos (course/subject on left and personal on right)
-5. **Footer** — centered page number on all pages after the cover
+1. **Cover page** - title, subject, professor, author, logos, academic year
+2. **Disclaimer page** - a standard disclaimer with contact/support links (omit with `show-disclaimer: false`)
+3. **Table of Contents** - auto-generated up to heading depth 3
+4. **Header** - appears from page 3 onwards, shows title (course/subject) and logos (course/subject on left and personal on right)
+5. **Footer** - centered page number on all pages after the cover
 
 ---
 
@@ -203,57 +220,103 @@ The template uses the following font stacks:
 - **Monospace** (body text): [`JetBrains Mono`](https://fonts.google.com/specimen/JetBrains+Mono), `Fira Code`, `Roboto Mono`, `Consolas`
 - **Sans-serif** (headings, UI): [`Syne`](https://fonts.google.com/specimen/Syne), `Montserrat`, `Segoe UI`
 
-> If using the Typst Web App, import them in `template/fonts/` folder.\
-> Must be installed for best results locally
+> If using the Typst Web App, import them in `template/fonts/` folder (or anywhere).\
+> Must be installed for best results locally.
 
 I advise to use `JetBrains Mono` and `Syne`.
+
 ---
 
 ## 📝 Full Example
 
 ````typst
-#import "@preview/justwhitee-notes:0.2.0": *
+#import "@preview/justwhitee-notes:0.2.1": *
+
 
 #show: project.with(
-  title: "Operating Systems",
+  title: "Cryptography & Security",
   subject: "Master of Computer Engineering",
-  professor: "Prof. John Doe",
+  professor: "Prof. Alice Smith",
   author: "Matteo Fontolan",
-  logo-subject: image("default/logo.svg"),
-  logo-personal: image("assets/course-logo.png"),
+  logo-personal: image("default/logo.svg"),
+  logo-subject: image("assets/icon.jpg"),
   bento-url: "https://itsjustwhitee.github.io/bento/",
-  paypal-url: "https://paypal.me/justwhitee",
-  contact-url: "https://github.com/itsjustwhitee/packages/issues",
+  paypal-url: "https://www.paypal.com/paypalme/justwhitee",
+  contact-url: "https://t.me/justwhitee",
   show-disclaimer: true,
   lang: "en",
 )
 
-= Processes
+= Public-Key Cryptography: RSA
 
-#def("Process")[
-  A #kw[process] is a program in execution, including its current state, memory, and resources.
+#extra[RSA is named after its creators: Ron Rivest, Adi Shamir, and Leonard Adleman, who publicly described the algorithm in 1977.]
+
+#def("RSA Algorithm")[
+  #kw[RSA] is an *asymmetric cryptographic algorithm* based on the practical difficulty of the factorization of the product of two large *#underline[prime] numbers*.
 ]
 
-#note[A #hl[process is different from a program]: a program is static, a process is dynamic.]
-
-== Process States
-
-Processes can be in one of these states: ready, running, or blocked.
-
-#example("State Transition")[
-  A process moves from _ready_ to _running_ when the scheduler picks it.
+#important("Security Foundation")[
+  The entire security of RSA relies on the #kw[Integer Factorization Problem]. If a fast polynomial-time algorithm for factorization is found, RSA becomes completely insecure.
 ]
 
-== System Calls
+== Key Generation
 
-Use `fork()` to create a child process #so the parent and child run concurrently.
+#how(title: "generate an RSA keypair")[
+  + Choose two distinct #underline[prime] numbers, $p$ and $q$.
+  + Compute $n = p times q$. This $n$ is the modulus for both keys.
+  + Compute Euler's totient function: $phi(n) = (p-1)(q-1)$.
+  + Choose an integer $e$ such that $1 < e < phi(n)$ and $gcd(e, phi(n)) = 1$.
+  + Determine $d$ as $d equiv e^(-1) (mod phi(n))$.
+]
+#v(-1em)
+#note[The public key is the tuple $(n, e)$ and the private key is the tuple $(n, d)$.]
+#v(-1em)
+#tip[In practice, the public exponent $e$ is often chosen to be $65537$ ($2^16 + 1$) because it has a short binary representation, making encryption significantly faster.]
 
-```c
-pid_t pid = fork();
-if (pid == 0) {
-    // child process
-}
+== Encryption and Decryption
+
+Let $M$ be the plaintext message and $C$ be the ciphertext. The process flows as follows:
+
+- *Encryption*: Plaintext $M$ #arrow Ciphertext $C = M^e (mod n)$
+- *Decryption*: Ciphertext $C$ #arrow Plaintext $M = C^d (mod n)$
+
+#problem[Raw RSA (Textbook RSA) is #underline[*deterministic*]. If you encrypt the exact same message twice, it produces the same ciphertext. This makes it highly vulnerable to chosen-plaintext attacks.]
+
+#why(title: "we use padding schemes")[
+  To introduce randomness into the plaintext before encryption (e.g., using OAEP padding). This ensures that $M_1 = M_2$ does #hl(color: danger)[*#underline[not]*] imply $C_1 = C_2$.
+]
+
+== Mathematical Proof of Correctness
+
+We need to prove that decrypting the ciphertext yields the original message: $C^d equiv M (mod n)$.
+
+#proof("Proof: Correctness of RSA", endpoint: true)[
+  Given $C = M^e (mod n)$, we want to find $C^d (mod n)$.
+  Substitute $C$:
+  $C^d equiv (M^e)^d equiv M^(e d) (mod n)$
+  
+  By definition of the private exponent $d$, we have $e d equiv 1 (mod phi(n))$.
+  #so $e d = 1 + k phi(n)$ for some integer $k$.
+
+  Substituting this back into the exponent:
+  $M^(e d) equiv M^(1 + k phi(n)) equiv M times (M^phi(n))^k (mod n)$
+
+  By Euler's Theorem, if $gcd(M, n) = 1$, then $M^phi(n) equiv 1 (mod n)$.
+  $M times (1)^k equiv M times 1 equiv M (mod n)$
+  
+  Thus, decryption works correctly and returns the original message.
+]
+
+== Implementation Details
+
+Here is a simple Python snippet to demonstrate modular exponentiation, which is the core operation in the RSA algorithm:
+
+```python
+def encrypt(m, e, n):
+    # Computes (m^e) % n efficiently
+    return pow(m, e, n)
 ```
-
-#tip[Always check the return value of `fork()` to distinguish parent from child.]
+#side-note(color: zdb-color)[
+Always use #hl[stablished libraries] like `Cryptography` in Python #hl[for production environments] instead of implementing custom crypto algorithms from scratch.
+]
 ````

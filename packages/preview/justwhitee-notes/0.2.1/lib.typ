@@ -52,7 +52,7 @@
 
 
 // --- CALLOUT ---
-#let callout(title: "", icon: "", color: accent, body) = {
+#let callout(title: "", icon: "", color: accent, endpoint: true, body) = {
   block(
     width: 100%,
     fill: color.lighten(85%),
@@ -72,12 +72,14 @@
       text(fill: text-main, size: 0.95em)[
         #v(0.3em)
         #body
-        #place(
+        #if endpoint {
+          place(
             bottom + right,
             dx: 10pt,
             dy: 10pt,
             square(size: 5pt, radius: 3pt, fill: color.darken(10%)),
-        )
+          )
+        }
       ]
     )
   )
@@ -114,25 +116,45 @@
 
 
 // --- CUSTOM functions ---
-#let note(corpo) =[
-  #side-note(color: warning)[#text(fill: warning.darken(15%), weight: "bold", "👉 Note"): #text(fill: text-main)[#corpo]]
-]
-#let tip(corpo) =[
-  #side-note(color: green.darken(20%))[#text(fill: green.darken(15%), weight: "bold", "✅ Tip") #text(fill: text-main)[#corpo]]
-]
-#let problem(corpo) = [
-  #side-note(color: danger)[#text(fill: danger.darken(15%), weight: "bold","❗️ Problem"): #text(fill: danger.darken(10%))[#corpo]]
-]
-#let why(title: "", corpo) =[
-  #side-note(color: night-color)[#text(fill: night-color.darken(15%), weight: "bold","🤔 Why")#title?: #text(fill: text-main)[#corpo]]
-]
-#let how(title: "", corpo) =[
-  #side-note(color: zdb-color)[#text(fill: zdb-color.darken(15%), weight: "bold","👨🏻‍🏫 How")#title?: #text(fill: text-main)[#corpo]]
-]
-#let extra(corpo) =[
+#let note(body) = context {
+  side-note(color: warning)[
+    #text(fill: warning.darken(15%), weight: "bold")[👉 #(if text.lang == "it" { "Nota" } else { "Note" })]: 
+    #text(fill: text-main)[#body]
+  ]
+}
+
+#let tip(body) = context {
+  side-note(color: green.darken(20%))[
+    #text(fill: green.darken(15%), weight: "bold")[✅ #(if text.lang == "it" { "Suggerimento" } else { "Tip" })] 
+    #text(fill: text-main)[#body]
+  ]
+}
+
+#let problem(body) = context {
+  side-note(color: danger)[
+    #text(fill: danger.darken(15%), weight: "bold")[❗️ #(if text.lang == "it" { "Problema" } else { "Problem" })]: 
+    #text(fill: danger.darken(10%))[#body]
+  ]
+}
+
+#let why(title: "", body) = context {
+  side-note(color: night-color)[
+    #text(fill: night-color.darken(15%), weight: "bold")[🤔 #(if text.lang == "it" { "Perché" } else { "Why" })] #title?: 
+    #text(fill: text-main)[#body]
+  ]
+}
+
+#let how(title: "", body) = context {
+  side-note(color: zdb-color)[
+    #text(fill: zdb-color.darken(15%), weight: "bold")[👨🏻‍🏫 #(if text.lang == "it" { "Come" } else { "How" })] #title?: 
+    #text(fill: text-main)[#body]
+  ]
+}
+
+#let extra(body) =[
   #v(-6pt)
   #set par(leading: 4pt)
-  #text(style: "italic", fill: text-muted, size: 0.75em)[#corpo]
+  #text(style: "italic", fill: text-muted, size: 0.75em)[#body]
 ]
 
 
@@ -165,24 +187,24 @@
   // --- TITLES STYLES ---
   show heading: it => {
     v(1.2em)
-    set text(font: font-sans, fill: rgb("#111111"), weight: 800)
+    set text(font: font-sans, fill: rgb("#111111"), weight: 800, lang: lang)
     if it.level == 1 {
-      text(size: 1.6em)[#it]
+      text(size: 1.6em, lang: lang)[#it]
     } else if it.level == 2 {
-      text(size: 1.3em, fill: accent)[#it]
+      text(size: 1.3em, fill: accent, lang: lang)[#it]
     } else {
-      text(size: 1.1em)[#it]
+      text(size: 1.1em, lang: lang)[#it]
     }
     v(0.6em)
   }
   
   show figure.caption: it => [
-    #text(size: 0.8em, fill: example-color.darken(30%))[_*#it.supplement #it.counter.display()* -- #it.body _]
+    #text(size: 0.8em, fill: example-color.darken(30%), lang: lang)[_*#it.supplement #it.counter.display()* -- #it.body _]
   ]
   
-  show link: it => underline(text(fill: accent, it))
+  show link: it => underline(text(fill: accent, lang: lang, it))
 
-  show math.equation: set text(size: 1.2em)
+  show math.equation: set text(size: 1.2em, lang: lang)
   
   // code block style
   show raw.where(block: true): it => {
@@ -193,7 +215,7 @@
       width: 100%,
       stroke: 1pt + rgb("#e0e5e5"),
       {
-        set text(fill: rgb("#ffffff"), size: 7.5pt, font: font-mono)
+        set text(fill: rgb("#ffffff"), size: 7.5pt, font: font-mono, lang: lang)
         it
       }
     )
@@ -205,7 +227,7 @@
     inset: (x: 4pt, y: 0pt),
     outset: (y: 3pt),
     radius: 4pt, baseline: 15%,
-    text(font: font-mono, fill: accent.darken(55%), size: 0.9em, it)
+    text(font: font-mono, fill: accent.darken(55%), size: 0.9em, lang: lang, it)
   )
 
   set list(marker: (text(fill: accent)[•], text(fill: text-muted)[◦], text(fill: text-muted)[--]))
@@ -292,9 +314,9 @@
   // --- Table of Contents ---
   show outline.entry.where(level: 1): it => {
     v(12pt, weak: true)
-    text(font: font-sans, fill: rgb("#111111"), weight: 800, it)
+    text(font: font-sans, fill: rgb("#111111"), weight: 800, lang: lang, it)
   }
-  show outline: set text(fill: rgb("#444444"))
+  show outline: set text(fill: rgb("#444444"), lang: lang)
   
   block(
     fill: card-bg,
@@ -320,7 +342,7 @@
             #if logo-subject != none [ #block(width: 14pt)[#logo-subject] ] else [ #box() ]
           ],
           align(left + horizon)[
-            #set text(size: 9pt, fill: text-muted, font: font-mono)
+            #set text(size: 9pt, fill: text-muted, font: font-mono, lang: lang)
             #title
           ],
           align(right + bottom)[
@@ -334,7 +356,7 @@
     footer: context {
       if counter(page).get().first() > 1 {
         align(center)[
-          #text(fill: text-muted, font: font-mono, size: 9pt)[
+          #text(fill: text-muted, font: font-mono, size: 9pt, lang: lang)[
             --- #counter(page).display() ---
           ]
         ]
