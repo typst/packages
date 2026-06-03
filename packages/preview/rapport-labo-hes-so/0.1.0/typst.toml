@@ -1,0 +1,22 @@
+[package]
+name = "rapport-labo-hes-so"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = [ "Amaury Wailliez" ]
+license = "MIT"
+description = "Modèle professionnel et complet de rapport de laboratoire pour HES-SO avec Typst"
+keywords = [
+  "rapport",
+  "labo",
+  "HES-SO",
+  "électrotechnique",
+  "typst",
+  "template"
+]
+categories = [ "report" ]
+disciplines = [ "engineering" ]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
