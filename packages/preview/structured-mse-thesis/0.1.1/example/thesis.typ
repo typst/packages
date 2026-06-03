@@ -6,7 +6,7 @@
   orientation: "Computer Science",
   teacher: "Alice Smith",
   company: "Tartempion SA",
-  confidential: false,
+  confidential: true,
 )
 
 = Introduction
