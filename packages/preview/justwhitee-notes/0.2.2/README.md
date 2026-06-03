@@ -111,14 +111,16 @@ You can also use the base `callout` function for full customization:
 Quick inline markers for annotating your notes:
 
 ```typst
-#note[Pay attention to this detail.]          // 👉 Note: (yellow highlight)
-#tip[This is a useful shortcut.]              // ✅ Tip: (teal highlight)
-#problem[This approach has a flaw.]           // ❗️ Problem: (red highlight)
-#why(title: "use threads")[Because...]        // 🤔 Why use threads? (purple highlight)
-#how(title: "it works")[Step by step...]      // 👨🏻‍🏫 How it works? (blue highlight)
-#extra[Side note or additional context.]      // Italic muted text, smaller size, "margin" notes, or for extra clarifications
+#note[Pay attention to this detail.]                // 👉 Note: (yellow highlight)
+#tip[This is a useful shortcut.]                    // ✅ Tip: (teal highlight)
+#problem[This approach has a flaw.]                 // ❗️ Problem: (red highlight)
+#why("use threads")[Because...]                     // 🤔 Why use threads? (purple highlight)
+#how("it works")[Step by step...]                   // 👨🏻‍🏫 How it works? (blue highlight)
+#analogy("Processes vs Threads")[Processes are...]  // Analogy: (#extra styled, gray side-note)
+#extra[Side note or additional context.]            // Italic muted text, smaller size, "margin" notes, or for extra clarifications
 ```
-> These are useful for further details of your notes (like point outs, explanations, ...).
+> These are useful for further details of your notes (like point outs, explanations, ...).\
+> *Note*: to use those annotations without "title" (when needed) just pass "" or `none`.
 
 ---
 

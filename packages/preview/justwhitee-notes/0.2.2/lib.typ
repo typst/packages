@@ -138,16 +138,16 @@
   ]
 }
 
-#let why(title: "", body) = context {
+#let why(title, body) = context {
   side-note(color: night-color)[
-    #text(fill: night-color.darken(15%), weight: "bold")[🤔 #(if text.lang == "it" { "Perché" } else { "Why" })] #title?: 
+    #text(fill: night-color.darken(15%), weight: "bold")[🤔 #(if text.lang == "it" { "Perché" } else { "Why" })]#( if title != none and title != "" { [ #title] } )?\
     #text(fill: text-main)[#body]
   ]
 }
 
-#let how(title: "", body) = context {
+#let how(title, body) = context {
   side-note(color: zdb-color)[
-    #text(fill: zdb-color.darken(15%), weight: "bold")[👨🏻‍🏫 #(if text.lang == "it" { "Come" } else { "How" })] #title?: 
+    #text(fill: zdb-color.darken(15%), weight: "bold")[👨🏻‍🏫 #(if text.lang == "it" { "Come" } else { "How" })]#( if title != none and title != "" { [ #title] } )?\
     #text(fill: text-main)[#body]
   ]
 }
@@ -158,6 +158,16 @@
   #text(style: "italic", fill: text-muted, size: 0.8em)[#body]
 ]
 
+
+#let analogy(title, body) = context {
+    side-note(color: gray)[
+    #v(0.5em)
+    #extra[
+      #(if text.lang == "it" { "Analogia" } else { "Analogy" }): *#title*\
+      #text(fill: text-main)[#body]
+    ]
+  ]
+}
 
 // --- MAIN DOCUMENT FUNCTION ---
 #let project(
