@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "povray.typ"
 authors = ["bernsteining"]
 license = "AGPL-3.0-or-later"
-description = "🪩 Declarative raytracing in Typst"
+description = "🪩 Declarative raytracing"
 repository = "https://github.com/bernsteining/povrayst"
 keywords = [
   "povray", "povrayst", "raytracing", "raytracer",
@@ -16,4 +16,4 @@ keywords = [
 ]
 categories = ["visualization", "integration", "scripting"]
 disciplines = ["mathematics", "physics", "computer-science", "chemistry"]
-compiler = "0.14.2"
+compiler = "0.14.0"
