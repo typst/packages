@@ -23,7 +23,7 @@ A clean and customizable Typst template for Master of Science in Engineering HES
 ### Using the published package
 
 ```typst
-#import "@preview/structured-mse-thesis:0.1.0": report-template
+#import "@preview/structured-mse-thesis:0.1.1": report-template
 
 #show: report-template.with(
   title: "My Thesis Title",
