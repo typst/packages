@@ -1,0 +1,16 @@
+[package]
+name = "gh-minimal-slides"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jimmy Zhang <jimmyzxj@umich.edu>"]
+license = "MIT"
+description = "Style slides as a rendered GitHub README."
+repository = "https://github.com/xingjian-zhang/gh-minimal-slides"
+categories = ["presentation", "components"]
+keywords = ["touying", "slides", "github", "readme"]
+exclude = ["example.pdf", "example.typ", "previews"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

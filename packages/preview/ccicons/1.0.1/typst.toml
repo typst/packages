@@ -1,0 +1,13 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "ccicons"
+version = "1.0.1"
+entrypoint = "src/ccicons.typ"
+authors = ["J. Neugebauer"]
+license = "MIT"
+description = "A port of the ccicon LaTeX package for Typst."
+repository = "https://github.com/jneug/typst-ccicons"
+keywords = ["creative commons", "commons", "license", "icons"]
+categories = ["components"]
+exclude = ["docs"]

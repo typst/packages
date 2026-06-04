@@ -1,0 +1,21 @@
+[package]
+name = "lucky-icml"
+version = "0.2.1"
+compiler = "0.10.0"
+entrypoint = "icml2024.typ"
+repository = "https://github.com/daskol/typst-templates"
+authors = ["Daniel Bershatsky <d.bershatsky2@skoltech.ru>"]
+license = "MIT"
+description = "ICML-style paper template to publish at conferences for International Conference on Machine Learning"
+keywords = [
+    "International Conference on Machine Learning",
+    "Machine Learning", "ML", "Deep Learning", "DL",
+    "Artificial Intelligence", "AI",
+]
+categories = ["paper"]
+disciplines = ["computer-science", "mathematics"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

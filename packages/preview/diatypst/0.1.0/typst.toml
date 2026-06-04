@@ -1,0 +1,17 @@
+[package]
+name = "diatypst"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["skriptum (https://github.com/skriptum)"]
+license = "MIT-0"
+description = "easy slides in typst - sensible defaults, easy syntax, well styled"
+repository = "https://github.com/skriptum/Diatypst"
+keywords = ["slides", "presentation", "beamer", "quarto"]
+categories = ["presentation"]
+compiler = "0.11.0"
+exclude = ["screenshots", "example"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "screenshots/Thumbnail.png"

@@ -1,0 +1,11 @@
+[package]
+name = "kouhu"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Shengqi Chen <harry-chen@outlook.com>"]
+license = "MIT"
+description = "Chinese lipsum text generator; 中文乱数假文（Lorem Ipsum）生成器"
+repository = "https://github.com/Harry-Chen/kouhu"
+categories = ["utility"]
+keywords = ["lorem", "lorem ipsum", "lipsum", "dummy text", "blind text", "placeholder", "chinese"]
+exclude = ["docs/*", "utils/*"]

@@ -1,0 +1,12 @@
+[package]
+name = "typarium"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "MIT"
+description = "Build expressive font specimen cards with custom themes, custom renderers, and local font metadata extraction."
+compiler = "0.13.1"
+repository = "https://github.com/rice8y/typarium"
+keywords = ["font", "specimen", "typography", "showcase"]
+categories = ["text", "integration", "visualization"]
+exclude = ["/images"]

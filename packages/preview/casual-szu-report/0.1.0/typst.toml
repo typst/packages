@@ -1,0 +1,18 @@
+[package]
+name = "casual-szu-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Keaton Jiang <jiang131072@gmail.com>"]
+license = "MIT"
+description = "A template for SZU course reports."
+
+repository = "https://github.com/jiang131072/casual-szu-report"
+keywords = ["SZU", "Shenzhen University", "report"]
+categories = ["report"]
+disciplines = []
+exclude = ["**/*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

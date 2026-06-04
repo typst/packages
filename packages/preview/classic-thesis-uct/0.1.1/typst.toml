@@ -1,0 +1,34 @@
+[package]
+name = "classic-thesis-uct"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["James Hepworth <https://github.com/james-hepworth>"]
+# Split expression: the package (layout module, lib.typ, assets) is GPL v2 or
+# later; the `template/` directory is MIT-0 so that theses scaffolded via
+# `typst init` are not bound by the package's copyleft terms. See the
+# Licensing section of the README for which paths are under which license.
+license = "GPL-2.0-or-later AND MIT-0"
+description = "PhD thesis at the University of Cape Town in the Classic Thesis tradition."
+repository = "https://github.com/james-hepworth/classic-thesis-uct"
+keywords = [
+  "thesis",
+  "dissertation",
+  "proposal",
+  "classic-thesis",
+  "uct",
+  "university-of-cape-town",
+]
+categories = ["thesis"]
+disciplines = []
+compiler = "0.11.0"
+exclude = [
+  "AGENTS.md",
+  "main-typst.pdf",
+  "fonts",
+  "tmp",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

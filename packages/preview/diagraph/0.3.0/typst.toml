@@ -1,0 +1,12 @@
+[package]
+name = "diagraph"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["Robotechnic <@Robotechnic>", "Malo <@MDLC01>"]
+license = "MIT"
+description = "Draw graphs with Graphviz. Use mathematical formulas as labels."
+repository = "https://github.com/Robotechnic/diagraph.git"
+keywords = ["graphviz", "graph", "diagram"]
+categories = ["components", "visualization", "integration"]
+compiler = "0.11.0"
+exclude = ["graphviz_interface/src/*", "graphviz_interface/.*", "graphviz_interface/Makefile","graphviz_interface/*.prot", "examples/*", ".gitignore", "Makefile"]
