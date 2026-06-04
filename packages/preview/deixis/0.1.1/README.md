@@ -4,7 +4,9 @@ deixis [![Typst Universe](https://img.shields.io/badge/dynamic/xml?url=https%3A%
 Typeset decoupled annotations, visual connectors, and spatial highlights in [Typst](https://typst.app/).
 
 <div align="center">
+<picture>
 <img src="https://raw.githubusercontent.com/inspiros/typst-deixis/v0.1.1/assets/logo.svg" width="200px" alt="Deixis logo">
+</picture>
 </div>
 
 `deixis` is a unified layout engine for inline notes, footnotes, endnotes, margin notes, inset notes, and inline spatial highlights with visual connectors.
@@ -15,7 +17,7 @@ Typeset decoupled annotations, visual connectors, and spatial highlights in [Typ
 </a>
 </div>
 
-## Main Features
+## ✨ Main Features
 
 - **Marks:**
   - [Inline mark](#inline-mark-and-inline-note)
@@ -31,11 +33,11 @@ Typeset decoupled annotations, visual connectors, and spatial highlights in [Typ
 - [Note outline](#note-outline)
 - [Minipage](#minipage)
 
-## News
+## 📢 News
 
-📖 **[Read the Changelog][changelog]** to see what is new in the latest version!
+**[Read the Changelog 📖][changelog]** to see what is new in the latest version!
 
-## Installation
+## 📦 Installation
 
 ### From Typst Universe
 
@@ -61,7 +63,7 @@ Once installed, you can import the package with:
 #import "@local/deixis:0.1.1": *
 ```
 
-## Usage and Examples
+## 🚀 Usage and Examples
 
 For detailed information, please see the [manual (PDF)][manual].
 
@@ -963,15 +965,25 @@ Notice the numbers#deixis-footnote[A page-level footnote.].
 
 </details>
 
-## Acknowledgements
+## 🙌 Acknowledgements
 
 This package has some similar functionalities inspired by existing packages:
 - [drafting](https://github.com/ntjess/typst-drafting): Inline mark, inline note, and margin note, without numbering.
+- [dashy-todo](https://github.com/Otto-AA/dashy-todo): Margin note, without numbering.
 - [marge](https://github.com/EpicEricEE/typst-marge): Margin note, without links.
 - [pinit](https://github.com/OrangeX4/typst-pinit): Equivalent to region mark and inset note, without numbering.
 - [Rik's endnote](https://forum.typst.app/t/an-endnotes-implementation-with-headings-and-cross-referencing/7760): An early attempt to implement endnote.
 
-## License
+## 🤝 Contributing
+
+Any contribution would be greatly appreciated.
+Here is how you can contribute:
+
+- **Report Bugs & Request Features** by openning an issue on our [GitHub Issues](https://github.com/inspiros/typst-deixis/issues).
+- **Submit Pull Requests** if you want to fix a bug or add a feature yourself.
+- **Show your Support:** If you find `deixis` useful, please consider giving the repository a ⭐.
+
+## ⚖️ License
 
 MIT licensed, see [LICENSE](LICENSE).
 
