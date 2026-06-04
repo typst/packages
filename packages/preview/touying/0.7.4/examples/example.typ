@@ -1,6 +1,6 @@
 #import "@preview/touying:0.7.4": *
 #import themes.university: *
-#import "@preview/cetz:0.5.0"
+#import "@preview/cetz:0.5.2"
 #import "@preview/fletcher:0.5.8" as fletcher: edge, node
 #import "@preview/numbly:0.1.0": numbly
 #import "@preview/theorion:0.6.0": *
