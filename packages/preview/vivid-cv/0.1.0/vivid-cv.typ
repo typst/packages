@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.6.0": *
+#import "@preview/fontawesome:0.6.1": *
 
 // ─────────────────────────────────────────────
 //  Icons
@@ -19,7 +19,7 @@
   author: "",
   title: "", // Job title / tagline shown under name
   pronouns: "",
-  // ── Contact ───────────────────────────────
+  // ── Contact ───2────────────────────────────
   location: "",
   email: "",
   phone: "",
