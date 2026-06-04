@@ -1,0 +1,24 @@
+[package]
+name = "elegant-culsc-record"
+version = "0.11.0"
+entrypoint = "lib.typ"
+authors = [ "Schrödinger Blume <https://github.com/SchrodingerBlume>" ]
+license = "MIT"
+description = "全国大学生生命科学竞赛（科学探究类）实验记录 Typst 模板--A Template for Experiment Records of the China Undergraduate Life Sciences Contest (Scientific Exploration)"
+repository = "https://github.com/SchrodingerBlume/typst-culsc-record"
+keywords = [
+  "culsc",
+  "experiment",
+  "report",
+  "biology",
+  "academic",
+  "Chinese"
+]
+categories = [ "report", "paper" ]
+disciplines = [ "biology" ]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "example.typ"
+thumbnail = "thumbnail.png"
