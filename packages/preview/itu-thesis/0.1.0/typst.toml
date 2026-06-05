@@ -5,13 +5,11 @@ entrypoint = "lib.typ"
 authors = ["Hamza Sancakdaroğlu <hmzsnc96@gmail.com>"]
 license = "MIT"
 description = "İstanbul Teknik Üniversitesi (İTÜ) lisansüstü tez şablonu — Thesis template for Istanbul Technical University graduate theses."
-homepage = "https://github.com/hmzsnc96/itu-thesis"
 repository = "https://github.com/hmzsnc96/itu-thesis"
 keywords = ["thesis", "tez", "itu", "istanbul-technical-university", "turkish", "university"]
 categories = ["thesis"]
 disciplines = ["education"]
 compiler = "0.12.0"
-exclude = ["thumbnail.png", ".github", ".gitignore"]
 
 [template]
 path = "template"
