@@ -87,25 +87,25 @@ Here's what it looks like in practice:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/3b4bfac6-e5c4-4c1c-8b0b-a93ce0295cd2">
-  <img alt="bw" src="https://github.com/user-attachments/assets/acd088b2-eee8-4dd8-8db0-9d3eadd0178c">
+  <img alt="high contrast black and white image with stippled (cluster) dithering" src="https://github.com/user-attachments/assets/acd088b2-eee8-4dd8-8db0-9d3eadd0178c">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/97a26fa3-dd36-42fa-ad20-29d47bad8a2c">
-  <img alt="preset" src="https://github.com/user-attachments/assets/148e78f8-8034-44fe-ac53-c2e9e0439b1b">
+  <img alt="preset palette dithered image" src="https://github.com/user-attachments/assets/148e78f8-8034-44fe-ac53-c2e9e0439b1b">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/2d0eab30-0701-415a-b803-62c019109e35">
-  <img alt="palette" src="https://github.com/user-attachments/assets/ed21781a-f5a3-4709-9f0a-69b81ee7a5ad">
+  <img alt="auto-generated palette dithered image" src="https://github.com/user-attachments/assets/ed21781a-f5a3-4709-9f0a-69b81ee7a5ad">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/ed97d634-3b11-4ad7-a46e-d18250afedaf">
-  <img alt="rgb" src="https://github.com/user-attachments/assets/36bcbb59-d2fd-437e-b3fc-851c38d74c59">
+  <img alt="dithered image with 3 channels (RGB) each with 4 levels" src="https://github.com/user-attachments/assets/36bcbb59-d2fd-437e-b3fc-851c38d74c59">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/3da3d70e-1ed9-4e41-ae16-a302c1e7ef01">
-  <img alt="given-palette" src="https://github.com/user-attachments/assets/5c278f87-c56f-44ac-9eb4-ab39a8817e5f">
+  <img alt="dithered image using user-defined palette" src="https://github.com/user-attachments/assets/5c278f87-c56f-44ac-9eb4-ab39a8817e5f">
 </picture>
