@@ -106,6 +106,6 @@ Here's what it looks like in practice:
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/3da3d70e-1ed9-4e41-ae16-a302c1e7ef01">
-  <img alt="dithered image using user-defined palette" src="https://github.com/user-attachments/assets/5c278f87-c56f-44ac-9eb4-ab39a8817e5f">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/5c25067c-f329-4877-aa4e-c8294ac8e223">
+  <img alt="dithered image using user-defined palette" src="https://github.com/user-attachments/assets/5d24bd6a-ce60-4dc8-8d8a-388e5c18bde8">
 </picture>
