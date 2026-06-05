@@ -1,0 +1,10 @@
+[package]
+name = "admon-blk"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Grégory Lerbret"]
+license = "MIT"
+description = "Adds Admonition blocks."
+repository = "https://github.com/glerbret/admon-blk"
+keywords = ["admonition", "alert", "block"]
+exclude = [".gitignore", "example.typ", "example.pdf", "example.svg", "example_icon.svg"]
