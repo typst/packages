@@ -17,7 +17,7 @@ This package makes it possible to find the names of a symbol in [Codex](https://
 #get-math-names("≠")
 ```
 
-![image](examples/example-1.svg)
+![Result of the code example: The names of the characters are displayed in arrays: an empty array, an array containing two names, an array containing Typst math syntax, etc..](examples/example-1.svg)
 
 
 ## Changelog
