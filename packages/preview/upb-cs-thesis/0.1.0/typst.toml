@@ -1,0 +1,16 @@
+[package]
+name = "upb-cs-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Codrut-Stefan Ursache <ursache.codrut71@gmail.com>"]
+license = "MIT"
+description = "Thesis template for the Faculty of Automatic Control and Computers at UNSTPB (Universitatea Națională de Știință și Tehnologie Politehnica București)"
+categories = ["thesis"]
+disciplines = ["computer-science"]
+compiler = "0.13.0"
+keywords = ["UPB", "Politehnica", "Bucharest", "thesis", "template"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
