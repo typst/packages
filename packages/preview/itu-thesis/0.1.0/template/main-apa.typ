@@ -72,8 +72,14 @@ Tez yazımında tutarlılığı sağlamak amaçlanmıştır.
 
 = Yöntem
 
+// Gerçek görsel eklemek için bir "fig" klasörü oluşturup şöyle kullanın:
+//   #figure(image("fig/sekil.png", width: 80%), caption: [Açıklama])
 #figure(
-  image("fig/example.png", width: 80%),
+  rect(width: 80%, height: 5cm, fill: luma(240), stroke: 0.5pt + luma(160))[
+    #align(center + horizon)[
+      #text(fill: luma(120))[Görsel buraya gelir \ (image("fig/...") ile ekleyin)]
+    ]
+  ],
   caption: [Örnek şekil açıklaması],
 )
 
