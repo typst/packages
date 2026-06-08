@@ -61,7 +61,7 @@
   ozgecmis: include "ozgecmis.typ",
 )
 
-= Giriş
+= GİRİŞ
 
 Bu örnek, APA (yazar-yıl) atıf stilini kullanır. Metin içinde @ornek2024
 biçiminde atıf yaptığınızda kaynak APA formatında listelenir.
@@ -70,7 +70,7 @@ biçiminde atıf yaptığınızda kaynak APA formatında listelenir.
 
 Tez yazımında tutarlılığı sağlamak amaçlanmıştır.
 
-= Yöntem
+= YÖNTEM
 
 // Gerçek görsel eklemek için bir "fig" klasörü oluşturup şöyle kullanın:
 //   #figure(image("fig/sekil.png", width: 80%), caption: [Açıklama])
@@ -83,6 +83,6 @@ Tez yazımında tutarlılığı sağlamak amaçlanmıştır.
   caption: [Örnek şekil açıklaması],
 )
 
-= Sonuç
+= SONUÇ
 
 Sonuç bölümü ulaşılan ana bulguları içerir.

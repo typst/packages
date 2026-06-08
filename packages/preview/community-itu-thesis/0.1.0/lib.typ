@@ -134,18 +134,15 @@
   show math.equation: set block(spacing: 0.65em)
 
   // ---- Başlık stilleri ----
-  // Numarası "none" olan başlıklar = ön/arka materyal (numarasız, "BÖLÜM" yok)
-  // Numarası olan başlıklar = gövde bölümleri ("BÖLÜM 1. ...")
-  let bolum-sozu = if ingilizce { "CHAPTER" } else { "BÖLÜM" }
+  // LaTeX itutez.cls'e göre (\@makechapterhead): gövde bölümü "1. BAŞLIK" biçiminde
+  // (önünde "BÖLÜM" YOK), 12pt kalın, sola dayalı. Ön/arka materyal başlıkları numarasız.
   show heading: it => {
     let numarali = it.numbering != none
     if it.level == 1 {
-      // Numaralı: gövde bölümü ("BÖLÜM 1. ...")
-      // Numarasız: ön/arka materyal başlığı (büyük harf, numarasız)
       pagebreak(weak: true)
       v(18.5mm)
       if numarali {
-        text(weight: "bold", size: 12pt)[#bolum-sozu #counter(heading).display(). #it.body]
+        text(weight: "bold", size: 12pt)[#counter(heading).display(). #it.body]
       } else {
         text(weight: "bold", size: 12pt)[#it.body]
       }
@@ -351,6 +348,8 @@
 
   // Ön/arka materyal başlıklarını numarasız yap
   set heading(numbering: none)
+  // LaTeX'te ön materyal tek satır aralığı (\singlespacing); gövde 1.5 (\oneandonehalf)
+  set par(leading: 0.65em)
 
   // ---- İTHAF ----
   if ithaf != none and str(ithaf).trim() != "" {
@@ -415,6 +414,9 @@
     summary-blok
   }
 
+  // Gövde ve sonrası (kaynaklar, ekler, özgeçmiş) 1.5 satır aralığına döner
+  set par(leading: 1.45em)
+
   // =====================================================================
   //  GÖVDE  (arabik rakam, numaralı bölümler)
   // =====================================================================
@@ -424,6 +426,7 @@
   counter(heading).update(0)
   [
     #set heading(numbering: "1.1.1.1")
+    #set par(leading: 1.45em)   // gövde: 1.5 satır aralığı (\oneandonehalf)
     #body
   ]
 

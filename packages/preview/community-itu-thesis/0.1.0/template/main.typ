@@ -78,7 +78,7 @@
 //  BÖLÜMLER (gövde)
 // =====================================================================
 
-= Giriş
+= GİRİŞ
 
 Bu tez şablonu İstanbul Teknik Üniversitesi lisansüstü programları için
 hazırlanmış olup, Typst belgeleme sisteminde yazılan tezlerin sunumuna
@@ -90,7 +90,7 @@ biçiminde atıf yapabilirsiniz.
 Tez yazımında tutarlılığı sağlamak ve kurumsal standartlara uygun belgeler
 oluşturmak amaçlanmıştır.
 
-=== Alt Başlık Örneği
+=== Alt başlık örneği
 
 Üçüncü seviye başlıkları bu şekilde gösterilir. Formüller şöyle yazılır:
 
@@ -100,7 +100,7 @@ $ E = m c^2 $
 
 Mevcut araştırmalar incelenerek özet halinde sunulmuştur.
 
-= Yöntem
+= YÖNTEM
 
 Bu bölümde araştırmanın yöntemi açıklanır. Şekil ve çizelge örnekleri aşağıdadır.
 
@@ -126,14 +126,14 @@ Bu bölümde araştırmanın yöntemi açıklanır. Şekil ve çizelge örnekler
   caption: [Örnek çizelge],
 )
 
-= Bulgular
+= BULGULAR
 
 Araştırmanın bulguları bu bölümde sunulmuştur.
 
-= Tartışma
+= TARTIŞMA
 
 Bulguların değerlendirilmesi ve literatürle karşılaştırılması yapılmıştır.
 
-= Sonuç
+= SONUÇ
 
 Sonuç bölümü özet niteliğinde olup, ulaşılan ana bulguları içermektedir.
