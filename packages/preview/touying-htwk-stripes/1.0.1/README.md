@@ -13,7 +13,7 @@ The [example folder](https://github.com/klnsdr/touying-htwk-stripes/tree/main/ex
 ## Usage
 
 ```typst
-#import "@preview/touying-htwk-stripes:1.0.0": *
+#import "@preview/touying-htwk-stripes:1.0.1": *
 
 #show: htwk-stripes-theme.with(
   aspect-ratio: "4-3",
