@@ -1,4 +1,4 @@
-# 🎨 dudi-colorful-template
+# 🎨 dudi-colorful-slides
 
 A vibrant, modern presentation template for **Typst** featuring dynamic geometric triangle patterns and a clean two-column layout.
 
@@ -19,7 +19,7 @@ Follow these **three simple steps** to integrate the template into your Typst pr
 
 1️⃣ **Import** the template at the very top of your `.typ` file:
 ```typst
-#import "@preview/dudi-colorful-template:0.1.0": *
+#import "@preview/dudi-colorful-slides:0.1.0": *
 ```
 2️⃣ **Configure** the page and document text settings:
 ```typst
@@ -34,7 +34,7 @@ Follow these **three simple steps** to integrate the template into your Typst pr
 ## 💻 Quick Start Example (example.typ)
 Here is a complete, ready-to-run example to kickstart your presentation:
 ```typst
-#import "@preview/dudi-colorful-template:0.1.0": *
+#import "@preview/dudi-colorful-slides:0.1.0": *
 
 #set page(
   paper: "presentation-16-9",

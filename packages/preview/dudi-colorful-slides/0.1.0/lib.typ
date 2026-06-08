@@ -2,15 +2,17 @@
 #let color2 = rgb("#f02d2d")
 #let text-color = black
 
-#set page(
-  paper: "presentation-16-9",
-  margin: 0cm
-)
-
-#set text(
-  font: "Helvetica",
-  size: 24pt
-)
+#let styles = (doc) => {
+  set page(
+    paper: "presentation-16-9",
+    margin: 0cm
+  )
+  set text(
+    font: "Helvetica",
+    size: 24pt
+  )
+  doc
+}
 
 #let regular-pattern(color1: rgb("#142d95"), color2: rgb("#60c9f3"), n: 4, small-part, big-part, h) = {
   let small-step = small-part * 100% / (n)

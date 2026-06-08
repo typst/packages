@@ -1,16 +1,9 @@
-#import "@preview/dudi-colorful-template:0.1.0": *
+#import "@preview/dudi-colorful-slides:0.1.0": *
 
 #let c1 = red
 #let c2 = rgb("#0a3bac")
 
-#set page(
-  paper: "presentation-16-9",
-  margin: 0cm
-)
-#set text(
-  font: "Helvetica",
-  size: 24pt
-)
+#show: styles
 
 #title-slide([Impact of Plant Fluff on Allergy Development], 42pt, [Name Surname], [Study Group], color1: c1, color2: c2)
 

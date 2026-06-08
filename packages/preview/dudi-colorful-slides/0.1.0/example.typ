@@ -1,13 +1,6 @@
-#import "@preview/dudi-colorful-template:0.1.0": *
+#import "@preview/dudi-colorful-slides:0.1.0": *
 
-#set page(
-  paper: "presentation-16-9",
-  margin: 0cm
-)
-#set text(
-  font: "Helvetica",
-  size: 24pt
-)
+#show: styles
 
 #let my-color1 = rgb("#1a5276")
 #let my-color2 = rgb("#2ecc71")
