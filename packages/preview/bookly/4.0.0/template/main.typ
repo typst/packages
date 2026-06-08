@@ -1,5 +1,4 @@
-// #import "@preview/bookly:3.2.0": *
-#import "../src/bookly.typ": *
+#import "@preview/bookly:4.0.0": *
 // #import "custom-theme.typ": custom
 
 #let config-colors = (
