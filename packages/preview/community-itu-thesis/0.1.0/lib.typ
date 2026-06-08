@@ -57,6 +57,9 @@
   dil: "tr",                // "tr" | "turkce"  /  "en" | "ingilizce"
   derece: "yukseklisans",   // "yukseklisans" | "doktora"
   cilt: "bez",              // "bez" (ciltli) | "karton"
+  // baski: "onluarkali" (çift taraflı: boş sayfalar + cilt payı kenar, cls varsayılanı)
+  //        "tekyonlu"   (tek taraflı: boş sayfa yok, sabit sol kenar)
+  baski: "onluarkali",
 
   // ===== ÖN/ARKA MATERYAL (içerik blokları) =====
   ithaf: none,              // İthaf metni (ör. "Aileme,")
@@ -76,6 +79,14 @@
   // ---- Dil ----
   let ingilizce = dil == "en" or dil == "ingilizce" or dil == "english"
   let lang-code = if ingilizce { "en" } else { "tr" }
+
+  // ---- Baskı (çift/tek taraflı) ----
+  // cls onluarkali = twoside: bölüm/kapaklar tek (sağ) sayfadan başlar, araya
+  // boş sayfa girer ve kenar boşluğu cilt payına göre değişir (\BolumSagdaKalsin).
+  let twoside = baski != "tekyonlu"
+  // Bir sonraki sağ (tek) sayfaya geç; gerekiyorsa araya boş verso ekler.
+  // Tek taraflıda sadece normal sayfa sonu.
+  let yeni-sag-sayfa = if twoside { pagebreak(to: "odd", weak: true) } else { pagebreak(weak: true) }
 
   // ---- Enstitü adları ----
   let enstitu-tr = (
@@ -139,7 +150,8 @@
   show heading: it => {
     let numarali = it.numbering != none
     if it.level == 1 {
-      pagebreak(weak: true)
+      // cls: birinci derece başlık (bölüm / ön-arka materyal) sağ sayfadan başlar
+      yeni-sag-sayfa
       v(18.5mm)
       if numarali {
         text(weight: "bold", size: 12pt)[#counter(heading).display(). #it.body]
@@ -188,33 +200,34 @@
   // =====================================================================
   set page(
     paper: "a4",
-    margin: (left: 2.5cm, right: 2.5cm, top: 2.5cm, bottom: 2.5cm),
+    margin: (left: 2cm, right: 2cm, top: 2cm, bottom: 2cm),
     numbering: none,
   )
 
   // ---- Tek bir kapak iskeleti ----
+  // Dikey boşluklar cls th@DisKapak/IcKapak değerlerine göre (55/55/27/14/22 mm);
+  // böylece tarih sayfanın altına oturur.
   let kapak(enstitu-ust, baslik-blok, seviye, kimlik, anabilim, program, danisman-satir, tarih) = {
     set par(justify: false, leading: 0.65em)
     align(center)[
-      #v(2mm)
       #underline(text(weight: "bold")[#enstitu-ust])
-      #v(50mm)
+      #v(55mm)
       #baslik-blok
-      #v(50mm)
+      #v(55mm)
       #text(weight: "bold")[#seviye]
       #v(8mm)
       #text(weight: "bold")[#kimlik]
-      #v(22mm)
+      #v(27mm)
       #text(weight: "bold")[#anabilim]
       #v(2mm)
       #text(weight: "bold")[#program]
       #if danisman-satir != none {
-        v(12mm)
+        v(14mm)
         danisman-satir
       } else {
-        v(12mm)
+        v(14mm)
       }
-      #v(18mm)
+      #v(22mm)
       #text(weight: "bold")[#tarih]
     ]
   }
@@ -234,7 +247,7 @@
     } else { none },
     if ingilizce { savunma-tarihi-en } else { savunma-tarihi-tr },
   )
-  pagebreak(weak: true)
+  yeni-sag-sayfa
 
   // (2) TÜRKÇE İÇ KAPAK
   let danisman-blok-tr = {
@@ -249,7 +262,7 @@
     [#isim-soyisim (#ogrenci-no)],
     anabilim-dali-tr, program-tr, danisman-blok-tr, savunma-tarihi-tr,
   )
-  pagebreak(weak: true)
+  yeni-sag-sayfa
 
   // (3) İNGİLİZCE İÇ KAPAK
   let danisman-blok-en = {
@@ -270,7 +283,7 @@
   // =====================================================================
   {
     set par(justify: true, leading: 1.1em)
-    pagebreak(weak: true)
+    yeni-sag-sayfa
     v(18mm)
 
     // Açıklama paragrafı
@@ -339,8 +352,16 @@
   // =====================================================================
   //  ÖN MATERYAL  (roma rakamı, normal kenar boşluğu)
   // =====================================================================
+  // Sayfa sayacını fiziksel TEK (sağ) sayfada sıfırlamak için önce sağ sayfaya geç;
+  // böylece görünen roma numarası ile fiziksel sayfa pariteleri hizalanır.
+  yeni-sag-sayfa
+  // Çift taraflıda iç (ciltleme) 4 cm / dış 2.5 cm cilt payı; tek taraflıda sabit sol 4 cm
   set page(
-    margin: (left: 4cm, right: 2.5cm, top: 2.5cm, bottom: 2.5cm),
+    margin: if twoside {
+      (inside: 4cm, outside: 2.5cm, top: 2.5cm, bottom: 2.5cm)
+    } else {
+      (left: 4cm, right: 2.5cm, top: 2.5cm, bottom: 2.5cm)
+    },
     numbering: "i",
     number-align: center + bottom,
   )
@@ -427,9 +448,10 @@
   set par(leading: 1.45em)
 
   // =====================================================================
-  //  GÖVDE  (arabik rakam, numaralı bölümler)
+  //  GÖVDE  (arabik rakam, numaralı bölümler — ilk bölüm sağ sayfadan)
   // =====================================================================
-  pagebreak(weak: true)
+  // Sayacı fiziksel tek sayfada sıfırla (parite hizası) — ilk bölüm sağ sayfadan başlar
+  yeni-sag-sayfa
   set page(numbering: "1")
   counter(page).update(1)
   counter(heading).update(0)
