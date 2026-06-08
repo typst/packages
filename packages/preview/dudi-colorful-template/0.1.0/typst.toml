@@ -10,6 +10,7 @@ repository="https://github.com/dudi0D/dudi-colorful-template"
 keywords=["geometric patterns", "colorful template"]
 categories=["visualization", "presentation"]
 disciplines=[]
+exclude=["example.typ"]
 
 [template]
 path = "template"
