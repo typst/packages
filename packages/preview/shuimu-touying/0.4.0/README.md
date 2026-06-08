@@ -6,9 +6,9 @@
 
 ## 效果预览
 ![标题页](assets/thumbnail.webp)
-![目录页](assets/docs/目录页.webp)
-![正文页](assets/docs/正文页.webp)
-![参考文献页](assets/docs/参考文献页.webp)
+![目录页](assets/docs/outline.webp)
+![正文页](assets/docs/content.webp)
+![参考文献页](assets/docs/references.webp)
 ## 使用方法
 
 ### 安装字体
@@ -24,7 +24,7 @@
 
 在工作目录下新建终端，并运行以下命令：
 
-```typst
+```sh
 typst init @preview/shuimu-touying:0.4.0 my-slide
 ```
 
@@ -68,7 +68,7 @@ typst init @preview/shuimu-touying:0.4.0 my-slide
 
 颜色配置接口。不传参数时使用当前默认配色。
 
-```typst
+```text
 #show: shuimu-touying-theme.with(
   theme-colors: shuimu-colors(
     primary: rgb("#660874"),
@@ -91,7 +91,7 @@ typst init @preview/shuimu-touying:0.4.0 my-slide
 
 字体和字号配置接口。不传参数时使用当前默认字体和字号。
 
-```typst
+```text
 #show: shuimu-touying-theme.with(
   theme-fonts: shuimu-fonts(
     main: ("Linux Libertine", "Palatino", "Noto Serif CJK SC", "Songti SC"),
@@ -136,7 +136,7 @@ typst init @preview/shuimu-touying:0.4.0 my-slide
 
 主题入口，通常配合 `#show` 使用。
 
-```typst
+```text
 #show: shuimu-touying-theme.with(
   aspect-ratio: "16-9",
   align: horizon,
