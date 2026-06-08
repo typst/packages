@@ -1,0 +1,16 @@
+[package]
+name="dudi-colorful-template"
+version="0.1.0"
+compiler = "0.11.0"
+entrypoint="lib.typ"
+authors=["Dmitry Egorychev"]
+license="MIT-0"
+description="Presentation template(16:9 slides) with triangle patterns as decoration"
+repository="https://github.com/dudi0D/dudi-colorful-template"
+keywords=["geometric patterns", "colorful template"]
+categories=["visualization", "presentation"]
+disciplines=[]
+
+[template]
+entrypoint = "template/main.typ"
+path = "template"
