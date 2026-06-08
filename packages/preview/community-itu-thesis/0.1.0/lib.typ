@@ -351,11 +351,13 @@
   // LaTeX'te ön materyal tek satır aralığı (\singlespacing); gövde 1.5 (\oneandonehalf)
   set par(leading: 0.65em)
 
-  // ---- İTHAF ----
+  // "Sayfa" / "Page" sütun başlığı (cls: \cftaftertoctitle ... \bf\underline{Sayfa})
+  let sayfa-etiket = if ingilizce { "Page" } else { "Sayfa" }
+
+  // ---- İTHAF ---- (cls: \vspace*{0.4\textheight} sonra sağa dayalı)
   if ithaf != none and str(ithaf).trim() != "" {
-    v(1fr)
+    v(40%)
     align(right)[#emph(strong(ithaf))]
-    v(1fr)
     pagebreak(weak: true)
   }
 
@@ -370,7 +372,12 @@
     #set heading(outlined: false)
     #heading(level: 1, if ingilizce { "TABLE OF CONTENTS" } else { "İÇİNDEKİLER" })
   ]
-  outline(title: none, depth: 4, indent: auto)
+  align(right)[#strong(underline(sayfa-etiket))]
+  [
+    // Bölüm ve ön/arka materyal (1. seviye) girdileri kalın — cls'teki gibi
+    #show outline.entry.where(level: 1): strong
+    #outline(title: none, depth: 4, indent: auto)
+  ]
 
   // ---- KISALTMALAR ----
   if kisaltmalar != none {
@@ -387,12 +394,14 @@
   // ---- ÇİZELGE LİSTESİ ----
   if cizelge-listesi {
     heading(level: 1, if ingilizce { "LIST OF TABLES" } else { "ÇİZELGE LİSTESİ" })
+    align(right)[#strong(underline(sayfa-etiket))]
     outline(title: none, target: figure.where(kind: table))
   }
 
   // ---- ŞEKİL LİSTESİ ----
   if sekil-listesi {
     heading(level: 1, if ingilizce { "LIST OF FIGURES" } else { "ŞEKİL LİSTESİ" })
+    align(right)[#strong(underline(sayfa-etiket))]
     outline(title: none, target: figure.where(kind: image))
   }
 

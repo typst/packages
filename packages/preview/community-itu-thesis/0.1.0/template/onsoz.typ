@@ -6,8 +6,6 @@ Prof. Dr. Adı SOYADI'ya, kıymetli görüşleri ve rehberliği için teşekkür
 Ayrıca araştırma sürecinde bana yardımcı olan ve deneylerini benimle paylaşan
 tüm laboratuvar arkadaşlarıma, aileme ve tüm dostlarıma şükranlarımı sunarım.
 
+// LaTeX'teki gibi: tarih sola, ad-soyad sağa dayalı (aynı satırda)
 #v(30pt)
-#align(right)[
-  Aralık 2024, İstanbul \
-  Öğrenci Adı SOYADI
-]
+Aralık 2024, İstanbul #h(1fr) Öğrenci Adı SOYADI
