@@ -1,4 +1,4 @@
-# İTÜ Tez Şablonu (Typst) · `itu-thesis`
+# İTÜ Tez Şablonu (Typst) · `community-itu-thesis`
 
 İstanbul Teknik Üniversitesi (İTÜ) lisansüstü tezleri için Typst şablonu.
 Resmi LaTeX şablonu (`itutez.cls` v1.7.1, Ocak 2025) temel alınarak yeniden
@@ -18,7 +18,7 @@ yazılmıştır.
 ## Hızlı başlangıç
 
 ```bash
-typst init @preview/itu-thesis:0.1.0 benim-tezim
+typst init @preview/community-itu-thesis:0.1.0 benim-tezim
 cd benim-tezim
 typst watch main.typ
 ```

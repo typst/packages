@@ -3,7 +3,7 @@
 //
 // Derleme:  typst compile main-apa.typ tez.pdf
 
-#import "@preview/itu-thesis:0.1.0": thesis
+#import "@preview/community-itu-thesis:0.1.0": thesis
 
 #show: thesis.with(
   ad: "Öğrenci Adı",

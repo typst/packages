@@ -1,5 +1,5 @@
 [package]
-name = "itu-thesis"
+name = "community-itu-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Hamza Sancakdaroğlu <hmzsnc96@gmail.com>"]
