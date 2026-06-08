@@ -481,6 +481,10 @@
   // =====================================================================
   if ozgecmis != none {
     heading(level: 1, if ingilizce { "CURRICULUM VITAE" } else { "ÖZGEÇMİŞ" })
-    ozgecmis
+    // cls'te özgeçmiş düz metindir; içindeki olası başlıklar İÇİNDEKİLER'e girmesin.
+    {
+      set heading(outlined: false)
+      ozgecmis
+    }
   }
 }
