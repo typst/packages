@@ -12,7 +12,7 @@
   size: 24pt
 )
 
-#title_slide([Impact of Plant Fluff on Allergy Development], 42pt, [Name Surname], [Study Group], color1: c1, color2: c2)
+#title-slide([Impact of Plant Fluff on Allergy Development], 42pt, [Name Surname], [Study Group], color1: c1, color2: c2)
 
 #slide([Problem Statement], [
   *What is plant fluff?*
@@ -88,4 +88,4 @@
   - See a specialist
   - Follow precautionary measures
   - Monitor pollen forecasts
-], color1: c1, color2: c2, is_last: true)
+], color1: c1, color2: c2, is-last: true)
