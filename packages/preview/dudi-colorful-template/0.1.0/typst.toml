@@ -12,5 +12,6 @@ categories=["visualization", "presentation"]
 disciplines=[]
 
 [template]
-entrypoint = "template/main.typ"
 path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
