@@ -1,7 +1,7 @@
 // KISALTMALAR içeriği — "KISALTMALAR" başlığı şablon tarafından eklenir.
 
 #table(
-  columns: (2cm, 1fr),
+  columns: (auto, 1fr),
   align: (center + horizon, left),
   inset: 5pt,
   stroke: none,

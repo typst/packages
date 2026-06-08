@@ -128,6 +128,7 @@
     font: ("Times New Roman", "Libertinus Serif"),
     size: 12pt,
     lang: lang-code,
+    hyphenate: false,   // LaTeX şablonundaki gibi (hyphenpenalty=10000) tireleme kapalı
   )
   set par(leading: 1.45em, spacing: 0.6em, justify: true)
   show math.equation: set block(spacing: 0.65em)
