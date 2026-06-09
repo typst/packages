@@ -14,9 +14,9 @@ $
   #boxeq($bold(y)_(k + 1) = bold(C) space.thin bold(x)_(k + 1)$)
 $
 
-#nonumeq($
+$
 y(x) = f(x)
-$)
+$ <nonum-eq>
 
 Figure @fig:B is an example of a figure with a caption.
 
