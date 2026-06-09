@@ -219,5 +219,7 @@
   miniline
 }
 
-#let classic = (theme: classic-theme, part: part-classic, minitoc: minitoc-classic, box: custom-box-classic)
+#let boxeq-classic(body) = context _boxeq(stroke: 0.75pt, body)
+
+#let classic = (theme: classic-theme, part: part-classic, minitoc: minitoc-classic, box: custom-box-classic, boxeq: boxeq-classic)
 
