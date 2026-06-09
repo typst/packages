@@ -191,4 +191,6 @@
   miniline
 }
 
-#let orly = (theme: orly-theme, part: part-orly, minitoc: minitoc-orly, box: custom-box-orly)
+#let boxeq-orly(body) = context _boxeq(stroke: 1pt, radius: 5pt, body)
+
+#let orly = (theme: orly-theme, part: part-orly, minitoc: minitoc-orly, box: custom-box-orly, boxeq: boxeq-orly)
