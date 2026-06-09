@@ -221,7 +221,7 @@
 // # Global config
 // ######################
 
-#let touying-au(
+#let touying-au-unofficial(
   aspect-ratio: "16-9",
   ..args,
   body,

@@ -1,4 +1,4 @@
-#import "@preview/touying-au-unofficial:0.1.0"
+#import "@preview/touying-au-unofficial:0.1.0": touying-au-unofficial
 
 #show: touying-au-unofficial.with(
   aspect-ratio: "16-9",
