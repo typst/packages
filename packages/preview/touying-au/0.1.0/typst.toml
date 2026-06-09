@@ -1,10 +1,10 @@
 [package]
-name = "touying-au"
+name = "touying-au-unofficial"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Alexander A. Christensen"]
 license = "MIT"
-description = "Aarhus University style presentation, built with Touying"
+description = "Unofficial Aarhus University style presentation, built with Touying"
 keywords = ["presentation", "touying", "aarhus university"]
 categories = ["presentation"]
 exclude = ["docs/"]
