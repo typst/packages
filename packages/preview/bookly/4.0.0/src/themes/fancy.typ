@@ -238,4 +238,6 @@
   miniline
 }
 
-#let fancy = (theme: fancy-theme, part: part-fancy, minitoc: minitoc-fancy, box: custom-box-fancy)
+#let boxeq-fancy(body) = context _boxeq(stroke: 1pt + states.colors.get().boxeq.darken(35%), fill: states.colors.get().boxeq, radius: 5pt, body)
+
+#let fancy = (theme: fancy-theme, part: part-fancy, minitoc: minitoc-fancy, box: custom-box-fancy, boxeq: boxeq-fancy)
