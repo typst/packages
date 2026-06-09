@@ -30,14 +30,14 @@
 }
 
 // Equations
-#let boxeq(body) = context {
-set align(center)
+#let _boxeq(stroke: none, fill: none, radius: 0pt, inset: 0.6em, body) = context {
+  set align(center)
   box(
-    stroke: 1pt + states.colors.get().boxeq.darken(35%),
-    radius: 5pt,
-    inset: 0.6em,
-    fill: states.colors.get().boxeq,
-  )[#body]
+    stroke: stroke,
+    fill: fill,
+    radius: radius,
+    inset: inset
+   )[#body]
 }
 
 #let nonumeq(x) = {
