@@ -1,6 +1,6 @@
 #import "@preview/touying-au-unofficial:0.1.0"
 
-#show: touying-au.with(
+#show: touying-au-unofficial.with(
   aspect-ratio: "16-9",
   config-info(
     title: [A custom presentation theme for Aarhus University],
