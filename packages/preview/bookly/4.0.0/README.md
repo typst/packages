@@ -1,15 +1,15 @@
 # Book template
 
 [![Generic badge](https://img.shields.io/badge/Version-4.2-0.0-cornflowerblue.svg)](https://github.com/maucejo/bookly/releases/tag/4.0.0)
-[![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/book_template/blob/1e256c185266a77b0a113a48e6cdd151faa1fee6/LICENSE)
-[![User Manual](https://img.shields.io/badge/doc-.pdf-mediumpurple)](https://github.com/maucejo/bookly/blob/1e256c185266a77b0a113a48e6cdd151faa1fee6/docs/manual.pdf)
+[![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/book_template/blob/f7cde829bd673f18c070dd124ea654b198f8f8a1/LICENSE)
+[![User Manual](https://img.shields.io/badge/doc-.pdf-mediumpurple)](https://github.com/maucejo/bookly/blob/f7cde829bd673f18c070dd124ea654b198f8f8a1/docs/manual.pdf)
 
 
 The `bookly` template is a Typst package designed for writing academic documents such as theses, French habilitations, or scientific books. It provides a structured format that adheres to academic standards, making it easier for authors to focus on content rather than formatting.
 
 ## Basic usage
 
-This section provides the minimal amount of information to get started with the template. For more detailed information, see the [manual](https://github.com/maucejo/bookly/blob/1e256c185266a77b0a113a48e6cdd151faa1fee6/docs/manual.pdf).
+This section provides the minimal amount of information to get started with the template. For more detailed information, see the [manual](https://github.com/maucejo/bookly/blob/f7cde829bd673f18c070dd124ea654b198f8f8a1/docs/manual.pdf).
 
 To use the `bookly` template, you need to include the following line at the beginning of your typ file:
 
@@ -79,7 +79,9 @@ After importing `bookly`, you have to initialize the template by a show rule wit
 
     * Unnumbered equations
         ```typ
-        #nonumeq[$integral_0^1 f(x) dif x = F(1) - F(0)$]
+        $
+          integral_0^1 f(x) dif x = F(1) - F(0)
+        $ <nonum-eq>
         ```
 
     * Subequation numbering based on the `equate` package
