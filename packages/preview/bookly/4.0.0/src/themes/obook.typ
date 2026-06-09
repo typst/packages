@@ -308,20 +308,22 @@
 }
 
 #let custom-box-obook(title: none, icon: "info", color: rgb(29, 144, 208), body) = context {
-  let box-tcontent = box(fill: color.lighten(85%), inset: 0.5em, radius: (top: 0.5em), stroke: (bottom: none, rest: 1pt + color))[
-     #box-title(color-svg("resources/images/icons/" + icon + ".svg", color, width: 1em), text(fill: color)[*#title*])]
+  // let box-tcontent = box(fill: color.lighten(85%), inset: 0.5em, radius: (top: 0.5em), stroke: (bottom: none, rest: 1pt + color))[
+  //    #box-title(color-svg("resources/images/icons/" + icon + ".svg", color, width: 1em), text(fill: color)[*#title*])]
 
-  let box-tw = measure(box-tcontent).width
+  // let box-tw = measure(box-tcontent).width
 
-  let box-title = align(right)[
-    #stack(
-      dir: ttb,
-       box-tcontent,
-       move(dx: -0.5pt, line(length: box-tw - 1pt, stroke: 2pt + color.lighten(85%)))
-    )
-  ]
+  // let box-title = align(right)[
+  //   #stack(
+  //     dir: ttb,
+  //      box-tcontent,
+  //      move(dx: -0.5pt, line(length: box-tw - 1pt, stroke: 2pt + color.lighten(85%)))
+  //   )
+  // ]
+  
+  let box-title = move(dy: -0.5em)[#box-title(color-svg("resources/images/icons/" + icon + ".svg", color, width: 1em), text(fill: color)[*#title*])]
 
-  let box-content = block(breakable: true, box(fill: color.lighten(85%), stroke: 1pt + color, width: 100%, inset: (top: 1em, bottom: 1em, rest: 0.5em), radius: (bottom: 0.5em, top-left: 0.5em))[#body])
+  let box-content = block(breakable: true, box(fill: color.lighten(85%), stroke: 1pt + color, width: 100%, inset: (top: 1em, bottom: 1em, rest: 0.5em), radius: 0.5em)[#body])
 
   stack(
     dir: btt,
@@ -330,4 +332,6 @@
   )
 }
 
-#let obook = (theme: obook-theme, part: part-obook, minitoc: minitoc-obook, box: custom-box-obook)
+#let boxeq-obook(body) = context _boxeq(stroke: 1pt + states.colors.get().primary, fill: states.colors.get().boxeq.lighten(30%), radius: 5pt, body)
+
+#let obook = (theme: obook-theme, part: part-obook, minitoc: minitoc-obook, box: custom-box-obook, boxeq: boxeq-obook)
