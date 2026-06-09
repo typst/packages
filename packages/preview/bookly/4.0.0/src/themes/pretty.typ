@@ -334,4 +334,6 @@
   )
 }
 
-#let pretty = (theme: pretty-theme, part: part-pretty, minitoc: minitoc-pretty, box: custom-box-pretty)
+#let boxeq-pretty(body) = context _boxeq(stroke: 1pt + states.colors.get().primary, fill: states.colors.get().boxeq.lighten(35%), radius: (top-left: 2em, bottom-right: 2em, rest: 0em), body)
+
+#let pretty = (theme: pretty-theme, part: part-pretty, minitoc: minitoc-pretty, box: custom-box-pretty, boxeq: boxeq-pretty)
