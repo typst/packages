@@ -416,6 +416,15 @@ fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<
     for entry in ignore::WalkBuilder::new(dir_path)
         .overrides(overrides.build()?)
         .sort_by_file_name(|a, b| a.cmp(b))
+        // Disable non-local ignore features
+        .parents(false)
+        .require_git(false)
+        .git_global(false)
+        .git_exclude(false)
+        // Keep local ignore features for now.
+        .git_ignore(true)
+        .ignore(true)
+        .hidden(true)
         .build()
     {
         let entry = entry?;
