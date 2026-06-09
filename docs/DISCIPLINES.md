@@ -12,6 +12,7 @@ please reach out to us!
 
 The following disciplines are currently defined:
 
+- `accounting`
 - `agriculture`
 - `anthropology`
 - `archaeology`
@@ -28,6 +29,7 @@ The following disciplines are currently defined:
 - `engineering`
 - `fashion`
 - `film`
+- `finance`
 - `geography`
 - `geology`
 - `history`
