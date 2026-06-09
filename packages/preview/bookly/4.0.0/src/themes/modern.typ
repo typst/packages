@@ -319,5 +319,7 @@
   miniline
 }
 
-#let modern = (theme: modern-theme, part: part-modern, minitoc: minitoc-modern, box: custom-box-modern)
+#let boxeq-modern(body) = context _boxeq(stroke: 1pt + states.colors.get().primary, fill: states.colors.get().primary.lighten(90%), radius: 5pt, body)
+
+#let modern = (theme: modern-theme, part: part-modern, minitoc: minitoc-modern, box: custom-box-modern, boxeq: boxeq-modern)
 
