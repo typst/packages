@@ -26,11 +26,11 @@ built on top of [Touying](https://github.com/johannes-wolf/cetz).
 ## Examples
 
 <picture>
-  <img src="docs/title-slide.png">
+  <img src="docs/title-slide.png" alt="Example of the title slide">
 </picture>
 
 <picture>
-  <img src="docs/slide.png">
+  <img src="docs/slide.png" alt="Example of a simple slide">
 </picture>
 
 ## Change log
