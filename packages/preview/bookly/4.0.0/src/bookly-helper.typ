@@ -40,11 +40,6 @@
    )[#body]
 }
 
-#let nonumeq(x) = {
-   set math.equation(numbering: none)
-   x
-}
-
 // Subfigure
 #let subfigure = subpar.grid.with(
   gap: 1em,
