@@ -1,11 +1,11 @@
-#import "@preview/touying-au-unofficial:0.1.0": *
+#import "@preview/touying-au-community:0.1.0": *
 
-#show: touying-au-unofficial.with(
+#show: touying-au-community.with(
   aspect-ratio: "16-9",
   config-info(
     title: [A custom presentation theme for Aarhus University],
     subtitle: [Built with Touying],
-    author: [Alexander A. Christensen],
+    author: [John Doe],
     date: datetime.today(),
     institution: [Aarhus University],
     department: [Department of Engineering],
@@ -34,3 +34,4 @@ $
 
 and the `pause` function works inside!
 
+#end-slide()

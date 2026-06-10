@@ -1,6 +1,32 @@
 #import "@preview/touying:0.7.4": *
-#import "colors.typ": *
 #import "utils.typ": *
+
+#let black = rgb(0, 0, 0)
+#let white = rgb(255, 255, 255)
+
+/*
+ * NOTE: For later version, I wish to implement a "variant" setting
+ */
+#let au-blue = rgb(0, 61, 115)
+#let au-blue-dark = rgb(0, 37, 70)
+#let au-purple = rgb(101, 90, 159)
+#let au-purple-dark = rgb(40, 28, 65)
+#let au-cyan = rgb(55, 160, 203)
+#let ay-cyan-dark = rgb(0, 62, 92)
+#let au-turquoise = rgb(0, 171, 164)
+#let au-turquoise-dark = rgb(0, 69, 67)
+#let au-green = rgb(139, 173, 63)
+#let au-green-dark = rgb(66, 88, 33)
+#let au-yellow = rgb(250, 187, 0)
+#let au-yellow-dark = rgb(99, 75, 3)
+#let au-orange = rgb(238, 127, 0)
+#let au-orange-dark = rgb(95, 52, 8)
+#let au-red = rgb(226, 0, 26)
+#let au-red-dark = rgb(91, 12, 12)
+#let au-magenta = rgb(226, 0, 122)
+#let au-magenta-dark = rgb(95, 0, 48)
+#let au-gray = rgb(135, 135, 135)
+#let au-gray-dark = rgb(75, 75, 74)
 
 // ######################
 // # Slide config
@@ -156,7 +182,7 @@
   self = utils.merge-dicts(
     self,
     config-page(
-      fill: self.colors.primary,
+      fill: self.colors.primary-dark,
       margin: (x: 1.5em, y: 2em),
       footer: footer,
     ),
@@ -210,7 +236,7 @@
     self,
     config-page(
       margin: 1.5em,
-      fill: self.colors.primary,
+      fill: self.colors.primary-dark,
     ),
   )
 
@@ -221,7 +247,7 @@
 // # Global config
 // ######################
 
-#let touying-au-unofficial(
+#let touying-au-community(
   aspect-ratio: "16-9",
   ..args,
   body,
@@ -252,10 +278,10 @@
     ),
 
     config-colors(
-      primary: AUblue,
-      primary-dark: AUblueDark,
-      secondary: AUgray,
-      secondary-dark: AUgrayDark,
+      primary: au-blue,
+      primary-dark: au-blue-dark,
+      secondary: au-gray,
+      secondary-dark: au-gray-dark,
     ),
 
     config-methods(

@@ -1,19 +1,19 @@
 ![Version](https://img.shields.io/badge/version-0.1.0-green)
 
-# touying-au
+# touying-au-community
 
 A [Typst](https://typst.app/) package for creating presentation at Aarhus University,
 built on top of [Touying](https://github.com/johannes-wolf/cetz).
 
 ```typ
-#import "@preview/touying-au:0.1.0"
+#import "@preview/touying-au-community:0.1.0": *
 
-#show: aarhus-theme.with(
+#show: touying-au-community.with(
   aspect-ratio: "16-9",
   config-info(
     title: [A custom presentation theme for Aarhus University],
     subtitle: [Built with Touying],
-    author: [Alexander A. Christensen],
+    author: [John Doe],
     date: datetime.today(),
     institution: [Aarhus University],
     department: [Department of Engineering],
@@ -31,6 +31,10 @@ built on top of [Touying](https://github.com/johannes-wolf/cetz).
 
 <picture>
   <img src="docs/slide.png" alt="Example of a simple slide">
+</picture>
+
+<picture>
+  <img src="docs/end-slide.png" alt="Example of the end slide">
 </picture>
 
 ## Change log
