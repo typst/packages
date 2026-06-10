@@ -77,7 +77,7 @@
       columns: (1fr, 1fr),
       align: (left + bottom, right + bottom),
 
-      AULogo(
+      au-logo(
         fill: self.colors.primary,
         department: info.department,
       ),
@@ -164,7 +164,7 @@
       columns: (1fr, 1fr),
       align: (left + bottom, right + bottom),
 
-      AULogo(
+      au-logo(
         fill: white,
         department: info.department,
       ),
@@ -202,7 +202,7 @@
     set align(horizon + center)
     set text(fill: white)
 
-    scale(250%, AULogo(
+    scale(250%, au-logo(
       fill: white,
       department: info.department,
     ))

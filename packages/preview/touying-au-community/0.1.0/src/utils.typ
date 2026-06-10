@@ -1,4 +1,4 @@
-#let AULogo(
+#let au-logo(
   fill: none,
   department: none,
 ) = {
@@ -35,7 +35,7 @@
   )
 }
 
-#let AUSeal(
+#let au-seal(
   fill: none,
 ) = {
   text(
