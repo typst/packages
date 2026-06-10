@@ -1,0 +1,67 @@
+outline-table:
+  de: "Tabellenverzeichnis"
+  en: "List of tables"
+
+outline-image:
+  de: "Abbildungsverzeichnis"
+  en: "List of figures"
+
+submitted-by:
+  de: "eingereicht von"
+  en: "submitted by"
+
+supervised-by:
+  de: "betreut von"
+  en: "supervised by"
+
+submission:
+  de: "Abgabe"
+  en: "submission"
+
+abstract:
+  de: "Autorenreferat"
+  en: "Abstract"
+
+bibliography-reference:
+  de: "Bibliografischer Nachweis"
+  en: "Bibliographic reference"
+
+university-name:
+  de: "Technische Universität Dresden"
+  en: "Dresden University of Technology"
+
+page-count:
+  de: "Anzahl der Seiten"
+  en: "Number of pages"
+
+figure-count:
+  de: "Anzahl der Abbildungen"
+  en: "Number of figures"
+
+table-count:
+  de: "Anzahl der Tabellen"
+  en: "Number of tables"
+
+ref-count:
+  de: "Anzahl der Quellangaben"
+  en: "Number of references"
+
+appendix-count:
+  de: "Anzahl der Anhänge"
+  en: "Number of appendices"
+
+attachement-count:
+  de: "Anzahl der Anlagen"
+  en: "Number of attachments"
+
+appendix:
+  de: "Anhang"
+  en: "Appendix"
+
+declaration-of-originality:
+  de: "Eidesstattliche Erklärung"
+  en: "Declaration of Originality"
+
+signature:
+  de: "Unterschrift"
+  en: "Signature"
