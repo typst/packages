@@ -606,6 +606,37 @@
             <g>
                 <g class="typst-group">
                     <g>
+                        <path class="typst-shape" fill="#2ecc40" fill-rule="nonzero" transform="matrix(1 0 0 1 -11 0)" d="M 0 0m 0 3.9 c 0 -2.1539106 1.7460895 -3.9 3.9 -3.9 h 467.74332 c 2.1539001 0 3.899994 1.7460895 3.899994 3.9 v 10.195 h -475.5433 Z "/>
+                        <path class="typst-shape" fill="#2ecc40" fill-rule="nonzero" transform="matrix(1 0 0 1 -11 0)" d="M 0 0m 3.9 0.5 v -1 h 467.74332 c 2.4300537 0 4.399994 1.9699471 4.399994 4.4 v 10.695 h -476.5433 v -10.695 c 0 -2.430053 1.9699471 -4.4 4.4 -4.4 v 1 c -1.8777683 0 -3.4 1.5222318 -3.4 3.4 v 9.695 h 474.5433 v -9.695 c 0 -1.8777683 -1.5222168 -3.4 -3.399994 -3.4 Z "/>
+                        <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" stroke="#2ecc40" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 -15.4 -4.383460300049479)" d="M 0 0m 0 6.68923 c 0 -3.69101 2.99822 -6.68923 6.68923 -6.68923 c 3.6910105 0 6.68923 2.99822 6.68923 6.68923 c 0 3.6910105 -2.9982195 6.68923 -6.68923 6.68923 c -3.69101 0 -6.68923 -2.9982195 -6.68923 -6.68923 "/>
+                        <image transform="matrix(1 0 0 1 -13.110769849975261 -2.09423015002474)" xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMmVjYzQwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2Ij48cGF0aCBkPSJNNi40NTcgMS4wNDdjLjY1OS0xLjIzNCAyLjQyNy0xLjIzNCAzLjA4NiAwbDYuMDgyIDExLjM3OEExLjc1IDEuNzUgMCAwIDEgMTQuMDgyIDE1SDEuOTE4YTEuNzUgMS43NSAwIDAgMS0xLjU0My0yLjU3NVptMS43NjMuNzA3YS4yNS4yNSAwIDAgMC0uNDQgMEwxLjY5OCAxMy4xMzJhLjI1LjI1IDAgMCAwIC4yMi4zNjhoMTIuMTY0YS4yNS4yNSAwIDAgMCAuMjItLjM2OFptLjUzIDMuOTk2djIuNWEuNzUuNzUgMCAwIDEtMS41IDB2LTIuNWEuNzUuNzUgMCAwIDEgMS41IDBaTTkgMTFhMSAxIDAgMSAxLTIgMCAxIDEgMCAwIDEgMiAwWiI+PC9wYXRoPjwvc3ZnPg==" width="8.8" height="8.8" preserveAspectRatio="none"/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 0 14.095)">
+                    <g>
+                        <path class="typst-shape" fill="#d5f5d9" fill-rule="nonzero" transform="matrix(1 0 0 1 -11 0)" d="M 0 0h 475.5433 v 13.338 c 0 2.1539106 -1.7460938 3.9000006 -3.899994 3.9000006 h -467.74332 c -2.1539106 0 -3.9 -1.7460899 -3.9 -3.9000006 Z "/>
+                        <path class="typst-shape" fill="#2ecc40" fill-rule="nonzero" transform="matrix(1 0 0 1 -11 0)" d="M 0 0m 0.5 0.5 l -1 -1 h 476.5433 v 13.838 c 0 2.4300528 -1.9699402 4.4000006 -4.399994 4.4000006 h -467.74332 c -2.430053 0 -4.4 -1.9699478 -4.4 -4.4000006 v -13.838 l 1 1 v 12.838 c 0 1.8777676 1.5222318 3.4000006 3.4 3.4000006 h 467.74332 c 1.8777771 0 3.399994 -1.522233 3.399994 -3.4000006 v -12.838 Z "/>
+                        <g class="typst-text" transform="matrix(1 0 0 -1 0 12.238000000000001)">
+                            <use xlink:href="#gBFFE05534CAFB5021ACFD400313A7205" x="0" y="0" fill="#000000" fill-rule="nonzero"/>
+                            <use xlink:href="#gD47ABB808E0BE714D3B4CFDEA3F60B7E" x="10.461" y="0" fill="#000000" fill-rule="nonzero"/>
+                            <use xlink:href="#g659E53591132D13A86B5F08FDE399BC4" x="13.442" y="0" fill="#000000" fill-rule="nonzero"/>
+                            <use xlink:href="#g13709CDF819409130736D6F86DA05BD5" x="16.918" y="0" fill="#000000" fill-rule="nonzero"/>
+                            <use xlink:href="#g94B25E1BCF25E9C4918808BDD9776311" x="25.586" y="0" fill="#000000" fill-rule="nonzero"/>
+                            <use xlink:href="#g2E3920CFE3C8F5878B79FC0934F45AF6" x="30.921" y="0" fill="#000000" fill-rule="nonzero"/>
+                            <use xlink:href="#gC44BD1ADA6E663E3D8D5275076E8A66B" x="37.719" y="0" fill="#000000" fill-rule="nonzero"/>
+                            <use xlink:href="#gD47ABB808E0BE714D3B4CFDEA3F60B7E" x="48.004000000000005" y="0" fill="#000000" fill-rule="nonzero"/>
+                            <use xlink:href="#g27552B41551835CB4445C2C97CFD3197" x="50.98500000000001" y="0" fill="#000000" fill-rule="nonzero"/>
+                            <use xlink:href="#g3559CF0C81437F5B5F9DEDE5096CED8E" x="55.693000000000005" y="0" fill="#000000" fill-rule="nonzero"/>
+                            <use xlink:href="#gB43C8BE7A05B719E2A031E25A4F2EE9E" x="61.237" y="0" fill="#000000" fill-rule="nonzero"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g class="typst-group" transform="matrix(1 0 0 1 70.86614173228347 603.6951417322834)">
+            <g>
+                <g class="typst-group">
+                    <g>
                         <path class="typst-shape" fill="#0074d9" fill-rule="nonzero" transform="matrix(1 0 0 1 -11 0)" d="M 0 0m 0 3.9 c 0 -2.1539106 1.7460895 -3.9 3.9 -3.9 h 467.74332 c 2.1539001 0 3.899994 1.7460895 3.899994 3.9 v 10.195 h -475.5433 Z "/>
                         <path class="typst-shape" fill="#0074d9" fill-rule="nonzero" transform="matrix(1 0 0 1 -11 0)" d="M 0 0m 3.9 0.5 v -1 h 467.74332 c 2.4300537 0 4.399994 1.9699471 4.399994 4.4 v 10.695 h -476.5433 v -10.695 c 0 -2.430053 1.9699471 -4.4 4.4 -4.4 v 1 c -1.8777683 0 -3.4 1.5222318 -3.4 3.4 v 9.695 h 474.5433 v -9.695 c 0 -1.8777683 -1.5222168 -3.4 -3.399994 -3.4 Z "/>
                         <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" stroke="#0074d9" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 -15.4 -5.82211876481906)" d="M 0 0m 0 7.4085593 c 0 -4.0879245 3.3206348 -7.4085593 7.4085593 -7.4085593 c 4.0879245 0 7.4085593 3.3206348 7.4085593 7.4085593 c 0 4.0879245 -3.3206348 7.4085593 -7.4085593 7.4085593 c -4.0879245 0 -7.4085593 -3.3206348 -7.4085593 -7.4085593 "/>
@@ -638,7 +669,7 @@
                 </g>
             </g>
         </g>
-        <g class="typst-group" transform="matrix(1 0 0 1 70.86614173228347 603.6951417322834)">
+        <g class="typst-group" transform="matrix(1 0 0 1 70.86614173228347 648.2281417322833)">
             <g>
                 <g class="typst-group">
                     <g>

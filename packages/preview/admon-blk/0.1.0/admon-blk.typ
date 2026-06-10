@@ -14,7 +14,7 @@
   color,
   ..args,
 ) = {
-  let data = colorize(read(path), color)
+  let data = colorize(path, color)
   return image(bytes(data), ..args)
 }
 
