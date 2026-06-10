@@ -14,12 +14,7 @@ compiler = "0.11.0"
 # Files committed to the repo (visible on Typst Universe) but excluded from
 # the download bundle to keep the package small.
 exclude = [
-  "kba_document.typ",       # legacy compatibility alias
-  "sample.typ",             # legacy sample
-  "thumbnail_compile.typ",  # throwaway thumbnail helper
-  "thumbnail.png",          # auto-excluded by Typst, listed for clarity
   "preview-page2.png",      # README illustration
-  "CONTRIBUTING.md",        # author-only publishing guide
 ]
 
 [template]

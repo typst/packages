@@ -1,32 +1,32 @@
-// kba_document — Information Document (Beschreibungsbogen) per UN-R 10
+// kba-document — Information Document (Beschreibungsbogen) per UN-R 10
 // See README.md for full parameter documentation and usage notes.
 
-#let kba_document(
+#let kba-document(
   date: "",
-  doc_number: "",
+  doc-number: "",
   marke: "",
   typ: "",
   varianten: (),
   handelsbezeichnung: "",
-  ident_merkmal: "",
-  ident_stelle: "",
-  hersteller_name_anschrift: "",
+  ident-merkmal: "",
+  ident-stelle: "",
+  hersteller-name-anschrift: "",
   beauftragter: "",
-  genehmigung_stelle_art: "",
+  genehmigung-stelle-art: "",
   montagebetriebe: (),
-  genehmigt_als: ("Bauteil", "component"),
+  genehmigt-als: ("Bauteil", "component"),
   beschraenkungen: ("keine", "none"),
   nennspannung: "",
-  // Charging system fields (items 10–15) — only used when is_charging_system: true
-  is_charging_system: false,
+  // Charging system fields (items 10–15) — only used when is-charging-system: true
+  is-charging-system: false,
   ladegeraet: "",
   ladestrom: "",
   phasen: "",
   frequenz: "",
-  max_nennstrom: "",
-  nenn_ladespannung: "",
+  max-nennstrom: "",
+  nenn-ladespannung: "",
   schnittstellen: "",
-  rsce_wert: "",
+  rsce-wert: "",
   // Annex table
   anlagen: (),
   body,
@@ -42,7 +42,7 @@
       #grid(
         columns: (1fr, 1fr, 1fr),
         [Datum / _Date_: #date],
-        align(center, [#doc_number]),
+        align(center, [#doc-number]),
         align(right, [Seite / _Page_:  #counter(page).display("1/1")]),
       )
     ],
@@ -52,7 +52,7 @@
   align(center)[
     #underline(text(weight: "bold", size: 16pt)[Beschreibungsbogen Nr. / _  Information Document No._:]) \
     #v(0.5em)
-    #text(weight: "bold", size: 12pt)[#doc_number]
+    #text(weight: "bold", size: 12pt)[#doc-number]
   ]
 
   v(1em)
@@ -86,9 +86,9 @@
   entry("2", "Typ", "Type", typ)
   entry("", "Varianten des Typs", "Variants of the type", varianten.join(", "))
   entry("", "Handelsbezeichnung(en)", "General commercial description(s)", handelsbezeichnung)
-  entry("3", "Merkmal zur Typidentifizierung", "Means of identification of type", ident_merkmal)
-  entry("3.1", "Stelle, an der die Kennzeichnung angebracht ist", "Location of that marking", ident_stelle)
-  entry("4", "Name und Anschrift des Herstellers", "Name and address of manufacturer", hersteller_name_anschrift)
+  entry("3", "Merkmal zur Typidentifizierung", "Means of identification of type", ident-merkmal)
+  entry("3.1", "Stelle, an der die Kennzeichnung angebracht ist", "Location of that marking", ident-stelle)
+  entry("4", "Name und Anschrift des Herstellers", "Name and address of manufacturer", hersteller-name-anschrift)
   entry(
     "",
     "ggf. Name und Anschrift des Beauftragten",
@@ -99,7 +99,7 @@
     "5",
     "Stelle und Art der Anbringung des Genehmigungszeichens",
     "Location and method of affixing of the EC approval mark",
-    genehmigung_stelle_art,
+    genehmigung-stelle-art,
   )
   entry(
     "6",
@@ -107,7 +107,7 @@
     "Name(s) and address(es) of assembly plant(s)",
     montagebetriebe.join("\n"),
   )
-  entry("7", "Diese EUB wird genehmigt als", "This ESA shall be approved as a", genehmigt_als)
+  entry("7", "Diese EUB wird genehmigt als", "This ESA shall be approved as a", genehmigt-als)
   entry(
     "8",
     "Beschränkungen hinsichtlich der Verwendung",
@@ -116,7 +116,7 @@
   )
   entry("9", "Nennspannung des elektrischen Systems", "Electrical system rated voltage", nennspannung)
 
-  if is_charging_system {
+  if is-charging-system {
     v(1em)
     line(length: 100%, stroke: 0.5pt)
     text(weight: "bold")[Nur anzuwenden für Ladesysteme / Only applicable for charging systems:]
@@ -130,10 +130,10 @@
       "Additional information for alternating current",
       [Phasen: #phasen, Frequenz: #frequenz],
     )
-    entry("12", "Maximaler Nennstrom", "Maximal nominal current", max_nennstrom)
-    entry("13", "Nenn-Ladespannung", "Nominal charging voltage", nenn_ladespannung)
+    entry("12", "Maximaler Nennstrom", "Maximal nominal current", max-nennstrom)
+    entry("13", "Nenn-Ladespannung", "Nominal charging voltage", nenn-ladespannung)
     entry("14", "Basis EUB Schnittstellenfunktionen", "Basic ESA interface functions", schnittstellen)
-    entry("15", "Minimaler Rsce-Wert", "Minimal Rsce value", rsce_wert)
+    entry("15", "Minimaler Rsce-Wert", "Minimal Rsce value", rsce-wert)
   }
 
   v(2em)
@@ -151,7 +151,7 @@
     [*Letztes \ Änderungs- \ datum / \ _Last Change Date_*],
     [*Seiten- \ anzahl / \ _Number of Pages_*],
     ..for anlage in anlagen {
-      (anlage.nr, anlage.inhalt, anlage.doc_nr, anlage.datum, anlage.rev, anlage.seiten)
+      (anlage.nr, anlage.inhalt, anlage.doc-nr, anlage.datum, anlage.rev, anlage.seiten)
     },
   )
   body
