@@ -7,10 +7,6 @@
 
 ## Template adaptation checklist / 模板适配检查清单
 
-- [ ] remove/replace the example test case / 移除/替换示例测试用例
-- [ ] (add your actual code, docs and tests) / （添加你实际的代码、文档和测试）
-- [ ] remove this section from the README / 从 README 中移除此部分
-
 ## Getting Started / 快速开始
 
 These instructions will get you a copy of the project up and running on the typst web app. Perhaps a short code example on importing the package and a very simple teaser usage.
