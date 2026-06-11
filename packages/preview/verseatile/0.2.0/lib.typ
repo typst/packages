@@ -87,17 +87,17 @@
   for element in poemcontent {
     let current-indent = (verseindents.at(calc.rem-euclid(current-verse - 1, verseindents.len())) - 1) * verse-indent.get() + base-indent.get()
     if element == parbreak() or element == linebreak() {
-      if show-verse-numbers.get() and not (is-interjection(poemcontent.at(current-element)) or if current-element + 1 != poemcontent.len() {is-splitverse(poemcontent.at(current-element + 1))} else {false}) { 
+      if show-verse-numbers.get() and not (is-interjection(poemcontent.at(current-element, default: [])) or is-splitverse(poemcontent.at(current-element + 1, default: []))) { 
         [#poemcontent.insert(current-element,[#box(width: 0pt)[#if calc.rem-euclid(current-verse-number, verse-number-modulo.get()) == 0 [
           #align(right)[#current-verse-number #h(verse-number-distance.get())]]]<verse-number>
-        #if element == parbreak() and not is-interjection(poemcontent.at(current-element)) [#h(stanza-indent.get())]
+        #if element == parbreak() and not is-interjection(poemcontent.at(current-element, default: [])) [#h(stanza-indent.get())]
         #h(current-indent - 2.75pt)])]}
-      else if (is-interjection(poemcontent.at(current-element)) or is-splitverse(poemcontent.at(current-element + 1))) [
+      else if (is-interjection(poemcontent.at(current-element, default: [])) or is-splitverse(poemcontent.at(current-element + 1, default: []))) [
         #poemcontent.insert(current-element,h(base-indent.get()))]
       else [
         #poemcontent.insert(current-element,h(current-indent))]
       current-element += 1
-      if not (is-interjection(poemcontent.at(current-element)) or if current-element + 1 != poemcontent.len() {is-splitverse(poemcontent.at(current-element + 1))} else {false}) {
+      if not (is-interjection(poemcontent.at(current-element, default: [])) or is-splitverse(poemcontent.at(current-element + 1, default: []))) {
       current-verse += 1
       current-verse-number += 1}}
     current-element += 1}
