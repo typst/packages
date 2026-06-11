@@ -1,0 +1,18 @@
+[package]
+name = "tf-freiburg-thesis"
+version = "0.1.0"
+entrypoint = "src/main.typ"
+authors = ["Artur Jesslen <artur@jesslen.ch>"]
+license = "MIT"
+description = "Unofficial thesis template following the general guidelines of the Faculty of Engineering, University of Freiburg."
+keywords = ["thesis", "bachelor", "master", "phd", "freiburg", "tf", "computer science"]
+categories = ["thesis"]
+disciplines = ["computer-science"]
+compiler = "0.14.0"
+exclude = [".github", "tests"]
+repository = "https://github.com/Arturjssln/uni-freiburg-thesis-template"
+
+[template]
+path = "src/template"
+entrypoint = "thesis.typ"
+thumbnail = "src/assets/thumbnail.png"
