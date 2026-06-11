@@ -115,7 +115,7 @@
 
   // Print the poemtitle
 
-  if poemtitle != [] [#poemtitle<poemtitle>] else if always-align-poemtitle.get() [#box(width: measure([0 <poemtitle>]).values().at(0), height: measure([0 <poemtitle>]).values().at(1))]
+  if poemtitle != [] [#poemtitle<poemtitle>\ ] else if always-align-poemtitle.get() [#box(width: measure([0 <poemtitle>]).values().at(0), height: measure([0 <poemtitle>]).values().at(1))]
   v(v-after-poemtitle.get(), weak: true)
 
   // Print the poembody
@@ -130,11 +130,12 @@
   
   // Print the cycle
 
-  [#cycletitle<cycletitle>
-  #if cyclesubtitle != arguments() [
-  #cyclesubtitle.at(0)<cyclesubtitle>]
-  #v(v-after-poemtitle.get(), weak: true)
-  #cyclebody]}]}
+  if cyclesubtitle != arguments() [
+  #cycletitle<cycletitle>
+  #cyclesubtitle.at(0)<cyclesubtitle>\ ]
+  else [#cycletitle<cycletitle>\ ]
+  v(v-after-poemtitle.get(), weak: true)
+  [#cyclebody]}]}
 
 // Printing poems in cycles
   
@@ -144,9 +145,11 @@
   
   // Print the poemtitle
 
-  if poemtitle != [] [#poemtitle<poemtitle-incycle>] else [#box(width: measure([0 <poemtitle-incycle>]).values().at(0), height: measure([0 <poemtitle-incycle>]).values().at(1))]
   if poemsubtitle != arguments() [
-  #poemsubtitle.at(0)<poemsubtitle-incycle>]
+  #poemtitle<poemtitle-incycle>
+  #poemsubtitle.at(0)<poemsubtitle-incycle>\ ]
+  else if poemtitle != [] [#poemtitle<poemtitle-incycle>\ ]
+  else [#box(width: measure([0 <poemtitle-incycle>]).values().at(0), height: measure([0 <poemtitle-incycle>]).values().at(1))]
   v(v-after-poemtitle.get() / 2, weak: true)
   
   // Print the poembody
