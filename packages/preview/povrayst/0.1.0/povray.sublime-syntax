@@ -1,0 +1,174 @@
+%YAML 1.2
+---
+# POV-Ray SDL syntax for Sublime Text / syntect.
+# Based on https://github.com/leoheck/sublime-povray, extended to cover
+# the full POV-Ray 3.7 Scene Description Language.
+name: POVRay
+file_extensions:
+  - pov
+  - inc
+  - pov-ray
+  - povray
+scope: source.povray
+
+variables:
+  ident: '[A-Za-z_][A-Za-z0-9_]*'
+
+contexts:
+  prototype:
+    - include: comments
+
+  main:
+    - include: preprocessor
+    - include: csg-ops
+    - include: shapes
+    - include: texture-blocks
+    - include: transforms
+    - include: camera-light
+    - include: patterns
+    - include: colors
+    - include: finish-attrs
+    - include: interior-attrs
+    - include: light-attrs
+    - include: global-attrs
+    - include: modifiers
+    - include: constants
+    - include: splines
+    - include: functions
+    - include: numbers
+    - include: strings
+    - include: operators
+
+  preprocessor:
+    # Preprocessor / flow-control directives.
+    - match: '#\b(declare|local|undef|default|version|include|fopen|fclose|read|write|debug|warning|error|macro|range|case|break)\b'
+      scope: keyword.control.directive.povray
+    - match: '#\b(if|ifdef|ifndef|else|elseif|end|while|for|switch)\b'
+      scope: keyword.control.conditional.povray
+
+  csg-ops:
+    - match: '\b(union|difference|intersection|merge)\b'
+      scope: keyword.operator.csg.povray
+
+  shapes:
+    # Primitive and compound shapes — everything you can `{ ... }` as an object.
+    - match: '\b(sphere|sphere_sweep|box|cylinder|cone|torus|plane|disc|triangle|smooth_triangle|polygon|prism|lathe|blob|isosurface|superellipsoid|height_field|julia_fractal|mesh|mesh2|text|bicubic_patch|quadric|cubic|poly|quartic|object|ovus|parametric)\b'
+      scope: storage.type.shape.povray
+
+  texture-blocks:
+    # Top-level appearance containers.
+    - match: '\b(texture|pigment|finish|normal|material|interior|interior_texture|photons|texture_map|pigment_map|normal_map|slope_map|density|density_map|warp)\b'
+      scope: entity.name.tag.texture.povray
+
+  transforms:
+    - match: '\b(rotate|scale|translate|matrix|transform)\b'
+      scope: keyword.operator.transform.povray
+
+  camera-light:
+    - match: '\b(camera|light_source|light_group|spotlight|cylinder|parallel|area_light|projected_through|looks_like)\b'
+      scope: entity.name.tag.scene.povray
+    - match: '\b(location|look_at|sky|right|up|direction|angle|orthographic|perspective|fisheye|omnimax|panoramic|ultra_wide_angle|aperture|focal_point|blur_samples|confidence|variance|focal_blur)\b'
+      scope: variable.parameter.camera.povray
+
+  patterns:
+    - match: '\b(checker|hexagon|square|triangular|brick|gradient|radial|spiral1|spiral2|marble|wood|granite|agate|agate_turb|onion|leopard|bozo|spotted|bumps|dents|ripples|waves|wrinkles|crackle|cells|boxed|cylindrical|spherical|planar|average|image_pattern|pigment_pattern|density_file|image_map|bump_map|material_map|quilted|facets|image|function|fractal|julia|mandel|magnet|tiles|tiling|masonry|pavement)\b'
+      scope: support.constant.pattern.povray
+
+  colors:
+    - match: '\b(rgb|rgbf|rgbt|rgbft|srgb|srgbf|srgbt|srgbft|color|colour|color_map|colour_map|transmit|filter)\b'
+      scope: support.type.color.povray
+
+  finish-attrs:
+    # Attributes that live inside `finish { ... }`, `pigment { ... }`, etc.
+    - match: '\b(ambient|diffuse|emission|specular|roughness|reflection|reflection_exponent|metallic|phong|phong_size|brilliance|brilliance_out|crand|irid|thickness|conserve_energy|fresnel|subsurface|iridescence)\b'
+      scope: variable.parameter.finish.povray
+    - match: '\b(bump_size|slope|accuracy|smooth|use_index|use_color|use_colour|once|map_type|interpolate|quick_color|quick_colour)\b'
+      scope: variable.parameter.pattern.povray
+
+  interior-attrs:
+    - match: '\b(ior|dispersion|dispersion_samples|caustics|fade_color|fade_colour|fade_distance|fade_power|refraction|max_trace_level)\b'
+      scope: variable.parameter.interior.povray
+    - match: '\b(media|scattering|absorption|eccentricity|extinction|intervals|samples|method|aa_threshold|aa_level|ratio|confidence|variance)\b'
+      scope: variable.parameter.media.povray
+
+  light-attrs:
+    - match: '\b(point_at|radius|falloff|tightness|adaptive|jitter|circular|orient|area_illumination|fade_power|fade_distance|shadowless|media_attenuation|media_interaction)\b'
+      scope: variable.parameter.light.povray
+
+  global-attrs:
+    - match: '\b(global_settings|assumed_gamma|ambient_light|max_trace_level|max_intersections|number_of_waves|noise_generator|charset|hf_gray_16|irid_wavelength|mm_per_unit|subsurface|radiosity|photons)\b'
+      scope: variable.parameter.global.povray
+    - match: '\b(pretrace_start|pretrace_end|count|nearest_count|error_bound|recursion_limit|low_error_factor|gray_threshold|minimum_reuse|maximum_reuse|brightness|adc_bailout|always_sample|normal|media|save_file|load_file|target|spacing|gather|refraction|collect|autostop|expand_thresholds)\b'
+      scope: variable.parameter.radiosity.povray
+    - match: '\b(background|fog|fog_type|fog_offset|fog_alt|sky_sphere|rainbow|arc_angle|falloff_angle|width|distance|up|direction)\b'
+      scope: entity.name.tag.environment.povray
+
+  modifiers:
+    - match: '\b(no_shadow|no_image|no_reflection|no_radiosity|hollow|double_illuminate|clipped_by|bounded_by|contained_by|inverse|open|smooth|solid|sturm|precision|threshold|all_intersections|strength|max_gradient|max_iteration|evaluate|accuracy|flatness)\b'
+      scope: storage.modifier.povray
+
+  constants:
+    - match: '\b(true|false|yes|no|on|off|pi|clock|clock_delta|clock_on|image_width|image_height|version|frame_number|initial_clock|final_clock|initial_frame|final_frame|t|u|v|x|y|z)\b'
+      scope: constant.language.povray
+
+  splines:
+    - match: '\b(linear_spline|cubic_spline|b_spline|quadratic_spline|bezier_spline|natural_spline|linear_sweep|conic_sweep)\b'
+      scope: storage.type.spline.povray
+
+  functions:
+    # Built-in math and vector functions.
+    - match: '\b(abs|acos|acosh|asc|asin|asinh|atan|atan2|atanh|ceil|cos|cosh|defined|degrees|dimensions|dimension_size|div|exp|file_exists|floor|int|log|max|min|mod|pow|radians|rand|seed|select|sin|sinh|sqrt|strcmp|strlen|strlwr|strupr|substr|tan|tanh|val|vaxis_rotate|vcross|vdot|vlength|vnormalize|vrotate|vturbulence|min_extent|max_extent|trace|inside|now|datetime)\b(?=\s*\()'
+      scope: support.function.builtin.povray
+    - match: '\b(function)\b'
+      scope: storage.type.function.povray
+
+  numbers:
+    - match: '\b0[xX][0-9a-fA-F]+\b'
+      scope: constant.numeric.hex.povray
+    - match: '\b[0-9]+\.[0-9]*([eE][+-]?[0-9]+)?\b'
+      scope: constant.numeric.float.povray
+    - match: '\b\.[0-9]+([eE][+-]?[0-9]+)?\b'
+      scope: constant.numeric.float.povray
+    - match: '\b[0-9]+[eE][+-]?[0-9]+\b'
+      scope: constant.numeric.float.povray
+    - match: '\b[0-9]+\b'
+      scope: constant.numeric.integer.povray
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.povray
+      push: inside-string
+
+  inside-string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.povray
+    - match: '\\.'
+      scope: constant.character.escape.povray
+    - match: '"'
+      scope: punctuation.definition.string.end.povray
+      pop: true
+
+  operators:
+    - match: '[+\-*/%]'
+      scope: keyword.operator.arithmetic.povray
+    - match: '(<=|>=|==|!=|<|>)'
+      scope: keyword.operator.comparison.povray
+    - match: '(&|\||!)'
+      scope: keyword.operator.logical.povray
+    - match: '='
+      scope: keyword.operator.assignment.povray
+
+  comments:
+    - match: '//'
+      scope: punctuation.definition.comment.povray
+      push:
+        - meta_scope: comment.line.double-slash.povray
+        - match: $\n?
+          pop: true
+    - match: '/\*'
+      scope: punctuation.definition.comment.begin.povray
+      push:
+        - meta_scope: comment.block.povray
+        - match: '\*/'
+          scope: punctuation.definition.comment.end.povray
+          pop: true
