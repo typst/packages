@@ -88,7 +88,7 @@ As of v.0.2.0 the following presets are included with the package:
 
 ### Putting it all together
 
-Utilizing both the indentpattern and numbering verses while applying a preset, one might arrive at this simple, yet elegant rendition of our poem shown on the left in the [example image](examples/example.pdf) at the top of the page:
+Utilizing both the indentpattern and numbering verses while applying a preset, one might arrive at this simple, yet elegant rendition of our poem shown on the left in the [example image](examples/example.png) at the top of the page:
 
 ```typst
 #import "@preview/verseatile:0.2.0": *
