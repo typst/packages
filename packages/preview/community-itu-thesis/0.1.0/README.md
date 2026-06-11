@@ -1,81 +1,78 @@
-# İTÜ Tez Şablonu (Typst) · `community-itu-thesis`
+# ITU Thesis Template (Typst) · `community-itu-thesis`
 
-İstanbul Teknik Üniversitesi (İTÜ) lisansüstü tezleri için Typst şablonu.
-Resmi LaTeX şablonu (`itutez.cls` v1.7.1, Ocak 2025) temel alınarak yeniden
-yazılmıştır.
+A Typst template for graduate (master's and doctoral) theses at Istanbul
+Technical University (İTÜ), ported from the official LaTeX class (`itutez.cls`
+v1.7.1, January 2025). The thesis output itself is in Turkish (with optional
+English language mode), since that is the intended audience.
 
-> Thesis template for graduate theses at Istanbul Technical University, ported
-> from the official LaTeX class to Typst.
+> ⚠️ **Unofficial community port.** This package is not officially endorsed by
+> Istanbul Technical University; it is an independent, volunteer adaptation of
+> the official LaTeX class. Always verify the output against the current
+> official ITU thesis guidelines before submitting your thesis.
 
-> ⚠️ **Gayriresmî / topluluk uyarlaması.** Bu paket İstanbul Teknik
-> Üniversitesi tarafından resmî olarak onaylanmamıştır; resmî LaTeX şablonundan
-> bağımsız bir gönüllü uyarlamasıdır. Teziniz teslim edilmeden önce çıktının
-> güncel İTÜ tez yazım kurallarına uyduğunu mutlaka kendiniz doğrulayın.
->
-> *Unofficial community port — not officially endorsed by ITU. Verify the
-> output against the current official thesis guidelines before submission.*
-
-## Hızlı başlangıç
+## Quick start
 
 ```bash
-typst init @preview/community-itu-thesis:0.1.0 benim-tezim
-cd benim-tezim
+typst init @preview/community-itu-thesis:0.1.0 my-thesis
+cd my-thesis
 typst watch main.typ
 ```
 
-Bu komut çalışan bir örnek proje oluşturur. `main.typ` içindeki bilgileri kendi
-tezinize göre düzenleyin.
+This creates a working sample project. Edit the information in `main.typ` to
+match your own thesis.
 
-## Özellikler
+## Features
 
-- Dış kapak + Türkçe iç kapak + İngilizce iç kapak
-- Jüri onay / imza sayfası
-- İthaf, Önsöz, İçindekiler, Kısaltmalar, Semboller
-- Çizelge Listesi ve Şekil Listesi (otomatik)
-- Özet / Summary
-- Ön materyalde roma (i, ii, …), gövdede arabik (1, 2, …) sayfa numarası
-- Numaralı bölümler (“BÖLÜM 1. …”) + numarasız ön/arka materyal başlıkları
-- Ekler (EKLER kapağı ile) ve Özgeçmiş
-- NUM (sayılı/IEEE) ve APA atıf stilleri — bkz. `main.typ` ve `main-apa.typ`
-- Türkçe ve İngilizce dil desteği (`dil: "tr"` / `dil: "en"`)
+- Outer cover + Turkish inner cover + English inner cover
+- Jury approval / signature page
+- Dedication, Foreword, Table of Contents, Abbreviations, Symbols
+- List of Tables and List of Figures (automatic)
+- Özet / Summary (Turkish and English abstracts)
+- Roman page numbers (i, ii, …) in front matter, Arabic (1, 2, …) in the body
+- Numbered chapters (“1. …”, with subheadings “1.1”, “1.1.1”) and unnumbered
+  front/back-matter headings
+- Appendices (with an "EKLER" cover page) and Curriculum Vitae
+- NUM (numeric/IEEE) and APA citation styles — see `main.typ` and `main-apa.typ`
+- Turkish and English language support (`dil: "tr"` / `dil: "en"`)
 
-## Kullanım
+## Usage
 
-`#show: thesis.with(...)` çağrısındaki başlıca parametreler:
+The main parameters of the `#show: thesis.with(...)` call (parameter names are
+in Turkish, matching the template API):
 
-| Parametre | Açıklama |
-|---|---|
-| `ad`, `soyad`, `ogrenci-no` | Öğrenci bilgileri |
-| `tez-basligi`, `thesis-title` | TR/EN başlık (en çok 3 satır, dizi) |
-| `anabilim-dali-tr/-en`, `program-tr/-en` | Akademik birim |
+| Parameter | Description |
+| --- | --- |
+| `ad`, `soyad`, `ogrenci-no` | Student name, surname, and ID |
+| `tez-basligi`, `thesis-title` | TR/EN title (up to 3 lines, as an array) |
+| `anabilim-dali-tr/-en`, `program-tr/-en` | Academic department / program |
 | `enstitu` | `"lisansustu"`, `"bilisim"`, `"fenbilimleri"`, `"sosyalbilimler"`, `"enerji"`, `"avrasya"` |
-| `danisman`, `danisman-en`, `es-danisman*` | Danışman / eş danışman (TR & EN) |
-| `juri` | `(ad: "...", univ: "...")` sözlüklerinden dizi |
-| `dil` | `"tr"` veya `"en"` |
-| `derece` | `"yukseklisans"` veya `"doktora"` |
-| `cilt` | `"bez"` veya `"karton"` |
-| `ithaf`, `onsoz`, `kisaltmalar`, `semboller`, `ozet`, `summary`, `ekler`, `ozgecmis` | Ön/arka materyal içerikleri |
+| `danisman`, `danisman-en`, `es-danisman*` | Advisor / co-advisor (TR & EN) |
+| `juri` | Array of `(ad: "...", univ: "...")` dictionaries |
+| `dil` | `"tr"` or `"en"` |
+| `derece` | `"yukseklisans"` (master's) or `"doktora"` (doctorate) |
+| `cilt` | `"bez"` (hardbound) or `"karton"` (softbound) |
+| `ithaf`, `onsoz`, `kisaltmalar`, `semboller`, `ozet`, `summary`, `ekler`, `ozgecmis` | Front/back-matter content |
 | `kaynakca` | `bibliography("refs.bib", style: "ieee", title: "Kaynaklar")` |
 
-Gövde bölümleri (`= Giriş`, `== Alt başlık`, …) `#show` çağrısından sonra
-normal Typst başlıkları olarak yazılır; otomatik olarak numaralanır.
+Body chapters (`= Giriş`, `== Alt başlık`, …) are written as ordinary Typst
+headings after the `#show` call; they are numbered automatically.
 
-### Atıf ve kaynakça
+### Citations and bibliography
 
-`refs.bib` dosyasına BibTeX kayıtları ekleyin, metin içinde `@anahtar` ile atıf
-yapın. Stil için `kaynakca` parametresinde `style: "ieee"` (sayılı) veya
-`style: "apa"` kullanın.
+Add BibTeX records to `refs.bib` and cite them in the text with `@key`. Choose
+the style via the `kaynakca` parameter: `style: "ieee"` (numeric) or
+`style: "apa"`.
 
-## Notlar
+## Notes
 
-- Şablon `Times New Roman` fontunu hedefler; sistemde yoksa `TeX Gyre Termes` /
-  `Libertinus Serif` gibi alternatiflere düşer. Birebir görünüm için Times New
-  Roman fontunun kurulu olması önerilir.
-- Typst, EPS desteklemez; şekilleri PNG/PDF/SVG olarak ekleyin.
+- The template targets the `Times New Roman` font; if it is not installed, it
+  falls back to alternatives such as `TeX Gyre Termes` / `Libertinus Serif`.
+  Installing Times New Roman is recommended for a faithful look.
+- Typst does not support EPS; add figures as PNG/PDF/SVG.
 
-## Lisans
+## License
 
-MIT — bkz. [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).
 
-Bu şablon, İTÜ Bilişim Enstitüsü tarafından hazırlanan resmi LaTeX şablonundan
-uyarlanmıştır.
+Adapted from the official LaTeX thesis class prepared by the ITU Informatics
+Institute.
