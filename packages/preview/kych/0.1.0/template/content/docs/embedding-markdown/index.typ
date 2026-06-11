@@ -9,7 +9,7 @@
 // cmarker: CommonMark (Markdown) 解析器，将 Markdown 转为 Typst 内容
 #import "@preview/cmarker:0.1.8"
 // mitex: LaTeX 数学公式渲染器，用于处理 Markdown 中的数学公式
-#import "@preview/mitex:0.2.6": mitex
+#import "@preview/mitex:0.2.7": mitex
 #show: template
 
 = 嵌入 Markdown
