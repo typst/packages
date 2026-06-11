@@ -81,7 +81,7 @@ Como podemos ver en la @tabla:ejemplo…
 )
 #lorem(10)
 #figure(kind: image, [Contenido imagen 2], caption: caption[Hola.][@docker])
-#import "@preview/mmdr:0.2.1": mermaid
+#import "@preview/mmdr:0.2.2": mermaid
 #lorem(10)
 #let mi-diagrama = mermaid("graph LR; A-->B;")
 //#let mi-diagrama = rect(width: 35%, height: 30pt)
