@@ -23,11 +23,6 @@ These instructions will get you a copy of the project up and running on the typs
 #my-func()
 ```
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./thumbnail-dark.svg">
-  <img src="./thumbnail-light.svg">
-</picture>
-
 ## Usage / 使用方法
 
 Initialize the template from the Typst package registry: / 初始化
