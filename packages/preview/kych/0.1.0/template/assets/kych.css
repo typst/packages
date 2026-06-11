@@ -1,0 +1,205 @@
+/*******************************************************************************
+ * 跨越晨昏 自定义 CSS 样式表
+ *
+ * 基于 tufted (https://github.com/vsheg/tufted), MIT License
+ *
+ * 此文件是对 Tufte CSS 框架的补充样式，提供：
+ * 1. CSS 变量定义 — 全局复用的高亮色和圆角值
+ * 2. 响应式布局 — 窄屏幕（≤760px）的适配规则
+ * 3. 导航栏样式 — 简洁的顶部导航链接
+ * 4. 脚注/侧注交互 — 悬停高亮效果
+ * 5. 数学公式样式 — 深色模式反转、公式放大
+ * 6. 文章列表样式 — 博客文章磁贴卡片
+ ******************************************************************************/
+
+/*******************************************************************************
+ * CSS 变量 (CSS Custom Properties)
+ * 定义全局可复用的设计令牌
+ ******************************************************************************/
+
+:root {
+    /* 弱高亮色：用于导航链接悬停等轻量交互（半透明灰色） */
+    --highlight-weak: rgba(128, 128, 128, 0.2);
+    /* 强高亮色：用于侧注悬停等高亮反馈（更深灰色） */
+    --highlight-strong: rgba(128, 128, 128, 0.4);
+    /* 小圆角半径：用于按钮、链接、侧注等元素的圆滑边角 */
+    --radius-sm: 0.2rem;
+}
+
+
+/*******************************************************************************
+ * 基础样式 (Base Styles)
+ * 全局默认设置
+ ******************************************************************************/
+
+html {
+    /* 基准字号：10pt（约 13.3px），Tufte 风格使用较小的字号保持优雅克制 */
+    font-size: 10pt;
+}
+
+img,
+svg {
+    /* 限制图片和 SVG 的最大高度为视口高度的 80%
+       防止大尺寸图片撑破页面布局 */
+    max-height: 80vh;
+}
+
+
+/*******************************************************************************
+ * 响应式布局 (Responsive Layout)
+ * 屏幕宽度 ≤ 760px 时触发（移动端/窄屏适配）
+ ******************************************************************************/
+
+@media (max-width: 760px) {
+
+    /* 窄屏幕下侧注以内联方式显示，而非浮动到边距中 */
+    .marginnote {
+        display: block;         /* 块级显示，占满宽度 */
+        float: none;            /* 清除浮动（PC 端侧注靠 float 定位） */
+        position: static;       /* 恢复默认定位 */
+        padding-left: 1.2rem;   /* 左侧缩进以区分正文 */
+        width: 100%;            /* 全宽显示 */
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    /* 限制侧注中嵌入图片的最大宽度，防止溢出 */
+    .marginnote img,
+    .marginnote svg {
+        max-width: calc(760px / 3);  /* 约占窄屏的 1/3 */
+        margin: 0 auto;              /* 居中显示 */
+        display: block;
+    }
+
+    /* 窄屏幕上启用自动连字符 (hyphenation)，优化文字排版 */
+    p {
+        hyphens: auto !important;
+    }
+}
+
+
+/*******************************************************************************
+ * 导航栏 (Navbar)
+ * 顶部导航链接的样式
+ ******************************************************************************/
+
+header nav {
+    display: flex;    /* Flexbox 布局，水平排列链接 */
+    gap: 1em;         /* 链接间距 */
+}
+
+/* 导航链接的默认、未访问、已访问状态 */
+header nav a,
+header nav a:link,
+header nav a:visited {
+    color: inherit;           /* 继承父元素文字颜色 */
+    text-decoration: none !important;    /* 去除下划线 */
+    background-image: none !important;   /* 去除 Tufte CSS 默认的背景图链接样式 */
+    border-bottom: 0 !important;         /* 去除底部边框 */
+    box-shadow: none !important;         /* 去除阴影 */
+    text-shadow: none;                   /* 去除文字阴影 */
+    font-size: 1.5rem;                   /* 导航字体大小 */
+    padding: 0.2em 0.4em;                /* 内边距增加点击区域 */
+    margin-top: 1em;                     /* 顶部间距 */
+    border-radius: var(--radius-sm);     /* 圆角 */
+    transition: background-color 120ms ease;  /* 背景色过渡动画 */
+}
+
+/* 鼠标悬停和键盘聚焦时的反馈效果 */
+header nav a:hover,
+header nav a:focus-visible {
+    background: var(--highlight-weak);   /* 浅灰高亮背景 */
+    outline: none;                       /* 去除浏览器默认轮廓线 */
+}
+
+
+/*******************************************************************************
+ * 脚注和侧注交互 (Footnotes & Margin Notes Interaction)
+ * 实现脚注引用标记与侧注之间的悬停联动高亮效果
+ ******************************************************************************/
+
+/* 脚注引用标记和紧随其后的侧注容器
+   使用 CSS 自定义属性 --highlight 作为灵活的高亮色变量 */
+.footnote-ref,
+.footnote-ref+.marginnote {
+    --highlight: transparent;                          /* 默认透明（无高亮） */
+    background-color: var(--highlight);                /* 应用高亮背景色 */
+    box-shadow: 0 0 0 5px var(--highlight);            /* 5px 扩展阴影模拟高亮光圈 */
+    border-radius: var(--radius-sm);                   /* 圆角 */
+    transition: background-color 0.3s ease 1s,         /* 背景色过渡（1s 延迟，缓慢消退） */
+                box-shadow 0.3s ease 1s;               /* 阴影过渡（1s 延迟，缓慢消退） */
+}
+
+/* 悬停脚注引用标记时 → 高亮紧随其后的侧注 */
+.footnote-ref:hover+.marginnote {
+    --highlight: var(--highlight-weak);   /* 弱高亮 */
+    transition-delay: 0s;                 /* 立即响应（无延迟） */
+}
+
+/* 悬停侧注时 → 高亮前面的脚注引用标记
+   使用 :has() 伪类（CSS4 选择器）实现"前向选择" */
+.footnote-ref:has(+ .marginnote:hover) {
+    --highlight: var(--highlight-strong); /* 强高亮 */
+    transition-delay: 0s;
+}
+
+/* 脚注链接去除 Tufte CSS 的默认链接样式 */
+a.footnote-ref-link {
+    background-image: none;
+    text-shadow: none !important;
+}
+
+
+/*******************************************************************************
+ * 数学公式样式 (Math Notation)
+ * 为 HTML 导出的数学公式提供更好的显示效果
+ ******************************************************************************/
+
+/* 块级数学公式 (role="math" 的 figure 元素)
+   TODO: 移除这个数学缩放的黑客方法，寻找更优雅的解决方案 */
+figure[role="math"] {
+    font-size: 1.4em;        /* 放大到 1.4 倍以提高可读性 */
+    margin-block: 1em;       /* 上下边距 */
+}
+
+/* 深色模式：反转数学公式的颜色以获得更好的对比度 */
+@media (prefers-color-scheme: dark) {
+
+    /* 使用 CSS filter 反色 + 色相旋转 180°
+       invert(1) 将黑白反转，hue-rotate(180deg) 将色相旋转回原位
+       组合效果：深色背景上的公式仍保持正常的黑色文字（白底 SVG 反转后变黑） */
+    [role="math"] {
+        filter: invert(1) hue-rotate(180deg);
+    }
+}
+
+
+/*******************************************************************************
+ * 文章磁贴样式 (Post Tiles)
+ * 用于博客文章列表的卡片式布局（post-tile 类）
+ ******************************************************************************/
+
+.post-tile {
+    margin: 0 0 1rem;        /* 底部间距 */
+}
+
+.post-tile a {
+    display: inline-block;   /* 行内块级，支持 padding 和背景 */
+    padding: 0.1em 0.2em;    /* 内边距创造可点击的视觉区域 */
+    background-image: none !important;  /* 去除 Tufte CSS 链接背景图 */
+}
+
+/* 文章链接的悬停和键盘聚焦效果 */
+.post-tile a:hover,
+.post-tile a:focus-visible {
+    background: var(--highlight-weak);  /* 浅灰背景高亮 */
+    outline: none;                      /* 去除默认轮廓线 */
+}
+
+.post-tile h3 {
+    margin: 0;               /* 去除标题默认外边距 */
+}
+
+.post-tile p {
+    margin: 0.25rem 0 0;     /* 文章摘要的小间距 */
+}
