@@ -22,7 +22,7 @@
 
 #import "../index.typ": template, kych
 #import "@preview/cmarker:0.1.8"
-#import "@preview/mitex:0.2.6": mitex
+#import "@preview/mitex:0.2.7": mitex
 #show: template
 
 // 读取 Markdown 文件内容
