@@ -1,0 +1,11 @@
+[package]
+name = "altacv"
+version = "0.3.3"
+entrypoint = "lib.typ"
+authors = ["Shane Murphy"]
+license = "MIT"
+description = "CV template inspired by LianTze Lim's AltaCV. Data-driven via a JSON Resume-style dict; configurable theme, labels, and sections."
+repository = "https://github.com/smur89/alta-typst"
+keywords = ["cv", "resume", "altacv", "json-resume"]
+categories = ["cv"]
+compiler = "0.13.0"
