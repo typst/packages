@@ -1,0 +1,15 @@
+[package]
+name = "ufpr-unofficial"
+version = "2022.0.0"
+entrypoint = "src/lib.typ"
+authors = ["Christopher Pinheiro Dobb"]
+license = "Unlicense"
+description = "An unofficial Typst template for academic work following ABNT standards, designed for UFPR students."
+keywords = ["ufpr", "abnt"]
+categories = ["layout", "thesis", "report"]
+repository = "https://github.com/chrispdobb/ufpr-unofficial"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
