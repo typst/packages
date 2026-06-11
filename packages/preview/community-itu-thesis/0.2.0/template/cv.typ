@@ -1,8 +1,8 @@
-// ÖZGEÇMİŞ içeriği — "ÖZGEÇMİŞ" başlığı şablon tarafından otomatik eklenir.
+// CURRICULUM VITAE content — the "ÖZGEÇMİŞ" heading is added automatically.
 //
-// LaTeX şablonundaki gibi özgeçmiş ALT BAŞLIK İÇERMEZ; bu yüzden içindekiler'de
-// yalnızca "ÖZGEÇMİŞ" satırı görünür. Bölümler "kalın etiket + madde listesi"
-// (\textbf{...:} + itemize) biçiminde yazılır — başlık (==, ===) KULLANMAYIN.
+// As in the LaTeX template the CV contains NO subheadings, so only the single
+// "ÖZGEÇMİŞ" line appears in the table of contents. Sections are written as
+// "bold label + item list" (\textbf{...:} + itemize) — do NOT use headings (==, ===).
 
 *Adı Soyadı:* Öğrenci Adı SOYADI \
 *Doğum Tarihi ve Yeri:* 1 Ocak 1995, İstanbul \

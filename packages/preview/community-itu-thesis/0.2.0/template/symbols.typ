@@ -1,5 +1,5 @@
-// SEMBOLLER içeriği — "SEMBOLLER" başlığı şablon tarafından eklenir.
-// LaTeX şablonundaki gibi: kalın sembol, ardından " : " ve açıklama (başlık satırı yok).
+// SYMBOLS content — the "SEMBOLLER" heading is added by the template.
+// As in the LaTeX template: bold symbol, then " : " and the description (no header row).
 
 #grid(
   columns: (auto, auto, 1fr),

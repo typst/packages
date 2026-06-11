@@ -1,4 +1,4 @@
-// ÖZET içeriği (Türkçe) — "ÖZET" başlığı şablon tarafından eklenir.
+// Turkish abstract content — the "ÖZET" heading is added by the template.
 
 Bu tez çalışması, konunun kapsamlı bir incelemesini sunmaktadır. Araştırma,
 mevcut literatürü gözden geçirdikten sonra yeni bir yöntem veya bakış açısı

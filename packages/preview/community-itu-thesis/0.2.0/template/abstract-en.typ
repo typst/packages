@@ -1,4 +1,4 @@
-// SUMMARY içeriği (İngilizce) — "SUMMARY" başlığı şablon tarafından eklenir.
+// English abstract content — the "SUMMARY" heading is added by the template.
 
 This thesis study presents a comprehensive investigation of the subject matter.
 After reviewing the existing literature, the research puts forward a new method

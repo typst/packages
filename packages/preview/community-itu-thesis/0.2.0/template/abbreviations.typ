@@ -1,5 +1,5 @@
-// KISALTMALAR içeriği — "KISALTMALAR" başlığı şablon tarafından eklenir.
-// LaTeX şablonundaki gibi: kalın kısaltma, ardından " : " ve açıklama (başlık satırı yok).
+// ABBREVIATIONS content — the "KISALTMALAR" heading is added by the template.
+// As in the LaTeX template: bold abbreviation, then " : " and the description (no header row).
 
 #grid(
   columns: (auto, auto, 1fr),

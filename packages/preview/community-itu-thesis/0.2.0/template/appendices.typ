@@ -1,5 +1,5 @@
-// EKLER içeriği — "EKLER" kapak başlığı şablon tarafından eklenir.
-// Her ek bölümü 1. seviye başlık (=) ile başlar; bunlar numarasız basılır.
+// APPENDICES content — the "EKLER" cover heading is added by the template.
+// Each appendix starts with a level-1 heading (=); these are printed unnumbered.
 
 = EK A: İlave Çalışmalar
 
