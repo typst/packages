@@ -1,0 +1,17 @@
+[package]
+name = "ost-thesis"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["David Bachmann", "Dominik Buehler", "Thomas Bocek"]
+license = "MIT"
+description = "A thesis template in the visual style of the OST, Eastern Switzerland University of Applied Sciences."
+keywords = ["thesis", "academic", "report", "university", "ost"]
+categories = ["paper"]
+disciplines = ["computer-science", "engineering"]
+repository = "https://github.com/ost-fh/ost-thesis-typst"
+exclude = ["thumbnail.png", ".github"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
