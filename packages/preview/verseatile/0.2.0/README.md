@@ -6,7 +6,7 @@
 
 verseatile is a small package for setting poetry with [Typst](https://github.com/typst/typst), capable of easily indenting and numbering verses while providing many options for customization.
 
-![Examples](examples/example.png)
+![Examples of Hor. carm I, 26; Mart. ep. XIV, 45 ff. and Aischyl. Ag. 176-191 set with versatile.](examples/example.png)
 
 ## Getting started
 
