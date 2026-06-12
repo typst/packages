@@ -9,12 +9,12 @@ The package name is inspired by the blurry, gray images of Nessie, the [Loch Nes
 
 ## Usage
 
-Due to the way Typst currently interprets given paths, you have to read the images yourself in the calling Typst file. This raw imagedata can then be passed to the grayness-package functions, like `image-grayscale()`. These functions also optionally accept all additional parameters of the original Typst image function like `width` or `height`:
+Due to the way Typst interprets given paths, you cannot specify the path to a file as string directly. Instead, you have to either read the images yourself in the calling Typst file or provide the direction to the file with the path-type. This imagedata can then be passed to the grayness-package functions, like `image-grayscale()`. These functions also optionally accept all additional parameters of the original Typst image function like `width` or `height`:
 
 ```typst
 #import "@preview/grayness:0.7.0": image-grayscale
 
-#let data = read("Arturo_Nieto-Dorantes.webp", encoding: none)
+#let data = path("Arturo_Nieto-Dorantes.webp")
 #image-grayscale(data, width: 50%)
 ```
 

@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#import "@preview/grayness:0.6.0": *
+#import "@preview/grayness:0.7.0": *
 #let data = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 #let data2 = read("gallardo.svg", encoding: none)
 #set page(height: 12cm, columns: 3)
