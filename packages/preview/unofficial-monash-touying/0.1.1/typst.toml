@@ -1,0 +1,17 @@
+[package]
+name = "unofficial-monash-touying"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["EY2234 <@Eryc123Y>"]
+license = "MIT"
+description = "Monash-inspired academic slides for Touying."
+repository = "https://github.com/Eryc123Y/unofficial-monash-slides-typst.git"
+keywords = ["slides", "monash", "touying", "presentation", "academic"]
+categories = ["presentation"]
+compiler = "0.14.0"
+exclude = ["docs", "example", "scripts"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
