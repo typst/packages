@@ -1,0 +1,14 @@
+[package]
+name = "hak-imst"
+version = "0.1.0"
+entrypoint = "lib.typ"
+description = "Diplomarbeiten an der HAK/HAS und dem Kolleg Imst normgerecht verfassen."
+authors = ["Stefan Stolz", "Claudio Landerer"]
+license = "MIT"
+categories = ["report", "thesis"]
+disciplines = ["education"]
+keywords = ["Diplomarbeit", "HAK", "BHS", "Österreich", "Vorlage"]
+
+[template]
+path = "Diplomarbeit Vorlage.typ"
+entrypoint = "main.typ"
