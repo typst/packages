@@ -121,22 +121,6 @@ typst compile template/main.typ
 
 Alternatively, point a scratch file at `../lib.typ` with a relative import.
 
-## Publishing checklist
-
-- [ ] **Confirm the name `lambda` is free** at <https://typst.app/universe> and on
-      the [packages registry](https://github.com/typst/packages). Rename here and in
-      `template/main.typ`'s import if it is taken.
-- [ ] **Attribution:** this template adapts the CC BY 4.0
-      [Rho template](https://github.com/MemoJimenez/Rho-class) by Guillermo Jiménez.
-      The credit lives in this README and in `LICENSE`; keep it intact — CC BY 4.0
-      requires attribution, a license link, and noting that changes were made.
-- [ ] (Optional) Publish a public source repo and add `repository = "..."` to
-      `typst.toml`; optionally add a GitHub handle to `authors`. The URL must resolve —
-      the registry bot rejects a 404.
-- [ ] Open a PR adding the package to
-      `packages/preview/lambda/0.1.0/` in
-      [typst/packages](https://github.com/typst/packages).
-
 ## Credits
 
 This template is an adaptation of the **Rho** research-article template by

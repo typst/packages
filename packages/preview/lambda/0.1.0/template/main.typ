@@ -2,7 +2,7 @@
 
 // Optional: abbreviation management (https://typst.app/universe/package/abbr).
 // Remove these three lines and the @ABBR use below if you don't need it.
-#import "@preview/abbr:0.3.0"
+#import "@preview/abbr:0.3.1"
 #show: abbr.show-rule
 #abbr.make(("DOC", "dissolved organic carbon"))
 
