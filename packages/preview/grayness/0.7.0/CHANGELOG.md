@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] unreleased
+
+### Changed
+
+- Updated to require Typst 0.15
+- All functions now also accept `path` in addition to `bytes` as input data
+
 ## [0.6.0] 2026-03-22
 
 ### Added

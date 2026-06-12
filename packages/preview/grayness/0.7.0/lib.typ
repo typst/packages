@@ -39,7 +39,7 @@ limitations under the License.
 ///
 ///    _Raster Example:_
 /// ```example
-/// #import "@preview/grayness:0.6.0": plg
+/// #import "@preview/grayness:0.7.0": plg
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #let grayscaled-bytes = plg.grayscale(arturo)
 /// #let blurred-and-grayscaled = plg.blur(grayscaled-bytes,float(5).to-bytes(size: 4))
@@ -47,7 +47,7 @@ limitations under the License.
 /// ```
 ///    _Vector Example:_
 /// ```example
-/// #import "@preview/grayness:0.6.0": plg
+/// #import "@preview/grayness:0.7.0": plg
 /// <<<#let gallardo = read("gallardo.svg", encoding: none)
 /// #let grayscaled-bytes = plg.svg_grayscale(gallardo)
 /// #let blurred-and-grayscaled = plg.svg_blur(grayscaled-bytes,float(40).to-bytes(size: 4))
@@ -59,15 +59,15 @@ limitations under the License.
 ///
 ///  _Example:_
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
+/// #import "@preview/grayness:0.7.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-grayscale(arturo)
 /// ```
 /// -> content
 #let image-grayscale(
-  /// Raw imagedata, e.g. provided by the `read()` function
-  /// -> bytes
-  imagebytes,
+  /// Raw imagedata, e.g. provided by the `read()` function or a path to the file
+  /// -> bytes | path
+  imagedata,
   ///	extra arguments to pass to the Typst image function
   /// e.g. width, height, format, etc...
   ///
@@ -75,7 +75,7 @@ limitations under the License.
   ///
   /// _Example:_
   /// ```example
-  /// #import "@preview/grayness:0.6.0": *
+  /// #import "@preview/grayness:0.7.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-grayscale(gallardo, format:"svg", width:4cm, alt:"Lamborghini Gallardo")
   /// ```
@@ -84,6 +84,9 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(plg.svg_grayscale(imagebytes), ..args)
   } else {
@@ -91,20 +94,20 @@ limitations under the License.
   }
 }
 
-/// Displays an image from bytes.
+/// Displays an image from raw bytes or a path to a file.
 /// This enables the usage of imageformats not natively supported by Typst
 ///
 ///  _Example:_
 ///	 ```example
-///  #import "@preview/grayness:0.6.0": *
-///  <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
+///  #import "@preview/grayness:0.7.0": *
+///  <<<#let arturo = path("Arturo_Nieto-Dorantes.webp")
 ///  #image-show(arturo)
 ///  ```
 /// -> content
 #let image-show(
   /// Raw imagedata, e.g. provided by the `read()` function
   /// -> bytes
-  imagebytes,
+  imagedata,
   ///	extra arguments to pass to the Typst image function
   /// e.g. width, height, format, etc...
   ///
@@ -112,7 +115,7 @@ limitations under the License.
   ///
   /// _Example:_
   /// ```example
-  /// #import "@preview/grayness:0.6.0": *
+  /// #import "@preview/grayness:0.7.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-show(gallardo, format:"svg", width:2cm, alt:"Lamborghini Gallardo")
   /// ```
@@ -121,6 +124,9 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(imagebytes, ..args)
   } else {
@@ -132,7 +138,7 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
+/// #import "@preview/grayness:0.7.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-crop(
 /// 	arturo,
@@ -144,9 +150,9 @@ limitations under the License.
 /// ```
 /// -> content
 #let image-crop(
-  /// Raw imagedata, e.g. provided by the `read()` function
-  /// -> bytes
-  imagebytes,
+  /// Raw imagedata, e.g. provided by the `read()` function or a path to a file
+  /// -> bytes | path
+  imagedata,
   /// Horizontal size (in pixels or "user space" in case of SVG) of the crop window. Must be >= 0.
   /// -> int
   crop-width: 10,
@@ -166,8 +172,8 @@ limitations under the License.
   ///
   /// _Example:_
   /// ```example
-  /// #import "@preview/grayness:0.6.0": *
-  /// <<<#let gallardo = read("gallardo.svg")
+  /// #import "@preview/grayness:0.7.0": *
+  /// <<<#let gallardo = path("gallardo.svg")
   /// #image-crop(
   ///  gallardo,
   ///  crop-height: 200,
@@ -183,6 +189,9 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(
       plg.svg_crop(
@@ -212,15 +221,15 @@ limitations under the License.
 /// _Example:_
 ///
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
+/// #import "@preview/grayness:0.7.0": *
 /// <<<#let gallardo = read("gallardo.svg")
 /// #image-flip-horizontal(gallardo, format:"svg")
 /// ```
 /// -> content
 #let image-flip-horizontal(
-  /// Raw imagedata, e.g. provided by the `read()` function
-  /// -> bytes
-  imagebytes,
+  /// Raw imagedata, e.g. provided by the `read()` function or a path to a file
+  /// -> bytes | path
+  imagedata,
   /// Arguments to pass to the Typst image function
   /// e.g. width, height, alt, fit, ...
   ///
@@ -230,6 +239,9 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   scale(x: -100%, image-show(imagebytes, ..args))
 }
 
@@ -237,7 +249,7 @@ limitations under the License.
 /// _Example:_
 ///
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
+/// #import "@preview/grayness:0.7.0": *
 /// <<<#let gallardo = read("gallardo.svg")
 /// #image-flip-vertical(gallardo, format:"svg")
 /// ```
@@ -254,7 +266,7 @@ limitations under the License.
 /// _Warning:_ This operation is slow, especially for large sigmas.
 ///
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
+/// #import "@preview/grayness:0.7.0": *
 /// <<<##let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-blur(arturo, sigma:3.14)
 /// ```
@@ -262,12 +274,13 @@ limitations under the License.
 /// -> content
 #let image-blur(
   /// Raw imagedata in any of the supported formats, e.g. provided by the `read()` function
-  /// -> bytes
-  imagebytes,
+  /// or a path to a file
+  /// -> bytes | path
+  imagedata,
   /// A measure of how much to blur by (standard deviation)
   ///
   /// ```example
-  /// #import "@preview/grayness:0.6.0": *
+  /// #import "@preview/grayness:0.7.0": *
   /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
   /// #image-blur(arturo, sigma:6.28)
   /// ```
@@ -278,7 +291,7 @@ limitations under the License.
   ///
   /// You must pass `format:"svg"` as argument if you use a SVG-image as your input.
   /// ```example
-  /// #import "@preview/grayness:0.6.0": *
+  /// #import "@preview/grayness:0.7.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-blur(gallardo, sigma: 40, format: "svg")
   /// ```
@@ -287,6 +300,9 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(plg.svg_blur(imagebytes, float(sigma).to-bytes(size: 4)), ..args)
   } else {
@@ -299,7 +315,7 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
+/// #import "@preview/grayness:0.7.0": *
 /// //Place rectangle in background to demonstrate transparency
 /// #place(top+center, dx:-3cm)[#rect(fill:blue, width:4cm, height:100%)]
 /// //Add image over rectangle
@@ -309,14 +325,15 @@ limitations under the License.
 /// -> content
 #let image-transparency(
   /// Raw imagedata in any of the supported formats, e.g. provided by the `read()` function
-  /// -> bytes
-  imagebytes,
+  /// or a path to a file
+  /// -> bytes | path
+  imagedata,
   /// Remaining amount of visibility
   ///
   ///	0% = fully transparent, 100% = fully opaque
   ///
   /// ```example
-  /// #import "@preview/grayness:0.6.0": *
+  /// #import "@preview/grayness:0.7.0": *
   /// //Place rectangle in background to demonstrate transparency
   /// #place(top+center, dx:-3cm)[#rect(fill:blue, width:4cm, height:100%)]
   /// <<<#let gallardo = read("gallardo.svg")
@@ -333,6 +350,9 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   if args.named().keys().contains("format") and args.named().format == "svg" {
     let ratio = float(alpha).to-bytes(size: 4)
     image(plg.svg_transparency(imagebytes, ratio), ..args)
@@ -346,15 +366,15 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
+/// #import "@preview/grayness:0.7.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-brighten(arturo, amount:50%)
 /// ```
 /// -> content
 #let image-brighten(
-  /// Raw imagedata, e.g. provided by the `read()` function
-  /// -> bytes
-  imagebytes,
+  /// Raw imagedata, e.g. provided by the `read()` function or a path to a file
+  /// -> bytes | path
+  imagedata,
   /// Amount to brighten by.
   /// 0% = no brightening, 100% = completely white
   /// -> ratio
@@ -369,6 +389,9 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(plg.svg_brighten(imagebytes, float(amount).to-bytes(size: 4)), ..args)
   } else {
@@ -380,15 +403,15 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
-/// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
+/// #import "@preview/grayness:0.7.0": *
+/// <<<#let arturo = path("Arturo_Nieto-Dorantes.webp")
 /// #image-darken(arturo, amount:50%)
 /// ```
 /// -> content
 #let image-darken(
-  /// Raw imagedata, e.g. provided by the `read()` function
-  /// -> bytes
-  imagebytes,
+  /// Raw imagedata, e.g. provided by the `read()` function or a path to a file
+  /// -> bytes | path
+  imagedata,
   /// Amount to darken by
   /// 0% = no darkening, 100% = completely black
   /// -> int
@@ -398,7 +421,7 @@ limitations under the License.
   ///
   /// You must pass `format:"svg"` as argument if you use a SVG-image as your input.
   ///  ```example
-  /// #import "@preview/grayness:0.6.0": *
+  /// #import "@preview/grayness:0.7.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-darken(gallardo, amount:50%, format:"svg")
   /// ```
@@ -408,6 +431,9 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   image-brighten(imagebytes, amount: -amount, ..args)
 }
 
@@ -415,21 +441,21 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
-/// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)v
+/// #import "@preview/grayness:0.7.0": *
+/// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-invert(arturo)
 /// ```
 /// -> content
 #let image-invert(
-  /// Raw imagedata, e.g. provided by the `read()` function
-  /// -> bytes
-  imagebytes,
+  /// Raw imagedata, e.g. provided by the `read()` function or a path to a file
+  /// -> bytes | path
+  imagedata,
   /// Arguments to pass to the typst image function
   /// e.g. width, height, alt, fit, ...
   ///
   /// You must pass `format:"svg"` as argument if you use a SVG-image as your input.
   /// ```example
-  /// #import "@preview/grayness:0.6.0": *
+  /// #import "@preview/grayness:0.7.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-invert(gallardo, format:"svg")
   /// ```
@@ -439,6 +465,9 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(plg.svg_invert(imagebytes), ..args)
   } else {
@@ -456,8 +485,8 @@ limitations under the License.
 /// ```
 ///
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
-/// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)v
+/// #import "@preview/grayness:0.7.0": *
+/// <<<#let arturo = path("Arturo_Nieto-Dorantes.webp")
 /// #let matrix = (
 ///   (0.5, 0.0, 0.0, 0.0, 0.5),
 ///   (0.0, 1.0, 0.0, 0.0, 0.0),
@@ -468,9 +497,9 @@ limitations under the License.
 /// ```
 /// -> content
 #let image-matrix(
-  /// Raw imagedata, e.g. provided by the `read()` function
-  /// -> bytes
-  imagebytes,
+  /// Raw imagedata, e.g. provided by the `read()` function or a path to a file
+  /// -> bytes | path
+  imagedata,
   /// 5x4 matrix as array of arrays  with floats in the following order:
   /// ```
   /// (
@@ -488,7 +517,7 @@ limitations under the License.
   ///
   /// You must pass `format:"svg"` as argument if you use a SVG-image as your input.
   /// ```example
-  /// #import "@preview/grayness:0.6.0": *
+  /// #import "@preview/grayness:0.7.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #let matrix = (
   ///   (0.5, 0.0, 0.0, 0.0, 0.5),
@@ -501,6 +530,9 @@ limitations under the License.
   /// -> arguments
   ..args,
 ) = {
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   if matrix.len() != 4 { panic("matrix must be 5x4") }
   for i in range(0, 4) {
     if matrix.at(i).len() != 5 { panic("matrix must be 5x4") }
@@ -590,15 +622,15 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
+/// #import "@preview/grayness:0.7.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-huerotate(arturo, amount:100)
 /// ```
 /// -> content
 #let image-huerotate(
-  /// Raw imagedata, e.g. provided by the `read()` function
-  /// -> bytes
-  imagebytes,
+  /// Raw imagedata, e.g. provided by the `read()` function or a path to a file
+  /// -> bytes | path
+  imagedata,
   /// Number of degrees to rotate each pixels color by. 0 and 360 do nothing,
   /// the rest rotates by the given degree value. Smallest step for raster images is 1°.
   /// -> int | float
@@ -608,7 +640,7 @@ limitations under the License.
   ///
   /// You must pass `format:"svg"` as argument if you use a SVG-image as your input.
   /// ```example
-  /// #import "@preview/grayness:0.6.0": *
+  /// #import "@preview/grayness:0.7.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-huerotate(gallardo, amount:100, format:"svg")
   /// ```
@@ -618,6 +650,9 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(plg.svg_huerotate(imagebytes, float(amount).to-bytes(size: 4)), ..args)
   } else {
@@ -630,18 +665,20 @@ limitations under the License.
 ///
 ///*This function does not work with SVG data.*
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
+/// #import "@preview/grayness:0.7.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// <<<#let mask = read("mask.png", encoding:none)
 /// #image-mask(arturo, mask)
 /// ```
 #let image-mask(
-  /// Raw imagedata, e.g. provided by the `read()` function
+  /// Raw imagedata, e.g. provided by the `read()` function or a path to a file
+  /// for the source image
+  /// -> bytes | path
+  imagedata,
+  /// Raw imagedata, e.g. provided by the `read()` function or a path to a file
+  /// for the mask image
   /// -> bytes
-  imagebytes,
-  /// Raw imagedata, e.g. provided by the `read()` function
-  /// -> bytes
-  maskbytes,
+  maskdata,
   /// Defines if the alpha-channel of the mask image is used (default). If set to false, the brightness
   /// of the mask image is used instead. Therefore, images without an alpha-channel can also be used as mask.
   /// -> bool
@@ -654,20 +691,36 @@ limitations under the License.
   if args.named().keys().contains("format") and args.named().format == "svg" {
     panic("The image-mask() function does not work with SVG-Data")
   }
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
+  let mastbytes = if type(maskdata) == path { read(maskdata, encoding: none) } else if type(maskdata) == bytes {
+    maskdata
+  } else { panic("maskdata must be raw bytes or given as path") }
   let alpha = 1.to-bytes()
   if not use-alpha-channel { alpha = 0.to-bytes() }
   image(plg.mask(imagebytes, maskbytes, alpha), ..args)
 }
+
 /// Gets the images dimensions (in pixels) and its format as string
+///
+///*This function does not work with SVG data.*
 /// ```example
-/// #import "@preview/grayness:0.6.0": *
+/// #import "@preview/grayness:0.7.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #let infos = image-infos(arturo)
 ///
 /// Width: #infos.width, Height: #infos.height, Format: #infos.format
 /// ```
 /// -> dictionary
-#let image-infos(imagebytes) = {
+#let image-infos(
+  /// Raw imagedata, e.g. provided by the `read()` function or a path to a file
+  /// -> bytes | path
+  imagedata,
+) = {
+  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
   let infos = plg.infos(imagebytes)
   let width = int.from-bytes(infos.slice(0, count: 4))
   let height = int.from-bytes(infos.slice(4, count: 4))

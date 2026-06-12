@@ -1,5 +1,5 @@
 #import "@preview/tidy:0.4.3"
-#import "@preview/grayness:0.6.0": *
+#import "@preview/grayness:0.7.0": *
 
 #[
   #show link: underline.with(stroke: blue)
