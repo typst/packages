@@ -130,8 +130,9 @@ Alternatively, point a scratch file at `../lib.typ` with a relative import.
       [Rho template](https://github.com/MemoJimenez/Rho-class) by Guillermo Jiménez.
       The credit lives in this README and in `LICENSE`; keep it intact — CC BY 4.0
       requires attribution, a license link, and noting that changes were made.
-- [ ] Set `repository`/`homepage` in `typst.toml` and (optionally) a GitHub handle in
-      `authors`.
+- [ ] (Optional) Publish a public source repo and add `repository = "..."` to
+      `typst.toml`; optionally add a GitHub handle to `authors`. The URL must resolve —
+      the registry bot rejects a 404.
 - [ ] Open a PR adding the package to
       `packages/preview/lambda/0.1.0/` in
       [typst/packages](https://github.com/typst/packages).
@@ -145,5 +146,8 @@ was ported to Typst and restructured/extended; changes have been made.
 
 ## License
 
-[CC BY 4.0](LICENSE) © 2026 Finn Linus Krauss — adapted from the Rho template by
-Guillermo Jiménez (CC BY 4.0).
+[MIT](LICENSE) © 2026 Finn Linus Krauss. This template adapts the **Rho** template by
+Guillermo Jiménez, which is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); that attribution is retained
+in `LICENSE` and in the Credits above. (CC BY 4.0 permits releasing an adaptation under
+a different license as long as the original is credited.)

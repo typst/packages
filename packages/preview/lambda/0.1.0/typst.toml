@@ -3,12 +3,10 @@ name = "lambda"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Finn Linus Krauss"]
-license = "CC-BY-4.0"
+license = "MIT"
 description = "A clean two-column scientific thesis and article template with an optional cover page, title block, abstract, and table of contents."
-repository = "https://github.com/finnbambus/lambda"
 keywords = ["thesis", "article", "academic", "science", "two-column"]
 categories = ["thesis", "paper"]
-exclude = ["thumbnail.png", "README.md"]
 
 [template]
 path = "template"
