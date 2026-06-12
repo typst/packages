@@ -267,7 +267,7 @@ limitations under the License.
 ///
 /// ```example
 /// #import "@preview/grayness:0.7.0": *
-/// <<<##let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
+/// <<<#let arturo = path("Arturo_Nieto-Dorantes.webp")
 /// #image-blur(arturo, sigma:3.14)
 /// ```
 ///
@@ -694,7 +694,7 @@ limitations under the License.
   let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
     imagedata
   } else { panic("imagedata must be raw bytes or given as path") }
-  let mastbytes = if type(maskdata) == path { read(maskdata, encoding: none) } else if type(maskdata) == bytes {
+  let maskbytes = if type(maskdata) == path { read(maskdata, encoding: none) } else if type(maskdata) == bytes {
     maskdata
   } else { panic("maskdata must be raw bytes or given as path") }
   let alpha = 1.to-bytes()
