@@ -78,7 +78,7 @@ Verse numbers can also be set to number only every $n$-th verse:
 Presets are preconfigured style sets that can be used for simple and effective styling. To apply a preset use:
 
 ```typst
-#show: preset-〈name〉
+#show: preset-...
 ```
 
 As of v.0.2.0 the following presets are included with the package:
