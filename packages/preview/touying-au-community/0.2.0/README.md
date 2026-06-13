@@ -1,5 +1,3 @@
-![Version](https://img.shields.io/badge/version-0.2.0-green)
-
 # touying-au-community
 
 A [Typst](https://typst.app/) package for creating presentation at Aarhus University,
@@ -47,12 +45,9 @@ built on top of [Touying](https://github.com/johannes-wolf/cetz).
 | --------------- | --------------- | --------------- |
 | `include-sections` | Include section titles in the slide heading | `true` |
 | `include-agenda` | Include the agenda slide before each new section | `true` |
+| `variant` | Color / theme variant | `"blue"` |
 
 ## Change log
-
-### 0.1.0
-
-- Initial release
 
 ### 0.2.0
 
@@ -61,3 +56,7 @@ built on top of [Touying](https://github.com/johannes-wolf/cetz).
 - Added section title to slide heading
 - Added agenda slide
 - Added color variants
+
+### 0.1.0
+
+- Initial release
