@@ -12,6 +12,6 @@ disciplines = ["education"]
 keywords = ["Diplomarbeit", "HAK", "Kolleg", "Österreich", "Vorlage"]
 
 [template]
-path = "Diplomarbeit Vorlage.typ"
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
