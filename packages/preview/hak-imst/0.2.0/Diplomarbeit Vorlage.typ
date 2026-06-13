@@ -1,5 +1,5 @@
 // Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
-#import "@preview/hak-imst:0.1.0": *
+#import "@preview/hak-imst:0.2.0": *
 
 
 // Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
