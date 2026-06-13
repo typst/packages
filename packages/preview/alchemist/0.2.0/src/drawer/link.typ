@@ -23,9 +23,11 @@
   let to-connection = link.at("to", default: none)
   let from-connection = none
   let from-name = none
+  let from-pos = none
+  let ignore-from-margins = false
 
-  let from-pos = if ctx.last-anchor.type == "coord" {
-    ctx.last-anchor.anchor
+  if ctx.last-anchor.type == "coord" {
+    from-pos = ctx.last-anchor.anchor
   } else if ctx.last-anchor.type == "fragment" {
     from-connection = link-fragment-index(
       link-angle,
@@ -35,13 +37,14 @@
     )
     from-connection = link.at("from", default: from-connection)
     from-name = ctx.last-anchor.name
-    fragment-link-anchor(
+    from-pos = fragment-link-anchor(
       ctx.last-anchor.name,
       from-connection,
       ctx.last-anchor.count,
     )
+    ignore-from-margins = ctx.last-anchor.empty
   } else if ctx.last-anchor.type == "link" {
-    ctx.last-anchor.name + "-end-anchor"
+    from-pos = ctx.last-anchor.name + "-end-anchor"
   } else {
     panic("Unknown anchor type " + ctx.last-anchor.type)
   }
@@ -70,27 +73,27 @@
       angle: link-angle,
       over: link.at("over", default: none),
       draw: link.draw,
+      ignore-from-margins: ignore-from-margins,
+      ignore-to-margins: false,
     ),
   )
   (
     ctx,
     {
-      hide(
-        {
-          circle(name: link-name + "-start-anchor", from-pos, radius: .25em)
-        },
-        bounds: ctx.first-draw and not ctx.first-molecule,
+      anchor(
+        link-name + "-start-anchor",
+        from-pos,
       )
       let end-anchor = (to: from-pos, rel: (angle: link-angle, radius: length))
+      anchor(
+        link-name + "-end-anchor",
+        end-anchor,
+      )
       if ctx.config.debug {
         line(from-pos, end-anchor, stroke: blue + .1em)
+      } else {
+        hide(line(from-pos, end-anchor), bounds: true)
       }
-      hide(
-        {
-          circle(name: link-name + "-end-anchor", end-anchor, radius: .25em)
-        },
-        bounds: true,
-      )
     },
   )
 }
@@ -101,7 +104,7 @@
   (ctx, drawing) = create-link-decorations-anchors(link, ctx)
   ctx.faces-count += 1
   if link.links.len() != 0 {
-    ctx.hooks-links.push((link.links, ctx.last-anchor.name, false))
+    ctx.hooks-links.push((link.links, ctx.last-anchor.name, false, false))
   }
   (ctx, drawing)
 }

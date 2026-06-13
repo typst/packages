@@ -138,3 +138,27 @@
     stroke: stroke,
   )
 })
+
+
+/// Draw a positive charge around the fragment
+/// 
+/// #example(```
+/// #skeletize({
+/// 	fragment("A", lewis:(
+///     lewis-charge(charge: $+$, angle: 45deg),
+///   ))
+/// 	single(angle:-2)
+///   fragment("B", lewis:(
+///     lewis-charge(charge: $-$, angle: 45deg),
+///   ))
+/// })
+/// ```)
+#let lewis-charge = build-lewis((ctx, cetz-ctx, args) => {
+  import cetz.draw: *
+  let charge = args.at("charge", default: ctx.config.lewis-charge.charge)
+  let stroke = args.at("stroke", default: ctx.config.lewis-charge.stroke)
+  content((0,0), {
+    set text(fill: stroke) if stroke != none
+    [#charge]
+  }, name:"charge")
+})

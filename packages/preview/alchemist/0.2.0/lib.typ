@@ -18,7 +18,7 @@
 /// === Fragment function
 /// Build a fragment group based on mol
 /// Each fragment is represented as an optional count followed by a fragment name
-/// starting by a capital letter followed by an optional exponent followed by an optional indice.
+/// starting with a capital letter followed by an optional exponent followed by an optional indice.
 /// #example(```
 /// #skeletize({
 ///   fragment("H_2O")
@@ -30,13 +30,29 @@
 /// })
 /// ```)
 /// It is possible to use an equation as a fragment. In this case, the splitting of the equation uses the same rules as in the string case. However, you get some advantages over the string version:
-/// - You can use parenthesis to group elements together.
+/// - You can use parentheses to group elements together.
 /// - You have no restriction about what you can put in exponent or indice.
 /// #example(```
 /// #skeletize({
 ///   fragment($C(C H_3)_3$)
 /// })
 ///```)
+/// Empty fragments are also possible. They can be useful to draw charges and lewis structures without drawing carbons. In this case, the fragment is invisible and won't take any space in the drawing. However, it can still be linked to other fragments and hooks and it can still have lewis structures. See @lewis for more details about lewis structures.
+/// #example(```
+/// #skeletize(config: (debug: false), {
+///   single(angle:1)
+///   fragment("", lewis: (
+///     lewis-double(angle: 90deg),
+///   ))
+///   single(angle: -1)
+///   fragment("", lewis: (
+///     lewis-double(angle: -90deg),
+///   ))
+///   single(angle:1)
+///   fragment("E")
+/// })
+/// ```)
+/// 
 /// - name (content): The name of the fragment. It is used as the cetz name of the fragment and to link other fragments to it.
 /// - links (dictionary): The links between this fragment and previous fragments or hooks. The key is the name of the fragment or hook and the value is the link function. See @links.
 ///
@@ -49,7 +65,7 @@
 ///   fragment("ABCD", vertical: true)
 /// })
 ///```)
-/// - ignore-charge (boolean): If true, charge of the fragment are excluded from the links connections. This is useful when you want to have the center of your connection to the text without having the charge in the way.
+/// - ignore-charge (boolean): If true, charges of the fragment are excluded from the link connections. This is useful when you want to have the center of your connection to the text without having the charge in the way.
 /// #example(```
 /// #skeletize({
 ///   fragment("A")
@@ -67,8 +83,14 @@
 /// ```)
 /// -> drawable
 #let fragment(name: none, links: (:), lewis: (), vertical: false, ignore-charge: false, colors: none, mol) = {
+  let empty = false
   let (atoms, count) = if type(mol) == str {
-    split-fragment-string(mol, split-charge: ignore-charge)
+    if mol.len() == 0 {
+      empty = true
+      (((none, true),), 1)
+    } else {
+      split-fragment-string(mol, split-charge: ignore-charge)
+    }
   } else if mol.func() == math.equation {
     split-equation(mol, equation: true, split-charge: ignore-charge)
   } else {
@@ -88,11 +110,11 @@
       links: links,
       lewis: lewis,
       vertical: vertical,
-      count: count
+      count: count,
+      empty: empty,
     ),
   )
 }
-#let molecule(name: none, links: (:), lewis: (), vertical: false, mol) = fragment(name: name, links: links, lewis: lewis, vertical: vertical, mol)
 
 /// === Hooks
 /// Create a hook in the fragment. It allows to connect links to the place where the hook is.
@@ -240,12 +262,12 @@
 
 
 /// === Operator
-/// Create an operator between two fragments. Creating an operator "reset" the placement of the next fragment.
-/// This allow to add multiple molecules in the same skeletal formula. Without this, the next fragment would be placed at the end of the previous one.
-/// An important point is that you can't use previous hooks to link two molecules separate by an operator.
-/// This element is used in resonance structures (@resonance) and in some cases to put multiples molecules in the same skeletal formula (as you can set op to none).
+/// Create an operator between two fragments. Creating an operator "resets" the placement of the next fragment.
+/// This allows adding multiple molecules in the same skeletal formula. Without this, the next fragment would be placed at the end of the previous one.
+/// An important point is that you can't use previous hooks to link two molecules separated by an operator.
+/// This element is used in resonance structures (@resonance) and in some cases to put multiple molecules in the same skeletal formula (as you can set op to none).
 /// 
-/// - op (content, string, none): The operator content. It can be a string or a content. A none value won't display anything.
+/// - op (content, string, none): The operator content. It can be a string or content. A none value won't display anything.
 /// #example(```
 /// #skeletize({
 ///  fragment("A")
@@ -255,7 +277,7 @@
 /// ```)
 /// See @resonance for more examples.
 /// - name (string): The name of the operator.
-/// - margin (float, length): The margin between the operator and previous / next molecule.
+/// - margin (float, length): The margin between the operator and previous/next molecule.
 /// -> drawable
 #let operator(name: none, margin: 1em, op) = {
   (
@@ -269,8 +291,8 @@
 }
 
 /// === Hiding part of the molecule
-/// This element allows to hide part of the molecule. It can be used to hide the part of the molecule that is not relevant for the current discussion. It can also be used to create some animation effects by hiding and showing different parts of the molecule. Note that the hidden part is still present in the drawing and can be linked to other fragments. This means that you can hide a part of the molecule and still link it to other fragments or hooks. The hidden part is also still present in the cetz record, which means that you can still use it in the cetz drawing. The only thing that is hidden is the drawing of the hidden part.
-/// - bounds (boolean): If true, the hidden part keep the same bounding box as if it was not hidden. If false, the hidden part doesn't take any space in the drawing. 
+/// This element allows hiding part of the molecule. It can be used to hide the part of the molecule that is not relevant for the current discussion. It can also be used to create some animation effects by hiding and showing different parts of the molecule. Note that the hidden part is still present in the drawing and can be linked to other fragments. This means that you can hide a part of the molecule and still link it to other fragments or hooks. The hidden part is also still present in the cetz record, which means that you can still use it in the cetz drawing. The only thing that is hidden is the drawing of the hidden part.
+/// - bounds (boolean): If true, the hidden part keeps the same bounding box as if it was not hidden. If false, the hidden part doesn't take any space in the drawing. 
 /// - body (drawable): The body to hide. It can be any drawable.
 /// -> drawable
 #let hide(bounds: true, body) = {

@@ -42,7 +42,7 @@
   hide: false, // true if the current elements should be hidden
 )
 
-#let draw-hooks-links(links, mol-name, ctx, from-mol) = {
+#let draw-hooks-links(links, mol-name, ctx, from-mol, ignore-from-margin) = {
   let hook-id = 0
   for (to-name, (link,)) in links {
     if link.at(mol-name, default: none) == none {
@@ -59,7 +59,11 @@
         hide: ctx.hide,
         name: link.at("name"),
         from-pos: if from-mol {
-          (name: mol-name, anchor: "mid")
+          if ignore-from-margin {
+            (name: mol-name)
+          } else {
+            (name: mol-name, anchor: "mid")
+          }
         } else {
           mol-name + "-end-anchor"
         },
@@ -72,6 +76,8 @@
         over: link.at("over", default: none),
         override: angles.angle-override(ctx.angle, ctx),
         draw: link.draw,
+        ignore-from-margins: ignore-from-margin,
+        ignore-to-margins: to-hook.empty,
       ))
     } else if to-hook.type == "hook" {
       ctx.links.push((
@@ -83,7 +89,11 @@
         hide: ctx.hide,
         name: link.at("name"),
         from-pos: if from-mol {
-          (name: mol-name, anchor: "mid")
+          if ignore-from-margin {
+            (name: mol-name)
+          } else {
+            (name: mol-name, anchor: "mid")
+          }
         } else {
           mol-name + "-end-anchor"
         },
@@ -95,6 +105,8 @@
         override: angles.angle-override(ctx.angle, ctx),
         draw: link.draw,
         over: link.at("over", default: none),
+        ignore-from-margins: ignore-from-margin,
+        ignore-to-margins: false,
       ))
     } else {
       panic("Unknown hook type " + ctx.hook.at(to-name).type)
@@ -224,7 +236,12 @@
     get-ctx(cetz-ctx => {
       for link in ctx.links {
         let drawing = {
-          let ((from, to), angle) = calculate-link-anchors(ctx, cetz-ctx, link)
+          let ((from, to), angle) = calculate-link-anchors(
+            ctx,
+            cetz-ctx,
+            link,
+            ctx.config.fragment-margin,
+          )
           if ctx.config.debug {
             circle(from, radius: .1em, fill: red, stroke: red)
             circle(to, radius: .1em, fill: red, stroke: red)
@@ -342,8 +359,14 @@
           }
           let last-anchor = ctx.last-anchor
           let (ctx, atoms, cetz-drawing) = draw-fragments-and-link(ctx, body)
-          for (links, name, from-mol) in ctx.hooks-links {
-            ctx = draw-hooks-links(links, name, ctx, from-mol)
+          for (links, name, from-mol, ignore-from-margin) in ctx.hooks-links {
+            ctx = draw-hooks-links(
+              links,
+              name,
+              ctx,
+              from-mol,
+              ignore-from-margin,
+            )
           }
 
           let molecule = {

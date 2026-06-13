@@ -58,4 +58,8 @@
     height: .7em,
     width: .3em,
   ),
+  lewis-charge: (
+    stroke: black,
+    charge: $+$,
+  )
 )
