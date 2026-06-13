@@ -5,13 +5,13 @@
 // Exportierte Symbole:
 //   hak            – Template-Funktion für die HAK-Variante
 //   kolleg         – Template-Funktion für die Kolleg-Variante
-//   running_header – Kopfzeile mit aktuellem Kapitel/Abschnitt
-//   set_responsible – Verantwortliche Person für Footer umschalten
+//   running-header – Kopfzeile mit aktuellem Kapitel/Abschnitt
+//   set-responsible – Verantwortliche Person für Footer umschalten
 // ──────────────────────────────────────────────────────────────────────────────
 
 // ── Laufende Kopfzeile ────────────────────────────────────────────────────────
 
-#let running_header(fallback: [Projektarbeit]) = context {
+#let running-header(fallback: [Projektarbeit]) = context {
   let chapter = none
   let section = none
   let heads = query(selector(heading).before(here()))
@@ -43,7 +43,7 @@
 
 #let _responsible_key = "hak-imst.responsible"
 
-#let set_responsible(name) = state(_responsible_key, none).update(_ => name)
+#let set-responsible(name) = state(_responsible_key, none).update(_ => name)
 
 #let _current_responsible(default) = context {
   let value = state(_responsible_key, none).get()
@@ -70,6 +70,8 @@
   fontsize: 12.5pt,
   sectionnumbering: none,
   responsible_default: [Gabi Sorglos],
+  project_partner_logo_path: none, // New parameter for project partner logo
+  school_logo_path: none, // New parameter for school logo
   doc,
 ) = {
   // "hak" im Fließtext → Logo + vollständiger Name
@@ -106,18 +108,27 @@
 
   // ── Titelseite ──────────────────────────────────────────────────────────────
   if title != none {
-    let school_logo = if titlepage_variant == "kolleg" {
+    let school_logo_final = if school_logo_path != none {
+      school_logo_path
+    } else if titlepage_variant == "kolleg" {
       "typst_media/logos/Logo_Kolleg_Imst.png"
     } else {
       "typst_media/logos/Logo_HAK_Imst.png"
     }
 
+    let project_partner_logo_final = if project_partner_logo_path != none {
+      project_partner_logo_path
+    } else {
+      "typst_media/logos/Logo_Projektpartner.png"
+    }
+
     align(center)[
       #grid(
-        columns: (1fr, 1fr),
+        columns: (auto, 1fr),
+        align: (left, right),
         column-gutter: 1.5cm,
-        [#image("typst_media/logos/Logo_Projektpartner.png", height: 2.2cm)],
-        [#align(right)[#image(school_logo, height: 2.2cm)]],
+        [#image(project_partner_logo_final, height: 2.2cm)],
+        [#image(school_logo_final, height: 2.2cm)],
       )
       #v(1.2cm)
       #text(weight: "semibold", size: 1.05em)[#projecttype]
@@ -225,7 +236,7 @@
   let header_fallback = if title == none { [Projektarbeit] } else { title }
 
   set page(
-    header: [#running_header(fallback: header_fallback)],
+    header: [#running-header(fallback: header_fallback)],
     footer: context [
       #set text(size: 9pt)
       #grid(

@@ -1,27 +1,83 @@
-# Typst Vorlage HAK Imst
+# hak-imst
 
-## Schnellstart
+Typst template for diploma theses at Handelsakademie und Handelsschule Imst and IT-KOLLEG IMST.
 
-1. VS Code installieren.
-2. vscode Extension **myriad-dreamin.tinymist** installieren
-4. "Diplomarbeit Vorlage.typ" anpassen -> hier kann zwischen HAK und Kolleg umgeschaltet werden (siehe Kommentare in Datei)
-5. in typst_parts/content.typ schreiben beginnen
+The template provides a structured cover page (HAK and Kolleg variants), required front matter pages, indexes, and running header/footer components for school thesis workflows.
 
-## Inhaltliche Vorgaben
+## Usage
 
-1. In jedem Kapitel ist der Verantwortliche mit "#set_responsible([Max Mustermann])" zu kennzeichnen
+You can use this template directly in this repository.
 
-## Tipps
+1. Open `Diplomarbeit Vorlage.typ`.
+2. Adjust metadata in the show rule (title, team, supervisors, date, etc.).
+3. Write your document content in `content.typ`.
 
-- Die Vorlage ist so aufgebaut, dass du auch alles erst ohne Vorlage in typst schreiben kannst und nachher die Inhalte in "typst_parts/content.typ" einfügst.
-- Ein Klick auf eine Zeile in der Vorschau springt zur entsprechenden Zeile im Code.
+Example:
 
-## In VS Code mit Dev Container öffnen
+```typst
+// For Kolleg variant: replace "hak" with "kolleg"
+#import "@preview/hak-imst:0.1.0": *
 
-Diese Variante ist nicht unbedingt notwendig, da typst auch rein mit der vscode Extension **myriad-dreamin.tinymist** funktioniert (siehe o oben). Allerdings ist es eine gute Möglichkeit, um die benötigten Tools und Abhängigkeiten automatisch zu installieren und zu verwalten. Außerdem ist im Container alles so eingerichtet, dass auch der KI Agent problemlos kompilieren kann. Zusätzlich ist pandoc installiert, um die Dokumente auch in andere Formate exportieren zu können.
+#show: hak.with(
+	title: [Thesis Title],
+	subtitle: [Thesis Subtitle],
+	projecttype: [Diploma Thesis],
+	team: (
+		(name: [Max Mustermann], responsibility: [Responsible for IT: HTML, CSS, Business: Sales Contract]),
+		(name: [Susanne Sorglos], responsibility: [Responsible for IT: HTML, CSS, Business: Sales Contract]),
+	),
+	supervisors: (
+		[Claudio Landerer],
+		[Stefan Stolz],
+	),
+	date: [Imst, 2026-06-08],
+	font: "New Computer Modern",
+	fontsize: 12.5pt,
+	sectionnumbering: "1.1.1",
+	project_partner_logo_path: "typst_media/logos/Logo_Projektpartner.png",
+	school_logo_path: "typst_media/logos/Logo_HAK_Imst.png",
+)
 
-1. VS Code installieren.
-2. Die Erweiterung **Dev Containers** installieren.
-3. Diesen Ordner in VS Code öffnen: `Typst Vorlage HAK Imst`.
-4. Wenn VS Code fragt, **Reopen in Container** auswählen.
-5. Falls nötig, die Erweiterung **Tinymist** installieren.
+#include "content.typ"
+```
+
+## Configuration
+
+The template exports two functions:
+
+- `hak`: HAK/HAS cover page variant
+- `kolleg`: IT-KOLLEG cover page variant
+
+Both use the same named parameters and are configured through `#show: ...with(...)`.
+
+### Options
+
+- `title` (content): Main title
+- `subtitle` (content or `none`): Subtitle
+- `projecttype` (content): E.g. diploma thesis
+- `team` (array or `none`): Team members with name and responsibility
+- `supervisors` (array or `none`): Supervising teachers
+- `date` (content or `none`): Date line on the cover page
+- `font` (string or `none`): Document font family
+- `fontsize` (length): Base font size
+- `sectionnumbering` (string or `none`): Heading numbering format
+- `paper` (string): Paper format (e.g. `a4`)
+- `margin` (dictionary): Page margins
+- `project_partner_logo_path` (string or `none`): Path for the left cover-page logo
+- `school_logo_path` (string or `none`): Path for the right cover-page school logo
+
+If `project_partner_logo_path` or `school_logo_path` are not set, the template uses default logos from `typst_media/logos/`.
+
+## Chapter Responsibility
+
+For the footer, you can set the responsible person per chapter:
+
+```typst
+#set-responsible([Max Mustermann])
+```
+
+## About
+
+- Target audience: Diploma thesis teams at HAK/HAS Imst and IT-KOLLEG IMST
+- Technology: Typst
+- Repository structure: Template logic in `lib.typ`, entry file `Diplomarbeit Vorlage.typ`, document body in `content.typ`

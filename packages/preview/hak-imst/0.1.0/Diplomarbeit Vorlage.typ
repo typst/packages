@@ -1,5 +1,5 @@
 // Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
-#import "lib.typ": hak, set_responsible
+#import "@preview/hak-imst:0.1.0": *
 
 
 // Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
@@ -20,6 +20,8 @@
   font: "New Computer Modern",
   fontsize: 12.5pt,
   sectionnumbering: "1.1.1",
+  project_partner_logo_path: "typst_media/logos/Logo_Projektpartner.png",
+  school_logo_path: "typst_media/logos/Logo_HAK_Imst.png",
 )
 
 #include "content.typ"

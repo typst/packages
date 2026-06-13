@@ -1,7 +1,7 @@
-// dieser Import ist nur für set_responsible notwendig und kann auch ganz am Ende hinzugefügt werden
-#import "lib.typ": set_responsible
+// dieser Import ist nur für set-responsible notwendig und kann auch ganz am Ende hinzugefügt werden
+#import "@preview/hak-imst:0.1.0": *
 
-#set_responsible([Claudio Landerer])
+#set-responsible([Claudio Landerer])
 
 // heading Funktion anstatt = verwendet um Nummern und Aufnahme in Inhaltsverzeichnis zu unterdrücken
 #heading(level: 1, numbering: none, outlined: false)[Einleitende Bemerkungen]
@@ -304,7 +304,7 @@ Optimierung des Entwurfs (Modularisierung, Erweiterbarkeit, Lesbarkeit):
 
 = Implementierung
 <implementierung>
-#set_responsible([NEMI])
+#set-responsible([NEMI])
 Detaillierte Beschreibung der Implementierung aller Teilkomponenten der
 Software entlang der zentralsten Use-Cases:
 
@@ -412,7 +412,7 @@ BW-Teil
 = Beispielkapitel
 <beispielkapitel>
 
-#set_responsible([Stefan Stolz])
+#set-responsible([Stefan Stolz])
 
 == Sonderfunktionen
 <sonderfunktionen>
