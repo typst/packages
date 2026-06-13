@@ -4,7 +4,7 @@
 // Usage: #move("[CP Who do you think [(CP)[TP<who>saw Mary]]]",
 //              arrows: ((from: "who2", to: "who1"),))
 
-#import "@preview/cetz:0.5.0"
+#import "@preview/cetz:0.5.2"
 #import "_symbols.typ": apply-symbols as _apply-symbols, symbol-map as _symbol-map
 
 // Draw a delink mark (two perpendicular bars) at a point along a line.
