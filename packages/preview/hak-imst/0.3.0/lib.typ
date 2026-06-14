@@ -117,6 +117,7 @@
   ]
   show heading.where(level: 2): set block(above: 1.25em, below: 0.65em)
   show heading.where(level: 3): set block(above: 0.95em, below: 0.5em)
+  show figure.where(kind: "listing"): set block(breakable: true)
 
   // ── Titelseite ──────────────────────────────────────────────────────────────
   if title != none {
