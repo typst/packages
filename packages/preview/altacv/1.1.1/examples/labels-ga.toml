@@ -1,0 +1,32 @@
+# Aistriúchán Gaeilge ar labels-en.toml — worked translator example.
+# Load at the call site via:
+#   #alta(cv, labels: toml("labels-ga.toml"))
+#
+# Translator note: section headings use idiomatic Irish CV vocabulary.
+# Some choices are stylistic — e.g. "Caitheamh Aimsire" (pastimes) for
+# `interests` reads more naturally than a literal "Spéiseanna".
+
+work         = "Taithí Oibre"
+volunteer    = "Obair Dheonach"
+focusAreas   = "Réimsí Saineolais"
+skills       = "Scileanna"
+languages    = "Teangacha"
+education    = "Oideachas"
+certificates = "Teastais"
+publications = "Foilseacháin"
+awards       = "Gradaim"
+projects     = "Tionscadail"
+interests    = "Caitheamh Aimsire"
+
+articles = "Ailt"
+
+present = "I láthair"
+
+lastModified = "Nuashonraithe go deireanach"
+
+months = [
+  "Ean", "Fea", "Már", "Aib", "Bea", "Mei",
+  "Iúil", "Lún", "MFó", "DFó", "Sam", "Nol",
+]
+
+[publicationIcons]

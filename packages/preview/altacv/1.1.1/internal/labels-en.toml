@@ -1,0 +1,52 @@
+# Default labels — every display string the template emits. Loaded by
+# `internal/defaults.typ` and merged with caller overrides in `alta()`.
+# Override any subset via `alta(labels: ...)`; unknown keys panic
+# (`internal/validation.typ#_strict_merge`).
+#
+# Keys mirror JSON Resume's section keys (work, certificates, …) so
+# callers think in a single vocabulary. The values are editorial:
+# "Experience" reads better than "Work" as a CV heading, "Certifications"
+# than "Certificates".
+#
+# Translators: copy this file, rename it (e.g. labels-de.toml), and
+# translate the values. Load it at the call site via:
+#   #alta(cv, labels: toml("labels-de.toml"))
+
+# Section headings.
+work         = "Experience"
+volunteer    = "Volunteer"
+focusAreas   = "Areas of Focus"
+skills       = "Skills"
+languages    = "Languages"
+education    = "Education"
+certificates = "Certifications"
+publications = "Publications"
+awards       = "Awards"
+projects     = "Projects"
+interests    = "Interests"
+
+# Cluster heading for publications without an explicit `type`.
+articles = "Articles"
+
+# Rendered in date ranges when `endDate` is empty.
+present = "Present"
+
+# Footer label when `preferences.lastModifiedFooter` is true.
+lastModified = "Last updated"
+
+# Twelve abbreviated month names (January–December). Consumed by the
+# built-in `dateFormat: "long"` formatter and the `[month repr:long]` /
+# `[month repr:short]` template tokens. Must keep length 12 (validated
+# in alta()).
+months = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+]
+
+# Per-`publications[].type` icon overrides. Keys match the `type`
+# string (case-insensitive); values are utility-icon names. The module
+# ships sensible defaults for Articles, Books, Talks, Conference Papers,
+# etc. — see `_default_publication_icons` in `sections/publications.typ`
+# — and falls back to `file` for unknown types. Override here to add a
+# custom type or remap a built-in.
+[publicationIcons]
