@@ -11,6 +11,9 @@
 
 // ── Laufende Kopfzeile ────────────────────────────────────────────────────────
 
+// = Package imports
+#import "@preview/mmdr:0.2.2": mermaid
+
 #let running-header(fallback: [Projektarbeit]) = context {
   let chapter = none
   let section = none
@@ -74,6 +77,10 @@
   school_logo_path: none, // New parameter for school logo
   doc,
 ) = {
+
+  
+
+  // = Shortcuts
   // "hak" im Fließtext → Logo + vollständiger Name
   show regex("(?i)\\bhak\\b"): _ => box[
     #box(image("template/typst_media/logos/Logo_HAK_Imst.png", height: 0.7em))

@@ -686,6 +686,23 @@ quickSort(arr, i, high);
 )
 <code:qj>
 
+== mermaid Diagramme
+
+#figure(
+  mermaid(
+    "graph TD; A-->B;",
+    base-theme: "default",
+    theme: (
+      background: "#f4f4f4",
+      primary_color: "#ff0000",
+    ),
+    layout: (
+      node_spacing: 50,
+    ),
+  ),
+  caption: [Ein Mermaid Diagramm]
+)
+
 == Beispieltext
 <beispieltext>
 = Anhang-Kapitel
