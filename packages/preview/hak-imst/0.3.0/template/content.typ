@@ -405,8 +405,8 @@ BW-Teil
 
 = Zusammenfassung
 <zusammenfassung>
-- Etwas längere Form des Abstracts
 
+- Etwas längere Form des Abstracts
 - Detaillierte Beschreibung des Outputs der Arbeit
 
 = Beispielkapitel
@@ -420,7 +420,8 @@ BW-Teil
 === Kürzel
 <kuerzel>
 
-Wenn man hak schreibt, wird das 
+- h#box()ak wird zu hak
+- k#box()ol wird zu kol
 
 == Beispiele zitieren
 <beispiele-zitieren>
@@ -619,7 +620,7 @@ C T T C A A T A C T A C A C T T G C A G G A T C C $
 
 == Beispiel Codesequenz
 <beispiel-codesequenz>
-In #link(<code:qj>)[\[code:qj\]] sieht man ein Quick-Sort-Listing in der
+In @code:qj sieht man ein Quick-Sort-Listing in der
 Programmiersprache JAVA. Das Listings-Paket übernimmt die Formatierung
 von Codebausteinen und kann in der Präambel nach Belieben auf eine
 andere Sprache konfiguriert werden.
