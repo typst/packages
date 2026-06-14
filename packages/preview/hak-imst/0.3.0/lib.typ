@@ -75,9 +75,14 @@
   doc,
 ) = {
   // "hak" im Fließtext → Logo + vollständiger Name
-  show "hak": _ => box[
+  show regex("(?i)\\bhak\\b"): _ => box[
     #box(image("template/typst_media/logos/Logo_HAK_Imst.png", height: 0.7em))
     Handelsakademie und Handelsschule Imst
+  ]
+
+  show regex("(?i)\\bkol\\b"): _ => box[
+    #box(image("template/typst_media/logos/Logo_Kolleg_Imst.png", height: 0.7em))
+    IT-KOLLEG IMST
   ]
 
   show terms: it => {
