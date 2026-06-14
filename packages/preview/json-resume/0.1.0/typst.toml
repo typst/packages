@@ -1,0 +1,11 @@
+[package]
+name = "json-resume"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Shane Murphy"]
+license = "MIT"
+description = "Load and validate canonical JSON Resume data for any Typst CV template."
+repository = "https://github.com/smur89/typst-json-resume"
+keywords = ["json-resume", "resume", "cv", "loader", "schema"]
+categories = ["utility"]
+compiler = "0.13.0"
