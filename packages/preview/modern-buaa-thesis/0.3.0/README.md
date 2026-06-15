@@ -37,7 +37,7 @@ This package only provides one main API for writing your own graduate thesis, gr
 ```
 
 <p align="center">
-  <a href="./example/thesis.pdf" rel="noopener noreferrer">
+  <a href="https://github.com/wangjq4214/buaa-thesis/blob/main/example/thesis.pdf" rel="noopener noreferrer">
     <img width="600" src="thumbnail.png" alt="buaa logo" />
   </a>
 </p>
