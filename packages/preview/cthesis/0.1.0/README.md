@@ -86,3 +86,8 @@ Level 1 headings now mark appendices instead of chapters.
 ## To do
 - Use new Chalmers logos
 - Abstracts in arbitrary languages
+
+## License
+MIT. See [LICENSE](LICENSE) for details.
+
+The included Chalmers and University of Gothenburg SVG logo assets are derived from the current Chalmers/GU Word cover templates. Their use is subject to the universities’ own visual identity and logo rules.
