@@ -13,6 +13,8 @@
 
 #let draw-arrow(it) = {
   let base = if it.kind == 8 or it.kind == 9{
+    it.size = 2em
+    // 
     // there sadly is no symbol for unequal length harpoon arrows
     // so we have to make it ourselves...
     let is-right = it.kind == 8
