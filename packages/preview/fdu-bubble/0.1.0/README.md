@@ -1,5 +1,8 @@
 # FDU Bubble
 
+FDU Bubble is an unofficial FDU-style Typst template for Chinese report writing,
+with a colorful cover, Chinese typography defaults, and styled code blocks.
+
 一个面向中文报告写作的非官方 FDU 风格 Typst 模板，基于
 `@preview/bubble:0.2.2` 调整而来。样式集中在 `lib.typ`，官方模板入口位于
 `template/main.typ`。
