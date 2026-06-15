@@ -1,0 +1,11 @@
+[package]
+name = "tidymind"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Fora da Curva <https://foradacurva.app>", "Pierry A. Pereira <@pierryangelo>"]
+license = "MIT"
+description = "Draw tidy horizontal mind maps with CeTZ"
+repository = "https://github.com/pierryangelo/tidymind"
+keywords = ["mindmap", "mind-map", "diagram", "tree", "cetz"]
+categories = ["visualization"]
+compiler = "0.14.0"
