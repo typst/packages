@@ -1,0 +1,23 @@
+[package]
+name = "ortic-template"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Ortic Solutions GmbH <info@ortic.com>"]
+license = "MIT"
+description = "Ortic Solutions branded Typst template for technical specifications and reports (ortic-spec show-rule plus callout, req and kv-list helpers)."
+homepage = "https://www.ortic.com"
+repository = "https://github.com/ortic/ortic-typst-template"
+keywords = ["template", "specification", "report", "branding", "ortic"]
+categories = ["report", "office"]
+compiler = "0.12.0"
+
+# Fonts are not auto-loaded from packages by Typst, so they are not shipped in
+# the published bundle. The template falls back to Liberation/DejaVu Sans; for
+# the brand font, install Open Sans system-wide or pass --font-path.
+exclude = [
+    "/fonts",
+    "/example.typ",
+    "/Makefile",
+    "/.vscode",
+    "/.gitignore",
+]
