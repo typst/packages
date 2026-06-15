@@ -1,0 +1,26 @@
+// Schema-kind constants and constructors. Lives in its own module
+// because schema.typ depends on json-schema.typ (for derivation) and
+// json-schema.typ depends on these primitives — extracting them here
+// breaks the cycle.
+
+#let str-type     = (kind: "str")
+#let content-type = (kind: "content")
+#let number-type  = (kind: "number")
+
+#let array-of(elem) = (kind: "array", elem: elem)
+
+// Reject required-keys that don't appear in shape so a schema typo
+// fails at construction time, not as a phantom validation error.
+#let object(shape, required-keys: ()) = {
+  let unknown = required-keys.filter(k => k not in shape)
+  assert(
+    unknown.len() == 0,
+    message: "json-resume: object() required-keys references keys not in shape: " +
+      unknown.join(", ") + ".",
+  )
+  (
+    kind: "object",
+    shape: shape,
+    required-keys: required-keys,
+  )
+}
