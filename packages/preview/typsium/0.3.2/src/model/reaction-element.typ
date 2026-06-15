@@ -19,12 +19,18 @@
       it.plus-spacing
     } else {
       let type-id = e.data(child).eid
-      if type-id == "e_@preview/typsium:0.3.2_---_reaction-arrow" {
+      if type-id == "e_typsium_---_reaction-arrow" {
         it.arrow-spacing
         child
         it.arrow-spacing
-      } else if type-id == "e_@preview/typsium:0.3.2_---_molecule" {
-        if last-type-id == "e_@preview/typsium:0.3.2_---_molecule" or last-type-id == "e_@preview/typsium:0.3.2_---_particle"{
+      }
+      // else if type-id == none{
+      //   // it.molecule-spacing
+      //   child
+      //   // it.molecule-spacing
+      // }
+      else if type-id == "e_typsium_---_molecule" {
+        if last-type-id == "e_typsium_---_molecule" or last-type-id == "e_typsium_---_particle"{
           it.molecule-spacing
         }
 
@@ -33,19 +39,16 @@
         let last-child-type-id = last.eid
         let charge = last.fields.at("charge", default: none)
         let count = last.fields.at("count", default: none)
-        if (
-          last-child-type-id == "e_@preview/typsium:0.3.2_---_group"
-            and (not is-default(charge) or (not is-default(count) and count != 1))
-        ) {
+        if last-child-type-id == "e_typsium_---_group" and (not is-default(charge) or (not is-default(count) and count != 1)) {
           it.group-spacing-correction
         }
-      } else if type-id == "e_@preview/typsium:0.3.2_---_particle"{
-        if last-type-id == "e_@preview/typsium:0.3.2_---_molecule" or last-type-id == "e_@preview/typsium:0.3.2_---_particle"{
+      } else if type-id == "e_typsium_---_particle"{
+        if last-type-id == "e_typsium_---_molecule" or last-type-id == "e_typsium_---_particle"{
           it.molecule-spacing
         }
         child
       }
-      // else if type-id == "e_@preview/typsium:0.3.2_---_group"{
+      // else if type-id == "e_typsium_---_group"{
       //    child
       //    let charge = last.fields.at("charge", default: none)
       //    let count = last.fields.at("count", default: none)
@@ -64,7 +67,7 @@
 
 #let reaction = e.element.declare(
   "reaction",
-  prefix: "@preview/typsium:0.3.2",
+  prefix: "typsium",
 
   display: draw-reaction,
 

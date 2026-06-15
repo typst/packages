@@ -40,7 +40,7 @@
     atomic-number = [#it.z]
   }
   
-  if it.spaced-charge and not is-default(it.charge) and not is-default(it.count) {
+  let result = if it.spaced-charge and not is-default(it.charge) and not is-default(it.count) {
     customizable-attach(
       base,
       t: oxidation-to-content(
@@ -86,12 +86,15 @@
       affect-layout: it.affect-layout,
     )
   }
+
+  // return text(result, red)
+  return result
 }
 }
 
 #let element = e.element.declare(
   "element",
-  prefix: "@preview/typsium:0.3.2",
+  prefix: "typsium",
 
   display: draw-element,
 

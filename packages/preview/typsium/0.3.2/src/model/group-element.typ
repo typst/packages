@@ -16,8 +16,7 @@
 ) = { }
 
 #let draw-group(it) = {
-  let result = customizable-attach(
-    if it.grow-brackets {
+  let result = if it.grow-brackets {
       math.lr({
         get-bracket(it.kind, open: true)
         for child in it.children {
@@ -31,11 +30,16 @@
         child
       }
       get-bracket(it.kind, open: false)
-    },
-    tr: charge-to-content(it.charge),
-    br: count-to-content(it.count),
-    affect-layout: it.affect-layout,
-  )
+    }
+
+  if it.charge != 0 or it.count != 1{
+    result = customizable-attach(
+      result,
+      tr: charge-to-content(it.charge),
+      br: count-to-content(it.count),
+      affect-layout: it.affect-layout,
+    )
+  }
 
   return result
 }
@@ -44,7 +48,7 @@
 
 #let group = e.element.declare(
   "group",
-  prefix: "@preview/typsium:0.3.2",
+  prefix: "typsium",
 
   display: draw-group,
 

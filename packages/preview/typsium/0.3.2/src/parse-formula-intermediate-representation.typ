@@ -1,4 +1,5 @@
 #import "model/molecule-element.typ": molecule
+#import "model/bond-element.typ": bond
 #import "model/reaction-element.typ": reaction
 #import "model/element-element.typ": element
 #import "model/group-element.typ": group
@@ -19,7 +20,7 @@
     // 5: count2     6: charge2
     // 7: oxidation (^^...)
     "^(\^\d+)?(_\d+)?" +
-    "([A-Za-zα-ωΑ-Ω][A-Za-z]?)" +
+    "([A-Za-zα-ωΑ-Ω][a-z]?)" +
     "(?:((?:_?\d+)|(?:_\([^()]*(?:\([^()]*\)[^()]*)*\)))|(\^\.?[+-]?\d+[+-]?|\^[+-]?[IV]+[+-]?|\^\.?[+-.]{1}|\.?[+-]{1}\d?))?" +
     "(?:(_?\d+)|(\^\.?[+-]?\d+[+-]?|\^[+-]?[IV]+[+-]?|\^\.?[+-.]{1}|\^\([^)]*\)|\.?[+-]{1}\d?))?" +
     "(\^\^[+-]?(?:[IViv]{1,3}|\d+))?",
@@ -32,13 +33,15 @@
   ),
   reaction-plus: regex("^\s*\+\s*"),
   reaction-arrow: regex(
-    "^\s*(<->|↔|<=>|⇔|->|→|<-|←|=>|⇒|<=|⇐|-/?\>|</-)" +
+    "^\s*(<->|↔|<=>>|<=>|⇔|->|→|<-|←|=>|⇒|<=|⇐|-\/>|</-|<<=>)" +
     "(?:\[([^\[\]]*)\])?" +
     "(?:\[([^\[\]]*)\])?" +
     "\s*"
   ),
   math: regex("^\$[^$]*?\$"),
-  aggregation: regex("^\((?:s|l|g|aq|cd|cr|fl|lc|vit|a|ads|pol|mon|sln|am)\)"),
+  aggregation: regex("^\((?:s|l|g|aq,oo|aq|cd|cr|fl|lc|vit|a|ads|pol|mon|sln|am)\)"),
+  bond: regex("^(?:——|==|\.\.=|=\.\.|~~\.\.|\.\.~~|~\.\.~|\.\.|~~)"),
+  bond-content: regex("^(?:–|==|\.\.=|=\.\.|\xA0\xA0\.\.|\.\.\xA0\xA0|\xA0\.\.\xA0|\.\.|\xA0\xA0)"),
   count: regex("^\d+"),
 )
 
@@ -132,7 +135,8 @@
     }
   }
 
-  if x.at(0) == none and x.at(1) == none and x.at(2) == false {
+    // how agressively should we convert things to elements? always when possible or only when needed?
+  if x.at(0) == none and x.at(1) == none and x.at(2) == false  and oxidation-number == none and a == none and z == none{
     if formula.at(element-match.end, default: "").match(regex("[a-z]")) != none {
       return (false,)
     }
@@ -165,9 +169,24 @@
     element-match.end,
   )
 }
+#let string-to-bond(remaining) = {
+  let bond-match = remaining.match(patterns.bond)
+  if bond-match == none {
+    return (false,)
+  }
+  let n = if bond-match.text.contains("="){
+    2
+  } else if bond-match.text.contains("~"){
+    3
+  } else{
+    1
+  }
+  let kind = bond-match.text.position("..")
+  if kind == none{kind = 0} else {kind += 1}
+  return (true, bond(n:n, kind:kind), bond-match.end)
+}
 
 #let string-to-particle(formula, count) = {
-
   return if formula.starts-with("proton"){
     (
       true,
@@ -314,23 +333,6 @@
   } else {
     (false, none, 0)
   }
-//   proton
-// antiproton
-// neutron
-// antineutron
-// electron
-// beta
-// positron
-// muon
-// mu
-// photon
-// gamma
-// deuteron
-// triton
-// helion
-// alpha
-// neutrino
-// nu
 }
 
 #let string-to-math(formula) = {
@@ -345,7 +347,7 @@
   reaction-string,
   create-molecules: true,
 ) = {
-  let remaining = reaction-string.trim()
+  let remaining = reaction-string.replace("--", "——")
   if remaining.len() == 0 {
     return ()
   }
@@ -375,6 +377,43 @@
       full-reaction.push($&$)
       remaining = remaining.slice(1)
       continue
+    }
+
+    if remaining.starts-with(" v ") or remaining.starts-with(" ^ "){
+      //flush current molecule
+      if current-molecule-children.len() > 0 {
+        full-reaction.push(
+          molecule(
+            current-molecule-children,
+            count: current-molecule-count,
+            aggregation: current-molecule-phase,
+          ),
+        )
+        current-molecule-children = ()
+        current-molecule-phase = none
+        current-molecule-count = 1
+      }
+      //end flush current molecule
+
+      full-reaction.push(if remaining.at(1) == "v"{sym.arrow.b} else {sym.arrow.t} )
+      remaining = remaining.slice(2)
+    }
+
+    let bond-match = string-to-bond(remaining)
+    if bond-match.at(0){
+      //flush random content
+      if not is-default(random-content) and random-content != " " {
+        if current-molecule-children.len() == 0 {
+          full-reaction.push([#random-content])
+        } else {
+          current-molecule-children.push([#random-content])
+        }
+      }
+      random-content = ""
+      //end flush random content
+      
+      current-molecule-children.push(bond-match.at(1))
+      remaining = remaining.slice(bond-match.at(2))
     }
 
     let math-result = string-to-math(remaining)
@@ -629,7 +668,16 @@
           reaction(bottom)
         }
       }
-      full-reaction.push(reaction-arrow(kind: kind, top: top, bottom: bottom))
+      let a = if top != none and bottom != none{
+        reaction-arrow(kind: kind, top: top, bottom: bottom)
+      } else if top != none{
+        reaction-arrow(kind: kind, top: top)
+      } else if bottom != none{
+        reaction-arrow(kind: kind, bottom: bottom)
+      } else{
+        reaction-arrow(kind: kind)
+      }
+      full-reaction.push(a)
       remaining = remaining.slice(arrow-match.end)
       continue
     }
@@ -660,7 +708,7 @@
     // }
     random-content += remaining.codepoints().at(0)
     remaining = remaining.slice(remaining.codepoints().at(0).len())  
-    }
+  }
 
   //flush current molecule
   if current-molecule-children.len() > 0 {
@@ -687,7 +735,6 @@
   }
   random-content = ""
   //end flush random content
-
 
   return full-reaction
 }

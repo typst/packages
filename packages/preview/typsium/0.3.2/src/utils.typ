@@ -10,7 +10,7 @@
 )
 
 #let arrows = (
-  sym.arrow.r.l,
+  sym.arrows.rl,
   sym.arrow.r,
   sym.arrow.l,
   sym.arrow.r.double,
@@ -18,6 +18,8 @@
   sym.arrow.r.not,
   sym.arrow.l.not,
   sym.harpoons.rtlb,
+  sym.harpoon.rt,
+  sym.harpoon.lb,
 )
 #let roman-numerals = (
   "0",
@@ -50,6 +52,8 @@
   "</-": 6,
   "<=>": 7,
   "⇔": 7,
+  "<=>>": 8,
+  "<<=>": 9,
 )
 
 #let get-bracket(kind, open: true) = {
@@ -154,6 +158,7 @@
 
 #let typst-builtin-sequence = ([A] + [ ] + [B]).func()
 #let typst-builtin-styled = [#set text(fill: red)].func()
+#let typst-builtin-symbol = [--].func()
 #let typst-builtin-context = [#context {}].func()
 #let typst-builtin-space = [ ].func()
 

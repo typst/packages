@@ -40,7 +40,7 @@
   math.equation(
     if type(formula) == str{
       show "*": sym.dot
-      let result = string-to-reaction(formula)
+      let result = string-to-reaction(formula + " ")
       if result.len() == 1{
         result.at(0)
       } else {

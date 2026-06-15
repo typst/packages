@@ -1,4 +1,5 @@
 #import "@preview/elembic:1.1.1" as e: selector
+#import "model/bond-element.typ": bond
 #import "model/arrow-element.typ": reaction-arrow
 #import "model/element-element.typ": element
 #import "model/group-element.typ": group
@@ -10,59 +11,59 @@
 
 /// Use this to modify how elements are displayed.
 #let set-element(
-  /// This will offset the charge symbol to the right so that it's not directly above the count. This may be more useful for  @set-element.radical-symbol ACS notation.
+  /// This will offset the charge symbol to the right so that it's not directly above the count. This may be more useful for ACS notation.
   /// ```example
-  /// $ce("NH4-")$
+  /// #ce("NH4-")
   /// >>> #v(0em)
   /// #show: set-element(spaced-charge: true)
-  /// $ce("NH4-")$
+  /// #ce("NH4-")
   /// ```
   /// -> bool
   spaced-charge: false,
   /// This will determine whether oxidation numbers will be shown using roman numerals or arabic numerals.
   /// ```example
   /// >>> #v(0.25em)
-  /// $ce("H2^^1O^^-2")$
+  /// #ce("H2^^1O^^-2")
   /// >>> #v(0em)
   /// #show: set-element(roman-oxidation: false)
-  /// $ce("H2^^1O^^-2")$
+  /// #ce("H2^^1O^^-2")
   /// ```
   /// -> bool
   roman-oxidation: true,
   /// This will determine whether charges will be shown using roman numerals or arabic numerals.
   /// ```example
   /// >>> #v(0.25em)
-  /// $ce("Fe+3")$
+  /// #ce("Fe+3")
   /// >>> #v(0.25em)
   /// #show: set-element(roman-charge: true)
-  /// $ce("Fe^3")$
+  /// #ce("Fe^3")
   /// ```
   /// -> bool
   roman-charge: false,
   /// Customise the appearance of the radical dot.
   /// ```example
-  /// $ce("Br^.")$
+  /// #ce("Br^.")
   /// >>> #v(0.25em)
   /// #show: set-element(radical-symbol: sym.dot)
-  /// $ce("Br^.")$
+  /// #ce("Br^.")
   /// ```
   /// -> content
   radical-symbol: sym.bullet,
   /// Customise the appearance of the minus symbol.
   /// ```example
-  /// $ce("Cl-")$
+  /// #ce("Cl-")
   /// >>> #v(0.25em)
   /// #show: set-element(negative-symbol: sym.minus.o)
-  /// $ce("Cl-")$
+  /// #ce("Cl-")
   /// ```
   /// -> content
   negative-symbol: math.minus,
   /// Customise the appearance of the plus symbol.
   /// ```example
-  /// $ce("Na+")$
+  /// #ce("Na+")
   /// >>> #v(0.25em)
   /// #show: set-element(positive-symbol: sym.plus.o)
-  /// $ce("Na+")$
+  /// #ce("Na+")
   /// ```
   /// -> content
   positive-symbol: math.plus,
@@ -81,7 +82,7 @@
 
 /// Use this to modify how groups are displayed in your document
 ///```example
-/// $ce("(2{[Fe(CN)6]^4+}2-3)")$
+/// #ce("(2{[Fe(CN)6]^4+}2-3)")
 ///
 /// >>> #v(2em)
 /// #show: set-group(
@@ -89,7 +90,7 @@
 ///   affect-layout:true,
 /// )
 ///
-/// $ce("(2{[Fe(CN)6]^4+}2-3)")$
+/// #ce("(2{[Fe(CN)6]^4+}2-3)")
 /// ```
 /// -> show rule
 #let set-group(
@@ -102,14 +103,14 @@
   affect-layout: affect-layout,
 )
 
-/// Use this to permanently modify what gets drawn on top of all arrows. Don't use this if you are looking to add content on top of just one arrow. Use the squared brackets after the arrow instead.
+/// Use this to permanently modify what gets drawn on top of all arrows. Don't use this if you are looking to add content on top of just one arrow. Use the squared brackets after the arrow instead. These will overwrite the show rule for the specific instance.
 /// ```example
 /// >>> #v(1em)
 /// #show: set-arrow(
-/// top:[Hello],
-/// bottom:[World],
+///   top:[Hello],
+///   bottom:[World],
 /// )
-/// $ce("A + B -> C")$
+/// #ce("A + B -> C")
 /// ```
 /// -> show rule
 #let set-arrow(
@@ -120,21 +121,61 @@
   bottom: bottom,
 )
 
+/// Use this to modify the way bonds get drawn
+/// ```example
+/// >>> #v(1em)
+/// #show: set-bond(
+///   length: 2em
+/// )
+/// #ce("H2C==CH2")
+/// ```
+/// -> show rule
+#let set-bond(
+  /// Width of the bond
+  length: 0.5em,
+  /// Vertical spacing between each bond line
+  spacing: 0.15em,
+  /// stroke settings used to draw the normal bonds
+/// ```example
+/// >>> #v(1em)
+/// #show: set-bond(
+///   stroke: stroke(paint:red, thickness:1pt, cap:"round", dash:"dotted")
+/// )
+/// #ce("H2C==CH2")
+/// ```
+  stroke:(thickness: 0.5pt,),
+  /// stroke settings used to draw the non covalent bonds
+  non-covalent-stroke:(thickness: 0.5pt,dash: ("dot",),),
+) = e.set_.with(bond)(
+  length:length,
+  spacing:spacing,
+  stroke:stroke,
+  non-covalent-stroke:non-covalent-stroke,
+)
+
 /// Use this to modify the way reactions get drawn
 /// ```example
 /// >>> #v(1em)
 /// #show: set-reaction(
+///   plus-spacing: box(fill:red, width:1em, height:1em),
+///   arrow-spacing: h(2em),
 /// )
-/// $ce("A + B -> C")$
+/// #ce("A + B -> C")
 /// ```
 /// -> show rule
 #let set-reaction(
+  /// spacing applied in front of and behind + symbols
   plus-spacing: h(0.4em, weak: true),
+  /// spacing applied in front of and behind of reaction arrows
   arrow-spacing: h(0.4em, weak: true),
+  /// spacing applied between molecules
+  molecule-spacing:sym.space.nobreak,
+  /// spacing applied so that groups don't have big empty space after them
   group-spacing-correction: h(-0.4em),
 ) = e.set_.with(reaction)(
   plus-spacing: plus-spacing,
   arrow-spacing: arrow-spacing,
+  molecule-spacing:molecule-spacing,
   group-spacing-correction: group-spacing-correction,
 )
 
@@ -143,6 +184,9 @@
   /// the content used for the spacing between the stochiometric number and the rest of the molecule
   /// -> content
   count-spacing: sym.space.nobreak,
+  /// spacing applied in front of and behind of bonds
+  bond-spacing: h(0.1em),
 ) = e.set_.with(molecule)(
-  count-spacing: count-spacing
+  count-spacing: count-spacing,
+  bond-spacing: bond-spacing,
 )

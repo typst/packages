@@ -54,7 +54,7 @@
 
 #let particle = e.element.declare(
   "particle",
-  prefix: "@preview/typsium:0.3.2",
+  prefix: "typsium",
 
   display: draw-particle,
 

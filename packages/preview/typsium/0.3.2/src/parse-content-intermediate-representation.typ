@@ -1,11 +1,12 @@
 #import "model/molecule-element.typ": molecule
+#import "model/bond-element.typ": bond
 #import "model/reaction-element.typ": reaction
 #import "model/element-element.typ": element
 #import "model/group-element.typ": group
 #import "model/arrow-element.typ": reaction-arrow
 #import "utils.typ": (
   arrow-string-to-kind, get-all-children, is-default, is-kind, is-metadata, length, reconstruct-content-from-strings,
-  reconstruct-nested-content, roman-to-number, typst-builtin-context, typst-builtin-styled,
+  reconstruct-nested-content, roman-to-number, typst-builtin-context, typst-builtin-styled,typst-builtin-symbol,
 )
 #import "parse-formula-intermediate-representation.typ": patterns
 
@@ -117,7 +118,8 @@
     }
   }
 
-  if x.at(0) == none and x.at(1) == none and x.at(2) == false {
+  // how agressively should we convert things to elements? always when possible or only when needed?
+  if x.at(0) == none and x.at(1) == none and x.at(2) == false  and oxidation-number == none and a == none and z == none{
     if formula.at(element-match.end, default: "").match(regex("[a-z]")) != none {
       return (false,)
     }
@@ -145,20 +147,187 @@
   )
 }
 
-#let string-to-math(formula) = {
-  let match = formula.match(patterns.math)
-  if match == none {
+#let string-to-bond(remaining, full-string, templates, index) = {
+  let bond-match = remaining.match(patterns.bond-content)
+  if bond-match == none {
     return (false,)
   }
-  return (true, eval(match.text), match.end)
+  bond-match.text = bond-match.text.replace("\u{00A0}", "~")
+  let n = if bond-match.text.contains("="){
+    2
+  } else if bond-match.text.contains("~"){
+    3
+  } else{
+    1
+  }
+  let kind = bond-match.text.position("..")
+  if kind == none{kind = 0} else {kind += 1}
+  return (true, bond(n:n, kind:kind), bond-match.end)
 }
+
+#let string-to-particle(formula, count) = {
+  return if formula.starts-with("proton"){
+    (
+      true,
+      particle(
+         "p",
+        charge: 1,
+        count:count,
+      ),
+      6
+    )
+  }else if formula.starts-with("antiproton"){
+    (
+      true,
+      particle(
+         "ap",
+        charge: 0,
+        count:count,
+      ),
+      10
+    )
+  } else if formula.starts-with("neutrino"){
+    (
+      true,
+      particle(
+         "ne",
+        charge: 0,
+        count:count,
+      ),
+      8
+    )
+  } else if formula.starts-with("antineutrino"){
+    (
+      true,
+      particle(
+         "ane",
+        charge: 0,
+        count:count,
+      ),
+      12
+    )
+  } else if formula.starts-with("neutron"){
+    (
+      true,
+      particle(
+         "n",
+        charge: 0,
+        count:count,
+      ),
+      7
+    )
+  } else if formula.starts-with("antineutron"){
+    (
+      true,
+      particle(
+         "an",
+        charge: 0,
+        count:count,
+      ),
+      11
+    )
+  } else if formula.starts-with("electron"){
+    (
+      true,
+      particle(
+         "e",
+        charge: -1,
+        count:count,
+      ),
+      8
+    )
+  }else if formula.starts-with("positron"){
+    (
+      true,
+      particle(
+         "e",
+        charge: 1,
+        count:count,
+      ),
+      8
+    )
+  } else if formula.starts-with("muon"){
+    let charge = if formula.len() >4 {if formula.at(4) == "-"{-1} }
+    (
+      true,
+      particle(
+        "m",
+        charge: charge,
+        count:count,
+      ),
+      4 + calc.abs(charge)
+    )
+  } else if formula.starts-with("mu"){
+    let charge = if formula.len() >2 {if formula.at(2) == "-"{-1} }
+    (
+      true,
+      particle(
+         "m",
+        charge: charge,
+        count:count,
+      ),
+      2 + calc.abs(charge)
+    )
+  } else if formula.starts-with("photon"){
+    (
+      true,
+      particle(
+         "g",
+        charge: 0,
+        count:count,
+      ),
+      6
+    )
+  } else if formula.starts-with("gamma"){
+    (
+      true,
+      particle(
+         "g",
+        charge: 0,
+        count:count,
+      ),
+      5
+    )
+  } else if formula.starts-with("beta"){
+    let charge = if formula.len() >4 {if formula.at(4) == "-"{-1} else if formula.at(4) == "+"{1} else{0}} else {0}
+    (
+      true,
+      particle(
+         "b",
+        charge: charge,
+        count:count,
+      ),
+      4 + calc.abs(charge)
+    )
+  } else if formula.starts-with("alpha"){
+    (
+      true,
+      particle(
+         "a",
+        charge: 0,
+        count:count,
+      ),
+      5
+    )
+  } else {
+    (false, none, 0)
+  }
+}
+
+// #let string-to-math(formula) = {
+//   let match = formula.match(patterns.math)
+//   if match == none {
+//     return (false,)
+//   }
+//   return (true, eval(match.text), match.end)
+// }
 
 #let string-to-reaction(
   reaction-string,
   templates,
   create-molecules: true,
 ) = {
-  let remaining = reaction-string
+  let remaining = reaction-string//.replace("\u{00A0}\u{00A0}", "~~")
   if remaining.len() == 0 {
     return ()
   }
@@ -193,14 +362,9 @@
       continue
     }
 
-    let math-result = string-to-math(remaining)
-    if math-result.at(0) {
+    let bond-match = string-to-bond(remaining, reaction-string, templates, index)
+    if bond-match.at(0){
       //flush random content
-      if current-molecule-count != none{
-        random-content += current-molecule-count-len
-        current-molecule-count = none
-        current-molecule-count-len = 0
-      }
       if random-content != 0 {
         if current-molecule-children.len() == 0 {
           full-reaction.push(
@@ -224,12 +388,49 @@
         random-content = 0
       }
       //end flush random content
-
-      full-reaction.push(math-result.at(1))
-      remaining = remaining.slice(math-result.at(2))
-      index += math-result.at(2)
-      continue
+      
+      current-molecule-children.push(bond-match.at(1))
+      remaining = remaining.slice(bond-match.at(2))
+      index += bond-match.at(2)
     }
+
+    // let math-result = string-to-math(remaining)
+    // if math-result.at(0) {
+    //   //flush random content
+    //   if current-molecule-count != none{
+    //     random-content += current-molecule-count-len
+    //     current-molecule-count = none
+    //     current-molecule-count-len = 0
+    //   }
+    //   if random-content != 0 {
+    //     if current-molecule-children.len() == 0 {
+    //       full-reaction.push(
+    //         reconstruct-content-from-strings(
+    //           reaction-string,
+    //           templates,
+    //           start: index - random-content,
+    //           end: index,
+    //         ),
+    //       )
+    //     } else {
+    //       current-molecule-children.push(
+    //         reconstruct-content-from-strings(
+    //           reaction-string,
+    //           templates,
+    //           start: index - random-content,
+    //           end: index,
+    //         ),
+    //       )
+    //     }
+    //     random-content = 0
+    //   }
+    //   //end flush random content
+
+    //   full-reaction.push(math-result.at(1))
+    //   remaining = remaining.slice(math-result.at(2))
+    //   index += math-result.at(2)
+    //   continue
+    // }
 
     let element = string-to-element(remaining, reaction-string, templates, index)
     if element.at(0) {
@@ -638,6 +839,7 @@
   let full-string = ""
   let templates = ()
   for child in children {
+    // let x = type(child)
     if is-metadata(child) {
       let elembic-data = e.data(child.value)
       if elembic-data.id.name == "element-variable" {
@@ -664,10 +866,12 @@
         let x = eval(child.text)
         full-string += "#"
         templates.push(())
-      } else if func-type == text {
+      } else if func-type == text or func-type == typst-builtin-symbol{
         full-string += child.text
         for value in child.text {
-          templates.push(())
+          for _ in range(value.len()) {
+            templates.push(())
+          }
         }
       } else if func-type == typst-builtin-styled {
         let (inner-full-strings, inner-templates) = create-full-string(get-all-children(child.child))
@@ -676,7 +880,7 @@
         }
         full-string += inner-full-strings
         templates += inner-templates
-      } else if (
+      }else if (
         func-type
           in (
             math.overbrace,
