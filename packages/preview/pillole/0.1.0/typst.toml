@@ -1,5 +1,5 @@
 [package]
-name = "Pillole"
+name = "pillole"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Adriano Fantini <@adrfantini>"]

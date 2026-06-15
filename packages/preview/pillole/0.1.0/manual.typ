@@ -31,7 +31,7 @@ Import the package and call `pill`, the only exported function:
   )
 
   ```typ
-  #import "@preview/Pillole:0.1.0": pill
+  #import "@preview/pillole:0.1.0": pill
 
   A #pill("priority")[critical] item should be done first.
 
@@ -106,7 +106,7 @@ Also works with mixed scripts and scales correctly with text size: \
 // in those doc-comments.
 #let module-docs = tidy.parse-module(
   read("lib.typ"),
-  name: "Pillole",
+  name: "pillole",
   scope: (pill: pill),
 )
 #tidy.show-module(
