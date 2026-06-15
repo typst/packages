@@ -31,18 +31,18 @@
     #align(center + horizon)[#box(width: 90%)[#image]]
       
     #align(bottom)[
-      #huge(weight: "bold", hyphenate: false, title)
+      #xx-large(weight: "bold", hyphenate: false, title)
       #linebreak()
       #if subtitle != "" {
         v(0.25em)
-        Large(subtitle)
+        x-large(subtitle)
       }
       #v(1em)
       #large[
         #THESIS_TYPE #tr("inom", "in") #program
       ]
       #v(1em)
-      #Large[#upper[#authors.join(linebreak())]]
+      #x-large[#upper[#authors.join(linebreak())]]
       #v(3em)
       #align(center)[#line(length: 100%, stroke: 1pt)]
       #v(-0.25em)

@@ -1,6 +1,6 @@
 #import "covers.typ": front-cover, back-cover
 #import "front-matter.typ": title-page, imprint, abstract-page, abstract, acknowledgments-page, abbreviations-list, nomenclature-list, preface-page
-#import "utils.typ": tr, pagebreak-recto, small, large, Large, huge, heading-style
+#import "utils.typ": tr, pagebreak-recto, small, large, x-large, xx-large, heading-style
 
 #let in-outline = state("in-outline", false)
 #let caption(long, short) = context if in-outline.get() { short } else { long }

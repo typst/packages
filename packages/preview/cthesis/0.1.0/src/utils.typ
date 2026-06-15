@@ -1,7 +1,7 @@
 #let small = text.with(0.90em)
 #let large = text.with(1.2em)
-#let Large = text.with(1.2*1.2em)
-#let huge = text.with(1.2*1.2*1.2*1.2em)
+#let x-large = text.with(1.2*1.2em)
+#let xx-large = text.with(1.2*1.2*1.2*1.2em)
 
 #let tr(sv, en) = context { 
   if text.lang == "sv" { sv } 

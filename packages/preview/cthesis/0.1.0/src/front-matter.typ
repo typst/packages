@@ -18,7 +18,7 @@
     ]
   
     align(horizon + center)[
-        #Large(weight: "bold", title)
+        #x-large(weight: "bold", title)
         #if subtitle != "" {
           v(1cm)
           large(subtitle)
