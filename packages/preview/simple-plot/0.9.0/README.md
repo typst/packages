@@ -14,13 +14,13 @@ Click on an image to see the source code.
 
 | | | |
 |:---:|:---:|:---:|
-| [![Parabola plot with labeled vertex and roots](gallery/parabola.png)](https://github.com/nathan-ed/typst-package-simple-plot/blob/main/gallery/parabola.typ) | [![Trigonometric functions sin and cos with grid](gallery/trig-functions.png)](https://github.com/nathan-ed/typst-package-simple-plot/blob/main/gallery/trig-functions.typ) | [![Scatter plot with data points](gallery/scatter.png)](https://github.com/nathan-ed/typst-package-simple-plot/blob/main/gallery/scatter.typ) |
+| [![Parabola plot with labeled vertex and roots](gallery/parabola.png)](gallery/parabola.typ) | [![Trigonometric functions sin and cos with grid](gallery/trig-functions.png)](gallery/trig-functions.typ) | [![Scatter plot with data points](gallery/scatter.png)](gallery/scatter.typ) |
 | Parabola | Trigonometric Functions | Scatter Plot |
-| [![Exponential and logarithmic function plots](gallery/exponential.png)](https://github.com/nathan-ed/typst-package-simple-plot/blob/main/gallery/exponential.typ) | [![Data points with polynomial model fit curve](gallery/data-fit.png)](https://github.com/nathan-ed/typst-package-simple-plot/blob/main/gallery/data-fit.typ) | [![Available marker types: circle, square, triangle, diamond](gallery/markers.png)](https://github.com/nathan-ed/typst-package-simple-plot/blob/main/gallery/markers.typ) |
+| [![Exponential and logarithmic function plots](gallery/exponential.png)](gallery/exponential.typ) | [![Data points with polynomial model fit curve](gallery/data-fit.png)](gallery/data-fit.typ) | [![Available marker types: circle, square, triangle, diamond](gallery/markers.png)](gallery/markers.typ) |
 | Exponential & Logarithmic | Data with Model Fit | Marker Types |
-| [![Extended axes with custom tick labels and unit](gallery/extended-axes.png)](https://github.com/nathan-ed/typst-package-simple-plot/blob/main/gallery/extended-axes.typ) | [![Area fills, hatching, and Riemann sum overlays](gallery/area-features-1.png)](https://github.com/nathan-ed/typst-package-simple-plot/blob/main/gallery/area-features.typ) | [![3D-style volume of revolution with disk cross-sections](gallery/revolution-1.png)](https://github.com/nathan-ed/typst-package-simple-plot/blob/main/gallery/revolution.typ) |
+| [![Extended axes with custom tick labels and unit](gallery/extended-axes.png)](gallery/extended-axes.typ) | [![Area fills, hatching, and Riemann sum overlays](gallery/area-features-1.png)](gallery/area-features.typ) | [![3D-style volume of revolution with disk cross-sections](gallery/revolution-1.png)](gallery/revolution.typ) |
 | Extended Axes | Area Fills & Riemann Sums | Volume of Revolution |
-| [![All five Riemann sum methods with annotation features](gallery/riemann-features-1.png)](https://github.com/nathan-ed/typst-package-simple-plot/blob/main/gallery/riemann-features.typ) | | |
+| [![All five Riemann sum methods with annotation features](gallery/riemann-features-1.png)](gallery/riemann-features.typ) | | |
 | Riemann Sum Features | | |
 
 ## Features
