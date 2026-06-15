@@ -23,8 +23,10 @@
 /// Renders a thesis cover page.
 ///
 /// - lang (string): Language code, either `"en"` or `"ro"`.
-/// - title (string): Title of the thesis.
-/// - subtitle (string, none): Optional subtitle.
+/// - title (string, dictionary): Title of the thesis. Pass a dictionary keyed by language code
+///   for per-language titles, e.g. `(en: "My Title", ro: "Titlul Meu")`.
+/// - subtitle (string, dictionary, none): Optional subtitle. Pass a dictionary keyed by language
+///   code for per-language subtitles, e.g. `(en: "Subtitle", ro: "Subtitlu")`.
 /// - author (string): Full name of the author.
 /// - advisor (string): Full name of the thesis advisor.
 /// - year (string): Academic year (e.g. `"2026"`).
@@ -46,6 +48,8 @@
 ) = {
   let str = _ui-strings.at(lang)
   let project-type-label = if project-type != none { project-type.at(lang) } else { str.project-type }
+  let title-text = if type(title) == dictionary { title.at(lang) } else { title }
+  let subtitle-text = if type(subtitle) == dictionary { subtitle.at(lang, default: none) } else { subtitle }
 
   set page(
     paper: "a4",
@@ -77,9 +81,9 @@
 
     #v(2cm)
 
-    #text(size: 14pt)[#title] \
-    #if subtitle != none {
-      text(size: 14pt)[#subtitle]
+    #text(size: 14pt)[#title-text] \
+    #if subtitle-text != none {
+      text(size: 14pt)[#subtitle-text]
     }
   ]
 
@@ -153,8 +157,10 @@
 /// Top-level show rule. Renders one cover page per entry in `langs` and applies document settings.
 ///
 /// - langs (array): List of language codes to render cover pages for. Supported values: `"en"`, `"ro"`.
-/// - title (string): Title of the thesis.
-/// - subtitle (string, none): Optional subtitle.
+/// - title (string, dictionary): Title of the thesis. Pass a dictionary keyed by language code
+///   for per-language titles, e.g. `(en: "My Title", ro: "Titlul Meu")`.
+/// - subtitle (string, dictionary, none): Optional subtitle. Pass a dictionary keyed by language
+///   code for per-language subtitles, e.g. `(en: "Subtitle", ro: "Subtitlu")`.
 /// - author (string): Full name of the author.
 /// - advisor (string): Full name of the thesis advisor.
 /// - year (string): Academic year (e.g. `"2026"`).

@@ -1,5 +1,5 @@
 [package]
-name = "upb-cs-thesis"
+name = "precis-upb-cs"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Codrut-Stefan Ursache <ursache.codrut71@gmail.com>"]

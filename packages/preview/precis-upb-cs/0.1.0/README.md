@@ -1,4 +1,4 @@
-# upb-cs-thesis
+# precis-upb-cs
 
 Typst thesis template for the **Faculty of Automatic Control and Computers** at [UNSTPB](https://upb.ro) (Universitatea Națională de Știință și Tehnologie Politehnica București).
 
@@ -7,17 +7,17 @@ Provides a cover page and document settings following the faculty's formatting r
 ## Usage
 
 ```typ
-#import "@preview/upb-cs-thesis:0.1.0": upb-thesis, abstract, synopsis
+#import "@preview/precis-upb-cs:0.1.0": upb-thesis, abstract, synopsis
 
 #show: upb-thesis.with(
   langs: ("en", "ro"),
-  title: "My Thesis Title",
-  subtitle: "Optional Subtitle",
+  title: (en: "My Thesis Title", ro: "Titlul Tezei Mele"),
+  subtitle: (en: "Optional Subtitle", ro: "Subtitlu Opțional"),
   author: "First Last",
   advisor: "Prof. Dr. First Last",
   year: "2026",
-  logo-left: image("images/logo-poli-color9.png", width: 3cm),
-  logo-right: image("images/sigla_cs.png", width: 5cm),
+  logo-left: image("images/logo-university.png", width: 3cm),
+  logo-right: image("images/logo-faculty.png", width: 5cm),
 )
 
 #abstract[
@@ -29,6 +29,8 @@ Provides a cover page and document settings following the faculty's formatting r
 ...
 ```
 
+A single string can be used when the same title applies to all cover pages.
+
 ## API
 
 ### `upb-thesis`
@@ -38,21 +40,21 @@ Top-level show rule. Renders the cover page and applies document settings to the
 ```typ
 #show: upb-thesis.with(
   langs: ("en", "ro"),
-  title: "My Thesis Title",
-  subtitle: "Optional Subtitle",
+  title: (en: "My Thesis Title", ro: "Titlul Tezei Mele"),
+  subtitle: (en: "Optional Subtitle", ro: "Subtitlu Opțional"),
   author: "First Last",
   advisor: "Prof. Dr. First Last",
   year: "2026",
-  logo-left: image("images/logo-poli-color9.png", width: 3cm),
-  logo-right: image("images/sigla_cs.png", width: 5cm),
+  logo-left: image("images/logo-university.png", width: 3cm),
+  logo-right: image("images/logo-faculty.png", width: 5cm),
 )
 ```
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `langs` | array | `("en",)` | Language codes for cover pages — one cover rendered per entry. Supported values: `"en"`, `"ro"` |
-| `title` | string | `""` | Thesis title |
-| `subtitle` | string \| none | `none` | Optional subtitle |
+| `title` | string \| dictionary | `""` | Thesis title. Pass a dictionary for per-language titles, e.g. `(en: "My Title", ro: "Titlul Meu")` |
+| `subtitle` | string \| dictionary \| none | `none` | Optional subtitle. Pass a dictionary for per-language subtitles, e.g. `(en: "Subtitle", ro: "Subtitlu")` |
 | `author` | string | `""` | Author's full name |
 | `advisor` | string | `""` | Thesis advisor's full name |
 | `year` | string | `"2026"` | Year displayed on the cover |
@@ -72,3 +74,7 @@ Render a bold-titled section for the abstract or synopsis.
 ### Advanced
 
 `cover-page` and `project-settings` are exported for users who need to compose the template manually or override the defaults.
+
+## Logos
+
+The logo files included in the template (`template/images/logo-university.png` and `template/images/logo-faculty.png`) are the property of [UNSTPB](https://upb.ro) and the Faculty of Automatic Control and Computers, respectively. They are included with permission and may be freely used for creating thesis documents at the faculty. They are **not** covered by the MIT license that applies to the template code.
