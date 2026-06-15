@@ -23,7 +23,7 @@ Task-centric CAS for Typst with Builder-style orchestration and structured resul
 ## Quick Start
 
 ```typst
-#import "@preview/typcas:0.2.1": *
+#import "@preview/typcas:0.2.3": *
 
 #let r = cas.simplify("sin(x)^2 + cos(x)^2")
 
