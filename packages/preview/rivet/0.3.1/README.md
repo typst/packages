@@ -9,7 +9,7 @@ It is based on the [homonymous Python script](https://git.kb28.ch/HEL/rivet/)
   <tr>
     <td>
       <a href="./gallery/example1.typ">
-        <img src="./gallery/example1.png" width="1000px">
+        <img src="./gallery/example1.png" width="1000px" alt="A black on white diagram showing the bit structure of a machine instruction, detailing operands, flags and selectors.">
       </a>
     </td>
   </tr>
@@ -19,7 +19,7 @@ It is based on the [homonymous Python script](https://git.kb28.ch/HEL/rivet/)
   <tr>
     <td>
       <a href="./gallery/example2.typ">
-        <img src="./gallery/example2.png" width="1000px">
+        <img src="./gallery/example2.png" width="1000px" alt="A white on blue diagram showing the bit structure of RISC-V memory instructions, detailing operands, flags and selectors.">
       </a>
     </td>
   </tr>

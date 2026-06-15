@@ -76,8 +76,9 @@
   }
 
   return (
-    bits: elmt.attrs.bits,
-    ranges: ranges
+    bits: int(elmt.attrs.bits),
+    ranges: ranges,
+    start: elmt.attrs.at("start", default: 0)
   )
 }
 

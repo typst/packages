@@ -105,7 +105,7 @@ Since the XML format is quite different from the other, you might find it helpfu
 
 A schema contains a dictionary of structures. There must be at least one defined structure named "main".
 
-It can also optionnaly contain a "colors" dictionary. More details about this in #link(<format-colors>)[Colors]
+It can also optionally contain a "colors" dictionary. More details about this in #link(<format-colors>)[Colors]
 
 ```json
 {
@@ -363,7 +363,7 @@ structures:
 #let x = schema.xml-loader.load("schema.xml")
 #let s = schema.load(x)
 // From file
-#let x = schema.xml-loader.parse(yaml("schema.yaml").first())
+#let x = schema.xml-loader.parse(xml("schema.xml").first())
 #let s = schema.load(x)
 // Raw block
 #let s = schema.load(```xml

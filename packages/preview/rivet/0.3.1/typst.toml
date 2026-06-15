@@ -9,6 +9,6 @@ authors = [
 ]
 categories = [ "visualization" ]
 license = "Apache-2.0"
-description = "Register / Instruction Visualizer & Explainer Tool with Typst, using CeTZ"
+description = "Register / Instruction Visualizer & Explainer Tool, using CeTZ"
 keywords = [ "assembly", "instruction", "binary" ]
 exclude = [ "gallery", "justfile", "docs" ]

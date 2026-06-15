@@ -1,16 +1,17 @@
-#import "../src/lib.typ": *
+#import "@preview/rivet:0.3.1": *
 
-#let test-yaml = schema.load("/gallery/test.yaml")
+#let test-yaml = schema.load(yaml("./test.yaml"))
 #schema.render(test-yaml, config: config.config(
   full-page: true
 ))
 
-#let test-json = schema.load("/gallery/test.json")
+#let test-json = schema.load(json("./test.json"))
 #schema.render(test-json, config: config.blueprint(
   full-page: true
 ))
 
-#let test-xml = schema.load("/gallery/test.xml")
+#let test-xml-raw = schema.xml-loader.parse(xml("./test.xml").first())
+#let test-xml = schema.load(test-xml-raw)
 #schema.render(test-xml, config: config.dark(
   full-page: true
 ))
