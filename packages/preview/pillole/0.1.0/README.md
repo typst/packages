@@ -13,7 +13,7 @@ The name "pillole" is Italian for "pills", and is pronounced like "pill-oh-leh".
 Import from the Typst package registry:
 
 ```typ
-#import "@preview/illole:0.1.0": pill
+#import "@preview/pillole:0.1.0": pill
 
 A #pill("priority")[critical] item should be done first.
 
