@@ -7,6 +7,16 @@ with a colorful cover, Chinese typography defaults, and styled code blocks.
 `@preview/bubble:0.2.2` 调整而来。样式集中在 `lib.typ`，官方模板入口位于
 `template/main.typ`。
 
+## Logo and Trademark Notice
+
+The bundled Fudan University logo is included based on Wikimedia Commons'
+[`File:Fudan University Logo.svg`](https://commons.wikimedia.org/wiki/File:Fudan_University_Logo.svg),
+which marks the logo as public domain in China and the United States and cites
+Fudan University's official `logo.zip` as its source. The logo may still be
+protected as a trademark. This package does not grant trademark rights or imply
+endorsement by Fudan University; users are responsible for following the
+university's identity guidelines and applicable trademark rules.
+
 ## 特性
 
 - 开箱即用，可以直接在vscode下载tinymist使用，高度可定制（自行修改lib.typ即可）
