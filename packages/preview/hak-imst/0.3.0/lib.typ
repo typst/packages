@@ -58,7 +58,7 @@
 #let _diplomarbeit(
   title: none,
   subtitle: none,
-  projecttype: none,
+  projecttype: "Diplomarbeit",
   titlepage_variant: "hak",
   team: none,
   supervisors: none,
@@ -72,7 +72,7 @@
   font: none,
   fontsize: 12.5pt,
   sectionnumbering: none,
-  responsible_default: [Gabi Sorglos],
+  responsible_default: [Susanne Sorglos],
   project_partner_logo_path: none, // New parameter for project partner logo
   school_logo_path: none, // New parameter for school logo
   doc,
@@ -267,6 +267,145 @@
       )
     ],
   )
+
+  if cols == 1 { doc } else { columns(cols, doc) }
+}
+
+#let report(
+  title: none,
+  subtitle: none,
+  projecttype: "Bericht",
+  titlepage_variant: "hak",
+  author: none,
+  location: none,
+  date: none,
+  abstract: none,
+  cols: 1,
+  margin: (x: 1.25in, y: 1.25in),
+  paper: "a4",
+  lang: "de",
+  region: "AT",
+  font: none,
+  fontsize: 12.5pt,
+  sectionnumbering: none,
+  responsible_default: [Susanne Sorglos],
+  project_partner_logo_path: none, // New parameter for project partner logo
+  school_logo_path: none, // New parameter for school logo
+  doc,
+) = {  
+
+  // = Shortcuts
+  // "hak" im Fließtext → Logo + vollständiger Name
+  show regex("(?i)\\bhak\\b"): _ => box[
+    #box(image("template/typst_media/logos/Logo_HAK_Imst.png", height: 0.7em))
+    Handelsakademie und Handelsschule Imst
+  ]
+
+  show regex("(?i)\\bkol\\b"): _ => box[
+    #box(image("template/typst_media/logos/Logo_Kolleg_Imst.png", height: 0.7em))
+    IT-KOLLEG IMST
+  ]
+
+  show terms: it => {
+    it.children
+      .map(child => [
+        #strong[#child.term]
+        #block(inset: (left: 1.5em, top: -0.4em))[#child.description]
+      ])
+      .join()
+  }
+
+  set page(paper: paper, margin: margin, footer: none)
+  set par(justify: true, leading: 0.55em)
+
+  if font == none {
+    set text(lang: lang, region: region, size: fontsize)
+  } else {
+    set text(lang: lang, region: region, font: font, size: fontsize)
+  }
+
+  set heading(numbering: sectionnumbering)
+  show heading.where(level: 1): it => [
+    #pagebreak(weak: true)
+    #block(above: 1.8em, below: 1.0em)[#it]
+  ]
+  show heading.where(level: 2): set block(above: 1.25em, below: 0.65em)
+  show heading.where(level: 3): set block(above: 0.95em, below: 0.5em)
+  show figure.where(kind: "listing"): set block(breakable: true)
+
+  let header_fallback = if title == none { [Projektarbeit] } else { title }
+
+  set page(
+    header: [#running-header(fallback: header_fallback)],
+    footer: context [
+      #set text(size: 9pt)
+      #grid(
+        columns: (1fr, auto),
+        column-gutter: 1em,
+        [Verantwortlich fur den Inhalt: #_current_responsible(responsible_default)],
+        [Seite #counter(page).display("1 / 1")],
+      )
+    ],
+  )
+
+  // ── Titelseite ──────────────────────────────────────────────────────────────
+  if title != none {
+    let school_logo_final = if school_logo_path != none {
+        school_logo_path
+    } else if titlepage_variant == "kolleg" {
+        // Lädt das Bild direkt aus dem Paket-Verzeichnis
+        image("template/typst_media/logos/Logo_Kolleg_Imst.png")
+    } else {
+        image("template/typst_media/logos/Logo_HAK_Imst.png")
+    }
+
+    let project_partner_logo_final = if project_partner_logo_path != none {
+        project_partner_logo_path
+    } else {
+        image("template/typst_media/logos/Logo_Projektpartner.png")
+    }    
+
+    align(left)[
+      #grid(
+        columns: (auto, 1fr),
+        align: (left, right),
+        column-gutter: 1.5cm,
+        [
+          
+        ],
+        [
+          #set image(height: 2.2cm)
+          #school_logo_final
+        ]
+      )
+      #v(0.0cm)
+      #text(weight: "semibold", size: 1.55em)[#projecttype]
+      #v(0.0cm)
+      #text(weight: "bold", size: 1.9em)[#title]
+      #if subtitle != none [
+        #v(0.0cm)
+        #text(size: 1.15em)[#subtitle]
+      ]
+      #if author != none [
+          #v(0.5cm)
+          #author
+      ]      
+
+      #if date != none [
+        #v(0.0cm)
+        #location, #date
+      ]
+    ]
+    
+  }
+
+  if abstract != none {
+    block(inset: 2em)[
+      #text(weight: "semibold")[Abstract] #h(1em) #abstract
+    ]
+  }
+
+  
 
   if cols == 1 { doc } else { columns(cols, doc) }
 }
