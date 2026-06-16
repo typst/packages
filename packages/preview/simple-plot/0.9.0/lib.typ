@@ -1730,6 +1730,191 @@
   )
 }
 
+/// Plot a rational-style function with defaults suited to school exercises.
+///
+/// This is a thin convenience wrapper around `plot` that sets a centered
+/// grid, axis labels, and a single function series. Use `..args` to override
+/// any plot option or add extra series such as asymptotes and points.
+#let plot-rational(
+  fn,
+  xmin: -6,
+  xmax: 6,
+  ymin: -8,
+  ymax: 8,
+  stroke: blue + 1.2pt,
+  domain: auto,
+  samples: 200,
+  vertical-asymptotes: (),
+  asymptote-stroke: stroke(paint: luma(80), thickness: 0.6pt, dash: "dashed"),
+  asymptote-gap: 0.05,
+  width: auto,
+  height: auto,
+  ..args
+) = {
+  let plot-args = args.named()
+  let specs = args.pos()
+  let fn-domain = if domain == auto { (xmin, xmax) } else { domain }
+  let split-points = vertical-asymptotes
+    .filter(x => fn-domain.at(0) < x and x < fn-domain.at(1))
+    .sorted()
+  let fn-specs = ()
+  let left-bound = fn-domain.at(0)
+  for x0 in split-points {
+    let right-bound = x0 - asymptote-gap
+    if left-bound < right-bound {
+      fn-specs.push((fn: fn, domain: (left-bound, right-bound), samples: samples, stroke: stroke))
+    }
+    left-bound = x0 + asymptote-gap
+    specs.push((vline: x0, stroke: asymptote-stroke))
+  }
+  if left-bound < fn-domain.at(1) {
+    fn-specs.push((fn: fn, domain: (left-bound, fn-domain.at(1)), samples: samples, stroke: stroke))
+  }
+  for (key, value) in (
+    "show-grid": "major",
+    "axis-x-pos": "center",
+    "axis-y-pos": "center",
+    "show-origin": false,
+    "xlabel": $x$,
+    "ylabel": $y$,
+  ) {
+    if key not in plot-args {
+      plot-args.insert(key, value)
+    }
+  }
+  plot(
+    xmin: xmin,
+    xmax: xmax,
+    ymin: ymin,
+    ymax: ymax,
+    width: width,
+    height: height,
+    ..plot-args,
+    ..fn-specs,
+    ..specs,
+  )
+}
+
+/// Schematic plot showing the local behavior of a function near x = `a`.
+///
+/// `left` and `right` each accept `"+oo"`, `"-oo"`, a finite number, or
+/// `none`. Use `val` for a filled dot at the defined value `f(a)`.
+#let limit-schema(
+  a: 0,
+  left: none,
+  right: none,
+  val: none,
+  a-label: auto,
+  show-limit: false,
+  L-label: auto,
+  width: 3.8,
+  height: 2.8,
+) = {
+  let xr    = 1.2
+  let gap   = 0.13
+  let C     = 0.9
+  let slope = 0.5
+
+  let lbl   = if a-label == auto { [#a] } else { a-label }
+  let L-lbl = if L-label == auto { $L$ } else { L-label }
+  let items = ()
+
+  let limit-y = if type(show-limit) in (int, float) {
+    float(show-limit)
+  } else if show-limit == true {
+    if type(left) in (int, float) and type(right) in (int, float) and float(left) == float(right) {
+      float(left)
+    } else if type(left) in (int, float) and right == none {
+      float(left)
+    } else if type(right) in (int, float) and left == none {
+      float(right)
+    } else {
+      none
+    }
+  } else {
+    none
+  }
+
+  let has-inf = left in ("+oo", "-oo") or right in ("+oo", "-oo")
+  if has-inf {
+    items.push((vline: a, stroke: stroke(paint: luma(80), thickness: 0.5pt, dash: "dashed")))
+  }
+
+  let finite-vals = ()
+  if type(left)  in (int, float) { finite-vals.push(float(left))  }
+  if type(right) in (int, float) { finite-vals.push(float(right)) }
+  if val != none                 { finite-vals.push(float(val))   }
+  if limit-y != none             { finite-vals.push(limit-y)      }
+
+  let (ymin-plot, ymax-plot, xaxis-y) = if has-inf {
+    (-5.5, 5.5, 0.0)
+  } else if finite-vals.len() > 0 {
+    let vmin = calc.min(..finite-vals)
+    let vmax = calc.max(..finite-vals)
+    let ctr  = (vmin + vmax) / 2.0
+    let half = calc.max(2.5, (vmax - vmin) / 2.0 + 1.5)
+    let lo   = ctr - half
+    let hi   = ctr + half
+    let xax  = if lo <= 0.0 and 0.0 <= hi { 0.0 } else { lo - 0.5 }
+    (lo, hi, xax)
+  } else {
+    (-5.5, 5.5, 0.0)
+  }
+
+  if limit-y != none {
+    items.push((hline: limit-y, stroke: stroke(paint: luma(60), thickness: 0.5pt, dash: "dashed")))
+    items.push((annotation: L-lbl, pos: (a - 1.35, limit-y), anchor: "east", size: 8pt))
+  }
+
+  if left == "+oo" {
+    items.push((fn: x => C / (a - x), domain: (a - xr, a - gap), stroke: blue + 1.2pt, samples: 60))
+    items.push((annotation: $+oo$, pos: (a - 0.52, ymax-plot - 0.9), anchor: "center", size: 8pt))
+  } else if left == "-oo" {
+    items.push((fn: x => -C / (a - x), domain: (a - xr, a - gap), stroke: blue + 1.2pt, samples: 60))
+    items.push((annotation: $-oo$, pos: (a - 0.52, ymin-plot + 0.9), anchor: "center", size: 8pt))
+  } else if type(left) in (int, float) {
+    let L = float(left)
+    items.push((fn: x => L + slope * (x - a), domain: (a - xr, a - gap), stroke: blue + 1.2pt, samples: 2))
+    items.push((points: ((a, L),), mark: "o", mark-fill: white, mark-stroke: blue, mark-size: 0.16, stroke: none))
+  }
+
+  if right == "+oo" {
+    items.push((fn: x => C / (x - a), domain: (a + gap, a + xr), stroke: blue + 1.2pt, samples: 60))
+    items.push((annotation: $+oo$, pos: (a + 0.52, ymax-plot - 0.9), anchor: "center", size: 8pt))
+  } else if right == "-oo" {
+    items.push((fn: x => -C / (x - a), domain: (a + gap, a + xr), stroke: blue + 1.2pt, samples: 60))
+    items.push((annotation: $-oo$, pos: (a + 0.52, ymin-plot + 0.9), anchor: "center", size: 8pt))
+  } else if type(right) in (int, float) {
+    let R = float(right)
+    items.push((fn: x => R + slope * (x - a), domain: (a + gap, a + xr), stroke: blue + 1.2pt, samples: 2))
+    items.push((points: ((a, R),), mark: "o", mark-fill: white, mark-stroke: blue, mark-size: 0.16, stroke: none))
+  }
+
+  if val != none {
+    items.push((points: ((a, float(val)),), mark: "*", mark-fill: blue, mark-stroke: blue, mark-size: 0.16, stroke: none))
+  }
+
+  align(center)[
+    #plot(
+      xmin: a - 1.35, xmax: a + 1.35,
+      ymin: ymin-plot, ymax: ymax-plot,
+      width: width, height: height,
+      axis-x-pos: xaxis-y,
+      ylabel: none,
+      xtick: (a,),
+      xtick-labels: (lbl,),
+      ytick: (),
+      show-grid: false,
+      show-origin: false,
+      show-y-axis: false,
+      ..items,
+    )
+  ]
+}
+
+/// Backwards-compatible French alias for `limit-schema`.
+#let schema-lim = limit-schema
+
 /// Create a scatter plot specification.
 #let scatter(
   points,

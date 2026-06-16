@@ -6,7 +6,7 @@ A simple, pgfplots-like function plotting library for Typst. Create beautiful ma
 
 ## Manual
 
-A full manual is available in [docs/manual.pdf](https://github.com/nathan-ed/typst-package-simple-plot/blob/09032086fe790fc7c6d887e790b435b86b6c1d76/docs/manual.pdf).
+A full manual is available in [docs/manual.pdf](https://github.com/nathan-ed/typst-package-simple-plot/blob/f40e32cf44345b60f14cb1f88a4bd4df656c36d8/docs/manual.pdf).
 
 ## Gallery
 
@@ -14,14 +14,14 @@ Click on an image to see the source code.
 
 | | | |
 |:---:|:---:|:---:|
-| [![Parabola plot with labeled vertex and roots](gallery/parabola.png)](gallery/parabola.typ) | [![Trigonometric functions sin and cos with grid](gallery/trig-functions.png)](gallery/trig-functions.typ) | [![Scatter plot with data points](gallery/scatter.png)](gallery/scatter.typ) |
+| [![Parabola plot with labeled vertex and roots](gallery/parabola.svg)](gallery/parabola.typ) | [![Trigonometric functions sin and cos with grid](gallery/trig-functions.svg)](gallery/trig-functions.typ) | [![Scatter plot with data points](gallery/scatter.svg)](gallery/scatter.typ) |
 | Parabola | Trigonometric Functions | Scatter Plot |
-| [![Exponential and logarithmic function plots](gallery/exponential.png)](gallery/exponential.typ) | [![Data points with polynomial model fit curve](gallery/data-fit.png)](gallery/data-fit.typ) | [![Available marker types: circle, square, triangle, diamond](gallery/markers.png)](gallery/markers.typ) |
+| [![Exponential and logarithmic function plots](gallery/exponential.svg)](gallery/exponential.typ) | [![Data points with polynomial model fit curve](gallery/data-fit.svg)](gallery/data-fit.typ) | [![Available marker types: circle, square, triangle, diamond](gallery/markers.svg)](gallery/markers.typ) |
 | Exponential & Logarithmic | Data with Model Fit | Marker Types |
-| [![Extended axes with custom tick labels and unit](gallery/extended-axes.png)](gallery/extended-axes.typ) | [![Area fills, hatching, and Riemann sum overlays](gallery/area-features-1.png)](gallery/area-features.typ) | [![3D-style volume of revolution with disk cross-sections](gallery/revolution-1.png)](gallery/revolution.typ) |
+| [![Extended axes with custom tick labels and unit](gallery/extended-axes.svg)](gallery/extended-axes.typ) | [![Area fills, hatching, and Riemann sum overlays](gallery/area-features-1.svg)](gallery/area-features.typ) | [![3D-style volume of revolution with disk cross-sections](gallery/revolution-1.svg)](gallery/revolution.typ) |
 | Extended Axes | Area Fills & Riemann Sums | Volume of Revolution |
-| [![All five Riemann sum methods with annotation features](gallery/riemann-features-1.png)](gallery/riemann-features.typ) | | |
-| Riemann Sum Features | | |
+| [![All five Riemann sum methods with annotation features](gallery/riemann-features-1.svg)](gallery/riemann-features.typ) | [![Zoom spy glass insets: rectangular and circular lens on a parabola and sine curve](gallery/zoom-spy.svg)](gallery/zoom-spy.typ) | |
+| Riemann Sum Features | Zoom / Spy Insets | |
 
 ## Features
 
@@ -36,6 +36,7 @@ Click on an image to see the source code.
 - **Global defaults** — Set defaults for all plots in your document
 - **Riemann sums** — Left/right/midpoint/lower/upper rectangles; endpoint dots with labels and arrows; Δx bracket; $x_i$ subdivision labels
 - **Volume of revolution** — 3D-style solids: arbitrary axis (horizontal, shifted, or oblique), end caps, disk cross-sections, optional coordinate axes
+- **Zoom / spy insets** — Magnified sub-views with rectangular or circular spy glass, connector lines, and customizable accent colors
 - **Full styling** — Customize colors, strokes, backgrounds, and more
 
 ## Quick Start
@@ -152,6 +153,36 @@ Control the placement of function labels using `label-pos` and `label-side`:
 | Log base b | `calc.log(x, base: b)` |
 
 > **Important:** Use decimal notation (e.g. `2.0` not `2`) inside lambda functions to avoid type errors.
+
+## Pedagogical Plot Helpers
+
+### Rational Function Wrapper
+
+`plot-rational` is a thin wrapper around `plot` with defaults suited to rational-function exercises: centered axes, a visible grid, and one main function curve. Extra positional arguments are forwarded as additional series, so asymptotes and points can be added normally.
+
+```typst
+#import "@preview/simple-plot:0.9.0": plot-rational, hline
+
+#plot-rational(
+  x => (x + 1) / (x - 2),
+  xmin: -5, xmax: 5,
+  ymin: -6, ymax: 6,
+  vertical-asymptotes: (2,),
+  hline(1, stroke: stroke(paint: red, thickness: 0.7pt, dash: "dashed")),
+)
+```
+
+### Local Limit Schemas
+
+`limit-schema` draws compact schematic behavior near a point `a`. Use finite numbers for one-sided limits, `"+oo"` / `"-oo"` for vertical asymptotic behavior, and `val` for the defined value at the point. `schema-lim` is available as an alias.
+
+```typst
+#import "@preview/simple-plot:0.9.0": limit-schema
+
+#limit-schema(a: 1, left: 4, right: 4)              // removable hole
+#limit-schema(a: 2, left: "+oo", right: "-oo")      // vertical asymptote
+#limit-schema(a: 0, left: -1, right: 1, val: 0)     // jump with defined value
+```
 
 ## Parameters Reference
 
