@@ -22,12 +22,14 @@ It accepts PDB, mmCIF, and BinaryCIF input, converts structures through a CPU-si
   assembly: "1",
   mesh-format: "obj",
   quality: "high",
+  center: true,
+  output-format: "svg",
   config: (
     azimuth: 35,
     elevation: 24,
+    zoom: 1.0,
     background: "",
   ),
-  width: 90mm,
 )
 ```
 
