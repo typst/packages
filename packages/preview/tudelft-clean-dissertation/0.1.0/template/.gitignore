@@ -1,0 +1,28 @@
+# Do not commit the thesis in pdf form (only the source files)
+thesis.pdf
+
+# Do not commit the figures in pdf form, only their source (inkscape svg and panel images/plots)
+**/figures/**/*.pdf
+
+# vscode configuration files
+.vscode/*
+
+### Inkscape matters
+**/panels/**/*.tif 
+**/panels/**/*.svg 
+# keep svg files if they are cleaned up freecad output (see utils/)
+!**/panels/**/cleaned_*.svg 
+# inkscape backup files
+*.[0-9].svg 
+
+# FreeCAD backups files
+**/panels/**/*.FCBak 
+
+# other binary files
+*.csv
+
+# Rasterised Figures (optional folder if you run utility script)
+rasterised-figures/*
+
+# Archive files for utils
+utils/*.zip

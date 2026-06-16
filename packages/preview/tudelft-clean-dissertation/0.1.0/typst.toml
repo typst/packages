@@ -1,0 +1,14 @@
+[package]
+name = "tudelft-clean-dissertation"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nemo Andrea <contact@nemoandrea.com>"]
+license = "MIT"
+description = "Unofficial TU Delft dissertation. Designed with clean, sans-serif monochrome sensibilities and clear directory structure."
+repository = "https://codeberg.org/NemoAndrea/tudelft-clean-dissertation-template"
+categories = ["thesis", "report"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

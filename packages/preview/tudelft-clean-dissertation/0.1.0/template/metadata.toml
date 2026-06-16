@@ -1,0 +1,14 @@
+# Metadata for the thesis. Fields will be used by typst
+
+title = "clean dissertation template"
+subtitle = "unofficial template for a PhD dissertation for TU Delft"
+summary = """
+Unofficial template for TU Delft dissertation. Designed with clean, sans-serif monochrome sensibilities and clear directory structure.
+"""
+keywords = ["template", "tu delft"]
+
+# in format ['first and middle names', 'familyname']
+# e.g. ["John", "Smith"]
+author = ["Firstname and Middle names", "Familyname"]
+ISBN = "<ISBN-number>"
+LICENCE = "<Short code for your chosen licence>"

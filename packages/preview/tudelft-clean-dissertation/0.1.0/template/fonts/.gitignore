@@ -1,0 +1,2 @@
+# If you have a font you want to ignore in a directory called "proprietary-font-C", add the line:
+# proprietary-font-C/*
