@@ -7,13 +7,14 @@ It accepts PDB, mmCIF, and BinaryCIF input, converts structures through a CPU-si
 ## Quickstart
 
 ```typst
-#import "@preview/molfig:0.1.0" as molfig
+#set page(width: auto, height: auto, margin: 0mm)
 
-#let pdb = if molfig.v15-or-later() {
-  path("9R1O.pdb")
-} else {
-  read("9R1O.pdb", encoding: none)
-}
+// Uses structural data from RCSB PDB / wwPDB.
+// PDB ID: 9R1O
+// PDB DOI: https://doi.org/10.2210/pdb9R1O/pdb
+// Deposition authors: Petrenas, R.; Ozga, K.; Chubb, J.J.; Woolfson, D.N.
+// PDB archive data files are available under CC0 1.0.
+#let pdb = read("data/9R1O.pdb", encoding: none)
 
 #molfig.render(
   pdb,
