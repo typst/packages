@@ -1,4 +1,4 @@
-#import "../lib.typ" as molfig
+#import "@preview/molfig:0.1.0" as molfig
 
 #set page(width: auto, height: auto, margin: 0mm)
 
