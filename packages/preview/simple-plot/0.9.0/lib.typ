@@ -1806,7 +1806,7 @@
   val: none,
   a-label: auto,
   show-limit: false,
-  L-label: auto,
+  l-label: auto,
   width: 3.8,
   height: 2.8,
 ) = {
@@ -1816,7 +1816,7 @@
   let slope = 0.5
 
   let lbl   = if a-label == auto { [#a] } else { a-label }
-  let L-lbl = if L-label == auto { $L$ } else { L-label }
+  let L-lbl = if l-label == auto { $L$ } else { l-label }
   let items = ()
 
   let limit-y = if type(show-limit) in (int, float) {
